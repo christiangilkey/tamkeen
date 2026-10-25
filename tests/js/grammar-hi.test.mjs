@@ -53,6 +53,7 @@ if (en) {
     const ROMAN = new RegExp(`^[a-z${marks} .,?!;:'’“”"()—…→/0-9_-]*$`);
     const roman = (r) => ROMAN.test(r.normalize("NFD"));
     for (const l of en.lessons) {
+      for (const { text } of explanationTexts(l)) if (DEVANAGARI.test(text.replace(/\{\{[^}]*\}\}/g, ""))) bad.push(`${l.id}: Hindi outside {{ }} in “${text.slice(0, 60)}”`);
       for (const { text } of explanationTexts(l)) for (const piece of targetsOf(text)) {
         const [t, r] = piece.split("|");
         if (DEVANAGARI.test(t) && !(r || "").trim()) bad.push(`${l.id}: {{${t}}} has no reading`);

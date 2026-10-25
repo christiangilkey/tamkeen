@@ -67,7 +67,7 @@
       "unit": 1,
       "level": "A1",
       "title": "Talk to people with respect",
-      "summary": "Choose the right “you” (आप, तुम or तू) and ask “How are you?”: Hindi shows respect in every sentence.",
+      "summary": "Choose the right “you” ({{आप|āp}}, {{तुम|tum}} or {{तू|tū}}) and ask “How are you?”: Hindi shows respect in every sentence.",
       "topic": "{{आप|āp}}, {{तुम|tum}}, {{तू|tū}} “you”, with {{हैं|haĩ}}, {{हो|ho}}, {{है|hai}}; {{हम|ham}} “we”; {{जी|jī}}",
       "blocks": [
         {"goal":{"t":"नमस्ते जी, आप कैसे हैं?","r":"namaste jī, āp kaise haĩ?","tr":"Hello, how are you?","note":"to a man; to a woman: {{आप कैसी हैं?|āp kaisī haĩ?}}"}},
@@ -299,9 +299,9 @@
         {"p":"**Feminine nouns.** Those ending in {{-ई|-ī}} take {{-इयाँ|-iyā̃}}: {{लड़की|laṛkī}} → {{लड़कियाँ|laṛkiyā̃}} “girls”. The others add {{-एँ|-ẽ}}: {{किताब|kitāb}} → {{किताबें|kitābẽ}} “books”, {{बहन|bahan}} → {{बहनें|bahnẽ}} “sisters”."},
         { "table": [
           ["","one","more than one"],
-          ["masculine in -आ","{{कमरा|kamrā}} room","{{कमरे|kamre}} rooms"],
+          ["masculine in {{-आ|-ā}}","{{कमरा|kamrā}} room","{{कमरे|kamre}} rooms"],
           ["other masculine","{{घर|ghar}} house","{{घर|ghar}} houses"],
-          ["feminine in -ई","{{लड़की|laṛkī}} girl","{{लड़कियाँ|laṛkiyā̃}} girls"],
+          ["feminine in {{-ई|-ī}}","{{लड़की|laṛkī}} girl","{{लड़कियाँ|laṛkiyā̃}} girls"],
           ["other feminine","{{किताब|kitāb}} book","{{किताबें|kitābẽ}} books"]
         ] },
         {"p":"**Adjectives** in {{-आ|-ā}} take {{-ए|-e}} with a masculine plural: {{बड़े कमरे|baṛe kamre}} “big rooms”, {{अच्छे लोग|achchhe log}} “nice people”. With a feminine plural they stay {{-ई|-ī}}: {{अच्छी किताबें|achchhī kitābẽ}} “good books”. And the verb becomes {{हैं|haĩ}}."},
@@ -1240,7 +1240,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Say what you did",
-      "summary": "Say what you ate, bought or watched: “I drank tea, I saw a movie.” The famous ने.",
+      "summary": "Say what you ate, bought or watched: “I drank tea, I saw a movie.” The famous {{ने|ne}}.",
       "topic": "{{ने|ne}} with transitive verbs in the past: {{मैंने|maĩne}}, {{उसने|usne}}, {{उन्होंने|unhõne}}; the verb agrees with the thing; {{किया|kiyā}}, {{लिया|liyā}}, {{दिया|diyā}}, {{पिया|piyā}}",
       "blocks": [
         {"goal":{"t":"मैंने आज बहुत अच्छा खाना खाया।","r":"maĩne āj bahut achchhā khānā khāyā.","tr":"I had a really good meal today.","note":"a man and a woman say it the same way"}},
@@ -1815,7 +1815,7 @@
       "id": "sound-natural",
       "unit": 6,
       "level": "A2",
-      "title": "Say it like a native: आ गया, खा लो, दे दो",
+      "title": "Say it like a native: {{आ गया|ā gayā}}, {{खा लो|khā lo}}, {{दे दो|de do}}",
       "summary": "Use the little second verbs Hindi speakers add all the time: “It's here!”, “Eat up!”, “Give it to me.”",
       "topic": "Compound verbs: the stem + {{जाना|jānā}}, {{लेना|lenā}}, {{देना|denā}}",
       "blocks": [
