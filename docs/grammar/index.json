@@ -1,0 +1,19 @@
+{
+ "format": 1,
+ "courses": {
+  "en-ar": {
+   "file": "en-ar/course.json",
+   "from": "en",
+   "to": "ar",
+   "title": "Arabic grammar",
+   "variety": "Modern Standard Arabic",
+   "units": 8,
+   "lessons": 9,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 32357,
+   "sha256": "83f748fc3d4ceea98fa7bf768f31e33608d3ccbef340b75949569d293a1b6f08"
+  }
+ }
+}

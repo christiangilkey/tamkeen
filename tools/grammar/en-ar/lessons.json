@@ -1,0 +1,372 @@
+{
+  "from": "en",
+  "to": "ar",
+  "title": "Arabic grammar",
+  "variety": "Modern Standard Arabic",
+  "about": "From your very first sentence to everyday conversation, one short lesson at a time. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is Modern Standard Arabic, fully vowelled, with a reading in Latin letters.",
+  "reading": "transliteration",
+  "units": [
+    { "n": 1, "title": "First steps" },
+    { "n": 2, "title": "Where, whose, and what you have" },
+    { "n": 3, "title": "Doing things: the present" },
+    { "n": 4, "title": "Wanting, liking, being able" },
+    { "n": 5, "title": "Yesterday: the past" },
+    { "n": 6, "title": "More than one: plurals and numbers" },
+    { "n": 7, "title": "Tomorrow, commands, and joining ideas" },
+    { "n": 8, "title": "Towards fluent conversation" }
+  ],
+  "lessons": [
+    {
+      "id": "vowel-marks",
+      "unit": 1,
+      "level": "A1",
+      "title": "Reading the examples: the vowel marks",
+      "summary": "How Arabic is written, and the small marks that show its vowels, so you can read every example in this course.",
+      "blocks": [
+        { "p": "Arabic is written from right to left, and most letters join the letter after them. The letters mostly write **consonants**. The short vowels a, i and u are small marks above or below the letters." },
+        { "term": "vowel", "means": "a sound like a, i or u, made with the mouth open. The other sounds of speech, like b, k or s, are **consonants**." },
+        { "p": "Newspapers and street signs usually leave the vowel marks out: readers know the words. Every example in this course has them, because they show exactly how a word is said, and some of them, as you will see, are grammar." },
+        { "table": [
+          ["Mark", "Name", "Sound", "Example"],
+          ["{{بَ}}", "fatḥa: a small line above", "a", "{{كَتَبَ|kataba}} he wrote"],
+          ["{{بِ}}", "kasra: a small line below", "i", "{{مِنْ|min}} from"],
+          ["{{بُ}}", "ḍamma: a small curl above", "u", "{{هُوَ|huwa}} he"],
+          ["{{بْ}}", "sukūn: a small circle", "no vowel after the letter", "{{مِنْ|min}} from"],
+          ["{{بّ}}", "shadda: a small w shape", "the letter said twice (held longer)", "{{مُدَرِّسٌ|mudarrisun}} a teacher"]
+        ] },
+        { "p": "**Long vowels** are written with letters: {{ا}} for ā, {{و}} for ū and {{ي}} for ī, as in {{بَابٌ|bābun}} “a door”, {{نُورٌ|nūrun}} “light” and {{كَبِيرٌ|kabīrun}} “big”. In the readings of this course, a line over a vowel (ā, ī, ū) means it is long: hold it about twice as long." },
+        { "p": "**Doubled marks at the end** of a word ({{ـٌ}}, {{ـً}}, {{ـٍ}}) add an n: {{كِتَابٌ|kitābun}}, {{كِتَابًا|kitāban}}, {{كِتَابٍ|kitābin}}. They mean “a”, as in “a book”. Which of the three a word has depends on its job in the sentence, which later lessons explain." },
+        { "p": "Two more signs: {{ء}} (hamza) is a short catch in the throat, like the break in the middle of “uh-oh”; it often sits on an alif, as in {{أَنَا|anā}} “I”. And {{ة}}, a round t, ends many words; you will meet it in lesson 3. In the readings, ʾ is a hamza, ʿ is the letter {{ع}} (a sound made deep in the throat), and a dot under a letter (ḥ, ṣ, ḍ, ṭ, ẓ) marks a heavier sound than the plain one." },
+        { "ex": [
+          { "t": "كِتَابٌ", "r": "kitābun", "tr": "a book" },
+          { "t": "بَابٌ كَبِيرٌ", "r": "bābun kabīrun", "tr": "a big door" },
+          { "t": "هُوَ مُدَرِّسٌ.", "r": "huwa mudarrisun.", "tr": "He is a teacher." },
+          { "t": "مَرْحَبًا.", "r": "marḥaban.", "tr": "Hello." },
+          { "t": "شُكْرًا.", "r": "shukran.", "tr": "Thank you." }
+        ] },
+        { "tip": "The reading under each example is there to help you, not to replace the Arabic: read the Arabic first, then check. Tap an example to hear it." }
+      ],
+      "mistakes": [
+        { "wrong": "كِتَابُنْ", "right": "كِتَابٌ", "why": "The n of -un is never written as a letter: the doubled mark ({{ـٌ}}) already says it." },
+        { "wrong": "كَبِرٌ", "right": "كَبِيرٌ", "why": "“Big” has a long ī, written with {{ي}}: kabīrun. Short and long vowels make different words, so hold the long ones." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "Which mark is the vowel i?", "options": ["{{بَ}}", "{{بِ}}", "{{بُ}}"], "answer": 1, "why": "The kasra, a small line **below** the letter, is i." },
+        { "type": "choice", "q": "What does the doubled mark at the end of {{كِتَابٌ}} add?", "options": ["the sound -un, meaning “a” (a book)", "the sound -a", "nothing: it is silent"], "answer": 0, "why": "{{ـٌ}} is said -un, and it means “a”: kitābun, a book." },
+        { "type": "choice", "q": "Which word has a long ā?", "options": ["{{بَابٌ}}", "{{مِنْ}}", "{{هُوَ}}"], "answer": 0, "why": "The {{ا}} after the first letter makes a long ā: bābun." },
+        { "type": "say", "q": "Read this word aloud, then check: {{مُدَرِّسٌ}}", "answer": "مُدَرِّسٌ", "r": "mudarrisun", "why": "The shadda on {{ر}} says it twice: mu-dar-ri-sun." }
+      ]
+    },
+    {
+      "id": "nouns-the",
+      "unit": 1,
+      "level": "A1",
+      "title": "Nouns, and the word for “the”",
+      "summary": "Say “a house” and “the house”: Arabic's word for “the”, and how it joins the word after it.",
+      "blocks": [
+        { "term": "noun", "means": "a word for a person, an animal, a place, a thing or an idea: teacher, cat, Cairo, book, love." },
+        { "p": "Arabic's word for “the” is {{الْـ|al-}}. It is written joined to the front of the noun: {{بَيْتٌ|baytun}} is “a house”, {{الْبَيْتُ|al-baytu}} is “the house”." },
+        { "p": "There is no separate word for “a”. A noun ending in a doubled mark (-un) already means “a”. With {{الْـ}}, the doubled mark goes, and a single mark is left: “the house” is {{الْبَيْتُ|al-baytu}}, never {{الْبَيْتٌ}}." },
+        { "ex": [
+          { "t": "بَيْتٌ", "r": "baytun", "tr": "a house" },
+          { "t": "الْبَيْتُ", "r": "al-baytu", "tr": "the house" },
+          { "t": "وَلَدٌ", "r": "waladun", "tr": "a boy" },
+          { "t": "الْوَلَدُ", "r": "al-waladu", "tr": "the boy" },
+          { "t": "الْقَمَرُ", "r": "al-qamaru", "tr": "the moon" },
+          { "t": "الشَّمْسُ", "r": "ash-shamsu", "tr": "the sun" }
+        ] },
+        { "p": "**Sun letters.** Before 14 of the letters, the l of {{الْـ}} isn't said: the next letter is doubled instead, and gets a shadda. The l is still written. So {{الشَّمْسُ}} “the sun” is said ash-shamsu, not al-shamsu. These letters are called sun letters, after {{شَمْسٌ|shamsun}} “sun”. The others are moon letters, after {{قَمَرٌ|qamarun}} “moon”: with them the l is said, {{الْقَمَرُ|al-qamaru}}." },
+        { "table": [
+          ["Sun letters: the l is not said", "Moon letters: the l is said"],
+          ["{{ت ث د ذ ر ز س ش ص ض ط ظ ل ن}}", "{{ء ب ج ح خ ع غ ف ق ك م ه و ي}}"],
+          ["{{السَّيَّارَةُ|as-sayyāratu}} the car", "{{الْكِتَابُ|al-kitābu}} the book"],
+          ["{{النُّورُ|an-nūru}} the light", "{{الْبَابُ|al-bābu}} the door"]
+        ] },
+        { "p": "**After a vowel**, the a of {{الْـ}} isn't said either: “in the house” is {{فِي الْبَيْتِ|fī l-bayti}}. The readings in this course write it the way you hear it." },
+        { "tip": "Say every new noun once with {{الْـ}} and once without. Your ear will soon tell the sun letters from the moon letters by itself." }
+      ],
+      "mistakes": [
+        { "wrong": "الْبَيْتٌ", "right": "الْبَيْتُ", "why": "A word with {{الْـ}} never has the doubled mark: that mark means “a”, and a word can't be “a” and “the” at once." },
+        { "wrong": "الْشَّمْسُ", "right": "الشَّمْسُ", "why": "Before a sun letter the l is silent and has no mark of its own: say ash-shamsu." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "How do you say “the book”?", "options": ["{{كِتَابٌ}}", "{{الْكِتَابُ}}", "{{الْكِتَابٌ}}"], "answer": 1, "why": "{{الْـ}} plus the noun, with a single mark at the end: al-kitābu." },
+        { "type": "choice", "q": "In which word is the l of {{الْـ}} **not** said?", "options": ["{{الْقَمَرُ}}", "{{الْبَابُ}}", "{{الشَّمْسُ}}"], "answer": 2, "why": "{{ش}} is a sun letter: ash-shamsu." },
+        { "type": "choice", "q": "{{وَلَدٌ}} means…", "options": ["the boy", "a boy", "boys"], "answer": 1, "why": "The doubled mark -un means “a”: waladun, a boy." },
+        { "type": "say", "q": "How do you say “the car”?", "answer": "السَّيَّارَةُ", "r": "as-sayyāratu", "why": "{{س}} is a sun letter, so the l is silent and the s is doubled." }
+      ]
+    },
+    {
+      "id": "gender",
+      "unit": 1,
+      "level": "A1",
+      "title": "Masculine and feminine",
+      "summary": "Every Arabic noun is masculine or feminine. Learn the sign that marks most feminine words.",
+      "blocks": [
+        { "term": "gender", "means": "whether a word is **masculine** (like “he”) or **feminine** (like “she”). In Arabic every noun has one, even the words for things: a door is masculine, a car is feminine." },
+        { "p": "Most feminine nouns end in {{ة}}, a round t called tāʾ marbūṭa. At the end of a sentence it sounds -a; with an ending after it, -at-: {{سَيَّارَةٌ|sayyāratun}} “a car”." },
+        { "p": "Many words for people come in pairs: add {{ة}} to the masculine word and you have the feminine one." },
+        { "table": [
+          ["", "Masculine", "Feminine"],
+          ["student", "{{طَالِبٌ|ṭālibun}}", "{{طَالِبَةٌ|ṭālibatun}}"],
+          ["teacher", "{{مُعَلِّمٌ|muʿallimun}}", "{{مُعَلِّمَةٌ|muʿallimatun}}"],
+          ["doctor", "{{طَبِيبٌ|ṭabībun}}", "{{طَبِيبَةٌ|ṭabībatun}}"],
+          ["friend", "{{صَدِيقٌ|ṣadīqun}}", "{{صَدِيقَةٌ|ṣadīqatun}}"]
+        ] },
+        { "ex": [
+          { "t": "مَدْرَسَةٌ", "r": "madrasatun", "tr": "a school", "note": "feminine: it ends in ة" },
+          { "t": "الْمَدِينَةُ", "r": "al-madīnatu", "tr": "the city", "note": "feminine" },
+          { "t": "بَابٌ", "r": "bābun", "tr": "a door", "note": "masculine" },
+          { "t": "الْغُرْفَةُ", "r": "al-ghurfatu", "tr": "the room", "note": "feminine" },
+          { "t": "صَدِيقَةٌ", "r": "ṣadīqatun", "tr": "a (female) friend", "note": "feminine" }
+        ] },
+        { "p": "A few common feminine nouns have no {{ة}}; learn them as you meet them: {{أُمٌّ|ummun}} “mother”, {{بِنْتٌ|bintun}} “girl, daughter”, {{شَمْسٌ|shamsun}} “sun”, {{أَرْضٌ|arḍun}} “earth, ground”, {{يَدٌ|yadun}} “hand”, {{عَيْنٌ|ʿaynun}} “eye”, {{حَرْبٌ|ḥarbun}} “war”, and the names of most countries and cities, like {{مِصْرُ|miṣru}} “Egypt”." },
+        { "tip": "Why it matters: words that describe a noun, and verbs, change to match its gender. The next lessons show how." }
+      ],
+      "mistakes": [
+        { "wrong": "هِيَ طَالِبٌ.", "right": "هِيَ طَالِبَةٌ.", "tr": "She is a student.", "why": "A woman or a girl is a {{طَالِبَةٌ}}, with {{ة}}." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "Which word is feminine?", "options": ["{{بَابٌ}}", "{{كِتَابٌ}}", "{{مَدِينَةٌ}}"], "answer": 2, "why": "{{مَدِينَةٌ}} ends in {{ة}}." },
+        { "type": "choice", "q": "{{أُمٌّ}} “mother” is…", "options": ["masculine", "feminine"], "answer": 1, "why": "It has no {{ة}}, but a mother is a woman: it's one of the feminine words to learn by heart." },
+        { "type": "choice", "q": "A female teacher is…", "options": ["{{مُعَلِّمٌ}}", "{{مُعَلِّمَةٌ}}"], "answer": 1, "why": "Add {{ة}} to the masculine word." },
+        { "type": "say", "q": "How do you say “the school”?", "answer": "الْمَدْرَسَةُ", "r": "al-madrasatu" }
+      ]
+    },
+    {
+      "id": "roots",
+      "unit": 1,
+      "level": "A1",
+      "title": "Roots: families of words",
+      "summary": "Most Arabic words are built on three consonants that carry a meaning. Knowing them helps you guess new words.",
+      "blocks": [
+        { "term": "root", "means": "the three consonants (sometimes four) that a family of Arabic words share and that carry its basic meaning. The vowels and extra letters around them make the different words." },
+        { "p": "The letters {{ك ت ب}} (k-t-b) carry the idea of writing. Put vowels and a few extra letters around them, always keeping them in the same order, and you get a whole family of words:" },
+        { "table": [
+          ["Word", "Shape", "Meaning"],
+          ["{{كَتَبَ|kataba}}", "the root with a-a-a", "he wrote"],
+          ["{{كِتَابٌ|kitābun}}", "i-ā", "a book"],
+          ["{{كَاتِبٌ|kātibun}}", "ā-i: the one who does it", "a writer"],
+          ["{{مَكْتَبٌ|maktabun}}", "ma-: the place where it's done", "an office, a desk"],
+          ["{{مَكْتَبَةٌ|maktabatun}}", "ma-…-a: also a place", "a library, a bookshop"],
+          ["{{مَكْتُوبٌ|maktūbun}}", "ma-…-ū: what it is done to", "written; a letter"]
+        ] },
+        { "term": "pattern", "means": "a shape of vowels and extra letters that is put around a root. The same pattern gives the same kind of meaning with every root: ā-i makes the one who does it, like {{كَاتِبٌ}} “writer”." },
+        { "p": "So the same shapes work with other roots. {{د ر س}} (d-r-s) is about studying: {{دَرَسَ|darasa}} “he studied”, {{دَرْسٌ|darsun}} “a lesson”, {{مَدْرَسَةٌ|madrasatun}} “a school”, {{مُدَرِّسٌ|mudarrisun}} “a teacher”. {{ع ل م}} (ʿ-l-m) is about knowing: {{عِلْمٌ|ʿilmun}} “knowledge, science”, {{عَالِمٌ|ʿālimun}} “a scientist”, {{مُعَلِّمٌ|muʿallimun}} “a teacher”." },
+        { "ex": [
+          { "t": "كَتَبَ الْكَاتِبُ كِتَابًا.", "r": "kataba l-kātibu kitāban.", "tr": "The writer wrote a book." },
+          { "t": "الْمَكْتَبَةُ قَرِيبَةٌ.", "r": "al-maktabatu qarībatun.", "tr": "The library is near." },
+          { "t": "الدَّرْسُ سَهْلٌ.", "r": "ad-darsu sahlun.", "tr": "The lesson is easy." },
+          { "t": "الْمُدَرِّسُ فِي الْمَدْرَسَةِ.", "r": "al-mudarrisu fī l-madrasati.", "tr": "The teacher is at school." }
+        ] },
+        { "tip": "Many dictionaries list words by their root: to find {{مَكْتَبَةٌ}}, look under {{ك ت ب}}. When you meet a new word, look for three letters you already know." }
+      ],
+      "mistakes": [
+        { "wrong": "مَكْبَتَةٌ", "right": "مَكْتَبَةٌ", "why": "A root's letters always keep their order: k-t-b, so ma-k-t-a-b-a." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "Which word belongs to the same family as {{كِتَابٌ}}?", "options": ["{{كَاتِبٌ}}", "{{بَابٌ}}", "{{قَلَمٌ}}"], "answer": 0, "why": "{{كَاتِبٌ}} “writer” has the same root, {{ك ت ب}}." },
+        { "type": "choice", "q": "{{د ر س}} is about studying. What does {{مَدْرَسَةٌ}} probably mean?", "options": ["a place for studying: a school", "a person who studies", "he studied"], "answer": 0, "why": "ma-…-a is a pattern for places." },
+        { "type": "choice", "q": "What is the root of {{مُعَلِّمٌ}} “teacher”?", "options": ["{{م ع ل}}", "{{ع ل م}}", "{{م ل م}}"], "answer": 1, "why": "mu- is an extra part of the pattern; the root is ʿ-l-m, knowing." },
+        { "type": "order", "q": "Put the root letters of {{كَاتِبٌ}} “writer” in order.", "tr": "k-t-b: the idea of writing", "words": ["ك", "ت", "ب"] }
+      ]
+    },
+    {
+      "id": "this-is",
+      "unit": 1,
+      "level": "A1",
+      "title": "“This is…”: sentences without “is”",
+      "summary": "Make your first sentences, like “This is a book” and “The house is big”, with no word for “is”.",
+      "blocks": [
+        { "term": "sentence", "means": "a group of words that says something complete: The house is big." },
+        { "term": "subject", "means": "the person or thing a sentence is about. In “The house is big”, the subject is “the house”." },
+        { "p": "In English, “is”, “am” and “are” link the subject to what you say about it. In the present, Arabic leaves them out: you just put the two side by side. {{الْبَيْتُ|al-baytu}} “the house” + {{كَبِيرٌ|kabīrun}} “big” gives {{الْبَيْتُ كَبِيرٌ.|al-baytu kabīrun.}} “The house is big.”" },
+        { "p": "The subject usually has {{الْـ}} “the”, and what you say about it usually doesn't. Both end in -u: one u on {{الْبَيْتُ}}, and -un on {{كَبِيرٌ}}." },
+        { "p": "“This is” works the same way: {{هَذَا|hādhā}} “this” for a masculine noun, {{هَذِهِ|hādhihi}} for a feminine one, then the noun: {{هَذَا كِتَابٌ.|hādhā kitābun.}} “This is a book.”" },
+        { "ex": [
+          { "t": "هَذَا كِتَابٌ.", "r": "hādhā kitābun.", "tr": "This is a book." },
+          { "t": "هَذِهِ سَيَّارَةٌ.", "r": "hādhihi sayyāratun.", "tr": "This is a car." },
+          { "t": "الْبَيْتُ كَبِيرٌ.", "r": "al-baytu kabīrun.", "tr": "The house is big." },
+          { "t": "الْغُرْفَةُ صَغِيرَةٌ.", "r": "al-ghurfatu ṣaghīratun.", "tr": "The room is small." },
+          { "t": "الْجَوُّ جَمِيلٌ.", "r": "al-jawwu jamīlun.", "tr": "The weather is nice." },
+          { "t": "الْمَطْعَمُ مَفْتُوحٌ.", "r": "al-maṭʿamu maftūḥun.", "tr": "The restaurant is open." }
+        ] },
+        { "tip": "What you say about a feminine subject is feminine too: {{الْغُرْفَةُ صَغِيرَةٌ}}, with {{ة}} on both words." }
+      ],
+      "mistakes": [
+        { "wrong": "هَذَا سَيَّارَةٌ.", "right": "هَذِهِ سَيَّارَةٌ.", "tr": "This is a car.", "why": "{{سَيَّارَةٌ}} is feminine, so “this” is {{هَذِهِ}}." },
+        { "wrong": "الْبَيْتُ الْكَبِيرُ.", "right": "الْبَيْتُ كَبِيرٌ.", "tr": "The house is big.", "why": "With {{الْـ}} on both words it means “the big house”, a phrase, not a sentence. To say “the house is big”, leave {{الْـ}} off the second word." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "How do you say “The room is small”?", "options": ["{{الْغُرْفَةُ صَغِيرَةٌ.}}", "{{الْغُرْفَةُ الصَّغِيرَةُ.}}", "{{هَذَا غُرْفَةٌ صَغِيرٌ.}}"], "answer": 0, "why": "Subject with {{الْـ}}, then what you say about it without {{الْـ}}, both feminine." },
+        { "type": "choice", "q": "Which word completes “This is a city”: ___ {{مَدِينَةٌ}}?", "options": ["{{هَذَا}}", "{{هَذِهِ}}"], "answer": 1, "why": "{{مَدِينَةٌ}} ends in {{ة}}: it's feminine." },
+        { "type": "order", "q": "Put the words in order.", "tr": "The restaurant is open.", "words": ["الْمَطْعَمُ", "مَفْتُوحٌ."] },
+        { "type": "say", "q": "How do you say “This is a book”?", "answer": "هَذَا كِتَابٌ.", "r": "hādhā kitābun." }
+      ]
+    },
+    {
+      "id": "pronouns",
+      "unit": 1,
+      "level": "A1",
+      "title": "I, you, he, she: pronouns",
+      "summary": "The words for I, you, he, she, we and they, and Arabic's different words for “you”.",
+      "blocks": [
+        { "term": "pronoun", "means": "a short word that stands for a noun: I, you, she, they." },
+        { "p": "Arabic has a different “you” for a man, for a woman and for a group. And as you saw in the last lesson, “am”, “is” and “are” aren't said: {{أَنَا طَالِبٌ.|anā ṭālibun.}} is “I am a student.”" },
+        { "table": [
+          ["", "Arabic", "Who"],
+          ["I", "{{أَنَا|anā}}", "a man or a woman"],
+          ["you", "{{أَنْتَ|anta}}", "one man"],
+          ["you", "{{أَنْتِ|anti}}", "one woman"],
+          ["he, it", "{{هُوَ|huwa}}", "a man, or a masculine thing"],
+          ["she, it", "{{هِيَ|hiya}}", "a woman, or a feminine thing"],
+          ["we", "{{نَحْنُ|naḥnu}}", "any group with me in it"],
+          ["you", "{{أَنْتُمْ|antum}}", "a group of men, or of men and women"],
+          ["they", "{{هُمْ|hum}}", "a group of men, or of men and women"]
+        ] },
+        { "p": "“It” is {{هُوَ}} or {{هِيَ}}, depending on the noun's gender: the book is “he”, the car is “she”." },
+        { "ex": [
+          { "t": "أَنَا طَالِبٌ.", "r": "anā ṭālibun.", "tr": "I am a student.", "note": "said by a man" },
+          { "t": "أَنَا طَالِبَةٌ.", "r": "anā ṭālibatun.", "tr": "I am a student.", "note": "said by a woman" },
+          { "t": "هُوَ مُهَنْدِسٌ.", "r": "huwa muhandisun.", "tr": "He is an engineer." },
+          { "t": "هِيَ طَبِيبَةٌ.", "r": "hiya ṭabībatun.", "tr": "She is a doctor." },
+          { "t": "أَنْتِ لَطِيفَةٌ.", "r": "anti laṭīfatun.", "tr": "You are kind.", "note": "to a woman" },
+          { "t": "نَحْنُ أَصْدِقَاءُ.", "r": "naḥnu aṣdiqāʾu.", "tr": "We are friends." },
+          { "t": "هُمْ مَشْغُولُونَ.", "r": "hum mashghūlūna.", "tr": "They are busy." }
+        ] },
+        { "p": "There are also words for a group of women only ({{أَنْتُنَّ|antunna}} “you”, {{هُنَّ|hunna}} “they”) and for exactly two people ({{أَنْتُمَا|antumā}} “you two”, {{هُمَا|humā}} “they two”). You will hear them less; a later lesson comes back to the two." },
+        { "tip": "Once you learn verbs, you'll see that Arabic often leaves the pronoun out: the verb already shows who it is." }
+      ],
+      "mistakes": [
+        { "wrong": "أَنْتَ طَالِبَةٌ.", "right": "أَنْتِ طَالِبَةٌ.", "tr": "You are a student. (to a woman)", "why": "Talking to a woman, “you” is {{أَنْتِ}}, anti, with i." },
+        { "wrong": "أَنَا هُوَ طَالِبٌ.", "right": "أَنَا طَالِبٌ.", "tr": "I am a student.", "why": "There is no word for “am”: put {{أَنَا}} and the noun side by side." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "You are talking to a woman. “You” is…", "options": ["{{أَنْتَ}}", "{{أَنْتِ}}", "{{أَنْتُمْ}}"], "answer": 1, "why": "{{أَنْتِ}}, anti, is for one woman." },
+        { "type": "choice", "q": "{{هِيَ}} means…", "options": ["he", "she", "they"], "answer": 1, "why": "{{هِيَ}}, hiya, is “she” (or “it” for a feminine thing)." },
+        { "type": "choice", "q": "“The car? ___ is new.” Which word is “it”? {{السَّيَّارَةُ؟ ___ جَدِيدَةٌ.}}", "options": ["{{هُوَ}}", "{{هِيَ}}"], "answer": 1, "why": "{{سَيَّارَةٌ}} is feminine, so “it” is {{هِيَ}}." },
+        { "type": "say", "q": "How does a woman say “I am a doctor”?", "answer": "أَنَا طَبِيبَةٌ.", "r": "anā ṭabībatun." }
+      ]
+    },
+    {
+      "id": "adjectives",
+      "unit": 1,
+      "level": "A1",
+      "title": "Describing things: adjectives",
+      "summary": "Say “a big house” and “the big house”: the adjective comes after the noun and matches it.",
+      "blocks": [
+        { "term": "adjective", "means": "a word that describes a noun: big, new, happy." },
+        { "p": "In Arabic the adjective comes **after** the noun: {{بَيْتٌ كَبِيرٌ|baytun kabīrun}} “a big house”, word for word “house big”." },
+        { "p": "It matches the noun in three ways: in gender ({{ة}} for a feminine noun), in “a” or “the”, and in its ending. So “the big house” has {{الْـ}} twice: {{الْبَيْتُ الْكَبِيرُ|al-baytu l-kabīru}}." },
+        { "table": [
+          ["", "a …", "the …"],
+          ["big house", "{{بَيْتٌ كَبِيرٌ|baytun kabīrun}}", "{{الْبَيْتُ الْكَبِيرُ|al-baytu l-kabīru}}"],
+          ["new car", "{{سَيَّارَةٌ جَدِيدَةٌ|sayyāratun jadīdatun}}", "{{السَّيَّارَةُ الْجَدِيدَةُ|as-sayyāratu l-jadīdatu}}"]
+        ] },
+        { "p": "Compare this with the last lessons. {{الْبَيْتُ الْكَبِيرُ}}, with “the” twice, is only a phrase: “the big house”. {{الْبَيْتُ كَبِيرٌ}}, with “the” on the noun alone, is a sentence: “The house is big.” That one {{الْـ}} makes all the difference." },
+        { "ex": [
+          { "t": "هَذَا بَيْتٌ كَبِيرٌ.", "r": "hādhā baytun kabīrun.", "tr": "This is a big house." },
+          { "t": "الْبَيْتُ الْكَبِيرُ جَمِيلٌ.", "r": "al-baytu l-kabīru jamīlun.", "tr": "The big house is beautiful." },
+          { "t": "هِيَ طَالِبَةٌ ذَكِيَّةٌ.", "r": "hiya ṭālibatun dhakiyyatun.", "tr": "She is a clever student." },
+          { "t": "الْمَدِينَةُ الْقَدِيمَةُ جَمِيلَةٌ جِدًّا.", "r": "al-madīnatu l-qadīmatu jamīlatun jiddan.", "tr": "The old city is very beautiful." },
+          { "t": "الْقَهْوَةُ الْعَرَبِيَّةُ لَذِيذَةٌ.", "r": "al-qahwatu l-ʿarabiyyatu ladhīdhatun.", "tr": "Arabic coffee is delicious." },
+          { "t": "هَذَا طَعَامٌ لَذِيذٌ.", "r": "hādhā ṭaʿāmun ladhīdhun.", "tr": "This is delicious food." }
+        ] },
+        { "p": "Two adjectives? Add them one after the other, each matching the noun: {{سَيَّارَةٌ صَغِيرَةٌ جَدِيدَةٌ|sayyāratun ṣaghīratun jadīdatun}} “a small new car”." },
+        { "tip": "Arabic also uses {{الْـ}} for things in general, where English uses no word: “coffee is delicious” is {{الْقَهْوَةُ لَذِيذَةٌ}}, “the coffee is delicious”." }
+      ],
+      "mistakes": [
+        { "wrong": "كَبِيرٌ بَيْتٌ", "right": "بَيْتٌ كَبِيرٌ", "tr": "a big house", "why": "The adjective comes after the noun." },
+        { "wrong": "السَّيَّارَةُ الْجَدِيدُ", "right": "السَّيَّارَةُ الْجَدِيدَةُ", "tr": "the new car", "why": "{{سَيَّارَةٌ}} is feminine, so the adjective takes {{ة}} too." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "“The new car” is…", "options": ["{{السَّيَّارَةُ جَدِيدَةٌ}}", "{{السَّيَّارَةُ الْجَدِيدَةُ}}", "{{سَيَّارَةٌ الْجَدِيدَةُ}}"], "answer": 1, "why": "“The” on both words, and {{ة}} on both." },
+        { "type": "choice", "q": "{{الْمَطْعَمُ جَدِيدٌ.}} means…", "options": ["the new restaurant", "The restaurant is new.", "a new restaurant"], "answer": 1, "why": "{{الْـ}} on the noun only: it's a sentence." },
+        { "type": "order", "q": "Put the words in order.", "tr": "This is a big house.", "words": ["هَذَا", "بَيْتٌ", "كَبِيرٌ."] },
+        { "type": "say", "q": "How do you say “a beautiful city”?", "answer": "مَدِينَةٌ جَمِيلَةٌ", "r": "madīnatun jamīlatun" }
+      ]
+    },
+    {
+      "id": "questions",
+      "unit": 1,
+      "level": "A1",
+      "title": "Asking questions",
+      "summary": "Ask yes-or-no questions, and ask who, what, where, when, how, how many and why.",
+      "blocks": [
+        { "p": "To turn a sentence into a yes-or-no question, put {{هَلْ|hal}} in front of it. Nothing else changes: {{أَنْتَ مَشْغُولٌ.|anta mashghūlun.}} “You are busy.” becomes {{هَلْ أَنْتَ مَشْغُولٌ؟|hal anta mashghūlun?}} “Are you busy?”" },
+        { "p": "Arabic's question mark faces the other way: {{؟}}. In speech you can also just raise your voice at the end, without {{هَلْ}}. The answers are {{نَعَمْ|naʿam}} “yes” and {{لَا|lā}} “no”." },
+        { "table": [
+          ["Question word", "Arabic", "Example"],
+          ["what? (before a noun)", "{{مَا|mā}}", "{{مَا اسْمُكَ؟|mā smuka?}} What is your name?"],
+          ["what? (before a verb)", "{{مَاذَا|mādhā}}", "{{مَاذَا تُرِيدُ؟|mādhā turīdu?}} What do you want?"],
+          ["who?", "{{مَنْ|man}}", "{{مَنْ هَذَا؟|man hādhā?}} Who is this?"],
+          ["where?", "{{أَيْنَ|ayna}}", "{{أَيْنَ الْفُنْدُقُ؟|ayna l-funduqu?}} Where is the hotel?"],
+          ["when?", "{{مَتَى|matā}}", "{{مَتَى الْحَفْلَةُ؟|matā l-ḥaflatu?}} When is the party?"],
+          ["how?", "{{كَيْفَ|kayfa}}", "{{كَيْفَ حَالُكَ؟|kayfa ḥāluka?}} How are you?"],
+          ["how many?", "{{كَمْ|kam}}", "{{كَمْ عُمْرُكَ؟|kam ʿumruka?}} How old are you?"],
+          ["how much (does it cost)?", "{{بِكَمْ|bikam}}", "{{بِكَمْ هَذَا؟|bikam hādhā?}} How much is this?"],
+          ["why?", "{{لِمَاذَا|limādhā}}", "{{لِمَاذَا أَنْتَ هُنَا؟|limādhā anta hunā?}} Why are you here?"],
+          ["which?", "{{أَيُّ|ayyu}}", "{{أَيُّ يَوْمٍ؟|ayyu yawmin?}} Which day?"]
+        ] },
+        { "ex": [
+          { "t": "هَلِ الْمَطْعَمُ مَفْتُوحٌ؟", "r": "hali l-maṭʿamu maftūḥun?", "tr": "Is the restaurant open?", "note": "before {{الْـ}}, {{هَلْ}} takes an i to join on: hali" },
+          { "t": "أَيْنَ الْحَمَّامُ؟", "r": "ayna l-ḥammāmu?", "tr": "Where is the bathroom?" },
+          { "t": "مَنْ أَنْتَ؟", "r": "man anta?", "tr": "Who are you?" },
+          { "t": "كَيْفَ حَالُكِ؟", "r": "kayfa ḥāluki?", "tr": "How are you?", "note": "to a woman: ḥāluki; to a man: ḥāluka" },
+          { "t": "مَتَى الدَّرْسُ؟", "r": "matā d-darsu?", "tr": "When is the lesson?" },
+          { "t": "بِكَمْ هَذَا الْكِتَابُ؟", "r": "bikam hādhā l-kitābu?", "tr": "How much is this book?" }
+        ] },
+        { "tip": "The question word comes first and the rest stays as it was: {{أَيْنَ}} + {{الْفُنْدُقُ}} is “Where is the hotel?”" }
+      ],
+      "mistakes": [
+        { "wrong": "هَلْ أَيْنَ الْفُنْدُقُ؟", "right": "أَيْنَ الْفُنْدُقُ؟", "tr": "Where is the hotel?", "why": "{{هَلْ}} is only for yes-or-no questions; a question with a question word doesn't need it." },
+        { "wrong": "هَلْ الْمَطْعَمُ مَفْتُوحٌ؟", "right": "هَلِ الْمَطْعَمُ مَفْتُوحٌ؟", "tr": "Is the restaurant open?", "why": "Before {{الْـ}}, {{هَلْ}} becomes {{هَلِ}}: hali l-maṭʿamu." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "Which word asks “where?”", "options": ["{{مَتَى}}", "{{أَيْنَ}}", "{{كَيْفَ}}"], "answer": 1, "why": "{{أَيْنَ}}, ayna, is “where”. {{مَتَى}} is “when”, {{كَيْفَ}} “how”." },
+        { "type": "choice", "q": "How do you ask “Is the hotel near?”", "options": ["{{هَلِ الْفُنْدُقُ قَرِيبٌ؟}}", "{{أَيْنَ الْفُنْدُقُ قَرِيبٌ؟}}", "{{مَا الْفُنْدُقُ قَرِيبٌ؟}}"], "answer": 0, "why": "A yes-or-no question: {{هَلْ}} in front of the sentence." },
+        { "type": "order", "q": "Put the words in order.", "tr": "How much is this book?", "words": ["بِكَمْ", "هَذَا", "الْكِتَابُ؟"] },
+        { "type": "say", "q": "Ask a man: “How are you?”", "answer": "كَيْفَ حَالُكَ؟", "r": "kayfa ḥāluka?" }
+      ]
+    },
+    {
+      "id": "this-that",
+      "unit": 1,
+      "level": "A1",
+      "title": "This, that, these: pointing words",
+      "summary": "Point at things near and far, and tell “this book” from “this is a book”.",
+      "blocks": [
+        { "p": "You have met {{هَذَا}} and {{هَذِهِ}}. Here is the whole family:" },
+        { "table": [
+          ["", "Masculine", "Feminine"],
+          ["this", "{{هَذَا|hādhā}}", "{{هَذِهِ|hādhihi}}"],
+          ["that", "{{ذَلِكَ|dhālika}}", "{{تِلْكَ|tilka}}"],
+          ["these (people)", "{{هَؤُلَاءِ|hāʾulāʾi}}", "{{هَؤُلَاءِ|hāʾulāʾi}}"],
+          ["those (people)", "{{أُولَئِكَ|ulāʾika}}", "{{أُولَئِكَ|ulāʾika}}"]
+        ] },
+        { "tip": "The long ā in {{هَذَا}} (hādhā), {{هَذِهِ}} (hādhihi) and {{ذَلِكَ}} (dhālika) isn't written as a letter, but it is said all the same." },
+        { "p": "**“This book” or “This is a book”?** A pointing word before a noun **with** {{الْـ}} makes a phrase: {{هَذَا الْكِتَابُ|hādhā l-kitābu}} “this book”. Before a noun **without** {{الْـ}}, it makes a sentence: {{هَذَا كِتَابٌ.|hādhā kitābun.}} “This is a book.”" },
+        { "p": "To say “This is **the** book”, put {{هُوَ}} or {{هِيَ}} in the middle: {{هَذَا هُوَ الْكِتَابُ.|hādhā huwa l-kitābu.}}" },
+        { "ex": [
+          { "t": "هَذَا الْكِتَابُ جَدِيدٌ.", "r": "hādhā l-kitābu jadīdun.", "tr": "This book is new." },
+          { "t": "تِلْكَ السَّيَّارَةُ سَرِيعَةٌ.", "r": "tilka s-sayyāratu sarīʿatun.", "tr": "That car is fast." },
+          { "t": "ذَلِكَ الرَّجُلُ طَبِيبٌ.", "r": "dhālika r-rajulu ṭabībun.", "tr": "That man is a doctor." },
+          { "t": "هَؤُلَاءِ طُلَّابٌ.", "r": "hāʾulāʾi ṭullābun.", "tr": "These are students." },
+          { "t": "هَذِهِ هِيَ الْمُشْكِلَةُ.", "r": "hādhihi hiya l-mushkilatu.", "tr": "This is the problem." },
+          { "t": "مَا هَذَا؟", "r": "mā hādhā?", "tr": "What is this?" }
+        ] },
+        { "p": "For things (not people) in the plural, Arabic says {{هَذِهِ}} and {{تِلْكَ}}: {{هَذِهِ الْكُتُبُ|hādhihi l-kutubu}} “these books”. A later lesson explains why." }
+      ],
+      "mistakes": [
+        { "wrong": "هَذَا كِتَابٌ جَدِيدٌ.", "right": "هَذَا الْكِتَابُ جَدِيدٌ.", "tr": "This book is new.", "why": "To say “this book is new”, the book needs {{الْـ}}. Without it, the sentence means “This is a new book.”" },
+        { "wrong": "هَذِهِ الرَّجُلُ", "right": "هَذَا الرَّجُلُ", "tr": "this man", "why": "{{رَجُلٌ}} “man” is masculine." }
+      ],
+      "practice": [
+        { "type": "choice", "q": "“That car” is…", "options": ["{{ذَلِكَ السَّيَّارَةُ}}", "{{تِلْكَ السَّيَّارَةُ}}", "{{تِلْكَ سَيَّارَةٌ}}"], "answer": 1, "why": "Feminine, and a phrase: {{الْـ}} on the noun." },
+        { "type": "choice", "q": "{{هَذَا كِتَابٌ.}} means…", "options": ["this book", "This is a book.", "that book"], "answer": 1, "why": "No {{الْـ}} on the noun: it's a sentence." },
+        { "type": "order", "q": "Put the words in order.", "tr": "This city is beautiful.", "words": ["هَذِهِ", "الْمَدِينَةُ", "جَمِيلَةٌ."] },
+        { "type": "say", "q": "How do you ask “What is this?”", "answer": "مَا هَذَا؟", "r": "mā hādhā?" }
+      ]
+    }
+  ]
+}
