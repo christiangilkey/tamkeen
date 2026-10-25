@@ -521,6 +521,333 @@
         {"type":"say","q":"Ask a friend: “When are you coming?”","answer":"کی می‌آیی؟","r":"key mi-âyi?","from":"ask-questions"},
         {"type":"free","q":"Your turn: say where you're going this week, and how. Use {{به … می‌روم}} and {{با}}.","answers":[{"t":"فردا با قطار به مشهد می‌روم.","r":"fardâ bâ ghatâr be mashhad mi-ravam.","tr":"Tomorrow I'm going to Mashhad by train."},{"t":"امشب با دوستانم به رستوران می‌رویم.","r":"emshab bâ dustânam be resturân mi-ravim.","tr":"Tonight my friends and I are going to a restaurant."},{"t":"هر روز پیاده سر کار می‌روم.","r":"har ruz piyâde sar-e kâr mi-ravam.","tr":"I walk to work every day."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do-every-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your day (get up, eat, read, sleep) with any verb in the present, and meet the two stems every Persian verb has.",
+      "topic": "the present tense of any verb; the two stems: past stem ({{خورد}}) and present stem ({{خور}}); time words",
+      "blocks": [
+        {"goal":{"t":"صبح‌ها چای می‌خورم و روزنامه می‌خوانم.","r":"sobh-hâ chây mi-khoram va ruznâme mi-khânam.","tr":"In the mornings I drink tea and read the paper."}},
+        {"dialog":[{"who":"Leyla","t":"صبح‌ها چه کار می‌کنی؟","r":"sobh-hâ che kâr mi-koni?","tr":"What do you do in the mornings?"},{"who":"Sam","t":"ساعت هفت بیدار می‌شوم، صبحانه می‌خورم و به دانشگاه می‌روم.","r":"sâ'at-e haft bidâr mi-shavam, sobhâne mi-khoram va be dâneshgâh mi-ravam.","tr":"I get up at seven, have breakfast and go to the university."},{"who":"Leyla","t":"صبحانه چه می‌خوری؟","r":"sobhâne che mi-khori?","tr":"What do you have for breakfast?"},{"who":"Sam","t":"نان و پنیر و چای. تو چطور؟","r":"nân o panir o chây. to chetowr?","tr":"Bread, cheese and tea. What about you?"},{"who":"Leyla","t":"من صبحانه نمی‌خورم. فقط قهوه می‌خورم!","r":"man sobhâne nemi-khoram. faghat ghahve mi-khoram!","tr":"I don't eat breakfast. I just have coffee!"}]},
+        {"p":"**Every verb, one pattern.** In the present, a Persian verb is {{می}} + its present stem + the ending you know: {{می‌خورم|mi-khoram}} “I eat”, {{می‌خوانی|mi-khâni}} “you read”, {{می‌نویسد|mi-nevisad}} “she writes”. As with {{می‌روم}}, it means both “I eat” and “I'm eating”."},
+        {"term":"infinitive","means":"the dictionary form of a verb, “to …”: {{خوردن|khordan}} “to eat”. In Persian it ends in -an."},
+        {"p":"**Two stems.** Every Persian verb has two stems. The **past stem** is the infinitive without its -an: {{خوردن}} → {{خورد|khord}}; you'll need it for the past. The **present stem** is the one for now, and you learn it with the verb, because it can look quite different: {{خوردن}} → {{خور|khor}}, but {{دیدن|didan}} “to see” → {{بین|bin}}. So learn each new verb as a set of three: {{خوردن}}, {{خورد}}, {{خور}}."},
+        { "table": [
+          ["","infinitive","past stem","present stem","I … (now)"],
+          ["eat, drink","{{خوردن|khordan}}","{{خورد|khord}}","{{خور|khor}}","{{می‌خورم|mi-khoram}}"],
+          ["read","{{خواندن|khândan}}","{{خواند|khând}}","{{خوان|khân}}","{{می‌خوانم|mi-khânam}}"],
+          ["write","{{نوشتن|neveshtan}}","{{نوشت|nevesht}}","{{نویس|nevis}}","{{می‌نویسم|mi-nevisam}}"],
+          ["see","{{دیدن|didan}}","{{دید|did}}","{{بین|bin}}","{{می‌بینم|mi-binam}}"],
+          ["go","{{رفتن|raftan}}","{{رفت|raft}}","{{رو|rav}}","{{می‌روم|mi-ravam}}"],
+          ["do, make","{{کردن|kardan}}","{{کرد|kard}}","{{کن|kon}}","{{می‌کنم|mi-konam}}"],
+          ["sleep","{{خوابیدن|khâbidan}}","{{خوابید|khâbid}}","{{خواب|khâb}}","{{می‌خوابم|mi-khâbam}}"],
+          ["buy","{{خریدن|kharidan}}","{{خرید|kharid}}","{{خر|khar}}","{{می‌خرم|mi-kharam}}"]
+        ] },
+        {"p":"**Good news:** verbs in -idan, like {{خوابیدن}} and {{خریدن}}, are regular: drop the -idan and you have the present stem ({{خواب}}, {{خر}}). The irregular ones are few, and so common that you'll learn them fast."},
+        {"p":"**When.** Time words usually come early, before the place and the verb: {{هر روز|har ruz}} “every day”, {{صبح‌ها|sobh-hâ}} “in the mornings”, {{شب‌ها|shab-hâ}} “in the evenings, at night”, {{بعد از ظهر|ba'd az zohr}} “in the afternoon”."},
+        { "ex": [
+          {"t":"شب‌ها کتاب می‌خوانم.","r":"shab-hâ ketâb mi-khânam.","tr":"I read in the evenings."},
+          {"t":"پدرم هر شب اخبار می‌بیند.","r":"pedaram har shab akhbâr mi-binad.","tr":"My father watches the news every night.","note":"{{دیدن}} “see” is also “watch”"},
+          {"t":"معمولاً ساعت یازده می‌خوابم.","r":"ma'mulan sâ'at-e yâzdah mi-khâbam.","tr":"I usually go to bed at eleven."},
+          {"t":"از این مغازه نان می‌خرید؟","r":"az in maghâze nân mi-kharid?","tr":"Do you buy bread from this shop?"},
+          {"t":"بچه‌ها در پارک بازی می‌کنند.","r":"bachche-hâ dar pârk bâzi mi-konand.","tr":"The children are playing in the park."},
+          {"t":"صبح‌ها چه می‌خوری؟","r":"sobh-hâ che mi-khori?","tr":"What do you eat in the mornings?"}
+        ] },
+        {"tip":"{{خوردن}} is “eat”, and in everyday Persian also “drink”: {{چای می‌خورم.|chây mi-khoram.}} “I drink tea.”"}
+      ],
+      "mistakes": [
+        {"wrong":"من می‌خورم صبحانه.","right":"من صبحانه می‌خورم.","tr":"I eat breakfast.","why":"The verb goes last."},
+        {"wrong":"هر شب فیلم می‌دیدم.","right":"هر شب فیلم می‌بینم.","tr":"I watch a film every night.","why":"The present is made with the present stem, {{بین}}, not the past stem {{دید}}. ({{می‌دیدم}} is a past form, “I used to watch”, for later.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"هر روز صبح چای ___.","tr":"I drink tea every morning.","options":["می‌خورم","می‌خوری","می‌خورد"],"answer":0,"why":"“I”: -am, {{می‌خورم}}."},
+        {"type":"choice","q":"The present stem of {{دیدن}} “to see” is…","options":["{{دید}}","{{بین}}","{{دی}}"],"answer":1,"why":"{{دیدن}} is irregular: its present stem is {{بین|bin}}, as in {{می‌بینم}} “I see”."},
+        {"type":"fill","q":"Choose the missing word.","t":"او شب‌ها کتاب ___.","tr":"She reads at night.","options":["می‌خواند","می‌خوانند","می‌خوانیم"],"answer":0,"why":"“He, she”: -ad, {{می‌خواند}}."},
+        {"type":"order","q":"Put the words in order.","tr":"In the mornings I drink tea and read the paper.","words":["صبح‌ها","چای","می‌خورم","و","روزنامه","می‌خوانم."]},
+        {"type":"dialogue","q":"A new friend asks about your day. Choose your replies.","from":"say-where-you-are-going","lines":[{"who":"Leyla","t":"صبح‌ها چه کار می‌کنی؟","r":"sobh-hâ che kâr mi-koni?","tr":"What do you do in the mornings?"},{"options":["صبحانه می‌خورم و سر کار می‌روم.","صبحانه می‌خورد و سر کار می‌رود."],"answer":0,"why":"About yourself, -am: {{می‌خورم}}, {{می‌روم}}."},{"who":"Leyla","t":"با ماشین می‌روی؟","r":"bâ mâshin mi-ravi?","tr":"Do you go by car?"},{"options":["نه، با مترو می‌روم.","نه، مترو می‌روم با."],"answer":0,"why":"{{با مترو}} goes before the verb, which comes last."}]},
+        {"type":"say","q":"Say: “I usually go to bed at eleven.”","answer":"معمولاً ساعت یازده می‌خوابم.","r":"ma'mulan sâ'at-e yâzdah mi-khâbam."},
+        {"type":"free","q":"Your turn: describe your morning in two or three sentences, with verbs in the present.","answers":[{"t":"ساعت هشت بیدار می‌شوم. صبحانه نمی‌خورم، فقط قهوه می‌خورم.","r":"sâ'at-e hasht bidâr mi-shavam. sobhâne nemi-khoram, faghat ghahve mi-khoram.","tr":"I wake up at eight. I don't eat breakfast, I just have coffee."},{"t":"صبح‌ها روزنامه می‌خوانم و با اتوبوس سر کار می‌روم.","r":"sobh-hâ ruznâme mi-khânam va bâ otobus sar-e kâr mi-ravam.","tr":"In the mornings I read the paper and go to work by bus."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-dont-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you don't do, and how often",
+      "summary": "Say “I never eat meat”, “I sometimes go to the cinema” and “I don't smoke”.",
+      "topic": "{{نمی}} + verb; {{همیشه}}, {{معمولاً}}, {{گاهی}}; {{هیچ‌وقت}} and {{اصلاً}} with a negative verb",
+      "blocks": [
+        {"goal":{"t":"من هیچ‌وقت گوشت نمی‌خورم.","r":"man hich-vaght gusht nemi-khoram.","tr":"I never eat meat."}},
+        {"dialog":[{"who":"Host","t":"کباب می‌خورید؟","r":"kabâb mi-khorid?","tr":"Will you have some kebab?"},{"who":"You","t":"ببخشید، من گوشت نمی‌خورم.","r":"bebakhshid, man gusht nemi-khoram.","tr":"I'm sorry, I don't eat meat."},{"who":"Host","t":"اصلاً؟ ماهی هم نمی‌خورید؟","r":"aslan? mâhi ham nemi-khorid?","tr":"Not at all? Don't you eat fish either?"},{"who":"You","t":"گاهی ماهی می‌خورم، ولی گوشت هیچ‌وقت.","r":"gâhi mâhi mi-khoram, vali gusht hich-vaght.","tr":"I sometimes eat fish, but meat never."},{"who":"Host","t":"پس برنج و سبزی بفرمایید!","r":"pas berenj o sabzi befarmâyid!","tr":"Then do have some rice and herbs!"}]},
+        {"p":"**Not.** Put {{نمی|nemi-}} in the place of {{می}}: {{می‌خورم}} “I eat” → {{نمی‌خورم|nemi-khoram}} “I don't eat”. The stem and the ending don't change."},
+        {"p":"**How often.** These words come early in the sentence, usually after the subject: {{همیشه|hamishe}} “always”, {{معمولاً|ma'mulan}} “usually”, {{اغلب|aghlab}} “often”, {{گاهی|gâhi}} “sometimes”."},
+        {"p":"**Never.** {{هیچ‌وقت|hich-vaght}} “never” (word for word “no time”) needs a negative verb with it, just like {{هیچ}} in lesson 10: {{هیچ‌وقت دیر نمی‌آید.|hich-vaght dir nemi-âyad.}} “She's never late.” And {{اصلاً|aslan}} with a negative verb is “not at all”: {{اصلاً نمی‌دانم.|aslan nemi-dânam.}} “I have no idea.”"},
+        { "table": [
+          ["","Persian","for example"],
+          ["always","{{همیشه|hamishe}}","{{همیشه چای می‌خورم.|hamishe chây mi-khoram.}} I always drink tea."],
+          ["usually","{{معمولاً|ma'mulan}}","{{معمولاً پیاده می‌روم.|ma'mulan piyâde mi-ravam.}} I usually walk."],
+          ["sometimes","{{گاهی|gâhi}}","{{گاهی به سینما می‌رویم.|gâhi be sinamâ mi-ravim.}} We sometimes go to the cinema."],
+          ["never","{{هیچ‌وقت … نـ|hich-vaght … na-}}","{{هیچ‌وقت تلویزیون نمی‌بینم.|hich-vaght televiziyon nemi-binam.}} I never watch TV."],
+          ["not at all","{{اصلاً … نـ|aslan … na-}}","{{اصلاً قهوه نمی‌خورد.|aslan ghahve nemi-khorad.}} He doesn't drink coffee at all."]
+        ] },
+        { "ex": [
+          {"t":"سیگار نمی‌کشم.","r":"sigâr nemi-kesham.","tr":"I don't smoke.","note":"{{کشیدن|keshidan}} “to pull, to draw”; with {{سیگار}}, “to smoke”"},
+          {"t":"او معمولاً شب‌ها کار نمی‌کند.","r":"u ma'mulan shab-hâ kâr nemi-konad.","tr":"He usually doesn't work at night."},
+          {"t":"ما همیشه جمعه‌ها به پارک می‌رویم.","r":"mâ hamishe jom'e-hâ be pârk mi-ravim.","tr":"We always go to the park on Fridays.","note":"Friday is the weekend in Iran"},
+          {"t":"هیچ‌وقت دیر نمی‌آید.","r":"hich-vaght dir nemi-âyad.","tr":"She's never late.","note":"word for word “she never comes late”"},
+          {"t":"اصلاً نمی‌دانم.","r":"aslan nemi-dânam.","tr":"I have no idea.","note":"{{دانستن|dânestan}} “to know”, present stem {{دان|dân}}"},
+          {"t":"گاهی با دوستانم فوتبال بازی می‌کنم.","r":"gâhi bâ dustânam futbâl bâzi mi-konam.","tr":"Sometimes I play football with my friends."}
+        ] },
+        {"tip":"{{نمی‌دانم|nemi-dânam}} “I don't know” is one of the most useful sentences there is. In speech it shrinks to {{نمی‌دونم|nemi-dunam}}."}
+      ],
+      "mistakes": [
+        {"wrong":"هیچ‌وقت گوشت می‌خورم.","right":"هیچ‌وقت گوشت نمی‌خورم.","tr":"I never eat meat.","why":"{{هیچ‌وقت}} “never” needs a negative verb: {{نمی‌خورم}}."},
+        {"wrong":"نه می‌خورم.","right":"نمی‌خورم.","tr":"I don't eat it.","why":"“Not” is part of the verb: {{نمی}} in the place of {{می}}. {{نه}} on its own is “no”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"من قهوه ___.","tr":"I don't drink coffee.","options":["نمی‌خورم","می‌خورم","نه می‌خورم"],"answer":0,"why":"“Not”: {{نمی}} in the place of {{می}}."},
+        {"type":"choice","q":"{{هیچ‌وقت دیر نمی‌آید.}} means…","options":["She's never late.","She's always late.","She's sometimes late."],"answer":0,"why":"{{هیچ‌وقت}} with a negative verb is “never”."},
+        {"type":"dialogue","q":"Dinner with a friend's family. Choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Host","t":"چای می‌خورید یا قهوه؟","r":"chây mi-khorid yâ ghahve?","tr":"Will you have tea or coffee?"},{"options":["چای، لطفاً. قهوه نمی‌خورم.","چای، لطفاً. قهوه می‌نخورم."],"answer":0,"why":"{{نمی‌خورم}}: ne-mi-khoram."},{"who":"Host","t":"شکر می‌خواهید؟","r":"shekar mi-khâhid?","tr":"Would you like sugar?"},{"options":["نه، ممنون. هیچ‌وقت شکر نمی‌خورم.","نه، ممنون. همیشه شکر نمی‌خورم."],"answer":0,"why":"“Never” is {{هیچ‌وقت}} with a negative verb. ({{همیشه … نمی‌خورم}} sounds like “I always don't”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We always go to the park on Fridays.","words":["ما","همیشه","جمعه‌ها","به","پارک","می‌رویم."],"also":[["ما","جمعه‌ها","همیشه","به","پارک","می‌رویم."]]},
+        {"type":"say","q":"Say “I don't know.”","answer":"نمی‌دانم.","r":"nemi-dânam."},
+        {"type":"free","q":"Your turn: say two things you never do and one thing you sometimes do. Use {{هیچ‌وقت … نمی}} and {{گاهی}}.","answers":[{"t":"هیچ‌وقت سیگار نمی‌کشم. گاهی به سینما می‌روم.","r":"hich-vaght sigâr nemi-kesham. gâhi be sinamâ mi-ravam.","tr":"I never smoke. Sometimes I go to the cinema."},{"t":"هیچ‌وقت صبحانه نمی‌خورم و هیچ‌وقت زود نمی‌خوابم.","r":"hich-vaght sobhâne nemi-khoram va hich-vaght zud nemi-khâbam.","tr":"I never eat breakfast and I never go to bed early."}]}
+      ]
+    },
+    {
+      "id": "talk-about-work-and-study",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about work, study and calls",
+      "summary": "Say “I work”, “I'm studying”, “I'll call you” and “I'm listening”: most everyday Persian actions are a noun plus “do”, “hit” or “give”.",
+      "topic": "compound verbs: {{کار کردن}}, {{درس خواندن}}, {{زنگ زدن}}, {{صحبت کردن}}, {{گوش دادن}}; where {{نمی}} goes",
+      "blocks": [
+        {"goal":{"t":"در یک بانک کار می‌کنم و شب‌ها فارسی یاد می‌گیرم.","r":"dar yek bânk kâr mi-konam va shab-hâ fârsi yâd mi-giram.","tr":"I work in a bank, and in the evenings I learn Persian."}},
+        {"dialog":[{"who":"Mother","t":"الو؟ سلام عزیزم! چه کار می‌کنی؟","r":"alo? salâm azizam! che kâr mi-koni?","tr":"Hello? Hi, sweetheart! What are you doing?"},{"who":"Sara","t":"سلام مامان! درس می‌خوانم. فردا امتحان دارم.","r":"salâm mâmân! dars mi-khânam. fardâ emtehân dâram.","tr":"Hi, Mum! I'm studying. I have an exam tomorrow."},{"who":"Mother","t":"خب، پس بعداً زنگ می‌زنم.","r":"khob, pas ba'dan zang mi-zanam.","tr":"OK, then I'll call later."},{"who":"Sara","t":"نه، الان وقت دارم. گوش می‌کنم!","r":"na, al'ân vaght dâram. gush mi-konam!","tr":"No, I have time now. I'm listening!"}]},
+        {"p":"**Noun + verb.** Persian has fewer simple verbs than English. Most everyday actions are a noun or an adjective plus a common verb: {{کار|kâr}} “work” + {{کردن|kardan}} “do” = {{کار کردن}} “to work”; {{زنگ|zang}} “bell” + {{زدن|zadan}} “hit” = {{زنگ زدن}} “to ring, to call”."},
+        {"term":"compound verb","means":"a verb made of two words, a noun (or an adjective) and a common verb, which together mean one action: {{کار کردن|kâr kardan}} “to work”."},
+        {"p":"**Only the verb part changes.** The first word stays as it is; {{می}}, the stem and the ending go on the verb: {{کار می‌کنم|kâr mi-konam}} “I work”, {{زنگ می‌زنی|zang mi-zani}} “you call”. “Not” goes on the verb part too: {{کار نمی‌کنم|kâr nemi-konam}} “I don't work”."},
+        { "table": [
+          ["","the verb","I … (now)"],
+          ["work","{{کار کردن|kâr kardan}}","{{کار می‌کنم|kâr mi-konam}}"],
+          ["talk, speak","{{صحبت کردن|sohbat kardan}}","{{صحبت می‌کنم|sohbat mi-konam}}"],
+          ["call (on the phone)","{{زنگ زدن|zang zadan}}","{{زنگ می‌زنم|zang mi-zanam}}"],
+          ["listen","{{گوش دادن|gush dâdan}}","{{گوش می‌دهم|gush mi-daham}}"],
+          ["study","{{درس خواندن|dars khândan}}","{{درس می‌خوانم|dars mi-khânam}}"],
+          ["learn","{{یاد گرفتن|yâd gereftan}}","{{یاد می‌گیرم|yâd mi-giram}}"],
+          ["help","{{کمک کردن|komak kardan}}","{{کمک می‌کنم|komak mi-konam}}"],
+          ["play","{{بازی کردن|bâzi kardan}}","{{بازی می‌کنم|bâzi mi-konam}}"]
+        ] },
+        {"p":"**Four verbs do most of the work:** {{کردن}} “do” (present stem {{کن|kon}}), {{زدن}} “hit” ({{زن|zan}}), {{دادن}} “give” ({{ده|dah}}) and {{گرفتن}} “take” ({{گیر|gir}}). Learn their stems once, and hundreds of verbs are yours."},
+        {"p":"**Who to?** The person you talk to or call takes {{با}} or {{به}}: {{با او صحبت می‌کنم.|bâ u sohbat mi-konam.}} “I'm talking to him.” {{به مادرم زنگ می‌زنم.|be mâdaram zang mi-zanam.}} “I'm calling my mother.” {{به موسیقی گوش می‌دهم.|be musighi gush mi-daham.}} “I listen to music.”"},
+        { "ex": [
+          {"t":"کجا کار می‌کنید؟","r":"kojâ kâr mi-konid?","tr":"Where do you work?"},
+          {"t":"او فارسی صحبت نمی‌کند.","r":"u fârsi sohbat nemi-konad.","tr":"She doesn't speak Persian."},
+          {"t":"هر شب به مادرم زنگ می‌زنم.","r":"har shab be mâdaram zang mi-zanam.","tr":"I call my mother every night."},
+          {"t":"در ماشین به موسیقی گوش می‌دهیم.","r":"dar mâshin be musighi gush mi-dahim.","tr":"We listen to music in the car."},
+          {"t":"بچه‌ها فوتبال بازی می‌کنند.","r":"bachche-hâ futbâl bâzi mi-konand.","tr":"The children are playing football."},
+          {"t":"به تو کمک می‌کنم.","r":"be to komak mi-konam.","tr":"I'll help you.","note":"the present is also used for the near future"}
+        ] },
+        {"tip":"New words come into Persian this way too: {{چک کردن|chek kardan}} “to check”, {{پارک کردن|pârk kardan}} “to park”. When you don't know a verb, a noun with {{کردن}} is often what Iranians say."}
+      ],
+      "mistakes": [
+        {"wrong":"نمی‌کار کنم.","right":"کار نمی‌کنم.","tr":"I don't work.","why":"{{نمی}} goes on the verb part, {{کنم}}, not on the noun."},
+        {"wrong":"من کار هستم.","right":"من کار می‌کنم.","tr":"I work.","why":"{{کار}} is the noun “work”; the verb is {{کار کردن}}: {{کار می‌کنم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"من در یک بیمارستان ___ می‌کنم.","tr":"I work in a hospital.","options":["کار","کمک","گوش"],"answer":0,"why":"“Work” is {{کار کردن}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"او هر روز به من زنگ ___.","tr":"He calls me every day.","options":["می‌زند","می‌کند","می‌دهد"],"answer":0,"why":"“Call” is {{زنگ زدن}}: {{زنگ می‌زند}}."},
+        {"type":"choice","q":"How do you say “I don't speak Persian”?","options":["{{فارسی صحبت نمی‌کنم.|fârsi sohbat nemi-konam.}}","{{فارسی نمی‌صحبت کنم.}}"],"answer":0,"why":"“Not” goes on the verb part: {{نمی‌کنم}}."},
+        {"type":"dialogue","q":"A friend phones you. Choose your replies.","from":"say-what-you-dont-do","lines":[{"who":"Ali","t":"سلام! چه کار می‌کنی؟","r":"salâm! che kâr mi-koni?","tr":"Hi! What are you doing?"},{"options":["درس می‌خوانم. فردا امتحان دارم.","درس می‌کنم. فردا امتحان دارم."],"answer":0,"why":"“Study” is {{درس خواندن}}, “read lessons”."},{"who":"Ali","t":"فوتبال بازی نمی‌کنی؟","r":"futbâl bâzi nemi-koni?","tr":"Aren't you playing football?"},{"options":["نه، امروز بازی نمی‌کنم.","نه، امروز نمی‌بازی کنم."],"answer":0,"why":"{{نمی}} goes on {{کنم}}: {{بازی نمی‌کنم}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I call my mother every night.","words":["هر","شب","به","مادرم","زنگ","می‌زنم."]},
+        {"type":"say","q":"Ask politely: “Where do you work?”","answer":"کجا کار می‌کنید؟","r":"kojâ kâr mi-konid?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say what you do for work or study, and two other things you do every week. Use compound verbs ({{کار می‌کنم}}, {{زنگ می‌زنم}}…).","answers":[{"t":"در یک مدرسه کار می‌کنم. هفته‌ای دو بار فوتبال بازی می‌کنم.","r":"dar yek madrese kâr mi-konam. hafte-i do bâr futbâl bâzi mi-konam.","tr":"I work in a school. I play football twice a week."},{"t":"در دانشگاه درس می‌خوانم و جمعه‌ها به پدر و مادرم زنگ می‌زنم.","r":"dar dâneshgâh dars mi-khânam va jom'e-hâ be pedar o mâdaram zang mi-zanam.","tr":"I study at university, and on Fridays I call my parents."}]}
+      ]
+    },
+    {
+      "id": "say-which-one-you-mean",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say which thing you mean",
+      "summary": "Say “I'd like that red bag” and “I can't find my key”: the little word {{را}} marks the particular thing an action is done to.",
+      "topic": "the object; {{را}} after a definite object; {{مرا}}; no {{را}} for “a, any”",
+      "blocks": [
+        {"goal":{"t":"آن کیف قرمز را می‌خواهم.","r":"ân kif-e ghermez râ mi-khâham.","tr":"I'd like that red bag."}},
+        {"dialog":[{"who":"Seller","t":"کدام را می‌خواهید؟","r":"kodâm râ mi-khâhid?","tr":"Which one would you like?"},{"who":"You","t":"آن کیف قرمز را می‌خواهم.","r":"ân kif-e ghermez râ mi-khâham.","tr":"I'd like that red bag."},{"who":"Seller","t":"این را؟","r":"in râ?","tr":"This one?"},{"who":"You","t":"نه، آن یکی را. کنار کیف سیاه.","r":"na, ân yeki râ. kenâr-e kif-e siyâh.","tr":"No, that one. Next to the black bag."},{"who":"Seller","t":"بفرمایید.","r":"befarmâyid.","tr":"Here you are."}]},
+        {"term":"object","means":"the person or thing an action is done to: “the book” in “I'm reading the book”."},
+        {"p":"**{{را}}: the one you mean.** When the object is a particular one, one that you and the listener both know, put {{را|râ}} after it: {{کتاب را می‌خوانم.|ketâb râ mi-khânam.}} “I'm reading the book” (the one we were talking about). Without {{را}}: {{کتاب می‌خوانم.|ketâb mi-khânam.}} “I'm reading a book” or “I read books”. So {{را}} does part of the work of English “the”."},
+        {"p":"**When you need it:** after {{این}} and {{آن}} ({{این فیلم را می‌بینم|in film râ mi-binam}} “I'm watching this film”), after a name ({{سارا را می‌بینم|sârâ râ mi-binam}} “I can see Sara”), after “my, your” ({{کیفم را می‌خواهم|kifam râ mi-khâham}} “I want my bag”), and after a pronoun. It comes after the whole phrase, adjectives and owner included: {{کیف قرمز سارا را|kif-e ghermez-e sârâ râ}} “Sara's red bag”."},
+        { "table": [
+          ["","Persian","meaning"],
+          ["any, some","{{چای می‌خورم.|chây mi-khoram.}}","I drink tea."],
+          ["a particular one","{{چای را می‌خورم.|chây râ mi-khoram.}}","I'm drinking the tea (this tea)."],
+          ["with “this”","{{این را می‌خواهم.|in râ mi-khâham.}}","I'd like this one."],
+          ["with “my”","{{کیفم را نمی‌بینم.|kifam râ nemi-binam.}}","I can't see my bag."],
+          ["“me”","{{مرا می‌بینی؟|marâ mi-bini?}}","Can you see me?"]
+        ] },
+        {"p":"**Me, you, him.** {{من}} + {{را}} is usually written as one word, {{مرا|marâ}}; the others are just {{تو را|to râ}}, {{او را|u râ}}, {{ما را|mâ râ}}…: {{او را می‌شناسم.|u râ mi-shenâsam.}} “I know him (her).”"},
+        {"p":"**Not for “to”.** {{را}} is only for the object. The person you talk to or call takes {{با}} or {{به}}, as in the last lesson: {{به سارا زنگ می‌زنم.|be sârâ zang mi-zanam.}} “I'm calling Sara.”"},
+        { "ex": [
+          {"t":"این فیلم را می‌شناسی؟","r":"in film râ mi-shenâsi?","tr":"Do you know this film?","note":"{{شناختن|shenâkhtan}} “to know (a person, a thing)”, present stem {{شناس|shenâs}}"},
+          {"t":"هر روز روزنامه می‌خوانم.","r":"har ruz ruznâme mi-khânam.","tr":"I read a newspaper every day.","note":"no {{را}}: any newspaper"},
+          {"t":"روزنامهٔ امروز را می‌خوانم.","r":"ruznâme-ye emruz râ mi-khânam.","tr":"I'm reading today's paper.","note":"{{را}}: that one"},
+          {"t":"کلیدم را نمی‌بینم.","r":"kelidam râ nemi-binam.","tr":"I can't see my key."},
+          {"t":"علی را می‌شناسید؟","r":"ali râ mi-shenâsid?","tr":"Do you know Ali?"},
+          {"t":"مرا ببخشید.","r":"marâ bebakhshid.","tr":"Forgive me.","note":"{{ببخشید}} “excuse me” is really “forgive (me)”"}
+        ] },
+        {"tip":"In speech, {{را}} is said {{رو|ro}} after a vowel and just -o after a consonant: {{کتابو|ketâbo}} “the book”. Write {{را}}."}
+      ],
+      "mistakes": [
+        {"wrong":"این کتاب می‌خوانم.","right":"این کتاب را می‌خوانم.","tr":"I'm reading this book.","why":"“This book” is a particular one, so it needs {{را}}."},
+        {"wrong":"کیف را قرمز می‌خواهم.","right":"کیف قرمز را می‌خواهم.","tr":"I'd like the red bag.","why":"{{را}} comes after the whole phrase, adjective included: {{کیف قرمز را}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one means “I'm drinking the tea (this tea, here)”?","options":["{{چای را می‌خورم.}}","{{چای می‌خورم.}}"],"answer":0,"why":"A particular tea: {{را}}. Without it: “I drink tea”, any tea."},
+        {"type":"fill","q":"Choose the missing word.","t":"آن کیف قرمز ___ می‌خواهم.","tr":"I'd like that red bag.","options":["را","به","از"],"answer":0,"why":"A particular object, “that red bag”: {{را}} after it."},
+        {"type":"dialogue","q":"In a shop. Choose your replies.","from":"describe-things","lines":[{"who":"Seller","t":"کدام را می‌خواهید؟","r":"kodâm râ mi-khâhid?","tr":"Which one would you like?"},{"options":["آن کیف سیاه را می‌خواهم.","آن کیف سیاه می‌خواهم."],"answer":0,"why":"“That black bag” is a particular one: {{را}}."},{"who":"Seller","t":"این را؟","r":"in râ?","tr":"This one?"},{"options":["نه، آن یکی را، کنار کیف قرمز.","نه، آن یکی، کنار قرمز کیف."],"answer":0,"why":"{{آن یکی|ân yeki}} “that one”, and the adjective after the noun: {{کیف قرمز}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I can't see my key.","words":["کلیدم","را","نمی‌بینم."]},
+        {"type":"say","q":"Ask politely: “Do you know Ali?”","answer":"علی را می‌شناسید؟","r":"ali râ mi-shenâsid?"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ مادرم زنگ می‌زنم.","tr":"I'm calling my mother.","options":["به","را","از"],"answer":0,"why":"With {{زنگ زدن}}, the person you call takes {{به}}, not {{را}}.","from":"talk-about-work-and-study"},
+        {"type":"free","q":"Your turn: say which things around you you'd like, or can't find, with {{را}}.","answers":[{"t":"آن کتاب آبی را می‌خواهم.","r":"ân ketâb-e âbi râ mi-khâham.","tr":"I'd like that blue book."},{"t":"گوشی‌ام را نمی‌بینم. کجاست؟","r":"gushi-am râ nemi-binam. kojâst?","tr":"I can't see my phone. Where is it?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like and love, what you don't like, and ask others: “Do you like Persian food?”",
+      "topic": "{{دوست داشتن}} (with {{را}}); {{از … خوشم می‌آید}}; {{به … علاقه دارم}}",
+      "blocks": [
+        {"goal":{"t":"غذای ایرانی را خیلی دوست دارم.","r":"ghazâ-ye irâni râ kheyli dust dâram.","tr":"I really like Persian food."}},
+        {"dialog":[{"who":"Neda","t":"فیلم‌های ایرانی را دوست داری؟","r":"film-hâ-ye irâni râ dust dâri?","tr":"Do you like Iranian films?"},{"who":"Tom","t":"بله، خیلی! فیلم‌های کیارستمی را خیلی دوست دارم.","r":"bale, kheyli! film-hâ-ye kiyârostami râ kheyli dust dâram.","tr":"Yes, a lot! I love Kiarostami's films."},{"who":"Neda","t":"موسیقی ایرانی چطور؟","r":"musighi-ye irâni chetowr?","tr":"What about Iranian music?"},{"who":"Tom","t":"از موسیقی سنتی خوشم می‌آید، ولی پاپ را دوست ندارم.","r":"az musighi-ye sonnati khosham mi-âyad, vali pâp râ dust nadâram.","tr":"I like traditional music, but I don't like pop."},{"who":"Neda","t":"من هم همین‌طور!","r":"man ham hamin-towr!","tr":"Me too!"}]},
+        {"p":"**Like and love.** {{دوست داشتن|dust dâshtan}}, word for word “to have as a friend”, is both “to like” and “to love”. It is a compound verb with {{داشتن}}, so like {{دارم}} it has no {{می}}: {{دوست دارم|dust dâram}} “I like”, {{دوست ندارم|dust nadâram}} “I don't like”. {{خیلی|kheyli}} “very” makes it “really like, love”."},
+        {"p":"**What you like** comes before it, with {{را}} when it is a particular thing, or a whole kind of thing: {{این آهنگ را دوست دارم.|in âhang râ dust dâram.}} “I like this song.” {{غذای ایرانی را دوست دارم.}} “I like Persian food.” For things in general you may leave {{را}} out: {{چای دوست دارم.|chây dust dâram.}} “I like tea.” People always take {{را}}: {{تو را دوست دارم.|to râ dust dâram.}} “I love you.”"},
+        {"p":"**{{خوشم می‌آید}}.** Another very common way, word for word “my pleasure comes from…”: {{از این شهر خوشم می‌آید.|az in shahr khosham mi-âyad.}} “I like this city.” The thing takes {{از}}, and the person is a possessive ending on {{خوش}}: {{خوشم|khosham}} “I”, {{خوشت|khoshat}} “you”, {{خوشش|khoshash}} “he, she”."},
+        { "table": [
+          ["","I like it","I don't like it"],
+          ["{{دوست داشتن}}","{{… را دوست دارم.|… râ dust dâram.}}","{{… را دوست ندارم.|… râ dust nadâram.}}"],
+          ["{{خوش آمدن}}","{{از … خوشم می‌آید.|az … khosham mi-âyad.}}","{{از … خوشم نمی‌آید.|az … khosham nemi-âyad.}}"],
+          ["{{علاقه داشتن}}","{{به … علاقه دارم.|be … alâghe dâram.}}","{{به … علاقه ندارم.|be … alâghe nadâram.}}"]
+        ] },
+        {"p":"**Interested in.** {{به … علاقه دارم|be … alâghe dâram}} “I'm interested in…” is for hobbies and subjects: {{به تاریخ علاقه دارم.|be târikh alâghe dâram.}} “I'm interested in history.”"},
+        { "ex": [
+          {"t":"من چای و قهوه دوست دارم.","r":"man chây va ghahve dust dâram.","tr":"I like tea and coffee."},
+          {"t":"این آهنگ را خیلی دوست دارم!","r":"in âhang râ kheyli dust dâram!","tr":"I love this song!"},
+          {"t":"برادرم فوتبال را دوست ندارد.","r":"barâdaram futbâl râ dust nadârad.","tr":"My brother doesn't like football."},
+          {"t":"از این رستوران خوشت می‌آید؟","r":"az in resturân khoshat mi-âyad?","tr":"Do you like this restaurant?"},
+          {"t":"به شعر فارسی علاقه دارم.","r":"be she'r-e fârsi alâghe dâram.","tr":"I'm interested in Persian poetry."},
+          {"t":"تو را دوست دارم.","r":"to râ dust dâram.","tr":"I love you."}
+        ] },
+        {"tip":"{{دوست|dust}} on its own is “friend”: {{دوستم|dustam}} is “my friend”, and {{دوست دارم}} “I like”. Iranians love the poet Hafez: {{شعر حافظ را دوست دارید؟|she'r-e hâfez râ dust dârid?}} “Do you like Hafez's poetry?” can start a long conversation."}
+      ],
+      "mistakes": [
+        {"wrong":"این آهنگ را دوست می‌دارم.","right":"این آهنگ را دوست دارم.","tr":"I like this song.","why":"Like {{دارم}}, {{دوست دارم}} has no {{می}}."},
+        {"wrong":"این شهر خوشم می‌آید.","right":"از این شهر خوشم می‌آید.","tr":"I like this city.","why":"With {{خوشم می‌آید}}, the thing you like takes {{از}} “from”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing words.","t":"فیلم‌های ایرانی را خیلی ___.","tr":"I really like Iranian films.","options":["دوست دارم","دوست می‌دارم","دوست هستم"],"answer":0,"why":"{{دوست دارم}}, with no {{می}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ این غذا خوشم می‌آید.","tr":"I like this food.","options":["از","را","به"],"answer":0,"why":"{{از}} … {{خوشم می‌آید}}: “my pleasure comes from…”."},
+        {"type":"choice","q":"{{خوشش نمی‌آید}} means…","options":["he or she doesn't like it","I don't like it","they like it"],"answer":0,"why":"{{خوش}} + {{ـش}} “his, her”: “his (her) pleasure doesn't come”."},
+        {"type":"dialogue","q":"Your Iranian friend's mother asks you questions. Choose your replies.","from":"say-which-one-you-mean","lines":[{"who":"Mother","t":"غذای ایرانی را دوست دارید؟","r":"ghazâ-ye irâni râ dust dârid?","tr":"Do you like Persian food?"},{"options":["بله، خیلی دوست دارم!","بله، خیلی دوست هستم!"],"answer":0,"why":"“Like” is {{دوست دارم}}."},{"who":"Mother","t":"قورمه‌سبزی را می‌شناسید؟","r":"ghorme-sabzi râ mi-shenâsid?","tr":"Do you know ghormeh sabzi?"},{"options":["بله! قورمه‌سبزی را خیلی دوست دارم.","بله! قورمه‌سبزی دوست را دارم."],"answer":0,"why":"{{را}} comes right after the thing: {{قورمه‌سبزی را}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My brother doesn't like football.","words":["برادرم","فوتبال","را","دوست","ندارد."]},
+        {"type":"say","q":"Say “I love you.”","answer":"تو را دوست دارم.","r":"to râ dust dâram."},
+        {"type":"free","q":"Your turn: say two things you like and one you don't. Try both {{دوست دارم}} and {{از … خوشم می‌آید}}.","answers":[{"t":"موسیقی را خیلی دوست دارم، ولی از ورزش خوشم نمی‌آید.","r":"musighi râ kheyli dust dâram, vali az varzesh khosham nemi-âyad.","tr":"I love music, but I don't like sport."},{"t":"از تهران خوشم می‌آید. چای ایرانی را هم دوست دارم.","r":"az tehrân khosham mi-âyad. chây-e irâni râ ham dust dâram.","tr":"I like Tehran. I like Persian tea too."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say when: times and days",
+      "summary": "Ask and tell the time, name the days of the week, and say when things happen: “at eight”, “on Saturday”, “the second floor”.",
+      "topic": "{{ساعت چند است؟}}; {{ساعت}} + a number; the days of the week; {{صبح}}, {{ظهر}}, {{شب}}; ordinal numbers ({{اول}}, {{دوم}}…)",
+      "blocks": [
+        {"goal":{"t":"کلاس فارسی شنبه‌ها ساعت شش است.","r":"kelâs-e fârsi shanbe-hâ sâ'at-e shesh ast.","tr":"The Persian class is on Saturdays at six."}},
+        {"dialog":[{"who":"Reza","t":"ببخشید، ساعت چند است؟","r":"bebakhshid, sâ'at chand ast?","tr":"Excuse me, what time is it?"},{"who":"Mina","t":"ساعت پنج و نیم است.","r":"sâ'at panj o nim ast.","tr":"It's half past five."},{"who":"Reza","t":"وای! کلاسم ساعت شش است.","r":"vây! kelâsam sâ'at-e shesh ast.","tr":"Oh no! My class is at six."},{"who":"Mina","t":"کلاس چه روز‌هایی است؟","r":"kelâs che ruz-hâyi ast?","tr":"Which days is the class?"},{"who":"Reza","t":"شنبه‌ها و دوشنبه‌ها.","r":"shanbe-hâ va doshanbe-hâ.","tr":"Saturdays and Mondays."}]},
+        {"p":"**What time is it?** {{ساعت چند است؟|sâ'at chand ast?}}, word for word “the hour is how many?”. The answer: {{ساعت هفت است.|sâ'at haft ast.}} “It's seven.” “Half” is {{نیم|nim}}, “a quarter” {{ربع|rob'}}: {{هفت و نیم|haft o nim}} “half past seven”, {{هفت و ربع|haft o rob'}} “a quarter past seven”, {{یک ربع به هشت|yek rob' be hasht}} “a quarter to eight”."},
+        {"p":"**At what time?** {{ساعت}} + the ezafe + the number, with no little word for “at”: {{ساعت هشت سر کار می‌روم.|sâ'at-e hasht sar-e kâr mi-ravam.}} “I go to work at eight.” To ask: {{ساعت چند؟|sâ'at-e chand?}} “At what time?”."},
+        { "table": [
+          ["","Persian","word for word"],
+          ["Saturday","{{شنبه|shanbe}}","the first day of the week"],
+          ["Sunday","{{یک‌شنبه|yek-shanbe}}","one-Saturday"],
+          ["Monday","{{دوشنبه|doshanbe}}","two-Saturday"],
+          ["Tuesday","{{سه‌شنبه|se-shanbe}}","three-Saturday"],
+          ["Wednesday","{{چهارشنبه|chahârshanbe}}","four-Saturday"],
+          ["Thursday","{{پنج‌شنبه|panj-shanbe}}","five-Saturday"],
+          ["Friday","{{جمعه|jom'e}}","the day of gathering: the weekend"]
+        ] },
+        {"p":"**On Saturday, in the morning.** Days need no little word: {{شنبه می‌آیم.|shanbe mi-âyam.}} “I'm coming on Saturday.” With {{ها}} they mean “every”: {{شنبه‌ها|shanbe-hâ}} “on Saturdays”, {{صبح‌ها|sobh-hâ}} “in the mornings”. The parts of the day: {{صبح|sobh}} “morning”, {{ظهر|zohr}} “noon”, {{بعد از ظهر|ba'd az zohr}} “afternoon”, {{عصر|asr}} “late afternoon”, {{شب|shab}} “evening, night”; and {{امروز|emruz}} “today”, {{فردا|fardâ}} “tomorrow”, {{امشب|emshab}} “tonight”."},
+        {"p":"**First, second.** Add {{م}}, said -om, to the number: {{دوم|dovvom}} “second”, {{سوم|sevvom}} “third”, {{چهارم|chahârom}} “fourth”; “first” is {{اول|avval}}. They go after the noun, with an ezafe: {{طبقهٔ دوم|tabaghe-ye dovvom}} “the second floor”. With {{ین}} added they go before it: {{اولین بار|avvalin bâr}} “the first time”."},
+        { "ex": [
+          {"t":"ساعت چند است؟ ساعت ده و ربع است.","r":"sâ'at chand ast? sâ'at dah o rob' ast.","tr":"What time is it? It's a quarter past ten."},
+          {"t":"فیلم ساعت هشت شروع می‌شود.","r":"film sâ'at-e hasht shoru' mi-shavad.","tr":"The film starts at eight."},
+          {"t":"جمعه‌ها کار نمی‌کنم.","r":"jom'e-hâ kâr nemi-konam.","tr":"I don't work on Fridays."},
+          {"t":"دفترم در طبقهٔ سوم است.","r":"daftaram dar tabaghe-ye sevvom ast.","tr":"My office is on the third floor."},
+          {"t":"این اولین بار است که به ایران می‌آیم.","r":"in avvalin bâr ast ke be irân mi-âyam.","tr":"This is the first time I've come to Iran.","note":"{{که}} “that”: more about it in unit 7"},
+          {"t":"امشب ساعت نه زنگ می‌زنم.","r":"emshab sâ'at-e noh zang mi-zanam.","tr":"I'll call tonight at nine."}
+        ] },
+        {"tip":"Iran's week starts on Saturday, and the weekend is Friday (for many, Thursday afternoon too). Iran also has its own calendar, whose year starts at Nowruz, on the first day of spring."}
+      ],
+      "mistakes": [
+        {"wrong":"در ساعت هشت می‌آیم.","right":"ساعت هشت می‌آیم.","tr":"I'm coming at eight.","why":"“At” a time needs no little word: just {{ساعت هشت}}."},
+        {"wrong":"دو طبقه","right":"طبقهٔ دوم","tr":"the second floor","why":"{{دو طبقه}} is “two floors”. “Second” is {{دوم}}, after the noun with an ezafe."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{ساعت هفت و نیم است.}} means…","options":["It's half past seven.","It's a quarter past seven.","It's half past six."],"answer":0,"why":"{{نیم}} is “half”: seven and a half."},
+        {"type":"fill","q":"Choose the missing word.","t":"کلاس ___ هشت است.","tr":"The class is at eight.","options":["ساعت","ساعت‌ها","در"],"answer":0,"why":"“At eight”: {{ساعت هشت}}, sâ'at-e hasht."},
+        {"type":"choice","q":"Which day comes after {{شنبه}}?","options":["{{یک‌شنبه}}","{{جمعه}}","{{دوشنبه}}"],"answer":0,"why":"The week starts with {{شنبه}}, Saturday; then {{یک‌شنبه}}, “one-Saturday”, Sunday."},
+        {"type":"dialogue","q":"Making a plan with a friend. Choose your replies.","from":"say-where-you-are-going","lines":[{"who":"Neda","t":"فردا به سینما می‌آیی؟","r":"fardâ be sinamâ mi-âyi?","tr":"Are you coming to the cinema tomorrow?"},{"options":["بله! فیلم ساعت چند است؟","بله! فیلم چند ساعت است؟"],"answer":0,"why":"“At what time” is {{ساعت چند}}. ({{چند ساعت}} is “how many hours”.)"},{"who":"Neda","t":"ساعت هفت و نیم.","r":"sâ'at-e haft o nim.","tr":"At half past seven."},{"options":["خوب است. ساعت هفت می‌آیم.","خوب است. در هفت ساعت می‌آیم."],"answer":0,"why":"“At seven” is just {{ساعت هفت}}. ({{در هفت ساعت}} would be “in seven hours”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't work on Fridays.","words":["جمعه‌ها","کار","نمی‌کنم."]},
+        {"type":"say","q":"Ask a stranger politely: “Excuse me, what time is it?”","answer":"ببخشید، ساعت چند است؟","r":"bebakhshid, sâ'at chand ast?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: describe your week: what you do on two different days, and at what time.","answers":[{"t":"شنبه‌ها ساعت هشت سر کار می‌روم. جمعه‌ها تا ساعت ده می‌خوابم.","r":"shanbe-hâ sâ'at-e hasht sar-e kâr mi-ravam. jom'e-hâ tâ sâ'at-e dah mi-khâbam.","tr":"On Saturdays I go to work at eight. On Fridays I sleep until ten."},{"t":"دوشنبه‌ها ساعت شش کلاس فارسی دارم.","r":"doshanbe-hâ sâ'at-e shesh kelâs-e fârsi dâram.","tr":"On Mondays I have a Persian class at six."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say how you feel",
+      "summary": "Say you're hungry, cold, sleepy or happy, and ask someone how they feel: some of the most Persian sentences there are.",
+      "topic": "the short “am, are” again ({{گرسنه‌ام}}); {{سردم است}}, {{خوابم می‌آید}}: feelings with a possessive ending; {{حالم خوب است}}",
+      "blocks": [
+        {"goal":{"t":"سردم است. پنجره را می‌بندی؟","r":"sardam ast. panjere râ mi-bandi?","tr":"I'm cold. Will you close the window?"}},
+        {"dialog":[{"who":"Ali","t":"حالت خوب است؟ خسته‌ای؟","r":"hâlat khub ast? khaste-i?","tr":"Are you OK? Are you tired?"},{"who":"Sara","t":"نه، خسته نیستم، ولی خیلی گرسنه‌ام!","r":"na, khaste nistam, vali kheyli gorosne-am!","tr":"No, I'm not tired, but I'm really hungry!"},{"who":"Ali","t":"من هم. سردت نیست؟","r":"man ham. sardat nist?","tr":"Me too. Aren't you cold?"},{"who":"Sara","t":"چرا، کمی سردم است.","r":"cherâ, kami sardam ast.","tr":"Yes, I'm a bit cold."},{"who":"Ali","t":"پس یک رستوران پیدا می‌کنیم!","r":"pas yek resturân peydâ mi-konim!","tr":"Then let's find a restaurant!"}]},
+        {"p":"**I'm hungry, I'm tired.** Many feelings are adjectives with the short “am, are” of lesson 3: {{گرسنه‌ام|gorosne-am}} “I'm hungry”, {{تشنه‌ام|teshne-am}} “I'm thirsty”, {{خسته‌ام|khaste-am}} “I'm tired”, {{خوشحالم|khoshhâlam}} “I'm happy”, {{ناراحتم|nârâhatam}} “I'm upset”. For “not”: {{نیستم|nistam}}, {{خسته نیستم.|khaste nistam.}}"},
+        {"p":"**I'm cold: “my cold is”.** For some feelings Persian says, word for word, “my cold is”, “my sleep comes”. The person is a possessive ending (lesson 4), and the verb is always the “it” form: {{سردم است.|sardam ast.}} “I'm cold.” {{گرمت است؟|garmat ast?}} “Are you hot?” {{خوابم می‌آید.|khâbam mi-âyad.}} “I'm sleepy.”"},
+        { "table": [
+          ["","I","you (friend)","he, she"],
+          ["cold","{{سردم است|sardam ast}}","{{سردت است|sardat ast}}","{{سردش است|sardash ast}}"],
+          ["hot","{{گرمم است|garmam ast}}","{{گرمت است|garmat ast}}","{{گرمش است|garmash ast}}"],
+          ["sleepy","{{خوابم می‌آید|khâbam mi-âyad}}","{{خوابت می‌آید|khâbat mi-âyad}}","{{خوابش می‌آید|khâbash mi-âyad}}"],
+          ["well","{{حالم خوب است|hâlam khub ast}}","{{حالت خوب است|hâlat khub ast}}","{{حالش خوب است|hâlash khub ast}}"]
+        ] },
+        {"p":"**How are you?** {{حالت چطور است؟|hâlat chetowr ast?}}, “how is your state?” (politely {{حالتان|hâletân}}), works the same way: {{حالم خوب است.|hâlam khub ast.}} “I'm well.” {{حالش خوب نیست.|hâlash khub nist.}} “He isn't well.”"},
+        { "ex": [
+          {"t":"خیلی تشنه‌ام. آب داری؟","r":"kheyli teshne-am. âb dâri?","tr":"I'm really thirsty. Do you have any water?"},
+          {"t":"امروز خیلی خوشحالم!","r":"emruz kheyli khoshhâlam!","tr":"I'm very happy today!"},
+          {"t":"سردتان است؟","r":"sardetân ast?","tr":"Are you cold?","note":"polite"},
+          {"t":"بچه‌ها خوابشان می‌آید.","r":"bachche-hâ khâbeshân mi-âyad.","tr":"The children are sleepy."},
+          {"t":"مادرم کمی ناراحت است.","r":"mâdaram kami nârâhat ast.","tr":"My mother is a bit upset."},
+          {"t":"حالم خوب نیست.","r":"hâlam khub nist.","tr":"I don't feel well."}
+        ] },
+        {"tip":"{{چرا|cherâ}}, “why”, is also the “yes” that answers a negative question: “{{سردت نیست؟}}” “Aren't you cold?”, “{{چرا!}}” “Yes, I am!”. {{بله}} there would be unclear."}
+      ],
+      "mistakes": [
+        {"wrong":"من سرد هستم.","right":"سردم است.","tr":"I'm cold.","why":"{{من سرد هستم}} says “I am a cold person”. For feeling cold, “my cold is”: {{سردم است}}."},
+        {"wrong":"خوابم می‌آیم.","right":"خوابم می‌آید.","tr":"I'm sleepy.","why":"The verb is about “my sleep”, so it stays “it comes”, {{می‌آید}}. The {{م}} on {{خواب}} says who."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"پنجره را می‌بندی؟ ___ است.","tr":"Will you close the window? I'm cold.","options":["سردم","سرد","سردی"],"answer":0,"why":"“I'm cold” is {{سردم است}}: “my cold is”."},
+        {"type":"choice","q":"{{خوابش می‌آید.}} means…","options":["He's sleepy.","I'm sleepy.","He's asleep."],"answer":0,"why":"{{خواب}} + {{ـش}} “his”: “his sleep comes”."},
+        {"type":"fill","q":"Choose the missing word.","t":"خیلی ___. یک ساندویچ می‌خواهم.","tr":"I'm very hungry. I'd like a sandwich.","options":["گرسنه‌ام","گرسنه‌ای","گرسنه است"],"answer":0,"why":"About yourself: -am, {{گرسنه‌ام}}.","from":"ask-for-what-you-want"},
+        {"type":"dialogue","q":"Your friend looks worried about you. Choose your replies.","from":"describe-things","lines":[{"who":"Ali","t":"حالت خوب است؟","r":"hâlat khub ast?","tr":"Are you OK?"},{"options":["نه، حالم خوب نیست. خیلی خسته‌ام.","نه، حالت خوب نیست. خیلی خسته‌ای."],"answer":0,"why":"About yourself: {{حالم}} “my state” and {{خسته‌ام}}."},{"who":"Ali","t":"سردت نیست؟","r":"sardat nist?","tr":"Aren't you cold?"},{"options":["چرا، خیلی سردم است.","بله، خیلی سرد هستم."],"answer":0,"why":"{{چرا}} is the yes to a negative question, and “I'm cold” is {{سردم است}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The children are sleepy.","words":["بچه‌ها","خوابشان","می‌آید."]},
+        {"type":"say","q":"Ask a friend: “Are you cold?”","answer":"سردت است؟","r":"sardat ast?"},
+        {"type":"free","q":"Your turn: how do you feel right now? Say two things: one with {{…م}}, one with {{…م است}} or {{…م می‌آید}}.","answers":[{"t":"کمی خسته‌ام و خوابم می‌آید.","r":"kami khaste-am va khâbam mi-âyad.","tr":"I'm a bit tired and sleepy."},{"t":"حالم خوب است، ولی گرسنه‌ام!","r":"hâlam khub ast, vali gorosne-am!","tr":"I'm fine, but I'm hungry!"}]}
+      ]
     }
   ]
 }
