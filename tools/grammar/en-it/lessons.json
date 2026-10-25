@@ -699,6 +699,388 @@
         {"type":"say","q":"Ask a stranger politely: “Excuse me, what time is it?”","answer":"Scusi, che ore sono?","from":"ask-where-things-are"},
         {"type":"free","q":"Your turn: describe your day with three times: when you work, when you eat, when you go home.","answers":[{"t":"Lavoro dalle nove alle cinque. Pranzo all'una e vado a casa alle sei.","tr":"I work from nine to five. I have lunch at one and I go home at six."},{"t":"Il lunedì vado in palestra alle sette di sera.","tr":"On Mondays I go to the gym at seven in the evening."}]}
       ]
+    },
+    {
+      "id": "talk-about-daily-habits",
+      "unit": 4,
+      "level": "A1",
+      "title": "Talk about your daily habits",
+      "summary": "Say how you get to work, what you read, when you finish, and that you don't understand: verbs in -ere and -ire.",
+      "topic": "The present of -ere and -ire verbs ({{prendo, dormo}}); {{capisco, finisco}} with -isc-",
+      "blocks": [
+        {"goal":{"t":"La mattina prendo l'autobus e leggo il giornale.","tr":"In the morning I take the bus and read the paper."}},
+        {"dialog":[{"who":"Sara","t":"Come vai al lavoro?","tr":"How do you get to work?"},{"who":"You","t":"Prendo la metro. E tu?","tr":"I take the subway. And you?"},{"who":"Sara","t":"Io vado a piedi. Ma la sera prendo il tram, perché finisco tardi.","tr":"I walk. But in the evening I take the tram, because I finish late."},{"who":"You","t":"A che ora finisci?","tr":"What time do you finish?"},{"who":"Sara","t":"Alle otto. E poi dormo sul divano!","tr":"At eight. And then I fall asleep on the sofa!"}]},
+        {"p":"**Verbs in -ere and -ire** have the same endings as -are verbs for “I” ({{-o}}), “you” ({{-i}}) and “we” ({{-iamo}}); the others change a little:"},
+        { "table": [
+          ["","{{prendere}} (to take)","{{dormire}} (to sleep)","{{finire}} (to finish)"],
+          ["I","{{prendo}}","{{dormo}}","{{finisco}}"],
+          ["you ({{tu}})","{{prendi}}","{{dormi}}","{{finisci}}"],
+          ["he, she, you ({{Lei}})","{{prende}}","{{dorme}}","{{finisce}}"],
+          ["we","{{prendiamo}}","{{dormiamo}}","{{finiamo}}"],
+          ["you (two or more)","{{prendete}}","{{dormite}}","{{finite}}"],
+          ["they","{{prendono}}","{{dormono}}","{{finiscono}}"]
+        ] },
+        {"p":"**Two kinds of -ire verbs.** Some, like {{dormire}}, {{partire}} “to leave” and {{aprire}} “to open”, take the endings directly. Others, like {{finire}}, {{capire}} “to understand” and {{preferire}} “to prefer”, add {{-isc-}} in four of their forms: {{capisco, capisci, capisce, capiscono}}. A dictionary tells you which; the common ones are few."},
+        {"p":"**Saying it**: {{sc}} sounds like “sk” before o and a, and like “sh” before i and e: {{capisco}} “ka-PEE-sko”, {{capisci}} “ka-PEE-shee”."},
+        { "ex": [
+          {"t":"Leggo un libro ogni sera.","tr":"I read a book every evening."},
+          {"t":"Non capisco.","tr":"I don't understand."},
+          {"t":"Il treno parte alle sei.","tr":"The train leaves at six."},
+          {"t":"Scrivi molte email?","tr":"Do you write a lot of emails?"},
+          {"t":"Apriamo la finestra?","tr":"Shall we open the window?"},
+          {"t":"Gli studenti vivono insieme.","tr":"The students live together."},
+          {"t":"Preferisco il tè.","tr":"I prefer tea."},
+          {"t":"Luca dorme fino a tardi la domenica.","tr":"Luca sleeps late on Sundays."}
+        ] },
+        {"tip":"{{Non capisco}} and {{Può ripetere, per favore?}} “Could you repeat that, please?” will save you in many conversations."}
+      ],
+      "mistakes": [
+        {"wrong":"Non capo.","right":"Non capisco.","tr":"I don't understand.","why":"{{capire}} adds {{-isc-}}: {{capisco}}."},
+        {"wrong":"Marco prenda il treno.","right":"Marco prende il treno.","tr":"Marco takes the train.","why":"-ere and -ire verbs end in {{-e}} for he and she ({{prende}}); {{-a}} is the ending of -are verbs ({{parla}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Il museo ___ alle nove.","tr":"The museum opens at nine.","options":["apre","apra","apro"],"answer":0,"why":"{{aprire}}: for he, she or it, {{apre}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Scusi, non ___.","tr":"Sorry, I don't understand.","options":["capisco","capo","capisce"],"answer":0,"why":"{{capire}} adds {{-isc-}}: {{capisco}}."},
+        {"type":"choice","q":"{{Prendiamo un taxi?}} means…","options":["Shall we take a taxi?","Are they taking a taxi?","Do you take a taxi?"],"answer":0,"why":"{{-iamo}} is “we”, as with -are verbs; as a question, it suggests: “Shall we…?”"},
+        {"type":"dialogue","q":"A colleague asks about your day: choose your replies.","lines":[{"who":"Sara","t":"Come vai al lavoro?","tr":"How do you get to work?"},{"options":["Prendo l'autobus.","Prende l'autobus."],"answer":0,"why":"“I take”: {{prendo}}."},{"who":"Sara","t":"E a che ora finisci?","tr":"And what time do you finish?"},{"options":["Finisco alle sei.","Finisco a sei."],"answer":0,"why":"“At” + a time: {{alle sei}}."}],"from":"tell-the-time"},
+        {"type":"order","q":"Put the words in order.","tr":"They live in Naples and work in Rome.","words":["Vivono","a Napoli","e lavorano","a Roma."],"from":"talk-about-yourself"},
+        {"type":"say","q":"Say: “Sorry, I don't understand. Could you repeat that, please?”","answer":"Scusi, non capisco. Può ripetere, per favore?"},
+        {"type":"free","q":"Your turn: describe a typical weekday with three verbs: what do you take, read, write, finish?","answers":[{"t":"La mattina prendo il treno, leggo le notizie e finisco di lavorare alle sei.","tr":"In the morning I take the train, I read the news, and I finish work at six."},{"t":"Scrivo molte email e la sera leggo un libro.","tr":"I write a lot of emails, and in the evening I read a book."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like and don't like, ask others, and agree: “Me too!”, “Me neither!”",
+      "topic": "{{mi piace}} / {{mi piacciono}} (back to front: “it pleases me”); {{ti piace? Le piace?}}; {{anche a me, neanche a me}}",
+      "blocks": [
+        {"goal":{"t":"Mi piace molto il caffè, ma non mi piacciono i dolci.","tr":"I really like coffee, but I don't like sweets."}},
+        {"dialog":[{"who":"Luca","t":"Ti piace la cucina italiana?","tr":"Do you like Italian food?"},{"who":"You","t":"Sì, mi piace moltissimo!","tr":"Yes, I love it!"},{"who":"Luca","t":"E ti piacciono i film italiani?","tr":"And do you like Italian movies?"},{"who":"You","t":"Sì, e mi piace anche leggere in italiano.","tr":"Yes, and I also like reading in Italian."},{"who":"Luca","t":"Anche a me! Non mi piace il calcio, però.","tr":"Me too! I don't like soccer, though."},{"who":"You","t":"Neanche a me!","tr":"Me neither!"}]},
+        {"p":"**Back to front.** {{mi piace}} works like “it pleases me”: the thing you like is the subject, and the verb agrees with it. For one thing, or for doing something: {{mi piace}}. For more than one thing: {{mi piacciono}}."},
+        { "table": [
+          ["","one thing, or doing something","more than one thing"],
+          ["I like","{{mi piace}}","{{mi piacciono}}"],
+          ["you ({{tu}}) like","{{ti piace}}","{{ti piacciono}}"],
+          ["you ({{Lei}}) like","{{Le piace}}","{{Le piacciono}}"],
+          ["he likes","{{gli piace}}","{{gli piacciono}}"],
+          ["she likes","{{le piace}}","{{le piacciono}}"],
+          ["we like","{{ci piace}}","{{ci piacciono}}"]
+        ] },
+        {"p":"**“The” for things in general.** Italian uses “the” when you talk about something in general: {{Mi piace il caffè}} “I like coffee”, {{Mi piacciono i cani}} “I like dogs”. English leaves “the” out there; Italian keeps it. (Cities have no article: {{Mi piace Roma}}.)"},
+        {"p":"**Liking to do something**: {{mi piace}} + the infinitive: {{Mi piace cucinare}} “I like cooking”."},
+        {"p":"**Agreeing and disagreeing**: {{Anche a me!}} “Me too!”; {{Neanche a me!}} “Me neither!” (to something you don't like); {{A me sì!}} “I do!”; {{A me no!}} “I don't!”"},
+        { "ex": [
+          {"t":"Mi piace la musica jazz.","tr":"I like jazz."},
+          {"t":"Ti piacciono i gatti?","tr":"Do you like cats?"},
+          {"t":"Non mi piace guidare.","tr":"I don't like driving."},
+          {"t":"Le piace l'Italia, signora?","tr":"Do you like Italy, madam?","note":"polite: {{Le}}"},
+          {"t":"A Marco piacciono le macchine sportive.","tr":"Marco likes sports cars.","note":"with a name: {{a Marco piace…}}"},
+          {"t":"Ci piace molto Roma.","tr":"We really like Rome."}
+        ] },
+        {"tip":"For “I love” about food and places, Italians usually say {{mi piace tantissimo}} or {{adoro}}: {{Adoro la pizza!}} {{Amo}} is mostly for people."}
+      ],
+      "mistakes": [
+        {"wrong":"Io piace il caffè.","right":"Mi piace il caffè.","tr":"I like coffee.","why":"Start with {{mi}}: “coffee pleases me”."},
+        {"wrong":"Mi piace i film.","right":"Mi piacciono i film.","tr":"I like movies.","why":"{{i film}} is plural, so the verb is too: {{piacciono}}."},
+        {"wrong":"Mi piace pizza.","right":"Mi piace la pizza.","tr":"I like pizza.","why":"Talking about something in general, Italian keeps “the”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi ___ i libri di storia.","tr":"I like history books.","options":["piacciono","piace"],"answer":0,"why":"{{libri}} is plural: {{piacciono}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ti piace ___ cioccolato?","tr":"Do you like chocolate?","options":["il","la","un"],"answer":0,"why":"Something in general takes “the”, and {{cioccolato}} is masculine: {{il}}.","from":"ask-where-things-are"},
+        {"type":"choice","q":"Your friend says {{Non mi piace il calcio.}} You don't like it either. You say…","options":["{{Neanche a me!}}","{{Anche a me!}}","{{A me sì!}}"],"answer":0,"why":"{{Neanche a me}} agrees with something negative."},
+        {"type":"dialogue","q":"Getting to know a new friend: choose your replies.","lines":[{"who":"Chiara","t":"Ti piace cucinare?","tr":"Do you like cooking?"},{"options":["Sì, mi piace molto!","Sì, io piace molto!"],"answer":0,"why":"{{mi piace}}, “it pleases me”."},{"who":"Chiara","t":"Anche a me! E ti piacciono i dolci?","tr":"Me too! And do you like desserts?"},{"options":["No, non mi piacciono.","No, non mi piace."],"answer":0,"why":"{{dolci}} is plural: {{piacciono}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Do you like Italian movies?","words":["Ti","piacciono","i film","italiani?"]},
+        {"type":"say","q":"Ask your landlady politely: “Do you like living in Rome?”","answer":"Le piace abitare a Roma?","from":"greet-people"},
+        {"type":"free","q":"Your turn: say two things you like and one you don't. Remember the article!","answers":[{"t":"Mi piace il cinema e mi piacciono i libri gialli, ma non mi piace lo sport.","tr":"I like movies and I like crime novels, but I don't like sports."},{"t":"Mi piace cucinare, ma non mi piacciono i pomodori.","tr":"I like cooking, but I don't like tomatoes."}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say how often, and what you never do",
+      "summary": "Talk about your habits: always, often, sometimes, never, nothing, nobody, not anymore.",
+      "topic": "{{non}}; {{sempre, spesso, a volte, mai}}; the double negative {{non… mai, non… niente, non… nessuno, non… più}}",
+      "blocks": [
+        {"goal":{"t":"Non bevo mai caffè la sera.","tr":"I never drink coffee in the evening."}},
+        {"dialog":[{"who":"Doctor","t":"Fuma?","tr":"Do you smoke?"},{"who":"You","t":"No, non fumo mai.","tr":"No, I never smoke."},{"who":"Doctor","t":"E beve alcol?","tr":"And do you drink alcohol?"},{"who":"You","t":"A volte un bicchiere di vino, ma durante la settimana non bevo niente.","tr":"Sometimes a glass of wine, but during the week I don't drink anything."},{"who":"Doctor","t":"Fa sport?","tr":"Do you do any sports?"},{"who":"You","t":"Sì, vado spesso in piscina.","tr":"Yes, I often go to the pool."},{"who":"Doctor","t":"Benissimo!","tr":"Very good!"}]},
+        {"p":"**{{non}}** goes right before the verb: {{Non fumo}} “I don't smoke”. That's all Italian needs for “don't” and “doesn't”."},
+        {"p":"**How often**: {{sempre}} “always”, {{spesso}} “often”, {{a volte}} or {{qualche volta}} “sometimes”, {{raramente}} “rarely”, {{mai}} “never”. They usually go after the verb: {{Vado spesso al cinema}} “I often go to the movies”."},
+        {"p":"**Two negatives, one meaning.** With {{mai}} “never”, {{niente}} “nothing”, {{nessuno}} “nobody” and {{più}} “anymore”, Italian keeps {{non}} before the verb as well: {{Non bevo mai caffè}}, word for word “I don't drink never coffee”. This double negative is correct, standard Italian."},
+        { "table": [
+          ["English","Italian"],
+          ["I never smoke.","{{Non fumo mai.}}"],
+          ["I don't eat anything.","{{Non mangio niente.}}"],
+          ["There's nobody here.","{{Non c'è nessuno.}}"],
+          ["I don't live in Rome anymore.","{{Non abito più a Roma.}}"]
+        ] },
+        { "ex": [
+          {"t":"Mangio sempre a casa.","tr":"I always eat at home."},
+          {"t":"Vado spesso al mare.","tr":"I often go to the beach."},
+          {"t":"A volte lavoro il sabato.","tr":"Sometimes I work on Saturdays."},
+          {"t":"Non guardo mai la TV.","tr":"I never watch TV."},
+          {"t":"Non capisco niente!","tr":"I don't understand anything!"},
+          {"t":"Non conosco nessuno qui.","tr":"I don't know anybody here."},
+          {"t":"Non fumo più.","tr":"I don't smoke anymore."}
+        ] },
+        {"tip":"{{bere}} “to drink” uses an old stem, {{bev-}}: {{bevo, bevi, beve, beviamo, bevete, bevono}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Bevo mai caffè.","right":"Non bevo mai caffè.","tr":"I never drink coffee.","why":"With {{mai}}, keep {{non}} before the verb too."},
+        {"wrong":"Non mai fumo.","right":"Non fumo mai.","tr":"I never smoke.","why":"{{non}} before the verb, {{mai}} after it."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Non mangio ___ carne.","tr":"I never eat meat.","options":["mai","sempre","spesso"],"answer":0,"why":"{{non… mai}}: “never”."},
+        {"type":"choice","q":"{{Non c'è nessuno}} means…","options":["There's nobody here.","There's nothing here.","There's someone here."],"answer":0,"why":"{{nessuno}} is “nobody”, with {{non}} before the verb.","from":"say-what-there-is"},
+        {"type":"fill","q":"Choose the missing word.","t":"Non abito ___ a Milano.","tr":"I don't live in Milan anymore.","options":["più","mai","niente"],"answer":0,"why":"{{non… più}}: “not anymore”."},
+        {"type":"dialogue","q":"At the doctor's: choose your replies.","lines":[{"who":"Doctor","t":"Fuma?","tr":"Do you smoke?"},{"options":["No, non fumo mai.","No, fumo mai."],"answer":0,"why":"Keep {{non}} before the verb with {{mai}}."},{"who":"Doctor","t":"Fa sport?","tr":"Do you do any sports?"},{"options":["Sì, vado spesso in palestra.","Sì, non vado spesso in palestra."],"answer":0,"why":"“Yes, I often go”: {{vado spesso}}. With {{non}} it would be “I don't often go”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I always drink a coffee after lunch.","words":["Bevo","sempre","un caffè","dopo pranzo."]},
+        {"type":"say","q":"Say: “I don't understand anything!”","answer":"Non capisco niente!","from":"talk-about-daily-habits"},
+        {"type":"free","q":"Your turn: say one thing you always do, one you often do, and one you never do.","answers":[{"t":"Leggo sempre prima di dormire, vado spesso al cinema e non guardo mai la TV.","tr":"I always read before going to sleep, I often go to the movies, and I never watch TV."},{"t":"Bevo sempre caffè, cucino spesso e non mangio mai carne.","tr":"I always drink coffee, I often cook, and I never eat meat."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A1",
+      "title": "Make plans and invite someone",
+      "summary": "Ask what someone is doing this weekend, invite them, and say yes or no nicely.",
+      "topic": "{{fare, uscire, venire}}; the present for plans; {{ti va di…?}}; the weather with {{fa}}",
+      "blocks": [
+        {"goal":{"t":"Stasera esco con gli amici. Vieni anche tu?","tr":"I'm going out with friends tonight. Are you coming too?"}},
+        {"dialog":[{"who":"Marco","t":"Cosa fai sabato?","tr":"What are you doing on Saturday?"},{"who":"You","t":"Niente di speciale. Perché?","tr":"Nothing special. Why?"},{"who":"Marco","t":"Facciamo una festa a casa mia. Vieni?","tr":"We're having a party at my place. Are you coming?"},{"who":"You","t":"Sì, vengo volentieri! A che ora?","tr":"Yes, I'd love to come! What time?"},{"who":"Marco","t":"Alle nove. Se fa bel tempo, stiamo in terrazza.","tr":"At nine. If the weather's nice, we'll be out on the terrace."},{"who":"You","t":"Perfetto, a sabato!","tr":"Perfect, see you Saturday!"}]},
+        {"p":"**Three irregular verbs for plans**: {{fare}} “to do, to make”, {{uscire}} “to go out”, {{venire}} “to come”."},
+        { "table": [
+          ["","{{fare}} (to do, to make)","{{uscire}} (to go out)","{{venire}} (to come)"],
+          ["I","{{faccio}}","{{esco}}","{{vengo}}"],
+          ["you ({{tu}})","{{fai}}","{{esci}}","{{vieni}}"],
+          ["he, she, you ({{Lei}})","{{fa}}","{{esce}}","{{viene}}"],
+          ["we","{{facciamo}}","{{usciamo}}","{{veniamo}}"],
+          ["you (two or more)","{{fate}}","{{uscite}}","{{venite}}"],
+          ["they","{{fanno}}","{{escono}}","{{vengono}}"]
+        ] },
+        {"p":"**The present for plans.** Italian uses the ordinary present for arranged plans, where English says “I'm going out tonight”: {{Stasera esco}}, {{Domani faccio la spesa}} “Tomorrow I'm doing the grocery shopping”."},
+        {"p":"**Inviting**: {{Vieni…?}} “Are you coming…?”, {{Usciamo stasera?}} “Shall we go out tonight?”, and {{Ti va di…?}} “Do you feel like…?” + the infinitive: {{Ti va di andare al cinema?}}. The answers: {{Sì, volentieri!}} “I'd love to!”, {{Mi dispiace, non posso}} “Sorry, I can't”."},
+        {"p":"**{{fare}} is everywhere**: {{fare colazione}} “to have breakfast”, {{fare la doccia}} “to take a shower”, {{fare una passeggiata}} “to go for a walk”, {{fare la spesa}} “to do the grocery shopping”. And the weather: {{Che tempo fa?}} “What's the weather like?”, {{Fa bel tempo}} “It's nice out”, {{Fa caldo}} “It's hot”."},
+        { "ex": [
+          {"t":"Cosa fai stasera?","tr":"What are you doing tonight?"},
+          {"t":"Usciamo a cena venerdì?","tr":"Shall we go out for dinner on Friday?"},
+          {"t":"Vengo da Londra.","tr":"I come from London."},
+          {"t":"Domani facciamo una passeggiata in montagna.","tr":"Tomorrow we're going for a walk in the mountains."},
+          {"t":"Ti va di venire al cinema?","tr":"Do you feel like coming to the movies?"},
+          {"t":"Oggi fa freddo, restiamo a casa.","tr":"It's cold today, let's stay home."},
+          {"t":"A che ora esci dal lavoro?","tr":"What time do you get off work?"}
+        ] },
+        {"tip":"To say no nicely: {{Mi dispiace, stasera non posso. Magari un'altra volta!}} “Sorry, I can't tonight. Maybe another time!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Uscio stasera.","right":"Esco stasera.","tr":"I'm going out tonight.","why":"{{uscire}} is irregular: {{esco, esci, esce, escono}} start with e-."},
+        {"wrong":"Oggi è freddo.","right":"Oggi fa freddo.","tr":"It's cold today.","why":"The weather uses {{fare}}: {{fa freddo}}. ({{è freddo}} is for a thing: {{Il caffè è freddo}}.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Cosa ___ domani?","tr":"What are you doing tomorrow?","options":["fai","fa","faccio"],"answer":0,"why":"To a friend: {{fai}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Stasera ___ con Giulia.","tr":"Tonight I'm going out with Giulia.","options":["esco","esce","uscio"],"answer":0,"why":"“I go out”: {{esco}}."},
+        {"type":"choice","q":"How do you say “It's hot today”?","options":["{{Oggi fa caldo.}}","{{Oggi ho caldo.}}","{{Oggi è caldo.}}"],"answer":0,"why":"The weather: {{fa caldo}}. ({{Ho caldo}} is “I'm hot”.)","from":"say-what-you-have"},
+        {"type":"dialogue","q":"Marco invites you: choose your replies.","lines":[{"who":"Marco","t":"Facciamo una festa sabato. Vieni?","tr":"We're having a party on Saturday. Are you coming?"},{"options":["Sì, vengo volentieri!","Sì, venio volentieri!"],"answer":0,"why":"“I come”: {{vengo}}."},{"who":"Marco","t":"Vengono anche Luca e Sara.","tr":"Luca and Sara are coming too."},{"options":["Che bello! A che ora?","Che bello! Che ore sono?"],"answer":0,"why":"{{A che ora?}} asks when the party is; {{Che ore sono?}} asks the time now."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Do you feel like going to the beach on Sunday?","words":["Ti va","di andare","al mare","domenica?"]},
+        {"type":"say","q":"Say: “Sorry, I can't tonight. Maybe another time!”","answer":"Mi dispiace, stasera non posso. Magari un'altra volta!"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend, and say when.","answers":[{"t":"Sabato facciamo una passeggiata in centro. Vieni anche tu?","tr":"On Saturday we're going for a walk downtown. Are you coming too?"},{"t":"Ti va di uscire a cena venerdì sera? Alle otto?","tr":"Do you feel like going out for dinner on Friday night? At eight?"}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 4,
+      "level": "A1",
+      "title": "Talk about your family",
+      "summary": "Show photos and say who's who: my sister, our parents, their house. Possessives, and when they lose “the”.",
+      "topic": "Possessives: {{il mio, la mia, i miei, le mie}}…; {{mia madre}} without the article",
+      "blocks": [
+        {"goal":{"t":"Mia sorella si chiama Laura e i miei genitori abitano a Boston.","tr":"My sister's name is Laura, and my parents live in Boston."}},
+        {"dialog":[{"who":"Chiara","t":"Chi è lei?","tr":"Who's she?"},{"who":"You","t":"È mia sorella, Laura. E loro sono i suoi figli.","tr":"That's my sister, Laura. And they're her children."},{"who":"Chiara","t":"Che carini! E lui è tuo padre?","tr":"How cute! And is he your father?"},{"who":"You","t":"Sì, e lei è mia madre. La loro casa è al mare.","tr":"Yes, and she's my mother. Their house is by the sea."},{"who":"Chiara","t":"Che bella famiglia!","tr":"What a lovely family!"}]},
+        {"term":"possessive","means":"a word that says whose something is: my, your, his, our."},
+        {"p":"**My, your, his…** In Italian, the possessive usually comes with “the”: {{il mio libro}} “my book”, word for word “the my book”. And it agrees with the thing owned, not with the owner:"},
+        { "table": [
+          ["","masculine","feminine","masculine plural","feminine plural"],
+          ["my","{{il mio}}","{{la mia}}","{{i miei}}","{{le mie}}"],
+          ["your ({{tu}})","{{il tuo}}","{{la tua}}","{{i tuoi}}","{{le tue}}"],
+          ["his, her, your ({{Lei}})","{{il suo}}","{{la sua}}","{{i suoi}}","{{le sue}}"],
+          ["our","{{il nostro}}","{{la nostra}}","{{i nostri}}","{{le nostre}}"],
+          ["your (two or more)","{{il vostro}}","{{la vostra}}","{{i vostri}}","{{le vostre}}"],
+          ["their","{{il loro}}","{{la loro}}","{{i loro}}","{{le loro}}"]
+        ] },
+        {"p":"**His or her?** {{suo}} means both, and agrees with the thing: {{la sua macchina}} is “his car” or “her car”, because {{macchina}} is feminine. The conversation tells you whose."},
+        {"p":"**Family: no “the”.** With one member of the family, leave out the article: {{mia madre}}, {{mio padre}}, {{mio fratello}}, {{tua sorella}}. Keep it in the plural ({{i miei genitori}}), with {{loro}} ({{il loro figlio}}), and with pet names ({{la mia mamma}}, {{il mio papà}})."},
+        { "ex": [
+          {"t":"Mio padre è medico.","tr":"My father is a doctor."},
+          {"t":"Mia madre è di Napoli.","tr":"My mother is from Naples."},
+          {"t":"I miei fratelli abitano lontano.","tr":"My brothers live far away.","note":"{{fratelli}} is “brothers”, or “brothers and sisters”"},
+          {"t":"Come si chiama tua sorella?","tr":"What's your sister's name?"},
+          {"t":"La sua macchina è nuova.","tr":"His car is new. (or: Her car is new.)"},
+          {"t":"La nostra casa è piccola.","tr":"Our house is small."},
+          {"t":"Il loro figlio ha tre anni.","tr":"Their son is three."}
+        ] },
+        {"tip":"{{a casa mia}} “at my place” puts the possessive after the noun, with no article: {{Vieni a casa mia?}} “Do you want to come over to my place?”"}
+      ],
+      "mistakes": [
+        {"wrong":"La mia madre è insegnante.","right":"Mia madre è insegnante.","tr":"My mother is a teacher.","why":"One member of the family: no article. (Pet names keep it: {{la mia mamma}}.)"},
+        {"wrong":"Mio libro è sul tavolo.","right":"Il mio libro è sul tavolo.","tr":"My book is on the table.","why":"Things, unlike family members, keep the article: {{il mio libro}}."},
+        {"wrong":"Marco e suo moglie.","right":"Marco e sua moglie.","tr":"Marco and his wife.","why":"{{suo}} agrees with the thing owned: {{moglie}} “wife” is feminine, so {{sua}}, even though Marco is a man."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ madre abita a Firenze.","tr":"My mother lives in Florence.","options":["Mia","La mia","Mio"],"answer":0,"why":"One family member: no article; {{madre}} is feminine: {{mia}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dove sono ___ chiavi?","tr":"Where are my keys?","options":["le mie","mie","i miei"],"answer":0,"why":"Things keep the article, and {{chiavi}} is feminine plural: {{le mie}}.","from":"talk-about-more-than-one"},
+        {"type":"choice","q":"{{la sua bicicletta}} can mean…","options":["his bike or her bike","only her bike","only his bike"],"answer":0,"why":"{{suo}} and {{sua}} agree with the thing ({{bicicletta}} is feminine), not with the owner."},
+        {"type":"dialogue","q":"Showing your photos: choose your replies.","lines":[{"who":"Chiara","t":"Chi è questo ragazzo?","tr":"Who's this boy?"},{"options":["È mio fratello, Tom.","È il mio fratello, Tom."],"answer":0,"why":"One family member: {{mio fratello}}, no article."},{"who":"Chiara","t":"E loro?","tr":"And them?"},{"options":["Sono i miei genitori.","Sono miei genitori."],"answer":0,"why":"In the plural, family members keep the article: {{i miei genitori}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Our apartment is near the station.","words":["Il nostro","appartamento","è vicino","alla stazione."]},
+        {"type":"say","q":"Ask a friend: “How old is your brother?”","answer":"Quanti anni ha tuo fratello?","from":"say-what-you-have"},
+        {"type":"free","q":"Your turn: introduce two people in your family: their names, their ages, where they live.","answers":[{"t":"Mia sorella si chiama Emma, ha trent'anni e abita a Londra.","tr":"My sister's name is Emma, she's thirty and she lives in London."},{"t":"I miei genitori abitano in Florida. Mio padre ha settant'anni.","tr":"My parents live in Florida. My father is seventy."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-and-must",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask permission and say what you must do",
+      "summary": "Ask if you can pay by card or take a photo, ask for help, and say what you have to and want to do.",
+      "topic": "{{potere, dovere, volere}} + the infinitive; {{sapere}} for skills ({{so nuotare}})",
+      "blocks": [
+        {"goal":{"t":"Posso pagare con la carta?","tr":"Can I pay by card?"}},
+        {"dialog":[{"who":"You","t":"Scusi, posso fare una foto?","tr":"Excuse me, can I take a photo?"},{"who":"Guard","t":"Sì, ma non può usare il flash.","tr":"Yes, but you can't use the flash."},{"who":"You","t":"Va bene. E dove devo lasciare lo zaino?","tr":"OK. And where do I have to leave my backpack?"},{"who":"Guard","t":"Al guardaroba, vicino all'ingresso.","tr":"At the cloakroom, near the entrance."},{"who":"You","t":"Grazie. Voglio vedere la Primavera di Botticelli: dov'è?","tr":"Thank you. I want to see Botticelli's Primavera: where is it?"},{"who":"Guard","t":"Sala dieci. Deve salire al secondo piano.","tr":"Room ten. You need to go up to the second floor."}]},
+        {"term":"modal verb","means":"a verb like can, must or want, which goes with another verb to say what is possible, necessary or wanted."},
+        {"p":"**Can, must, want.** {{potere}} “can, may”, {{dovere}} “must, have to” and {{volere}} “to want” are followed by a verb in the infinitive, with nothing in between: {{Posso entrare?}} “May I come in?”, {{Devo andare}} “I have to go”, {{Voglio dormire}} “I want to sleep”."},
+        { "table": [
+          ["","{{potere}} (can)","{{dovere}} (must)","{{volere}} (to want)"],
+          ["I","{{posso}}","{{devo}}","{{voglio}}"],
+          ["you ({{tu}})","{{puoi}}","{{devi}}","{{vuoi}}"],
+          ["he, she, you ({{Lei}})","{{può}}","{{deve}}","{{vuole}}"],
+          ["we","{{possiamo}}","{{dobbiamo}}","{{vogliamo}}"],
+          ["you (two or more)","{{potete}}","{{dovete}}","{{volete}}"],
+          ["they","{{possono}}","{{devono}}","{{vogliono}}"]
+        ] },
+        {"p":"**Asking.** {{Posso…?}} asks permission: “Can I…?” {{Può…?}} (to {{Lei}}) and {{Puoi…?}} (to {{tu}}) ask for help: {{Può ripetere?}} “Could you repeat that?”, {{Puoi chiamare un taxi?}} “Can you call a taxi?” And {{Vuoi…?}} offers: {{Vuoi un caffè?}} “Do you want a coffee?”"},
+        {"p":"**Can, or know how?** For a skill you've learned, Italian uses {{sapere}} “to know”: {{So nuotare}} “I can swim”, {{Sai cucinare?}} “Can you cook?” ({{so, sai, sa, sappiamo, sapete, sanno}}). {{potere}} is about being able, or allowed, right now: {{Oggi non posso nuotare, ho il raffreddore}} “I can't swim today, I have a cold”."},
+        { "ex": [
+          {"t":"Possiamo entrare?","tr":"Can we come in?"},
+          {"t":"Devo lavorare domani.","tr":"I have to work tomorrow."},
+          {"t":"Vuoi venire con noi?","tr":"Do you want to come with us?"},
+          {"t":"Non posso mangiare il glutine.","tr":"I can't eat gluten."},
+          {"t":"Deve prendere il treno delle otto.","tr":"You need to take the eight o'clock train.","note":"polite: {{deve}}, to {{Lei}}"},
+          {"t":"Sai parlare spagnolo?","tr":"Can you speak Spanish?","note":"a skill: {{sapere}}"},
+          {"t":"I bambini vogliono un gelato.","tr":"The children want an ice cream."}
+        ] },
+        {"tip":"{{voglio}} is fine with friends and family, but in a store or a restaurant use {{vorrei}}, the polite form of {{volere}} you met ordering coffee."}
+      ],
+      "mistakes": [
+        {"wrong":"Posso a pagare con la carta?","right":"Posso pagare con la carta?","tr":"Can I pay by card?","why":"After {{posso}}, {{devo}} and {{voglio}}, the infinitive follows directly: there's no word for “to”."},
+        {"wrong":"Posso nuotare molto bene.","right":"So nuotare molto bene.","tr":"I can swim very well.","why":"A skill you've learned uses {{sapere}}: {{so nuotare}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ aprire la finestra?","tr":"May I open the window?","options":["Posso","Devo","So"],"answer":0,"why":"Asking permission: {{posso}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Domani ___ andare dal medico.","tr":"Tomorrow I have to go to the doctor's.","options":["devo","posso","voglio"],"answer":0,"why":"“I have to”: {{devo}}.","from":"say-where-you-are-going"},
+        {"type":"choice","q":"“Can you cook?” (Do you know how?) is…","options":["{{Sai cucinare?}}","{{Puoi cucinare?}}","{{Vuoi cucinare?}}"],"answer":0,"why":"A skill: {{sapere}}. {{Puoi cucinare?}} is “Are you able to cook (now)?”, {{Vuoi cucinare?}} “Do you want to cook?”"},
+        {"type":"dialogue","q":"In a clothing store: choose your replies.","lines":[{"who":"Shop assistant","t":"Buongiorno! Desidera?","tr":"Good morning! Can I help you?"},{"options":["Sì, posso provare questa giacca?","Sì, posso a provare questa giacca?"],"answer":0,"why":"Nothing goes between {{posso}} and the infinitive."},{"who":"Shop assistant","t":"Certo, il camerino è lì.","tr":"Of course, the fitting room is over there."},{"options":["Grazie. E posso pagare con la carta?","Grazie. E devo pagare con la carta?"],"answer":0,"why":"You're asking if it's allowed: {{posso}}. ({{devo}} would be “do I have to”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We want to see the Colosseum.","words":["Vogliamo","vedere","il Colosseo."]},
+        {"type":"say","q":"Ask politely: “Could you repeat that, please?”","answer":"Può ripetere, per favore?","from":"greet-people"},
+        {"type":"free","q":"Your turn: say one thing you must do this week, one you want to do, and one you can't do.","answers":[{"t":"Devo lavorare tutti i giorni, voglio andare al cinema, ma non posso uscire venerdì.","tr":"I have to work every day, I want to go to the movies, but I can't go out on Friday."},{"t":"Devo fare la spesa, voglio dormire tanto e non posso bere caffè la sera.","tr":"I have to do the grocery shopping, I want to sleep a lot, and I can't drink coffee in the evening."}]}
+      ]
+    },
+    {
+      "id": "describe-your-morning",
+      "unit": 4,
+      "level": "A2",
+      "title": "Describe your morning routine",
+      "summary": "Say when you wake up, get up, get dressed and get ready: the Italian “do it to yourself” verbs.",
+      "topic": "Reflexive verbs: {{mi sveglio, ti alzi, si veste}}…; {{devo alzarmi}}",
+      "blocks": [
+        {"goal":{"t":"Mi sveglio alle sette, mi alzo e mi vesto.","tr":"I wake up at seven, I get up and I get dressed."}},
+        {"dialog":[{"who":"Sara","t":"A che ora ti svegli la mattina?","tr":"What time do you wake up in the morning?"},{"who":"You","t":"Mi sveglio alle sei e mezza, ma mi alzo alle sette!","tr":"I wake up at six thirty, but I get up at seven!"},{"who":"Sara","t":"Io invece mi alzo subito, e mi preparo in dieci minuti.","tr":"I get up right away, and I get ready in ten minutes."},{"who":"You","t":"Io mi lavo, mi vesto, faccio colazione... e arrivo sempre in ritardo!","tr":"I wash, get dressed, have breakfast… and I'm always late!"}]},
+        {"term":"reflexive verb","means":"a verb whose action goes back to the subject: “I wash myself”. In the dictionary it ends in {{-si}}: {{lavarsi}} “to wash (yourself)”."},
+        {"p":"**Doing something to yourself.** Many everyday actions in Italian are reflexive: you wake yourself up, you dress yourself. The verb comes with a little pronoun that matches the subject, placed before it:"},
+        { "table": [
+          ["","{{svegliarsi}} (to wake up)","{{alzarsi}} (to get up)"],
+          ["I","{{mi sveglio}}","{{mi alzo}}"],
+          ["you ({{tu}})","{{ti svegli}}","{{ti alzi}}"],
+          ["he, she, you ({{Lei}})","{{si sveglia}}","{{si alza}}"],
+          ["we","{{ci svegliamo}}","{{ci alziamo}}"],
+          ["you (two or more)","{{vi svegliate}}","{{vi alzate}}"],
+          ["they","{{si svegliano}}","{{si alzano}}"]
+        ] },
+        {"p":"Many of them aren't reflexive in English: {{svegliarsi}} “to wake up”, {{alzarsi}} “to get up”, {{vestirsi}} “to get dressed”, {{prepararsi}} “to get ready”, {{sedersi}} “to sit down”, {{divertirsi}} “to have fun”, {{ricordarsi}} “to remember”. And you've known one since the first lesson: {{mi chiamo}} “my name is”, from {{chiamarsi}} “to be called”."},
+        {"p":"**With {{non}}**, it goes before the little pronoun: {{Non mi alzo presto}} “I don't get up early”. **With a modal verb**, the pronoun can join the end of the infinitive, still matching the subject: {{Devo alzarmi presto}} “I have to get up early”, {{Vuoi sederti?}} “Do you want to sit down?”"},
+        { "ex": [
+          {"t":"Mi sveglio sempre tardi.","tr":"I always wake up late."},
+          {"t":"A che ora ti alzi?","tr":"What time do you get up?"},
+          {"t":"Luca si veste in cinque minuti.","tr":"Luca gets dressed in five minutes."},
+          {"t":"Ci divertiamo molto!","tr":"We're having a lot of fun!"},
+          {"t":"I bambini si lavano i denti.","tr":"The children brush their teeth.","note":"with body parts, Italian says “the”: {{i denti}}"},
+          {"t":"Domani devo alzarmi alle cinque.","tr":"Tomorrow I have to get up at five."},
+          {"t":"Non mi ricordo il suo nome.","tr":"I don't remember his name."}
+        ] },
+        {"tip":"With your own body and clothes, Italian uses “the”, not “my”: {{Mi lavo le mani}} “I wash my hands”, {{Mi metto la giacca}} “I put on my jacket”. The {{mi}} already says whose."}
+      ],
+      "mistakes": [
+        {"wrong":"Sveglio alle sette.","right":"Mi sveglio alle sette.","tr":"I wake up at seven.","why":"{{svegliarsi}} needs its pronoun: {{mi sveglio}}. ({{Sveglio}} alone means “I wake someone else up”.)"},
+        {"wrong":"Mi lavo i miei capelli.","right":"Mi lavo i capelli.","tr":"I wash my hair.","why":"With your own body, “the” is enough: {{mi}} already says whose."},
+        {"wrong":"Devo mi alzare presto.","right":"Devo alzarmi presto.","tr":"I have to get up early.","why":"With a modal verb, the pronoun goes on the end of the infinitive ({{alzarmi}}) or before both verbs ({{Mi devo alzare presto}}), never in between."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"La mattina ___ alzo alle sette.","tr":"In the morning I get up at seven.","options":["mi","ti","si"],"answer":0,"why":"“I”: {{mi alzo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A che ora ___ svegli?","tr":"What time do you wake up?","options":["ti","mi","si"],"answer":0,"why":"“You” ({{tu}}): {{ti svegli}}."},
+        {"type":"choice","q":"{{Ci divertiamo}} means…","options":["We're having fun.","They're having fun.","You're having fun."],"answer":0,"why":"{{ci}} and the ending {{-iamo}}: “we”."},
+        {"type":"dialogue","q":"Talking about weekends: choose your replies.","lines":[{"who":"Sara","t":"Ti alzi presto la domenica?","tr":"Do you get up early on Sundays?"},{"options":["No, non mi alzo mai prima delle dieci!","No, mi non alzo mai prima delle dieci!"],"answer":0,"why":"{{non}} comes before the little pronoun: {{non mi alzo}}, and {{mai}} after the verb."},{"who":"Sara","t":"Beato te! Io devo alzarmi alle sei.","tr":"Lucky you! I have to get up at six."},{"options":["Anche il sabato?","Anche la sabato?"],"answer":0,"why":"{{sabato}} is masculine: {{il sabato}} “on Saturdays”."}],"from":"say-how-often"},
+        {"type":"order","q":"Put the words in order.","tr":"I have to get ready, I'm late!","words":["Devo","prepararmi,","sono","in ritardo!"]},
+        {"type":"say","q":"Ask a friend: “Do you want to sit down?”","answer":"Vuoi sederti?","from":"say-what-you-can-and-must"},
+        {"type":"free","q":"Your turn: describe your morning in three or four steps, with times.","answers":[{"t":"Mi sveglio alle sette, mi alzo alle sette e un quarto, mi faccio la doccia e mi vesto.","tr":"I wake up at seven, I get up at a quarter past seven, I take a shower and I get dressed."},{"t":"La mattina mi alzo presto, faccio colazione e mi preparo in mezz'ora.","tr":"In the morning I get up early, have breakfast and get ready in half an hour."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what's happening right now",
+      "summary": "On the phone or in a message: “I'm driving”, “It's raining”, “We're on our way!”",
+      "topic": "{{stare}} + the gerund: {{sto lavorando, sta piovendo}}",
+      "blocks": [
+        {"goal":{"t":"Scusa, sto guidando. Ti richiamo dopo!","tr":"Sorry, I'm driving. I'll call you back later!"}},
+        {"dialog":[{"who":"Mom","t":"Pronto, tesoro! Cosa stai facendo?","tr":"Hello, sweetheart! What are you doing?"},{"who":"You","t":"Sto cucinando: stasera vengono Luca e Sara a cena.","tr":"I'm cooking: Luca and Sara are coming for dinner tonight."},{"who":"Mom","t":"E cosa prepari?","tr":"And what are you making?"},{"who":"You","t":"Le lasagne. Ma scusa, sta suonando il campanello!","tr":"Lasagna. But sorry, the doorbell is ringing!"},{"who":"Mom","t":"Va bene, ci sentiamo domani!","tr":"OK, talk to you tomorrow!"}]},
+        {"p":"**Right now, in the middle of it.** The ordinary present ({{cucino}}) already means both “I cook” and “I'm cooking”. To stress that something is happening at this very moment, Italian uses {{stare}} + the gerund: {{sto cucinando}} “I'm cooking (right now)”."},
+        {"term":"gerund","means":"the -ing form of a verb: cooking, doing. In Italian it ends in {{-ando}} or {{-endo}}: {{parlando}}, {{leggendo}}."},
+        { "table": [
+          ["","{{stare}}","example"],
+          ["I","{{sto}}","{{sto lavorando}}"],
+          ["you ({{tu}})","{{stai}}","{{stai dormendo?}}"],
+          ["he, she, you ({{Lei}})","{{sta}}","{{sta piovendo}}"],
+          ["we","{{stiamo}}","{{stiamo arrivando}}"],
+          ["you (two or more)","{{state}}","{{state mangiando?}}"],
+          ["they","{{stanno}}","{{stanno giocando}}"]
+        ] },
+        {"p":"**The gerund**: -are verbs take {{-ando}} ({{parlare → parlando}}), -ere and -ire verbs take {{-endo}} ({{leggere → leggendo}}, {{dormire → dormendo}}). It never changes. Three to learn: {{fare → facendo}}, {{bere → bevendo}}, {{dire → dicendo}} (“saying”)."},
+        {"p":"**Only for what's in progress.** English uses “-ing” for plans too; Italian {{stare}} + gerund is just for now. “I'm leaving tomorrow” is {{Parto domani}}, never {{sto partendo domani}}."},
+        { "ex": [
+          {"t":"Cosa stai facendo?","tr":"What are you doing?"},
+          {"t":"Sto lavorando, ti chiamo dopo.","tr":"I'm working, I'll call you later."},
+          {"t":"Sta piovendo!","tr":"It's raining!","note":"no word for “it”"},
+          {"t":"I bambini stanno dormendo.","tr":"The children are sleeping."},
+          {"t":"Stiamo arrivando!","tr":"We're on our way!"},
+          {"t":"Scusi, sta aspettando il dottore?","tr":"Excuse me, are you waiting for the doctor?","note":"polite: {{sta}}"}
+        ] },
+        {"tip":"{{Arrivo!}} or {{Sto arrivando!}} “Coming!” is what Italians call out when someone rings the doorbell."}
+      ],
+      "mistakes": [
+        {"wrong":"Sono mangiando.","right":"Sto mangiando.","tr":"I'm eating.","why":"The gerund goes with {{stare}}, not {{essere}}."},
+        {"wrong":"Sto partendo domani.","right":"Parto domani.","tr":"I'm leaving tomorrow.","why":"{{stare}} + gerund is only for what is happening right now. For plans, use the ordinary present."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Non posso parlare, ___ guidando.","tr":"I can't talk, I'm driving.","options":["sto","sono","ho"],"answer":0,"why":"{{stare}} + gerund: {{sto guidando}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Marco sta ___ il giornale.","tr":"Marco is reading the paper.","options":["leggendo","leggando","legge"],"answer":0,"why":"-ere verbs take {{-endo}}."},
+        {"type":"choice","q":"“We're leaving tomorrow” is…","options":["{{Partiamo domani.}}","{{Stiamo partendo domani.}}"],"answer":0,"why":"A plan: the ordinary present. {{stare}} + gerund is only for right now.","from":"make-plans"},
+        {"type":"dialogue","q":"Your mom calls: choose your replies.","lines":[{"who":"Mom","t":"Pronto! Cosa stai facendo?","tr":"Hello! What are you doing?"},{"options":["Sto preparando la cena.","Sono preparando la cena."],"answer":0,"why":"With the gerund, {{stare}}: {{sto preparando}}."},{"who":"Mom","t":"E Luca?","tr":"And Luca?"},{"options":["Sta guardando la partita in TV.","Sta guardendo la partita in TV."],"answer":0,"why":"-are verbs take {{-ando}}: {{guardando}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"What are you doing right now?","words":["Cosa","stai","facendo","adesso?"]},
+        {"type":"say","q":"Text a friend: “Sorry, I'm late! I'm on my way!”","answer":"Scusa, sono in ritardo! Sto arrivando!","from":"tell-the-time"},
+        {"type":"free","q":"Your turn: it's Saturday at eleven. Say what you and two people you know are doing right now.","answers":[{"t":"Io sto leggendo, mia sorella sta lavorando e i miei genitori stanno facendo la spesa.","tr":"I'm reading, my sister is working, and my parents are doing the grocery shopping."},{"t":"Sto facendo colazione e mio marito sta ancora dormendo.","tr":"I'm having breakfast and my husband is still sleeping."}]}
+      ]
     }
   ]
 }
