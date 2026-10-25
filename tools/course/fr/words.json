@@ -6475,6 +6475,954 @@
       "meaning": "success",
       "sentence": "Le concert a eu beaucoup de succès.",
       "translation": "The concert was a big ⟦success⟧."
+    },
+    {
+      "n": 701,
+      "rank": 733,
+      "word": "empêcher",
+      "pos": "verb",
+      "meaning": "to prevent, to stop",
+      "sentence": "Le bruit m'empêche de dormir.",
+      "translation": "The noise ⟦stops⟧ me sleeping.",
+      "form": "empêche"
+    },
+    {
+      "n": 702,
+      "rank": 734,
+      "word": "compter",
+      "pos": "verb",
+      "meaning": "to count; to intend",
+      "sentence": "Compte jusqu'à dix.",
+      "translation": "⟦Count⟧ to ten.",
+      "form": "compte"
+    },
+    {
+      "n": 703,
+      "rank": 735,
+      "word": "fête",
+      "pos": "noun",
+      "meaning": "party; festival, holiday",
+      "sentence": "On fait une fête samedi.",
+      "translation": "We're having a ⟦party⟧ on Saturday."
+    },
+    {
+      "n": 704,
+      "rank": 736,
+      "word": "soirée",
+      "pos": "noun",
+      "meaning": "evening; party",
+      "sentence": "Bonne soirée !",
+      "translation": "Have a nice ⟦evening⟧!"
+    },
+    {
+      "n": 705,
+      "rank": 737,
+      "word": "refuser",
+      "pos": "verb",
+      "meaning": "to refuse, to turn down",
+      "sentence": "Elle a refusé son offre.",
+      "translation": "She ⟦turned down⟧ his offer.",
+      "form": "refusé"
+    },
+    {
+      "n": 706,
+      "rank": 738,
+      "word": "mourir",
+      "pos": "verb",
+      "meaning": "to die",
+      "sentence": "Mon grand-père est mort l'an dernier.",
+      "translation": "My grandfather ⟦died⟧ last year.",
+      "form": "mort"
+    },
+    {
+      "n": 707,
+      "rank": 739,
+      "word": "acte",
+      "pos": "noun",
+      "meaning": "act, action",
+      "sentence": "C'est un acte de courage.",
+      "translation": "It's an ⟦act⟧ of courage."
+    },
+    {
+      "n": 708,
+      "rank": 740,
+      "word": "responsable",
+      "pos": "noun",
+      "meaning": "person in charge; (adjective) responsible",
+      "sentence": "Qui est le responsable ici ?",
+      "translation": "Who's ⟦in charge⟧ here?"
+    },
+    {
+      "n": 709,
+      "rank": 741,
+      "word": "futur",
+      "pos": "adj",
+      "meaning": "future (future: feminine); (noun) the future",
+      "sentence": "Il faut protéger les générations futures.",
+      "translation": "We must protect ⟦future⟧ generations.",
+      "form": "futures"
+    },
+    {
+      "n": 710,
+      "rank": 742,
+      "word": "code",
+      "pos": "noun",
+      "meaning": "code",
+      "sentence": "Quel est le code de la porte ?",
+      "translation": "What's the door ⟦code⟧?"
+    },
+    {
+      "n": 711,
+      "rank": 743,
+      "word": "version",
+      "pos": "noun",
+      "meaning": "version",
+      "sentence": "Le film est en version originale.",
+      "translation": "The film is in the original ⟦version⟧."
+    },
+    {
+      "n": 712,
+      "rank": 744,
+      "word": "presse",
+      "pos": "noun",
+      "meaning": "the press (newspapers)",
+      "sentence": "Il a parlé à la presse.",
+      "translation": "He spoke to the ⟦press⟧."
+    },
+    {
+      "n": 713,
+      "rank": 746,
+      "word": "simplement",
+      "pos": "adv",
+      "meaning": "simply, just",
+      "sentence": "Dis-lui simplement la vérité.",
+      "translation": "⟦Just⟧ tell him the truth."
+    },
+    {
+      "n": 714,
+      "rank": 747,
+      "word": "travers",
+      "pos": "noun",
+      "meaning": "à travers: through",
+      "sentence": "Il regarde à travers la fenêtre.",
+      "translation": "He's looking ⟦through⟧ the window."
+    },
+    {
+      "n": 715,
+      "rank": 748,
+      "word": "entrer",
+      "pos": "verb",
+      "meaning": "to come in, to go in, to enter",
+      "sentence": "Entrez, je vous en prie.",
+      "translation": "⟦Come in⟧, please.",
+      "form": "entrez"
+    },
+    {
+      "n": 716,
+      "rank": 749,
+      "word": "sol",
+      "pos": "noun",
+      "meaning": "floor; ground; soil",
+      "sentence": "Le sol est mouillé.",
+      "translation": "The ⟦floor⟧ is wet."
+    },
+    {
+      "n": 717,
+      "rank": 750,
+      "word": "médecin",
+      "pos": "noun",
+      "meaning": "doctor",
+      "sentence": "Il faut aller chez le médecin.",
+      "translation": "You need to go to the ⟦doctor⟧'s."
+    },
+    {
+      "n": 718,
+      "rank": 751,
+      "word": "cacher",
+      "pos": "verb",
+      "meaning": "to hide",
+      "sentence": "Où as-tu caché les cadeaux ?",
+      "translation": "Where did you ⟦hide⟧ the presents?",
+      "form": "caché"
+    },
+    {
+      "n": 719,
+      "rank": 752,
+      "word": "église",
+      "pos": "noun",
+      "meaning": "church",
+      "sentence": "L'église est au centre du village.",
+      "translation": "The ⟦church⟧ is in the middle of the village."
+    },
+    {
+      "n": 720,
+      "rank": 753,
+      "word": "principe",
+      "pos": "noun",
+      "meaning": "principle (en principe: in theory, normally)",
+      "sentence": "En principe, il arrive à huit heures.",
+      "translation": "⟦In theory⟧, he gets here at eight."
+    },
+    {
+      "n": 721,
+      "rank": 754,
+      "word": "départ",
+      "pos": "noun",
+      "meaning": "departure; start",
+      "sentence": "Le départ est à six heures.",
+      "translation": "⟦Departure⟧ is at six."
+    },
+    {
+      "n": 722,
+      "rank": 755,
+      "word": "raconter",
+      "pos": "verb",
+      "meaning": "to tell (a story, what happened)",
+      "sentence": "Raconte-moi ta journée.",
+      "translation": "⟦Tell⟧ me about your day.",
+      "form": "raconte"
+    },
+    {
+      "n": 723,
+      "rank": 756,
+      "word": "situé",
+      "pos": "adj",
+      "meaning": "located, situated (située: feminine)",
+      "sentence": "L'hôtel est situé près de la gare.",
+      "translation": "The hotel is ⟦located⟧ near the station."
+    },
+    {
+      "n": 724,
+      "rank": 757,
+      "word": "faute",
+      "pos": "noun",
+      "meaning": "fault; mistake",
+      "sentence": "Ce n'est pas ma faute.",
+      "translation": "It's not my ⟦fault⟧."
+    },
+    {
+      "n": 725,
+      "rank": 758,
+      "word": "téléphone",
+      "pos": "noun",
+      "meaning": "phone, telephone",
+      "sentence": "Mon téléphone n'a plus de batterie.",
+      "translation": "My ⟦phone⟧ has run out of battery."
+    },
+    {
+      "n": 726,
+      "rank": 759,
+      "word": "dimanche",
+      "pos": "noun",
+      "meaning": "Sunday",
+      "sentence": "Le dimanche, je me repose.",
+      "translation": "On ⟦Sundays⟧, I rest."
+    },
+    {
+      "n": 727,
+      "rank": 760,
+      "word": "signe",
+      "pos": "noun",
+      "meaning": "sign",
+      "sentence": "C'est bon signe.",
+      "translation": "That's a good ⟦sign⟧."
+    },
+    {
+      "n": 728,
+      "rank": 761,
+      "word": "grave",
+      "pos": "adj",
+      "meaning": "serious (ce n'est pas grave: it doesn't matter)",
+      "sentence": "Ce n'est pas grave.",
+      "translation": "It's no ⟦big deal⟧."
+    },
+    {
+      "n": 729,
+      "rank": 762,
+      "word": "lié",
+      "pos": "adj",
+      "meaning": "linked, connected (liée: feminine)",
+      "sentence": "Les deux problèmes sont liés.",
+      "translation": "The two problems are ⟦linked⟧.",
+      "form": "liés"
+    },
+    {
+      "n": 730,
+      "rank": 764,
+      "word": "bientôt",
+      "pos": "adv",
+      "meaning": "soon (à bientôt: see you soon)",
+      "sentence": "Il va bientôt arriver.",
+      "translation": "He'll be here ⟦soon⟧."
+    },
+    {
+      "n": 731,
+      "rank": 765,
+      "word": "présence",
+      "pos": "noun",
+      "meaning": "presence; attendance",
+      "sentence": "Merci de votre présence.",
+      "translation": "Thank you for your ⟦presence⟧."
+    },
+    {
+      "n": 732,
+      "rank": 766,
+      "word": "élevé",
+      "pos": "adj",
+      "meaning": "high (prices, numbers) (élevée: feminine)",
+      "sentence": "Les prix sont très élevés.",
+      "translation": "Prices are very ⟦high⟧.",
+      "form": "élevés"
+    },
+    {
+      "n": 733,
+      "rank": 767,
+      "word": "vérité",
+      "pos": "noun",
+      "meaning": "truth",
+      "sentence": "Dis-moi la vérité.",
+      "translation": "Tell me the ⟦truth⟧."
+    },
+    {
+      "n": 734,
+      "rank": 768,
+      "word": "territoire",
+      "pos": "noun",
+      "meaning": "territory",
+      "sentence": "Le chat défend son territoire.",
+      "translation": "The cat defends its ⟦territory⟧."
+    },
+    {
+      "n": 735,
+      "rank": 769,
+      "word": "naître",
+      "pos": "verb",
+      "meaning": "to be born (je suis né, née: I was born)",
+      "sentence": "Je suis né à Lyon.",
+      "translation": "I was ⟦born⟧ in Lyon.",
+      "form": "né"
+    },
+    {
+      "n": 736,
+      "rank": 770,
+      "word": "député",
+      "pos": "noun",
+      "meaning": "member of parliament, MP",
+      "sentence": "Le député a voté contre la loi.",
+      "translation": "The ⟦MP⟧ voted against the law."
+    },
+    {
+      "n": 737,
+      "rank": 771,
+      "word": "course",
+      "pos": "noun",
+      "meaning": "race; (plural) shopping (faire les courses)",
+      "sentence": "Je vais faire les courses.",
+      "translation": "I'm going to do the ⟦shopping⟧.",
+      "form": "courses"
+    },
+    {
+      "n": 738,
+      "rank": 772,
+      "word": "énergie",
+      "pos": "noun",
+      "meaning": "energy",
+      "sentence": "Je n'ai plus d'énergie.",
+      "translation": "I've got no ⟦energy⟧ left."
+    },
+    {
+      "n": 739,
+      "rank": 773,
+      "word": "prince",
+      "pos": "noun",
+      "meaning": "prince (princesse: princess)",
+      "sentence": "Ma fille veut être une princesse.",
+      "translation": "My daughter wants to be a ⟦princess⟧.",
+      "form": "princesse"
+    },
+    {
+      "n": 740,
+      "rank": 774,
+      "word": "indiquer",
+      "pos": "verb",
+      "meaning": "to show, to tell (the way); to indicate",
+      "sentence": "Vous pouvez m'indiquer la gare ?",
+      "translation": "Can you ⟦tell⟧ me the way to the station?"
+    },
+    {
+      "n": 741,
+      "rank": 775,
+      "word": "divers",
+      "pos": "adj",
+      "meaning": "various (diverses: feminine)",
+      "sentence": "On a parlé de sujets divers.",
+      "translation": "We talked about ⟦various⟧ things."
+    },
+    {
+      "n": 742,
+      "rank": 776,
+      "word": "chien",
+      "pos": "noun",
+      "meaning": "dog (chienne: female dog)",
+      "sentence": "Mon chien s'appelle Max.",
+      "translation": "My ⟦dog⟧ is called Max."
+    },
+    {
+      "n": 743,
+      "rank": 777,
+      "word": "spécial",
+      "pos": "adj",
+      "meaning": "special (spéciale: feminine)",
+      "sentence": "C'est un jour spécial.",
+      "translation": "It's a ⟦special⟧ day."
+    },
+    {
+      "n": 744,
+      "rank": 778,
+      "word": "imposer",
+      "pos": "verb",
+      "meaning": "to impose",
+      "sentence": "Il impose toujours ses idées.",
+      "translation": "He always ⟦imposes⟧ his ideas.",
+      "form": "impose"
+    },
+    {
+      "n": 745,
+      "rank": 779,
+      "word": "construire",
+      "pos": "verb",
+      "meaning": "to build",
+      "sentence": "Ils construisent une nouvelle école.",
+      "translation": "They're ⟦building⟧ a new school.",
+      "form": "construisent"
+    },
+    {
+      "n": 746,
+      "rank": 780,
+      "word": "profiter",
+      "pos": "verb",
+      "meaning": "profiter de: to make the most of, to enjoy",
+      "sentence": "Profite bien de tes vacances !",
+      "translation": "⟦Enjoy⟧ your holiday!",
+      "form": "profite"
+    },
+    {
+      "n": 747,
+      "rank": 781,
+      "word": "paraître",
+      "pos": "verb",
+      "meaning": "to seem; to appear (il paraît que: apparently)",
+      "sentence": "Il paraît qu'il va neiger.",
+      "translation": "⟦Apparently⟧ it's going to snow.",
+      "form": "paraît"
+    },
+    {
+      "n": 748,
+      "rank": 782,
+      "word": "établir",
+      "pos": "verb",
+      "meaning": "to establish, to set up",
+      "sentence": "Ils ont établi des règles.",
+      "translation": "They ⟦set⟧ some rules.",
+      "form": "établi"
+    },
+    {
+      "n": 749,
+      "rank": 783,
+      "word": "secret",
+      "pos": "noun",
+      "meaning": "secret; (adjective) secret (secrète: feminine)",
+      "sentence": "C'est un secret.",
+      "translation": "It's a ⟦secret⟧."
+    },
+    {
+      "n": 750,
+      "rank": 784,
+      "word": "entrée",
+      "pos": "noun",
+      "meaning": "entrance; admission; starter (of a meal)",
+      "sentence": "L'entrée est gratuite.",
+      "translation": "⟦Admission⟧ is free."
+    },
+    {
+      "n": 751,
+      "rank": 786,
+      "word": "œuvre",
+      "pos": "noun",
+      "meaning": "work (of art, of a writer)",
+      "sentence": "C'est une œuvre de Monet.",
+      "translation": "It's a ⟦work⟧ by Monet."
+    },
+    {
+      "n": 752,
+      "rank": 787,
+      "word": "artiste",
+      "pos": "noun",
+      "meaning": "artist; performer",
+      "sentence": "Ma sœur est artiste.",
+      "translation": "My sister is an ⟦artist⟧."
+    },
+    {
+      "n": 753,
+      "rank": 788,
+      "word": "bande",
+      "pos": "noun",
+      "meaning": "group, gang; strip, band (bande dessinée: comic)",
+      "sentence": "C'est une bande de copains.",
+      "translation": "It's a ⟦group⟧ of friends."
+    },
+    {
+      "n": 754,
+      "rank": 789,
+      "word": "construction",
+      "pos": "noun",
+      "meaning": "construction, building",
+      "sentence": "La maison est en construction.",
+      "translation": "The house is under ⟦construction⟧."
+    },
+    {
+      "n": 755,
+      "rank": 790,
+      "word": "assurer",
+      "pos": "verb",
+      "meaning": "to assure; to ensure; to insure",
+      "sentence": "Je t'assure que c'est vrai.",
+      "translation": "I ⟦assure⟧ you it's true.",
+      "form": "assure"
+    },
+    {
+      "n": 756,
+      "rank": 791,
+      "word": "former",
+      "pos": "verb",
+      "meaning": "to train; to form",
+      "sentence": "L'entreprise forme ses employés.",
+      "translation": "The company ⟦trains⟧ its employees.",
+      "form": "forme"
+    },
+    {
+      "n": 757,
+      "rank": 792,
+      "word": "pauvre",
+      "pos": "adj",
+      "meaning": "poor",
+      "sentence": "Le pauvre, il n'a pas de chance.",
+      "translation": "⟦Poor⟧ guy, he's so unlucky."
+    },
+    {
+      "n": 758,
+      "rank": 793,
+      "word": "chanson",
+      "pos": "noun",
+      "meaning": "song",
+      "sentence": "J'adore cette chanson.",
+      "translation": "I love this ⟦song⟧."
+    },
+    {
+      "n": 759,
+      "rank": 794,
+      "word": "limite",
+      "pos": "noun",
+      "meaning": "limit",
+      "sentence": "Il ne faut pas dépasser la limite de vitesse.",
+      "translation": "You mustn't go over the speed ⟦limit⟧."
+    },
+    {
+      "n": 760,
+      "rank": 795,
+      "word": "physique",
+      "pos": "adj",
+      "meaning": "physical; (noun) physics; looks",
+      "sentence": "Il fait de l'exercice physique tous les jours.",
+      "translation": "He does ⟦physical⟧ exercise every day."
+    },
+    {
+      "n": 761,
+      "rank": 797,
+      "word": "bord",
+      "pos": "noun",
+      "meaning": "edge, side (au bord de: by, at the edge of; à bord: on board)",
+      "sentence": "On a pique-niqué au bord du lac.",
+      "translation": "We had a picnic ⟦by⟧ the lake."
+    },
+    {
+      "n": 762,
+      "rank": 798,
+      "word": "élire",
+      "pos": "verb",
+      "meaning": "to elect (un élu: an elected representative)",
+      "sentence": "Il a été élu maire.",
+      "translation": "He was ⟦elected⟧ mayor.",
+      "form": "élu"
+    },
+    {
+      "n": 763,
+      "rank": 799,
+      "word": "édition",
+      "pos": "noun",
+      "meaning": "edition; publishing",
+      "sentence": "C'est la dernière édition du journal.",
+      "translation": "It's the latest ⟦edition⟧ of the paper."
+    },
+    {
+      "n": 764,
+      "rank": 800,
+      "word": "civil",
+      "pos": "adj",
+      "meaning": "civil; civilian (civile: feminine)",
+      "sentence": "Ils ont eu un mariage civil.",
+      "translation": "They had a ⟦civil⟧ wedding."
+    },
+    {
+      "n": 765,
+      "rank": 801,
+      "word": "commander",
+      "pos": "verb",
+      "meaning": "to order",
+      "sentence": "J'ai commandé une pizza.",
+      "translation": "I ⟦ordered⟧ a pizza.",
+      "form": "commandé"
+    },
+    {
+      "n": 766,
+      "rank": 802,
+      "word": "administration",
+      "pos": "noun",
+      "meaning": "administration; civil service",
+      "sentence": "Il travaille dans l'administration.",
+      "translation": "He works in the ⟦civil service⟧."
+    },
+    {
+      "n": 767,
+      "rank": 803,
+      "word": "frais",
+      "pos": "adj",
+      "meaning": "fresh; cool (fraîche: feminine); (noun, plural) costs",
+      "sentence": "Le poisson est très frais.",
+      "translation": "The fish is very ⟦fresh⟧."
+    },
+    {
+      "n": 768,
+      "rank": 804,
+      "word": "vol",
+      "pos": "noun",
+      "meaning": "flight; theft",
+      "sentence": "Mon vol part à huit heures.",
+      "translation": "My ⟦flight⟧ leaves at eight."
+    },
+    {
+      "n": 769,
+      "rank": 805,
+      "word": "lever",
+      "pos": "verb",
+      "meaning": "to raise, to lift (se lever: to get up, to stand up)",
+      "sentence": "Levez la main.",
+      "translation": "⟦Raise⟧ your hand.",
+      "form": "levez"
+    },
+    {
+      "n": 770,
+      "rank": 806,
+      "word": "personnage",
+      "pos": "noun",
+      "meaning": "character (in a story, a film)",
+      "sentence": "Le personnage principal est un enfant.",
+      "translation": "The main ⟦character⟧ is a child."
+    },
+    {
+      "n": 771,
+      "rank": 807,
+      "word": "honneur",
+      "pos": "noun",
+      "meaning": "honour",
+      "sentence": "C'est un honneur de vous rencontrer.",
+      "translation": "It's an ⟦honour⟧ to meet you."
+    },
+    {
+      "n": 772,
+      "rank": 808,
+      "word": "officiel",
+      "pos": "adj",
+      "meaning": "official (officielle: feminine)",
+      "sentence": "C'est officiel, on déménage !",
+      "translation": "It's ⟦official⟧, we're moving!"
+    },
+    {
+      "n": 773,
+      "rank": 809,
+      "word": "étudier",
+      "pos": "verb",
+      "meaning": "to study",
+      "sentence": "J'étudie le droit.",
+      "translation": "I'm ⟦studying⟧ law.",
+      "form": "étudie"
+    },
+    {
+      "n": 774,
+      "rank": 810,
+      "word": "accès",
+      "pos": "noun",
+      "meaning": "access",
+      "sentence": "L'accès à la plage est gratuit.",
+      "translation": "⟦Access⟧ to the beach is free."
+    },
+    {
+      "n": 775,
+      "rank": 812,
+      "word": "puisque",
+      "pos": "conj",
+      "meaning": "since, as",
+      "sentence": "Puisque tu es là, aide-moi.",
+      "translation": "⟦Since⟧ you're here, help me."
+    },
+    {
+      "n": 776,
+      "rank": 813,
+      "word": "soleil",
+      "pos": "noun",
+      "meaning": "sun",
+      "sentence": "Le soleil se lève tôt en été.",
+      "translation": "The ⟦sun⟧ rises early in summer."
+    },
+    {
+      "n": 777,
+      "rank": 814,
+      "word": "taux",
+      "pos": "noun",
+      "meaning": "rate",
+      "sentence": "Le taux de chômage baisse.",
+      "translation": "The unemployment ⟦rate⟧ is falling."
+    },
+    {
+      "n": 778,
+      "rank": 815,
+      "word": "maladie",
+      "pos": "noun",
+      "meaning": "illness, disease",
+      "sentence": "C'est une maladie grave.",
+      "translation": "It's a serious ⟦illness⟧."
+    },
+    {
+      "n": 779,
+      "rank": 816,
+      "word": "bleu",
+      "pos": "adj",
+      "meaning": "blue (bleue: feminine)",
+      "sentence": "Le ciel est bleu.",
+      "translation": "The sky is ⟦blue⟧."
+    },
+    {
+      "n": 780,
+      "rank": 817,
+      "word": "double",
+      "pos": "adj",
+      "meaning": "double",
+      "sentence": "Je voudrais une chambre double.",
+      "translation": "I'd like a ⟦double⟧ room."
+    },
+    {
+      "n": 781,
+      "rank": 818,
+      "word": "augmenter",
+      "pos": "verb",
+      "meaning": "to increase, to go up; to raise",
+      "sentence": "Les prix ont augmenté.",
+      "translation": "Prices have ⟦gone up⟧.",
+      "form": "augmenté"
+    },
+    {
+      "n": 782,
+      "rank": 819,
+      "word": "lumière",
+      "pos": "noun",
+      "meaning": "light",
+      "sentence": "Éteins la lumière, s'il te plaît.",
+      "translation": "Turn off the ⟦light⟧, please."
+    },
+    {
+      "n": 783,
+      "rank": 820,
+      "word": "hôtel",
+      "pos": "noun",
+      "meaning": "hotel",
+      "sentence": "On dort à l'hôtel ce soir.",
+      "translation": "We're sleeping at a ⟦hotel⟧ tonight."
+    },
+    {
+      "n": 784,
+      "rank": 821,
+      "word": "conseiller",
+      "pos": "verb",
+      "meaning": "to advise; to recommend; (noun) adviser",
+      "sentence": "Qu'est-ce que vous me conseillez ?",
+      "translation": "What do you ⟦recommend⟧?",
+      "form": "conseillez"
+    },
+    {
+      "n": 785,
+      "rank": 822,
+      "word": "diriger",
+      "pos": "verb",
+      "meaning": "to run, to manage; to direct",
+      "sentence": "Elle dirige une petite entreprise.",
+      "translation": "She ⟦runs⟧ a small business.",
+      "form": "dirige"
+    },
+    {
+      "n": 786,
+      "rank": 823,
+      "word": "pousser",
+      "pos": "verb",
+      "meaning": "to push; to grow",
+      "sentence": "Poussez la porte.",
+      "translation": "⟦Push⟧ the door.",
+      "form": "poussez"
+    },
+    {
+      "n": 787,
+      "rank": 824,
+      "word": "faible",
+      "pos": "adj",
+      "meaning": "weak",
+      "sentence": "Je me sens faible.",
+      "translation": "I feel ⟦weak⟧."
+    },
+    {
+      "n": 788,
+      "rank": 826,
+      "word": "bras",
+      "pos": "noun",
+      "meaning": "arm",
+      "sentence": "Il s'est cassé le bras.",
+      "translation": "He broke his ⟦arm⟧."
+    },
+    {
+      "n": 789,
+      "rank": 828,
+      "word": "finalement",
+      "pos": "adv",
+      "meaning": "in the end, finally",
+      "sentence": "Finalement, on est restés à la maison.",
+      "translation": "⟦In the end⟧, we stayed at home."
+    },
+    {
+      "n": 790,
+      "rank": 829,
+      "word": "neuf",
+      "pos": "num",
+      "meaning": "nine; (adjective) brand new (neuve: feminine)",
+      "sentence": "Ma fille a neuf ans.",
+      "translation": "My daughter is ⟦nine⟧."
+    },
+    {
+      "n": 791,
+      "rank": 830,
+      "word": "style",
+      "pos": "noun",
+      "meaning": "style",
+      "sentence": "J'aime bien ton style.",
+      "translation": "I like your ⟦style⟧."
+    },
+    {
+      "n": 792,
+      "rank": 831,
+      "word": "direct",
+      "pos": "adj",
+      "meaning": "direct (directe: feminine)",
+      "sentence": "Il y a un train direct pour Paris ?",
+      "translation": "Is there a ⟦direct⟧ train to Paris?"
+    },
+    {
+      "n": 793,
+      "rank": 832,
+      "word": "vert",
+      "pos": "adj",
+      "meaning": "green (verte: feminine)",
+      "sentence": "Le feu est vert, tu peux passer.",
+      "translation": "The light is ⟦green⟧, you can go."
+    },
+    {
+      "n": 794,
+      "rank": 833,
+      "word": "secteur",
+      "pos": "noun",
+      "meaning": "sector; area",
+      "sentence": "Il travaille dans le secteur privé.",
+      "translation": "He works in the private ⟦sector⟧."
+    },
+    {
+      "n": 795,
+      "rank": 834,
+      "word": "constituer",
+      "pos": "verb",
+      "meaning": "to make up, to form",
+      "sentence": "Les femmes constituent la majorité du groupe.",
+      "translation": "Women ⟦make up⟧ most of the group.",
+      "form": "constituent"
+    },
+    {
+      "n": 796,
+      "rank": 835,
+      "word": "banque",
+      "pos": "noun",
+      "meaning": "bank",
+      "sentence": "Je dois passer à la banque.",
+      "translation": "I have to stop by the ⟦bank⟧."
+    },
+    {
+      "n": 797,
+      "rank": 836,
+      "word": "nul",
+      "pos": "adj",
+      "meaning": "useless, rubbish (informal); no (nulle part: nowhere)",
+      "sentence": "Je suis nul en maths.",
+      "translation": "I'm ⟦hopeless⟧ at maths."
+    },
+    {
+      "n": 798,
+      "rank": 837,
+      "word": "instant",
+      "pos": "noun",
+      "meaning": "moment (pour l'instant: for now)",
+      "sentence": "Pour l'instant, tout va bien.",
+      "translation": "⟦For now⟧, everything's fine."
+    },
+    {
+      "n": 799,
+      "rank": 838,
+      "word": "central",
+      "pos": "adj",
+      "meaning": "central (centrale: feminine)",
+      "sentence": "Le chauffage central ne marche pas.",
+      "translation": "The ⟦central⟧ heating isn't working."
+    },
+    {
+      "n": 800,
+      "rank": 841,
+      "word": "différence",
+      "pos": "noun",
+      "meaning": "difference",
+      "sentence": "Quelle est la différence ?",
+      "translation": "What's the ⟦difference⟧?"
+    },
+    {
+      "n": 801,
+      "rank": 842,
+      "word": "journaliste",
+      "pos": "noun",
+      "meaning": "journalist",
+      "sentence": "Ma tante est journaliste.",
+      "translation": "My aunt is a ⟦journalist⟧."
+    },
+    {
+      "n": 802,
+      "rank": 843,
+      "word": "précédent",
+      "pos": "adj",
+      "meaning": "previous (précédente: feminine)",
+      "sentence": "La semaine précédente, il était malade.",
+      "translation": "The ⟦previous⟧ week, he was ill.",
+      "form": "précédente"
     }
   ]
 }
