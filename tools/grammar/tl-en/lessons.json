@@ -1895,6 +1895,486 @@
         {"type":"dialogue","q":"Bisita ka sa bahay ng isang Amerikanong kaibigan. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Come in! It's a little hot in here.","tr":"Pasok ka! Medyo mainit dito."},{"options":["Can I turn on the fan?","Can I open the fan?"],"answer":0,"why":"Ang bentilador ay may switch: {{turn on}}."},{"who":"Kaibigan","t":"Sure! Oh, and could you turn off the oven? The cookies are ready.","tr":"Sige! At pwede mo bang patayin ang oven? Luto na ang cookies."},{"options":["Okay, I'll turn it off.","Okay, I'll turn off it."],"answer":0,"why":"Kapag {{it}}: {{turn it off}}."}]},
         {"type":"free","q":"Ikaw naman: ikuwento ang umaga mo gamit ang tatlong phrasal verb ({{get up}}, {{turn on}}, {{put on}}, {{pick up}}…).","answers":[{"t":"I get up at six. I turn on the coffee maker and put on my uniform. Then I pick up my friend and we go to work.","tr":"Alas-sais ako bumabangon. Binubuksan ko ang coffee maker at isinusuot ko ang uniporme ko. Tapos, sinusundo ko ang kaibigan ko at sabay kaming pumapasok."},{"t":"I wake up at seven and get up at seven thirty. I turn off my alarm, put on my clothes, and look for my keys!","tr":"Alas-siyete ako nagigising at alas-siyete y medya bumabangon. Pinapatay ko ang alarm, nagbibihis ako, at hinahanap ko ang mga susi ko!"}]}
       ]
+    },
+    {
+      "id": "answer-yes-and-no-the-english-way",
+      "unit": 8,
+      "level": "B1",
+      "title": "Sumagot ng oo at hindi sa paraang Ingles",
+      "summary": "Sumagot nang tama sa negatibong tanong ({{You're not hungry?}} {{No, I'm not.}}), at gamitin ang {{right?}} para sa “di ba?”, hindi ang {{…, isn't it?}} sa lahat.",
+      "topic": "Sagot sa negatibong tanong: ayon sa totoo, hindi sa tanong; mga tag question; {{right?}}",
+      "blocks": [
+        {"goal":{"t":"You're coming tomorrow, right?","tr":"Pupunta ka bukas, di ba?"}},
+        {"dialog":[{"who":"Mike","t":"You're not hungry?","tr":"Hindi ka gutom?"},{"who":"Ana","t":"No, I'm not. I just ate.","tr":"Hindi. Kakakain ko lang."},{"who":"Mike","t":"You didn't see my message?","tr":"Hindi mo nakita ang mensahe ko?"},{"who":"Ana","t":"No, I didn't. Sorry! What did it say?","tr":"Hindi. Pasensya na! Ano ang sabi?"},{"who":"Mike","t":"The party is tomorrow. You're coming, right?","tr":"Bukas ang party. Pupunta ka, di ba?"},{"who":"Ana","t":"Yes, of course!","tr":"Oo naman!"}]},
+        {"p":"**Ang bitag ng negatibong tanong.** Sa Tagalog, kapag tinanong kang “Hindi ka gutom?” at hindi ka nga gutom, pwede mong sabihing “Oo” (oo, tama ka, hindi ako gutom). Sa Ingles, iba: ang {{yes}} at {{no}} ay tungkol sa **totoo**, hindi sa tanong. Hindi ka gutom? {{No}}. Gutom ka? {{Yes}}."},
+        { "table": [
+          ["tanong","ang totoo","sagot sa Ingles"],
+          ["{{You're not hungry?}}","hindi ka gutom","{{No, I'm not.}}"],
+          ["{{You're not hungry?}}","gutom ka","{{Yes, I am!}}"],
+          ["{{Didn't you see it?}}","hindi mo nakita","{{No, I didn't.}}"],
+          ["{{Don't you like it?}}","gusto mo","{{Yes, I do!}}"]
+        ] },
+        {"p":"**Paraan para hindi malito**: huwag sumagot ng {{yes}} o {{no}} lang. Ulitin ang buong sagot: {{No, I'm not hungry.}}, {{Yes, I am hungry!}} Malinaw ito anuman ang tanong."},
+        {"term":"tag question","means":"maikling tanong sa dulo ng pangungusap, tulad ng “di ba?” o “ano?”: {{It's hot, isn't it?}}, {{You're coming, aren't you?}}"},
+        {"p":"**Ang “di ba?” sa Ingles.** Ang pinakasimple at pinakakaraniwan sa Amerika ay {{right?}} sa dulo: {{You're from Cebu, right?}}, {{You saw it, right?}} Iwasan ang {{…, isn't it?}} sa bawat pangungusap: karaniwan ito sa Pilipinong Ingles, pero sa Ingles, nagbabago ang tag ayon sa pangungusap."},
+        {"p":"**Ang tunay na tag question** ay sumusunod sa pandiwa ng pangungusap, at kabaligtaran: positibo → negatibong tag; negatibo → positibong tag. Kapag mahirap, {{right?}} lang ang gamitin."},
+        { "table": [
+          ["pangungusap","tag"],
+          ["{{It's hot,}}","{{isn't it?}}"],
+          ["{{You're coming,}}","{{aren't you?}}"],
+          ["{{She works here,}}","{{doesn't she?}}"],
+          ["{{You didn't eat,}}","{{did you?}}"],
+          ["kahit alin","{{right?}}"]
+        ] },
+        { "ex": [
+          {"t":"No, I'm not hungry.","tr":"Hindi, hindi ako gutom."},
+          {"t":"Yes, I am! I'm starving.","tr":"Gutom ako! Gutom na gutom na."},
+          {"t":"You're from Cebu, right?","tr":"Taga-Cebu ka, di ba?"},
+          {"t":"It's hot today, isn't it?","tr":"Mainit ngayon, ano?"},
+          {"t":"You didn't call her, did you?","tr":"Hindi mo siya tinawagan, ano?"},
+          {"t":"She works here, doesn't she?","tr":"Dito siya nagtatrabaho, di ba?"}
+        ] },
+        {"tip":"Kapag nalito ka, huwag mahiyang linawin: {{Sorry, I mean yes, I'm hungry!}} Mas mabuti iyon kaysa iwanang nalilito ang kausap mo."}
+      ],
+      "mistakes": [
+        {"wrong":"You're not hungry? — Yes.","right":"You're not hungry? — No, I'm not.","tr":"Hindi ka gutom? — Hindi.","why":"Sa Ingles, {{no}} kapag hindi totoo (hindi ka gutom), kahit negatibo ang tanong."},
+        {"wrong":"You're coming tomorrow, isn't it?","right":"You're coming tomorrow, right?","tr":"Pupunta ka bukas, di ba?","why":"Sumusunod ang tag sa pangungusap ({{aren't you?}}), o gamitin ang {{right?}} na bagay sa lahat."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Tanong sa iyo: {{You don't like spicy food?}} Ang totoo, ayaw mo nga. Sagot:","options":["{{No, I don't.}}","{{Yes, I don't.}}","{{Yes.}}"],"answer":0,"why":"Ayaw mo nga: {{no}}."},
+        {"type":"choice","q":"Tanong sa iyo: {{Aren't you tired?}} Ang totoo, pagod na pagod ka. Sagot:","options":["{{Yes, I'm really tired!}}","{{No, I'm really tired!}}","{{No.}}"],"answer":0,"why":"Pagod ka nga: {{yes}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"You're from Cebu, ___?","tr":"Taga-Cebu ka, di ba?","options":["right","isn't it","no"],"answer":0,"why":"Ang “di ba?” na bagay sa lahat: {{right?}}"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"It's hot today, ___ it?","tr":"Mainit ngayon, ano?","options":["isn't","doesn't","is"],"answer":0,"why":"Positibo ang {{It's hot}}: negatibong tag, {{isn't it?}}","from":"talk-about-him-and-her"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Hindi mo siya tinawagan, ano?","words":["You","didn't","call her,","did","you?"]},
+        {"type":"dialogue","q":"Kinakausap ka ng katrabaho pagkatapos ng tanghalian. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"You didn't eat lunch?","tr":"Hindi ka nananghalian?"},{"options":["No, I didn't. I was too busy.","Yes, I didn't. I was too busy."],"answer":0,"why":"Hindi ka kumain: {{No, I didn't.}}"},{"who":"Katrabaho","t":"You're coming to the meeting, right?","tr":"Pupunta ka sa meeting, di ba?"},{"options":["Yes, I am. What time is it?","Yes, I do. What time is it?"],"answer":0,"why":"May {{are}} ang pangungusap ({{You're coming}}): {{Yes, I am.}}"}],"from":"ask-about-the-past"},
+        {"type":"free","q":"Ikaw naman: sagutin nang buo ang dalawang negatibong tanong tungkol sa iyo ({{You don't drink coffee?}}, {{You're not from Manila?}}), at magtanong ng isa gamit ang {{right?}}.","answers":[{"t":"No, I don't drink coffee. Yes, I am from Manila! You're coming to the party, right?","tr":"Hindi, hindi ako nagkakape. Taga-Maynila ako, oo! Pupunta ka sa party, di ba?"},{"t":"Yes, I do. I love coffee! No, I'm not from Manila. I'm from Davao. You work here, right?","tr":"Nagkakape ako. Gustong-gusto ko ang kape! Hindi ako taga-Maynila. Taga-Davao ako. Dito ka nagtatrabaho, di ba?"}]}
+      ]
+    },
+    {
+      "id": "describe-with-who-and-that",
+      "unit": 8,
+      "level": "B1",
+      "title": "Sabihin kung alin: {{the woman who…}}",
+      "summary": "Ilarawan kung aling tao, bagay o lugar ang tinutukoy mo gamit ang {{who}}, {{that}} at {{where}}: {{The woman who lives next door is a nurse.}}",
+      "topic": "Relative clause: {{who}} (tao), {{that}} / {{which}} (bagay), {{where}} (lugar); ang “na” at “-ng” ng Tagalog",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a nurse.","tr":"Nars ang babaeng nakatira sa tabi namin."}},
+        {"dialog":[{"who":"Mike","t":"Who's that guy?","tr":"Sino iyong lalaking iyon?"},{"who":"Ana","t":"He's the man who fixed my car.","tr":"Siya ang lalaking nag-ayos ng kotse ko."},{"who":"Mike","t":"And is that the restaurant that you love?","tr":"At iyan ba ang restawrang gustong-gusto mo?"},{"who":"Ana","t":"Yes! It's the place where I had my birthday party.","tr":"Oo! Iyan ang lugar kung saan ako nag-birthday party."}]},
+        {"p":"Sa Tagalog, ikinakabit ang paglalarawan sa tao o bagay gamit ang “na” o “-ng”: “ang babaeng nakatira sa tabi namin”. Sa Ingles, may espesyal na salita, at nakadepende ito sa inilalarawan:"},
+        {"term":"relative clause","means":"bahagi ng pangungusap na nagsasabi kung aling tao o bagay ang tinutukoy, na nagsisimula sa {{who}}, {{that}}, {{which}} o {{where}}: {{the man who fixed my car}}."},
+        { "table": [
+          ["inilalarawan","salita","halimbawa"],
+          ["tao","{{who}} (o {{that}})","{{the woman who lives next door}}"],
+          ["bagay, hayop","{{that}} o {{which}}","{{the phone that I bought}}"],
+          ["lugar","{{where}}","{{the restaurant where we met}}"]
+        ] },
+        {"p":"**Ang ayos**: ang tao o bagay, saka agad ang {{who}} o {{that}} at ang paglalarawan: {{The man who fixed my car is my neighbor.}}"},
+        {"p":"**Kapag ang tao o bagay ang tumatanggap ng kilos**, pwedeng tanggalin ang {{that}}: {{the phone (that) I bought}}, {{the movie (that) we saw}}. Pero kapag siya ang gumagawa, kailangan ang {{who}} o {{that}}: {{the man who fixed my car}}. Kahawig ito ng “ang lalaking nag-ayos” at “ang cellphone na binili ko” ng Tagalog."},
+        {"p":"**Walang dobleng simuno.** Mali ang {{the man who he fixed my car}}: ang {{who}} na mismo ang pumapalit sa {{he}}."},
+        { "ex": [
+          {"t":"The woman who lives next door is a nurse.","tr":"Nars ang babaeng nakatira sa tabi namin."},
+          {"t":"He's the man who fixed my car.","tr":"Siya ang lalaking nag-ayos ng kotse ko."},
+          {"t":"Where's the phone that I bought yesterday?","tr":"Nasaan ang cellphone na binili ko kahapon?"},
+          {"t":"The movie we saw was great.","tr":"Ang ganda ng pinanood naming pelikula."},
+          {"t":"That's the restaurant where we met.","tr":"Iyan ang restawran kung saan tayo nagkakilala."},
+          {"t":"I have a friend who speaks five languages.","tr":"May kaibigan akong marunong ng limang wika."}
+        ] },
+        {"tip":"Para lang sa tao ang {{who}}. Para sa aso o pusa, {{that}} o {{which}}: {{the dog that barks every night}}. (Pero ang ilang may-ari ay gumagamit ng {{who}} para sa alaga nila: mahal nila ang aso nila!)"}
+      ],
+      "mistakes": [
+        {"wrong":"the man which fixed my car","right":"the man who fixed my car","tr":"ang lalaking nag-ayos ng kotse ko","why":"Para sa tao: {{who}}."},
+        {"wrong":"The man who he fixed my car is my neighbor.","right":"The man who fixed my car is my neighbor.","tr":"Kapitbahay ko ang lalaking nag-ayos ng kotse ko.","why":"Walang dobleng simuno: ang {{who}} na ang pumapalit sa {{he}}."},
+        {"wrong":"the restaurant which we met","right":"the restaurant where we met","tr":"ang restawran kung saan tayo nagkakilala","why":"Lugar kung saan may nangyari: {{where}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"The woman ___ lives next door is a nurse.","tr":"Nars ang babaeng nakatira sa tabi namin.","options":["who","which","where"],"answer":0,"why":"Tao: {{who}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"That's the restaurant ___ we met.","tr":"Iyan ang restawran kung saan tayo nagkakilala.","options":["where","who","which"],"answer":0,"why":"Lugar: {{where}}."},
+        {"type":"choice","q":"“ang cellphone na binili ko”","options":["{{the phone that I bought}}","{{the phone who I bought}}","{{the phone that I bought it}}"],"answer":0,"why":"Bagay: {{that}}; at walang dobleng {{it}}."},
+        {"type":"choice","q":"“May kaibigan akong marunong magluto.”","options":["{{I have a friend who can cook.}}","{{I have a friend which can cook.}}","{{I have a friend who he can cook.}}"],"answer":0,"why":"Tao: {{who}}, at walang {{he}}.","from":"say-what-you-can-do"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Siya ang lalaking nag-ayos ng kotse ko.","words":["He's","the man","who","fixed","my car."],"from":"say-what-you-did"},
+        {"type":"dialogue","q":"Sa isang party, ipinapakilala mo ang mga tao sa kaibigan mo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Who's the guy in the blue shirt?","tr":"Sino iyong lalaking naka-asul?"},{"options":["That's Tom. He's the guy who helped me move.","That's Tom. He's the guy which helped me move."],"answer":0,"why":"Tao: {{who}}."},{"who":"Kaibigan","t":"And the woman next to him?","tr":"E iyong babaeng katabi niya?"},{"options":["That's his wife. She's the one who made the cake we ate.","That's his wife. She's the one who she made the cake we ate."],"answer":0,"why":"Walang dobleng {{she}}; at pwedeng walang {{that}} sa {{the cake we ate}}."}],"from":"say-whose-it-is"},
+        {"type":"free","q":"Ikaw naman: ilarawan ang dalawang tao at isang lugar sa buhay mo gamit ang {{who}}, {{that}} o {{where}}.","answers":[{"t":"My best friend is a woman who always makes me laugh. My brother is the person who taught me to drive. Baguio is the place where I want to live.","tr":"Ang matalik kong kaibigan ay isang babaeng laging nagpapatawa sa akin. Ang kuya ko ang nagturo sa akin magmaneho. Ang Baguio ang lugar kung saan ko gustong tumira."},{"t":"I have a neighbor who sings every morning. This is the book that changed my life. Cebu is the city where I was born.","tr":"May kapitbahay akong kumakanta tuwing umaga. Ito ang librong bumago sa buhay ko. Ang Cebu ang lungsod kung saan ako ipinanganak."}]}
+      ]
+    },
+    {
+      "id": "talk-about-how-things-used-to-be",
+      "unit": 8,
+      "level": "B1",
+      "title": "Sabihin kung paano ang mga bagay dati",
+      "summary": "Gamitin ang {{used to}} para sa nakagawian o kalagayan noon na wala na ngayon: {{I used to live in Batangas.}} {{We used to play in the street.}}",
+      "topic": "{{used to}} + pandiwa; {{didn't use to}}, {{Did you use to…?}}; {{not … anymore}}; {{used to}} vs {{be used to}}",
+      "blocks": [
+        {"goal":{"t":"When I was a kid, we used to play in the street every day.","tr":"Noong bata pa ako, araw-araw kaming naglalaro sa kalye."}},
+        {"dialog":[{"who":"Sarah","t":"Did you use to live in the Philippines?","tr":"Tumira ka ba dati sa Pilipinas?"},{"who":"Ana","t":"Yes! I used to live in Batangas. We had a big house near the sea.","tr":"Oo! Nakatira ako dati sa Batangas. May malaki kaming bahay malapit sa dagat."},{"who":"Sarah","t":"That sounds amazing. What did you use to do as a kid?","tr":"Ang ganda naman. Ano ang ginagawa mo noong bata ka?"},{"who":"Ana","t":"We used to swim every afternoon. I didn't use to have a phone!","tr":"Lumalangoy kami tuwing hapon. Wala pa akong cellphone noon!"}]},
+        {"p":"Ang “dati”, “noon” at “noong bata pa ako” ng Tagalog, kasama ng “naglalaro” o “nakatira”, ay para sa nakagawian sa nakaraan. Sa Ingles, may espesyal na anyo para dito: {{used to}} + pandiwa. {{I used to live in Batangas.}} “Nakatira ako dati sa Batangas” (pero hindi na ngayon)."},
+        {"p":"**Ang anyo**: {{used to}} + simpleng anyo ng pandiwa, pareho para sa lahat: {{I used to}}, {{she used to}}, {{they used to}}. Sa negatibo at tanong, may {{did}}, kaya {{use to}} na lang (walang {{d}}): {{I didn't use to…}}, {{Did you use to…?}}"},
+        { "table": [
+          ["","Ingles","Tagalog"],
+          ["dati (nakagawian)","{{I used to swim every day.}}","Lumalangoy ako araw-araw dati."],
+          ["dati (kalagayan)","{{She used to be shy.}}","Mahiyain siya dati."],
+          ["hindi dati","{{I didn't use to like vegetables.}}","Hindi ako mahilig sa gulay dati."],
+          ["tanong","{{Did you use to live here?}}","Dito ka ba nakatira dati?"]
+        ] },
+        {"p":"**Sinasabi ng {{used to}} na hindi na ito totoo ngayon**: {{I used to smoke}} ay naninigarilyo ka dati, pero hindi na. Para sa “hindi na”: {{not … anymore}}: {{I don't smoke anymore.}}"},
+        {"p":"**Huwag ipagkamali sa {{be used to}}.** Ang {{I'm used to the cold}} ay “sanay na ako sa lamig”: ibang kahulugan, may {{be}}, at kasunod ay pangngalan o {{-ing}}: {{I'm used to waking up early.}}"},
+        { "ex": [
+          {"t":"I used to live in Batangas.","tr":"Nakatira ako dati sa Batangas."},
+          {"t":"We used to play in the street every day.","tr":"Araw-araw kaming naglalaro sa kalye noon."},
+          {"t":"She used to be very shy.","tr":"Napakamahiyain niya dati."},
+          {"t":"I didn't use to like vegetables.","tr":"Hindi ako mahilig sa gulay dati."},
+          {"t":"Did you use to have long hair?","tr":"Mahaba ba ang buhok mo dati?"},
+          {"t":"I don't smoke anymore.","tr":"Hindi na ako naninigarilyo."},
+          {"t":"I'm used to the cold now.","tr":"Sanay na ako sa lamig ngayon."}
+        ] },
+        {"tip":"Magkapareho ang tunog ng {{used to}} at {{use to}}: parang “yus-tu”. Sa pagsulat lang sila nagkakaiba."}
+      ],
+      "mistakes": [
+        {"wrong":"I use to live in Cebu.","right":"I used to live in Cebu.","tr":"Nakatira ako dati sa Cebu.","why":"Sa positibo: {{used to}}, may {{d}}."},
+        {"wrong":"Did you used to live here?","right":"Did you use to live here?","tr":"Dito ka ba nakatira dati?","why":"Kasama ang {{did}}: {{use to}}, walang {{d}}."},
+        {"wrong":"I used to living in Cebu.","right":"I used to live in Cebu.","tr":"Nakatira ako dati sa Cebu.","why":"{{used to}} + simpleng anyo ng pandiwa."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ to live in Batangas.","tr":"Nakatira ako dati sa Batangas.","options":["used","use","using"],"answer":0,"why":"Positibo: {{used to}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Did you ___ to have long hair?","tr":"Mahaba ba ang buhok mo dati?","options":["use","used","using"],"answer":0,"why":"Kasama ang {{did}}: {{use to}}.","from":"ask-about-the-past"},
+        {"type":"choice","q":"“Hindi na ako naninigarilyo.”","options":["{{I don't smoke anymore.}}","{{I don't smoke yet.}}","{{I used to not smoke.}}"],"answer":0,"why":"“Hindi na”: {{not … anymore}}."},
+        {"type":"choice","q":"“Sanay na ako sa lamig.”","options":["{{I'm used to the cold.}}","{{I used to the cold.}}","{{I use to the cold.}}"],"answer":0,"why":"Sanay: {{be used to}} + pangngalan."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Napakamahiyain niya dati.","words":["She","used to","be","very","shy."]},
+        {"type":"dialogue","q":"Nagkukuwentuhan kayo ng kaibigan tungkol sa pagkabata. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"What did you use to do after school?","tr":"Ano ang ginagawa mo noon pagkatapos ng klase?"},{"options":["I used to help my mom at her store.","I use to help my mom at her store."],"answer":0,"why":"Positibo: {{used to}}."},{"who":"Kaibigan","t":"Did you use to watch a lot of TV?","tr":"Madalas ka bang manood ng TV noon?"},{"options":["No, I didn't. We didn't have a TV!","No, I didn't used to. We didn't had a TV!"],"answer":0,"why":"Pagkatapos ng {{didn't}}: simpleng anyo, {{have}}."}],"from":"say-what-you-have"},
+        {"type":"free","q":"Ikaw naman: sabihin ang tatlong bagay na ginagawa mo dati pero hindi na ngayon, at isang bagay na nasanay ka na.","answers":[{"t":"I used to live with my parents. I used to take the jeepney to school. I used to hate coffee! Now I'm used to living alone.","tr":"Nakatira ako dati kasama ang mga magulang ko. Nagdyi-jeep ako dati papuntang eskuwela. Ayaw na ayaw ko dati ng kape! Ngayon, sanay na akong mag-isa."},{"t":"I used to play basketball every weekend. I didn't use to cook. My hair used to be long. I'm used to the traffic now.","tr":"Nagba-basketball ako dati tuwing weekend. Hindi ako nagluluto dati. Mahaba ang buhok ko dati. Sanay na ako sa traffic ngayon."}]}
+      ]
+    },
+    {
+      "id": "set-the-scene-in-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Ilarawan ang eksena sa isang kuwento",
+      "summary": "Gamitin ang past continuous para sa nangyayari noon, at ang past simple para sa biglang nangyari: {{I was walking home when it started to rain.}}",
+      "topic": "Ang past continuous: {{was}} / {{were}} + {{-ing}}; {{when}} at {{while}}; ang eksena at ang pangyayari",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"Naglalakad ako pauwi nang biglang umulan."}},
+        {"dialog":[{"who":"Mike","t":"What happened to your phone?","tr":"Ano ang nangyari sa cellphone mo?"},{"who":"Ana","t":"I was crossing the street when I dropped it!","tr":"Tumatawid ako sa kalye nang mahulog ko ito!"},{"who":"Mike","t":"Oh no! Were you texting?","tr":"Naku! Nagte-text ka ba?"},{"who":"Ana","t":"Yes. I was talking to my mom while I was walking.","tr":"Oo. Kausap ko ang nanay ko habang naglalakad ako."},{"who":"Mike","t":"Be careful next time!","tr":"Mag-ingat ka sa susunod!"}]},
+        {"p":"Sa kuwento, dalawa ang uri ng nangyayari: ang **eksena** (ang nangyayari noon) at ang **pangyayari** (ang biglang nangyari sa gitna nito). Sa Tagalog: “naglalakad ako” at “umulan”. Sa Ingles, may sariling panahunan ang bawat isa."},
+        {"term":"past continuous","means":"anyo ng pandiwa para sa nangyayari sa isang sandali sa nakaraan: {{was}} / {{were}} + {{-ing}} ({{I was walking}}). Ito ang “naglalakad” na nangyayari noon."},
+        { "table": [
+          ["","anyo","halimbawa"],
+          ["eksena (nangyayari noon)","{{was}} / {{were}} + {{-ing}}","{{I was walking home…}}"],
+          ["pangyayari (biglang nangyari)","past simple","{{…when it started to rain.}}"]
+        ] },
+        {"p":"**Paano gawin**: {{was}} (sa {{I}}, {{he}}, {{she}}, {{it}}) o {{were}} (sa {{you}}, {{we}}, {{they}}) + pandiwa + {{-ing}}: {{I was cooking}}, {{they were sleeping}}."},
+        {"p":"**{{when}} at {{while}}.** {{when}} + ang biglang pangyayari (past simple): {{I was cooking when the phone rang.}} {{while}} + ang eksena (past continuous): {{While I was cooking, the phone rang.}} Pwedeng mauna ang alinmang bahagi."},
+        {"p":"**Dalawang sabay na eksena**: parehong past continuous, na may {{while}}: {{I was cooking while my husband was watching TV.}}"},
+        { "ex": [
+          {"t":"I was walking home when it started to rain.","tr":"Naglalakad ako pauwi nang biglang umulan."},
+          {"t":"She was sleeping when I called.","tr":"Natutulog siya nang tumawag ako."},
+          {"t":"While I was cooking, the lights went out.","tr":"Habang nagluluto ako, nawalan ng kuryente."},
+          {"t":"What were you doing at nine last night?","tr":"Ano ang ginagawa mo kagabi nang alas-nuwebe?"},
+          {"t":"We were watching TV while the kids were playing.","tr":"Nanonood kami ng TV habang naglalaro ang mga bata."},
+          {"t":"It was raining, so we stayed home.","tr":"Umuulan, kaya nasa bahay lang kami."}
+        ] },
+        {"tip":"Magandang simula ng kuwento ang past continuous: {{It was a cold night. I was driving home, and the radio was playing…}} Itinatakda nito ang eksena bago dumating ang aksiyon."}
+      ],
+      "mistakes": [
+        {"wrong":"I was walk home when it started to rain.","right":"I was walking home when it started to rain.","tr":"Naglalakad ako pauwi nang biglang umulan.","why":"{{was}} + {{-ing}}."},
+        {"wrong":"While I cooked, the phone was ringing.","right":"While I was cooking, the phone rang.","tr":"Habang nagluluto ako, tumunog ang telepono.","why":"Ang eksena (pagluluto): {{was cooking}}; ang biglang pangyayari (pagtunog): {{rang}}."},
+        {"wrong":"They was sleeping.","right":"They were sleeping.","tr":"Natutulog sila.","why":"Sa {{they}}: {{were}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I was ___ home when it started to rain.","tr":"Naglalakad ako pauwi nang biglang umulan.","options":["walking","walk","walked"],"answer":0,"why":"Eksena: {{was}} + {{-ing}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She was sleeping when I ___.","tr":"Natutulog siya nang tumawag ako.","options":["called","was calling","call"],"answer":0,"why":"Ang biglang pangyayari: past simple.","from":"say-what-you-did"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"At nine last night, they ___ watching TV.","tr":"Kagabi nang alas-nuwebe, nanonood sila ng TV.","options":["were","was","are"],"answer":0,"why":"Sa {{they}}, nakaraan: {{were}}.","from":"say-where-you-were"},
+        {"type":"choice","q":"“Habang nagluluto ako, nawalan ng kuryente.”","options":["{{While I was cooking, the lights went out.}}","{{While I cooked, the lights were going out.}}","{{While I am cooking, the lights went out.}}"],"answer":0,"why":"Eksena: {{was cooking}}; pangyayari: {{went out}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ano ang ginagawa mo kagabi nang alas-nuwebe?","words":["What","were","you","doing","at nine","last night?"]},
+        {"type":"dialogue","q":"Tinatanong ka ng pulis tungkol sa aksidenteng nakita mo. Piliin ang mga sagot mo.","lines":[{"who":"Pulis","t":"What were you doing when the accident happened?","tr":"Ano ang ginagawa mo nang mangyari ang aksidente?"},{"options":["I was waiting for the bus.","I waited for the bus when."],"answer":0,"why":"Ang eksena: {{was waiting}}."},{"who":"Pulis","t":"And what did you see?","tr":"At ano ang nakita mo?"},{"options":["A car was going very fast, and it hit a pole.","A car went very fast, and it was hitting a pole."],"answer":0,"why":"Eksena (mabilis na takbo): {{was going}}; ang biglang pangyayari (bumangga): {{hit}}."}]},
+        {"type":"free","q":"Ikaw naman: ikuwento ang isang sandaling may biglang nangyari. Ano ang ginagawa mo, at ano ang nangyari?","answers":[{"t":"I was cooking dinner when my phone rang. It was my brother. He was calling from Dubai!","tr":"Nagluluto ako ng hapunan nang tumunog ang cellphone ko. Ang kuya ko pala. Tumatawag siya mula sa Dubai!"},{"t":"Last Sunday, I was walking in the park when I saw an old friend. She was jogging with her dog.","tr":"Noong Linggo, naglalakad ako sa parke nang makita ko ang isang dating kaibigan. Nagja-jogging siya kasama ang aso niya."}]}
+      ]
+    },
+    {
+      "id": "talk-about-real-possibilities",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pag-usapan kung ano ang mangyayari kung…",
+      "summary": "Gamitin ang {{if}} para sa posibleng mangyari: {{If it rains, we'll stay home.}} {{If you're tired, you should rest.}}",
+      "topic": "First conditional: {{if}} + present simple, at {{will}} + pandiwa; hindi {{if it will rain}}; {{when}} vs {{if}}; {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Kung umulan bukas, sa bahay na lang kami."}},
+        {"dialog":[{"who":"Mike","t":"Are we still going to the beach tomorrow?","tr":"Tuloy pa ba tayo sa beach bukas?"},{"who":"Ana","t":"If it rains, we'll stay home.","tr":"Kung umulan, sa bahay na lang tayo."},{"who":"Mike","t":"And if it's sunny?","tr":"E kung maaraw?"},{"who":"Ana","t":"If it's sunny, I'll pick you up at seven.","tr":"Kung maaraw, susunduin kita nang alas-siyete."},{"who":"Mike","t":"Great! If you're late, I'll call you.","tr":"Ayos! Kapag na-late ka, tatawagan kita."}]},
+        {"p":"Ang “kung” ng Tagalog para sa posibleng mangyari ay {{if}} sa Ingles. Ang ayos: {{if}} + **present simple**, at sa kabilang bahagi, {{will}} + pandiwa: {{If it rains, we'll stay home.}}"},
+        {"term":"conditional","means":"pangungusap na may kondisyon, karaniwang may {{if}}: kung mangyari ang isang bagay, mangyayari ang isa pa."},
+        { "table": [
+          ["kondisyon ({{if}} + present)","resulta ({{will}} + pandiwa)"],
+          ["{{If it rains,}}","{{we'll stay home.}}"],
+          ["{{If you're tired,}}","{{I'll drive.}}"],
+          ["{{If she calls,}}","{{I'll tell her.}}"],
+          ["{{If I have time,}}","{{I'll visit you.}}"]
+        ] },
+        {"p":"**Ang pinakamadalas na pagkakamali**: lagyan ng {{will}} ang bahaging may {{if}}. Mali ang {{If it will rain}}; tama ang {{If it rains}}, kahit tungkol sa bukas. Nasa kabilang bahagi lang ang {{will}}."},
+        {"p":"**Pwedeng magpalit ng puwesto**: {{We'll stay home if it rains.}} (walang kuwit kapag nasa gitna ang {{if}}). Sa resulta, pwede rin ang utos o payo: {{If you're tired, rest.}}, {{If you're sick, you should see a doctor.}}"},
+        {"p":"**{{if}} o {{when}}?** {{when}} kapag sigurado kang mangyayari ({{When I get home, I'll call you.}}); {{if}} kapag posible lang ({{If I see him, I'll tell him.}}). Parang “kapag” at “kung” ng Tagalog. At ang {{unless}} ay “maliban kung”: {{I'll go unless it rains.}}"},
+        { "ex": [
+          {"t":"If it rains, we'll stay home.","tr":"Kung umulan, sa bahay na lang kami."},
+          {"t":"If you're tired, I'll drive.","tr":"Kung pagod ka, ako na ang magmamaneho."},
+          {"t":"If she calls, I'll tell her.","tr":"Kung tumawag siya, sasabihin ko sa kanya."},
+          {"t":"We'll be late if we don't leave now.","tr":"Mahuhuli tayo kung hindi pa tayo aalis ngayon."},
+          {"t":"If you're sick, you should see a doctor.","tr":"Kung may sakit ka, magpatingin ka sa doktor."},
+          {"t":"When I get home, I'll call you.","tr":"Pag-uwi ko, tatawagan kita."},
+          {"t":"I'll go unless it rains.","tr":"Pupunta ako maliban kung umulan."}
+        ] },
+        {"tip":"Walang {{will}} pagkatapos ng {{when}} at {{if}}: {{When I get home}}, hindi {{When I will get home}}. Ito ang tuntuning pinakamadalas makalimutan."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Kung umulan, sa bahay na lang kami.","why":"Walang {{will}} sa bahaging may {{if}}: present simple."},
+        {"wrong":"If you will see him, tell him.","right":"If you see him, tell him.","tr":"Kung makita mo siya, sabihin mo sa kanya.","why":"Present simple pagkatapos ng {{if}}."},
+        {"wrong":"If I have time, I visit you tomorrow.","right":"If I have time, I'll visit you tomorrow.","tr":"Kung may oras ako, bibisitahin kita bukas.","why":"Sa resulta: {{will}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"If it ___ tomorrow, we'll stay home.","tr":"Kung umulan bukas, sa bahay na lang kami.","options":["rains","will rain","rained"],"answer":0,"why":"Pagkatapos ng {{if}}: present simple."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"If you're tired, I ___ drive.","tr":"Kung pagod ka, ako na ang magmamaneho.","options":["will","am","do"],"answer":0,"why":"Sa resulta: {{will}}.","from":"make-promises-and-predictions"},
+        {"type":"choice","q":"Alin ang tama?","options":["{{If I see him, I'll tell him.}}","{{If I will see him, I'll tell him.}}","{{If I see him, I tell him tomorrow.}}"],"answer":0,"why":"{{if}} + present; resulta: {{will}}."},
+        {"type":"choice","q":"Sigurado kang uuwi ka mamaya. “Pag-uwi ko, tatawagan kita.”","options":["{{When I get home, I'll call you.}}","{{If I will get home, I call you.}}","{{When I will get home, I'll call you.}}"],"answer":0,"why":"Sigurado: {{when}}, at walang {{will}} pagkatapos nito."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Mahuhuli tayo kung hindi pa tayo aalis ngayon.","words":["We'll","be late","if","we don't","leave now."]},
+        {"type":"dialogue","q":"Pinag-uusapan ninyo ng asawa mo ang weekend. Piliin ang mga sagot mo.","lines":[{"who":"Asawa","t":"What should we do on Saturday?","tr":"Ano ang gagawin natin sa Sabado?"},{"options":["If the weather is nice, let's go to the park.","If the weather will be nice, let's go to the park."],"answer":0,"why":"Walang {{will}} pagkatapos ng {{if}}."},{"who":"Asawa","t":"And if it rains?","tr":"E kung umulan?"},{"options":["If it rains, we'll watch a movie at home.","If it rains, we watch a movie at home tomorrow."],"answer":0,"why":"Sa resulta: {{will}}."}],"from":"invite-and-suggest"},
+        {"type":"free","q":"Ikaw naman: sumulat ng tatlong {{if}} na pangungusap tungkol sa susunod na linggo mo.","answers":[{"t":"If I finish work early, I'll go to the gym. If it's sunny on Saturday, we'll go to the beach. If my mom calls, I'll tell her about my new job.","tr":"Kung maaga akong matapos sa trabaho, mag-gi-gym ako. Kung maaraw sa Sabado, pupunta kami sa beach. Kung tumawag ang nanay ko, ikukuwento ko sa kanya ang bago kong trabaho."},{"t":"If I have time, I'll cook adobo. If the traffic is bad, I'll take the train. If I'm tired, I'll stay home.","tr":"Kung may oras ako, magluluto ako ng adobo. Kung matrapik, magtetren ako. Kung pagod ako, sa bahay lang ako."}]}
+      ]
+    },
+    {
+      "id": "imagine-and-give-advice",
+      "unit": 8,
+      "level": "B1",
+      "title": "Mag-isip ng hindi totoo, at magbigay ng payo",
+      "summary": "Gamitin ang {{If I had…, I would…}} para sa mga pangarap at hindi totoong sitwasyon, at ang {{If I were you}} para sa “Kung ako sa iyo…”",
+      "topic": "Second conditional: {{if}} + past simple, {{would}} + pandiwa; {{If I were you, I'd…}}; {{will}} vs {{would}}",
+      "blocks": [
+        {"goal":{"t":"If I won the lottery, I would buy my parents a house.","tr":"Kung manalo ako sa lotto, ibibili ko ng bahay ang mga magulang ko."}},
+        {"dialog":[{"who":"Mike","t":"What would you do if you won a million dollars?","tr":"Ano ang gagawin mo kung manalo ka ng isang milyong dolyar?"},{"who":"Ana","t":"I'd buy my parents a house in Batangas. And you?","tr":"Ibibili ko ng bahay ang mga magulang ko sa Batangas. Ikaw?"},{"who":"Mike","t":"I'd travel around the world. But right now, I'm worried about my job.","tr":"Maglalakbay ako sa buong mundo. Pero ngayon, nag-aalala ako sa trabaho ko."},{"who":"Ana","t":"Why?","tr":"Bakit?"},{"who":"Mike","t":"My boss is always angry.","tr":"Laging galit ang boss ko."},{"who":"Ana","t":"If I were you, I'd talk to him.","tr":"Kung ako sa iyo, kakausapin ko siya."}]},
+        {"p":"**Hindi totoo o malabong mangyari**: sa Ingles, ginagamit ang nakaraan pagkatapos ng {{if}}, kahit tungkol ito sa ngayon o sa hinaharap, at {{would}} ({{'d}}) sa resulta: {{If I had money, I would travel.}} “Kung may pera ako, maglalakbay ako.” Hindi tungkol sa oras ang nakaraan dito: sinasabi nitong hindi ito ang totoo."},
+        { "table": [
+          ["","kondisyon","resulta"],
+          ["posible (aralin 43)","{{If I have time,}}","{{I'll call you.}}"],
+          ["hindi totoo, pangarap","{{If I had time,}}","{{I'd call you.}}"],
+          ["payo","{{If I were you,}}","{{I'd see a doctor.}}"]
+        ] },
+        {"p":"**{{If I were you}}.** Ang “Kung ako sa iyo” ay {{If I were you, I'd…}}: may {{were}} kahit {{I}}. Ito ang pinakakaraniwang paraan ng malumanay na pagpapayo."},
+        {"p":"**{{would}}** ay hindi nagbabago, at walang {{to}} ang kasunod: {{I would go}}, {{she would help}}. Pinaikli: {{I'd}}, {{she'd}}. Tanong: {{What would you do?}}"},
+        {"p":"**{{will}} o {{would}}?** {{will}} para sa totoong posibilidad: {{If I have time, I'll come}} (baka may oras ka nga). {{would}} para sa hindi totoo o malabo: {{If I had time, I'd come}} (wala kang oras)."},
+        { "ex": [
+          {"t":"If I won the lottery, I'd buy a house.","tr":"Kung manalo ako sa lotto, bibili ako ng bahay."},
+          {"t":"If I had more time, I'd learn to cook.","tr":"Kung mas marami akong oras, mag-aaral akong magluto."},
+          {"t":"If I were you, I'd talk to him.","tr":"Kung ako sa iyo, kakausapin ko siya."},
+          {"t":"What would you do if you were the president?","tr":"Ano ang gagawin mo kung ikaw ang presidente?"},
+          {"t":"I wouldn't do that if I were you.","tr":"Hindi ko gagawin iyan kung ako sa iyo."},
+          {"t":"If she lived closer, we'd see her more often.","tr":"Kung mas malapit siya nakatira, mas madalas namin siyang makikita."}
+        ] },
+        {"tip":"Galing din sa {{would}} ang {{I'd like}} ng aralin 18: magalang ito dahil mas malambot kaysa {{I want}}."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"Kung may pera ako, maglalakbay ako.","why":"Walang {{would}} sa bahaging may {{if}}: nakaraan ({{had}})."},
+        {"wrong":"If I am you, I would talk to him.","right":"If I were you, I would talk to him.","tr":"Kung ako sa iyo, kakausapin ko siya.","why":"“Kung ako sa iyo”: {{If I were you}}."},
+        {"wrong":"I would to travel.","right":"I would travel.","tr":"Maglalakbay ako.","why":"Walang {{to}} pagkatapos ng {{would}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"If I ___ more money, I'd travel.","tr":"Kung mas marami akong pera, maglalakbay ako.","options":["had","have","would have"],"answer":0,"why":"Hindi totoo: nakaraan pagkatapos ng {{if}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"If I were you, I ___ see a doctor.","tr":"Kung ako sa iyo, magpapatingin ako sa doktor.","options":["would","will","am"],"answer":0,"why":"Payo na may {{If I were you}}: {{would}}.","from":"say-what-you-have-to-do"},
+        {"type":"choice","q":"“Kung ako sa iyo…”","options":["{{If I were you…}}","{{If I am you…}}","{{If I was your…}}"],"answer":0,"why":"{{If I were you}}."},
+        {"type":"choice","q":"Wala kang oras ngayong linggo. Sasabihin mo…","options":["{{If I had time, I'd help you.}}","{{If I have time, I'll help you.}}","{{If I would have time, I help you.}}"],"answer":0,"why":"Hindi totoo (wala kang oras): {{had}} at {{would}}.","from":"talk-about-real-possibilities"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ano ang gagawin mo kung ikaw ang presidente?","words":["What","would","you do","if","you were","the president?"]},
+        {"type":"dialogue","q":"Humihingi ng payo ang kaibigan mo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"My landlord wants to raise my rent. What should I do?","tr":"Gusto ng may-ari ng apartment na taasan ang upa ko. Ano ang dapat kong gawin?"},{"options":["If I were you, I'd talk to him first.","If I am you, I will talk to him first."],"answer":0,"why":"Payo: {{If I were you, I'd…}}"},{"who":"Kaibigan","t":"And if he says no?","tr":"E kung ayaw niya?"},{"options":["Then I'd look for a new place.","Then I'd looking for a new place."],"answer":0,"why":"Pagkatapos ng {{would}}: simpleng anyo."}]},
+        {"type":"free","q":"Ikaw naman: ano ang gagawin mo kung manalo ka sa lotto? At magbigay ng payo sa kaibigang pagod na pagod sa trabaho.","answers":[{"t":"If I won the lottery, I'd build a house for my family and I'd travel to Europe. If I were you, I'd take a vacation.","tr":"Kung manalo ako sa lotto, magpapatayo ako ng bahay para sa pamilya ko at maglalakbay ako sa Europa. Kung ako sa iyo, magbabakasyon ako."},{"t":"If I had a million dollars, I'd start a business. If I were you, I'd talk to your boss and ask for help.","tr":"Kung may isang milyong dolyar ako, magnenegosyo ako. Kung ako sa iyo, kakausapin ko ang boss mo at hihingi ako ng tulong."}]}
+      ]
+    },
+    {
+      "id": "report-what-people-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Ipasa ang sinabi ng ibang tao",
+      "summary": "Iulat ang sinabi at itinanong ng iba: {{She said she was tired.}} {{He told me to wait.}} {{They asked if I was okay.}}",
+      "topic": "Reported speech: {{said (that)}}, {{told me (that)}}; ang pag-urong ng panahunan ({{is}} → {{was}}, {{will}} → {{would}}); {{told me to}}; {{asked if}}; ang “daw” ng Tagalog",
+      "blocks": [
+        {"goal":{"t":"My boss said that the meeting was cancelled.","tr":"Kanselado raw ang meeting, sabi ng boss ko."}},
+        {"dialog":[{"who":"Mike","t":"Did you talk to Sarah?","tr":"Nakausap mo ba si Sarah?"},{"who":"Ana","t":"Yes. She said she was sick and couldn't come.","tr":"Oo. May sakit daw siya at hindi siya makakapunta."},{"who":"Mike","t":"Oh no. Did she say anything else?","tr":"Naku. May iba pa ba siyang sinabi?"},{"who":"Ana","t":"She told me to say hi to you. And she asked if we could visit her.","tr":"Ipinakumusta ka niya. At itinanong niya kung pwede natin siyang dalawin."},{"who":"Mike","t":"Of course! Let's go tomorrow.","tr":"Siyempre! Tara bukas."}]},
+        {"p":"Madali sa Tagalog: “daw” o “raw” lang: “May sakit daw siya.” Sa Ingles, may pandiwa para sa nagsalita ({{said}}, {{told}}, {{asked}}), at karaniwang **umaatras ng isang hakbang** ang panahunan: ang {{I'm sick}} ni Sarah ay nagiging {{She said she was sick.}}"},
+        { "table": [
+          ["ang sinabi niya","ang iniuulat mo"],
+          ["{{I'm sick.}}","{{She said (that) she was sick.}}"],
+          ["{{I can't come.}}","{{She said she couldn't come.}}"],
+          ["{{I'll call you.}}","{{He said he would call me.}}"],
+          ["{{Wait here.}}","{{He told me to wait.}}"],
+          ["{{Are you okay?}}","{{They asked if I was okay.}}"],
+          ["{{Where do you live?}}","{{She asked where I lived.}}"]
+        ] },
+        {"p":"**{{said}} o {{told}}?** Walang tao pagkatapos ng {{say}}: {{She said (that)…}}. Laging may tao pagkatapos ng {{tell}}: {{She told me (that)…}}, {{She told her boss…}}. Mali ang {{She said me}}."},
+        {"p":"**Mga utos at pakiusap**: {{told}} o {{asked}} + tao + {{to}} + pandiwa: {{He told me to wait.}} “Maghintay raw ako, sabi niya.”, {{She asked me to call her.}}; sa negatibo, {{not to}}: {{Mom told us not to be late.}}"},
+        {"p":"**Mga tanong**: {{asked if}} para sa oo-o-hindi; {{asked}} + salitang pananong para sa iba, **na may ayos ng karaniwang pangungusap**, hindi ng tanong: {{She asked where I lived.}}, hindi {{She asked where did I live.}}"},
+        {"p":"**Sa usapan**, kapag totoo pa ngayon, madalas hindi na inaatras ang panahunan: {{She said she's sick}} (may sakit pa siya ngayon). Parehong tama."},
+        { "ex": [
+          {"t":"She said she was tired.","tr":"Pagod daw siya."},
+          {"t":"He told me he would call later.","tr":"Tatawag daw siya mamaya, sabi niya sa akin."},
+          {"t":"My boss told me to wait.","tr":"Pinaghintay ako ng boss ko."},
+          {"t":"Mom told us not to be late.","tr":"Huwag daw kaming mahuhuli, sabi ni Mama."},
+          {"t":"They asked if I was okay.","tr":"Tinanong nila kung okay lang ako."},
+          {"t":"She asked where I lived.","tr":"Itinanong niya kung saan ako nakatira."},
+          {"t":"They say it's going to rain.","tr":"Uulan daw.","note":"“daw” na walang tiyak na nagsabi: {{they say}}"}
+        ] },
+        {"tip":"Ang “daw” na hindi alam kung sino ang nagsabi (“Masarap daw dito”) ay {{They say…}} o {{I heard (that)…}}: {{I heard the food here is good.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"Sinabi niya sa akin na pagod siya.","why":"Kapag may tao pagkatapos: {{told}}, hindi {{said}}."},
+        {"wrong":"He told me wait.","right":"He told me to wait.","tr":"Maghintay raw ako, sabi niya.","why":"{{told}} + tao + {{to}} + pandiwa."},
+        {"wrong":"She asked where did I live.","right":"She asked where I lived.","tr":"Itinanong niya kung saan ako nakatira.","why":"Sa iniulat na tanong, ayos ng karaniwang pangungusap: walang {{did}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She ___ me she was tired.","tr":"Sinabi niya sa akin na pagod siya.","options":["told","said","asked"],"answer":0,"why":"May tao ({{me}}) pagkatapos: {{told}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"He told me ___ wait.","tr":"Maghintay raw ako, sabi niya.","options":["to","for","that"],"answer":0,"why":"{{told}} + tao + {{to}} + pandiwa."},
+        {"type":"choice","q":"Sabi ni Ben: {{I'm hungry.}} Iuulat mo:","options":["{{Ben said he was hungry.}}","{{Ben said I was hungry.}}","{{Ben told he was hungry.}}"],"answer":0,"why":"Si Ben ay {{he}}; {{said}} na walang tao pagkatapos; {{am}} → {{was}}.","from":"talk-about-him-and-her"},
+        {"type":"choice","q":"“Itinanong niya kung saan ako nakatira.”","options":["{{She asked where I lived.}}","{{She asked where did I live.}}","{{She asked me where do I live.}}"],"answer":0,"why":"Ayos ng karaniwang pangungusap: {{where I lived}}.","from":"ask-where-when-why"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Tinanong nila kung okay lang ako.","words":["They","asked","if","I was","okay."]},
+        {"type":"dialogue","q":"Ikaw ang sumagot sa tawag para sa kasama mo sa bahay. Piliin ang mga sagot mo.","lines":[{"who":"Kasama","t":"Did anyone call?","tr":"May tumawag ba?"},{"options":["Yes, your mom. She said she would call again tonight.","Yes, your mom. She said me she will call again tonight."],"answer":0,"why":"{{said}} na walang tao pagkatapos; {{will}} → {{would}}."},{"who":"Kasama","t":"Did she say anything else?","tr":"May iba pa ba siyang sinabi?"},{"options":["She asked if you were eating well!","She asked are you eating well!"],"answer":0,"why":"Iniulat na tanong: {{asked if}} + ayos ng pangungusap."}],"from":"ask-and-answer-with-be"},
+        {"type":"free","q":"Ikaw naman: iulat ang dalawang bagay na sinabi o itinanong sa iyo ng isang tao ngayong linggo.","answers":[{"t":"My mom said she missed me. My boss asked if I could work on Saturday.","tr":"Miss na raw ako ng nanay ko. Tinanong ng boss ko kung pwede akong magtrabaho sa Sabado."},{"t":"My friend told me she was pregnant! My teacher told us to study chapter five.","tr":"Sinabi sa akin ng kaibigan ko na buntis siya! Pinag-aral kami ng guro namin ng chapter five."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Magbigay ng opinyon, sumang-ayon at sumalungat",
+      "summary": "Sabihin ang iniisip mo at tumugon sa iba: {{I think…}} {{In my opinion…}} {{I agree.}} {{I'm not sure about that.}}",
+      "topic": "{{I think (that)…}}, {{I don't think…}}; {{in my opinion}}; {{I agree}} / {{I disagree}}; {{It looks like…}}; {{I thought…}} (akala ko)",
+      "blocks": [
+        {"goal":{"t":"I think we should leave early, because the traffic will be bad.","tr":"Sa tingin ko, dapat tayong umalis nang maaga, kasi matrapik."}},
+        {"dialog":[{"who":"Mike","t":"What do you think about the new mall?","tr":"Ano ang tingin mo sa bagong mall?"},{"who":"Ana","t":"I think it's nice, but it's too expensive.","tr":"Sa tingin ko, maganda siya, pero masyadong mahal."},{"who":"Mike","t":"I agree. And the parking is terrible.","tr":"Sang-ayon ako. At ang pangit ng parking."},{"who":"Ana","t":"Really? I don't think it's that bad.","tr":"Talaga? Sa tingin ko, hindi naman ganoon kapangit."},{"who":"Mike","t":"Well, in my opinion, it's the worst!","tr":"Para sa akin, ito na ang pinakapangit!"}]},
+        {"p":"**Sa tingin ko**: {{I think (that)…}} + isang buong pangungusap: {{I think it's expensive.}} Pagtatanong: {{What do you think?}}, {{What do you think about…?}}"},
+        {"p":"**“Sa tingin ko, hindi…”**: sa Ingles, ang {{not}} ay karaniwang inilalagay sa {{think}}, hindi sa kasunod: {{I don't think it's true.}} “Sa tingin ko, hindi totoo iyan.” Mas natural ito kaysa {{I think it's not true}}."},
+        {"p":"**Iba pang paraan**: {{In my opinion,…}} (“para sa akin”, medyo pormal), {{I believe…}}, {{It looks like…}} o {{It seems (that)…}} (“mukhang”): {{It looks like it's going to rain.}} At ang “akala ko” (mali pala ang inisip mo): {{I thought…}}: {{I thought the store was open.}}"},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Sa tingin ko…","{{I think…}}"],
+          ["Sa tingin ko, hindi…","{{I don't think…}}"],
+          ["Para sa akin…","{{In my opinion…}}"],
+          ["Mukhang…","{{It looks like…}} / {{It seems…}}"],
+          ["Akala ko…","{{I thought…}}"],
+          ["Sang-ayon ako.","{{I agree.}}"],
+          ["Hindi ako sang-ayon.","{{I don't agree.}} / {{I disagree.}}"]
+        ] },
+        {"p":"**Sumalungat nang magalang**: mas malumanay ang {{I'm not sure about that.}}, {{I see your point, but…}} o {{Really? I think…}} kaysa sa direktang {{You're wrong.}} Mahalaga ito lalo na sa trabaho."},
+        { "ex": [
+          {"t":"I think it's too expensive.","tr":"Sa tingin ko, masyadong mahal."},
+          {"t":"I don't think he's coming.","tr":"Sa tingin ko, hindi siya darating."},
+          {"t":"What do you think about the new mall?","tr":"Ano ang tingin mo sa bagong mall?"},
+          {"t":"In my opinion, Cebu is the best place to live.","tr":"Para sa akin, Cebu ang pinakamagandang tirhan."},
+          {"t":"It looks like it's going to rain.","tr":"Mukhang uulan."},
+          {"t":"I thought the store was open.","tr":"Akala ko bukas ang tindahan."},
+          {"t":"I see your point, but I don't agree.","tr":"Naiintindihan kita, pero hindi ako sang-ayon."}
+        ] },
+        {"tip":"Sa Amerika, karaniwan sa trabaho ang {{What do you think?}}, at gusto talaga nilang marinig ang opinyon mo. Huwag sumang-ayon dahil lang boss ang nagtanong: sabihin nang magalang ang iniisip mo."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm agree.","right":"I agree.","tr":"Sang-ayon ako.","why":"Pandiwa ang {{agree}}: walang {{am}}."},
+        {"wrong":"What do you think the new mall?","right":"What do you think about the new mall?","tr":"Ano ang tingin mo sa bagong mall?","why":"{{think about}} + ang paksa."},
+        {"wrong":"I think he's not coming.","right":"I don't think he's coming.","tr":"Sa tingin ko, hindi siya darating.","why":"Mas natural sa Ingles na ilagay ang {{not}} sa {{think}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Sang-ayon ako.”","options":["{{I agree.}}","{{I'm agree.}}","{{I am agreeing.}}"],"answer":0,"why":"Pandiwa ang {{agree}}: {{I agree}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ think he's coming.","tr":"Sa tingin ko, hindi siya darating.","options":["don't","not","no"],"answer":0,"why":"Ang {{not}} ay nasa {{think}}: {{I don't think}}.","from":"ask-questions-with-do"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"What do you think ___ the new mall?","tr":"Ano ang tingin mo sa bagong mall?","options":["about","to","for"],"answer":0,"why":"{{think about}}."},
+        {"type":"choice","q":"Akala mo bukas ang tindahan, pero sarado pala. Sasabihin mo…","options":["{{I thought the store was open.}}","{{I think the store is open.}}","{{I'm thinking the store open.}}"],"answer":0,"why":"Akala ko (mali pala): {{I thought}}.","from":"say-where-you-were"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Mukhang uulan.","words":["It looks","like","it's going","to rain."],"from":"talk-about-your-plans"},
+        {"type":"dialogue","q":"Sa isang meeting, tinatanong ng boss ang opinyon mo. Piliin ang mga sagot mo.","lines":[{"who":"Boss","t":"What do you think about the new schedule?","tr":"Ano ang tingin mo sa bagong iskedyul?"},{"options":["I think it's good, but I'm not sure about the Saturday shift.","I'm agree, but I'm not sure about the Saturday shift."],"answer":0,"why":"{{I think…}}; at walang {{I'm agree}}."},{"who":"Boss","t":"Why not?","tr":"Bakit naman?"},{"options":["I don't think many people can work on Saturdays.","I think many people can't working on Saturdays."],"answer":0,"why":"{{I don't think…}}, at pandiwa lang pagkatapos ng {{can}}."}]},
+        {"type":"free","q":"Ikaw naman: magbigay ng opinyon tungkol sa lungsod mo o sa isang pelikula, at tumugon nang magalang sa opinyong hindi mo sinasang-ayunan.","answers":[{"t":"I think Manila is exciting, but the traffic is terrible. My friend says Manila is boring, but I don't agree!","tr":"Sa tingin ko, masaya sa Maynila, pero grabe ang traffic. Sabi ng kaibigan ko, nakakainip daw ang Maynila, pero hindi ako sang-ayon!"},{"t":"In my opinion, that movie was too long. I see your point, but I don't think it was boring.","tr":"Para sa akin, masyadong mahaba ang pelikulang iyon. Naiintindihan kita, pero sa tingin ko, hindi naman ito nakakainip."}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "Unawain ang passive",
+      "summary": "Kilalanin ang passive sa balita, karatula at paliwanag: {{The store is closed on Sundays.}} {{This phone was made in China.}} {{The church was built in 1890.}}",
+      "topic": "Ang passive: {{be}} + past participle ({{is made}}, {{was built}}); {{by}}; kung kailan ito ginagamit; hindi passive ang object focus ng Tagalog",
+      "blocks": [
+        {"goal":{"t":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito."}},
+        {"dialog":[{"who":"Ana","t":"Wow, this church is beautiful. When was it built?","tr":"Wow, ang ganda ng simbahang ito. Kailan ito itinayo?"},{"who":"Guide","t":"It was built in 1890 by Spanish priests.","tr":"Itinayo ito noong 1890 ng mga paring Espanyol."},{"who":"Ana","t":"Is it still used today?","tr":"Ginagamit pa ba ito ngayon?"},{"who":"Guide","t":"Yes, Mass is held here every Sunday.","tr":"Oo, may misa dito tuwing Linggo."}]},
+        {"p":"Karaniwan, ang simuno sa Ingles ang gumagawa: {{Spanish priests built the church.}} Sa **passive**, ang simuno ang **tumatanggap** ng kilos: {{The church was built (by Spanish priests).}} Ginagamit ito kapag hindi mahalaga, hindi alam, o halata kung sino ang gumawa."},
+        {"term":"passive","means":"anyo kung saan ang simuno ang tumatanggap ng kilos: {{be}} + past participle ({{The church was built in 1890.}}). Ang gumawa, kung binabanggit, ay may {{by}}."},
+        { "table": [
+          ["active (ang gumagawa)","passive (ang tumatanggap)"],
+          ["{{They make this phone in China.}}","{{This phone is made in China.}}"],
+          ["{{Spanish priests built the church.}}","{{The church was built by Spanish priests.}}"],
+          ["{{Someone stole my bike.}}","{{My bike was stolen.}}"]
+        ] },
+        {"p":"**Ang anyo**: {{be}} ({{is}}, {{are}}, {{was}}, {{were}}) + past participle (aralin 34): {{is made}}, {{was built}}, {{were sold}}. Ang gumawa, kung mahalagang sabihin: {{by}}: {{by Spanish priests}}."},
+        {"p":"**Saan mo ito makikita**: sa balita ({{Two people were injured.}}), sa mga karatula ({{The store is closed on Sundays.}}, {{English is spoken here.}}), at sa mga paliwanag ({{Adobo is made with vinegar and soy sauce.}})."},
+        {"p":"**Hindi passive ang object focus ng Tagalog.** Sa “Kinain ko ang mangga”, ang mangga ang paksa, pero sa Ingles, active pa rin ang natural: {{I ate the mango.}}, hindi {{The mango was eaten by me.}} Gamitin ang passive kapag hindi mo alam o hindi mahalaga kung sino ang gumawa."},
+        { "ex": [
+          {"t":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito."},
+          {"t":"The church was built in 1890.","tr":"Itinayo ang simbahan noong 1890."},
+          {"t":"The store is closed on Sundays.","tr":"Sarado ang tindahan tuwing Linggo."},
+          {"t":"Adobo is made with vinegar and soy sauce.","tr":"Ginagawa ang adobo gamit ang suka at toyo."},
+          {"t":"My bike was stolen last night.","tr":"Ninakaw ang bisikleta ko kagabi."},
+          {"t":"English is spoken here.","tr":"Nagsasalita kami ng Ingles dito."},
+          {"t":"Two people were injured in the accident.","tr":"Dalawang tao ang nasugatan sa aksidente."}
+        ] },
+        {"tip":"May isang passive na lagi mong sinasabi: {{I was born in…}} (aralin 27). Passive iyon: {{be}} + {{born}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"This phone made in China.","right":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito.","why":"Kailangan ang {{be}} sa passive."},
+        {"wrong":"The church was build in 1890.","right":"The church was built in 1890.","tr":"Itinayo ang simbahan noong 1890.","why":"Past participle ang kasunod: {{built}}."},
+        {"wrong":"The mango was eaten by me.","right":"I ate the mango.","tr":"Kinain ko ang mangga.","why":"Kahit object focus ang Tagalog, active ang natural sa Ingles kapag alam at mahalaga ang gumawa."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"This phone was ___ in China.","tr":"Gawa sa China ang cellphone na ito.","options":["made","make","making"],"answer":0,"why":"{{be}} + past participle: {{made}}.","from":"talk-about-experiences"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"The store ___ closed on Sundays.","tr":"Sarado ang tindahan tuwing Linggo.","options":["is","does","has"],"answer":0,"why":"Passive: {{is}} + {{closed}}."},
+        {"type":"choice","q":"“Ninakaw ang bisikleta ko.”","options":["{{My bike was stolen.}}","{{My bike stole.}}","{{My bike was steal.}}"],"answer":0,"why":"{{was}} + past participle ({{stolen}})."},
+        {"type":"choice","q":"“Kinain ko ang mangga.” Ang pinakanatural sa Ingles:","options":["{{I ate the mango.}}","{{The mango was eaten by me.}}","{{The mango ate me.}}"],"answer":0,"why":"Alam at mahalaga ang gumawa (ikaw): active."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Itinayo ang simbahan noong 1890.","words":["The church","was","built","in 1890."]},
+        {"type":"dialogue","q":"Ipinapaliwanag mo ang adobo sa isang Amerikanong kaibigan. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"This is delicious! How is it made?","tr":"Ang sarap! Paano ito ginagawa?"},{"options":["It's made with chicken, vinegar, soy sauce and garlic.","It makes with chicken, vinegar, soy sauce and garlic."],"answer":0,"why":"Passive: {{is made}}."},{"who":"Kaibigan","t":"Is it eaten with rice?","tr":"Kinakain ba ito kasama ng kanin?"},{"options":["Yes, it's always served with rice.","Yes, it always serves with rice."],"answer":0,"why":"Passive: {{is served}}."}],"from":"ask-and-answer-with-be"},
+        {"type":"free","q":"Ikaw naman: ipaliwanag ang isang pagkaing Pilipino o isang lugar sa bayan mo gamit ang passive ({{is made}}, {{was built}}, {{is served}}…).","answers":[{"t":"Sinigang is made with pork, tamarind and vegetables. It's usually served with rice.","tr":"Ginagawa ang sinigang gamit ang baboy, sampalok at gulay. Karaniwan itong inihahain kasama ng kanin."},{"t":"The church in my town was built in the 1700s. It was damaged by an earthquake, but it was repaired.","tr":"Itinayo ang simbahan sa bayan namin noong 1700s. Nasira ito ng lindol, pero naayos din."}]}
+      ]
+    },
+    {
+      "id": "keep-a-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "Panatilihing buhay ang usapan",
+      "summary": "Tumugon, magtanong pa, at ibalik ang tanong, para hindi matigil ang usapan pagkatapos ng isang sagot: {{Really? What happened next?}} {{How about you?}}",
+      "topic": "Mga reaksiyon ({{Really?}}, {{That's great!}}, {{Oh no!}}); follow-up questions; {{How about you?}}; {{So do I}}, {{So am I}}",
+      "blocks": [
+        {"goal":{"t":"Really? That's amazing! How did you do it?","tr":"Talaga? Ang galing! Paano mo nagawa iyon?"}},
+        {"dialog":[{"who":"Mike","t":"I ran a marathon last weekend!","tr":"Tumakbo ako ng marathon noong weekend!"},{"who":"Ana","t":"Really? That's amazing! How long did it take?","tr":"Talaga? Ang galing! Gaano katagal?"},{"who":"Mike","t":"About four hours. I was so tired!","tr":"Mga apat na oras. Pagod na pagod ako!"},{"who":"Ana","t":"I bet! Have you run one before?","tr":"Sigurado! Nakatakbo ka na ba ng ganoon dati?"},{"who":"Mike","t":"No, it was my first one. How about you? Do you like running?","tr":"Hindi, iyon ang una ko. Ikaw? Mahilig ka bang tumakbo?"},{"who":"Ana","t":"Not really. I prefer swimming!","tr":"Hindi masyado. Mas gusto ko ang paglangoy!"}]},
+        {"p":"Sa Amerika, ang mabuting kausap ay nagpapakita ng interes: tumutugon, nagtatanong pa, at nagbabalik ng tanong. Ang sagot na isang salita lang ({{Yes.}}, {{Good.}}) ay madalas na tunog walang gana."},
+        { "table": [
+          ["","Ingles","Tagalog"],
+          ["magandang balita","{{That's great!}} {{Congratulations!}}","Ang galing! Congrats!"],
+          ["masamang balita","{{Oh no! I'm sorry to hear that.}}","Naku! Nalulungkot akong marinig iyan."],
+          ["gulat","{{Really?}} {{No way!}}","Talaga? Hindi nga!"],
+          ["ituloy","{{What happened next?}} {{And then?}}","Tapos?"],
+          ["magtanong pa","{{How did you do it?}} {{Why?}}","Paano? Bakit?"],
+          ["ibalik","{{How about you?}} {{What about you?}}","Ikaw?"]
+        ] },
+        {"p":"**Ginagamit ng follow-up questions ang lahat ng natutunan mo**: {{did}} para sa nakaraan ({{Where did you go?}}), present perfect para sa karanasan ({{Have you been there before?}}), {{going to}} para sa plano ({{What are you going to do next?}})."},
+        {"p":"**Maikling pagsang-ayon**: {{Me too.}} at {{Me neither.}} (aralin 12), o ang mas buo, na sumusunod sa pandiwa ng kausap: {{I love coffee.}} → {{So do I!}}; {{I'm tired.}} → {{So am I.}}; {{I don't eat meat.}} → {{Neither do I.}}"},
+        {"p":"**Ipakitang nakikinig ka**: {{I see.}}, {{That makes sense.}}, {{Oh, I didn't know that!}}, {{I bet!}} (“sigurado iyan!”)."},
+        { "ex": [
+          {"t":"Really? That's amazing!","tr":"Talaga? Ang galing!"},
+          {"t":"Oh no! I'm sorry to hear that.","tr":"Naku! Nalulungkot akong marinig iyan."},
+          {"t":"What happened next?","tr":"Tapos, ano ang nangyari?"},
+          {"t":"Have you been there before?","tr":"Nakapunta ka na ba doon dati?"},
+          {"t":"How about you?","tr":"Ikaw?"},
+          {"t":"So do I!","tr":"Ako rin!"},
+          {"t":"That makes sense.","tr":"May katwiran iyan."}
+        ] },
+        {"tip":"Isang madaling tuntunin: sa bawat sagot mo, magdagdag ng isang detalye at isang tanong. {{I'm from Cebu. Have you ever been there?}} Hindi titigil ang usapan."}
+      ],
+      "mistakes": [
+        {"wrong":"I love coffee. — Me also.","right":"I love coffee. — Me too!","tr":"Gustong-gusto ko ang kape. — Ako rin!","why":"Pilipinong Ingles ang {{Me also}}; ang “ako rin” ay {{Me too}} o {{So do I}}."},
+        {"wrong":"I'm tired. — So do I.","right":"I'm tired. — So am I.","tr":"Pagod ako. — Ako rin.","why":"Sumusunod sa pandiwa ng kausap: {{I'm}} → {{So am I}}; {{I love}} → {{So do I}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Sabi ng kaibigan mo: {{I got the job!}} Ang pinakamagandang tugon:","options":["{{That's great! Congratulations! When do you start?}}","{{Okay.}}","{{Me too.}}"],"answer":0,"why":"Reaksiyon, pagbati, at isang tanong pa."},
+        {"type":"choice","q":"Sabi ng katrabaho mo: {{My dog is sick.}} Tugon:","options":["{{Oh no! I'm sorry to hear that.}}","{{That's great!}}","{{So do I.}}"],"answer":0,"why":"Masamang balita: {{I'm sorry to hear that.}}"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I'm tired. — So ___ I.","tr":"Pagod ako. — Ako rin.","options":["am","do","have"],"answer":0,"why":"Sumusunod sa {{I'm}}: {{So am I}}.","from":"say-how-you-feel"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I love coffee. — So ___ I!","tr":"Gustong-gusto ko ang kape. — Ako rin!","options":["do","am","love"],"answer":0,"why":"Sumusunod sa {{I love}}: {{So do I}}.","from":"say-what-you-like-and-want"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Nakapunta ka na ba doon dati?","words":["Have","you","been","there","before?"],"from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Ikinukuwento ng katrabaho mo ang bakasyon niya. Panatilihing buhay ang usapan.","lines":[{"who":"Katrabaho","t":"I just got back from Hawaii!","tr":"Kababalik ko lang galing Hawaii!"},{"options":["Really? How was it? What did you do there?","Really? How it was? What you did there?"],"answer":0,"why":"{{How was it?}} at {{What did you do?}}: tamang ayos ng tanong."},{"who":"Katrabaho","t":"It was amazing! We went surfing every day.","tr":"Ang ganda! Nag-surfing kami araw-araw."},{"options":["No way! Was it your first time?","No way! Did it your first time?"],"answer":0,"why":"May {{be}}: {{Was it…?}}"},{"who":"Katrabaho","t":"Yes! It was hard, but fun. How about you? Do you have any plans this summer?","tr":"Oo! Mahirap, pero masaya. Ikaw? May plano ka ba ngayong summer?"},{"options":["I'm going to visit my family in Manila!","I go visit my family in Manila yesterday!"],"answer":0,"why":"Plano: {{I'm going to…}}"}],"from":"ask-about-the-past"},
+        {"type":"free","q":"Ikaw naman: sabi ng kaibigan mo, {{I'm moving to New York next month!}} Sumulat ng reaksiyon, dalawang follow-up question, at isang bagay tungkol sa iyo.","answers":[{"t":"Wow, that's exciting! Why are you moving? Where are you going to live? I've never been to New York, but I'd love to visit you!","tr":"Wow, nakakasabik! Bakit ka lilipat? Saan ka titira? Hindi pa ako nakakapunta sa New York, pero gustong-gusto kitang bisitahin!"},{"t":"Really? Congratulations! Did you get a new job? When are you leaving? I'll miss you so much!","tr":"Talaga? Congrats! May bago ka bang trabaho? Kailan ka aalis? Mamimiss kita nang sobra!"}]}
+      ]
     }
   ]
 }

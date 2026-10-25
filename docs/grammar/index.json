@@ -38,13 +38,14 @@
    "title": "Gramatika ng Ingles",
    "variety": "Ingles na Amerikano (American English)",
    "units": 8,
-   "lessons": 38,
+   "lessons": 48,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 208531,
-   "sha256": "ff760b797edb22abe442c82396e14dfd5268b304bb1ebdf2f638a0245ec6c49d"
+   "bytes": 269005,
+   "sha256": "ac97d14a2293403dd24cbcaa05e9eac2c3791b93438b1b77ad883f73c33ef2e0"
   }
  }
 }
