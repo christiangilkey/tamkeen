@@ -2057,6 +2057,231 @@
         {"type":"say","q":"बात पक्की कीजिए: “तुम पार्टी में आ रहे हो, है न?”","answer":"You're coming to the party, aren't you?"},
         {"type":"free","q":"आपकी बारी: किसी नए साथी के बारे में दो बातें {{tag}} के साथ पक्की कीजिए।","answers":[{"t":"You're new here, aren't you? You don't live far, do you?","tr":"आप यहाँ नए हैं, है न? आप ज़्यादा दूर नहीं रहते, है न?"},{"t":"You like coffee, don't you? You were at the meeting yesterday, weren't you?","tr":"आपको कॉफ़ी पसंद है, है न? आप कल मीटिंग में थे, है न?"}]}
       ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "कहानी सुनाइए: {{was doing, did, had done}}",
+      "summary": "एक पूरी कहानी सुनाइए: “{{I was waiting for the bus when it started to rain. I had left my umbrella at home.}}”",
+      "topic": "{{was doing}} (पृष्ठभूमि), {{did}} (घटनाएँ), {{had done}} (उससे भी पहले); {{first, then, suddenly, in the end}}",
+      "blocks": [
+        {"goal":{"t":"When I got to the station, the train had already left.","tr":"जब मैं स्टेशन पहुँचा, तब तक ट्रेन जा चुकी थी।"}},
+        {"dialog":[{"who":"मार्क","t":"You look tired. What happened?","tr":"तुम थकी हुई लग रही हो। क्या हुआ?"},{"who":"नेहा","t":"What a morning! I was waiting for the bus when it started to rain.","tr":"क्या सुबह थी! मैं बस का इंतज़ार कर रही थी कि बारिश शुरू हो गई।"},{"who":"मार्क","t":"Didn't you have an umbrella?","tr":"क्या तुम्हारे पास छाता नहीं था?"},{"who":"नेहा","t":"No, I had left it at the office. Then the bus didn't come.","tr":"नहीं, वह मैं ऑफ़िस में छोड़ आई थी। फिर बस भी नहीं आई।"},{"who":"मार्क","t":"Oh no! So what did you do?","tr":"अरे! फिर तुमने क्या किया?"},{"who":"नेहा","t":"In the end, I took a taxi. When I got here, the meeting had already started.","tr":"आख़िर में मैंने टैक्सी ली। जब मैं यहाँ पहुँची, तब तक मीटिंग शुरू हो चुकी थी।"}]},
+        {"p":"**एक कहानी, तीन काल.** कहानी में हर काल का अपना काम है: {{was doing}} पृष्ठभूमि बताता है, यानी क्या चल रहा था (पाठ 26); बीता रूप ({{did}}) कहानी की घटनाएँ, एक के बाद एक (पाठ 22); और {{had}} + पास्ट पार्टिसिपल वह बात, जो उससे भी **पहले** हो चुकी थी।"},
+        { "table": [
+          ["काम","रूप","उदाहरण"],
+          ["पृष्ठभूमि","{{was / were}} + {{-ing}}","{{It was raining.}} बारिश हो रही थी।"],
+          ["घटनाएँ","बीता रूप","{{I missed the bus.}} मेरी बस छूट गई।"],
+          ["उससे भी पहले","{{had}} + पास्ट पार्टिसिपल","{{I had forgotten my umbrella.}} मैं छाता भूल गया था।"]
+        ] },
+        {"p":"**{{had}} सिर्फ़ “पहले से भी पहले” के लिए.** हिंदी में “मैं कल बाज़ार गया था” आम है, इसलिए भारत में {{I had gone to the market yesterday}} बहुत सुनाई देता है। अंग्रेज़ी में सीधी बीती बात के लिए बस बीता रूप: {{I went to the market yesterday.}} {{had}} तभी, जब कहानी में किसी दूसरी बीती बात से भी पहले की बात हो: {{When I got there, the shop had closed.}} “जब मैं पहुँचा, दुकान बंद हो चुकी थी।”"},
+        {"p":"**कहानी जोड़ने वाले शब्द:** {{First,}} “पहले”, {{Then}} या {{After that,}} “फिर”, {{Suddenly,}} “अचानक”, {{In the end,}} “आख़िर में”। और {{when}} से दो बातें जोड़िए: {{I was cooking when the phone rang.}} “मैं खाना बना रहा था कि फ़ोन बजा।”"},
+        { "ex": [
+          {"t":"I was sleeping when the phone rang.","tr":"मैं सो रहा था कि फ़ोन बजा।"},
+          {"t":"First, we went to the beach. Then we had lunch.","tr":"पहले हम समुद्र किनारे गए। फिर हमने खाना खाया।"},
+          {"t":"Suddenly, the lights went out.","tr":"अचानक बत्ती चली गई।"},
+          {"t":"When we arrived, the movie had already started.","tr":"जब हम पहुँचे, तब तक फ़िल्म शुरू हो चुकी थी।"},
+          {"t":"I couldn't pay because I had lost my wallet.","tr":"मैं पैसे नहीं दे पाया, क्योंकि मेरा बटुआ खो गया था।"},
+          {"t":"In the end, everything was fine.","tr":"आख़िर में सब ठीक हो गया।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I had gone to Delhi last week.","right":"I went to Delhi last week.","tr":"मैं पिछले हफ़्ते दिल्ली गया था।","why":"सीधी बीती बात: {{went}}। यहाँ {{had gone}} नहीं।"},
+        {"wrong":"When I reached, the train already left.","right":"When I got there, the train had already left.","tr":"जब मैं वहाँ पहुँचा, ट्रेन जा चुकी थी।","why":"ट्रेन पहले गई: {{had left}}। और {{reached}} के बाद जगह चाहिए: {{got there}} या {{reached the station}}।"},
+        {"wrong":"I was sleep when he called.","right":"I was sleeping when he called.","tr":"जब उसने फ़ोन किया, मैं सो रहा था।","why":"{{was}} के साथ {{-ing}}: {{was sleeping}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"When we arrived, the movie ___ already started.","tr":"जब हम पहुँचे, तब तक फ़िल्म शुरू हो चुकी थी।","options":["had","has","was"],"answer":0,"why":"पहुँचने से पहले शुरू हो चुकी थी: {{had started}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ cooking when the phone rang.","tr":"मैं खाना बना रहा था कि फ़ोन बजा।","options":["was","had","did"],"answer":0,"why":"पृष्ठभूमि: {{was cooking}}।","from":"was-doing"},
+        {"type":"choice","q":"“मैं पिछले हफ़्ते दिल्ली गया था।” (बस एक सीधी बीती बात)","options":["{{I went to Delhi last week.}}","{{I had gone to Delhi last week.}}","{{I have gone to Delhi last week.}}"],"answer":0,"why":"सीधी बीती बात: {{went}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं सो रहा था कि फ़ोन बजा।","words":["I was","sleeping","when","the phone","rang."]},
+        {"type":"dialogue","q":"एक दोस्त आपकी छुट्टियों के बारे में पूछता है।","from":"past-irregular","lines":[{"who":"दोस्त","t":"How was your trip?","tr":"सफ़र कैसा रहा?"},{"options":["It was great! We went to Goa.","It was great! We had gone to Goa."],"answer":0,"why":"सीधी बीती बात: {{went}}।"},{"who":"दोस्त","t":"Did anything go wrong?","tr":"कुछ गड़बड़ हुई?"},{"options":["Yes. When we got to the hotel, they had given our room to someone else.","Yes. When we got to the hotel, they have given our room to someone else."],"answer":0,"why":"होटल पहुँचने से पहले की बात: {{had given}}।"}]},
+        {"type":"say","q":"कहिए: “जब मैं स्टेशन पहुँचा, तब तक ट्रेन जा चुकी थी।”","answer":"When I got to the station, the train had already left."},
+        {"type":"free","q":"आपकी बारी: किसी ऐसे दिन की छोटी कहानी सुनाइए जब कुछ गड़बड़ हो गई: {{was doing}}, बीता रूप और {{had}} के साथ।","answers":[{"t":"Last Monday, I was driving to work when my car stopped. I had forgotten to buy gas! In the end, a kind man helped me.","tr":"पिछले सोमवार मैं गाड़ी से काम पर जा रहा था कि गाड़ी रुक गई। मैं पेट्रोल डलवाना भूल गया था! आख़िर में एक भले आदमी ने मेरी मदद की।"},{"t":"One evening, I was cooking dinner when my friends arrived. I had forgotten about our plans! So we ordered pizza.","tr":"एक शाम मैं खाना बना रही थी कि मेरे दोस्त आ गए। मैं हमारी योजना भूल गई थी! तो हमने पिज़्ज़ा मँगवा लिया।"}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "अपनी राय दीजिए: {{I think, I agree}}",
+      "summary": "अपनी राय कहिए, और सहमत या असहमत होइए: “{{I think it's a good idea}}”, “{{I don't think he'll come}}”, “{{I agree}}”।",
+      "topic": "{{I think (that)…}}; {{I don't think…}}; {{I agree}} ({{I am agree}} नहीं); {{In my opinion}}",
+      "blocks": [
+        {"goal":{"t":"I think it's a great idea, but I don't think we have enough time.","tr":"मुझे लगता है कि यह बहुत अच्छा विचार है, लेकिन मुझे नहीं लगता कि हमारे पास काफ़ी समय है।"}},
+        {"dialog":[{"who":"सारा","t":"What do you think about the new office?","tr":"नए ऑफ़िस के बारे में आपकी क्या राय है?"},{"who":"अमित","t":"I think it's nice, but it's too far from the train station.","tr":"मुझे लगता है अच्छा है, लेकिन ट्रेन स्टेशन से बहुत दूर है।"},{"who":"सारा","t":"I agree. And I don't think there's enough parking.","tr":"मैं सहमत हूँ। और मुझे नहीं लगता कि वहाँ पार्किंग काफ़ी है।"},{"who":"अमित","t":"Really? I think the parking is fine.","tr":"सच में? मुझे तो पार्किंग ठीक लगती है।"},{"who":"सारा","t":"Maybe you're right. What does Ravi think?","tr":"शायद आप सही हैं। रवि की क्या राय है?"},{"who":"अमित","t":"He thinks we should stay here!","tr":"उसे लगता है कि हमें यहीं रहना चाहिए!"}]},
+        {"p":"**“मुझे लगता है” → {{I think}}.** हिंदी में राय “मुझे” से शुरू होती है, अंग्रेज़ी में {{I}} से, ठीक वैसे ही जैसे “मुझे पसंद है” → {{I like}} (पाठ 16): {{I think (that) it's a good idea.}} बोलचाल में {{that}} अक्सर छोड़ देते हैं।"},
+        {"p":"**{{I am agree}} नहीं.** “मैं सहमत हूँ” में “हूँ” है, इसलिए भारत में {{I am agree}} बहुत आम ग़लती है। {{agree}} अपने आप में क्रिया है: {{I agree.}} {{I don't agree.}} {{I agree with you.}}"},
+        {"p":"**नहीं वाली राय: {{I don't think}}.** “मुझे लगता है कि वह नहीं आएगा” के लिए अंग्रेज़ी में {{not}} आम तौर पर आगे आ जाता है: {{I don't think he'll come.}} ({{I think he won't come}} ग़लत नहीं, पर कम सुनाई देता है।)"},
+        {"p":"**{{According to me}}?** भारत में बहुत आम है, लेकिन अमेरिका में {{according to}} दूसरों की बात के लिए है: {{according to the news}} “ख़बरों के मुताबिक़”। अपनी राय के लिए: {{I think…}}, {{In my opinion,…}} या {{For me,…}}"},
+        { "table": [
+          ["","कहिए","हिंदी"],
+          ["राय","{{I think…}} / {{In my opinion,…}}","मुझे लगता है… / मेरी राय में…"],
+          ["सहमत","{{I agree.}} / {{You're right.}} / {{Exactly.}}","मैं सहमत हूँ। / आप सही हैं। / बिल्कुल।"],
+          ["असहमत","{{I don't agree.}} / {{I'm not sure.}}","मैं सहमत नहीं हूँ। / पक्का नहीं कह सकता।"],
+          ["नरमी से","{{That's a good point, but…}}","बात तो ठीक है, लेकिन…"],
+          ["पूछना","{{What do you think?}}","आपकी क्या राय है?"]
+        ] },
+        { "ex": [
+          {"t":"I think this restaurant is too expensive.","tr":"मुझे लगता है यह रेस्टोरेंट बहुत महँगा है।"},
+          {"t":"I don't think it will rain today.","tr":"मुझे नहीं लगता कि आज बारिश होगी।"},
+          {"t":"I agree with you.","tr":"मैं आपसे सहमत हूँ।"},
+          {"t":"In my opinion, the book is better than the movie.","tr":"मेरी राय में किताब फ़िल्म से बेहतर है।"},
+          {"t":"That's a good point, but it's too late now.","tr":"बात तो ठीक है, लेकिन अब बहुत देर हो चुकी है।"},
+          {"t":"What do you think of my new haircut?","tr":"मेरे नए हेयरकट के बारे में तुम्हें क्या लगता है?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"मैं आपसे सहमत हूँ।","why":"{{agree}} ख़ुद क्रिया है: {{am}} नहीं।"},
+        {"wrong":"According to me, it is wrong.","right":"I think it's wrong.","tr":"मेरे ख़याल से यह ग़लत है।","why":"अपनी राय के लिए {{I think}} या {{In my opinion}}।"},
+        {"wrong":"How do you think?","right":"What do you think?","tr":"आपकी क्या राय है?","why":"राय पूछने के लिए {{what}}: {{What do you think?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ with you.","tr":"मैं आपसे सहमत हूँ।","options":["agree","am agree","agreeing"],"answer":0,"why":"{{I agree}}, {{am}} के बिना।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I don't ___ he'll come.","tr":"मुझे नहीं लगता कि वह आएगा।","options":["think","thinking","thought"],"answer":0,"why":"{{I don't think…}}","from":"will"},
+        {"type":"choice","q":"“मेरी राय में किताब फ़िल्म से बेहतर है।”","options":["{{In my opinion, the book is better than the movie.}}","{{According to me, the book is more better than the movie.}}","{{In my opinion, the book is more better than the movie.}}"],"answer":0,"why":"{{In my opinion}}, और {{better}} ({{more better}} नहीं, पाठ 36)।","from":"compare"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मुझे नहीं लगता कि आज बारिश होगी।","words":["I","don't think","it","will rain","today."]},
+        {"type":"dialogue","q":"दोस्त आपसे एक फ़िल्म के बारे में राय पूछता है।","from":"what-you-like","lines":[{"who":"दोस्त","t":"What did you think of the movie?","tr":"फ़िल्म कैसी लगी?"},{"options":["I think it was too long, but the music was great.","According to me, it was too long, but the music was great."],"answer":0,"why":"अपनी राय: {{I think}}।"},{"who":"दोस्त","t":"Really? I loved it. The ending was perfect.","tr":"सच में? मुझे तो बहुत पसंद आई। अंत एकदम सही था।"},{"options":["I agree. The ending was beautiful.","I am agree. The ending was beautiful."],"answer":0,"why":"{{I agree}}, {{am}} के बिना।"}]},
+        {"type":"say","q":"नरमी से असहमत होइए: “बात तो ठीक है, लेकिन अब बहुत देर हो चुकी है।”","answer":"That's a good point, but it's too late now."},
+        {"type":"free","q":"आपकी बारी: किसी चीज़ (शहर, खाना, फ़ोन…) के बारे में अपनी राय दीजिए: एक {{I think}}, एक {{I don't think}}।","answers":[{"t":"I think Pune is a great city to live in. I don't think it's too expensive.","tr":"मुझे लगता है कि पुणे रहने के लिए बहुत अच्छा शहर है। मुझे नहीं लगता कि यह बहुत महँगा है।"},{"t":"In my opinion, phones are bad for kids. I don't think children need one before they're twelve.","tr":"मेरी राय में फ़ोन बच्चों के लिए अच्छे नहीं हैं। मुझे नहीं लगता कि बच्चों को बारह साल से पहले फ़ोन चाहिए।"}]}
+      ]
+    },
+    {
+      "id": "doing-or-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "क्रिया के बाद क्रिया: {{enjoy cooking}}, {{decide to go}}",
+      "summary": "दो क्रियाएँ साथ जोड़िए: “{{I enjoy cooking}}”, “{{We decided to stay}}”, “{{I'm looking forward to meeting you}}”।",
+      "topic": "{{enjoy, finish, mind, keep, stop, avoid}} + {{-ing}}; {{want, decide, hope, plan, need, learn}} + {{to}}; {{like, love, start}}: दोनों; {{look forward to}} + {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"I enjoy cooking, and I've decided to take a cooking class.","tr":"मुझे खाना बनाना अच्छा लगता है, और मैंने कुकिंग क्लास लेने का फ़ैसला किया है।"}},
+        {"dialog":[{"who":"एम्मा","t":"What do you like doing on weekends?","tr":"वीकेंड पर तुम्हें क्या करना अच्छा लगता है?"},{"who":"करण","t":"I enjoy hiking. And I'm learning to play the guitar.","tr":"मुझे पहाड़ी रास्तों पर पैदल घूमना अच्छा लगता है। और मैं गिटार बजाना सीख रहा हूँ।"},{"who":"एम्मा","t":"Cool! When did you start playing?","tr":"बढ़िया! बजाना कब शुरू किया?"},{"who":"करण","t":"Last year. I want to play in a band one day.","tr":"पिछले साल। मैं किसी दिन बैंड में बजाना चाहता हूँ।"},{"who":"एम्मा","t":"Would you mind playing something for us at the party?","tr":"क्या तुम पार्टी में हमारे लिए कुछ बजाओगे?"},{"who":"करण","t":"Sure! I'm looking forward to it.","tr":"ज़रूर! मुझे उसका इंतज़ार रहेगा।"}]},
+        {"p":"**हिंदी में एक रूप, अंग्रेज़ी में दो.** हिंदी में दूसरी क्रिया “-ना” वाला रूप लेती है: “खाना बनाना अच्छा लगता है”, “रहने का फ़ैसला किया”। अंग्रेज़ी में दूसरी क्रिया या तो {{-ing}} लेती है या {{to}}, और यह पहली क्रिया तय करती है। इसलिए इन्हें जोड़ों में याद कीजिए: {{enjoy cooking}}, {{decide to go}}।"},
+        { "table": [
+          ["{{-ing}} के साथ","{{to}} के साथ","दोनों चलते हैं"],
+          ["{{enjoy}} मज़ा आना","{{want}} चाहना","{{like}} पसंद होना"],
+          ["{{finish}} ख़त्म करना","{{decide}} तय करना","{{love}} बहुत पसंद होना"],
+          ["{{mind}} बुरा मानना","{{hope}} उम्मीद करना","{{start}} शुरू करना"],
+          ["{{keep}} करते रहना","{{plan}} योजना बनाना","{{hate}} बिल्कुल पसंद न होना"],
+          ["{{avoid}} बचना","{{learn}} सीखना","{{prefer}} ज़्यादा पसंद होना"]
+        ] },
+        {"p":"**{{look forward to}}.** यहाँ {{to}} पूर्वसर्ग है, इसलिए बाद में {{-ing}}: {{I'm looking forward to meeting you.}} “आपसे मिलने का इंतज़ार है।” ({{to meet you}} नहीं।) अमेरिकी ईमेल के आख़िर में यह बहुत आम है।"},
+        {"p":"**{{Would you mind…?}}** बहुत नरम गुज़ारिश (पाठ 30), और {{mind}} के बाद {{-ing}}: {{Would you mind closing the window?}} “क्या आप खिड़की बंद कर देंगे?”"},
+        { "ex": [
+          {"t":"I enjoy reading before bed.","tr":"मुझे सोने से पहले पढ़ना अच्छा लगता है।"},
+          {"t":"We decided to stay home.","tr":"हमने घर पर रहने का फ़ैसला किया।"},
+          {"t":"He finally stopped smoking.","tr":"आख़िरकार उसने सिगरेट पीना छोड़ दिया।"},
+          {"t":"I hope to see you soon.","tr":"उम्मीद है जल्द ही मिलेंगे।"},
+          {"t":"Have you finished eating?","tr":"क्या तुमने खाना खा लिया?"},
+          {"t":"I'm looking forward to seeing my family.","tr":"मुझे अपने परिवार से मिलने का इंतज़ार है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"मुझे खाना बनाना अच्छा लगता है।","why":"{{enjoy}} के बाद {{-ing}}।"},
+        {"wrong":"I am looking forward to meet you.","right":"I'm looking forward to meeting you.","tr":"आपसे मिलने का इंतज़ार है।","why":"{{look forward to}} के बाद {{-ing}}।"},
+        {"wrong":"We decided going by train.","right":"We decided to go by train.","tr":"हमने ट्रेन से जाने का फ़ैसला किया।","why":"{{decide}} के बाद {{to}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I enjoy ___ before bed.","tr":"मुझे सोने से पहले पढ़ना अच्छा लगता है।","options":["reading","to read","read"],"answer":0,"why":"{{enjoy}} + {{-ing}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We decided ___ home.","tr":"हमने घर पर रहने का फ़ैसला किया।","options":["to stay","staying","stay"],"answer":0,"why":"{{decide}} + {{to}}।","from":"want-to"},
+        {"type":"choice","q":"ईमेल का आख़िर: “आपसे मिलने का इंतज़ार है।”","options":["{{I'm looking forward to meeting you.}}","{{I'm looking forward to meet you.}}","{{I'm looking forward meeting you.}}"],"answer":0,"why":"{{look forward to}} + {{-ing}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"क्या आप खिड़की बंद कर देंगे?","words":["Would you","mind","closing","the window?"],"from":"polite-requests"},
+        {"type":"dialogue","q":"एक नया साथी आपके शौक़ के बारे में पूछता है।","from":"every-day","lines":[{"who":"साथी","t":"What do you enjoy doing in your free time?","tr":"ख़ाली समय में आपको क्या करना अच्छा लगता है?"},{"options":["I enjoy painting. I want to take a class.","I enjoy to paint. I want taking a class."],"answer":0,"why":"{{enjoy painting}}, {{want to take}}।"},{"who":"साथी","t":"That's great. When did you start?","tr":"बढ़िया। कब शुरू किया?"},{"options":["I started painting two years ago.","I started paint two years ago."],"answer":0,"why":"{{start}} के बाद {{-ing}} या {{to}}: {{started painting}}।"}]},
+        {"type":"say","q":"कहिए: “आख़िरकार उसने सिगरेट पीना छोड़ दिया।”","answer":"He finally stopped smoking."},
+        {"type":"free","q":"आपकी बारी: बताइए आपको क्या करना अच्छा लगता है, आपने क्या करने का फ़ैसला किया है, और किस बात का इंतज़ार है।","answers":[{"t":"I enjoy swimming. I've decided to learn French. I'm looking forward to visiting Paris next year.","tr":"मुझे तैरना अच्छा लगता है। मैंने फ़्रेंच सीखने का फ़ैसला किया है। मुझे अगले साल पेरिस जाने का इंतज़ार है।"},{"t":"I love cooking for my family. I want to open a small coffee shop one day. I'm looking forward to the holidays.","tr":"मुझे अपने परिवार के लिए खाना बनाना बहुत पसंद है। मैं किसी दिन एक छोटी-सी कॉफ़ी शॉप खोलना चाहती हूँ। मुझे छुट्टियों का इंतज़ार है।"}]}
+      ]
+    },
+    {
+      "id": "the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "क्या बनाया गया: {{is made, was built}}",
+      "summary": "जब करने वाला ज़रूरी न हो: “{{This temple was built in 1650}}”, “{{English is spoken here}}”, “{{I was born in Delhi}}”।",
+      "topic": "कर्मवाच्य: {{be}} + पास्ट पार्टिसिपल; {{by}}; {{was born}}; {{made of}} / {{made from}}",
+      "blocks": [
+        {"goal":{"t":"The Taj Mahal was built in the 17th century.","tr":"ताजमहल सत्रहवीं सदी में बनाया गया था।"}},
+        {"dialog":[{"who":"पर्यटक","t":"This building is beautiful! When was it built?","tr":"यह इमारत कितनी सुंदर है! यह कब बनी थी?"},{"who":"गाइड","t":"It was built in 1890. It was designed by a famous architect.","tr":"यह 1890 में बनी थी। इसका डिज़ाइन एक मशहूर वास्तुकार ने बनाया था।"},{"who":"पर्यटक","t":"Is it still used today?","tr":"क्या आज भी इसका इस्तेमाल होता है?"},{"who":"गाइड","t":"Yes, it's used as a museum now. Photos aren't allowed inside, though.","tr":"हाँ, अब यह संग्रहालय है। पर अंदर फ़ोटो खींचने की इजाज़त नहीं है।"},{"who":"पर्यटक","t":"What are the walls made of?","tr":"दीवारें किस चीज़ की बनी हैं?"},{"who":"गाइड","t":"They're made of red stone from Rajasthan.","tr":"राजस्थान के लाल पत्थर की।"}]},
+        {"term":"कर्मवाच्य","means":"वाक्य का वह रूप जिसमें ध्यान काम करने वाले पर नहीं, बल्कि जिस पर काम हुआ उस पर होता है: “ताजमहल बनाया गया”, {{The Taj Mahal was built.}}"},
+        {"p":"**हिंदी में भी है: “बनाया गया”.** हिंदी का “ताजमहल बनाया गया” ठीक अंग्रेज़ी के कर्मवाच्य जैसा है: {{be}} का सही रूप + पास्ट पार्टिसिपल (पाठ 33): {{is made}}, {{was built}}, {{are sold}}। करने वाले को बताना हो, तो {{by}}: {{It was built by Shah Jahan.}} “इसे शाहजहाँ ने बनवाया था।”"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["हमेशा","{{English is spoken here.}}","यहाँ अंग्रेज़ी बोली जाती है।"],
+          ["हमेशा (बहुवचन)","{{These phones are made in India.}}","ये फ़ोन भारत में बनते हैं।"],
+          ["बीती बात","{{My bike was stolen.}}","मेरी साइकिल चोरी हो गई।"],
+          ["बीती बात (बहुवचन)","{{We were invited to the wedding.}}","हमें शादी में बुलाया गया था।"]
+        ] },
+        {"p":"**कब?** जब यह ज़रूरी न हो या पता न हो कि किसने किया: {{My phone was stolen.}} (किसने? पता नहीं।) {{Rice is grown in Punjab.}} (उगाते तो किसान हैं, यह सबको पता है।) ख़बरों, नोटिसों और निर्देशों में यह बहुत आम है: {{Smoking is not allowed.}} “धूम्रपान मना है।”"},
+        {"p":"**{{I was born}}.** “मेरा जन्म दिल्ली में हुआ” → {{I was born in Delhi.}} अंग्रेज़ी में यह हमेशा कर्मवाच्य और बीता रूप है: {{I am born}} या {{I born}} नहीं। और {{made of}} = किस चीज़ का बना (चीज़ दिखती है: {{made of wood}}), {{made from}} = किस चीज़ से तैयार (चीज़ बदल गई: {{Paneer is made from milk.}})"},
+        { "ex": [
+          {"t":"English is spoken all over the world.","tr":"अंग्रेज़ी पूरी दुनिया में बोली जाती है।"},
+          {"t":"This shirt was made in Bangladesh.","tr":"यह कमीज़ बांग्लादेश में बनी थी।"},
+          {"t":"My car was stolen last night.","tr":"कल रात मेरी गाड़ी चोरी हो गई।"},
+          {"t":"I was born in 1995.","tr":"मेरा जन्म 1995 में हुआ था।"},
+          {"t":"The meeting was canceled.","tr":"मीटिंग रद्द कर दी गई।"},
+          {"t":"Paneer is made from milk.","tr":"पनीर दूध से बनता है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am born in Delhi.","right":"I was born in Delhi.","tr":"मेरा जन्म दिल्ली में हुआ।","why":"जन्म बीती बात है: {{was born}}।"},
+        {"wrong":"This house was build in 1990.","right":"This house was built in 1990.","tr":"यह घर 1990 में बना था।","why":"पास्ट पार्टिसिपल: {{built}}।"},
+        {"wrong":"Hindi is speak in many countries.","right":"Hindi is spoken in many countries.","tr":"हिंदी कई देशों में बोली जाती है।","why":"{{is}} + पास्ट पार्टिसिपल {{spoken}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"This temple ___ built in 1650.","tr":"यह मंदिर 1650 में बनाया गया था।","options":["was","is","did"],"answer":0,"why":"बीती बात: {{was built}}।","from":"was-were"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"English is ___ here.","tr":"यहाँ अंग्रेज़ी बोली जाती है।","options":["spoken","speak","speaking"],"answer":0,"why":"पास्ट पार्टिसिपल: {{spoken}}।","from":"have-you-ever"},
+        {"type":"choice","q":"“मेरा जन्म जयपुर में हुआ था।”","options":["{{I was born in Jaipur.}}","{{I am born in Jaipur.}}","{{I born in Jaipur.}}"],"answer":0,"why":"हमेशा {{was born}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मेरा फ़ोन कल चोरी हो गया।","words":["My phone","was","stolen","yesterday."]},
+        {"type":"dialogue","q":"दुकान में एक कमीज़ के बारे में पूछिए।","from":"how-much-is-it","lines":[{"who":"दुकानदार","t":"Can I help you?","tr":"क्या मैं आपकी मदद करूँ?"},{"options":["Yes. Where was this shirt made?","Yes. Where did this shirt make?"],"answer":0,"why":"कमीज़ ख़ुद कुछ नहीं बनाती: {{was made}}।"},{"who":"दुकानदार","t":"It was made in India. It's 100% cotton.","tr":"यह भारत में बनी है। सौ फ़ीसदी सूती।"},{"options":["Great. Is it sold in other colors?","Great. Is it sell in other colors?"],"answer":0,"why":"{{is sold}}: {{is}} + पास्ट पार्टिसिपल।"}]},
+        {"type":"say","q":"किसी पर्यटक को बताइए: “ताजमहल सत्रहवीं सदी में बनाया गया था।”","answer":"The Taj Mahal was built in the 17th century."},
+        {"type":"free","q":"आपकी बारी: अपने शहर या देश के बारे में दो बातें कर्मवाच्य में बताइए: वहाँ क्या बनता, बोला या उगाया जाता है, या कोई जगह कब बनी थी।","answers":[{"t":"I was born in Lucknow. Many languages are spoken in my city, and great kebabs are made there.","tr":"मेरा जन्म लखनऊ में हुआ था। मेरे शहर में कई भाषाएँ बोली जाती हैं, और वहाँ बढ़िया कबाब बनते हैं।"},{"t":"Tea is grown in Assam. The bridge in my town was built in 1960.","tr":"असम में चाय उगाई जाती है। मेरे शहर का पुल 1960 में बना था।"}]}
+      ]
+    },
+    {
+      "id": "keep-talking",
+      "unit": 8,
+      "level": "B1",
+      "title": "बातचीत आगे बढ़ाइए: {{So do I, Me neither}}",
+      "summary": "बातचीत चलती रखिए: सवाल वापस पूछिए, और बताइए कि आप भी ऐसा ही सोचते हैं: “{{So do I}}”, “{{Me neither}}”।",
+      "topic": "पीछे के सवाल ({{How was it? What happened?}}); {{How about you?}}; {{Me too}} / {{Me neither}}; {{So do I}} / {{Neither do I}}",
+      "blocks": [
+        {"goal":{"t":"I love Indian food. — So do I! What's your favorite dish?","tr":"मुझे भारतीय खाना बहुत पसंद है। — मुझे भी! आपकी पसंदीदा डिश कौन-सी है?"}},
+        {"dialog":[{"who":"जेक","t":"I just got back from Japan.","tr":"मैं अभी-अभी जापान से लौटा हूँ।"},{"who":"मीना","t":"Really? How was it?","tr":"सच में? कैसा रहा?"},{"who":"जेक","t":"Amazing. I loved the food.","tr":"कमाल का। खाना बहुत अच्छा लगा।"},{"who":"मीना","t":"So did I, when I went there! Did you try sushi?","tr":"मुझे भी लगा था, जब मैं वहाँ गई थी! सुशी खाई?"},{"who":"जेक","t":"Yes, but I don't really like raw fish.","tr":"हाँ, लेकिन मुझे कच्ची मछली ख़ास पसंद नहीं।"},{"who":"मीना","t":"Me neither! What else did you do?","tr":"मुझे भी नहीं! और क्या-क्या किया?"}]},
+        {"p":"**सवाल वापस पूछिए.** अमेरिकी बातचीत में छोटा-सा जवाब देकर चुप हो जाना रूखा लग सकता है। जवाब के बाद एक सवाल वापस पूछिए: {{How about you?}} {{What about you?}} या आगे का सवाल: {{How was it?}} {{What happened next?}} {{Did you like it?}} और छोटी-सी प्रतिक्रिया: {{That sounds great!}} {{Oh no!}}"},
+        {"p":"**“मैं भी” → {{Me too}}; “मैं भी नहीं” → {{Me neither}}.** भारत में {{Me also}} या {{I also}} सुनाई देता है, लेकिन अमेरिका में {{Me too}}। और नहीं वाली बात पर {{Me too}} नहीं चलता: {{I don't like it. — Me neither.}}"},
+        { "table": [
+          ["कोई कहता है","आप भी वैसे ही","हिंदी"],
+          ["{{I love tea.}}","{{So do I.}} / {{Me too.}}","मुझे भी।"],
+          ["{{I'm tired.}}","{{So am I.}} / {{Me too.}}","मैं भी।"],
+          ["{{I went to the party.}}","{{So did I.}} / {{Me too.}}","मैं भी गया था।"],
+          ["{{I can't swim.}}","{{Neither can I.}} / {{Me neither.}}","मुझे भी नहीं आता।"],
+          ["{{I don't eat meat.}}","{{Neither do I.}} / {{Me neither.}}","मैं भी नहीं खाता।"]
+        ] },
+        {"p":"**{{So do I}} कैसे बनता है?** {{So}} या {{Neither}} + वाक्य की सहायक क्रिया + {{I}}: वही {{do, am, did, can}}, जो सवाल के छोटे {{tag}} में आती है (पाठ 45)। क्रम उल्टा है: {{So do I}}, न कि {{So I do}}। शुरू में {{Me too}} और {{Me neither}} हमेशा सुरक्षित हैं।"},
+        { "ex": [
+          {"t":"That sounds great!","tr":"बहुत बढ़िया!"},
+          {"t":"Oh no! What happened?","tr":"अरे नहीं! क्या हुआ?"},
+          {"t":"I'm from Delhi. How about you?","tr":"मैं दिल्ली से हूँ। और आप?"},
+          {"t":"I love this song. — So do I.","tr":"मुझे यह गाना बहुत पसंद है। — मुझे भी।"},
+          {"t":"I can't cook. — Neither can I.","tr":"मुझे खाना बनाना नहीं आता। — मुझे भी नहीं।"},
+          {"t":"I didn't sleep well. — Me neither.","tr":"मुझे ठीक से नींद नहीं आई। — मुझे भी नहीं।"}
+        ] },
+        {"tip":"बधाई हो, आपने यह कोर्स पूरा कर लिया! अब सबसे ज़रूरी बात: बोलते रहिए। ग़लती से मत डरिए। जवाब दीजिए, एक सवाल वापस पूछिए, और बातचीत अपने आप आगे बढ़ेगी।"}
+      ],
+      "mistakes": [
+        {"wrong":"I like coffee. — Me also.","right":"I like coffee. — Me too.","tr":"मुझे कॉफ़ी पसंद है। — मुझे भी।","why":"अमेरिका में {{Me too}}।"},
+        {"wrong":"I don't like rain. — Me too.","right":"I don't like rain. — Me neither.","tr":"मुझे बारिश पसंद नहीं। — मुझे भी नहीं।","why":"नहीं वाली बात पर {{Me neither}}।"},
+        {"wrong":"I'm hungry. — So I am.","right":"I'm hungry. — So am I.","tr":"मुझे भूख लगी है। — मुझे भी।","why":"उल्टा क्रम: {{So am I}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I love this song. — So ___ I.","tr":"मुझे यह गाना बहुत पसंद है। — मुझे भी।","options":["do","am","does"],"answer":0,"why":"{{love}} के लिए {{do}}: {{So do I}}।","from":"do-questions"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I can't swim. — Neither ___ I.","tr":"मुझे तैरना नहीं आता। — मुझे भी नहीं।","options":["can","do","am"],"answer":0,"why":"{{can't}} के लिए {{can}}: {{Neither can I}}।"},
+        {"type":"choice","q":"दोस्त कहता है: {{I don't like horror movies.}} आपको भी पसंद नहीं। जवाब…","options":["{{Me neither.}}","{{Me too.}}","{{Me also.}}"],"answer":0,"why":"नहीं वाली बात: {{Me neither}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं दिल्ली से हूँ। और आप?","words":["I'm","from","Delhi.","How","about","you?"]},
+        {"type":"dialogue","q":"एक पार्टी में किसी नए व्यक्ति से बातचीत आगे बढ़ाइए।","from":"tags-and-negative-questions","lines":[{"who":"मेहमान","t":"I just moved here from Chicago.","tr":"मैं अभी-अभी शिकागो से यहाँ आया हूँ।"},{"options":["Really? How do you like it here?","OK."],"answer":0,"why":"आगे का सवाल पूछिए: बातचीत चलती रहती है।"},{"who":"मेहमान","t":"I love it, but I don't like the hot weather.","tr":"बहुत अच्छा लगता है, पर गर्म मौसम पसंद नहीं।"},{"options":["Me neither! It's so hot today, isn't it?","Me too! It's so hot today, isn't it?"],"answer":0,"why":"नहीं वाली बात: {{Me neither}}।"}]},
+        {"type":"say","q":"बातचीत आगे बढ़ाइए: “सच में? कैसा रहा?”","answer":"Really? How was it?"},
+        {"type":"free","q":"आपकी बारी: कोई कहता है {{I love traveling, but I don't like flying.}} जवाब दीजिए: बताइए कि आप भी ऐसा सोचते हैं या नहीं, और एक सवाल वापस पूछिए।","answers":[{"t":"Me too! But I don't mind flying. Where are you going next?","tr":"मुझे भी! पर मुझे हवाई सफ़र से कोई दिक़्क़त नहीं। अगली बार कहाँ जा रहे हैं?"},{"t":"So do I. I don't like flying either, so I usually take the train. What's your favorite place?","tr":"मुझे भी। मुझे भी हवाई सफ़र पसंद नहीं, इसलिए मैं अक्सर ट्रेन से जाता हूँ। आपकी सबसे पसंदीदा जगह कौन-सी है?"}]}
+      ]
     }
   ]
 }
