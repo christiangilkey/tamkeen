@@ -1387,6 +1387,190 @@
         {"type":"say","q":"Di': “Mio padre lavorava in banca.”","answer":"My dad used to work in a bank."},
         {"type":"free","q":"Tocca a te: racconta tre cose della tua infanzia: dove abitavi, cosa facevi d'estate, cosa non ti piaceva.","answers":[{"t":"I used to live in a small town. In the summer I used to swim in the lake. I didn't use to like fish.","tr":"Abitavo in una cittadina. D'estate nuotavo nel lago. Il pesce non mi piaceva."},{"t":"When I was a kid, we used to visit my grandparents every Sunday. I used to play soccer with my cousins.","tr":"Da piccoli, andavamo dai nonni tutte le domeniche. Giocavo a calcio con i miei cugini."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Parla delle tue esperienze",
+      "summary": "Sei mai stato a New York? Non ho mai mangiato il sushi: parla di quello che hai fatto (o no) nella vita.",
+      "topic": "Il present perfect ({{I have seen}}) per le esperienze; {{ever, never}}; {{been}} e {{gone}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York?","tr":"Sei mai stato a New York?"}},
+        {"dialog":[{"who":"Jenny","t":"Have you ever been to the U.S.?","tr":"Sei mai stato negli Stati Uniti?"},{"who":"Tu","t":"Yes, I have. I've been to Florida twice.","tr":"Sì. Sono stato in Florida due volte."},{"who":"Jenny","t":"Have you ever tried real barbecue?","tr":"Hai mai assaggiato il vero barbecue?"},{"who":"Tu","t":"No, I've never eaten it. Is it good?","tr":"No, non l'ho mai mangiato. È buono?"},{"who":"Jenny","t":"It's amazing! You have to come to Texas!","tr":"È fantastico! Devi venire in Texas!"}]},
+        {"p":"**Nella vita, senza dire quando.** Per le esperienze (cose fatte o mai fatte nella vita, senza dire quando), l'inglese usa il **present perfect**: {{have}} o {{has}} + il participio passato. {{I've seen that movie}} “Ho visto quel film”, {{She has never flown}} “Non ha mai preso l'aereo”."},
+        {"term":"participio passato","means":"la forma del verbo che si usa nei tempi composti: “mangiato, visto, stato”. In inglese: {{eaten}}, {{seen}}, {{been}}."},
+        { "table": [
+          ["","affermazione","negazione","domanda"],
+          ["{{I, you, we, they}}","{{I've seen it.}}","{{I haven't seen it.}}","{{Have you seen it?}}"],
+          ["{{he, she, it}}","{{She's seen it.}}","{{She hasn't seen it.}}","{{Has she seen it?}}"]
+        ] },
+        {"p":"**Sempre {{have}}, anche dove noi diciamo “essere”.** “Sono stato”, “è andata”, “siamo arrivati”: in inglese il present perfect si fa sempre con {{have}}: {{I've been}}, {{she's gone}}, {{we've arrived}}."},
+        {"p":"**Il participio**: per i verbi regolari è uguale al passato ({{worked}}, {{visited}}). Molti irregolari hanno una terza forma: {{be → been}}, {{see → seen}}, {{eat → eaten}}, {{go → gone}}, {{do → done}}, {{take → taken}}, {{write → written}}, {{fly → flown}}; altri sono uguali al passato: {{have → had}}, {{buy → bought}}, {{make → made}}, {{meet → met}}."},
+        {"p":"**{{ever}} e {{never}}**: {{ever}} “mai” nelle domande ({{Have you ever…?}} “Hai mai…?”), {{never}} “mai” nelle risposte, senza {{not}}: {{I've never been to Japan}}. **{{been}} o {{gone}}?** {{She's been to Paris}} “È stata a Parigi” (ed è tornata); {{She's gone to Paris}} “È andata a Parigi” (ed è ancora lì)."},
+        { "ex": [
+          {"t":"I've been to London three times.","tr":"Sono stato a Londra tre volte."},
+          {"t":"Have you ever seen snow?","tr":"Hai mai visto la neve?"},
+          {"t":"She's never driven a car.","tr":"Non ha mai guidato una macchina."},
+          {"t":"We've met before, right?","tr":"Ci siamo già conosciuti, vero?"},
+          {"t":"Have you ever eaten sushi? Yes, I have.","tr":"Hai mai mangiato il sushi? Sì."},
+          {"t":"My parents have never flown.","tr":"I miei genitori non hanno mai preso l'aereo."},
+          {"t":"Tom isn't here. He's gone to the store.","tr":"Tom non c'è. È andato al negozio."}
+        ] },
+        {"tip":"Nel parlato {{have}} e {{has}} si accorciano: {{I've}}, {{you've}}, {{she's}}. Attenzione: {{she's}} può essere {{she is}} o {{she has}}; lo capisci dal verbo che segue."}
+      ],
+      "mistakes": [
+        {"wrong":"Are you ever been to Rome?","right":"Have you ever been to Rome?","tr":"Sei mai stato a Roma?","why":"Il present perfect si fa con {{have}}, anche quando in italiano diciamo “sei stato”."},
+        {"wrong":"I haven't never eaten sushi.","right":"I've never eaten sushi.","tr":"Non ho mai mangiato il sushi.","why":"{{never}} è già negativo: niente {{haven't}}."},
+        {"wrong":"She has went to Paris.","right":"She has gone to Paris.","tr":"È andata a Parigi.","why":"Dopo {{has}} ci vuole il participio, {{gone}}, non il passato {{went}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Have you ever ___ to Canada?","tr":"Sei mai stato in Canada?","options":["been","be","was"],"answer":0,"why":"Present perfect: {{have}} + {{been}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I've ___ seen that movie.","tr":"Non ho mai visto quel film.","options":["never","ever","not"],"answer":0,"why":"“Mai” nella risposta: {{never}}, senza {{not}}."},
+        {"type":"choice","q":"“Sei mai stato a Roma?” si dice…","options":["{{Have you ever been to Rome?}}","{{Are you ever been to Rome?}}","{{Did you ever be to Rome?}}"],"answer":0,"why":"Il present perfect vuole {{have}}, anche quando in italiano c'è “essere”."},
+        {"type":"dialogue","q":"Un'amica americana ti fa qualche domanda. Scegli le risposte.","lines":[{"who":"Jenny","t":"Have you ever been to the U.S.?","tr":"Sei mai stato negli Stati Uniti?"},{"options":["Yes, I have. I've been to Florida.","Yes, I am. I'm been to Florida."],"answer":0,"why":"La risposta breve ripete {{have}}: {{Yes, I have}}; e {{I've been}}."},{"who":"Jenny","t":"Have you ever eaten Mexican food?","tr":"Hai mai mangiato messicano?"},{"options":["No, I've never tried it.","No, I haven't never tried it."],"answer":0,"why":"{{never}} da solo."}],"from":"tell-about-your-weekend"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Mia sorella non è mai stata in Asia.","words":["My sister","has","never been","to Asia."]},
+        {"type":"say","q":"Chiedi: “Hai mai visto la neve?”","answer":"Have you ever seen snow?"},
+        {"type":"free","q":"Tocca a te: di' due cose che hai fatto nella vita e una che non hai mai fatto.","answers":[{"t":"I've been to Paris and I've run a marathon, but I've never flown a plane!","tr":"Sono stato a Parigi e ho corso una maratona, ma non ho mai pilotato un aereo!"},{"t":"I've met a famous actor and I've lived in Spain, but I've never seen the ocean.","tr":"Ho conosciuto un attore famoso e ho vissuto in Spagna, ma non ho mai visto l'oceano."}]}
+      ]
+    },
+    {
+      "id": "past-simple-or-present-perfect",
+      "unit": 6,
+      "level": "A2",
+      "title": "Ieri o nella vita? Scegli il tempo giusto",
+      "summary": "“Sono stato a Londra” può essere “I've been” o “I went”: dipende se dici quando. La differenza più difficile per un italiano.",
+      "topic": "Present perfect o past simple? Il passato prossimo italiano corrisponde spesso al past simple",
+      "blocks": [
+        {"goal":{"t":"I've been to London, but I went there ten years ago.","tr":"Sono stato a Londra, ma ci sono andato dieci anni fa."}},
+        {"dialog":[{"who":"Mark","t":"Have you seen the new Batman movie?","tr":"Hai visto il nuovo film di Batman?"},{"who":"Tu","t":"Yes, I have! I saw it last weekend.","tr":"Sì! L'ho visto lo scorso fine settimana."},{"who":"Mark","t":"Did you like it?","tr":"Ti è piaciuto?"},{"who":"Tu","t":"I loved it. Have you seen it?","tr":"Mi è piaciuto da morire. Tu l'hai visto?"},{"who":"Mark","t":"No, not yet. I wanted to go yesterday, but I didn't have time.","tr":"No, non ancora. Volevo andarci ieri, ma non ho avuto tempo."}]},
+        {"p":"**Il nostro passato prossimo ha due traduzioni.** “Ho visto il film” può essere {{I've seen the movie}} o {{I saw the movie}}. La regola: se dici **quando** (o è chiaro che è finito), ci vuole il past simple. Se non dici quando, ed è un'esperienza o una cosa che conta adesso, il present perfect."},
+        { "table": [
+          ["","present perfect","past simple"],
+          ["quando?","non lo dico, o fino a adesso","lo dico: ieri, nel 2019, due giorni fa"],
+          ["esempio","{{I've been to London.}}","{{I went to London in 2019.}}"],
+          ["parole tipiche","{{ever, never, already, yet, so far}}","{{yesterday, last week, ago, in 2019, When…?}}"]
+        ] },
+        {"p":"**Con un tempo finito, mai il present perfect.** {{I've seen him yesterday}} un americano non lo direbbe mai: con {{yesterday}}, {{last year}}, {{ago}}, {{in 2015}}, e nelle domande con {{When…?}}, si usa il past simple: {{I saw him yesterday}}, {{When did you arrive?}}"},
+        {"p":"**La conversazione tipica** comincia con il present perfect (l'esperienza: {{Have you ever been to Rome?}}) e, quando si passa ai dettagli (quando, con chi, com'era), va al past simple: {{Yes! I went there last year. It was beautiful.}}"},
+        { "ex": [
+          {"t":"I've lost my keys!","tr":"Ho perso le chiavi!","note":"non dico quando: conta adesso"},
+          {"t":"I lost my keys yesterday.","tr":"Ieri ho perso le chiavi."},
+          {"t":"Have you ever met a famous person?","tr":"Hai mai conosciuto una persona famosa?"},
+          {"t":"Yes, I met a famous singer in 2012.","tr":"Sì, nel 2012 ho conosciuto un cantante famoso."},
+          {"t":"When did you buy that car?","tr":"Quando hai comprato quella macchina?"},
+          {"t":"She's written three books.","tr":"Ha scritto tre libri.","note":"nella sua vita, fino a oggi"},
+          {"t":"Shakespeare wrote 39 plays.","tr":"Shakespeare ha scritto 39 opere teatrali.","note":"la sua vita è finita: past simple"}
+        ] },
+        {"tip":"Un trucco: se nella frase italiana puoi aggiungere “ieri”, “l'anno scorso” o “quando?”, in inglese ci vuole il past simple."}
+      ],
+      "mistakes": [
+        {"wrong":"I've seen Marco yesterday.","right":"I saw Marco yesterday.","tr":"Ieri ho visto Marco.","why":"Con {{yesterday}}, un tempo finito: past simple."},
+        {"wrong":"When have you arrived?","right":"When did you arrive?","tr":"Quando sei arrivato?","why":"Le domande con {{When…?}} chiedono un momento preciso: past simple."},
+        {"wrong":"I've been to Paris in 2018.","right":"I went to Paris in 2018.","tr":"Sono stato a Parigi nel 2018.","why":"Con una data: past simple. Senza data: {{I've been to Paris}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I ___ that movie last night.","tr":"Ieri sera ho visto quel film.","options":["saw","have seen","seen"],"answer":0,"why":"{{last night}} è un tempo finito: past simple."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ you ever tried Thai food?","tr":"Hai mai assaggiato la cucina thailandese?","options":["Have","Did","Are"],"answer":0,"why":"Un'esperienza, con {{ever}}: present perfect.","from":"talk-about-experiences"},
+        {"type":"choice","q":"“Quando sei arrivato?” si dice…","options":["{{When did you arrive?}}","{{When have you arrived?}}","{{When are you arrived?}}"],"answer":0,"why":"{{When…?}} chiede un momento preciso: past simple.","from":"ask-about-the-past"},
+        {"type":"dialogue","q":"Parli di viaggi con un collega. Scegli le risposte.","lines":[{"who":"Mark","t":"Have you ever been to California?","tr":"Sei mai stato in California?"},{"options":["Yes, I have. I went there two years ago.","Yes, I have. I've been there two years ago."],"answer":0,"why":"Con {{two years ago}}: past simple, {{I went}}."},{"who":"Mark","t":"Did you like it?","tr":"Ti è piaciuta?"},{"options":["I loved it! We visited San Francisco and LA.","I loved it! We have visited San Francisco and LA."],"answer":0,"why":"I dettagli di un viaggio finito: past simple."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Ho perso il portafoglio! L'hai visto?","words":["I've lost","my wallet!","Have","you seen it?"]},
+        {"type":"say","q":"Di': “Ho conosciuto mia moglie nel 2015.”","answer":"I met my wife in 2015."},
+        {"type":"free","q":"Tocca a te: racconta un'esperienza in due tempi: prima con il present perfect, poi un dettaglio con il past simple.","answers":[{"t":"I've been to New York. I went there in 2019 with my brother.","tr":"Sono stato a New York. Ci sono andato nel 2019 con mio fratello."},{"t":"I've run a marathon! I ran it last year in Rome, and it was really hard.","tr":"Ho corso una maratona! L'ho corsa l'anno scorso a Roma, ed è stata durissima."}]}
+      ]
+    },
+    {
+      "id": "share-news",
+      "unit": 6,
+      "level": "A2",
+      "title": "Racconta le novità",
+      "summary": "Ho appena finito, l'hai già visto?, non ancora: le novità, le cose fatte e quelle ancora da fare.",
+      "topic": "{{just, already, yet}} con il present perfect (e con il past simple, all'americana)",
+      "blocks": [
+        {"goal":{"t":"I've just finished my exams!","tr":"Ho appena finito gli esami!"}},
+        {"dialog":[{"who":"Sam","t":"Have you done the grocery shopping yet?","tr":"Hai già fatto la spesa?"},{"who":"Tu","t":"Yes, I've already done it. And I've just made coffee. Do you want some?","tr":"Sì, l'ho già fatta. E ho appena fatto il caffè. Ne vuoi?"},{"who":"Sam","t":"Yes, please! Have you called the landlord yet?","tr":"Sì, grazie! Hai già chiamato il padrone di casa?"},{"who":"Tu","t":"Not yet. I'm going to call him after lunch.","tr":"Non ancora. Lo chiamo dopo pranzo."},{"who":"Sam","t":"OK. Oh, and guess what? I've just gotten a new job!","tr":"Ok. Ah, e indovina? Ho appena trovato un lavoro nuovo!"},{"who":"Tu","t":"Congratulations!","tr":"Congratulazioni!"}]},
+        {"p":"**Le novità.** Il present perfect è il tempo delle notizie fresche, quando conta il risultato adesso: {{I've lost my phone!}} “Ho perso il telefono!”, {{They've had a baby}} “Hanno avuto un bambino”."},
+        { "table": [
+          ["parola","significato","dove va","esempio"],
+          ["{{just}}","appena","tra {{have}} e il participio","{{I've just arrived.}}"],
+          ["{{already}}","già","tra {{have}} e il participio","{{She's already left.}}"],
+          ["{{yet}}","già? / non ancora","alla fine, nelle domande e nelle negative","{{Have you eaten yet?}} {{I haven't eaten yet.}}"]
+        ] },
+        {"p":"**{{yet}}** si usa solo nelle domande (“già?”) e nelle negative (“non ancora”): {{Is it ready yet?}}, {{Not yet!}} “Non ancora!”. Nelle frasi affermative si usa {{already}}: {{It's already ready}}."},
+        {"p":"**All'americana.** Negli Stati Uniti, con {{just}}, {{already}} e {{yet}}, si sente spesso anche il past simple: {{I just arrived}}, {{Did you eat yet?}}, {{I already did it}}. Vanno bene tutti e due; nelle email e nei testi formali è più comune il present perfect."},
+        {"p":"**{{gotten}}**: in americano il participio di {{get}} è {{gotten}}: {{I've gotten a new job}}. (Gli inglesi dicono {{got}}.)"},
+        { "ex": [
+          {"t":"I've just woken up.","tr":"Mi sono appena svegliato."},
+          {"t":"We've already eaten, thanks.","tr":"Abbiamo già mangiato, grazie."},
+          {"t":"Have you finished yet?","tr":"Hai già finito?"},
+          {"t":"The movie hasn't started yet.","tr":"Il film non è ancora cominciato."},
+          {"t":"She's just had a baby girl!","tr":"Ha appena avuto una bambina!"},
+          {"t":"I just saw your message.","tr":"Ho appena visto il tuo messaggio.","note":"all'americana, con il past simple"},
+          {"t":"Is dinner ready yet? Not yet!","tr":"La cena è già pronta? Non ancora!"}
+        ] },
+        {"tip":"{{Have you eaten yet?}} non è una domanda indiscreta: spesso è un modo gentile di proporre di mangiare insieme!"}
+      ],
+      "mistakes": [
+        {"wrong":"I've already finished yet.","right":"I've already finished.","tr":"Ho già finito.","why":"{{yet}} non va nelle frasi affermative: lì si usa {{already}}."},
+        {"wrong":"I haven't finished already.","right":"I haven't finished yet.","tr":"Non ho ancora finito.","why":"“Non ancora” è {{not… yet}}."},
+        {"wrong":"I've finished just.","right":"I've just finished.","tr":"Ho appena finito.","why":"{{just}} va tra {{have}} e il participio."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Have you called your mom ___?","tr":"Hai già chiamato tua madre?","options":["yet","already","just"],"answer":0,"why":"“Già?” in una domanda, alla fine: {{yet}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"We've ___ arrived. We're at the station.","tr":"Siamo appena arrivati. Siamo alla stazione.","options":["just","yet","ever"],"answer":0,"why":"“Appena”: {{just}}, tra {{have}} e il participio.","from":"say-where-things-are"},
+        {"type":"choice","q":"“Il treno non è ancora partito” si dice…","options":["{{The train hasn't left yet.}}","{{The train hasn't left already.}}","{{The train didn't leave still.}}"],"answer":0,"why":"“Non ancora”: {{not… yet}}."},
+        {"type":"dialogue","q":"Il tuo coinquilino ti chiede delle faccende. Scegli le risposte.","lines":[{"who":"Sam","t":"Have you done the grocery shopping yet?","tr":"Hai già fatto la spesa?"},{"options":["Yes, I've already done it.","Yes, I've done it yet."],"answer":0,"why":"Nella frase affermativa: {{already}}."},{"who":"Sam","t":"Great! And have you paid the rent?","tr":"Ottimo! E l'affitto l'hai pagato?"},{"options":["Not yet. I'm going to pay it tomorrow.","Not already. I'm going to pay it tomorrow."],"answer":0,"why":"“Non ancora”: {{Not yet}}. E per il programma di domani, {{going to}}."}],"from":"make-plans"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Ho appena visto il tuo messaggio.","words":["I've","just","seen","your message."]},
+        {"type":"say","q":"Annuncia: “Indovina? Ho appena trovato un lavoro nuovo!”","answer":"Guess what? I've just gotten a new job!"},
+        {"type":"free","q":"Tocca a te: scrivi tre novità di questa settimana: una con {{just}}, una con {{already}} e una cosa che non hai ancora fatto, con {{yet}}.","answers":[{"t":"I've just started a new course. I've already read two books this month, but I haven't called my grandma yet.","tr":"Ho appena cominciato un corso nuovo. Questo mese ho già letto due libri, ma non ho ancora chiamato la nonna."},{"t":"My sister has just had a baby! I've already bought a present, but I haven't seen her yet.","tr":"Mia sorella ha appena avuto un bambino! Ho già comprato un regalo, ma non l'ho ancora visto."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Di' da quanto tempo",
+      "summary": "Vivo qui da tre anni, studio inglese da settembre: dove l'italiano usa il presente, l'inglese vuole il present perfect.",
+      "topic": "{{for}} e {{since}}; {{How long have you…?}}; {{I've been learning}} (al posto di “da” + presente)",
+      "blocks": [
+        {"goal":{"t":"I've lived in Milan for five years.","tr":"Vivo a Milano da cinque anni."}},
+        {"dialog":[{"who":"Rachel","t":"How long have you lived in the U.S.?","tr":"Da quanto tempo vivi negli Stati Uniti?"},{"who":"Tu","t":"I've lived here since 2021.","tr":"Vivo qui dal 2021."},{"who":"Rachel","t":"And how long have you been studying English?","tr":"E da quanto tempo studi inglese?"},{"who":"Tu","t":"For about ten years, but I've only spoken it every day since I moved here.","tr":"Da una decina d'anni, ma lo parlo tutti i giorni solo da quando mi sono trasferito."},{"who":"Rachel","t":"Well, your English is great!","tr":"Be', il tuo inglese è ottimo!"}]},
+        {"p":"**Il nostro “da” + presente.** In italiano diciamo “vivo qui da tre anni”, con il presente, perché è ancora vero. In inglese, per una cosa cominciata nel passato che continua adesso, si usa il present perfect: {{I've lived here for three years}}. {{I live here for three years}} è sbagliato."},
+        { "table": [
+          ["italiano","inglese"],
+          ["Vivo qui da tre anni.","{{I've lived here for three years.}}"],
+          ["Lo conosco dal 2015.","{{I've known him since 2015.}}"],
+          ["Da quanto tempo sei qui?","{{How long have you been here?}}"],
+          ["Studio inglese da settembre.","{{I've been studying English since September.}}"],
+          ["Non lo vedo da mesi.","{{I haven't seen him for months.}}"]
+        ] },
+        {"p":"**{{for}} o {{since}}?** {{for}} + una durata ({{for two hours}}, {{for ten years}}, {{for a long time}}); {{since}} + il momento in cui è cominciato ({{since Monday}}, {{since 2020}}, {{since I was a kid}})."},
+        {"p":"**Il present perfect continuous**: {{have been}} + {{-ing}}, per un'azione che va avanti da un po': {{I've been waiting for an hour!}} “Aspetto da un'ora!”, {{It's been raining all day}} “Piove da stamattina”. Con i verbi di stato ({{know}}, {{be}}, {{have}}) si usa il present perfect normale: {{I've known her for years}}."},
+        { "ex": [
+          {"t":"We've been married for twenty years.","tr":"Siamo sposati da vent'anni."},
+          {"t":"I've had this car since 2018.","tr":"Ho questa macchina dal 2018."},
+          {"t":"How long have you worked here?","tr":"Da quanto tempo lavori qui?"},
+          {"t":"She's been learning Spanish for six months.","tr":"Studia spagnolo da sei mesi."},
+          {"t":"I haven't seen my cousins for a long time.","tr":"Non vedo i miei cugini da tanto tempo."},
+          {"t":"It's been raining since this morning.","tr":"Piove da stamattina."},
+          {"t":"I've known Paolo since we were kids.","tr":"Conosco Paolo da quando eravamo bambini."}
+        ] },
+        {"tip":"{{It's been a long time!}} “Quanto tempo!” è il saluto per un amico che non vedi da tanto. ({{It's been}} = {{It has been}}.)"}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since 2020.","right":"I've lived here since 2020.","tr":"Vivo qui dal 2020.","why":"Una cosa che continua da un momento del passato: present perfect, non il presente."},
+        {"wrong":"I've lived here since three years.","right":"I've lived here for three years.","tr":"Vivo qui da tre anni.","why":"Con una durata: {{for}}. {{since}} va con il momento d'inizio."},
+        {"wrong":"How long are you married?","right":"How long have you been married?","tr":"Da quanto tempo siete sposati?","why":"“Da quanto tempo?”: {{How long have you…?}}, con il present perfect."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I've worked here ___ 2019.","tr":"Lavoro qui dal 2019.","options":["since","for","from"],"answer":0,"why":"Il momento d'inizio: {{since}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"We've lived in this house ___ ten years.","tr":"Abitiamo in questa casa da dieci anni.","options":["for","since","from"],"answer":0,"why":"Una durata: {{for}}."},
+        {"type":"choice","q":"“Aspetto da mezz'ora!” si dice…","options":["{{I've been waiting for half an hour!}}","{{I wait since half an hour!}}","{{I'm waiting from half an hour!}}"],"answer":0,"why":"Un'azione che va avanti da un po': {{I've been waiting}}, con {{for}} + la durata."},
+        {"type":"dialogue","q":"A una festa a Chicago. Scegli le risposte.","lines":[{"who":"Rachel","t":"How long have you been in Chicago?","tr":"Da quanto tempo sei a Chicago?"},{"options":["I've been here since March.","I'm here since March."],"answer":0,"why":"Ancora vero adesso: present perfect, {{I've been}}."},{"who":"Rachel","t":"Do you like it?","tr":"Ti piace?"},{"options":["I love it! But I haven't seen my family for months.","I love it! But I don't see my family since months."],"answer":0,"why":"“Non vedo da mesi”: {{I haven't seen… for months}}."}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Da quanto tempo studi inglese?","words":["How long","have you","been studying","English?"]},
+        {"type":"say","q":"Saluta un vecchio amico: “Quanto tempo! Come stai?”","answer":"It's been a long time! How are you?","from":"introduce-yourself"},
+        {"type":"free","q":"Tocca a te: di' da quanto tempo fai tre cose: vivi dove vivi, fai il tuo lavoro (o studi), studi inglese. Usa {{for}} e {{since}}.","answers":[{"t":"I've lived in Bologna for twelve years. I've been a nurse since 2015, and I've been studying English for two years.","tr":"Vivo a Bologna da dodici anni. Faccio l'infermiera dal 2015 e studio inglese da due anni."},{"t":"I've lived in this apartment since I got married. I've worked at the bank for eight years.","tr":"Vivo in questo appartamento da quando mi sono sposato. Lavoro in banca da otto anni."}]}
+      ]
     }
   ]
 }
