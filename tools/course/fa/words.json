@@ -8154,6 +8154,912 @@
       "meaning": "(pushesh) covering; clothing; coverage",
       "sentence": "لطفاً پوشش مناسب داشته باشید.",
       "translation": "Please wear suitable ⟦clothing⟧."
+    },
+    {
+      "n": 901,
+      "rank": 1118,
+      "word": "مقاله",
+      "pos": "noun",
+      "meaning": "(maghâle) article; paper",
+      "sentence": "او یک مقاله درباره‌ی محیط زیست نوشت.",
+      "translation": "She wrote an ⟦article⟧ about the environment."
+    },
+    {
+      "n": 902,
+      "rank": 1119,
+      "word": "دعا",
+      "pos": "noun",
+      "meaning": "(do'â) prayer (دعا کردن: to pray)",
+      "sentence": "برایت دعا می‌کنم.",
+      "translation": "I'll ⟦pray⟧ for you."
+    },
+    {
+      "n": 903,
+      "rank": 1120,
+      "word": "شغل",
+      "pos": "noun",
+      "meaning": "(shoghl) job; occupation",
+      "sentence": "شغل شما چیست؟",
+      "translation": "What's your ⟦job⟧?"
+    },
+    {
+      "n": 904,
+      "rank": 1122,
+      "word": "ریشه",
+      "pos": "noun",
+      "meaning": "(rishe) root",
+      "sentence": "ریشه‌ی این درخت خیلی عمیق است.",
+      "translation": "This tree's ⟦roots⟧ are very deep."
+    },
+    {
+      "n": 905,
+      "rank": 1123,
+      "word": "آرزو",
+      "pos": "noun",
+      "meaning": "(ârezu) wish; dream (آرزو کردن: to wish)",
+      "sentence": "آرزوی من سفر به ژاپن است.",
+      "translation": "My ⟦dream⟧ is to travel to Japan."
+    },
+    {
+      "n": 906,
+      "rank": 1124,
+      "word": "پزشک",
+      "pos": "noun",
+      "meaning": "(pezeshk) doctor (written)",
+      "sentence": "او پزشک خانوادگی ماست.",
+      "translation": "He's our family ⟦doctor⟧."
+    },
+    {
+      "n": 907,
+      "rank": 1126,
+      "word": "تکرار",
+      "pos": "noun",
+      "meaning": "(tekrâr) repetition (تکرار کردن: to repeat)",
+      "sentence": "لطفاً تکرار کنید.",
+      "translation": "Please ⟦repeat⟧ that."
+    },
+    {
+      "n": 908,
+      "rank": 1128,
+      "word": "اعتقاد",
+      "pos": "noun",
+      "meaning": "(e'teghâd) belief (اعتقاد داشتن: to believe in)",
+      "sentence": "من به شانس اعتقاد ندارم.",
+      "translation": "I don't ⟦believe⟧ in luck."
+    },
+    {
+      "n": 909,
+      "rank": 1129,
+      "word": "رقابت",
+      "pos": "noun",
+      "meaning": "(reghâbat) competition; rivalry",
+      "sentence": "رقابت بین دو تیم خیلی سخت است.",
+      "translation": "The ⟦competition⟧ between the two teams is very tough."
+    },
+    {
+      "n": 910,
+      "rank": 1130,
+      "word": "مذاکره",
+      "pos": "noun",
+      "meaning": "(mozâkere) negotiation; talks",
+      "sentence": "دو کشور با هم مذاکره کردند.",
+      "translation": "The two countries ⟦held talks⟧."
+    },
+    {
+      "n": 911,
+      "rank": 1131,
+      "word": "گِرد",
+      "pos": "adj",
+      "meaning": "(gerd) round",
+      "sentence": "یک میز گرد خریدیم.",
+      "translation": "We bought a ⟦round⟧ table.",
+      "form": "گرد"
+    },
+    {
+      "n": 912,
+      "rank": 1132,
+      "word": "شاهد",
+      "pos": "noun",
+      "meaning": "(shâhed) witness",
+      "sentence": "من شاهد تصادف بودم.",
+      "translation": "I was a ⟦witness⟧ to the accident."
+    },
+    {
+      "n": 913,
+      "rank": 1133,
+      "word": "نقاشی",
+      "pos": "noun",
+      "meaning": "(naghghâshi) painting; drawing",
+      "sentence": "دخترم نقاشی را دوست دارد.",
+      "translation": "My daughter loves ⟦drawing⟧."
+    },
+    {
+      "n": 914,
+      "rank": 1134,
+      "word": "مراقب",
+      "pos": "adj",
+      "meaning": "(morâgheb) careful; watchful (مراقب بودن: to look after)",
+      "sentence": "مراقب خودت باش.",
+      "translation": "⟦Take care⟧ of yourself."
+    },
+    {
+      "n": 915,
+      "rank": 1136,
+      "word": "با هم",
+      "pos": "adv",
+      "meaning": "(bâ ham) together",
+      "sentence": "بیا با هم ناهار بخوریم.",
+      "translation": "Let's have lunch ⟦together⟧."
+    },
+    {
+      "n": 916,
+      "rank": 1137,
+      "word": "جنوب",
+      "pos": "noun",
+      "meaning": "(jonub) south",
+      "sentence": "شیراز در جنوب ایران است.",
+      "translation": "Shiraz is in the ⟦south⟧ of Iran."
+    },
+    {
+      "n": 917,
+      "rank": 1141,
+      "word": "هشت",
+      "pos": "num",
+      "meaning": "(hasht) eight",
+      "sentence": "دیشب هشت ساعت خوابیدم.",
+      "translation": "I slept for ⟦eight⟧ hours last night."
+    },
+    {
+      "n": 918,
+      "rank": 1142,
+      "word": "بحران",
+      "pos": "noun",
+      "meaning": "(bohrân) crisis",
+      "sentence": "کشور در بحران اقتصادی است.",
+      "translation": "The country is in an economic ⟦crisis⟧."
+    },
+    {
+      "n": 919,
+      "rank": 1143,
+      "word": "ترتیب",
+      "pos": "noun",
+      "meaning": "(tartib) order; arrangement (به ترتیب: in order)",
+      "sentence": "اسم‌ها را به ترتیب بنویس.",
+      "translation": "Write the names in ⟦order⟧."
+    },
+    {
+      "n": 920,
+      "rank": 1146,
+      "word": "ضربه",
+      "pos": "noun",
+      "meaning": "(zarbe) blow; hit; knock",
+      "sentence": "سرش ضربه خورد.",
+      "translation": "He got a ⟦blow⟧ to the head."
+    },
+    {
+      "n": 921,
+      "rank": 1147,
+      "word": "عرض",
+      "pos": "noun",
+      "meaning": "(arz) width; (عرض کردن) to say (polite)",
+      "sentence": "عرض این خیابان ده متر است.",
+      "translation": "The ⟦width⟧ of this street is ten metres."
+    },
+    {
+      "n": 922,
+      "rank": 1148,
+      "word": "اطلاع",
+      "pos": "noun",
+      "meaning": "(ettelâ') information; notice (اطلاع دادن: to let know)",
+      "sentence": "لطفاً به من اطلاع بدهید.",
+      "translation": "Please ⟦inform⟧ me."
+    },
+    {
+      "n": 923,
+      "rank": 1149,
+      "word": "مثبت",
+      "pos": "adj",
+      "meaning": "(mosbat) positive",
+      "sentence": "جواب آزمایش مثبت بود.",
+      "translation": "The test result was ⟦positive⟧."
+    },
+    {
+      "n": 924,
+      "rank": 1150,
+      "word": "تحریم",
+      "pos": "noun",
+      "meaning": "(tahrim) sanction; boycott",
+      "sentence": "تحریم‌ها روی اقتصاد اثر گذاشت.",
+      "translation": "The ⟦sanctions⟧ affected the economy."
+    },
+    {
+      "n": 925,
+      "rank": 1151,
+      "word": "وطن",
+      "pos": "noun",
+      "meaning": "(vatan) homeland",
+      "sentence": "دلم برای وطنم تنگ شده است.",
+      "translation": "I miss my ⟦homeland⟧."
+    },
+    {
+      "n": 926,
+      "rank": 1152,
+      "word": "قوی",
+      "pos": "adj",
+      "meaning": "(ghavi) strong",
+      "sentence": "او خیلی قوی است.",
+      "translation": "He's very ⟦strong⟧."
+    },
+    {
+      "n": 927,
+      "rank": 1154,
+      "word": "تحمل",
+      "pos": "noun",
+      "meaning": "(tahammol) endurance (تحمل کردن: to put up with)",
+      "sentence": "دیگر نمی‌توانم این سر و صدا را تحمل کنم.",
+      "translation": "I can't ⟦stand⟧ this noise anymore."
+    },
+    {
+      "n": 928,
+      "rank": 1155,
+      "word": "زیبایی",
+      "pos": "noun",
+      "meaning": "(zibâyi) beauty",
+      "sentence": "زیبایی طبیعت را دوست دارم.",
+      "translation": "I love the ⟦beauty⟧ of nature."
+    },
+    {
+      "n": 929,
+      "rank": 1158,
+      "word": "متأسفانه",
+      "pos": "adv",
+      "meaning": "(mota'assefâne) unfortunately",
+      "sentence": "متأسفانه نمی‌توانم بیایم.",
+      "translation": "⟦Unfortunately⟧, I can't come."
+    },
+    {
+      "n": 930,
+      "rank": 1159,
+      "word": "کشاورزی",
+      "pos": "noun",
+      "meaning": "(keshâvarzi) farming; agriculture",
+      "sentence": "مردم این روستا کشاورزی می‌کنند.",
+      "translation": "The people of this village ⟦farm⟧."
+    },
+    {
+      "n": 931,
+      "rank": 1160,
+      "word": "کوه",
+      "pos": "noun",
+      "meaning": "(kuh) mountain",
+      "sentence": "آخر هفته به کوه رفتیم.",
+      "translation": "We went to the ⟦mountains⟧ at the weekend."
+    },
+    {
+      "n": 932,
+      "rank": 1161,
+      "word": "حجم",
+      "pos": "noun",
+      "meaning": "(hajm) volume; amount",
+      "sentence": "حجم کار امروز زیاد است.",
+      "translation": "The ⟦amount⟧ of work today is large."
+    },
+    {
+      "n": 933,
+      "rank": 1162,
+      "word": "مرغ",
+      "pos": "noun",
+      "meaning": "(morgh) chicken; hen",
+      "sentence": "برای شام مرغ پختم.",
+      "translation": "I cooked ⟦chicken⟧ for dinner."
+    },
+    {
+      "n": 934,
+      "rank": 1164,
+      "word": "کیفیت",
+      "pos": "noun",
+      "meaning": "(keyfiyat) quality",
+      "sentence": "کیفیت این پارچه عالی است.",
+      "translation": "The ⟦quality⟧ of this fabric is excellent."
+    },
+    {
+      "n": 935,
+      "rank": 1166,
+      "word": "پیوستن",
+      "pos": "verb",
+      "meaning": "(peyvastan) to join",
+      "sentence": "او به تیم ما پیوست.",
+      "translation": "He ⟦joined⟧ our team.",
+      "form": "پیوست"
+    },
+    {
+      "n": 936,
+      "rank": 1169,
+      "word": "میل",
+      "pos": "noun",
+      "meaning": "(meyl) desire; appetite (میل داشتن: to feel like)",
+      "sentence": "میل دارید چیزی بخورید؟",
+      "translation": "Would you ⟦like⟧ something to eat?"
+    },
+    {
+      "n": 937,
+      "rank": 1171,
+      "word": "مفهوم",
+      "pos": "noun",
+      "meaning": "(mafhum) concept; meaning",
+      "sentence": "مفهوم زمان برای بچه‌ها سخت است.",
+      "translation": "The ⟦concept⟧ of time is hard for children."
+    },
+    {
+      "n": 938,
+      "rank": 1172,
+      "word": "عبور",
+      "pos": "noun",
+      "meaning": "(obur) crossing; passing (عبور کردن: to cross)",
+      "sentence": "عبور از این خیابان خطرناک است.",
+      "translation": "⟦Crossing⟧ this street is dangerous."
+    },
+    {
+      "n": 939,
+      "rank": 1173,
+      "word": "ادبیات",
+      "pos": "noun",
+      "meaning": "(adabiyât) literature",
+      "sentence": "او به ادبیات فارسی علاقه دارد.",
+      "translation": "She's interested in Persian ⟦literature⟧."
+    },
+    {
+      "n": 940,
+      "rank": 1174,
+      "word": "خوابیدن",
+      "pos": "verb",
+      "meaning": "(khâbidan) to sleep; to go to bed",
+      "sentence": "دیشب خوب خوابیدی؟",
+      "translation": "Did you ⟦sleep⟧ well last night?",
+      "form": "خوابیدی"
+    },
+    {
+      "n": 941,
+      "rank": 1175,
+      "word": "قانونی",
+      "pos": "adj",
+      "meaning": "(ghânuni) legal",
+      "sentence": "این کار قانونی نیست.",
+      "translation": "This isn't ⟦legal⟧."
+    },
+    {
+      "n": 942,
+      "rank": 1176,
+      "word": "تخم",
+      "pos": "noun",
+      "meaning": "(tokhm) egg; seed (تخم‌مرغ: hen's egg)",
+      "sentence": "صبحانه تخم‌مرغ خوردم.",
+      "translation": "I had ⟦eggs⟧ for breakfast."
+    },
+    {
+      "n": 943,
+      "rank": 1178,
+      "word": "آسیب",
+      "pos": "noun",
+      "meaning": "(âsib) damage; injury (آسیب دیدن: to be hurt)",
+      "sentence": "پایش آسیب دید.",
+      "translation": "His leg was ⟦injured⟧."
+    },
+    {
+      "n": 944,
+      "rank": 1179,
+      "word": "عملکرد",
+      "pos": "noun",
+      "meaning": "(amalkard) performance; functioning",
+      "sentence": "عملکرد تیم امسال خوب بود.",
+      "translation": "The team's ⟦performance⟧ was good this year."
+    },
+    {
+      "n": 945,
+      "rank": 1180,
+      "word": "دقیقاً",
+      "pos": "adv",
+      "meaning": "(daghighan) exactly",
+      "sentence": "دقیقاً همین را می‌خواستم.",
+      "translation": "That's ⟦exactly⟧ what I wanted."
+    },
+    {
+      "n": 946,
+      "rank": 1181,
+      "word": "هنرمند",
+      "pos": "noun",
+      "meaning": "(honarmand) artist",
+      "sentence": "پدرش یک هنرمند معروف است.",
+      "translation": "Her father is a famous ⟦artist⟧."
+    },
+    {
+      "n": 947,
+      "rank": 1183,
+      "word": "وسیله",
+      "pos": "noun",
+      "meaning": "(vasile) means; device (وسایل: things; belongings)",
+      "sentence": "وسایلت را جمع کن.",
+      "translation": "Pack up your ⟦things⟧.",
+      "form": "وسایل"
+    },
+    {
+      "n": 948,
+      "rank": 1184,
+      "word": "اکثر",
+      "pos": "adj",
+      "meaning": "(aksar) most",
+      "sentence": "اکثر مردم موبایل دارند.",
+      "translation": "⟦Most⟧ people have a mobile phone."
+    },
+    {
+      "n": 949,
+      "rank": 1186,
+      "word": "صلح",
+      "pos": "noun",
+      "meaning": "(solh) peace",
+      "sentence": "همه صلح می‌خواهند.",
+      "translation": "Everyone wants ⟦peace⟧."
+    },
+    {
+      "n": 950,
+      "rank": 1187,
+      "word": "جذاب",
+      "pos": "adj",
+      "meaning": "(jazzâb) attractive; appealing",
+      "sentence": "این شهر برای گردشگران خیلی جذاب است.",
+      "translation": "This city is very ⟦attractive⟧ to tourists."
+    },
+    {
+      "n": 951,
+      "rank": 1188,
+      "word": "کالا",
+      "pos": "noun",
+      "meaning": "(kâlâ) goods; product",
+      "sentence": "قیمت کالاها بالا رفته است.",
+      "translation": "The price of ⟦goods⟧ has gone up."
+    },
+    {
+      "n": 952,
+      "rank": 1189,
+      "word": "طولانی",
+      "pos": "adj",
+      "meaning": "(tulâni) long",
+      "sentence": "سفر طولانی بود.",
+      "translation": "The trip was ⟦long⟧."
+    },
+    {
+      "n": 953,
+      "rank": 1190,
+      "word": "کاربرد",
+      "pos": "noun",
+      "meaning": "(kârbord) use; application",
+      "sentence": "این وسیله کاربردهای زیادی دارد.",
+      "translation": "This device has many ⟦uses⟧."
+    },
+    {
+      "n": 954,
+      "rank": 1191,
+      "word": "مستند",
+      "pos": "noun",
+      "meaning": "(mostanad) documentary",
+      "sentence": "دیشب یک مستند درباره‌ی حیوانات دیدم.",
+      "translation": "Last night I watched a ⟦documentary⟧ about animals."
+    },
+    {
+      "n": 955,
+      "rank": 1194,
+      "word": "جنس",
+      "pos": "noun",
+      "meaning": "(jens) material; gender; goods",
+      "sentence": "جنس این کیف چرم است.",
+      "translation": "The ⟦material⟧ of this bag is leather."
+    },
+    {
+      "n": 956,
+      "rank": 1195,
+      "word": "هتل",
+      "pos": "noun",
+      "meaning": "(hotel) hotel",
+      "sentence": "در یک هتل کوچک ماندیم.",
+      "translation": "We stayed in a small ⟦hotel⟧."
+    },
+    {
+      "n": 957,
+      "rank": 1196,
+      "word": "قربانی",
+      "pos": "noun",
+      "meaning": "(ghorbâni) victim; sacrifice",
+      "sentence": "او قربانی یک کلاهبرداری شد.",
+      "translation": "He was the ⟦victim⟧ of a scam."
+    },
+    {
+      "n": 958,
+      "rank": 1197,
+      "word": "جایگاه",
+      "pos": "noun",
+      "meaning": "(jâygâh) position; place; stand",
+      "sentence": "او جایگاه خوبی در شرکت دارد.",
+      "translation": "She has a good ⟦position⟧ in the company."
+    },
+    {
+      "n": 959,
+      "rank": 1198,
+      "word": "تشکر",
+      "pos": "noun",
+      "meaning": "(tashakkor) thanks (تشکر کردن: to thank)",
+      "sentence": "از شما تشکر می‌کنم.",
+      "translation": "I ⟦thank⟧ you."
+    },
+    {
+      "n": 960,
+      "rank": 1201,
+      "word": "همزمان",
+      "pos": "adv",
+      "meaning": "(hamzamân) at the same time",
+      "sentence": "هر دو همزمان رسیدیم.",
+      "translation": "We both arrived ⟦at the same time⟧."
+    },
+    {
+      "n": 961,
+      "rank": 1202,
+      "word": "چهره",
+      "pos": "noun",
+      "meaning": "(chehre) face",
+      "sentence": "چهره‌اش آشناست.",
+      "translation": "His ⟦face⟧ looks familiar."
+    },
+    {
+      "n": 962,
+      "rank": 1203,
+      "word": "بهار",
+      "pos": "noun",
+      "meaning": "(bahâr) spring",
+      "sentence": "بهار فصل گل‌هاست.",
+      "translation": "⟦Spring⟧ is the season of flowers."
+    },
+    {
+      "n": 963,
+      "rank": 1204,
+      "word": "عبارت",
+      "pos": "noun",
+      "meaning": "(ebârat) phrase; expression",
+      "sentence": "این عبارت را یادداشت کن.",
+      "translation": "Write down this ⟦phrase⟧."
+    },
+    {
+      "n": 964,
+      "rank": 1206,
+      "word": "آرامش",
+      "pos": "noun",
+      "meaning": "(ârâmesh) calm; peace (of mind)",
+      "sentence": "اینجا احساس آرامش می‌کنم.",
+      "translation": "I feel ⟦calm⟧ here."
+    },
+    {
+      "n": 965,
+      "rank": 1208,
+      "word": "ذکر",
+      "pos": "noun",
+      "meaning": "(zekr) mention (ذکر کردن: to mention)",
+      "sentence": "اسم او را ذکر نکرد.",
+      "translation": "He didn't ⟦mention⟧ her name."
+    },
+    {
+      "n": 966,
+      "rank": 1210,
+      "word": "پیشرفت",
+      "pos": "noun",
+      "meaning": "(pishraft) progress (پیشرفت کردن: to improve)",
+      "sentence": "فارسی‌ات خیلی پیشرفت کرده است.",
+      "translation": "Your Persian has ⟦improved⟧ a lot."
+    },
+    {
+      "n": 967,
+      "rank": 1211,
+      "word": "ساختار",
+      "pos": "noun",
+      "meaning": "(sâkhtâr) structure",
+      "sentence": "ساختار این جمله ساده است.",
+      "translation": "The ⟦structure⟧ of this sentence is simple."
+    },
+    {
+      "n": 968,
+      "rank": 1212,
+      "word": "آسمان",
+      "pos": "noun",
+      "meaning": "(âsemân) sky",
+      "sentence": "امشب آسمان پر از ستاره است.",
+      "translation": "Tonight the ⟦sky⟧ is full of stars."
+    },
+    {
+      "n": 969,
+      "rank": 1213,
+      "word": "هیچ‌وقت",
+      "pos": "adv",
+      "meaning": "(hichvaght) never",
+      "sentence": "او هیچ‌وقت دیر نمی‌کند.",
+      "translation": "He's ⟦never⟧ late."
+    },
+    {
+      "n": 970,
+      "rank": 1215,
+      "word": "موقعیت",
+      "pos": "noun",
+      "meaning": "(mowghe'iyat) situation; position; opportunity",
+      "sentence": "این یک موقعیت خوب برای توست.",
+      "translation": "This is a good ⟦opportunity⟧ for you."
+    },
+    {
+      "n": 971,
+      "rank": 1216,
+      "word": "برداشتن",
+      "pos": "verb",
+      "meaning": "(bardâshtan) to pick up; to take",
+      "sentence": "کیفت را بردار.",
+      "translation": "⟦Pick up⟧ your bag.",
+      "form": "بردار"
+    },
+    {
+      "n": 972,
+      "rank": 1217,
+      "word": "واقعیت",
+      "pos": "noun",
+      "meaning": "(vâghe'iyat) reality; fact",
+      "sentence": "واقعیت را قبول کن.",
+      "translation": "Face the ⟦facts⟧."
+    },
+    {
+      "n": 973,
+      "rank": 1219,
+      "word": "پرنده",
+      "pos": "noun",
+      "meaning": "(parande) bird",
+      "sentence": "یک پرنده روی درخت نشسته است.",
+      "translation": "A ⟦bird⟧ is sitting in the tree."
+    },
+    {
+      "n": 974,
+      "rank": 1220,
+      "word": "رأی",
+      "pos": "noun",
+      "meaning": "(ra'y) vote (رأی دادن: to vote)",
+      "sentence": "به چه کسی رأی دادی؟",
+      "translation": "Who did you ⟦vote⟧ for?"
+    },
+    {
+      "n": 975,
+      "rank": 1223,
+      "word": "وای",
+      "pos": "interj",
+      "meaning": "(vây) oh!; wow!",
+      "sentence": "وای، چه قشنگ!",
+      "translation": "⟦Wow⟧, how lovely!"
+    },
+    {
+      "n": 976,
+      "rank": 1225,
+      "word": "تهدید",
+      "pos": "noun",
+      "meaning": "(tahdid) threat (تهدید کردن: to threaten)",
+      "sentence": "او مرا تهدید کرد.",
+      "translation": "He ⟦threatened⟧ me."
+    },
+    {
+      "n": 977,
+      "rank": 1226,
+      "word": "سرطان",
+      "pos": "noun",
+      "meaning": "(saratân) cancer",
+      "sentence": "سیگار باعث سرطان می‌شود.",
+      "translation": "Smoking causes ⟦cancer⟧."
+    },
+    {
+      "n": 978,
+      "rank": 1228,
+      "word": "خورشید",
+      "pos": "noun",
+      "meaning": "(khorshid) sun",
+      "sentence": "خورشید طلوع کرد.",
+      "translation": "The ⟦sun⟧ rose."
+    },
+    {
+      "n": 979,
+      "rank": 1230,
+      "word": "امسال",
+      "pos": "adv",
+      "meaning": "(emsâl) this year",
+      "sentence": "امسال زمستان خیلی سرد است.",
+      "translation": "Winter is very cold ⟦this year⟧."
+    },
+    {
+      "n": 980,
+      "rank": 1231,
+      "word": "تصور",
+      "pos": "noun",
+      "meaning": "(tasavvor) imagination; idea (تصور کردن: to imagine)",
+      "sentence": "تصور کن در ساحل هستی.",
+      "translation": "⟦Imagine⟧ you're on the beach."
+    },
+    {
+      "n": 981,
+      "rank": 1232,
+      "word": "حمل",
+      "pos": "noun",
+      "meaning": "(haml) carrying (حمل کردن: to carry)",
+      "sentence": "حمل بار سنگین برای کمر بد است.",
+      "translation": "⟦Carrying⟧ heavy loads is bad for your back."
+    },
+    {
+      "n": 982,
+      "rank": 1234,
+      "word": "سقوط",
+      "pos": "noun",
+      "meaning": "(soghut) fall; crash (سقوط کردن: to fall; to crash)",
+      "sentence": "هواپیما سقوط کرد.",
+      "translation": "The plane ⟦crashed⟧."
+    },
+    {
+      "n": 983,
+      "rank": 1235,
+      "word": "سنت",
+      "pos": "noun",
+      "meaning": "(sonnat) tradition",
+      "sentence": "نوروز یک سنت قدیمی است.",
+      "translation": "Nowruz is an old ⟦tradition⟧."
+    },
+    {
+      "n": 984,
+      "rank": 1236,
+      "word": "مسخره",
+      "pos": "adj",
+      "meaning": "(maskhare) ridiculous (مسخره کردن: to make fun of)",
+      "sentence": "مرا مسخره نکن!",
+      "translation": "Don't ⟦make fun of⟧ me!"
+    },
+    {
+      "n": 985,
+      "rank": 1239,
+      "word": "لطف",
+      "pos": "noun",
+      "meaning": "(lotf) kindness; favour",
+      "sentence": "لطف کردید.",
+      "translation": "That's very ⟦kind⟧ of you."
+    },
+    {
+      "n": 986,
+      "rank": 1241,
+      "word": "ریختن",
+      "pos": "verb",
+      "meaning": "(rikhtan) to pour; to spill",
+      "sentence": "برایت چای ریختم.",
+      "translation": "I ⟦poured⟧ you some tea.",
+      "form": "ریختم"
+    },
+    {
+      "n": 987,
+      "rank": 1243,
+      "word": "بابت",
+      "pos": "prep",
+      "meaning": "(bâbat) for; regarding",
+      "sentence": "بابت دیر آمدنم عذر می‌خواهم.",
+      "translation": "I apologise ⟦for⟧ being late."
+    },
+    {
+      "n": 988,
+      "rank": 1245,
+      "word": "آزمایش",
+      "pos": "noun",
+      "meaning": "(âzmâyesh) test; experiment",
+      "sentence": "دکتر گفت آزمایش خون بدهم.",
+      "translation": "The doctor told me to have a blood ⟦test⟧."
+    },
+    {
+      "n": 989,
+      "rank": 1246,
+      "word": "شمالی",
+      "pos": "adj",
+      "meaning": "(shomâli) northern; north",
+      "sentence": "باد شمالی سرد است.",
+      "translation": "The ⟦north⟧ wind is cold."
+    },
+    {
+      "n": 990,
+      "rank": 1248,
+      "word": "هدایت",
+      "pos": "noun",
+      "meaning": "(hedâyat) guidance; steering (هدایت کردن: to direct)",
+      "sentence": "پلیس ترافیک را هدایت می‌کرد.",
+      "translation": "The police were ⟦directing⟧ the traffic."
+    },
+    {
+      "n": 991,
+      "rank": 1249,
+      "word": "ویژگی",
+      "pos": "noun",
+      "meaning": "(vizhegi) feature; characteristic",
+      "sentence": "این گوشی ویژگی‌های جالبی دارد.",
+      "translation": "This phone has some interesting ⟦features⟧."
+    },
+    {
+      "n": 992,
+      "rank": 1250,
+      "word": "بهشت",
+      "pos": "noun",
+      "meaning": "(behesht) heaven; paradise",
+      "sentence": "این باغ مثل بهشت است.",
+      "translation": "This garden is like ⟦paradise⟧."
+    },
+    {
+      "n": 993,
+      "rank": 1251,
+      "word": "قهوه",
+      "pos": "noun",
+      "meaning": "(ghahve) coffee",
+      "sentence": "قهوه‌ات را با شیر می‌خوری؟",
+      "translation": "Do you take your ⟦coffee⟧ with milk?"
+    },
+    {
+      "n": 994,
+      "rank": 1253,
+      "word": "مشغول",
+      "pos": "adj",
+      "meaning": "(mashghul) busy",
+      "sentence": "الان مشغول کار هستم.",
+      "translation": "I'm ⟦busy⟧ working right now."
+    },
+    {
+      "n": 995,
+      "rank": 1254,
+      "word": "نرم",
+      "pos": "adj",
+      "meaning": "(narm) soft",
+      "sentence": "این بالش خیلی نرم است.",
+      "translation": "This pillow is very ⟦soft⟧."
+    },
+    {
+      "n": 996,
+      "rank": 1255,
+      "word": "پنجم",
+      "pos": "adj",
+      "meaning": "(panjom) fifth",
+      "sentence": "دخترم کلاس پنجم است.",
+      "translation": "My daughter is in ⟦fifth⟧ grade."
+    },
+    {
+      "n": 997,
+      "rank": 1257,
+      "word": "نوجوان",
+      "pos": "noun",
+      "meaning": "(nowjavân) teenager",
+      "sentence": "پسرم یک نوجوان است.",
+      "translation": "My son is a ⟦teenager⟧."
+    },
+    {
+      "n": 998,
+      "rank": 1258,
+      "word": "خشک",
+      "pos": "adj",
+      "meaning": "(khoshk) dry",
+      "sentence": "لباس‌ها خشک شدند.",
+      "translation": "The clothes are ⟦dry⟧."
+    },
+    {
+      "n": 999,
+      "rank": 1259,
+      "word": "محدود",
+      "pos": "adj",
+      "meaning": "(mahdud) limited",
+      "sentence": "تعداد جاها محدود است.",
+      "translation": "The number of places is ⟦limited⟧."
+    },
+    {
+      "n": 1000,
+      "rank": 1260,
+      "word": "تور",
+      "pos": "noun",
+      "meaning": "(tur) tour; net",
+      "sentence": "یک تور یک‌روزه به اصفهان رفتیم.",
+      "translation": "We went on a one-day ⟦tour⟧ to Isfahan."
     }
   ]
 }
