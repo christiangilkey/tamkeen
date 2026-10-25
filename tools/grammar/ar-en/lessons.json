@@ -1561,6 +1561,258 @@
         {"type":"say","q":"اقترح على صديقك: «هيّا نأكل خارج البيت الليلة».","answer":"Let's eat out tonight."},
         {"type":"free","q":"دورك: ادعُ صديقًا إلى شيء تحبّه، واقترح يومًا وساعة، ثم اكتب ردّه بالقبول أو بالاعتذار.","answers":[{"t":"Would you like to play soccer with us on Sunday? How about ten o'clock? — I'd love to! See you then.","tr":"هل تحبّ أن تلعب كرة القدم معنا يوم الأحد؟ ما رأيك في العاشرة؟ — يسعدني ذلك! أراك حينها."},{"t":"Why don't we try the new Lebanese restaurant on Friday? — Thanks, but I can't. I'm visiting my parents. How about next week?","tr":"لمَ لا نجرّب المطعم اللبناني الجديد يوم الجمعة؟ — شكرًا، لكني لا أستطيع. سأزور والديّ. ما رأيك في الأسبوع القادم؟"}]}
       ]
+    },
+    {
+      "id": "talk-about-amounts",
+      "unit": 7,
+      "level": "A2",
+      "title": "تحدَّث عن الكمية",
+      "summary": "اسأل {{How many eggs do we need?}} و{{How much milk?}}: ما يُعَدّ وما لا يُعَدّ، و{{much, many, some, any, a lot of}}، ولماذا لا تقول {{informations}}.",
+      "topic": "المعدود وغير المعدود؛ {{much, many, a lot of, some, any, a few, a little}}",
+      "blocks": [
+        {"goal":{"t":"How many eggs do we need? And how much milk?","tr":"كم بيضة نحتاج؟ وكم من الحليب؟"}},
+        {"dialog":[{"who":"سارة","t":"Okay, I'm making pancakes. How many eggs do we have?","tr":"حسنًا، سأصنع الفطائر. كم بيضة عندنا؟"},{"who":"أحمد","t":"Only two. And there isn't any milk.","tr":"اثنتان فقط. ولا يوجد حليب."},{"who":"سارة","t":"Then we need some milk and a few eggs. How much money do you have?","tr":"إذن نحتاج إلى بعض الحليب وبضع بيضات. كم معك من المال؟"},{"who":"أحمد","t":"Not much. About ten dollars.","tr":"ليس كثيرًا. نحو عشرة دولارات."},{"who":"سارة","t":"That's enough. Oh, and can you get some bananas? We don't have many.","tr":"هذا يكفي. وهل تشتري بعض الموز؟ ليس عندنا كثير منه."},{"who":"أحمد","t":"Sure. Anything else?","tr":"بالتأكيد. شيء آخر؟"}]},
+        {"p":"**ما يُعَدّ وما لا يُعَدّ.** في الإنجليزية نوعان من الأسماء: ما تستطيع أن تعدّه ({{one egg}}، {{two eggs}})، فله مفرد وجمع؛ وما لا تعدّه ({{milk}}، {{water}}، {{money}}، {{rice}})، فلا جمع له ولا تأتي قبله {{a}}. تقول {{some milk}} أو {{a glass of milk}}، لا {{a milk}} ولا {{milks}}."},
+        {"term":"المعدود وغير المعدود","means":"المعدود اسم له مفرد وجمع، يُعَدّ واحدًا واثنين: {{a book}}، {{three books}}. وغير المعدود اسم لا يُعَدّ، فلا جمع له ولا تأتي قبله {{a}}: {{water}}، {{money}}، {{information}}."},
+        {"p":"**أسماء تخدعك.** بعض الأسماء جمع في العربية وغير معدود في الإنجليزية، فيبقى مفردًا بلا {{a}}، ويأتي الفعل بعده مفردًا:"},
+        { "table": [
+          ["العربية","الإنجليزية","لا تقل"],
+          ["معلومات","{{information}}","{{informations}}"],
+          ["نصائح، نصيحة","{{advice}}، {{a piece of advice}}","{{advices}}، {{an advice}}"],
+          ["أخبار","{{news}}: {{The news is good.}}","{{The news are good.}}"],
+          ["أثاث","{{furniture}}","{{furnitures}}"],
+          ["أمتعة","{{luggage}}","{{luggages}}"],
+          ["أموال","{{money}}","{{moneys}}"]
+        ] },
+        {"p":"**كم؟** {{How many}} للمعدود، وبعدها الجمع: {{How many kids do you have?}} و{{How much}} لغير المعدود: {{How much water do you drink?}}، وللسعر أيضًا: {{How much is it?}} «بكم هو؟»"},
+        { "table": [
+          ["","المعدود","غير المعدود"],
+          ["كثير","{{many books}}، {{a lot of books}}","{{much time}}، {{a lot of time}}"],
+          ["قليل، بضعة","{{a few books}}","{{a little time}}"],
+          ["بعض","{{some books}}","{{some time}}"],
+          ["في السؤال والنفي","{{any books}}","{{any time}}"]
+        ] },
+        {"p":"**{{a lot of}} في كل مكان.** في الجملة المثبتة يقول الأمريكيون {{a lot of}} أكثر من {{many}} و{{much}}: {{We have a lot of work.}} أما {{much}} فتأتي غالبًا في السؤال والنفي: {{I don't have much time.}} و{{some}} في الخبر والطلب، و{{any}} في السؤال والنفي: {{Do you have any questions?}} {{There isn't any sugar.}}"},
+        {"p":"**الأعداد مع الجمع.** تذكّر: بعد كل عدد أكبر من واحد يأتي الجمع، حتى بعد أحد عشر: {{eleven players}}، {{fifty dollars}}، {{a thousand people}}."},
+        { "ex": [
+          {"t":"How much is this shirt? — Twenty dollars.","tr":"بكم هذا القميص؟ — عشرون دولارًا."},
+          {"t":"There are a lot of people here today.","tr":"هنا ناس كثيرون اليوم."},
+          {"t":"I don't have much time.","tr":"ليس لديّ وقت كثير."},
+          {"t":"Can I give you some advice?","tr":"هل لي أن أنصحك؟"},
+          {"t":"We need a few things from the store.","tr":"نحتاج إلى بعض الأشياء من المتجر."},
+          {"t":"Do you have any information about the hotel?","tr":"هل عندك معلومات عن الفندق؟"}
+        ] },
+        {"tip":"لتعُدّ ما لا يُعَدّ استعمل وعاءه أو مقداره: {{a cup of coffee}} «فنجان قهوة»، {{a bottle of water}} «زجاجة ماء»، {{a piece of cake}} «قطعة كعك»، {{a slice of bread}} «شريحة خبز»، {{a pound of rice}} «رطل أرز»."}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"أحتاج إلى بعض المعلومات.","why":"{{information}} غير معدود في الإنجليزية فلا يُجمع، وإن كانت «معلومات» جمعًا في العربية."},
+        {"wrong":"How much people came?","right":"How many people came?","tr":"كم شخصًا جاء؟","why":"{{people}} معدود (جمع)، فتقول {{How many}}."},
+        {"wrong":"The news are bad.","right":"The news is bad.","tr":"الأخبار سيئة.","why":"{{news}} غير معدود ومفرد، وإن انتهى بـ{{s}}: {{The news is}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"How ___ brothers do you have?","tr":"كم أخًا عندك؟","options":["many","much"],"answer":0,"why":"الإخوة معدودون: {{How many}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"How ___ sugar do you want in your tea?","tr":"كم من السكر تريد في الشاي؟","options":["much","many"],"answer":0,"why":"السكر لا يُعَدّ: {{How much}}."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{She gave me some good advice.}}","{{She gave me some good advices.}}","{{She gave me a good advice.}}"],"answer":0,"why":"{{advice}} غير معدود: بلا جمع وبلا {{a}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We don't have ___ eggs. Can you buy some?","tr":"ليس عندنا بيض. هل تشتري بعضًا؟","options":["any","some","much"],"answer":0,"why":"في النفي: {{any}}؛ والبيض معدود فلا {{much}}.","from":"say-what-you-dont-do"},
+        {"type":"dialogue","q":"في السوق: اختر ردودك.","lines":[{"who":"البائع","t":"Can I help you?","tr":"هل أستطيع مساعدتك؟"},{"options":["Yes, please. How much are the tomatoes?","Yes, please. How many are the tomatoes?"],"answer":0,"why":"للسعر: {{How much}}."},{"who":"البائع","t":"Two dollars a pound.","tr":"دولاران للرطل."},{"options":["Okay, I'll take three pounds. And some bread, please.","Okay, I'll take three pound. And some breads, please."],"answer":0,"why":"بعد العدد الجمع ({{pounds}})، و{{bread}} لا يُجمع."},{"who":"البائع","t":"Here you go. Anything else?","tr":"تفضّل. شيء آخر؟"},{"options":["No, thanks. I don't need anything else.","No, thanks. I don't need nothing else."],"answer":0,"why":"في الإنجليزية نفي واحد يكفي: {{don't}} ثم {{anything}}، لا {{nothing}}."}],"from":"promise-offer-predict"},
+        {"type":"say","q":"اسأل البائع: «بكم هذا القميص؟»","answer":"How much is this shirt?"},
+        {"type":"free","q":"دورك: تستعدّ لعشاء مع ستة أصدقاء. اكتب ما تحتاج إليه وما عندك، بـ{{some, any, a lot of, a few}}.","answers":[{"t":"We need a lot of rice and some chicken. We don't have any juice, but we have a few bottles of water.","tr":"نحتاج إلى كثير من الأرز وبعض الدجاج. ليس عندنا عصير، لكن عندنا بضع زجاجات ماء."},{"t":"I have some vegetables and a little cheese. I need to buy a few lemons and a lot of bread.","tr":"عندي بعض الخضار وقليل من الجبن. أحتاج إلى شراء بضع ليمونات وكثير من الخبز."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "قارِن بين شيئين",
+      "summary": "قل «هذا الهاتف أرخص من ذاك»: صيغة المقارنة بـ{{-er}} أو {{more}}، و{{than}} حيث تقول العربية «من».",
+      "topic": "صيغة المقارنة: {{-er}} و{{more}} + {{than}}؛ {{better, worse}}؛ {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"This phone is cheaper than that one, and it's better.","tr":"هذا الهاتف أرخص من ذاك، وهو أفضل."}},
+        {"dialog":[{"who":"البائع","t":"This one is eight hundred dollars, and that one is six hundred.","tr":"هذا بثمانمئة دولار، وذاك بستمئة."},{"who":"عمر","t":"Why is this one more expensive?","tr":"لماذا هذا أغلى؟"},{"who":"البائع","t":"It's newer, and the camera is better.","tr":"إنه أحدث، والكاميرا أفضل."},{"who":"عمر","t":"Is it faster?","tr":"هل هو أسرع؟"},{"who":"البائع","t":"A little. And it's lighter than the other one.","tr":"قليلًا. وهو أخفّ من الآخر."},{"who":"عمر","t":"Hmm. The cheaper one is fine for me. My old phone was much worse!","tr":"همم. الأرخص يكفيني. هاتفي القديم كان أسوأ بكثير!"}]},
+        {"p":"**«أفعل من» = {{-er than}}.** في العربية تقول «أكبر من»، «أرخص من»، على وزن «أفعل» ثم «من». والإنجليزية تضيف {{-er}} إلى الصفة القصيرة، ثم تقول {{than}} «من»: {{bigger than}}، {{cheaper than}}. انتبه: «من» هنا {{than}}، لا {{from}}."},
+        {"term":"صيغة المقارنة","means":"صورة الصفة التي تقارن بها بين شيئين: {{bigger}} «أكبر»، {{more expensive}} «أغلى»، ومعها {{than}} «من»."},
+        {"p":"**قصيرة أم طويلة؟** الصفة القصيرة (مقطع واحد) تأخذ {{-er}}. والطويلة (ثلاثة مقاطع فأكثر، وأكثر ما له مقطعان) تأتي قبلها {{more}} ولا تتغيّر: {{more expensive}} «أغلى»، {{more beautiful}} «أجمل». ولا تجمع بين الطريقتين: لا {{more cheaper}}."},
+        { "table": [
+          ["القاعدة","أمثلة"],
+          ["قصيرة: {{-er}}","{{cheap}} ← {{cheaper}}، {{old}} ← {{older}}، {{fast}} ← {{faster}}"],
+          ["المنتهية بـ e: {{-r}}","{{nice}} ← {{nicer}}، {{large}} ← {{larger}}"],
+          ["حرف علّة واحد ثم حرف: يُضاعَف","{{big}} ← {{bigger}}، {{hot}} ← {{hotter}}"],
+          ["y في آخرها: {{-ier}}","{{easy}} ← {{easier}}، {{happy}} ← {{happier}}"],
+          ["طويلة: {{more}}","{{expensive}} ← {{more expensive}}، {{interesting}} ← {{more interesting}}"],
+          ["شاذّة","{{good}} ← {{better}}، {{bad}} ← {{worse}}، {{far}} ← {{farther}}"]
+        ] },
+        {"p":"**لتقوية الفرق:** {{much bigger}} «أكبر بكثير»، {{a little cheaper}} «أرخص قليلًا»."},
+        {"p":"**التساوي: {{as … as}}.** لتقول «مثل» أو «بقدر»: {{He's as tall as his father.}} «هو بطول أبيه». وفي النفي: {{It's not as hot as yesterday.}} «ليس حارًّا كالأمس»."},
+        {"p":"**{{one}} بدل تكرار الاسم.** في المقارنة يقولون {{this one}} و{{that one}} و{{the cheaper one}} بدل أن يكرّروا الاسم: {{This phone is cheaper than that one.}}"},
+        { "ex": [
+          {"t":"My brother is older than me.","tr":"أخي أكبر منّي.","note":"في الكلام يقولون {{than me}}، وفي الكتابة الرسمية {{than I am}}"},
+          {"t":"Riyadh is hotter than London.","tr":"الرياض أحرّ من لندن."},
+          {"t":"English is easier than Arabic!","tr":"الإنجليزية أسهل من العربية!"},
+          {"t":"This hotel is more comfortable than the other one.","tr":"هذا الفندق أكثر راحة من الآخر."},
+          {"t":"I feel better today.","tr":"أشعر بتحسّن اليوم."},
+          {"t":"The train is much faster than the bus.","tr":"القطار أسرع بكثير من الحافلة."}
+        ] },
+        {"tip":"«أكبر» في العربية للمذكّر والمؤنّث، وكذلك {{bigger}}: صيغة المقارنة في الإنجليزية لا تتغيّر أبدًا، لا تُؤنَّث ولا تُجمع: {{bigger houses}}."}
+      ],
+      "mistakes": [
+        {"wrong":"He is taller from me.","right":"He's taller than me.","tr":"هو أطول منّي.","why":"«من» في المقارنة {{than}}، لا {{from}}."},
+        {"wrong":"This car is more cheaper.","right":"This car is cheaper.","tr":"هذه السيارة أرخص.","why":"إما {{-er}} وإما {{more}}، لا الاثنان معًا."},
+        {"wrong":"My new job is more good.","right":"My new job is better.","tr":"عملي الجديد أفضل.","why":"{{good}} شاذّة: {{better}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Cairo is bigger ___ Amman.","tr":"القاهرة أكبر من عمّان.","options":["than","from","of"],"answer":0,"why":"«من» في المقارنة {{than}}."},
+        {"type":"choice","q":"ما صيغة المقارنة من {{expensive}}؟","options":["{{more expensive}}","{{expensiver}}","{{more expensiver}}"],"answer":0,"why":"صفة طويلة: {{more}} قبلها."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Today is ___ than yesterday.","tr":"اليوم أسوأ من أمس.","options":["worse","badder","more bad"],"answer":0,"why":"{{bad}} شاذّة: {{worse}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"القطار أسرع بكثير من الحافلة.","words":["The","train","is","much","faster","than","the bus."]},
+        {"type":"dialogue","q":"تختار شقّة مع صديقك: اختر ردودك.","lines":[{"who":"صديقك","t":"So, which apartment do you like?","tr":"إذن، أيّ شقّة تعجبك؟"},{"options":["The first one. It's bigger and closer to work.","The first one. It's more big and more close to work."],"answer":0,"why":"صفات قصيرة: {{-er}}."},{"who":"صديقك","t":"But it's more expensive.","tr":"لكنها أغلى."},{"options":["Yes, but the second one is much noisier.","Yes, but the second one is much noisy."],"answer":0,"why":"للمقارنة صيغة المقارنة: {{noisy}} ← {{noisier}}."},{"who":"صديقك","t":"True. And the first one has a better view.","tr":"صحيح. والأولى منظرها أجمل."}],"from":"describe-things"},
+        {"type":"say","q":"قل «أخي أكبر منّي».","answer":"My brother is older than me."},
+        {"type":"free","q":"دورك: قارن بين مدينتين تعرفهما في ثلاث جمل: الحجم، والطقس، والأسعار.","answers":[{"t":"Dubai is bigger than Muscat, but Muscat is quieter. Dubai is more expensive, too.","tr":"دبي أكبر من مسقط، لكن مسقط أهدأ. ودبي أغلى أيضًا."},{"t":"Chicago is colder than Houston in the winter. Houston is cheaper, but Chicago is more beautiful.","tr":"شيكاغو أبرد من هيوستن في الشتاء. هيوستن أرخص، لكن شيكاغو أجمل."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-best",
+      "unit": 7,
+      "level": "A2",
+      "title": "قل ما هو الأفضل",
+      "summary": "قل «هذا أفضل مطعم في المدينة» و«أطول مبنى في العالم»: صيغة التفضيل بـ{{the -est}} أو {{the most}}.",
+      "topic": "صيغة التفضيل: {{the -est}} و{{the most}}؛ {{the best, the worst}}؛ {{in}} و{{of}}؛ {{one of the…}}",
+      "blocks": [
+        {"goal":{"t":"This is the best restaurant in town.","tr":"هذا أفضل مطعم في المدينة."}},
+        {"dialog":[{"who":"مايك","t":"What's the best place to eat around here?","tr":"ما أفضل مكان للأكل هنا؟"},{"who":"أحمد","t":"Abu Ali's. It's the oldest restaurant in the city, and the falafel is the best!","tr":"مطعم أبو علي. إنه أقدم مطعم في المدينة، وفلافله الأفضل!"},{"who":"مايك","t":"Is it expensive?","tr":"هل هو غالٍ؟"},{"who":"أحمد","t":"No, it's one of the cheapest places downtown.","tr":"لا، إنه من أرخص الأماكن في وسط المدينة."},{"who":"مايك","t":"And what's the most beautiful place to visit?","tr":"وما أجمل مكان للزيارة؟"},{"who":"أحمد","t":"The old market, for sure. But go in the morning. The afternoon is the busiest time.","tr":"السوق القديم بلا شك. لكن اذهب صباحًا؛ فبعد الظهر أكثر الأوقات ازدحامًا."}]},
+        {"p":"**«الأفعل» = {{the -est}}.** في العربية تقول «أكبر مدينة» أو «المدينة الكبرى». والإنجليزية تضيف إلى الصفة القصيرة {{-est}}، وتضع قبلها {{the}} دائمًا: {{the biggest city}} «أكبر مدينة»، {{the cheapest hotel}} «أرخص فندق». والصفة الطويلة تأتي قبلها {{the most}}: {{the most beautiful}} «الأجمل»."},
+        {"term":"صيغة التفضيل","means":"صورة الصفة التي تقول إن شيئًا يفوق كل ما سواه: {{the biggest}} «الأكبر»، {{the most expensive}} «الأغلى»، ومعها {{the}} دائمًا."},
+        { "table": [
+          ["الصفة","المقارنة","التفضيل"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{beautiful}}","{{more beautiful}}","{{the most beautiful}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**{{in}} أم {{of}}؟** بعد صيغة التفضيل تقول {{in}} مع المكان أو الجماعة: {{in the world}} «في العالم»، {{in my family}} «في عائلتي». و{{of}} مع الزمن والعدد: {{the best day of my life}} «أجمل يوم في حياتي»، {{the oldest of the three}} «أكبر الثلاثة»."},
+        {"p":"**{{one of the…}}: «من أفعل…».** تقول العربية «من أجمل المدن»، والإنجليزية {{one of the most beautiful cities}}، وبعدها الجمع دائمًا."},
+        { "ex": [
+          {"t":"It's the tallest building in the world.","tr":"إنه أطول مبنى في العالم."},
+          {"t":"She's the youngest in her family.","tr":"هي الصغرى في عائلتها."},
+          {"t":"That was the best day of my life!","tr":"كان ذلك أجمل يوم في حياتي!"},
+          {"t":"What's the most important thing for you?","tr":"ما أهمّ شيء بالنسبة إليك؟"},
+          {"t":"Cairo is one of the biggest cities in Africa.","tr":"القاهرة من أكبر المدن في أفريقيا."},
+          {"t":"This is the worst traffic in the country.","tr":"هذه أسوأ زحمة سير في البلد."}
+        ] },
+        {"tip":"{{the}} لازمة قبل صيغة التفضيل، لأن الأفضل واحد معروف: لا تقل {{best restaurant}} وحدها، بل {{the best restaurant}}. إلا بعد صفات الملكية: {{my best friend}} «أعزّ أصدقائي»."}
+      ],
+      "mistakes": [
+        {"wrong":"It's the most big city.","right":"It's the biggest city.","tr":"إنها أكبر مدينة.","why":"الصفة القصيرة تأخذ {{-est}}، لا {{most}}."},
+        {"wrong":"He's the tallest of the class.","right":"He's the tallest in the class.","tr":"هو الأطول في الصف.","why":"مع المكان والجماعة: {{in}}."},
+        {"wrong":"It's one of the best restaurant in town.","right":"It's one of the best restaurants in town.","tr":"إنه من أفضل المطاعم في المدينة.","why":"بعد {{one of the}} يأتي الجمع."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"It's the ___ hotel in the city.","tr":"إنه أرخص فندق في المدينة.","options":["cheapest","most cheap","cheaper"],"answer":0,"why":"صفة قصيرة: {{the -est}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She's the best student ___ her class.","tr":"هي أفضل طالبة في صفّها.","options":["in","of","from"],"answer":0,"why":"مع الجماعة والمكان: {{in}}."},
+        {"type":"choice","q":"«القاهرة من أكبر المدن في العالم» بالإنجليزية…","options":["{{Cairo is one of the biggest cities in the world.}}","{{Cairo is one of the biggest city in the world.}}","{{Cairo is from the biggest cities in the world.}}"],"answer":0,"why":"{{one of the}} + صيغة التفضيل + الجمع."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My new phone is ___ than my old one.","tr":"هاتفي الجديد أفضل من القديم.","options":["better","the best","best"],"answer":0,"why":"بين شيئين: صيغة المقارنة {{better}} مع {{than}}.","from":"compare-things"},
+        {"type":"dialogue","q":"سائح يسألك عن مدينتك: اختر ردودك.","lines":[{"who":"السائح","t":"What's the best time to visit your city?","tr":"ما أفضل وقت لزيارة مدينتك؟"},{"options":["Spring. It's the most beautiful season.","Spring. It's the beautifulest season."],"answer":0,"why":"صفة طويلة: {{the most beautiful}}."},{"who":"السائح","t":"And what's the most famous food?","tr":"وما أشهر طعام فيها؟"},{"options":["Kunafa! It's the most delicious dessert in the world.","Kunafa! It's most delicious dessert of the world."],"answer":0,"why":"{{the}} لازمة، ومع العالم {{in}}."},{"who":"السائح","t":"I have to try it!","tr":"لا بدّ أن أجرّبها!"}]},
+        {"type":"say","q":"قل «كان ذلك أجمل يوم في حياتي».","answer":"That was the best day of my life."},
+        {"type":"free","q":"دورك: صِف بلدك أو مدينتك بثلاث جمل بصيغة التفضيل: أجمل مكان، وأفضل طعام، وأكبر شيء فيها أو أقدمه.","answers":[{"t":"The most beautiful place in Jordan is Petra. The best food is mansaf. The biggest city is Amman.","tr":"أجمل مكان في الأردن البتراء. أفضل طعام المنسف. وأكبر مدينة عمّان."},{"t":"Marrakech is one of the most famous cities in Morocco. The best time to visit is spring, and the oldest part is the medina.","tr":"مراكش من أشهر مدن المغرب. أفضل وقت لزيارتها الربيع، وأقدم جزء فيها المدينة القديمة."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "انصَح",
+      "summary": "قل «ينبغي أن ترى طبيبًا» و«لا ينبغي أن تعمل حتى وقت متأخّر»: {{should}} و{{shouldn't}} للنصيحة، بلا {{to}}.",
+      "topic": "{{should}} و{{shouldn't}} + الفعل في صورته الأصلية؛ {{Should I…?}}؛ {{You'd better…}}",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor, and you shouldn't work so late.","tr":"ينبغي أن ترى طبيبًا، ولا ينبغي أن تعمل حتى وقت متأخّر هكذا."}},
+        {"dialog":[{"who":"لينا","t":"I have a terrible headache, and I can't sleep.","tr":"عندي صداع شديد، ولا أستطيع النوم."},{"who":"سارة","t":"You should drink more water. Do you drink a lot of coffee?","tr":"ينبغي أن تشربي ماءً أكثر. هل تشربين قهوة كثيرة؟"},{"who":"لينا","t":"Five cups a day.","tr":"خمسة فناجين في اليوم."},{"who":"سارة","t":"Five? You shouldn't drink so much coffee!","tr":"خمسة؟ لا ينبغي أن تشربي كل هذه القهوة!"},{"who":"لينا","t":"I know. Should I see a doctor?","tr":"أعرف. هل ينبغي أن أرى طبيبًا؟"},{"who":"سارة","t":"Maybe. But first, get some rest!","tr":"ربما. لكن أوّلًا، خذي قسطًا من الراحة!"}]},
+        {"p":"**{{should}}: «ينبغي، يجدر».** للنصيحة تقول العربية «ينبغي أن…» و«الأفضل أن…» و«عليك أن…». والإنجليزية تقول {{should}}، وهو فعل ناقص مثل {{can}} و{{will}}: صورة واحدة مع كل فاعل، وبعده الفعل في صورته الأصلية بلا {{to}}: {{You should rest.}}"},
+        { "table": [
+          ["","مثال","المعنى"],
+          ["النصيحة","{{You should rest.}}","ينبغي أن ترتاح."],
+          ["النفي","{{You shouldn't worry.}}","لا ينبغي أن تقلق."],
+          ["السؤال","{{Should I call him?}}","هل ينبغي أن أتّصل به؟"],
+          ["مع أداة استفهام","{{What should I do?}}","ماذا أفعل؟ ماذا ينبغي أن أفعل؟"]
+        ] },
+        {"p":"**نصيحة لا أمر.** {{You should}} لطيفة، معناها «هذا رأيي، وأنت حرّ». فإذا أردت أن تكون ألطف فقل {{I think you should…}} «أظنّ أنه ينبغي أن…»، أو {{Maybe you should…}} «ربما ينبغي أن…»."},
+        {"p":"**{{You'd better…}}: «الأفضل لك أن…».** وهي أقوى من {{should}}، وفيها تحذير: {{You'd better leave now, or you'll miss the bus.}} «الأفضل أن تغادر الآن، وإلا فاتتك الحافلة». وهي {{you had better}}، وبعدها الفعل بلا {{to}} أيضًا."},
+        {"p":"**النصيحة بسؤال.** {{Why don't you…?}} «لمَ لا…؟»: {{Why don't you ask your teacher?}} «لمَ لا تسأل معلّمك؟»"},
+        { "ex": [
+          {"t":"You should try the kunafa here.","tr":"ينبغي أن تجرّب الكنافة هنا."},
+          {"t":"We should leave now. It's late.","tr":"ينبغي أن نغادر الآن. الوقت متأخّر."},
+          {"t":"You shouldn't eat so much sugar.","tr":"لا ينبغي أن تأكل كل هذا السكر."},
+          {"t":"Should I bring a jacket? — Yes, you should. It's cold at night.","tr":"هل أحضر سترة؟ — نعم. الجوّ بارد ليلًا."},
+          {"t":"What should I wear to the interview?","tr":"ماذا ألبس في المقابلة؟"},
+          {"t":"I think you should talk to her.","tr":"أظنّ أنه ينبغي أن تكلّمها."}
+        ] },
+        {"tip":"**كيف تُنطق؟** {{should}} تُنطق «شُد»، وحرف {{l}} فيها لا يُنطق، ومثلها {{could}} «كُد» و{{would}} «وُد». و{{shouldn't}} «شُدِنْت»."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to see a doctor.","right":"You should see a doctor.","tr":"ينبغي أن ترى طبيبًا.","why":"«أن» بعد «ينبغي» لا تُترجم: بعد {{should}} الفعل مباشرة."},
+        {"wrong":"He shoulds study more.","right":"He should study more.","tr":"ينبغي أن يذاكر أكثر.","why":"{{should}} لا يأخذ {{-s}}."},
+        {"wrong":"You don't should smoke.","right":"You shouldn't smoke.","tr":"لا ينبغي أن تدخّن.","why":"النفي بـ{{not}} بعد {{should}}: {{shouldn't}}، بلا {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"You look tired. You ___ go to bed.","tr":"تبدو متعبًا. ينبغي أن تنام.","options":["should","should to","shoulds"],"answer":0,"why":"{{should}} + الفعل مباشرة."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"You ___ drive so fast. It's dangerous.","tr":"لا ينبغي أن تقود بهذه السرعة، هذا خطر.","options":["shouldn't","don't should","not should"],"answer":0,"why":"النفي: {{shouldn't}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ماذا ينبغي أن أفعل؟","words":["What","should","I","do?"]},
+        {"type":"choice","q":"صديقك يريد أن يتعلّم الإنجليزية بسرعة. أيّ نصيحة صحيحة؟","options":["{{You should watch American movies with subtitles.}}","{{You should watching American movies.}}","{{You should to watch American movies.}}"],"answer":0,"why":"{{should}} + الفعل في صورته الأصلية."},
+        {"type":"dialogue","q":"زميلك الجديد يطلب نصيحتك: اختر ردودك.","lines":[{"who":"زميلك","t":"I'm new in town. Where should I live?","tr":"أنا جديد في المدينة. أين ينبغي أن أسكن؟"},{"options":["You should look downtown. It's closer to the office.","You should looking downtown. It's more close to the office."],"answer":0,"why":"{{should}} + الفعل، و{{close}} ← {{closer}}."},{"who":"زميلك","t":"Is it expensive?","tr":"هل هي غالية؟"},{"options":["Yes, it's more expensive than the suburbs, but you won't need a car.","Yes, it's expensiver than the suburbs, but you won't need a car."],"answer":0,"why":"صفة طويلة: {{more expensive}}."},{"who":"زميلك","t":"Good point. Thanks!","tr":"نقطة وجيهة. شكرًا!"}],"from":"compare-things"},
+        {"type":"say","q":"انصح صديقك: «ينبغي أن تشرب ماءً أكثر».","answer":"You should drink more water."},
+        {"type":"free","q":"دورك: صديق يقول لك {{I'm always tired.}} أعطه ثلاث نصائح، واحدة منها بـ{{shouldn't}}.","answers":[{"t":"You should go to bed earlier. You should exercise more. And you shouldn't drink coffee at night.","tr":"ينبغي أن تنام أبكر، وأن تمارس الرياضة أكثر. ولا ينبغي أن تشرب القهوة ليلًا."},{"t":"I think you should see a doctor. You shouldn't work on weekends, and maybe you should take a vacation.","tr":"أظنّ أنه ينبغي أن ترى طبيبًا. ولا ينبغي أن تعمل في عطلة نهاية الأسبوع، وربما ينبغي أن تأخذ إجازة."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 7,
+      "level": "A2",
+      "title": "قل ما يجب عليك",
+      "summary": "قل «يجب أن أعمل يوم السبت، لكن لا يلزمني أن ألبس بدلة»: {{have to}} و{{must}}، والفرق الكبير بين {{don't have to}} و{{mustn't}}.",
+      "topic": "{{have to}}، {{must}}، {{don't have to}}، {{mustn't}}؛ {{had to}} للماضي",
+      "blocks": [
+        {"goal":{"t":"I have to work on Saturday, but I don't have to wear a suit.","tr":"يجب أن أعمل يوم السبت، لكن لا يلزمني أن ألبس بدلة."}},
+        {"dialog":[{"who":"المديرة","t":"Okay, some rules. You have to be here at eight.","tr":"حسنًا، بعض القواعد. يجب أن تكون هنا في الثامنة."},{"who":"أحمد","t":"Do I have to wear a tie?","tr":"هل يجب أن ألبس ربطة عنق؟"},{"who":"المديرة","t":"No, you don't have to. Jeans are fine.","tr":"لا، لا يلزم. الجينز مقبول."},{"who":"أحمد","t":"Great. Can I use my phone at work?","tr":"رائع. هل أستطيع أن أستعمل هاتفي في العمل؟"},{"who":"المديرة","t":"Yes, but you mustn't use it in meetings. And you must wear your ID badge at all times.","tr":"نعم، لكن ممنوع أن تستعمله في الاجتماعات. ويجب أن تلبس بطاقتك التعريفية في كل الأوقات."},{"who":"أحمد","t":"Got it.","tr":"فهمت."}]},
+        {"p":"**«يجب» = {{have to}}.** في العربية تقول «يجب أن…» و«عليّ أن…» و«لازم…». والإنجليزية تقول في الكلام اليومي {{have to}} ثم الفعل: {{I have to go.}} «يجب أن أذهب». و{{have}} هنا فعل عاديّ يتغيّر: {{she has to}}، ونفيه وسؤاله بـ{{do}}: {{I don't have to}}، {{Do you have to…?}}"},
+        { "table": [
+          ["","مثال","المعنى"],
+          ["الوجوب","{{I have to work.}} {{She has to work.}}","يجب أن أعمل. يجب أن تعمل."],
+          ["لا يلزم","{{You don't have to come.}}","لا يلزمك أن تأتي (لك أن تختار)."],
+          ["السؤال","{{Do I have to pay?}}","هل يجب أن أدفع؟"],
+          ["الماضي","{{I had to wait an hour.}}","اضطُررت أن أنتظر ساعة."]
+        ] },
+        {"p":"**{{must}}: أقوى وأكثر رسمية.** {{must}} فعل ناقص، بلا {{-s}} وبلا {{to}}: {{You must wear a seatbelt.}} «يجب أن تربط حزام الأمان». تراه في القوانين واللافتات والتعليمات، ويقوله المتكلّم حين يرى هو أن الأمر لازم. أما في الكلام اليومي فـ{{have to}} أكثر."},
+        {"p":"**الفرق الكبير في النفي.** هنا يخطئ كثيرون: {{don't have to}} معناها «لا يلزم، لك أن تختار»، و{{mustn't}} معناها «ممنوع، لا يجوز». وهما مختلفان تمامًا:"},
+        { "table": [
+          ["الجملة","المعنى"],
+          ["{{You don't have to come.}}","لا يلزمك أن تأتي؛ تعالَ إن شئت."],
+          ["{{You mustn't smoke here.}}","ممنوع التدخين هنا."]
+        ] },
+        {"p":"وفي الكلام الأمريكي تسمع للمنع غالبًا {{can't}}: {{You can't park here.}} «لا يجوز أن تركن هنا»."},
+        { "ex": [
+          {"t":"I have to get up early tomorrow.","tr":"يجب أن أستيقظ مبكّرًا غدًا."},
+          {"t":"Does he have to work on Sundays?","tr":"هل يجب أن يعمل أيام الأحد؟"},
+          {"t":"You don't have to bring anything.","tr":"لا داعي لأن تحضر شيئًا."},
+          {"t":"Passengers must show their passports.","tr":"يجب على المسافرين إظهار جوازات سفرهم."},
+          {"t":"You mustn't touch the paintings.","tr":"ممنوع لمس اللوحات."},
+          {"t":"We had to take a taxi because the bus didn't come.","tr":"اضطُررنا أن نأخذ سيارة أجرة لأن الحافلة لم تأتِ."}
+        ] },
+        {"tip":"**{{have to}} في الكلام.** تُنطق غالبًا بالفاء: {{I have to go}} «آي هافْتو غو»، و{{has to}} «هاسْتو»، و{{had to}} «هادْتو»."}
+      ],
+      "mistakes": [
+        {"wrong":"I must to go.","right":"I must go.","tr":"يجب أن أذهب.","why":"{{must}} فعل ناقص: بعده الفعل مباشرة بلا {{to}}. أما {{have to}} ففيها {{to}}."},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"يجب أن تعمل.","why":"{{have}} هنا فعل عاديّ: مع {{she}} يصير {{has}}."},
+        {"wrong":"You mustn't come if you're busy.","right":"You don't have to come if you're busy.","tr":"لا يلزمك أن تأتي إن كنت مشغولًا.","why":"{{mustn't}} منع، و{{don't have to}} «لا يلزم». وأنت هنا لا تمنعه، بل تتركه يختار."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My son ___ to wear a uniform at school.","tr":"يجب أن يلبس ابني زيًّا موحّدًا في المدرسة.","options":["has","have","must"],"answer":0,"why":"{{my son}} = {{he}}: {{has to}}."},
+        {"type":"choice","q":"اليوم عطلة رسمية، ولا عمل عندك. تقول…","options":["{{I don't have to work today.}}","{{I mustn't work today.}}"],"answer":0,"why":"العمل لا يلزمك، وليس ممنوعًا: {{don't have to}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"You ___ smoke in the hospital.","tr":"ممنوع التدخين في المستشفى.","options":["mustn't","don't have to"],"answer":0,"why":"منع: {{mustn't}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Yesterday I ___ to stay at work until nine.","tr":"أمس اضطُررت أن أبقى في العمل حتى التاسعة.","options":["had","have","must"],"answer":0,"why":"الماضي: {{had to}}.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"في تفتيش المطار: اختر ردودك.","lines":[{"who":"الموظف","t":"You have to take your laptop out of your bag.","tr":"يجب أن تُخرج حاسوبك من الحقيبة."},{"options":["Okay. Do I have to take off my shoes, too?","Okay. I have to take off my shoes, too?"],"answer":0,"why":"السؤال بـ{{Do}}، لأن {{have}} هنا فعل عاديّ."},{"who":"الموظف","t":"No, you don't have to. But you can't take this water with you.","tr":"لا، لا يلزم. لكن لا يجوز أن تأخذ هذا الماء معك."},{"options":["Oh, sorry. I'll throw it away.","Oh, sorry. I must to throw it away."],"answer":0,"why":"قرار في اللحظة: {{I'll}}؛ ولا {{to}} بعد {{must}}."},{"who":"الموظف","t":"Thank you. Have a good flight.","tr":"شكرًا. رحلة سعيدة."}],"from":"promise-offer-predict"},
+        {"type":"say","q":"قل «يجب أن أستيقظ مبكّرًا غدًا».","answer":"I have to get up early tomorrow."},
+        {"type":"free","q":"دورك: اكتب شيئين يجب أن تفعلهما هذا الأسبوع، وشيئًا لا يلزمك، وقاعدة ممنوعة في عملك أو بيتك.","answers":[{"t":"I have to finish a report and call the bank. I don't have to work on Friday. At home, the kids can't play on their phones after nine.","tr":"يجب أن أُنهي تقريرًا وأتّصل بالبنك. لا يلزمني العمل يوم الجمعة. وفي البيت لا يجوز للأولاد أن يلعبوا بهواتفهم بعد التاسعة."},{"t":"I have to go to the dentist and pay the rent. I don't have to cook this week because my mom is visiting. At work, we mustn't eat at our desks.","tr":"يجب أن أذهب إلى طبيب الأسنان وأدفع الإيجار. لا يلزمني الطبخ هذا الأسبوع لأن أمي تزورنا. وفي العمل ممنوع أن نأكل على مكاتبنا."}]}
+      ]
     }
   ]
 }
