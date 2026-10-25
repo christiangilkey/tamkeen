@@ -94,7 +94,7 @@ def main(draft_path: str) -> None:
         # The word with its stress, in brackets after the meaning ("pf." for a perfective verb), unless the
         # meaning already ends with it (written by hand: за́мок / замо́к).
         last_bracket = re.search(r"\(([^()]*)\)\s*$", meaning)
-        if not (last_bracket and plain(last_bracket.group(1).split(",")[0].strip()) == plain(word)):
+        if not (last_bracket and plain(re.split(r"[,;]", last_bracket.group(1))[0].strip()) == plain(word)):
             s = stress_of(word, row)
             perfective = pos == "verb" and row["aspect"] == "perfective" and plain(word) == plain(row["lemma"])
             if s is None:

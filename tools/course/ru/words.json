@@ -184,6 +184,745 @@
       "meaning": "to (someone); towards",
       "sentence": "Я иду к врачу.",
       "translation": "I'm going ⟦to⟧ the doctor."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "они",
+      "pos": "pron",
+      "meaning": "they (они́)",
+      "sentence": "Они живут в деревне.",
+      "translation": "⟦They⟧ live in a village."
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "который",
+      "pos": "pron",
+      "meaning": "which; who; that (кото́рый)",
+      "sentence": "Это книга, которую я читаю.",
+      "translation": "This is the book ⟦that⟧ I'm reading.",
+      "form": "которую"
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "тот",
+      "pos": "pron",
+      "meaning": "that; the one",
+      "sentence": "Дай мне ту книгу.",
+      "translation": "Give me ⟦that⟧ book.",
+      "form": "ту"
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "но",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "Я устал, но счастлив.",
+      "translation": "I'm tired, ⟦but⟧ happy."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "то",
+      "pos": "pron",
+      "meaning": "that (то, что: what); then",
+      "sentence": "Это не то, что я хотел.",
+      "translation": "That's not ⟦what⟧ I wanted."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "она",
+      "pos": "pron",
+      "meaning": "she; it (она́)",
+      "sentence": "Она моя сестра.",
+      "translation": "⟦She⟧ is my sister."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "у",
+      "pos": "prep",
+      "meaning": "at; by; (у меня) I have",
+      "sentence": "У меня есть собака.",
+      "translation": "I ⟦have⟧ a dog."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "мы",
+      "pos": "pron",
+      "meaning": "we",
+      "sentence": "Мы идём в кино.",
+      "translation": "⟦We⟧'re going to the cinema."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "год",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "Я живу здесь три года.",
+      "translation": "I've lived here for three ⟦years⟧.",
+      "form": "года"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "ты",
+      "pos": "pron",
+      "meaning": "you (one person you know well)",
+      "sentence": "Ты говоришь по-русски?",
+      "translation": "Do ⟦you⟧ speak Russian?"
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "от",
+      "pos": "prep",
+      "meaning": "from",
+      "sentence": "Это письмо от мамы.",
+      "translation": "This letter is ⟦from⟧ Mum."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "свой",
+      "pos": "pron",
+      "meaning": "one's own (my, your, his, her...)",
+      "sentence": "Он любит свою работу.",
+      "translation": "He loves ⟦his⟧ job.",
+      "form": "свою"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "вы",
+      "pos": "pron",
+      "meaning": "you (polite, or more than one)",
+      "sentence": "Откуда вы?",
+      "translation": "Where are ⟦you⟧ from?"
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "так",
+      "pos": "adv",
+      "meaning": "so; like this; that way",
+      "sentence": "Я так устал.",
+      "translation": "I'm ⟦so⟧ tired."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "мочь",
+      "pos": "verb",
+      "meaning": "can; to be able",
+      "sentence": "Я могу тебе помочь.",
+      "translation": "I ⟦can⟧ help you.",
+      "form": "могу"
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "человек",
+      "pos": "noun",
+      "meaning": "person; man; pl. лю́ди: people (челове́к)",
+      "sentence": "Он хороший человек.",
+      "translation": "He's a good ⟦person⟧."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "один",
+      "pos": "num",
+      "meaning": "one; alone (оди́н)",
+      "sentence": "У меня один брат.",
+      "translation": "I have ⟦one⟧ brother."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "такой",
+      "pos": "pron",
+      "meaning": "such; so (тако́й)",
+      "sentence": "Он такой добрый!",
+      "translation": "He's ⟦so⟧ kind!"
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "же",
+      "pos": "part",
+      "meaning": "(gives weight to a word) after all; the same (тот же)",
+      "sentence": "Я же тебе говорил!",
+      "translation": "I told you, ⟦didn't I⟧!"
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "ещё",
+      "pos": "adv",
+      "meaning": "more; still; yet",
+      "sentence": "Хочешь ещё чаю?",
+      "translation": "Would you like ⟦more⟧ tea?"
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "до",
+      "pos": "prep",
+      "meaning": "until; before; as far as",
+      "sentence": "Магазин работает до восьми.",
+      "translation": "The shop is open ⟦until⟧ eight."
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "только",
+      "pos": "adv",
+      "meaning": "only; just (то́лько)",
+      "sentence": "У меня только сто рублей.",
+      "translation": "I ⟦only⟧ have a hundred roubles."
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "время",
+      "pos": "noun",
+      "meaning": "time (вре́мя)",
+      "sentence": "У меня нет времени.",
+      "translation": "I don't have ⟦time⟧.",
+      "form": "времени"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "кто",
+      "pos": "pron",
+      "meaning": "who",
+      "sentence": "Кто это?",
+      "translation": "⟦Who⟧ is that?"
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "если",
+      "pos": "conj",
+      "meaning": "if (е́сли)",
+      "sentence": "Если хочешь, приходи.",
+      "translation": "⟦If⟧ you want, come over."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "когда",
+      "pos": "adv",
+      "meaning": "when (когда́)",
+      "sentence": "Когда ты приедешь?",
+      "translation": "⟦When⟧ are you coming?"
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "уже",
+      "pos": "adv",
+      "meaning": "already; (with не) no longer (уже́)",
+      "sentence": "Я уже поел.",
+      "translation": "I've ⟦already⟧ eaten."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "бы",
+      "pos": "part",
+      "meaning": "would (a wish, or \"if\")",
+      "sentence": "Я бы хотел кофе.",
+      "translation": "I ⟦would⟧ like a coffee."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "мой",
+      "pos": "pron",
+      "meaning": "my; mine",
+      "sentence": "Это мой телефон.",
+      "translation": "This is ⟦my⟧ phone."
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "или",
+      "pos": "conj",
+      "meaning": "or (и́ли)",
+      "sentence": "Чай или кофе?",
+      "translation": "Tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "себя",
+      "pos": "pron",
+      "meaning": "oneself (myself, himself...) (себя́)",
+      "sentence": "Он купил себе машину.",
+      "translation": "He bought ⟦himself⟧ a car.",
+      "form": "себе"
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "новый",
+      "pos": "adj",
+      "meaning": "new (но́вый)",
+      "sentence": "Я купил новый телефон.",
+      "translation": "I bought a ⟦new⟧ phone."
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "при",
+      "pos": "prep",
+      "meaning": "in front of; at the time of; with",
+      "sentence": "Не говори это при детях.",
+      "translation": "Don't say that ⟦in front of⟧ the children."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "другой",
+      "pos": "adj",
+      "meaning": "other; another; different (друго́й)",
+      "sentence": "Дай мне другую ложку.",
+      "translation": "Give me ⟦another⟧ spoon.",
+      "form": "другую"
+    },
+    {
+      "n": 55,
+      "rank": 56,
+      "word": "первый",
+      "pos": "adj",
+      "meaning": "first (пе́рвый)",
+      "sentence": "Это мой первый день на работе.",
+      "translation": "It's my ⟦first⟧ day at work."
+    },
+    {
+      "n": 56,
+      "rank": 57,
+      "word": "сам",
+      "pos": "pron",
+      "meaning": "(my)self; on one's own",
+      "sentence": "Я сделал это сам.",
+      "translation": "I did it ⟦myself⟧."
+    },
+    {
+      "n": 57,
+      "rank": 58,
+      "word": "какой",
+      "pos": "pron",
+      "meaning": "what; which; what kind of (како́й)",
+      "sentence": "Какой твой любимый цвет?",
+      "translation": "⟦What⟧'s your favourite colour?"
+    },
+    {
+      "n": 58,
+      "rank": 59,
+      "word": "чтобы",
+      "pos": "conj",
+      "meaning": "in order to; so that (что́бы)",
+      "sentence": "Я пришёл, чтобы помочь.",
+      "translation": "I came ⟦to⟧ help."
+    },
+    {
+      "n": 59,
+      "rank": 60,
+      "word": "есть",
+      "pos": "part",
+      "meaning": "there is; there are (у меня есть: I have)",
+      "sentence": "Здесь есть кафе?",
+      "translation": "⟦Is there⟧ a café here?"
+    },
+    {
+      "n": 60,
+      "rank": 61,
+      "word": "стать",
+      "pos": "verb",
+      "meaning": "to become; to begin (стать, pf.)",
+      "sentence": "Он стал врачом.",
+      "translation": "He ⟦became⟧ a doctor.",
+      "form": "стал"
+    },
+    {
+      "n": 61,
+      "rank": 62,
+      "word": "после",
+      "pos": "prep",
+      "meaning": "after (по́сле)",
+      "sentence": "После работы я иду домой.",
+      "translation": "⟦After⟧ work I go home."
+    },
+    {
+      "n": 62,
+      "rank": 63,
+      "word": "нет",
+      "pos": "part",
+      "meaning": "no; there isn't",
+      "sentence": "Нет, спасибо.",
+      "translation": "⟦No⟧, thank you."
+    },
+    {
+      "n": 63,
+      "rank": 64,
+      "word": "хотеть",
+      "pos": "verb",
+      "meaning": "to want (хоте́ть)",
+      "sentence": "Я хочу пить.",
+      "translation": "I ⟦want⟧ something to drink.",
+      "form": "хочу"
+    },
+    {
+      "n": 64,
+      "rank": 65,
+      "word": "день",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "Хорошего дня!",
+      "translation": "Have a nice ⟦day⟧!",
+      "form": "дня"
+    },
+    {
+      "n": 65,
+      "rank": 66,
+      "word": "очень",
+      "pos": "adv",
+      "meaning": "very; very much (о́чень)",
+      "sentence": "Мне очень нравится этот фильм.",
+      "translation": "I like this film ⟦very⟧ much."
+    },
+    {
+      "n": 66,
+      "rank": 67,
+      "word": "работа",
+      "pos": "noun",
+      "meaning": "work; job (рабо́та)",
+      "sentence": "Я ищу работу.",
+      "translation": "I'm looking for a ⟦job⟧.",
+      "form": "работу"
+    },
+    {
+      "n": 67,
+      "rank": 68,
+      "word": "также",
+      "pos": "adv",
+      "meaning": "also; as well (та́кже)",
+      "sentence": "Я также говорю по-французски.",
+      "translation": "I ⟦also⟧ speak French."
+    },
+    {
+      "n": 68,
+      "rank": 69,
+      "word": "два",
+      "pos": "num",
+      "meaning": "two",
+      "sentence": "Два кофе, пожалуйста.",
+      "translation": "⟦Two⟧ coffees, please."
+    },
+    {
+      "n": 69,
+      "rank": 70,
+      "word": "чем",
+      "pos": "conj",
+      "meaning": "than",
+      "sentence": "Он старше, чем я.",
+      "translation": "He's older ⟦than⟧ me."
+    },
+    {
+      "n": 70,
+      "rank": 71,
+      "word": "наш",
+      "pos": "pron",
+      "meaning": "our; ours",
+      "sentence": "Это наш дом.",
+      "translation": "This is ⟦our⟧ house."
+    },
+    {
+      "n": 71,
+      "rank": 72,
+      "word": "сказать",
+      "pos": "verb",
+      "meaning": "to say; to tell (сказа́ть, pf.)",
+      "sentence": "Что он сказал?",
+      "translation": "What did he ⟦say⟧?",
+      "form": "сказал"
+    },
+    {
+      "n": 72,
+      "rank": 73,
+      "word": "вот",
+      "pos": "part",
+      "meaning": "here is; there is (pointing)",
+      "sentence": "Вот ваш кофе.",
+      "translation": "⟦Here's⟧ your coffee."
+    },
+    {
+      "n": 73,
+      "rank": 74,
+      "word": "дело",
+      "pos": "noun",
+      "meaning": "matter; business; affair (де́ло)",
+      "sentence": "Это не твоё дело.",
+      "translation": "It's none of your ⟦business⟧."
+    },
+    {
+      "n": 74,
+      "rank": 75,
+      "word": "жизнь",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "Жизнь прекрасна!",
+      "translation": "⟦Life⟧ is beautiful!"
+    },
+    {
+      "n": 75,
+      "rank": 76,
+      "word": "знать",
+      "pos": "verb",
+      "meaning": "to know",
+      "sentence": "Ты знаешь, где он живёт?",
+      "translation": "Do you ⟦know⟧ where he lives?",
+      "form": "знаешь"
+    },
+    {
+      "n": 76,
+      "rank": 77,
+      "word": "где",
+      "pos": "adv",
+      "meaning": "where",
+      "sentence": "Где туалет?",
+      "translation": "⟦Where⟧'s the toilet?"
+    },
+    {
+      "n": 77,
+      "rank": 78,
+      "word": "под",
+      "pos": "prep",
+      "meaning": "under",
+      "sentence": "Кошка спит под столом.",
+      "translation": "The cat is sleeping ⟦under⟧ the table."
+    },
+    {
+      "n": 78,
+      "rank": 79,
+      "word": "должен",
+      "pos": "adj",
+      "meaning": "must; to have to (до́лжен; должна́, должны́)",
+      "sentence": "Я должен идти.",
+      "translation": "I ⟦have to⟧ go."
+    },
+    {
+      "n": 79,
+      "rank": 80,
+      "word": "говорить",
+      "pos": "verb",
+      "meaning": "to speak; to talk; to say (говори́ть)",
+      "sentence": "Говорите медленнее, пожалуйста.",
+      "translation": "Please ⟦speak⟧ more slowly.",
+      "form": "Говорите"
+    },
+    {
+      "n": 80,
+      "rank": 81,
+      "word": "место",
+      "pos": "noun",
+      "meaning": "place; seat; room (space) (ме́сто)",
+      "sentence": "Это место свободно?",
+      "translation": "Is this ⟦seat⟧ free?"
+    },
+    {
+      "n": 81,
+      "rank": 82,
+      "word": "да",
+      "pos": "part",
+      "meaning": "yes",
+      "sentence": "Да, конечно.",
+      "translation": "⟦Yes⟧, of course."
+    },
+    {
+      "n": 82,
+      "rank": 83,
+      "word": "даже",
+      "pos": "part",
+      "meaning": "even (да́же)",
+      "sentence": "Он даже не позвонил.",
+      "translation": "He didn't ⟦even⟧ call."
+    },
+    {
+      "n": 83,
+      "rank": 84,
+      "word": "можно",
+      "pos": "adv",
+      "meaning": "may; can; it's allowed (мо́жно)",
+      "sentence": "Можно войти?",
+      "translation": "⟦May⟧ I come in?"
+    },
+    {
+      "n": 84,
+      "rank": 85,
+      "word": "просто",
+      "pos": "adv",
+      "meaning": "just; simply; simple (про́сто)",
+      "sentence": "Это просто шутка.",
+      "translation": "It's ⟦just⟧ a joke."
+    },
+    {
+      "n": 85,
+      "rank": 86,
+      "word": "раз",
+      "pos": "noun",
+      "meaning": "time (once, twice...); once",
+      "sentence": "Я звонил тебе три раза.",
+      "translation": "I called you three ⟦times⟧.",
+      "form": "раза"
+    },
+    {
+      "n": 86,
+      "rank": 87,
+      "word": "больше",
+      "pos": "adv",
+      "meaning": "more; bigger; (with не) any more (бо́льше)",
+      "sentence": "Я больше не курю.",
+      "translation": "I don't smoke ⟦any more⟧."
+    },
+    {
+      "n": 87,
+      "rank": 88,
+      "word": "сейчас",
+      "pos": "adv",
+      "meaning": "now; right away (сейча́с)",
+      "sentence": "Я сейчас занят.",
+      "translation": "I'm busy ⟦right now⟧."
+    },
+    {
+      "n": 88,
+      "rank": 89,
+      "word": "мир",
+      "pos": "noun",
+      "meaning": "world; peace",
+      "sentence": "Я хочу увидеть весь мир.",
+      "translation": "I want to see the whole ⟦world⟧."
+    },
+    {
+      "n": 89,
+      "rank": 90,
+      "word": "более",
+      "pos": "adv",
+      "meaning": "more; more than (бо́лее)",
+      "sentence": "Я ждал более часа.",
+      "translation": "I waited ⟦more than⟧ an hour."
+    },
+    {
+      "n": 90,
+      "rank": 92,
+      "word": "большой",
+      "pos": "adj",
+      "meaning": "big; large; great (большо́й)",
+      "sentence": "У них большой дом.",
+      "translation": "They have a ⟦big⟧ house."
+    },
+    {
+      "n": 91,
+      "rank": 93,
+      "word": "ну",
+      "pos": "interj",
+      "meaning": "well; so",
+      "sentence": "Ну, пока!",
+      "translation": "⟦Well⟧, bye!"
+    },
+    {
+      "n": 92,
+      "rank": 94,
+      "word": "без",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "Кофе без сахара, пожалуйста.",
+      "translation": "Coffee ⟦without⟧ sugar, please."
+    },
+    {
+      "n": 93,
+      "rank": 95,
+      "word": "город",
+      "pos": "noun",
+      "meaning": "city; town (го́род)",
+      "sentence": "Это очень красивый город.",
+      "translation": "It's a very beautiful ⟦city⟧."
+    },
+    {
+      "n": 94,
+      "rank": 96,
+      "word": "сделать",
+      "pos": "verb",
+      "meaning": "to do; to make (сде́лать, pf.)",
+      "sentence": "Я сделал домашнее задание.",
+      "translation": "I ⟦did⟧ my homework.",
+      "form": "сделал"
+    },
+    {
+      "n": 95,
+      "rank": 97,
+      "word": "ни",
+      "pos": "part",
+      "meaning": "not a single; neither... nor (ни... ни)",
+      "sentence": "Я не знаю ни слова по-китайски.",
+      "translation": "I don't know ⟦a single⟧ word of Chinese."
+    },
+    {
+      "n": 96,
+      "rank": 98,
+      "word": "там",
+      "pos": "adv",
+      "meaning": "there",
+      "sentence": "Моя сумка там.",
+      "translation": "My bag is over ⟦there⟧."
+    },
+    {
+      "n": 97,
+      "rank": 99,
+      "word": "область",
+      "pos": "noun",
+      "meaning": "region; province; field (of work) (о́бласть)",
+      "sentence": "Он живёт в Московской области.",
+      "translation": "He lives in the Moscow ⟦region⟧.",
+      "form": "области"
+    },
+    {
+      "n": 98,
+      "rank": 100,
+      "word": "ли",
+      "pos": "part",
+      "meaning": "whether; if (in questions)",
+      "sentence": "Не знаю, придёт ли он.",
+      "translation": "I don't know ⟦if⟧ he'll come."
+    },
+    {
+      "n": 99,
+      "rank": 102,
+      "word": "ребёнок",
+      "pos": "noun",
+      "meaning": "child; pl. де́ти: children",
+      "sentence": "У меня двое детей.",
+      "translation": "I have two ⟦children⟧.",
+      "form": "детей"
+    },
+    {
+      "n": 100,
+      "rank": 103,
+      "word": "вопрос",
+      "pos": "noun",
+      "meaning": "question (вопро́с)",
+      "sentence": "У меня есть вопрос.",
+      "translation": "I have a ⟦question⟧."
     }
   ]
 }
