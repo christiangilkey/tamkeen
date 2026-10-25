@@ -1009,6 +1009,247 @@
         {"type":"say","q":"Um amigo convida, mas você não pode ir. Diga “Desculpa, hoje não vai dar.”","answer":"Sorry, I can't make it today."},
         {"type":"free","q":"Sua vez: diga uma coisa que você sabe fazer, uma que você não consegue, e peça um favor a alguém.","answers":[{"t":"I can cook really well, but I can't wake up early. Can you call me at seven?","tr":"Cozinho muito bem, mas não consigo acordar cedo. Você pode me ligar às sete?"},{"t":"I can play the guitar. I can't understand people when they speak fast. Can you repeat that?","tr":"Sei tocar violão. Não consigo entender quando as pessoas falam rápido. Pode repetir?"}]}
       ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Faça planos",
+      "summary": "Diga o que você vai fazer hoje à noite, amanhã e no ano que vem, e pergunte dos planos dos outros.",
+      "topic": "{{be going to}} + verbo; o present continuous para compromissos marcados ({{I'm meeting Ana tomorrow}}); {{tomorrow}}, {{next week}}, sem preposição",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my grandparents this weekend.","tr":"Vou visitar meus avós neste fim de semana."}},
+        {"dialog":[{"who":"Julia","t":"What are you going to do this weekend?","tr":"O que você vai fazer neste fim de semana?"},{"who":"Marcos","t":"I'm going to drive to the beach with some friends.","tr":"Vou para a praia de carro com uns amigos."},{"who":"Julia","t":"Fun! Are you going to stay in a hotel?","tr":"Que legal! Vocês vão ficar num hotel?"},{"who":"Marcos","t":"No, we're going to rent a house. What about you?","tr":"Não, a gente vai alugar uma casa. E você?"},{"who":"Julia","t":"I'm not going to do anything. I'm going to rest!","tr":"Não vou fazer nada. Vou descansar!"}]},
+        {"p":"**“Vou fazer” = {{be going to}} + verbo.** Para planos e intenções, o inglês usa uma construção muito parecida com o nosso “vou fazer”: {{be}} + {{going to}} + o verbo. {{I'm going to travel}} “Vou viajar”."},
+        { "table": [
+          ["","inglês","português"],
+          ["afirmativa","{{I'm going to travel.}}","Vou viajar."],
+          ["negativa","{{She isn't going to come.}}","Ela não vai vir."],
+          ["pergunta","{{Are you going to work tomorrow?}}","Você vai trabalhar amanhã?"],
+          ["com palavra interrogativa","{{What are you going to do?}}","O que você vai fazer?"]
+        ] },
+        {"p":"O {{be}} muda com o sujeito ({{I'm}}, {{she's}}, {{we're}}) e, na pergunta, vai para a frente. Na fala rápida, {{going to}} vira {{gonna}}: {{I'm gonna call you}}. Entenda quando ouvir, mas escreva {{going to}}."},
+        {"p":"**Compromisso marcado: o present continuous.** Para algo já combinado, com hora e lugar, os americanos usam muito o present continuous da lição 19: {{I'm meeting Ana tomorrow}} “Vou encontrar a Ana amanhã”, {{We're flying to Miami on Friday}}."},
+        {"p":"**Sem preposição.** {{tomorrow}}, {{tonight}}, {{next week}}, {{next year}}, {{this weekend}}: nada antes. “No ano que vem” é {{next year}}, nunca {{in the next year}}."},
+        { "ex": [
+          {"t":"I'm going to call you later.","tr":"Vou te ligar mais tarde."},
+          {"t":"She's going to start a new job next week.","tr":"Ela vai começar num emprego novo semana que vem."},
+          {"t":"We're having dinner with my parents tonight.","tr":"A gente vai jantar com meus pais hoje à noite.","note":"um compromisso marcado"},
+          {"t":"What are you going to do on vacation?","tr":"O que você vai fazer nas férias?"},
+          {"t":"I'm not going to go out tonight. I'm tired.","tr":"Não vou sair hoje à noite. Estou cansado."},
+          {"t":"It's going to rain tomorrow.","tr":"Vai chover amanhã."}
+        ] },
+        {"tip":"“Estou indo para a praia” é {{I'm going to the beach}}: aqui o {{to}} vem antes de um lugar. “Vou nadar” é {{I'm going to swim}}: o {{to}} vem antes de um verbo. É o mesmo {{going to}} com dois trabalhos."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to travel.","right":"I'm going to travel.","tr":"Vou viajar.","why":"{{going to}} precisa do {{be}}: {{I'm}}."},
+        {"wrong":"I'm going to traveling.","right":"I'm going to travel.","tr":"Vou viajar.","why":"Depois de {{going to}}, o verbo vem na forma do dicionário."},
+        {"wrong":"I'm going to Paris in the next month.","right":"I'm going to Paris next month.","tr":"Vou para Paris no mês que vem.","why":"Com {{next}}, sem preposição e sem {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I'm going ___ visit my mom.","tr":"Vou visitar a minha mãe.","options":["for","at","to"],"answer":2,"why":"{{going to}} + verbo."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"___ you going to work tomorrow?","tr":"Você vai trabalhar amanhã?","options":["Is","Are","Do"],"answer":1,"why":"Com {{going to}}, a pergunta usa {{be}}: {{Are you…?}}"},
+        {"type":"choice","q":"Como se diz “no ano que vem”?","options":["{{next year}}","{{in the next year}}","{{the year that comes}}"],"answer":0,"why":"Com {{next}}: sem preposição e sem artigo."},
+        {"type":"dialogue","q":"Uma amiga pergunta dos seus planos. Escolha suas respostas.","from":"say-what-youre-doing-now","lines":[{"who":"Julia","t":"What are you going to do this weekend?","tr":"O que você vai fazer neste fim de semana?"},{"options":["I'm going to visit my sister.","I going to visit my sister."],"answer":0,"why":"{{be}} + {{going to}}."},{"who":"Julia","t":"Nice! And tonight?","tr":"Legal! E hoje à noite?"},{"options":["I'm meeting some friends at a bar.","I meet some friends at a bar now."],"answer":0,"why":"Compromisso marcado: o present continuous."},{"who":"Julia","t":"Have fun!","tr":"Divirta-se!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"O que você vai fazer nas férias?","words":["What","are","you","going to","do","on vacation?"]},
+        {"type":"say","q":"Como se diz “Vai chover amanhã”?","answer":"It's going to rain tomorrow."},
+        {"type":"free","q":"Sua vez: diga dois ou três planos para o fim de semana com {{I'm going to…}}","answers":[{"t":"On Saturday I'm going to sleep in, and then I'm going to have lunch with my parents.","tr":"No sábado vou dormir até tarde, e depois vou almoçar com meus pais."},{"t":"I'm going to study English, and on Sunday we're having a barbecue.","tr":"Vou estudar inglês, e no domingo a gente vai fazer um churrasco."}]}
+      ]
+    },
+    {
+      "id": "offer-and-promise",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ofereça ajuda e prometa",
+      "summary": "Ofereça ajuda, prometa, decida na hora e faça previsões: “I'll help you!”",
+      "topic": "{{will}} ({{I'll}}, {{won't}}): ofertas, promessas, decisões na hora, previsões; {{will}} ou {{going to}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll help you with your bags.","tr":"Não se preocupe, eu te ajudo com as malas."}},
+        {"dialog":[{"who":"Sarah","t":"Oh no, I forgot my wallet!","tr":"Ai, não, esqueci a carteira!"},{"who":"Você","t":"Don't worry. I'll pay.","tr":"Não se preocupa. Eu pago."},{"who":"Sarah","t":"Thanks! I'll pay you back tomorrow, I promise.","tr":"Obrigada! Te devolvo amanhã, prometo."},{"who":"Você","t":"No problem. So, what do you want? I think I'll have the pasta.","tr":"Imagina. E aí, o que você quer? Acho que vou pedir a massa."},{"who":"Sarah","t":"I'll have the same.","tr":"Vou querer o mesmo."}]},
+        {"p":"**{{will}}: decidir, oferecer, prometer.** {{will}} (na fala, {{'ll}}) + verbo fala do futuro, principalmente quando você decide ou oferece algo na hora. Muitas vezes o português usa o presente nesses casos: “Eu pago!”, “Te ligo amanhã”."},
+        { "table": [
+          ["","inglês","português"],
+          ["oferecer","{{I'll help you.}}","Eu te ajudo."],
+          ["prometer","{{I'll call you tomorrow.}}","Te ligo amanhã."],
+          ["decidir na hora","{{I'll have the chicken.}}","Vou querer o frango."],
+          ["prever","{{It'll be fine.}}","Vai dar tudo certo."],
+          ["recusar, prometer não","{{I won't tell anyone.}}","Não vou contar para ninguém."]
+        ] },
+        {"p":"**A forma é fácil.** Como {{can}}: nunca muda, sem {{-s}}, sem {{do}}. A negativa é {{won't}} ({{will not}}); a pergunta, {{Will you…?}}: {{Will you be there?}}"},
+        {"p":"**{{will}} ou {{going to}}?** {{going to}} é para planos já decididos ({{I'm going to buy a car}}: já pensei nisso). {{will}} é para o que você decide ou oferece agora: o telefone toca, e você diz {{I'll get it!}} “Deixa que eu atendo!”."},
+        {"p":"**Pedindo um favor.** {{Will you…?}} também pede favores: {{Will you help me?}} “Você me ajuda?”."},
+        { "ex": [
+          {"t":"I'll call you tonight.","tr":"Te ligo hoje à noite."},
+          {"t":"Don't worry, it'll be fine.","tr":"Não se preocupe, vai dar tudo certo."},
+          {"t":"I think I'll stay home today.","tr":"Acho que vou ficar em casa hoje."},
+          {"t":"The phone's ringing! — I'll get it!","tr":"O telefone está tocando! — Deixa que eu atendo!"},
+          {"t":"I won't be late, I promise.","tr":"Não vou me atrasar, prometo."},
+          {"t":"Will you be at the party?","tr":"Você vai estar na festa?"}
+        ] },
+        {"tip":"No restaurante, {{I'll have…}} é o jeito mais natural de fazer o pedido: {{I'll have the salmon, please}} “Vou querer o salmão, por favor”."}
+      ],
+      "mistakes": [
+        {"wrong":"I'll to help you.","right":"I'll help you.","tr":"Eu te ajudo.","why":"Depois de {{will}}, o verbo vem sem {{to}}."},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"Ela vai vir.","why":"{{will}} nunca ganha {{-s}}."},
+        {"wrong":"Don't worry, I help you.","right":"Don't worry, I'll help you.","tr":"Não se preocupe, eu te ajudo.","why":"Para oferecer ajuda, o inglês usa {{will}}, não o presente."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Don't worry, ___ help you.","tr":"Não se preocupe, eu te ajudo.","options":["I","I'm","I'll"],"answer":2,"why":"Oferecendo ajuda: {{I'll}}."},
+        {"type":"choice","q":"O telefone toca e você quer atender. Você diz…","options":["{{I'll get it!}}","{{I get it!}}","{{I'm going to get it next week!}}"],"answer":0,"why":"Decisão na hora: {{will}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I ___ be late, I promise.","tr":"Não vou me atrasar, prometo.","options":["willn't","don't","won't"],"answer":2,"why":"A negativa de {{will}} é {{won't}}."},
+        {"type":"dialogue","q":"No restaurante: escolha suas respostas.","from":"order-food-and-drinks","lines":[{"who":"Garçom","t":"Are you ready to order?","tr":"Já posso anotar o pedido?"},{"options":["Yes, I'll have the chicken, please.","Yes, I have the chicken, please."],"answer":0,"why":"Decidindo o pedido: {{I'll have…}}"},{"who":"Garçom","t":"And to drink?","tr":"E para beber?"},{"options":["I'll have a lemonade.","I'll to have a lemonade."],"answer":0,"why":"Depois de {{will}}, sem {{to}}."},{"who":"Garçom","t":"Great choice!","tr":"Ótima escolha!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Não se preocupe, vai dar tudo certo.","words":["Don't","worry,","it'll","be","fine."]},
+        {"type":"say","q":"Prometa: “Te ligo amanhã.”","answer":"I'll call you tomorrow."},
+        {"type":"free","q":"Sua vez: um amigo está de mudança. Ofereça duas ajudas e faça uma promessa, com {{I'll…}}","answers":[{"t":"I'll help you with the boxes, and I'll bring some food. I'll be there at nine, I promise!","tr":"Te ajudo com as caixas e levo comida. Estou aí às nove, prometo!"},{"t":"Don't worry, I'll drive the truck. And I won't be late!","tr":"Não se preocupa, eu dirijo o caminhão. E não vou me atrasar!"}]}
+      ]
+    },
+    {
+      "id": "invite-and-suggest",
+      "unit": 4,
+      "level": "A2",
+      "title": "Convide e dê sugestões",
+      "summary": "Convide alguém, sugira um programa e diga sim ou não com educação.",
+      "topic": "{{Let's…}}, {{Do you want to…?}}, {{Would you like to…?}}, {{How about…?}} + {{-ing}}, {{Why don't we…?}}; recusar com jeito",
+      "blocks": [
+        {"goal":{"t":"How about a movie tonight?","tr":"Que tal um cinema hoje à noite?"}},
+        {"dialog":[{"who":"Ben","t":"Hey, do you want to do something on Saturday?","tr":"E aí, quer fazer alguma coisa no sábado?"},{"who":"Você","t":"Sure! How about going to the beach?","tr":"Claro! Que tal ir à praia?"},{"who":"Ben","t":"Great idea! Let's invite Lucy too.","tr":"Boa! Vamos chamar a Lucy também."},{"who":"Você","t":"Good idea. Would you like to have lunch there?","tr":"Boa ideia. Você gostaria de almoçar lá?"},{"who":"Ben","t":"Sounds good. Let's meet at ten, then.","tr":"Fechado. A gente se encontra às dez, então."},{"who":"Você","t":"Perfect. See you Saturday!","tr":"Perfeito. Até sábado!"}]},
+        {"p":"**Vamos: {{Let's}} + verbo.** {{Let's go!}} “Vamos!”, {{Let's eat}} “Vamos comer”. Na negativa: {{Let's not}}: {{Let's not tell him}} “Vamos não contar para ele”."},
+        { "table": [
+          ["","inglês","português"],
+          ["vamos","{{Let's have lunch.}}","Vamos almoçar."],
+          ["quer…?","{{Do you want to come?}}","Quer vir?"],
+          ["gostaria de…?","{{Would you like to come?}}","Você gostaria de vir?"],
+          ["que tal…?","{{How about a pizza?}} / {{How about going out?}}","Que tal uma pizza? Que tal sair?"],
+          ["por que não…?","{{Why don't we go to the beach?}}","Por que a gente não vai à praia?"]
+        ] },
+        {"p":"**{{How about}} + {{-ing}}.** Depois de {{How about}}, um substantivo ou um verbo com {{-ing}}: {{How about going to the beach?}}, nunca {{How about go}}."},
+        {"p":"**{{Would you like…?}}** é o convite mais educado. Não confunda: {{Do you like…?}} é “Você gosta de…?”; {{Would you like…?}} é “Você gostaria de…?, Você quer…?”."},
+        {"p":"**Dizer sim.** {{Sure!}}, {{Sounds good!}} ou {{Sounds great!}} “Ótimo! Fechado!”, {{I'd love to!}} “Adoraria!”, {{Good idea!}}"},
+        {"p":"**Dizer não com jeito.** Os americanos agradecem e dão um motivo: {{I'd love to, but I can't}}, {{Sorry, I'm busy on Saturday}}, {{Maybe next time!}} “Fica para a próxima!”, {{Can we do it another day?}}"},
+        { "ex": [
+          {"t":"Let's get a coffee.","tr":"Vamos tomar um café."},
+          {"t":"How about Saturday?","tr":"Que tal sábado?"},
+          {"t":"Would you like to come over for dinner?","tr":"Você gostaria de vir jantar em casa?"},
+          {"t":"Why don't we order a pizza?","tr":"Por que a gente não pede uma pizza?"},
+          {"t":"I'd love to, but I can't. Maybe next time!","tr":"Adoraria, mas não posso. Fica para a próxima!"},
+          {"t":"Sounds good! See you at eight.","tr":"Fechado! Até as oito."}
+        ] },
+        {"tip":"{{Come over}} é “vir à casa de alguém”: {{Do you want to come over?}} “Quer vir aqui em casa?”. E {{hang out}} é “sair junto, passar um tempo”: {{Let's hang out sometime!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"How about go to the beach?","right":"How about going to the beach?","tr":"Que tal ir à praia?","why":"Depois de {{How about}}, o verbo vai para o {{-ing}}."},
+        {"wrong":"Let's to eat!","right":"Let's eat!","tr":"Vamos comer!","why":"Depois de {{Let's}}, o verbo vem sem {{to}}."},
+        {"wrong":"Do you like to come to my party?","right":"Would you like to come to my party?","tr":"Você gostaria de vir à minha festa?","why":"Para convidar: {{Would you like…?}} ({{Do you like…?}} é “você gosta de…?”)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"How about ___ a movie?","tr":"Que tal ver um filme?","options":["to watch","watching","watch"],"answer":1,"why":"Depois de {{How about}}: {{-ing}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"___ eat! I'm hungry.","tr":"Vamos comer! Estou com fome.","options":["Lets to","Let's","Let"],"answer":1,"why":"“Vamos”: {{Let's}} + verbo."},
+        {"type":"choice","q":"Um amigo convida, mas você não pode. A resposta mais educada é…","options":["{{I'd love to, but I can't. Maybe next time!}}","{{No.}}","{{I don't want.}}"],"answer":0,"why":"Agradeça, dê o motivo e deixe a porta aberta.","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"Um amigo convida você para o cinema. Escolha suas respostas.","from":"tell-the-time-and-date","lines":[{"who":"Ben","t":"Do you want to see a movie on Friday?","tr":"Quer ver um filme na sexta?"},{"options":["Sure! Which hour?","Sure! What time?"],"answer":1,"why":"“Que horas?” é {{What time?}}"},{"who":"Ben","t":"How about seven?","tr":"Que tal às sete?"},{"options":["Sounds good. See you in seven!","Sounds good. See you at seven!"],"answer":1,"why":"Hora: {{at}}."},{"who":"Ben","t":"Great!","tr":"Ótimo!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Você gostaria de vir jantar em casa?","words":["Would","you","like","to come over","for dinner?"]},
+        {"type":"say","q":"Como se diz “Por que a gente não pede uma pizza?”","answer":"Why don't we order a pizza?"},
+        {"type":"free","q":"Sua vez: convide um amigo para fazer algo no fim de semana e sugira um horário.","answers":[{"t":"Do you want to go to the park on Sunday? How about ten?","tr":"Quer ir ao parque no domingo? Que tal às dez?"},{"t":"Would you like to have dinner with me on Friday? Let's try that new Japanese place.","tr":"Você gostaria de jantar comigo na sexta? Vamos experimentar aquele japonês novo."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 4,
+      "level": "A2",
+      "title": "Dê instruções e peça favores",
+      "summary": "Dê direções, peça coisas à mesa e entenda placas e instruções: o imperativo e o {{Could you…?}}.",
+      "topic": "O imperativo (o verbo sozinho, sem sujeito); {{Don't…}}; {{please}}; {{Could you…?}} para pedir com educação",
+      "blocks": [
+        {"goal":{"t":"Could you pass the salt, please?","tr":"Você pode me passar o sal, por favor?"}},
+        {"dialog":[{"who":"Você","t":"Excuse me, how do I get to the museum?","tr":"Com licença, como chego ao museu?"},{"who":"Homem","t":"Go straight for two blocks and turn left at the light.","tr":"Siga reto por duas quadras e vire à esquerda no semáforo."},{"who":"Você","t":"Turn left at the light…","tr":"Virar à esquerda no semáforo…"},{"who":"Homem","t":"Right. Then take the second right. The museum is on the corner.","tr":"Isso. Depois pegue a segunda à direita. O museu fica na esquina."},{"who":"Você","t":"Thanks so much!","tr":"Muito obrigada!"},{"who":"Homem","t":"No problem. And don't walk through the park at night!","tr":"Por nada. E não atravesse o parque à noite!"}]},
+        {"term":"imperativo","means":"a forma do verbo para mandar ou pedir que alguém faça algo: Venha aqui! Vire à esquerda."},
+        {"p":"**O imperativo é o verbo sozinho.** Aqui o inglês faz o contrário de todo o resto: o imperativo não tem sujeito. É só a forma do dicionário: {{Go straight}} “Siga reto”, {{Turn left}} “Vire à esquerda”, {{Wait!}} “Espera!”. É a mesma forma para uma pessoa ou para várias."},
+        {"p":"**Não: {{Don't}} + verbo.** {{Don't worry}} “Não se preocupe”, {{Don't forget}} “Não esqueça”, {{Don't touch}} “Não toque”."},
+        { "table": [
+          ["","inglês","português"],
+          ["fazer","{{Turn right.}}","Vire à direita."],
+          ["não fazer","{{Don't turn right.}}","Não vire à direita."],
+          ["com {{please}}","{{Please sit down.}}","Sente-se, por favor."],
+          ["com {{let's}}","{{Let's go.}}","Vamos."]
+        ] },
+        {"p":"**Educado: {{please}} ou {{Could you…?}}** Um imperativo sozinho pode soar mandão. Para pedir algo a alguém, os americanos preferem uma pergunta: {{Can you…?}} (lição 20) ou, mais educado, {{Could you…?}}: {{Could you close the door, please?}} “Você poderia fechar a porta, por favor?”."},
+        {"p":"**As direções.** {{go straight}} siga reto, {{turn left}}, {{turn right}} vire à esquerda, à direita, {{take the first right}} pegue a primeira à direita, {{cross the street}} atravesse a rua, {{at the light}} no semáforo, {{on the corner}} na esquina, {{a block}} uma quadra."},
+        { "ex": [
+          {"t":"Wait a minute!","tr":"Espera um pouquinho!"},
+          {"t":"Come here!","tr":"Vem cá!"},
+          {"t":"Text me when you get home.","tr":"Me manda uma mensagem quando chegar em casa."},
+          {"t":"Go straight and turn left.","tr":"Siga reto e vire à esquerda."},
+          {"t":"Don't forget your keys!","tr":"Não esqueça as chaves!"},
+          {"t":"Could you help me with this box?","tr":"Você poderia me ajudar com esta caixa?"},
+          {"t":"Push the red button.","tr":"Aperte o botão vermelho."}
+        ] },
+        {"tip":"Nas portas americanas, {{Push}} quer dizer “empurre” e {{Pull}} quer dizer “puxe”. Sim: {{push}} parece “puxe” e é o contrário! Esse falso amigo engana todo brasileiro pelo menos uma vez."}
+      ],
+      "mistakes": [
+        {"wrong":"No forget the keys!","right":"Don't forget the keys!","tr":"Não esqueça as chaves!","why":"O “não” do imperativo é {{Don't}}."},
+        {"wrong":"Could you to help me?","right":"Could you help me?","tr":"Você poderia me ajudar?","why":"Depois de {{could}}, o verbo vem sem {{to}}."},
+        {"wrong":"Pass me the salt.","right":"Could you pass me the salt, please?","tr":"Você pode me passar o sal, por favor?","why":"Sem {{please}}, o imperativo soa grosso à mesa: peça com {{Could you…?}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"Na porta está escrito {{Push}}. Você…","options":["puxa","bate","empurra"],"answer":2,"why":"{{Push}} é “empurre”; “puxe” é {{pull}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"___ worry, it's OK.","tr":"Não se preocupe, está tudo bem.","options":["No","Not","Don't"],"answer":2,"why":"Imperativo negativo: {{Don't}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Go straight and ___ left.","tr":"Siga reto e vire à esquerda.","options":["turn","you turn","turning"],"answer":0,"why":"O imperativo é o verbo sozinho."},
+        {"type":"dialogue","q":"Perdido na cidade: escolha suas respostas.","from":"say-where-things-are","lines":[{"who":"Mulher","t":"Are you lost?","tr":"Você está perdido?"},{"options":["Yes. How do I get to the museum?","Yes. How I get to the museum?"],"answer":0,"why":"Pergunta com {{do}}: {{How do I get…?}}"},{"who":"Mulher","t":"Go straight and take the second left. It's next to the bank.","tr":"Siga reto e pegue a segunda à esquerda. Fica ao lado do banco."},{"options":["Is it far from here?","Is it far of here?"],"answer":0,"why":"“Daqui” é {{from here}}."},{"who":"Mulher","t":"No, about five minutes.","tr":"Não, uns cinco minutos."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Você poderia me ajudar com esta caixa?","words":["Could","you","help","me","with this box?"]},
+        {"type":"say","q":"Diga a um amigo: “Não esqueça as chaves!”","answer":"Don't forget your keys!"},
+        {"type":"free","q":"Sua vez: explique a um amigo como ir da sua casa até uma padaria ou um café ali perto.","answers":[{"t":"Leave the building, turn left and go straight for two blocks. The café is on the corner.","tr":"Saia do prédio, vire à esquerda e siga reto por duas quadras. O café fica na esquina."},{"t":"Take bus 22, get off at the third stop and cross the street.","tr":"Pegue o ônibus 22, desça no terceiro ponto e atravesse a rua."}]}
+      ]
+    },
+    {
+      "id": "use-me-him-her",
+      "unit": 4,
+      "level": "A2",
+      "title": "Fale das pessoas sem repetir o nome",
+      "summary": "Diga “me”, “te”, “ele”, “ela”, “isso” e “nos” do jeito do inglês, depois do verbo: “I love you”, “Call me”.",
+      "topic": "Os pronomes objeto {{me, you, him, her, it, us, them}}, sempre depois do verbo; {{it}} para coisas; depois de preposição ({{with me}}, {{for her}})",
+      "blocks": [
+        {"goal":{"t":"I'll call you tomorrow. Can you text me the address?","tr":"Te ligo amanhã. Você me manda o endereço?"}},
+        {"dialog":[{"who":"Mark","t":"Do you know Rafael?","tr":"Você conhece o Rafael?"},{"who":"Você","t":"Yes! I know him well. He always helps me with my English.","tr":"Conheço! Conheço ele bem. Ele sempre me ajuda com o inglês."},{"who":"Mark","t":"He's having a party on Saturday. Do you want his number?","tr":"Ele vai dar uma festa no sábado. Quer o telefone dele?"},{"who":"Você","t":"Yes, please! Can you send it to me?","tr":"Quero! Você me manda?"},{"who":"Mark","t":"Sure. I'll see you there!","tr":"Claro. Te vejo lá!"}]},
+        {"term":"objeto","means":"a pessoa ou a coisa que recebe a ação do verbo: eu vejo **você**, ela **me** liga, a gente compra **pão**."},
+        {"p":"**Duas formas para cada pronome.** Em inglês, o “eu” sujeito ({{I}}) e o “me” objeto ({{me}}) são palavras diferentes, e o mesmo vale para quase todos:"},
+        { "table": [
+          ["sujeito","objeto","exemplo"],
+          ["{{I}}","{{me}}","{{He helps me.}} Ele me ajuda."],
+          ["{{you}}","{{you}}","{{I love you.}} Eu te amo."],
+          ["{{he}}","{{him}}","{{I know him.}} Eu conheço ele."],
+          ["{{she}}","{{her}}","{{Call her!}} Liga para ela!"],
+          ["{{it}}","{{it}}","{{I like it.}} Gosto disso."],
+          ["{{we}}","{{us}}","{{She invited us.}} Ela convidou a gente."],
+          ["{{they}}","{{them}}","{{I see them every day.}} Vejo eles todo dia."]
+        ] },
+        {"p":"**Sempre depois do verbo.** Em português o pronome muitas vezes vai antes: “Eu te amo”, “Ele me ajuda”. Em inglês vai sempre depois: {{I love you}}, {{He helps me}}, {{Call me!}}"},
+        {"p":"**{{it}} para as coisas.** Em português, uma coisa é “ele” ou “ela” (o livro → “ele”, a mesa → “ela”). Em inglês, toda coisa é {{it}}, e o objeto nunca fica de fora: {{Do you want the book? — Yes, I want it.}}"},
+        {"p":"**Depois de preposição, também a forma objeto.** {{with me}} “comigo”, {{for you}} “para você”, {{to him}} “para ele”, {{with us}} “com a gente”: nunca {{with I}}."},
+        {"p":"**Dar algo a alguém.** {{Give me the book}}, ou {{Give it to me}}: com {{it}} e {{them}}, o {{to}} aparece. {{Send it to me}} “Me manda isso”."},
+        { "ex": [
+          {"t":"I love you.","tr":"Eu te amo."},
+          {"t":"Can you help me with this suitcase?","tr":"Você me ajuda com esta mala?"},
+          {"t":"I'll send you the address.","tr":"Vou te mandar o endereço."},
+          {"t":"Carla? Yes, I know her.","tr":"A Carla? Conheço ela, sim."},
+          {"t":"Do you like this book? — I love it!","tr":"Você gosta deste livro? — Adoro!"},
+          {"t":"Is this for me?","tr":"Isto é para mim?"},
+          {"t":"Do you want to come with us?","tr":"Quer vir com a gente?"}
+        ] },
+        {"tip":"{{Text me}} “me manda uma mensagem” e {{Call me}} “me liga” fecham quase toda conversa entre amigos nos Estados Unidos."}
+      ],
+      "mistakes": [
+        {"wrong":"I you love.","right":"I love you.","tr":"Eu te amo.","why":"Em inglês o pronome objeto vem depois do verbo."},
+        {"wrong":"He helps I.","right":"He helps me.","tr":"Ele me ajuda.","why":"Como objeto, “eu” é {{me}}."},
+        {"wrong":"Do you want the book? — Yes, I want.","right":"Do you want the book? — Yes, I want it.","tr":"Você quer o livro? — Quero.","why":"O objeto não pode sumir: {{it}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"She always helps ___.","tr":"Ela sempre me ajuda.","options":["I","my","me"],"answer":2,"why":"Objeto, depois do verbo: {{me}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Do you know Paulo? — Yes, I know ___.","tr":"Você conhece o Paulo? — Conheço, sim.","options":["him","he","his"],"answer":0,"why":"Objeto de {{he}}: {{him}}."},
+        {"type":"choice","q":"Como se diz “Isto é para mim?”","options":["{{Is this for my?}}","{{Is this for me?}}","{{Is this for I?}}"],"answer":1,"why":"Depois de preposição: {{me}}."},
+        {"type":"dialogue","q":"Combinando uma festa: escolha suas respostas.","from":"make-plans","lines":[{"who":"Mark","t":"I'm going to send you the address of the party.","tr":"Vou te mandar o endereço da festa."},{"options":["Great! Can you send to me now?","Great! Can you send it to me now?"],"answer":1,"why":"O objeto {{it}} não some."},{"who":"Mark","t":"Sure. Are you going to bring Ana?","tr":"Claro. Você vai levar a Ana?"},{"options":["Yes, I'm going to bring she.","Yes, I'm going to bring her."],"answer":1,"why":"Objeto: {{her}}."},{"who":"Mark","t":"Awesome! See you there.","tr":"Show! Te vejo lá."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Quer vir com a gente?","words":["Do","you","want","to come","with us?"]},
+        {"type":"say","q":"Como se diz “Eu te amo”?","answer":"I love you."},
+        {"type":"free","q":"Sua vez: fale de uma pessoa importante para você. Como vocês se ajudam? Use {{me}}, {{him}} ou {{her}}.","answers":[{"t":"My sister always helps me. I call her every Sunday.","tr":"Minha irmã sempre me ajuda. Ligo para ela todo domingo."},{"t":"My best friend lives in Lisbon. I miss him, but we text every day.","tr":"Meu melhor amigo mora em Lisboa. Sinto falta dele, mas a gente troca mensagem todo dia."}]}
+      ]
     }
   ]
 }
