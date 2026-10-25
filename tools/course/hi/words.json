@@ -188,6 +188,747 @@
       "meaning": "[lie] for (के लिए)",
       "sentence": "यह तोहफ़ा आपके लिए है।",
       "translation": "This gift is ⟦for⟧ you."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "ही",
+      "pos": "part",
+      "meaning": "[hī] only; just; (stresses the word before it)",
+      "sentence": "वह आज ही आया है।",
+      "translation": "He arrived ⟦only⟧ today."
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "आप",
+      "pos": "pron",
+      "meaning": "[āp] you (polite)",
+      "sentence": "आप कैसे हैं?",
+      "translation": "How are ⟦you⟧?"
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "मैं",
+      "pos": "pron",
+      "meaning": "[maĩ] I",
+      "sentence": "मैं ठीक हूँ।",
+      "translation": "⟦I⟧'m fine."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "अपना",
+      "pos": "pron",
+      "meaning": "[apnā] (one's) own; my, your, his… (own)",
+      "sentence": "अपना ख़याल रखना।",
+      "translation": "Take care of ⟦yourself⟧."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "कि",
+      "pos": "conj",
+      "meaning": "[ki] that",
+      "sentence": "मुझे लगता है कि वह सही है।",
+      "translation": "I think ⟦that⟧ he's right."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "हम",
+      "pos": "pron",
+      "meaning": "[ham] we",
+      "sentence": "हम दोस्त हैं।",
+      "translation": "⟦We⟧ are friends."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "कोई",
+      "pos": "pron",
+      "meaning": "[koī] someone; any; some",
+      "sentence": "दरवाज़े पर कोई है।",
+      "translation": "There's ⟦someone⟧ at the door."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "आना",
+      "pos": "verb",
+      "meaning": "[ānā] to come",
+      "sentence": "तुम कब आओगे?",
+      "translation": "When will you ⟦come⟧?",
+      "form": "आओगे"
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "लेना",
+      "pos": "verb",
+      "meaning": "[lenā] to take",
+      "sentence": "अपना छाता ले लो।",
+      "translation": "⟦Take⟧ your umbrella.",
+      "form": "ले"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "वाला",
+      "pos": "part",
+      "meaning": "[vālā] the one (that); one who does (-वाला)",
+      "sentence": "लाल वाला दिखाइए।",
+      "translation": "Show me the red ⟦one⟧."
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "कहना",
+      "pos": "verb",
+      "meaning": "[kahnā] to say; to tell",
+      "sentence": "उसने कहा कि वह कल आएगा।",
+      "translation": "He ⟦said⟧ he would come tomorrow.",
+      "form": "कहा"
+    },
+    {
+      "n": 32,
+      "rank": 33,
+      "word": "सकना",
+      "pos": "verb",
+      "meaning": "[saknā] can; to be able to",
+      "sentence": "क्या मैं अंदर आ सकती हूँ?",
+      "translation": "⟦May⟧ I come in?",
+      "form": "सकती"
+    },
+    {
+      "n": 33,
+      "rank": 34,
+      "word": "क्या",
+      "pos": "pron",
+      "meaning": "[kyā] what; (starts a yes/no question)",
+      "sentence": "यह क्या है?",
+      "translation": "⟦What⟧ is this?"
+    },
+    {
+      "n": 34,
+      "rank": 35,
+      "word": "साथ",
+      "pos": "postp",
+      "meaning": "[sāth] with; together (के साथ: with)",
+      "sentence": "मैं अपने परिवार के साथ रहती हूँ।",
+      "translation": "I live ⟦with⟧ my family."
+    },
+    {
+      "n": 35,
+      "rank": 36,
+      "word": "लोग",
+      "pos": "noun",
+      "meaning": "[log] people",
+      "sentence": "यहाँ के लोग बहुत अच्छे हैं।",
+      "translation": "The ⟦people⟧ here are very nice."
+    },
+    {
+      "n": 36,
+      "rank": 37,
+      "word": "अब",
+      "pos": "adv",
+      "meaning": "[ab] now",
+      "sentence": "अब मुझे जाना है।",
+      "translation": "I have to go ⟦now⟧."
+    },
+    {
+      "n": 37,
+      "rank": 38,
+      "word": "कुछ",
+      "pos": "pron",
+      "meaning": "[kuchh] something; some; a few",
+      "sentence": "क्या तुम कुछ खाओगे?",
+      "translation": "Would you like to eat ⟦something⟧?"
+    },
+    {
+      "n": 38,
+      "rank": 39,
+      "word": "मिलना",
+      "pos": "verb",
+      "meaning": "[milnā] to meet; to get; to be found",
+      "sentence": "आपसे मिलकर ख़ुशी हुई।",
+      "translation": "Nice to ⟦meet⟧ you.",
+      "form": "मिलकर"
+    },
+    {
+      "n": 39,
+      "rank": 40,
+      "word": "सब",
+      "pos": "pron",
+      "meaning": "[sab] all; everyone; everything",
+      "sentence": "सब ठीक है।",
+      "translation": "⟦Everything⟧ is fine."
+    },
+    {
+      "n": 40,
+      "rank": 41,
+      "word": "तक",
+      "pos": "postp",
+      "meaning": "[tak] until; up to; as far as",
+      "sentence": "दुकान रात दस बजे तक खुली है।",
+      "translation": "The shop is open ⟦until⟧ ten at night."
+    },
+    {
+      "n": 41,
+      "rank": 43,
+      "word": "देखना",
+      "pos": "verb",
+      "meaning": "[dekhnā] to see; to look; to watch",
+      "sentence": "देखो, बारिश हो रही है।",
+      "translation": "⟦Look⟧, it's raining.",
+      "form": "देखो"
+    },
+    {
+      "n": 42,
+      "rank": 44,
+      "word": "बाद",
+      "pos": "postp",
+      "meaning": "[bād] after; later (के बाद: after)",
+      "sentence": "हम खाने के बाद चाय पिएँगे।",
+      "translation": "We'll have tea ⟦after⟧ the meal."
+    },
+    {
+      "n": 43,
+      "rank": 45,
+      "word": "बनना",
+      "pos": "verb",
+      "meaning": "[bannā] to become; to be made",
+      "sentence": "वह डॉक्टर बनना चाहती है।",
+      "translation": "She wants to ⟦become⟧ a doctor."
+    },
+    {
+      "n": 44,
+      "rank": 46,
+      "word": "लगना",
+      "pos": "verb",
+      "meaning": "[lagnā] to seem; to feel (मुझे लगता है: I think)",
+      "sentence": "मुझे ठंड लग रही है।",
+      "translation": "I'm ⟦feeling⟧ cold.",
+      "form": "लग"
+    },
+    {
+      "n": 45,
+      "rank": 48,
+      "word": "बात",
+      "pos": "noun",
+      "meaning": "[bāt] thing (said); matter; talk",
+      "sentence": "यह अच्छी बात है।",
+      "translation": "That's a good ⟦thing⟧."
+    },
+    {
+      "n": 46,
+      "rank": 49,
+      "word": "या",
+      "pos": "conj",
+      "meaning": "[yā] or",
+      "sentence": "आप चाय लेंगे या कॉफ़ी?",
+      "translation": "Will you have tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 47,
+      "rank": 50,
+      "word": "न",
+      "pos": "part",
+      "meaning": "[na] not; …isn't it? (at the end)",
+      "sentence": "तुम कल आओगे न?",
+      "translation": "You'll come tomorrow, ⟦won't you⟧?"
+    },
+    {
+      "n": 48,
+      "rank": 51,
+      "word": "चाहना",
+      "pos": "verb",
+      "meaning": "[chāhnā] to want; to wish (चाहिए: is needed; should)",
+      "sentence": "आप क्या खाना चाहेंगे?",
+      "translation": "What would you ⟦like⟧ to eat?",
+      "form": "चाहेंगे"
+    },
+    {
+      "n": 49,
+      "rank": 52,
+      "word": "आज",
+      "pos": "adv",
+      "meaning": "[āj] today",
+      "sentence": "आज बहुत गर्मी है।",
+      "translation": "It's very hot ⟦today⟧."
+    },
+    {
+      "n": 50,
+      "rank": 53,
+      "word": "जी",
+      "pos": "part",
+      "meaning": "[jī] yes (polite); (polite word after names: -ji)",
+      "sentence": "जी हाँ, मैं समझ गई।",
+      "translation": "⟦Yes⟧, I understand."
+    },
+    {
+      "n": 51,
+      "rank": 54,
+      "word": "जब",
+      "pos": "conj",
+      "meaning": "[jab] when",
+      "sentence": "जब तुम आओगे, तब बात करेंगे।",
+      "translation": "⟦When⟧ you come, we'll talk."
+    },
+    {
+      "n": 52,
+      "rank": 55,
+      "word": "बहुत",
+      "pos": "adv",
+      "meaning": "[bahut] very; a lot; many",
+      "sentence": "खाना बहुत अच्छा था।",
+      "translation": "The food was ⟦very⟧ good."
+    },
+    {
+      "n": 53,
+      "rank": 56,
+      "word": "चलना",
+      "pos": "verb",
+      "meaning": "[chalnā] to walk; to go; to run, work (चलो: let's go)",
+      "sentence": "चलो, घर चलते हैं।",
+      "translation": "Come on, let's ⟦go⟧ home.",
+      "form": "चलते"
+    },
+    {
+      "n": 54,
+      "rank": 57,
+      "word": "लेकिन",
+      "pos": "conj",
+      "meaning": "[lekin] but",
+      "sentence": "मैं थक गई हूँ, लेकिन ख़ुश हूँ।",
+      "translation": "I'm tired, ⟦but⟧ happy."
+    },
+    {
+      "n": 55,
+      "rank": 58,
+      "word": "दिन",
+      "pos": "noun",
+      "meaning": "[din] day",
+      "sentence": "आज का दिन बहुत अच्छा था।",
+      "translation": "Today was a really good ⟦day⟧."
+    },
+    {
+      "n": 56,
+      "rank": 59,
+      "word": "सरकार",
+      "pos": "noun",
+      "meaning": "[sarkār] government",
+      "sentence": "सरकार ने नया क़ानून बनाया।",
+      "translation": "The ⟦government⟧ made a new law."
+    },
+    {
+      "n": 57,
+      "rank": 60,
+      "word": "देश",
+      "pos": "noun",
+      "meaning": "[desh] country",
+      "sentence": "भारत एक बड़ा देश है।",
+      "translation": "India is a big ⟦country⟧."
+    },
+    {
+      "n": 58,
+      "rank": 61,
+      "word": "फिर",
+      "pos": "adv",
+      "meaning": "[phir] again; then",
+      "sentence": "कल फिर आना।",
+      "translation": "Come ⟦again⟧ tomorrow."
+    },
+    {
+      "n": 59,
+      "rank": 62,
+      "word": "नाम",
+      "pos": "noun",
+      "meaning": "[nām] name",
+      "sentence": "आपका नाम क्या है?",
+      "translation": "What is your ⟦name⟧?"
+    },
+    {
+      "n": 60,
+      "rank": 63,
+      "word": "बड़ा",
+      "pos": "adj",
+      "meaning": "[baṛā] big; older (बड़ा भाई: older brother)",
+      "sentence": "उनका घर बहुत बड़ा है।",
+      "translation": "Their house is very ⟦big⟧."
+    },
+    {
+      "n": 61,
+      "rank": 64,
+      "word": "हर",
+      "pos": "det",
+      "meaning": "[har] every; each",
+      "sentence": "मैं हर सुबह चाय पीती हूँ।",
+      "translation": "I drink tea ⟦every⟧ morning."
+    },
+    {
+      "n": 62,
+      "rank": 65,
+      "word": "रखना",
+      "pos": "verb",
+      "meaning": "[rakhnā] to put; to keep",
+      "sentence": "चाबी मेज़ पर रख दो।",
+      "translation": "⟦Put⟧ the key on the table.",
+      "form": "रख"
+    },
+    {
+      "n": 63,
+      "rank": 66,
+      "word": "दो",
+      "pos": "num",
+      "meaning": "[do] two",
+      "sentence": "मुझे दो टिकट चाहिए।",
+      "translation": "I need ⟦two⟧ tickets."
+    },
+    {
+      "n": 64,
+      "rank": 67,
+      "word": "तू",
+      "pos": "pron",
+      "meaning": "[tū] you (very familiar)",
+      "sentence": "तू कहाँ जा रहा है?",
+      "translation": "Where are ⟦you⟧ going?"
+    },
+    {
+      "n": 65,
+      "rank": 68,
+      "word": "पहले",
+      "pos": "adv",
+      "meaning": "[pahle] first; before; earlier",
+      "sentence": "पहले हाथ धो लो।",
+      "translation": "Wash your hands ⟦first⟧."
+    },
+    {
+      "n": 66,
+      "rank": 69,
+      "word": "बनाना",
+      "pos": "verb",
+      "meaning": "[banānā] to make; to cook",
+      "sentence": "मैं चाय बना रही हूँ।",
+      "translation": "I'm ⟦making⟧ tea.",
+      "form": "बना"
+    },
+    {
+      "n": 67,
+      "rank": 70,
+      "word": "तुम",
+      "pos": "pron",
+      "meaning": "[tum] you (familiar)",
+      "sentence": "तुम कहाँ हो?",
+      "translation": "Where are ⟦you⟧?"
+    },
+    {
+      "n": 68,
+      "rank": 71,
+      "word": "समय",
+      "pos": "noun",
+      "meaning": "[samay] time",
+      "sentence": "मेरे पास समय नहीं है।",
+      "translation": "I don't have ⟦time⟧."
+    },
+    {
+      "n": 69,
+      "rank": 72,
+      "word": "पूरा",
+      "pos": "adj",
+      "meaning": "[pūrā] whole; full; complete",
+      "sentence": "मैंने पूरी किताब पढ़ ली।",
+      "translation": "I read the ⟦whole⟧ book.",
+      "form": "पूरी"
+    },
+    {
+      "n": 70,
+      "rank": 73,
+      "word": "काम",
+      "pos": "noun",
+      "meaning": "[kām] work; job",
+      "sentence": "मैं काम पर जा रही हूँ।",
+      "translation": "I'm going to ⟦work⟧."
+    },
+    {
+      "n": 71,
+      "rank": 75,
+      "word": "जानना",
+      "pos": "verb",
+      "meaning": "[jānnā] to know",
+      "sentence": "क्या आप उसे जानते हैं?",
+      "translation": "Do you ⟦know⟧ him?",
+      "form": "जानते"
+    },
+    {
+      "n": 72,
+      "rank": 76,
+      "word": "बार",
+      "pos": "noun",
+      "meaning": "[bār] time (occasion)",
+      "sentence": "मैं पहली बार भारत आई हूँ।",
+      "translation": "This is my first ⟦time⟧ in India."
+    },
+    {
+      "n": 73,
+      "rank": 77,
+      "word": "ऐसा",
+      "pos": "adj",
+      "meaning": "[aisā] like this; such",
+      "sentence": "ऐसा मत करो।",
+      "translation": "Don't do ⟦that⟧."
+    },
+    {
+      "n": 74,
+      "rank": 78,
+      "word": "अगर",
+      "pos": "conj",
+      "meaning": "[agar] if",
+      "sentence": "अगर समय मिला तो मैं आऊँगी।",
+      "translation": "⟦If⟧ I get time, I'll come."
+    },
+    {
+      "n": 75,
+      "rank": 79,
+      "word": "साल",
+      "pos": "noun",
+      "meaning": "[sāl] year",
+      "sentence": "मैं पच्चीस साल की हूँ।",
+      "translation": "I'm twenty-five ⟦years⟧ old."
+    },
+    {
+      "n": 76,
+      "rank": 80,
+      "word": "कभी",
+      "pos": "adv",
+      "meaning": "[kabhī] ever; sometimes (कभी नहीं: never)",
+      "sentence": "क्या आप कभी भारत गए हैं?",
+      "translation": "Have you ⟦ever⟧ been to India?"
+    },
+    {
+      "n": 77,
+      "rank": 81,
+      "word": "तरह",
+      "pos": "noun",
+      "meaning": "[tarah] way; kind (की तरह: like)",
+      "sentence": "वह अपने पिता की तरह दिखता है।",
+      "translation": "He looks ⟦like⟧ his father."
+    },
+    {
+      "n": 78,
+      "rank": 82,
+      "word": "कई",
+      "pos": "adj",
+      "meaning": "[kaī] several; many",
+      "sentence": "मैं कई बार वहाँ गई हूँ।",
+      "translation": "I've been there ⟦several⟧ times."
+    },
+    {
+      "n": 79,
+      "rank": 83,
+      "word": "घर",
+      "pos": "noun",
+      "meaning": "[ghar] home; house",
+      "sentence": "मैं घर जा रही हूँ।",
+      "translation": "I'm going ⟦home⟧."
+    },
+    {
+      "n": 80,
+      "rank": 84,
+      "word": "बोलना",
+      "pos": "verb",
+      "meaning": "[bolnā] to speak; to say",
+      "sentence": "क्या आप अंग्रेज़ी बोलते हैं?",
+      "translation": "Do you ⟦speak⟧ English?",
+      "form": "बोलते"
+    },
+    {
+      "n": 81,
+      "rank": 85,
+      "word": "रूप",
+      "pos": "noun",
+      "meaning": "[rūp] form; shape; looks (के रूप में: as)",
+      "sentence": "वह डॉक्टर के रूप में काम करती है।",
+      "translation": "She works ⟦as⟧ a doctor."
+    },
+    {
+      "n": 82,
+      "rank": 86,
+      "word": "अच्छा",
+      "pos": "adj",
+      "meaning": "[achchhā] good; nice; OK! (as a reply)",
+      "sentence": "यह बहुत अच्छा आइडिया है।",
+      "translation": "That's a really ⟦good⟧ idea."
+    },
+    {
+      "n": 83,
+      "rank": 87,
+      "word": "द्वारा",
+      "pos": "postp",
+      "meaning": "[dvārā] by (formal, mostly written)",
+      "sentence": "यह किताब प्रेमचंद द्वारा लिखी गई है।",
+      "translation": "This book was written ⟦by⟧ Premchand."
+    },
+    {
+      "n": 84,
+      "rank": 88,
+      "word": "बताना",
+      "pos": "verb",
+      "meaning": "[batānā] to tell; to let know",
+      "sentence": "मुझे बताओ क्या हुआ।",
+      "translation": "⟦Tell⟧ me what happened.",
+      "form": "बताओ"
+    },
+    {
+      "n": 85,
+      "rank": 89,
+      "word": "पड़ना",
+      "pos": "verb",
+      "meaning": "[paṛnā] to fall; to have to (जाना पड़ेगा: will have to go)",
+      "sentence": "मुझे कल जल्दी उठना पड़ेगा।",
+      "translation": "I'll ⟦have to⟧ get up early tomorrow.",
+      "form": "पड़ेगा"
+    },
+    {
+      "n": 86,
+      "rank": 90,
+      "word": "कम",
+      "pos": "adj",
+      "meaning": "[kam] less; little; low",
+      "sentence": "चाय में चीनी कम डालो।",
+      "translation": "Put ⟦less⟧ sugar in the tea."
+    },
+    {
+      "n": 87,
+      "rank": 91,
+      "word": "जैसे",
+      "pos": "adv",
+      "meaning": "[jaise] like; as",
+      "sentence": "जैसे आप चाहें।",
+      "translation": "⟦As⟧ you wish."
+    },
+    {
+      "n": 88,
+      "rank": 94,
+      "word": "सबसे",
+      "pos": "adv",
+      "meaning": "[sabse] most; of all (सबसे अच्छा: the best)",
+      "sentence": "यह शहर का सबसे अच्छा रेस्टोरेंट है।",
+      "translation": "This is the ⟦best⟧ restaurant in town."
+    },
+    {
+      "n": 89,
+      "rank": 95,
+      "word": "यहाँ",
+      "pos": "adv",
+      "meaning": "[yahā̃] here",
+      "sentence": "ज़रा यहाँ आओ।",
+      "translation": "Come ⟦here⟧ a moment."
+    },
+    {
+      "n": 90,
+      "rank": 96,
+      "word": "इतना",
+      "pos": "adj",
+      "meaning": "[itnā] so much; this much; so",
+      "sentence": "आज इतनी गर्मी क्यों है?",
+      "translation": "Why is it ⟦so⟧ hot today?",
+      "form": "इतनी"
+    },
+    {
+      "n": 91,
+      "rank": 98,
+      "word": "पाना",
+      "pos": "verb",
+      "meaning": "[pānā] to get; to find; to manage to (आ पाना: to manage to come)",
+      "sentence": "मैं कल नहीं आ पाऊँगी।",
+      "translation": "I won't ⟦be able to⟧ come tomorrow.",
+      "form": "पाऊँगी"
+    },
+    {
+      "n": 92,
+      "rank": 99,
+      "word": "क्यों",
+      "pos": "adv",
+      "meaning": "[kyõ] why",
+      "sentence": "तुम क्यों रो रहे हो?",
+      "translation": "⟦Why⟧ are you crying?"
+    },
+    {
+      "n": 93,
+      "rank": 100,
+      "word": "ज़्यादा",
+      "pos": "adj",
+      "meaning": "[zyādā] more; too much; a lot",
+      "sentence": "मुझे ज़्यादा समय चाहिए।",
+      "translation": "I need ⟦more⟧ time."
+    },
+    {
+      "n": 94,
+      "rank": 102,
+      "word": "पास",
+      "pos": "postp",
+      "meaning": "[pās] near; (के पास: to have)",
+      "sentence": "मेरे पास पैसे नहीं हैं।",
+      "translation": "I don't ⟦have⟧ any money."
+    },
+    {
+      "n": 95,
+      "rank": 104,
+      "word": "दूसरा",
+      "pos": "adj",
+      "meaning": "[dūsrā] other; another; second",
+      "sentence": "कोई दूसरा रंग दिखाइए।",
+      "translation": "Show me ⟦another⟧ colour."
+    },
+    {
+      "n": 96,
+      "rank": 105,
+      "word": "फ़िल्म",
+      "pos": "noun",
+      "meaning": "[film] film; movie",
+      "sentence": "चलो, आज फ़िल्म देखते हैं।",
+      "translation": "Let's watch a ⟦film⟧ today."
+    },
+    {
+      "n": 97,
+      "rank": 106,
+      "word": "अधिक",
+      "pos": "adj",
+      "meaning": "[adhik] more (a bit formal)",
+      "sentence": "अधिक जानकारी वेबसाइट पर है।",
+      "translation": "There's ⟦more⟧ information on the website."
+    },
+    {
+      "n": 98,
+      "rank": 107,
+      "word": "बच्चा",
+      "pos": "noun",
+      "meaning": "[bachchā] child; kid",
+      "sentence": "बच्चे बाहर खेल रहे हैं।",
+      "translation": "The ⟦children⟧ are playing outside.",
+      "form": "बच्चे"
+    },
+    {
+      "n": 99,
+      "rank": 108,
+      "word": "लिखना",
+      "pos": "verb",
+      "meaning": "[likhnā] to write",
+      "sentence": "अपना नाम यहाँ लिखिए।",
+      "translation": "Please ⟦write⟧ your name here.",
+      "form": "लिखिए"
+    },
+    {
+      "n": 100,
+      "rank": 109,
+      "word": "मानना",
+      "pos": "verb",
+      "meaning": "[mānnā] to accept; to agree; to admit; to believe",
+      "sentence": "मैं मानती हूँ कि मैं ग़लत थी।",
+      "translation": "I ⟦admit⟧ I was wrong.",
+      "form": "मानती"
     }
   ]
 }
