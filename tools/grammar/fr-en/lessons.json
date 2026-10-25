@@ -1021,6 +1021,255 @@
         {"type":"say","q":"Dites : « Je vais t'appeler demain. »","answer":"I'm going to call you tomorrow."},
         {"type":"free","q":"À vous : dites trois choses que vous allez faire cette semaine ou cette année, et une chose que vous n'allez pas faire.","answers":[{"t":"This weekend, I'm going to see my friends and I'm going to read a book. I'm not going to work!","tr":"Ce week-end, je vais voir mes amis et je vais lire un livre. Je ne vais pas travailler !"},{"t":"This year, I'm going to learn English and I'm going to visit New York. I'm not going to buy a car.","tr":"Cette année, je vais apprendre l'anglais et je vais visiter New York. Je ne vais pas acheter de voiture."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 4,
+      "level": "A2",
+      "title": "Dire ce que vous avez fait",
+      "summary": "Raconter ce que vous avez fait hier ou la semaine dernière : le prétérit des verbes réguliers, en {{-ed}}, et ses trois prononciations.",
+      "topic": "le prétérit régulier ({{worked, played, studied}}) ; une seule forme pour toutes les personnes ; {{yesterday, last week, two days ago}} ; la prononciation de {{-ed}}",
+      "blocks": [
+        {"goal":{"t":"Last night, I cooked dinner and watched a movie.","tr":"Hier soir, j'ai fait à dîner et j'ai regardé un film."}},
+        {"dialog":[{"who":"Nathalie","t":"How was your weekend?","tr":"Ton week-end s'est bien passé ?"},{"who":"Mark","t":"Great! On Saturday, I worked in the yard, and on Sunday, I watched the game.","tr":"Super ! Samedi, j'ai travaillé dans le jardin, et dimanche, j'ai regardé le match."},{"who":"Nathalie","t":"Nice! I visited my parents.","tr":"Sympa ! Moi, je suis allée voir mes parents."},{"who":"Mark","t":"Oh, cool.","tr":"Ah, cool."},{"who":"Nathalie","t":"Yes, we talked a lot and played cards.","tr":"Oui, on a beaucoup parlé et on a joué aux cartes."}]},
+        {"term":"prétérit","means":"le temps du passé pour une action terminée, à un moment passé : {{I worked yesterday}} « j'ai travaillé hier ». On l'appelle aussi « past simple »."},
+        {"p":"**Le passé de tous les jours.** Pour raconter ce que vous avez fait, l'anglais emploie le prétérit. Pour les verbes réguliers, on ajoute {{-ed}} : {{work}} → {{worked}}. Une seule forme pour toutes les personnes : {{I worked}}, {{she worked}}, {{they worked}}. Pas d'auxiliaire comme « avoir » : {{I worked}}, c'est « j'ai travaillé » en un seul mot."},
+        {"p":"**L'orthographe.** Verbe en {{-e}} : juste {{-d}} ({{live}} → {{lived}}). Consonne + {{y}} : {{-ied}} ({{study}} → {{studied}}). Une consonne finale après une voyelle courte double : {{stop}} → {{stopped}}, {{plan}} → {{planned}}."},
+        {"p":"**Trois façons de prononcer -ed.** Jamais « é » comme en français ! « t » après un son sourd ({{worked}}, {{stopped}}), « d » après un son sonore ({{played}}, {{lived}}), et « id », une syllabe de plus, seulement après {{t}} ou {{d}} ({{wanted}}, {{needed}})."},
+        { "table": [
+          ["son","exemples"],
+          ["« t »","{{worked}}, {{watched}}, {{stopped}}, {{helped}}"],
+          ["« d »","{{played}}, {{lived}}, {{called}}, {{cleaned}}"],
+          ["« id »","{{wanted}}, {{needed}}, {{visited}}, {{started}}"]
+        ] },
+        {"p":"**Quand ?** {{yesterday}} (hier), {{last night}} (hier soir), {{last week}}, {{last year}} (la semaine, l'année dernière), et {{ago}} « il y a », placé **après** la durée : {{two days ago}} « il y a deux jours »."},
+        { "ex": [
+          {"t":"I called my mother yesterday.","tr":"J'ai appelé ma mère hier."},
+          {"t":"We stayed at a nice hotel.","tr":"Nous avons logé dans un bel hôtel."},
+          {"t":"She studied in London.","tr":"Elle a fait ses études à Londres."},
+          {"t":"They moved to Texas two years ago.","tr":"Ils ont déménagé au Texas il y a deux ans."},
+          {"t":"The movie started at eight.","tr":"Le film a commencé à huit heures."},
+          {"t":"I waited for an hour!","tr":"J'ai attendu une heure !"}
+        ] },
+        {"tip":"Le passé composé français se traduit le plus souvent par le prétérit : « J'ai visité Rome l'an dernier » → {{I visited Rome last year.}} Pas de {{have}} quand on dit quand c'est arrivé (leçon 32)."}
+      ],
+      "mistakes": [
+        {"wrong":"I have watched a movie yesterday.","right":"I watched a movie yesterday.","tr":"J'ai regardé un film hier.","why":"Avec un moment passé précis ({{yesterday}}) : le prétérit, sans {{have}}."},
+        {"wrong":"I arrived ago two days.","right":"I arrived two days ago.","tr":"Je suis arrivé il y a deux jours.","why":"{{ago}} se place après la durée."},
+        {"wrong":"She live in Paris last year.","right":"She lived in Paris last year.","tr":"Elle a habité à Paris l'an dernier.","why":"Au passé : {{-ed}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Yesterday, I ___ my grandmother.","tr":"Hier, j'ai rendu visite à ma grand-mère.","options":["visited","visit","have visited"],"answer":0,"why":"Un moment passé précis : le prétérit."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We ___ in Chicago for two years.","tr":"Nous avons habité à Chicago pendant deux ans.","options":["lived","live","lives"],"answer":0,"why":"Une période terminée : le prétérit, {{-d}} après un {{-e}}."},
+        {"type":"choice","q":"Comment se prononce {{wanted}} ?","options":["« won-tid », deux syllabes","« wontt », une syllabe","« won-té »"],"answer":0,"why":"Après un {{t}}, {{-ed}} se dit « id »."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ils ont déménagé il y a deux ans.","words":["They","moved","two years","ago."]},
+        {"type":"dialogue","q":"Lundi matin, un collègue vous parle du week-end. Choisissez vos réponses.","from":"talk-about-your-plans","lines":[{"who":"Your colleague","t":"How was your weekend?","tr":"Ton week-end s'est bien passé ?"},{"options":["Great! I played tennis with my brother.","Great! I have played tennis with my brother."],"answer":0,"why":"Un moment terminé, le week-end : le prétérit."},{"who":"Your colleague","t":"And what are you going to do next weekend?","tr":"Et qu'est-ce que tu vas faire le week-end prochain ?"},{"options":["I'm going to visit Boston.","I visited Boston."],"answer":0,"why":"Un projet : {{be going to}}."},{"who":"Your colleague","t":"Nice!","tr":"Sympa !"}]},
+        {"type":"say","q":"Dites : « J'ai attendu une heure ! »","answer":"I waited for an hour!"},
+        {"type":"free","q":"À vous : dites trois choses que vous avez faites hier ou le week-end dernier.","answers":[{"t":"Yesterday, I worked, I cooked dinner and I watched a movie.","tr":"Hier, j'ai travaillé, j'ai fait à dîner et j'ai regardé un film."},{"t":"Last weekend, I visited my parents. We talked a lot and we played cards.","tr":"Le week-end dernier, je suis allé voir mes parents. Nous avons beaucoup parlé et nous avons joué aux cartes."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 4,
+      "level": "A2",
+      "title": "Raconter votre week-end",
+      "summary": "Dire où vous êtes allé, ce que vous avez vu, fait, acheté : les verbes irréguliers les plus courants au prétérit.",
+      "topic": "le prétérit irrégulier : {{went, saw, had, did, made, took, got, came, ate, bought, met, said, thought, left}} ; {{was}} et {{were}}",
+      "blocks": [
+        {"goal":{"t":"On Saturday, I went to the beach, and on Sunday, I saw a great movie.","tr":"Samedi, je suis allé à la plage, et dimanche, j'ai vu un super film."}},
+        {"dialog":[{"who":"Emma","t":"So, how was your weekend?","tr":"Alors, ton week-end ?"},{"who":"Hugo","t":"Awesome! I took the train to Boston and met some friends.","tr":"Génial ! J'ai pris le train pour Boston et j'ai retrouvé des amis."},{"who":"Emma","t":"What did you do?","tr":"Qu'est-ce que vous avez fait ?"},{"who":"Hugo","t":"We ate lobster and went to a baseball game.","tr":"On a mangé du homard et on est allés voir un match de baseball."},{"who":"Emma","t":"Lucky you! I had a cold…","tr":"Veinard ! Moi, j'avais un rhume…"}]},
+        {"term":"verbe irrégulier","means":"un verbe qui ne forme pas son passé avec {{-ed}} : {{go}} → {{went}}. Il faut l'apprendre par cœur."},
+        {"p":"**Les verbes les plus courants sont irréguliers.** Une centaine de verbes ont leur propre prétérit. Bonne nouvelle : comme les réguliers, une seule forme pour toutes les personnes ({{I went}}, {{she went}}). Voici ceux qui reviennent tout le temps :"},
+        { "table": [
+          ["verbe","prétérit","exemple"],
+          ["{{go}} aller","{{went}}","{{I went to Paris.}}"],
+          ["{{have}} avoir","{{had}}","{{We had a great time.}}"],
+          ["{{see}} voir","{{saw}}","{{I saw a movie.}}"],
+          ["{{do}} faire","{{did}}","{{I did my homework.}}"],
+          ["{{make}} faire, fabriquer","{{made}}","{{She made a cake.}}"],
+          ["{{take}} prendre","{{took}}","{{He took the bus.}}"],
+          ["{{get}} obtenir, arriver","{{got}}","{{I got home late.}}"],
+          ["{{come}} venir","{{came}}","{{They came to the party.}}"],
+          ["{{eat}} manger","{{ate}}","{{We ate pizza.}}"],
+          ["{{buy}} acheter","{{bought}}","{{I bought a jacket.}}"],
+          ["{{meet}} rencontrer","{{met}}","{{I met a friend.}}"],
+          ["{{say}} dire","{{said}}","{{She said yes.}}"],
+          ["{{think}} penser","{{thought}}","{{I thought so.}}"],
+          ["{{leave}} partir, laisser","{{left}}","{{The train left.}}"]
+        ] },
+        {"p":"**Be : was et were.** {{be}} a deux formes au passé : {{was}} avec {{I}}, {{he}}, {{she}}, {{it}}, et {{were}} avec {{you}}, {{we}}, {{they}} : {{It was great!}} « C'était super ! » La leçon 23 y revient."},
+        {"p":"**Pour apprendre**, groupez ceux qui se ressemblent : {{buy}} → {{bought}}, {{think}} → {{thought}}, {{bring}} → {{brought}} ; {{meet}} → {{met}}, {{leave}} → {{left}}, {{feel}} → {{felt}}."},
+        { "ex": [
+          {"t":"I got up late on Sunday.","tr":"Je me suis levé tard dimanche."},
+          {"t":"We had dinner at a great restaurant.","tr":"Nous avons dîné dans un super restaurant."},
+          {"t":"She bought a new phone.","tr":"Elle a acheté un nouveau téléphone."},
+          {"t":"They came home at midnight.","tr":"Ils sont rentrés à minuit."},
+          {"t":"I saw your brother at the store.","tr":"J'ai vu ton frère au magasin."},
+          {"t":"It was a beautiful day.","tr":"C'était une belle journée."}
+        ] },
+        {"tip":"{{went}} veut dire « je suis allé » : en anglais, pas de « être » pour les verbes de mouvement au passé. {{She came}} « elle est venue », {{We left}} « nous sommes partis »."}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the beach.","right":"I went to the beach.","tr":"Je suis allé à la plage.","why":"{{go}} est irrégulier : {{went}}."},
+        {"wrong":"I am went to Boston.","right":"I went to Boston.","tr":"Je suis allé à Boston.","why":"Pas d'auxiliaire au prétérit : {{went}} suffit."},
+        {"wrong":"We eated pizza.","right":"We ate pizza.","tr":"Nous avons mangé de la pizza.","why":"{{eat}} est irrégulier : {{ate}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ my keys at home.","tr":"J'ai laissé mes clés à la maison.","options":["left","leaved","leave"],"answer":0,"why":"{{leave}} est irrégulier : {{left}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We ___ a great time in New York.","tr":"Nous avons passé un super moment à New York.","options":["had","haved","have"],"answer":0,"why":"{{have a good time}}, au passé : {{had}}.","from":"say-what-you-have"},
+        {"type":"choice","q":"Le prétérit de {{buy}} :","options":["{{bought}}","{{buyed}}","{{brought}}"],"answer":0,"why":"{{brought}} est le passé de {{bring}} « apporter »."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Yesterday, I called my friend and we ___ to the park.","tr":"Hier, j'ai appelé mon ami et nous sommes allés au parc.","options":["went","goed","go"],"answer":0,"why":"{{called}} est régulier ; {{go}} donne {{went}}."},
+        {"type":"dialogue","q":"Un ami vous demande comment s'est passé votre week-end. Choisissez vos réponses.","from":"say-what-you-did","lines":[{"who":"Your friend","t":"How was your weekend?","tr":"Ton week-end s'est bien passé ?"},{"options":["It was great! I went to a concert.","It was great! I goed to a concert."],"answer":0,"why":"{{go}} : {{went}}."},{"who":"Your friend","t":"Cool! Was it good?","tr":"Cool ! C'était bien ?"},{"options":["Yes! I saw an amazing band.","Yes! I seed an amazing band."],"answer":0,"why":"{{see}} : {{saw}}."},{"who":"Your friend","t":"Lucky you!","tr":"Veinard !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Nous avons pris un taxi pour aller à l'aéroport.","words":["We","took","a taxi","to","the airport."]},
+        {"type":"free","q":"À vous : racontez votre dernier week-end : où vous êtes allé, ce que vous avez fait, ce que vous avez vu ou mangé.","answers":[{"t":"On Saturday, I went to the market and bought some fruit. On Sunday, I saw my parents and we had lunch together.","tr":"Samedi, je suis allé au marché et j'ai acheté des fruits. Dimanche, j'ai vu mes parents et nous avons déjeuné ensemble."},{"t":"Last weekend, I took the train to the coast. I ate seafood and I met some old friends.","tr":"Le week-end dernier, j'ai pris le train pour la côte. J'ai mangé des fruits de mer et j'ai retrouvé de vieux amis."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 4,
+      "level": "A2",
+      "title": "Poser des questions sur le passé",
+      "summary": "Demander « Tu as passé un bon week-end ? », « C'était comment ? » et répondre « Non, je ne suis pas sorti » : {{did}}, {{didn't}}, et {{was}} / {{were}}.",
+      "topic": "{{Did you…?}}, {{I didn't…}} + forme de base ; {{was}} / {{were}}, {{wasn't}} / {{weren't}} ; {{there was}} / {{there were}}",
+      "blocks": [
+        {"goal":{"t":"Did you have a good weekend? — Yes, it was great, but I didn't do much.","tr":"Tu as passé un bon week-end ? — Oui, c'était super, mais je n'ai pas fait grand-chose."}},
+        {"dialog":[{"who":"Sophie","t":"Did you go to Mike's party?","tr":"Tu es allé à la fête de Mike ?"},{"who":"Ben","t":"No, I didn't. I was really tired.","tr":"Non. J'étais vraiment fatigué."},{"who":"Sophie","t":"Oh, too bad! It was so much fun.","tr":"Oh, dommage ! C'était tellement bien."},{"who":"Ben","t":"Were there a lot of people?","tr":"Il y avait beaucoup de monde ?"},{"who":"Sophie","t":"Yes, there were about fifty people. Did you stay home?","tr":"Oui, il y avait une cinquantaine de personnes. Tu es resté chez toi ?"},{"who":"Ben","t":"Yes, I watched a movie and went to bed early.","tr":"Oui, j'ai regardé un film et je me suis couché tôt."}]},
+        {"p":"**Did : le do du passé.** Pour poser une question au prétérit, on emploie {{did}}, le passé de {{do}} (leçon 11), pour toutes les personnes. Le verbe principal revient à sa forme de base, puisque {{did}} porte déjà le passé : {{You went.}} → {{Did you go?}} (jamais « Did you went »)."},
+        { "table": [
+          ["affirmation","question","négatif"],
+          ["{{I worked.}}","{{Did you work?}}","{{I didn't work.}}"],
+          ["{{She went out.}}","{{Did she go out?}}","{{She didn't go out.}}"],
+          ["{{They saw it.}}","{{Did they see it?}}","{{They didn't see it.}}"]
+        ] },
+        {"p":"**Le négatif : didn't + forme de base.** {{I didn't go.}} « Je n'y suis pas allé. » {{She didn't call.}} « Elle n'a pas appelé. » Les réponses courtes : {{Yes, I did.}} / {{No, I didn't.}}"},
+        {"p":"**Be au passé : was, were.** {{be}}, lui, se passe de {{did}}, comme au présent (leçon 4) : on inverse et on ajoute {{not}}."},
+        { "table": [
+          ["","affirmatif","négatif","question"],
+          ["{{I}}, {{he}}, {{she}}, {{it}}","{{was}}","{{wasn't}}","{{Was it…?}}"],
+          ["{{you}}, {{we}}, {{they}}","{{were}}","{{weren't}}","{{Were you…?}}"]
+        ] },
+        {"p":"Et « il y avait » : {{there was}} (singulier), {{there were}} (pluriel) : {{There were a lot of people.}}"},
+        {"p":"**Pour l'imparfait aussi.** {{was}} et {{were}} traduisent aussi l'imparfait de description : {{It was cold.}} « Il faisait froid. » {{I was tired.}} « J'étais fatigué. »"},
+        { "ex": [
+          {"t":"Did you sleep well?","tr":"Tu as bien dormi ?"},
+          {"t":"What did you do yesterday?","tr":"Qu'est-ce que tu as fait hier ?"},
+          {"t":"I didn't understand the question.","tr":"Je n'ai pas compris la question."},
+          {"t":"Where were you last night?","tr":"Où étais-tu hier soir ?"},
+          {"t":"The food was delicious, but it wasn't cheap.","tr":"C'était délicieux, mais ce n'était pas bon marché."},
+          {"t":"Was there a problem?","tr":"Il y a eu un problème ?"}
+        ] },
+        {"tip":"Pour demander comment s'est passé quelque chose : {{How was…?}} « C'était comment ? » : {{How was your trip?}} {{How was the movie?}} Réponse : {{It was great!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"Tu es allé à la fête ?","why":"Après {{did}}, la forme de base : {{go}}."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"Je ne l'ai pas vu.","why":"Après {{didn't}}, la forme de base."},
+        {"wrong":"Did you were tired?","right":"Were you tired?","tr":"Tu étais fatigué ?","why":"{{be}} n'a pas besoin de {{did}} : on inverse."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ you have a good time?","tr":"Tu t'es bien amusé ?","options":["Did","Were","Do"],"answer":0,"why":"Une question au passé avec un verbe autre que {{be}} : {{did}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ go out last night. I was tired.","tr":"Je ne suis pas sorti hier soir. J'étais fatigué.","options":["didn't","wasn't","don't"],"answer":0,"why":"Le négatif au passé : {{didn't}} + forme de base."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ there many people at the concert?","tr":"Il y avait beaucoup de monde au concert ?","options":["Were","Was","Did"],"answer":0,"why":"{{people}} est un pluriel : {{Were there…?}}","from":"say-where-things-are"},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{What did you eat?}}","{{What did you ate?}}","{{What you ate?}}"],"answer":0,"why":"Mot interrogatif + {{did}} + sujet + forme de base.","from":"ask-questions"},
+        {"type":"dialogue","q":"Un ami revient de vacances. Posez-lui vos questions.","from":"tell-about-your-weekend","lines":[{"who":"Your friend","t":"I'm back from Florida!","tr":"Je suis rentré de Floride !"},{"options":["Welcome back! How was it?","Welcome back! How it was?"],"answer":0,"why":"Avec {{be}} : le verbe avant le sujet."},{"who":"Your friend","t":"Amazing! The weather was perfect.","tr":"Génial ! Il a fait un temps parfait."},{"options":["Did you go to Disney World?","Did you went to Disney World?"],"answer":0,"why":"Après {{did}} : {{go}}."},{"who":"Your friend","t":"No, I didn't. It was too expensive!","tr":"Non. C'était trop cher !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Où étais-tu hier soir ?","words":["Where","were","you","last night?"]},
+        {"type":"free","q":"À vous : posez trois questions à un ami sur son week-end, avec {{did}} et {{was}} ou {{were}}.","answers":[{"t":"Did you have a good weekend? What did you do? Was the weather nice?","tr":"Tu as passé un bon week-end ? Qu'est-ce que tu as fait ? Il a fait beau ?"},{"t":"How was your weekend? Did you go out? Were your parents there?","tr":"Ton week-end, c'était comment ? Tu es sorti ? Tes parents étaient là ?"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 4,
+      "level": "A2",
+      "title": "Raconter une histoire",
+      "summary": "Planter le décor et raconter ce qui s'est passé : « Je dormais quand le téléphone a sonné ». Le prétérit continu, {{was}} + {{-ing}}, et le prétérit.",
+      "topic": "le prétérit continu ({{was}} / {{were}} + {{-ing}}) pour l'action en cours ; le prétérit pour les événements ; {{when}}, {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was sleeping when the phone rang.","tr":"Je dormais quand le téléphone a sonné."}},
+        {"dialog":[{"who":"Inès","t":"Guess what happened yesterday!","tr":"Devine ce qui s'est passé hier !"},{"who":"Tom","t":"What?","tr":"Quoi ?"},{"who":"Inès","t":"I was having coffee with Lucy. We were talking, and suddenly a man came in.","tr":"Je prenais un café avec Lucy. On discutait, et tout à coup un homme est entré."},{"who":"Tom","t":"Who was it?","tr":"C'était qui ?"},{"who":"Inès","t":"A very famous actor! He bought a coffee and left.","tr":"Un acteur très célèbre ! Il a acheté un café et il est reparti."},{"who":"Tom","t":"Did you ask for an autograph?","tr":"Tu lui as demandé un autographe ?"},{"who":"Inès","t":"No, I was too shy!","tr":"Non, j'étais trop timide !"}]},
+        {"p":"**Le décor et les événements.** Une histoire a un décor (ce qui était en train de se passer) et des événements (ce qui s'est passé). C'est l'imparfait et le passé composé du français, et l'anglais a aussi deux formes : le prétérit continu pour l'action en cours, le prétérit pour les événements."},
+        { "table": [
+          ["","action en cours, décor","événement"],
+          ["forme","{{was}} / {{were}} + {{-ing}}","prétérit"],
+          ["exemple","{{I was reading.}} « Je lisais. »","{{Someone knocked.}} « Quelqu'un a frappé. »"]
+        ] },
+        {"p":"**Une action interrompue.** {{I was taking a shower when the phone rang.}} « Je prenais ma douche quand le téléphone a sonné. » L'action longue au continu, l'action courte qui l'interrompt au prétérit. {{while}} « pendant que » introduit souvent l'action longue : {{While I was cooking, the kids were watching TV.}}"},
+        {"p":"**Attention : l'imparfait n'est pas toujours was …-ing.** Le prétérit continu ne sert qu'aux actions **en cours**. Pour une description ({{It was cold.}} « Il faisait froid. ») ou un état ({{I was tired.}}, {{I knew him.}}), l'anglais emploie le prétérit simple. Pour une habitude passée, voyez la leçon 25."},
+        {"p":"**Les mots du récit.** {{suddenly}} (tout à coup), {{then}} (ensuite), {{after that}} (après ça), {{when}} (quand), {{while}} (pendant que)."},
+        { "ex": [
+          {"t":"It was raining, so we stayed home.","tr":"Il pleuvait, alors nous sommes restés à la maison."},
+          {"t":"I was walking down the street when I saw an old friend.","tr":"Je marchais dans la rue quand j'ai vu un vieil ami."},
+          {"t":"What were you doing at 8 p.m.?","tr":"Que faisiez-vous à 20 heures ?"},
+          {"t":"When I arrived, everyone was dancing.","tr":"Quand je suis arrivé, tout le monde dansait."},
+          {"t":"She was tired, but she finished her work.","tr":"Elle était fatiguée, mais elle a fini son travail."},
+          {"t":"Suddenly, the lights went out.","tr":"Tout à coup, la lumière s'est éteinte."}
+        ] },
+        {"tip":"{{It was raining when we left}} décrit le décor (« il pleuvait ») ; {{It rained all day}} résume un fait (« il a plu toute la journée »)."}
+      ],
+      "mistakes": [
+        {"wrong":"I slept when the phone rang.","right":"I was sleeping when the phone rang.","tr":"Je dormais quand le téléphone a sonné.","why":"L'action en cours, interrompue : {{was}} + {{-ing}}."},
+        {"wrong":"It was being cold.","right":"It was cold.","tr":"Il faisait froid.","why":"Une description avec {{be}} : le prétérit simple, {{was}}."},
+        {"wrong":"When I arrived, everyone was danced.","right":"When I arrived, everyone was dancing.","tr":"Quand je suis arrivé, tout le monde dansait.","why":"Le continu : {{was}} + {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"I ___ TV when you called.","tr":"Je regardais la télé quand tu as appelé.","options":["was watching","watched","am watching"],"answer":0,"why":"L'action en cours, interrompue : le prétérit continu."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We were having dinner when someone ___ at the door.","tr":"Nous dînions quand quelqu'un a frappé à la porte.","options":["knocked","was knocking","knocks"],"answer":0,"why":"L'événement qui interrompt : le prétérit."},
+        {"type":"choice","q":"« Il faisait chaud et le ciel était bleu. »","options":["{{It was hot and the sky was blue.}}","{{It was being hot and the sky was being blue.}}"],"answer":0,"why":"Une description : le prétérit simple de {{be}}.","from":"ask-about-the-past"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"What ___ you doing at ten last night?","tr":"Que faisais-tu à dix heures hier soir ?","options":["were","did","was"],"answer":0,"why":"{{be}} + {{-ing}}, au passé, avec {{you}} : {{were}}.","from":"say-what-youre-doing-now"},
+        {"type":"dialogue","q":"Racontez à un ami ce qui vous est arrivé. Choisissez vos répliques.","from":"tell-about-your-weekend","lines":[{"who":"Your friend","t":"What happened?","tr":"Qu'est-ce qui s'est passé ?"},{"options":["I was walking in the park and suddenly I saw a deer!","I walked in the park and suddenly I was seeing a deer!"],"answer":0,"why":"La promenade est en cours (continu) ; voir le cerf, c'est l'événement (prétérit)."},{"who":"Your friend","t":"A deer? What was it doing?","tr":"Un cerf ? Qu'est-ce qu'il faisait ?"},{"options":["It was eating grass.","It ate grass every day."],"answer":0,"why":"Une action en cours à ce moment-là : {{was}} + {{-ing}}."},{"who":"Your friend","t":"So cool!","tr":"Trop bien !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Il pleuvait, alors nous sommes restés à la maison.","words":["It","was raining,","so","we","stayed home."]},
+        {"type":"free","q":"À vous : racontez une petite histoire : où vous étiez, ce qui se passait, et ce qui est arrivé.","answers":[{"t":"Last Saturday, I was reading at the beach. It was sunny. Suddenly, a dog took my sandwich!","tr":"Samedi dernier, je lisais à la plage. Il faisait beau. Tout à coup, un chien a pris mon sandwich !"},{"t":"Yesterday, I was walking home. It was raining. Then I saw my neighbor and we talked for an hour.","tr":"Hier, je rentrais à pied. Il pleuvait. Puis j'ai vu ma voisine et nous avons parlé pendant une heure."}]}
+      ]
+    },
+    {
+      "id": "talk-about-old-habits",
+      "unit": 4,
+      "level": "A2",
+      "title": "Parler de vos habitudes d'avant",
+      "summary": "Dire ce que vous faisiez quand vous étiez petit : {{used to}}, l'anglais de « avant, je… » et de l'imparfait d'habitude.",
+      "topic": "{{used to}} + verbe ; {{didn't use to}}, {{Did you use to…?}} ; les traductions de l'imparfait",
+      "blocks": [
+        {"goal":{"t":"When I was a kid, I used to play outside all day.","tr":"Quand j'étais petit, je jouais dehors toute la journée."}},
+        {"dialog":[{"who":"Léa","t":"Is that you in the photo, Grandma?","tr":"C'est toi sur la photo, mamie ?"},{"who":"Grandma","t":"Yes! I was ten. We used to live in a small town in Ohio.","tr":"Oui ! J'avais dix ans. Nous habitions dans une petite ville de l'Ohio."},{"who":"Léa","t":"Did you use to walk to school?","tr":"Tu allais à l'école à pied ?"},{"who":"Grandma","t":"Yes, every day. And we didn't use to have a TV!","tr":"Oui, tous les jours. Et nous n'avions pas de télé !"},{"who":"Léa","t":"What did you use to do in the evening?","tr":"Qu'est-ce que vous faisiez le soir ?"},{"who":"Grandma","t":"We used to play cards and listen to the radio.","tr":"Nous jouions aux cartes et nous écoutions la radio."}]},
+        {"p":"**L'imparfait d'habitude : used to.** Pour une habitude passée qui n'existe plus, l'anglais dit {{used to}} + verbe : {{I used to smoke.}} « Avant, je fumais. » {{We used to live in Ohio.}} « Nous habitions dans l'Ohio. » C'est souvent la meilleure traduction de l'imparfait d'habitude."},
+        {"p":"**La forme.** {{used to}} ne change pas selon la personne. La question et le négatif se font avec {{did}}, et alors {{use to}}, sans {{d}} : {{Did you use to…?}} {{I didn't use to…}}"},
+        { "table": [
+          ["français","anglais"],
+          ["Avant, je fumais.","{{I used to smoke.}}"],
+          ["Avant, il ne fumait pas.","{{He didn't use to smoke.}}"],
+          ["Tu habitais ici, avant ?","{{Did you use to live here?}}"]
+        ] },
+        {"p":"**L'imparfait en anglais : quatre traductions.** Le français a un seul imparfait ; l'anglais choisit selon le sens :"},
+        { "table": [
+          ["sens","français","anglais"],
+          ["habitude passée","Je jouais au tennis le dimanche.","{{I used to play tennis on Sundays.}} ou {{I played…}}"],
+          ["action en cours","Je lisais quand…","{{I was reading when…}}"],
+          ["description, état","Il faisait beau. J'étais content.","{{It was nice. I was happy.}}"],
+          ["politesse","Je voulais vous demander…","{{I wanted to ask you…}}"]
+        ] },
+        {"p":"Le piège : traduire l'imparfait d'habitude par le continu. « Quand j'étais jeune, je jouais au foot » se dit {{I used to play soccer}} ou {{I played soccer}}, et non « I was playing soccer », qui voudrait dire « j'étais en train de jouer », à un moment précis."},
+        { "ex": [
+          {"t":"I used to be very shy.","tr":"Avant, j'étais très timide."},
+          {"t":"We used to go to the beach every summer.","tr":"Nous allions à la plage tous les étés."},
+          {"t":"There used to be a movie theater here.","tr":"Il y avait un cinéma ici, avant."},
+          {"t":"She didn't use to like coffee.","tr":"Avant, elle n'aimait pas le café."},
+          {"t":"Did you use to play an instrument?","tr":"Tu jouais d'un instrument, avant ?"},
+          {"t":"My dad used to read me stories.","tr":"Mon père me lisait des histoires."}
+        ] },
+        {"tip":"Ne confondez pas {{I used to}} « avant, je… » et {{I'm used to}} « j'ai l'habitude de » : {{I'm used to the cold.}} « Je suis habitué au froid. »"}
+      ],
+      "mistakes": [
+        {"wrong":"When I was young, I was playing soccer every Saturday.","right":"When I was young, I used to play soccer every Saturday.","tr":"Quand j'étais jeune, je jouais au foot tous les samedis.","why":"Une habitude passée : {{used to}} (ou le prétérit), pas le continu."},
+        {"wrong":"I use to smoke.","right":"I used to smoke.","tr":"Avant, je fumais.","why":"À l'affirmatif : {{used to}}, avec un {{d}}."},
+        {"wrong":"I didn't used to like it.","right":"I didn't use to like it.","tr":"Avant, je n'aimais pas ça.","why":"Après {{didn't}}, la forme de base : {{use to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ to live in Chicago.","tr":"Avant, j'habitais à Chicago.","options":["used","use","was"],"answer":0,"why":"À l'affirmatif : {{used to}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Did you ___ to play the piano?","tr":"Tu jouais du piano, avant ?","options":["use","used","using"],"answer":0,"why":"Après {{did}}, {{use to}}, sans {{d}}.","from":"ask-about-the-past"},
+        {"type":"choice","q":"« Quand j'étais petit, je regardais des dessins animés tous les matins. »","options":["{{When I was little, I used to watch cartoons every morning.}}","{{When I was little, I was watching cartoons every morning.}}"],"answer":0,"why":"Une habitude passée : {{used to}}."},
+        {"type":"choice","q":"« Je regardais la télé quand tu as appelé. »","options":["{{I was watching TV when you called.}}","{{I used to watch TV when you called.}}"],"answer":0,"why":"Une action en cours, interrompue : le prétérit continu.","from":"tell-a-story"},
+        {"type":"dialogue","q":"Vous parlez de votre enfance avec une amie. Choisissez vos réponses.","from":"describe-things","lines":[{"who":"Your friend","t":"Where did you grow up?","tr":"Où as-tu grandi ?"},{"options":["In a small village. We used to have a big yard.","In a small village. We were having a big yard."],"answer":0,"why":"Une situation qui a duré : {{used to}}."},{"who":"Your friend","t":"Did you use to have a dog?","tr":"Tu avais un chien ?"},{"options":["Yes, I did! His name was Rex.","Yes, I used! His name was Rex."],"answer":0,"why":"Réponse courte avec {{did}}."},{"who":"Your friend","t":"Aww!","tr":"Trop mignon !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Il y avait un cinéma ici, avant.","words":["There","used to","be","a movie theater","here."]},
+        {"type":"free","q":"À vous : décrivez votre enfance : où vous habitiez, et deux choses que vous faisiez souvent.","answers":[{"t":"When I was a kid, I lived in Normandy. I used to ride my bike every day and I used to play with my cousins.","tr":"Quand j'étais petit, j'habitais en Normandie. Je faisais du vélo tous les jours et je jouais avec mes cousins."},{"t":"I grew up in Paris. We used to go to the park on Sundays. I didn't use to like vegetables!","tr":"J'ai grandi à Paris. Nous allions au parc le dimanche. Je n'aimais pas les légumes !"}]}
+      ]
     }
   ]
 }
