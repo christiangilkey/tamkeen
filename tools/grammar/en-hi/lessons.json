@@ -1854,6 +1854,223 @@
         {"type":"say","q":"Say to a guest: “Please sit down.”","answer":"बैठ जाइए।","r":"baiṭh jāie.","from":"ask-people-to-do-things"},
         {"type":"free","q":"Your turn: say two things that have just happened, with {{गया|gayā}}, {{लिया|liyā}} or {{दिया|diyā}}.","answers":[{"t":"मेरा फ़ोन ख़राब हो गया, और मैंने नया फ़ोन ले लिया।","r":"merā fon kharāb ho gayā, aur maĩne nayā fon le liyā.","tr":"My phone broke, and I got a new one."},{"t":"मेहमान आ गए हैं, और मैंने चाय बना दी है।","r":"mehmān ā gae haĩ, aur maĩne chāy banā dī hai.","tr":"The guests have arrived, and I've made tea."}]}
       ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 7,
+      "level": "B1",
+      "title": "Pass on what someone said",
+      "summary": "Pass on a message: “Rahul said he couldn't come”, “She asked if you could send the report.”",
+      "topic": "{{कि|ki}} “that”; {{कहना|kahnā}}, {{बताना|batānā}}, {{पूछना|pūchhnā}}; Hindi keeps the speaker's own tense",
+      "blocks": [
+        {"goal":{"t":"राहुल ने कहा कि वह कल नहीं आ पाएगा।","r":"rāhul ne kahā ki vah kal nahī̃ ā pāegā.","tr":"Rahul said he wouldn't be able to come tomorrow."}},
+        {"dialog":[{"who":"Assistant","t":"मैडम, शर्मा जी का फ़ोन आया था।","r":"maiḍam, sharmā jī kā fon āyā thā.","tr":"Ma'am, Mr Sharma called."},{"who":"Boss","t":"क्या कहा उन्होंने?","r":"kyā kahā unhõne?","tr":"What did he say?"},{"who":"Assistant","t":"उन्होंने कहा कि मीटिंग चार बजे नहीं, पाँच बजे होगी।","r":"unhõne kahā ki mīṭiṅg chār baje nahī̃, pā̃ch baje hogī.","tr":"He said the meeting wouldn't be at four, but at five."},{"who":"Boss","t":"और कुछ?","r":"aur kuchh?","tr":"Anything else?"},{"who":"Assistant","t":"उन्होंने पूछा कि क्या आप रिपोर्ट भेज सकती हैं।","r":"unhõne pūchhā ki kyā āp riporṭ bhej saktī haĩ.","tr":"He asked if you could send the report."},{"who":"Boss","t":"ठीक है, उन्हें बता दो कि मैं आज शाम भेज दूँगी।","r":"ṭhīk hai, unhẽ batā do ki maĩ āj shām bhej dū̃gī.","tr":"OK, let him know I'll send it this evening."}]},
+        {"term":"reported speech","means":"passing on what someone said, in your own words: “She said she was tired.”"},
+        {"p":"**Said that.** To pass on what someone said, join it with {{कि|ki}} “that”: {{उसने कहा कि…|usne kahā ki…}} “he said that…”. Then Hindi simply repeats what was said, **in the speaker's own tense**. Rahul said {{मैं कल नहीं आ पाऊँगा|maĩ kal nahī̃ ā pāū̃gā}} “I won't be able to come tomorrow”, and you report {{राहुल ने कहा कि वह कल नहीं आ पाएगा|rāhul ne kahā ki vah kal nahī̃ ā pāegā}}. Only the person changes ({{मैं|maĩ}} → {{वह|vah}}); his future stays the future. English shifts it back (“he said he *wouldn't*”); Hindi doesn't."},
+        {"p":"**Say, tell, ask.** {{कहना|kahnā}} “to say”, {{बताना|batānā}} “to tell, let know” and {{पूछना|pūchhnā}} “to ask” all take {{ने|ne}} in the past (lesson 27). The person you tell takes {{को|ko}} with {{बताना|batānā}} ({{उसने मुझे बताया|usne mujhe batāyā}} “he told me”) but {{से|se}} with {{कहना|kahnā}} and {{पूछना|pūchhnā}} ({{उसने मुझसे पूछा|usne mujhse pūchhā}} “he asked me”)."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["say","{{उसने कहा कि वह थकी हुई है।|usne kahā ki vah thakī huī hai.}}","She said she was tired."],
+          ["tell","{{उसने मुझे बताया कि वह भारत जा रहा है।|usne mujhe batāyā ki vah bhārat jā rahā hai.}}","He told me he was going to India."],
+          ["ask (yes or no)","{{उसने पूछा कि क्या मैं आऊँगा।|usne pūchhā ki kyā maĩ āū̃gā.}}","He asked if I'd come."],
+          ["ask (where)","{{उसने पूछा कि स्टेशन कहाँ है।|usne pūchhā ki sṭeshan kahā̃ hai.}}","She asked where the station was."]
+        ] },
+        {"p":"**Asking.** A reported yes-or-no question keeps its {{क्या|kyā}} after {{कि|ki}}: {{उन्होंने पूछा कि क्या आप रिपोर्ट भेज सकती हैं|unhõne pūchhā ki kyā āp riporṭ bhej saktī haĩ}}. A question with a question word just keeps it: {{… कि स्टेशन कहाँ है|… ki sṭeshan kahā̃ hai}}. The word order doesn't change."},
+        { "ex": [
+          {"t":"उसने कहा कि वह कल आएगा।","r":"usne kahā ki vah kal āegā.","tr":"He said he would come tomorrow."},
+          {"t":"माँ ने कहा कि खाना तैयार है।","r":"mā̃ ne kahā ki khānā taiyār hai.","tr":"Mom said dinner was ready."},
+          {"t":"प्रिया ने मुझे बताया कि वह दिल्ली जा रही है।","r":"priyā ne mujhe batāyā ki vah dillī jā rahī hai.","tr":"Priya told me she was going to Delhi."},
+          {"t":"उन्होंने पूछा कि क्या हमें मदद चाहिए।","r":"unhõne pūchhā ki kyā hamẽ madad chāhie.","tr":"They asked if we needed help."},
+          {"t":"डॉक्टर ने कहा कि यह गंभीर नहीं है।","r":"ḍôkṭar ne kahā ki yah gambhīr nahī̃ hai.","tr":"The doctor said it wasn't serious."},
+          {"t":"उसे बता दो कि मैं पाँच मिनट में आ रहा हूँ।","r":"use batā do ki maĩ pā̃ch minaṭ mẽ ā rahā hū̃.","tr":"Tell him I'm coming in five minutes."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"उसने कहा कि वह कल आता।","right":"उसने कहा कि वह कल आएगा।","tr":"He said he would come tomorrow.","why":"Hindi keeps the speaker's tense: he said “I'll come”, so {{आएगा|āegā}}. Don't shift it back as English does."},
+        {"wrong":"उसने मुझे पूछा कि मैं कहाँ रहता हूँ।","right":"उसने मुझसे पूछा कि मैं कहाँ रहता हूँ।","tr":"He asked me where I live.","why":"You ask “from” someone: {{मुझसे पूछा|mujhse pūchhā}}."},
+        {"wrong":"वह कहा कि वह थकी है।","right":"उसने कहा कि वह थकी हुई है।","tr":"She said she was tired.","why":"{{कहना|kahnā}} takes {{ने|ne}} in the past: {{उसने कहा|usne kahā}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"राहुल ने कहा ___ वह कल नहीं आएगा।","tr":"Rahul said he wouldn't come tomorrow.","options":["कि","क्या","और"],"answer":0,"why":"“That”: {{कि|ki}}.","r":"rāhul ne kahā ___ vah kal nahī̃ āegā.","rs":["ki","kyā","aur"]},
+        {"type":"fill","q":"Choose the right word.","t":"उसने ___ पूछा कि मैं कहाँ रहता हूँ।","tr":"He asked me where I live.","options":["मुझसे","मुझे","मैंने"],"answer":0,"why":"{{पूछना|pūchhnā}}: you ask {{से|se}} someone.","from":"say-who-you-saw","r":"usne ___ pūchhā ki maĩ kahā̃ rahtā hū̃.","rs":["mujhse","mujhe","maĩne"]},
+        {"type":"choice","q":"Priya says {{मैं थकी हुई हूँ।|maĩ thakī huī hū̃.}} How do you pass it on?","options":["{{प्रिया ने कहा कि वह थकी हुई है।|priyā ne kahā ki vah thakī huī hai.}}","{{प्रिया ने कहा कि वह थकी हुई थी।|priyā ne kahā ki vah thakī huī thī.}}","{{प्रिया कहा कि मैं थकी हुई हूँ।|priyā kahā ki maĩ thakī huī hū̃.}}"],"answer":0,"why":"Keep her tense ({{है|hai}}); change only the person ({{वह|vah}}); and {{ने|ne}} with {{कहा|kahā}}."},
+        {"type":"order","q":"Put the words in order.","tr":"They asked if we needed help.","words":["उन्होंने","पूछा","कि","क्या","हमें","मदद","चाहिए।"],"rs":["unhõne","pūchhā","ki","kyā","hamẽ","madad","chāhie."]},
+        {"type":"dialogue","q":"You took a phone message for your colleague Neha. Pass it on.","from":"say-what-you-will-do","lines":[{"who":"Neha","t":"किसका फ़ोन था?","r":"kiskā fon thā?","tr":"Who was on the phone?"},{"options":["आपकी माँ का। उन्होंने कहा कि वे शाम को फ़ोन करेंगी।","आपकी माँ का। उन्होंने कहा कि वे शाम को फ़ोन करतीं।"],"answer":0,"why":"Keep her future: {{करेंगी|karẽgī}} (feminine, in the respectful plural).","rs":["āpkī mā̃ kā. unhõne kahā ki ve shām ko fon karẽgī.","āpkī mā̃ kā. unhõne kahā ki ve shām ko fon kartī̃."]},{"who":"Neha","t":"और कुछ?","r":"aur kuchh?","tr":"Anything else?"},{"options":["उन्होंने पूछा कि क्या आप रविवार को घर आएँगी।","उन्होंने पूछा आप कि रविवार को घर आएँगी।"],"answer":0,"why":"After {{कि|ki}}, the question keeps its order, with {{क्या|kyā}} for yes or no.","rs":["unhõne pūchhā ki kyā āp ravivār ko ghar āẽgī.","unhõne pūchhā āp ki ravivār ko ghar āẽgī."]}]},
+        {"type":"say","q":"Pass it on: “The doctor said it wasn't serious.”","answer":"डॉक्टर ने कहा कि यह गंभीर नहीं है।","r":"ḍôkṭar ne kahā ki yah gambhīr nahī̃ hai."},
+        {"type":"free","q":"Your turn: pass on two things someone said to you recently: one with {{कहा कि|kahā ki}}, one with {{पूछा कि|pūchhā ki}}.","answers":[{"t":"मेरी बहन ने कहा कि वह अगले महीने भारत जाएगी। उसने पूछा कि क्या मैं भी चलूँगा।","r":"merī bahan ne kahā ki vah agle mahīne bhārat jāegī. usne pūchhā ki kyā maĩ bhī chalū̃gā.","tr":"My sister said she'd go to India next month. She asked if I'd come too."},{"t":"मेरे बॉस ने कहा कि कल छुट्टी है। उन्होंने पूछा कि मैं कहाँ जा रही हूँ।","r":"mere bôs ne kahā ki kal chhuṭṭī hai. unhõne pūchhā ki maĩ kahā̃ jā rahī hū̃.","tr":"My boss said tomorrow was a holiday. He asked where I was going."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say what you want others to do",
+      "summary": "Say “I want you to come”, “She told me to wait”, “so that everyone can understand”.",
+      "topic": "{{चाहना कि|chāhnā ki}} and {{कहना कि|kahnā ki}} + the subjunctive; {{ताकि|tāki}} “so that”",
+      "blocks": [
+        {"goal":{"t":"मैं चाहता हूँ कि तुम मेरे साथ चलो।","r":"maĩ chāhtā hū̃ ki tum mere sāth chalo.","tr":"I want you to come with me.","note":"said by a man; a woman says {{चाहती हूँ|chāhtī hū̃}}"}},
+        {"dialog":[{"who":"Mom","t":"मैं चाहती हूँ कि तुम आज जल्दी घर आओ।","r":"maĩ chāhtī hū̃ ki tum āj jaldī ghar āo.","tr":"I want you to come home early today."},{"who":"Rohan","t":"क्यों, माँ?","r":"kyõ, mā̃?","tr":"Why, Mom?"},{"who":"Mom","t":"तुम्हारी नानी आ रही हैं। उन्होंने कहा कि तुम उन्हें स्टेशन से ले आओ।","r":"tumhārī nānī ā rahī haĩ. unhõne kahā ki tum unhẽ sṭeshan se le āo.","tr":"Your grandma is coming. She asked you to pick her up from the station."},{"who":"Rohan","t":"ठीक है। मैं छह बजे तक आ जाऊँगा, ताकि हम समय पर पहुँचें।","r":"ṭhīk hai. maĩ chhah baje tak ā jāū̃gā, tāki ham samay par pahũchẽ.","tr":"OK. I'll be home by six, so that we get there on time."}]},
+        {"p":"**Want someone to.** English says “I want *you to* come”; Hindi says “I want *that* you come”, with the subjunctive (lesson 24): {{मैं चाहता हूँ कि तुम आओ|maĩ chāhtā hū̃ ki tum āo}}. The subjunctive is the future without its {{-गा|-gā}}: {{मैं आऊँ|maĩ āū̃}}, {{वह आए|vah āe}}, {{तुम आओ|tum āo}}, {{आप आएँ|āp āẽ}}, {{हम आएँ|ham āẽ}}."},
+        {"p":"**Telling someone to.** {{कहना कि|kahnā ki}} + the subjunctive is “to tell someone to”: {{उन्होंने कहा कि तुम उन्हें ले आओ|unhõne kahā ki tum unhẽ le āo}} “She asked you to pick her up”. Compare {{उसने कहा कि वह आएगा|usne kahā ki vah āegā}} “he said he *would* come” (a fact: the future, lesson 41) with {{उसने कहा कि मैं आऊँ|usne kahā ki maĩ āū̃}} “he told me to come” (a wish: the subjunctive)."},
+        {"p":"**So that.** {{ताकि|tāki}} “so that” takes the subjunctive too: {{मैं जल्दी निकलूँगा ताकि ट्रेन न छूटे|maĩ jaldī niklū̃gā tāki ṭren na chhūṭe}} “I'll leave early so that I don't miss the train”. With the subjunctive, “not” is usually {{न|na}}."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["I want you to…","{{मैं चाहता हूँ कि आप रुकें।|maĩ chāhtā hū̃ ki āp rukẽ.}}","I want you to stay."],
+          ["she told me to…","{{उसने कहा कि मैं इंतज़ार करूँ।|usne kahā ki maĩ intazār karū̃.}}","She told me to wait."],
+          ["so that…","{{… ताकि सब समझ सकें।|… tāki sab samajh sakẽ.}}","… so that everyone can understand."],
+          ["it would be good if…","{{अच्छा होगा कि तुम आराम करो।|achchhā hogā ki tum ārām karo.}}","It would be good for you to rest."]
+        ] },
+        { "ex": [
+          {"t":"मैं चाहता हूँ कि तुम ख़ुश रहो।","r":"maĩ chāhtā hū̃ ki tum khush raho.","tr":"I want you to be happy."},
+          {"t":"माँ चाहती हैं कि मैं डॉक्टर बनूँ।","r":"mā̃ chāhtī haĩ ki maĩ ḍôkṭar banū̃.","tr":"Mom wants me to become a doctor."},
+          {"t":"उसने कहा कि हम पाँच बजे तक पहुँचें।","r":"usne kahā ki ham pā̃ch baje tak pahũchẽ.","tr":"She told us to get there by five."},
+          {"t":"क्या आप चाहते हैं कि मैं आपकी मदद करूँ?","r":"kyā āp chāhte haĩ ki maĩ āpkī madad karū̃?","tr":"Do you want me to help you?"},
+          {"t":"धीरे बोलिए ताकि सब समझ सकें।","r":"dhīre bolie tāki sab samajh sakẽ.","tr":"Speak slowly so that everyone can understand."},
+          {"t":"मैं नहीं चाहती कि वह अकेला जाए।","r":"maĩ nahī̃ chāhtī ki vah akelā jāe.","tr":"I don't want him to go alone.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं चाहता हूँ तुमको आना।","right":"मैं चाहता हूँ कि तुम आओ।","tr":"I want you to come.","why":"Hindi says “I want that you come”: {{कि|ki}} + the subjunctive."},
+        {"wrong":"मैं चाहता हूँ कि तुम आओगे।","right":"मैं चाहता हूँ कि तुम आओ।","tr":"I want you to come.","why":"After {{चाहना कि|chāhnā ki}}, the subjunctive, not the future."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मैं चाहता हूँ कि तुम मेरे साथ ___।","tr":"I want you to come with me.","options":["चलो","चलोगे","चलना"],"answer":0,"why":"After {{चाहना कि|chāhnā ki}}: the subjunctive, {{चलो|chalo}}.","r":"maĩ chāhtā hū̃ ki tum mere sāth ___.","rs":["chalo","chaloge","chalnā"]},
+        {"type":"fill","q":"Choose the right form.","t":"माँ चाहती हैं कि मैं डॉक्टर ___।","tr":"Mom wants me to become a doctor.","options":["बनूँ","बनूँगा","बनता"],"answer":0,"why":"{{मैं|maĩ}} in the subjunctive: {{-ऊँ|-ū̃}}.","from":"make-suggestions","r":"mā̃ chāhtī haĩ ki maĩ ḍôkṭar ___.","rs":["banū̃","banū̃gā","bantā"]},
+        {"type":"choice","q":"{{उसने कहा कि मैं इंतज़ार करूँ।|usne kahā ki maĩ intazār karū̃.}} means…","options":["She told me to wait.","She said she would wait.","She said I was waiting."],"answer":0,"why":"{{कहा कि|kahā ki}} + the subjunctive: telling someone to do something."},
+        {"type":"choice","q":"Which one means “He said he would come”?","options":["{{उसने कहा कि वह आएगा।|usne kahā ki vah āegā.}}","{{उसने कहा कि मैं आऊँ।|usne kahā ki maĩ āū̃.}}"],"answer":0,"why":"A fact about the future: {{आएगा|āegā}}. ({{मैं आऊँ|maĩ āū̃}} would be “he told me to come”.)","from":"pass-on-a-message"},
+        {"type":"order","q":"Put the words in order.","tr":"Speak slowly so that everyone can understand.","words":["धीरे","बोलिए","ताकि","सब","समझ","सकें।"],"rs":["dhīre","bolie","tāki","sab","samajh","sakẽ."]},
+        {"type":"dialogue","q":"Your friend is sick. Choose your replies (you're a man).","from":"at-the-doctors","lines":[{"who":"Friend","t":"मुझे बहुत तेज़ बुख़ार है।","r":"mujhe bahut tez bukhār hai.","tr":"I have a high fever."},{"options":["मैं चाहता हूँ कि तुम डॉक्टर के पास जाओ।","मैं चाहता हूँ कि तुम डॉक्टर के पास जाओगे।"],"answer":0,"why":"The subjunctive after {{चाहता हूँ कि|chāhtā hū̃ ki}}.","rs":["maĩ chāhtā hū̃ ki tum ḍôkṭar ke pās jāo.","maĩ chāhtā hū̃ ki tum ḍôkṭar ke pās jāoge."]},{"who":"Friend","t":"ठीक है, कल जाऊँगा।","r":"ṭhīk hai, kal jāū̃gā.","tr":"OK, I'll go tomorrow."},{"options":["नहीं, अभी जाओ, ताकि रात तक दवाई मिल जाए।","नहीं, अभी जाओ, ताकि रात तक दवाई मिल जाएगी।"],"answer":0,"why":"{{ताकि|tāki}} takes the subjunctive: {{मिल जाए|mil jāe}}.","rs":["nahī̃, abhī jāo, tāki rāt tak davāī mil jāe.","nahī̃, abhī jāo, tāki rāt tak davāī mil jāegī."]}]},
+        {"type":"free","q":"Your turn: say one thing you want someone in your life to do, and why. Start with {{मैं चाहता हूँ कि…|maĩ chāhtā hū̃ ki…}} (a woman: {{चाहती|chāhtī}})","answers":[{"t":"मैं चाहता हूँ कि मेरे माता-पिता भारत आएँ, ताकि वे मेरे दोस्तों से मिल सकें।","r":"maĩ chāhtā hū̃ ki mere mātā-pitā bhārat āẽ, tāki ve mere dostõ se mil sakẽ.","tr":"I want my parents to come to India, so that they can meet my friends."},{"t":"मैं चाहती हूँ कि मेरा बेटा ज़्यादा किताबें पढ़े।","r":"maĩ chāhtī hū̃ ki merā beṭā zyādā kitābẽ paṛhe.","tr":"I want my son to read more books."}]}
+      ]
+    },
+    {
+      "id": "say-what-happens-if",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say what will happen if…",
+      "summary": "Make plans that depend on something: “If it rains, we'll stay home”, “Hurry up, or we'll be late.”",
+      "topic": "{{अगर … तो|agar … to}} “if … then”, with the past, the subjunctive or the future after {{अगर|agar}}; {{नहीं तो|nahī̃ to}} “otherwise”",
+      "blocks": [
+        {"goal":{"t":"अगर कल बारिश हुई, तो हम घर पर रहेंगे।","r":"agar kal bārish huī, to ham ghar par rahẽge.","tr":"If it rains tomorrow, we'll stay at home."}},
+        {"dialog":[{"who":"Tara","t":"अगर कल मौसम अच्छा रहा, तो हम पहाड़ों पर चलेंगे।","r":"agar kal mausam achchhā rahā, to ham pahāṛõ par chalẽge.","tr":"If the weather's good tomorrow, we'll go to the mountains."},{"who":"Leo","t":"और अगर बारिश हुई तो?","r":"aur agar bārish huī to?","tr":"And if it rains?"},{"who":"Tara","t":"तो घर पर फ़िल्म देखेंगे।","r":"to ghar par film dekhẽge.","tr":"Then we'll watch a movie at home."},{"who":"Leo","t":"ठीक है। अगर तुम जल्दी उठो, तो मुझे भी उठा देना।","r":"ṭhīk hai. agar tum jaldī uṭho, to mujhe bhī uṭhā denā.","tr":"OK. If you get up early, wake me up too."}]},
+        {"p":"**If … then.** {{अगर|agar}} “if” starts the condition and {{तो|to}} “then” starts the result: {{अगर समय मिला, तो मैं आऊँगी|agar samay milā, to maĩ āū̃gī}} “If I get time, I'll come”. Hindi keeps {{तो|to}} even where English leaves “then” out."},
+        {"p":"**Which form after {{अगर|agar}}?** Three are used, with little difference: the future ({{अगर बारिश होगी|agar bārish hogī}}), the subjunctive ({{अगर बारिश हो|agar bārish ho}}), or, very often in speech, the simple past ({{अगर बारिश हुई|agar bārish huī}}), as if it had already happened. The result is usually the future or a command."},
+        { "table": [
+          ["after {{अगर|agar}}","Hindi","Meaning"],
+          ["the past","{{अगर बारिश हुई, तो हम नहीं जाएँगे।|agar bārish huī, to ham nahī̃ jāẽge.}}","If it rains, we won't go."],
+          ["the subjunctive","{{अगर आप चाहें, तो मैं आपकी मदद करूँ?|agar āp chāhẽ, to maĩ āpkī madad karū̃?}}","If you like, shall I help you?"],
+          ["the future","{{अगर तुम आओगे, तो मज़ा आएगा।|agar tum āoge, to mazā āegā.}}","If you come, it'll be fun."]
+        ] },
+        {"p":"**What's always true** takes the present on both sides: {{अगर मैं कॉफ़ी पीता हूँ, तो मुझे नींद नहीं आती|agar maĩ kôfī pītā hū̃, to mujhe nīnd nahī̃ ātī}} “If I drink coffee, I can't sleep”. And {{नहीं तो|nahī̃ to}} is “otherwise, or else”: {{जल्दी करो, नहीं तो देर हो जाएगी|jaldī karo, nahī̃ to der ho jāegī}} “Hurry up, or we'll be late”."},
+        { "ex": [
+          {"t":"अगर समय मिला तो मैं आऊँगी।","r":"agar samay milā to maĩ āū̃gī.","tr":"If I get time, I'll come.","note":"a woman speaking"},
+          {"t":"अगर आपको भूख लगी है, तो खाना खा लीजिए।","r":"agar āpko bhūkh lagī hai, to khānā khā lījie.","tr":"If you're hungry, go ahead and eat."},
+          {"t":"अगर तुम चाहो, तो मैं तुम्हें स्टेशन छोड़ दूँ।","r":"agar tum chāho, to maĩ tumhẽ sṭeshan chhoṛ dū̃.","tr":"If you like, I can drop you at the station."},
+          {"t":"अगर ट्रेन देर से आई, तो मैं तुम्हें फ़ोन करूँगा।","r":"agar ṭren der se āī, to maĩ tumhẽ fon karū̃gā.","tr":"If the train is late, I'll call you."},
+          {"t":"जल्दी करो, नहीं तो देर हो जाएगी।","r":"jaldī karo, nahī̃ to der ho jāegī.","tr":"Hurry up, or we'll be late."},
+          {"t":"अगर मैं कॉफ़ी पीता हूँ, तो मुझे नींद नहीं आती।","r":"agar maĩ kôfī pītā hū̃, to mujhe nīnd nahī̃ ātī.","tr":"If I drink coffee, I can't sleep."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"अगर तुम्हें भूख लगी है, तब खाना खा लो।","right":"अगर तुम्हें भूख लगी है, तो खाना खा लो।","tr":"If you're hungry, go ahead and eat.","why":"After {{अगर|agar}}, “then” is {{तो|to}}. {{तब|tab}} goes with {{जब|jab}} “when” (lesson 45)."},
+        {"wrong":"जब बारिश हुई, तो हम नहीं जाएँगे।","right":"अगर बारिश हुई, तो हम नहीं जाएँगे।","tr":"If it rains, we won't go.","why":"For something that may not happen, “if” is {{अगर|agar}}. {{जब|jab}} is “when”, for something sure to happen."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"अगर कल बारिश हुई, ___ हम घर पर रहेंगे।","tr":"If it rains tomorrow, we'll stay home.","options":["तो","तब","कि"],"answer":0,"why":"{{अगर|agar}} … {{तो|to}}.","r":"agar kal bārish huī, ___ ham ghar par rahẽge.","rs":["to","tab","ki"]},
+        {"type":"fill","q":"Choose the right word.","t":"जल्दी करो, नहीं ___ देर हो जाएगी।","tr":"Hurry up, or we'll be late.","options":["तो","कि","भी"],"answer":0,"why":"{{नहीं तो|nahī̃ to}}: otherwise.","from":"sound-natural","r":"jaldī karo, nahī̃ ___ der ho jāegī.","rs":["to","ki","bhī"]},
+        {"type":"choice","q":"{{अगर समय मिला, तो मैं आऊँगी।|agar samay milā, to maĩ āū̃gī.}} Is she sure she'll come?","options":["No: only if she gets time","Yes: she already came","Yes: she's coming for sure"],"answer":0,"why":"After {{अगर|agar}}, {{मिला|milā}} is a condition, not something that happened."},
+        {"type":"order","q":"Put the words in order.","tr":"If the train is late, I'll call you.","words":["अगर","ट्रेन","देर से","आई,","तो","मैं","तुम्हें","फ़ोन","करूँगा।"],"rs":["agar","ṭren","der se","āī,","to","maĩ","tumhẽ","fon","karū̃gā."]},
+        {"type":"dialogue","q":"Planning a weekend trip. Choose your replies.","from":"say-what-you-will-do","lines":[{"who":"Friend","t":"शनिवार को पहाड़ों पर चलें?","r":"shanivār ko pahāṛõ par chalẽ?","tr":"Shall we go to the mountains on Saturday?"},{"options":["हाँ, अगर मौसम अच्छा रहा, तो ज़रूर चलेंगे।","हाँ, जब मौसम अच्छा रहा, तो ज़रूर चलेंगे।"],"answer":0,"why":"The weather may not be good: {{अगर|agar}}.","rs":["hā̃, agar mausam achchhā rahā, to zarūr chalẽge.","hā̃, jab mausam achchhā rahā, to zarūr chalẽge."]},{"who":"Friend","t":"और अगर बारिश हुई तो?","r":"aur agar bārish huī to?","tr":"And if it rains?"},{"options":["तो घर पर खाना बनाएँगे और फ़िल्म देखेंगे।","तब घर पर खाना बनाएँगे और फ़िल्म देखेंगे।"],"answer":0,"why":"After {{अगर|agar}}: {{तो|to}}.","rs":["to ghar par khānā banāẽge aur film dekhẽge.","tab ghar par khānā banāẽge aur film dekhẽge."]}]},
+        {"type":"say","q":"Offer politely: “If you like, shall I help you?”","answer":"अगर आप चाहें, तो मैं आपकी मदद करूँ?","r":"agar āp chāhẽ, to maĩ āpkī madad karū̃?","from":"make-suggestions"},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and what you'll do if it isn't.","answers":[{"t":"अगर मौसम अच्छा रहा, तो मैं दोस्तों के साथ पार्क जाऊँगा। अगर बारिश हुई, तो घर पर किताब पढ़ूँगा।","r":"agar mausam achchhā rahā, to maĩ dostõ ke sāth pārk jāū̃gā. agar bārish huī, to ghar par kitāb paṛhū̃gā.","tr":"If the weather's good, I'll go to the park with friends. If it rains, I'll read a book at home."},{"t":"अगर धूप निकली, तो हम समुद्र किनारे जाएँगे। नहीं तो, हम घर पर ही रहेंगे।","r":"agar dhūp niklī, to ham samudra kināre jāẽge. nahī̃ to, ham ghar par hī rahẽge.","tr":"If the sun comes out, we'll go to the beach. Otherwise, we'll just stay home."}]}
+      ]
+    },
+    {
+      "id": "say-which-one-you-mean",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say which one you mean",
+      "summary": "Point people and things out by what they do: “The girl in the red sari is my sister”, “the hotel we stayed in”.",
+      "topic": "{{जो … वह|jo … vah}} “who, which … that one”; {{जिस|jis}}, {{जिन|jin}} before a postposition; {{जिसने|jisne}}; {{जो भी|jo bhī}} “whatever”",
+      "blocks": [
+        {"goal":{"t":"जो लड़की लाल साड़ी में है, वह मेरी बहन है।","r":"jo laṛkī lāl sāṛī mẽ hai, vah merī bahan hai.","tr":"The girl in the red sari is my sister."}},
+        {"dialog":[{"who":"Ben","t":"वह आदमी कौन है जो सबके साथ नाच रहा है?","r":"vah ādmī kaun hai jo sabke sāth nāch rahā hai?","tr":"Who's that man who's dancing with everyone?"},{"who":"Pooja","t":"वह मेरे चाचा हैं। और जो औरत उनके साथ है, वह मेरी चाची हैं।","r":"vah mere chāchā haĩ. aur jo aurat unke sāth hai, vah merī chāchī haĩ.","tr":"That's my uncle. And the woman who's with him is my aunt."},{"who":"Ben","t":"और जिस लड़के ने मुझे पानी दिया, वह कौन था?","r":"aur jis laṛke ne mujhe pānī diyā, vah kaun thā?","tr":"And the boy who gave me water, who was he?"},{"who":"Pooja","t":"वह मेरा चचेरा भाई है। जो भी चाहिए, उससे माँग लो!","r":"vah merā chacherā bhāī hai. jo bhī chāhie, usse māṅg lo!","tr":"That's my cousin. Whatever you need, just ask him!"}]},
+        {"term":"relative clause","means":"a part of a sentence that says which person or thing you mean: “the girl *who is in the red sari*”."},
+        {"p":"**The one who.** English puts “who” after the noun (“the girl *who*…”). Hindi uses a pair: {{जो|jo}} “who, which” in the first half, and {{वह|vah}} “that one” to start the second: {{जो लड़की लाल साड़ी में है, वह मेरी बहन है|jo laṛkī lāl sāṛī mẽ hai, vah merī bahan hai}}, word for word “which girl is in the red sari, she is my sister”. For more than one, {{वे|ve}}: {{जो लोग…, वे…|jo log…, ve…}}."},
+        {"p":"**Before a postposition, or with {{ने|ne}},** {{जो|jo}} becomes {{जिस|jis}} (one) or {{जिन|jin}} (more than one), just as {{वह|vah}} becomes {{उस|us}} (lesson 9): {{जिस होटल में हम रुके, वह बहुत अच्छा था|jis hoṭal mẽ ham ruke, vah bahut achchhā thā}} “The hotel we stayed in was very nice”. With {{ने|ne}}: {{जिसने|jisne}}, {{जिन्होंने|jinhõne}}."},
+        { "table": [
+          ["","{{जो|jo}} form","example"],
+          ["who, which","{{जो|jo}}","{{जो किताब मेज़ पर है, वह मेरी है।|jo kitāb mez par hai, vah merī hai.}} The book on the table is mine."],
+          ["before a postposition","{{जिस|jis}}, {{जिन|jin}}","{{जिस घर में मैं रहता हूँ, वह पुराना है।|jis ghar mẽ maĩ rahtā hū̃, vah purānā hai.}} The house I live in is old."],
+          ["with {{ने|ne}}","{{जिसने|jisne}}, {{जिन्होंने|jinhõne}}","{{जिसने फ़ोन किया, वह कौन था?|jisne fon kiyā, vah kaun thā?}} Who was it that called?"],
+          ["whatever","{{जो भी|jo bhī}}","{{जो भी चाहिए, ले लो।|jo bhī chāhie, le lo.}} Take whatever you need."]
+        ] },
+        {"p":"**After the noun, too.** In speech, the {{जो|jo}} part can also come after the noun, as in English: {{वह आदमी कौन है जो नाच रहा है?|vah ādmī kaun hai jo nāch rahā hai?}} “Who's the man who's dancing?”"},
+        { "ex": [
+          {"t":"जो चाहिए, ले लो।","r":"jo chāhie, le lo.","tr":"Take whatever you need."},
+          {"t":"जिस लड़की से मैं कल मिला, वह डॉक्टर है।","r":"jis laṛkī se maĩ kal milā, vah ḍôkṭar hai.","tr":"The girl I met yesterday is a doctor."},
+          {"t":"जो लोग यहाँ रहते हैं, वे बहुत अच्छे हैं।","r":"jo log yahā̃ rahte haĩ, ve bahut achchhe haĩ.","tr":"The people who live here are very nice."},
+          {"t":"जिसने यह खाना बनाया, उसे बधाई!","r":"jisne yah khānā banāyā, use badhāī!","tr":"Congratulations to whoever cooked this!"},
+          {"t":"मुझे वह फ़िल्म बहुत पसंद आई जो हमने कल देखी।","r":"mujhe vah film bahut pasand āī jo hamne kal dekhī.","tr":"I really liked the movie we saw yesterday.","note":"here the {{जो|jo}} part comes after; {{पसंद आना|pasand ānā}} is “to like (something you've just seen or tried)”"},
+          {"t":"जिस दुकान पर मैं काम करती हूँ, वह स्टेशन के पास है।","r":"jis dukān par maĩ kām kartī hū̃, vah sṭeshan ke pās hai.","tr":"The shop I work at is near the station.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"जो होटल में हम रुके, वह अच्छा था।","right":"जिस होटल में हम रुके, वह अच्छा था।","tr":"The hotel we stayed in was good.","why":"Before a postposition ({{में|mẽ}}), {{जो|jo}} becomes {{जिस|jis}}."},
+        {"wrong":"जो यह बनाया, वह बहुत होशियार है।","right":"जिसने यह बनाया, वह बहुत होशियार है।","tr":"Whoever made this is very clever.","why":"A transitive verb in the past: {{जिसने|jisne}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"___ घर में मैं रहता हूँ, वह पुराना है।","tr":"The house I live in is old.","options":["जिस","जो","जिन"],"answer":0,"why":"One house, before {{में|mẽ}}: {{जिस|jis}}.","from":"around-town","r":"___ ghar mẽ maĩ rahtā hū̃, vah purānā hai.","rs":["jis","jo","jin"]},
+        {"type":"fill","q":"Choose the right word.","t":"___ यह खाना बनाया, उसे बधाई!","tr":"Congratulations to whoever cooked this!","options":["जिसने","जो","जिसको"],"answer":0,"why":"{{ने|ne}} with {{बनाया|banāyā}}: {{जिसने|jisne}}.","from":"say-what-you-did","r":"___ yah khānā banāyā, use badhāī!","rs":["jisne","jo","jisko"]},
+        {"type":"choice","q":"{{जो लोग यहाँ रहते हैं, वे बहुत अच्छे हैं।|jo log yahā̃ rahte haĩ, ve bahut achchhe haĩ.}} means…","options":["The people who live here are very nice.","Some people here are nice.","Whoever they are, people here live well."],"answer":0,"why":"{{जो|jo}} … {{वे|ve}}: “the people who…”."},
+        {"type":"order","q":"Put the words in order.","tr":"Take whatever you need.","words":["जो","भी","चाहिए,","ले","लो।"],"rs":["jo","bhī","chāhie,","le","lo."]},
+        {"type":"dialogue","q":"At a wedding, your friend points out her family. Choose your questions.","lines":[{"who":"Pooja","t":"मेरा पूरा परिवार यहाँ है!","r":"merā pūrā parivār yahā̃ hai!","tr":"My whole family is here!"},{"options":["जो आदमी नाच रहा है, वह कौन है?","जिस आदमी नाच रहा है, वह कौन है?"],"answer":0,"why":"No postposition after it: {{जो|jo}}.","rs":["jo ādmī nāch rahā hai, vah kaun hai?","jis ādmī nāch rahā hai, vah kaun hai?"]},{"who":"Pooja","t":"वह मेरे चाचा हैं।","r":"vah mere chāchā haĩ.","tr":"That's my uncle."},{"options":["और जिस औरत से वे बात कर रहे हैं, वह?","और जो औरत से वे बात कर रहे हैं, वह?"],"answer":0,"why":"Before {{से|se}}: {{जिस|jis}}.","rs":["aur jis aurat se ve bāt kar rahe haĩ, vah?","aur jo aurat se ve bāt kar rahe haĩ, vah?"]}]},
+        {"type":"say","q":"Say: “The people who live here are very nice.”","answer":"जो लोग यहाँ रहते हैं, वे बहुत अच्छे हैं।","r":"jo log yahā̃ rahte haĩ, ve bahut achchhe haĩ."},
+        {"type":"free","q":"Your turn: describe two people or things by saying which ones you mean, with {{जो … वह|jo … vah}} or {{जिस … वह|jis … vah}}.","answers":[{"t":"जो दोस्त मेरे साथ हिंदी सीखती है, वह मुंबई से है।","r":"jo dost mere sāth hindī sīkhtī hai, vah mumbaī se hai.","tr":"The friend who learns Hindi with me is from Mumbai."},{"t":"जिस शहर में मैं रहता हूँ, वह बहुत सुंदर है।","r":"jis shahar mẽ maĩ rahtā hū̃, vah bahut sundar hai.","tr":"The city I live in is very beautiful."}]}
+      ]
+    },
+    {
+      "id": "say-when-and-where",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say when, where and as soon as",
+      "summary": "Join ideas in time and place: “When you come, we'll talk”, “Wherever you go…”, “as soon as”, “until”.",
+      "topic": "{{जब … तब|jab … tab}}, {{जहाँ … वहाँ|jahā̃ … vahā̃}}, {{जैसे ही|jaise hī}} “as soon as”, {{जब तक|jab tak}} “as long as”, {{जब तक … न|jab tak … na}} “until”",
+      "blocks": [
+        {"goal":{"t":"जब तुम आओगे, तब बात करेंगे।","r":"jab tum āoge, tab bāt karẽge.","tr":"When you come, we'll talk."}},
+        {"dialog":[{"who":"Mia","t":"जैसे ही तुम पहुँचो, मुझे मैसेज करना।","r":"jaise hī tum pahũcho, mujhe maisej karnā.","tr":"As soon as you arrive, text me."},{"who":"Arjun","t":"ठीक है। और जब तक मैं न आऊँ, तुम खाना मत खाना!","r":"ṭhīk hai. aur jab tak maĩ na āū̃, tum khānā mat khānā!","tr":"OK. And don't eat until I get there!"},{"who":"Mia","t":"हा हा, ठीक है। जहाँ हम पिछली बार मिले थे, वहीं मिलें?","r":"hā hā, ṭhīk hai. jahā̃ ham pichhlī bār mile the, vahī̃ milẽ?","tr":"Ha ha, OK. Shall we meet where we met last time?"},{"who":"Arjun","t":"हाँ, वहीं।","r":"hā̃, vahī̃.","tr":"Yes, right there."}]},
+        {"p":"**When … then.** Like {{जो … वह|jo … vah}} (lesson 44), Hindi joins time with a pair: {{जब|jab}} “when” … {{तब|tab}} “then”. {{तब|tab}} can be left out, as in {{जब मैं छोटा था, …|jab maĩ chhoṭā thā, …}} (lesson 31). For the future, Hindi says “when you *will* come”: {{जब तुम आओगे, तब बात करेंगे|jab tum āoge, tab bāt karẽge}}."},
+        {"p":"**Where … there.** {{जहाँ|jahā̃}} “where” … {{वहाँ|vahā̃}} “there”: {{जहाँ हम रहते हैं, वहाँ बहुत पेड़ हैं|jahā̃ ham rahte haĩ, vahā̃ bahut peṛ haĩ}} “Where we live, there are lots of trees”. {{वहीं|vahī̃}} is “right there”, and {{जब भी|jab bhī}}, {{जहाँ भी|jahā̃ bhī}} are “whenever”, “wherever”."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["when … (then)","{{जब मैं पहुँचा, तब वह सो रहा था।|jab maĩ pahũchā, tab vah so rahā thā.}}","When I arrived, he was asleep."],
+          ["where … there","{{जहाँ तुम जाओगे, वहाँ मैं भी जाऊँगा।|jahā̃ tum jāoge, vahā̃ maĩ bhī jāū̃gā.}}","Wherever you go, I'll go too."],
+          ["as soon as","{{जैसे ही वह आया, बारिश शुरू हो गई।|jaise hī vah āyā, bārish shurū ho gaī.}}","As soon as he came, it started to rain."],
+          ["as long as","{{जब तक तुम यहाँ हो, मैं भी रुकूँगी।|jab tak tum yahā̃ ho, maĩ bhī rukū̃gī.}}","As long as you're here, I'll stay too."]
+        ] },
+        {"p":"**Until.** {{जब तक|jab tak}} is “as long as”; with {{न|na}} or {{नहीं|nahī̃}} it becomes “until”: {{जब तक मैं न आऊँ, खाना मत खाना|jab tak maĩ na āū̃, khānā mat khānā}} “Don't eat until I come”, word for word “as long as I don't come, don't eat”. With a noun, “until” is just {{तक|tak}}: {{पाँच बजे तक|pā̃ch baje tak}} (lesson 18)."},
+        { "ex": [
+          {"t":"जब मैं घर पहुँचा, सब सो रहे थे।","r":"jab maĩ ghar pahũchā, sab so rahe the.","tr":"When I got home, everyone was asleep."},
+          {"t":"जहाँ मैं काम करती हूँ, वहाँ एक अच्छी कैंटीन है।","r":"jahā̃ maĩ kām kartī hū̃, vahā̃ ek achchhī kaiṇṭīn hai.","tr":"There's a good cafeteria where I work.","note":"a woman speaking"},
+          {"t":"जैसे ही फ़िल्म ख़त्म हुई, हम घर चले गए।","r":"jaise hī film khatm huī, ham ghar chale gae.","tr":"As soon as the movie ended, we went home."},
+          {"t":"जब तक बारिश नहीं रुकती, हम यहीं रहेंगे।","r":"jab tak bārish nahī̃ ruktī, ham yahī̃ rahẽge.","tr":"We'll stay here until the rain stops."},
+          {"t":"जब भी मैं दिल्ली जाता हूँ, उनसे मिलता हूँ।","r":"jab bhī maĩ dillī jātā hū̃, unse miltā hū̃.","tr":"Whenever I go to Delhi, I see them."},
+          {"t":"जहाँ चाह, वहाँ राह।","r":"jahā̃ chāh, vahā̃ rāh.","tr":"Where there's a will, there's a way.","note":"a proverb: “where (there's) wish, there (there's) road”"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"जब तुम आते हो, तब बात करेंगे।","right":"जब तुम आओगे, तब बात करेंगे।","tr":"When you come, we'll talk.","why":"About the future, Hindi says “when you *will* come”: {{आओगे|āoge}}. ({{आते हो|āte ho}} is “whenever you come”, a habit.)"},
+        {"wrong":"जब तक मैं आऊँ, खाना मत खाना।","right":"जब तक मैं न आऊँ, खाना मत खाना।","tr":"Don't eat until I come.","why":"“Until” is {{जब तक … न|jab tak … na}}: “as long as I don't come”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"जब तुम आओगे, ___ बात करेंगे।","tr":"When you come, we'll talk.","options":["तब","तो","वहाँ"],"answer":0,"why":"{{जब|jab}} … {{तब|tab}}.","r":"jab tum āoge, ___ bāt karẽge.","rs":["tab","to","vahā̃"]},
+        {"type":"fill","q":"Choose the right word.","t":"___ मैं काम करती हूँ, वहाँ एक अच्छी कैंटीन है।","tr":"There's a good cafeteria where I work.","options":["जहाँ","जब","जो"],"answer":0,"why":"A place: {{जहाँ|jahā̃}} … {{वहाँ|vahā̃}}.","from":"say-which-one-you-mean","r":"___ maĩ kām kartī hū̃, vahā̃ ek achchhī kaiṇṭīn hai.","rs":["jahā̃","jab","jo"]},
+        {"type":"choice","q":"{{जब तक मैं न आऊँ, खाना मत खाना।|jab tak maĩ na āū̃, khānā mat khānā.}} means…","options":["Don't eat until I come.","Don't eat when I come.","Eat as long as I'm not here."],"answer":0,"why":"{{जब तक … न|jab tak … na}}: until."},
+        {"type":"order","q":"Put the words in order.","tr":"When I got home, everyone was asleep.","words":["जब","मैं","घर","पहुँचा,","सब","सो","रहे","थे।"],"from":"say-what-was-going-on","rs":["jab","maĩ","ghar","pahũchā,","sab","so","rahe","the."]},
+        {"type":"dialogue","q":"A friend is coming to visit. Choose your replies.","from":"say-what-happens-if","lines":[{"who":"Friend","t":"मैं शाम को निकलूँगा।","r":"maĩ shām ko niklū̃gā.","tr":"I'll set off in the evening."},{"options":["ठीक है, जैसे ही तुम पहुँचो, मुझे फ़ोन करना।","ठीक है, जैसे ही तुम पहुँचे थे, मुझे फ़ोन करना।"],"answer":0,"why":"Ahead in time: {{पहुँचो|pahũcho}} (the subjunctive).","rs":["ṭhīk hai, jaise hī tum pahũcho, mujhe fon karnā.","ṭhīk hai, jaise hī tum pahũche the, mujhe fon karnā."]},{"who":"Friend","t":"और अगर मुझे देर हो गई तो?","r":"aur agar mujhe der ho gaī to?","tr":"And if I'm late?"},{"options":["कोई बात नहीं। जब तक तुम नहीं आते, हम खाना नहीं खाएँगे।","कोई बात नहीं। जब तक तुम आते, हम खाना खाएँगे।"],"answer":0,"why":"“Until” is {{जब तक … नहीं|jab tak … nahī̃}} (or {{न|na}}).","rs":["koī bāt nahī̃. jab tak tum nahī̃ āte, ham khānā nahī̃ khāẽge.","koī bāt nahī̃. jab tak tum āte, ham khānā khāẽge."]}]},
+        {"type":"say","q":"Say the proverb: “Where there's a will, there's a way.”","answer":"जहाँ चाह, वहाँ राह।","r":"jahā̃ chāh, vahā̃ rāh."},
+        {"type":"free","q":"Your turn: say what you do whenever you have free time, and what you'll do as soon as you get home today.","answers":[{"t":"जब भी मेरे पास समय होता है, मैं पढ़ता हूँ। आज जैसे ही मैं घर पहुँचूँगा, खाना बनाऊँगा।","r":"jab bhī mere pās samay hotā hai, maĩ paṛhtā hū̃. āj jaise hī maĩ ghar pahũchū̃gā, khānā banāū̃gā.","tr":"Whenever I have time, I read. Today, as soon as I get home, I'll cook."},{"t":"जब भी मुझे समय मिलता है, मैं पार्क में टहलती हूँ। जैसे ही मैं घर पहुँचूँगी, चाय पिऊँगी।","r":"jab bhī mujhe samay miltā hai, maĩ pārk mẽ ṭahaltī hū̃. jaise hī maĩ ghar pahũchū̃gī, chāy piū̃gī.","tr":"Whenever I get time, I go for a walk in the park. As soon as I get home, I'll have some tea."}]}
+      ]
     }
   ]
 }
