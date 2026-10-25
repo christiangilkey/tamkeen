@@ -1127,6 +1127,326 @@
         {"type":"say","q":"Say: “I'll call you later.”","answer":"بعداً به تو زنگ می‌زنم.","r":"ba'dan be to zang mi-zanam.","from":"talk-about-work-and-study"},
         {"type":"free","q":"Your turn: say what you're doing next weekend, and one thing that's already arranged, with {{قرار است}}.","answers":[{"t":"شنبه به خانهٔ مادرم می‌روم. قرار است با هم ناهار بخوریم.","r":"shanbe be khâne-ye mâdaram mi-ravam. gharâr ast bâ ham nâhâr bokhorim.","tr":"On Saturday I'm going to my mother's. We're having lunch together."},{"t":"قرار است جمعه با دوستانم فوتبال بازی کنیم.","r":"gharâr ast jom'e bâ dustânam futbâl bâzi konim.","tr":"I'm playing football with my friends on Friday."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Say what you did yesterday, where you were and what you had: the simple past, made from the past stem.",
+      "topic": "the simple past: past stem + endings (none for “he, she”); {{بودم}}, {{داشتم}}; {{دیروز}}, {{دیشب}}, {{پارسال}}",
+      "blocks": [
+        {"goal":{"t":"دیروز به بازار رفتم و یک فرش خریدم.","r":"diruz be bâzâr raftam va yek farsh kharidam.","tr":"Yesterday I went to the bazaar and bought a carpet."}},
+        {"dialog":[{"who":"Ali","t":"دیروز کجا بودی؟","r":"diruz kojâ budi?","tr":"Where were you yesterday?"},{"who":"Sara","t":"به بازار تجریش رفتم.","r":"be bâzâr-e tajrish raftam.","tr":"I went to Tajrish bazaar."},{"who":"Ali","t":"چه خریدی؟","r":"che kharidi?","tr":"What did you buy?"},{"who":"Sara","t":"یک روسری و کمی میوه خریدم. بعد با مریم ناهار خوردیم.","r":"yek rusari va kami mive kharidam. ba'd bâ maryam nâhâr khordim.","tr":"A headscarf and some fruit. Then Maryam and I had lunch."},{"who":"Ali","t":"خوش گذشت؟","r":"khosh gozasht?","tr":"Did you have a good time?"},{"who":"Sara","t":"بله، خیلی!","r":"bale, kheyli!","tr":"Yes, a lot!"}]},
+        {"p":"**The past is easy.** Take the past stem (the infinitive without its -an) and add the endings: {{رفت|raft}} + -am = {{رفتم|raftam}} “I went”. No {{می}}, no {{بـ}}. And for “he, she” there is **no ending at all**: {{رفت}} “he went, she went”."},
+        { "table": [
+          ["","go ({{رفتن}})","buy ({{خریدن}})","be ({{بودن}})"],
+          ["I","{{رفتم|raftam}}","{{خریدم|kharidam}}","{{بودم|budam}}"],
+          ["you (friend)","{{رفتی|rafti}}","{{خریدی|kharidi}}","{{بودی|budi}}"],
+          ["he, she","{{رفت|raft}}","{{خرید|kharid}}","{{بود|bud}}"],
+          ["we","{{رفتیم|raftim}}","{{خریدیم|kharidim}}","{{بودیم|budim}}"],
+          ["you (polite)","{{رفتید|raftid}}","{{خریدید|kharidid}}","{{بودید|budid}}"],
+          ["they","{{رفتند|raftand}}","{{خریدند|kharidand}}","{{بودند|budand}}"]
+        ] },
+        {"p":"**Why you learned two stems.** The past stem comes straight from the infinitive, so the past is the most regular tense of all: {{دیدن}} → {{دیدم|didam}} “I saw”, {{خوردن}} → {{خوردم|khordam}} “I ate”, {{آمدن}} → {{آمدم|âmadam}} “I came”, {{کردن}} → {{کردم|kardam}} “I did”."},
+        {"p":"**Was, had.** “Be” and “have” work the same way: {{بودم|budam}} “I was”, {{داشتم|dâshtam}} “I had”. {{دیروز خانه بودم.|diruz khâne budam.}} “I was at home yesterday.” {{یک گربه داشتیم.|yek gorbe dâshtim.}} “We had a cat.”"},
+        {"p":"**When.** {{دیروز|diruz}} “yesterday”, {{دیشب|dishab}} “last night”, {{پریروز|pariruz}} “the day before yesterday”, {{هفتهٔ پیش|hafte-ye pish}} “last week”, {{پارسال|pârsâl}} “last year”."},
+        { "ex": [
+          {"t":"دیشب یک فیلم خوب دیدم.","r":"dishab yek film-e khub didam.","tr":"I saw a good film last night."},
+          {"t":"او پارسال به آلمان رفت.","r":"u pârsâl be âlmân raft.","tr":"She went to Germany last year.","note":"“he, she”: no ending"},
+          {"t":"هفتهٔ پیش خیلی کار کردم.","r":"hafte-ye pish kheyli kâr kardam.","tr":"I worked a lot last week.","note":"a compound verb: only {{کرد}} changes"},
+          {"t":"دیروز کجا بودید؟","r":"diruz kojâ budid?","tr":"Where were you yesterday?"},
+          {"t":"بچه که بودم، یک سگ داشتیم.","r":"bachche ke budam, yek sag dâshtim.","tr":"When I was a child, we had a dog.","note":"{{بچه که بودم}} “when I was a child”, word for word “child that I was”"},
+          {"t":"ساعت هفت به خانه آمدند.","r":"sâ'at-e haft be khâne âmadand.","tr":"They came home at seven."}
+        ] },
+        {"tip":"Two verbs whose presents look odd have perfectly regular pasts: {{گفتن}} “to say” → {{گفتم|goftam}} “I said” (present stem {{گو|gu}}), and {{شدن}} “to become” → {{شدم|shodam}} (present stem {{شو|shav}})."}
+      ],
+      "mistakes": [
+        {"wrong":"او رفتد.","right":"او رفت.","tr":"He went.","why":"In the past, “he, she” has no ending: just the past stem, {{رفت}}."},
+        {"wrong":"دیروز به بازار می‌رفتم.","right":"دیروز به بازار رفتم.","tr":"Yesterday I went to the bazaar.","why":"For one finished action, the simple past has no {{می}}: {{رفتم}}. (With {{می}} it means “I used to go” or “I was going”: lessons 29 and 30.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دیروز به سینما ___.","tr":"I went to the cinema yesterday.","options":["رفتم","می‌روم","بروم"],"answer":0,"why":"A finished action in the past: past stem + -am, {{رفتم}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"او دیشب ساعت ده ___.","tr":"He came at ten last night.","options":["آمد","آمدد","آمدم"],"answer":0,"why":"“He, she” in the past: the past stem alone, {{آمد}}."},
+        {"type":"choice","q":"{{خریدیم}} means…","options":["we bought","they bought","we buy"],"answer":0,"why":"The past stem {{خرید}} + -im “we”."},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","from":"say-what-you-like","lines":[{"who":"Ali","t":"جمعه چه کار کردی؟","r":"jom'e che kâr kardi?","tr":"What did you do on Friday?"},{"options":["با دوستانم به کوه رفتم.","با دوستانم به کوه می‌روم."],"answer":0,"why":"Friday is over: the past, {{رفتم}}."},{"who":"Ali","t":"خوش گذشت؟","r":"khosh gozasht?","tr":"Did you have a good time?"},{"options":["بله، خیلی! از کوه خیلی خوشم آمد.","بله، خیلی! کوه را خیلی خوشم آمد."],"answer":0,"why":"The past of {{خوشم می‌آید}} is {{خوشم آمد}}, still with {{از}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Yesterday I went to the bazaar and bought a carpet.","words":["دیروز","به","بازار","رفتم","و","یک","فرش","خریدم."]},
+        {"type":"say","q":"Ask a friend: “Where were you yesterday?”","answer":"دیروز کجا بودی؟","r":"diruz kojâ budi?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say three things you did yesterday.","answers":[{"t":"دیروز صبح ورزش کردم، بعد به کتابخانه رفتم و شب با خانواده‌ام شام خوردم.","r":"diruz sobh varzesh kardam, ba'd be ketâbkhâne raftam va shab bâ khânevâde-am shâm khordam.","tr":"Yesterday morning I exercised, then I went to the library, and in the evening I had dinner with my family."},{"t":"دیروز خیلی کار کردم و زود خوابیدم.","r":"diruz kheyli kâr kardam va zud khâbidam.","tr":"Yesterday I worked a lot and went to bed early."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ask what someone did, and say what you didn't",
+      "summary": "Ask “When did you arrive?” and “Did you call the airport?”, and say “I didn't see it” and “I came three days ago”.",
+      "topic": "{{نـ}} + past ({{نرفتم}}); questions in the past; compound verbs in the past; {{پیش}} “ago”",
+      "blocks": [
+        {"goal":{"t":"سه روز پیش رسیدم، ولی چمدانم نرسید!","r":"se ruz pish residam, vali chamedânam naresid!","tr":"I arrived three days ago, but my suitcase didn't!"}},
+        {"dialog":[{"who":"Mina","t":"کی رسیدی؟","r":"key residi?","tr":"When did you arrive?"},{"who":"Tom","t":"سه روز پیش رسیدم.","r":"se ruz pish residam.","tr":"I arrived three days ago."},{"who":"Mina","t":"چرا به من زنگ نزدی؟","r":"cherâ be man zang nazadi?","tr":"Why didn't you call me?"},{"who":"Tom","t":"ببخشید! خیلی کار داشتم. چمدانم هم نرسید!","r":"bebakhshid! kheyli kâr dâshtam. chamedânam ham naresid!","tr":"Sorry! I was really busy. And my suitcase didn't arrive!"},{"who":"Mina","t":"وای! به فرودگاه زنگ زدی؟","r":"vây! be forudgâh zang zadi?","tr":"Oh no! Did you call the airport?"},{"who":"Tom","t":"بله، دیروز زنگ زدم.","r":"bale, diruz zang zadam.","tr":"Yes, I called yesterday."}]},
+        {"p":"**Didn't.** {{نـ}} on the front: {{رفتم}} → {{نرفتم|naraftam}} “I didn't go”, {{دیدم}} → {{ندیدم|nadidam}} “I didn't see”, {{آمد}} → {{نیامد|nayâmad}} “he didn't come” (before {{آ}}, a y comes in)."},
+        {"p":"**Questions** in the past are made as always: with the voice, or with a question word in the answer's place: {{رسیدی؟|residi?}} “Did you arrive?”, {{کی رسیدی؟|key residi?}} “When did you arrive?”, {{چه گفت؟|che goft?}} “What did he say?”"},
+        {"p":"**Compound verbs** change only their verb part, and {{نـ}} goes on it: {{زنگ زدم|zang zadam}} “I called”, {{زنگ نزدم|zang nazadam}} “I didn't call”; {{کار کردی؟|kâr kardi?}} “Did you work?”"},
+        {"p":"**Ago.** {{پیش|pish}} after the time: {{سه روز پیش|se ruz pish}} “three days ago”, {{دو سال پیش|do sâl pish}} “two years ago”, {{چند دقیقه پیش|chand daghighe pish}} “a few minutes ago”. {{قبل|ghabl}} works too: {{یک ماه قبل|yek mâh ghabl}} “a month ago”."},
+        { "table": [
+          ["","did","didn't"],
+          ["go","{{رفتم|raftam}}","{{نرفتم|naraftam}}"],
+          ["see","{{دیدی|didi}}","{{ندیدی|nadidi}}"],
+          ["come","{{آمد|âmad}}","{{نیامد|nayâmad}}"],
+          ["call","{{زنگ زدیم|zang zadim}}","{{زنگ نزدیم|zang nazadim}}"],
+          ["work","{{کار کردید|kâr kardid}}","{{کار نکردید|kâr nakardid}}"],
+          ["have","{{داشتند|dâshtand}}","{{نداشتند|nadâshtand}}"]
+        ] },
+        { "ex": [
+          {"t":"دیروز سر کار نرفتم.","r":"diruz sar-e kâr naraftam.","tr":"I didn't go to work yesterday."},
+          {"t":"چرا دیشب نیامدی؟","r":"cherâ dishab nayâmadi?","tr":"Why didn't you come last night?"},
+          {"t":"او چه گفت؟","r":"u che goft?","tr":"What did she say?"},
+          {"t":"کیفم را ندیدی؟","r":"kifam râ nadidi?","tr":"Have you seen my bag?","note":"word for word “didn't you see my bag?”"},
+          {"t":"دو سال پیش فارسی را شروع کردم.","r":"do sâl pish fârsi râ shoru' kardam.","tr":"I started Persian two years ago."},
+          {"t":"صبحانه خوردی؟ نه، وقت نداشتم.","r":"sobhâne khordi? na, vaght nadâshtam.","tr":"Did you have breakfast? No, I didn't have time."}
+        ] },
+        {"tip":"For something that has just happened, Iranians often use the simple past where English says “have”: {{رسیدم!|residam!}} “I'm here!” (“I've arrived”), {{فهمیدم.|fahmidam.}} “I get it.” (“I've understood”)."}
+      ],
+      "mistakes": [
+        {"wrong":"نه رفتم.","right":"نرفتم.","tr":"I didn't go.","why":"“Not” is joined to the verb: {{نرفتم}}."},
+        {"wrong":"نزنگ زدم.","right":"زنگ نزدم.","tr":"I didn't call.","why":"In a compound verb, {{نـ}} goes on the verb part: {{زنگ نزدم}}."},
+        {"wrong":"قبل از سه روز آمدم.","right":"سه روز پیش آمدم.","tr":"I came three days ago.","why":"“Ago” comes after the time: {{سه روز پیش}}. ({{قبل از}} is “before”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دیروز به او زنگ ___.","tr":"I didn't call him yesterday.","options":["نزدم","نه زدم","زدم نه"],"answer":0,"why":"{{نـ}} on the verb part of {{زنگ زدن}}: {{نزدم}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"سه سال ___ به ایران رفتم.","tr":"I went to Iran three years ago.","options":["پیش","قبل از","بعد"],"answer":0,"why":"“Ago” is {{پیش}}, after the time."},
+        {"type":"choice","q":"{{چرا نیامدی؟}} means…","options":["Why didn't you come?","Why don't you come?","Why did you come?"],"answer":0,"why":"{{نـ}} + {{آمد}} (with a y): {{نیامد}}; + -i “you”: “you didn't come”."},
+        {"type":"dialogue","q":"Your friend is back from a trip. Choose your questions.","from":"say-what-you-did","lines":[{"who":"Neda","t":"سلام! من برگشتم!","r":"salâm! man bargashtam!","tr":"Hi! I'm back!"},{"options":["خوش آمدی! کی رسیدی؟","خوش آمدی! کی می‌رسی؟"],"answer":0,"why":"She has already arrived: the past, {{رسیدی}}."},{"who":"Neda","t":"دیشب رسیدم. خیلی خسته‌ام.","r":"dishab residam. kheyli khaste-am.","tr":"I got in last night. I'm very tired."},{"options":["شام خوردی؟","شام بخوری؟"],"answer":0,"why":"Asking about last night: the past, {{خوردی}}."},{"who":"Neda","t":"نه، وقت نداشتم!","r":"na, vaght nadâshtam!","tr":"No, I didn't have time!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Why didn't you come last night?","words":["چرا","دیشب","نیامدی؟"]},
+        {"type":"say","q":"Say: “I didn't see the film.”","answer":"فیلم را ندیدم.","r":"film râ nadidam.","from":"say-which-one-you-mean"},
+        {"type":"free","q":"Your turn: say one thing you did last week and one you didn't, and when, with {{پیش}}.","answers":[{"t":"دو روز پیش به دیدن مادربزرگم رفتم، ولی به دوستم زنگ نزدم.","r":"do ruz pish be didan-e mâdarbozorgam raftam, vali be dustam zang nazadam.","tr":"Two days ago I went to see my grandmother, but I didn't call my friend."},{"t":"هفتهٔ پیش ورزش نکردم. خیلی کار داشتم.","r":"hafte-ye pish varzesh nakardam. kheyli kâr dâshtam.","tr":"I didn't exercise last week. I was very busy."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story-in-order",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a story in order",
+      "summary": "Tell what happened, step by step: “First…, then…, when I got there…, and suddenly…”",
+      "topic": "{{اول}}, {{بعد}}, {{آخرش}}; {{بعد از}} and {{قبل از}} + noun; {{وقتی}} + past; {{که}} for “when (suddenly)”; {{ناگهان}}",
+      "blocks": [
+        {"goal":{"t":"وقتی به خانه رسیدم، دیدم که در باز است.","r":"vaghti be khâne residam, didam ke dar bâz ast.","tr":"When I got home, I saw that the door was open."}},
+        {"dialog":[{"who":"Reza","t":"دیروز چه شد؟","r":"diruz che shod?","tr":"What happened yesterday?"},{"who":"Mina","t":"اول به بانک رفتم. بعد اتوبوس گرفتم و به دانشگاه رفتم.","r":"avval be bânk raftam. ba'd otobus gereftam va be dâneshgâh raftam.","tr":"First I went to the bank. Then I took the bus to the university."},{"who":"Reza","t":"خب؟","r":"khob?","tr":"And?"},{"who":"Mina","t":"وقتی به دانشگاه رسیدم، دیدم که کیف پولم نیست!","r":"vaghti be dâneshgâh residam, didam ke kif-e pulam nist!","tr":"When I got to the university, I saw that my wallet wasn't there!"},{"who":"Reza","t":"وای! بعد چه کار کردی؟","r":"vây! ba'd che kâr kardi?","tr":"Oh no! Then what did you do?"},{"who":"Mina","t":"به بانک برگشتم. کیفم آنجا بود!","r":"be bânk bargashtam. kifam ânjâ bud!","tr":"I went back to the bank. My wallet was there!"}]},
+        {"p":"**Step by step.** {{اول|avval}} “first”, {{بعد|ba'd}} “then”, {{بعد از آن|ba'd az ân}} “after that”, {{آخرش|âkharash}} “in the end”: {{اول صبحانه خوردم، بعد دوش گرفتم.|avval sobhâne khordam, ba'd dush gereftam.}} “First I had breakfast, then I had a shower.”"},
+        {"term":"clause","means":"a part of a sentence with its own verb: “when I got home” in “When I got home, I called my mother”."},
+        {"p":"**When.** {{وقتی|vaghti}} “when” + the past starts a clause; the main clause follows, after a comma: {{وقتی به خانه رسیدم، به مادرم زنگ زدم.|vaghti be khâne residam, be mâdaram zang zadam.}} “When I got home, I called my mother.”"},
+        {"p":"**Before and after.** {{بعد از|ba'd az}} “after” and {{قبل از|ghabl az}} “before” + a noun: {{بعد از کلاس|ba'd az kelâs}} “after class”, {{قبل از شام|ghabl az shâm}} “before dinner”. (Before and after a whole clause come in unit 7.)"},
+        {"p":"**And suddenly.** {{ناگهان|nâgahân}} is “suddenly”. Telling a story, Persian also likes a {{که}} after the first part, for “and just then”: {{به خانه رسیدم که تلفن زنگ زد.|be khâne residam ke telefon zang zad.}} “I'd just got home when the phone rang.”"},
+        {"p":"**What you saw.** After {{دیدم که|didam ke}} “I saw that”, Persian keeps the tense of that moment: {{دیدم که در باز است.}}, word for word “I saw that the door **is** open”."},
+        { "ex": [
+          {"t":"اول به بازار رفتیم، بعد ناهار خوردیم.","r":"avval be bâzâr raftim, ba'd nâhâr khordim.","tr":"First we went to the bazaar, then we had lunch."},
+          {"t":"بعد از کلاس با دوستانم قهوه خوردم.","r":"ba'd az kelâs bâ dustânam ghahve khordam.","tr":"After class I had coffee with my friends."},
+          {"t":"وقتی او را دیدم، خیلی خوشحال شدم.","r":"vaghti u râ didam, kheyli khoshhâl shodam.","tr":"When I saw her, I was very happy.","note":"{{خوشحال شدم}} “I became happy”"},
+          {"t":"ناگهان برق رفت.","r":"nâgahân bargh raft.","tr":"Suddenly the power went off.","note":"word for word “the electricity went”"},
+          {"t":"به خانه رسیدم که تلفن زنگ زد.","r":"be khâne residam ke telefon zang zad.","tr":"I'd just got home when the phone rang."},
+          {"t":"آخرش همه چیز خوب شد.","r":"âkharash hame chiz khub shod.","tr":"In the end, everything turned out fine."}
+        ] },
+        {"tip":"{{چه شد؟|che shod?}} “What happened?” and {{بعد چه شد؟|ba'd che shod?}} “And then what happened?” keep a story going. To show you're listening: {{جدی؟|jeddi?}} “really?”, {{وای!|vây!}} “oh no!, wow!”."}
+      ],
+      "mistakes": [
+        {"wrong":"بعد کلاس از قهوه خوردم.","right":"بعد از کلاس قهوه خوردم.","tr":"After class I had a coffee.","why":"“After” is {{بعد از}}: both words, before the noun."},
+        {"wrong":"وقتی می‌رسم، زنگ زدم.","right":"وقتی رسیدم، زنگ زدم.","tr":"When I arrived, I called.","why":"The story is in the past, so both clauses are: {{رسیدم}}, {{زنگ زدم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ صبحانه خوردم، بعد دوش گرفتم.","tr":"First I had breakfast, then I had a shower.","options":["اول","وقتی","آخرش"],"answer":0,"why":"“First” is {{اول}}; the next step starts with {{بعد}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ او را دیدم، خیلی خوشحال شدم.","tr":"When I saw her, I was very happy.","options":["وقتی","بعد از","اول"],"answer":0,"why":"“When” + a past verb: {{وقتی}}."},
+        {"type":"choice","q":"{{قبل از شام}} means…","options":["before dinner","after dinner","dinner is ready"],"answer":0,"why":"{{قبل از}} “before” + the noun."},
+        {"type":"dialogue","q":"A friend tells you about a bad day. Choose your replies.","from":"ask-about-the-past","lines":[{"who":"Reza","t":"امروز کیف پولم را گم کردم!","r":"emruz kif-e pulam râ gom kardam!","tr":"I lost my wallet today!"},{"options":["وای! کجا گمش کردی؟","وای! کجا گم می‌کنی؟"],"answer":0,"why":"It already happened: the past, {{گم کردی}} (with {{ـش}} “it”)."},{"who":"Reza","t":"نمی‌دانم! وقتی به خانه رسیدم، دیدم که نیست.","r":"nemi-dânam! vaghti be khâne residam, didam ke nist.","tr":"I don't know! When I got home, I saw it wasn't there."},{"options":["به پلیس زنگ زدی؟","به پلیس نزنگ زدی؟"],"answer":0,"why":"“Did you call…?” is {{زنگ زدی؟}}; “didn't” would be {{زنگ نزدی}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"After class I had coffee with my friends.","words":["بعد","از","کلاس","با","دوستانم","قهوه","خوردم."]},
+        {"type":"say","q":"Keep the story going: “And then what happened?”","answer":"بعد چه شد؟","r":"ba'd che shod?"},
+        {"type":"free","q":"Your turn: tell a short story about something that happened to you, in three steps: {{اول}}…, {{بعد}}…, {{وقتی}}…","answers":[{"t":"اول یک تاکسی گرفتم و به فرودگاه رفتم. وقتی رسیدم، دیدم که پاسپورتم در خانه است!","r":"avval yek tâksi gereftam va be forudgâh raftam. vaghti residam, didam ke pâsportam dar khâne ast!","tr":"First I took a taxi to the airport. When I got there, I saw that my passport was at home!"},{"t":"دیروز اول کار کردم، بعد با دوستم به سینما رفتیم. آخرش در یک رستوران شام خوردیم.","r":"diruz avval kâr kardam, ba'd bâ dustam be sinamâ raftim. âkharash dar yek resturân shâm khordim.","tr":"Yesterday I worked first, then my friend and I went to the cinema. In the end we had dinner in a restaurant."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-done",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you have done",
+      "summary": "Talk about experiences and results: “Have you ever been to Iran?”, “I've never had fesenjan”, “He hasn't come yet”.",
+      "topic": "the present perfect: the participle ({{رفته}}) + the short “am, are” ({{رفته‌ام}}); {{تا حالا}}, {{هرگز}}, {{هنوز … نـ}}, {{تازه}}",
+      "blocks": [
+        {"goal":{"t":"تا حالا به ایران رفته‌ای؟","r":"tâ hâlâ be irân rafte-i?","tr":"Have you ever been to Iran?"}},
+        {"dialog":[{"who":"Leyla","t":"تا حالا فسنجان خورده‌ای؟","r":"tâ hâlâ fesenjân khorde-i?","tr":"Have you ever had fesenjan?"},{"who":"Tom","t":"نه، هرگز نخورده‌ام. چیست؟","r":"na, hargez nakhorde-am. chist?","tr":"No, I've never had it. What is it?"},{"who":"Leyla","t":"یک خورش با گردو و انار است. امروز درست کرده‌ام!","r":"yek khoresh bâ gerdu va anâr ast. emruz dorost karde-am!","tr":"It's a stew with walnuts and pomegranate. I've made some today!"},{"who":"Tom","t":"عالی! تا حالا غذای ایرانی زیاد نخورده‌ام.","r":"âli! tâ hâlâ ghazâ-ye irâni ziyâd nakhorde-am.","tr":"Great! I haven't had much Persian food so far."},{"who":"Leyla","t":"پس بفرمایید!","r":"pas befarmâyid!","tr":"Then help yourself!"}]},
+        {"p":"**Have done.** The present perfect is for what has happened up to now: experiences, and results you can see now. {{رفته‌ام|rafte-am}} “I have gone, I've been”, {{دیده‌ای؟|dide-i?}} “have you seen?”."},
+        {"term":"participle","means":"a form of a verb used to build other tenses, like English “gone, eaten”. In Persian it is the past stem + -e: {{رفته|rafte}}."},
+        {"p":"**How to make it:** the participle (past stem + {{ه}}, said -e), then the short “am, are” of lesson 3, after a small gap: {{رفته‌ام|rafte-am}}, {{رفته‌ای|rafte-i}}, {{رفته است|rafte ast}}, {{رفته‌ایم|rafte-im}}, {{رفته‌اید|rafte-id}}, {{رفته‌اند|rafte-and}}. “Not”: {{نـ}} in front, {{نرفته‌ام|narafte-am}}."},
+        { "table": [
+          ["","have …","haven't …"],
+          ["I","{{دیده‌ام|dide-am}}","{{ندیده‌ام|nadide-am}}"],
+          ["you (friend)","{{دیده‌ای|dide-i}}","{{ندیده‌ای|nadide-i}}"],
+          ["he, she","{{دیده است|dide ast}}","{{ندیده است|nadide ast}}"],
+          ["we","{{دیده‌ایم|dide-im}}","{{ندیده‌ایم|nadide-im}}"],
+          ["you (polite)","{{دیده‌اید|dide-id}}","{{ندیده‌اید|nadide-id}}"],
+          ["they","{{دیده‌اند|dide-and}}","{{ندیده‌اند|nadide-and}}"]
+        ] },
+        {"p":"**The words that go with it.** {{تا حالا|tâ hâlâ}} “ever, so far” (word for word “until now”); {{هرگز|hargez}} or {{هیچ‌وقت}} “never”, with a negative verb; {{هنوز … نـ|hanuz … na-}} “not yet”; {{تازه|tâze}} “just”; {{قبلاً|ghablan}} “before, already”."},
+        {"p":"**Simple past or perfect?** With a finished time, the simple past: {{پارسال به ایران رفتم.|pârsâl be irân raftam.}} “I went to Iran last year.” For “ever”, “never”, “not yet” and results, the perfect: {{هنوز به ایران نرفته‌ام.|hanuz be irân narafte-am.}} “I haven't been to Iran yet.”"},
+        { "ex": [
+          {"t":"این فیلم را دیده‌ای؟","r":"in film râ dide-i?","tr":"Have you seen this film?"},
+          {"t":"هرگز به هند نرفته‌ام.","r":"hargez be hend narafte-am.","tr":"I've never been to India."},
+          {"t":"علی هنوز نیامده است.","r":"ali hanuz nayâmade ast.","tr":"Ali hasn't come yet."},
+          {"t":"تازه رسیده‌ام.","r":"tâze reside-am.","tr":"I've just arrived."},
+          {"t":"قبلاً اینجا آمده‌اید؟","r":"ghablan injâ âmade-id?","tr":"Have you been here before?"},
+          {"t":"او سه کتاب نوشته است.","r":"u se ketâb neveshte ast.","tr":"She has written three books."}
+        ] },
+        {"tip":"In speech, and often in writing, the {{است}} of “he, she” is dropped: {{علی هنوز نیامده.|ali hanuz nayâmade.}} And {{رفته‌ام}} is both “I have gone” and “I have been”: {{تا حالا به شیراز رفته‌ای؟}} “Have you ever been to Shiraz?”"}
+      ],
+      "mistakes": [
+        {"wrong":"علی هنوز نیامد.","right":"علی هنوز نیامده است.","tr":"Ali hasn't come yet.","why":"“Not yet” goes with the present perfect: {{نیامده است}}."},
+        {"wrong":"پارسال به ایران رفته‌ام.","right":"پارسال به ایران رفتم.","tr":"I went to Iran last year.","why":"With a finished time like “last year”, the simple past: {{رفتم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"تا حالا فسنجان ___؟","tr":"Have you ever had fesenjan?","options":["خورده‌ای","خورده‌ام","می‌خوری"],"answer":0,"why":"“Ever” and “you”: the perfect, {{خورده‌ای}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"علی هنوز ___ است.","tr":"Ali hasn't come yet.","options":["نیامده","نیامد","نمی‌آید"],"answer":0,"why":"“Not yet”: {{هنوز}} + the negative perfect, {{نیامده است}}."},
+        {"type":"choice","q":"Which one answers “When did you go to Shiraz?”","options":["{{پارسال رفتم.}}","{{پارسال رفته‌ام.}}"],"answer":0,"why":"A finished time, {{پارسال}} “last year”: the simple past."},
+        {"type":"dialogue","q":"Getting to know someone. Choose your replies.","from":"say-what-you-want-to-do","lines":[{"who":"Neda","t":"تا حالا به ایران رفته‌اید؟","r":"tâ hâlâ be irân rafte-id?","tr":"Have you ever been to Iran?"},{"options":["نه، هنوز نرفته‌ام، ولی خیلی دوست دارم بروم.","نه، هنوز نرفتم، ولی خیلی دوست دارم می‌روم."],"answer":0,"why":"“Not yet”: the perfect, {{نرفته‌ام}}; and after {{دوست دارم}} “I'd love (to)”, the subjunctive {{بروم}}."},{"who":"Neda","t":"شعر حافظ را خوانده‌اید؟","r":"she'r-e hâfez râ khânde-id?","tr":"Have you read Hafez's poetry?"},{"options":["بله، چند شعر خوانده‌ام.","بله، چند شعر می‌خوانده‌ام."],"answer":0,"why":"The perfect: the participle {{خوانده}} + {{ام}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've never been to India.","words":["هرگز","به","هند","نرفته‌ام."]},
+        {"type":"say","q":"Say: “I've just arrived.”","answer":"تازه رسیده‌ام.","r":"tâze reside-am."},
+        {"type":"free","q":"Your turn: say two things you've done in your life, and one you've never done.","answers":[{"t":"به ژاپن رفته‌ام و سوشی درست کرده‌ام، ولی هرگز اسکی نکرده‌ام.","r":"be zhâpon rafte-am va sushi dorost karde-am, vali hargez eski nakarde-am.","tr":"I've been to Japan and I've made sushi, but I've never been skiing."},{"t":"تا حالا سه بار به ایران رفته‌ام.","r":"tâ hâlâ se bâr be irân rafte-am.","tr":"I've been to Iran three times so far."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-used-to-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you used to do",
+      "summary": "Talk about your childhood and old habits: “When I was a child, we used to go up north every summer.”",
+      "topic": "the imperfect: {{می}} + past stem + ending ({{می‌رفتم}}) for habits in the past; {{بچه که بودم}}; {{قدیم‌ها}}",
+      "blocks": [
+        {"goal":{"t":"بچه که بودم، هر تابستان به شمال می‌رفتیم.","r":"bachche ke budam, har tâbestân be shomâl mi-raftim.","tr":"When I was a child, we used to go up north every summer."}},
+        {"dialog":[{"who":"Sara","t":"مادربزرگ، شما بچه که بودید، چه کار می‌کردید؟","r":"mâdarbozorg, shomâ bachche ke budid, che kâr mi-kardid?","tr":"Grandma, when you were a child, what did you use to do?"},{"who":"Grandmother","t":"در یک روستای کوچک زندگی می‌کردیم. صبح‌ها به مدرسه می‌رفتم و بعد از ظهر‌ها به پدرم کمک می‌کردم.","r":"dar yek rustâ-ye kuchak zendegi mi-kardim. sobh-hâ be madrese mi-raftam va ba'd az zohr-hâ be pedaram komak mi-kardam.","tr":"We lived in a small village. In the mornings I went to school, and in the afternoons I helped my father."},{"who":"Sara","t":"تلویزیون داشتید؟","r":"televiziyon dâshtid?","tr":"Did you have a TV?"},{"who":"Grandmother","t":"نه! شب‌ها پدرم برایمان قصه می‌گفت.","r":"na! shab-hâ pedaram barâyemân ghesse mi-goft.","tr":"No! In the evenings my father used to tell us stories."}]},
+        {"p":"**Used to.** For things that happened again and again in the past, Persian puts {{می}} on the simple past: {{رفتم}} “I went (once)” → {{می‌رفتم|mi-raftam}} “I used to go, I would go”. The endings are the past ones, with none for “he, she”: {{می‌رفت|mi-raft}}."},
+        {"term":"imperfect","means":"a past form for what went on, or happened again and again: “I used to go”, “I was going”. In Persian: {{می}} + the past stem + the ending."},
+        { "table": [
+          ["","simple past (once)","imperfect (again and again)"],
+          ["I","{{رفتم|raftam}}","{{می‌رفتم|mi-raftam}}"],
+          ["you (friend)","{{خوردی|khordi}}","{{می‌خوردی|mi-khordi}}"],
+          ["he, she","{{دید|did}}","{{می‌دید|mi-did}}"],
+          ["we","{{بازی کردیم|bâzi kardim}}","{{بازی می‌کردیم|bâzi mi-kardim}}"],
+          ["they","{{زندگی کردند|zendegi kardand}}","{{زندگی می‌کردند|zendegi mi-kardand}}"]
+        ] },
+        {"p":"**Not:** {{نمی}}, as in the present: {{نمی‌رفتم|nemi-raftam}} “I didn't use to go”. **Be and have** don't take {{می}} here: {{بودم}} and {{داشتم}} already cover long states: {{یک دوچرخه داشتم.|yek docharkhe dâshtam.}} “I had a bike.”"},
+        {"p":"**When I was a child.** {{بچه که بودم|bachche ke budam}}, word for word “child that I was”, is how Iranians start a childhood memory. Also {{قدیم‌ها|ghadim-hâ}} “in the old days” and {{آن موقع|ân mowghe'}} “back then”."},
+        { "ex": [
+          {"t":"قدیم‌ها مردم زیاد نامه می‌نوشتند.","r":"ghadim-hâ mardom ziyâd nâme mi-neveshtand.","tr":"In the old days people used to write a lot of letters."},
+          {"t":"پدرم هر روز صبح روزنامه می‌خرید.","r":"pedaram har ruz sobh ruznâme mi-kharid.","tr":"My father used to buy a newspaper every morning."},
+          {"t":"آن موقع در اصفهان زندگی می‌کردیم.","r":"ân mowghe' dar esfahân zendegi mi-kardim.","tr":"Back then we lived in Isfahan."},
+          {"t":"بچه که بود، اصلاً سبزی نمی‌خورد.","r":"bachche ke bud, aslan sabzi nemi-khord.","tr":"As a child, he never used to eat vegetables."},
+          {"t":"هر جمعه با پدربزرگم به پارک می‌رفتیم.","r":"har jom'e bâ pedarbozorgam be pârk mi-raftim.","tr":"Every Friday we used to go to the park with my grandfather."},
+          {"t":"آن موقع مو‌های بلند داشتم!","r":"ân mowghe' mu-hâ-ye boland dâshtam!","tr":"Back then I had long hair!"}
+        ] },
+        {"tip":"The {{می}} past is also polite, for wishes and requests: {{می‌خواستم بپرسم…|mi-khâstam beporsam…}} “I wanted to ask…” sounds softer than “I want to ask”."}
+      ],
+      "mistakes": [
+        {"wrong":"بچه که بودم، هر تابستان به شمال رفتیم.","right":"بچه که بودم، هر تابستان به شمال می‌رفتیم.","tr":"When I was a child, we used to go up north every summer.","why":"“Every summer” is a habit: the imperfect, with {{می}}."},
+        {"wrong":"بچه که بودم، یک دوچرخه می‌داشتم.","right":"بچه که بودم، یک دوچرخه داشتم.","tr":"When I was a child, I had a bike.","why":"{{داشتن}} doesn't take {{می}} here: {{داشتم}} already means “I had”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"بچه که بودم، هر روز فوتبال بازی ___.","tr":"When I was a child, I used to play football every day.","options":["می‌کردم","کردم","می‌کنم"],"answer":0,"why":"A habit in the past: {{می}} + the past stem, {{می‌کردم}}."},
+        {"type":"choice","q":"{{می‌رفتیم}} means…","options":["we used to go","we went (once)","we go"],"answer":0,"why":"{{می}} + the past stem {{رفت}}: a repeated past action."},
+        {"type":"fill","q":"Choose the missing word.","t":"آن موقع در یک خانهٔ کوچک زندگی ___.","tr":"Back then we lived in a small house.","options":["می‌کردیم","کردیم","کنیم"],"answer":0,"why":"A long-lasting state in the past: the imperfect, {{زندگی می‌کردیم}}.","from":"talk-about-work-and-study"},
+        {"type":"dialogue","q":"An old school friend remembers. Choose your replies.","from":"say-what-you-dont-do","lines":[{"who":"Friend","t":"یادت است؟ هر روز با هم به مدرسه می‌رفتیم!","r":"yâdat ast? har ruz bâ ham be madrese mi-raftim!","tr":"Do you remember? We used to go to school together every day!"},{"options":["بله! و همیشه دیر می‌رسیدیم!","بله! و همیشه دیر رسیدیم!"],"answer":0,"why":"“Always” is a habit: {{می‌رسیدیم}}."},{"who":"Friend","t":"تو اصلاً درس نمی‌خواندی!","r":"to aslan dars nemi-khândi!","tr":"You never used to study!"},{"options":["راست می‌گویی! ولی حالا هر روز درس می‌خوانم.","راست می‌گویی! ولی حالا هر روز درس خواندم."],"answer":0,"why":"“Now” is the present: {{می‌خوانم}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My father used to buy a newspaper every morning.","words":["پدرم","هر","روز","صبح","روزنامه","می‌خرید."]},
+        {"type":"say","q":"Start a childhood memory: “When I was a child…”","answer":"بچه که بودم…","r":"bachche ke budam…"},
+        {"type":"free","q":"Your turn: say two things you used to do as a child, and one thing you never used to do.","answers":[{"t":"بچه که بودم، هر روز با دوچرخه به مدرسه می‌رفتم، ولی هیچ‌وقت صبحانه نمی‌خوردم.","r":"bachche ke budam, har ruz bâ docharkhe be madrese mi-raftam, vali hich-vaght sobhâne nemi-khordam.","tr":"When I was a child, I used to cycle to school every day, but I never used to eat breakfast."},{"t":"تابستان‌ها در باغ پدربزرگم بازی می‌کردیم.","r":"tâbestân-hâ dar bâgh-e pedarbozorgam bâzi mi-kardim.","tr":"In the summers we used to play in my grandfather's garden."}]}
+      ]
+    },
+    {
+      "id": "say-what-was-happening",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what was happening",
+      "summary": "Set the scene of a story: “I was cooking when the phone rang”, “It was raining and there were no taxis.”",
+      "topic": "the imperfect for the background ({{باران می‌آمد}}); the past progressive {{داشتم می‌رفتم}}; {{داشتم … که …}}",
+      "blocks": [
+        {"goal":{"t":"داشتم غذا درست می‌کردم که تلفن زنگ زد.","r":"dâshtam ghazâ dorost mi-kardam ke telefon zang zad.","tr":"I was cooking when the phone rang."}},
+        {"dialog":[{"who":"Mina","t":"چرا دیر آمدی؟","r":"cherâ dir âmadi?","tr":"Why are you late?"},{"who":"Ali","t":"داشتم از خانه بیرون می‌آمدم که مادرم زنگ زد.","r":"dâshtam az khâne birun mi-âmadam ke mâdaram zang zad.","tr":"I was just leaving the house when my mother called."},{"who":"Mina","t":"بعد؟","r":"ba'd?","tr":"And then?"},{"who":"Ali","t":"بعد باران می‌آمد و تاکسی نبود. خیابان‌ها خیلی شلوغ بود.","r":"ba'd bârân mi-âmad va tâksi nabud. khiyâbân-hâ kheyli sholugh bud.","tr":"Then it was raining and there were no taxis. The streets were really busy."},{"who":"Mina","t":"عیبی ندارد. بیا، چای می‌خوری؟","r":"eybi nadârad. biyâ, chây mi-khori?","tr":"Never mind. Come on, will you have some tea?"}]},
+        {"p":"**The background.** The imperfect ({{می}} + past) also describes what was going on: the scene behind the events. {{باران می‌آمد.|bârân mi-âmad.}} “It was raining.” {{همه خسته بودند.|hame khaste budand.}} “Everyone was tired.” The events that happen in that scene are in the simple past: {{… که تلفن زنگ زد.}} “… when the phone rang.”"},
+        {"p":"**Right in the middle of it.** To stress that something was in progress, Persian puts the past of {{داشتن}} before the imperfect: {{داشتم می‌رفتم|dâshtam mi-raftam}} “I was (just) going”. Both verbs take the ending: {{داشتی می‌خوردی|dâshti mi-khordi}} “you were eating”, {{داشت می‌خوابید|dâsht mi-khâbid}} “she was falling asleep”. It's very common in speech, and fine in writing. It has no negative: for “I wasn't working”, use the plain imperfect, {{کار نمی‌کردم}}."},
+        {"p":"**… when suddenly.** The event that cuts in follows with {{که}}: {{داشتم غذا درست می‌کردم که تلفن زنگ زد.}} Or start with {{وقتی}}: {{وقتی رسیدم، داشتند شام می‌خوردند.|vaghti residam, dâshtand shâm mi-khordand.}} “When I arrived, they were having dinner.”"},
+        { "table": [
+          ["","Persian","meaning"],
+          ["the background","{{باران می‌آمد.|bârân mi-âmad.}}","It was raining."],
+          ["in progress","{{داشتم می‌خوابیدم.|dâshtam mi-khâbidam.}}","I was falling asleep."],
+          ["… when","{{داشتم می‌خوابیدم که زنگ زدی.|dâshtam mi-khâbidam ke zang zadi.}}","I was falling asleep when you called."],
+          ["one event","{{تلفن زنگ زد.|telefon zang zad.}}","The phone rang."]
+        ] },
+        { "ex": [
+          {"t":"وقتی به ایستگاه رسیدم، قطار داشت می‌رفت.","r":"vaghti be istgâh residam, ghatâr dâsht mi-raft.","tr":"When I got to the station, the train was leaving."},
+          {"t":"داشتیم شام می‌خوردیم که برق رفت.","r":"dâshtim shâm mi-khordim ke bargh raft.","tr":"We were having dinner when the power went off."},
+          {"t":"هوا سرد بود و برف می‌آمد.","r":"havâ sard bud va barf mi-âmad.","tr":"It was cold and it was snowing."},
+          {"t":"چه کار می‌کردی؟","r":"che kâr mi-kardi?","tr":"What were you doing?"},
+          {"t":"داشتم با دوستم صحبت می‌کردم.","r":"dâshtam bâ dustam sohbat mi-kardam.","tr":"I was talking to my friend."},
+          {"t":"بچه‌ها در حیاط بازی می‌کردند.","r":"bachche-hâ dar hayât bâzi mi-kardand.","tr":"The children were playing in the yard."}
+        ] },
+        {"tip":"{{داشتن}} does the same with the present: {{دارم می‌آیم!|dâram mi-âyam!}} “I'm coming (right now)!”, {{دارد باران می‌آید.|dârad bârân mi-âyad.}} “It's raining (at the moment).”"}
+      ],
+      "mistakes": [
+        {"wrong":"داشتم رفتم که تلفن زنگ زد.","right":"داشتم می‌رفتم که تلفن زنگ زد.","tr":"I was leaving when the phone rang.","why":"After {{داشتم}}, the verb is in the imperfect, with {{می}}: {{می‌رفتم}}."},
+        {"wrong":"داشت می‌رفتم.","right":"داشتم می‌رفتم.","tr":"I was going.","why":"Both verbs take the same ending: {{داشتم می‌رفتم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"داشتم غذا درست ___ که تلفن زنگ زد.","tr":"I was cooking when the phone rang.","options":["می‌کردم","کردم","می‌کنم"],"answer":0,"why":"After {{داشتم}}, the imperfect: {{می‌کردم}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"وقتی رسیدم، باران ___.","tr":"When I arrived, it was raining.","options":["می‌آمد","آمد","بیاید"],"answer":0,"why":"The background: the imperfect, {{می‌آمد}}."},
+        {"type":"choice","q":"{{داشتیم شام می‌خوردیم که برق رفت.}} Which part is the background?","options":["we were having dinner","the power went off"],"answer":0,"why":"{{داشتیم … می‌خوردیم}} was going on; {{برق رفت}} is the event that happened in it."},
+        {"type":"dialogue","q":"Your friend wants to know why you didn't answer. Choose your replies.","from":"tell-a-story-in-order","lines":[{"who":"Mina","t":"دیشب زنگ زدم. چرا جواب ندادی؟","r":"dishab zang zadam. cherâ javâb nadâdi?","tr":"I called last night. Why didn't you answer?"},{"options":["ببخشید! داشتم فیلم می‌دیدم.","ببخشید! داشتم فیلم دیدم."],"answer":0,"why":"In progress: {{داشتم}} + the imperfect, {{می‌دیدم}}."},{"who":"Mina","t":"چه فیلمی؟","r":"che filmi?","tr":"Which film?"},{"options":["یک فیلم ایرانی. وقتی تمام شد، خیلی دیر بود.","یک فیلم ایرانی. وقتی تمام می‌شد، خیلی دیر است."],"answer":0,"why":"The film ended (an event): {{تمام شد}}; and the scene: {{دیر بود}} “it was late”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We were having dinner when the power went off.","words":["داشتیم","شام","می‌خوردیم","که","برق","رفت."]},
+        {"type":"say","q":"Set the scene: “It was cold and it was snowing.”","answer":"هوا سرد بود و برف می‌آمد.","r":"havâ sard bud va barf mi-âmad."},
+        {"type":"free","q":"Your turn: say what you were doing at a certain time yesterday, and what happened. Use {{داشتم … که …}}","answers":[{"t":"دیروز ساعت شش داشتم به خانه می‌رفتم که دوستم را در خیابان دیدم.","r":"diruz sâ'at-e shesh dâshtam be khâne mi-raftam ke dustam râ dar khiyâbân didam.","tr":"Yesterday at six I was going home when I saw my friend in the street."},{"t":"داشتم می‌خوابیدم که یک صدای عجیب شنیدم.","r":"dâshtam mi-khâbidam ke yek sedâ-ye ajib shenidam.","tr":"I was falling asleep when I heard a strange noise."}]}
+      ]
+    },
+    {
+      "id": "say-what-happened-to-you",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what happened to you",
+      "summary": "Say “I got tired”, “It's over”, “I lost my key” and “Sorry I'm late!”: the two partners of Persian compound verbs, {{کردن}} and {{شدن}}.",
+      "topic": "{{شدن}} “become, get” for what happens, {{کردن}} for what someone does: {{تمام شد}} / {{تمام کردم}}, {{گم شد}} / {{گم کردم}}; {{دیرم شد}}",
+      "blocks": [
+        {"goal":{"t":"ببخشید، دیرم شد! باید بروم.","r":"bebakhshid, diram shod! bâyad beravam.","tr":"Sorry, I'm late! I have to go."}},
+        {"dialog":[{"who":"Colleague","t":"کارت تمام شد؟","r":"kârat tamâm shod?","tr":"Have you finished your work?"},{"who":"Sam","t":"نه، هنوز تمام نشده. کامپیوترم خراب شد!","r":"na, hanuz tamâm nashode. kâmpiyuteram kharâb shod!","tr":"No, it isn't finished yet. My computer broke down!"},{"who":"Colleague","t":"وای! چه شد؟","r":"vây! che shod?","tr":"Oh no! What happened?"},{"who":"Sam","t":"نمی‌دانم. ناگهان خاموش شد. خیلی عصبانی شدم!","r":"nemi-dânam. nâgahân khâmush shod. kheyli asabâni shodam!","tr":"I don't know. Suddenly it switched off. I got really angry!"},{"who":"Colleague","t":"نگران نباش. درستش می‌کنم.","r":"negarân nabâsh. dorostash mi-konam.","tr":"Don't worry. I'll fix it."}]},
+        {"p":"**Do it, or it happens.** Many compound verbs come in pairs: with {{کردن}} someone does it; with {{شدن}} it happens, by itself or to someone. {{کار را تمام کردم.|kâr râ tamâm kardam.}} “I finished the work.” {{کار تمام شد.|kâr tamâm shod.}} “The work is finished” (“became finished”)."},
+        { "table": [
+          ["","someone does it: {{کردن}}","it happens: {{شدن}}"],
+          ["finish","{{تمام کردم|tamâm kardam}} I finished (it)","{{تمام شد|tamâm shod}} it's over"],
+          ["lose, get lost","{{گم کردم|gom kardam}} I lost (it)","{{گم شد|gom shod}} it got lost"],
+          ["open","{{باز کرد|bâz kard}} he opened (it)","{{باز شد|bâz shod}} it opened"],
+          ["break, spoil","{{خراب کردی|kharâb kardi}} you broke (it)","{{خراب شد|kharâb shod}} it broke down"],
+          ["start","{{شروع کردیم|shoru' kardim}} we started (it)","{{شروع شد|shoru' shod}} it started"],
+          ["wake","{{بیدار کردم|bidâr kardam}} I woke (someone)","{{بیدار شدم|bidâr shodam}} I woke up"]
+        ] },
+        {"p":"**Become, get.** {{شدن|shodan}} (present stem {{شو|shav}}) on its own is “become, get”: {{خسته شدم.|khaste shodam.}} “I got tired.” {{عصبانی شد.|asabâni shod.}} “He got angry.” {{هوا سرد شد.|havâ sard shod.}} “It got cold.” {{دکتر شد.|doktor shod.}} “She became a doctor.”"},
+        {"p":"**It happened to me.** As with {{سردم است}} (lesson 18), a few use a possessive ending for the person: {{دیرم شد.|diram shod.}} “I'm late” (“my lateness happened”), {{حالم بد شد.|hâlam bad shod.}} “I felt ill.”"},
+        {"p":"**What happened?** {{چه شد؟|che shod?}} is the {{شدن}} question for everything, and {{چه شده؟|che shode?}} “What's happened? What's wrong?”."},
+        { "ex": [
+          {"t":"فیلم ساعت نه تمام شد.","r":"film sâ'at-e noh tamâm shod.","tr":"The film ended at nine."},
+          {"t":"کلیدم را گم کردم.","r":"kelidam râ gom kardam.","tr":"I lost my key."},
+          {"t":"پسرم دیشب مریض شد.","r":"pesaram dishab mariz shod.","tr":"My son got sick last night."},
+          {"t":"در باز شد و یک مرد وارد شد.","r":"dar bâz shod va yek mard vâred shod.","tr":"The door opened and a man came in.","note":"{{وارد شدن|vâred shodan}} “to come in, to enter”"},
+          {"t":"ببخشید، دیرم شد!","r":"bebakhshid, diram shod!","tr":"Sorry I'm late!"},
+          {"t":"هوا تاریک شد.","r":"havâ târik shod.","tr":"It got dark."}
+        ] },
+        {"tip":"Pairs like these are why Persian needs so few verbs. Learn a new word like {{آماده|âmâde}} “ready” and you get two verbs free: {{آماده کردن}} “to get (something) ready” and {{آماده شدن}} “to get ready”."}
+      ],
+      "mistakes": [
+        {"wrong":"کلاس ساعت هشت شروع کرد.","right":"کلاس ساعت هشت شروع شد.","tr":"The class started at eight.","why":"The class isn't doing anything: it starts, it happens. {{شروع شد}}."},
+        {"wrong":"خیلی خسته کردم.","right":"خیلی خسته شدم.","tr":"I got very tired.","why":"“Get tired” is {{خسته شدن}}. ({{خسته کردن}} is “to tire someone out”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"فیلم ساعت ده تمام ___.","tr":"The film ended at ten.","options":["شد","کرد","است"],"answer":0,"why":"The film just ends: {{تمام شد}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"کیف پولم را گم ___.","tr":"I lost my wallet.","options":["کردم","شدم","شد"],"answer":0,"why":"You did it, to the wallet (with {{را}}): {{گم کردم}}.","from":"say-which-one-you-mean"},
+        {"type":"choice","q":"{{عصبانی شد.}} means…","options":["He got angry.","He made someone angry.","He is angry."],"answer":0,"why":"{{شدن}} “become, get”: “he became angry”."},
+        {"type":"dialogue","q":"A friend phones, sounding unwell. Choose your replies.","from":"ask-about-the-past","lines":[{"who":"Reza","t":"سلام… حالم خوب نیست.","r":"salâm… hâlam khub nist.","tr":"Hi… I'm not feeling well."},{"options":["چه شده؟","چه کرده؟"],"answer":0,"why":"“What's happened?”: {{چه شده؟}}, with {{شدن}}."},{"who":"Reza","t":"دیشب مریض شدم و نتوانستم بخوابم.","r":"dishab mariz shodam va natavânestam bekhâbam.","tr":"I got sick last night and couldn't sleep."},{"options":["بیچاره! دکتر رفتی؟","بیچاره! دکتر شدی؟"],"answer":0,"why":"{{دکتر رفتی؟}} “did you go to the doctor?”. ({{دکتر شدی؟}} is “did you become a doctor?”!)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My son got sick last night.","words":["پسرم","دیشب","مریض","شد."]},
+        {"type":"say","q":"Arriving late, say: “Sorry I'm late!”","answer":"ببخشید، دیرم شد!","r":"bebakhshid, diram shod!","from":"say-how-you-feel"},
+        {"type":"free","q":"Your turn: tell about something that went wrong recently, with one {{… کردم}} and one {{… شد}}.","answers":[{"t":"دیروز گوشی‌ام خراب شد و همهٔ عکس‌هایم را گم کردم.","r":"diruz gushi-am kharâb shod va hame-ye aks-hâyam râ gom kardam.","tr":"Yesterday my phone broke and I lost all my photos."},{"t":"صبح دیر بیدار شدم و دیرم شد.","r":"sobh dir bidâr shodam va diram shod.","tr":"I woke up late this morning and I was late."}]}
+      ]
     }
   ]
 }
