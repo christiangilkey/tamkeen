@@ -38,13 +38,14 @@
    "title": "ไวยากรณ์ภาษาอังกฤษ",
    "variety": "ภาษาอังกฤษแบบอเมริกัน",
    "units": 8,
-   "lessons": 39,
+   "lessons": 45,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 289692,
-   "sha256": "3a3c520a7c3678251ba837759b3a310fd9491e205164c620049aaebd9dc80e8e"
+   "bytes": 336274,
+   "sha256": "b96df4169eb3f1d72cd8c7c1d17015535f7b5c5b53ff8e532ae9dae537c6c265"
   }
  }
 }

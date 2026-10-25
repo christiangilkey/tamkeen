@@ -1821,6 +1821,281 @@
         {"type":"say","q":"พูดว่า “ซุปนี้เผ็ดเกินไปสำหรับฉัน”","answer":"This soup is too spicy for me."},
         {"type":"free","q":"ถึงตาคุณ: บรรยายของที่อยากได้ (สี ขนาด) และบอกปัญหาของของที่คุณมี ด้วย {{too}} หรือ {{not … enough}}","answers":[{"t":"I want a small white car. My car is too old.","tr":"ฉันอยากได้รถสีขาวคันเล็ก รถฉันเก่าเกินไปแล้ว"},{"t":"I'd like a big comfortable sofa. My sofa isn't big enough.","tr":"ผมอยากได้โซฟาตัวใหญ่ที่นั่งสบาย โซฟาที่บ้านไม่ใหญ่พอ"}]}
       ]
+    },
+    {
+      "id": "have-you-ever",
+      "unit": 7,
+      "level": "A2",
+      "title": "เล่าประสบการณ์: Have you ever…?",
+      "summary": "ถามว่าเคยไปไหม เคยกินไหม และเล่าประสบการณ์ของตัวเอง: “เคย” แบบประสบการณ์ ภาษาอังกฤษใช้ {{have}} + กริยาช่องที่ 3",
+      "topic": "present perfect: {{have}} / {{has}} + past participle ({{been}}, {{eaten}}, {{seen}}); {{Have you ever…?}}; {{never}}; บอกเวลาเจาะจงใช้ past simple",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to Japan?","tr":"คุณเคยไปญี่ปุ่นไหม"}},
+        {"dialog":[{"who":"นก","t":"Have you ever been to Japan?","tr":"เคยไปญี่ปุ่นไหม"},{"who":"เจค","t":"Yes, I have. I've been there twice.","tr":"เคย ไปมาสองครั้งแล้ว"},{"who":"นก","t":"Have you ever eaten durian?","tr":"เคยกินทุเรียนไหม"},{"who":"เจค","t":"No, I've never eaten it. Is it good?","tr":"ไม่เคยกินเลย อร่อยไหม"},{"who":"นก","t":"I love it! I ate some yesterday.","tr":"ชอบมาก เมื่อวานเพิ่งกินไป"}]},
+        {"term":"present perfect (ปัจจุบันกาลสมบูรณ์)","means":"{{have}} / {{has}} + กริยาช่องที่ 3 ใช้เล่าประสบการณ์ หรือเรื่องที่เริ่มในอดีตแล้วยังเกี่ยวกับตอนนี้ เช่น {{I've been to Japan.}}"},
+        {"term":"past participle (กริยาช่องที่ 3)","means":"รูปคำกริยาที่ใช้หลัง {{have}} คำปกติเหมือนรูปอดีต ({{worked}}) คำไม่ปกติต้องจำ เช่น {{eat}} → {{eaten}}, {{see}} → {{seen}}, {{go}} → {{been}}"},
+        {"p":"**“เคย” แบบประสบการณ์** ประสบการณ์ในชีวิต (ไม่บอกว่าเมื่อไร) ภาษาอังกฤษใช้ present perfect: {{have}} / {{has}} + กริยาช่องที่ 3: {{I've been to Japan.}} “ฉันเคยไปญี่ปุ่น” {{She has seen that movie.}} “เขาเคยดูหนังเรื่องนั้น”"},
+        {"p":"**ถามว่าเคยไหม** {{Have you ever…?}} “เคย…ไหม” ({{ever}} คือ “เคย” วางหน้ากริยาช่องที่ 3) ตอบสั้นๆ ว่า {{Yes, I have.}} หรือ {{No, I haven't.}} ส่วน “ไม่เคยเลย” คือ {{never}}: {{I've never tried it.}}"},
+        { "table": [
+          ["ปัจจุบัน","อดีต","ช่องที่ 3","ความหมาย"],
+          ["{{go}}","{{went}}","{{been}} / {{gone}}","ไป"],
+          ["{{eat}}","{{ate}}","{{eaten}}","กิน"],
+          ["{{see}}","{{saw}}","{{seen}}","เห็น ดู"],
+          ["{{do}}","{{did}}","{{done}}","ทำ"],
+          ["{{try}}","{{tried}}","{{tried}}","ลอง"],
+          ["{{meet}}","{{met}}","{{met}}","เจอ"],
+          ["{{take}}","{{took}}","{{taken}}","เอา นั่ง ถ่าย"]
+        ] },
+        {"p":"**been หรือ gone** “เคยไป (แล้วกลับมา)” ใช้ {{been}}: {{I've been to Paris.}} ส่วน {{gone}} แปลว่าไปแล้วยังไม่กลับ: {{She's gone to work.}} “เขาไปทำงานแล้ว (ตอนนี้ไม่อยู่)”"},
+        {"p":"**บอกเวลาเจาะจง ใช้ past simple** ถ้าบอกว่าเมื่อไรแน่ๆ ({{yesterday}}, {{in 2019}}, {{last year}}) ใช้ past simple ไม่ใช้ present perfect: {{I went to Japan in 2019.}} ไม่ใช่ {{I've been to Japan in 2019.}}"},
+        { "ex": [
+          {"t":"I've been to Japan twice.","tr":"ฉันเคยไปญี่ปุ่นสองครั้ง"},
+          {"t":"Have you ever tried som tam?","tr":"เคยลองส้มตำไหม"},
+          {"t":"She has never seen snow.","tr":"เขาไม่เคยเห็นหิมะ"},
+          {"t":"We've met before.","tr":"เราเคยเจอกันมาก่อน"},
+          {"t":"Have you ever been on TV?","tr":"เคยออกทีวีไหม"},
+          {"t":"I've never ridden an elephant.","tr":"ฉันไม่เคยขี่ช้าง"},
+          {"t":"I went there last year.","tr":"ฉันไปที่นั่นเมื่อปีที่แล้ว","note":"บอกเวลาเจาะจง จึงใช้ {{went}}"}
+        ] },
+        {"tip":"ระวังเวลาพูด: {{I've}} ออกเสียงเร็วจนเหลือเสียง v เบาๆ อย่าลืมพูดออกมา ไม่อย่างนั้นจะกลายเป็น {{I been}} ซึ่งผิด"}
+      ],
+      "mistakes": [
+        {"wrong":"I ever went to Japan.","right":"I've been to Japan.","tr":"ฉันเคยไปญี่ปุ่น","why":"“เคย” แบบประสบการณ์ ใช้ {{have}} + กริยาช่องที่ 3: {{I've been…}}"},
+        {"wrong":"Have you ever eat durian?","right":"Have you ever eaten durian?","tr":"เคยกินทุเรียนไหม","why":"หลัง {{have}} ใช้กริยาช่องที่ 3: {{eaten}}"},
+        {"wrong":"I've been to Japan last year.","right":"I went to Japan last year.","tr":"ปีที่แล้วฉันไปญี่ปุ่น","why":"บอกเวลาเจาะจง ({{last year}}) ใช้ past simple"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"Have you ever ___ snow?","tr":"คุณเคยเห็นหิมะไหม","options":["seen","saw","see"],"answer":0,"why":"หลัง {{have}} ใช้กริยาช่องที่ 3: {{seen}}"},
+        {"type":"choice","q":"มีคนถาม {{Have you ever been to Korea?}} คุณไม่เคยไป","options":["{{No, I haven't.}}","{{No, I didn't.}}","{{No, I don't ever.}}"],"answer":0,"why":"ถามด้วย {{have}} ก็ตอบด้วย {{have}}: {{No, I haven't.}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันไม่เคยขี่ช้าง","words":["I've","never","ridden","an","elephant."]},
+        {"type":"dialogue","q":"เพื่อนถามว่าเคยอยู่ต่างประเทศไหม เลือกคำตอบ","from":"used-to","lines":[{"who":"เจค","t":"Have you ever lived abroad?","tr":"เคยไปอยู่ต่างประเทศไหม"},{"options":["Yes, I have. I used to live in Australia.","Yes, I have. I use to live in Australia."],"answer":0,"why":"“เมื่อก่อนเคยอยู่” คือ {{used to}}"},{"who":"เจค","t":"When did you live there?","tr":"อยู่ที่นั่นตอนไหน"},{"options":["I lived there in 2018.","I've lived there in 2018."],"answer":0,"why":"บอกเวลาเจาะจง: past simple"}]},
+        {"type":"say","q":"ถามว่า “คุณเคยไปญี่ปุ่นไหม”","answer":"Have you ever been to Japan?"},
+        {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณเคยทำ และหนึ่งอย่างที่ไม่เคยทำเลย","answers":[{"t":"I've been to Singapore and I've tried sushi. I've never seen snow.","tr":"ฉันเคยไปสิงคโปร์ และเคยลองซูชิ แต่ไม่เคยเห็นหิมะ"},{"t":"I've met a famous actor! But I've never been on a plane.","tr":"ผมเคยเจอดาราดังด้วย แต่ไม่เคยขึ้นเครื่องบินเลย"}]}
+      ]
+    },
+    {
+      "id": "for-since",
+      "unit": 7,
+      "level": "A2",
+      "title": "บอกว่านานแค่ไหนแล้ว: for และ since",
+      "summary": "บอกว่าอยู่ที่นี่มานานเท่าไร เรียนภาษาอังกฤษมากี่ปี: “…มา…แล้ว” ภาษาอังกฤษใช้ present perfect กับ {{for}} / {{since}}",
+      "topic": "present perfect + {{for}} (ระยะเวลา) / {{since}} (จุดเริ่มต้น); {{How long have you…?}}; ไม่ใช่ {{I live here three years already}}",
+      "blocks": [
+        {"goal":{"t":"I've lived here for three years.","tr":"ฉันอยู่ที่นี่มาสามปีแล้ว"}},
+        {"dialog":[{"who":"เจค","t":"How long have you lived in Bangkok?","tr":"อยู่กรุงเทพฯ มานานแค่ไหนแล้ว"},{"who":"นก","t":"I've lived here for ten years, since 2015.","tr":"อยู่มาสิบปีแล้ว ตั้งแต่ปี 2015"},{"who":"เจค","t":"And how long have you worked at the bank?","tr":"แล้วทำงานที่ธนาคารมานานเท่าไรแล้ว"},{"who":"นก","t":"Since I finished college. About six years.","tr":"ตั้งแต่เรียนจบ ประมาณหกปี"},{"who":"เจค","t":"Wow. I've only been here for two months!","tr":"ว้าว ผมเพิ่งมาอยู่ได้สองเดือนเอง"}]},
+        {"p":"**“…มา…แล้ว” = have + กริยาช่องที่ 3** สิ่งที่เริ่มในอดีตและยังเป็นอยู่ตอนนี้ ภาษาไทยใช้ “มา…แล้ว” ภาษาอังกฤษใช้ present perfect: {{I've lived here for three years.}} “ฉันอยู่ที่นี่มาสามปีแล้ว (และยังอยู่)” ห้ามใช้ present simple: {{I live here for three years.}} ผิด"},
+        {"p":"**for กับ since** {{for}} + ระยะเวลา (นานเท่าไร): {{for three years}}, {{for two hours}}, {{for a long time}} ส่วน {{since}} + จุดเริ่มต้น (ตั้งแต่เมื่อไร): {{since 2015}}, {{since Monday}}, {{since I was a kid}}"},
+        { "table": [
+          ["for (ระยะเวลา)","since (ตั้งแต่)"],
+          ["{{for ten minutes}} สิบนาที","{{since 9 o'clock}} ตั้งแต่เก้าโมง"],
+          ["{{for two weeks}} สองสัปดาห์","{{since Monday}} ตั้งแต่วันจันทร์"],
+          ["{{for five years}} ห้าปี","{{since 2020}} ตั้งแต่ปี 2020"],
+          ["{{for a long time}} นานมาก","{{since I was a child}} ตั้งแต่เด็ก"]
+        ] },
+        {"p":"**ถามว่านานแค่ไหน** {{How long have you…?}} “…มานานแค่ไหนแล้ว”: {{How long have you known her?}} “รู้จักเขามานานแค่ไหนแล้ว” ({{know}} → {{known}})"},
+        {"p":"**be ใน present perfect** กริยาช่องที่ 3 ของ {{be}} คือ {{been}}: {{I've been here for two months.}} “ฉันอยู่ที่นี่มาสองเดือนแล้ว” {{We've been married since 2010.}} “เราแต่งงานกันตั้งแต่ปี 2010”"},
+        { "ex": [
+          {"t":"I've worked here for six years.","tr":"ฉันทำงานที่นี่มาหกปีแล้ว"},
+          {"t":"She's lived in Japan since 2019.","tr":"เขาอยู่ญี่ปุ่นตั้งแต่ปี 2019"},
+          {"t":"We've been friends for a long time.","tr":"เราเป็นเพื่อนกันมานานแล้ว"},
+          {"t":"How long have you studied English?","tr":"เรียนภาษาอังกฤษมานานแค่ไหนแล้ว"},
+          {"t":"I've known him since I was a kid.","tr":"ฉันรู้จักเขาตั้งแต่เด็ก"},
+          {"t":"I haven't seen her for a long time.","tr":"ไม่ได้เจอเขานานแล้ว"}
+        ] },
+        {"tip":"“ไม่ได้เจอกันนานเลย” พูดว่า {{I haven't seen you for a long time!}} หรือสั้นๆ ว่า {{Long time no see!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I live here three years already.","right":"I've lived here for three years.","tr":"ฉันอยู่ที่นี่มาสามปีแล้ว","why":"“มา…แล้ว” ใช้ present perfect กับ {{for}} ไม่ใช่ present simple + {{already}}"},
+        {"wrong":"I've worked here since five years.","right":"I've worked here for five years.","tr":"ฉันทำงานที่นี่มาห้าปีแล้ว","why":"ระยะเวลาใช้ {{for}}; {{since}} ใช้กับจุดเริ่มต้น"},
+        {"wrong":"How long do you know her?","right":"How long have you known her?","tr":"รู้จักเขามานานแค่ไหนแล้ว","why":"ถามช่วงเวลาจนถึงตอนนี้ ใช้ {{have}} + {{known}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"We've been friends ___ 2010.","tr":"เราเป็นเพื่อนกันตั้งแต่ปี 2010","options":["since","for","from"],"answer":0,"why":"จุดเริ่มต้น (ปี 2010): {{since}}"},
+        {"type":"choice","q":"“ฉันเรียนภาษาอังกฤษมาสองปีแล้ว”","options":["{{I've studied English for two years.}}","{{I study English two years already.}}","{{I've studied English since two years.}}"],"answer":0,"why":"present perfect + {{for}} + ระยะเวลา"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"รู้จักเขามานานแค่ไหนแล้ว","words":["How","long","have","you","known","her?"]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องภูเก็ต เลือกคำตอบ","from":"have-you-ever","lines":[{"who":"เจค","t":"Have you ever been to Phuket?","tr":"เคยไปภูเก็ตไหม"},{"options":["Yes, I have. My sister has lived there for five years.","Yes, I have. My sister lives there since five years."],"answer":0,"why":"อยู่มาจนถึงตอนนี้: {{has lived}} + {{for}}"},{"who":"เจค","t":"Does she like it?","tr":"เขาชอบไหม"},{"options":["Yes. She's been very happy since she moved there.","Yes. She's very happy since she moved there."],"answer":0,"why":"ตั้งแต่ย้ายไปจนถึงตอนนี้: {{has been}}"}]},
+        {"type":"say","q":"พูดว่า “ไม่ได้เจอกันนานเลย” (ประโยคเต็ม)","answer":"I haven't seen you for a long time!"},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าคุณอยู่ที่ที่อยู่ตอนนี้มานานแค่ไหน และเรียนภาษาอังกฤษมาตั้งแต่เมื่อไร","answers":[{"t":"I've lived in Bangkok for eight years. I've studied English since I was ten.","tr":"ฉันอยู่กรุงเทพฯ มาแปดปีแล้ว เรียนภาษาอังกฤษมาตั้งแต่อายุสิบขวบ"},{"t":"I've lived in this apartment since 2021. I've worked at my company for three years.","tr":"ผมอยู่อพาร์ตเมนต์นี้ตั้งแต่ปี 2021 ทำงานที่บริษัทนี้มาสามปีแล้ว"}]}
+      ]
+    },
+    {
+      "id": "just-already-yet",
+      "unit": 7,
+      "level": "B1",
+      "title": "บอกว่าเพิ่งทำ ทำแล้ว หรือยังไม่ได้ทำ",
+      "summary": "บอกว่าเพิ่งกินข้าว ส่งอีเมลแล้ว หรือยังไม่ได้ทำ: “เพิ่ง” “แล้ว” “ยัง” ในภาษาอังกฤษคือ {{just}}, {{already}}, {{yet}}",
+      "topic": "present perfect + {{just}} (เพิ่ง), {{already}} (แล้ว), {{yet}} (ยัง / หรือยัง); {{Have you … yet?}}; ตำแหน่งของแต่ละคำ",
+      "blocks": [
+        {"goal":{"t":"Have you eaten yet? — Yes, I've just eaten.","tr":"กินข้าวหรือยัง — กินแล้ว เพิ่งกินเสร็จ"}},
+        {"dialog":[{"who":"หัวหน้า","t":"Have you sent the email yet?","tr":"ส่งอีเมลหรือยัง"},{"who":"นก","t":"Yes, I've already sent it.","tr":"ส่งแล้วค่ะ"},{"who":"หัวหน้า","t":"Great. Has Tom called back yet?","tr":"ดีมาก ทอมโทรกลับมาหรือยัง"},{"who":"นก","t":"No, he hasn't called yet.","tr":"ยังค่ะ ยังไม่โทรมาเลย"},{"who":"นก","t":"Oh, wait. He's just texted me.","tr":"อ้อ เดี๋ยวค่ะ เขาเพิ่งส่งข้อความมา"}]},
+        {"p":"**just: เพิ่ง** {{have}} + {{just}} + กริยาช่องที่ 3 แปลว่า “เพิ่ง…”: {{I've just eaten.}} “เพิ่งกินเสร็จ” {{She's just left.}} “เขาเพิ่งออกไป” ({{just}} วางระหว่าง {{have}} กับกริยาช่องที่ 3)"},
+        {"p":"**already: แล้ว** {{already}} บอกว่าทำแล้ว (มักเร็วกว่าที่คิด): {{I've already paid.}} “จ่ายแล้ว” คำนี้ตรงกับ “แล้ว” ในภาษาไทย แต่ภาษาอังกฤษต้องมี {{have}} + กริยาช่องที่ 3 ด้วย"},
+        {"p":"**yet: ยัง / หรือยัง** {{yet}} วางท้ายประโยค ใช้ในคำถาม (“…หรือยัง”) และประโยคปฏิเสธ (“ยังไม่…”): {{Have you eaten yet?}} “กินข้าวหรือยัง” {{I haven't finished yet.}} “ยังไม่เสร็จ”"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["เพิ่งกิน","{{I've just eaten.}}"],
+          ["กินแล้ว","{{I've already eaten.}}"],
+          ["กินหรือยัง","{{Have you eaten yet?}}"],
+          ["ยังไม่ได้กิน","{{I haven't eaten yet.}}"],
+          ["ยัง (ตอบสั้นๆ)","{{Not yet.}}"]
+        ] },
+        {"p":"**แบบอเมริกัน** เวลาพูด คนอเมริกันมักใช้ past simple กับ {{just}}, {{already}}, {{yet}} ด้วย: {{Did you eat yet?}} {{I already ate.}} ทั้งสองแบบถูก แต่ในการเขียนและการสอบ present perfect ปลอดภัยกว่า"},
+        { "ex": [
+          {"t":"I've just finished work.","tr":"ฉันเพิ่งเลิกงาน"},
+          {"t":"She's already gone home.","tr":"เขากลับบ้านไปแล้ว"},
+          {"t":"Have you booked the hotel yet?","tr":"จองโรงแรมหรือยัง"},
+          {"t":"We haven't decided yet.","tr":"เรายังไม่ได้ตัดสินใจ"},
+          {"t":"The movie has just started.","tr":"หนังเพิ่งเริ่ม"},
+          {"t":"I've already seen this movie.","tr":"หนังเรื่องนี้ฉันดูแล้ว"},
+          {"t":"Not yet.","tr":"ยังเลย"}
+        ] },
+        {"tip":"“กินข้าวหรือยัง” แปลตรงๆ ได้ว่า {{Have you eaten yet?}} แต่คนอเมริกันไม่ได้ใช้ทักทายแบบคนไทย ถ้าถามขึ้นมา เขาอาจคิดว่าคุณกำลังชวนไปกินข้าว"}
+      ],
+      "mistakes": [
+        {"wrong":"I already eat.","right":"I've already eaten.","tr":"ฉันกินแล้ว","why":"“…แล้ว” ต้องมี {{have}} + กริยาช่องที่ 3 (หรืออย่างน้อยเป็นรูปอดีต: {{I already ate.}})"},
+        {"wrong":"Did you finish yet the report?","right":"Have you finished the report yet?","tr":"ทำรายงานเสร็จหรือยัง","why":"{{yet}} วางท้ายประโยค"},
+        {"wrong":"I have not yet finish.","right":"I haven't finished yet.","tr":"ฉันยังทำไม่เสร็จ","why":"ใช้กริยาช่องที่ 3 {{finished}} และวาง {{yet}} ท้ายประโยค"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I haven't finished my homework ___.","tr":"ฉันยังทำการบ้านไม่เสร็จ","options":["yet","already","just"],"answer":0,"why":"ประโยคปฏิเสธ “ยังไม่…”: {{yet}} ท้ายประโยค"},
+        {"type":"choice","q":"“เขาเพิ่งออกไป”","options":["{{She's just left.}}","{{She just leaves.}}","{{She's left just.}}"],"answer":0,"why":"{{have}} + {{just}} + กริยาช่องที่ 3"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"จองโรงแรมหรือยัง","words":["Have","you","booked","the hotel","yet?"]},
+        {"type":"dialogue","q":"คุณไปถึงร้านที่นัดเพื่อนไว้ เลือกคำตอบ","from":"for-since","lines":[{"who":"เพื่อน","t":"How long have you been here?","tr":"มาถึงนานแล้วเหรอ"},{"options":["Not long. I've just arrived.","Not long. I just arrive."],"answer":0,"why":"เพิ่งมาถึง: {{I've just arrived.}}"},{"who":"เพื่อน","t":"Have you ordered yet?","tr":"สั่งอาหารหรือยัง"},{"options":["No, not yet. Let's look at the menu.","No, not already. Let's look at the menu."],"answer":0,"why":"“ยัง” คือ {{not yet}}"}]},
+        {"type":"say","q":"ถามว่า “กินข้าวหรือยัง”","answer":"Have you eaten yet?"},
+        {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่วันนี้คุณทำไปแล้ว สิ่งที่เพิ่งทำ และสิ่งที่ยังไม่ได้ทำ","answers":[{"t":"I've already had lunch. I've just finished a meeting. I haven't called my mom yet.","tr":"ฉันกินข้าวกลางวันแล้ว เพิ่งประชุมเสร็จ ยังไม่ได้โทรหาแม่เลย"},{"t":"I've just woken up! I haven't had breakfast yet.","tr":"ผมเพิ่งตื่น ยังไม่ได้กินข้าวเช้าเลย"}]}
+      ]
+    },
+    {
+      "id": "because-so-although",
+      "unit": 7,
+      "level": "B1",
+      "title": "เชื่อมความคิด: because, so, but, although",
+      "summary": "ให้เหตุผล บอกผลลัพธ์ และบอกความขัดแย้ง: ภาษาไทยพูด “ถึงแม้…แต่…” ได้ แต่ภาษาอังกฤษใช้คำเชื่อมแค่คำเดียว",
+      "topic": "{{because}} (เพราะ), {{so}} (ก็เลย), {{but}} (แต่), {{although}} (ถึงแม้ว่า); ไม่ใช่ {{Although…, but…}} หรือ {{Because…, so…}}",
+      "blocks": [
+        {"goal":{"t":"I was tired, so I went to bed early.","tr":"ฉันเหนื่อย ก็เลยเข้านอนเร็ว"}},
+        {"dialog":[{"who":"เจค","t":"Why didn't you come to the party?","tr":"ทำไมไม่มาปาร์ตี้"},{"who":"นก","t":"Because I had to work late.","tr":"เพราะต้องทำงานดึก"},{"who":"เจค","t":"That's too bad. It was really fun.","tr":"แย่จัง สนุกมากเลยนะ"},{"who":"นก","t":"I wanted to go, but I was really tired, so I went straight home.","tr":"อยากไปนะ แต่เหนื่อยมาก ก็เลยกลับบ้านเลย"},{"who":"เจค","t":"Don't worry. There's another party next week!","tr":"ไม่เป็นไร สัปดาห์หน้ามีอีกงาน"}]},
+        {"term":"คำเชื่อม (conjunction)","means":"คำที่เชื่อมสองประโยคหรือสองความคิดเข้าด้วยกัน เช่น {{and}}, {{but}}, {{because}}, {{so}}"},
+        {"p":"**because และ so** {{because}} “เพราะ” นำเหตุผล: {{I stayed home because I was sick.}} ส่วน {{so}} “ก็เลย จึง” นำผลลัพธ์: {{I was sick, so I stayed home.}} สองประโยคนี้ความหมายเดียวกัน แค่เรียงคนละแบบ"},
+        {"p":"**ใช้คำเชื่อมคำเดียว** ภาษาไทยพูดเป็นคู่ได้ (“เพราะ…ก็เลย…” “ถึงแม้…แต่…”) แต่ภาษาอังกฤษใช้คำเชื่อม**คำเดียว**ต่อหนึ่งคู่: {{Because it rained, we stayed home.}} หรือ {{It rained, so we stayed home.}} ไม่ใช่ {{Because it rained, so we stayed home.}} และ {{Although…, but…}} ก็ผิดเหมือนกัน"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ (เลือกแบบเดียว)"],
+          ["เพราะฝนตก เราก็เลยอยู่บ้าน","{{Because it rained, we stayed home.}} / {{It rained, so we stayed home.}}"],
+          ["ถึงแม้จะแพง แต่ฉันก็ซื้อ","{{Although it was expensive, I bought it.}} / {{It was expensive, but I bought it.}}"]
+        ] },
+        {"p":"**but และ although** {{but}} “แต่” อยู่กลางประโยค: {{It's small, but it's comfortable.}} ส่วน {{although}} “ถึงแม้ว่า” วางต้นประโยคหรือกลางประโยคก็ได้: {{Although it's small, it's comfortable.}} {{It's comfortable, although it's small.}}"},
+        { "ex": [
+          {"t":"I'm learning English because I want to travel.","tr":"ฉันเรียนภาษาอังกฤษเพราะอยากไปเที่ยว"},
+          {"t":"It was late, so we took a taxi.","tr":"ดึกแล้ว เราก็เลยนั่งแท็กซี่"},
+          {"t":"I like my job, but it's very busy.","tr":"ฉันชอบงานนี้ แต่ยุ่งมาก"},
+          {"t":"Although it was raining, we went to the beach.","tr":"ถึงแม้ฝนจะตก เราก็ไปทะเล"},
+          {"t":"She didn't come because she was sick.","tr":"เขาไม่มาเพราะไม่สบาย"},
+          {"t":"The food was cheap, but it was delicious.","tr":"อาหารราคาถูก แต่อร่อย"}
+        ] },
+        {"tip":"เวลาพูด {{so}} ใช้ต่อเรื่องได้ด้วย: {{So, what did you do?}} “แล้วไง ทำอะไรต่อ” คล้ายคำว่า “แล้ว…” ในภาษาไทย"}
+      ],
+      "mistakes": [
+        {"wrong":"Although it was expensive, but I bought it.","right":"Although it was expensive, I bought it.","tr":"ถึงแม้จะแพง แต่ฉันก็ซื้อ","why":"ภาษาอังกฤษไม่ใช้ {{although}} คู่กับ {{but}}: เลือกคำเดียว"},
+        {"wrong":"Because I was tired, so I went to bed.","right":"I was tired, so I went to bed.","tr":"ฉันเหนื่อย ก็เลยเข้านอน","why":"ใช้ {{because}} หรือ {{so}} อย่างใดอย่างหนึ่ง ไม่ใช้คู่กัน"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"It was late, ___ we took a taxi.","tr":"ดึกแล้ว เราก็เลยนั่งแท็กซี่","options":["so","because","although"],"answer":0,"why":"นำผลลัพธ์: {{so}}"},
+        {"type":"choice","q":"ข้อไหนถูก","options":["{{Although it rained, we went out.}}","{{Although it rained, but we went out.}}","{{Because it rained, so we went out.}}"],"answer":0,"why":"คำเชื่อมคำเดียวต่อหนึ่งคู่"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันเรียนภาษาอังกฤษเพราะอยากไปเที่ยว","words":["I'm","learning","English","because","I want","to travel."]},
+        {"type":"dialogue","q":"หัวหน้าถามว่าทำไมไม่มาประชุม เลือกคำตอบ","from":"did-didnt","lines":[{"who":"หัวหน้า","t":"Why didn't you come to the meeting?","tr":"ทำไมไม่มาประชุม"},{"options":["I'm sorry. My son was sick, so I took him to the doctor.","I'm sorry. Because my son was sick, so I took him to the doctor."],"answer":0,"why":"ใช้ {{so}} อย่างเดียว ไม่ต้องมี {{because}} คู่กัน"},{"who":"หัวหน้า","t":"Is he OK now?","tr":"ตอนนี้ลูกโอเคไหม"},{"options":["Yes, he's better, although he's still tired.","Yes, he's better, although but he's still tired."],"answer":0,"why":"{{although}} ไม่ใช้คู่กับ {{but}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันเหนื่อย ก็เลยเข้านอนเร็ว”","answer":"I was tired, so I went to bed early."},
+        {"type":"free","q":"ถึงตาคุณ: บอกเหตุผลที่คุณเรียนภาษาอังกฤษ และเล่าเรื่องหนึ่งที่มี {{but}} หรือ {{although}}","answers":[{"t":"I'm learning English because I want a better job. It's difficult, but I like it.","tr":"ฉันเรียนภาษาอังกฤษเพราะอยากได้งานที่ดีกว่า มันยาก แต่ก็ชอบ"},{"t":"Although I'm busy, I study English every day because I want to travel.","tr":"ถึงจะยุ่ง ผมก็เรียนภาษาอังกฤษทุกวัน เพราะอยากไปเที่ยว"}]}
+      ]
+    },
+    {
+      "id": "if-will",
+      "unit": 7,
+      "level": "B1",
+      "title": "บอกว่าถ้า…จะ…: If + present, will",
+      "summary": "บอกว่าจะทำอะไรถ้า… ฝนตก มีเวลา หรือไม่รีบ: หลัง {{if}} ใช้ปัจจุบัน แม้จะหมายถึงอนาคต",
+      "topic": "first conditional: {{If}} + present simple, {{will}} + คำกริยา; ไม่ใช่ {{If it will rain}}; สลับลำดับได้; {{unless}} (ถ้าไม่…)",
+      "blocks": [
+        {"goal":{"t":"If it rains, we'll stay home.","tr":"ถ้าฝนตก เราจะอยู่บ้าน"}},
+        {"dialog":[{"who":"เจค","t":"Do you want to go to the beach tomorrow?","tr":"พรุ่งนี้อยากไปทะเลไหม"},{"who":"นก","t":"Sure! If the weather is nice, we'll go in the morning.","tr":"ไปสิ ถ้าอากาศดี เราไปตอนเช้ากัน"},{"who":"เจค","t":"And if it rains?","tr":"แล้วถ้าฝนตกล่ะ"},{"who":"นก","t":"If it rains, we'll go to the movies instead.","tr":"ถ้าฝนตก ก็ไปดูหนังแทน"},{"who":"เจค","t":"OK. I'll call you if I wake up early.","tr":"โอเค ถ้าตื่นเช้า ผมจะโทรหานะ"}]},
+        {"term":"ประโยคเงื่อนไข (conditional)","means":"ประโยคที่มี {{if}} “ถ้า” บอกว่าถ้าเรื่องหนึ่งเกิดขึ้น อีกเรื่องจะเกิดตาม"},
+        {"p":"**if + ปัจจุบัน, will + คำกริยา** เงื่อนไขในอนาคตที่อาจเกิดขึ้นจริง: ส่วน {{if}} ใช้ present simple ส่วนผลลัพธ์ใช้ {{will}}: {{If it rains, we'll stay home.}} สังเกตว่าหลัง {{if}} **ไม่ใช้** {{will}} ถึงจะหมายถึงอนาคตก็ตาม"},
+        { "table": [
+          ["ส่วน if (ปัจจุบัน)","ผลลัพธ์ (will)"],
+          ["{{If I have time,}} ถ้ามีเวลา","{{I'll call you.}} จะโทรหา"],
+          ["{{If you don't hurry,}} ถ้าไม่รีบ","{{you'll miss the train.}} จะตกรถไฟ"],
+          ["{{If she studies,}} ถ้าเขาตั้งใจเรียน","{{she'll pass.}} เขาจะสอบผ่าน"]
+        ] },
+        {"p":"**สลับลำดับได้** จะวางส่วน {{if}} ไว้ข้างหลังก็ได้ แล้วไม่ต้องมีจุลภาค: {{I'll call you if I have time.}} และผลลัพธ์จะเป็นคำสั่งหรือ {{can}} ก็ได้: {{If you're tired, go to bed.}} {{If you want, you can stay here.}}"},
+        {"p":"**unless: ถ้าไม่** {{unless}} = {{if … not}}: {{We'll go unless it rains.}} “เราจะไป ถ้าฝนไม่ตก”"},
+        { "ex": [
+          {"t":"If I have time, I'll call you.","tr":"ถ้ามีเวลา จะโทรหานะ"},
+          {"t":"If you don't hurry, you'll miss the train.","tr":"ถ้าไม่รีบ จะตกรถไฟนะ"},
+          {"t":"What will you do if it rains?","tr":"ถ้าฝนตกจะทำอะไร"},
+          {"t":"If you're hungry, there's some food in the fridge.","tr":"ถ้าหิว ในตู้เย็นมีอาหารนะ"},
+          {"t":"I'll be angry if you're late again.","tr":"ถ้ามาสายอีก ฉันจะโกรธนะ"},
+          {"t":"We'll go hiking unless it rains.","tr":"เราจะไปเดินป่า ถ้าฝนไม่ตก"}
+        ] },
+        {"tip":"ภาษาไทยพูดว่า “ถ้า…ก็…” แต่ภาษาอังกฤษไม่มีคำแทน “ก็”: {{If you go, I'll go too.}} “ถ้าคุณไป ฉันก็ไป”"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"ถ้าฝนตก เราจะอยู่บ้าน","why":"หลัง {{if}} ใช้ present simple ไม่ใช่ {{will}}"},
+        {"wrong":"If I have time, I call you.","right":"If I have time, I'll call you.","tr":"ถ้ามีเวลา จะโทรหา","why":"ผลลัพธ์ในอนาคตใช้ {{will}}"},
+        {"wrong":"If you go, so I go too.","right":"If you go, I'll go too.","tr":"ถ้าคุณไป ฉันก็ไปด้วย","why":"ไม่ต้องแปลคำว่า “ก็” ({{so}}) และผลลัพธ์ใช้ {{will}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"If it ___ tomorrow, we'll stay home.","tr":"ถ้าพรุ่งนี้ฝนตก เราจะอยู่บ้าน","options":["rains","will rain","rained"],"answer":0,"why":"หลัง {{if}} ใช้ present simple"},
+        {"type":"choice","q":"“ถ้ามีเวลา ฉันจะช่วย”","options":["{{If I have time, I'll help.}}","{{If I will have time, I'll help.}}","{{If I have time, so I help.}}"],"answer":0,"why":"{{if}} + ปัจจุบัน, {{will}} + คำกริยา"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ถ้าฝนตกจะทำอะไร","words":["What","will","you","do","if","it rains?"]},
+        {"type":"dialogue","q":"เพื่อนกังวลเรื่องสอบ เลือกคำพูด","from":"have-to-should","lines":[{"who":"เพื่อน","t":"I have an exam tomorrow and I'm so nervous.","tr":"พรุ่งนี้มีสอบ ตื่นเต้นมาก"},{"options":["You should sleep early. If you're tired, you won't do well.","You should sleep early. If you will be tired, you won't do well."],"answer":0,"why":"หลัง {{if}} ใช้ present simple: {{you're}}"},{"who":"เพื่อน","t":"OK. What if I fail?","tr":"โอเค แล้วถ้าสอบตกล่ะ"},{"options":["If you fail, you can take it again.","If you will fail, you can take it again."],"answer":0,"why":"หลัง {{if}} ใช้ present simple"}]},
+        {"type":"say","q":"พูดว่า “ถ้าฝนตก เราจะอยู่บ้าน”","answer":"If it rains, we'll stay home."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณจะทำถ้า… (มีเวลา อากาศดี ได้เงินพิเศษ)","answers":[{"t":"If I have time this weekend, I'll visit my parents. If the weather is nice, I'll go running.","tr":"ถ้าสุดสัปดาห์นี้มีเวลา จะไปเยี่ยมพ่อแม่ ถ้าอากาศดีจะไปวิ่ง"},{"t":"If I get a bonus, I'll buy a new phone. If it rains, I'll stay home and read.","tr":"ถ้าได้โบนัส ผมจะซื้อโทรศัพท์ใหม่ ถ้าฝนตกจะอยู่บ้านอ่านหนังสือ"}]}
+      ]
+    },
+    {
+      "id": "negative-questions",
+      "unit": 7,
+      "level": "B1",
+      "title": "ตอบคำถามปฏิเสธ และถามเพื่อยืนยัน",
+      "summary": "ตอบคำถามแบบ “ไม่ไปเหรอ” ให้ถูก และถามเพื่อยืนยันว่า “…ใช่ไหม” แบบภาษาอังกฤษ",
+      "topic": "คำถามปฏิเสธ ({{Don't you…?}}, {{Aren't you…?}}) และคำตอบ {{Yes}} / {{No}} ตามความจริง; tag questions ({{…, isn't it?}}, {{…, right?}})",
+      "blocks": [
+        {"goal":{"t":"Aren't you hungry? — No, I'm not.","tr":"ไม่หิวเหรอ — ไม่หิว"}},
+        {"dialog":[{"who":"เจค","t":"Aren't you coming to dinner?","tr":"ไม่ไปกินข้าวด้วยเหรอ"},{"who":"นก","t":"No, I'm not. I have too much work.","tr":"ไม่ไป งานเยอะเกินไป"},{"who":"เจค","t":"You don't eat meat, right?","tr":"คุณไม่กินเนื้อสัตว์ใช่ไหม"},{"who":"นก","t":"Right, I don't.","tr":"ใช่ ไม่กิน"},{"who":"เจค","t":"It's a nice day, isn't it?","tr":"วันนี้อากาศดีนะ"},{"who":"นก","t":"Yes, it is!","tr":"ใช่เลย"}]},
+        {"p":"**ภาษาไทยตอบตามคำถาม ภาษาอังกฤษตอบตามความจริง** ถ้ามีคนถามว่า “ไม่ไปเหรอ” แล้วเราไม่ไป คนไทยตอบว่า “ใช่ (ไม่ไป)” แต่ภาษาอังกฤษดูแค่ความจริง: ไม่ไป → {{No}}: {{Aren't you going? — No, I'm not.}} ถ้าไป → {{Yes}}: {{Yes, I am.}} คำหลัง {{Yes}} / {{No}} ต้องไปทางเดียวกันเสมอ"},
+        { "table": [
+          ["คำถาม","ความจริง","ตอบ"],
+          ["{{Aren't you hungry?}} ไม่หิวเหรอ","ไม่หิว","{{No, I'm not.}}"],
+          ["{{Aren't you hungry?}} ไม่หิวเหรอ","หิว","{{Yes, I am.}}"],
+          ["{{Don't you like it?}} ไม่ชอบเหรอ","ไม่ชอบ","{{No, I don't.}}"],
+          ["{{Didn't she call?}} เขาไม่ได้โทรมาเหรอ","โทรมาแล้ว","{{Yes, she did.}}"]
+        ] },
+        {"p":"**เคล็ดลับ: ตัด not ทิ้ง** ลองคิดว่าคำถามไม่มี {{not}}: {{Aren't you hungry?}} = {{Are you hungry?}} หิวไหม? ไม่หิว → {{No}} หิว → {{Yes}} คำตอบเหมือนกันทุกครั้ง"},
+        {"term":"tag question (คำถามท้ายประโยค)","means":"คำถามสั้นๆ ที่ต่อท้ายประโยค คล้าย “…ใช่ไหม” “…นะ” ในภาษาไทย เช่น {{isn't it?}}, {{don't you?}}, {{right?}}"},
+        {"p":"**…ใช่ไหม: tag questions** อยากถามเพื่อยืนยัน ภาษาอังกฤษเติมคำถามสั้นๆ ท้ายประโยค ง่ายที่สุดคือ {{…, right?}}: {{You're Thai, right?}} หรือใช้ tag แบบกลับขั้ว: ประโยคบอกเล่า + tag ปฏิเสธ ({{It's hot, isn't it?}}) ประโยคปฏิเสธ + tag บอกเล่า ({{You don't eat pork, do you?}})"},
+        { "ex": [
+          {"t":"Don't you like coffee?","tr":"ไม่ชอบกาแฟเหรอ"},
+          {"t":"No, I don't. I prefer tea.","tr":"ไม่ชอบ ชอบชามากกว่า"},
+          {"t":"Isn't this your bag?","tr":"นี่ไม่ใช่กระเป๋าคุณเหรอ"},
+          {"t":"Yes, it is! Thank you.","tr":"ใช่ ขอบคุณมาก"},
+          {"t":"You're from Chiang Mai, right?","tr":"คุณมาจากเชียงใหม่ใช่ไหม"},
+          {"t":"It's really hot today, isn't it?","tr":"วันนี้ร้อนมากเลยนะ"},
+          {"t":"You haven't been to Japan, have you?","tr":"คุณยังไม่เคยไปญี่ปุ่นใช่ไหม"}
+        ] },
+        {"tip":"ถ้ากลัวสับสน ให้ตอบเป็นประโยคเต็ม: {{No, I'm not hungry.}} หรือ {{Yes, I'm hungry.}} คนฟังจะเข้าใจแน่นอน"}
+      ],
+      "mistakes": [
+        {"wrong":"Aren't you hungry? — Yes, I'm not.","right":"Aren't you hungry? — No, I'm not.","tr":"ไม่หิวเหรอ — ไม่หิว","why":"ภาษาอังกฤษตอบตามความจริง: ไม่หิว → {{No}} ห้ามใช้ {{Yes}} คู่กับ {{not}}"},
+        {"wrong":"Don't you like it? — Yes.","right":"Don't you like it? — No, I don't.","tr":"ไม่ชอบเหรอ — ไม่ชอบ","why":"ถ้าไม่ชอบจริงๆ ต้องตอบ {{No}}: คำว่า {{Yes}} แปลว่า “ชอบ” ไม่ใช่ “ใช่ ไม่ชอบ” แบบภาษาไทย"},
+        {"wrong":"It's hot, is it?","right":"It's hot, isn't it?","tr":"ร้อนนะ","why":"ประโยคบอกเล่าใช้ tag ปฏิเสธ: {{isn't it?}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"เพื่อนถาม {{Aren't you tired?}} คุณไม่เหนื่อยเลย","options":["{{No, I'm not.}}","{{Yes, I'm not.}}","{{Yes.}}"],"answer":0,"why":"ไม่เหนื่อย → {{No}}"},
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"It's a beautiful day, ___ it?","tr":"วันนี้อากาศดีนะ","options":["isn't","is","doesn't"],"answer":0,"why":"ประโยคบอกเล่าที่มี {{is}}: tag คือ {{isn't it?}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"คุณมาจากเชียงใหม่ใช่ไหม","words":["You're","from","Chiang Mai,","right?"]},
+        {"type":"dialogue","q":"เพื่อนชวนคุยเรื่องทุเรียน เลือกคำตอบ","from":"have-you-ever","lines":[{"who":"เจค","t":"Haven't you tried durian?","tr":"ยังไม่เคยลองทุเรียนเหรอ"},{"options":["No, I haven't. Is it good?","Yes, I haven't. Is it good?"],"answer":0,"why":"ไม่เคยลอง → {{No}}"},{"who":"เจค","t":"You don't like strong smells, do you?","tr":"คุณไม่ชอบกลิ่นแรงๆ ใช่ไหม"},{"options":["No, I don't. But I'll try it!","Yes, I don't. But I'll try it!"],"answer":0,"why":"ไม่ชอบ → {{No, I don't.}}"}]},
+        {"type":"say","q":"ถามเพื่อยืนยันว่า “วันนี้ร้อนมากเลยนะ”","answer":"It's really hot today, isn't it?"},
+        {"type":"free","q":"ถึงตาคุณ: ตอบคำถามนี้ตามความจริงของคุณ: {{Don't you like spicy food?}} แล้วถามเพื่อนกลับหนึ่งคำถามด้วย {{…, right?}}","answers":[{"t":"No, I don't. It's too hot for me. You like spicy food, right?","tr":"ไม่ชอบ เผ็ดเกินไปสำหรับฉัน คุณชอบเผ็ดใช่ไหม"},{"t":"Yes, I do! I love it. You're from Bangkok, right?","tr":"ชอบสิ ชอบมากเลย คุณมาจากกรุงเทพฯ ใช่ไหม"}]}
+      ]
     }
   ]
 }
