@@ -21,17 +21,17 @@
    "file": "de/course.json",
    "title": "German basics",
    "variety": "Standard German (Germany)",
-   "words": 20,
+   "words": 1000,
    "planned": 1000,
-   "bytes": 8511,
-   "audio_bytes": 226059,
-   "sha256": "eda368a134b86a78d7f2784687a1e4f82e02b52364062f503d41b5c4d5b07b64",
+   "bytes": 336895,
+   "audio_bytes": 12871131,
+   "sha256": "06aeea6e473be10d91c4feb687fcfdb0e9e1dba2b5c23a43b4253c1a16effec9",
    "voice": {
     "engine": "azure",
     "name": "Katja (Azure, Germany)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   }
  }
 }
