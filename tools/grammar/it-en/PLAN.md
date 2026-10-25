@@ -120,3 +120,10 @@ in 8 units: lessons 1–19 A1, 20–39 A2, 40–48 B1.
 - Grammar words are the Italian ones a reader knows from school (*soggetto, verbo, aggettivo*), defined in
   plain words the first time; the English names of tenses (*present perfect*) are given once, because
   Italian learners meet them everywhere.
+
+## Status
+
+All 48 lessons are written and pass the checks, but the course is marked `"draft": true` (the owner,
+2026-10-25: the English courses come in the next update). This branch still has the older build, which
+publishes it anyway; grammar-course's newer build takes a draft out of `docs/grammar`, so rerun
+`node tools/grammar/build.mjs` after merging.
