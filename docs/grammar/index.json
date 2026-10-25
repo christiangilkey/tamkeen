@@ -22,14 +22,14 @@
    "title": "Chinese grammar",
    "variety": "Mandarin Chinese (mainland standard, simplified characters)",
    "units": 9,
-   "lessons": 40,
+   "lessons": 49,
    "levels": [
     "A1",
     "A2",
     "B1"
    ],
-   "bytes": 255111,
-   "sha256": "5b5810d907c1338792e9caf5bca1af21fca4185e4020a058dac378b75c9ec231"
+   "bytes": 322378,
+   "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
   }
  }
 }

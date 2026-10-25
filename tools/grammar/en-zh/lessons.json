@@ -1803,6 +1803,408 @@
         {"type":"say","q":"Ask a friend: “What do you think?”","answer":"你觉得呢？","r":"Nǐ juéde ne?","from":"say-who-you-are"},
         {"type":"free","q":"Your turn: is it better to live in a big city or a small town? Give your opinion and a reason or two.","answers":[{"t":"我觉得住在大城市更好，因为工作机会多，而且很方便。","r":"Wǒ juéde zhù zài dà chéngshì gèng hǎo, yīnwèi gōngzuò jīhuì duō, érqiě hěn fāngbiàn.","tr":"I think a big city is better, because there are more jobs, and it's convenient too."},{"t":"对我来说，小城市更好。虽然没有大城市那么方便，但是很安静。","r":"Duì wǒ lái shuō, xiǎo chéngshì gèng hǎo. Suīrán méiyǒu dà chéngshì nàme fāngbiàn, dànshì hěn ānjìng.","tr":"For me, a small town is better. It's not as convenient as a big city, but it's quiet."}]}
       ]
+    },
+    {
+      "id": "say-how-it-happened",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say when, where and how it happened",
+      "summary": "“When did you get here?” “Last night, by train.” Ask and tell the details of something that has already happened.",
+      "topic": "{{是…的|shì… de}} around the detail of a past event: when, where, how, with whom; {{不是…的|bú shì… de}}",
+      "blocks": [
+        {"goal":{"t":"我是坐火车来的。","r":"Wǒ shì zuò huǒchē lái de.","tr":"I came by train."}},
+        {"dialog":[{"who":"Xiao Chen","t":"欢迎！你是什么时候到的？","r":"Huānyíng! Nǐ shì shénme shíhou dào de?","tr":"Welcome! When did you get here?"},{"who":"Mark","t":"我是昨天晚上到的。","r":"Wǒ shì zuótiān wǎnshang dào de.","tr":"I got here last night."},{"who":"Xiao Chen","t":"你是坐飞机来的吗？","r":"Nǐ shì zuò fēijī lái de ma?","tr":"Did you fly?"},{"who":"Mark","t":"不是，我是坐高铁来的。","r":"Bú shì, wǒ shì zuò gāotiě lái de.","tr":"No, I came on the high-speed train."},{"who":"Xiao Chen","t":"跟谁一起来的？","r":"Gēn shéi yìqǐ lái de?","tr":"Who did you come with?"},{"who":"Mark","t":"我是一个人来的。","r":"Wǒ shì yí ge rén lái de.","tr":"I came on my own."}]},
+        {"p":"**The event is known; the detail is the news.** When everyone knows something happened, and you want to ask or tell *when*, *where*, *how* or *with whom*, put {{是|shì}} before that detail and {{的|de}} at the end: {{我是昨天到的。|Wǒ shì zuótiān dào de.}} “It was yesterday that I arrived.” The spotlight falls on what comes right after {{是|shì}}."},
+        { "table": [
+          ["The detail","Chinese","Meaning"],
+          ["when","{{我是去年来的。|Wǒ shì qùnián lái de.}}","I came last year."],
+          ["where","{{这件衣服是在北京买的。|Zhè jiàn yīfu shì zài Běijīng mǎi de.}}","I bought this top in Beijing."],
+          ["how","{{我们是打车去的。|Wǒmen shì dǎchē qù de.}}","We went by taxi."],
+          ["with whom","{{他是跟朋友一起去的。|Tā shì gēn péngyou yìqǐ qù de.}}","He went with friends."],
+          ["who did it","{{这是我妈妈做的。|Zhè shì wǒ māma zuò de.}}","My mum made this."]
+        ] },
+        {"p":"**{{了|le}} or {{是…的|shì… de}}?** {{了|le}} tells that something happened: {{他来了。|Tā lái le.}} “He's come.” Once that's known, the questions about it take {{是…的|shì… de}}: {{他是怎么来的？|Tā shì zěnme lái de?}} “How did he get here?” In speech {{是|shì}} is often dropped, but never the {{的|de}}: {{你什么时候到的？|Nǐ shénme shíhou dào de?}}"},
+        {"p":"**Not**: {{不是…的|bú shì… de}}: {{我不是坐飞机来的。|Wǒ bú shì zuò fēijī lái de.}} “I didn't come by plane.”"},
+        { "ex": [
+          {"t":"我是坐火车来的。","r":"Wǒ shì zuò huǒchē lái de.","tr":"I came by train."},
+          {"t":"你是什么时候到的？","r":"Nǐ shì shénme shíhou dào de?","tr":"When did you get here?"},
+          {"t":"你是在哪儿学的中文？","r":"Nǐ shì zài nǎr xué de Zhōngwén?","tr":"Where did you learn Chinese?","note":"with an object, {{的|de}} often goes before it"},
+          {"t":"我们是在大学认识的。","r":"Wǒmen shì zài dàxué rènshi de.","tr":"We met at university."},
+          {"t":"这个蛋糕是我自己做的。","r":"Zhège dàngāo shì wǒ zìjǐ zuò de.","tr":"I made this cake myself."},
+          {"t":"我不是一个人来的。","r":"Wǒ bú shì yí ge rén lái de.","tr":"I didn't come alone."}
+        ] },
+        {"tip":"This pattern is perfect for small talk with new people: {{你是哪年来中国的？|Nǐ shì nǎ nián lái Zhōngguó de?}} “What year did you come to China?”, {{你们是怎么认识的？|Nǐmen shì zěnme rènshi de?}} “How did you two meet?”"}
+      ],
+      "mistakes": [
+        {"wrong":"我是昨天到了的。","right":"我是昨天到的。","tr":"I arrived yesterday.","why":"With {{是…的|shì… de}} there's no {{了|le}}: {{我是昨天到的。|Wǒ shì zuótiān dào de.}}"},
+        {"wrong":"我是坐火车来。","right":"我是坐火车来的。","tr":"I came by train.","why":"Don't forget the {{的|de}} at the end: it closes the detail."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我们是在大学认识___。","r":"Wǒmen shì zài dàxué rènshi ___.","tr":"We met at university.","options":["的","了","吗"],"rs":["de","le","ma"],"answer":0,"why":"{{是|shì}} … {{的|de}}: the detail (where) of something known."},
+        {"type":"choice","q":"Someone asks how you got here. “I came by taxi” is…","options":["{{我是打车来的。|Wǒ shì dǎchē lái de.}}","{{我打车来了的。|Wǒ dǎchē lái le de.}}","{{我是来打车的。|Wǒ shì lái dǎchē de.}}"],"answer":0,"why":"{{是|shì}} before the detail ({{打车|dǎchē}} “by taxi”), {{的|de}} at the end. (The last one means “I came to get a taxi”.)"},
+        {"type":"choice","q":"{{这是我妈妈做的。|Zhè shì wǒ māma zuò de.}} means…","options":["My mum made this.","My mum is making this.","This is my mum."],"answer":0,"why":"{{是…的|shì… de}}: who did it.","from":"say-which-one"},
+        {"type":"dialogue","q":"Meeting a new colleague. Choose your replies.","lines":[{"who":"Colleague","t":"你来中国多长时间了？","r":"Nǐ lái Zhōngguó duō cháng shíjiān le?","tr":"How long have you been in China?"},{"options":["我来了半年了。","我半年来了。"],"rs":["Wǒ lái le bàn nián le.","Wǒ bàn nián lái le."],"answer":0,"why":"How long goes after the verb, and {{了|le}} at the end: you're still here."},{"who":"Colleague","t":"你是一个人来的吗？","r":"Nǐ shì yí ge rén lái de ma?","tr":"Did you come on your own?"},{"options":["不是，我是跟我太太一起来的。","不是，我跟我太太一起来了的。"],"rs":["Bú shì, wǒ shì gēn wǒ tàitai yìqǐ lái de.","Bú shì, wǒ gēn wǒ tàitai yìqǐ lái le de."],"answer":0,"why":"The detail (with whom) after {{是|shì}}, {{的|de}} at the end, and no {{了|le}}."},{"who":"Colleague","t":"欢迎欢迎！","r":"Huānyíng huānyíng!","tr":"Welcome!"}],"from":"say-how-long"},
+        {"type":"order","q":"Put the words in order.","tr":"Where did you learn Chinese?","words":["你","是","在哪儿","学的","中文？"],"rs":["nǐ","shì","zài nǎr","xué de","Zhōngwén?"],"from":"ask-who-what-where"},
+        {"type":"say","q":"Say “I didn't come by plane.”","answer":"我不是坐飞机来的。","r":"Wǒ bú shì zuò fēijī lái de."},
+        {"type":"free","q":"Your turn: think of something you own and like. Say where, when or how you got it.","answers":[{"t":"这个包是我去年在上海买的。","r":"Zhège bāo shì wǒ qùnián zài Shànghǎi mǎi de.","tr":"I bought this bag in Shanghai last year."},{"t":"我的手表是我朋友送的，是去年生日的时候送的。","r":"Wǒ de shǒubiǎo shì wǒ péngyou sòng de, shì qùnián shēngrì de shíhou sòng de.","tr":"My watch was a present from a friend, for my birthday last year."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did-with-it",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what you did with something",
+      "summary": "“Put your phone on the table”, “I've finished my homework”, “Don't forget your keys!”: say what you do to a particular thing.",
+      "topic": "{{把|bǎ}} + the thing + verb + what happens to it: {{把门关上|bǎ mén guānshang}}, {{把手机放在桌子上|bǎ shǒujī fàng zài zhuōzi shang}}",
+      "blocks": [
+        {"goal":{"t":"请把手机放在桌子上。","r":"Qǐng bǎ shǒujī fàng zài zhuōzi shang.","tr":"Please put your phone on the table."}},
+        {"dialog":[{"who":"Mum","t":"你把护照放在哪儿了？","r":"Nǐ bǎ hùzhào fàng zài nǎr le?","tr":"Where did you put your passport?"},{"who":"Son","t":"我把它放在包里了。","r":"Wǒ bǎ tā fàng zài bāo li le.","tr":"I put it in my bag."},{"who":"Mum","t":"好。别把手机充电器忘了！","r":"Hǎo. Bié bǎ shǒujī chōngdiànqì wàng le!","tr":"Good. Don't forget your phone charger!"},{"who":"Son","t":"已经带了。妈，你能把窗户关上吗？有点儿冷。","r":"Yǐjīng dài le. Mā, nǐ néng bǎ chuānghu guānshang ma? Yǒudiǎnr lěng.","tr":"Already packed. Mum, can you close the window? It's a bit cold."}]},
+        {"p":"**{{把|bǎ}}: take the thing, and do something to it.** {{把|bǎ}} brings a particular, known thing before the verb, to say what happens to it: {{我把门关上了。|Wǒ bǎ mén guānshang le.}} “I closed the door” (“I took the door and closed it”). The order: who + {{把|bǎ}} + the thing + verb + the result, or where it ends up."},
+        { "table": [
+          ["Who","{{把|bǎ}} + thing","Verb + what happens","Meaning"],
+          ["{{我|wǒ}}","{{把门|bǎ mén}}","{{关上了|guānshang le}}","I closed the door."],
+          ["{{请|qǐng}}","{{把手机|bǎ shǒujī}}","{{放在桌子上|fàng zài zhuōzi shang}}","Please put your phone on the table."],
+          ["{{他|tā}}","{{把作业|bǎ zuòyè}}","{{做完了|zuòwán le}}","He's finished his homework."],
+          ["{{别|bié}}","{{把钥匙|bǎ yàoshi}}","{{忘了|wàng le}}","Don't forget the keys."]
+        ] },
+        {"p":"**The verb can't stand alone.** After {{把|bǎ}} the verb needs something more: a result ({{做完|zuòwán}}), a place ({{放在包里|fàng zài bāo li}}), a direction ({{拿出来|ná chūlai}} “take out”) or {{了|le}}. {{我把门关。|Wǒ bǎ mén guān.}} on its own sounds unfinished. And the thing is a particular one, “the door”, “my phone”, never “a door”."},
+        {"p":"**When is it needed?** Mostly for moving, putting, giving and changing things, and in instructions: {{把…放在|bǎ… fàng zài}} “put … in, on”, {{把…给我|bǎ… gěi wǒ}} “give me …”, {{把…带来|bǎ… dàilai}} “bring …”. {{不|bù}}, {{没|méi}} and {{别|bié}} go before {{把|bǎ}}: {{别把手机忘了！|Bié bǎ shǒujī wàng le!}}"},
+        { "ex": [
+          {"t":"请把手机放在桌子上。","r":"Qǐng bǎ shǒujī fàng zài zhuōzi shang.","tr":"Please put your phone on the table."},
+          {"t":"我把作业做完了。","r":"Wǒ bǎ zuòyè zuòwán le.","tr":"I've finished my homework."},
+          {"t":"你把护照放在哪儿了？","r":"Nǐ bǎ hùzhào fàng zài nǎr le?","tr":"Where did you put your passport?"},
+          {"t":"请把盐给我。","r":"Qǐng bǎ yán gěi wǒ.","tr":"Please pass me the salt."},
+          {"t":"别把钥匙忘了！","r":"Bié bǎ yàoshi wàng le!","tr":"Don't forget your keys!"},
+          {"t":"他还没把钱还给我。","r":"Tā hái méi bǎ qián huán gěi wǒ.","tr":"He still hasn't paid me back.","note":"{{还|hái}} “still”, and {{还|huán}} “give back”: one character, two words"}
+        ] },
+        {"tip":"{{放在|fàng zài}} “put in”, {{住在|zhù zài}} “live in”, {{坐在|zuò zài}} “sit in”: with verbs of putting, living and sitting, {{在|zài}} + place comes after the verb, to say where something ends up."}
+      ],
+      "mistakes": [
+        {"wrong":"我把门关。","right":"我把门关上了。","tr":"I closed the door.","why":"After {{把|bǎ}} the verb needs something more: a result, a place, or {{了|le}}. {{我把门关上了。|Wǒ bǎ mén guānshang le.}}"},
+        {"wrong":"我放手机在桌子上。","right":"我把手机放在桌子上。","tr":"I put the phone on the table.","why":"Where a thing ends up goes after the verb, so the thing itself moves before it, with {{把|bǎ}}: {{我把手机放在桌子上。|Wǒ bǎ shǒujī fàng zài zhuōzi shang.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"请___门关上。","r":"Qǐng ___ mén guānshang.","tr":"Please close the door.","options":["把","在","给"],"rs":["bǎ","zài","gěi"],"answer":0,"why":"The thing comes before the verb with {{把|bǎ}}."},
+        {"type":"choice","q":"“I put the keys in my bag” is…","options":["{{我把钥匙放在包里了。|Wǒ bǎ yàoshi fàng zài bāo li le.}}","{{我放在包里把钥匙了。|Wǒ fàng zài bāo li bǎ yàoshi le.}}","{{我把包里放钥匙了。|Wǒ bǎ bāo li fàng yàoshi le.}}"],"answer":0,"why":"{{把|bǎ}} + the thing, then the verb, then where it goes.","from":"say-where-things-are"},
+        {"type":"choice","q":"Where does {{别|bié}} go? “Don't forget your phone!”","options":["{{别把手机忘了！|Bié bǎ shǒujī wàng le!}}","{{把手机别忘了！|Bǎ shǒujī bié wàng le!}}"],"answer":0,"why":"{{别|bié}}, {{不|bù}} and {{没|méi}} go before {{把|bǎ}}.","from":"give-advice-and-rules"},
+        {"type":"dialogue","q":"Packing for a trip with your partner. Choose your replies.","lines":[{"who":"Partner","t":"你把护照放在哪儿了？","r":"Nǐ bǎ hùzhào fàng zài nǎr le?","tr":"Where did you put your passport?"},{"options":["我把它放在包里了。","我把它放了在包里。"],"rs":["Wǒ bǎ tā fàng zài bāo li le.","Wǒ bǎ tā fàng le zài bāo li."],"answer":0,"why":"{{放在|fàng zài}} + the place, then {{了|le}} at the end."},{"who":"Partner","t":"好。你能把窗户关上吗？","r":"Hǎo. Nǐ néng bǎ chuānghu guānshang ma?","tr":"Good. Can you close the window?"},{"options":["好，我马上关。","好，我马上把窗户。"],"rs":["Hǎo, wǒ mǎshàng guān.","Hǎo, wǒ mǎshàng bǎ chuānghu."],"answer":0,"why":"A short answer needs no {{把|bǎ}}, and {{把|bǎ}} without a verb says nothing."}],"from":"say-what-you-can-do"},
+        {"type":"order","q":"Put the words in order.","tr":"I've finished my homework.","words":["我","把","作业","做完了。"],"rs":["wǒ","bǎ","zuòyè","zuòwán le."],"from":"say-if-you-got-it"},
+        {"type":"say","q":"At dinner: “Please pass me the salt.”","answer":"请把盐给我。","r":"Qǐng bǎ yán gěi wǒ."},
+        {"type":"free","q":"Your turn: you're going away for a week. Ask your flatmate to do two things, with {{把|bǎ}}.","answers":[{"t":"请把垃圾拿出去。走的时候把灯关上。","r":"Qǐng bǎ lājī ná chūqu. Zǒu de shíhou bǎ dēng guānshang.","tr":"Please take the rubbish out. Turn the lights off when you leave."},{"t":"别把我的猫忘了！每天把它的碗洗干净。","r":"Bié bǎ wǒ de māo wàng le! Měitiān bǎ tā de wǎn xǐ gānjìng.","tr":"Don't forget my cat! Wash its bowl every day."}]}
+      ]
+    },
+    {
+      "id": "say-what-happened-to-you",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say what happened to you",
+      "summary": "“My wallet's been stolen”, “I got soaked in the rain”, “My brother ate all the cake”: say what happened to someone or something.",
+      "topic": "{{被|bèi}} (+ who) + verb + what came of it: {{我的钱包被偷了|wǒ de qiánbāo bèi tōu le}}; {{让|ràng}} in speech",
+      "blocks": [
+        {"goal":{"t":"我的钱包被偷了！","r":"Wǒ de qiánbāo bèi tōu le!","tr":"My wallet's been stolen!"}},
+        {"dialog":[{"who":"Anna","t":"怎么了？你怎么不高兴？","r":"Zěnme le? Nǐ zěnme bù gāoxìng?","tr":"What's wrong? Why the long face?"},{"who":"Xiao Wang","t":"我的手机被偷了！","r":"Wǒ de shǒujī bèi tōu le!","tr":"My phone's been stolen!"},{"who":"Anna","t":"啊？在哪儿被偷的？","r":"Á? Zài nǎr bèi tōu de?","tr":"What? Where was it stolen?"},{"who":"Xiao Wang","t":"在地铁上。而且我还被雨淋湿了。","r":"Zài dìtiě shang. Érqiě wǒ hái bèi yǔ línshī le.","tr":"On the subway. And I got soaked in the rain, too."},{"who":"Anna","t":"太倒霉了！","r":"Tài dǎoméi le!","tr":"What bad luck!"}]},
+        {"term":"passive","means":"a sentence that starts with the person or thing an action is done to: “The wallet was stolen.” Chinese makes it with {{被|bèi}}."},
+        {"p":"**{{被|bèi}}: what happened to it.** Start with the person or thing affected, then {{被|bèi}}, then the verb with what came of it: {{我的钱包被偷了。|Wǒ de qiánbāo bèi tōu le.}} “My wallet was stolen.” To say who did it, put them right after {{被|bèi}}: {{蛋糕被弟弟吃完了。|Dàngāo bèi dìdi chīwán le.}} “My little brother ate all the cake.”"},
+        { "table": [
+          ["Who or what","{{被|bèi}} (+ who)","Verb + result","Meaning"],
+          ["{{我的钱包|wǒ de qiánbāo}}","{{被|bèi}}","{{偷了|tōu le}}","My wallet was stolen."],
+          ["{{蛋糕|dàngāo}}","{{被弟弟|bèi dìdi}}","{{吃完了|chīwán le}}","My brother ate all the cake."],
+          ["{{我|wǒ}}","{{被雨|bèi yǔ}}","{{淋湿了|línshī le}}","I got soaked in the rain."],
+          ["{{他|tā}}","{{被老师|bèi lǎoshī}}","{{批评了|pīpíng le}}","He got told off by the teacher."]
+        ] },
+        {"p":"**Mostly for bad news.** Chinese uses {{被|bèi}} much less than English uses the passive, mostly when something went wrong: stolen, broken, caught, told off. For neutral facts, Chinese simply leaves out who did it: {{饭做好了。|Fàn zuòhǎo le.}} “Dinner's been made.” In everyday speech, {{让|ràng}} can replace {{被|bèi}} when you say who did it: {{我的自行车让人骑走了。|Wǒ de zìxíngchē ràng rén qízǒu le.}} “Someone's ridden off on my bike.”"},
+        {"p":"Like {{把|bǎ}}, the verb after {{被|bèi}} needs something more ({{了|le}}, a result), and {{没|méi}} goes before {{被|bèi}}: {{我没被骗。|Wǒ méi bèi piàn.}} “I wasn't fooled.”"},
+        { "ex": [
+          {"t":"我的钱包被偷了！","r":"Wǒ de qiánbāo bèi tōu le!","tr":"My wallet's been stolen!"},
+          {"t":"蛋糕被弟弟吃完了。","r":"Dàngāo bèi dìdi chīwán le.","tr":"My little brother has eaten all the cake."},
+          {"t":"我被雨淋湿了。","r":"Wǒ bèi yǔ línshī le.","tr":"I got soaked in the rain."},
+          {"t":"杯子被打破了。","r":"Bēizi bèi dǎpò le.","tr":"The glass got broken."},
+          {"t":"他被公司派到上海去了。","r":"Tā bèi gōngsī pài dào Shànghǎi qù le.","tr":"His company has sent him to Shanghai."},
+          {"t":"我的自行车让人骑走了。","r":"Wǒ de zìxíngchē ràng rén qízǒu le.","tr":"Someone's ridden off on my bike."}
+        ] },
+        {"tip":"{{倒霉|dǎoméi}} “bad luck” is the natural reaction to most {{被|bèi}} stories: {{太倒霉了！|Tài dǎoméi le!}} “What bad luck!”"}
+      ],
+      "mistakes": [
+        {"wrong":"我的手机被偷。","right":"我的手机被偷了。","tr":"My phone was stolen.","why":"After {{被|bèi}} the verb needs something more, here {{了|le}}: {{被偷了|bèi tōu le}}."},
+        {"wrong":"这本书被我写了。","right":"这本书是我写的。","tr":"I wrote this book.","why":"{{被|bèi}} is for things that happen to someone, often bad. To say who made something, use {{是…的|shì… de}}: {{这本书是我写的。|Zhè běn shū shì wǒ xiě de.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我的钱包___偷了。","r":"Wǒ de qiánbāo ___ tōu le.","tr":"My wallet was stolen.","options":["被","把","在"],"rs":["bèi","bǎ","zài"],"answer":0,"why":"What happened to the wallet: {{被|bèi}}. ({{把|bǎ}} needs someone doing it to the wallet first.)"},
+        {"type":"choice","q":"“My brother ate all the cake”, starting with the cake, is…","options":["{{蛋糕被弟弟吃完了。|Dàngāo bèi dìdi chīwán le.}}","{{蛋糕被吃完了弟弟。|Dàngāo bèi chīwán le dìdi.}}","{{弟弟被蛋糕吃完了。|Dìdi bèi dàngāo chīwán le.}}"],"answer":0,"why":"Who did it goes right after {{被|bèi}}. (The last one says the cake ate your brother!)"},
+        {"type":"choice","q":"Your friend says {{我的手机被偷了。|Wǒ de shǒujī bèi tōu le.}} You answer…","options":["{{太倒霉了！|Tài dǎoméi le!}}","{{太好了！|Tài hǎo le!}}"],"answer":0,"why":"Bad luck: {{倒霉|dǎoméi}}."},
+        {"type":"dialogue","q":"A friend arrives late and soaking wet. Choose your replies.","lines":[{"who":"Friend","t":"对不起，我来晚了！","r":"Duìbuqǐ, wǒ lái wǎn le!","tr":"Sorry I'm late!"},{"options":["没关系。你怎么了？","没关系。你被怎么了？"],"rs":["Méi guānxi. Nǐ zěnme le?","Méi guānxi. Nǐ bèi zěnme le?"],"answer":0,"why":"“What happened to you?” is simply {{你怎么了？|Nǐ zěnme le?}}"},{"who":"Friend","t":"我被雨淋湿了，而且我的伞被风吹坏了！","r":"Wǒ bèi yǔ línshī le, érqiě wǒ de sǎn bèi fēng chuīhuài le!","tr":"I got soaked, and the wind broke my umbrella!"},{"options":["太倒霉了！快进来吧。","太倒霉了！快进去吧。"],"rs":["Tài dǎoméi le! Kuài jìnlai ba.","Tài dǎoméi le! Kuài jìnqu ba."],"answer":0,"why":"Come in, towards you: {{进来|jìnlai}}."}],"from":"give-directions"},
+        {"type":"order","q":"Put the words in order.","tr":"The glass got broken.","words":["杯子","被","打破","了。"],"rs":["bēizi","bèi","dǎpò","le."],"from":"say-if-you-got-it"},
+        {"type":"say","q":"Say “My bike's been stolen!”","answer":"我的自行车被偷了！","r":"Wǒ de zìxíngchē bèi tōu le!"},
+        {"type":"free","q":"Your turn: tell a short story about something bad that happened to you or a friend, with {{被|bèi}}.","answers":[{"t":"上个月我的手机在地铁上被偷了，太倒霉了！","r":"Shàng ge yuè wǒ de shǒujī zài dìtiě shang bèi tōu le, tài dǎoméi le!","tr":"Last month my phone was stolen on the subway: such bad luck!"},{"t":"昨天我被老板批评了，因为我来晚了。","r":"Zuótiān wǒ bèi lǎobǎn pīpíng le, yīnwèi wǒ lái wǎn le.","tr":"Yesterday my boss told me off, because I was late."}]}
+      ]
+    },
+    {
+      "id": "describe-a-scene",
+      "unit": 9,
+      "level": "B1",
+      "title": "Describe a scene",
+      "summary": "“The door's open”, “There's a photo on the wall”, “She said with a smile”: describe how things are, and how people do things.",
+      "topic": "{{着|zhe}}: a state that lasts ({{门开着|mén kāizhe}}); place + verb + {{着|zhe}} + thing ({{墙上挂着一张画|qiáng shang guàzhe yì zhāng huà}}); verb + {{着|zhe}} + verb ({{笑着说|xiàozhe shuō}})",
+      "blocks": [
+        {"goal":{"t":"墙上挂着一张全家福。","r":"Qiáng shang guàzhe yì zhāng quánjiāfú.","tr":"There's a family photo hanging on the wall."}},
+        {"dialog":[{"who":"Xiao Lin","t":"请进！门开着呢。","r":"Qǐng jìn! Mén kāizhe ne.","tr":"Come in! The door's open."},{"who":"Anna","t":"哇，你的家真漂亮！墙上挂着很多照片。","r":"Wā, nǐ de jiā zhēn piàoliang! Qiáng shang guàzhe hěn duō zhàopiàn.","tr":"Wow, your place is lovely! There are lots of photos on the wall."},{"who":"Xiao Lin","t":"都是我们家的。你坐着，我去泡茶。","r":"Dōu shì wǒmen jiā de. Nǐ zuòzhe, wǒ qù pào chá.","tr":"They're all of my family. Sit down, I'll go and make some tea."},{"who":"Anna","t":"桌子上放着什么？","r":"Zhuōzi shang fàngzhe shénme?","tr":"What's that on the table?"},{"who":"Xiao Lin","t":"那是我奶奶送我的花瓶。","r":"Nà shì wǒ nǎinai sòng wǒ de huāpíng.","tr":"That's a vase my grandma gave me."}]},
+        {"p":"**A state that lasts: verb + {{着|zhe}}.** {{在|zài}} says an action is going on; {{着|zhe}} says the state it leaves behind stays: {{门开着。|Mén kāizhe.}} “The door is open” (someone opened it, and it stays open). {{灯开着。|Dēng kāizhe.}} “The light's on.” {{他穿着一件红衣服。|Tā chuānzhe yí jiàn hóng yīfu.}} “He's wearing a red top.”"},
+        {"p":"**Painting a place: place + verb + {{着|zhe}} + thing.** It's like the place + {{有|yǒu}} you know, but the verb paints the picture: {{墙上挂着一张画。|Qiáng shang guàzhe yì zhāng huà.}} “There's a painting hanging on the wall.” {{门口站着一个人。|Ménkǒu zhànzhe yí ge rén.}} “Someone is standing at the door.”"},
+        { "table": [
+          ["Place","Verb + {{着|zhe}}","Thing","Meaning"],
+          ["{{墙上|qiáng shang}}","{{挂着|guàzhe}}","{{一张画|yì zhāng huà}}","There's a painting on the wall."],
+          ["{{桌子上|zhuōzi shang}}","{{放着|fàngzhe}}","{{一本书|yì běn shū}}","There's a book on the table."],
+          ["{{门口|ménkǒu}}","{{站着|zhànzhe}}","{{一个人|yí ge rén}}","Someone is standing at the door."],
+          ["{{椅子上|yǐzi shang}}","{{坐着|zuòzhe}}","{{一只猫|yì zhī māo}}","A cat is sitting on the chair."]
+        ] },
+        {"p":"**Doing one thing in a certain way: verb + {{着|zhe}} + verb.** The first verb, with {{着|zhe}}, says how the second is done: {{她笑着说|tā xiàozhe shuō}} “she said with a smile”, {{我们走着去吧。|Wǒmen zǒuzhe qù ba.}} “Let's walk there.” {{别躺着看书。|Bié tǎngzhe kàn shū.}} “Don't read lying down.”"},
+        { "ex": [
+          {"t":"墙上挂着一张全家福。","r":"Qiáng shang guàzhe yì zhāng quánjiāfú.","tr":"There's a family photo hanging on the wall."},
+          {"t":"门开着呢。","r":"Mén kāizhe ne.","tr":"The door's open."},
+          {"t":"他穿着一件红衣服。","r":"Tā chuānzhe yí jiàn hóng yīfu.","tr":"He's wearing a red top."},
+          {"t":"桌子上放着一个花瓶。","r":"Zhuōzi shang fàngzhe yí ge huāpíng.","tr":"There's a vase on the table."},
+          {"t":"她笑着说：“没关系。”","r":"Tā xiàozhe shuō: “Méi guānxi.”","tr":"She said with a smile, “It's fine.”"},
+          {"t":"我们走着去吧，不远。","r":"Wǒmen zǒuzhe qù ba, bù yuǎn.","tr":"Let's walk, it's not far."}
+        ] },
+        {"tip":"{{着|zhe}} is the word for describing photos and scenes. Look around you and try it: {{窗外下着雨。|Chuāng wài xiàzhe yǔ.}} “It's raining outside the window.”"}
+      ],
+      "mistakes": [
+        {"wrong":"墙上有挂着一张画。","right":"墙上挂着一张画。","tr":"There's a painting on the wall.","why":"The verb + {{着|zhe}} takes the place of {{有|yǒu}}: not both. {{墙上挂着一张画。|Qiáng shang guàzhe yì zhāng huà.}}"},
+        {"wrong":"一张画挂着墙上。","right":"墙上挂着一张画。","tr":"There's a painting on the wall.","why":"To describe a place, start with the place, as with {{有|yǒu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"门开___呢。","r":"Mén kāi ___ ne.","tr":"The door's open.","options":["着","过","在"],"rs":["zhe","guo","zài"],"answer":0,"why":"A state that lasts: {{着|zhe}}."},
+        {"type":"choice","q":"“There's a cat sitting on the chair” is…","options":["{{椅子上坐着一只猫。|Yǐzi shang zuòzhe yì zhī māo.}}","{{一只猫坐着椅子上。|Yì zhī māo zuòzhe yǐzi shang.}}","{{椅子上有坐着一只猫。|Yǐzi shang yǒu zuòzhe yì zhī māo.}}"],"answer":0,"why":"The place, the verb + {{着|zhe}}, then the thing.","from":"say-what-is-there"},
+        {"type":"choice","q":"{{她笑着说|tā xiàozhe shuō}} means…","options":["she said with a smile","she smiled, then spoke","she's smiling now"],"answer":0,"why":"Verb + {{着|zhe}} + verb: how the second action was done."},
+        {"type":"dialogue","q":"On the phone, describing a photo to a friend. Choose your replies.","lines":[{"who":"Friend","t":"照片上有谁？","r":"Zhàopiàn shang yǒu shéi?","tr":"Who's in the photo?"},{"options":["我和我妹妹。她穿着一件白衣服。","我和我妹妹。她穿了着一件白衣服。"],"rs":["Wǒ hé wǒ mèimei. Tā chuānzhe yí jiàn bái yīfu.","Wǒ hé wǒ mèimei. Tā chuān le zhe yí jiàn bái yīfu."],"answer":0,"why":"What someone has on: {{穿着|chuānzhe}}, with no {{了|le}}."},{"who":"Friend","t":"你们在哪儿？","r":"Nǐmen zài nǎr?","tr":"Where are you?"},{"options":["在海边。后面站着很多人。","在海边。很多人站着后面。"],"rs":["Zài hǎibiān. Hòumiàn zhànzhe hěn duō rén.","Zài hǎibiān. Hěn duō rén zhànzhe hòumiàn."],"answer":0,"why":"The place first: {{后面站着很多人|hòumiàn zhànzhe hěn duō rén}}."}],"from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"Let's walk, it's not far.","words":["我们","走着","去吧，","不远。"],"rs":["wǒmen","zǒuzhe","qù ba,","bù yuǎn."],"from":"make-plans"},
+        {"type":"say","q":"Describe it with {{放着|fàngzhe}}: “There's a book on the table.”","answer":"桌子上放着一本书。","r":"Zhuōzi shang fàngzhe yì běn shū."},
+        {"type":"free","q":"Your turn: describe the room you're in: what's on the walls and the table, and what someone is wearing or doing.","answers":[{"t":"墙上挂着一张地图，桌子上放着我的电脑。","r":"Qiáng shang guàzhe yì zhāng dìtú, zhuōzi shang fàngzhe wǒ de diànnǎo.","tr":"There's a map on the wall, and my computer is on the table."},{"t":"我的朋友坐着看手机，她穿着一件蓝毛衣。","r":"Wǒ de péngyou zuòzhe kàn shǒujī, tā chuānzhe yí jiàn lán máoyī.","tr":"My friend is sitting looking at her phone, in a blue jumper."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell a story",
+      "summary": "“That day it was pouring… Suddenly… In the end…”: tell what happened, in order, so people want to hear the end.",
+      "topic": "The past in order: {{那天|nà tiān}}, {{突然|tūrán}}, {{后来|hòulái}}, {{结果|jiéguǒ}}, {{最后|zuìhòu}}; {{就|jiù}} (already) and {{才|cái}} (not until)",
+      "blocks": [
+        {"goal":{"t":"我们等了一个小时，他才来。","r":"Wǒmen děng le yí ge xiǎoshí, tā cái lái.","tr":"We waited an hour before he finally turned up."}},
+        {"dialog":[{"who":"Anna","t":"昨天我去机场接我妈妈。","r":"Zuótiān wǒ qù jīchǎng jiē wǒ māma.","tr":"Yesterday I went to the airport to pick up my mum."},{"who":"Xiao Wang","t":"然后呢？","r":"Ránhòu ne?","tr":"And then?"},{"who":"Anna","t":"飞机晚点了，我等了三个小时，她晚上十一点才到。","r":"Fēijī wǎndiǎn le, wǒ děng le sān ge xiǎoshí, tā wǎnshang shíyī diǎn cái dào.","tr":"The flight was delayed, I waited three hours, and she didn't land until eleven."},{"who":"Xiao Wang","t":"天啊！","r":"Tiān a!","tr":"Oh no!"},{"who":"Anna","t":"后来我们打车回家，突然下起了大雨，结果司机走错了路！","r":"Hòulái wǒmen dǎchē huí jiā, tūrán xiàqǐ le dàyǔ, jiéguǒ sījī zǒucuò le lù!","tr":"Then we took a taxi home, it suddenly started pouring, and the driver went the wrong way!"},{"who":"Xiao Wang","t":"你们几点到家的？","r":"Nǐmen jǐ diǎn dào jiā de?","tr":"What time did you get home?"},{"who":"Anna","t":"一点多才到！","r":"Yì diǎn duō cái dào!","tr":"Not until after one!"}]},
+        {"p":"**Setting the scene and moving on.** A story starts with when ({{那天|nà tiān}} “that day”, {{上个周末|shàng ge zhōumò}} “last weekend”) and moves on with linking words. Each event takes its {{了|le}}; descriptions and the background don't."},
+        { "table": [
+          ["Word","Meaning","Example"],
+          ["{{那天|nà tiān}}","that day","{{那天天气很好。|Nà tiān tiānqì hěn hǎo.}}"],
+          ["{{突然|tūrán}}","suddenly","{{突然下雨了。|Tūrán xiàyǔ le.}}"],
+          ["{{后来|hòulái}}","after that, later on","{{后来我们去吃饭了。|Hòulái wǒmen qù chīfàn le.}}"],
+          ["{{结果|jiéguǒ}}","and so, as it turned out","{{结果我们迷路了。|Jiéguǒ wǒmen mílù le.}}"],
+          ["{{最后|zuìhòu}}","finally, in the end","{{最后我们到家了。|Zuìhòu wǒmen dào jiā le.}}"]
+        ] },
+        {"p":"**{{就|jiù}} and {{才|cái}}: earlier or later than expected.** Before the verb, {{就|jiù}} means “already, as early as”, and {{才|cái}} “not until, only then”: {{他八点就到了。|Tā bā diǎn jiù dào le.}} “He was already there at eight.” {{他十点才到。|Tā shí diǎn cái dào.}} “He didn't arrive until ten.” {{才|cái}} takes no {{了|le}}."},
+        { "ex": [
+          {"t":"我们等了一个小时，他才来。","r":"Wǒmen děng le yí ge xiǎoshí, tā cái lái.","tr":"We waited an hour before he finally turned up."},
+          {"t":"那天下着大雨，路上一个人也没有。","r":"Nà tiān xiàzhe dàyǔ, lù shang yí ge rén yě méiyǒu.","tr":"That day it was pouring, and there wasn't a soul on the street."},
+          {"t":"我早上六点就起床了。","r":"Wǒ zǎoshang liù diǎn jiù qǐchuáng le.","tr":"I was up at six this morning."},
+          {"t":"突然，手机响了。","r":"Tūrán, shǒujī xiǎng le.","tr":"Suddenly, my phone rang."},
+          {"t":"我们走了很久，结果走错了！","r":"Wǒmen zǒu le hěn jiǔ, jiéguǒ zǒucuò le!","tr":"We walked for ages, and it turned out we'd gone the wrong way!"},
+          {"t":"最后，我们十二点才到家。","r":"Zuìhòu, wǒmen shí'èr diǎn cái dào jiā.","tr":"In the end, we didn't get home until twelve."}
+        ] },
+        {"tip":"Listeners keep a story going with {{然后呢？|Ránhòu ne?}} “And then?”, {{真的吗？|Zhēn de ma?}} “Really?” and {{天啊！|Tiān a!}} “Oh my!” Use them when a friend tells you one."}
+      ],
+      "mistakes": [
+        {"wrong":"他十点才到了。","right":"他十点才到。","tr":"He didn't arrive until ten.","why":"{{才|cái}} takes no {{了|le}}: {{他十点才到。|Tā shí diǎn cái dào.}}"},
+        {"wrong":"那天天气很好了。","right":"那天天气很好。","tr":"The weather was lovely that day.","why":"The background takes no {{了|le}}: only the events do."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"飞机晚点了，她十一点___到。","r":"Fēijī wǎndiǎn le, tā shíyī diǎn ___ dào.","tr":"The flight was delayed: she didn't land until eleven.","options":["才","就","了"],"rs":["cái","jiù","le"],"answer":0,"why":"Later than expected: {{才|cái}}."},
+        {"type":"choice","q":"“I was already up at six” is…","options":["{{我六点就起床了。|Wǒ liù diǎn jiù qǐchuáng le.}}","{{我六点才起床了。|Wǒ liù diǎn cái qǐchuáng le.}}","{{我就六点起床。|Wǒ jiù liù diǎn qǐchuáng.}}"],"answer":0,"why":"Earlier than expected: {{就|jiù}} … {{了|le}}.","from":"say-when"},
+        {"type":"choice","q":"{{结果我们走错了。|Jiéguǒ wǒmen zǒucuò le.}} means…","options":["And it turned out we'd gone the wrong way.","The result was good.","We found the right way in the end."],"answer":0,"why":"{{结果|jiéguǒ}}: how it turned out; {{走错|zǒucuò}}: went the wrong way.","from":"say-if-you-got-it"},
+        {"type":"order","q":"Put the words in order.","tr":"Suddenly, my phone rang.","words":["突然，","手机","响","了。"],"rs":["tūrán,","shǒujī","xiǎng","le."],"from":"say-what-you-did"},
+        {"type":"dialogue","q":"Your friend is telling you a story. Keep it going.","lines":[{"who":"Friend","t":"昨天我去面试，路上堵车了。","r":"Zuótiān wǒ qù miànshì, lù shang dǔchē le.","tr":"Yesterday I had a job interview, and I got stuck in traffic."},{"options":["然后呢？","然后吗？"],"rs":["Ránhòu ne?","Ránhòu ma?"],"answer":0,"why":"“And then?”: {{然后呢？|Ránhòu ne?}}"},{"who":"Friend","t":"我九点半才到，可是面试九点就开始了！","r":"Wǒ jiǔ diǎn bàn cái dào, kěshì miànshì jiǔ diǎn jiù kāishǐ le!","tr":"I didn't get there until half past nine, but the interview had started at nine!"},{"options":["天啊！结果呢？","天啊！结果吗？"],"rs":["Tiān a! Jiéguǒ ne?","Tiān a! Jiéguǒ ma?"],"answer":0,"why":"“So how did it turn out?”: {{结果呢？|Jiéguǒ ne?}}"},{"who":"Friend","t":"结果他们给了我这份工作！","r":"Jiéguǒ tāmen gěi le wǒ zhè fèn gōngzuò!","tr":"And in the end they gave me the job!"}]},
+        {"type":"say","q":"Say “In the end, we didn't get home until twelve.”","answer":"最后，我们十二点才到家。","r":"Zuìhòu, wǒmen shí'èr diǎn cái dào jiā."},
+        {"type":"free","q":"Your turn: tell a short story about a trip that went wrong. Use {{那天|nà tiān}}, {{突然|tūrán}} or {{结果|jiéguǒ}}, and {{才|cái}}.","answers":[{"t":"那天我去火车站，突然下起了大雨。结果火车晚点了，我晚上十点才到家。","r":"Nà tiān wǒ qù huǒchēzhàn, tūrán xiàqǐ le dàyǔ. Jiéguǒ huǒchē wǎndiǎn le, wǒ wǎnshang shí diǎn cái dào jiā.","tr":"That day I went to the station, and it suddenly started pouring. The train was delayed, and I didn't get home until ten at night."},{"t":"上个周末我们去爬山，结果迷路了！我们走了五个小时，才找到路。","r":"Shàng ge zhōumò wǒmen qù pá shān, jiéguǒ mílù le! Wǒmen zǒu le wǔ ge xiǎoshí, cái zhǎodào lù.","tr":"Last weekend we went hiking and got lost! We walked for five hours before we found the way."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-are-changing",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say how things are changing",
+      "summary": "“Your Chinese is getting better and better”, “The more I learn, the more I like it”, “He's become very busy”: talk about change.",
+      "topic": "{{越来越|yuè lái yuè}} + adjective; {{越…越…|yuè… yuè…}}; {{变得|biàn de}} + adjective; {{比以前|bǐ yǐqián}}",
+      "blocks": [
+        {"goal":{"t":"你的中文越来越好了！","r":"Nǐ de Zhōngwén yuè lái yuè hǎo le!","tr":"Your Chinese is getting better and better!"}},
+        {"dialog":[{"who":"Xiao Zhang","t":"好久不见！你的中文越来越好了！","r":"Hǎojiǔ bú jiàn! Nǐ de Zhōngwén yuè lái yuè hǎo le!","tr":"Long time no see! Your Chinese is getting better and better!"},{"who":"Mark","t":"谢谢！我越学越喜欢。","r":"Xièxie! Wǒ yuè xué yuè xǐhuan.","tr":"Thanks! The more I learn, the more I like it."},{"who":"Xiao Zhang","t":"北京也变了很多吧？","r":"Běijīng yě biàn le hěn duō ba?","tr":"Beijing has changed a lot too, hasn't it?"},{"who":"Mark","t":"对，地铁越来越方便，可是房子越来越贵了。","r":"Duì, dìtiě yuè lái yuè fāngbiàn, kěshì fángzi yuè lái yuè guì le.","tr":"Yes, the subway gets more and more convenient, but flats get more and more expensive."},{"who":"Xiao Zhang","t":"是啊，生活比以前好多了，也比以前忙多了！","r":"Shì a, shēnghuó bǐ yǐqián hǎo duō le, yě bǐ yǐqián máng duō le!","tr":"True, life's much better than it was, and much busier too!"}]},
+        {"p":"**More and more: {{越来越|yuè lái yuè}} + adjective.** {{天气越来越冷了。|Tiānqì yuè lái yuè lěng le.}} “It's getting colder and colder.” There's no {{很|hěn}}, as after {{比|bǐ}}, and often the {{了|le}} of change at the end."},
+        {"p":"**The more…, the more…: {{越|yuè}}… {{越|yuè}}….** Each {{越|yuè}} goes right before a verb or an adjective: {{我越学越喜欢。|Wǒ yuè xué yuè xǐhuan.}} “The more I learn, the more I like it.” {{雨越下越大。|Yǔ yuè xià yuè dà.}} “The rain is getting heavier and heavier.” With two people: {{你越说，他越生气。|Nǐ yuè shuō, tā yuè shēngqì.}} “The more you talk, the angrier he gets.”"},
+        {"p":"**Become: {{变得|biàn de}}** + adjective: {{他变得很瘦。|Tā biàn de hěn shòu.}} “He's become very thin.” And to compare with the past, {{比以前|bǐ yǐqián}}: {{我比以前忙。|Wǒ bǐ yǐqián máng.}} “I'm busier than I used to be.”"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["more and more","{{房子越来越贵了。|Fángzi yuè lái yuè guì le.}}","Flats are getting more and more expensive."],
+          ["the more… the more…","{{我越想越生气。|Wǒ yuè xiǎng yuè shēngqì.}}","The more I think about it, the angrier I get."],
+          ["become","{{她变得很自信。|Tā biàn de hěn zìxìn.}}","She's become very confident."],
+          ["than before","{{这儿比以前热闹多了。|Zhèr bǐ yǐqián rènao duō le.}}","It's much livelier here than it used to be."]
+        ] },
+        { "ex": [
+          {"t":"你的中文越来越好了！","r":"Nǐ de Zhōngwén yuè lái yuè hǎo le!","tr":"Your Chinese is getting better and better!"},
+          {"t":"天气越来越冷了。","r":"Tiānqì yuè lái yuè lěng le.","tr":"It's getting colder and colder."},
+          {"t":"我越学越喜欢。","r":"Wǒ yuè xué yuè xǐhuan.","tr":"The more I learn, the more I like it."},
+          {"t":"雨越下越大。","r":"Yǔ yuè xià yuè dà.","tr":"The rain is getting heavier and heavier."},
+          {"t":"孩子们越来越大了。","r":"Háizimen yuè lái yuè dà le.","tr":"The children are growing up fast.","note":"“bigger and bigger”"},
+          {"t":"他变得很忙，周末也工作。","r":"Tā biàn de hěn máng, zhōumò yě gōngzuò.","tr":"He's become very busy, he even works at weekends."}
+        ] },
+        {"tip":"{{好久不见！|Hǎojiǔ bú jiàn!}} “Long time no see!” is the perfect way into a talk about how things have changed."}
+      ],
+      "mistakes": [
+        {"wrong":"天气越来越很冷。","right":"天气越来越冷。","tr":"It's getting colder and colder.","why":"No {{很|hěn}} after {{越来越|yuè lái yuè}}, just as after {{比|bǐ}}."},
+        {"wrong":"越我学越喜欢。","right":"我越学越喜欢。","tr":"The more I learn, the more I like it.","why":"{{越|yuè}} goes after the subject, right before the verb: {{我越学越喜欢|wǒ yuè xué yuè xǐhuan}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"天气越来___热了。","r":"Tiānqì yuè lái ___ rè le.","tr":"It's getting hotter and hotter.","options":["越","很","更"],"rs":["yuè","hěn","gèng"],"answer":0,"why":"{{越来越|yuè lái yuè}} + adjective."},
+        {"type":"choice","q":"“The more I eat, the hungrier I get” is…","options":["{{我越吃越饿。|Wǒ yuè chī yuè è.}}","{{越我吃越我饿。|Yuè wǒ chī yuè wǒ è.}}","{{我越来越吃饿。|Wǒ yuè lái yuè chī è.}}"],"answer":0,"why":"{{越|yuè}} right before each verb or adjective."},
+        {"type":"choice","q":"“I'm much busier than I used to be” is…","options":["{{我比以前忙多了。|Wǒ bǐ yǐqián máng duō le.}}","{{我比以前很忙。|Wǒ bǐ yǐqián hěn máng.}}"],"answer":0,"why":"With {{比|bǐ}}, “much” is {{多了|duō le}} after the adjective, never {{很|hěn}}.","from":"compare-things"},
+        {"type":"dialogue","q":"Meeting an old friend. Choose your replies.","lines":[{"who":"Friend","t":"好久不见！你最近怎么样？","r":"Hǎojiǔ bú jiàn! Nǐ zuìjìn zěnmeyàng?","tr":"Long time no see! How have you been?"},{"options":["挺好的！工作越来越忙了。","挺好的！工作越来越很忙了。"],"rs":["Tǐng hǎo de! Gōngzuò yuè lái yuè máng le.","Tǐng hǎo de! Gōngzuò yuè lái yuè hěn máng le."],"answer":0,"why":"No {{很|hěn}} after {{越来越|yuè lái yuè}}. ({{挺好的|tǐng hǎo de}} is “pretty good”.)"},{"who":"Friend","t":"你的中文也越来越好了！","r":"Nǐ de Zhōngwén yě yuè lái yuè hǎo le!","tr":"And your Chinese is getting better and better!"},{"options":["哪里哪里，我越学越觉得难。","哪里哪里，我学越越觉得难。"],"rs":["Nǎlǐ nǎlǐ, wǒ yuè xué yuè juéde nán.","Nǎlǐ nǎlǐ, wǒ xué yuè yuè juéde nán."],"answer":0,"why":"{{越|yuè}} before each verb: {{越学越觉得难|yuè xué yuè juéde nán}} “the more I learn, the harder I find it”."}],"from":"say-how-you-are"},
+        {"type":"order","q":"Put the words in order.","tr":"The rain is getting heavier and heavier.","words":["雨","越","下","越大。"],"rs":["yǔ","yuè","xià","yuè dà."]},
+        {"type":"say","q":"Say “The children are growing up fast” (“bigger and bigger”).","answer":"孩子们越来越大了。","r":"Háizimen yuè lái yuè dà le.","from":"say-what-has-changed"},
+        {"type":"free","q":"Your turn: how have you, or your town, changed in the last few years?","answers":[{"t":"我的城市越来越大，也越来越漂亮了。可是房子比以前贵多了。","r":"Wǒ de chéngshì yuè lái yuè dà, yě yuè lái yuè piàoliang le. Kěshì fángzi bǐ yǐqián guì duō le.","tr":"My city is getting bigger and more beautiful. But homes are much more expensive than before."},{"t":"我比以前忙多了。不过我的中文越来越好了！","r":"Wǒ bǐ yǐqián máng duō le. Búguò wǒ de Zhōngwén yuè lái yuè hǎo le!","tr":"I'm much busier than I used to be. But my Chinese is getting better and better!"}]}
+      ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 9,
+      "level": "B1",
+      "title": "Pass on what someone said or asked",
+      "summary": "“She said she can't come”, “Mum asked me to buy milk”, “He asked if you're free”: pass on messages and questions.",
+      "topic": "{{他说…|tā shuō…}}; {{告诉|gàosu}}; {{让|ràng}} “ask someone to”; {{问|wèn}} + a question ({{他问你去不去|tā wèn nǐ qù bu qù}}); {{听说|tīngshuō}}",
+      "blocks": [
+        {"goal":{"t":"王老师说他明天不来了。","r":"Wáng lǎoshī shuō tā míngtiān bù lái le.","tr":"Mr Wang said he's not coming tomorrow."}},
+        {"dialog":[{"who":"Anna","t":"刚才谁打电话？","r":"Gāngcái shéi dǎ diànhuà?","tr":"Who was that on the phone just now?"},{"who":"Xiao Wang","t":"是小李。她说她今天晚上不能来了，因为她要加班。","r":"Shì Xiǎo Lǐ. Tā shuō tā jīntiān wǎnshang bù néng lái le, yīnwèi tā yào jiābān.","tr":"It was Xiao Li. She said she can't come tonight, because she has to work late."},{"who":"Anna","t":"真可惜。她还说什么了？","r":"Zhēn kěxī. Tā hái shuō shénme le?","tr":"What a pity. Did she say anything else?"},{"who":"Xiao Wang","t":"她问你周末有没有空。她让你给她打个电话。","r":"Tā wèn nǐ zhōumò yǒu méiyǒu kòng. Tā ràng nǐ gěi tā dǎ ge diànhuà.","tr":"She asked if you're free at the weekend. She wants you to give her a call."},{"who":"Anna","t":"好。我听说她换工作了，是吗？","r":"Hǎo. Wǒ tīngshuō tā huàn gōngzuò le, shì ma?","tr":"OK. I heard she's changed jobs, is that right?"}]},
+        {"p":"**Passing on words is easy in Chinese.** Nothing changes: no tenses to shift, no “that”. Say who said it, then their words, from your own point of view: {{他说：“我不来了。”|Tā shuō: “Wǒ bù lái le.”}} becomes {{他说他不来了。|Tā shuō tā bù lái le.}} “He said he isn't coming.”"},
+        {"p":"**Telling, and asking someone to do something.** {{告诉|gàosu}} “tell” + the person + the news: {{他告诉我他要结婚了。|Tā gàosu wǒ tā yào jiéhūn le.}} “He told me he's getting married.” {{让|ràng}} + the person + what to do: {{妈妈让我买牛奶。|Māma ràng wǒ mǎi niúnǎi.}} “Mum asked me to buy milk.”"},
+        {"p":"**Passing on a question**: {{问|wèn}} “ask” + the person + the question, without {{吗|ma}}. A yes-or-no question becomes A-not-A: {{她问你周末有没有空。|Tā wèn nǐ zhōumò yǒu méiyǒu kòng.}} “She asked if you're free at the weekend.” A question word stays where it is: {{他问我几点到。|Tā wèn wǒ jǐ diǎn dào.}} “He asked me what time I'd get there.”"},
+        { "table": [
+          ["They said","You pass it on","Meaning"],
+          ["{{“我很忙。”|“Wǒ hěn máng.”}}","{{她说她很忙。|Tā shuō tā hěn máng.}}","She said she was busy."],
+          ["{{“你明天来吗？”|“Nǐ míngtiān lái ma?”}}","{{他问你明天来不来。|Tā wèn nǐ míngtiān lái bu lái.}}","He asked if you're coming tomorrow."],
+          ["{{“你在哪儿？”|“Nǐ zài nǎr?”}}","{{妈妈问你在哪儿。|Māma wèn nǐ zài nǎr.}}","Mum asked where you are."],
+          ["{{“请买牛奶。”|“Qǐng mǎi niúnǎi.”}}","{{妈妈让我买牛奶。|Māma ràng wǒ mǎi niúnǎi.}}","Mum asked me to buy milk."]
+        ] },
+        {"p":"**I've heard: {{听说|tīngshuō}}**, for news that came from others: {{听说他换工作了。|Tīngshuō tā huàn gōngzuò le.}} “I hear he's changed jobs.”"},
+        { "ex": [
+          {"t":"王老师说他明天不来了。","r":"Wáng lǎoshī shuō tā míngtiān bù lái le.","tr":"Mr Wang said he's not coming tomorrow."},
+          {"t":"她告诉我她怀孕了！","r":"Tā gàosu wǒ tā huáiyùn le!","tr":"She told me she's pregnant!"},
+          {"t":"他问我会不会说中文。","r":"Tā wèn wǒ huì bu huì shuō Zhōngwén.","tr":"He asked me if I can speak Chinese."},
+          {"t":"老板让我明天早点儿来。","r":"Lǎobǎn ràng wǒ míngtiān zǎo diǎnr lái.","tr":"My boss asked me to come in early tomorrow."},
+          {"t":"听说那家饭馆很好吃。","r":"Tīngshuō nà jiā fànguǎn hěn hǎochī.","tr":"I hear the food at that restaurant is great."},
+          {"t":"他说什么？","r":"Tā shuō shénme?","tr":"What did he say?"}
+        ] },
+        {"tip":"Leaving a message: {{跟…说|gēn… shuō}} “say to”: {{跟他说我晚一点儿到。|Gēn tā shuō wǒ wǎn yìdiǎnr dào.}} “Tell him I'll be a bit late.”"}
+      ],
+      "mistakes": [
+        {"wrong":"她问你周末有空吗。","right":"她问你周末有没有空。","tr":"She asked if you're free at the weekend.","why":"Passing on a yes-or-no question, Chinese usually turns it into A-not-A, without {{吗|ma}}: {{有没有空|yǒu méiyǒu kòng}}."},
+        {"wrong":"妈妈说我买牛奶。","right":"妈妈让我买牛奶。","tr":"Mum asked me to buy milk.","why":"To pass on a request, use {{让|ràng}} + the person + what to do. {{妈妈说我买牛奶|māma shuō wǒ mǎi niúnǎi}} sounds like “Mum says I'm buying milk”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"妈妈___我早点儿回家。","r":"Māma ___ wǒ zǎo diǎnr huí jiā.","tr":"Mum asked me to come home early.","options":["让","问","说"],"rs":["ràng","wèn","shuō"],"answer":0,"why":"Asking someone to do something: {{让|ràng}} + the person + the action."},
+        {"type":"choice","q":"A friend asked you {{“你明天有时间吗？”|“Nǐ míngtiān yǒu shíjiān ma?”}} You tell your partner…","options":["{{他问我明天有没有时间。|Tā wèn wǒ míngtiān yǒu méiyǒu shíjiān.}}","{{他问我明天有时间吗？|Tā wèn wǒ míngtiān yǒu shíjiān ma?}}","{{他说我明天有时间。|Tā shuō wǒ míngtiān yǒu shíjiān.}}"],"answer":0,"why":"A passed-on yes-or-no question: A-not-A, and no {{吗|ma}}.","from":"ask-politely"},
+        {"type":"choice","q":"{{听说他换工作了。|Tīngshuō tā huàn gōngzuò le.}} means…","options":["I hear he's changed jobs.","He heard about a new job.","Listen: he's changed jobs."],"answer":0,"why":"{{听说|tīngshuō}}: news you heard from others."},
+        {"type":"dialogue","q":"Your flatmate comes home. Pass on the messages.","lines":[{"who":"Flatmate","t":"我不在的时候，谁打电话了？","r":"Wǒ bú zài de shíhou, shéi dǎ diànhuà le?","tr":"Who called while I was out?"},{"options":["你妈妈。她问你周末回不回家。","你妈妈。她问你周末回家吗。"],"rs":["Nǐ māma. Tā wèn nǐ zhōumò huí bu huí jiā.","Nǐ māma. Tā wèn nǐ zhōumò huí jiā ma."],"answer":0,"why":"Passing on her question: A-not-A, {{回不回家|huí bu huí jiā}}."},{"who":"Flatmate","t":"她还说什么了？","r":"Tā hái shuō shénme le?","tr":"Did she say anything else?"},{"options":["她让你给她打个电话。","她说你给她打个电话。"],"rs":["Tā ràng nǐ gěi tā dǎ ge diànhuà.","Tā shuō nǐ gěi tā dǎ ge diànhuà."],"answer":0,"why":"A request passed on: {{让|ràng}} + you + the action."},{"who":"Flatmate","t":"好，我马上打。","r":"Hǎo, wǒ mǎshàng dǎ.","tr":"OK, I'll call her right away."}],"from":"say-what-comes-first"},
+        {"type":"order","q":"Put the words in order.","tr":"He asked me if I can speak Chinese.","words":["他","问我","会不会","说","中文。"],"rs":["tā","wèn wǒ","huì bu huì","shuō","Zhōngwén."],"from":"say-what-you-can-do"},
+        {"type":"say","q":"Say “I hear the food at that restaurant is great.”","answer":"听说那家饭馆很好吃。","r":"Tīngshuō nà jiā fànguǎn hěn hǎochī."},
+        {"type":"free","q":"Your turn: pass on a message from a friend to someone else: what they said, and what they asked.","answers":[{"t":"大卫说他今天很忙，不能来了。他问你明天有没有空。","r":"Dàwèi shuō tā jīntiān hěn máng, bù néng lái le. Tā wèn nǐ míngtiān yǒu méiyǒu kòng.","tr":"David said he's very busy today and can't come. He asked if you're free tomorrow."},{"t":"我妈妈让我告诉你，晚饭七点开始。她问你喝不喝酒。","r":"Wǒ māma ràng wǒ gàosu nǐ, wǎnfàn qī diǎn kāishǐ. Tā wèn nǐ hē bu hē jiǔ.","tr":"My mum asked me to tell you dinner starts at seven. She asked whether you drink."}]}
+      ]
+    },
+    {
+      "id": "imagine-and-wish",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine and wish",
+      "summary": "“If I were you, I'd take a day off”, “If only I had more time!”, “Get well soon”: imagine, wish and hope.",
+      "topic": "{{如果我是你|rúguǒ wǒ shì nǐ}}; {{要是…就好了|yàoshi… jiù hǎo le}} “if only”; {{希望|xīwàng}}; {{真想|zhēn xiǎng}}",
+      "blocks": [
+        {"goal":{"t":"要是我有更多时间就好了！","r":"Yàoshi wǒ yǒu gèng duō shíjiān jiù hǎo le!","tr":"If only I had more time!"}},
+        {"dialog":[{"who":"Xiao Lin","t":"我好累啊。要是明天不用上班就好了！","r":"Wǒ hǎo lèi a. Yàoshi míngtiān búyòng shàngbān jiù hǎo le!","tr":"I'm so tired. If only I didn't have to work tomorrow!"},{"who":"Anna","t":"如果我是你，我就请一天假。","r":"Rúguǒ wǒ shì nǐ, wǒ jiù qǐng yì tiān jià.","tr":"If I were you, I'd take a day off."},{"who":"Xiao Lin","t":"不行，最近太忙了。我真想去海边度假！","r":"Bù xíng, zuìjìn tài máng le. Wǒ zhēn xiǎng qù hǎibiān dùjià!","tr":"I can't, it's too busy right now. I'd love a holiday by the sea!"},{"who":"Anna","t":"希望你下个月能休息几天。","r":"Xīwàng nǐ xià ge yuè néng xiūxi jǐ tiān.","tr":"I hope you can get a few days off next month."},{"who":"Xiao Lin","t":"但愿吧！","r":"Dànyuàn ba!","tr":"Let's hope so!"}]},
+        {"p":"**No special verbs for imagining.** English changes its verbs to imagine (“if I *were*”, “I *would*”). Chinese uses the same {{如果|rúguǒ}} / {{要是|yàoshi}} … {{就|jiù}} as for real conditions, and the situation makes it clear: {{如果我是你，我就去。|Rúguǒ wǒ shì nǐ, wǒ jiù qù.}} “If I were you, I'd go.”"},
+        {"p":"**If only…! {{要是…就好了|yàoshi… jiù hǎo le}}**, around what you wish were true: {{要是我有更多时间就好了！|Yàoshi wǒ yǒu gèng duō shíjiān jiù hǎo le!}} It works for the past too: {{要是我早点儿来就好了。|Yàoshi wǒ zǎo diǎnr lái jiù hǎo le.}} “If only I'd come earlier.”"},
+        {"p":"**Hoping and longing.** {{希望|xīwàng}} “hope” + a whole sentence: {{希望你早日康复！|Xīwàng nǐ zǎorì kāngfù!}} “Get well soon!” {{真想|zhēn xiǎng}} “really want to, I'd love to”: {{我真想去云南看看！|Wǒ zhēn xiǎng qù Yúnnán kànkan!}} “I'd love to visit Yunnan!”"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["imagining","{{如果我有钱，我就买一个大房子。|Rúguǒ wǒ yǒu qián, wǒ jiù mǎi yí ge dà fángzi.}}","If I had money, I'd buy a big house."],
+          ["if only","{{要是今天是周末就好了！|Yàoshi jīntiān shì zhōumò jiù hǎo le!}}","If only it were the weekend!"],
+          ["advice","{{如果我是你，我就不去。|Rúguǒ wǒ shì nǐ, wǒ jiù bú qù.}}","If I were you, I wouldn't go."],
+          ["hope","{{希望明天不下雨。|Xīwàng míngtiān bú xiàyǔ.}}","I hope it doesn't rain tomorrow."],
+          ["longing","{{我真想去旅游！|Wǒ zhēn xiǎng qù lǚyóu!}}","I'd love to go travelling!"]
+        ] },
+        { "ex": [
+          {"t":"要是我有更多时间就好了！","r":"Yàoshi wǒ yǒu gèng duō shíjiān jiù hǎo le!","tr":"If only I had more time!"},
+          {"t":"如果我是你，我就请一天假。","r":"Rúguǒ wǒ shì nǐ, wǒ jiù qǐng yì tiān jià.","tr":"If I were you, I'd take a day off."},
+          {"t":"如果我中了彩票，我就去环游世界。","r":"Rúguǒ wǒ zhòng le cǎipiào, wǒ jiù qù huányóu shìjiè.","tr":"If I won the lottery, I'd travel around the world."},
+          {"t":"希望你早日康复！","r":"Xīwàng nǐ zǎorì kāngfù!","tr":"Get well soon!"},
+          {"t":"我真想去云南看看！","r":"Wǒ zhēn xiǎng qù Yúnnán kànkan!","tr":"I'd love to visit Yunnan!"},
+          {"t":"要是我早点儿学中文就好了。","r":"Yàoshi wǒ zǎo diǎnr xué Zhōngwén jiù hǎo le.","tr":"If only I'd started learning Chinese earlier."}
+        ] },
+        {"tip":"Wishes for special days: {{生日快乐！|Shēngrì kuàilè!}} “Happy birthday!”, {{新年快乐！|Xīnnián kuàilè!}} “Happy New Year!”, {{一路平安！|Yílù píng'ān!}} “Have a safe trip!”, {{祝你好运！|Zhù nǐ hǎo yùn!}} “Good luck!”"}
+      ],
+      "mistakes": [
+        {"wrong":"要是我有时间就好。","right":"要是我有时间就好了！","tr":"If only I had time!","why":"The wish ends with {{就好了|jiù hǎo le}}: don't drop the {{了|le}}."},
+        {"wrong":"我希望明天会不下雨。","right":"我希望明天不下雨。","tr":"I hope it doesn't rain tomorrow.","why":"After {{希望|xīwàng}} comes an ordinary sentence: {{明天不下雨|míngtiān bú xiàyǔ}} (or {{明天不会下雨|míngtiān bú huì xiàyǔ}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"要是今天是周末就好___！","r":"Yàoshi jīntiān shì zhōumò jiù hǎo ___!","tr":"If only it were the weekend!","options":["了","的","吗"],"rs":["le","de","ma"],"answer":0,"why":"“If only”: {{要是|yàoshi}} … {{就好了|jiù hǎo le}}."},
+        {"type":"choice","q":"Your friend can't decide whether to take a job in Shanghai. You think they should. You say…","options":["{{如果我是你，我就去。|Rúguǒ wǒ shì nǐ, wǒ jiù qù.}}","{{如果你是我，我就去。|Rúguǒ nǐ shì wǒ, wǒ jiù qù.}}","{{我是你，如果就去。|Wǒ shì nǐ, rúguǒ jiù qù.}}"],"answer":0,"why":"“If I were you”: {{如果我是你|rúguǒ wǒ shì nǐ}}, then {{就|jiù}}.","from":"say-what-if"},
+        {"type":"choice","q":"Your colleague is ill. You say…","options":["{{希望你早日康复！|Xīwàng nǐ zǎorì kāngfù!}}","{{生日快乐！|Shēngrì kuàilè!}}","{{一路平安！|Yílù píng'ān!}}"],"answer":0,"why":"“Get well soon”: {{希望你早日康复|xīwàng nǐ zǎorì kāngfù}}."},
+        {"type":"dialogue","q":"Daydreaming with a friend. Choose your replies.","lines":[{"who":"Friend","t":"如果你有一个月的假期，你想做什么？","r":"Rúguǒ nǐ yǒu yí ge yuè de jiàqī, nǐ xiǎng zuò shénme?","tr":"If you had a month off, what would you do?"},{"options":["我真想去中国旅游！","我真去想中国旅游！"],"rs":["Wǒ zhēn xiǎng qù Zhōngguó lǚyóu!","Wǒ zhēn qù xiǎng Zhōngguó lǚyóu!"],"answer":0,"why":"{{真想|zhēn xiǎng}}, then the actions: {{去中国旅游|qù Zhōngguó lǚyóu}}."},{"who":"Friend","t":"我也是。要是我们能一起去就好了！","r":"Wǒ yě shì. Yàoshi wǒmen néng yìqǐ qù jiù hǎo le!","tr":"Me too. If only we could go together!"},{"options":["希望明年能去！","希望明年能去了吗！"],"rs":["Xīwàng míngnián néng qù!","Xīwàng míngnián néng qù le ma!"],"answer":0,"why":"{{希望|xīwàng}} + an ordinary sentence."}],"from":"describe-your-day"},
+        {"type":"order","q":"Put the words in order.","tr":"If I had money, I'd buy a big house.","words":["如果","我有钱，","我就","买一个","大房子。"],"rs":["rúguǒ","wǒ yǒu qián,","wǒ jiù","mǎi yí ge","dà fángzi."]},
+        {"type":"say","q":"Wish your friend a safe trip.","answer":"一路平安！","r":"Yílù píng'ān!"},
+        {"type":"free","q":"Your turn: what do you wish were different in your life? And what do you hope for next year?","answers":[{"t":"要是我住在海边就好了！希望明年能去中国。","r":"Yàoshi wǒ zhù zài hǎibiān jiù hǎo le! Xīwàng míngnián néng qù Zhōngguó.","tr":"If only I lived by the sea! I hope I can go to China next year."},{"t":"如果我有更多时间，我就每天学中文。我希望明年能找到新工作。","r":"Rúguǒ wǒ yǒu gèng duō shíjiān, wǒ jiù měitiān xué Zhōngwén. Wǒ xīwàng míngnián néng zhǎodào xīn gōngzuò.","tr":"If I had more time, I'd study Chinese every day. I hope I can find a new job next year."}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 9,
+      "level": "B1",
+      "title": "Keep the conversation going",
+      "summary": "“And you?”, “Really?”, “You're American, right?”, “Oh, so that's why!”: the little words that make you sound natural and keep people talking.",
+      "topic": "{{呢|ne}}, {{吧|ba}}, {{啊|a}} at the end of a sentence; {{对吧？|duì ba?}}, {{是吗？|shì ma?}}, {{原来|yuánlái}}, {{怪不得|guàibude}}",
+      "blocks": [
+        {"goal":{"t":"你是美国人，对吧？","r":"Nǐ shì Měiguórén, duì ba?","tr":"You're American, right?"}},
+        {"dialog":[{"who":"Anna","t":"你好像不是北京人吧？","r":"Nǐ hǎoxiàng bú shì Běijīngrén ba?","tr":"You're not from Beijing, are you?"},{"who":"Xiao Zhou","t":"对，我是广东人。你听出来了？","r":"Duì, wǒ shì Guǎngdōngrén. Nǐ tīng chūlai le?","tr":"That's right, I'm from Guangdong. Could you tell?"},{"who":"Anna","t":"是啊，你说话有一点儿口音。","r":"Shì a, nǐ shuōhuà yǒu yìdiǎnr kǒuyīn.","tr":"Yes, you have a slight accent."},{"who":"Xiao Zhou","t":"原来是这样！你的耳朵真好啊。那你呢？你是哪国人？","r":"Yuánlái shì zhèyàng! Nǐ de ěrduo zhēn hǎo a. Nà nǐ ne? Nǐ shì nǎ guó rén?","tr":"I see! You've got good ears. What about you? Where are you from?"},{"who":"Anna","t":"你猜猜？","r":"Nǐ cāicai?","tr":"Have a guess!"},{"who":"Xiao Zhou","t":"美国人，对吧？","r":"Měiguórén, duì ba?","tr":"American, right?"}]},
+        {"p":"**{{呢|ne}}: and you? what about…?** After a noun or a pronoun, {{呢|ne}} turns the talk to it: {{我很好，你呢？|Wǒ hěn hǎo, nǐ ne?}} After a whole question, it sounds softer and more curious: {{你在想什么呢？|Nǐ zài xiǎng shénme ne?}} “What are you thinking about?”"},
+        {"p":"**{{吧|ba}}: I suppose, right?** A statement + {{吧|ba}} checks something you think is true: {{你是美国人吧？|Nǐ shì Měiguórén ba?}} “You're American, I take it?” It's softer than {{吗|ma}}, which asks without guessing. {{对吧？|Duì ba?}} and {{是吧？|Shì ba?}} at the end are “right?”, “isn't it?”."},
+        {"p":"**{{啊|a}}: warmth and feeling.** {{啊|a}} at the end makes a sentence friendlier, or more emotional: {{好啊！|Hǎo a!}} “Sure!”, {{真漂亮啊！|Zhēn piàoliang a!}} “It's so beautiful!” In writing you'll also see {{呀|ya}}, the same word after some vowels: {{好呀|hǎo ya}}."},
+        {"p":"**Reacting**: {{是吗？|Shì ma?}} “Really?”, {{真的吗？|Zhēn de ma?}} “Really?!”, {{原来是这样！|Yuánlái shì zhèyàng!}} “Oh, I see!” ({{原来|yuánlái}} “so it turns out”), and {{怪不得|guàibude}} “no wonder”: {{怪不得你中文这么好！|Guàibude nǐ Zhōngwén zhème hǎo!}}"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["{{呢|ne}}","{{我喝茶，你呢？|Wǒ hē chá, nǐ ne?}}","I'm having tea. What about you?"],
+          ["{{吧|ba}}","{{你累了吧？|Nǐ lèi le ba?}}","You must be tired."],
+          ["{{对吧？|duì ba?}}","{{明天放假，对吧？|Míngtiān fàngjià, duì ba?}}","Tomorrow's a holiday, right?"],
+          ["{{啊|a}}","{{这儿真美啊！|Zhèr zhēn měi a!}}","It's so beautiful here!"],
+          ["{{原来|yuánlái}}","{{原来你是老师！|Yuánlái nǐ shì lǎoshī!}}","Oh, so you're a teacher!"]
+        ] },
+        { "ex": [
+          {"t":"你是美国人，对吧？","r":"Nǐ shì Měiguórén, duì ba?","tr":"You're American, right?"},
+          {"t":"我很好，你呢？","r":"Wǒ hěn hǎo, nǐ ne?","tr":"I'm fine, and you?"},
+          {"t":"你累了吧？休息一下吧。","r":"Nǐ lèi le ba? Xiūxi yíxià ba.","tr":"You must be tired. Have a rest."},
+          {"t":"是吗？我不知道。","r":"Shì ma? Wǒ bù zhīdào.","tr":"Really? I didn't know."},
+          {"t":"原来是这样！","r":"Yuánlái shì zhèyàng!","tr":"Oh, I see!"},
+          {"t":"怪不得你中文这么好！","r":"Guàibude nǐ Zhōngwén zhème hǎo!","tr":"No wonder your Chinese is so good!"}
+        ] },
+        {"tip":"These little words are what make Chinese sound alive. Listen for them in films and conversations, and try one in every chat: a {{呢|ne}} to turn the question back, a {{吧|ba}} to guess, an {{啊|a}} to sound warm."}
+      ],
+      "mistakes": [
+        {"wrong":"你是美国人吧吗？","right":"你是美国人吧？","tr":"You're American, I take it?","why":"One ending is enough: {{吧|ba}} (guessing) or {{吗|ma}} (just asking), never both."},
+        {"wrong":"我很好，呢你？","right":"我很好，你呢？","tr":"I'm fine, and you?","why":"{{呢|ne}} goes after the word it's about: {{你呢？|nǐ ne?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你累了___？休息一下吧。","r":"Nǐ lèi le ___? Xiūxi yíxià ba.","tr":"You must be tired. Have a rest.","options":["吧","呢","啊"],"rs":["ba","ne","a"],"answer":0,"why":"Guessing: {{吧|ba}} “I suppose”."},
+        {"type":"choice","q":"You think your new colleague is from Shanghai, and want to check. You say…","options":["{{你是上海人吧？|Nǐ shì Shànghǎirén ba?}}","{{你是上海人呢？|Nǐ shì Shànghǎirén ne?}}","{{上海人你是吗？|Shànghǎirén nǐ shì ma?}}"],"answer":0,"why":"Checking a guess: {{吧|ba}}."},
+        {"type":"choice","q":"A friend says their mum is Chinese. “No wonder your Chinese is so good!” is…","options":["{{怪不得你中文这么好！|Guàibude nǐ Zhōngwén zhème hǎo!}}","{{原来你中文这么好吗！|Yuánlái nǐ Zhōngwén zhème hǎo ma!}}"],"answer":0,"why":"“No wonder”: {{怪不得|guàibude}}."},
+        {"type":"dialogue","q":"Chatting at a party. Choose your replies.","lines":[{"who":"Xiao Zhou","t":"我下个月要去美国工作。","r":"Wǒ xià ge yuè yào qù Měiguó gōngzuò.","tr":"I'm going to work in America next month."},{"options":["是吗？去哪个城市？","是吧？去哪个城市？"],"rs":["Shì ma? Qù nǎge chéngshì?","Shì ba? Qù nǎge chéngshì?"],"answer":0,"why":"“Really?” is {{是吗？|Shì ma?}} ({{是吧|shì ba}} would be “right?”, checking a guess.)"},{"who":"Xiao Zhou","t":"纽约。你去过纽约，对吧？","r":"Niǔyuē. Nǐ qù guo Niǔyuē, duì ba?","tr":"New York. You've been to New York, right?"},{"options":["对，去过两次。你呢？第一次去吗？","对，去过两次。呢你？第一次去吗？"],"rs":["Duì, qù guo liǎng cì. Nǐ ne? Dì yī cì qù ma?","Duì, qù guo liǎng cì. Ne nǐ? Dì yī cì qù ma?"],"answer":0,"why":"{{你呢？|Nǐ ne?}} turns the question back to them."},{"who":"Xiao Zhou","t":"对啊，我有点儿紧张！","r":"Duì a, wǒ yǒudiǎnr jǐnzhāng!","tr":"Yes, I'm a bit nervous!"}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Put the words in order.","tr":"Tomorrow's a holiday, right?","words":["明天","放假，","对吧？"],"rs":["míngtiān","fàngjià,","duì ba?"]},
+        {"type":"say","q":"React to surprising news: “Oh, I see!”","answer":"原来是这样！","r":"Yuánlái shì zhèyàng!"},
+        {"type":"free","q":"Your turn: someone tells you {{我在学英语。|Wǒ zài xué Yīngyǔ.}} React, make a guess about them with {{吧|ba}}, and turn the question back with {{呢|ne}}.","answers":[{"t":"是吗？你想去美国吧？我在学中文呢！","r":"Shì ma? Nǐ xiǎng qù Měiguó ba? Wǒ zài xué Zhōngwén ne!","tr":"Really? You're thinking of going to America, I suppose? I'm learning Chinese!"},{"t":"真的吗？你英语说得很好吧！我在学中文，你呢，学了多长时间了？","r":"Zhēn de ma? Nǐ Yīngyǔ shuō de hěn hǎo ba! Wǒ zài xué Zhōngwén, nǐ ne, xué le duō cháng shíjiān le?","tr":"Really? I bet you speak it well! I'm learning Chinese. And you, how long have you been learning?"}]}
+      ]
     }
   ]
 }
