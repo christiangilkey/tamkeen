@@ -564,6 +564,354 @@
         {"type":"say","q":"Ask a friend: “What's your mother's name?”","answer":"Com es diu la teva mare?"},
         {"type":"free","q":"Your turn: tell someone about two people in your family: their name, their age, or where they live.","answers":[{"t":"El meu germà es diu Sam. Té trenta anys i viu a Londres.","tr":"My brother's name is Sam. He's thirty, and he lives in London."},{"t":"La meva mare és professora i el meu pare és enginyer.","tr":"My mom is a teacher, and my dad is an engineer."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your work, your studies and what you do every day: “I work in a shop, and I study Catalan in the evening.”",
+      "topic": "The present tense of {{-ar}} verbs: {{parlo, parles, parla…}}",
+      "blocks": [
+        {"goal":{"t":"Treballo en una botiga i estudio català al vespre.","tr":"I work in a shop, and I study Catalan in the evening."}},
+        {"dialog":[{"who":"Núria","t":"A què et dediques?","tr":"What do you do?"},{"who":"Tom","t":"Treballo en un hotel. I tu?","tr":"I work in a hotel. And you?"},{"who":"Núria","t":"Jo estudio medicina i treballo els caps de setmana.","tr":"I study medicine, and I work on weekends."},{"who":"Tom","t":"I parles anglès?","tr":"And do you speak English?"},{"who":"Núria","t":"Una mica. I tu parles molt bé el català!","tr":"A little. And you speak Catalan really well!"},{"who":"Tom","t":"Gràcies! Practico cada dia.","tr":"Thanks! I practice every day."}]},
+        {"term":"infinitive","means":"the basic form of a verb, the one in the dictionary: to speak, to work. In Catalan it ends in {{-ar}}, {{-er}}, {{-re}} or {{-ir}}: {{parlar}}, {{tenir}}, {{viure}}, {{dormir}}."},
+        {"term":"tense","means":"the form of a verb that says when: the present (now, usually), the past, the future."},
+        {"p":"**The present.** Most Catalan verbs end in {{-ar}}: {{parlar}} “to speak”, {{treballar}} “to work”, {{estudiar}} “to study”. To use one, take off the {{-ar}} and add the ending for the person:"},
+        { "table": [
+          ["","ending","{{parlar}} “to speak”"],
+          ["I","{{-o}}","{{parlo}}"],
+          ["you","{{-es}}","{{parles}}"],
+          ["he, she; you (polite)","{{-a}}","{{parla}}"],
+          ["we","{{-em}}","{{parlem}}"],
+          ["you (more than one)","{{-eu}}","{{parleu}}"],
+          ["they","{{-en}}","{{parlen}}"]
+        ] },
+        {"p":"One Catalan present does the work of both English presents: {{Treballo aquí.}} is “I work here” and also “I'm working here (these days)”. And there's no “do” in questions: {{Treballes avui?}} “Are you working today?”, “Do you work today?”."},
+        {"p":"**Spelling keeps the sound.** Before an {{e}}, some letters change so that the verb sounds the same: {{menjar}} “to eat” gives {{menjo}}, but {{menges}}, {{mengem}}; {{començar}} “to start” gives {{comences}}; {{pagar}} “to pay”, {{pagues}}; {{trucar}} “to call”, {{truques}}."},
+        { "ex": [
+          {"t":"Parles català?","tr":"Do you speak Catalan?"},
+          {"t":"Treballem de dilluns a divendres.","tr":"We work Monday to Friday."},
+          {"t":"La Marta estudia a la universitat.","tr":"Marta studies at the university."},
+          {"t":"On mengeu avui?","tr":"Where are you guys eating today?"},
+          {"t":"Els meus pares no parlen anglès.","tr":"My parents don't speak English."},
+          {"t":"Escoltes música quan treballes?","tr":"Do you listen to music when you work?"},
+          {"t":"Sempre pago jo!","tr":"I always pay!","note":"{{jo}} at the end puts the weight on “I”"}
+        ] },
+        {"tip":"Everyday {{-ar}} verbs: {{parlar}} speak, {{treballar}} work, {{estudiar}} study, {{menjar}} eat, {{esmorzar}} have breakfast, {{dinar}} have lunch, {{sopar}} have dinner, {{comprar}} buy, {{escoltar}} listen, {{mirar}} look at, watch, {{tornar}} come back, {{arribar}} arrive, {{cuinar}} cook."}
+      ],
+      "mistakes": [
+        {"wrong":"Jo treballa en un hotel.","right":"Treballo en un hotel.","tr":"I work in a hotel.","why":"For “I”, the ending is {{-o}}: {{treballo}}. And you don't need {{jo}}."},
+        {"wrong":"Què menjes?","right":"Què menges?","tr":"What are you eating?","why":"Before {{e}}, the {{j}} of {{menjar}} becomes {{g}}: {{menges}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Nosaltres ___ a les nou.","tr":"We have dinner at nine.","options":["sopem","sopen","sopeu"],"answer":0,"why":"“We”: {{-em}}, {{sopem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Què ___ per esmorzar?","tr":"What do you eat for breakfast?","options":["menges","menjes","menja"],"answer":0,"why":"“You” ends in {{-es}}, and {{j}} becomes {{g}} before {{e}}: {{menges}}."},
+        {"type":"choice","q":"{{Treballo a Girona.}} can mean…","options":["“I work in Girona” and “I'm working in Girona”","only “I work in Girona”","only “I'm working in Girona”"],"answer":0,"why":"One Catalan present does the work of both English presents."},
+        {"type":"dialogue","q":"At a party, someone asks what you do. Choose your replies.","lines":[{"who":"Guest","t":"A què et dediques?","tr":"What do you do?"},{"options":["Treballo en un banc.","Treballa en un banc."],"answer":0,"why":"About yourself: {{-o}}, {{treballo}}."},{"who":"Guest","t":"I on és el banc?","tr":"And where's the bank?"},{"options":["És al centre, a prop de la plaça.","És al centre, a prop la plaça."],"answer":0,"why":"“Near” is {{a prop de}}."}],"from":"find-your-way"},
+        {"type":"order","q":"Put the words in order.","tr":"My parents don't speak English.","words":["Els meus","pares","no","parlen","anglès."]},
+        {"type":"say","q":"Ask a friend: “Do you work on Saturdays?”","answer":"Treballes els dissabtes?"},
+        {"type":"free","q":"Your turn: what do you do every day? Say two things: your work, your studies, or your meals.","answers":[{"t":"Treballo en una oficina i estudio català a la nit.","tr":"I work in an office, and I study Catalan at night."},{"t":"Cada dia esmorzo a les set i dino a la feina.","tr":"Every day I have breakfast at seven and lunch at work."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-live",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you live, what you read and what you drink",
+      "summary": "Use the other kinds of verbs: “I live in Barcelona, and I read the paper every morning.”",
+      "topic": "The present of {{-re}}, {{-er}} and {{-ir}} verbs: {{viure}}, {{beure}}, {{perdre}}, {{dormir}}, {{llegir}} (with {{-eix-}})",
+      "blocks": [
+        {"goal":{"t":"Visc a Barcelona i llegeixo el diari cada matí.","tr":"I live in Barcelona, and I read the paper every morning."}},
+        {"dialog":[{"who":"Pere","t":"On vius?","tr":"Where do you live?"},{"who":"Lisa","t":"Visc a Sants, amb dues amigues.","tr":"I live in Sants, with two friends."},{"who":"Pere","t":"I què fas els diumenges?","tr":"And what do you do on Sundays?"},{"who":"Lisa","t":"Dormo molt! I llegeixo al parc.","tr":"I sleep a lot! And I read in the park."},{"who":"Pere","t":"Què llegeixes ara?","tr":"What are you reading at the moment?"},{"who":"Lisa","t":"Una novel·la en català. Entenc molt poc, però aprenc!","tr":"A novel in Catalan. I understand very little, but I'm learning!"}]},
+        {"p":"**Verbs in {{-re}} and {{-er}}.** Their endings are like those of {{-ar}} verbs, except for “you” and “he, she”: {{perdre}} “to lose” is {{perdo}}, {{perds}}, {{perd}}, {{perdem}}, {{perdeu}}, {{perden}}."},
+        {"p":"Many common ones are a little irregular, with a {{-c}} for “I”: {{viure}} “to live”, {{visc}}; {{beure}} “to drink”, {{bec}}; {{entendre}} “to understand”, {{entenc}}; {{aprendre}} “to learn”, {{aprenc}}; {{conèixer}} “to know (a person, a place)”, {{conec}}."},
+        { "table": [
+          ["","{{viure}} “to live”","{{beure}} “to drink”","{{entendre}} “to understand”"],
+          ["I","{{visc}}","{{bec}}","{{entenc}}"],
+          ["you","{{vius}}","{{beus}}","{{entens}}"],
+          ["he, she","{{viu}}","{{beu}}","{{entén}}"],
+          ["we","{{vivim}}","{{bevem}}","{{entenem}}"],
+          ["you (more than one)","{{viviu}}","{{beveu}}","{{enteneu}}"],
+          ["they","{{viuen}}","{{beuen}}","{{entenen}}"]
+        ] },
+        {"p":"**Verbs in {{-ir}}.** A few, like {{dormir}} “to sleep”, are simple: {{dormo}}, {{dorms}}, {{dorm}}, {{dormim}}, {{dormiu}}, {{dormen}}. Most add {{-eix-}} in four of the six forms, like {{llegir}} “to read”:"},
+        { "table": [
+          ["","{{llegir}} “to read”","{{preferir}} “to prefer”"],
+          ["I","{{llegeixo}}","{{prefereixo}}"],
+          ["you","{{llegeixes}}","{{prefereixes}}"],
+          ["he, she","{{llegeix}}","{{prefereix}}"],
+          ["we","{{llegim}}","{{preferim}}"],
+          ["you (more than one)","{{llegiu}}","{{preferiu}}"],
+          ["they","{{llegeixen}}","{{prefereixen}}"]
+        ] },
+        { "ex": [
+          {"t":"On viviu?","tr":"Where do you guys live?"},
+          {"t":"No bec alcohol.","tr":"I don't drink alcohol."},
+          {"t":"Perdona, no t'entenc.","tr":"Sorry, I don't understand you.","note":"{{t'}} “you”: the little word {{et}} before a vowel"},
+          {"t":"Els nens dormen.","tr":"The kids are asleep."},
+          {"t":"Prefereixo el te.","tr":"I prefer tea."},
+          {"t":"Llegim el diari cada matí.","tr":"We read the paper every morning."},
+          {"t":"Conec un restaurant molt bo.","tr":"I know a really good restaurant."}
+        ] },
+        {"tip":"To know a fact is {{saber}} ({{sé}} “I know”); to know a person or a place is {{conèixer}} ({{conec}}): {{No sé on viu.}} “I don't know where she lives.” {{Conec la seva germana.}} “I know her sister.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Vivo a Barcelona.","right":"Visc a Barcelona.","tr":"I live in Barcelona.","why":"{{viure}} is irregular: “I live” is {{visc}}."},
+        {"wrong":"Llego el diari.","right":"Llegeixo el diari.","tr":"I read the paper.","why":"{{llegir}} takes {{-eix-}}: {{llegeixo}}."},
+        {"wrong":"Sé la Marta.","right":"Conec la Marta.","tr":"I know Marta.","why":"To know a person is {{conèixer}}; {{saber}} is for facts."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"On ___ els teus pares?","tr":"Where do your parents live?","options":["viuen","viu","vivim"],"answer":0,"why":"“They”: {{viuen}}.","from":"talk-about-family"},
+        {"type":"fill","q":"Choose the missing word.","t":"Cada nit ___ una mica abans de dormir.","tr":"Every night I read a little before I go to sleep.","options":["llegeixo","llegeixes","llegim"],"answer":0,"why":"“I”: {{llegeixo}}, with {{-eix-}}."},
+        {"type":"choice","q":"“I don't understand” is…","options":["{{No entenc.}}","{{No entendo.}}","{{No entén.}}"],"answer":0,"why":"{{entendre}} has a {{-c}} for “I”: {{entenc}}. {{entén}} is “he understands”."},
+        {"type":"choice","q":"“I know Barcelona very well” (the city) is…","options":["{{Conec molt bé Barcelona.}}","{{Sé molt bé Barcelona.}}"],"answer":0,"why":"A place or a person: {{conèixer}}."},
+        {"type":"dialogue","q":"A new classmate chats with you. Choose your replies.","lines":[{"who":"Classmate","t":"Vius a prop?","tr":"Do you live nearby?"},{"options":["Sí, visc aquí al costat.","Sí, vius aquí al costat."],"answer":0,"why":"“I live”: {{visc}}."},{"who":"Classmate","t":"Vols un cafè?","tr":"Would you like a coffee?"},{"options":["No, gràcies, no bec cafè.","No, gràcies, no beu cafè."],"answer":0,"why":"“I drink”: {{bec}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We read the paper every morning.","words":["Llegim","el diari","cada","matí."]},
+        {"type":"free","q":"Your turn: where do you live, and what do you like to read or drink? Use {{visc}}, {{llegeixo}} or {{bec}}.","answers":[{"t":"Visc a Dublín i bec molt de te.","tr":"I live in Dublin, and I drink a lot of tea."},{"t":"Visc amb la meva parella i llegeixo novel·les a la nit.","tr":"I live with my partner, and I read novels at night."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like and don't like, ask others, and agree: “I really like coffee, but I don't like cookies.”",
+      "topic": "{{m'agrada}} and {{m'agraden}}; {{em, et, li, ens, us, els}} “to me, to you…”; {{a mi també}}, {{a mi tampoc}}",
+      "blocks": [
+        {"goal":{"t":"M'agrada molt el cafè, però no m'agraden les galetes.","tr":"I really like coffee, but I don't like cookies."}},
+        {"dialog":[{"who":"Jordi","t":"T'agrada el futbol?","tr":"Do you like soccer?"},{"who":"Amy","t":"No gaire. M'agrada més el bàsquet.","tr":"Not really. I like basketball better."},{"who":"Jordi","t":"A mi també m'agrada el bàsquet! I t'agraden les pel·lícules de por?","tr":"I like basketball too! And do you like horror movies?"},{"who":"Amy","t":"No, no m'agraden gens!","tr":"No, I don't like them at all!"},{"who":"Jordi","t":"A mi tampoc. Prefereixo les comèdies.","tr":"Me neither. I prefer comedies."}]},
+        {"p":"**Back to front.** {{M'agrada el cafè}} is, word for word, “coffee pleases me”: the thing you like does the verb, and you are the little word {{em}} “to me” in front of it ({{m'}} before a vowel). So the verb goes with the thing: one thing, {{m'agrada}}; several, {{m'agraden}}."},
+        {"term":"weak pronoun","means":"one of Catalan's little unstressed words for people and things, like {{em}} “me, to me”, {{et}} “you, to you” or {{hi}} “there”. They lean on the verb, usually just before it."},
+        { "table": [
+          ["to…","weak pronoun","one thing","several things"],
+          ["me","{{em}}","{{m'agrada}}","{{m'agraden}}"],
+          ["you","{{et}}","{{t'agrada}}","{{t'agraden}}"],
+          ["him, her; you (polite)","{{li}}","{{li agrada}}","{{li agraden}}"],
+          ["us","{{ens}}","{{ens agrada}}","{{ens agraden}}"],
+          ["you (more than one)","{{us}}","{{us agrada}}","{{us agraden}}"],
+          ["them","{{els}}","{{els agrada}}","{{els agraden}}"]
+        ] },
+        {"p":"**With “the”.** Things you like in general take the article: {{M'agrada el cafè.}} “I like coffee.” {{M'agraden els gats.}} “I like cats.” To like doing something, add a verb in the infinitive, and keep {{agrada}}: {{M'agrada cuinar.}} “I like cooking.”"},
+        {"p":"**Saying who, and agreeing.** To make it clear who, or to compare, put {{a mi}}, {{a tu}}, {{a ell}}, {{a la Marta}}… in front: {{A la Marta li agrada el jazz.}} “Marta likes jazz.” {{A mi també.}} “Me too.” After a “not”: {{A mi tampoc.}} “Me neither.” How much: {{molt}} “a lot”, {{bastant}} “quite”, {{no gaire}} “not much”, {{gens}} “at all”; and {{m'encanta}} “I love it”."},
+        { "ex": [
+          {"t":"T'agrada la música clàssica?","tr":"Do you like classical music?"},
+          {"t":"Ens agrada molt viatjar.","tr":"We love traveling.","note":"{{molt}} “a lot”"},
+          {"t":"Al meu fill li agraden els dinosaures.","tr":"My son likes dinosaurs."},
+          {"t":"No m'agrada gens el fred.","tr":"I don't like the cold at all."},
+          {"t":"Us agrada el pa amb tomàquet?","tr":"Do you guys like pa amb tomàquet?","note":"bread rubbed with tomato and olive oil: Catalonia's favorite"},
+          {"t":"M'encanta aquesta cançó!","tr":"I love this song!"}
+        ] },
+        {"tip":"{{m'encanta}} works like {{m'agrada}}: {{M'encanten les platges de la Costa Brava.}} “I love the beaches of the Costa Brava.” With a person, {{m'agrada}} sounds romantic; to say you like someone as a person, use {{em cau bé}}: {{La teva germana em cau molt bé.}} “I really like your sister.”"}
+      ],
+      "mistakes": [
+        {"wrong":"M'agrada les galetes.","right":"M'agraden les galetes.","tr":"I like cookies.","why":"Several things: the verb is plural, {{m'agraden}}."},
+        {"wrong":"Jo agrado el cafè.","right":"M'agrada el cafè.","tr":"I like coffee.","why":"The thing does the verb, “coffee pleases me”: {{m'agrada}}."},
+        {"wrong":"M'agrada cafè.","right":"M'agrada el cafè.","tr":"I like coffee.","why":"Things in general take the article: {{el cafè}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"M'___ molt els gats.","tr":"I really like cats.","options":["agraden","agrada","agrado"],"answer":0,"why":"{{els gats}} is plural: {{m'agraden}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A la Marta ___ agrada el jazz.","tr":"Marta likes jazz.","options":["li","la","em"],"answer":0,"why":"“To her” is {{li}}: {{A la Marta li agrada}}."},
+        {"type":"choice","q":"Your friend says {{No m'agrada el futbol.}} You don't like it either. You say…","options":["{{A mi tampoc.}}","{{A mi també.}}"],"answer":0,"why":"After a “not”, “me neither” is {{a mi tampoc}}."},
+        {"type":"dialogue","q":"Planning dinner with a friend. Choose your replies.","lines":[{"who":"Friend","t":"T'agrada el peix?","tr":"Do you like fish?"},{"options":["Sí, m'agrada molt.","Sí, m'agraden molt."],"answer":0,"why":"{{el peix}} is one thing: {{m'agrada}}."},{"who":"Friend","t":"Perfecte! I als teus fills, els agrada?","tr":"Great! And your kids, do they like it?"},{"options":["No gaire. Prefereixen la pasta.","No gaire. Prefereix la pasta."],"answer":0,"why":"“They prefer”: {{prefereixen}}."}],"from":"say-where-you-live"},
+        {"type":"order","q":"Put the words in order.","tr":"We love traveling.","words":["Ens","agrada","molt","viatjar."]},
+        {"type":"say","q":"Ask a friend: “Do you like cooking?”","answer":"T'agrada cuinar?"},
+        {"type":"free","q":"Your turn: say two things you like and one you don't. Use {{m'agrada}}, {{m'agraden}} and {{no m'agrada}}.","answers":[{"t":"M'agrada molt el mar i m'agraden els gossos, però no m'agrada la calor.","tr":"I love the sea and I like dogs, but I don't like the heat."},{"t":"M'encanta cuinar. No m'agraden gens les pel·lícules de por.","tr":"I love cooking. I don't like horror movies at all."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-go",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you're going and what you're doing",
+      "summary": "Say where you're off to and ask what someone is up to: “I'm going to the movies this afternoon. What are you doing?”",
+      "topic": "{{anar}} “to go”: {{vaig, vas, va…}} + {{a}}; {{fer}} “to do, to make”: {{faig, fas, fa…}}",
+      "blocks": [
+        {"goal":{"t":"Aquesta tarda vaig al cinema. I tu, què fas?","tr":"I'm going to the movies this afternoon. What about you, what are you doing?"}},
+        {"dialog":[{"who":"Clara","t":"Ei, què fas?","tr":"Hey, what are you up to?"},{"who":"Sam","t":"Res especial. I tu?","tr":"Nothing special. You?"},{"who":"Clara","t":"Vaig a la platja amb la Laia. Vens?","tr":"I'm going to the beach with Laia. Are you coming?"},{"who":"Sam","t":"Sí! On aneu, a la Barceloneta?","tr":"Yes! Where are you going, to Barceloneta?"},{"who":"Clara","t":"Sí. Anem en bici.","tr":"Yes. We're going by bike."},{"who":"Sam","t":"Perfecte, ara vinc!","tr":"Great, I'm on my way!"}]},
+        {"p":"**{{anar}} “to go”** is irregular, and worth learning well: in lesson 24 it does something surprising."},
+        { "table": [
+          ["","{{anar}} “to go”","{{fer}} “to do, to make”"],
+          ["I","{{vaig}}","{{faig}}"],
+          ["you","{{vas}}","{{fas}}"],
+          ["he, she","{{va}}","{{fa}}"],
+          ["we","{{anem}}","{{fem}}"],
+          ["you (more than one)","{{aneu}}","{{feu}}"],
+          ["they","{{van}}","{{fan}}"]
+        ] },
+        {"p":"**Where to.** After {{anar}}, the place takes {{a}} ({{al}}, {{a la}}, {{als}}…): {{Vaig a Girona.}} “I'm going to Girona.” {{Vas al mercat?}} “Are you going to the market?” {{Anem a casa.}} “We're going home.” The present is enough for where you're going now or soon: {{Demà vaig a Sitges.}} “I'm going to Sitges tomorrow.”"},
+        {"p":"**How.** {{a peu}} “on foot”, {{en cotxe}} “by car”, {{en tren}} “by train”, {{en metro}} “by subway”, {{en bici}} “by bike”."},
+        {"p":"**{{fer}}** is both “to do” and “to make”: {{Què fas?}} “What are you doing?” or “What do you do?”; {{Faig el sopar.}} “I'm making dinner.” It turns up in many everyday phrases: {{fer un cafè}} “have a coffee (out)”, {{fer esport}} “do sports”, {{fer una passejada}} “go for a walk”, {{fer la compra}} “do the grocery shopping”."},
+        { "ex": [
+          {"t":"On vas?","tr":"Where are you going?"},
+          {"t":"Cada dia vaig a la feina en metro.","tr":"Every day I go to work by subway."},
+          {"t":"Anem a fer un cafè?","tr":"Shall we go for a coffee?","note":"{{anar a}} + a verb: go and do something"},
+          {"t":"Els dissabtes faig esport.","tr":"On Saturdays I do sports."},
+          {"t":"Què fan els nens?","tr":"What are the kids doing?"},
+          {"t":"Aquest estiu anem a Menorca.","tr":"This summer we're going to Menorca."}
+        ] },
+        {"tip":"{{Vaig a}} + a verb means you're going somewhere to do it: {{Vaig a comprar pa.}} “I'm going (out) to buy bread.” Without the {{a}}, {{vaig}} + a verb means something completely different: keep an eye out for lesson 24."}
+      ],
+      "mistakes": [
+        {"wrong":"Vaig el mercat.","right":"Vaig al mercat.","tr":"I'm going to the market.","why":"Where you're going takes {{a}}, and {{a}} + {{el}} = {{al}}."},
+        {"wrong":"Què fa tu?","right":"Què fas?","tr":"What are you doing?","why":"“You do” is {{fas}}, and {{tu}} isn't needed."},
+        {"wrong":"Vaig a la feina per peu.","right":"Vaig a la feina a peu.","tr":"I walk to work.","why":"“On foot” is {{a peu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"On ___ aquest estiu?","tr":"Where are you guys going this summer?","options":["aneu","van","anem"],"answer":0,"why":"“You”, more than one: {{aneu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Què ___ els dissabtes?","tr":"What do you do on Saturdays?","options":["fas","vas","faig"],"answer":0,"why":"“You do”: {{fas}}."},
+        {"type":"choice","q":"{{Anem a fer un cafè?}} is…","options":["an invitation to go for a coffee","a question about yesterday","an order for two coffees"],"answer":0,"why":"{{anem a}} + a verb: “shall we go and…?”"},
+        {"type":"dialogue","q":"A friend calls. Choose your replies.","lines":[{"who":"Friend","t":"Ei! Què fas?","tr":"Hey! What are you up to?"},{"options":["Vaig al supermercat.","Vaig el supermercat."],"answer":0,"why":"{{a}} + {{el}} = {{al}}."},{"who":"Friend","t":"Vens després? Hi ha un concert de jazz a la plaça.","tr":"Are you coming later? There's a jazz concert on the square."},{"options":["Sí, m'encanta el jazz!","Sí, m'encanten el jazz!"],"answer":0,"why":"{{el jazz}} is one thing: {{m'encanta}}."}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"Every day I go to work by subway.","words":["Cada dia","vaig","a la feina","en metro."]},
+        {"type":"say","q":"Say “We're going home.”","answer":"Anem a casa."},
+        {"type":"free","q":"Your turn: where are you going this weekend, and what are you doing there?","answers":[{"t":"Dissabte vaig a la platja i faig una passejada.","tr":"On Saturday I'm going to the beach for a walk."},{"t":"Aquest cap de setmana anem a Girona amb uns amics.","tr":"This weekend we're going to Girona with some friends."}]}
+      ]
+    },
+    {
+      "id": "talk-about-weather",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about the weather",
+      "summary": "Say what the weather is like, and make small talk: “It's really hot today, isn't it?”",
+      "topic": "{{fa}} + {{calor, fred, sol, vent}}; {{plou}}, {{neva}}; {{està ennuvolat}}; no word for “it”",
+      "blocks": [
+        {"goal":{"t":"Avui fa molta calor, oi?","tr":"It's really hot today, isn't it?"}},
+        {"dialog":[{"who":"Neighbor","t":"Bon dia! Quin temps més bo, oi?","tr":"Good morning! Lovely weather, isn't it?"},{"who":"You","t":"Sí, fa molt de sol. Però fa una mica de vent.","tr":"Yes, it's very sunny. But it's a bit windy."},{"who":"Neighbor","t":"Diuen que demà plou.","tr":"They say it's going to rain tomorrow."},{"who":"You","t":"Ah, sí? Doncs agafo el paraigua!","tr":"Oh really? Then I'll take my umbrella!"}]},
+        {"p":"**No “it”.** Catalan talks about the weather with no word for “it”: {{Plou.}} “It's raining.” {{Fa fred.}} “It's cold.” Most weather goes with {{fa}} (from {{fer}}, lesson 15): word for word, “(it) makes cold”."},
+        { "table": [
+          ["Catalan","English"],
+          ["{{Fa calor.}}","It's hot."],
+          ["{{Fa fred.}}","It's cold."],
+          ["{{Fa sol.}}","It's sunny."],
+          ["{{Fa vent.}}","It's windy."],
+          ["{{Fa bon temps.}}","The weather's nice."],
+          ["{{Fa mal temps.}}","The weather's bad."],
+          ["{{Plou.}}","It's raining."],
+          ["{{Neva.}}","It's snowing."],
+          ["{{Està ennuvolat.}}","It's cloudy."]
+        ] },
+        {"p":"**How much.** {{calor}}, {{fred}}, {{sol}} and {{vent}} are nouns, so “very” is “a lot of”: {{Fa molta calor.}} “It's very hot.” {{Fa molt de fred.}} “It's very cold.” {{Fa molt de vent.}} “It's very windy.” ({{calor}} is feminine: {{molta calor}}.) To ask: {{Quin temps fa?}} “What's the weather like?”."},
+        {"p":"**Feeling it.** The weather {{fa}}; you {{tens}} (lesson 10): {{Fa fred i tinc fred.}} “It's cold, and I'm cold.”"},
+        { "ex": [
+          {"t":"Quin temps fa a Londres?","tr":"What's the weather like in London?"},
+          {"t":"Avui fa molt de vent.","tr":"It's really windy today."},
+          {"t":"Plou molt a l'hivern.","tr":"It rains a lot in winter."},
+          {"t":"A l'estiu fa molta calor.","tr":"In summer it's very hot."},
+          {"t":"Fa un dia preciós!","tr":"It's a beautiful day!"},
+          {"t":"Plou a bots i barrals.","tr":"It's raining cats and dogs.","note":"a favorite Catalan saying"}
+        ] },
+        {"tip":"The seasons: {{la primavera}} spring, {{l'estiu}} summer, {{la tardor}} fall, {{l'hivern}} winter. “In summer” is {{a l'estiu}}."}
+      ],
+      "mistakes": [
+        {"wrong":"És calor.","right":"Fa calor.","tr":"It's hot.","why":"Hot and cold weather go with {{fa}}."},
+        {"wrong":"Fa molt calor.","right":"Fa molta calor.","tr":"It's very hot.","why":"{{calor}} is a feminine noun: {{molta calor}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Avui ___ molt de fred.","tr":"It's very cold today.","options":["fa","és","té"],"answer":0,"why":"Weather goes with {{fa}}."},
+        {"type":"choice","q":"{{Plou.}} means…","options":["It's raining.","It's snowing.","It's windy."],"answer":0,"why":"{{ploure}} is “to rain”; snowing is {{neva}}, windy {{fa vent}}."},
+        {"type":"choice","q":"“I'm cold” (you feel it) is…","options":["{{Tinc fred.}}","{{Fa fred.}}","{{Soc fred.}}"],"answer":0,"why":"You “have” cold: {{tinc fred}}. {{Fa fred}} is the weather.","from":"say-what-you-have"},
+        {"type":"dialogue","q":"Small talk at the bus stop. Choose your replies.","lines":[{"who":"Woman","t":"Quina calor, oi?","tr":"So hot, isn't it?"},{"options":["Sí, avui fa molta calor.","Sí, avui és molta calor."],"answer":0,"why":"Heat goes with {{fa}}."},{"who":"Woman","t":"I diuen que demà plou.","tr":"And they say it's going to rain tomorrow."},{"options":["Que bé! M'agrada la pluja.","Que bé! M'agraden la pluja."],"answer":0,"why":"{{la pluja}} “the rain” is one thing: {{m'agrada}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"In summer it's very hot.","words":["A l'estiu","fa","molta","calor."]},
+        {"type":"say","q":"Ask: “What's the weather like in Barcelona?”","answer":"Quin temps fa a Barcelona?"},
+        {"type":"free","q":"Your turn: what's the weather like today where you are? And in summer?","answers":[{"t":"Avui fa fred i plou. A l'estiu fa bon temps.","tr":"Today it's cold and it's raining. In summer the weather's nice."},{"t":"Fa sol, però fa molt de vent.","tr":"It's sunny, but it's very windy."}]}
+      ]
+    },
+    {
+      "id": "describe-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Describe your daily routine",
+      "summary": "Walk someone through your day: “I get up at seven, I have a shower, and then I have breakfast.”",
+      "topic": "Verbs with {{em, et, es…}} for things you do to yourself ({{em llevo}}, {{em dutxo}}); {{soler}} + a verb “usually”; {{primer}}, {{després}}",
+      "blocks": [
+        {"goal":{"t":"Em llevo a les set, em dutxo i després esmorzo.","tr":"I get up at seven, I have a shower, and then I have breakfast."}},
+        {"dialog":[{"who":"Lia","t":"A quina hora et lleves?","tr":"What time do you get up?"},{"who":"Max","t":"Normalment em llevo a les sis i mitja.","tr":"Normally I get up at six thirty."},{"who":"Lia","t":"Tan d'hora? Jo em llevo a les nou!","tr":"That early? I get up at nine!"},{"who":"Max","t":"És que començo a treballar a les vuit.","tr":"Well, I start work at eight."},{"who":"Lia","t":"I a quina hora vas a dormir?","tr":"And what time do you go to bed?"},{"who":"Max","t":"Solc anar a dormir a les onze.","tr":"I usually go to bed at eleven."}]},
+        {"term":"reflexive verb","means":"a verb used with a little word for the same person who does it, as if you did it to yourself: {{em llevo}} “I get (myself) up”. In the dictionary it has {{-se}} on the end: {{llevar-se}}."},
+        {"p":"**Doing it to yourself.** Many routine verbs come with a weak pronoun meaning “myself, yourself…”. It goes just before the verb and changes with the person: {{em llevo}}, {{et lleves}}, {{es lleva}}… You already know one: {{em dic}} (lesson 1)."},
+        { "table": [
+          ["","pronoun","{{llevar-se}} “to get up”","{{dutxar-se}} “to shower”"],
+          ["I","{{em}}","{{em llevo}}","{{em dutxo}}"],
+          ["you","{{et}}","{{et lleves}}","{{et dutxes}}"],
+          ["he, she","{{es}}","{{es lleva}}","{{es dutxa}}"],
+          ["we","{{ens}}","{{ens llevem}}","{{ens dutxem}}"],
+          ["you (more than one)","{{us}}","{{us lleveu}}","{{us dutxeu}}"],
+          ["they","{{es}}","{{es lleven}}","{{es dutxen}}"]
+        ] },
+        {"p":"Before a vowel, {{em}}, {{et}} and {{es}} become {{m'}}, {{t'}}, {{s'}}: {{m'afaito}} “I shave”, {{s'aixeca}} “she gets up”. More routine verbs like these: {{despertar-se}} “to wake up”, {{vestir-se}} “to get dressed” ({{em vesteixo}}), {{rentar-se}} “to wash”, {{pentinar-se}} “to comb your hair”."},
+        {"p":"**Usually.** {{soler}} + a verb is “to usually do”: {{Solc dinar a les dues.}} “I usually have lunch at two.” Its forms: {{solc}}, {{sols}}, {{sol}}, {{solem}}, {{soleu}}, {{solen}}. Or simply {{normalment}} “normally”, {{sempre}} “always”."},
+        {"p":"**In order.** {{primer}} “first”, {{després}} “then, afterwards”, {{al final}} “in the end”. The parts of the day: {{al matí}} “in the morning”, {{al migdia}} “at midday”, {{a la tarda}} “in the afternoon”, {{al vespre}} “in the evening”, {{a la nit}} “at night”."},
+        { "ex": [
+          {"t":"Em desperto a les set, però no em llevo fins a les set i quart.","tr":"I wake up at seven, but I don't get up until a quarter past."},
+          {"t":"Els nens es vesteixen sols.","tr":"The kids get dressed by themselves."},
+          {"t":"Ens dutxem al vespre.","tr":"We shower in the evening."},
+          {"t":"Sols esmorzar a casa?","tr":"Do you usually have breakfast at home?"},
+          {"t":"Al migdia dino a la feina.","tr":"At midday I have lunch at work."},
+          {"t":"Primer em rento les dents i després em vesteixo.","tr":"First I brush my teeth, and then I get dressed.","note":"{{les dents}} “the teeth”: for your own body, Catalan says “the”, not “my”"}
+        ] },
+        {"tip":"Meals: {{l'esmorzar}} “breakfast”, {{el dinar}} “lunch” (the big meal, around two), {{el berenar}} “afternoon snack”, {{el sopar}} “dinner” (often at nine or later). Each is also a verb: {{Dinem?}} “Shall we have lunch?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Llevo a les set.","right":"Em llevo a les set.","tr":"I get up at seven.","why":"{{llevar-se}} needs its pronoun: {{em llevo}}. Without it, {{llevar}} means “to take away”."},
+        {"wrong":"Em rento les meves dents.","right":"Em rento les dents.","tr":"I brush my teeth.","why":"For your own body Catalan says “the”: {{les dents}}. The {{em}} already says whose."},
+        {"wrong":"Es lleves tard.","right":"Et lleves tard.","tr":"You get up late.","why":"For “you”, the pronoun is {{et}}: {{et lleves}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"A quina hora ___ lleves?","tr":"What time do you get up?","options":["et","em","es"],"answer":0,"why":"“You”: {{et lleves}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Els nens ___ vesteixen sols.","tr":"The kids get dressed by themselves.","options":["es","ens","et"],"answer":0,"why":"“They”: {{es}}, the same as for “he, she”."},
+        {"type":"choice","q":"{{Solc sopar a les nou.}} means…","options":["I usually have dinner at nine.","I have dinner alone at nine.","I had dinner at nine."],"answer":0,"why":"{{soler}} + a verb: “usually”."},
+        {"type":"order","q":"Put the words in order.","tr":"First I have a shower, and then I have breakfast.","words":["Primer","em dutxo","i després","esmorzo."]},
+        {"type":"dialogue","q":"A friend wonders why you're always tired. Choose your replies.","lines":[{"who":"Friend","t":"A quina hora et lleves?","tr":"What time do you get up?"},{"options":["Em llevo a les sis.","Llevo a les sis."],"answer":0,"why":"{{llevar-se}} needs its {{em}}."},{"who":"Friend","t":"Tan d'hora! Què fas?","tr":"That early! What do you do?"},{"options":["Vaig al gimnàs abans de la feina.","Vaig el gimnàs abans de la feina."],"answer":0,"why":"Where you go takes {{a}}, and {{a}} + {{el}} = {{al}}."}],"from":"say-where-you-go"},
+        {"type":"say","q":"Ask a friend: “Do you usually have breakfast at home?”","answer":"Sols esmorzar a casa?"},
+        {"type":"free","q":"Your turn: describe your morning, from waking up to leaving home. Use {{primer}} and {{després}}.","answers":[{"t":"Em desperto a les set. Primer em dutxo, després esmorzo i a les vuit vaig a la feina.","tr":"I wake up at seven. First I have a shower, then I have breakfast, and at eight I go to work."},{"t":"Em llevo tard, em vesteixo i després faig un cafè.","tr":"I get up late, I get dressed, and then I make a coffee."}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell the time and arrange to meet",
+      "summary": "Ask and tell the time, say when things happen, and set up a meeting: “Shall we meet on Saturday at ten?”",
+      "topic": "{{Quina hora és?}}; {{és la una}}, {{són les dues}}; {{a les cinc}}; the Catalan quarter clock; the days of the week",
+      "blocks": [
+        {"goal":{"t":"Quedem dissabte a les deu?","tr":"Shall we meet on Saturday at ten?"}},
+        {"dialog":[{"who":"Marta","t":"Quedem per fer un cafè?","tr":"Shall we meet for a coffee?"},{"who":"Joe","t":"Sí! Quan et va bé?","tr":"Yes! When suits you?"},{"who":"Marta","t":"Dissabte al matí?","tr":"Saturday morning?"},{"who":"Joe","t":"Perfecte. A quina hora?","tr":"Perfect. What time?"},{"who":"Marta","t":"A les deu i mitja, a la plaça del Sol.","tr":"At ten thirty, in Plaça del Sol."},{"who":"Joe","t":"D'acord. Fins dissabte!","tr":"OK. See you Saturday!"}]},
+        {"p":"**What time is it?** {{Quina hora és?}} One o'clock is singular, the others plural: {{És la una.}} “It's one o'clock.” {{Són les dues.}} “It's two.” {{Són les deu.}} “It's ten.” The {{les}} stands for {{les hores}} “the hours”, so it's feminine: {{les dues}}, not {{els dos}}."},
+        {"p":"**At what time?** {{A quina hora?}}: {{a la una}}, {{a les cinc}}. In everyday speech, especially with digital clocks: {{les cinc i quart}} (5:15), {{les cinc i mitja}} (5:30), {{les sis menys quart}} (5:45), {{les cinc i deu}} (5:10)."},
+        {"p":"**The Catalan quarter clock.** Many Catalans, in Barcelona too, count quarters towards the next hour, like a church bell: {{un quart de sis}}, “one quarter of the way to six”, is 5:15; {{dos quarts de sis}} is 5:30; {{tres quarts de sis}} is 5:45. You don't have to use it, but you'll hear it all the time."},
+        { "table": [
+          ["time","everyday","the quarter clock"],
+          ["5:00","{{les cinc}}","{{les cinc}}"],
+          ["5:15","{{les cinc i quart}}","{{un quart de sis}}"],
+          ["5:30","{{les cinc i mitja}}","{{dos quarts de sis}}"],
+          ["5:45","{{les sis menys quart}}","{{tres quarts de sis}}"],
+          ["1:30","{{la una i mitja}}","{{dos quarts de dues}}"]
+        ] },
+        {"p":"**Days.** {{dilluns}} Monday, {{dimarts}} Tuesday, {{dimecres}} Wednesday, {{dijous}} Thursday, {{divendres}} Friday, {{dissabte}} Saturday, {{diumenge}} Sunday, all with a small letter. There's no word for “on”: {{dissabte}} alone means “(this) Saturday”, and {{els dissabtes}} “on Saturdays, every Saturday”."},
+        { "ex": [
+          {"t":"Perdona, quina hora és?","tr":"Excuse me, what time is it?"},
+          {"t":"Són les tres i quart.","tr":"It's a quarter past three."},
+          {"t":"La botiga obre a les nou.","tr":"The shop opens at nine."},
+          {"t":"Ens veiem a dos quarts de vuit.","tr":"See you at seven thirty.","note":"{{ens veiem}} “we see each other”"},
+          {"t":"Els dimarts tinc classe de català.","tr":"On Tuesdays I have Catalan class."},
+          {"t":"Dijous no puc, però divendres sí.","tr":"Thursday I can't, but Friday I can."}
+        ] },
+        {"tip":"{{quedar}} is the word for arranging to meet: {{Quedem?}} “Shall we meet up?”, {{Quedem a les vuit?}} “Shall we meet at eight?”. {{Quan et va bé?}} “When suits you?” is the friendly way to ask."}
+      ],
+      "mistakes": [
+        {"wrong":"Són la una.","right":"És la una.","tr":"It's one o'clock.","why":"One o'clock is singular: {{és la una}}."},
+        {"wrong":"Són els dos.","right":"Són les dues.","tr":"It's two o'clock.","why":"Hours are feminine ({{les hores}}): {{les dues}}."},
+        {"wrong":"En dilluns treballo.","right":"Dilluns treballo.","tr":"On Monday I'm working.","why":"There's no word for “on” before a day: just {{dilluns}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ la una i mitja.","tr":"It's one thirty.","options":["És","Són","Està"],"answer":0,"why":"One o'clock is singular: {{és la una}}."},
+        {"type":"choice","q":"{{dos quarts de nou}} is…","options":["8:30","9:30","2:15"],"answer":0,"why":"Two quarters of the way to nine: 8:30."},
+        {"type":"choice","q":"{{Els divendres sopem fora.}} means…","options":["On Fridays we eat out.","This Friday we're eating out."],"answer":0,"why":"{{els divendres}}, in the plural: every Friday."},
+        {"type":"fill","q":"Choose the missing word.","t":"La classe comença ___ les sis.","tr":"The class starts at six.","options":["a","en","de"],"answer":0,"why":"“At” a time: {{a les sis}}."},
+        {"type":"dialogue","q":"Arranging to meet a friend. Choose your replies.","lines":[{"who":"Friend","t":"Quedem aquesta setmana?","tr":"Shall we meet up this week?"},{"options":["Sí! Dijous et va bé?","Sí! En dijous et va bé?"],"answer":0,"why":"No “on” before a day: {{dijous}}."},{"who":"Friend","t":"Perfecte. On?","tr":"Great. Where?"},{"options":["Al bar del costat de la feina, a les set.","A el bar del costat de la feina, a les set."],"answer":0,"why":"{{a}} + {{el}} = {{al}}."}],"from":"find-your-way"},
+        {"type":"order","q":"Put the words in order.","tr":"The shop opens at nine.","words":["La botiga","obre","a les","nou."]},
+        {"type":"say","q":"Ask a stranger, politely: “Excuse me, what time is it?”","answer":"Perdoni, quina hora és?"},
+        {"type":"free","q":"Your turn: invite a friend to do something. Say the day and the time.","answers":[{"t":"Quedem diumenge a les onze per fer un cafè?","tr":"Shall we meet on Sunday at eleven for a coffee?"},{"t":"Vols venir al cinema divendres? La pel·lícula és a dos quarts de deu.","tr":"Do you want to come to the movies on Friday? The film is at nine thirty."}]}
+      ]
     }
   ]
 }
