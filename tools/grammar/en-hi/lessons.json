@@ -1,0 +1,340 @@
+{
+  "from": "en",
+  "to": "hi",
+  "title": "Hindi grammar",
+  "variety": "Everyday Hindi (India), in Devanagari",
+  "about": "From your very first conversation to everyday Hindi, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is everyday Hindi as it is spoken in India, written in Devanagari, with a reading in Latin letters.",
+  "reading": "romanisation",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Out and about"},
+    {"n":3,"title":"Everyday life"},
+    {"n":4,"title":"Plans, wishes and abilities"},
+    {"n":5,"title":"Telling what happened"},
+    {"n":6,"title":"Getting things done"},
+    {"n":7,"title":"Connecting your ideas"},
+    {"n":8,"title":"Stories, opinions and imagination"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first Hindi conversation.",
+      "topic": "The verb at the end; {{मैं … हूँ|maĩ … hū̃}} “I am”, {{है|hai}} “is”; {{से|se}} “from” after the place",
+      "blocks": [
+        {"goal":{"t":"नमस्ते, मैं सारा हूँ। मैं अमेरिका से हूँ।","r":"namaste, maĩ sārā hū̃. maĩ amerikā se hū̃.","tr":"Hello, I'm Sarah. I'm from America."}},
+        {"dialog":[{"who":"Rahul","t":"नमस्ते! मेरा नाम राहुल है।","r":"namaste! merā nām rāhul hai.","tr":"Hello! My name is Rahul."},{"who":"Sarah","t":"नमस्ते, मैं सारा हूँ।","r":"namaste, maĩ sārā hū̃.","tr":"Hello, I'm Sarah."},{"who":"Rahul","t":"आप कहाँ से हैं?","r":"āp kahā̃ se haĩ?","tr":"Where are you from?"},{"who":"Sarah","t":"मैं अमेरिका से हूँ। और आप?","r":"maĩ amerikā se hū̃. aur āp?","tr":"I'm from America. And you?"},{"who":"Rahul","t":"मैं दिल्ली से हूँ।","r":"maĩ dillī se hū̃.","tr":"I'm from Delhi."},{"who":"Sarah","t":"आपसे मिलकर ख़ुशी हुई।","r":"āpse milkar khushī huī.","tr":"Nice to meet you."}]},
+        {"p":"Look at where the verb goes: at the very end. {{मैं सारा हूँ|maĩ sārā hū̃}} is, word for word, “I Sarah am”, and {{मैं अमेरिका से हूँ|maĩ amerikā se hū̃}} is “I America from am”. In Hindi the verb comes last, and everything else comes before it."},
+        {"term":"sentence","means":"a group of words that says something complete: I'm from Delhi."},
+        {"term":"verb","means":"a word for doing or being: go, eat, am, is."},
+        {"p":"**Am and is.** {{हूँ|hū̃}} “am” goes only with {{मैं|maĩ}} “I”. {{है|hai}} “is” goes with one person or thing: {{मेरा नाम राहुल है|merā nām rāhul hai}} “My name is Rahul”. Rahul's question ends in {{हैं|haĩ}}: that is the polite “are” that goes with {{आप|āp}} “you” (the next lesson)."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["I am","{{मैं … हूँ|maĩ … hū̃}}","{{मैं सारा हूँ।|maĩ sārā hū̃.}} I'm Sarah."],
+          ["is","{{… है|… hai}}","{{मेरा नाम राहुल है।|merā nām rāhul hai.}} My name is Rahul."],
+          ["you are","{{आप … हैं|āp … haĩ}}","{{आप कहाँ से हैं?|āp kahā̃ se haĩ?}} Where are you from?"]
+        ] },
+        {"p":"**From.** {{से|se}} “from” comes *after* the place: {{दिल्ली से|dillī se}} “from Delhi”. All of Hindi's little words for “in”, “on”, “from” come after the word they belong to (lesson 8)."},
+        { "ex": [
+          {"t":"मैं राहुल हूँ।","r":"maĩ rāhul hū̃.","tr":"I'm Rahul."},
+          {"t":"मेरा नाम प्रिया है।","r":"merā nām priyā hai.","tr":"My name is Priya."},
+          {"t":"मैं मुंबई से हूँ।","r":"maĩ mumbaī se hū̃.","tr":"I'm from Mumbai."},
+          {"t":"मैं डॉक्टर हूँ।","r":"maĩ ḍôkṭar hū̃.","tr":"I'm a doctor.","note":"Hindi needs no word for “a”: “I doctor am”."},
+          {"t":"मैं ठीक हूँ।","r":"maĩ ṭhīk hū̃.","tr":"I'm fine."},
+          {"t":"आपसे मिलकर ख़ुशी हुई।","r":"āpse milkar khushī huī.","tr":"Nice to meet you.","note":"a set phrase: learn it as it is"}
+        ] },
+        {"tip":"**Reading the Latin letters.** A line over a vowel makes it long: ā as in “father”, ī as in “police”, ū as in “rule”; a short a sounds like the u in “but”. e is as in “they”, o as in “go”, ai like the e in “bed”. A wavy line (hū̃, haĩ) means the vowel is said through the nose. A dot under ṭ, ḍ, ṛ, ṇ means the tongue curls back. An h after a letter (kh, th, bh) is a puff of breath: th is a t with a puff, never the th of “the”. ch is as in “church”. Tap any example to hear it."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं हूँ सारा।","right":"मैं सारा हूँ।","tr":"I'm Sarah.","why":"The verb goes last: “I Sarah am”."},
+        {"wrong":"मैं से अमेरिका हूँ।","right":"मैं अमेरिका से हूँ।","tr":"I'm from America.","why":"{{से|se}} “from” comes after the place."},
+        {"wrong":"मेरा नाम सारा हूँ।","right":"मेरा नाम सारा है।","tr":"My name is Sarah.","why":"The sentence is about “my name”, so “is”: {{है|hai}}. {{हूँ|hū̃}} goes only with {{मैं|maĩ}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which sentence means “I'm from Delhi”?","options":["{{मैं दिल्ली से हूँ।|maĩ dillī se hū̃.}}","{{मैं हूँ दिल्ली से।|maĩ hū̃ dillī se.}}","{{मैं से दिल्ली हूँ।|maĩ se dillī hū̃.}}"],"answer":0,"why":"The verb {{हूँ|hū̃}} goes last, and {{से|se}} after the place."},
+        {"type":"fill","q":"Choose the missing word: {{हूँ|hū̃}}, {{है|hai}} or {{से|se}}?","t":"मेरा नाम प्रिया ___।","tr":"My name is Priya.","options":["है","हूँ","से"],"answer":0,"why":"“My name” is one thing: {{है|hai}} “is”."},
+        {"type":"fill","q":"Choose the missing word: {{हूँ|hū̃}} or {{है|hai}}?","t":"मैं राहुल ___।","tr":"I'm Rahul.","options":["हूँ","है"],"answer":0,"why":"With {{मैं|maĩ}} “I”, always {{हूँ|hū̃}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm from Mumbai.","words":["मैं","मुंबई","से","हूँ।"]},
+        {"type":"dialogue","q":"You're Tom, from London. Choose your replies.","lines":[{"who":"Priya","t":"नमस्ते! मैं प्रिया हूँ।","r":"namaste! maĩ priyā hū̃.","tr":"Hello! I'm Priya."},{"options":["नमस्ते, मैं टॉम हूँ।","नमस्ते, मैं टॉम है।"],"answer":0,"why":"With {{मैं|maĩ}}: {{हूँ|hū̃}}."},{"who":"Priya","t":"आप कहाँ से हैं?","r":"āp kahā̃ se haĩ?","tr":"Where are you from?"},{"options":["मैं लंदन से हूँ।","मैं से लंदन हूँ।"],"answer":0,"why":"{{से|se}} comes after the place: {{लंदन से|landan se}} “from London”."},{"who":"Priya","t":"आपसे मिलकर ख़ुशी हुई।","r":"āpse milkar khushī huī.","tr":"Nice to meet you."}]},
+        {"type":"say","q":"How do you say “Hello, my name is Rahul”?","answer":"नमस्ते, मेरा नाम राहुल है।","r":"namaste, merā nām rāhul hai."},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{नमस्ते, मैं…|namaste, maĩ…}}","answers":[{"t":"नमस्ते, मैं जॉन हूँ। मैं अमेरिका से हूँ।","r":"namaste, maĩ jôn hū̃. maĩ amerikā se hū̃.","tr":"Hello, I'm John. I'm from America."},{"t":"नमस्ते, मेरा नाम एमा है। मैं कनाडा से हूँ।","r":"namaste, merā nām emā hai. maĩ kanāḍā se hū̃.","tr":"Hello, my name is Emma. I'm from Canada."}]}
+      ]
+    },
+    {
+      "id": "speak-with-respect",
+      "unit": 1,
+      "level": "A1",
+      "title": "Talk to people with respect",
+      "summary": "Choose the right “you” (आप, तुम or तू) and ask “How are you?”: Hindi shows respect in every sentence.",
+      "topic": "{{आप|āp}}, {{तुम|tum}}, {{तू|tū}} “you”, with {{हैं|haĩ}}, {{हो|ho}}, {{है|hai}}; {{हम|ham}} “we”; {{जी|jī}}",
+      "blocks": [
+        {"goal":{"t":"नमस्ते जी, आप कैसे हैं?","r":"namaste jī, āp kaise haĩ?","tr":"Hello, how are you?","note":"to a man; to a woman: {{आप कैसी हैं?|āp kaisī haĩ?}}"}},
+        {"dialog":[{"who":"Mrs Sharma","t":"नमस्ते! आप कैसे हैं?","r":"namaste! āp kaise haĩ?","tr":"Hello! How are you?"},{"who":"Tom","t":"मैं ठीक हूँ, शुक्रिया। आप कैसी हैं?","r":"maĩ ṭhīk hū̃, shukriyā. āp kaisī haĩ?","tr":"I'm fine, thank you. How are you?"},{"who":"Mrs Sharma","t":"मैं भी ठीक हूँ।","r":"maĩ bhī ṭhīk hū̃.","tr":"I'm fine too."},{"who":"Ravi, a friend","t":"अरे टॉम! तुम कैसे हो?","r":"are ṭôm! tum kaise ho?","tr":"Hey Tom! How are you?"},{"who":"Tom","t":"बढ़िया! और तुम?","r":"baṛhiyā! aur tum?","tr":"Great! And you?"}]},
+        {"p":"Tom says “you” in two different ways: {{आप|āp}} to his older colleague, {{तुम|tum}} to his friend Ravi. Hindi has three words for “you”, and you choose by who you are talking to."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she, we."},
+        { "table": [
+          ["“you”","say it to","with “are”","How are you?"],
+          ["{{आप|āp}}","anyone you don't know well, anyone older, anyone you respect: the safe choice","{{हैं|haĩ}}","{{आप कैसे हैं?|āp kaise haĩ?}}"],
+          ["{{तुम|tum}}","friends, people your age, younger people","{{हो|ho}}","{{तुम कैसे हो?|tum kaise ho?}}"],
+          ["{{तू|tū}}","a very close friend, a small child (rude to anyone else)","{{है|hai}}","{{तू कैसा है?|tū kaisā hai?}}"]
+        ] },
+        {"p":"**Each “you” has its own “are”.** {{आप|āp}} goes with {{हैं|haĩ}}, {{तुम|tum}} with {{हो|ho}}, {{तू|tū}} with {{है|hai}}. Hindi speakers hear the difference at once, so keep each pair together. {{हम|ham}} “we” takes {{हैं|haĩ}} too: {{हम दोस्त हैं|ham dost haĩ}} “We're friends”."},
+        {"p":"**When in doubt, say {{आप|āp}}.** Being too polite is never a mistake, while {{तू|tū}} to a stranger is an insult. For even more respect, add {{जी|jī}} after a name or a title: {{शर्मा जी|sharmā jī}} “Mr (or Mrs) Sharma”, {{जी हाँ|jī hā̃}} “yes” (politely)."},
+        { "ex": [
+          {"t":"आप कैसे हैं?","r":"āp kaise haĩ?","tr":"How are you?","note":"to a man; to a woman: {{आप कैसी हैं?|āp kaisī haĩ?}}"},
+          {"t":"मैं ठीक हूँ, शुक्रिया।","r":"maĩ ṭhīk hū̃, shukriyā.","tr":"I'm fine, thank you."},
+          {"t":"तुम कहाँ से हो?","r":"tum kahā̃ se ho?","tr":"Where are you from?","note":"to a friend"},
+          {"t":"शर्मा जी, आप कहाँ से हैं?","r":"sharmā jī, āp kahā̃ se haĩ?","tr":"Mrs Sharma, where are you from?"},
+          {"t":"तू कहाँ है?","r":"tū kahā̃ hai?","tr":"Where are you?","note":"to a very close friend or a child"},
+          {"t":"हम दोस्त हैं।","r":"ham dost haĩ.","tr":"We're friends."}
+        ] },
+        {"tip":"{{नमस्ते|namaste}} works at any time of day, for “hello” and for “goodbye”. {{शुक्रिया|shukriyā}} and {{धन्यवाद|dhanyavād}} both mean “thank you”; the second is a little more formal."}
+      ],
+      "mistakes": [
+        {"wrong":"आप कहाँ से हो?","right":"आप कहाँ से हैं?","tr":"Where are you from?","why":"{{आप|āp}} goes with {{हैं|haĩ}}. ({{हो|ho}} is the “are” of {{तुम|tum}}.)"},
+        {"wrong":"तुम कैसे हैं?","right":"तुम कैसे हो?","tr":"How are you?","why":"{{तुम|tum}} goes with {{हो|ho}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You're meeting your friend's grandmother. Which “you”?","options":["{{आप|āp}}","{{तुम|tum}}","{{तू|tū}}"],"answer":0,"why":"Older people, and anyone you want to show respect to: {{आप|āp}}."},
+        {"type":"fill","q":"Choose the missing word: {{हैं|haĩ}}, {{हो|ho}} or {{हूँ|hū̃}}?","t":"तुम कैसे ___?","tr":"How are you? (to a friend)","options":["हो","हैं","हूँ"],"answer":0,"why":"{{तुम|tum}} goes with {{हो|ho}}."},
+        {"type":"fill","q":"Choose the missing word: {{हैं|haĩ}}, {{हो|ho}} or {{है|hai}}?","t":"आप कहाँ से ___?","tr":"Where are you from?","options":["हैं","हो","है"],"answer":0,"why":"{{आप|āp}} goes with {{हैं|haĩ}}."},
+        {"type":"dialogue","q":"Your colleague Mr Verma greets you. Choose your replies.","lines":[{"who":"Mr Verma","t":"नमस्ते! आप कैसे हैं?","r":"namaste! āp kaise haĩ?","tr":"Hello! How are you?"},{"options":["मैं ठीक हूँ, शुक्रिया। आप कैसे हैं?","मैं ठीक हूँ, शुक्रिया। तू कैसा है?"],"answer":0,"why":"To a colleague: {{आप|āp}}. {{तू|tū}} would be rude."},{"who":"Mr Verma","t":"मैं भी ठीक हूँ। आप कहाँ से हैं?","r":"maĩ bhī ṭhīk hū̃. āp kahā̃ se haĩ?","tr":"I'm fine too. Where are you from?"},{"options":["मैं कनाडा से हूँ।","मैं कनाडा से हैं।"],"answer":0,"why":"About yourself: {{मैं … हूँ|maĩ … hū̃}}."}],"from":"say-who-you-are"},
+        {"type":"order","q":"Put the words in order.","tr":"We're friends.","words":["हम","दोस्त","हैं।"]},
+        {"type":"say","q":"Ask your friend Ravi: “How are you?”","answer":"तुम कैसे हो?","r":"tum kaise ho?"},
+        {"type":"free","q":"Your turn: greet an older neighbor and ask how they are; then greet a friend the same way.","answers":[{"t":"नमस्ते आंटी जी, आप कैसी हैं?","r":"namaste āṇṭī jī, āp kaisī haĩ?","tr":"Hello Auntie, how are you?"},{"t":"अरे रवि, तुम कैसे हो?","r":"are ravi, tum kaise ho?","tr":"Hey Ravi, how are you?"}]}
+      ]
+    },
+    {
+      "id": "ask-and-say-no",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask yes-or-no questions and say no",
+      "summary": "Ask “Are you…?”, answer yes or no, ask who, what and where, and say what you are not.",
+      "topic": "{{क्या|kyā}} at the start of a question; {{जी हाँ|jī hā̃}}, {{जी नहीं|jī nahī̃}}; {{नहीं|nahī̃}} before the verb; {{कौन|kaun}}, {{क्या|kyā}}, {{कहाँ|kahā̃}}, {{कैसे|kaise}}",
+      "blocks": [
+        {"goal":{"t":"जी नहीं, मैं डॉक्टर नहीं हूँ। मैं टीचर हूँ।","r":"jī nahī̃, maĩ ḍôkṭar nahī̃ hū̃. maĩ ṭīchar hū̃.","tr":"No, I'm not a doctor. I'm a teacher."}},
+        {"dialog":[{"who":"Anita","t":"क्या आप डॉक्टर हैं?","r":"kyā āp ḍôkṭar haĩ?","tr":"Are you a doctor?"},{"who":"Tom","t":"जी नहीं, मैं डॉक्टर नहीं हूँ। मैं टीचर हूँ।","r":"jī nahī̃, maĩ ḍôkṭar nahī̃ hū̃. maĩ ṭīchar hū̃.","tr":"No, I'm not a doctor. I'm a teacher."},{"who":"Anita","t":"अच्छा! क्या आप इंग्लैंड से हैं?","r":"achchhā! kyā āp iṅglaiṇḍ se haĩ?","tr":"Oh! Are you from England?"},{"who":"Tom","t":"जी हाँ, मैं लंदन से हूँ। और आप?","r":"jī hā̃, maĩ landan se hū̃. aur āp?","tr":"Yes, I'm from London. And you?"},{"who":"Anita","t":"मैं यहीं से हूँ, दिल्ली से।","r":"maĩ yahī̃ se hū̃, dillī se.","tr":"I'm from right here, from Delhi."}]},
+        {"p":"**Yes-or-no questions.** Put {{क्या|kyā}} at the start and let your voice rise at the end: {{आप डॉक्टर हैं।|āp ḍôkṭar haĩ.}} “You're a doctor.” → {{क्या आप डॉक्टर हैं?|kyā āp ḍôkṭar haĩ?}} “Are you a doctor?” Nothing else changes: the words keep their order and the verb stays last. In everyday speech the {{क्या|kyā}} is often left out, and only the voice rises."},
+        {"p":"**Yes and no.** {{हाँ|hā̃}} is “yes”, {{नहीं|nahī̃}} is “no”; with {{जी|jī}} in front they become polite: {{जी हाँ|jī hā̃}}, {{जी नहीं|jī nahī̃}}."},
+        {"p":"**Not.** {{नहीं|nahī̃}} also means “not”. It goes just before the verb: {{मैं डॉक्टर नहीं हूँ।|maĩ ḍôkṭar nahī̃ hū̃.}} “I'm not a doctor.”"},
+        {"term":"question word","means":"a word that asks for information: who, what, where, how."},
+        {"p":"**Who, what, where.** A question word stands where the answer would be, so the order doesn't change: {{आप कहाँ से हैं?|āp kahā̃ se haĩ?}} “Where are you from?”, word for word “you where from are?”, and the answer {{मैं दिल्ली से हूँ।|maĩ dillī se hū̃.}} fills the same place. Inside a sentence, {{क्या|kyā}} means “what”: {{आपका नाम क्या है?|āpkā nām kyā hai?}} “What's your name?”"},
+        { "table": [
+          ["question word","example","meaning"],
+          ["{{क्या|kyā}} what","{{आपका नाम क्या है?|āpkā nām kyā hai?}}","What's your name?"],
+          ["{{कौन|kaun}} who","{{आप कौन हैं?|āp kaun haĩ?}}","Who are you?"],
+          ["{{कहाँ|kahā̃}} where","{{आप कहाँ हैं?|āp kahā̃ haĩ?}}","Where are you?"],
+          ["{{कैसे|kaise}} how","{{आप कैसे हैं?|āp kaise haĩ?}}","How are you?"]
+        ] },
+        { "ex": [
+          {"t":"क्या तुम ठीक हो?","r":"kyā tum ṭhīk ho?","tr":"Are you OK?"},
+          {"t":"जी हाँ, मैं टीचर हूँ।","r":"jī hā̃, maĩ ṭīchar hū̃.","tr":"Yes, I'm a teacher."},
+          {"t":"मैं यहाँ से नहीं हूँ।","r":"maĩ yahā̃ se nahī̃ hū̃.","tr":"I'm not from here."},
+          {"t":"आप कौन हैं?","r":"āp kaun haĩ?","tr":"Who are you?"},
+          {"t":"क्या आप मुंबई से हैं? — नहीं, पुणे से।","r":"kyā āp mumbaī se haĩ? — nahī̃, puṇe se.","tr":"Are you from Mumbai? — No, from Pune.","note":"a short answer can leave the verb out"},
+          {"t":"मैं ठीक नहीं हूँ।","r":"maĩ ṭhīk nahī̃ hū̃.","tr":"I'm not well."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं नहीं डॉक्टर हूँ।","right":"मैं डॉक्टर नहीं हूँ।","tr":"I'm not a doctor.","why":"{{नहीं|nahī̃}} goes just before the verb."},
+        {"wrong":"क्या आप हैं डॉक्टर?","right":"क्या आप डॉक्टर हैं?","tr":"Are you a doctor?","why":"Hindi doesn't swap words to make a question, as English does: {{क्या|kyā}} at the start, and the verb stays last."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How do you turn {{आप दिल्ली से हैं।|āp dillī se haĩ.}} into a question?","options":["{{क्या आप दिल्ली से हैं?|kyā āp dillī se haĩ?}}","{{आप हैं दिल्ली से क्या?|āp haĩ dillī se kyā?}}","{{क्या हैं आप दिल्ली से?|kyā haĩ āp dillī se?}}"],"answer":0,"why":"{{क्या|kyā}} at the start; the rest stays as it was."},
+        {"type":"fill","q":"Choose the missing word: {{नहीं|nahī̃}}, {{क्या|kyā}} or {{कौन|kaun}}?","t":"मैं डॉक्टर ___ हूँ।","tr":"I'm not a doctor.","options":["नहीं","क्या","कौन"],"answer":0,"why":"“Not” is {{नहीं|nahī̃}}, just before the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not from here.","words":["मैं","यहाँ","से","नहीं","हूँ।"]},
+        {"type":"choice","q":"In {{आपका नाम क्या है?|āpkā nām kyā hai?}}, {{क्या|kyā}} means…","options":["what","yes","not"],"answer":0,"why":"Inside a sentence, {{क्या|kyā}} is “what”. At the start, it only makes a yes-or-no question."},
+        {"type":"dialogue","q":"At a party: choose your replies.","lines":[{"who":"Ravi","t":"क्या आप अमेरिका से हैं?","r":"kyā āp amerikā se haĩ?","tr":"Are you from America?"},{"options":["जी नहीं, मैं कनाडा से हूँ।","जी नहीं, मैं नहीं कनाडा से हूँ।"],"answer":0,"why":"Say no, then say where you are from: {{मैं कनाडा से हूँ|maĩ kanāḍā se hū̃}}."},{"who":"Ravi","t":"अच्छा! आप टीचर हैं?","r":"achchhā! āp ṭīchar haĩ?","tr":"Oh! Are you a teacher?"},{"options":["जी हाँ, मैं टीचर हूँ।","जी हाँ, मैं टीचर हैं।"],"answer":0,"why":"{{मैं|maĩ}} goes with {{हूँ|hū̃}}."}],"from":"say-who-you-are"},
+        {"type":"say","q":"Ask someone politely: “Who are you?”","answer":"आप कौन हैं?","r":"āp kaun haĩ?"},
+        {"type":"free","q":"Your turn: someone asks you {{क्या आप डॉक्टर हैं?|kyā āp ḍôkṭar haĩ?}} Say no, then say what you are or where you're from.","answers":[{"t":"जी नहीं, मैं डॉक्टर नहीं हूँ। मैं टीचर हूँ।","r":"jī nahī̃, maĩ ḍôkṭar nahī̃ hū̃. maĩ ṭīchar hū̃.","tr":"No, I'm not a doctor. I'm a teacher."},{"t":"जी नहीं, मैं इंजीनियर हूँ।","r":"jī nahī̃, maĩ injīniyar hū̃.","tr":"No, I'm an engineer."},{"t":"नहीं, मैं स्टूडेंट हूँ। मैं अमेरिका से हूँ।","r":"nahī̃, maĩ sṭūḍeṇṭ hū̃. maĩ amerikā se hū̃.","tr":"No, I'm a student. I'm from America."}]}
+      ]
+    },
+    {
+      "id": "ask-for-what-you-need",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask for what you need",
+      "summary": "Order at a café or a tea stall, and say what you need: “I'd like a tea and a samosa.”",
+      "topic": "{{मुझे … चाहिए|mujhe … chāhie}} “I need, I'd like”; {{… दीजिए|… dījie}} “… please”; {{और|aur}} “and”, {{भी|bhī}} “too”",
+      "blocks": [
+        {"goal":{"t":"मुझे एक चाय और एक समोसा चाहिए।","r":"mujhe ek chāy aur ek samosā chāhie.","tr":"I'd like a tea and a samosa."}},
+        {"dialog":[{"who":"Waiter","t":"जी, आपको क्या चाहिए?","r":"jī, āpko kyā chāhie?","tr":"Yes, what would you like?"},{"who":"You","t":"मुझे एक चाय चाहिए।","r":"mujhe ek chāy chāhie.","tr":"I'd like a tea."},{"who":"Waiter","t":"और कुछ?","r":"aur kuchh?","tr":"Anything else?"},{"who":"You","t":"हाँ, एक समोसा भी दीजिए।","r":"hā̃, ek samosā bhī dījie.","tr":"Yes, a samosa too, please."},{"who":"Waiter","t":"अभी लाता हूँ।","r":"abhī lātā hū̃.","tr":"I'll bring it right away."}]},
+        {"p":"**I need, I'd like.** {{मुझे … चाहिए|mujhe … chāhie}} is how you ask for things in Hindi. Word for word it is “to me … is needed”: {{मुझे|mujhe}} means “to me”, {{चाहिए|chāhie}} “is needed”, and the thing goes in between. It is polite enough for any shop or café, and it covers “I want”, “I need” and “I'd like”."},
+        {"p":"**Please give.** {{दीजिए|dījie}} “please give” goes after the thing: {{एक चाय दीजिए|ek chāy dījie}} “A tea, please.” (It is the polite form of {{देना|denā}} “to give”: lesson 12.)"},
+        {"p":"**Asking someone else.** To ask what someone needs, {{मुझे|mujhe}} “to me” becomes {{आपको|āpko}} “to you”: {{आपको क्या चाहिए?|āpko kyā chāhie?}} “What would you like?” And {{नहीं|nahī̃}} goes just before {{चाहिए|chāhie}} (lesson 3)."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["I","{{मुझे पानी चाहिए।|mujhe pānī chāhie.}}","I need water."],
+          ["you","{{आपको क्या चाहिए?|āpko kyā chāhie?}}","What would you like?"],
+          ["not","{{मुझे चीनी नहीं चाहिए।|mujhe chīnī nahī̃ chāhie.}}","I don't want sugar."]
+        ] },
+        { "ex": [
+          {"t":"मुझे थोड़ा पानी चाहिए।","r":"mujhe thoṛā pānī chāhie.","tr":"I need a little water."},
+          {"t":"मुझे दो टिकट चाहिए।","r":"mujhe do ṭikaṭ chāhie.","tr":"I need two tickets."},
+          {"t":"एक कॉफ़ी दीजिए।","r":"ek kôfī dījie.","tr":"A coffee, please."},
+          {"t":"मुझे भी चाय चाहिए।","r":"mujhe bhī chāy chāhie.","tr":"I'd like tea too.","note":"{{भी|bhī}} “too, also” comes right after the word it is about: “me too”"},
+          {"t":"क्या आपको कुछ चाहिए?","r":"kyā āpko kuchh chāhie?","tr":"Do you need anything?"},
+          {"t":"मुझे कुछ नहीं चाहिए, शुक्रिया।","r":"mujhe kuchh nahī̃ chāhie, shukriyā.","tr":"I don't need anything, thanks."}
+        ] },
+        {"tip":"{{एक|ek}} means “one”, and it is how you say “a” when you count or order: {{एक चाय|ek chāy}} “a (one) tea”. Hindi has no word for “the”."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं चाय चाहिए।","right":"मुझे चाय चाहिए।","tr":"I'd like tea.","why":"With {{चाहिए|chāhie}}, the person is “to me”: {{मुझे|mujhe}}, not {{मैं|maĩ}}."},
+        {"wrong":"भी मुझे चाय चाहिए।","right":"मुझे भी चाय चाहिए।","tr":"I'd like tea too.","why":"{{भी|bhī}} comes after the word it is about: “me too” is {{मुझे भी|mujhe bhī}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word: {{मुझे|mujhe}}, {{मैं|maĩ}} or {{आप|āp}}?","t":"___ एक चाय चाहिए।","tr":"I'd like a tea.","options":["मुझे","मैं","आप"],"answer":0,"why":"With {{चाहिए|chāhie}}: {{मुझे|mujhe}} “to me”."},
+        {"type":"choice","q":"The waiter asks {{आपको क्या चाहिए?|āpko kyā chāhie?}} What does he mean?","options":["What would you like?","Where are you from?","How are you?"],"answer":0,"why":"{{आपको|āpko}} “to you”, {{क्या|kyā}} “what”, {{चाहिए|chāhie}} “is needed”."},
+        {"type":"dialogue","q":"At a juice stall: choose your replies.","lines":[{"who":"Seller","t":"जी, क्या चाहिए?","r":"jī, kyā chāhie?","tr":"Yes, what would you like?"},{"options":["मुझे एक जूस चाहिए।","मैं एक जूस हूँ।"],"answer":0,"why":"{{मैं एक जूस हूँ|maĩ ek jūs hū̃}} means “I am a juice”!"},{"who":"Seller","t":"और कुछ?","r":"aur kuchh?","tr":"Anything else?"},{"options":["पानी भी दीजिए।","भी पानी दीजिए।"],"answer":0,"why":"{{भी|bhī}} goes right after {{पानी|pānī}}: “water too”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I need two tickets.","words":["मुझे","दो","टिकट","चाहिए।"]},
+        {"type":"say","q":"Say politely: “I don't want sugar.”","answer":"मुझे चीनी नहीं चाहिए।","r":"mujhe chīnī nahī̃ chāhie.","from":"ask-and-say-no"},
+        {"type":"fill","q":"Make it a question. Choose the missing word.","t":"___ आपको कुछ चाहिए?","tr":"Do you need anything?","options":["क्या","कौन","कहाँ"],"answer":0,"why":"A yes-or-no question starts with {{क्या|kyā}}.","from":"ask-and-say-no"},
+        {"type":"free","q":"Your turn: you're at a café. Order two things, with {{मुझे … चाहिए|mujhe … chāhie}} or {{… दीजिए|… dījie}}.","answers":[{"t":"मुझे एक कॉफ़ी और एक समोसा चाहिए।","r":"mujhe ek kôfī aur ek samosā chāhie.","tr":"I'd like a coffee and a samosa."},{"t":"दो चाय दीजिए, और थोड़ा पानी भी।","r":"do chāy dījie, aur thoṛā pānī bhī.","tr":"Two teas, please, and a little water too."}]}
+      ]
+    },
+    {
+      "id": "point-and-name",
+      "unit": 1,
+      "level": "A1",
+      "title": "Point at things and people",
+      "summary": "Ask “What's this?” and “Who's that?”, and say “That's my friend.”",
+      "topic": "{{यह|yah}} “this”, {{वह|vah}} “that”; {{ये|ye}}, {{वे|ve}} “these, those”; {{वह|vah}} is also “he, she, it”",
+      "blocks": [
+        {"goal":{"t":"यह क्या है? और वह कौन है?","r":"yah kyā hai? aur vah kaun hai?","tr":"What's this? And who's that?"}},
+        {"dialog":[{"who":"Tom","t":"यह क्या है?","r":"yah kyā hai?","tr":"What's this?"},{"who":"Priya","t":"यह लस्सी है। बहुत अच्छी है!","r":"yah lassī hai. bahut achchhī hai!","tr":"It's lassi. It's really good!"},{"who":"Tom","t":"और वह क्या है?","r":"aur vah kyā hai?","tr":"And what's that?"},{"who":"Priya","t":"वह जलेबी है।","r":"vah jalebī hai.","tr":"That's jalebi."},{"who":"Tom","t":"और वह आदमी कौन है?","r":"aur vah ādmī kaun hai?","tr":"And who's that man?"},{"who":"Priya","t":"वह दुकानदार है।","r":"vah dukāndār hai.","tr":"He's the shopkeeper."}]},
+        {"p":"**This and that.** {{यह|yah}} is “this” (near you), {{वह|vah}} is “that” (further away). With {{है|hai}} they make the most useful sentences there are: {{यह क्या है?|yah kyā hai?}} “What's this?”, {{वह कौन है?|vah kaun hai?}} “Who's that?” {{क्या|kyā}} “what” is for things, {{कौन|kaun}} “who” for people."},
+        {"p":"**He, she, it.** Hindi has no separate words for “he”, “she” and “it”: {{वह|vah}} is all of them (and {{यह|yah}} for someone near). {{वह डॉक्टर है|vah ḍôkṭar hai}} can be “he's a doctor” or “she's a doctor”: the situation tells you which."},
+        {"p":"**These and those.** For more than one: {{ये|ye}} “these, they (near)” and {{वे|ve}} “those, they”, with {{हैं|haĩ}}: {{वे मेरे दोस्त हैं|ve mere dost haĩ}} “They're my friends.” In speech you'll hear {{ये|ye}} for {{यह|yah}} too, and {{वो|vo}} for both {{वह|vah}} and {{वे|ve}}: that is how most people say them."},
+        { "table": [
+          ["","near","far"],
+          ["one","{{यह|yah}} this; he, she, it","{{वह|vah}} that; he, she, it"],
+          ["more than one","{{ये|ye}} these; they","{{वे|ve}} those; they"]
+        ] },
+        { "ex": [
+          {"t":"यह मेरा फ़ोन है।","r":"yah merā fon hai.","tr":"This is my phone."},
+          {"t":"वह कौन है?","r":"vah kaun hai?","tr":"Who's that?"},
+          {"t":"वह मेरी दोस्त है।","r":"vah merī dost hai.","tr":"She's my friend.","note":"{{मेरी|merī}} “my” shows that the friend is a woman (lesson 10)"},
+          {"t":"यह बहुत अच्छा है।","r":"yah bahut achchhā hai.","tr":"This is very good."},
+          {"t":"वे मेरे दोस्त हैं।","r":"ve mere dost haĩ.","tr":"They're my friends."},
+          {"t":"क्या यह आपका बैग है?","r":"kyā yah āpkā baig hai?","tr":"Is this your bag?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"वे मेरे दोस्त है।","right":"वे मेरे दोस्त हैं।","tr":"They're my friends.","why":"More than one: {{हैं|haĩ}}."},
+        {"wrong":"वह आदमी क्या है?","right":"वह आदमी कौन है?","tr":"Who's that man?","why":"For a person, “who”: {{कौन|kaun}}. {{क्या|kyā}} is for things."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{वह डॉक्टर है।|vah ḍôkṭar hai.}} means…","options":["He's a doctor, or she's a doctor","Only “he's a doctor”","Only “she's a doctor”"],"answer":0,"why":"{{वह|vah}} is he, she, it and that."},
+        {"type":"fill","q":"Choose the missing word: {{कौन|kaun}} or {{क्या|kyā}}?","t":"वह आदमी ___ है?","tr":"Who's that man?","options":["कौन","क्या"],"answer":0,"why":"For a person: {{कौन|kaun}} “who”."},
+        {"type":"fill","q":"Choose the missing word: {{हैं|haĩ}}, {{है|hai}} or {{हूँ|hū̃}}?","t":"वे मेरे दोस्त ___।","tr":"They're my friends.","options":["हैं","है","हूँ"],"answer":0,"why":"{{वे|ve}} “they”: {{हैं|haĩ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"What's that?","words":["वह","क्या","है?"]},
+        {"type":"dialogue","q":"Your friend Meena shows you her family's shop. Choose your questions.","lines":[{"who":"Meena","t":"यह हमारी दुकान है।","r":"yah hamārī dukān hai.","tr":"This is our shop."},{"options":["अच्छा! वह आदमी कौन है?","अच्छा! वह आदमी क्या है?"],"answer":0,"why":"A person: {{कौन|kaun}}."},{"who":"Meena","t":"वह मेरा भाई है।","r":"vah merā bhāī hai.","tr":"That's my brother."},{"options":["क्या वह भी दुकानदार है?","क्या वह भी दुकानदार हूँ?"],"answer":0,"why":"{{वह|vah}} goes with {{है|hai}}; {{क्या|kyā}} at the start makes it a question."}],"from":"ask-and-say-no"},
+        {"type":"say","q":"Point at something and ask: “What's this?”","answer":"यह क्या है?","r":"yah kyā hai?"},
+        {"type":"free","q":"Your turn: you're showing someone a photo. Say who two of the people are, with {{यह … है|yah … hai}} and {{वह … है|vah … hai}}.","answers":[{"t":"यह मेरा भाई है, और यह मेरी दोस्त सारा है।","r":"yah merā bhāī hai, aur yah merī dost sārā hai.","tr":"This is my brother, and this is my friend Sarah."},{"t":"वह मेरा दोस्त राज है। वह डॉक्टर है।","r":"vah merā dost rāj hai. vah ḍôkṭar hai.","tr":"That's my friend Raj. He's a doctor."}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say what people and things are like",
+      "summary": "Describe people, food and places (“The food is very good”), and meet Hindi's two genders.",
+      "topic": "Masculine and feminine nouns; adjectives in {{-आ|-ā}} / {{-ई|-ī}}; adjectives that never change; {{बहुत|bahut}} “very”",
+      "blocks": [
+        {"goal":{"t":"खाना बहुत अच्छा है, और चाय भी अच्छी है।","r":"khānā bahut achchhā hai, aur chāy bhī achchhī hai.","tr":"The food is very good, and the tea is good too."}},
+        {"p":"Look at “good” in the goal sentence: {{अच्छा|achchhā}} with {{खाना|khānā}} “food”, but {{अच्छी|achchhī}} with {{चाय|chāy}} “tea”. The word for “good” changes because food and tea are different genders in Hindi."},
+        {"term":"noun","means":"a word for a person, a thing or a place: friend, tea, Delhi."},
+        {"term":"gender","means":"in Hindi, every noun is either masculine or feminine, things too: tea is feminine, food is masculine."},
+        {"term":"adjective","means":"a word that describes a noun: big, good, hot."},
+        {"p":"**Two kinds of nouns.** For people, the gender follows the person: {{लड़का|laṛkā}} “boy” is masculine, {{लड़की|laṛkī}} “girl” feminine. For things, a rule of thumb: nouns ending in {{-आ|-ā}} are mostly masculine ({{कमरा|kamrā}} “room”, {{खाना|khānā}} “food”), nouns ending in {{-ई|-ī}} mostly feminine ({{चाबी|chābī}} “key”, {{गाड़ी|gāṛī}} “car”). The others you learn with the word: {{चाय|chāy}} “tea” and {{किताब|kitāb}} “book” are feminine, {{घर|ghar}} “house” and {{शहर|shahar}} “city” masculine. (And a few break the rule: {{पानी|pānī}} “water” and {{आदमी|ādmī}} “man” are masculine.)"},
+        {"p":"**Adjectives that change.** An adjective ending in {{-आ|-ā}} keeps {{-आ|-ā}} with a masculine noun and changes to {{-ई|-ī}} with a feminine one. It changes wherever it stands: before the noun ({{बड़ी गाड़ी|baṛī gāṛī}} “a big car”) or at the end of the sentence ({{गाड़ी बड़ी है|gāṛī baṛī hai}} “The car is big”)."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["good","{{अच्छा खाना|achchhā khānā}} good food","{{अच्छी चाय|achchhī chāy}} good tea"],
+          ["big","{{बड़ा घर|baṛā ghar}} a big house","{{बड़ी गाड़ी|baṛī gāṛī}} a big car"],
+          ["new","{{नया फ़ोन|nayā fon}} a new phone","{{नई किताब|naī kitāb}} a new book"],
+          ["small","{{छोटा कमरा|chhoṭā kamrā}} a small room","{{छोटी लड़की|chhoṭī laṛkī}} a little girl"]
+        ] },
+        {"p":"**Adjectives that never change.** Adjectives that don't end in {{-आ|-ā}} stay the same for everyone: {{सुंदर|sundar}} “beautiful”, {{ख़ुश|khush}} “happy”, {{लाल|lāl}} “red”, {{मुश्किल|mushkil}} “difficult”, {{गरम|garam}} “hot”: {{सुंदर घर|sundar ghar}}, {{सुंदर गाड़ी|sundar gāṛī}}. {{बहुत|bahut}} “very” never changes either."},
+        { "ex": [
+          {"t":"खाना बहुत गरम है।","r":"khānā bahut garam hai.","tr":"The food is very hot."},
+          {"t":"चाय ठंडी है।","r":"chāy ṭhaṇḍī hai.","tr":"The tea is cold."},
+          {"t":"यह कमरा बहुत छोटा है।","r":"yah kamrā bahut chhoṭā hai.","tr":"This room is very small."},
+          {"t":"मेरी बहन बहुत लंबी है।","r":"merī bahan bahut lambī hai.","tr":"My sister is very tall."},
+          {"t":"हिंदी मुश्किल नहीं है।","r":"hindī mushkil nahī̃ hai.","tr":"Hindi isn't difficult.","note":"{{मुश्किल|mushkil}} never changes"},
+          {"t":"वह लड़की बहुत ख़ुश है।","r":"vah laṛkī bahut khush hai.","tr":"That girl is very happy."},
+          {"t":"दिल्ली बड़ा शहर है।","r":"dillī baṛā shahar hai.","tr":"Delhi is a big city.","note":"{{बड़ा|baṛā}} goes with {{शहर|shahar}}, which is masculine"}
+        ] },
+        {"tip":"With people, the adjective follows the person: {{राहुल लंबा है|rāhul lambā hai}} “Rahul is tall”, {{प्रिया लंबी है|priyā lambī hai}} “Priya is tall”. When you learn a new noun, learn its gender with it: {{चाय|chāy}} (feminine)."}
+      ],
+      "mistakes": [
+        {"wrong":"चाय बहुत अच्छा है।","right":"चाय बहुत अच्छी है।","tr":"The tea is very good.","why":"{{चाय|chāy}} is feminine, so {{अच्छा|achchhā}} becomes {{अच्छी|achchhī}}."},
+        {"wrong":"यह कमरा छोटी है।","right":"यह कमरा छोटा है।","tr":"This room is small.","why":"{{कमरा|kamrā}} is masculine: {{छोटा|chhoṭā}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which noun is feminine?","options":["{{चाय|chāy}} tea","{{घर|ghar}} house","{{कमरा|kamrā}} room"],"answer":0,"why":"{{चाय|chāy}} is feminine: {{अच्छी चाय|achchhī chāy}}."},
+        {"type":"fill","q":"Choose the right form: {{बड़ी|baṛī}} or {{बड़ा|baṛā}}?","t":"यह गाड़ी बहुत ___ है।","tr":"This car is very big.","options":["बड़ी","बड़ा"],"answer":0,"why":"{{गाड़ी|gāṛī}} “car” is feminine."},
+        {"type":"fill","q":"Choose the right form: {{अच्छा|achchhā}} or {{अच्छी|achchhī}}?","t":"खाना बहुत ___ है।","tr":"The food is very good.","options":["अच्छा","अच्छी"],"answer":0,"why":"{{खाना|khānā}} is masculine."},
+        {"type":"choice","q":"With a feminine noun, {{सुंदर|sundar}} “beautiful” is…","options":["{{सुंदर|sundar}}, as always","it changes its ending to {{-ई|-ī}}"],"answer":0,"why":"Only adjectives ending in {{-आ|-ā}} change."},
+        {"type":"order","q":"Put the words in order.","tr":"Hindi isn't difficult.","words":["हिंदी","मुश्किल","नहीं","है।"],"from":"ask-and-say-no"},
+        {"type":"dialogue","q":"Your friend asks about your new place. Choose your replies.","lines":[{"who":"Amit","t":"तुम्हारा नया घर कैसा है?","r":"tumhārā nayā ghar kaisā hai?","tr":"How's your new place?"},{"options":["बहुत अच्छा है, लेकिन छोटा है।","बहुत अच्छी है, लेकिन छोटी है।"],"answer":0,"why":"{{घर|ghar}} is masculine: {{अच्छा|achchhā}}, {{छोटा|chhoṭā}}. ({{लेकिन|lekin}} is “but”.)"},{"who":"Amit","t":"और रसोई?","r":"aur rasoī?","tr":"And the kitchen?"},{"options":["रसोई बड़ी है।","रसोई बड़ा है।"],"answer":0,"why":"{{रसोई|rasoī}} “kitchen” ends in {{-ई|-ī}}: feminine."}]},
+        {"type":"say","q":"Ask about a café: “Is the coffee good?”","answer":"क्या कॉफ़ी अच्छी है?","r":"kyā kôfī achchhī hai?","from":"ask-and-say-no"},
+        {"type":"free","q":"Your turn: describe your home, your city or your favorite food in one or two sentences.","answers":[{"t":"मेरा घर छोटा है, लेकिन बहुत सुंदर है।","r":"merā ghar chhoṭā hai, lekin bahut sundar hai.","tr":"My house is small, but very beautiful."},{"t":"न्यूयॉर्क बहुत बड़ा शहर है।","r":"nyūyôrk bahut baṛā shahar hai.","tr":"New York is a very big city."},{"t":"दाल बहुत अच्छी है।","r":"dāl bahut achchhī hai.","tr":"Dal is really good."}]}
+      ]
+    },
+    {
+      "id": "more-than-one",
+      "unit": 1,
+      "level": "A1",
+      "title": "Talk about more than one",
+      "summary": "Say “two rooms”, “three books”, “nice people”, and count to ten: Hindi plurals, which depend on gender.",
+      "topic": "Plural nouns: {{-आ → -ए|-ā → -e}}, {{-ई → -इयाँ|-ī → -iyā̃}}, {{-एँ|-ẽ}}; adjectives in {{-ए|-e}}; numbers 1 to 10",
+      "blocks": [
+        {"goal":{"t":"ये केले बहुत मीठे हैं।","r":"ye kele bahut mīṭhe haĩ.","tr":"These bananas are very sweet."}},
+        {"dialog":[{"who":"You","t":"ये आम कैसे हैं?","r":"ye ām kaise haĩ?","tr":"How are these mangoes?"},{"who":"Seller","t":"बहुत मीठे हैं, जी!","r":"bahut mīṭhe haĩ, jī!","tr":"Very sweet!"},{"who":"You","t":"मुझे चार आम चाहिए। और दो केले भी।","r":"mujhe chār ām chāhie. aur do kele bhī.","tr":"I'd like four mangoes. And two bananas too."},{"who":"Seller","t":"ये लीजिए।","r":"ye lījie.","tr":"Here you are."}]},
+        {"term":"plural","means":"the form of a word for more than one: book → books."},
+        {"p":"**Masculine nouns.** Those ending in {{-आ|-ā}} change it to {{-ए|-e}}: {{केला|kelā}} → {{केले|kele}} “bananas”, {{कमरा|kamrā}} → {{कमरे|kamre}} “rooms”. The other masculine nouns don't change at all: {{एक आम|ek ām}} “one mango”, {{चार आम|chār ām}} “four mangoes”; {{एक आदमी|ek ādmī}}, {{दो आदमी|do ādmī}}."},
+        {"p":"**Feminine nouns.** Those ending in {{-ई|-ī}} take {{-इयाँ|-iyā̃}}: {{लड़की|laṛkī}} → {{लड़कियाँ|laṛkiyā̃}} “girls”. The others add {{-एँ|-ẽ}}: {{किताब|kitāb}} → {{किताबें|kitābẽ}} “books”, {{बहन|bahan}} → {{बहनें|bahnẽ}} “sisters”."},
+        { "table": [
+          ["","one","more than one"],
+          ["masculine in -आ","{{कमरा|kamrā}} room","{{कमरे|kamre}} rooms"],
+          ["other masculine","{{घर|ghar}} house","{{घर|ghar}} houses"],
+          ["feminine in -ई","{{लड़की|laṛkī}} girl","{{लड़कियाँ|laṛkiyā̃}} girls"],
+          ["other feminine","{{किताब|kitāb}} book","{{किताबें|kitābẽ}} books"]
+        ] },
+        {"p":"**Adjectives** in {{-आ|-ā}} take {{-ए|-e}} with a masculine plural: {{बड़े कमरे|baṛe kamre}} “big rooms”, {{अच्छे लोग|achchhe log}} “nice people”. With a feminine plural they stay {{-ई|-ī}}: {{अच्छी किताबें|achchhī kitābẽ}} “good books”. And the verb becomes {{हैं|haĩ}}."},
+        { "table": [
+          ["number","Hindi","number","Hindi"],
+          ["1","{{एक|ek}}","6","{{छह|chhah}}"],
+          ["2","{{दो|do}}","7","{{सात|sāt}}"],
+          ["3","{{तीन|tīn}}","8","{{आठ|āṭh}}"],
+          ["4","{{चार|chār}}","9","{{नौ|nau}}"],
+          ["5","{{पाँच|pā̃ch}}","10","{{दस|das}}"]
+        ] },
+        { "ex": [
+          {"t":"मुझे दो किताबें चाहिए।","r":"mujhe do kitābẽ chāhie.","tr":"I need two books."},
+          {"t":"यहाँ के लोग बहुत अच्छे हैं।","r":"yahā̃ ke log bahut achchhe haĩ.","tr":"The people here are very nice.","note":"{{लोग|log}} “people” is always plural"},
+          {"t":"ये कमरे बड़े हैं।","r":"ye kamre baṛe haĩ.","tr":"These rooms are big."},
+          {"t":"वे लड़कियाँ मेरी दोस्त हैं।","r":"ve laṛkiyā̃ merī dost haĩ.","tr":"Those girls are my friends."},
+          {"t":"तीन चाय और दो समोसे दीजिए।","r":"tīn chāy aur do samose dījie.","tr":"Three teas and two samosas, please.","note":"{{चाय|chāy}} doesn't change: you are counting cups"},
+          {"t":"मेरी बहनें दिल्ली में हैं।","r":"merī bahnẽ dillī mẽ haĩ.","tr":"My sisters are in Delhi."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मुझे दो केला चाहिए।","right":"मुझे दो केले चाहिए।","tr":"I'd like two bananas.","why":"More than one: {{केला|kelā}} becomes {{केले|kele}}."},
+        {"wrong":"ये किताबें अच्छे हैं।","right":"ये किताबें अच्छी हैं।","tr":"These books are good.","why":"{{किताब|kitāb}} is feminine: the adjective stays {{अच्छी|achchhī}}, even for many."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The plural of {{लड़का|laṛkā}} “boy” is…","options":["{{लड़के|laṛke}}","{{लड़कें|laṛkẽ}}","{{लड़काएँ|laṛkāẽ}}"],"answer":0,"why":"A masculine noun in {{-आ|-ā}}: {{-ए|-e}}."},
+        {"type":"fill","q":"Choose the plural.","t":"मुझे तीन ___ चाहिए।","tr":"I need three books.","options":["किताबें","किताब","किताबों"],"answer":0,"why":"A feminine noun that doesn't end in {{-ई|-ī}}: add {{-एँ|-ẽ}}."},
+        {"type":"fill","q":"Choose the right form of “sweet”.","t":"ये आम बहुत ___ हैं।","tr":"These mangoes are very sweet.","options":["मीठे","मीठा","मीठी"],"answer":0,"why":"{{आम|ām}} “mango” is masculine; many mangoes: {{मीठे|mīṭhe}}.","from":"describe-things"},
+        {"type":"order","q":"Put the words in order.","tr":"The people here are very nice.","words":["यहाँ","के","लोग","बहुत","अच्छे","हैं।"]},
+        {"type":"dialogue","q":"At the fruit stall: choose your replies.","lines":[{"who":"Seller","t":"क्या चाहिए, जी?","r":"kyā chāhie, jī?","tr":"What would you like?"},{"options":["पाँच केले दीजिए।","पाँच केला दीजिए।"],"answer":0,"why":"Five of them: {{केले|kele}}."},{"who":"Seller","t":"और कुछ?","r":"aur kuchh?","tr":"Anything else?"},{"options":["दो आम भी दीजिए।","दो आमें भी दीजिए।"],"answer":0,"why":"{{आम|ām}} is masculine and doesn't end in {{-आ|-ā}}: it doesn't change."}],"from":"ask-for-what-you-need"},
+        {"type":"say","q":"Say: “These rooms are big.”","answer":"ये कमरे बड़े हैं।","r":"ye kamre baṛe haĩ.","from":"point-and-name"},
+        {"type":"free","q":"Your turn: order several things at a market or a café, and say how many of each.","answers":[{"t":"मुझे छह केले और दो आम चाहिए।","r":"mujhe chhah kele aur do ām chāhie.","tr":"I'd like six bananas and two mangoes."},{"t":"चार चाय और चार समोसे दीजिए।","r":"chār chāy aur chār samose dījie.","tr":"Four teas and four samosas, please."}]}
+      ]
+    }
+  ]
+}

@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-hi": {
+   "file": "en-hi/course.json",
+   "from": "en",
+   "to": "hi",
+   "title": "Hindi grammar",
+   "variety": "Everyday Hindi (India), in Devanagari",
+   "units": 8,
+   "lessons": 7,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 50748,
+   "sha256": "4513b9f43cd6520e84ace5f8ea313687a2185eb4b666d0905078e3a083d8fd64"
   }
  }
 }
