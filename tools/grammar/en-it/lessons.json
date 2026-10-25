@@ -1430,6 +1430,295 @@
         {"type":"say","q":"Say (as a woman): “It was raining, so I stayed home.”","answer":"Pioveva, quindi sono rimasta a casa.","from":"say-where-you-went"},
         {"type":"free","q":"Your turn: tell a short story about something unexpected. Set the scene (where you were, the weather, what you were doing), then say what happened.","answers":[{"t":"Ero in un bar a Roma e bevevo un caffè. All'improvviso è entrato un attore famoso!","tr":"I was in a café in Rome, having a coffee. Suddenly a famous actor walked in!"},{"t":"Era domenica e faceva bel tempo. Mentre camminavo nel parco, ho trovato un portafoglio con cento euro.","tr":"It was Sunday and the weather was nice. While I was walking in the park, I found a wallet with a hundred euros in it."}]}
       ]
+    },
+    {
+      "id": "avoid-repeating-yourself",
+      "unit": 6,
+      "level": "A2",
+      "title": "Avoid repeating yourself when you shop",
+      "summary": "“I'll take it”, “Can I try them on?”, “I can't find them!”: replace the thing with a short word.",
+      "topic": "Direct object pronouns {{lo, la, li, le}} (and {{mi, ti, ci, vi}}) before the verb; {{l'ho comprata}}",
+      "blocks": [
+        {"goal":{"t":"Questa giacca mi piace molto: la prendo!","tr":"I really like this jacket: I'll take it!"}},
+        {"dialog":[{"who":"Shop assistant","t":"Le piacciono queste scarpe?","tr":"Do you like these shoes?"},{"who":"You","t":"Sì, molto. Posso provarle?","tr":"Yes, a lot. Can I try them on?"},{"who":"Shop assistant","t":"Certo. Che numero porta?","tr":"Of course. What size do you wear?"},{"who":"You","t":"Il trentanove... Mi stanno bene! Le prendo.","tr":"A thirty-nine… They fit! I'll take them."},{"who":"Shop assistant","t":"Perfetto. E la borsa?","tr":"Perfect. And the bag?"},{"who":"You","t":"La borsa no, grazie: non la uso mai.","tr":"Not the bag, thanks: I never use one."}]},
+        {"p":"**Not saying the noun twice.** Once you've named something, replace it with a short pronoun that goes **before** the verb: {{Prendo la giacca}} → {{La prendo}} “I'll take it”."},
+        {"term":"direct object","means":"the person or thing that receives the action of the verb, with no preposition before it: in “I see Marco”, Marco is the direct object."},
+        { "table": [
+          ["English","Italian","example"],
+          ["it, him (masculine)","{{lo}}","{{Il libro? Lo leggo stasera.}}"],
+          ["it, her (feminine)","{{la}}","{{La pizza? La ordino io.}}"],
+          ["them (masculine)","{{li}}","{{I biglietti? Li ho io.}}"],
+          ["them (feminine)","{{le}}","{{Le scarpe? Le prendo.}}"],
+          ["me, you, us, you (two or more)","{{mi, ti, ci, vi}}","{{Mi senti? Ti chiamo domani.}}"],
+          ["you ({{Lei}})","{{La}}","{{La chiamo domani, signora.}}"]
+        ] },
+        {"p":"**It agrees.** “It” is {{lo}} for a masculine thing and {{la}} for a feminine one: the pronoun takes the gender of the noun it replaces. Before a vowel or an h, {{lo}} and {{la}} become {{l'}}: {{L'ho visto}} “I saw it, I saw him”."},
+        {"p":"**Where it goes**: before the verb, and after {{non}}: {{Non lo compro}} “I'm not buying it”. With an infinitive, it can join the end: {{Posso provarla?}} or {{La posso provare?}} “Can I try it on?”"},
+        {"p":"**In the past**, after {{l'}}, {{li}} and {{le}}, the participle agrees with the pronoun: {{La giacca? L'ho comprata ieri.}} {{Le scarpe? Le ho prese.}}"},
+        { "ex": [
+          {"t":"Il caffè lo prendi con lo zucchero?","tr":"Do you take your coffee with sugar?","note":"Italians often name the thing first, then use the pronoun"},
+          {"t":"Conosci Marco? Sì, lo conosco bene.","tr":"Do you know Marco? Yes, I know him well."},
+          {"t":"Dove sono le chiavi? Non le trovo!","tr":"Where are the keys? I can't find them!"},
+          {"t":"Ti aspetto davanti al cinema.","tr":"I'll wait for you in front of the movie theater."},
+          {"t":"Questi pantaloni li posso cambiare?","tr":"Can I exchange these pants?"},
+          {"t":"Hai visto il film? Sì, l'ho visto ieri.","tr":"Have you seen the movie? Yes, I saw it yesterday."},
+          {"t":"La ringrazio, signore.","tr":"Thank you, sir.","note":"polite: {{La}}"}
+        ] },
+        {"tip":"{{questo}} “this” and {{quello}} “that” agree like adjectives: {{questo libro}}, {{questa giacca}}, {{questi pantaloni}}, {{queste scarpe}}. In a store, point and say {{questo qui}} “this one here”."}
+      ],
+      "mistakes": [
+        {"wrong":"Prendo la.","right":"La prendo.","tr":"I'll take it.","why":"The pronoun goes before the verb."},
+        {"wrong":"Le scarpe? Li prendo.","right":"Le scarpe? Le prendo.","tr":"The shoes? I'll take them.","why":"{{scarpe}} is feminine plural: {{le}}."},
+        {"wrong":"La giacca? L'ho comprato ieri.","right":"La giacca? L'ho comprata ieri.","tr":"The jacket? I bought it yesterday.","why":"After a pronoun for a feminine thing, the participle agrees: {{comprata}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Il giornale? ___ compro io.","tr":"The newspaper? I'll buy it.","options":["Lo","La","Li"],"answer":0,"why":"{{giornale}} is masculine singular: {{lo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Le chiavi? Non ___ trovo!","tr":"The keys? I can't find them!","options":["le","li","la"],"answer":0,"why":"{{chiavi}} is feminine plural: {{le}}."},
+        {"type":"choice","q":"{{Ti chiamo stasera}} means…","options":["I'll call you tonight.","You'll call me tonight.","Call me tonight."],"answer":0,"why":"{{ti}} “you” is the object; the verb {{chiamo}} says “I”. And the present works for plans.","from":"make-plans"},
+        {"type":"dialogue","q":"In a clothing store: choose your replies.","lines":[{"who":"Shop assistant","t":"Le piace questo maglione?","tr":"Do you like this sweater?"},{"options":["Sì, posso provarlo?","Sì, posso provarla?"],"answer":0,"why":"{{maglione}} is masculine: {{provarlo}}."},{"who":"Shop assistant","t":"Certo! Il camerino è lì.","tr":"Of course! The fitting room is over there."},{"options":["Mi sta bene. Lo prendo!","Mi sta bene. Prendo lo!"],"answer":0,"why":"The pronoun goes before the verb: {{lo prendo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I saw them yesterday at the station.","words":["Li","ho visti","ieri","alla stazione."]},
+        {"type":"say","q":"A friend asks if you've read the book ({{il libro}}). Answer: “Yes, I read it last month.”","answer":"Sì, l'ho letto il mese scorso.","from":"say-when-it-happened"},
+        {"type":"free","q":"Your turn: you're shopping. Say what you'll take and what you won't, without repeating the nouns: {{la prendo}}, {{non lo prendo}}…","answers":[{"t":"La giacca la prendo, ma le scarpe no: sono troppo care.","tr":"I'll take the jacket, but not the shoes: they're too expensive."},{"t":"Questi jeans mi piacciono: li prendo!","tr":"I like these jeans: I'll take them!"}]}
+      ]
+    },
+    {
+      "id": "say-who-its-for",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say who you give, tell or write things to",
+      "summary": "Presents, messages and phone calls: “I'm giving her a book”, “I'll call him tonight”.",
+      "topic": "Indirect object pronouns {{mi, ti, gli, le, Le, ci, vi}}; {{gli piace}}",
+      "blocks": [
+        {"goal":{"t":"Domani è il compleanno di Anna: le compro dei fiori.","tr":"Tomorrow is Anna's birthday: I'm buying her some flowers."}},
+        {"dialog":[{"who":"Luca","t":"Cosa regali a tua madre per Natale?","tr":"What are you giving your mother for Christmas?"},{"who":"You","t":"Le regalo un libro di cucina. E tu, cosa regali a tuo padre?","tr":"I'm giving her a cookbook. And you, what are you giving your father?"},{"who":"Luca","t":"Gli regalo una cravatta, come sempre!","tr":"I'm giving him a tie, as always!"},{"who":"You","t":"E ai tuoi nonni?","tr":"And your grandparents?"},{"who":"Luca","t":"Gli mando un cesto di prodotti tipici.","tr":"I'm sending them a basket of local specialties."},{"who":"You","t":"Che bella idea! Mi dai l'indirizzo del negozio?","tr":"What a nice idea! Can you give me the store's address?"}]},
+        {"p":"**To whom?** Many verbs have a person who receives something: you give to someone, tell, write, send, phone, ask. That person becomes a short pronoun before the verb:"},
+        {"term":"indirect object","means":"the person who receives or benefits from the action, usually after “to” or “for” in English: in “I give a book to Anna”, Anna is the indirect object."},
+        { "table": [
+          ["English","Italian","example"],
+          ["(to) me","{{mi}}","{{Mi dai il sale?}} “Can you pass me the salt?”"],
+          ["(to) you ({{tu}})","{{ti}}","{{Ti scrivo domani.}} “I'll write to you tomorrow.”"],
+          ["(to) him","{{gli}}","{{Gli telefono stasera.}} “I'll call him tonight.”"],
+          ["(to) her","{{le}}","{{Le regalo un libro.}} “I'm giving her a book.”"],
+          ["(to) you ({{Lei}})","{{Le}}","{{Le porto il menù.}} “I'll bring you the menu.”"],
+          ["(to) us","{{ci}}","{{Ci mandi le foto?}} “Will you send us the photos?”"],
+          ["(to) you (two or more)","{{vi}}","{{Vi preparo un caffè.}} “I'll make you a coffee.”"],
+          ["(to) them","{{gli}}","{{Gli spiego la strada.}} “I'll explain the way to them.”"]
+        ] },
+        {"p":"**Not the same as the last lesson.** {{lo}} and {{la}} are the person or thing you see, take or call; {{gli}} and {{le}} are the person you give to, tell, or write to. Watch two verbs: {{telefonare a}} “to phone” takes {{gli, le}}: {{Le telefono}} “I'll call her”; {{chiamare}} takes {{lo, la}}: {{La chiamo}} “I'll call her”."},
+        {"p":"**You've used them already**: {{mi piace}} is “it is pleasing to me”, so {{gli piace}} is “he likes”, {{le piace}} “she likes”, and {{Le piace}} “you like”, to {{Lei}}."},
+        { "ex": [
+          {"t":"Gli ho scritto un'email.","tr":"I wrote him an email."},
+          {"t":"Le ho detto la verità.","tr":"I told her the truth."},
+          {"t":"Mi presti la penna?","tr":"Can you lend me your pen?"},
+          {"t":"Cosa Le porto?","tr":"What can I bring you?","note":"a waiter, polite"},
+          {"t":"Ti faccio vedere le foto.","tr":"I'll show you the photos.","note":"{{far vedere}} “to show”, word for word “to make see”"},
+          {"t":"Ci hanno offerto un caffè.","tr":"They bought us a coffee."},
+          {"t":"A Marco piace il pesce? No, non gli piace.","tr":"Does Marco like fish? No, he doesn't."}
+        ] },
+        {"tip":"{{gli}} for “to them” is normal in everyday Italian. In very formal writing you may see {{loro}} after the verb instead: {{Do loro un libro}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Lo telefono stasera.","right":"Gli telefono stasera.","tr":"I'll call him tonight.","why":"{{telefonare}} is “to phone to” someone: {{gli}}, not {{lo}}."},
+        {"wrong":"Lei piace la pizza.","right":"Le piace la pizza.","tr":"She likes pizza.","why":"“She likes” is {{le piace}}: “it pleases (to) her”. {{lei}} is “she” as the subject."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"È il compleanno di Sara: ___ compro una torta.","tr":"It's Sara's birthday: I'm buying her a cake.","options":["le","gli","la"],"answer":0,"why":"For her: {{le}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Marco non risponde. ___ mando un messaggio.","tr":"Marco isn't answering. I'll send him a message.","options":["Gli","Lo","Le"],"answer":0,"why":"To him: {{gli}}."},
+        {"type":"choice","q":"{{Gli piace il calcio}} means…","options":["He likes soccer.","I like soccer.","She likes soccer."],"answer":0,"why":"{{gli}} is “to him”: “soccer is pleasing to him”.","from":"say-what-you-like"},
+        {"type":"dialogue","q":"Christmas presents: choose your replies.","lines":[{"who":"Luca","t":"Cosa regali a tuo fratello?","tr":"What are you giving your brother?"},{"options":["Gli regalo un videogioco.","Lo regalo un videogioco."],"answer":0,"why":"You give to him: {{gli}}."},{"who":"Luca","t":"E a tua sorella?","tr":"And your sister?"},{"options":["Le compro una borsa.","Gli compro una borsa."],"answer":0,"why":"For her: {{le}}."},{"who":"Luca","t":"E a me?","tr":"And me?"},{"options":["A te? Ti offro un caffè!","A te? Mi offro un caffè!"],"answer":0,"why":"To you: {{ti}}. ({{Mi offro}} would be “I offer myself”!)"}],"from":"talk-about-your-family"},
+        {"type":"order","q":"Put the words in order.","tr":"I'll call her tonight.","words":["Le","telefono","stasera."]},
+        {"type":"say","q":"Ask the waiter politely: “Could you bring me the check, please?”","answer":"Mi può portare il conto, per favore?","from":"say-what-you-can-and-must"},
+        {"type":"free","q":"Your turn: someone you know has a birthday soon. Say what you'll give them, and one more thing you'll do for them (write, call, cook).","answers":[{"t":"Mio padre compie sessant'anni: gli regalo un orologio e gli preparo una cena.","tr":"My father is turning sixty: I'm giving him a watch and making him dinner."},{"t":"Domani è il compleanno di Giulia: le scrivo un biglietto e le compro dei fiori.","tr":"Tomorrow is Giulia's birthday: I'm writing her a card and buying her some flowers."}]}
+      ]
+    },
+    {
+      "id": "buy-food-at-the-market",
+      "unit": 6,
+      "level": "A2",
+      "title": "Buy food at the market",
+      "summary": "Ask for some tomatoes, say how much you want, and understand “we don't have any”.",
+      "topic": "{{ne}} “of it, of them” with amounts: {{ne vorrei un chilo, non ne ho}}; “some”: {{del, della, dei, delle}}",
+      "blocks": [
+        {"goal":{"t":"Vorrei delle mele. Ne prendo un chilo.","tr":"I'd like some apples. I'll take a kilo."}},
+        {"dialog":[{"who":"Stallholder","t":"Buongiorno, signora! Cosa Le do?","tr":"Good morning, madam! What can I get you?"},{"who":"You","t":"Vorrei dei pomodori.","tr":"I'd like some tomatoes."},{"who":"Stallholder","t":"Quanti ne vuole?","tr":"How many would you like?"},{"who":"You","t":"Ne prendo mezzo chilo. E avete fragole?","tr":"I'll take half a kilo. And do you have strawberries?"},{"who":"Stallholder","t":"Mi dispiace, oggi non ne abbiamo.","tr":"Sorry, we don't have any today."},{"who":"You","t":"Va bene. Allora vorrei del formaggio: ne vorrei due etti.","tr":"OK. Then I'd like some cheese: two hundred grams, please."}]},
+        {"p":"**{{ne}}: of it, of them.** When you say how much or how many of something, Italian doesn't leave the number on its own: it adds {{ne}} “of it, of them” before the verb. {{Quante mele vuole?}} {{Ne vorrei tre}}, word for word “Of them I'd like three”."},
+        { "table": [
+          ["English","Italian"],
+          ["I'd like two (of them).","{{Ne vorrei due.}}"],
+          ["How many do you want?","{{Quanti ne vuoi?}}"],
+          ["I'll take a kilo.","{{Ne prendo un chilo.}}"],
+          ["We don't have any.","{{Non ne abbiamo.}}"],
+          ["I have lots!","{{Ne ho tanti!}}"],
+          ["How old are you? I'm thirty.","{{Quanti anni hai? Ne ho trenta.}}"]
+        ] },
+        {"p":"**Where it goes**: before the verb, like {{lo}} and {{la}}: {{Ne compro tre}}; with an infinitive, it can join the end: {{Voglio comprarne tre}}. With {{non}}: {{Non ne ho}} “I don't have any”."},
+        {"p":"**Some**: before a noun, {{di}} + “the” means “some”: {{del pane}}, {{della frutta}}, {{dei pomodori}}, {{delle mele}}. In questions and negatives it's usually left out: {{Avete fragole?}}, {{Non ho tempo}}."},
+        { "ex": [
+          {"t":"Quanti figli hai? Ne ho due.","tr":"How many children do you have? I have two."},
+          {"t":"Vuoi un caffè? No, grazie, ne ho già bevuti tre!","tr":"Do you want a coffee? No, thanks, I've already had three!","note":"in the past, the participle agrees with what {{ne}} counts"},
+          {"t":"Mi servono delle uova. Ne compri sei?","tr":"I need some eggs. Can you buy six?"},
+          {"t":"C'è ancora latte? No, non ce n'è più.","tr":"Is there any milk left? No, there's none left.","note":"{{ci}} + {{ne}} become {{ce n'è}}"},
+          {"t":"Vorrei del pane, per favore.","tr":"I'd like some bread, please."},
+          {"t":"Parliamo di lavoro? No, non ne voglio parlare!","tr":"Shall we talk about work? No, I don't want to talk about it!","note":"{{ne}} can also stand for “about it”"}
+        ] },
+        {"tip":"Market measures: {{un etto}} 100 grams, {{mezzo chilo}} half a kilo, {{un chilo}} a kilo, {{una dozzina}} a dozen, {{un pezzo}} a piece."}
+      ],
+      "mistakes": [
+        {"wrong":"Quante mele vuole? Vorrei tre.","right":"Quante mele vuole? Ne vorrei tre.","tr":"How many apples would you like? I'd like three.","why":"With a number or an amount, add {{ne}} “of them”."},
+        {"wrong":"Non ho ne.","right":"Non ne ho.","tr":"I don't have any.","why":"{{ne}} goes before the verb, after {{non}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quanti biglietti vuoi? ___ voglio due.","tr":"How many tickets do you want? I want two.","options":["Ne","Li","Le"],"answer":0,"why":"A number of them: {{ne}}. ({{Li voglio}} would be “I want them”, all of them.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Vorrei ___ pane, per favore.","tr":"I'd like some bread, please.","options":["del","dello","della"],"answer":0,"why":"{{pane}} is masculine: {{di + il = del}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"{{Non ne abbiamo}} means…","options":["We don't have any.","We don't have it.","We don't want any."],"answer":0,"why":"{{ne}} is “of it, any”; {{abbiamo}} is “we have”."},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Stallholder","t":"Buongiorno! Cosa Le do?","tr":"Good morning! What can I get you?"},{"options":["Vorrei delle pesche.","Vorrei dei pesche."],"answer":0,"why":"{{pesche}} is feminine plural: {{delle}}."},{"who":"Stallholder","t":"Quante ne vuole?","tr":"How many would you like?"},{"options":["Ne prendo sei.","Prendo sei."],"answer":0,"why":"With a number: {{ne}}."},{"who":"Stallholder","t":"Ecco qua. Altro?","tr":"Here you go. Anything else?"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I need some eggs: I'll buy a dozen.","words":["Mi servono","delle uova:","ne compro","una dozzina."]},
+        {"type":"say","q":"A friend asks how many brothers and sisters you have. Answer: “I have two.”","answer":"Ne ho due.","from":"say-what-you-have"},
+        {"type":"free","q":"Your turn: at the market, ask for two things and say how much of each you want, with {{ne}}.","answers":[{"t":"Vorrei dei pomodori: ne prendo un chilo. E del formaggio: ne vorrei due etti.","tr":"I'd like some tomatoes: I'll take a kilo. And some cheese: I'd like two hundred grams."},{"t":"Avete fragole? Ne vorrei mezzo chilo, per favore.","tr":"Do you have strawberries? I'd like half a kilo, please."}]}
+      ]
+    },
+    {
+      "id": "talk-about-going-there",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about going there",
+      "summary": "“I go there every summer”, “Have you ever been there?”, “How long does it take?”",
+      "topic": "{{ci}} “there”: {{ci vado, ci sono stato}}; {{ci vuole, ci vogliono}} “it takes”",
+      "blocks": [
+        {"goal":{"t":"Roma? Ci vado ogni anno!","tr":"Rome? I go there every year!"}},
+        {"dialog":[{"who":"Marco","t":"Sei mai stato in Sardegna?","tr":"Have you ever been to Sardinia?"},{"who":"You","t":"No, non ci sono mai stato. E tu?","tr":"No, I've never been there. And you?"},{"who":"Marco","t":"Io ci vado ogni estate. Quest'anno ci vado ad agosto con la famiglia.","tr":"I go there every summer. This year I'm going in August with my family."},{"who":"You","t":"Come ci arrivi?","tr":"How do you get there?"},{"who":"Marco","t":"In traghetto da Livorno. Ci vogliono dieci ore!","tr":"By ferry from Livorno. It takes ten hours!"},{"who":"You","t":"Dieci ore? Che pazienza!","tr":"Ten hours? What patience!"}]},
+        {"p":"**{{ci}}: there.** Once a place has been named, {{ci}} replaces it, before the verb: {{Vai a Roma? Sì, ci vado domani}} “Are you going to Rome? Yes, I'm going (there) tomorrow”. Italian says it where English often leaves “there” out."},
+        { "table": [
+          ["English","Italian"],
+          ["I'm going (there) tomorrow.","{{Ci vado domani.}}"],
+          ["I've never been there.","{{Non ci sono mai stato.}}"],
+          ["How do you get there?","{{Come ci arrivi?}}"],
+          ["Shall we go (there) together?","{{Ci andiamo insieme?}}"]
+        ] },
+        {"p":"**You know it already**: {{c'è}} and {{ci sono}} are {{ci}} + {{essere}}: “there is, there are”."},
+        {"p":"**{{ci vuole, ci vogliono}}** means “it takes”, time or things: {{Ci vuole un'ora}} “It takes an hour”, {{Ci vogliono tre uova}} “It takes three eggs”. The verb agrees with what it takes."},
+        {"p":"Don't mix it up with {{ci}} “us, each other”: {{Ci vediamo domani}} “See you tomorrow”, word for word “We see each other tomorrow”. The sentence makes it clear."},
+        { "ex": [
+          {"t":"Il mare? Ci andiamo ogni domenica.","tr":"The beach? We go there every Sunday."},
+          {"t":"Sei mai stata a Venezia? Sì, ci sono stata due volte.","tr":"Have you ever been to Venice? Yes, I've been there twice.","note":"to and by a woman: {{stata}}"},
+          {"t":"Quanto ci vuole per arrivare in centro?","tr":"How long does it take to get downtown?"},
+          {"t":"Ci vogliono venti minuti a piedi.","tr":"It takes twenty minutes on foot."},
+          {"t":"Vado in farmacia. Ci vieni anche tu?","tr":"I'm going to the pharmacy. Are you coming too?"},
+          {"t":"Non ci penso più.","tr":"I don't think about it anymore.","note":"after {{pensare a}}, {{ci}} also stands for “about it”"}
+        ] },
+        {"tip":"{{Ci penso io!}} “I'll take care of it!” is one of the handiest phrases in Italian."}
+      ],
+      "mistakes": [
+        {"wrong":"Ci ho stato l'anno scorso.","right":"Ci sono stato l'anno scorso.","tr":"I was there last year.","why":"{{essere}} and {{stare}} make their past with {{essere}}: {{ci sono stato}}."},
+        {"wrong":"Ci vuole due ore.","right":"Ci vogliono due ore.","tr":"It takes two hours.","why":"The verb agrees with what it takes: {{due ore}} is plural, so {{ci vogliono}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vai spesso a Milano? Sì, ___ vado ogni settimana.","tr":"Do you often go to Milan? Yes, I go there every week.","options":["ci","lo","ne"],"answer":0,"why":"A place: {{ci}} “there”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Per fare la pizza ___ vogliono due ore.","tr":"It takes two hours to make pizza.","options":["ci","ne","si"],"answer":0,"why":"{{ci vogliono}} “it takes”, here with {{due ore}}."},
+        {"type":"choice","q":"{{Non ci sono mai stato}} means…","options":["I've never been there.","There's never been anyone.","I was never there for them."],"answer":0,"why":"{{ci}} “there”, {{non… mai}} “never”, {{sono stato}} “I've been”.","from":"say-where-you-went"},
+        {"type":"dialogue","q":"Planning a trip with Chiara: choose your replies.","lines":[{"who":"Chiara","t":"Sei mai stato in Toscana?","tr":"Have you ever been to Tuscany?"},{"options":["Sì, ci sono stato l'anno scorso.","Sì, ci ho stato l'anno scorso."],"answer":0,"why":"{{stare}} uses {{essere}}: {{ci sono stato}}."},{"who":"Chiara","t":"Io ci vado sabato. Vieni?","tr":"I'm going there on Saturday. Are you coming?"},{"options":["Volentieri! Quanto ci vuole in macchina?","Volentieri! Quanto ci vogliono in macchina?"],"answer":0,"why":"{{quanto}} (how much time) is singular: {{ci vuole}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"How long does it take to get to the station?","words":["Quanto","ci vuole","per arrivare","alla stazione?"]},
+        {"type":"say","q":"Say: “I'll take care of it!”","answer":"Ci penso io!"},
+        {"type":"free","q":"Your turn: name a place you love. Say how often you go there, how you get there, and how long it takes.","answers":[{"t":"Il lago di Como! Ci vado ogni estate in treno: da Milano ci vuole un'ora.","tr":"Lake Como! I go there every summer by train: from Milan it takes an hour."},{"t":"Adoro Napoli. Ci vado una volta all'anno in aereo e ci vogliono due ore.","tr":"I love Naples. I go there once a year by plane, and it takes two hours."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Choose between two apartments, two trains or two restaurants: bigger, cheaper, better.",
+      "topic": "{{più / meno… di}}; {{di}} or {{che}}; {{migliore, peggiore, meglio, peggio}}; {{come}}",
+      "blocks": [
+        {"goal":{"t":"Il treno è più comodo dell'aereo, ma è meno veloce.","tr":"The train is more comfortable than the plane, but it's slower."}},
+        {"dialog":[{"who":"Giulia","t":"Allora, quale appartamento prendi?","tr":"So, which apartment are you taking?"},{"who":"You","t":"Non so. Quello in centro è più bello, ma è più caro.","tr":"I don't know. The one downtown is nicer, but it's more expensive."},{"who":"Giulia","t":"E l'altro?","tr":"And the other one?"},{"who":"You","t":"È più grande e meno caro, ma è lontano dal lavoro.","tr":"It's bigger and cheaper, but it's far from work."},{"who":"Giulia","t":"Secondo me è meglio vivere in centro. Spendi di più, ma vivi meglio!","tr":"If you ask me, it's better to live downtown. You spend more, but you live better!"}]},
+        {"p":"**More, less.** {{più}} “more” or {{meno}} “less” goes before the adjective, and {{di}} “than” before what you compare it with. {{di}} joins “the”: {{più alto di Marco}}, {{più caro del treno}}, {{più comodo dell'aereo}}."},
+        { "table": [
+          ["English","Italian"],
+          ["bigger than","{{più grande di}}"],
+          ["more expensive than","{{più caro di}}"],
+          ["less tiring than","{{meno faticoso di}}"],
+          ["as tall as","{{alto come}}, {{alto quanto}}"]
+        ] },
+        {"p":"**{{di}} or {{che}}?** Use {{di}} before a noun, a name or a pronoun: {{Roma è più grande di Firenze}}, {{è più alto di me}}. Use {{che}} when the two things you compare come after a preposition, or are two adjectives: {{Fa più caldo a Roma che a Milano}} “It's hotter in Rome than in Milan”; {{È più bello che utile}} “It's more beautiful than useful”."},
+        {"p":"**Better, worse.** {{buono}} has its own forms: {{migliore}} “better” and {{peggiore}} “worse”, used with nouns. With verbs, “better” is {{meglio}} and “worse” {{peggio}}: {{Parli meglio di me}} “You speak better than me”. And {{è meglio}} + infinitive is “it's better to…”."},
+        { "table": [
+          ["","with a noun (adjective)","with a verb (adverb)"],
+          ["good, well","{{buono}}","{{bene}}"],
+          ["better","{{migliore}}","{{meglio}}"],
+          ["worse","{{peggiore}}","{{peggio}}"]
+        ] },
+        { "ex": [
+          {"t":"Mio fratello è più alto di me.","tr":"My brother is taller than me."},
+          {"t":"Questo vino è migliore di quello.","tr":"This wine is better than that one."},
+          {"t":"Il treno è meno caro dell'aereo.","tr":"The train is cheaper than the plane."},
+          {"t":"A Roma fa più caldo che a Milano.","tr":"It's hotter in Rome than in Milan.","note":"{{che}} before {{a Milano}}, a preposition"},
+          {"t":"Oggi sto meglio, grazie.","tr":"I'm feeling better today, thanks."},
+          {"t":"È meglio prenotare.","tr":"It's better to book."},
+          {"t":"Luca è simpatico come suo padre.","tr":"Luca is as nice as his father."}
+        ] },
+        {"tip":"At the end of a sentence, “more” is {{di più}}: {{Lavoro di più}} “I work more”; {{Mi piace di più il mare}} “I like the sea better”."}
+      ],
+      "mistakes": [
+        {"wrong":"Roma è più grande che Firenze.","right":"Roma è più grande di Firenze.","tr":"Rome is bigger than Florence.","why":"Before a noun or a name, “than” is {{di}}."},
+        {"wrong":"Parli più bene di me.","right":"Parli meglio di me.","tr":"You speak better than me.","why":"“Better” with a verb is {{meglio}}."},
+        {"wrong":"Questo ristorante è più migliore.","right":"Questo ristorante è migliore.","tr":"This restaurant is better.","why":"{{migliore}} already means “better”: no {{più}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Il Po è più lungo ___ Tevere.","tr":"The Po is longer than the Tiber.","options":["del","di","che"],"answer":0,"why":"{{di}} + {{il}} = {{del}}.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"Oggi mi sento ___ di ieri.","tr":"Today I feel better than yesterday.","options":["meglio","migliore","più bene"],"answer":0,"why":"With a verb ({{mi sento}}): {{meglio}}."},
+        {"type":"choice","q":"“This restaurant is better than the other one” is…","options":["{{Questo ristorante è migliore dell'altro.}}","{{Questo ristorante è meglio dell'altro.}}","{{Questo ristorante è più migliore dell'altro.}}"],"answer":0,"why":"Describing a noun (the restaurant): {{migliore}}, with no {{più}}."},
+        {"type":"dialogue","q":"Planning a day trip: choose your replies.","lines":[{"who":"Giulia","t":"Andiamo a Firenze in treno o in macchina?","tr":"Shall we go to Florence by train or by car?"},{"options":["In treno: è più veloce della macchina.","In treno: è più veloce che la macchina."],"answer":0,"why":"Before a noun: {{di}}, which joins {{la}}: {{della}}."},{"who":"Giulia","t":"Ma costa di più?","tr":"But does it cost more?"},{"options":["No, costa meno. E poi è meglio prenotare.","No, costa meno. E poi è migliore prenotare."],"answer":0,"why":"“It's better to…” is {{è meglio}} + the infinitive."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My sister is younger than me.","words":["Mia sorella","è","più giovane","di me."]},
+        {"type":"say","q":"Say: “It's hotter in Naples than in Turin.”","answer":"A Napoli fa più caldo che a Torino.","from":"make-plans"},
+        {"type":"free","q":"Your turn: compare two cities you know, or two ways to travel. Use {{più… di}}, {{meno… di}} and {{meglio}}.","answers":[{"t":"New York è più grande di Boston, ma Boston è più tranquilla.","tr":"New York is bigger than Boston, but Boston is quieter."},{"t":"La bici è meno veloce della macchina, ma è meglio per la salute.","tr":"A bike is slower than a car, but it's better for your health."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-best",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what's the best",
+      "summary": "Recommend the best pizzeria, the most beautiful beach, and say something is amazing: {{buonissimo!}}",
+      "topic": "The superlative: {{il più… di}}; {{il migliore}}; {{-issimo}}",
+      "blocks": [
+        {"goal":{"t":"È la pizzeria migliore della città!","tr":"It's the best pizzeria in town!"}},
+        {"dialog":[{"who":"You","t":"Qual è il museo più interessante di Firenze?","tr":"What's the most interesting museum in Florence?"},{"who":"Chiara","t":"Gli Uffizi, senza dubbio. Ma sono anche i più affollati!","tr":"The Uffizi, without a doubt. But it's also the most crowded!"},{"who":"You","t":"E il gelato migliore?","tr":"And the best gelato?"},{"who":"Chiara","t":"In una gelateria piccolissima vicino a Santa Croce. È buonissimo!","tr":"In a tiny gelato shop near Santa Croce. It's amazing!"},{"who":"You","t":"Perfetto, è la cosa più importante!","tr":"Perfect, that's the most important thing!"}]},
+        {"p":"**The most…** Italian makes “the most” with “the” + {{più}}: {{il più caro}} “the most expensive”, {{la più bella}} “the most beautiful”. With a noun, the noun usually goes in between: {{il ristorante più caro}} “the most expensive restaurant”. “In” the city, the world or the group is {{di}}: {{il più alto della classe}} “the tallest in the class”."},
+        { "table": [
+          ["English","Italian"],
+          ["the biggest city","{{la città più grande}}"],
+          ["the cheapest hotel in Rome","{{l'albergo più economico di Roma}}"],
+          ["the least expensive","{{il meno caro}}"],
+          ["the best, the worst","{{il migliore, il peggiore}}"],
+          ["the best pizza in the world","{{la pizza migliore del mondo}}"]
+        ] },
+        {"p":"**Very, very: {{-issimo}}.** To say something is extremely good, beautiful or expensive, without comparing it, drop the adjective's last vowel and add {{-issimo}}: {{buono → buonissimo}}, {{bella → bellissima}}, {{cari → carissimi}}. It agrees like any adjective, and Italians use it all the time: {{Grazie, sei gentilissima!}}"},
+        {"p":"The same works for {{bene → benissimo}} “very well”, {{molto → moltissimo}} “very much”, {{tanto → tantissimo}}."},
+        { "ex": [
+          {"t":"È la città più bella del mondo.","tr":"It's the most beautiful city in the world."},
+          {"t":"Qual è il piatto più tipico della zona?","tr":"What's the most typical dish around here?"},
+          {"t":"Questo è il periodo migliore per visitare la Sicilia.","tr":"This is the best time to visit Sicily."},
+          {"t":"Il film è lunghissimo!","tr":"The movie is really long!","note":"{{lungo → lunghissimo}}: an h keeps the g hard"},
+          {"t":"Sono stanchissima.","tr":"I'm exhausted.","note":"said by a woman"},
+          {"t":"Mio padre è il più giovane dei suoi fratelli.","tr":"My father is the youngest of his brothers."},
+          {"t":"Abbiamo mangiato benissimo.","tr":"We ate really well."}
+        ] },
+        {"tip":"{{il migliore}} can stand alone, as in English: {{Sei il migliore!}} “You're the best!” (to a woman: {{Sei la migliore!}})."}
+      ],
+      "mistakes": [
+        {"wrong":"È il più grande ristorante in Roma.","right":"È il ristorante più grande di Roma.","tr":"It's the biggest restaurant in Rome.","why":"The noun first, then {{più}} + adjective; and “in” the city is {{di}}."},
+        {"wrong":"È molto buonissimo.","right":"È buonissimo.","tr":"It's delicious.","why":"{{-issimo}} already means “very”: no {{molto}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Marco è il più alto ___ classe.","tr":"Marco is the tallest in the class.","options":["della","in","nella"],"answer":0,"why":"“In” the group is {{di}}: {{di + la = della}}.","from":"compare-things"},
+        {"type":"fill","q":"Choose the missing word.","t":"Questa pizza è ___!","tr":"This pizza is delicious!","options":["buonissima","buonissimo","molto buonissima"],"answer":0,"why":"{{pizza}} is feminine: {{buonissima}}, and no {{molto}}."},
+        {"type":"choice","q":"“The best hotel in town” is…","options":["{{l'albergo migliore della città}}","{{l'albergo più buono in città}}","{{il più migliore albergo della città}}"],"answer":0,"why":"{{migliore}} already means “better, best”, and “in” the city is {{di}}."},
+        {"type":"dialogue","q":"A tourist asks you for tips in your town: choose your replies.","lines":[{"who":"Tourist","t":"Scusi, qual è il ristorante più famoso della zona?","tr":"Excuse me, what's the most famous restaurant around here?"},{"options":["Da Gino. È il più famoso, ma è anche il più caro.","Da Gino. È il famoso più, ma è anche caro più."],"answer":0,"why":"“The most”: {{il più}} + adjective."},{"who":"Tourist","t":"E per mangiare bene spendendo poco?","tr":"And to eat well without spending much?"},{"options":["La trattoria Rosa: si mangia benissimo!","La trattoria Rosa: si mangia molto benissimo!"],"answer":0,"why":"{{benissimo}} already means “very well”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"It's the most beautiful beach in Sardinia.","words":["È","la spiaggia","più bella","della Sardegna."]},
+        {"type":"say","q":"Say to a man who helped you: “Thanks a lot, you're very kind!”","answer":"Grazie mille, sei gentilissimo!","from":"describe-things-and-people"},
+        {"type":"free","q":"Your turn: recommend your city to an Italian: its most beautiful place, its best restaurant, its most interesting museum.","answers":[{"t":"Il posto più bello di San Francisco è il Golden Gate Park, e il ristorante migliore è a Chinatown.","tr":"The most beautiful place in San Francisco is Golden Gate Park, and the best restaurant is in Chinatown."},{"t":"A Londra il museo più interessante è il British Museum, ed è gratis!","tr":"In London the most interesting museum is the British Museum, and it's free!"}]}
+      ]
     }
   ]
 }
