@@ -1403,6 +1403,377 @@
         {"type":"order","q":"Соберите предложение.","tr":"Тебе что-нибудь нужно?","words":["Do","you","need","anything?"]},
         {"type":"free","q":"Ваша очередь: опишите очень скучный день — что вы не делали, куда не ходили, с кем не говорили. Помните: отрицание одно!","answers":[{"t":"Yesterday I didn't go anywhere. I didn't talk to anybody, and nothing interesting happened.","tr":"Вчера я никуда не ходил. Ни с кем не разговаривал, и ничего интересного не случилось."},{"t":"I stayed home. Nobody called, and I didn't do anything all day.","tr":"Я сидела дома. Никто не звонил, и я весь день ничего не делала."}]}
       ]
+    },
+    {
+      "id": "must-and-should",
+      "unit": 6,
+      "level": "A2",
+      "title": "Дать совет и объяснить правила",
+      "summary": "Посоветуйте, скажите, что нужно, а что запрещено: «You should see a doctor. You don't have to come. You can't smoke here».",
+      "topic": "{{should}}, {{must}}, {{have to}}; {{don't have to}} — это не {{mustn't}}",
+      "blocks": [
+        {"goal":{"t":"You should rest. You don't have to come to work tomorrow.","tr":"Тебе надо отдохнуть. Завтра можешь не приходить на работу."}},
+        {"dialog":[{"who":"Врач","t":"You have a bad cold. You should stay in bed for two days.","tr":"У вас сильная простуда. Вам стоит пару дней полежать."},{"who":"Пациент","t":"Do I have to take any medicine?","tr":"Мне нужно принимать лекарства?"},{"who":"Врач","t":"Yes, you have to take these pills twice a day.","tr":"Да, эти таблетки два раза в день."},{"who":"Пациент","t":"Can I go to the gym?","tr":"А в спортзал можно?"},{"who":"Врач","t":"No, you mustn't do any sports this week. And you should drink a lot of water.","tr":"Нет, на этой неделе спортом заниматься нельзя. И пейте побольше воды."}]},
+        {"p":"**Совет — {{should}}.** {{You should…}} «Тебе стоит, лучше бы…» — мягкий совет: {{You should try this cake}}. Отрицание: {{You shouldn't…}} «Не стоит». Вопрос: {{Should I…?}} «Мне стоит…?» Как и {{can}}, {{should}} не меняется по лицам и стоит без {{to}}."},
+        {"p":"**Надо — {{have to}} и {{must}}.** {{have to}} «нужно, приходится» — обязанность из-за правил или обстоятельств: {{I have to work on Saturday}}. Это обычный глагол: {{she has to}}, {{do you have to…?}}, в прошедшем — {{I had to}}. {{must}} «должен» строже, его чаще видно в правилах и надписях: {{Passengers must wear seat belts}}. В разговоре американцы гораздо чаще говорят {{have to}}."},
+        {"p":"**Ловушка: {{don't have to}} — это не {{mustn't}}.** По-русски «не нужно» и «нельзя» — разные вещи, и в английском тоже, только слова похожи. {{You don't have to come}} — «можешь не приходить, это не обязательно». {{You mustn't come}} — «приходить нельзя, запрещено». Вместо {{mustn't}} американцы часто говорят {{can't}}: {{You can't smoke here}}."},
+        { "table": [
+          ["","значение","пример"],
+          ["{{should}}","совет: стоит","{{You should call her.}}"],
+          ["{{have to}}","нужно, приходится","{{I have to go now.}}"],
+          ["{{must}}","должен (правило)","{{You must show your ID.}}"],
+          ["{{don't have to}}","не обязательно","{{You don't have to pay.}}"],
+          ["{{mustn't}}, {{can't}}","нельзя","{{You can't park here.}}"]
+        ] },
+        { "ex": [
+          {"t":"You should see a doctor.","tr":"Тебе нужно сходить к врачу."},
+          {"t":"I have to get up at six tomorrow.","tr":"Завтра мне надо вставать в шесть."},
+          {"t":"Do we have to bring anything?","tr":"Нам нужно что-нибудь принести?"},
+          {"t":"You don't have to take off your shoes.","tr":"Разуваться не нужно."},
+          {"t":"You can't use your phone during the exam.","tr":"Во время экзамена нельзя пользоваться телефоном."},
+          {"t":"I had to wait for two hours.","tr":"Мне пришлось ждать два часа."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Тебе стоит отдохнуть.","why":"После {{should}} — без {{to}}."},
+        {"wrong":"You mustn't pay. It's free!","right":"You don't have to pay. It's free!","tr":"Платить не нужно. Это бесплатно!","why":"«Не нужно, не обязательно» — {{don't have to}}. {{mustn't}} значит «запрещено»."},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"Ей нужно работать.","why":"{{have to}} — обычный глагол: {{she has to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"You look tired. You ___ go to bed.","tr":"Ты выглядишь уставшим. Тебе стоит лечь спать.","options":["should","must to","have"],"answer":0,"why":"Совет — {{should}}, без {{to}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ to work this Saturday.","tr":"В эту субботу мне нужно работать.","options":["have","must","should"],"answer":0,"why":"Перед {{to}} — {{have}}; у {{must}} и {{should}} {{to}} не бывает."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It's free. You don't ___ to pay.","tr":"Это бесплатно. Платить не нужно.","options":["have","must","should"],"answer":0,"why":"«Не обязательно» — {{don't have to}}."},
+        {"type":"choice","q":"Табличка в музее: «Фотографировать запрещено». Как по-английски?","options":["{{You mustn't take photos.}}","{{You don't have to take photos.}}","{{You shouldn't to take photos.}}"],"answer":0,"why":"Запрет — {{mustn't}}."},
+        {"type":"dialogue","q":"Подруга плохо себя чувствует. Выберите ответы.","from":"can","lines":[{"who":"Подруга","t":"I have a terrible headache.","tr":"У меня ужасно болит голова."},{"options":["You should take some medicine and rest.","You should to take some medicine and rest."],"answer":0,"why":"После {{should}} — без {{to}}."},{"who":"Подруга","t":"But I have to finish my project!","tr":"Но мне нужно закончить проект!"},{"options":["You can finish it tomorrow. You don't have to do everything today.","You can finish it tomorrow. You mustn't do everything today."],"answer":0,"why":"«Не обязательно» — {{don't have to}}."},{"who":"Подруга","t":"You're right.","tr":"Ты права."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Мне пришлось ждать два часа.","words":["I","had","to","wait","for","two","hours."]},
+        {"type":"free","q":"Ваша очередь: друг едет в Россию. Дайте два совета ({{should}}) и скажите, что нужно ({{have to}}) и что не обязательно ({{don't have to}}).","answers":[{"t":"You should visit St. Petersburg and you should try borscht. You have to get a visa. You don't have to speak Russian, but it helps!","tr":"Тебе стоит съездить в Петербург и попробовать борщ. Нужно оформить визу. Знать русский не обязательно, но это помогает!"},{"t":"You should take warm clothes. You have to carry your passport. You don't have to tip in every café.","tr":"Возьми тёплые вещи. Паспорт нужно носить с собой. В каждом кафе оставлять чаевые не обязательно."}]}
+      ]
+    },
+    {
+      "id": "suggest",
+      "unit": 6,
+      "level": "A2",
+      "title": "Предложить и объяснить, что делать",
+      "summary": "Предложите что-нибудь сделать вместе и объясните, как что-то сделать: «Let's go! Why don't we take a taxi? Turn left».",
+      "topic": "{{Let's…}}, {{Why don't we…?}}, {{How about + -ing?}}; повелительное наклонение и {{Don't…}}",
+      "blocks": [
+        {"goal":{"t":"Let's go to the beach! — Why don't we go tomorrow?","tr":"Пойдём на пляж! — Может, лучше завтра?"}},
+        {"dialog":[{"who":"Таня","t":"I'm bored. Let's do something!","tr":"Скучно. Давай чем-нибудь займёмся!"},{"who":"Грег","t":"How about going to the movies?","tr":"Может, в кино?"},{"who":"Таня","t":"Hmm, why don't we go bowling?","tr":"Хм, а почему бы не пойти в боулинг?"},{"who":"Грег","t":"Good idea. Let's invite Sam too.","tr":"Хорошая мысль. Давай позовём и Сэма."},{"who":"Таня","t":"OK. Don't forget your wallet this time!","tr":"Давай. Только кошелёк на этот раз не забудь!"}]},
+        {"p":"**Давай!** {{Let's}} + глагол — «давай(те)…»: {{Let's eat}}, {{Let's go}}. Отрицание: {{Let's not…}} «давай не будем»: {{Let's not argue}}. Мягче: {{Why don't we…?}} «Почему бы нам не…?» и {{How about…?}} «Как насчёт…?»; после {{How about}} глагол идёт с {{-ing}}: {{How about going out?}}"},
+        { "table": [
+          ["","пример","по-русски"],
+          ["{{Let's…}}","{{Let's take a taxi.}}","Давай возьмём такси."],
+          ["{{Why don't we…?}}","{{Why don't we take a taxi?}}","Может, возьмём такси?"],
+          ["{{How about…?}}","{{How about taking a taxi?}}","Как насчёт такси?"],
+          ["{{Let's not…}}","{{Let's not wait.}}","Давай не будем ждать."]
+        ] },
+        {"p":"**Как ответить.** Согласиться: {{Good idea!}}, {{Sure!}}, {{Sounds great!}} Вежливо отказаться: {{I'm not sure…}}, {{Maybe another time.}}"},
+        {"p":"**Инструкции — повелительное наклонение.** Это просто глагол в словарной форме: {{Turn left}} «Поверните налево», {{Open the window}}. Запрет — {{Don't…}}: {{Don't touch!}} «Не трогай!» Для вежливости добавьте {{please}}. И помните четвёртый урок: просьбу к незнакомому человеку лучше задать вопросом ({{Could you…?}}), а повелительное хорошо для инструкций, советов и своих людей."},
+        { "ex": [
+          {"t":"Let's meet at the café.","tr":"Давай встретимся в кафе."},
+          {"t":"Why don't we call him?","tr":"Может, позвоним ему?"},
+          {"t":"How about pizza tonight?","tr":"Как насчёт пиццы вечером?"},
+          {"t":"Go straight and turn right at the light.","tr":"Идите прямо и на светофоре поверните направо."},
+          {"t":"Don't worry, everything will be fine.","tr":"Не волнуйся, всё будет хорошо."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Пойдём!","why":"После {{Let's}} — без {{to}}."},
+        {"wrong":"How about go to the park?","right":"How about going to the park?","tr":"Как насчёт парка?","why":"После {{How about}} — {{-ing}}."},
+        {"wrong":"Not touch!","right":"Don't touch!","tr":"Не трогай!","why":"Запрет — {{Don't}} + глагол."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Let's ___ a break.","tr":"Давай сделаем перерыв.","options":["take","to take","taking"],"answer":0,"why":"После {{Let's}} — словарная форма."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"How about ___ dinner together?","tr":"Как насчёт поужинать вместе?","options":["having","have","to have"],"answer":0,"why":"После {{How about}} — {{-ing}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ forget your keys!","tr":"Не забудь ключи!","options":["Don't","Not","No"],"answer":0,"why":"Запрет — {{Don't}}."},
+        {"type":"choice","q":"Как мягко предложить «Может, поедем на метро?»","options":["{{Why don't we take the subway?}}","{{Why we don't take the subway?}}","{{Take the subway!}}"],"answer":0,"why":"{{Why don't we…?}} — с обратным порядком, как в вопросе."},
+        {"type":"dialogue","q":"Вы с другом планируете воскресенье. Выберите ответы.","from":"going-to","lines":[{"who":"Друг","t":"What are you going to do on Sunday?","tr":"Что собираешься делать в воскресенье?"},{"options":["Nothing. Let's do something together!","Nothing. Let's to do something together!"],"answer":0,"why":"После {{Let's}} — без {{to}}."},{"who":"Друг","t":"How about going hiking?","tr":"Может, в поход?"},{"options":["Sounds great! Let's not go too early.","Sounds great! Let's don't go too early."],"answer":0,"why":"«Давай не будем» — {{Let's not}}."},{"who":"Друг","t":"OK, ten o'clock?","tr":"Хорошо, в десять?"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Может, позвоним ему?","words":["Why","don't","we","call","him?"]},
+        {"type":"free","q":"Ваша очередь: предложите другу два плана на выходные и объясните двумя-тремя командами, как добраться до вас.","answers":[{"t":"Let's go to the lake on Saturday! Or how about a picnic? To get to my place, take bus 5 and get off at the park.","tr":"Давай в субботу съездим на озеро! Или, может, пикник? Чтобы доехать ко мне, садись на пятый автобус и выходи у парка."},{"t":"Why don't we try the new Thai restaurant? Come to my place first. Turn left after the bank, and don't forget to call me!","tr":"Может, попробуем новый тайский ресторан? Сначала заходи ко мне. После банка поверни налево и не забудь позвонить!"}]}
+      ]
+    },
+    {
+      "id": "how-often",
+      "unit": 6,
+      "level": "A2",
+      "title": "Сказать, как часто и насколько",
+      "summary": "Скажите, как часто вы что-то делаете и насколько вам это нравится, — с правильным порядком слов: «I usually get up early. I really like it».",
+      "topic": "Твёрдый порядок слов: подлежащее — глагол — дополнение; {{always}}, {{usually}}, {{never}} перед глаголом и после {{be}}; место и время в конце; {{I really like}}, а не «I very like»",
+      "blocks": [
+        {"goal":{"t":"I usually go to the gym on Mondays. I really like it.","tr":"По понедельникам я обычно хожу в спортзал. Мне очень нравится."}},
+        {"dialog":[{"who":"Тренер","t":"How often do you exercise?","tr":"Как часто вы занимаетесь спортом?"},{"who":"Настя","t":"I usually run three times a week.","tr":"Обычно бегаю три раза в неделю."},{"who":"Тренер","t":"Do you ever swim?","tr":"А плаваете?"},{"who":"Настя","t":"Sometimes. I really like swimming, but I'm always busy.","tr":"Иногда. Я очень люблю плавать, но вечно занята."},{"who":"Тренер","t":"You should swim more often. It's great for your back.","tr":"Вам стоит плавать почаще. Это отлично для спины."}]},
+        {"term":"дополнение","means":"тот, на кого или на что направлено действие: в «Анна читает книгу» — книга."},
+        {"p":"**Порядок слов вместо падежей.** По-русски «Маму любит сын» и «Сын любит маму» — по окончаниям понятно, кто кого любит. В английском окончаний нет, и всё решает порядок: подлежащее — глагол — дополнение. {{The dog bit the man}} и {{The man bit the dog}} — совсем разные новости! Поэтому порядок слов в английском почти не меняется."},
+        {"p":"**Как часто.** {{always}} «всегда», {{usually}} «обычно», {{often}} «часто», {{sometimes}} «иногда», {{rarely}} «редко», {{never}} «никогда» стоят **перед** основным глаголом, но **после** {{be}}: {{I usually walk}}, но {{I'm usually tired}}. {{sometimes}} можно поставить и в начало. Длинные выражения — {{every day}}, {{twice a week}} — идут в конец: {{I call my mom every day}}."},
+        { "table": [
+          ["где","пример"],
+          ["перед глаголом","{{She always drinks coffee.}}"],
+          ["после {{be}}","{{She's always late.}}"],
+          ["после вспомогательного глагола","{{I've never been there.}}"],
+          ["в конце","{{I go there twice a week.}}"]
+        ] },
+        {"p":"**Место и время — в конце**, обычно сначала место, потом время: {{I met her at the park yesterday}}. Между глаголом и дополнением их не ставят: не {{I like very much coffee}}, а {{I like coffee very much}}."},
+        {"p":"**«Очень нравится».** Русские часто говорят {{I very like}} — так нельзя: {{very}} ставят только перед прилагательными и наречиями ({{very good}}). С глаголом: {{I really like it}} или {{I like it very much}} (в конце!)."},
+        { "ex": [
+          {"t":"I never eat breakfast.","tr":"Я никогда не завтракаю."},
+          {"t":"He's often late.","tr":"Он часто опаздывает."},
+          {"t":"We sometimes go camping in the summer.","tr":"Летом мы иногда ходим в походы."},
+          {"t":"I really love this song.","tr":"Я очень люблю эту песню."},
+          {"t":"She calls her grandma every Sunday.","tr":"Она звонит бабушке каждое воскресенье."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I very like this city.","right":"I really like this city.","tr":"Мне очень нравится этот город.","why":"{{very}} перед глаголом не ставят: {{really like}} или {{like … very much}}."},
+        {"wrong":"I go always to work by bus.","right":"I always go to work by bus.","tr":"Я всегда езжу на работу на автобусе.","why":"{{always}} стоит перед основным глаголом."},
+        {"wrong":"I like very much coffee.","right":"I like coffee very much.","tr":"Я очень люблю кофе.","why":"{{very much}} — в конце, после дополнения."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ to the beach in the summer.","tr":"Летом мы часто ездим на пляж.","options":["often go","go often","often goes"],"answer":0,"why":"{{often}} — перед глаголом; с {{we}} — без {{-s}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ this movie!","tr":"Мне очень нравится этот фильм!","options":["really like","very like","like very"],"answer":0,"why":"С глаголом — {{really}}."},
+        {"type":"choice","q":"Где место {{never}}: «Он никогда не опаздывает»?","options":["{{He's never late.}}","{{He never is late.}}","{{Never he is late.}}"],"answer":0,"why":"После {{be}}."},
+        {"type":"choice","q":"Какое предложение правильное?","options":["{{I call my mom every day.}}","{{I every day call my mom.}}","{{I call every day my mom.}}"],"answer":0,"why":"{{every day}} — в конце."},
+        {"type":"dialogue","q":"Подруга спрашивает о готовке. Выберите ответы.","from":"questions-with-do","lines":[{"who":"Подруга","t":"How often do you cook?","tr":"Как часто ты готовишь?"},{"options":["I cook almost every day. I really like it.","I almost every day cook. I very like it."],"answer":0,"why":"Время — в конце; «очень нравится» — {{really like}}."},{"who":"Подруга","t":"Do you ever order food?","tr":"А еду заказываешь?"},{"options":["Sometimes, on Fridays.","Yes, I order sometimes food on Fridays."],"answer":0,"why":"Между глаголом и дополнением {{sometimes}} не ставят."},{"who":"Подруга","t":"Lucky family!","tr":"Повезло твоей семье!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я обычно хожу на работу пешком.","words":["I","usually","walk","to","work."]},
+        {"type":"free","q":"Ваша очередь: расскажите, что вы делаете всегда, иногда и никогда, и что вам очень нравится.","answers":[{"t":"I always drink coffee in the morning. I sometimes go to the gym, and I never watch TV. I really like reading.","tr":"Утром я всегда пью кофе. Иногда хожу в спортзал и никогда не смотрю телевизор. Я очень люблю читать."},{"t":"I usually work from home. I'm often busy, but I always have time for my kids.","tr":"Обычно я работаю из дома. Я часто занята, но на детей время у меня всегда есть."}]}
+      ]
+    },
+    {
+      "id": "verbs-and-prepositions",
+      "unit": 6,
+      "level": "A2",
+      "title": "Глаголы с предлогами и без",
+      "summary": "Слушайте музыку, ждите автобус, звоните маме и обсуждайте планы — с правильными предлогами (или без них).",
+      "topic": "{{listen to}}, {{wait for}}, {{look at}}, {{depend on}}, {{talk to}}; без предлога: {{call someone}}, {{discuss something}}, {{answer a question}}",
+      "blocks": [
+        {"goal":{"t":"I'm waiting for the bus and listening to music.","tr":"Я жду автобус и слушаю музыку."}},
+        {"dialog":[{"who":"Жена","t":"Who are you talking to?","tr":"С кем ты разговариваешь?"},{"who":"Муж","t":"My boss. We're discussing the new project.","tr":"С начальником. Обсуждаем новый проект."},{"who":"Жена","t":"Can you call me back later? I need to ask you about dinner.","tr":"Перезвонишь мне потом? Хочу спросить про ужин."},{"who":"Муж","t":"Sure. It depends on my boss, though!","tr":"Конечно. Правда, это зависит от начальника!"},{"who":"Жена","t":"OK. I'm waiting for your call.","tr":"Ладно. Жду звонка."}]},
+        {"p":"У многих английских глаголов есть «свой» предлог, и часто не тот, что в русском. А некоторые глаголы, наоборот, обходятся без предлога там, где в русском он есть. Такие пары лучше запоминать целиком, как одно слово."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["слушать музыку","{{listen to music}}"],
+          ["ждать автобус","{{wait for the bus}}"],
+          ["смотреть на неё","{{look at her}}"],
+          ["зависеть от погоды","{{depend on the weather}}"],
+          ["говорить с кем-то","{{talk to someone}}"],
+          ["думать о…","{{think about…}}"],
+          ["платить за обед","{{pay for lunch}}"],
+          ["просить о помощи","{{ask for help}}"]
+        ] },
+        {"p":"**А здесь предлога нет!** {{call someone}} «звонить кому-то» (не {{call to}}), {{answer the question}} «ответить на вопрос», {{discuss the plan}} «обсудить план» (не {{discuss about}}), {{enter the room}} «войти в комнату», {{marry someone}} «жениться на ком-то», {{tell someone}} «сказать кому-то», {{help someone}} «помочь кому-то»."},
+        { "table": [
+          ["по-русски: с предлогом","по-английски: без"],
+          ["позвонить маме","{{call my mom}}"],
+          ["ответить на письмо","{{answer the email}}"],
+          ["обсудить план","{{discuss the plan}}"],
+          ["войти в дом","{{enter the house}}"],
+          ["жениться на Анне","{{marry Anna}}"]
+        ] },
+        {"p":"**Предлог в конце вопроса.** В английском предлог остаётся при глаголе, даже когда вопросительное слово ушло вперёд: {{Who are you talking to?}} «С кем ты говоришь?», {{What are you looking at?}} «На что ты смотришь?», {{What does it depend on?}} «От чего это зависит?»"},
+        { "ex": [
+          {"t":"Look at this photo!","tr":"Посмотри на эту фотографию!"},
+          {"t":"Can I talk to you for a minute?","tr":"Можно с тобой поговорить минутку?"},
+          {"t":"Call me when you're free.","tr":"Позвони мне, когда освободишься."},
+          {"t":"Let's discuss it tomorrow.","tr":"Давай обсудим это завтра."},
+          {"t":"Who are you waiting for?","tr":"Кого ты ждёшь?"},
+          {"t":"It depends on the price.","tr":"Это зависит от цены."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I'm listening music.","right":"I'm listening to music.","tr":"Я слушаю музыку.","why":"{{listen}} всегда с {{to}}."},
+        {"wrong":"Let's discuss about the plan.","right":"Let's discuss the plan.","tr":"Давай обсудим план.","why":"{{discuss}} — без предлога."},
+        {"wrong":"I'm waiting the bus.","right":"I'm waiting for the bus.","tr":"Я жду автобус.","why":"«Ждать» — {{wait for}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"What are you looking ___?","tr":"На что ты смотришь?","options":["at","on","to"],"answer":0,"why":"{{look at}}, и предлог остаётся в конце вопроса."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'll call ___ tomorrow.","tr":"Я позвоню тебе завтра.","options":["you","to you","for you"],"answer":0,"why":"{{call someone}} — без предлога."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It depends ___ the weather.","tr":"Это зависит от погоды.","options":["on","from","of"],"answer":0,"why":"{{depend on}}."},
+        {"type":"choice","q":"Как сказать «Он женился на Кейт»?","options":["{{He married Kate.}}","{{He married on Kate.}}","{{He married with Kate.}}"],"answer":0,"why":"{{marry someone}} — без предлога."},
+        {"type":"dialogue","q":"Мама просит о помощи. Выберите ответы.","from":"right-now","lines":[{"who":"Мама","t":"What are you doing?","tr":"Что делаешь?"},{"options":["I'm listening to a podcast.","I'm listening a podcast."],"answer":0,"why":"{{listen to}}."},{"who":"Мама","t":"Can you help me? I need to answer this email.","tr":"Поможешь? Мне надо ответить на это письмо."},{"options":["Sure. Who is it from?","Sure. From who it is?"],"answer":0,"why":"Предлог — в конце вопроса: {{Who is it from?}}"},{"who":"Мама","t":"From the bank.","tr":"Из банка."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"С кем ты разговариваешь?","words":["Who","are","you","talking","to?"]},
+        {"type":"free","q":"Ваша очередь: расскажите, кому вы обычно звоните, что слушаете и что любите обсуждать с друзьями.","answers":[{"t":"I call my parents every Sunday. I listen to rock music, and I like to discuss movies with my friends.","tr":"Я звоню родителям каждое воскресенье. Слушаю рок, а с друзьями люблю обсуждать фильмы."},{"t":"I often talk to my sister about books. In the car I listen to the news.","tr":"Я часто разговариваю с сестрой о книгах. В машине слушаю новости."}]}
+      ]
+    },
+    {
+      "id": "make-do-say-tell",
+      "unit": 6,
+      "level": "A2",
+      "title": "Make или do, say или tell",
+      "summary": "Одно русское слово — два английских: «делать» — {{make}} и {{do}}, «сказать» — {{say}} и {{tell}}, «говорить» — {{speak}} и {{talk}}.",
+      "topic": "{{make}} и {{do}}; {{say}} и {{tell}}; {{speak}} и {{talk}}",
+      "blocks": [
+        {"goal":{"t":"I'll do the dishes if you make dinner.","tr":"Я помою посуду, если ты приготовишь ужин."}},
+        {"dialog":[{"who":"Лиза","t":"What are you doing this weekend?","tr":"Чем занимаешься в выходные?"},{"who":"Костя","t":"I have to do a lot of housework. And I'm making a cake for my mom's birthday.","tr":"Надо переделать кучу дел по дому. А ещё пеку торт на мамин день рождения."},{"who":"Лиза","t":"Nice! Did she say what she wants?","tr":"Здорово! Она сказала, чего хочет?"},{"who":"Костя","t":"No, she never tells anybody.","tr":"Нет, она никогда никому не говорит."},{"who":"Лиза","t":"Then make a chocolate cake. Everybody loves chocolate!","tr":"Тогда испеки шоколадный. Шоколад все любят!"}]},
+        {"p":"**{{make}} или {{do}}?** {{make}} — создать, сделать что-то новое, чего раньше не было: {{make dinner}} «приготовить ужин», {{make a cake}}, {{make a mistake}} «ошибиться», {{make money}} «зарабатывать». {{do}} — выполнить действие, работу, занятие: {{do homework}}, {{do the dishes}} «мыть посуду», {{do sports}}, {{do your best}} «постараться». Многое просто нужно запомнить."},
+        { "table": [
+          ["{{make}}: создать","{{do}}: выполнить"],
+          ["{{make dinner}}","{{do the dishes}}"],
+          ["{{make a mistake}}","{{do homework}}"],
+          ["{{make a decision}}","{{do the shopping}}"],
+          ["{{make a phone call}}","{{do your job}}"],
+          ["{{make friends}}","{{do me a favor}}"]
+        ] },
+        {"p":"**{{say}} или {{tell}}?** Оба значат «сказать». {{tell}} требует человека, **кому** говорят: {{tell me}}, {{tell her}}. {{say}} — без человека (или с {{to}}): {{say something}}, {{say hello}}. А ещё {{tell}} — «рассказать»: {{tell a story}}, {{tell the truth}}, {{tell a joke}}."},
+        { "table": [
+          ["{{say}}","{{tell}}"],
+          ["{{She said she was tired.}}","{{She told me she was tired.}}"],
+          ["{{Say thank you!}}","{{Tell me the truth.}}"],
+          ["{{What did he say?}}","{{Tell him to call me.}}"]
+        ] },
+        {"p":"**{{speak}} или {{talk}}?** {{speak}} — об умении говорить на языке и об официальном: {{speak English}}, {{speak at a conference}}. {{talk}} — разговаривать, болтать с кем-то: {{talk to a friend}}, {{talk about the weather}}."},
+        { "ex": [
+          {"t":"I made a mistake.","tr":"Я ошибся."},
+          {"t":"Can you do me a favor?","tr":"Можешь сделать мне одолжение?"},
+          {"t":"He told me a funny story.","tr":"Он рассказал мне смешную историю."},
+          {"t":"What did she say?","tr":"Что она сказала?"},
+          {"t":"Do you speak French?","tr":"Ты говоришь по-французски?"},
+          {"t":"We talked for hours.","tr":"Мы проговорили несколько часов."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"Я ошибся.","why":"Ошибку «создают»: {{make a mistake}}."},
+        {"wrong":"She said me the truth.","right":"She told me the truth.","tr":"Она сказала мне правду.","why":"Когда есть «кому» — {{tell}}."},
+        {"wrong":"He tells he is busy.","right":"He says he is busy.","tr":"Он говорит, что занят.","why":"Без «кому» — {{say}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Who's going to ___ the dishes?","tr":"Кто будет мыть посуду?","options":["do","make"],"answer":0,"why":"Домашние дела — {{do}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Can you ___ me your address?","tr":"Можешь сказать мне свой адрес?","options":["tell","say","speak"],"answer":0,"why":"Есть «кому» ({{me}}) — {{tell}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She ___ three languages.","tr":"Она говорит на трёх языках.","options":["speaks","talks","tells"],"answer":0,"why":"Знать язык — {{speak}}."},
+        {"type":"choice","q":"Как сказать «принять решение»?","options":["{{make a decision}}","{{do a decision}}","{{say a decision}}"],"answer":0,"why":"Решение «создают»: {{make}}."},
+        {"type":"dialogue","q":"Сосед по квартире устал. Выберите ответы.","from":"will","lines":[{"who":"Сосед","t":"I'm so tired. Can you make dinner tonight?","tr":"Я так устал. Приготовишь сегодня ужин?"},{"options":["Sure, I'll make pasta. And I'll do the dishes too.","Sure, I'll do pasta. And I'll make the dishes too."],"answer":0,"why":"Еду «создают» — {{make}}; посуду моют — {{do}}."},{"who":"Сосед","t":"You're the best! What did your mom say on the phone?","tr":"Ты лучший! Что мама сказала по телефону?"},{"options":["She told me she's coming on Sunday.","She said me she's coming on Sunday."],"answer":0,"why":"Есть «кому» ({{me}}) — {{told}}."},{"who":"Сосед","t":"Great!","tr":"Отлично!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Он рассказал мне смешную историю.","words":["He","told","me","a","funny","story."]},
+        {"type":"free","q":"Ваша очередь: какие дела по дому делаете вы ({{do}}), что вы готовите ({{make}}), и что вам недавно сказал или рассказал кто-то из близких ({{said}}, {{told}})?","answers":[{"t":"I usually do the laundry and my husband makes breakfast. Yesterday my son told me a funny story about his teacher.","tr":"Обычно я стираю, а муж готовит завтрак. Вчера сын рассказал мне смешную историю про учителя."},{"t":"I do the shopping on Saturdays and make soup on Sundays. My friend said she wants to visit me.","tr":"По субботам я хожу за покупками, а по воскресеньям варю суп. Подруга сказала, что хочет приехать в гости."}]}
+      ]
+    },
+    {
+      "id": "if-and-when",
+      "unit": 6,
+      "level": "A2",
+      "title": "Сказать, что будет, если…",
+      "summary": "Договоритесь о планах, которые зависят от условий: «If it rains, we'll stay home. I'll call you when I get there».",
+      "topic": "Условные предложения первого типа: {{if}}/{{when}} + настоящее время, {{will}} во второй части",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Если завтра пойдёт дождь, мы останемся дома."}},
+        {"dialog":[{"who":"Папа","t":"What are we doing on Saturday?","tr":"Что будем делать в субботу?"},{"who":"Сын","t":"If the weather is nice, can we go to the zoo?","tr":"Если будет хорошая погода, пойдём в зоопарк?"},{"who":"Папа","t":"OK. But if it rains, we'll go to the museum.","tr":"Ладно. Но если пойдёт дождь, пойдём в музей."},{"who":"Сын","t":"And when we get home, will you make pancakes?","tr":"А когда вернёмся, сделаешь блины?"},{"who":"Папа","t":"If you clean your room, I will!","tr":"Если уберёшь комнату — сделаю!"}]},
+        {"term":"условное предложение","means":"предложение с «если»: одна его часть — условие, другая — что из этого выйдет."},
+        {"p":"**Обратная логика.** По-русски: «Если завтра **пойдёт** дождь, мы **останемся** дома» — будущее в обеих частях. В английском после {{if}} «если» и {{when}} «когда» о будущем говорят **настоящим** временем, а {{will}} ставят только во второй части: {{If it rains, we'll stay home.}} Сказать {{If it will rain}} — одна из самых частых ошибок русскоговорящих."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Если пойдёт дождь, мы останемся дома.","{{If it rains, we'll stay home.}}"],
+          ["Когда приеду, позвоню.","{{When I arrive, I'll call.}}"],
+          ["Если у тебя будет время, зайди.","{{If you have time, stop by.}}"]
+        ] },
+        {"p":"**Порядок частей** любой: {{We'll stay home if it rains.}} Если {{if}} в начале, ставят запятую. Во второй части бывает не только {{will}}, но и {{can}}, {{should}} или повелительное: {{If you're tired, go to bed.}}"},
+        {"p":"**{{if}} или {{when}}?** {{when}} — «когда»: это точно случится. {{if}} — «если»: может, и не случится. {{When I get home, I'll call you}} (домой я точно приду). {{If I get the job, I'll buy a car}} (а могут и не взять)."},
+        { "ex": [
+          {"t":"If you're hungry, there's pizza in the fridge.","tr":"Если проголодаешься, в холодильнике есть пицца."},
+          {"t":"I'll call you when I land.","tr":"Я позвоню, когда приземлюсь."},
+          {"t":"If we hurry, we'll catch the bus.","tr":"Если поторопимся, успеем на автобус."},
+          {"t":"What will you do if you don't get the job?","tr":"Что ты будешь делать, если тебя не возьмут?"},
+          {"t":"When the kids go to bed, we'll watch a movie.","tr":"Когда дети лягут, посмотрим фильм."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Если пойдёт дождь, мы останемся дома.","why":"После {{if}} о будущем — настоящее время."},
+        {"wrong":"When I will come home, I'll call you.","right":"When I come home, I'll call you.","tr":"Когда приду домой, позвоню тебе.","why":"После {{when}} — тоже настоящее."},
+        {"wrong":"If you will have time, call me.","right":"If you have time, call me.","tr":"Если будет время, позвони мне.","why":"После {{if}} {{will}} не ставят."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"If it ___ tomorrow, we'll go skiing.","tr":"Если завтра пойдёт снег, мы поедем кататься на лыжах.","options":["snows","will snow","snowed"],"answer":0,"why":"После {{if}} — настоящее время."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'll text you when I ___ home.","tr":"Я напишу, когда доберусь домой.","options":["get","will get","got"],"answer":0,"why":"После {{when}} — настоящее."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"If you don't hurry, you ___ miss the train.","tr":"Если не поторопишься, опоздаешь на поезд.","options":["will","would","are"],"answer":0,"why":"Во второй части — {{will}}."},
+        {"type":"choice","q":"Как сказать «Если у меня будет время, я помогу»?","options":["{{If I have time, I'll help.}}","{{If I will have time, I'll help.}}","{{If I have time, I help.}}"],"answer":0,"why":"Настоящее после {{if}}, {{will}} во второй части."},
+        {"type":"dialogue","q":"Друг зовёт на вечеринку. Выберите ответы.","from":"will","lines":[{"who":"Друг","t":"Are you coming to the party on Friday?","tr":"Придёшь на вечеринку в пятницу?"},{"options":["If I finish work early, I'll come.","If I will finish work early, I'll come."],"answer":0,"why":"После {{if}} — настоящее время."},{"who":"Друг","t":"And if you don't finish?","tr":"А если не успеешь?"},{"options":["Then I'll call you.","Then I call you."],"answer":0,"why":"Обещание: {{I'll call}}."},{"who":"Друг","t":"OK, I hope you'll come!","tr":"Ладно, надеюсь, придёшь!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я позвоню, когда приземлюсь.","words":["I'll","call","you","when","I","land."]},
+        {"type":"free","q":"Ваша очередь: что вы будете делать в выходные, если будет хорошая погода, а что — если плохая?","answers":[{"t":"If the weather is good, I'll go to the beach. If it rains, I'll stay home and read.","tr":"Если погода будет хорошая, поеду на пляж. Если пойдёт дождь, останусь дома и буду читать."},{"t":"If it's sunny, we'll have a barbecue. If it's cold, we'll go to the movies.","tr":"Если будет солнечно, устроим барбекю. Если будет холодно, пойдём в кино."}]}
+      ]
+    },
+    {
+      "id": "used-to",
+      "unit": 6,
+      "level": "A2",
+      "title": "Рассказать, как было раньше",
+      "summary": "Расскажите, что вы делали раньше и чего больше не делаете: «I used to live in Moscow. I didn't use to like coffee».",
+      "topic": "{{used to}} + глагол; {{didn't use to}}; {{Did you use to…?}}",
+      "blocks": [
+        {"goal":{"t":"I used to smoke, but I quit five years ago.","tr":"Раньше я курил, но бросил пять лет назад."}},
+        {"dialog":[{"who":"Внук","t":"Grandpa, is this you?","tr":"Дедушка, это ты?"},{"who":"Дедушка","t":"Yes! I used to have long hair.","tr":"Да! У меня раньше были длинные волосы."},{"who":"Внук","t":"Did you use to play the guitar?","tr":"А ты играл на гитаре?"},{"who":"Дедушка","t":"Yes, I did. We used to play in a band every weekend.","tr":"Да. Мы каждые выходные играли в группе."},{"who":"Внук","t":"Cool! Why did you stop?","tr":"Круто! А почему перестал?"},{"who":"Дедушка","t":"I got married and got a job!","tr":"Женился и пошёл работать!"}]},
+        {"p":"По-русски говорят «раньше» + прошедшее несовершенного вида: «Раньше я курил», «В детстве мы жили у моря». В английском для привычек и состояний, которых **больше нет**, есть особая конструкция: {{used to}} + глагол: {{I used to smoke}} «Раньше я курил (а теперь нет)»."},
+        {"p":"**Форма** одна для всех лиц: {{I used to}}, {{she used to}}. Вопрос и отрицание — с {{did}}, и тогда {{use}} уже без {{-d}}: {{Did you use to…?}}, {{I didn't use to…}}"},
+        { "table": [
+          ["","пример","по-русски"],
+          ["утверждение","{{We used to live by the sea.}}","Раньше мы жили у моря."],
+          ["отрицание","{{I didn't use to like coffee.}}","Раньше я не любил кофе."],
+          ["вопрос","{{Did you use to play sports?}}","Ты раньше занимался спортом?"]
+        ] },
+        {"p":"**Только о прошлом.** В настоящем {{used to}} не бывает: «обычно» сейчас — {{usually}}: {{I usually walk to work}}. И не путайте с похожим {{be used to}} «привыкнуть»: {{I'm used to the cold}} «Я привык к холоду» — это совсем другое."},
+        { "ex": [
+          {"t":"I used to have a dog.","tr":"Раньше у меня была собака."},
+          {"t":"This café used to be a bank.","tr":"Раньше в этом кафе был банк."},
+          {"t":"She didn't use to wear glasses.","tr":"Раньше она не носила очки."},
+          {"t":"Did you use to live here?","tr":"Ты раньше здесь жил?"},
+          {"t":"We used to go camping every summer.","tr":"Раньше мы каждое лето ходили в походы."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"When I was young, I use to smoke.","right":"When I was young, I used to smoke.","tr":"В молодости я курил.","why":"Об ушедшей привычке — {{used to}}, с {{-d}}."},
+        {"wrong":"Did you used to live here?","right":"Did you use to live here?","tr":"Ты раньше здесь жил?","why":"После {{did}} — {{use}} без {{-d}}."},
+        {"wrong":"Now I used to go to the gym.","right":"Now I usually go to the gym.","tr":"Теперь я обычно хожу в спортзал.","why":"О сегодняшних привычках — {{usually}}; {{used to}} бывает только о прошлом."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ to live in Kazan.","tr":"Раньше я жил в Казани.","options":["used","use","was used"],"answer":0,"why":"Ушедшее состояние — {{used to}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Did you ___ to play the piano?","tr":"Ты раньше играл на пианино?","options":["use","used","using"],"answer":0,"why":"После {{did}} — {{use}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"He ___ use to like vegetables.","tr":"Раньше он не любил овощи.","options":["didn't","doesn't","wasn't"],"answer":0,"why":"Отрицание — {{didn't use to}}."},
+        {"type":"choice","q":"Как сказать «Раньше здесь был кинотеатр»?","options":["{{There used to be a movie theater here.}}","{{There was used to be a movie theater here.}}","{{There use to be a movie theater here.}}"],"answer":0,"why":"{{There used to be…}} — «раньше здесь был(о)…»."},
+        {"type":"dialogue","q":"Друг расспрашивает о вашем детстве. Выберите ответы.","from":"was-and-were","lines":[{"who":"Друг","t":"Were you a good student?","tr":"Ты хорошо учился?"},{"options":["Yes, I was. I used to get good grades.","Yes, I was. I use to get good grades."],"answer":0,"why":"Ушедшая привычка — {{used to}}."},{"who":"Друг","t":"Did you use to play sports?","tr":"А спортом занимался?"},{"options":["Yes, I used to play basketball.","Yes, I was used to play basketball."],"answer":0,"why":"Без {{was}}: {{I used to play}}."},{"who":"Друг","t":"Me too!","tr":"Я тоже!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Раньше у меня была собака.","words":["I","used","to","have","a","dog."]},
+        {"type":"free","q":"Ваша очередь: расскажите о двух вещах, которые вы делали раньше, а теперь не делаете, и об одной, которой раньше не делали.","answers":[{"t":"I used to live with my parents and I used to play the violin. I didn't use to drink coffee, but now I love it!","tr":"Раньше я жил с родителями и играл на скрипке. Кофе я раньше не пил, а теперь обожаю!"},{"t":"When I was a kid, I used to read a lot and I used to hate vegetables.","tr":"В детстве я много читала и терпеть не могла овощи."}]}
+      ]
+    },
+    {
+      "id": "verb-after-verb",
+      "unit": 6,
+      "level": "A2",
+      "title": "Глагол после глагола",
+      "summary": "Скажите «люблю готовить», «хочу поехать», «бросил курить» — и выберите, когда нужен {{to}}, а когда {{-ing}}.",
+      "topic": "{{want to}}, {{decide to}}, {{hope to}}; {{enjoy}}, {{finish}}, {{stop}}, {{mind}} + {{-ing}}; {{go swimming}}; {{stop doing}} и {{stop to do}}",
+      "blocks": [
+        {"goal":{"t":"I enjoy cooking, and I want to learn to bake bread.","tr":"Я люблю готовить и хочу научиться печь хлеб."}},
+        {"dialog":[{"who":"Друг","t":"Do you still smoke?","tr":"Ты всё ещё куришь?"},{"who":"Лёва","t":"No, I stopped smoking last year.","tr":"Нет, в прошлом году бросил."},{"who":"Друг","t":"Wow! How did you do it?","tr":"Ничего себе! Как тебе удалось?"},{"who":"Лёва","t":"I decided to start running. Now I enjoy running every morning.","tr":"Решил начать бегать. Теперь каждое утро с удовольствием бегаю."},{"who":"Друг","t":"I'd like to try it. Do you mind running with me sometimes?","tr":"Я бы хотел попробовать. Ты не против иногда бегать со мной?"},{"who":"Лёва","t":"Not at all!","tr":"Совсем не против!"}]},
+        {"p":"По-русски второй глагол почти всегда в неопределённой форме: «хочу поехать», «люблю плавать», «бросил курить». В английском у второго глагола две возможные формы, {{to}} + глагол или глагол + {{-ing}}, и выбирает первый глагол. Их нужно запоминать."},
+        { "table": [
+          ["+ {{to}}","+ {{-ing}}"],
+          ["{{want to go}}","{{enjoy going}}"],
+          ["{{decide to buy}}","{{finish working}}"],
+          ["{{hope to see}}","{{stop smoking}}"],
+          ["{{plan to visit}}","{{mind waiting}}"],
+          ["{{need to work}}","{{keep trying}}"],
+          ["{{learn to swim}}","{{suggest going}}"]
+        ] },
+        {"p":"**Подсказка.** {{to}} часто смотрит в будущее, на то, чего ещё нет: хочу, решил, надеюсь, планирую. {{-ing}} — о самом процессе: наслаждаюсь им, заканчиваю его, прекращаю. А {{like}}, {{love}}, {{hate}} и {{start}} бывают с обеими формами: {{I like swimming}} = {{I like to swim}}."},
+        {"p":"**С {{stop}} смысл меняется!** {{I stopped smoking}} — «я бросил курить». {{I stopped to smoke}} — «я остановился, чтобы покурить». С {{to}} — цель, с {{-ing}} — то, что прекратилось."},
+        {"p":"**{{go}} + {{-ing}}** — для занятий: {{go swimming}} «пойти поплавать», {{go shopping}} «пойти по магазинам», {{go skiing}}, {{go fishing}}."},
+        { "ex": [
+          {"t":"I want to learn to drive.","tr":"Я хочу научиться водить машину."},
+          {"t":"Have you finished eating?","tr":"Ты доел?"},
+          {"t":"Do you mind opening the window?","tr":"Ты не против открыть окно?","note":"вежливая просьба; «не против» — {{No, not at all}}"},
+          {"t":"We decided to stay at home.","tr":"Мы решили остаться дома."},
+          {"t":"Let's go shopping on Saturday!","tr":"Пойдём в субботу по магазинам!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"Я люблю готовить.","why":"После {{enjoy}} — {{-ing}}."},
+        {"wrong":"I want going home.","right":"I want to go home.","tr":"Я хочу домой.","why":"После {{want}} — {{to}}."},
+        {"wrong":"Let's go to swim.","right":"Let's go swimming.","tr":"Пойдём поплаваем.","why":"Занятия: {{go}} + {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I've decided ___ a new car.","tr":"Я решил купить новую машину.","options":["to buy","buying","buy"],"answer":0,"why":"После {{decide}} — {{to}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Do you enjoy ___?","tr":"Тебе нравится путешествовать?","options":["traveling","to travel","travel"],"answer":0,"why":"После {{enjoy}} — {{-ing}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"He stopped ___ two years ago.","tr":"Он бросил пить два года назад.","options":["drinking","to drink","drink"],"answer":0,"why":"Что прекратилось — {{-ing}}."},
+        {"type":"choice","q":"Что значит {{We stopped to buy coffee}}?","options":["Мы остановились, чтобы купить кофе.","Мы перестали покупать кофе.","Мы бросили пить кофе."],"answer":0,"why":"{{stop to…}} — остановиться ради цели."},
+        {"type":"dialogue","q":"Друг зовёт на рыбалку. Выберите ответы.","from":"like-and-want","lines":[{"who":"Друг","t":"What do you want to do this weekend?","tr":"Чем хочешь заняться в выходные?"},{"options":["I'd like to go fishing.","I'd like going to fish."],"answer":0,"why":"{{would like to}} + {{go fishing}}."},{"who":"Друг","t":"Do you mind getting up early?","tr":"Ты не против рано встать?"},{"options":["No, not at all. I enjoy getting up early!","No, not at all. I enjoy to get up early!"],"answer":0,"why":"После {{enjoy}} — {{-ing}}."},{"who":"Друг","t":"Great, I'll pick you up at five!","tr":"Отлично, заеду за тобой в пять!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Мы решили остаться дома.","words":["We","decided","to","stay","at","home."]},
+        {"type":"free","q":"Ваша очередь: чем вы любите заниматься ({{enjoy}} + {{-ing}}), что вы решили или хотите сделать в этом году ({{decide to}}, {{want to}}) и что бросили ({{stop}} + {{-ing}})?","answers":[{"t":"I enjoy hiking and reading. This year I want to learn Spanish. I stopped eating sugar last month.","tr":"Я люблю походы и чтение. В этом году хочу выучить испанский. В прошлом месяце перестал есть сахар."},{"t":"I love going swimming. I've decided to change my job, and I stopped drinking coffee.","tr":"Я обожаю плавать. Я решила сменить работу и бросила пить кофе."}]}
+      ]
     }
   ]
 }
