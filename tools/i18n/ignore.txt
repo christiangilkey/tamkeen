@@ -372,3 +372,10 @@ aecf88cb  # changelog changes versions history what's new release notes  (Settin
 e9369867  # fill in: {0}
 # Song lyrics (web/js/lyrics.js): the words in a song's title that name a version, for matching LRCLIB's records.
 27054409  # feat|ft\.|featuring|with|remaster|live|version|edit|mix|remix|...  (a pattern, not shown)
+# The grammar courses: internal errors and 404s the page never shows (grammarstore.js, saytext.js, app/grammar.py).
+252c1fa5  # no IndexedDB (grammarstore.js: caught, nothing is kept)
+56a9cab7  # This computer's voice couldn't say it. (saytext.js: caught, the device's voice says it instead)
+448c1d15  # There is no such grammar file. (app/grammar.py: a 404 the page never shows)
+c084abda  # That grammar course hasn't been made yet. (app/grammar.py: a 404 the page never shows)
+56bbfd55  # Couldn't download the grammar course ({0})... (app/grammar.py: a 404 the page never shows)
+18ed69a4  # <{0} class="gx" data-say="{1}" ...  (grammarpanel.js example: a tag, not words)

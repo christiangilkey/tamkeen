@@ -47,7 +47,7 @@ export const dayNumber = (d = new Date()) => Math.floor((d.getTime() - d.getTime
 export const weekNumber = (d = new Date()) => Math.floor((dayNumber(d) + 3) / 7);
 
 // ---------- saved state ----------
-const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0, cards: 0, cardsCleared: false, both: false });
+const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0, cards: 0, cardsCleared: false, both: false, grammar: [] });
 
 /** `state.creature` is always the creature out in the habitat (one of `state.roster`). */
 function attach(state) {
@@ -70,7 +70,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
     tags: [],    // earned by how and when the owner studies and fights
     review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
-    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0, cards: 0 },
+    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0, cards: 0, grammar: 0 },
     week: { n: 0, right: 0, total: 0, paid: false },
     league: 0,                    // 0 bronze .. 3 diamond: moved by how many days a week the goal is reached
     goalWeek: { n: 0, days: 0 },  // this week's goal days
@@ -300,6 +300,8 @@ function payBoth(state) {
  *         {type: "save"}                 a word was saved to vocab
  *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
  *         {type: "review", cleared}      a card was answered in the vocab reviewer (`cleared`: none is left due)
+ *         {type: "grammar", key, right, of, first}  a grammar lesson's practice was finished (`first`: never
+ *                                        done before), or a mixed review (key "review:<day>")
  * `ctx` carries {rand, now (Date), session (this study session's number), combo: {count, at, session}}
  * so the outcome is reproducible in tests.
  */
@@ -377,6 +379,20 @@ export function earn(state, event, ctx = {}) {
     if (out.xp) out.stage = grow(state, out.xp, "collector");
     const both = clearedNow ? payBoth(state) : null; // the cards were the second half of the day's pair
     if (both) { out.both = both; out.xp += both.xp; out.stage = out.stage || both.stage; }
+  } else if (event.type === "grammar") {
+    // A grammar lesson finished: each lesson (and the day's mixed review) pays once a day, more the
+    // first time and for more right answers, fading after many in one day (a lesson is work, not a tap).
+    const key = String(event.key || "");
+    if (!Array.isArray(day.grammar)) day.grammar = [];
+    if (!key || day.grammar.includes(key)) return null;
+    const of = Math.max(1, Math.trunc(Number(event.of) || 1));
+    const right = Math.max(0, Math.min(of, Math.trunc(Number(event.right) || 0)));
+    const base = event.first ? 40 + Math.round((40 * right) / of) : 15 + Math.round((15 * right) / of);
+    out.xp = Math.round(base * fade(day.grammar.length, 6, 20) * boost(state, now));
+    day.grammar.push(key);
+    state.stats.grammar = (state.stats.grammar || 0) + 1;
+    if (!out.xp) return null;
+    out.stage = grow(state, out.xp, "reader");
   } else {
     return null;
   }

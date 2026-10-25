@@ -1,0 +1,70 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Primero añade una clave de IA en Ajustes → Definiciones de palabras.
+a3cec11b No se pudo cargar el curso de gramática. Comprueba tu conexión y vuelve a intentarlo.
+f9a6c9a2 Continuar: lección {0}
+f15568dc Empezar: lección {0}
+149bf640 Explicado en {0:lower}
+4bbb7f2f {0} de {1} lecciones hechas
+49e2081b Toca un ejemplo para oírlo con la voz de tus tarjetas (Ajustes → Voces de las tarjetas).
+c93acba6 Hacer estas lecciones en {0:lower} con mi clave de IA
+d97c9f98 Lecciones en {0:lower}: se hacen con tu clave de IA la primera vez que las abres y se guardan en este dispositivo.
+7099bd88 Ver en {0:lower}
+f36237ec Estas lecciones están escritas en {0:lower}. Con la IA activada (Ajustes → Definiciones de palabras), Tamkeen podría pasarlas al {1:lower} para ti.
+a3eb7ec1 Estas lecciones están escritas en {0:lower}. Tamkeen puede pasarlas al {1:lower} para ti con tu propia clave de IA: añade una en Ajustes → Definiciones de palabras.
+379c494a Añadir una clave de IA
+ec2877bb Todo el curso cuesta menos de 1 centavo de dólar.
+6281eb38 Todo el curso cuesta unos {0} centavos de dólar.
+dab5e7bc Estas lecciones están escritas en {0:lower}. Tamkeen puede pasarlas al {1:lower} para ti con tu clave de IA ({2}): solo se traducen las explicaciones, y el texto en {3:lower} queda tal como se revisó. Cada lección se hace una sola vez y se guarda en este dispositivo.
+bcc738d9 Hacerlas en {0:lower}
+df2f1e44 Seguir en {0:lower}
+d19e938b Preparando la lista de lecciones…
+1b852e35 Hacer las otras {0} ahora
+9bbcb594 Así estarán todas aquí, también sin conexión
+8ac06f2f Haciendo la lección {0} de {1}…
+f4110c4c {0} lecciones hechas en {1:lower}.
+c61a07c1 Haciendo la lección {0} en {1:lower}…
+c1cbd097 Ocultar pronunciación
+deb9b5e4 Mostrar pronunciación
+ebba3665 En {0:lower}
+3c9b567e Hecha: {0} de {1} bien
+bd425e9e Todas las lecciones
+6a371244 Lección {0} de {1} · {2}
+dae12711 Ahora no se pudo hacer esta lección en {0:lower}, así que se muestra en {1:lower}.
+d19ceca5 Consejo
+85c69987 Término de gramática
+c518fb06 Escuchar
+62264fc1 Errores frecuentes
+346a2f5c Incorrecto
+954daa8b Correcto
+3e15ac78 Práctica
+45e6a5e8 {0} de {1} bien.
+12532d83 ¡Muy bien!
+5b0859f5 Lección hecha: repasa las que fallaste.
+5ed1c2fe Siguiente lección
+640ece3b No se pudo marcar esta lección como hecha: {0}
+879fee0d ¡Correcto!
+651b1933 No exactamente.
+62cdce39 El orden correcto:
+f5206956 Dilo y luego mira la respuesta
+3a13b69b ¿Te salió?
+5397e058 Sí
+756c7660 No del todo
+471492a9 ← Anterior
+dd17342c Gramática
+0336262a Este dispositivo no tiene voz para este idioma.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Repaso mixto
+629ee920 {0} preguntas de las lecciones que ya hiciste, para que se te queden
+a87476c8 Al final de esta lección, podrás decir
+2a20c750 Conversación
+62a063a2 Escuchar todo
+76b0e210 De la lección {0}
+ba203e07 Escribe aquí tu respuesta, o dila en voz alta
+3ae5ff6e Tu respuesta
+c63ce1c1 Revisar con IA
+faed9e0c Ver respuestas de ejemplo
+f02acd47 ¡Parece correcto!
+5d51c1f2 Una sugerencia:
+059c3e8c Por ejemplo:
+5d3ba53e ¿Pudiste decir algo así?
+61dda140 Preguntas de las lecciones que ya hiciste, primero las más antiguas y las que te costaron más. Sacarlas de tu memoria es lo que hace que se queden.

@@ -1,0 +1,70 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Primer afegeix una clau d'IA a Configuració → Definicions de paraules.
+a3cec11b No s'ha pogut carregar el curs de gramàtica. Comprova la connexió i torna-ho a provar.
+f9a6c9a2 Continua: lliçó {0}
+f15568dc Comença: lliçó {0}
+149bf640 Explicat en {0:lower}
+4bbb7f2f {0} de {1} lliçons fetes
+49e2081b Toca un exemple per sentir-lo amb la veu de les teves targetes (Configuració → Veus de les targetes).
+c93acba6 Fes aquestes lliçons en {0:lower} amb la meva clau d'IA
+d97c9f98 Lliçons en {0:lower}: es fan amb la teva clau d'IA la primera vegada que les obres i es guarden en aquest dispositiu.
+7099bd88 Mostra en {0:lower}
+f36237ec Aquestes lliçons estan escrites en {0:lower}. Amb la IA activada (Configuració → Definicions de paraules), Tamkeen te les podria passar al {1:lower}.
+a3eb7ec1 Aquestes lliçons estan escrites en {0:lower}. Tamkeen te les pot passar al {1:lower} amb la teva pròpia clau d'IA: afegeix-ne una a Configuració → Definicions de paraules.
+379c494a Afegeix una clau d'IA
+ec2877bb Tot el curs costa menys d'1 cèntim de dòlar.
+6281eb38 Tot el curs costa uns {0} cèntims de dòlar.
+dab5e7bc Aquestes lliçons estan escrites en {0:lower}. Tamkeen te les pot passar al {1:lower} amb la teva clau d'IA ({2}): només es tradueixen les explicacions, i el text en {3:lower} queda exactament com s'ha revisat. Cada lliçó es fa una sola vegada i es guarda en aquest dispositiu.
+bcc738d9 Fes-les en {0:lower}
+df2f1e44 Deixa-les en {0:lower}
+d19e938b Preparant la llista de lliçons…
+1b852e35 Fes les altres {0} ara
+9bbcb594 Així les tindràs totes aquí, també sense connexió
+8ac06f2f Fent la lliçó {0} de {1}…
+f4110c4c {0} lliçons fetes en {1:lower}.
+c61a07c1 Fent la lliçó {0} en {1:lower}…
+c1cbd097 Amaga la pronúncia
+deb9b5e4 Mostra la pronúncia
+ebba3665 En {0:lower}
+3c9b567e Feta: {0} de {1} bé
+bd425e9e Totes les lliçons
+6a371244 Lliçó {0} de {1} · {2}
+dae12711 Ara no s'ha pogut fer aquesta lliçó en {0:lower}, així que es mostra en {1:lower}.
+d19ceca5 Consell
+85c69987 Terme de gramàtica
+c518fb06 Escolta
+62264fc1 Errors freqüents
+346a2f5c Incorrecte
+954daa8b Correcte
+3e15ac78 Pràctica
+45e6a5e8 {0} de {1} bé.
+12532d83 Molt bé!
+5b0859f5 Lliçó feta: torna a mirar les que has fallat.
+5ed1c2fe Lliçó següent
+640ece3b No s'ha pogut marcar aquesta lliçó com a feta: {0}
+879fee0d Correcte!
+651b1933 No del tot.
+62cdce39 L'ordre correcte:
+f5206956 Digues-ho i després mira la resposta
+3a13b69b T'ha sortit?
+5397e058 Sí
+756c7660 No del tot
+471492a9 ← Anterior
+dd17342c Gramàtica
+0336262a Aquest dispositiu no té veu per a aquesta llengua.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Repàs barrejat
+629ee920 {0} preguntes de les lliçons que ja has fet, perquè se't quedin
+a87476c8 Al final d'aquesta lliçó, podràs dir
+2a20c750 Conversa
+62a063a2 Escolta-ho tot
+76b0e210 De la lliçó {0}
+ba203e07 Escriu aquí la teva resposta, o digues-la en veu alta
+3ae5ff6e La teva resposta
+c63ce1c1 Revisa amb IA
+faed9e0c Mostra respostes d'exemple
+f02acd47 Sembla correcte!
+5d51c1f2 Un suggeriment:
+059c3e8c Per exemple:
+5d3ba53e Has pogut dir alguna cosa així?
+61dda140 Preguntes de les lliçons que ja has fet, primer les més antigues i les que t'han costat més. Treure-les de la memòria és el que fa que es quedin.

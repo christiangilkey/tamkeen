@@ -21,7 +21,9 @@ const SOURCES = ["web/js", "mobile/src/js", "app", "web/index.html", "mobile/src
   "extension/src", "extension/install.html"];
 // Not interface: other people's code, word lists, and the instructions sent to the AI.
 const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js\/i18n\.js$/, /dev-seed\.js$/,
-  /instagram-worker\.js$/, /web\/js\/languages\.js$/, /__pycache__/, /app\/smoke\.py$/];
+  /instagram-worker\.js$/, /web\/js\/languages\.js$/, /__pycache__/, /app\/smoke\.py$/,
+  // (the grammar courses' checks, for whoever writes a course, and what the AI is told: never on screen)
+  /web\/js\/grammardata\.js$/];
 
 function files(p) {
   const full = join(root, p);
