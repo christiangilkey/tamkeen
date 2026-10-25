@@ -1055,8 +1055,8 @@
       "word": "nun",
       "pos": "adv",
       "meaning": "now; well",
-      "sentence": "Nun, was meinst du?",
-      "translation": "⟦Well⟧, what do you think?"
+      "sentence": "Nun, wie geht es weiter?",
+      "translation": "⟦Well⟧, what happens next?"
     },
     {
       "n": 115,
@@ -1863,6 +1863,954 @@
       "sentence": "Ich verstehe das nicht.",
       "translation": "I don't ⟦understand⟧ that.",
       "form": "verstehe"
+    },
+    {
+      "n": 201,
+      "rank": 207,
+      "word": "sicher",
+      "pos": "adj",
+      "meaning": "sure; safe",
+      "sentence": "Bist du sicher?",
+      "translation": "Are you ⟦sure⟧?"
+    },
+    {
+      "n": 202,
+      "rank": 208,
+      "word": "klar",
+      "pos": "adj",
+      "meaning": "clear; sure, of course",
+      "sentence": "Klar, ich helfe dir gern.",
+      "translation": "⟦Sure⟧, I'm happy to help you."
+    },
+    {
+      "n": 203,
+      "rank": 209,
+      "word": "solcher",
+      "pos": "det",
+      "meaning": "such (solcher, solche, solches)",
+      "sentence": "Solche Leute mag ich nicht.",
+      "translation": "I don't like people ⟦like that⟧.",
+      "form": "solche"
+    },
+    {
+      "n": 204,
+      "rank": 211,
+      "word": "kennen",
+      "pos": "verb",
+      "meaning": "to know (a person, a place)",
+      "sentence": "Kennst du meine Schwester?",
+      "translation": "Do you ⟦know⟧ my sister?",
+      "form": "kennst"
+    },
+    {
+      "n": 205,
+      "rank": 212,
+      "word": "treffen",
+      "pos": "verb",
+      "meaning": "to meet; to hit",
+      "sentence": "Wo treffen wir uns?",
+      "translation": "Where are we ⟦meeting⟧?"
+    },
+    {
+      "n": 206,
+      "rank": 213,
+      "word": "letzte",
+      "pos": "adj",
+      "meaning": "last",
+      "sentence": "Letzte Woche war ich in Rom.",
+      "translation": "⟦Last⟧ week I was in Rome."
+    },
+    {
+      "n": 207,
+      "rank": 214,
+      "word": "davon",
+      "pos": "adv",
+      "meaning": "of it, about it, from it",
+      "sentence": "Ich habe davon gehört.",
+      "translation": "I've heard ⟦about it⟧."
+    },
+    {
+      "n": 208,
+      "rank": 215,
+      "word": "fast",
+      "pos": "adv",
+      "meaning": "almost, nearly (not 'fast')",
+      "sentence": "Ich bin fast fertig.",
+      "translation": "I'm ⟦almost⟧ done."
+    },
+    {
+      "n": 209,
+      "rank": 216,
+      "word": "setzen",
+      "pos": "verb",
+      "meaning": "to put, to set (sich setzen: to sit down)",
+      "sentence": "Setz dich zu uns!",
+      "translation": "Come ⟦sit⟧ with us!",
+      "form": "setz"
+    },
+    {
+      "n": 210,
+      "rank": 217,
+      "word": "nächste",
+      "pos": "adj",
+      "meaning": "next; nearest",
+      "sentence": "Wir steigen an der nächsten Haltestelle aus.",
+      "translation": "We're getting off at the ⟦next⟧ stop."
+    },
+    {
+      "n": 211,
+      "rank": 218,
+      "word": "die Art",
+      "pos": "noun",
+      "meaning": "kind, type; way, manner (pl. Arten)",
+      "sentence": "Welche Art von Musik magst du?",
+      "translation": "What ⟦kind⟧ of music do you like?",
+      "form": "Art"
+    },
+    {
+      "n": 212,
+      "rank": 219,
+      "word": "früh",
+      "pos": "adj",
+      "meaning": "early (früher: earlier; in the past)",
+      "sentence": "Ich stehe jeden Tag früh auf.",
+      "translation": "I get up ⟦early⟧ every day."
+    },
+    {
+      "n": 213,
+      "rank": 221,
+      "word": "zurück",
+      "pos": "adv",
+      "meaning": "back",
+      "sentence": "Wann bist du zurück?",
+      "translation": "When will you be ⟦back⟧?"
+    },
+    {
+      "n": 214,
+      "rank": 222,
+      "word": "der Name",
+      "pos": "noun",
+      "meaning": "name (pl. Namen)",
+      "sentence": "Wie ist Ihr Name?",
+      "translation": "What's your ⟦name⟧?",
+      "form": "Name"
+    },
+    {
+      "n": 215,
+      "rank": 223,
+      "word": "die Person",
+      "pos": "noun",
+      "meaning": "person (pl. Personen)",
+      "sentence": "Einen Tisch für vier Personen, bitte.",
+      "translation": "A table for four ⟦people⟧, please.",
+      "form": "Personen"
+    },
+    {
+      "n": 216,
+      "rank": 224,
+      "word": "jedoch",
+      "pos": "adv",
+      "meaning": "however, but",
+      "sentence": "Er wollte kommen, hatte jedoch keine Zeit.",
+      "translation": "He wanted to come ⟦but⟧ didn't have time."
+    },
+    {
+      "n": 217,
+      "rank": 225,
+      "word": "ein paar",
+      "pos": "det",
+      "meaning": "a few, a couple of",
+      "sentence": "Ich bleibe nur ein paar Tage.",
+      "translation": "I'm only staying ⟦a few⟧ days."
+    },
+    {
+      "n": 218,
+      "rank": 226,
+      "word": "zusammen",
+      "pos": "adv",
+      "meaning": "together",
+      "sentence": "Wir essen heute Abend zusammen.",
+      "translation": "We're having dinner ⟦together⟧ tonight."
+    },
+    {
+      "n": 219,
+      "rank": 227,
+      "word": "laufen",
+      "pos": "verb",
+      "meaning": "to run; to walk; to go (how things go)",
+      "sentence": "Ich laufe jeden Morgen im Park.",
+      "translation": "I ⟦run⟧ in the park every morning.",
+      "form": "laufe"
+    },
+    {
+      "n": 220,
+      "rank": 228,
+      "word": "die Stunde",
+      "pos": "noun",
+      "meaning": "hour; lesson (pl. Stunden)",
+      "sentence": "Der Film dauert zwei Stunden.",
+      "translation": "The movie is two ⟦hours⟧ long.",
+      "form": "Stunden"
+    },
+    {
+      "n": 221,
+      "rank": 230,
+      "word": "erhalten",
+      "pos": "verb",
+      "meaning": "to receive, to get",
+      "sentence": "Haben Sie meine E-Mail erhalten?",
+      "translation": "Did you ⟦receive⟧ my email?"
+    },
+    {
+      "n": 222,
+      "rank": 231,
+      "word": "lesen",
+      "pos": "verb",
+      "meaning": "to read",
+      "sentence": "Ich lese jeden Abend im Bett.",
+      "translation": "I ⟦read⟧ in bed every evening.",
+      "form": "lese"
+    },
+    {
+      "n": 223,
+      "rank": 232,
+      "word": "frei",
+      "pos": "adj",
+      "meaning": "free; available; vacant",
+      "sentence": "Bist du am Samstag frei?",
+      "translation": "Are you ⟦free⟧ on Saturday?"
+    },
+    {
+      "n": 224,
+      "rank": 233,
+      "word": "der Freund",
+      "pos": "noun",
+      "meaning": "friend; boyfriend (pl. Freunde)",
+      "sentence": "Am Wochenende besuche ich meine Freunde.",
+      "translation": "I'm visiting my ⟦friends⟧ this weekend.",
+      "form": "Freunde"
+    },
+    {
+      "n": 225,
+      "rank": 235,
+      "word": "ziehen",
+      "pos": "verb",
+      "meaning": "to pull; to move (to a new home)",
+      "sentence": "Wir ziehen nächsten Monat nach München.",
+      "translation": "We're ⟦moving⟧ to Munich next month."
+    },
+    {
+      "n": 226,
+      "rank": 236,
+      "word": "echt",
+      "pos": "adj",
+      "meaning": "real, genuine; really (casual)",
+      "sentence": "Das ist echt cool!",
+      "translation": "That's ⟦really⟧ cool!"
+    },
+    {
+      "n": 227,
+      "rank": 237,
+      "word": "möglich",
+      "pos": "adj",
+      "meaning": "possible",
+      "sentence": "Komm so schnell wie möglich!",
+      "translation": "Come as quickly as ⟦possible⟧!"
+    },
+    {
+      "n": 228,
+      "rank": 238,
+      "word": "der Platz",
+      "pos": "noun",
+      "meaning": "seat; place, room; square (pl. Plätze)",
+      "sentence": "Ist hier noch ein Platz frei?",
+      "translation": "Is there a free ⟦seat⟧ here?",
+      "form": "Platz"
+    },
+    {
+      "n": 229,
+      "rank": 239,
+      "word": "schaffen",
+      "pos": "verb",
+      "meaning": "to manage, to get (something) done",
+      "sentence": "Wir schaffen das!",
+      "translation": "We can ⟦do⟧ this!"
+    },
+    {
+      "n": 230,
+      "rank": 240,
+      "word": "darauf",
+      "pos": "adv",
+      "meaning": "on it; to it (looking forward to it)",
+      "sentence": "Ich freue mich darauf.",
+      "translation": "I'm looking forward ⟦to it⟧."
+    },
+    {
+      "n": 231,
+      "rank": 241,
+      "word": "nein",
+      "pos": "interj",
+      "meaning": "no",
+      "sentence": "Nein, danke.",
+      "translation": "⟦No⟧, thanks."
+    },
+    {
+      "n": 232,
+      "rank": 242,
+      "word": "sogar",
+      "pos": "adv",
+      "meaning": "even",
+      "sentence": "Er spricht sogar Chinesisch.",
+      "translation": "He ⟦even⟧ speaks Chinese."
+    },
+    {
+      "n": 233,
+      "rank": 243,
+      "word": "zwar",
+      "pos": "adv",
+      "meaning": "(zwar … aber) admittedly…, but",
+      "sentence": "Das Auto ist zwar alt, aber es fährt gut.",
+      "translation": "The car ⟦may⟧ be old, but it runs well."
+    },
+    {
+      "n": 234,
+      "rank": 244,
+      "word": "meiste",
+      "pos": "adj",
+      "meaning": "most (die meisten: most, most people)",
+      "sentence": "Die meisten meiner Freunde wohnen in Berlin.",
+      "translation": "⟦Most⟧ of my friends live in Berlin."
+    },
+    {
+      "n": 235,
+      "rank": 245,
+      "word": "die Geschichte",
+      "pos": "noun",
+      "meaning": "story; history (pl. Geschichten)",
+      "sentence": "Erzähl mir eine Geschichte!",
+      "translation": "Tell me a ⟦story⟧!",
+      "form": "Geschichte"
+    },
+    {
+      "n": 236,
+      "rank": 246,
+      "word": "allerdings",
+      "pos": "adv",
+      "meaning": "however, though; certainly",
+      "sentence": "Das Essen war gut, allerdings etwas teuer.",
+      "translation": "The food was good, ⟦though⟧ a bit expensive."
+    },
+    {
+      "n": 237,
+      "rank": 248,
+      "word": "schwer",
+      "pos": "adj",
+      "meaning": "heavy; difficult",
+      "sentence": "Der Koffer ist sehr schwer.",
+      "translation": "The suitcase is very ⟦heavy⟧."
+    },
+    {
+      "n": 238,
+      "rank": 249,
+      "word": "der Grund",
+      "pos": "noun",
+      "meaning": "reason; ground (pl. Gründe)",
+      "sentence": "Es gibt keinen Grund zur Sorge.",
+      "translation": "There's no ⟦reason⟧ to worry.",
+      "form": "Grund"
+    },
+    {
+      "n": 239,
+      "rank": 250,
+      "word": "das Thema",
+      "pos": "noun",
+      "meaning": "topic, subject (pl. Themen)",
+      "sentence": "Lass uns das Thema wechseln.",
+      "translation": "Let's change the ⟦subject⟧.",
+      "form": "Thema"
+    },
+    {
+      "n": 240,
+      "rank": 251,
+      "word": "der Monat",
+      "pos": "noun",
+      "meaning": "month (pl. Monate)",
+      "sentence": "Ich war einen Monat in Italien.",
+      "translation": "I was in Italy for a ⟦month⟧.",
+      "form": "Monat"
+    },
+    {
+      "n": 241,
+      "rank": 252,
+      "word": "die Familie",
+      "pos": "noun",
+      "meaning": "family (pl. Familien)",
+      "sentence": "Meine Familie wohnt in Hamburg.",
+      "translation": "My ⟦family⟧ lives in Hamburg.",
+      "form": "Familie"
+    },
+    {
+      "n": 242,
+      "rank": 253,
+      "word": "bekannt",
+      "pos": "adj",
+      "meaning": "well-known, famous; known",
+      "sentence": "Die Stadt ist für ihr Bier bekannt.",
+      "translation": "The city is ⟦known⟧ for its beer."
+    },
+    {
+      "n": 243,
+      "rank": 254,
+      "word": "bestehen",
+      "pos": "verb",
+      "meaning": "to pass (an exam); to consist (of); to exist",
+      "sentence": "Ich habe die Prüfung bestanden!",
+      "translation": "I ⟦passed⟧ the exam!",
+      "form": "bestanden"
+    },
+    {
+      "n": 244,
+      "rank": 255,
+      "word": "allein",
+      "pos": "adv",
+      "meaning": "alone",
+      "sentence": "Wohnst du allein?",
+      "translation": "Do you live ⟦alone⟧?"
+    },
+    {
+      "n": 245,
+      "rank": 256,
+      "word": "arbeiten",
+      "pos": "verb",
+      "meaning": "to work",
+      "sentence": "Ich arbeite in einem Krankenhaus.",
+      "translation": "I ⟦work⟧ in a hospital.",
+      "form": "arbeite"
+    },
+    {
+      "n": 246,
+      "rank": 257,
+      "word": "führen",
+      "pos": "verb",
+      "meaning": "to lead; to run (a business)",
+      "sentence": "Dieser Weg führt zum See.",
+      "translation": "This path ⟦leads⟧ to the lake.",
+      "form": "führt"
+    },
+    {
+      "n": 247,
+      "rank": 258,
+      "word": "folgen",
+      "pos": "verb",
+      "meaning": "to follow",
+      "sentence": "Folgen Sie mir, bitte.",
+      "translation": "⟦Follow⟧ me, please."
+    },
+    {
+      "n": 248,
+      "rank": 259,
+      "word": "gelten",
+      "pos": "verb",
+      "meaning": "to be valid; to count (as)",
+      "sentence": "Die Fahrkarte gilt zwei Stunden.",
+      "translation": "The ticket is ⟦valid⟧ for two hours.",
+      "form": "gilt"
+    },
+    {
+      "n": 249,
+      "rank": 260,
+      "word": "die Minute",
+      "pos": "noun",
+      "meaning": "minute (pl. Minuten)",
+      "sentence": "Ich bin in fünf Minuten da.",
+      "translation": "I'll be there in five ⟦minutes⟧.",
+      "form": "Minuten"
+    },
+    {
+      "n": 250,
+      "rank": 261,
+      "word": "helfen",
+      "pos": "verb",
+      "meaning": "to help",
+      "sentence": "Kann ich Ihnen helfen?",
+      "translation": "Can I ⟦help⟧ you?"
+    },
+    {
+      "n": 251,
+      "rank": 263,
+      "word": "die Liebe",
+      "pos": "noun",
+      "meaning": "love (no pl.)",
+      "sentence": "Es war Liebe auf den ersten Blick.",
+      "translation": "It was ⟦love⟧ at first sight.",
+      "form": "Liebe"
+    },
+    {
+      "n": 252,
+      "rank": 264,
+      "word": "oft",
+      "pos": "adv",
+      "meaning": "often",
+      "sentence": "Wie oft gehst du ins Fitnessstudio?",
+      "translation": "How ⟦often⟧ do you go to the gym?"
+    },
+    {
+      "n": 253,
+      "rank": 265,
+      "word": "das Recht",
+      "pos": "noun",
+      "meaning": "right; law (pl. Rechte)",
+      "sentence": "Du hast kein Recht, das zu sagen.",
+      "translation": "You have no ⟦right⟧ to say that.",
+      "form": "Recht"
+    },
+    {
+      "n": 254,
+      "rank": 266,
+      "word": "recht",
+      "pos": "adv",
+      "meaning": "quite, rather (recht haben: to be right)",
+      "sentence": "Da hast du recht.",
+      "translation": "You're ⟦right⟧ about that."
+    },
+    {
+      "n": 255,
+      "rank": 267,
+      "word": "verschieden",
+      "pos": "adj",
+      "meaning": "different; various",
+      "sentence": "Wir haben ganz verschiedene Meinungen.",
+      "translation": "We have very ⟦different⟧ opinions."
+    },
+    {
+      "n": 256,
+      "rank": 268,
+      "word": "die Sache",
+      "pos": "noun",
+      "meaning": "thing, matter (pl. Sachen)",
+      "sentence": "Pack deine Sachen!",
+      "translation": "Pack your ⟦things⟧!",
+      "form": "Sachen"
+    },
+    {
+      "n": 257,
+      "rank": 269,
+      "word": "die Hand",
+      "pos": "noun",
+      "meaning": "hand (pl. Hände)",
+      "sentence": "Wasch dir die Hände!",
+      "translation": "Wash your ⟦hands⟧!",
+      "form": "Hände"
+    },
+    {
+      "n": 258,
+      "rank": 270,
+      "word": "neben",
+      "pos": "prep",
+      "meaning": "next to, beside",
+      "sentence": "Der Supermarkt ist neben der Post.",
+      "translation": "The supermarket is ⟦next to⟧ the post office."
+    },
+    {
+      "n": 259,
+      "rank": 271,
+      "word": "statt",
+      "pos": "prep",
+      "meaning": "instead of",
+      "sentence": "Ich trinke Tee statt Kaffee.",
+      "translation": "I drink tea ⟦instead of⟧ coffee."
+    },
+    {
+      "n": 260,
+      "rank": 272,
+      "word": "der Weg",
+      "pos": "noun",
+      "meaning": "way, path (pl. Wege)",
+      "sentence": "Ich bin auf dem Weg.",
+      "translation": "I'm on my ⟦way⟧.",
+      "form": "Weg"
+    },
+    {
+      "n": 261,
+      "rank": 273,
+      "word": "hören",
+      "pos": "verb",
+      "meaning": "to hear; to listen (to)",
+      "sentence": "Ich höre gern Musik.",
+      "translation": "I like ⟦listening⟧ to music.",
+      "form": "höre"
+    },
+    {
+      "n": 262,
+      "rank": 274,
+      "word": "das Wort",
+      "pos": "noun",
+      "meaning": "word (pl. Wörter)",
+      "sentence": "Was bedeutet dieses Wort?",
+      "translation": "What does this ⟦word⟧ mean?",
+      "form": "Wort"
+    },
+    {
+      "n": 263,
+      "rank": 275,
+      "word": "die Stelle",
+      "pos": "noun",
+      "meaning": "place, spot; job (pl. Stellen)",
+      "sentence": "An deiner Stelle würde ich warten.",
+      "translation": "In your ⟦place⟧, I'd wait.",
+      "form": "Stelle"
+    },
+    {
+      "n": 264,
+      "rank": 276,
+      "word": "schlecht",
+      "pos": "adj",
+      "meaning": "bad; badly",
+      "sentence": "Ich habe schlecht geschlafen.",
+      "translation": "I slept ⟦badly⟧."
+    },
+    {
+      "n": 265,
+      "rank": 277,
+      "word": "die Schule",
+      "pos": "noun",
+      "meaning": "school (pl. Schulen)",
+      "sentence": "Meine Kinder gehen noch zur Schule.",
+      "translation": "My children still go to ⟦school⟧.",
+      "form": "Schule"
+    },
+    {
+      "n": 266,
+      "rank": 278,
+      "word": "besonders",
+      "pos": "adv",
+      "meaning": "especially, particularly",
+      "sentence": "Heute ist es besonders kalt.",
+      "translation": "It's ⟦especially⟧ cold today."
+    },
+    {
+      "n": 267,
+      "rank": 281,
+      "word": "voll",
+      "pos": "adj",
+      "meaning": "full",
+      "sentence": "Der Bus ist total voll.",
+      "translation": "The bus is completely ⟦full⟧."
+    },
+    {
+      "n": 268,
+      "rank": 282,
+      "word": "fallen",
+      "pos": "verb",
+      "meaning": "to fall",
+      "sentence": "Das Glas ist auf den Boden gefallen.",
+      "translation": "The glass ⟦fell⟧ on the floor."
+    },
+    {
+      "n": 269,
+      "rank": 283,
+      "word": "direkt",
+      "pos": "adj",
+      "meaning": "direct; directly, right (next to…)",
+      "sentence": "Das Hotel liegt direkt am Strand.",
+      "translation": "The hotel is ⟦right⟧ on the beach."
+    },
+    {
+      "n": 270,
+      "rank": 284,
+      "word": "tragen",
+      "pos": "verb",
+      "meaning": "to carry; to wear",
+      "sentence": "Sie trägt ein rotes Kleid.",
+      "translation": "She's ⟦wearing⟧ a red dress.",
+      "form": "trägt"
+    },
+    {
+      "n": 271,
+      "rank": 285,
+      "word": "darüber",
+      "pos": "adv",
+      "meaning": "about it; over it",
+      "sentence": "Lass uns morgen darüber reden.",
+      "translation": "Let's talk ⟦about it⟧ tomorrow."
+    },
+    {
+      "n": 272,
+      "rank": 286,
+      "word": "hin",
+      "pos": "adv",
+      "meaning": "there (going there), towards",
+      "sentence": "Gehst du heute Abend hin?",
+      "translation": "Are you going ⟦there⟧ tonight?"
+    },
+    {
+      "n": 273,
+      "rank": 287,
+      "word": "vier",
+      "pos": "num",
+      "meaning": "four",
+      "sentence": "Das Kind ist vier Jahre alt.",
+      "translation": "The child is ⟦four⟧ years old."
+    },
+    {
+      "n": 274,
+      "rank": 288,
+      "word": "das Buch",
+      "pos": "noun",
+      "meaning": "book (pl. Bücher)",
+      "sentence": "Kannst du mir das Buch leihen?",
+      "translation": "Can you lend me the ⟦book⟧?",
+      "form": "Buch"
+    },
+    {
+      "n": 275,
+      "rank": 289,
+      "word": "schauen",
+      "pos": "verb",
+      "meaning": "to look; to watch",
+      "sentence": "Schau mal, ein Regenbogen!",
+      "translation": "⟦Look⟧, a rainbow!",
+      "form": "schau"
+    },
+    {
+      "n": 276,
+      "rank": 290,
+      "word": "einzige",
+      "pos": "adj",
+      "meaning": "only, single",
+      "sentence": "Er ist mein einziger Bruder.",
+      "translation": "He's my ⟦only⟧ brother."
+    },
+    {
+      "n": 277,
+      "rank": 291,
+      "word": "zweite",
+      "pos": "adj",
+      "meaning": "second",
+      "sentence": "Das ist schon mein zweiter Kaffee.",
+      "translation": "That's already my ⟦second⟧ coffee."
+    },
+    {
+      "n": 278,
+      "rank": 292,
+      "word": "leicht",
+      "pos": "adj",
+      "meaning": "easy; light",
+      "sentence": "Die Prüfung war leicht.",
+      "translation": "The exam was ⟦easy⟧."
+    },
+    {
+      "n": 279,
+      "rank": 293,
+      "word": "sonst",
+      "pos": "adv",
+      "meaning": "else; otherwise",
+      "sentence": "Sonst noch etwas?",
+      "translation": "Anything ⟦else⟧?"
+    },
+    {
+      "n": 280,
+      "rank": 294,
+      "word": "das Beispiel",
+      "pos": "noun",
+      "meaning": "example (pl. Beispiele); zum Beispiel: for example",
+      "sentence": "Kannst du mir ein Beispiel geben?",
+      "translation": "Can you give me an ⟦example⟧?",
+      "form": "Beispiel"
+    },
+    {
+      "n": 281,
+      "rank": 295,
+      "word": "das Unternehmen",
+      "pos": "noun",
+      "meaning": "company, business (pl. Unternehmen)",
+      "sentence": "Sie arbeitet für ein großes Unternehmen.",
+      "translation": "She works for a big ⟦company⟧.",
+      "form": "Unternehmen"
+    },
+    {
+      "n": 282,
+      "rank": 296,
+      "word": "meinen",
+      "pos": "verb",
+      "meaning": "to mean; to think (have an opinion)",
+      "sentence": "Was meinst du damit?",
+      "translation": "What do you ⟦mean⟧ by that?",
+      "form": "meinst"
+    },
+    {
+      "n": 283,
+      "rank": 297,
+      "word": "politisch",
+      "pos": "adj",
+      "meaning": "political",
+      "sentence": "Wir reden nicht über politische Themen.",
+      "translation": "We don't talk about ⟦political⟧ topics."
+    },
+    {
+      "n": 284,
+      "rank": 298,
+      "word": "der Herr",
+      "pos": "noun",
+      "meaning": "gentleman; Mr. (pl. Herren)",
+      "sentence": "Guten Tag, Herr Müller!",
+      "translation": "Hello, ⟦Mr.⟧ Müller!",
+      "form": "Herr"
+    },
+    {
+      "n": 285,
+      "rank": 299,
+      "word": "das Auto",
+      "pos": "noun",
+      "meaning": "car (pl. Autos)",
+      "sentence": "Wir fahren mit dem Auto.",
+      "translation": "We're going by ⟦car⟧.",
+      "form": "Auto"
+    },
+    {
+      "n": 286,
+      "rank": 300,
+      "word": "scheinen",
+      "pos": "verb",
+      "meaning": "to shine; to seem",
+      "sentence": "Die Sonne scheint.",
+      "translation": "The sun is ⟦shining⟧.",
+      "form": "scheint"
+    },
+    {
+      "n": 287,
+      "rank": 301,
+      "word": "sitzen",
+      "pos": "verb",
+      "meaning": "to sit, to be sitting",
+      "sentence": "Wir sitzen im Garten.",
+      "translation": "We're ⟦sitting⟧ in the garden."
+    },
+    {
+      "n": 288,
+      "rank": 302,
+      "word": "der Ort",
+      "pos": "noun",
+      "meaning": "place; small town (pl. Orte)",
+      "sentence": "Das ist ein schöner Ort.",
+      "translation": "This is a beautiful ⟦place⟧.",
+      "form": "Ort"
+    },
+    {
+      "n": 289,
+      "rank": 304,
+      "word": "der Euro",
+      "pos": "noun",
+      "meaning": "euro (pl. Euro)",
+      "sentence": "Das kostet zehn Euro.",
+      "translation": "That costs ten ⟦euros⟧.",
+      "form": "Euro"
+    },
+    {
+      "n": 290,
+      "rank": 305,
+      "word": "beginnen",
+      "pos": "verb",
+      "meaning": "to begin, to start",
+      "sentence": "Der Unterricht beginnt um neun.",
+      "translation": "Class ⟦starts⟧ at nine.",
+      "form": "beginnt"
+    },
+    {
+      "n": 291,
+      "rank": 306,
+      "word": "das Ding",
+      "pos": "noun",
+      "meaning": "thing (pl. Dinge)",
+      "sentence": "Was ist das für ein Ding?",
+      "translation": "What kind of ⟦thing⟧ is that?",
+      "form": "Ding"
+    },
+    {
+      "n": 292,
+      "rank": 307,
+      "word": "mehrere",
+      "pos": "adj",
+      "meaning": "several",
+      "sentence": "Ich habe es mehrere Male versucht.",
+      "translation": "I tried it ⟦several⟧ times."
+    },
+    {
+      "n": 293,
+      "rank": 308,
+      "word": "der Film",
+      "pos": "noun",
+      "meaning": "movie, film (pl. Filme)",
+      "sentence": "Der Film war echt gut.",
+      "translation": "The ⟦movie⟧ was really good.",
+      "form": "Film"
+    },
+    {
+      "n": 294,
+      "rank": 309,
+      "word": "die Gruppe",
+      "pos": "noun",
+      "meaning": "group (pl. Gruppen)",
+      "sentence": "Wir reisen in einer kleinen Gruppe.",
+      "translation": "We travel in a small ⟦group⟧.",
+      "form": "Gruppe"
+    },
+    {
+      "n": 295,
+      "rank": 311,
+      "word": "stimmen",
+      "pos": "verb",
+      "meaning": "to be right, to be true",
+      "sentence": "Das stimmt nicht!",
+      "translation": "That's not ⟦true⟧!",
+      "form": "stimmt"
+    },
+    {
+      "n": 296,
+      "rank": 312,
+      "word": "gewinnen",
+      "pos": "verb",
+      "meaning": "to win",
+      "sentence": "Ich habe im Lotto gewonnen!",
+      "translation": "I ⟦won⟧ the lottery!",
+      "form": "gewonnen"
+    },
+    {
+      "n": 297,
+      "rank": 313,
+      "word": "lieb",
+      "pos": "adj",
+      "meaning": "dear; kind, sweet (lieber: rather)",
+      "sentence": "Das ist lieb von dir.",
+      "translation": "That's ⟦sweet⟧ of you."
+    },
+    {
+      "n": 298,
+      "rank": 314,
+      "word": "je",
+      "pos": "adv",
+      "meaning": "the … the (je … desto); ever; each",
+      "sentence": "Je früher, desto besser.",
+      "translation": "⟦The⟧ sooner, the better."
+    },
+    {
+      "n": 299,
+      "rank": 316,
+      "word": "lernen",
+      "pos": "verb",
+      "meaning": "to learn; to study",
+      "sentence": "Ich lerne seit einem Jahr Deutsch.",
+      "translation": "I've been ⟦learning⟧ German for a year.",
+      "form": "lerne"
+    },
+    {
+      "n": 300,
+      "rank": 317,
+      "word": "kaufen",
+      "pos": "verb",
+      "meaning": "to buy",
+      "sentence": "Ich muss noch Brot kaufen.",
+      "translation": "I still need to ⟦buy⟧ bread."
     }
   ]
 }
