@@ -1363,6 +1363,230 @@
         {"type":"say","q":"Say “I love the food you make.”","answer":"我喜欢你做的菜。","r":"Wǒ xǐhuan nǐ zuò de cài."},
         {"type":"free","q":"Your turn: describe something you have with a phrase: something you bought somewhere, or a present someone gave you.","answers":[{"t":"这是我在北京买的茶杯。","r":"Zhè shì wǒ zài Běijīng mǎi de chábēi.","tr":"This is the teacup I bought in Beijing."},{"t":"我最喜欢的书是我爸爸送我的。","r":"Wǒ zuì xǐhuan de shū shì wǒ bàba sòng wǒ de.","tr":"My favourite book is the one my dad gave me."}]}
       ]
+    },
+    {
+      "id": "say-if-you-got-it",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say whether you got it done",
+      "summary": "“I've finished”, “I didn't understand”, “I found it!”, “I wrote it wrong”: say what came of an action.",
+      "topic": "Verb + result: {{完|wán}}, {{懂|dǒng}}, {{到|dào}}, {{见|jiàn}}, {{好|hǎo}}, {{错|cuò}}; {{没|méi}} + verb + result",
+      "blocks": [
+        {"goal":{"t":"对不起，我没听懂。","r":"Duìbuqǐ, wǒ méi tīngdǒng.","tr":"Sorry, I didn't understand."}},
+        {"dialog":[{"who":"Manager","t":"报告写完了吗？","r":"Bàogào xiěwán le ma?","tr":"Have you finished the report?"},{"who":"Mark","t":"写完了，我发给你了。","r":"Xiěwán le, wǒ fā gěi nǐ le.","tr":"Yes, I've sent it to you."},{"who":"Manager","t":"我没看到。","r":"Wǒ méi kàndào.","tr":"I haven't seen it."},{"who":"Mark","t":"是吗？对不起，我写错邮箱了！","r":"Shì ma? Duìbuqǐ, wǒ xiěcuò yóuxiāng le!","tr":"Really? Sorry, I typed the wrong email address!"},{"who":"Manager","t":"没关系。现在收到了！","r":"Méi guānxi. Xiànzài shōudào le!","tr":"No problem. Got it now!"}]},
+        {"p":"**What came of it: verb + result.** A Chinese verb often says only the attempt: {{听|tīng}} “listen”, {{看|kàn}} “look”, {{找|zhǎo}} “look for”. A second word right after it says the result: {{听懂|tīngdǒng}} “listen-understand”, {{看见|kànjiàn}} “look-see”, {{找到|zhǎodào}} “look for-reach”, that is, find. The two act as one verb, with {{了|le}} after both: {{我找到了！|Wǒ zhǎodào le!}} “I've found it!”"},
+        { "table": [
+          ["Result","Meaning","Examples"],
+          ["{{完|wán}}","finished","{{吃完|chīwán}} finish eating, {{做完|zuòwán}} finish doing"],
+          ["{{懂|dǒng}}","understood","{{听懂|tīngdǒng}} understand (hearing), {{看懂|kàndǒng}} understand (reading)"],
+          ["{{到|dào}}","reached, got","{{找到|zhǎodào}} find, {{买到|mǎidào}} manage to buy, {{收到|shōudào}} receive"],
+          ["{{见|jiàn}}","perceived","{{看见|kànjiàn}} see, {{听见|tīngjiàn}} hear"],
+          ["{{好|hǎo}}","done properly, ready","{{做好|zuòhǎo}} get ready, {{准备好|zhǔnbèi hǎo}} be prepared"],
+          ["{{错|cuò}}","wrong","{{写错|xiěcuò}} write wrongly, {{走错|zǒucuò}} go the wrong way"]
+        ] },
+        {"p":"**It didn't work out: {{没|méi}} + verb + result**, with no {{了|le}}: {{我没听懂。|Wǒ méi tīngdǒng.}} “I didn't understand” (I listened, but didn't get it). {{我没找到。|Wǒ méi zhǎodào.}} “I didn't find it.” The result matters: {{我没听|wǒ méi tīng}} “I didn't listen” is quite another excuse!"},
+        { "ex": [
+          {"t":"对不起，我没听懂。","r":"Duìbuqǐ, wǒ méi tīngdǒng.","tr":"Sorry, I didn't understand."},
+          {"t":"你吃完了吗？","r":"Nǐ chīwán le ma?","tr":"Have you finished eating?"},
+          {"t":"我找到我的钥匙了！","r":"Wǒ zhǎodào wǒ de yàoshi le!","tr":"I've found my keys!"},
+          {"t":"你看见我的手机了吗？","r":"Nǐ kànjiàn wǒ de shǒujī le ma?","tr":"Have you seen my phone?"},
+          {"t":"饭做好了。","r":"Fàn zuòhǎo le.","tr":"The meal's ready."},
+          {"t":"我们走错了！","r":"Wǒmen zǒucuò le!","tr":"We've gone the wrong way!"}
+        ] },
+        {"tip":"{{听懂了吗？|Tīngdǒng le ma?}} “Did you understand?” is what teachers ask a hundred times a day. Answer {{听懂了。|Tīngdǒng le.}}, or, honestly, {{没听懂，请再说一遍。|Méi tīngdǒng, qǐng zài shuō yí biàn.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"我没听懂了。","right":"我没听懂。","tr":"I didn't understand.","why":"{{没|méi}} never takes {{了|le}}, with results too: {{我没听懂。|Wǒ méi tīngdǒng.}}"},
+        {"wrong":"我找了我的钥匙！","right":"我找到了我的钥匙！","tr":"I've found my keys!","why":"{{找|zhǎo}} is only “look for”. Finding is the result: {{找到|zhǎodào}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你吃___了吗？","r":"Nǐ chī ___ le ma?","tr":"Have you finished eating?","options":["完","见","错"],"rs":["wán","jiàn","cuò"],"answer":0,"why":"Finished: {{完|wán}}."},
+        {"type":"choice","q":"You heard the words but didn't get the meaning. You say…","options":["{{我没听懂。|Wǒ méi tīngdǒng.}}","{{我没听。|Wǒ méi tīng.}}","{{我不听懂。|Wǒ bù tīngdǒng.}}"],"answer":0,"why":"You listened, but the result didn't come: {{没听懂|méi tīngdǒng}}.","from":"say-what-you-did"},
+        {"type":"choice","q":"{{我们走错了！|Wǒmen zǒucuò le!}} means…","options":["We walked too far!","We've gone the wrong way!","We didn't walk."],"answer":1,"why":"{{走|zǒu}} “walk, go” + {{错|cuò}} “wrong”."},
+        {"type":"dialogue","q":"In the morning, at home. Choose your replies.","lines":[{"who":"Mum","t":"你看见我的眼镜了吗？","r":"Nǐ kànjiàn wǒ de yǎnjìng le ma?","tr":"Have you seen my glasses?"},{"options":["没看见。在桌子上吗？","没看。在桌子上吗？"],"rs":["Méi kànjiàn. Zài zhuōzi shang ma?","Méi kàn. Zài zhuōzi shang ma?"],"answer":0,"why":"“I haven't seen them”: {{没看见|méi kànjiàn}}. ({{没看|méi kàn}} is “I didn't look”.)"},{"who":"Mum","t":"哦，找到了！早饭做好了，快来吃吧！","r":"Ò, zhǎodào le! Zǎofàn zuòhǎo le, kuài lái chī ba!","tr":"Oh, found them! Breakfast is ready, come and eat!"},{"options":["我吃完了，谢谢！","我吃了完，谢谢！"],"rs":["Wǒ chīwán le, xièxie!","Wǒ chī le wán, xièxie!"],"answer":0,"why":"The result goes right after the verb, and {{了|le}} after both: {{吃完了|chīwán le}} “I've already eaten”."}],"from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"I've found my keys!","words":["我","找到","我的","钥匙","了！"],"rs":["wǒ","zhǎodào","wǒ de","yàoshi","le!"]},
+        {"type":"say","q":"Say “Sorry, I didn't understand. Please say it again.”","answer":"对不起，我没听懂。请再说一遍。","r":"Duìbuqǐ, wǒ méi tīngdǒng. Qǐng zài shuō yí biàn.","from":"ask-politely"},
+        {"type":"free","q":"Your turn: say one thing you finished today, and one thing you looked for but didn't find.","answers":[{"t":"我今天看完了一本书。我没找到我的耳机。","r":"Wǒ jīntiān kànwán le yì běn shū. Wǒ méi zhǎodào wǒ de ěrjī.","tr":"Today I finished reading a book. I didn't find my headphones."},{"t":"我做完了工作。火车票我没买到。","r":"Wǒ zuòwán le gōngzuò. Huǒchēpiào wǒ méi mǎidào.","tr":"I finished my work. I didn't manage to get a train ticket."}]}
+      ]
+    },
+    {
+      "id": "say-if-you-can-manage",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say whether you can manage it",
+      "summary": "“I can't understand”, “We'll never finish it all”, “Can you see?”: say whether something is possible, with {{得|de}} or {{不|bu}} inside the verb.",
+      "topic": "{{得|de}} / {{不|bu}} between a verb and its result: {{听得懂|tīng de dǒng}} / {{听不懂|tīng bu dǒng}}, {{吃不完|chī bu wán}}, {{买不到|mǎi bu dào}}, {{来不了|lái bu liǎo}}",
+      "blocks": [
+        {"goal":{"t":"他说得太快了，我听不懂。","r":"Tā shuō de tài kuài le, wǒ tīng bu dǒng.","tr":"He speaks too fast, I can't understand."}},
+        {"dialog":[{"who":"Xiao Wang","t":"再点一个菜吧？","r":"Zài diǎn yí ge cài ba?","tr":"Shall we order one more dish?"},{"who":"Anna","t":"不要了，我们吃不完！","r":"Bú yào le, wǒmen chī bu wán!","tr":"No, we'll never finish it all!"},{"who":"Xiao Wang","t":"好。服务员说的话，你听得懂吗？","r":"Hǎo. Fúwùyuán shuō de huà, nǐ tīng de dǒng ma?","tr":"OK. Can you understand what the waitress says?"},{"who":"Anna","t":"听得懂一点儿。她说得有点儿快。","r":"Tīng de dǒng yìdiǎnr. Tā shuō de yǒudiǎnr kuài.","tr":"A little. She speaks a bit fast."},{"who":"Xiao Wang","t":"没关系，慢慢来！","r":"Méi guānxi, mànmàn lái!","tr":"Don't worry, take your time!"}]},
+        {"p":"**Can or can't manage: {{得|de}} or {{不|bu}} between the verb and its result.** Put {{得|de}} inside a verb + result for “can”, and {{不|bu}} for “can't”: {{听懂|tīngdǒng}} “understand” becomes {{听得懂|tīng de dǒng}} “can understand” and {{听不懂|tīng bu dǒng}} “can't understand”. Both little words are said lightly, as part of one word."},
+        { "table": [
+          ["Verb + result","Can","Can't"],
+          ["{{听懂|tīngdǒng}} understand","{{听得懂|tīng de dǒng}}","{{听不懂|tīng bu dǒng}}"],
+          ["{{吃完|chīwán}} finish eating","{{吃得完|chī de wán}}","{{吃不完|chī bu wán}}"],
+          ["{{买到|mǎidào}} manage to buy","{{买得到|mǎi de dào}}","{{买不到|mǎi bu dào}}"],
+          ["{{看见|kànjiàn}} see","{{看得见|kàn de jiàn}}","{{看不见|kàn bu jiàn}}"],
+          ["{{来|lái}} come","{{来得了|lái de liǎo}}","{{来不了|lái bu liǎo}}"]
+        ] },
+        {"p":"**Why not just {{不能|bù néng}}?** {{不能|bù néng}} is about not being allowed, or something outside stopping you. The {{不|bu}} form says the result can't be reached, however hard you try: {{我听不懂|wǒ tīng bu dǒng}} “I can't understand (it's beyond me)”. And {{来不了|lái bu liǎo}} is the everyday way to say you can't make it."},
+        {"p":"**Asking**: {{你听得懂吗？|Nǐ tīng de dǒng ma?}} or, A-not-A, {{你听得懂听不懂？|Nǐ tīng de dǒng tīng bu dǒng?}} “Can you understand?”"},
+        { "ex": [
+          {"t":"他说得太快了，我听不懂。","r":"Tā shuō de tài kuài le, wǒ tīng bu dǒng.","tr":"He speaks too fast, I can't understand."},
+          {"t":"这么多菜，我们吃不完！","r":"Zhème duō cài, wǒmen chī bu wán!","tr":"So much food, we'll never finish it!"},
+          {"t":"你看得见吗？","r":"Nǐ kàn de jiàn ma?","tr":"Can you see?"},
+          {"t":"春节的时候火车票买不到。","r":"Chūnjié de shíhou huǒchēpiào mǎi bu dào.","tr":"At Spring Festival you can't get train tickets."},
+          {"t":"我明天来不了。","r":"Wǒ míngtiān lái bu liǎo.","tr":"I can't make it tomorrow."},
+          {"t":"这个字太小了，我看不清楚。","r":"Zhège zì tài xiǎo le, wǒ kàn bu qīngchu.","tr":"This character is too small, I can't make it out."}
+        ] },
+        {"tip":"{{对不起，我听不懂。|Duìbuqǐ, wǒ tīng bu dǒng.}} “Sorry, I don't understand” is one of the most useful sentences you'll learn. Another: {{来不及了！|Lái bu jí le!}} “There's no time left, we'll be late!”"}
+      ],
+      "mistakes": [
+        {"wrong":"我不能听懂。","right":"我听不懂。","tr":"I can't understand.","why":"For a result you can't reach, put {{不|bu}} inside: {{听不懂|tīng bu dǒng}}."},
+        {"wrong":"我吃完不了。","right":"我吃不完。","tr":"I can't finish it.","why":"{{不|bu}} goes between the verb and its result: {{吃不完|chī bu wán}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"这么多菜，我们吃___完！","r":"Zhème duō cài, wǒmen chī ___ wán!","tr":"So much food, we'll never finish it!","options":["不","没","得"],"rs":["bu","méi","de"],"answer":0,"why":"Can't manage it: {{不|bu}} between the verb and the result."},
+        {"type":"choice","q":"In class you can't understand the teacher. You say…","options":["{{老师，我听不懂。|Lǎoshī, wǒ tīng bu dǒng.}}","{{老师，我不能听。|Lǎoshī, wǒ bù néng tīng.}}","{{老师，我听得懂。|Lǎoshī, wǒ tīng de dǒng.}}"],"answer":0,"why":"{{听不懂|tīng bu dǒng}}: you're listening, but can't understand. ({{我不能听|wǒ bù néng tīng}} is “I'm not allowed to listen”.)"},
+        {"type":"order","q":"Put the words in order.","tr":"I can't make it tomorrow.","words":["我","明天","来不了。"],"rs":["wǒ","míngtiān","lái bu liǎo."],"from":"say-when"},
+        {"type":"dialogue","q":"At the cinema with a friend. Choose your replies.","lines":[{"who":"Friend","t":"你看得见吗？","r":"Nǐ kàn de jiàn ma?","tr":"Can you see?"},{"options":["看得见，没问题。","看见得，没问题。"],"rs":["Kàn de jiàn, méi wèntí.","Kànjiàn de, méi wèntí."],"answer":0,"why":"{{得|de}} goes inside: {{看得见|kàn de jiàn}}."},{"who":"Friend","t":"电影是中文的，你听得懂吗？","r":"Diànyǐng shì Zhōngwén de, nǐ tīng de dǒng ma?","tr":"The film's in Chinese, can you understand it?"},{"options":["有的听得懂，有的听不懂。","有的听懂得，有的听懂不。"],"rs":["Yǒude tīng de dǒng, yǒude tīng bu dǒng.","Yǒude tīngdǒng de, yǒude tīngdǒng bù."],"answer":0,"why":"“Some I can, some I can't”: {{得|de}} or {{不|bu}} between the verb and the result."},{"who":"Friend","t":"没关系，有英文字幕。","r":"Méi guānxi, yǒu Yīngwén zìmù.","tr":"Never mind, there are English subtitles."}],"from":"say-if-you-got-it"},
+        {"type":"say","q":"Say “Sorry, I don't understand.”","answer":"对不起，我听不懂。","r":"Duìbuqǐ, wǒ tīng bu dǒng."},
+        {"type":"free","q":"Your turn: say one thing you can already understand or manage in Chinese, and one you can't yet.","answers":[{"t":"我听得懂我的老师，听不懂中国电影。","r":"Wǒ tīng de dǒng wǒ de lǎoshī, tīng bu dǒng Zhōngguó diànyǐng.","tr":"I can understand my teacher, but not Chinese films."},{"t":"我看得懂一些汉字，还看不懂中文小说。","r":"Wǒ kàn de dǒng yìxiē Hànzì, hái kàn bu dǒng Zhōngwén xiǎoshuō.","tr":"I can read some characters, but I can't read Chinese novels yet."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask the way and give directions",
+      "summary": "“How do I get to the station?”, “Go straight on, then turn left”, “Come in!”, “He's gone out”: directions and movement.",
+      "topic": "{{怎么走？|zěnme zǒu?}}; {{往|wǎng}} + direction + verb; {{来|lai}} and {{去|qu}} after a verb: {{进来|jìnlai}}, {{出去|chūqu}}, {{回来|huílai}}",
+      "blocks": [
+        {"goal":{"t":"请问，火车站怎么走？","r":"Qǐngwèn, huǒchēzhàn zěnme zǒu?","tr":"Excuse me, how do I get to the railway station?"}},
+        {"dialog":[{"who":"You","t":"请问，火车站怎么走？","r":"Qǐngwèn, huǒchēzhàn zěnme zǒu?","tr":"Excuse me, how do I get to the railway station?"},{"who":"Passer-by","t":"往前走，到第二个路口往左拐。","r":"Wǎng qián zǒu, dào dì èr ge lùkǒu wǎng zuǒ guǎi.","tr":"Go straight ahead, and turn left at the second crossing."},{"who":"You","t":"远不远？","r":"Yuǎn bu yuǎn?","tr":"Is it far?"},{"who":"Passer-by","t":"不远，走过去十分钟。","r":"Bù yuǎn, zǒu guòqu shí fēnzhōng.","tr":"Not far, ten minutes on foot."},{"who":"You","t":"谢谢！","r":"Xièxie!","tr":"Thanks!"}]},
+        {"p":"**Asking the way**: the place + {{怎么走？|zěnme zǒu?}}, “how (do I) walk?”: {{地铁站怎么走？|Dìtiězhàn zěnme zǒu?}} Or {{…在哪儿？|…zài nǎr?}}, which you already know."},
+        {"p":"**Giving directions**: {{往|wǎng}} “towards” + a direction + the verb: {{往前走|wǎng qián zǒu}} “go straight ahead”, {{往左拐|wǎng zuǒ guǎi}} “turn left”. {{一直|yìzhí}} is “all the way, straight on”. {{到|dào}} + a place: “when you get to…”."},
+        { "table": [
+          ["Chinese","Meaning"],
+          ["{{一直往前走|yìzhí wǎng qián zǒu}}","keep going straight ahead"],
+          ["{{往左拐|wǎng zuǒ guǎi}}","turn left"],
+          ["{{往右拐|wǎng yòu guǎi}}","turn right"],
+          ["{{到路口|dào lùkǒu}}","at the crossing"],
+          ["{{在你的左边|zài nǐ de zuǒbian}}","on your left"]
+        ] },
+        {"p":"**Coming and going: {{来|lai}} and {{去|qu}} after a verb.** After a verb of movement, {{来|lai}} means towards the speaker and {{去|qu}} away from the speaker: {{进来|jìnlai}} “come in”, {{进去|jìnqu}} “go in”, {{出去|chūqu}} “go out”, {{回来|huílai}} “come back”, {{上去|shàngqu}} “go up”, {{下来|xiàlai}} “come down”. A place goes in the middle: {{上楼去|shàng lóu qu}} “go upstairs”, {{进教室来|jìn jiàoshì lai}} “come into the classroom”."},
+        { "ex": [
+          {"t":"请问，火车站怎么走？","r":"Qǐngwèn, huǒchēzhàn zěnme zǒu?","tr":"Excuse me, how do I get to the railway station?"},
+          {"t":"一直往前走，然后往右拐。","r":"Yìzhí wǎng qián zǒu, ránhòu wǎng yòu guǎi.","tr":"Go straight ahead, then turn right."},
+          {"t":"银行在你的左边。","r":"Yínháng zài nǐ de zuǒbian.","tr":"The bank is on your left."},
+          {"t":"请进来！","r":"Qǐng jìnlai!","tr":"Please come in!"},
+          {"t":"他出去了。","r":"Tā chūqu le.","tr":"He's gone out."},
+          {"t":"你什么时候回来？","r":"Nǐ shénme shíhou huílai?","tr":"When are you coming back?"}
+        ] },
+        {"tip":"In a taxi, say where you're going, and when you arrive: {{师傅，就在这儿停吧。|Shīfu, jiù zài zhèr tíng ba.}} “You can stop right here.” {{师傅|shīfu}} “master” is how people politely address drivers and workmen."}
+      ],
+      "mistakes": [
+        {"wrong":"往走前。","right":"往前走。","tr":"Go straight ahead.","why":"{{往|wǎng}} and the direction come before the verb: {{往前走|wǎng qián zǒu}}."},
+        {"wrong":"请来进！","right":"请进来！","tr":"Please come in!","why":"The movement first, then {{来|lai}} or {{去|qu}}: {{进来|jìnlai}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"到路口往左___。","r":"Dào lùkǒu wǎng zuǒ ___.","tr":"Turn left at the crossing.","options":["拐","来","在"],"rs":["guǎi","lái","zài"],"answer":0,"why":"“Turn” is {{拐|guǎi}}: {{往左拐|wǎng zuǒ guǎi}}."},
+        {"type":"choice","q":"You're inside, and your friend knocks at the door. You say…","options":["{{请进来！|Qǐng jìnlai!}}","{{请进去！|Qǐng jìnqu!}}"],"answer":0,"why":"Towards you, the speaker: {{来|lai}}."},
+        {"type":"choice","q":"{{他出去了。|Tā chūqu le.}} means…","options":["He's gone out.","He's coming out.","He's out of money."],"answer":0,"why":"{{出|chū}} “out” + {{去|qu}} “away from here”, and {{了|le}}: he's gone out.","from":"say-what-has-changed"},
+        {"type":"dialogue","q":"Asking the way in the street. Choose your replies.","lines":[{"who":"Passer-by","t":"你找什么地方？","r":"Nǐ zhǎo shénme dìfang?","tr":"Where are you trying to get to?"},{"options":["请问，地铁站怎么走？","请问，地铁站走怎么？"],"rs":["Qǐngwèn, dìtiězhàn zěnme zǒu?","Qǐngwèn, dìtiězhàn zǒu zěnme?"],"answer":0,"why":"{{怎么|zěnme}} “how” goes before the verb: {{怎么走|zěnme zǒu}}."},{"who":"Passer-by","t":"一直往前走，到第二个路口往右拐。","r":"Yìzhí wǎng qián zǒu, dào dì èr ge lùkǒu wǎng yòu guǎi.","tr":"Keep going straight, then turn right at the second crossing."},{"options":["远不远？","远不远吗？"],"rs":["Yuǎn bu yuǎn?","Yuǎn bu yuǎn ma?"],"answer":0,"why":"An A-not-A question: no {{吗|ma}}."},{"who":"Passer-by","t":"不远，走过去五分钟。","r":"Bù yuǎn, zǒu guòqu wǔ fēnzhōng.","tr":"Not far, five minutes on foot."}],"from":"ask-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"Go straight ahead, then turn right.","words":["一直","往前走，","然后","往右拐。"],"rs":["yìzhí","wǎng qián zǒu,","ránhòu","wǎng yòu guǎi."],"from":"describe-your-day"},
+        {"type":"say","q":"Ask: “When are you coming back?”","answer":"你什么时候回来？","r":"Nǐ shénme shíhou huílai?"},
+        {"type":"free","q":"Your turn: tell someone how to get from your home to a shop or a station nearby.","answers":[{"t":"出门往左拐，一直走，超市在你的右边。","r":"Chū mén wǎng zuǒ guǎi, yìzhí zǒu, chāoshì zài nǐ de yòubian.","tr":"Turn left out of the door, go straight on, and the supermarket is on your right."},{"t":"往前走，到路口往右拐，地铁站在银行旁边。","r":"Wǎng qián zǒu, dào lùkǒu wǎng yòu guǎi, dìtiězhàn zài yínháng pángbiān.","tr":"Go straight ahead, turn right at the crossing, and the subway station is next to the bank."}]}
+      ]
+    },
+    {
+      "id": "give-advice-and-rules",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give advice and say what's needed",
+      "summary": "“You should rest”, “I have to go”, “You don't need to come”, “Don't worry!”: give advice, say what's needed, and tell people not to.",
+      "topic": "{{应该|yīnggāi}} “should”; {{得|děi}} and {{要|yào}} “have to”; {{不用|búyòng}} “don't need to”; {{别|bié}} / {{不要|búyào}} “don't!”",
+      "blocks": [
+        {"goal":{"t":"你应该多休息。","r":"Nǐ yīnggāi duō xiūxi.","tr":"You should rest more."}},
+        {"dialog":[{"who":"Xiao Li","t":"我头疼，有点儿发烧。","r":"Wǒ tóu téng, yǒudiǎnr fāshāo.","tr":"I've got a headache and a bit of a temperature."},{"who":"Anna","t":"你应该去看医生。","r":"Nǐ yīnggāi qù kàn yīshēng.","tr":"You should go and see a doctor."},{"who":"Xiao Li","t":"我明天得上班。","r":"Wǒ míngtiān děi shàngbān.","tr":"I have to work tomorrow."},{"who":"Anna","t":"别去了！在家休息，多喝水。","r":"Bié qù le! Zài jiā xiūxi, duō hē shuǐ.","tr":"Don't go! Rest at home and drink lots of water."},{"who":"Xiao Li","t":"好吧，谢谢你！","r":"Hǎo ba, xièxie nǐ!","tr":"All right, thank you!"}]},
+        {"p":"**Should: {{应该|yīnggāi}}** + verb, for advice and what's right: {{你应该去看医生。|Nǐ yīnggāi qù kàn yīshēng.}} “You should see a doctor.” Shouldn't: {{不应该|bù yīnggāi}}."},
+        {"p":"**Have to: {{得|děi}} or {{要|yào}}.** In speech, {{得|děi}} (the character you know as {{得|de}}, here said děi) means “have to”: {{我得走了。|Wǒ děi zǒu le.}} “I have to go now.” {{要|yào}}, which you know as “want” and “will”, also means “need to”: {{你要多喝水。|Nǐ yào duō hē shuǐ.}} “You need to drink lots of water.”"},
+        {"p":"**Don't need to: {{不用|búyòng}}.** “Not have to” is never {{不得|bù děi}}; it's {{不用|búyòng}}: {{你不用来。|Nǐ búyòng lái.}} “You don't need to come.” {{不用谢！|Búyòng xiè!}} “No need to thank me!”"},
+        {"p":"**Don't!: {{别|bié}} or {{不要|búyào}}** + verb: {{别担心！|Bié dānxīn!}} “Don't worry!” {{不要在这儿抽烟。|Búyào zài zhèr chōuyān.}} “Don't smoke here.” {{别|bié}} is friendly and spoken; {{不要|búyào}} is firmer, and the one on signs."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["should","{{你应该早点儿睡觉。|Nǐ yīnggāi zǎo diǎnr shuìjiào.}}","You should go to bed earlier."],
+          ["have to","{{我得走了。|Wǒ děi zǒu le.}}","I have to go."],
+          ["need to","{{你要多喝水。|Nǐ yào duō hē shuǐ.}}","You need to drink lots of water."],
+          ["don't need to","{{你不用来。|Nǐ búyòng lái.}}","You don't need to come."],
+          ["don't!","{{别担心！|Bié dānxīn!}}","Don't worry!"]
+        ] },
+        { "ex": [
+          {"t":"你应该多休息。","r":"Nǐ yīnggāi duō xiūxi.","tr":"You should rest more."},
+          {"t":"我得走了，明天见！","r":"Wǒ děi zǒu le, míngtiān jiàn!","tr":"I have to go, see you tomorrow!"},
+          {"t":"明天不用上班。","r":"Míngtiān búyòng shàngbān.","tr":"No work tomorrow.","note":"“tomorrow (I) don't need to go to work”: no subject needed when it's clear"},
+          {"t":"别客气！","r":"Bié kèqi!","tr":"Don't mention it! / Make yourself at home!"},
+          {"t":"上课不要玩儿手机。","r":"Shàngkè búyào wánr shǒujī.","tr":"Don't play on your phone in class."},
+          {"t":"你不应该喝那么多酒。","r":"Nǐ bù yīnggāi hē nàme duō jiǔ.","tr":"You shouldn't drink so much."}
+        ] },
+        {"tip":"{{多|duō}} before a verb means “more, plenty”: {{多吃一点儿|duō chī yìdiǎnr}} “eat a bit more”, {{多喝水|duō hē shuǐ}} “drink plenty of water”: the classic Chinese advice for any illness!"}
+      ],
+      "mistakes": [
+        {"wrong":"你不得来。","right":"你不用来。","tr":"You don't need to come.","why":"“Don't have to” is {{不用|búyòng}}: {{你不用来。|Nǐ búyòng lái.}}"},
+        {"wrong":"你应该休息多。","right":"你应该多休息。","tr":"You should rest more.","why":"“More” goes before the verb: {{多休息|duō xiūxi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你___担心，没问题！","r":"Nǐ ___ dānxīn, méi wèntí!","tr":"Don't worry, it's fine!","options":["别","得","没"],"rs":["bié","děi","méi"],"answer":0,"why":"“Don't!”: {{别|bié}} + verb."},
+        {"type":"choice","q":"Tomorrow is a holiday. “I don't have to go to work tomorrow” is…","options":["{{我明天不用上班。|Wǒ míngtiān búyòng shàngbān.}}","{{我明天不得上班。|Wǒ míngtiān bù děi shàngbān.}}","{{我明天别上班。|Wǒ míngtiān bié shàngbān.}}"],"answer":0,"why":"No need: {{不用|búyòng}}.","from":"say-when"},
+        {"type":"choice","q":"Your friend has a cold. Good advice is…","options":["{{你应该多喝水。|Nǐ yīnggāi duō hē shuǐ.}}","{{你应该喝水多。|Nǐ yīnggāi hē shuǐ duō.}}"],"answer":0,"why":"{{多|duō}} “more” goes before the verb."},
+        {"type":"dialogue","q":"Your friend isn't feeling well. Choose your replies.","lines":[{"who":"Friend","t":"我头疼，有点儿发烧。","r":"Wǒ tóu téng, yǒudiǎnr fāshāo.","tr":"I've got a headache and a bit of a temperature."},{"options":["你应该去看医生。","你应该看去医生。"],"rs":["Nǐ yīnggāi qù kàn yīshēng.","Nǐ yīnggāi kàn qù yīshēng."],"answer":0,"why":"{{应该|yīnggāi}}, then the actions in order: {{去看医生|qù kàn yīshēng}}."},{"who":"Friend","t":"我明天得上班。","r":"Wǒ míngtiān děi shàngbān.","tr":"I have to work tomorrow."},{"options":["别去了！在家休息吧。","不得去了！在家休息吧。"],"rs":["Bié qù le! Zài jiā xiūxi ba.","Bù děi qù le! Zài jiā xiūxi ba."],"answer":0,"why":"“Don't go!”: {{别|bié}}."},{"who":"Friend","t":"好吧，谢谢你！","r":"Hǎo ba, xièxie nǐ!","tr":"All right, thank you!"}],"from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"I have to go, see you tomorrow!","words":["我","得","走了，","明天见！"],"rs":["wǒ","děi","zǒu le,","míngtiān jiàn!"],"from":"say-what-has-changed"},
+        {"type":"say","q":"Your friend thanks you. Say “No need to thank me!”","answer":"不用谢！","r":"Búyòng xiè!"},
+        {"type":"free","q":"Your turn: a friend is tired and stressed. Give two pieces of advice, and tell them one thing not to do.","answers":[{"t":"你应该早点儿睡觉，多运动。别喝那么多咖啡！","r":"Nǐ yīnggāi zǎo diǎnr shuìjiào, duō yùndòng. Bié hē nàme duō kāfēi!","tr":"You should go to bed earlier and do more exercise. Don't drink so much coffee!"},{"t":"你得休息一下。周末去爬山吧！别工作了！","r":"Nǐ děi xiūxi yíxià. Zhōumò qù pá shān ba! Bié gōngzuò le!","tr":"You need a break. Go hiking this weekend! Stop working!"}]}
+      ]
+    },
+    {
+      "id": "say-its-about-to-happen",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say something is about to happen",
+      "summary": "“The train's about to leave!”, “It's nearly twelve”, “I'm off to Beijing next week”: say what's just about to happen.",
+      "topic": "{{要…了|yào… le}}, {{快…了|kuài… le}}, {{快要…了|kuàiyào… le}}, {{就要…了|jiùyào… le}}",
+      "blocks": [
+        {"goal":{"t":"火车快要开了！","r":"Huǒchē kuàiyào kāi le!","tr":"The train's about to leave!"}},
+        {"dialog":[{"who":"Anna","t":"快点儿！火车快要开了！","r":"Kuài diǎnr! Huǒchē kuàiyào kāi le!","tr":"Hurry up! The train's about to leave!"},{"who":"Xiao Wang","t":"别急，还有五分钟。","r":"Bié jí, hái yǒu wǔ fēnzhōng.","tr":"Don't panic, there are still five minutes."},{"who":"Anna","t":"我们的车厢在哪儿？","r":"Wǒmen de chēxiāng zài nǎr?","tr":"Where's our carriage?"},{"who":"Xiao Wang","t":"就在前面。你看，快到了！","r":"Jiù zài qiánmiàn. Nǐ kàn, kuài dào le!","tr":"Just ahead. Look, we're nearly there!"}]},
+        {"p":"**About to: {{要…了|yào… le}}.** Put {{要|yào}} before the verb and {{了|le}} at the end: {{下雨了|xiàyǔ le}} is “it's started raining”, and {{要下雨了|yào xiàyǔ le}} is “it's going to rain any minute”. {{快要|kuàiyào}} (or just {{快|kuài}}) “soon” brings it even closer: {{火车快要开了。|Huǒchē kuàiyào kāi le.}} “The train's about to leave.”"},
+        {"p":"**With a time, use {{就要…了|jiùyào… le}}.** {{快|kuài}} can't go with a time word, but {{就要|jiùyào}} can: {{我下个星期就要去北京了。|Wǒ xià ge xīngqī jiùyào qù Běijīng le.}} “I'm off to Beijing next week.”"},
+        {"p":"**Nearly, with a number or a noun**: {{快…了|kuài… le}}: {{快十二点了。|Kuài shí'èr diǎn le.}} “It's nearly twelve.” {{快春节了！|Kuài Chūnjié le!}} “It's nearly Spring Festival!”"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["{{要…了|yào… le}}","{{要下雨了。|Yào xiàyǔ le.}}","It's going to rain."],
+          ["{{快要…了|kuàiyào… le}}","{{电影快要开始了。|Diànyǐng kuàiyào kāishǐ le.}}","The film's about to start."],
+          ["{{快…了|kuài… le}}","{{快到了！|Kuài dào le!}}","We're nearly there!"],
+          ["{{就要…了|jiùyào… le}}","{{他们明天就要结婚了。|Tāmen míngtiān jiùyào jiéhūn le.}}","They're getting married tomorrow."]
+        ] },
+        { "ex": [
+          {"t":"火车快要开了！","r":"Huǒchē kuàiyào kāi le!","tr":"The train's about to leave!"},
+          {"t":"要下雨了，带伞吧。","r":"Yào xiàyǔ le, dài sǎn ba.","tr":"It's going to rain, take an umbrella."},
+          {"t":"快十二点了，我们去吃饭吧。","r":"Kuài shí'èr diǎn le, wǒmen qù chīfàn ba.","tr":"It's nearly twelve, let's go and eat."},
+          {"t":"我下个月就要毕业了。","r":"Wǒ xià ge yuè jiùyào bìyè le.","tr":"I'm graduating next month."},
+          {"t":"我的手机快没电了。","r":"Wǒ de shǒujī kuài méi diàn le.","tr":"My phone's about to die.","note":"“nearly no power”"},
+          {"t":"快到你的生日了！","r":"Kuài dào nǐ de shēngrì le!","tr":"It's nearly your birthday!"}
+        ] },
+        {"tip":"{{快点儿！|Kuài diǎnr!}} “Hurry up!” and {{别急|bié jí}} “no rush, don't panic” are two phrases you'll hear at every station and airport."}
+      ],
+      "mistakes": [
+        {"wrong":"我明天快要走了。","right":"我明天就要走了。","tr":"I'm leaving tomorrow.","why":"With a time word, use {{就要|jiùyào}}, not {{快要|kuàiyào}}: {{我明天就要走了。|Wǒ míngtiān jiùyào zǒu le.}}"},
+        {"wrong":"火车快要开。","right":"火车快要开了。","tr":"The train's about to leave.","why":"Don't forget the {{了|le}} at the end: {{快要开了|kuàiyào kāi le}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"电影快要开始___。","r":"Diànyǐng kuàiyào kāishǐ ___.","tr":"The film's about to start.","options":["了","过","在"],"rs":["le","guo","zài"],"answer":0,"why":"{{快要|kuàiyào}} … {{了|le}}: the {{了|le}} closes it."},
+        {"type":"choice","q":"“I'm going home next week” is…","options":["{{我下个星期就要回家了。|Wǒ xià ge xīngqī jiùyào huí jiā le.}}","{{我下个星期快要回家了。|Wǒ xià ge xīngqī kuàiyào huí jiā le.}}"],"answer":0,"why":"With a time word: {{就要…了|jiùyào… le}}.","from":"say-when"},
+        {"type":"choice","q":"{{快十二点了。|Kuài shí'èr diǎn le.}} means…","options":["It's nearly twelve.","It's twelve quickly.","It's just after twelve."],"answer":0,"why":"{{快…了|kuài… le}} with a number: “nearly”."},
+        {"type":"dialogue","q":"Your friend is still getting ready. Choose your replies.","lines":[{"who":"Friend","t":"我们几点出门？","r":"Wǒmen jǐ diǎn chū mén?","tr":"What time are we leaving?"},{"options":["快八点了，我们得走了！","八点快了，我们得走了！"],"rs":["Kuài bā diǎn le, wǒmen děi zǒu le!","Bā diǎn kuài le, wǒmen děi zǒu le!"],"answer":0,"why":"“Nearly eight”: {{快八点了|kuài bā diǎn le}}."},{"who":"Friend","t":"等一下，我在找我的钥匙。","r":"Děng yíxià, wǒ zài zhǎo wǒ de yàoshi.","tr":"Just a moment, I'm looking for my keys."},{"options":["快点儿！要下雨了！","快点儿！下雨要了！"],"rs":["Kuài diǎnr! Yào xiàyǔ le!","Kuài diǎnr! Xiàyǔ yào le!"],"answer":0,"why":"{{要|yào}} before the verb, {{了|le}} at the end."}],"from":"give-advice-and-rules"},
+        {"type":"order","q":"Put the words in order.","tr":"My phone's about to die.","words":["我的","手机","快","没电了。"],"rs":["wǒ de","shǒujī","kuài","méi diàn le."]},
+        {"type":"say","q":"Say “It's nearly your birthday!”","answer":"快到你的生日了！","r":"Kuài dào nǐ de shēngrì le!"},
+        {"type":"free","q":"Your turn: say something that's about to happen in your life, and something that's happening next week.","answers":[{"t":"我快要毕业了。下个星期我就要去上海了！","r":"Wǒ kuàiyào bìyè le. Xià ge xīngqī wǒ jiùyào qù Shànghǎi le!","tr":"I'm about to graduate. Next week I'm off to Shanghai!"},{"t":"快春节了。我下个月就要回国了。","r":"Kuài Chūnjié le. Wǒ xià ge yuè jiùyào huí guó le.","tr":"It's nearly Spring Festival. Next month I'm going back to my country."}]}
+      ]
     }
   ]
 }
