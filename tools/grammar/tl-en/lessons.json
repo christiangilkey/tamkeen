@@ -1147,7 +1147,7 @@
         {"type":"order","q":"Ayusin ang mga salita.","tr":"Kailangan ko na bang magbayad?","words":["Do","I","have to","pay","now?"],"from":"ask-questions-with-do"},
         {"type":"dialogue","q":"Masama ang pakiramdam ng katrabaho mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"I feel terrible. I have a headache.","tr":"Ang sama ng pakiramdam ko. Masakit ang ulo ko."},{"options":["You should go home and rest.","You should to go home and rest."],"answer":0,"why":"Walang {{to}} pagkatapos ng {{should}}."},{"who":"Katrabaho","t":"But I have to finish this report.","tr":"Pero kailangan kong tapusin ang report na ito."},{"options":["You don't have to finish it today. It's due on Friday.","You mustn't finish it today. It's due on Friday."],"answer":0,"why":"Hindi kailangan ngayon (pero hindi bawal): {{don't have to}}."}]},
         {"type":"say","q":"Paano mo sasabihin ang “Kailangan ko nang umalis”?","answer":"I have to go now."},
-        {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kailangan mong gawin ngayong linggo, at magbigay ng isang payo sa kaibigan ({{You should…}}).","answers":[{"t":"I have to work on Saturday. I need to call my mom. You should try the new Filipino restaurant!","tr":"Kailangan kong magtrabaho sa Sabado. Kailangan kong tawagan ang nanay ko. Subukan mo ang bagong Pilipinong restawran!"},{"t":"I have to pay my bills and I need to clean the house. You should get more sleep.","tr":"Kailangan kong magbayad ng mga bayarin at maglinis ng bahay. Dapat kang matulog nang mas mahaba."}]}
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kailangan mong gawin ngayong linggo, at magbigay ng isang payo sa kaibigan ({{You should…}}).","answers":[{"t":"I have to work on Saturday. I need to call my mom. You should try the new Filipino restaurant!","tr":"Kailangan kong magtrabaho sa Sabado. Kailangan kong tawagan ang nanay ko. Subukan mo ang bagong Pilipinong restawran!"},{"t":"I have to pay my bills and I need to clean the house. You should get more sleep.","tr":"Kailangan kong magbayad ng mga bayarin at maglinis ng bahay. Dapat mas mahaba ang tulog mo."}]}
       ]
     },
     {
@@ -1409,7 +1409,7 @@
         {"goal":{"t":"I'm going to visit my family in the Philippines next month.","tr":"Bibisitahin ko ang pamilya ko sa Pilipinas sa susunod na buwan."}},
         {"dialog":[{"who":"Sarah","t":"What are you going to do this weekend?","tr":"Ano ang gagawin mo ngayong weekend?"},{"who":"Ana","t":"I'm going to clean the house. And on Sunday, I'm meeting my friends for lunch.","tr":"Maglilinis ako ng bahay. At sa Linggo, magkikita kami ng mga kaibigan ko para mananghalian."},{"who":"Sarah","t":"Fun! Where are you going to eat?","tr":"Masaya! Saan kayo kakain?"},{"who":"Ana","t":"We're going to try a new Korean place.","tr":"Susubukan namin ang isang bagong Korean restaurant."}]},
         {"term":"future","means":"ang hinaharap: ang panahon pagkatapos ng ngayon. Sa Ingles, may ilang paraan para sabihin ito: {{going to}}, {{will}}, at ang present continuous."},
-        {"p":"Para sa kilos na hindi pa nagsisimula ang “gagawin”, “bibisitahin” at “maglilinis” ng Tagalog. Sa Ingles, para sa plano o balak, ang pinakakaraniwan ay {{be going to}} + pandiwa: {{I'm going to visit my family.}}"},
+        {"p":"Ang “gagawin”, “bibisitahin” at “maglilinis” ng Tagalog ay para sa kilos na hindi pa nagsisimula. Sa Ingles, para sa plano o balak, ang pinakakaraniwan ay {{be going to}} + pandiwa: {{I'm going to visit my family.}}"},
         {"p":"**Paano ito gawin**: {{am}} / {{is}} / {{are}} + {{going to}} + pandiwa: {{I'm going to cook.}}, {{She's going to call you.}}, {{We're going to move.}} Sa mabilis na usapan, madalas itong tumunog na “gonna”: “I'm gonna cook.” Huwag lang itong isulat sa pormal na sulat."},
         { "table": [
           ["","Ingles","Tagalog"],
@@ -1993,7 +1993,7 @@
         {"type":"choice","q":"“May kaibigan akong marunong magluto.”","options":["{{I have a friend who can cook.}}","{{I have a friend which can cook.}}","{{I have a friend who he can cook.}}"],"answer":0,"why":"Tao: {{who}}, at walang {{he}}.","from":"say-what-you-can-do"},
         {"type":"order","q":"Ayusin ang mga salita.","tr":"Siya ang lalaking nag-ayos ng kotse ko.","words":["He's","the man","who","fixed","my car."],"from":"say-what-you-did"},
         {"type":"dialogue","q":"Sa isang party, ipinapakilala mo ang mga tao sa kaibigan mo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Who's the guy in the blue shirt?","tr":"Sino iyong lalaking naka-asul?"},{"options":["That's Tom. He's the guy who helped me move.","That's Tom. He's the guy which helped me move."],"answer":0,"why":"Tao: {{who}}."},{"who":"Kaibigan","t":"And the woman next to him?","tr":"E iyong babaeng katabi niya?"},{"options":["That's his wife. She's the one who made the cake we ate.","That's his wife. She's the one who she made the cake we ate."],"answer":0,"why":"Walang dobleng {{she}}; at pwedeng walang {{that}} sa {{the cake we ate}}."}],"from":"say-whose-it-is"},
-        {"type":"free","q":"Ikaw naman: ilarawan ang dalawang tao at isang lugar sa buhay mo gamit ang {{who}}, {{that}} o {{where}}.","answers":[{"t":"My best friend is a woman who always makes me laugh. My brother is the person who taught me to drive. Baguio is the place where I want to live.","tr":"Ang matalik kong kaibigan ay isang babaeng laging nagpapatawa sa akin. Ang kuya ko ang nagturo sa akin magmaneho. Ang Baguio ang lugar kung saan ko gustong tumira."},{"t":"I have a neighbor who sings every morning. This is the book that changed my life. Cebu is the city where I was born.","tr":"May kapitbahay akong kumakanta tuwing umaga. Ito ang librong bumago sa buhay ko. Ang Cebu ang lungsod kung saan ako ipinanganak."}]}
+        {"type":"free","q":"Ikaw naman: ilarawan ang dalawang tao at isang lugar sa buhay mo gamit ang {{who}}, {{that}} o {{where}}.","answers":[{"t":"My best friend is a woman who always makes me laugh. My brother is the person who taught me to drive. Baguio is the place where I want to live.","tr":"Ang matalik kong kaibigan ay isang babaeng laging nagpapatawa sa akin. Ang kuya ko ang nagturo sa aking magmaneho. Ang Baguio ang lugar kung saan ko gustong tumira."},{"t":"I have a neighbor who sings every morning. This is the book that changed my life. Cebu is the city where I was born.","tr":"May kapitbahay akong kumakanta tuwing umaga. Ito ang librong bumago sa buhay ko. Ang Cebu ang lungsod kung saan ako ipinanganak."}]}
       ]
     },
     {
@@ -2040,7 +2040,7 @@
         {"type":"choice","q":"“Sanay na ako sa lamig.”","options":["{{I'm used to the cold.}}","{{I used to the cold.}}","{{I use to the cold.}}"],"answer":0,"why":"Sanay: {{be used to}} + pangngalan."},
         {"type":"order","q":"Ayusin ang mga salita.","tr":"Napakamahiyain niya dati.","words":["She","used to","be","very","shy."]},
         {"type":"dialogue","q":"Nagkukuwentuhan kayo ng kaibigan tungkol sa pagkabata. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"What did you use to do after school?","tr":"Ano ang ginagawa mo noon pagkatapos ng klase?"},{"options":["I used to help my mom at her store.","I use to help my mom at her store."],"answer":0,"why":"Positibo: {{used to}}."},{"who":"Kaibigan","t":"Did you use to watch a lot of TV?","tr":"Madalas ka bang manood ng TV noon?"},{"options":["No, I didn't. We didn't have a TV!","No, I didn't used to. We didn't had a TV!"],"answer":0,"why":"Pagkatapos ng {{didn't}}: simpleng anyo, {{have}}."}],"from":"say-what-you-have"},
-        {"type":"free","q":"Ikaw naman: sabihin ang tatlong bagay na ginagawa mo dati pero hindi na ngayon, at isang bagay na nasanay ka na.","answers":[{"t":"I used to live with my parents. I used to take the jeepney to school. I used to hate coffee! Now I'm used to living alone.","tr":"Nakatira ako dati kasama ang mga magulang ko. Nagdyi-jeep ako dati papuntang eskuwela. Ayaw na ayaw ko dati ng kape! Ngayon, sanay na akong mag-isa."},{"t":"I used to play basketball every weekend. I didn't use to cook. My hair used to be long. I'm used to the traffic now.","tr":"Nagba-basketball ako dati tuwing weekend. Hindi ako nagluluto dati. Mahaba ang buhok ko dati. Sanay na ako sa traffic ngayon."}]}
+        {"type":"free","q":"Ikaw naman: sabihin ang tatlong bagay na ginagawa mo dati pero hindi na ngayon, at isang bagay na nasanay ka na.","answers":[{"t":"I used to live with my parents. I used to take the jeepney to school. I used to hate coffee! Now I'm used to living alone.","tr":"Nakatira ako dati kasama ang mga magulang ko. Sumasakay ako ng jeep dati papuntang eskuwela. Ayaw na ayaw ko dati ng kape! Ngayon, sanay na akong mag-isa."},{"t":"I used to play basketball every weekend. I didn't use to cook. My hair used to be long. I'm used to the traffic now.","tr":"Nagba-basketball ako dati tuwing weekend. Hindi ako nagluluto dati. Mahaba ang buhok ko dati. Sanay na ako sa traffic ngayon."}]}
       ]
     },
     {
@@ -2189,7 +2189,7 @@
       "summary": "Iulat ang sinabi at itinanong ng iba: {{She said she was tired.}} {{He told me to wait.}} {{They asked if I was okay.}}",
       "topic": "Reported speech: {{said (that)}}, {{told me (that)}}; ang pag-urong ng panahunan ({{is}} → {{was}}, {{will}} → {{would}}); {{told me to}}; {{asked if}}; ang “daw” ng Tagalog",
       "blocks": [
-        {"goal":{"t":"My boss said that the meeting was cancelled.","tr":"Kanselado raw ang meeting, sabi ng boss ko."}},
+        {"goal":{"t":"My boss said that the meeting was canceled.","tr":"Kanselado raw ang meeting, sabi ng boss ko."}},
         {"dialog":[{"who":"Mike","t":"Did you talk to Sarah?","tr":"Nakausap mo ba si Sarah?"},{"who":"Ana","t":"Yes. She said she was sick and couldn't come.","tr":"Oo. May sakit daw siya at hindi siya makakapunta."},{"who":"Mike","t":"Oh no. Did she say anything else?","tr":"Naku. May iba pa ba siyang sinabi?"},{"who":"Ana","t":"She told me to say hi to you. And she asked if we could visit her.","tr":"Ipinakumusta ka niya. At itinanong niya kung pwede natin siyang dalawin."},{"who":"Mike","t":"Of course! Let's go tomorrow.","tr":"Siyempre! Tara bukas."}]},
         {"p":"Madali sa Tagalog: “daw” o “raw” lang: “May sakit daw siya.” Sa Ingles, may pandiwa para sa nagsalita ({{said}}, {{told}}, {{asked}}), at karaniwang **umaatras ng isang hakbang** ang panahunan: ang {{I'm sick}} ni Sarah ay nagiging {{She said she was sick.}}"},
         { "table": [
@@ -2287,7 +2287,7 @@
       "level": "B1",
       "title": "Unawain ang passive",
       "summary": "Kilalanin ang passive sa balita, karatula at paliwanag: {{The store is closed on Sundays.}} {{This phone was made in China.}} {{The church was built in 1890.}}",
-      "topic": "Ang passive: {{be}} + past participle ({{is made}}, {{was built}}); {{by}}; kung kailan ito ginagamit; hindi passive ang object focus ng Tagalog",
+      "topic": "Ang passive: {{be}} + past participle ({{is made}}, {{was built}}); {{by}}; kung kailan ito ginagamit; hindi passive ang pokus sa layon ng Tagalog",
       "blocks": [
         {"goal":{"t":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito."}},
         {"dialog":[{"who":"Ana","t":"Wow, this church is beautiful. When was it built?","tr":"Wow, ang ganda ng simbahang ito. Kailan ito itinayo?"},{"who":"Guide","t":"It was built in 1890 by Spanish priests.","tr":"Itinayo ito noong 1890 ng mga paring Espanyol."},{"who":"Ana","t":"Is it still used today?","tr":"Ginagamit pa ba ito ngayon?"},{"who":"Guide","t":"Yes, Mass is held here every Sunday.","tr":"Oo, may misa dito tuwing Linggo."}]},
@@ -2301,7 +2301,7 @@
         ] },
         {"p":"**Ang anyo**: {{be}} ({{is}}, {{are}}, {{was}}, {{were}}) + past participle (aralin 34): {{is made}}, {{was built}}, {{were sold}}. Ang gumawa, kung mahalagang sabihin: {{by}}: {{by Spanish priests}}."},
         {"p":"**Saan mo ito makikita**: sa balita ({{Two people were injured.}}), sa mga karatula ({{The store is closed on Sundays.}}, {{English is spoken here.}}), at sa mga paliwanag ({{Adobo is made with vinegar and soy sauce.}})."},
-        {"p":"**Hindi passive ang object focus ng Tagalog.** Sa “Kinain ko ang mangga”, ang mangga ang paksa, pero sa Ingles, active pa rin ang natural: {{I ate the mango.}}, hindi {{The mango was eaten by me.}} Gamitin ang passive kapag hindi mo alam o hindi mahalaga kung sino ang gumawa."},
+        {"p":"**Hindi passive ang pokus sa layon ng Tagalog.** Sa “Kinain ko ang mangga”, ang mangga ang paksa, pero sa Ingles, active pa rin ang natural: {{I ate the mango.}}, hindi {{The mango was eaten by me.}} Gamitin ang passive kapag hindi mo alam o hindi mahalaga kung sino ang gumawa."},
         { "ex": [
           {"t":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito."},
           {"t":"The church was built in 1890.","tr":"Itinayo ang simbahan noong 1890."},
@@ -2316,7 +2316,7 @@
       "mistakes": [
         {"wrong":"This phone made in China.","right":"This phone was made in China.","tr":"Gawa sa China ang cellphone na ito.","why":"Kailangan ang {{be}} sa passive."},
         {"wrong":"The church was build in 1890.","right":"The church was built in 1890.","tr":"Itinayo ang simbahan noong 1890.","why":"Past participle ang kasunod: {{built}}."},
-        {"wrong":"The mango was eaten by me.","right":"I ate the mango.","tr":"Kinain ko ang mangga.","why":"Kahit object focus ang Tagalog, active ang natural sa Ingles kapag alam at mahalaga ang gumawa."}
+        {"wrong":"The mango was eaten by me.","right":"I ate the mango.","tr":"Kinain ko ang mangga.","why":"Kahit pokus sa layon ang Tagalog, active ang natural sa Ingles kapag alam at mahalaga ang gumawa."}
       ],
       "practice": [
         {"type":"fill","q":"Piliin ang nawawalang salita.","t":"This phone was ___ in China.","tr":"Gawa sa China ang cellphone na ito.","options":["made","make","making"],"answer":0,"why":"{{be}} + past participle: {{made}}.","from":"talk-about-experiences"},
