@@ -918,6 +918,272 @@
         {"type":"say","q":"Ask your friend Raj: “Where were you yesterday?”","answer":"तुम कल कहाँ थे?","r":"tum kal kahā̃ the?"},
         {"type":"free","q":"Your turn: say where you were last weekend, and what it was like.","answers":[{"t":"पिछले हफ़्ते मैं मुंबई में था। मौसम बहुत गरम था, लेकिन खाना बहुत अच्छा था।","r":"pichhle hafte maĩ mumbaī mẽ thā. mausam bahut garam thā, lekin khānā bahut achchhā thā.","tr":"Last week I was in Mumbai. The weather was very hot, but the food was great."},{"t":"शनिवार को मैं एक शादी में थी। बहुत लोग थे और खाना बहुत अच्छा था।","r":"shanivār ko maĩ ek shādī mẽ thī. bahut log the aur khānā bahut achchhā thā.","tr":"On Saturday I was at a wedding. There were lots of people and the food was great."}]}
       ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you want to do",
+      "summary": "Say “I want to learn Hindi”, “I want to go to Goa”, and ask what others want to do.",
+      "topic": "{{चाहना|chāhnā}} “to want” + the {{-ना|-nā}} form; {{चाहिए|chāhie}} or {{चाहना|chāhnā}}?",
+      "blocks": [
+        {"goal":{"t":"मैं हिंदी सीखना चाहता हूँ।","r":"maĩ hindī sīkhnā chāhtā hū̃.","tr":"I want to learn Hindi.","note":"said by a man; a woman says {{चाहती हूँ|chāhtī hū̃}}"}},
+        {"dialog":[{"who":"Ravi","t":"तुम छुट्टियों में क्या करना चाहती हो?","r":"tum chhuṭṭiyõ mẽ kyā karnā chāhtī ho?","tr":"What do you want to do on vacation?"},{"who":"Emma","t":"मैं गोवा जाना चाहती हूँ। मैं समुद्र देखना चाहती हूँ।","r":"maĩ govā jānā chāhtī hū̃. maĩ samudra dekhnā chāhtī hū̃.","tr":"I want to go to Goa. I want to see the ocean."},{"who":"Ravi","t":"अच्छा! और तुम्हारा भाई?","r":"achchhā! aur tumhārā bhāī?","tr":"Nice! And your brother?"},{"who":"Emma","t":"वह कुछ नहीं करना चाहता। वह बस सोना चाहता है!","r":"vah kuchh nahī̃ karnā chāhtā. vah bas sonā chāhtā hai!","tr":"He doesn't want to do anything. He just wants to sleep!"}]},
+        {"p":"**Want to do.** {{चाहना|chāhnā}} “to want” is an ordinary verb, with the present endings of lesson 14: {{मैं चाहता हूँ|maĩ chāhtā hū̃}} (a man), {{मैं चाहती हूँ|maĩ chāhtī hū̃}} (a woman). What you want to do goes before it, in the {{-ना|-nā}} form: {{मैं गोवा जाना चाहती हूँ|maĩ govā jānā chāhtī hū̃}} “I want to go to Goa”, word for word “I Goa to-go want”."},
+        {"p":"**Two ways of wanting.** {{मुझे … चाहिए|mujhe … chāhie}} (lesson 4) is for things you need or ask for: {{मुझे चाय चाहिए|mujhe chāy chāhie}}. {{चाहना|chāhnā}} is for what you want to do: {{मैं चाय पीना चाहता हूँ|maĩ chāy pīnā chāhtā hū̃}} “I want to drink tea”. With {{चाहना|chāhnā}}, the person is the ordinary {{मैं|maĩ}}, not {{मुझे|mujhe}}."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["a thing you need","{{मुझे एक टिकट चाहिए।|mujhe ek ṭikaṭ chāhie.}}","I need a ticket."],
+          ["something you want to do","{{मैं घर जाना चाहता हूँ।|maĩ ghar jānā chāhtā hū̃.}}","I want to go home."],
+          ["a polite offer","{{आप क्या खाना चाहेंगे?|āp kyā khānā chāhẽge?}}","What would you like to eat?"]
+        ] },
+        {"p":"**Polite offers.** Waiters and hosts use the future of {{चाहना|chāhnā}}, {{चाहेंगे|chāhẽge}}, for “would you like”: {{आप क्या लेना चाहेंगे?|āp kyā lenā chāhẽge?}} “What would you like to have?” (The future is the next lesson.)"},
+        { "ex": [
+          {"t":"मैं हिंदी अच्छी तरह बोलना चाहता हूँ।","r":"maĩ hindī achchhī tarah bolnā chāhtā hū̃.","tr":"I want to speak Hindi well."},
+          {"t":"वह डॉक्टर बनना चाहती है।","r":"vah ḍôkṭar bannā chāhtī hai.","tr":"She wants to become a doctor."},
+          {"t":"क्या तुम मेरे साथ आना चाहते हो?","r":"kyā tum mere sāth ānā chāhte ho?","tr":"Do you want to come with me?"},
+          {"t":"हम भारत घूमना चाहते हैं।","r":"ham bhārat ghūmnā chāhte haĩ.","tr":"We want to travel around India."},
+          {"t":"मैं आज कुछ नहीं करना चाहती।","r":"maĩ āj kuchh nahī̃ karnā chāhtī.","tr":"I don't want to do anything today.","note":"a woman speaking; the {{हूँ|hū̃}} is left out after {{नहीं|nahī̃}} (lesson 15)"},
+          {"t":"बच्चे बाहर खेलना चाहते हैं।","r":"bachche bāhar khelnā chāhte haĩ.","tr":"The children want to play outside."}
+        ] },
+        {"tip":"In a shop or a café, {{मैं … चाहता हूँ|maĩ … chāhtā hū̃}} can sound a little blunt; there, {{मुझे … चाहिए|mujhe … chāhie}} or {{… दीजिए|… dījie}} is more natural."}
+      ],
+      "mistakes": [
+        {"wrong":"मुझे घर जाना चाहता हूँ।","right":"मैं घर जाना चाहता हूँ।","tr":"I want to go home.","why":"With {{चाहना|chāhnā}}, the person is {{मैं|maĩ}}. {{मुझे|mujhe}} goes with {{चाहिए|chāhie}}."},
+        {"wrong":"मैं जाता चाहता हूँ।","right":"मैं जाना चाहता हूँ।","tr":"I want to go.","why":"The verb before {{चाहना|chāhnā}} is in its {{-ना|-nā}} form."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मैं गोवा ___ चाहती हूँ।","tr":"I want to go to Goa.","options":["जाना","जाती","जा"],"answer":0,"why":"Before {{चाहना|chāhnā}}: the {{-ना|-nā}} form."},
+        {"type":"choice","q":"Which one is right for “I want to drink water”?","options":["{{मैं पानी पीना चाहता हूँ।|maĩ pānī pīnā chāhtā hū̃.}}","{{मुझे पानी पीना चाहता हूँ।|mujhe pānī pīnā chāhtā hū̃.}}"],"answer":0,"why":"With {{चाहना|chāhnā}}: {{मैं|maĩ}}. ({{मुझे पानी चाहिए|mujhe pānī chāhie}} would be “I need water”.)","from":"ask-for-what-you-need"},
+        {"type":"fill","q":"Your friend Anil is speaking. Choose the right form.","t":"मैं डॉक्टर बनना ___ हूँ।","tr":"I want to become a doctor.","options":["चाहता","चाहती","चाहिए"],"answer":0,"why":"A man: {{चाहता|chāhtā}}.","from":"say-what-you-do-every-day"},
+        {"type":"order","q":"Put the words in order.","tr":"Do you want to come with me?","words":["क्या","तुम","मेरे","साथ","आना","चाहते","हो?"]},
+        {"type":"dialogue","q":"A friend asks about your Saturday. Choose your replies (you're a woman).","lines":[{"who":"Friend","t":"शनिवार को क्या करना चाहती हो?","r":"shanivār ko kyā karnā chāhtī ho?","tr":"What do you want to do on Saturday?"},{"options":["मैं फ़िल्म देखना चाहती हूँ।","मैं फ़िल्म देखती चाहती हूँ।"],"answer":0,"why":"{{देखना|dekhnā}} + {{चाहती हूँ|chāhtī hū̃}}."},{"who":"Friend","t":"कौन-सी फ़िल्म?","r":"kaun-sī film?","tr":"Which movie?"},{"options":["कोई भी! मैं बस घर से बाहर जाना चाहती हूँ।","कोई भी! मुझे बस घर से बाहर जाना चाहती हूँ।"],"answer":0,"why":"With {{चाहना|chāhnā}}: {{मैं|maĩ}}."}]},
+        {"type":"say","q":"Say: “The children want to play outside.”","answer":"बच्चे बाहर खेलना चाहते हैं।","r":"bachche bāhar khelnā chāhte haĩ."},
+        {"type":"free","q":"Your turn: say two things you want to do this year.","answers":[{"t":"मैं हिंदी सीखना चाहता हूँ और भारत जाना चाहता हूँ।","r":"maĩ hindī sīkhnā chāhtā hū̃ aur bhārat jānā chāhtā hū̃.","tr":"I want to learn Hindi and go to India. (a man)"},{"t":"मैं ज़्यादा पढ़ना चाहती हूँ, और रोज़ योग करना चाहती हूँ।","r":"maĩ zyādā paṛhnā chāhtī hū̃, aur roz yog karnā chāhtī hū̃.","tr":"I want to read more, and do yoga every day. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-will-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you will do",
+      "summary": "Talk about tomorrow and next week: “I'll call you”, “It'll rain”, “We'll go to Delhi.”",
+      "topic": "The future: {{-ऊँगा|-ū̃gā}}, {{-एगा|-egā}}, {{-ओगे|-oge}}, {{-एँगे|-ẽge}} (and {{-गी|-gī}} for women); {{होगा|hogā}} “will be”",
+      "blocks": [
+        {"goal":{"t":"कल मैं तुम्हें फ़ोन करूँगा।","r":"kal maĩ tumhẽ fon karū̃gā.","tr":"I'll call you tomorrow.","note":"said by a man; a woman says {{करूँगी|karū̃gī}}"}},
+        {"dialog":[{"who":"Neha","t":"तुम कल क्या करोगे?","r":"tum kal kyā karoge?","tr":"What will you do tomorrow?"},{"who":"Sam","t":"सुबह मैं जिम जाऊँगा, फिर शाम को दोस्तों से मिलूँगा।","r":"subah maĩ jim jāū̃gā, phir shām ko dostõ se milū̃gā.","tr":"In the morning I'll go to the gym, then in the evening I'll meet friends."},{"who":"Neha","t":"कल बारिश होगी, पता है?","r":"kal bārish hogī, patā hai?","tr":"It's going to rain tomorrow, you know?"},{"who":"Sam","t":"तो मैं घर पर रहूँगा और फ़िल्म देखूँगा!","r":"to maĩ ghar par rahū̃gā aur film dekhū̃gā!","tr":"Then I'll stay home and watch a movie!"}]},
+        {"p":"**The future.** Take the stem and add one ending that says who, then {{-गा|-gā}}, {{-गी|-gī}} or {{-गे|-ge}} for masculine, feminine or plural. There is no {{हूँ|hū̃}} or {{है|hai}} at the end: the ending does all the work."},
+        { "table": [
+          ["","a man","a woman"],
+          ["I","{{मैं जाऊँगा|maĩ jāū̃gā}}","{{मैं जाऊँगी|maĩ jāū̃gī}}"],
+          ["you ({{आप|āp}})","{{आप जाएँगे|āp jāẽge}}","{{आप जाएँगी|āp jāẽgī}}"],
+          ["you ({{तुम|tum}})","{{तुम जाओगे|tum jāoge}}","{{तुम जाओगी|tum jāogī}}"],
+          ["he, she","{{वह जाएगा|vah jāegā}}","{{वह जाएगी|vah jāegī}}"],
+          ["we, they","{{हम / वे जाएँगे|ham / ve jāẽge}}","{{हम / वे जाएँगी|ham / ve jāẽgī}}"]
+        ] },
+        {"p":"Every verb takes the same endings: {{करूँगा|karū̃gā}} “I'll do”, {{खाएगी|khāegī}} “she'll eat”, {{देखेंगे|dekhẽge}} “we'll see”. Two common verbs are shorter: {{देना|denā}} → {{दूँगा|dū̃gā}}, {{देगा|degā}}, {{देंगे|dẽge}} “will give”; {{लेना|lenā}} → {{लूँगा|lū̃gā}}, {{लेगा|legā}}, {{लेंगे|lẽge}} “will take”."},
+        {"p":"**Will be.** The future of {{होना|honā}} “to be” is {{होगा|hogā}}, {{होगी|hogī}}, {{होंगे|hõge}}: {{कल बारिश होगी|kal bārish hogī}} “It'll rain tomorrow”, {{पार्टी बहुत अच्छी होगी|pārṭī bahut achchhī hogī}} “The party will be great”."},
+        {"p":"**Time words** for the future: {{कल|kal}} “tomorrow” (with a future verb, it can't be “yesterday”), {{परसों|parsõ}} “the day after tomorrow”, {{अगले हफ़्ते|agle hafte}} “next week”, {{बाद में|bād mẽ}} “later”."},
+        { "ex": [
+          {"t":"मैं कल आऊँगी।","r":"maĩ kal āū̃gī.","tr":"I'll come tomorrow.","note":"a woman speaking"},
+          {"t":"हम अगले हफ़्ते दिल्ली जाएँगे।","r":"ham agle hafte dillī jāẽge.","tr":"We'll go to Delhi next week."},
+          {"t":"शायद कल बारिश होगी।","r":"shāyad kal bārish hogī.","tr":"It'll probably rain tomorrow."},
+          {"t":"मैं तुम्हें बाद में फ़ोन करूँगा।","r":"maĩ tumhẽ bād mẽ fon karū̃gā.","tr":"I'll call you later."},
+          {"t":"आप क्या लेंगे, चाय या कॉफ़ी?","r":"āp kyā lẽge, chāy yā kôfī?","tr":"What will you have, tea or coffee?"},
+          {"t":"वह नहीं आएगा।","r":"vah nahī̃ āegā.","tr":"He won't come.","note":"{{नहीं|nahī̃}} before the verb, as always"}
+        ] },
+        {"tip":"Hindi also uses {{होगा|hogā}} for a guess about now: {{वह घर पर होगा|vah ghar par hogā}} “He must be at home” (lesson 48)."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं कल जाऊँगा हूँ।","right":"मैं कल जाऊँगा।","tr":"I'll go tomorrow.","why":"The future has no {{हूँ|hū̃}} or {{है|hai}} at the end."},
+        {"wrong":"मैं कल आऊँगा।","right":"मैं कल आऊँगी।","tr":"I'll come tomorrow.","why":"A woman is speaking: the ending is {{-गी|-gī}}."},
+        {"wrong":"हम कल जाएगा।","right":"हम कल जाएँगे।","tr":"We'll go tomorrow.","why":"{{हम|ham}} “we”: {{-एँगे|-ẽge}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"हम अगले हफ़्ते दिल्ली ___।","tr":"We'll go to Delhi next week.","options":["जाएँगे","जाएगा","जाते"],"answer":0,"why":"{{हम|ham}}: {{-एँगे|-ẽge}}."},
+        {"type":"fill","q":"A woman is speaking. Choose the right form.","t":"मैं तुम्हें बाद में फ़ोन ___।","tr":"I'll call you later.","options":["करूँगी","करूँगा","करेगी"],"answer":0,"why":"{{मैं|maĩ}}, a woman: {{करूँगी|karū̃gī}}."},
+        {"type":"choice","q":"{{कल बारिश होगी।|kal bārish hogī.}} means…","options":["It will rain tomorrow.","It rained yesterday.","It's raining now."],"answer":0,"why":"{{होगी|hogī}} is the future, so {{कल|kal}} is “tomorrow”.","from":"say-where-you-were"},
+        {"type":"order","q":"Put the words in order.","tr":"He won't come.","words":["वह","नहीं","आएगा।"],"from":"ask-and-say-no"},
+        {"type":"dialogue","q":"Making plans. Choose your replies (you're a man).","from":"tell-the-time","lines":[{"who":"Priya","t":"कल तुम क्या करोगे?","r":"kal tum kyā karoge?","tr":"What will you do tomorrow?"},{"options":["मैं बाज़ार जाऊँगा।","मैं बाज़ार जाऊँगा हूँ।"],"answer":0,"why":"The future needs no {{हूँ|hū̃}}."},{"who":"Priya","t":"मैं भी आऊँगी! कितने बजे?","r":"maĩ bhī āū̃gī! kitne baje?","tr":"I'll come too! What time?"},{"options":["दस बजे। मैं तुम्हें फ़ोन करूँगा।","दस बजे पर। मैं तुम्हें फ़ोन करूँगा।"],"answer":0,"why":"“At ten” is just {{दस बजे|das baje}}."}]},
+        {"type":"say","q":"Ask your friend Sam: “What will you do tomorrow?”","answer":"तुम कल क्या करोगे?","r":"tum kal kyā karoge?"},
+        {"type":"free","q":"Your turn: say three things you'll do this weekend.","answers":[{"t":"शनिवार को मैं देर से उठूँगा, फिर दोस्तों से मिलूँगा।","r":"shanivār ko maĩ der se uṭhū̃gā, phir dostõ se milū̃gā.","tr":"On Saturday I'll get up late, then meet friends. (a man)"},{"t":"रविवार को मैं खाना बनाऊँगी और एक किताब पढ़ूँगी।","r":"ravivār ko maĩ khānā banāū̃gī aur ek kitāb paṛhū̃gī.","tr":"On Sunday I'll cook and read a book. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you can and can't do",
+      "summary": "Say “I can swim”, ask “May I sit here?” and “Could you help me?”, and say which languages you know.",
+      "topic": "{{सकना|saknā}} “can” after the stem; asking permission; {{मुझे हिंदी आती है|mujhe hindī ātī hai}} “I know Hindi”; {{पाना|pānā}} “manage to”",
+      "blocks": [
+        {"goal":{"t":"क्या मैं यहाँ बैठ सकता हूँ?","r":"kyā maĩ yahā̃ baiṭh saktā hū̃?","tr":"May I sit here?","note":"said by a man; a woman says {{सकती हूँ|saktī hū̃}}"}},
+        {"dialog":[{"who":"Tom","t":"माफ़ कीजिए, क्या मैं यहाँ बैठ सकता हूँ?","r":"māf kījie, kyā maĩ yahā̃ baiṭh saktā hū̃?","tr":"Excuse me, may I sit here?"},{"who":"Woman","t":"हाँ, बैठिए। आप हिंदी बोल सकते हैं!","r":"hā̃, baiṭhie. āp hindī bol sakte haĩ!","tr":"Yes, sit down. You can speak Hindi!"},{"who":"Tom","t":"थोड़ी-थोड़ी। मुझे हिंदी थोड़ी आती है।","r":"thoṛī-thoṛī. mujhe hindī thoṛī ātī hai.","tr":"A little. I know a little Hindi."},{"who":"Woman","t":"बहुत अच्छे! क्या आप हिंदी पढ़ सकते हैं?","r":"bahut achchhe! kyā āp hindī paṛh sakte haĩ?","tr":"Very good! Can you read Hindi?"},{"who":"Tom","t":"अभी नहीं, लेकिन मैं सीख रहा हूँ।","r":"abhī nahī̃, lekin maĩ sīkh rahā hū̃.","tr":"Not yet, but I'm learning."}]},
+        {"p":"**Can.** {{सकना|saknā}} “to be able” comes after the stem of the main verb, and takes the endings: {{मैं हिंदी बोल सकता हूँ|maĩ hindī bol saktā hū̃}} “I can speak Hindi”, {{वह तैर सकती है|vah tair saktī hai}} “She can swim”. The main verb is just its stem and never changes."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["can","{{मैं आ सकता हूँ।|maĩ ā saktā hū̃.}}","I can come."],
+          ["can't","{{मैं नहीं आ सकता।|maĩ nahī̃ ā saktā.}}","I can't come."],
+          ["will be able to","{{मैं आ सकूँगा।|maĩ ā sakū̃gā.}}","I'll be able to come."]
+        ] },
+        {"p":"**May I? Could you?** A question with {{सकना|saknā}} asks for permission: {{क्या मैं अंदर आ सकता हूँ?|kyā maĩ andar ā saktā hū̃?}} “May I come in?” With {{आप|āp}}, it is a polite request: {{क्या आप थोड़ा धीरे बोल सकते हैं?|kyā āp thoṛā dhīre bol sakte haĩ?}} “Could you speak a little slower?”"},
+        {"p":"**Knowing a language or a skill.** For something you have learned, Hindi likes the “to” form with {{आना|ānā}} “to come”: {{मुझे हिंदी आती है|mujhe hindī ātī hai}} “I know Hindi”, word for word “Hindi comes to me”; {{मुझे तैरना आता है|mujhe tairnā ātā hai}} “I know how to swim”. The verb agrees with the language or the skill: {{हिंदी|hindī}} is feminine, so {{आती|ātī}}."},
+        {"p":"**Manage to.** {{पाना|pānā}} works like {{सकना|saknā}} but means “manage to”, and is very common with {{नहीं|nahī̃}}: {{मैं रात को ठीक से सो नहीं पाता|maĩ rāt ko ṭhīk se so nahī̃ pātā}} “I can't manage to sleep properly at night”, {{मैं कल नहीं आ पाऊँगी|maĩ kal nahī̃ ā pāū̃gī}} “I won't be able to make it tomorrow”."},
+        { "ex": [
+          {"t":"क्या आप मेरी मदद कर सकते हैं?","r":"kyā āp merī madad kar sakte haĩ?","tr":"Could you help me?","note":"{{मदद|madad}} “help” is feminine, so “my help” is {{मेरी मदद|merī madad}}"},
+          {"t":"मैं कल नहीं आ सकती।","r":"maĩ kal nahī̃ ā saktī.","tr":"I can't come tomorrow.","note":"a woman speaking"},
+          {"t":"क्या यहाँ फ़ोटो ले सकते हैं?","r":"kyā yahā̃ foṭo le sakte haĩ?","tr":"Can we take photos here?"},
+          {"t":"मुझे तैरना नहीं आता।","r":"mujhe tairnā nahī̃ ātā.","tr":"I can't swim.","note":"I never learned how"},
+          {"t":"वह बहुत अच्छा गा सकती है।","r":"vah bahut achchhā gā saktī hai.","tr":"She can sing really well."},
+          {"t":"मुझे थोड़ी-थोड़ी हिंदी आती है।","r":"mujhe thoṛī-thoṛī hindī ātī hai.","tr":"I know a little Hindi."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं हिंदी बोलना सकता हूँ।","right":"मैं हिंदी बोल सकता हूँ।","tr":"I can speak Hindi.","why":"Before {{सकना|saknā}}, only the stem: {{बोल|bol}}, not {{बोलना|bolnā}}."},
+        {"wrong":"मैं हिंदी आता हूँ।","right":"मुझे हिंदी आती है।","tr":"I know Hindi.","why":"Knowing a language is “Hindi comes to me”: {{मुझे … आती है|mujhe … ātī hai}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"क्या आप मेरी मदद कर ___ हैं?","tr":"Could you help me?","options":["सकते","सकता","सकना"],"answer":0,"why":"{{आप|āp}}: {{सकते हैं|sakte haĩ}}."},
+        {"type":"choice","q":"Which one means “I can't come”?","options":["{{मैं नहीं आ सकता।|maĩ nahī̃ ā saktā.}}","{{मैं आना नहीं सकता।|maĩ ānā nahī̃ saktā.}}","{{मुझे नहीं आ सकता।|mujhe nahī̃ ā saktā.}}"],"answer":0,"why":"The stem {{आ|ā}} + {{सकता|saktā}}; {{नहीं|nahī̃}} before the verb, and the {{हूँ|hū̃}} left out (lesson 15).","from":"ask-about-routines"},
+        {"type":"fill","q":"Choose the right form.","t":"मुझे हिंदी थोड़ी ___ है।","tr":"I know a little Hindi.","options":["आती","आता","सकती"],"answer":0,"why":"“Hindi comes to me”, and {{हिंदी|hindī}} is feminine: {{आती|ātī}}.","from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"May I sit here?","words":["क्या","मैं","यहाँ","बैठ","सकता","हूँ?"]},
+        {"type":"dialogue","q":"In a clothing store: choose your lines (you're a man).","lines":[{"who":"Salesman","t":"जी, बोलिए।","r":"jī, bolie.","tr":"Yes, how can I help?"},{"options":["क्या मैं यह शर्ट देख सकता हूँ?","क्या मैं यह शर्ट देखना सकता हूँ?"],"answer":0,"why":"The stem {{देख|dekh}} + {{सकना|saknā}}."},{"who":"Salesman","t":"हाँ, ज़रूर। यह लीजिए।","r":"hā̃, zarūr. yah lījie.","tr":"Yes, of course. Here you are."},{"options":["शुक्रिया। क्या मैं कार्ड से पैसे दे सकता हूँ?","शुक्रिया। क्या मैं कार्ड से पैसे दे सकता हैं?"],"answer":0,"why":"{{मैं|maĩ}}: {{सकता हूँ|saktā hū̃}}."},{"who":"Salesman","t":"हाँ, बिल्कुल।","r":"hā̃, bilkul.","tr":"Yes, of course."}]},
+        {"type":"say","q":"Ask politely: “Could you speak a little slower?”","answer":"क्या आप थोड़ा धीरे बोल सकते हैं?","r":"kyā āp thoṛā dhīre bol sakte haĩ?","from":"ask-people-to-do-things"},
+        {"type":"free","q":"Your turn: say two things you can do, one you can't, and which languages you know.","answers":[{"t":"मैं तैर सकता हूँ और गाड़ी चला सकता हूँ, लेकिन मैं नाच नहीं सकता। मुझे अंग्रेज़ी और थोड़ी हिंदी आती है।","r":"maĩ tair saktā hū̃ aur gāṛī chalā saktā hū̃, lekin maĩ nāch nahī̃ saktā. mujhe aṅgrezī aur thoṛī hindī ātī hai.","tr":"I can swim and drive, but I can't dance. I know English and a little Hindi. (a man)"},{"t":"मुझे स्पैनिश आती है। मैं खाना बना सकती हूँ, लेकिन मैं गा नहीं सकती।","r":"mujhe spainish ātī hai. maĩ khānā banā saktī hū̃, lekin maĩ gā nahī̃ saktī.","tr":"I know Spanish. I can cook, but I can't sing. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you have to do and should do",
+      "summary": "Say “I have to get up early”, “You should rest”, “We'll have to wait”: three ways of saying must.",
+      "topic": "The “to” form + the {{-ना|-nā}} form + {{है|hai}} (have to), {{चाहिए|chāhie}} (should), {{पड़ेगा|paṛegā}} (will have to)",
+      "blocks": [
+        {"goal":{"t":"मुझे कल जल्दी उठना है।","r":"mujhe kal jaldī uṭhnā hai.","tr":"I have to get up early tomorrow."}},
+        {"dialog":[{"who":"Raj","t":"आज रात पार्टी में आओगे?","r":"āj rāt pārṭī mẽ āoge?","tr":"Are you coming to the party tonight?"},{"who":"Mike","t":"नहीं यार, मुझे कल जल्दी उठना है। मुझे सुबह छह बजे एयरपोर्ट जाना है।","r":"nahī̃ yār, mujhe kal jaldī uṭhnā hai. mujhe subah chhah baje eyarporṭ jānā hai.","tr":"No, man, I have to get up early tomorrow. I have to go to the airport at six in the morning."},{"who":"Raj","t":"अरे! फिर तुम्हें जल्दी सोना चाहिए।","r":"are! phir tumhẽ jaldī sonā chāhie.","tr":"Oh! Then you should go to bed early."},{"who":"Mike","t":"हाँ। और मुझे अभी सामान भी पैक करना पड़ेगा!","r":"hā̃. aur mujhe abhī sāmān bhī paik karnā paṛegā!","tr":"Yes. And I'll have to pack my bags right now too!"}]},
+        {"p":"**Three kinds of “have to”.** All three put the person in the “to” form (lesson 16) and the action in the {{-ना|-nā}} form; only the last word changes:"},
+        { "table": [
+          ["","Hindi","meaning"],
+          ["{{… है|… hai}}","{{मुझे जाना है।|mujhe jānā hai.}}","I have to go; I'm going to go (a plan, a task)"],
+          ["{{… चाहिए|… chāhie}}","{{मुझे जाना चाहिए।|mujhe jānā chāhie.}}","I should go (advice, what's right)"],
+          ["{{… पड़ेगा|… paṛegā}}","{{मुझे जाना पड़ेगा।|mujhe jānā paṛegā.}}","I'll have to go (no choice)"]
+        ] },
+        {"p":"**{{है|hai}}: I've got to.** {{मुझे काम करना है|mujhe kām karnā hai}} “I have to work” is the everyday way to say what you have to do or plan to do. Its past is {{मुझे जाना था|mujhe jānā thā}} “I was supposed to go”."},
+        {"p":"**{{चाहिए|chāhie}}: should.** The same {{चाहिए|chāhie}} as “I need” (lesson 4), but after a verb it means “should”: {{आपको आराम करना चाहिए|āpko ārām karnā chāhie}} “You should rest.” It never changes."},
+        {"p":"**{{पड़ना|paṛnā}}: must, with no choice.** {{पड़ना|paṛnā}} (literally “to fall”) is for things you can't avoid: {{मुझे रोज़ बस से जाना पड़ता है|mujhe roz bas se jānā paṛtā hai}} “I have to take the bus every day (there's no other way)”. It takes the ordinary tenses: {{पड़ता है|paṛtā hai}} (usually), {{पड़ेगा|paṛegā}} (will have to)."},
+        { "ex": [
+          {"t":"मुझे डॉक्टर के पास जाना है।","r":"mujhe ḍôkṭar ke pās jānā hai.","tr":"I have to go to the doctor."},
+          {"t":"अब मुझे जाना है।","r":"ab mujhe jānā hai.","tr":"I have to go now."},
+          {"t":"तुम्हें ज़्यादा पानी पीना चाहिए।","r":"tumhẽ zyādā pānī pīnā chāhie.","tr":"You should drink more water."},
+          {"t":"हमें कल दफ़्तर जाना पड़ेगा।","r":"hamẽ kal daftar jānā paṛegā.","tr":"We'll have to go to the office tomorrow."},
+          {"t":"उसे रोज़ बहुत दूर जाना पड़ता है।","r":"use roz bahut dūr jānā paṛtā hai.","tr":"She has to travel a long way every day."},
+          {"t":"बच्चों को जल्दी सोना चाहिए।","r":"bachchõ ko jaldī sonā chāhie.","tr":"Children should go to bed early.","note":"{{बच्चों को|bachchõ ko}}: before {{को|ko}}, the plural ends in {{-ओं|-õ}} (lesson 9)"}
+        ] },
+        {"tip":"Hindi speakers often make the {{-ना|-nā}} form agree with a feminine thing: {{मुझे चाय पीनी है|mujhe chāy pīnī hai}} “I want to have some tea”, {{तुम्हें हिंदी फ़िल्में देखनी चाहिए|tumhẽ hindī filmẽ dekhnī chāhie}} “You should watch Hindi films”. You'll hear both {{पीना|pīnā}} and {{पीनी|pīnī}}; both are understood."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं जाना है।","right":"मुझे जाना है।","tr":"I have to go.","why":"“Have to” uses the “to” form: {{मुझे|mujhe}}."},
+        {"wrong":"तुम आराम करना चाहिए।","right":"तुम्हें आराम करना चाहिए।","tr":"You should rest.","why":"{{चाहिए|chāhie}} “should” needs the “to” form too: {{तुम्हें|tumhẽ}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your doctor tells you {{आपको आराम करना चाहिए।|āpko ārām karnā chāhie.}} What does she mean?","options":["You should rest.","You want to rest.","You're resting."],"answer":0,"why":"After a verb, {{चाहिए|chāhie}} means “should”."},
+        {"type":"fill","q":"Choose the right word.","t":"___ कल जल्दी उठना है।","tr":"I have to get up early tomorrow.","options":["मुझे","मैं","मेरा"],"answer":0,"why":"“Have to”: the “to” form, {{मुझे|mujhe}}.","from":"say-what-you-like"},
+        {"type":"fill","q":"Choose the right word.","t":"हमें कल दफ़्तर जाना ___।","tr":"We'll have to go to the office tomorrow.","options":["पड़ेगा","पड़ता","चाहता"],"answer":0,"why":"“Will have to”: the future of {{पड़ना|paṛnā}}.","from":"say-what-you-will-do"},
+        {"type":"order","q":"Put the words in order.","tr":"You should drink more water.","words":["तुम्हें","ज़्यादा","पानी","पीना","चाहिए।"]},
+        {"type":"dialogue","q":"A friend wants to go out, but you're busy. Choose your replies.","lines":[{"who":"Raj","t":"आज शाम तुम फ़्री हो?","r":"āj shām tum frī ho?","tr":"Are you free this evening?"},{"options":["नहीं, मुझे काम करना है।","नहीं, मैं काम करना है।"],"answer":0,"why":"“Have to”: {{मुझे … है|mujhe … hai}}."},{"who":"Raj","t":"और कल?","r":"aur kal?","tr":"And tomorrow?"},{"options":["कल भी नहीं। मुझे दिल्ली जाना है।","कल भी नहीं। मुझे दिल्ली जाना चाहता हूँ।"],"answer":0,"why":"{{मुझे|mujhe}} goes with {{है|hai}}, {{चाहिए|chāhie}} or {{पड़ेगा|paṛegā}}; never with {{चाहता हूँ|chāhtā hū̃}}."}]},
+        {"type":"say","q":"Say: “I have to go now.”","answer":"अब मुझे जाना है।","r":"ab mujhe jānā hai."},
+        {"type":"free","q":"Your turn: say one thing you have to do this week, and give a friend one piece of advice with {{चाहिए|chāhie}}.","answers":[{"t":"इस हफ़्ते मुझे बहुत काम करना है। तुम्हें ज़्यादा सोना चाहिए!","r":"is hafte mujhe bahut kām karnā hai. tumhẽ zyādā sonā chāhie!","tr":"I have a lot of work to do this week. You should sleep more!"},{"t":"मुझे शुक्रवार को डॉक्टर के पास जाना है। तुम्हें हिंदी फ़िल्में देखनी चाहिए।","r":"mujhe shukravār ko ḍôkṭar ke pās jānā hai. tumhẽ hindī filmẽ dekhnī chāhie.","tr":"I have to go to the doctor on Friday. You should watch Hindi films."}]}
+      ]
+    },
+    {
+      "id": "make-suggestions",
+      "unit": 4,
+      "level": "A2",
+      "title": "Make suggestions and offers",
+      "summary": "Say “Shall we go?”, “Let's eat out”, “Shall I help?”, “What should I do?”, and “maybe”.",
+      "topic": "The subjunctive: {{चलें?|chalẽ?}}, {{करूँ?|karū̃?}}; {{चलो|chalo}} “let's”; {{शायद|shāyad}} “maybe” + the subjunctive",
+      "blocks": [
+        {"goal":{"t":"चलो, आज बाहर खाएँ?","r":"chalo, āj bāhar khāẽ?","tr":"Come on, shall we eat out today?"}},
+        {"dialog":[{"who":"Anu","t":"आज शाम क्या करें?","r":"āj shām kyā karẽ?","tr":"What shall we do this evening?"},{"who":"Dev","t":"फ़िल्म देखें?","r":"film dekhẽ?","tr":"Shall we watch a movie?"},{"who":"Anu","t":"नहीं, चलो बाहर खाएँ। आज मैं खाना नहीं बनाना चाहती।","r":"nahī̃, chalo bāhar khāẽ. āj maĩ khānā nahī̃ banānā chāhtī.","tr":"No, let's eat out. I don't want to cook today."},{"who":"Dev","t":"ठीक है। मैं टैक्सी बुलाऊँ?","r":"ṭhīk hai. maĩ ṭaiksī bulāū̃?","tr":"OK. Shall I call a taxi?"},{"who":"Anu","t":"नहीं, पैदल चलते हैं। पास में ही है।","r":"nahī̃, paidal chalte haĩ. pās mẽ hī hai.","tr":"No, let's walk. It's close by."}]},
+        {"term":"subjunctive","means":"a verb form for what might, could or should happen, rather than what does: “shall we go?”, “maybe she'll come”, “I want you to come”."},
+        {"p":"**Shall we? Shall I?** The subjunctive is the future (lesson 21) without its {{-गा|-gā}}: {{जाएँगे|jāẽge}} “we'll go” → {{जाएँ|jāẽ}} “shall we go?”; {{करूँगा|karū̃gā}} “I'll do” → {{करूँ|karū̃}} “shall I do?” In a question it makes a suggestion or an offer: {{हम चलें?|ham chalẽ?}} “Shall we go?”, {{मैं मदद करूँ?|maĩ madad karū̃?}} “Shall I help?”"},
+        { "table": [
+          ["","future","subjunctive"],
+          ["I","{{मैं करूँगा|maĩ karū̃gā}} I'll do","{{मैं करूँ?|maĩ karū̃?}} shall I do?"],
+          ["we","{{हम करेंगे|ham karẽge}} we'll do","{{हम करें?|ham karẽ?}} shall we do?"],
+          ["he, she","{{वह करेगा|vah karegā}} he'll do","{{वह करे|vah kare}} (that) he does"],
+          ["you ({{आप|āp}})","{{आप करेंगे|āp karẽge}} you'll do","{{आप करें|āp karẽ}} please do"],
+          ["you ({{तुम|tum}})","{{तुम करोगे|tum karoge}} you'll do","{{तुम करो|tum karo}} do!"]
+        ] },
+        {"p":"Without its {{-गा|-gā}}, it no longer changes for masculine or feminine: {{मैं क्या करूँ?|maĩ kyā karū̃?}} “What shall I do?” is the same for a man and a woman."},
+        {"p":"**Let's.** Start with {{चलो|chalo}} (to friends) or {{चलिए|chalie}} (politely), literally “come on”: {{चलो, घर चलें|chalo, ghar chalẽ}} “Come on, let's go home”. In everyday speech people also say “let's” with the plain present: {{चलो, घर चलते हैं|chalo, ghar chalte haĩ}}."},
+        {"p":"**Maybe.** {{शायद|shāyad}} “perhaps” is often followed by the subjunctive: {{शायद वह आए|shāyad vah āe}} “Maybe he'll come (he might come)”."},
+        { "ex": [
+          {"t":"चलो, चाय पिएँ।","r":"chalo, chāy piẽ.","tr":"Come on, let's have some tea."},
+          {"t":"मैं खिड़की खोलूँ?","r":"maĩ khiṛkī kholū̃?","tr":"Shall I open the window?"},
+          {"t":"हम कहाँ मिलें?","r":"ham kahā̃ milẽ?","tr":"Where shall we meet?"},
+          {"t":"आप यहाँ बैठें।","r":"āp yahā̃ baiṭhẽ.","tr":"Please sit here.","note":"with {{आप|āp}}, the subjunctive is an even politer request than {{बैठिए|baiṭhie}}"},
+          {"t":"मैं क्या करूँ?","r":"maĩ kyā karū̃?","tr":"What should I do?"},
+          {"t":"शायद कल बारिश हो।","r":"shāyad kal bārish ho.","tr":"It might rain tomorrow."}
+        ] },
+        {"tip":"On signs and in announcements you'll see the polite {{आप|āp}} form without {{आप|āp}}: {{कृपया शांत रहें|kripayā shānt rahẽ}} “Please be quiet”."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं मदद करें?","right":"मैं मदद करूँ?","tr":"Shall I help?","why":"With {{मैं|maĩ}}, the subjunctive ends in {{-ऊँ|-ū̃}}: {{करूँ|karū̃}}."},
+        {"wrong":"मैं क्या करूँ हूँ?","right":"मैं क्या करूँ?","tr":"What shall I do?","why":"The subjunctive needs no {{हूँ|hū̃}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Offer to help. Choose the right form.","t":"मैं आपकी मदद ___?","tr":"Shall I help you?","options":["करूँ","करें","करो"],"answer":0,"why":"{{मैं|maĩ}}: {{-ऊँ|-ū̃}}."},
+        {"type":"fill","q":"Choose the right form.","t":"हम कहाँ ___?","tr":"Where shall we meet?","options":["मिलें","मिलूँ","मिलो"],"answer":0,"why":"{{हम|ham}}: {{-एँ|-ẽ}}."},
+        {"type":"choice","q":"{{शायद कल बारिश हो।|shāyad kal bārish ho.}} means…","options":["It might rain tomorrow.","It will definitely rain tomorrow.","It rained yesterday."],"answer":0,"why":"{{शायद|shāyad}} + the subjunctive: maybe, might."},
+        {"type":"order","q":"Put the words in order.","tr":"Come on, let's have some tea.","words":["चलो,","चाय","पिएँ।"]},
+        {"type":"dialogue","q":"Planning the evening with a friend. Choose your lines.","from":"tell-the-time","lines":[{"who":"Dev","t":"आज शाम क्या करें?","r":"āj shām kyā karẽ?","tr":"What shall we do this evening?"},{"options":["फ़िल्म देखें?","फ़िल्म देखना?"],"answer":0,"why":"A suggestion: the subjunctive, {{देखें?|dekhẽ?}}"},{"who":"Dev","t":"बढ़िया! कितने बजे?","r":"baṛhiyā! kitne baje?","tr":"Great! What time?"},{"options":["सात बजे मिलें?","सात बजे पर मिलें?"],"answer":0,"why":"“At seven” is just {{सात बजे|sāt baje}}."},{"who":"Dev","t":"ठीक है, सात बजे।","r":"ṭhīk hai, sāt baje.","tr":"OK, seven o'clock."}]},
+        {"type":"say","q":"Ask: “What should I do?”","answer":"मैं क्या करूँ?","r":"maĩ kyā karū̃?","from":"say-what-you-will-do"},
+        {"type":"free","q":"Your turn: suggest something to do with a friend this weekend, and offer to do something yourself.","answers":[{"t":"चलो, शनिवार को पार्क चलें। मैं खाना बनाऊँ?","r":"chalo, shanivār ko pārk chalẽ. maĩ khānā banāū̃?","tr":"Let's go to the park on Saturday. Shall I cook?"},{"t":"रविवार को फ़िल्म देखें? मैं टिकट ख़रीदूँ?","r":"ravivār ko film dekhẽ? maĩ ṭikaṭ kharīdū̃?","tr":"Shall we see a movie on Sunday? Shall I buy the tickets?"}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Make plans with a friend",
+      "summary": "Invite someone, agree on a time, and say what you're going to do: “I'll come and pick you up.”",
+      "topic": "The future and the subjunctive together; {{-ने|-ne}} + {{आना / जाना|ānā / jānā}} for “come / go and do”",
+      "blocks": [
+        {"goal":{"t":"मैं शनिवार को तुम्हारे घर खाना खाने आऊँगा।","r":"maĩ shanivār ko tumhāre ghar khānā khāne āū̃gā.","tr":"I'll come to your place for dinner on Saturday.","note":"said by a man; a woman says {{आऊँगी|āū̃gī}}"}},
+        {"dialog":[{"who":"Kavya","t":"हैलो! इस शनिवार को तुम क्या कर रहे हो?","r":"hailo! is shanivār ko tum kyā kar rahe ho?","tr":"Hello! What are you doing this Saturday?"},{"who":"Tom","t":"कुछ ख़ास नहीं। क्यों?","r":"kuchh khās nahī̃. kyõ?","tr":"Nothing special. Why?"},{"who":"Kavya","t":"हम लोग बाज़ार घूमने जा रहे हैं। तुम भी चलोगे?","r":"ham log bāzār ghūmne jā rahe haĩ. tum bhī chaloge?","tr":"We're going to look around the market. Will you come too?"},{"who":"Tom","t":"ज़रूर! कितने बजे मिलें?","r":"zarūr! kitne baje milẽ?","tr":"Sure! What time shall we meet?"},{"who":"Kavya","t":"ग्यारह बजे? मैं तुम्हें लेने आऊँगी।","r":"gyārah baje? maĩ tumhẽ lene āū̃gī.","tr":"Eleven? I'll come and pick you up."},{"who":"Tom","t":"बढ़िया। फिर दोपहर को कहीं खाना खाएँगे।","r":"baṛhiyā. phir dopahar ko kahī̃ khānā khāẽge.","tr":"Great. Then we'll eat somewhere at lunchtime."}]},
+        {"p":"This conversation uses almost everything from this unit: the future ({{चलोगे?|chaloge?}} “will you come?”), the present continuous for a fixed plan ({{जा रहे हैं|jā rahe haĩ}}, lesson 17) and the subjunctive for a suggestion ({{कितने बजे मिलें?|kitne baje milẽ?}}). One new thing makes plans easy:"},
+        {"p":"**Come or go and do something.** With {{आना|ānā}} “to come” and {{जाना|jānā}} “to go”, say what for with the {{-ने|-ne}} form of the verb (the {{-ना|-nā}} form, with the {{-ए|-e}} of the oblique, lesson 9): {{मैं तुम्हें लेने आऊँगी|maĩ tumhẽ lene āū̃gī}} “I'll come and pick you up”, {{हम घूमने जा रहे हैं|ham ghūmne jā rahe haĩ}} “We're going (out) to look around”. No word for “to” is needed."},
+        { "table": [
+          ["","Hindi","meaning"],
+          ["to eat","{{खाना खाने आइए।|khānā khāne āie.}}","Come for a meal."],
+          ["to meet","{{मैं दोस्तों से मिलने जा रहा हूँ।|maĩ dostõ se milne jā rahā hū̃.}}","I'm going to meet friends."],
+          ["to buy","{{हम सब्ज़ी ख़रीदने बाज़ार जाते हैं।|ham sabzī kharīdne bāzār jāte haĩ.}}","We go to the market to buy vegetables."]
+        ] },
+        {"p":"**Inviting and answering.** To invite: {{तुम भी चलोगे?|tum bhī chaloge?}} or {{आप भी चलेंगे?|āp bhī chalẽge?}} “Will you come too?” To say yes: {{ज़रूर!|zarūr!}} “Sure!”, {{ठीक है|ṭhīk hai}} “OK”. To say no kindly: {{माफ़ कीजिए, मैं नहीं आ पाऊँगा|māf kījie, maĩ nahī̃ ā pāū̃gā}} “Sorry, I won't be able to come” (lesson 22)."},
+        { "ex": [
+          {"t":"कल हम पिकनिक पर जाएँगे।","r":"kal ham piknik par jāẽge.","tr":"We're going on a picnic tomorrow."},
+          {"t":"मैं तुम्हें स्टेशन पर लेने आऊँगा।","r":"maĩ tumhẽ sṭeshan par lene āū̃gā.","tr":"I'll come and pick you up at the station."},
+          {"t":"आप रविवार को खाना खाने आइए।","r":"āp ravivār ko khānā khāne āie.","tr":"Come for dinner on Sunday."},
+          {"t":"वे फ़िल्म देखने जा रहे हैं।","r":"ve film dekhne jā rahe haĩ.","tr":"They're going to see a movie."},
+          {"t":"कितने बजे मिलें?","r":"kitne baje milẽ?","tr":"What time shall we meet?"},
+          {"t":"माफ़ कीजिए, मैं नहीं आ पाऊँगी।","r":"māf kījie, maĩ nahī̃ ā pāū̃gī.","tr":"Sorry, I won't be able to come.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं तुम्हें लेना आऊँगा।","right":"मैं तुम्हें लेने आऊँगा।","tr":"I'll come and pick you up.","why":"With {{आना|ānā}} and {{जाना|jānā}}, the purpose takes {{-ने|-ne}}: {{लेने|lene}}."},
+        {"wrong":"तुम भी चलेगा?","right":"तुम भी चलोगे?","tr":"Will you come too?","why":"{{तुम|tum}}: {{-ओगे|-oge}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"हम फ़िल्म ___ जा रहे हैं।","tr":"We're going to see a movie.","options":["देखने","देखना","देखें"],"answer":0,"why":"Going to do something: {{-ने|-ne}}."},
+        {"type":"fill","q":"Choose the right form.","t":"तुम भी ___?","tr":"Will you come too?","options":["चलोगे","चलेंगे","चलूँगा"],"answer":0,"why":"{{तुम|tum}}: {{-ओगे|-oge}}.","from":"say-what-you-will-do"},
+        {"type":"choice","q":"Your friend asks {{कितने बजे मिलें?|kitne baje milẽ?}} She's…","options":["suggesting you agree on a time to meet","asking when you met","saying you won't meet"],"answer":0,"why":"{{मिलें|milẽ}} is the subjunctive: “shall we meet?”","from":"make-suggestions"},
+        {"type":"order","q":"Put the words in order.","tr":"I'll come and pick you up at the station.","words":["मैं","तुम्हें","स्टेशन","पर","लेने","आऊँगा।"]},
+        {"type":"dialogue","q":"A colleague invites you to dinner. Choose your replies (you're a woman).","from":"make-suggestions","lines":[{"who":"Mr Mehta","t":"आप रविवार को हमारे घर खाना खाने आइए।","r":"āp ravivār ko hamāre ghar khānā khāne āie.","tr":"Come to our place for dinner on Sunday."},{"options":["ज़रूर! मैं कितने बजे आऊँ?","ज़रूर! मैं कितने बजे आऊँगा?"],"answer":0,"why":"Asking what to do: the subjunctive {{आऊँ?|āū̃?}}, the same for men and women. ({{आऊँगा|āū̃gā}} is a man's future.)"},{"who":"Mr Mehta","t":"सात बजे आइए।","r":"sāt baje āie.","tr":"Come at seven."},{"options":["ठीक है, मैं सात बजे आऊँगी।","ठीक है, मैं सात बजे आऊँगा।"],"answer":0,"why":"A woman: {{-गी|-gī}}."}]},
+        {"type":"say","q":"Invite your friend Tom: “Will you come too?”","answer":"तुम भी चलोगे?","r":"tum bhī chaloge?"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend: say what, when, and where you'll meet.","answers":[{"t":"शनिवार को हम क्रिकेट खेलने जा रहे हैं। तुम भी चलोगे? दस बजे पार्क में मिलें?","r":"shanivār ko ham krikeṭ khelne jā rahe haĩ. tum bhī chaloge? das baje pārk mẽ milẽ?","tr":"On Saturday we're going to play cricket. Will you come too? Shall we meet in the park at ten?"},{"t":"रविवार को हमारे घर खाना खाने आओ। सात बजे आओ, ठीक है?","r":"ravivār ko hamāre ghar khānā khāne āo. sāt baje āo, ṭhīk hai?","tr":"Come to our place for dinner on Sunday. Come at seven, OK?"}]}
+      ]
     }
   ]
 }

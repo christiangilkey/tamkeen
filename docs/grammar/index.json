@@ -22,12 +22,13 @@
    "title": "Hindi grammar",
    "variety": "Everyday Hindi (India), in Devanagari",
    "units": 8,
-   "lessons": 19,
+   "lessons": 25,
    "levels": [
-    "A1"
+    "A1",
+    "A2"
    ],
-   "bytes": 149782,
-   "sha256": "63eb4607e30e1fc21b22dd35262fd4eef1394a0a53cd42acaf2d7a9443fbe08d"
+   "bytes": 198671,
+   "sha256": "7b7343e7adee7dfc40d5df1e2227059b21dcd6c37ae3e0d705da67c6cc97aa38"
   }
  }
 }
