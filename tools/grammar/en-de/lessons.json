@@ -1707,6 +1707,298 @@
         {"type":"fill","q":"Choose the missing word.","t":"Ich lerne Deutsch, weil ich nächstes Jahr in Wien studieren ___.","tr":"I'm learning German because I'm going to study in Vienna next year.","options":["werde","wird","werden"],"answer":0,"why":"After {{weil}}, {{werde}} goes to the very end.","from":"give-reasons"},
         {"type":"free","q":"Your turn: what are you doing next weekend (the present with a time word), and what's one resolution for next year (with {{werden}})?","answers":[{"t":"Nächstes Wochenende besuche ich meine Freunde in München. Nächstes Jahr werde ich mehr lesen.","tr":"Next weekend I'm visiting my friends in Munich. Next year I'm going to read more."},{"t":"Am Samstag gehe ich ins Kino. Und ich werde jeden Tag Deutsch lernen!","tr":"On Saturday I'm going to the movies. And I'm going to study German every day!"}]}
       ]
+    },
+    {
+      "id": "talk-about-feelings",
+      "unit": 8,
+      "level": "A2",
+      "title": "Say what you're looking forward to",
+      "summary": "Talk about your feelings and interests: “I'm looking forward to the weekend.” “I'm interested in art.”",
+      "topic": "Verbs with {{sich}}: {{sich freuen auf}}, {{sich interessieren für}}, {{sich ärgern über}}, {{sich treffen}}",
+      "blocks": [
+        {"goal":{"t":"Ich freue mich schon auf das Wochenende!","tr":"I'm really looking forward to the weekend!"}},
+        {"dialog":[{"who":"Anna","t":"Na, freust du dich auf den Urlaub?","tr":"So, are you looking forward to your vacation?"},{"who":"Ben","t":"Ja, total! Wir treffen uns mit Freunden in Lissabon.","tr":"Yes, totally! We're meeting up with friends in Lisbon."},{"who":"Anna","t":"Schön! Interessierst du dich für Geschichte? Dort gibt es tolle Museen.","tr":"Nice! Are you interested in history? There are great museums there."},{"who":"Ben","t":"Nicht so. Ich will mich einfach am Strand erholen.","tr":"Not really. I just want to relax on the beach."},{"who":"Anna","t":"Gute Idee. Und ich ärgere mich, weil ich arbeiten muss!","tr":"Good idea. And I'm annoyed because I have to work!"}]},
+        {"term":"reflexive verb","means":"a verb that comes with {{sich}} “oneself”, a pronoun pointing back to the subject: {{sich freuen}} “to be happy”, {{sich waschen}} “to wash (yourself)”."},
+        {"p":"**Verbs with sich.** Some German verbs need a little pronoun that points back to the subject, like English “myself”: {{Ich freue mich.}} “I'm happy”, word for word “I please myself”. Dictionaries list them with {{sich}}: {{sich freuen}}."},
+        { "table": [
+          ["","{{sich freuen}} be happy","the pronoun"],
+          ["{{ich}}","{{freue mich}}","{{mich}}"],
+          ["{{du}}","{{freust dich}}","{{dich}}"],
+          ["{{er / sie / es}}","{{freut sich}}","{{sich}}"],
+          ["{{wir}}","{{freuen uns}}","{{uns}}"],
+          ["{{ihr}}","{{freut euch}}","{{euch}}"],
+          ["{{sie / Sie}}","{{freuen sich}}","{{sich}}"]
+        ] },
+        {"p":"Only {{sich}} is new: for everyone else it's the object pronoun you already know ({{mich, dich, uns, euch}}). And polite {{Sie}} takes a small {{sich}}: {{Freuen Sie sich?}}"},
+        {"p":"**Many come with a fixed preposition**, which you learn together with the verb: {{sich freuen auf}} “look forward to”, {{sich freuen über}} “be happy about”, {{sich interessieren für}} “be interested in”, {{sich ärgern über}} “be annoyed about”, {{sich erinnern an}} “remember”. The noun after them is in the accusative: {{Ich freue mich auf den Urlaub.}}"},
+        {"p":"**Daily life** has lots of them too: {{sich duschen}} “shower”, {{sich anziehen}} “get dressed”, {{sich beeilen}} “hurry”, {{sich erholen}} “relax, recover”, {{sich setzen}} “sit down”, {{sich treffen}} “meet (up)”."},
+        { "ex": [
+          {"t":"Ich interessiere mich für Kunst.","tr":"I'm interested in art."},
+          {"t":"Wir treffen uns um acht vor dem Kino.","tr":"We're meeting at eight in front of the movie theater."},
+          {"t":"Beeil dich! Der Bus kommt!","tr":"Hurry up! The bus is coming!"},
+          {"t":"Er ärgert sich über das Wetter.","tr":"He's annoyed about the weather."},
+          {"t":"Erinnerst du dich an mich?","tr":"Do you remember me?"},
+          {"t":"Setzen Sie sich, bitte.","tr":"Please have a seat."}
+        ] },
+        {"tip":"{{Ich freue mich auf…}} (something coming) and {{Ich freue mich über…}} (something you've got) are two of the most useful phrases in German, in emails too: {{Ich freue mich auf Ihre Antwort.}} “I look forward to your reply.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich freue auf das Wochenende.","right":"Ich freue mich auf das Wochenende.","tr":"I'm looking forward to the weekend.","why":"{{sich freuen}} needs its pronoun: {{mich}}."},
+        {"wrong":"Er interessiert ihn für Fußball.","right":"Er interessiert sich für Fußball.","tr":"He's interested in soccer.","why":"Pointing back to {{er}}: {{sich}}. ({{ihn}} would be someone else!)"},
+        {"wrong":"Ich interessiere mich in Kunst.","right":"Ich interessiere mich für Kunst.","tr":"I'm interested in art.","why":"It's {{sich interessieren für}}: learn the preposition with the verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Wir treffen uns morgen.}} means…","options":["We're meeting (each other) tomorrow.","We're meeting them tomorrow."],"answer":0,"why":"{{uns}} points back to {{wir}}: we meet each other."},
+        {"type":"fill","q":"Choose the missing word.","t":"Freust du ___ auf die Party?","tr":"Are you looking forward to the party?","options":["dich","sich","dir"],"answer":0,"why":"With {{du}}: {{dich}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Er interessiert ___ für Politik.","tr":"He's interested in politics.","options":["sich","ihn","ihm"],"answer":0,"why":"Pointing back to {{er}}: {{sich}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich freue mich auf ___ Urlaub.","tr":"I'm looking forward to the vacation.","options":["den","dem","der"],"answer":0,"why":"After {{sich freuen auf}}: the accusative, {{der Urlaub}} → {{den}}.","from":"say-what-you-have"},
+        {"type":"order","q":"Put the words in order.","tr":"Hurry up! The bus is coming!","words":["Beeil","dich!","Der Bus","kommt!"],"from":"tell-someone-what-to-do"},
+        {"type":"dialogue","q":"A colleague asks about your weekend.","from":"give-reasons","lines":[{"who":"Colleague","t":"Was machst du am Wochenende?","tr":"What are you doing on the weekend?"},{"options":["Ich treffe mich mit Freunden.","Ich treffe mit Freunden."],"answer":0,"why":"Meeting up with someone: {{sich treffen mit}}."},{"who":"Colleague","t":"Schön! Freust du dich?","tr":"Nice! Are you looking forward to it?"},{"options":["Ja, sehr, weil ich sie lange nicht gesehen habe.","Ja, sehr, weil ich habe sie lange nicht gesehen."],"answer":0,"why":"After {{weil}}, the verb ({{habe}}) goes last."}]},
+        {"type":"free","q":"Your turn: what are you looking forward to, and what are you interested in? Use {{Ich freue mich auf…}} and {{Ich interessiere mich für…}}","answers":[{"t":"Ich freue mich auf den Sommer. Ich interessiere mich für Musik und Geschichte.","tr":"I'm looking forward to summer. I'm interested in music and history."},{"t":"Ich freue mich auf meinen Geburtstag! Ich interessiere mich für Fußball.","tr":"I'm looking forward to my birthday! I'm interested in soccer."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 8,
+      "level": "A2",
+      "title": "Compare things and say what you prefer",
+      "summary": "Compare things and people, and say what you like best: “The train is faster than the bus.” “I'd rather live in the country.”",
+      "topic": "{{-er als}}, {{so … wie}}, {{am -sten}}; {{lieber}}, {{am liebsten}}; {{besser}}, {{am besten}}",
+      "blocks": [
+        {"goal":{"t":"Berlin ist größer als München, aber München ist schöner.","tr":"Berlin is bigger than Munich, but Munich is prettier."}},
+        {"dialog":[{"who":"Lisa","t":"Welche Wohnung findest du am besten?","tr":"Which apartment do you like best?"},{"who":"Tom","t":"Die in Kreuzberg ist am größten, aber auch am teuersten.","tr":"The one in Kreuzberg is the biggest, but also the most expensive."},{"who":"Lisa","t":"Und die in Neukölln ist billiger als die in Mitte.","tr":"And the one in Neukölln is cheaper than the one in Mitte."},{"who":"Tom","t":"Ja, aber die in Mitte ist so hell wie die in Kreuzberg!","tr":"Yes, but the one in Mitte is as bright as the one in Kreuzberg!"},{"who":"Lisa","t":"Also, ich wohne lieber in Neukölln. Da ist es ruhiger.","tr":"Well, I'd rather live in Neukölln. It's quieter there."}]},
+        {"term":"comparative","means":"the form of an adjective that compares two things: bigger, more expensive."},
+        {"term":"superlative","means":"the form of an adjective that says something is the most: biggest, most expensive."},
+        {"p":"**-er als: “-er than”.** German adds {{-er}} to every adjective, even long ones, and never uses “more”: {{schnell}} → {{schneller}}, {{teuer}} → {{teurer}}, {{interessant}} → {{interessanter}}. “Than” is {{als}}: {{Der Zug ist schneller als der Bus.}} Short words often get dots too: {{groß}} → {{größer}}, {{alt}} → {{älter}}, {{jung}} → {{jünger}}, {{warm}} → {{wärmer}}."},
+        {"p":"**am -sten: “the most”.** After a verb like {{sein}}, the superlative is {{am}} + adjective + {{-sten}}: {{am schnellsten}} “the fastest”, {{am teuersten}} “the most expensive”. Adjectives ending in {{-t}}, {{-d}}, {{-s}}, {{-ß}} or {{-z}} add {{-esten}} ({{am ältesten}}), except {{groß}}: {{am größten}}."},
+        { "table": [
+          ["","comparative","superlative"],
+          ["{{klein}}","{{kleiner}}","{{am kleinsten}}"],
+          ["{{schnell}}","{{schneller}}","{{am schnellsten}}"],
+          ["{{alt}}","{{älter}}","{{am ältesten}}"],
+          ["{{groß}}","{{größer}}","{{am größten}}"],
+          ["{{gut}}","{{besser}}","{{am besten}}"],
+          ["{{viel}}","{{mehr}}","{{am meisten}}"],
+          ["{{gern}}","{{lieber}}","{{am liebsten}}"],
+          ["{{hoch}}","{{höher}}","{{am höchsten}}"]
+        ] },
+        {"p":"**so … wie: “as … as”.** {{Anna ist so alt wie Tom.}} “Anna is as old as Tom.”, {{nicht so … wie}} “not as … as”."},
+        {"p":"**What you prefer: lieber, am liebsten.** {{gern}} has its own forms: {{Ich trinke gern Kaffee.}} → {{Ich trinke lieber Tee.}} “I prefer tea.” → {{Am liebsten trinke ich Wasser.}} “Best of all, I like water.”"},
+        { "ex": [
+          {"t":"Mein Bruder ist zwei Jahre älter als ich.","tr":"My brother is two years older than me."},
+          {"t":"Heute ist es kälter als gestern.","tr":"Today it's colder than yesterday."},
+          {"t":"Welches Handy ist am besten?","tr":"Which phone is the best?"},
+          {"t":"Ich fahre lieber mit dem Zug.","tr":"I'd rather take the train."},
+          {"t":"Am liebsten esse ich Pizza.","tr":"My favorite food is pizza."},
+          {"t":"Deutsch ist nicht so schwer wie Chinesisch.","tr":"German isn't as hard as Chinese."}
+        ] },
+        {"tip":"Never {{mehr}} with an adjective: not {{mehr schnell}} but {{schneller}}, not {{mehr interessant}} but {{interessanter}}. And “than me” is {{als ich}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Der Zug ist schneller wie der Bus.","right":"Der Zug ist schneller als der Bus.","tr":"The train is faster than the bus.","why":"“Than” is {{als}}; {{wie}} belongs to {{so … wie}} “as … as”."},
+        {"wrong":"Das ist mehr interessant.","right":"Das ist interessanter.","tr":"That's more interesting.","why":"German adds {{-er}}, even to long adjectives."},
+        {"wrong":"Ich trinke mehr gern Tee.","right":"Ich trinke lieber Tee.","tr":"I prefer tea.","why":"{{gern}} → {{lieber}} → {{am liebsten}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Better” is…","options":["{{besser}}","{{guter}}","{{mehr gut}}"],"answer":0,"why":"{{gut}} is irregular: {{besser}}, {{am besten}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Berlin ist größer ___ Hamburg.","tr":"Berlin is bigger than Hamburg.","options":["als","wie","dann"],"answer":0,"why":"“Than” is {{als}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich trinke ___ Tee als Kaffee.","tr":"I like tea better than coffee.","options":["lieber","gerner","mehr gern"],"answer":0,"why":"The comparative of {{gern}} is {{lieber}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Im Sommer ist es hier am ___.","tr":"It's warmest here in the summer.","options":["wärmsten","wärmer","warmsten"],"answer":0,"why":"{{am}} + {{wärm-}} (with dots) + {{-sten}}."},
+        {"type":"order","q":"Put the words in order.","tr":"My sister is two years younger than me.","words":["Meine Schwester","ist","zwei Jahre","jünger","als ich."],"from":"talk-about-your-family"},
+        {"type":"dialogue","q":"Choose a vacation with a friend.","from":"give-reasons","lines":[{"who":"Friend","t":"Fahren wir ans Meer oder in die Berge?","tr":"Shall we go to the beach or to the mountains?"},{"options":["Ich fahre lieber in die Berge.","Ich fahre gerner in die Berge."],"answer":0,"why":"“Rather”: {{lieber}}."},{"who":"Friend","t":"Warum?","tr":"Why?"},{"options":["Weil es dort ruhiger ist als am Meer.","Weil es dort ist ruhiger als am Meer."],"answer":0,"why":"After {{weil}}, the verb goes last."}]},
+        {"type":"free","q":"Your turn: compare two cities, foods or seasons, and say which one you like best.","answers":[{"t":"Der Sommer ist wärmer als der Winter, aber am liebsten mag ich den Herbst.","tr":"Summer is warmer than winter, but I like fall best."},{"t":"Pizza ist besser als Pasta! Am liebsten esse ich Pizza mit Pilzen.","tr":"Pizza is better than pasta! My favorite is pizza with mushrooms."}]}
+      ]
+    },
+    {
+      "id": "ask-very-politely",
+      "unit": 8,
+      "level": "A2",
+      "title": "Ask very politely",
+      "summary": "Make requests that sound friendly and polite: “Could you help me?” “Would you sign here, please?” “That would be nice.”",
+      "topic": "The Konjunktiv II for politeness: {{könnten}}, {{würden}}, {{hätten}}, {{wäre}}",
+      "blocks": [
+        {"goal":{"t":"Könnten Sie mir bitte helfen?","tr":"Could you help me, please?"}},
+        {"dialog":[{"who":"Guest","t":"Guten Abend. Ich hätte gern ein Zimmer für zwei Nächte.","tr":"Good evening. I'd like a room for two nights."},{"who":"Receptionist","t":"Gern. Hätten Sie lieber ein Zimmer mit Balkon?","tr":"Of course. Would you prefer a room with a balcony?"},{"who":"Guest","t":"Ja, das wäre schön. Könnten Sie mich morgen um sieben wecken?","tr":"Yes, that would be nice. Could you wake me at seven tomorrow?"},{"who":"Receptionist","t":"Natürlich. Würden Sie hier bitte unterschreiben?","tr":"Of course. Would you sign here, please?"},{"who":"Guest","t":"Klar. Vielen Dank!","tr":"Sure. Thanks very much!"}]},
+        {"term":"Konjunktiv II","means":"a verb form for what is polite, wished for or imagined: {{ich hätte}} “I would have”, {{ich wäre}} “I would be”, {{ich würde}} “I would”."},
+        {"p":"**Softer verbs.** German makes a request polite with special forms of a few verbs, a bit like English “can” → “could”: {{Können Sie…?}} → {{Könnten Sie…?}} “Could you…?” You'll hear them all the time in shops, offices and hotels, and read them in every email."},
+        { "table": [
+          ["plain","polite","English"],
+          ["{{Können Sie mir helfen?}}","{{Könnten Sie mir helfen?}}","Could you help me?"],
+          ["{{Ich will ein Zimmer.}}","{{Ich hätte gern ein Zimmer.}}","I'd like a room."],
+          ["{{Machen Sie das Fenster zu?}}","{{Würden Sie das Fenster zumachen?}}","Would you close the window?"],
+          ["{{Das ist schön.}}","{{Das wäre schön.}}","That would be nice."],
+          ["{{Haben Sie Zeit?}}","{{Hätten Sie Zeit?}}","Would you have time?"]
+        ] },
+        {"p":"**The forms** look like the past ({{konnte}}, {{hatte}}, {{war}}) with dots added: {{könnte}}, {{hätte}}, {{wäre}}. And {{würde}} “would” is the polite helper for every other verb, with the infinitive at the end: {{Würden Sie bitte hier unterschreiben?}}"},
+        { "table": [
+          ["","{{können}}","{{haben}}","{{sein}}","{{werden}}"],
+          ["{{ich}}","{{könnte}}","{{hätte}}","{{wäre}}","{{würde}}"],
+          ["{{du}}","{{könntest}}","{{hättest}}","{{wärst}}","{{würdest}}"],
+          ["{{er / sie / es}}","{{könnte}}","{{hätte}}","{{wäre}}","{{würde}}"],
+          ["{{wir / sie / Sie}}","{{könnten}}","{{hätten}}","{{wären}}","{{würden}}"],
+          ["{{ihr}}","{{könntet}}","{{hättet}}","{{wärt}}","{{würdet}}"]
+        ] },
+        {"p":"**The politest opener of all:** {{Könnten Sie mir bitte sagen, …?}}: a Konjunktiv II plus a question inside a sentence. Start with it, and anyone will be glad to help."},
+        { "ex": [
+          {"t":"Ich hätte gern zwei Brötchen.","tr":"I'd like two rolls."},
+          {"t":"Könntest du mir das Salz geben?","tr":"Could you pass me the salt?"},
+          {"t":"Würden Sie bitte langsamer sprechen?","tr":"Would you speak more slowly, please?"},
+          {"t":"Wäre Montag okay für Sie?","tr":"Would Monday be OK for you?"},
+          {"t":"Hätten Sie kurz Zeit?","tr":"Would you have a minute?"},
+          {"t":"Könnten Sie mir bitte sagen, wo der Ausgang ist?","tr":"Could you please tell me where the exit is?"}
+        ] },
+        {"tip":"{{könnten}} with dots means “could, would be able to”; {{konnten}} without dots is the past, “were able to”. Two little dots change the meaning!"}
+      ],
+      "mistakes": [
+        {"wrong":"Konnten Sie mir helfen?","right":"Könnten Sie mir helfen?","tr":"Could you help me?","why":"Without dots it's the past (“Were you able to help me?”). A polite request needs the dots: {{könnten}}."},
+        {"wrong":"Würden Sie bitte schließen das Fenster?","right":"Würden Sie bitte das Fenster schließen?","tr":"Would you close the window, please?","why":"With {{würden}}, the infinitive goes last."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one is a polite request?","options":["{{Könnten Sie mir helfen?}}","{{Konnten Sie mir helfen?}}"],"answer":0,"why":"With dots: “could you”. Without: “were you able to” (the past)."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ gern ein Zimmer für zwei Nächte.","tr":"I'd like a room for two nights.","options":["hätte","wäre","würde"],"answer":0,"why":"“I'd like”: {{ich hätte gern}}.","from":"order-food-and-drinks"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ Sie bitte langsamer sprechen?","tr":"Would you speak more slowly, please?","options":["Würden","Wären","Hätten"],"answer":0,"why":"“Would” + another verb: {{würden}}, with the infinitive at the end."},
+        {"type":"order","q":"Put the words in order.","tr":"Would you sign here, please?","words":["Würden","Sie","hier","bitte","unterschreiben?"],"also":[["Würden","Sie","bitte","hier","unterschreiben?"]]},
+        {"type":"fill","q":"Choose the missing word.","t":"Könnten Sie mir sagen, wo der Ausgang ___?","tr":"Could you tell me where the exit is?","options":["ist","sind","wäre"],"answer":0,"why":"Inside the sentence, the question's verb goes last: {{wo der Ausgang ist}}.","from":"ask-indirectly"},
+        {"type":"dialogue","q":"At a hotel reception.","lines":[{"who":"Receptionist","t":"Guten Abend! Was kann ich für Sie tun?","tr":"Good evening! What can I do for you?"},{"options":["Ich hätte gern ein Zimmer für eine Nacht.","Ich habe gern ein Zimmer für eine Nacht."],"answer":0,"why":"“I'd like” is {{ich hätte gern}}."},{"who":"Receptionist","t":"Mit Frühstück?","tr":"With breakfast?"},{"options":["Ja, das wäre super.","Ja, das war super."],"answer":0,"why":"{{wäre}} “would be”; {{war}} is the past, “was”."}]},
+        {"type":"free","q":"Your turn: ask a stranger politely for two things (help, information, a favor), with {{könnten}}, {{würden}} or {{hätten}}.","answers":[{"t":"Könnten Sie mir bitte helfen? Ich finde den Bahnhof nicht.","tr":"Could you help me, please? I can't find the station."},{"t":"Entschuldigung, hätten Sie kurz Zeit? Würden Sie ein Foto von uns machen?","tr":"Excuse me, would you have a minute? Would you take a photo of us?"}]}
+      ]
+    },
+    {
+      "id": "describe-what-you-want",
+      "unit": 8,
+      "level": "A2",
+      "title": "Describe what you're looking for",
+      "summary": "Describe things with adjectives in front of the noun: “I'm looking for a small apartment with a big balcony.” Adjective endings, part one.",
+      "topic": "Adjective endings after {{ein}}, {{kein}}, {{mein}}: {{ein neuer Job}}, {{eine kleine Wohnung}}, {{einen guten Arzt}}",
+      "blocks": [
+        {"goal":{"t":"Ich suche eine kleine Wohnung mit einem großen Balkon.","tr":"I'm looking for a small apartment with a big balcony."}},
+        {"dialog":[{"who":"Landlady","t":"Hallo, Sie rufen wegen der Wohnung an?","tr":"Hello, you're calling about the apartment?"},{"who":"Tom","t":"Ja. Ich suche eine helle Wohnung für meine Familie.","tr":"Yes. I'm looking for a bright apartment for my family."},{"who":"Landlady","t":"Die Wohnung hat drei Zimmer und eine neue Küche.","tr":"The apartment has three rooms and a new kitchen."},{"who":"Tom","t":"Super. Gibt es auch einen kleinen Garten?","tr":"Great. Is there a little yard too?"},{"who":"Landlady","t":"Nein, aber einen großen Balkon.","tr":"No, but a big balcony."},{"who":"Tom","t":"Perfekt! Wir haben nämlich einen alten Hund.","tr":"Perfect! We have an old dog, you see."}]},
+        {"p":"**In front of a noun, adjectives get endings.** After {{sein}}, an adjective has no ending: {{Die Wohnung ist klein.}} But in front of a noun it always has one: {{eine kleine Wohnung}}. The ending depends on the gender and the case."},
+        {"p":"**After ein, kein and mein.** These words don't always show the gender ({{ein}} could be masculine or neuter), so the adjective shows it instead: {{ein neuer Tisch}} (masculine, {{-er}} as in {{der}}), {{ein neues Auto}} (neuter, {{-es}} as in {{das}}), {{eine neue Lampe}} (feminine, {{-e}})."},
+        { "table": [
+          ["","subject","object (accusative)","after {{mit}} (dative)"],
+          ["masculine","{{ein neuer Tisch}}","{{einen neuen Tisch}}","{{mit einem neuen Tisch}}"],
+          ["feminine","{{eine neue Lampe}}","{{eine neue Lampe}}","{{mit einer neuen Lampe}}"],
+          ["neuter","{{ein neues Auto}}","{{ein neues Auto}}","{{mit einem neuen Auto}}"],
+          ["plural","{{meine neuen Schuhe}}","{{meine neuen Schuhe}}","{{mit meinen neuen Schuhen}}"]
+        ] },
+        {"p":"**Only four endings.** {{-er}}: a masculine subject. {{-es}}: a neuter subject or object. {{-e}}: a feminine subject or object. {{-en}}: everything else (the masculine object, the whole dative, the plural). So when you're unsure in conversation, {{-en}} is the best bet."},
+        { "ex": [
+          {"t":"Er hat einen neuen Job.","tr":"He has a new job."},
+          {"t":"Das ist ein schönes Geschenk!","tr":"That's a lovely present!"},
+          {"t":"Ich brauche eine große Tasche.","tr":"I need a big bag."},
+          {"t":"Wir wohnen in einem alten Haus.","tr":"We live in an old house."},
+          {"t":"Kennst du einen guten Zahnarzt?","tr":"Do you know a good dentist?"},
+          {"t":"Ich habe keine neuen Nachrichten.","tr":"I have no new messages."}
+        ] },
+        {"tip":"With no article at all, the adjective shows the gender itself, with the ending of {{der/die/das}}: {{frisches Brot}} “fresh bread”, {{kalte Milch}} “cold milk”, {{guter Wein}} “good wine”, and {{liebe Grüße}} “best wishes” at the end of an email."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe ein neu Auto.","right":"Ich habe ein neues Auto.","tr":"I have a new car.","why":"In front of a noun, an adjective needs an ending: neuter, {{-es}}."},
+        {"wrong":"Er hat einen neuer Job.","right":"Er hat einen neuen Job.","tr":"He has a new job.","why":"A masculine object: {{einen}} … {{-en}}."},
+        {"wrong":"Wir wohnen in einem alter Haus.","right":"Wir wohnen in einem alten Haus.","tr":"We live in an old house.","why":"In the dative, always {{-en}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one is right?","options":["{{ein großer Garten}}","{{ein großes Garten}}","{{ein groß Garten}}"],"answer":0,"why":"{{der Garten}} is masculine; as the subject after {{ein}}: {{-er}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich suche eine ___ Wohnung.","tr":"I'm looking for a small apartment.","options":["kleine","kleiner","kleinen"],"answer":0,"why":"Feminine object: {{-e}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Er hat einen ___ Job.","tr":"He has a new job.","options":["neuen","neuer","neues"],"answer":0,"why":"Masculine object: {{einen}} … {{-en}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir wohnen in einem ___ Haus.","tr":"We live in an old house.","options":["alten","altes","alte"],"answer":0,"why":"Where? Dative: always {{-en}}.","from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"That's a lovely present!","words":["Das","ist","ein","schönes","Geschenk!"]},
+        {"type":"dialogue","q":"In a clothing store.","from":"compare-things","lines":[{"who":"Salesperson","t":"Kann ich Ihnen helfen?","tr":"Can I help you?"},{"options":["Ja, ich suche einen warmen Pullover.","Ja, ich suche einen warmer Pullover."],"answer":0,"why":"Masculine object: {{-en}}."},{"who":"Salesperson","t":"Welche Farbe?","tr":"What color?"},{"options":["Am liebsten einen blauen.","Am liebsten einen blau."],"answer":0,"why":"Even without the noun, the adjective keeps its ending: {{einen blauen}} (sweater)."}]},
+        {"type":"free","q":"Your turn: describe what you're looking for (an apartment, a job, a present…) with two adjectives in front of nouns.","answers":[{"t":"Ich suche eine helle Wohnung mit einem kleinen Garten.","tr":"I'm looking for a bright apartment with a little yard."},{"t":"Ich suche ein schönes Geschenk für meine Mutter, vielleicht eine rote Tasche.","tr":"I'm looking for a nice present for my mother, maybe a red bag."}]}
+      ]
+    },
+    {
+      "id": "point-things-out",
+      "unit": 8,
+      "level": "B1",
+      "title": "Choose and point things out",
+      "summary": "Say exactly which one you mean: “I'll take the blue sweater, not the black one.” Adjective endings, part two.",
+      "topic": "Adjective endings after {{der}}, {{dieser}}, {{welcher}}: {{der blaue Pullover}}, {{mit dem roten Auto}}",
+      "blocks": [
+        {"goal":{"t":"Ich nehme den blauen Pullover, nicht den schwarzen.","tr":"I'll take the blue sweater, not the black one."}},
+        {"dialog":[{"who":"Saleswoman","t":"Welcher Pullover gefällt Ihnen?","tr":"Which sweater do you like?"},{"who":"Customer","t":"Dieser blaue hier. Haben Sie ihn auch in L?","tr":"This blue one here. Do you have it in a large too?"},{"who":"Saleswoman","t":"Ja. Und wie finden Sie die grüne Jacke?","tr":"Yes. And what do you think of the green jacket?"},{"who":"Customer","t":"Die grüne Jacke ist schön, aber die braune passt besser zu meinen neuen Schuhen.","tr":"The green jacket is nice, but the brown one goes better with my new shoes."},{"who":"Saleswoman","t":"Da haben Sie recht.","tr":"You're right there."}]},
+        {"p":"**After der, the article already shows the gender**, so the adjective only needs a short ending: {{-e}} or {{-en}}. {{-e}} for the subject (all three genders) and for the feminine and neuter object; {{-en}} everywhere else."},
+        { "table": [
+          ["","subject","object (accusative)","dative"],
+          ["masculine","{{der blaue Pullover}}","{{den blauen Pullover}}","{{dem blauen Pullover}}"],
+          ["feminine","{{die grüne Jacke}}","{{die grüne Jacke}}","{{der grünen Jacke}}"],
+          ["neuter","{{das rote Auto}}","{{das rote Auto}}","{{dem roten Auto}}"],
+          ["plural","{{die neuen Schuhe}}","{{die neuen Schuhe}}","{{den neuen Schuhen}}"]
+        ] },
+        {"p":"**dieser and welcher** “this” and “which” take the endings of {{der/die/das}} ({{dieser, diese, dieses}}; {{welcher, welche, welches}}), and an adjective after them behaves exactly as after {{der}}: {{dieser blaue Pullover}}, {{Welche grüne Jacke?}}"},
+        {"p":"**Leaving out the noun.** When it's clear what you mean, drop the noun and keep the article and adjective: {{den blauen}} “the blue one”, {{die grüne}} “the green one”. English needs “one”; German doesn't."},
+        { "ex": [
+          {"t":"Wie findest du das neue Restaurant?","tr":"What do you think of the new restaurant?"},
+          {"t":"Welchen Film möchtest du sehen? – Den neuen französischen.","tr":"Which movie do you want to see? – The new French one."},
+          {"t":"Ich wohne in dem gelben Haus an der Ecke.","tr":"I live in the yellow house on the corner."},
+          {"t":"Diese alten Fotos sind so schön!","tr":"These old photos are so beautiful!"},
+          {"t":"Der große Tisch passt nicht in die kleine Küche.","tr":"The big table doesn't fit in the small kitchen."},
+          {"t":"Mit dem neuen Handy kann ich tolle Fotos machen.","tr":"With the new phone I can take great photos."}
+        ] },
+        {"tip":"Two systems, one logic: when the little word in front shows the gender clearly ({{der}}, {{dieser}}), the adjective relaxes ({{-e}}, {{-en}}); when it doesn't ({{ein}}, or no word at all), the adjective shows the gender itself ({{-er}}, {{-es}})."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich nehme den blaue Pullover.","right":"Ich nehme den blauen Pullover.","tr":"I'll take the blue sweater.","why":"Masculine object after {{den}}: {{-en}}."},
+        {"wrong":"Das ist der neuer Kollege.","right":"Das ist der neue Kollege.","tr":"That's the new colleague.","why":"After {{der}}, the subject takes {{-e}}: {{der}} already shows it's masculine."},
+        {"wrong":"Die Frau mit der rote Jacke ist meine Chefin.","right":"Die Frau mit der roten Jacke ist meine Chefin.","tr":"The woman in the red jacket is my boss.","why":"In the dative, always {{-en}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Which dress do you like?” – “The red one.” ({{das Kleid}})","options":["{{Das rote.}}","{{Das roten.}}","{{Das rotes.}}"],"answer":0,"why":"After {{das}}, as the object: {{-e}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich nehme den ___ Pullover.","tr":"I'll take the blue sweater.","options":["blauen","blaue","blauer"],"answer":0,"why":"Masculine object after {{den}}: {{-en}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie findest du ___ Jacke?","tr":"What do you think of this jacket?","options":["diese","dieser","dieses"],"answer":0,"why":"{{die Jacke}}: {{diese}}, ending like {{die}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich wohne in dem ___ Haus an der Ecke.","tr":"I live in the yellow house on the corner.","options":["gelben","gelbe","gelbes"],"answer":0,"why":"Where? Dative: {{-en}}.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist ein ___ Restaurant.","tr":"That's a new restaurant.","options":["neues","neue","neuen"],"answer":0,"why":"After {{ein}}, the adjective shows the neuter itself: {{-es}}. After {{das}}, it would be {{das neue Restaurant}}.","from":"describe-what-you-want"},
+        {"type":"dialogue","q":"Buying shoes.","from":"say-what-suits-you","lines":[{"who":"Salesperson","t":"Welche Schuhe möchten Sie anprobieren?","tr":"Which shoes would you like to try on?"},{"options":["Die schwarzen, bitte.","Die schwarze, bitte."],"answer":0,"why":"Plural after {{die}}: {{-en}}."},{"who":"Salesperson","t":"Hier, bitte. Passen sie?","tr":"Here you are. Do they fit?"},{"options":["Ja, aber die braunen gefallen mir besser.","Ja, aber die braune gefallen mir besser."],"answer":0,"why":"Still plural: {{die braunen}}."}]},
+        {"type":"free","q":"Your turn: you're shopping. Say which item you'll take and which one you won't, with {{der/die/das}} and an adjective.","answers":[{"t":"Ich nehme die rote Tasche, nicht die schwarze.","tr":"I'll take the red bag, not the black one."},{"t":"Ich nehme das große Bild. Das kleine gefällt mir nicht so.","tr":"I'll take the big picture. I don't like the small one as much."}]}
+      ]
+    },
+    {
+      "id": "say-exactly-who",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say exactly who or what you mean",
+      "summary": "Describe people and things with a whole clause: “That's the man who lives next to me.” “The book I'm reading is great.”",
+      "topic": "Relative clauses: {{der, die, das}} as “who, which, that”, with the verb at the end",
+      "blocks": [
+        {"goal":{"t":"Das ist der Mann, der neben mir wohnt.","tr":"That's the man who lives next to me."}},
+        {"dialog":[{"who":"Lea","t":"Wer ist die Frau, die da mit Paul spricht?","tr":"Who's the woman talking to Paul over there?"},{"who":"Jonas","t":"Das ist Sarah, die neue Kollegin, von der ich dir erzählt habe.","tr":"That's Sarah, the new colleague I told you about."},{"who":"Lea","t":"Ach, die aus London?","tr":"Oh, the one from London?"},{"who":"Jonas","t":"Genau. Und der Mann, den du gestern kennengelernt hast, ist ihr Bruder.","tr":"Exactly. And the man you met yesterday is her brother."},{"who":"Lea","t":"Die Welt ist klein!","tr":"It's a small world!"}]},
+        {"term":"relative clause","means":"a clause that describes a noun: the man **who lives next door**; the book **I'm reading**."},
+        {"p":"**A clause that describes a noun.** English uses “who”, “which” or “that”: “the man who lives next to me”. German uses {{der}}, {{die}} or {{das}} (the same words as “the”), after a comma, and the verb goes to the end: {{der Mann, der neben mir wohnt}}."},
+        {"p":"**der, die or das?** Two questions decide. Its gender and number come from the noun it describes: {{der Mann, der…}}, {{die Frau, die…}}, {{das Kind, das…}}, {{die Leute, die…}}. Its case comes from its job inside its own clause: subject, object (accusative), or dative."},
+        { "table": [
+          ["","subject","object (accusative)","dative"],
+          ["masculine","{{der Mann, der hier wohnt}}","{{der Mann, den ich kenne}}","{{der Mann, dem ich helfe}}"],
+          ["feminine","{{die Frau, die hier wohnt}}","{{die Frau, die ich kenne}}","{{die Frau, der ich helfe}}"],
+          ["neuter","{{das Kind, das hier wohnt}}","{{das Kind, das ich kenne}}","{{das Kind, dem ich helfe}}"],
+          ["plural","{{die Leute, die hier wohnen}}","{{die Leute, die ich kenne}}","{{die Leute, denen ich helfe}}"]
+        ] },
+        {"p":"Almost all of it is just {{der/die/das}} as you know them; only the dative plural is new ({{denen}})."},
+        {"p":"**German never leaves it out.** English can say “the book I'm reading”; German must say {{das Buch, das ich lese}}. And the commas around the relative clause are required. **With a preposition**, the preposition comes first: {{die Kollegin, von der ich erzählt habe}} “the colleague I told you about”, {{das Haus, in dem ich wohne}} “the house I live in”."},
+        { "ex": [
+          {"t":"Das Buch, das ich gerade lese, ist super.","tr":"The book I'm reading right now is great."},
+          {"t":"Kennst du die Frau, die dort steht?","tr":"Do you know the woman standing over there?"},
+          {"t":"Wie heißt der Film, den wir gestern gesehen haben?","tr":"What's the name of the movie we saw yesterday?"},
+          {"t":"Das ist der Freund, mit dem ich nach Spanien fahre.","tr":"That's the friend I'm going to Spain with."},
+          {"t":"Ich suche jemanden, der Deutsch und Englisch spricht.","tr":"I'm looking for someone who speaks German and English."},
+          {"t":"Die Leute, denen das Haus gehört, wohnen in Hamburg.","tr":"The people who own the house live in Hamburg."}
+        ] },
+        {"tip":"In a relative clause, separable verbs join up at the end ({{der Zug, der um acht ankommt}}), and in the Perfekt {{haben}} or {{sein}} comes last ({{der Film, den wir gesehen haben}}): the same rules as after {{weil}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Das ist der Mann, der wohnt neben mir.","right":"Das ist der Mann, der neben mir wohnt.","tr":"That's the man who lives next to me.","why":"In a relative clause, the verb goes to the end."},
+        {"wrong":"Das Buch ich lese ist gut.","right":"Das Buch, das ich lese, ist gut.","tr":"The book I'm reading is good.","why":"German can't leave out {{das}}, and it needs commas around the clause."},
+        {"wrong":"Der Mann, der ich kenne, ist nett.","right":"Der Mann, den ich kenne, ist nett.","tr":"The man I know is nice.","why":"Inside its clause, the man is the object of {{kenne}}: accusative, {{den}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“The woman who lives next to me” is…","options":["{{die Frau, die neben mir wohnt}}","{{die Frau, die wohnt neben mir}}","{{die Frau, wer neben mir wohnt}}"],"answer":0,"why":"{{die}} for a woman, and the verb at the end."},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist der Kollege, ___ ich gestern getroffen habe.","tr":"That's the colleague I met yesterday.","options":["den","der","dem"],"answer":0,"why":"He's the object of {{getroffen}}: accusative, {{den}}.","from":"talk-about-an-evening-out"},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie heißt das Restaurant, ___ du so gut findest?","tr":"What's the name of the restaurant you like so much?","options":["das","die","den"],"answer":0,"why":"{{das Restaurant}}, the object: {{das}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist die Freundin, mit ___ ich in den Urlaub fahre.","tr":"That's the friend I'm going on vacation with.","options":["der","die","dem"],"answer":0,"why":"{{mit}} takes the dative: {{die Freundin}} → {{der}}.","from":"travel-around"},
+        {"type":"order","q":"Put the words in order.","tr":"The book I'm reading is great.","words":["Das Buch,","das","ich","lese,","ist","super."]},
+        {"type":"dialogue","q":"At a party: point people out.","lines":[{"who":"Friend","t":"Wer ist der Mann dort?","tr":"Who's the man over there?"},{"options":["Das ist der Nachbar, der über uns wohnt.","Das ist der Nachbar, der wohnt über uns."],"answer":0,"why":"The verb goes last in the relative clause."},{"who":"Friend","t":"Und die Frau?","tr":"And the woman?"},{"options":["Das ist seine Frau, die ich aber nicht so gut kenne.","Das ist seine Frau, die ich aber kenne nicht so gut."],"answer":0,"why":"The verb goes last in the relative clause."}]},
+        {"type":"free","q":"Your turn: describe a person and a thing that matter to you, each with a relative clause.","answers":[{"t":"Meine Schwester ist die Person, die mich am besten kennt.","tr":"My sister is the person who knows me best."},{"t":"Das ist das Buch, das ich am liebsten lese.","tr":"That's the book I like reading most."}]}
+      ]
     }
   ]
 }
