@@ -63,9 +63,9 @@
         {"wrong":"Eu sou do Toronto.","right":"Eu sou de Toronto.","tr":"I'm from Toronto.","why":"Most cities have no “the” in Portuguese, so plain {{de}}: {{de Toronto}}, {{de Londres}}. {{Do}} is for places that take “the”, like {{do Canadá}} or {{do Rio}}."}
       ],
       "practice": [
-        {"type":"choice","q":"Which one means “you are”?","options":["{{você é}}","{{eu sou}}","{{ela é}}"],"answer":0,"why":"{{você é}} is “you are”; {{eu sou}} is “I am”, {{ela é}} “she is”."},
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de Boston.","tr":"I'm from Boston.","options":["sou","é","de"],"answer":0,"why":"With {{eu}}: {{sou}}."},
-        {"type":"dialogue","q":"You're Mike, from Chicago. Choose your replies.","lines":[{"who":"Ana","t":"Oi! Meu nome é Ana.","tr":"Hi! My name is Ana."},{"options":["Oi, Ana! Meu nome é Mike.","Oi, Ana! Você é Mike."],"answer":0,"why":"Say your own name with {{Meu nome é…}}. ({{Você é Mike}} means “You're Mike”.)"},{"who":"Ana","t":"Você é de onde?","tr":"Where are you from?"},{"options":["Sou de Chicago.","É de Chicago."],"answer":0,"why":"About yourself: {{sou}}, “I am”. {{É de Chicago}} would be “he's (or she's) from Chicago”."},{"who":"Ana","t":"Muito prazer!","tr":"Nice to meet you!"}]},
+        {"type":"choice","q":"Which one means “you are”?","options":["{{ela é}}","{{você é}}","{{eu sou}}"],"answer":1,"why":"{{você é}} is “you are”; {{eu sou}} is “I am”, {{ela é}} “she is”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de Boston.","tr":"I'm from Boston.","options":["é","de","sou"],"answer":2,"why":"With {{eu}}: {{sou}}."},
+        {"type":"dialogue","q":"You're Mike, from Chicago. Choose your replies.","lines":[{"who":"Ana","t":"Oi! Meu nome é Ana.","tr":"Hi! My name is Ana."},{"options":["Oi, Ana! Você é Mike.","Oi, Ana! Meu nome é Mike."],"answer":1,"why":"Say your own name with {{Meu nome é…}}. ({{Você é Mike}} means “You're Mike”.)"},{"who":"Ana","t":"Você é de onde?","tr":"Where are you from?"},{"options":["É de Chicago.","Sou de Chicago."],"answer":1,"why":"About yourself: {{sou}}, “I am”. {{É de Chicago}} would be “he's (or she's) from Chicago”."},{"who":"Ana","t":"Muito prazer!","tr":"Nice to meet you!"}]},
         {"type":"order","q":"Put the words in order.","tr":"Where are you from?","words":["Você","é","de","onde?"]},
         {"type":"say","q":"How do you say “I'm from the United States”?","answer":"Sou dos Estados Unidos."},
         {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{Oi, meu nome é…}}","answers":[{"t":"Oi, meu nome é John. Sou de Nova York.","tr":"Hi, my name is John. I'm from New York."},{"t":"Oi, meu nome é Emma. Sou da Inglaterra, de Londres.","tr":"Hi, my name is Emma. I'm from England, from London."}]}
@@ -107,10 +107,10 @@
         {"wrong":"Obrigado!","right":"Obrigada!","tr":"Thank you! (said by a woman)","why":"A woman says {{obrigada}}, with {{-a}}: the word describes the person speaking, not the one being thanked."}
       ],
       "practice": [
-        {"type":"choice","q":"Which verb says how you are at the moment?","options":["{{estar}}: {{estou}}","{{ser}}: {{sou}}"],"answer":0,"why":"How you are now (tired, fine, busy): {{estar}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ muito cansada hoje.","tr":"I'm really tired today.","options":["estou","sou","está"],"answer":0,"why":"How you are now: {{estar}}, and with {{eu}} it's {{estou}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Ela está ___.","tr":"She's tired.","options":["cansada","cansado"],"answer":0,"why":"About a woman: {{-a}}."},
-        {"type":"dialogue","q":"A friend says hello. Choose your replies.","lines":[{"who":"Bruno","t":"Oi! Tudo bem?","tr":"Hi! How's it going?"},{"options":["Tudo bem, e você?","Sou bem, e você?"],"answer":0,"why":"The answer to {{Tudo bem?}} is {{Tudo bem!}}. ({{Sou bem}} isn't Portuguese.)"},{"who":"Bruno","t":"Tudo ótimo. Você está cansado?","tr":"Great. Are you tired?"},{"options":["Sim, estou um pouco cansado.","Sim, sou um pouco cansado."],"answer":0,"why":"Tired right now: {{estar}}."},{"who":"Bruno","t":"Eu também!","tr":"Me too!"}]},
+        {"type":"choice","q":"Which verb says how you are at the moment?","options":["{{ser}}: {{sou}}","{{estar}}: {{estou}}"],"answer":1,"why":"How you are now (tired, fine, busy): {{estar}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ muito cansada hoje.","tr":"I'm really tired today.","options":["está","estou","sou"],"answer":1,"why":"How you are now: {{estar}}, and with {{eu}} it's {{estou}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ela está ___.","tr":"She's tired.","options":["cansado","cansada"],"answer":1,"why":"About a woman: {{-a}}."},
+        {"type":"dialogue","q":"A friend says hello. Choose your replies.","lines":[{"who":"Bruno","t":"Oi! Tudo bem?","tr":"Hi! How's it going?"},{"options":["Sou bem, e você?","Tudo bem, e você?"],"answer":1,"why":"The answer to {{Tudo bem?}} is {{Tudo bem!}}. ({{Sou bem}} isn't Portuguese.)"},{"who":"Bruno","t":"Tudo ótimo. Você está cansado?","tr":"Great. Are you tired?"},{"options":["Sim, sou um pouco cansado.","Sim, estou um pouco cansado."],"answer":1,"why":"Tired right now: {{estar}}."},{"who":"Bruno","t":"Eu também!","tr":"Me too!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I'm a little tired.","words":["Estou","um pouco","cansado."]},
         {"type":"say","q":"You're a woman. How do you say “I'm fine, thanks”?","answer":"Estou bem, obrigada."},
         {"type":"free","q":"Your turn: how are you today? Answer with {{Estou…}}","answers":[{"t":"Estou bem, mas um pouco cansada.","tr":"I'm fine, but a little tired."},{"t":"Estou ótimo, obrigado! E você?","tr":"I'm great, thanks! And you?"}]}
@@ -155,11 +155,11 @@
         {"wrong":"Você fala inglês? — Sim, eu faço.","right":"Você fala inglês? — Falo, sim.","tr":"Do you speak English? — Yes, I do.","why":"Portuguese has no helper “do”: answer with the question's own verb, in the “I” form."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ entendo.","tr":"I don't understand.","options":["não","sim","é"],"answer":0,"why":"“Not” is {{não}}, right before the verb."},
-        {"type":"choice","q":"“Você mora em São Paulo?” The most natural way to say yes is…","options":["{{Moro, sim.}}","{{Sim, faço.}}","{{Sim, mora.}}"],"answer":0,"why":"Answer with the verb, in the “I” form: {{moro}}. ({{Mora}} would be “you live”.)"},
-        {"type":"dialogue","q":"At a party. Choose your replies.","lines":[{"who":"Juliana","t":"Você é americano?","tr":"Are you American?"},{"options":["Não, não sou. Sou inglês.","Não, sou não inglês."],"answer":0,"why":"{{Não, não sou}}: “no, I'm not”. Then say what you are."},{"who":"Juliana","t":"Você fala português?","tr":"Do you speak Portuguese?"},{"options":["Falo um pouco.","Fala um pouco."],"answer":0,"why":"{{Falo}} is “I speak”; {{fala}} would be “you speak”."},{"who":"Juliana","t":"Que legal!","tr":"How cool!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ entendo.","tr":"I don't understand.","options":["sim","é","não"],"answer":2,"why":"“Not” is {{não}}, right before the verb."},
+        {"type":"choice","q":"“Você mora em São Paulo?” The most natural way to say yes is…","options":["{{Sim, mora.}}","{{Moro, sim.}}","{{Sim, faço.}}"],"answer":1,"why":"Answer with the verb, in the “I” form: {{moro}}. ({{Mora}} would be “you live”.)"},
+        {"type":"dialogue","q":"At a party. Choose your replies.","lines":[{"who":"Juliana","t":"Você é americano?","tr":"Are you American?"},{"options":["Não, não sou. Sou inglês.","Não, sou não inglês."],"answer":0,"why":"{{Não, não sou}}: “no, I'm not”. Then say what you are."},{"who":"Juliana","t":"Você fala português?","tr":"Do you speak Portuguese?"},{"options":["Fala um pouco.","Falo um pouco."],"answer":1,"why":"{{Falo}} is “I speak”; {{fala}} would be “you speak”."},{"who":"Juliana","t":"Que legal!","tr":"How cool!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I don't speak Portuguese very well.","words":["Não","falo","português","muito bem."]},
-        {"type":"choice","q":"“Você está bem?” Answer yes, Brazilian style.","options":["{{Estou, sim.}}","{{Sou, sim.}}","{{Está, sim.}}"],"answer":0,"why":"How you are: {{estar}}, in the “I” form, {{estou}}.","from":"say-how-you-are"},
+        {"type":"choice","q":"“Você está bem?” Answer yes, Brazilian style.","options":["{{Está, sim.}}","{{Estou, sim.}}","{{Sou, sim.}}"],"answer":1,"why":"How you are: {{estar}}, in the “I” form, {{estou}}.","from":"say-how-you-are"},
         {"type":"say","q":"Someone asks {{Você entende?}} Say “Yes, I do”, like a Brazilian.","answer":"Entendo, sim."},
         {"type":"free","q":"Your turn: someone asks {{Você fala português?}} Answer honestly, and say what you do speak.","answers":[{"t":"Falo um pouco. Falo inglês e espanhol.","tr":"A little. I speak English and Spanish."},{"t":"Não, não falo muito bem, mas entendo.","tr":"No, I don't speak very well, but I understand."}]}
       ]
@@ -206,7 +206,7 @@
         {"type":"choice","q":"Which is the polite way to order at a counter?","options":["{{Queria um café, por favor.}}","{{Quero café.}}","{{Eu sou um café.}}"],"answer":0,"why":"{{Queria}} with {{por favor}} is polite. ({{Eu sou um café}} means “I am a coffee”!)","from":"say-who-you-are"},
         {"type":"dialogue","q":"At a café: choose your replies.","lines":[{"who":"Waiter","t":"O que você vai querer?","tr":"What will you have?"},{"options":["Queria um suco de laranja, por favor.","Queria uma suco de laranja, por favor."],"answer":0,"why":"{{Suco}} ends in {{-o}}: masculine, {{um suco}}."},{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"options":["Não, obrigado. Só isso.","Não, obrigado. Não sou isso."],"answer":0,"why":"{{Só isso}} is “That's all”."},{"who":"Waiter","t":"Certo!","tr":"Sure!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I'd like to see the menu, please.","words":["Queria","ver","o cardápio,","por favor."]},
-        {"type":"choice","q":"The waiter asks {{Você quer um café?}} Say yes like a Brazilian.","options":["{{Quero, sim.}}","{{Sim, faço.}}","{{Quer, sim.}}"],"answer":0,"why":"Answer with the verb in the “I” form: {{quero}}.","from":"say-yes-and-no"},
+        {"type":"choice","q":"The waiter asks {{Você quer um café?}} Say yes like a Brazilian.","options":["{{Sim, faço.}}","{{Quer, sim.}}","{{Quero, sim.}}"],"answer":2,"why":"Answer with the verb in the “I” form: {{quero}}.","from":"say-yes-and-no"},
         {"type":"say","q":"How do you say “I'd like a beer, please”?","answer":"Queria uma cerveja, por favor."},
         {"type":"free","q":"Your turn: you're at a Brazilian bakery. Ask for two things, politely.","answers":[{"t":"Queria um café e uma coxinha, por favor.","tr":"I'd like a coffee and a coxinha, please."},{"t":"Me vê um pão de queijo e um suco de laranja, por favor.","tr":"Can I get a cheese bread and an orange juice, please?"}]}
       ]
@@ -253,10 +253,10 @@
         {"wrong":"Os casas são bonitas.","right":"As casas são bonitas.","tr":"The houses are pretty.","why":"{{Casa}} is feminine, so “the” is {{as}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ casas são grandes.","tr":"The houses are big.","options":["As","Os","A"],"answer":0,"why":"Feminine and more than one: {{as}}."},
-        {"type":"choice","q":"You point at something and don't know its name. You ask…","options":["{{O que é isso?}}","{{O que é esse?}}","{{Quem é isso?}}"],"answer":0,"why":"For a thing with no name: {{isso}}. ({{Quem}} is “who”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ casas são grandes.","tr":"The houses are big.","options":["A","As","Os"],"answer":1,"why":"Feminine and more than one: {{as}}."},
+        {"type":"choice","q":"You point at something and don't know its name. You ask…","options":["{{Quem é isso?}}","{{O que é isso?}}","{{O que é esse?}}"],"answer":1,"why":"For a thing with no name: {{isso}}. ({{Quem}} is “who”.)"},
         {"type":"fill","q":"Choose the missing word.","t":"___ livro é bom.","tr":"This book is good.","options":["Esse","Essa","Isso"],"answer":0,"why":"{{Livro}} is masculine, and a noun follows: {{esse}}."},
-        {"type":"dialogue","q":"At a street market: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"Bom dia! Quer alguma coisa?","tr":"Good morning! Would you like something?"},{"options":["Bom dia! O que é isso?","Bom dia! O que é esse?"],"answer":0,"why":"Pointing at a thing you can't name: {{isso}}."},{"who":"Seller","t":"É um caju. É muito bom!","tr":"It's a cashew fruit. It's really good!"},{"options":["Queria um caju, por favor.","Queria uma caju, por favor."],"answer":0,"why":"The seller said {{um caju}}: it's masculine."},{"who":"Seller","t":"Aqui está!","tr":"Here you go!"}]},
+        {"type":"dialogue","q":"At a street market: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"Bom dia! Quer alguma coisa?","tr":"Good morning! Would you like something?"},{"options":["Bom dia! O que é isso?","Bom dia! O que é esse?"],"answer":0,"why":"Pointing at a thing you can't name: {{isso}}."},{"who":"Seller","t":"É um caju. É muito bom!","tr":"It's a cashew fruit. It's really good!"},{"options":["Queria uma caju, por favor.","Queria um caju, por favor."],"answer":1,"why":"The seller said {{um caju}}: it's masculine."},{"who":"Seller","t":"Aqui está!","tr":"Here you go!"}]},
         {"type":"order","q":"Put the words in order.","tr":"That house over there is very pretty.","words":["Aquela","casa","é","muito","bonita."]},
         {"type":"say","q":"How do you say “These books are expensive”?","answer":"Esses livros são caros."},
         {"type":"free","q":"Your turn: point at things around you and name them, with {{Isso é…}}, {{Esse…}} or {{Aquela…}}","answers":[{"t":"Isso é um celular. Essa mesa é grande.","tr":"This is a cell phone. This table is big."},{"t":"Aquela é a janela. Isso é uma caneta.","tr":"That's the window over there. This is a pen."}]}
@@ -304,9 +304,9 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"___ você mora?","tr":"Where do you live?","options":["Onde","Quem","Quanto"],"answer":0,"why":"“Where” is {{onde}}."},
         {"type":"choice","q":"Which question asks someone's name?","options":["{{Qual é o seu nome?}}","{{O que é o seu nome?}}","{{Quem é o seu nome?}}"],"answer":0,"why":"A name: {{qual}}."},
-        {"type":"dialogue","q":"At a language exchange: choose your replies.","from":"say-who-you-are","lines":[{"who":"Mariana","t":"Oi! Como você se chama?","tr":"Hi! What's your name?"},{"options":["Meu nome é Tom. E você?","Estou Tom. E você?"],"answer":0,"why":"Your name: {{Meu nome é…}}. ({{Estou}} is for how you are.)"},{"who":"Mariana","t":"Mariana. Você é de onde?","tr":"Mariana. Where are you from?"},{"options":["Sou de Denver. E você mora onde?","Sou de Denver. E você é onde?"],"answer":0,"why":"{{Você mora onde?}} “Where do you live?”, with {{onde}} at the end: relaxed and natural."},{"who":"Mariana","t":"Moro aqui em Curitiba.","tr":"I live here in Curitiba."}]},
+        {"type":"dialogue","q":"At a language exchange: choose your replies.","from":"say-who-you-are","lines":[{"who":"Mariana","t":"Oi! Como você se chama?","tr":"Hi! What's your name?"},{"options":["Meu nome é Tom. E você?","Estou Tom. E você?"],"answer":0,"why":"Your name: {{Meu nome é…}}. ({{Estou}} is for how you are.)"},{"who":"Mariana","t":"Mariana. Você é de onde?","tr":"Mariana. Where are you from?"},{"options":["Sou de Denver. E você é onde?","Sou de Denver. E você mora onde?"],"answer":1,"why":"{{Você mora onde?}} “Where do you live?”, with {{onde}} at the end: relaxed and natural."},{"who":"Mariana","t":"Moro aqui em Curitiba.","tr":"I live here in Curitiba."}]},
         {"type":"order","q":"Put the words in order.","tr":"What do you do?","words":["O que","você","faz?"]},
-        {"type":"choice","q":"Pointing at a strange fruit, you ask…","options":["{{O que é isso?}}","{{Qual é isso?}}","{{Quem é isso?}}"],"answer":0,"why":"What something is: {{O que é…?}}","from":"name-things"},
+        {"type":"choice","q":"Pointing at a strange fruit, you ask…","options":["{{Quem é isso?}}","{{O que é isso?}}","{{Qual é isso?}}"],"answer":1,"why":"What something is: {{O que é…?}}","from":"name-things"},
         {"type":"say","q":"How do you say “How much is this?”","answer":"Quanto custa isso?"},
         {"type":"free","q":"Your turn: ask a new friend three questions: their name, where they live and what they do.","answers":[{"t":"Qual é o seu nome? Onde você mora? O que você faz?","tr":"What's your name? Where do you live? What do you do?"},{"t":"Como você se chama? Você mora onde? E você trabalha com quê?","tr":"What's your name? Where do you live? And what do you do for work?"}]}
       ]
@@ -362,7 +362,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"Meu celular está ___ mesa.","tr":"My phone is on the table.","options":["na","no","em"],"answer":0,"why":"{{Mesa}} is feminine: {{em}} + {{a}} = {{na}}."},
         {"type":"choice","q":"Which question asks where a museum is?","options":["{{Onde fica o museu?}}","{{Onde mora o museu?}}","{{Quem fica o museu?}}"],"answer":0,"why":"For a place: {{Onde fica…?}}"},
         {"type":"fill","q":"Choose the missing word.","t":"A praia fica longe ___ hotel?","tr":"Is the beach far from the hotel?","options":["do","da","de"],"answer":0,"why":"{{Hotel}} is masculine: {{de}} + {{o}} = {{do}}."},
-        {"type":"dialogue","q":"On the street: choose your replies.","from":"ask-questions","lines":[{"who":"Woman","t":"Posso ajudar?","tr":"Can I help?"},{"options":["Pode! Onde fica a estação?","Pode! Quem fica a estação?"],"answer":0,"why":"“Where”: {{onde}}. (And {{Pode!}} answers {{Posso…?}} with its own verb.)"},{"who":"Woman","t":"Fica do lado do shopping.","tr":"It's next to the mall."},{"options":["Fica longe daqui?","Fica longe de aqui?"],"answer":0,"why":"{{De}} and {{aqui}} join: {{daqui}}."},{"who":"Woman","t":"Não, é bem perto.","tr":"No, it's really close."}]},
+        {"type":"dialogue","q":"On the street: choose your replies.","from":"ask-questions","lines":[{"who":"Woman","t":"Posso ajudar?","tr":"Can I help?"},{"options":["Pode! Quem fica a estação?","Pode! Onde fica a estação?"],"answer":1,"why":"“Where”: {{onde}}. (And {{Pode!}} answers {{Posso…?}} with its own verb.)"},{"who":"Woman","t":"Fica do lado do shopping.","tr":"It's next to the mall."},{"options":["Fica longe daqui?","Fica longe de aqui?"],"answer":0,"why":"{{De}} and {{aqui}} join: {{daqui}}."},{"who":"Woman","t":"Não, é bem perto.","tr":"No, it's really close."}]},
         {"type":"order","q":"Put the words in order.","tr":"The pharmacy is near the hotel.","words":["A farmácia","fica","perto","do","hotel."]},
         {"type":"say","q":"A friend calls. Say “I'm on the bus.”","answer":"Estou no ônibus.","from":"say-how-you-are"},
         {"type":"free","q":"Your turn: say where you live and what's near your home. Use {{Moro em…}} and {{perto de}}.","answers":[{"t":"Moro em Chicago, perto de um parque.","tr":"I live in Chicago, near a park."},{"t":"Moro em Londres. Minha casa fica perto da estação.","tr":"I live in London. My house is near the station."}]}
@@ -406,8 +406,8 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"___ um restaurante bom aqui?","tr":"Is there a good restaurant here?","options":["Tem","Está","É"],"answer":0,"why":"Whether something exists: {{tem}}."},
         {"type":"choice","q":"At the airport you read: {{Há táxis na saída 2.}} It means…","options":["There are taxis at exit 2.","Taxis leave from exit 2.","Exit 2 has no taxis."],"answer":0,"why":"{{Há}} is the written form of {{tem}}: “there is, there are”."},
-        {"type":"dialogue","q":"At the hotel: choose your replies.","lines":[{"who":"Receptionist","t":"Boa tarde! Pois não?","tr":"Good afternoon! How can I help?"},{"options":["Boa tarde! Tem um mercado aqui perto?","Boa tarde! Está um mercado aqui perto?"],"answer":0,"why":"Asking whether something exists: {{Tem…?}}"},{"who":"Receptionist","t":"Tem, sim. Fica na esquina.","tr":"Yes, there is. It's on the corner."},{"options":["Ótimo! E tem farmácia?","Ótimo! E é farmácia?"],"answer":0,"why":"{{Tem farmácia?}} “Is there a pharmacy?”, with no {{uma}}: natural in a question."},{"who":"Receptionist","t":"Farmácia não tem, desculpa.","tr":"There's no pharmacy, sorry."}]},
-        {"type":"fill","q":"Choose the missing word.","t":"O mercado fica ___ esquina.","tr":"The market is on the corner.","options":["na","no","em"],"answer":0,"why":"{{Esquina}} is feminine: {{em}} + {{a}} = {{na}}.","from":"say-where-things-are"},
+        {"type":"dialogue","q":"At the hotel: choose your replies.","lines":[{"who":"Receptionist","t":"Boa tarde! Pois não?","tr":"Good afternoon! How can I help?"},{"options":["Boa tarde! Está um mercado aqui perto?","Boa tarde! Tem um mercado aqui perto?"],"answer":1,"why":"Asking whether something exists: {{Tem…?}}"},{"who":"Receptionist","t":"Tem, sim. Fica na esquina.","tr":"Yes, there is. It's on the corner."},{"options":["Ótimo! E é farmácia?","Ótimo! E tem farmácia?"],"answer":1,"why":"{{Tem farmácia?}} “Is there a pharmacy?”, with no {{uma}}: natural in a question."},{"who":"Receptionist","t":"Farmácia não tem, desculpa.","tr":"There's no pharmacy, sorry."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"O mercado fica ___ esquina.","tr":"The market is on the corner.","options":["em","na","no"],"answer":1,"why":"{{Esquina}} is feminine: {{em}} + {{a}} = {{na}}.","from":"say-where-things-are"},
         {"type":"order","q":"Put the words in order.","tr":"There are a lot of people on the beach.","words":["Tem","muita","gente","na","praia."]},
         {"type":"say","q":"How do you say “Is there wi-fi here?”","answer":"Tem wi-fi aqui?"},
         {"type":"free","q":"Your turn: say what there is (and isn't) near your home, with {{Tem…}} and {{Não tem…}}","answers":[{"t":"Tem um parque e uma padaria perto da minha casa, mas não tem metrô.","tr":"There's a park and a bakery near my house, but there's no subway."},{"t":"Perto de casa tem um mercado. Não tem praia!","tr":"Near home there's a market. There's no beach!"}]}
@@ -464,9 +464,9 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Queria ___ cervejas, por favor.","tr":"I'd like two beers, please.","options":["duas","dois"],"answer":0,"why":"{{Cerveja}} is feminine: {{duas}}."},
-        {"type":"choice","q":"A price tag says R$ 15,00. That's…","options":["{{quinze reais}}","{{cinquenta reais}}","{{cinco reais}}"],"answer":0,"why":"15 is {{quinze}}; 50 is {{cinquenta}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Quanto ___ as camisetas?","tr":"How much are the T-shirts?","options":["custam","custa"],"answer":0,"why":"More than one thing: {{custam}}."},
-        {"type":"dialogue","q":"On the beach: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"Olha a água! Água, refrigerante, cerveja!","tr":"Water here! Water, soda, beer!"},{"options":["Moço, quanto custa a água?","Moço, quanto custam a água?"],"answer":0,"why":"One thing: {{custa}}. ({{Moço}} is how Brazilians call a young man selling something.)"},{"who":"Seller","t":"Cinco reais.","tr":"Five reais."},{"options":["Então duas águas, por favor.","Então dois águas, por favor."],"answer":0,"why":"{{Água}} is feminine: {{duas}}."},{"who":"Seller","t":"Dez reais, então.","tr":"Ten reais, then."}]},
+        {"type":"choice","q":"A price tag says R$ 15,00. That's…","options":["{{cinco reais}}","{{quinze reais}}","{{cinquenta reais}}"],"answer":1,"why":"15 is {{quinze}}; 50 is {{cinquenta}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quanto ___ as camisetas?","tr":"How much are the T-shirts?","options":["custa","custam"],"answer":1,"why":"More than one thing: {{custam}}."},
+        {"type":"dialogue","q":"On the beach: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"Olha a água! Água, refrigerante, cerveja!","tr":"Water here! Water, soda, beer!"},{"options":["Moço, quanto custa a água?","Moço, quanto custam a água?"],"answer":0,"why":"One thing: {{custa}}. ({{Moço}} is how Brazilians call a young man selling something.)"},{"who":"Seller","t":"Cinco reais.","tr":"Five reais."},{"options":["Então dois águas, por favor.","Então duas águas, por favor."],"answer":1,"why":"{{Água}} is feminine: {{duas}}."},{"who":"Seller","t":"Dez reais, então.","tr":"Ten reais, then."}]},
         {"type":"order","q":"Put the words in order.","tr":"How much are two coffees?","words":["Quanto","custam","dois","cafés?"]},
         {"type":"say","q":"How do you say “The hotels are near here”?","answer":"Os hotéis ficam perto daqui.","from":"say-where-things-are"},
         {"type":"free","q":"Your turn: order a few things and ask how much it all is.","answers":[{"t":"Queria dois pães de queijo e um suco. Quanto é?","tr":"I'd like two cheese breads and a juice. How much is it?"},{"t":"Duas águas e uma cerveja, por favor. Quanto é tudo?","tr":"Two waters and a beer, please. How much is it all?"}]}
@@ -515,11 +515,11 @@
         {"wrong":"Você é bonita hoje!","right":"Você está bonita hoje!","tr":"You look nice today!","why":"How someone looks today: {{estar}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"As casas são ___.","tr":"The houses are new.","options":["novas","novos","nova"],"answer":0,"why":"{{Casas}}: feminine and more than one, so {{novas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"As casas são ___.","tr":"The houses are new.","options":["nova","novas","novos"],"answer":1,"why":"{{Casas}}: feminine and more than one, so {{novas}}."},
         {"type":"choice","q":"Your friend has a new haircut. You say…","options":["{{Você está linda!}}","{{Você é linda hoje!}}"],"answer":0,"why":"How she looks today: {{estar}}.","from":"say-how-you-are"},
         {"type":"order","q":"Put the words in order.","tr":"It's a very pretty city.","words":["É","uma","cidade","muito","bonita."]},
-        {"type":"fill","q":"Choose the missing word.","t":"Os vizinhos ___ muito simpáticos.","tr":"The neighbors are very friendly.","options":["são","é","somos"],"answer":0,"why":"What they're like, and more than one: {{são}}."},
-        {"type":"dialogue","q":"A friend asks about your trip. Choose your replies.","lines":[{"who":"Friend","t":"E aí, como é Salvador?","tr":"So, what's Salvador like?"},{"options":["É uma cidade linda e muito alegre.","Está uma cidade linda e muito alegre."],"answer":0,"why":"What a city is like: {{ser}}."},{"who":"Friend","t":"E as praias?","tr":"And the beaches?"},{"options":["São maravilhosas!","São maravilhosos!"],"answer":0,"why":"{{Praias}} is feminine: {{maravilhosas}}."},{"who":"Friend","t":"Que inveja!","tr":"I'm so jealous!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Os vizinhos ___ muito simpáticos.","tr":"The neighbors are very friendly.","options":["é","somos","são"],"answer":2,"why":"What they're like, and more than one: {{são}}."},
+        {"type":"dialogue","q":"A friend asks about your trip. Choose your replies.","lines":[{"who":"Friend","t":"E aí, como é Salvador?","tr":"So, what's Salvador like?"},{"options":["Está uma cidade linda e muito alegre.","É uma cidade linda e muito alegre."],"answer":1,"why":"What a city is like: {{ser}}."},{"who":"Friend","t":"E as praias?","tr":"And the beaches?"},{"options":["São maravilhosos!","São maravilhosas!"],"answer":1,"why":"{{Praias}} is feminine: {{maravilhosas}}."},{"who":"Friend","t":"Que inveja!","tr":"I'm so jealous!"}]},
         {"type":"say","q":"How do you say “The two hotels are new”?","answer":"Os dois hotéis são novos.","from":"count-and-pay"},
         {"type":"free","q":"Your turn: describe your city or your home in two or three sentences, with {{é}} and {{tem}}.","answers":[{"t":"Minha cidade é pequena e tranquila. Tem um rio muito bonito.","tr":"My city is small and quiet. There's a very pretty river."},{"t":"Meu apartamento é velho, mas é grande e muito confortável.","tr":"My apartment is old, but it's big and very comfortable."}]}
       ]
@@ -572,7 +572,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"Eu ___ dois filhos.","tr":"I have two children.","options":["tenho","tem","sou"],"answer":0,"why":"“I have”: {{tenho}}."},
         {"type":"choice","q":"How do you ask “How old are you?”","options":["{{Quantos anos você tem?}}","{{Quantos anos você é?}}","{{Quanto velho você é?}}"],"answer":0,"why":"Age goes with {{ter}}: “how many years do you have?”."},
         {"type":"fill","q":"Choose the missing word.","t":"___ mãe é professora.","tr":"My mother is a teacher.","options":["Minha","Meu","Meus"],"answer":0,"why":"{{Mãe}} is feminine: {{minha}}."},
-        {"type":"dialogue","q":"A new colleague asks about your family. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Colleague","t":"Você tem irmãos?","tr":"Do you have brothers and sisters?"},{"options":["Tenho, sim. Tenho uma irmã.","Sou, sim. Tenho uma irmã."],"answer":0,"why":"Answer with the question's own verb: {{tenho}}."},{"who":"Colleague","t":"Quantos anos ela tem?","tr":"How old is she?"},{"options":["Ela tem vinte e cinco anos.","Ela é vinte e cinco anos."],"answer":0,"why":"Age: {{ter}}."},{"who":"Colleague","t":"Ah, ela tem a mesma idade que eu!","tr":"Oh, she's the same age as me!"}]},
+        {"type":"dialogue","q":"A new colleague asks about your family. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Colleague","t":"Você tem irmãos?","tr":"Do you have brothers and sisters?"},{"options":["Sou, sim. Tenho uma irmã.","Tenho, sim. Tenho uma irmã."],"answer":1,"why":"Answer with the question's own verb: {{tenho}}."},{"who":"Colleague","t":"Quantos anos ela tem?","tr":"How old is she?"},{"options":["Ela é vinte e cinco anos.","Ela tem vinte e cinco anos."],"answer":1,"why":"Age: {{ter}}."},{"who":"Colleague","t":"Ah, ela tem a mesma idade que eu!","tr":"Oh, she's the same age as me!"}]},
         {"type":"order","q":"Put the words in order.","tr":"My parents have a house in the countryside.","words":["Meus","pais","têm","uma casa","no interior."]},
         {"type":"say","q":"How do you say “I'm forty-two”?","answer":"Tenho quarenta e dois anos.","from":"count-and-pay"},
         {"type":"free","q":"Your turn: talk about your family. Who do you have, and how old are they?","answers":[{"t":"Tenho um irmão. Ele tem trinta e cinco anos e mora em Seattle.","tr":"I have a brother. He's thirty-five and lives in Seattle."},{"t":"Não tenho irmãos, mas tenho dois filhos. Meu filho tem dez anos e minha filha tem sete.","tr":"I don't have any brothers or sisters, but I have two children. My son is ten and my daughter is seven."}]}
@@ -624,8 +624,8 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Eu ___ ao supermercado.","tr":"I'm going to the supermarket.","options":["vou","vai","vamos"],"answer":0,"why":"“I go”: {{vou}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Vamos ___ praia?","tr":"Shall we go to the beach?","options":["à","ao","o"],"answer":0,"why":"{{Praia}} is feminine: {{a}} + {{a}} = {{à}}."},
-        {"type":"choice","q":"How do you say “by bus”?","options":["{{de ônibus}}","{{em ônibus}}","{{a ônibus}}"],"answer":0,"why":"Transport: {{de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Vamos ___ praia?","tr":"Shall we go to the beach?","options":["o","à","ao"],"answer":1,"why":"{{Praia}} is feminine: {{a}} + {{a}} = {{à}}."},
+        {"type":"choice","q":"How do you say “by bus”?","options":["{{em ônibus}}","{{a ônibus}}","{{de ônibus}}"],"answer":2,"why":"Transport: {{de}}."},
         {"type":"dialogue","q":"Leaving work: choose your replies.","from":"ask-questions","lines":[{"who":"Colleague","t":"Você vai pra onde agora?","tr":"Where are you going now?"},{"options":["Vou pra casa.","Vou pro casa."],"answer":0,"why":"{{Casa}} “home” has no “the”, and it's feminine anyway: {{pra casa}}."},{"who":"Colleague","t":"Vai de metrô?","tr":"Are you taking the subway?"},{"options":["Não, vou a pé. É perto.","Não, vou de pé. É perto."],"answer":0,"why":"On foot: {{a pé}}."},{"who":"Colleague","t":"Então até amanhã!","tr":"See you tomorrow, then!"}]},
         {"type":"order","q":"Put the words in order.","tr":"She goes to work by car.","words":["Ela","vai","pro trabalho","de carro."]},
         {"type":"say","q":"Say: “I'm going to the bank; it's near the hotel.”","answer":"Vou ao banco, fica perto do hotel.","from":"say-where-things-are"},
@@ -669,9 +669,9 @@
         {"wrong":"Eles come muito.","right":"Eles comem muito.","tr":"They eat a lot.","why":"With {{eles}}, {{elas}} or {{vocês}}, the verb ends in {{-m}}: {{comem}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Nós ___ em São Paulo.","tr":"We live in São Paulo.","options":["moramos","mora","moram"],"answer":0,"why":"With {{nós}}: {{-mos}}, {{moramos}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nós ___ em São Paulo.","tr":"We live in São Paulo.","options":["mora","moram","moramos"],"answer":2,"why":"With {{nós}}: {{-mos}}, {{moramos}}."},
         {"type":"fill","q":"Choose the missing word.","t":"A gente ___ muito café.","tr":"We drink a lot of coffee.","options":["bebe","bebemos","bebem"],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{bebe}}."},
-        {"type":"choice","q":"Which two mean the same thing?","options":["{{nós trabalhamos}} and {{a gente trabalha}}","{{nós trabalhamos}} and {{eles trabalham}}","{{a gente trabalha}} and {{eu trabalho}}"],"answer":0,"why":"Both are “we work”: {{a gente}} is the everyday way."},
+        {"type":"choice","q":"Which two mean the same thing?","options":["{{a gente trabalha}} and {{eu trabalho}}","{{nós trabalhamos}} and {{a gente trabalha}}","{{nós trabalhamos}} and {{eles trabalham}}"],"answer":1,"why":"Both are “we work”: {{a gente}} is the everyday way."},
         {"type":"dialogue","q":"A new neighbor says hello. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Neighbor","t":"Vocês moram aqui?","tr":"Do you live here?"},{"options":["Moramos, sim. No terceiro andar.","Mora, sim. No terceiro andar."],"answer":0,"why":"About you and your family: the {{nós}} form, {{moramos}}, answering with the verb."},{"who":"Neighbor","t":"E vocês trabalham com quê?","tr":"And what do you do?"},{"options":["Eu sou professor e minha esposa trabalha num hospital.","Eu sou professor e minha esposa trabalham num hospital."],"answer":0,"why":"One person, {{minha esposa}}: {{trabalha}}."},{"who":"Neighbor","t":"Que legal! Bem-vindos!","tr":"How nice! Welcome!"}]},
         {"type":"order","q":"Put the words in order.","tr":"My friends study Portuguese.","words":["Meus","amigos","estudam","português."]},
         {"type":"say","q":"How do you say “I work in a bank”?","answer":"Trabalho num banco."},
@@ -717,10 +717,10 @@
         {"wrong":"Adoro de praia.","right":"Adoro praia.","tr":"I love the beach.","why":"Only {{gostar}} takes {{de}}; {{adorar}} doesn't."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Você gosta ___ chocolate?","tr":"Do you like chocolate?","options":["de","do","da"],"answer":0,"why":"No “the” here: plain {{de}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Gosto muito ___ cidade.","tr":"I really like the city.","options":["da","do","de"],"answer":0,"why":"{{A cidade}}: {{de}} + {{a}} = {{da}}.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"Você gosta ___ chocolate?","tr":"Do you like chocolate?","options":["da","de","do"],"answer":1,"why":"No “the” here: plain {{de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Gosto muito ___ cidade.","tr":"I really like the city.","options":["do","de","da"],"answer":2,"why":"{{A cidade}}: {{de}} + {{a}} = {{da}}.","from":"say-where-things-are"},
         {"type":"choice","q":"Your friend says {{Não gosto de acordar cedo.}} You don't either. You say…","options":["{{Eu também não.}}","{{Eu também.}}","{{Eu não também.}}"],"answer":0,"why":"“Me neither”: {{eu também não}}."},
-        {"type":"dialogue","q":"Getting to know someone: choose your replies.","lines":[{"who":"Camila","t":"Você gosta de samba?","tr":"Do you like samba?"},{"options":["Gosto, mas gosto mais de rock.","Gosto de, mas gosto mais rock."],"answer":0,"why":"Answer with {{Gosto}} alone; {{de}} comes back only before the thing you like."},{"who":"Camila","t":"E você gosta de cozinhar?","tr":"And do you like cooking?"},{"options":["Adoro cozinhar!","Adoro de cozinhar!"],"answer":0,"why":"{{Adorar}} takes no {{de}}."},{"who":"Camila","t":"Que ótimo!","tr":"That's great!"}]},
+        {"type":"dialogue","q":"Getting to know someone: choose your replies.","lines":[{"who":"Camila","t":"Você gosta de samba?","tr":"Do you like samba?"},{"options":["Gosto de, mas gosto mais rock.","Gosto, mas gosto mais de rock."],"answer":1,"why":"Answer with {{Gosto}} alone; {{de}} comes back only before the thing you like."},{"who":"Camila","t":"E você gosta de cozinhar?","tr":"And do you like cooking?"},{"options":["Adoro cozinhar!","Adoro de cozinhar!"],"answer":0,"why":"{{Adorar}} takes no {{de}}."},{"who":"Camila","t":"Que ótimo!","tr":"That's great!"}]},
         {"type":"order","q":"Put the words in order.","tr":"We like going to the beach.","words":["A gente","gosta","de ir","à praia."],"from":"go-places"},
         {"type":"say","q":"How do you say “I don't like tea”?","answer":"Não gosto de chá."},
         {"type":"free","q":"Your turn: say two things you like and one you don't, with {{Gosto de…}}, {{Adoro…}} and {{Não gosto de…}}","answers":[{"t":"Adoro café e gosto muito de ler, mas não gosto de correr.","tr":"I love coffee and I really like reading, but I don't like running."},{"t":"Gosto de música brasileira e de praia. Não gosto de frio!","tr":"I like Brazilian music and the beach. I don't like the cold!"}]}
@@ -777,8 +777,8 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"São três ___ meia.","tr":"It's three thirty.","options":["e","às","a"],"answer":0,"why":"Three “and” a half: {{três e meia}}."},
         {"type":"choice","q":"It's 1:00. You say…","options":["{{É uma hora.}}","{{São uma hora.}}","{{É um hora.}}"],"answer":0,"why":"One o'clock: {{é}}, and {{hora}} is feminine, {{uma}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"A reunião é ___ dez.","tr":"The meeting is at ten.","options":["às","as","na"],"answer":0,"why":"“At” a time: {{às}}, with its accent."},
-        {"type":"dialogue","q":"Making plans: choose your replies.","from":"go-places","lines":[{"who":"Lia","t":"Vamos ao cinema na sexta?","tr":"Shall we go to the movies on Friday?"},{"options":["Vamos! Que horas começa o filme?","Vamos! Quantas horas começa o filme?"],"answer":0,"why":"“What time”: {{que horas}}. ({{Quantas horas}} is “how many hours”.)"},{"who":"Lia","t":"Às oito e meia.","tr":"At eight thirty."},{"options":["Ótimo! Até sexta, então.","Ótimo! Até o sexta, então."],"answer":0,"why":"{{Até sexta!}} “See you Friday!” ({{Sexta}} is feminine anyway.)"},{"who":"Lia","t":"Beijo, tchau!","tr":"Love, bye!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"A reunião é ___ dez.","tr":"The meeting is at ten.","options":["na","às","as"],"answer":1,"why":"“At” a time: {{às}}, with its accent."},
+        {"type":"dialogue","q":"Making plans: choose your replies.","from":"go-places","lines":[{"who":"Lia","t":"Vamos ao cinema na sexta?","tr":"Shall we go to the movies on Friday?"},{"options":["Vamos! Quantas horas começa o filme?","Vamos! Que horas começa o filme?"],"answer":1,"why":"“What time”: {{que horas}}. ({{Quantas horas}} is “how many hours”.)"},{"who":"Lia","t":"Às oito e meia.","tr":"At eight thirty."},{"options":["Ótimo! Até sexta, então.","Ótimo! Até o sexta, então."],"answer":0,"why":"{{Até sexta!}} “See you Friday!” ({{Sexta}} is feminine anyway.)"},{"who":"Lia","t":"Beijo, tchau!","tr":"Love, bye!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I work Monday to Friday.","words":["Trabalho","de","segunda","a","sexta."]},
         {"type":"say","q":"How do you say “The store opens at nine in the morning”?","answer":"A loja abre às nove da manhã.","from":"say-what-you-do"},
         {"type":"free","q":"Your turn: describe your week. What do you do, on which days, and at what time?","answers":[{"t":"De segunda a sexta eu trabalho das nove às seis. No sábado vou à academia de manhã.","tr":"Monday to Friday I work from nine to six. On Saturday I go to the gym in the morning."},{"t":"Toda terça tenho aula de português às sete da noite.","tr":"Every Tuesday I have Portuguese class at seven in the evening."}]}
@@ -826,10 +826,10 @@
         {"wrong":"Venho à sua casa amanhã.","right":"Vou à sua casa amanhã.","tr":"I'm coming to your house tomorrow.","why":"Going toward the other person is {{ir}}: you only “come” ({{vir}}) to where you are now."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de casa às oito.","tr":"I leave home at eight.","options":["saio","sai","saímos"],"answer":0,"why":"“I leave”: {{saio}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de casa às oito.","tr":"I leave home at eight.","options":["sai","saímos","saio"],"answer":2,"why":"“I leave”: {{saio}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Meus pais ___ aqui no domingo.","tr":"My parents are coming here on Sunday.","options":["vêm","vem","venho"],"answer":0,"why":"“They come”: {{vêm}}, with a hat."},
-        {"type":"choice","q":"A friend calls you from the next room. You answer “I'm coming!”:","options":["{{Já vou!}}","{{Já venho!}}"],"answer":0,"why":"Going toward the other person is {{ir}}. ({{Já venho!}} means “I'll be right back!”)"},
-        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies.","from":"talk-about-time","lines":[{"who":"Colleague","t":"O que você faz no fim de semana?","tr":"What do you do on the weekend?"},{"options":["No sábado eu saio com amigos.","No sábado eu sai com amigos."],"answer":0,"why":"“I go out”: {{saio}}."},{"who":"Colleague","t":"E no domingo?","tr":"And on Sunday?"},{"options":["Faço um almoço pra minha família.","Fazo um almoço pra minha família."],"answer":0,"why":"{{Fazer}}: {{eu faço}}."},{"who":"Colleague","t":"Que delícia!","tr":"Sounds delicious!"}]},
+        {"type":"choice","q":"A friend calls you from the next room. You answer “I'm coming!”:","options":["{{Já venho!}}","{{Já vou!}}"],"answer":1,"why":"Going toward the other person is {{ir}}. ({{Já venho!}} means “I'll be right back!”)"},
+        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies.","from":"talk-about-time","lines":[{"who":"Colleague","t":"O que você faz no fim de semana?","tr":"What do you do on the weekend?"},{"options":["No sábado eu sai com amigos.","No sábado eu saio com amigos."],"answer":1,"why":"“I go out”: {{saio}}."},{"who":"Colleague","t":"E no domingo?","tr":"And on Sunday?"},{"options":["Fazo um almoço pra minha família.","Faço um almoço pra minha família."],"answer":1,"why":"{{Fazer}}: {{eu faço}}."},{"who":"Colleague","t":"Que delícia!","tr":"Sounds delicious!"}]},
         {"type":"order","q":"Put the words in order.","tr":"We watch TV at night.","words":["A gente","vê","TV","à noite."]},
         {"type":"say","q":"How do you say “I always bring a cake”?","answer":"Eu sempre trago um bolo."},
         {"type":"free","q":"Your turn: what do you do on the weekend? Use at least two of {{faço}}, {{saio}}, {{vejo}}, {{vou}}.","answers":[{"t":"No sábado eu faço compras e à noite saio com meus amigos. No domingo vejo minha família.","tr":"On Saturday I go shopping and at night I go out with my friends. On Sunday I see my family."},{"t":"No fim de semana eu durmo muito, vejo filmes e vou ao parque.","tr":"On the weekend I sleep a lot, watch movies and go to the park."}]}
@@ -875,7 +875,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"Eu ___ levanto cedo.","tr":"I get up early.","options":["me","se","nos"],"answer":0,"why":"With {{eu}}: {{me}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Como você ___ chama?","tr":"What's your name?","options":["se","me","nos"],"answer":0,"why":"With {{você}}: {{se}}."},
         {"type":"choice","q":"{{A gente se vê amanhã!}} means…","options":["See you tomorrow!","We see ourselves tomorrow.","We'll watch TV tomorrow."],"answer":0,"why":"{{Se}} here is “each other”: “we see each other tomorrow”."},
-        {"type":"dialogue","q":"Talking about mornings: choose your replies.","from":"talk-about-time","lines":[{"who":"Lúcia","t":"Que horas você se levanta?","tr":"What time do you get up?"},{"options":["Me levanto às seis e meia.","Se levanto às seis e meia."],"answer":0,"why":"About yourself: {{me}}. Starting with {{Me…}} is normal Brazilian speech."},{"who":"Lúcia","t":"E que horas você sai de casa?","tr":"And what time do you leave home?"},{"options":["Saio às oito.","Me saio às oito."],"answer":0,"why":"{{Sair}} isn't reflexive."},{"who":"Lúcia","t":"Nossa, que cedo!","tr":"Wow, that's early!"}]},
+        {"type":"dialogue","q":"Talking about mornings: choose your replies.","from":"talk-about-time","lines":[{"who":"Lúcia","t":"Que horas você se levanta?","tr":"What time do you get up?"},{"options":["Se levanto às seis e meia.","Me levanto às seis e meia."],"answer":1,"why":"About yourself: {{me}}. Starting with {{Me…}} is normal Brazilian speech."},{"who":"Lúcia","t":"E que horas você sai de casa?","tr":"And what time do you leave home?"},{"options":["Me saio às oito.","Saio às oito."],"answer":1,"why":"{{Sair}} isn't reflexive."},{"who":"Lúcia","t":"Nossa, que cedo!","tr":"Wow, that's early!"}]},
         {"type":"order","q":"Put the words in order.","tr":"She gets dressed and goes to work.","words":["Ela","se veste","e","vai","pro trabalho."],"from":"go-places"},
         {"type":"say","q":"You're a man. How do you say “I feel tired”?","answer":"Eu me sinto cansado."},
         {"type":"free","q":"Your turn: describe your morning, from waking up to leaving home. Use at least two reflexive verbs.","answers":[{"t":"Acordo às sete, me levanto, tomo banho e me visto. Saio de casa às oito.","tr":"I wake up at seven, get up, shower and get dressed. I leave home at eight."},{"t":"Eu me levanto cedo, tomo café e me arrumo rápido.","tr":"I get up early, have breakfast and get ready quickly."}]}
@@ -921,9 +921,9 @@
         {"wrong":"Estou fazindo o jantar.","right":"Estou fazendo o jantar.","tr":"I'm making dinner.","why":"The ending comes from the infinitive: {{fazer}} → {{fazendo}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu estou ___ um livro.","tr":"I'm reading a book.","options":["lendo","ler","leio"],"answer":0,"why":"{{Ler}} → {{lendo}}: {{estar}} + {{-ndo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu estou ___ um livro.","tr":"I'm reading a book.","options":["leio","lendo","ler"],"answer":1,"why":"{{Ler}} → {{lendo}}: {{estar}} + {{-ndo}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Eles ___ jantando.","tr":"They're having dinner.","options":["estão","são","está"],"answer":0,"why":"{{Estar}} with {{eles}}: {{estão}}."},
-        {"type":"choice","q":"A friend texts {{O que você está fazendo?}} while you're at work. You answer…","options":["{{Estou trabalhando.}}","{{Trabalho num banco.}}","{{Sou trabalhando.}}"],"answer":0,"why":"Right now: {{estar}} + {{-ndo}}. {{Trabalho num banco}} answers “What do you do for a living?”."},
+        {"type":"choice","q":"A friend texts {{O que você está fazendo?}} while you're at work. You answer…","options":["{{Sou trabalhando.}}","{{Estou trabalhando.}}","{{Trabalho num banco.}}"],"answer":1,"why":"Right now: {{estar}} + {{-ndo}}. {{Trabalho num banco}} answers “What do you do for a living?”."},
         {"type":"dialogue","q":"Your mother calls. Choose your replies.","from":"say-how-you-are","lines":[{"who":"Mom","t":"Oi, filho! Tudo bem? O que você está fazendo?","tr":"Hi, son! Everything OK? What are you doing?"},{"options":["Tudo bem! Estou fazendo o jantar.","Tudo bem! Estou faço o jantar."],"answer":0,"why":"{{Estar}} + the {{-ndo}} form: {{estou fazendo}}."},{"who":"Mom","t":"E aí, está chovendo?","tr":"And is it raining there?"},{"options":["Não, está fazendo muito calor.","Não, é fazendo muito calor."],"answer":0,"why":"The weather now: {{está}}."},{"who":"Mom","t":"Que bom! Beijo!","tr":"Good! Love you!"}]},
         {"type":"order","q":"Put the words in order.","tr":"What are you guys doing?","words":["O que","vocês","estão","fazendo?"]},
         {"type":"say","q":"How do you say “I'm getting ready”?","answer":"Estou me arrumando.","from":"describe-your-morning"},
@@ -966,9 +966,9 @@
         {"wrong":"Eu vou não trabalhar.","right":"Eu não vou trabalhar.","tr":"I'm not going to work.","why":"{{Não}} goes before {{vou}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ estudar.","tr":"Tomorrow I'm going to study.","options":["vou","vai","estou"],"answer":0,"why":"“I'm going to”: {{vou}} + infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ estudar.","tr":"Tomorrow I'm going to study.","options":["vai","estou","vou"],"answer":2,"why":"“I'm going to”: {{vou}} + infinitive."},
         {"type":"fill","q":"Choose the missing word.","t":"A gente ___ jantar fora.","tr":"We're going to have dinner out.","options":["vai","vamos","vão"],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{vai}}.","from":"say-what-you-do"},
-        {"type":"choice","q":"“Next week” is…","options":["{{semana que vem}}","{{semana passada}}","{{essa semana}}"],"answer":0,"why":"{{Semana que vem}}, literally “week that comes”. ({{Semana passada}} is “last week”.)"},
+        {"type":"choice","q":"“Next week” is…","options":["{{essa semana}}","{{semana que vem}}","{{semana passada}}"],"answer":1,"why":"{{Semana que vem}}, literally “week that comes”. ({{Semana passada}} is “last week”.)"},
         {"type":"dialogue","q":"A friend asks about your weekend plans. Choose your replies.","from":"go-places","lines":[{"who":"Friend","t":"O que você vai fazer no sábado?","tr":"What are you going to do on Saturday?"},{"options":["Vou à praia com meu irmão.","Vou a ir praia com meu irmão."],"answer":0,"why":"Going somewhere: just {{vou}} + where."},{"who":"Friend","t":"E no domingo?","tr":"And on Sunday?"},{"options":["Não vou fazer nada!","Vou não fazer nada!"],"answer":0,"why":"{{Não}} goes before {{vou}}."},{"who":"Friend","t":"Que inveja!","tr":"I'm jealous!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I'm not going to go out tonight.","words":["Não","vou","sair","hoje","à noite."]},
         {"type":"say","q":"How do you say “It's going to rain tomorrow”?","answer":"Vai chover amanhã."},
@@ -1013,10 +1013,10 @@
         {"wrong":"Não posso abrir a garrafa.","right":"Não consigo abrir a garrafa.","tr":"I can't open the bottle.","why":"Trying and failing is {{conseguir}}. {{Não posso}} would mean you're not allowed to."}
       ],
       "practice": [
-        {"type":"choice","q":"You want to say you know how to drive. You say…","options":["{{Sei dirigir.}}","{{Posso dirigir.}}","{{Consigo dirigir.}}"],"answer":0,"why":"A skill: {{saber}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Eu não ___ dormir.","tr":"I can't sleep.","options":["consigo","sei","dá"],"answer":0,"why":"Trying, but it doesn't work: {{conseguir}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"___ pra ir a pé?","tr":"Can you get there on foot?","options":["Dá","Pode","Sabe"],"answer":0,"why":"Is it possible?: {{dá pra}}."},
-        {"type":"dialogue","q":"Paying at a restaurant: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"options":["Não, obrigado. Dá pra pagar com cartão?","Não, obrigado. Sabe pagar com cartão?"],"answer":0,"why":"Is it possible?: {{dá pra}}."},{"who":"Waiter","t":"Dá, sim. Débito ou crédito?","tr":"Yes. Debit or credit?"},{"options":["Crédito. Posso pagar aqui na mesa?","Crédito. Sei pagar aqui na mesa?"],"answer":0,"why":"Asking permission: {{posso}}."},{"who":"Waiter","t":"Pode, eu trago a maquininha.","tr":"Yes, I'll bring the card machine."}]},
+        {"type":"choice","q":"You want to say you know how to drive. You say…","options":["{{Consigo dirigir.}}","{{Sei dirigir.}}","{{Posso dirigir.}}"],"answer":1,"why":"A skill: {{saber}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu não ___ dormir.","tr":"I can't sleep.","options":["dá","consigo","sei"],"answer":1,"why":"Trying, but it doesn't work: {{conseguir}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ pra ir a pé?","tr":"Can you get there on foot?","options":["Sabe","Dá","Pode"],"answer":1,"why":"Is it possible?: {{dá pra}}."},
+        {"type":"dialogue","q":"Paying at a restaurant: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"options":["Não, obrigado. Sabe pagar com cartão?","Não, obrigado. Dá pra pagar com cartão?"],"answer":1,"why":"Is it possible?: {{dá pra}}."},{"who":"Waiter","t":"Dá, sim. Débito ou crédito?","tr":"Yes. Debit or credit?"},{"options":["Crédito. Sei pagar aqui na mesa?","Crédito. Posso pagar aqui na mesa?"],"answer":1,"why":"Asking permission: {{posso}}."},{"who":"Waiter","t":"Pode, eu trago a maquininha.","tr":"Yes, I'll bring the card machine."}]},
         {"type":"order","q":"Put the words in order.","tr":"Can you speak more slowly?","words":["Você","pode","falar","mais","devagar?"]},
         {"type":"say","q":"A friend invites you, but you can't make it. Say “I can't today, sorry.”","answer":"Hoje não vai dar, desculpa."},
         {"type":"free","q":"Your turn: say one thing you know how to do, one thing you can't manage, and ask someone a favor.","answers":[{"t":"Sei cozinhar muito bem, mas não consigo acordar cedo. Você pode me ligar às sete?","tr":"I can cook really well, but I can't manage to wake up early. Can you call me at seven?"},{"t":"Sei tocar violão. Não consigo entender quando as pessoas falam rápido. Você pode repetir?","tr":"I can play the guitar. I can't understand when people talk fast. Can you say that again?"}]}
@@ -1065,10 +1065,10 @@
         {"wrong":"Preciso um táxi.","right":"Preciso de um táxi.","tr":"I need a taxi.","why":"Before a noun, {{precisar}} takes {{de}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu tenho ___ ir agora.","tr":"I have to go now.","options":["que","para","a"],"answer":0,"why":"“Have to”: {{ter que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu tenho ___ ir agora.","tr":"I have to go now.","options":["a","que","para"],"answer":1,"why":"“Have to”: {{ter que}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Você precisa ___ alguma coisa?","tr":"Do you need anything?","options":["de","que","para"],"answer":0,"why":"Before a noun: {{precisar de}}."},
         {"type":"choice","q":"Your friend has a bad cough. Gentle advice:","options":["{{Você devia ir ao médico.}}","{{Você tem que vai ao médico.}}","{{Você deve vai ao médico.}}"],"answer":0,"why":"{{Devia}} + infinitive is soft advice. After {{tem que}} and {{deve}}, the verb would be an infinitive too: {{ir}}."},
-        {"type":"dialogue","q":"Leaving a party: choose your replies.","from":"make-plans","lines":[{"who":"Ana","t":"Já vai? Ainda é cedo!","tr":"Leaving already? It's still early!"},{"options":["Pois é, tenho que acordar cedo amanhã.","Pois é, tenho acordar cedo amanhã."],"answer":0,"why":"{{Tenho que}} + infinitive."},{"who":"Ana","t":"Você precisa de carona?","tr":"Do you need a ride?"},{"options":["Não precisa, obrigado. Vou pegar um táxi.","Não preciso de, obrigado. Vou pegar um táxi."],"answer":0,"why":"{{Não precisa}} “no need” is the natural answer; and {{vou pegar}} is a plan: {{ir}} + infinitive."},{"who":"Ana","t":"Então tá. Beijo!","tr":"OK then. Bye!"}]},
+        {"type":"dialogue","q":"Leaving a party: choose your replies.","from":"make-plans","lines":[{"who":"Ana","t":"Já vai? Ainda é cedo!","tr":"Leaving already? It's still early!"},{"options":["Pois é, tenho acordar cedo amanhã.","Pois é, tenho que acordar cedo amanhã."],"answer":1,"why":"{{Tenho que}} + infinitive."},{"who":"Ana","t":"Você precisa de carona?","tr":"Do you need a ride?"},{"options":["Não preciso de, obrigado. Vou pegar um táxi.","Não precisa, obrigado. Vou pegar um táxi."],"answer":1,"why":"{{Não precisa}} “no need” is the natural answer; and {{vou pegar}} is a plan: {{ir}} + infinitive."},{"who":"Ana","t":"Então tá. Beijo!","tr":"OK then. Bye!"}]},
         {"type":"order","q":"Put the words in order.","tr":"We have to buy bread.","words":["A gente","tem que","comprar","pão."]},
         {"type":"say","q":"How do you say “I need help”?","answer":"Preciso de ajuda."},
         {"type":"free","q":"Your turn: say two things you have to do this week and one thing you don't need to do.","answers":[{"t":"Tenho que ir ao dentista e preciso comprar um presente. Não preciso trabalhar na sexta!","tr":"I have to go to the dentist and I need to buy a present. I don't need to work on Friday!"},{"t":"Essa semana tenho que estudar muito, mas não preciso cozinhar: minha mãe vem aqui.","tr":"This week I have to study a lot, but I don't need to cook: my mother is coming over."}]}
@@ -1112,10 +1112,10 @@
         {"wrong":"Vamos a comer!","right":"Vamos comer!","tr":"Let's eat!","why":"{{Vamos}} + infinitive, with nothing in between, as with {{vou}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ tal um sorvete?","tr":"How about an ice cream?","options":["Que","Qual","Como"],"answer":0,"why":"“How about…?”: {{Que tal…?}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ tal um sorvete?","tr":"How about an ice cream?","options":["Como","Que","Qual"],"answer":1,"why":"“How about…?”: {{Que tal…?}}"},
         {"type":"choice","q":"A friend invites you, but you have to work. The most Brazilian answer:","options":["{{Ah, hoje não vai dar. Fica pra próxima!}}","{{Não.}}","{{Não quero.}}"],"answer":0,"why":"Soften the no and leave the door open: {{não vai dar}}, {{fica pra próxima}}.","from":"say-what-you-can-do"},
-        {"type":"dialogue","q":"A friend suggests a movie. Choose your replies.","from":"talk-about-time","lines":[{"who":"Lu","t":"Vamos ao cinema amanhã?","tr":"Shall we go to the movies tomorrow?"},{"options":["Vamos! Que horas?","Vamos! Quantas horas?"],"answer":0,"why":"“What time”: {{que horas}}."},{"who":"Lu","t":"Que tal às sete?","tr":"How about seven?"},{"options":["Às sete eu não posso. Que tal às oito?","Às sete eu não sei. Que tal às oito?"],"answer":0,"why":"Not free: {{não posso}}. ({{Não sei}} is “I don't know”.)"},{"who":"Lu","t":"Fechado, às oito!","tr":"Deal, at eight!"}]},
-        {"type":"fill","q":"Choose the missing word.","t":"Você quer jantar ___?","tr":"Do you want to have dinner with me?","options":["comigo","com eu","com me"],"answer":0,"why":"“With me” is one word: {{comigo}}."},
+        {"type":"dialogue","q":"A friend suggests a movie. Choose your replies.","from":"talk-about-time","lines":[{"who":"Lu","t":"Vamos ao cinema amanhã?","tr":"Shall we go to the movies tomorrow?"},{"options":["Vamos! Que horas?","Vamos! Quantas horas?"],"answer":0,"why":"“What time”: {{que horas}}."},{"who":"Lu","t":"Que tal às sete?","tr":"How about seven?"},{"options":["Às sete eu não sei. Que tal às oito?","Às sete eu não posso. Que tal às oito?"],"answer":1,"why":"Not free: {{não posso}}. ({{Não sei}} is “I don't know”.)"},{"who":"Lu","t":"Fechado, às oito!","tr":"Deal, at eight!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Você quer jantar ___?","tr":"Do you want to have dinner with me?","options":["com eu","com me","comigo"],"answer":2,"why":"“With me” is one word: {{comigo}}."},
         {"type":"order","q":"Put the words in order.","tr":"We could order a pizza.","words":["A gente","pode","pedir","uma","pizza."]},
         {"type":"say","q":"How do you say “Shall we get a coffee?”","answer":"Vamos tomar um café?"},
         {"type":"free","q":"Your turn: invite a friend to do something this weekend, and suggest a time.","answers":[{"t":"Vamos ao parque no domingo? Que tal às dez?","tr":"Shall we go to the park on Sunday? How about ten?"},{"t":"Você quer jantar comigo na sexta? A gente pode experimentar aquele restaurante japonês.","tr":"Do you want to have dinner with me on Friday? We could try that Japanese restaurant."}]}
@@ -1163,10 +1163,10 @@
         {"wrong":"Fazi o seu pedido aqui.","right":"Faça o seu pedido aqui.","tr":"Order here.","why":"The written command comes from the “I” form: {{faço}} → {{faça}}."}
       ],
       "practice": [
-        {"type":"choice","q":"A sign on a door says {{Puxe}}. You…","options":["pull","push","knock"],"answer":0,"why":"{{Puxe}} is “pull”; “push” is {{empurre}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"___ o sal, por favor?","tr":"Could you pass me the salt, please?","options":["Me passa","Passa me","Me passo"],"answer":0,"why":"The pronoun first, then the {{você}} form: {{me passa}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Segue reto e ___ à direita.","tr":"Go straight and turn right.","options":["vira","virar","viro"],"answer":0,"why":"A spoken command: the {{você}} form, {{vira}}."},
-        {"type":"dialogue","q":"Lost in the city: choose your replies.","from":"say-where-things-are","lines":[{"who":"Woman","t":"Precisa de ajuda?","tr":"Do you need help?"},{"options":["Preciso. Como chego ao museu?","Preciso. Quem chego ao museu?"],"answer":0,"why":"“How”: {{como}}."},{"who":"Woman","t":"Segue reto e vira na segunda à esquerda.","tr":"Go straight and take the second left."},{"options":["Fica longe daqui?","Fica longe de aqui?"],"answer":0,"why":"{{De}} + {{aqui}} = {{daqui}}."},{"who":"Woman","t":"Não, uns cinco minutos.","tr":"No, about five minutes."}]},
+        {"type":"choice","q":"A sign on a door says {{Puxe}}. You…","options":["push","knock","pull"],"answer":2,"why":"{{Puxe}} is “pull”; “push” is {{empurre}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ o sal, por favor?","tr":"Could you pass me the salt, please?","options":["Me passo","Me passa","Passa me"],"answer":1,"why":"The pronoun first, then the {{você}} form: {{me passa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Segue reto e ___ à direita.","tr":"Go straight and turn right.","options":["viro","vira","virar"],"answer":1,"why":"A spoken command: the {{você}} form, {{vira}}."},
+        {"type":"dialogue","q":"Lost in the city: choose your replies.","from":"say-where-things-are","lines":[{"who":"Woman","t":"Precisa de ajuda?","tr":"Do you need help?"},{"options":["Preciso. Quem chego ao museu?","Preciso. Como chego ao museu?"],"answer":1,"why":"“How”: {{como}}."},{"who":"Woman","t":"Segue reto e vira na segunda à esquerda.","tr":"Go straight and take the second left."},{"options":["Fica longe daqui?","Fica longe de aqui?"],"answer":0,"why":"{{De}} + {{aqui}} = {{daqui}}."},{"who":"Woman","t":"Não, uns cinco minutos.","tr":"No, about five minutes."}]},
         {"type":"choice","q":"Which one would you read on an instruction leaflet?","options":["{{Abra a embalagem aqui.}}","{{Abre a embalagem aqui.}}"],"answer":0,"why":"Written instructions: {{-er}} and {{-ir}} verbs end in {{-a}}, {{abra}}."},
         {"type":"order","q":"Put the words in order.","tr":"Don't forget the keys!","words":["Não","esquece","as","chaves!"]},
         {"type":"say","q":"Tell a friend: “Call me tomorrow!”","answer":"Me liga amanhã!"},
@@ -1219,10 +1219,10 @@
         {"wrong":"Isso é pra eu.","right":"Isso é pra mim.","tr":"This is for me.","why":"After a preposition, “me” is {{mim}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Ele sempre ___ ajuda.","tr":"He always helps me.","options":["me","eu","mim"],"answer":0,"why":"“Me” as an object, before the verb: {{me}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ele sempre ___ ajuda.","tr":"He always helps me.","options":["eu","mim","me"],"answer":2,"why":"“Me” as an object, before the verb: {{me}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Esse presente é pra ___.","tr":"This present is for me.","options":["mim","me","eu"],"answer":0,"why":"After {{pra}}: {{mim}}."},
-        {"type":"choice","q":"In a book you read {{Ela o conhece bem.}} It means…","options":["She knows him well.","He knows her well.","She knows it's good."],"answer":0,"why":"In writing, {{o}} before the verb is “him” (or “it”); the subject is {{ela}}."},
-        {"type":"dialogue","q":"Planning to meet: choose your replies.","from":"make-plans","lines":[{"who":"Friend","t":"Vou te mandar o endereço da festa.","tr":"I'm going to send you the party's address."},{"options":["Ótimo! Você me manda agora?","Ótimo! Você manda me agora?"],"answer":0,"why":"The pronoun goes before the verb: {{me manda}}."},{"who":"Friend","t":"Mando. E a gente se encontra lá às nove?","tr":"Sure. And we meet there at nine?"},{"options":["Combinado! Te vejo lá.","Combinado! Vejo te lá."],"answer":0,"why":"{{Te vejo}}: the pronoun first."},{"who":"Friend","t":"Até mais!","tr":"See you later!"}]},
+        {"type":"choice","q":"In a book you read {{Ela o conhece bem.}} It means…","options":["He knows her well.","She knows it's good.","She knows him well."],"answer":2,"why":"In writing, {{o}} before the verb is “him” (or “it”); the subject is {{ela}}."},
+        {"type":"dialogue","q":"Planning to meet: choose your replies.","from":"make-plans","lines":[{"who":"Friend","t":"Vou te mandar o endereço da festa.","tr":"I'm going to send you the party's address."},{"options":["Ótimo! Você manda me agora?","Ótimo! Você me manda agora?"],"answer":1,"why":"The pronoun goes before the verb: {{me manda}}."},{"who":"Friend","t":"Mando. E a gente se encontra lá às nove?","tr":"Sure. And we meet there at nine?"},{"options":["Combinado! Vejo te lá.","Combinado! Te vejo lá."],"answer":1,"why":"{{Te vejo}}: the pronoun first."},{"who":"Friend","t":"Até mais!","tr":"See you later!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I'm going to call you tomorrow.","words":["Vou","te","ligar","amanhã."]},
         {"type":"say","q":"How do you say “Do you want to come with me?”","answer":"Quer ir comigo?","from":"invite-and-suggest"},
         {"type":"free","q":"Your turn: talk about someone important to you. How do you help each other? Use {{me}}, {{te}} or {{nos}}.","answers":[{"t":"Minha irmã sempre me ajuda. Eu ligo pra ela todo domingo.","tr":"My sister always helps me. I call her every Sunday."},{"t":"Meus pais nos visitam no Natal e a gente leva eles pra passear.","tr":"My parents visit us at Christmas and we take them out and about."}]}
@@ -1268,10 +1268,10 @@
         {"wrong":"Você comeu? — Sim, eu fiz.","right":"Você comeu? — Comi.","tr":"Did you eat? — Yes, I did.","why":"No helper verb in Portuguese, in the past either: answer with the verb."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Ontem eu ___ até tarde.","tr":"Yesterday I worked late.","options":["trabalhei","trabalhou","trabalho"],"answer":0,"why":"“I worked”: {{trabalhei}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Vocês ___ a pizza toda?","tr":"Did you eat the whole pizza?","options":["comeram","comemos","comeu"],"answer":0,"why":"With {{vocês}}: {{comeram}}."},
-        {"type":"choice","q":"{{Nós falamos com ele}} can mean…","options":["“We speak to him” or “We spoke to him”","only “We speak to him”","only “We spoke to him”"],"answer":0,"why":"The {{nós}} form of {{-ar}} verbs is the same in the present and the past."},
-        {"type":"dialogue","q":"A friend asks about your dinner out. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Renata","t":"Você gostou do restaurante?","tr":"Did you like the restaurant?"},{"options":["Gostei muito!","Sim, eu fiz!"],"answer":0,"why":"Answer with the verb: {{gostei}}."},{"who":"Renata","t":"E o que vocês comeram?","tr":"And what did you eat?"},{"options":["A gente comeu uma moqueca deliciosa.","A gente comemos uma moqueca deliciosa."],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{comeu}}."},{"who":"Renata","t":"Que delícia!","tr":"Yum!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Ontem eu ___ até tarde.","tr":"Yesterday I worked late.","options":["trabalho","trabalhei","trabalhou"],"answer":1,"why":"“I worked”: {{trabalhei}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Vocês ___ a pizza toda?","tr":"Did you eat the whole pizza?","options":["comemos","comeu","comeram"],"answer":2,"why":"With {{vocês}}: {{comeram}}."},
+        {"type":"choice","q":"{{Nós falamos com ele}} can mean…","options":["only “We speak to him”","only “We spoke to him”","“We speak to him” or “We spoke to him”"],"answer":2,"why":"The {{nós}} form of {{-ar}} verbs is the same in the present and the past."},
+        {"type":"dialogue","q":"A friend asks about your dinner out. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Renata","t":"Você gostou do restaurante?","tr":"Did you like the restaurant?"},{"options":["Gostei muito!","Sim, eu fiz!"],"answer":0,"why":"Answer with the verb: {{gostei}}."},{"who":"Renata","t":"E o que vocês comeram?","tr":"And what did you eat?"},{"options":["A gente comemos uma moqueca deliciosa.","A gente comeu uma moqueca deliciosa."],"answer":1,"why":"{{A gente}} takes the {{ele}} form: {{comeu}}."},{"who":"Renata","t":"Que delícia!","tr":"Yum!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I arrived in Brazil last week.","words":["Cheguei","no Brasil","semana","passada."]},
         {"type":"say","q":"How do you say “Did you like it?”","answer":"Você gostou?"},
         {"type":"free","q":"Your turn: what did you do yesterday? Say three things, with regular verbs.","answers":[{"t":"Ontem eu trabalhei, estudei português e assisti a uma série.","tr":"Yesterday I worked, studied Portuguese and watched a series."},{"t":"Acordei tarde, almocei com meus pais e à noite saí com amigos.","tr":"I woke up late, had lunch with my parents and in the evening went out with friends."}]}
@@ -1323,8 +1323,8 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"No sábado eu ___ ao cinema.","tr":"On Saturday I went to the movies.","options":["fui","foi","vou"],"answer":0,"why":"“I went”: {{fui}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"O que vocês ___ no fim de semana?","tr":"What did you do on the weekend?","options":["fizeram","fazem","fez"],"answer":0,"why":"With {{vocês}}, in the past: {{fizeram}}."},
-        {"type":"choice","q":"{{Fui}} can mean…","options":["“I went” or “I was”","only “I went”","“I'm going”"],"answer":0,"why":"{{Ser}} and {{ir}} share the same past."},
+        {"type":"fill","q":"Choose the missing word.","t":"O que vocês ___ no fim de semana?","tr":"What did you do on the weekend?","options":["fez","fizeram","fazem"],"answer":1,"why":"With {{vocês}}, in the past: {{fizeram}}."},
+        {"type":"choice","q":"{{Fui}} can mean…","options":["“I'm going”","“I went” or “I was”","only “I went”"],"answer":1,"why":"{{Ser}} and {{ir}} share the same past."},
         {"type":"dialogue","q":"Monday at work: choose your replies.","from":"say-what-you-need-to-do","lines":[{"who":"Colleague","t":"E aí, como foi o fim de semana?","tr":"So, how was the weekend?"},{"options":["Foi ótimo! Fui à praia.","Foi ótimo! Vou à praia."],"answer":0,"why":"Last weekend: the past, {{fui}}."},{"who":"Colleague","t":"Com quem você foi?","tr":"Who did you go with?"},{"options":["Com uns amigos. A gente fez um churrasco.","Com uns amigos. A gente fizemos um churrasco."],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{fez}}."},{"who":"Colleague","t":"Que inveja! Eu tive que trabalhar.","tr":"I'm jealous! I had to work."}]},
         {"type":"order","q":"Put the words in order.","tr":"My parents came to visit me.","words":["Meus pais","vieram","me","visitar."]},
         {"type":"say","q":"How do you say “I couldn't go, sorry”?","answer":"Não pude ir, desculpa."},
@@ -1372,8 +1372,8 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Você ___ foi à Bahia?","tr":"Have you ever been to Bahia?","options":["já","ainda","nunca"],"answer":0,"why":"“Have you ever…?”: {{Você já…?}}"},
         {"type":"choice","q":"Someone asks {{Você já almoçou?}} You haven't. You say…","options":["{{Ainda não.}}","{{Já não.}}","{{Nunca não.}}"],"answer":0,"why":"“Not yet”: {{ainda não}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ vi neve.","tr":"I've never seen snow.","options":["nunca","já","ainda"],"answer":0,"why":"“Never”: {{nunca}}, before the verb."},
-        {"type":"dialogue","q":"Talking about travel: choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Mariana","t":"Você já foi a Salvador?","tr":"Have you ever been to Salvador?"},{"options":["Ainda não, mas já fui ao Recife.","Ainda não, mas já vou ao Recife."],"answer":0,"why":"An experience: the past, {{fui}}."},{"who":"Mariana","t":"E já comeu acarajé?","tr":"And have you ever eaten acarajé?"},{"options":["Nunca comi. É bom?","Não nunca comi. É bom?"],"answer":0,"why":"{{Nunca}} before the verb, with no {{não}}."},{"who":"Mariana","t":"É uma delícia!","tr":"It's delicious!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ vi neve.","tr":"I've never seen snow.","options":["já","ainda","nunca"],"answer":2,"why":"“Never”: {{nunca}}, before the verb."},
+        {"type":"dialogue","q":"Talking about travel: choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Mariana","t":"Você já foi a Salvador?","tr":"Have you ever been to Salvador?"},{"options":["Ainda não, mas já vou ao Recife.","Ainda não, mas já fui ao Recife."],"answer":1,"why":"An experience: the past, {{fui}}."},{"who":"Mariana","t":"E já comeu acarajé?","tr":"And have you ever eaten acarajé?"},{"options":["Não nunca comi. É bom?","Nunca comi. É bom?"],"answer":1,"why":"{{Nunca}} before the verb, with no {{não}}."},{"who":"Mariana","t":"É uma delícia!","tr":"It's delicious!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I haven't finished yet.","words":["Ainda","não","terminei."]},
         {"type":"say","q":"How do you say “I've read this book twice”?","answer":"Já li esse livro duas vezes."},
         {"type":"free","q":"Your turn: say two things you've done in your life and one you've never done.","answers":[{"t":"Já morei na Espanha e já corri uma maratona, mas nunca fui ao Brasil.","tr":"I've lived in Spain and I've run a marathon, but I've never been to Brazil."},{"t":"Já comi pão de queijo muitas vezes. Nunca andei de avião!","tr":"I've had cheese bread many times. I've never been on a plane!"}]}
@@ -1423,10 +1423,10 @@
         {"wrong":"Eu tive dez anos.","right":"Eu tinha dez anos.","tr":"I was ten.","why":"Age in the past is a description: {{tinha}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Quando eu ___ criança, eu adorava desenho animado.","tr":"When I was a kid, I loved cartoons.","options":["era","fui","sou"],"answer":0,"why":"A description of a long time: {{era}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Antigamente a gente ___ no interior.","tr":"We used to live in the countryside.","options":["morava","mora","vai morar"],"answer":0,"why":"“Used to”: the imperfeito, {{morava}}."},
-        {"type":"choice","q":"Which sentence describes a habit in the past?","options":["{{Eu nadava todo dia.}}","{{Eu nadei ontem.}}","{{Eu vou nadar.}}"],"answer":0,"why":"Something that happened again and again: the imperfeito, {{nadava}}."},
-        {"type":"dialogue","q":"Your grandmother tells you about her youth. Choose your replies.","from":"say-what-you-have","lines":[{"who":"Grandma","t":"Quando eu tinha a sua idade, eu já trabalhava.","tr":"When I was your age, I was already working."},{"options":["Sério? E a senhora gostava?","Sério? E a senhora gosta?"],"answer":0,"why":"Asking how things were: the imperfeito, {{gostava}}."},{"who":"Grandma","t":"Gostava, mas era muito difícil.","tr":"I did, but it was very hard."},{"options":["E quantos anos a senhora tinha?","E quantos anos a senhora era?"],"answer":0,"why":"Age goes with {{ter}}, and in the past it's {{tinha}}."},{"who":"Grandma","t":"Tinha quinze anos.","tr":"I was fifteen."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Quando eu ___ criança, eu adorava desenho animado.","tr":"When I was a kid, I loved cartoons.","options":["sou","era","fui"],"answer":1,"why":"A description of a long time: {{era}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Antigamente a gente ___ no interior.","tr":"We used to live in the countryside.","options":["vai morar","morava","mora"],"answer":1,"why":"“Used to”: the imperfeito, {{morava}}."},
+        {"type":"choice","q":"Which sentence describes a habit in the past?","options":["{{Eu nadei ontem.}}","{{Eu vou nadar.}}","{{Eu nadava todo dia.}}"],"answer":2,"why":"Something that happened again and again: the imperfeito, {{nadava}}."},
+        {"type":"dialogue","q":"Your grandmother tells you about her youth. Choose your replies.","from":"say-what-you-have","lines":[{"who":"Grandma","t":"Quando eu tinha a sua idade, eu já trabalhava.","tr":"When I was your age, I was already working."},{"options":["Sério? E a senhora gostava?","Sério? E a senhora gosta?"],"answer":0,"why":"Asking how things were: the imperfeito, {{gostava}}."},{"who":"Grandma","t":"Gostava, mas era muito difícil.","tr":"I did, but it was very hard."},{"options":["E quantos anos a senhora era?","E quantos anos a senhora tinha?"],"answer":1,"why":"Age goes with {{ter}}, and in the past it's {{tinha}}."},{"who":"Grandma","t":"Tinha quinze anos.","tr":"I was fifteen."}]},
         {"type":"order","q":"Put the words in order.","tr":"My grandfather had a farm.","words":["Meu avô","tinha","uma","fazenda."]},
         {"type":"say","q":"How do you say “In the old days there was no internet”?","answer":"Antigamente não tinha internet.","from":"say-what-there-is"},
         {"type":"free","q":"Your turn: describe your childhood. Where did you live, what was it like, and what did you use to do?","answers":[{"t":"Quando eu era criança, morava numa cidade pequena. Eu andava de bicicleta todo dia.","tr":"When I was a kid, I lived in a small town. I rode my bike every day."},{"t":"Eu morava com meus avós. A casa era velha e tinha um jardim enorme.","tr":"I lived with my grandparents. The house was old and had a huge garden."}]}
@@ -1467,8 +1467,8 @@
         {"wrong":"Quando eu chegava, ele saiu.","right":"Quando eu cheguei, ele saiu.","tr":"When I arrived, he left.","why":"Two events, one after the other: both in the perfeito."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu estava ___ banho quando você ligou.","tr":"I was taking a shower when you called.","options":["tomando","tomei","tomo"],"answer":0,"why":"The scene: {{estava}} + {{-ndo}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Estava chovendo quando eu ___ de casa.","tr":"It was raining when I left home.","options":["saí","saía","saio"],"answer":0,"why":"Leaving happened once, at one moment: the perfeito, {{saí}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu estava ___ banho quando você ligou.","tr":"I was taking a shower when you called.","options":["tomo","tomando","tomei"],"answer":1,"why":"The scene: {{estava}} + {{-ndo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Estava chovendo quando eu ___ de casa.","tr":"It was raining when I left home.","options":["saía","saio","saí"],"answer":2,"why":"Leaving happened once, at one moment: the perfeito, {{saí}}."},
         {"type":"choice","q":"In {{Eu estava lendo quando a luz acabou}}, which part is the background?","options":["{{Eu estava lendo}}","{{a luz acabou}}"],"answer":0,"why":"What was going on: {{estava lendo}}. The event that interrupts it: {{acabou}}."},
         {"type":"dialogue","q":"You arrive late. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Friend","t":"Você chegou tarde! O que aconteceu?","tr":"You got here late! What happened?"},{"options":["Eu estava saindo de casa quando começou a chover.","Eu saía de casa quando começava a chover."],"answer":0,"why":"The scene ({{estava saindo}}) and the event ({{começou}})."},{"who":"Friend","t":"E aí?","tr":"And then?"},{"options":["Aí eu voltei pra pegar o guarda-chuva.","Aí eu voltava pra pegar o guarda-chuva."],"answer":0,"why":"The next event: the perfeito, {{voltei}}."},{"who":"Friend","t":"Faz sentido!","tr":"Makes sense!"}]},
         {"type":"order","q":"Put the words in order.","tr":"When I arrived, everyone was dancing.","words":["Quando","eu cheguei,","todo mundo","estava","dançando."]},
@@ -1513,9 +1513,9 @@
         {"wrong":"Vou viajar há dois dias.","right":"Vou viajar daqui a dois dias.","tr":"I'm traveling in two days.","why":"{{Há}} is for time that has passed. For the future: {{daqui a}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Moro em Curitiba ___ três anos.","tr":"I've lived in Curitiba for three years.","options":["há","por","desde"],"answer":0,"why":"Still true: {{há}} + time, with the present."},
+        {"type":"fill","q":"Choose the missing word.","t":"Moro em Curitiba ___ três anos.","tr":"I've lived in Curitiba for three years.","options":["por","desde","há"],"answer":2,"why":"Still true: {{há}} + time, with the present."},
         {"type":"choice","q":"{{Ela chegou há uma semana}} means…","options":["She arrived a week ago.","She has been arriving for a week.","She arrives in a week."],"answer":0,"why":"{{Há}} with the past: “ago”."},
-        {"type":"fill","q":"Choose the missing word.","t":"Trabalho aqui ___ janeiro.","tr":"I've worked here since January.","options":["desde","há","faz"],"answer":0,"why":"A starting point: {{desde}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Trabalho aqui ___ janeiro.","tr":"I've worked here since January.","options":["faz","desde","há"],"answer":1,"why":"A starting point: {{desde}}."},
         {"type":"dialogue","q":"A neighbor asks about you. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Neighbor","t":"Você mora aqui há muito tempo?","tr":"Have you lived here long?"},{"options":["Não, só há seis meses. Cheguei em abril.","Não, só por seis meses. Cheguei em abril."],"answer":0,"why":"Still living here: {{há}} + time."},{"who":"Neighbor","t":"E já conhece a cidade?","tr":"And do you know the city yet?"},{"options":["Conheço um pouco. Fui ao centro há dois dias.","Conheço um pouco. Vou ao centro há dois dias."],"answer":0,"why":"{{Há}} “ago” goes with the past: {{fui}}."},{"who":"Neighbor","t":"Tem muita coisa pra ver!","tr":"There's a lot to see!"}]},
         {"type":"order","q":"Put the words in order.","tr":"I've been waiting for an hour!","words":["Faz","uma hora","que","estou","esperando!"],"from":"say-what-is-happening-now"},
         {"type":"say","q":"Greet an old friend: “Long time no see!”","answer":"Há quanto tempo!"},
@@ -1569,8 +1569,8 @@
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"O metrô é ___ rápido que o ônibus.","tr":"The subway is faster than the bus.","options":["mais","muito","tão"],"answer":0,"why":"“-er than”: {{mais}} … {{que}}."},
         {"type":"fill","q":"Choose the missing word.","t":"Esse restaurante é ___ que aquele.","tr":"This restaurant is better than that one.","options":["melhor","maior","bom"],"answer":0,"why":"“Better” is {{melhor}}."},
-        {"type":"choice","q":"{{Ela é tão alta quanto eu}} means…","options":["She's as tall as me.","She's taller than me.","She's so tall!"],"answer":0,"why":"{{tão… quanto}}: “as… as”."},
-        {"type":"dialogue","q":"Comparing two cities: choose your replies.","from":"describe-people-and-things","lines":[{"who":"Friend","t":"Qual cidade você prefere, Salvador ou Recife?","tr":"Which city do you prefer, Salvador or Recife?"},{"options":["Salvador. É mais animada.","Salvador. É mais animado."],"answer":0,"why":"{{Cidade}} is feminine: {{animada}}."},{"who":"Friend","t":"E as praias?","tr":"And the beaches?"},{"options":["As de Recife são tão bonitas quanto.","As de Recife são tão bonitas que."],"answer":0,"why":"“As… as”: {{tão… quanto}}."},{"who":"Friend","t":"Concordo!","tr":"I agree!"}]},
+        {"type":"choice","q":"{{Ela é tão alta quanto eu}} means…","options":["She's so tall!","She's as tall as me.","She's taller than me."],"answer":1,"why":"{{tão… quanto}}: “as… as”."},
+        {"type":"dialogue","q":"Comparing two cities: choose your replies.","from":"describe-people-and-things","lines":[{"who":"Friend","t":"Qual cidade você prefere, Salvador ou Recife?","tr":"Which city do you prefer, Salvador or Recife?"},{"options":["Salvador. É mais animada.","Salvador. É mais animado."],"answer":0,"why":"{{Cidade}} is feminine: {{animada}}."},{"who":"Friend","t":"E as praias?","tr":"And the beaches?"},{"options":["As de Recife são tão bonitas que.","As de Recife são tão bonitas quanto."],"answer":1,"why":"“As… as”: {{tão… quanto}}."},{"who":"Friend","t":"Concordo!","tr":"I agree!"}]},
         {"type":"order","q":"Put the words in order.","tr":"It's the best café in the city.","words":["É","o melhor","café","da","cidade."]},
         {"type":"say","q":"How do you say “My brother is taller than me”?","answer":"Meu irmão é mais alto que eu."},
         {"type":"free","q":"Your turn: compare two places you know: two cities, two restaurants or two countries.","answers":[{"t":"Nova York é maior e mais cara que Boston, mas Boston é mais tranquila.","tr":"New York is bigger and more expensive than Boston, but Boston is quieter."},{"t":"A comida brasileira é melhor que a inglesa, e o café é muito mais barato!","tr":"Brazilian food is better than English food, and coffee is much cheaper!"}]}
@@ -1616,10 +1616,10 @@
         {"wrong":"Ela é muito bonitinho.","right":"Ela é muito bonitinha.","tr":"She's really cute.","why":"A diminutive keeps the gender: {{bonita}} → {{bonitinha}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Espera um ___, por favor.","tr":"Wait just a minute, please.","options":["minutinho","minutozinho","minutinha"],"answer":0,"why":"{{Minuto}} drops its {{-o}}: {{minutinho}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"A farmácia fica ___ daqui.","tr":"The pharmacy is really close to here.","options":["pertinho","pertozinho","pertão"],"answer":0,"why":"{{Perto}} → {{pertinho}} “really close”.","from":"say-where-things-are"},
-        {"type":"choice","q":"A Brazilian friend offers you {{um cafezinho}}. It's…","options":["just a coffee, offered warmly","a tiny cup for children","a coffee without sugar"],"answer":0,"why":"The diminutive here is warmth, not size."},
-        {"type":"dialogue","q":"At the bakery: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Server","t":"Bom dia! O que vai ser?","tr":"Good morning! What'll it be?"},{"options":["Bom dia! Um cafezinho e um pão de queijo, por favor.","Bom dia! Um caféinho e um pão de queijo, por favor."],"answer":0,"why":"{{Café}} ends in a stressed vowel: {{cafezinho}}."},{"who":"Server","t":"Quer um pedacinho de bolo? Está fresquinho!","tr":"Would you like a little piece of cake? It's nice and fresh!"},{"options":["Só um pedacinho, então!","Só um pedaçinho, então!"],"answer":0,"why":"{{Pedaço}} → {{pedacinho}}: no {{ç}} before {{i}}."},{"who":"Server","t":"Pode deixar!","tr":"You got it!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Espera um ___, por favor.","tr":"Wait just a minute, please.","options":["minutozinho","minutinha","minutinho"],"answer":2,"why":"{{Minuto}} drops its {{-o}}: {{minutinho}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A farmácia fica ___ daqui.","tr":"The pharmacy is really close to here.","options":["pertozinho","pertão","pertinho"],"answer":2,"why":"{{Perto}} → {{pertinho}} “really close”.","from":"say-where-things-are"},
+        {"type":"choice","q":"A Brazilian friend offers you {{um cafezinho}}. It's…","options":["a coffee without sugar","just a coffee, offered warmly","a tiny cup for children"],"answer":1,"why":"The diminutive here is warmth, not size."},
+        {"type":"dialogue","q":"At the bakery: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Server","t":"Bom dia! O que vai ser?","tr":"Good morning! What'll it be?"},{"options":["Bom dia! Um caféinho e um pão de queijo, por favor.","Bom dia! Um cafezinho e um pão de queijo, por favor."],"answer":1,"why":"{{Café}} ends in a stressed vowel: {{cafezinho}}."},{"who":"Server","t":"Quer um pedacinho de bolo? Está fresquinho!","tr":"Would you like a little piece of cake? It's nice and fresh!"},{"options":["Só um pedaçinho, então!","Só um pedacinho, então!"],"answer":1,"why":"{{Pedaço}} → {{pedacinho}}: no {{ç}} before {{i}}."},{"who":"Server","t":"Pode deixar!","tr":"You got it!"}]},
         {"type":"order","q":"Put the words in order.","tr":"Speak a little more slowly, please.","words":["Fala","mais","devagarinho,","por favor."]},
         {"type":"say","q":"How do you say “What a cute little cat!”?","answer":"Que gatinho lindo!"},
         {"type":"free","q":"Your turn: invite a Brazilian friend for a coffee and say the café is really close. Use two diminutives.","answers":[{"t":"Vamos tomar um cafezinho? Tem um café pertinho daqui.","tr":"Shall we grab a coffee? There's a café really close to here."},{"t":"Você tem um minutinho? Vamos tomar um cafezinho rapidinho?","tr":"Do you have a minute? Shall we grab a quick coffee?"}]}
@@ -1672,10 +1672,10 @@
         {"wrong":"Fiquei em casa por que choveu.","right":"Fiquei em casa porque choveu.","tr":"I stayed home because it rained.","why":"“Because” is one word: {{porque}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ você não veio?","tr":"Why didn't you come?","options":["Por que","Porque","Por quê"],"answer":0,"why":"A question starting with “why”: {{por que}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Não fui ___ estava doente.","tr":"I didn't go because I was sick.","options":["porque","por que","por isso"],"answer":0,"why":"“Because”: {{porque}}, one word."},
-        {"type":"choice","q":"{{Estava cansado, por isso fui embora}} means…","options":["I was tired, so I left.","I was tired because I left.","I left, but I wasn't tired."],"answer":0,"why":"{{Por isso}}: “that's why, so”."},
-        {"type":"dialogue","q":"A friend asks why you missed her party. Choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Bia","t":"Por que você não veio ontem?","tr":"Why didn't you come yesterday?"},{"options":["Porque tive que trabalhar. Desculpa!","Por que tive que trabalhar. Desculpa!"],"answer":0,"why":"“Because”: one word, {{porque}}. And {{tive que}} is the past of {{tenho que}}."},{"who":"Bia","t":"Tudo bem. E sábado, você vem?","tr":"That's fine. And Saturday, are you coming?"},{"options":["Vou, sim! Por isso pedi folga.","Vou, sim! Por que pedi folga."],"answer":0,"why":"“That's why”: {{por isso}}."},{"who":"Bia","t":"Oba!","tr":"Yay!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"___ você não veio?","tr":"Why didn't you come?","options":["Porque","Por quê","Por que"],"answer":2,"why":"A question starting with “why”: {{por que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Não fui ___ estava doente.","tr":"I didn't go because I was sick.","options":["por isso","porque","por que"],"answer":1,"why":"“Because”: {{porque}}, one word."},
+        {"type":"choice","q":"{{Estava cansado, por isso fui embora}} means…","options":["I was tired because I left.","I left, but I wasn't tired.","I was tired, so I left."],"answer":2,"why":"{{Por isso}}: “that's why, so”."},
+        {"type":"dialogue","q":"A friend asks why you missed her party. Choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Bia","t":"Por que você não veio ontem?","tr":"Why didn't you come yesterday?"},{"options":["Porque tive que trabalhar. Desculpa!","Por que tive que trabalhar. Desculpa!"],"answer":0,"why":"“Because”: one word, {{porque}}. And {{tive que}} is the past of {{tenho que}}."},{"who":"Bia","t":"Tudo bem. E sábado, você vem?","tr":"That's fine. And Saturday, are you coming?"},{"options":["Vou, sim! Por que pedi folga.","Vou, sim! Por isso pedi folga."],"answer":1,"why":"“That's why”: {{por isso}}."},{"who":"Bia","t":"Oba!","tr":"Yay!"}]},
         {"type":"order","q":"Put the words in order.","tr":"It's expensive, but it's really good.","words":["É","caro,","mas","é","muito bom."]},
         {"type":"say","q":"How do you say “If you need help, call me”?","answer":"Se você precisa de ajuda, me liga.","from":"tell-people-what-to-do"},
         {"type":"free","q":"Your turn: why are you learning Portuguese? Give two reasons, with {{porque}} and {{por isso}} or {{mas}}.","answers":[{"t":"Estou aprendendo português porque quero morar no Brasil. Por isso estudo todo dia.","tr":"I'm learning Portuguese because I want to live in Brazil. That's why I study every day."},{"t":"Porque minha família é brasileira, mas eu nunca aprendi quando era criança.","tr":"Because my family is Brazilian, but I never learned when I was a kid."}]}
@@ -1718,10 +1718,10 @@
         {"wrong":"O Pedro esqueceu a mochila dela.","right":"O Pedro esqueceu a mochila dele.","tr":"Pedro forgot his backpack.","why":"{{Dele}} and {{dela}} match the owner, not the thing: Pedro is a man, so {{dele}}, even with a feminine {{mochila}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"De ___ é esse casaco?","tr":"Whose coat is this?","options":["quem","que","qual"],"answer":0,"why":"“Whose”: {{de quem}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"A Júlia esqueceu a bolsa ___.","tr":"Júlia forgot her bag.","options":["dela","dele","delas"],"answer":0,"why":"The owner is one woman: {{dela}}."},
-        {"type":"choice","q":"{{O carro dele}} is…","options":["his car","her car","your car"],"answer":0,"why":"{{Dele}}: “of him”, his."},
-        {"type":"dialogue","q":"After a party: choose your replies.","from":"name-things","lines":[{"who":"Paula","t":"De quem é esse guarda-chuva?","tr":"Whose umbrella is this?"},{"options":["É meu! Obrigado.","É de mim! Obrigado."],"answer":0,"why":"“It's mine”: {{É meu}}."},{"who":"Paula","t":"E essas chaves?","tr":"And these keys?"},{"options":["Essas são do Marcos.","Essas são de o Marcos."],"answer":0,"why":"{{De}} + {{o}} join: {{do Marcos}}."},{"who":"Paula","t":"Vou entregar pra ele.","tr":"I'll give them to him."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"De ___ é esse casaco?","tr":"Whose coat is this?","options":["que","qual","quem"],"answer":2,"why":"“Whose”: {{de quem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A Júlia esqueceu a bolsa ___.","tr":"Júlia forgot her bag.","options":["delas","dela","dele"],"answer":1,"why":"The owner is one woman: {{dela}}."},
+        {"type":"choice","q":"{{O carro dele}} is…","options":["your car","his car","her car"],"answer":1,"why":"{{Dele}}: “of him”, his."},
+        {"type":"dialogue","q":"After a party: choose your replies.","from":"name-things","lines":[{"who":"Paula","t":"De quem é esse guarda-chuva?","tr":"Whose umbrella is this?"},{"options":["É de mim! Obrigado.","É meu! Obrigado."],"answer":1,"why":"“It's mine”: {{É meu}}."},{"who":"Paula","t":"E essas chaves?","tr":"And these keys?"},{"options":["Essas são de o Marcos.","Essas são do Marcos."],"answer":1,"why":"{{De}} + {{o}} join: {{do Marcos}}."},{"who":"Paula","t":"Vou entregar pra ele.","tr":"I'll give them to him."}]},
         {"type":"order","q":"Put the words in order.","tr":"Carla and her husband live in Recife.","words":["A Carla","e","o marido","dela","moram","em Recife."]},
         {"type":"say","q":"How do you say “A friend of mine works there”?","answer":"Um amigo meu trabalha lá."},
         {"type":"free","q":"Your turn: describe two people you know and something of theirs, with {{dele}} or {{dela}}.","answers":[{"t":"Meu irmão tem um cachorro. O cachorro dele se chama Max.","tr":"My brother has a dog. His dog is called Max."},{"t":"Minha vizinha é muito simpática. A casa dela é a azul, do lado da minha.","tr":"My neighbor is really nice. Her house is the blue one, next to mine."}]}
@@ -1813,7 +1813,7 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Ela ___ muito nervosa antes da prova.","tr":"She got really nervous before the test.","options":["ficou","foi","fica"],"answer":0,"why":"“Got nervous”, in the past: {{ficou}}."},
-        {"type":"choice","q":"A friend is worried about being late. You say “Don't worry!”:","options":["{{Fica tranquilo!}}","{{Está tranquilo!}}","{{É tranquilo!}}"],"answer":0,"why":"{{Fica tranquilo!}} is the everyday “Don't worry!”."},
+        {"type":"choice","q":"A friend is worried about being late. You say “Don't worry!”:","options":["{{É tranquilo!}}","{{Fica tranquilo!}}","{{Está tranquilo!}}"],"answer":1,"why":"{{Fica tranquilo!}} is the everyday “Don't worry!”."},
         {"type":"fill","q":"Choose the missing word.","t":"Ontem eu ___ em casa o dia todo.","tr":"Yesterday I stayed home all day.","options":["fiquei","fui","estou"],"answer":0,"why":"“Stayed”: {{fiquei}}."},
         {"type":"dialogue","q":"A friend comforts you. Choose your replies.","from":"give-reasons","lines":[{"who":"Friend","t":"Você ficou triste com a notícia?","tr":"Were you sad about the news?"},{"options":["Fiquei, porque eu gostava muito dele.","Fiquei, por que eu gostava muito dele."],"answer":0,"why":"“Because”: one word, {{porque}}."},{"who":"Friend","t":"Entendo. Quer ficar aqui hoje?","tr":"I understand. Do you want to stay here tonight?"},{"options":["Obrigada, vou ficar um pouco mais.","Obrigada, vou estar um pouco mais."],"answer":0,"why":"“Stay”: {{ficar}}."},{"who":"Friend","t":"Fica à vontade.","tr":"Make yourself at home."}]},
         {"type":"order","q":"Put the words in order.","tr":"This shirt looks good on you.","words":["Essa","camisa","fica","bem","em você."]},
@@ -1868,10 +1868,10 @@
         {"wrong":"Eu fazeria isso.","right":"Eu faria isso.","tr":"I would do that.","why":"{{Fazer}} is irregular: {{faria}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de reservar um quarto.","tr":"I'd like to book a room.","options":["gostaria","gosto","gostava"],"answer":0,"why":"“I would like”: {{gostaria}}. ({{Gostava}} is “I used to like”.)"},
-        {"type":"fill","q":"Choose the missing word.","t":"Você ___ falar mais devagar?","tr":"Could you speak more slowly?","options":["poderia","poderá","pôde"],"answer":0,"why":"“Could you…?”: {{poderia}}."},
-        {"type":"choice","q":"Which is the most formal way to ask for a room?","options":["{{Gostaria de um quarto, por favor.}}","{{Queria um quarto.}}","{{Quero um quarto.}}"],"answer":0,"why":"{{Gostaria de}} is the most formal; {{queria}} is polite and everyday.","from":"ask-for-what-you-want"},
-        {"type":"dialogue","q":"At a hotel: choose your replies.","from":"say-what-is-happening-now","lines":[{"who":"Receptionist","t":"Boa tarde! Em que posso ajudar?","tr":"Good afternoon! How can I help?"},{"options":["Boa tarde! Seria possível trocar de quarto?","Boa tarde! Seria possível de trocar de quarto?"],"answer":0,"why":"{{Seria possível}} + infinitive, with nothing in between."},{"who":"Receptionist","t":"Claro. Qual é o problema?","tr":"Of course. What's the problem?"},{"options":["O ar-condicionado não está funcionando.","O ar-condicionado não é funcionando."],"answer":0,"why":"What's happening now: {{estar}} + {{-ndo}}."},{"who":"Receptionist","t":"Sinto muito! Vou resolver agora.","tr":"I'm so sorry! I'll sort it out right away."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de reservar um quarto.","tr":"I'd like to book a room.","options":["gosto","gostava","gostaria"],"answer":2,"why":"“I would like”: {{gostaria}}. ({{Gostava}} is “I used to like”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Você ___ falar mais devagar?","tr":"Could you speak more slowly?","options":["poderá","pôde","poderia"],"answer":2,"why":"“Could you…?”: {{poderia}}."},
+        {"type":"choice","q":"Which is the most formal way to ask for a room?","options":["{{Queria um quarto.}}","{{Quero um quarto.}}","{{Gostaria de um quarto, por favor.}}"],"answer":2,"why":"{{Gostaria de}} is the most formal; {{queria}} is polite and everyday.","from":"ask-for-what-you-want"},
+        {"type":"dialogue","q":"At a hotel: choose your replies.","from":"say-what-is-happening-now","lines":[{"who":"Receptionist","t":"Boa tarde! Em que posso ajudar?","tr":"Good afternoon! How can I help?"},{"options":["Boa tarde! Seria possível de trocar de quarto?","Boa tarde! Seria possível trocar de quarto?"],"answer":1,"why":"{{Seria possível}} + infinitive, with nothing in between."},{"who":"Receptionist","t":"Claro. Qual é o problema?","tr":"Of course. What's the problem?"},{"options":["O ar-condicionado não está funcionando.","O ar-condicionado não é funcionando."],"answer":0,"why":"What's happening now: {{estar}} + {{-ndo}}."},{"who":"Receptionist","t":"Sinto muito! Vou resolver agora.","tr":"I'm so sorry! I'll sort it out right away."}]},
         {"type":"order","q":"Put the words in order.","tr":"Could you help me with the suitcases?","words":["Você","poderia","me","ajudar","com as malas?"]},
         {"type":"say","q":"How do you say “I'd like to speak with the manager”?","answer":"Gostaria de falar com o gerente."},
         {"type":"free","q":"Your turn: you're calling a hotel. Ask politely for something you need.","answers":[{"t":"Boa noite! Gostaria de reservar um quarto para duas pessoas. Seria possível com vista para o mar?","tr":"Good evening! I'd like to book a room for two. Would it be possible with a sea view?"},{"t":"Oi, você poderia me dizer que horas é o café da manhã?","tr":"Hi, could you tell me what time breakfast is?"}]}
@@ -1927,9 +1927,9 @@
         {"wrong":"Quero que eu vá.","right":"Quero ir.","tr":"I want to go.","why":"The same person wants and does: just the infinitive."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Quero que você ___ amanhã.","tr":"I want you to come tomorrow.","options":["venha","vem","vir"],"answer":0,"why":"After {{quero que}}: the subjunctive, {{venha}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Espero que ___ tudo bem.","tr":"I hope everything is OK.","options":["esteja","está","estar"],"answer":0,"why":"After {{espero que}}: {{esteja}}."},
-        {"type":"choice","q":"Which one means “I want to travel”?","options":["{{Quero viajar.}}","{{Quero que eu viaje.}}","{{Quero que viajo.}}"],"answer":0,"why":"The same person: just the infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quero que você ___ amanhã.","tr":"I want you to come tomorrow.","options":["vir","venha","vem"],"answer":1,"why":"After {{quero que}}: the subjunctive, {{venha}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Espero que ___ tudo bem.","tr":"I hope everything is OK.","options":["está","estar","esteja"],"answer":2,"why":"After {{espero que}}: {{esteja}}."},
+        {"type":"choice","q":"Which one means “I want to travel”?","options":["{{Quero que viajo.}}","{{Quero viajar.}}","{{Quero que eu viaje.}}"],"answer":1,"why":"The same person: just the infinitive."},
         {"type":"dialogue","q":"A friend invites you to her birthday. Choose your replies.","from":"invite-and-suggest","lines":[{"who":"Carol","t":"Sábado é meu aniversário. Você vem?","tr":"Saturday is my birthday. Are you coming?"},{"options":["Claro! Quer que eu leve alguma coisa?","Claro! Quer que eu levo alguma coisa?"],"answer":0,"why":"“Do you want me to…?”: {{que}} + the subjunctive, {{leve}}."},{"who":"Carol","t":"Não precisa. Só vem cedo!","tr":"No need. Just come early!"},{"options":["Pode deixar. Tomara que faça sol!","Pode deixar. Tomara que faz sol!"],"answer":0,"why":"After {{tomara que}}: the subjunctive, {{faça}}."},{"who":"Carol","t":"Tomara!","tr":"Let's hope!"}]},
         {"type":"order","q":"Put the words in order.","tr":"My boss wants me to travel on Monday.","words":["Meu chefe","quer","que","eu","viaje","na segunda."]},
         {"type":"say","q":"You give someone a present. Say “I hope you like it!”","answer":"Espero que você goste!"},
@@ -1980,10 +1980,10 @@
         {"wrong":"Você é razão.","right":"Você tem razão.","tr":"You're right.","why":"Being right is “having reason”: {{ter razão}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Talvez ele ___ atrasado.","tr":"Maybe he's late.","options":["esteja","está","estar"],"answer":0,"why":"{{Talvez}} before the verb: the subjunctive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Talvez ele ___ atrasado.","tr":"Maybe he's late.","options":["estar","esteja","está"],"answer":1,"why":"{{Talvez}} before the verb: the subjunctive."},
         {"type":"fill","q":"Choose the missing word.","t":"Acho que ela ___ razão.","tr":"I think she's right.","options":["tem","tenha","ter"],"answer":0,"why":"{{Acho que}}: what you believe, so a normal verb."},
         {"type":"choice","q":"Gentle advice to a tired friend:","options":["{{É melhor você descansar.}}","{{É melhor que você descansa.}}","{{Você é melhor descansar.}}"],"answer":0,"why":"{{É melhor}} + the person + infinitive (or {{que}} + {{descanse}})."},
-        {"type":"dialogue","q":"A friend shares a plan. Choose your replies.","from":"give-reasons","lines":[{"who":"Gabriel","t":"Vou comprar um carro.","tr":"I'm going to buy a car."},{"options":["Hmm, não acho que seja uma boa ideia.","Hmm, não acho que sou uma boa ideia."],"answer":0,"why":"Doubt: the subjunctive, {{seja}}. ({{Sou}} would be “I am”!)"},{"who":"Gabriel","t":"Por quê?","tr":"Why?"},{"options":["Porque o trânsito aqui é horrível.","Por que o trânsito aqui é horrível."],"answer":0,"why":"“Because”: {{porque}}, one word."},{"who":"Gabriel","t":"Talvez você tenha razão.","tr":"Maybe you're right."}]},
+        {"type":"dialogue","q":"A friend shares a plan. Choose your replies.","from":"give-reasons","lines":[{"who":"Gabriel","t":"Vou comprar um carro.","tr":"I'm going to buy a car."},{"options":["Hmm, não acho que sou uma boa ideia.","Hmm, não acho que seja uma boa ideia."],"answer":1,"why":"Doubt: the subjunctive, {{seja}}. ({{Sou}} would be “I am”!)"},{"who":"Gabriel","t":"Por quê?","tr":"Why?"},{"options":["Por que o trânsito aqui é horrível.","Porque o trânsito aqui é horrível."],"answer":1,"why":"“Because”: {{porque}}, one word."},{"who":"Gabriel","t":"Talvez você tenha razão.","tr":"Maybe you're right."}]},
         {"type":"order","q":"Put the words in order.","tr":"It's important that you drink a lot of water.","words":["É","importante","que","você","beba","muita água."]},
         {"type":"say","q":"How do you say “Maybe I'll go”?","answer":"Talvez eu vá."},
         {"type":"free","q":"Your turn: a friend wants to move to Brazil. Give two pieces of advice and one opinion.","answers":[{"t":"É importante que você aprenda português antes. Acho que você vai adorar o Brasil!","tr":"It's important that you learn Portuguese first. I think you're going to love Brazil!"},{"t":"É melhor você visitar primeiro. Talvez São Paulo seja grande demais pra você.","tr":"You'd better visit first. Maybe São Paulo is too big for you."}]}
@@ -2041,7 +2041,7 @@
       ],
       "practice": [
         {"type":"fill","q":"Choose the missing word.","t":"Quando você ___, me liga.","tr":"When you arrive, call me.","options":["chegar","chega","chegou"],"answer":0,"why":"About the future, after {{quando}}: {{chegar}}."},
-        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, vou te visitar.","tr":"If I have time, I'll visit you.","options":["tiver","tenho","ter"],"answer":0,"why":"“If” about the future: {{tiver}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, vou te visitar.","tr":"If I have time, I'll visit you.","options":["tenho","ter","tiver"],"answer":2,"why":"“If” about the future: {{tiver}}."},
         {"type":"choice","q":"{{Pode pedir o que quiser}} means…","options":["Order whatever you like.","You can order what you wanted.","Ask what he wants."],"answer":0,"why":"{{o que quiser}}: “whatever you want”, in the future subjunctive."},
         {"type":"dialogue","q":"Your mother says goodbye before your trip. Choose your replies.","from":"tell-people-what-to-do","lines":[{"who":"Mom","t":"Me liga assim que você chegar, tá?","tr":"Call me as soon as you arrive, OK?"},{"options":["Pode deixar. Se eu tiver tempo, te ligo hoje à noite.","Pode deixar. Se eu tenho tempo, te ligo hoje à noite."],"answer":0,"why":"“If” about the future: {{tiver}}."},{"who":"Mom","t":"E quando você voltar?","tr":"And when you come back?"},{"options":["Quando eu voltar, a gente faz um almoço.","Quando eu volto, a gente faz um almoço."],"answer":0,"why":"“When” about the future: {{voltar}}."},{"who":"Mom","t":"Combinado. Boa viagem!","tr":"Deal. Have a good trip!"}]},
         {"type":"order","q":"Put the words in order.","tr":"As soon as I know, I'll let you know.","words":["Assim que","eu","souber,","te","aviso."]},
@@ -2096,10 +2096,10 @@
         {"wrong":"Se eu seria rico, compraria uma casa.","right":"Se eu fosse rico, compraria uma casa.","tr":"If I were rich, I'd buy a house.","why":"After {{se}}, never the conditional: {{fosse}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, eu ia com você.","tr":"If I had time, I'd go with you.","options":["tivesse","tenho","tiver"],"answer":0,"why":"Imagining: {{tivesse}}. ({{Tiver}} is for a real future possibility.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, eu ia com você.","tr":"If I had time, I'd go with you.","options":["tiver","tivesse","tenho"],"answer":1,"why":"Imagining: {{tivesse}}. ({{Tiver}} is for a real future possibility.)"},
         {"type":"fill","q":"Choose the missing word.","t":"Se eu fosse você, eu ___ o emprego.","tr":"If I were you, I'd take the job.","options":["aceitaria","aceito","aceitei"],"answer":0,"why":"“I would”: the conditional, {{aceitaria}}."},
         {"type":"choice","q":"In a conversation about dreams, {{O que você ia fazer?}} means…","options":["What would you do?","What did you do?","What are you going to do?"],"answer":0,"why":"In everyday speech, {{ia}} + infinitive often means “would”."},
-        {"type":"dialogue","q":"Dreaming with a friend: choose your replies.","from":"be-polite","lines":[{"who":"Rafa","t":"O que você faria se ganhasse na loteria?","tr":"What would you do if you won the lottery?"},{"options":["Eu compraria uma casa na praia!","Eu comprarei uma casa na praia!"],"answer":0,"why":"Imagining: the conditional, {{compraria}}."},{"who":"Rafa","t":"E se você pudesse morar em qualquer lugar?","tr":"And if you could live anywhere?"},{"options":["Eu ia morar em Floripa.","Eu fui morar em Floripa."],"answer":0,"why":"{{Ia}} + infinitive: the everyday “would”. ({{Fui morar}} is “I went to live”.)"},{"who":"Rafa","t":"Boa escolha!","tr":"Good choice!"}]},
+        {"type":"dialogue","q":"Dreaming with a friend: choose your replies.","from":"be-polite","lines":[{"who":"Rafa","t":"O que você faria se ganhasse na loteria?","tr":"What would you do if you won the lottery?"},{"options":["Eu comprarei uma casa na praia!","Eu compraria uma casa na praia!"],"answer":1,"why":"Imagining: the conditional, {{compraria}}."},{"who":"Rafa","t":"E se você pudesse morar em qualquer lugar?","tr":"And if you could live anywhere?"},{"options":["Eu fui morar em Floripa.","Eu ia morar em Floripa."],"answer":1,"why":"{{Ia}} + infinitive: the everyday “would”. ({{Fui morar}} is “I went to live”.)"},{"who":"Rafa","t":"Boa escolha!","tr":"Good choice!"}]},
         {"type":"order","q":"Put the words in order.","tr":"It would be great if you could come.","words":["Seria","ótimo","se","vocês","pudessem","vir."]},
         {"type":"say","q":"How do you say “If I were you, I wouldn't go”?","answer":"Se eu fosse você, eu não ia."},
         {"type":"free","q":"Your turn: what would you do if you could live in Brazil for a year? Answer with {{Se eu…}} and the conditional or {{ia}}.","answers":[{"t":"Se eu pudesse morar no Brasil, eu moraria no Rio e ia à praia todo dia.","tr":"If I could live in Brazil, I'd live in Rio and go to the beach every day."},{"t":"Se eu tivesse um ano no Brasil, eu ia aprender a tocar samba e viajar pelo país inteiro.","tr":"If I had a year in Brazil, I'd learn to play samba and travel around the whole country."}]}
@@ -2142,14 +2142,307 @@
         {"wrong":"Será que ele vem? — Será, sim.","right":"Será que ele vem? — Acho que sim.","tr":"Do you think he's coming? — I think so.","why":"{{Será que}} asks for an opinion: answer with {{acho que sim}} or {{acho que não}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ que vai fazer sol amanhã?","tr":"Do you think it'll be sunny tomorrow?","options":["Será","Seria","Foi"],"answer":0,"why":"Wondering about the future: {{Será que…?}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ que vai fazer sol amanhã?","tr":"Do you think it'll be sunny tomorrow?","options":["Seria","Foi","Será"],"answer":2,"why":"Wondering about the future: {{Será que…?}}"},
         {"type":"choice","q":"On the airport board you read {{O voo partirá às 22h}}. It means…","options":["The flight will leave at 10 p.m.","The flight left at 10 p.m.","The flight would leave at 10 p.m."],"answer":0,"why":"{{Partirá}} is the one-word future: “will leave”."},
-        {"type":"choice","q":"{{Farão}} is the future of…","options":["{{fazer}}","{{falar}}","{{ficar}}"],"answer":0,"why":"{{Fazer}} is one of the three irregular futures: {{farei}}, {{fará}}, {{farão}}."},
+        {"type":"choice","q":"{{Farão}} is the future of…","options":["{{falar}}","{{ficar}}","{{fazer}}"],"answer":2,"why":"{{Fazer}} is one of the three irregular futures: {{farei}}, {{fará}}, {{farão}}."},
         {"type":"dialogue","q":"A friend is late. Choose your replies.","from":"say-what-you-need-to-do","lines":[{"who":"Bia","t":"Será que o Pedro vem hoje?","tr":"Do you think Pedro is coming today?"},{"options":["Sei lá. Ele não me respondeu.","Será lá. Ele não me respondeu."],"answer":0,"why":"“Who knows”: {{sei lá}}."},{"who":"Bia","t":"Será que aconteceu alguma coisa?","tr":"Do you think something happened?"},{"options":["Acho que não. Deve estar dormindo!","Acho que não. Deve está dormindo!"],"answer":0,"why":"A guess: {{deve}} + infinitive, {{estar}}."},{"who":"Bia","t":"Típico!","tr":"Typical!"}]},
-        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ falar com o médico.","tr":"Tomorrow I'm going to talk to the doctor.","options":["vou","vai","será"],"answer":0,"why":"In conversation, the future is {{vou}} + infinitive.","from":"make-plans"},
+        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ falar com o médico.","tr":"Tomorrow I'm going to talk to the doctor.","options":["será","vou","vai"],"answer":1,"why":"In conversation, the future is {{vou}} + infinitive.","from":"make-plans"},
         {"type":"order","q":"Put the words in order.","tr":"Do you think she'll like the present?","words":["Será que","ela","vai","gostar","do presente?"]},
         {"type":"say","q":"You can't remember locking the door. Wonder aloud: “Did I leave the door open?”","answer":"Será que eu deixei a porta aberta?"},
         {"type":"free","q":"Your turn: wonder about two things in your future with {{Será que…?}}, and answer yourself.","answers":[{"t":"Será que eu vou conseguir falar português fluente? Acho que sim, se eu estudar todo dia!","tr":"Will I manage to speak fluent Portuguese, I wonder? I think so, if I study every day!"},{"t":"Será que vai fazer calor no Rio em julho? Acho que não muito.","tr":"I wonder if it'll be hot in Rio in July. I don't think very."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Report what someone said",
+      "summary": "Pass on what someone said, asked or asked you to do: “She said she'd be late.”",
+      "topic": "{{disse que}}, {{falou que}}; the verb moves back ({{vou}} → {{ia}}, {{estou}} → {{estava}}); {{perguntou se}}; {{pediu pra}}; {{falar pra}}",
+      "blocks": [
+        {"goal":{"t":"Ela disse que ia chegar atrasada.","tr":"She said she was going to be late."}},
+        {"dialog":[{"who":"Bruno","t":"A Marta ligou?","tr":"Did Marta call?"},{"who":"Júlia","t":"Ligou. Ela disse que estava presa no trânsito.","tr":"Yes. She said she was stuck in traffic."},{"who":"Bruno","t":"E ela falou quando chega?","tr":"And did she say when she's getting here?"},{"who":"Júlia","t":"Falou que ia chegar às dez. E perguntou se a reunião pode começar mais tarde.","tr":"She said she'd get here at ten. And she asked if the meeting can start later."},{"who":"Bruno","t":"Pode. Pede pra ela me mandar uma mensagem quando chegar.","tr":"It can. Ask her to send me a message when she arrives."},{"who":"Júlia","t":"Tá bom, eu falo pra ela.","tr":"OK, I'll tell her."}]},
+        {"p":"**Said that: {{disse que}}, {{falou que}}.** To pass on what someone said, use {{dizer}} or, in everyday speech, {{falar}}, then {{que}}: {{Ela disse que estava cansada}} “She said she was tired”. Portuguese never drops this {{que}}."},
+        {"p":"**The verb moves back in time**, as in English: the present becomes the imperfeito, and {{vou}} becomes {{ia}}:"},
+        { "table": [
+          ["what she said","what you report"],
+          ["{{Estou cansada.}}","{{Ela disse que estava cansada.}}"],
+          ["{{Vou chegar tarde.}}","{{Ela disse que ia chegar tarde.}}"],
+          ["{{Moro em Recife.}}","{{Ela disse que morava em Recife.}}"],
+          ["{{Fui ao médico.}}","{{Ela disse que foi ao médico.}}"]
+        ] },
+        {"p":"A past stays as it is (or becomes {{tinha ido}}: lesson 44). If something is still true, you can keep the present: {{Ele disse que mora aqui}} (he still does)."},
+        {"p":"**Asked if: {{perguntou se}}.** A yes/no question is passed on with {{se}} “if, whether”: {{Ele perguntou se você vem}} “He asked if you're coming”. A question with a question word keeps it: {{Ela perguntou onde você mora}}."},
+        {"p":"**Asked someone to: {{pediu pra}}** + infinitive (lesson 38): {{Ele pediu pra você ligar}} “He asked you to call”. **Tell someone: {{falar pra}}**: {{Fala pra ela que eu liguei}} “Tell her I called”. ({{Contar}} is “tell” a story or news: {{Me conta!}} “Tell me!”.)"},
+        { "ex": [
+          {"t":"Ele disse que estava doente.","tr":"He said he was sick."},
+          {"t":"Minha mãe falou que vai fazer feijoada no domingo.","tr":"My mom said she's going to make feijoada on Sunday.","note":"still in the future, so {{vai}} can stay"},
+          {"t":"Eles perguntaram se a gente queria ir junto.","tr":"They asked if we wanted to go along."},
+          {"t":"O médico pediu pra eu descansar.","tr":"The doctor asked me to rest."},
+          {"t":"Ela perguntou onde fica o banheiro.","tr":"She asked where the bathroom is."},
+          {"t":"Fala pra ele que eu já cheguei.","tr":"Tell him I've already arrived."}
+        ] },
+        {"tip":"{{Me conta tudo!}} “Tell me everything!” is how a Brazilian friend asks for the gossip."}
+      ],
+      "mistakes": [
+        {"wrong":"Ela disse estava cansada.","right":"Ela disse que estava cansada.","tr":"She said she was tired.","why":"Portuguese never drops {{que}} after {{disse}}."},
+        {"wrong":"Ele perguntou que você vem.","right":"Ele perguntou se você vem.","tr":"He asked if you're coming.","why":"A yes/no question, passed on: {{se}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ele disse ___ estava com fome.","tr":"He said he was hungry.","options":["se","pra","que"],"answer":2,"why":"Reporting a statement: {{disse que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ela perguntou ___ você gosta de samba.","tr":"She asked if you like samba.","options":["se","que","quando"],"answer":0,"why":"A yes/no question, reported: {{se}}."},
+        {"type":"choice","q":"Ana said {{Vou viajar.}} You report it:","options":["{{A Ana disse que ia viajar.}}","{{A Ana disse que vou viajar.}}","{{A Ana disse se ia viajar.}}"],"answer":0,"why":"{{Vou}} moves back to {{ia}}, and a statement takes {{que}}."},
+        {"type":"dialogue","q":"A colleague missed a call. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Bruno","t":"A Marta ligou?","tr":"Did Marta call?"},{"options":["Ligou. Ela disse que estava no trânsito.","Ligou. Ela disse estava no trânsito."],"answer":0,"why":"Answer with the verb, {{ligou}}, and never drop {{que}}."},{"who":"Bruno","t":"E o que mais ela falou?","tr":"And what else did she say?"},{"options":["Perguntou se a reunião pode começar mais tarde.","Perguntou que a reunião pode começar mais tarde."],"answer":0,"why":"A yes/no question, reported: {{se}}."},{"who":"Bruno","t":"Pode, sim. Fala pra ela não se preocupar.","tr":"Yes, it can. Tell her not to worry."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The doctor asked me to rest.","words":["O médico","pediu","pra","eu","descansar."]},
+        {"type":"say","q":"How do you say “Tell her I called”?","answer":"Fala pra ela que eu liguei.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Your turn: report a conversation you had recently. What did the other person say, ask, or ask you to do?","answers":[{"t":"Minha irmã me ligou ontem. Ela disse que estava com saudade e perguntou se eu ia visitar ela no Natal.","tr":"My sister called me yesterday. She said she missed me and asked if I was going to visit her at Christmas."},{"t":"Meu chefe falou que a reunião ia ser na sexta e pediu pra eu preparar uma apresentação.","tr":"My boss said the meeting was going to be on Friday and asked me to prepare a presentation."}]}
+      ]
+    },
+    {
+      "id": "say-what-had-happened",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what had already happened",
+      "summary": "Go further back in a story: “When I arrived, the movie had already started.”",
+      "topic": "{{tinha}} + past participle; regular ({{falado, comido}}) and irregular participles ({{feito, dito, visto, aberto, escrito}})",
+      "blocks": [
+        {"goal":{"t":"Quando eu cheguei, o filme já tinha começado.","tr":"When I arrived, the movie had already started."}},
+        {"dialog":[{"who":"Lia","t":"Você chegou a tempo pro show?","tr":"Did you make it to the show in time?"},{"who":"Matt","t":"Que nada! Quando eu cheguei, eles já tinham tocado metade das músicas.","tr":"No way! When I got there, they'd already played half the songs."},{"who":"Lia","t":"Nossa! Por quê?","tr":"Wow! Why?"},{"who":"Matt","t":"Eu tinha esquecido o ingresso em casa e tive que voltar.","tr":"I'd left the ticket at home and had to go back."},{"who":"Lia","t":"Que azar!","tr":"What bad luck!"},{"who":"Matt","t":"Pois é. Mas o final foi incrível.","tr":"I know. But the ending was amazing."}]},
+        {"term":"past participle","means":"the form of a verb used after “have” and to describe a result: (had) eaten, (is) closed, (was) made."},
+        {"p":"**The past before the past.** When you're telling a story in the past and need to go further back, use {{tinha}} + the past participle: {{O filme já tinha começado}} “The movie had already started” (before I arrived). It's English “had done”."},
+        {"p":"**The participle.** Regular verbs: {{-ar}} → {{-ado}}, {{-er}} and {{-ir}} → {{-ido}}: {{falado}}, {{comido}}, {{saído}}. Only {{tinha}} changes for the person:"},
+        { "table": [
+          ["","Portuguese","example"],
+          ["I had…","{{eu tinha falado}}","{{Eu tinha falado com ele.}}"],
+          ["you, he, she had…","{{ela tinha saído}}","{{Ela já tinha saído.}}"],
+          ["we had…","{{a gente tinha visto}}","{{A gente nunca tinha visto neve.}}"],
+          ["they had…","{{eles tinham chegado}}","{{Eles tinham chegado cedo.}}"]
+        ] },
+        {"p":"Some common verbs have irregular participles:"},
+        { "table": [
+          ["verb","participle","verb","participle"],
+          ["{{fazer}}","{{feito}}","{{abrir}}","{{aberto}}"],
+          ["{{dizer}}","{{dito}}","{{escrever}}","{{escrito}}"],
+          ["{{ver}}","{{visto}}","{{pôr}}","{{posto}}"],
+          ["{{vir}}","{{vindo}}","{{cobrir}}","{{coberto}}"],
+          ["{{pagar}}","{{pago}}","{{ganhar}}","{{ganho}}"]
+        ] },
+        {"p":"**With {{já}} and {{nunca}}**, as in lesson 27: {{Eu nunca tinha visto o mar}} “I had never seen the sea”, {{Ela já tinha ido embora}} “She had already left”."},
+        {"p":"**Also a describing word.** A participle works as an adjective, matching its noun: {{a porta aberta}} “the open door”, {{um bolo feito em casa}} “a homemade cake”. Lesson 46 uses it for results: {{A loja está fechada.}}"},
+        { "ex": [
+          {"t":"Quando a gente chegou, a loja já tinha fechado.","tr":"When we arrived, the store had already closed."},
+          {"t":"Eu nunca tinha comido açaí antes de vir pro Brasil.","tr":"I had never eaten açaí before coming to Brazil."},
+          {"t":"Ela disse que tinha feito tudo sozinha.","tr":"She said she had done it all by herself.","note":"reported speech, lesson 43"},
+          {"t":"Eles tinham visto o filme duas vezes.","tr":"They had seen the movie twice."},
+          {"t":"Eu já tinha pago a conta.","tr":"I had already paid the bill."},
+          {"t":"Deixei a janela aberta.","tr":"I left the window open.","note":"the participle as an adjective"}
+        ] },
+        {"tip":"In writing you'll also see {{havia}} instead of {{tinha}}: {{O filme já havia começado}}. Same meaning, more formal."}
+      ],
+      "mistakes": [
+        {"wrong":"Quando cheguei, o filme já começou.","right":"Quando cheguei, o filme já tinha começado.","tr":"When I arrived, the movie had already started.","why":"It started before you arrived: {{tinha}} + participle."},
+        {"wrong":"Eu tinha fazido o jantar.","right":"Eu tinha feito o jantar.","tr":"I had made dinner.","why":"{{Fazer}} has an irregular participle: {{feito}}."},
+        {"wrong":"Ela tinha escrevido uma carta.","right":"Ela tinha escrito uma carta.","tr":"She had written a letter.","why":"{{Escrever}} → {{escrito}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quando eu cheguei, ela já tinha ___.","tr":"When I arrived, she had already left.","options":["sair","saído","saiu"],"answer":1,"why":"{{tinha}} + the participle: {{saído}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu nunca tinha ___ neve.","tr":"I had never seen snow.","options":["vi","visto","vido"],"answer":1,"why":"{{Ver}} has an irregular participle: {{visto}}."},
+        {"type":"choice","q":"The participle of {{abrir}} is…","options":["{{aberto}}","{{abrido}}","{{abrindo}}"],"answer":0,"why":"{{Abrir}} → {{aberto}}. ({{Abrindo}} is the {{-ndo}} form.)"},
+        {"type":"dialogue","q":"A friend asks about the concert. Choose your replies.","from":"tell-a-story","lines":[{"who":"Lia","t":"Você chegou a tempo pro show?","tr":"Did you make it to the show in time?"},{"options":["Não! Quando eu cheguei, eles já tinham começado.","Não! Quando eu chegava, eles já começaram."],"answer":0,"why":"Your arrival is the event ({{cheguei}}); the start came before it ({{tinham começado}})."},{"who":"Lia","t":"Por quê?","tr":"Why?"},{"options":["Eu tinha esquecendo o ingresso em casa.","Eu tinha esquecido o ingresso em casa."],"answer":1,"why":"{{tinha}} + the participle: {{esquecido}}."},{"who":"Lia","t":"Que azar!","tr":"What bad luck!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We had never seen the sea.","words":["A gente","nunca","tinha","visto","o mar."]},
+        {"type":"say","q":"She said: {{Fiz o bolo.}} Report it: “She said she had made the cake.”","answer":"Ela disse que tinha feito o bolo.","from":"report-what-someone-said"},
+        {"type":"free","q":"Your turn: tell about a time you arrived somewhere too late. What had already happened?","answers":[{"t":"Uma vez eu cheguei ao aeroporto e o avião já tinha saído!","tr":"Once I got to the airport and the plane had already left!"},{"t":"Quando eu cheguei à festa, todo mundo já tinha ido embora e a comida tinha acabado.","tr":"When I got to the party, everyone had already gone home and the food had run out."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-been-doing",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you've been doing lately",
+      "summary": "Catch up with a friend: “I've been working a lot lately”, “How have you been?”, and avoid the English speaker's trap.",
+      "topic": "{{tenho}} + participle for “have been doing (lately)”; compared with {{já comi}}, {{fui}} and {{moro há}}",
+      "blocks": [
+        {"goal":{"t":"Tenho trabalhado muito ultimamente.","tr":"I've been working a lot lately."}},
+        {"dialog":[{"who":"Ana","t":"Nossa, quanto tempo! Por onde você tem andado?","tr":"Wow, long time! Where have you been?"},{"who":"Ben","t":"Pois é! Tenho trabalhado demais. E à noite tenho estudado português.","tr":"I know! I've been working way too much. And at night I've been studying Portuguese."},{"who":"Ana","t":"Dá pra perceber! Você tem falado muito bem.","tr":"I can tell! You've been speaking really well."},{"who":"Ben","t":"Obrigado! E você, como tem passado?","tr":"Thanks! And you, how have you been?"},{"who":"Ana","t":"Bem! Tenho ido à academia todo dia.","tr":"Good! I've been going to the gym every day."}]},
+        {"p":"**{{ter}} + participle: lately, again and again.** {{Tenho trabalhado}} means “I've been working (lately, repeatedly, up to now)”. It's for something that has been happening over a recent stretch of time and is still going on."},
+        {"p":"**Not the English present perfect.** This is the trap: “I have eaten” is **not** {{tenho comido}}. Compare:"},
+        { "table": [
+          ["English","Portuguese","why"],
+          ["I've eaten.","{{Já comi.}}","once, done (lesson 27)"],
+          ["I've been to Rio twice.","{{Fui ao Rio duas vezes.}}","an experience: the perfeito"],
+          ["I've been eating a lot lately.","{{Tenho comido muito.}}","again and again, lately"],
+          ["I've lived here for years.","{{Moro aqui há anos.}}","still true: the present + {{há}} (lesson 30)"]
+        ] },
+        {"p":"It often comes with {{ultimamente}} “lately”, {{esses dias}} “these days”, {{nos últimos meses}} “in the last few months”."},
+        {"p":"**Catching up.** {{Como você tem passado?}} is a warm, slightly formal “How have you been?”; {{O que você tem feito?}} “What have you been up to?”; {{Por onde você tem andado?}} “Where have you been hiding?”."},
+        { "ex": [
+          {"t":"Tenho dormido mal esses dias.","tr":"I've been sleeping badly these days."},
+          {"t":"Ela tem viajado muito a trabalho.","tr":"She's been traveling a lot for work."},
+          {"t":"O que você tem feito de bom?","tr":"What have you been up to?","note":"literally “what good things have you been doing?”"},
+          {"t":"Tem chovido muito em São Paulo.","tr":"It's been raining a lot in São Paulo."},
+          {"t":"A gente tem se visto pouco.","tr":"We haven't been seeing much of each other."},
+          {"t":"Como o senhor tem passado?","tr":"How have you been, sir?"}
+        ] },
+        {"tip":"Weather small talk loves this form: {{Tem feito um calor!}} “It's been so hot!”, {{Tem chovido todo dia}} “It's been raining every day”."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu tenho visto esse filme.","right":"Eu já vi esse filme.","tr":"I've seen this movie.","why":"Once, done: the perfeito with {{já}}. {{Tenho visto}} would mean you keep watching it."},
+        {"wrong":"Tenho morado aqui há dez anos.","right":"Moro aqui há dez anos.","tr":"I've lived here for ten years.","why":"Still true, with {{há}}: Portuguese says it with the plain present."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How do you say “I've already eaten”?","options":["{{Já comi.}}","{{Tenho comido.}}","{{Estou comido.}}"],"answer":0,"why":"Once, done: {{já}} + the perfeito.","from":"say-what-you-have-done"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ultimamente eu ___ trabalhado muito.","tr":"Lately I've been working a lot.","options":["estou","tenho","tinha"],"answer":1,"why":"Lately, still going on: {{tenho}} + participle."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tem ___ muito aqui.","tr":"It's been raining a lot here.","options":["chovido","chovendo","chuva"],"answer":0,"why":"{{ter}} + the participle: {{chovido}}."},
+        {"type":"dialogue","q":"You bump into an old friend. Choose your replies.","from":"say-how-long","lines":[{"who":"Ana","t":"Quanto tempo! O que você tem feito?","tr":"Long time! What have you been up to?"},{"options":["Tenho estudando muito pra uma prova.","Tenho estudado muito pra uma prova."],"answer":1,"why":"{{ter}} + the participle: {{estudado}}."},{"who":"Ana","t":"E há quanto tempo você mora aqui?","tr":"And how long have you lived here?"},{"options":["Moro aqui há dois anos.","Tenho morado aqui por dois anos."],"answer":0,"why":"Still true: the present + {{há}}."},{"who":"Ana","t":"Que bom te ver!","tr":"So good to see you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've been sleeping badly these days.","words":["Tenho","dormido","mal","esses","dias."]},
+        {"type":"say","q":"Ask an older neighbor, a woman, politely: “How have you been?”","answer":"Como a senhora tem passado?","from":"describe-the-past"},
+        {"type":"free","q":"Your turn: tell a friend what you've been doing lately (with {{tenho}} + participle) and one thing you did just once.","answers":[{"t":"Tenho trabalhado muito e tenho ido à academia. Semana passada fui a um show incrível!","tr":"I've been working a lot and going to the gym. Last week I went to an amazing show!"},{"t":"Ultimamente tenho cozinhado em casa. Já fiz feijoada duas vezes!","tr":"Lately I've been cooking at home. I've already made feijoada twice!"}]}
+      ]
+    },
+    {
+      "id": "say-how-things-are-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say how things are done and made",
+      "summary": "Say when something was built and by whom, read signs like “For rent”, and ask “How do you make…?”.",
+      "topic": "The passive: {{ser}} + participle ({{foi construída}}); {{se}} ({{aluga-se}}, {{como se faz}}); {{estar}} + participle for the result ({{está fechado}})",
+      "blocks": [
+        {"goal":{"t":"O pão de queijo é feito com polvilho e queijo.","tr":"Cheese bread is made with tapioca flour and cheese."}},
+        {"dialog":[{"who":"Guide","t":"Esta igreja foi construída em 1750.","tr":"This church was built in 1750."},{"who":"Tourist","t":"Nossa! E ainda está aberta?","tr":"Wow! And is it still open?"},{"who":"Guide","t":"Está, mas só aos domingos. Aqui não se pode tirar foto com flash.","tr":"It is, but only on Sundays. You can't take flash photos here."},{"who":"Tourist","t":"Entendi. E aquelas pinturas foram feitas por quem?","tr":"Got it. And who were those paintings made by?"},{"who":"Guide","t":"Foram pintadas por um artista da região.","tr":"They were painted by an artist from the region."}]},
+        {"term":"passive","means":"a sentence where the thing acted on comes first, and whoever did it comes after “by”, or not at all: The church was built in 1750."},
+        {"p":"**{{ser}} + participle: the passive.** To say what happened to something, rather than who did it, use {{ser}} and the past participle of lesson 44. The participle matches its noun like an adjective: {{A igreja foi construída em 1750}}, {{Os quadros foram pintados por um artista local}}. “By” is {{por}}, which joins “the”: {{pelo}}, {{pela}}."},
+        {"p":"You'll meet it mostly in the news, in history and in writing: {{O suspeito foi preso}} “The suspect was arrested”, {{O livro foi traduzido para vinte línguas}}."},
+        {"p":"**{{se}}: the everyday way.** In speech and on signs, Portuguese often uses {{se}} instead, with no one mentioned: {{Aluga-se}} “For rent”, {{Vende-se}} “For sale”, {{Aqui se fala inglês}} “English spoken here”, {{Não se pode fumar}} “No smoking”. And the questions every learner needs: {{Como se diz…?}}, {{Como se faz…?}} “How do you make…?”."},
+        {"p":"**{{estar}} + participle: the result.** {{Ser}} tells the action; {{estar}} the state it left behind. {{A loja foi fechada às seis}} “The store was closed at six (someone closed it)”; {{A loja está fechada}} “The store is closed (now)”. The {{ser}} and {{estar}} of lesson 2, one more time."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["the action","{{A porta foi aberta.}}","The door was opened."],
+          ["the result now","{{A porta está aberta.}}","The door is open."],
+          ["no one in particular","{{Aqui se vende pão.}}","Bread is sold here."],
+          ["on a sign","{{Aluga-se.}}","For rent."]
+        ] },
+        { "ex": [
+          {"t":"Essa casa foi construída pelo meu avô.","tr":"This house was built by my grandfather."},
+          {"t":"O restaurante está fechado hoje.","tr":"The restaurant is closed today."},
+          {"t":"Como se faz brigadeiro?","tr":"How do you make brigadeiro?"},
+          {"t":"Os ingressos foram vendidos em uma hora.","tr":"The tickets were sold in an hour."},
+          {"t":"Precisa-se de garçom.","tr":"Waiter wanted.","note":"a sign in a window"},
+          {"t":"O jantar já está pronto!","tr":"Dinner's ready!"}
+        ] },
+        {"tip":"On signs: {{Aluga-se}} “For rent”, {{Vende-se}} “For sale”, {{Precisa-se}} “Wanted”, {{Proibido fumar}} “No smoking”."}
+      ],
+      "mistakes": [
+        {"wrong":"A igreja foi construído em 1750.","right":"A igreja foi construída em 1750.","tr":"The church was built in 1750.","why":"The participle matches its noun: {{igreja}} is feminine, so {{construída}}."},
+        {"wrong":"A loja é fechada agora.","right":"A loja está fechada agora.","tr":"The store is closed now.","why":"The state it's in now: {{estar}} + participle."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"O livro foi ___ em 1990.","tr":"The book was written in 1990.","options":["escrito","escrevido","escreveu"],"answer":0,"why":"{{Escrever}} → {{escrito}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Já são dez horas. O banco ___ fechado agora.","tr":"It's already ten. The bank is closed now.","options":["está","foi","tem"],"answer":0,"why":"Its state now: {{estar}} + participle."},
+        {"type":"choice","q":"You see a sign on a house: {{Vende-se}}. It means…","options":["Sold","For sale","For rent"],"answer":1,"why":"{{Vende-se}}: “is sold”, for sale. (“For rent” is {{Aluga-se}}.)"},
+        {"type":"dialogue","q":"On a guided tour: choose your replies.","from":"describe-people-and-things","lines":[{"who":"Guide","t":"Esta igreja foi construída em 1750.","tr":"This church was built in 1750."},{"options":["Nossa! E ela ainda é aberta?","Nossa! E ela ainda está aberta?"],"answer":1,"why":"Its state now: {{estar}} + participle."},{"who":"Guide","t":"Está, mas não se pode tirar foto lá dentro.","tr":"It is, but you can't take photos inside."},{"options":["Entendi. E as pinturas foram feitos por quem?","Entendi. E as pinturas foram feitas por quem?"],"answer":1,"why":"{{Pinturas}} is feminine plural: {{feitas}}."},{"who":"Guide","t":"Por um artista da região.","tr":"By an artist from the region."}]},
+        {"type":"order","q":"Put the words in order.","tr":"How do you make brigadeiro?","words":["Como","se","faz","brigadeiro?"]},
+        {"type":"say","q":"How do you say “The tickets were sold in an hour”?","answer":"Os ingressos foram vendidos em uma hora.","from":"say-what-had-happened"},
+        {"type":"free","q":"Your turn: describe something in your city (when was it built, by whom?), or explain how a dish is made with {{se}}.","answers":[{"t":"A ponte da minha cidade foi construída em 1930 e foi pintada de vermelho.","tr":"The bridge in my city was built in 1930 and was painted red."},{"t":"Panqueca é fácil: se mistura farinha com leite e ovo, e depois se frita.","tr":"Pancakes are easy: you mix flour with milk and eggs, and then you fry them."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion and disagree politely",
+      "summary": "Say what you think, agree, disagree gently, and weigh both sides: “Although Rio is beautiful, it's expensive.”",
+      "topic": "{{na minha opinião}}, {{pra mim}}, {{concordo}}; {{embora}} + subjunctive; {{apesar de}}; {{por um lado… por outro}}",
+      "blocks": [
+        {"goal":{"t":"Na minha opinião, o Brasil tem a melhor comida do mundo.","tr":"In my opinion, Brazil has the best food in the world."}},
+        {"dialog":[{"who":"Lucas","t":"Pra mim, o melhor lugar pra morar é o Rio.","tr":"For me, the best place to live is Rio."},{"who":"Mia","t":"Será? Eu discordo. Embora o Rio seja lindo, a vida lá é muito cara.","tr":"Really? I disagree. Although Rio is beautiful, life there is very expensive."},{"who":"Lucas","t":"Concordo que é caro, mas a qualidade de vida compensa.","tr":"I agree it's expensive, but the quality of life makes up for it."},{"who":"Mia","t":"Depende. Por um lado, tem praia; por outro, tem muito trânsito.","tr":"It depends. On the one hand, there's the beach; on the other, there's a lot of traffic."},{"who":"Lucas","t":"É verdade. Mas mesmo assim eu prefiro o Rio!","tr":"That's true. But even so, I prefer Rio!"},{"who":"Mia","t":"Tá bom, cada um com a sua opinião.","tr":"OK, to each their own."}]},
+        {"p":"**Giving an opinion.** {{Acho que…}} (lesson 39) is the most common. Others: {{Na minha opinião…}} “In my opinion…”, {{Pra mim…}} “For me…”, {{Eu acredito que…}} “I believe that…”, {{Tenho certeza de que…}} “I'm sure that…”."},
+        {"p":"**Agreeing and disagreeing.** {{Concordo}} “I agree”, {{Com certeza!}} “Definitely!”, {{É verdade}} “That's true”. Brazilians rarely disagree head-on: they soften it with {{Não sei, não…}}, {{Depende}}, {{Será?}}, {{Não concordo muito}} “I don't really agree”."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["your opinion","{{Na minha opinião…}}, {{Pra mim…}}","In my opinion…, For me…"],
+          ["agreeing","{{Concordo (com você).}}","I agree (with you)."],
+          ["strongly","{{Com certeza!}}","Definitely!"],
+          ["disagreeing, softly","{{Depende.}}, {{Não concordo muito.}}","It depends. I don't really agree."],
+          ["both sides","{{Por um lado… por outro…}}","On the one hand… on the other…"]
+        ] },
+        {"p":"**Although: {{embora}} + subjunctive.** {{Embora}} always takes the subjunctive: {{Embora seja caro, vale a pena}} “Although it's expensive, it's worth it”. In speech, {{apesar de}} + infinitive (or + a noun) is easier: {{Apesar de ser caro…}}, {{Apesar da chuva…}} “Despite the rain…”. And {{mesmo assim}} is “even so”."},
+        { "table": [
+          ["","Portuguese"],
+          ["although","{{Embora o Rio seja lindo, é caro.}}"],
+          ["despite","{{Apesar de ser lindo, o Rio é caro.}}"],
+          ["even so","{{O Rio é caro, mas mesmo assim eu adoro.}}"]
+        ] },
+        { "ex": [
+          {"t":"Na minha opinião, todo mundo deveria aprender outra língua.","tr":"In my opinion, everyone should learn another language."},
+          {"t":"Concordo com você, mas acho que é difícil.","tr":"I agree with you, but I think it's hard."},
+          {"t":"Embora eu goste de São Paulo, prefiro morar no interior.","tr":"Although I like São Paulo, I prefer living in the countryside."},
+          {"t":"Apesar da chuva, a viagem foi ótima.","tr":"Despite the rain, the trip was great."},
+          {"t":"Depende do que você quer.","tr":"It depends on what you want."},
+          {"t":"Pra mim, tanto faz.","tr":"For me, it makes no difference."}
+        ] },
+        {"tip":"{{Vale a pena}} (“it's worth the pain”) is “it's worth it”: {{Vale a pena visitar o Pantanal!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Embora é caro, eu gosto.","right":"Embora seja caro, eu gosto.","tr":"Although it's expensive, I like it.","why":"{{Embora}} always takes the subjunctive: {{seja}}."},
+        {"wrong":"Eu concordo você.","right":"Eu concordo com você.","tr":"I agree with you.","why":"Agree “with” someone: {{concordar com}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Embora ___ tarde, vamos sair.","tr":"Although it's late, let's go out.","options":["ser","seja","é"],"answer":1,"why":"{{Embora}} + the subjunctive: {{seja}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu concordo ___ você.","tr":"I agree with you.","options":["com","de","a"],"answer":0,"why":"{{Concordar com}}: agree with."},
+        {"type":"choice","q":"A friend says Rio is the best city in Brazil. To disagree politely, you say…","options":["{{Não. Você está errado.}}","{{Concordo totalmente.}}","{{Será? Depende do que você gosta.}}"],"answer":2,"why":"Soften it: {{Será?}}, {{Depende}}."},
+        {"type":"dialogue","q":"A friendly debate: choose your replies.","from":"give-advice-and-opinions","lines":[{"who":"Lucas","t":"Pra mim, o melhor lugar pra morar é o Rio.","tr":"For me, the best place to live is Rio."},{"options":["Não sei, não. Embora é lindo, é muito caro.","Não sei, não. Embora seja lindo, é muito caro."],"answer":1,"why":"{{Embora}} + the subjunctive: {{seja}}."},{"who":"Lucas","t":"Mas a qualidade de vida compensa, não acha?","tr":"But the quality of life makes up for it, don't you think?"},{"options":["Talvez você tem razão.","Talvez você tenha razão."],"answer":1,"why":"{{Talvez}} before the verb: the subjunctive, {{tenha}}."},{"who":"Lucas","t":"Viu? Eu sempre tenho razão!","tr":"See? I'm always right!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Despite the rain, the trip was great.","words":["Apesar","da","chuva,","a viagem","foi","ótima."]},
+        {"type":"say","q":"How do you say “It depends on what you want”?","answer":"Depende do que você quer.","from":"describe-with-que"},
+        {"type":"free","q":"Your turn: give your opinion about your own city: one good thing, one bad thing, and your conclusion. Use {{na minha opinião}}, {{embora}} or {{apesar de}}.","answers":[{"t":"Na minha opinião, Chicago é uma cidade ótima. Embora o inverno seja muito frio, tem muita coisa pra fazer.","tr":"In my opinion, Chicago is a great city. Although the winter is very cold, there's a lot to do."},{"t":"Apesar de ser pequena, minha cidade é muito tranquila. Pra mim, vale a pena morar lá.","tr":"Despite being small, my town is very peaceful. For me, it's worth living there."}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "Keep a conversation going",
+      "summary": "React, ask for agreement and keep people talking with the little words that make you sound Brazilian: né?, sabe?, pois é, nossa!",
+      "topic": "{{né?}}, {{sabe?}}, {{então}}, {{tipo}}, {{pois é}}, {{nossa!}}, {{sério?}}, {{e aí?}}; reactions and follow-up questions",
+      "blocks": [
+        {"goal":{"t":"Sério? E aí, o que aconteceu depois?","tr":"Really? So what happened next?"}},
+        {"dialog":[{"who":"Júlia","t":"Então, sabe aquele restaurante novo? Fui lá ontem.","tr":"So, you know that new restaurant? I went there yesterday."},{"who":"Tom","t":"Ah, é? E aí, gostou?","tr":"Oh yeah? So, did you like it?"},{"who":"Júlia","t":"Nossa, adorei! A comida é tipo… perfeita.","tr":"Wow, I loved it! The food is like… perfect."},{"who":"Tom","t":"Sério? Mas não é caro?","tr":"Really? But isn't it expensive?"},{"who":"Júlia","t":"Pois é, é um pouco. Mas vale a pena, sabe?","tr":"Yeah, it is a bit. But it's worth it, you know?"},{"who":"Tom","t":"Que legal! Vamos juntos um dia desses?","tr":"How cool! Shall we go together one of these days?"}]},
+        {"p":"**Little words that keep things moving.** Brazilian conversation is full of short words that show you're listening, ask for agreement, or give you time to think. They don't change the meaning, but without them you sound like a textbook."},
+        { "table": [
+          ["","what it does","example"],
+          ["{{né?}}","“right?”: asks for agreement (from {{não é?}})","{{Está quente hoje, né?}}"],
+          ["{{sabe?}}","“you know?”","{{Foi difícil, sabe?}}"],
+          ["{{então}}","“so…”: to start or to move on","{{Então, como foi?}}"],
+          ["{{tipo}}","“like”: before an example or a guess","{{Custa tipo cem reais.}}"],
+          ["{{pois é}}","“yeah, I know”: agreeing","{{Está caro, né? — Pois é.}}"],
+          ["{{nossa!}}","“wow!”","{{Nossa, que lindo!}}"],
+          ["{{sério?}}, {{é mesmo?}}","“really?”","{{Ele vai casar. — Sério?}}"],
+          ["{{e aí?}}","“so? and then?” (also “hey, what's up?”)","{{E aí, o que aconteceu?}}"]
+        ] },
+        {"p":"**Showing interest.** React first: {{Que legal!}} “How cool!”, {{Que pena!}} “What a pity!”, {{Que chato!}} “How annoying!”. Then ask more, to keep the other person talking: {{E depois?}} “And then?”, {{Como assim?}} “What do you mean?”, {{E você gostou?}}"},
+        {"p":"**Asking for agreement: {{né?}}** It's Brazil's tag question for everything: {{Você é americano, né?}} “You're American, aren't you?”, {{Vai chover, né?}} “It's going to rain, isn't it?”. The answer, as always since lesson 3, is the verb: {{Sou.}}, {{Vai.}}"},
+        {"p":"**Gaining time.** {{Então…}}, {{Bom…}}, {{Deixa eu ver…}} “Let me see…”, {{Como é que se diz…?}} “How do you say…?”."},
+        { "ex": [
+          {"t":"Você é de São Paulo, né?","tr":"You're from São Paulo, aren't you?"},
+          {"t":"Pois é, a vida está corrida.","tr":"Yeah, life's hectic."},
+          {"t":"Como assim? Não entendi.","tr":"What do you mean? I didn't get it."},
+          {"t":"Então, deixa eu ver… acho que sim.","tr":"So, let me see… I think so."},
+          {"t":"Nossa, que chato! E aí, o que você fez?","tr":"Wow, how annoying! So what did you do?"},
+          {"t":"Obrigada! — Imagina!","tr":"Thank you! — Don't mention it!"}
+        ] },
+        {"tip":"{{Imagina!}} (“imagine!”) is a warm Brazilian “You're welcome!” or “No trouble at all!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Quê? Repete.","right":"Desculpa, como? Pode repetir?","tr":"Sorry, what? Could you say that again?","why":"{{Quê?}} alone sounds rude; {{Como?}} or {{Desculpa?}} is the polite way to ask someone to say it again."},
+        {"wrong":"Ele vai casar. — Real?","right":"Ele vai casar. — Sério?","tr":"He's getting married. — Really?","why":"“Really?” to news is {{Sério?}} or {{É mesmo?}}; {{real}} is only an adjective (and Brazil's money)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Está muito quente hoje, ___?","tr":"It's really hot today, isn't it?","options":["sabe","tipo","né"],"answer":2,"why":"Asking for agreement: {{né?}}"},
+        {"type":"choice","q":"A friend tells you {{Perdi o celular ontem.}} The best reaction:","options":["{{Que legal!}}","{{Imagina!}}","{{Nossa, que chato! E aí, achou?}}"],"answer":2,"why":"React ({{que chato!}}), then ask more ({{E aí, achou?}})."},
+        {"type":"choice","q":"You didn't understand what someone meant. You ask…","options":["{{Como assim?}}","{{Pois é.}}","{{Né?}}"],"answer":0,"why":"{{Como assim?}}: “What do you mean?”"},
+        {"type":"dialogue","q":"A friend tells you about a restaurant. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Júlia","t":"Sabe aquele restaurante novo? Fui lá ontem.","tr":"You know that new restaurant? I went there yesterday."},{"options":["Ah, é? E aí, gostou?","Ah, é? E aí, gosta?"],"answer":0,"why":"About yesterday: the past, {{gostou}}. ({{E aí?}} invites her to go on.)"},{"who":"Júlia","t":"Adorei! Mas é meio caro.","tr":"I loved it! But it's kind of expensive."},{"options":["Pois é, mas vale a pena, sabe isso?","Pois é, mas vale a pena, né?"],"answer":1,"why":"{{Né?}} asks for agreement."},{"who":"Júlia","t":"Vale muito!","tr":"Totally worth it!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"So what happened next?","words":["E aí,","o que","aconteceu","depois?"]},
+        {"type":"say","q":"React to good news: “Really? How cool!”","answer":"Sério? Que legal!"},
+        {"type":"free","q":"Your turn: a friend says {{Fui pra Bahia nas férias!}} Keep the conversation going: react, then ask two follow-up questions.","answers":[{"t":"Nossa, que legal! E aí, gostou? Foi pra Salvador?","tr":"Wow, how cool! So, did you like it? Did you go to Salvador?"},{"t":"Sério? Que inveja! Quanto tempo você ficou lá? E a comida, era boa?","tr":"Really? I'm so jealous! How long did you stay there? And the food, was it good?"}]}
       ]
     }
   ]

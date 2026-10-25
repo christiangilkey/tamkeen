@@ -22,14 +22,14 @@
    "title": "Portuguese grammar",
    "variety": "Brazilian Portuguese (você)",
    "units": 8,
-   "lessons": 42,
+   "lessons": 48,
    "levels": [
     "A1",
     "A2",
     "B1"
    ],
-   "bytes": 236459,
-   "sha256": "6e873905cd8adfbe71e9d81ced29bfb14e87b41bee7c6e579a8fe43a9787aa99"
+   "bytes": 271905,
+   "sha256": "4e36152e4b6760bea2b79dbe491b5009cd03ee2f3a68fa70817c73a7658bbdba"
   }
  }
 }
