@@ -50,7 +50,7 @@ if (en) {
     const bad = [];
     // Latin letters, with a hat (ô), a tilde (ẽ), a line (ā), a dot above (ṅ) or below (ṭ); punctuation
     const marks = String.fromCharCode(0x302, 0x303, 0x304, 0x307, 0x323);
-    const ROMAN = new RegExp(`^[a-z${marks} .,?!;:'’“”"()—…→/0-9-]*$`);
+    const ROMAN = new RegExp(`^[a-z${marks} .,?!;:'’“”"()—…→/0-9_-]*$`);
     const roman = (r) => ROMAN.test(r.normalize("NFD"));
     for (const l of en.lessons) {
       for (const { text } of explanationTexts(l)) for (const piece of targetsOf(text)) {
@@ -62,11 +62,23 @@ if (en) {
         if (Array.isArray(o)) return o.forEach(walk);
         if (o && typeof o === "object") {
           if (typeof o.r === "string" && !roman(o.r)) bad.push(`${l.id}: odd letters in the reading “${o.r}”`);
+          for (const r of o.rs || []) if (!roman(String(r))) bad.push(`${l.id}: odd letters in the reading “${r}”`);
           Object.values(o).forEach(walk);
         }
       };
       walk(l);
     }
+    assert.deepEqual(bad, [], bad.join("\n"));
+  });
+
+  test("en-hi: every choice the learner taps has its reading (a beginner can't read Devanagari yet)", () => {
+    const bad = [];
+    for (const l of en.lessons) l.practice.forEach((q, i) => {
+      const at = `${l.id}, practice ${i + 1}`;
+      if (q.type === "fill" && (!q.r || (q.rs || []).length !== q.options.length)) bad.push(`${at}: a fill question needs r and rs`);
+      if (q.type === "order" && (q.rs || []).length !== q.words.length) bad.push(`${at}: an order question needs rs`);
+      for (const x of q.lines || []) if (x.options && (x.rs || []).length !== x.options.length) bad.push(`${at}: a reply needs rs`);
+    });
     assert.deepEqual(bad, [], bad.join("\n"));
   });
 }
