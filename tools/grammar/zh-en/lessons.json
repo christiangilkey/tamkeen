@@ -893,6 +893,183 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"你能帮我一下吗？","words":["Can","you","help","me?"]},
         {"type":"free","q":"轮到你了：说两件你会做的事和一件你不会做的事。","answers":[{"t":"I can cook and I can swim. I can't drive.","tr":"我会做饭，也会游泳。我不会开车。"},{"t":"I can speak Chinese and a little English. I can't sing.","tr":"我会说中文和一点儿英语。我不会唱歌。"}]}
       ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 5,
+      "level": "A2",
+      "title": "说正在做什么",
+      "summary": "“我正在做饭”“你在干什么？”：用 {{am}} / {{is}} / {{are}} + {{-ing}} 说此时此刻正在发生的事。",
+      "topic": "现在进行时：{{be}} + 动词 {{-ing}}；和一般现在时的区别",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now.","tr":"我现在正在做晚饭。"}},
+        {"dialog":[{"who":"Kate","t":"Hi! What are you doing?","tr":"嗨！你在干什么呢？"},{"who":"王芳","t":"I'm cooking dinner. What about you?","tr":"我在做晚饭。你呢？"},{"who":"Kate","t":"I'm watching a movie with my sister.","tr":"我和我妹妹在看电影。"},{"who":"王芳","t":"Is it good?","tr":"好看吗？"},{"who":"Kate","t":"Yes! Oh, wait, my mom is calling. Talk later!","tr":"好看！哦，等一下，我妈打电话来了。回头聊！"}]},
+        {"p":"**正在做：{{be}} + 动词 {{-ing}}。** 中文用“在”“正在”“呢”表示动作正在进行；英语用 {{am}}、{{is}}、{{are}} 加上动词的 {{-ing}} 形式：{{I'm cooking.}}（我在做饭。）{{She's sleeping.}}（她在睡觉。）两部分一个都不能少。"},
+        {"term":"进行时","means":"表示动作正在进行的形式：{{be}} + 动词 {{-ing}}，比如 {{I'm reading.}}（我在看书。）"},
+        {"p":"**{{-ing}} 的拼写。** 一般直接加：{{read}} → {{reading}}；不发音的 e 去掉：{{make}} → {{making}}；短词以“一个元音 + 一个辅音”结尾的，辅音双写：{{swim}} → {{swimming}}，{{run}} → {{running}}。"},
+        {"p":"**现在 vs. 每天。** 中文的“我做饭”可以是习惯，也可以是现在；英语分得很清楚：每天都这样，用一般现在时：{{I cook every day.}}（我每天做饭。）此时此刻，用进行时：{{I'm cooking now.}}（我现在在做饭。）"},
+        { "table": [
+          ["","每天、经常","现在正在"],
+          ["形式","{{I cook}}、{{she cooks}}","{{I'm cooking}}、{{she's cooking}}"],
+          ["例句","{{He works in a bank.}} 他在银行工作。","{{He's working now.}} 他现在在上班。"],
+          ["否定","{{I don't watch TV.}} 我不看电视。","{{I'm not watching TV.}} 我没在看电视。"],
+          ["提问","{{Do you study English?}} 你学英语吗？","{{Are you studying?}} 你在学习吗？"]
+        ] },
+        { "ex": [
+          {"t":"I'm cooking dinner right now.","tr":"我现在正在做晚饭。"},
+          {"t":"What are you doing?","tr":"你在干什么？"},
+          {"t":"She's talking on the phone.","tr":"她在打电话。"},
+          {"t":"It's raining.","tr":"在下雨。","note":"说天气也用 {{it}}"},
+          {"t":"The kids are playing outside.","tr":"孩子们在外面玩。"},
+          {"t":"I'm not sleeping, I'm reading.","tr":"我没在睡觉，我在看书。"}
+        ] },
+        {"tip":"有些动词表示状态，不表示动作，一般不用 {{-ing}}：{{know}}、{{like}}、{{want}}、{{need}}。所以说 {{I know.}}，不说 {{I'm knowing.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking now.","right":"I'm cooking now.","tr":"我现在在做饭。","why":"进行时要有 {{be}}：{{I'm cooking}}。"},
+        {"wrong":"I am work now.","right":"I'm working now.","tr":"我现在在工作。","why":"{{be}} 后面的动词要加 {{-ing}}：{{working}}。"},
+        {"wrong":"I'm wanting a coffee.","right":"I want a coffee.","tr":"我想要一杯咖啡。","why":"{{want}} 表示状态，不用进行时：{{I want…}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"She's ___ on the phone.","tr":"她在打电话。","options":["talking","talk","talks"],"answer":0,"why":"{{be}} 后面用 {{-ing}}：{{talking}}。"},
+        {"type":"choice","q":"现在外面正在下雨。你说……","options":["{{It's raining.}}","{{It rains.}}","{{Raining now.}}"],"answer":0,"why":"此时此刻：进行时 {{It's raining.}}"},
+        {"type":"choice","q":"“我每天早上跑步。”","options":["{{I run every morning.}}","{{I'm running every morning.}}"],"answer":0,"why":"每天的习惯用一般现在时：{{I run}}。","from":"say-what-you-do-every-day"},
+        {"type":"dialogue","q":"朋友打来电话。选出你的回答。","lines":[{"who":"Friend","t":"Hi! What are you doing?","tr":"嗨！你在干什么？"},{"options":["I'm watching TV.","I watch TV."],"answer":0,"why":"现在正在做：{{I'm watching}}。"},{"who":"Friend","t":"Is your brother home?","tr":"你哥哥在家吗？"},{"options":["Yes, but he's sleeping.","Yes, but he sleeping."],"answer":0,"why":"{{he's}} = {{he is}}，不能少。"},{"who":"Friend","t":"OK, I'll call later.","tr":"好，我晚点再打。"}],"from":"say-what-people-are-like"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"孩子们在外面玩。","words":["The","kids","are","playing","outside."]},
+        {"type":"free","q":"轮到你了：你现在在做什么？你身边的人呢？","answers":[{"t":"I'm studying English. My husband is cooking dinner.","tr":"我在学英语。我丈夫在做晚饭。"},{"t":"I'm sitting on the subway. Everyone is looking at their phones.","tr":"我坐在地铁上。大家都在看手机。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-plans",
+      "unit": 5,
+      "level": "A2",
+      "title": "说计划：be going to",
+      "summary": "“我打算学开车”“这个周末我要去看爸妈”：用 {{be going to}} 说打算，用 {{-ing}} 说已经安排好的事。",
+      "topic": "{{be going to}} + 动词原形；用现在进行时说安排好的事；将来的时间放在句末",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"这个周末我要去看我爸妈。"}},
+        {"dialog":[{"who":"Mike","t":"What are you going to do this weekend?","tr":"你这个周末打算做什么？"},{"who":"李明","t":"I'm going to visit my parents. They live in New Jersey.","tr":"我要去看我爸妈，他们住在新泽西。"},{"who":"Mike","t":"Nice. Are you going to drive?","tr":"不错。你开车去吗？"},{"who":"李明","t":"No, I'm taking the train on Saturday morning.","tr":"不，我星期六早上坐火车去。"},{"who":"Mike","t":"Sounds good. I'm going to stay home and relax.","tr":"听起来不错。我打算待在家里放松一下。"}]},
+        {"p":"**打算：{{be going to}} + 动词原形。** 中文说“我打算……”“我要……”；英语用 {{am}} / {{is}} / {{are}} + {{going to}} + 动词：{{I'm going to learn to drive.}}（我打算学开车。）{{She's going to move.}}（她要搬家了。）"},
+        { "table": [
+          ["","例句","中文"],
+          ["肯定","{{I'm going to cook tonight.}}","我今晚要做饭。"],
+          ["否定","{{We aren't going to go.}}","我们不打算去。"],
+          ["提问","{{Are you going to call him?}}","你要给他打电话吗？"],
+          ["疑问词","{{What are you going to do?}}","你打算做什么？"]
+        ] },
+        {"p":"**已经安排好的事：用现在进行时。** 时间地点都定了（买了票、约好了人），美国人常用进行时加一个将来的时间：{{I'm meeting Tom at six.}}（我六点和汤姆见面。）{{We're flying to Chicago on Friday.}}（我们星期五飞芝加哥。）"},
+        {"p":"**将来的时间也放在句末**：{{tomorrow}}、{{next week}}、{{this weekend}}、{{in two days}}（两天以后）。中文的“明天我去”，英语说 {{I'm going tomorrow.}}"},
+        { "ex": [
+          {"t":"I'm going to visit my parents this weekend.","tr":"这个周末我要去看我爸妈。"},
+          {"t":"What are you going to do tomorrow?","tr":"你明天打算做什么？"},
+          {"t":"She's going to have a baby.","tr":"她要生宝宝了。"},
+          {"t":"We're not going to buy a car.","tr":"我们不打算买车。"},
+          {"t":"I'm meeting my friends tonight.","tr":"我今晚和朋友见面。"},
+          {"t":"It's going to rain.","tr":"要下雨了。","note":"看到乌云，知道要下雨：也用 {{going to}}"}
+        ] },
+        {"tip":"口语里 {{going to}} 常常说成 {{gonna}}：{{I'm gonna call you.}} 听得懂就好，正式写作别用。"}
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit my parents.","right":"I'm going to visit my parents.","tr":"我要去看我爸妈。","why":"{{going to}} 前面要有 {{be}}：{{I'm going to}}。"},
+        {"wrong":"I'm going to visiting them.","right":"I'm going to visit them.","tr":"我要去看他们。","why":"{{going to}} 后面用动词原形：{{visit}}。"},
+        {"wrong":"I'm going to next week visit them.","right":"I'm going to visit them next week.","tr":"我下周要去看他们。","why":"时间放在句末：{{next week}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"We're going to ___ a movie tonight.","tr":"我们今晚要去看电影。","options":["see","seeing","sees"],"answer":0,"why":"{{going to}} + 动词原形。"},
+        {"type":"choice","q":"“你这个周末打算做什么？”","options":["{{What are you going to do this weekend?}}","{{What you going to do this weekend?}}","{{This weekend what are you going to do?}}"],"answer":0,"why":"疑问词 + {{are you going to}} + 动词，时间放最后。","from":"ask-who-what-where"},
+        {"type":"choice","q":"你已经买好了星期五的机票。你说……","options":["{{I'm flying to Miami on Friday.}}","{{I fly to Miami Friday on.}}","{{I'm fly to Miami on Friday.}}"],"answer":0,"why":"安排好的事：进行时 + 将来的时间。","from":"say-what-is-happening-now"},
+        {"type":"dialogue","q":"同事问你的计划。选出你的回答。","lines":[{"who":"Colleague","t":"Are you going to take a vacation this summer?","tr":"你今年夏天打算休假吗？"},{"options":["Yes, I'm going to visit China in July.","Yes, I'm going to visiting China in July."],"answer":0,"why":"{{going to}} + {{visit}}，“七月”是 {{in July}}。"},{"who":"Colleague","t":"Wow! Are you going to see your family?","tr":"哇！你要去看家人吗？"},{"options":["Yes, my parents live in Hangzhou.","Yes, my parents lives in Hangzhou."],"answer":0,"why":"{{parents}} 是复数，动词不加 {{-s}}。"},{"who":"Colleague","t":"That's great.","tr":"太好了。"}],"from":"say-what-someone-else-does"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我不打算买车。","words":["I'm","not","going","to","buy","a","car."]},
+        {"type":"free","q":"轮到你了：说说你这个周末和明年的计划。","answers":[{"t":"This weekend I'm going to clean my apartment. Next year I'm going to travel to Japan.","tr":"这个周末我要打扫公寓。明年我要去日本旅行。"},{"t":"I'm seeing my friends on Saturday. I'm going to start a new job next year.","tr":"星期六我要和朋友见面。明年我要开始一份新工作。"}]}
+      ]
+    },
+    {
+      "id": "make-predictions-and-offers",
+      "unit": 5,
+      "level": "A2",
+      "title": "预测和主动帮忙：will",
+      "summary": "“我来帮你”“我觉得明天会下雨”“我不会忘的”：用 {{will}} 说当场的决定、主动帮忙、承诺和预测。",
+      "topic": "{{will}} / {{won't}} + 动词原形；{{I'll…}}；{{will}} 和 {{going to}} 的区别",
+      "blocks": [
+        {"goal":{"t":"I'll help you.","tr":"我来帮你。"}},
+        {"dialog":[{"who":"Kate","t":"This box is so heavy!","tr":"这个箱子好重啊！"},{"who":"王芳","t":"I'll help you.","tr":"我来帮你。"},{"who":"Kate","t":"Thanks! Can you hold the door too?","tr":"谢谢！你还能帮我扶一下门吗？"},{"who":"王芳","t":"Sure. Why all these boxes?","tr":"当然。怎么这么多箱子？"},{"who":"Kate","t":"I'm moving tomorrow. I think it will take all day.","tr":"我明天搬家。我觉得要搬一整天。"},{"who":"王芳","t":"I'll come and help. I won't be late!","tr":"我来帮忙。我不会迟到的！"}]},
+        {"p":"**{{will}} + 动词原形。** {{will}} 也是情态动词，后面跟动词原形，对谁都不变：{{I will}}、{{she will}}，口语里缩成 {{I'll}}、{{she'll}}。否定是 {{won't}}（= {{will not}}）。"},
+        {"p":"**{{will}} 的四种用法。** 当场决定：{{The phone's ringing. — I'll get it.}}（电话响了。——我来接。）主动帮忙：{{I'll carry that.}}（我来拿。）承诺：{{I won't forget.}}（我不会忘的。）预测：{{I think it will rain tomorrow.}}（我觉得明天会下雨。）"},
+        { "table": [
+          ["用法","例句","中文"],
+          ["当场决定","{{I'll have the salad.}}","我要沙拉吧。"],
+          ["主动帮忙","{{I'll help you.}}","我来帮你。"],
+          ["承诺","{{I'll call you tonight.}}","我今晚给你打电话。"],
+          ["预测","{{You'll love it.}}","你会喜欢的。"]
+        ] },
+        {"p":"**{{will}} 还是 {{going to}}？** 事先想好的计划，用 {{going to}}：{{I'm going to paint my room this weekend.}}（这个周末我要刷墙，早就计划好了。）说话这一刻才决定的，用 {{will}}：{{Oh, you need paint? I'll get some.}}（哦，你需要油漆？我去买。）"},
+        { "ex": [
+          {"t":"I'll help you.","tr":"我来帮你。"},
+          {"t":"I think it will rain tomorrow.","tr":"我觉得明天会下雨。"},
+          {"t":"Don't worry, I won't tell anyone.","tr":"别担心，我不会告诉任何人。"},
+          {"t":"I'll have a coffee, please.","tr":"我要一杯咖啡。","note":"点餐时当场决定"},
+          {"t":"She'll be here at six.","tr":"她六点到。"},
+          {"t":"Will you be home tonight?","tr":"你今晚在家吗？"}
+        ] },
+        {"tip":"{{I'll}} 读作 /aɪl/，说快了很多人听不出来，注意结尾那个轻轻的 /l/。"}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"我会给你打电话。","why":"{{will}} 后面直接跟动词原形，不加 {{to}}。"},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"她会来的。","why":"{{will}} 对谁都不变，不加 {{-s}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Don't worry, I ___ forget.","tr":"别担心，我不会忘的。","options":["won't","don't","not"],"answer":0,"why":"承诺不会做：{{won't}}。"},
+        {"type":"choice","q":"朋友的包掉了，东西撒了一地。你马上说……","options":["{{I'll help you.}}","{{I'm going to help you.}}","{{I help you.}}"],"answer":0,"why":"当场决定、主动帮忙：{{I'll…}}"},
+        {"type":"choice","q":"你上个月就决定了今年夏天学游泳。你说……","options":["{{I'm going to learn to swim this summer.}}","{{I'll learn to swim this summer.}}"],"answer":0,"why":"早就想好的计划：{{going to}}。","from":"talk-about-your-plans"},
+        {"type":"dialogue","q":"在餐厅点菜。选出你的回答。","lines":[{"who":"Waiter","t":"Are you ready to order?","tr":"可以点菜了吗？"},{"options":["Yes, I'll have the chicken, please.","Yes, I'll to have the chicken, please."],"answer":0,"why":"{{I'll}} + 动词原形。点餐时也常说 {{I'll have…}}"},{"who":"Waiter","t":"And to drink?","tr":"喝点儿什么？"},{"options":["I'll just have some water.","I'll just have a water some."],"answer":0,"why":"{{water}} 不可数：{{some water}}。"},{"who":"Waiter","t":"Great. It'll be ready in ten minutes.","tr":"好的，十分钟就好。"}],"from":"order-food-and-drinks"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我觉得明天会下雨。","words":["I","think","it","will","rain","tomorrow."]},
+        {"type":"free","q":"轮到你了：朋友说 {{I'm so hungry and tired!}} 主动帮他做两件事，再做一个预测。","answers":[{"t":"I'll make you a sandwich. I'll get you some water. You'll feel better soon!","tr":"我给你做个三明治，再给你拿点儿水。你很快就会好起来的！"},{"t":"I'll cook dinner tonight. I'll do the dishes too. Tomorrow will be a better day.","tr":"今晚我来做饭，碗也我来洗。明天会更好的。"}]}
+      ]
+    },
+    {
+      "id": "make-suggestions-and-requests",
+      "unit": 5,
+      "level": "A2",
+      "title": "提建议和客气地请求",
+      "summary": "“我们去喝杯咖啡吧！”“你能帮我一下吗？”“要来点儿茶吗？”：提建议、请人帮忙、邀请别人，都说得客客气气。",
+      "topic": "{{Let's…}}、{{How about…?}}、{{Why don't we…?}}；{{Could you…?}}；{{Would you like…?}}",
+      "blocks": [
+        {"goal":{"t":"Let's get a coffee!","tr":"我们去喝杯咖啡吧！"}},
+        {"dialog":[{"who":"Mike","t":"I'm bored. Let's do something!","tr":"好无聊。我们找点儿事做吧！"},{"who":"李明","t":"How about a movie?","tr":"看电影怎么样？"},{"who":"Mike","t":"Hmm, why don't we go for a walk? It's a nice day.","tr":"嗯……要不我们去散散步？今天天气很好。"},{"who":"李明","t":"Good idea. Could you wait five minutes? I need to change.","tr":"好主意。你能等我五分钟吗？我得换件衣服。"},{"who":"Mike","t":"Sure. Would you like a coffee first?","tr":"没问题。要先来杯咖啡吗？"},{"who":"李明","t":"No, thanks. Let's go!","tr":"不用了，谢谢。走吧！"}]},
+        {"p":"**提建议。** {{Let's}} + 动词原形，就是“我们……吧”：{{Let's go!}}（走吧！）{{How about}} + 名词或 {{-ing}}，是“……怎么样？”：{{How about pizza?}} {{How about going tomorrow?}} {{Why don't we}} + 动词，是“我们何不……？”：{{Why don't we take a taxi?}}"},
+        {"p":"**客气地请别人做事：{{Could you…?}}** {{Can you…?}} 朋友之间可以用，{{Could you…?}} 更礼貌，对陌生人、同事、服务员都合适：{{Could you help me?}}（您能帮我一下吗？）{{Could you say that again, please?}}（您能再说一遍吗？）"},
+        {"p":"**邀请和提供：{{Would you like…?}}** 比 {{Do you want…?}} 礼貌：{{Would you like some tea?}}（要来点儿茶吗？）{{Would you like to come?}}（你想一起来吗？）回答：{{Yes, please.}} / {{No, thank you.}}"},
+        { "table": [
+          ["想做的事","说法","中文"],
+          ["提建议","{{Let's eat out tonight.}}","我们今晚出去吃吧。"],
+          ["提建议","{{How about Thai food?}}","泰国菜怎么样？"],
+          ["请求","{{Could you open the window?}}","你能开一下窗吗？"],
+          ["提供","{{Would you like some water?}}","要喝点儿水吗？"],
+          ["邀请","{{Would you like to join us?}}","你想和我们一起吗？"]
+        ] },
+        { "ex": [
+          {"t":"Let's get a coffee!","tr":"我们去喝杯咖啡吧！"},
+          {"t":"How about Saturday?","tr":"星期六怎么样？"},
+          {"t":"Why don't we ask Lisa?","tr":"我们何不问问丽莎？"},
+          {"t":"Could you help me with my bag?","tr":"你能帮我拿一下包吗？"},
+          {"t":"Would you like some cake?","tr":"要来点儿蛋糕吗？"},
+          {"t":"Could you speak more slowly, please?","tr":"您能说慢一点儿吗？"}
+        ] },
+        {"tip":"听不懂的时候，这句最有用：{{Sorry, could you say that again?}}（不好意思，您能再说一遍吗？）"}
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"走吧！","why":"{{Let's}} 后面直接跟动词原形，不加 {{to}}。"},
+        {"wrong":"How about go to the park?","right":"How about going to the park?","tr":"去公园怎么样？","why":"{{How about}} 后面的动词要加 {{-ing}}：{{going}}。"},
+        {"wrong":"You help me, please.","right":"Could you help me, please?","tr":"您能帮我一下吗？","why":"请别人帮忙，英语习惯用问句，最礼貌的是 {{Could you…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"How about ___ a movie?","tr":"看场电影怎么样？","options":["watching","watch","to watch"],"answer":0,"why":"{{How about}} + {{-ing}}。"},
+        {"type":"choice","q":"在餐厅想请服务员拿菜单，最礼貌的是……","options":["{{Could you bring the menu, please?}}","{{Bring the menu.}}","{{You bring the menu?}}"],"answer":0,"why":"{{Could you…, please?}} 最礼貌。"},
+        {"type":"choice","q":"朋友来你家，你想问他要不要喝茶。","options":["{{Would you like some tea?}}","{{Would you like a tea some?}}","{{Do you like some tea?}}"],"answer":0,"why":"提供东西：{{Would you like…?}}（{{Do you like…?}} 是问“你喜欢……吗？”）","from":"say-what-you-like"},
+        {"type":"dialogue","q":"和朋友商量周末做什么。选出你的回答。","lines":[{"who":"Friend","t":"What do you want to do on Saturday?","tr":"星期六你想做什么？"},{"options":["Let's go hiking!","Let's going hiking!"],"answer":0,"why":"{{Let's}} + 动词原形：{{go}}。"},{"who":"Friend","t":"Hmm, it's going to rain.","tr":"嗯，那天要下雨。"},{"options":["How about going to a museum?","How about go to a museum?"],"answer":0,"why":"{{How about}} + {{-ing}}。"},{"who":"Friend","t":"Good idea!","tr":"好主意！"}],"from":"talk-about-your-plans"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"你能帮我拿一下包吗？","words":["Could","you","help","me","with","my","bag?"]},
+        {"type":"free","q":"轮到你了：邀请一个朋友这个周末一起做件事，再客气地请他帮你一个小忙。","answers":[{"t":"Would you like to have dinner with me on Saturday? Could you bring some drinks?","tr":"星期六想和我一起吃晚饭吗？你能带点儿饮料吗？"},{"t":"Let's go to the beach on Sunday! Could you drive?","tr":"星期天我们去海边吧！你能开车吗？"}]}
+      ]
     }
   ]
 }
