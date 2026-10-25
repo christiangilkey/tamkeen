@@ -1031,6 +1031,7 @@ export async function saveSettings(values) {
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
+  if ("grammar_progress" in values) requestSync(30000); // and grammar lessons finished
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;

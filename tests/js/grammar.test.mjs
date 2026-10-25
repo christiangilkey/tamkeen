@@ -179,7 +179,8 @@ for (const id of sources()) {
   test(`the ${id} course passes every check and its published copy is up to date`, () => {
     const { problems, text, entry } = buildCourse(id);
     assert.deepEqual(problems, [], problems.join("\n"));
-    const published = readFileSync(`${PUBLISHED}/${id}/course.json`, "utf8");
+    // (git may have checked it out with Windows line endings)
+    const published = readFileSync(`${PUBLISHED}/${id}/course.json`, "utf8").replace(/\r\n/g, "\n");
     assert.equal(published, text, `run node tools/grammar/build.mjs ${id}`);
     assert.deepEqual(readIndex().courses[id], entry, `docs/grammar/index.json is out of date: run node tools/grammar/build.mjs ${id}`);
     const course = JSON.parse(text);

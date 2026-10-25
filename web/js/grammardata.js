@@ -238,6 +238,51 @@ export function withListTexts(course, translated) {
   return copy;
 }
 
+/**
+ * Translate `items` ([{kind, text}]) with `ask` (a prompt → the AI's JSON answer: define-service.js
+ * askAi), a group at a time. A text whose {{ }} pieces or ** marks didn't survive is asked for once more
+ * on its own; if it still doesn't, its place holds null (the caller keeps the original). `onStep(done,
+ * of)` after each request. Resolves to the texts, in order.
+ */
+export async function translateTexts(items, { names, ask, lesson = "", onStep = () => {} }) {
+  const parts = groups(items);
+  const out = [];
+  let step = 0;
+  const askFor = async (part) => {
+    const answer = await ask(translationPrompt(names, part, { lesson }));
+    const texts = answer && Array.isArray(answer.texts) ? answer.texts : [];
+    return part.map((it, i) => (keepsMarks(it.text, texts[i]) ? String(texts[i]).trim() : null));
+  };
+  for (const part of parts) {
+    const texts = await askFor(part);
+    onStep(++step, parts.length);
+    const broken = texts.map((t, i) => (t === null ? i : -1)).filter((i) => i >= 0);
+    if (broken.length) {
+      try {
+        const again = await askFor(broken.map((i) => part[i]));
+        broken.forEach((i, k) => { if (again[k] !== null) texts[i] = again[k]; });
+      } catch { /* those few stay in the original */ }
+    }
+    out.push(...texts);
+  }
+  return out;
+}
+
+/** A lesson made in another language (translateTexts on its explanation texts): {lesson, kept}. */
+export async function makeLesson(lesson, opts) {
+  const texts = await translateTexts(explanationTexts(lesson), { ...opts, lesson: plainText(lesson.title) });
+  return withTexts(lesson, texts);
+}
+
+/** The course list made in another language (one or two requests). */
+export async function makeList(course, opts) {
+  const texts = await translateTexts(listTexts(course), { ...opts, lesson: "" });
+  return withListTexts(course, texts);
+}
+
+/** A fingerprint of the course list's own texts: a list made from an older one is made again. */
+export const listVersion = (course) => lessonVersion({ list: listTexts(course).map((t) => t.text) });
+
 /** Roughly what making every lesson costs with `model` ({in, out}: US cents per million tokens, as in
  * definer.js PROVIDERS), in US cents. Text reads at about 4 characters a token in English; the answer
  * in a language written in another script takes about twice as many tokens. */

@@ -110,6 +110,7 @@ export const DEFAULTS = {
   game_state: null, // the creature game's saved state
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
+  grammar_progress: {}, // the grammar lessons finished, when and how well (web/js/grammardata.js); synced too
   ig_collections: null, // saved Instagram collections found and the one chosen (web/js/igcollections.js); synced too
   game_sound: true,
   game_enabled: true,
