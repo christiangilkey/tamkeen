@@ -1595,6 +1595,240 @@
         {"type":"say","q":"英語で言ってみましょう：「昨日は遅くまで働かなければなりませんでした。」","answer":"I had to work late yesterday.","from":"use-irregular-verbs"},
         {"type":"free","q":"あなたの番です。今週しなければならないことを1つ、しなくていいことを1つ言いましょう。","answers":[{"t":"I have to finish a report by Friday. I don't have to work on Sunday.","tr":"金曜日までにレポートを終わらせなければなりません。日曜日は働かなくていいです。"},{"t":"I have to go to the dentist. I don't have to cook this week because my mother is visiting.","tr":"歯医者に行かなければなりません。今週は母が来ているので、料理をしなくていいです。"}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 7,
+      "level": "A2",
+      "title": "経験を言う",
+      "summary": "現在完了で、これまでの経験を言います：「日本料理を食べたことある？」「納豆は一度も食べたことがない。」",
+      "topic": "現在完了（{{have}} + 過去分詞）; {{ever}} と {{never}}; {{been to}}; 過去形との違い",
+      "blocks": [
+        {"goal":{"t":"I've never been to New York, but I've been to Los Angeles twice.","tr":"ニューヨークには行ったことがありませんが、ロサンゼルスには2回行ったことがあります。"}},
+        {"dialog":[{"who":"マイ","t":"Have you ever eaten Japanese food?","tr":"日本料理を食べたことある？"},{"who":"サム","t":"Yes, I have. I've eaten sushi many times.","tr":"うん。お寿司は何度も食べたことがあるよ。"},{"who":"マイ","t":"Have you ever tried natto?","tr":"納豆は？"},{"who":"サム","t":"No, I've never tried it. Is it good?","tr":"ううん、食べたことない。おいしい？"},{"who":"マイ","t":"I love it! Have you ever been to Japan?","tr":"私は大好き！日本に行ったことある？"},{"who":"サム","t":"Yes, I went there in 2019. I visited Tokyo and Osaka.","tr":"うん、2019年に行ったよ。東京と大阪に行った。"}]},
+        {"term":"現在完了","means":"{{have}}（{{has}}）+ 過去分詞の形。過去のことを「今」とつなげて話します：経験、今まで続いていること、終わったばかりのことなど。"},
+        {"term":"過去分詞","means":"動詞の形の一つ。規則動詞は過去形と同じ（{{watched}}）、不規則動詞は独自の形があります（{{eaten}}、{{been}}、{{seen}}）。"},
+        {"p":"**経験：{{have}} + 過去分詞。** 「〜したことがある」は {{I have}}（短い形 {{I've}}）+ 過去分詞で言います：{{I've eaten sushi.}}（お寿司を食べたことがある）。三人称単数は {{has}}：{{She's been to Paris.}}（彼女はパリに行ったことがある）。"},
+        { "table": [
+          ["もとの形","過去形","過去分詞"],
+          ["{{visit}}","{{visited}}","{{visited}}"],
+          ["{{go}}","{{went}}","{{gone}} / {{been}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{try}}","{{tried}}","{{tried}}"]
+        ] },
+        {"p":"**{{ever}} と {{never}}。** 「今までに〜したことはありますか？」は {{Have you ever …?}}。答えは {{Yes, I have.}} / {{No, I haven't.}}。「一度もない」は {{never}}：{{I've never been to Okinawa.}}（沖縄に行ったことがない）。"},
+        {"p":"**「行ったことがある」は {{been to}}。** {{I've been to Kyoto.}}（京都に行ったことがある）。{{I've gone to Kyoto.}} は「京都に行ってしまって、今ここにいない」という意味になります。"},
+        {"p":"**時をはっきり言うなら過去形。** {{yesterday}}、{{in 2019}}、{{last year}} など、いつのことかを言うときは過去形を使います：{{I went to Japan in 2019.}}。現在完了は「いつ」を言わずに、「今までに」という経験を話す形です。"},
+        { "ex": [
+          {"t":"Have you ever been to Japan?","tr":"日本に行ったことはありますか？"},
+          {"t":"Yes, I have. I went there last year.","tr":"はい、あります。去年行きました。"},
+          {"t":"I've never seen snow.","tr":"雪を見たことがありません。"},
+          {"t":"She's read all the Harry Potter books.","tr":"彼女はハリー・ポッターの本を全部読んだことがあります。"},
+          {"t":"Have you ever tried skiing?","tr":"スキーをしたことはありますか？"},
+          {"t":"My father has visited thirty countries.","tr":"父は30か国に行ったことがあります。"}
+        ] },
+        {"tip":"{{How many times have you …?}}（何回〜したことがある？）と聞かれたら、{{once}}（1回）、{{twice}}（2回）、{{three times}}（3回）で答えます。"}
+      ],
+      "mistakes": [
+        {"wrong":"I have been to Kyoto last year.","right":"I went to Kyoto last year.","tr":"去年京都に行きました。","why":"{{last year}} のように時をはっきり言うときは過去形。"},
+        {"wrong":"Have you ever eat natto?","right":"Have you ever eaten natto?","tr":"納豆を食べたことはありますか？","why":"{{have}} のあとは過去分詞：{{eaten}}。"},
+        {"wrong":"I've gone to Paris twice.","right":"I've been to Paris twice.","tr":"パリには2回行ったことがあります。","why":"「行ったことがある」は {{been to}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Have you ever ___ to Okinawa?","tr":"沖縄に行ったことはありますか？","options":["been","gone","went"],"answer":0,"why":"「行ったことがある」は {{been to}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I've never ___ a ghost.","tr":"幽霊を見たことはありません。","options":["seen","saw","see"],"answer":0,"why":"{{see}} の過去分詞は {{seen}}。"},
+        {"type":"choice","q":"「去年ハワイに行きました」は英語で？","options":["{{I went to Hawaii last year.}}","{{I've been to Hawaii last year.}}","{{I've gone to Hawaii last year.}}"],"answer":0,"why":"時をはっきり言うので過去形。"},
+        {"type":"dialogue","q":"アメリカ人の友だちと話します。返事を選んでください。","lines":[{"who":"サム","t":"Have you ever been to the U.S.?","tr":"アメリカに行ったことある？"},{"options":["Yes, I have. I went to New York in 2018.","Yes, I have. I've been to New York in 2018."],"answer":0,"why":"いつのことか言うときは過去形：{{I went}}。"},{"who":"サム","t":"Have you ever eaten a real American burger?","tr":"本場のアメリカのハンバーガー食べたことある？"},{"options":["No, I've never eaten one.","No, I've never ate one."],"answer":0,"why":"{{have}} のあとは過去分詞：{{eaten}}。"}],"from":"use-irregular-verbs"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"雪を見たことがありません。","words":["I've","never","seen","snow."],"why":"{{I've never seen snow.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「京都には3回行ったことがあります。」","answer":"I've been to Kyoto three times.","from":"say-how-often"},
+        {"type":"free","q":"あなたの番です。今までにしたことのあるおもしろい経験を1つ、一度もしたことがないことを1つ言いましょう。","answers":[{"t":"I've climbed Mt. Fuji. I've never been abroad.","tr":"富士山に登ったことがあります。海外には行ったことがありません。"},{"t":"I've met a famous actor! But I've never tried skydiving.","tr":"有名な俳優に会ったことがあります！でもスカイダイビングはしたことがありません。"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 7,
+      "level": "A2",
+      "title": "どのくらい続いているかを言う",
+      "summary": "現在完了と {{for}}・{{since}} で、今まで続いていることを言います：「東京に5年住んでいます。」",
+      "topic": "現在完了 + {{for}} / {{since}}; {{How long have you …?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Tokyo for five years.","tr":"東京に5年住んでいます。"}},
+        {"dialog":[{"who":"エリック","t":"How long have you worked here?","tr":"ここで働いてどのくらいですか？"},{"who":"サキ","t":"I've worked here for three years. Since 2022.","tr":"3年です。2022年からです。"},{"who":"エリック","t":"Wow. And how long have you known Mr. Brown?","tr":"へえ。ブラウンさんとはどのくらいの知り合いですか？"},{"who":"サキ","t":"I've known him since I was a student.","tr":"学生のときからです。"},{"who":"エリック","t":"That's a long time!","tr":"長いですね！"}]},
+        {"p":"**今まで続いていること：現在完了。** 日本語では「ここに3年住んでいる」と今の形で言いますが、英語では、過去に始まって今も続いていることを現在完了で言います：{{I've lived here for three years.}}。{{I live here for three years.}} はまちがいです。"},
+        {"p":"**{{for}} と {{since}}。** {{for}} は期間の長さ（〜の間）：{{for three years}}、{{for a long time}}。{{since}} は始まった時（〜から）：{{since 2022}}、{{since April}}、{{since I was a child}}（子どものころから）。"},
+        { "table": [
+          ["","あとに来るもの","例"],
+          ["{{for}}","期間の長さ","{{for two weeks}}, {{for ten years}}"],
+          ["{{since}}","始まった時","{{since Monday}}, {{since 2015}}, {{since I was ten}}"]
+        ] },
+        {"p":"**どのくらい？：{{How long have you …?}}** {{How long have you lived here?}}（ここに住んでどのくらいですか？）。"},
+        {"p":"**動作が続いているときは進行形も。** {{know}}、{{live}}、{{be}} のような状態の動詞は {{have known}}、{{have been}} のまま。{{study}}、{{wait}} のような動作は、続いていることを強調して {{have been}} + {{-ing}} とも言います：{{I've been waiting for an hour!}}（1時間も待っているよ！）。"},
+        { "ex": [
+          {"t":"She's worked at this company since 2018.","tr":"彼女は2018年からこの会社で働いています。"},
+          {"t":"How long have you known each other?","tr":"知り合ってどのくらいですか？"},
+          {"t":"We've known each other since high school.","tr":"高校のときからの知り合いです。"},
+          {"t":"I've been sick since Monday.","tr":"月曜日から体調が悪いです。"},
+          {"t":"We've been married for ten years.","tr":"結婚して10年になります。"},
+          {"t":"I've been waiting for an hour!","tr":"1時間も待っているんですよ！"}
+        ] },
+        {"tip":"{{It's been a long time!}}（久しぶり！）は、現在完了を使った決まり文句です。"}
+      ],
+      "mistakes": [
+        {"wrong":"I live here for three years.","right":"I've lived here for three years.","tr":"ここに3年住んでいます。","why":"今まで続いていることは現在完了。"},
+        {"wrong":"I've lived here since three years.","right":"I've lived here for three years.","tr":"ここに3年住んでいます。","why":"期間の長さには {{for}}。{{since}} は始まった時です。"},
+        {"wrong":"How long do you know him?","right":"How long have you known him?","tr":"彼とはどのくらいの知り合いですか？","why":"今まで続いている期間を聞くので現在完了。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I've worked here ___ 2020.","tr":"2020年からここで働いています。","options":["since","for","from"],"answer":0,"why":"始まった時には {{since}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"We've been married ___ ten years.","tr":"結婚して10年になります。","options":["for","since","during"],"answer":0,"why":"期間の長さには {{for}}。"},
+        {"type":"choice","q":"「ここに住んでどのくらいですか？」は英語で？","options":["{{How long have you lived here?}}","{{How long do you live here?}}","{{How long are you living here?}}"],"answer":0,"why":"続いている期間は現在完了で聞きます。"},
+        {"type":"dialogue","q":"英語の勉強について聞かれました。返事を選んでください。","lines":[{"who":"エリック","t":"How long have you studied English?","tr":"英語を勉強してどのくらい？"},{"options":["I've studied it for six years.","I study it for six years."],"answer":0,"why":"今まで続いていることは現在完了。"},{"who":"エリック","t":"Wow. Have you ever lived abroad?","tr":"へえ。海外に住んだことはある？"},{"options":["No, I haven't. But I want to.","No, I didn't. But I want to."],"answer":0,"why":"{{Have you …?}} には {{haven't}} で答えます。"}],"from":"talk-about-experiences"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"月曜日から体調が悪いです。","words":["I've","been","sick","since","Monday."],"why":"{{I've been sick since Monday.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「子どものころからピアノを弾いています。」","answer":"I've played the piano since I was a child.","from":"say-where-you-were"},
+        {"type":"free","q":"あなたの番です。今の家に住んで、今の仕事や学校に通って、どのくらいかを言いましょう（{{for}} と {{since}}）。","answers":[{"t":"I've lived in this apartment for two years. I've worked at my company since 2019.","tr":"このアパートに住んで2年です。2019年から今の会社で働いています。"},{"t":"I've lived in Sapporo since I was born. I've been a teacher for ten years.","tr":"生まれたときから札幌に住んでいます。教師になって10年です。"}]}
+      ]
+    },
+    {
+      "id": "say-whats-done",
+      "unit": 7,
+      "level": "B1",
+      "title": "「もう〜した」「まだ〜していない」と言う",
+      "summary": "{{just}}・{{already}}・{{yet}} で、終わったことやまだのことを言います：「宿題はもう終わりました。」「まだ食べていません。」",
+      "topic": "現在完了 + {{just}} / {{already}} / {{yet}}",
+      "blocks": [
+        {"goal":{"t":"I've already finished my homework.","tr":"宿題はもう終わりました。"}},
+        {"dialog":[{"who":"夫","t":"Have you packed your bag yet?","tr":"もう荷造りした？"},{"who":"妻","t":"Yes, I've already packed. Have you called the hotel?","tr":"うん、もう済ませた。ホテルに電話した？"},{"who":"夫","t":"Not yet. I'll do it now.","tr":"まだ。今するよ。"},{"who":"妻","t":"And the taxi?","tr":"タクシーは？"},{"who":"夫","t":"I've just booked it. It's coming at seven.","tr":"ちょうど予約したところ。7時に来るよ。"},{"who":"妻","t":"Great. Oh no, I haven't fed the cat yet!","tr":"よかった。あ、まだ猫にえさをあげてない！"}]},
+        {"p":"**終わったばかり：{{have just}} + 過去分詞。** {{I've just finished.}}（ちょうど終わったところ）、{{She's just left.}}（彼女はたった今出かけたところ）。"},
+        {"p":"**もう：{{already}}。** 思ったより早く済んだことに使います：{{I've already eaten.}}（もう食べたよ）。{{have}} と過去分詞の間に置きます。"},
+        {"p":"**もう？・まだ：{{yet}}。** 疑問文では「もう〜した？」、否定文では「まだ〜していない」。文の最後に置きます：{{Have you eaten yet?}}（もう食べた？）、{{I haven't eaten yet.}}（まだ食べていない）。短い答えは {{Not yet.}}（まだです）。"},
+        { "table": [
+          ["","英語","意味"],
+          ["{{just}}","{{I've just arrived.}}","ちょうど着いたところ。"],
+          ["{{already}}","{{I've already paid.}}","もう払いました。"],
+          ["{{yet}}（疑問文）","{{Has the movie started yet?}}","映画はもう始まった？"],
+          ["{{yet}}（否定文）","{{It hasn't started yet.}}","まだ始まっていない。"]
+        ] },
+        {"p":"**今とつながっている過去。** これらの文は「今、終わった状態にある」ことを伝えます。日本語の「もう〜した」「まだ〜していない」の感覚に近い使い方です。（アメリカ英語の会話では、{{Did you eat yet?}} のように過去形で言う人もたくさんいます。）"},
+        { "ex": [
+          {"t":"The train has just left.","tr":"電車はたった今出たところです。"},
+          {"t":"Have you seen the new movie yet?","tr":"新しい映画はもう見た？"},
+          {"t":"No, not yet.","tr":"ううん、まだ。"},
+          {"t":"I haven't decided yet.","tr":"まだ決めていません。"},
+          {"t":"She's already gone home.","tr":"彼女はもう帰りました。"},
+          {"t":"I've just had lunch.","tr":"ちょうどお昼を食べたところです。"}
+        ] },
+        {"tip":"{{Not yet.}}（まだです）は、レストランで {{Are you ready to order?}}（ご注文はお決まりですか？）と聞かれたときにも使えます。"}
+      ],
+      "mistakes": [
+        {"wrong":"I haven't eaten already.","right":"I haven't eaten yet.","tr":"まだ食べていません。","why":"否定文の「まだ」は {{yet}}。"},
+        {"wrong":"I've finished it yesterday.","right":"I finished it yesterday.","tr":"昨日それを終えました。","why":"{{yesterday}} のように時を言うときは過去形。"},
+        {"wrong":"I have yet finished.","right":"I haven't finished yet.","tr":"まだ終わっていません。","why":"{{yet}} は否定文や疑問文の最後に置きます。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Have you finished your report ___?","tr":"レポートはもう終わった？","options":["yet","already","just"],"answer":0,"why":"疑問文の「もう？」は {{yet}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I've ___ eaten, thanks.","tr":"もう食べたよ、ありがとう。","options":["already","yet","since"],"answer":0,"why":"「もう〜した」は {{already}}。"},
+        {"type":"choice","q":"「電車はたった今出たところです」は英語で？","options":["{{The train has just left.}}","{{The train just has left yet.}}","{{The train has left yesterday.}}"],"answer":0,"why":"「たった今」は {{has just}} + 過去分詞。"},
+        {"type":"dialogue","q":"旅行の準備中です。返事を選んでください。","lines":[{"who":"夫","t":"Have you packed your bag yet?","tr":"もう荷造りした？"},{"options":["Yes, I've already packed.","Yes, I've packed yet."],"answer":0,"why":"肯定文の「もう」は {{already}}。"},{"who":"夫","t":"Have you called the hotel?","tr":"ホテルに電話した？"},{"options":["Not yet. I'll call them now.","Already not. I'll call them now."],"answer":0,"why":"「まだ」は {{Not yet.}}。その場で決めたことは {{I'll}}。"}],"from":"decide-and-promise"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"まだ決めていません。","words":["I","haven't","decided","yet."],"why":"{{yet}} は文の最後。"},
+        {"type":"say","q":"英語で言ってみましょう：「その映画はもう見ました。2回見たことがあります。」","answer":"I've already seen that movie. I've seen it twice.","from":"talk-about-experiences"},
+        {"type":"free","q":"あなたの番です。今日もうしたことを2つ、まだしていないことを1つ言いましょう。","answers":[{"t":"I've already had breakfast, and I've just finished my work. I haven't gone shopping yet.","tr":"もう朝ごはんを食べて、ちょうど仕事が終わったところです。買い物にはまだ行っていません。"},{"t":"I've already cleaned my room. I've just called my mother. I haven't done my homework yet.","tr":"もう部屋を掃除しました。ちょうど母に電話したところです。宿題はまだしていません。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-the-old-days",
+      "unit": 7,
+      "level": "B1",
+      "title": "昔のことを話す",
+      "summary": "{{used to}} で、昔の習慣や状態を話します：「子どものころ、よく川で泳いだものです。」",
+      "topic": "{{used to}} + 動詞; {{didn't use to}}; {{Did you use to …?}}; {{not … anymore}}",
+      "blocks": [
+        {"goal":{"t":"I used to swim in the river when I was a kid.","tr":"子どものころ、よく川で泳いだものです。"}},
+        {"dialog":[{"who":"孫","t":"Is this you, Grandpa? You had long hair!","tr":"これおじいちゃん？髪が長い！"},{"who":"祖父","t":"Yes! I used to have long hair. And I used to play in a band.","tr":"そうだよ！昔は髪が長かったんだ。それにバンドで演奏していたんだよ。"},{"who":"孫","t":"Really? Did you use to play the guitar?","tr":"本当？ギター弾いてたの？"},{"who":"祖父","t":"No, I didn't. I played the drums.","tr":"いや。ドラムを叩いていたよ。"},{"who":"孫","t":"Cool! Do you still play?","tr":"かっこいい！今も叩いてる？"},{"who":"祖父","t":"No, I don't play anymore. But I used to practice every day!","tr":"いや、もう叩いてない。でも昔は毎日練習していたんだ！"}]},
+        {"p":"**昔はよく〜した：{{used to}} + 動詞。** 昔の習慣や状態で、今はもう違うことを言います：{{I used to play tennis.}}（昔はテニスをしていた＝今はしていない）、{{There used to be a cinema here.}}（昔ここに映画館があった）。主語が何でも {{used to}} の形は変わりません。"},
+        {"p":"**否定と疑問は {{did}}。** {{did}} のあとは {{use to}} と、{{d}} がなくなります：{{I didn't use to like vegetables.}}（昔は野菜が好きじゃなかった）、{{Did you use to live here?}}（昔ここに住んでいたの？）。"},
+        { "table": [
+          ["","英語","意味"],
+          ["肯定","{{I used to smoke.}}","昔はたばこを吸っていた。"],
+          ["否定","{{I didn't use to drink coffee.}}","昔はコーヒーを飲まなかった。"],
+          ["疑問","{{Did you use to live in Osaka?}}","昔、大阪に住んでいたの？"]
+        ] },
+        {"p":"**過去形との違い。** 過去形は、一度だけのことも含めて過去の事実を言います。{{used to}} は「昔は（くり返し・長い間）〜だったけれど、今は違う」という対比をはっきり伝えます。「今はもう〜しない」は {{not … anymore}}：{{I don't play anymore.}}"},
+        { "ex": [
+          {"t":"My father used to work in Osaka.","tr":"父は昔、大阪で働いていました。"},
+          {"t":"There used to be a big tree here.","tr":"昔ここに大きな木がありました。"},
+          {"t":"I didn't use to like coffee.","tr":"昔はコーヒーが好きではありませんでした。"},
+          {"t":"Did you use to play any sports?","tr":"昔、何かスポーツをしていましたか？"},
+          {"t":"I don't smoke anymore.","tr":"もうたばこは吸っていません。"},
+          {"t":"We used to go camping every summer.","tr":"昔は毎年夏にキャンプに行ったものです。"}
+        ] },
+        {"tip":"{{used to}} は「ユーストゥ」と、{{s}} の音でつなげて発音します。"}
+      ],
+      "mistakes": [
+        {"wrong":"I use to play tennis when I was young.","right":"I used to play tennis when I was young.","tr":"若いころはテニスをしていました。","why":"肯定の文では {{used}}（{{d}} がつく）。"},
+        {"wrong":"Did you used to live here?","right":"Did you use to live here?","tr":"昔ここに住んでいたの？","why":"{{did}} のあとは {{use to}}。"},
+        {"wrong":"I used to playing the piano.","right":"I used to play the piano.","tr":"昔ピアノを弾いていました。","why":"{{used to}} のあとは動詞のもとの形。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ to live in Nagoya.","tr":"昔、名古屋に住んでいました。","options":["used","use","using"],"answer":0,"why":"肯定の文では {{used to}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Did you ___ to wear glasses?","tr":"昔メガネをかけていたの？","options":["use","used","using"],"answer":0,"why":"{{did}} のあとは {{use to}}。"},
+        {"type":"choice","q":"「昔ここに本屋がありました」は英語で？","options":["{{There used to be a bookstore here.}}","{{There use to be a bookstore here.}}","{{It used to have a bookstore here.}}"],"answer":0,"why":"{{There used to be …}} で「昔〜があった」。"},
+        {"type":"dialogue","q":"祖母に昔のことを聞きます。おばあちゃんの返事を選んでください。","lines":[{"who":"孫","t":"Grandma, did you use to dance?","tr":"おばあちゃん、昔踊ってたの？"},{"options":["Yes, I did! I used to dance every weekend.","Yes, I used! I use to dance every weekend."],"answer":0,"why":"{{Did}} の質問には {{did}} で答え、肯定の文は {{used to}}。"},{"who":"孫","t":"Do you still dance?","tr":"今も踊ってる？"},{"options":["No, I don't dance anymore.","No, I don't dance yet."],"answer":0,"why":"「もう〜しない」は {{not … anymore}}。"}],"from":"ask-with-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"父は昔、大阪で働いていました。","words":["My","father","used","to","work","in","Osaka."],"why":"{{My father used to work in Osaka.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「子どものころは恥ずかしがり屋でした。」","answer":"I used to be shy when I was a kid.","from":"say-where-you-were"},
+        {"type":"free","q":"あなたの番です。子どものころによくしていたことを2つと、今はもうしないことを1つ言いましょう。","answers":[{"t":"I used to play baseball and I used to read comics every day. I don't read comics anymore.","tr":"子どものころは野球をして、毎日漫画を読んでいました。今はもう漫画は読みません。"},{"t":"I used to live in the countryside. I used to walk to school. I don't live there anymore.","tr":"昔は田舎に住んでいて、歩いて学校に通っていました。今はもうそこには住んでいません。"}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 7,
+      "level": "B1",
+      "title": "句動詞を使う",
+      "summary": "{{get up}}、{{turn off}}、{{look for}} など、動詞と小さな言葉の組み合わせ（句動詞）を使います：「電気を消してくれる？」",
+      "topic": "句動詞; 目的語の位置（{{turn it off}}）",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the lights?","tr":"電気を消してくれる？"}},
+        {"dialog":[{"who":"母","t":"Wake up! It's seven o'clock.","tr":"起きて！7時だよ。"},{"who":"息子","t":"Five more minutes…","tr":"あと5分…"},{"who":"母","t":"No. Get up now and put on your uniform.","tr":"だめ。今すぐ起きて、制服を着なさい。"},{"who":"息子","t":"OK, OK. Where's my phone? I'm looking for it.","tr":"わかったよ。スマホどこ？探してるんだけど。"},{"who":"母","t":"It's on the table. And turn off the TV, please.","tr":"テーブルの上。それとテレビを消してね。"},{"who":"息子","t":"I'll turn it off after breakfast.","tr":"朝ごはんのあとで消すよ。"}]},
+        {"term":"句動詞","means":"動詞と {{up}}・{{on}}・{{off}} などの小さな言葉が組み合わさって、一つの意味になったもの：{{get up}}（起きる）、{{turn off}}（消す）。"},
+        {"p":"**句動詞：動詞 + 小さな言葉。** 英語の日常会話では、{{get}}、{{put}}、{{turn}}、{{look}} などの基本の動詞に {{up}}、{{on}}、{{off}}、{{for}} などをつけた「句動詞」がとてもよく使われます。全体で一つの意味なので、まとめて覚えましょう。"},
+        { "table": [
+          ["句動詞","意味","例"],
+          ["{{get up}}","起きる","{{I get up at six.}}"],
+          ["{{wake up}}","目が覚める","{{I woke up early.}}"],
+          ["{{put on}}","身につける","{{Put on your coat.}}"],
+          ["{{take off}}","脱ぐ","{{Take off your shoes.}}"],
+          ["{{turn on}} / {{turn off}}","つける／消す","{{Turn off the light.}}"],
+          ["{{look for}}","探す","{{I'm looking for my keys.}}"],
+          ["{{pick up}}","拾う・車で迎えに行く","{{I'll pick you up at five.}}"],
+          ["{{give up}}","あきらめる","{{Don't give up!}}"]
+        ] },
+        {"p":"**{{it}} や {{them}} は真ん中に。** {{turn off}} や {{put on}} のような句動詞は、目的語を真ん中にも後ろにも置けます：{{Turn off the light.}} / {{Turn the light off.}}。でも {{it}}、{{them}} などの代名詞は、必ず真ん中です：{{Turn it off.}}（{{Turn off it}} はまちがい）。"},
+        {"p":"{{look for}} のように、目的語がいつも後ろに来る句動詞もあります：{{I'm looking for it.}}（それを探している）。"},
+        { "ex": [
+          {"t":"I usually get up at seven.","tr":"たいてい7時に起きます。"},
+          {"t":"Please take off your shoes here.","tr":"ここで靴を脱いでください。"},
+          {"t":"I'm looking for a pharmacy.","tr":"薬局を探しています。"},
+          {"t":"I'll pick you up at the station.","tr":"駅まで車で迎えに行くよ。"},
+          {"t":"It's cold. Put your jacket on.","tr":"寒いよ。ジャケットを着て。"},
+          {"t":"Don't give up!","tr":"あきらめないで！"}
+        ] },
+        {"tip":"{{Don't give up!}}（あきらめないで！）は、英語を勉強しているあなたへの言葉でもあります。"}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"それを消して。","why":"{{it}} などの代名詞は、句動詞の真ん中に入れます。"},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"鍵を探しています。","why":"「探す」は {{look for}}。{{for}} を忘れずに。"},
+        {"wrong":"Put on it.","right":"Put it on.","tr":"それを着て。","why":"代名詞は真ん中：{{put it on}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Please ___ your shoes here.","tr":"ここで靴を脱いでください。","options":["take off","take out","put on"],"answer":0,"why":"「脱ぐ」は {{take off}}。"},
+        {"type":"choice","q":"「それを消して」は英語で？","options":["{{Turn it off.}}","{{Turn off it.}}","{{It turn off.}}"],"answer":0,"why":"代名詞は真ん中：{{turn it off}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I'm looking ___ my glasses.","tr":"メガネを探しています。","options":["for","at","up"],"answer":0,"why":"「探す」は {{look for}}。"},
+        {"type":"dialogue","q":"朝、お母さんに起こされました。返事を選んでください。","lines":[{"who":"母","t":"Get up! You're late!","tr":"起きて！遅刻だよ！"},{"options":["OK, I'm getting up now.","OK, I'm getting now up."],"answer":0,"why":"{{get up}} はひとかたまり。"},{"who":"母","t":"And turn off the heater.","tr":"それとヒーターを消して。"},{"options":["I've already turned it off.","I've already turned off it."],"answer":0,"why":"代名詞は真ん中：{{turned it off}}。"}],"from":"say-whats-done"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"駅まで車で迎えに行くよ。","words":["I'll","pick","you","up","at","the","station."],"why":"代名詞 {{you}} は真ん中：{{pick you up}}。"},
+        {"type":"say","q":"英語で言ってみましょう：「たいてい7時に起きます。」","answer":"I usually get up at seven.","from":"say-how-often"},
+        {"type":"free","q":"あなたの番です。朝起きてから家を出るまでにすることを、句動詞を2つ以上使って言いましょう。","answers":[{"t":"I wake up at six and get up at six thirty. I put on my clothes and turn off the lights.","tr":"6時に目が覚めて、6時半に起きます。服を着て、電気を消します。"},{"t":"I get up, turn on the TV and watch the news. Then I put on my coat and go out.","tr":"起きて、テレビをつけてニュースを見ます。それからコートを着て出かけます。"}]}
+      ]
     }
   ]
 }
