@@ -1915,6 +1915,148 @@
         {"type":"say","q":"Say “I have a friend who speaks six languages.”","answer":"Tinc un amic que parla sis idiomes."},
         {"type":"free","q":"Your turn: describe a place that's special to you and a person you know, with {{on}} and {{que}}.","answers":[{"t":"Montserrat és el lloc on més m'agrada passejar. La Laia és una amiga que sempre m'ajuda.","tr":"Montserrat is the place where I most like to go walking. Laia is a friend who always helps me."},{"t":"El poble on vaig néixer és molt petit. El meu germà és la persona que més estimo.","tr":"The town where I was born is very small. My brother is the person I love most."}]}
       ]
+    },
+    {
+      "id": "hi-and-en",
+      "unit": 8,
+      "level": "B1",
+      "title": "Talk about places and topics already mentioned",
+      "summary": "Use {{hi}} and {{en}} for “about it”, “from there”, and say you're leaving: “I'm off, I'm working tomorrow.”",
+      "topic": "More jobs for {{hi}} ({{hi penso}}, {{no hi estic d'acord}}) and {{en}} ({{en vinc}}, {{en parlarem}}); {{anar-se'n}}: {{me'n vaig}}",
+      "blocks": [
+        {"goal":{"t":"Me'n vaig, que demà treballo.","tr":"I'm off, I'm working tomorrow."}},
+        {"dialog":[{"who":"Marta","t":"Ja te'n vas?","tr":"Leaving already?"},{"who":"Kevin","t":"Sí, me'n vaig, que demà treballo.","tr":"Yes, I'm off, I'm working tomorrow."},{"who":"Marta","t":"I la festa de dissabte? Hi vindràs?","tr":"And Saturday's party? Will you come?"},{"who":"Kevin","t":"Encara no ho sé. Hi pensaré.","tr":"I don't know yet. I'll think about it."},{"who":"Marta","t":"I del viatge a Menorca, què en saps?","tr":"And what do you know about the trip to Menorca?"},{"who":"Kevin","t":"Res! En parlem demà, d'acord?","tr":"Nothing! Let's talk about it tomorrow, OK?"}]},
+        {"p":"**{{hi}} does more than “there”.** Besides places ({{hi vaig}}, lesson 26), {{hi}} stands for something introduced by {{a}}, {{en}} or {{amb}} after certain verbs: {{pensar en}} “think about” → {{Hi penso molt.}} “I think about it a lot.” {{estar d'acord amb}} “agree with” → {{No hi estic d'acord.}} “I don't agree (with that).” {{creure en}} “believe in” → {{No hi crec.}} “I don't believe in it.”"},
+        {"p":"**{{en}} does more than “some”.** Besides amounts ({{en vull dos}}, lesson 23), {{en}} stands for something introduced by {{de}}: “from there” ({{Vens de la platja? —Sí, en vinc ara.}} “Have you come from the beach? —Yes, I'm just coming from there.”) and “about it, of it” ({{parlar de}} → {{En parlarem demà.}} “We'll talk about it tomorrow.” {{Què en penses?}} “What do you think of it?”)."},
+        { "table": [
+          ["","stands for","example"],
+          ["{{hi}}","a place; something with {{a}}, {{en}}, {{amb}}","{{Hi penso.}} I think about it."],
+          ["{{en}}","an amount; something with {{de}}","{{En parlem.}} Let's talk about it."]
+        ] },
+        {"p":"**{{anar-se'n}}: to leave.** {{anar}} + {{en}} “from here” means “to go away, to leave”, and it takes the person's pronoun too: {{me'n vaig}} “I'm leaving”. In the past: {{Se'n va anar a les deu.}} “He left at ten.” “Go away!” is {{Ves-te'n!}}."},
+        { "table": [
+          ["","{{anar-se'n}} “to leave”"],
+          ["I","{{me'n vaig}}"],
+          ["you","{{te'n vas}}"],
+          ["he, she","{{se'n va}}"],
+          ["we","{{ens n'anem}}"],
+          ["you (more than one)","{{us n'aneu}}"],
+          ["they","{{se'n van}}"]
+        ] },
+        { "ex": [
+          {"t":"Penses en el viatge? —Sí, hi penso cada dia.","tr":"Are you thinking about the trip? —Yes, I think about it every day."},
+          {"t":"No hi estic gens d'acord.","tr":"I don't agree at all."},
+          {"t":"Què en penses, d'aquest pla?","tr":"What do you think of this plan?","note":"Catalan often names the thing again at the end, after a comma"},
+          {"t":"Ja en parlarem.","tr":"We'll talk about it.","note":"also a polite “maybe”"},
+          {"t":"Els nens se'n van a dormir.","tr":"The kids are going off to bed."},
+          {"t":"Ens n'anem! Adeu!","tr":"We're off! Bye!"}
+        ] },
+        {"tip":"{{hi ha}} (lesson 7), {{n'hi ha}} (lesson 23), {{hi he estat}} (lesson 26), {{me'n vaig}}: you've now met {{hi}} and {{en}} in their main jobs. Catalans use them in almost every sentence, so listen out for them."}
+      ],
+      "mistakes": [
+        {"wrong":"Em vaig ara.","right":"Me'n vaig ara.","tr":"I'm leaving now.","why":"“To leave” is {{anar-se'n}}: it needs its {{en}} as well, {{me'n vaig}}."},
+        {"wrong":"Hi parlarem demà.","right":"En parlarem demà.","tr":"We'll talk about it tomorrow.","why":"{{parlar de}}: something with {{de}} becomes {{en}}."},
+        {"wrong":"No en estic d'acord.","right":"No hi estic d'acord.","tr":"I don't agree.","why":"{{estar d'acord amb}}: {{hi}}, not {{en}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ja ___ vas? Encara és d'hora!","tr":"Leaving already? It's still early!","options":["te'n","et","te"],"answer":0,"why":"“To leave” is {{anar-se'n}}: {{te'n vas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"La feina nova? ___ penso molt.","tr":"The new job? I think about it a lot.","options":["Hi","En","Ho"],"answer":0,"why":"{{pensar en}}: {{hi}}."},
+        {"type":"choice","q":"{{En parlem demà.}} means…","options":["Let's talk about it tomorrow.","Let's talk there tomorrow.","We'll talk to him tomorrow."],"answer":0,"why":"{{en}} stands for “about it” ({{parlar de}})."},
+        {"type":"dialogue","q":"Leaving a dinner party. Choose your replies.","lines":[{"who":"Host","t":"Ja te'n vas?","tr":"Leaving already?"},{"options":["Sí, me'n vaig, que és tard.","Sí, em vaig, que és tard."],"answer":0,"why":"{{anar-se'n}}: {{me'n vaig}}."},{"who":"Host","t":"I dissabte, vindràs a la platja?","tr":"And on Saturday, will you come to the beach?"},{"options":["Potser. Hi pensaré!","Potser. En pensaré!"],"answer":0,"why":"{{pensar en}}: {{hi}}."}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Put the words in order.","tr":"We'll talk about it tomorrow.","words":["Demà","en","parlarem."]},
+        {"type":"say","q":"You saw a film with a friend. Ask: “What do you think of it?”","answer":"Què en penses?"},
+        {"type":"free","q":"Your turn: you're leaving a party. Say you're off and why, and promise to think about an invitation.","answers":[{"t":"Me'n vaig, que demà m'he de llevar d'hora. La festa de divendres? Hi pensaré!","tr":"I'm off, I have to get up early tomorrow. Friday's party? I'll think about it!"},{"t":"Ens n'anem, que els nens tenen son. Ja en parlarem!","tr":"We're off, the kids are sleepy. We'll talk about it!"}]}
+      ]
+    },
+    {
+      "id": "two-pronouns",
+      "unit": 8,
+      "level": "B1",
+      "title": "Lend, give and pass things on",
+      "summary": "Put two weak pronouns together, as Catalans do all the time: “This book? I'll lend it to you, if you want.”",
+      "topic": "Two pronouns together: {{me'l, te la, ens ho, us en, li ho, l'hi}}; their order",
+      "blocks": [
+        {"goal":{"t":"Aquest llibre? Te'l deixo, si vols.","tr":"This book? I'll lend it to you, if you want."}},
+        {"dialog":[{"who":"Laia","t":"Quin llibre més interessant! On l'has comprat?","tr":"What an interesting book! Where did you buy it?"},{"who":"Ruth","t":"Me'l va regalar la meva germana. Te'l deixo, si vols.","tr":"My sister gave it to me. I'll lend it to you, if you want."},{"who":"Laia","t":"De debò? Te'l tornaré la setmana que ve.","tr":"Really? I'll give it back to you next week."},{"who":"Ruth","t":"Cap pressa. Ah, i en Pau també el vol llegir.","tr":"No rush. Oh, and Pau wants to read it too."},{"who":"Laia","t":"D'acord, després l'hi dono.","tr":"OK, I'll give it to him afterwards."}]},
+        {"p":"**Two at once.** When a verb has two weak pronouns, like “it” and “to me”, they go together in a fixed order: the person first, then the thing: {{me}} + {{el}} = {{me'l}} “it to me”. So {{em}}, {{et}}, {{ens}}, {{us}} come first, and {{el}}, {{la}}, {{ho}}, {{en}} second."},
+        { "table": [
+          ["","+ {{el}} it (m.)","+ {{la}} it (f.)","+ {{ho}} it, that","+ {{en}} some"],
+          ["{{em}} me","{{me'l}}","{{me la}}","{{m'ho}}","{{me'n}}"],
+          ["{{et}} you","{{te'l}}","{{te la}}","{{t'ho}}","{{te'n}}"],
+          ["{{ens}} us","{{ens el}}","{{ens la}}","{{ens ho}}","{{ens en}}"],
+          ["{{us}} you (pl.)","{{us el}}","{{us la}}","{{us ho}}","{{us en}}"]
+        ] },
+        {"p":"Notice that {{em}} and {{et}} become {{me}} and {{te}} in front of another pronoun: {{Me la dones?}} “Will you give it to me?” {{Te'n porto dos.}} “I'll bring you two.”"},
+        {"p":"**To him, to her: {{li}}.** {{li}} goes first too: {{li}} + {{ho}} = {{li ho}}: {{Li ho diré.}} “I'll tell him (that).” {{li}} + {{en}} = {{li'n}}: {{Li'n compraré un.}} “I'll buy him one.” {{li}} + {{el}} becomes {{l'hi}}: {{L'hi dono.}} “I'll give it to him.” (With {{la}} the standard is {{la hi}}; in speech you'll often hear just {{l'hi}}.)"},
+        {"p":"**After the verb.** On the end of an infinitive or an imperative, the same pairs join with hyphens: {{Dona-me'l!}} “Give it to me!” {{Vull explicar-t'ho.}} “I want to explain it to you.” {{Porta-me'n dos.}} “Bring me two.”"},
+        { "ex": [
+          {"t":"Me'l pots deixar?","tr":"Can you lend it to me?"},
+          {"t":"Te l'envio ara mateix.","tr":"I'll send it to you right now."},
+          {"t":"No m'ho crec!","tr":"I can't believe it!"},
+          {"t":"Ens ho van explicar ahir.","tr":"They explained it to us yesterday."},
+          {"t":"Dona-me'l, si us plau.","tr":"Give it to me, please."},
+          {"t":"La Marta no ho sap. Li ho dius tu?","tr":"Marta doesn't know. Will you tell her?"}
+        ] },
+        {"tip":"Pairs you'll hear every day: {{No m'ho crec!}} “I can't believe it!”, {{T'ho prometo.}} “I promise.”, {{Ja t'ho diré.}} “I'll let you know.”, and {{me'n vaig}} (lesson 40)."}
+      ],
+      "mistakes": [
+        {"wrong":"El me dones?","right":"Me'l dones?","tr":"Will you give it to me?","why":"The person comes first: {{me'l}}."},
+        {"wrong":"Ho li diré.","right":"Li ho diré.","tr":"I'll tell him.","why":"{{li}} goes first: {{li ho}}."},
+        {"wrong":"Dona'm-lo.","right":"Dona-me'l.","tr":"Give it to me.","why":"After the verb, the same pair in the same order: {{-me'l}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Aquest llibre? ___ deixo, si vols.","tr":"This book? I'll lend it to you, if you want.","options":["Te'l","El te","Et el"],"answer":0,"why":"“It to you”: {{te'l}}, the person first."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ho sap la Marta? —No, encara no ___ he dit.","tr":"Does Marta know? —No, I haven't told her yet.","options":["li ho","ho li","l'ho"],"answer":0,"why":"With {{li}}: {{li ho}}.","from":"say-what-you-did-today"},
+        {"type":"choice","q":"{{Me'n pots portar dos?}} means…","options":["Can you bring me two (of them)?","Can you take me there twice?","Can you bring it to me?"],"answer":0,"why":"{{me}} “to me” + {{en}} “of them”."},
+        {"type":"dialogue","q":"A friend admires your jacket. Choose your replies.","lines":[{"who":"Friend","t":"Quina jaqueta més maca!","tr":"What a nice jacket!"},{"options":["Gràcies! Me la va regalar la meva mare.","Gràcies! La em va regalar la meva mare."],"answer":0,"why":"“It to me”: {{me la}}, the person first."},{"who":"Friend","t":"Me la deixes per a la festa?","tr":"Will you lend it to me for the party?"},{"options":["És clar, te la deixo!","És clar, la te deixo!"],"answer":0,"why":"“It to you”: {{te la}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'll send it to you right now.","words":["Te l'envio","ara","mateix."]},
+        {"type":"say","q":"Your friend tells you surprising news. Say “I can't believe it!”","answer":"No m'ho crec!"},
+        {"type":"free","q":"Your turn: a friend needs something you have (a book, a charger, a bike). Offer to lend it, with two pronouns.","answers":[{"t":"Necessites un carregador? Te'l deixo, el tinc a la bossa.","tr":"Do you need a charger? I'll lend you mine, it's in my bag."},{"t":"La bici? Te la deixo dissabte, si vols.","tr":"The bike? I'll lend it to you on Saturday, if you want."}]}
+      ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what someone said",
+      "summary": "Report what someone says or said, and what they asked: “Marta told me she'll be late.”",
+      "topic": "{{diu que}}, {{m'ha dit que}}, {{va dir que}} and the tenses that move back; {{preguntar si}}",
+      "blocks": [
+        {"goal":{"t":"La Marta m'ha dit que arribarà tard.","tr":"Marta told me she'll be late."}},
+        {"dialog":[{"who":"Colleague","t":"Ha trucat en Jordi.","tr":"Jordi called."},{"who":"You","t":"Què ha dit?","tr":"What did he say?"},{"who":"Colleague","t":"Diu que està malalt i que avui no vindrà.","tr":"He says he's sick and won't come in today."},{"who":"You","t":"Ostres. I la reunió?","tr":"Oh no. And the meeting?"},{"who":"Colleague","t":"M'ha preguntat si la podem fer demà.","tr":"He asked me if we can have it tomorrow."},{"who":"You","t":"D'acord. Ahir ja em va dir que no es trobava bé.","tr":"OK. Yesterday he told me he wasn't feeling well."}]},
+        {"p":"**What someone says.** {{dir que}} + what they said, like English “say that”: {{Diu que està cansada.}} “She says she's tired.” Catalan never leaves out the {{que}}. The person who is told is a weak pronoun: {{m'ha dit}} “she told me”, {{li vaig dir}} “I told him”."},
+        {"p":"**The tenses move back.** When the saying is in the past ({{va dir}}), the tenses inside move back, as in English: the present becomes the imperfect, the future becomes the conditional ({{-ria}}), and {{ha fet}} becomes {{havia fet}} “had done”."},
+        { "table": [
+          ["what she says","she says…","she said…"],
+          ["{{Estic cansada.}} I'm tired.","{{Diu que està cansada.}}","{{Va dir que estava cansada.}}"],
+          ["{{Vindré demà.}} I'll come tomorrow.","{{Diu que vindrà demà.}}","{{Va dir que vindria l'endemà.}}"],
+          ["{{He perdut el tren.}} I've missed the train.","{{Diu que ha perdut el tren.}}","{{Va dir que havia perdut el tren.}}"]
+        ] },
+        {"p":"With {{m'ha dit}} (just now, today), the tenses usually stay as they were: {{M'ha dit que arribarà tard.}} “She's just told me she'll be late.”"},
+        {"p":"**Questions.** A yes-or-no question is reported with {{si}} “if, whether”: {{M'ha preguntat si vols venir.}} “She asked me whether you want to come.” A question with a question word keeps it: {{Em va preguntar on vivia.}} “He asked me where I lived.”"},
+        { "ex": [
+          {"t":"En Pere diu que no pot venir.","tr":"Pere says he can't come."},
+          {"t":"M'ha dit que et trucarà després.","tr":"She told me she'll call you later."},
+          {"t":"Van dir que plouria, però fa sol.","tr":"They said it would rain, but it's sunny."},
+          {"t":"Em va preguntar si parlava català.","tr":"He asked me if I spoke Catalan."},
+          {"t":"Li vaig dir que no ho sabia.","tr":"I told her I didn't know."},
+          {"t":"Pots dir-li que he trucat?","tr":"Can you tell him I called?"}
+        ] },
+        {"tip":"On the phone: {{De part de qui?}} “Who's calling?”, and {{Li puc deixar un missatge?}} “Can I leave a message for him?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Va dir està cansada.","right":"Va dir que estava cansada.","tr":"She said she was tired.","why":"Catalan never leaves out {{que}}, and after {{va dir}} the present moves back to the imperfect."},
+        {"wrong":"Ha dit a mi que arribarà tard.","right":"M'ha dit que arribarà tard.","tr":"She told me she'll be late.","why":"The person who is told is a weak pronoun before the verb: {{m'ha dit}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"La Marta diu ___ arribarà tard.","tr":"Marta says she'll be late.","options":["que","si","què"],"answer":0,"why":"Reporting what someone says: {{dir que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ahir en Pau va dir que ___ cansat.","tr":"Yesterday Pau said he was tired.","options":["estava","està","estarà"],"answer":0,"why":"After {{va dir}}, the present moves back to the imperfect: {{estava}}.","from":"say-how-things-were"},
+        {"type":"choice","q":"{{Em va preguntar si volia un cafè.}} means…","options":["She asked me if I wanted a coffee.","She told me she wanted a coffee.","She asked me why I wanted a coffee."],"answer":0,"why":"{{preguntar si}}: “ask if”."},
+        {"type":"dialogue","q":"A colleague passes on a message. Choose your replies.","lines":[{"who":"Colleague","t":"Ha trucat la teva germana.","tr":"Your sister called."},{"options":["Ah, sí? Què t'ha dit?","Ah, sí? Què ha dit a tu?"],"answer":0,"why":"“To you” is a weak pronoun before the verb: {{t'ha dit}}."},{"who":"Colleague","t":"Diu que demà no podrà venir a dinar.","tr":"She says she won't be able to come to lunch tomorrow."},{"options":["Vaja! Doncs li enviaré un missatge.","Vaja! Doncs l'enviaré un missatge."],"answer":0,"why":"Sending something to her: {{li}} “to her”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"He asked me if I spoke Catalan.","words":["Em","va preguntar","si","parlava","català."]},
+        {"type":"say","q":"Ask a colleague: “Can you tell him I called?”","answer":"Pots dir-li que he trucat?"},
+        {"type":"free","q":"Your turn: someone told you some news yesterday. Pass it on, starting with {{Em va dir que…}}","answers":[{"t":"La meva amiga em va dir que es casaria l'any que ve.","tr":"My friend told me she was getting married next year."},{"t":"El meu cap em va dir que divendres no havia de treballar.","tr":"My boss told me I didn't have to work on Friday."}]}
+      ]
     }
   ]
 }
