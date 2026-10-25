@@ -17,8 +17,8 @@ import { langAttrs, langInfo } from "../languages.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { DefinerError, PROVIDERS } from "../definer.js";
 import { askAi, definerConfig, noAi } from "../define-service.js";
-import { cleanProgress, costCents, courseFor, finished, grammarUrl, listVersion, makeLesson, makeList, orderIsRight, progressOf,
-         richHtml, shuffled } from "../grammardata.js";
+import { checkPrompt, cleanProgress, costCents, courseFor, finished, grammarUrl, listVersion, makeLesson, makeList, orderIsRight,
+         plainText, progressOf, reviewQuestions, richHtml, shuffled } from "../grammardata.js";
 import { courseKey, keep, kept, lessonKey, listKey } from "../grammarstore.js";
 import { sayText, stopSaying } from "../saytext.js";
 
@@ -75,6 +75,7 @@ export function grammarPanel(box, lang, choice) {
   const taught = (langInfo(lang) || {}).name || lang;
   let course = null, list = null, progress = {};
   let making = null;                  // {stop: false} while "Make the rest now" runs
+  let currentTopic = "";              // the grammar of the lesson on screen (for the AI's look at "your turn")
   let alive = true;
 
   const mode = () => (into ? lsGet(modeKey) : null); // "on", "off", or null (not chosen yet)
@@ -154,6 +155,14 @@ export function grammarPanel(box, lang, choice) {
     box.append(head);
 
     if (into) box.append(offerCard());
+    if (p.count) {
+      const n = Math.min(8, reviewQuestions(course, id, progress, { count: 8 }).length);
+      const card = h(`<button type="button" class="g-review">${icon("refresh", 18)}
+        <span class="g-review-text"><strong>Mixed review</strong><span class="small muted">${n} questions from the lessons you've done, so they stick</span></span>
+        <span class="g-review-go">${icon("play", 16)}</span></button>`);
+      card.onclick = () => drawReview();
+      box.append(card);
+    }
 
     const units = h(`<div class="gu-list"></div>`);
     for (const u of p.units) {
@@ -326,12 +335,15 @@ export function grammarPanel(box, lang, choice) {
       <header class="gl-header" dir="${dir}">
         <h2 class="gl-title" translate="no"></h2>
         <p class="gl-summary" translate="no"></p>
+        ${lesson.topic ? `<p class="gl-topic"><span class="gb-tag">${icon("learn", 13)} <span>Grammar</span></span><span class="gl-topic-text" translate="no"></span></p>` : ""}
         ${before ? `<p class="gl-before small">${icon("check", 14)} <span>Done: ${before.right} of ${before.of} right</span></p>` : ""}
       </header>
-      <div class="gl-body" dir="${dir}"></div>
+      <div class="gl-body" dir="${dir}" data-lang="${esc(shownIn)}"></div>
     </article>`);
     view.querySelector(".gl-title").innerHTML = rich(lesson.title);
     view.querySelector(".gl-summary").innerHTML = rich(lesson.summary);
+    if (lesson.topic) view.querySelector(".gl-topic-text").innerHTML = rich(lesson.topic);
+    currentTopic = lesson.topic || lesson.title;
     if (problem) {
       const p = view.querySelector(".g-problem");
       p.append(h(`<span>This lesson couldn't be made in ${esc(uiName(into))} now, so it's shown in ${esc(uiName(course.from))}.</span>`));
@@ -371,6 +383,32 @@ export function grammarPanel(box, lang, choice) {
   }
 
   function block(b) {
+    if ("goal" in b) {
+      const g = h(`<section class="gb-goal"><span class="gb-tag">${icon("target", 14)} <span>By the end of this lesson, you can say</span></span></section>`);
+      g.append(example(b.goal.t, b.goal.r, b.goal.tr, b.goal.note, "div"));
+      return g;
+    }
+    if ("dialog" in b) {
+      const d = h(`<section class="gb-dialog"><div class="gb-dialog-top"><span class="gb-tag">${icon("message", 14)} <span>Conversation</span></span>
+        <button type="button" class="ghost gb-playall">${icon("play", 14)} <span>Listen to it all</span></button></div></section>`);
+      const lines = b.dialog.map((line, k) => {
+        const el = bubble(line, false);
+        el.classList.add(k % 2 ? "right-side" : "left-side");
+        d.append(el);
+        return el;
+      });
+      d.querySelector(".gb-playall").onclick = async () => {
+        for (const el of lines) {
+          if (!el.isConnected) return;
+          el.classList.add("saying");
+          const { ended } = await sayText(el.dataset.say, lang);
+          await ended;
+          el.classList.remove("saying");
+          await new Promise((ok) => setTimeout(ok, 250));
+        }
+      };
+      return d;
+    }
     if ("p" in b) return h(`<p class="gb-p" translate="no">${rich(b.p)}</p>`);
     if ("tip" in b) {
       const el = h(`<div class="gb-tip"><span class="gb-tag">${icon("star", 14)} <span>Tip</span></span><p translate="no">${rich(b.tip)}</p></div>`);
@@ -394,8 +432,8 @@ export function grammarPanel(box, lang, choice) {
     return document.createTextNode("");
   }
 
-  function example(t, r, tr, note) {
-    return h(`<li class="gx" data-say="${esc(t)}" role="button" tabindex="0" title="Listen">
+  function example(t, r, tr, note, tag = "li") {
+    return h(`<${tag} class="gx" data-say="${esc(t)}" role="button" tabindex="0" title="Listen">
       <span class="gx-say" aria-hidden="true">${icon("sound", 18)}</span>
       <span class="gx-body">
         <span class="gx-t" ${attrs} translate="no">${esc(t)}</span>
@@ -403,7 +441,7 @@ export function grammarPanel(box, lang, choice) {
         ${tr ? `<span class="gx-tr" translate="no">${rich(tr)}</span>` : ""}
         ${note ? `<span class="gx-note small muted" translate="no">${rich(note)}</span>` : ""}
       </span>
-    </li>`);
+    </${tag}>`);
   }
 
   function mistakes(list) {
@@ -421,65 +459,83 @@ export function grammarPanel(box, lang, choice) {
   }
 
   // ----- practice -----
-  function practice(src, lesson, key) {
-    const qs = lesson.practice || [];
-    const results = new Array(qs.length).fill(null); // true / false once answered (the first try counts)
-    const sec = h(`<section class="gp"><h3>${icon("puzzle", 18)} <span>Practice</span></h3><ol class="gp-list"></ol><div class="gp-done" hidden></div></section>`);
+  /** Questions as a list: each answered once (the first try counts), `onFinish(right, of, box)` when all are. */
+  function questions(list, { title, from = true, onFinish }) {
+    const results = new Array(list.length).fill(null);
+    const sec = h(`<section class="gp"><h3>${icon("puzzle", 18)} <span></span></h3><ol class="gp-list"></ol><div class="gp-done" hidden></div></section>`);
+    sec.querySelector("h3 span").textContent = title;
     const ol = sec.querySelector("ol");
     const doneBox = sec.querySelector(".gp-done");
     const answered = (i, right) => {
       if (results[i] !== null) return;
       results[i] = right;
-      if (results.every((x) => x !== null)) finish();
+      if (results.every((x) => x !== null)) onFinish(results.filter(Boolean).length, results.length, doneBox);
     };
-    qs.forEach((q, i) => {
-      const li = h(`<li class="gq" data-type="${esc(q.type)}"><div class="gq-q" translate="no">${rich(q.q)}</div></li>`);
-      if (q.type === "choice") choiceQ(li, q, (ok) => answered(i, ok));
-      else if (q.type === "order") orderQ(li, q, (ok) => answered(i, ok));
-      else if (q.type === "say") sayQ(li, q, (ok) => answered(i, ok));
+    list.forEach((q, i) => {
+      const li = h(`<li class="gq" data-type="${esc(q.type)}"></li>`);
+      const was = from && q.from && course.lessons.find((l) => l.id === q.from);
+      if (was) {
+        const tag = h(`<span class="gq-from small">${icon("refresh", 13)} <span>From lesson ${course.lessons.indexOf(was) + 1}</span></span>`);
+        tag.title = plainText(listed(was).title);
+        li.append(tag);
+      }
+      li.append(h(`<div class="gq-q" translate="no">${rich(q.q)}</div>`));
+      const done = (ok) => answered(i, ok);
+      ({ choice: choiceQ, fill: fillQ, order: orderQ, dialogue: dialogueQ, say: sayQ, free: freeQ }[q.type] || ((x, y, d) => d(true)))(li, q, done);
       ol.append(li);
     });
-
-    async function finish() {
-      const right = results.filter(Boolean).length;
-      const next = course.lessons[course.lessons.indexOf(src) + 1];
-      doneBox.hidden = false;
-      doneBox.innerHTML = `<p class="gp-score"><strong></strong> <span></span></p>`;
-      doneBox.querySelector("strong").textContent = `${right} of ${results.length} right.`;
-      doneBox.querySelector(".gp-score span").textContent = right === results.length ? "Well done!" : "Lesson done: look again at the ones you missed.";
-      if (next) {
-        const b = h(`<button type="button" class="primary">${icon("play", 16)} <span>Next lesson</span></button>`);
-        b.onclick = () => drawLesson(next.id);
-        doneBox.append(b);
-      } else {
-        const b = h(`<button type="button" class="primary">${icon("check", 16)} <span>All lessons</span></button>`);
-        b.onclick = () => drawCourse();
-        doneBox.append(b);
-      }
-      try {
-        const now = cleanProgress((await api("/settings")).grammar_progress);
-        const s = await saveSettings({ grammar_progress: finished(now, key, right, results.length) });
-        progress = cleanProgress(s && s.grammar_progress);
-      } catch (e) {
-        toast(`This lesson couldn't be marked as done: ${(e && e.message) || e}`, { error: true });
-      }
-    }
     return sec;
   }
 
+  function practice(src, lesson, key) {
+    return questions(lesson.practice || [], {
+      title: "Practice",
+      onFinish: async (right, of, doneBox) => {
+        const next = course.lessons[course.lessons.indexOf(src) + 1];
+        const first = !progress[key];
+        doneBox.hidden = false;
+        doneBox.innerHTML = `<p class="gp-score"><strong></strong> <span></span></p>`;
+        doneBox.querySelector("strong").textContent = `${right} of ${of} right.`;
+        doneBox.querySelector(".gp-score span").textContent = right === of ? "Well done!" : "Lesson done: look again at the ones you missed.";
+        const b = next ? h(`<button type="button" class="primary">${icon("play", 16)} <span>Next lesson</span></button>`)
+          : h(`<button type="button" class="primary">${icon("check", 16)} <span>All lessons</span></button>`);
+        b.onclick = () => (next ? drawLesson(next.id) : refreshProgress().then(drawCourse));
+        doneBox.append(b);
+        earnXp({ type: "grammar", key, right, of, first }, doneBox);
+        try {
+          const now = cleanProgress((await api("/settings")).grammar_progress);
+          const s = await saveSettings({ grammar_progress: finished(now, key, right, of) });
+          progress = cleanProgress(s && s.grammar_progress);
+        } catch (e) {
+          toast(`This lesson couldn't be marked as done: ${(e && e.message) || e}`, { error: true });
+        }
+      },
+    });
+  }
+
+  /** XP in the creature game (game/game.js reward: nothing when the game is switched off). */
+  async function earnXp(event, anchor) {
+    try {
+      const { reward } = await import("../game/game.js");
+      reward(event, anchor);
+    } catch { /* no game here */ }
+  }
+
   function feedback(li, ok, why) {
+    li.querySelector(".gq-fb")?.remove();
+    li.classList.remove("right", "wrong");
     li.classList.add(ok ? "right" : "wrong");
     const f = h(`<div class="gq-fb"><strong>${ok ? `${icon("check", 15)} <span>Right!</span>` : `${icon("close", 15)} <span>Not quite.</span>`}</strong></div>`);
     if (why) f.append(h(`<span translate="no">${rich(why)}</span>`));
     li.append(f);
+    return f;
   }
 
   function choiceQ(li, q, done) {
     const opts = h(`<div class="gq-options"></div>`);
     q.options.forEach((o, k) => {
       const b = h(`<button type="button" class="gq-opt" translate="no">${rich(o)}</button>`);
-      b.onclick = (e) => {
-        if (e.target.closest(".gt") && li.classList.contains("answered")) return;
+      b.onclick = () => {
         if (li.classList.contains("answered")) return;
         li.classList.add("answered");
         const ok = k === q.answer;
@@ -489,6 +545,38 @@ export function grammarPanel(box, lang, choice) {
           else if (j === k) x.classList.add("wrong");
         }
         feedback(li, ok, q.why);
+        done(ok);
+      };
+      opts.append(b);
+    });
+    li.append(opts);
+  }
+
+  /** Select the word: tap the word that fills the gap. */
+  function fillQ(li, q, done) {
+    const [before, after] = String(q.t).split("___");
+    const sentence = h(`<div class="gq-fill" ${attrs} translate="no"><span></span><span class="gq-gap" aria-label="gap">…</span><span></span></div>`);
+    sentence.children[0].textContent = before;
+    sentence.children[2].textContent = after;
+    const gap = sentence.querySelector(".gq-gap");
+    li.append(sentence, h(`<div class="gq-tr" translate="no">“${rich(q.tr)}”</div>`));
+    const opts = h(`<div class="gq-words" ${attrs}></div>`);
+    q.options.forEach((o, k) => {
+      const b = h(`<button type="button" class="gq-tile" translate="no"></button>`);
+      b.textContent = o;
+      b.onclick = () => {
+        if (li.classList.contains("answered")) return;
+        li.classList.add("answered");
+        const ok = k === q.answer;
+        gap.textContent = q.options[q.answer];
+        gap.classList.add(ok ? "right" : "wrong");
+        for (const [j, x] of [...opts.children].entries()) {
+          x.disabled = true;
+          if (j === q.answer) x.classList.add("right");
+          else if (j === k) x.classList.add("wrong");
+        }
+        feedback(li, ok, q.why);
+        if (ok) sayText(`${before}${q.options[q.answer]}${after}`, lang);
         done(ok);
       };
       opts.append(b);
@@ -518,15 +606,11 @@ export function grammarPanel(box, lang, choice) {
       const picked = [...line.children].map((t) => t.textContent);
       const ok = orderIsRight(q, picked);
       li.classList.add("checked");
-      li.querySelector(".gq-fb")?.remove();
-      li.classList.remove("right", "wrong");
       if (ok) sayText(picked.join(" "), lang);
-      feedback(li, ok, ok ? q.why : "");
+      const fb = feedback(li, ok, ok ? q.why : "");
       if (!ok) {
-        const fb = li.querySelector(".gq-fb");
         fb.append(h(`<span>The right order:</span>`));
-        const right = h(`<span class="gq-right" ${attrs} translate="no" data-say="${esc(q.words.join(" "))}">${esc(q.words.join(" "))}</span>`);
-        fb.append(right);
+        fb.append(h(`<span class="gq-right" ${attrs} translate="no" data-say="${esc(q.words.join(" "))}">${esc(q.words.join(" "))}</span>`));
         if (q.why) fb.append(h(`<span translate="no">${rich(q.why)}</span>`));
         again.hidden = false;
       }
@@ -540,28 +624,166 @@ export function grammarPanel(box, lang, choice) {
     };
   }
 
+  /** A conversation: the other person's lines appear one by one; at the learner's turns they pick a reply. */
+  function dialogueQ(li, q, done) {
+    const chat = h(`<div class="gq-chat"></div>`);
+    li.append(chat);
+    let allRight = true;
+    let i = 0;
+    const next = () => {
+      while (i < q.lines.length && !q.lines[i].options) chat.append(bubble(q.lines[i++], false));
+      if (i >= q.lines.length) {
+        li.classList.add(allRight ? "right" : "wrong");
+        done(allRight);
+        return;
+      }
+      const line = q.lines[i];
+      const opts = h(`<div class="gq-replies"></div>`);
+      line.options.forEach((o, k) => {
+        const b = h(`<button type="button" class="gq-opt gq-reply" ${attrs} translate="no"></button>`);
+        b.textContent = o;
+        b.onclick = () => {
+          const ok = k === line.answer;
+          if (!ok) allRight = false;
+          opts.remove();
+          chat.append(bubble({ t: line.options[line.answer] }, true));
+          const fb = h(`<div class="gq-fb small ${ok ? "ok" : "no"}"><strong>${ok ? `${icon("check", 14)} <span>Right!</span>` : `${icon("close", 14)} <span>Not quite.</span>`}</strong></div>`);
+          if (line.why) fb.append(h(`<span translate="no">${rich(line.why)}</span>`));
+          chat.append(fb);
+          sayText(line.options[line.answer], lang);
+          i++;
+          setTimeout(next, 350);
+        };
+        opts.append(b);
+      });
+      chat.append(opts);
+    };
+    next();
+  }
+
+  function bubble(line, mine) {
+    const el = h(`<div class="gb-line${mine ? " mine" : ""}" data-say="${esc(line.t)}">
+      ${line.who && !mine ? `<span class="gb-who small" translate="no"></span>` : ""}
+      <span class="gx-t" ${attrs} translate="no"></span>
+      ${line.r ? `<span class="gx-r" dir="ltr" translate="no"></span>` : ""}
+      ${line.tr ? `<span class="gx-tr" translate="no"></span>` : ""}
+    </div>`);
+    if (el.querySelector(".gb-who")) el.querySelector(".gb-who").innerHTML = rich(line.who);
+    el.querySelector(".gx-t").textContent = line.t;
+    if (line.r) el.querySelector(".gx-r").textContent = line.r;
+    if (line.tr) el.querySelector(".gx-tr").innerHTML = rich(line.tr);
+    return el;
+  }
+
   function sayQ(li, q, done) {
     const show = h(`<button type="button" class="ghost gq-show">${icon("speak", 16)} <span>Say it, then show the answer</span></button>`);
     li.append(show);
     show.onclick = () => {
       show.remove();
-      const ans = h(`<div class="gq-answer" data-say="${esc(q.answer)}">
-        <span class="gx-say" aria-hidden="true">${icon("sound", 18)}</span>
-        <span class="gx-body"><span class="gx-t" ${attrs} translate="no">${esc(q.answer)}</span>${q.r ? `<span class="gx-r" dir="ltr" translate="no">${esc(q.r)}</span>` : ""}</span>
-      </div>`);
-      li.append(ans);
+      li.append(answerCard(q.answer, q.r));
       sayText(q.answer, lang);
       if (q.why) li.append(h(`<div class="gq-why" translate="no">${rich(q.why)}</div>`));
-      const ask2 = h(`<div class="gq-self"><span>Did you get it?</span><button type="button" class="ghost gq-yes">${icon("check", 15)} <span>Yes</span></button><button type="button" class="ghost gq-no">${icon("close", 15)} <span>Not quite</span></button></div>`);
-      li.append(ask2);
-      const pick = (ok) => {
-        ask2.remove();
-        li.classList.add(ok ? "right" : "wrong");
-        done(ok);
-      };
-      ask2.querySelector(".gq-yes").onclick = () => pick(true);
-      ask2.querySelector(".gq-no").onclick = () => pick(false);
+      selfCheck(li, done, "Did you get it?");
     };
+  }
+
+  function answerCard(t, r, tr = "") {
+    return h(`<div class="gq-answer" data-say="${esc(t)}">
+      <span class="gx-say" aria-hidden="true">${icon("sound", 18)}</span>
+      <span class="gx-body"><span class="gx-t" ${attrs} translate="no">${esc(t)}</span>${r ? `<span class="gx-r" dir="ltr" translate="no">${esc(r)}</span>` : ""}${tr ? `<span class="gx-tr" translate="no">${rich(tr)}</span>` : ""}</span>
+    </div>`);
+  }
+
+  function selfCheck(li, done, question) {
+    const box2 = h(`<div class="gq-self"><span></span><button type="button" class="ghost gq-yes">${icon("check", 15)} <span>Yes</span></button><button type="button" class="ghost gq-no">${icon("close", 15)} <span>Not quite</span></button></div>`);
+    box2.querySelector("span").textContent = question;
+    li.append(box2);
+    const pick = (ok) => { box2.remove(); li.classList.add(ok ? "right" : "wrong"); done(ok); };
+    box2.querySelector(".gq-yes").onclick = () => pick(true);
+    box2.querySelector(".gq-no").onclick = () => pick(false);
+  }
+
+  /** "Your turn": the learner's own sentence, typed or said; model answers; the AI's look if there is a key. */
+  function freeQ(li, q, done) {
+    const input = h(`<textarea class="gq-input" rows="2" ${attrs} placeholder="Write your answer here, or just say it aloud" aria-label="Your answer"></textarea>`);
+    const row = h(`<div class="gq-free-actions"></div>`);
+    const canCheck = !noAi() && !!definerConfig().key;
+    const check = canCheck ? h(`<button type="button" class="ghost gq-check">${icon("sparkle", 15)} <span>Check with AI</span></button>`) : null;
+    const show = h(`<button type="button" class="ghost gq-show">${icon("speak", 16)} <span>Show example answers</span></button>`);
+    if (check) row.append(check);
+    row.append(show);
+    li.append(input, row);
+    if (check) {
+      check.onclick = async () => {
+        const answer = input.value.trim();
+        if (!answer) { input.focus(); return; }
+        check.disabled = true;
+        check.innerHTML = `<span class="spinner"></span> <span>Checking…</span>`;
+        try {
+          const shownIn = li.closest(".gl-body") ? li.closest(".gl-body").dataset.lang : course.from;
+          const verdict = await askAi(checkPrompt({ explain: uiEnglishName(shownIn || course.from), taught }, {
+            topic: plainText(currentTopic || ""), question: q.q, models: (q.answers || []).map((a) => a.t), answer, variety: course.variety,
+          }));
+          li.querySelector(".gq-ai")?.remove();
+          const ai = h(`<div class="gq-ai ${verdict.ok ? "ok" : "no"}"><strong>${verdict.ok ? `${icon("check", 15)} <span>Looks right!</span>` : `${icon("edit", 15)} <span>A suggestion:</span>`}</strong></div>`);
+          if (!verdict.ok && verdict.corrected) ai.append(answerCard(String(verdict.corrected)));
+          if (verdict.note) { const n = document.createElement("span"); n.textContent = String(verdict.note); n.setAttribute("translate", "no"); ai.append(n); }
+          row.after(ai);
+        } catch (e) {
+          toast(aiMessage(e), { error: true });
+        } finally {
+          check.disabled = false;
+          check.innerHTML = `${icon("sparkle", 15)} <span>Check with AI</span>`;
+        }
+      };
+    }
+    show.onclick = () => {
+      show.remove();
+      const models = h(`<div class="gq-models"><span class="small muted">For example:</span></div>`);
+      for (const a of q.answers || []) models.append(answerCard(a.t, a.r, a.tr));
+      row.after(models);
+      selfCheck(li, done, "Could you say something like this?");
+    };
+  }
+
+  // ----- the mixed review: questions from lessons already done (grammardata.js reviewQuestions) -----
+  function drawReview() {
+    lsSet(`grammar:${id}:lesson`, null);
+    stopSaying();
+    const picks = reviewQuestions(course, id, progress, { count: 8 });
+    if (!picks.length) return drawCourse();
+    box.innerHTML = "";
+    const view = h(`<article class="gl-lesson${readingsOn() ? "" : " no-readings"}">
+      <div class="gl-top">
+        <button type="button" class="btn ghost gl-back" title="All lessons" aria-label="All lessons">←</button>
+        <span class="gl-where muted">Mixed review</span>
+      </div>
+      <header class="gl-header"><h2 class="gl-title">Mixed review</h2>
+        <p class="gl-summary">Questions from the lessons you've done, the ones longest ago and the ones you found hardest first. Getting them back out of your memory is what makes them stick.</p></header>
+      <div class="gl-body" dir="${uiDir(course.from)}"></div>
+    </article>`);
+    view.querySelector(".gl-back").onclick = () => refreshProgress().then(drawCourse);
+    const qs = picks.map((p) => ({ ...p.q, from: p.lesson }));
+    view.querySelector(".gl-body").append(questions(qs, {
+      title: "Practice",
+      onFinish: (right, of, doneBox) => {
+        doneBox.hidden = false;
+        doneBox.innerHTML = `<p class="gp-score"><strong></strong></p>`;
+        doneBox.querySelector("strong").textContent = `${right} of ${of} right.`;
+        const b = h(`<button type="button" class="primary">${icon("check", 16)} <span>All lessons</span></button>`);
+        b.onclick = () => refreshProgress().then(drawCourse);
+        doneBox.append(b);
+        earnXp({ type: "grammar", key: `review:${id}:${new Date().toDateString()}`, right, of }, doneBox);
+      },
+    }));
+    view.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-say]");
+      if (!el || !view.contains(el) || e.target.closest("button:not([data-say])")) return;
+      el.classList.add("saying");
+      sayText(el.dataset.say, lang).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
+    });
+    box.append(view);
+    box.scrollIntoView({ block: "start" });
   }
 
   function lessonNav(src) {

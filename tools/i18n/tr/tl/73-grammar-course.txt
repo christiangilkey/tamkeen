@@ -52,3 +52,19 @@ f5206956 Sabihin ito, saka ipakita ang sagot
 471492a9 ← Nakaraan
 dd17342c Grammar
 0336262a Walang boses para sa wikang ito ang device na ito.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Halo-halong repaso
+629ee920 {0} tanong mula sa mga aralin na tapos mo na, para tumatak
+a87476c8 Sa dulo ng araling ito, kaya mo nang sabihin
+2a20c750 Usapan
+62a063a2 Pakinggan lahat
+76b0e210 Mula sa aralin {0}
+ba203e07 Isulat dito ang sagot mo, o sabihin ito nang malakas
+3ae5ff6e Ang sagot mo
+c63ce1c1 Suriin gamit ang AI
+faed9e0c Ipakita ang mga halimbawang sagot
+f02acd47 Mukhang tama!
+5d51c1f2 Isang mungkahi:
+059c3e8c Halimbawa:
+5d3ba53e Nasabi mo ba ang ganito?
+61dda140 Mga tanong mula sa mga araling tapos mo na, una ang pinakamatagal na at ang pinakamahirap para sa iyo. Ang pag-alala sa mga ito ang nagpapatatak sa kanila.

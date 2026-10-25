@@ -52,3 +52,19 @@ f5206956 Dilo y luego mira la respuesta
 471492a9 ← Anterior
 dd17342c Gramática
 0336262a Este dispositivo no tiene voz para este idioma.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Repaso mixto
+629ee920 {0} preguntas de las lecciones que ya hiciste, para que se te queden
+a87476c8 Al final de esta lección, podrás decir
+2a20c750 Conversación
+62a063a2 Escuchar todo
+76b0e210 De la lección {0}
+ba203e07 Escribe aquí tu respuesta, o dila en voz alta
+3ae5ff6e Tu respuesta
+c63ce1c1 Revisar con IA
+faed9e0c Ver respuestas de ejemplo
+f02acd47 ¡Parece correcto!
+5d51c1f2 Una sugerencia:
+059c3e8c Por ejemplo:
+5d3ba53e ¿Pudiste decir algo así?
+61dda140 Preguntas de las lecciones que ya hiciste, primero las más antiguas y las que te costaron más. Sacarlas de tu memoria es lo que hace que se queden.

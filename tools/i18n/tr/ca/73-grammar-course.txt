@@ -52,3 +52,19 @@ f5206956 Digues-ho i després mira la resposta
 471492a9 ← Anterior
 dd17342c Gramàtica
 0336262a Aquest dispositiu no té veu per a aquesta llengua.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Repàs barrejat
+629ee920 {0} preguntes de les lliçons que ja has fet, perquè se't quedin
+a87476c8 Al final d'aquesta lliçó, podràs dir
+2a20c750 Conversa
+62a063a2 Escolta-ho tot
+76b0e210 De la lliçó {0}
+ba203e07 Escriu aquí la teva resposta, o digues-la en veu alta
+3ae5ff6e La teva resposta
+c63ce1c1 Revisa amb IA
+faed9e0c Mostra respostes d'exemple
+f02acd47 Sembla correcte!
+5d51c1f2 Un suggeriment:
+059c3e8c Per exemple:
+5d3ba53e Has pogut dir alguna cosa així?
+61dda140 Preguntes de les lliçons que ja has fet, primer les més antigues i les que t'han costat més. Treure-les de la memòria és el que fa que es quedin.

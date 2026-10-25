@@ -3105,6 +3105,16 @@
   "f": "web/js/components/grammarpanel.js"
  },
  {
+  "id": "fc1d3462",
+  "k": "Mixed review",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "629ee920",
+  "k": "{0} questions from the lessons you've done, so they stick",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
   "id": "49e2081b",
   "k": "Tap an example to hear it, in your card voice (Settings → Card voices).",
   "f": "web/js/components/grammarpanel.js"
@@ -3215,6 +3225,11 @@
   "f": "web/js/components/grammarpanel.js"
  },
  {
+  "id": "dd17342c",
+  "k": "Grammar",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
   "id": "3c9b567e",
   "k": "Done: {0} of {1} right",
   "f": "web/js/components/grammarpanel.js"
@@ -3235,6 +3250,21 @@
   "f": "web/js/components/grammarpanel.js"
  },
  {
+  "id": "a87476c8",
+  "k": "By the end of this lesson, you can say",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "2a20c750",
+  "k": "Conversation",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62a063a2",
+  "k": "Listen to it all",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
   "id": "d19ceca5",
   "k": "Tip",
   "f": "web/js/components/grammarpanel.js"
@@ -3242,11 +3272,6 @@
  {
   "id": "85c69987",
   "k": "Grammar word",
-  "f": "web/js/components/grammarpanel.js"
- },
- {
-  "id": "c518fb06",
-  "k": "Listen",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -3262,6 +3287,11 @@
  {
   "id": "954daa8b",
   "k": "Right",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "76b0e210",
+  "k": "From lesson {0}",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -3327,6 +3357,51 @@
  {
   "id": "756c7660",
   "k": "Not quite",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ba203e07",
+  "k": "Write your answer here, or just say it aloud",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3ae5ff6e",
+  "k": "Your answer",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c63ce1c1",
+  "k": "Check with AI",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "faed9e0c",
+  "k": "Show example answers",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f02acd47",
+  "k": "Looks right!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5d51c1f2",
+  "k": "A suggestion:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "059c3e8c",
+  "k": "For example:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5d3ba53e",
+  "k": "Could you say something like this?",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "61dda140",
+  "k": "Questions from the lessons you've done, the ones longest ago and the ones you found hardest first. Getting them back out of your memory is what makes them stick.",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -13452,11 +13527,6 @@
  {
   "id": "5fcebeef",
   "k": "Basics",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "dd17342c",
-  "k": "Grammar",
   "f": "web/js/pages/vocab.js"
  },
  {

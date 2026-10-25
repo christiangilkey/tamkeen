@@ -52,3 +52,19 @@ f5206956 Fale em voz alta e depois veja a resposta
 471492a9 ← Anterior
 dd17342c Gramática
 0336262a Este aparelho não tem voz para este idioma.
+# Function-first lessons: goal, conversations, new practice, mixed review
+fc1d3462 Revisão misturada
+629ee920 {0} perguntas das lições que você já fez, para fixar
+a87476c8 No fim desta lição, você vai saber dizer
+2a20c750 Conversa
+62a063a2 Ouvir tudo
+76b0e210 Da lição {0}
+ba203e07 Escreva sua resposta aqui, ou diga em voz alta
+3ae5ff6e Sua resposta
+c63ce1c1 Conferir com IA
+faed9e0c Ver respostas de exemplo
+f02acd47 Parece certo!
+5d51c1f2 Uma sugestão:
+059c3e8c Por exemplo:
+5d3ba53e Você conseguiu dizer algo assim?
+61dda140 Perguntas das lições que você já fez, primeiro as mais antigas e as que você achou mais difíceis. Puxar da memória é o que faz fixar.
