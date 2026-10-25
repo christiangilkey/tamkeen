@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "ja": {
+   "file": "ja/course.json",
+   "title": "Japanese basics",
+   "variety": "Standard Japanese, polite です/ます style",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 9064,
+   "audio_bytes": 216528,
+   "sha256": "7727a4e678dadb352bae19bbed4f6524b03dceeec652c154af2932c6c03b9b11",
+   "voice": {
+    "engine": "azure",
+    "name": "Nanami (Azure, Japan)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

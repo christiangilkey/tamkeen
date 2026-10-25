@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "ja",
+ "title": "Japanese basics",
+ "variety": "Standard Japanese, polite です/ます style",
+ "about": "The most common words of written and spoken Japanese (wordfreq counts, grouped by dictionary word with the app's Japanese tokenizer and IPADIC: tools/course/ja/rank_ja.mjs), most common first, 50 to a unit. Names of people and places are left out, and so are verb endings such as ます and た. Each word has one short everyday sentence that uses it the way native speakers do, in the polite です/ます style unless a plain form is what people really say, with its English translation; the meaning gives the reading in kana for words written with kanji, and ⟦ ⟧ marks the part of the translation that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Nanami (Azure, Japan)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "の",
+   "pos": "part",
+   "meaning": "'s; of (joins two nouns)",
+   "sentence": "これは母の車です。",
+   "translation": "This is my mother⟦'s⟧ car.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.295,
+    "sent_start": 1.195,
+    "sent_end": 2.97
+   }
+  },
+  {
+   "n": 2,
+   "word": "に",
+   "pos": "part",
+   "meaning": "at; in; to (a time, a place, where something goes)",
+   "sentence": "毎朝六時に起きます。",
+   "translation": "I get up ⟦at⟧ six every morning.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.288,
+    "sent_start": 1.188,
+    "sent_end": 3.125
+   }
+  },
+  {
+   "n": 3,
+   "word": "は",
+   "pos": "part",
+   "meaning": "as for (marks what the sentence is about; said わ)",
+   "sentence": "私はコーヒーにします。",
+   "translation": "⟦As for me,⟧ I'll have coffee.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.279,
+    "sent_start": 1.179,
+    "sent_end": 3.024
+   }
+  },
+  {
+   "n": 4,
+   "word": "が",
+   "pos": "part",
+   "meaning": "(marks who or what does something); but",
+   "sentence": "電話が鳴っています。",
+   "translation": "⟦The phone⟧ is ringing.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.27,
+    "sent_start": 1.17,
+    "sent_end": 2.57
+   }
+  },
+  {
+   "n": 5,
+   "word": "を",
+   "pos": "part",
+   "meaning": "(marks the object of a verb; said お)",
+   "sentence": "毎朝コーヒーを飲みます。",
+   "translation": "I drink ⟦coffee⟧ every morning.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.246,
+    "sent_start": 1.146,
+    "sent_end": 3.185
+   }
+  },
+  {
+   "n": 6,
+   "word": "する",
+   "pos": "verb",
+   "meaning": "to do",
+   "sentence": "宿題をしましたか。",
+   "translation": "Did you ⟦do⟧ your homework?",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.46,
+    "sent_start": 1.36,
+    "sent_end": 2.891
+   }
+  },
+  {
+   "n": 7,
+   "word": "で",
+   "pos": "part",
+   "meaning": "at; in (where something happens); by (means)",
+   "sentence": "駅で待っています。",
+   "translation": "I'm waiting ⟦at⟧ the station.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.291,
+    "sent_start": 1.191,
+    "sent_end": 2.482
+   }
+  },
+  {
+   "n": 8,
+   "word": "と",
+   "pos": "part",
+   "meaning": "and; with",
+   "sentence": "友達と映画を見ました。",
+   "translation": "I saw a movie ⟦with⟧ a friend.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.25,
+    "sent_start": 1.15,
+    "sent_end": 3.001
+   }
+  },
+  {
+   "n": 9,
+   "word": "ない",
+   "pos": "adj",
+   "meaning": "not; there is no",
+   "sentence": "今日は時間がないです。",
+   "translation": "I ⟦have no⟧ time today.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.446,
+    "sent_start": 1.346,
+    "sent_end": 2.986
+   }
+  },
+  {
+   "n": 10,
+   "word": "だ",
+   "pos": "aux",
+   "meaning": "is; am; are (plain form of です)",
+   "sentence": "あ、雨だ。",
+   "translation": "Oh, ⟦it's⟧ raining.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.295,
+    "sent_start": 1.195,
+    "sent_end": 2.29
+   }
+  },
+  {
+   "n": 11,
+   "word": "も",
+   "pos": "part",
+   "meaning": "too; also",
+   "sentence": "私も行きます。",
+   "translation": "I'll go ⟦too⟧.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.304,
+    "sent_start": 1.204,
+    "sent_end": 2.442
+   }
+  },
+  {
+   "n": 12,
+   "word": "か",
+   "pos": "part",
+   "meaning": "(makes a question)",
+   "sentence": "日本語がわかりますか。",
+   "translation": "⟦Do⟧ you understand Japanese?",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.274,
+    "sent_start": 1.174,
+    "sent_end": 2.885
+   }
+  },
+  {
+   "n": 13,
+   "word": "いる",
+   "pos": "verb",
+   "meaning": "to be (somewhere: people and animals)",
+   "sentence": "今どこにいますか。",
+   "translation": "Where ⟦are⟧ you now?",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.426,
+    "sent_start": 1.326,
+    "sent_end": 2.881
+   }
+  },
+  {
+   "n": 14,
+   "word": "です",
+   "pos": "aux",
+   "meaning": "is; am; are (polite)",
+   "sentence": "これはいくらですか。",
+   "translation": "How much ⟦is⟧ this?",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.434,
+    "sent_start": 1.334,
+    "sent_end": 2.781
+   }
+  },
+  {
+   "n": 15,
+   "word": "から",
+   "pos": "part",
+   "meaning": "from; because",
+   "sentence": "どこから来ましたか。",
+   "translation": "Where did you come ⟦from⟧?",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.414,
+    "sent_start": 1.314,
+    "sent_end": 2.796
+   }
+  },
+  {
+   "n": 16,
+   "word": "よ",
+   "pos": "part",
+   "meaning": "(ends a sentence: I'm telling you)",
+   "sentence": "これ、おいしいですよ。",
+   "translation": "This is delicious, ⟦you know⟧.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.317,
+    "sent_start": 1.217,
+    "sent_end": 2.946
+   }
+  },
+  {
+   "n": 17,
+   "word": "ある",
+   "pos": "verb",
+   "meaning": "to be, to exist (things); to have",
+   "sentence": "近くにコンビニがあります。",
+   "translation": "⟦There's⟧ a convenience store nearby.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.395,
+    "sent_start": 1.295,
+    "sent_end": 3.321
+   }
+  },
+  {
+   "n": 18,
+   "word": "なる",
+   "pos": "verb",
+   "meaning": "to become",
+   "sentence": "医者になりたいです。",
+   "translation": "I want to ⟦become⟧ a doctor.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.413,
+    "sent_start": 1.313,
+    "sent_end": 2.683
+   }
+  },
+  {
+   "n": 19,
+   "word": "こと",
+   "pos": "noun",
+   "meaning": "thing (something said or done); matter",
+   "sentence": "今日はいいことがありました。",
+   "translation": "⟦Something⟧ good happened today.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.465,
+    "sent_start": 1.365,
+    "sent_end": 3.243
+   }
+  },
+  {
+   "n": 20,
+   "word": "ね",
+   "pos": "part",
+   "meaning": "(ends a sentence: isn't it?, right?)",
+   "sentence": "今日は暑いですね。",
+   "translation": "It's hot today, ⟦isn't it⟧?",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.295,
+    "sent_start": 1.195,
+    "sent_end": 2.614
+   }
+  }
+ ]
+}
