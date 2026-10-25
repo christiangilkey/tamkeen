@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "fa",
+ "title": "Persian basics",
+ "variety": "Iranian Persian (standard written)",
+ "about": "The most common words of written and spoken Persian (wordfreq counts, grouped by dictionary word with tools/course/fa/rank.mjs), most common first, 50 to a unit. Names of people and places are left out, and verbs are listed by their infinitive. Each word has one short everyday sentence in standard written Iranian Persian, with its English translation; ⟦ ⟧ marks the part that translates the word. The romanisation in brackets follows Tehran speech: â as in 'father', a as in 'cat', e as in 'bed', o as in 'go', i as in 'see', u as in 'food'; kh and gh are said in the throat, and ' is a catch in the voice.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Dilara (Azure, Iran)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "و",
+   "pos": "conj",
+   "meaning": "(va) and",
+   "sentence": "من چای و قهوه دوست دارم.",
+   "translation": "I like tea ⟦and⟧ coffee.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.422,
+    "sent_start": 1.322,
+    "sent_end": 2.987
+   }
+  },
+  {
+   "n": 2,
+   "word": "به",
+   "pos": "prep",
+   "meaning": "(be) to",
+   "sentence": "هر روز به مدرسه می‌روم.",
+   "translation": "I go ⟦to⟧ school every day.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.312,
+    "sent_start": 1.212,
+    "sent_end": 2.778
+   }
+  },
+  {
+   "n": 3,
+   "word": "در",
+   "pos": "prep",
+   "meaning": "(dar) in; at",
+   "sentence": "من در یک شهر کوچک زندگی می‌کنم.",
+   "translation": "I live ⟦in⟧ a small town.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.426,
+    "sent_start": 1.326,
+    "sent_end": 3.686
+   }
+  },
+  {
+   "n": 4,
+   "word": "از",
+   "pos": "prep",
+   "meaning": "(az) from; of",
+   "sentence": "من از ایران هستم.",
+   "translation": "I am ⟦from⟧ Iran.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.367,
+    "sent_start": 1.267,
+    "sent_end": 2.449
+   }
+  },
+  {
+   "n": 5,
+   "word": "که",
+   "pos": "conj",
+   "meaning": "(ke) that; who; which",
+   "sentence": "کتابی که خریدم خیلی خوب است.",
+   "translation": "The book ⟦that⟧ I bought is very good.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.342,
+    "sent_start": 1.242,
+    "sent_end": 3.307
+   }
+  },
+  {
+   "n": 6,
+   "word": "کردن",
+   "pos": "verb",
+   "meaning": "(kardan) to do; to make",
+   "sentence": "امروز چه کار کردی؟",
+   "translation": "What did you ⟦do⟧ today?",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.539,
+    "sent_start": 1.439,
+    "sent_end": 2.783
+   }
+  },
+  {
+   "n": 7,
+   "word": "بودن",
+   "pos": "verb",
+   "meaning": "(budan) to be",
+   "sentence": "هوا امروز خیلی سرد است.",
+   "translation": "The weather ⟦is⟧ very cold today.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.445,
+    "sent_start": 1.345,
+    "sent_end": 3.124
+   }
+  },
+  {
+   "n": 8,
+   "word": "این",
+   "pos": "pron",
+   "meaning": "(in) this",
+   "sentence": "این کتاب مال من است.",
+   "translation": "⟦This⟧ book is mine.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.344,
+    "sent_start": 1.244,
+    "sent_end": 2.62
+   }
+  },
+  {
+   "n": 9,
+   "word": "شدن",
+   "pos": "verb",
+   "meaning": "(shodan) to become; to get",
+   "sentence": "هوا تاریک شد.",
+   "translation": "It ⟦got⟧ dark.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.516,
+    "sent_start": 1.416,
+    "sent_end": 2.559
+   }
+  },
+  {
+   "n": 10,
+   "word": "با",
+   "pos": "prep",
+   "meaning": "(bâ) with",
+   "sentence": "با دوستم به سینما رفتم.",
+   "translation": "I went to the cinema ⟦with⟧ my friend.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.363,
+    "sent_start": 1.263,
+    "sent_end": 2.813
+   }
+  },
+  {
+   "n": 11,
+   "word": "داشتن",
+   "pos": "verb",
+   "meaning": "(dâshtan) to have",
+   "sentence": "من دو برادر دارم.",
+   "translation": "I ⟦have⟧ two brothers.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.563,
+    "sent_start": 1.463,
+    "sent_end": 2.694
+   }
+  },
+  {
+   "n": 12,
+   "word": "را",
+   "pos": "part",
+   "meaning": "(râ) marks the object of a verb (often 'the')",
+   "sentence": "کتاب را روی میز گذاشتم.",
+   "translation": "I put ⟦the⟧ book on the table.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.417,
+    "sent_start": 1.317,
+    "sent_end": 2.878
+   }
+  },
+  {
+   "n": 13,
+   "word": "یک",
+   "pos": "num",
+   "meaning": "(yek) one; a",
+   "sentence": "یک لیوان آب می‌خواهم.",
+   "translation": "I'd like ⟦a⟧ glass of water.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.482,
+    "sent_start": 1.382,
+    "sent_end": 2.791
+   }
+  },
+  {
+   "n": 14,
+   "word": "من",
+   "pos": "pron",
+   "meaning": "(man) I; me",
+   "sentence": "من دانشجو هستم.",
+   "translation": "⟦I⟧ am a student.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.388,
+    "sent_start": 1.288,
+    "sent_end": 2.532
+   }
+  },
+  {
+   "n": 15,
+   "word": "برای",
+   "pos": "prep",
+   "meaning": "(barâye) for",
+   "sentence": "این هدیه برای توست.",
+   "translation": "This present is ⟦for⟧ you.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.545,
+    "sent_start": 1.445,
+    "sent_end": 2.945
+   }
+  },
+  {
+   "n": 16,
+   "word": "تو",
+   "pos": "pron",
+   "meaning": "(to) you (one person, familiar)",
+   "sentence": "تو کجا زندگی می‌کنی؟",
+   "translation": "Where do ⟦you⟧ live?",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.333,
+    "sent_start": 1.233,
+    "sent_end": 2.628
+   }
+  },
+  {
+   "n": 17,
+   "word": "آن",
+   "pos": "pron",
+   "meaning": "(ân) that",
+   "sentence": "آن خانه خیلی بزرگ است.",
+   "translation": "⟦That⟧ house is very big.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.397,
+    "sent_start": 1.297,
+    "sent_end": 2.977
+   }
+  },
+  {
+   "n": 18,
+   "word": "هم",
+   "pos": "adv",
+   "meaning": "(ham) also; too",
+   "sentence": "من هم می‌آیم.",
+   "translation": "I'm coming ⟦too⟧.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.392,
+    "sent_start": 1.292,
+    "sent_end": 2.198
+   }
+  },
+  {
+   "n": 19,
+   "word": "دادن",
+   "pos": "verb",
+   "meaning": "(dâdan) to give",
+   "sentence": "پدرم به من یک هدیه داد.",
+   "translation": "My father ⟦gave⟧ me a present.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.488,
+    "sent_start": 1.388,
+    "sent_end": 3.026
+   }
+  },
+  {
+   "n": 20,
+   "word": "تا",
+   "pos": "prep",
+   "meaning": "(tâ) until; till",
+   "sentence": "از صبح تا شب کار می‌کنم.",
+   "translation": "I work from morning ⟦till⟧ night.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.368,
+    "sent_start": 1.268,
+    "sent_end": 2.87
+   }
+  }
+ ]
+}

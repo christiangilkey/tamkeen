@@ -1,0 +1,193 @@
+{
+  "lang": "fa",
+  "title": "Persian basics",
+  "variety": "Iranian Persian (standard written)",
+  "about": "The most common words of written and spoken Persian (wordfreq counts, grouped by dictionary word with tools/course/fa/rank.mjs), most common first, 50 to a unit. Names of people and places are left out, and verbs are listed by their infinitive. Each word has one short everyday sentence in standard written Iranian Persian, with its English translation; ⟦ ⟧ marks the part that translates the word. The romanisation in brackets follows Tehran speech: â as in 'father', a as in 'cat', e as in 'bed', o as in 'go', i as in 'see', u as in 'food'; kh and gh are said in the throat, and ' is a catch in the voice.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "و",
+      "pos": "conj",
+      "meaning": "(va) and",
+      "sentence": "من چای و قهوه دوست دارم.",
+      "translation": "I like tea ⟦and⟧ coffee."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "به",
+      "pos": "prep",
+      "meaning": "(be) to",
+      "sentence": "هر روز به مدرسه می‌روم.",
+      "translation": "I go ⟦to⟧ school every day."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "در",
+      "pos": "prep",
+      "meaning": "(dar) in; at",
+      "sentence": "من در یک شهر کوچک زندگی می‌کنم.",
+      "translation": "I live ⟦in⟧ a small town."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "از",
+      "pos": "prep",
+      "meaning": "(az) from; of",
+      "sentence": "من از ایران هستم.",
+      "translation": "I am ⟦from⟧ Iran."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "که",
+      "pos": "conj",
+      "meaning": "(ke) that; who; which",
+      "sentence": "کتابی که خریدم خیلی خوب است.",
+      "translation": "The book ⟦that⟧ I bought is very good."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "کردن",
+      "pos": "verb",
+      "meaning": "(kardan) to do; to make",
+      "sentence": "امروز چه کار کردی؟",
+      "translation": "What did you ⟦do⟧ today?",
+      "form": "کردی"
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "بودن",
+      "pos": "verb",
+      "meaning": "(budan) to be",
+      "sentence": "هوا امروز خیلی سرد است.",
+      "translation": "The weather ⟦is⟧ very cold today.",
+      "form": "است"
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "این",
+      "pos": "pron",
+      "meaning": "(in) this",
+      "sentence": "این کتاب مال من است.",
+      "translation": "⟦This⟧ book is mine."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "شدن",
+      "pos": "verb",
+      "meaning": "(shodan) to become; to get",
+      "sentence": "هوا تاریک شد.",
+      "translation": "It ⟦got⟧ dark.",
+      "form": "شد"
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "با",
+      "pos": "prep",
+      "meaning": "(bâ) with",
+      "sentence": "با دوستم به سینما رفتم.",
+      "translation": "I went to the cinema ⟦with⟧ my friend."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "داشتن",
+      "pos": "verb",
+      "meaning": "(dâshtan) to have",
+      "sentence": "من دو برادر دارم.",
+      "translation": "I ⟦have⟧ two brothers.",
+      "form": "دارم"
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "را",
+      "pos": "part",
+      "meaning": "(râ) marks the object of a verb (often 'the')",
+      "sentence": "کتاب را روی میز گذاشتم.",
+      "translation": "I put ⟦the⟧ book on the table."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "یک",
+      "pos": "num",
+      "meaning": "(yek) one; a",
+      "sentence": "یک لیوان آب می‌خواهم.",
+      "translation": "I'd like ⟦a⟧ glass of water."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "من",
+      "pos": "pron",
+      "meaning": "(man) I; me",
+      "sentence": "من دانشجو هستم.",
+      "translation": "⟦I⟧ am a student."
+    },
+    {
+      "n": 15,
+      "rank": 17,
+      "word": "برای",
+      "pos": "prep",
+      "meaning": "(barâye) for",
+      "sentence": "این هدیه برای توست.",
+      "translation": "This present is ⟦for⟧ you."
+    },
+    {
+      "n": 16,
+      "rank": 18,
+      "word": "تو",
+      "pos": "pron",
+      "meaning": "(to) you (one person, familiar)",
+      "sentence": "تو کجا زندگی می‌کنی؟",
+      "translation": "Where do ⟦you⟧ live?"
+    },
+    {
+      "n": 17,
+      "rank": 19,
+      "word": "آن",
+      "pos": "pron",
+      "meaning": "(ân) that",
+      "sentence": "آن خانه خیلی بزرگ است.",
+      "translation": "⟦That⟧ house is very big."
+    },
+    {
+      "n": 18,
+      "rank": 20,
+      "word": "هم",
+      "pos": "adv",
+      "meaning": "(ham) also; too",
+      "sentence": "من هم می‌آیم.",
+      "translation": "I'm coming ⟦too⟧."
+    },
+    {
+      "n": 19,
+      "rank": 22,
+      "word": "دادن",
+      "pos": "verb",
+      "meaning": "(dâdan) to give",
+      "sentence": "پدرم به من یک هدیه داد.",
+      "translation": "My father ⟦gave⟧ me a present.",
+      "form": "داد"
+    },
+    {
+      "n": 20,
+      "rank": 23,
+      "word": "تا",
+      "pos": "prep",
+      "meaning": "(tâ) until; till",
+      "sentence": "از صبح تا شب کار می‌کنم.",
+      "translation": "I work from morning ⟦till⟧ night."
+    }
+  ]
+}
