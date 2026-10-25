@@ -29,7 +29,7 @@ const ALSO = {
   看: ["kan4", "kan1"], 难: ["nan2", "nan4"], 背: ["bei4", "bei1"], 倒: ["dao3", "dao4"], 系: ["xi4", "ji4"], 待: ["dai4", "dai1"],
   兴: ["xing4", "xing1"], 当: ["dang1", "dang4"], 正: ["zheng4", "zheng1"], 中: ["zhong1", "zhong4"], 一: ["yi1"], 不: ["bu4"],
   上: ["shang4"], 下: ["xia4"], 里: ["li3"], 头: ["tou2"], 过: ["guo4"], 么: ["me0"], 们: ["men0"], 子: ["zi3"], 个: ["ge4"],
-  儿: ["er2", "r0"], 喂: ["wei2"], 喝: ["he1"], 汤: ["tang1"], 累: ["lei4"], 几: ["ji3"],
+  儿: ["er2", "r0"], 喂: ["wei2"], 喝: ["he1"], 汤: ["tang1"], 累: ["lei4"], 几: ["ji3"], 骑: ["qi2"],
 };
 // Characters that are often said with a neutral tone in a phrase (个 after a number, 上 after a noun,
 // a direction after a verb, 不 inside 看不懂…), so pinyin without a mark is fine for them.

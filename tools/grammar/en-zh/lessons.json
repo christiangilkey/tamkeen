@@ -622,6 +622,312 @@
         {"type":"say","q":"Ask a stranger politely: “Excuse me, is there a bank nearby?”","answer":"请问，附近有银行吗？","r":"Qǐngwèn, fùjìn yǒu yínháng ma?"},
         {"type":"free","q":"Your turn: describe your street or neighbourhood. What is there, and what isn't there?","answers":[{"t":"我家附近有一个超市和一个公园，没有地铁站。","r":"Wǒ jiā fùjìn yǒu yí ge chāoshì hé yí ge gōngyuán, méiyǒu dìtiězhàn.","tr":"Near my home there's a supermarket and a park, but no subway station."},{"t":"我们街上有很多咖啡馆，没有银行。","r":"Wǒmen jiē shang yǒu hěn duō kāfēiguǎn, méiyǒu yínháng.","tr":"There are lots of cafés on our street, but no bank."}]}
       ]
+    },
+    {
+      "id": "say-when",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say when: days, dates and times",
+      "summary": "Say what day and time it is, give dates, and put “when” in its Chinese place: “I'm going to Beijing tomorrow.”",
+      "topic": "{{今天|jīntiān}}, {{星期一|xīngqīyī}}, {{几月几号|jǐ yuè jǐ hào}}, {{几点|jǐ diǎn}}; from big to small; the time before the verb",
+      "blocks": [
+        {"goal":{"t":"我明天去北京。","r":"Wǒ míngtiān qù Běijīng.","tr":"I'm going to Beijing tomorrow."}},
+        {"dialog":[{"who":"Xiao Lin","t":"今天星期几？","r":"Jīntiān xīngqī jǐ?","tr":"What day is it today?"},{"who":"Anna","t":"今天星期五。","r":"Jīntiān xīngqīwǔ.","tr":"It's Friday."},{"who":"Xiao Lin","t":"你几点上课？","r":"Nǐ jǐ diǎn shàngkè?","tr":"What time is your class?"},{"who":"Anna","t":"我下午两点上课。","r":"Wǒ xiàwǔ liǎng diǎn shàngkè.","tr":"My class is at two in the afternoon."},{"who":"Xiao Lin","t":"我们晚上七点见，好吗？","r":"Wǒmen wǎnshang qī diǎn jiàn, hǎo ma?","tr":"Let's meet at seven this evening, OK?"},{"who":"Anna","t":"好！晚上见！","r":"Hǎo! Wǎnshang jiàn!","tr":"OK! See you tonight!"}]},
+        {"p":"**The days of the week are numbered.** {{星期|xīngqī}} “week” + a number: {{星期一|xīngqīyī}} Monday (“week one”), {{星期二|xīngqī'èr}} Tuesday, and so on to {{星期六|xīngqīliù}} Saturday. Sunday is {{星期天|xīngqītiān}}. “What day?” is {{星期几？|xīngqī jǐ?}}"},
+        { "table": [
+          ["English","Chinese"],
+          ["today","{{今天|jīntiān}}"],
+          ["tomorrow","{{明天|míngtiān}}"],
+          ["yesterday","{{昨天|zuótiān}}"],
+          ["morning","{{早上|zǎoshang}}"],
+          ["afternoon","{{下午|xiàwǔ}}"],
+          ["evening","{{晚上|wǎnshang}}"],
+          ["weekend","{{周末|zhōumò}}"]
+        ] },
+        {"p":"**Dates go from big to small**: year, month, day. Months are numbered too: {{一月|yīyuè}} January, {{十月|shíyuè}} October. The day is {{号|hào}}: {{十月二十四号|shíyuè èrshísì hào}} “24 October”. A year is read digit by digit: {{二〇二六年|èr líng èr liù nián}} 2026."},
+        {"p":"**Clock times**: {{点|diǎn}} “o'clock”, {{半|bàn}} “half past”, {{分|fēn}} “minutes”: {{三点|sān diǎn}} 3:00, {{三点半|sān diǎn bàn}} 3:30, {{三点十分|sān diǎn shí fēn}} 3:10. Two o'clock is {{两点|liǎng diǎn}}. Big to small again: {{明天下午三点|míngtiān xiàwǔ sān diǎn}} “at three tomorrow afternoon”."},
+        {"p":"**When goes before the verb.** English puts “tomorrow” at the end; Chinese puts the time after the person, or right at the start, and never after the verb: {{我明天去北京。|Wǒ míngtiān qù Běijīng.}} or {{明天我去北京。|Míngtiān wǒ qù Běijīng.}} Like prices and ages, days and times need no {{是|shì}}: {{今天星期五。|Jīntiān xīngqīwǔ.}} (With a longer subject people often add it: {{我的生日是三月十五号。|Wǒ de shēngrì shì sānyuè shíwǔ hào.}} Both are fine.)"},
+        { "ex": [
+          {"t":"今天几号？","r":"Jīntiān jǐ hào?","tr":"What's the date today?"},
+          {"t":"现在几点？","r":"Xiànzài jǐ diǎn?","tr":"What time is it?"},
+          {"t":"现在八点半。","r":"Xiànzài bā diǎn bàn.","tr":"It's half past eight."},
+          {"t":"我星期六工作。","r":"Wǒ xīngqīliù gōngzuò.","tr":"I work on Saturdays."},
+          {"t":"我们星期天见。","r":"Wǒmen xīngqītiān jiàn.","tr":"See you on Sunday."},
+          {"t":"他晚上十点睡觉。","r":"Tā wǎnshang shí diǎn shuìjiào.","tr":"He goes to bed at ten at night."}
+        ] },
+        {"tip":"Phone numbers, room numbers and years are read digit by digit, and 1 is often said {{幺|yāo}} so it can't be mistaken for 7: {{房间幺零八|fángjiān yāo líng bā}} “room 108”."}
+      ],
+      "mistakes": [
+        {"wrong":"我去北京明天。","right":"我明天去北京。","tr":"I'm going to Beijing tomorrow.","why":"The time comes before the verb, never at the end: {{我明天去北京。|Wǒ míngtiān qù Běijīng.}}"},
+        {"wrong":"二十四号十月","right":"十月二十四号","tr":"24 October","why":"From big to small: the month, then the day: {{十月二十四号|shíyuè èrshísì hào}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我们晚上七___见。","r":"Wǒmen wǎnshang qī ___ jiàn.","tr":"See you at seven this evening.","options":["点","号","月"],"rs":["diǎn","hào","yuè"],"answer":0,"why":"O'clock is {{点|diǎn}}. ({{号|hào}} is the day of the month, {{月|yuè}} the month.)"},
+        {"type":"choice","q":"{{星期三|xīngqīsān}} is…","options":["Monday","Wednesday","March"],"answer":1,"why":"“Week three”: the third day after Sunday. (March is {{三月|sānyuè}}.)"},
+        {"type":"choice","q":"Which one says “I work tomorrow”?","options":["{{我明天工作。|Wǒ míngtiān gōngzuò.}}","{{我工作明天。|Wǒ gōngzuò míngtiān.}}"],"answer":0,"why":"When comes before the verb."},
+        {"type":"dialogue","q":"Making a date with a friend. Choose your replies.","lines":[{"who":"Friend","t":"你明天几点下班？","r":"Nǐ míngtiān jǐ diǎn xiàbān?","tr":"What time do you finish work tomorrow?"},{"options":["我五点半下班。","我下班五点半。"],"rs":["Wǒ wǔ diǎn bàn xiàbān.","Wǒ xiàbān wǔ diǎn bàn."],"answer":0,"why":"The time before the verb: {{五点半下班|wǔ diǎn bàn xiàbān}}."},{"who":"Friend","t":"我们六点见，好吗？","r":"Wǒmen liù diǎn jiàn, hǎo ma?","tr":"Shall we meet at six?"},{"options":["好！明天见！","好！见明天！"],"rs":["Hǎo! Míngtiān jiàn!","Hǎo! Jiàn míngtiān!"],"answer":0,"why":"“See you tomorrow” is {{明天见|míngtiān jiàn}}, “tomorrow meet”."}],"from":"ask-who-what-where"},
+        {"type":"order","q":"Put the words in order.","tr":"It's half past eight.","words":["现在","八点","半。"],"rs":["xiànzài","bā diǎn","bàn."]},
+        {"type":"say","q":"Say “Today is Friday, 24 October.”","answer":"今天十月二十四号，星期五。","r":"Jīntiān shíyuè èrshísì hào, xīngqīwǔ.","from":"ask-how-much"},
+        {"type":"free","q":"Your turn: when is your birthday, and what time do you get up?","answers":[{"t":"我的生日是三月十五号。我早上七点起床。","r":"Wǒ de shēngrì shì sānyuè shíwǔ hào. Wǒ zǎoshang qī diǎn qǐchuáng.","tr":"My birthday is March 15th. I get up at seven in the morning."},{"t":"我的生日是十二月一号。我六点半起床。","r":"Wǒ de shēngrì shì shí'èryuè yī hào. Wǒ liù diǎn bàn qǐchuáng.","tr":"My birthday is December 1st. I get up at half past six."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-do-things",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say where you do things",
+      "summary": "“I work in a bank”, “We're eating at home”: say where you do things, in the order Chinese always uses: who, when, where, what.",
+      "topic": "{{在|zài}} + a place + a verb; the order: who + when + where + does what",
+      "blocks": [
+        {"goal":{"t":"我在银行工作。","r":"Wǒ zài yínháng gōngzuò.","tr":"I work in a bank."}},
+        {"dialog":[{"who":"Xiao Zhang","t":"你在哪儿工作？","r":"Nǐ zài nǎr gōngzuò?","tr":"Where do you work?"},{"who":"Mark","t":"我在一家公司工作。你呢？","r":"Wǒ zài yì jiā gōngsī gōngzuò. Nǐ ne?","tr":"I work for a company. And you?"},{"who":"Xiao Zhang","t":"我在医院工作，我是护士。","r":"Wǒ zài yīyuàn gōngzuò, wǒ shì hùshi.","tr":"I work in a hospital, I'm a nurse."},{"who":"Mark","t":"你每天在医院吃饭吗？","r":"Nǐ měitiān zài yīyuàn chīfàn ma?","tr":"Do you eat at the hospital every day?"},{"who":"Xiao Zhang","t":"不，我中午在家吃饭。","r":"Bù, wǒ zhōngwǔ zài jiā chīfàn.","tr":"No, I eat at home at lunchtime."}]},
+        {"p":"**Where you do it goes before the verb.** In the last lessons {{在|zài}} was the verb (“to be at”). Put an action after the place, and {{在|zài}} becomes “at, in”: {{我在银行工作。|Wǒ zài yínháng gōngzuò.}} “I work in a bank” (“I at bank work”). The place always comes before the action, never after it as in English."},
+        {"term":"subject","means":"the person or thing a sentence is about, usually the one doing something: “I” in “I drink tea”."},
+        {"term":"object","means":"the person or thing the action is done to: “tea” in “I drink tea”."},
+        {"p":"**The order of a Chinese sentence**: who (the subject), when, where, the verb, then what (the object)."},
+        { "table": [
+          ["Who","When","Where","Does","What"],
+          ["{{我|wǒ}}","{{明天|míngtiān}}","{{在家|zài jiā}}","{{看|kàn}}","{{书|shū}}"],
+          ["{{他|tā}}","{{每天|měitiān}}","{{在公司|zài gōngsī}}","{{吃|chī}}","{{午饭|wǔfàn}}"],
+          ["{{我们|wǒmen}}","{{晚上|wǎnshang}}","{{在饭馆|zài fànguǎn}}","{{吃|chī}}","{{饺子|jiǎozi}}"]
+        ] },
+        {"p":"The time can also go first, before the person: {{明天我在家看书。|Míngtiān wǒ zài jiā kàn shū.}} But the place stays just before the verb. **Not** goes before the place: {{我不在家吃饭。|Wǒ bú zài jiā chīfàn.}} “I don't eat at home.”"},
+        { "ex": [
+          {"t":"我在银行工作。","r":"Wǒ zài yínháng gōngzuò.","tr":"I work in a bank."},
+          {"t":"你在哪儿学中文？","r":"Nǐ zài nǎr xué Zhōngwén?","tr":"Where do you learn Chinese?"},
+          {"t":"我们今天在饭馆吃饭。","r":"Wǒmen jīntiān zài fànguǎn chīfàn.","tr":"We're eating out at a restaurant today."},
+          {"t":"我明天在家看书。","r":"Wǒ míngtiān zài jiā kàn shū.","tr":"Tomorrow I'll read at home."},
+          {"t":"他每天在公司吃午饭。","r":"Tā měitiān zài gōngsī chī wǔfàn.","tr":"He has lunch at the office every day."},
+          {"t":"我不在家吃饭。","r":"Wǒ bú zài jiā chīfàn.","tr":"I don't eat at home."}
+        ] },
+        {"tip":"One common exception: with {{住|zhù}} “live”, the place usually comes after: {{我住在上海。|Wǒ zhù zài Shànghǎi.}} “I live in Shanghai.” And {{家|jiā}} is also the measure word for companies, shops and restaurants: {{一家公司|yì jiā gōngsī}}."}
+      ],
+      "mistakes": [
+        {"wrong":"我工作在银行。","right":"我在银行工作。","tr":"I work in a bank.","why":"The place goes before the verb: {{我在银行工作。|Wǒ zài yínháng gōngzuò.}}"},
+        {"wrong":"我在家明天看书。","right":"我明天在家看书。","tr":"Tomorrow I'll read at home.","why":"When, then where: {{我明天在家看书。|Wǒ míngtiān zài jiā kàn shū.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"他___医院工作。","r":"Tā ___ yīyuàn gōngzuò.","tr":"He works in a hospital.","options":["在","是","有"],"rs":["zài","shì","yǒu"],"answer":0,"why":"Where you do something: {{在|zài}} + the place, before the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"I have lunch at home every day.","words":["我","每天","在家","吃","午饭。"],"rs":["wǒ","měitiān","zài jiā","chī","wǔfàn."],"also":[["每天","我","在家","吃","午饭。"]],"from":"say-when"},
+        {"type":"choice","q":"Which is right?","options":["{{我在公司明天工作。|Wǒ zài gōngsī míngtiān gōngzuò.}}","{{我明天在公司工作。|Wǒ míngtiān zài gōngsī gōngzuò.}}","{{我明天工作在公司。|Wǒ míngtiān gōngzuò zài gōngsī.}}"],"answer":1,"why":"Who, when, where, does."},
+        {"type":"dialogue","q":"A new colleague asks about you. Choose your replies.","lines":[{"who":"Colleague","t":"你在哪儿学中文？","r":"Nǐ zài nǎr xué Zhōngwén?","tr":"Where do you learn Chinese?"},{"options":["我在大学学中文。","我学中文在大学。"],"rs":["Wǒ zài dàxué xué Zhōngwén.","Wǒ xué Zhōngwén zài dàxué."],"answer":0,"why":"The place before the verb."},{"who":"Colleague","t":"你每天学吗？","r":"Nǐ měitiān xué ma?","tr":"Do you study every day?"},{"options":["对，我每天晚上在家学。","对，我在家每天晚上学。"],"rs":["Duì, wǒ měitiān wǎnshang zài jiā xué.","Duì, wǒ zài jiā měitiān wǎnshang xué."],"answer":0,"why":"When, then where, then the verb."},{"who":"Colleague","t":"太好了！","r":"Tài hǎo le!","tr":"Great!"}],"from":"ask-yes-or-no"},
+        {"type":"say","q":"Ask: “Where do you work?”","answer":"你在哪儿工作？","r":"Nǐ zài nǎr gōngzuò?","from":"ask-who-what-where"},
+        {"type":"free","q":"Your turn: say where you work or study, and where you have lunch.","answers":[{"t":"我在一家公司工作。我中午在公司吃饭。","r":"Wǒ zài yì jiā gōngsī gōngzuò. Wǒ zhōngwǔ zài gōngsī chīfàn.","tr":"I work for a company. I have lunch at the office."},{"t":"我在大学学习。我每天在家吃午饭。","r":"Wǒ zài dàxué xuéxí. Wǒ měitiān zài jiā chī wǔfàn.","tr":"I study at university. I have lunch at home every day."}]}
+      ]
+    },
+    {
+      "id": "describe-your-day",
+      "unit": 4,
+      "level": "A1",
+      "title": "Describe your day",
+      "summary": "“I take the subway to work”, “I'm going to the supermarket to buy food”, “First I have a coffee, then…”: put actions in a row.",
+      "topic": "Verbs in a row: {{去|qù}} + place + verb, {{坐|zuò}} + vehicle + {{去|qù}}; {{怎么|zěnme}} “how”; {{先…然后…|xiān… ránhòu…}}",
+      "blocks": [
+        {"goal":{"t":"我每天坐地铁去上班。","r":"Wǒ měitiān zuò dìtiě qù shàngbān.","tr":"I take the subway to work every day."}},
+        {"dialog":[{"who":"Xiao Wang","t":"你每天怎么去上班？","r":"Nǐ měitiān zěnme qù shàngbān?","tr":"How do you get to work every day?"},{"who":"Anna","t":"我坐地铁去。你呢？","r":"Wǒ zuò dìtiě qù. Nǐ ne?","tr":"I take the subway. And you?"},{"who":"Xiao Wang","t":"我骑自行车去。","r":"Wǒ qí zìxíngchē qù.","tr":"I go by bike."},{"who":"Anna","t":"你晚上做什么？","r":"Nǐ wǎnshang zuò shénme?","tr":"What do you do in the evenings?"},{"who":"Xiao Wang","t":"我先去超市买菜，然后回家做饭。","r":"Wǒ xiān qù chāoshì mǎi cài, ránhòu huí jiā zuò fàn.","tr":"First I go to the supermarket to buy food, then I go home and cook."}]},
+        {"p":"**Verbs in a row.** Chinese strings actions together in the order they happen, with no “to” or “and” between them: {{我去超市买东西。|Wǒ qù chāoshì mǎi dōngxi.}} “I'm going to the supermarket to buy some things” (“I go supermarket buy things”). The first action often says how or where; the next one says what for."},
+        { "table": [
+          ["Pattern","Chinese","Meaning"],
+          ["go + place + do","{{去超市买东西|qù chāoshì mǎi dōngxi}}","go to the supermarket to buy things"],
+          ["come + place + do","{{来中国学中文|lái Zhōngguó xué Zhōngwén}}","come to China to study Chinese"],
+          ["sit in + vehicle + go","{{坐地铁去|zuò dìtiě qù}}","go by subway"],
+          ["ride + bike + go","{{骑自行车去|qí zìxíngchē qù}}","go by bike"],
+          ["use + thing + do","{{用手机付钱|yòng shǒujī fù qián}}","pay with your phone"]
+        ] },
+        {"p":"**How?** {{怎么|zěnme}} + verb asks how something is done: {{你怎么去？|Nǐ zěnme qù?}} “How are you getting there?” **First…, then…** is {{先|xiān}}…, {{然后|ránhòu}}…: {{先|xiān}} goes before the first verb, and {{然后|ránhòu}} starts the next part."},
+        { "ex": [
+          {"t":"我每天坐地铁去上班。","r":"Wǒ měitiān zuò dìtiě qù shàngbān.","tr":"I take the subway to work every day."},
+          {"t":"我去超市买东西。","r":"Wǒ qù chāoshì mǎi dōngxi.","tr":"I'm going to the supermarket to buy some things."},
+          {"t":"他来中国学中文。","r":"Tā lái Zhōngguó xué Zhōngwén.","tr":"He's come to China to study Chinese."},
+          {"t":"我们坐飞机去上海。","r":"Wǒmen zuò fēijī qù Shànghǎi.","tr":"We're flying to Shanghai."},
+          {"t":"我早上先喝咖啡，然后去上班。","r":"Wǒ zǎoshang xiān hē kāfēi, ránhòu qù shàngbān.","tr":"In the morning I have a coffee first, then go to work."},
+          {"t":"你怎么回家？","r":"Nǐ zěnme huí jiā?","tr":"How are you getting home?"}
+        ] },
+        {"tip":"In China people pay for almost everything with their phones, {{用手机付钱|yòng shǒujī fù qián}}, by scanning a code: {{扫码|sǎo mǎ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"我去上班坐地铁。","right":"我坐地铁去上班。","tr":"I take the subway to work.","why":"How you go comes first, then where you go: {{我坐地铁去上班。|Wǒ zuò dìtiě qù shàngbān.}}"},
+        {"wrong":"我去超市和买东西。","right":"我去超市买东西。","tr":"I'm going to the supermarket to buy some things.","why":"No “and” or “to” between the actions, just one after the other. {{和|hé}} only joins nouns."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我___飞机去上海。","r":"Wǒ ___ fēijī qù Shànghǎi.","tr":"I'm flying to Shanghai.","options":["坐","在","是"],"rs":["zuò","zài","shì"],"answer":0,"why":"“By plane” is {{坐飞机|zuò fēijī}}, “sit (in a) plane”, then {{去|qù}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm going to the supermarket to buy some things.","words":["我","去","超市","买","东西。"],"rs":["wǒ","qù","chāoshì","mǎi","dōngxi."]},
+        {"type":"choice","q":"{{先吃饭，然后看电视|xiān chīfàn, ránhòu kàn diànshì}} means…","options":["eat and watch TV at the same time","eat first, then watch TV","watch TV first, then eat"],"answer":1,"why":"{{先|xiān}} “first”, {{然后|ránhòu}} “then”."},
+        {"type":"dialogue","q":"A colleague asks about your routine. Choose your replies.","lines":[{"who":"Colleague","t":"你每天怎么来公司？","r":"Nǐ měitiān zěnme lái gōngsī?","tr":"How do you get to the office every day?"},{"options":["我坐公交车来。","我来公交车坐。"],"rs":["Wǒ zuò gōngjiāochē lái.","Wǒ lái gōngjiāochē zuò."],"answer":0,"why":"How first ({{坐公交车|zuò gōngjiāochē}} “by bus”), then {{来|lái}}."},{"who":"Colleague","t":"你几点到？","r":"Nǐ jǐ diǎn dào?","tr":"What time do you get in?"},{"options":["我八点半到。","我到八点半。"],"rs":["Wǒ bā diǎn bàn dào.","Wǒ dào bā diǎn bàn."],"answer":0,"why":"The time comes before the verb."}],"from":"say-when"},
+        {"type":"say","q":"Say “I'm going to the café to have a coffee.”","answer":"我去咖啡馆喝咖啡。","r":"Wǒ qù kāfēiguǎn hē kāfēi.","from":"say-what-you-want"},
+        {"type":"free","q":"Your turn: describe your morning. How do you get to work or school, and what do you do first?","answers":[{"t":"我早上先吃早饭，然后坐地铁去上班。","r":"Wǒ zǎoshang xiān chī zǎofàn, ránhòu zuò dìtiě qù shàngbān.","tr":"In the morning I have breakfast first, then take the subway to work."},{"t":"我每天骑自行车去学校。我先喝咖啡，然后上课。","r":"Wǒ měitiān qí zìxíngchē qù xuéxiào. Wǒ xiān hē kāfēi, ránhòu shàngkè.","tr":"I cycle to school every day. First I have a coffee, then I go to class."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "“I really like Chinese food”, “I love watching films”, “Tea or coffee?”: say what you like and don't like, and ask people to choose.",
+      "topic": "{{喜欢|xǐhuan}} + a thing or a verb; {{爱|ài}}; {{最喜欢|zuì xǐhuan}}; {{还是|háishi}} “or” in questions",
+      "blocks": [
+        {"goal":{"t":"我很喜欢中国菜。","r":"Wǒ hěn xǐhuan Zhōngguó cài.","tr":"I really like Chinese food."}},
+        {"dialog":[{"who":"Xiao Li","t":"你喜欢喝茶还是喝咖啡？","r":"Nǐ xǐhuan hē chá háishi hē kāfēi?","tr":"Do you like tea or coffee?"},{"who":"Tom","t":"我喜欢喝咖啡。你呢？","r":"Wǒ xǐhuan hē kāfēi. Nǐ ne?","tr":"I like coffee. And you?"},{"who":"Xiao Li","t":"我不喜欢咖啡，我喜欢喝茶。周末你喜欢做什么？","r":"Wǒ bù xǐhuan kāfēi, wǒ xǐhuan hē chá. Zhōumò nǐ xǐhuan zuò shénme?","tr":"I don't like coffee, I like tea. What do you like doing at weekends?"},{"who":"Tom","t":"我喜欢看电影，也喜欢爬山。","r":"Wǒ xǐhuan kàn diànyǐng, yě xǐhuan pá shān.","tr":"I like watching films, and I like hiking too."},{"who":"Xiao Li","t":"我也是！","r":"Wǒ yě shì!","tr":"Me too!"}]},
+        {"p":"**{{喜欢|xǐhuan}} + a thing or an action.** {{我喜欢猫。|Wǒ xǐhuan māo.}} “I like cats.” {{我喜欢看书。|Wǒ xǐhuan kàn shū.}} “I like reading.” The action goes straight after {{喜欢|xǐhuan}}, with no “-ing” or “to”. {{很|hěn}} before it means “really”: {{我很喜欢|wǒ hěn xǐhuan}}. {{爱|ài}} “love” works the same way: {{我爱吃饺子。|Wǒ ài chī jiǎozi.}} “I love dumplings.”"},
+        {"p":"**Not**: {{不喜欢|bù xǐhuan}}. **Favourite**: {{最喜欢|zuì xǐhuan}} “like most”: {{我最喜欢夏天。|Wǒ zuì xǐhuan xiàtiān.}} “Summer is my favourite season.”"},
+        {"p":"**Tea or coffee?** In a question, “or” is {{还是|háishi}}, between the two choices: {{你喜欢茶还是咖啡？|Nǐ xǐhuan chá háishi kāfēi?}} There's no {{吗|ma}}: {{还是|háishi}} already asks. (In a statement, “or” is another word, for a later lesson.)"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["like","{{我喜欢中国菜。|Wǒ xǐhuan Zhōngguó cài.}}","I like Chinese food."],
+          ["like doing","{{我喜欢做饭。|Wǒ xǐhuan zuò fàn.}}","I like cooking."],
+          ["don't like","{{我不喜欢下雨天。|Wǒ bù xǐhuan xiàyǔ tiān.}}","I don't like rainy days."],
+          ["which?","{{你喜欢猫还是狗？|Nǐ xǐhuan māo háishi gǒu?}}","Do you prefer cats or dogs?"]
+        ] },
+        { "ex": [
+          {"t":"我很喜欢中国菜。","r":"Wǒ hěn xǐhuan Zhōngguó cài.","tr":"I really like Chinese food."},
+          {"t":"你喜欢做什么？","r":"Nǐ xǐhuan zuò shénme?","tr":"What do you like doing?"},
+          {"t":"我爱看电影。","r":"Wǒ ài kàn diànyǐng.","tr":"I love watching films."},
+          {"t":"他不喜欢吃辣的。","r":"Tā bù xǐhuan chī là de.","tr":"He doesn't like spicy food."},
+          {"t":"你要茶还是咖啡？","r":"Nǐ yào chá háishi kāfēi?","tr":"Would you like tea or coffee?"},
+          {"t":"我最喜欢周末！","r":"Wǒ zuì xǐhuan zhōumò!","tr":"Weekends are my favourite!"}
+        ] },
+        {"tip":"“Me too!” is {{我也是！|Wǒ yě shì!}}, and “Me neither” {{我也不喜欢。|Wǒ yě bù xǐhuan.}} “I don't like it either.”"}
+      ],
+      "mistakes": [
+        {"wrong":"你喜欢茶还是咖啡吗？","right":"你喜欢茶还是咖啡？","tr":"Do you like tea or coffee?","why":"{{还是|háishi}} already makes the question: no {{吗|ma}}."},
+        {"wrong":"我喜欢游泳很多。","right":"我很喜欢游泳。","tr":"I like swimming a lot.","why":"“A lot” is {{很|hěn}} before {{喜欢|xǐhuan}}: {{我很喜欢游泳。|Wǒ hěn xǐhuan yóuyǒng.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你喜欢猫___狗？","r":"Nǐ xǐhuan māo ___ gǒu?","tr":"Do you prefer cats or dogs?","options":["还是","和","吗"],"rs":["háishi","hé","ma"],"answer":0,"why":"“Or” in a question: {{还是|háishi}}. ({{和|hé}} is “and”.)"},
+        {"type":"choice","q":"“I like cooking” is…","options":["{{我喜欢做饭。|Wǒ xǐhuan zuò fàn.}}","{{我是喜欢做饭。|Wǒ shì xǐhuan zuò fàn.}}","{{我做饭喜欢。|Wǒ zuò fàn xǐhuan.}}"],"answer":0,"why":"The action goes straight after {{喜欢|xǐhuan}}."},
+        {"type":"dialogue","q":"A friend asks what you'd like to do tonight. Choose your replies.","lines":[{"who":"Friend","t":"你喜欢吃什么？","r":"Nǐ xǐhuan chī shénme?","tr":"What do you like to eat?"},{"options":["我很喜欢吃饺子。","我喜欢吃饺子很。"],"rs":["Wǒ hěn xǐhuan chī jiǎozi.","Wǒ xǐhuan chī jiǎozi hěn."],"answer":0,"why":"“Really like”: {{很|hěn}} before {{喜欢|xǐhuan}}."},{"who":"Friend","t":"你喜欢喝茶还是喝啤酒？","r":"Nǐ xǐhuan hē chá háishi hē píjiǔ?","tr":"Do you like tea or beer?"},{"options":["我喜欢喝啤酒。","我喜欢喝啤酒吗？"],"rs":["Wǒ xǐhuan hē píjiǔ.","Wǒ xǐhuan hē píjiǔ ma?"],"answer":0,"why":"Just answer with your choice."},{"who":"Friend","t":"好，我们去吃饺子、喝啤酒！","r":"Hǎo, wǒmen qù chī jiǎozi, hē píjiǔ!","tr":"Great, let's go for dumplings and beer!"}],"from":"describe-your-day"},
+        {"type":"order","q":"Put the words in order.","tr":"He doesn't like spicy food.","words":["他","不","喜欢","吃","辣的。"],"rs":["tā","bù","xǐhuan","chī","là de."]},
+        {"type":"say","q":"Your friend says {{我喜欢爬山。|Wǒ xǐhuan pá shān.}} You do too. Say “Me too!”","answer":"我也是！","r":"Wǒ yě shì!","from":"ask-yes-or-no"},
+        {"type":"free","q":"Your turn: say two things you like doing at the weekend, and one thing you don't like.","answers":[{"t":"周末我喜欢看电影，也喜欢做饭。我不喜欢早起。","r":"Zhōumò wǒ xǐhuan kàn diànyǐng, yě xǐhuan zuò fàn. Wǒ bù xǐhuan zǎo qǐ.","tr":"At weekends I like watching films, and cooking too. I don't like getting up early."},{"t":"我爱爬山，也喜欢喝咖啡。我不喜欢下雨天。","r":"Wǒ ài pá shān, yě xǐhuan hē kāfēi. Wǒ bù xǐhuan xiàyǔ tiān.","tr":"I love hiking, and I like coffee too. I don't like rainy days."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you can do",
+      "summary": "“I can swim”, “I can't come tomorrow”, “Can I sit here?”: Chinese has three words for “can”, one for each meaning.",
+      "topic": "{{会|huì}} (know how to), {{能|néng}} (be able to), {{可以|kěyǐ}} (be allowed to)",
+      "blocks": [
+        {"goal":{"t":"我会说一点儿中文。","r":"Wǒ huì shuō yìdiǎnr Zhōngwén.","tr":"I can speak a little Chinese."}},
+        {"dialog":[{"who":"Xiao Chen","t":"你会说中文吗？","r":"Nǐ huì shuō Zhōngwén ma?","tr":"Can you speak Chinese?"},{"who":"Mark","t":"我会说一点儿。","r":"Wǒ huì shuō yìdiǎnr.","tr":"I can speak a little."},{"who":"Xiao Chen","t":"很好！明天你能来我家吃饭吗？","r":"Hěn hǎo! Míngtiān nǐ néng lái wǒ jiā chīfàn ma?","tr":"Great! Can you come to my place for dinner tomorrow?"},{"who":"Mark","t":"明天我不能去，我要工作。星期六可以吗？","r":"Míngtiān wǒ bù néng qù, wǒ yào gōngzuò. Xīngqīliù kěyǐ ma?","tr":"I can't come tomorrow, I have to work. Is Saturday OK?"},{"who":"Xiao Chen","t":"可以！","r":"Kěyǐ!","tr":"Sure!"}]},
+        {"p":"English has one “can”; Chinese has three, for three different meanings. Each one goes before the verb, like {{想|xiǎng}}."},
+        {"term":"helping verb","means":"a verb that goes before another verb and adds an idea such as “can”, “want to” or “must”: {{会|huì}}, {{能|néng}}, {{想|xiǎng}}."},
+        { "table": [
+          ["","Meaning","Example"],
+          ["{{会|huì}}","know how to: a skill you learned","{{我会游泳。|Wǒ huì yóuyǒng.}} I can swim."],
+          ["{{能|néng}}","be able to: time, health, the situation","{{我今天不能去。|Wǒ jīntiān bù néng qù.}} I can't go today."],
+          ["{{可以|kěyǐ}}","be allowed to, may","{{这儿可以拍照吗？|Zhèr kěyǐ pāizhào ma?}} Can I take photos here?"]
+        ] },
+        {"p":"So “Can you drive?” is {{你会开车吗？|Nǐ huì kāichē ma?}} (do you know how?), but “Can you drive me tomorrow?” is {{你明天能开车送我吗？|Nǐ míngtiān néng kāichē sòng wǒ ma?}} (are you able to?). To ask permission, {{可以|kěyǐ}} is the usual word: {{我可以坐这儿吗？|Wǒ kěyǐ zuò zhèr ma?}} “Can I sit here?”"},
+        {"p":"**Answer with the word itself**: {{会|huì}} / {{不会|bú huì}}, {{能|néng}} / {{不能|bù néng}}, {{可以|kěyǐ}} / {{不可以|bù kěyǐ}}, or more gently {{不行|bù xíng}} “no, that won't work”."},
+        { "ex": [
+          {"t":"我会说一点儿中文。","r":"Wǒ huì shuō yìdiǎnr Zhōngwén.","tr":"I can speak a little Chinese."},
+          {"t":"你会做中国菜吗？","r":"Nǐ huì zuò Zhōngguó cài ma?","tr":"Can you cook Chinese food?"},
+          {"t":"我不会开车。","r":"Wǒ bú huì kāichē.","tr":"I can't drive.","note":"I never learned"},
+          {"t":"你明天能来吗？","r":"Nǐ míngtiān néng lái ma?","tr":"Can you come tomorrow?"},
+          {"t":"我可以用你的手机吗？","r":"Wǒ kěyǐ yòng nǐ de shǒujī ma?","tr":"Can I use your phone?"},
+          {"t":"这儿不可以抽烟。","r":"Zhèr bù kěyǐ chōuyān.","tr":"You can't smoke here."}
+        ] },
+        {"tip":"With languages you can drop the verb: {{我会中文|wǒ huì Zhōngwén}} “I speak Chinese”. And when someone praises your Chinese, the modest answer is {{哪里哪里！|Nǎlǐ nǎlǐ!}} “Oh, not at all!”"}
+      ],
+      "mistakes": [
+        {"wrong":"我游泳会。","right":"我会游泳。","tr":"I can swim.","why":"{{会|huì}} goes before the verb, like {{想|xiǎng}}: {{我会游泳。|Wǒ huì yóuyǒng.}}"},
+        {"wrong":"我明天不会来，我要工作。","right":"我明天不能来，我要工作。","tr":"I can't come tomorrow, I have to work.","why":"You haven't forgotten how to come: work stops you, so {{不能|bù néng}}. ({{不会来|bú huì lái}} sounds like “I won't come”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你___开车吗？","r":"Nǐ ___ kāichē ma?","tr":"Do you know how to drive?","options":["会","可以","想"],"rs":["huì","kěyǐ","xiǎng"],"answer":0,"why":"A skill you learned: {{会|huì}}."},
+        {"type":"choice","q":"In a museum you want to ask “Can I take photos?”","options":["{{我会拍照吗？|Wǒ huì pāizhào ma?}}","{{我可以拍照吗？|Wǒ kěyǐ pāizhào ma?}}"],"answer":1,"why":"Asking permission: {{可以|kěyǐ}}. ({{会|huì}} would ask whether you know how!)"},
+        {"type":"choice","q":"You've hurt your leg. “I can't walk” is…","options":["{{我不会走路。|Wǒ bú huì zǒulù.}}","{{我不能走路。|Wǒ bù néng zǒulù.}}"],"answer":1,"why":"You know how, but you aren't able to now: {{不能|bù néng}}."},
+        {"type":"dialogue","q":"A friend invites you round. Choose your replies.","lines":[{"who":"Friend","t":"星期天你能来我家吗？","r":"Xīngqītiān nǐ néng lái wǒ jiā ma?","tr":"Can you come to my place on Sunday?"},{"options":["能！几点？","会！几点？"],"rs":["Néng! Jǐ diǎn?","Huì! Jǐ diǎn?"],"answer":0,"why":"Answer with the word of the question: {{能|néng}}."},{"who":"Friend","t":"下午三点。你会包饺子吗？","r":"Xiàwǔ sān diǎn. Nǐ huì bāo jiǎozi ma?","tr":"Three in the afternoon. Do you know how to make dumplings?"},{"options":["不会。你能教我吗？","不可以。你能教我吗？"],"rs":["Bú huì. Nǐ néng jiāo wǒ ma?","Bù kěyǐ. Nǐ néng jiāo wǒ ma?"],"answer":0,"why":"A skill you don't have: {{不会|bú huì}}. Then ask if they're able to teach you: {{能|néng}}."},{"who":"Friend","t":"当然可以！","r":"Dāngrán kěyǐ!","tr":"Of course!"}],"from":"say-when"},
+        {"type":"order","q":"Put the words in order.","tr":"Can I sit here?","words":["我","可以","坐","这儿","吗？"],"rs":["wǒ","kěyǐ","zuò","zhèr","ma?"],"from":"ask-yes-or-no"},
+        {"type":"free","q":"Your turn: say two things you can do and one you can't.","answers":[{"t":"我会游泳，也会做饭。我不会开车。","r":"Wǒ huì yóuyǒng, yě huì zuò fàn. Wǒ bú huì kāichē.","tr":"I can swim, and I can cook too. I can't drive."},{"t":"我会说英语和一点儿中文。我不会唱歌。","r":"Wǒ huì shuō Yīngyǔ hé yìdiǎnr Zhōngwén. Wǒ bú huì chànggē.","tr":"I can speak English and a little Chinese. I can't sing."}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 4,
+      "level": "A1",
+      "title": "Make plans and suggestions",
+      "summary": "“I'm going to see my parents this weekend”, “Let's go together!”, “How about Sunday?”: talk about plans and suggest things.",
+      "topic": "{{要|yào}}, {{想|xiǎng}}, {{打算|dǎsuàn}} + a verb; {{吧|ba}} for “let's”; {{…怎么样？|…zěnmeyàng?}}",
+      "blocks": [
+        {"goal":{"t":"周末我们一起去爬山吧！","r":"Zhōumò wǒmen yìqǐ qù pá shān ba!","tr":"Let's go hiking together this weekend!"}},
+        {"dialog":[{"who":"Anna","t":"这个周末你打算做什么？","r":"Zhège zhōumò nǐ dǎsuàn zuò shénme?","tr":"What are you planning to do this weekend?"},{"who":"Xiao Wang","t":"星期六我要去看我爸爸妈妈。星期天没事。","r":"Xīngqīliù wǒ yào qù kàn wǒ bàba māma. Xīngqītiān méi shì.","tr":"On Saturday I'm going to see my parents. On Sunday I'm free."},{"who":"Anna","t":"星期天我们一起去爬山吧！","r":"Xīngqītiān wǒmen yìqǐ qù pá shān ba!","tr":"Let's go hiking together on Sunday!"},{"who":"Xiao Wang","t":"好啊！几点？","r":"Hǎo a! Jǐ diǎn?","tr":"Sure! What time?"},{"who":"Anna","t":"早上八点，怎么样？","r":"Zǎoshang bā diǎn, zěnmeyàng?","tr":"Eight in the morning, how about that?"},{"who":"Xiao Wang","t":"太早了！九点吧。","r":"Tài zǎo le! Jiǔ diǎn ba.","tr":"Too early! Let's say nine."}]},
+        {"p":"**No future tense.** A time word does the job: {{明天我去上海。|Míngtiān wǒ qù Shànghǎi.}} “I'm going to Shanghai tomorrow.” To make the plan clear, add a helping verb before the action:"},
+        { "table": [
+          ["","Meaning","Example"],
+          ["{{要|yào}}","will, is going to: a firm plan","{{我明天要去上海。|Wǒ míngtiān yào qù Shànghǎi.}}"],
+          ["{{想|xiǎng}}","would like to","{{我想去上海。|Wǒ xiǎng qù Shànghǎi.}}"],
+          ["{{打算|dǎsuàn}}","plan to","{{我打算明年去上海。|Wǒ dǎsuàn míngnián qù Shànghǎi.}}"]
+        ] },
+        {"p":"**Let's…** Put {{吧|ba}} at the end of a sentence with {{我们|wǒmen}}: {{我们走吧！|Wǒmen zǒu ba!}} “Let's go!” {{吧|ba}} softens any suggestion: {{九点吧。|Jiǔ diǎn ba.}} “Let's say nine.” {{一起|yìqǐ}} “together” goes before the verb."},
+        {"p":"**How about…?** Put {{怎么样？|zěnmeyàng?}} after your idea: {{星期天怎么样？|Xīngqītiān zěnmeyàng?}} “How about Sunday?” Answer {{好啊！|Hǎo a!}} “Sure!”, {{好的。|Hǎo de.}} “OK.”, or {{不行。|Bù xíng.}} “That doesn't work.”"},
+        { "ex": [
+          {"t":"周末我要去看我爸爸妈妈。","r":"Zhōumò wǒ yào qù kàn wǒ bàba māma.","tr":"This weekend I'm going to see my parents.","note":"{{看|kàn}} “look at” also means “visit”"},
+          {"t":"我打算学开车。","r":"Wǒ dǎsuàn xué kāichē.","tr":"I'm planning to learn to drive."},
+          {"t":"我们一起吃饭吧！","r":"Wǒmen yìqǐ chīfàn ba!","tr":"Let's eat together!"},
+          {"t":"明天去，怎么样？","r":"Míngtiān qù, zěnmeyàng?","tr":"How about going tomorrow?"},
+          {"t":"你今年想去哪儿旅游？","r":"Nǐ jīnnián xiǎng qù nǎr lǚyóu?","tr":"Where would you like to travel this year?"},
+          {"t":"我们打车去吧。","r":"Wǒmen dǎchē qù ba.","tr":"Let's take a taxi."}
+        ] },
+        {"tip":"{{没事|méi shì}} “nothing on” is how you say you're free: {{我星期天没事。|Wǒ xīngqītiān méi shì.}} “I'm free on Sunday.”"}
+      ],
+      "mistakes": [
+        {"wrong":"我们吧去。","right":"我们去吧。","tr":"Let's go.","why":"{{吧|ba}} goes at the very end: {{我们去吧！|Wǒmen qù ba!}}"},
+        {"wrong":"我要去上海明年。","right":"我明年要去上海。","tr":"I'm going to Shanghai next year.","why":"When comes before the verb, as always: {{我明年要去上海。|Wǒ míngnián yào qù Shànghǎi.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我们一起去看电影___！","r":"Wǒmen yìqǐ qù kàn diànyǐng ___!","tr":"Let's go and see a film together!","options":["吧","吗","呢"],"rs":["ba","ma","ne"],"answer":0,"why":"“Let's…”: {{吧|ba}} at the end."},
+        {"type":"choice","q":"{{星期六怎么样？|Xīngqīliù zěnmeyàng?}} means…","options":["How about Saturday?","It's Saturday.","Saturday is fine."],"answer":0,"why":"Your idea + {{怎么样？|zěnmeyàng?}} “how about it?”."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm planning to learn to drive.","words":["我","打算","学","开车。"],"rs":["wǒ","dǎsuàn","xué","kāichē."]},
+        {"type":"dialogue","q":"Make a plan with a friend. Choose your replies.","lines":[{"who":"Friend","t":"明天晚上你有事吗？","r":"Míngtiān wǎnshang nǐ yǒu shì ma?","tr":"Are you busy tomorrow evening?"},{"options":["没事。我们一起吃饭吧！","不有事。我们一起吃饭吧！"],"rs":["Méi shì. Wǒmen yìqǐ chīfàn ba!","Bù yǒu shì. Wǒmen yìqǐ chīfàn ba!"],"answer":0,"why":"{{有|yǒu}} takes {{没|méi}}: {{没事|méi shì}}. Then suggest with {{吧|ba}}."},{"who":"Friend","t":"好啊！吃什么？","r":"Hǎo a! Chī shénme?","tr":"Sure! What shall we eat?"},{"options":["吃火锅，怎么样？","怎么样吃火锅？"],"rs":["Chī huǒguō, zěnmeyàng?","Zěnmeyàng chī huǒguō?"],"answer":0,"why":"Your idea first, then {{怎么样？|zěnmeyàng?}}."},{"who":"Friend","t":"太好了！七点见！","r":"Tài hǎo le! Qī diǎn jiàn!","tr":"Great! See you at seven!"}],"from":"talk-about-your-family"},
+        {"type":"say","q":"Say “This weekend I'm going to see my parents.”","answer":"这个周末我要去看我爸爸妈妈。","r":"Zhège zhōumò wǒ yào qù kàn wǒ bàba māma.","from":"describe-your-day"},
+        {"type":"free","q":"Your turn: say what you're planning to do this weekend, then suggest something to a friend.","answers":[{"t":"周末我打算在家休息。星期天我们去公园吧！","r":"Zhōumò wǒ dǎsuàn zài jiā xiūxi. Xīngqītiān wǒmen qù gōngyuán ba!","tr":"This weekend I'm planning to rest at home. Let's go to the park on Sunday!"},{"t":"我要去超市买东西。我们一起去喝咖啡吧！","r":"Wǒ yào qù chāoshì mǎi dōngxi. Wǒmen yìqǐ qù hē kāfēi ba!","tr":"I'm going to the supermarket to do some shopping. Let's go for a coffee together!"}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A1",
+      "title": "Ask politely",
+      "summary": "“Could you say that again?”, “Can I have a look?”, “Do you have a bigger one?”: ask for help and permission, politely.",
+      "topic": "{{请|qǐng}} + a verb; {{可以…吗？|kěyǐ… ma?}}; A-not-A questions ({{能不能|néng bu néng}}, {{有没有|yǒu méiyǒu}}); {{一下|yíxià}} and {{看看|kànkan}}",
+      "blocks": [
+        {"goal":{"t":"请你再说一遍，好吗？","r":"Qǐng nǐ zài shuō yí biàn, hǎo ma?","tr":"Could you say that again, please?"}},
+        {"dialog":[{"who":"You","t":"你好，我可以看看这件衣服吗？","r":"Nǐ hǎo, wǒ kěyǐ kànkan zhè jiàn yīfu ma?","tr":"Hello, could I have a look at this top?"},{"who":"Shop assistant","t":"可以，你试一下吧。","r":"Kěyǐ, nǐ shì yíxià ba.","tr":"Sure, try it on."},{"who":"You","t":"有没有大一点儿的？","r":"Yǒu méiyǒu dà yìdiǎnr de?","tr":"Do you have a slightly bigger one?"},{"who":"Shop assistant","t":"有，请等一下。","r":"Yǒu, qǐng děng yíxià.","tr":"Yes, just a moment please."},{"who":"You","t":"能不能便宜一点儿？","r":"Néng bu néng piányi yìdiǎnr?","tr":"Could you make it a bit cheaper?"},{"who":"Shop assistant","t":"不好意思，不能。","r":"Bù hǎoyìsi, bù néng.","tr":"Sorry, I can't."}]},
+        {"p":"**{{请|qǐng}} “please”** goes before the verb, at the start of a request: {{请进！|Qǐng jìn!}} “Please come in!”, {{请坐。|Qǐng zuò.}} “Please sit down.” Add {{好吗？|hǎo ma?}} at the end for a gentle “OK?”."},
+        {"p":"**A-not-A questions.** Instead of {{吗|ma}}, you can ask with the verb, then {{不|bù}} and the verb again: {{你去不去？|Nǐ qù bu qù?}} “Are you going (or not)?” The {{不|bu}} in the middle is said lightly. With {{有|yǒu}} it's {{有没有|yǒu méiyǒu}}. Never add {{吗|ma}} to these: they're already questions."},
+        { "table": [
+          ["With {{吗|ma}}","A-not-A","Meaning"],
+          ["{{你去吗？|Nǐ qù ma?}}","{{你去不去？|Nǐ qù bu qù?}}","Are you going?"],
+          ["{{能便宜一点儿吗？|Néng piányi yìdiǎnr ma?}}","{{能不能便宜一点儿？|Néng bu néng piányi yìdiǎnr?}}","Could you make it cheaper?"],
+          ["{{有大的吗？|Yǒu dà de ma?}}","{{有没有大的？|Yǒu méiyǒu dà de?}}","Do you have a big one?"],
+          ["{{好吗？|Hǎo ma?}}","{{好不好？|Hǎo bu hǎo?}}","OK?"]
+        ] },
+        {"p":"**Just a little: {{一下|yíxià}} and doubled verbs.** After a verb, {{一下|yíxià}} “once, a moment” makes a request lighter: {{等一下|děng yíxià}} “wait a moment”, {{看一下|kàn yíxià}} “take a look”. Saying a short verb twice does the same: {{看看|kànkan}}, {{试试|shìshi}} “give it a try”."},
+        { "ex": [
+          {"t":"请你再说一遍，好吗？","r":"Qǐng nǐ zài shuō yí biàn, hǎo ma?","tr":"Could you say that again, please?"},
+          {"t":"请慢一点儿说。","r":"Qǐng màn yìdiǎnr shuō.","tr":"Please speak a little more slowly."},
+          {"t":"我可以试试吗？","r":"Wǒ kěyǐ shìshi ma?","tr":"Can I try?"},
+          {"t":"你能不能帮我一下？","r":"Nǐ néng bu néng bāng wǒ yíxià?","tr":"Could you give me a hand?"},
+          {"t":"你明天来不来？","r":"Nǐ míngtiān lái bu lái?","tr":"Are you coming tomorrow?"},
+          {"t":"请等一下。","r":"Qǐng děng yíxià.","tr":"Just a moment, please."}
+        ] },
+        {"tip":"{{不好意思|bù hǎoyìsi}} “excuse me, sorry” is the everyday way to get someone's attention or say sorry for small things; {{对不起|duìbuqǐ}} is for real apologies."}
+      ],
+      "mistakes": [
+        {"wrong":"你去不去吗？","right":"你去不去？","tr":"Are you going?","why":"An A-not-A question is already a question: no {{吗|ma}}."},
+        {"wrong":"请说再一遍。","right":"请再说一遍。","tr":"Please say it again.","why":"{{再|zài}} “again” goes before the verb: {{请再说一遍。|Qǐng zài shuō yí biàn.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你能___能帮我一下？","r":"Nǐ néng ___ néng bāng wǒ yíxià?","tr":"Could you give me a hand?","options":["不","没","吗"],"rs":["bu","méi","ma"],"answer":0,"why":"A-not-A: {{能不能|néng bu néng}}. ({{没|méi}} goes only with {{有|yǒu}}: {{有没有|yǒu méiyǒu}}.)"},
+        {"type":"choice","q":"In a shop: “Do you have a smaller one?”","options":["{{有没有小一点儿的？|Yǒu méiyǒu xiǎo yìdiǎnr de?}}","{{有不有小一点儿的？|Yǒu bu yǒu xiǎo yìdiǎnr de?}}","{{有没有小一点儿的吗？|Yǒu méiyǒu xiǎo yìdiǎnr de ma?}}"],"answer":0,"why":"{{有|yǒu}} takes {{没|méi}}, and an A-not-A question has no {{吗|ma}}.","from":"talk-about-your-family"},
+        {"type":"order","q":"Put the words in order.","tr":"Please speak a little more slowly.","words":["请","慢","一点儿","说。"],"rs":["qǐng","màn","yìdiǎnr","shuō."]},
+        {"type":"dialogue","q":"In a clothes shop. Choose your replies.","lines":[{"who":"Shop assistant","t":"你好！你想买什么？","r":"Nǐ hǎo! Nǐ xiǎng mǎi shénme?","tr":"Hello! What would you like to buy?"},{"options":["我看看。","我看。"],"rs":["Wǒ kànkan.","Wǒ kàn."],"answer":0,"why":"“I'm just looking”: the doubled verb {{看看|kànkan}} makes it light and friendly."},{"who":"Shop assistant","t":"这件很漂亮，试一下吧！","r":"Zhè jiàn hěn piàoliang, shì yíxià ba!","tr":"This one's lovely, try it on!"},{"options":["有没有大一点儿的？","有没有大一点儿的吗？"],"rs":["Yǒu méiyǒu dà yìdiǎnr de?","Yǒu méiyǒu dà yìdiǎnr de ma?"],"answer":0,"why":"No {{吗|ma}} after {{有没有|yǒu méiyǒu}}."},{"who":"Shop assistant","t":"有。这件一百八十块。","r":"Yǒu. Zhè jiàn yìbǎi bāshí kuài.","tr":"Yes. This one is a hundred and eighty yuan."},{"options":["能不能便宜一点儿？","能便宜一点儿不能？"],"rs":["Néng bu néng piányi yìdiǎnr?","Néng piányi yìdiǎnr bù néng?"],"answer":0,"why":"A-not-A: {{能不能|néng bu néng}} together, before the rest."}],"from":"ask-how-much"},
+        {"type":"say","q":"Ask a friend with an A-not-A question: “Are you coming tomorrow?”","answer":"你明天来不来？","r":"Nǐ míngtiān lái bu lái?","from":"say-when"},
+        {"type":"free","q":"Your turn: you didn't catch what someone said. Ask them politely to say it again, more slowly.","answers":[{"t":"不好意思，请你再说一遍，好吗？","r":"Bù hǎoyìsi, qǐng nǐ zài shuō yí biàn, hǎo ma?","tr":"Sorry, could you say that again, please?"},{"t":"请慢一点儿说，可以吗？","r":"Qǐng màn yìdiǎnr shuō, kěyǐ ma?","tr":"Could you speak a little more slowly, please?"}]}
+      ]
     }
   ]
 }
