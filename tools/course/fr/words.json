@@ -185,6 +185,1670 @@
       "meaning": "his; her; its (sa before a feminine noun, ses in the plural)",
       "sentence": "Il a perdu son téléphone.",
       "translation": "He lost ⟦his⟧ phone."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "faire",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "Qu'est-ce que tu fais ce soir ?",
+      "translation": "What are you ⟦doing⟧ tonight?",
+      "form": "fais"
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "sur",
+      "pos": "prep",
+      "meaning": "on; about",
+      "sentence": "Ton téléphone est sur la table.",
+      "translation": "Your phone is ⟦on⟧ the table."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "par",
+      "pos": "prep",
+      "meaning": "by; through; per",
+      "sentence": "Je t'envoie les photos par e-mail.",
+      "translation": "I'll send you the photos ⟦by⟧ email."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "tout",
+      "pos": "pron",
+      "meaning": "everything; all (tous, toute, toutes)",
+      "sentence": "Tout va bien.",
+      "translation": "⟦Everything⟧'s fine."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "on",
+      "pos": "pron",
+      "meaning": "we (in speech); people, you, someone",
+      "sentence": "On va au cinéma ce soir ?",
+      "translation": "Shall ⟦we⟧ go to the cinema tonight?"
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "plus",
+      "pos": "adv",
+      "meaning": "more; no more, no longer (ne ... plus)",
+      "sentence": "Je voudrais un peu plus de pain.",
+      "translation": "I'd like a bit ⟦more⟧ bread."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "avec",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Tu viens avec moi ?",
+      "translation": "Are you coming ⟦with⟧ me?"
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "mais",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "C'est cher, mais c'est bon.",
+      "translation": "It's expensive, ⟦but⟧ it's good."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "pouvoir",
+      "pos": "verb",
+      "meaning": "can, to be able to; may",
+      "sentence": "Est-ce que je peux entrer ?",
+      "translation": "⟦Can⟧ I come in?",
+      "form": "peux"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "me",
+      "pos": "pron",
+      "meaning": "me; myself (m' before a vowel)",
+      "sentence": "Tu me donnes ton numéro ?",
+      "translation": "Will you give ⟦me⟧ your number?"
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "ça",
+      "pos": "pron",
+      "meaning": "that; it (in speech)",
+      "sentence": "Ça coûte combien ?",
+      "translation": "How much does ⟦that⟧ cost?"
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "vous",
+      "pos": "pron",
+      "meaning": "you (polite, or more than one person)",
+      "sentence": "Vous êtes d'où ?",
+      "translation": "Where are ⟦you⟧ from?"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "elle",
+      "pos": "pron",
+      "meaning": "she; it (elles: they, all feminine)",
+      "sentence": "Elle est médecin.",
+      "translation": "⟦She⟧'s a doctor."
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "mon",
+      "pos": "det",
+      "meaning": "my (ma before a feminine noun, mes in the plural)",
+      "sentence": "Mon frère a vingt ans.",
+      "translation": "⟦My⟧ brother is twenty."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "tu",
+      "pos": "pron",
+      "meaning": "you (one person you know well)",
+      "sentence": "Tu as faim ?",
+      "translation": "Are ⟦you⟧ hungry?"
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "y",
+      "pos": "pron",
+      "meaning": "there; (to, about) it",
+      "sentence": "J'y vais demain.",
+      "translation": "I'm going ⟦there⟧ tomorrow."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "ou",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "Tu veux du thé ou du café ?",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "si",
+      "pos": "conj",
+      "meaning": "if; so (very); yes (answering a negative question)",
+      "sentence": "Si tu veux, on peut y aller.",
+      "translation": "⟦If⟧ you want, we can go."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "aller",
+      "pos": "verb",
+      "meaning": "to go",
+      "sentence": "Je vais au marché le samedi.",
+      "translation": "I ⟦go⟧ to the market on Saturdays.",
+      "form": "vais"
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "te",
+      "pos": "pron",
+      "meaning": "you (one person you know well); yourself (t' before a vowel)",
+      "sentence": "Je te rappelle ce soir.",
+      "translation": "I'll call ⟦you⟧ back tonight."
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "nous",
+      "pos": "pron",
+      "meaning": "we; us",
+      "sentence": "Nous habitons près de la mer.",
+      "translation": "⟦We⟧ live near the sea."
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "dire",
+      "pos": "verb",
+      "meaning": "to say; to tell",
+      "sentence": "Il dit qu'il est malade.",
+      "translation": "He ⟦says⟧ he's ill.",
+      "form": "dit"
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "voir",
+      "pos": "verb",
+      "meaning": "to see",
+      "sentence": "Tu as vu ce film ?",
+      "translation": "Have you ⟦seen⟧ this film?",
+      "form": "vu"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "comme",
+      "pos": "conj",
+      "meaning": "like; as",
+      "sentence": "Il est grand comme son père.",
+      "translation": "He's tall ⟦like⟧ his father."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "bien",
+      "pos": "adv",
+      "meaning": "well; good; really",
+      "sentence": "Tu as bien dormi ?",
+      "translation": "Did you sleep ⟦well⟧?"
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "même",
+      "pos": "adj",
+      "meaning": "same; even (adverb)",
+      "sentence": "Nous avons le même âge.",
+      "translation": "We're the ⟦same⟧ age."
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "leur",
+      "pos": "det",
+      "meaning": "their (leurs in the plural); (to) them",
+      "sentence": "Leur maison est très grande.",
+      "translation": "⟦Their⟧ house is very big."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "autre",
+      "pos": "adj",
+      "meaning": "other; another",
+      "sentence": "Je voudrais un autre café.",
+      "translation": "I'd like ⟦another⟧ coffee."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "lui",
+      "pos": "pron",
+      "meaning": "(to) him, (to) her; him (stressed)",
+      "sentence": "Je lui téléphone ce soir.",
+      "translation": "I'm phoning ⟦her⟧ tonight."
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "devoir",
+      "pos": "verb",
+      "meaning": "must, to have to; to owe",
+      "sentence": "Je dois partir maintenant.",
+      "translation": "I ⟦have to⟧ leave now.",
+      "form": "dois"
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "aussi",
+      "pos": "adv",
+      "meaning": "also, too; as (aussi ... que)",
+      "sentence": "Moi aussi, j'ai faim.",
+      "translation": "I'm hungry ⟦too⟧."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "vouloir",
+      "pos": "verb",
+      "meaning": "to want",
+      "sentence": "Tu veux un verre d'eau ?",
+      "translation": "Do you ⟦want⟧ a glass of water?",
+      "form": "veux"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "deux",
+      "pos": "num",
+      "meaning": "two",
+      "sentence": "J'ai deux chats.",
+      "translation": "I have ⟦two⟧ cats."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "bon",
+      "pos": "adj",
+      "meaning": "good; right (bonne: feminine)",
+      "sentence": "Ce gâteau est très bon.",
+      "translation": "This cake is very ⟦good⟧."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "moi",
+      "pos": "pron",
+      "meaning": "me; I (stressed)",
+      "sentence": "C'est pour moi ?",
+      "translation": "Is it for ⟦me⟧?"
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "ton",
+      "pos": "det",
+      "meaning": "your (one person you know well; ta before a feminine noun, tes in the plural)",
+      "sentence": "C'est ton sac ?",
+      "translation": "Is this ⟦your⟧ bag?"
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "savoir",
+      "pos": "verb",
+      "meaning": "to know (a fact); to know how to",
+      "sentence": "Tu sais où il habite ?",
+      "translation": "Do you ⟦know⟧ where he lives?",
+      "form": "sais"
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "quand",
+      "pos": "conj",
+      "meaning": "when",
+      "sentence": "Quand est-ce que tu pars ?",
+      "translation": "⟦When⟧ are you leaving?"
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "prendre",
+      "pos": "verb",
+      "meaning": "to take; to have (food, a drink)",
+      "sentence": "Je prends le métro tous les jours.",
+      "translation": "I ⟦take⟧ the metro every day.",
+      "form": "prends"
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "notre",
+      "pos": "det",
+      "meaning": "our (nos in the plural)",
+      "sentence": "Notre appartement est petit.",
+      "translation": "⟦Our⟧ flat is small."
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "après",
+      "pos": "prep",
+      "meaning": "after; afterwards",
+      "sentence": "On se voit après le travail.",
+      "translation": "See you ⟦after⟧ work."
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "très",
+      "pos": "adv",
+      "meaning": "very",
+      "sentence": "Il fait très chaud aujourd'hui.",
+      "translation": "It's ⟦very⟧ hot today."
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "grand",
+      "pos": "adj",
+      "meaning": "big; tall; great (grande: feminine)",
+      "sentence": "Ils ont une grande maison.",
+      "translation": "They have a ⟦big⟧ house.",
+      "form": "grande"
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "celui",
+      "pos": "pron",
+      "meaning": "the one (celle: feminine; ceux, celles: plural)",
+      "sentence": "Je préfère celui-ci.",
+      "translation": "I prefer ⟦this one⟧."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "nouveau",
+      "pos": "adj",
+      "meaning": "new (nouvelle: feminine)",
+      "sentence": "J'ai un nouveau travail.",
+      "translation": "I have a ⟦new⟧ job."
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "sans",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "Un café sans sucre, s'il vous plaît.",
+      "translation": "A coffee ⟦without⟧ sugar, please."
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "votre",
+      "pos": "det",
+      "meaning": "your (polite, or of more than one person; vos in the plural)",
+      "sentence": "Quel est votre nom ?",
+      "translation": "What is ⟦your⟧ name?"
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "premier",
+      "pos": "adj",
+      "meaning": "first (première: feminine)",
+      "sentence": "C'est la première fois que je viens ici.",
+      "translation": "It's the ⟦first⟧ time I've come here.",
+      "form": "première"
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "mettre",
+      "pos": "verb",
+      "meaning": "to put; to put on (clothes)",
+      "sentence": "Mets ton manteau, il fait froid.",
+      "translation": "⟦Put on⟧ your coat, it's cold.",
+      "form": "mets"
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "an",
+      "pos": "noun",
+      "meaning": "year (with a number: j'ai vingt ans)",
+      "sentence": "J'ai trente ans.",
+      "translation": "I'm thirty ⟦years⟧ old.",
+      "form": "ans"
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "non",
+      "pos": "adv",
+      "meaning": "no; not",
+      "sentence": "Non, merci, je n'ai pas faim.",
+      "translation": "⟦No⟧, thanks, I'm not hungry."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "où",
+      "pos": "adv",
+      "meaning": "where",
+      "sentence": "Où sont les toilettes ?",
+      "translation": "⟦Where⟧ are the toilets?"
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "falloir",
+      "pos": "verb",
+      "meaning": "to be necessary (il faut: you have to, we need)",
+      "sentence": "Il faut partir maintenant.",
+      "translation": "⟦We have to⟧ leave now.",
+      "form": "faut"
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "passer",
+      "pos": "verb",
+      "meaning": "to pass; to spend (time); to drop by",
+      "sentence": "Nous avons passé une semaine à Rome.",
+      "translation": "We ⟦spent⟧ a week in Rome.",
+      "form": "passé"
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "encore",
+      "pos": "adv",
+      "meaning": "still; again; more",
+      "sentence": "Tu es encore au bureau ?",
+      "translation": "Are you ⟦still⟧ at the office?"
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "alors",
+      "pos": "adv",
+      "meaning": "so, then",
+      "sentence": "Il pleut, alors je reste à la maison.",
+      "translation": "It's raining, ⟦so⟧ I'm staying home."
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "entre",
+      "pos": "prep",
+      "meaning": "between; among",
+      "sentence": "La pharmacie est entre la banque et la poste.",
+      "translation": "The chemist's is ⟦between⟧ the bank and the post office."
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "donner",
+      "pos": "verb",
+      "meaning": "to give",
+      "sentence": "Je vais lui donner mon vieux vélo.",
+      "translation": "I'm going to ⟦give⟧ him my old bike."
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "venir",
+      "pos": "verb",
+      "meaning": "to come",
+      "sentence": "Tu viens ce soir ?",
+      "translation": "Are you ⟦coming⟧ tonight?",
+      "form": "viens"
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "temps",
+      "pos": "noun",
+      "meaning": "time; weather",
+      "sentence": "Je n'ai pas le temps.",
+      "translation": "I don't have ⟦time⟧."
+    },
+    {
+      "n": 81,
+      "rank": 81,
+      "word": "jour",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "Je travaille cinq jours par semaine.",
+      "translation": "I work five ⟦days⟧ a week.",
+      "form": "jours"
+    },
+    {
+      "n": 82,
+      "rank": 82,
+      "word": "petit",
+      "pos": "adj",
+      "meaning": "small, little (petite: feminine)",
+      "sentence": "J'habite dans un petit village.",
+      "translation": "I live in a ⟦small⟧ village."
+    },
+    {
+      "n": 83,
+      "rank": 83,
+      "word": "trouver",
+      "pos": "verb",
+      "meaning": "to find; to think (je trouve que: I think that)",
+      "sentence": "Je ne trouve pas mes clés.",
+      "translation": "I can't ⟦find⟧ my keys.",
+      "form": "trouve"
+    },
+    {
+      "n": 84,
+      "rank": 84,
+      "word": "là",
+      "pos": "adv",
+      "meaning": "there; here (in speech)",
+      "sentence": "Ton livre est là, sur la chaise.",
+      "translation": "Your book is ⟦there⟧, on the chair."
+    },
+    {
+      "n": 85,
+      "rank": 85,
+      "word": "peu",
+      "pos": "adv",
+      "meaning": "little, not much (un peu: a little)",
+      "sentence": "Il mange très peu.",
+      "translation": "He eats very ⟦little⟧."
+    },
+    {
+      "n": 86,
+      "rank": 87,
+      "word": "personne",
+      "pos": "noun",
+      "meaning": "person; nobody (ne ... personne)",
+      "sentence": "Il y a trois personnes devant moi.",
+      "translation": "There are three ⟦people⟧ in front of me.",
+      "form": "personnes"
+    },
+    {
+      "n": 87,
+      "rank": 88,
+      "word": "rien",
+      "pos": "pron",
+      "meaning": "nothing, not anything (ne ... rien)",
+      "sentence": "Je n'ai rien mangé ce matin.",
+      "translation": "I haven't eaten ⟦anything⟧ this morning."
+    },
+    {
+      "n": 88,
+      "rank": 89,
+      "word": "monde",
+      "pos": "noun",
+      "meaning": "world; people (tout le monde: everyone)",
+      "sentence": "Je rêve de faire le tour du monde.",
+      "translation": "I dream of travelling around the ⟦world⟧."
+    },
+    {
+      "n": 89,
+      "rank": 90,
+      "word": "quelque",
+      "pos": "adj",
+      "meaning": "some; a few (quelques)",
+      "sentence": "J'ai quelques questions.",
+      "translation": "I have ⟦a few⟧ questions.",
+      "form": "quelques"
+    },
+    {
+      "n": 90,
+      "rank": 91,
+      "word": "parler",
+      "pos": "verb",
+      "meaning": "to speak, to talk",
+      "sentence": "Vous parlez anglais ?",
+      "translation": "Do you ⟦speak⟧ English?",
+      "form": "parlez"
+    },
+    {
+      "n": 91,
+      "rank": 92,
+      "word": "fois",
+      "pos": "noun",
+      "meaning": "time (once, twice, three times...)",
+      "sentence": "Je vais à la piscine trois fois par semaine.",
+      "translation": "I go to the pool three ⟦times⟧ a week."
+    },
+    {
+      "n": 92,
+      "rank": 93,
+      "word": "année",
+      "pos": "noun",
+      "meaning": "year (the whole year)",
+      "sentence": "L'année dernière, nous sommes allés en Italie.",
+      "translation": "Last ⟦year⟧ we went to Italy."
+    },
+    {
+      "n": 93,
+      "rank": 94,
+      "word": "toujours",
+      "pos": "adv",
+      "meaning": "always; still",
+      "sentence": "Il est toujours en retard.",
+      "translation": "He's ⟦always⟧ late."
+    },
+    {
+      "n": 94,
+      "rank": 95,
+      "word": "français",
+      "pos": "noun",
+      "meaning": "French (the language; also the adjective)",
+      "sentence": "J'apprends le français depuis un an.",
+      "translation": "I've been learning ⟦French⟧ for a year."
+    },
+    {
+      "n": 95,
+      "rank": 96,
+      "word": "contre",
+      "pos": "prep",
+      "meaning": "against",
+      "sentence": "Je suis contre cette idée.",
+      "translation": "I'm ⟦against⟧ this idea."
+    },
+    {
+      "n": 96,
+      "rank": 97,
+      "word": "avant",
+      "pos": "prep",
+      "meaning": "before",
+      "sentence": "Lave-toi les mains avant de manger.",
+      "translation": "Wash your hands ⟦before⟧ eating."
+    },
+    {
+      "n": 97,
+      "rank": 98,
+      "word": "depuis",
+      "pos": "prep",
+      "meaning": "since; for (a time that is still going on)",
+      "sentence": "J'habite ici depuis cinq ans.",
+      "translation": "I've lived here ⟦for⟧ five years."
+    },
+    {
+      "n": 98,
+      "rank": 99,
+      "word": "donc",
+      "pos": "conj",
+      "meaning": "so, therefore",
+      "sentence": "Il est malade, donc il ne vient pas.",
+      "translation": "He's ill, ⟦so⟧ he isn't coming."
+    },
+    {
+      "n": 99,
+      "rank": 100,
+      "word": "vie",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "La vie est belle.",
+      "translation": "⟦Life⟧ is beautiful."
+    },
+    {
+      "n": 100,
+      "rank": 101,
+      "word": "homme",
+      "pos": "noun",
+      "meaning": "man",
+      "sentence": "Qui est cet homme ?",
+      "translation": "Who is that ⟦man⟧?"
+    },
+    {
+      "n": 101,
+      "rank": 102,
+      "word": "chose",
+      "pos": "noun",
+      "meaning": "thing (quelque chose: something)",
+      "sentence": "J'ai beaucoup de choses à faire.",
+      "translation": "I have lots of ⟦things⟧ to do.",
+      "form": "choses"
+    },
+    {
+      "n": 102,
+      "rank": 103,
+      "word": "sous",
+      "pos": "prep",
+      "meaning": "under",
+      "sentence": "Le chat dort sous le lit.",
+      "translation": "The cat sleeps ⟦under⟧ the bed."
+    },
+    {
+      "n": 103,
+      "rank": 104,
+      "word": "jamais",
+      "pos": "adv",
+      "meaning": "never (ne ... jamais); ever",
+      "sentence": "Je ne bois jamais d'alcool.",
+      "translation": "I ⟦never⟧ drink alcohol."
+    },
+    {
+      "n": 104,
+      "rank": 105,
+      "word": "seul",
+      "pos": "adj",
+      "meaning": "alone; only (seule: feminine)",
+      "sentence": "Il habite seul.",
+      "translation": "He lives ⟦alone⟧."
+    },
+    {
+      "n": 105,
+      "rank": 106,
+      "word": "moins",
+      "pos": "adv",
+      "meaning": "less; minus",
+      "sentence": "C'est moins cher ici.",
+      "translation": "It's ⟦less⟧ expensive here."
+    },
+    {
+      "n": 106,
+      "rank": 107,
+      "word": "penser",
+      "pos": "verb",
+      "meaning": "to think",
+      "sentence": "À quoi tu penses ?",
+      "translation": "What are you ⟦thinking⟧ about?",
+      "form": "penses"
+    },
+    {
+      "n": 107,
+      "rank": 108,
+      "word": "dont",
+      "pos": "pron",
+      "meaning": "whose; of which, about which",
+      "sentence": "C'est la fille dont le père est médecin.",
+      "translation": "She's the girl ⟦whose⟧ father is a doctor."
+    },
+    {
+      "n": 108,
+      "rank": 109,
+      "word": "toi",
+      "pos": "pron",
+      "meaning": "you (stressed; one person you know well)",
+      "sentence": "Je pense à toi.",
+      "translation": "I'm thinking of ⟦you⟧."
+    },
+    {
+      "n": 109,
+      "rank": 110,
+      "word": "partir",
+      "pos": "verb",
+      "meaning": "to leave, to go away",
+      "sentence": "Le train part dans dix minutes.",
+      "translation": "The train ⟦leaves⟧ in ten minutes.",
+      "form": "part"
+    },
+    {
+      "n": 110,
+      "rank": 111,
+      "word": "dernier",
+      "pos": "adj",
+      "meaning": "last (dernière: feminine)",
+      "sentence": "C'est le dernier bus.",
+      "translation": "It's the ⟦last⟧ bus."
+    },
+    {
+      "n": 111,
+      "rank": 112,
+      "word": "déjà",
+      "pos": "adv",
+      "meaning": "already; ever (before)",
+      "sentence": "Tu as déjà mangé ?",
+      "translation": "Have you ⟦already⟧ eaten?"
+    },
+    {
+      "n": 112,
+      "rank": 113,
+      "word": "quoi",
+      "pos": "pron",
+      "meaning": "what",
+      "sentence": "Tu fais quoi ce week-end ?",
+      "translation": "⟦What⟧ are you doing this weekend?"
+    },
+    {
+      "n": 113,
+      "rank": 114,
+      "word": "droit",
+      "pos": "noun",
+      "meaning": "right (to do something); law (as a subject)",
+      "sentence": "Tu as le droit de dire non.",
+      "translation": "You have the ⟦right⟧ to say no."
+    },
+    {
+      "n": 114,
+      "rank": 115,
+      "word": "trop",
+      "pos": "adv",
+      "meaning": "too; too much",
+      "sentence": "C'est trop cher.",
+      "translation": "It's ⟦too⟧ expensive."
+    },
+    {
+      "n": 115,
+      "rank": 116,
+      "word": "aimer",
+      "pos": "verb",
+      "meaning": "to like; to love",
+      "sentence": "J'aime beaucoup la musique.",
+      "translation": "I really ⟦like⟧ music.",
+      "form": "aime"
+    },
+    {
+      "n": 116,
+      "rank": 117,
+      "word": "femme",
+      "pos": "noun",
+      "meaning": "woman; wife",
+      "sentence": "Je vous présente ma femme.",
+      "translation": "This is my ⟦wife⟧."
+    },
+    {
+      "n": 117,
+      "rank": 118,
+      "word": "demander",
+      "pos": "verb",
+      "meaning": "to ask (for)",
+      "sentence": "Je vais demander l'addition.",
+      "translation": "I'll ⟦ask for⟧ the bill."
+    },
+    {
+      "n": 118,
+      "rank": 119,
+      "word": "juste",
+      "pos": "adv",
+      "meaning": "just, only; (adjective) fair, right",
+      "sentence": "Je voudrais juste un café.",
+      "translation": "I'd ⟦just⟧ like a coffee."
+    },
+    {
+      "n": 119,
+      "rank": 120,
+      "word": "croire",
+      "pos": "verb",
+      "meaning": "to believe; to think",
+      "sentence": "Je crois qu'il est parti.",
+      "translation": "I ⟦think⟧ he's left.",
+      "form": "crois"
+    },
+    {
+      "n": 120,
+      "rank": 121,
+      "word": "chez",
+      "pos": "prep",
+      "meaning": "at (someone's home or shop)",
+      "sentence": "On mange chez moi ce soir.",
+      "translation": "We're eating ⟦at⟧ my place tonight."
+    },
+    {
+      "n": 121,
+      "rank": 122,
+      "word": "gens",
+      "pos": "noun",
+      "meaning": "people",
+      "sentence": "Les gens sont gentils ici.",
+      "translation": "⟦People⟧ are nice here."
+    },
+    {
+      "n": 122,
+      "rank": 123,
+      "word": "oui",
+      "pos": "adv",
+      "meaning": "yes",
+      "sentence": "Oui, bien sûr.",
+      "translation": "⟦Yes⟧, of course."
+    },
+    {
+      "n": 123,
+      "rank": 124,
+      "word": "vraiment",
+      "pos": "adv",
+      "meaning": "really",
+      "sentence": "C'est vraiment délicieux.",
+      "translation": "It's ⟦really⟧ delicious."
+    },
+    {
+      "n": 124,
+      "rank": 125,
+      "word": "ainsi",
+      "pos": "adv",
+      "meaning": "like this, like that; so, thus",
+      "sentence": "Ne me parle pas ainsi.",
+      "translation": "Don't talk to me ⟦like that⟧."
+    },
+    {
+      "n": 125,
+      "rank": 126,
+      "word": "pays",
+      "pos": "noun",
+      "meaning": "country",
+      "sentence": "C'est un beau pays.",
+      "translation": "It's a beautiful ⟦country⟧."
+    },
+    {
+      "n": 126,
+      "rank": 127,
+      "word": "sortir",
+      "pos": "verb",
+      "meaning": "to go out; to come out",
+      "sentence": "On sort ce soir ?",
+      "translation": "Shall we ⟦go out⟧ tonight?",
+      "form": "sort"
+    },
+    {
+      "n": 127,
+      "rank": 128,
+      "word": "comprendre",
+      "pos": "verb",
+      "meaning": "to understand",
+      "sentence": "Tu as compris la question ?",
+      "translation": "Did you ⟦understand⟧ the question?",
+      "form": "compris"
+    },
+    {
+      "n": 128,
+      "rank": 129,
+      "word": "mort",
+      "pos": "adj",
+      "meaning": "dead; (noun) death (morte: feminine)",
+      "sentence": "La plante est morte.",
+      "translation": "The plant is ⟦dead⟧.",
+      "form": "morte"
+    },
+    {
+      "n": 129,
+      "rank": 130,
+      "word": "partie",
+      "pos": "noun",
+      "meaning": "part; game (of cards, chess...)",
+      "sentence": "La première partie du film est un peu lente.",
+      "translation": "The first ⟦part⟧ of the film is a bit slow."
+    },
+    {
+      "n": 130,
+      "rank": 131,
+      "word": "état",
+      "pos": "noun",
+      "meaning": "state; condition",
+      "sentence": "La voiture est en bon état.",
+      "translation": "The car is in good ⟦condition⟧."
+    },
+    {
+      "n": 131,
+      "rank": 132,
+      "word": "rendre",
+      "pos": "verb",
+      "meaning": "to give back, to return; to make (happy, ill...)",
+      "sentence": "Je te rends ton livre demain.",
+      "translation": "I'll ⟦return⟧ your book tomorrow.",
+      "form": "rends"
+    },
+    {
+      "n": 132,
+      "rank": 133,
+      "word": "beaucoup",
+      "pos": "adv",
+      "meaning": "a lot; much, many (beaucoup de)",
+      "sentence": "Il y a beaucoup de monde.",
+      "translation": "There are ⟦a lot of⟧ people."
+    },
+    {
+      "n": 133,
+      "rank": 134,
+      "word": "travail",
+      "pos": "noun",
+      "meaning": "work; job",
+      "sentence": "Je vais au travail à pied.",
+      "translation": "I walk to ⟦work⟧."
+    },
+    {
+      "n": 134,
+      "rank": 135,
+      "word": "quel",
+      "pos": "det",
+      "meaning": "which, what (quelle: feminine)",
+      "sentence": "Tu préfères quelle couleur ?",
+      "translation": "⟦Which⟧ colour do you prefer?",
+      "form": "quelle"
+    },
+    {
+      "n": 135,
+      "rank": 136,
+      "word": "ville",
+      "pos": "noun",
+      "meaning": "town, city",
+      "sentence": "J'habite en ville.",
+      "translation": "I live in ⟦town⟧."
+    },
+    {
+      "n": 136,
+      "rank": 137,
+      "word": "comment",
+      "pos": "adv",
+      "meaning": "how",
+      "sentence": "Comment ça va ?",
+      "translation": "⟦How⟧ are you?"
+    },
+    {
+      "n": 137,
+      "rank": 138,
+      "word": "point",
+      "pos": "noun",
+      "meaning": "point; full stop",
+      "sentence": "C'est un bon point.",
+      "translation": "That's a good ⟦point⟧."
+    },
+    {
+      "n": 138,
+      "rank": 139,
+      "word": "politique",
+      "pos": "noun",
+      "meaning": "politics; policy; (adjective) political",
+      "sentence": "Je ne parle jamais de politique.",
+      "translation": "I never talk about ⟦politics⟧."
+    },
+    {
+      "n": 139,
+      "rank": 140,
+      "word": "parce que",
+      "pos": "conj",
+      "meaning": "because",
+      "sentence": "Je ne viens pas parce que je suis malade.",
+      "translation": "I'm not coming ⟦because⟧ I'm ill."
+    },
+    {
+      "n": 140,
+      "rank": 141,
+      "word": "ici",
+      "pos": "adv",
+      "meaning": "here",
+      "sentence": "Viens ici !",
+      "translation": "Come ⟦here⟧!"
+    },
+    {
+      "n": 141,
+      "rank": 142,
+      "word": "aucun",
+      "pos": "det",
+      "meaning": "no, not any (ne ... aucun; aucune: feminine)",
+      "sentence": "Je n'ai aucune idée.",
+      "translation": "I have ⟦no⟧ idea.",
+      "form": "aucune"
+    },
+    {
+      "n": 142,
+      "rank": 144,
+      "word": "cela",
+      "pos": "pron",
+      "meaning": "that; it",
+      "sentence": "Cela ne me dérange pas.",
+      "translation": "⟦That⟧ doesn't bother me."
+    },
+    {
+      "n": 143,
+      "rank": 145,
+      "word": "trois",
+      "pos": "num",
+      "meaning": "three",
+      "sentence": "Il est trois heures.",
+      "translation": "It's ⟦three⟧ o'clock."
+    },
+    {
+      "n": 144,
+      "rank": 146,
+      "word": "permettre",
+      "pos": "verb",
+      "meaning": "to allow, to let",
+      "sentence": "Ses parents ne lui permettent pas de sortir.",
+      "translation": "His parents don't ⟦allow⟧ him to go out.",
+      "form": "permettent"
+    },
+    {
+      "n": 145,
+      "rank": 147,
+      "word": "fin",
+      "pos": "noun",
+      "meaning": "end",
+      "sentence": "C'est la fin des vacances.",
+      "translation": "It's the ⟦end⟧ of the holidays."
+    },
+    {
+      "n": 146,
+      "rank": 148,
+      "word": "enfant",
+      "pos": "noun",
+      "meaning": "child",
+      "sentence": "Les enfants jouent dans le jardin.",
+      "translation": "The ⟦children⟧ are playing in the garden.",
+      "form": "enfants"
+    },
+    {
+      "n": 147,
+      "rank": 149,
+      "word": "place",
+      "pos": "noun",
+      "meaning": "seat; square (in a town); room, space",
+      "sentence": "Cette place est libre ?",
+      "translation": "Is this ⟦seat⟧ free?"
+    },
+    {
+      "n": 148,
+      "rank": 150,
+      "word": "moment",
+      "pos": "noun",
+      "meaning": "moment; time",
+      "sentence": "Un moment, s'il vous plaît.",
+      "translation": "One ⟦moment⟧, please."
+    },
+    {
+      "n": 149,
+      "rank": 151,
+      "word": "cas",
+      "pos": "noun",
+      "meaning": "case",
+      "sentence": "En cas de problème, appelle-moi.",
+      "translation": "In ⟦case⟧ of a problem, call me."
+    },
+    {
+      "n": 150,
+      "rank": 152,
+      "word": "connaître",
+      "pos": "verb",
+      "meaning": "to know (a person, a place)",
+      "sentence": "Tu connais mon frère ?",
+      "translation": "Do you ⟦know⟧ my brother?",
+      "form": "connais"
+    },
+    {
+      "n": 151,
+      "rank": 153,
+      "word": "vrai",
+      "pos": "adj",
+      "meaning": "true; real",
+      "sentence": "C'est vrai ?",
+      "translation": "Is that ⟦true⟧?"
+    },
+    {
+      "n": 152,
+      "rank": 154,
+      "word": "meilleur",
+      "pos": "adj",
+      "meaning": "better; best",
+      "sentence": "C'est mon meilleur ami.",
+      "translation": "He's my ⟦best⟧ friend."
+    },
+    {
+      "n": 153,
+      "rank": 155,
+      "word": "devenir",
+      "pos": "verb",
+      "meaning": "to become",
+      "sentence": "Elle veut devenir avocate.",
+      "translation": "She wants to ⟦become⟧ a lawyer."
+    },
+    {
+      "n": 154,
+      "rank": 156,
+      "word": "heure",
+      "pos": "noun",
+      "meaning": "hour; time (of day); o'clock",
+      "sentence": "Quelle heure est-il ?",
+      "translation": "What ⟦time⟧ is it?"
+    },
+    {
+      "n": 155,
+      "rank": 157,
+      "word": "mal",
+      "pos": "noun",
+      "meaning": "pain; harm (avoir mal: to hurt); (adverb) badly",
+      "sentence": "J'ai mal à la tête.",
+      "translation": "My head ⟦hurts⟧."
+    },
+    {
+      "n": 156,
+      "rank": 158,
+      "word": "beau",
+      "pos": "adj",
+      "meaning": "beautiful, handsome; nice (weather) (belle: feminine)",
+      "sentence": "Il fait beau aujourd'hui.",
+      "translation": "The weather's ⟦nice⟧ today."
+    },
+    {
+      "n": 157,
+      "rank": 159,
+      "word": "certain",
+      "pos": "adj",
+      "meaning": "certain, sure; some (certains)",
+      "sentence": "Certains magasins sont fermés le lundi.",
+      "translation": "⟦Some⟧ shops are closed on Mondays.",
+      "form": "certains"
+    },
+    {
+      "n": 158,
+      "rank": 160,
+      "word": "laisser",
+      "pos": "verb",
+      "meaning": "to leave; to let",
+      "sentence": "Laisse-moi tranquille !",
+      "translation": "⟦Leave⟧ me alone!",
+      "form": "laisse"
+    },
+    {
+      "n": 159,
+      "rank": 161,
+      "word": "compte",
+      "pos": "noun",
+      "meaning": "account (se rendre compte: to realise)",
+      "sentence": "J'ai ouvert un compte en banque.",
+      "translation": "I opened a bank ⟦account⟧."
+    },
+    {
+      "n": 160,
+      "rank": 162,
+      "word": "car",
+      "pos": "conj",
+      "meaning": "because, as",
+      "sentence": "Je reste à la maison, car il pleut.",
+      "translation": "I'm staying at home ⟦because⟧ it's raining."
+    },
+    {
+      "n": 161,
+      "rank": 163,
+      "word": "sentir",
+      "pos": "verb",
+      "meaning": "to feel; to smell",
+      "sentence": "Je me sens mieux aujourd'hui.",
+      "translation": "I ⟦feel⟧ better today.",
+      "form": "sens"
+    },
+    {
+      "n": 162,
+      "rank": 164,
+      "word": "histoire",
+      "pos": "noun",
+      "meaning": "story; history",
+      "sentence": "Raconte-moi une histoire.",
+      "translation": "Tell me a ⟦story⟧."
+    },
+    {
+      "n": 163,
+      "rank": 165,
+      "word": "mieux",
+      "pos": "adv",
+      "meaning": "better",
+      "sentence": "Il parle mieux que moi.",
+      "translation": "He speaks ⟦better⟧ than me."
+    },
+    {
+      "n": 164,
+      "rank": 166,
+      "word": "pendant",
+      "pos": "prep",
+      "meaning": "during; for (a length of time)",
+      "sentence": "Il a dormi pendant le film.",
+      "translation": "He slept ⟦during⟧ the film."
+    },
+    {
+      "n": 165,
+      "rank": 167,
+      "word": "puis",
+      "pos": "adv",
+      "meaning": "then, next",
+      "sentence": "Tourne à gauche, puis continue tout droit.",
+      "translation": "Turn left, ⟦then⟧ go straight on."
+    },
+    {
+      "n": 166,
+      "rank": 168,
+      "word": "question",
+      "pos": "noun",
+      "meaning": "question",
+      "sentence": "J'ai une question.",
+      "translation": "I have a ⟦question⟧."
+    },
+    {
+      "n": 167,
+      "rank": 169,
+      "word": "jeu",
+      "pos": "noun",
+      "meaning": "game",
+      "sentence": "C'est un jeu très amusant.",
+      "translation": "It's a really fun ⟦game⟧."
+    },
+    {
+      "n": 168,
+      "rank": 170,
+      "word": "plusieurs",
+      "pos": "det",
+      "meaning": "several",
+      "sentence": "J'ai essayé plusieurs fois.",
+      "translation": "I tried ⟦several⟧ times."
+    },
+    {
+      "n": 169,
+      "rank": 171,
+      "word": "pourquoi",
+      "pos": "adv",
+      "meaning": "why",
+      "sentence": "Pourquoi tu ris ?",
+      "translation": "⟦Why⟧ are you laughing?"
+    },
+    {
+      "n": 170,
+      "rank": 172,
+      "word": "lieu",
+      "pos": "noun",
+      "meaning": "place (avoir lieu: to take place)",
+      "sentence": "La fête aura lieu samedi.",
+      "translation": "The party will ⟦take place⟧ on Saturday."
+    },
+    {
+      "n": 171,
+      "rank": 173,
+      "word": "public",
+      "pos": "adj",
+      "meaning": "public; (noun) audience, the public",
+      "sentence": "C'est un jardin public.",
+      "translation": "It's a ⟦public⟧ garden."
+    },
+    {
+      "n": 172,
+      "rank": 174,
+      "word": "général",
+      "pos": "adj",
+      "meaning": "general (en général: usually)",
+      "sentence": "En général, je me lève à sept heures.",
+      "translation": "⟦Usually⟧ I get up at seven."
+    },
+    {
+      "n": 173,
+      "rank": 175,
+      "word": "nom",
+      "pos": "noun",
+      "meaning": "name; noun",
+      "sentence": "Quel est le nom de ce restaurant ?",
+      "translation": "What's the ⟦name⟧ of this restaurant?"
+    },
+    {
+      "n": 174,
+      "rank": 176,
+      "word": "jouer",
+      "pos": "verb",
+      "meaning": "to play",
+      "sentence": "Mon fils joue au foot.",
+      "translation": "My son ⟦plays⟧ football.",
+      "form": "joue"
+    },
+    {
+      "n": 175,
+      "rank": 177,
+      "word": "arriver",
+      "pos": "verb",
+      "meaning": "to arrive; to happen",
+      "sentence": "Le train arrive à midi.",
+      "translation": "The train ⟦arrives⟧ at noon.",
+      "form": "arrive"
+    },
+    {
+      "n": 176,
+      "rank": 178,
+      "word": "mois",
+      "pos": "noun",
+      "meaning": "month",
+      "sentence": "Je pars en vacances le mois prochain.",
+      "translation": "I'm going on holiday next ⟦month⟧."
+    },
+    {
+      "n": 177,
+      "rank": 179,
+      "word": "vers",
+      "pos": "prep",
+      "meaning": "towards; around (a time)",
+      "sentence": "J'arrive vers huit heures.",
+      "translation": "I'll get there ⟦around⟧ eight."
+    },
+    {
+      "n": 178,
+      "rank": 180,
+      "word": "part",
+      "pos": "noun",
+      "meaning": "share; slice (à part: apart from; quelque part: somewhere)",
+      "sentence": "Tu veux une part de gâteau ?",
+      "translation": "Do you want a ⟦slice⟧ of cake?"
+    },
+    {
+      "n": 179,
+      "rank": 181,
+      "word": "tenir",
+      "pos": "verb",
+      "meaning": "to hold; to keep",
+      "sentence": "Tiens-moi la main.",
+      "translation": "⟦Hold⟧ my hand.",
+      "form": "tiens"
+    },
+    {
+      "n": 180,
+      "rank": 182,
+      "word": "service",
+      "pos": "noun",
+      "meaning": "service; favour",
+      "sentence": "Je peux te demander un service ?",
+      "translation": "Can I ask you a ⟦favour⟧?"
+    },
+    {
+      "n": 181,
+      "rank": 183,
+      "word": "groupe",
+      "pos": "noun",
+      "meaning": "group; band",
+      "sentence": "On voyage en groupe.",
+      "translation": "We're travelling in a ⟦group⟧."
+    },
+    {
+      "n": 182,
+      "rank": 184,
+      "word": "jeune",
+      "pos": "adj",
+      "meaning": "young",
+      "sentence": "Il est encore jeune.",
+      "translation": "He's still ⟦young⟧."
+    },
+    {
+      "n": 183,
+      "rank": 185,
+      "word": "attendre",
+      "pos": "verb",
+      "meaning": "to wait (for)",
+      "sentence": "Je t'attends devant le cinéma.",
+      "translation": "I'll ⟦wait⟧ for you outside the cinema.",
+      "form": "attends"
+    },
+    {
+      "n": 184,
+      "rank": 186,
+      "word": "reste",
+      "pos": "noun",
+      "meaning": "rest (what is left)",
+      "sentence": "Je mangerai le reste demain.",
+      "translation": "I'll eat the ⟦rest⟧ tomorrow."
+    },
+    {
+      "n": 185,
+      "rank": 187,
+      "word": "moyen",
+      "pos": "noun",
+      "meaning": "means, way; (adjective) average",
+      "sentence": "Le vélo est un bon moyen de transport.",
+      "translation": "The bike is a good ⟦means⟧ of transport."
+    },
+    {
+      "n": 186,
+      "rank": 188,
+      "word": "coup",
+      "pos": "noun",
+      "meaning": "blow, knock (un coup de fil: a phone call; tout à coup: suddenly)",
+      "sentence": "Je te passe un coup de fil demain.",
+      "translation": "I'll give you a ⟦call⟧ tomorrow."
+    },
+    {
+      "n": 187,
+      "rank": 189,
+      "word": "aujourd'hui",
+      "pos": "adv",
+      "meaning": "today",
+      "sentence": "On est quel jour aujourd'hui ?",
+      "translation": "What day is it ⟦today⟧?"
+    },
+    {
+      "n": 188,
+      "rank": 190,
+      "word": "merci",
+      "pos": "interj",
+      "meaning": "thank you, thanks",
+      "sentence": "Merci beaucoup pour ton aide.",
+      "translation": "⟦Thank you⟧ very much for your help."
+    },
+    {
+      "n": 189,
+      "rank": 192,
+      "word": "cours",
+      "pos": "noun",
+      "meaning": "class, lesson; course",
+      "sentence": "J'ai cours de français le lundi.",
+      "translation": "I have French ⟦class⟧ on Mondays."
+    },
+    {
+      "n": 190,
+      "rank": 193,
+      "word": "lire",
+      "pos": "verb",
+      "meaning": "to read",
+      "sentence": "J'aime lire avant de dormir.",
+      "translation": "I like to ⟦read⟧ before going to sleep."
+    },
+    {
+      "n": 191,
+      "rank": 194,
+      "word": "utiliser",
+      "pos": "verb",
+      "meaning": "to use",
+      "sentence": "Je peux utiliser ton téléphone ?",
+      "translation": "Can I ⟦use⟧ your phone?"
+    },
+    {
+      "n": 192,
+      "rank": 195,
+      "word": "chaque",
+      "pos": "det",
+      "meaning": "each, every",
+      "sentence": "Je cours chaque matin.",
+      "translation": "I run ⟦every⟧ morning."
+    },
+    {
+      "n": 193,
+      "rank": 196,
+      "word": "regarder",
+      "pos": "verb",
+      "meaning": "to watch; to look at",
+      "sentence": "On regarde la télé ce soir ?",
+      "translation": "Shall we ⟦watch⟧ TV tonight?",
+      "form": "regarde"
+    },
+    {
+      "n": 194,
+      "rank": 197,
+      "word": "famille",
+      "pos": "noun",
+      "meaning": "family",
+      "sentence": "Ma famille habite à Marseille.",
+      "translation": "My ⟦family⟧ lives in Marseille."
+    },
+    {
+      "n": 195,
+      "rank": 198,
+      "word": "maison",
+      "pos": "noun",
+      "meaning": "house; home (à la maison: at home)",
+      "sentence": "Je rentre à la maison.",
+      "translation": "I'm going ⟦home⟧."
+    },
+    {
+      "n": 196,
+      "rank": 199,
+      "word": "semaine",
+      "pos": "noun",
+      "meaning": "week",
+      "sentence": "À la semaine prochaine !",
+      "translation": "See you next ⟦week⟧!"
+    },
+    {
+      "n": 197,
+      "rank": 200,
+      "word": "commencer",
+      "pos": "verb",
+      "meaning": "to begin, to start",
+      "sentence": "Le film commence à neuf heures.",
+      "translation": "The film ⟦starts⟧ at nine.",
+      "form": "commence"
+    },
+    {
+      "n": 198,
+      "rank": 201,
+      "word": "raison",
+      "pos": "noun",
+      "meaning": "reason (avoir raison: to be right)",
+      "sentence": "Tu as raison.",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 199,
+      "rank": 202,
+      "word": "prix",
+      "pos": "noun",
+      "meaning": "price; prize",
+      "sentence": "Quel est le prix de cette robe ?",
+      "translation": "What's the ⟦price⟧ of this dress?"
+    },
+    {
+      "n": 200,
+      "rank": 203,
+      "word": "également",
+      "pos": "adv",
+      "meaning": "also, as well",
+      "sentence": "Il parle également espagnol.",
+      "translation": "He ⟦also⟧ speaks Spanish."
     }
   ]
 }
