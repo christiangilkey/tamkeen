@@ -189,6 +189,763 @@
       "meaning": "(ends a sentence: isn't it?, right?)",
       "sentence": "今日は暑いですね。",
       "translation": "It's hot today, ⟦isn't it⟧?"
+    },
+    {
+      "n": 21,
+      "rank": 30,
+      "word": "人",
+      "pos": "noun",
+      "meaning": "person; people (ひと)",
+      "sentence": "今日は人が多いですね。",
+      "translation": "There are a lot of ⟦people⟧ today.",
+      "say": "ひと"
+    },
+    {
+      "n": 22,
+      "rank": 31,
+      "word": "一",
+      "pos": "num",
+      "meaning": "one (いち)",
+      "sentence": "息子は小学一年生です。",
+      "translation": "My son is in ⟦first⟧ grade.",
+      "say": "いち"
+    },
+    {
+      "n": 23,
+      "rank": 32,
+      "word": "や",
+      "pos": "part",
+      "meaning": "and (in a list of examples)",
+      "sentence": "りんごやバナナを買いました。",
+      "translation": "I bought apples ⟦and⟧ bananas."
+    },
+    {
+      "n": 24,
+      "rank": 33,
+      "word": "思う",
+      "pos": "verb",
+      "meaning": "to think (おもう)",
+      "sentence": "明日は晴れると思います。",
+      "translation": "I ⟦think⟧ it'll be sunny tomorrow.",
+      "form": "思い"
+    },
+    {
+      "n": 25,
+      "rank": 34,
+      "word": "二",
+      "pos": "num",
+      "meaning": "two (に)",
+      "sentence": "東京まで二時間かかります。",
+      "translation": "It takes ⟦two⟧ hours to Tokyo."
+    },
+    {
+      "n": 26,
+      "rank": 35,
+      "word": "日",
+      "pos": "noun",
+      "meaning": "day; sun (ひ; にち in dates)",
+      "sentence": "その日は雨でした。",
+      "translation": "It rained that ⟦day⟧.",
+      "say": "ひ"
+    },
+    {
+      "n": 27,
+      "rank": 36,
+      "word": "いい",
+      "pos": "adj",
+      "meaning": "good; nice; fine",
+      "sentence": "いい天気ですね。",
+      "translation": "It's ⟦nice⟧ weather, isn't it?"
+    },
+    {
+      "n": 28,
+      "rank": 37,
+      "word": "この",
+      "pos": "det",
+      "meaning": "this (before a noun)",
+      "sentence": "このかばんはいくらですか。",
+      "translation": "How much is ⟦this⟧ bag?"
+    },
+    {
+      "n": 29,
+      "rank": 38,
+      "word": "そう",
+      "pos": "adv",
+      "meaning": "so; like that",
+      "sentence": "はい、そうです。",
+      "translation": "Yes, ⟦that's right⟧."
+    },
+    {
+      "n": 30,
+      "rank": 39,
+      "word": "って",
+      "pos": "part",
+      "meaning": "(casual) they say; I heard",
+      "sentence": "明日、雨が降るって。",
+      "translation": "⟦They say⟧ it's going to rain tomorrow."
+    },
+    {
+      "n": 31,
+      "rank": 42,
+      "word": "けど",
+      "pos": "conj",
+      "meaning": "but; although",
+      "sentence": "高いけど、買います。",
+      "translation": "It's expensive, ⟦but⟧ I'll buy it."
+    },
+    {
+      "n": 32,
+      "rank": 43,
+      "word": "これ",
+      "pos": "pron",
+      "meaning": "this (one)",
+      "sentence": "これは何ですか。",
+      "translation": "What is ⟦this⟧?"
+    },
+    {
+      "n": 33,
+      "rank": 44,
+      "word": "よう",
+      "pos": "noun",
+      "meaning": "like; as if (〜のよう)",
+      "sentence": "夢のようです。",
+      "translation": "It's ⟦like⟧ a dream."
+    },
+    {
+      "n": 34,
+      "rank": 45,
+      "word": "三",
+      "pos": "num",
+      "meaning": "three (さん)",
+      "sentence": "そこには三回行きました。",
+      "translation": "I've been there ⟦three⟧ times."
+    },
+    {
+      "n": 35,
+      "rank": 46,
+      "word": "じゃ",
+      "pos": "conj",
+      "meaning": "well then (casual)",
+      "sentence": "じゃ、また明日。",
+      "translation": "⟦Well then⟧, see you tomorrow."
+    },
+    {
+      "n": 36,
+      "rank": 47,
+      "word": "言う",
+      "pos": "verb",
+      "meaning": "to say (いう)",
+      "sentence": "もう一度言ってください。",
+      "translation": "Please ⟦say⟧ it again.",
+      "form": "言っ"
+    },
+    {
+      "n": 37,
+      "rank": 48,
+      "word": "やる",
+      "pos": "verb",
+      "meaning": "to do (casual)",
+      "sentence": "宿題は後でやります。",
+      "translation": "I'll ⟦do⟧ my homework later.",
+      "form": "やり"
+    },
+    {
+      "n": 38,
+      "rank": 49,
+      "word": "できる",
+      "pos": "verb",
+      "meaning": "can; to be able to",
+      "sentence": "料理ができますか。",
+      "translation": "⟦Can⟧ you cook?",
+      "form": "でき"
+    },
+    {
+      "n": 39,
+      "rank": 50,
+      "word": "年",
+      "pos": "noun",
+      "meaning": "year (とし; ねん after a number)",
+      "sentence": "日本に来て三年です。",
+      "translation": "It's been three ⟦years⟧ since I came to Japan.",
+      "say": "とし"
+    },
+    {
+      "n": 40,
+      "rank": 51,
+      "word": "見る",
+      "pos": "verb",
+      "meaning": "to see; to watch; to look (みる)",
+      "sentence": "毎晩テレビを見ます。",
+      "translation": "I ⟦watch⟧ TV every night.",
+      "form": "見"
+    },
+    {
+      "n": 41,
+      "rank": 52,
+      "word": "その",
+      "pos": "det",
+      "meaning": "that (before a noun; near you)",
+      "sentence": "その本は面白いですか。",
+      "translation": "Is ⟦that⟧ book interesting?"
+    },
+    {
+      "n": 42,
+      "rank": 53,
+      "word": "たい",
+      "pos": "aux",
+      "meaning": "want to (after a verb)",
+      "sentence": "水が飲みたいです。",
+      "translation": "I ⟦want to⟧ drink some water."
+    },
+    {
+      "n": 43,
+      "rank": 54,
+      "word": "だけ",
+      "pos": "part",
+      "meaning": "only; just",
+      "sentence": "少しだけ待ってください。",
+      "translation": "Please wait ⟦just⟧ a little."
+    },
+    {
+      "n": 44,
+      "rank": 55,
+      "word": "まで",
+      "pos": "part",
+      "meaning": "until; as far as",
+      "sentence": "五時まで働きます。",
+      "translation": "I work ⟦until⟧ five."
+    },
+    {
+      "n": 45,
+      "rank": 57,
+      "word": "なら",
+      "pos": "conj",
+      "meaning": "if (it's)",
+      "sentence": "雨なら行きません。",
+      "translation": "⟦If⟧ it rains, I won't go."
+    },
+    {
+      "n": 46,
+      "rank": 59,
+      "word": "月",
+      "pos": "noun",
+      "meaning": "moon; month (つき; がつ in month names)",
+      "sentence": "今夜は月がきれいですね。",
+      "translation": "The ⟦moon⟧ is beautiful tonight.",
+      "say": "つき"
+    },
+    {
+      "n": 47,
+      "rank": 60,
+      "word": "という",
+      "pos": "part",
+      "meaning": "called; named",
+      "sentence": "これは何という花ですか。",
+      "translation": "What is this flower ⟦called⟧?"
+    },
+    {
+      "n": 48,
+      "rank": 62,
+      "word": "中",
+      "pos": "noun",
+      "meaning": "inside; in; middle (なか)",
+      "sentence": "かばんの中に何がありますか。",
+      "translation": "What's ⟦in⟧ the bag?",
+      "say": "なか"
+    },
+    {
+      "n": 49,
+      "rank": 63,
+      "word": "それ",
+      "pos": "pron",
+      "meaning": "that (one; near you)",
+      "sentence": "それ、いいですね。",
+      "translation": "⟦That⟧'s nice."
+    },
+    {
+      "n": 50,
+      "rank": 64,
+      "word": "でも",
+      "pos": "conj",
+      "meaning": "but; even",
+      "sentence": "でも、時間がありません。",
+      "translation": "⟦But⟧ I don't have time."
+    },
+    {
+      "n": 51,
+      "rank": 65,
+      "word": "何",
+      "pos": "pron",
+      "meaning": "what (なに; なん before some words)",
+      "sentence": "何を食べたいですか。",
+      "translation": "⟦What⟧ do you want to eat?",
+      "say": "なに"
+    },
+    {
+      "n": 52,
+      "rank": 66,
+      "word": "行く",
+      "pos": "verb",
+      "meaning": "to go (いく)",
+      "sentence": "明日、学校に行きます。",
+      "translation": "I'll ⟦go⟧ to school tomorrow.",
+      "form": "行き",
+      "say": "いく"
+    },
+    {
+      "n": 53,
+      "rank": 67,
+      "word": "私",
+      "pos": "pron",
+      "meaning": "I; me (わたし)",
+      "sentence": "私は学生です。",
+      "translation": "⟦I⟧'m a student.",
+      "say": "わたし"
+    },
+    {
+      "n": 54,
+      "rank": 68,
+      "word": "ため",
+      "pos": "noun",
+      "meaning": "for; for the sake of; because of",
+      "sentence": "健康のために歩きます。",
+      "translation": "I walk ⟦for⟧ my health."
+    },
+    {
+      "n": 55,
+      "rank": 70,
+      "word": "時",
+      "pos": "noun",
+      "meaning": "time; when (とき)",
+      "sentence": "子供の時、よく泳ぎました。",
+      "translation": "⟦When⟧ I was a child, I often went swimming.",
+      "say": "とき"
+    },
+    {
+      "n": 56,
+      "rank": 71,
+      "word": "もの",
+      "pos": "noun",
+      "meaning": "thing (also written 物)",
+      "sentence": "何か食べるものはありますか。",
+      "translation": "Is there ⟦anything⟧ to eat?"
+    },
+    {
+      "n": 57,
+      "rank": 72,
+      "word": "四",
+      "pos": "num",
+      "meaning": "four (よん; also し)",
+      "sentence": "四時に終わります。",
+      "translation": "It ends at ⟦four⟧.",
+      "say": "よん"
+    },
+    {
+      "n": 58,
+      "rank": 73,
+      "word": "へ",
+      "pos": "part",
+      "meaning": "to; towards (said え)",
+      "sentence": "日本へようこそ。",
+      "translation": "Welcome ⟦to⟧ Japan.",
+      "say": "え"
+    },
+    {
+      "n": 59,
+      "rank": 75,
+      "word": "あっ",
+      "pos": "interj",
+      "meaning": "oh! (surprise)",
+      "sentence": "あっ、財布を忘れた。",
+      "translation": "⟦Oh!⟧ I forgot my wallet."
+    },
+    {
+      "n": 60,
+      "rank": 76,
+      "word": "さん",
+      "pos": "suffix",
+      "meaning": "Mr.; Ms. (after a name)",
+      "sentence": "田中さんはいますか。",
+      "translation": "Is ⟦Mr.⟧ Tanaka in?"
+    },
+    {
+      "n": 61,
+      "rank": 77,
+      "word": "ので",
+      "pos": "conj",
+      "meaning": "because; so",
+      "sentence": "風邪をひいたので、休みます。",
+      "translation": "I caught a cold, ⟦so⟧ I'll stay home."
+    },
+    {
+      "n": 62,
+      "rank": 78,
+      "word": "今",
+      "pos": "noun",
+      "meaning": "now (いま)",
+      "sentence": "今、何時ですか。",
+      "translation": "What time is it ⟦now⟧?",
+      "say": "いま"
+    },
+    {
+      "n": 63,
+      "rank": 79,
+      "word": "方",
+      "pos": "noun",
+      "meaning": "direction; side; the one (in comparisons) (ほう)",
+      "sentence": "駅の方に歩きました。",
+      "translation": "I walked ⟦toward⟧ the station.",
+      "say": "ほう"
+    },
+    {
+      "n": 64,
+      "rank": 81,
+      "word": "として",
+      "pos": "part",
+      "meaning": "as (in the role of)",
+      "sentence": "通訳として働いています。",
+      "translation": "I work ⟦as⟧ an interpreter."
+    },
+    {
+      "n": 65,
+      "rank": 82,
+      "word": "くれる",
+      "pos": "verb",
+      "meaning": "to give (to me); to do for me",
+      "sentence": "友達が本をくれました。",
+      "translation": "My friend ⟦gave⟧ me a book.",
+      "form": "くれ"
+    },
+    {
+      "n": 66,
+      "rank": 83,
+      "word": "五",
+      "pos": "num",
+      "meaning": "five (ご)",
+      "sentence": "うちは五人家族です。",
+      "translation": "We're a family of ⟦five⟧."
+    },
+    {
+      "n": 67,
+      "rank": 85,
+      "word": "など",
+      "pos": "part",
+      "meaning": "and so on; etc.",
+      "sentence": "肉や魚などを買いました。",
+      "translation": "I bought meat, fish ⟦and so on⟧."
+    },
+    {
+      "n": 68,
+      "rank": 86,
+      "word": "自分",
+      "pos": "noun",
+      "meaning": "oneself; myself (じぶん)",
+      "sentence": "自分で作りました。",
+      "translation": "I made it ⟦myself⟧."
+    },
+    {
+      "n": 69,
+      "rank": 88,
+      "word": "より",
+      "pos": "part",
+      "meaning": "than",
+      "sentence": "電車はバスより速いです。",
+      "translation": "The train is faster ⟦than⟧ the bus."
+    },
+    {
+      "n": 70,
+      "rank": 90,
+      "word": "とか",
+      "pos": "part",
+      "meaning": "and things like; or something",
+      "sentence": "週末は映画とか見ます。",
+      "translation": "On weekends I watch movies ⟦and stuff⟧."
+    },
+    {
+      "n": 71,
+      "rank": 91,
+      "word": "俺",
+      "pos": "pron",
+      "meaning": "I; me (men, casual) (おれ)",
+      "sentence": "俺も行くよ。",
+      "translation": "⟦I⟧'ll go too."
+    },
+    {
+      "n": 72,
+      "rank": 92,
+      "word": "前",
+      "pos": "noun",
+      "meaning": "front; before; ago (まえ)",
+      "sentence": "駅の前で会いましょう。",
+      "translation": "Let's meet in ⟦front of⟧ the station.",
+      "say": "まえ"
+    },
+    {
+      "n": 73,
+      "rank": 93,
+      "word": "気",
+      "pos": "noun",
+      "meaning": "mind; spirit; feeling (き)",
+      "sentence": "気が変わりました。",
+      "translation": "I changed my ⟦mind⟧.",
+      "say": "き"
+    },
+    {
+      "n": 74,
+      "rank": 94,
+      "word": "時間",
+      "pos": "noun",
+      "meaning": "time; hour (じかん)",
+      "sentence": "時間がありますか。",
+      "translation": "Do you have ⟦time⟧?"
+    },
+    {
+      "n": 75,
+      "rank": 95,
+      "word": "どう",
+      "pos": "adv",
+      "meaning": "how; what (about)",
+      "sentence": "日本はどうですか。",
+      "translation": "⟦How⟧ do you like Japan?"
+    },
+    {
+      "n": 76,
+      "rank": 96,
+      "word": "また",
+      "pos": "adv",
+      "meaning": "again; also",
+      "sentence": "また来てください。",
+      "translation": "Please come ⟦again⟧."
+    },
+    {
+      "n": 77,
+      "rank": 97,
+      "word": "もう",
+      "pos": "adv",
+      "meaning": "already; (not) anymore; more",
+      "sentence": "もう食べました。",
+      "translation": "I've ⟦already⟧ eaten."
+    },
+    {
+      "n": 78,
+      "rank": 99,
+      "word": "え",
+      "pos": "interj",
+      "meaning": "eh?; what?",
+      "sentence": "え、本当ですか。",
+      "translation": "⟦What?⟧ Really?"
+    },
+    {
+      "n": 79,
+      "rank": 100,
+      "word": "みる",
+      "pos": "verb",
+      "meaning": "to try (doing): after the て form",
+      "sentence": "ちょっと食べてみます。",
+      "translation": "I'll ⟦try⟧ a little.",
+      "form": "み"
+    },
+    {
+      "n": 80,
+      "rank": 101,
+      "word": "使う",
+      "pos": "verb",
+      "meaning": "to use (つかう)",
+      "sentence": "このペンを使ってもいいですか。",
+      "translation": "May I ⟦use⟧ this pen?",
+      "form": "使っ"
+    },
+    {
+      "n": 81,
+      "rank": 102,
+      "word": "目",
+      "pos": "noun",
+      "meaning": "eye (め)",
+      "sentence": "目が痛いです。",
+      "translation": "My ⟦eyes⟧ hurt."
+    },
+    {
+      "n": 82,
+      "rank": 103,
+      "word": "話",
+      "pos": "noun",
+      "meaning": "talk; story (はなし)",
+      "sentence": "面白い話ですね。",
+      "translation": "What an interesting ⟦story⟧."
+    },
+    {
+      "n": 83,
+      "rank": 106,
+      "word": "知る",
+      "pos": "verb",
+      "meaning": "to know; to get to know (しる)",
+      "sentence": "あの人を知っていますか。",
+      "translation": "Do you ⟦know⟧ that person?",
+      "form": "知っ"
+    },
+    {
+      "n": 84,
+      "rank": 107,
+      "word": "わかる",
+      "pos": "verb",
+      "meaning": "to understand (also written 分かる)",
+      "sentence": "はい、わかりました。",
+      "translation": "Yes, I ⟦understand⟧.",
+      "form": "わかり"
+    },
+    {
+      "n": 85,
+      "rank": 108,
+      "word": "来る",
+      "pos": "verb",
+      "meaning": "to come (くる)",
+      "sentence": "明日、友達が来ます。",
+      "translation": "A friend is ⟦coming⟧ tomorrow.",
+      "form": "来"
+    },
+    {
+      "n": 86,
+      "rank": 109,
+      "word": "考える",
+      "pos": "verb",
+      "meaning": "to think (about); to consider (かんがえる)",
+      "sentence": "ちょっと考えます。",
+      "translation": "Let me ⟦think⟧ about it.",
+      "form": "考え"
+    },
+    {
+      "n": 87,
+      "rank": 111,
+      "word": "八",
+      "pos": "num",
+      "meaning": "eight (はち)",
+      "sentence": "授業は八時に始まります。",
+      "translation": "Class starts at ⟦eight⟧."
+    },
+    {
+      "n": 88,
+      "rank": 112,
+      "word": "かも",
+      "pos": "part",
+      "meaning": "maybe; might (かもしれない)",
+      "sentence": "明日は雨かもしれません。",
+      "translation": "It ⟦might⟧ rain tomorrow."
+    },
+    {
+      "n": 89,
+      "rank": 113,
+      "word": "分",
+      "pos": "noun",
+      "meaning": "minute (ふん; ぷん after some numbers)",
+      "sentence": "あと五分です。",
+      "translation": "Five more ⟦minutes⟧.",
+      "say": "ふん"
+    },
+    {
+      "n": 90,
+      "rank": 114,
+      "word": "家",
+      "pos": "noun",
+      "meaning": "house; home (いえ)",
+      "sentence": "大きい家ですね。",
+      "translation": "What a big ⟦house⟧!",
+      "say": "いえ"
+    },
+    {
+      "n": 91,
+      "rank": 115,
+      "word": "感じる",
+      "pos": "verb",
+      "meaning": "to feel (かんじる)",
+      "sentence": "少し寒く感じます。",
+      "translation": "It ⟦feels⟧ a little cold.",
+      "form": "感じ"
+    },
+    {
+      "n": 92,
+      "rank": 116,
+      "word": "六",
+      "pos": "num",
+      "meaning": "six (ろく)",
+      "sentence": "六人で行きました。",
+      "translation": "⟦Six⟧ of us went."
+    },
+    {
+      "n": 93,
+      "rank": 117,
+      "word": "たり",
+      "pos": "part",
+      "meaning": "doing things like (…たり…たりする)",
+      "sentence": "週末は掃除したり洗濯したりします。",
+      "translation": "On weekends I do ⟦things like⟧ cleaning and laundry."
+    },
+    {
+      "n": 94,
+      "rank": 120,
+      "word": "円",
+      "pos": "noun",
+      "meaning": "yen (えん)",
+      "sentence": "これは百円です。",
+      "translation": "This is a hundred ⟦yen⟧."
+    },
+    {
+      "n": 95,
+      "rank": 121,
+      "word": "しまう",
+      "pos": "verb",
+      "meaning": "to finish; to end up doing (with regret); to put away",
+      "sentence": "財布をなくしてしまいました。",
+      "translation": "I've ⟦gone and⟧ lost my wallet.",
+      "form": "しまい"
+    },
+    {
+      "n": 96,
+      "rank": 122,
+      "word": "七",
+      "pos": "num",
+      "meaning": "seven (なな; also しち)",
+      "sentence": "七時に家を出ます。",
+      "translation": "I leave home at ⟦seven⟧.",
+      "say": "なな"
+    },
+    {
+      "n": 97,
+      "rank": 123,
+      "word": "後",
+      "pos": "noun",
+      "meaning": "after; later (あと)",
+      "sentence": "後で電話します。",
+      "translation": "I'll call you ⟦later⟧.",
+      "form": "後で",
+      "say": "あと"
+    },
+    {
+      "n": 98,
+      "rank": 124,
+      "word": "ください",
+      "pos": "verb",
+      "meaning": "please (give me; do)",
+      "sentence": "水をください。",
+      "translation": "Water, ⟦please⟧."
+    },
+    {
+      "n": 99,
+      "rank": 126,
+      "word": "持つ",
+      "pos": "verb",
+      "meaning": "to have; to hold; to carry (もつ)",
+      "sentence": "傘を持っていますか。",
+      "translation": "Do you ⟦have⟧ an umbrella?",
+      "form": "持っ"
+    },
+    {
+      "n": 100,
+      "rank": 127,
+      "word": "のに",
+      "pos": "conj",
+      "meaning": "although; even though",
+      "sentence": "約束したのに、来ませんでした。",
+      "translation": "He didn't come, ⟦even though⟧ he promised."
     }
   ]
 }
