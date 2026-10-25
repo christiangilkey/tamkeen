@@ -1829,6 +1829,234 @@
         {"type":"choice","q":"{{ang balay nga dako}} and {{ang dakong balay}}…","options":["mean the same: the big house","mean different things"],"answer":0,"why":"The same linker {{nga}} / -ng, either order.","from":"describe-what-you-want"},
         {"type":"free","q":"Your turn: point out two people in a room or a photo by what they're doing or wearing.","answers":[{"t":"Ang babaye nga nagsul-ob og puti, akong igsoon. Ang lalaki nga nagkanta, akong higala.","tr":"The woman wearing white is my sister. The man who's singing is my friend."},{"t":"Kadtong nagluto sa kusina, akong mama.","tr":"The one cooking in the kitchen is my mom."}]}
       ]
+    },
+    {
+      "id": "if-and-when",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what will happen if…",
+      "summary": "Make plans that depend on something: “If it rains tomorrow, we won't go”, “When you arrive, call me.”",
+      "topic": "{{kung}} + {{mo-}} “if”; {{inig}} + root “when (it happens)”; {{pag-}} “when (it happened)”; {{kung}} for habits",
+      "blocks": [
+        {"goal":{"t":"Kung moulan ugma, dili ta moadto sa baybayon.","tr":"If it rains tomorrow, we won't go to the beach."}},
+        {"dialog":[{"who":"Ben","t":"Padayon ta ugma?","tr":"Are we still on for tomorrow?"},{"who":"Ana","t":"Oo, kung dili moulan.","tr":"Yes, if it doesn't rain."},{"who":"Ben","t":"Ug kung moulan?","tr":"And if it rains?"},{"who":"Ana","t":"Kung moulan, manan-aw na lang ta og sine.","tr":"If it rains, we'll just watch a movie."},{"who":"Ben","t":"Sige. Inig abot nako sa imong balay, tawagan tika.","tr":"Okay. When I get to your house, I'll call you."},{"who":"Ana","t":"Sige! Kung gigutom ka, naa koy luto.","tr":"Okay! If you're hungry, I've cooked something."}]},
+        {"p":"**If: {{kung}}.** For something that may or may not happen, {{kung}} + a {{mo-}} verb (it hasn't happened): {{Kung moulan ugma…}} “If it rains tomorrow…”. The other half is a plan ({{dili ta moadto}}) or a command ({{tawagi ko}}). {{kung}} works with every kind of sentence you know: {{Kung naa kay oras…}} “If you have time…”, {{Kung gigutom ka…}} “If you're hungry…”, {{Kung gusto nimo…}} “If you want…”."},
+        {"p":"**When, in the future: {{inig}}** + the root + the person from the {{nako}} set: {{Inig abot nimo, tawagi ko.}} “When you arrive, call me.” It's the future twin of the {{pag-}} you used in stories: {{Pag-abot nimo…}} “When you arrived…”. (In everyday speech {{pag-}} is often used for the future too; {{inig}} is the careful way.)"},
+        { "table": [
+          ["","Bisaya","English"],
+          ["if (maybe)","{{Kung moabot siya, …}}","If she comes, …"],
+          ["when (it will happen)","{{Inig abot niya, …}}","When she arrives, …"],
+          ["when (it happened)","{{Pag-abot niya, …}}","When she arrived, …"],
+          ["whenever","{{Kung Domingo, …}}","On Sundays, …"]
+        ] },
+        {"p":"**Whenever.** For habits, {{kung}} means “when, whenever”: {{Kung Domingo, mosimba mi.}} “On Sundays, we go to mass.” {{Kung init, molangoy ko.}} “When it's hot, I go swimming.”"},
+        { "ex": [
+          {"t":"Kung gusto nimo, adto ta.","tr":"If you want, let's go."},
+          {"t":"Kung moulan ugma, dili ta moadto.","tr":"If it rains tomorrow, we won't go."},
+          {"t":"Kung naa kay pangutana, tawagi ko.","tr":"If you have a question, call me."},
+          {"t":"Kung gigutom ka, kaon lang.","tr":"If you're hungry, just eat."},
+          {"t":"Inig abot nimo, tawagi ko.","tr":"When you arrive, call me."},
+          {"t":"Inig uli nako, magluto ko.","tr":"When I get home, I'll cook."},
+          {"t":"Kung Domingo, mosimba mi.","tr":"On Sundays, we go to mass."}
+        ] },
+        {"tip":"{{Kung dili ko masayop…}} “If I'm not mistaken…” is a polite way to correct someone or to share something you're not sure of."}
+      ],
+      "mistakes": [
+        {"wrong":"Kung miulan ugma, dili ta moadto.","right":"Kung moulan ugma, dili ta moadto.","tr":"If it rains tomorrow, we won't go.","why":"It hasn't happened: {{mo-}}."},
+        {"wrong":"Inig miabot nimo, tawagi ko.","right":"Inig abot nimo, tawagi ko.","tr":"When you arrive, call me.","why":"After {{inig}}, just the root, then the person."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ moulan ugma, dili ta moadto.","tr":"If it rains tomorrow, we won't go.","options":["Kung","Kay","Aron"],"answer":0,"why":"If: {{kung}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Inig ___ nimo, tawagi ko.","tr":"When you arrive, call me.","options":["abot","miabot","moabot"],"answer":0,"why":"{{inig}} + the bare root."},
+        {"type":"choice","q":"{{Pag-abot nimo}} and {{Inig abot nimo}} mean…","options":["“when you arrived” and “when you arrive”","“when you arrive” and “when you arrived”","“if you arrive” and “when you arrived”"],"answer":0,"why":"{{pag-}} for what happened, {{inig}} for what will.","from":"tell-a-story"},
+        {"type":"dialogue","q":"Planning a trip with a friend. Choose your replies.","lines":[{"who":"Joy","t":"Moadto ta sa Kawasan ugma?","tr":"Shall we go to Kawasan Falls tomorrow?"},{"options":["Sige, kung dili moulan.","Sige, kung miulan."],"answer":0,"why":"Tomorrow's weather hasn't happened: {{kung}} + {{mo-}}."},{"who":"Joy","t":"Unsang orasa ta mobiya?","tr":"What time shall we leave?"},{"options":["Alas singko. Inig mata nimo, tawagi ko.","Alas singko. Inig nimata nimo, tawagi ko."],"answer":0,"why":"After {{inig}}, the bare root: {{mata}} “wake up”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If you want, let's go.","words":["Kung","gusto","nimo,","adto","ta."]},
+        {"type":"say","q":"Say “If you have time, call me.”","answer":"Kung naa kay oras, tawagi ko.","from":"say-what-there-is"},
+        {"type":"say","q":"Say “If I can't come, I'll call you.”","answer":"Kung dili ko makaadto, tawagan tika.","from":"say-what-you-can-do"},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and if it rains.","answers":[{"t":"Kung init, moadto mi sa baybayon. Kung moulan, magpabilin lang mi sa balay.","tr":"If it's sunny, we'll go to the beach. If it rains, we'll just stay home."},{"t":"Kung naa koy kwarta, mamalit ko og bag-ong sapatos. Inig uli nako, magluto ko.","tr":"If I have money, I'll go buy new shoes. When I get home, I'll cook."}]}
+      ]
+    },
+    {
+      "id": "before-and-after",
+      "unit": 8,
+      "level": "B1",
+      "title": "Put events in order: before, after, while",
+      "summary": "Say what happens before, after, while and until: “Before you go out, close the windows.”",
+      "topic": "{{human sa}} “after”; {{sa dili pa}} / {{sa wala pa}} “before”; {{samtang}} “while”; {{hangtod}} “until”",
+      "blocks": [
+        {"goal":{"t":"Sa dili pa ka mogawas, sirad-i ang mga bintana.","tr":"Before you go out, close the windows."}},
+        {"dialog":[{"who":"Mom","t":"Ben, mobiya na ko. Sa dili pa ka mogawas, sirad-i ang mga bintana.","tr":"Ben, I'm leaving now. Before you go out, close the windows."},{"who":"Ben","t":"Sige, Ma. Kanus-a ka mobalik?","tr":"Okay, Mom. When are you coming back?"},{"who":"Mom","t":"Human sa akong miting, mga alas singko.","tr":"After my meeting, around five."},{"who":"Ben","t":"Samtang wala ka, magluto ko sa panihapon.","tr":"While you're out, I'll cook supper."},{"who":"Mom","t":"Salamat! Pero ayaw sa kaon hangtod moabot ko.","tr":"Thanks! But don't eat until I get back."},{"who":"Ben","t":"Okay, pero ayaw dugaya, Ma!","tr":"Okay, but don't take too long, Mom!"}]},
+        {"p":"**After: {{human sa}}** + a noun ({{human sa klase}} “after class”, {{human sa akong miting}} “after my meeting”) or a {{pag-}} word ({{human sa pagkaon}} “after eating”). You know {{human ana}} “after that” from stories."},
+        {"p":"**Before.** For what hasn't happened yet, {{sa dili pa}} + the person + a {{mo-}} verb: {{Sa dili pa ka mogawas…}} “Before you go out…”. For the past, {{sa wala pa}}, still with {{mo-}}, just as {{wala}} always takes it: {{Sa wala pa ko moadto sa Cebu, nagpuyo ko sa Manila.}} “Before I came to Cebu, I lived in Manila.” The little {{pa}} is “yet”: word for word “while not yet going out”."},
+        {"p":"**While: {{samtang}}.** {{Nagkanta siya samtang nagluto.}} “She sang while she cooked.” {{samtang wala ka}} “while you're away”. **Until: {{hangtod}}**, before a time or a verb: {{hangtod alas siyete}} “until seven”, {{hangtod moabot ko}} “until I arrive”."},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{human sa klase}}","after class"],
+          ["{{sa dili pa ka mobiya}}","before you leave (not yet)"],
+          ["{{sa wala pa ko moabot}}","before I arrived (past)"],
+          ["{{samtang nagluto siya}}","while she was cooking"],
+          ["{{hangtod moabot ko}}","until I arrive"]
+        ] },
+        { "ex": [
+          {"t":"Human sa klase, mouli ko.","tr":"After class, I'm going home."},
+          {"t":"Human sa pagkaon, nanghugas siya og plato.","tr":"After eating, she did the dishes."},
+          {"t":"Sa dili pa ka mobiya, tawagi ko.","tr":"Before you leave, call me."},
+          {"t":"Sa wala pa ko moadto sa Cebu, nagpuyo ko sa Manila.","tr":"Before I came to Cebu, I lived in Manila."},
+          {"t":"Nagkanta siya samtang nagluto.","tr":"She sang while she cooked."},
+          {"t":"Naghulat ko hangtod alas siyete.","tr":"I waited until seven."}
+        ] },
+        {"tip":"{{Ayaw sa!}} “Not yet! Wait!” uses the {{sa}} “first, for now” of lesson 19: {{Ayaw sa kaon.}} “Don't eat yet.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Sa dili pa ko miadto sa Cebu, nagpuyo ko sa Manila.","right":"Sa wala pa ko moadto sa Cebu, nagpuyo ko sa Manila.","tr":"Before I came to Cebu, I lived in Manila.","why":"Before something in the past: {{sa wala pa}}, and after {{wala}} the verb is {{mo-}}."},
+        {"wrong":"Human klase, mouli ko.","right":"Human sa klase, mouli ko.","tr":"After class, I'm going home.","why":"{{human}} + {{sa}} + the noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Human ___ klase, mouli ko.","tr":"After class, I'm going home.","options":["sa","nga","kay"],"answer":0,"why":"{{human sa}} + a noun."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sa ___ pa ka mobiya, tawagi ko.","tr":"Before you leave, call me.","options":["dili","wala","human"],"answer":0,"why":"Not happened yet: {{sa dili pa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nagkanta siya ___ nagluto.","tr":"She sang while she cooked.","options":["samtang","human","hangtod"],"answer":0,"why":"While: {{samtang}}."},
+        {"type":"dialogue","q":"Your roommate is going out. Choose your replies.","lines":[{"who":"Roommate","t":"Mogawas ko. Naa kay ipapalit?","tr":"I'm going out. Want me to buy you anything?"},{"options":["Oo, pan. Ug sa dili pa ka mouli, tawagi ko.","Oo, pan. Ug sa wala pa ka mouli, tawagi ko."],"answer":0,"why":"Before something that hasn't happened: {{sa dili pa}}."},{"who":"Roommate","t":"Sige. Unsa imong buhaton samtang wala ko?","tr":"Okay. What will you do while I'm out?"},{"options":["Magtuon ko hangtod moabot ka.","Magtuon ko samtang moabot ka."],"answer":0,"why":"Until you arrive: {{hangtod}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I waited until seven.","words":["Naghulat","ko","hangtod","alas","siyete."]},
+        {"type":"choice","q":"{{Sa wala pa…}} is “before”…","options":["in the past","in the future"],"answer":0,"why":"{{wala}} is for what didn't happen: the past. The future takes {{sa dili pa}}.","from":"say-what-you-didnt-do"},
+        {"type":"say","q":"Say “Before you go out, open the windows.”","answer":"Sa dili pa ka mogawas, ablihi ang mga bintana.","from":"do-things-for-people"},
+        {"type":"free","q":"Your turn: describe your evening: what you do after work, and before you go to sleep.","answers":[{"t":"Human sa trabaho, moadto ko sa gym. Sa dili pa ko matulog, magbasa ko og libro.","tr":"After work, I go to the gym. Before I go to sleep, I read a book."},{"t":"Human sa panihapon, manan-aw mi og TV. Sa dili pa ko matulog, motawag ko sa akong mama.","tr":"After supper, we watch TV. Before I go to sleep, I call my mom."}]}
+      ]
+    },
+    {
+      "id": "point-out-who",
+      "unit": 8,
+      "level": "B1",
+      "title": "Point out who did it",
+      "summary": "Say “It was Dad who cooked”, “I'll pay”, and “the cake my grandma made”.",
+      "topic": "Putting the person first: {{Si Papa ang nagluto.}}; {{nga}} with a {{gi-}} verb: {{ang libro nga akong gibasa}}",
+      "blocks": [
+        {"goal":{"t":"Kinsa ang nagluto niini? — Si Mama ang nagluto.","tr":"Who cooked this? — Mom did."}},
+        {"dialog":[{"who":"Guest","t":"Lami kaayo ang adobo! Kinsa ang nagluto?","tr":"The adobo is so good! Who cooked it?"},{"who":"Ana","t":"Si Papa ang nagluto. Ako ang namalit sa merkado.","tr":"Dad cooked it. I did the shopping at the market."},{"who":"Guest","t":"Ug kini nga cake?","tr":"And this cake?"},{"who":"Ana","t":"Kana ang cake nga gihimo sa akong lola.","tr":"That's the cake my grandma made."},{"who":"Guest","t":"Lami kaayo! Unsa man ang sikreto?","tr":"So good! What's the secret?"},{"who":"Ana","t":"Ang gugma nga iyang gibutang!","tr":"The love she put into it!"}]},
+        {"p":"**The spotlight.** To say **who** did something, put the person first and {{ang}} before a doer verb: {{Si Papa ang nagluto.}} “It was Dad who cooked, Dad cooked it.” {{Ako ang mobayad.}} “I'll pay (it's me who'll pay).” It answers {{Kinsa ang…?}} “Who…?” in the same shape."},
+        {"p":"**The thing done to.** In lesson 39, {{nga}} pointed at the doer: {{ang babaye nga nagluto}} “the woman who cooked”. To point at the **thing** instead (“the cake my grandma made”, “the book I read”), the verb after {{nga}} must point at it too: a {{gi-}} verb. {{ang cake nga gihimo sa akong lola}}, {{ang libro nga akong gibasa}}."},
+        {"p":"This is a real Bisaya rule: {{nga}} can only point at the verb's focus. So **the verb's prefix decides** what the description is about. And the doer of the {{gi-}} verb often comes **before** it, as {{akong}}, {{imong}}, {{iyang}}: {{ang libro nga akong gibasa}} = {{ang libro nga gibasa nako}}."},
+        { "table": [
+          ["about the doer ({{nag-}}, {{mi-}})","about the thing ({{gi-}})"],
+          ["{{ang babaye nga nagluto sa adobo}} the woman who cooked the adobo","{{ang adobo nga giluto sa babaye}} the adobo the woman cooked"],
+          ["{{ang tawo nga mipalit sa awto}} the man who bought the car","{{ang awto nga iyang gipalit}} the car he bought"],
+          ["{{Si Papa ang nagluto.}} Dad cooked it.","{{Adobo ang giluto ni Papa.}} It was adobo that Dad cooked."]
+        ] },
+        { "ex": [
+          {"t":"Si Mama ang nagluto niini.","tr":"Mom cooked this."},
+          {"t":"Ako ang mobayad.","tr":"I'll pay."},
+          {"t":"Kinsa ang nakabuak sa baso?","tr":"Who broke the glass?"},
+          {"t":"Mao ni ang libro nga akong gibasa.","tr":"This is the book I read."},
+          {"t":"Asa na ang sapatos nga imong gipalit?","tr":"Where are the shoes you bought?"},
+          {"t":"Kinsa ang tawo nga imong gitawagan?","tr":"Who's the person you called?"},
+          {"t":"Nindot ang mga litrato nga imong gikuha.","tr":"The photos you took are beautiful."}
+        ] },
+        {"tip":"{{Ikaw ang bahala.}} “It's up to you.” has the same shape: {{ikaw}} in the spotlight. Very useful when you're asked to choose."}
+      ],
+      "mistakes": [
+        {"wrong":"ang libro nga nagbasa ko","right":"ang libro nga akong gibasa","tr":"the book I read","why":"The book was read; it didn't do the reading. Point the verb at it with {{gi-}}."},
+        {"wrong":"Si Mama ang giluto.","right":"Si Mama ang nagluto.","tr":"Mom cooked it.","why":"Mom did the cooking: a doer verb. {{Si Mama ang giluto}} would mean Mom got cooked!"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Si Papa ang ___.","tr":"Dad cooked it.","options":["nagluto","giluto","lutoa"],"answer":0,"why":"Dad is the doer: {{nag-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mao ni ang libro nga akong ___.","tr":"This is the book I read.","options":["gibasa","nagbasa","mibasa"],"answer":0,"why":"The book is the thing read: {{gi-}}."},
+        {"type":"choice","q":"{{ang sapatos nga imong gipalit}} means…","options":["the shoes you bought","the shoes that bought you","you bought shoes"],"answer":0,"why":"{{gi-}} points at the shoes; {{imong}} is the buyer."},
+        {"type":"dialogue","q":"At a dinner party: choose your replies.","lines":[{"who":"Host","t":"Kumusta ang pagkaon?","tr":"How's the food?"},{"options":["Lami kaayo! Kinsa ang nagluto?","Lami kaayo! Kinsa ang giluto?"],"answer":0,"why":"Asking who did the cooking: the doer verb {{nagluto}}."},{"who":"Host","t":"Ako ang nagluto sa isda, ug si Ben ang nagluto sa adobo.","tr":"I cooked the fish, and Ben cooked the adobo."},{"options":["Ang isda nga imong giluto, ang pinakalami!","Ang isda nga nagluto ka, ang pinakalami!"],"answer":0,"why":"The fish was cooked: {{nga imong giluto}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'll pay.","words":["Ako","ang","mobayad."]},
+        {"type":"choice","q":"Which one puts the spotlight on Lisa, “It was Lisa who ate it”?","options":["{{Si Lisa ang mikaon.}}","{{Gikaon ni Lisa.}}"],"answer":0,"why":"The person first, then {{ang}} + a doer verb.","from":"tell-who-did-it"},
+        {"type":"choice","q":"{{ang babaye nga nagluto}} and {{ang pagkaon nga giluto sa babaye}} mean…","options":["“the woman who cooked” and “the food the woman cooked”","“the food the woman cooked” and “the woman who cooked”"],"answer":0,"why":"{{nag-}} points at the cook; {{gi-}} at the food.","from":"the-one-who"},
+        {"type":"free","q":"Your turn: who does what at your home? Use … {{ang}} …","answers":[{"t":"Si Mama ang moluto, ug ako ang manghugas sa mga plato.","tr":"Mom does the cooking, and I wash the dishes."},{"t":"Ako ang namalit, pero si Ben ang nagluto. Lami kaayo ang adobo nga iyang giluto!","tr":"I did the shopping, but Ben cooked. The adobo he made was really good!"}]}
+      ]
+    },
+    {
+      "id": "report-what-was-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what someone said",
+      "summary": "Tell people what someone said or asked: “Ben said he'd be late. He says he's arriving at seven.”",
+      "topic": "{{miingon}} … {{nga}}; {{daw}} / {{kuno}} “they say, apparently”; {{matud pa ni}} “according to”; {{nangutana kung}} “asked if”",
+      "blocks": [
+        {"goal":{"t":"Miingon si Ben nga ulahi siya. Moabot daw siya alas siyete.","tr":"Ben said he'd be late. He says he'll arrive at seven."}},
+        {"dialog":[{"who":"Ana","t":"Asa na man si Ben?","tr":"So where's Ben?"},{"who":"Joy","t":"Nitawag siya ganiha. Miingon siya nga ulahi siya kay grabe ang trapiko.","tr":"He called earlier. He said he'd be late because the traffic is terrible."},{"who":"Ana","t":"Kanus-a man daw siya moabot?","tr":"So when does he say he'll get here?"},{"who":"Joy","t":"Alas siyete daw. Ug nangutana siya kung naa pa tay lechon.","tr":"Seven, he says. And he asked whether we still have lechon."},{"who":"Ana","t":"Ingna siya nga naa pa, pero dali lang!","tr":"Tell him there is, but to hurry!"}]},
+        {"p":"**Said that: {{miingon}} … {{nga}}.** Put what was said after {{nga}}: {{Miingon siya nga ulahi siya.}} “He said he'd be late.” Bisaya keeps the words the way the speaker said them: no “would”, no change of tense, because the verbs never showed time anyway. In speech you'll also hear just {{Ingon siya…}}."},
+        {"p":"**Telling someone**: {{Ingna siya nga…}} “Tell him that…” ({{ingna}} is the command of {{ingon}}), {{Gisultihan ko niya nga…}} “She told me that…” (the {{-an}} verb of lesson 24)."},
+        {"p":"**{{daw}} (or {{kuno}}): they say, apparently.** Bisaya marks news that came from someone else with one little word after the first word: {{Moabot daw siya alas siyete.}} “He says he'll arrive at seven.” {{Nindot daw ang sine.}} “They say the movie's good.” It's everywhere in conversation. Who said it: {{matud pa ni Mama}} “according to Mom”, {{matud pa niya}} “according to him”."},
+        {"p":"**Asked if, asked where.** {{nangutana}} “asked” + {{kung}} “whether, if” for a yes-or-no question ({{Nangutana siya kung naa ka.}} “She asked if you were there.”), or + the question word ({{Nangutana siya kung asa ka.}} “She asked where you were.”)."},
+        { "table": [
+          ["they said…","Bisaya"],
+          ["“I'm tired.”","{{Miingon siya nga gikapoy siya.}}"],
+          ["“I'm arriving tomorrow.”","{{Moabot daw siya ugma.}}"],
+          ["“Are you there?”","{{Nangutana siya kung naa ka.}}"],
+          ["“Where are you?”","{{Nangutana siya kung asa ka.}}"],
+          ["“Call me.”","{{Miingon siya nga tawagan nimo siya.}}"]
+        ] },
+        { "ex": [
+          {"t":"Miingon siya nga gikapoy siya.","tr":"She said she was tired."},
+          {"t":"Unsa iyang giingon?","tr":"What did he say?"},
+          {"t":"Moabot daw siya ugma.","tr":"Apparently he's arriving tomorrow."},
+          {"t":"Matud pa ni Mama, mouli ta og sayo.","tr":"According to Mom, we're going home early."},
+          {"t":"Nangutana siya kung asa ka.","tr":"She asked where you were."},
+          {"t":"Gisultihan ko niya nga ganahan siya nimo!","tr":"She told me she likes you!"}
+        ] },
+        {"tip":"{{daw}} is also how gossip travels: {{Minyo na daw siya!}} “Apparently she's married now!” Add {{kuno}} when you doubt it a little."}
+      ],
+      "mistakes": [
+        {"wrong":"Miingon siya ulahi siya.","right":"Miingon siya nga ulahi siya.","tr":"He said he'd be late.","why":"Join what was said with {{nga}}."},
+        {"wrong":"Nangutana siya nga naa ka.","right":"Nangutana siya kung naa ka.","tr":"She asked if you were there.","why":"A passed-on yes-or-no question takes {{kung}} “whether, if”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Miingon siya ___ ulahi siya.","tr":"He said he'd be late.","options":["nga","kung","kay"],"answer":0,"why":"Said that: {{nga}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nangutana siya ___ asa ka.","tr":"She asked where you were.","options":["kung","nga","kay"],"answer":0,"why":"Asked + a question: {{kung}}."},
+        {"type":"choice","q":"{{Moabot daw siya ugma.}} means…","options":["He says he'll arrive tomorrow.","He'll definitely arrive tomorrow.","He arrived yesterday."],"answer":0,"why":"{{daw}}: that's what someone said."},
+        {"type":"dialogue","q":"Your friend asks about a missing coworker. Choose your replies.","lines":[{"who":"Mark","t":"Asa man si Lito?","tr":"So where's Lito?"},{"options":["Gihilantan daw siya.","Gihilantan kung siya."],"answer":0,"why":"News from someone else: {{daw}}."},{"who":"Mark","t":"Unsa pay iyang giingon?","tr":"What else did he say?"},{"options":["Miingon siya nga mobalik siya sa Lunes.","Miingon siya kung mobalik siya sa Lunes."],"answer":0,"why":"Said that: {{nga}}. ({{kung}} is for questions.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"What did he say?","words":["Unsa","iyang","giingon?"]},
+        {"type":"say","q":"Say “She told me that she's tired.”","answer":"Gisultihan ko niya nga gikapoy siya.","from":"do-things-for-people"},
+        {"type":"say","q":"Say “He said he's late because of the traffic.”","answer":"Miingon siya nga ulahi siya tungod sa trapiko.","from":"give-reasons"},
+        {"type":"free","q":"Your turn: pass on something a friend or family member told you recently.","answers":[{"t":"Miingon akong mama nga moabot siya sa Disyembre.","tr":"My mom said she's coming in December."},{"t":"Matud pa ni Lito, nindot daw kaayo ang bag-ong restawran sa IT Park.","tr":"According to Lito, the new restaurant at IT Park is really good."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion",
+      "summary": "Say what you think, agree and disagree politely, and say how sure you are.",
+      "topic": "{{sa akong hunahuna}}, {{para nako}}; {{uyon}} “agree”; {{murag}} “seems”; {{tingali}}, {{basin}}, {{siguro}} “maybe”; {{sigurado}}",
+      "blocks": [
+        {"goal":{"t":"Para nako, mas lami ang lechon sa Cebu kaysa sa Manila.","tr":"For me, Cebu lechon is tastier than Manila's."}},
+        {"dialog":[{"who":"Lito","t":"Unsa imong hunahuna, asa ang mas lami nga lechon, Cebu o Manila?","tr":"What do you think, where's the tastier lechon, Cebu or Manila?"},{"who":"Ben","t":"Para nako, mas lami ang sa Cebu. Dili na kinahanglan og sarsa!","tr":"For me, Cebu's is tastier. It doesn't even need sauce!"},{"who":"Lito","t":"Uyon ko nimo! Ug ang mangga?","tr":"I agree with you! And mangoes?"},{"who":"Ben","t":"Murag mas tam-is ang sa Guimaras, pero dili ko sigurado.","tr":"It seems Guimaras mangoes are sweeter, but I'm not sure."},{"who":"Lito","t":"Dili ko uyon! Ang mangga sa Cebu ang pinakatam-is!","tr":"I don't agree! Cebu mangoes are the sweetest!"},{"who":"Ben","t":"Tingali tama ka. Tilawan nato ang duha!","tr":"Maybe you're right. Let's taste both!"}]},
+        {"p":"**What you think.** Start with {{Sa akong hunahuna,…}} “I think, in my opinion” (word for word “in my thinking”), {{Para nako,…}} “For me…”, or {{Sa akong tan-aw,…}} “The way I see it…”. To ask: {{Unsa imong hunahuna?}} “What do you think?”"},
+        {"p":"**Agree, disagree.** {{Uyon ko.}} “I agree.” {{Uyon ko nimo.}} “I agree with you.” {{Dili ko uyon.}} “I don't agree.” {{Tama ka.}} “You're right.” {{Sakto!}} “Exactly!”"},
+        {"p":"**How sure you are.** {{murag}} “it seems, it looks like”: {{Murag moulan.}} “It looks like rain.” {{Murag lami.}} “It looks tasty.” Maybe: {{tingali}}, {{siguro}} (from Spanish) and {{basin}} “might”: {{Basin ulahi siya.}} “He might be late.” And {{Dili ko sigurado.}} “I'm not sure.”"},
+        { "table": [
+          ["sure","less sure","not sure"],
+          ["{{Sigurado ko.}} I'm sure.","{{Murag tinuod.}} It seems true.","{{Dili ko sigurado.}} I'm not sure."],
+          ["{{Tinuod gyud.}} It's really true.","{{Tingali tinuod.}} Maybe it's true.","{{Ambot.}} No idea."]
+        ] },
+        { "ex": [
+          {"t":"Unsa imong hunahuna?","tr":"What do you think?"},
+          {"t":"Sa akong hunahuna, maayo kana nga plano.","tr":"I think that's a good plan."},
+          {"t":"Para nako, mas nindot ang Moalboal.","tr":"For me, Moalboal is nicer."},
+          {"t":"Uyon ko nimo.","tr":"I agree with you."},
+          {"t":"Murag moulan karong hapon.","tr":"It looks like it'll rain this afternoon."},
+          {"t":"Basin ulahi siya.","tr":"He might be late."},
+          {"t":"Dili ko sigurado.","tr":"I'm not sure."}
+        ] },
+        {"tip":"Disagreeing gently is the Cebu way: {{Tingali tama ka, pero…}} “Maybe you're right, but…” works much better than a flat {{Sayop ka.}} “You're wrong.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Para ako, mas nindot ang Bohol.","right":"Para nako, mas nindot ang Bohol.","tr":"For me, Bohol is nicer.","why":"After {{para}}, “me” is {{nako}}."},
+        {"wrong":"Sa ako hunahuna, maayo kana.","right":"Sa akong hunahuna, maayo kana.","tr":"I think that's good.","why":"“My” before a noun is {{akong}}, with -ng."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Para ___, mas nindot ang Bohol.","tr":"For me, Bohol is nicer.","options":["nako","ako","akong"],"answer":0,"why":"After {{para}}: {{nako}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko nimo.","tr":"I agree with you.","options":["Uyon","Murag","Basin"],"answer":0,"why":"Agree: {{uyon}}."},
+        {"type":"choice","q":"{{Murag moulan.}} means…","options":["It looks like it'll rain.","It's definitely raining.","It didn't rain."],"answer":0,"why":"{{murag}}: it seems."},
+        {"type":"dialogue","q":"Friends are discussing where to go. Choose your replies.","lines":[{"who":"Joy","t":"Unsa imong hunahuna, Oslob o Moalboal?","tr":"What do you think, Oslob or Moalboal?"},{"options":["Para nako, mas nindot ang Moalboal.","Para ako, mas nindot ang Moalboal."],"answer":0,"why":"After {{para}}: {{nako}}."},{"who":"Lito","t":"Dili ko uyon. Mas nindot ang Oslob!","tr":"I don't agree. Oslob is nicer!"},{"options":["Tingali tama ka. Adto ta sa duha!","Sayop ka gyud. Adto ta sa duha!"],"answer":0,"why":"Disagree gently: {{Tingali tama ka}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I think that's a good plan.","words":["Sa","akong","hunahuna,","maayo","kana","nga","plano."]},
+        {"type":"say","q":"Say “For me, Cebu lechon is the tastiest.”","answer":"Para nako, ang lechon sa Cebu ang pinakalami.","from":"compare-things"},
+        {"type":"choice","q":"{{Basin moabot siya.}} and {{Moabot daw siya.}} mean…","options":["“He might come” and “He says he'll come”","“He says he'll come” and “He might come”","the same thing"],"answer":0,"why":"{{basin}}: your guess. {{daw}}: someone else's words.","from":"report-what-was-said"},
+        {"type":"free","q":"Your turn: give your opinion about a place or a food, and say how sure you are.","answers":[{"t":"Para nako, ang Moalboal ang pinakanindot sa Cebu, pero dili ko sigurado kay wala pa ko kaadto sa Malapascua.","tr":"For me, Moalboal is the most beautiful place in Cebu, but I'm not sure because I haven't been to Malapascua yet."},{"t":"Sa akong hunahuna, mas lami ang mangga dinhi kaysa sa Amerika.","tr":"I think the mangoes here are tastier than in America."}]}
+      ]
     }
   ]
 }
