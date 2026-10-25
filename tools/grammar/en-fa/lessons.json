@@ -296,6 +296,231 @@
         {"type":"fill","q":"Choose the missing word.","t":"___ یک ماشین قرمز دارد.","tr":"My brother has a red car.","options":["برادرم","من برادر","برادر من است"],"answer":0,"why":"“My brother”: {{برادرم}}, the thing and then its owner.","from":"say-whose-it-is"},
         {"type":"free","q":"Your turn: say what you have and don't have: family, a car, a pet, time… Use {{دارم}} and {{ندارم}}.","answers":[{"t":"یک برادر و یک خواهر دارم.","r":"yek barâdar va yek khâhar dâram.","tr":"I have a brother and a sister."},{"t":"ماشین ندارم، ولی یک دوچرخه دارم.","r":"mâshin nadâram, vali yek docharkhe dâram.","tr":"I don't have a car, but I have a bike."},{"t":"یک گربه دارم. اسمش پیشی است.","r":"yek gorbe dâram. esmash pishi ast.","tr":"I have a cat. Her name is Pishi."}]}
       ]
+    },
+    {
+      "id": "ask-for-what-you-want",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask for what you want",
+      "summary": "Order in a café, ask for things in a shop and say what you'd like, with {{می‌خواهم}} and {{لطفاً}}.",
+      "topic": "{{می‌خواهم}} “I want” + a thing; the {{می}} of the present; {{با}} and {{بدون}} “with, without”",
+      "blocks": [
+        {"goal":{"t":"یک قهوه می‌خواهم، بدون شکر.","r":"yek ghahve mi-khâham, bedun-e shekar.","tr":"I'd like a coffee, without sugar."}},
+        {"dialog":[{"who":"Waiter","t":"سلام، خوش آمدید! چه میل دارید؟","r":"salâm, khosh âmadid! che meyl dârid?","tr":"Hello, welcome! What would you like?"},{"who":"You","t":"یک چای می‌خواهم، لطفاً.","r":"yek chây mi-khâham, lotfan.","tr":"I'd like a tea, please."},{"who":"Waiter","t":"با شیرینی؟","r":"bâ shirini?","tr":"With a pastry?"},{"who":"You","t":"نه، ممنون. فقط چای.","r":"na, mamnun. faghat chây.","tr":"No, thanks. Just tea."},{"who":"Waiter","t":"چشم.","r":"cheshm.","tr":"Certainly."}]},
+        {"p":"**I want.** {{می‌خواهم|mi-khâham}} is “I want”, and in a café or a shop “I'd like”. The thing comes first, the verb last: {{یک چای می‌خواهم.|yek chây mi-khâham.}} “I'd like a tea.” Add {{لطفاً|lotfan}} “please”, at the start or at the end."},
+        {"p":"**The present has {{می}} in front.** {{می‌خواهم}} is three pieces: {{می|mi-}}, which marks the present; {{خواه|khâh}}, the verb itself; and -am, “I”. Almost every Persian verb in the present looks like this, with the endings you met with {{دارم}}. Persian leaves a small gap after {{می}} (the hyphen in the reading). And {{خواه}} has a silent {{و}}: say khâh."},
+        { "table": [
+          ["","want","don't want"],
+          ["I","{{می‌خواهم|mi-khâham}}","{{نمی‌خواهم|nemi-khâham}}"],
+          ["you (friend)","{{می‌خواهی|mi-khâhi}}","{{نمی‌خواهی|nemi-khâhi}}"],
+          ["he, she","{{می‌خواهد|mi-khâhad}}","{{نمی‌خواهد|nemi-khâhad}}"],
+          ["we","{{می‌خواهیم|mi-khâhim}}","{{نمی‌خواهیم|nemi-khâhim}}"],
+          ["you (polite)","{{می‌خواهید|mi-khâhid}}","{{نمی‌خواهید|nemi-khâhid}}"],
+          ["they","{{می‌خواهند|mi-khâhand}}","{{نمی‌خواهند|nemi-khâhand}}"]
+        ] },
+        {"p":"**Not.** {{نـ}} goes in front of {{می}}, and its vowel becomes e: {{نمی‌خواهم|nemi-khâham}} “I don't want”."},
+        {"p":"**With and without.** {{با|bâ}} “with”, {{بدون|bedun}} “without”, which joins the next word with an ezafe: {{بدون شکر|bedun-e shekar}} “without sugar”."},
+        { "ex": [
+          {"t":"یک آب معدنی می‌خواهم.","r":"yek âb-e ma'dani mi-khâham.","tr":"I'd like a mineral water."},
+          {"t":"دو بلیت می‌خواهیم، لطفاً.","r":"do belit mi-khâhim, lotfan.","tr":"We'd like two tickets, please.","note":"after a number the noun stays singular (next lesson)"},
+          {"t":"چه می‌خواهی؟","r":"che mi-khâhi?","tr":"What do you want?","note":"to a friend"},
+          {"t":"قهوه نمی‌خواهم، چای می‌خواهم.","r":"ghahve nemi-khâham, chây mi-khâham.","tr":"I don't want coffee, I want tea."},
+          {"t":"یک ساندویچ بدون گوشت دارید؟","r":"yek sândevich-e bedun-e gusht dârid?","tr":"Do you have a sandwich without meat?"},
+          {"t":"او یک دوچرخهٔ نو می‌خواهد.","r":"u yek docharkhe-ye now mi-khâhad.","tr":"He wants a new bike."}
+        ] },
+        {"tip":"{{چشم|cheshm}}, “eye”, is how a waiter or a shopkeeper says “certainly”: “(on my) eyes”. To call a waiter, say {{ببخشید|bebakhshid}} or {{آقا|âghâ}} “sir”."}
+      ],
+      "mistakes": [
+        {"wrong":"من می‌خواهم یک چای.","right":"من یک چای می‌خواهم.","tr":"I'd like a tea.","why":"The verb goes last, after the thing you want."},
+        {"wrong":"قهوه می‌نخواهم.","right":"قهوه نمی‌خواهم.","tr":"I don't want coffee.","why":"“Not” comes first, before {{می}}: {{نمی‌خواهم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دو قهوه ___.","tr":"We'd like two coffees.","options":["می‌خواهیم","می‌خواهم","می‌خواهند"],"answer":0,"why":"“We”: the ending -im, {{می‌خواهیم}}."},
+        {"type":"choice","q":"How do you say “I don't want”?","options":["{{نمی‌خواهم|nemi-khâham}}","{{می‌نخواهم}}"],"answer":0,"why":"{{نـ}} goes before {{می}}: ne-mi-khâham."},
+        {"type":"dialogue","q":"At a café. Choose your replies.","from":"say-what-you-have","lines":[{"who":"Waiter","t":"سلام، چه میل دارید؟","r":"salâm, che meyl dârid?","tr":"Hello, what would you like?"},{"options":["یک چای می‌خواهم، لطفاً.","یک چای دارم، لطفاً."],"answer":0,"why":"{{دارم}} is “I have”; to ask for something, {{می‌خواهم}}."},{"who":"Waiter","t":"با شیرینی؟","r":"bâ shirini?","tr":"With a pastry?"},{"options":["نه، ممنون. فقط چای.","نه، ممنون. بدون چای."],"answer":0,"why":"{{فقط|faghat}} is “only, just”. ({{بدون چای}} would be “without tea”!)"},{"who":"Waiter","t":"چشم.","r":"cheshm.","tr":"Certainly."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like a coffee without sugar.","words":["یک","قهوه","بدون","شکر","می‌خواهم."]},
+        {"type":"say","q":"Say: “He wants a new bike.”","answer":"او یک دوچرخهٔ نو می‌خواهد.","r":"u yek docharkhe-ye now mi-khâhad.","from":"describe-things"},
+        {"type":"free","q":"Your turn: you're in a café. Order two things, and say one thing you don't want. Use {{می‌خواهم}} and {{نمی‌خواهم}}.","answers":[{"t":"یک قهوه و یک کیک می‌خواهم، لطفاً. شکر نمی‌خواهم.","r":"yek ghahve va yek keyk mi-khâham, lotfan. shekar nemi-khâham.","tr":"I'd like a coffee and a cake, please. I don't want sugar."},{"t":"یک چای می‌خواهم، بدون شکر.","r":"yek chây mi-khâham, bedun-e shekar.","tr":"I'd like a tea, without sugar."}]}
+      ]
+    },
+    {
+      "id": "count-and-pay",
+      "unit": 2,
+      "level": "A1",
+      "title": "Count, and ask what it costs",
+      "summary": "Count to a hundred and beyond, say “two tickets” and “these books”, and ask how much things are.",
+      "topic": "numbers; a noun after a number stays singular; plurals with {{ها}} and {{ان}}; {{چند}} and {{چقدر}}",
+      "blocks": [
+        {"goal":{"t":"دو بلیت می‌خواهم. چقدر می‌شود؟","r":"do belit mi-khâham. cheghadr mi-shavad?","tr":"I'd like two tickets. How much is that?"}},
+        {"dialog":[{"who":"You","t":"ببخشید، این سیب‌ها کیلویی چند است؟","r":"bebakhshid, in sib-hâ kiluyi chand ast?","tr":"Excuse me, how much are these apples a kilo?"},{"who":"Seller","t":"کیلویی پنجاه هزار تومان.","r":"kiluyi panjâh hezâr tomân.","tr":"Fifty thousand tomans a kilo."},{"who":"You","t":"دو کیلو می‌خواهم. پرتقال هم دارید؟","r":"do kilu mi-khâham. porteghâl ham dârid?","tr":"I'd like two kilos. Do you have oranges too?"},{"who":"Seller","t":"بله. پرتقال‌ها خیلی خوبند!","r":"bale. porteghâl-hâ kheyli khuband!","tr":"Yes. The oranges are very good!"},{"who":"You","t":"سه تا پرتقال، لطفاً. همه چقدر می‌شود؟","r":"se tâ porteghâl, lotfan. hame cheghadr mi-shavad?","tr":"Three oranges, please. How much is it all together?"},{"who":"Seller","t":"صد و پنجاه هزار تومان.","r":"sad o panjâh hezâr tomân.","tr":"A hundred and fifty thousand tomans."}]},
+        {"p":"**Numbers.** {{یک|yek}} 1, {{دو|do}} 2, {{سه|se}} 3, {{چهار|chahâr}} 4, {{پنج|panj}} 5, {{شش|shesh}} 6, {{هفت|haft}} 7, {{هشت|hasht}} 8, {{نه|noh}} 9, {{ده|dah}} 10; {{یازده|yâzdah}} 11, {{دوازده|davâzdah}} 12; {{بیست|bist}} 20, {{سی|si}} 30, {{چهل|chehel}} 40, {{پنجاه|panjâh}} 50, {{صد|sad}} 100, {{هزار|hezâr}} 1000. Join them with {{و}} “and”, said **o**: {{بیست و پنج|bist o panj}} 25."},
+        {"term":"plural","means":"the form of a noun that means more than one: books, children."},
+        {"p":"**After a number, the noun stays singular.** {{دو کتاب|do ketâb}} “two books”, {{سه بلیت|se belit}} “three tickets”: the number already says how many."},
+        {"p":"**More than one, without a number:** add {{ها|hâ}}, written with a small gap: {{کتاب‌ها|ketâb-hâ}} “(the) books”. Written Persian also uses {{ان|ân}} for people: {{دوستان|dustân}} “friends”, {{دانشجویان|dâneshjuyân}} “students”; in speech {{ها}} works for everything. “This” and “that” don't change: {{این سیب‌ها|in sib-hâ}} “these apples”, word for word “this apples”."},
+        { "table": [
+          ["","one","more than one"],
+          ["book","{{کتاب|ketâb}}","{{کتاب‌ها|ketâb-hâ}}"],
+          ["house","{{خانه|khâne}}","{{خانه‌ها|khâne-hâ}}"],
+          ["child","{{بچه|bachche}}","{{بچه‌ها|bachche-hâ}}"],
+          ["friend","{{دوست|dust}}","{{دوستان|dustân}}, {{دوست‌ها|dust-hâ}}"]
+        ] },
+        {"p":"**How much?** {{چند|chand}} is “how much, how many”: {{این چند است؟|in chand ast?}} “How much is this?”. {{چقدر|cheghadr}} “how much” for an amount or a total: {{چقدر می‌شود؟|cheghadr mi-shavad?}} “How much does it come to?”."},
+        { "ex": [
+          {"t":"سه بچه دارند.","r":"se bachche dârand.","tr":"They have three children."},
+          {"t":"این کتاب‌ها مال من است.","r":"in ketâb-hâ mâl-e man ast.","tr":"These books are mine.","note":"things in the plural often take a singular verb"},
+          {"t":"بلیت چند است؟","r":"belit chand ast?","tr":"How much is a ticket?"},
+          {"t":"صد هزار تومان می‌شود.","r":"sad hezâr tomân mi-shavad.","tr":"That's a hundred thousand tomans."},
+          {"t":"دوستانم اینجا هستند.","r":"dustânam injâ hastand.","tr":"My friends are here."},
+          {"t":"چند سال داری؟","r":"chand sâl dâri?","tr":"How old are you?","note":"to a friend: lesson 6's age, with {{چند}}"}
+        ] },
+        {"tip":"Prices are said in **tomans** (one toman is ten rials, the official unit, and price tags often show rials). The number, then {{تومان|tomân}}, with no plural: {{ده هزار تومان|dah hezâr tomân}} “ten thousand tomans”."},
+        {"tip":"In everyday speech people count things with {{تا|tâ}}: {{سه تا پرتقال|se tâ porteghâl}} “three oranges”, {{چند تا؟|chand tâ?}} “how many?”."}
+      ],
+      "mistakes": [
+        {"wrong":"دو کتاب‌ها دارم.","right":"دو کتاب دارم.","tr":"I have two books.","why":"After a number the noun stays singular: the number already says “more than one”."},
+        {"wrong":"این‌ها کتاب‌ها خوبند.","right":"این کتاب‌ها خوبند.","tr":"These books are good.","why":"Before a noun, {{این}} “this” stays as it is. ({{این‌ها|in-hâ}} on its own means “these ones”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"سه ___ می‌خواهم.","tr":"I'd like three tickets.","options":["بلیت","بلیت‌ها"],"answer":0,"why":"After a number, singular: {{سه بلیت}}."},
+        {"type":"choice","q":"{{بیست و پنج}} is…","options":["25","52","205"],"answer":0,"why":"{{بیست}} 20, {{و}} “and” (said o), {{پنج}} 5: twenty-five."},
+        {"type":"dialogue","q":"At a fruit stall. Choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"بفرمایید، چه می‌خواهید؟","r":"befarmâyid, che mi-khâhid?","tr":"Yes, what would you like?"},{"options":["دو کیلو سیب می‌خواهم.","دو کیلو سیب‌ها می‌خواهم."],"answer":0,"why":"After a number, no {{ها}}: {{دو کیلو سیب}}."},{"who":"Seller","t":"بفرمایید. چیز دیگری؟","r":"befarmâyid. chiz-e digari?","tr":"Here you are. Anything else?"},{"options":["نه، ممنون. چقدر می‌شود؟","نه، ممنون. چند تا هستید؟"],"answer":0,"why":"{{چقدر می‌شود؟}} is “how much is it?”. ({{چند تا هستید؟}} asks how many people you are!)"},{"who":"Seller","t":"صد هزار تومان.","r":"sad hezâr tomân.","tr":"A hundred thousand tomans."}]},
+        {"type":"order","q":"Put the words in order.","tr":"These apples are very good.","words":["این","سیب‌ها","خیلی","خوبند."]},
+        {"type":"say","q":"Say “twenty-five”.","answer":"بیست و پنج","r":"bist o panj"},
+        {"type":"free","q":"Your turn: in a shop, ask how much something is, and ask for two or three of it. Use {{چند است؟}} and a number.","answers":[{"t":"ببخشید، این دفتر چند است؟ سه دفتر می‌خواهم.","r":"bebakhshid, in daftar chand ast? se daftar mi-khâham.","tr":"Excuse me, how much is this notebook? I'd like three notebooks."},{"t":"این نان‌ها چند است؟ دو تا، لطفاً.","r":"in nân-hâ chand ast? do tâ, lotfan.","tr":"How much is this bread? Two, please."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where things are",
+      "summary": "Say “on the table”, “next to the bank” and “in Tehran”, and ask where things are.",
+      "topic": "{{در}}, {{به}}, {{از}}; {{روی}}, {{زیر}}, {{کنار}}, {{جلوی}}, {{پشت}}, {{بین}} with the ezafe",
+      "blocks": [
+        {"goal":{"t":"داروخانه کنار بانک است.","r":"dârukhâne kenâr-e bânk ast.","tr":"The pharmacy is next to the bank."}},
+        {"dialog":[{"who":"Ali","t":"کلید‌هایم کجاست؟","r":"kelid-hâyam kojâst?","tr":"Where are my keys?"},{"who":"Mina","t":"روی میز نیست؟","r":"ru-ye miz nist?","tr":"Aren't they on the table?"},{"who":"Ali","t":"نه، روی میز نیست.","r":"na, ru-ye miz nist.","tr":"No, they're not on the table."},{"who":"Mina","t":"در کیفت است؟","r":"dar kifat ast?","tr":"Are they in your bag?"},{"who":"Ali","t":"نه… آهان، اینجاست! زیر کتاب است.","r":"na… âhân, injâst! zir-e ketâb ast.","tr":"No… oh, here they are! Under the book."}]},
+        {"p":"**In, to, from.** Three short words do most of the work: {{در|dar}} “in, at”, {{به|be}} “to”, {{از|az}} “from”. As in English, they come **before** the place: {{در تهران|dar tehrân}} “in Tehran”, {{به ایران|be irân}} “to Iran”, {{از لندن|az landan}} “from London”."},
+        {"term":"preposition","means":"a little word before a noun that says where, when or how: in, on, to, from, with."},
+        {"p":"**On, under, next to: the ezafe again.** Words like “on” and “next to” are really nouns (“top”, “side”), so they join the place with an ezafe: {{روی میز|ru-ye miz}} “on the table” (“top-of table”), {{زیر میز|zir-e miz}} “under the table”, {{کنار بانک|kenâr-e bânk}} “next to the bank”."},
+        { "table": [
+          ["","Persian","for example"],
+          ["in, at","{{در|dar}}","{{در خانه|dar khâne}} at home"],
+          ["on","{{روی|ru-ye}}","{{روی میز|ru-ye miz}} on the table"],
+          ["under","{{زیر|zir-e}}","{{زیر تخت|zir-e takht}} under the bed"],
+          ["next to","{{کنار|kenâr-e}}","{{کنار پنجره|kenâr-e panjere}} by the window"],
+          ["in front of","{{جلوی|jelo-ye}}","{{جلوی سینما|jelo-ye sinamâ}} in front of the cinema"],
+          ["behind","{{پشت|posht-e}}","{{پشت در|posht-e dar}} behind the door"],
+          ["between","{{بین|beyn-e}}","{{بین بانک و مسجد|beyn-e bânk va masjed}} between the bank and the mosque"],
+          ["near","{{نزدیک|nazdik-e}}","{{نزدیک اینجا|nazdik-e injâ}} near here"]
+        ] },
+        {"p":"**Where is it?** The thing, the place, then {{است}}: {{داروخانه کنار بانک است.|dârukhâne kenâr-e bânk ast.}} To ask: {{… کجاست؟}} “where is…?”. Things in the plural often take a singular verb: {{کلید‌ها روی میز است.|kelid-hâ ru-ye miz ast.}} “The keys are on the table.”"},
+        { "ex": [
+          {"t":"کتاب روی میز است.","r":"ketâb ru-ye miz ast.","tr":"The book is on the table."},
+          {"t":"گربه زیر تخت است.","r":"gorbe zir-e takht ast.","tr":"The cat is under the bed."},
+          {"t":"ما در تهران هستیم.","r":"mâ dar tehrân hastim.","tr":"We're in Tehran."},
+          {"t":"ایستگاه اتوبوس جلوی دانشگاه است.","r":"istgâh-e otobus jelo-ye dâneshgâh ast.","tr":"The bus stop is in front of the university."},
+          {"t":"مادرم الان در خانه نیست.","r":"mâdaram al'ân dar khâne nist.","tr":"My mother isn't at home now."},
+          {"t":"خانهٔ ما بین پارک و مدرسه است.","r":"khâne-ye mâ beyn-e pârk va madrese ast.","tr":"Our house is between the park and the school."}
+        ] },
+        {"tip":"{{اینجا|injâ}} “here” and {{آنجا|ânjâ}} “there” need no little word: {{اینجاست|injâst}} “it's here”. In speech you'll also hear {{توی|tu-ye}} for “in”: {{توی کیفم|tu-ye kifam}} “in my bag”."}
+      ],
+      "mistakes": [
+        {"wrong":"کتاب میز روی است.","right":"کتاب روی میز است.","tr":"The book is on the table.","why":"“On” comes before the place, as in English: {{روی میز}}."},
+        {"wrong":"روی میز است کتاب.","right":"کتاب روی میز است.","tr":"The book is on the table.","why":"The thing first, then the place, and {{است}} last."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{زیر میز|zir-e miz}} means…","options":["on the table","under the table","next to the table"],"answer":1,"why":"{{زیر}} is “under”; {{روی}} “on”; {{کنار}} “next to”."},
+        {"type":"fill","q":"Choose the missing word.","t":"داروخانه ___ بانک است.","tr":"The pharmacy is next to the bank.","options":["کنار","از","به"],"answer":0,"why":"“Next to” is {{کنار}}, with the ezafe: kenâr-e bânk."},
+        {"type":"dialogue","q":"A stranger asks you the way. Choose your replies.","from":"ask-questions","lines":[{"who":"Man","t":"ببخشید، بانک ملی کجاست؟","r":"bebakhshid, bânk-e melli kojâst?","tr":"Excuse me, where's Bank Melli?"},{"options":["کنار سینماست.","سینما کنار است."],"answer":0,"why":"“Next to the cinema” is {{کنار سینما}}; {{سینماست}} is {{سینما}} + {{است}}."},{"who":"Man","t":"سینما کجاست؟","r":"sinamâ kojâst?","tr":"Where's the cinema?"},{"options":["جلوی پارک است.","پارک جلوی است."],"answer":0,"why":"The little word first, then the place: {{جلوی پارک}}."},{"who":"Man","t":"خیلی ممنون!","r":"kheyli mamnun!","tr":"Thanks a lot!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Our house is near here.","words":["خانهٔ","ما","نزدیک","اینجا","است."]},
+        {"type":"say","q":"Say: “My keys are in my bag.”","answer":"کلید‌هایم در کیفم است.","r":"kelid-hâyam dar kifam ast.","from":"say-whose-it-is"},
+        {"type":"free","q":"Your turn: say where things are in your room or your street, with {{روی}}, {{زیر}}, {{کنار}} or {{نزدیک}}.","answers":[{"t":"تلفنم روی میز است و کیفم زیر صندلی است.","r":"telefonam ru-ye miz ast va kifam zir-e sandali ast.","tr":"My phone is on the table and my bag is under the chair."},{"t":"خانهٔ من نزدیک یک پارک است.","r":"khâne-ye man nazdik-e yek pârk ast.","tr":"My house is near a park."}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what there is and isn't",
+      "summary": "Ask “Is there a pharmacy near here?”, and say what there is, what there isn't, and that there's none at all.",
+      "topic": "{{هست}} “there is” and {{نیست}} “there isn't”; {{وجود دارد}}; {{هیچ}} with a negative; the -i of “a”",
+      "blocks": [
+        {"goal":{"t":"ببخشید، این نزدیکی داروخانه هست؟","r":"bebakhshid, in nazdiki dârukhâne hast?","tr":"Excuse me, is there a pharmacy near here?"}},
+        {"dialog":[{"who":"You","t":"ببخشید، در هتل اینترنت هست؟","r":"bebakhshid, dar hotel internet hast?","tr":"Excuse me, is there internet in the hotel?"},{"who":"Receptionist","t":"بله، هست. رمزش روی کارت است.","r":"bale, hast. ramzash ru-ye kârt ast.","tr":"Yes, there is. The password is on the card."},{"who":"You","t":"رستوران هم هست؟","r":"resturân ham hast?","tr":"Is there a restaurant too?"},{"who":"Receptionist","t":"نه، متأسفانه رستوران نیست، ولی یک کافهٔ خوب کنار هتل هست.","r":"na, mota'assefâne resturân nist, vali yek kâfe-ye khub kenâr-e hotel hast.","tr":"No, I'm afraid there isn't a restaurant, but there's a good café next to the hotel."},{"who":"You","t":"عالی، ممنون!","r":"âli, mamnun!","tr":"Great, thanks!"}]},
+        {"p":"**There is.** {{هست|hast}}, at the end, says that something is there: {{اینجا یک بانک هست.|injâ yek bânk hast.}} “There's a bank here.” As a question, just with the voice: {{… هست؟}} “Is there…?”. Its “not” is {{نیست|nist}}: {{اینجا بانک نیست.|injâ bânk nist.}} “There's no bank here.”"},
+        {"p":"**{{است}} or {{هست}}?** {{است}} says what or where something is: {{بانک کنار پارک است.|bânk kenâr-e pârk ast.}} “The bank is next to the park.” {{هست}} says that it exists: {{بانک هست.|bânk hast.}} “There is a bank.” Their “not” is the same word, {{نیست}}."},
+        {"p":"**In writing**, “there is” is often {{وجود دارد|vojud dârad}}, “existence has”: {{در این شهر دو دانشگاه وجود دارد.|dar in shahr do dâneshgâh vojud dârad.}} “There are two universities in this city.” Plural or not, the verb stays {{دارد}}."},
+        {"p":"**None at all.** {{هیچ|hich}} “no, not any” goes with a negative verb: {{هیچ رستورانی نیست.|hich resturâni nist.}} “There's no restaurant at all.” In Persian two negatives make it stronger; they don't cancel out."},
+        {"term":"indefinite","means":"saying “a” or “some”: one of many, not a particular one. In Persian an -i on the end of the noun often does this: {{رستورانی|resturâni}} “a restaurant”."},
+        {"p":"**The -i of “a”.** A noun can take an ending {{ی}}, said -i, meaning “a, some”: {{کتابی|ketâbi}} “a book”, often together with {{یک}}: {{یک کافه‌ای|yek kâfe-i}} “a café”. You need it after {{هیچ}} ({{هیچ رستورانی}}), and you'll meet it again when you describe which one you mean."},
+        { "ex": [
+          {"t":"اینجا یک کافهٔ خوب هست.","r":"injâ yek kâfe-ye khub hast.","tr":"There's a good café here."},
+          {"t":"در یخچال شیر هست؟","r":"dar yakhchâl shir hast?","tr":"Is there any milk in the fridge?"},
+          {"t":"امروز کلاس نیست.","r":"emruz kelâs nist.","tr":"There's no class today."},
+          {"t":"هیچ مشکلی نیست.","r":"hich moshkeli nist.","tr":"There's no problem at all.","note":"also the answer “no problem!”"},
+          {"t":"در این خیابان سه رستوران وجود دارد.","r":"dar in khiyâbân se resturân vojud dârad.","tr":"There are three restaurants on this street."},
+          {"t":"کسی خانه نیست.","r":"kasi khâne nist.","tr":"There's nobody home.","note":"{{کسی|kasi}} “someone, anyone” with “not”"}
+        ] },
+        {"tip":"{{این نزدیکی|in nazdiki}} “near here, around here” (word for word “this nearness”) is the phrase for asking about places: {{این نزدیکی بانک هست؟}}"}
+      ],
+      "mistakes": [
+        {"wrong":"اینجا یک بانک است.","right":"اینجا یک بانک هست.","tr":"There's a bank here.","why":"To say that something exists, use {{هست}}; {{است}} says what or where something is."},
+        {"wrong":"هیچ مشکلی هست.","right":"هیچ مشکلی نیست.","tr":"There's no problem.","why":"{{هیچ}} needs a negative verb with it: {{نیست}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"این نزدیکی داروخانه ___؟","tr":"Is there a pharmacy near here?","options":["هست","است","دارد"],"answer":0,"why":"“There is”: {{هست}}."},
+        {"type":"choice","q":"{{هیچ کسی اینجا نیست.}} means…","options":["There's nobody here.","Somebody is here.","Everybody is here."],"answer":0,"why":"{{هیچ}} with a negative verb: “nobody at all”."},
+        {"type":"dialogue","q":"At a hotel. Choose your replies.","from":"say-where-things-are","lines":[{"who":"Receptionist","t":"بفرمایید، این کلید اتاقتان است.","r":"befarmâyid, in kelid-e otâghetân ast.","tr":"Here you are, this is your room key."},{"options":["ممنون. در اتاق اینترنت هست؟","ممنون. در اتاق اینترنت است؟"],"answer":0,"why":"To ask whether there is internet: {{هست}}."},{"who":"Receptionist","t":"بله، هست. رمزش روی کارت است.","r":"bale, hast. ramzash ru-ye kârt ast.","tr":"Yes, there is. The password is on the card."},{"options":["این نزدیکی رستوران هست؟","رستوران این نزدیکی است؟"],"answer":0,"why":"“Is there…?” is {{… هست؟}}, at the end."},{"who":"Receptionist","t":"بله، کنار بانک یک رستوران خوب هست.","r":"bale, kenâr-e bânk yek resturân-e khub hast.","tr":"Yes, there's a good restaurant next to the bank."}]},
+        {"type":"order","q":"Put the words in order.","tr":"There's no class today.","words":["امروز","کلاس","نیست."]},
+        {"type":"say","q":"Say: “There's a good café next to the hotel.”","answer":"کنار هتل یک کافهٔ خوب هست.","r":"kenâr-e hotel yek kâfe-ye khub hast.","from":"describe-things"},
+        {"type":"free","q":"Your turn: say what there is and isn't in your town or your street. Use {{هست}} and {{نیست}}.","answers":[{"t":"در شهر من یک دانشگاه بزرگ هست، ولی فرودگاه نیست.","r":"dar shahr-e man yek dâneshgâh-e bozorg hast, vali forudgâh nist.","tr":"In my town there's a big university, but there's no airport."},{"t":"در خیابان ما دو کافه هست.","r":"dar khiyâbân-e mâ do kâfe hast.","tr":"There are two cafés on our street."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-are-going",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where you're going, and how",
+      "summary": "Say where you're going and where you're coming from, by bus, by taxi or on foot: your first everyday verbs in the present.",
+      "topic": "the present of {{رفتن}} “go” and {{آمدن}} “come”: {{می‌روم}}, {{می‌آیم}}; the present stem; {{به}} + a place, {{با}} + transport",
+      "blocks": [
+        {"goal":{"t":"فردا با اتوبوس به اصفهان می‌روم.","r":"fardâ bâ otobus be esfahân mi-ravam.","tr":"Tomorrow I'm going to Isfahan by bus."}},
+        {"dialog":[{"who":"Neda","t":"سلام! کجا می‌روی؟","r":"salâm! kojâ mi-ravi?","tr":"Hi! Where are you going?"},{"who":"Sam","t":"به دانشگاه می‌روم. تو هم می‌آیی؟","r":"be dâneshgâh mi-ravam. to ham mi-âyi?","tr":"I'm going to the university. Are you coming too?"},{"who":"Neda","t":"نه، به خانه می‌روم. با مترو می‌روی؟","r":"na, be khâne mi-ravam. bâ metro mi-ravi?","tr":"No, I'm going home. Are you going by metro?"},{"who":"Sam","t":"نه، پیاده می‌روم. نزدیک است.","r":"na, piyâde mi-ravam. nazdik ast.","tr":"No, I'm walking. It's close."},{"who":"Neda","t":"خب، تا فردا!","r":"khob, tâ fardâ!","tr":"OK, see you tomorrow!"}]},
+        {"p":"**Go and come.** {{می‌روم|mi-ravam}} is “I go” and “I'm going”, {{می‌آیم|mi-âyam}} “I come” and “I'm coming”. Persian has one present tense for both: {{به دانشگاه می‌روم.}} is “I go to the university” and “I'm going to the university”."},
+        {"p":"**Where to:** {{به|be}} + the place: {{به ایران|be irân}} “to Iran”. **Where from:** {{از|az}}: {{از سر کار می‌آیم.|az sar-e kâr mi-âyam.}} “I'm coming from work.” **How:** {{با|bâ}} + the transport: {{با تاکسی|bâ tâksi}} “by taxi”, {{با قطار|bâ ghatâr}} “by train”; on foot is {{پیاده|piyâde}}. The verb comes last, as always; a common order is when, how, where, verb: {{فردا با اتوبوس به اصفهان می‌روم.}}"},
+        {"term":"stem","means":"the main part of a verb, which the other pieces are added to: in {{می‌روم|mi-ravam}} “I go”, the stem is {{رو|rav}}."},
+        {"p":"**The present stem.** A Persian verb in the present is {{می}} + its present **stem** + the ending. The stem of “go” is {{رو|rav}}; the stem of “come” is {{آ|â}}, with a y before the ending ({{می‌آیم|mi-âyam}}). These stems don't look much like the dictionary forms, {{رفتن|raftan}} “to go” and {{آمدن|âmadan}} “to come”, so learn each verb with its stem: the next lesson shows how."},
+        { "table": [
+          ["","go ({{رفتن}})","come ({{آمدن}})"],
+          ["I","{{می‌روم|mi-ravam}}","{{می‌آیم|mi-âyam}}"],
+          ["you (friend)","{{می‌روی|mi-ravi}}","{{می‌آیی|mi-âyi}}"],
+          ["he, she","{{می‌رود|mi-ravad}}","{{می‌آید|mi-âyad}}"],
+          ["we","{{می‌رویم|mi-ravim}}","{{می‌آییم|mi-âyim}}"],
+          ["you (polite)","{{می‌روید|mi-ravid}}","{{می‌آیید|mi-âyid}}"],
+          ["they","{{می‌روند|mi-ravand}}","{{می‌آیند|mi-âyand}}"]
+        ] },
+        { "ex": [
+          {"t":"هر روز با مترو سر کار می‌روم.","r":"har ruz bâ metro sar-e kâr mi-ravam.","tr":"I go to work by metro every day.","note":"{{سر کار|sar-e kâr}} “to work, at work”"},
+          {"t":"کی می‌آیی؟","r":"key mi-âyi?","tr":"When are you coming?"},
+          {"t":"او از شیراز می‌آید.","r":"u az shirâz mi-âyad.","tr":"He's coming from Shiraz."},
+          {"t":"ما امشب به سینما می‌رویم.","r":"mâ emshab be sinamâ mi-ravim.","tr":"We're going to the cinema tonight."},
+          {"t":"با تاکسی می‌روید یا با اتوبوس؟","r":"bâ tâksi mi-ravid yâ bâ otobus?","tr":"Are you going by taxi or by bus?"},
+          {"t":"به خانه نمی‌روم.","r":"be khâne nemi-ravam.","tr":"I'm not going home."}
+        ] },
+        {"tip":"In everyday speech these verbs shrink: {{می‌روم}} is said {{می‌رم|miram}}, {{می‌روی}} {{می‌ری|miri}}. You'll hear them all the time; learn the full forms first, the short ones come by themselves."}
+      ],
+      "mistakes": [
+        {"wrong":"من می‌روم به دانشگاه.","right":"من به دانشگاه می‌روم.","tr":"I'm going to the university.","why":"The verb goes last, after the place."},
+        {"wrong":"با پیاده می‌روم.","right":"پیاده می‌روم.","tr":"I'm walking.","why":"{{پیاده}} “on foot” needs no {{با}}: {{با}} is for what you ride in."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"ما فردا به تهران ___.","tr":"We're going to Tehran tomorrow.","options":["می‌رویم","می‌روم","می‌روند"],"answer":0,"why":"“We”: the ending -im, {{می‌رویم}}."},
+        {"type":"choice","q":"{{از سر کار می‌آیم.}} means…","options":["I'm coming from work.","I'm going to work.","I work."],"answer":0,"why":"{{از}} “from” + {{می‌آیم}} “I'm coming”."},
+        {"type":"dialogue","q":"A friend meets you in the street. Choose your replies.","from":"describe-things","lines":[{"who":"Neda","t":"سلام! کجا می‌روی؟","r":"salâm! kojâ mi-ravi?","tr":"Hi! Where are you going?"},{"options":["به خانه می‌روم. خیلی خسته‌ام!","به خانه می‌روی. خیلی خسته است!"],"answer":0,"why":"About yourself: {{می‌روم}} and {{خسته‌ام}}."},{"who":"Neda","t":"با تاکسی می‌روی؟","r":"bâ tâksi mi-ravi?","tr":"Are you taking a taxi?"},{"options":["نه، با اتوبوس می‌روم.","نه، به اتوبوس می‌روم."],"answer":0,"why":"By bus: {{با اتوبوس}}. ({{به اتوبوس}} would be “to the bus”.)"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I go to work by metro every day.","words":["هر","روز","با","مترو","سر","کار","می‌روم."],"also":[["با","مترو","هر","روز","سر","کار","می‌روم."]]},
+        {"type":"say","q":"Ask a friend: “When are you coming?”","answer":"کی می‌آیی؟","r":"key mi-âyi?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say where you're going this week, and how. Use {{به … می‌روم}} and {{با}}.","answers":[{"t":"فردا با قطار به مشهد می‌روم.","r":"fardâ bâ ghatâr be mashhad mi-ravam.","tr":"Tomorrow I'm going to Mashhad by train."},{"t":"امشب با دوستانم به رستوران می‌رویم.","r":"emshab bâ dustânam be resturân mi-ravim.","tr":"Tonight my friends and I are going to a restaurant."},{"t":"هر روز پیاده سر کار می‌روم.","r":"har ruz piyâde sar-e kâr mi-ravam.","tr":"I walk to work every day."}]}
+      ]
     }
   ]
 }
