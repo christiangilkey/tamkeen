@@ -92,8 +92,7 @@ Ticking honestly is safer than ticking nothing.*
 quietly; you can change this later in the same tab.*
 
 **10. If there's a "Test instructions" box, paste the reviewer notes** from `listing.md`.
-*Note: reviewers may not have Netflix; this tells them how to check it anyway. For the Spotify part a
-free Spotify account is enough.*
+*Note: reviewers may not have Netflix; this tells them how to check it anyway.*
 
 **11. Press "Submit for review".**
 *Note: most reviews take a few days; a new developer with this kind of permission can take one to
@@ -130,11 +129,7 @@ update automatically within a few hours of approval.*
 **16. Only if the extension starts doing something new with people's data** (a new permission, a new
 website, a new kind of data): update `listing.md`, the privacy page and the Privacy practices tab in
 the same release.
-*Note: Claude will tell you when a release needs this; most releases don't. **The Spotify lyrics panel
-(added 2026-10-23) is one**: a new website (open.spotify.com), a new host permission (lrclib.net, where
-the lyrics come from) and new data uses. If the extension was submitted before it, paste the new
-description, single purpose and justifications from `listing.md` with the release that brings it;
-`listing.md` and the privacy page are already updated.*
+*Note: Claude will tell you when a release needs this; most releases don't.*
 
 ---
 

@@ -83,8 +83,6 @@ body { font: 14px/1.5 var(--ui-font); color: var(--text); }
 .tchip-mark { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
 .tchip.on .tchip-mark { background: currentColor; }
 .bar-flash { margin: 0; padding: 6px 12px; border-radius: 10px; background: #2a2830; color: #f2f1ec; text-align: center; }
-.bar-flash p { margin: 0; }
-.bar-flash button { margin-top: 8px; }
 /* Subtitles off: no subtitle line, no transcript lines. */
 .tk.subs-off .cap, .tk.subs-off .lines .ln { display: none; }
 .ctl .lookup-toggle button { color: #d6d4cc; }
