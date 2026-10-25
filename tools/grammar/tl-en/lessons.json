@@ -26,7 +26,7 @@
       "blocks": [
         {"goal":{"t":"Hi! I'm Ana. I'm from Manila.","tr":"Hi! Ako si Ana. Taga-Maynila ako."}},
         {"dialog":[{"who":"Mike","t":"Hi! I'm Mike.","tr":"Hi! Ako si Mike."},{"who":"Ana","t":"Hi, Mike! I'm Ana.","tr":"Hi, Mike! Ako si Ana."},{"who":"Mike","t":"Where are you from?","tr":"Taga-saan ka?"},{"who":"Ana","t":"I'm from Manila. And you?","tr":"Taga-Maynila ako. Ikaw?"},{"who":"Mike","t":"I'm from Chicago. Nice to meet you!","tr":"Taga-Chicago ako. Ikinagagalak kitang makilala!"},{"who":"Ana","t":"Nice to meet you too!","tr":"Ikinagagalak din kitang makilala!"}]},
-        {"p":"Sa Tagalog, sapat na ang “Ako si Ana” at “Taga-Maynila ako”. Sa Ingles, kailangan ng isang salita sa gitna: {{I am Ana}}, na parang “ako **ay** Ana”. Hindi ito puwedeng mawala."},
+        {"p":"Sa Tagalog, sapat na ang “Ako si Ana” at “Taga-Maynila ako”. Sa Ingles, kailangan ng isang salita sa gitna: {{I am Ana}}, na parang “ako **ay** Ana”. Hindi ito pwedeng mawala."},
         {"term":"pangungusap (sentence)","means":"grupo ng mga salita na nagsasabi ng isang buong ideya: {{I'm from Manila.}}"},
         {"term":"simuno (subject)","means":"ang tao o bagay na pinag-uusapan sa pangungusap: sa {{I'm from Manila}}, ang simuno ay {{I}} (ako)."},
         {"p":"**Laging nauuna ang simuno.** Sa Tagalog, madalas nasa hulihan ang “ako”: “Taga-Maynila ako.” Sa Ingles, laging nasa unahan: {{I'm from Manila.}} Ito ang pinakamahalagang tuntunin ng Ingles: simuno muna, saka ang iba."},
@@ -137,7 +137,7 @@
           ["{{she}}","{{she is}}","{{she's}}"],
           ["{{it}}","{{it is}}","{{it's}}"]
         ] },
-        {"p":"**Kailangan ang {{it}}.** Sa Tagalog, puwedeng walang simuno: “Masarap!”, “Mainit ngayon.” Sa Ingles, kailangan laging may simuno, kaya {{it}} ang ginagamit: {{It's delicious!}}, {{It's hot today.}}"},
+        {"p":"**Kailangan ang {{it}}.** Sa Tagalog, pwedeng walang simuno: “Masarap!”, “Mainit ngayon.” Sa Ingles, kailangan laging may simuno, kaya {{it}} ang ginagamit: {{It's delicious!}}, {{It's hot today.}}"},
         {"p":"**Pangalan muna.** Karaniwang pangalan ang unang banggit, tapos {{he}} o {{she}}: {{Liza is my friend. She's from Cebu.}}"},
         { "ex": [
           {"t":"He's my brother.","tr":"Kuya ko siya."},
@@ -285,7 +285,7 @@
         ] },
         {"p":"**Pagtatanong at pagsagot.** {{What's this?}} ({{what is}}) “Ano ito?”. Sa sagot, {{It's a…}}: {{It's a book.}} Kapag marami: {{What are these?}} → {{They're books.}}, na may {{-s}} sa dulo ng {{book}} (aralin 7)."},
         {"p":"**Ang {{the}}.** Ginagamit ito kapag alam na ninyong dalawa kung aling bagay ang pinag-uusapan: {{the figs}}, ang mga igos na iyon. Sa unang banggit, o kapag kahit alin: {{a}}. {{I have a dog. The dog is big.}} “May aso ako. Malaki ang aso.”"},
-        {"p":"Kahawig ng “ang” ang {{the}}, pero hindi sila pareho. Sa Tagalog, ang “Masarap ang mangga” ay puwedeng tungkol sa lahat ng mangga; sa Ingles, walang {{the}} kapag lahat: {{Mangoes are delicious.}} (aralin 18)."},
+        {"p":"Kahawig ng “ang” ang {{the}}, pero hindi sila pareho. Sa Tagalog, ang “Masarap ang mangga” ay pwedeng tungkol sa lahat ng mangga; sa Ingles, walang {{the}} kapag lahat: {{Mangoes are delicious.}} (aralin 18)."},
         { "ex": [
           {"t":"What's this?","tr":"Ano ito?"},
           {"t":"It's a pomegranate.","tr":"Pomegranate ito."},
@@ -573,7 +573,7 @@
       "blocks": [
         {"goal":{"t":"It's a beautiful city, and the food is so good!","tr":"Napakagandang lungsod nito, at ang sarap ng pagkain!"}},
         {"dialog":[{"who":"Mike","t":"How's Manila?","tr":"Kumusta ang Maynila?"},{"who":"Ana","t":"It's a big, busy city. It's really hot!","tr":"Malaki at abalang lungsod ito. Sobrang init!"},{"who":"Mike","t":"And the food?","tr":"E ang pagkain?"},{"who":"Ana","t":"The food is so good! I love Filipino food.","tr":"Ang sarap ng pagkain! Gustong-gusto ko ang pagkaing Pilipino."},{"who":"Mike","t":"Me too!","tr":"Ako rin!"}]},
-        {"p":"**Laging bago ang pangngalan.** Sa Tagalog, puwedeng “malaking bahay” o “bahay na malaki”. Sa Ingles, isa lang ang ayos: pang-uri muna, saka ang pangngalan, at walang pang-ugnay sa pagitan: {{a big house}}, {{a kind teacher}}."},
+        {"p":"**Laging bago ang pangngalan.** Sa Tagalog, pwedeng “malaking bahay” o “bahay na malaki”. Sa Ingles, isa lang ang ayos: pang-uri muna, saka ang pangngalan, at walang pang-ugnay sa pagitan: {{a big house}}, {{a kind teacher}}."},
         {"p":"**Walang {{-s}} ang pang-uri**, kahit marami ang bagay: {{big houses}}, {{two new cars}}."},
         {"p":"**Pagkatapos ng {{be}}**: gaya ng natutunan mo, {{The house is big.}} “Malaki ang bahay.” Dito, hindi kailangan ang {{a}}."},
         { "table": [
@@ -823,7 +823,7 @@
       "blocks": [
         {"goal":{"t":"I'm cooking dinner right now.","tr":"Nagluluto ako ng hapunan ngayon."}},
         {"dialog":[{"who":"Mike","t":"Hi! What are you doing?","tr":"Hi! Ano ang ginagawa mo?"},{"who":"Ana","t":"I'm cooking dinner. My kids are doing their homework.","tr":"Nagluluto ako ng hapunan. Gumagawa ng assignment ang mga anak ko."},{"who":"Mike","t":"Is your husband home?","tr":"Nasa bahay ba ang asawa mo?"},{"who":"Ana","t":"No, he's working late today.","tr":"Wala, gagabihin siya sa trabaho ngayon."}]},
-        {"p":"Ang “nagluluto ako” sa Tagalog ay puwedeng dalawang bagay: ngayon mismo, o araw-araw. Sa Ingles, magkaiba ang dalawa: {{I cook}} (nakagawian, aralin 13) at {{I'm cooking}} (ngayon, habang nagsasalita ka)."},
+        {"p":"Ang “nagluluto ako” sa Tagalog ay pwedeng dalawang bagay: ngayon mismo, o araw-araw. Sa Ingles, magkaiba ang dalawa: {{I cook}} (nakagawian, aralin 13) at {{I'm cooking}} (ngayon, habang nagsasalita ka)."},
         {"term":"present continuous","means":"anyo ng pandiwa para sa kilos na nangyayari ngayon mismo: {{am}} / {{is}} / {{are}} + pandiwa + {{-ing}} ({{I'm eating}})."},
         { "table": [
           ["Tagalog","nakagawian","ngayon mismo"],
@@ -953,6 +953,201 @@
         {"type":"order","q":"Ayusin ang mga salita.","tr":"Hindi ako marunong lumangoy.","words":["I","can't","swim."]},
         {"type":"dialogue","q":"Sa opisina, kinakausap ka ng katrabaho. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Can you help me with this report?","tr":"Pwede mo ba akong tulungan sa report na ito?"},{"options":["Sure, I can help you after lunch.","Sure, I can helping you after lunch."],"answer":0,"why":"{{can}} + pandiwa, walang {{-ing}}."},{"who":"Katrabaho","t":"Thanks! Oh, and can I borrow your charger?","tr":"Salamat! At pahiram ng charger mo?"},{"options":["Of course! Here you go.","Of course! I borrow you."],"answer":0,"why":"Siya ang hihiram ({{borrow}}). Sapat na ang {{Here you go}} para iabot."}],"from":"be-polite-without-po"},
         {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kaya mong gawin, isang hindi mo kaya, at manghiram ng isang bagay sa kaibigan.","answers":[{"t":"I can cook and I can drive. I can't dance! Can I borrow your car this weekend?","tr":"Marunong akong magluto at magmaneho. Hindi ako marunong sumayaw! Pahiram ng kotse mo ngayong weekend?"},{"t":"I can speak three languages. I can play the guitar. I can't swim. Can I borrow your book?","tr":"Marunong ako ng tatlong wika. Marunong akong mag-gitara. Hindi ako marunong lumangoy. Pahiram ng libro mo?"}]}
+      ]
+    },
+    {
+      "id": "ask-for-things-and-help",
+      "unit": 4,
+      "level": "A2",
+      "title": "Umorder, mamili at humingi ng tulong",
+      "summary": "Humingi nang magalang sa tindahan, restawran at kalye: {{Could I have…?}} {{Could you…?}} {{How much is this?}}",
+      "topic": "{{Can I have…?}} / {{Could I have…?}}; {{Could you…?}}; {{How much is / are…?}}; {{some}} sa alok at paghingi",
+      "blocks": [
+        {"goal":{"t":"Could I have the check, please?","tr":"Bill out po."}},
+        {"dialog":[{"who":"Ana","t":"Excuse me, how much is this jacket?","tr":"Mawalang-galang na po, magkano po ang jacket na ito?"},{"who":"Tindera","t":"It's forty dollars.","tr":"Kuwarenta dolyar po."},{"who":"Ana","t":"And how much are these shoes?","tr":"E magkano po ang sapatos na ito?"},{"who":"Tindera","t":"They're sixty, but they're on sale today.","tr":"Sisenta po, pero naka-sale po ngayon."},{"who":"Ana","t":"Could you show me a smaller size?","tr":"Pwede po bang makita ang mas maliit na sukat?"},{"who":"Tindera","t":"Sure, one moment.","tr":"Sige po, sandali lang."}]},
+        {"p":"**Para humingi ng bagay**: {{Can I have…?}} (karaniwan) o {{Could I have…?}} (mas magalang), at {{please}}: {{Could I have a glass of water, please?}} Ito ang “Pahingi po…” at “Isa nga pong…” ng Ingles."},
+        {"p":"**Para pakiusapan ang isang tao**: {{Could you…?}} + pandiwa: {{Could you help me?}}, {{Could you show me…?}}, {{Could you repeat that?}} Mas malambot ang {{could}} kaysa {{can}}, kaya ito ang gamitin sa taong hindi mo kilala."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Pahingi po ng tubig.","{{Could I have some water, please?}}"],
+          ["Isang kape nga po.","{{Can I have a coffee, please?}}"],
+          ["Pakitulungan po ako.","{{Could you help me, please?}}"],
+          ["Magkano po ito?","{{How much is this?}}"],
+          ["Magkano po ang mga ito?","{{How much are these?}}"],
+          ["Bill out po.","{{Could I have the check, please?}}"]
+        ] },
+        {"p":"**Magkano?** {{How much is…?}} para sa isa, {{How much are…?}} para sa marami: {{How much are these shoes?}} Tandaan na maramihan sa Ingles ang {{shoes}}, {{pants}}, {{jeans}} at {{glasses}}."},
+        {"p":"**{{some}}** ang ginagamit sa alok at paghingi, kahit tanong ito: {{Would you like some coffee?}}, {{Could I have some water?}}"},
+        { "ex": [
+          {"t":"Could I have the check, please?","tr":"Bill out po."},
+          {"t":"Can I have a coffee, please?","tr":"Isang kape nga po."},
+          {"t":"Could you help me, please?","tr":"Pwede po ba ninyo akong tulungan?"},
+          {"t":"How much is this?","tr":"Magkano po ito?"},
+          {"t":"How much are these shoes?","tr":"Magkano po ang sapatos na ito?"},
+          {"t":"Could you show me a smaller size?","tr":"Pwede po bang makita ang mas maliit na sukat?"},
+          {"t":"Could I try this on?","tr":"Pwede ko po bang isukat ito?"}
+        ] },
+        {"tip":"Pilipinong Ingles ang “Bill out!”. Sa Amerika, {{Could I have the check, please?}} o maikli lang, {{Check, please!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Bill out, please.","right":"Could I have the check, please?","tr":"Bill out po.","why":"Hindi ginagamit sa Amerika ang {{bill out}}; {{the check}} ang tawag sa bill sa restawran."},
+        {"wrong":"How much is these shoes?","right":"How much are these shoes?","tr":"Magkano po ang sapatos na ito?","why":"Maramihan ang {{shoes}}: {{are}}."},
+        {"wrong":"I want water.","right":"Could I have some water, please?","tr":"Pahingi po ng tubig. (sa waiter)","why":"Masyadong direkta ang {{I want}} sa restawran. Magtanong nang may {{could}} at {{please}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Tapos ka nang kumain sa restawran at gusto mo nang magbayad. Sasabihin mo…","options":["{{Could I have the check, please?}}","{{Bill out, please.}}","{{Give me the bill.}}"],"answer":0,"why":"Sa Amerika: {{the check}}, at isang magalang na tanong."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"How much ___ these shoes?","tr":"Magkano po ang sapatos na ito?","options":["are","is","does"],"answer":0,"why":"Maramihan: {{are}}.","from":"talk-about-more-than-one"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Could ___ help me, please?","tr":"Pwede po ba ninyo akong tulungan?","options":["you","I","me"],"answer":0,"why":"Pinapakiusapan mo ang ibang tao: {{Could you…?}}"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Pwede ko po bang isukat ito?","words":["Could","I","try","this on?"]},
+        {"type":"dialogue","q":"Sa isang tindahan ng damit. Piliin ang mga sagot mo.","lines":[{"who":"Tindera","t":"Hi! Can I help you?","tr":"Hi! Ano po ang maitutulong ko?"},{"options":["Yes, how much is this shirt?","Yes, how much this shirt?"],"answer":0,"why":"Kailangan ang {{is}}: {{How much is…?}}"},{"who":"Tindera","t":"It's twenty-five dollars.","tr":"Bente-singko dolyar po."},{"options":["Could I try it on, please?","Can I to try it on?"],"answer":0,"why":"{{could}} + pandiwa, walang {{to}}."},{"who":"Tindera","t":"Of course! The fitting room is over there.","tr":"Siyempre po! Nandoon po ang fitting room."},{"options":["Thank you!","You're welcome!"],"answer":0,"why":"Ikaw ang tinulungan: {{Thank you!}}"}],"from":"say-what-you-can-do"},
+        {"type":"say","q":"Paano mo hihingin nang magalang ang “Pahingi po ng tubig”?","answer":"Could I have some water, please?"},
+        {"type":"free","q":"Ikaw naman: nasa isang café ka. Umorder ng dalawang bagay, itanong ang presyo, at magpasalamat.","answers":[{"t":"Hi! Can I have an iced coffee and a sandwich, please? How much is that? Thank you!","tr":"Hi! Isang iced coffee at isang sandwich nga po. Magkano po lahat? Salamat po!"},{"t":"Could I have a hot chocolate, please? And how much are these cookies?","tr":"Isang hot chocolate nga po. At magkano po ang mga cookies na ito?"}]}
+      ]
+    },
+    {
+      "id": "tell-people-what-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Magturo ng daan at magbigay ng tagubilin",
+      "summary": "Magturo ng daan at magbigay ng tagubilin: {{Go straight. Turn left.}} {{Don't worry.}} {{Let's go!}} At sabihin ang {{go home}}, walang {{to}}.",
+      "topic": "Ang imperative (pandiwa lang, walang {{you}}); {{don't}}; {{let's}}; {{go to work}} pero {{go home}}",
+      "blocks": [
+        {"goal":{"t":"Go straight, then turn left at the bank.","tr":"Dumiretso ka, tapos kumaliwa ka sa may bangko."}},
+        {"dialog":[{"who":"Turista","t":"Excuse me, how do I get to the train station?","tr":"Mawalang-galang na po, paano po pumunta sa istasyon ng tren?"},{"who":"Ana","t":"Go straight on this street, then turn right at the light.","tr":"Dumiretso po kayo sa kalyeng ito, tapos kumanan po kayo sa may stoplight."},{"who":"Turista","t":"Is it far?","tr":"Malayo po ba?"},{"who":"Ana","t":"No, it's about five minutes. Don't take a taxi!","tr":"Hindi po, mga limang minuto lang. Huwag na po kayong mag-taxi!"},{"who":"Turista","t":"Thanks a lot!","tr":"Maraming salamat!"}]},
+        {"term":"imperative","means":"anyo ng pandiwa para sa utos o tagubilin: {{Sit down.}}, {{Turn left.}} Walang simuno."},
+        {"p":"**Utos**: ang pandiwa lang, sa simula, walang {{you}}: {{Sit down.}}, {{Turn left.}}, {{Wait here.}} Sa Tagalog, may “ka” o “kayo”; sa Ingles, wala. Para maging magalang, idagdag ang {{please}}: {{Please sit down.}}"},
+        {"p":"**Huwag**: {{Don't}} + pandiwa: {{Don't worry.}} “Huwag kang mag-alala.”, {{Don't touch that!}}. **Tara**: {{Let's}} + pandiwa: {{Let's go!}} “Tara na!”, {{Let's eat.}} “Kain na tayo.”; ang negatibo ay {{Let's not…}}"},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Umupo ka. / Umupo po kayo.","{{Sit down.}} / {{Please sit down.}}"],
+          ["Huwag kang mag-alala.","{{Don't worry.}}"],
+          ["Tara na!","{{Let's go!}}"],
+          ["Kumanan ka.","{{Turn right.}}"],
+          ["Dumiretso ka.","{{Go straight.}}"],
+          ["Tumawid ka.","{{Cross the street.}}"]
+        ] },
+        {"p":"**Mga direksiyon**: {{go straight}}, {{turn left}}, {{turn right}}, {{cross the street}}; {{at the corner}} (sa kanto), {{at the light}} (sa stoplight), {{on your left}} (sa kaliwa mo)."},
+        {"p":"**Ang {{to}} at ang {{home}}.** May {{to}} ang {{go to work}}, {{go to school}}, {{go to the store}}. Pero walang {{to}} ang {{go home}}, at ganoon din ang {{come home}} at {{get home}}."},
+        { "ex": [
+          {"t":"Go straight, then turn left.","tr":"Dumiretso ka, tapos kumaliwa ka."},
+          {"t":"Turn right at the corner.","tr":"Kumanan ka sa kanto."},
+          {"t":"Please wait here.","tr":"Dito po muna kayo maghintay."},
+          {"t":"Don't worry.","tr":"Huwag kang mag-alala."},
+          {"t":"Let's go home.","tr":"Tara, uwi na tayo."},
+          {"t":"Don't forget your umbrella!","tr":"Huwag mong kalimutan ang payong mo!"},
+          {"t":"It's on your left.","tr":"Nasa kaliwa mo."}
+        ] },
+        {"tip":"Ang {{Let's go!}} ang “Tara!” ng Ingles. At para sa “Ingat!”, sabihin ang {{Take care!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"You sit down.","right":"Please sit down.","tr":"Umupo po kayo.","why":"Walang {{you}} sa utos; idagdag ang {{please}} para maging magalang."},
+        {"wrong":"Let's go to home.","right":"Let's go home.","tr":"Tara, uwi na tayo.","why":"Walang {{to}} bago ang {{home}}."},
+        {"wrong":"No worry.","right":"Don't worry.","tr":"Huwag kang mag-alala.","why":"Ang “huwag” ay {{don't}} + pandiwa."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"___ worry. Everything's fine.","tr":"Huwag kang mag-alala. Okay lang ang lahat.","options":["Don't","No","Not"],"answer":0,"why":"“Huwag”: {{don't}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Let's go ___.","tr":"Tara, uwi na tayo.","options":["home","to home","at home"],"answer":0,"why":"{{go home}}: walang {{to}}."},
+        {"type":"choice","q":"Paano mo sasabihin ang “Umupo po kayo” sa isang bisita?","options":["{{Please sit down.}}","{{You sit down.}}","{{Sit down you, please.}}"],"answer":0,"why":"Walang {{you}}, at may {{please}}.","from":"be-polite-without-po"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Kumanan ka sa kanto.","words":["Turn","right","at","the corner."]},
+        {"type":"dialogue","q":"Nagtatanong ng daan ang isang turista. Piliin ang mga sagot mo.","lines":[{"who":"Turista","t":"Excuse me, where's the museum?","tr":"Mawalang-galang na po, nasaan po ang museo?"},{"options":["Go straight and turn left at the bank.","Going straight and turn left at the bank."],"answer":0,"why":"Utos: ang pandiwa lang, sa simula."},{"who":"Turista","t":"Is it next to the bank?","tr":"Katabi po ba ng bangko?"},{"options":["No, it's across from the bank. You can't miss it!","No, it's across from the bank. You can't missing it!"],"answer":0,"why":"Pagkatapos ng {{can't}}: pandiwa lang, walang {{-ing}}."}],"from":"say-where-things-are"},
+        {"type":"say","q":"Paano mo sasabihin ang “Tara, kain na tayo!”?","answer":"Let's eat!"},
+        {"type":"free","q":"Ikaw naman: ituro ang daan mula sa bahay mo papunta sa pinakamalapit na tindahan, sa dalawa o tatlong utos.","answers":[{"t":"Go out and turn right. Walk to the corner and cross the street. The store is on your left.","tr":"Lumabas ka at kumanan. Maglakad ka hanggang kanto at tumawid. Nasa kaliwa mo ang tindahan."},{"t":"Go straight for two blocks. Turn left at the church. Don't cross the bridge!","tr":"Dumiretso ka nang dalawang kanto. Kumaliwa ka sa may simbahan. Huwag kang tumawid sa tulay!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-times-and-dates",
+      "unit": 4,
+      "level": "A2",
+      "title": "Sabihin ang oras, araw at petsa",
+      "summary": "Sabihin ang oras sa Ingles at gamitin ang tamang pang-ukol: {{at 3:15}}, {{on Monday}}, {{in May}}, {{in the morning}}.",
+      "topic": "{{What time is it?}} {{It's 3:15.}}; {{at}} (oras), {{on}} (araw, petsa), {{in}} (buwan, taon, bahagi ng araw); walang pang-ukol sa {{tomorrow}}, {{next week}}",
+      "blocks": [
+        {"goal":{"t":"The party is on Saturday at seven.","tr":"Sa Sabado ang party, alas-siyete."}},
+        {"dialog":[{"who":"Mike","t":"What time is it?","tr":"Anong oras na?"},{"who":"Ana","t":"It's two fifteen.","tr":"Alas-dos kinse na."},{"who":"Mike","t":"When is your flight?","tr":"Kailan ang flight mo?"},{"who":"Ana","t":"It's on Friday, at six in the morning.","tr":"Sa Biyernes, alas-sais ng umaga."},{"who":"Mike","t":"And when are you back?","tr":"E kailan ka babalik?"},{"who":"Ana","t":"In July. My birthday is on July 4th!","tr":"Sa Hulyo. July 4 ang birthday ko!"}]},
+        {"p":"**Ang oras sa Ingles**: {{It's three o'clock.}} (alas-tres), {{It's three fifteen.}} (3:15), {{It's three thirty.}} (alas-tres y medya). Maririnig mo rin ang {{a quarter past three}} (3:15) at {{half past three}} (3:30). Ang {{a.m.}} ay mula hatinggabi hanggang tanghali; ang {{p.m.}}, mula tanghali hanggang hatinggabi."},
+        {"p":"**Isang “sa”, tatlong pang-ukol.** Sa Tagalog: “sa Lunes”, “sa Mayo”, “sa umaga”. Sa Ingles, nakadepende ito sa haba ng panahon:"},
+        { "table": [
+          ["pang-ukol","para sa","halimbawa"],
+          ["{{at}}","oras, isang sandali","{{at 7:30}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","araw at petsa","{{on Monday}}, {{on July 4th}}, {{on my birthday}}"],
+          ["{{in}}","buwan, taon, bahagi ng araw","{{in May}}, {{in 2025}}, {{in the morning}}"]
+        ] },
+        {"p":"Mula maliit hanggang malaki: {{at}} (isang punto ng oras), {{on}} (isang araw), {{in}} (mas mahabang panahon). Isang eksepsiyon: {{in the morning}}, {{in the afternoon}}, {{in the evening}}, pero {{at night}}."},
+        {"p":"**Walang pang-ukol** bago ang {{today}}, {{tomorrow}}, {{yesterday}}, {{next week}}, {{last month}}, {{this weekend}}: {{I'm leaving tomorrow.}}, hindi {{on tomorrow}}."},
+        {"p":"**Mga petsa**: may {{-th}}, {{-st}}, {{-nd}} o {{-rd}} kapag binibigkas: {{July 4th}} (“July fourth”), {{May 1st}} (“May first”), {{March 22nd}} (“March twenty-second”)."},
+        { "ex": [
+          {"t":"What time is it?","tr":"Anong oras na?"},
+          {"t":"It's three thirty.","tr":"Alas-tres y medya na."},
+          {"t":"The store opens at nine.","tr":"Alas-nuwebe nagbubukas ang tindahan."},
+          {"t":"I have class on Mondays.","tr":"May klase ako tuwing Lunes."},
+          {"t":"My birthday is in May.","tr":"Sa Mayo ang birthday ko."},
+          {"t":"I work at night.","tr":"Sa gabi ako nagtatrabaho."},
+          {"t":"See you next week!","tr":"Kita tayo sa susunod na linggo!"}
+        ] },
+        {"tip":"Sa Amerika, buwan muna bago araw sa petsa: ang {{7/4}} ay July 4, hindi April 7. Mag-ingat sa mga form!"}
+      ],
+      "mistakes": [
+        {"wrong":"My birthday is on May.","right":"My birthday is in May.","tr":"Sa Mayo ang birthday ko.","why":"Para sa buwan: {{in}}."},
+        {"wrong":"See you on tomorrow.","right":"See you tomorrow.","tr":"Kita tayo bukas.","why":"Walang pang-ukol bago ang {{tomorrow}}."},
+        {"wrong":"I work in the night.","right":"I work at night.","tr":"Sa gabi ako nagtatrabaho.","why":"Eksepsiyon: {{at night}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"The store opens ___ nine.","tr":"Alas-nuwebe nagbubukas ang tindahan.","options":["at","on","in"],"answer":0,"why":"Oras: {{at}}.","from":"talk-about-your-day"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I have class ___ Mondays.","tr":"May klase ako tuwing Lunes.","options":["on","in","at"],"answer":0,"why":"Araw: {{on}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"My birthday is ___ May.","tr":"Sa Mayo ang birthday ko.","options":["in","on","at"],"answer":0,"why":"Buwan: {{in}}."},
+        {"type":"choice","q":"“Aalis ako bukas.”","options":["{{I'm leaving tomorrow.}}","{{I'm leaving on tomorrow.}}","{{I'm leaving in tomorrow.}}"],"answer":0,"why":"Walang pang-ukol bago ang {{tomorrow}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Alas-sais ng umaga ang flight ko.","words":["My flight","is","at six","in the morning."]},
+        {"type":"dialogue","q":"Nag-aayos kayo ng meeting ng katrabaho mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"When can we meet?","tr":"Kailan tayo pwedeng magkita?"},{"options":["How about Thursday at ten?","How about in Thursday on ten?"],"answer":0,"why":"Araw at oras: ang oras ay {{at}}; sa {{How about…}}, pwedeng walang {{on}} ang araw."},{"who":"Katrabaho","t":"Thursday is busy for me. What about next week?","tr":"Busy ako sa Huwebes. E sa susunod na linggo?"},{"options":["Sure. Is Monday morning okay?","Sure. Is on Monday in morning okay?"],"answer":0,"why":"{{Monday morning}}: araw at bahagi ng araw, natural na magkasama nang walang pang-ukol."}],"from":"ask-and-answer-with-be"},
+        {"type":"free","q":"Ikaw naman: sabihin kung anong oras ka gumigising, kailan ang birthday mo, at ano ang ginagawa mo sa gabi.","answers":[{"t":"I wake up at six thirty. My birthday is on October 12th. At night, I watch TV with my family.","tr":"Alas-sais y medya ako gumigising. Oktubre 12 ang birthday ko. Sa gabi, nanonood kami ng TV ng pamilya ko."},{"t":"I get up at five. My birthday is in March. I study English at night.","tr":"Alas-singko ako bumabangon. Sa Marso ang birthday ko. Sa gabi ako nag-aaral ng Ingles."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Sabihin ang kailangan at dapat mong gawin",
+      "summary": "Sabihin ang kailangan, ang dapat, at ang hindi kailangang gawin: {{I have to go.}} {{You should rest.}} {{You don't have to pay.}}",
+      "topic": "{{have to}} / {{has to}}, {{need to}}; {{should}} / {{shouldn't}}; {{must}} at {{mustn't}}; {{don't have to}} ≠ {{mustn't}}",
+      "blocks": [
+        {"goal":{"t":"I have to go now. I have work tomorrow.","tr":"Kailangan ko nang umalis. May trabaho pa ako bukas."}},
+        {"dialog":[{"who":"Ana","t":"I have to go now. I have work tomorrow.","tr":"Kailangan ko nang umalis. May trabaho pa ako bukas."},{"who":"Sarah","t":"Already? Do you have to work on Saturday?","tr":"Agad? Kailangan mo bang magtrabaho sa Sabado?"},{"who":"Ana","t":"Yes, I do. And I need to wake up at five.","tr":"Oo. At kailangan kong gumising nang alas-singko."},{"who":"Sarah","t":"You should get some rest, then. Drive safe!","tr":"Magpahinga ka na nga. Ingat sa pagmamaneho!"}]},
+        {"p":"**Kailangan**: {{have to}} + pandiwa ({{has to}} sa {{he}} at {{she}}): {{I have to work.}}, {{She has to leave.}} Halos pareho ang {{need to}}: {{I need to rest.}}"},
+        {"p":"**Dapat (payo)**: {{should}} + pandiwa: {{You should see a doctor.}} “Dapat kang magpatingin sa doktor.” Tulad ng {{can}}, hindi nagbabago ang {{should}} ({{she should}}), at walang {{to}} ang kasunod na pandiwa."},
+        {"p":"**Hindi kailangan, o bawal?** Mag-ingat: magkaiba ang dalawa! {{You don't have to pay.}} “Hindi mo kailangang magbayad”: libre ito, pero pwede kang magbayad kung gusto mo. {{You mustn't smoke here.}} “Bawal manigarilyo dito.” Malakas at pormal ang {{must}}; sa karaniwang usapan, mas madalas ang {{have to}}."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Kailangan kong umalis.","{{I have to go.}} / {{I need to go.}}"],
+          ["Kailangan niyang magtrabaho.","{{She has to work.}}"],
+          ["Dapat kang magpahinga.","{{You should rest.}}"],
+          ["Hindi ka dapat mag-alala.","{{You shouldn't worry.}}"],
+          ["Hindi mo kailangang magbayad.","{{You don't have to pay.}}"],
+          ["Bawal manigarilyo.","{{You mustn't smoke.}} / {{No smoking.}}"]
+        ] },
+        {"p":"**Tanong**: {{Do you have to…?}}, kasama ang {{do}} ng aralin 15: {{Do you have to work tomorrow?}} Para humingi ng payo: {{Should I…?}}: {{Should I call her?}} “Tawagan ko ba siya?”"},
+        { "ex": [
+          {"t":"I have to go now.","tr":"Kailangan ko nang umalis."},
+          {"t":"She has to work on Saturday.","tr":"Kailangan niyang magtrabaho sa Sabado."},
+          {"t":"You should see a doctor.","tr":"Dapat kang magpatingin sa doktor."},
+          {"t":"You shouldn't eat so much sugar.","tr":"Hindi ka dapat kumain ng ganyan karaming asukal."},
+          {"t":"You don't have to bring anything.","tr":"Hindi mo kailangang magdala ng kahit ano."},
+          {"t":"Do I have to pay now?","tr":"Kailangan ko na bang magbayad?"},
+          {"t":"Should I call her?","tr":"Tawagan ko ba siya?"}
+        ] },
+        {"tip":"Kapag sinabi ng Amerikanong host na {{You don't have to bring anything!}}, totoo iyon kadalasan. Pero magandang magdala pa rin ng maliit na bagay, gaya ng dessert."}
+      ],
+      "mistakes": [
+        {"wrong":"She have to work.","right":"She has to work.","tr":"Kailangan niyang magtrabaho.","why":"Sa {{she}}: {{has to}}."},
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Dapat kang magpahinga.","why":"Walang {{to}} pagkatapos ng {{should}}."},
+        {"wrong":"You mustn't pay.","right":"You don't have to pay.","tr":"Hindi mo kailangang magbayad.","why":"Ang {{mustn't}} ay “bawal”. Kapag libre o hindi kailangan: {{don't have to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She ___ to work on Saturday.","tr":"Kailangan niyang magtrabaho sa Sabado.","options":["has","have","is"],"answer":0,"why":"Sa {{she}}: {{has to}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"You should ___ a doctor.","tr":"Dapat kang magpatingin sa doktor.","options":["see","to see","sees"],"answer":0,"why":"Pagkatapos ng {{should}}: pandiwa lang.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"Libre ang pasok sa museo. Sasabihin mo sa kaibigan mo…","options":["{{You don't have to pay.}}","{{You mustn't pay.}}","{{You shouldn't to pay.}}"],"answer":0,"why":"Hindi kailangan, pero hindi bawal: {{don't have to}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Kailangan ko na bang magbayad?","words":["Do","I","have to","pay","now?"],"from":"ask-questions-with-do"},
+        {"type":"dialogue","q":"Masama ang pakiramdam ng katrabaho mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"I feel terrible. I have a headache.","tr":"Ang sama ng pakiramdam ko. Masakit ang ulo ko."},{"options":["You should go home and rest.","You should to go home and rest."],"answer":0,"why":"Walang {{to}} pagkatapos ng {{should}}."},{"who":"Katrabaho","t":"But I have to finish this report.","tr":"Pero kailangan kong tapusin ang report na ito."},{"options":["You don't have to finish it today. It's due on Friday.","You mustn't finish it today. It's due on Friday."],"answer":0,"why":"Hindi kailangan ngayon (pero hindi bawal): {{don't have to}}."}]},
+        {"type":"say","q":"Paano mo sasabihin ang “Kailangan ko nang umalis”?","answer":"I have to go now."},
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kailangan mong gawin ngayong linggo, at magbigay ng isang payo sa kaibigan ({{You should…}}).","answers":[{"t":"I have to work on Saturday. I need to call my mom. You should try the new Filipino restaurant!","tr":"Kailangan kong magtrabaho sa Sabado. Kailangan kong tawagan ang nanay ko. Subukan mo ang bagong Pilipinong restawran!"},{"t":"I have to pay my bills and I need to clean the house. You should get more sleep.","tr":"Kailangan kong magbayad ng mga bayarin at maglinis ng bahay. Dapat kang matulog nang mas mahaba."}]}
       ]
     }
   ]
