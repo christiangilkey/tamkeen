@@ -6409,6 +6409,920 @@
       "meaning": "[hisāb] account; calculation; the bill (के हिसाब से: according to)",
       "sentence": "हिसाब कर दीजिए।",
       "translation": "Please make up the ⟦bill⟧."
+    },
+    {
+      "n": 701,
+      "rank": 871,
+      "word": "इच्छा",
+      "pos": "noun",
+      "meaning": "[ichchhā] wish; desire",
+      "sentence": "मेरी इच्छा है कि मैं दुनिया घूमूँ।",
+      "translation": "It's my ⟦wish⟧ to travel the world."
+    },
+    {
+      "n": 702,
+      "rank": 872,
+      "word": "बुलाना",
+      "pos": "verb",
+      "meaning": "[bulānā] to call; to invite",
+      "sentence": "मैंने उसे पार्टी में बुलाया है।",
+      "translation": "I've ⟦invited⟧ her to the party.",
+      "form": "बुलाया"
+    },
+    {
+      "n": 703,
+      "rank": 873,
+      "word": "संस्था",
+      "pos": "noun",
+      "meaning": "[sansthā] institution; organisation",
+      "sentence": "यह संस्था ग़रीब बच्चों को पढ़ाती है।",
+      "translation": "This ⟦organisation⟧ teaches poor children."
+    },
+    {
+      "n": 704,
+      "rank": 874,
+      "word": "ज़माना",
+      "pos": "noun",
+      "meaning": "[zamānā] times; era; the world",
+      "sentence": "ज़माना बदल गया है।",
+      "translation": "⟦Times⟧ have changed."
+    },
+    {
+      "n": 705,
+      "rank": 875,
+      "word": "गला",
+      "pos": "noun",
+      "meaning": "[galā] throat; neck",
+      "sentence": "मेरा गला ख़राब है।",
+      "translation": "I have a sore ⟦throat⟧."
+    },
+    {
+      "n": 706,
+      "rank": 876,
+      "word": "कवि",
+      "pos": "noun",
+      "meaning": "[kavi] poet",
+      "sentence": "कबीर एक महान कवि थे।",
+      "translation": "Kabir was a great ⟦poet⟧."
+    },
+    {
+      "n": 707,
+      "rank": 877,
+      "word": "गाली",
+      "pos": "noun",
+      "meaning": "[gālī] swear word; abuse (गाली देना: to swear at)",
+      "sentence": "गाली मत दो।",
+      "translation": "Don't ⟦swear⟧."
+    },
+    {
+      "n": 708,
+      "rank": 878,
+      "word": "इलाक़ा",
+      "pos": "noun",
+      "meaning": "[ilāqā] area; locality; neighbourhood",
+      "sentence": "यह इलाक़ा बहुत सुरक्षित है।",
+      "translation": "This ⟦neighbourhood⟧ is very safe."
+    },
+    {
+      "n": 709,
+      "rank": 879,
+      "word": "दौरा",
+      "pos": "noun",
+      "meaning": "[daurā] tour; visit; attack (of an illness)",
+      "sentence": "प्रधानमंत्री अमेरिका के दौरे पर हैं।",
+      "translation": "The prime minister is on a ⟦visit⟧ to America.",
+      "form": "दौरे"
+    },
+    {
+      "n": 710,
+      "rank": 880,
+      "word": "लेख",
+      "pos": "noun",
+      "meaning": "[lekh] article (written)",
+      "sentence": "मैंने अख़बार में आपका लेख पढ़ा।",
+      "translation": "I read your ⟦article⟧ in the newspaper."
+    },
+    {
+      "n": 711,
+      "rank": 881,
+      "word": "गधा",
+      "pos": "noun",
+      "meaning": "[gadhā] donkey; (as an insult) idiot",
+      "sentence": "गधा बहुत बोझ उठाता है।",
+      "translation": "A ⟦donkey⟧ carries a lot of weight."
+    },
+    {
+      "n": 712,
+      "rank": 882,
+      "word": "कपड़ा",
+      "pos": "noun",
+      "meaning": "[kapṛā] cloth; (कपड़े) clothes",
+      "sentence": "मुझे नए कपड़े ख़रीदने हैं।",
+      "translation": "I need to buy new ⟦clothes⟧.",
+      "form": "कपड़े"
+    },
+    {
+      "n": 713,
+      "rank": 883,
+      "word": "आजकल",
+      "pos": "adv",
+      "meaning": "[ājkal] these days; nowadays",
+      "sentence": "आजकल तुम क्या कर रहे हो?",
+      "translation": "What are you doing ⟦these days⟧?"
+    },
+    {
+      "n": 714,
+      "rank": 884,
+      "word": "स्वीकार",
+      "pos": "noun",
+      "meaning": "[svīkār] acceptance (स्वीकार करना: to accept, to admit)",
+      "sentence": "उसने अपनी ग़लती स्वीकार की।",
+      "translation": "He ⟦admitted⟧ his mistake."
+    },
+    {
+      "n": 715,
+      "rank": 885,
+      "word": "सज़ा",
+      "pos": "noun",
+      "meaning": "[sazā] punishment; sentence",
+      "sentence": "चोर को दो साल की सज़ा मिली।",
+      "translation": "The thief got a two-year ⟦sentence⟧."
+    },
+    {
+      "n": 716,
+      "rank": 887,
+      "word": "तैयारी",
+      "pos": "noun",
+      "meaning": "[taiyārī] preparation",
+      "sentence": "परीक्षा की तैयारी कैसी चल रही है?",
+      "translation": "How's the ⟦preparation⟧ for the exam going?"
+    },
+    {
+      "n": 717,
+      "rank": 889,
+      "word": "अक्टूबर",
+      "pos": "noun",
+      "meaning": "[akṭūbar] October",
+      "sentence": "दिवाली अक्टूबर या नवंबर में आती है।",
+      "translation": "Diwali comes in ⟦October⟧ or November."
+    },
+    {
+      "n": 718,
+      "rank": 890,
+      "word": "कंप्यूटर",
+      "pos": "noun",
+      "meaning": "[kampyūṭar] computer",
+      "sentence": "मेरा कंप्यूटर बहुत धीमा है।",
+      "translation": "My ⟦computer⟧ is very slow."
+    },
+    {
+      "n": 719,
+      "rank": 891,
+      "word": "किलोमीटर",
+      "pos": "noun",
+      "meaning": "[kilomīṭar] kilometre",
+      "sentence": "मैं रोज़ पाँच किलोमीटर चलती हूँ।",
+      "translation": "I walk five ⟦kilometres⟧ every day."
+    },
+    {
+      "n": 720,
+      "rank": 892,
+      "word": "मालिक",
+      "pos": "noun",
+      "meaning": "[mālik] owner; boss",
+      "sentence": "इस दुकान का मालिक कौन है?",
+      "translation": "Who's the ⟦owner⟧ of this shop?"
+    },
+    {
+      "n": 721,
+      "rank": 893,
+      "word": "फ़र्क़",
+      "pos": "noun",
+      "meaning": "[farq] difference (फ़र्क़ पड़ना: to matter)",
+      "sentence": "इससे क्या फ़र्क़ पड़ता है?",
+      "translation": "What ⟦difference⟧ does it make?"
+    },
+    {
+      "n": 722,
+      "rank": 895,
+      "word": "मस्जिद",
+      "pos": "noun",
+      "meaning": "[masjid] mosque",
+      "sentence": "मस्जिद हमारे घर के पास है।",
+      "translation": "The ⟦mosque⟧ is near our house."
+    },
+    {
+      "n": 723,
+      "rank": 896,
+      "word": "क्षमता",
+      "pos": "noun",
+      "meaning": "[kshamtā] capacity; ability",
+      "sentence": "हॉल की क्षमता पाँच सौ लोगों की है।",
+      "translation": "The hall has a ⟦capacity⟧ of five hundred people."
+    },
+    {
+      "n": 724,
+      "rank": 897,
+      "word": "ऊर्जा",
+      "pos": "noun",
+      "meaning": "[ūrjā] energy",
+      "sentence": "सौर ऊर्जा सस्ती और साफ़ है।",
+      "translation": "Solar ⟦energy⟧ is cheap and clean."
+    },
+    {
+      "n": 725,
+      "rank": 898,
+      "word": "चीनी",
+      "pos": "noun",
+      "meaning": "[chīnī] sugar; (also) Chinese",
+      "sentence": "चाय में चीनी कितनी डालूँ?",
+      "translation": "How much ⟦sugar⟧ shall I put in the tea?"
+    },
+    {
+      "n": 726,
+      "rank": 899,
+      "word": "जून",
+      "pos": "noun",
+      "meaning": "[jūn] June",
+      "sentence": "जून में स्कूल की छुट्टियाँ होती हैं।",
+      "translation": "School holidays are in ⟦June⟧."
+    },
+    {
+      "n": 727,
+      "rank": 900,
+      "word": "दस",
+      "pos": "num",
+      "meaning": "[das] ten",
+      "sentence": "मैं दस मिनट में आती हूँ।",
+      "translation": "I'll come in ⟦ten⟧ minutes."
+    },
+    {
+      "n": 728,
+      "rank": 902,
+      "word": "मेहनत",
+      "pos": "noun",
+      "meaning": "[mehnat] hard work (मेहनत करना: to work hard)",
+      "sentence": "मेहनत का फल मीठा होता है।",
+      "translation": "⟦Hard work⟧ pays off."
+    },
+    {
+      "n": 729,
+      "rank": 903,
+      "word": "मोबाइल",
+      "pos": "noun",
+      "meaning": "[mobāil] mobile phone",
+      "sentence": "मेरा मोबाइल चार्ज नहीं हो रहा।",
+      "translation": "My ⟦mobile⟧ isn't charging."
+    },
+    {
+      "n": 730,
+      "rank": 908,
+      "word": "शुभ",
+      "pos": "adj",
+      "meaning": "[shubh] auspicious; good (शुभ रात्रि: good night)",
+      "sentence": "आज शादी के लिए शुभ दिन है।",
+      "translation": "Today is an ⟦auspicious⟧ day for a wedding."
+    },
+    {
+      "n": 731,
+      "rank": 909,
+      "word": "संगीत",
+      "pos": "noun",
+      "meaning": "[saṅgīt] music",
+      "sentence": "मुझे भारतीय संगीत पसंद है।",
+      "translation": "I like Indian ⟦music⟧."
+    },
+    {
+      "n": 732,
+      "rank": 912,
+      "word": "गंभीर",
+      "pos": "adj",
+      "meaning": "[gambhīr] serious",
+      "sentence": "डॉक्टर ने कहा कि यह गंभीर नहीं है।",
+      "translation": "The doctor said it isn't ⟦serious⟧."
+    },
+    {
+      "n": 733,
+      "rank": 915,
+      "word": "भक्त",
+      "pos": "noun",
+      "meaning": "[bhakt] devotee",
+      "sentence": "मंदिर में भक्तों की भीड़ है।",
+      "translation": "The temple is crowded with ⟦devotees⟧.",
+      "form": "भक्तों"
+    },
+    {
+      "n": 734,
+      "rank": 916,
+      "word": "इलाज",
+      "pos": "noun",
+      "meaning": "[ilāj] treatment; cure",
+      "sentence": "इस बीमारी का इलाज संभव है।",
+      "translation": "A ⟦cure⟧ for this disease is possible."
+    },
+    {
+      "n": 735,
+      "rank": 917,
+      "word": "राजधानी",
+      "pos": "noun",
+      "meaning": "[rājdhānī] capital (city)",
+      "sentence": "दिल्ली भारत की राजधानी है।",
+      "translation": "Delhi is the ⟦capital⟧ of India."
+    },
+    {
+      "n": 736,
+      "rank": 921,
+      "word": "गहरा",
+      "pos": "adj",
+      "meaning": "[gahrā] deep; dark (of colours)",
+      "sentence": "यह नदी बहुत गहरी है।",
+      "translation": "This river is very ⟦deep⟧.",
+      "form": "गहरी"
+    },
+    {
+      "n": 737,
+      "rank": 922,
+      "word": "साहित्य",
+      "pos": "noun",
+      "meaning": "[sāhitya] literature",
+      "sentence": "मुझे हिंदी साहित्य पढ़ना पसंद है।",
+      "translation": "I like reading Hindi ⟦literature⟧."
+    },
+    {
+      "n": 738,
+      "rank": 923,
+      "word": "उद्देश्य",
+      "pos": "noun",
+      "meaning": "[uddeshya] aim; purpose",
+      "sentence": "इस बैठक का उद्देश्य क्या है?",
+      "translation": "What's the ⟦purpose⟧ of this meeting?"
+    },
+    {
+      "n": 739,
+      "rank": 924,
+      "word": "कला",
+      "pos": "noun",
+      "meaning": "[kalā] art",
+      "sentence": "उसे कला में बहुत रुचि है।",
+      "translation": "She's very interested in ⟦art⟧."
+    },
+    {
+      "n": 740,
+      "rank": 925,
+      "word": "बहना",
+      "pos": "verb",
+      "meaning": "[bahnā] to flow",
+      "sentence": "नदी तेज़ी से बह रही है।",
+      "translation": "The river is ⟦flowing⟧ fast.",
+      "form": "बह"
+    },
+    {
+      "n": 741,
+      "rank": 926,
+      "word": "छह",
+      "pos": "num",
+      "meaning": "[chhah] six",
+      "sentence": "मेरे भाई की बेटी छह साल की है।",
+      "translation": "My brother's daughter is ⟦six⟧."
+    },
+    {
+      "n": 742,
+      "rank": 927,
+      "word": "समूह",
+      "pos": "noun",
+      "meaning": "[samūh] group",
+      "sentence": "छात्र छोटे समूहों में काम कर रहे हैं।",
+      "translation": "The students are working in small ⟦groups⟧.",
+      "form": "समूहों"
+    },
+    {
+      "n": 743,
+      "rank": 928,
+      "word": "दिसंबर",
+      "pos": "noun",
+      "meaning": "[disambar] December",
+      "sentence": "दिसंबर में बहुत ठंड होती है।",
+      "translation": "It's very cold in ⟦December⟧."
+    },
+    {
+      "n": 744,
+      "rank": 934,
+      "word": "शराब",
+      "pos": "noun",
+      "meaning": "[sharāb] alcohol; liquor",
+      "sentence": "मैं शराब नहीं पीती।",
+      "translation": "I don't drink ⟦alcohol⟧."
+    },
+    {
+      "n": 745,
+      "rank": 937,
+      "word": "कक्षा",
+      "pos": "noun",
+      "meaning": "[kakshā] class; grade (at school)",
+      "sentence": "मेरा बेटा पाँचवीं कक्षा में है।",
+      "translation": "My son is in fifth ⟦grade⟧."
+    },
+    {
+      "n": 746,
+      "rank": 938,
+      "word": "ऊँचा",
+      "pos": "adj",
+      "meaning": "[ū̃chā] high; tall",
+      "sentence": "यह इमारत बहुत ऊँची है।",
+      "translation": "This building is very ⟦tall⟧.",
+      "form": "ऊँची"
+    },
+    {
+      "n": 747,
+      "rank": 939,
+      "word": "दौर",
+      "pos": "noun",
+      "meaning": "[daur] period; phase; round",
+      "sentence": "वह मुश्किल दौर से गुज़र रहा है।",
+      "translation": "He's going through a difficult ⟦phase⟧."
+    },
+    {
+      "n": 748,
+      "rank": 942,
+      "word": "रोज़गार",
+      "pos": "noun",
+      "meaning": "[rozgār] employment; jobs",
+      "sentence": "युवाओं को रोज़गार चाहिए।",
+      "translation": "Young people need ⟦jobs⟧."
+    },
+    {
+      "n": 749,
+      "rank": 943,
+      "word": "रुकना",
+      "pos": "verb",
+      "meaning": "[ruknā] to stop; to stay; to wait",
+      "sentence": "आज रात हमारे घर रुक जाओ।",
+      "translation": "⟦Stay⟧ at our place tonight.",
+      "form": "रुक"
+    },
+    {
+      "n": 750,
+      "rank": 944,
+      "word": "ग़ैर",
+      "pos": "noun",
+      "meaning": "[ghair] outsider, stranger; non- (ग़ैर-क़ानूनी: illegal)",
+      "sentence": "वह कोई ग़ैर नहीं, अपना है।",
+      "translation": "He's not an ⟦outsider⟧, he's one of us."
+    },
+    {
+      "n": 751,
+      "rank": 949,
+      "word": "कृपा",
+      "pos": "noun",
+      "meaning": "[kripā] kindness; grace",
+      "sentence": "भगवान की कृपा से सब ठीक है।",
+      "translation": "By God's ⟦grace⟧, all is well."
+    },
+    {
+      "n": 752,
+      "rank": 950,
+      "word": "जनवरी",
+      "pos": "noun",
+      "meaning": "[janvarī] January",
+      "sentence": "नया साल जनवरी में शुरू होता है।",
+      "translation": "The new year starts in ⟦January⟧."
+    },
+    {
+      "n": 753,
+      "rank": 951,
+      "word": "झूठ",
+      "pos": "noun",
+      "meaning": "[jhūṭh] lie (झूठ बोलना: to tell a lie)",
+      "sentence": "झूठ मत बोलो।",
+      "translation": "Don't tell ⟦lies⟧."
+    },
+    {
+      "n": 754,
+      "rank": 953,
+      "word": "सीधे",
+      "pos": "adv",
+      "meaning": "[sīdhe] straight; directly (सीधा: straight, simple)",
+      "sentence": "सीधे घर जाना।",
+      "translation": "Go ⟦straight⟧ home."
+    },
+    {
+      "n": 755,
+      "rank": 954,
+      "word": "उदाहरण",
+      "pos": "noun",
+      "meaning": "[udāhraṇ] example",
+      "sentence": "मुझे एक उदाहरण दीजिए।",
+      "translation": "Give me an ⟦example⟧."
+    },
+    {
+      "n": 756,
+      "rank": 955,
+      "word": "दवा",
+      "pos": "noun",
+      "meaning": "[davā] medicine",
+      "sentence": "दवा खाना मत भूलना।",
+      "translation": "Don't forget to take your ⟦medicine⟧."
+    },
+    {
+      "n": 757,
+      "rank": 959,
+      "word": "उत्पाद",
+      "pos": "noun",
+      "meaning": "[utpād] product",
+      "sentence": "यह भारतीय उत्पाद है।",
+      "translation": "This is an Indian ⟦product⟧."
+    },
+    {
+      "n": 758,
+      "rank": 960,
+      "word": "चढ़ना",
+      "pos": "verb",
+      "meaning": "[chaṛhnā] to climb; to get on (a bus, a train)",
+      "sentence": "बस में चढ़ो।",
+      "translation": "⟦Get on⟧ the bus.",
+      "form": "चढ़ो"
+    },
+    {
+      "n": 759,
+      "rank": 961,
+      "word": "अरब",
+      "pos": "num",
+      "meaning": "[arab] billion (also: Arab)",
+      "sentence": "भारत की आबादी एक अरब से ज़्यादा है।",
+      "translation": "India's population is more than a ⟦billion⟧."
+    },
+    {
+      "n": 760,
+      "rank": 962,
+      "word": "उड़ना",
+      "pos": "verb",
+      "meaning": "[uṛnā] to fly",
+      "sentence": "आसमान में पक्षी उड़ रहे हैं।",
+      "translation": "Birds are ⟦flying⟧ in the sky.",
+      "form": "उड़"
+    },
+    {
+      "n": 761,
+      "rank": 963,
+      "word": "उचित",
+      "pos": "adj",
+      "meaning": "[uchit] proper; appropriate; fair",
+      "sentence": "यह उचित नहीं है।",
+      "translation": "This isn't ⟦fair⟧."
+    },
+    {
+      "n": 762,
+      "rank": 966,
+      "word": "पवित्र",
+      "pos": "adj",
+      "meaning": "[pavitra] holy; sacred",
+      "sentence": "गंगा एक पवित्र नदी है।",
+      "translation": "The Ganges is a ⟦holy⟧ river."
+    },
+    {
+      "n": 763,
+      "rank": 968,
+      "word": "प्रकृति",
+      "pos": "noun",
+      "meaning": "[prakriti] nature",
+      "sentence": "मुझे प्रकृति के बीच रहना अच्छा लगता है।",
+      "translation": "I love being out in ⟦nature⟧."
+    },
+    {
+      "n": 764,
+      "rank": 969,
+      "word": "बजाय",
+      "pos": "postp",
+      "meaning": "[bajāy] instead of (के बजाय)",
+      "sentence": "चाय के बजाय कॉफ़ी लीजिए।",
+      "translation": "Have coffee ⟦instead of⟧ tea."
+    },
+    {
+      "n": 765,
+      "rank": 970,
+      "word": "मिट्टी",
+      "pos": "noun",
+      "meaning": "[miṭṭī] soil; earth; clay",
+      "sentence": "यह बर्तन मिट्टी का बना है।",
+      "translation": "This pot is made of ⟦clay⟧."
+    },
+    {
+      "n": 766,
+      "rank": 974,
+      "word": "हद",
+      "pos": "noun",
+      "meaning": "[had] limit (हद हो गई!: that's the limit!)",
+      "sentence": "हद हो गई!",
+      "translation": "That's the ⟦limit⟧!"
+    },
+    {
+      "n": 767,
+      "rank": 975,
+      "word": "बिल",
+      "pos": "noun",
+      "meaning": "[bil] bill",
+      "sentence": "बिल कितना हुआ?",
+      "translation": "How much is the ⟦bill⟧?"
+    },
+    {
+      "n": 768,
+      "rank": 976,
+      "word": "आरोपी",
+      "pos": "noun",
+      "meaning": "[āropī] the accused",
+      "sentence": "आरोपी को कोर्ट में पेश किया गया।",
+      "translation": "The ⟦accused⟧ was brought before the court."
+    },
+    {
+      "n": 769,
+      "rank": 977,
+      "word": "अंग",
+      "pos": "noun",
+      "meaning": "[aṅg] organ; limb; part",
+      "sentence": "दिल शरीर का एक ज़रूरी अंग है।",
+      "translation": "The heart is an important ⟦organ⟧ of the body."
+    },
+    {
+      "n": 770,
+      "rank": 978,
+      "word": "पाप",
+      "pos": "noun",
+      "meaning": "[pāp] sin",
+      "sentence": "झूठ बोलना पाप है।",
+      "translation": "Lying is a ⟦sin⟧."
+    },
+    {
+      "n": 771,
+      "rank": 979,
+      "word": "महत्व",
+      "pos": "noun",
+      "meaning": "[mahatva] importance",
+      "sentence": "शिक्षा का बहुत महत्व है।",
+      "translation": "Education is of great ⟦importance⟧."
+    },
+    {
+      "n": 772,
+      "rank": 982,
+      "word": "परंपरा",
+      "pos": "noun",
+      "meaning": "[paramparā] tradition",
+      "sentence": "यह हमारे परिवार की परंपरा है।",
+      "translation": "This is our family's ⟦tradition⟧."
+    },
+    {
+      "n": 773,
+      "rank": 983,
+      "word": "गुण",
+      "pos": "noun",
+      "meaning": "[guṇ] quality; virtue",
+      "sentence": "ईमानदारी उसका सबसे बड़ा गुण है।",
+      "translation": "Honesty is his greatest ⟦quality⟧."
+    },
+    {
+      "n": 774,
+      "rank": 984,
+      "word": "डॉलर",
+      "pos": "noun",
+      "meaning": "[ḍôlar] dollar",
+      "sentence": "एक डॉलर कितने रुपये का है?",
+      "translation": "How many rupees is one ⟦dollar⟧?"
+    },
+    {
+      "n": 775,
+      "rank": 989,
+      "word": "पश्चिम",
+      "pos": "noun",
+      "meaning": "[pashchim] west",
+      "sentence": "सूरज पश्चिम में डूबता है।",
+      "translation": "The sun sets in the ⟦west⟧."
+    },
+    {
+      "n": 776,
+      "rank": 990,
+      "word": "पेश",
+      "pos": "adj",
+      "meaning": "[pesh] presented (पेश करना: to present)",
+      "sentence": "उसने अपनी रिपोर्ट पेश की।",
+      "translation": "She ⟦presented⟧ her report."
+    },
+    {
+      "n": 777,
+      "rank": 991,
+      "word": "भैया",
+      "pos": "noun",
+      "meaning": "[bhaiyā] brother; (to any man) mate, bhaiya",
+      "sentence": "भैया, स्टेशन चलोगे?",
+      "translation": "Will you take me to the station, ⟦mate⟧?"
+    },
+    {
+      "n": 778,
+      "rank": 992,
+      "word": "मॉडल",
+      "pos": "noun",
+      "meaning": "[môḍal] model",
+      "sentence": "यह फ़ोन का नया मॉडल है।",
+      "translation": "This is the phone's new ⟦model⟧."
+    },
+    {
+      "n": 779,
+      "rank": 993,
+      "word": "गर्म",
+      "pos": "adj",
+      "meaning": "[garm] hot; warm",
+      "sentence": "चाय बहुत गर्म है।",
+      "translation": "The tea is very ⟦hot⟧."
+    },
+    {
+      "n": 780,
+      "rank": 994,
+      "word": "फ़सल",
+      "pos": "noun",
+      "meaning": "[fasal] crop; harvest",
+      "sentence": "इस साल फ़सल अच्छी हुई।",
+      "translation": "The ⟦harvest⟧ was good this year."
+    },
+    {
+      "n": 781,
+      "rank": 996,
+      "word": "ख़र्च",
+      "pos": "noun",
+      "meaning": "[kharch] expense; spending (ख़र्च करना: to spend)",
+      "sentence": "मैंने बहुत पैसे ख़र्च किए।",
+      "translation": "I ⟦spent⟧ a lot of money."
+    },
+    {
+      "n": 782,
+      "rank": 997,
+      "word": "औरत",
+      "pos": "noun",
+      "meaning": "[aurat] woman",
+      "sentence": "वह औरत डॉक्टर है।",
+      "translation": "That ⟦woman⟧ is a doctor."
+    },
+    {
+      "n": 783,
+      "rank": 998,
+      "word": "विवाद",
+      "pos": "noun",
+      "meaning": "[vivād] dispute; controversy",
+      "sentence": "ज़मीन को लेकर विवाद है।",
+      "translation": "There's a ⟦dispute⟧ over the land."
+    },
+    {
+      "n": 784,
+      "rank": 999,
+      "word": "मुफ़्त",
+      "pos": "adj",
+      "meaning": "[muft] free (of charge)",
+      "sentence": "बच्चों के लिए टिकट मुफ़्त है।",
+      "translation": "Tickets are ⟦free⟧ for children."
+    },
+    {
+      "n": 785,
+      "rank": 1000,
+      "word": "पुरस्कार",
+      "pos": "noun",
+      "meaning": "[puraskār] prize; award",
+      "sentence": "उसे पहला पुरस्कार मिला।",
+      "translation": "She won first ⟦prize⟧."
+    },
+    {
+      "n": 786,
+      "rank": 1001,
+      "word": "वादा",
+      "pos": "noun",
+      "meaning": "[vādā] promise (वादा करना: to promise)",
+      "sentence": "मैं वादा करती हूँ।",
+      "translation": "I ⟦promise⟧."
+    },
+    {
+      "n": 787,
+      "rank": 1002,
+      "word": "अतिरिक्त",
+      "pos": "adj",
+      "meaning": "[atirikt] extra; additional",
+      "sentence": "अतिरिक्त सामान के लिए पैसे लगेंगे।",
+      "translation": "There's a charge for ⟦extra⟧ luggage."
+    },
+    {
+      "n": 788,
+      "rank": 1004,
+      "word": "उधर",
+      "pos": "adv",
+      "meaning": "[udhar] there; over there; that way",
+      "sentence": "उधर देखो!",
+      "translation": "Look over ⟦there⟧!"
+    },
+    {
+      "n": 789,
+      "rank": 1005,
+      "word": "गली",
+      "pos": "noun",
+      "meaning": "[galī] lane; alley; street",
+      "sentence": "मेरा घर अगली गली में है।",
+      "translation": "My house is in the next ⟦lane⟧."
+    },
+    {
+      "n": 790,
+      "rank": 1006,
+      "word": "अंक",
+      "pos": "noun",
+      "meaning": "[aṅk] mark (score); number; issue",
+      "sentence": "उसे गणित में पूरे अंक मिले।",
+      "translation": "He got full ⟦marks⟧ in maths."
+    },
+    {
+      "n": 791,
+      "rank": 1007,
+      "word": "बसना",
+      "pos": "verb",
+      "meaning": "[basnā] to settle; to live (in a place)",
+      "sentence": "उनका परिवार कनाडा में बस गया।",
+      "translation": "Their family ⟦settled⟧ in Canada.",
+      "form": "बस"
+    },
+    {
+      "n": 792,
+      "rank": 1009,
+      "word": "डूबना",
+      "pos": "verb",
+      "meaning": "[ḍūbnā] to sink; to drown; (of the sun) to set",
+      "sentence": "नाव डूब गई।",
+      "translation": "The boat ⟦sank⟧.",
+      "form": "डूब"
+    },
+    {
+      "n": 793,
+      "rank": 1010,
+      "word": "अनुवाद",
+      "pos": "noun",
+      "meaning": "[anuvād] translation (अनुवाद करना: to translate)",
+      "sentence": "इसका अंग्रेज़ी में अनुवाद कीजिए।",
+      "translation": "⟦Translate⟧ this into English."
+    },
+    {
+      "n": 794,
+      "rank": 1011,
+      "word": "आठ",
+      "pos": "num",
+      "meaning": "[āṭh] eight",
+      "sentence": "दुकान आठ बजे बंद होती है।",
+      "translation": "The shop closes at ⟦eight⟧."
+    },
+    {
+      "n": 795,
+      "rank": 1012,
+      "word": "आधारित",
+      "pos": "adj",
+      "meaning": "[ādhārit] based (on)",
+      "sentence": "यह फ़िल्म सच्ची कहानी पर आधारित है।",
+      "translation": "This film is ⟦based⟧ on a true story."
+    },
+    {
+      "n": 796,
+      "rank": 1014,
+      "word": "चक्कर",
+      "pos": "noun",
+      "meaning": "[chakkar] round; circle; dizziness (चक्कर आना: to feel dizzy)",
+      "sentence": "मुझे चक्कर आ रहे हैं।",
+      "translation": "I'm feeling ⟦dizzy⟧."
+    },
+    {
+      "n": 797,
+      "rank": 1016,
+      "word": "पालन",
+      "pos": "noun",
+      "meaning": "[pālan] keeping (rules); bringing up (पालन-पोषण: upbringing)",
+      "sentence": "बच्चों का पालन-पोषण आसान नहीं है।",
+      "translation": "⟦Bringing up⟧ children isn't easy.",
+      "form": "पालन-पोषण"
+    },
+    {
+      "n": 798,
+      "rank": 1017,
+      "word": "बजट",
+      "pos": "noun",
+      "meaning": "[bajaṭ] budget",
+      "sentence": "हमारा बजट थोड़ा कम है।",
+      "translation": "Our ⟦budget⟧ is a bit tight."
+    },
+    {
+      "n": 799,
+      "rank": 1018,
+      "word": "सिस्टम",
+      "pos": "noun",
+      "meaning": "[sisṭam] system",
+      "sentence": "यह सिस्टम बहुत पुराना है।",
+      "translation": "This ⟦system⟧ is very old."
+    },
+    {
+      "n": 800,
+      "rank": 1019,
+      "word": "प्यारा",
+      "pos": "adj",
+      "meaning": "[pyārā] sweet; lovely; dear",
+      "sentence": "कितना प्यारा बच्चा है!",
+      "translation": "What a ⟦lovely⟧ baby!"
     }
   ]
 }
