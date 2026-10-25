@@ -1482,6 +1482,270 @@
         {"type":"say","q":"Say “After that we went to the restaurant.”","answer":"بَعْدَ ذَلِكَ ذَهَبْنَا إِلَى الْمَطْعَمِ.","r":"baʿda dhālika dhahabnā ilā l-maṭʿami."},
         {"type":"free","q":"Your turn: tell the story of your morning in four sentences: first, then, after that, in the end.","answers":[{"t":"أَوَّلًا اسْتَيْقَظْتُ فِي السَّابِعَةِ.","r":"awwalani stayqaẓtu fī s-sābiʿati.","tr":"First I woke up at seven."},{"t":"ثُمَّ شَرِبْتُ الشَّايَ وَأَكَلْتُ.","r":"thumma sharibtu sh-shāya wa-akaltu.","tr":"Then I had tea and ate."},{"t":"بَعْدَ ذَلِكَ ذَهَبْتُ إِلَى الْعَمَلِ، وَفِي النِّهَايَةِ وَصَلْتُ مُتَأَخِّرًا!","r":"baʿda dhālika dhahabtu ilā l-ʿamali, wa-fī n-nihāyati waṣaltu mutaʾakhkhiran!","tr":"After that I went to work, and in the end I arrived late!"}]}
       ]
+    },
+    {
+      "id": "plurals",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about more than one",
+      "summary": "“The teachers”, “three cars”, “many friends”: the two regular plurals, and the ones you learn with each word.",
+      "topic": "Plurals: -ūna / -īna, -āt, and “broken” plurals",
+      "blocks": [
+        {"goal":{"t":"عِنْدِي أَصْدِقَاءُ كَثِيرُونَ فِي هَذِهِ الْمَدِينَةِ.","r":"ʿindī aṣdiqāʾu kathīrūna fī hādhihi l-madīnati.","tr":"I have a lot of friends in this city."}},
+        {"dialog":[{"who":"Visitor","t":"هَلِ الْمُعَلِّمُونَ هُنَا؟","r":"hali l-muʿallimūna hunā?","tr":"Are the teachers here?"},{"who":"Secretary","t":"لَا، هُمْ فِي الِاجْتِمَاعِ مَعَ الطُّلَّابِ.","r":"lā, hum fī l-ijtimāʿi maʿa ṭ-ṭullābi.","tr":"No, they're in the meeting with the students."},{"who":"Visitor","t":"وَالْمُعَلِّمَاتُ؟","r":"wa-l-muʿallimātu?","tr":"And the (women) teachers?"},{"who":"Secretary","t":"فِي الصُّفُوفِ.","r":"fī ṣ-ṣufūfi.","tr":"In the classrooms."}]},
+        {"term":"plural","means":"the form of a word for more than one: book → books. The form for one is the **singular**."},
+        {"p":"**1. -ūna (regular masculine)**, mostly for men and male jobs: {{مُعَلِّمٌ|muʿallimun}} → {{مُعَلِّمُونَ|muʿallimūna}} “teachers”. After a preposition, or as an object, it becomes -īna: {{مَعَ الْمُعَلِّمِينَ|maʿa l-muʿallimīna}}."},
+        {"p":"**2. -āt (regular feminine)**, for women and for many feminine nouns and longer words: {{مُعَلِّمَةٌ}} → {{مُعَلِّمَاتٌ|muʿallimātun}}, {{سَيَّارَةٌ}} → {{سَيَّارَاتٌ|sayyārātun}}, {{اجْتِمَاعٌ}} → {{اجْتِمَاعَاتٌ|ijtimāʿātun}}. As an object, -āt takes -i, not -a: {{رَأَيْتُ السَّيَّارَاتِ|raʾaytu s-sayyārāti}}."},
+        {"p":"**3. Broken plurals**: most plurals change the inside of the word, like English man → men: {{كِتَابٌ}} → {{كُتُبٌ|kutubun}}, {{بَيْتٌ}} → {{بُيُوتٌ|buyūtun}}, {{وَلَدٌ}} → {{أَوْلَادٌ|awlādun}}. There are patterns, but the easiest way is to learn each noun with its plural."},
+        { "table": [
+          ["one","more than one","meaning"],
+          ["{{كِتَابٌ}}","{{كُتُبٌ|kutubun}}","book(s)"],
+          ["{{بَيْتٌ}}","{{بُيُوتٌ|buyūtun}}","house(s)"],
+          ["{{وَلَدٌ}}","{{أَوْلَادٌ|awlādun}}","boy(s), child(ren)"],
+          ["{{طَالِبٌ}}","{{طُلَّابٌ|ṭullābun}}","student(s)"],
+          ["{{رَجُلٌ}}","{{رِجَالٌ|rijālun}}","man, men"],
+          ["{{امْرَأَةٌ}}","{{نِسَاءٌ|nisāʾun}}","woman, women"],
+          ["{{صَدِيقٌ}}","{{أَصْدِقَاءُ|aṣdiqāʾu}}","friend(s)"],
+          ["{{مَدِينَةٌ}}","{{مُدُنٌ|mudunun}}","city, cities"],
+          ["{{يَوْمٌ}}","{{أَيَّامٌ|ayyāmun}}","day(s)"]
+        ] },
+        { "ex": [
+          {"t":"نَحْنُ طُلَّابٌ.","r":"naḥnu ṭullābun.","tr":"We're students."},
+          {"t":"رَأَيْتُ الْمُعَلِّمِينَ فِي الْمَدْرَسَةِ.","r":"raʾaytu l-muʿallimīna fī l-madrasati.","tr":"I saw the teachers at school."},
+          {"t":"الطُّلَّابُ فِي الْمَكْتَبَةِ.","r":"aṭ-ṭullābu fī l-maktabati.","tr":"The students are in the library."},
+          {"t":"الْمُهَنْدِسُونَ مَشْغُولُونَ.","r":"al-muhandisūna mashghūlūna.","tr":"The engineers are busy."},
+          {"t":"عِنْدَهُ ثَلَاثَةُ أَوْلَادٍ.","r":"ʿindahu thalāthatu awlādin.","tr":"He has three children."}
+        ] },
+        {"tip":"Dictionaries write the plural after the noun: {{كِتَابٌ ج كُتُبٌ}} ({{ج}} is short for {{جَمْعٌ}} “plural”). Learn them as a pair."}
+      ],
+      "mistakes": [
+        {"wrong":"بَيْتَاتٌ","right":"بُيُوتٌ","tr":"houses","why":"{{بَيْتٌ}} has a broken plural: buyūtun."},
+        {"wrong":"مَعَ الْمُعَلِّمُونَ","right":"مَعَ الْمُعَلِّمِينَ","tr":"with the teachers","why":"After a preposition, -ūna becomes -īna."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"رَأَيْتُ ___ فِي الْمَدْرَسَةِ.","tr":"I saw the teachers at school.","options":["الْمُعَلِّمِينَ","الْمُعَلِّمُونَ"],"answer":0,"why":"As an object, -ūna becomes -īna."},
+        {"type":"choice","q":"The plural of {{كِتَابٌ}} is…","options":["{{كِتَابَاتٌ}}","{{كُتُبٌ}}","{{كِتَابُونَ}}"],"answer":1,"why":"A broken plural: kutubun."},
+        {"type":"choice","q":"Which is a plural?","options":["{{طَالِبٌ}}","{{طُلَّابٌ}}","{{طَالِبَةٌ}}"],"answer":1,"why":"{{طُلَّابٌ}}, ṭullābun, “students”."},
+        {"type":"order","q":"Put the words in order.","tr":"I have a lot of friends.","words":["عِنْدِي","أَصْدِقَاءُ","كَثِيرُونَ."],"from":"have"},
+        {"type":"say","q":"Say “The engineers are busy.”","answer":"الْمُهَنْدِسُونَ مَشْغُولُونَ.","r":"al-muhandisūna mashghūlūna.","from":"people"},
+        {"type":"free","q":"Your turn: talk about people in your life in the plural: your friends, colleagues or neighbours.","answers":[{"t":"أَصْدِقَائِي طُلَّابٌ فِي الْجَامِعَةِ.","r":"aṣdiqāʾī ṭullābun fī l-jāmiʿati.","tr":"My friends are students at the university."},{"t":"الْجِيرَانُ لُطَفَاءُ جِدًّا.","r":"al-jīrānu luṭafāʾu jiddan.","tr":"The neighbours are very kind."}]}
+      ]
+    },
+    {
+      "id": "plural-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about many things: they act like “she”",
+      "summary": "“The prices are high”, “Where are the keys? They're on the table”: plurals of things are treated as one feminine word.",
+      "topic": "Non-human plurals take feminine singular words",
+      "blocks": [
+        {"goal":{"t":"الْأَسْعَارُ هُنَا مُرْتَفِعَةٌ جِدًّا!","r":"al-asʿāru hunā murtafiʿatun jiddan!","tr":"The prices here are very high!"}},
+        {"dialog":[{"who":"Wife","t":"أَيْنَ الْمَفَاتِيحُ؟","r":"ayna l-mafātīḥu?","tr":"Where are the keys?"},{"who":"Husband","t":"هِيَ عَلَى الطَّاوِلَةِ.","r":"hiya ʿalā ṭ-ṭāwilati.","tr":"They're on the table."},{"who":"Wife","t":"وَالْكُتُبُ الْجَدِيدَةُ؟","r":"wa-l-kutubu l-jadīdatu?","tr":"And the new books?"},{"who":"Husband","t":"وَضَعْتُهَا فِي غُرْفَتِكِ.","r":"waḍaʿtuhā fī ghurfatiki.","tr":"I put them in your room."}]},
+        {"p":"For people, plurals go with plural words: {{الطُّلَّابُ مَشْغُولُونَ.}} “The students are busy.” But the plural of a **thing or an animal** goes with **feminine singular** words: {{هَذِهِ}}, {{هِيَ}}, an adjective with {{ة}}, a verb with {{تَـ}}, the ending {{ـهَا}}: {{الْكُتُبُ جَدِيدَةٌ.|al-kutubu jadīdatun.}} “The books are new.” (word for word: the books, she is new)."},
+        { "table": [
+          ["","people","things"],
+          ["these","{{هَؤُلَاءِ الطُّلَّابُ}}","{{هَذِهِ الْكُتُبُ}}"],
+          ["they are new","{{هُمْ جُدُدٌ}}","{{هِيَ جَدِيدَةٌ}}"],
+          ["they arrived","{{وَصَلُوا}}","{{وَصَلَتْ}}"],
+          ["I saw them","{{رَأَيْتُهُمْ}}","{{رَأَيْتُهَا}}"]
+        ] },
+        { "ex": [
+          {"t":"هَذِهِ الْكُتُبُ جَدِيدَةٌ.","r":"hādhihi l-kutubu jadīdatun.","tr":"These books are new."},
+          {"t":"السَّيَّارَاتُ تَقِفُ هُنَا.","r":"as-sayyārātu taqifu hunā.","tr":"Cars stop here."},
+          {"t":"فِي الْمَدِينَةِ بُيُوتٌ قَدِيمَةٌ.","r":"fī l-madīnati buyūtun qadīmatun.","tr":"There are old houses in the city."},
+          {"t":"الْقِطَطُ تُحِبُّ السَّمَكَ.","r":"al-qiṭaṭu tuḥibbu s-samaka.","tr":"Cats love fish."},
+          {"t":"وَصَلَتِ الرَّسَائِلُ.","r":"waṣalati r-rasāʾilu.","tr":"The letters have arrived."}
+        ] },
+        {"tip":"When in doubt, ask: are they people? If not, think “she”."}
+      ],
+      "mistakes": [
+        {"wrong":"الْكُتُبُ جَدِيدٌ.","right":"الْكُتُبُ جَدِيدَةٌ.","tr":"The books are new.","why":"Plural things take a feminine singular adjective."},
+        {"wrong":"هَؤُلَاءِ الْكُتُبُ","right":"هَذِهِ الْكُتُبُ","tr":"these books","why":"{{هَؤُلَاءِ}} is for people; for things, {{هَذِهِ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْأَسْعَارُ ___.","tr":"The prices are high.","options":["مُرْتَفِعَةٌ","مُرْتَفِعُونَ","مُرْتَفِعٌ"],"answer":0,"why":"Things: feminine singular."},
+        {"type":"choice","q":"“These cars” is…","options":["{{هَؤُلَاءِ السَّيَّارَاتُ}}","{{هَذِهِ السَّيَّارَاتُ}}"],"answer":1,"why":"Things: {{هَذِهِ}}.","from":"shopping"},
+        {"type":"choice","q":"“The students are busy” is…","options":["{{الطُّلَّابُ مَشْغُولُونَ.}}","{{الطُّلَّابُ مَشْغُولَةٌ.}}"],"answer":0,"why":"Students are people: plural."},
+        {"type":"dialogue","q":"Looking for your things. Choose your replies.","lines":[{"who":"Friend","t":"أَيْنَ صُوَرُكَ مِنَ الرِّحْلَةِ؟","r":"ayna ṣuwaruka mina r-riḥlati?","tr":"Where are your photos from the trip?"},{"options":["هِيَ فِي هَاتِفِي.","هُمْ فِي هَاتِفِي."],"answer":0,"why":"Photos are things: “they” is {{هِيَ}}."},{"who":"Friend","t":"هَلْ هِيَ جَمِيلَةٌ؟","r":"hal hiya jamīlatun?","tr":"Are they nice?"},{"options":["نَعَمْ، سَأُرْسِلُهَا لَكَ.","نَعَمْ، سَأُرْسِلُهُمْ لَكَ."],"answer":0,"why":"“Them”, for things: {{ـهَا}}."}],"from":"plans"},
+        {"type":"say","q":"Ask: “Where are the keys?”","answer":"أَيْنَ الْمَفَاتِيحُ؟","r":"ayna l-mafātīḥu?"},
+        {"type":"free","q":"Your turn: describe things in your home or town in the plural.","answers":[{"t":"الشَّوَارِعُ هُنَا ضَيِّقَةٌ.","r":"ash-shawāriʿu hunā ḍayyiqatun.","tr":"The streets here are narrow."},{"t":"كُتُبِي عَلَى الرَّفِّ.","r":"kutubī ʿalā r-raffi.","tr":"My books are on the shelf."}]}
+      ]
+    },
+    {
+      "id": "two",
+      "unit": 6,
+      "level": "A2",
+      "title": "Two of something",
+      "summary": "“Two coffees, please”, “I have two sisters”, “two days later”: Arabic has an ending just for two.",
+      "topic": "The dual: -āni / -ayni",
+      "blocks": [
+        {"goal":{"t":"قَهْوَتَانِ وَشَايٌ، مِنْ فَضْلِكَ.","r":"qahwatāni wa-shāyun, min faḍlika.","tr":"Two coffees and a tea, please."}},
+        {"dialog":[{"who":"Receptionist","t":"كَمْ لَيْلَةً تُرِيدُونَ؟","r":"kam laylatan turīdūna?","tr":"How many nights would you like?"},{"who":"Guest","t":"لَيْلَتَيْنِ، مِنْ فَضْلِكِ.","r":"laylatayni, min faḍliki.","tr":"Two nights, please."},{"who":"Receptionist","t":"غُرْفَةٌ وَاحِدَةٌ أَمْ غُرْفَتَانِ؟","r":"ghurfatun wāḥidatun am ghurfatāni?","tr":"One room or two rooms?"},{"who":"Guest","t":"غُرْفَتَانِ: نَحْنُ أَرْبَعَةٌ.","r":"ghurfatāni: naḥnu arbaʿatun.","tr":"Two rooms: there are four of us."}]},
+        {"term":"dual","means":"the form of a word for exactly two. Arabic has one besides the singular (one) and the plural (three or more)."},
+        {"p":"Add -āni to a noun to say “two”: {{كِتَابٌ}} → {{كِتَابَانِ|kitābāni}} “two books”. A word in {{ة}} opens it up: {{غُرْفَةٌ}} → {{غُرْفَتَانِ|ghurfatāni}}. After a preposition or as an object, -āni becomes -ayni: {{بَعْدَ يَوْمَيْنِ|baʿda yawmayni}} “two days later”, {{أُرِيدُ لَيْلَتَيْنِ}} “I want two nights”."},
+        {"p":"You don't need the word for “two”: the ending says it. {{عِنْدِي أُخْتَانِ.|ʿindī ukhtāni.}} “I have two sisters.” With an ending like “his”, the n drops: {{وَالِدَاهُ|wālidāhu}} “his parents” (his two parents)."},
+        {"p":"There are pronouns and verb forms for two people too ({{هُمَا|humā}} “they two”, {{يَكْتُبَانِ|yaktubāni}}). You'll mostly need to recognise them."},
+        { "ex": [
+          {"t":"عِنْدِي أُخْتَانِ وَأَخٌ.","r":"ʿindī ukhtāni wa-akhun.","tr":"I have two sisters and a brother."},
+          {"t":"رَجَعْتُ بَعْدَ يَوْمَيْنِ.","r":"rajaʿtu baʿda yawmayni.","tr":"I came back two days later."},
+          {"t":"اشْتَرَيْتُ تَذْكِرَتَيْنِ.","r":"ishtaraytu tadhkiratayni.","tr":"I bought two tickets."},
+          {"t":"وَالِدَاهُ طَبِيبَانِ.","r":"wālidāhu ṭabībāni.","tr":"His parents are both doctors."},
+          {"t":"انْتَظَرْنَا سَاعَتَيْنِ.","r":"intaẓarnā sāʿatayni.","tr":"We waited for two hours."}
+        ] },
+        {"tip":"The dual is alive in everyday speech: listen for -ān and -ayn at the end of a noun."}
+      ],
+      "mistakes": [
+        {"wrong":"اثْنَانِ كِتَابٌ","right":"كِتَابَانِ","tr":"two books","why":"Arabic says “two” with the ending -āni on the noun."},
+        {"wrong":"بَعْدَ يَوْمَانِ","right":"بَعْدَ يَوْمَيْنِ","tr":"two days later","why":"After a preposition, -āni becomes -ayni."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"انْتَظَرْنَا ___.","tr":"We waited for two hours.","options":["سَاعَتَيْنِ","سَاعَتَانِ","سَاعَاتٍ"],"answer":0,"why":"After a verb (as an object of time): -ayni."},
+        {"type":"choice","q":"“Two cars” is…","options":["{{سَيَّارَتَانِ}}","{{سَيَّارَاتٌ}}","{{اثْنَانِ سَيَّارَةٌ}}"],"answer":0,"why":"-āni on the noun, with {{ة}} opened to {{ت}}."},
+        {"type":"choice","q":"{{عِنْدِي أُخْتَانِ.}} means…","options":["I have two sisters.","I have sisters.","I have a sister."],"answer":0,"why":"-āni: exactly two."},
+        {"type":"order","q":"Put the words in order.","tr":"Two coffees, please.","words":["قَهْوَتَانِ،","مِنْ","فَضْلِكَ."],"from":"two-nouns"},
+        {"type":"say","q":"Say “I bought two tickets.”","answer":"اشْتَرَيْتُ تَذْكِرَتَيْنِ.","r":"ishtaraytu tadhkiratayni.","from":"what-happened"},
+        {"type":"free","q":"Your turn: say two things you have two of, and order two of something in a café.","answers":[{"t":"عِنْدِي أَخَوَانِ.","r":"ʿindī akhawāni.","tr":"I have two brothers."},{"t":"كُوبَانِ مِنَ الْمَاءِ، مِنْ فَضْلِكَ.","r":"kūbāni mina l-māʾi, min faḍlika.","tr":"Two glasses of water, please."}]}
+      ]
+    },
+    {
+      "id": "count",
+      "unit": 6,
+      "level": "A2",
+      "title": "Count to ten",
+      "summary": "Count from one to ten, and say “three days”, “five minutes”, “four rooms”.",
+      "topic": "Numbers 1 to 10, Arabic digits, and the noun after 3–10",
+      "blocks": [
+        {"goal":{"t":"عِنْدِي ثَلَاثَةُ أَوْلَادٍ وَبِنْتٌ.","r":"ʿindī thalāthatu awlādin wa-bintun.","tr":"I have three sons and a daughter."}},
+        { "table": [
+          ["","Arabic","digit"],
+          ["1","{{وَاحِدٌ|wāḥidun}}","{{١}}"],
+          ["2","{{اثْنَانِ|ithnāni}}","{{٢}}"],
+          ["3","{{ثَلَاثَةٌ|thalāthatun}}","{{٣}}"],
+          ["4","{{أَرْبَعَةٌ|arbaʿatun}}","{{٤}}"],
+          ["5","{{خَمْسَةٌ|khamsatun}}","{{٥}}"],
+          ["6","{{سِتَّةٌ|sittatun}}","{{٦}}"],
+          ["7","{{سَبْعَةٌ|sabʿatun}}","{{٧}}"],
+          ["8","{{ثَمَانِيَةٌ|thamāniyatun}}","{{٨}}"],
+          ["9","{{تِسْعَةٌ|tisʿatun}}","{{٩}}"],
+          ["10","{{عَشَرَةٌ|ʿasharatun}}","{{١٠}}"]
+        ] },
+        {"p":"Arabic has its own digits, written left to right even inside right-to-left text: {{٢٠٢٦}} is 2026. Many countries use the same digits as English too."},
+        {"p":"**One and two** come after the noun, as adjectives, and are usually left out: {{كِتَابٌ}} is already “one book”, {{كِتَابَانِ}} “two books”."},
+        {"p":"**Three to ten** come before the noun, which is **plural** and ends in -i(n): {{ثَلَاثَةُ كُتُبٍ|thalāthatu kutubin}} “three books”. And a surprise: with a masculine noun the number has {{ة}}; with a feminine noun it hasn't: {{ثَلَاثُ سَيَّارَاتٍ|thalāthu sayyārātin}} “three cars”. It's the singular's gender that counts ({{يَوْمٌ}} is masculine, so {{ثَلَاثَةُ أَيَّامٍ}})."},
+        { "table": [
+          ["","with a masculine noun","with a feminine noun"],
+          ["3","{{ثَلَاثَةُ أَيَّامٍ|thalāthatu ayyāmin}} three days","{{ثَلَاثُ سَاعَاتٍ|thalāthu sāʿātin}} three hours"],
+          ["5","{{خَمْسَةُ كُتُبٍ|khamsatu kutubin}} five books","{{خَمْسُ دَقَائِقَ|khamsu daqāʾiqa}} five minutes"],
+          ["10","{{عَشَرَةُ رِجَالٍ|ʿasharatu rijālin}} ten men","{{عَشْرُ نِسَاءٍ|ʿashru nisāʾin}} ten women"]
+        ] },
+        { "ex": [
+          {"t":"انْتَظَرْتُ خَمْسَ دَقَائِقَ.","r":"intaẓartu khamsa daqāʾiqa.","tr":"I waited five minutes."},
+          {"t":"بَقِيتُ فِي لُبْنَانَ سَبْعَةَ أَيَّامٍ.","r":"baqītu fī lubnāna sabʿata ayyāmin.","tr":"I stayed in Lebanon for seven days."},
+          {"t":"الْبَيْتُ فِيهِ أَرْبَعُ غُرَفٍ.","r":"al-baytu fīhi arbaʿu ghurafin.","tr":"The house has four rooms."},
+          {"t":"فِي الصَّفِّ عَشْرُ طَالِبَاتٍ.","r":"fī ṣ-ṣaffi ʿashru ṭālibātin.","tr":"There are ten (female) students in the class."}
+        ] },
+        {"tip":"Numbers are hard even for native speakers, and everyday speech simplifies them. If you're unsure, say the number and the noun clearly: you'll be understood."}
+      ],
+      "mistakes": [
+        {"wrong":"ثَلَاثَةُ كِتَابٍ","right":"ثَلَاثَةُ كُتُبٍ","tr":"three books","why":"From three to ten, the noun is plural."},
+        {"wrong":"ثَلَاثَةُ سَاعَاتٍ","right":"ثَلَاثُ سَاعَاتٍ","tr":"three hours","why":"{{سَاعَةٌ}} is feminine, so the number has no {{ة}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"بَقِيتُ هُنَاكَ ___ أَيَّامٍ.","tr":"I stayed there three days.","options":["ثَلَاثَةَ","ثَلَاثَ","ثَلَاثَةٌ"],"answer":0,"why":"{{يَوْمٌ}} is masculine: the number takes {{ة}} (here with -a, as the time something lasted)."},
+        {"type":"choice","q":"“Five minutes” ({{دَقِيقَةٌ}} is feminine):","options":["{{خَمْسَةُ دَقَائِقَ}}","{{خَمْسُ دَقَائِقَ}}"],"answer":1,"why":"A feminine noun: no {{ة}} on the number."},
+        {"type":"choice","q":"Which digit is 7?","options":["{{٦}}","{{٧}}","{{٨}}"],"answer":1,"why":"{{٧}} is 7; {{٦}} is 6 and {{٨}} is 8."},
+        {"type":"order","q":"Put the words in order.","tr":"I have three children.","words":["عِنْدِي","ثَلَاثَةُ","أَوْلَادٍ."],"from":"plurals"},
+        {"type":"say","q":"Say “The house has four rooms.”","answer":"الْبَيْتُ فِيهِ أَرْبَعُ غُرَفٍ.","r":"al-baytu fīhi arbaʿu ghurafin.","from":"have"},
+        {"type":"free","q":"Your turn: how many people are in your family, and how many rooms are in your home?","answers":[{"t":"فِي عَائِلَتِي خَمْسَةُ أَشْخَاصٍ.","r":"fī ʿāʾilatī khamsatu ashkhāṣin.","tr":"There are five people in my family."},{"t":"بَيْتِي فِيهِ ثَلَاثُ غُرَفٍ.","r":"baytī fīhi thalāthu ghurafin.","tr":"My home has three rooms."}]}
+      ]
+    },
+    {
+      "id": "prices-and-ages",
+      "unit": 6,
+      "level": "A2",
+      "title": "Ask prices and say your age",
+      "summary": "“How much is it? Fifty dirhams”, “I'm twenty-five”, “How many days?”: numbers from 11 up.",
+      "topic": "Numbers from 11; the singular noun after 11–99 and after {{كَمْ}}",
+      "blocks": [
+        {"goal":{"t":"كَمْ عُمْرُكَ؟ عُمْرِي خَمْسَةٌ وَعِشْرُونَ عَامًا.","r":"kam ʿumruka? ʿumrī khamsatun wa-ʿishrūna ʿāman.","tr":"How old are you? I'm twenty-five."}},
+        {"dialog":[{"who":"You","t":"بِكَمْ هَذَا الْقَمِيصُ؟","r":"bikam hādhā l-qamīṣu?","tr":"How much is this shirt?"},{"who":"Seller","t":"بِثَمَانِينَ دِرْهَمًا.","r":"bi-thamānīna dirhaman.","tr":"Eighty dirhams."},{"who":"You","t":"هَذَا كَثِيرٌ! سِتُّونَ؟","r":"hādhā kathīrun! sittūna?","tr":"That's a lot! Sixty?"},{"who":"Seller","t":"سَبْعُونَ، وَهَذَا آخِرُ سِعْرٍ.","r":"sabʿūna, wa-hādhā ākhiru siʿrin.","tr":"Seventy, and that's my last price."}]},
+        {"p":"**11 to 99**: the noun is **singular** and ends in -an: {{عِشْرُونَ طَالِبًا|ʿishrūna ṭāliban}} “twenty students”, {{خَمْسَةَ عَشَرَ يَوْمًا|khamsata ʿashara yawman}} “fifteen days”. The same after {{كَمْ}} “how many”: {{كَمْ يَوْمًا؟}} “How many days?”"},
+        { "table": [
+          ["","Arabic"],
+          ["11, 12","{{أَحَدَ عَشَرَ|aḥada ʿashara}}, {{اثْنَا عَشَرَ|ithnā ʿashara}}"],
+          ["13 … 19","{{ثَلَاثَةَ عَشَرَ|thalāthata ʿashara}} … {{تِسْعَةَ عَشَرَ|tisʿata ʿashara}}"],
+          ["20, 30, 40","{{عِشْرُونَ|ʿishrūna}}, {{ثَلَاثُونَ|thalāthūna}}, {{أَرْبَعُونَ|arbaʿūna}}"],
+          ["50 … 90","{{خَمْسُونَ}}, {{سِتُّونَ}}, {{سَبْعُونَ}}, {{ثَمَانُونَ}}, {{تِسْعُونَ}}"],
+          ["21","{{وَاحِدٌ وَعِشْرُونَ|wāḥidun wa-ʿishrūna}} (one and twenty)"],
+          ["100, 1000","{{مِئَةٌ|miʾatun}}, {{أَلْفٌ|alfun}}"]
+        ] },
+        {"p":"Tens end in -ūna (-īna after a preposition: {{بِثَمَانِينَ}}). Twenty-one is “one and twenty”: units first, joined with {{وَ}}. **100 and 1000** are nouns, followed by a singular noun in -i: {{مِئَةُ دِرْهَمٍ|miʾatu dirhamin}} “a hundred dirhams”, {{أَلْفُ شُكْرٍ|alfu shukrin}} “a thousand thanks”."},
+        {"p":"**Age**: {{عُمْرِي ثَلَاثُونَ سَنَةً.|ʿumrī thalāthūna sanatan.}} “I'm thirty”, word for word “my age is thirty years”."},
+        { "ex": [
+          {"t":"فِي الصَّفِّ عِشْرُونَ طَالِبًا.","r":"fī ṣ-ṣaffi ʿishrūna ṭāliban.","tr":"There are twenty students in the class."},
+          {"t":"السِّعْرُ مِئَةُ دِرْهَمٍ.","r":"as-siʿru miʾatu dirhamin.","tr":"The price is a hundred dirhams."},
+          {"t":"بَقِيتُ هُنَاكَ أَحَدَ عَشَرَ يَوْمًا.","r":"baqītu hunāka aḥada ʿashara yawman.","tr":"I stayed there eleven days."},
+          {"t":"كَمْ كِتَابًا قَرَأْتَ؟","r":"kam kitāban qaraʾta?","tr":"How many books have you read?"},
+          {"t":"أَلْفُ شُكْرٍ!","r":"alfu shukrin!","tr":"Thanks a lot!"}
+        ] },
+        {"tip":"In a market, bargaining is normal: answer a price with a lower one, and meet in the middle."}
+      ],
+      "mistakes": [
+        {"wrong":"عِشْرُونَ طُلَّابٌ","right":"عِشْرُونَ طَالِبًا","tr":"twenty students","why":"From 11 to 99, the noun is singular and ends in -an."},
+        {"wrong":"كَمْ كُتُبٌ؟","right":"كَمْ كِتَابًا؟","tr":"How many books?","why":"After {{كَمْ}}: singular, -an."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"عُمْرِي ثَلَاثُونَ ___.","tr":"I'm thirty years old.","options":["سَنَةً","سَنَوَاتٍ","سَنَةٌ"],"answer":0,"why":"After 11–99: singular, -an."},
+        {"type":"choice","q":"“How many days?” is…","options":["{{كَمْ يَوْمًا؟}}","{{كَمْ أَيَّامٌ؟}}"],"answer":0,"why":"After {{كَمْ}}: singular, -an."},
+        {"type":"dialogue","q":"Bargaining at the market. Choose your replies.","lines":[{"who":"Seller","t":"هَذِهِ الْحَقِيبَةُ بِمِئَةِ دِرْهَمٍ.","r":"hādhihi l-ḥaqībatu bi-miʾati dirhamin.","tr":"This bag is a hundred dirhams."},{"options":["هَذَا غَالٍ! خَمْسُونَ؟","هَذَا غَالٍ! خَمْسُونَ دَرَاهِمَ؟"],"answer":0,"why":"Just the number is fine; with a noun after 50 it would be singular: {{خَمْسُونَ دِرْهَمًا}}."},{"who":"Seller","t":"سَبْعُونَ.","r":"sabʿūna.","tr":"Seventy."},{"options":["سِتُّونَ، وَآخُذُهَا الْآنَ.","سِتُّونَ، وَآخُذُهُ الْآنَ."],"answer":0,"why":"The bag is feminine: “it” is {{ـهَا}}."}],"from":"shopping"},
+        {"type":"order","q":"Put the words in order.","tr":"There are twenty students in the class.","words":["فِي","الصَّفِّ","عِشْرُونَ","طَالِبًا."],"from":"there-is"},
+        {"type":"say","q":"Ask a woman how old she is.","answer":"كَمْ عُمْرُكِ؟","r":"kam ʿumruki?"},
+        {"type":"free","q":"Your turn: say your age, and ask the price of something you'd like to buy.","answers":[{"t":"عُمْرِي أَرْبَعُونَ سَنَةً.","r":"ʿumrī arbaʿūna sanatan.","tr":"I'm forty."},{"t":"بِكَمْ هَذِهِ السَّاعَةُ؟","r":"bikam hādhihi s-sāʿatu?","tr":"How much is this watch?"}]}
+      ]
+    },
+    {
+      "id": "time-and-days",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell the time and plan the week",
+      "summary": "“What time is it?”, “at half past four”, “on Thursday”, “the first time”, “the third floor”.",
+      "topic": "Ordinal numbers (first, second…), the time, the days of the week",
+      "blocks": [
+        {"goal":{"t":"نَلْتَقِي يَوْمَ الْخَمِيسِ فِي السَّاعَةِ الرَّابِعَةِ وَالنِّصْفِ.","r":"naltaqī yawma l-khamīsi fī s-sāʿati r-rābiʿati wa-n-niṣfi.","tr":"We'll meet on Thursday at half past four."}},
+        {"dialog":[{"who":"Jana","t":"كَمِ السَّاعَةُ الْآنَ؟","r":"kami s-sāʿatu l-āna?","tr":"What time is it now?"},{"who":"Salim","t":"السَّاعَةُ الثَّالِثَةُ وَالرُّبْعُ.","r":"as-sāʿatu th-thālithatu wa-r-rubʿu.","tr":"It's a quarter past three."},{"who":"Jana","t":"مَتَى يَبْدَأُ الْفِيلْمُ؟","r":"matā yabdaʾu l-fīlmu?","tr":"When does the film start?"},{"who":"Salim","t":"فِي الْخَامِسَةِ. عِنْدَنَا وَقْتٌ.","r":"fī l-khāmisati. ʿindanā waqtun.","tr":"At five. We have time."}]},
+        {"p":"**Ordinal numbers** (first, second…) are adjectives: they come after the noun and match it: {{الْيَوْمُ الْأَوَّلُ|al-yawmu l-awwalu}} “the first day”, {{الْمَرَّةُ الْأُولَى|al-marratu l-ūlā}} “the first time”, {{الطَّابِقُ الثَّالِثُ|aṭ-ṭābiqu th-thālithu}} “the third floor”."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["first","{{الْأَوَّلُ|al-awwalu}}","{{الْأُولَى|al-ūlā}}"],
+          ["second","{{الثَّانِي|ath-thānī}}","{{الثَّانِيَةُ|ath-thāniyatu}}"],
+          ["third","{{الثَّالِثُ|ath-thālithu}}","{{الثَّالِثَةُ|ath-thālithatu}}"],
+          ["fourth","{{الرَّابِعُ|ar-rābiʿu}}","{{الرَّابِعَةُ|ar-rābiʿatu}}"],
+          ["fifth","{{الْخَامِسُ|al-khāmisu}}","{{الْخَامِسَةُ|al-khāmisatu}}"],
+          ["tenth","{{الْعَاشِرُ|al-ʿāshiru}}","{{الْعَاشِرَةُ|al-ʿāshiratu}}"]
+        ] },
+        {"p":"**The time** uses the feminine ordinals, because {{السَّاعَةُ}} “the hour” is feminine: {{السَّاعَةُ الثَّالِثَةُ}} “three o'clock” (the third hour). Add {{وَالرُّبْعُ}} “and a quarter”, {{وَالنِّصْفُ}} “and a half”, or {{إِلَّا رُبْعًا}} “less a quarter”: {{الرَّابِعَةُ إِلَّا رُبْعًا}} “a quarter to four”. One o'clock is {{الْوَاحِدَةُ}}. “At” is {{فِي}}: {{فِي الْخَامِسَةِ}}."},
+        {"p":"**The days** are mostly “first day, second day…”: {{الْأَحَدُ}} Sunday, {{الِاثْنَيْنِ}} Monday, {{الثُّلَاثَاءُ}} Tuesday, {{الْأَرْبِعَاءُ}} Wednesday, {{الْخَمِيسُ}} Thursday, {{الْجُمُعَةُ}} Friday, {{السَّبْتُ}} Saturday. “On Monday” is {{يَوْمَ الِاثْنَيْنِ|yawma l-ithnayni}}."},
+        { "ex": [
+          {"t":"كَمِ السَّاعَةُ؟","r":"kami s-sāʿatu?","tr":"What time is it?"},
+          {"t":"السَّاعَةُ الرَّابِعَةُ وَالنِّصْفُ.","r":"as-sāʿatu r-rābiʿatu wa-n-niṣfu.","tr":"It's half past four."},
+          {"t":"يَبْدَأُ الدَّرْسُ فِي السَّاعَةِ الثَّامِنَةِ.","r":"yabdaʾu d-darsu fī s-sāʿati th-thāminati.","tr":"The lesson starts at eight."},
+          {"t":"أَسْكُنُ فِي الطَّابِقِ الثَّالِثِ.","r":"askunu fī ṭ-ṭābiqi th-thālithi.","tr":"I live on the third floor."},
+          {"t":"هَذِهِ زِيَارَتِي الْأُولَى.","r":"hādhihi ziyāratī l-ūlā.","tr":"This is my first visit."}
+        ] },
+        {"tip":"“First” also comes before a noun, as the first word of an iḍāfa: {{أَوَّلُ مَرَّةٍ|awwalu marratin}} “the first time”."}
+      ],
+      "mistakes": [
+        {"wrong":"السَّاعَةُ الثَّالِثُ","right":"السَّاعَةُ الثَّالِثَةُ","tr":"three o'clock","why":"{{السَّاعَةُ}} is feminine, so the ordinal takes {{ة}}."},
+        {"wrong":"الْأَوَّلُ يَوْمُ","right":"الْيَوْمُ الْأَوَّلُ","tr":"the first day","why":"An ordinal with {{الْـ}} comes after the noun, like any adjective."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"السَّاعَةُ ___ وَالنِّصْفُ.","tr":"It's half past four.","options":["الرَّابِعَةُ","الرَّابِعُ","أَرْبَعَةٌ"],"answer":0,"why":"The time: feminine ordinals."},
+        {"type":"choice","q":"“The first time” is…","options":["{{الْمَرَّةُ الْأُولَى}}","{{الْمَرَّةُ الْأَوَّلُ}}"],"answer":0,"why":"{{مَرَّةٌ}} is feminine: {{الْأُولَى}}."},
+        {"type":"choice","q":"{{يَوْمَ الْجُمُعَةِ}} means…","options":["on Friday","on Thursday","on Sunday"],"answer":0,"why":"{{الْجُمُعَةُ}} is Friday."},
+        {"type":"order","q":"Put the words in order.","tr":"I live on the third floor.","words":["أَسْكُنُ","فِي","الطَّابِقِ","الثَّالِثِ."],"from":"what-you-do"},
+        {"type":"say","q":"Ask: “What time is it?”","answer":"كَمِ السَّاعَةُ؟","r":"kami s-sāʿatu?"},
+        {"type":"free","q":"Your turn: arrange to meet someone: say the day and the time.","answers":[{"t":"نَلْتَقِي يَوْمَ السَّبْتِ فِي الْعَاشِرَةِ.","r":"naltaqī yawma s-sabti fī l-ʿāshirati.","tr":"Let's meet on Saturday at ten."},{"t":"هَلْ أَنْتَ حُرٌّ يَوْمَ الْأَرْبِعَاءِ فِي السَّاعَةِ السَّادِسَةِ؟","r":"hal anta ḥurrun yawma l-arbiʿāʾi fī s-sāʿati s-sādisati?","tr":"Are you free on Wednesday at six?"}]}
+      ]
     }
   ]
 }
