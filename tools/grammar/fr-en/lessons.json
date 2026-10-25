@@ -314,6 +314,168 @@
         {"type":"say","q":"Dites « merci », en soignant le {{th}}.","answer":"Thank you!"},
         {"type":"free","q":"À vous : regardez autour de vous et montrez trois choses, avec {{this}}, {{that}}, {{these}} ou {{those}}.","answers":[{"t":"This is my phone. That's my bag. These are my books.","tr":"Ça, c'est mon téléphone. Ça, là-bas, c'est mon sac. Ce sont mes livres."},{"t":"This is a pen. Those are my shoes, by the door.","tr":"Ceci est un stylo. Ce sont mes chaussures, là-bas, près de la porte."}]}
       ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Décrire les gens et les choses",
+      "summary": "Dire qu'une chose est grande, rouge, neuve ou jolie : en anglais, l'adjectif se place avant le nom et ne s'accorde jamais.",
+      "topic": "l'adjectif avant le nom ({{a red car}}) ; jamais d'accord ({{red cars}}) ; {{be}} + adjectif ; {{very}}, {{really}} ; l'ordre de plusieurs adjectifs",
+      "blocks": [
+        {"goal":{"t":"It's a big white house with a small yard.","tr":"C'est une grande maison blanche avec un petit jardin."}},
+        {"dialog":[{"who":"The agent","t":"What does your suitcase look like?","tr":"À quoi ressemble votre valise ?"},{"who":"You","t":"It's a big black suitcase.","tr":"C'est une grande valise noire."},{"who":"The agent","t":"There are a lot of big black suitcases…","tr":"Il y a beaucoup de grandes valises noires…"},{"who":"You","t":"It has a small red ribbon.","tr":"Elle a un petit ruban rouge."},{"who":"The agent","t":"Oh! Is this it?","tr":"Ah ! C'est celle-ci ?"},{"who":"You","t":"Yes! Thank you so much!","tr":"Oui ! Merci beaucoup !"}]},
+        {"term":"adjectif","means":"un mot qui décrit un nom : grand, rouge, français, gentil. En anglais : {{big}}, {{red}}, {{French}}, {{nice}}."},
+        {"p":"**Avant le nom, toujours.** En français, la plupart des adjectifs viennent après le nom : « une voiture rouge ». En anglais, ils viennent toujours avant : {{a red car}}, {{an interesting book}}, {{a French restaurant}}."},
+        {"p":"**Jamais d'accord.** L'adjectif anglais ne change ni au féminin ni au pluriel : {{a tall man}}, {{a tall woman}}, {{tall people}}. Un {{-s}} sur un adjectif est toujours une faute : {{red cars}}, jamais « reds cars »."},
+        { "table": [
+          ["français","anglais"],
+          ["un petit chien","{{a small dog}}"],
+          ["une petite maison","{{a small house}}"],
+          ["des petites maisons","{{small houses}}"],
+          ["la maison est petite","{{the house is small}}"]
+        ] },
+        {"p":"**Après be**, l'adjectif reste tel quel : {{The house is small.}} {{They're tired.}}"},
+        {"p":"**Très, vraiment, tellement.** {{very}}, {{really}} et {{so}} se placent devant l'adjectif : {{It's very good.}} {{She's really nice.}} {{It's so beautiful!}}"},
+        {"p":"**Plusieurs adjectifs** : en général, l'opinion d'abord, puis la taille, puis la couleur, puis l'origine, sans « et » entre eux : {{a beautiful big white house}}, {{a nice little Italian restaurant}}."},
+        { "ex": [
+          {"t":"I have a new job.","tr":"J'ai un nouveau travail."},
+          {"t":"It's a beautiful day!","tr":"Quelle belle journée !"},
+          {"t":"She has blue eyes.","tr":"Elle a les yeux bleus.","note":"sans article devant {{blue eyes}}"},
+          {"t":"The coffee is cold.","tr":"Le café est froid."},
+          {"t":"They're very nice people.","tr":"Ce sont des gens très gentils."},
+          {"t":"We have a little black cat.","tr":"Nous avons un petit chat noir."}
+        ] },
+        {"tip":"{{big}} et {{large}} : « grand » pour une taille ; {{tall}} : « grand » pour une personne ou un immeuble ; et {{great}} veut dire « génial », pas « grand » : {{It's great!}} « C'est super ! »"}
+      ],
+      "mistakes": [
+        {"wrong":"a car red","right":"a red car","tr":"une voiture rouge","why":"L'adjectif se place avant le nom."},
+        {"wrong":"reds cars","right":"red cars","tr":"des voitures rouges","why":"L'adjectif ne prend jamais de {{-s}}."},
+        {"wrong":"She is a person very nice.","right":"She's a very nice person.","tr":"C'est une personne très gentille.","why":"{{very}} + l'adjectif, puis le nom."}
+      ],
+      "practice": [
+        {"type":"choice","q":"« une maison blanche »","options":["{{a white house}}","{{a house white}}","{{a whites house}}"],"answer":0,"why":"L'adjectif avant le nom, sans accord."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"They have two ___ cars.","tr":"Ils ont deux voitures neuves.","options":["new","news","newes"],"answer":0,"why":"Pas de {{-s}} sur l'adjectif."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"C'est un petit restaurant italien.","words":["It's","a","small","Italian","restaurant."]},
+        {"type":"dialogue","q":"À l'aéroport, votre valise est perdue. Choisissez vos réponses.","from":"ask-with-be","lines":[{"who":"The agent","t":"What does your suitcase look like?","tr":"À quoi ressemble votre valise ?"},{"options":["It's a small blue suitcase.","It's a suitcase small blue."],"answer":0,"why":"Les adjectifs avant le nom."},{"who":"The agent","t":"Is this your suitcase?","tr":"C'est votre valise ?"},{"options":["No, it isn't. My suitcase is blue.","No, it isn't. My suitcase is blues."],"answer":0,"why":"Pas de {{-s}} sur l'adjectif."},{"who":"The agent","t":"OK, let me check.","tr":"D'accord, je vais vérifier."}]},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"The children ___ very tired.","tr":"Les enfants sont très fatigués.","options":["are","is","am"],"answer":0,"why":"{{children}} est un pluriel : {{are}}.","from":"point-and-name"},
+        {"type":"say","q":"Dites : « Quelle belle journée ! »","answer":"It's a beautiful day!"},
+        {"type":"free","q":"À vous : décrivez votre maison, votre voiture ou votre sac en deux ou trois phrases.","answers":[{"t":"I have a small apartment. It's old, but it's very nice.","tr":"J'ai un petit appartement. Il est vieux, mais il est très agréable."},{"t":"My car is a big gray car. It's old, but it's great.","tr":"Ma voiture est une grande voiture grise. Elle est vieille, mais elle est super."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Dire à qui c'est",
+      "summary": "Parler de votre famille et de vos affaires : {{my, your, his, her}}… choisis selon le propriétaire, et le {{'s}} de « la voiture de Paul ».",
+      "topic": "{{my, your, his, her, its, our, their}} ; {{his}} ou {{her}} selon le propriétaire ; le {{'s}} ({{Paul's car}})",
+      "blocks": [
+        {"goal":{"t":"This is my sister and her husband. And these are their kids.","tr":"Voici ma sœur et son mari. Et ce sont leurs enfants."}},
+        {"dialog":[{"who":"Amy","t":"Is this your family?","tr":"C'est ta famille ?"},{"who":"Lucas","t":"Yes! This is my mother, and this is my father.","tr":"Oui ! Voici ma mère, et voici mon père."},{"who":"Amy","t":"And who's that?","tr":"Et lui, c'est qui ?"},{"who":"Lucas","t":"That's my sister's son. His name is Hugo.","tr":"C'est le fils de ma sœur. Il s'appelle Hugo."},{"who":"Amy","t":"He's so cute! Is that his dog?","tr":"Il est trop mignon ! C'est son chien ?"},{"who":"Lucas","t":"No, it's my parents' dog.","tr":"Non, c'est le chien de mes parents."}]},
+        {"term":"possessif","means":"un mot qui dit à qui est quelque chose : « mon », « ton », « son »… En anglais : {{my}}, {{your}}, {{his}}…"},
+        {"p":"**Mon, ton, son…** En anglais, le possessif dépend seulement du propriétaire, jamais de la chose possédée. {{my}} sert pour « mon », « ma » et « mes » : {{my brother}}, {{my sister}}, {{my keys}}."},
+        { "table": [
+          ["français","anglais"],
+          ["mon, ma, mes","{{my}}"],
+          ["ton, ta, tes ; votre, vos","{{your}}"],
+          ["son, sa, ses (à lui)","{{his}}"],
+          ["son, sa, ses (à elle)","{{her}}"],
+          ["son, sa, ses (à une chose, un animal)","{{its}}"],
+          ["notre, nos","{{our}}"],
+          ["leur, leurs","{{their}}"]
+        ] },
+        {"p":"**His ou her : c'est le propriétaire qui décide.** C'est le piège numéro un pour un francophone. En français, « sa mère » s'accorde avec « mère ». En anglais, on regarde à qui elle est : la mère de Paul, c'est {{his mother}} ; la mère de Julie, c'est {{her mother}}. Et le père de Julie, c'est {{her father}}."},
+        { "table": [
+          ["","à Paul","à Julie"],
+          ["sa mère","{{his mother}}","{{her mother}}"],
+          ["son père","{{his father}}","{{her father}}"],
+          ["ses amis","{{his friends}}","{{her friends}}"]
+        ] },
+        {"p":"**La voiture de Paul : Paul's car.** Pour dire à qui est quelque chose, on ajoute {{'s}} au propriétaire et on met la chose après : {{Paul's car}} « la voiture de Paul », {{my sister's son}} « le fils de ma sœur ». Après un pluriel en {{-s}}, juste l'apostrophe : {{my parents' house}} « la maison de mes parents »."},
+        { "ex": [
+          {"t":"My brother is a teacher.","tr":"Mon frère est professeur."},
+          {"t":"Is this your phone?","tr":"C'est ton téléphone ?"},
+          {"t":"Paul is with his sister.","tr":"Paul est avec sa sœur."},
+          {"t":"Julie is with her brother.","tr":"Julie est avec son frère."},
+          {"t":"This is our house.","tr":"Voici notre maison."},
+          {"t":"It's Anna's birthday today.","tr":"C'est l'anniversaire d'Anna aujourd'hui."},
+          {"t":"The dog is in its bed.","tr":"Le chien est dans son panier."}
+        ] },
+        {"tip":"Ne confondez pas {{its}} « son, sa » (possessif, sans apostrophe) et {{it's}} « c'est » ({{it is}}). Même les anglophones s'y trompent !"}
+      ],
+      "mistakes": [
+        {"wrong":"Julie is with his brother.","right":"Julie is with her brother.","tr":"Julie est avec son frère.","why":"Le frère est à Julie, une femme : {{her}}, même si « frère » est masculin."},
+        {"wrong":"the car of Paul","right":"Paul's car","tr":"la voiture de Paul","why":"Pour le propriétaire, l'anglais dit {{Paul's}} + la chose."},
+        {"wrong":"Mark loves her mother.","right":"Mark loves his mother.","tr":"Mark aime sa mère.","why":"La mère est à Mark, un homme : {{his}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Julie parle de son père. « Son père » se dit…","options":["{{her father}}","{{his father}}","{{its father}}"],"answer":0,"why":"Le père est à Julie : {{her}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Tom is with ___ wife.","tr":"Tom est avec sa femme.","options":["his","her","their"],"answer":0,"why":"La femme de Tom, un homme : {{his}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"This is my ___ house.","tr":"C'est la maison de mes parents.","options":["parents'","parents","parent's"],"answer":0,"why":"Un pluriel en {{-s}} prend juste l'apostrophe : {{parents'}}."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"C'est la voiture de mon frère.","words":["It's","my","brother's","car."]},
+        {"type":"dialogue","q":"Une amie vous montre une photo. Choisissez vos réponses.","from":"describe-things","lines":[{"who":"Your friend","t":"Look, this is my family.","tr":"Regarde, c'est ma famille."},{"options":["Is that your father?","Is that you father?"],"answer":0,"why":"« Ton » : {{your}}."},{"who":"Your friend","t":"Yes, and this is my sister.","tr":"Oui, et voici ma sœur."},{"options":["She's very pretty! Is that her dog?","She's very pretty! Is that his dog?"],"answer":0,"why":"Le chien de sa sœur, une femme : {{her}}."},{"who":"Your friend","t":"Yes, his name is Max!","tr":"Oui, il s'appelle Max !"}]},
+        {"type":"say","q":"Dites : « C'est l'anniversaire d'Anna aujourd'hui. »","answer":"It's Anna's birthday today."},
+        {"type":"free","q":"À vous : parlez de deux personnes de votre famille, avec {{his}}, {{her}} ou {{'s}}.","answers":[{"t":"My brother's name is Paul. His wife is American.","tr":"Mon frère s'appelle Paul. Sa femme est américaine."},{"t":"My mother is 60. Her sister is my favorite aunt.","tr":"Ma mère a 60 ans. Sa sœur est ma tante préférée."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Dire où sont les choses",
+      "summary": "Dire ce qu'il y a et où : {{there is}}, {{there are}}, et « dans, sur, sous, à côté de »… sans le « de » du français.",
+      "topic": "{{there is}} / {{there are}} ; {{Is there…?}} ; {{in, on, under, next to, near, between, in front of, behind, across from}}",
+      "blocks": [
+        {"goal":{"t":"There's a pharmacy next to the station.","tr":"Il y a une pharmacie à côté de la gare."}},
+        {"dialog":[{"who":"You","t":"Excuse me, is there a supermarket near here?","tr":"Excusez-moi, il y a un supermarché près d'ici ?"},{"who":"The receptionist","t":"Yes, there's one across from the park.","tr":"Oui, il y en a un en face du parc."},{"who":"You","t":"And are there any good restaurants in the area?","tr":"Et il y a de bons restaurants dans le quartier ?"},{"who":"The receptionist","t":"Sure, there are a lot of restaurants on Main Street.","tr":"Bien sûr, il y a beaucoup de restaurants dans la rue principale."},{"who":"You","t":"Great, thanks!","tr":"Super, merci !"}]},
+        {"p":"**Il y a : there is, there are.** « Il y a » se dit {{there is}} (forme courte {{there's}}) devant un singulier, et {{there are}} devant un pluriel : {{There's a problem.}} {{There are two problems.}} Ne dites jamais « it has » : c'est la traduction mot à mot de « il y a », et elle ne veut rien dire."},
+        { "table": [
+          ["","singulier","pluriel"],
+          ["il y a","{{There's a bank.}}","{{There are two banks.}}"],
+          ["il n'y a pas","{{There isn't a bank.}}","{{There aren't any banks.}}"],
+          ["est-ce qu'il y a… ?","{{Is there a bank?}}","{{Are there any banks?}}"]
+        ] },
+        {"p":"Pour la question, on inverse comme avec {{be}} (leçon 4) : {{Is there a bus?}} — {{Yes, there is.}} / {{No, there isn't.}}"},
+        {"term":"préposition","means":"un petit mot qui indique le lieu, le temps ou la manière : « dans », « sur », « avec ». En anglais : {{in}}, {{on}}, {{with}}."},
+        { "table": [
+          ["français","anglais"],
+          ["dans","{{in}}"],
+          ["sur","{{on}}"],
+          ["sous","{{under}}"],
+          ["à côté de","{{next to}}"],
+          ["près de","{{near}}"],
+          ["entre","{{between}}"],
+          ["devant","{{in front of}}"],
+          ["derrière","{{behind}}"],
+          ["en face de","{{across from}}"]
+        ] },
+        {"p":"**Pas de « de ».** Après ces prépositions, pas de « du », « de la » : {{next to the bank}} « à côté de la banque », {{near the station}} « près de la gare »."},
+        {"p":"Une rue : {{on}}. {{The café is on Main Street.}} Une ville ou un pays : {{in}}. {{I live in Boston.}}"},
+        { "ex": [
+          {"t":"There's a problem with my room.","tr":"Il y a un problème avec ma chambre."},
+          {"t":"There are three bedrooms in the apartment.","tr":"Il y a trois chambres dans l'appartement."},
+          {"t":"Is there a bus to the airport?","tr":"Il y a un bus pour l'aéroport ?"},
+          {"t":"The keys are on the table.","tr":"Les clés sont sur la table."},
+          {"t":"The cat is under the bed.","tr":"Le chat est sous le lit."},
+          {"t":"The bank is between the post office and the pharmacy.","tr":"La banque est entre la poste et la pharmacie."}
+        ] },
+        {"tip":"{{there}} se prononce comme {{their}} (leçon 8) et {{they're}} : trois mots, un seul son, et beaucoup de fautes d'orthographe chez les anglophones eux-mêmes."}
+      ],
+      "mistakes": [
+        {"wrong":"It has a bank near here.","right":"There's a bank near here.","tr":"Il y a une banque près d'ici.","why":"« Il y a » se dit {{there is}}, jamais « it has »."},
+        {"wrong":"There is two banks.","right":"There are two banks.","tr":"Il y a deux banques.","why":"Devant un pluriel : {{there are}}."},
+        {"wrong":"next to of the bank","right":"next to the bank","tr":"à côté de la banque","why":"Pas de « de » après {{next to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"There ___ a lot of people here.","tr":"Il y a beaucoup de monde ici.","options":["are","is","has"],"answer":0,"why":"{{people}} est un pluriel : {{there are}}.","from":"point-and-name"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ there a bank near here?","tr":"Il y a une banque près d'ici ?","options":["Is","Are","Has"],"answer":0,"why":"Une banque, au singulier : {{Is there…?}}"},
+        {"type":"choice","q":"{{The cat is under the table.}} Où est le chat ?","options":["sous la table","sur la table","à côté de la table"],"answer":0,"why":"{{under}} : sous ; {{on}} : sur."},
+        {"type":"dialogue","q":"Vous cherchez un distributeur. Choisissez vos répliques.","from":"ask-with-be","lines":[{"who":"A man","t":"Can I help you?","tr":"Je peux vous aider ?"},{"options":["Yes, is there an ATM near here?","Yes, it has an ATM near here?"],"answer":0,"why":"« Il y a » : {{there is}}, et pour la question, {{is there}}."},{"who":"A man","t":"Yes, there's one next to the bank.","tr":"Oui, il y en a un à côté de la banque."},{"options":["Is the bank far?","Is far the bank?"],"answer":0,"why":"Une question avec {{be}} : le verbe, puis le sujet."},{"who":"A man","t":"No, it's right there, across from the church.","tr":"Non, c'est juste là, en face de l'église."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Les clés sont sur la table.","words":["The keys","are","on","the table."]},
+        {"type":"say","q":"Dites : « Il y a un problème avec ma chambre. »","answer":"There's a problem with my room."},
+        {"type":"free","q":"À vous : décrivez votre rue ou votre chambre : ce qu'il y a, et où.","answers":[{"t":"On my street, there's a bakery and a café. The bakery is next to the café.","tr":"Dans ma rue, il y a une boulangerie et un café. La boulangerie est à côté du café."},{"t":"In my room, there's a bed and a desk. My computer is on the desk.","tr":"Dans ma chambre, il y a un lit et un bureau. Mon ordinateur est sur le bureau."}]}
+      ]
     }
   ]
 }
