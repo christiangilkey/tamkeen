@@ -1417,6 +1417,191 @@
         {"type":"dialogue","q":"친구가 걱정해요. 알맞은 대답을 고르세요.","from":"give-advice","lines":[{"who":"친구","t":"Why are you so tired?","tr":"왜 그렇게 피곤해요?"},{"options":["Because I worked until midnight.","Because worked until midnight."],"answer":0,"why":"{{because}} 뒤에는 주어 {{I}}가 필요해요."},{"who":"친구","t":"You should go home early today.","tr":"오늘은 일찍 퇴근하는 게 좋겠어요."},{"options":["I can't, but I'll try.","I can't, so I'll try."],"answer":0,"why":"생각과 다른 내용을 이을 때는 {{but}}."}]},
         {"type":"free","q":"여러분 차례예요: 영어를 왜 배우는지 {{because}}로 말하고, 요즘 있었던 일을 {{so}}로 말해 보세요.","answers":[{"t":"I'm learning English because I want to make friends from other countries. I was busy last week, so I didn't study.","tr":"다른 나라 친구를 사귀고 싶어서 영어를 배워요. 지난주에는 바빠서 공부를 못 했어요."},{"t":"I study English because I need it for my job. It was sunny yesterday, so I went to the park.","tr":"일 때문에 필요해서 영어를 공부해요. 어제는 날씨가 맑아서 공원에 갔어요."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "비교하기",
+      "summary": "“서울이 부산보다 커요”처럼 두 가지를 비교해요.",
+      "topic": "비교급 {{-er}} / {{more}} + {{than}}; {{better}}, {{worse}}; {{as … as}}, {{not as … as}}",
+      "blocks": [
+        {"goal":{"t":"Seoul is bigger than Busan.","tr":"서울이 부산보다 커요."}},
+        {"dialog":[{"who":"점원","t":"Can I help you?","tr":"도와드릴까요?"},{"who":"나리","t":"Yes. Which phone is better, this one or that one?","tr":"네. 이거랑 저거 중에 어느 휴대폰이 더 좋아요?"},{"who":"점원","t":"This one is newer, and the camera is better.","tr":"이게 더 최신이고, 카메라도 더 좋아요."},{"who":"나리","t":"Is it more expensive?","tr":"더 비싸요?"},{"who":"점원","t":"Yes, a little. But it's lighter and faster.","tr":"네, 조금요. 하지만 더 가볍고 빨라요."},{"who":"나리","t":"Hmm, the old one is cheaper. It's not as fast, but it's fine.","tr":"음, 예전 모델이 더 싸네요. 그만큼 빠르진 않지만 괜찮아요."}]},
+        {"p":"**짧은 형용사: {{-er}}.** 한 음절 형용사(그리고 {{-y}}로 끝나는 두 음절 형용사)는 끝에 {{-er}}을 붙여요: {{big}} → {{bigger}}, {{cheap}} → {{cheaper}}, {{easy}} → {{easier}}. 비교하는 대상 앞에는 {{than}} “~보다”를 써요: {{Seoul is bigger than Busan.}} 한국어와 순서가 달라요: “서울이 / 더 크다 / 부산보다”."},
+        {"term":"비교급","means":"두 가지를 비교해서 “더 ~하다”라고 말하는 형용사 모양이에요: {{bigger}}, {{more expensive}}."},
+        {"p":"**긴 형용사: {{more}}.** 두 음절 이상인 형용사는 앞에 {{more}}를 붙여요: {{more expensive}}, {{more interesting}}. 반대는 {{less}} “덜”: {{less expensive}}."},
+        { "table": [
+          ["형용사","비교급","규칙"],
+          ["{{cheap}}","{{cheaper}}","{{-er}}"],
+          ["{{big}}","{{bigger}}","자음을 하나 더 + {{-er}}"],
+          ["{{easy}}","{{easier}}","{{y}} → {{-ier}}"],
+          ["{{expensive}}","{{more expensive}}","{{more}} + 형용사"],
+          ["{{good}}","{{better}}","불규칙"],
+          ["{{bad}}","{{worse}}","불규칙"],
+          ["{{far}}","{{farther}}","불규칙"]
+        ] },
+        {"p":"**같다: {{as … as}}.** {{as}} + 형용사 + {{as}}는 “~만큼 ~한”이에요: {{She's as tall as her mom.}} “그녀는 엄마만큼 키가 커요.” 부정 {{not as … as}}는 “~만큼 ~하지 않은”: {{Busan isn't as big as Seoul.}} “부산은 서울만큼 크지 않아요.”"},
+        { "ex": [
+          {"t":"This bag is cheaper than that one.","tr":"이 가방이 저것보다 싸요."},
+          {"t":"My brother is taller than me.","tr":"형이 저보다 키가 커요."},
+          {"t":"This movie is more interesting than the book.","tr":"이 영화가 책보다 더 재미있어요."},
+          {"t":"I feel better today.","tr":"오늘은 몸이 좀 나아졌어요."},
+          {"t":"Is English easier than Korean?","tr":"영어가 한국어보다 쉬워요?"},
+          {"t":"My room isn't as big as yours.","tr":"제 방은 당신 방만큼 크지 않아요."}
+        ] },
+        {"tip":"비교하는 대상이 이미 분명하면 {{than}} 이하는 빼도 돼요: {{This one is cheaper.}} “이게 더 싸요.” 그리고 {{one}}은 같은 명사를 반복하지 않으려고 써요: {{this one}}, {{that one}}, {{the old one}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Seoul is more big than Busan.","right":"Seoul is bigger than Busan.","tr":"서울이 부산보다 커요.","why":"짧은 형용사는 {{-er}}: {{bigger}}."},
+        {"wrong":"This is more better.","right":"This is better.","tr":"이게 더 좋아요.","why":"{{better}}는 이미 비교급이에요. {{more}}를 또 붙이지 않아요."},
+        {"wrong":"He's taller from me.","right":"He's taller than me.","tr":"그는 저보다 키가 커요.","why":"“~보다”는 {{than}}이에요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“이게 저것보다 비싸요.”","options":["{{This is more expensive than that.}}","{{This is expensiver than that.}}","{{This is more expensive that.}}"],"answer":0,"why":"긴 형용사: {{more expensive}} + {{than}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"My new apartment is ___ than my old one.","tr":"새 아파트가 예전 아파트보다 커요.","options":["bigger","more big","biger"],"answer":0,"why":"{{big}} → {{bigger}} ({{g}}를 하나 더)."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I feel ___ today.","tr":"오늘은 몸이 나아졌어요.","options":["better","gooder","more good"],"answer":0,"why":"{{good}}의 비교급은 {{better}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Busan isn't as big ___ Seoul.","tr":"부산은 서울만큼 크지 않아요.","options":["as","than","like"],"answer":0,"why":"{{as … as}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"형이 저보다 키가 커요.","words":["My","brother","is","taller","than","me."]},
+        {"type":"dialogue","q":"친구가 좋아하는 계절을 물어요. 알맞은 대답을 고르세요.","from":"say-what-you-like-and-want","lines":[{"who":"친구","t":"Which do you like more, summer or winter?","tr":"여름이랑 겨울 중에 어느 쪽이 더 좋아요?"},{"options":["I like winter more. It's cooler.","I like winter more. It's more cool."],"answer":0,"why":"{{cool}}은 짧은 형용사: {{cooler}}."},{"who":"친구","t":"Really? Winter is so cold!","tr":"정말요? 겨울은 너무 춥잖아요!"},{"options":["But summer is worse. It's so humid!","But summer is badder. It's so humid!"],"answer":0,"why":"{{bad}}의 비교급은 {{worse}}."}]},
+        {"type":"free","q":"여러분 차례예요: 두 도시, 두 음식, 또는 두 계절을 비교해 보세요.","answers":[{"t":"Seoul is bigger than my hometown, but my hometown is quieter.","tr":"서울이 제 고향보다 크지만, 고향이 더 조용해요."},{"t":"I think Korean food is spicier than Japanese food.","tr":"한국 음식이 일본 음식보다 더 매운 것 같아요."}]}
+      ]
+    },
+    {
+      "id": "say-the-best",
+      "unit": 7,
+      "level": "A2",
+      "title": "최고 말하기",
+      "summary": "“동네에서 제일 좋은 식당이에요”처럼 가장 ~한 것을 말해요.",
+      "topic": "최상급 {{the}} + {{-est}} / {{the most}}; {{the best}}, {{the worst}}; {{in}} / {{of}}; {{one of the…}}",
+      "blocks": [
+        {"goal":{"t":"This is the best restaurant in town.","tr":"여기가 동네에서 제일 좋은 식당이에요."}},
+        {"dialog":[{"who":"이선","t":"What's the tallest building in Seoul?","tr":"서울에서 제일 높은 건물이 뭐예요?"},{"who":"지원","t":"Lotte World Tower. It's the tallest building in Korea.","tr":"롯데월드타워요. 한국에서 제일 높은 건물이에요."},{"who":"이선","t":"Wow. What's the best time to visit?","tr":"와. 언제 가는 게 제일 좋아요?"},{"who":"지원","t":"At night. The view is the most beautiful then.","tr":"밤이요. 그때 경치가 제일 예뻐요."},{"who":"이선","t":"And what's the most famous Korean food?","tr":"그럼 제일 유명한 한국 음식은 뭐예요?"},{"who":"지원","t":"Maybe kimchi. But for me, the best is tteokbokki!","tr":"아마 김치요. 하지만 저한테 최고는 떡볶이예요!"}]},
+        {"p":"**가장 ~한: {{the}} + {{-est}}.** 셋 이상 중에서 “가장, 제일”은 짧은 형용사에 {{-est}}를 붙이고, 앞에 {{the}}를 써요: {{the tallest}}, {{the cheapest}}, {{the easiest}}. 긴 형용사는 {{the most}}: {{the most beautiful}}, {{the most famous}}."},
+        { "table": [
+          ["형용사","비교급","최상급"],
+          ["{{tall}}","{{taller}}","{{the tallest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{happy}}","{{happier}}","{{the happiest}}"],
+          ["{{famous}}","{{more famous}}","{{the most famous}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**어디에서, 무엇 중에서.** 장소나 집단은 {{in}}: {{the best restaurant in town}}, {{the tallest in my class}}. 여러 개 중에서는 {{of}}: {{the best of all}}, {{the youngest of three children}}."},
+        {"p":"**{{the}}를 잊지 마세요.** “제일”인 것은 하나뿐이라서 {{the}}가 필요해요. 그리고 {{one of the best…}} “가장 좋은 ~ 중 하나”에는 뒤에 복수 명사가 와요: {{one of the best movies}}."},
+        { "ex": [
+          {"t":"This is the most expensive hotel in Seoul.","tr":"여기가 서울에서 제일 비싼 호텔이에요."},
+          {"t":"Today is the hottest day of the year.","tr":"오늘이 올해 들어 가장 더운 날이에요."},
+          {"t":"That was the worst movie ever!","tr":"그건 역대 최악의 영화였어요!"},
+          {"t":"What's the best way to get there?","tr":"거기 가는 가장 좋은 방법이 뭐예요?"},
+          {"t":"It's one of the most popular songs in Korea.","tr":"한국에서 가장 인기 있는 노래 중 하나예요."},
+          {"t":"She's the oldest of three sisters.","tr":"그녀는 세 자매 중 맏이에요."}
+        ] },
+        {"tip":"{{the best}}는 대화에서 칭찬으로도 많이 써요: {{You're the best!}} “최고예요!”"}
+      ],
+      "mistakes": [
+        {"wrong":"He's tallest in my class.","right":"He's the tallest in my class.","tr":"그가 우리 반에서 키가 제일 커요.","why":"최상급 앞에는 {{the}}가 필요해요."},
+        {"wrong":"It's the most cheap.","right":"It's the cheapest.","tr":"그게 제일 싸요.","why":"짧은 형용사는 {{-est}}예요."},
+        {"wrong":"It's one of the best movie.","right":"It's one of the best movies.","tr":"가장 좋은 영화 중 하나예요.","why":"{{one of the}} 다음에는 복수 명사예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“여기가 서울에서 제일 비싼 호텔이에요.”","options":["{{This is the most expensive hotel in Seoul.}}","{{This is the expensivest hotel in Seoul.}}","{{This is most expensive hotel of Seoul.}}"],"answer":0,"why":"긴 형용사: {{the most}}, 장소는 {{in}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Today is the ___ day of the year.","tr":"오늘이 올해 가장 더운 날이에요.","options":["hottest","hotest","most hot"],"answer":0,"why":"{{hot}} → {{hottest}} ({{t}}를 하나 더)."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"He's the youngest ___ my family.","tr":"그가 우리 가족 중에 막내예요.","options":["in","of","at"],"answer":0,"why":"집단 안에서: {{in my family}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"거기 가는 가장 좋은 방법이 뭐예요?","words":["What's","the","best","way","to","get","there?"]},
+        {"type":"dialogue","q":"친구가 식당을 추천해 달래요. 알맞은 대답을 고르세요.","from":"compare-things","lines":[{"who":"친구","t":"What's the best Korean restaurant around here?","tr":"이 근처에서 제일 좋은 한국 식당이 어디예요?"},{"options":["Seoul Garden is the best. It's better than the others.","Seoul Garden is the goodest. It's more good than the others."],"answer":0,"why":"{{good}} → {{better}} → {{the best}}."},{"who":"친구","t":"Is it expensive?","tr":"비싸요?"},{"options":["No, it's one of the cheapest places.","No, it's one of the cheapest place."],"answer":0,"why":"{{one of the}} + 복수 명사."}]},
+        {"type":"say","q":"“그건 역대 최악의 영화였어요!”","answer":"That was the worst movie ever!"},
+        {"type":"free","q":"여러분 차례예요: 우리 동네나 나라에서 제일 좋은 곳, 제일 유명한 음식, 제일 좋아하는 계절을 말해 보세요.","answers":[{"t":"The best place in my town is the river park. The most famous food is dakgalbi.","tr":"우리 동네에서 제일 좋은 곳은 강변 공원이에요. 제일 유명한 음식은 닭갈비예요."},{"t":"My favorite season is fall. It's the most beautiful season in Korea.","tr":"제가 제일 좋아하는 계절은 가을이에요. 한국에서 가장 아름다운 계절이에요."}]}
+      ]
+    },
+    {
+      "id": "describe-people",
+      "unit": 7,
+      "level": "A2",
+      "title": "사람 묘사하기",
+      "summary": "키, 머리 모양, 인상을 말해요: “그는 키가 크고 짧은 검은 머리예요.”",
+      "topic": "{{be}} + 형용사 ({{He's tall.}}); {{have}} + 형용사 + 명사 ({{She has long hair.}}); {{look}} + 형용사; {{look like}} + 명사",
+      "blocks": [
+        {"goal":{"t":"He's tall and has short black hair.","tr":"그는 키가 크고 짧은 검은 머리예요."}},
+        {"dialog":[{"who":"제시카","t":"Can you pick up my brother at the airport?","tr":"공항에 우리 오빠 좀 데리러 가 줄래요?"},{"who":"태양","t":"Sure. What does he look like?","tr":"그럼요. 어떻게 생겼어요?"},{"who":"제시카","t":"He's tall and thin. He has curly brown hair, and he wears glasses.","tr":"키가 크고 말랐어요. 갈색 곱슬머리이고, 안경을 써요."},{"who":"태양","t":"OK. Does he look like you?","tr":"알겠어요. 제시카 씨랑 닮았어요?"},{"who":"제시카","t":"A little. People say we have the same eyes.","tr":"조금요. 사람들이 우리 눈이 똑같대요."},{"who":"태양","t":"Got it. He looks friendly in this photo!","tr":"알겠어요. 이 사진에서 친절해 보이네요!"}]},
+        {"p":"**be냐 have냐.** 한국어 “그녀는 머리가 길어요”를 영어로 하려면 두 가지 방법이 있어요. 사람 전체를 말할 때는 be동사: {{He's tall.}}, {{She's young.}} 몸의 한 부분을 말할 때는 보통 {{have}}: {{She has long hair.}}, {{He has blue eyes.}} {{Her hair is long.}}도 맞지만, {{She has long hair.}}가 더 자연스러워요."},
+        { "table": [
+          ["","예","한국어"],
+          ["be + 형용사","{{He's tall.}} / {{She's thin.}}","그는 키가 커요. / 그녀는 말랐어요."],
+          ["have + 형용사 + 명사","{{She has long hair.}} / {{He has a beard.}}","그녀는 머리가 길어요. / 그는 수염이 있어요."],
+          ["wear","{{He wears glasses.}}","그는 안경을 써요."]
+        ] },
+        {"p":"**형용사는 명사 앞에.** 형용사 여러 개를 쓸 때는 보통 “길이/크기 → 모양 → 색깔” 순서예요: {{long black hair}}, {{short curly hair}}. 한국어처럼 명사 앞에 와요."},
+        {"p":"**~해 보여요: {{look}} + 형용사.** {{You look tired.}} “피곤해 보여요.”, {{She looks happy.}} “행복해 보여요.” 닮았다는 {{look like}} + 명사: {{You look like your mom.}} “엄마를 닮았네요.” 생김새를 물을 때는 {{What does he look like?}} “그는 어떻게 생겼어요?”"},
+        { "ex": [
+          {"t":"My mom is short and has curly hair.","tr":"우리 엄마는 키가 작고 곱슬머리예요."},
+          {"t":"He has a beard.","tr":"그는 수염이 있어요."},
+          {"t":"She wears glasses.","tr":"그녀는 안경을 써요."},
+          {"t":"You look great today!","tr":"오늘 멋져 보여요!"},
+          {"t":"He looks like a movie star.","tr":"그는 영화배우 같아요."},
+          {"t":"What does your boyfriend look like?","tr":"남자 친구는 어떻게 생겼어요?"}
+        ] },
+        {"tip":"미국에서는 사람의 몸무게나 외모를 직접 평가하는 말({{You're fat.}} 같은)은 친한 사이에도 무례하게 들려요. 칭찬({{You look great!}})은 언제나 환영이에요."}
+      ],
+      "mistakes": [
+        {"wrong":"She is long hair.","right":"She has long hair.","tr":"그녀는 머리가 길어요.","why":"몸의 한 부분은 {{have}}로 말해요. {{She is long hair}}는 “그녀는 긴 머리카락이다”라는 이상한 뜻이에요."},
+        {"wrong":"He has hair black long.","right":"He has long black hair.","tr":"그는 길고 검은 머리예요.","why":"형용사는 명사 앞, 길이 → 색깔 순서예요."},
+        {"wrong":"You look like tired.","right":"You look tired.","tr":"피곤해 보여요.","why":"형용사 앞에는 {{like}} 없이 {{look}}만. {{look like}} 다음에는 명사가 와요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“그녀는 머리가 길어요.”","options":["{{She has long hair.}}","{{She is long hair.}}","{{She has hair long.}}"],"answer":0,"why":"몸의 일부: {{have}} + 형용사 + 명사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"You look ___. Are you OK?","tr":"피곤해 보여요. 괜찮아요?","options":["tired","like tired","tiredly"],"answer":0,"why":"{{look}} + 형용사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"He looks ___ his father.","tr":"그는 아빠를 닮았어요.","options":["like","as","same"],"answer":0,"why":"{{look like}} + 명사."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"그는 짧은 검은 머리예요.","words":["He","has","short","black","hair."]},
+        {"type":"dialogue","q":"친구가 언니의 생김새를 물어요. 알맞은 대답을 고르세요.","from":"talk-about-other-people","lines":[{"who":"친구","t":"What does your sister look like?","tr":"언니는 어떻게 생겼어요?"},{"options":["She's tall and has short hair.","She's tall and is short hair."],"answer":0,"why":"키는 {{be}}, 머리는 {{have}}."},{"who":"친구","t":"Does she wear glasses?","tr":"안경 써요?"},{"options":["Yes, she does.","Yes, she wear."],"answer":0,"why":"{{does}} 질문에는 {{she does}}로 대답해요."}]},
+        {"type":"say","q":"친구에게 칭찬: “오늘 멋져 보여요!”","answer":"You look great today!"},
+        {"type":"free","q":"여러분 차례예요: 가족이나 친구 한 명의 외모를 세 문장으로 묘사해 보세요.","answers":[{"t":"My best friend is short. She has long straight hair and big eyes. She looks like a K-pop singer.","tr":"제 단짝 친구는 키가 작아요. 긴 생머리에 눈이 커요. 케이팝 가수 같아요."},{"t":"My dad is tall and has gray hair. He wears glasses.","tr":"우리 아빠는 키가 크고 흰머리가 있어요. 안경을 쓰세요."}]}
+      ]
+    },
+    {
+      "id": "say-very-and-too",
+      "unit": 7,
+      "level": "A2",
+      "title": "“너무”를 영어로 말하기",
+      "summary": "“너무 맛있어요”는 {{too delicious}}가 아니에요. {{very}}, {{so}}, {{really}}와 {{too}}, {{enough}}를 구별해요.",
+      "topic": "{{very}} / {{so}} / {{really}} (아주, 좋은 뜻도) vs {{too}} (지나치게, 문제가 있음); {{too … to}}; {{enough}}; {{too much}} / {{too many}}",
+      "blocks": [
+        {"goal":{"t":"This is so delicious!","tr":"이거 너무 맛있어요!"}},
+        {"dialog":[{"who":"점원","t":"How's the jacket?","tr":"재킷 어떠세요?"},{"who":"예지","t":"I really like it. It's so pretty!","tr":"정말 마음에 들어요. 너무 예뻐요!"},{"who":"점원","t":"How's the size?","tr":"사이즈는 어떠세요?"},{"who":"예지","t":"Hmm, it's a little too big. Do you have a small?","tr":"음, 좀 커요. 스몰 있어요?"},{"who":"점원","t":"Yes. Here you go.","tr":"네. 여기 있어요."},{"who":"예지","t":"This one is perfect! But it's too expensive. I don't have enough money.","tr":"이게 딱 맞아요! 그런데 너무 비싸요. 돈이 부족해요."}]},
+        {"p":"**한국어 “너무”는 영어로 두 가지.** 한국어 “너무”는 “아주, 정말”이라는 좋은 뜻으로도 많이 써요: “너무 맛있어요!”, “너무 예뻐요!” 그런데 영어의 {{too}}는 “지나치게”, 즉 **그래서 문제가 있다**는 뜻이에요. {{It's too delicious}}라고 하면 “너무 맛있어서 곤란하다”처럼 이상하게 들려요. 좋은 뜻의 “너무”는 {{so}}, {{very}}, {{really}}예요."},
+        { "table": [
+          ["한국어","뜻","영어"],
+          ["너무 맛있어요!","아주 맛있다 (좋음)","{{It's so delicious!}}"],
+          ["너무 예뻐요!","아주 예쁘다 (좋음)","{{It's really pretty!}}"],
+          ["너무 비싸요.","지나치게 비싸다 (그래서 못 사요)","{{It's too expensive.}}"],
+          ["너무 커요.","지나치게 크다 (안 맞아요)","{{It's too big.}}"]
+        ] },
+        {"p":"**{{too}} + 형용사 + {{to}} + 동사.** “너무 ~해서 ~할 수 없다”예요: {{It's too hot to sleep.}} “너무 더워서 못 자겠어요.”"},
+        {"p":"**충분한: {{enough}}.** 형용사 **뒤**에 와요: {{It's not big enough.}} “충분히 크지 않아요.” 명사 **앞**에 와요: {{I don't have enough money.}} “돈이 부족해요.” 그리고 “너무 많은”은 셀 수 없는 것에 {{too much}}, 셀 수 있는 것에 {{too many}}예요(17과): {{too much sugar}}, {{too many people}}."},
+        { "ex": [
+          {"t":"I'm so happy for you!","tr":"정말 잘됐어요!"},
+          {"t":"The movie was really good.","tr":"영화 정말 좋았어요."},
+          {"t":"This coffee is too hot. I can't drink it.","tr":"이 커피 너무 뜨거워요. 못 마시겠어요."},
+          {"t":"I'm too tired to cook tonight.","tr":"오늘 밤엔 너무 피곤해서 요리 못 하겠어요."},
+          {"t":"Is it warm enough outside?","tr":"밖이 충분히 따뜻해요?"},
+          {"t":"There are too many people here.","tr":"여기 사람이 너무 많아요."}
+        ] },
+        {"tip":"기분 좋은 “너무”를 말하고 싶을 때는 먼저 {{so}}를 떠올려 보세요: {{so cute}}, {{so good}}, {{so fun}}. {{too}}는 불평할 때 쓴다고 기억하면 쉬워요."}
+      ],
+      "mistakes": [
+        {"wrong":"This cake is too delicious!","right":"This cake is so delicious!","tr":"이 케이크 너무 맛있어요!","why":"좋은 뜻의 “너무”는 {{so}}나 {{really}}예요. {{too}}는 문제가 있다는 뜻이에요."},
+        {"wrong":"I don't have money enough.","right":"I don't have enough money.","tr":"돈이 부족해요.","why":"명사 앞에 {{enough}}가 와요."},
+        {"wrong":"There are too much people.","right":"There are too many people.","tr":"사람이 너무 많아요.","why":"{{people}}은 셀 수 있으니까 {{too many}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"친구가 만든 음식이 정말 맛있어요.","options":["{{This is so good!}}","{{This is too good!}}","{{This is enough good!}}"],"answer":0,"why":"좋은 뜻: {{so}}."},
+        {"type":"choice","q":"신발이 커서 못 신어요.","options":["{{They're too big.}}","{{They're so big!}}","{{They're very big!}}"],"answer":0,"why":"커서 문제가 있으니까 {{too}}예요."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'm ___ tired to go out.","tr":"너무 피곤해서 못 나가겠어요.","options":["too","so","very"],"answer":0,"why":"{{too}} + 형용사 + {{to}} + 동사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We don't have ___ time.","tr":"시간이 충분하지 않아요.","options":["enough","too","so"],"answer":0,"why":"명사 앞: {{enough time}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"여기 사람이 너무 많아요.","words":["There","are","too","many","people","here."]},
+        {"type":"dialogue","q":"옷 가게에서 원피스를 입어 봤어요. 알맞은 대답을 고르세요.","from":"describe-people","lines":[{"who":"점원","t":"How does the dress look?","tr":"원피스 어떠세요?"},{"options":["It looks really nice, but it's too long.","It looks too nice, but it's very long."],"answer":0,"why":"좋은 건 {{really}}, 문제는 {{too}}."},{"who":"점원","t":"Do you want a shorter one?","tr":"더 짧은 걸로 드릴까요?"},{"options":["Yes, please. This one isn't short enough.","Yes, please. This one isn't enough short."],"answer":0,"why":"형용사 뒤에 {{enough}}."}]},
+        {"type":"free","q":"여러분 차례예요: 정말 좋았던 것 하나({{so}}, {{really}})와 문제가 있었던 것 하나({{too}})를 말해 보세요.","answers":[{"t":"The concert was so amazing! But the tickets were too expensive.","tr":"콘서트 정말 대단했어요! 그런데 표가 너무 비쌌어요."},{"t":"My new apartment is really nice, but it's too far from my office.","tr":"새 아파트는 정말 좋은데, 회사에서 너무 멀어요."}]}
+      ]
     }
   ]
 }
