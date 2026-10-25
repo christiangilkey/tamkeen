@@ -312,6 +312,295 @@
         {"type":"say","q":"Pide la cuenta: “¿Nos trae la cuenta, por favor?”","answer":"Can we get the check, please?"},
         {"type":"free","q":"Te toca: estás en una cafetería en Estados Unidos. Pide algo de comer y algo de tomar.","answers":[{"t":"Hi! I'd like a bagel and a large coffee, please.","tr":"¡Hola! Quisiera un bagel y un café grande, por favor."},{"t":"Can I get a turkey sandwich and an orange juice?","tr":"¿Me da un sándwich de pavo y un jugo de naranja?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di qué haces todos los días",
+      "summary": "Habla de tu trabajo, tus estudios y tu rutina: {{I work at a hospital and I live in Tijuana.}}",
+      "topic": "el presente simple con {{I, you, we, they}}: la forma base, sin cambios",
+      "blocks": [
+        {"goal":{"t":"I work at a hospital and I live in Tijuana.","tr":"Trabajo en un hospital y vivo en Tijuana."}},
+        {"dialog":[{"who":"Kevin","t":"So, what do you do?","tr":"¿Y a qué te dedicas?"},{"who":"Ana","t":"I work at a bank. I'm a manager.","tr":"Trabajo en un banco. Soy gerente."},{"who":"Kevin","t":"Cool. I teach math at a high school.","tr":"Qué padre. Yo doy clases de matemáticas en una prepa."},{"who":"Ana","t":"Nice! I live near here. And you?","tr":"¡Qué bien! Yo vivo cerca de aquí. ¿Y tú?"},{"who":"Kevin","t":"We live downtown. My wife and I take the train every day.","tr":"Nosotros vivimos en el centro. Mi esposa y yo tomamos el tren todos los días."}]},
+        {"p":"**Una sola forma (casi).** En español cada persona tiene su terminación: trabajo, trabajas, trabajamos, trabajan. En inglés, con {{I}}, {{you}}, {{we}} y {{they}}, el verbo **no cambia**: es la forma base. Por eso el sujeto es tan importante: sin él, no se sabe quién."},
+        {"term":"presente simple","means":"el tiempo del verbo para lo que haces normalmente, tus costumbres y lo que siempre es cierto: {{I work}} “trabajo”."},
+        { "table": [
+          ["","{{work}} (trabajar)","{{live}} (vivir)"],
+          ["yo","{{I work}}","{{I live}}"],
+          ["tú, usted","{{you work}}","{{you live}}"],
+          ["nosotros","{{we work}}","{{we live}}"],
+          ["ustedes","{{you work}}","{{you live}}"],
+          ["ellos, ellas","{{they work}}","{{they live}}"]
+        ] },
+        {"p":"(“Él” y “ella” sí cambian: lo vemos en la siguiente lección.)"},
+        {"p":"**¿Para qué sirve?** Para lo que haces normalmente, tus costumbres y lo que es cierto en general: {{I work at a bank.}} {{We eat dinner at eight.}} {{They speak Spanish.}} Lo que estás haciendo en este momento lleva otra forma (lección 16)."},
+        {"p":"**Palabras de tiempo** que van con él: {{every day}} (todos los días), {{every morning}} (todas las mañanas), {{on weekends}} (los fines de semana), {{at night}} (en la noche). Normalmente van al final: {{I go to the gym every day.}}"},
+        { "ex": [
+          {"t":"I live with my parents.","tr":"Vivo con mis papás."},
+          {"t":"We work from nine to five.","tr":"Trabajamos de nueve a cinco."},
+          {"t":"They speak English and Spanish.","tr":"Hablan inglés y español."},
+          {"t":"I drink coffee every morning.","tr":"Tomo café todas las mañanas."},
+          {"t":"You work very hard.","tr":"Trabajas mucho."},
+          {"t":"My kids walk to school.","tr":"Mis hijos se van caminando a la escuela."},
+          {"t":"We go to church on Sundays.","tr":"Los domingos vamos a misa."}
+        ] },
+        {"tip":"**Preposiciones del trabajo.** {{I work at a bank}} (en un lugar), {{I work for Google}} (para una empresa), {{I work in sales}} (en un área). En español todo es “en”; la lección 14 regresa a esto."}
+      ],
+      "mistakes": [
+        {"wrong":"Work in a restaurant.","right":"I work in a restaurant.","tr":"Trabajo en un restaurante.","why":"El sujeto siempre va: {{I work}}."},
+        {"wrong":"We lives in Dallas.","right":"We live in Dallas.","tr":"Vivimos en Dallas.","why":"Con {{we}}, la forma base, sin -s."},
+        {"wrong":"I am work at a bank.","right":"I work at a bank.","tr":"Trabajo en un banco.","why":"No se pone {{am}} con otro verbo: {{I work}} ya es “trabajo”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ live in Chicago.","tr":"Vivimos en Chicago.","options":["We","Live","Us"],"answer":0,"why":"Hay que decir quién: {{We live}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My parents ___ in a restaurant.","tr":"Mis papás trabajan en un restaurante.","options":["work","works","are work"],"answer":0,"why":"{{my parents}} es {{they}}: la forma base, {{work}}."},
+        {"type":"choice","q":"¿Cómo se dice “Hablo un poco de inglés”?","options":["{{I speak a little English.}}","{{Speak a little English.}}","{{I am speak a little English.}}"],"answer":0,"why":"Sujeto y verbo, nada más: {{I speak}}."},
+        {"type":"dialogue","q":"Conoces a alguien en una fiesta. Escoge tus respuestas.","lines":[{"who":"Lisa","t":"What do you do?","tr":"¿A qué te dedicas?"},{"options":["I'm a designer. I work at an agency.","I'm designer. I work at an agency."],"answer":0,"why":"Con la profesión, {{a}}: {{a designer}}."},{"who":"Lisa","t":"Where do you live?","tr":"¿Dónde vives?"},{"options":["I live in Brooklyn with two friends.","Live in Brooklyn with two friends."],"answer":0,"why":"El sujeto siempre va: {{I live}}."},{"who":"Lisa","t":"Oh, me too!","tr":"¡Ah, yo también!"}],"from":"talk-about-people"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Tomo café todas las mañanas.","words":["I","drink","coffee","every morning."]},
+        {"type":"say","q":"Di “Vivimos cerca de aquí.”","answer":"We live near here."},
+        {"type":"free","q":"Te toca: ¿dónde vives, dónde trabajas o estudias, y qué haces todos los días? Usa {{I live}}, {{I work}} o {{I study}}.","answers":[{"t":"I live in Monterrey. I work at a school, and I walk to work every day.","tr":"Vivo en Monterrey. Trabajo en una escuela y me voy caminando al trabajo todos los días."},{"t":"I study at the university. I live with my parents, and we eat dinner together every night.","tr":"Estudio en la universidad. Vivo con mis papás y cenamos juntos todas las noches."}]}
+      ]
+    },
+    {
+      "id": "talk-about-someone-else",
+      "unit": 2,
+      "level": "A1",
+      "title": "Habla del día de otra persona",
+      "summary": "Di qué hace otra persona: {{My brother works in Chicago. He drives a truck.}}",
+      "topic": "{{he, she, it}} + verbo con -s ({{works, watches, studies}}); {{has}}, {{does}}, {{goes}}; los tres sonidos de la -s",
+      "blocks": [
+        {"goal":{"t":"My brother works in Chicago. He drives a truck.","tr":"Mi hermano trabaja en Chicago. Maneja un camión de carga."}},
+        {"dialog":[{"who":"Ruth","t":"What does your sister do?","tr":"¿A qué se dedica tu hermana?"},{"who":"Tú","t":"She works at a hotel. She speaks three languages.","tr":"Trabaja en un hotel. Habla tres idiomas."},{"who":"Ruth","t":"Wow. And your dad?","tr":"¡Guau! ¿Y tu papá?"},{"who":"Tú","t":"He has a little store. He opens at seven every day.","tr":"Tiene una tiendita. Abre a las siete todos los días."},{"who":"Ruth","t":"And your mom?","tr":"¿Y tu mamá?"},{"who":"Tú","t":"She watches TV and tells everyone what to do!","tr":"¡Ve la tele y les dice a todos qué hacer!"}]},
+        {"p":"**La única terminación del presente.** Con {{he}}, {{she}} e {{it}} (y con un nombre, como {{my brother}} o {{Ana}}), el verbo lleva **-s**: {{I work}}, pero {{he works}}. Es la única diferencia, y es facilísimo olvidarla: a los hispanohablantes se nos va todo el tiempo."},
+        { "table": [
+          ["","{{work}}","{{live}}"],
+          ["yo, tú, nosotros, ellos","{{work}}","{{live}}"],
+          ["él, ella, eso","{{works}}","{{lives}}"]
+        ] },
+        {"p":"**La ortografía.** Después de s, sh, ch, x u o, se agrega **-es**: {{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}. Consonante + y → **-ies**: {{study}} → {{studies}} (pero {{play}} → {{plays}}). Y hay uno irregular: {{have}} → {{has}}."},
+        {"p":"**Cómo suena.** La -s suena “s” después de sonidos como p, t, k ({{works}}, {{eats}}); “z” después de casi todos los demás ({{lives}}, {{plays}}); e “iz”, como una sílaba más, después de s, sh y ch ({{watches}}, {{uses}})."},
+        { "ex": [
+          {"t":"She lives in Houston.","tr":"Vive en Houston."},
+          {"t":"My dad watches the news every night.","tr":"Mi papá ve las noticias todas las noches."},
+          {"t":"Ana studies at night.","tr":"Ana estudia en la noche."},
+          {"t":"He goes to the gym on Mondays.","tr":"Va al gimnasio los lunes."},
+          {"t":"The store opens at nine.","tr":"La tienda abre a las nueve.","note":"una cosa: también con -s"},
+          {"t":"My son plays soccer.","tr":"Mi hijo juega futbol."},
+          {"t":"She has two kids.","tr":"Tiene dos hijos."}
+        ] },
+        {"tip":"Truco: si el sujeto es una sola persona o cosa, y no eres tú ni yo, el verbo lleva -s. {{The bus leaves at six.}} {{My boss says…}} {{It rains a lot here.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"She work at a hotel.","right":"She works at a hotel.","tr":"Trabaja en un hotel.","why":"Con {{she}}, el verbo lleva -s: {{works}}."},
+        {"wrong":"He haves a car.","right":"He has a car.","tr":"Tiene carro.","why":"{{have}} es irregular: {{has}}."},
+        {"wrong":"My mom studys English.","right":"My mom studies English.","tr":"Mi mamá estudia inglés.","why":"Consonante + y → -ies: {{studies}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My sister ___ in Phoenix.","tr":"Mi hermana vive en Phoenix.","options":["lives","live","living"],"answer":0,"why":"Una sola persona (ella): -s, {{lives}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"He ___ TV every night.","tr":"Ve la tele todas las noches.","options":["watches","watchs","watch"],"answer":0,"why":"Después de ch, -es: {{watches}}."},
+        {"type":"choice","q":"¿Cuál está bien?","options":["{{My boss has a new car.}}","{{My boss have a new car.}}","{{My boss haves a new car.}}"],"answer":0,"why":"{{have}} con una persona: {{has}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My kids ___ to school by bus.","tr":"Mis hijos van a la escuela en camión.","options":["go","goes"],"answer":0,"why":"{{my kids}} son varios ({{they}}): sin -s, {{go}}.","from":"say-what-you-do"},
+        {"type":"dialogue","q":"Hablas de tu familia con una compañera. Escoge tus respuestas.","lines":[{"who":"Compañera","t":"What does your husband do?","tr":"¿A qué se dedica tu esposo?"},{"options":["He teaches English at a school.","He teach English at a school."],"answer":0,"why":"Con {{he}}, -es después de ch: {{teaches}}."},{"who":"Compañera","t":"And your daughter?","tr":"¿Y tu hija?"},{"options":["She studies at the university.","She studys at the university."],"answer":0,"why":"{{study}} → {{studies}}."},{"who":"Compañera","t":"That's great.","tr":"Qué bien."}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Mi papá ve las noticias todas las noches.","words":["My dad","watches","the news","every night."]},
+        {"type":"say","q":"Di “Ella habla tres idiomas.”","answer":"She speaks three languages."},
+        {"type":"free","q":"Te toca: describe el día de alguien de tu familia: dónde vive, qué hace, a qué hora se levanta.","answers":[{"t":"My mom lives in Veracruz. She works at a bakery, and she gets up at five every day.","tr":"Mi mamá vive en Veracruz. Trabaja en una panadería y se levanta a las cinco todos los días."},{"t":"My brother is a mechanic. He has a small shop, and he works on Saturdays too.","tr":"Mi hermano es mecánico. Tiene un tallercito y también trabaja los sábados."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-dont-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di lo que no haces",
+      "summary": "Di lo que no haces, lo que no tienes y lo que no sabes: {{I don't drink coffee.}} {{She doesn't eat meat.}}",
+      "topic": "{{don't}} y {{doesn't}} + la forma base",
+      "blocks": [
+        {"goal":{"t":"I don't drink coffee, and my wife doesn't eat meat.","tr":"Yo no tomo café y mi esposa no come carne."}},
+        {"dialog":[{"who":"Chris","t":"Do you want pizza tonight?","tr":"¿Quieres pizza hoy en la noche?"},{"who":"Tú","t":"Sure, but Ana doesn't eat cheese.","tr":"Sí, pero Ana no come queso."},{"who":"Chris","t":"Really? And Tom?","tr":"¿En serio? ¿Y Tom?"},{"who":"Tú","t":"He doesn't like pizza. And I don't have any money!","tr":"A él no le gusta la pizza. ¡Y yo no tengo nada de dinero!"},{"who":"Chris","t":"Okay… tacos at home, then.","tr":"Bueno… tacos en la casa, entonces."}]},
+        {"p":"**En inglés, “no” no basta.** En español solo pones “no” antes del verbo: “no trabajo”. En inglés no se puede decir {{I no work}}: hace falta un verbo ayudante, {{do}}, con {{not}}: {{I do not work}}, que casi siempre se junta en {{I don't work}}."},
+        {"term":"verbo auxiliar","means":"un verbo que ayuda a otro, sin significado propio, para hacer negaciones y preguntas: {{do}}, {{does}}, {{did}}."},
+        { "table": [
+          ["","afirmativo","negativo"],
+          ["{{I, you, we, they}}","{{I work.}}","{{I don't work.}}"],
+          ["{{he, she, it}}","{{She works.}}","{{She doesn't work.}}"]
+        ] },
+        {"p":"**La -s se pasa al ayudante.** Con {{he}}, {{she}} e {{it}}, el ayudante es {{does}} ({{doesn't}}), y **el verbo principal pierde su -s**: {{She doesn't work}}, nunca {{She doesn't works}}. La -s se dice una sola vez."},
+        {"p":"**Con {{be}} es distinto.** {{be}} no necesita ayudante: {{I'm not}}, {{she isn't}} (lección 3). {{don't}} y {{doesn't}} son para todos los demás verbos: {{I don't know}}, {{he doesn't have}}."},
+        { "ex": [
+          {"t":"I don't know.","tr":"No sé."},
+          {"t":"She doesn't speak English.","tr":"No habla inglés."},
+          {"t":"We don't have a car.","tr":"No tenemos carro."},
+          {"t":"My son doesn't like vegetables.","tr":"A mi hijo no le gustan las verduras."},
+          {"t":"They don't live here anymore.","tr":"Ya no viven aquí.","note":"{{not … anymore}}: “ya no”"},
+          {"t":"It doesn't matter.","tr":"No importa."},
+          {"t":"I don't understand.","tr":"No entiendo."}
+        ] },
+        {"tip":"{{I don't know}}, {{I don't understand}}, {{It doesn't matter}} y {{Don't worry}} (no te preocupes) son de las frases más útiles del inglés. Apréndetelas enteras."}
+      ],
+      "mistakes": [
+        {"wrong":"I no work on Sundays.","right":"I don't work on Sundays.","tr":"No trabajo los domingos.","why":"En inglés, el “no” necesita el ayudante: {{don't}}."},
+        {"wrong":"She doesn't works here.","right":"She doesn't work here.","tr":"No trabaja aquí.","why":"Después de {{doesn't}}, el verbo va sin -s."},
+        {"wrong":"He don't like coffee.","right":"He doesn't like coffee.","tr":"No le gusta el café.","why":"Con {{he}}, {{she}} e {{it}}: {{doesn't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ speak French.","tr":"No hablo francés.","options":["don't","doesn't","no"],"answer":0,"why":"Con {{I}}: {{don't}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My husband doesn't ___ meat.","tr":"Mi esposo no come carne.","options":["eat","eats","eating"],"answer":0,"why":"Después de {{doesn't}}, la forma base: {{eat}}.","from":"talk-about-someone-else"},
+        {"type":"choice","q":"¿Cuál está bien?","options":["{{It doesn't matter.}}","{{It don't matter.}}","{{It no matters.}}"],"answer":0,"why":"{{it}} va con {{doesn't}}, y el verbo sin -s."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"They ___ have kids.","tr":"No tienen hijos.","options":["don't","doesn't","aren't"],"answer":0,"why":"{{they}}: {{don't}}. ({{aren't}} es solo con {{be}}.)","from":"ask-questions-with-be"},
+        {"type":"dialogue","q":"Un amigo te invita a comer. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"Let's get sushi!","tr":"¡Vamos por sushi!"},{"options":["Sorry, I don't like fish.","Sorry, I no like fish."],"answer":0,"why":"El “no” necesita {{don't}}."},{"who":"Amigo","t":"Okay. What about burgers? Does your girlfriend eat meat?","tr":"Bueno. ¿Y unas hamburguesas? ¿Tu novia come carne?"},{"options":["No, she doesn't eat meat. She's a vegetarian.","No, she don't eat meat. She's a vegetarian."],"answer":0,"why":"Con {{she}}: {{doesn't}}."},{"who":"Amigo","t":"Okay, Mexican food, then!","tr":"¡Bueno, comida mexicana, entonces!"}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Ya no viven aquí.","words":["They","don't","live here","anymore."]},
+        {"type":"say","q":"Di “No entiendo.”","answer":"I don't understand."},
+        {"type":"free","q":"Te toca: di dos cosas que no haces y una que no hace alguien de tu familia.","answers":[{"t":"I don't smoke and I don't drink soda. My dad doesn't drive.","tr":"No fumo y no tomo refresco. Mi papá no maneja."},{"t":"I don't watch TV and I don't eat sugar. My sister doesn't speak English.","tr":"No veo la tele y no como azúcar. Mi hermana no habla inglés."}]}
+      ]
+    },
+    {
+      "id": "ask-questions-with-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pregunta por la vida de alguien",
+      "summary": "Pregunta dónde vive alguien, dónde trabaja y qué le gusta: {{Where do you work?}} {{Does she speak Spanish?}}",
+      "topic": "preguntas con {{Do}} y {{Does}} + la forma base; {{Where do you…?}}; respuestas cortas",
+      "blocks": [
+        {"goal":{"t":"Where do you work? — I work at a school.","tr":"¿Dónde trabajas? — Trabajo en una escuela."}},
+        {"dialog":[{"who":"Jake","t":"So, where do you live?","tr":"¿Y dónde vives?"},{"who":"Tú","t":"I live in Los Angeles. Do you live here?","tr":"Vivo en Los Ángeles. ¿Tú vives aquí?"},{"who":"Jake","t":"No, I live in San Diego. What do you do?","tr":"No, vivo en San Diego. ¿A qué te dedicas?"},{"who":"Tú","t":"I'm a photographer. Do you like photography?","tr":"Soy fotógrafa. ¿Te gusta la fotografía?"},{"who":"Jake","t":"Yes, I do! I love it.","tr":"¡Sí! Me encanta."}]},
+        {"p":"**El ayudante también pregunta.** Como en la negación, para preguntar con un verbo que no es {{be}}, el inglés pone {{do}} (o {{does}}, con {{he}}, {{she}} e {{it}}) al principio. El verbo principal va en la forma base, sin -s:"},
+        { "table": [
+          ["afirmación","pregunta"],
+          ["{{You work here.}}","{{Do you work here?}}"],
+          ["{{They have kids.}}","{{Do they have kids?}}"],
+          ["{{She speaks Spanish.}}","{{Does she speak Spanish?}}"]
+        ] },
+        {"p":"**Con palabra de pregunta**, el orden es: palabra + {{do}} o {{does}} + sujeto + verbo: {{Where do you live?}} “¿Dónde vives?”, {{What does he do?}} “¿A qué se dedica?”, {{When does the store open?}} “¿A qué hora abre la tienda?”."},
+        {"p":"**{{do}} dos veces.** En {{What do you do?}}, el primer {{do}} es el ayudante y el segundo es el verbo “hacer”: “¿qué haces?”, que en inglés casi siempre significa “¿a qué te dedicas?”."},
+        {"p":"**Respuestas cortas** con el ayudante: {{Do you like coffee? — Yes, I do.}} o {{No, I don't.}} {{Does he work here? — Yes, he does.}} o {{No, he doesn't.}}"},
+        { "ex": [
+          {"t":"Do you speak English? — A little.","tr":"¿Hablas inglés? — Un poco."},
+          {"t":"Does your husband work on Saturdays?","tr":"¿Tu esposo trabaja los sábados?"},
+          {"t":"What time does the bank open?","tr":"¿A qué hora abre el banco?"},
+          {"t":"How do you say “aguacate” in English?","tr":"¿Cómo se dice “aguacate” en inglés?"},
+          {"t":"Where do your parents live?","tr":"¿Dónde viven tus papás?"},
+          {"t":"Do they have a dog? — Yes, they do.","tr":"¿Tienen perro? — Sí."},
+          {"t":"What does this word mean?","tr":"¿Qué significa esta palabra?"}
+        ] },
+        {"tip":"{{be}} no usa {{do}}: {{Are you tired?}}, {{Is she here?}} (lección 3). Todos los demás verbos, sí: {{Do…?}}, {{Does…?}} Si dudas, fíjate si en la oración hay {{am}}, {{is}} o {{are}}."}
+      ],
+      "mistakes": [
+        {"wrong":"You work here?","right":"Do you work here?","tr":"¿Trabajas aquí?","why":"Para preguntar hace falta el ayudante: {{Do you…?}}"},
+        {"wrong":"Does she speaks Spanish?","right":"Does she speak Spanish?","tr":"¿Habla español?","why":"La -s ya está en {{does}}: el verbo va sin -s."},
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"¿Dónde vives?","why":"Después de la palabra de pregunta va el ayudante: {{Where do you…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ you like Mexican food?","tr":"¿Te gusta la comida mexicana?","options":["Do","Does","Are"],"answer":0,"why":"Con {{you}}: {{Do}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Where ___ your sister live?","tr":"¿Dónde vive tu hermana?","options":["does","do","is"],"answer":0,"why":"Una persona (ella): {{does}}."},
+        {"type":"choice","q":"Te preguntan {{Do you have kids?}} Sí tienes:","options":["{{Yes, I do.}}","{{Yes, I have.}}","{{Yes, I am.}}"],"answer":0,"why":"La respuesta corta repite el ayudante: {{Yes, I do}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Does he ___ a car?","tr":"¿Tiene carro?","options":["have","has","haves"],"answer":0,"why":"Después de {{does}}, la forma base: {{have}}.","from":"talk-about-someone-else"},
+        {"type":"dialogue","q":"Una entrevista de trabajo. Escoge tus respuestas.","lines":[{"who":"Entrevistadora","t":"Do you speak Spanish?","tr":"¿Habla español?"},{"options":["Yes, I do. It's my first language.","Yes, I speak. It's my first language."],"answer":0,"why":"La respuesta corta: {{Yes, I do}}."},{"who":"Entrevistadora","t":"Do you have experience with customers?","tr":"¿Tiene experiencia con clientes?"},{"options":["Yes, I do, but I don't have experience in sales.","Yes, I do, but I no have experience in sales."],"answer":0,"why":"El “no” necesita {{don't}}."},{"who":"Entrevistadora","t":"Okay, thank you.","tr":"Muy bien, gracias."}],"from":"say-what-you-dont-do"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"¿A qué hora abre el banco?","words":["What time","does","the bank","open?"]},
+        {"type":"say","q":"Pregunta “¿Qué significa esta palabra?”","answer":"What does this word mean?"},
+        {"type":"free","q":"Te toca: quieres conocer a un compañero nuevo. Hazle tres preguntas con {{do}} o {{does}}.","answers":[{"t":"Where do you live? Do you have kids? What do you do on weekends?","tr":"¿Dónde vives? ¿Tienes hijos? ¿Qué haces los fines de semana?"},{"t":"Do you like your job? Where does your family live? Do you speak Spanish?","tr":"¿Te gusta tu trabajo? ¿Dónde vive tu familia? ¿Hablas español?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di lo que te gusta",
+      "summary": "Di lo que te gusta, lo que te encanta y lo que odias: {{I love tacos, but I don't like spicy food.}}",
+      "topic": "{{like, love, hate}} + sustantivo o + -ing; sin {{the}} para hablar en general; {{Me too}} y {{Me neither}}",
+      "blocks": [
+        {"goal":{"t":"I love tacos, but I don't like spicy food.","tr":"Me encantan los tacos, pero no me gusta la comida picante."}},
+        {"dialog":[{"who":"Ben","t":"Do you like music?","tr":"¿Te gusta la música?"},{"who":"Tú","t":"Yes, I love music. I like rock and cumbia.","tr":"Sí, me encanta la música. Me gustan el rock y la cumbia."},{"who":"Ben","t":"Me too! And do you like dancing?","tr":"¡A mí también! ¿Y te gusta bailar?"},{"who":"Tú","t":"Not really. I don't like dancing.","tr":"La verdad, no. No me gusta bailar."},{"who":"Ben","t":"Me neither!","tr":"¡A mí tampoco!"}]},
+        {"p":"**Al derecho, no al revés.** En español decimos “me gusta el café”: el café “me gusta a mí”. En inglés es como decir “yo gusto”: la persona es el sujeto, como con cualquier otro verbo: {{I like coffee.}} {{She likes coffee}} (con -s). Y se niega y se pregunta con {{do}}: {{I don't like…}}, {{Do you like…?}}"},
+        { "table": [
+          ["en español","en inglés"],
+          ["Me gusta el café.","{{I like coffee.}}"],
+          ["Me gustan los perros.","{{I like dogs.}}"],
+          ["A mi hermana le gusta bailar.","{{My sister likes dancing.}}"],
+          ["No nos gusta el frío.","{{We don't like cold weather.}}"],
+          ["¿Te gusta?","{{Do you like it?}}"]
+        ] },
+        {"p":"**El verbo no cambia por la cosa.** “Me gusta” y “me gustan” son los dos {{I like}}: lo que cambia el verbo es la persona, no lo que te gusta."},
+        {"p":"**Sin {{the}} para hablar en general.** El español dice “me gusta **el** café”, “me encantan **los** perros”. Cuando hablas de algo en general, el inglés **no** usa {{the}}: {{I like coffee.}} {{I love dogs.}} {{Music is important.}} Solo con algo concreto: {{I like the coffee here}} (el café de aquí)."},
+        {"p":"**Más fuerte o más suave:** {{I love}} (me encanta), {{I like}} (me gusta), {{I don't like}} (no me gusta), {{I hate}} (odio, no soporto). Con una actividad, el verbo lleva **-ing**: {{I love cooking.}} {{I hate waking up early.}} (También se oye {{I like to cook}}.)"},
+        {"p":"**¡A mí también! ¡A mí tampoco!** {{Me too.}} después de algo positivo ({{I like it. — Me too.}}), y {{Me neither.}} después de algo negativo ({{I don't like it. — Me neither.}})."},
+        { "ex": [
+          {"t":"I love Mexican food.","tr":"Me encanta la comida mexicana."},
+          {"t":"Do you like soccer? — Yes, I do.","tr":"¿Te gusta el futbol? — Sí."},
+          {"t":"My kids love swimming.","tr":"A mis hijos les encanta nadar."},
+          {"t":"She doesn't like cats.","tr":"No le gustan los gatos."},
+          {"t":"I hate traffic.","tr":"Odio el tráfico."},
+          {"t":"I like your shirt.","tr":"Me gusta tu camisa."},
+          {"t":"We like the food at this restaurant.","tr":"Nos gusta la comida de este restaurante.","note":"algo concreto: con {{the}}"}
+        ] },
+        {"tip":"Cuando no dices qué te gusta, va {{it}} al final: {{Do you like it? — Yes, I like it a lot.}} Nunca {{I like}} solito."}
+      ],
+      "mistakes": [
+        {"wrong":"Me like coffee.","right":"I like coffee.","tr":"Me gusta el café.","why":"En inglés la persona es el sujeto: {{I like}}."},
+        {"wrong":"I like the dogs.","right":"I like dogs.","tr":"Me gustan los perros.","why":"Hablando en general, sin {{the}}."},
+        {"wrong":"My son like pizza.","right":"My son likes pizza.","tr":"A mi hijo le gusta la pizza.","why":"{{my son}} es {{he}}: con -s, {{likes}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ dogs, but I don't like cats.","tr":"Me encantan los perros, pero no me gustan los gatos.","options":["love","loves","am love"],"answer":0,"why":"Con {{I}}: {{love}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My wife ___ cooking.","tr":"A mi esposa le encanta cocinar.","options":["loves","love","is love"],"answer":0,"why":"{{my wife}} es {{she}}: {{loves}}.","from":"talk-about-someone-else"},
+        {"type":"choice","q":"“Me gusta la música.” ¿Cómo se dice?","options":["{{I like music.}}","{{I like the music.}}","{{Me likes music.}}"],"answer":0,"why":"En general, sin {{the}}; y la persona es el sujeto."},
+        {"type":"choice","q":"Tu amiga dice {{I don't like horror movies.}} A ti tampoco te gustan:","options":["{{Me neither.}}","{{Me too.}}","{{I too.}}"],"answer":0,"why":"Después de algo negativo: {{Me neither}}."},
+        {"type":"dialogue","q":"Conociendo a alguien. Escoge tus respuestas.","lines":[{"who":"Kate","t":"Do you like sports?","tr":"¿Te gustan los deportes?"},{"options":["Yes, I do. I love soccer.","Yes, I like. I love the soccer."],"answer":0,"why":"La respuesta corta: {{Yes, I do}}; y en general, sin {{the}}."},{"who":"Kate","t":"Does your brother like soccer too?","tr":"¿A tu hermano también le gusta el futbol?"},{"options":["No, he doesn't. He likes basketball.","No, he don't. He like basketball."],"answer":0,"why":"{{he}}: {{doesn't}}, y {{likes}} con -s."},{"who":"Kate","t":"Cool.","tr":"Qué padre."}],"from":"ask-questions-with-do"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Odio levantarme temprano.","words":["I","hate","waking up","early."]},
+        {"type":"say","q":"Di “Me gusta tu camisa.”","answer":"I like your shirt."},
+        {"type":"free","q":"Te toca: di dos cosas que te gustan o te encantan, y una que odias.","answers":[{"t":"I love coffee and I like reading. I hate cold weather.","tr":"Me encanta el café y me gusta leer. Odio el frío."},{"t":"I like music and I love cooking, but I hate cleaning the house.","tr":"Me gusta la música y me encanta cocinar, pero odio limpiar la casa."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 2,
+      "level": "A1",
+      "title": "Habla de tu familia",
+      "summary": "Di quién hay en tu familia y de quién es cada cosa: {{I have two kids. My son's name is Leo.}}",
+      "topic": "{{have}} y {{has}}; {{my, your, his, her, our, their}}; la {{'s}} para decir de quién es algo",
+      "blocks": [
+        {"goal":{"t":"I have two kids. My son's name is Leo.","tr":"Tengo dos hijos. Mi hijo se llama Leo."}},
+        {"dialog":[{"who":"Rachel","t":"Who's that?","tr":"¿Quién es?"},{"who":"Tú","t":"That's my sister. Her name is Paty. She has three kids.","tr":"Es mi hermana. Se llama Paty. Tiene tres hijos."},{"who":"Rachel","t":"And who's the man?","tr":"¿Y el señor?"},{"who":"Tú","t":"That's her husband. His name is Jorge.","tr":"Es su esposo. Se llama Jorge."},{"who":"Rachel","t":"Do you have kids?","tr":"¿Tú tienes hijos?"},{"who":"Tú","t":"No, but I have a cat. Her name is Luna!","tr":"No, pero tengo una gata. ¡Se llama Luna!"}]},
+        {"p":"**{{have}} y {{has}}.** {{have}} es “tener”, con todos ({{I have}}, {{you have}}, {{we have}}, {{they have}}) menos con {{he}}, {{she}} e {{it}}, que llevan {{has}}. Se niega y se pregunta con {{do}}: {{I don't have…}}, {{Does she have…?}}"},
+        {"term":"posesivo","means":"una palabra que dice de quién es algo: mi, tu, su, nuestro."},
+        { "table": [
+          ["","en inglés","ejemplo"],
+          ["mi, mis","{{my}}","{{my brother}}, {{my brothers}}"],
+          ["tu, tus; su (de usted)","{{your}}","{{your car}}"],
+          ["su, sus (de él)","{{his}}","{{his wife}}"],
+          ["su, sus (de ella)","{{her}}","{{her husband}}"],
+          ["su (de una cosa)","{{its}}","{{its name}}"],
+          ["nuestro, nuestra…","{{our}}","{{our house}}"],
+          ["su, sus (de ellos)","{{their}}","{{their kids}}"]
+        ] },
+        {"p":"**¿{{his}} o {{her}}? Depende del dueño.** El español dice “su esposo” y “su esposa” sin importar de quién. En inglés, el posesivo sigue a la persona **dueña**: si es de un hombre, {{his}}; si es de una mujer, {{her}}. {{Paty and her husband}} (el esposo de Paty), {{Jorge and his wife}} (la esposa de Jorge). Y no cambia en plural: {{my brother}}, {{my brothers}}."},
+        {"p":"**La {{'s}}: de quién es.** En vez de “el carro de mi papá”, el inglés pone primero al dueño, con {{'s}}: {{my dad's car}}. {{Ana's house}} “la casa de Ana”. Con un plural en -s, solo el apóstrofo: {{my parents' house}} “la casa de mis papás”."},
+        {"p":"**El nombre:** {{My name is…}} “Me llamo…”, y de otra persona: {{His name is Jorge.}} {{Her name is Paty.}} {{What's your name?}} “¿Cómo te llamas?”"},
+        { "ex": [
+          {"t":"We have a big family.","tr":"Tenemos una familia grande."},
+          {"t":"Her daughter lives in Miami.","tr":"Su hija (de ella) vive en Miami."},
+          {"t":"His wife is a doctor.","tr":"Su esposa (de él) es doctora."},
+          {"t":"This is my mom's car.","tr":"Este es el carro de mi mamá."},
+          {"t":"Our kids go to the same school.","tr":"Nuestros hijos van a la misma escuela."},
+          {"t":"Does he have brothers and sisters?","tr":"¿Tiene hermanos?","note":"hermanos y hermanas: {{brothers and sisters}}"},
+          {"t":"Their house is beautiful.","tr":"Su casa (de ellos) es preciosa."}
+        ] },
+        {"tip":"La familia: {{mom}}, {{dad}}, {{parents}} (papás), {{brother}}, {{sister}}, {{son}}, {{daughter}}, {{kids}} (hijos), {{husband}}, {{wife}}, {{grandma}}, {{grandpa}}, {{aunt}}, {{uncle}}, {{cousin}} (primo o prima). Ojo: {{parents}} son los papás; los parientes son {{relatives}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Paty and his husband.","right":"Paty and her husband.","tr":"Paty y su esposo.","why":"La dueña es Paty, una mujer: {{her}}."},
+        {"wrong":"The car of my dad is red.","right":"My dad's car is red.","tr":"El carro de mi papá es rojo.","why":"Para decir de quién es algo: el dueño primero, con {{'s}}."},
+        {"wrong":"She have three kids.","right":"She has three kids.","tr":"Tiene tres hijos.","why":"Con {{she}}: {{has}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My brother ___ two daughters.","tr":"Mi hermano tiene dos hijas.","options":["has","have","is"],"answer":0,"why":"Una persona (él): {{has}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"This is Carlos and ___ wife, Elena.","tr":"Él es Carlos y su esposa, Elena.","options":["his","her","their"],"answer":0,"why":"La esposa es de Carlos, un hombre: {{his}}."},
+        {"type":"choice","q":"“La casa de mis papás” es…","options":["{{my parents' house}}","{{the house of my parents}}","{{my parent's house}}"],"answer":0,"why":"El dueño primero; y con un plural en -s, solo el apóstrofo: {{parents'}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Does your sister ___ kids?","tr":"¿Tu hermana tiene hijos?","options":["have","has"],"answer":0,"why":"Después de {{does}}, la forma base: {{have}}.","from":"ask-questions-with-do"},
+        {"type":"dialogue","q":"Platicas sobre tu familia. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Do you have brothers and sisters?","tr":"¿Tienes hermanos?"},{"options":["Yes, I have one sister. Her name is Mari.","Yes, I have one sister. His name is Mari."],"answer":0,"why":"Tu hermana es mujer: {{her name}}."},{"who":"Amiga","t":"What does she do?","tr":"¿A qué se dedica?"},{"options":["She's a lawyer. Her office is in Dallas.","She's lawyer. Her office is in Dallas."],"answer":0,"why":"Con la profesión: {{a lawyer}}."},{"who":"Amiga","t":"Nice!","tr":"¡Qué bien!"}],"from":"talk-about-people"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Este es el carro de mi mamá.","words":["This","is","my mom's","car."]},
+        {"type":"say","q":"Pregunta “¿Cómo se llama tu hermano?”","answer":"What's your brother's name?"},
+        {"type":"free","q":"Te toca: habla de tu familia. ¿Quiénes son, cómo se llaman y qué hacen?","answers":[{"t":"I have two brothers. Their names are Luis and Iván. Luis is a doctor and Iván is a student.","tr":"Tengo dos hermanos. Se llaman Luis e Iván. Luis es doctor e Iván es estudiante."},{"t":"My husband's name is Raúl. We have a daughter. Her name is Sofía, and she's five.","tr":"Mi esposo se llama Raúl. Tenemos una hija. Se llama Sofía y tiene cinco años."}]}
+      ]
     }
   ]
 }
