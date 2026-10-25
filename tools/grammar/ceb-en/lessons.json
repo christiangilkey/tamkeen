@@ -2059,6 +2059,200 @@
         {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"“I'll call you.” → He said he ___ call me.","tr":"Miingon siya nga tawagan ko niya.","options":["would","will","wills"],"answer":0,"why":"Ang {{will}} moatras: {{would}}.","from":"make-promises-and-predictions"},
         {"type":"free","q":"Ikaw na: isulti ang usa ka butang nga giingon o gipangutana nimo sa usa ka tawo karong semanaha.","answers":[{"t":"My boss said I did a good job. She asked if I could work on Saturday.","tr":"Miingon ang akong boss nga maayo akong trabaho. Nangutana siya kung makatrabaho ba ko sa Sabado."},{"t":"My friend told me she was getting married! She said the wedding would be in June.","tr":"Giingnan ko sa akong higala nga magminyo na siya! Miingon siya nga sa Hunyo ang kasal."}]}
       ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 9,
+      "level": "B1",
+      "title": "Gamita ang mga phrasal verb",
+      "summary": "Gamita ang mga berbo nga naay gamay nga pulong sama sa {{up}}, {{off}}, {{for}}: “Can you pick me up at six?”",
+      "topic": "Mga phrasal verb ({{get up}}, {{pick up}}, {{look for}}, {{look after}}, {{give up}}, {{find out}}); asa ibutang ang {{it}}, {{me}}",
+      "blocks": [
+        {"goal":{"t":"Can you pick me up at six? I'll look for you outside.","tr":"Pwede nimo ko sugaton alas sais? Pangitaon tika sa gawas."}},
+        {"dialog":[{"who":"Ben","t":"Can you pick me up at the airport tomorrow?","tr":"Pwede nimo ko sugaton sa airport ugma?"},{"who":"Joy","t":"Sure! What time does your flight get in?","tr":"Sige! Unsang orasa moabot ang imong flight?"},{"who":"Ben","t":"At six. I'll call you when I get off the plane.","tr":"Alas sais. Tawagan tika inig naog nako sa eroplano."},{"who":"Joy","t":"Okay. Don't forget to turn on your phone!","tr":"Okay. Ayaw kalimti ang pag-on sa imong selpon!"},{"who":"Ben","t":"I won't. Thanks for looking after my cat, by the way.","tr":"Dili. Salamat diay sa pag-atiman sa akong iring."},{"who":"Joy","t":"No problem! I'll give him back tomorrow.","tr":"Walay problema! Iuli nako siya ugma."}]},
+        {"p":"Ang Iningles kanunay mohimo og bag-ong kahulogan pinaagi sa berbo + gamay nga pulong ({{up}}, {{on}}, {{off}}, {{out}}, {{back}}, {{after}}, {{for}}). Ang kahulogan dili kanunay matag-an gikan sa mga bahin: ang {{give up}} dili “ihatag sa ibabaw” kondili “undang”. Kat-oni sila sama sa bag-ong mga pulong."},
+        {"term":"phrasal verb","means":"berbo nga naay gamay nga pulong nga nag-uban niini ug naghatag og bag-ong kahulogan: {{get up}} (bangon), {{look for}} (pangita)."},
+        { "table": [
+          ["phrasal verb","Bisaya","pananglitan"],
+          ["{{get up}}","bangon","{{I get up at six.}}"],
+          ["{{pick up}}","sugat, kuha","{{Can you pick me up?}}"],
+          ["{{look for}}","pangita","{{I'm looking for my keys.}}"],
+          ["{{look after}}","atiman","{{She looks after her lola.}}"],
+          ["{{give up}}","undang, hunong","{{Don't give up!}}"],
+          ["{{find out}}","mahibal-an","{{I found out the truth.}}"],
+          ["{{come back}}","balik","{{I'll come back tomorrow.}}"],
+          ["{{give back}}","uli","{{Give it back!}}"],
+          ["{{get on}} / {{get off}}","sakay / naog","{{Get off at Ayala.}}"]
+        ] },
+        {"p":"**Asa ibutang ang {{it}}, {{me}}, {{him}}?** Sa daghan niini, ang butang mahimong sa tunga o sa katapusan: {{pick up the kids}} o {{pick the kids up}}. Pero kung pronoun ({{it}}, {{me}}, {{him}}, {{her}}), **kinahanglan sa tunga**: {{Turn it off.}} {{Pick me up.}} Dili {{Turn off it}}. Sa {{look for}} ug {{look after}}, kanunay sa katapusan: {{look for my keys}}, {{look after her}}."},
+        { "ex": [
+          {"t":"I get up at six every day.","tr":"Mobangon ko alas sais matag adlaw."},
+          {"t":"Can you pick me up at eight?","tr":"Pwede nimo ko sugaton alas otso?"},
+          {"t":"I'm looking for my keys.","tr":"Nangita ko sa akong yawe."},
+          {"t":"Don't give up!","tr":"Ayaw og undang!"},
+          {"t":"Who looks after your kids?","tr":"Kinsa ang moatiman sa imong mga anak?"},
+          {"t":"Turn it off, please.","tr":"Palonga, palihug."},
+          {"t":"I found out the truth.","tr":"Nahibal-an nako ang tinuod."}
+        ] },
+        {"tip":"Ang mga Pilipino kasagaran mogamit og pormal nga berbo ({{return}}, {{remove}}, {{continue}}). Husto kana, pero sa istorya sa Amerika, mas natural ang phrasal verb: {{give back}}, {{take off}}, {{go on}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"Palonga.","why":"Ang pronoun ({{it}}) kinahanglan sa tunga."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"Nangita ko sa akong yawe.","why":"Pangita: {{look for}}, uban ang {{for}}."},
+        {"wrong":"I'll pick up you at six.","right":"I'll pick you up at six.","tr":"Sugaton tika alas sais.","why":"Ang {{you}} kinahanglan sa tunga sa {{pick}} ug {{up}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm looking ___ my keys.","tr":"Nangita ko sa akong yawe.","options":["for","at","after"],"answer":0,"why":"Pangita: {{look for}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Don't give ___! You can do it!","tr":"Ayaw og undang! Kaya nimo!","options":["up","back","off"],"answer":0,"why":"Undang: {{give up}}."},
+        {"type":"choice","q":"Asa ang husto?","options":["{{Turn it off.}}","{{Turn off it.}}","{{Turn it.}}"],"answer":0,"why":"Pronoun sa tunga: {{turn it off}}."},
+        {"type":"dialogue","q":"Gitawagan ka sa imong higala. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"I'm at the bus station. Can you pick me up?","tr":"Naa ko sa bus station. Pwede nimo ko sugaton?"},{"options":["Sure! I'll pick you up in ten minutes.","Sure! I'll pick up you in ten minutes."],"answer":0,"why":"{{you}} sa tunga."},{"who":"Mark","t":"Thanks! Where should I wait?","tr":"Salamat! Asa ko maghulat?"},{"options":["Wait outside. I'll look for you there.","Wait outside. I'll look you there."],"answer":0,"why":"Pangita: {{look for}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Pwede nimo ko sugaton alas otso?","words":["Can you","pick","me","up","at eight?"]},
+        {"type":"say","q":"Isulti: “Palonga ang TV, palihug.”","answer":"Turn off the TV, please.","from":"tell-people-what-to-do"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I usually ___ up at six.","tr":"Kasagaran mobangon ko alas sais.","options":["get","stand","look"],"answer":0,"why":"Bangon: {{get up}}. Naandan: present simple.","from":"talk-about-your-routine"},
+        {"type":"free","q":"Ikaw na: isulti ang imong adlaw gamit ang tulo ka phrasal verb.","answers":[{"t":"I get up at six. I pick up my son from school at four. In the evening, I look after my lola.","tr":"Mobangon ko alas sais. Sugaton nako ang akong anak sa eskwelahan alas kwatro. Sa gabii, atimanon nako ang akong lola."},{"t":"This morning I couldn't find my phone. I looked for it everywhere, and then I found out it was in my bag!","tr":"Kaganinang buntag dili nako makit-an ang akong selpon. Gipangita nako bisan asa, unya nahibal-an nako nga naa ra diay sa akong bag!"}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 9,
+      "level": "B1",
+      "title": "Sabta ang passive",
+      "summary": "Sabta ang mga karatula, balita ug kasaysayan: “This church was built in 1565.” Ug nganong ang “gi-” sa Bisaya kasagaran dili passive sa Iningles.",
+      "topic": "Ang passive ({{be}} + past participle: {{is made}}, {{was built}}); {{by}}; gamita ang active kung nahibal-an kinsa ang nagbuhat",
+      "blocks": [
+        {"goal":{"t":"This church was built in 1565.","tr":"Gitukod kini nga simbahan niadtong 1565."}},
+        {"dialog":[{"who":"Turista","t":"When was this church built?","tr":"Kanus-a gitukod kini nga simbahan?"},{"who":"Ikaw","t":"It was built in 1565. It's one of the oldest churches in the Philippines.","tr":"Gitukod kini niadtong 1565. Usa kini sa pinakakaraang simbahan sa Pilipinas."},{"who":"Turista","t":"Wow. Is the Santo Niño kept here?","tr":"Wow. Diri ba gitipigan ang Santo Niño?"},{"who":"Ikaw","t":"Yes. It was given to Queen Juana by Magellan in 1521.","tr":"Oo. Gihatag kini ni Magellan kang Reyna Juana niadtong 1521."},{"who":"Turista","t":"Amazing! Are photos allowed inside?","tr":"Nindot kaayo! Gitugotan ba ang pagkuha og litrato sa sulod?"},{"who":"Ikaw","t":"Yes, but flash isn't allowed.","tr":"Oo, pero dili gitugotan ang flash."}]},
+        {"p":"**Ang passive**: {{be}} + past participle (leksyon 35): {{is made}}, {{are sold}}, {{was built}}, {{were taken}}. Gamiton kini kung **wala mahibal-i o dili importante kinsa ang nagbuhat**: sa mga karatula, balita ug kasaysayan. {{English is spoken here.}} {{Photos are not allowed.}} {{My phone was stolen!}}"},
+        {"term":"passive","means":"porma sa sentence diin ang butang nga gibuhatan ang mag-una, ug ang nagbuhat dili na kinahanglan isulti: {{The church was built in 1565.}}"},
+        { "table": [
+          ["active (ang nagbuhat una)","passive (ang butang una)"],
+          ["{{They built the church in 1565.}}","{{The church was built in 1565.}}"],
+          ["{{They make these bags in Cebu.}}","{{These bags are made in Cebu.}}"],
+          ["{{Someone stole my phone!}}","{{My phone was stolen!}}"],
+          ["{{Magellan gave it to Juana.}}","{{It was given to Juana by Magellan.}}"]
+        ] },
+        {"p":"**Ang lit-ag sa Bisaya.** Ang “gi-” sa Bisaya morag passive (“Gikaon sa iro ang isda”), busa ang mga Bisaya kasagaran mohubad niini nga passive: {{The fish was eaten by the dog.}} Husto kini, pero bug-at pamation. Sa adlaw-adlaw nga Iningles, **kung nahibal-an nimo kinsa ang nagbuhat, gamita ang active**: {{The dog ate the fish.}} “Gipalit nako ang sapatos” → {{I bought the shoes.}}, dili {{The shoes were bought by me.}}"},
+        { "ex": [
+          {"t":"This church was built in 1565.","tr":"Gitukod kini nga simbahan niadtong 1565."},
+          {"t":"English is spoken here.","tr":"Iningles ang gigamit dinhi."},
+          {"t":"These bags are made in Cebu.","tr":"Gihimo kini nga mga bag sa Cebu."},
+          {"t":"Photos are not allowed.","tr":"Dili gitugotan ang pagkuha og litrato."},
+          {"t":"My phone was stolen!","tr":"Gikawat ang akong selpon!"},
+          {"t":"The dog ate the fish.","tr":"Gikaon sa iro ang isda."}
+        ] },
+        {"tip":"Sa mga karatula, kasagaran mubo ra ang passive: {{Made in the Philippines}} (gihimo sa Pilipinas), {{No smoking allowed}}, {{Sold out}} (hurot na)."}
+      ],
+      "mistakes": [
+        {"wrong":"The shoes were bought by me.","right":"I bought the shoes.","tr":"Gipalit nako ang sapatos.","why":"Sa istorya, kung ikaw ang nagbuhat, gamita ang active: mas natural."},
+        {"wrong":"This church built in 1565.","right":"This church was built in 1565.","tr":"Gitukod kini nga simbahan niadtong 1565.","why":"Ang passive kinahanglan og {{be}}: {{was built}}."},
+        {"wrong":"English is speak here.","right":"English is spoken here.","tr":"Iningles ang gigamit dinhi.","why":"Passive: {{be}} + past participle ({{spoken}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"This church was ___ in 1565.","tr":"Gitukod kini nga simbahan niadtong 1565.","options":["built","build","building"],"answer":0,"why":"Passive: {{was}} + past participle."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My phone ___ stolen yesterday!","tr":"Gikawat ang akong selpon gahapon!","options":["was","is","were"],"answer":0,"why":"Kaniadto, usa ka butang: {{was}}."},
+        {"type":"choice","q":"“Gipalit nako kini nga sinina.” Asa ang mas natural sa istorya?","options":["{{I bought this dress.}}","{{This dress was bought by me.}}"],"answer":0,"why":"Nahibal-an kinsa ang nagbuhat (ikaw): active."},
+        {"type":"dialogue","q":"Ikaw ang tour guide. Pilia ang imong mga tubag.","lines":[{"who":"Turista","t":"When was Magellan's Cross put here?","tr":"Kanus-a gibutang dinhi ang Krus ni Magellan?"},{"options":["It was put here in 1521.","It put here in 1521."],"answer":0,"why":"Passive: {{was put}}."},{"who":"Turista","t":"Who made these baskets?","tr":"Kinsa ang naghimo niini nga mga bukag?"},{"options":["They were made by local women.","They made by local women."],"answer":0,"why":"Ang passive kinahanglan og {{be}}: {{were made}}. (Mas natural pa gani ang active: {{Local women made them.}})"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Gihimo kini nga mga bag sa Cebu.","words":["These bags","are","made","in Cebu."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"This bag was ___ in Cebu.","tr":"Gihimo kini nga bag sa Cebu.","options":["made","make","maked"],"answer":0,"why":"Past participle sa {{make}}: {{made}}.","from":"talk-about-experiences"},
+        {"type":"choice","q":"“Gikawat ang akong selpon gahapon.”","options":["{{My phone was stolen yesterday.}}","{{My phone stole yesterday.}}"],"answer":0,"why":"Ang selpon wala mangawat: {{was stolen}}.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Ikaw na: isulti kung kanus-a gitukod o asa gihimo ang usa ka butang o lugar nga imong nahibal-an.","answers":[{"t":"Fort San Pedro was built by the Spanish. Today it's a museum.","tr":"Gitukod sa mga Espanyol ang Fort San Pedro. Karon, museyo na kini."},{"t":"My guitar was made in Cebu. Cebu guitars are sold all over the world.","tr":"Gihimo sa Cebu ang akong gitara. Ang mga gitara sa Cebu gibaligya sa tibuok kalibutan."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "Ihatag ang imong opinyon",
+      "summary": "Isulti ang imong hunahuna, uyon o dili uyon sa matinahuron nga paagi, ug hatagi og tambag.",
+      "topic": "{{I think…}}, {{I don't think…}}, {{In my opinion,…}}; {{What do you think?}}; {{I agree}} (dili {{I'm agree}}); {{should}}",
+      "blocks": [
+        {"goal":{"t":"In my opinion, Cebu lechon is better than Manila lechon.","tr":"Para nako, mas lami ang lechon sa Cebu kaysa sa Manila."}},
+        {"dialog":[{"who":"Amy","t":"What do you think? Should I move to Cebu?","tr":"Unsa imong hunahuna? Mobalhin ba ko sa Cebu?"},{"who":"Ana","t":"I think you should! It's cheaper than Manila, and the people are friendly.","tr":"Sa akong hunahuna, angay! Mas barato kaysa sa Manila, ug buotan ang mga tawo."},{"who":"Amy","t":"But I don't think I can handle the heat.","tr":"Pero morag dili nako maagwanta ang init."},{"who":"Ana","t":"I agree, it's very hot. But you'll get used to it.","tr":"Uyon ko, init kaayo. Pero maanad ra ka."},{"who":"Amy","t":"Hmm, I'm not sure.","tr":"Hmm, dili ko sigurado."},{"who":"Ana","t":"In my opinion, the beaches make it worth it!","tr":"Para nako, bili ra kaayo tungod sa mga baybayon!"}]},
+        {"p":"**Ang imong hunahuna**: {{I think (that)…}} “Sa akong hunahuna…”, {{In my opinion,…}} “Para nako…”, {{I believe…}}. Pangutana: {{What do you think?}} {{What do you think about the new mall?}}: kanunay {{what}}, dili {{how}}."},
+        {"p":"**“Sa akong hunahuna, dili…”** Sa Iningles, mas natural ibutang ang “dili” sa {{think}}: {{I don't think it's a good idea.}} kaysa {{I think it's not a good idea.}} Ug ang mubo: {{I don't think so.}} “Morag dili.”"},
+        {"p":"**Uyon ug dili uyon.** {{I agree.}} {{I agree with you.}} Ang {{agree}} usa ka berbo, busa walay {{am}}: dili {{I'm agree}} (sagad kaayo nga sayop sa Pilipinas). Dili uyon: {{I don't agree.}} o {{I disagree.}} Humok: {{Maybe, but…}} {{I see your point, but…}}"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["Sa akong hunahuna, nindot.","{{I think it's nice.}}"],
+          ["Morag dili siya moanhi.","{{I don't think he's coming.}}"],
+          ["Unsa imong hunahuna?","{{What do you think?}}"],
+          ["Uyon ko nimo.","{{I agree with you.}}"],
+          ["Dili ko uyon.","{{I don't agree.}} / {{I disagree.}}"],
+          ["Angay ka mopahulay.","{{I think you should rest.}}"]
+        ] },
+        { "ex": [
+          {"t":"I think Cebu is beautiful.","tr":"Sa akong hunahuna, nindot ang Cebu."},
+          {"t":"I don't think he's coming.","tr":"Morag dili siya moanhi."},
+          {"t":"What do you think about the new mall?","tr":"Unsa imong hunahuna sa bag-ong mall?"},
+          {"t":"I agree with you.","tr":"Uyon ko nimo."},
+          {"t":"In my opinion, it's too expensive.","tr":"Para nako, mahal ra kaayo."},
+          {"t":"I think you should rest.","tr":"Sa akong hunahuna, angay ka mopahulay."}
+        ] },
+        {"tip":"Para humok ang tambag: {{I think you should…}} o {{Maybe you should…}}: mas maayo kaysa {{You must…}}, nga morag sugo."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm agree.","right":"I agree.","tr":"Uyon ko.","why":"Ang {{agree}} usa ka berbo: walay {{am}}."},
+        {"wrong":"How do you think?","right":"What do you think?","tr":"Unsa imong hunahuna?","why":"Para sa opinyon: {{What do you think?}}"},
+        {"wrong":"I think so not.","right":"I don't think so.","tr":"Morag dili.","why":"Ang “dili” moadto sa {{think}}: {{I don't think so.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ with you.","tr":"Uyon ko nimo.","options":["agree","am agree","agreeing"],"answer":0,"why":"{{agree}} = berbo: {{I agree}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ do you think about the new mall?","tr":"Unsa imong hunahuna sa bag-ong mall?","options":["What","How","Which"],"answer":0,"why":"Opinyon: {{What do you think…?}}"},
+        {"type":"choice","q":"“Morag dili siya moanhi.” Asa ang pinakanatural?","options":["{{I don't think he's coming.}}","{{I think he's not coming no.}}","{{I'm not think he's coming.}}"],"answer":0,"why":"Ang “dili” sa {{think}}: {{I don't think…}}"},
+        {"type":"dialogue","q":"Nag-istorya mo bahin sa usa ka sine. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"What did you think of the movie?","tr":"Unsa imong hunahuna sa sine?"},{"options":["I think it was great!","I'm think it was great!"],"answer":0,"why":"{{I think}}: walay {{am}}."},{"who":"Amy","t":"Really? I thought it was boring.","tr":"Tinuod? Para nako, makalaay kadto."},{"options":["I see your point, but I don't agree.","I see your point, but I'm not agree."],"answer":0,"why":"{{I don't agree}}: walay {{am}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Morag dili siya moanhi.","words":["I don't","think","he's","coming."]},
+        {"type":"say","q":"Isulti: “Sa akong hunahuna, angay nimo siyang tawagan.”","answer":"I think you should call her.","from":"say-what-you-have-to-do"},
+        {"type":"say","q":"Isulti: “Para nako, mas maayo ang Cebu kaysa sa Manila.”","answer":"In my opinion, Cebu is better than Manila.","from":"compare-things"},
+        {"type":"free","q":"Ikaw na: ihatag ang imong opinyon bahin sa usa ka lugar, pagkaon o sine, ug isulti kung uyon ba ka sa imong mga higala.","answers":[{"t":"In my opinion, Siargao is the best place in the Philippines. My friends think Boracay is better, but I don't agree.","tr":"Para nako, ang Siargao ang pinakanindot nga lugar sa Pilipinas. Para sa akong mga higala, mas nindot ang Boracay, pero dili ko uyon."},{"t":"I think Korean dramas are great. My sister agrees with me!","tr":"Sa akong hunahuna, nindot kaayo ang mga Korean drama. Uyon ang akong igsoon nako!"}]}
+      ]
+    },
+    {
+      "id": "tell-your-life-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Isaysay ang istorya sa imong kinabuhi",
+      "summary": "Isaysay ang imong istorya sa Iningles, sama sa job interview: gikan sa imong pagkatawo hangtod sa imong mga plano.",
+      "topic": "Ang tanan nga panahon nga dungan: past simple, present perfect, {{used to}}, present simple, {{going to}} ug {{will}}, {{if}}",
+      "blocks": [
+        {"goal":{"t":"I was born in Bohol, I've lived in Cebu for ten years, and I'm going to visit America next year.","tr":"Natawo ko sa Bohol, napulo ka tuig na ko nagpuyo sa Cebu, ug mobisita ko sa Amerika sa sunod tuig."}},
+        {"dialog":[{"who":"Interviewer","t":"Tell me about yourself.","tr":"Sultihi ko bahin sa imong kaugalingon."},{"who":"Joy","t":"I was born in Bohol, but I've lived in Cebu since 2015.","tr":"Natawo ko sa Bohol, pero nagpuyo ko sa Cebu sukad pa sa 2015."},{"who":"Interviewer","t":"What did you study?","tr":"Unsay imong gitun-an?"},{"who":"Joy","t":"I studied nursing. I used to work at a hospital, but now I work at a call center.","tr":"Nursing. Nagtrabaho ko sa ospital kaniadto, pero karon nagtrabaho ko sa usa ka call center."},{"who":"Interviewer","t":"Why do you want this job?","tr":"Nganong gusto nimo kini nga trabaho?"},{"who":"Joy","t":"Because I love helping people. If I get this job, I'll work very hard.","tr":"Kay ganahan kaayo ko motabang og tawo. Kung makuha nako kini nga trabaho, magkugi gyud ko."}]},
+        {"p":"Kini nga katapusang leksyon naggamit sa tibuok kurso. Ang imong istorya nagkinahanglan og **tanang panahon** sa Iningles, ang matag usa sa iyang trabaho. Tungod kay ang berbo sa Bisaya wala nagsulti og panahon, kini ang labing importante nga hanas para sa usa ka Bisaya:"},
+        { "table": [
+          ["bahin sa istorya","porma","pananglitan","leksyon"],
+          ["nahuman nga hitabo","past simple","{{I was born in Bohol.}} {{I studied nursing.}}","20–22"],
+          ["gikan kaniadto hangtod karon","present perfect","{{I've lived in Cebu since 2015.}}","38"],
+          ["naandan kaniadto","{{used to}}","{{I used to work at a hospital.}}","39"],
+          ["karon","present simple","{{Now I work at a call center.}}","13–14"],
+          ["plano","{{going to}}","{{I'm going to visit America.}}","26"],
+          ["posibilidad","{{if}} + {{will}}","{{If I get this job, I'll work hard.}}","41"]
+        ] },
+        {"p":"**Ug ang mga gagmay nga butang**: ang {{am}} / {{is}} / {{are}} nga dili makalimtan, ang {{he}} ug {{she}} sa matag tawo, ang {{-s}} sa {{she works}}, ug ang {{a}} sa {{a nurse}}. Kini ang mga butang nga mamatikdan sa mga Amerikano, ug karon kabalo na ka niini tanan."},
+        { "ex": [
+          {"t":"I was born in Bohol in 1995.","tr":"Natawo ko sa Bohol niadtong 1995."},
+          {"t":"I grew up in a small town.","tr":"Nagdako ko sa usa ka gamay nga lungsod."},
+          {"t":"I've lived in Cebu since 2015.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2015."},
+          {"t":"I used to be a nurse.","tr":"Nars ko kaniadto."},
+          {"t":"Now I work at a call center.","tr":"Karon nagtrabaho ko sa usa ka call center."},
+          {"t":"Next year, I'm going to visit my sister in California.","tr":"Sa sunod tuig, mobisita ko sa akong igsoon sa California."},
+          {"t":"If I save enough money, I'll buy a house.","tr":"Kung makatigom ko og igong kwarta, mopalit ko og balay."}
+        ] },
+        {"tip":"Ang {{Tell me about yourself}} mao ang pinakasagad nga unang pangutana sa job interview sa Amerika. Andama ang imong tubag: mga upat ka sentence, gikan sa kaniadto hangtod sa imong plano."}
+      ],
+      "mistakes": [
+        {"wrong":"I born in Bohol.","right":"I was born in Bohol.","tr":"Natawo ko sa Bohol.","why":"Natawo: {{was born}} (leksyon 20)."},
+        {"wrong":"I live in Cebu since 2015.","right":"I've lived in Cebu since 2015.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2015.","why":"Gikan kaniadto hangtod karon: present perfect (leksyon 38)."},
+        {"wrong":"My sister, he lives in California.","right":"My sister lives in California.","tr":"Nagpuyo sa California ang akong igsoon.","why":"Walay dugang pronoun human sa nombre, ug ang babaye {{she}}, dili {{he}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ born in Bohol.","tr":"Natawo ko sa Bohol.","options":["was","am","were"],"answer":0,"why":"{{was born}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ in Cebu since 2015.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2015.","options":["have lived","live","lived"],"answer":0,"why":"Gikan kaniadto hangtod karon: present perfect."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ to work at a hospital.","tr":"Nagtrabaho ko sa ospital kaniadto.","options":["used","use","was"],"answer":0,"why":"Naandan kaniadto: {{used to}}."},
+        {"type":"choice","q":"“Mobisita ko sa akong igsoon sa sunod tuig (plano na).”","options":["{{I'm going to visit my sister next year.}}","{{I visit my sister next year.}}","{{I visited my sister next year.}}"],"answer":0,"why":"Plano: {{going to}}."},
+        {"type":"dialogue","q":"Job interview: pilia ang imong mga tubag.","lines":[{"who":"Interviewer","t":"Tell me about yourself.","tr":"Sultihi ko bahin sa imong kaugalingon."},{"options":["I'm from Cebu. I've worked in hotels for five years.","I'm from Cebu. I work in hotels since five years."],"answer":0,"why":"Gikan kaniadto hangtod karon: {{I've worked…}} + {{for}}."},{"who":"Interviewer","t":"Where did you work before?","tr":"Asa ka nagtrabaho kaniadto?"},{"options":["I used to work at a resort in Mactan.","I use to work at a resort in Mactan."],"answer":0,"why":"{{used to}}, uban ang {{d}}."},{"who":"Interviewer","t":"What are your plans?","tr":"Unsay imong mga plano?"},{"options":["If I get this job, I'm going to move to Manila.","If I will get this job, I'm going to move to Manila."],"answer":0,"why":"Human sa {{if}}: present simple."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nagdako ko sa usa ka gamay nga lungsod.","words":["I","grew up","in","a small town."]},
+        {"type":"say","q":"Isulti: “Kung makuha nako ang trabaho, mobalhin ko sa Manila.”","answer":"If I get the job, I'll move to Manila.","from":"say-what-will-happen-if"},
+        {"type":"free","q":"Ikaw na: isaysay ang imong istorya sa upat o lima ka sentence: diin ka natawo, unsay imong gibuhat kaniadto, unsay imong gibuhat karon, ug unsay imong plano.","answers":[{"t":"I was born in Leyte in 1998. I moved to Cebu to study, and I've lived here for eight years. I used to work in a restaurant, but now I'm a teacher. Next year, I'm going to take an English test, and if I pass, I'll teach abroad.","tr":"Natawo ko sa Leyte niadtong 1998. Mibalhin ko sa Cebu aron magtuon, ug walo ka tuig na ko dinhi. Nagtrabaho ko sa restawran kaniadto, pero karon maestra na ko. Sa sunod tuig, mo-take ko og English test, ug kung makapasar ko, motudlo ko sa gawas sa nasud."},{"t":"I grew up in a small town in Bohol. My parents are farmers. I've worked at a call center since 2020. I want to save money, so I'm going to open a small business someday.","tr":"Nagdako ko sa usa ka gamay nga lungsod sa Bohol. Mag-uuma ang akong ginikanan. Nagtrabaho ko sa call center sukad pa sa 2020. Gusto ko makatigom og kwarta, busa moabli ko og gamay nga negosyo puhon."}]}
+      ]
     }
   ]
 }

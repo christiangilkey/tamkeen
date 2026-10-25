@@ -8,14 +8,14 @@
    "title": "Gramatika sa Iningles",
    "variety": "American English",
    "units": 9,
-   "lessons": 43,
+   "lessons": 47,
    "levels": [
     "A1",
     "A2",
     "B1"
    ],
-   "bytes": 227932,
-   "sha256": "1e0b9917c1b16111509b704ccaa944284748aa1313f1fb3c92f94d7a7ae47e6a"
+   "bytes": 252538,
+   "sha256": "650a1511c344df159b923c6767582fc0bda31b1ee68bca1b487fff07161e6775"
   },
   "en-ar": {
    "file": "en-ar/course.json",
