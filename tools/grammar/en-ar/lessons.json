@@ -1915,6 +1915,219 @@
         {"type":"say","q":"Tell a man: “If I were you, I'd accept.”","answer":"لَوْ كُنْتُ مَكَانَكَ، لَقَبِلْتُ.","r":"law kuntu makānaka, la-qabiltu."},
         {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and what you'd do if you were rich.","answers":[{"t":"إِذَا كَانَ الْجَوُّ جَمِيلًا، فَسَأَمْشِي فِي الْجِبَالِ.","r":"idhā kāna l-jawwu jamīlan, fa-sa-amshī fī l-jibāli.","tr":"If the weather's nice, I'll walk in the mountains."},{"t":"لَوْ كُنْتُ غَنِيًّا، لَاشْتَرَيْتُ بَيْتًا قُرْبَ الْبَحْرِ.","r":"law kuntu ghaniyyan, la-shtaraytu baytan qurba l-baḥri.","tr":"If I were rich, I'd buy a house near the sea."}]}
       ]
+    },
+    {
+      "id": "who-which",
+      "unit": 8,
+      "level": "B1",
+      "title": "Add details: “the man who…”, “the book that…”",
+      "summary": "Describe people and things with a whole sentence: “the city I live in”, “a friend who lives in London”.",
+      "topic": "Relative clauses: {{الَّذِي}}, {{الَّتِي}}, {{الَّذِينَ}}; none after “a…”; the returning pronoun",
+      "blocks": [
+        {"goal":{"t":"هَذَا هُوَ الرَّجُلُ الَّذِي سَاعَدَنِي.","r":"hādhā huwa r-rajulu lladhī sāʿadanī.","tr":"This is the man who helped me."}},
+        {"dialog":[{"who":"Police officer","t":"صِفْ لِي الْحَقِيبَةَ الَّتِي فَقَدْتَهَا.","r":"ṣif lī l-ḥaqībata llatī faqadtahā.","tr":"Describe the bag you lost."},{"who":"Tourist","t":"حَقِيبَةٌ سَوْدَاءُ فِيهَا جَوَازُ سَفَرِي.","r":"ḥaqībatun sawdāʾu fīhā jawāzu safarī.","tr":"A black bag with my passport in it."},{"who":"Police officer","t":"وَالْمَكَانُ الَّذِي تَرَكْتَهَا فِيهِ؟","r":"wa-l-makānu lladhī taraktahā fīhi?","tr":"And the place where you left it?"},{"who":"Tourist","t":"الْمَقْهَى الَّذِي أَمَامَ الْمَتْحَفِ.","r":"al-maqhā lladhī amāma l-matḥafi.","tr":"The café that's in front of the museum."}]},
+        {"term":"relative clause","means":"a part of a sentence that describes a noun with a whole sentence: the man **who lives next door**."},
+        {"p":"After a noun **with** {{الْـ}}, “who / which / that” is {{الَّذِي|alladhī}} (masculine) or {{الَّتِي|allatī}} (feminine), and {{الَّذِينَ|alladhīna}} for people in the plural: {{الرَّجُلُ الَّذِي اتَّصَلَ|ar-rajulu lladhī ttaṣala}} “the man who called”. Plural things take {{الَّتِي}}: they act like “she”."},
+        {"p":"**After a noun without “the”, there is no word at all**: {{صَدِيقٌ يَسْكُنُ فِي لَنْدَنَ|ṣadīqun yaskunu fī landana}} “a friend (who) lives in London”."},
+        {"p":"**The returning pronoun.** When the noun is the object inside the clause, or comes after a preposition there, Arabic adds an ending that points back to it: {{الْحَقِيبَةُ الَّتِي فَقَدْتُهَا|al-ḥaqībatu llatī faqadtuhā}} “the bag that I lost (it)”, {{الْمَدِينَةُ الَّتِي أَسْكُنُ فِيهَا}} “the city I live in (it)”."},
+        {"p":"{{مَا|mā}} “what” and {{مَنْ|man}} “whoever” work the same way without a noun: {{أَعْرِفُ مَا تُرِيدُ.|aʿrifu mā turīdu.}} “I know what you want.”"},
+        { "ex": [
+          {"t":"السَّيَّارَةُ الَّتِي اشْتَرَيْتُهَا قَدِيمَةٌ.","r":"as-sayyāratu llatī shtaraytuhā qadīmatun.","tr":"The car I bought is old."},
+          {"t":"الطُّلَّابُ الَّذِينَ نَجَحُوا سُعَدَاءُ.","r":"aṭ-ṭullābu lladhīna najaḥū suʿadāʾu.","tr":"The students who passed are happy."},
+          {"t":"عِنْدِي صَدِيقٌ يَسْكُنُ فِي لَنْدَنَ.","r":"ʿindī ṣadīqun yaskunu fī landana.","tr":"I have a friend who lives in London."},
+          {"t":"الْمَدِينَةُ الَّتِي أَسْكُنُ فِيهَا جَمِيلَةٌ.","r":"al-madīnatu llatī askunu fīhā jamīlatun.","tr":"The city I live in is beautiful."},
+          {"t":"هَلْ فَهِمْتَ مَا قَالَ؟","r":"hal fahimta mā qāla?","tr":"Did you understand what he said?"}
+        ] },
+        {"tip":"{{الَّذِي}} and its family start with a vowel that is never said after another word: {{الرَّجُلُ الَّذِي}} is ar-rajulu lladhī."}
+      ],
+      "mistakes": [
+        {"wrong":"صَدِيقٌ الَّذِي يَعْمَلُ مَعِي","right":"صَدِيقٌ يَعْمَلُ مَعِي","tr":"a friend who works with me","why":"After a noun without {{الْـ}}, no {{الَّذِي}}."},
+        {"wrong":"السَّيَّارَةُ الَّذِي اشْتَرَيْتُهَا","right":"السَّيَّارَةُ الَّتِي اشْتَرَيْتُهَا","tr":"the car I bought","why":"{{سَيَّارَةٌ}} is feminine: {{الَّتِي}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"هَذَا هُوَ الرَّجُلُ ___ سَاعَدَنِي.","tr":"This is the man who helped me.","options":["الَّذِي","الَّتِي","الَّذِينَ"],"answer":0,"why":"One man: {{الَّذِي}}."},
+        {"type":"choice","q":"“A friend who lives in London” is…","options":["{{صَدِيقٌ يَسْكُنُ فِي لَنْدَنَ}}","{{صَدِيقٌ الَّذِي يَسْكُنُ فِي لَنْدَنَ}}"],"answer":0,"why":"No {{الَّذِي}} after a noun without “the”."},
+        {"type":"choice","q":"{{أَعْرِفُ مَا تُرِيدُ.}} means…","options":["I know what you want.","I know who you want.","I don't know what you want."],"answer":0,"why":"{{مَا}}: “what”."},
+        {"type":"order","q":"Put the words in order.","tr":"The city I live in is beautiful.","words":["الْمَدِينَةُ","الَّتِي","أَسْكُنُ","فِيهَا","جَمِيلَةٌ."],"from":"have"},
+        {"type":"say","q":"Say “The students who passed are happy.”","answer":"الطُّلَّابُ الَّذِينَ نَجَحُوا سُعَدَاءُ.","r":"aṭ-ṭullābu lladhīna najaḥū suʿadāʾu.","from":"what-we-did"},
+        {"type":"free","q":"Your turn: describe a person and a place that matter to you, with {{الَّذِي}} or {{الَّتِي}}.","answers":[{"t":"أُمِّي هِيَ الشَّخْصُ الَّذِي يَفْهَمُنِي.","r":"ummī hiya sh-shakhṣu lladhī yafhamunī.","tr":"My mother is the person who understands me."},{"t":"الْقَرْيَةُ الَّتِي وُلِدْتُ فِيهَا صَغِيرَةٌ وَجَمِيلَةٌ.","r":"al-qaryatu llatī wulidtu fīhā ṣaghīratun wa-jamīlatun.","tr":"The village where I was born is small and lovely."}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 8,
+      "level": "B1",
+      "title": "Compare and choose the best",
+      "summary": "“The train is faster than the bus”, “the best restaurant in town”, “more important than money”.",
+      "topic": "The comparative and superlative: {{أَكْبَرُ مِنْ}}, {{أَكْبَرُ مَدِينَةٍ}}, {{أَكْثَرُ}} + noun",
+      "blocks": [
+        {"goal":{"t":"الْقِطَارُ أَسْرَعُ مِنَ الْحَافِلَةِ، لَكِنَّهُ أَغْلَى.","r":"al-qiṭāru asraʿu mina l-ḥāfilati, lākinnahu aghlā.","tr":"The train is faster than the bus, but it's more expensive."}},
+        {"dialog":[{"who":"Hamid","t":"أَيُّ مَطْعَمٍ أَفْضَلُ، هَذَا أَمْ ذَلِكَ؟","r":"ayyu maṭʿamin afḍalu, hādhā am dhālika?","tr":"Which restaurant is better, this one or that one?"},{"who":"Rima","t":"هَذَا أَرْخَصُ، لَكِنَّ ذَلِكَ أَلَذُّ.","r":"hādhā arkhaṣu, lākinna dhālika aladhdhu.","tr":"This one's cheaper, but that one's tastier."},{"who":"Hamid","t":"إِذَنْ نَذْهَبُ إِلَى ذَلِكَ. الطَّعَامُ أَهَمُّ مِنَ السِّعْرِ!","r":"idhan nadhhabu ilā dhālika. aṭ-ṭaʿāmu ahammu mina s-siʿri!","tr":"Then let's go to that one. The food matters more than the price!"},{"who":"Rima","t":"صَحِيحٌ، هُوَ أَفْضَلُ مَطْعَمٍ فِي الْحَيِّ.","r":"ṣaḥīḥun, huwa afḍalu maṭʿamin fī l-ḥayyi.","tr":"True, it's the best restaurant in the neighbourhood."}]},
+        {"term":"comparative","means":"the form of an adjective that compares: bigger, better, more interesting. The **superlative** says something is the most: the biggest, the best."},
+        {"p":"Most adjectives make their comparative on one pattern, a-…-a-u: {{كَبِيرٌ}} → {{أَكْبَرُ|akbaru}} “bigger, older”, {{صَغِيرٌ}} → {{أَصْغَرُ}}, {{سَرِيعٌ}} → {{أَسْرَعُ}}. “Than” is {{مِنْ}}: {{أُخْتِي أَكْبَرُ مِنِّي.|ukhtī akbaru minnī.}} “My sister is older than me.” It never changes for gender or number, and never takes -un."},
+        { "table": [
+          ["adjective","comparative","meaning"],
+          ["{{كَبِيرٌ}}","{{أَكْبَرُ}}","bigger, older"],
+          ["{{صَغِيرٌ}}","{{أَصْغَرُ}}","smaller, younger"],
+          ["{{كَثِيرٌ}}","{{أَكْثَرُ}}","more"],
+          ["{{قَلِيلٌ}}","{{أَقَلُّ}}","less"],
+          ["{{جَيِّدٌ}}","{{أَفْضَلُ}} / {{أَحْسَنُ}}","better"],
+          ["{{غَالٍ}}","{{أَغْلَى}}","more expensive"],
+          ["{{مُهِمٌّ}}","{{أَهَمُّ}}","more important"]
+        ] },
+        {"p":"**The superlative**: the same word as the first noun of an iḍāfa, or with {{الْـ}}: {{أَفْضَلُ مَطْعَمٍ|afḍalu maṭʿamin}} “the best restaurant”, {{أَكْبَرُ مَدِينَةٍ فِي مِصْرَ}} “the biggest city in Egypt”, {{هِيَ الْأَكْبَرُ.}} “She's the oldest.”"},
+        {"p":"Long adjectives use {{أَكْثَرُ}} “more” + a noun in -an: {{أَكْثَرُ رَاحَةً|aktharu rāḥatan}} “more comfortable” (more in comfort)."},
+        { "ex": [
+          {"t":"الْقَاهِرَةُ أَكْبَرُ مِنْ عَمَّانَ.","r":"al-qāhiratu akbaru min ʿammāna.","tr":"Cairo is bigger than Amman."},
+          {"t":"أُخْتِي أَكْبَرُ مِنِّي بِسَنَتَيْنِ.","r":"ukhtī akbaru minnī bi-sanatayni.","tr":"My sister is two years older than me."},
+          {"t":"هَذَا أَفْضَلُ مَطْعَمٍ فِي الْمَدِينَةِ.","r":"hādhā afḍalu maṭʿamin fī l-madīnati.","tr":"This is the best restaurant in town."},
+          {"t":"الصِّحَّةُ أَهَمُّ مِنَ الْمَالِ.","r":"aṣ-ṣiḥḥatu ahammu mina l-māli.","tr":"Health is more important than money."},
+          {"t":"هَذِهِ الْغُرْفَةُ أَكْثَرُ رَاحَةً.","r":"hādhihi l-ghurfatu aktharu rāḥatan.","tr":"This room is more comfortable."}
+        ] },
+        {"tip":"{{أَكْثَرُ مِنْ}} also means “more than” with numbers: {{أَكْثَرُ مِنْ مِئَةِ شَخْصٍ}} “more than a hundred people”."}
+      ],
+      "mistakes": [
+        {"wrong":"أُخْتِي أَكْبَرَةٌ مِنِّي.","right":"أُخْتِي أَكْبَرُ مِنِّي.","tr":"My sister is older than me.","why":"The comparative doesn't change for a woman."},
+        {"wrong":"الْقِطَارُ أَسْرَعُ الْحَافِلَةِ.","right":"الْقِطَارُ أَسْرَعُ مِنَ الْحَافِلَةِ.","tr":"The train is faster than the bus.","why":"“Than” is {{مِنْ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الصِّحَّةُ أَهَمُّ ___ الْمَالِ.","tr":"Health is more important than money.","options":["مِنَ","عَلَى","إِلَى"],"answer":0,"why":"“Than”: {{مِنْ}} ({{مِنَ}} before {{الْـ}}).","from":"where-things-are"},
+        {"type":"choice","q":"“The best restaurant” is…","options":["{{أَفْضَلُ مَطْعَمٍ}}","{{الْمَطْعَمُ أَفْضَلُ}}"],"answer":0,"why":"The second means “The restaurant is better.”"},
+        {"type":"choice","q":"“My sister is older than me” is…","options":["{{أُخْتِي أَكْبَرُ مِنِّي.}}","{{أُخْتِي أَكْبَرَةٌ مِنِّي.}}"],"answer":0,"why":"No {{ة}} on the comparative."},
+        {"type":"dialogue","q":"Choosing a hotel. Choose your replies.","lines":[{"who":"Friend","t":"أَيُّ فُنْدُقٍ نَأْخُذُ؟","r":"ayyu funduqin naʾkhudhu?","tr":"Which hotel shall we take?"},{"options":["الْفُنْدُقُ الْأَوَّلُ أَرْخَصُ مِنَ الثَّانِي.","الْفُنْدُقُ الْأَوَّلُ رَخِيصٌ مِنَ الثَّانِي."],"answer":0,"why":"Comparing: {{أَرْخَصُ مِنْ}}."},{"who":"Friend","t":"لَكِنَّ الثَّانِيَ أَقْرَبُ إِلَى الْبَحْرِ.","r":"lākinna th-thāniya aqrabu ilā l-baḥri.","tr":"But the second one is nearer the sea."},{"options":["إِذَنْ نَأْخُذُ الثَّانِيَ.","إِذَنْ نَأْخُذُ الثَّانِي أَقْرَبُ."],"answer":0,"why":"“Then let's take the second one.”"}]},
+        {"type":"say","q":"Say “Cairo is bigger than Amman.”","answer":"الْقَاهِرَةُ أَكْبَرُ مِنْ عَمَّانَ.","r":"al-qāhiratu akbaru min ʿammāna."},
+        {"type":"free","q":"Your turn: compare two cities, foods or seasons you know, and say which is the best.","answers":[{"t":"الصَّيْفُ أَجْمَلُ مِنَ الشِّتَاءِ.","r":"aṣ-ṣayfu ajmalu mina sh-shitāʾi.","tr":"Summer is nicer than winter."},{"t":"الْمَنْسَفُ أَلَذُّ طَعَامٍ أَكَلْتُهُ.","r":"al-mansafu aladhdhu ṭaʿāmin akaltuhu.","tr":"Mansaf is the tastiest food I've eaten."}]}
+      ]
+    },
+    {
+      "id": "verb-families-1",
+      "unit": 8,
+      "level": "B1",
+      "title": "Grow your verbs: teach, help, send, learn",
+      "summary": "From one root, several verbs, each pattern adding a meaning: “study” → “teach”, “know” → “learn”.",
+      "topic": "Verb patterns, part 1: forms II ({{فَعَّلَ}}), III ({{فَاعَلَ}}), IV ({{أَفْعَلَ}}), V ({{تَفَعَّلَ}})",
+      "blocks": [
+        {"goal":{"t":"أُمِّي تُدَرِّسُ الرِّيَاضِيَّاتِ، وَأَنَا أَتَعَلَّمُ الْعَرَبِيَّةَ.","r":"ummī tudarrisu r-riyāḍiyyāti, wa-anā ataʿallamu l-ʿarabiyyata.","tr":"My mother teaches maths, and I'm learning Arabic."}},
+        {"p":"A root can make several verbs, each on its own pattern, and each pattern adds a kind of meaning. Grammars number them: the basic verb ({{دَرَسَ}} “studied”) is form I. Here are the four commonest others:"},
+        {"p":"**Form II, {{فَعَّلَ}} (the middle letter doubled)**: making someone do it, or doing it a lot: {{دَرَسَ|darasa}} “studied” → {{دَرَّسَ|darrasa}} “taught”. Also {{عَلَّمَ|ʿallama}} “taught”, {{غَيَّرَ|ghayyara}} “changed”, {{نَظَّفَ|naẓẓafa}} “cleaned”."},
+        {"p":"**Form III, {{فَاعَلَ}} (a long ā after the first letter)**: doing it with or to someone: {{سَاعَدَ|sāʿada}} “helped”, {{شَاهَدَ|shāhada}} “watched”, {{سَافَرَ|sāfara}} “travelled”, {{قَابَلَ|qābala}} “met”."},
+        {"p":"**Form IV, {{أَفْعَلَ}} (a- in front)**: making it happen: {{خَرَجَ|kharaja}} “went out” → {{أَخْرَجَ|akhraja}} “took out”; {{أَرْسَلَ|arsala}} “sent”, {{أَرَادَ|arāda}} “wanted” (your {{أُرِيدُ}}), {{أَحَبَّ|aḥabba}} “loved” (your {{أُحِبُّ}})."},
+        {"p":"**Form V, {{تَفَعَّلَ}} (ta- + form II)**: doing it to yourself, or becoming: {{تَعَلَّمَ|taʿallama}} “learned” (taught himself), {{تَكَلَّمَ|takallama}} “spoke”, {{تَأَخَّرَ|taʾakhkhara}} “was late”."},
+        { "table": [
+          ["form","past","present","meaning"],
+          ["II","{{دَرَّسَ}}","{{يُدَرِّسُ|yudarrisu}}","teach"],
+          ["III","{{سَاعَدَ}}","{{يُسَاعِدُ|yusāʿidu}}","help"],
+          ["IV","{{أَرْسَلَ}}","{{يُرْسِلُ|yursilu}}","send"],
+          ["V","{{تَعَلَّمَ}}","{{يَتَعَلَّمُ|yataʿallamu}}","learn"]
+        ] },
+        {"p":"Look at the present of forms II, III and IV: the letter in front has **u**, not a: {{يُدَرِّسُ}}, {{يُسَاعِدُ}}, {{يُرْسِلُ}}; and “I” is {{أُ}}. That's why you've been saying {{أُرِيدُ}} and {{أُحِبُّ}} with u since the first lessons."},
+        { "ex": [
+          {"t":"هَلْ يُمْكِنُكَ أَنْ تُسَاعِدَنِي؟","r":"hal yumkinuka an tusāʿidanī?","tr":"Can you help me?"},
+          {"t":"أَرْسَلْتُ لَكَ رِسَالَةً.","r":"arsaltu laka risālatan.","tr":"I sent you a message."},
+          {"t":"تَكَلَّمْنَا عَنِ الْعَمَلِ.","r":"takallamnā ʿani l-ʿamali.","tr":"We talked about work."},
+          {"t":"آسِفٌ، تَأَخَّرْتُ.","r":"āsifun, taʾakhkhartu.","tr":"Sorry, I'm late."},
+          {"t":"غَيَّرْتُ رَأْيِي.","r":"ghayyartu raʾyī.","tr":"I've changed my mind."}
+        ] },
+        {"tip":"When you meet a new verb, look for a root you know and a pattern you know: {{عَلَّمَ}} “taught” is {{ع ل م}} “knowing” in form II: “made someone know”."}
+      ],
+      "mistakes": [
+        {"wrong":"يَسَاعِدُ","right":"يُسَاعِدُ","tr":"he helps","why":"Forms II, III and IV take u in the present: yusāʿidu."},
+        {"wrong":"دَرَسَ الْأُسْتَاذُ الطُّلَّابَ.","right":"دَرَّسَ الْأُسْتَاذُ الطُّلَّابَ.","tr":"The teacher taught the students.","why":"“Taught” is form II, with a doubled r: darrasa. {{دَرَسَ}} is “studied”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَنَا ___ الْعَرَبِيَّةَ.","tr":"I'm learning Arabic.","options":["أَتَعَلَّمُ","أُعَلِّمُ","أَعْلَمُ"],"answer":0,"why":"Form V, {{تَعَلَّمَ}}, is learning; form II, {{عَلَّمَ}}, is teaching."},
+        {"type":"choice","q":"{{سَاعَدَ}} belongs to which form?","options":["II","III","IV"],"answer":1,"why":"A long ā after the first letter: form III."},
+        {"type":"choice","q":"“He helps” is…","options":["{{يَسَاعِدُ}}","{{يُسَاعِدُ}}"],"answer":1,"why":"u in front, for forms II to IV."},
+        {"type":"order","q":"Put the words in order.","tr":"We talked about work.","words":["تَكَلَّمْنَا","عَنِ","الْعَمَلِ."],"from":"where-things-are"},
+        {"type":"say","q":"A man says “Sorry, I'm late.”","answer":"آسِفٌ، تَأَخَّرْتُ.","r":"āsifun, taʾakhkhartu.","from":"what-happened"},
+        {"type":"free","q":"Your turn: say what you're learning, who taught you something important, and whom you helped recently.","answers":[{"t":"أَتَعَلَّمُ الْعَرَبِيَّةَ وَالطَّبْخَ.","r":"ataʿallamu l-ʿarabiyyata wa-ṭ-ṭabkha.","tr":"I'm learning Arabic and cooking."},{"t":"عَلَّمَنِي أَبِي السِّبَاحَةَ.","r":"ʿallamanī abī s-sibāḥata.","tr":"My father taught me to swim."},{"t":"سَاعَدْتُ جَارِي أَمْسِ.","r":"sāʿadtu jārī amsi.","tr":"I helped my neighbour yesterday."}]}
+      ]
+    },
+    {
+      "id": "verb-families-2",
+      "unit": 8,
+      "level": "B1",
+      "title": "More verb families: meet, listen, use, move",
+      "summary": "Three more patterns: doing it to each other, “it got done”, and asking for or using something.",
+      "topic": "Verb patterns, part 2: forms VI ({{تَفَاعَلَ}}), VII ({{اِنْفَعَلَ}}), VIII ({{اِفْتَعَلَ}}), X ({{اِسْتَفْعَلَ}})",
+      "blocks": [
+        {"goal":{"t":"انْقَطَعَتِ الْكَهْرَبَاءُ، فَاسْتَعْمَلْنَا الشُّمُوعَ.","r":"inqaṭaʿati l-kahrabāʾu, fa-staʿmalnā sh-shumūʿa.","tr":"The power went off, so we used candles."}},
+        {"p":"**Form VI, {{تَفَاعَلَ}}**: doing something to each other: {{تَعَاوَنَ|taʿāwana}} “cooperated”, {{تَقَابَلَ|taqābala}} “met (each other)”, {{تَنَاوَلَ|tanāwala}} “had (a meal)”."},
+        {"p":"**Form VII, {{اِنْفَعَلَ}}**: something gets done, by itself: {{اِنْكَسَرَ|inkasara}} “broke, got broken”, {{اِنْقَطَعَ|inqaṭaʿa}} “was cut off”, {{اِنْتَقَلَ|intaqala}} “moved (house)”."},
+        {"p":"**Form VIII, {{اِفْتَعَلَ}}** (a t after the first letter): {{اِجْتَمَعَ|ijtamaʿa}} “met, gathered”, {{اِسْتَمَعَ|istamaʿa}} “listened”, {{اِنْتَظَرَ|intaẓara}} “waited”, {{اِشْتَرَى|ishtarā}} “bought”, {{اِتَّصَلَ|ittaṣala}} “called”."},
+        {"p":"**Form X, {{اِسْتَفْعَلَ}}** (ist- in front): asking for something, or using or finding it: {{اِسْتَعْمَلَ|istaʿmala}} “used”, {{اِسْتَخْدَمَ|istakhdama}} “used, employed”, {{اِسْتَقْبَلَ|istaqbala}} “welcomed (guests)”, {{اِسْتَطَاعَ|istaṭāʿa}} “was able” (your {{أَسْتَطِيعُ}})."},
+        {"p":"Forms VII, VIII and X start with a vowel that drops after another vowel, like the a of {{الْـ}}: {{فَاسْتَعْمَلْنَا|fa-staʿmalnā}} “so we used”."},
+        { "table": [
+          ["form","past","present","verbal noun"],
+          ["VI","{{تَعَاوَنَ}}","{{يَتَعَاوَنُ}}","{{تَعَاوُنٌ}} cooperation"],
+          ["VII","{{اِنْتَقَلَ}}","{{يَنْتَقِلُ}}","{{اِنْتِقَالٌ}} moving"],
+          ["VIII","{{اِجْتَمَعَ}}","{{يَجْتَمِعُ}}","{{اِجْتِمَاعٌ}} meeting"],
+          ["X","{{اِسْتَخْدَمَ}}","{{يَسْتَخْدِمُ}}","{{اِسْتِخْدَامٌ}} use"]
+        ] },
+        { "ex": [
+          {"t":"اِجْتَمَعْنَا مَعَ الْمُدِيرِ.","r":"ijtamaʿnā maʿa l-mudīri.","tr":"We met with the manager."},
+          {"t":"أُحِبُّ أَنْ أَسْتَمِعَ إِلَى الْمُوسِيقَى.","r":"uḥibbu an astamiʿa ilā l-mūsīqā.","tr":"I like listening to music."},
+          {"t":"هَلْ تَسْتَخْدِمُ هَذَا الْبَرْنَامَجَ؟","r":"hal tastakhdimu hādhā l-barnāmaja?","tr":"Do you use this program?"},
+          {"t":"اِنْتَقَلْنَا إِلَى بَيْتٍ جَدِيدٍ.","r":"intaqalnā ilā baytin jadīdin.","tr":"We moved to a new house."},
+          {"t":"يَجِبُ أَنْ نَتَعَاوَنَ.","r":"yajibu an nataʿāwana.","tr":"We have to work together."}
+        ] },
+        {"tip":"You don't need the numbers. What helps is the feel of each shape: ta-…ā… is “each other”, in- is “it got done”, ist- is “seek or use”."}
+      ],
+      "mistakes": [
+        {"wrong":"يَسْتَخْدَمُ","right":"يَسْتَخْدِمُ","tr":"he uses","why":"In the present of form X, the vowel before the last letter is i: yastakhdimu."},
+        {"wrong":"اِنْكَسَرْتُ الْكُوبَ.","right":"كَسَرْتُ الْكُوبَ.","tr":"I broke the cup.","why":"Form VII means it got broken; to break something is form I, {{كَسَرَ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أُحِبُّ أَنْ ___ إِلَى الْمُوسِيقَى.","tr":"I like listening to music.","options":["أَسْتَمِعَ","أَسْتَمِعُ","اِسْتَمَعْتُ"],"answer":0,"why":"After {{أَنْ}}: the -a form.","from":"say-what-you-want"},
+        {"type":"choice","q":"{{اِنْكَسَرَ الْكُوبُ.}} means…","options":["The cup broke.","He broke the cup.","He bought a cup."],"answer":0,"why":"Form VII: it got broken, by itself."},
+        {"type":"choice","q":"Which pattern often means “to seek or use”?","options":["{{اِسْتَفْعَلَ}} (X)","{{تَفَاعَلَ}} (VI)","{{اِنْفَعَلَ}} (VII)"],"answer":0,"why":"ist-: {{اِسْتَعْمَلَ}}, {{اِسْتَخْدَمَ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"We moved to a new house.","words":["اِنْتَقَلْنَا","إِلَى","بَيْتٍ","جَدِيدٍ."]},
+        {"type":"say","q":"Say “The power went off.”","answer":"انْقَطَعَتِ الْكَهْرَبَاءُ.","r":"inqaṭaʿati l-kahrabāʾu."},
+        {"type":"free","q":"Your turn: say what you use every day, and something that broke or got cut off recently.","answers":[{"t":"أَسْتَخْدِمُ هَاتِفِي كَثِيرًا.","r":"astakhdimu hātifī kathīran.","tr":"I use my phone a lot."},{"t":"انْقَطَعَ الْإِنْتَرْنِتْ أَمْسِ.","r":"inqaṭaʿa l-intarnit amsi.","tr":"The internet went down yesterday."}]}
+      ]
+    },
+    {
+      "id": "doer-and-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say “I'm going”, “it's closed”: doers and done-to",
+      "summary": "Words for “the one who does it” and “what it's done to” also say “I'm going to the market” and “The shop is closed”.",
+      "topic": "Participles: {{فَاعِلٌ}} and {{مَفْعُولٌ}}, and {{مُـ}} for the longer patterns",
+      "blocks": [
+        {"goal":{"t":"أَنَا ذَاهِبٌ إِلَى السُّوقِ. هَلْ تَحْتَاجُ شَيْئًا؟","r":"anā dhāhibun ilā s-sūqi. hal taḥtāju shayʾan?","tr":"I'm going to the market. Do you need anything?"}},
+        {"dialog":[{"who":"Neighbour","t":"إِلَى أَيْنَ أَنْتِ ذَاهِبَةٌ؟","r":"ilā ayna anti dhāhibatun?","tr":"Where are you going?"},{"who":"Amal","t":"إِلَى الصَّيْدَلِيَّةِ، لَكِنِّي لَسْتُ مُتَأَكِّدَةً مِنْ أَنَّهَا مَفْتُوحَةٌ.","r":"ilā ṣ-ṣaydaliyyati, lākinnī lastu mutaʾakkidatan min annahā maftūḥatun.","tr":"To the pharmacy, but I'm not sure it's open."},{"who":"Neighbour","t":"هِيَ مُغْلَقَةٌ يَوْمَ الْجُمُعَةِ. الْأُخْرَى فِي الشَّارِعِ الرَّئِيسِيِّ مَفْتُوحَةٌ.","r":"hiya mughlaqatun yawma l-jumuʿati. al-ukhrā fī sh-shāriʿi r-raʾīsiyyi maftūḥatun.","tr":"It's closed on Fridays. The other one on the main street is open."}]},
+        {"term":"participle","means":"a word made from a verb that works as a noun or an adjective: writer, written, going."},
+        {"p":"**The doer** of a basic verb is on the pattern {{فَاعِلٌ}}: {{كَاتِبٌ|kātibun}} “writing, a writer”, {{ذَاهِبٌ|dhāhibun}} “going”, {{سَاكِنٌ|sākinun}} “living (somewhere)”. **What it's done to** is {{مَفْعُولٌ}}: {{مَكْتُوبٌ|maktūbun}} “written”, {{مَفْتُوحٌ|maftūḥun}} “open”, {{مَعْرُوفٌ|maʿrūfun}} “known”, {{مَشْغُولٌ|mashghūlun}} “busy” (occupied)."},
+        {"p":"In conversation the doer often replaces a verb, for a plan or a state: {{أَنَا ذَاهِبٌ إِلَى السُّوقِ.}} “I'm going to the market.”, {{هَلْ أَنْتِ مُتَأَكِّدَةٌ؟}} “Are you sure?” They take {{ة}} and plurals like adjectives: {{نَحْنُ ذَاهِبُونَ}}."},
+        {"p":"For the longer patterns, the doer starts with mu- and has i before the last letter, the done-to has a: {{مُدَرِّسٌ|mudarrisun}} “teacher”, {{مُغْلَقٌ|mughlaqun}} “closed”, {{مُسْتَخْدِمٌ}} “user” / {{مُسْتَخْدَمٌ}} “used”."},
+        { "table": [
+          ["verb","doer","done to"],
+          ["{{كَتَبَ}} write","{{كَاتِبٌ}} writer","{{مَكْتُوبٌ}} written"],
+          ["{{فَتَحَ}} open","{{فَاتِحٌ}} opening","{{مَفْتُوحٌ}} open"],
+          ["{{أَغْلَقَ}} close","{{مُغْلِقٌ}} closing","{{مُغْلَقٌ}} closed"],
+          ["{{اِسْتَخْدَمَ}} use","{{مُسْتَخْدِمٌ}} user","{{مُسْتَخْدَمٌ}} used"]
+        ] },
+        { "ex": [
+          {"t":"الْمَحَلُّ مُغْلَقٌ يَوْمَ الْجُمُعَةِ.","r":"al-maḥallu mughlaqun yawma l-jumuʿati.","tr":"The shop is closed on Fridays."},
+          {"t":"هَلْ أَنْتِ مُتَأَكِّدَةٌ؟","r":"hal anti mutaʾakkidatun?","tr":"Are you sure?","note":"to a woman"},
+          {"t":"هَذَا الْمَكَانُ مَعْرُوفٌ.","r":"hādhā l-makānu maʿrūfun.","tr":"This place is well known."},
+          {"t":"أَخِي سَاكِنٌ فِي دِمَشْقَ.","r":"akhī sākinun fī dimashqa.","tr":"My brother lives in Damascus."},
+          {"t":"مَا الْمَكْتُوبُ هُنَا؟","r":"mā l-maktūbu hunā?","tr":"What's written here?"}
+        ] },
+        {"tip":"Many everyday words are participles you already know: {{طَالِبٌ}} “student” (one who seeks), {{مُعَلِّمٌ}}, {{مُهَنْدِسٌ}}, {{مَشْغُولٌ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"الْمَحَلُّ مُغْلِقٌ.","right":"الْمَحَلُّ مُغْلَقٌ.","tr":"The shop is closed.","why":"Closed (done to) has a before the last letter: mughlaq; mughliq is “closing”."},
+        {"wrong":"هِيَ ذَاهِبٌ إِلَى الْعَمَلِ.","right":"هِيَ ذَاهِبَةٌ إِلَى الْعَمَلِ.","tr":"She's going to work.","why":"Participles match like adjectives."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْمَحَلُّ ___ يَوْمَ الْجُمُعَةِ.","tr":"The shop is closed on Fridays.","options":["مُغْلَقٌ","مُغْلِقٌ","يُغْلِقُ"],"answer":0,"why":"Done to: a before the last letter."},
+        {"type":"choice","q":"{{مَفْتُوحٌ}} means…","options":["open","opening","opener"],"answer":0,"why":"{{مَفْعُولٌ}}: what it's done to."},
+        {"type":"choice","q":"“Are you sure?” (to a woman)","options":["{{هَلْ أَنْتِ مُتَأَكِّدَةٌ؟}}","{{هَلْ أَنْتِ مُتَأَكِّدٌ؟}}"],"answer":0,"why":"A woman: {{ة}}.","from":"talking-to"},
+        {"type":"order","q":"Put the words in order.","tr":"My brother lives in Damascus.","words":["أَخِي","سَاكِنٌ","فِي","دِمَشْقَ."]},
+        {"type":"say","q":"A man says “I'm going to the market.”","answer":"أَنَا ذَاهِبٌ إِلَى السُّوقِ.","r":"anā dhāhibun ilā s-sūqi."},
+        {"type":"free","q":"Your turn: say where you're going today, and describe a shop or place near you: open or closed, well known or not.","answers":[{"t":"أَنَا ذَاهِبَةٌ إِلَى الْعَمَلِ.","r":"anā dhāhibatun ilā l-ʿamali.","tr":"I'm going to work.","note":"a woman"},{"t":"الْمَخْبَزُ الَّذِي قُرْبَ بَيْتِي مَفْتُوحٌ كُلَّ يَوْمٍ.","r":"al-makhbazu lladhī qurba baytī maftūḥun kulla yawmin.","tr":"The bakery near my house is open every day."}]}
+      ]
     }
   ]
 }
