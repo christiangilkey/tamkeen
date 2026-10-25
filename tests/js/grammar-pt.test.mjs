@@ -10,12 +10,14 @@ import { readSource } from "../../tools/grammar/build.mjs";
 
 const have = (id) => existsSync(new URL(`../../tools/grammar/${id}/lessons.json`, import.meta.url));
 
+// Whole words only, with accented letters counted as letters (JavaScript's \b doesn't: "peço" isn't "pe").
+const words = (list) => new RegExp(`(?<!\\p{L})(${list})(?!\\p{L})`, "iu");
 // Common words written without their accent (a word that is also right without one is left out).
-const UNACCENTED = /\b(voce|voces|nao|entao|tambem|irmao|irmaos|mae|maes|pao|paes|ja|ate|ola|onibus|cafe|agua|musica|numero|familia|proximo|proxima|facil|dificil|otimo|otima|rapido|tres|mes|ingles|portugues|ingles|ultimo|unico|possivel|tambem|sabado|amanha|manha|licenca|cancao|informacao|atencao|voce|sotao|aviao|coracao|ninguem|alguem|porem|tambem|historia|ferias|portugues|lapis|pe|cha|so)\b/i;
+const UNACCENTED = words("voce|voces|nao|entao|tambem|irmao|irmaos|mae|maes|pao|paes|ja|ate|ola|onibus|cafe|agua|musica|numero|familia|proximo|proxima|facil|dificil|otimo|otima|rapido|tres|mes|ingles|portugues|ultimo|unico|possivel|sabado|amanha|manha|licenca|cancao|informacao|atencao|sotao|aviao|coracao|ninguem|alguem|porem|historia|ferias|lapis|pe|cha|so");
 // European Portuguese words and old (pre-2009) or European accent spellings.
-const EUROPEAN = /\b(autocarro|comboio|telemóvel|pequeno-almoço|casa de banho|equipa|facto|contacto|receção|ecrã|rapariga|miúdo|sumo|frigorífico|casa-de-banho|económic\w*|António|género|ténis|fenómeno|académic\w*|prémio|polémic\w*|idéia|vôo|enjôo|lingüi\w*|freqüen\w*|tranqüil\w*|cinqüenta|agüent\w*)\b/i;
+const EUROPEAN = words("autocarro|comboio|telemóvel|pequeno-almoço|casa de banho|equipa|facto|contacto|receção|ecrã|rapariga|miúdo|sumo|frigorífico|económic\\p{L}*|António|género|ténis|fenómeno|académic\\p{L}*|prémio|polémic\\p{L}*|idéia|vôo|enjôo|lingüi\\p{L}*|freqüen\\p{L}*|tranqüil\\p{L}*|cinqüenta|agüent\\p{L}*");
 // "estar a + infinitive" is European; Brazilians say "estar + -ndo".
-const ESTAR_A = /\b(estou|estás|está|estamos|estão|estava|estavam) a [a-zà-ú]+[aei]r\b/i;
+const ESTAR_A = words("(?:estou|estás|está|estamos|estão|estava|estavam) a \\p{L}+[aei]r");
 // British spellings and words in the American English course.
 const BRITISH = /\b(colour\w*|favour\w*|neighbour\w*|centre|centres|theatre|realis\w*|organis\w*|apologis\w*|travelled|travelling|metre|litre|programme|cheque|mum|petrol|lorry|queue|trousers|biscuits?|motorway|postcode|rubbish|fortnight|whilst|amongst)\b/;
 

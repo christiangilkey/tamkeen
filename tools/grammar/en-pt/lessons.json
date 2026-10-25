@@ -1876,6 +1876,281 @@
         {"type":"say","q":"How do you say “I'd like to speak with the manager”?","answer":"Gostaria de falar com o gerente."},
         {"type":"free","q":"Your turn: you're calling a hotel. Ask politely for something you need.","answers":[{"t":"Boa noite! Gostaria de reservar um quarto para duas pessoas. Seria possível com vista para o mar?","tr":"Good evening! I'd like to book a room for two. Would it be possible with a sea view?"},{"t":"Oi, você poderia me dizer que horas é o café da manhã?","tr":"Hi, could you tell me what time breakfast is?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say what you want someone else to do",
+      "summary": "Ask, want and hope that other people do things: “I want you to come”, “I hope you like it”.",
+      "topic": "The present subjunctive after {{querer que}}, {{pedir que}}, {{esperar que}}, {{tomara que}}; the same person: the infinitive",
+      "blocks": [
+        {"goal":{"t":"Quero que você venha à minha festa!","tr":"I want you to come to my party!"}},
+        {"dialog":[{"who":"Carol","t":"Amanhã é meu aniversário. Quero que você venha!","tr":"Tomorrow is my birthday. I want you to come!"},{"who":"Ryan","t":"Claro que vou! Quer que eu leve alguma coisa?","tr":"Of course I'll come! Do you want me to bring anything?"},{"who":"Carol","t":"Não precisa. Só peço que você chegue cedo.","tr":"No need. I only ask that you get there early."},{"who":"Ryan","t":"Pode deixar. Espero que faça sol!","tr":"Leave it to me. I hope it's sunny!"},{"who":"Carol","t":"Tomara que sim! A festa é no quintal.","tr":"Let's hope so! The party's in the backyard."}]},
+        {"term":"subjunctive","means":"a set of verb forms for things that aren't facts yet: wishes, requests, doubts, possibilities. English keeps a trace of it: “I suggest that he **be** on time.”"},
+        {"p":"**One person wants another to do something.** English says “I want you to come”. Portuguese says “I want that you come”, and the second verb takes a special form, the present subjunctive: {{Quero que você venha.}}"},
+        {"p":"**You already know its form**: it's the written command of lesson 23. Take the “I” form of the present, drop the {{-o}}, and add the opposite vowel: {{-ar}} verbs get {{-e}}, {{-er}} and {{-ir}} verbs get {{-a}}."},
+        { "table": [
+          ["","“I” form","({{que}}) {{eu}}, {{você}}","{{nós}}","{{vocês}}, {{eles}}"],
+          ["{{falar}}","{{falo}}","{{fale}}","{{falemos}}","{{falem}}"],
+          ["{{comer}}","{{como}}","{{coma}}","{{comamos}}","{{comam}}"],
+          ["{{vir}}","{{venho}}","{{venha}}","{{venhamos}}","{{venham}}"],
+          ["{{fazer}}","{{faço}}","{{faça}}","{{façamos}}","{{façam}}"],
+          ["{{trazer}}","{{trago}}","{{traga}}","{{tragamos}}","{{tragam}}"],
+          ["{{levar}}","{{levo}}","{{leve}}","{{levemos}}","{{levem}}"]
+        ] },
+        {"p":"Six common verbs don't follow the rule: {{ser}} → {{seja}}, {{estar}} → {{esteja}}, {{ir}} → {{vá}}, {{dar}} → {{dê}}, {{saber}} → {{saiba}}, {{querer}} → {{queira}}."},
+        {"p":"**When: after a wish or a request about someone else.**"},
+        { "table": [
+          ["","Portuguese","English"],
+          ["want","{{Quero que você venha.}}","I want you to come."],
+          ["ask","{{Peço que você chegue cedo.}}","I ask you to arrive early."],
+          ["hope","{{Espero que dê tudo certo.}}","I hope it all works out."],
+          ["let's hope","{{Tomara que faça sol!}}","Let's hope it's sunny!"]
+        ] },
+        {"p":"{{Tomara que}} (“may it be that”) is a very Brazilian “I hope”: {{Tomara!}} alone, or {{Tomara que sim}} “Let's hope so”."},
+        {"p":"**The same person? The infinitive.** If the one who wants and the one who does are the same, no {{que}}: {{Quero ir}} “I want to go”; {{Quero que você vá}} “I want you to go”."},
+        {"p":"**A shortcut in speech.** To ask someone to do something, Brazilians often say {{pedir pra}} + infinitive: {{Ela pediu pra eu chegar cedo}} “She asked me to arrive early”. It's perfectly normal, and it avoids the subjunctive."},
+        { "ex": [
+          {"t":"Quero que vocês conheçam a minha família.","tr":"I want you to meet my family."},
+          {"t":"Espero que você goste!","tr":"I hope you like it!"},
+          {"t":"Tomara que não chova amanhã.","tr":"Let's hope it doesn't rain tomorrow."},
+          {"t":"Meu chefe quer que eu viaje na segunda.","tr":"My boss wants me to travel on Monday."},
+          {"t":"Peço que vocês desliguem o celular.","tr":"Please turn off your phones.","note":"formal: a teacher, an announcement at the theater"},
+          {"t":"Você quer que eu te ajude?","tr":"Do you want me to help you?"}
+        ] },
+        {"tip":"{{Espero que você goste!}} is what Brazilians say when they give someone a present."}
+      ],
+      "mistakes": [
+        {"wrong":"Quero você vem.","right":"Quero que você venha.","tr":"I want you to come.","why":"Wanting someone else to do something: {{que}} + the subjunctive."},
+        {"wrong":"Espero que você gosta.","right":"Espero que você goste.","tr":"I hope you like it.","why":"After {{espero que}}, the subjunctive: {{goste}}."},
+        {"wrong":"Quero que eu vá.","right":"Quero ir.","tr":"I want to go.","why":"The same person wants and does: just the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quero que você ___ amanhã.","tr":"I want you to come tomorrow.","options":["venha","vem","vir"],"answer":0,"why":"After {{quero que}}: the subjunctive, {{venha}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Espero que ___ tudo bem.","tr":"I hope everything is OK.","options":["esteja","está","estar"],"answer":0,"why":"After {{espero que}}: {{esteja}}."},
+        {"type":"choice","q":"Which one means “I want to travel”?","options":["{{Quero viajar.}}","{{Quero que eu viaje.}}","{{Quero que viajo.}}"],"answer":0,"why":"The same person: just the infinitive."},
+        {"type":"dialogue","q":"A friend invites you to her birthday. Choose your replies.","from":"invite-and-suggest","lines":[{"who":"Carol","t":"Sábado é meu aniversário. Você vem?","tr":"Saturday is my birthday. Are you coming?"},{"options":["Claro! Quer que eu leve alguma coisa?","Claro! Quer que eu levo alguma coisa?"],"answer":0,"why":"“Do you want me to…?”: {{que}} + the subjunctive, {{leve}}."},{"who":"Carol","t":"Não precisa. Só vem cedo!","tr":"No need. Just come early!"},{"options":["Pode deixar. Tomara que faça sol!","Pode deixar. Tomara que faz sol!"],"answer":0,"why":"After {{tomara que}}: the subjunctive, {{faça}}."},{"who":"Carol","t":"Tomara!","tr":"Let's hope!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My boss wants me to travel on Monday.","words":["Meu chefe","quer","que","eu","viaje","na segunda."]},
+        {"type":"say","q":"You give someone a present. Say “I hope you like it!”","answer":"Espero que você goste!"},
+        {"type":"free","q":"Your turn: say two things you want other people to do (your family, your friends, your boss), with {{quero que}} or {{espero que}}.","answers":[{"t":"Quero que meus pais venham me visitar, e espero que meu chefe me dê férias em julho.","tr":"I want my parents to come visit me, and I hope my boss gives me vacation in July."},{"t":"Espero que meus amigos gostem da festa. Tomara que não chova!","tr":"I hope my friends like the party. Let's hope it doesn't rain!"}]}
+      ]
+    },
+    {
+      "id": "give-advice-and-opinions",
+      "unit": 7,
+      "level": "B1",
+      "title": "Give advice and doubt things",
+      "summary": "Tell someone what's best for them, say what you think and what you doubt, and say “maybe”.",
+      "topic": "{{é melhor que}}, {{é importante que}} + subjunctive; {{acho que}} (normal verb) vs {{não acho que}}, {{duvido que}} (subjunctive); {{talvez}}",
+      "blocks": [
+        {"goal":{"t":"É melhor você levar um guarda-chuva. Acho que vai chover.","tr":"You'd better take an umbrella. I think it's going to rain."}},
+        {"dialog":[{"who":"Gabriel","t":"Estou pensando em comprar um carro.","tr":"I'm thinking of buying a car."},{"who":"Lia","t":"Sério? Em São Paulo? Não acho que seja uma boa ideia.","tr":"Really? In São Paulo? I don't think it's a good idea."},{"who":"Gabriel","t":"Por quê?","tr":"Why?"},{"who":"Lia","t":"O trânsito é horrível. É melhor que você use o metrô.","tr":"The traffic is terrible. You'd better use the subway."},{"who":"Gabriel","t":"Talvez você tenha razão.","tr":"Maybe you're right."},{"who":"Lia","t":"É importante que você pense bem antes.","tr":"It's important that you think it over first."}]},
+        {"p":"**Advice: {{é melhor}}, {{é importante}}, {{é bom}} + {{que}} + subjunctive.** When you say what's best for someone to do, the verb after {{que}} is in the subjunctive, as in lesson 38:"},
+        { "table": [
+          ["","Portuguese","English"],
+          ["better","{{É melhor que você descanse.}}","You'd better rest."],
+          ["important","{{É importante que vocês cheguem cedo.}}","It's important that you arrive early."],
+          ["necessary","{{É preciso que ele saiba.}}","He needs to know."],
+          ["good","{{É bom que você venha.}}","It's good that you're coming."]
+        ] },
+        {"p":"In everyday speech there's a shortcut: {{é melhor}} + the person + infinitive. {{É melhor você descansar}} “You'd better rest”, {{É melhor a gente ir}} “We'd better go”."},
+        {"p":"**Opinions: {{acho que}} or {{não acho que}}?** {{Acho que}} “I think that” states what you believe, so the verb after it is the normal one: {{Acho que ele está certo.}} When you doubt, the subjunctive comes in: {{Não acho que ele esteja certo}} “I don't think he's right”, {{Duvido que ele venha}} “I doubt he'll come”."},
+        { "table": [
+          ["what you believe: normal verb","what you doubt: subjunctive"],
+          ["{{Acho que é verdade.}}","{{Não acho que seja verdade.}}"],
+          ["{{Tenho certeza de que ela vem.}}","{{Duvido que ela venha.}}"],
+          ["{{É verdade que ele mora aqui.}}","{{Não é verdade que ele more aqui.}}"]
+        ] },
+        {"p":"In relaxed conversation many Brazilians say {{Não acho que é}} too; the subjunctive sounds more careful."},
+        {"p":"**Maybe: {{talvez}}.** Before the verb, {{talvez}} takes the subjunctive: {{Talvez ele esteja em casa}} “Maybe he's at home”, {{Talvez eu vá}} “Maybe I'll go”. And the short answers: {{Acho que sim}} “I think so”, {{Acho que não}} “I don't think so”."},
+        { "ex": [
+          {"t":"É melhor a gente sair cedo por causa do trânsito.","tr":"We'd better leave early because of the traffic."},
+          {"t":"É importante que você beba muita água.","tr":"It's important that you drink a lot of water."},
+          {"t":"Acho que você tem razão.","tr":"I think you're right."},
+          {"t":"Não acho que seja tão difícil.","tr":"I don't think it's that hard."},
+          {"t":"Talvez eu mude de emprego.","tr":"Maybe I'll change jobs."},
+          {"t":"Duvido que ele saiba a resposta.","tr":"I doubt he knows the answer."}
+        ] },
+        {"tip":"{{Ter razão}} (“to have reason”) is “to be right”: {{Você tem razão}} “You're right”."}
+      ],
+      "mistakes": [
+        {"wrong":"Talvez ele está em casa.","right":"Talvez ele esteja em casa.","tr":"Maybe he's at home.","why":"{{Talvez}} before the verb takes the subjunctive."},
+        {"wrong":"Acho que ele seja brasileiro.","right":"Acho que ele é brasileiro.","tr":"I think he's Brazilian.","why":"{{Acho que}} states what you believe: a normal verb."},
+        {"wrong":"Você é razão.","right":"Você tem razão.","tr":"You're right.","why":"Being right is “having reason”: {{ter razão}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Talvez ele ___ atrasado.","tr":"Maybe he's late.","options":["esteja","está","estar"],"answer":0,"why":"{{Talvez}} before the verb: the subjunctive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Acho que ela ___ razão.","tr":"I think she's right.","options":["tem","tenha","ter"],"answer":0,"why":"{{Acho que}}: what you believe, so a normal verb."},
+        {"type":"choice","q":"Gentle advice to a tired friend:","options":["{{É melhor você descansar.}}","{{É melhor que você descansa.}}","{{Você é melhor descansar.}}"],"answer":0,"why":"{{É melhor}} + the person + infinitive (or {{que}} + {{descanse}})."},
+        {"type":"dialogue","q":"A friend shares a plan. Choose your replies.","from":"give-reasons","lines":[{"who":"Gabriel","t":"Vou comprar um carro.","tr":"I'm going to buy a car."},{"options":["Hmm, não acho que seja uma boa ideia.","Hmm, não acho que sou uma boa ideia."],"answer":0,"why":"Doubt: the subjunctive, {{seja}}. ({{Sou}} would be “I am”!)"},{"who":"Gabriel","t":"Por quê?","tr":"Why?"},{"options":["Porque o trânsito aqui é horrível.","Por que o trânsito aqui é horrível."],"answer":0,"why":"“Because”: {{porque}}, one word."},{"who":"Gabriel","t":"Talvez você tenha razão.","tr":"Maybe you're right."}]},
+        {"type":"order","q":"Put the words in order.","tr":"It's important that you drink a lot of water.","words":["É","importante","que","você","beba","muita água."]},
+        {"type":"say","q":"How do you say “Maybe I'll go”?","answer":"Talvez eu vá."},
+        {"type":"free","q":"Your turn: a friend wants to move to Brazil. Give two pieces of advice and one opinion.","answers":[{"t":"É importante que você aprenda português antes. Acho que você vai adorar o Brasil!","tr":"It's important that you learn Portuguese first. I think you're going to love Brazil!"},{"t":"É melhor você visitar primeiro. Talvez São Paulo seja grande demais pra você.","tr":"You'd better visit first. Maybe São Paulo is too big for you."}]}
+      ]
+    },
+    {
+      "id": "talk-about-when-and-if",
+      "unit": 7,
+      "level": "B1",
+      "title": "Talk about when and if things happen",
+      "summary": "Talk about the future with “when”, “if” and “as soon as”: “When I arrive, I'll call you.”",
+      "topic": "The future subjunctive after {{quando}}, {{se}}, {{assim que}}: {{chegar}}, {{for}}, {{tiver}}, {{quiser}}, {{puder}}",
+      "blocks": [
+        {"goal":{"t":"Quando eu chegar, te mando uma mensagem.","tr":"When I arrive, I'll send you a message."}},
+        {"dialog":[{"who":"Mom","t":"Me liga assim que você chegar, tá?","tr":"Call me as soon as you arrive, OK?"},{"who":"Daughter","t":"Pode deixar. Se eu tiver tempo, te ligo hoje à noite também.","tr":"Leave it to me. If I have time, I'll call you tonight too."},{"who":"Mom","t":"E se você precisar de alguma coisa?","tr":"And if you need anything?"},{"who":"Daughter","t":"Se eu precisar, eu te falo. Fica tranquila!","tr":"If I need anything, I'll tell you. Don't worry!"},{"who":"Mom","t":"E quando você voltar, a gente faz um almoço.","tr":"And when you come back, we'll have a family lunch."},{"who":"Daughter","t":"Combinado!","tr":"Deal!"}]},
+        {"p":"**English uses the present; Portuguese has a future form.** “When I **arrive**, I'll call you”: after “when” and “if”, English uses the present. Portuguese uses a special form, the future subjunctive: {{Quando eu chegar, te ligo.}}"},
+        {"p":"**The form.** For regular verbs it looks just like the infinitive: {{chegar}}, {{comer}}, {{abrir}}. The plural adds {{-mos}} and {{-em}}: {{quando nós chegarmos}}, {{quando eles chegarem}}. For irregular verbs, take the {{eles}} form of the perfeito (lesson 26) and drop {{-am}}: {{fizeram}} → {{fizer}}, {{tiveram}} → {{tiver}}."},
+        { "table": [
+          ["","perfeito, {{eles}}","{{quando}}, {{se}}: {{eu}}, {{você}}"],
+          ["{{ser}}, {{ir}}","{{foram}}","{{for}}"],
+          ["{{ter}}","{{tiveram}}","{{tiver}}"],
+          ["{{estar}}","{{estiveram}}","{{estiver}}"],
+          ["{{fazer}}","{{fizeram}}","{{fizer}}"],
+          ["{{poder}}","{{puderam}}","{{puder}}"],
+          ["{{querer}}","{{quiseram}}","{{quiser}}"],
+          ["{{vir}}","{{vieram}}","{{vier}}"],
+          ["{{ver}}","{{viram}}","{{vir}}"],
+          ["{{saber}}","{{souberam}}","{{souber}}"]
+        ] },
+        {"p":"Yes, {{vir}} is both the infinitive “to come” and the form of {{ver}} “see” here: {{quando eu vir}} “when I see”. In speech many Brazilians say {{quando eu ver}}, but {{vir}} is the correct one."},
+        {"p":"**When to use it.** After {{quando}} “when”, {{se}} “if”, {{assim que}} “as soon as”, {{depois que}} “after”, {{enquanto}} “while”, and after {{o que}} and {{quem}} about the future:"},
+        { "table": [
+          ["","Portuguese","English"],
+          ["when","{{Quando você puder, me liga.}}","When you can, call me."],
+          ["if","{{Se você quiser, a gente vai.}}","If you want, we'll go."],
+          ["as soon as","{{Assim que eu souber, te aviso.}}","As soon as I know, I'll let you know."],
+          ["whatever","{{Pode pedir o que quiser.}}","Order whatever you like."],
+          ["whoever","{{Quem chegar primeiro ganha.}}","Whoever arrives first wins."]
+        ] },
+        {"p":"The other half of the sentence is the plain present, {{vou}} + verb, or a command: {{Se chover, vou ficar em casa}} “If it rains, I'll stay home”."},
+        { "ex": [
+          {"t":"Se você quiser, eu te busco no aeroporto.","tr":"If you want, I'll pick you up at the airport."},
+          {"t":"Quando eu for ao Brasil, quero conhecer a Amazônia.","tr":"When I go to Brazil, I want to see the Amazon."},
+          {"t":"Assim que chegar, me avisa.","tr":"As soon as you arrive, let me know."},
+          {"t":"Se tiver tempo amanhã, vou à praia.","tr":"If I have time tomorrow, I'll go to the beach."},
+          {"t":"Quando vocês vierem, a gente faz um churrasco.","tr":"When you come, we'll have a barbecue."},
+          {"t":"Se Deus quiser!","tr":"God willing!","note":"said about any hope for the future"}
+        ] },
+        {"tip":"{{Se Deus quiser}} (“if God wants”) follows plans and hopes everywhere in Brazil: {{Ano que vem eu me formo, se Deus quiser.}} “I graduate next year, God willing.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Quando eu chego, te ligo.","right":"Quando eu chegar, te ligo.","tr":"When I arrive, I'll call you.","why":"About the future, after {{quando}}: the future subjunctive, {{chegar}}."},
+        {"wrong":"Se eu tenho tempo amanhã, eu vou.","right":"Se eu tiver tempo amanhã, eu vou.","tr":"If I have time tomorrow, I'll go.","why":"“If” about the future: the future subjunctive, {{tiver}}."},
+        {"wrong":"Quando eu fazer o jantar, te chamo.","right":"Quando eu fizer o jantar, te chamo.","tr":"When I make dinner, I'll call you.","why":"Irregular verbs use the perfeito's stem: {{fizeram}} → {{fizer}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quando você ___, me liga.","tr":"When you arrive, call me.","options":["chegar","chega","chegou"],"answer":0,"why":"About the future, after {{quando}}: {{chegar}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, vou te visitar.","tr":"If I have time, I'll visit you.","options":["tiver","tenho","ter"],"answer":0,"why":"“If” about the future: {{tiver}}."},
+        {"type":"choice","q":"{{Pode pedir o que quiser}} means…","options":["Order whatever you like.","You can order what you wanted.","Ask what he wants."],"answer":0,"why":"{{o que quiser}}: “whatever you want”, in the future subjunctive."},
+        {"type":"dialogue","q":"Your mother says goodbye before your trip. Choose your replies.","from":"tell-people-what-to-do","lines":[{"who":"Mom","t":"Me liga assim que você chegar, tá?","tr":"Call me as soon as you arrive, OK?"},{"options":["Pode deixar. Se eu tiver tempo, te ligo hoje à noite.","Pode deixar. Se eu tenho tempo, te ligo hoje à noite."],"answer":0,"why":"“If” about the future: {{tiver}}."},{"who":"Mom","t":"E quando você voltar?","tr":"And when you come back?"},{"options":["Quando eu voltar, a gente faz um almoço.","Quando eu volto, a gente faz um almoço."],"answer":0,"why":"“When” about the future: {{voltar}}."},{"who":"Mom","t":"Combinado. Boa viagem!","tr":"Deal. Have a good trip!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"As soon as I know, I'll let you know.","words":["Assim que","eu","souber,","te","aviso."]},
+        {"type":"say","q":"How do you say “If you want, we'll go”?","answer":"Se você quiser, a gente vai."},
+        {"type":"free","q":"Your turn: what will you do when you have time or money? And if you go to Brazil? Use {{quando}} and {{se}}.","answers":[{"t":"Quando eu tiver férias, vou viajar pro Nordeste. Se eu puder, quero ver os Lençóis Maranhenses.","tr":"When I have vacation, I'm going to travel to the Northeast. If I can, I want to see the Lençóis Maranhenses."},{"t":"Se eu for ao Brasil, vou comer muito pão de queijo!","tr":"If I go to Brazil, I'm going to eat a lot of cheese bread!"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "Imagine and talk about what you would do",
+      "summary": "Imagine and dream out loud: “If I won the lottery, I'd travel the world”, “If I were you…”.",
+      "topic": "{{se}} + the past subjunctive ({{tivesse, fosse, pudesse}}) + the conditional ({{viajaria}}) or, in speech, {{ia}} + verb; {{se eu fosse você}}; {{eu queria que}}",
+      "blocks": [
+        {"goal":{"t":"Se eu ganhasse na loteria, eu viajaria pelo mundo.","tr":"If I won the lottery, I would travel around the world."}},
+        {"dialog":[{"who":"Rafa","t":"O que você faria se ganhasse um milhão?","tr":"What would you do if you won a million?"},{"who":"Kim","t":"Eu compraria uma casa na praia e pararia de trabalhar!","tr":"I'd buy a house on the beach and stop working!"},{"who":"Rafa","t":"Sério? Eu não pararia. Mas viajaria muito.","tr":"Really? I wouldn't stop. But I'd travel a lot."},{"who":"Kim","t":"E se você pudesse morar em qualquer lugar?","tr":"And if you could live anywhere?"},{"who":"Rafa","t":"Eu ia morar em Floripa, com certeza.","tr":"I'd live in Floripa, for sure."},{"who":"Kim","t":"Se eu fosse você, eu ia pra Lisboa!","tr":"If I were you, I'd go to Lisbon!"}]},
+        {"p":"**Imagining.** For things that aren't true, or probably won't be, Portuguese puts two forms together: {{se}} + the past subjunctive, then the conditional of lesson 37. {{Se eu tivesse dinheiro, eu viajaria.}} “If I had money, I would travel.”"},
+        {"p":"**The past subjunctive.** Take the {{eles}} form of the perfeito once more, drop {{-ram}}, and add {{-sse}}:"},
+        { "table": [
+          ["","perfeito, {{eles}}","{{se eu}}…, {{se você}}…"],
+          ["{{falar}}","{{falaram}}","{{falasse}}"],
+          ["{{comer}}","{{comeram}}","{{comesse}}"],
+          ["{{ter}}","{{tiveram}}","{{tivesse}}"],
+          ["{{ser}}, {{ir}}","{{foram}}","{{fosse}}"],
+          ["{{poder}}","{{puderam}}","{{pudesse}}"],
+          ["{{estar}}","{{estiveram}}","{{estivesse}}"],
+          ["{{fazer}}","{{fizeram}}","{{fizesse}}"],
+          ["{{saber}}","{{souberam}}","{{soubesse}}"]
+        ] },
+        {"p":"The plural forms: {{se nós falássemos}}, {{se eles falassem}}."},
+        {"p":"**“Would”: two ways.** The conditional ({{viajaria}}) is the careful form. In conversation Brazilians very often use the imperfeito instead, especially {{ia}} + infinitive: {{Se eu tivesse dinheiro, eu ia viajar}}, or even {{eu viajava}}. All three are common."},
+        { "table": [
+          ["careful","everyday speech"],
+          ["{{Eu viajaria.}}","{{Eu ia viajar.}}"],
+          ["{{Seria ótimo.}}","{{Ia ser ótimo.}}"],
+          ["{{O que você faria?}}","{{O que você ia fazer?}}"]
+        ] },
+        {"p":"**Advice: {{Se eu fosse você…}}** “If I were you…”: {{Se eu fosse você, eu aceitava}} “If I were you, I'd accept”. **Wishes: {{Eu queria que…}}** + the past subjunctive: {{Eu queria que você estivesse aqui}} “I wish you were here”."},
+        { "ex": [
+          {"t":"Se eu falasse português bem, eu morava no Brasil.","tr":"If I spoke Portuguese well, I'd live in Brazil."},
+          {"t":"O que você faria no meu lugar?","tr":"What would you do in my place?"},
+          {"t":"Se eu fosse você, eu não ia.","tr":"If I were you, I wouldn't go."},
+          {"t":"Seria ótimo se vocês pudessem vir.","tr":"It would be great if you could come."},
+          {"t":"Eu queria que você estivesse aqui.","tr":"I wish you were here."},
+          {"t":"Se fosse mais barato, eu comprava.","tr":"If it were cheaper, I'd buy it."}
+        ] },
+        {"tip":"{{Quem me dera!}} (“who would give it to me!”) is a lovely way to say “If only!”: {{Férias? Quem me dera!}} “Vacation? If only!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Se eu tenho dinheiro, eu viajaria.","right":"Se eu tivesse dinheiro, eu viajaria.","tr":"If I had money, I would travel.","why":"Imagining: {{se}} + the past subjunctive, {{tivesse}}."},
+        {"wrong":"Se eu seria rico, compraria uma casa.","right":"Se eu fosse rico, compraria uma casa.","tr":"If I were rich, I'd buy a house.","why":"After {{se}}, never the conditional: {{fosse}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Se eu ___ tempo, eu ia com você.","tr":"If I had time, I'd go with you.","options":["tivesse","tenho","tiver"],"answer":0,"why":"Imagining: {{tivesse}}. ({{Tiver}} is for a real future possibility.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Se eu fosse você, eu ___ o emprego.","tr":"If I were you, I'd take the job.","options":["aceitaria","aceito","aceitei"],"answer":0,"why":"“I would”: the conditional, {{aceitaria}}."},
+        {"type":"choice","q":"In a conversation about dreams, {{O que você ia fazer?}} means…","options":["What would you do?","What did you do?","What are you going to do?"],"answer":0,"why":"In everyday speech, {{ia}} + infinitive often means “would”."},
+        {"type":"dialogue","q":"Dreaming with a friend: choose your replies.","from":"be-polite","lines":[{"who":"Rafa","t":"O que você faria se ganhasse na loteria?","tr":"What would you do if you won the lottery?"},{"options":["Eu compraria uma casa na praia!","Eu comprarei uma casa na praia!"],"answer":0,"why":"Imagining: the conditional, {{compraria}}."},{"who":"Rafa","t":"E se você pudesse morar em qualquer lugar?","tr":"And if you could live anywhere?"},{"options":["Eu ia morar em Floripa.","Eu fui morar em Floripa."],"answer":0,"why":"{{Ia}} + infinitive: the everyday “would”. ({{Fui morar}} is “I went to live”.)"},{"who":"Rafa","t":"Boa escolha!","tr":"Good choice!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"It would be great if you could come.","words":["Seria","ótimo","se","vocês","pudessem","vir."]},
+        {"type":"say","q":"How do you say “If I were you, I wouldn't go”?","answer":"Se eu fosse você, eu não ia."},
+        {"type":"free","q":"Your turn: what would you do if you could live in Brazil for a year? Answer with {{Se eu…}} and the conditional or {{ia}}.","answers":[{"t":"Se eu pudesse morar no Brasil, eu moraria no Rio e ia à praia todo dia.","tr":"If I could live in Brazil, I'd live in Rio and go to the beach every day."},{"t":"Se eu tivesse um ano no Brasil, eu ia aprender a tocar samba e viajar pelo país inteiro.","tr":"If I had a year in Brazil, I'd learn to play samba and travel around the whole country."}]}
+      ]
+    },
+    {
+      "id": "wonder-and-predict",
+      "unit": 7,
+      "level": "B1",
+      "title": "Wonder aloud and understand the news",
+      "summary": "Wonder about things the Brazilian way, “Será que…?”, and understand the one-word future of the news and announcements.",
+      "topic": "{{Será que…?}}; {{sei lá}}; the simple future ({{falarei, será, farei}}) to recognise",
+      "blocks": [
+        {"goal":{"t":"Será que vai chover amanhã?","tr":"Do you think it's going to rain tomorrow?"}},
+        {"dialog":[{"who":"Bia","t":"Será que o Pedro vem hoje?","tr":"I wonder if Pedro is coming today."},{"who":"Leo","t":"Sei lá. Ele não me respondeu.","tr":"Who knows. He didn't answer me."},{"who":"Bia","t":"Será que aconteceu alguma coisa?","tr":"Do you think something happened?"},{"who":"Leo","t":"Duvido. Deve estar dormindo!","tr":"I doubt it. He must be asleep!"},{"who":"Bia","t":"Olha a notícia: o metrô funcionará normalmente amanhã.","tr":"Look at the news: the subway will run normally tomorrow."},{"who":"Leo","t":"Ainda bem! Então amanhã ele não tem desculpa.","tr":"Thank goodness! Then tomorrow he has no excuse."}]},
+        {"p":"**Wondering aloud: {{Será que…?}}** Brazilians put {{será que}} (“will it be that…?”) in front of a question when they're wondering, or asking someone's opinion: {{Será que ela gostou?}} “Do you think she liked it?”, {{Será que vai chover?}} “I wonder if it'll rain”. It softens any question, and you'll hear it all day."},
+        {"p":"The answer is often {{Acho que sim}}, {{Acho que não}}, {{Sei lá}} “Who knows”, or a guess with {{deve}} (lesson 21): {{Deve estar dormindo}} “He must be asleep”."},
+        {"p":"**The one-word future.** {{Será}} is the future of {{ser}}. Portuguese has a future tense of its own: the infinitive plus endings. In conversation Brazilians use {{vou}} + verb instead (lesson 19); the one-word future lives in writing, the news, announcements and formal speech. Learn to recognise it:"},
+        { "table": [
+          ["","future","in conversation"],
+          ["I","{{falarei}}","{{vou falar}}"],
+          ["you, he, she","{{falará}}","{{vai falar}}"],
+          ["we","{{falaremos}}","{{vamos falar}}"],
+          ["you all, they","{{falarão}}","{{vão falar}}"]
+        ] },
+        {"p":"Only three verbs are irregular: {{fazer}} → {{farei}}, {{dizer}} → {{direi}}, {{trazer}} → {{trarei}}. All the others just add the endings to the infinitive: {{será}}, {{terá}}, {{irá}}, {{poderá}}."},
+        {"p":"**Where you'll meet it.** Weather reports ({{Amanhã fará calor}}), the news ({{O presidente viajará na segunda}}), airports ({{O voo partirá às 22h}}), contracts and signs."},
+        { "ex": [
+          {"t":"Será que ela vai gostar do presente?","tr":"Do you think she'll like the present?"},
+          {"t":"Será que eu deixei a porta aberta?","tr":"Did I leave the door open, I wonder?"},
+          {"t":"Sei lá, ele deve estar no trânsito.","tr":"Who knows, he must be stuck in traffic."},
+          {"t":"Amanhã o dia será ensolarado em todo o Sul.","tr":"Tomorrow will be sunny across the South.","note":"a weather report"},
+          {"t":"As inscrições terminarão na sexta-feira.","tr":"Registration will close on Friday.","note":"formal writing"},
+          {"t":"Será? Não sei, não.","tr":"Really? I'm not so sure."}
+        ] },
+        {"tip":"{{Será?}} on its own is a doubtful “Really?” or “Are you sure?”: {{Ele disse que vem. — Será?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Eu fazerei o jantar.","right":"Eu farei o jantar.","tr":"I will make dinner.","why":"{{Fazer}} is irregular in the future: {{farei}}. (In conversation: {{vou fazer}}.)"},
+        {"wrong":"Será que ele vem? — Será, sim.","right":"Será que ele vem? — Acho que sim.","tr":"Do you think he's coming? — I think so.","why":"{{Será que}} asks for an opinion: answer with {{acho que sim}} or {{acho que não}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ que vai fazer sol amanhã?","tr":"Do you think it'll be sunny tomorrow?","options":["Será","Seria","Foi"],"answer":0,"why":"Wondering about the future: {{Será que…?}}"},
+        {"type":"choice","q":"On the airport board you read {{O voo partirá às 22h}}. It means…","options":["The flight will leave at 10 p.m.","The flight left at 10 p.m.","The flight would leave at 10 p.m."],"answer":0,"why":"{{Partirá}} is the one-word future: “will leave”."},
+        {"type":"choice","q":"{{Farão}} is the future of…","options":["{{fazer}}","{{falar}}","{{ficar}}"],"answer":0,"why":"{{Fazer}} is one of the three irregular futures: {{farei}}, {{fará}}, {{farão}}."},
+        {"type":"dialogue","q":"A friend is late. Choose your replies.","from":"say-what-you-need-to-do","lines":[{"who":"Bia","t":"Será que o Pedro vem hoje?","tr":"Do you think Pedro is coming today?"},{"options":["Sei lá. Ele não me respondeu.","Será lá. Ele não me respondeu."],"answer":0,"why":"“Who knows”: {{sei lá}}."},{"who":"Bia","t":"Será que aconteceu alguma coisa?","tr":"Do you think something happened?"},{"options":["Acho que não. Deve estar dormindo!","Acho que não. Deve está dormindo!"],"answer":0,"why":"A guess: {{deve}} + infinitive, {{estar}}."},{"who":"Bia","t":"Típico!","tr":"Typical!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Amanhã eu ___ falar com o médico.","tr":"Tomorrow I'm going to talk to the doctor.","options":["vou","vai","será"],"answer":0,"why":"In conversation, the future is {{vou}} + infinitive.","from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"Do you think she'll like the present?","words":["Será que","ela","vai","gostar","do presente?"]},
+        {"type":"say","q":"You can't remember locking the door. Wonder aloud: “Did I leave the door open?”","answer":"Será que eu deixei a porta aberta?"},
+        {"type":"free","q":"Your turn: wonder about two things in your future with {{Será que…?}}, and answer yourself.","answers":[{"t":"Será que eu vou conseguir falar português fluente? Acho que sim, se eu estudar todo dia!","tr":"Will I manage to speak fluent Portuguese, I wonder? I think so, if I study every day!"},{"t":"Será que vai fazer calor no Rio em julho? Acho que não muito.","tr":"I wonder if it'll be hot in Rio in July. I don't think very."}]}
+      ]
     }
   ]
 }
