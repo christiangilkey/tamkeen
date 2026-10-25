@@ -1428,6 +1428,443 @@
         {"type":"order","q":"Put the words in order.","tr":"It was raining, so we stayed home.","words":["Il pleuvait,","alors","nous","sommes restés","à la maison."]},
         {"type":"free","q":"Your turn: tell a short story. Say where you were, what the scene was like, and what happened.","answers":[{"t":"Samedi, j'étais à la plage. Il faisait beau et je lisais. Tout à coup, un chien a pris mon sandwich !","tr":"On Saturday I was at the beach. It was nice out and I was reading. Suddenly a dog took my sandwich!"},{"t":"Hier soir, je rentrais à la maison. Il pleuvait. Soudain, j'ai vu ma voisine et nous avons parlé une heure sous la pluie.","tr":"Last night I was walking home. It was raining. Suddenly I saw my neighbor and we talked for an hour in the rain."}]}
       ]
+    },
+    {
+      "id": "describe-your-routine",
+      "unit": 6,
+      "level": "A2",
+      "title": "Describe your daily routine",
+      "summary": "Say when you wake up, shower, get dressed and go to bed: reflexive verbs, with {{me}}, {{te}}, {{se}}.",
+      "topic": "reflexive verbs ({{se lever}}, {{s'habiller}}): {{je me}}, {{tu te}}, {{il se}}, {{nous nous}}, {{vous vous}}, {{ils se}}",
+      "blocks": [
+        {"goal":{"t":"Je me lève à sept heures, je me douche et je m'habille.","tr":"I get up at seven, take a shower and get dressed."}},
+        {"dialog":[{"who":"Chloé","t":"Tu te lèves à quelle heure demain ?","tr":"What time are you getting up tomorrow?"},{"who":"Yanis","t":"Je me lève à six heures. Je commence tôt.","tr":"I'm getting up at six. I start early."},{"who":"Chloé","t":"Six heures ! Moi, je ne me lève jamais avant huit heures.","tr":"Six! I never get up before eight."},{"who":"Yanis","t":"Alors, je me douche en premier ?","tr":"So I'll shower first?"},{"who":"Chloé","t":"Oui, et ne te couche pas trop tard !","tr":"Yes, and don't go to bed too late!"}]},
+        {"term":"reflexive verb","means":"a verb with an extra little pronoun that points back to the subject: {{je me lave}}, “I wash myself”. The dictionary lists it with {{se}}: {{se laver}}."},
+        {"p":"**Doing it to yourself.** {{Laver}} is “to wash” (the car, a child); {{se laver}} is “to wash yourself”, “to wash”. French uses verbs like this for the whole daily routine, where English simply says “I get up”, “I get dressed”."},
+        { "table": [
+          ["","{{se lever}} “to get up”"],
+          ["I","{{je me lève}}"],
+          ["you (a friend)","{{tu te lèves}}"],
+          ["he, she; we (casual)","{{il se lève}}; {{on se lève}}"],
+          ["we","{{nous nous levons}}"],
+          ["you (polite, or several)","{{vous vous levez}}"],
+          ["they","{{ils se lèvent}}"]
+        ] },
+        {"p":"Before a vowel or a silent {{h}}, {{me, te, se}} become {{m', t', s'}}: {{je m'habille}}, {{il s'appelle}}. Now you know what {{je m'appelle}} (lesson 1) really is: “I call myself”."},
+        { "table": [
+          ["the routine","French"],
+          ["wake up","{{se réveiller}}"],
+          ["get up","{{se lever}}"],
+          ["take a shower","{{se doucher}}"],
+          ["get dressed","{{s'habiller}}"],
+          ["hurry","{{se dépêcher}}"],
+          ["rest, relax","{{se reposer}}"],
+          ["go to bed","{{se coucher}}"]
+        ] },
+        {"p":"**The negative** goes around the pronoun and the verb together: {{Je ne me lève pas.}} {{Il ne se rase jamais.}} “He never shaves.”"},
+        {"p":"**Before an infinitive**, the pronoun still matches the person: {{Je vais me coucher.}} “I'm going to bed.” {{Tu dois te reposer.}} “You must rest.”"},
+        {"p":"**In the imperative**, the pronoun goes after, with a dash, and {{te}} becomes {{toi}}: {{Dépêche-toi !}} “Hurry up!” {{Asseyez-vous.}} “Sit down.” (lesson 22). In the negative it stays in front: {{Ne te couche pas tard.}}"},
+        { "ex": [
+          {"t":"Je me réveille à six heures et demie.","tr":"I wake up at six thirty."},
+          {"t":"Les enfants se couchent à vingt heures.","tr":"The kids go to bed at 8 p.m."},
+          {"t":"Vous vous appelez comment ?","tr":"What's your name?"},
+          {"t":"Je ne m'habille pas le dimanche !","tr":"I don't get dressed on Sundays!"},
+          {"t":"Dépêche-toi, on est en retard !","tr":"Hurry up, we're late!"},
+          {"t":"On se voit demain ?","tr":"Shall we see each other tomorrow?","note":"{{se}} can mean “each other”"}
+        ] },
+        {"tip":"With a plural subject, {{se}} can mean “each other”: {{Ils s'aiment.}} “They love each other.” {{On s'appelle ce soir ?}} “Shall we call each other tonight?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Je lève à sept heures.","right":"Je me lève à sept heures.","tr":"I get up at seven.","why":"{{Se lever}} needs its pronoun: {{je me lève}}. ({{Je lève}} means “I lift”.)"},
+        {"wrong":"Je me ne lève pas.","right":"Je ne me lève pas.","tr":"I'm not getting up.","why":"{{Ne}} goes before the pronoun."},
+        {"wrong":"Je vais se coucher.","right":"Je vais me coucher.","tr":"I'm going to bed.","why":"Even before an infinitive, the pronoun matches the person: {{me}} for “I”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tu ___ lèves à quelle heure ?","tr":"What time do you get up?","options":["te","se","me"],"answer":0,"why":"With {{tu}}: {{te}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous ___ couchons tard le samedi.","tr":"We go to bed late on Saturdays.","options":["nous","se","vous"],"answer":0,"why":"With {{nous}}, the pronoun is {{nous}} too: {{nous nous couchons}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm going to take a shower.","words":["Je","vais","me","doucher."],"from":"say-what-youre-going-to-do"},
+        {"type":"choice","q":"How do you tell a friend “Hurry up!”?","options":["{{Dépêche-toi !}}","{{Te dépêche !}}","{{Dépêche-te !}}"],"answer":0,"why":"In the imperative the pronoun goes after, and {{te}} becomes {{toi}}.","from":"give-directions"},
+        {"type":"dialogue","q":"Your new roommate asks about your mornings. Choose your replies.","from":"say-when-and-how-often","lines":[{"who":"Your roommate","t":"Tu te lèves tôt ?","tr":"Do you get up early?"},{"options":["Oui, je me lève à six heures.","Oui, je lève à six heures."],"answer":0,"why":"{{Se lever}}: {{je me lève}}."},{"who":"Your roommate","t":"Et le week-end ?","tr":"And on weekends?"},{"options":["Le week-end, je ne me lève jamais avant dix heures !","Le week-end, je me ne lève jamais avant dix heures !"],"answer":0,"why":"{{Ne}} before the pronoun, {{jamais}} after the verb."},{"who":"Your roommate","t":"Moi non plus !","tr":"Me neither!"}]},
+        {"type":"say","q":"Say: “The kids go to bed at eight.”","answer":"Les enfants se couchent à huit heures."},
+        {"type":"free","q":"Your turn: describe your morning routine, from waking up to leaving home.","answers":[{"t":"Je me réveille à sept heures. Je me lève, je me douche et je m'habille. Je pars à huit heures.","tr":"I wake up at seven. I get up, shower and get dressed. I leave at eight."},{"t":"Je me lève à six heures et demie. Je bois un café, puis je me prépare et je me dépêche pour prendre le bus.","tr":"I get up at six thirty. I drink a coffee, then I get ready and hurry to catch the bus."}]}
+      ]
+    },
+    {
+      "id": "say-how-your-morning-went",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how your morning went",
+      "summary": "Tell someone you overslept, rushed, got lost or had a great time: reflexive verbs in the passé composé, always with {{être}}.",
+      "topic": "reflexive verbs in the passé composé: {{je me suis levé}}, {{elle s'est levée}}; {{je ne me suis pas…}}",
+      "blocks": [
+        {"goal":{"t":"Ce matin, je ne me suis pas réveillée, alors je me suis dépêchée !","tr":"This morning I didn't wake up, so I rushed!","note":"said by a woman"}},
+        {"dialog":[{"who":"A colleague","t":"Ça va ? Tu as l'air fatigué.","tr":"Are you OK? You look tired."},{"who":"Thomas","t":"Je me suis couché à deux heures ! Je me suis amusé avec des amis.","tr":"I went to bed at two! I had fun with some friends."},{"who":"A colleague","t":"Et ce matin ?","tr":"And this morning?"},{"who":"Thomas","t":"Je ne me suis pas réveillé. Je me suis habillé en deux minutes !","tr":"I didn't wake up. I got dressed in two minutes!"},{"who":"A colleague","t":"Et tu t'es rasé ?","tr":"And did you shave?"},{"who":"Thomas","t":"Euh… non !","tr":"Er… no!"}]},
+        {"p":"**Always être.** In the passé composé, every reflexive verb takes {{être}}, and the little pronoun stays in front of it: {{je me suis levé}} “I got up”."},
+        { "table": [
+          ["","{{se lever}} in the passé composé"],
+          ["I","{{je me suis levé}}, {{je me suis levée}}"],
+          ["you (a friend)","{{tu t'es levé}}, {{tu t'es levée}}"],
+          ["he, she","{{il s'est levé}}, {{elle s'est levée}}"],
+          ["we","{{nous nous sommes levés}}; {{on s'est levés}}"],
+          ["you (polite, or several)","{{vous vous êtes levé}}, {{levée}}, {{levés}}, {{levées}}"],
+          ["they","{{ils se sont levés}}, {{elles se sont levées}}"]
+        ] },
+        {"p":"**Agreement, as with the être verbs** (lesson 25): {{-e}} for a woman, {{-s}} for several. {{Elle s'est réveillée tard.}} {{Ils se sont mariés en 2010.}} “They got married in 2010.”"},
+        {"p":"**The negative** goes around the pronoun and {{être}}: {{Je ne me suis pas réveillé.}} “I didn't wake up.”"},
+        {"p":"**Useful ones.** {{s'amuser}} (have fun), {{se perdre}} (get lost), {{se tromper}} (make a mistake), {{se marier}} (get married), {{se rencontrer}} (meet each other), {{se passer}} (happen): {{Qu'est-ce qui s'est passé ?}} “What happened?” (lesson 28)."},
+        { "ex": [
+          {"t":"Je me suis levé tard ce matin.","tr":"I got up late this morning."},
+          {"t":"Elle s'est perdue dans Paris.","tr":"She got lost in Paris."},
+          {"t":"On s'est bien amusés !","tr":"We had a great time!"},
+          {"t":"Excusez-moi, je me suis trompé.","tr":"Sorry, I made a mistake."},
+          {"t":"Ils se sont rencontrés à l'université.","tr":"They met in college."},
+          {"t":"Tu ne t'es pas reposé ?","tr":"Didn't you get any rest?"}
+        ] },
+        {"tip":"{{Se tromper de}} is very handy: {{Je me suis trompé de numéro.}} “I dialed the wrong number.” {{Je me suis trompée de train.}} “I took the wrong train.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Je m'ai levé.","right":"Je me suis levé.","tr":"I got up.","why":"Reflexive verbs always take {{être}} in the passé composé."},
+        {"wrong":"Elle s'est réveillé tard.","right":"Elle s'est réveillée tard.","tr":"She woke up late.","why":"With {{être}}, the participle agrees: {{-e}} for a woman."},
+        {"wrong":"Je me ne suis pas réveillé.","right":"Je ne me suis pas réveillé.","tr":"I didn't wake up.","why":"{{Ne}} before the pronoun, {{pas}} after {{être}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Je ___ suis couché à minuit.","tr":"I went to bed at midnight.","options":["me","m'","se"],"answer":0,"why":"“I”: {{me}} (and {{suis}} starts with a consonant, so no {{m'}})."},
+        {"type":"fill","q":"Choose the missing word.","t":"Elles se sont bien ___.","tr":"They had a great time.","options":["amusées","amusé","amusés"],"answer":0,"why":"{{Elles}}: feminine and plural, {{-es}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu ___ es levé à quelle heure ?","tr":"What time did you get up?","options":["t'","te","s'"],"answer":0,"why":"{{Te}} before a vowel: {{t'}}.","from":"describe-your-routine"},
+        {"type":"choice","q":"{{Qu'est-ce qui s'est passé ?}} means…","options":["What happened?","What's happening?","What's going to happen?"],"answer":0,"why":"{{Se passer}} “to happen”, in the passé composé.","from":"tell-a-story"},
+        {"type":"dialogue","q":"You're late for a meeting. Choose your lines.","from":"describe-how-things-were","lines":[{"who":"Your boss","t":"Vous êtes en retard ! Qu'est-ce qui s'est passé ?","tr":"You're late! What happened?"},{"options":["Je suis désolé, je ne me suis pas réveillé.","Je suis désolé, je ne m'ai pas réveillé."],"answer":0,"why":"A reflexive verb in the past: {{être}}."},{"who":"Your boss","t":"Et le métro ?","tr":"And the subway?"},{"options":["Il y avait beaucoup de monde, et je me suis trompé de ligne.","Il a eu beaucoup de monde, et je me suis trompé de ligne."],"answer":0,"why":"The scene, “there were a lot of people”: {{il y avait}}."},{"who":"Your boss","t":"Bon, asseyez-vous.","tr":"OK, sit down."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We met in college.","words":["Nous","nous sommes","rencontrés","à l'université."]},
+        {"type":"free","q":"Your turn: tell someone how your morning went: when you woke up, what you did, and one thing that went wrong (or right!).","answers":[{"t":"Je me suis réveillée à sept heures. Je me suis douchée et je me suis habillée, mais je me suis trompée de bus !","tr":"I woke up at seven. I showered and got dressed, but I took the wrong bus!"},{"t":"Ce matin, je me suis levé tôt. J'ai bu un bon café et je me suis reposé avant le travail.","tr":"This morning I got up early. I had a good coffee and relaxed before work."}]}
+      ]
+    },
+    {
+      "id": "avoid-repeating-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about things without repeating them",
+      "summary": "Say “I'll take it”, “I know her”, “I bought them yesterday”: {{le}}, {{la}}, {{les}} before the verb.",
+      "topic": "direct object pronouns {{le, la, l', les}} (and {{me, te, nous, vous}}): before the verb, before an infinitive, before the helper",
+      "blocks": [
+        {"goal":{"t":"Ce pull ? Je l'ai acheté hier, et je l'adore !","tr":"This sweater? I bought it yesterday, and I love it!"}},
+        {"dialog":[{"who":"The shop assistant","t":"Vous aimez cette robe ?","tr":"Do you like this dress?"},{"who":"You","t":"Oui, je l'aime beaucoup. Je peux l'essayer ?","tr":"Yes, I like it a lot. Can I try it on?"},{"who":"The shop assistant","t":"Bien sûr. Et les chaussures ?","tr":"Of course. And the shoes?"},{"who":"You","t":"Je les prends aussi !","tr":"I'll take them too!"},{"who":"The shop assistant","t":"Vous connaissez notre carte de fidélité ?","tr":"Do you know about our loyalty card?"},{"who":"You","t":"Non, je ne la connais pas.","tr":"No, I don't know it."}]},
+        {"term":"direct object","means":"the person or thing the verb acts on directly, with no little word in between: I see **the bus**; I love **her**."},
+        {"p":"**Le, la, les replace a noun.** Instead of repeating “the dress”, French uses a pronoun: {{le}} for a masculine noun, {{la}} for a feminine one, {{l'}} before a vowel, {{les}} for a plural. They look like the articles, but here they mean “him, her, it, them”."},
+        { "table": [
+          ["","pronoun","example"],
+          ["him, it (masculine)","{{le}}","{{Le bus ? Je le prends.}}"],
+          ["her, it (feminine)","{{la}}","{{La robe ? Je la prends.}}"],
+          ["before a vowel","{{l'}}","{{Je l'aime.}}"],
+          ["them","{{les}}","{{Les chaussures ? Je les prends.}}"],
+          ["me, you, us, you","{{me}}, {{te}}, {{nous}}, {{vous}}","{{Tu me vois ?}}"]
+        ] },
+        {"p":"**Before the verb.** This is the big difference from English: the pronoun goes **before** the verb. “I take it” is {{je le prends}}, word for word “I it take”. In the negative, {{ne}} comes before the pronoun: {{Je ne la connais pas.}} “I don't know her.”"},
+        {"p":"**With an infinitive**, it goes before the infinitive: {{Je peux l'essayer ?}} “Can I try it on?” {{Je vais les acheter.}} “I'm going to buy them.”"},
+        {"p":"**In the passé composé**, before the helper: {{Je l'ai acheté.}} “I bought it.” {{Je ne l'ai pas vu.}} “I didn't see it.” (In writing, the participle agrees with a feminine or plural pronoun in front of it: {{La robe ? Je l'ai achetée.}} You usually can't hear it.)"},
+        { "ex": [
+          {"t":"Tu connais Marie ? — Oui, je la connais bien.","tr":"Do you know Marie? — Yes, I know her well."},
+          {"t":"Le film ? Je l'ai vu hier.","tr":"The movie? I saw it yesterday."},
+          {"t":"Où sont mes clés ? Je ne les trouve pas !","tr":"Where are my keys? I can't find them!"},
+          {"t":"Je t'aime.","tr":"I love you."},
+          {"t":"Vous pouvez m'attendre ici ?","tr":"Can you wait for me here?"},
+          {"t":"Ce gâteau, je l'ai fait moi-même.","tr":"I made this cake myself."}
+        ] },
+        {"tip":"Two shop phrases: {{Je le prends.}} or {{Je la prends.}} “I'll take it.” And when you're just browsing: {{Je regarde, merci.}} “I'm just looking, thanks.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Je prends le.","right":"Je le prends.","tr":"I'll take it.","why":"The pronoun goes before the verb."},
+        {"wrong":"Je ne connais la pas.","right":"Je ne la connais pas.","tr":"I don't know her.","why":"{{Ne}}, the pronoun, the verb, then {{pas}}."},
+        {"wrong":"J'ai le vu.","right":"Je l'ai vu.","tr":"I saw it.","why":"In the passé composé, the pronoun goes before the helper {{avoir}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"La robe ? Je ___ prends.","tr":"The dress? I'll take it.","options":["la","le","les"],"answer":0,"why":"{{Robe}} is feminine: {{la}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mes lunettes ? Je ne ___ trouve pas.","tr":"My glasses? I can't find them.","options":["les","la","le"],"answer":0,"why":"More than one: {{les}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I saw it yesterday.","words":["Je","l'ai","vu","hier."],"from":"tell-about-your-weekend"},
+        {"type":"choice","q":"The jacket ({{la veste}}): “Can I try it on?”","options":["{{Je peux l'essayer ?}}","{{Je l'peux essayer ?}}","{{Je peux essayer la ?}}"],"answer":0,"why":"Before the infinitive: {{l'essayer}}.","from":"invite-accept-refuse"},
+        {"type":"dialogue","q":"In a shoe store. Choose your replies.","from":"ask-the-price","lines":[{"who":"The salesman","t":"Vous aimez ces chaussures ?","tr":"Do you like these shoes?"},{"options":["Oui, je les aime beaucoup. Elles coûtent combien ?","Oui, j'aime les beaucoup. Elles coûtent combien ?"],"answer":0,"why":"{{Les}} goes before the verb."},{"who":"The salesman","t":"Quatre-vingt-dix euros.","tr":"Ninety euros."},{"options":["D'accord, je les prends !","D'accord, je prends les !"],"answer":0,"why":"Before the verb: {{je les prends}}."},{"who":"The salesman","t":"Très bien. Vous payez par carte ?","tr":"Very good. Are you paying by card?"}]},
+        {"type":"say","q":"Your friend asks if you know Paul. Say: “Yes, I know him well.”","answer":"Oui, je le connais bien."},
+        {"type":"free","q":"Your turn: answer with {{le}}, {{la}} or {{les}}: {{Tu regardes la télé ?}} {{Tu aimes les légumes ?}} {{Tu as vu tes amis cette semaine ?}}","answers":[{"t":"Oui, je la regarde le soir. Je les aime beaucoup. Oui, je les ai vus samedi.","tr":"Yes, I watch it in the evening. I like them a lot. Yes, I saw them on Saturday."},{"t":"Non, je ne la regarde jamais. Je ne les aime pas. Non, je ne les ai pas vus.","tr":"No, I never watch it. I don't like them. No, I didn't see them."}]}
+      ]
+    },
+    {
+      "id": "talk-to-people",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say who you call, give and write to",
+      "summary": "Say you called your mother, gave her a present, wrote to them: {{lui}}, {{leur}}, {{me}} and {{te}} for “to him, to her, to them, to me”.",
+      "topic": "indirect object pronouns {{me, te, lui, nous, vous, leur}}; verbs with {{à}} ({{parler à, téléphoner à, donner à, demander à}})",
+      "blocks": [
+        {"goal":{"t":"C'est l'anniversaire de ma mère : je lui téléphone ce soir et je lui offre des fleurs.","tr":"It's my mother's birthday: I'm calling her tonight and giving her flowers."}},
+        {"dialog":[{"who":"Your friend","t":"Tu as parlé à Julien ?","tr":"Did you talk to Julien?"},{"who":"Camille","t":"Oui, je lui ai téléphoné hier. Il va bien.","tr":"Yes, I called him yesterday. He's fine."},{"who":"Your friend","t":"Et ses parents ? Tu leur as dit pour la fête ?","tr":"And his parents? Did you tell them about the party?"},{"who":"Camille","t":"Non, pas encore. Je vais leur écrire un message.","tr":"No, not yet. I'm going to write them a message."},{"who":"Your friend","t":"Tu peux me donner leur numéro ?","tr":"Can you give me their number?"},{"who":"Camille","t":"Bien sûr !","tr":"Sure!"}]},
+        {"term":"indirect object","means":"the person who receives something or is spoken to, after “to”: I give a present **to my mother**; I talk **to him**. In French it comes after {{à}}."},
+        {"p":"**To him, to her: lui.** A person after {{à}} becomes {{lui}} (“to him” or “to her”: the same word) or {{leur}} (“to them”). Like {{le, la, les}}, they go before the verb."},
+        { "table": [
+          ["","replaces","example"],
+          ["to me, to you","{{à moi}}, {{à toi}}","{{Tu me parles ?}} {{Je te téléphone.}}"],
+          ["to him, to her","{{à Paul}}, {{à Marie}}","{{Je lui téléphone.}}"],
+          ["to us, to you","{{à nous}}, {{à vous}}","{{Il nous écrit.}} {{Je vous remercie.}}"],
+          ["to them","{{à mes parents}}","{{Je leur téléphone.}}"]
+        ] },
+        {"p":"**Which verbs?** The ones that take {{à}} + a person: {{parler à}} (talk to), {{téléphoner à}} (call), {{écrire à}} (write to), {{répondre à}} (answer), {{donner à}} (give), {{offrir à}} (give as a present), {{demander à}} (ask), {{dire à}} (tell). Some don't match English: “to call someone” is {{téléphoner à quelqu'un}}, word for word “to phone to someone”. So it's {{je lui téléphone}}, never “je le téléphone”."},
+        {"p":"**Same places as le, la, les.** Before the verb: {{Je ne lui parle pas.}} Before an infinitive: {{Je vais leur écrire.}} Before the helper: {{Je lui ai donné mon numéro.}} ({{Lui}} and {{leur}} never change the participle.)"},
+        {"p":"**Leur or leurs?** Before a verb, {{leur}} means “to them” and never takes {{-s}}: {{je leur parle}}. Before a noun it means “their” (lesson 10): {{leur maison}}, {{leurs enfants}}."},
+        { "ex": [
+          {"t":"Je lui ai acheté un cadeau.","tr":"I bought him a present."},
+          {"t":"Tu peux me passer le sel ?","tr":"Can you pass me the salt?"},
+          {"t":"Elle ne me répond pas.","tr":"She's not answering me."},
+          {"t":"On leur a dit merci.","tr":"We said thank you to them."},
+          {"t":"Je vous remercie, madame.","tr":"Thank you, madam.","note":"formal: “I thank you”"},
+          {"t":"Demande-lui !","tr":"Ask him! Ask her!","note":"in the imperative, after the verb"}
+        ] },
+        {"tip":"In the imperative the pronoun goes after the verb, and {{me}} becomes {{moi}}: {{Donne-moi la main.}} “Give me your hand.” {{Dites-lui bonjour.}} “Say hi to him for me.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Je la téléphone ce soir.","right":"Je lui téléphone ce soir.","tr":"I'm calling her tonight.","why":"{{Téléphoner à}} someone: “to her” is {{lui}}."},
+        {"wrong":"Je leurs parle.","right":"Je leur parle.","tr":"I'm talking to them.","why":"Before a verb, {{leur}} never takes {{-s}}."},
+        {"wrong":"J'ai lui donné le livre.","right":"Je lui ai donné le livre.","tr":"I gave him the book.","why":"The pronoun goes before the helper."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Paul ? Je ___ ai écrit hier.","tr":"Paul? I wrote to him yesterday.","options":["lui","le","leur"],"answer":0,"why":"{{Écrire à}} someone: {{lui}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mes parents ? Je ___ téléphone tous les dimanches.","tr":"My parents? I call them every Sunday.","options":["leur","les","lui"],"answer":0,"why":"{{Téléphoner à}}, and more than one: {{leur}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{Je vais lui demander.}}","{{Je vais la demander.}}","{{Je lui vais demander.}}"],"answer":0,"why":"{{Demander à}} someone: {{lui}}, before the infinitive."},
+        {"type":"choice","q":"Marie? “I know her well”: {{Je ___ connais bien.}}","options":["{{la}}","{{lui}}"],"answer":0,"why":"{{Connaître}} takes no {{à}}: “her” is {{la}}.","from":"avoid-repeating-things"},
+        {"type":"dialogue","q":"Your friend asks about your sister's birthday. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Your friend","t":"Tu as parlé à ta sœur ?","tr":"Did you talk to your sister?"},{"options":["Oui, je lui ai téléphoné ce matin.","Oui, je l'ai téléphoné ce matin."],"answer":0,"why":"{{Téléphoner à}}: {{lui}}, before the helper."},{"who":"Your friend","t":"Qu'est-ce que tu lui as offert ?","tr":"What did you give her?"},{"options":["Je lui ai offert un livre.","Je la ai offert un livre."],"answer":0,"why":"{{Offrir à}} someone: {{lui}}."},{"who":"Your friend","t":"Bonne idée !","tr":"Good idea!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Can you pass me the salt?","words":["Tu","peux","me","passer","le sel ?"]},
+        {"type":"free","q":"Your turn: say who you've called, written to or given something to lately, with {{lui}} or {{leur}}.","answers":[{"t":"Ma mère ? Je lui ai téléphoné hier. Mes amis ? Je leur ai écrit un message.","tr":"My mother? I called her yesterday. My friends? I wrote them a message."},{"t":"C'est l'anniversaire de mon frère : je lui ai acheté un cadeau et je vais lui téléphoner ce soir.","tr":"It's my brother's birthday: I bought him a present and I'm going to call him tonight."}]}
+      ]
+    },
+    {
+      "id": "say-there-and-some",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say “there” and “some of it” in one word",
+      "summary": "Answer “Are you going to Paris?” with “Yes, I'm going (there) tomorrow”, and “How many?” with “I'll take two”: the little words {{y}} and {{en}}.",
+      "topic": "{{y}} (there) and {{en}} (some, of it, of them); {{il y en a}}; {{on y va}}",
+      "blocks": [
+        {"goal":{"t":"Des baguettes ? J'en voudrais deux, s'il vous plaît.","tr":"Baguettes? I'd like two, please."}},
+        {"dialog":[{"who":"The baker","t":"Vous voulez des croissants ?","tr":"Would you like some croissants?"},{"who":"You","t":"Oui, j'en voudrais trois.","tr":"Yes, I'd like three."},{"who":"The baker","t":"Et avec ça ?","tr":"Anything else?"},{"who":"You","t":"Il y a encore des pains au chocolat ?","tr":"Are there any pains au chocolat left?"},{"who":"The baker","t":"Oui, il en reste deux.","tr":"Yes, there are two left."},{"who":"You","t":"Je les prends !","tr":"I'll take them!"}]},
+        {"p":"**Y: there.** {{Y}} replaces a place that comes after {{à}}, {{en}}, {{dans}}, {{chez}}…: {{Tu vas à Paris ? — Oui, j'y vais demain.}} “Yes, I'm going (there) tomorrow.” French needs it: “je vais demain” on its own sounds unfinished."},
+        {"p":"**En: some, any, of it, of them.** {{En}} replaces a noun with {{du, de la, des}} or {{de}}: {{Tu veux du café ? — Oui, j'en veux.}} “Yes, I'd like some.” With a number or an amount, the number stays at the end: {{J'en voudrais deux.}} “I'd like two (of them).” {{Il en a beaucoup.}} “He has a lot (of them).”"},
+        { "table": [
+          ["","replaces","example"],
+          ["{{y}}","a place: {{à Paris}}, {{au café}}, {{chez Paul}}","{{J'y vais.}} “I'm going (there).”"],
+          ["{{en}}","{{du, de la, des}} + a noun","{{J'en mange.}} “I eat some.”"],
+          ["{{en}} + a number","{{deux pommes}}","{{J'en prends deux.}} “I'll take two.”"],
+          ["{{en}} in a negative","{{pas de}} + a noun","{{Je n'en ai pas.}} “I don't have any.”"]
+        ] },
+        {"p":"**Where they go.** Like the other pronouns: before the verb, the infinitive or the helper. {{Je n'y vais pas.}} {{Je vais en acheter.}} {{J'y suis allé l'année dernière.}} {{Tu en as mangé ?}}"},
+        {"p":"**Phrases you'll hear every day.** {{Il y en a.}} “There are some.” {{Il n'y en a plus.}} “There's none left.” {{On y va !}} “Let's go!” {{Vas-y !}} “Go on! Go for it!” {{Je m'en vais.}} “I'm leaving.” And {{il y a}} itself has {{y}} in it."},
+        { "ex": [
+          {"t":"Tu connais Lyon ? — Oui, j'y habite !","tr":"Do you know Lyon? — Yes, I live there!"},
+          {"t":"Des enfants ? Oui, j'en ai trois.","tr":"Children? Yes, I have three."},
+          {"t":"Il n'y a plus de lait ? — Non, il n'y en a plus.","tr":"Is there no more milk? — No, there's none left."},
+          {"t":"Tu es allé au marché ? — Non, je n'y suis pas allé.","tr":"Did you go to the market? — No, I didn't."},
+          {"t":"Du vin ? Non merci, je n'en bois pas.","tr":"Wine? No thanks, I don't drink it."},
+          {"t":"On y va ?","tr":"Shall we go?"}
+        ] },
+        {"tip":"With a number and no noun, French always adds {{en}}: “I have two” is {{j'en ai deux}}. A bare “j'ai deux” sounds as if you forgot the end of the sentence."}
+      ],
+      "mistakes": [
+        {"wrong":"Tu vas à Paris ? — Oui, je vais demain.","right":"Tu vas à Paris ? — Oui, j'y vais demain.","tr":"Are you going to Paris? — Yes, I'm going tomorrow.","why":"French needs {{y}} for the place."},
+        {"wrong":"Des enfants ? J'ai deux.","right":"Des enfants ? J'en ai deux.","tr":"Children? I have two.","why":"A number with no noun needs {{en}}."},
+        {"wrong":"Je ne vais y pas.","right":"Je n'y vais pas.","tr":"I'm not going.","why":"{{Y}} goes right before the verb, inside {{ne … pas}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tu vas au cinéma ce soir ? — Oui, j'___ vais avec Paul.","tr":"Are you going to the movies tonight? — Yes, I'm going with Paul.","options":["y","en","le"],"answer":0,"why":"A place: {{y}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu as des frères ? — Oui, j'___ ai deux.","tr":"Do you have brothers? — Yes, I have two.","options":["en","y","les"],"answer":0,"why":"A number with no noun: {{en}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choose the missing word.","t":"Du café ? Non merci, je n'___ bois jamais.","tr":"Coffee? No thanks, I never drink it.","options":["en","y","le"],"answer":0,"why":"{{Du café}}, an amount: {{en}}.","from":"order-food-and-drink"},
+        {"type":"choice","q":"{{Il n'y en a plus.}} means…","options":["There's none left.","There's more of it.","He doesn't go there anymore."],"answer":0,"why":"{{Il y a}} + {{en}} + {{ne … plus}}: “there is none any more”."},
+        {"type":"dialogue","q":"At the market. Choose your replies.","from":"ask-the-price","lines":[{"who":"The stallholder","t":"Vous voulez des tomates ?","tr":"Would you like some tomatoes?"},{"options":["Oui, j'en voudrais un kilo.","Oui, je voudrais un kilo."],"answer":0,"why":"“A kilo of them”: {{j'en voudrais un kilo}}."},{"who":"The stallholder","t":"Et des pêches ? Elles sont très bonnes.","tr":"And peaches? They're very good."},{"options":["Non merci, j'en ai à la maison.","Non merci, j'y ai à la maison."],"answer":0,"why":"Some peaches: {{en}}."},{"who":"The stallholder","t":"D'accord ! Ça fait trois euros.","tr":"OK! That's three euros."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I went there last year.","words":["J'y","suis","allé","l'année","dernière."],"from":"say-where-you-went"},
+        {"type":"free","q":"Your turn: answer with {{y}} or {{en}}: {{Tu vas souvent au cinéma ?}} {{Tu as des animaux ?}} {{Tu bois du café ?}}","answers":[{"t":"Oui, j'y vais tous les samedis. Oui, j'en ai deux : un chat et un chien. Non, je n'en bois jamais.","tr":"Yes, I go every Saturday. Yes, I have two: a cat and a dog. No, I never drink it."},{"t":"Non, je n'y vais pas souvent. Non, je n'en ai pas. Oui, j'en bois le matin.","tr":"No, I don't go often. No, I don't have any. Yes, I drink it in the morning."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 6,
+      "level": "A2",
+      "title": "Give reasons and link your ideas",
+      "summary": "Say why, say so, and say what for: {{parce que}}, {{car}}, {{comme}}, {{donc}}, {{alors}}, {{mais}} and {{pour}} + infinitive.",
+      "topic": "{{parce que}}, {{car}}, {{comme}}; {{donc}}, {{alors}}; {{mais}}, {{pourtant}}; {{pour}} + infinitive",
+      "blocks": [
+        {"goal":{"t":"Je ne viens pas ce soir parce que je suis malade, mais on peut se voir demain.","tr":"I'm not coming tonight because I'm sick, but we can meet tomorrow."}},
+        {"dialog":[{"who":"Manon","t":"Pourquoi tu apprends le français ?","tr":"Why are you learning French?"},{"who":"Ryan","t":"Parce que ma copine est française, et je veux parler avec sa famille.","tr":"Because my girlfriend is French, and I want to talk with her family."},{"who":"Manon","t":"C'est difficile ?","tr":"Is it hard?"},{"who":"Ryan","t":"Un peu, mais j'adore ça. Alors, j'étudie tous les jours.","tr":"A bit, but I love it. So I study every day."},{"who":"Manon","t":"Et tu vas en France pour la voir ?","tr":"And are you going to France to see her?"},{"who":"Ryan","t":"Oui, cet été. Comme les billets sont chers, j'économise !","tr":"Yes, this summer. Since the tickets are expensive, I'm saving up!"}]},
+        {"p":"**Why? Because.** {{Pourquoi … ?}} “Why?”, and {{parce que}} “because”: {{Pourquoi tu pars ? — Parce que je suis fatigué.}} Before a vowel it's {{parce qu'}}: {{parce qu'il pleut}}."},
+        { "table": [
+          ["","linker","example"],
+          ["because","{{parce que}}","{{Je reste ici parce qu'il pleut.}}"],
+          ["because, for (more written)","{{car}}","{{Le magasin est fermé, car c'est dimanche.}}"],
+          ["since, as (at the start)","{{comme}}","{{Comme il pleut, je reste ici.}}"],
+          ["so","{{donc}}, {{alors}}","{{Il pleut, alors je reste ici.}}"],
+          ["but","{{mais}}","{{Il pleut, mais je sors.}}"],
+          ["and yet","{{pourtant}}","{{Il fait beau, pourtant il fait froid.}}"],
+          ["in order to","{{pour}} + infinitive","{{Je sors pour acheter du pain.}}"]
+        ] },
+        {"p":"**Comme comes first.** {{Comme}} gives the reason at the start of the sentence, often a reason the listener can see: {{Comme tu es là, on peut commencer.}} “Since you're here, we can start.” {{Parce que}} comes after the main idea."},
+        {"p":"**Donc and alors.** Both mean “so”. {{Alors}} is the more spoken one; it also starts a question or a story: {{Alors, ce voyage ?}} (lesson 26). {{Donc}} is a little more logical: {{Je pense, donc je suis.}} “I think, therefore I am.”"},
+        {"p":"**What for: pour + infinitive.** A purpose, “(in order) to”, is {{pour}} + the infinitive: {{J'économise pour acheter une voiture.}} “I'm saving to buy a car.” English often just says “to”; French needs {{pour}}."},
+        { "ex": [
+          {"t":"Pourquoi tu ris ? — Parce que c'est drôle !","tr":"Why are you laughing? — Because it's funny!"},
+          {"t":"Je suis en retard car le train est en panne.","tr":"I'm late because the train has broken down."},
+          {"t":"Comme il fait beau, on mange dehors.","tr":"Since it's nice out, we're eating outside."},
+          {"t":"J'ai faim, alors je vais faire un sandwich.","tr":"I'm hungry, so I'm going to make a sandwich."},
+          {"t":"C'est cher, mais c'est très bon.","tr":"It's expensive, but it's really good."},
+          {"t":"Je vais à la poste pour envoyer un colis.","tr":"I'm going to the post office to send a package."}
+        ] },
+        {"tip":"{{À cause de}} “because of” is followed by a noun: {{à cause de la pluie}} “because of the rain”. For a good reason, say {{grâce à}} “thanks to”: {{grâce à toi}} “thanks to you”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je reste ici parce que il pleut.","right":"Je reste ici parce qu'il pleut.","tr":"I'm staying here because it's raining.","why":"Before a vowel, {{parce que}} becomes {{parce qu'}}."},
+        {"wrong":"J'économise à acheter une voiture.","right":"J'économise pour acheter une voiture.","tr":"I'm saving to buy a car.","why":"A purpose, “in order to”: {{pour}} + infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing words.","t":"Je reste à la maison ___ je suis malade.","tr":"I'm staying home because I'm sick.","options":["parce que","pour","donc"],"answer":0,"why":"A reason after the main idea: {{parce que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ il pleut, on reste à l'intérieur.","tr":"Since it's raining, we're staying inside.","options":["Comme","Pour","Alors"],"answer":0,"why":"A reason at the start of the sentence: {{comme}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je vais à la banque ___ retirer de l'argent.","tr":"I'm going to the bank to take out some money.","options":["pour","à","parce que"],"answer":0,"why":"A purpose: {{pour}} + infinitive."},
+        {"type":"choice","q":"Which linker means “so”?","options":["{{donc}}","{{car}}","{{mais}}"],"answer":0,"why":"{{Donc}} (and {{alors}}): “so”. {{Car}} is “because”, {{mais}} “but”."},
+        {"type":"dialogue","q":"A friend invites you. Say no, and give a reason.","from":"invite-accept-refuse","lines":[{"who":"Your friend","t":"Tu veux venir à la plage demain ?","tr":"Do you want to come to the beach tomorrow?"},{"options":["Je ne peux pas, parce que je travaille.","Je ne peux pas, pour je travaille."],"answer":0,"why":"A reason: {{parce que}}."},{"who":"Your friend","t":"Dommage ! Et dimanche ?","tr":"Too bad! What about Sunday?"},{"options":["Dimanche, je veux bien ! Comme il va faire beau, on peut pique-niquer.","Dimanche, je veux bien ! Donc il va faire beau, on peut pique-niquer."],"answer":0,"why":"A reason at the start: {{comme}}."},{"who":"Your friend","t":"Super idée !","tr":"Great idea!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm hungry, so I'm going to make a sandwich.","words":["J'ai faim,","alors","je vais","faire","un sandwich."],"from":"say-what-youre-going-to-do"},
+        {"type":"free","q":"Your turn: why are you learning French? Give two reasons, and say what you do to learn it.","answers":[{"t":"J'apprends le français parce que j'adore la France et parce que je veux voyager. J'utilise Tamkeen pour apprendre tous les jours.","tr":"I'm learning French because I love France and because I want to travel. I use Tamkeen to learn every day."},{"t":"Comme ma femme est française, je veux parler avec sa famille. Alors, j'étudie tous les soirs pour faire des progrès.","tr":"Since my wife is French, I want to talk with her family. So I study every evening to get better."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things and choose the best",
+      "summary": "Say that one thing is bigger, cheaper or better than another, and which is the best: {{plus … que}}, {{meilleur}}, {{le plus}}.",
+      "topic": "{{plus / moins / aussi … que}}; {{meilleur}}, {{mieux}}; {{le plus}}, {{le moins}}, {{le meilleur}}",
+      "blocks": [
+        {"goal":{"t":"Ce restaurant est plus cher, mais il est meilleur que l'autre.","tr":"This restaurant is more expensive, but it's better than the other one."}},
+        {"dialog":[{"who":"Paul","t":"On prend quel hôtel ?","tr":"Which hotel shall we take?"},{"who":"Léa","t":"L'hôtel du Port est moins cher que l'hôtel Bellevue.","tr":"The Hôtel du Port is cheaper than the Hôtel Bellevue."},{"who":"Paul","t":"Oui, mais le Bellevue est plus près de la plage.","tr":"Yes, but the Bellevue is closer to the beach."},{"who":"Léa","t":"Et les chambres sont plus grandes. C'est le meilleur hôtel de la ville !","tr":"And the rooms are bigger. It's the best hotel in town!"},{"who":"Paul","t":"Bon, d'accord. On prend le Bellevue !","tr":"OK, fine. We'll take the Bellevue!"}]},
+        {"term":"comparative","means":"the form that compares two things: bigger, more expensive, better."},
+        {"term":"superlative","means":"the form that picks out the top one: the biggest, the most expensive, the best."},
+        {"p":"**More, less, as.** French doesn't add an ending like “-er”: it puts {{plus}} (more), {{moins}} (less) or {{aussi}} (as) before the adjective, and {{que}} (than, as) after it."},
+        { "table": [
+          ["","French","English"],
+          ["more","{{Paris est plus grand que Lyon.}}","Paris is bigger than Lyon."],
+          ["less","{{Le train est moins cher que l'avion.}}","The train is cheaper than the plane."],
+          ["as","{{Marie est aussi grande que sa mère.}}","Marie is as tall as her mother."]
+        ] },
+        {"p":"The adjective still agrees (lesson 9): {{Les chambres sont plus grandes.}} {{Que}} becomes {{qu'}} before a vowel: {{plus âgé qu'elle}} “older than her”. After {{que}}, “me”, “him” are {{moi}}, {{lui}}: {{Il est plus grand que moi.}}"},
+        {"p":"**Good and well: meilleur, mieux.** “Better” is never “plus bon”: it's {{meilleur}}, an adjective that agrees ({{meilleure}}, {{meilleurs}}). For “well”, “better” is {{mieux}}: {{Il chante mieux que moi.}} “He sings better than me.” {{Ça va mieux.}} “I'm feeling better.”"},
+        {"p":"**The most: le plus.** Put {{le}}, {{la}} or {{les}} before {{plus}} or {{moins}}: {{C'est la ville la plus chère.}} “It's the most expensive town.” “The best” is {{le meilleur}}, {{la meilleure}}. After a superlative, “in” is {{de}}: {{le meilleur restaurant de Paris}}."},
+        {"p":"**Amounts: plus de, moins de, autant de** + a noun: {{Il y a plus de monde aujourd'hui.}} “There are more people today.”"},
+        { "ex": [
+          {"t":"Mon frère est plus jeune que moi.","tr":"My brother is younger than me."},
+          {"t":"Cette veste est moins chère.","tr":"This jacket is cheaper."},
+          {"t":"Le thé est aussi bon que le café.","tr":"Tea is as good as coffee."},
+          {"t":"C'est la meilleure pizza du monde !","tr":"It's the best pizza in the world!"},
+          {"t":"Elle parle mieux français que moi.","tr":"She speaks French better than me."},
+          {"t":"C'est le plus beau jour de ma vie.","tr":"It's the most beautiful day of my life.","note":"{{beau}} goes before the noun, so {{le plus beau}} does too"},
+          {"t":"J'ai moins de temps qu'avant.","tr":"I have less time than before."}
+        ] },
+        {"tip":"{{Plus}} is said “plu” before a consonant, “pluz” before a vowel ({{plus âgé}}), and “pluss” when it means “more” on its own: {{J'en veux plus.}} “I want more.”"}
+      ],
+      "mistakes": [
+        {"wrong":"C'est plus bon.","right":"C'est meilleur.","tr":"It's better.","why":"“Better” (from “good”) is {{meilleur}}, never “plus bon”."},
+        {"wrong":"Il est plus grand que je.","right":"Il est plus grand que moi.","tr":"He's taller than me.","why":"After {{que}}: {{moi}}, {{toi}}, {{lui}}…"},
+        {"wrong":"Il chante meilleur que moi.","right":"Il chante mieux que moi.","tr":"He sings better than me.","why":"With a verb (singing well), “better” is {{mieux}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Le train est ___ cher que l'avion.","tr":"The train is cheaper than the plane.","options":["moins","plus","aussi"],"answer":0,"why":"Cheaper: “less expensive”, {{moins cher}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ce gâteau est ___ que l'autre !","tr":"This cake is better than the other one!","options":["meilleur","mieux","bon"],"answer":0,"why":"“Better” as an adjective: {{meilleur}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ça va ___ aujourd'hui ?","tr":"Are you feeling better today?","options":["mieux","meilleur","bien"],"answer":0,"why":"{{Ça va bien}} → {{ça va mieux}}.","from":"ask-how-someone-is"},
+        {"type":"order","q":"Put the words in order.","tr":"It's the best restaurant in the city.","words":["C'est","le meilleur","restaurant","de","la ville."]},
+        {"type":"choice","q":"{{Sophie est plus grande que Marc.}} So…","options":["Marc is shorter than Sophie.","Marc is taller than Sophie.","They're the same height."],"answer":0,"why":"Sophie is taller, so Marc is shorter."},
+        {"type":"dialogue","q":"You're choosing between two apartments. Choose your replies.","from":"describe-things","lines":[{"who":"The agent","t":"Vous préférez quel appartement ?","tr":"Which apartment do you prefer?"},{"options":["Le premier est plus grand, mais le deuxième est moins cher.","Le premier est plus grande, mais le deuxième est moins cher."],"answer":0,"why":"{{Appartement}} is masculine: {{grand}}."},{"who":"The agent","t":"Et le quartier ?","tr":"And the neighborhood?"},{"options":["Le deuxième est dans le quartier le plus calme de la ville.","Le deuxième est dans le quartier plus calme de la ville."],"answer":0,"why":"“The quietest”: {{le plus calme}}, with its {{le}}."},{"who":"The agent","t":"Très bon choix !","tr":"Very good choice!"}]},
+        {"type":"free","q":"Your turn: compare two cities, two foods or two people you know. Then say which is the best.","answers":[{"t":"New York est plus grand que Boston, mais Boston est plus calme. Pour moi, la meilleure ville, c'est Paris !","tr":"New York is bigger than Boston, but Boston is quieter. For me, the best city is Paris!"},{"t":"Ma sœur cuisine mieux que moi : elle fait le meilleur gâteau du monde.","tr":"My sister cooks better than me: she makes the best cake in the world."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how long and how long ago",
+      "summary": "Say you've lived here for three years, arrived three years ago, or worked somewhere for a while: {{depuis}}, {{il y a}} and {{pendant}}.",
+      "topic": "{{depuis}} + the present ({{j'habite ici depuis…}}); {{il y a}} + a length of time (ago); {{pendant}}; {{ça fait … que}}",
+      "blocks": [
+        {"goal":{"t":"J'habite à Paris depuis trois ans. Je suis arrivée il y a trois ans, en juin.","tr":"I've lived in Paris for three years. I arrived three years ago, in June.","note":"said by a woman"}},
+        {"dialog":[{"who":"The doctor","t":"Vous avez mal depuis quand ?","tr":"How long have you been in pain?"},{"who":"You","t":"Depuis trois jours.","tr":"For three days."},{"who":"The doctor","t":"Et vous avez de la fièvre ?","tr":"And do you have a fever?"},{"who":"You","t":"Oui, depuis hier soir. J'ai pris un médicament il y a deux heures.","tr":"Yes, since last night. I took some medicine two hours ago."},{"who":"The doctor","t":"D'accord. Vous allez prendre cet antibiotique pendant une semaine.","tr":"OK. You're going to take this antibiotic for a week."}]},
+        {"p":"**Depuis + the present.** For something that started in the past and is still going on, French uses the **present** with {{depuis}}: {{J'habite ici depuis trois ans.}} “I've lived here for three years” (and I still do). English says “I have lived”; French says “I live here since three years”."},
+        {"p":"{{Depuis}} covers both “for” (a length of time) and “since” (a starting point): {{depuis deux heures}} “for two hours” or “since two o'clock”, {{depuis 2020}}, {{depuis lundi}}. To ask: {{Depuis quand … ?}} or {{Depuis combien de temps … ?}} “How long…?”"},
+        {"p":"**Il y a: ago.** With the passé composé, {{il y a}} + a length of time means “ago”: {{Je suis arrivée il y a trois ans.}} It's the same {{il y a}} as “there is”, used another way."},
+        {"p":"**Pendant: for a finished stretch.** For something that lasted a while and is over, use {{pendant}}: {{J'ai habité à Rome pendant deux ans.}} “I lived in Rome for two years” (and then I left)."},
+        { "table": [
+          ["","French","English"],
+          ["still going on","{{Je travaille ici depuis cinq ans.}}","I've worked here for five years."],
+          ["a moment in the past","{{J'ai commencé il y a cinq ans.}}","I started five years ago."],
+          ["over and done","{{J'ai travaillé à Lyon pendant cinq ans.}}","I worked in Lyon for five years."]
+        ] },
+        {"p":"**Ça fait … que.** In speech, {{ça fait}} + a length of time + {{que}} is another way to say {{depuis}}: {{Ça fait une heure que j'attends !}} “I've been waiting for an hour!”"},
+        { "ex": [
+          {"t":"Je t'attends depuis vingt minutes !","tr":"I've been waiting for you for twenty minutes!"},
+          {"t":"Tu apprends le français depuis combien de temps ?","tr":"How long have you been learning French?"},
+          {"t":"Ils sont mariés depuis 2015.","tr":"They've been married since 2015."},
+          {"t":"J'ai vu Paul il y a deux jours.","tr":"I saw Paul two days ago."},
+          {"t":"Nous avons attendu pendant une heure.","tr":"We waited for an hour."},
+          {"t":"Ça fait longtemps !","tr":"Long time no see!","note":"word for word “it makes a long time”"}
+        ] },
+        {"tip":"{{Depuis}} with a negative passé composé says how long something hasn't happened: {{Je n'ai pas mangé depuis ce matin.}} “I haven't eaten since this morning.”"}
+      ],
+      "mistakes": [
+        {"wrong":"J'ai habité ici depuis trois ans.","right":"J'habite ici depuis trois ans.","tr":"I've lived here for three years.","why":"Still true now: {{depuis}} with the present."},
+        {"wrong":"Je suis arrivé depuis deux jours.","right":"Je suis arrivé il y a deux jours.","tr":"I arrived two days ago.","why":"“Ago”, a moment in the past: {{il y a}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"J'apprends le français ___ deux ans.","tr":"I've been learning French for two years.","options":["depuis","il y a","pendant"],"answer":0,"why":"Still going on: {{depuis}} + the present."},
+        {"type":"fill","q":"Choose the missing words.","t":"Elle est partie ___ dix minutes.","tr":"She left ten minutes ago.","options":["il y a","depuis","pendant"],"answer":0,"why":"“Ago”: {{il y a}}.","from":"say-where-you-went"},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous avons habité en Italie ___ trois ans.","tr":"We lived in Italy for three years (and then left).","options":["pendant","depuis","il y a"],"answer":0,"why":"A stretch of time that's over: {{pendant}}."},
+        {"type":"choice","q":"How do you say “I've lived here since 2019”?","options":["{{J'habite ici depuis 2019.}}","{{J'ai habité ici depuis 2019.}}","{{J'habite ici il y a 2019.}}"],"answer":0,"why":"Still true: the present with {{depuis}}."},
+        {"type":"dialogue","q":"At the doctor's. Choose your replies.","from":"say-what-you-have-to-do","lines":[{"who":"The doctor","t":"Vous avez mal à la gorge depuis quand ?","tr":"How long have you had a sore throat?"},{"options":["Depuis trois jours.","Il y a trois jours."],"answer":0,"why":"It still hurts: {{depuis}}."},{"who":"The doctor","t":"Vous avez pris un médicament ?","tr":"Have you taken any medicine?"},{"options":["Oui, j'ai pris de l'aspirine il y a deux heures.","Oui, j'ai pris de l'aspirine depuis deux heures."],"answer":0,"why":"A moment in the past: {{il y a}}."},{"who":"The doctor","t":"Bien. Prenez ce sirop pendant cinq jours.","tr":"Good. Take this syrup for five days."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've been waiting for an hour!","words":["Ça fait","une heure","que","j'attends !"]},
+        {"type":"free","q":"Your turn: how long have you lived where you live now? When did you arrive? Did you live somewhere else before, and for how long?","answers":[{"t":"J'habite à Seattle depuis dix ans. Je suis arrivé il y a dix ans. Avant, j'ai habité à Denver pendant cinq ans.","tr":"I've lived in Seattle for ten years. I arrived ten years ago. Before that, I lived in Denver for five years."},{"t":"J'habite dans ma maison depuis 2018. Avant, j'ai habité en Espagne pendant deux ans.","tr":"I've lived in my house since 2018. Before that, I lived in Spain for two years."}]}
+      ]
+    },
+    {
+      "id": "say-what-just-happened",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what just happened and what's happening right now",
+      "summary": "Say you've just arrived, you're in the middle of cooking, or you're about to leave: {{venir de}}, {{être en train de}} and {{être sur le point de}}.",
+      "topic": "{{venir de}} + infinitive (just done); {{être en train de}} + infinitive (in the middle of); {{être sur le point de}} (about to)",
+      "blocks": [
+        {"goal":{"t":"Je viens d'arriver à la gare. Tu es où ?","tr":"I've just arrived at the station. Where are you?"}},
+        {"dialog":[{"who":"Lucas","t":"Allô ? Tu es où ?","tr":"Hello? Where are you?"},{"who":"Emma","t":"Je viens de sortir du bureau. Et toi ?","tr":"I've just left the office. And you?"},{"who":"Lucas","t":"Je suis en train de faire les courses pour ce soir.","tr":"I'm in the middle of doing the shopping for tonight."},{"who":"Emma","t":"Super. Les invités vont arriver à huit heures ?","tr":"Great. Are the guests going to arrive at eight?"},{"who":"Lucas","t":"Oui, et Paul vient d'appeler : il apporte le dessert.","tr":"Yes, and Paul just called: he's bringing dessert."}]},
+        {"p":"**Just done: venir de + infinitive.** {{Venir}} “to come” + {{de}} + an infinitive says something has only just happened: {{Je viens de manger.}} “I've just eaten.” The verb is in the present, but it means the very recent past (word for word, “I come from eating”)."},
+        {"p":"**Right now: être en train de + infinitive.** French has one present for “I work” and “I'm working” (lesson 13). To stress that something is going on at this very moment, say {{être en train de}}: {{Je suis en train de travailler.}} “I'm (busy) working.”"},
+        {"p":"**About to: être sur le point de.** {{Aller}} + infinitive (lesson 19) says what's going to happen; {{être sur le point de}} says it's going to happen any second: {{Le train est sur le point de partir.}} “The train is about to leave.”"},
+        { "table": [
+          ["","French","English"],
+          ["just done","{{Je viens de manger.}}","I've just eaten."],
+          ["happening now","{{Je suis en train de manger.}}","I'm eating (right now)."],
+          ["about to","{{Je suis sur le point de manger.}}","I'm about to eat."],
+          ["going to","{{Je vais manger.}}","I'm going to eat."]
+        ] },
+        {"p":"**In a story**, {{venir de}} and {{être en train de}} go into the imparfait (lesson 28): {{Je venais de rentrer quand tu as appelé.}} “I had just got home when you called.” {{J'étais en train de dormir.}} “I was sleeping.”"},
+        { "ex": [
+          {"t":"Il vient de partir.","tr":"He's just left."},
+          {"t":"Nous venons d'acheter une maison !","tr":"We've just bought a house!"},
+          {"t":"Elle vient d'avoir un bébé.","tr":"She's just had a baby."},
+          {"t":"Chut, le bébé est en train de dormir.","tr":"Shh, the baby's sleeping."},
+          {"t":"Tu es en train de lire quoi ?","tr":"What are you reading?"},
+          {"t":"Le film est sur le point de commencer.","tr":"The movie is about to start."}
+        ] },
+        {"tip":"{{Je viens de…}} is the French for “I've just…”. Don't translate “just” with {{juste}}: {{J'ai juste mangé}} means “I only ate”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je viens d'arrivé.","right":"Je viens d'arriver.","tr":"I've just arrived.","why":"After {{venir de}}, the infinitive ({{-er}}), not the participle."},
+        {"wrong":"J'ai juste arrivé.","right":"Je viens d'arriver.","tr":"I've just arrived.","why":"“Just”, for something very recent, is {{venir de}}."},
+        {"wrong":"Je suis en train travailler.","right":"Je suis en train de travailler.","tr":"I'm working.","why":"Don't forget {{de}}: {{en train de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Le train vient ___ partir.","tr":"The train has just left.","options":["de","à","pour"],"answer":0,"why":"{{Venir de}} + infinitive."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous ___ en train de dîner.","tr":"We're having dinner (right now).","options":["sommes","avons","venons"],"answer":0,"why":"{{Être en train de}}: {{nous sommes}}."},
+        {"type":"choice","q":"{{Elle vient de sortir.}} means…","options":["She's just gone out.","She's coming out.","She's going to go out."],"answer":0,"why":"{{Venir de}}: just done."},
+        {"type":"fill","q":"Choose the missing word.","t":"J'étais en train de ___ quand tu as appelé.","tr":"I was cooking when you called.","options":["cuisiner","cuisinais","cuisiné"],"answer":0,"why":"After {{de}}: the infinitive. The imparfait is on {{être}}.","from":"tell-a-story"},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","from":"say-where-youre-going","lines":[{"who":"Your friend","t":"Allô ? Tu es où ?","tr":"Hello? Where are you?"},{"options":["Je viens d'arriver à la gare.","Je viens arriver à la gare."],"answer":0,"why":"{{Venir de}}: don't forget {{de}} ({{d'}} before a vowel)."},{"who":"Your friend","t":"Et qu'est-ce que tu fais ?","tr":"And what are you doing?"},{"options":["Je suis en train d'acheter un café.","Je suis en train acheter un café."],"answer":0,"why":"{{En train de}}, with {{d'}} before a vowel."},{"who":"Your friend","t":"OK, j'arrive dans cinq minutes !","tr":"OK, I'll be there in five minutes!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"The movie is about to start.","words":["Le film","est","sur le point","de","commencer."]},
+        {"type":"free","q":"Your turn: say something you've just done, what you're doing right now, and what you're going to do next.","answers":[{"t":"Je viens de manger. Je suis en train d'apprendre le français. Après, je vais aller au lit.","tr":"I've just eaten. I'm learning French right now. After that, I'm going to bed."},{"t":"Je viens de rentrer du travail. Je suis en train de lire cette leçon, et ensuite je vais préparer le dîner.","tr":"I've just got home from work. I'm reading this lesson, and then I'm going to make dinner."}]}
+      ]
     }
   ]
 }
