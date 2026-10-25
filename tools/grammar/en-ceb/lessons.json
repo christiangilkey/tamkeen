@@ -1463,6 +1463,240 @@
         {"type":"say","q":"Say “Me too! I really like lechon.”","answer":"Ako sad! Ganahan gyud ko sa lechon.","from":"say-what-you-like"},
         {"type":"free","q":"Your turn: react to something with two little words ({{gyud}}, {{diay}}, {{baya}}, {{lagi}}…).","answers":[{"t":"Lami gyud diay ang durian!","tr":"Durian really is tasty after all!"},{"t":"Init baya karon! Ako sad, gikapoy na ko.","tr":"It's hot today, you know! Me too, I'm tired now."}]}
       ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell what happened, step by step",
+      "summary": "Tell a friend about your trip in order: first, then, when we arrived, finally.",
+      "topic": "{{mi-}}, {{nag-}}, {{gi-}} and {{nang-}} together in a story; {{una}}, {{dayon}}, {{unya}}, {{human ana}}, {{sa katapusan}}; {{pag-}} + root “when”",
+      "blocks": [
+        {"goal":{"t":"Una, miadto mi sa baybayon. Dayon, naglangoy mi.","tr":"First, we went to the beach. Then we swam."}},
+        {"dialog":[{"who":"Joy","t":"Kumusta ang inyong biyahe sa Bohol?","tr":"How was your trip to Bohol?"},{"who":"Ben","t":"Nindot kaayo! Una, misakay mi og barko alas sais sa buntag.","tr":"Really nice! First, we took the boat at six in the morning."},{"who":"Joy","t":"Dayon?","tr":"And then?"},{"who":"Ben","t":"Pag-abot namo, nag-abang mi og motor ug miadto sa Chocolate Hills.","tr":"When we arrived, we rented a motorbike and went to the Chocolate Hills."},{"who":"Joy","t":"Nakita ninyo ang tarsier?","tr":"Did you see the tarsier?"},{"who":"Ben","t":"Oo! Gamay kaayo! Unya, naniudto mi sa suba sa Loboc.","tr":"Yes! So small! Then we had lunch on the river at Loboc."},{"who":"Ben","t":"Sa katapusan, mibalik mi sa Cebu alas otso sa gabii. Kapoy, pero lingaw!","tr":"Finally, we came back to Cebu at eight at night. Tiring, but fun!"}]},
+        {"p":"A story uses every “done” form you know, each for its own job: {{mi-}} for the events ({{misakay mi}} “we took the boat”), {{nag-}} for things that went on for a while ({{naglangoy mi}} “we swam, we were swimming”), {{gi-}} for particular things ({{gikaon namo ang sugba}} “we ate the grilled fish”), and {{nang-}} for errands and meals ({{naniudto mi}} “we had lunch”)."},
+        {"p":"**Linking words** put the steps in order:"},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{una}}","first"],
+          ["{{dayon}}","then, next"],
+          ["{{unya}}","then, later"],
+          ["{{human ana}}","after that"],
+          ["{{pag-abot namo}}","when we arrived"],
+          ["{{sa katapusan}}","finally, in the end"]
+        ] },
+        {"p":"**When it happened: {{pag-}}.** {{pag-}} + a root + the person from the {{nako}} set means “when … (did it)”: {{Pag-abot namo…}} “When we arrived…”, {{Pag-uli nako…}} “When I got home…”. Word for word it's “at our arriving”, which is why the person is {{namo}}, {{nako}}."},
+        {"p":"**Said once is enough.** With {{ug}} “and”, the second verb can drop the person: {{Nag-abang mi og motor ug miadto sa Chocolate Hills.}} “We rented a motorbike and went to the Chocolate Hills.”"},
+        { "ex": [
+          {"t":"Una, mibangon ko og sayo.","tr":"First, I got up early."},
+          {"t":"Dayon, naligo ko ug namahaw.","tr":"Then I took a shower and had breakfast."},
+          {"t":"Pag-abot nako sa opisina, nagsugod na ang miting.","tr":"When I got to the office, the meeting had already started."},
+          {"t":"Human ana, gitawagan nako si Mama.","tr":"After that, I called Mom."},
+          {"t":"Unya, nanihapon mi sa gawas.","tr":"Then we had supper out."},
+          {"t":"Sa katapusan, natulog ko alas onse.","tr":"Finally, I went to bed at eleven."}
+        ] },
+        {"tip":"{{Kumusta ang…?}} “How was the…?” opens any story: {{Kumusta ang imong weekend?}} {{Kumusta ang biyahe?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Una, moadto mi sa baybayon, dayon molangoy mi. (about last Sunday)","right":"Una, miadto mi sa baybayon, dayon naglangoy mi.","tr":"First, we went to the beach, then we swam.","why":"A story of what happened uses the done forms; with {{mo-}} it sounds like a plan."},
+        {"wrong":"Pag-abot ako, natulog na siya.","right":"Pag-abot nako, natulog na siya.","tr":"When I arrived, she was already asleep.","why":"After {{pag-}}, the person comes from the {{nako}} set: “at my arriving”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Una, ___ mi sa baybayon.","tr":"First, we went to the beach.","options":["miadto","moadto","adto"],"answer":0,"why":"It happened: {{mi-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ namo sa Bohol, nag-abang mi og motor.","tr":"When we arrived in Bohol, we rented a motorbike.","options":["Pag-abot","Miabot","Moabot"],"answer":0,"why":"“When we arrived”: {{pag-}} + root + {{namo}}."},
+        {"type":"choice","q":"Which one means “finally”?","options":["{{sa katapusan}}","{{una}}","{{dayon}}"],"answer":0,"why":"{{una}} is first, {{dayon}} then."},
+        {"type":"dialogue","q":"A friend asks about your trip. Choose your replies.","lines":[{"who":"Lito","t":"Kumusta ang inyong biyahe sa Siquijor?","tr":"How was your trip to Siquijor?"},{"options":["Lingaw kaayo! Una, naglangoy mi sa dagat.","Lingaw kaayo! Una, maglangoy mi sa dagat."],"answer":0,"why":"It happened: {{nag-}}, not {{mag-}}."},{"who":"Lito","t":"Dayon?","tr":"And then?"},{"options":["Pag-abot namo sa hotel, natulog dayon mi.","Pag-abot kami sa hotel, natulog dayon mi."],"answer":0,"why":"After {{pag-}}: {{namo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"After that, I called Mom.","words":["Human","ana,","gitawagan","nako","si","Mama."]},
+        {"type":"say","q":"Say “Then Ben cooked the fish.”","answer":"Dayon, giluto ni Ben ang isda.","from":"tell-who-did-it"},
+        {"type":"choice","q":"{{Unya, nanihapon mi sa gawas.}} means…","options":["Then we had supper out.","Then we'll have supper out."],"answer":0,"why":"{{nang-}} is done; “we'll have supper” would be {{manihapon}}.","from":"run-errands"},
+        {"type":"free","q":"Your turn: tell what you did last weekend in three steps ({{una}}, {{dayon}}, {{sa katapusan}}).","answers":[{"t":"Una, miadto ko sa merkado. Dayon, nagluto ko og adobo. Sa katapusan, nanan-aw mi og sine.","tr":"First, I went to the market. Then I cooked adobo. Finally, we watched a movie."},{"t":"Una, mibangon ko og ulahi. Dayon, miadto mi sa baybayon. Sa katapusan, nanihapon mi sa balay ni Lola.","tr":"First, I got up late. Then we went to the beach. Finally, we had supper at Lola's house."}]}
+      ]
+    },
+    {
+      "id": "say-what-happened-to-you",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what happened to you",
+      "summary": "Say “I lost my phone!”, “It fell”, “It broke down”, and what you saw or heard.",
+      "topic": "{{na-}} for what happens by accident or by itself ({{nawala}}, {{nahulog}}, {{naguba}}); {{ma-}} for what could happen; {{nakita}}, {{nadungog}}, {{nalimtan}}",
+      "blocks": [
+        {"goal":{"t":"Nawala akong selpon!","tr":"I lost my phone!"}},
+        {"dialog":[{"who":"Ana","t":"Hala! Nawala akong selpon!","tr":"Oh no! My phone's gone!"},{"who":"Ben","t":"Unsay nahitabo?","tr":"What happened?"},{"who":"Ana","t":"Ambot! Naa ra sa akong bag ganiha. Basin nahulog sa jeep.","tr":"I don't know! It was in my bag earlier. Maybe it fell out in the jeepney."},{"who":"Ben","t":"Tawagan nato… Nadungog nimo?","tr":"Let's call it… Do you hear it?"},{"who":"Ana","t":"Oo, nadungog nako! Naa ra diay sa akong bulsa!","tr":"Yes, I hear it! It's in my pocket after all!"},{"who":"Ben","t":"Ay, salamat sa Dios!","tr":"Oh, thank God!"}]},
+        {"p":"**{{na-}}: it just happened.** For things that happen **by accident, or by themselves**, with nobody meaning to, Bisaya uses {{na-}}: {{nawala}} “got lost”, {{nahulog}} “fell”, {{naguba}} “broke down”, {{nabuak}} “smashed”, {{nabasa}} “got wet”. No doer is needed: {{Nahulog ang baso.}} “The glass fell.”"},
+        {"p":"English says “I lost my phone”, as if you did it. Bisaya says what happened to the phone: {{Nawala akong selpon.}} “My phone got lost.” For something that **could** happen or is about to, use {{ma-}}: {{Mahulog na!}} “It's going to fall!”"},
+        {"p":"**Seeing and hearing** happen to you too, so they use {{na-}}, with the person who sees or hears from the {{nako}} set, like a {{gi-}} verb: {{Nakita nako si Ben.}} “I saw Ben.” {{Nadungog nimo?}} “Did you hear (it)?” And forgetting: {{Nalimtan nako!}} “I forgot!”"},
+        { "table": [
+          ["root","it happened","it could happen, will happen"],
+          ["{{wala}}","{{nawala}} got lost","{{mawala}}"],
+          ["{{hulog}}","{{nahulog}} fell","{{mahulog}}"],
+          ["{{guba}}","{{naguba}} broke down","{{maguba}}"],
+          ["{{buak}}","{{nabuak}} smashed","{{mabuak}}"],
+          ["{{kita}}","{{nakita}} saw","{{makita}} will see"],
+          ["{{dungog}}","{{nadungog}} heard","{{madungog}} will hear"]
+        ] },
+        { "ex": [
+          {"t":"Nahulog sa yuta ang akong selpon.","tr":"My phone fell on the ground."},
+          {"t":"Naguba ang akong motor.","tr":"My motorbike broke down."},
+          {"t":"Nabuak ang baso.","tr":"The glass broke."},
+          {"t":"Nabasa ko sa ulan.","tr":"I got wet in the rain."},
+          {"t":"Nakita ba nimo ang akong yawe?","tr":"Have you seen my keys?"},
+          {"t":"Nalimtan nako ang imong ngalan. Sorry!","tr":"I forgot your name. Sorry!"},
+          {"t":"Unsay nahitabo?","tr":"What happened?"}
+        ] },
+        {"tip":"{{Hala!}} is the Bisaya “Oh no!” for small disasters; {{Salamat sa Dios!}} “Thank God!” when things turn out fine."}
+      ],
+      "mistakes": [
+        {"wrong":"Giwala nako akong selpon.","right":"Nawala akong selpon.","tr":"I lost my phone.","why":"Losing something by accident is {{na-}}. A {{gi-}} verb means you did it on purpose."},
+        {"wrong":"Mikita ko niya.","right":"Nakita nako siya.","tr":"I saw her.","why":"Seeing happens to you: {{na-}}, with the seer from the {{nako}} set."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ akong selpon!","tr":"I lost my phone!","options":["Nawala","Giwala","Mawala"],"answer":0,"why":"It happened by accident: {{na-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nakita ___ si Ben.","tr":"I saw Ben.","options":["nako","ako","akong"],"answer":0,"why":"The one who sees: the {{nako}} set."},
+        {"type":"choice","q":"{{Mahulog na!}} means…","options":["It's going to fall!","It fell!","Drop it!"],"answer":0,"why":"{{ma-}}: it could happen, it's about to."},
+        {"type":"dialogue","q":"Your friend looks upset. Choose your replies.","lines":[{"options":["Unsay nahitabo?","Unsay mahitabo?"],"answer":0,"why":"Asking what (already) happened: {{nahitabo}}."},{"who":"Mark","t":"Naguba akong motor sa dalan.","tr":"My motorbike broke down on the road."},{"options":["Hala! Okay ra ka?","Hala! Giguba nimo?"],"answer":0,"why":"It broke down by itself; ask if he's okay. ({{Giguba nimo?}} would be “Did you wreck it?”)"},{"who":"Mark","t":"Okay ra ko. Pero nabasa ko sa ulan.","tr":"I'm okay. But I got wet in the rain."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My motorbike broke down.","words":["Naguba","ang","akong","motor."]},
+        {"type":"say","q":"Say “When I got home, the glass was broken.”","answer":"Pag-uli nako, nabuak na ang baso.","from":"tell-a-story"},
+        {"type":"choice","q":"{{Gibuak nako ang baso.}} and {{Nabuak ang baso.}}: which is on purpose?","options":["the first","the second"],"answer":0,"why":"{{gi-}}: someone did it to the glass. {{na-}}: it just happened.","from":"say-what-you-did-with-it"},
+        {"type":"free","q":"Your turn: tell about a small accident or surprise you had.","answers":[{"t":"Nawala akong yawe ganiha, pero nakita nako sa akong bag.","tr":"I lost my keys earlier, but I found them in my bag."},{"t":"Nahulog akong selpon sa tubig! Naguba na.","tr":"My phone fell in the water! It's broken now."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you've done, and what you never have",
+      "summary": "Ask “Have you ever been to Bohol?”, answer “Once!” or “Not yet”.",
+      "topic": "{{naka-}} (+ {{na}}) for experiences: {{Nakaadto ka na…?}}; {{wala pa}} + {{ka-}}; {{kausa}}, {{kaduha}}",
+      "blocks": [
+        {"goal":{"t":"Nakaadto ka na sa Bohol? — Wala pa ko kaadto.","tr":"Have you ever been to Bohol? — I haven't been yet."}},
+        {"dialog":[{"who":"Lito","t":"Emma, nakaadto ka na sa Bohol?","tr":"Emma, have you ever been to Bohol?"},{"who":"Emma","t":"Oo, nakaadto na ko didto kausa. Nindot kaayo!","tr":"Yes, I've been there once. Really beautiful!"},{"who":"Lito","t":"Nakakaon ka na og balut?","tr":"Have you ever eaten balut?"},{"who":"Emma","t":"Wala pa! Ug dili gyud ko mokaon!","tr":"Not yet! And I'm definitely not going to!"},{"who":"Lito","t":"Nakasakay ka na og habal-habal?","tr":"Have you ridden a habal-habal (motorbike taxi)?"},{"who":"Emma","t":"Oo, kaduha na. Makalilisang!","tr":"Yes, twice now. Terrifying!"}]},
+        {"p":"**{{naka-}}** is the done partner of {{maka-}} “can” (lesson 28): you **managed** to do it, or you've done it at some point. With {{na}}, it asks and tells about experiences: {{Nakaadto ka na sa Bohol?}} “Have you (ever) been to Bohol?” {{Nakaadto na ko.}} “I've been.” English needs “have been, have eaten”; Bisaya needs {{naka-}} and {{na}}."},
+        {"p":"**Not yet, never.** {{wala pa}} + {{ka-}} + the root: after {{wala}}, {{naka-}} shrinks to {{ka-}}: {{Wala pa ko kaadto.}} “I haven't been yet.” Add {{gyud}} for “never”: {{Wala pa gyud ko kaadto.}} “I've never been.”"},
+        {"p":"**How many times**: {{kausa}} once, {{kaduha}} twice, {{katulo}} three times; {{pila ka beses?}} how many times?; {{daghan na ka beses}} many times."},
+        { "table": [
+          ["question","yes","not yet"],
+          ["{{Nakaadto ka na sa Bohol?}}","{{Nakaadto na ko.}}","{{Wala pa ko kaadto.}}"],
+          ["{{Nakakaon ka na og durian?}}","{{Nakakaon na ko.}}","{{Wala pa ko kakaon.}}"],
+          ["{{Nakasakay ka na og eroplano?}}","{{Nakasakay na ko.}}","{{Wala pa ko kasakay.}}"]
+        ] },
+        {"p":"**Managed to, could.** Without {{na}}, {{naka-}} and {{wala … ka-}} are about one occasion: {{Nakatulog ka?}} “Did you get some sleep?” {{Wala ko kaadto tungod sa ulan.}} “I couldn't go because of the rain.”"},
+        { "ex": [
+          {"t":"Nakaadto na ko sa Manila, pero wala pa ko kaadto sa Davao.","tr":"I've been to Manila, but I haven't been to Davao yet."},
+          {"t":"Nakakaon ka na og durian?","tr":"Have you ever eaten durian?"},
+          {"t":"Kausa ra ko nakasakay og eroplano.","tr":"I've only been on a plane once."},
+          {"t":"Nakadawat ka sa akong mensahe?","tr":"Did you get my message?"},
+          {"t":"Wala ko kaadto tungod sa ulan.","tr":"I couldn't go because of the rain."},
+          {"t":"Nakasabot ka?","tr":"Did you understand?"}
+        ] },
+        {"tip":"In fast speech you may hear {{Wala pa ko nakaadto}}, keeping the whole {{naka-}}. People understand it; {{Wala pa ko kaadto}} is the standard."}
+      ],
+      "mistakes": [
+        {"wrong":"Miadto ka na sa Bohol? (asking about their experience)","right":"Nakaadto ka na sa Bohol?","tr":"Have you ever been to Bohol?","why":"“Have you ever” is {{naka-}}. {{Miadto ka na sa Bohol?}} asks whether they've already left for Bohol."},
+        {"wrong":"Wala pa ko nakaadto.","right":"Wala pa ko kaadto.","tr":"I haven't been yet.","why":"After {{wala}}, {{naka-}} shrinks to {{ka-}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka na sa Bohol?","tr":"Have you ever been to Bohol?","options":["Nakaadto","Miadto","Moadto"],"answer":0,"why":"An experience: {{naka-}} + {{na}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala pa ko ___.","tr":"I haven't been yet.","options":["kaadto","moadto","miadto"],"answer":0,"why":"After {{wala pa}}: {{ka-}}."},
+        {"type":"choice","q":"{{Kaduha}} means…","options":["twice","two people","second"],"answer":0,"why":"{{kausa}} once, {{kaduha}} twice."},
+        {"type":"dialogue","q":"Getting to know someone: choose your replies.","lines":[{"who":"Joy","t":"Nakaadto ka na sa Oslob?","tr":"Have you ever been to Oslob?"},{"options":["Wala pa ko kaadto. Nindot ba?","Wala pa ko moadto. Nindot ba?"],"answer":0,"why":"An experience you haven't had: {{wala pa ko ka-}}."},{"who":"Joy","t":"Nindot kaayo! Ug ikaw, nakalangoy ka na uban sa mga whale shark?","tr":"Really beautiful! And you, have you ever swum with whale sharks?"},{"options":["Oo, kausa sa Donsol!","Oo, usa ka sa Donsol!"],"answer":0,"why":"Once: {{kausa}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Have you ever eaten durian?","words":["Nakakaon","ka","na","og","durian?"]},
+        {"type":"choice","q":"{{Makaadto ko.}} and {{Nakaadto na ko.}} mean…","options":["“I can go” and “I've been”","“I've been” and “I can go”","the same thing"],"answer":0,"why":"{{maka-}}: can, not yet. {{naka-}}: managed, done.","from":"say-what-you-can-do"},
+        {"type":"say","q":"Say “My mom has never been to Cebu.”","answer":"Wala pa gyud kaadto sa Cebu ang akong mama.","from":"introduce-your-family"},
+        {"type":"free","q":"Your turn: say two places you've been, and one you haven't been to yet.","answers":[{"t":"Nakaadto na ko sa Japan ug sa Mexico. Wala pa ko kaadto sa Siargao.","tr":"I've been to Japan and Mexico. I haven't been to Siargao yet."},{"t":"Nakaadto na ko sa Bohol kausa. Wala pa gyud ko kaadto sa Camiguin.","tr":"I've been to Bohol once. I've never been to Camiguin."}]}
+      ]
+    },
+    {
+      "id": "say-when-and-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say when, and for how long",
+      "summary": "Say how long you've been somewhere, since when, and when something happened or will happen.",
+      "topic": "Number + {{ka}} + time + {{na}} “for … now”; {{sukad}} “since”; {{dugay}}; {{kanus-a}}; {{… ang milabay}} “ago”; {{kaniadto}}",
+      "blocks": [
+        {"goal":{"t":"Tulo ka tuig na ko dinhi sa Cebu.","tr":"I've been here in Cebu for three years."}},
+        {"dialog":[{"who":"Lito","t":"Kanus-a ka miabot sa Cebu?","tr":"When did you come to Cebu?"},{"who":"Ben","t":"Tulo ka tuig na ang milabay. Tulo ka tuig na ko dinhi.","tr":"Three years ago. I've been here three years."},{"who":"Lito","t":"Dugay na diay! Asa ka nagpuyo kaniadto?","tr":"That's a long time! Where did you live before?"},{"who":"Ben","t":"Sa Chicago. Napulo ka tuig ko didto.","tr":"In Chicago. I was there for ten years."},{"who":"Lito","t":"Kanus-a ka mouli sa Amerika?","tr":"When are you going home to America?"},{"who":"Ben","t":"Ambot! Basin dili na!","tr":"I don't know! Maybe never!"}]},
+        {"p":"**For how long, up to now.** A number + {{ka}} + the time + **{{na}}**: {{Tulo ka tuig na ko dinhi.}} “I've been here three years.” The little {{na}} makes it “up to now”; English needs “have been”. Without {{na}}, the time is over: {{Napulo ka tuig ko didto.}} “I was there for ten years.”"},
+        {"p":"**Since: {{sukad}}.** {{sukad sa 2020}} “since 2020”, {{sukad pa sa bata ko}} “since I was a child”. **Long**: {{Dugay na.}} “It's been a long time.” {{Dugay ka na dinhi?}} “Have you been here long?” {{Dili pa dugay.}} “Not long.”"},
+        {"p":"**When.** {{kanus-a}} with {{mi-}} for the past ({{Kanus-a ka miabot?}}) or {{mo-}} for the future ({{Kanus-a ka mobalik?}}). “Ago” is {{ang milabay}} after the time: {{duha ka adlaw ang milabay}} “two days ago”. And {{kaniadto}} is “before, in the old days”: {{Nagpuyo ko sa Davao kaniadto.}} “I used to live in Davao.”"},
+        { "table": [
+          ["past","future"],
+          ["{{gahapon}} yesterday","{{ugma}} tomorrow"],
+          ["{{sa miaging semana}} last week","{{sa sunod semana}} next week"],
+          ["{{sa miaging tuig}} last year","{{sa sunod tuig}} next year"],
+          ["{{duha ka adlaw ang milabay}} two days ago","{{sulod sa duha ka adlaw}} in two days"],
+          ["{{kaniadto}} before, in the old days","{{puhon}} someday, God willing"]
+        ] },
+        { "ex": [
+          {"t":"Duha ka tuig na mi dinhi.","tr":"We've been here two years now."},
+          {"t":"Dugay ka na dinhi?","tr":"Have you been here long?"},
+          {"t":"Sukad pa sa bata ko, ganahan ko sa dagat.","tr":"I've loved the sea since I was a child."},
+          {"t":"Miabot siya duha ka adlaw ang milabay.","tr":"She arrived two days ago."},
+          {"t":"Nagpuyo ko sa Davao kaniadto.","tr":"I used to live in Davao."},
+          {"t":"Mobalik ko sa sunod tuig.","tr":"I'll come back next year."}
+        ] },
+        {"tip":"{{Dugay na ta wala magkita!}} “Long time no see!” is the greeting for a friend you haven't seen in ages."}
+      ],
+      "mistakes": [
+        {"wrong":"Tulo ka tuig ko dinhi. (you still live here)","right":"Tulo ka tuig na ko dinhi.","tr":"I've been here three years.","why":"Up to now needs {{na}}. Without it, it sounds like a stay that's over."},
+        {"wrong":"Kanus-a ka moabot? — Gahapon.","right":"Kanus-a ka miabot? — Gahapon.","tr":"When did you arrive? — Yesterday.","why":"Yesterday is done: {{mi-}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tulo ka tuig ___ ko dinhi.","tr":"I've been here three years.","options":["na","pa","ra"],"answer":0,"why":"Up to now: {{na}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kanus-a ka ___? — Gahapon.","tr":"When did you arrive? — Yesterday.","options":["miabot","moabot","nagabot"],"answer":0,"why":"Done: {{mi-}}.","from":"ask-about-someones-day"},
+        {"type":"choice","q":"{{Duha ka adlaw ang milabay}} means…","options":["two days ago","in two days","for two days"],"answer":0,"why":"{{ang milabay}}: that have passed, ago."},
+        {"type":"dialogue","q":"A neighbor gets to know you. Choose your replies.","lines":[{"who":"Neighbor","t":"Dugay ka na dinhi?","tr":"Have you been here long?"},{"options":["Dili pa dugay. Duha ka bulan pa lang.","Dili pa dugay. Duha ka bulan na lang."],"answer":0,"why":"“Only two months so far”: {{pa lang}}."},{"who":"Neighbor","t":"Asa ka nagpuyo kaniadto?","tr":"Where did you live before?"},{"options":["Sa Toronto. Lima ka tuig ko didto.","Sa Toronto. Lima ka tuig na ko didto."],"answer":0,"why":"That stay is over: no {{na}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We've been here two years now.","words":["Duha","ka","tuig","na","mi","dinhi."]},
+        {"type":"say","q":"Say “I've been to Bohol twice.”","answer":"Nakaadto na ko sa Bohol kaduha.","from":"talk-about-experiences"},
+        {"type":"free","q":"Your turn: say how long you've lived where you live now, and how long you've been studying Bisaya.","answers":[{"t":"Lima ka tuig na ko sa Seattle. Duha ka bulan na ko nagtuon og Bisaya.","tr":"I've been in Seattle five years. I've been studying Bisaya for two months."},{"t":"Napulo ka tuig na mi dinhi sa Cebu, sukad pa sa 2016.","tr":"We've been here in Cebu ten years, since 2016."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how you feel (at the doctor's)",
+      "summary": "Say you're hungry, tired or sick, what hurts, and how you feel: happy, sad, angry, missing someone.",
+      "topic": "Body states with {{gi-}} ({{gigutom}}, {{gikapoy}}, {{gihilantan}}); feelings with {{na-}} ({{nalipay}}, {{nasuko}}); {{sakit}} + a body part",
+      "blocks": [
+        {"goal":{"t":"Gihilantan ko, ug sakit akong ulo.","tr":"I have a fever, and my head hurts."}},
+        {"dialog":[{"who":"Doctor","t":"Maayong buntag. Unsay imong gibati?","tr":"Good morning. How are you feeling?"},{"who":"Ben","t":"Gihilantan ko sukad gahapon, Doc. Ug sakit kaayo akong ulo.","tr":"I've had a fever since yesterday, Doc. And my head really hurts."},{"who":"Doctor","t":"Giubo ka?","tr":"Do you have a cough?"},{"who":"Ben","t":"Gamay ra. Pero gikapoy kaayo ko.","tr":"Just a little. But I'm really tired."},{"who":"Doctor","t":"Trangkaso lang ni. Imna kini nga tambal tulo ka beses sa usa ka adlaw, ug pahulay.","tr":"It's just the flu. Take this medicine three times a day, and rest."},{"who":"Ben","t":"Salamat, Doc.","tr":"Thank you, Doc."}]},
+        {"p":"**The body: {{gi-}}.** States of the body take {{gi-}} and work like describing words: first, then the person. {{Gigutom ko.}} “I'm hungry.” {{Gikapoy siya.}} “She's tired.” {{Gihilantan ang bata.}} “The child has a fever.”"},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{gigutom}}","hungry"],
+          ["{{giuhaw}}","thirsty"],
+          ["{{gikapoy}}","tired"],
+          ["{{gihilantan}}","have a fever"],
+          ["{{gitugnaw}}","feel cold"],
+          ["{{giubo}}","have a cough"]
+        ] },
+        {"p":"**Feelings: {{na-}}.** Emotions take {{na-}}, the “it happened to me” prefix of lesson 33: {{Nalipay ko.}} “I'm glad.” {{Nasubo siya.}} “She's sad.” {{Nasuko si Mama.}} “Mom is angry.” {{Nahadlok ko.}} “I'm scared.” And missing someone is {{gimingaw}}: {{Gimingaw ko nimo.}} “I miss you.”"},
+        {"p":"**Pain: {{sakit}}** + the body part: {{Sakit akong ulo.}} “My head hurts.” {{Sakit akong tiyan.}} “My stomach hurts.” {{Unsay sakit?}} “What hurts?” Body words: {{ulo}} head, {{tiyan}} stomach, {{likod}} back, {{tutunlan}} throat, {{tiil}} foot, {{kamot}} hand."},
+        { "ex": [
+          {"t":"Gigutom na gyud ko.","tr":"I'm really hungry now."},
+          {"t":"Giuhaw ko. Naa bay tubig?","tr":"I'm thirsty. Is there any water?"},
+          {"t":"Sakit akong tiyan.","tr":"My stomach hurts."},
+          {"t":"Nalipay ko nga nakita ka.","tr":"I'm glad to see you."},
+          {"t":"Nasuko si Mama.","tr":"Mom is angry."},
+          {"t":"Gimingaw ko nimo.","tr":"I miss you."},
+          {"t":"Okay ra ka?","tr":"Are you okay?"}
+        ] },
+        {"tip":"{{Unsay imong gibati?}} is “How do you feel?”, word for word “What do you feel?”. To a friend, simply {{Okay ra ka?}} “Are you okay?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Gutom ko.","right":"Gigutom ko.","tr":"I'm hungry.","why":"{{gutom}} is the noun “hunger”; “hungry” is {{gigutom}}."},
+        {"wrong":"Akong ulo sakit.","right":"Sakit akong ulo.","tr":"My head hurts.","why":"The describing word first, as always."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko. Naa bay tubig?","tr":"I'm thirsty. Is there any water?","options":["Giuhaw","Gigutom","Gikapoy"],"answer":0,"why":"Thirsty: {{giuhaw}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sakit ___ ulo.","tr":"My head hurts.","options":["akong","ako","nako"],"answer":0,"why":"“My” before the noun: {{akong}}."},
+        {"type":"choice","q":"{{Gimingaw ko nimo.}} means…","options":["I miss you.","I'm angry at you.","I'm tired of you."],"answer":0,"why":"{{gimingaw}}: missing someone."},
+        {"type":"dialogue","q":"At the doctor's: choose your replies.","lines":[{"who":"Doctor","t":"Unsay imong gibati?","tr":"How are you feeling?"},{"options":["Sakit akong tutunlan, ug giubo ko.","Akong tutunlan sakit, ug ubo ko."],"answer":0,"why":"{{sakit}} first; a cough is {{giubo}}."},{"who":"Doctor","t":"Kanus-a pa?","tr":"Since when?"},{"options":["Sukad pa sa Lunes.","Sukad pa ugma."],"answer":0,"why":"Since Monday: {{sukad pa sa Lunes}}."},{"who":"Doctor","t":"Imna kini nga tambal, ug pahulay.","tr":"Take this medicine, and rest."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've had a fever since yesterday.","words":["Gihilantan","ko","sukad","gahapon."]},
+        {"type":"say","q":"Say “I've been sick for three days.”","answer":"Tulo ka adlaw na ko nga masakiton.","from":"say-when-and-how-long"},
+        {"type":"say","q":"Say “You need to rest.”","answer":"Kinahanglan ka mopahulay.","from":"say-what-you-need"},
+        {"type":"free","q":"Your turn: say how you feel today, and why.","answers":[{"t":"Gikapoy ko kay naa koy daghang trabaho.","tr":"I'm tired because I have a lot of work."},{"t":"Nalipay kaayo ko karon! Moabot akong igsoon.","tr":"I'm really happy today! My sister is arriving."}]}
+      ]
     }
   ]
 }
