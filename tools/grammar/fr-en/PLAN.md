@@ -82,7 +82,7 @@ turn" (« À vous »).
 | 41 | give-your-opinion | Donner votre avis, être d'accord ou pas | *I think*, *I don't think*; *I agree* | B1 |
 | 42 | say-what-was-done | Dire ce qui a été fait (et par qui) | the passive (French *on*) | B1 |
 | 43 | report-what-someone-said | Rapporter ce que quelqu'un a dit | *say* vs *tell*; tense changes; *asked if* | B1 |
-| 44 | enjoy-doing-want-to-do | *I enjoy cooking*, *I want to cook* | verb + *-ing* or *to*; *-ing* after prepositions | B1 |
+| 44 | enjoy-doing-want-to-do | Dire ce que vous aimez, voulez ou avez arrêté de faire | verb + *-ing* or *to*; *-ing* after prepositions | B1 |
 | 45 | tell-a-story-in-order | Raconter une histoire dans l'ordre | the past perfect; *first, then, after that* | B1 |
 | 46 | talk-in-general | Parler des choses en général | *the* or no article (*Life is short*, *at home*, *by bus*) | B1 |
 | 47 | agree-in-a-few-words | Réagir en deux mots | *So do I*, *Neither do I*, *Me too*; question tags | B1 |
@@ -113,7 +113,7 @@ phrase, pronom, contraction (1) · verbe, sujet, conjuguer (2) · forme négativ
 article (5) · pluriel (6) · adjectif (7) · possessif (8) · préposition (9) · présent simple (10) ·
 auxiliaire (11) · indénombrable (14) · mot interrogatif (15) · adverbe de fréquence (16) · présent continu
 (17) · verbe modal (18) · impératif (19) · prétérit (21) · verbe irrégulier (22) · complément d'objet
-(27) · comparatif, superlatif (28) · participe passé, present perfect (31) · conditionnel (35) · verbe à
+(27) · comparatif, superlatif (28) · participe passé, present perfect (31) · conditionnel (36) · verbe à
 particule (38) · proposition relative (40) · voix passive (42) · discours indirect (43) · gérondif (44) ·
 past perfect (45) · question tag (47).
 

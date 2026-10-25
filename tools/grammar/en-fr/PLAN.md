@@ -119,10 +119,10 @@ About 40% A1 (1–20), 40% A2 (21–39), 20% B1 (40–48).
 
 sentence, pronoun (1) · formal (2) · noun, gender, article (3) · verb, subject, conjugate (4) · negative
 (6) · question word (7) · plural (8) · adjective, agree (9) · possessive (10) · preposition, contraction
-(11) · infinitive (13) · partitive (15) · tense (19) · imperative (22) · past participle, auxiliary (23) ·
-imparfait (27) · reflexive verb (29) · direct object (31) · indirect object (32) · comparative,
-superlative (35) · future tense (38) · conditional (40) · relative pronoun (42) · subjunctive (43) ·
-reported speech (46) · pluperfect (47).
+(11) · infinitive (13) · partitive (15) · adverb (18) · tense (19) · imperative (22) · past participle,
+auxiliary (23) · imparfait (27) · reflexive verb (29) · direct object (31) · indirect object (32) ·
+comparative, superlative (35) · futur simple (38) · conditional (40) · relative pronoun (42) · subjunctive
+(43) · reported speech (46) · pluperfect (47).
 
 ## Conventions
 
