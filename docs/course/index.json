@@ -49,6 +49,22 @@
    },
    "built": "2026-10-24"
   },
+  "it": {
+   "file": "it/course.json",
+   "title": "Italian basics",
+   "variety": "Standard Italian (Italy)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 343270,
+   "audio_bytes": 12722232,
+   "sha256": "e3db2daf78e8d832584f2fb7463f1adb0075586dd61b2f837030af8ba738e3c8",
+   "voice": {
+    "engine": "azure",
+    "name": "Elsa (Azure, Italy)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "ja": {
    "file": "ja/course.json",
    "title": "Japanese basics",
