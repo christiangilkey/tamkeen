@@ -2778,6 +2778,938 @@
       "meaning": "situation",
       "sentence": "La situazione è difficile.",
       "translation": "The ⟦situation⟧ is difficult."
+    },
+    {
+      "n": 301,
+      "rank": 310,
+      "word": "padre",
+      "pos": "noun",
+      "meaning": "father",
+      "sentence": "Mio padre ha sessant'anni.",
+      "translation": "My ⟦father⟧ is sixty."
+    },
+    {
+      "n": 302,
+      "rank": 311,
+      "word": "termine",
+      "pos": "noun",
+      "meaning": "term, word; end; deadline",
+      "sentence": "Non conosco questo termine.",
+      "translation": "I don't know this ⟦term⟧."
+    },
+    {
+      "n": 303,
+      "rank": 312,
+      "word": "forte",
+      "pos": "adj",
+      "meaning": "strong; loud; (colloquial) great",
+      "sentence": "Il caffè è troppo forte.",
+      "translation": "The coffee is too ⟦strong⟧."
+    },
+    {
+      "n": 304,
+      "rank": 313,
+      "word": "articolo",
+      "pos": "noun",
+      "meaning": "article; item",
+      "sentence": "Ho letto un articolo interessante.",
+      "translation": "I read an interesting ⟦article⟧."
+    },
+    {
+      "n": 305,
+      "rank": 314,
+      "word": "sociale",
+      "pos": "adj",
+      "meaning": "social",
+      "sentence": "È un problema sociale.",
+      "translation": "It's a ⟦social⟧ problem."
+    },
+    {
+      "n": 306,
+      "rank": 315,
+      "word": "risultato",
+      "pos": "noun",
+      "meaning": "result; score",
+      "sentence": "Aspetto i risultati dell'esame.",
+      "translation": "I'm waiting for the exam ⟦results⟧.",
+      "form": "risultati"
+    },
+    {
+      "n": 307,
+      "rank": 316,
+      "word": "vecchio",
+      "pos": "adj",
+      "meaning": "old",
+      "sentence": "Questa casa è molto vecchia.",
+      "translation": "This house is very ⟦old⟧.",
+      "form": "vecchia"
+    },
+    {
+      "n": 308,
+      "rank": 317,
+      "word": "genere",
+      "pos": "noun",
+      "meaning": "kind, type; (in genere) generally; gender",
+      "sentence": "In genere mi alzo alle sette.",
+      "translation": "⟦Generally⟧ I get up at seven."
+    },
+    {
+      "n": 309,
+      "rank": 318,
+      "word": "soprattutto",
+      "pos": "adv",
+      "meaning": "especially; above all",
+      "sentence": "Mi piace la frutta, soprattutto le fragole.",
+      "translation": "I like fruit, ⟦especially⟧ strawberries."
+    },
+    {
+      "n": 310,
+      "rank": 319,
+      "word": "occhio",
+      "pos": "noun",
+      "meaning": "eye",
+      "sentence": "Ha gli occhi azzurri.",
+      "translation": "She has blue ⟦eyes⟧.",
+      "form": "occhi"
+    },
+    {
+      "n": 311,
+      "rank": 320,
+      "word": "amare",
+      "pos": "verb",
+      "meaning": "to love",
+      "sentence": "Amo la cucina italiana.",
+      "translation": "I ⟦love⟧ Italian food.",
+      "form": "amo"
+    },
+    {
+      "n": 312,
+      "rank": 321,
+      "word": "sperare",
+      "pos": "verb",
+      "meaning": "to hope",
+      "sentence": "Spero di vederti presto.",
+      "translation": "I ⟦hope⟧ to see you soon.",
+      "form": "spero"
+    },
+    {
+      "n": 313,
+      "rank": 322,
+      "word": "pagare",
+      "pos": "verb",
+      "meaning": "to pay (for)",
+      "sentence": "Posso pagare con la carta?",
+      "translation": "Can I ⟦pay⟧ by card?"
+    },
+    {
+      "n": 314,
+      "rank": 323,
+      "word": "libero",
+      "pos": "adj",
+      "meaning": "free (not busy, not taken)",
+      "sentence": "Sei libero stasera?",
+      "translation": "Are you ⟦free⟧ tonight?"
+    },
+    {
+      "n": 315,
+      "rank": 324,
+      "word": "ricerca",
+      "pos": "noun",
+      "meaning": "research; search",
+      "sentence": "Fa ricerca all'università.",
+      "translation": "She does ⟦research⟧ at the university."
+    },
+    {
+      "n": 316,
+      "rank": 325,
+      "word": "maggiore",
+      "pos": "adj",
+      "meaning": "older (sister, brother); bigger, greater",
+      "sentence": "Mia sorella maggiore vive a Londra.",
+      "translation": "My ⟦older⟧ sister lives in London."
+    },
+    {
+      "n": 317,
+      "rank": 326,
+      "word": "ricevere",
+      "pos": "verb",
+      "meaning": "to receive, to get",
+      "sentence": "Hai ricevuto il mio messaggio?",
+      "translation": "Did you ⟦get⟧ my message?",
+      "form": "ricevuto"
+    },
+    {
+      "n": 318,
+      "rank": 327,
+      "word": "prossimo",
+      "pos": "adj",
+      "meaning": "next",
+      "sentence": "Ci vediamo la prossima settimana.",
+      "translation": "See you ⟦next⟧ week.",
+      "form": "prossima"
+    },
+    {
+      "n": 319,
+      "rank": 328,
+      "word": "minuto",
+      "pos": "noun",
+      "meaning": "minute",
+      "sentence": "L'autobus passa ogni dieci minuti.",
+      "translation": "The bus comes every ten ⟦minutes⟧.",
+      "form": "minuti"
+    },
+    {
+      "n": 320,
+      "rank": 329,
+      "word": "permettere",
+      "pos": "verb",
+      "meaning": "to allow, to let",
+      "sentence": "Mi permetti di dire una cosa?",
+      "translation": "Will you ⟦let⟧ me say something?",
+      "form": "permetti"
+    },
+    {
+      "n": 321,
+      "rank": 331,
+      "word": "titolo",
+      "pos": "noun",
+      "meaning": "title; qualification",
+      "sentence": "Qual è il titolo del libro?",
+      "translation": "What's the ⟦title⟧ of the book?"
+    },
+    {
+      "n": 322,
+      "rank": 332,
+      "word": "zona",
+      "pos": "noun",
+      "meaning": "area, zone",
+      "sentence": "Abito in una zona tranquilla.",
+      "translation": "I live in a quiet ⟦area⟧."
+    },
+    {
+      "n": 323,
+      "rank": 333,
+      "word": "regione",
+      "pos": "noun",
+      "meaning": "region",
+      "sentence": "La Toscana è una regione bellissima.",
+      "translation": "Tuscany is a beautiful ⟦region⟧."
+    },
+    {
+      "n": 324,
+      "rank": 334,
+      "word": "motivo",
+      "pos": "noun",
+      "meaning": "reason",
+      "sentence": "Non c'è motivo di preoccuparsi.",
+      "translation": "There's no ⟦reason⟧ to worry."
+    },
+    {
+      "n": 325,
+      "rank": 335,
+      "word": "aprire",
+      "pos": "verb",
+      "meaning": "to open",
+      "sentence": "A che ora apre il museo?",
+      "translation": "What time does the museum ⟦open⟧?",
+      "form": "apre"
+    },
+    {
+      "n": 326,
+      "rank": 336,
+      "word": "capo",
+      "pos": "noun",
+      "meaning": "boss; head",
+      "sentence": "Il mio capo è molto severo.",
+      "translation": "My ⟦boss⟧ is very strict."
+    },
+    {
+      "n": 327,
+      "rank": 337,
+      "word": "decidere",
+      "pos": "verb",
+      "meaning": "to decide",
+      "sentence": "Hai deciso cosa fare?",
+      "translation": "Have you ⟦decided⟧ what to do?",
+      "form": "deciso"
+    },
+    {
+      "n": 328,
+      "rank": 338,
+      "word": "ottenere",
+      "pos": "verb",
+      "meaning": "to get, to obtain",
+      "sentence": "Ha ottenuto il lavoro.",
+      "translation": "He ⟦got⟧ the job.",
+      "form": "ottenuto"
+    },
+    {
+      "n": 329,
+      "rank": 339,
+      "word": "notte",
+      "pos": "noun",
+      "meaning": "night",
+      "sentence": "Buona notte, a domani!",
+      "translation": "Good ⟦night⟧, see you tomorrow!"
+    },
+    {
+      "n": 330,
+      "rank": 340,
+      "word": "informazione",
+      "pos": "noun",
+      "meaning": "(piece of) information",
+      "sentence": "Scusi, mi serve un'informazione.",
+      "translation": "Excuse me, I need some ⟦information⟧."
+    },
+    {
+      "n": 331,
+      "rank": 341,
+      "word": "realtà",
+      "pos": "noun",
+      "meaning": "reality; (in realtà) actually",
+      "sentence": "In realtà non mi piace.",
+      "translation": "⟦Actually⟧, I don't like it."
+    },
+    {
+      "n": 332,
+      "rank": 342,
+      "word": "accordo",
+      "pos": "noun",
+      "meaning": "agreement; (d'accordo) agreed, OK",
+      "sentence": "Sono d'accordo con te.",
+      "translation": "I ⟦agree⟧ with you."
+    },
+    {
+      "n": 333,
+      "rank": 343,
+      "word": "vincere",
+      "pos": "verb",
+      "meaning": "to win",
+      "sentence": "Chi ha vinto la partita?",
+      "translation": "Who ⟦won⟧ the match?",
+      "form": "vinto"
+    },
+    {
+      "n": 334,
+      "rank": 344,
+      "word": "grado",
+      "pos": "noun",
+      "meaning": "degree; (essere in grado di) to be able to",
+      "sentence": "Oggi ci sono trenta gradi.",
+      "translation": "It's thirty ⟦degrees⟧ today.",
+      "form": "gradi"
+    },
+    {
+      "n": 335,
+      "rank": 345,
+      "word": "corpo",
+      "pos": "noun",
+      "meaning": "body",
+      "sentence": "Il corpo umano è incredibile.",
+      "translation": "The human ⟦body⟧ is amazing."
+    },
+    {
+      "n": 336,
+      "rank": 346,
+      "word": "sicuro",
+      "pos": "adj",
+      "meaning": "sure; safe",
+      "sentence": "Ne sei sicuro?",
+      "translation": "Are you ⟦sure⟧?"
+    },
+    {
+      "n": 337,
+      "rank": 348,
+      "word": "aggiungere",
+      "pos": "verb",
+      "meaning": "to add",
+      "sentence": "Vuoi aggiungere un po' di sale?",
+      "translation": "Do you want to ⟦add⟧ some salt?"
+    },
+    {
+      "n": 338,
+      "rank": 349,
+      "word": "periodo",
+      "pos": "noun",
+      "meaning": "period, time",
+      "sentence": "È un periodo difficile per me.",
+      "translation": "It's a difficult ⟦time⟧ for me."
+    },
+    {
+      "n": 339,
+      "rank": 350,
+      "word": "rispondere",
+      "pos": "verb",
+      "meaning": "to answer, to reply",
+      "sentence": "Perché non rispondi al telefono?",
+      "translation": "Why don't you ⟦answer⟧ the phone?",
+      "form": "rispondi"
+    },
+    {
+      "n": 340,
+      "rank": 351,
+      "word": "testa",
+      "pos": "noun",
+      "meaning": "head",
+      "sentence": "Ho mal di testa.",
+      "translation": "I have a ⟦head⟧ache."
+    },
+    {
+      "n": 341,
+      "rank": 352,
+      "word": "effetto",
+      "pos": "noun",
+      "meaning": "effect",
+      "sentence": "La medicina non ha fatto effetto.",
+      "translation": "The medicine hasn't taken ⟦effect⟧."
+    },
+    {
+      "n": 342,
+      "rank": 353,
+      "word": "rapporto",
+      "pos": "noun",
+      "meaning": "relationship; report",
+      "sentence": "Ho un buon rapporto con i miei genitori.",
+      "translation": "I have a good ⟦relationship⟧ with my parents."
+    },
+    {
+      "n": 343,
+      "rank": 354,
+      "word": "amore",
+      "pos": "noun",
+      "meaning": "love; darling",
+      "sentence": "È stato amore a prima vista.",
+      "translation": "It was ⟦love⟧ at first sight."
+    },
+    {
+      "n": 344,
+      "rank": 356,
+      "word": "offrire",
+      "pos": "verb",
+      "meaning": "to offer; to treat (someone to)",
+      "sentence": "Ti offro un caffè.",
+      "translation": "I'll ⟦buy⟧ you a coffee.",
+      "form": "offro"
+    },
+    {
+      "n": 345,
+      "rank": 357,
+      "word": "notizia",
+      "pos": "noun",
+      "meaning": "(piece of) news",
+      "sentence": "Ho una bella notizia!",
+      "translation": "I have some good ⟦news⟧!"
+    },
+    {
+      "n": 346,
+      "rank": 358,
+      "word": "acqua",
+      "pos": "noun",
+      "meaning": "water",
+      "sentence": "Un bicchiere d'acqua, per favore.",
+      "translation": "A glass of ⟦water⟧, please."
+    },
+    {
+      "n": 347,
+      "rank": 359,
+      "word": "prodotto",
+      "pos": "noun",
+      "meaning": "product",
+      "sentence": "Questi prodotti sono italiani.",
+      "translation": "These ⟦products⟧ are Italian.",
+      "form": "prodotti"
+    },
+    {
+      "n": 348,
+      "rank": 360,
+      "word": "economico",
+      "pos": "adj",
+      "meaning": "cheap; economic",
+      "sentence": "Questo albergo è molto economico.",
+      "translation": "This hotel is very ⟦cheap⟧."
+    },
+    {
+      "n": 349,
+      "rank": 361,
+      "word": "incontrare",
+      "pos": "verb",
+      "meaning": "to meet; to run into",
+      "sentence": "Ho incontrato Marco al bar.",
+      "translation": "I ⟦met⟧ Marco at the café.",
+      "form": "incontrato"
+    },
+    {
+      "n": 350,
+      "rank": 362,
+      "word": "settembre",
+      "pos": "noun",
+      "meaning": "September",
+      "sentence": "La scuola inizia a settembre.",
+      "translation": "School starts in ⟦September⟧."
+    },
+    {
+      "n": 351,
+      "rank": 363,
+      "word": "votare",
+      "pos": "verb",
+      "meaning": "to vote",
+      "sentence": "Domenica andiamo a votare.",
+      "translation": "On Sunday we're going to ⟦vote⟧."
+    },
+    {
+      "n": 352,
+      "rank": 364,
+      "word": "terzo",
+      "pos": "adj",
+      "meaning": "third",
+      "sentence": "È la terza volta che chiamo.",
+      "translation": "It's the ⟦third⟧ time I've called.",
+      "form": "terza"
+    },
+    {
+      "n": 353,
+      "rank": 365,
+      "word": "chiesa",
+      "pos": "noun",
+      "meaning": "church",
+      "sentence": "La chiesa è chiusa.",
+      "translation": "The ⟦church⟧ is closed."
+    },
+    {
+      "n": 354,
+      "rank": 366,
+      "word": "soldi",
+      "pos": "noun",
+      "meaning": "money",
+      "sentence": "Non ho soldi.",
+      "translation": "I don't have any ⟦money⟧."
+    },
+    {
+      "n": 355,
+      "rank": 367,
+      "word": "parere",
+      "pos": "verb",
+      "meaning": "to seem; (noun) opinion",
+      "sentence": "Pare che domani piova.",
+      "translation": "It ⟦seems⟧ it's going to rain tomorrow.",
+      "form": "pare"
+    },
+    {
+      "n": 356,
+      "rank": 368,
+      "word": "locale",
+      "pos": "adj",
+      "meaning": "local; (noun) bar, club, venue",
+      "sentence": "Preferisco i prodotti locali.",
+      "translation": "I prefer ⟦local⟧ products.",
+      "form": "locali"
+    },
+    {
+      "n": 357,
+      "rank": 369,
+      "word": "programma",
+      "pos": "noun",
+      "meaning": "programme; plan",
+      "sentence": "Che programmi hai per stasera?",
+      "translation": "What ⟦plans⟧ do you have for tonight?",
+      "form": "programmi"
+    },
+    {
+      "n": 358,
+      "rank": 370,
+      "word": "umano",
+      "pos": "adj",
+      "meaning": "human",
+      "sentence": "È un errore umano.",
+      "translation": "It's ⟦human⟧ error."
+    },
+    {
+      "n": 359,
+      "rank": 371,
+      "word": "marzo",
+      "pos": "noun",
+      "meaning": "March",
+      "sentence": "Il mio compleanno è a marzo.",
+      "translation": "My birthday is in ⟦March⟧."
+    },
+    {
+      "n": 360,
+      "rank": 372,
+      "word": "presso",
+      "pos": "prep",
+      "meaning": "at (a company, someone's place)",
+      "sentence": "Lavoro presso una banca.",
+      "translation": "I work ⟦at⟧ a bank."
+    },
+    {
+      "n": 361,
+      "rank": 373,
+      "word": "quattro",
+      "pos": "num",
+      "meaning": "four",
+      "sentence": "Siamo in quattro.",
+      "translation": "There are ⟦four⟧ of us."
+    },
+    {
+      "n": 362,
+      "rank": 374,
+      "word": "milione",
+      "pos": "noun",
+      "meaning": "million",
+      "sentence": "La città ha un milione di abitanti.",
+      "translation": "The city has a ⟦million⟧ inhabitants."
+    },
+    {
+      "n": 363,
+      "rank": 375,
+      "word": "giro",
+      "pos": "noun",
+      "meaning": "walk, trip, ride; turn",
+      "sentence": "Facciamo un giro in centro?",
+      "translation": "Shall we go for a ⟦walk⟧ in the centre?"
+    },
+    {
+      "n": 364,
+      "rank": 376,
+      "word": "madre",
+      "pos": "noun",
+      "meaning": "mother",
+      "sentence": "Mia madre è insegnante.",
+      "translation": "My ⟦mother⟧ is a teacher."
+    },
+    {
+      "n": 365,
+      "rank": 377,
+      "word": "scoprire",
+      "pos": "verb",
+      "meaning": "to discover, to find out",
+      "sentence": "Ho scoperto un ristorante nuovo.",
+      "translation": "I've ⟦discovered⟧ a new restaurant.",
+      "form": "scoperto"
+    },
+    {
+      "n": 366,
+      "rank": 378,
+      "word": "principale",
+      "pos": "adj",
+      "meaning": "main",
+      "sentence": "Qual è il problema principale?",
+      "translation": "What's the ⟦main⟧ problem?"
+    },
+    {
+      "n": 367,
+      "rank": 379,
+      "word": "lingua",
+      "pos": "noun",
+      "meaning": "language; tongue",
+      "sentence": "Quante lingue parli?",
+      "translation": "How many ⟦languages⟧ do you speak?",
+      "form": "lingue"
+    },
+    {
+      "n": 368,
+      "rank": 380,
+      "word": "data",
+      "pos": "noun",
+      "meaning": "date",
+      "sentence": "Qual è la data di oggi?",
+      "translation": "What's today's ⟦date⟧?"
+    },
+    {
+      "n": 369,
+      "rank": 381,
+      "word": "condizione",
+      "pos": "noun",
+      "meaning": "condition",
+      "sentence": "La macchina è in buone condizioni.",
+      "translation": "The car is in good ⟦condition⟧.",
+      "form": "condizioni"
+    },
+    {
+      "n": 370,
+      "rank": 382,
+      "word": "attività",
+      "pos": "noun",
+      "meaning": "activity; business",
+      "sentence": "Che attività fai nel tempo libero?",
+      "translation": "What ⟦activities⟧ do you do in your free time?"
+    },
+    {
+      "n": 371,
+      "rank": 383,
+      "word": "attraverso",
+      "pos": "prep",
+      "meaning": "through; across",
+      "sentence": "Siamo passati attraverso il parco.",
+      "translation": "We went ⟦through⟧ the park."
+    },
+    {
+      "n": 372,
+      "rank": 384,
+      "word": "qualsiasi",
+      "pos": "adj",
+      "meaning": "any, whatever",
+      "sentence": "Puoi chiamarmi a qualsiasi ora.",
+      "translation": "You can call me at ⟦any⟧ time."
+    },
+    {
+      "n": 373,
+      "rank": 385,
+      "word": "personale",
+      "pos": "adj",
+      "meaning": "personal; (noun) staff",
+      "sentence": "È una domanda personale.",
+      "translation": "It's a ⟦personal⟧ question."
+    },
+    {
+      "n": 374,
+      "rank": 386,
+      "word": "rappresentare",
+      "pos": "verb",
+      "meaning": "to represent",
+      "sentence": "Cosa rappresenta questo quadro?",
+      "translation": "What does this painting ⟦represent⟧?",
+      "form": "rappresenta"
+    },
+    {
+      "n": 375,
+      "rank": 387,
+      "word": "questione",
+      "pos": "noun",
+      "meaning": "matter, question, issue",
+      "sentence": "È una questione di tempo.",
+      "translation": "It's a ⟦matter⟧ of time."
+    },
+    {
+      "n": 376,
+      "rank": 388,
+      "word": "restare",
+      "pos": "verb",
+      "meaning": "to stay; to remain",
+      "sentence": "Resta a cena con noi!",
+      "translation": "⟦Stay⟧ for dinner with us!",
+      "form": "resta"
+    },
+    {
+      "n": 377,
+      "rank": 389,
+      "word": "posizione",
+      "pos": "noun",
+      "meaning": "position; location",
+      "sentence": "Mandami la tua posizione.",
+      "translation": "Send me your ⟦location⟧."
+    },
+    {
+      "n": 378,
+      "rank": 390,
+      "word": "basso",
+      "pos": "adj",
+      "meaning": "short; low",
+      "sentence": "Mia madre è bassa.",
+      "translation": "My mother is ⟦short⟧.",
+      "form": "bassa"
+    },
+    {
+      "n": 379,
+      "rank": 391,
+      "word": "massimo",
+      "pos": "adj",
+      "meaning": "maximum, greatest; (al massimo) at most",
+      "sentence": "Possiamo spendere al massimo cento euro.",
+      "translation": "We can spend ⟦at most⟧ a hundred euros."
+    },
+    {
+      "n": 380,
+      "rank": 392,
+      "word": "futuro",
+      "pos": "noun",
+      "meaning": "future",
+      "sentence": "Cosa vuoi fare in futuro?",
+      "translation": "What do you want to do in the ⟦future⟧?"
+    },
+    {
+      "n": 381,
+      "rank": 393,
+      "word": "necessario",
+      "pos": "adj",
+      "meaning": "necessary",
+      "sentence": "Non è necessario.",
+      "translation": "It's not ⟦necessary⟧."
+    },
+    {
+      "n": 382,
+      "rank": 394,
+      "word": "difficile",
+      "pos": "adj",
+      "meaning": "difficult, hard",
+      "sentence": "L'italiano non è difficile.",
+      "translation": "Italian isn't ⟦difficult⟧."
+    },
+    {
+      "n": 383,
+      "rank": 395,
+      "word": "scegliere",
+      "pos": "verb",
+      "meaning": "to choose",
+      "sentence": "Scegli tu il ristorante.",
+      "translation": "You ⟦choose⟧ the restaurant.",
+      "form": "scegli"
+    },
+    {
+      "n": 384,
+      "rank": 396,
+      "word": "pieno",
+      "pos": "adj",
+      "meaning": "full",
+      "sentence": "Il ristorante è pieno.",
+      "translation": "The restaurant is ⟦full⟧."
+    },
+    {
+      "n": 385,
+      "rank": 397,
+      "word": "considerare",
+      "pos": "verb",
+      "meaning": "to consider",
+      "sentence": "Lo considero un amico.",
+      "translation": "I ⟦consider⟧ him a friend.",
+      "form": "considero"
+    },
+    {
+      "n": 386,
+      "rank": 398,
+      "word": "mangiare",
+      "pos": "verb",
+      "meaning": "to eat",
+      "sentence": "Cosa mangiamo stasera?",
+      "translation": "What are we ⟦eating⟧ tonight?",
+      "form": "mangiamo"
+    },
+    {
+      "n": 387,
+      "rank": 399,
+      "word": "linea",
+      "pos": "noun",
+      "meaning": "line",
+      "sentence": "La linea è occupata.",
+      "translation": "The ⟦line⟧ is busy."
+    },
+    {
+      "n": 388,
+      "rank": 400,
+      "word": "bianco",
+      "pos": "adj",
+      "meaning": "white",
+      "sentence": "Vorrei un bicchiere di vino bianco.",
+      "translation": "I'd like a glass of ⟦white⟧ wine."
+    },
+    {
+      "n": 389,
+      "rank": 401,
+      "word": "valore",
+      "pos": "noun",
+      "meaning": "value",
+      "sentence": "Questo anello ha un grande valore.",
+      "translation": "This ring is of great ⟦value⟧."
+    },
+    {
+      "n": 390,
+      "rank": 402,
+      "word": "cittadino",
+      "pos": "noun",
+      "meaning": "citizen",
+      "sentence": "Sono cittadino italiano.",
+      "translation": "I'm an Italian ⟦citizen⟧."
+    },
+    {
+      "n": 391,
+      "rank": 403,
+      "word": "nero",
+      "pos": "adj",
+      "meaning": "black",
+      "sentence": "Mi piace il tuo vestito nero.",
+      "translation": "I like your ⟦black⟧ dress."
+    },
+    {
+      "n": 392,
+      "rank": 404,
+      "word": "storico",
+      "pos": "adj",
+      "meaning": "historic; historical",
+      "sentence": "Il centro storico è bellissimo.",
+      "translation": "The ⟦historic⟧ centre is beautiful."
+    },
+    {
+      "n": 393,
+      "rank": 405,
+      "word": "risposta",
+      "pos": "noun",
+      "meaning": "answer, reply",
+      "sentence": "Non ho ancora una risposta.",
+      "translation": "I don't have an ⟦answer⟧ yet."
+    },
+    {
+      "n": 394,
+      "rank": 406,
+      "word": "inglese",
+      "pos": "noun",
+      "meaning": "English (the language; also adj)",
+      "sentence": "Studio inglese a scuola.",
+      "translation": "I study ⟦English⟧ at school."
+    },
+    {
+      "n": 395,
+      "rank": 407,
+      "word": "notare",
+      "pos": "verb",
+      "meaning": "to notice",
+      "sentence": "Non ho notato niente.",
+      "translation": "I didn't ⟦notice⟧ anything.",
+      "form": "notato"
+    },
+    {
+      "n": 396,
+      "rank": 408,
+      "word": "pagina",
+      "pos": "noun",
+      "meaning": "page",
+      "sentence": "Aprite il libro a pagina dieci.",
+      "translation": "Open your books at ⟦page⟧ ten."
+    },
+    {
+      "n": 397,
+      "rank": 409,
+      "word": "cuore",
+      "pos": "noun",
+      "meaning": "heart",
+      "sentence": "Ti ringrazio di cuore.",
+      "translation": "Thank you from the bottom of my ⟦heart⟧."
+    },
+    {
+      "n": 398,
+      "rank": 410,
+      "word": "ciao",
+      "pos": "interj",
+      "meaning": "hi; bye",
+      "sentence": "Ciao, come va?",
+      "translation": "⟦Hi⟧, how's it going?"
+    },
+    {
+      "n": 399,
+      "rank": 411,
+      "word": "dati",
+      "pos": "noun",
+      "meaning": "data; (personal) details",
+      "sentence": "Inserisci i tuoi dati qui.",
+      "translation": "Enter your ⟦details⟧ here."
+    },
+    {
+      "n": 400,
+      "rank": 412,
+      "word": "semplice",
+      "pos": "adj",
+      "meaning": "simple, easy",
+      "sentence": "È molto semplice.",
+      "translation": "It's very ⟦simple⟧."
     }
   ]
 }
