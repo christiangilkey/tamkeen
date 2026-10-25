@@ -22,13 +22,14 @@
    "title": "French grammar",
    "variety": "French (France)",
    "units": 8,
-   "lessons": 37,
+   "lessons": 41,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 218631,
-   "sha256": "6b928a489c8dd31598c0a34299a84d5d28cf97bd27a97c72acc0997e94fd72b9"
+   "bytes": 243627,
+   "sha256": "364d0cfacbfad7111e3a4d487601d82f03e2beda7793bc1e5ece6ca1e48e2563"
   }
  }
 }

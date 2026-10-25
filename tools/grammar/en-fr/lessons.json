@@ -1865,6 +1865,206 @@
         {"type":"order","q":"Put the words in order.","tr":"The movie is about to start.","words":["Le film","est","sur le point","de","commencer."]},
         {"type":"free","q":"Your turn: say something you've just done, what you're doing right now, and what you're going to do next.","answers":[{"t":"Je viens de manger. Je suis en train d'apprendre le français. Après, je vais aller au lit.","tr":"I've just eaten. I'm learning French right now. After that, I'm going to bed."},{"t":"Je viens de rentrer du travail. Je suis en train de lire cette leçon, et ensuite je vais préparer le dîner.","tr":"I've just got home from work. I'm reading this lesson, and then I'm going to make dinner."}]}
       ]
+    },
+    {
+      "id": "talk-about-the-future",
+      "unit": 7,
+      "level": "A2",
+      "title": "Talk about the future",
+      "summary": "Make predictions and promises, and talk about plans further ahead: the futur simple, {{je partirai}}, {{il fera beau}}.",
+      "topic": "the futur simple: infinitive + {{-ai, -as, -a, -ons, -ez, -ont}}; irregular stems ({{ser-, aur-, ir-, fer-, viendr-, pourr-, verr-, faudr-}})",
+      "blocks": [
+        {"goal":{"t":"L'année prochaine, je partirai au Canada et je travaillerai à Montréal.","tr":"Next year I'll go to Canada and work in Montreal."}},
+        {"dialog":[{"who":"The fortune teller","t":"Je vois… Vous ferez un grand voyage.","tr":"I see… You'll take a long trip."},{"who":"You","t":"Ah bon ? Où ?","tr":"Really? Where?"},{"who":"The fortune teller","t":"Dans un pays chaud. Vous rencontrerez quelqu'un de spécial.","tr":"In a hot country. You'll meet someone special."},{"who":"You","t":"Et je serai riche ?","tr":"And will I be rich?"},{"who":"The fortune teller","t":"Ça, je ne sais pas. Mais vous serez heureux !","tr":"That I don't know. But you'll be happy!"}]},
+        {"term":"futur simple","means":"the one-word future tense of French: {{je partirai}} “I'll leave”, {{il fera beau}} “it will be nice”."},
+        {"p":"**Two futures.** {{Aller}} + infinitive (lesson 19) is for plans and what's about to happen, and it's what people mostly say. The futur simple is for predictions, promises, plans further off, and for writing: {{Il fera beau demain.}} “It will be nice tomorrow.” {{Je t'appellerai.}} “I'll call you.”"},
+        {"p":"**How it's made.** Take the infinitive (-re verbs drop their final {{-e}}) and add endings that look like {{avoir}}: {{-ai, -as, -a, -ons, -ez, -ont}}. You always hear an “r” before the ending: that's the sign of the future."},
+        { "table": [
+          ["","{{parler}}","{{partir}}","{{prendre}}"],
+          ["I","{{je parlerai}}","{{je partirai}}","{{je prendrai}}"],
+          ["you (a friend)","{{tu parleras}}","{{tu partiras}}","{{tu prendras}}"],
+          ["he, she; we (casual)","{{il parlera}}","{{il partira}}","{{il prendra}}"],
+          ["we","{{nous parlerons}}","{{nous partirons}}","{{nous prendrons}}"],
+          ["you (polite, or several)","{{vous parlerez}}","{{vous partirez}}","{{vous prendrez}}"],
+          ["they","{{ils parleront}}","{{ils partiront}}","{{ils prendront}}"]
+        ] },
+        {"p":"**Irregular stems.** The common verbs have their own stem, but the endings never change:"},
+        { "table": [
+          ["verb","stem","example"],
+          ["{{être}}","{{ser-}}","{{je serai}}"],
+          ["{{avoir}}","{{aur-}}","{{tu auras}}"],
+          ["{{aller}}","{{ir-}}","{{il ira}}"],
+          ["{{faire}}","{{fer-}}","{{il fera beau}}"],
+          ["{{venir}}","{{viendr-}}","{{nous viendrons}}"],
+          ["{{pouvoir}}","{{pourr-}}","{{vous pourrez}}"],
+          ["{{vouloir}}","{{voudr-}}","{{ils voudront}}"],
+          ["{{voir}}","{{verr-}}","{{on verra}}"],
+          ["{{devoir}}","{{devr-}}","{{je devrai}}"],
+          ["{{il faut}}","{{faudr-}}","{{il faudra}}"]
+        ] },
+        { "ex": [
+          {"t":"Je t'appellerai demain.","tr":"I'll call you tomorrow.","note":"{{appeler}} doubles its {{l}}: {{j'appellerai}}"},
+          {"t":"Il fera beau ce week-end.","tr":"It will be nice this weekend."},
+          {"t":"Tu verras, c'est facile !","tr":"You'll see, it's easy!"},
+          {"t":"Nous serons là à huit heures.","tr":"We'll be there at eight."},
+          {"t":"Un jour, j'irai au Japon.","tr":"One day I'll go to Japan."},
+          {"t":"Il faudra réserver.","tr":"We'll have to book."},
+          {"t":"Je ne serai pas en retard, promis !","tr":"I won't be late, I promise!"}
+        ] },
+        {"tip":"{{On verra.}} “We'll see.” is said all the time, and often means “maybe, maybe not”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je vais partirai demain.","right":"Je partirai demain.","tr":"I'll leave tomorrow.","why":"Either {{je vais partir}} or {{je partirai}}: not both at once."},
+        {"wrong":"Je serais là demain.","right":"Je serai là demain.","tr":"I'll be there tomorrow.","why":"The future ends in {{-ai}}: {{je serai}}. {{Je serais}}, with {{-s}}, is “I would be” (lesson 40)."},
+        {"wrong":"Il fairera beau.","right":"Il fera beau.","tr":"It will be nice.","why":"{{Faire}} has its own stem: {{fer-}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Demain, il ___ beau.","tr":"Tomorrow it will be nice.","options":["fera","faira","fait"],"answer":0,"why":"The weather takes {{faire}}; its future stem is {{fer-}}.","from":"talk-about-free-time"},
+        {"type":"fill","q":"Choose the missing word.","t":"Nous ___ là à huit heures.","tr":"We'll be there at eight.","options":["serons","aurons","sommes"],"answer":0,"why":"{{Être}} in the future: {{ser-}} + {{-ons}}."},
+        {"type":"choice","q":"The futur simple of {{aller}} with {{je}} is…","options":["{{j'irai}}","{{j'allerai}}","{{je vais}}"],"answer":0,"why":"{{Aller}} has the stem {{ir-}}: {{j'irai}}."},
+        {"type":"order","q":"Put the words in order.","tr":"One day I'll go to Japan with my wife.","words":["Un jour,","j'irai","au Japon","avec","ma femme."]},
+        {"type":"dialogue","q":"A fortune teller reads your future. Ask her questions.","from":"invite-accept-refuse","lines":[{"who":"The fortune teller","t":"Je vois un grand changement dans votre vie…","tr":"I see a big change in your life…"},{"options":["Je serai riche ?","Je suis riche ?"],"answer":0,"why":"A question about the future: {{je serai}}."},{"who":"The fortune teller","t":"Non, mais vous aurez un nouveau travail.","tr":"No, but you'll have a new job."},{"options":["Et je pourrai voyager ?","Et je pouvrai voyager ?"],"answer":0,"why":"{{Pouvoir}}: the stem {{pourr-}}."},{"who":"The fortune teller","t":"Oui, beaucoup !","tr":"Yes, a lot!"}]},
+        {"type":"say","q":"Promise: “I'll call you tomorrow.”","answer":"Je t'appellerai demain.","from":"avoid-repeating-things"},
+        {"type":"free","q":"Your turn: say three things you'll do in the next five years, and one thing that won't happen.","answers":[{"t":"Dans cinq ans, j'habiterai en France. Je parlerai bien français et j'aurai un chien. Je ne serai pas riche !","tr":"In five years I'll live in France. I'll speak French well and I'll have a dog. I won't be rich!"},{"t":"Un jour, je ferai le tour du monde. J'irai au Japon et je verrai le mont Fuji. Je ne travaillerai plus !","tr":"One day I'll travel around the world. I'll go to Japan and see Mount Fuji. I won't work anymore!"}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what will happen if… and when…",
+      "summary": "Make conditions and plans: “If it rains, we'll stay home”, “When I'm in Paris, I'll call you”: {{si}} + the present, and {{quand}} + the future.",
+      "topic": "{{si}} + present → future; {{s'il}}; {{quand}}, {{dès que}} + future (where English has the present)",
+      "blocks": [
+        {"goal":{"t":"S'il fait beau demain, on ira à la plage.","tr":"If it's nice tomorrow, we'll go to the beach."}},
+        {"dialog":[{"who":"Hugo","t":"On fait quoi samedi ?","tr":"What are we doing on Saturday?"},{"who":"Léna","t":"S'il fait beau, on ira à la plage.","tr":"If it's nice, we'll go to the beach."},{"who":"Hugo","t":"Et s'il pleut ?","tr":"And if it rains?"},{"who":"Léna","t":"S'il pleut, on ira au musée.","tr":"If it rains, we'll go to the museum."},{"who":"Hugo","t":"D'accord. Quand je serai prêt, je t'enverrai un message.","tr":"OK. When I'm ready, I'll send you a message."},{"who":"Léna","t":"Parfait. Si tu es en retard, je pars sans toi !","tr":"Perfect. If you're late, I'm leaving without you!"}]},
+        {"p":"**If: si + the present.** For a real possibility, French works like English: {{si}} + the present, then the future (or {{aller}} + infinitive, or an imperative): {{Si j'ai le temps, je viendrai.}} “If I have time, I'll come.” {{Si tu as faim, mange !}} “If you're hungry, eat!”"},
+        {"p":"**Never the future after si.** “If it will rain” is wrong in English, and “si il pleuvra” is wrong in French: after {{si}}, the present. {{Si}} becomes {{s'}} before {{il}} and {{ils}} only: {{s'il pleut}}, but {{si elle vient}}."},
+        {"p":"**When: quand + the future.** Here French is different. If the “when” part is in the future, French puts it in the future too: {{Quand je serai à Paris, je t'appellerai.}} “When I'm in Paris (word for word: when I will be), I'll call you.” The same goes for {{dès que}} “as soon as”."},
+        { "table": [
+          ["","English","French"],
+          ["if","If it rains, we'll stay home.","{{S'il pleut, on restera à la maison.}} (present)"],
+          ["when","When I'm in Paris, I'll call you.","{{Quand je serai à Paris, je t'appellerai.}} (future)"],
+          ["as soon as","As soon as I arrive, I'll text you.","{{Dès que j'arriverai, je t'enverrai un message.}} (future)"]
+        ] },
+        {"p":"For something that happens every time, use the present on both sides: {{Quand il pleut, je prends le bus.}} “When it rains, I take the bus.”"},
+        { "ex": [
+          {"t":"Si tu veux, on peut y aller ensemble.","tr":"If you want, we can go together."},
+          {"t":"Si vous avez des questions, appelez-moi.","tr":"If you have any questions, call me."},
+          {"t":"S'il fait froid, je mettrai un manteau.","tr":"If it's cold, I'll put on a coat."},
+          {"t":"Quand j'aurai le temps, je lirai ce livre.","tr":"When I have time, I'll read this book."},
+          {"t":"Dès qu'il arrivera, on mangera.","tr":"As soon as he arrives, we'll eat."},
+          {"t":"Si tu n'es pas là à huit heures, je pars sans toi !","tr":"If you're not there at eight, I'm leaving without you!"}
+        ] },
+        {"tip":"{{Si}} has three jobs: “if” ({{si tu veux}}), “so” before an adjective ({{C'est si beau !}} “It's so beautiful!”), and “yes” to a negative question (lesson 7)."}
+      ],
+      "mistakes": [
+        {"wrong":"Si il pleut, on restera ici.","right":"S'il pleut, on restera ici.","tr":"If it rains, we'll stay here.","why":"{{Si}} becomes {{s'}} before {{il}}."},
+        {"wrong":"S'il pleuvra, on restera ici.","right":"S'il pleut, on restera ici.","tr":"If it rains, we'll stay here.","why":"After {{si}}, never the future: the present."},
+        {"wrong":"Quand je suis à Paris, je t'appellerai.","right":"Quand je serai à Paris, je t'appellerai.","tr":"When I'm in Paris, I'll call you.","why":"A “when” in the future: the future after {{quand}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"S'il ___ demain, on restera à la maison.","tr":"If it rains tomorrow, we'll stay home.","options":["pleut","pleuvra","pleuvait"],"answer":0,"why":"After {{si}}: the present."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quand je ___ grand, je serai pilote !","tr":"When I grow up, I'll be a pilot!","options":["serai","suis","serais"],"answer":0,"why":"A future “when”: the future, {{je serai}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{Si elle vient, je serai content.}}","{{S'elle vient, je serai content.}}","{{Si elle viendra, je serai content.}}"],"answer":0,"why":"{{S'}} only before {{il}} and {{ils}}; and after {{si}}, the present."},
+        {"type":"fill","q":"Choose the missing word.","t":"Si j'ai le temps, je te ___ ce soir.","tr":"If I have time, I'll call you tonight.","options":["téléphonerai","téléphonerais","téléphonais"],"answer":0,"why":"The result of a real possibility: the future, {{-ai}}.","from":"talk-about-the-future"},
+        {"type":"dialogue","q":"Plan your Saturday with a friend. Choose your replies.","from":"invite-accept-refuse","lines":[{"who":"Your friend","t":"On fait quoi samedi ?","tr":"What are we doing on Saturday?"},{"options":["S'il fait beau, on ira à la plage.","S'il fera beau, on ira à la plage."],"answer":0,"why":"After {{si}}: the present."},{"who":"Your friend","t":"Et après ?","tr":"And then?"},{"options":["Quand on aura faim, on ira au restaurant.","Quand on a faim samedi, on ira au restaurant."],"answer":0,"why":"A “when” in the future: {{on aura}}."},{"who":"Your friend","t":"Parfait !","tr":"Perfect!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"When I'm in Paris, I'll call you.","words":["Quand","je serai","à Paris,","je","t'appellerai."]},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if it's nice, and if it rains. Then say one thing you'll do when you have more time.","answers":[{"t":"S'il fait beau, je ferai une randonnée. S'il pleut, je resterai à la maison. Quand j'aurai plus de temps, j'apprendrai la guitare.","tr":"If it's nice, I'll go hiking. If it rains, I'll stay home. When I have more time, I'll learn the guitar."},{"t":"S'il fait beau, on ira au parc. S'il pleut, on regardera un film. Quand je serai à la retraite, je voyagerai.","tr":"If it's nice, we'll go to the park. If it rains, we'll watch a movie. When I retire, I'll travel."}]}
+      ]
+    },
+    {
+      "id": "ask-politely-and-advise",
+      "unit": 7,
+      "level": "B1",
+      "title": "Ask very politely, suggest and advise",
+      "summary": "Say “Could you…?”, “I'd like to…”, “We could…”, “You should…”: the conditional, the polite and careful form of French verbs.",
+      "topic": "the conditional: future stem + imparfait endings ({{je voudrais, pourriez-vous, on pourrait, tu devrais}}); {{j'aimerais}}; {{à ta place}}",
+      "blocks": [
+        {"goal":{"t":"Pourriez-vous m'aider, s'il vous plaît ? J'aimerais réserver une table pour ce soir.","tr":"Could you help me, please? I'd like to book a table for tonight."}},
+        {"dialog":[{"who":"The receptionist","t":"Hôtel du Parc, bonjour !","tr":"Hôtel du Parc, good morning!"},{"who":"You","t":"Bonjour, madame. J'aimerais réserver une chambre pour samedi.","tr":"Good morning. I'd like to book a room for Saturday."},{"who":"The receptionist","t":"Pour combien de personnes ?","tr":"For how many people?"},{"who":"You","t":"Pour deux. Serait-il possible d'avoir une chambre avec vue sur la mer ?","tr":"For two. Would it be possible to have a room with a sea view?"},{"who":"The receptionist","t":"Je vais vérifier… Oui, ce serait cent vingt euros la nuit.","tr":"I'll check… Yes, that would be 120 euros a night."},{"who":"You","t":"Parfait. Pourriez-vous m'envoyer une confirmation ?","tr":"Perfect. Could you send me a confirmation?"}]},
+        {"term":"conditional","means":"the form of a verb for what would happen, and for being polite: I would like, could you, we could. In French: {{je voudrais}}, {{pourriez-vous}}, {{on pourrait}}."},
+        {"p":"**You already know one.** {{Je voudrais}} (lesson 3) is the conditional of {{vouloir}}: “I would like”, softer than {{je veux}} “I want”. The conditional softens every request, suggestion and piece of advice."},
+        {"p":"**How it's made.** The future stem (lesson 38) + the imparfait endings (lesson 27): {{-ais, -ais, -ait, -ions, -iez, -aient}}."},
+        { "table": [
+          ["","future","conditional"],
+          ["{{vouloir}}","{{je voudrai}}","{{je voudrais}} I'd like"],
+          ["{{pouvoir}}","{{tu pourras}}","{{tu pourrais}} you could"],
+          ["{{devoir}}","{{il devra}}","{{il devrait}} he should"],
+          ["{{aimer}}","{{j'aimerai}}","{{j'aimerais}} I'd like, I'd love"],
+          ["{{être}}","{{ce sera}}","{{ce serait}} it would be"],
+          ["{{avoir}}","{{vous aurez}}","{{vous auriez}} you'd have"]
+        ] },
+        {"p":"**Very polite requests.** {{Pourriez-vous… ?}} “Could you…?” (with inversion: lesson 7) and {{Est-ce que vous pourriez… ?}} are the politest. With a friend: {{Tu pourrais… ?}}"},
+        {"p":"**Suggesting: on pourrait.** {{On pourrait aller au cinéma.}} “We could go to the movies.” {{Ce serait sympa.}} “That would be nice.”"},
+        {"p":"**Advising: tu devrais.** {{Tu devrais}} or {{vous devriez}} + infinitive is “you should”: {{Tu devrais te reposer.}} “You should rest.” {{À ta place}} “in your place” + the conditional is “if I were you”: {{À ta place, je resterais.}} “If I were you, I'd stay.”"},
+        { "ex": [
+          {"t":"J'aimerais un café, s'il vous plaît.","tr":"I'd like a coffee, please."},
+          {"t":"Pourriez-vous parler plus lentement ?","tr":"Could you speak more slowly?"},
+          {"t":"Tu pourrais fermer la porte ?","tr":"Could you close the door?"},
+          {"t":"On pourrait manger ensemble demain.","tr":"We could have lunch together tomorrow."},
+          {"t":"Vous devriez essayer ce restaurant.","tr":"You should try this restaurant."},
+          {"t":"Ce serait génial !","tr":"That would be great!"},
+          {"t":"À ta place, je ne dirais rien.","tr":"If I were you, I wouldn't say anything.","note":"{{ne … rien}}: nothing"}
+        ] },
+        {"tip":"The future {{je voudrai}} and the conditional {{je voudrais}} sound almost the same. When you write, ask yourself: “will” or “would”? “Would” needs the {{-s}}."}
+      ],
+      "mistakes": [
+        {"wrong":"J'aimerai réserver une table.","right":"J'aimerais réserver une table.","tr":"I'd like to book a table.","why":"“Would like” is the conditional, with {{-s}}. {{J'aimerai}} means “I will like”."},
+        {"wrong":"Tu devrais à te reposer.","right":"Tu devrais te reposer.","tr":"You should rest.","why":"No {{à}}: the infinitive comes straight after {{devoir}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vous ___ m'aider, s'il vous plaît ?","tr":"Could you help me, please?","options":["pourriez","pourrez","pourrions"],"answer":0,"why":"“Could you”: the conditional with {{vous}}, {{pourriez}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu ___ voir un médecin.","tr":"You should see a doctor.","options":["devrais","devras","devrait"],"answer":0,"why":"“You should”: the conditional, {{tu devrais}}."},
+        {"type":"choice","q":"Which one is the most polite?","options":["{{Pourriez-vous fermer la fenêtre ?}}","{{Fermez la fenêtre !}}","{{Vous fermez la fenêtre ?}}"],"answer":0,"why":"The conditional, with inversion: the politest request there is.","from":"give-directions"},
+        {"type":"fill","q":"Choose the missing word.","t":"On ___ aller au restaurant ce soir.","tr":"We could go to a restaurant tonight.","options":["pourrait","pourra","pourrions"],"answer":0,"why":"“We could”, with {{on}}: {{on pourrait}}."},
+        {"type":"dialogue","q":"Calling a hotel. Choose your lines.","from":"ask-for-things","lines":[{"who":"The receptionist","t":"Hôtel du Parc, bonjour !","tr":"Hôtel du Parc, good morning!"},{"options":["Bonjour, j'aimerais réserver une chambre pour samedi.","Bonjour, j'aimerai réserver une chambre pour samedi."],"answer":0,"why":"“I'd like”: {{j'aimerais}}, with {{-s}}."},{"who":"The receptionist","t":"Pour combien de personnes ?","tr":"For how many people?"},{"options":["Pour deux. Ce serait possible d'avoir une vue sur la mer ?","Pour deux. C'était possible d'avoir une vue sur la mer ?"],"answer":0,"why":"A polite question: the conditional, {{ce serait}}."},{"who":"The receptionist","t":"Oui, bien sûr.","tr":"Yes, of course."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I'd stay.","words":["À","ta place,","je","resterais."]},
+        {"type":"free","q":"Your turn: ask a stranger for help very politely, suggest something to a friend, and give someone advice.","answers":[{"t":"Pourriez-vous m'indiquer la gare, s'il vous plaît ? On pourrait aller au musée demain. Tu devrais dormir un peu !","tr":"Could you tell me the way to the station, please? We could go to the museum tomorrow. You should get some sleep!"},{"t":"Excusez-moi, vous pourriez nous prendre en photo ? On pourrait manger italien ce soir. Vous devriez essayer les crêpes !","tr":"Excuse me, could you take a photo of us? We could have Italian food tonight. You should try the crêpes!"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "Imagine: say what you would do if…",
+      "summary": "Dream, imagine and wish: “If I won the lottery, I'd travel the world”: {{si}} + the imparfait, then the conditional.",
+      "topic": "{{si}} + imparfait → conditional; {{si j'étais toi}}; {{si seulement}}",
+      "blocks": [
+        {"goal":{"t":"Si j'avais plus de temps, j'apprendrais le piano.","tr":"If I had more time, I'd learn the piano."}},
+        {"dialog":[{"who":"Zoé","t":"Qu'est-ce que tu ferais si tu gagnais au loto ?","tr":"What would you do if you won the lottery?"},{"who":"Nathan","t":"J'arrêterais de travailler et je ferais le tour du monde !","tr":"I'd stop working and travel around the world!"},{"who":"Zoé","t":"Moi, j'achèterais une maison au bord de la mer.","tr":"I'd buy a house by the sea."},{"who":"Nathan","t":"Et si tu pouvais vivre n'importe où ?","tr":"And if you could live anywhere?"},{"who":"Zoé","t":"Je vivrais à Lisbonne. Il fait toujours beau là-bas !","tr":"I'd live in Lisbon. It's always nice there!"}]},
+        {"p":"**Imagining: si + imparfait, then the conditional.** For something that isn't true, or isn't likely, French puts the imparfait after {{si}} and the conditional in the other half, just like English “if I had…, I would…”: {{Si j'étais riche, j'achèterais une île.}} “If I were rich, I'd buy an island.”"},
+        { "table": [
+          ["","after {{si}}","the result"],
+          ["a real possibility (lesson 39)","present: {{S'il fait beau,}}","future: {{on ira à la plage.}}"],
+          ["imagined","imparfait: {{S'il faisait beau,}}","conditional: {{on irait à la plage.}}"]
+        ] },
+        {"p":"**Never the conditional after si.** “If I would have” is wrong in English, and “si j'aurais” is wrong in French (you'll hear it from children). After {{si}}: the imparfait. The two halves can swap: {{J'achèterais une île si j'étais riche.}}"},
+        {"p":"**Advice: si j'étais toi.** {{Si j'étais toi}} or {{si j'étais vous}} “if I were you” works like {{à ta place}} (lesson 40): {{Si j'étais toi, je l'appellerais.}} “If I were you, I'd call her.”"},
+        {"p":"**Wishing.** {{Si seulement}} + the imparfait is “if only”: {{Si seulement il faisait beau !}} And {{j'aimerais}} + infinitive is “I'd love to”: {{J'aimerais vivre en France.}}"},
+        { "ex": [
+          {"t":"Si j'avais une voiture, je partirais en week-end.","tr":"If I had a car, I'd go away for the weekend."},
+          {"t":"Qu'est-ce que tu ferais à ma place ?","tr":"What would you do in my place?"},
+          {"t":"S'il ne pleuvait pas, on sortirait.","tr":"If it weren't raining, we'd go out."},
+          {"t":"Si j'étais toi, je dirais la vérité.","tr":"If I were you, I'd tell the truth."},
+          {"t":"Je serais très content si tu venais.","tr":"I'd be really happy if you came."},
+          {"t":"Si seulement j'avais plus de vacances !","tr":"If only I had more vacation time!"}
+        ] },
+        {"tip":"The conditionals of {{avoir}} and {{être}} come up all the time here: {{j'aurais}}, {{tu aurais}}, {{il aurait}}; {{je serais}}, {{tu serais}}, {{il serait}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Si j'aurais le temps, je viendrais.","right":"Si j'avais le temps, je viendrais.","tr":"If I had time, I'd come.","why":"After {{si}}, never the conditional: the imparfait."},
+        {"wrong":"Si j'étais riche, j'achèterai une maison.","right":"Si j'étais riche, j'achèterais une maison.","tr":"If I were rich, I'd buy a house.","why":"The result of something imagined: the conditional, {{-ais}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Si j'___ le temps, je ferais du sport.","tr":"If I had time, I'd exercise.","options":["avais","aurais","ai"],"answer":0,"why":"After {{si}}, something imagined: the imparfait.","from":"describe-how-things-were"},
+        {"type":"fill","q":"Choose the missing word.","t":"Si tu venais, je ___ très content.","tr":"If you came, I'd be very happy.","options":["serais","serai","suis"],"answer":0,"why":"The result: the conditional, {{je serais}}."},
+        {"type":"choice","q":"{{S'il faisait beau, on irait à la plage.}} Is this…","options":["something imagined: it isn't nice out","a real possibility for tomorrow"],"answer":0,"why":"{{Si}} + imparfait, then the conditional: imagined. (For tomorrow: {{S'il fait beau, on ira…}})","from":"say-what-will-happen-if"},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I'd call her.","words":["Si","j'étais","toi,","je","l'appellerais."],"from":"avoid-repeating-things"},
+        {"type":"dialogue","q":"A friend has a problem. Choose your replies.","from":"ask-politely-and-advise","lines":[{"who":"Your friend","t":"Mon chef ne me paie pas assez. Qu'est-ce que tu ferais à ma place ?","tr":"My boss doesn't pay me enough. What would you do in my place?"},{"options":["Si j'étais toi, je lui parlerais.","Si je serais toi, je lui parlerais."],"answer":0,"why":"After {{si}}: the imparfait, {{j'étais}}."},{"who":"Your friend","t":"Et s'il dit non ?","tr":"And if he says no?"},{"options":["S'il dit non, tu chercheras un autre travail !","S'il dirait non, tu chercheras un autre travail !"],"answer":0,"why":"Now it's a real possibility: {{si}} + present, then the future."},{"who":"Your friend","t":"Tu as raison.","tr":"You're right."}]},
+        {"type":"say","q":"Say: “If only I had more vacation time!”","answer":"Si seulement j'avais plus de vacances !"},
+        {"type":"free","q":"Your turn: what would you do if you won the lottery? And where would you live if you could live anywhere?","answers":[{"t":"Si je gagnais au loto, j'arrêterais de travailler et je voyagerais. Si je pouvais vivre n'importe où, je vivrais à Paris.","tr":"If I won the lottery, I'd stop working and travel. If I could live anywhere, I'd live in Paris."},{"t":"Si j'avais beaucoup d'argent, j'achèterais une maison à la campagne. Je vivrais au Canada, près de la mer.","tr":"If I had a lot of money, I'd buy a house in the country. I'd live in Canada, near the sea."}]}
+      ]
     }
   ]
 }
