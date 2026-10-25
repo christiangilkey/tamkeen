@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-fr": {
+   "file": "en-fr/course.json",
+   "from": "en",
+   "to": "fr",
+   "title": "French grammar",
+   "variety": "French (France)",
+   "units": 8,
+   "lessons": 7,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 39155,
+   "sha256": "d9e484d5f65e4e13ba308bfef84ea7cc3ba3015a7c1ebd007935536c5a8000d6"
   }
  }
 }
