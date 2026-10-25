@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-pt": {
+   "file": "en-pt/course.json",
+   "from": "en",
+   "to": "pt",
+   "title": "Portuguese grammar",
+   "variety": "Brazilian Portuguese (você)",
+   "units": 8,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 32458,
+   "sha256": "12fa1efe97c9206d6425b2df0da3bd1ff806759247696a9a81bea8eb3aca97a4"
   }
  }
 }

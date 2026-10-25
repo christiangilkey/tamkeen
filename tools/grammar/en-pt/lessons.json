@@ -1,0 +1,315 @@
+{
+  "from": "en",
+  "to": "pt",
+  "title": "Portuguese grammar",
+  "variety": "Brazilian Portuguese (você)",
+  "about": "From your very first conversation to everyday talk with Brazilians, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is Brazilian Portuguese as people really speak it, with você for “you”; where everyday speech and careful writing differ, you see both.",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Out and about"},
+    {"n":3,"title":"Everyday life"},
+    {"n":4,"title":"Can, must and let's"},
+    {"n":5,"title":"Telling what happened"},
+    {"n":6,"title":"Comparing and connecting"},
+    {"n":7,"title":"Wishes, doubts and the future"},
+    {"n":8,"title":"Stories, news and opinions"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first Portuguese conversation.",
+      "topic": "{{ser}} “to be”: {{eu sou}}, {{você é}}; leaving out {{eu}}; {{de}} “from”",
+      "blocks": [
+        {"goal":{"t":"Oi, meu nome é Sarah. Eu sou de Toronto.","tr":"Hi, my name is Sarah. I'm from Toronto."}},
+        {"dialog":[{"who":"Lucas","t":"Oi! Meu nome é Lucas.","tr":"Hi! My name is Lucas."},{"who":"Sarah","t":"Oi, Lucas! Meu nome é Sarah.","tr":"Hi, Lucas! My name is Sarah."},{"who":"Lucas","t":"Você é de onde?","tr":"Where are you from?"},{"who":"Sarah","t":"Sou de Toronto, do Canadá. E você?","tr":"I'm from Toronto, in Canada. And you?"},{"who":"Lucas","t":"Sou de São Paulo.","tr":"I'm from São Paulo."},{"who":"Sarah","t":"Muito prazer!","tr":"Nice to meet you!"},{"who":"Lucas","t":"O prazer é meu.","tr":"The pleasure is mine."}]},
+        {"p":"Look at how Sarah says where she's from: {{eu sou}} “I am”. Lucas asks with {{você é}} “you are”. These are two forms of the same verb, {{ser}} “to be”."},
+        {"term":"sentence","means":"a group of words that says something complete: I'm from Toronto."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she."},
+        {"term":"verb","means":"a word for an action or a state: speak, live, want, be."},
+        {"p":"**I and you.** {{eu}} is “I”. For “you”, Brazilians say {{você}} to everyone: a friend, a child, a stranger. Each one has its own form of the verb, so learn them together: {{eu sou}}, {{você é}}."},
+        { "table": [
+          ["","{{ser}} “to be”","example"],
+          ["I","{{eu sou}}","{{Eu sou de Toronto.}}"],
+          ["you","{{você é}}","{{Você é de onde?}}"],
+          ["he, she","{{ele é}}, {{ela é}}","{{Ela é de Salvador.}}"]
+        ] },
+        {"p":"**Leaving out “I”.** {{sou}} can only mean “I am”, so Brazilians often drop {{eu}}: {{Sou de Toronto.}} Both are right."},
+        {"p":"**From.** {{de}} is “from”: {{de Toronto}}, {{de São Paulo}}. Most countries have a word for “the” in front of them, and {{de}} joins it: {{do Canadá}}, {{da Inglaterra}}, {{dos Estados Unidos}}. For now, learn your own as a chunk (a later lesson explains it), or say your nationality instead:"},
+        { "table": [
+          ["","I'm from…","or: I'm…"],
+          ["the US","{{Sou dos Estados Unidos.}}","{{Sou americano.}} / {{Sou americana.}}"],
+          ["Canada","{{Sou do Canadá.}}","{{Sou canadense.}}"],
+          ["England","{{Sou da Inglaterra.}}","{{Sou inglês.}} / {{Sou inglesa.}}"],
+          ["Australia","{{Sou da Austrália.}}","{{Sou australiano.}} / {{Sou australiana.}}"]
+        ] },
+        {"p":"The second word ends in {{-o}} when a man says it and in {{-a}} when a woman does ({{canadense}} is the same for both): the next lesson explains why."},
+        {"p":"**Asking.** A question can have exactly the words of a statement: just raise your voice at the end. {{Você é de Toronto?}} “Are you from Toronto?” To ask where from, Brazilians usually put {{de onde}} “from where” at the end: {{Você é de onde?}} The textbook order, {{De onde você é?}}, is right too."},
+        { "ex": [
+          {"t":"Meu nome é Daniel.","tr":"My name is Daniel."},
+          {"t":"Sou de Chicago.","tr":"I'm from Chicago.","note":"no {{eu}}: {{sou}} already says “I am”"},
+          {"t":"Você é de onde?","tr":"Where are you from?"},
+          {"t":"Sou dos Estados Unidos. E você?","tr":"I'm from the United States. And you?"},
+          {"t":"Ela é do Rio.","tr":"She's from Rio.","note":"Rio has “the” in front of it: {{do Rio}}"},
+          {"t":"Muito prazer!","tr":"Nice to meet you!"}
+        ] },
+        {"tip":"Hello and goodbye: {{Oi!}} is “Hi!” with anyone; {{Olá!}} is a little more formal. {{Bom dia}} (morning), {{Boa tarde}} (afternoon), {{Boa noite}} (evening, and goodnight). {{Tchau!}} is “Bye!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu é de Toronto.","right":"Eu sou de Toronto.","tr":"I'm from Toronto.","why":"With {{eu}}, the verb is {{sou}}. {{É}} goes with {{você}}, {{ele}} and {{ela}}."},
+        {"wrong":"Eu sou do Toronto.","right":"Eu sou de Toronto.","tr":"I'm from Toronto.","why":"Most cities have no “the” in Portuguese, so plain {{de}}: {{de Toronto}}, {{de Londres}}. {{Do}} is for places that take “the”, like {{do Canadá}} or {{do Rio}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one means “you are”?","options":["{{você é}}","{{eu sou}}","{{ela é}}"],"answer":0,"why":"{{você é}} is “you are”; {{eu sou}} is “I am”, {{ela é}} “she is”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de Boston.","tr":"I'm from Boston.","options":["sou","é","de"],"answer":0,"why":"With {{eu}}: {{sou}}."},
+        {"type":"dialogue","q":"You're Mike, from Chicago. Choose your replies.","lines":[{"who":"Ana","t":"Oi! Meu nome é Ana.","tr":"Hi! My name is Ana."},{"options":["Oi, Ana! Meu nome é Mike.","Oi, Ana! Você é Mike."],"answer":0,"why":"Say your own name with {{Meu nome é…}}. ({{Você é Mike}} means “You're Mike”.)"},{"who":"Ana","t":"Você é de onde?","tr":"Where are you from?"},{"options":["Sou de Chicago.","É de Chicago."],"answer":0,"why":"About yourself: {{sou}}, “I am”. {{É de Chicago}} would be “he's (or she's) from Chicago”."},{"who":"Ana","t":"Muito prazer!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Where are you from?","words":["Você","é","de","onde?"]},
+        {"type":"say","q":"How do you say “I'm from the United States”?","answer":"Sou dos Estados Unidos."},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{Oi, meu nome é…}}","answers":[{"t":"Oi, meu nome é John. Sou de Nova York.","tr":"Hi, my name is John. I'm from New York."},{"t":"Oi, meu nome é Emma. Sou da Inglaterra, de Londres.","tr":"Hi, my name is Emma. I'm from England, from London."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say how you are",
+      "summary": "Answer “How are you?” and say how you feel today: tired, fine, happy, busy.",
+      "topic": "{{estar}} “to be” (how you are now): {{estou}}, {{está}}; adjectives ending in {{-o}} or {{-a}}; {{ser}} or {{estar}}",
+      "blocks": [
+        {"goal":{"t":"Estou muito bem, obrigado. E você?","tr":"I'm very well, thanks. And you?","note":"said by a man; a woman says {{obrigada}}"}},
+        {"dialog":[{"who":"Carla","t":"Oi, Pedro! Tudo bem?","tr":"Hi, Pedro! How's it going?"},{"who":"Pedro","t":"Tudo bem, e você?","tr":"Fine, and you?"},{"who":"Carla","t":"Tudo ótimo! Mas estou um pouco cansada.","tr":"Great! But I'm a little tired."},{"who":"Pedro","t":"Eu também. Estou muito cansado hoje.","tr":"Me too. I'm really tired today."},{"who":"Carla","t":"Vamos tomar um café?","tr":"Shall we get a coffee?"},{"who":"Pedro","t":"Boa ideia!","tr":"Good idea!"}]},
+        {"p":"**How are you?** Brazilians greet each other with {{Tudo bem?}}, literally “All well?”, and the usual answer is the same words: {{Tudo bem!}} Or {{Tudo ótimo!}} “All great!”, {{Tudo certo!}} “All good!”."},
+        {"p":"**A second “to be”.** To say how you are right now, Portuguese uses another verb for “to be”: {{estar}}. {{Estou cansado}} “I'm tired”, {{Você está bem?}} “Are you OK?”."},
+        { "table": [
+          ["","{{ser}}: who or what you are","{{estar}}: how you are now"],
+          ["I","{{eu sou}}","{{eu estou}}"],
+          ["you","{{você é}}","{{você está}}"],
+          ["he, she","{{ele é}}, {{ela é}}","{{ele está}}, {{ela está}}"]
+        ] },
+        {"p":"Think of it like this: {{ser}} says what someone **is** (a name, where they're from, a job); {{estar}} says how someone **is at the moment** (tired, fine, busy, sick). {{Sou de Toronto}} won't change tomorrow; {{Estou cansado}} will pass. The two verbs come back many times in this course, each time for a new job."},
+        {"term":"adjective","means":"a word that describes a person or a thing: tired, happy, big, new."},
+        {"p":"**Endings for men and women.** Most adjectives end in {{-o}} for a man and {{-a}} for a woman: Pedro is {{cansado}}, Carla is {{cansada}}. Those that end in {{-e}} or in a consonant usually stay the same: {{feliz}} “happy”, {{doente}} “sick”. Even “thank you” changes: a man says {{obrigado}}, a woman {{obrigada}} (it means “obliged”, so it describes the person speaking)."},
+        { "ex": [
+          {"t":"Estou bem, obrigada.","tr":"I'm fine, thanks.","note":"said by a woman"},
+          {"t":"Estou muito cansado hoje.","tr":"I'm really tired today.","note":"said by a man"},
+          {"t":"Você está ocupada?","tr":"Are you busy?","note":"to a woman"},
+          {"t":"Ela está doente.","tr":"She's sick."},
+          {"t":"Estou feliz!","tr":"I'm happy!","note":"the same for a man or a woman"},
+          {"t":"Mais ou menos.","tr":"So-so.","note":"literally “more or less”"}
+        ] },
+        {"tip":"In speech, {{está}} is often just {{tá}} and {{estou}} is {{tô}}: {{Tá bom!}} “OK!”, {{Tô cansado}} “I'm tired”. You'll hear them all day; write the full forms."}
+      ],
+      "mistakes": [
+        {"wrong":"Sou cansado.","right":"Estou cansado.","tr":"I'm tired.","why":"Being tired is how you are right now: {{estar}}, not {{ser}}."},
+        {"wrong":"Obrigado!","right":"Obrigada!","tr":"Thank you! (said by a woman)","why":"A woman says {{obrigada}}, with {{-a}}: the word describes the person speaking, not the one being thanked."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which verb says how you are at the moment?","options":["{{estar}}: {{estou}}","{{ser}}: {{sou}}"],"answer":0,"why":"How you are now (tired, fine, busy): {{estar}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ muito cansada hoje.","tr":"I'm really tired today.","options":["estou","sou","está"],"answer":0,"why":"How you are now: {{estar}}, and with {{eu}} it's {{estou}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ela está ___.","tr":"She's tired.","options":["cansada","cansado"],"answer":0,"why":"About a woman: {{-a}}."},
+        {"type":"dialogue","q":"A friend says hello. Choose your replies.","lines":[{"who":"Bruno","t":"Oi! Tudo bem?","tr":"Hi! How's it going?"},{"options":["Tudo bem, e você?","Sou bem, e você?"],"answer":0,"why":"The answer to {{Tudo bem?}} is {{Tudo bem!}}. ({{Sou bem}} isn't Portuguese.)"},{"who":"Bruno","t":"Tudo ótimo. Você está cansado?","tr":"Great. Are you tired?"},{"options":["Sim, estou um pouco cansado.","Sim, sou um pouco cansado."],"answer":0,"why":"Tired right now: {{estar}}."},{"who":"Bruno","t":"Eu também!","tr":"Me too!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm a little tired.","words":["Estou","um pouco","cansado."]},
+        {"type":"say","q":"You're a woman. How do you say “I'm fine, thanks”?","answer":"Estou bem, obrigada."},
+        {"type":"free","q":"Your turn: how are you today? Answer with {{Estou…}}","answers":[{"t":"Estou bem, mas um pouco cansada.","tr":"I'm fine, but a little tired."},{"t":"Estou ótimo, obrigado! E você?","tr":"I'm great, thanks! And you?"}]}
+      ]
+    },
+    {
+      "id": "say-yes-and-no",
+      "unit": 1,
+      "level": "A1",
+      "title": "Answer yes and no like a Brazilian",
+      "summary": "Say what you do and don't do, and answer questions the Brazilian way: with the verb, not just “yes”.",
+      "topic": "{{não}} before the verb; answering with the verb ({{Fala? Falo.}}); {{falo}} “I speak”, {{fala}} “you speak”",
+      "blocks": [
+        {"goal":{"t":"Entendo um pouco, mas não falo muito bem.","tr":"I understand a little, but I don't speak very well."}},
+        {"dialog":[{"who":"Driver","t":"Você fala português?","tr":"Do you speak Portuguese?"},{"who":"You","t":"Falo um pouco.","tr":"I speak a little."},{"who":"Driver","t":"Você é americano?","tr":"Are you American?"},{"who":"You","t":"Não, não sou. Sou canadense.","tr":"No, I'm not. I'm Canadian."},{"who":"Driver","t":"Você mora aqui?","tr":"Do you live here?"},{"who":"You","t":"Não, não moro. Estou de férias.","tr":"No, I don't. I'm on vacation."}]},
+        {"p":"**Saying “not”.** Put {{não}} just before the verb: {{Falo inglês}} “I speak English”, {{Não falo inglês}} “I don't speak English”. Portuguese has no helper like “don't” or “doesn't”: {{não}} does the whole job."},
+        {"term":"subject","means":"who or what does the action of the verb: **I** speak, **Ana** lives here, **the bus** is late."},
+        {"p":"**The ending tells you who.** A Portuguese verb changes its ending for each subject. {{falo}} is “I speak”, {{fala}} is “you speak” (and also “he speaks”, “she speaks”). Here are a few everyday verbs in these two forms:"},
+        { "table": [
+          ["","I","you, he, she"],
+          ["speak","{{falo}}","{{fala}}"],
+          ["live","{{moro}}","{{mora}}"],
+          ["work","{{trabalho}}","{{trabalha}}"],
+          ["understand","{{entendo}}","{{entende}}"],
+          ["know","{{sei}}","{{sabe}}"]
+        ] },
+        {"p":"Because {{falo}} can only mean “I speak”, {{eu}} is usually left out. With {{fala}}, say {{você}}, {{ele}} or {{ela}} when it isn't clear who you mean."},
+        {"p":"**Saying yes.** {{Sim}} means “yes”, but Brazilians rarely answer with {{sim}} alone. They answer with the question's own verb, the way English says “I do” or “I am”: {{Você fala inglês? — Falo.}} Add {{sim}} after it to sound warm: {{Falo, sim.}}"},
+        {"p":"**Saying no.** Say {{não}}, then {{não}} and the verb: {{Não, não falo.}} The first {{não}} is “no”, the second is “not”. In relaxed speech many Brazilians put one more at the very end: {{Não falo, não.}}"},
+        { "ex": [
+          {"t":"Não entendo.","tr":"I don't understand."},
+          {"t":"Você mora aqui? — Moro, sim.","tr":"Do you live here? — Yes, I do."},
+          {"t":"Ele não trabalha hoje.","tr":"He doesn't work today."},
+          {"t":"Não sei.","tr":"I don't know."},
+          {"t":"Você está cansada? — Estou.","tr":"Are you tired? — Yes, I am.","note":"it works with {{estar}} and {{ser}} too"},
+          {"t":"Não sei, não.","tr":"I don't know.","note":"the extra {{não}} at the end is relaxed, everyday speech"}
+        ] },
+        {"tip":"Two lifesavers: {{Não entendo}} “I don't understand” and {{Pode repetir, por favor?}} “Could you say that again, please?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu falo não inglês.","right":"Eu não falo inglês.","tr":"I don't speak English.","why":"{{Não}} goes before the verb."},
+        {"wrong":"Você fala inglês? — Sim, eu faço.","right":"Você fala inglês? — Falo, sim.","tr":"Do you speak English? — Yes, I do.","why":"Portuguese has no helper “do”: answer with the question's own verb, in the “I” form."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ entendo.","tr":"I don't understand.","options":["não","sim","é"],"answer":0,"why":"“Not” is {{não}}, right before the verb."},
+        {"type":"choice","q":"“Você mora em São Paulo?” The most natural way to say yes is…","options":["{{Moro, sim.}}","{{Sim, faço.}}","{{Sim, mora.}}"],"answer":0,"why":"Answer with the verb, in the “I” form: {{moro}}. ({{Mora}} would be “you live”.)"},
+        {"type":"dialogue","q":"At a party. Choose your replies.","lines":[{"who":"Juliana","t":"Você é americano?","tr":"Are you American?"},{"options":["Não, não sou. Sou inglês.","Não, sou não inglês."],"answer":0,"why":"{{Não, não sou}}: “no, I'm not”. Then say what you are."},{"who":"Juliana","t":"Você fala português?","tr":"Do you speak Portuguese?"},{"options":["Falo um pouco.","Fala um pouco."],"answer":0,"why":"{{Falo}} is “I speak”; {{fala}} would be “you speak”."},{"who":"Juliana","t":"Que legal!","tr":"How cool!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't speak Portuguese very well.","words":["Não","falo","português","muito bem."]},
+        {"type":"choice","q":"“Você está bem?” Answer yes, Brazilian style.","options":["{{Estou, sim.}}","{{Sou, sim.}}","{{Está, sim.}}"],"answer":0,"why":"How you are: {{estar}}, in the “I” form, {{estou}}.","from":"say-how-you-are"},
+        {"type":"say","q":"Someone asks {{Você entende?}} Say “Yes, I do”, like a Brazilian.","answer":"Entendo, sim."},
+        {"type":"free","q":"Your turn: someone asks {{Você fala português?}} Answer honestly, and say what you do speak.","answers":[{"t":"Falo um pouco. Falo inglês e espanhol.","tr":"A little. I speak English and Spanish."},{"t":"Não, não falo muito bem, mas entendo.","tr":"No, I don't speak very well, but I understand."}]}
+      ]
+    },
+    {
+      "id": "ask-for-what-you-want",
+      "unit": 1,
+      "level": "A1",
+      "title": "Order in a café",
+      "summary": "Ask for food and drinks politely, and say what you want to do: “I'd like a coffee, please.”",
+      "topic": "{{quero}} and the polite {{queria}}; {{um}} / {{uma}} “a”; masculine and feminine nouns",
+      "blocks": [
+        {"goal":{"t":"Eu queria um café e um pão de queijo, por favor.","tr":"I'd like a coffee and a cheese bread, please."}},
+        {"dialog":[{"who":"Waiter","t":"Boa tarde! O que você vai querer?","tr":"Good afternoon! What will you have?"},{"who":"You","t":"Eu queria um suco de laranja, por favor.","tr":"I'd like an orange juice, please."},{"who":"Waiter","t":"E pra comer?","tr":"And to eat?"},{"who":"You","t":"Uma coxinha, por favor.","tr":"A coxinha, please."},{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"who":"You","t":"Não, obrigada. Só isso.","tr":"No, thanks. That's all."}]},
+        {"p":"**Asking for things.** {{Quero}} is “I want”. {{Queria}} is softer, like “I'd like”: it's really “I wanted”, and it's what Brazilians say at a counter. Then say what you want: {{Queria um café.}}"},
+        {"term":"noun","means":"a word for a person, a place or a thing: coffee, friend, city, water."},
+        {"term":"gender","means":"whether a noun is masculine or feminine. In Portuguese every noun has one, even a coffee or a table."},
+        {"term":"article","means":"a little word in front of a noun: a, an, the."},
+        {"p":"**“A” has two forms.** Before a masculine noun it's {{um}}, before a feminine one {{uma}}: {{um café}}, {{uma água}}. Nouns that end in {{-o}} are usually masculine and those that end in {{-a}} usually feminine; for the others, learn each noun with its {{um}} or {{uma}}."},
+        { "table": [
+          ["masculine: {{um}}","feminine: {{uma}}"],
+          ["{{um suco}} a juice","{{uma cerveja}} a beer"],
+          ["{{um café}} a coffee","{{uma água}} a water"],
+          ["{{um pão de queijo}} a cheese bread","{{uma coxinha}} a coxinha"],
+          ["{{um sanduíche}} a sandwich","{{uma salada}} a salad"]
+        ] },
+        {"p":"**Wanting to do something.** Put a second verb straight after {{quero}} or {{queria}}, in its basic form (the one that ends in {{-r}}): {{Quero pagar}} “I want to pay”, {{Queria ver o cardápio}} “I'd like to see the menu”. Portuguese needs no word for “to” here."},
+        { "ex": [
+          {"t":"Queria uma água sem gás, por favor.","tr":"I'd like a still water, please.","note":"sparkling: {{com gás}}"},
+          {"t":"Quero um suco de laranja.","tr":"I want an orange juice."},
+          {"t":"Queria pagar, por favor.","tr":"I'd like to pay, please."},
+          {"t":"Você quer um café?","tr":"Do you want a coffee?"},
+          {"t":"Não quero nada, obrigado.","tr":"I don't want anything, thanks.","note":"{{nada}} “nothing”, and {{não}} still goes before the verb"},
+          {"t":"Me vê um pão de queijo, por favor.","tr":"Can I get a cheese bread, please?","note":"what Brazilians say at a bakery counter; literally “see me a…”"}
+        ] },
+        {"tip":"{{Por favor}} is “please”. When you're done: {{Só isso}} “That's all”, and in a restaurant {{A conta, por favor}} “The check, please”."}
+      ],
+      "mistakes": [
+        {"wrong":"Queria uma café.","right":"Queria um café.","tr":"I'd like a coffee.","why":"{{Café}} is masculine, so “a” is {{um}}."},
+        {"wrong":"Quero para pagar.","right":"Quero pagar.","tr":"I want to pay.","why":"No “to” after {{quero}}: the second verb comes straight after it."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Queria ___ água, por favor.","tr":"I'd like a water, please.","options":["uma","um"],"answer":0,"why":"{{Água}} is feminine: {{uma}}."},
+        {"type":"choice","q":"Which is the polite way to order at a counter?","options":["{{Queria um café, por favor.}}","{{Quero café.}}","{{Eu sou um café.}}"],"answer":0,"why":"{{Queria}} with {{por favor}} is polite. ({{Eu sou um café}} means “I am a coffee”!)","from":"say-who-you-are"},
+        {"type":"dialogue","q":"At a café: choose your replies.","lines":[{"who":"Waiter","t":"O que você vai querer?","tr":"What will you have?"},{"options":["Queria um suco de laranja, por favor.","Queria uma suco de laranja, por favor."],"answer":0,"why":"{{Suco}} ends in {{-o}}: masculine, {{um suco}}."},{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"options":["Não, obrigado. Só isso.","Não, obrigado. Não sou isso."],"answer":0,"why":"{{Só isso}} is “That's all”."},{"who":"Waiter","t":"Certo!","tr":"Sure!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like to see the menu, please.","words":["Queria","ver","o cardápio,","por favor."]},
+        {"type":"choice","q":"The waiter asks {{Você quer um café?}} Say yes like a Brazilian.","options":["{{Quero, sim.}}","{{Sim, faço.}}","{{Quer, sim.}}"],"answer":0,"why":"Answer with the verb in the “I” form: {{quero}}.","from":"say-yes-and-no"},
+        {"type":"say","q":"How do you say “I'd like a beer, please”?","answer":"Queria uma cerveja, por favor."},
+        {"type":"free","q":"Your turn: you're at a Brazilian bakery. Ask for two things, politely.","answers":[{"t":"Queria um café e uma coxinha, por favor.","tr":"I'd like a coffee and a coxinha, please."},{"t":"Me vê um pão de queijo e um suco de laranja, por favor.","tr":"Can I get a cheese bread and an orange juice, please?"}]}
+      ]
+    },
+    {
+      "id": "name-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Point at things and name them",
+      "summary": "Ask “What's that?”, name things, and say “the”, “this” and “that” in Portuguese.",
+      "topic": "{{o, a, os, as}} “the”; the plural {{-s}}; {{esse}}, {{essa}}, {{aquele}}, {{isso}}",
+      "blocks": [
+        {"goal":{"t":"O que é isso? É uma fruta?","tr":"What's that? Is it a fruit?"}},
+        {"dialog":[{"who":"You","t":"Com licença, o que é isso?","tr":"Excuse me, what's that?"},{"who":"Seller","t":"É um caju.","tr":"It's a cashew fruit."},{"who":"You","t":"E essas frutas?","tr":"And these fruits?"},{"who":"Seller","t":"São mangas. Estão ótimas hoje!","tr":"They're mangoes. They're great today!"},{"who":"You","t":"Queria as mangas, por favor.","tr":"I'd like the mangoes, please."}]},
+        {"p":"**What's that?** {{O que é isso?}} works for anything you point at. The answer starts with {{É}} “it is”: Portuguese has no word for “it” here, the verb says it on its own. For more than one thing, {{São}} “they are”: {{São mangas.}}"},
+        {"term":"plural","means":"the form of a word for more than one: one house, two houses."},
+        {"p":"**“The” has four forms.** It changes for masculine and feminine, and for one or more than one:"},
+        { "table": [
+          ["","one","more than one"],
+          ["masculine","{{o livro}} the book","{{os livros}} the books"],
+          ["feminine","{{a casa}} the house","{{as casas}} the houses"]
+        ] },
+        {"p":"Most plurals just add {{-s}}, and “the” adds it too: {{a manga}}, {{as mangas}}. (Words with other endings change in other ways; a later lesson shows the main ones.)"},
+        {"p":"**This and that.** In everyday Brazilian speech, {{esse}} (masculine) and {{essa}} (feminine) mean “this” or “that” for something near you or the person you're talking to. {{aquele}}, {{aquela}} is “that one over there”. For a thing you don't name, use {{isso}} “this, that”, which never changes."},
+        { "table": [
+          ["","near: this, that","far: that (over there)"],
+          ["masculine","{{esse livro}}","{{aquele livro}}"],
+          ["feminine","{{essa casa}}","{{aquela casa}}"],
+          ["more than one","{{esses livros}}, {{essas casas}}","{{aqueles livros}}, {{aquelas casas}}"],
+          ["a thing with no name","{{isso}}","{{aquilo}}"]
+        ] },
+        { "ex": [
+          {"t":"O que é isso?","tr":"What's that?"},
+          {"t":"É uma caneta.","tr":"It's a pen."},
+          {"t":"Esse livro é bom.","tr":"This book is good."},
+          {"t":"Aquela é a estação.","tr":"That's the station over there."},
+          {"t":"Os livros são caros.","tr":"The books are expensive.","note":"{{são}}: “they are”, the plural of {{é}}"},
+          {"t":"Isso é muito caro!","tr":"That's really expensive!"}
+        ] },
+        {"tip":"You'll also see {{este}} and {{esta}} for “this” on signs and in writing ({{Este produto…}}). In conversation most Brazilians use {{esse}} and {{essa}} for both “this” and “that”."}
+      ],
+      "mistakes": [
+        {"wrong":"O que é esse?","right":"O que é isso?","tr":"What's this?","why":"For a thing you don't name, use {{isso}}. {{Esse}} goes with a noun: {{esse livro}}."},
+        {"wrong":"Os casas são bonitas.","right":"As casas são bonitas.","tr":"The houses are pretty.","why":"{{Casa}} is feminine, so “the” is {{as}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ casas são grandes.","tr":"The houses are big.","options":["As","Os","A"],"answer":0,"why":"Feminine and more than one: {{as}}."},
+        {"type":"choice","q":"You point at something and don't know its name. You ask…","options":["{{O que é isso?}}","{{O que é esse?}}","{{Quem é isso?}}"],"answer":0,"why":"For a thing with no name: {{isso}}. ({{Quem}} is “who”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ livro é bom.","tr":"This book is good.","options":["Esse","Essa","Isso"],"answer":0,"why":"{{Livro}} is masculine, and a noun follows: {{esse}}."},
+        {"type":"dialogue","q":"At a street market: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Seller","t":"Bom dia! Quer alguma coisa?","tr":"Good morning! Would you like something?"},{"options":["Bom dia! O que é isso?","Bom dia! O que é esse?"],"answer":0,"why":"Pointing at a thing you can't name: {{isso}}."},{"who":"Seller","t":"É um caju. É muito bom!","tr":"It's a cashew fruit. It's really good!"},{"options":["Queria um caju, por favor.","Queria uma caju, por favor."],"answer":0,"why":"The seller said {{um caju}}: it's masculine."},{"who":"Seller","t":"Aqui está!","tr":"Here you go!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"That house over there is very pretty.","words":["Aquela","casa","é","muito","bonita."]},
+        {"type":"say","q":"How do you say “These books are expensive”?","answer":"Esses livros são caros."},
+        {"type":"free","q":"Your turn: point at things around you and name them, with {{Isso é…}}, {{Esse…}} or {{Aquela…}}","answers":[{"t":"Isso é um celular. Essa mesa é grande.","tr":"This is a cell phone. This table is big."},{"t":"Aquela é a janela. Isso é uma caneta.","tr":"That's the window over there. This is a pen."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask for information",
+      "summary": "Ask who, what, where, when, how and why, and get to know someone.",
+      "topic": "Question words: {{o que, onde, quem, quando, como, qual, quanto, por que}}; at the start or at the end",
+      "blocks": [
+        {"goal":{"t":"Onde você mora e o que você faz?","tr":"Where do you live and what do you do?"}},
+        {"dialog":[{"who":"Rafael","t":"Qual é o seu nome?","tr":"What's your name?"},{"who":"Kate","t":"Meu nome é Kate. E o seu?","tr":"My name is Kate. And yours?"},{"who":"Rafael","t":"Rafael. Onde você mora?","tr":"Rafael. Where do you live?"},{"who":"Kate","t":"Moro em Boston. E você mora onde?","tr":"I live in Boston. And where do you live?"},{"who":"Rafael","t":"Aqui em Belo Horizonte. O que você faz?","tr":"Here in Belo Horizonte. What do you do?"},{"who":"Kate","t":"Sou enfermeira. E você?","tr":"I'm a nurse. And you?"}]},
+        {"term":"question word","means":"a word that asks for information: what, where, who, when, how, why."},
+        {"p":"**The question word goes first, and nothing else changes.** Unlike English, Portuguese adds no “do” and swaps no words: {{Você mora em Boston}} “You live in Boston” → {{Onde você mora?}} “Where do you live?”."},
+        { "table": [
+          ["","Portuguese","example"],
+          ["what","{{o que}}","{{O que você faz?}} What do you do?"],
+          ["where","{{onde}}","{{Onde você mora?}} Where do you live?"],
+          ["who","{{quem}}","{{Quem é ele?}} Who is he?"],
+          ["when","{{quando}}","{{Quando você chega?}} When do you arrive?"],
+          ["how","{{como}}","{{Como você está?}} How are you?"],
+          ["which, what","{{qual}}","{{Qual é o seu nome?}} What's your name?"],
+          ["how much","{{quanto}}","{{Quanto custa?}} How much is it?"],
+          ["why","{{por que}}","{{Por que você está aqui?}} Why are you here?"]
+        ] },
+        {"p":"**Or at the end.** In conversation Brazilians often leave the question word at the end, where the answer would go: {{Você mora onde?}}, {{Você faz o quê?}} It sounds relaxed, or surprised. At the very end, {{que}} takes an accent: {{o quê}}. Both orders are right."},
+        {"p":"**{{Qual}} or {{o que}}?** For “what is…?” when you want a name, a number or one of several, Brazilians say {{qual}}: {{Qual é o seu nome?}}, {{Qual é o seu telefone?}} {{O que é…?}} asks what something is: {{O que é caju?}} “What's a caju?”."},
+        { "ex": [
+          {"t":"Quem é ela?","tr":"Who is she?"},
+          {"t":"Quando é a festa?","tr":"When is the party?"},
+          {"t":"Como você se chama?","tr":"What's your name?","note":"literally “How do you call yourself?”"},
+          {"t":"Qual é o seu telefone?","tr":"What's your phone number?"},
+          {"t":"Por que você está triste?","tr":"Why are you sad?"},
+          {"t":"Como se diz isso em português?","tr":"How do you say this in Portuguese?","note":"a question you'll use every day"}
+        ] },
+        {"tip":"Kate answers {{Sou enfermeira}} “I'm a nurse”: with jobs, Portuguese uses no {{um}} or {{uma}}. {{Sou professor}}, {{Sou médica}}."}
+      ],
+      "mistakes": [
+        {"wrong":"O que é o seu nome?","right":"Qual é o seu nome?","tr":"What's your name?","why":"Before {{é}}, “what” is {{qual}} when you're asking for a name, a number or a choice. {{O que é…?}} asks what something is."},
+        {"wrong":"Porque você está aqui?","right":"Por que você está aqui?","tr":"Why are you here?","why":"“Why” in a question is two words, {{por que}}. Written as one, {{porque}} means “because” (a later lesson)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ você mora?","tr":"Where do you live?","options":["Onde","Quem","Quanto"],"answer":0,"why":"“Where” is {{onde}}."},
+        {"type":"choice","q":"Which question asks someone's name?","options":["{{Qual é o seu nome?}}","{{O que é o seu nome?}}","{{Quem é o seu nome?}}"],"answer":0,"why":"A name: {{qual}}."},
+        {"type":"dialogue","q":"At a language exchange: choose your replies.","from":"say-who-you-are","lines":[{"who":"Mariana","t":"Oi! Como você se chama?","tr":"Hi! What's your name?"},{"options":["Meu nome é Tom. E você?","Estou Tom. E você?"],"answer":0,"why":"Your name: {{Meu nome é…}}. ({{Estou}} is for how you are.)"},{"who":"Mariana","t":"Mariana. Você é de onde?","tr":"Mariana. Where are you from?"},{"options":["Sou de Denver. E você mora onde?","Sou de Denver. E você é onde?"],"answer":0,"why":"{{Você mora onde?}} “Where do you live?”, with {{onde}} at the end: relaxed and natural."},{"who":"Mariana","t":"Moro aqui em Curitiba.","tr":"I live here in Curitiba."}]},
+        {"type":"order","q":"Put the words in order.","tr":"What do you do?","words":["O que","você","faz?"]},
+        {"type":"choice","q":"Pointing at a strange fruit, you ask…","options":["{{O que é isso?}}","{{Qual é isso?}}","{{Quem é isso?}}"],"answer":0,"why":"What something is: {{O que é…?}}","from":"name-things"},
+        {"type":"say","q":"How do you say “How much is this?”","answer":"Quanto custa isso?"},
+        {"type":"free","q":"Your turn: ask a new friend three questions: their name, where they live and what they do.","answers":[{"t":"Qual é o seu nome? Onde você mora? O que você faz?","tr":"What's your name? Where do you live? What do you do?"},{"t":"Como você se chama? Você mora onde? E você trabalha com quê?","tr":"What's your name? Where do you live? And what do you do for work?"}]}
+      ]
+    }
+  ]
+}
