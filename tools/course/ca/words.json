@@ -186,6 +186,746 @@
       "meaning": "all; everything (tot, tota, tots, totes)",
       "sentence": "Tot va bé.",
       "translation": "⟦Everything⟧ is fine."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "tenir",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Tinc dos fills.",
+      "translation": "I ⟦have⟧ two children.",
+      "form": "tinc"
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "poder",
+      "pos": "verb",
+      "meaning": "can, to be able to",
+      "sentence": "Puc obrir la finestra?",
+      "translation": "⟦Can⟧ I open the window?",
+      "form": "puc"
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "estar",
+      "pos": "verb",
+      "meaning": "to be (how or where something is); to stay",
+      "sentence": "Estic molt cansat.",
+      "translation": "I ⟦am⟧ very tired.",
+      "form": "estic"
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "molt",
+      "pos": "adv",
+      "meaning": "very; a lot of, much, many",
+      "sentence": "La sopa està molt bona.",
+      "translation": "The soup is ⟦very⟧ good."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "hi",
+      "pos": "pron",
+      "meaning": "there (hi ha: there is, there are)",
+      "sentence": "Hi ha un bar a prop?",
+      "translation": "Is ⟦there⟧ a bar nearby?"
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "si",
+      "pos": "conj",
+      "meaning": "if; whether",
+      "sentence": "Si plou, no sortim.",
+      "translation": "⟦If⟧ it rains, we won't go out."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "o",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "Vols te o cafè?",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "any",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "Tinc vint anys.",
+      "translation": "I'm twenty ⟦years⟧ old."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "però",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "És petit, però és bonic.",
+      "translation": "It's small, ⟦but⟧ it's nice."
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "dir",
+      "pos": "verb",
+      "meaning": "to say; to tell (dir-se: to be called)",
+      "sentence": "Com es diu això en català?",
+      "translation": "How do you ⟦say⟧ this in Catalan?",
+      "form": "diu"
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "em",
+      "pos": "pron",
+      "meaning": "me; myself (em, m', me)",
+      "sentence": "Em pots ajudar?",
+      "translation": "Can you help ⟦me⟧?"
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "ens",
+      "pos": "pron",
+      "meaning": "us; ourselves",
+      "sentence": "Ens pots portar a casa?",
+      "translation": "Can you take ⟦us⟧ home?"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "ja",
+      "pos": "adv",
+      "meaning": "already; now",
+      "sentence": "Ja és tard.",
+      "translation": "It's ⟦already⟧ late."
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "ho",
+      "pos": "pron",
+      "meaning": "it; that (an idea, not a thing)",
+      "sentence": "Ho pots repetir?",
+      "translation": "Can you repeat ⟦that⟧?"
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "altre",
+      "pos": "adj",
+      "meaning": "other; another",
+      "sentence": "Vull un altre cafè.",
+      "translation": "I want ⟦another⟧ coffee."
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "també",
+      "pos": "adv",
+      "meaning": "also, too",
+      "sentence": "Jo també parlo anglès.",
+      "translation": "I speak English ⟦too⟧."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "veure",
+      "pos": "verb",
+      "meaning": "to see",
+      "sentence": "Ens veiem demà!",
+      "translation": "⟦See⟧ you tomorrow!",
+      "form": "veiem"
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "et",
+      "pos": "pron",
+      "meaning": "you; yourself (et, t', te)",
+      "sentence": "Et truco després.",
+      "translation": "I'll call ⟦you⟧ later."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "cap",
+      "pos": "adj",
+      "meaning": "no, not any (in questions: any); head",
+      "sentence": "No tinc cap problema.",
+      "translation": "I have ⟦no⟧ problem."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "nostre",
+      "pos": "pron",
+      "meaning": "our; ours (nostre, nostra, nostres)",
+      "sentence": "La nostra casa és a prop.",
+      "translation": "⟦Our⟧ house is nearby.",
+      "form": "nostra"
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "dia",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "Quin dia és avui?",
+      "translation": "What ⟦day⟧ is it today?"
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "voler",
+      "pos": "verb",
+      "meaning": "to want",
+      "sentence": "Vull un got d'aigua.",
+      "translation": "I ⟦want⟧ a glass of water.",
+      "form": "vull"
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "això",
+      "pos": "pron",
+      "meaning": "this, that (thing)",
+      "sentence": "Què és això?",
+      "translation": "What's ⟦this⟧?"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "sobre",
+      "pos": "prep",
+      "meaning": "on; about",
+      "sentence": "Les claus són sobre la taula.",
+      "translation": "The keys are ⟦on⟧ the table."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "primer",
+      "pos": "adj",
+      "meaning": "first",
+      "sentence": "És el primer dia de classe.",
+      "translation": "It's the ⟦first⟧ day of class."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "nou",
+      "pos": "adj",
+      "meaning": "new (nou, nova); nine",
+      "sentence": "Tinc un mòbil nou.",
+      "translation": "I have a ⟦new⟧ phone."
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "quan",
+      "pos": "adv",
+      "meaning": "when",
+      "sentence": "Quan arribes?",
+      "translation": "⟦When⟧ do you arrive?"
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "ara",
+      "pos": "adv",
+      "meaning": "now",
+      "sentence": "Ara no puc.",
+      "translation": "I can't right ⟦now⟧."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "entre",
+      "pos": "prep",
+      "meaning": "between; among",
+      "sentence": "El banc és entre la farmàcia i el bar.",
+      "translation": "The bank is ⟦between⟧ the pharmacy and the bar."
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "fins",
+      "pos": "prep",
+      "meaning": "until; as far as (fins a); even (fins i tot)",
+      "sentence": "Treballo fins a les sis.",
+      "translation": "I work ⟦until⟧ six."
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "on",
+      "pos": "adv",
+      "meaning": "where",
+      "sentence": "On vius?",
+      "translation": "⟦Where⟧ do you live?"
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "què",
+      "pos": "pron",
+      "meaning": "what",
+      "sentence": "Què vols menjar?",
+      "translation": "⟦What⟧ do you want to eat?"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "dos",
+      "pos": "num",
+      "meaning": "two (dos, dues)",
+      "sentence": "Dos cafès, si us plau.",
+      "translation": "⟦Two⟧ coffees, please."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "gran",
+      "pos": "adj",
+      "meaning": "big; great; old (of people)",
+      "sentence": "Viuen en una casa molt gran.",
+      "translation": "They live in a very ⟦big⟧ house."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "perquè",
+      "pos": "conj",
+      "meaning": "because; so that",
+      "sentence": "No vinc perquè estic malalt.",
+      "translation": "I'm not coming ⟦because⟧ I'm ill."
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "persona",
+      "pos": "noun",
+      "meaning": "person",
+      "sentence": "És una bona persona.",
+      "translation": "She's a good ⟦person⟧."
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "després",
+      "pos": "adv",
+      "meaning": "after; later; then",
+      "sentence": "Després de dinar faig una migdiada.",
+      "translation": "⟦After⟧ lunch I have a nap."
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "donar",
+      "pos": "verb",
+      "meaning": "to give",
+      "sentence": "Em dones el teu número?",
+      "translation": "Will you ⟦give⟧ me your number?",
+      "form": "dones"
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "bo",
+      "pos": "adj",
+      "meaning": "good (bo, bona; bon before a noun)",
+      "sentence": "Aquest vi és molt bo.",
+      "translation": "This wine is very ⟦good⟧."
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "algun",
+      "pos": "adj",
+      "meaning": "some; any (algun, alguna, alguns, algunes)",
+      "sentence": "Tens alguna pregunta?",
+      "translation": "Do you have ⟦any⟧ questions?"
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "mateix",
+      "pos": "adj",
+      "meaning": "same; -self (jo mateix: myself)",
+      "sentence": "Tenim la mateixa edat.",
+      "translation": "We're the ⟦same⟧ age."
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "anar",
+      "pos": "verb",
+      "meaning": "to go",
+      "sentence": "Anem a la platja?",
+      "translation": "Shall we ⟦go⟧ to the beach?",
+      "form": "anem"
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "saber",
+      "pos": "verb",
+      "meaning": "to know (a fact); to know how to",
+      "sentence": "Saps on és l'estació?",
+      "translation": "Do you ⟦know⟧ where the station is?",
+      "form": "saps"
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "part",
+      "pos": "noun",
+      "meaning": "part; side",
+      "sentence": "Hi ha una part que no entenc.",
+      "translation": "There's one ⟦part⟧ I don't understand."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "només",
+      "pos": "adv",
+      "meaning": "only, just",
+      "sentence": "Només vull aigua.",
+      "translation": "I ⟦just⟧ want water."
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "trobar",
+      "pos": "verb",
+      "meaning": "to find; to think (opinion); trobar-se: to feel, to meet",
+      "sentence": "No trobo les claus.",
+      "translation": "I can't ⟦find⟧ the keys.",
+      "form": "trobo"
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "sense",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "Un cafè sense sucre, si us plau.",
+      "translation": "A coffee ⟦without⟧ sugar, please."
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "jo",
+      "pos": "pron",
+      "meaning": "I (mi: me, after a preposition)",
+      "sentence": "Avui pago jo.",
+      "translation": "⟦I⟧'m paying today."
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "meu",
+      "pos": "pron",
+      "meaning": "my; mine (meu, meva, meus, meves)",
+      "sentence": "La meva mare és mestra.",
+      "translation": "⟦My⟧ mother is a teacher.",
+      "form": "meva"
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "us",
+      "pos": "pron",
+      "meaning": "you (more than one, as object); yourselves",
+      "sentence": "Us espero a la porta.",
+      "translation": "I'll wait for ⟦you⟧ at the door."
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "encara",
+      "pos": "adv",
+      "meaning": "still; yet",
+      "sentence": "Encara no ha arribat.",
+      "translation": "He hasn't arrived ⟦yet⟧."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "ell",
+      "pos": "pron",
+      "meaning": "he; him (ell, ella: she, ells, elles: they)",
+      "sentence": "Ell és el meu germà.",
+      "translation": "⟦He⟧ is my brother."
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "li",
+      "pos": "pron",
+      "meaning": "to him, to her; him, her",
+      "sentence": "Li he enviat un missatge.",
+      "translation": "I've sent ⟦him⟧ a message."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "gent",
+      "pos": "noun",
+      "meaning": "people",
+      "sentence": "Hi ha molta gent al carrer.",
+      "translation": "There are a lot of ⟦people⟧ in the street."
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "lloc",
+      "pos": "noun",
+      "meaning": "place",
+      "sentence": "És un lloc molt tranquil.",
+      "translation": "It's a very quiet ⟦place⟧."
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "parlar",
+      "pos": "verb",
+      "meaning": "to speak; to talk",
+      "sentence": "Parles català?",
+      "translation": "Do you ⟦speak⟧ Catalan?",
+      "form": "parles"
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "així",
+      "pos": "adv",
+      "meaning": "like this, like that; so",
+      "sentence": "Es fa així.",
+      "translation": "You do it ⟦like this⟧."
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "durant",
+      "pos": "prep",
+      "meaning": "during; for (a length of time)",
+      "sentence": "Vaig viure a Londres durant dos anys.",
+      "translation": "I lived in London ⟦for⟧ two years."
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "tant",
+      "pos": "adv",
+      "meaning": "so much; so many; as much",
+      "sentence": "T'estimo tant!",
+      "translation": "I love you ⟦so much⟧!"
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "cosa",
+      "pos": "noun",
+      "meaning": "thing",
+      "sentence": "Tinc moltes coses per fer.",
+      "translation": "I have a lot of ⟦things⟧ to do.",
+      "form": "coses"
+    },
+    {
+      "n": 81,
+      "rank": 81,
+      "word": "català",
+      "pos": "noun",
+      "meaning": "Catalan (the language; from Catalonia)",
+      "sentence": "Estic aprenent català.",
+      "translation": "I'm learning ⟦Catalan⟧."
+    },
+    {
+      "n": 82,
+      "rank": 82,
+      "word": "qui",
+      "pos": "pron",
+      "meaning": "who",
+      "sentence": "Qui és aquell noi?",
+      "translation": "⟦Who⟧ is that boy?"
+    },
+    {
+      "n": 83,
+      "rank": 83,
+      "word": "arribar",
+      "pos": "verb",
+      "meaning": "to arrive; to reach",
+      "sentence": "El tren arriba a les deu.",
+      "translation": "The train ⟦arrives⟧ at ten.",
+      "form": "arriba"
+    },
+    {
+      "n": 84,
+      "rank": 84,
+      "word": "dona",
+      "pos": "noun",
+      "meaning": "woman; wife",
+      "sentence": "Aquella dona és la meva veïna.",
+      "translation": "That ⟦woman⟧ is my neighbour."
+    },
+    {
+      "n": 85,
+      "rank": 85,
+      "word": "ni",
+      "pos": "conj",
+      "meaning": "nor; not even (ni... ni: neither... nor)",
+      "sentence": "No menjo carn ni peix.",
+      "translation": "I don't eat meat ⟦or⟧ fish."
+    },
+    {
+      "n": 86,
+      "rank": 86,
+      "word": "posar",
+      "pos": "verb",
+      "meaning": "to put",
+      "sentence": "On poso les maletes?",
+      "translation": "Where do I ⟦put⟧ the suitcases?",
+      "form": "poso"
+    },
+    {
+      "n": 87,
+      "rank": 87,
+      "word": "passar",
+      "pos": "verb",
+      "meaning": "to happen; to pass; to spend (time)",
+      "sentence": "Què ha passat?",
+      "translation": "What ⟦happened⟧?",
+      "form": "passat"
+    },
+    {
+      "n": 88,
+      "rank": 88,
+      "word": "contra",
+      "pos": "prep",
+      "meaning": "against",
+      "sentence": "Tothom està contra mi.",
+      "translation": "Everyone is ⟦against⟧ me."
+    },
+    {
+      "n": 89,
+      "rank": 89,
+      "word": "gràcies",
+      "pos": "interj",
+      "meaning": "thank you, thanks (gràcia: grace, charm)",
+      "sentence": "Moltes gràcies per la teva ajuda.",
+      "translation": "⟦Thank you⟧ very much for your help."
+    },
+    {
+      "n": 90,
+      "rank": 90,
+      "word": "deixar",
+      "pos": "verb",
+      "meaning": "to leave; to let; to lend",
+      "sentence": "Em deixes el bolígraf?",
+      "translation": "Can you ⟦lend⟧ me your pen?",
+      "form": "deixes"
+    },
+    {
+      "n": 91,
+      "rank": 92,
+      "word": "país",
+      "pos": "noun",
+      "meaning": "country",
+      "sentence": "És un país molt bonic.",
+      "translation": "It's a very beautiful ⟦country⟧."
+    },
+    {
+      "n": 92,
+      "rank": 93,
+      "word": "hora",
+      "pos": "noun",
+      "meaning": "hour; time (of day)",
+      "sentence": "Quina hora és?",
+      "translation": "What ⟦time⟧ is it?"
+    },
+    {
+      "n": 93,
+      "rank": 94,
+      "word": "tornar",
+      "pos": "verb",
+      "meaning": "to come back, to go back; to give back",
+      "sentence": "Torno de seguida.",
+      "translation": "I'll ⟦be back⟧ right away.",
+      "form": "torno"
+    },
+    {
+      "n": 94,
+      "rank": 95,
+      "word": "millor",
+      "pos": "adj",
+      "meaning": "better; best",
+      "sentence": "Ara em trobo millor.",
+      "translation": "I feel ⟦better⟧ now."
+    },
+    {
+      "n": 95,
+      "rank": 96,
+      "word": "polític",
+      "pos": "adj",
+      "meaning": "political; politician (la política: politics)",
+      "sentence": "No m'interessa la política.",
+      "translation": "I'm not interested in ⟦politics⟧."
+    },
+    {
+      "n": 96,
+      "rank": 98,
+      "word": "ciutat",
+      "pos": "noun",
+      "meaning": "city; town",
+      "sentence": "M'agrada viure a la ciutat.",
+      "translation": "I like living in the ⟦city⟧."
+    },
+    {
+      "n": 97,
+      "rank": 99,
+      "word": "començar",
+      "pos": "verb",
+      "meaning": "to begin, to start",
+      "sentence": "La classe comença a les nou.",
+      "translation": "The class ⟦starts⟧ at nine.",
+      "form": "comença"
+    },
+    {
+      "n": 98,
+      "rank": 100,
+      "word": "manera",
+      "pos": "noun",
+      "meaning": "way, manner",
+      "sentence": "Aquesta és la millor manera d'aprendre.",
+      "translation": "This is the best ⟦way⟧ to learn."
+    },
+    {
+      "n": 99,
+      "rank": 101,
+      "word": "temps",
+      "pos": "noun",
+      "meaning": "time; weather",
+      "sentence": "No tinc temps.",
+      "translation": "I don't have ⟦time⟧."
+    },
+    {
+      "n": 100,
+      "rank": 102,
+      "word": "govern",
+      "pos": "noun",
+      "meaning": "government",
+      "sentence": "El govern ha pujat els impostos.",
+      "translation": "The ⟦government⟧ has raised taxes."
     }
   ]
 }
