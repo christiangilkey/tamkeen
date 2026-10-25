@@ -2128,6 +2128,443 @@
         {"type":"dialogue","q":"صديقك يسألك عن هواياتك: اختر ردودك.","lines":[{"who":"صديقك","t":"What do you do on weekends?","tr":"ماذا تفعل في عطلة نهاية الأسبوع؟"},{"options":["I enjoy cooking for my family.","I enjoy to cook for my family."],"answer":0,"why":"بعد {{enjoy}}: {{-ing}}."},{"who":"صديقك","t":"Nice. Do you want to learn something new this year?","tr":"جميل. هل تريد أن تتعلّم شيئًا جديدًا هذا العام؟"},{"options":["Yes! I'm planning to take guitar lessons.","Yes! I'm planning taking guitar lessons."],"answer":0,"why":"بعد {{plan}}: {{to}} + الفعل."},{"who":"صديقك","t":"Cool. I've always wanted to play the guitar.","tr":"رائع. لطالما أردت أن أعزف على الغيتار."},{"options":["Then let's learn together!","Then let's learning together!"],"answer":0,"why":"بعد {{Let's}} الفعل في صورته الأصلية."}],"from":"invite-and-suggest"},
         {"type":"free","q":"دورك: اكتب عن هوايتين تستمتع بهما، وعن شيء قرّرته أو تخطّط له، وعن شيء تتشوّق إليه.","answers":[{"t":"I enjoy swimming and reading history books. I've decided to learn to drive this year, and I'm looking forward to visiting my family in the summer.","tr":"أستمتع بالسباحة وقراءة كتب التاريخ. قرّرت أن أتعلّم القيادة هذا العام، وأتشوّق لزيارة عائلتي في الصيف."},{"t":"I love playing chess, and I'm interested in learning Japanese. I'm planning to start a course next month. I'm looking forward to meeting new people there.","tr":"أحبّ لعب الشطرنج، وأهتمّ بتعلّم اليابانية. أخطّط لأن أبدأ دورة الشهر القادم، وأتشوّق للتعرّف إلى أناس جدد هناك."}]}
       ]
+    },
+    {
+      "id": "describe-with-who-and-which",
+      "unit": 9,
+      "level": "B1",
+      "title": "حدِّد مَن تقصد وما تقصد",
+      "summary": "قل «هي المرأة التي تسكن بجانبنا» و«هذا الكتاب الذي قرأته»: {{who}} و{{which}} و{{that}} و{{where}}، وبلا ضمير عائد كما في العربية.",
+      "topic": "الاسم الموصول: {{who, which, that, where}}؛ لا ضمير عائد ({{the book I read}} لا {{read it}})؛ حذف {{that}}",
+      "blocks": [
+        {"goal":{"t":"She's the woman who lives next door.","tr":"هي المرأة التي تسكن بجانبنا."}},
+        {"dialog":[{"who":"مايك","t":"Who's the man who's talking to your wife?","tr":"مَن الرجل الذي يتحدّث مع زوجتك؟"},{"who":"عمر","t":"That's Dr. Karim. He's the doctor who helped my son last year.","tr":"هذا الدكتور كريم. هو الطبيب الذي عالج ابني العام الماضي."},{"who":"مايك","t":"Oh, nice. And the woman in the red dress?","tr":"جميل. والمرأة ذات الفستان الأحمر؟"},{"who":"عمر","t":"She's the one who made the cake. It's the cake that everyone is talking about!","tr":"هي التي صنعت الكعكة، الكعكة التي يتحدّث عنها الجميع!"},{"who":"مايك","t":"I tried it. It's the best cake I've ever had.","tr":"جرّبتها. إنها أطيب كعكة أكلتها في حياتي."},{"who":"عمر","t":"And do you remember the restaurant where we had lunch last week? She owns it!","tr":"وهل تذكر المطعم الذي تغدّينا فيه الأسبوع الماضي؟ إنه ملكها!"}]},
+        {"p":"**«الذي» و«التي».** في العربية تصل الاسم بجملة تصفه بـ«الذي» و«التي» و«الذين»: «المرأة التي تسكن بجانبنا». والإنجليزية تفعل ذلك بـ{{who}} للناس، و{{which}} للأشياء، و{{that}} للناس والأشياء معًا. وكلّها لا تتغيّر مع المذكّر والمؤنّث والجمع:"},
+        {"term":"الاسم الموصول","means":"كلمة تصل الاسم بجملة تصفه، مثل «الذي» و«التي»: {{who}} للناس، و{{which}} للأشياء، و{{that}} لهما معًا، و{{where}} للمكان."},
+        { "table": [
+          ["الكلمة","لِمَن","مثال"],
+          ["{{who}}","الناس","{{the man who called}} «الرجل الذي اتّصل»"],
+          ["{{which}}","الأشياء","{{the car which I bought}} «السيارة التي اشتريتها»"],
+          ["{{that}}","الناس والأشياء (الأكثر في الكلام)","{{the book that changed my life}} «الكتاب الذي غيّر حياتي»"],
+          ["{{where}}","المكان","{{the city where I was born}} «المدينة التي وُلدت فيها»"]
+        ] },
+        {"p":"**بلا ضمير عائد.** هنا أهمّ فرق بين اللغتين: العربية تعيد ضميرًا إلى الاسم داخل الجملة: «الكتاب الذي قرأتُه»، «المدينة التي وُلدتُ فيها». أما الإنجليزية فلا تعيده، لأن {{that}} أو {{which}} أو {{where}} قامت مقامه: {{the book that I read}}، لا {{the book that I read it}}؛ و{{the city where I was born}}، لا {{where I was born in it}}."},
+        { "table": [
+          ["العربية (بضمير عائد)","الإنجليزية (بلا ضمير)"],
+          ["الكتاب الذي قرأتُه","{{the book that I read}}"],
+          ["الرجل الذي رأيتُه","{{the man who I saw}}"],
+          ["البيت الذي أسكن فيه","{{the house where I live}}"]
+        ] },
+        {"p":"**وبعد النكرة أيضًا.** العربية لا تضع «الذي» بعد النكرة: «لي صديقٌ يتكلّم خمس لغات». أما الإنجليزية فتضع {{who}} أو {{that}} بعد النكرة والمعرفة على السواء: {{I have a friend who speaks five languages.}}"},
+        {"p":"**حذف {{that}}.** إذا كان الاسم مفعولًا في الجملة الموصولة (بعده فاعل آخر)، فكثيرًا ما تُحذف {{that}} في الكلام: {{the book I read}}، {{the people we met}}. أما إذا كان هو الفاعل فلا تُحذف: {{the woman who lives next door}}."},
+        { "ex": [
+          {"t":"Is this the bus that goes downtown?","tr":"هل هذه الحافلة التي تذهب إلى وسط المدينة؟"},
+          {"t":"I have a friend who speaks five languages.","tr":"لي صديق يتكلّم خمس لغات."},
+          {"t":"The movie we saw last night was great.","tr":"الفيلم الذي شاهدناه ليلة أمس كان رائعًا."},
+          {"t":"That's the restaurant where we had my birthday dinner.","tr":"ذلك هو المطعم الذي تناولنا فيه عشاء عيد ميلادي."},
+          {"t":"The people who live upstairs are very noisy.","tr":"الناس الذين يسكنون في الطابق العلوي مزعجون جدًّا."},
+          {"t":"This is the phone I told you about.","tr":"هذا هو الهاتف الذي حدّثتك عنه."}
+        ] },
+        {"tip":"{{who}} و{{that}} كلاهما صحيح للناس في الكلام: {{the man who called}} و{{the man that called}}. أما {{which}} فللأشياء وحدها: لا تقل {{the man which}}."}
+      ],
+      "mistakes": [
+        {"wrong":"This is the book that I read it.","right":"This is the book that I read.","tr":"هذا الكتاب الذي قرأته.","why":"لا ضمير عائد في الإنجليزية: {{that}} قامت مقام {{it}}."},
+        {"wrong":"The man which called you is here.","right":"The man who called you is here.","tr":"الرجل الذي اتّصل بك هنا.","why":"للناس {{who}} أو {{that}}، لا {{which}}."},
+        {"wrong":"I have a friend he lives in Paris.","right":"I have a friend who lives in Paris.","tr":"لي صديق يسكن في باريس.","why":"بعد النكرة أيضًا تحتاج الإنجليزية إلى {{who}} أو {{that}} لتصل الجملة."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She's the teacher ___ helped me with my English.","tr":"هي المعلّمة التي ساعدتني في الإنجليزية.","options":["who","which","where"],"answer":0,"why":"للناس: {{who}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"That's the hotel ___ we stayed last summer.","tr":"ذلك الفندق الذي نزلنا فيه الصيف الماضي.","options":["where","which","who"],"answer":0,"why":"للمكان: {{where}}، بلا {{in it}}."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{The cake that you made was delicious.}}","{{The cake that you made it was delicious.}}","{{The cake you made it was delicious.}}"],"answer":0,"why":"بلا ضمير عائد."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"الفيلم الذي شاهدناه ليلة أمس كان مضحكًا.","words":["The","movie","we","watched","last","night","was","funny."]},
+        {"type":"dialogue","q":"تبحث عن موظفة في شركة: اختر ردودك.","lines":[{"who":"موظف الاستقبال","t":"Hi. Who are you looking for?","tr":"مرحبًا. عمّن تبحث؟"},{"options":["The woman who works in Human Resources. I think her name is Linda.","The woman which works in Human Resources. I think she name is Linda."],"answer":0,"why":"للناس {{who}}، و«اسمها» {{her name}}."},{"who":"موظف الاستقبال","t":"Oh, Linda. Is she expecting you?","tr":"آه، ليندا. هل تنتظرك؟"},{"options":["Yes. She's the person I talked to on the phone yesterday.","Yes. She's the person I talked to her on the phone yesterday."],"answer":0,"why":"بلا ضمير عائد: {{the person I talked to}}."},{"who":"موظف الاستقبال","t":"Okay. Her office is the one at the end of the hall.","tr":"حسنًا. مكتبها هو الذي في آخر الممرّ."}],"from":"say-whose-it-is"},
+        {"type":"say","q":"قل «لي صديق يتكلّم خمس لغات».","answer":"I have a friend who speaks five languages."},
+        {"type":"free","q":"دورك: صِف ثلاثة أشياء أو أشخاص بجملة موصولة: شخصًا مهمًّا في حياتك، ومكانًا تحبّه، وشيئًا عندك.","answers":[{"t":"My mother is the person who taught me to cook. Alexandria is the city where I was born. My watch is a gift that my father gave me.","tr":"أمي هي التي علّمتني الطبخ. الإسكندرية هي المدينة التي وُلدت فيها. وساعتي هدية أعطاني إيّاها أبي."},{"t":"My best friend is a guy who always makes me laugh. The café where I study is quiet. The car I drive is very old.","tr":"أعزّ أصدقائي شابّ يُضحكني دائمًا. المقهى الذي أذاكر فيه هادئ. والسيارة التي أقودها قديمة جدًّا."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "عبِّر عن رأيك، ووافِق وخالِف",
+      "summary": "قل «أظنّ أنها فكرة جيدة، لكني لا أوافق على السعر»: {{I think}} و{{I don't think}}، و{{I agree}} بلا {{am}}.",
+      "topic": "{{I think (that)…}} و{{I don't think…}}؛ {{I agree}} و{{I disagree}}؛ {{In my opinion}}؛ {{So do I}} و{{Neither do I}}",
+      "blocks": [
+        {"goal":{"t":"I think it's a good idea, but I don't agree about the price.","tr":"أظنّ أنها فكرة جيدة، لكني لا أوافق على السعر."}},
+        {"dialog":[{"who":"إميلي","t":"What do you think about the new office?","tr":"ما رأيك في المكتب الجديد؟"},{"who":"عمر","t":"I think it's great. It's bigger, and it's closer to the subway.","tr":"أظنّه رائعًا. إنه أكبر، وأقرب إلى المترو."},{"who":"إميلي","t":"I agree. But I don't think the rent is fair. It's too expensive.","tr":"أوافقك. لكني لا أظنّ أن الإيجار معقول؛ إنه غالٍ جدًّا."},{"who":"عمر","t":"Maybe, but in my opinion, it's worth it.","tr":"ربما، لكن في رأيي يستحقّ ذلك."},{"who":"إميلي","t":"I see your point. Let's talk to the boss.","tr":"أفهم وجهة نظرك. لنتحدّث مع المديرة."},{"who":"عمر","t":"Good idea. I'm sure she'll agree with us.","tr":"فكرة جيدة. أنا متأكّد أنها ستوافقنا."}]},
+        {"p":"**{{I think}}: «أظنّ، أعتقد».** وبعدها جملة كاملة، و{{that}} «أنّ» بينهما اختيارية، وتُحذف غالبًا في الكلام: {{I think (that) it's a good idea.}} ويُسأل عن الرأي بـ{{What do you think about…?}} أو {{What do you think of…?}} «ما رأيك في…؟»"},
+        {"p":"**النفي في {{think}} لا بعدها.** في العربية تقول «أظنّ أنه ليس صحيحًا». أما الإنجليزية فتنفي {{think}} نفسها: {{I don't think it's true.}} «لا أظنّه صحيحًا». وهذا هو الأطبع: {{I think it's not true}} صحيحة نحويًّا، لكنها قليلة في الكلام."},
+        { "table": [
+          ["العربية","الإنجليزية الطبيعية"],
+          ["أظنّ أنه لن يأتي.","{{I don't think he'll come.}}"],
+          ["أظنّ أنها ليست فكرة جيدة.","{{I don't think it's a good idea.}}"]
+        ] },
+        {"p":"**{{agree}} فعل، فلا {{am}} معه.** يقول المتعلّم العربي كثيرًا {{I am agree}}، ترجمةً لـ«أنا موافق». لكن {{agree}} فعل معناه «يوافق»، فتقول {{I agree.}} و{{I don't agree.}} أو {{I disagree.}}، كما تقول {{I like}} و{{I don't like}}. ومع الشخص {{with}}، ومع الموضوع {{about}}: {{I agree with you about the price.}}"},
+        { "table": [
+          ["للموافقة","للمخالفة بلطف"],
+          ["{{I agree.}} {{You're right.}} {{Exactly!}}","{{I'm not sure about that.}}"],
+          ["{{That's a good point.}}","{{I see your point, but…}}"],
+          ["{{I think so, too.}}","{{I don't think so.}}"]
+        ] },
+        {"p":"**{{So do I}} و{{Neither do I}}.** للموافقة السريعة على جملة مثبتة: {{I love this city. — So do I!}} «وأنا كذلك!»؛ وعلى جملة منفيّة: {{I don't like the traffic. — Neither do I.}} «ولا أنا». وفي الكلام اليومي تكفي {{Me too}} و{{Me neither}}، كما تعلّمت."},
+        {"p":"**الرأي بأدب.** الأمريكيون يليّنون الرأي كثيرًا: {{I think…}}، {{In my opinion…}} «في رأيي»، {{It seems to me that…}} «يبدو لي أن…»، {{I might be wrong, but…}} «قد أكون مخطئًا، لكن…». أما الاعتراض المباشر ({{You're wrong.}}) فيبدو حادًّا."},
+        { "ex": [
+          {"t":"What do you think of my new haircut? — I think it looks great!","tr":"ما رأيك في قصّة شعري الجديدة؟ — أظنّها رائعة!"},
+          {"t":"I don't think it's going to rain.","tr":"لا أظنّها ستمطر."},
+          {"t":"I completely agree with you.","tr":"أوافقك تمامًا."},
+          {"t":"In my opinion, the first movie was better.","tr":"في رأيي، الفيلم الأول كان أفضل."},
+          {"t":"I see your point, but I don't think we have time.","tr":"أفهم وجهة نظرك، لكن لا أظنّ أن لدينا وقتًا."},
+          {"t":"Is he coming? — I think so.","tr":"هل سيأتي؟ — أظنّ ذلك.","note":"{{I think so}} و{{I don't think so}} جوابان قصيران شائعان"}
+        ] },
+        {"tip":"لا تقل {{According to me…}} لتعني «في رأيي»: {{according to}} لرأي غيرك أو لمصدر آخر ({{according to the news}} «بحسب الأخبار»). أما رأيك فـ{{In my opinion}} أو {{I think}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"أوافقك.","why":"{{agree}} فعل، فلا تضع {{am}} قبله، كما لا تقول {{I am like}}."},
+        {"wrong":"I think it isn't a good idea.","right":"I don't think it's a good idea.","tr":"لا أظنّها فكرة جيدة.","why":"الأولى ليست خطأً نحويًّا، لكن الأطبع في الإنجليزية أن تنفي {{think}} نفسها."},
+        {"wrong":"According to me, it's too expensive.","right":"In my opinion, it's too expensive.","tr":"في رأيي، إنه غالٍ جدًّا.","why":"{{according to}} لرأي غيرك؛ ولرأيك أنت {{In my opinion}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I ___ with you. It's a great plan.","tr":"أوافقك. إنها خطّة رائعة.","options":["agree","am agree","agreeing"],"answer":0,"why":"{{agree}} فعل، بلا {{am}}."},
+        {"type":"choice","q":"«لا أظنّ أنه سيأتي» بالإنجليزية الطبيعية…","options":["{{I don't think he'll come.}}","{{I think he not come.}}","{{I'm not think he'll come.}}"],"answer":0,"why":"النفي في {{think}}: {{I don't think}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I don't like spicy food. — ___ do I.","tr":"لا أحبّ الطعام الحارّ. — ولا أنا.","options":["Neither","So","Too"],"answer":0,"why":"موافقة على جملة منفيّة: {{Neither do I}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"What do you think ___ the new manager?","tr":"ما رأيك في المدير الجديد؟","options":["of","from","in"],"answer":0,"why":"{{What do you think of…?}} أو {{about}}."},
+        {"type":"dialogue","q":"نقاش مع زميل عن العمل من البيت: اختر ردودك.","lines":[{"who":"زميلك","t":"I think working from home is better than working in the office.","tr":"أظنّ أن العمل من البيت أفضل من العمل في المكتب."},{"options":["I agree. It saves a lot of time.","I am agree. It saves a lot of time."],"answer":0,"why":"{{I agree}}، بلا {{am}}."},{"who":"زميلك","t":"And it's cheaper. No gas, no lunch out.","tr":"وهو أرخص: لا وقود، ولا غداء في الخارج."},{"options":["That's true. But I don't think it's good for team meetings.","That's true. But I'm not think it's good for team meetings."],"answer":0,"why":"{{think}} فعل، ونفيه {{I don't think}}."},{"who":"زميلك","t":"Hmm, I see your point.","tr":"همم، أفهم وجهة نظرك."}],"from":"compare-things"},
+        {"type":"say","q":"قل «أفهم وجهة نظرك، لكني لا أوافق».","answer":"I see your point, but I don't agree."},
+        {"type":"free","q":"دورك: ما رأيك في الهواتف للأطفال؟ اكتب رأيك في جملتين، ثم ردًّا مهذّبًا على رأي يخالفك.","answers":[{"t":"I think phones are bad for young kids. They should play outside. — I see your point, but I don't think they're all bad. Some apps are educational.","tr":"أظنّ أن الهواتف مضرّة بالأطفال الصغار؛ ينبغي أن يلعبوا في الخارج. — أفهم وجهة نظرك، لكن لا أظنّها مضرّة كلّها؛ فبعض التطبيقات تعليمية."},{"t":"In my opinion, kids under thirteen shouldn't have phones. — That's a good point, but I'm not sure. Phones help parents stay in touch with them.","tr":"في رأيي، لا ينبغي أن يكون للأطفال دون الثالثة عشرة هواتف. — نقطة وجيهة، لكني لست متأكّدًا؛ فالهواتف تساعد الأهل على البقاء على اتّصال بهم."}]}
+      ]
+    },
+    {
+      "id": "talk-about-possibilities",
+      "unit": 9,
+      "level": "B1",
+      "title": "تحدَّث عمّا سيحدث إن…",
+      "summary": "قل «إذا أمطرت غدًا، سنبقى في البيت»: جملة الشرط للمستقبل الممكن، والمضارع بعد {{if}} حيث تقول العربية الماضي.",
+      "topic": "جملة الشرط الأولى: {{If}} + المضارع البسيط، و{{will}} + الفعل؛ {{when}}، {{as soon as}}، {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"إذا أمطرت غدًا، سنبقى في البيت."}},
+        {"dialog":[{"who":"سارة","t":"Are we still going to the beach on Saturday?","tr":"هل ما زلنا ذاهبتين إلى الشاطئ يوم السبت؟"},{"who":"لينا","t":"If the weather is nice, yes. If it rains, we'll go to the mall.","tr":"إذا كان الطقس جميلًا، نعم. وإذا أمطرت، سنذهب إلى المركز التجاري."},{"who":"سارة","t":"Okay. If you drive, I'll bring the food.","tr":"حسنًا. إذا قدتِ أنتِ، سأحضر الطعام."},{"who":"لينا","t":"Deal! And when we get there, I'll call Maya.","tr":"اتّفقنا! وحين نصل إلى هناك، سأتّصل بمايا."},{"who":"سارة","t":"Good. But we have to leave early. If we leave late, we won't find parking.","tr":"جيد. لكن يجب أن نغادر مبكّرًا. إذا تأخّرنا فلن نجد موقفًا."},{"who":"لينا","t":"I'll be at your place at eight.","tr":"سأكون عندكِ في الثامنة."}]},
+        {"p":"**الشرط الممكن.** حين تتكلّم عن شيء قد يحدث فعلًا في المستقبل، ونتيجته إن حدث: {{If it rains, we'll stay home.}} «إذا أمطرت، سنبقى في البيت». فيه جزءان: الشرط بعد {{if}} «إذا، إن»، والجواب بـ{{will}}."},
+        {"term":"جملة الشرط","means":"جملة من جزأين: شرط يبدأ بـ{{if}} «إذا، إن، لو»، وجواب يقول ما يحدث إن تحقّق الشرط: {{If you call me, I'll come.}} «إن اتّصلت بي أتيت»."},
+        { "table": [
+          ["الشرط: {{If}} + المضارع البسيط","الجواب: {{will}} + الفعل"],
+          ["{{If it rains,}}","{{we'll stay home.}}"],
+          ["{{If you're hungry,}}","{{I'll make sandwiches.}}"],
+          ["{{If she doesn't study,}}","{{she won't pass.}}"]
+        ] },
+        {"p":"**المضارع بعد {{if}}، لا {{will}} ولا الماضي.** تقول العربية بعد «إذا» الماضي غالبًا: «إذا أمطرتْ»، فيميل المتعلّم إلى {{If it rained tomorrow}}. وقد يميل إلى {{If it will rain}} لأن الكلام عن المستقبل. والإنجليزية لا تقبل هذا ولا ذاك: بعد {{if}} المضارع البسيط، و{{will}} في الجواب وحده."},
+        { "table": [
+          ["خطأ","صواب"],
+          ["{{If it will rain, we'll stay home.}}","{{If it rains, we'll stay home.}}"],
+          ["{{If it rained tomorrow, we'll stay home.}}","{{If it rains tomorrow, we'll stay home.}}"]
+        ] },
+        {"p":"**الترتيب حرّ.** يصلح أن يأتي الجواب أوّلًا: {{We'll stay home if it rains.}} وإذا بدأت بـ{{if}} فضع فاصلة بين الجزأين."},
+        {"p":"**{{when}} و{{as soon as}} و{{unless}}** تعمل مثل {{if}}: بعدها المضارع للمستقبل: {{When I get home, I'll call you.}} «حين أصل إلى البيت سأتّصل بك»، {{As soon as I know, I'll tell you.}} «حالما أعرف سأخبرك»، {{Unless you hurry, you'll miss the bus.}} «ما لم تُسرع ستفوتك الحافلة»."},
+        { "table": [
+          ["الكلمة","المعنى"],
+          ["{{if}}","إذا، إن (قد يحدث وقد لا يحدث)"],
+          ["{{when}}","حين، عندما (سيحدث بالتأكيد)"],
+          ["{{as soon as}}","حالما، فور أن"],
+          ["{{unless}}","ما لم، إلا إذا"]
+        ] },
+        { "ex": [
+          {"t":"If you need help, call me.","tr":"إذا احتجت إلى مساعدة، فاتّصل بي.","note":"الجواب قد يكون فعل أمر"},
+          {"t":"If I have time, I'll visit you on Sunday.","tr":"إن كان عندي وقت، سأزورك يوم الأحد."},
+          {"t":"We'll miss the flight if we don't leave now.","tr":"ستفوتنا الطائرة إن لم نغادر الآن."},
+          {"t":"When the baby wakes up, we'll go for a walk.","tr":"حين يستيقظ الطفل، سنخرج للمشي."},
+          {"t":"I'll send you the photos as soon as I get home.","tr":"سأرسل إليك الصور حالما أصل إلى البيت."},
+          {"t":"You won't feel better unless you rest.","tr":"لن تتحسّن ما لم ترتح."}
+        ] },
+        {"tip":"{{if}} و{{when}} ليستا سواء: {{If I see him, I'll tell him.}} «إن رأيته» (وقد لا أراه)، أما {{When I see him, I'll tell him.}} «حين أراه» (وسأراه حتمًا)."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"إذا أمطرت، سنبقى في البيت.","why":"بعد {{if}} المضارع البسيط، حتى للمستقبل؛ و{{will}} في الجواب وحده."},
+        {"wrong":"If you came tomorrow, I will cook.","right":"If you come tomorrow, I'll cook.","tr":"إن جئت غدًا، سأطبخ.","why":"«إذا جئتَ» بالماضي في العربية، لكن بعد {{if}} للمستقبل الممكن المضارع البسيط: {{come}}."},
+        {"wrong":"When I will arrive, I'll call you.","right":"When I arrive, I'll call you.","tr":"حين أصل، سأتّصل بك.","why":"بعد {{when}} للمستقبل المضارع البسيط أيضًا، لا {{will}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"If you ___ me your address, I'll send you a card.","tr":"إذا أعطيتني عنوانك، سأرسل إليك بطاقة.","options":["give","will give","gave"],"answer":0,"why":"بعد {{if}}: المضارع البسيط."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"If it's sunny tomorrow, we ___ go to the beach.","tr":"إذا كان الجوّ مشمسًا غدًا، سنذهب إلى الشاطئ.","options":["will","are","would"],"answer":0,"why":"الجواب: {{will}} + الفعل."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{I'll call you as soon as I get there.}}","{{I'll call you as soon as I will get there.}}","{{I call you as soon as I got there.}}"],"answer":0,"why":"بعد {{as soon as}} المضارع، وفي الجواب {{will}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"حين أصل إلى البيت، سأتّصل بك.","words":["When","I","get","home,","I'll","call","you."]},
+        {"type":"dialogue","q":"صديقك قلق قبل مقابلة عمل: اختر ردودك.","lines":[{"who":"صديقك","t":"What if I'm late for the interview?","tr":"وماذا لو تأخّرت عن المقابلة؟"},{"options":["If you leave early, you won't be late.","If you will leave early, you won't be late."],"answer":0,"why":"بعد {{if}}: المضارع البسيط."},{"who":"صديقك","t":"And what if they ask about my last job?","tr":"وماذا لو سألوا عن عملي السابق؟"},{"options":["Just be honest. If you tell the truth, they'll respect you.","Just be honest. If you told the truth, they'll respect you."],"answer":0,"why":"للمستقبل الممكن: {{If you tell}}."},{"who":"صديقك","t":"Thanks. I'll call you when it's over.","tr":"شكرًا. سأتّصل بك حين تنتهي."},{"options":["Great. I'm sure you'll do well!","Great. I'm sure you do well!"],"answer":0,"why":"توقّع للمستقبل: {{you'll do}}."}],"from":"promise-offer-predict"},
+        {"type":"say","q":"قل «إذا احتجت إلى مساعدة، فاتّصل بي».","answer":"If you need help, call me."},
+        {"type":"free","q":"دورك: أكمل ثلاث جمل عن مستقبلك: {{If I have time this weekend, …}}، {{If it rains tomorrow, …}}، {{When I finish this course, …}}","answers":[{"t":"If I have time this weekend, I'll visit my grandmother. If it rains tomorrow, I'll stay home and read. When I finish this course, I'll watch movies in English.","tr":"إن كان عندي وقت في عطلة هذا الأسبوع، سأزور جدّتي. وإذا أمطرت غدًا، سأبقى في البيت وأقرأ. وحين أُنهي هذه الدورة، سأشاهد الأفلام بالإنجليزية."},{"t":"If I have time this weekend, I'll go fishing with my son. If it rains tomorrow, we won't play soccer. When I finish this course, I'll look for a job at an American company.","tr":"إن كان عندي وقت في عطلة هذا الأسبوع، سأذهب للصيد مع ابني. وإذا أمطرت غدًا فلن نلعب كرة القدم. وحين أُنهي هذه الدورة، سأبحث عن عمل في شركة أمريكية."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "تخيَّل",
+      "summary": "قل «لو كان عندي وقت أكثر، لتعلّمت العزف على العود» و«لو كنت مكانك…»: جملة الشرط الثانية لما هو بعيد أو غير حقيقي.",
+      "topic": "جملة الشرط الثانية: {{If}} + الماضي البسيط، و{{would}} + الفعل؛ {{If I were you}}؛ {{I wish…}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would learn to play the oud.","tr":"لو كان عندي وقت أكثر، لتعلّمت العزف على العود."}},
+        {"dialog":[{"who":"مايك","t":"What would you do if you won a million dollars?","tr":"ماذا كنت ستفعل لو ربحت مليون دولار؟"},{"who":"عمر","t":"First, I'd buy a house for my parents. Then I'd travel around the world.","tr":"أوّلًا كنت سأشتري بيتًا لوالديّ، ثم أسافر حول العالم."},{"who":"مايك","t":"Would you quit your job?","tr":"هل كنت ستترك عملك؟"},{"who":"عمر","t":"No, I wouldn't. I love my job! But I'd work fewer hours.","tr":"لا. أحبّ عملي! لكني كنت سأعمل ساعات أقلّ."},{"who":"مايك","t":"If I were you, I'd buy a boat.","tr":"لو كنت مكانك، لاشتريت قاربًا."},{"who":"عمر","t":"A boat? You get seasick on a ferry!","tr":"قاربًا؟ أنت يصيبك دوار البحر على العبّارة!"}]},
+        {"p":"**«لو» للخيال.** في الدرس السابق تكلّمت عمّا قد يحدث فعلًا ({{If it rains…}}). أما الآن فتتكلّم عن شيء بعيد أو غير حقيقي، تتخيّله فقط: «لو كان عندي مليون دولار…». تقول العربية «لو» ثم الماضي، ثم الجواب بـ«لـ»: «لو كان عندي وقت لتعلّمت». والإنجليزية قريبة جدًّا: {{If}} ثم الماضي البسيط، ثم الجواب بـ{{would}} + الفعل."},
+        { "table": [
+          ["الشرط: {{If}} + الماضي","الجواب: {{would}} + الفعل"],
+          ["{{If I had more time,}}","{{I would learn the oud.}}"],
+          ["{{If I lived by the sea,}}","{{I'd swim every day.}}"],
+          ["{{If she spoke English,}}","{{she would get the job.}}"]
+        ] },
+        {"p":"**الماضي هنا ليس ماضيًا.** {{If I had a car}} لا تعني «حين كانت عندي سيارة»، بل «لو كانت عندي سيارة الآن» (وليست عندي). فالماضي هنا علامة على البُعد عن الواقع، كما هو بعد «لو» العربية."},
+        {"p":"**{{would}}** فعل ناقص، بلا {{-s}} وبلا {{to}}، ويُختصر: {{I'd}}، {{she'd}}، {{wouldn't}}. والسؤال: {{What would you do if…?}} «ماذا كنت ستفعل لو…؟». وقد تأتي {{could}} بدل {{would}} للقدرة: {{If I had a car, I could drive you.}} «لو كانت عندي سيارة لاستطعت أن أوصلك»."},
+        {"p":"**{{If I were you}}: «لو كنت مكانك».** مع {{be}} في هذا الشرط يقولون {{were}} مع كل فاعل: {{If I were you}}، {{If he were here}}. وهي أشهر عبارة للنصيحة: {{If I were you, I'd take the job.}} «لو كنت مكانك لقبلت العمل». (وقد تسمع في الكلام {{If I was…}} أيضًا، لكن {{If I were you}} ثابتة.)"},
+        {"p":"**{{I wish}}: «ليت».** وللتمنّي {{I wish}} + الماضي: {{I wish I had more time.}} «ليت عندي وقتًا أكثر»، {{I wish I lived closer.}} «ليتني أسكن أقرب». والماضي هنا أيضًا لحاضر غير حقيقي."},
+        { "table": [
+          ["الشرط الأول (ممكن)","الشرط الثاني (خيال)"],
+          ["{{If I have time, I'll call you.}} «إن كان عندي وقت سأتّصل بك»","{{If I had time, I'd call you.}} «لو كان عندي وقت لاتّصلت بك» (وليس عندي)"]
+        ] },
+        { "ex": [
+          {"t":"If I were rich, I'd buy a big house.","tr":"لو كنت غنيًّا، لاشتريت بيتًا كبيرًا."},
+          {"t":"What would you do if you lost your job?","tr":"ماذا كنت ستفعل لو فقدت عملك؟"},
+          {"t":"If we lived in the city, we wouldn't need a car.","tr":"لو كنّا نسكن في المدينة، لما احتجنا إلى سيارة."},
+          {"t":"If I were you, I'd talk to him.","tr":"لو كنت مكانك، لكلّمته."},
+          {"t":"I wish I could speak French.","tr":"ليتني أستطيع أن أتكلّم الفرنسية."},
+          {"t":"If she had a car, she could visit us more often.","tr":"لو كانت عندها سيارة، لاستطاعت أن تزورنا أكثر."}
+        ] },
+        {"tip":"{{I'd}} قد تكون {{I would}} أو {{I had}}، والذي بعدها يحسم: {{I'd go}} (فعل في صورته الأصلية) = {{I would go}}؛ و{{I'd gone}} (تصريف ثالث) = {{I had gone}}."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"لو كان عندي مال، لسافرت.","why":"بعد {{if}} الماضي البسيط، و{{would}} في الجواب وحده."},
+        {"wrong":"If I have a million dollars, I would buy a house.","right":"If I had a million dollars, I would buy a house.","tr":"لو كان عندي مليون دولار، لاشتريت بيتًا.","why":"للخيال: الماضي بعد {{if}}، لا المضارع."},
+        {"wrong":"If I am you, I'll take the job.","right":"If I were you, I'd take the job.","tr":"لو كنت مكانك، لقبلت العمل.","why":"لن تكون مكانه أبدًا، فهذا خيال: {{If I were you}}، ثم {{I'd}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"If I ___ a car, I would drive you to the airport.","tr":"لو كانت عندي سيارة، لأوصلتك إلى المطار.","options":["had","have","would have"],"answer":0,"why":"للخيال: الماضي بعد {{if}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"If I were you, I ___ call her.","tr":"لو كنت مكانك، لاتّصلت بها.","options":["would","will","am"],"answer":0,"why":"جواب الشرط الثاني: {{would}}."},
+        {"type":"choice","q":"تسكن بعيدًا عن البحر، وتتخيّل حياتك قربه. تقول…","options":["{{If I lived by the sea, I'd swim every day.}}","{{If I live by the sea, I'll swim every day.}}"],"answer":0,"why":"شيء غير حقيقي تتخيّله: الشرط الثاني.","from":"talk-about-possibilities"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ماذا كنت ستفعل لو ربحت اليانصيب؟","words":["What","would","you","do","if","you won","the lottery?"]},
+        {"type":"dialogue","q":"صديقك يطلب نصيحتك: اختر ردودك.","lines":[{"who":"صديقك","t":"I got a job offer in Seattle, but my family is here.","tr":"جاءني عرض عمل في سياتل، لكن عائلتي هنا."},{"options":["That's hard. If I were you, I'd talk to your family first.","That's hard. If I am you, I'll talk to your family first."],"answer":0,"why":"{{If I were you, I'd…}} للنصيحة."},{"who":"صديقك","t":"And if I said no?","tr":"وماذا لو رفضت؟"},{"options":["If you said no, you'd probably regret it.","If you would say no, you'd probably regret it."],"answer":0,"why":"بعد {{if}} الماضي البسيط."},{"who":"صديقك","t":"You're right. I wish I didn't have to choose!","tr":"أنت محقّ. ليتني لم أكن مضطرًّا إلى الاختيار!"}],"from":"give-advice"},
+        {"type":"say","q":"قل «ليتني أستطيع أن أتكلّم الفرنسية».","answer":"I wish I could speak French."},
+        {"type":"free","q":"دورك: أجب عن السؤال {{What would you do if you didn't have to work?}} بثلاث جمل بـ{{would}}.","answers":[{"t":"If I didn't have to work, I would travel a lot. I'd learn to cook Italian food, and I'd spend more time with my kids.","tr":"لو لم أكن مضطرًّا إلى العمل، لسافرت كثيرًا، ولتعلّمت طبخ الطعام الإيطالي، ولقضيت وقتًا أطول مع أولادي."},{"t":"I'd move to a small town by the sea. I'd read every day, and I would volunteer at a hospital.","tr":"لانتقلت إلى بلدة صغيرة على البحر، ولقرأت كل يوم، ولتطوّعت في مستشفى."}]}
+      ]
+    },
+    {
+      "id": "say-what-someone-said",
+      "unit": 9,
+      "level": "B1",
+      "title": "انقل كلام غيرك",
+      "summary": "قل «قالت إنها متعبة» و«طلبت منّي أن أنتظر»، واسأل بأدب {{Can you tell me where the station is?}}: الكلام المنقول والسؤال غير المباشر.",
+      "topic": "الكلام المنقول: {{said (that)}} و{{told me}}؛ رجوع الزمن خطوة؛ {{asked me to}}؛ السؤال غير المباشر",
+      "blocks": [
+        {"goal":{"t":"She said she was tired, and she told me to wait.","tr":"قالت إنها متعبة، وطلبت منّي أن أنتظر."}},
+        {"dialog":[{"who":"هالة","t":"Who was on the phone?","tr":"مَن كان على الهاتف؟"},{"who":"عمر","t":"It was Mike. He said he couldn't come tonight.","tr":"كان مايك. قال إنه لا يستطيع المجيء الليلة."},{"who":"هالة","t":"Oh no. Did he say why?","tr":"يا للأسف. هل قال لماذا؟"},{"who":"عمر","t":"He told me his son was sick. He said he would call tomorrow.","tr":"أخبرني أن ابنه مريض، وقال إنه سيتّصل غدًا."},{"who":"هالة","t":"Poor thing. Did he ask you anything?","tr":"مسكين. هل سألك عن شيء؟"},{"who":"عمر","t":"He asked me if we were free next Saturday. And he asked me to say hi to you!","tr":"سألني إن كنّا متفرّغين السبت القادم. وطلب منّي أن أبلّغك سلامه!"}]},
+        {"p":"**«قال إنّ…».** حين تنقل كلام غيرك تقول العربية «قال إنه متعب». والإنجليزية: {{He said (that) he was tired.}} و{{that}} «أنّ» اختيارية، وتُحذف غالبًا في الكلام."},
+        {"term":"الكلام المنقول","means":"أن تنقل ما قاله غيرك بكلامك أنت، لا بكلماته نفسها: {{She said she was busy.}} «قالت إنها مشغولة». ويُسمّى أيضًا الكلام غير المباشر."},
+        {"p":"**الزمن يرجع خطوة.** إذا نقلت كلامًا قيل في الماضي ({{said}})، فالإنجليزية ترجع زمنه غالبًا خطوة إلى الوراء. أما العربية فتنقله كما هو: «قال إنه متعب». (وإذا كان ما قيل ما زال صحيحًا الآن، فكثيرًا ما يبقى الزمن كما هو في الكلام اليومي: {{She said she lives in Boston.}})"},
+        { "table": [
+          ["ما قاله بالضبط","نقلُك له"],
+          ["{{“I'm tired.”}}","{{He said he was tired.}}"],
+          ["{{“I can't come.”}}","{{He said he couldn't come.}}"],
+          ["{{“I'll call you.”}}","{{He said he would call me.}}"],
+          ["{{“I live in Boston.”}}","{{She said she lived in Boston.}}"]
+        ] },
+        {"p":"**{{say}} أم {{tell}}؟** بعد {{tell}} يأتي مَن تخبره مباشرة: {{He told me…}}، {{She told her mom…}}. أما {{say}} فلا يأتي الشخص بعده مباشرة؛ وإذا ذكرته فبـ{{to}}: {{He said to me…}}. فلا تقل {{He said me}}."},
+        { "table": [
+          ["{{say}}","{{tell}}"],
+          ["{{He said he was late.}}","{{He told me he was late.}}"],
+          ["{{She said hello.}}","{{She told me a story.}}"]
+        ] },
+        {"p":"**نقل الطلب.** «طلب منّي أن…» = {{asked me to}} + الفعل، و{{told me to}} + الفعل أقوى منها: {{The doctor told me to rest.}} «طلب منّي الطبيب أن أرتاح»، {{She asked me to wait.}} «طلبت منّي أن أنتظر». والنهي: {{told me not to}}: {{He told me not to worry.}} «قال لي ألّا أقلق»."},
+        {"p":"**السؤال غير المباشر.** حين تسأل بأدب ({{Can you tell me…?}} أو {{Do you know…?}}) أو تنقل سؤالًا، يعود الترتيب إلى ترتيب الخبر، ولا {{do}}: {{Where is the station?}} ← {{Can you tell me where the station is?}}، و{{What time does it open?}} ← {{Do you know what time it opens?}} ولسؤال «نعم أو لا» {{if}}: {{He asked me if I was free.}} «سألني إن كنت متفرّغًا»."},
+        { "table": [
+          ["السؤال المباشر","السؤال غير المباشر"],
+          ["{{Where is the bank?}}","{{Do you know where the bank is?}}"],
+          ["{{What time does the store close?}}","{{Can you tell me what time the store closes?}}"],
+          ["{{Are you free?}}","{{He asked me if I was free.}}"]
+        ] },
+        { "ex": [
+          {"t":"She said she loved the gift.","tr":"قالت إن الهدية أعجبتها كثيرًا."},
+          {"t":"He told me he was getting married!","tr":"أخبرني أنه سيتزوّج!"},
+          {"t":"The teacher told us to open our books.","tr":"طلب منّا المعلّم أن نفتح كتبنا."},
+          {"t":"My mom asked me to call her.","tr":"طلبت منّي أمي أن أتّصل بها."},
+          {"t":"Do you know where the restrooms are?","tr":"هل تعرف أين دورات المياه؟"},
+          {"t":"I asked him if he needed help.","tr":"سألته إن كان يحتاج إلى مساعدة."}
+        ] },
+        {"tip":"{{Can you tell me…?}} و{{Do you know…?}} و{{Could you tell me…?}} أكثر أدبًا من السؤال المباشر، خصوصًا مع الغرباء. فـ{{Excuse me, do you know where the post office is?}} أنسب في الشارع من {{Where is the post office?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"He said me he was busy.","right":"He told me he was busy.","tr":"قال لي إنه مشغول.","why":"لا يأتي الشخص بعد {{say}} مباشرة؛ ومع الشخص {{tell}}: {{told me}}."},
+        {"wrong":"Can you tell me where is the station?","right":"Can you tell me where the station is?","tr":"هل تخبرني أين المحطة؟","why":"في السؤال غير المباشر ترتيب الخبر: {{the station is}}."},
+        {"wrong":"She asked me to waiting.","right":"She asked me to wait.","tr":"طلبت منّي أن أنتظر.","why":"بعد {{asked me to}} الفعل في صورته الأصلية."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My boss ___ me to finish the report today.","tr":"طلب منّي مديري أن أُنهي التقرير اليوم.","options":["told","said","say"],"answer":0,"why":"مع الشخص بعده: {{told me to}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"He said he ___ come to the party.","tr":"قال إنه لا يستطيع أن يأتي إلى الحفلة.","options":["couldn't","can't to","doesn't can"],"answer":0,"why":"{{can't}} ترجع في الكلام المنقول إلى {{couldn't}}، وبعدها الفعل بلا {{to}}."},
+        {"type":"choice","q":"تسأل غريبًا بأدب عن المحطة. أيّها صحيح؟","options":["{{Do you know where the train station is?}}","{{Do you know where is the train station?}}","{{Do you know where does the train station is?}}"],"answer":0,"why":"بعد {{Do you know}} ترتيب الخبر."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She asked me ___ I wanted some tea.","tr":"سألتني إن كنت أريد بعض الشاي.","options":["if","that","what"],"answer":0,"why":"لنقل سؤال «نعم أو لا»: {{if}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هل تعرف متى يبدأ الفيلم؟","words":["Do","you","know","what","time","the movie","starts?"]},
+        {"type":"dialogue","q":"تنقل إلى زوجتك ما قاله الطبيب: اختر ردودك.","lines":[{"who":"هالة","t":"What did the doctor say?","tr":"ماذا قال الطبيب؟"},{"options":["He said it wasn't serious. He told me to rest for a few days.","He said me it isn't serious. He told me rest for a few days."],"answer":0,"why":"{{said}} بلا شخص بعدها، و{{told me to}} + الفعل."},{"who":"هالة","t":"Did he give you any medicine?","tr":"هل أعطاك دواءً؟"},{"options":["Yes. He told me not to take it on an empty stomach.","Yes. He told me don't take it on an empty stomach."],"answer":0,"why":"النهي المنقول: {{told me not to}} + الفعل."},{"who":"هالة","t":"Okay. Let's get you some soup, then.","tr":"حسنًا. إذن لنحضر لك بعض الحساء."}],"from":"ask-what-happened"},
+        {"type":"free","q":"دورك: انقل ثلاثة أشياء قالها لك أحدهم مؤخّرًا: جملة بـ{{said}}، وطلبًا بـ{{told me to}} أو {{asked me to}}، وسؤالًا بـ{{asked me if}}.","answers":[{"t":"My friend said he was moving to Texas. He asked me to help him with the boxes. He also asked me if I wanted his old TV.","tr":"قال صديقي إنه سينتقل إلى تكساس، وطلب منّي أن أساعده في الصناديق، وسألني أيضًا إن كنت أريد تلفازه القديم."},{"t":"My mom said she missed me. She told me to eat more vegetables, and she asked me if I was coming home for Eid.","tr":"قالت أمي إنها اشتاقت إليّ، وطلبت منّي أن آكل خضارًا أكثر، وسألتني إن كنت سأعود إلى البيت في العيد."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 9,
+      "level": "B1",
+      "title": "استعمل الأفعال المركّبة",
+      "summary": "قل «هل تشعل الضوء؟ أبحث عن مفاتيحي»: الأفعال المركّبة مثل {{turn on}} و{{look for}} و{{give up}}، وأين يوضع {{it}} معها.",
+      "topic": "الأفعال المركّبة: الفعل + {{up, off, on, out, for…}}؛ {{turn it off}} لا {{turn off it}}",
+      "blocks": [
+        {"goal":{"t":"Can you turn on the light? I'm looking for my keys.","tr":"هل تشعل الضوء؟ أبحث عن مفاتيحي."}},
+        {"dialog":[{"who":"هالة","t":"Wake up! It's seven thirty.","tr":"استيقظ! الساعة السابعة والنصف."},{"who":"عمر","t":"Five more minutes…","tr":"خمس دقائق أخرى…"},{"who":"هالة","t":"No! Get up. You have a meeting at nine.","tr":"لا! انهض. عندك اجتماع في التاسعة."},{"who":"عمر","t":"Okay, okay. Where's my phone? I can't find it.","tr":"حسنًا، حسنًا. أين هاتفي؟ لا أجده."},{"who":"هالة","t":"Look for it in the kitchen. And put on a jacket. It's cold outside.","tr":"ابحث عنه في المطبخ. والبس سترة؛ الجوّ بارد في الخارج."},{"who":"عمر","t":"Found it! Can you turn off the coffee machine? I'll pick up breakfast on the way.","tr":"وجدته! هل تطفئين آلة القهوة؟ سأشتري الفطور في الطريق."}]},
+        {"p":"**فعل وكلمة صغيرة.** في الإنجليزية أفعال كثيرة تتألّف من فعل وكلمة صغيرة بعده ({{up, down, on, off, out, in, back, for…}})، ويصير لهما معًا معنى جديد قد لا يُفهم من الجزأين: {{get}} «يحصل» + {{up}} «إلى أعلى» = {{get up}} «ينهض من النوم»؛ و{{give}} «يعطي» + {{up}} = {{give up}} «يستسلم، يُقلع عن». وهي في الكلام الأمريكي اليومي في كل جملة تقريبًا."},
+        {"term":"الفعل المركّب","means":"فعل وكلمة صغيرة بعده يؤدّيان معًا معنى واحدًا جديدًا، ويُسمّى بالإنجليزية {{phrasal verb}}: {{turn on}} «يشغّل»، {{find out}} «يكتشف»."},
+        { "table": [
+          ["الفعل المركّب","المعنى","مثال"],
+          ["{{get up}}","ينهض، يقوم من النوم","{{I get up at six.}}"],
+          ["{{wake up}}","يستيقظ","{{Wake up! It's late.}}"],
+          ["{{turn on}} / {{turn off}}","يشغّل / يطفئ","{{Turn off the TV.}}"],
+          ["{{put on}} / {{take off}}","يلبس / يخلع","{{Put on your coat.}}"],
+          ["{{look for}}","يبحث عن","{{I'm looking for my keys.}}"],
+          ["{{pick up}}","يلتقط؛ يأخذ شخصًا بالسيارة","{{I'll pick you up at eight.}}"],
+          ["{{find out}}","يكتشف، يعرف","{{I found out the truth.}}"],
+          ["{{give up}}","يستسلم؛ يُقلع عن","{{Don't give up!}}"],
+          ["{{come back}}","يرجع","{{When are you coming back?}}"],
+          ["{{figure out}}","يفهم، يجد الحلّ","{{I can't figure it out.}}"]
+        ] },
+        {"p":"**أين يوضع {{it}}؟** كثير من هذه الأفعال يقبل أن يأتي الاسم بعد الكلمة الصغيرة أو قبلها: {{Turn off the light.}} و{{Turn the light off.}} كلاهما صحيح. أما الضمير ({{it}}، {{them}}، {{me}}…) فيأتي بين الجزأين دائمًا: {{Turn it off.}} لا {{Turn off it}}."},
+        { "table": [
+          ["مع اسم","مع ضمير"],
+          ["{{Turn off the TV.}} / {{Turn the TV off.}}","{{Turn it off.}}"],
+          ["{{Put on your shoes.}} / {{Put your shoes on.}}","{{Put them on.}}"],
+          ["{{Pick up the kids.}} / {{Pick the kids up.}}","{{Pick them up.}}"]
+        ] },
+        {"p":"**لكن بعضها لا ينفصل.** في {{look for}} و{{come back}} وأمثالهما يبقى الجزآن معًا، والضمير بعدهما: {{I'm looking for it.}} «أبحث عنه»، لا {{looking it for}}. ولا قاعدة سهلة هنا: تعلّم كل فعل في جملة."},
+        {"p":"**وهي أفعال عادية في كل شيء آخر:** الجزء الأول يتصرّف كأيّ فعل: {{She gets up}}، {{I got up}}، {{I'm getting up}}، {{Did you get up?}}، والكلمة الصغيرة لا تتغيّر."},
+        { "ex": [
+          {"t":"Please turn off your phones.","tr":"من فضلكم أطفئوا هواتفكم."},
+          {"t":"I gave up smoking last year.","tr":"أقلعت عن التدخين العام الماضي."},
+          {"t":"Can you pick me up at the airport?","tr":"هل تأخذني من المطار؟"},
+          {"t":"We found out the store was closed.","tr":"اكتشفنا أن المتجر مغلق."},
+          {"t":"Take off your shoes, please.","tr":"اخلع حذاءك، من فضلك."},
+          {"t":"I'm looking for a cheap apartment.","tr":"أبحث عن شقّة رخيصة."}
+        ] },
+        {"tip":"أحسن طريقة لتعلّم هذه الأفعال أن تحفظها أزواجًا: {{turn on / turn off}}، {{put on / take off}}، {{get up / sit down}}، {{go out / come back}}. وحين تسمع واحدًا جديدًا في فيلم، اكتبه في جملة كاملة."}
+      ],
+      "mistakes": [
+        {"wrong":"It's dark. Can you turn on it?","right":"It's dark. Can you turn it on?","tr":"المكان مظلم. هل تشعله؟","why":"الضمير يأتي بين جزأي الفعل المركّب: {{turn it on}}."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"أبحث عن مفاتيحي.","why":"{{look}} وحده «ينظر»؛ و«يبحث عن» هو {{look for}}، فلا تُحذف {{for}}."},
+        {"wrong":"She wake up at six.","right":"She wakes up at six.","tr":"تستيقظ في السادسة.","why":"الجزء الأول فعل عاديّ: مع {{she}} يأخذ {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"It's cold. Put ___ your jacket.","tr":"الجوّ بارد. البس سترتك.","options":["on","off","up"],"answer":0,"why":"{{put on}} «يلبس»."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{The TV is loud. Turn it down, please.}}","{{The TV is loud. Turn down it, please.}}"],"answer":0,"why":"الضمير بين الجزأين: {{turn it down}} «اخفض صوته»."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Don't ___ up! You can do it.","tr":"لا تستسلم! تستطيع أن تفعلها.","options":["give","get","take"],"answer":0,"why":"{{give up}} «يستسلم»."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She ___ up at five every morning.","tr":"تستيقظ في الخامسة كل صباح.","options":["gets","get","getting"],"answer":0,"why":"مع {{she}}: {{gets up}}.","from":"say-what-others-do"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"سآخذك من البيت في الثامنة.","words":["I'll","pick","you","up","at","eight."]},
+        {"type":"dialogue","q":"في الفندق: اختر ردودك.","lines":[{"who":"موظف الاستقبال","t":"How can I help you?","tr":"كيف أستطيع مساعدتك؟"},{"options":["The air conditioner in my room doesn't work. I can't turn it on.","The air conditioner in my room doesn't work. I can't turn on it."],"answer":0,"why":"{{turn it on}}: الضمير في الوسط."},{"who":"موظف الاستقبال","t":"I'm sorry. I'll send someone up right away.","tr":"آسف. سأرسل أحدًا إلى غرفتك حالًا."},{"options":["Thanks. Also, what time do I have to check out?","Thanks. Also, what time I have to check out?"],"answer":0,"why":"السؤال بـ{{do}} بعد {{what time}}. و{{check out}} «يغادر الفندق»."},{"who":"موظف الاستقبال","t":"Checkout is at noon.","tr":"المغادرة عند الظهر."}],"from":"ask-about-routines"},
+        {"type":"free","q":"دورك: صِف صباحك المعتاد بأربعة أفعال مركّبة على الأقل، مثل {{wake up, get up, turn on, put on, pick up}}.","answers":[{"t":"I wake up at six, but I get up at six thirty. I turn on the coffee machine, put on my clothes, and pick up my friend on the way to work.","tr":"أستيقظ في السادسة، لكني أنهض في السادسة والنصف. أشغّل آلة القهوة، وألبس ثيابي، وآخذ صديقي في طريقي إلى العمل."},{"t":"My alarm goes off at seven. I turn it off and go back to sleep! Then my wife wakes me up, and I put on my suit very fast.","tr":"يرنّ منبّهي في السابعة، فأطفئه وأعود إلى النوم! ثم توقظني زوجتي، فألبس بدلتي بسرعة كبيرة."}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 9,
+      "level": "B1",
+      "title": "افهم المبني للمجهول",
+      "summary": "افهم «بُني هذا الجسر عام ١٩٩٠» و«تُباع التذاكر عند الباب» حين تقرؤهما أو تسمعهما: {{be}} + التصريف الثالث.",
+      "topic": "المبني للمجهول: {{is, are}} أو {{was, were}} + التصريف الثالث؛ {{by}} للفاعل؛ {{I was born}}",
+      "blocks": [
+        {"goal":{"t":"This bridge was built in 1990.","tr":"بُني هذا الجسر عام ١٩٩٠."}},
+        {"dialog":[{"who":"المرشد","t":"This building is the old city hall. It was built in 1885.","tr":"هذا المبنى دار البلدية القديمة. بُني عام ١٨٨٥."},{"who":"لينا","t":"It's beautiful. Who was it designed by?","tr":"إنه جميل. مَن صمّمه؟"},{"who":"المرشد","t":"It was designed by a famous architect from Chicago. Today, it's used as a museum.","tr":"صمّمه مهندس معماري مشهور من شيكاغو. واليوم يُستعمل متحفًا."},{"who":"لينا","t":"Are photos allowed inside?","tr":"هل يُسمح بالتصوير في الداخل؟"},{"who":"المرشد","t":"Yes, but flash is not allowed. And tickets are sold at the front door.","tr":"نعم، لكن الفلاش ممنوع. والتذاكر تُباع عند الباب الأمامي."},{"who":"لينا","t":"Great, thanks!","tr":"رائع، شكرًا!"}]},
+        {"p":"**المبني للمجهول تعرفه.** في العربية تقول «كُتب الكتاب» و«بُني البيت» حين لا يهمّ مَن فعل، أو لا تعرفه. والإنجليزية تفعل الشيء نفسه بطريقة أخرى: لا تغيّر حركات الفعل كما تفعل العربية («كَتَبَ» ← «كُتِبَ»)، بل تضع {{be}} ثم التصريف الثالث: {{The house was built.}} «بُني البيت»."},
+        {"term":"المبني للمجهول","means":"صيغة الجملة حين يكون المهمّ ما وقع عليه الفعل لا مَن فعله: {{be}} + التصريف الثالث: {{English is spoken here.}} «تُتكلّم الإنجليزية هنا»، {{It was made in China.}} «صُنع في الصين». ويُسمّى بالإنجليزية {{passive}}."},
+        { "table": [
+          ["المبني للمعلوم","المبني للمجهول"],
+          ["{{Someone built the house in 1990.}}","{{The house was built in 1990.}}"],
+          ["{{They speak English here.}}","{{English is spoken here.}}"],
+          ["{{They sell tickets at the door.}}","{{Tickets are sold at the door.}}"]
+        ] },
+        {"p":"**{{be}} يحمل الزمن.** {{is}} أو {{are}} + التصريف الثالث للحاضر: {{Breakfast is served at seven.}} «يُقدَّم الفطور في السابعة». و{{was}} أو {{were}} للماضي: {{The windows were broken.}} «كُسرت النوافذ». أما التصريف الثالث فلا يتغيّر."},
+        {"p":"**{{by}}: مَن فعل.** وإذا أردت أن تذكر الفاعل فبعد {{by}}: {{The book was written by a doctor.}} «كتب الكتابَ طبيبٌ». وهذا قليل في العربية، لكنه شائع في الإنجليزية."},
+        {"p":"**أين تلقاه؟** في الأخبار ({{Two people were hurt in the accident.}})، واللافتات ({{Smoking is not allowed.}})، والتعليمات، وعلى المنتجات ({{Made in the USA}}). ويكفيك في هذا المستوى أن تفهمه حين تقرؤه أو تسمعه، وأن تقول بعض العبارات الشائعة:"},
+        { "table": [
+          ["العبارة","المعنى"],
+          ["{{I was born in Beirut.}}","وُلدت في بيروت."],
+          ["{{It's made of wood.}}","إنه مصنوع من الخشب."],
+          ["{{What's this called in English?}}","ما اسم هذا بالإنجليزية؟"],
+          ["{{Is breakfast included?}}","هل الفطور مشمول؟"]
+        ] },
+        { "ex": [
+          {"t":"The museum is closed on Mondays.","tr":"المتحف مغلق أيام الاثنين."},
+          {"t":"My car was stolen last night!","tr":"سُرقت سيارتي ليلة أمس!"},
+          {"t":"This song was written by my uncle.","tr":"كتب هذه الأغنية عمّي."},
+          {"t":"Arabic is spoken in more than twenty countries.","tr":"تُتكلّم العربية في أكثر من عشرين بلدًا."},
+          {"t":"Were you invited to the wedding?","tr":"هل دُعيت إلى العرس؟"},
+          {"t":"The flight was canceled because of the snow.","tr":"أُلغيت الرحلة بسبب الثلج."}
+        ] },
+        {"tip":"«وُلدتُ» في الإنجليزية مبني للمجهول دائمًا، ولا يُقال إلا هكذا: {{I was born in 1990.}} لا {{I born}} ولا {{I am born}}."}
+      ],
+      "mistakes": [
+        {"wrong":"The house built in 1990.","right":"The house was built in 1990.","tr":"بُني البيت عام ١٩٩٠.","why":"المبني للمجهول يحتاج إلى {{be}}: {{was built}}. ومن دونه تصير الجملة كأن البيت هو الذي بنى!"},
+        {"wrong":"I born in Cairo.","right":"I was born in Cairo.","tr":"وُلدت في القاهرة.","why":"{{was born}}: لا يُحذف {{was}}."},
+        {"wrong":"The letter was wrote by my father.","right":"The letter was written by my father.","tr":"كتب الرسالةَ أبي.","why":"بعد {{be}} التصريف الثالث: {{write}} ← {{wrote}} ← {{written}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"ما معنى {{Smoking is not allowed.}}؟","options":["التدخين غير مسموح به.","لا أحد يدخّن هنا الآن.","التدخين مسموح به."],"answer":0,"why":"{{is not allowed}} «لا يُسمح به»."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I ___ born in Amman.","tr":"وُلدت في عمّان.","options":["was","am","did"],"answer":0,"why":"«وُلدتُ»: {{was born}} دائمًا.","from":"say-where-you-were"},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"These phones are ___ in Korea.","tr":"تُصنع هذه الهواتف في كوريا.","options":["made","make","making"],"answer":0,"why":"بعد {{are}} في المبني للمجهول: التصريف الثالث {{made}}."},
+        {"type":"choice","q":"ما معنى {{The flight was canceled.}}؟","options":["أُلغيت الرحلة.","ألغى هو الرحلة.","ستُلغى الرحلة."],"answer":0,"why":"{{was}} + التصريف الثالث: مبني للمجهول في الماضي."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"كتب هذا الكتابَ طبيبٌ.","words":["This","book","was","written","by","a","doctor."]},
+        {"type":"dialogue","q":"في الفندق تسأل عن الخدمات: اختر ردودك.","lines":[{"who":"موظف الاستقبال","t":"Welcome! Here's your key.","tr":"أهلًا بك! هذا مفتاحك."},{"options":["Thank you. Is breakfast included?","Thank you. Is breakfast include?"],"answer":0,"why":"بعد {{is}}: التصريف الثالث {{included}}."},{"who":"موظف الاستقبال","t":"Yes. Breakfast is served from six to ten.","tr":"نعم. يُقدَّم الفطور من السادسة إلى العاشرة."},{"options":["Great. And where is it served?","Great. And where it served?"],"answer":0,"why":"في السؤال يتقدّم {{is}}، ثم الفاعل، ثم التصريف الثالث."},{"who":"موظف الاستقبال","t":"In the restaurant on the first floor.","tr":"في المطعم في الطابق الأول."}],"from":"ask-yes-or-no"},
+        {"type":"free","q":"دورك: اكتب ثلاث جمل بالمبني للمجهول عن نفسك أو بلدك: أين وُلدت، وشيئًا بُني أو صُنع، وشيئًا يُتكلّم أو يُؤكل هناك.","answers":[{"t":"I was born in Tripoli. The old castle in my city was built hundreds of years ago. Couscous is eaten every Friday.","tr":"وُلدت في طرابلس. بُنيت القلعة القديمة في مدينتي قبل مئات السنين. ويُؤكل الكسكس كل يوم جمعة."},{"t":"I was born in Dubai in 1995. The Burj Khalifa was opened in 2010. Arabic and English are spoken everywhere.","tr":"وُلدت في دبي عام ١٩٩٥. افتُتح برج خليفة عام ٢٠١٠. وتُتكلّم العربية والإنجليزية في كل مكان."}]}
+      ]
+    },
+    {
+      "id": "interview-someone",
+      "unit": 9,
+      "level": "B1",
+      "title": "أجرِ مقابلة",
+      "summary": "اسأل شخصًا عن حياته بكل الأزمنة، واطرح أسئلة المتابعة: {{How long have you…?}} و{{What made you…?}}، والفرق بين {{Who called you?}} و{{Who did you call?}}",
+      "topic": "الأسئلة في كل الأزمنة؛ سؤال الفاعل بلا {{do}} ({{Who called you?}}) وسؤال المفعول ({{Who did you call?}})؛ أسئلة المتابعة",
+      "blocks": [
+        {"goal":{"t":"How long have you worked here, and what do you like most about it?","tr":"منذ متى تعمل هنا، وما أكثر ما تحبّه في عملك؟"}},
+        {"dialog":[{"who":"عمر","t":"So, Jessica, where did you grow up?","tr":"إذن يا جيسيكا، أين نشأتِ؟"},{"who":"جيسيكا","t":"In a small town in Ohio.","tr":"في بلدة صغيرة في أوهايو."},{"who":"عمر","t":"And how long have you worked at the company?","tr":"ومنذ متى تعملين في الشركة؟"},{"who":"جيسيكا","t":"For seven years. I started as an intern.","tr":"منذ سبع سنوات. بدأت متدرّبة."},{"who":"عمر","t":"Really? Who hired you?","tr":"حقًّا؟ مَن عيّنك؟"},{"who":"جيسيكا","t":"Mr. Davis. He was my first boss.","tr":"السيد ديفيس. كان أوّل مدير لي."},{"who":"عمر","t":"What's the best thing that has happened to you here?","tr":"ما أجمل شيء حدث لك هنا؟"},{"who":"جيسيكا","t":"Meeting my team! They're like a family.","tr":"التعرّف إلى فريقي! إنهم كالعائلة."},{"who":"عمر","t":"That's great. And what are you going to do next?","tr":"رائع. وماذا ستفعلين بعد ذلك؟"},{"who":"جيسيكا","t":"I'm going to start my MBA in the fall.","tr":"سأبدأ دراسة ماجستير إدارة الأعمال في الخريف."}]},
+        {"p":"**كل الأسئلة التي تعلّمتها.** في المقابلة تنتقل بين الأزمنة كلّها، وكلّها تقوم على قاعدة واحدة: كلمة السؤال، ثم المساعد ({{be}} أو {{do}} أو {{have}} أو {{will}} أو {{can}}…)، ثم الفاعل، ثم الفعل:"},
+        { "table": [
+          ["الزمن","السؤال","المعنى"],
+          ["المضارع البسيط","{{What do you do?}}","ماذا تعمل؟"],
+          ["المضارع المستمر","{{What are you working on?}}","على ماذا تعمل هذه الأيام؟"],
+          ["الماضي البسيط","{{Where did you grow up?}}","أين نشأت؟"],
+          ["المضارع التامّ","{{How long have you lived here?}}","منذ متى تسكن هنا؟"],
+          ["المستقبل","{{What are you going to do next?}}","ماذا ستفعل بعد ذلك؟"],
+          ["الشرط الثاني","{{What would you change?}}","ماذا كنت ستغيّر؟"]
+        ] },
+        {"p":"**سؤال الفاعل بلا {{do}}.** حين تكون كلمة السؤال ({{who}} أو {{what}}) هي الفاعل نفسه، أي تسأل عمّن فعل، فلا {{do}} ولا {{did}}، ويأتي الفعل بعدها مباشرة كما في الخبر: {{Who called you?}} «مَن اتّصل بك؟»، {{What happened?}} «ماذا حدث؟». أما إذا سألت عمّن وقع عليه الفعل فتعود {{did}}: {{Who did you call?}} «بمَن اتّصلت؟». قارن:"},
+        { "table": [
+          ["تسأل عن الفاعل (بلا {{did}})","تسأل عن المفعول (بـ{{did}})"],
+          ["{{Who called you?}} «مَن اتّصل بك؟» — {{Sara called me.}}","{{Who did you call?}} «بمَن اتّصلت؟» — {{I called Sara.}}"],
+          ["{{Who hired you?}} «مَن عيّنك؟»","{{Who did you hire?}} «مَن عيّنتَ؟»"],
+          ["{{What happened?}} «ماذا حدث؟»","{{What did you do?}} «ماذا فعلت؟»"]
+        ] },
+        {"p":"**أسئلة المتابعة.** المحاور الجيّد يبني على الجواب: {{Really? Why?}} «حقًّا؟ لماذا؟»، {{What was that like?}} «كيف كانت تلك التجربة؟»، {{How did you feel?}} «بماذا شعرت؟»، {{What made you choose…?}} «ما الذي جعلك تختار…؟»، {{Can you tell me more about…?}} «هل تحدّثني أكثر عن…؟»"},
+        {"p":"**وردود قصيرة تشجّع من تحاوره:** {{That's interesting!}} «هذا مثير للاهتمام!»، {{I see.}} «فهمت»، {{Wow!}} «واو!»، {{That makes sense.}} «هذا منطقي»."},
+        { "ex": [
+          {"t":"What made you move to the US?","tr":"ما الذي جعلك تنتقل إلى الولايات المتحدة؟"},
+          {"t":"Who taught you to cook?","tr":"مَن علّمك الطبخ؟"},
+          {"t":"Who did you meet at the conference?","tr":"مَن قابلت في المؤتمر؟"},
+          {"t":"What was the hardest part?","tr":"ما أصعب جزء؟"},
+          {"t":"Have you ever thought about changing jobs?","tr":"هل فكّرت يومًا في تغيير عملك؟"},
+          {"t":"If you could live anywhere, where would you live?","tr":"لو استطعت أن تعيش في أيّ مكان، أين كنت ستعيش؟"}
+        ] },
+        {"tip":"في أمريكا تُعدّ بعض الأسئلة شخصية جدًّا في أوّل لقاء: الراتب ({{How much do you make?}})، والعمر، والدين، والزواج والأولاد مع من لا تعرفه جيدًا. فاسأل عن العمل والهوايات والسفر والمدينة."}
+      ],
+      "mistakes": [
+        {"wrong":"Who did call you?","right":"Who called you?","tr":"مَن اتّصل بك؟","why":"{{who}} هنا هي الفاعل، فلا {{did}}: يأتي الفعل بعدها مباشرة في الماضي."},
+        {"wrong":"What did happen?","right":"What happened?","tr":"ماذا حدث؟","why":"{{what}} هي الفاعل: بلا {{did}}."},
+        {"wrong":"How long you have worked here?","right":"How long have you worked here?","tr":"منذ متى تعمل هنا؟","why":"المساعد {{have}} يتقدّم على الفاعل في السؤال."}
+      ],
+      "practice": [
+        {"type":"choice","q":"تريد أن تعرف مَن اتّصل بصديقك. تسأله…","options":["{{Who called you?}}","{{Who did you call?}}","{{Who did call you?}}"],"answer":0,"why":"تسأل عن الفاعل: بلا {{did}}."},
+        {"type":"choice","q":"تريد أن تعرف بمَن اتّصل صديقك. تسأله…","options":["{{Who did you call?}}","{{Who called you?}}","{{Who you called?}}"],"answer":0,"why":"تسأل عن المفعول: {{did}} + الفاعل + الفعل."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"How long ___ you been a teacher?","tr":"منذ متى وأنت معلّم؟","options":["have","did","are"],"answer":0,"why":"«منذ متى»: المضارع التامّ، و{{have}} يتقدّم.","from":"say-how-long"},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"What ___ you do if you were the boss?","tr":"ماذا كنت ستفعل لو كنت المدير؟","options":["would","will","did"],"answer":0,"why":"خيال: الشرط الثاني، {{would}}.","from":"imagine"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ما الذي جعلك تختار هذا العمل؟","words":["What","made","you","choose","this","job?"]},
+        {"type":"dialogue","q":"تجري مقابلة مع جارة جديدة لنشرة الحيّ: اختر أسئلتك.","lines":[{"who":"الجارة","t":"Hi! I'm happy to answer your questions.","tr":"مرحبًا! يسعدني أن أجيب عن أسئلتك."},{"options":["Thanks! Where did you live before you moved here?","Thanks! Where you lived before you moved here?"],"answer":0,"why":"الماضي: {{did}} + الفاعل + الفعل."},{"who":"الجارة","t":"In Seattle. I lived there for ten years.","tr":"في سياتل. سكنت هناك عشر سنوات."},{"options":["Wow. What made you leave?","Wow. What did make you leave?"],"answer":0,"why":"{{what}} هنا الفاعل: بلا {{did}}."},{"who":"الجارة","t":"The rain! And I got a job here.","tr":"المطر! وحصلت على عمل هنا."},{"options":["That makes sense. How do you like the neighborhood so far?","That makes sense. How you like the neighborhood so far?"],"answer":0,"why":"المضارع: {{do}} + الفاعل + الفعل."}],"from":"ask-what-happened"},
+        {"type":"free","q":"دورك: اكتب خمسة أسئلة لمقابلة شخص تعجبك حياته، بأزمنة مختلفة، واحد منها على الأقل سؤال عن الفاعل ({{Who…?}} أو {{What…?}} بلا {{do}}).","answers":[{"t":"Where did you grow up? What do you do now? How long have you lived here? Who taught you English? What would you do with more free time?","tr":"أين نشأت؟ ماذا تعمل الآن؟ منذ متى تسكن هنا؟ مَن علّمك الإنجليزية؟ ماذا كنت ستفعل لو كان عندك وقت فراغ أكثر؟"},{"t":"What made you become a chef? Who helped you the most? Have you ever cooked for a famous person? What are you working on now? Where are you going to open your next restaurant?","tr":"ما الذي جعلك تصبح طاهيًا؟ مَن ساعدك أكثر من غيره؟ هل سبق أن طبخت لشخص مشهور؟ على ماذا تعمل الآن؟ أين ستفتح مطعمك القادم؟"}]}
+      ]
     }
   ]
 }
