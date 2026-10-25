@@ -541,6 +541,283 @@
         {"type":"say","q":"Pregunta a un amic «Com es diu la teva mare?»","answer":"What's your mom's name?"},
         {"type":"free","q":"Et toca: parla de dues persones de la teva família: com es diuen, quants anys tenen o on viuen.","answers":[{"t":"My brother's name is Jordi. He's thirty, and his wife is from Seville.","tr":"El meu germà es diu Jordi. Té trenta anys, i la seva dona és de Sevilla."},{"t":"My mom is a teacher, and my dad is an engineer.","tr":"La meva mare és mestra i el meu pare és enginyer."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Explica què fas cada dia",
+      "summary": "Parla de la teva feina, dels teus estudis i del que fas cada dia: {{I work in an office, and my wife teaches English.}}",
+      "topic": "El present simple; la {{-s}} de {{he}}, {{she}}, {{it}}; {{always}}, {{usually}}, {{often}}, {{never}}",
+      "blocks": [
+        {"goal":{"t":"I work in an office, and my wife teaches English.","tr":"Treballo en una oficina i la meva dona fa classes d'anglès."}},
+        {"dialog":[{"who":"Jen","t":"What do you do?","tr":"A què et dediques?"},{"who":"Albert","t":"I work in a hotel. And you?","tr":"Treballo en un hotel. I tu?"},{"who":"Jen","t":"I'm a student. I study medicine.","tr":"Soc estudiant. Estudio medicina."},{"who":"Albert","t":"My sister studies medicine too!","tr":"La meva germana també estudia medicina!"},{"who":"Jen","t":"Really? Where?","tr":"De debò? On?"},{"who":"Albert","t":"In Barcelona. She usually comes home on weekends.","tr":"A Barcelona. Normalment ve a casa els caps de setmana."}]},
+        {"term":"temps verbal","means":"la forma del verb que diu quan passa una cosa: el present, el passat, el futur."},
+        {"p":"**Un verb que gairebé no canvia.** En català, «treballo, treballes, treballa…»: sis formes. En anglès, el present simple només en té dues: el verb tal com és ({{work}}) i el verb amb {{-s}} per a {{he}}, {{she}} i {{it}} ({{works}}). Per això el subjecte és imprescindible (lliçó 1)."},
+        { "table": [
+          ["","{{work}}","{{live}}","{{have}}","{{go}}"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{work}}","{{live}}","{{have}}","{{go}}"],
+          ["{{he}}, {{she}}, {{it}}","{{works}}","{{lives}}","{{has}}","{{goes}}"]
+        ] },
+        {"p":"**La {{-s}}.** Normalment s'hi afegeix {{-s}}: {{works}}, {{lives}}. Darrere de {{-s}}, {{-sh}}, {{-ch}}, {{-x}} i {{-o}}, {{-es}}: {{watches}}, {{goes}}, {{does}}. Una {{-y}} darrere de consonant es torna {{-ies}}: {{study}} → {{studies}}. I {{have}} fa {{has}}."},
+        {"p":"**Quan es fa servir.** El present simple és per a les coses habituals, les rutines i les veritats: {{I work in a hotel.}} «Treballo en un hotel.» {{She lives in Boston.}} «Viu a Boston.» Per al que passa ara mateix, l'anglès té una altra forma (lliçó 17)."},
+        {"p":"**Sempre, mai.** {{always}} «sempre», {{usually}} «normalment», {{often}} «sovint», {{sometimes}} «de vegades» i {{never}} «mai» van davant del verb: {{I always walk to work.}} «Sempre vaig a peu a la feina.» Però darrere de {{be}}: {{She's always late.}} «Sempre arriba tard.»"},
+        { "ex": [
+          {"t":"I live in Gràcia.","tr":"Visc a Gràcia."},
+          {"t":"My brother works in a bank.","tr":"El meu germà treballa en un banc."},
+          {"t":"We usually eat at two.","tr":"Normalment dinem a les dues."},
+          {"t":"She speaks three languages.","tr":"Parla tres idiomes."},
+          {"t":"They never watch TV.","tr":"No miren mai la tele."},
+          {"t":"My son goes to school by bus.","tr":"El meu fill va a l'escola amb autobús."}
+        ] },
+        {"tip":"La {{-s}} de {{works}} s'ha de sentir: és el que diu que parles d'una altra persona. I {{-es}} afegeix una síl·laba: {{watches}} «uò-txiz»."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Treballa en un banc.","why":"Amb {{he}}, {{she}}, {{it}}, el verb porta {{-s}}."},
+        {"wrong":"Work in a hotel.","right":"I work in a hotel.","tr":"Treballo en un hotel.","why":"El subjecte sempre s'ha de dir: {{I work}}."},
+        {"wrong":"I go always by bus.","right":"I always go by bus.","tr":"Sempre hi vaig amb autobús.","why":"{{always}} va davant del verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My mother ___ in a school.","tr":"La meva mare treballa en una escola.","options":["works","work","working"],"answer":0,"why":"Amb {{she}} (la meva mare): {{works}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"He ___ chemistry at the university.","tr":"Estudia química a la universitat.","options":["studies","studys","study"],"answer":0,"why":"{{study}}: la {{-y}} es torna {{-ies}}."},
+        {"type":"choice","q":"On va {{usually}}?","options":["{{I usually have breakfast at home.}}","{{I have usually breakfast at home.}}","{{I have breakfast usually at home.}}"],"answer":0,"why":"{{usually}} va davant del verb."},
+        {"type":"dialogue","q":"En una festa, algú et pregunta per la feina. Tria les respostes.","lines":[{"who":"Convidada","t":"What do you do?","tr":"A què et dediques?"},{"options":["I'm a nurse. I work in a hospital.","I'm nurse. Work in a hospital."],"answer":0,"why":"{{a}} amb les professions, i sempre el subjecte."},{"who":"Convidada","t":"And your husband?","tr":"I el teu marit?"},{"options":["He teaches math.","He teach math."],"answer":0,"why":"Amb {{he}}: {{teaches}}."}],"from":"talk-about-family"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Normalment dinem a les dues.","words":["We","usually","eat","at two."]},
+        {"type":"say","q":"Digues «La meva germana viu a Londres».","answer":"My sister lives in London."},
+        {"type":"free","q":"Et toca: explica què fas cada dia, i què fa una altra persona de casa.","answers":[{"t":"I work in an office, and my partner teaches at a school.","tr":"Treballo en una oficina, i la meva parella fa classes en una escola."},{"t":"I usually get up at seven. My son goes to school at eight.","tr":"Normalment em llevo a les set. El meu fill va a l'escola a les vuit."}]}
+      ]
+    },
+    {
+      "id": "do-and-dont",
+      "unit": 3,
+      "level": "A1",
+      "title": "Pregunta i digues que no: {{do}} i {{don't}}",
+      "summary": "Fes preguntes i frases negatives amb qualsevol verb: {{Do you live near here? —No, I don't.}}",
+      "topic": "{{do}}, {{does}} a les preguntes; {{don't}}, {{doesn't}} a les negatives; les respostes curtes ({{Yes, I do}})",
+      "blocks": [
+        {"goal":{"t":"Do you live near here?","tr":"Vius a prop d'aquí?"}},
+        {"dialog":[{"who":"Ona","t":"Do you speak Catalan?","tr":"Parles català?"},{"who":"Tim","t":"A little. I don't speak it very well.","tr":"Una mica. No el parlo gaire bé."},{"who":"Ona","t":"Do you live in Barcelona?","tr":"Vius a Barcelona?"},{"who":"Tim","t":"Yes, I do. I live in Sants. Does your family live here?","tr":"Sí. Visc a Sants. La teva família viu aquí?"},{"who":"Ona","t":"No, they don't. They live in Lleida.","tr":"No. Viuen a Lleida."}]},
+        {"term":"verb auxiliar","means":"un verb ajudant, que acompanya un altre verb per fer preguntes, negatives o temps verbals: {{do}}, {{have}}, {{will}}."},
+        {"p":"**La paraula que el català no té.** En català, una pregunta és la frase amb entonació: «Parles català?». En anglès, amb qualsevol verb que no sigui {{be}} o {{can}}, cal posar {{do}} al davant: {{You speak Catalan.}} → {{Do you speak Catalan?}} Aquest {{do}} no vol dir res: només marca que és una pregunta."},
+        {"p":"**{{does}} amb {{he}}, {{she}}, {{it}}.** La {{-s}} passa del verb a {{do}}: {{She lives here.}} → {{Does she live here?}} El verb principal torna a la forma bàsica: {{live}}, no {{lives}}."},
+        {"p":"**No.** {{don't}} ({{do not}}) i {{doesn't}} ({{does not}}) van davant del verb: {{I don't know.}} «No ho sé.» {{He doesn't eat meat.}} «No menja carn.»"},
+        { "table": [
+          ["","afirmativa","pregunta","negativa"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{You work.}}","{{Do you work?}}","{{You don't work.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She works.}}","{{Does she work?}}","{{She doesn't work.}}"]
+        ] },
+        {"p":"**Respostes curtes**, com amb {{be}} (lliçó 6): {{Do you like it? —Yes, I do.}} / {{No, I don't.}} {{Does he know? —Yes, he does.}} **Amb paraula interrogativa**, {{do}} va just darrere: {{Where do you live?}} «On vius?» {{What does she do?}} «A què es dedica?» {{Why don't you come?}} «Per què no vens?»"},
+        { "ex": [
+          {"t":"Do you have a car?","tr":"Tens cotxe?"},
+          {"t":"Where do you work?","tr":"On treballes?"},
+          {"t":"Does she speak English?","tr":"Parla anglès?"},
+          {"t":"I don't understand.","tr":"No ho entenc."},
+          {"t":"My dad doesn't drink coffee.","tr":"El meu pare no beu cafè."},
+          {"t":"Do they live here? —No, they don't.","tr":"Viuen aquí? —No."}
+        ] },
+        {"tip":"{{I don't know}} «No ho sé» és potser la frase més útil de totes. Fixa't que l'anglès no posa res per al «ho»."}
+      ],
+      "mistakes": [
+        {"wrong":"You speak English?","right":"Do you speak English?","tr":"Parles anglès?","why":"Les preguntes amb un verb normal necessiten {{do}}."},
+        {"wrong":"She doesn't works here.","right":"She doesn't work here.","tr":"No treballa aquí.","why":"Amb {{doesn't}}, el verb torna a la forma bàsica: {{work}}."},
+        {"wrong":"I no understand.","right":"I don't understand.","tr":"No ho entenc.","why":"«No» davant d'un verb és {{don't}}, no {{no}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ you live near here?","tr":"Vius a prop d'aquí?","options":["Do","Are","Does"],"answer":0,"why":"Un verb normal ({{live}}) amb {{you}}: {{Do}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My sister ___ eat meat.","tr":"La meva germana no menja carn.","options":["doesn't","don't","isn't"],"answer":0,"why":"Amb {{she}}: {{doesn't}}, i el verb sense {{-s}}."},
+        {"type":"choice","q":"{{Does he work on Saturdays?}} La resposta curta és…","options":["{{Yes, he does.}}","{{Yes, he works.}}","{{Yes, he is.}}"],"answer":0,"why":"Es respon amb el mateix verb ajudant de la pregunta: {{does}}."},
+        {"type":"dialogue","q":"Coneixes algú a classe. Tria les respostes.","lines":[{"who":"Company","t":"Do you work?","tr":"Treballes?"},{"options":["Yes, I do. I work in a store.","Yes, I am. I work in a store."],"answer":0,"why":"La pregunta era amb {{do}}: {{Yes, I do.}}"},{"who":"Company","t":"Where does your wife work?","tr":"On treballa la teva dona?"},{"options":["She works in a hospital.","She work in a hospital."],"answer":0,"why":"Amb {{she}}, el verb porta {{-s}}: {{works}}."}],"from":"say-what-you-do"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"On viu la teva germana?","words":["Where","does","your sister","live?"]},
+        {"type":"say","q":"Digues «No ho entenc».","answer":"I don't understand."},
+        {"type":"free","q":"Et toca: escriu dues preguntes amb {{do}} per a un amic nou, i una cosa que no fas mai, amb {{don't}}.","answers":[{"t":"Do you live near here? Do you have kids? I don't drink coffee.","tr":"Vius a prop d'aquí? Tens fills? Jo no bec cafè."},{"t":"Where do you work? Do you speak Catalan? I don't watch TV.","tr":"On treballes? Parles català? Jo no miro la tele."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Digues què t'agrada",
+      "summary": "Digues què t'agrada i què no, pregunta als altres i respon {{Me too}}: {{I like coffee, but I don't like tea very much.}}",
+      "topic": "{{like}}, {{love}}, {{hate}} (+ {{-ing}}); el subjecte és la persona; les coses en general, sense {{the}}; {{me too}}, {{me neither}}",
+      "blocks": [
+        {"goal":{"t":"I like coffee, but I don't like tea very much.","tr":"M'agrada el cafè, però el te no gaire."}},
+        {"dialog":[{"who":"Max","t":"Do you like soccer?","tr":"T'agrada el futbol?"},{"who":"Núria","t":"Yes, I love it! Do you?","tr":"Sí, m'encanta! I a tu?"},{"who":"Max","t":"Not really. I like basketball.","tr":"No gaire. M'agrada el bàsquet."},{"who":"Núria","t":"Do you like horror movies?","tr":"T'agraden les pel·lícules de por?"},{"who":"Max","t":"No, I hate them!","tr":"No, les odio!"},{"who":"Núria","t":"Me too! I like comedies.","tr":"Jo també! M'agraden les comèdies."}]},
+        {"p":"**Al revés que en català.** En català, la cosa és el subjecte: «m'agrada el cafè», el cafè m'agrada a mi. En anglès, el subjecte és la persona: {{I like coffee.}}, literalment «jo agrado el cafè». Per això el verb canvia segons la persona, {{I like}}, {{she likes}} (lliçó 12), i no segons la cosa."},
+        { "table": [
+          ["català","anglès"],
+          ["M'agrada el cafè.","{{I like coffee.}}"],
+          ["M'agraden els gats.","{{I like cats.}}"],
+          ["Li agrada el jazz.","{{She likes jazz.}}"],
+          ["T'agrada?","{{Do you like it?}}"],
+          ["No m'agrada.","{{I don't like it.}}"],
+          ["M'encanta.","{{I love it.}}"]
+        ] },
+        {"p":"**Les coses en general, sense {{the}}.** En català diem «m'agrada el cafè», «m'agraden els gossos». En anglès, quan parles d'una cosa en general, no hi va {{the}}: {{I like coffee.}} {{I love dogs.}} {{Life is beautiful.}} «La vida és bonica.» Amb {{the}} vol dir una cosa concreta: {{I like the coffee here.}} «M'agrada el cafè d'aquí.»"},
+        {"p":"**{{it}} i {{them}}.** Si no dius la cosa, cal {{it}} o {{them}}: {{Do you like it?}} «T'agrada?» {{I love them!}} «M'encanten!» Mai {{I like}} tot sol."},
+        {"p":"**Fer coses.** Amb un verb, la forma en {{-ing}}: {{I like swimming.}} «M'agrada nedar.» {{She loves cooking.}} «Li encanta cuinar.» **Estar d'acord:** {{Me too.}} «Jo també.» Després d'una negativa, {{Me neither.}} «Jo tampoc.» I la quantitat va al final: {{I like it a lot.}} «M'agrada molt.» {{I don't like it at all.}} «No m'agrada gens.»"},
+        { "ex": [
+          {"t":"I love traveling.","tr":"M'encanta viatjar."},
+          {"t":"Do you like Italian food?","tr":"T'agrada el menjar italià?"},
+          {"t":"My son likes dinosaurs.","tr":"Al meu fill li agraden els dinosaures."},
+          {"t":"I don't like cold weather at all.","tr":"No m'agrada gens el fred."},
+          {"t":"I hate getting up early.","tr":"Odio llevar-me d'hora."},
+          {"t":"I like this song a lot.","tr":"M'agrada molt aquesta cançó."}
+        ] },
+        {"tip":"Compte amb l'ordre: «m'agrada molt el cafè» és {{I like coffee very much}} o {{I really like coffee}}, mai {{I like very much coffee}}. En anglès, res no es posa entre el verb i la cosa."}
+      ],
+      "mistakes": [
+        {"wrong":"I like very much coffee.","right":"I like coffee very much.","tr":"M'agrada molt el cafè.","why":"Res no va entre el verb i la cosa: {{very much}} va al final."},
+        {"wrong":"I like the dogs.","right":"I like dogs.","tr":"M'agraden els gossos.","why":"Els gossos en general: sense {{the}}."},
+        {"wrong":"Do you like? —Yes, I like.","right":"Do you like it? —Yes, I do.","tr":"T'agrada? —Sí.","why":"{{like}} necessita la cosa ({{it}}), i la resposta curta és {{I do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My daughter ___ horses.","tr":"A la meva filla li agraden els cavalls.","options":["likes","like","is like"],"answer":0,"why":"El subjecte és la meva filla ({{she}}): {{likes}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I love ___ in the ocean.","tr":"M'encanta nedar al mar.","options":["swimming","swim","to swimming"],"answer":0,"why":"Amb {{love}} i {{like}}, sovint la forma en {{-ing}}."},
+        {"type":"choice","q":"«M'agrada la música» (en general) és…","options":["{{I like music.}}","{{I like the music.}}","{{Music likes me.}}"],"answer":0,"why":"En general, sense {{the}}; i el subjecte és la persona."},
+        {"type":"dialogue","q":"Planegeu un sopar. Tria les respostes.","lines":[{"who":"Amiga","t":"Do you like fish?","tr":"T'agrada el peix?"},{"options":["Yes, I do. I love it!","Yes, I like. I love!"],"answer":0,"why":"Resposta curta {{I do}}, i {{love}} necessita {{it}}."},{"who":"Amiga","t":"I don't like spicy food.","tr":"A mi no m'agrada el menjar picant."},{"options":["Me neither.","Me too."],"answer":0,"why":"Després d'una negativa, «jo tampoc» és {{Me neither}}."}],"from":"do-and-dont"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"M'agrada molt el cafè.","words":["I","like","coffee","very much."]},
+        {"type":"say","q":"Pregunta a un amic «T'agrada cuinar?»","answer":"Do you like cooking?"},
+        {"type":"free","q":"Et toca: digues dues coses que t'agraden i una que no t'agrada gens.","answers":[{"t":"I love the beach and I like dogs, but I don't like hot weather at all.","tr":"M'encanta la platja i m'agraden els gossos, però no m'agrada gens la calor."},{"t":"I like reading and cooking. I hate horror movies.","tr":"M'agrada llegir i cuinar. Odio les pel·lícules de por."}]}
+      ]
+    },
+    {
+      "id": "describe-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Explica la teva rutina",
+      "summary": "Explica el teu dia, des que et lleves fins que te'n vas a dormir: {{I get up at seven and have breakfast at seven thirty.}}",
+      "topic": "Els verbs de la rutina: {{get up}}, {{take a shower}}, {{have breakfast}}, {{go to bed}}; sense «em» ni «et»; {{first}}, {{then}}",
+      "blocks": [
+        {"goal":{"t":"I get up at seven and have breakfast at seven thirty.","tr":"Em llevo a les set i esmorzo a dos quarts de vuit."}},
+        {"dialog":[{"who":"Sara","t":"What time do you get up?","tr":"A quina hora et lleves?"},{"who":"Ben","t":"At six. I start work at seven.","tr":"A les sis. Començo a treballar a les set."},{"who":"Sara","t":"Wow! Do you have breakfast at home?","tr":"Ostres! Esmorzes a casa?"},{"who":"Ben","t":"No, I just have a coffee. Then I take a shower and go.","tr":"No, només em prenc un cafè. Després em dutxo i me'n vaig."},{"who":"Sara","t":"And what time do you go to bed?","tr":"I a quina hora te'n vas a dormir?"},{"who":"Ben","t":"Early. At ten!","tr":"D'hora. A les deu!"}]},
+        {"p":"**Sense «em» ni «et».** En català, molts verbs de la rutina porten «em», «et», «es»: «em llevo», «em dutxo», «em vesteixo». En anglès no porten res: {{I get up.}} «Em llevo.» {{I get dressed.}} «Em vesteixo.» Mai {{I get up me}}."},
+        { "table": [
+          ["català","anglès"],
+          ["em desperto","{{I wake up}}"],
+          ["em llevo","{{I get up}}"],
+          ["em dutxo","{{I take a shower}}"],
+          ["em vesteixo","{{I get dressed}}"],
+          ["esmorzo, dino, sopo","{{I have breakfast}}, {{lunch}}, {{dinner}}"],
+          ["vaig a la feina","{{I go to work}}"],
+          ["arribo a casa","{{I get home}}"],
+          ["me'n vaig a dormir","{{I go to bed}}"]
+        ] },
+        {"p":"**{{have}} per als àpats.** «Esmorzar», «dinar» i «sopar» són {{have breakfast}}, {{have lunch}} i {{have dinner}}, sense article: {{We have lunch at one.}} «Dinem a la una.» Als Estats Units es dina d'hora, cap a les dotze, i se sopa cap a les sis o les set."},
+        {"p":"**En ordre.** {{first}} «primer», {{then}} «després», {{after that}} «després d'això», {{finally}} «finalment». I les parts del dia: {{in the morning}} «al matí», {{in the afternoon}} «a la tarda», {{in the evening}} «al vespre», {{at night}} «a la nit»."},
+        { "ex": [
+          {"t":"I wake up at seven, but I get up at seven fifteen.","tr":"Em desperto a les set, però em llevo a un quart de vuit."},
+          {"t":"My kids get dressed by themselves.","tr":"Els meus fills es vesteixen sols."},
+          {"t":"We take a shower in the evening.","tr":"Ens dutxem al vespre."},
+          {"t":"First I brush my teeth, then I get dressed.","tr":"Primer em rento les dents, i després em vesteixo.","note":"{{my teeth}}: amb el cos, l'anglès diu «les meves dents»"},
+          {"t":"What time do you have lunch?","tr":"A quina hora dines?"},
+          {"t":"I usually go to bed at eleven.","tr":"Normalment me'n vaig a dormir a les onze."}
+        ] },
+        {"tip":"Amb el cos, l'anglès fa servir el possessiu on el català posa l'article: «em rento les mans» és {{I wash my hands}}, «em pentino» és {{I brush my hair}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I shower me at eight.","right":"I take a shower at eight.","tr":"Em dutxo a les vuit.","why":"Els verbs de la rutina no porten «em» en anglès."},
+        {"wrong":"I brush the teeth.","right":"I brush my teeth.","tr":"Em rento les dents.","why":"Amb el cos, l'anglès diu {{my}}: {{my teeth}}."},
+        {"wrong":"I have the breakfast at eight.","right":"I have breakfast at eight.","tr":"Esmorzo a les vuit.","why":"Els àpats van sense article: {{have breakfast}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I ___ up at six every day.","tr":"Em llevo a les sis cada dia.","options":["get","am","do"],"answer":0,"why":"«Llevar-se» és {{get up}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"She ___ breakfast at home.","tr":"Esmorza a casa.","options":["has","haves","is"],"answer":0,"why":"«Esmorzar» és {{have breakfast}}, i amb {{she}}, {{has}}.","from":"say-what-you-do"},
+        {"type":"choice","q":"«Em rento les mans» és…","options":["{{I wash my hands.}}","{{I wash me the hands.}}","{{I wash the hands.}}"],"answer":0,"why":"Sense «em», i amb el possessiu {{my}}."},
+        {"type":"dialogue","q":"Un amic et pregunta per què sempre estàs cansat. Tria les respostes.","lines":[{"who":"Amic","t":"What time do you get up?","tr":"A quina hora et lleves?"},{"options":["I get up at five!","I get me up at five!"],"answer":0,"why":"Sense «em»: {{I get up}}."},{"who":"Amic","t":"Why so early?","tr":"Per què tan d'hora?"},{"options":["I go to the gym before work.","I go me to the gym before work."],"answer":0,"why":"«Anar» és {{go}}, sense cap pronom."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Primer em dutxo i després esmorzo.","words":["First","I take","a shower,","then I","have breakfast."]},
+        {"type":"say","q":"Pregunta «A quina hora te'n vas a dormir?»","answer":"What time do you go to bed?"},
+        {"type":"free","q":"Et toca: explica el teu matí, des que et despertes fins que surts de casa. Fes servir {{first}} i {{then}}.","answers":[{"t":"I wake up at seven. First I take a shower, then I have breakfast, and at eight I go to work.","tr":"Em desperto a les set. Primer em dutxo, després esmorzo i a les vuit vaig a la feina."},{"t":"I get up late, I get dressed, and then I have a coffee.","tr":"Em llevo tard, em vesteixo i després em prenc un cafè."}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 3,
+      "level": "A1",
+      "title": "Digues l'hora i quan",
+      "summary": "Digues l'hora i quan passen les coses, i queda amb algú: {{See you on Friday at eight!}}",
+      "topic": "{{What time is it?}}; {{at}}, {{on}}, {{in}} per al temps; la majúscula dels dies i dels mesos",
+      "blocks": [
+        {"goal":{"t":"See you on Friday at eight!","tr":"Ens veiem divendres a les vuit!"}},
+        {"dialog":[{"who":"Kate","t":"Are you free this week?","tr":"Estàs lliure aquesta setmana?"},{"who":"Oriol","t":"On Friday, yes.","tr":"Divendres, sí."},{"who":"Kate","t":"Great! Dinner at eight?","tr":"Genial! Sopem a les vuit?"},{"who":"Oriol","t":"Perfect. What time is it now?","tr":"Perfecte. Quina hora és ara?"},{"who":"Kate","t":"It's five thirty. I have to go!","tr":"Són dos quarts de sis. Me n'he d'anar!"},{"who":"Oriol","t":"OK, see you on Friday!","tr":"D'acord, fins divendres!"}]},
+        {"p":"**Quina hora és?** {{What time is it?}} La resposta va sempre amb {{it's}} (lliçó 3): {{It's ten.}} «Són les deu.» {{It's ten o'clock.}} (en punt). La manera més fàcil és dir l'hora i els minuts: {{It's five thirty}} (5:30), {{It's six fifteen}} (6:15), {{It's seven forty-five}} (7:45). També se sent {{half past five}} (5:30), {{a quarter past six}} (6:15) i {{a quarter to eight}} (7:45)."},
+        {"p":"**{{a.m.}} i {{p.m.}}** Als Estats Units es compten les hores d'1 a 12: {{9 a.m.}} és al matí, {{9 p.m.}} és al vespre. {{noon}} és «migdia» i {{midnight}}, «mitjanit»."},
+        {"p":"**{{at}}, {{on}}, {{in}}.** El català fa servir «a» o res: «a les vuit», «divendres», «al juliol». L'anglès en té tres:"},
+        { "table": [
+          ["","per a…","exemples"],
+          ["{{at}}","una hora","{{at 8:00}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","un dia, una data","{{on Monday}}, {{on May 3}}, {{on the weekend}}"],
+          ["{{in}}","un mes, un any, una estació, una part del dia","{{in July}}, {{in 2020}}, {{in summer}}, {{in the morning}}"]
+        ] },
+        {"p":"**Amb majúscula.** En català els dies i els mesos van en minúscula; en anglès, sempre amb majúscula: {{Monday}}, {{Tuesday}}, {{Wednesday}}, {{Thursday}}, {{Friday}}, {{Saturday}}, {{Sunday}}; {{January}}, {{February}}, {{March}}…"},
+        { "ex": [
+          {"t":"What time is it?","tr":"Quina hora és?"},
+          {"t":"It's a quarter past three.","tr":"És un quart de quatre."},
+          {"t":"The store opens at nine.","tr":"La botiga obre a les nou."},
+          {"t":"I have Catalan class on Tuesdays.","tr":"Els dimarts tinc classe de català."},
+          {"t":"My birthday is in June.","tr":"El meu aniversari és al juny."},
+          {"t":"We don't work on the weekend.","tr":"No treballem el cap de setmana."}
+        ] },
+        {"tip":"Als Estats Units les dates s'escriuen amb el mes primer: {{5/3}} és el 3 de maig, no el 5 de març! I es diu {{May third}}."}
+      ],
+      "mistakes": [
+        {"wrong":"See you in Friday.","right":"See you on Friday.","tr":"Fins divendres.","why":"Amb els dies, {{on}}."},
+        {"wrong":"I work in the night.","right":"I work at night.","tr":"Treballo a la nit.","why":"«A la nit» és {{at night}} (però {{in the morning}})."},
+        {"wrong":"See you on monday.","right":"See you on Monday.","tr":"Fins dilluns.","why":"Els dies de la setmana van amb majúscula."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"The class starts ___ six.","tr":"La classe comença a les sis.","options":["at","on","in"],"answer":0,"why":"Una hora: {{at}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My birthday is ___ March.","tr":"El meu aniversari és al març.","options":["in","on","at"],"answer":0,"why":"Un mes: {{in}}."},
+        {"type":"choice","q":"{{It's six forty-five.}} Quina hora és?","options":["Tres quarts de set (6:45).","Un quart de set (6:15).","Les set menys deu."],"answer":0,"why":"{{six forty-five}}: les 6:45."},
+        {"type":"dialogue","q":"Quedes amb un amic. Tria les respostes.","lines":[{"who":"Amic","t":"Do you work on Saturday?","tr":"Treballes dissabte?"},{"options":["No, I don't. I'm free on Saturday.","No, I'm not. I'm free in Saturday."],"answer":0,"why":"Pregunta amb {{do}}: {{No, I don't}}; i amb els dies, {{on}}."},{"who":"Amic","t":"Great! Lunch at one?","tr":"Genial! Dinem a la una?"},{"options":["Perfect. See you at one!","Perfect. See you in one!"],"answer":0,"why":"Una hora: {{at}}."}],"from":"do-and-dont"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Ens veiem divendres a les vuit.","words":["See you","on Friday","at","eight."]},
+        {"type":"say","q":"Pregunta «Quina hora és?»","answer":"What time is it?"},
+        {"type":"free","q":"Et toca: convida algú a fer alguna cosa. Digues el dia i l'hora, amb {{on}} i {{at}}.","answers":[{"t":"Let's have coffee on Sunday at eleven!","tr":"Fem un cafè diumenge a les onze!"},{"t":"There's a concert on Friday at nine. Are you free?","tr":"Divendres a les nou hi ha un concert. Estàs lliure?"}]}
+      ]
+    },
+    {
+      "id": "say-whats-happening",
+      "unit": 3,
+      "level": "A1",
+      "title": "Digues què estàs fent ara",
+      "summary": "Digues què passa en aquest moment, i distingeix-ho del que fas cada dia: {{I'm cooking dinner right now.}}",
+      "topic": "El present continu: {{am}}, {{is}}, {{are}} + {{-ing}}; present simple o present continu",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now.","tr":"Ara mateix estic fent el sopar."}},
+        {"dialog":[{"who":"Mare","t":"Hi, honey! What are you doing?","tr":"Hola, carinyo! Què fas?"},{"who":"Jan","t":"I'm cooking. I have friends over.","tr":"Estic cuinant. Tinc amics a casa."},{"who":"Mare","t":"Oh! What are you making?","tr":"Ah! I què fas?"},{"who":"Jan","t":"Paella! But I can't talk now. They're waiting.","tr":"Paella! Però ara no puc parlar. M'estan esperant."},{"who":"Mare","t":"OK, call me tomorrow!","tr":"D'acord, truca'm demà!"}]},
+        {"term":"forma en -ing","means":"la forma del verb acabada en {{-ing}}, semblant al gerundi català («cuinant»): {{cooking}}, {{reading}}."},
+        {"p":"**Ara mateix.** Per a una acció que passa en aquest moment, l'anglès fa servir {{be}} + la forma en {{-ing}}: {{I'm cooking.}} «Estic cuinant», «Cuino (ara)». En català sovint n'hi ha prou amb el present («Ara treballo»); en anglès, no: si passa ara, és {{I'm working}}, mai {{I work now}}."},
+        { "table": [
+          ["","afirmativa","pregunta","negativa"],
+          ["{{I}}","{{I'm working.}}","{{Am I working?}}","{{I'm not working.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She's working.}}","{{Is she working?}}","{{She isn't working.}}"],
+          ["{{you}}, {{we}}, {{they}}","{{They're working.}}","{{Are they working?}}","{{They aren't working.}}"]
+        ] },
+        {"p":"**Simple o continu?** El present simple (lliçó 12) és per al que fas habitualment; el continu, per al que fas ara o aquests dies: {{I work in a hotel.}} «Treballo en un hotel» (és la meva feina). {{I'm working at home today.}} «Avui treballo des de casa.»"},
+        {"p":"**L'ortografia de {{-ing}}.** Normalment s'afegeix i prou: {{read}} → {{reading}}. Una {{-e}} final cau: {{make}} → {{making}}. Una consonant final darrere d'una vocal curta es dobla: {{run}} → {{running}}, {{swim}} → {{swimming}}."},
+        { "ex": [
+          {"t":"What are you doing?","tr":"Què fas? (ara)"},
+          {"t":"It's raining.","tr":"Plou."},
+          {"t":"We're watching a movie.","tr":"Estem mirant una pel·lícula."},
+          {"t":"The kids are sleeping.","tr":"Els nens dormen."},
+          {"t":"She isn't working today.","tr":"Avui no treballa."},
+          {"t":"I'm looking for a job.","tr":"Busco feina.","note":"aquests dies: encara passa"}
+        ] },
+        {"tip":"La {{-ing}} final es pronuncia amb la «ng» nasal de «sang», sense cap «g» al final: {{cooking}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I cook now.","right":"I'm cooking now.","tr":"Ara cuino.","why":"Si passa ara mateix: {{be}} + {{-ing}}, {{I'm cooking}}."},
+        {"wrong":"She working.","right":"She's working.","tr":"Està treballant.","why":"Cal {{be}} davant de la forma en {{-ing}}: {{she's}}."},
+        {"wrong":"I'm work in a hotel.","right":"I work in a hotel.","tr":"Treballo en un hotel.","why":"Per a la teva feina habitual, el present simple, sense {{be}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Shh! The baby ___ sleeping.","tr":"Xst! El nadó dorm.","options":["is","are","does"],"answer":0,"why":"Ara mateix: {{be}} + {{-ing}}; amb {{the baby}}, {{is}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"What ___ you doing?","tr":"Què fas? (ara)","options":["are","do","is"],"answer":0,"why":"Present continu: {{are you doing}}."},
+        {"type":"choice","q":"Quina frase parla del que passa ara?","options":["{{I'm reading a great book.}}","{{I read every night.}}"],"answer":0,"why":"{{be}} + {{-ing}}: ara, aquests dies. {{I read every night}} és un hàbit."},
+        {"type":"dialogue","q":"Un amic et truca. Tria les respostes.","lines":[{"who":"Amic","t":"Hey! Are you busy?","tr":"Ei! Estàs enfeinat?"},{"options":["Yes, I'm driving. Can I call you later?","Yes, I drive. Can I call you later?"],"answer":0,"why":"Ara mateix: {{I'm driving}}."},{"who":"Amic","t":"Sure! Do you drive to work every day?","tr":"És clar! Vas a la feina en cotxe cada dia?"},{"options":["No, I usually take the train.","No, I'm usually taking the train."],"answer":0,"why":"Un hàbit: el present simple, {{I usually take}}."}],"from":"say-what-you-do"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Estem mirant una pel·lícula.","words":["We're","watching","a","movie."]},
+        {"type":"say","q":"Digues «Plou».","answer":"It's raining."},
+        {"type":"free","q":"Et toca: què estàs fent ara? I què fa algú de casa teva?","answers":[{"t":"Right now I'm studying English, and my partner is cooking.","tr":"Ara mateix estudio anglès, i la meva parella està cuinant."},{"t":"I'm waiting for the bus, and it's raining!","tr":"Estic esperant l'autobús, i plou!"}]}
+      ]
     }
   ]
 }
