@@ -333,7 +333,7 @@
       "unit": 2,
       "level": "A1",
       "title": "Расспросить человека о его жизни",
-      "summary": "Спросите, где человек живёт, что любит и чем занимается: «Where do you work? Does she speak Russian?»",
+      "summary": "Спросите, где человек живёт, что любит и чем занимается: {{Where do you work? Does she speak Russian?}}",
       "topic": "{{do}} и {{does}} в вопросах; {{Where do you…?}}; краткие ответы {{Yes, I do}}",
       "blocks": [
         {"goal":{"t":"Where do you live? Do you like it?","tr":"Где вы живёте? Вам там нравится?"}},
@@ -550,7 +550,7 @@
       "unit": 2,
       "level": "A1",
       "title": "Сказать, что вам нравится и чего вы хотите",
-      "summary": "Скажите, что вы любите, что любите делать и чего хотите: «I like jazz. I want to see New York».",
+      "summary": "Скажите, что вы любите, что любите делать и чего хотите: {{I like jazz. I want to see New York}}.",
       "topic": "{{I like}} (подлежащее — вы!); {{like}} + {{-ing}}; {{want to}}; {{would like}}; вещи вообще — без {{the}}",
       "blocks": [
         {"goal":{"t":"I love jazz, and I want to see New York.","tr":"Я люблю джаз и хочу увидеть Нью-Йорк."}},
@@ -593,7 +593,7 @@
       "unit": 2,
       "level": "A1",
       "title": "Сказать, что вы умеете и можете",
-      "summary": "Скажите, что вы умеете, что можно, а что нельзя, и попросите о помощи: «I can swim. Can you help me?»",
+      "summary": "Скажите, что вы умеете, что можно, а что нельзя, и попросите о помощи: {{I can swim. Can you help me?}}",
       "topic": "{{can}} и {{can't}}: умение, возможность, разрешение, просьба",
       "blocks": [
         {"goal":{"t":"I can speak a little English. Can you speak more slowly?","tr":"Я немного говорю по-английски. Можете говорить помедленнее?"}},
@@ -636,8 +636,8 @@
       "unit": 3,
       "level": "A1",
       "title": "Цены, числа и возраст",
-      "summary": "Спросите, сколько что стоит, назовите цену и свой возраст: «How much is it? I'm thirty-five».",
-      "topic": "Числа; {{How much is it?}} и {{How much are they?}}; {{I'm 25}}, а не «I have 25 years»; {{How old are you?}}",
+      "summary": "Спросите, сколько что стоит, назовите цену и свой возраст: {{How much is it? I'm thirty-five}}.",
+      "topic": "Числа; {{How much is it?}} и {{How much are they?}}; {{I'm 25}}, а не {{I have 25 years}}; {{How old are you?}}",
       "blocks": [
         {"goal":{"t":"How much is this jacket? — It's eighty dollars.","tr":"Сколько стоит эта куртка? — Восемьдесят долларов."}},
         {"dialog":[{"who":"Люси","t":"How old is your son?","tr":"Сколько лет твоему сыну?"},{"who":"Ольга","t":"He's seven. And your daughter?","tr":"Семь. А твоей дочке?"},{"who":"Люси","t":"She's twelve. She's in sixth grade.","tr":"Двенадцать. Она в шестом классе."},{"who":"Ольга","t":"Wow! And how old are you, if it's not a secret?","tr":"Ого! А тебе сколько, если не секрет?"},{"who":"Люси","t":"I'm thirty-nine. Don't tell anyone!","tr":"Тридцать девять. Только никому не говори!"}]},
@@ -685,7 +685,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Договориться о времени",
-      "summary": "Спросите, который час, и договоритесь о встрече: «See you on Friday at seven».",
+      "summary": "Спросите, который час, и договоритесь о встрече: {{See you on Friday at seven}}.",
       "topic": "{{What time is it?}}; {{at}}, {{on}}, {{in}} со временем; дни недели и месяцы — с большой буквы",
       "blocks": [
         {"goal":{"t":"Let's meet on Friday at seven.","tr":"Давай встретимся в пятницу в семь."}},
@@ -728,7 +728,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Сказать, где вы и куда идёте",
-      "summary": "Скажите, где вы находитесь и куда направляетесь: «I'm at work. I'm going home at six».",
+      "summary": "Скажите, где вы находитесь и куда направляетесь: {{I'm at work. I'm going home at six}}.",
       "topic": "{{at}} и {{in}} для мест; {{go to}}; {{go home}} без {{to}}; с артиклем или без",
       "blocks": [
         {"goal":{"t":"I'm at work now, but I'm going home at six.","tr":"Я сейчас на работе, а в шесть пойду домой."}},
@@ -772,8 +772,8 @@
       "unit": 3,
       "level": "A1",
       "title": "Погода и самочувствие",
-      "summary": "Скажите, какая погода и как вы себя чувствуете: «It's cold. I'm cold. It's raining».",
-      "topic": "Подлежащее обязательно: {{It's cold}}; {{I'm cold}}, а не «Me is cold»; {{It's raining}}",
+      "summary": "Скажите, какая погода и как вы себя чувствуете: {{It's cold. I'm cold. It's raining}}.",
+      "topic": "Подлежащее обязательно: {{It's cold}}; {{I'm cold}}, а не {{Me is cold}}; {{It's raining}}",
       "blocks": [
         {"goal":{"t":"It's cold and it's raining. I'm freezing!","tr":"Холодно, и идёт дождь. Я замёрз!"}},
         {"dialog":[{"who":"Кейт","t":"How's the weather in Moscow?","tr":"Какая в Москве погода?"},{"who":"Иван","t":"It's snowing. It's minus ten!","tr":"Идёт снег. Минус десять!"},{"who":"Кейт","t":"Wow! Are you cold?","tr":"Ого! Тебе холодно?"},{"who":"Иван","t":"No, I'm fine. It's warm in my apartment.","tr":"Нет, всё хорошо. В квартире тепло."},{"who":"Кейт","t":"Here it's sunny and hot. I love it!","tr":"А у нас солнечно и жарко. Обожаю!"}]},
@@ -823,7 +823,7 @@
       "unit": 3,
       "level": "A1",
       "title": "Сказать, где вы были",
-      "summary": "Расскажите, где вы были вчера и каким был день: «I was at home. The weather was terrible».",
+      "summary": "Расскажите, где вы были вчера и каким был день: {{I was at home. The weather was terrible}}.",
       "topic": "{{was}} и {{were}}; {{Where were you?}}; {{there was}}, {{there were}}; {{I was born}}",
       "blocks": [
         {"goal":{"t":"Yesterday I was at home all day. The weather was terrible.","tr":"Вчера я весь день был дома. Погода была ужасная."}},
@@ -865,7 +865,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Рассказать, что вы делали",
-      "summary": "Расскажите, что вы делали вчера: «I worked, I cooked, I watched a movie».",
+      "summary": "Расскажите, что вы делали вчера: {{I worked, I cooked, I watched a movie}}.",
       "topic": "Past Simple правильных глаголов: {{-ed}} и три способа его произносить",
       "blocks": [
         {"goal":{"t":"Yesterday I worked late, then I cooked dinner and watched a movie.","tr":"Вчера я допоздна работал, потом приготовил ужин и посмотрел фильм."}},
@@ -910,7 +910,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Рассказать о поездке",
-      "summary": "Расскажите, куда ездили, что видели и купили, и расспросите других: «Did you go to Paris? We saw the Eiffel Tower!»",
+      "summary": "Расскажите, куда ездили, что видели и купили, и расспросите других: {{Did you go to Paris? We saw the Eiffel Tower!}}",
       "topic": "Неправильные глаголы ({{went}}, {{saw}}, {{had}}); {{did}} в вопросах и отрицаниях: {{Did you go?}}, {{I didn't go}}",
       "blocks": [
         {"goal":{"t":"Last summer we went to Italy. We saw Rome and ate a lot of pizza!","tr":"Прошлым летом мы ездили в Италию. Видели Рим и съели кучу пиццы!"}},
@@ -962,7 +962,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Описать, что происходило",
-      "summary": "Опишите фон событий — что вы делали, когда что-то случилось: «I was cooking when the lights went out».",
+      "summary": "Опишите фон событий — что вы делали, когда что-то случилось: {{I was cooking when the lights went out}}.",
       "topic": "Past Continuous: {{was}}/{{were}} + {{-ing}}; {{when}} и {{while}}",
       "blocks": [
         {"goal":{"t":"I was cooking dinner when the lights went out.","tr":"Я готовила ужин, когда погас свет."}},
@@ -1005,7 +1005,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Рассказать о планах",
-      "summary": "Расскажите, что вы собираетесь сделать и о чём уже договорились: «I'm going to learn to drive. I'm meeting Tom tomorrow».",
+      "summary": "Расскажите, что вы собираетесь сделать и о чём уже договорились: {{I'm going to learn to drive. I'm meeting Tom tomorrow}}.",
       "topic": "{{be going to}} для планов и намерений; Present Continuous для договорённостей",
       "blocks": [
         {"goal":{"t":"This summer I'm going to learn to swim.","tr":"Этим летом я собираюсь научиться плавать."}},
@@ -1046,7 +1046,7 @@
       "unit": 4,
       "level": "A2",
       "title": "Пообещать, предложить, предсказать",
-      "summary": "Пообещайте, предложите помощь, решите что-то на ходу или предскажите: «I'll call you. I'll help! It will be fine».",
+      "summary": "Пообещайте, предложите помощь, решите что-то на ходу или предскажите: {{I'll call you. I'll help! It will be fine}}.",
       "topic": "{{will}}, {{I'll}}, {{won't}}: решение на ходу, обещание, предложение, прогноз; {{Should I…?}}",
       "blocks": [
         {"goal":{"t":"Don't worry, I'll help you.","tr":"Не волнуйся, я тебе помогу."}},
@@ -1133,7 +1133,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Рассказать о своём опыте",
-      "summary": "Спросите «Have you ever…?» и расскажите, что вы уже делали в жизни, а чего никогда не делали.",
+      "summary": "Спросите {{Have you ever…?}} и расскажите, что вы уже делали в жизни, а чего никогда не делали.",
       "topic": "Present Perfect: {{have}}/{{has}} + третья форма; {{ever}}, {{never}}; {{been to}}",
       "blocks": [
         {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"Ты когда-нибудь был в Нью-Йорке? — Нет, ни разу."}},
@@ -1181,7 +1181,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Сообщить новости",
-      "summary": "Сообщите новость и спросите, сделано ли что-то: «I've just finished! Have you eaten yet?»",
+      "summary": "Сообщите новость и спросите, сделано ли что-то: {{I've just finished! Have you eaten yet?}}",
       "topic": "Present Perfect с {{just}}, {{already}}, {{yet}}; новость и подробности",
       "blocks": [
         {"goal":{"t":"Great news! I've just found a new job!","tr":"Отличная новость! Я только что нашёл новую работу!"}},
@@ -1224,7 +1224,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Сказать, как давно",
-      "summary": "Скажите, сколько вы живёте, работаете, знаете кого-то: «I've lived here for five years» — без самой частой ошибки русскоговорящих.",
+      "summary": "Скажите, сколько вы живёте, работаете, знаете кого-то: {{I've lived here for five years}} — без самой частой ошибки русскоговорящих.",
       "topic": "{{have}} + третья форма с {{for}} и {{since}}; {{How long have you…?}}; «живу пять лет» → {{I've lived}}",
       "blocks": [
         {"goal":{"t":"I've lived in Boston for five years.","tr":"Я живу в Бостоне пять лет."}},
@@ -1266,7 +1266,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Сравнить",
-      "summary": "Скажите, что больше, дешевле или лучше и что самое-самое: «The subway is faster than the bus».",
+      "summary": "Скажите, что больше, дешевле или лучше и что самое-самое: {{The subway is faster than the bus}}.",
       "topic": "{{-er}} и {{more}}, {{than}}; {{the -est}} и {{the most}}; {{as … as}}; {{much better}}",
       "blocks": [
         {"goal":{"t":"The subway is faster than the bus, but the bus is cheaper.","tr":"Метро быстрее автобуса, но автобус дешевле."}},
@@ -1313,7 +1313,7 @@
       "unit": 5,
       "level": "A2",
       "title": "Покупки и количество",
-      "summary": "Спросите, сколько чего, и скажите «много», «немного», «совсем нет»: «How many eggs do we need? We don't have much milk».",
+      "summary": "Спросите, сколько чего, и скажите «много», «немного», «совсем нет»: {{How many eggs do we need? We don't have much milk}}.",
       "topic": "Исчисляемые и неисчисляемые; {{much}}, {{many}}, {{a lot of}}, {{a few}}, {{a little}}; {{some}} и {{any}}; {{money}}, {{news}}, {{advice}} — в единственном числе",
       "blocks": [
         {"goal":{"t":"We need some eggs and a little milk. How much money do you have?","tr":"Нам нужны яйца и немного молока. Сколько у тебя денег?"}},
@@ -1409,7 +1409,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Дать совет и объяснить правила",
-      "summary": "Посоветуйте, скажите, что нужно, а что запрещено: «You should see a doctor. You don't have to come. You can't smoke here».",
+      "summary": "Посоветуйте, скажите, что нужно, а что запрещено: {{You should see a doctor. You don't have to come. You can't smoke here}}.",
       "topic": "{{should}}, {{must}}, {{have to}}; {{don't have to}} — это не {{mustn't}}",
       "blocks": [
         {"goal":{"t":"You should rest. You don't have to come to work tomorrow.","tr":"Тебе надо отдохнуть. Завтра можешь не приходить на работу."}},
@@ -1454,7 +1454,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Предложить и объяснить, что делать",
-      "summary": "Предложите что-нибудь сделать вместе и объясните, как что-то сделать: «Let's go! Why don't we take a taxi? Turn left».",
+      "summary": "Предложите что-нибудь сделать вместе и объясните, как что-то сделать: {{Let's go! Why don't we take a taxi? Turn left}}.",
       "topic": "{{Let's…}}, {{Why don't we…?}}, {{How about + -ing?}}; повелительное наклонение и {{Don't…}}",
       "blocks": [
         {"goal":{"t":"Let's go to the beach! — Why don't we go tomorrow?","tr":"Пойдём на пляж! — Может, лучше завтра?"}},
@@ -1497,8 +1497,8 @@
       "unit": 6,
       "level": "A2",
       "title": "Сказать, как часто и насколько",
-      "summary": "Скажите, как часто вы что-то делаете и насколько вам это нравится, — с правильным порядком слов: «I usually get up early. I really like it».",
-      "topic": "Твёрдый порядок слов: подлежащее — глагол — дополнение; {{always}}, {{usually}}, {{never}} перед глаголом и после {{be}}; место и время в конце; {{I really like}}, а не «I very like»",
+      "summary": "Скажите, как часто вы что-то делаете и насколько вам это нравится, — с правильным порядком слов: {{I usually get up early. I really like it}}.",
+      "topic": "Твёрдый порядок слов: подлежащее — глагол — дополнение; {{always}}, {{usually}}, {{never}} перед глаголом и после {{be}}; место и время в конце; {{I really like}}, а не {{I very like}}",
       "blocks": [
         {"goal":{"t":"I usually go to the gym on Mondays. I really like it.","tr":"По понедельникам я обычно хожу в спортзал. Мне очень нравится."}},
         {"dialog":[{"who":"Тренер","t":"How often do you exercise?","tr":"Как часто вы занимаетесь спортом?"},{"who":"Настя","t":"I usually run three times a week.","tr":"Обычно бегаю три раза в неделю."},{"who":"Тренер","t":"Do you ever swim?","tr":"А плаваете?"},{"who":"Настя","t":"Sometimes. I really like swimming, but I'm always busy.","tr":"Иногда. Я очень люблю плавать, но вечно занята."},{"who":"Тренер","t":"You should swim more often. It's great for your back.","tr":"Вам стоит плавать почаще. Это отлично для спины."}]},
@@ -1597,7 +1597,7 @@
       "id": "make-do-say-tell",
       "unit": 6,
       "level": "A2",
-      "title": "Make или do, say или tell",
+      "title": "{{Make}} или {{do}}, {{say}} или {{tell}}",
       "summary": "Одно русское слово — два английских: «делать» — {{make}} и {{do}}, «сказать» — {{say}} и {{tell}}, «говорить» — {{speak}} и {{talk}}.",
       "topic": "{{make}} и {{do}}; {{say}} и {{tell}}; {{speak}} и {{talk}}",
       "blocks": [
@@ -1649,7 +1649,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Сказать, что будет, если…",
-      "summary": "Договоритесь о планах, которые зависят от условий: «If it rains, we'll stay home. I'll call you when I get there».",
+      "summary": "Договоритесь о планах, которые зависят от условий: {{If it rains, we'll stay home. I'll call you when I get there}}.",
       "topic": "Условные предложения первого типа: {{if}}/{{when}} + настоящее время, {{will}} во второй части",
       "blocks": [
         {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Если завтра пойдёт дождь, мы останемся дома."}},
@@ -1692,7 +1692,7 @@
       "unit": 6,
       "level": "A2",
       "title": "Рассказать, как было раньше",
-      "summary": "Расскажите, что вы делали раньше и чего больше не делаете: «I used to live in Moscow. I didn't use to like coffee».",
+      "summary": "Расскажите, что вы делали раньше и чего больше не делаете: {{I used to live in Moscow. I didn't use to like coffee}}.",
       "topic": "{{used to}} + глагол; {{didn't use to}}; {{Did you use to…?}}",
       "blocks": [
         {"goal":{"t":"I used to smoke, but I quit five years ago.","tr":"Раньше я курил, но бросил пять лет назад."}},
@@ -1780,7 +1780,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Уточнить, о ком и о чём речь",
-      "summary": "Уточните, кого или что вы имеете в виду: «the woman who lives next door», «the book (that) I'm reading».",
+      "summary": "Уточните, кого или что вы имеете в виду: {{the woman who lives next door}}, {{the book (that) I'm reading}}.",
       "topic": "Придаточные с {{who}}, {{which}}, {{that}}, {{where}}, {{whose}}; {{that}} можно опустить; никакого лишнего {{it}}",
       "blocks": [
         {"goal":{"t":"That's the woman who lives next door.","tr":"Это та женщина, которая живёт по соседству."}},
@@ -1824,7 +1824,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Спросить вежливо и косвенно",
-      "summary": "Спросите дорогу или время по-настоящему вежливо: «Could you tell me where the station is?»",
+      "summary": "Спросите дорогу или время по-настоящему вежливо: {{Could you tell me where the station is?}}",
       "topic": "Косвенные вопросы: {{Do you know where…?}}, {{Could you tell me what…?}}; прямой порядок слов; {{if}} для «ли»",
       "blocks": [
         {"goal":{"t":"Excuse me, could you tell me where the train station is?","tr":"Извините, не подскажете, где вокзал?"}},
@@ -1867,7 +1867,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Передать чужие слова",
-      "summary": "Перескажите, что вам сказали и о чём спросили: «She said she was tired. He asked if I liked it».",
+      "summary": "Перескажите, что вам сказали и о чём спросили: {{She said she was tired. He asked if I liked it}}.",
       "topic": "{{said}} и {{told}}; время сдвигается назад; {{asked if}}, {{asked where}}; {{told me to}}",
       "blocks": [
         {"goal":{"t":"Anna said she was tired and asked if we could leave early.","tr":"Анна сказала, что устала, и спросила, можем ли мы уйти пораньше."}},
@@ -1912,7 +1912,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Сказать, что что-то было сделано",
-      "summary": "Говорите о том, что делается или было сделано, когда неважно кем: «English is spoken here. The house was built in 1900».",
+      "summary": "Говорите о том, что делается или было сделано, когда неважно кем: {{English is spoken here. The house was built in 1900}}.",
       "topic": "Страдательный залог: {{be}} + третья форма; {{is made}}, {{was built}}, {{has been stolen}}; {{by}}",
       "blocks": [
         {"goal":{"t":"This bridge was built in 1883.","tr":"Этот мост построили в 1883 году."}},
@@ -1956,7 +1956,7 @@
       "unit": 7,
       "level": "B1",
       "title": "Помечтать и представить",
-      "summary": "Помечтайте и представьте: «If I had more time, I would travel. I wish I spoke English better».",
+      "summary": "Помечтайте и представьте: {{If I had more time, I would travel. I wish I spoke English better}}.",
       "topic": "Условные предложения второго типа: {{If I had…, I would…}}; {{If I were you}}; {{I wish}} + прошедшее",
       "blocks": [
         {"goal":{"t":"If I had more money, I would travel around the world.","tr":"Если бы у меня было больше денег, я бы объездил весь мир."}},
@@ -1999,8 +1999,8 @@
       "unit": 7,
       "level": "B1",
       "title": "Высказать мнение, согласиться и возразить",
-      "summary": "Скажите, что вы думаете, согласитесь или вежливо возразите: «I don't think he'll come. I agree with you».",
-      "topic": "{{I think}}, {{I don't think}} + утверждение; {{I agree}} (а не «I am agree»); {{In my opinion}}; {{I'm not sure}}",
+      "summary": "Скажите, что вы думаете, согласитесь или вежливо возразите: {{I don't think he'll come. I agree with you}}.",
+      "topic": "{{I think}}, {{I don't think}} + утверждение; {{I agree}} (а не {{I am agree}}); {{In my opinion}}; {{I'm not sure}}",
       "blocks": [
         {"goal":{"t":"I don't think it's a good idea, but I agree that we need a change.","tr":"По-моему, это не лучшая идея, но я согласен, что нам нужны перемены."}},
         {"dialog":[{"who":"Начальник","t":"What do you think about working from home on Fridays?","tr":"Что вы думаете о том, чтобы по пятницам работать из дома?"},{"who":"Ольга","t":"I think it's a great idea. People will be happier.","tr":"По-моему, отличная идея. Люди будут довольнее."},{"who":"Марк","t":"I agree with Olga. But I don't think it'll work for everyone.","tr":"Я согласен с Ольгой. Но не думаю, что это подойдёт всем."},{"who":"Начальник","t":"Why not?","tr":"Почему?"},{"who":"Марк","t":"In my opinion, some teams need to meet in person.","tr":"На мой взгляд, некоторым командам нужно встречаться лично."},{"who":"Ольга","t":"That's a good point.","tr":"Справедливо."}]},
@@ -2043,7 +2043,7 @@
       "unit": 8,
       "level": "B1",
       "title": "Рассказать, чем вы заняты в последнее время",
-      "summary": "Скажите, сколько уже длится то, что вы делаете, и чем вы заняты последнее время: «I've been waiting for an hour! I've been learning English since May».",
+      "summary": "Скажите, сколько уже длится то, что вы делаете, и чем вы заняты последнее время: {{I've been waiting for an hour! I've been learning English since May}}.",
       "topic": "Present Perfect Continuous: {{have been}} + {{-ing}}; {{How long have you been…?}}; {{lately}}",
       "blocks": [
         {"goal":{"t":"I've been learning English for two years.","tr":"Я учу английский уже два года."}},
@@ -2088,7 +2088,7 @@
       "unit": 8,
       "level": "B1",
       "title": "Рассказать историю",
-      "summary": "Расскажите историю по порядку — что происходило, что случилось и что было ещё раньше: «When I got to the station, the train had already left».",
+      "summary": "Расскажите историю по порядку — что происходило, что случилось и что было ещё раньше: {{When I got to the station, the train had already left}}.",
       "topic": "Времена рассказа: Past Simple, Past Continuous, Past Perfect ({{had}} + третья форма); {{first}}, {{then}}, {{suddenly}}, {{in the end}}",
       "blocks": [
         {"goal":{"t":"When I got to the station, the train had already left.","tr":"Когда я добрался до вокзала, поезд уже ушёл."}},
@@ -2180,7 +2180,7 @@
       "unit": 8,
       "level": "B1",
       "title": "Поддержать разговор",
-      "summary": "Поддакните, переспросите и правильно ответьте на отрицательный вопрос: «It's cold, isn't it? — So do I. — No, I don't».",
+      "summary": "Поддакните, переспросите и правильно ответьте на отрицательный вопрос: {{It's cold, isn't it? — So do I. — No, I don't}}.",
       "topic": "Разделительные вопросы ({{isn't it?}}, {{don't you?}}); {{So do I}}, {{Neither do I}}; ответ на отрицательный вопрос",
       "blocks": [
         {"goal":{"t":"It's a beautiful day, isn't it? — Yes, it is!","tr":"Чудесный день, правда? — Да!"}},
