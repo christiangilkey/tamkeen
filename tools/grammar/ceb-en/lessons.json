@@ -296,6 +296,292 @@
         {"type":"choice","q":"“Taga-Bohol ang iyang asawa.” (lalaki ang tag-iya)","options":["{{His wife is from Bohol.}}","{{Her wife is from Bohol.}}"],"answer":0,"why":"Lalaki ang tag-iya: {{his}}.","from":"talk-about-people"},
         {"type":"free","q":"Ikaw na: isulti ang bahin sa duha ka tawo sa imong pamilya.","answers":[{"t":"I have one sister. Her name is Joy. She's a nurse.","tr":"Naa koy usa ka igsoon nga babaye. Joy ang iyang ngalan. Nars siya."},{"t":"My dad's name is Rudy. He has a small store.","tr":"Rudy ang ngalan sa akong papa. Naa siyay gamay nga tindahan."}]}
       ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pangutana kung naa ba",
+      "summary": "Pangutana “Naa bay botika duol dinhi?” sa Iningles, ug ilha ang kalainan sa {{there is}} ug {{have}}.",
+      "topic": "{{there is}} / {{there are}} (lugar) vs {{have}} (pagpanag-iya); {{a}} sa unang higayon, {{the}} human niana",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"Naa bay botika duol dinhi?"}},
+        {"dialog":[{"who":"Ikaw","t":"Excuse me, is there a pharmacy near here?","tr":"Excuse me, naa bay botika duol dinhi?"},{"who":"Lalaki","t":"Yes, there's a pharmacy on Main Street.","tr":"Oo, naay botika sa Main Street."},{"who":"Ikaw","t":"Is there an ATM too?","tr":"Naa say ATM?"},{"who":"Lalaki","t":"Yes, there are two ATMs next to the pharmacy.","tr":"Oo, naay duha ka ATM tupad sa botika."},{"who":"Ikaw","t":"Thank you!","tr":"Salamat!"},{"who":"Lalaki","t":"You're welcome. The pharmacy closes at nine.","tr":"Walay sapayan. Mosirado ang botika alas nuwebe."}]},
+        {"p":"Ang “naa” sa Bisaya duha ang trabaho: “Naay iro sa gawas” ug “Naa koy iro”. Sa Iningles, **lahi sila**: kung naay butang sa usa ka lugar, {{there is}} o {{there are}}: {{There's a dog outside.}} Kung imo ang butang, {{have}}: {{I have a dog.}}"},
+        { "table": [
+          ["Bisaya","Iningles","kahulogan"],
+          ["Naay iro sa gawas.","{{There's a dog outside.}}","naa sa lugar"],
+          ["Naa koy iro.","{{I have a dog.}}","imo ang iro"],
+          ["Naay duha ka ATM.","{{There are two ATMs.}}","naa sa lugar, daghan"],
+          ["Naa bay WiFi?","{{Is there Wi-Fi?}}","pangutana"],
+          ["Walay tubig.","{{There's no water.}} / {{There isn't any water.}}","wala"]
+        ] },
+        {"p":"**{{is}} o {{are}}?** Usa: {{there is}} (mubo {{there's}}). Daghan: {{there are}}. Sa pangutana, ibalhin ang {{is}} o {{are}} sa unahan, sama sa leksyon 3: {{Is there a pharmacy?}} {{Are there any taxis?}}"},
+        {"term":"article","means":"ang gagmay nga pulong {{a}}, {{an}} ug {{the}} sa unahan sa nombre."},
+        {"p":"**{{a}} una, {{the}} human.** Sa unang higayon nga imong hisgotan ang usa ka butang: {{a}} ({{There's a pharmacy on Main Street.}}). Human niana, kabalo na ang tanan kung asa: {{the}} ({{The pharmacy closes at nine.}}). Ang {{the}} duol sa “ang” sa Bisaya, pero gamay ra og gamit (leksyon 17)."},
+        { "ex": [
+          {"t":"There's a dog outside.","tr":"Naay iro sa gawas."},
+          {"t":"There are two ATMs here.","tr":"Naay duha ka ATM dinhi."},
+          {"t":"Is there Wi-Fi?","tr":"Naa bay WiFi?"},
+          {"t":"There's no water.","tr":"Walay tubig."},
+          {"t":"There aren't any taxis.","tr":"Walay taxi."},
+          {"t":"I have a question.","tr":"Naa koy pangutana."},
+          {"t":"There's a store on the corner. The store is open until ten.","tr":"Naay tindahan sa kanto. Abli ang tindahan hangtod alas diyes."}
+        ] },
+        {"tip":"Mubo nga tubag: {{Is there a pharmacy? — Yes, there is.}} / {{No, there isn't.}} Sama sa leksyon 3, dili {{Yes, there's.}} sa katapusan."}
+      ],
+      "mistakes": [
+        {"wrong":"Have a store near here?","right":"Is there a store near here?","tr":"Naa bay tindahan duol dinhi?","why":"Ang “naa” sa usa ka lugar: {{there is}}. Ang {{have}} para lang sa pagpanag-iya."},
+        {"wrong":"In Cebu have many beaches.","right":"There are many beaches in Cebu.","tr":"Daghan og baybayon sa Cebu.","why":"Naa sa usa ka lugar ug daghan: {{there are}}."},
+        {"wrong":"There is two ATMs.","right":"There are two ATMs.","tr":"Naay duha ka ATM.","why":"Daghan: {{there are}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ a pharmacy near here?","tr":"Naa bay botika duol dinhi?","options":["Is there","Have","Are there"],"answer":0,"why":"Usa ka butang sa usa ka lugar, pangutana: {{Is there}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"There ___ two ATMs.","tr":"Naay duha ka ATM.","options":["are","is","have"],"answer":0,"why":"Daghan: {{there are}}."},
+        {"type":"choice","q":"“Naa koy iro.” ug “Naay iro sa gawas.”","options":["{{I have a dog.}} ug {{There's a dog outside.}}","{{There's a dog.}} ug {{I have a dog outside.}}","{{Have a dog.}} ug {{Have a dog outside.}}"],"answer":0,"why":"Imo: {{have}}. Naa sa lugar: {{there is}}."},
+        {"type":"dialogue","q":"Sa hotel sa Amerika: pilia ang imong mga tubag.","lines":[{"who":"Receptionist","t":"Good evening! How can I help you?","tr":"Maayong gabii! Unsay ikatabang nako?"},{"options":["Hi! Is there a restaurant near here?","Hi! Have a restaurant near here?"],"answer":0,"why":"Naa ba sa duol: {{Is there…?}}"},{"who":"Receptionist","t":"Yes, there are two restaurants across the street.","tr":"Oo, naay duha ka restawran sa atbang sa dalan."},{"options":["Great! Is there Wi-Fi in the room?","Great! Are there Wi-Fi in the room?"],"answer":0,"why":"Ang Wi-Fi dili maihap: {{Is there}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Walay tubig.","words":["There's","no","water."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"There's ___ umbrella in the car.","tr":"Naay payong sa awto.","options":["an","a","the"],"answer":0,"why":"Unang higayon, ug ang {{umbrella}} magsugod sa tingog nga u: {{an}}.","from":"point-and-name"},
+        {"type":"say","q":"Isulti: “Naa siyay awto.”","answer":"She has a car.","from":"talk-about-your-family"},
+        {"type":"free","q":"Ikaw na: isulti kung unsay naa ug unsay wala sa imong lugar.","answers":[{"t":"There's a big mall near my house. There isn't a beach.","tr":"Naay dakong mall duol sa among balay. Walay baybayon."},{"t":"There are two churches in our town, and there's a market.","tr":"Naay duha ka simbahan sa among lungsod, ug naay merkado."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Isulti kung asa ang mga butang",
+      "summary": "Isulti kung asa ang tawo ug butang: sa sulod, sa ibabaw, sa ilalum, sa tupad.",
+      "topic": "Ang usa ka “sa” nahimong daghan: {{in}}, {{on}}, {{at}}, {{under}}, {{next to}}, {{in front of}}, {{behind}}",
+      "blocks": [
+        {"goal":{"t":"Your keys are on the table, next to your phone.","tr":"Naa sa lamesa ang imong yawe, tupad sa imong selpon."}},
+        {"dialog":[{"who":"Ben","t":"Mom, where are my keys?","tr":"Ma, asa man akong yawe?"},{"who":"Mama","t":"They're on the table, next to your phone.","tr":"Naa sa lamesa, tupad sa imong selpon."},{"who":"Ben","t":"And my wallet?","tr":"Ug akong pitaka?"},{"who":"Mama","t":"It's in your bag, under your jacket.","tr":"Naa sa imong bag, ilalum sa imong jacket."},{"who":"Ben","t":"Thanks, Mom! I'm at the door. Bye!","tr":"Salamat, Ma! Naa na ko sa pultahan. Bye!"},{"who":"Mama","t":"Wait! Your lunch is in the kitchen!","tr":"Hulat! Naa sa kusina ang imong paniudto!"}]},
+        {"p":"Sa Bisaya, usa ra ka pulong ang tanan: “sa”. Sa Iningles, **lahi-lahi depende sa lugar**: {{in}} kung sa sulod ({{in the bag}}, {{in Cebu}}), {{on}} kung sa ibabaw sa nawong ({{on the table}}, {{on the wall}}), ug {{at}} kung sa usa ka punto o lugar nga imong giadtoan ({{at home}}, {{at work}}, {{at the door}})."},
+        {"term":"preposition","means":"gamay nga pulong nga nagsulti kung asa o kanus-a: sa Iningles {{in}}, {{on}}, {{at}}, {{under}}. Sa Bisaya kasagaran “sa” ra."},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["sa sulod sa bag","{{in the bag}}"],
+          ["sa ibabaw sa lamesa","{{on the table}}"],
+          ["sa balay, sa trabaho","{{at home}}, {{at work}}"],
+          ["sa ilalum sa katre","{{under the bed}}"],
+          ["sa tupad sa simbahan","{{next to the church}}"],
+          ["sa atubangan sa bangko","{{in front of the bank}}"],
+          ["sa likod sa balay","{{behind the house}}"]
+        ] },
+        {"p":"**Ang han-ay.** Sa Bisaya: “Naa sa lamesa ang yawe”. Sa Iningles, ang butang mag-una, dayon ang {{is}} o {{are}} (mao kini ang “naa”), dayon ang lugar: {{The keys are on the table.}} Ug ayaw kalimti: daghan ang yawe, busa {{are}}."},
+        { "ex": [
+          {"t":"I'm at home.","tr":"Naa ko sa balay."},
+          {"t":"She's at work.","tr":"Naa siya sa trabaho."},
+          {"t":"The keys are on the table.","tr":"Naa sa lamesa ang yawe."},
+          {"t":"My phone is in my bag.","tr":"Naa sa akong bag ang akong selpon."},
+          {"t":"The cat is under the bed.","tr":"Naa sa ilalum sa katre ang iring."},
+          {"t":"The bank is next to the church.","tr":"Naa tupad sa simbahan ang bangko."},
+          {"t":"Cebu is in the Philippines.","tr":"Naa sa Pilipinas ang Cebu."}
+        ] },
+        {"tip":"Mga pares nga walay {{the}}: {{at home}}, {{at work}}, {{at school}}, {{in bed}}. Sa sakyanan: {{on the bus}}, {{on the jeepney}}, pero {{in a car}}, {{in a taxi}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Naa ko sa balay.","why":"Kanunay {{at home}}, walay {{the}}."},
+        {"wrong":"The keys is on the table.","right":"The keys are on the table.","tr":"Naa sa lamesa ang yawe.","why":"Daghan ang yawe: {{are}}."},
+        {"wrong":"Is on the table the keys.","right":"The keys are on the table.","tr":"Naa sa lamesa ang yawe.","why":"Sa Iningles: ang butang una, dayon {{are}}, dayon ang lugar."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm ___ home.","tr":"Naa ko sa balay.","options":["at","in","on"],"answer":0,"why":"{{at home}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"The keys are ___ the table.","tr":"Naa sa lamesa ang yawe.","options":["on","in","at"],"answer":0,"why":"Sa ibabaw sa nawong: {{on}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My phone is ___ my bag.","tr":"Naa sa akong bag ang akong selpon.","options":["in","on","at"],"answer":0,"why":"Sa sulod: {{in}}."},
+        {"type":"choice","q":"“Naa siya (babaye) sa trabaho.”","options":["{{She's at work.}}","{{She's on work.}}","{{She at work.}}"],"answer":0,"why":"{{at work}}, ug kinahanglan ang {{'s}} ({{is}})."},
+        {"type":"dialogue","q":"Gipangita sa imong igsoon ang iyang mga gamit. Pilia ang imong mga tubag.","lines":[{"who":"Igsoon","t":"Where's my phone?","tr":"Asa man akong selpon?"},{"options":["It's on the bed.","It's at the bed."],"answer":0,"why":"Sa ibabaw: {{on the bed}}."},{"who":"Igsoon","t":"And my shoes?","tr":"Ug akong sapatos?"},{"options":["They're under the table.","It's under the table."],"answer":0,"why":"Ang {{shoes}} daghan: {{they're}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naa tupad sa simbahan ang bangko.","words":["The bank","is","next to","the church."]},
+        {"type":"say","q":"Isulti: “Naay iring ilalum sa lamesa.”","answer":"There's a cat under the table.","from":"say-what-there-is"},
+        {"type":"free","q":"Ikaw na: asa ka karon, ug asa ang imong selpon?","answers":[{"t":"I'm at home. My phone is on the bed.","tr":"Naa ko sa balay. Naa sa katre ang akong selpon."},{"t":"I'm at work. My phone is in my bag.","tr":"Naa ko sa trabaho. Naa sa akong bag ang akong selpon."}]}
+      ]
+    },
+    {
+      "id": "order-politely",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pag-order sa kan-anan",
+      "summary": "Pag-order og kape ug pagkaon sa matinahuron nga paagi, sama sa mga Amerikano.",
+      "topic": "{{I'd like…}}, {{Can I have…?}}, {{Could I have…?}}; {{a}} ug {{some}}; {{please}}",
+      "blocks": [
+        {"goal":{"t":"Can I have a coffee and two donuts, please?","tr":"Usa ka kape ug duha ka donut, palihug."}},
+        {"dialog":[{"who":"Barista","t":"Hi! What can I get you?","tr":"Hi! Unsa imong gusto?"},{"who":"Ikaw","t":"Hi! I'd like a coffee, please.","tr":"Hi! Gusto ko og kape, palihug."},{"who":"Barista","t":"Hot or iced?","tr":"Init o bugnaw?"},{"who":"Ikaw","t":"Iced, please. And can I have a donut?","tr":"Bugnaw, palihug. Ug pwede ko mangayo og donut?"},{"who":"Barista","t":"Sure. For here or to go?","tr":"Sige. Diri ra o take out?"},{"who":"Ikaw","t":"To go, please.","tr":"Take out, palihug."}]},
+        {"p":"Sa Bisaya, “Usa ka kape, palihug” igo na. Sa Iningles, mas matinahuron kung imong sugdan og {{I'd like…}} (“gusto unta ko og…”) o {{Can I have…?}} / {{Could I have…?}} (“pwede ko mangayo og…?”), ug tapuson og {{please}}. Ang {{I want a coffee}} lagmit bastos pamation sa Amerika."},
+        { "table": [
+          ["Bisaya","Iningles (matinahuron)"],
+          ["Gusto ko og kape.","{{I'd like a coffee, please.}}"],
+          ["Pwede ko mangayo og tubig?","{{Can I have some water?}}"],
+          ["Pwede ko mangayo sa bill?","{{Could I have the check, please?}}"],
+          ["Mao ra.","{{That's all, thanks.}}"]
+        ] },
+        {"p":"**{{a}} o {{some}}?** Ang “og” sa Bisaya mahimong duha sa Iningles: {{a}} para sa usa ka butang nga maihap ({{a coffee}}, {{a donut}}), ug {{some}} para sa dili maihap o pipila ({{some water}}, {{some fries}}). Ug kung kapin sa usa: {{two donuts}}, uban ang {{-s}}."},
+        {"p":"**Mga pulong sa café sa Amerika**: {{For here or to go?}} “Diri ra o take out?”, {{Anything else?}} “Unsa pa?”, {{That's all.}} “Mao ra.” Ang “bill” sa restawran, {{the check}} sa Amerika."},
+        { "ex": [
+          {"t":"I'd like a coffee, please.","tr":"Gusto ko og kape, palihug."},
+          {"t":"Can I have some water?","tr":"Pwede ko mangayo og tubig?"},
+          {"t":"Could I have the check, please?","tr":"Pwede ko mangayo sa bill?"},
+          {"t":"Two iced teas, please.","tr":"Duha ka iced tea, palihug."},
+          {"t":"That's all, thanks.","tr":"Mao ra, salamat."},
+          {"t":"To go, please.","tr":"Take out, palihug."}
+        ] },
+        {"tip":"Ang {{I'd}} kay mubo sa {{I would}}. {{I'd like}} = “ganahan unta ko”: mas humok kaysa {{I want}}. Gamita kini bisan asa: sa tindahan, sa hotel, sa telepono."}
+      ],
+      "mistakes": [
+        {"wrong":"Give me coffee.","right":"Can I have a coffee, please?","tr":"Usa ka kape, palihug.","why":"Ang {{Give me…}} lagmit bastos pamation. Mangayo: {{Can I have…, please?}}"},
+        {"wrong":"Can I have two coffee?","right":"Can I have two coffees?","tr":"Pwede ko mangayo og duha ka kape?","why":"Kapin sa usa: {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'd ___ a coffee, please.","tr":"Gusto ko og kape, palihug.","options":["like","want","have"],"answer":0,"why":"{{I'd like…}}"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Can I have ___ water?","tr":"Pwede ko mangayo og tubig?","options":["some","a","an"],"answer":0,"why":"Ang tubig dili maihap: {{some}}."},
+        {"type":"choice","q":"Asa ang pinakamatinahuron?","options":["{{Could I have a coffee, please?}}","{{Give me coffee.}}","{{I want coffee.}}"],"answer":0,"why":"{{Could I have…, please?}}: humok ug matinahuron."},
+        {"type":"dialogue","q":"Sa café sa Amerika: pilia ang imong mga tubag.","lines":[{"who":"Barista","t":"Hi! What can I get you?","tr":"Hi! Unsa imong gusto?"},{"options":["I'd like a hot chocolate, please.","Give me hot chocolate."],"answer":0,"why":"Matinahuron: {{I'd like…, please}}."},{"who":"Barista","t":"Anything else?","tr":"Unsa pa?"},{"options":["Can I have two cookies?","Can I have two cookie?"],"answer":0,"why":"Duha: {{cookies}}, uban ang {{-s}}."},{"who":"Barista","t":"For here or to go?","tr":"Diri ra o take out?"},{"options":["To go, please.","Take out, please."],"answer":0,"why":"Sa Amerika: {{to go}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Pwede ko mangayo og tubig?","words":["Can","I","have","some","water?"]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Two ___, please.","tr":"Duha ka kape, palihug.","options":["coffees","coffee","coffeees"],"answer":0,"why":"Duha: {{-s}}.","from":"point-and-name"},
+        {"type":"say","q":"Pangutana: “Asa ang banyo?”","answer":"Where's the restroom?","from":"ask-with-be"},
+        {"type":"free","q":"Ikaw na: pag-order og ilimnon ug pagkaon sa usa ka café sa Amerika.","answers":[{"t":"Hi! I'd like an iced coffee and a muffin, please.","tr":"Hi! Gusto ko og iced coffee ug usa ka muffin, palihug."},{"t":"Can I have a hot chocolate, please? To go.","tr":"Pwede ko mangayo og hot chocolate? Take out."}]}
+      ]
+    },
+    {
+      "id": "count-and-ask-prices",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pag-ihap ug pangutana sa presyo",
+      "summary": "Pangutana kung pila ang presyo o pila ka buok, ihap og husto, ug pangutana sa edad sa Iningles.",
+      "topic": "{{How much…?}} ug {{How many…?}}; {{-s}} human sa numero; {{children}}, {{people}}; {{How old are you?}}",
+      "blocks": [
+        {"goal":{"t":"How much are these shoes? — They're forty dollars.","tr":"Pila kini nga sapatos? — Kwarenta ka dolyar."}},
+        {"dialog":[{"who":"Ikaw","t":"Excuse me, how much are these shoes?","tr":"Excuse me, pila kini nga sapatos?"},{"who":"Tindera","t":"They're forty dollars.","tr":"Kwarenta ka dolyar."},{"who":"Ikaw","t":"And how much is this shirt?","tr":"Ug pila kini nga sinina?"},{"who":"Tindera","t":"It's fifteen. How many do you want?","tr":"Kinse. Pila ka buok imong gusto?"},{"who":"Ikaw","t":"Two shirts and the shoes, please.","tr":"Duha ka sinina ug ang sapatos, palihug."},{"who":"Tindera","t":"That's seventy dollars.","tr":"Setenta ka dolyar tanan."}]},
+        {"p":"**Ang “pila” duha sa Iningles.** Para sa presyo ug sa mga butang nga dili maihap (kwarta, tubig, bugas): {{How much…?}} Para sa mga butang nga maihap: {{How many…?}} {{How much is this?}} “Pila ni?” {{How many kids do you have?}} “Pila imong anak?”"},
+        {"p":"**Kanunay {{-s}} human sa numero.** Sa Bisaya, walay “mga” human sa numero: “duha ka sinina”. Sa Iningles, kinahanglan gyud ang {{-s}}: {{two shirts}}, {{ten dollars}}. Ug ang ubang pulong naay kaugalingong plural:"},
+        { "table": [
+          ["usa","daghan","Bisaya"],
+          ["{{child}}","{{children}}","bata"],
+          ["{{person}}","{{people}}","tawo"],
+          ["{{man}}","{{men}}","lalaki"],
+          ["{{woman}}","{{women}}","babaye"],
+          ["{{foot}}","{{feet}}","tiil"],
+          ["{{tooth}}","{{teeth}}","ngipon"]
+        ] },
+        {"p":"**Ang edad.** “Pila na ka tuig?” dili {{How many years?}} sa Iningles. Ang husto: {{How old are you?}} Ug ang tubag: {{I'm twenty-five.}} o {{I'm twenty-five years old.}}, uban ang {{am}}, dili {{have}}."},
+        { "ex": [
+          {"t":"How much is this?","tr":"Pila ni?"},
+          {"t":"How many kids do you have?","tr":"Pila imong anak?"},
+          {"t":"I have three children.","tr":"Naa koy tulo ka anak."},
+          {"t":"There are ten people here.","tr":"Naay napulo ka tawo dinhi."},
+          {"t":"How old are you? — I'm twenty-five.","tr":"Pila na imong edad? — Baynte singko na ko."},
+          {"t":"These pants are cheap.","tr":"Barato kini nga pantalon."}
+        ] },
+        {"tip":"Pamati og maayo: {{fifteen}} (15) ug {{fifty}} (50) halos parehas. Sa {{fifteen}}, ang kusog nga tingog naa sa katapusan: fif-TEEN. Sa {{fifty}}, sa sugod: FIF-ty. Ang {{shoes}}, {{pants}} ug {{glasses}} kanunay plural: {{these shoes}}."}
+      ],
+      "mistakes": [
+        {"wrong":"How many is this?","right":"How much is this?","tr":"Pila ni?","why":"Presyo: {{how much}}."},
+        {"wrong":"two shirt","right":"two shirts","tr":"duha ka sinina","why":"Human sa numero nga kapin sa usa: kanunay {{-s}}."},
+        {"wrong":"How many years are you?","right":"How old are you?","tr":"Pila na imong edad?","why":"Ang edad sa Iningles: {{How old…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"How ___ is this bag?","tr":"Pila kini nga bag?","options":["much","many","old"],"answer":0,"why":"Presyo: {{how much}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"How ___ kids do you have?","tr":"Pila imong anak?","options":["many","much","old"],"answer":0,"why":"Ang mga bata maihap: {{how many}}."},
+        {"type":"choice","q":"Ang plural sa {{child}}:","options":["{{children}}","{{childs}}","{{childrens}}"],"answer":0,"why":"Kaugalingong plural: {{children}}."},
+        {"type":"choice","q":"Pangutana sa edad:","options":["{{How old are you?}}","{{How many years are you?}}","{{How much years you have?}}"],"answer":0,"why":"{{How old are you?}}"},
+        {"type":"dialogue","q":"Sa tindahan sa Amerika: pilia ang imong mga tubag.","lines":[{"options":["Excuse me, how much is this jacket?","Excuse me, how many is this jacket?"],"answer":0,"why":"Presyo: {{how much}}."},{"who":"Tindera","t":"It's thirty dollars.","tr":"Traynta ka dolyar."},{"options":["Okay. And these socks?","Okay. And this socks?"],"answer":0,"why":"Ang {{socks}} plural: {{these}}."},{"who":"Tindera","t":"Five dollars a pair.","tr":"Singko ka dolyar ang usa ka pares."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naa koy tulo ka anak.","words":["I","have","three","children."]},
+        {"type":"say","q":"Isulti: “Duha ka kape, palihug.”","answer":"Two coffees, please.","from":"order-politely"},
+        {"type":"free","q":"Ikaw na: isulti ang imong edad, ug pila ang imong igsoon.","answers":[{"t":"I'm thirty years old. I have two brothers and one sister.","tr":"Traynta na ko. Naa koy duha ka igsoon nga lalaki ug usa ka babaye."},{"t":"I'm nineteen. I have four siblings.","tr":"Disinuwebe na ko. Naa koy upat ka igsoon."}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ihulagway ang mga butang",
+      "summary": "Ihulagway ang imong lungsod ug ang imong mga butang: “Cebu has beautiful beaches and delicious food.”",
+      "topic": "Ang adjective mag-una sa nombre, walay “nga”, ug walay {{-s}}; {{a}} / {{an}} uban sa adjective",
+      "blocks": [
+        {"goal":{"t":"Cebu has beautiful beaches and delicious food.","tr":"Naay nindot nga mga baybayon ug lami nga pagkaon ang Cebu."}},
+        {"dialog":[{"who":"Amy","t":"What's Cebu like?","tr":"Unsa man ang Cebu?"},{"who":"Ikaw","t":"It's a busy city with beautiful beaches.","tr":"Dakong siyudad nga daghag tawo, ug naay nindot nga mga baybayon."},{"who":"Amy","t":"Is the food good?","tr":"Lami ba ang pagkaon?"},{"who":"Ikaw","t":"Yes! We have delicious lechon and sweet mangoes.","tr":"Oo! Naa mi lami nga lechon ug tam-is nga mangga."},{"who":"Amy","t":"Is it hot there?","tr":"Init ba didto?"},{"who":"Ikaw","t":"Yes, it's a hot place. But the people are very friendly.","tr":"Oo, init nga lugar. Pero buotan kaayo ang mga tawo."}]},
+        {"p":"Sa Bisaya, ang nagahulagway ug ang nombre gidugtong sa “nga”: “bugnaw nga tubig” o “tubig nga bugnaw”. Sa Iningles, **ang nagahulagway kanunay mag-una, ug walay bisan unsa sa tunga**: {{cold water}}, {{a big house}}. Walay “nga”, ug dili mahimong {{water cold}}."},
+        {"term":"adjective","means":"pulong nga naghulagway sa tawo o butang: dako, init, nindot. Sa Iningles: {{big}}, {{hot}}, {{beautiful}}."},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["bugnaw nga tubig","{{cold water}}"],
+          ["dakong balay","{{a big house}}"],
+          ["karaan nga simbahan","{{an old church}}"],
+          ["nindot nga mga baybayon","{{beautiful beaches}}"]
+        ] },
+        {"p":"**Walay {{-s}} ang adjective.** Ang plural naa ra sa nombre: {{beautiful beaches}}, dili {{beautifuls beaches}}. Ang adjective dili mausab bisan unsa pa: {{a hot day}}, {{hot days}}."},
+        {"p":"**Uban sa {{a}}**: {{a}} + adjective + nombre: {{a big house}}. Kung ang adjective magsugod sa tingog nga a, e, i, o, u: {{an}}: {{an old church}}, {{an expensive phone}}. Ug human sa {{is}}, sama sa Bisaya pero uban ang {{is}}: “Bugnaw ang tubig” → {{The water is cold.}}"},
+        { "ex": [
+          {"t":"I'd like some cold water.","tr":"Gusto ko og bugnaw nga tubig."},
+          {"t":"They have a big house.","tr":"Naa silay dakong balay."},
+          {"t":"It's an old church.","tr":"Karaan kini nga simbahan."},
+          {"t":"She has long hair.","tr":"Taas ang iyang buhok."},
+          {"t":"These are delicious mangoes.","tr":"Lami kini nga mga mangga."},
+          {"t":"My phone is new.","tr":"Bag-o ang akong selpon."}
+        ] },
+        {"tip":"Ang {{What's … like?}} nangutana kung unsa ang dagway o kinaiya: {{What's Cebu like?}} “Unsa man ang Cebu?”. Tubaga og mga adjective: {{It's hot and busy.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"water cold","right":"cold water","tr":"bugnaw nga tubig","why":"Ang adjective mag-una sa nombre."},
+        {"wrong":"beautifuls beaches","right":"beautiful beaches","tr":"nindot nga mga baybayon","why":"Ang adjective walay {{-s}}; ang nombre ra ang plural."},
+        {"wrong":"a old church","right":"an old church","tr":"karaan nga simbahan","why":"Ang {{old}} magsugod sa tingog nga o: {{an}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Bugnaw nga tubig”:","options":["{{cold water}}","{{water cold}}","{{cold nga water}}"],"answer":0,"why":"Adjective una, walay “nga”."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"It's ___ old church.","tr":"Karaan kini nga simbahan.","options":["an","a","the"],"answer":0,"why":"Ang {{old}} magsugod sa tingog nga o: {{an}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"We have ___ beaches.","tr":"Naa mi nindot nga mga baybayon.","options":["beautiful","beautifuls","beauty"],"answer":0,"why":"Ang adjective walay {{-s}}."},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naa silay dakong balay.","words":["They","have","a","big","house."]},
+        {"type":"dialogue","q":"Gipangutana ka sa usa ka Amerikano bahin sa imong lungsod. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"What's your town like?","tr":"Unsa man ang inyong lungsod?"},{"options":["It's a small, quiet town.","It's a town small and quiet."],"answer":0,"why":"Ang mga adjective mag-una sa {{town}}."},{"who":"Amy","t":"Is there a beach?","tr":"Naa bay baybayon?"},{"options":["Yes, there are beautiful beaches.","Yes, there are beaches beautifuls."],"answer":0,"why":"Adjective una, ug walay {{-s}}."}]},
+        {"type":"say","q":"Isulti: “Taas ang buhok sa akong igsoon (babaye).”","answer":"My sister has long hair.","from":"talk-about-your-family"},
+        {"type":"say","q":"Isulti: “Naay dakong merkado sa among lungsod.”","answer":"There's a big market in our town.","from":"say-what-there-is"},
+        {"type":"free","q":"Ikaw na: ihulagway ang imong lungsod o balay gamit ang tulo ka adjective.","answers":[{"t":"My town is small and quiet. There's a beautiful church and a big market.","tr":"Gamay ug hilom ang among lungsod. Naay nindot nga simbahan ug dakong merkado."},{"t":"Our house is old, but it has a nice garden.","tr":"Karaan ang among balay, pero naay nindot nga tanaman."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Isulti ang gusto nimong buhaton",
+      "summary": "Isulti kung unsay gusto ug dili gusto nimong buhaton: “I want to visit New York.”",
+      "topic": "{{want to}} + berbo; {{would like to}}; {{I don't want to…}}",
+      "blocks": [
+        {"goal":{"t":"I want to visit New York.","tr":"Gusto ko mobisita sa New York."}},
+        {"dialog":[{"who":"Mark","t":"What do you want to do this weekend?","tr":"Unsa imong gustong buhaton karong weekend?"},{"who":"Joy","t":"I want to go to the beach. Do you want to come?","tr":"Gusto ko moadto sa baybayon. Gusto nimo mouban?"},{"who":"Mark","t":"Yes! I'd like to try surfing.","tr":"Oo! Gusto nako mosulay og surfing."},{"who":"Joy","t":"Cool! But I don't want to wake up early.","tr":"Nindot! Pero dili ko gusto mobangon og sayo."},{"who":"Mark","t":"Me neither!","tr":"Ako sad, dili!"}]},
+        {"term":"verb","means":"pulong sa lihok o kahimtang: kaon, adto, tulog. Sa Iningles: {{eat}}, {{go}}, {{sleep}}."},
+        {"p":"**{{want to}} + berbo.** Sa Bisaya: “Gusto ko moadto.” Sa Iningles: {{I want to go.}} Ang {{to}} kinahanglan gyud, sama sa “mo-” sa Bisaya, ug ang berbo human sa {{to}} walay usab: {{to go}}, {{to eat}}, {{to visit}}."},
+        {"p":"**Mas matinahuron: {{would like to}}.** {{I'd like to try surfing.}} “Gusto unta nako mosulay og surfing.” Sama sa {{I'd like}} sa leksyon 9."},
+        {"p":"**Dili gusto.** Ang “Dili ko gusto…” sa Iningles kinahanglan og {{don't}}: {{I don't want to wake up early.}} Dili {{I not want}}. Ipasabot pa og maayo ang {{don't}} sa sunod nga unit. Ug ang pangutana {{Do you want to…?}} “Gusto nimo…?”"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["Gusto ko mokaon.","{{I want to eat.}}"],
+          ["Gusto unta ko mosulay.","{{I'd like to try.}}"],
+          ["Dili ko gusto moadto.","{{I don't want to go.}}"],
+          ["Gusto nimo mouban?","{{Do you want to come?}}"]
+        ] },
+        { "ex": [
+          {"t":"I want to eat.","tr":"Gusto ko mokaon."},
+          {"t":"I want to learn English.","tr":"Gusto ko mokat-on og Iningles."},
+          {"t":"She wants to buy shoes.","tr":"Gusto niya mopalit og sapatos.","note":"uban sa {{she}}: {{wants}}, uban ang {{-s}} (leksyon 14)"},
+          {"t":"We'd like to see the beach.","tr":"Gusto namo motan-aw sa baybayon."},
+          {"t":"I don't want to work today.","tr":"Dili ko gusto motrabaho karon."},
+          {"t":"Do you want to come?","tr":"Gusto nimo mouban?"}
+        ] },
+        {"tip":"Sa istorya, ang {{want to}} kasagaran madungog nga {{wanna}}: {{I wanna go.}} Masabtan nimo kini, pero sa pagsulat, {{want to}} gihapon."}
+      ],
+      "mistakes": [
+        {"wrong":"I want go.","right":"I want to go.","tr":"Gusto ko moadto.","why":"Human sa {{want}}: {{to}} + berbo."},
+        {"wrong":"I not want to go.","right":"I don't want to go.","tr":"Dili ko gusto moadto.","why":"Ang “dili” uban sa {{want}}: {{don't}}."},
+        {"wrong":"She want to go.","right":"She wants to go.","tr":"Gusto niya moadto.","why":"Uban sa {{she}}: {{wants}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I want ___ go to the beach.","tr":"Gusto ko moadto sa baybayon.","options":["to","for","at"],"answer":0,"why":"{{want to}} + berbo."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ want to wake up early.","tr":"Dili ko gusto mobangon og sayo.","options":["don't","not","no"],"answer":0,"why":"{{I don't want to…}}"},
+        {"type":"choice","q":"Asa ang mas matinahuron?","options":["{{I'd like to try it.}}","{{I want try it.}}"],"answer":0,"why":"{{I'd like to…}}: matinahuron ug husto."},
+        {"type":"dialogue","q":"Nagplano mo sa weekend. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"What do you want to do on Saturday?","tr":"Unsa imong gustong buhaton sa Sabado?"},{"options":["I want to watch a movie.","I want watch a movie."],"answer":0,"why":"{{want to}} + berbo."},{"who":"Mark","t":"Do you want to eat out after?","tr":"Gusto nimo mokaon sa gawas human?"},{"options":["Sure! But I don't want to spend a lot.","Sure! But I not want to spend a lot."],"answer":0,"why":"{{I don't want to…}}"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Gusto ko mokat-on og Iningles.","words":["I","want","to","learn","English."]},
+        {"type":"say","q":"Isulti: “Gusto ko mopalit og bag-ong selpon.”","answer":"I want to buy a new phone.","from":"describe-things"},
+        {"type":"choice","q":"“Gusto niya (babaye) moadto.”","options":["{{She wants to go.}}","{{He wants to go.}}","{{She want go.}}"],"answer":0,"why":"Babaye: {{she}}, ug {{wants to go}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga gusto nimong buhaton karong tuiga, ug usa nga dili.","answers":[{"t":"I want to visit Japan. I want to learn English. I don't want to work on weekends.","tr":"Gusto ko mobisita sa Japan. Gusto ko mokat-on og Iningles. Dili ko gusto motrabaho matag weekend."},{"t":"I'd like to buy a house. I don't want to move to Manila.","tr":"Gusto unta ko mopalit og balay. Dili ko gusto mobalhin sa Manila."}]}
+      ]
     }
   ]
 }
