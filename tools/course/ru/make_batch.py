@@ -101,6 +101,11 @@ def main(draft_path: str) -> None:
                 problems.append(f"{where}: can't tell the stress ({'/'.join(row['stress'])}); write it in the meaning")
             elif s or perfective:
                 meaning = f"{meaning} ({s or word}{', pf.' if perfective else ''})"
+        # Every other Russian word in the meaning shows its stress too (у меня́ есть).
+        for t in re.findall(r"[А-Яа-яЁё́-]+", unicodedata.normalize("NFC", meaning)):
+            if (sum(ch in VOWELS for ch in plain(t)) >= 2 and ACUTE not in t and "ё" not in fold(t)
+                    and plain(t) != plain(word)):
+                problems.append(f"{where}: {t} in the meaning has no stress mark")
         # The sentence.
         tokens = sentence.split()
         if not 2 <= len(tokens) <= 12:
