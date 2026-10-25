@@ -1804,6 +1804,215 @@
         {"type":"say","q":"Pregunta “¿Cuándo te enteraste?”","answer":"When did you find out?"},
         {"type":"free","q":"Te toca: describe tu mañana con al menos tres de estos verbos: {{wake up}}, {{get up}}, {{turn on}}, {{put on}}, {{pick up}}.","answers":[{"t":"I wake up at six, but I get up at six thirty. I turn on the coffee maker and put on my uniform.","tr":"Me despierto a las seis, pero me levanto a las seis y media. Prendo la cafetera y me pongo el uniforme."},{"t":"I get up early, turn on the radio and pick up my coworker on the way to work.","tr":"Me levanto temprano, prendo el radio y paso por mi compañero de camino al trabajo."}]}
       ]
+    },
+    {
+      "id": "talk-about-activities",
+      "unit": 7,
+      "level": "A2",
+      "title": "Habla de actividades: ¿-ing o {{to}}?",
+      "summary": "Di lo que disfrutas, lo que quieres y lo que piensas hacer, con la forma correcta del segundo verbo: {{I'm thinking about learning to play the guitar.}}",
+      "topic": "verbo + -ing ({{enjoy}}, {{finish}}, {{stop}}) o + {{to}} ({{want}}, {{need}}, {{decide}}); -ing después de una preposición ({{before leaving}})",
+      "blocks": [
+        {"goal":{"t":"I'm thinking about learning to play the guitar.","tr":"Estoy pensando en aprender a tocar la guitarra."}},
+        {"dialog":[{"who":"Mel","t":"What do you enjoy doing on weekends?","tr":"¿Qué te gusta hacer los fines de semana?"},{"who":"Tú","t":"I love hiking. And I want to start running.","tr":"Me encanta ir a caminar al cerro. Y quiero empezar a correr."},{"who":"Mel","t":"Cool! I stopped running last year. I'm not good at it.","tr":"¡Qué padre! Yo dejé de correr el año pasado. No soy buena para eso."},{"who":"Tú","t":"Why don't you try swimming?","tr":"¿Por qué no pruebas la natación?"},{"who":"Mel","t":"Maybe. I'm interested in learning.","tr":"A lo mejor. Me interesa aprender."}]},
+        {"p":"**Dos verbos seguidos.** En español el segundo verbo casi siempre va en infinitivo: “quiero comer”, “me gusta bailar”, “antes de salir”. En inglés depende del primer verbo: unos piden {{to}} + la forma base, y otros, el verbo con **-ing**."},
+        { "table": [
+          ["+ {{to}} + la forma base","+ el verbo con -ing"],
+          ["{{want to go}} (querer ir)","{{enjoy going}} (disfrutar ir)"],
+          ["{{need to work}} (necesitar trabajar)","{{finish working}} (terminar de trabajar)"],
+          ["{{decide to stay}} (decidir quedarse)","{{stop smoking}} (dejar de fumar)"],
+          ["{{hope to see}} (esperar ver)","{{mind waiting}} (que te moleste esperar)"],
+          ["{{plan to travel}} (planear viajar)","{{keep trying}} (seguir intentando)"],
+          ["{{learn to drive}} (aprender a manejar)","{{practice speaking}} (practicar hablar)"]
+        ] },
+        {"p":"Con {{like}}, {{love}}, {{hate}} y {{start}} se puede usar cualquiera de los dos: {{I like to cook}} o {{I like cooking}}."},
+        {"p":"**Después de una preposición, siempre -ing.** Esta es la trampa más grande: el español pone infinitivo después de “de”, “en”, “para”, “sin”: “antes de salir”, “pienso en viajar”. En inglés, después de una preposición ({{about}}, {{in}}, {{of}}, {{for}}, {{before}}, {{after}}, {{without}}…) el verbo va con -ing: {{before leaving}}, {{thinking about traveling}}, {{thanks for coming}}, {{good at cooking}}."},
+        { "table": [
+          ["en español","en inglés"],
+          ["antes de salir","{{before leaving}}"],
+          ["gracias por venir","{{thanks for coming}}"],
+          ["me interesa aprender","{{I'm interested in learning}}"],
+          ["soy bueno para cocinar","{{I'm good at cooking}}"],
+          ["sin decir nada","{{without saying anything}}"]
+        ] },
+        {"p":"**El -ing como sujeto.** Para hablar de una actividad en general, el inglés usa -ing donde el español usa el infinitivo: {{Swimming is good for you.}} “Nadar es bueno para la salud.”"},
+        { "ex": [
+          {"t":"I enjoy cooking for my friends.","tr":"Me encanta cocinarles a mis amigos."},
+          {"t":"We decided to stay home.","tr":"Decidimos quedarnos en la casa."},
+          {"t":"Thanks for helping me.","tr":"Gracias por ayudarme."},
+          {"t":"She's good at fixing things.","tr":"Es buena para arreglar cosas."},
+          {"t":"Wash your hands before eating.","tr":"Lávate las manos antes de comer."},
+          {"t":"Do you mind waiting a few minutes?","tr":"¿No te molesta esperar unos minutos?"},
+          {"t":"Learning English takes time.","tr":"Aprender inglés lleva tiempo."}
+        ] },
+        {"tip":"Algunos verbos cambian de significado: {{I stopped smoking}} es “dejé de fumar”, pero {{I stopped to smoke}} es “me detuve para fumar”."}
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"Disfruto cocinar.","why":"{{enjoy}} va con -ing."},
+        {"wrong":"I want going home.","right":"I want to go home.","tr":"Quiero irme a mi casa.","why":"{{want}} va con {{to}} + la forma base."},
+        {"wrong":"Thanks for come.","right":"Thanks for coming.","tr":"Gracias por venir.","why":"Después de una preposición ({{for}}), el verbo va con -ing."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"I need ___ more.","tr":"Necesito estudiar más.","options":["to study","studying","study"],"answer":0,"why":"{{need}} + {{to}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Have you finished ___ the report?","tr":"¿Ya terminaste de escribir el reporte?","options":["writing","to write","write"],"answer":0,"why":"{{finish}} + -ing.","from":"share-news"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I'm interested in ___ Japanese.","tr":"Me interesa aprender japonés.","options":["learning","to learn","learn"],"answer":0,"why":"Después de la preposición {{in}}: -ing."},
+        {"type":"choice","q":"“Antes de salir, apaga las luces.” ¿Cuál está bien?","options":["{{Before leaving, turn off the lights.}}","{{Before to leave, turn off the lights.}}","{{Before leave, turn off it the lights.}}"],"answer":0,"why":"Después de {{before}}: -ing.","from":"use-phrasal-verbs"},
+        {"type":"dialogue","q":"Hablas con tu doctor. Escoge tus respuestas.","lines":[{"who":"Doctor","t":"Do you smoke?","tr":"¿Fuma?"},{"options":["Not anymore. I stopped smoking two years ago.","Not anymore. I stopped to smoke two years ago."],"answer":0,"why":"Dejar de: {{stop}} + -ing."},{"who":"Doctor","t":"Good. You should start exercising.","tr":"Bien. Debería empezar a hacer ejercicio."},{"options":["I know. I'm planning to join a gym.","I know. I'm planning joining a gym."],"answer":0,"why":"{{plan}} + {{to}}."},{"who":"Doctor","t":"Excellent.","tr":"Excelente."}],"from":"give-advice"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Gracias por ayudarme.","words":["Thanks","for","helping","me."]},
+        {"type":"say","q":"Di “Nadar es bueno para la salud.”","answer":"Swimming is good for you."},
+        {"type":"free","q":"Te toca: di algo que disfrutas hacer, algo que quieres aprender y algo que estás pensando hacer.","answers":[{"t":"I enjoy dancing. I want to learn to cook Thai food, and I'm thinking about traveling to Peru.","tr":"Disfruto bailar. Quiero aprender a cocinar comida tailandesa, y estoy pensando en viajar a Perú."},{"t":"I enjoy reading. I want to learn to swim, and I'm thinking about changing jobs.","tr":"Me encanta leer. Quiero aprender a nadar, y estoy pensando en cambiar de trabajo."}]}
+      ]
+    },
+    {
+      "id": "say-who-and-which",
+      "unit": 7,
+      "level": "A2",
+      "title": "Di cuál: {{who}}, {{that}}, {{where}}",
+      "summary": "Describe a personas y cosas con más detalle: {{The woman who lives next door is a doctor.}}",
+      "topic": "oraciones de relativo con {{who}}, {{that}}, {{which}}, {{where}}; sin pronombre de más ({{the car that I bought}}, no {{…bought it}})",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a doctor.","tr":"La señora que vive al lado es doctora."}},
+        {"dialog":[{"who":"Kate","t":"Who's the guy who's wearing the red cap?","tr":"¿Quién es el chavo que trae la gorra roja?"},{"who":"Tú","t":"That's Beto, the friend I told you about.","tr":"Es Beto, el amigo del que te platiqué."},{"who":"Kate","t":"And where's this?","tr":"¿Y dónde es esto?"},{"who":"Tú","t":"That's the school where we met. It's the building that's next to the church.","tr":"Es la escuela donde nos conocimos. Es el edificio que está junto a la iglesia."},{"who":"Kate","t":"Cool!","tr":"¡Qué padre!"}]},
+        {"p":"**“Que” en inglés tiene varias formas.** El español usa “que” para todo. El inglés usa {{who}} para personas, {{which}} para cosas, y {{that}} para las dos (es lo más común en la plática). Y {{where}} para lugares."},
+        { "table": [
+          ["para","en inglés","ejemplo"],
+          ["personas","{{who}}, {{that}}","{{the man who sells tacos}}"],
+          ["cosas","{{that}}, {{which}}","{{the car that I bought}}"],
+          ["lugares","{{where}}","{{the city where I was born}}"]
+        ] },
+        {"term":"oración de relativo","means":"una parte de la oración que describe a un sustantivo y empieza con “que”, “donde”…: el señor **que vende tacos**."},
+        {"p":"**Sin pronombre de más.** En inglés, {{who}}, {{that}} y {{which}} ya hacen el papel del objeto o del sujeto. No repitas {{it}}, {{him}} ni {{her}}: {{the car that I bought}}, nunca {{the car that I bought it}}. Es un error muy común en hispanohablantes."},
+        {"p":"**A veces sin {{that}}.** Cuando {{that}} es el objeto (el carro que compré, la película que vimos), se puede quitar: {{the movie we saw}} = {{the movie that we saw}}. Cuando es el sujeto (el que vive, el que vende), no: {{the man who lives here}}."},
+        {"p":"**La preposición al final.** El español dice “el amigo **del** que te platiqué”; en la plática, el inglés deja la preposición al final: {{the friend I told you about}}, {{the house I grew up in}}."},
+        { "ex": [
+          {"t":"I have a friend who speaks five languages.","tr":"Tengo un amigo que habla cinco idiomas."},
+          {"t":"The pizza that we ordered was cold.","tr":"La pizza que pedimos estaba fría."},
+          {"t":"This is the restaurant where we had our first date.","tr":"Este es el restaurante donde tuvimos nuestra primera cita."},
+          {"t":"Is this the bus that goes downtown?","tr":"¿Este es el camión que va al centro?"},
+          {"t":"The people I work with are very nice.","tr":"La gente con la que trabajo es muy amable."},
+          {"t":"Do you know a dentist who speaks Spanish?","tr":"¿Conoces a un dentista que hable español?"}
+        ] },
+        {"tip":"{{what}} es “lo que”: {{I don't understand what you're saying.}} “No entiendo lo que dices.” {{What I need is a vacation.}} “Lo que necesito son unas vacaciones.”"}
+      ],
+      "mistakes": [
+        {"wrong":"The car that I bought it is red.","right":"The car that I bought is red.","tr":"El carro que compré es rojo.","why":"{{that}} ya es el objeto: sin {{it}}."},
+        {"wrong":"The woman which lives here is a teacher.","right":"The woman who lives here is a teacher.","tr":"La señora que vive aquí es maestra.","why":"Para personas: {{who}} (o {{that}}), no {{which}}."},
+        {"wrong":"I don't understand that you're saying.","right":"I don't understand what you're saying.","tr":"No entiendo lo que dices.","why":"“Lo que” es {{what}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I have a neighbor ___ plays the guitar every night.","tr":"Tengo un vecino que toca la guitarra todas las noches.","options":["who","which","where"],"answer":0,"why":"Una persona: {{who}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"This is the town ___ my parents were born.","tr":"Este es el pueblo donde nacieron mis papás.","options":["where","which","who"],"answer":0,"why":"Un lugar: {{where}}.","from":"say-where-you-were"},
+        {"type":"choice","q":"“La película que vimos estuvo buenísima.” ¿Cuál está bien?","options":["{{The movie we saw was great.}}","{{The movie that we saw it was great.}}","{{The movie who we saw was great.}}"],"answer":0,"why":"Sin pronombre de más; y con cosas, {{that}} o nada."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Is this the bus ___ goes to the airport?","tr":"¿Este es el camión que va al aeropuerto?","options":["that","where","who"],"answer":0,"why":"Una cosa: {{that}}."},
+        {"type":"dialogue","q":"Le recomiendas a alguien a un amigo. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"Do you know a good mechanic?","tr":"¿Conoces a un buen mecánico?"},{"options":["Yes, I know a guy who fixed my car last month.","Yes, I know a guy which fixed my car last month."],"answer":0,"why":"Una persona: {{who}}."},{"who":"Amigo","t":"Is he expensive?","tr":"¿Es caro?"},{"options":["No. He's the best mechanic I've ever had.","No. He's the best mechanic that I've ever had him."],"answer":0,"why":"Sin pronombre de más, con {{I've ever had}}."},{"who":"Amigo","t":"Great, send me his number!","tr":"¡Perfecto, pásame su número!"}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Tengo un amigo que habla cinco idiomas.","words":["I have","a friend","who speaks","five languages."]},
+        {"type":"say","q":"Di “No entiendo lo que dices.”","answer":"I don't understand what you're saying."},
+        {"type":"free","q":"Te toca: describe a una persona o un lugar importante para ti, con {{who}}, {{that}} o {{where}}.","answers":[{"t":"My grandma is the person who taught me to cook. Her house is the place where I was happiest.","tr":"Mi abuela es la persona que me enseñó a cocinar. Su casa es el lugar donde fui más feliz."},{"t":"My best friend is someone who always listens to me. We met at the school where we both worked.","tr":"Mi mejor amiga es alguien que siempre me escucha. Nos conocimos en la escuela donde las dos trabajábamos."}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 7,
+      "level": "B1",
+      "title": "Di qué va a pasar si…",
+      "summary": "Habla de lo que puede pasar y de lo que vendrá después: {{If it rains tomorrow, we'll stay home.}} {{When I get home, I'll call you.}}",
+      "topic": "el primer condicional: {{if}} + presente y {{will}}; también {{when}}, {{as soon as}}, {{before}} + presente (donde el español usa subjuntivo)",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Si mañana llueve, nos quedamos en casa."}},
+        {"dialog":[{"who":"Ryan","t":"If the weather is nice, we'll go camping on Saturday.","tr":"Si hace buen tiempo, el sábado nos vamos de campamento."},{"who":"Tú","t":"And if it rains?","tr":"¿Y si llueve?"},{"who":"Ryan","t":"If it rains, we'll go to the movies.","tr":"Si llueve, vamos al cine."},{"who":"Tú","t":"Okay. When you know, text me.","tr":"Va. Cuando sepas, mándame un mensaje."},{"who":"Ryan","t":"Sure. I'll text you as soon as I check the forecast.","tr":"Claro. Te escribo en cuanto vea el pronóstico."}]},
+        {"p":"**Si pasa esto, pasará aquello.** Para una posibilidad real: {{if}} + **presente**, y el resultado con {{will}} (o con un imperativo, o con {{can}}): {{If you study, you'll pass.}} “Si estudias, vas a pasar.” Igual que en español, después de “si” va el presente: nunca {{If it will rain}}."},
+        {"term":"condicional","means":"una oración con “si” que dice qué pasa bajo una condición: si llueve, me quedo en casa."},
+        { "table": [
+          ["{{if}} + presente","el resultado","en español"],
+          ["{{If it rains,}}","{{we'll stay home.}}","Si llueve, nos quedamos en casa."],
+          ["{{If you're hungry,}}","{{eat something.}}","Si tienes hambre, come algo."],
+          ["{{If you need help,}}","{{I can help you.}}","Si necesitas ayuda, te puedo ayudar."],
+          ["{{If she doesn't hurry,}}","{{she'll miss the bus.}}","Si no se apura, va a perder el camión."]
+        ] },
+        {"p":"**{{when}}, {{as soon as}}, {{before}}, {{after}}, {{until}} + presente.** Aquí está lo difícil para nosotros: en español decimos “cuando **llegues**”, “en cuanto **sepa**”, con subjuntivo. En inglés, con todas estas palabras se usa el **presente simple**, aunque hables del futuro: {{When you get home, call me.}} {{I'll call you as soon as I know.}} Nunca {{When you will get home}}."},
+        { "table": [
+          ["en español","en inglés"],
+          ["Cuando llegues, llámame.","{{When you get there, call me.}}"],
+          ["En cuanto sepa, te aviso.","{{As soon as I know, I'll tell you.}}"],
+          ["Antes de irte, cierra la puerta.","{{Before you leave, close the door.}}"],
+          ["Espera hasta que llegue tu papá.","{{Wait until your dad gets home.}}"]
+        ] },
+        {"p":"**{{unless}}** es “a menos que”: {{We'll go unless it rains.}} “Vamos, a menos que llueva.”"},
+        { "ex": [
+          {"t":"If you want, I'll take you to the airport.","tr":"Si quieres, te llevo al aeropuerto."},
+          {"t":"If we leave now, we'll get there on time.","tr":"Si nos vamos ya, vamos a llegar a tiempo."},
+          {"t":"What will you do if you don't get the job?","tr":"¿Qué vas a hacer si no te dan el trabajo?"},
+          {"t":"When I finish work, I'll go to the gym.","tr":"Cuando salga del trabajo, voy a ir al gimnasio."},
+          {"t":"Call me as soon as you land.","tr":"Llámame en cuanto aterrices."},
+          {"t":"I'll wait here until you come back.","tr":"Te espero aquí hasta que regreses."},
+          {"t":"If you heat ice, it melts.","tr":"Si calientas el hielo, se derrite.","note":"una verdad general: presente y presente"}
+        ] },
+        {"tip":"La coma va solo cuando el {{if}} va primero: {{If it rains, we'll stay home}}, pero {{We'll stay home if it rains}}."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Si llueve, nos quedamos en casa.","why":"Después de {{if}}, el presente, no {{will}}."},
+        {"wrong":"When you will arrive, call me.","right":"When you arrive, call me.","tr":"Cuando llegues, llámame.","why":"Después de {{when}}, el presente, aunque sea futuro (y aunque en español sea subjuntivo)."},
+        {"wrong":"I'll call you as soon as I will know.","right":"I'll call you as soon as I know.","tr":"Te llamo en cuanto sepa.","why":"Después de {{as soon as}}, el presente: {{I know}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"If you ___ tired, go to bed.","tr":"Si estás cansado, acuéstate.","options":["are","will be","be"],"answer":0,"why":"Después de {{if}}: el presente."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"When I ___ to Mexico, I'll visit my grandma.","tr":"Cuando vaya a México, voy a visitar a mi abuela.","options":["go","will go","going"],"answer":0,"why":"Después de {{when}}: el presente, aunque sea futuro."},
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"If it rains, ___ stay home.","tr":"Si llueve, nos vamos a quedar en casa.","options":["we'll","we","we will to"],"answer":0,"why":"El resultado: {{will}} + la forma base.","from":"predict-and-promise"},
+        {"type":"choice","q":"“En cuanto llegue, te llamo.” ¿Cuál está bien?","options":["{{As soon as I get there, I'll call you.}}","{{As soon as I'll get there, I call you.}}","{{As soon as I will arrive, I'll call you.}}"],"answer":0,"why":"Después de {{as soon as}}: el presente; el resultado, con {{will}}."},
+        {"type":"dialogue","q":"Tu hijo quiere salir. Escoge tus respuestas.","lines":[{"who":"Hijo","t":"Can I go to Marco's house?","tr":"¿Puedo ir a la casa de Marco?"},{"options":["Yes, if you finish your homework first.","Yes, if you will finish your homework first."],"answer":0,"why":"Después de {{if}}: el presente."},{"who":"Hijo","t":"And can I stay for dinner?","tr":"¿Y me puedo quedar a cenar?"},{"options":["Okay, but you have to come back before it gets dark.","Okay, but you have to come back before it will get dark."],"answer":0,"why":"Después de {{before}}: el presente."},{"who":"Hijo","t":"Thanks, Mom!","tr":"¡Gracias, mamá!"}],"from":"say-what-you-have-to-do"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Si nos vamos ya, vamos a llegar a tiempo.","words":["If we","leave now,","we'll get","there on time."]},
+        {"type":"say","q":"Di “Cuando llegues, llámame.”","answer":"When you get there, call me."},
+        {"type":"free","q":"Te toca: ¿qué vas a hacer si mañana hace buen tiempo? ¿Y qué vas a hacer cuando termines de estudiar hoy?","answers":[{"t":"If the weather is nice tomorrow, I'll go to the beach. When I finish studying today, I'll call my sister.","tr":"Si mañana hace buen tiempo, voy a ir a la playa. Cuando termine de estudiar hoy, le voy a llamar a mi hermana."},{"t":"If it's sunny, we'll have a picnic. When I finish this lesson, I'll make dinner.","tr":"Si hace sol, vamos a hacer un día de campo. Cuando termine esta lección, voy a hacer la cena."}]}
+      ]
+    },
+    {
+      "id": "ask-someone-to-do-something",
+      "unit": 7,
+      "level": "B1",
+      "title": "Pide que alguien haga algo",
+      "summary": "Di lo que quieres que otros hagan, y pide favores con mucha cortesía: {{I want you to meet my parents.}} {{Could you help me?}}",
+      "topic": "{{want}}, {{need}}, {{ask}}, {{tell}} + alguien + {{to}}; {{Could you…?}}, {{Would you mind…?}}; {{let me}}",
+      "blocks": [
+        {"goal":{"t":"I want you to meet my parents.","tr":"Quiero que conozcas a mis papás."}},
+        {"dialog":[{"who":"Jefa","t":"Could you send me the report today?","tr":"¿Me podrías mandar el reporte hoy?"},{"who":"Tú","t":"Sure. Do you want me to print it too?","tr":"Claro. ¿Quiere que también lo imprima?"},{"who":"Jefa","t":"No, thanks. But I need you to check the numbers again.","tr":"No, gracias. Pero necesito que revises otra vez los números."},{"who":"Tú","t":"No problem. Would you mind giving me until three?","tr":"No hay problema. ¿Le molestaría darme hasta las tres?"},{"who":"Jefa","t":"That's fine. Let me know if you have questions.","tr":"Está bien. Avísame si tienes dudas."}]},
+        {"p":"**“Quiero que…” no es {{I want that}}.** En español decimos “quiero **que** vengas”, con subjuntivo. En inglés no hay “que” ni subjuntivo: se dice algo así como “quiero a ti venir”: {{want}} + la persona + {{to}} + la forma base: {{I want you to come.}} Igual con {{need}}, {{ask}}, {{tell}} y {{would like}}."},
+        { "table": [
+          ["en español","en inglés"],
+          ["Quiero que vengas.","{{I want you to come.}}"],
+          ["Necesito que me ayudes.","{{I need you to help me.}}"],
+          ["Le pedí que esperara.","{{I asked him to wait.}}"],
+          ["Me dijo que me sentara.","{{She told me to sit down.}}"],
+          ["¿Quieres que te ayude?","{{Do you want me to help you?}}"]
+        ] },
+        {"p":"La persona va como objeto: {{me}}, {{you}}, {{him}}, {{her}}, {{us}}, {{them}}: {{I want him to call me}}, nunca {{I want he calls me}}. En negativo, {{not}} va antes de {{to}}: {{I told them not to wait.}} “Les dije que no esperaran.”"},
+        {"p":"**Pedir con cortesía.** De lo más directo a lo más amable: {{Can you…?}} → {{Could you…?}} (¿podrías…?) → {{Would you mind}} + -ing (¿te molestaría…?): {{Would you mind closing the window?}} Para decir que sí lo haces, a {{Would you mind…?}} se contesta {{No, not at all!}} (“no, para nada”: no te molesta)."},
+        {"p":"**{{let}} + persona + forma base** es “dejar que”: {{Let me help you.}} “Déjame ayudarte.” {{Let me know.}} “Avísame.” Y {{make}} + persona + forma base es “hacer que”, obligar: {{My mom made me eat vegetables.}} “Mi mamá me hacía comer verduras.”"},
+        { "ex": [
+          {"t":"My boss wants me to work on Saturday.","tr":"Mi jefe quiere que trabaje el sábado."},
+          {"t":"Could you speak more slowly, please?","tr":"¿Podría hablar más despacio, por favor?"},
+          {"t":"Would you mind waiting a moment?","tr":"¿No le molesta esperar un momento?"},
+          {"t":"The doctor told me to rest.","tr":"El doctor me dijo que descansara."},
+          {"t":"Let me know when you get home.","tr":"Avísame cuando llegues a tu casa."},
+          {"t":"Do you want me to drive?","tr":"¿Quieres que maneje yo?"},
+          {"t":"I asked my neighbor not to park in front of my house.","tr":"Le pedí a mi vecino que no se estacionara enfrente de mi casa."}
+        ] },
+        {"tip":"{{Could you…?}} es la forma más segura para pedirle algo a cualquiera: a un desconocido, a un mesero, a tu jefe. Agrégale {{please}} y vas a sonar muy amable."}
+      ],
+      "mistakes": [
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"Quiero que vengas.","why":"En inglés no hay “que” ni subjuntivo: {{want}} + persona + {{to}}."},
+        {"wrong":"She told me that I sit down.","right":"She told me to sit down.","tr":"Me dijo que me sentara.","why":"Para una orden o un pedido: {{tell}} + persona + {{to}}."},
+        {"wrong":"Would you mind to close the door?","right":"Would you mind closing the door?","tr":"¿Te molestaría cerrar la puerta?","why":"{{mind}} va con -ing."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"I want ___ to come to my birthday party.","tr":"Quiero que vengas a mi fiesta de cumpleaños.","options":["you","that you","you will"],"answer":0,"why":"{{want}} + persona + {{to}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"The doctor told me ___ drink more water.","tr":"El doctor me dijo que tomara más agua.","options":["to","that","for"],"answer":0,"why":"{{tell}} + persona + {{to}}."},
+        {"type":"choice","q":"Le pides a un desconocido, con mucha cortesía, que les tome una foto.","options":["{{Would you mind taking a picture of us?}}","{{Would you mind to take a picture of us?}}","{{You take a picture of us.}}"],"answer":0,"why":"{{Would you mind}} + -ing; y las fotos se toman: {{take}}.","from":"make-or-do"},
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"Do you want me ___ you to the airport?","tr":"¿Quieres que te lleve al aeropuerto?","options":["to take","take","taking"],"answer":0,"why":"{{want}} + persona + {{to}} + la forma base."},
+        {"type":"dialogue","q":"Le pides ayuda a tu vecino. Escoge tus respuestas.","lines":[{"who":"Vecino","t":"Hi! Is everything okay?","tr":"¡Hola! ¿Todo bien?"},{"options":["Hi. Could you help me move this sofa?","Hi. Could you to help me move this sofa?"],"answer":0,"why":"{{could}} es modal: sin {{to}}."},{"who":"Vecino","t":"Sure. Where do you want me to put it?","tr":"Claro. ¿Dónde quieres que lo ponga?"},{"options":["In the living room. Thanks for helping me!","In the living room. Thanks for help me!"],"answer":0,"why":"Después de {{for}}: -ing."},{"who":"Vecino","t":"No problem!","tr":"¡No hay problema!"}],"from":"talk-about-activities"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Avísame cuando llegues.","words":["Let me","know","when","you get there."]},
+        {"type":"say","q":"Pide con cortesía: “¿Podría hablar más despacio, por favor?”","answer":"Could you speak more slowly, please?"},
+        {"type":"free","q":"Te toca: ¿qué quieres que hagan las personas de tu vida? Escribe dos oraciones con {{I want … to…}} o {{I need … to…}}","answers":[{"t":"I want my kids to read more, and I need my husband to help me on Saturdays.","tr":"Quiero que mis hijos lean más, y necesito que mi esposo me ayude los sábados."},{"t":"I want my boss to give me a raise. I need my friends to visit me more!","tr":"Quiero que mi jefe me dé un aumento. ¡Necesito que mis amigos me visiten más!"}]}
+      ]
     }
   ]
 }
