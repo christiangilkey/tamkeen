@@ -309,6 +309,187 @@
         {"type":"say","q":"친구에게 “몇 시예요?”라고 물어보세요.","answer":"What time is it?"},
         {"type":"free","q":"여러분 차례예요: 오늘 날씨와 지금 시간을 영어로 말해 보세요.","answers":[{"t":"It's sunny and warm today. It's two o'clock.","tr":"오늘은 맑고 따뜻해요. 두 시예요."},{"t":"It's cloudy. It's 8 p.m. now.","tr":"흐려요. 지금 저녁 8시예요."}]}
       ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "“있어요” ①: 무엇이 있는지 말하기",
+      "summary": "“근처에 약국 있어요?”, “냉장고에 우유가 없어요”처럼 어떤 장소에 무엇이 있는지 말해요.",
+      "topic": "{{there is}} / {{there are}}; {{Is there…?}}; {{there isn't}} / {{there aren't any}}",
+      "blocks": [
+        {"goal":{"t":"There's a convenience store across the street.","tr":"길 건너편에 편의점이 있어요."}},
+        {"dialog":[{"who":"준","t":"Excuse me. Is there a pharmacy near here?","tr":"실례합니다. 근처에 약국 있어요?"},{"who":"직원","t":"Yes, there is. There's one on Main Street.","tr":"네, 있어요. 메인 스트리트에 하나 있어요."},{"who":"준","t":"Thanks. And are there any good restaurants around here?","tr":"고마워요. 그리고 이 근처에 괜찮은 식당 있어요?"},{"who":"직원","t":"There are a lot! There's a great Korean restaurant next door.","tr":"많아요! 바로 옆에 아주 좋은 한국 식당이 있어요."},{"who":"준","t":"Really? There's a Korean restaurant here?","tr":"정말요? 여기에 한국 식당이 있어요?"}]},
+        {"p":"**한국어 “있어요”는 영어로 두 가지.** 한국어 “있어요”에는 “(어떤 장소에) ~이 있어요”와 “(내가) ~을 가지고 있어요”라는 두 가지 뜻이 있어요. 영어에서는 둘을 다르게 말해요. 이번 과는 첫 번째, 어떤 장소에 무언가가 있다는 뜻의 {{there is}}예요. (“가지고 있다”는 다음 과에서 배워요.)"},
+        {"p":"**{{There is}} + 하나, {{There are}} + 여러 개.** {{There's a park near my house.}} “우리 집 근처에 공원이 있어요.” {{There are two banks here.}} “여기에 은행이 두 개 있어요.” 장소는 보통 문장 끝에 와요. 한국어와 순서가 반대예요: “있어요 / 공원이 / 우리 집 근처에”."},
+        { "table": [
+          ["","하나","여러 개"],
+          ["있어요","{{There's a bank.}}","{{There are two banks.}}"],
+          ["있어요?","{{Is there a bank?}}","{{Are there any banks?}}"],
+          ["없어요","{{There isn't a bank.}}","{{There aren't any banks.}}"]
+        ] },
+        {"p":"**{{any}}.** 여러 개에 대해 묻거나 “없다”고 할 때는 {{any}}를 자주 써요: {{Are there any questions?}} “질문 있어요?”, {{There aren't any chairs.}} “의자가 하나도 없어요.” 우유나 물처럼 셀 수 없는 것도 마찬가지예요: {{There isn't any milk.}} “우유가 없어요.” (셀 수 없는 것은 17과에서 자세히 배워요.)"},
+        { "ex": [
+          {"t":"There's a cat in the garden.","tr":"정원에 고양이가 있어요."},
+          {"t":"Is there a bathroom here?","tr":"여기 화장실 있어요?"},
+          {"t":"There are a lot of people here.","tr":"여기 사람이 정말 많아요."},
+          {"t":"There isn't any milk in the fridge.","tr":"냉장고에 우유가 없어요."},
+          {"t":"Are there any questions?","tr":"질문 있어요?"},
+          {"t":"There's no Wi-Fi here.","tr":"여기는 와이파이가 없어요.","note":"{{There's no…}}도 “없어요”예요"}
+        ] },
+        {"tip":"{{There's}}는 {{There is}}를 줄인 말이에요. 말할 때는 거의 항상 {{There's}}라고 해요."}
+      ],
+      "mistakes": [
+        {"wrong":"Have a pharmacy near here?","right":"Is there a pharmacy near here?","tr":"근처에 약국 있어요?","why":"장소에 무언가가 있는지 물을 때는 {{Is there…?}}예요."},
+        {"wrong":"There is two banks.","right":"There are two banks.","tr":"은행이 두 개 있어요.","why":"여러 개면 {{are}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"호텔에서: “근처에 약국 있어요?”","options":["{{Is there a pharmacy near here?}}","{{Have a pharmacy near here?}}","{{There a pharmacy near here?}}"],"answer":0,"why":"장소에 있는지 묻기: {{Is there…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"There ___ three bedrooms in my apartment.","tr":"우리 아파트에는 방이 세 개 있어요.","options":["are","is","have"],"answer":0,"why":"방이 여러 개: {{there are}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"There isn't ___ milk.","tr":"우유가 없어요.","options":["any","a","many"],"answer":0,"why":"없다고 할 때는 {{any}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"여기 사람이 정말 많아요.","words":["There","are","a","lot","of","people","here."]},
+        {"type":"dialogue","q":"쇼핑몰 안내 데스크에서. 알맞은 말을 고르세요.","from":"point-and-name","lines":[{"who":"직원","t":"Hello! Can I help you?","tr":"안녕하세요! 도와드릴까요?"},{"options":["Yes. Is there a bathroom here?","Yes. Have bathroom here?"],"answer":0,"why":"장소에 있는지 묻기: {{Is there…?}}"},{"who":"직원","t":"Yes, there's one upstairs.","tr":"네, 위층에 하나 있어요."},{"options":["Thanks. Are there any lockers here?","Thanks. Is there any lockers here?"],"answer":0,"why":"{{lockers}}는 여러 개니까 {{Are there…?}}"}]},
+        {"type":"say","q":"회의가 끝날 때: “질문 있어요?”","answer":"Are there any questions?"},
+        {"type":"free","q":"여러분 차례예요: 우리 동네에 무엇이 있고 무엇이 없는지 말해 보세요.","answers":[{"t":"There's a big park near my house. There are two cafés. There isn't a movie theater.","tr":"우리 집 근처에 큰 공원이 있어요. 카페가 두 개 있어요. 영화관은 없어요."},{"t":"There are a lot of restaurants in my neighborhood, but there's no subway station.","tr":"우리 동네에 식당은 많은데, 지하철역은 없어요."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "“있어요” ②: 가진 것 말하기",
+      "summary": "“형제가 있어요”, “차가 없어요”, “시간 있어요?”처럼 가진 것을 말해요.",
+      "topic": "{{have}} / {{has}}; {{don't have}} / {{doesn't have}}; {{Do you have…?}}; {{have}}와 {{there is}}의 차이",
+      "blocks": [
+        {"goal":{"t":"I have two brothers.","tr":"저는 남자 형제가 둘 있어요."}},
+        {"dialog":[{"who":"에이미","t":"Do you have any brothers or sisters?","tr":"형제자매 있어요?"},{"who":"서준","t":"Yes, I have a sister. She's in college.","tr":"네, 여동생이 하나 있어요. 대학생이에요."},{"who":"에이미","t":"Cool. Do you have a pet?","tr":"좋네요. 반려동물 있어요?"},{"who":"서준","t":"No, I don't. But my sister has a dog.","tr":"아니요, 없어요. 그런데 여동생은 개가 있어요."},{"who":"에이미","t":"I have two cats. They're so cute!","tr":"저는 고양이가 두 마리 있어요. 너무 귀여워요!"}]},
+        {"p":"**가진 것: {{have}}.** “나는 ~이 있어요(가지고 있어요)”는 {{I have…}}예요: {{I have a car.}} “차가 있어요.” 주어는 사람이고, 가진 것은 {{have}} 뒤에 와요. 한국어 “저는 차가 있어요”와 순서가 달라요: 영어는 “나는 / 가지고 있다 / 차를”이에요."},
+        {"p":"**{{has}}.** 주어가 {{he}}, {{she}}, {{it}}이나 한 사람의 이름일 때는 {{have}}가 {{has}}로 바뀌어요: {{She has a dog.}}, {{My dad has a new phone.}} (이 규칙은 12과에서 다른 동사에도 나와요.)"},
+        { "table": [
+          ["주어","있어요","없어요","있어요?"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{have}}","{{don't have}}","{{Do you have…?}}"],
+          ["{{he}}, {{she}}, {{it}}","{{has}}","{{doesn't have}}","{{Does she have…?}}"]
+        ] },
+        {"p":"**없어요, 있어요?** “없어요”는 {{don't have}}, 질문은 {{Do you have…?}}예요. 여기서 {{do}}가 처음 나왔죠? 영어에서는 보통 동사로 질문하거나 부정할 때 {{do}}의 도움을 받아요. 13과와 14과에서 자세히 배워요. 대답은 {{Yes, I do.}} / {{No, I don't.}}"},
+        {"p":"**{{have}}냐 {{there is}}냐.** 누군가가 가진 것은 {{have}}, 어떤 장소에 있는 것은 {{there is}}예요. {{I have a cat.}} “저는 고양이가 있어요.” / {{There's a cat in the garden.}} “정원에 고양이가 있어요.”"},
+        { "ex": [
+          {"t":"I have a question.","tr":"질문이 있어요."},
+          {"t":"Do you have time tomorrow?","tr":"내일 시간 있어요?"},
+          {"t":"She has long hair.","tr":"그녀는 머리가 길어요.","note":"생김새도 {{have}}로 말해요 (33과)"},
+          {"t":"We don't have any milk.","tr":"우유가 없어요."},
+          {"t":"Does your hotel have a pool?","tr":"그 호텔에 수영장 있어요?"},
+          {"t":"I have a headache.","tr":"머리가 아파요.","note":"아픈 곳도 {{have}}: {{a cold}} 감기, {{a fever}} 열"}
+        ] },
+        {"tip":"{{Do you have time?}}는 “시간 있어요?”, {{Do you have the time?}}는 “지금 몇 시예요?”예요. {{the}} 하나로 뜻이 달라져요!"}
+      ],
+      "mistakes": [
+        {"wrong":"Do you have a time tomorrow?","right":"Do you have time tomorrow?","tr":"내일 시간 있어요?","why":"“시간”이라는 뜻의 {{time}}은 셀 수 없어서 {{a}}를 붙이지 않아요."},
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"그녀는 개가 있어요.","why":"{{she}} 다음에는 {{has}}예요."},
+        {"wrong":"I'm not have a car.","right":"I don't have a car.","tr":"저는 차가 없어요.","why":"{{have}}를 부정할 때는 {{don't}}예요. be동사의 {{not}}이 아니에요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“내일 시간 있어요?”","options":["{{Do you have time tomorrow?}}","{{Do you have a time tomorrow?}}","{{Are you have time tomorrow?}}"],"answer":0,"why":"{{Do you have…?}}, 그리고 {{time}}에는 {{a}}를 붙이지 않아요."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"My sister ___ a dog.","tr":"제 여동생은 개가 있어요.","options":["has","have","is"],"answer":0,"why":"한 사람이 주어: {{has}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ have a car.","tr":"저는 차가 없어요.","options":["don't","am not","doesn't"],"answer":0,"why":"{{I}}에는 {{don't}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"질문이 있어요.","words":["I","have","a","question."]},
+        {"type":"dialogue","q":"새 친구와 이야기해요. 알맞은 대답을 고르세요.","from":"say-what-there-is","lines":[{"who":"친구","t":"Do you have any brothers or sisters?","tr":"형제자매 있어요?"},{"options":["Yes, I have a brother.","Yes, there is a brother."],"answer":0,"why":"내가 가진 가족: {{I have…}}"},{"who":"친구","t":"Is there a park near your house?","tr":"집 근처에 공원 있어요?"},{"options":["Yes, there's a big park.","Yes, I have a big park."],"answer":0,"why":"장소에 있는 것: {{there's…}} ({{I have a big park}}는 “큰 공원을 소유하고 있다”는 뜻이 돼요!)"}]},
+        {"type":"say","q":"약국에서: “머리가 아파요.”","answer":"I have a headache."},
+        {"type":"free","q":"여러분 차례예요: 가진 것 두 가지와 없는 것 한 가지를 말해 보세요.","answers":[{"t":"I have a sister and a cat. I don't have a car.","tr":"저는 여동생과 고양이가 있어요. 차는 없어요."},{"t":"I have a new phone. I don't have a pet.","tr":"새 휴대폰이 있어요. 반려동물은 없어요."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "위치 말하기",
+      "summary": "“휴대폰은 테이블 위에 있어요”, “은행은 우체국 옆에 있어요”처럼 물건과 장소가 어디에 있는지 말해요.",
+      "topic": "장소 전치사 {{in}}, {{on}}, {{under}}, {{next to}}, {{between}}, {{in front of}}, {{behind}}, {{across from}}; {{Where is…?}}",
+      "blocks": [
+        {"goal":{"t":"Your phone is on the table.","tr":"휴대폰은 테이블 위에 있어요."}},
+        {"dialog":[{"who":"제스","t":"Where are my keys?","tr":"제 열쇠 어디 있지?"},{"who":"유나","t":"Are they on the table?","tr":"테이블 위에 있어요?"},{"who":"제스","t":"No, they aren't.","tr":"아니요, 없어요."},{"who":"유나","t":"Look! They're under the sofa.","tr":"봐요! 소파 밑에 있어요."},{"who":"제스","t":"Oh, thanks! And where's my wallet?","tr":"아, 고마워요! 그럼 제 지갑은요?"},{"who":"유나","t":"It's in your bag, next to the door.","tr":"가방 안에 있어요. 문 옆에요."}]},
+        {"p":"**위치를 나타내는 말은 명사 앞에.** 한국어는 “테이블 위에”처럼 장소 다음에 “위에”가 오지만, 영어는 반대로 {{on the table}}, 위치를 나타내는 말이 앞에 와요. 이런 말을 **전치사**라고 해요."},
+        {"term":"전치사","means":"명사 앞에 와서 장소, 시간, 방향 같은 관계를 나타내는 말이에요: {{in}}, {{on}}, {{at}}, {{under}}. 한국어의 “~에”, “~ 위에”와 비슷한 일을 해요."},
+        { "table": [
+          ["전치사","뜻","예"],
+          ["{{in}}","~ 안에","{{in the bag}} 가방 안에"],
+          ["{{on}}","~ 위에 (닿아서)","{{on the table}} 테이블 위에"],
+          ["{{under}}","~ 밑에","{{under the bed}} 침대 밑에"],
+          ["{{next to}}","~ 옆에","{{next to the bank}} 은행 옆에"],
+          ["{{between}}","~ 사이에","{{between the bank and the café}} 은행과 카페 사이에"],
+          ["{{in front of}}","~ 앞에","{{in front of the station}} 역 앞에"],
+          ["{{behind}}","~ 뒤에","{{behind the door}} 문 뒤에"],
+          ["{{across from}}","~ 건너편에","{{across from the school}} 학교 건너편에"]
+        ] },
+        {"p":"**어디 있어요?** {{Where is…?}} (줄여서 {{Where's…?}}), 여러 개면 {{Where are…?}} 대답은 {{It's…}} / {{They're…}} + 위치예요. 여기서도 be동사가 “있어요”라는 뜻이에요."},
+        {"p":"**{{the}}.** 위치를 말할 때는 명사 앞에 {{the}}가 자주 와요: {{on the table}}. 둘 다 알고 있는 “그” 테이블이기 때문이에요. ({{a}}와 {{the}}의 차이는 16과에서 배워요.)"},
+        { "ex": [
+          {"t":"The keys are in my bag.","tr":"열쇠는 제 가방 안에 있어요."},
+          {"t":"The cat is under the bed.","tr":"고양이는 침대 밑에 있어요."},
+          {"t":"The bank is next to the post office.","tr":"은행은 우체국 옆에 있어요."},
+          {"t":"Where's the bus stop?","tr":"버스 정류장이 어디예요?"},
+          {"t":"It's in front of the hospital.","tr":"병원 앞에 있어요."},
+          {"t":"There's a café across from my office.","tr":"우리 회사 건너편에 카페가 있어요."}
+        ] },
+        {"tip":"{{on}}은 “위에”뿐 아니라 표면에 붙어 있을 때도 써요: {{on the wall}} “벽에”, {{on the door}} “문에”."}
+      ],
+      "mistakes": [
+        {"wrong":"The phone is the table on.","right":"The phone is on the table.","tr":"휴대폰은 테이블 위에 있어요.","why":"전치사는 명사 앞에 와요: {{on the table}}."},
+        {"wrong":"It's next the door.","right":"It's next to the door.","tr":"문 옆에 있어요.","why":"“옆에”는 {{next to}}, 두 단어예요."},
+        {"wrong":"Where my keys are?","right":"Where are my keys?","tr":"제 열쇠 어디 있어요?","why":"질문에서는 {{are}}가 주어 앞으로 와요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“고양이는 침대 밑에 있어요.”","options":["{{The cat is under the bed.}}","{{The cat is the bed under.}}","{{The cat under the bed.}}"],"answer":0,"why":"be동사 + 전치사 + 명사: {{is under the bed}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"The bank is ___ the café and the hotel.","tr":"은행은 카페와 호텔 사이에 있어요.","options":["between","next","under"],"answer":0,"why":"두 곳 사이: {{between}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Your keys are ___ your bag.","tr":"열쇠는 가방 안에 있어요.","options":["in","on","at"],"answer":0,"why":"안에: {{in}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"버스 정류장은 병원 앞에 있어요.","words":["The","bus","stop","is","in","front","of","the","hospital."]},
+        {"type":"dialogue","q":"관광객이 길을 물어요. 알맞은 대답을 고르세요.","from":"say-what-there-is","lines":[{"who":"관광객","t":"Excuse me. Is there a subway station near here?","tr":"실례합니다. 근처에 지하철역 있어요?"},{"options":["Yes, there is. It's next to that bank.","Yes, it is. It's that bank next."],"answer":0,"why":"{{Is there…?}}에는 {{there is}}로 대답하고, 위치는 {{next to}} + 명사예요."},{"who":"관광객","t":"Where's the bank?","tr":"은행은 어디에 있어요?"},{"options":["It's across from the park.","It across the park from."],"answer":0,"why":"{{It's}} + {{across from}} + 장소."}]},
+        {"type":"say","q":"“화장실이 어디예요?”","answer":"Where's the bathroom?"},
+        {"type":"free","q":"여러분 차례예요: 지금 내 방에 있는 물건 세 개가 어디에 있는지 말해 보세요.","answers":[{"t":"My phone is on the desk. My bag is under the chair. My books are next to the bed.","tr":"휴대폰은 책상 위에 있어요. 가방은 의자 밑에 있어요. 책은 침대 옆에 있어요."},{"t":"My laptop is in my bag. The bag is behind the door.","tr":"노트북은 가방 안에 있어요. 가방은 문 뒤에 있어요."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-are-going",
+      "unit": 2,
+      "level": "A1",
+      "title": "어디에 있는지, 어디에 가는지 말하기",
+      "summary": "“지금 집에 있어요”, “회사에 가요”, “버스 안이에요”처럼 내가 있는 곳과 가는 곳을 말해요.",
+      "topic": "{{at home}}, {{at work}}, {{at school}}; {{in Seoul}}; {{on the bus}}; {{go to}} + 장소; {{go home}}",
+      "blocks": [
+        {"goal":{"t":"I'm at home now.","tr":"지금 집에 있어요."}},
+        {"dialog":[{"who":"브라이언","t":"Hi, Jiwoo! Where are you?","tr":"안녕하세요, 지우 씨! 어디예요?"},{"who":"지우","t":"I'm on the bus. I'm going to work.","tr":"버스 안이에요. 회사에 가는 중이에요."},{"who":"브라이언","t":"Oh, OK. Are you at work tomorrow?","tr":"아, 그렇군요. 내일도 회사에 있어요?"},{"who":"지우","t":"No, I'm at home tomorrow.","tr":"아니요, 내일은 집에 있어요."},{"who":"브라이언","t":"Great. Let's go to a café in Hongdae!","tr":"잘됐네요. 홍대에 있는 카페에 가요!"}]},
+        {"p":"**“~에”는 하나인데, 영어는 셋.** 한국어 “~에 있어요”의 “에”는 영어로 {{at}}, {{in}}, {{on}} 중 하나가 돼요. 대략 이렇게 기억하세요."},
+        { "table": [
+          ["전치사","언제","예"],
+          ["{{at}}","한 지점, 늘 하는 일이 있는 곳","{{at home}} 집에, {{at work}} 회사에, {{at school}} 학교에, {{at the station}} 역에"],
+          ["{{in}}","넓은 공간 안, 도시, 나라","{{in Seoul}} 서울에, {{in Korea}} 한국에, {{in the kitchen}} 부엌에"],
+          ["{{on}}","버스, 지하철, 비행기 같은 큰 교통수단","{{on the bus}} 버스 안에, {{on the subway}} 지하철 안에, {{on a plane}} 비행기 안에"]
+        ] },
+        {"p":"**가는 곳: {{go to}}.** “~에 가요”는 {{go to}} + 장소예요: {{I go to school.}}, {{We go to church.}} 그런데 {{home}}은 예외예요. “집에 가요”는 {{go home}}, {{to}}를 빼요. {{go there}} “거기에 가요”, {{go downtown}} “시내에 가요”도 {{to}} 없이 써요."},
+        {"p":"**{{the}} 없이 쓰는 장소.** {{at home}}, {{at work}}, {{at school}}, {{go to bed}} “자러 가다”처럼 늘 하는 일과 관련된 장소에는 {{the}}를 쓰지 않아요. 대화에 나온 {{I'm going to work.}} “회사에 가는 중이에요”는 20과에서 배울 모양이에요."},
+        { "ex": [
+          {"t":"I'm at work now.","tr":"지금 회사에 있어요."},
+          {"t":"She lives in Busan.","tr":"그녀는 부산에 살아요."},
+          {"t":"I'm on the subway.","tr":"지하철 안이에요."},
+          {"t":"Let's go home.","tr":"집에 가요."},
+          {"t":"I go to the gym every day.","tr":"저는 매일 헬스장에 가요."},
+          {"t":"My parents are in Canada.","tr":"우리 부모님은 캐나다에 계세요."}
+        ] },
+        {"tip":"작은 차는 {{in}}이에요: {{in a car}} “차 안에”, {{in a taxi}} “택시 안에”. 서서 다닐 수 있는 큰 교통수단은 {{on}}: {{on the bus}}, {{on the train}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I go to home.","right":"I go home.","tr":"집에 가요.","why":"{{home}} 앞에는 {{to}}를 쓰지 않아요."},
+        {"wrong":"I'm in the bus.","right":"I'm on the bus.","tr":"버스 안이에요.","why":"버스, 지하철, 기차는 {{on}}이에요."},
+        {"wrong":"I live at Seoul.","right":"I live in Seoul.","tr":"저는 서울에 살아요.","why":"도시와 나라는 {{in}}이에요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“지금 집에 있어요.”","options":["{{I'm at home now.}}","{{I'm in home now.}}","{{I'm to home now.}}"],"answer":0,"why":"집에 있다: {{at home}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'm ___ the subway now.","tr":"지금 지하철 안이에요.","options":["on","in","at"],"answer":0,"why":"지하철: {{on}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Let's go ___.","tr":"집에 가요.","options":["home","to home","at home"],"answer":0,"why":"{{go home}}, {{to}} 없이."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"우리 부모님은 캐나다에 계세요.","words":["My","parents","are","in","Canada."]},
+        {"type":"dialogue","q":"친구를 만나기로 했어요. 알맞은 대답을 고르세요.","from":"say-where-things-are","lines":[{"who":"친구","t":"Where are you?","tr":"어디예요?"},{"options":["I'm at the station. I'm in front of exit 3.","I'm in the station at. Exit 3 front."],"answer":0,"why":"역 같은 한 지점은 {{at}}, “~ 앞에”는 {{in front of}}."},{"who":"친구","t":"Great. I'm on the subway. See you soon!","tr":"좋아요. 저는 지하철 안이에요. 곧 봐요!"},{"options":["OK! I'm next to the café.","OK! I'm next the café."],"answer":0,"why":"{{next to}}, 두 단어예요."}]},
+        {"type":"say","q":"친구에게 전화로: “버스 안이에요.”","answer":"I'm on the bus."},
+        {"type":"free","q":"여러분 차례예요: 지금 어디에 있는지, 그리고 평소에 어디에 가는지 {{at}}, {{in}}, {{on}}, {{go to}}로 말해 보세요.","answers":[{"t":"I'm at home now. I go to work every day.","tr":"지금 집에 있어요. 매일 회사에 가요."},{"t":"I'm on the subway. I go to the gym after work.","tr":"지하철 안이에요. 퇴근하고 헬스장에 가요."}]}
+      ]
     }
   ]
 }
