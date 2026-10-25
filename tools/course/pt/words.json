@@ -4619,6 +4619,925 @@
       "meaning": "arrested; prisoner; stuck",
       "sentence": "Fiquei preso no trânsito.",
       "translation": "I got ⟦stuck⟧ in traffic."
+    },
+    {
+      "n": 501,
+      "rank": 517,
+      "word": "agosto",
+      "pos": "noun",
+      "meaning": "August",
+      "sentence": "Meu pai faz aniversário em agosto.",
+      "translation": "My dad's birthday is in ⟦August⟧."
+    },
+    {
+      "n": 502,
+      "rank": 519,
+      "word": "seis",
+      "pos": "num",
+      "meaning": "six",
+      "sentence": "O jantar é às seis.",
+      "translation": "Dinner is at ⟦six⟧."
+    },
+    {
+      "n": 503,
+      "rank": 520,
+      "word": "resposta",
+      "pos": "noun",
+      "meaning": "answer; reply",
+      "sentence": "Qual é a resposta certa?",
+      "translation": "What's the right ⟦answer⟧?"
+    },
+    {
+      "n": 504,
+      "rank": 521,
+      "word": "total",
+      "pos": "adj",
+      "meaning": "total; complete (no total: in all)",
+      "sentence": "O total é cinquenta reais.",
+      "translation": "The ⟦total⟧ is fifty reais."
+    },
+    {
+      "n": 505,
+      "rank": 522,
+      "word": "aberto",
+      "pos": "adj",
+      "meaning": "open",
+      "sentence": "A farmácia está aberta?",
+      "translation": "Is the pharmacy ⟦open⟧?",
+      "form": "aberta"
+    },
+    {
+      "n": 506,
+      "rank": 523,
+      "word": "civil",
+      "pos": "adj",
+      "meaning": "civil; civilian (estado civil: marital status)",
+      "sentence": "Qual é o seu estado civil?",
+      "translation": "What's your ⟦marital⟧ status?"
+    },
+    {
+      "n": 507,
+      "rank": 524,
+      "word": "modo",
+      "pos": "noun",
+      "meaning": "way; mode (de qualquer modo: anyway)",
+      "sentence": "Esse é o modo mais fácil.",
+      "translation": "That's the easiest ⟦way⟧."
+    },
+    {
+      "n": 508,
+      "rank": 525,
+      "word": "profissional",
+      "pos": "adj",
+      "meaning": "professional",
+      "sentence": "Ela é muito profissional.",
+      "translation": "She's very ⟦professional⟧."
+    },
+    {
+      "n": 509,
+      "rank": 526,
+      "word": "conselho",
+      "pos": "noun",
+      "meaning": "advice; council",
+      "sentence": "Posso te dar um conselho?",
+      "translation": "Can I give you some ⟦advice⟧?"
+    },
+    {
+      "n": 510,
+      "rank": 527,
+      "word": "encontro",
+      "pos": "noun",
+      "meaning": "date; meeting",
+      "sentence": "Tenho um encontro hoje à noite.",
+      "translation": "I have a ⟦date⟧ tonight."
+    },
+    {
+      "n": 511,
+      "rank": 528,
+      "word": "ali",
+      "pos": "adv",
+      "meaning": "there, over there",
+      "sentence": "Meu carro está ali.",
+      "translation": "My car is over ⟦there⟧."
+    },
+    {
+      "n": 512,
+      "rank": 529,
+      "word": "tema",
+      "pos": "noun",
+      "meaning": "theme; topic",
+      "sentence": "Qual é o tema da festa?",
+      "translation": "What's the ⟦theme⟧ of the party?"
+    },
+    {
+      "n": 513,
+      "rank": 530,
+      "word": "importar",
+      "pos": "verb",
+      "meaning": "to matter; to import (importar-se: to mind)",
+      "sentence": "Não importa.",
+      "translation": "It doesn't ⟦matter⟧.",
+      "form": "importa"
+    },
+    {
+      "n": 514,
+      "rank": 531,
+      "word": "garoto",
+      "pos": "noun",
+      "meaning": "boy, kid (garota: girl)",
+      "sentence": "Aquela garota é minha prima.",
+      "translation": "That ⟦girl⟧ is my cousin.",
+      "form": "garota"
+    },
+    {
+      "n": 515,
+      "rank": 532,
+      "word": "amanhã",
+      "pos": "adv",
+      "meaning": "tomorrow",
+      "sentence": "Até amanhã!",
+      "translation": "See you ⟦tomorrow⟧!"
+    },
+    {
+      "n": 516,
+      "rank": 533,
+      "word": "dezembro",
+      "pos": "noun",
+      "meaning": "December",
+      "sentence": "O Natal é em dezembro.",
+      "translation": "Christmas is in ⟦December⟧."
+    },
+    {
+      "n": 517,
+      "rank": 534,
+      "word": "respeito",
+      "pos": "noun",
+      "meaning": "respect (a respeito de: about)",
+      "sentence": "Ele tem muito respeito pelos pais.",
+      "translation": "He has a lot of ⟦respect⟧ for his parents."
+    },
+    {
+      "n": 518,
+      "rank": 535,
+      "word": "vista",
+      "pos": "noun",
+      "meaning": "view (à vista: in cash, paid at once)",
+      "sentence": "Que vista linda!",
+      "translation": "What a beautiful ⟦view⟧!"
+    },
+    {
+      "n": 519,
+      "rank": 536,
+      "word": "ministro",
+      "pos": "noun",
+      "meaning": "minister (feminine: ministra)",
+      "sentence": "O ministro deu uma entrevista.",
+      "translation": "The ⟦minister⟧ gave an interview."
+    },
+    {
+      "n": 520,
+      "rank": 537,
+      "word": "produzir",
+      "pos": "verb",
+      "meaning": "to produce; to make",
+      "sentence": "Essa fábrica produz carros.",
+      "translation": "This factory ⟦makes⟧ cars.",
+      "form": "produz"
+    },
+    {
+      "n": 521,
+      "rank": 538,
+      "word": "pesquisa",
+      "pos": "noun",
+      "meaning": "research; survey; search",
+      "sentence": "Ela faz pesquisa na universidade.",
+      "translation": "She does ⟦research⟧ at the university."
+    },
+    {
+      "n": 522,
+      "rank": 539,
+      "word": "canal",
+      "pos": "noun",
+      "meaning": "channel; canal",
+      "sentence": "Muda de canal, por favor.",
+      "translation": "Change the ⟦channel⟧, please."
+    },
+    {
+      "n": 523,
+      "rank": 540,
+      "word": "construção",
+      "pos": "noun",
+      "meaning": "construction; building",
+      "sentence": "A construção da ponte demorou anos.",
+      "translation": "The ⟦construction⟧ of the bridge took years."
+    },
+    {
+      "n": 524,
+      "rank": 541,
+      "word": "voto",
+      "pos": "noun",
+      "meaning": "vote",
+      "sentence": "Cada voto é importante.",
+      "translation": "Every ⟦vote⟧ counts."
+    },
+    {
+      "n": 525,
+      "rank": 542,
+      "word": "atividade",
+      "pos": "noun",
+      "meaning": "activity",
+      "sentence": "Quais atividades você faz no fim de semana?",
+      "translation": "What ⟦activities⟧ do you do on weekends?",
+      "form": "atividades"
+    },
+    {
+      "n": 526,
+      "rank": 543,
+      "word": "edição",
+      "pos": "noun",
+      "meaning": "edition; issue (of a magazine); editing",
+      "sentence": "Comprei a nova edição da revista.",
+      "translation": "I bought the new ⟦issue⟧ of the magazine."
+    },
+    {
+      "n": 527,
+      "rank": 544,
+      "word": "abril",
+      "pos": "noun",
+      "meaning": "April",
+      "sentence": "Choveu muito em abril.",
+      "translation": "It rained a lot in ⟦April⟧."
+    },
+    {
+      "n": 528,
+      "rank": 546,
+      "word": "novembro",
+      "pos": "noun",
+      "meaning": "November",
+      "sentence": "A prova é em novembro.",
+      "translation": "The exam is in ⟦November⟧."
+    },
+    {
+      "n": 529,
+      "rank": 547,
+      "word": "objetivo",
+      "pos": "noun",
+      "meaning": "goal, aim; objective",
+      "sentence": "Qual é o seu objetivo?",
+      "translation": "What's your ⟦goal⟧?"
+    },
+    {
+      "n": 530,
+      "rank": 548,
+      "word": "bonito",
+      "pos": "adj",
+      "meaning": "pretty; good-looking; nice",
+      "sentence": "Que vestido bonito!",
+      "translation": "What a ⟦pretty⟧ dress!"
+    },
+    {
+      "n": 531,
+      "rank": 549,
+      "word": "posição",
+      "pos": "noun",
+      "meaning": "position",
+      "sentence": "Qual é a sua posição no time?",
+      "translation": "What's your ⟦position⟧ on the team?"
+    },
+    {
+      "n": 532,
+      "rank": 550,
+      "word": "preparar",
+      "pos": "verb",
+      "meaning": "to prepare; to make (a meal)",
+      "sentence": "Vou preparar o jantar.",
+      "translation": "I'm going to ⟦make⟧ dinner."
+    },
+    {
+      "n": 533,
+      "rank": 551,
+      "word": "representar",
+      "pos": "verb",
+      "meaning": "to represent",
+      "sentence": "Ela representa o Brasil nas Olimpíadas.",
+      "translation": "She ⟦represents⟧ Brazil at the Olympics.",
+      "form": "representa"
+    },
+    {
+      "n": 534,
+      "rank": 552,
+      "word": "porta",
+      "pos": "noun",
+      "meaning": "door",
+      "sentence": "Alguém deixou a porta aberta.",
+      "translation": "Someone left the ⟦door⟧ open."
+    },
+    {
+      "n": 535,
+      "rank": 553,
+      "word": "igreja",
+      "pos": "noun",
+      "meaning": "church",
+      "sentence": "Eles vão à igreja aos domingos.",
+      "translation": "They go to ⟦church⟧ on Sundays."
+    },
+    {
+      "n": 536,
+      "rank": 554,
+      "word": "negro",
+      "pos": "adj",
+      "meaning": "Black (people); dark",
+      "sentence": "O Dia da Consciência Negra é em novembro.",
+      "translation": "⟦Black⟧ Consciousness Day is in November.",
+      "form": "negra"
+    },
+    {
+      "n": 537,
+      "rank": 555,
+      "word": "idade",
+      "pos": "noun",
+      "meaning": "age",
+      "sentence": "Ele tem a minha idade.",
+      "translation": "He's my ⟦age⟧."
+    },
+    {
+      "n": 538,
+      "rank": 556,
+      "word": "copa",
+      "pos": "noun",
+      "meaning": "cup (Copa do Mundo: World Cup)",
+      "sentence": "Você vai assistir à Copa?",
+      "translation": "Are you going to watch the ⟦World Cup⟧?"
+    },
+    {
+      "n": 539,
+      "rank": 557,
+      "word": "pé",
+      "pos": "noun",
+      "meaning": "foot (a pé: on foot)",
+      "sentence": "Meu pé está doendo.",
+      "translation": "My ⟦foot⟧ hurts."
+    },
+    {
+      "n": 540,
+      "rank": 558,
+      "word": "desenvolver",
+      "pos": "verb",
+      "meaning": "to develop",
+      "sentence": "A empresa desenvolveu um aplicativo novo.",
+      "translation": "The company ⟦developed⟧ a new app.",
+      "form": "desenvolveu"
+    },
+    {
+      "n": 541,
+      "rank": 559,
+      "word": "verdadeiro",
+      "pos": "adj",
+      "meaning": "true; real",
+      "sentence": "Ele é um amigo verdadeiro.",
+      "translation": "He's a ⟦true⟧ friend."
+    },
+    {
+      "n": 542,
+      "rank": 560,
+      "word": "tradução",
+      "pos": "noun",
+      "meaning": "translation",
+      "sentence": "Essa tradução está errada.",
+      "translation": "This ⟦translation⟧ is wrong."
+    },
+    {
+      "n": 543,
+      "rank": 561,
+      "word": "trocar",
+      "pos": "verb",
+      "meaning": "to change; to exchange; to swap",
+      "sentence": "Quero trocar esta camisa.",
+      "translation": "I'd like to ⟦exchange⟧ this shirt."
+    },
+    {
+      "n": 544,
+      "rank": 563,
+      "word": "cima",
+      "pos": "noun",
+      "meaning": "top (em cima de: on top of; lá em cima: upstairs)",
+      "sentence": "O livro está em cima da mesa.",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 545,
+      "rank": 564,
+      "word": "justiça",
+      "pos": "noun",
+      "meaning": "justice; the courts",
+      "sentence": "Queremos justiça.",
+      "translation": "We want ⟦justice⟧."
+    },
+    {
+      "n": 546,
+      "rank": 565,
+      "word": "razão",
+      "pos": "noun",
+      "meaning": "reason (ter razão: to be right)",
+      "sentence": "Você tem razão.",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 547,
+      "rank": 566,
+      "word": "imaginar",
+      "pos": "verb",
+      "meaning": "to imagine",
+      "sentence": "Não consigo imaginar a vida sem você.",
+      "translation": "I can't ⟦imagine⟧ life without you."
+    },
+    {
+      "n": 548,
+      "rank": 567,
+      "word": "belo",
+      "pos": "adj",
+      "meaning": "beautiful; fine",
+      "sentence": "Que bela casa!",
+      "translation": "What a ⟦beautiful⟧ house!",
+      "form": "bela"
+    },
+    {
+      "n": 549,
+      "rank": 568,
+      "word": "costa",
+      "pos": "noun",
+      "meaning": "coast (costas: back)",
+      "sentence": "Moramos na costa.",
+      "translation": "We live on the ⟦coast⟧."
+    },
+    {
+      "n": 550,
+      "rank": 569,
+      "word": "sentido",
+      "pos": "noun",
+      "meaning": "sense; meaning; direction",
+      "sentence": "Isso não faz sentido.",
+      "translation": "That doesn't make ⟦sense⟧."
+    },
+    {
+      "n": 551,
+      "rank": 570,
+      "word": "completar",
+      "pos": "verb",
+      "meaning": "to complete; to turn (an age)",
+      "sentence": "Ela completou vinte anos.",
+      "translation": "She ⟦turned⟧ twenty.",
+      "form": "completou"
+    },
+    {
+      "n": 552,
+      "rank": 571,
+      "word": "nascer",
+      "pos": "verb",
+      "meaning": "to be born; to rise (the sun)",
+      "sentence": "Eu nasci em São Paulo.",
+      "translation": "I was ⟦born⟧ in São Paulo.",
+      "form": "nasci"
+    },
+    {
+      "n": 553,
+      "rank": 572,
+      "word": "acompanhar",
+      "pos": "verb",
+      "meaning": "to go with; to keep up with, to follow",
+      "sentence": "Posso te acompanhar até a porta?",
+      "translation": "Can I ⟦walk⟧ you to the door?"
+    },
+    {
+      "n": 554,
+      "rank": 573,
+      "word": "ar",
+      "pos": "noun",
+      "meaning": "air",
+      "sentence": "Preciso de ar fresco.",
+      "translation": "I need some fresh ⟦air⟧."
+    },
+    {
+      "n": 555,
+      "rank": 574,
+      "word": "sozinho",
+      "pos": "adj",
+      "meaning": "alone; by oneself",
+      "sentence": "Não gosto de ficar sozinho.",
+      "translation": "I don't like being ⟦alone⟧."
+    },
+    {
+      "n": 556,
+      "rank": 575,
+      "word": "central",
+      "pos": "adj",
+      "meaning": "central; main",
+      "sentence": "A estação central fica perto daqui.",
+      "translation": "The ⟦central⟧ station is near here."
+    },
+    {
+      "n": 557,
+      "rank": 576,
+      "word": "medida",
+      "pos": "noun",
+      "meaning": "measurement; measure (à medida que: as)",
+      "sentence": "Tirei as medidas da sala.",
+      "translation": "I took the room's ⟦measurements⟧.",
+      "form": "medidas"
+    },
+    {
+      "n": 558,
+      "rank": 577,
+      "word": "versão",
+      "pos": "noun",
+      "meaning": "version",
+      "sentence": "Essa é a versão nova do jogo.",
+      "translation": "This is the new ⟦version⟧ of the game."
+    },
+    {
+      "n": 559,
+      "rank": 578,
+      "word": "interesse",
+      "pos": "noun",
+      "meaning": "interest",
+      "sentence": "Ele não tem interesse em política.",
+      "translation": "He has no ⟦interest⟧ in politics."
+    },
+    {
+      "n": 560,
+      "rank": 579,
+      "word": "responsável",
+      "pos": "adj",
+      "meaning": "responsible; person in charge",
+      "sentence": "Quem é o responsável aqui?",
+      "translation": "Who's ⟦in charge⟧ here?"
+    },
+    {
+      "n": 561,
+      "rank": 580,
+      "word": "garantir",
+      "pos": "verb",
+      "meaning": "to guarantee; to make sure",
+      "sentence": "Eu garanto que vai dar certo.",
+      "translation": "I ⟦guarantee⟧ it'll work out.",
+      "form": "garanto"
+    },
+    {
+      "n": 562,
+      "rank": 581,
+      "word": "nota",
+      "pos": "noun",
+      "meaning": "grade, mark; note; banknote",
+      "sentence": "Tirei uma nota boa na prova.",
+      "translation": "I got a good ⟦grade⟧ on the test."
+    },
+    {
+      "n": 563,
+      "rank": 582,
+      "word": "julho",
+      "pos": "noun",
+      "meaning": "July",
+      "sentence": "As férias de inverno são em julho.",
+      "translation": "Winter vacation is in ⟦July⟧."
+    },
+    {
+      "n": 564,
+      "rank": 583,
+      "word": "condição",
+      "pos": "noun",
+      "meaning": "condition",
+      "sentence": "O carro está em boas condições.",
+      "translation": "The car is in good ⟦condition⟧.",
+      "form": "condições"
+    },
+    {
+      "n": 565,
+      "rank": 584,
+      "word": "crime",
+      "pos": "noun",
+      "meaning": "crime",
+      "sentence": "Roubar é crime.",
+      "translation": "Stealing is a ⟦crime⟧."
+    },
+    {
+      "n": 566,
+      "rank": 585,
+      "word": "resolver",
+      "pos": "verb",
+      "meaning": "to solve; to sort out; to decide",
+      "sentence": "Vamos resolver o problema juntos.",
+      "translation": "Let's ⟦solve⟧ the problem together."
+    },
+    {
+      "n": 567,
+      "rank": 586,
+      "word": "usuário",
+      "pos": "noun",
+      "meaning": "user",
+      "sentence": "O usuário precisa de uma senha.",
+      "translation": "The ⟦user⟧ needs a password."
+    },
+    {
+      "n": 568,
+      "rank": 587,
+      "word": "show",
+      "pos": "noun",
+      "meaning": "concert; show",
+      "sentence": "O show foi incrível!",
+      "translation": "The ⟦concert⟧ was amazing!"
+    },
+    {
+      "n": 569,
+      "rank": 588,
+      "word": "ataque",
+      "pos": "noun",
+      "meaning": "attack",
+      "sentence": "Ele teve um ataque cardíaco.",
+      "translation": "He had a heart ⟦attack⟧."
+    },
+    {
+      "n": 570,
+      "rank": 589,
+      "word": "pôr",
+      "pos": "verb",
+      "meaning": "to put; to set (the table); to put on",
+      "sentence": "Pode pôr a mesa?",
+      "translation": "Can you ⟦set⟧ the table?"
+    },
+    {
+      "n": 571,
+      "rank": 590,
+      "word": "cantar",
+      "pos": "verb",
+      "meaning": "to sing",
+      "sentence": "Ela canta muito bem.",
+      "translation": "She ⟦sings⟧ really well.",
+      "form": "canta"
+    },
+    {
+      "n": 572,
+      "rank": 591,
+      "word": "jeito",
+      "pos": "noun",
+      "meaning": "way; knack (dar um jeito: to find a way)",
+      "sentence": "Eu gosto do jeito dela.",
+      "translation": "I like the ⟦way⟧ she is."
+    },
+    {
+      "n": 573,
+      "rank": 592,
+      "word": "experiência",
+      "pos": "noun",
+      "meaning": "experience",
+      "sentence": "Você tem experiência nessa área?",
+      "translation": "Do you have ⟦experience⟧ in this field?"
+    },
+    {
+      "n": 574,
+      "rank": 593,
+      "word": "fundo",
+      "pos": "noun",
+      "meaning": "back; bottom; background (no fundo: deep down)",
+      "sentence": "Sentei no fundo da sala.",
+      "translation": "I sat at the ⟦back⟧ of the room."
+    },
+    {
+      "n": 575,
+      "rank": 594,
+      "word": "necessário",
+      "pos": "adj",
+      "meaning": "necessary",
+      "sentence": "Não é necessário pagar.",
+      "translation": "It's not ⟦necessary⟧ to pay."
+    },
+    {
+      "n": 576,
+      "rank": 595,
+      "word": "adorar",
+      "pos": "verb",
+      "meaning": "to love, to adore",
+      "sentence": "Adorei o presente!",
+      "translation": "I ⟦loved⟧ the present!",
+      "form": "adorei"
+    },
+    {
+      "n": 577,
+      "rank": 596,
+      "word": "fevereiro",
+      "pos": "noun",
+      "meaning": "February",
+      "sentence": "O carnaval geralmente é em fevereiro.",
+      "translation": "Carnival is usually in ⟦February⟧."
+    },
+    {
+      "n": 578,
+      "rank": 598,
+      "word": "sonho",
+      "pos": "noun",
+      "meaning": "dream",
+      "sentence": "Meu sonho é conhecer Paris.",
+      "translation": "My ⟦dream⟧ is to visit Paris."
+    },
+    {
+      "n": 579,
+      "rank": 599,
+      "word": "construir",
+      "pos": "verb",
+      "meaning": "to build",
+      "sentence": "Eles construíram uma casa nova.",
+      "translation": "They ⟦built⟧ a new house.",
+      "form": "construíram"
+    },
+    {
+      "n": 580,
+      "rank": 600,
+      "word": "jornal",
+      "pos": "noun",
+      "meaning": "newspaper; the news (on TV)",
+      "sentence": "Meu pai lê o jornal todo dia.",
+      "translation": "My dad reads the ⟦newspaper⟧ every day."
+    },
+    {
+      "n": 581,
+      "rank": 601,
+      "word": "campanha",
+      "pos": "noun",
+      "meaning": "campaign",
+      "sentence": "A campanha começa em agosto.",
+      "translation": "The ⟦campaign⟧ starts in August."
+    },
+    {
+      "n": 582,
+      "rank": 602,
+      "word": "comunicação",
+      "pos": "noun",
+      "meaning": "communication",
+      "sentence": "A comunicação é muito importante no trabalho.",
+      "translation": "⟦Communication⟧ is very important at work."
+    },
+    {
+      "n": 583,
+      "rank": 603,
+      "word": "deputado",
+      "pos": "noun",
+      "meaning": "congressman, member of parliament (feminine: deputada)",
+      "sentence": "O deputado votou contra.",
+      "translation": "The ⟦congressman⟧ voted against it."
+    },
+    {
+      "n": 584,
+      "rank": 604,
+      "word": "modelo",
+      "pos": "noun",
+      "meaning": "model",
+      "sentence": "Qual é o modelo do seu carro?",
+      "translation": "What ⟦model⟧ is your car?"
+    },
+    {
+      "n": 585,
+      "rank": 605,
+      "word": "animal",
+      "pos": "noun",
+      "meaning": "animal",
+      "sentence": "Qual é o seu animal favorito?",
+      "translation": "What's your favorite ⟦animal⟧?"
+    },
+    {
+      "n": 586,
+      "rank": 606,
+      "word": "arma",
+      "pos": "noun",
+      "meaning": "weapon; gun",
+      "sentence": "A polícia encontrou uma arma.",
+      "translation": "The police found a ⟦gun⟧."
+    },
+    {
+      "n": 587,
+      "rank": 607,
+      "word": "original",
+      "pos": "adj",
+      "meaning": "original",
+      "sentence": "Prefiro a versão original.",
+      "translation": "I prefer the ⟦original⟧ version."
+    },
+    {
+      "n": 588,
+      "rank": 608,
+      "word": "popular",
+      "pos": "adj",
+      "meaning": "popular; of the people",
+      "sentence": "Essa música é muito popular.",
+      "translation": "This song is very ⟦popular⟧."
+    },
+    {
+      "n": 589,
+      "rank": 609,
+      "word": "vitória",
+      "pos": "noun",
+      "meaning": "victory; win",
+      "sentence": "Foi uma vitória importante.",
+      "translation": "It was an important ⟦win⟧."
+    },
+    {
+      "n": 590,
+      "rank": 610,
+      "word": "natural",
+      "pos": "adj",
+      "meaning": "natural",
+      "sentence": "É natural ficar nervoso.",
+      "translation": "It's ⟦natural⟧ to be nervous."
+    },
+    {
+      "n": 591,
+      "rank": 611,
+      "word": "oi",
+      "pos": "interj",
+      "meaning": "hi",
+      "sentence": "Oi, tudo bem?",
+      "translation": "⟦Hi⟧, how are you?"
+    },
+    {
+      "n": 592,
+      "rank": 612,
+      "word": "principalmente",
+      "pos": "adv",
+      "meaning": "mainly; especially",
+      "sentence": "Eu viajo principalmente a trabalho.",
+      "translation": "I travel ⟦mainly⟧ for work."
+    },
+    {
+      "n": 593,
+      "rank": 613,
+      "word": "época",
+      "pos": "noun",
+      "meaning": "time, period; season",
+      "sentence": "Naquela época, eu morava no Rio.",
+      "translation": "At that ⟦time⟧, I lived in Rio."
+    },
+    {
+      "n": 594,
+      "rank": 614,
+      "word": "sexo",
+      "pos": "noun",
+      "meaning": "sex; gender",
+      "sentence": "Qual é o sexo do bebê?",
+      "translation": "What's the baby's ⟦sex⟧?"
+    },
+    {
+      "n": 595,
+      "rank": 615,
+      "word": "curso",
+      "pos": "noun",
+      "meaning": "course",
+      "sentence": "Estou fazendo um curso de inglês.",
+      "translation": "I'm taking an English ⟦course⟧."
+    },
+    {
+      "n": 596,
+      "rank": 616,
+      "word": "oportunidade",
+      "pos": "noun",
+      "meaning": "opportunity, chance",
+      "sentence": "É uma ótima oportunidade.",
+      "translation": "It's a great ⟦opportunity⟧."
+    },
+    {
+      "n": 597,
+      "rank": 617,
+      "word": "banco",
+      "pos": "noun",
+      "meaning": "bank; bench; seat",
+      "sentence": "Preciso ir ao banco hoje.",
+      "translation": "I need to go to the ⟦bank⟧ today."
+    },
+    {
+      "n": 598,
+      "rank": 618,
+      "word": "viagem",
+      "pos": "noun",
+      "meaning": "trip; journey",
+      "sentence": "Boa viagem!",
+      "translation": "Have a good ⟦trip⟧!"
+    },
+    {
+      "n": 599,
+      "rank": 619,
+      "word": "recurso",
+      "pos": "noun",
+      "meaning": "resource; appeal",
+      "sentence": "A escola tem poucos recursos.",
+      "translation": "The school has few ⟦resources⟧.",
+      "form": "recursos"
+    },
+    {
+      "n": 600,
+      "rank": 620,
+      "word": "proteger",
+      "pos": "verb",
+      "meaning": "to protect",
+      "sentence": "O protetor solar protege a pele.",
+      "translation": "Sunscreen ⟦protects⟧ your skin.",
+      "form": "protege"
     }
   ]
 }
