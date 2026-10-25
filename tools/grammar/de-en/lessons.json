@@ -843,6 +843,244 @@
         {"type":"dialogue","q":"Eine Umfrage auf der Straße.","from":"say-when","lines":[{"who":"Interviewer","t":"How often do you watch TV?","tr":"Wie oft schauen Sie fern?"},{"options":["I usually watch TV in the evening.","I watch usually TV in the evening."],"answer":0,"why":"{{usually}} vor dem Verb, die Zeit ans Ende."},{"who":"Interviewer","t":"And do you read the news?","tr":"Und lesen Sie Nachrichten?"},{"options":["Yes, every morning I read the news online.","Yes, every morning read I the news online."],"answer":0,"why":"Auch nach {{every morning}}: erst das Subjekt, dann das Verb."}]},
         {"type":"free","q":"Jetzt du: Erzähl von deiner Woche: Was machst du immer, oft, manchmal und nie?","answers":[{"t":"I always have breakfast at home. I often go swimming, I sometimes cook, and I never watch soccer.","tr":"Ich frühstücke immer zu Hause. Ich gehe oft schwimmen, koche manchmal und schaue nie Fußball."},{"t":"On weekdays I usually work until five. On weekends I sometimes visit my parents.","tr":"Unter der Woche arbeite ich normalerweise bis fünf. Am Wochenende besuche ich manchmal meine Eltern."}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A1",
+      "title": "Sag, wo du warst",
+      "summary": "Sag, wo du gestern warst und wie es war: „I was at home.“ „The party was great.“",
+      "topic": "{{was}}, {{were}}; {{wasn't}}, {{weren't}}; {{Were you…?}}",
+      "blocks": [
+        {"goal":{"t":"I was in New York last week. It was amazing!","tr":"Letzte Woche war ich in New York. Es war toll!"}},
+        {"dialog":[{"who":"Lisa","t":"Where were you yesterday? You weren't at work.","tr":"Wo warst du gestern? Du warst nicht bei der Arbeit."},{"who":"Ben","t":"I was sick. I was in bed all day.","tr":"Ich war krank. Ich lag den ganzen Tag im Bett."},{"who":"Lisa","t":"Oh no! Were you at the doctor's?","tr":"Oh nein! Warst du beim Arzt?"},{"who":"Ben","t":"Yes, I was. It was just a cold.","tr":"Ja. Es war nur eine Erkältung."},{"who":"Lisa","t":"Well, the meeting was really boring. Lucky you!","tr":"Na ja, das Meeting war echt langweilig. Glück gehabt!"}]},
+        {"p":"**war, waren = was, were.** Die Vergangenheit von {{be}} hat nur zwei Formen: {{was}} für {{I, he, she, it}}, {{were}} für {{you, we, they}}."},
+        { "table": [
+          ["","Vergangenheit","Deutsch"],
+          ["{{I}}","{{was}}","ich war"],
+          ["{{you}}","{{were}}","du warst, Sie waren, ihr wart"],
+          ["{{he / she / it}}","{{was}}","er, sie, es war"],
+          ["{{we}}","{{were}}","wir waren"],
+          ["{{they}}","{{were}}","sie waren"]
+        ] },
+        {"p":"**Frage und Verneinung** wie im Präsens, ohne {{do}}: Das Verb kommt nach vorn ({{Were you at home?}} „Warst du zu Hause?“), {{not}} steht danach ({{It wasn't expensive.}}). {{wasn't}} = {{was not}}, {{weren't}} = {{were not}}. Kurzantworten: {{Yes, I was. / No, I wasn't.}}"},
+        {"p":"**Wo warst du?** Typische Ortsangaben: {{at home}} „zu Hause“, {{at work}} „bei der Arbeit“, {{at school}} „in der Schule“, {{at the doctor's}} „beim Arzt“, {{at a party}}, {{in Berlin}}, {{on vacation}} „im Urlaub“."},
+        {"p":"**Zeitangaben für die Vergangenheit:** {{yesterday}} „gestern“, {{last night}} „gestern Abend“, {{last week}} „letzte Woche“, {{two days ago}} „vor zwei Tagen“ ({{ago}} steht hinter der Zeit!)."},
+        { "ex": [
+          {"t":"The weather was beautiful.","tr":"Das Wetter war wunderschön."},
+          {"t":"We were on vacation in Florida.","tr":"Wir waren im Urlaub in Florida."},
+          {"t":"Was the movie good? – No, it wasn't.","tr":"War der Film gut? – Nein."},
+          {"t":"My parents were very happy.","tr":"Meine Eltern waren sehr glücklich."},
+          {"t":"I was born in 1990.","tr":"Ich bin 1990 geboren."},
+          {"t":"Where were you last night?","tr":"Wo warst du gestern Abend?"}
+        ] },
+        {"tip":"„Ich bin geboren“ heißt {{I was born}}: Englisch sieht die Geburt als vergangenes Ereignis. Nicht {{I am born}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"We was at home.","right":"We were at home.","tr":"Wir waren zu Hause.","why":"Mit {{we}}: {{were}}."},
+        {"wrong":"I am born in 1995.","right":"I was born in 1995.","tr":"Ich bin 1995 geboren.","why":"Geboren: {{was born}}."},
+        {"wrong":"Before two days I was in Boston.","right":"Two days ago I was in Boston.","tr":"Vor zwei Tagen war ich in Boston.","why":"„Vor“ bei der Zeit ist {{ago}}, und es steht hinter der Zeitangabe."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Wart ihr gestern zu Hause?“","options":["{{Were you at home yesterday?}}","{{Was you at home yesterday?}}","{{Did you be at home yesterday?}}"],"answer":0,"why":"Mit {{you}}: {{were}}, ohne {{do}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"The concert ___ fantastic!","tr":"Das Konzert war fantastisch!","options":["was","were","is"],"answer":0,"why":"{{the concert}} = {{it}}: {{was}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I was in Chicago two weeks ___.","tr":"Vor zwei Wochen war ich in Chicago.","options":["ago","before","since"],"answer":0,"why":"„Vor“ bei der Zeit: {{ago}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Were you tired? – Yes, I ___.","tr":"Warst du müde? – Ja.","options":["was","were","did"],"answer":0,"why":"Kurzantwort mit {{I}}: {{I was}}.","from":"answer-yes-or-no"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich bin 1992 in München geboren.","words":["I","was born","in Munich","in 1992."],"from":"say-when"},
+        {"type":"dialogue","q":"Montagmorgen im Büro.","lines":[{"who":"Colleague","t":"Hi! Where were you on Friday?","tr":"Hallo! Wo warst du am Freitag?"},{"options":["I was at the dentist's.","I were at the dentist's."],"answer":0,"why":"Mit {{I}}: {{was}}."},{"who":"Colleague","t":"Oh no. Was it bad?","tr":"Oh nein. War es schlimm?"},{"options":["No, it wasn't. It was OK.","No, it weren't. It was OK."],"answer":0,"why":"Mit {{it}}: {{wasn't}}."}]},
+        {"type":"free","q":"Jetzt du: Wo warst du letztes Wochenende, und wie war es?","answers":[{"t":"I was at my parents' house. It was really nice.","tr":"Ich war bei meinen Eltern. Es war richtig schön."},{"t":"Last weekend I was in Hamburg with friends. The weather was terrible, but the food was great.","tr":"Letztes Wochenende war ich mit Freunden in Hamburg. Das Wetter war furchtbar, aber das Essen war super."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A1",
+      "title": "Sag, was du gemacht hast",
+      "summary": "Erzähl, was du gestern gemacht hast: „I worked, then I cooked and watched a movie.“ Englisch nimmt dafür die einfache Vergangenheit, nicht das Perfekt.",
+      "topic": "Das Simple Past regelmäßiger Verben: {{-ed}}, und wie man es ausspricht",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked until six, then I cooked dinner and watched a movie.","tr":"Gestern habe ich bis sechs gearbeitet, dann Abendessen gekocht und einen Film geschaut."}},
+        {"dialog":[{"who":"Mia","t":"Hi! How was your weekend?","tr":"Hi! Wie war dein Wochenende?"},{"who":"Jonas","t":"Great! On Saturday I visited my aunt in New Jersey.","tr":"Super! Am Samstag habe ich meine Tante in New Jersey besucht."},{"who":"Mia","t":"Nice! And on Sunday?","tr":"Schön! Und am Sonntag?"},{"who":"Jonas","t":"I stayed home. I cleaned the apartment and played video games.","tr":"Ich bin zu Hause geblieben. Ich habe die Wohnung geputzt und Videospiele gespielt."},{"who":"Mia","t":"Sounds relaxing!","tr":"Klingt entspannt!"}]},
+        {"term":"Simple Past","means":"die einfache Vergangenheit: {{I worked}} „ich arbeitete, ich habe gearbeitet“. Für alles, was zu einer abgeschlossenen Zeit passiert ist."},
+        {"p":"**Erzählen: mit dem Simple Past.** Im Deutschen erzählst du im Gespräch meist im Perfekt: „Ich habe gearbeitet.“ Englisch hat auch eine Form, die so aussieht ({{I have worked}}), benutzt sie aber ganz anders (dazu später eine eigene Lektion). Für das, was gestern, letzte Woche oder 2019 passiert ist, gilt: Simple Past."},
+        {"p":"**Regelmäßige Verben: -ed.** An die Grundform kommt {{-ed}}, für alle Personen gleich: {{work}} → {{worked}}, {{play}} → {{played}}, {{visit}} → {{visited}}. Kleine Schreibregeln: {{live}} → {{lived}} (nur {{-d}}), {{study}} → {{studied}}, {{stop}} → {{stopped}}."},
+        { "table": [
+          ["Grundform","Simple Past","Deutsch"],
+          ["{{work}}","{{worked}}","arbeitete, habe gearbeitet"],
+          ["{{watch}}","{{watched}}","schaute, habe geschaut"],
+          ["{{live}}","{{lived}}","wohnte, habe gewohnt"],
+          ["{{study}}","{{studied}}","studierte, habe studiert"],
+          ["{{stop}}","{{stopped}}","hielt an, habe angehalten"],
+          ["{{visit}}","{{visited}}","besuchte, habe besucht"]
+        ] },
+        {"p":"**Aussprache: dreimal -ed.** Nach stimmlosen Lauten (k, p, s, sch, tsch) klingt es wie {{t}}: {{worked}} „workt“, {{watched}} „watscht“. Nach stimmhaften Lauten wie {{d}}: {{played}}, {{lived}}. Nur nach {{t}} und {{d}} wird es eine eigene Silbe „-id“: {{visited}}, {{needed}}. Also nie „work-ed“!"},
+        { "ex": [
+          {"t":"I called my mom last night.","tr":"Ich habe gestern Abend meine Mutter angerufen."},
+          {"t":"We watched a great movie.","tr":"Wir haben einen tollen Film geschaut."},
+          {"t":"She lived in Paris for two years.","tr":"Sie hat zwei Jahre in Paris gewohnt."},
+          {"t":"The train arrived on time.","tr":"Der Zug ist pünktlich angekommen."},
+          {"t":"I studied English at school.","tr":"Ich habe in der Schule Englisch gelernt."},
+          {"t":"It rained all weekend.","tr":"Es hat das ganze Wochenende geregnet."}
+        ] },
+        {"tip":"Wenn du auf Deutsch „ich habe … gemacht“ sagen würdest und eine abgeschlossene Zeit dabei ist (gestern, letztes Jahr, als ich klein war), nimm im Englischen das Simple Past."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I have worked until six.","right":"Yesterday I worked until six.","tr":"Gestern habe ich bis sechs gearbeitet.","why":"Mit {{yesterday}} (abgeschlossene Zeit): Simple Past, nicht {{have worked}}."},
+        {"wrong":"We play tennis yesterday.","right":"We played tennis yesterday.","tr":"Wir haben gestern Tennis gespielt.","why":"Vergangenheit: {{-ed}}."},
+        {"wrong":"She studyed medicine.","right":"She studied medicine.","tr":"Sie hat Medizin studiert.","why":"Konsonant + {{y}}: {{-ied}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich habe gestern meine Oma besucht.“","options":["{{I visited my grandma yesterday.}}","{{I have visited my grandma yesterday.}}","{{I visit my grandma yesterday.}}"],"answer":0,"why":"Mit {{yesterday}}: Simple Past."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We ___ a movie last night.","tr":"Wir haben gestern Abend einen Film geschaut.","options":["watched","watch","have watched"],"answer":0,"why":"{{last night}} ist vorbei: Simple Past."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ in Berlin from 2015 to 2020.","tr":"Von 2015 bis 2020 hat sie in Berlin gewohnt.","options":["lived","lives","has lived"],"answer":0,"why":"Abgeschlossen: {{lived}}."},
+        {"type":"choice","q":"Wie spricht man das {{-ed}} in {{visited}}?","options":["als eigene Silbe: „visit-id“","wie {{t}}: „visitt“"],"answer":0,"why":"Nach {{t}} und {{d}}: eine eigene Silbe."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Gestern habe ich bis sechs gearbeitet.","words":["Yesterday","I","worked","until six."],"from":"say-how-often"},
+        {"type":"dialogue","q":"Eine Freundin fragt nach deinem Wochenende.","from":"say-where-you-were","lines":[{"who":"Friend","t":"How was your weekend?","tr":"Wie war dein Wochenende?"},{"options":["It was great! I visited my sister.","It was great! I have visited my sister."],"answer":0,"why":"Am Wochenende (abgeschlossen): Simple Past."},{"who":"Friend","t":"What did you do?","tr":"Was habt ihr gemacht?"},{"options":["We cooked and played board games.","We cook and play board games."],"answer":0,"why":"Vergangenheit: {{-ed}}."}]},
+        {"type":"free","q":"Jetzt du: Was hast du gestern gemacht? Sag drei Dinge mit regelmäßigen Verben ({{worked}}, {{cooked}}, {{watched}}, {{called}}…).","answers":[{"t":"Yesterday I worked from home. In the evening I cooked pasta and called my brother.","tr":"Gestern habe ich von zu Hause gearbeitet. Abends habe ich Nudeln gekocht und meinen Bruder angerufen."},{"t":"I cleaned the kitchen, watched TV and listened to music.","tr":"Ich habe die Küche geputzt, ferngesehen und Musik gehört."}]}
+      ]
+    },
+    {
+      "id": "talk-about-last-weekend",
+      "unit": 5,
+      "level": "A2",
+      "title": "Erzähl von deinem letzten Wochenende",
+      "summary": "Die wichtigsten Verben sind unregelmäßig: „I went, I saw, I had, I got“. Mit ihnen kannst du fast alles erzählen.",
+      "topic": "Unregelmäßige Verben im Simple Past: {{went, saw, had, got, made, took, came, ate}}",
+      "blocks": [
+        {"goal":{"t":"Last weekend we went to the beach, ate fish and saw some dolphins.","tr":"Letztes Wochenende sind wir an den Strand gefahren, haben Fisch gegessen und Delfine gesehen."}},
+        {"dialog":[{"who":"Carlos","t":"So, what did you do last weekend?","tr":"Und, was hast du letztes Wochenende gemacht?"},{"who":"Hanna","t":"I went to Philadelphia with some friends.","tr":"Ich bin mit Freunden nach Philadelphia gefahren."},{"who":"Carlos","t":"Cool! How did you get there?","tr":"Cool! Wie seid ihr hingekommen?"},{"who":"Hanna","t":"We took the train. Then we saw the Liberty Bell and ate cheesesteaks.","tr":"Wir haben den Zug genommen. Dann haben wir die Liberty Bell gesehen und Cheesesteaks gegessen."},{"who":"Carlos","t":"Sounds fun!","tr":"Klingt lustig!"},{"who":"Hanna","t":"It was! But I got home really late.","tr":"War es! Aber ich bin echt spät nach Hause gekommen."}]},
+        {"p":"**Wie im Deutschen: Die wichtigsten Verben sind unregelmäßig.** „gehen – ging“, „sehen – sah“: Englisch hat dasselbe Prinzip, oft sogar mit verwandten Formen: {{drink – drank}} (trinken – trank), {{sing – sang}} (singen – sang), {{come – came}} (kommen – kam)."},
+        { "table": [
+          ["Grundform","Simple Past","Deutsch"],
+          ["{{go}}","{{went}}","gehen, fahren"],
+          ["{{have}}","{{had}}","haben"],
+          ["{{get}}","{{got}}","bekommen, werden, kommen"],
+          ["{{see}}","{{saw}}","sehen"],
+          ["{{make}}","{{made}}","machen"],
+          ["{{take}}","{{took}}","nehmen"],
+          ["{{come}}","{{came}}","kommen"],
+          ["{{eat}}","{{ate}}","essen"],
+          ["{{buy}}","{{bought}}","kaufen"],
+          ["{{say}}","{{said}}","sagen"],
+          ["{{meet}}","{{met}}","treffen"],
+          ["{{leave}}","{{left}}","weggehen, abfahren"]
+        ] },
+        {"p":"**Die gute Nachricht:** Auch die unregelmäßigen Formen sind für alle Personen gleich: {{I went}}, {{she went}}, {{they went}}. Keine Endungen wie bei „ging, gingst, gingen“."},
+        {"p":"**go = gehen und fahren.** Englisch unterscheidet nicht: {{I went to Boston}} kann „ich bin nach Boston gefahren, geflogen oder gegangen“ heißen. Und {{have}} steht oft für Essen und Erlebnisse: {{We had pizza.}} „Wir haben Pizza gegessen.“, {{We had a great time.}} „Wir hatten eine tolle Zeit.“"},
+        { "ex": [
+          {"t":"I went to bed early.","tr":"Ich bin früh ins Bett gegangen."},
+          {"t":"We had a great time.","tr":"Wir hatten eine tolle Zeit."},
+          {"t":"She bought a new car.","tr":"Sie hat ein neues Auto gekauft."},
+          {"t":"I met Sarah at the party.","tr":"Ich habe Sarah auf der Party getroffen."},
+          {"t":"They left at ten.","tr":"Sie sind um zehn gegangen."},
+          {"t":"He said hello and sat down.","tr":"Er hat Hallo gesagt und sich hingesetzt."}
+        ] },
+        {"tip":"Lern die Formen in Dreiergruppen, zusammen mit dem Partizip, das du später brauchst: {{go – went – gone}}, {{see – saw – seen}}, {{eat – ate – eaten}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the beach.","right":"I went to the beach.","tr":"Ich bin an den Strand gegangen.","why":"{{go}} ist unregelmäßig: {{went}}."},
+        {"wrong":"We have eaten pizza last night.","right":"We had pizza last night.","tr":"Wir haben gestern Abend Pizza gegessen.","why":"{{last night}} ist vorbei: Simple Past. Und für Mahlzeiten sagt man gern {{have}}."},
+        {"wrong":"She buyed a dress.","right":"She bought a dress.","tr":"Sie hat ein Kleid gekauft.","why":"{{buy}} → {{bought}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Die Vergangenheit von {{see}} ist…","options":["{{saw}}","{{seed}}","{{seen}}"],"answer":0,"why":"{{saw}}. ({{seen}} ist das Partizip, für später.)"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We ___ to Florida last summer.","tr":"Letzten Sommer sind wir nach Florida gefahren.","options":["went","goed","go"],"answer":0,"why":"{{go}} → {{went}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ a great time at the party.","tr":"Auf der Party hatte ich eine tolle Zeit.","options":["had","haved","have"],"answer":0,"why":"{{have}} → {{had}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We left ___ midnight.","tr":"Wir sind um Mitternacht gegangen.","options":["at","on","in"],"answer":0,"why":"Uhrzeiten (auch Mitternacht): {{at}}.","from":"say-when"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich habe Sarah gestern im Supermarkt getroffen.","words":["I","met","Sarah","at the supermarket","yesterday."],"from":"say-how-often"},
+        {"type":"dialogue","q":"Erzähl von deinem Urlaub.","lines":[{"who":"Friend","t":"Where did you go on vacation?","tr":"Wohin bist du in den Urlaub gefahren?"},{"options":["We went to Canada.","We goed to Canada."],"answer":0,"why":"{{go}} → {{went}}."},{"who":"Friend","t":"Did you have fun?","tr":"Hattet ihr Spaß?"},{"options":["Yes! We saw bears and ate a lot of pancakes.","Yes! We seed bears and eated a lot of pancakes."],"answer":0,"why":"{{see}} → {{saw}}, {{eat}} → {{ate}}."}]},
+        {"type":"free","q":"Jetzt du: Erzähl in zwei, drei Sätzen von deinem letzten Wochenende, mit unregelmäßigen Verben ({{went}}, {{had}}, {{saw}}, {{met}}…).","answers":[{"t":"On Saturday I went to the market and bought vegetables. In the evening I met some friends, and we had dinner.","tr":"Am Samstag war ich auf dem Markt und habe Gemüse gekauft. Abends habe ich Freunde getroffen, und wir haben zusammen gegessen."},{"t":"I saw a great movie and ate too much popcorn!","tr":"Ich habe einen tollen Film gesehen und zu viel Popcorn gegessen!"}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Frag, was jemand gemacht hat",
+      "summary": "Stell Fragen über die Vergangenheit und verneine sie: „Did you sleep well?“ „I didn't see him.“",
+      "topic": "{{Did you…?}}, {{What did you…?}}; {{didn't}} + Grundform",
+      "blocks": [
+        {"goal":{"t":"Did you have a good weekend? What did you do?","tr":"Hattest du ein schönes Wochenende? Was hast du gemacht?"}},
+        {"dialog":[{"who":"Mom","t":"Did you find your phone?","tr":"Hast du dein Handy gefunden?"},{"who":"Leo","t":"No, I didn't. I looked everywhere!","tr":"Nein. Ich habe überall gesucht!"},{"who":"Mom","t":"Did you check your jacket?","tr":"Hast du in deiner Jacke nachgeschaut?"},{"who":"Leo","t":"Yes, I did. It wasn't there.","tr":"Ja. Da war es nicht."},{"who":"Mom","t":"Where did you have it last?","tr":"Wo hattest du es zuletzt?"},{"who":"Leo","t":"At the café… Wait! I didn't take it with me! It's still there!","tr":"Im Café… Moment! Ich habe es nicht mitgenommen! Es ist noch dort!"}]},
+        {"p":"**did: das Hilfswort für die Vergangenheit.** Fragen und Verneinungen in der Vergangenheit funktionieren wie im Präsens, nur mit {{did}} statt {{do}} oder {{does}}, und {{did}} gilt für alle Personen."},
+        {"p":"**Das Wichtigste: Nach did kommt die Grundform.** Die Vergangenheit steckt schon in {{did}}, also bleibt das Verb unverändert: {{Did you go?}}, nicht {{Did you went?}}; {{I didn't see it}}, nicht {{I didn't saw it}}."},
+        { "table": [
+          ["Aussage","Frage","Verneinung"],
+          ["{{You went home.}}","{{Did you go home?}}","{{You didn't go home.}}"],
+          ["{{She saw it.}}","{{Did she see it?}}","{{She didn't see it.}}"],
+          ["{{They called.}}","{{Did they call?}}","{{They didn't call.}}"]
+        ] },
+        {"p":"**Mit Fragewort:** {{What did you do?}} „Was hast du gemacht?“, {{Where did you go?}}, {{When did she arrive?}} Kurzantworten: {{Yes, I did. / No, I didn't.}}"},
+        {"p":"**Ausnahme: was, were.** {{be}} braucht auch in der Vergangenheit kein {{did}}: {{Were you tired?}}, {{I wasn't there.}}"},
+        { "ex": [
+          {"t":"Did you sleep well?","tr":"Hast du gut geschlafen?"},
+          {"t":"What did you have for lunch?","tr":"Was hast du zu Mittag gegessen?"},
+          {"t":"I didn't understand the question.","tr":"Ich habe die Frage nicht verstanden."},
+          {"t":"Where did you buy that jacket?","tr":"Wo hast du die Jacke gekauft?"},
+          {"t":"She didn't come to the party.","tr":"Sie ist nicht zur Party gekommen."},
+          {"t":"Did it rain yesterday? – No, it didn't.","tr":"Hat es gestern geregnet? – Nein."}
+        ] },
+        {"tip":"{{What did you say?}} „Was hast du gesagt?“ und {{Sorry, I didn't get that.}} „Sorry, das habe ich nicht verstanden.“ ({{get}} = verstehen) retten dich in jedem Gespräch."}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"Bist du auf die Party gegangen?","why":"Nach {{did}}: die Grundform."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"Ich habe ihn nicht gesehen.","why":"Nach {{didn't}}: die Grundform."},
+        {"wrong":"Where you went yesterday?","right":"Where did you go yesterday?","tr":"Wo warst du gestern?","why":"Fragen in der Vergangenheit brauchen {{did}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Hast du ihn gesehen?“ (gestern)","options":["{{Did you see him?}}","{{Did you saw him?}}","{{Have you saw him?}}"],"answer":0,"why":"{{did}} + Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"What did you ___ last night?","tr":"Was hast du gestern Abend gemacht?","options":["do","did","done"],"answer":0,"why":"Nach {{did}}: die Grundform {{do}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ call me back.","tr":"Sie hat mich nicht zurückgerufen.","options":["didn't","doesn't","wasn't"],"answer":0,"why":"Verneinung in der Vergangenheit: {{didn't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ you at home yesterday?","tr":"Warst du gestern zu Hause?","options":["Were","Did","Was"],"answer":0,"why":"{{be}} braucht kein {{did}}: {{Were you…?}}","from":"say-where-you-were"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wo hast du die Jacke gekauft?","words":["Where","did","you","buy","that jacket?"]},
+        {"type":"dialogue","q":"Dein Mitbewohner fragt nach deinem Abend.","from":"talk-about-last-weekend","lines":[{"who":"Roommate","t":"Did you go out last night?","tr":"Warst du gestern Abend weg?"},{"options":["Yes, I did. I went to a concert.","Yes, I did. I go to a concert."],"answer":0,"why":"In der Vergangenheit: {{went}}."},{"who":"Roommate","t":"Did you have fun?","tr":"Hattest du Spaß?"},{"options":["Not really. I didn't like the music.","Not really. I didn't liked the music."],"answer":0,"why":"Nach {{didn't}}: die Grundform."}]},
+        {"type":"free","q":"Jetzt du: Stell einem Freund drei Fragen über seinen Urlaub, mit {{did}}.","answers":[{"t":"Where did you go? Did you have good weather? What did you eat?","tr":"Wohin bist du gefahren? Hattest du gutes Wetter? Was hast du gegessen?"},{"t":"Did you fly or drive? Who did you go with? Did you see anything interesting?","tr":"Bist du geflogen oder gefahren? Mit wem warst du da? Hast du etwas Interessantes gesehen?"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Erzähl eine Geschichte",
+      "summary": "Erzähl, was passiert ist, in der richtigen Reihenfolge und mit Hintergrund: „I was cooking when the phone rang.“",
+      "topic": "Das Past Continuous ({{was / were}} + {{-ing}}); {{when}}, {{while}}; {{first, then, after that, finally}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when I saw an old friend.","tr":"Ich war gerade auf dem Heimweg, als ich einen alten Freund gesehen habe."}},
+        {"dialog":[{"who":"Julia","t":"You won't believe what happened yesterday!","tr":"Du glaubst nicht, was gestern passiert ist!"},{"who":"Max","t":"What happened?","tr":"Was ist passiert?"},{"who":"Julia","t":"I was waiting for the bus, and it was raining. Then a car drove through a puddle.","tr":"Ich habe auf den Bus gewartet, und es hat geregnet. Dann ist ein Auto durch eine Pfütze gefahren."},{"who":"Max","t":"Oh no!","tr":"Oh nein!"},{"who":"Julia","t":"Oh yes. And while I was drying my clothes, the bus came… and left without me!","tr":"Oh doch. Und während ich meine Sachen abgetrocknet habe, kam der Bus… und fuhr ohne mich ab!"}]},
+        {"term":"Past Continuous","means":"die Verlaufsform der Vergangenheit: {{was / were}} + Verb mit {{-ing}}. Für eine Handlung, die gerade lief, als etwas anderes passierte: {{I was sleeping}} „ich schlief gerade“."},
+        {"p":"**Hintergrund und Ereignis.** In einer Geschichte gibt es Dinge, die gerade liefen (der Hintergrund), und Dinge, die plötzlich passierten. Englisch zeigt den Unterschied mit zwei Formen: das Past Continuous für den Hintergrund, das Simple Past für das Ereignis: {{I was cooking}} (lief gerade) {{when the phone rang}} (passierte)."},
+        { "table": [
+          ["Hintergrund: Past Continuous","Ereignis: Simple Past"],
+          ["{{I was taking a shower}}","{{when the doorbell rang.}}"],
+          ["{{We were having dinner}}","{{when the lights went out.}}"],
+          ["{{It was raining}}","{{when we left.}}"]
+        ] },
+        {"p":"**when und while.** {{when}} „als“ leitet meist das plötzliche Ereignis ein, {{while}} „während“ den Hintergrund: {{While I was sleeping, someone called.}} „Während ich schlief, hat jemand angerufen.“"},
+        {"p":"**Die Reihenfolge:** {{first}} „zuerst“, {{then}} „dann“, {{after that}} „danach“, {{later}} „später“, {{finally}} oder {{in the end}} „schließlich“. Und nach jedem kommt wieder: das Subjekt, dann das Verb: {{Then we went home.}}"},
+        { "ex": [
+          {"t":"What were you doing at 8 p.m.?","tr":"Was hast du um 20 Uhr gemacht?"},
+          {"t":"I was sleeping when you called.","tr":"Ich habe geschlafen, als du angerufen hast."},
+          {"t":"While we were driving, it started to snow.","tr":"Während wir fuhren, fing es an zu schneien."},
+          {"t":"First we had breakfast, then we went to the museum.","tr":"Zuerst haben wir gefrühstückt, dann sind wir ins Museum gegangen."},
+          {"t":"The sun was shining and the birds were singing.","tr":"Die Sonne schien, und die Vögel sangen."},
+          {"t":"Finally, we found the hotel.","tr":"Schließlich haben wir das Hotel gefunden."}
+        ] },
+        {"tip":"Deutsch unterscheidet hier meist gar nicht („ich kochte, als…“). Frag dich beim Erzählen: Lief es schon (→ {{-ing}}) oder passierte es auf einmal (→ Simple Past)?"}
+      ],
+      "mistakes": [
+        {"wrong":"I cooked when the phone rang.","right":"I was cooking when the phone rang.","tr":"Ich habe gerade gekocht, als das Telefon klingelte.","why":"Was gerade lief: Past Continuous."},
+        {"wrong":"While I was sleeping, someone was calling.","right":"While I was sleeping, someone called.","tr":"Während ich schlief, hat jemand angerufen.","why":"Der Anruf ist das plötzliche Ereignis: Simple Past."},
+        {"wrong":"Then went we home.","right":"Then we went home.","tr":"Dann sind wir nach Hause gegangen.","why":"Auch nach {{then}}: das Subjekt vor dem Verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich habe gerade geduscht, als es klingelte.“","options":["{{I was taking a shower when the doorbell rang.}}","{{I took a shower when the doorbell was ringing.}}"],"answer":0,"why":"Das Duschen lief gerade, das Klingeln passierte plötzlich."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We ___ dinner when the lights went out.","tr":"Wir haben gerade zu Abend gegessen, als das Licht ausging.","options":["were having","had","have"],"answer":0,"why":"Was gerade lief: {{were having}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"While I was walking home, I ___ my old teacher.","tr":"Auf dem Heimweg habe ich meine alte Lehrerin getroffen.","options":["met","was meeting","meet"],"answer":0,"why":"Das Treffen passierte: Simple Past, {{met}}.","from":"talk-about-last-weekend"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Dann sind wir nach Hause gefahren.","words":["Then","we","drove","home."],"from":"say-how-often"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Was hast du um acht gemacht?","words":["What","were","you","doing","at eight?"]},
+        {"type":"dialogue","q":"Ein Freund fragt, warum du zu spät kommst.","from":"ask-about-the-past","lines":[{"who":"Friend","t":"Why are you so late?","tr":"Warum kommst du so spät?"},{"options":["Sorry! I was driving here when my car broke down.","Sorry! I drove here when my car was breaking down."],"answer":0,"why":"Die Fahrt lief gerade (Past Continuous), die Panne passierte (Simple Past)."},{"who":"Friend","t":"Oh no! What did you do?","tr":"Oh nein! Was hast du gemacht?"},{"options":["First I called a mechanic, then I took a taxi.","First I called a mechanic, then took I a taxi."],"answer":0,"why":"Nach {{then}}: das Subjekt vor dem Verb."}]},
+        {"type":"free","q":"Jetzt du: Erzähl eine kleine Geschichte: Was hast du gerade gemacht, als etwas Überraschendes passierte?","answers":[{"t":"I was reading on the sofa when my cat jumped on the table and broke a glass.","tr":"Ich habe auf dem Sofa gelesen, als meine Katze auf den Tisch sprang und ein Glas zerbrach."},{"t":"Last year I was walking in Central Park when I saw a famous actor. First I didn't believe it, then I took a photo.","tr":"Letztes Jahr bin ich im Central Park spazieren gegangen, als ich einen berühmten Schauspieler gesehen habe. Erst habe ich es nicht geglaubt, dann habe ich ein Foto gemacht."}]}
+      ]
     }
   ]
 }
