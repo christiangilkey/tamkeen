@@ -630,6 +630,235 @@
         {"type":"order","q":"Соберите предложение.","tr":"Можно оплатить картой?","words":["Can","I","pay","by","card?"]},
         {"type":"free","q":"Ваша очередь: скажите, что вы умеете, чего не умеете, и попросите кого-нибудь о помощи.","answers":[{"t":"I can cook and I can drive, but I can't swim. Can you teach me?","tr":"Я умею готовить и водить машину, но не умею плавать. Научишь меня?"},{"t":"I can speak Russian and a little English. Could you help me with my homework?","tr":"Я говорю по-русски и немного по-английски. Не могли бы вы помочь мне с домашним заданием?"}]}
       ]
+    },
+    {
+      "id": "numbers-and-age",
+      "unit": 3,
+      "level": "A1",
+      "title": "Цены, числа и возраст",
+      "summary": "Спросите, сколько что стоит, назовите цену и свой возраст: «How much is it? I'm thirty-five».",
+      "topic": "Числа; {{How much is it?}} и {{How much are they?}}; {{I'm 25}}, а не «I have 25 years»; {{How old are you?}}",
+      "blocks": [
+        {"goal":{"t":"How much is this jacket? — It's eighty dollars.","tr":"Сколько стоит эта куртка? — Восемьдесят долларов."}},
+        {"dialog":[{"who":"Люси","t":"How old is your son?","tr":"Сколько лет твоему сыну?"},{"who":"Ольга","t":"He's seven. And your daughter?","tr":"Семь. А твоей дочке?"},{"who":"Люси","t":"She's twelve. She's in sixth grade.","tr":"Двенадцать. Она в шестом классе."},{"who":"Ольга","t":"Wow! And how old are you, if it's not a secret?","tr":"Ого! А тебе сколько, если не секрет?"},{"who":"Люси","t":"I'm thirty-nine. Don't tell anyone!","tr":"Тридцать девять. Только никому не говори!"}]},
+        { "table": [
+          ["число","по-английски","число","по-английски"],
+          ["1","{{one}}","11","{{eleven}}"],
+          ["2","{{two}}","12","{{twelve}}"],
+          ["3","{{three}}","13","{{thirteen}}"],
+          ["4","{{four}}","15","{{fifteen}}"],
+          ["5","{{five}}","20","{{twenty}}"],
+          ["6","{{six}}","30","{{thirty}}"],
+          ["7","{{seven}}","50","{{fifty}}"],
+          ["8","{{eight}}","100","{{a hundred}}"],
+          ["9","{{nine}}","1 000","{{a thousand}}"],
+          ["10","{{ten}}","1 000 000","{{a million}}"]
+        ] },
+        {"p":"Составные числа пишутся через дефис: {{twenty-one}}, {{forty-five}}. Следите за ударением: {{thirteen}} — на конце, {{thirty}} — в начале; так же {{fifteen}} и {{fifty}}. А существительное после числа не меняется по падежам, как у нас («рубль, рубля, рублей»): просто {{-s}}: {{one dollar}}, {{two dollars}}, {{five dollars}}."},
+        {"p":"**Сколько стоит?** {{How much is it?}} — об одной вещи, {{How much are they?}} — о нескольких. Ответ: {{It's ten dollars.}} Пишут {{$10}}, а читают {{ten dollars}}; {{$4.50}} — {{four fifty}}. Заметьте: в английском дробную часть отделяют точкой, а тысячи — запятой: {{1,500}}."},
+        {"p":"**Возраст — с {{be}}.** По-русски «Мне двадцать пять»: я — «мне». По-английски — снова через {{be}}: {{I'm twenty-five}} или {{I'm twenty-five years old}}. Вопрос: {{How old are you?}}, дословно «Насколько вы старый?», — это обычный вопрос, никого он не обижает (хотя взрослых о возрасте спрашивают редко)."},
+        { "ex": [
+          {"t":"How much are the tickets? — They're fifteen dollars each.","tr":"Сколько стоят билеты? — По пятнадцать долларов."},
+          {"t":"I'm thirty years old.","tr":"Мне тридцать лет."},
+          {"t":"My grandma is eighty-two.","tr":"Моей бабушке восемьдесят два."},
+          {"t":"It's twelve fifty.","tr":"Двенадцать пятьдесят.","note":"$12.50"},
+          {"t":"That's expensive!","tr":"Это дорого!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I have 25 years.","right":"I'm 25.","tr":"Мне 25 лет.","why":"Возраст — с {{be}}: {{I'm 25}}."},
+        {"wrong":"How much is the shoes?","right":"How much are the shoes?","tr":"Сколько стоят туфли?","why":"Туфли — множественное число: {{are}}."},
+        {"wrong":"It's five dollar.","right":"It's five dollars.","tr":"Пять долларов.","why":"После числа больше одного — {{-s}}, и больше ничего не меняется."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My son ___ six.","tr":"Моему сыну шесть лет.","options":["is","has","have"],"answer":0,"why":"Возраст — с {{be}}: {{is}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"How much ___ these apples?","tr":"Сколько стоят эти яблоки?","options":["are","is","does"],"answer":0,"why":"Яблок несколько: {{are}}."},
+        {"type":"choice","q":"Как сказать «Мне сорок лет»?","options":["{{I'm forty.}}","{{I have forty years.}}","{{Me forty years.}}"],"answer":0,"why":"Возраст — с {{be}}."},
+        {"type":"choice","q":"Какое это число: {{fifteen}}?","options":["15","50","5"],"answer":0,"why":"{{-teen}} — от 13 до 19; {{-ty}} — десятки: {{fifty}} — 50."},
+        {"type":"dialogue","q":"Вы в магазине. Выберите ответы.","from":"ask-politely","lines":[{"who":"Продавец","t":"Hi there! Can I help you?","tr":"Здравствуйте! Вам помочь?"},{"options":["Yes, please. How much is this hat?","Yes, please. How much costs this hat?"],"answer":0,"why":"«Сколько стоит?» — {{How much is…?}}"},{"who":"Продавец","t":"It's twenty-five dollars.","tr":"Двадцать пять долларов."},{"options":["Can I pay by card?","I pay card?"],"answer":0,"why":"Вежливая просьба: {{Can I…?}}"},{"who":"Продавец","t":"Sure.","tr":"Конечно."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Сколько лет твоей сестре?","words":["How","old","is","your","sister?"]},
+        {"type":"free","q":"Ваша очередь: назовите свой возраст и возраст кого-нибудь из близких, а потом спросите, сколько стоит какая-нибудь вещь.","answers":[{"t":"I'm thirty-four. My daughter is nine. How much is this bike?","tr":"Мне тридцать четыре. Моей дочери девять. Сколько стоит этот велосипед?"},{"t":"I'm fifty and my husband is fifty-two. How much are these flowers?","tr":"Мне пятьдесят, а мужу пятьдесят два. Сколько стоят эти цветы?"}]}
+      ]
+    },
+    {
+      "id": "time-and-days",
+      "unit": 3,
+      "level": "A1",
+      "title": "Договориться о времени",
+      "summary": "Спросите, который час, и договоритесь о встрече: «See you on Friday at seven».",
+      "topic": "{{What time is it?}}; {{at}}, {{on}}, {{in}} со временем; дни недели и месяцы — с большой буквы",
+      "blocks": [
+        {"goal":{"t":"Let's meet on Friday at seven.","tr":"Давай встретимся в пятницу в семь."}},
+        {"dialog":[{"who":"Анна","t":"Are you free on Friday?","tr":"Ты свободен в пятницу?"},{"who":"Мэтт","t":"In the morning, no. In the evening, yes.","tr":"Утром нет. Вечером да."},{"who":"Анна","t":"Let's have dinner. At seven?","tr":"Давай поужинаем. В семь?"},{"who":"Мэтт","t":"Seven thirty is better. I finish work at six thirty.","tr":"Лучше в полвосьмого. Я заканчиваю работу в полседьмого."},{"who":"Анна","t":"OK, see you on Friday at seven thirty!","tr":"Договорились, до пятницы, в полвосьмого!"}]},
+        {"p":"**Который час?** {{What time is it?}} Ответ: {{It's seven.}} или {{It's seven o'clock.}} Минуты называют просто числом: {{seven fifteen}} (7:15), {{seven thirty}} (7:30), {{seven forty-five}} (7:45). Можно и так: {{a quarter past seven}} «четверть восьмого», {{half past seven}} «полвосьмого», {{a quarter to eight}} «без четверти восемь». {{a.m.}} — до полудня, {{p.m.}} — после: {{9 a.m.}}, {{9 p.m.}}"},
+        {"p":"**Три предлога для времени.** По-русски «в семь», «в пятницу», «в мае» — везде «в». В английском три разных предлога, от точного к широкому:"},
+        { "table": [
+          ["предлог","с чем","примеры"],
+          ["{{at}}","точное время","{{at seven}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","дни и даты","{{on Friday}}, {{on May 5}}, {{on weekends}}"],
+          ["{{in}}","части дня, месяцы, годы, времена года","{{in the morning}}, {{in May}}, {{in 2010}}, {{in the summer}}"]
+        ] },
+        {"p":"**Без предлога.** Со словами {{this}}, {{next}}, {{last}}, {{every}}, {{today}}, {{tomorrow}} предлога нет: {{See you tomorrow}}, {{next week}} «на следующей неделе», {{every Monday}} «каждый понедельник»."},
+        {"p":"**Большие буквы.** Дни недели и месяцы в английском всегда пишутся с большой буквы: {{Monday}}, {{Tuesday}}, {{Wednesday}}, {{Thursday}}, {{Friday}}, {{Saturday}}, {{Sunday}}; {{January}}, {{May}}, {{December}}."},
+        { "ex": [
+          {"t":"What time is it? — It's ten fifteen.","tr":"Который час? — Десять пятнадцать."},
+          {"t":"The movie starts at eight p.m.","tr":"Фильм начинается в восемь вечера."},
+          {"t":"I'm busy on Monday.","tr":"В понедельник я занят."},
+          {"t":"We go to the beach in the summer.","tr":"Летом мы ездим на пляж."},
+          {"t":"See you next week!","tr":"Увидимся на следующей неделе!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"See you in Friday.","right":"See you on Friday.","tr":"Увидимся в пятницу.","why":"С днями недели — {{on}}."},
+        {"wrong":"I work at the morning.","right":"I work in the morning.","tr":"Я работаю по утрам.","why":"Части дня — {{in the morning}}, {{in the evening}} (но {{at night}})."},
+        {"wrong":"See you on next Monday.","right":"See you next Monday.","tr":"Увидимся в следующий понедельник.","why":"С {{next}}, {{last}}, {{this}} предлог не ставят."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The meeting is ___ 10 a.m.","tr":"Встреча в 10 утра.","options":["at","on","in"],"answer":0,"why":"Точное время — {{at}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My birthday is ___ June.","tr":"Мой день рождения в июне.","options":["in","on","at"],"answer":0,"why":"Месяц — {{in}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I don't work ___ weekends.","tr":"По выходным я не работаю.","options":["on","in","at"],"answer":0,"why":"Дни — {{on}}: {{on weekends}}."},
+        {"type":"choice","q":"Как правильно написать «в среду»?","options":["{{on Wednesday}}","{{on wednesday}}","{{in Wednesday}}"],"answer":0,"why":"{{on}} и большая буква."},
+        {"type":"dialogue","q":"Друг зовёт вас на вечеринку. Выберите ответы.","from":"can","lines":[{"who":"Друг","t":"Can you come to my party on Saturday?","tr":"Придёшь ко мне на вечеринку в субботу?"},{"options":["Sure! What time?","Sure! Which hour?"],"answer":0,"why":"«Во сколько?» — {{What time?}}"},{"who":"Друг","t":"At eight, at my place.","tr":"В восемь, у меня."},{"options":["Great, see you on Saturday at eight!","Great, see you in Saturday in eight!"],"answer":0,"why":"День — {{on}}, время — {{at}}."},{"who":"Друг","t":"See you!","tr":"До встречи!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Увидимся завтра утром.","words":["See","you","tomorrow","morning."]},
+        {"type":"free","q":"Ваша очередь: назначьте другу встречу — день, время и что вы будете делать.","answers":[{"t":"Let's meet on Sunday at two. We can have lunch downtown.","tr":"Давай встретимся в воскресенье в два. Можем пообедать в центре."},{"t":"Are you free on Thursday evening? Let's go to the movies at seven thirty.","tr":"Ты свободна в четверг вечером? Пойдём в кино в полвосьмого."}]}
+      ]
+    },
+    {
+      "id": "places-and-going",
+      "unit": 3,
+      "level": "A1",
+      "title": "Сказать, где вы и куда идёте",
+      "summary": "Скажите, где вы находитесь и куда направляетесь: «I'm at work. I'm going home at six».",
+      "topic": "{{at}} и {{in}} для мест; {{go to}}; {{go home}} без {{to}}; с артиклем или без",
+      "blocks": [
+        {"goal":{"t":"I'm at work now, but I'm going home at six.","tr":"Я сейчас на работе, а в шесть пойду домой."}},
+        {"dialog":[{"who":"Муж","t":"Where are you?","tr":"Ты где?"},{"who":"Жена","t":"I'm at the store. Then I'm going to the bank.","tr":"В магазине. Потом пойду в банк."},{"who":"Муж","t":"Are the kids at school?","tr":"Дети в школе?"},{"who":"Жена","t":"Yes. And Grandma is at home.","tr":"Да. А бабушка дома."},{"who":"Муж","t":"OK. I'm going to the gym after work.","tr":"Ладно. Я после работы в спортзал."},{"who":"Жена","t":"Great, see you at home!","tr":"Отлично, увидимся дома!"}]},
+        {"p":"**Где?** По-русски «в» и «на»: «в магазине», «на работе». В английском чаще всего {{at}} — «в, у, при» (место как точка на карте): {{at work}}, {{at school}}, {{at the store}}, {{at the airport}}. {{in}} — «внутри» и с городами и странами: {{in the kitchen}}, {{in New York}}, {{in Russia}}. {{on}} — «на поверхности»: {{on the table}}, {{on the third floor}}."},
+        {"p":"**Куда?** Русские «в магазин», «на работу» по-английски — {{to}}: {{go to work}}, {{go to the store}}, {{go to Moscow}}. Но «домой» — {{go home}}, без {{to}}! И «туда», «сюда» тоже без {{to}}: {{go there}}, {{come here}}."},
+        { "table": [
+          ["где?","куда?"],
+          ["{{at work}}","{{to work}}"],
+          ["{{at school}}","{{to school}}"],
+          ["{{at the store}}","{{to the store}}"],
+          ["{{in Moscow}}","{{to Moscow}}"],
+          ["{{at home}}","{{home}}"]
+        ] },
+        {"p":"**С {{the}} или без?** Без артикля — места, куда ходят «по назначению»: {{at work}}, {{at school}}, {{at home}}, {{in bed}}. С {{the}} — конкретные места, общие для всех: {{the store}}, {{the bank}}, {{the doctor}}, {{the airport}}, {{the movies}}. Города и страны — без артикля ({{Moscow}}, {{Russia}}), но {{the United States}}."},
+        { "ex": [
+          {"t":"She's at home today.","tr":"Она сегодня дома."},
+          {"t":"We're going to the movies tonight.","tr":"Сегодня вечером мы идём в кино."},
+          {"t":"My son is at school.","tr":"Мой сын в школе."},
+          {"t":"I live in Boston, on Elm Street.","tr":"Я живу в Бостоне, на улице Элм.","note":"с названием улицы — {{on}}"},
+          {"t":"Let's go home.","tr":"Пойдём домой."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I'm going to home.","right":"I'm going home.","tr":"Я иду домой.","why":"«Домой» — {{home}}, без {{to}}."},
+        {"wrong":"I'm in work.","right":"I'm at work.","tr":"Я на работе.","why":"«На работе» — {{at work}}."},
+        {"wrong":"I'm going to the work.","right":"I'm going to work.","tr":"Я иду на работу.","why":"{{work}}, {{school}}, {{home}} в таких выражениях — без {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My parents live ___ Chicago.","tr":"Мои родители живут в Чикаго.","options":["in","at","on"],"answer":0,"why":"Город — {{in}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'm going ___ the bank.","tr":"Я иду в банк.","options":["to","at","in"],"answer":0,"why":"Куда — {{to}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Is your husband ___ home?","tr":"Твой муж дома?","options":["at","in","to"],"answer":0,"why":"«Дома» — {{at home}}."},
+        {"type":"choice","q":"Как сказать «Я иду домой»?","options":["{{I'm going home.}}","{{I'm going to home.}}","{{I'm going to the home.}}"],"answer":0,"why":"{{home}} — без {{to}} и без {{the}}."},
+        {"type":"dialogue","q":"Вам звонит подруга. Выберите ответы.","from":"right-now","lines":[{"who":"Подруга","t":"Hi! Where are you?","tr":"Привет! Ты где?"},{"options":["I'm at the airport. I'm flying to Miami!","I'm in the airport. I fly to Miami now!"],"answer":0,"why":"{{at the airport}}; прямо сейчас — {{I'm flying}}."},{"who":"Подруга","t":"Wow! When are you coming back?","tr":"Ого! Когда вернёшься?"},{"options":["On Sunday. And on Monday I'm going to work.","In Sunday. And in Monday I go to the work."],"answer":0,"why":"Дни — {{on}}; {{go to work}} — без {{the}}."},{"who":"Подруга","t":"Have fun!","tr":"Хорошо отдохнуть!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Дети в школе.","words":["The","kids","are","at","school."]},
+        {"type":"free","q":"Ваша очередь: где вы сейчас, и куда пойдёте или поедете потом? Используйте {{at}}, {{in}} и {{to}}.","answers":[{"t":"I'm at home now. After lunch I'm going to the store and then to the gym.","tr":"Я сейчас дома. После обеда пойду в магазин, а потом в спортзал."},{"t":"I'm at work. In the evening I'm going to my friend's house.","tr":"Я на работе. Вечером пойду к другу."}]}
+      ]
+    },
+    {
+      "id": "weather-and-feelings",
+      "unit": 3,
+      "level": "A1",
+      "title": "Погода и самочувствие",
+      "summary": "Скажите, какая погода и как вы себя чувствуете: «It's cold. I'm cold. It's raining».",
+      "topic": "Подлежащее обязательно: {{It's cold}}; {{I'm cold}}, а не «Me is cold»; {{It's raining}}",
+      "blocks": [
+        {"goal":{"t":"It's cold and it's raining. I'm freezing!","tr":"Холодно, и идёт дождь. Я замёрз!"}},
+        {"dialog":[{"who":"Кейт","t":"How's the weather in Moscow?","tr":"Какая в Москве погода?"},{"who":"Иван","t":"It's snowing. It's minus ten!","tr":"Идёт снег. Минус десять!"},{"who":"Кейт","t":"Wow! Are you cold?","tr":"Ого! Тебе холодно?"},{"who":"Иван","t":"No, I'm fine. It's warm in my apartment.","tr":"Нет, всё хорошо. В квартире тепло."},{"who":"Кейт","t":"Here it's sunny and hot. I love it!","tr":"А у нас солнечно и жарко. Обожаю!"}]},
+        {"p":"**Предложения без подлежащего не бывает.** По-русски можно сказать одним словом: «Холодно», «Темно», «Поздно», «Идёт дождь». В английском у каждого предложения есть подлежащее, и если по смыслу его нет, ставят пустое {{it}}: {{It's cold}}, {{It's dark}}, {{It's late}}, {{It's raining}}."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Холодно.","{{It's cold.}}"],
+          ["Идёт дождь.","{{It's raining.}}"],
+          ["Уже поздно.","{{It's late.}}"],
+          ["Здесь красиво.","{{It's beautiful here.}}"],
+          ["Далеко?","{{Is it far?}}"]
+        ] },
+        {"p":"**Мне холодно.** А когда речь о человеке — «мне холодно», «ему скучно», — подлежащим становится сам человек, с глаголом {{be}}: {{I'm cold}} «мне холодно», {{She's bored}} «ей скучно», {{We're hungry}} «мы голодны», {{I'm hot}} «мне жарко»."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Мне холодно.","{{I'm cold.}}"],
+          ["Ему скучно.","{{He's bored.}}"],
+          ["Нам весело.","{{We're having fun.}}"],
+          ["Мне плохо.","{{I feel sick.}}"]
+        ] },
+        {"p":"**Погода.** {{It's sunny}} «солнечно», {{It's cloudy}} «пасмурно», {{It's windy}} «ветрено», {{It's raining}} и {{It's snowing}} «идёт дождь, снег» (прямо сейчас, поэтому {{-ing}}). Температуру в США измеряют по Фаренгейту: {{It's seventy degrees}} — это около 21 градуса, тепло!"},
+        { "ex": [
+          {"t":"It's very hot today.","tr":"Сегодня очень жарко."},
+          {"t":"Is it cold outside?","tr":"На улице холодно?"},
+          {"t":"I'm hungry. Let's eat!","tr":"Я голоден. Давай поедим!"},
+          {"t":"It's late. I'm tired.","tr":"Уже поздно. Я устал."},
+          {"t":"It's raining again!","tr":"Опять дождь!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Is cold today.","right":"It's cold today.","tr":"Сегодня холодно.","why":"Без подлежащего нельзя: {{It's cold}}."},
+        {"wrong":"Me is cold.","right":"I'm cold.","tr":"Мне холодно.","why":"«Мне холодно» — {{I'm cold}}: подлежащее — вы."},
+        {"wrong":"It's rain.","right":"It's raining.","tr":"Идёт дождь.","why":"«Идёт дождь» сейчас — {{It's raining}}; {{rain}} без {{-ing}} — существительное «дождь»."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ very windy today.","tr":"Сегодня очень ветрено.","options":["It's","Is","There's"],"answer":0,"why":"Пустое подлежащее: {{It's}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Close the window, ___ cold.","tr":"Закрой окно, мне холодно.","options":["I'm","me","it's me"],"answer":0,"why":"«Мне холодно» — {{I'm cold}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Take an umbrella. It's ___.","tr":"Возьми зонт. Идёт дождь.","options":["raining","rain","rains"],"answer":0,"why":"Прямо сейчас: {{raining}}."},
+        {"type":"choice","q":"Как сказать «Ему скучно»?","options":["{{He's bored.}}","{{Him is boring.}}","{{Is boring.}}"],"answer":0,"why":"{{He's bored}}. А {{He's boring}} значило бы «он скучный человек»!"},
+        {"type":"dialogue","q":"Друг спрашивает, как ваш отпуск. Выберите ответы.","from":"there-is","lines":[{"who":"Друг","t":"How's your vacation?","tr":"Как отдыхается?"},{"options":["Great! It's sunny and warm.","Great! Is sunny and warm."],"answer":0,"why":"Пустое подлежащее: {{It's sunny}}."},{"who":"Друг","t":"Is there a beach near the hotel?","tr":"А рядом с отелем есть пляж?"},{"options":["Yes, there is. But I'm tired of the beach!","Yes, it is. But me tired of the beach!"],"answer":0,"why":"{{Yes, there is}}; «мне надоел» — {{I'm tired of}}."},{"who":"Друг","t":"Lucky you!","tr":"Везёт же!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"На улице холодно?","words":["Is","it","cold","outside?"]},
+        {"type":"free","q":"Ваша очередь: какая у вас сейчас погода и как вы себя чувствуете?","answers":[{"t":"It's cloudy and a little cold. I'm tired, but I'm happy.","tr":"Пасмурно и немного холодно. Я устал, но доволен."},{"t":"It's sunny and hot today. I'm hungry and thirsty!","tr":"Сегодня солнечно и жарко. Я хочу есть и пить!"}]}
+      ]
+    },
+    {
+      "id": "was-and-were",
+      "unit": 3,
+      "level": "A1",
+      "title": "Сказать, где вы были",
+      "summary": "Расскажите, где вы были вчера и каким был день: «I was at home. The weather was terrible».",
+      "topic": "{{was}} и {{were}}; {{Where were you?}}; {{there was}}, {{there were}}; {{I was born}}",
+      "blocks": [
+        {"goal":{"t":"Yesterday I was at home all day. The weather was terrible.","tr":"Вчера я весь день был дома. Погода была ужасная."}},
+        {"dialog":[{"who":"Начальник","t":"Where were you yesterday?","tr":"Где вы были вчера?"},{"who":"Сотрудник","t":"I was sick. I was at the doctor's.","tr":"Я болел. Был у врача."},{"who":"Начальник","t":"Oh! Are you OK now?","tr":"Ох! Сейчас вам лучше?"},{"who":"Сотрудник","t":"Yes, thanks. Was the meeting long?","tr":"Да, спасибо. Собрание было долгим?"},{"who":"Начальник","t":"Yes, it was. There were a lot of questions.","tr":"Да. Было много вопросов."}]},
+        {"p":"Прошедшее время от {{be}} — это {{was}} и {{were}}. По-русски «был, была, были» меняется по родам; английское — по лицам: {{was}} для {{I}}, {{he}}, {{she}}, {{it}}, {{were}} для {{you}}, {{we}}, {{they}}. И если в русском настоящем «есть» пропускают, а в прошедшем «был» говорят, то в английском {{be}} обязателен всегда."},
+        { "table": [
+          ["","утверждение","отрицание","вопрос"],
+          ["{{I}}, {{he}}, {{she}}, {{it}}","{{I was tired.}}","{{I wasn't tired.}}","{{Was she tired?}}"],
+          ["{{you}}, {{we}}, {{they}}","{{We were tired.}}","{{We weren't tired.}}","{{Were you tired?}}"]
+        ] },
+        {"p":"**Где вы были?** {{Where were you?}} Краткие ответы — с тем же глаголом: {{Were you at home? — Yes, I was.}} / {{No, I wasn't.}}"},
+        {"p":"**Было много людей.** Прошедшее от {{there is}} — {{there was}}, от {{there are}} — {{there were}}: {{There was a concert}}, {{There were a lot of people}}."},
+        {"p":"**Я родился.** По-английски это {{I was born}}, дословно «я был рождён»: {{I was born in 1990 in Kazan}}."},
+        { "ex": [
+          {"t":"Where were you last night? — I was at the movies.","tr":"Где ты был вчера вечером? — В кино."},
+          {"t":"The food was delicious.","tr":"Еда была очень вкусной."},
+          {"t":"Were they at the party? — No, they weren't.","tr":"Они были на вечеринке? — Нет."},
+          {"t":"There was a lot of snow last winter.","tr":"Прошлой зимой было много снега."},
+          {"t":"I was born in St. Petersburg.","tr":"Я родился в Петербурге."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"We was at home.","right":"We were at home.","tr":"Мы были дома.","why":"С {{we}}, {{you}}, {{they}} — {{were}}."},
+        {"wrong":"Yesterday I at home.","right":"Yesterday I was at home.","tr":"Вчера я был дома.","why":"{{be}} не пропускают и в прошедшем."},
+        {"wrong":"I born in Moscow.","right":"I was born in Moscow.","tr":"Я родился в Москве.","why":"«Я родился» — {{I was born}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Where ___ you yesterday?","tr":"Где ты был вчера?","options":["were","was","did"],"answer":0,"why":"С {{you}} — {{were}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The movie ___ very good.","tr":"Фильм был очень хороший.","options":["was","were"],"answer":0,"why":"Фильм — {{it}}: {{was}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"There ___ a lot of people at the concert.","tr":"На концерте было много людей.","options":["were","was"],"answer":0,"why":"Людей много: {{there were}}."},
+        {"type":"choice","q":"Как ответить «нет» на {{Was it expensive?}}","options":["{{No, it wasn't.}}","{{No, it didn't.}}","{{No, it not was.}}"],"answer":0,"why":"Вопрос с {{was}} — ответ с {{was}}."},
+        {"type":"dialogue","q":"Коллега спрашивает о выходных. Выберите ответы.","from":"weather-and-feelings","lines":[{"who":"Коллега","t":"How was your weekend?","tr":"Как прошли выходные?"},{"options":["It was great! The weather was warm and sunny.","It great! The weather were warm and sunny."],"answer":0,"why":"{{It was}}, {{the weather was}}."},{"who":"Коллега","t":"Were you at the lake?","tr":"Вы были на озере?"},{"options":["Yes, we were. It was beautiful!","Yes, we was. Was beautiful!"],"answer":0,"why":"{{we were}}, и подлежащее {{it}} обязательно."},{"who":"Коллега","t":"Nice!","tr":"Здорово!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я родилась в Казани.","words":["I","was","born","in","Kazan."]},
+        {"type":"free","q":"Ваша очередь: где вы были вчера или в прошлые выходные, и как было?","answers":[{"t":"Last weekend I was at my parents' house. It was cold, but we were happy.","tr":"В прошлые выходные я был у родителей. Было холодно, но мы были счастливы."},{"t":"Yesterday I was at work all day. I was very tired in the evening.","tr":"Вчера я весь день была на работе. Вечером я очень устала."}]}
+      ]
     }
   ]
 }
