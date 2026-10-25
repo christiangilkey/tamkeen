@@ -1853,6 +1853,455 @@
         {"type":"say","q":"Avverti un amico: “Se non ti sbrighi, perderai il treno!”","answer":"If you don't hurry, you'll miss the train!"},
         {"type":"free","q":"Tocca a te: di' cosa farai questo weekend se fa bel tempo, e cosa farai se piove.","answers":[{"t":"If it's sunny, I'll go hiking with my friends. If it rains, I'll stay home and read.","tr":"Se c'è il sole, vado a fare un'escursione con gli amici. Se piove, resto a casa a leggere."},{"t":"If the weather is nice, we'll have lunch outside. If it rains, we'll go to a museum.","tr":"Se fa bel tempo, pranziamo fuori. Se piove, andiamo in un museo."}]}
       ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Di' la tua opinione",
+      "summary": "Secondo me, credo di sì, non sono d'accordo: dai la tua opinione e discuti con garbo. E mai “I am agree”!",
+      "topic": "{{I think (that)…}}, {{I don't think…}}; {{I think so, I don't think so}}; {{I agree}}; {{In my opinion}}",
+      "blocks": [
+        {"goal":{"t":"I don't think it's a good idea.","tr":"Non credo che sia una buona idea."}},
+        {"dialog":[{"who":"Tyler","t":"What do you think of the new mayor?","tr":"Cosa pensi del nuovo sindaco?"},{"who":"Tu","t":"I think he's doing a good job. The city is cleaner.","tr":"Secondo me sta facendo un buon lavoro. La città è più pulita."},{"who":"Tyler","t":"Really? I don't think so. Traffic is worse than ever!","tr":"Davvero? Io non credo. Il traffico è peggio che mai!"},{"who":"Tu","t":"I agree about the traffic, but in my opinion the parks are much better.","tr":"Sul traffico sono d'accordo, ma secondo me i parchi sono molto migliorati."},{"who":"Tyler","t":"Maybe you're right.","tr":"Forse hai ragione."}]},
+        {"p":"**Dare un'opinione**: {{I think (that)…}} “Penso che…, credo che…”, seguito dal verbo normale, senza congiuntivo: {{I think it's expensive}} “Credo che sia caro”. Il {{that}} di solito si toglie."},
+        {"p":"**“Non credo che…”**: in inglese il {{not}} va su {{think}}: {{I don't think it's true}} “Non credo che sia vero”. {{I think it isn't true}} si capisce, ma suona strano."},
+        { "table": [
+          ["italiano","inglese"],
+          ["Secondo me…","{{In my opinion…}}, {{I think…}}"],
+          ["Credo di sì.","{{I think so.}}"],
+          ["Credo di no.","{{I don't think so.}}"],
+          ["Sono d'accordo.","{{I agree.}}"],
+          ["Non sono d'accordo.","{{I don't agree.}}, {{I disagree.}}"],
+          ["Hai ragione.","{{You're right.}}"],
+          ["Che ne pensi?","{{What do you think?}}"]
+        ] },
+        {"p":"**{{agree}} è un verbo.** In italiano “sono d'accordo” ha “essere”; in inglese {{agree}} è un verbo normale: {{I agree}}, {{I don't agree}}, {{Do you agree?}}. {{I am agree}} è l'errore più famoso degli italiani! Con chi e su che cosa: {{I agree with you}}, {{We agree on that}}."},
+        {"p":"**“Credo di sì”, “spero di no”**: {{I think so}}, {{I hope so}}, {{I don't think so}}, {{I hope not}}. Il nostro “di sì” diventa {{so}}."},
+        { "ex": [
+          {"t":"I think you're right.","tr":"Credo che tu abbia ragione."},
+          {"t":"I don't think he's coming.","tr":"Non credo che venga."},
+          {"t":"In my opinion, it's too expensive.","tr":"Secondo me è troppo caro."},
+          {"t":"Is it going to rain? I don't think so.","tr":"Pioverà? Credo di no."},
+          {"t":"I totally agree with you.","tr":"Sono completamente d'accordo con te."},
+          {"t":"I'm not sure. What do you think?","tr":"Non sono sicuro. Tu che ne pensi?"},
+          {"t":"Will she pass the exam? I hope so!","tr":"Passerà l'esame? Lo spero!"}
+        ] },
+        {"tip":"Per non essere d'accordo con gentilezza: {{I see your point, but…}} “Capisco quello che dici, ma…” o {{I'm not so sure about that}} “Non ne sono così sicuro”."}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"Sono d'accordo con te.","why":"{{agree}} è un verbo: niente {{am}}."},
+        {"wrong":"I think that yes.","right":"I think so.","tr":"Credo di sì.","why":"“Credo di sì” è {{I think so}}."},
+        {"wrong":"I think he doesn't come.","right":"I don't think he's coming.","tr":"Non credo che venga.","why":"In inglese il {{not}} va su {{think}}: {{I don't think…}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I ___ with you. It's a great idea.","tr":"Sono d'accordo con te. È un'ottima idea.","options":["agree","am agree","agreed"],"answer":0,"why":"{{agree}} è un verbo: {{I agree}}."},
+        {"type":"choice","q":"“Credo di no” si dice…","options":["{{I don't think so.}}","{{I think no.}}","{{I think that not.}}"],"answer":0,"why":"“Di sì, di no”: {{I think so}}, {{I don't think so}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I don't think the store ___ open on Sundays.","tr":"Non credo che il negozio sia aperto la domenica.","options":["is","be","will"],"answer":0,"why":"Dopo {{I think}} e {{I don't think}}: il verbo normale, senza congiuntivo.","from":"tell-the-time"},
+        {"type":"dialogue","q":"Discuti con un collega. Scegli le risposte.","lines":[{"who":"Tyler","t":"I think this city is too expensive.","tr":"Secondo me questa città è troppo cara."},{"options":["I agree, but the food is great!","I'm agree, but the food is great!"],"answer":0,"why":"{{I agree}}, senza {{am}}."},{"who":"Tyler","t":"Do you think prices will go down?","tr":"Pensi che i prezzi scenderanno?"},{"options":["I don't think so.","I think no."],"answer":0,"why":"“Credo di no”: {{I don't think so}}."}],"from":"make-promises-and-predictions"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Secondo me è troppo tardi.","words":["In my opinion,","it's","too","late."]},
+        {"type":"say","q":"Di': “Non credo che tu abbia ragione.”","answer":"I don't think you're right.","from":"say-your-age-and-how-you-feel"},
+        {"type":"free","q":"Tocca a te: di' la tua opinione su un argomento (lo sport, la tua città, i social network) con {{I think}} o {{I don't think}}, e se sei d'accordo con chi la pensa in un altro modo.","answers":[{"t":"I think social media is fun, but I don't think it's good for kids. My sister disagrees!","tr":"Secondo me i social sono divertenti, ma non credo che facciano bene ai bambini. Mia sorella non è d'accordo!"},{"t":"In my opinion, my city is beautiful, but I don't think it's easy to find a job here.","tr":"Secondo me la mia città è bellissima, ma non credo che sia facile trovare lavoro qui."}]}
+      ]
+    },
+    {
+      "id": "make-or-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Make o do? Parla di faccende e decisioni",
+      "summary": "Fare un errore, fare i compiti, fare una foto, fare una festa: in inglese “fare” ha almeno quattro traduzioni.",
+      "topic": "{{make}} (creare, preparare) e {{do}} (attività, lavori); {{take}} e {{have}} per altri “fare”",
+      "blocks": [
+        {"goal":{"t":"I made a mistake, so I have to do it again.","tr":"Ho fatto un errore, quindi devo rifarlo."}},
+        {"dialog":[{"who":"Kate","t":"Can you do the dishes tonight? I made dinner.","tr":"Puoi lavare i piatti stasera? La cena l'ho fatta io."},{"who":"Tu","t":"Sure. But first I have to do my homework.","tr":"Certo. Ma prima devo fare i compiti."},{"who":"Kate","t":"OK. Oh, and don't make noise later. I have an exam tomorrow!","tr":"Va bene. Ah, e dopo non fare rumore. Domani ho un esame!"},{"who":"Tu","t":"Don't worry. Do you want me to make you a coffee?","tr":"Tranquilla. Vuoi che ti faccia un caffè?"},{"who":"Kate","t":"You're the best!","tr":"Sei il migliore!"}]},
+        {"p":"**Due verbi per “fare”.** {{make}} è “fare” nel senso di creare, preparare, produrre qualcosa che prima non c'era: {{make a cake}}, {{make coffee}}, {{make a list}}. {{do}} è “fare” un'attività, un lavoro, un compito: {{do the dishes}}, {{do homework}}, {{do yoga}}."},
+        { "table": [
+          ["{{make}}","{{do}}"],
+          ["{{make a mistake}} (fare un errore)","{{do homework}} (fare i compiti)"],
+          ["{{make dinner, make coffee}}","{{do the dishes}} (lavare i piatti)"],
+          ["{{make a decision}} (prendere una decisione)","{{do the laundry}} (fare il bucato)"],
+          ["{{make money}} (guadagnare)","{{do your best}} (fare del tuo meglio)"],
+          ["{{make friends}} (fare amicizia)","{{do someone a favor}} (fare un favore)"],
+          ["{{make noise}} (fare rumore)","{{do exercise}}, {{do yoga}}"],
+          ["{{make a reservation}} (prenotare)","{{do business}} (fare affari)"]
+        ] },
+        {"p":"**E non è finita.** Altri “fare” italiani diventano {{take}} o {{have}}: {{take a photo}} “fare una foto”, {{take a shower}} “fare la doccia”, {{take a walk}} “fare una passeggiata”, {{have a party}} “fare una festa”, {{have breakfast}} “fare colazione”. E “fare una domanda” è {{ask a question}}."},
+        {"p":"**Una regola pratica**: {{make}} quando alla fine c'è qualcosa in mano (una torta, una lista, dei soldi); {{do}} per le attività e quando non dici che cosa ({{What are you doing?}}, {{I have nothing to do}} “Non ho niente da fare”)."},
+        { "ex": [
+          {"t":"Sorry, I made a mistake.","tr":"Scusa, ho fatto un errore."},
+          {"t":"Who's going to do the dishes?","tr":"Chi lava i piatti?"},
+          {"t":"Can you do me a favor?","tr":"Mi fai un favore?"},
+          {"t":"We need to make a decision.","tr":"Dobbiamo prendere una decisione."},
+          {"t":"She makes a lot of money.","tr":"Guadagna un sacco di soldi."},
+          {"t":"I'm going to take a shower.","tr":"Vado a fare la doccia."},
+          {"t":"Can I ask you a question?","tr":"Posso farti una domanda?"}
+        ] },
+        {"tip":"{{make sure}} vuol dire “assicurarsi”: {{Make sure you lock the door!}} “Assicurati di chiudere a chiave!”."}
+      ],
+      "mistakes": [
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"Ho fatto un errore.","why":"“Fare un errore”: {{make a mistake}}."},
+        {"wrong":"I have to make my homework.","right":"I have to do my homework.","tr":"Devo fare i compiti.","why":"“Fare i compiti”: {{do homework}}."},
+        {"wrong":"Can I make you a question?","right":"Can I ask you a question?","tr":"Posso farti una domanda?","why":"“Fare una domanda”: {{ask a question}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Can you ___ me a favor?","tr":"Mi fai un favore?","options":["do","make","take"],"answer":0,"why":"“Fare un favore”: {{do a favor}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I'll ___ dinner tonight.","tr":"Stasera la cena la faccio io.","options":["make","do","take"],"answer":0,"why":"Preparare qualcosa: {{make}}. E per offrirti, {{I'll}}.","from":"make-promises-and-predictions"},
+        {"type":"choice","q":"“Facciamo una foto!” si dice…","options":["{{Let's take a photo!}}","{{Let's make a photo!}}","{{Let's do a photo!}}"],"answer":0,"why":"Le foto “si prendono”: {{take a photo}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"Dividete le faccende di casa. Scegli le frasi.","lines":[{"who":"Kate","t":"Can you do the dishes tonight?","tr":"Puoi lavare i piatti stasera?"},{"options":["Sure, but first I have to do my homework.","Sure, but first I have to make my homework."],"answer":0,"why":"“Fare i compiti”: {{do homework}}."},{"who":"Kate","t":"OK. And who's making breakfast tomorrow?","tr":"Va bene. E domani chi prepara la colazione?"},{"options":["I'll make it. And I'll make coffee, too.","I'll do it. And I'll do coffee, too."],"answer":0,"why":"Preparare la colazione e il caffè: {{make}}."}],"from":"say-what-you-have-to-do"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Devo prendere una decisione importante.","words":["I have to","make","an important","decision."]},
+        {"type":"say","q":"Chiedi: “Posso farti una domanda?”","answer":"Can I ask you a question?"},
+        {"type":"free","q":"Tocca a te: racconta cosa fai di solito il sabato: almeno una cosa con {{make}}, una con {{do}} e una con {{take}} o {{have}}.","answers":[{"t":"On Saturdays I do the laundry, make a big lunch and take a long walk.","tr":"Il sabato faccio il bucato, preparo un pranzo abbondante e faccio una lunga passeggiata."},{"t":"I usually do yoga in the morning, then I make pizza with my kids and we have a movie night.","tr":"Di solito la mattina faccio yoga, poi faccio la pizza con i miei figli e la sera guardiamo un film."}]}
+      ]
+    },
+    {
+      "id": "describe-precisely",
+      "unit": 8,
+      "level": "B1",
+      "title": "Di' esattamente chi e che cosa",
+      "summary": "La ragazza che lavora con me, il libro che sto leggendo, la città dove sono nato: unisci una descrizione a un nome.",
+      "topic": "Le frasi relative: {{who, which, that, where, whose}}; quando si può togliere {{that}}",
+      "blocks": [
+        {"goal":{"t":"She's the woman who lives next door.","tr":"È la donna che abita qui accanto."}},
+        {"dialog":[{"who":"Hannah","t":"Who's the guy who's talking to Mark?","tr":"Chi è il tizio che sta parlando con Mark?"},{"who":"Tu","t":"That's Luca, the friend I told you about.","tr":"È Luca, l'amico di cui ti ho parlato."},{"who":"Hannah","t":"The one who works at the hospital?","tr":"Quello che lavora in ospedale?"},{"who":"Tu","t":"Yes! And the woman he's with is his wife. She's the one whose cake you loved!","tr":"Sì! E la donna che è con lui è sua moglie. È lei che ha fatto la torta che ti è piaciuta tanto!"},{"who":"Hannah","t":"Oh, I have to meet her!","tr":"Oh, devo conoscerla!"}]},
+        {"term":"frase relativa","means":"una frase che descrive un nome e comincia con “che, cui, dove”: “la ragazza che lavora con me”."},
+        {"p":"**Una parola per unire.** Il nostro “che”, in inglese, cambia con quello che descrive: {{who}} per le persone, {{which}} per le cose, e {{that}} per tutte e due (il più usato nel parlato americano)."},
+        { "table": [
+          ["italiano","inglese"],
+          ["la ragazza che lavora con me","{{the girl who works with me}}, {{the girl that works with me}}"],
+          ["il libro che leggo","{{the book that I'm reading}}, {{the book I'm reading}}"],
+          ["la città dove sono nato","{{the city where I was born}}"],
+          ["l'uomo la cui figlia…","{{the man whose daughter…}}"],
+          ["la persona con cui parlo","{{the person I'm talking to}}"]
+        ] },
+        {"p":"**Si può togliere {{that}}.** Quando {{that}}, {{who}} o {{which}} sono l'oggetto del verbo (cioè dopo c'è già un altro soggetto), nel parlato si tolgono quasi sempre: {{the book (that) I'm reading}}, {{the guy (who) I met}}. In italiano il “che” non si toglie mai; in inglese è normalissimo."},
+        {"p":"**La preposizione va in fondo.** “La persona con cui parlo” è {{the person I'm talking to}}: la preposizione resta dopo il verbo, alla fine. {{the person with whom I'm talking}} esiste, ma è molto formale. E {{whose}} vuol dire “il cui, la cui”: {{the woman whose car is red}} “la donna la cui macchina è rossa”."},
+        { "ex": [
+          {"t":"I have a friend who speaks five languages.","tr":"Ho un amico che parla cinque lingue."},
+          {"t":"This is the bus that goes downtown.","tr":"Questo è l'autobus che va in centro."},
+          {"t":"The movie we saw was amazing.","tr":"Il film che abbiamo visto era fantastico."},
+          {"t":"That's the restaurant where we met.","tr":"È il ristorante dove ci siamo conosciuti."},
+          {"t":"Do you know anyone who can help me?","tr":"Conosci qualcuno che possa aiutarmi?"},
+          {"t":"She's the teacher whose class I love.","tr":"È l'insegnante il cui corso mi piace tanto."},
+          {"t":"This is the song I was telling you about.","tr":"È la canzone di cui ti parlavo."}
+        ] },
+        {"tip":"{{what}} da solo vuol dire “quello che, ciò che”: {{That's what I want}} “È quello che voglio”. Non si dice {{the thing what}}."}
+      ],
+      "mistakes": [
+        {"wrong":"The man which lives here is a doctor.","right":"The man who lives here is a doctor.","tr":"L'uomo che abita qui è un medico.","why":"Per le persone: {{who}} (o {{that}}), non {{which}}."},
+        {"wrong":"The person with who I work is nice.","right":"The person I work with is nice.","tr":"La persona con cui lavoro è simpatica.","why":"Nel parlato la preposizione va in fondo, e {{who}} si toglie."},
+        {"wrong":"This is the book what I'm reading.","right":"This is the book I'm reading.","tr":"Questo è il libro che sto leggendo.","why":"{{what}} non unisce una frase a un nome: {{that}}, oppure niente."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I have a sister ___ lives in Australia.","tr":"Ho una sorella che vive in Australia.","options":["who","which","what"],"answer":0,"why":"Una persona: {{who}}. (E {{lives}}, con la {{-s}}.)","from":"talk-about-other-people"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"This is the café ___ we met.","tr":"Questo è il bar dove ci siamo conosciuti.","options":["where","which","who"],"answer":0,"why":"Un luogo: {{where}}."},
+        {"type":"choice","q":"“La persona con cui lavoro”, nel parlato, si dice…","options":["{{the person I work with}}","{{the person with who I work}}","{{the person what I work with}}"],"answer":0,"why":"Nel parlato: niente {{who}} e la preposizione in fondo."},
+        {"type":"dialogue","q":"A una festa. Scegli le risposte.","lines":[{"who":"Hannah","t":"Who's that guy?","tr":"Chi è quel tizio?"},{"options":["He's the friend I told you about.","He's the friend which I told you about."],"answer":0,"why":"Per una persona non si usa {{which}}; e qui si può togliere tutto: {{the friend I told you about}}."},{"who":"Hannah","t":"The one who works at the hospital?","tr":"Quello che lavora in ospedale?"},{"options":["Yes, and his wife is the woman whose cake you loved.","Yes, and his wife is the woman who's cake you loved."],"answer":0,"why":"“La cui”: {{whose}}. ({{who's}} è {{who is}}.)"}],"from":"say-whose-it-is"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Il film che abbiamo visto ieri era noioso.","words":["The movie","we saw","yesterday","was","boring."],"from":"tell-about-your-weekend"},
+        {"type":"say","q":"Di': “È quello che voglio.”","answer":"That's what I want."},
+        {"type":"free","q":"Tocca a te: descrivi una persona importante per te e un posto che ami, con {{who}}, {{that}} o {{where}}.","answers":[{"t":"My grandmother is a woman who always makes me laugh. The town where she lives is in the mountains.","tr":"Mia nonna è una donna che mi fa sempre ridere. Il paese dove vive è in montagna."},{"t":"My best friend is someone who really listens. The café where we meet is my favorite place.","tr":"La mia migliore amica è una persona che ascolta davvero. Il bar dove ci vediamo è il mio posto preferito."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "Usa i phrasal verbs",
+      "summary": "Alzarsi, scoprire, cercare, smettere, spegnere: i verbi con la “particella” che gli americani usano tutto il giorno.",
+      "topic": "I phrasal verbs più comuni ({{get up, find out, look for, give up, turn off}}); il pronome in mezzo ({{turn it off}})",
+      "blocks": [
+        {"goal":{"t":"I'm looking for my keys. Can you turn on the light?","tr":"Sto cercando le chiavi. Puoi accendere la luce?"}},
+        {"dialog":[{"who":"Mamma","t":"Wake up! It's seven thirty!","tr":"Svegliati! Sono le sette e mezza!"},{"who":"Tu","t":"Five more minutes... Can you turn off the light?","tr":"Altri cinque minuti... Puoi spegnere la luce?"},{"who":"Mamma","t":"No! Get up, put on your clothes and come down for breakfast.","tr":"No! Alzati, vestiti e scendi a fare colazione."},{"who":"Tu","t":"OK, OK... Where's my phone? I'm looking for it!","tr":"Va bene, va bene... Dov'è il mio telefono? Lo sto cercando!"},{"who":"Mamma","t":"It's in the kitchen. And put it away during breakfast!","tr":"È in cucina. E mettilo via durante la colazione!"}]},
+        {"term":"phrasal verb","means":"un verbo inglese seguito da una particella ({{up, on, off, out…}}): insieme hanno un significato nuovo. {{get up}} “alzarsi”."},
+        {"p":"**Un verbo + una particella = un significato nuovo.** {{get}} è “ottenere”, ma {{get up}} è “alzarsi”; {{give}} è “dare”, ma {{give up}} è “smettere, arrendersi”. Spesso l'italiano usa un verbo solo dove l'inglese ne usa due."},
+        { "table": [
+          ["phrasal verb","significato","esempio"],
+          ["{{get up}}","alzarsi","{{I get up at seven.}}"],
+          ["{{wake up}}","svegliarsi","{{I woke up late.}}"],
+          ["{{turn on}}, {{turn off}}","accendere, spegnere","{{Turn off your phone.}}"],
+          ["{{put on}}, {{take off}}","mettersi, togliersi","{{Put on your jacket.}}"],
+          ["{{look for}}","cercare","{{I'm looking for a job.}}"],
+          ["{{find out}}","scoprire","{{I found out the truth.}}"],
+          ["{{give up}}","smettere, arrendersi","{{I gave up smoking.}}"],
+          ["{{pick up}}","andare a prendere","{{Can you pick me up at eight?}}"],
+          ["{{come back}}","tornare","{{When are you coming back?}}"]
+        ] },
+        {"p":"**Dove va il pronome.** Con molti phrasal verbs l'oggetto può stare prima o dopo la particella: {{Turn off the TV}} o {{Turn the TV off}}. Ma un pronome ({{it}}, {{them}}, {{me}}) va sempre in mezzo: {{Turn it off}}, mai {{Turn off it}}."},
+        {"p":"Alcuni non si separano mai, come {{look for}}: {{I'm looking for it}}. Il dizionario te lo dice; all'inizio imparali con un esempio."},
+        { "ex": [
+          {"t":"Hurry up, we're late!","tr":"Sbrigati, siamo in ritardo!"},
+          {"t":"Can you turn down the music?","tr":"Puoi abbassare la musica?"},
+          {"t":"Please sit down.","tr":"Prego, siediti."},
+          {"t":"I'll pick you up at the airport.","tr":"Ti vengo a prendere all'aeroporto."},
+          {"t":"She gave up chocolate for a month.","tr":"Ha rinunciato al cioccolato per un mese."},
+          {"t":"Let's find out what time it opens.","tr":"Scopriamo a che ora apre."},
+          {"t":"It's cold. Put your jacket on!","tr":"Fa freddo. Mettiti la giacca!"}
+        ] },
+        {"tip":"{{get}} è il re dei phrasal verbs: {{get up}} “alzarsi”, {{get on}} e {{get off}} “salire” e “scendere” (dall'autobus), {{get back}} “tornare”, {{get along}} “andare d'accordo”."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it, please.","right":"Turn it off, please.","tr":"Spegnilo, per favore.","why":"Il pronome va tra il verbo e la particella."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"Sto cercando le chiavi.","why":"“Cercare” è {{look for}}: la particella non si toglie."},
+        {"wrong":"I stood up at seven this morning.","right":"I got up at seven this morning.","tr":"Stamattina mi sono alzato alle sette.","why":"“Alzarsi” dal letto, la mattina, è {{get up}}. ({{stand up}} è alzarsi in piedi da una sedia.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"It's dark. Can you turn ___ the light?","tr":"È buio. Puoi accendere la luce?","options":["on","off","up"],"answer":0,"why":"“Accendere”: {{turn on}}."},
+        {"type":"choice","q":"“Spegnilo!” (il telefono) si dice…","options":["{{Turn it off!}}","{{Turn off it!}}","{{Off turn it!}}"],"answer":0,"why":"Il pronome va in mezzo: {{turn it off}}.","from":"give-directions"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I'm ___ for a new apartment.","tr":"Sto cercando un appartamento nuovo.","options":["looking","finding","seeing"],"answer":0,"why":"“Cercare”: {{look for}}, qui al present continuous.","from":"say-what-is-happening-now"},
+        {"type":"dialogue","q":"È mattina e sei in ritardo. Scegli le frasi.","lines":[{"who":"Mamma","t":"Wake up! It's late!","tr":"Svegliati! È tardi!"},{"options":["OK, I'm getting up!","OK, I'm standing me up!"],"answer":0,"why":"“Alzarsi” dal letto: {{get up}}."},{"who":"Mamma","t":"It's cold today.","tr":"Oggi fa freddo."},{"options":["I know. I'll put on my coat.","I know. I'll put my coat up."],"answer":0,"why":"“Mettersi” un vestito: {{put on}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Ti vengo a prendere alle otto.","words":["I'll","pick","you","up","at eight."]},
+        {"type":"say","q":"Di': “Ho smesso di fumare tre anni fa.”","answer":"I gave up smoking three years ago.","from":"ask-about-the-past"},
+        {"type":"free","q":"Tocca a te: descrivi la tua mattina con tre phrasal verbs ({{wake up}}, {{get up}}, {{put on}}, {{turn on}}…).","answers":[{"t":"I wake up at six thirty, but I get up at seven. Then I turn on the radio and put on my clothes.","tr":"Mi sveglio alle sei e mezza, ma mi alzo alle sette. Poi accendo la radio e mi vesto."},{"t":"I get up early, turn on the coffee machine and look for my keys every single day!","tr":"Mi alzo presto, accendo la macchinetta del caffè e cerco le chiavi tutti i santi giorni!"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 8,
+      "level": "B1",
+      "title": "Immagina: “Se avessi…”",
+      "summary": "Cosa faresti se vincessi alla lotteria? Se fossi in te…: immagina, sogna e consiglia, con il secondo condizionale.",
+      "topic": "Il secondo condizionale: {{If I had…, I would…}}; {{If I were you}}; mai {{would}} dopo {{if}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I'd learn to play the guitar.","tr":"Se avessi più tempo, imparerei a suonare la chitarra."}},
+        {"dialog":[{"who":"Olivia","t":"What would you do if you won the lottery?","tr":"Cosa faresti se vincessi alla lotteria?"},{"who":"Tu","t":"I'd buy a house by the sea in Sardinia.","tr":"Comprerei una casa al mare in Sardegna."},{"who":"Olivia","t":"Would you quit your job?","tr":"Lasceresti il lavoro?"},{"who":"Tu","t":"Of course! If I didn't have to work, I'd travel all year.","tr":"Certo! Se non dovessi lavorare, viaggerei tutto l'anno."},{"who":"Olivia","t":"Me too. If I were rich, I'd open a little bookstore.","tr":"Anch'io. Se fossi ricca, aprirei una piccola libreria."},{"who":"Tu","t":"If you opened a bookstore, I'd visit every day!","tr":"Se aprissi una libreria, verrei a trovarti tutti i giorni!"}]},
+        {"p":"**Immaginare.** Per una situazione irreale o poco probabile, l'inglese usa {{if}} + il past simple, e poi {{would}} (nel parlato {{'d}}) + il verbo: {{If I had money, I'd travel}} “Se avessi soldi, viaggerei”. Il passato qui non parla del passato: dice “non è vero, lo immagino”."},
+        { "table": [
+          ["condizione: {{if}} + past simple","risultato: {{would}} + verbo"],
+          ["{{If I had a car,}}","{{I'd drive to work.}}"],
+          ["{{If I lived in New York,}}","{{I'd go to Broadway every week.}}"],
+          ["{{If she knew the answer,}}","{{she'd tell us.}}"],
+          ["{{If we didn't have kids,}}","{{we'd travel more.}}"]
+        ] },
+        {"p":"**Mai {{would}} dopo {{if}}.** È l'errore più comune degli italiani, perché da noi “se avessi” (congiuntivo) e “farei” (condizionale) sono forme speciali. In inglese: {{if}} + past simple, punto. {{If I would have money}} è sbagliato; {{If I had money}} è giusto."},
+        {"p":"**{{If I were}}.** Con {{be}}, nel secondo condizionale si usa {{were}} per tutti, anche con {{I}}, {{he}} e {{she}}: {{If I were you}} “Se fossi in te”, {{If she were here}} “Se lei fosse qui”. Nel parlato si sente anche {{If I was}}, ma {{If I were you}} è la frase fissa per i consigli."},
+        {"p":"**Confronta**: {{If it rains, we'll stay home}} (possibile, reale) e {{If it rained, we'd stay home}} (poco probabile, immaginato)."},
+        { "ex": [
+          {"t":"If I were you, I'd take the job.","tr":"Se fossi in te, accetterei il lavoro."},
+          {"t":"What would you do if you were the president?","tr":"Cosa faresti se fossi il presidente?"},
+          {"t":"If I knew his number, I'd call him.","tr":"Se sapessi il suo numero, lo chiamerei."},
+          {"t":"I'd be so happy if you came!","tr":"Sarei così felice se venissi!"},
+          {"t":"If we lived closer, we'd see each other more.","tr":"Se abitassimo più vicini, ci vedremmo di più."},
+          {"t":"She wouldn't do that if she didn't love you.","tr":"Non lo farebbe se non ti volesse bene."},
+          {"t":"If I could speak Chinese, I'd work in Shanghai.","tr":"Se sapessi parlare cinese, lavorerei a Shanghai.","note":"{{could}}: il passato di {{can}}"}
+        ] },
+        {"tip":"{{I wish…}} “vorrei che…, magari…” usa lo stesso passato: {{I wish I had more time}} “Magari avessi più tempo”, {{I wish you were here}} “Vorrei che tu fossi qui”."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"Se avessi soldi, viaggerei.","why":"Dopo {{if}}, il past simple: {{had}}, mai {{would}}."},
+        {"wrong":"If I was you, I'd say no.","right":"If I were you, I'd say no.","tr":"Se fossi in te, direi di no.","why":"La frase fissa per i consigli è {{If I were you}}."},
+        {"wrong":"If I had time, I will come.","right":"If I had time, I'd come.","tr":"Se avessi tempo, verrei.","why":"Con una condizione immaginata, il risultato vuole {{would}}, non {{will}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"If I ___ more money, I'd buy a boat.","tr":"Se avessi più soldi, comprerei una barca.","options":["had","would have","have"],"answer":0,"why":"Dopo {{if}}, per immaginare: il past simple, {{had}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"If I were you, I ___ call her.","tr":"Se fossi in te, la chiamerei.","options":["would","will","am"],"answer":0,"why":"Il risultato immaginato: {{would}}.","from":"give-advice"},
+        {"type":"choice","q":"Quale frase immagina una cosa poco probabile?","options":["{{If I won the lottery, I'd stop working.}}","{{If I win the lottery, I'll stop working.}}"],"answer":0,"why":"Poco probabile: {{if}} + past simple, poi {{would}}. L'altra è una possibilità reale.","from":"say-what-happens-if"},
+        {"type":"dialogue","q":"Un'amica ti fa sognare. Scegli le risposte.","lines":[{"who":"Olivia","t":"What would you do if you won a million dollars?","tr":"Cosa faresti se vincessi un milione di dollari?"},{"options":["I'd buy a house by the sea.","I'll buy a house by the sea."],"answer":0,"why":"Un risultato immaginato: {{I'd}}."},{"who":"Olivia","t":"And if you could live anywhere?","tr":"E se potessi vivere ovunque?"},{"options":["If I could, I'd live in Hawaii!","If I would can, I'd live in Hawaii!"],"answer":0,"why":"Dopo {{if}}: {{could}}, il passato di {{can}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Se sapessi la risposta, te la direi.","words":["If","I knew","the answer,","I'd tell","you."]},
+        {"type":"say","q":"Di' a un amico: “Vorrei che tu fossi qui!”","answer":"I wish you were here!"},
+        {"type":"free","q":"Tocca a te: immagina. Cosa faresti se vivessi in America per un anno? E se potessi cambiare una cosa della tua vita?","answers":[{"t":"If I lived in America for a year, I'd live in California and I'd learn to surf.","tr":"Se vivessi in America per un anno, abiterei in California e imparerei a fare surf."},{"t":"If I could change one thing, I'd work less and spend more time with my family.","tr":"Se potessi cambiare una cosa, lavorerei meno e passerei più tempo con la mia famiglia."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Riferisci cosa ha detto qualcuno",
+      "summary": "Ha detto che era stanco, mi ha detto di aspettare, mi ha chiesto se ero libero: riferisci messaggi e conversazioni.",
+      "topic": "{{say}} e {{tell}}; il discorso indiretto e il passo indietro dei tempi ({{is → was}}); {{tell someone to…}}, {{ask if…}}",
+      "blocks": [
+        {"goal":{"t":"She said she was tired, so she went home.","tr":"Ha detto che era stanca, così è andata a casa."}},
+        {"dialog":[{"who":"Ryan","t":"Did Mike call?","tr":"Ha chiamato Mike?"},{"who":"Tu","t":"Yes. He said he couldn't come tonight.","tr":"Sì. Ha detto che stasera non poteva venire."},{"who":"Ryan","t":"Why? Did he tell you?","tr":"Perché? Te l'ha detto?"},{"who":"Tu","t":"He told me he had a lot of work. And he asked if we were free on Saturday.","tr":"Mi ha detto che aveva molto lavoro. E ha chiesto se sabato eravamo liberi."},{"who":"Ryan","t":"What did you tell him?","tr":"E tu cosa gli hai detto?"},{"who":"Tu","t":"I told him to call you!","tr":"Gli ho detto di chiamare te!"}]},
+        {"p":"**{{say}} o {{tell}}?** Tutti e due vogliono dire “dire”. {{say}} si usa senza la persona ({{He said that…}}); {{tell}} vuole sempre la persona, senza {{to}}: {{He told me that…}} “Mi ha detto che…”. Mai {{He said me}}."},
+        { "table": [
+          ["","esempio"],
+          ["{{say}} + quello che si dice","{{She said (that) she was tired.}}"],
+          ["{{tell}} + persona","{{She told me (that) she was tired.}}"],
+          ["{{tell}} + persona + {{to}} + verbo","{{He told me to wait.}} “Mi ha detto di aspettare.”"],
+          ["{{ask}} + {{if}}","{{She asked if I was free.}} “Ha chiesto se ero libero.”"]
+        ] },
+        {"p":"**I tempi fanno un passo indietro**, come spesso in italiano: il presente diventa past simple, il past simple (o il present perfect) diventa past perfect ({{had}} + participio), {{will}} diventa {{would}}, {{can}} diventa {{could}}."},
+        { "table": [
+          ["frase originale","riferita"],
+          ["{{“I'm tired.”}}","{{She said she was tired.}}"],
+          ["{{“I can't come.”}}","{{He said he couldn't come.}}"],
+          ["{{“I missed the bus.”}}","{{He said he had missed the bus.}}"],
+          ["{{“I'll call you.”}}","{{She said she would call me.}}"]
+        ] },
+        {"p":"**Le domande riferite** perdono la forma della domanda: niente {{do}}, e l'ordine normale (soggetto + verbo): {{“Are you free?”}} → {{He asked if I was free}}; {{“Where do you live?”}} → {{She asked where I lived}}."},
+        { "ex": [
+          {"t":"He says he's hungry.","tr":"Dice che ha fame.","note":"con {{says}}, al presente, il tempo non cambia"},
+          {"t":"She told me she was getting married!","tr":"Mi ha detto che si sposava!"},
+          {"t":"They said the store was closed.","tr":"Hanno detto che il negozio era chiuso."},
+          {"t":"The doctor told me to rest.","tr":"Il medico mi ha detto di riposare."},
+          {"t":"I asked him where he worked.","tr":"Gli ho chiesto dove lavorava."},
+          {"t":"She said she would call back.","tr":"Ha detto che avrebbe richiamato."},
+          {"t":"Mom told us not to be late.","tr":"La mamma ci ha detto di non fare tardi.","note":"“di non…”: {{not to}}"}
+        ] },
+        {"tip":"Nei racconti informali gli americani usano spessissimo {{like}}: {{And she was like, “No way!”}} “E lei: «Ma dai!»”. È molto colloquiale, ma lo sentirai ovunque."}
+      ],
+      "mistakes": [
+        {"wrong":"He said me that he was tired.","right":"He told me that he was tired.","tr":"Mi ha detto che era stanco.","why":"Con la persona: {{tell}}. {{say}} non vuole la persona dopo."},
+        {"wrong":"She asked me where did I live.","right":"She asked me where I lived.","tr":"Mi ha chiesto dove abitavo.","why":"Nella domanda riferita: niente {{did}}, e l'ordine normale."},
+        {"wrong":"He told me wait.","right":"He told me to wait.","tr":"Mi ha detto di aspettare.","why":"Per riferire un ordine: {{tell}} + persona + {{to}} + verbo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"She ___ me she was busy.","tr":"Mi ha detto che era impegnata.","options":["told","said","asked"],"answer":0,"why":"Con la persona ({{me}}): {{told}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"He said he ___ come to the party.","tr":"Ha detto che non poteva venire alla festa.","options":["couldn't","can't","doesn't can"],"answer":0,"why":"{{can}} fa un passo indietro: {{couldn't}}.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"“Mi ha chiesto se avevo fame” si dice…","options":["{{She asked me if I was hungry.}}","{{She asked me if was I hungry.}}","{{She asked me did I have hunger.}}"],"answer":0,"why":"{{ask if}} + l'ordine normale; e la fame con {{be}}: {{I was hungry}}.","from":"say-your-age-and-how-you-feel"},
+        {"type":"dialogue","q":"Riferisci una telefonata. Scegli le frasi.","lines":[{"who":"Ryan","t":"Did Mike call?","tr":"Ha chiamato Mike?"},{"options":["Yes. He said he had a lot of work.","Yes. He said me he had a lot of work."],"answer":0,"why":"{{said}}, senza la persona."},{"who":"Ryan","t":"Did he say anything else?","tr":"Ha detto altro?"},{"options":["He asked if we were free on Saturday.","He asked if were we free on Saturday."],"answer":0,"why":"Domanda riferita: il soggetto prima del verbo, {{if we were}}."}],"from":"ask-about-the-past"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Il medico mi ha detto di bere più acqua.","words":["The doctor","told me","to drink","more water."]},
+        {"type":"say","q":"Anna ha detto: “I'll call you tomorrow.” Riferiscilo: “Anna ha detto che mi avrebbe chiamato domani.”","answer":"Anna said she would call me tomorrow.","from":"make-promises-and-predictions"},
+        {"type":"free","q":"Tocca a te: un'amica ti ha lasciato un messaggio con tre cose: dov'era, cosa voleva fare, e una domanda. Riferiscilo a qualcuno.","answers":[{"t":"Sara called. She said she was at the station, she wanted to have dinner with us, and she asked if we were free.","tr":"Ha chiamato Sara. Ha detto che era in stazione, che voleva cenare con noi, e ha chiesto se eravamo liberi."},{"t":"My brother texted me. He said he had arrived in Boston and asked me to call him tonight.","tr":"Mio fratello mi ha scritto. Ha detto che era arrivato a Boston e mi ha chiesto di chiamarlo stasera."}]}
+      ]
+    },
+    {
+      "id": "recognize-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "Riconosci il passivo",
+      "summary": "È stato costruito nel 1883, qui si parla inglese, sono nato a Roma: capisci il passivo dei cartelli, delle notizie e delle visite guidate.",
+      "topic": "Il passivo: {{is made}}, {{was built}}, {{are allowed}}; per il nostro “si” impersonale",
+      "blocks": [
+        {"goal":{"t":"This bridge was built in 1883.","tr":"Questo ponte è stato costruito nel 1883."}},
+        {"dialog":[{"who":"Guida","t":"This is the Brooklyn Bridge. It was built in 1883.","tr":"Questo è il ponte di Brooklyn. È stato costruito nel 1883."},{"who":"Tu","t":"Wow! Who was it designed by?","tr":"Wow! Chi l'ha progettato?"},{"who":"Guida","t":"It was designed by John Roebling. Today it's used by thousands of people every day.","tr":"È stato progettato da John Roebling. Oggi lo usano migliaia di persone ogni giorno."},{"who":"Tu","t":"Are bikes allowed on the bridge?","tr":"Le bici sono ammesse sul ponte?"},{"who":"Guida","t":"Yes, but only in the bike lane.","tr":"Sì, ma solo sulla pista ciclabile."}]},
+        {"term":"passivo","means":"una frase in cui il soggetto subisce l'azione invece di farla: “Il ponte è stato costruito nel 1883”."},
+        {"p":"**Il passivo**: {{be}} + il participio passato. Si usa quando contano l'azione o la cosa, non chi la fa: {{English is spoken here}} “Qui si parla inglese”, {{The museum was opened in 1990}} “Il museo è stato aperto nel 1990”. Per dire chi l'ha fatto: {{by}} “da”: {{It was painted by Leonardo}}."},
+        { "table": [
+          ["","attivo","passivo"],
+          ["presente","{{They make cars here.}}","{{Cars are made here.}}"],
+          ["passato","{{They built it in 1883.}}","{{It was built in 1883.}}"],
+          ["present perfect","{{Someone has stolen my bike!}}","{{My bike has been stolen!}}"],
+          ["con un modale","{{You can't use phones here.}}","{{Phones can't be used here.}}"]
+        ] },
+        {"p":"**Per il nostro “si”.** L'italiano dice “qui si parla inglese”, “si vendono biglietti”, “è vietato fumare”. L'inglese usa spesso il passivo ({{Tickets are sold here}}) oppure {{you}} o {{people}} per tutti: {{You can't smoke here}}, {{People say it's beautiful}} “Si dice che sia bellissimo”."},
+        {"p":"**Lo conosci già**: {{I was born}} “sono nato” è un passivo! E anche {{It's made in Italy}} “È fatto in Italia”, {{It's called…}} “Si chiama…”."},
+        { "ex": [
+          {"t":"This sweater is made in Italy.","tr":"Questo maglione è fatto in Italia."},
+          {"t":"Spanish is spoken in many countries.","tr":"Lo spagnolo si parla in molti paesi."},
+          {"t":"The Mona Lisa was painted by Leonardo.","tr":"La Gioconda è stata dipinta da Leonardo."},
+          {"t":"Dinner is served at seven.","tr":"La cena è servita alle sette."},
+          {"t":"My car was stolen last night!","tr":"Ieri sera mi hanno rubato la macchina!","note":"in italiano spesso “mi hanno…”"},
+          {"t":"Smoking is not allowed.","tr":"È vietato fumare."},
+          {"t":"What's this called in English?","tr":"Come si chiama in inglese?"}
+        ] },
+        {"tip":"Sui cartelli il passivo è ovunque, spesso senza {{be}} per risparmiare spazio: {{Credit cards accepted}}, {{Reservations required}}, {{No pets allowed}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Here speaks English.","right":"English is spoken here.","tr":"Qui si parla inglese.","why":"Il nostro “si” spesso diventa un passivo: {{is spoken}}."},
+        {"wrong":"It was build in 1900.","right":"It was built in 1900.","tr":"È stato costruito nel 1900.","why":"Nel passivo ci vuole il participio: {{built}}."},
+        {"wrong":"The book was written from Calvino.","right":"The book was written by Calvino.","tr":"Il libro è stato scritto da Calvino.","why":"“Da”, cioè chi l'ha fatto: {{by}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"This church was ___ in the 15th century.","tr":"Questa chiesa è stata costruita nel Quattrocento.","options":["built","build","building"],"answer":0,"why":"Passivo: {{was}} + il participio, {{built}}."},
+        {"type":"choice","q":"Un cartello dice {{Credit cards not accepted}}. Vuol dire…","options":["Non si accettano carte di credito.","Le carte di credito sono gratis.","Si accettano solo carte di credito."],"answer":0,"why":"{{not accepted}}: “non accettate”."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Coffee ___ grown in Brazil.","tr":"Il caffè si coltiva in Brasile.","options":["is","does","has"],"answer":0,"why":"Passivo al presente: {{is}} + il participio."},
+        {"type":"dialogue","q":"In visita guidata. Scegli le domande.","lines":[{"who":"Guida","t":"This bridge is very famous.","tr":"Questo ponte è famosissimo."},{"options":["When was it built?","When did it built?"],"answer":0,"why":"Domanda al passivo: {{was it built}}."},{"who":"Guida","t":"In 1883. It was designed by John Roebling.","tr":"Nel 1883. È stato progettato da John Roebling."},{"options":["Are bikes allowed on the bridge?","Do bikes allowed on the bridge?"],"answer":0,"why":"Passivo: {{are}} + {{allowed}}, senza {{do}}."}],"from":"ask-questions-with-be"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Questo formaggio è fatto in Toscana.","words":["This cheese","is","made","in Tuscany."]},
+        {"type":"say","q":"Di': “Sono nato a Napoli, ma i miei genitori sono nati in Sicilia.”","answer":"I was born in Naples, but my parents were born in Sicily.","from":"say-where-you-were"},
+        {"type":"free","q":"Tocca a te: descrivi un monumento o un prodotto famoso del tuo paese con il passivo: quando è stato costruito o fatto, da chi, dove si usa.","answers":[{"t":"The Colosseum was built almost two thousand years ago. It's visited by millions of people every year.","tr":"Il Colosseo è stato costruito quasi duemila anni fa. Ogni anno lo visitano milioni di persone."},{"t":"Parmigiano is made in Emilia-Romagna. It's eaten all over the world!","tr":"Il parmigiano si fa in Emilia-Romagna. Si mangia in tutto il mondo!"}]}
+      ]
+    },
+    {
+      "id": "ask-politely-indirectly",
+      "unit": 8,
+      "level": "B1",
+      "title": "Fai domande indirette e gentili",
+      "summary": "Sa dirmi dov'è la stazione? Sai a che ora apre? Le domande gentili hanno un ordine diverso, e niente “do”!",
+      "topic": "Le domande indirette: {{Do you know where…?}}, {{Could you tell me what time…?}}; l'ordine normale, senza {{do}}",
+      "blocks": [
+        {"goal":{"t":"Excuse me, do you know where the station is?","tr":"Scusi, sa dov'è la stazione?"}},
+        {"dialog":[{"who":"Tu","t":"Hi. Could you tell me what time the museum opens?","tr":"Salve. Potrebbe dirmi a che ora apre il museo?"},{"who":"Impiegata","t":"It opens at ten.","tr":"Apre alle dieci."},{"who":"Tu","t":"And do you know if there's a café inside?","tr":"E sa se all'interno c'è un bar?"},{"who":"Impiegata","t":"Yes, on the second floor.","tr":"Sì, al secondo piano."},{"who":"Tu","t":"Great. I was wondering how much the tickets are.","tr":"Perfetto. Volevo sapere quanto costano i biglietti."},{"who":"Impiegata","t":"They're twenty-five dollars.","tr":"Costano venticinque dollari."}]},
+        {"p":"**Più gentili, con un “guscio”.** Invece di chiedere direttamente ({{Where is the station?}}), si comincia con una frase gentile: {{Do you know…?}} “Sa…? Sai…?”, {{Could you tell me…?}} “Potrebbe dirmi…?”, {{I was wondering…}} “Mi chiedevo…”."},
+        {"p":"**Dopo il guscio, l'ordine normale.** La seconda parte non è più una domanda: soggetto + verbo, e niente {{do}}, {{does}} o {{did}}. {{Where is the station?}} → {{Do you know where the station is?}}; {{What time does it open?}} → {{Could you tell me what time it opens?}}"},
+        { "table": [
+          ["domanda diretta","domanda indiretta"],
+          ["{{Where is the bank?}}","{{Do you know where the bank is?}}"],
+          ["{{What time does it close?}}","{{Could you tell me what time it closes?}}"],
+          ["{{How much is it?}}","{{Do you know how much it is?}}"],
+          ["{{Is there a pharmacy near here?}}","{{Do you know if there's a pharmacy near here?}}"],
+          ["{{Did she call?}}","{{Do you know if she called?}}"]
+        ] },
+        {"p":"**Sì o no: {{if}}.** Per le domande senza parola interrogativa si usa {{if}} (o {{whether}}) “se”: {{Do you know if he's coming?}} “Sai se viene?”."},
+        { "ex": [
+          {"t":"Do you know where Main Street is?","tr":"Sa dov'è Main Street?"},
+          {"t":"Could you tell me how to get to the airport?","tr":"Potrebbe dirmi come arrivare all'aeroporto?"},
+          {"t":"Do you know if the bank is open today?","tr":"Sai se oggi la banca è aperta?"},
+          {"t":"I don't know what time it is.","tr":"Non so che ore sono."},
+          {"t":"Can you tell me where you bought that?","tr":"Mi dici dove l'hai comprato?"},
+          {"t":"I was wondering if you could help me.","tr":"Mi chiedevo se potesse aiutarmi."},
+          {"t":"I have no idea why he left.","tr":"Non ho idea del perché se ne sia andato."}
+        ] },
+        {"tip":"{{I was wondering if…}} “Mi chiedevo se…” è la formula più gentile in assoluto, perfetta nelle email di lavoro: {{I was wondering if we could meet next week}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Do you know where is the station?","right":"Do you know where the station is?","tr":"Sa dov'è la stazione?","why":"Dopo {{Do you know}}, l'ordine normale: soggetto + verbo."},
+        {"wrong":"Could you tell me what time does it open?","right":"Could you tell me what time it opens?","tr":"Potrebbe dirmi a che ora apre?","why":"Nella domanda indiretta niente {{does}}: e la {{-s}} torna sul verbo."},
+        {"wrong":"Do you know is he coming?","right":"Do you know if he's coming?","tr":"Sai se viene?","why":"Per un sì o un no: {{if}} + l'ordine normale."}
+      ],
+      "practice": [
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Sa dov'è la farmacia?","words":["Do you know","where","the pharmacy","is?"]},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"Could you tell me what time the train ___?","tr":"Potrebbe dirmi a che ora parte il treno?","options":["leaves","does leave","leave"],"answer":0,"why":"Ordine normale, senza {{does}}: {{the train leaves}}, con la {{-s}}.","from":"talk-about-other-people"},
+        {"type":"choice","q":"“Sai se Marco viene stasera?”","options":["{{Do you know if Marco is coming tonight?}}","{{Do you know is Marco coming tonight?}}","{{Do you know if is Marco coming tonight?}}"],"answer":0,"why":"{{if}} + soggetto + verbo.","from":"make-plans"},
+        {"type":"dialogue","q":"All'ufficio informazioni. Scegli le domande.","lines":[{"who":"Impiegata","t":"Hi! How can I help you?","tr":"Salve! Come posso aiutarla?"},{"options":["Could you tell me where the restrooms are?","Could you tell me where are the restrooms?"],"answer":0,"why":"Ordine normale: {{the restrooms are}}."},{"who":"Impiegata","t":"They're on the left, next to the elevator.","tr":"Sono a sinistra, accanto all'ascensore."},{"options":["Thanks. Do you know if there's a café here?","Thanks. Do you know is there a café here?"],"answer":0,"why":"Sì o no: {{if there's}}."}],"from":"say-what-there-is"},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I don't know where she ___ .","tr":"Non so dove abita.","options":["lives","does live","live"],"answer":0,"why":"Dopo {{I don't know}}: l'ordine normale, e la {{-s}} sul verbo."},
+        {"type":"say","q":"Scrivi in un'email: “Mi chiedevo se potessimo vederci la settimana prossima.”","answer":"I was wondering if we could meet next week.","from":"ask-politely"},
+        {"type":"free","q":"Tocca a te: sei in una città americana. Fai tre domande indirette e gentili a un passante o a un impiegato.","answers":[{"t":"Excuse me, do you know where the bus stop is? Could you tell me how much a ticket costs?","tr":"Scusi, sa dov'è la fermata dell'autobus? Potrebbe dirmi quanto costa un biglietto?"},{"t":"Do you know if the museum is open on Mondays? I was wondering where I can buy a map.","tr":"Sa se il museo è aperto il lunedì? Mi chiedevo dove posso comprare una cartina."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Di' cosa vuoi che facciano gli altri",
+      "summary": "Voglio che tu venga, mi ha chiesto di aspettare, mi piace cucinare, ho deciso di smettere: i verbi seguiti da “-ing” o da “to”.",
+      "topic": "{{want}}, {{ask}}, {{tell}} + persona + {{to}} ({{I want you to come}}); i verbi con {{-ing}} ({{enjoy cooking}}) e con {{to}} ({{decide to go}})",
+      "blocks": [
+        {"goal":{"t":"I want you to come with me.","tr":"Voglio che tu venga con me."}},
+        {"dialog":[{"who":"Mamma","t":"I want you to call me when you arrive.","tr":"Voglio che mi chiami quando arrivi."},{"who":"Tu","t":"Of course, Mom. Do you want me to bring you anything from New York?","tr":"Certo, mamma. Vuoi che ti porti qualcosa da New York?"},{"who":"Mamma","t":"No, I just want you to have fun. And I'd like you to eat well!","tr":"No, voglio solo che ti diverta. E vorrei che mangiassi bene!"},{"who":"Tu","t":"Don't worry. I've decided to try every pizza in Brooklyn!","tr":"Tranquilla. Ho deciso di provare tutte le pizze di Brooklyn!"},{"who":"Mamma","t":"Ha! Just promise me you'll call.","tr":"Ah! Promettimi solo che chiamerai."}]},
+        {"p":"**“Voglio che tu…” non si traduce parola per parola.** In italiano diciamo “voglio che tu venga”, con il congiuntivo. In inglese: {{want}} + la persona + {{to}} + il verbo: {{I want you to come}}. {{I want that you come}} è l'errore tipico degli italiani!"},
+        { "table": [
+          ["italiano","inglese"],
+          ["Voglio che tu venga.","{{I want you to come.}}"],
+          ["Vorrei che restassi.","{{I'd like you to stay.}}"],
+          ["Mi ha chiesto di aspettare.","{{She asked me to wait.}}"],
+          ["Gli ho detto di chiamarti.","{{I told him to call you.}}"],
+          ["Vuoi che ti aiuti?","{{Do you want me to help you?}}"]
+        ] },
+        {"p":"**I pronomi**: dopo {{want}}, la persona è {{me, you, him, her, us, them}}: {{She wants me to go}}, non {{She wants I go}}."},
+        {"p":"**{{-ing}} o {{to}}?** Dopo certi verbi, il secondo verbo prende {{-ing}}; dopo altri, {{to}}. Non c'è una regola semplice: si imparano a gruppi."},
+        { "table": [
+          ["+ {{-ing}}","+ {{to}}"],
+          ["{{enjoy}}: {{I enjoy cooking.}}","{{want}}: {{I want to go.}}"],
+          ["{{finish}}: {{I finished working.}}","{{decide}}: {{We decided to stay.}}"],
+          ["{{stop}}: {{He stopped smoking.}}","{{need}}: {{I need to rest.}}"],
+          ["{{mind}}: {{Do you mind waiting?}}","{{hope}}: {{I hope to see you.}}"],
+          ["{{keep}}: {{It keeps raining.}}","{{plan}}, {{learn}}, {{try}}: {{I'm learning to swim.}}"]
+        ] },
+        {"p":"Dopo {{like}}, {{love}}, {{hate}} e {{start}} vanno bene tutti e due: {{I like cooking}}, {{I like to cook}}."},
+        { "ex": [
+          {"t":"My parents want me to study medicine.","tr":"I miei genitori vogliono che studi medicina."},
+          {"t":"Do you want me to drive?","tr":"Vuoi che guidi io?"},
+          {"t":"The teacher told us to read chapter five.","tr":"L'insegnante ci ha detto di leggere il capitolo cinque."},
+          {"t":"I enjoy walking by the sea.","tr":"Mi piace passeggiare in riva al mare."},
+          {"t":"We've decided to move to Boston.","tr":"Abbiamo deciso di trasferirci a Boston."},
+          {"t":"She stopped eating meat last year.","tr":"L'anno scorso ha smesso di mangiare carne."},
+          {"t":"I'd like you to meet my wife.","tr":"Vorrei presentarti mia moglie."}
+        ] },
+        {"tip":"{{stop}} cambia senso: {{He stopped smoking}} “Ha smesso di fumare”, ma {{He stopped to smoke}} “Si è fermato per fumare”!"}
+      ],
+      "mistakes": [
+        {"wrong":"I want that you come with me.","right":"I want you to come with me.","tr":"Voglio che tu venga con me.","why":"“Voglio che tu…”: {{want}} + persona + {{to}} + verbo."},
+        {"wrong":"She wants I help her.","right":"She wants me to help her.","tr":"Vuole che la aiuti.","why":"Dopo {{want}}, la persona è un pronome oggetto ({{me}}), poi {{to}}."},
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"Mi piace cucinare.","why":"Dopo {{enjoy}}, il verbo con {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I want ___ to call me tonight.","tr":"Voglio che tu mi chiami stasera.","options":["you","that you","your"],"answer":0,"why":"{{want}} + la persona ({{you}}) + {{to}}."},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"We've decided ___ a new car.","tr":"Abbiamo deciso di comprare una macchina nuova.","options":["to buy","buying","buy"],"answer":0,"why":"Dopo {{decide}}: {{to}} + verbo.","from":"share-news"},
+        {"type":"choice","q":"“Mi ha chiesto di aspettare”:","options":["{{She asked me to wait.}}","{{She asked that I wait me.}}","{{She asked me waiting.}}"],"answer":0,"why":"{{ask}} + persona + {{to}} + verbo.","from":"report-what-someone-said"},
+        {"type":"dialogue","q":"Tua madre ti saluta prima del viaggio. Scegli le risposte.","lines":[{"who":"Mamma","t":"I want you to call me when you arrive.","tr":"Voglio che mi chiami quando arrivi."},{"options":["Of course. Do you want me to send photos, too?","Of course. Do you want that I send photos, too?"],"answer":0,"why":"“Vuoi che…?”: {{Do you want me to…?}}"},{"who":"Mamma","t":"Yes, please! What are you going to do there?","tr":"Sì, grazie! Cosa farai lì?"},{"options":["I'm going to enjoy walking around the city!","I'm going to enjoy to walk around the city!"],"answer":0,"why":"Dopo {{enjoy}}: {{-ing}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Vorrei presentarti mia sorella.","words":["I'd like","you","to meet","my sister."]},
+        {"type":"say","q":"Di': “Ho smesso di bere caffè, ma mi piace ancora sentirne il profumo!”","answer":"I stopped drinking coffee, but I still enjoy smelling it!"},
+        {"type":"free","q":"Tocca a te: di' due cose che vuoi che facciano le persone intorno a te, e una cosa che hai deciso di fare quest'anno.","answers":[{"t":"I want my kids to read more, and I'd like my husband to cook on Sundays. This year I've decided to learn English!","tr":"Voglio che i miei figli leggano di più, e vorrei che mio marito cucinasse la domenica. Quest'anno ho deciso di imparare l'inglese!"},{"t":"I want my friends to visit me in Italy. I've decided to stop eating junk food.","tr":"Voglio che i miei amici vengano a trovarmi in Italia. Ho deciso di smettere di mangiare cibo spazzatura."}]}
+      ]
     }
   ]
 }

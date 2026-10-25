@@ -38,13 +38,14 @@
    "title": "Grammatica inglese",
    "variety": "Inglese americano",
    "units": 8,
-   "lessons": 39,
+   "lessons": 48,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 209601,
-   "sha256": "650be92ce9c7df860c2f769688b2624739bfc5be570596f54b8bf097b9fdd5f1"
+   "bytes": 262983,
+   "sha256": "ffa2b8cb2cacc53065313e795dcdc5f6e6dd8b0d004052f5675366a08d1fcb03"
   }
  }
 }
