@@ -1163,6 +1163,257 @@
         {"type":"say","q":"Say “It's cold and it's very cloudy.”","answer":"Hace frío y está muy nublado."},
         {"type":"free","q":"Your turn: what's the weather like where you are today, and what's it going to be like tomorrow?","answers":[{"t":"Hoy hace sol y hace calor. Mañana va a llover.","tr":"Today it's sunny and hot. Tomorrow it's going to rain."},{"t":"Hoy está nublado y hace frío. Mañana va a hacer buen tiempo.","tr":"Today it's cloudy and cold. Tomorrow the weather is going to be nice."}]}
       ]
+    },
+    {
+      "id": "talk-about-people-you-know",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about people and things you know",
+      "summary": "Say who and what you know, and what you know how to do: “Do you know my friend Paola? She can speak four languages.”",
+      "topic": "{{saber}} (facts, how to) and {{conocer}} (people, places); the personal {{a}}",
+      "blocks": [
+        {"goal":{"t":"¿Conoces a mi amiga Paola? Sabe hablar cuatro idiomas.","tr":"Do you know my friend Paola? She can speak four languages."}},
+        {"dialog":[{"who":"Rodrigo","t":"¿Conoces a alguien aquí?","tr":"Do you know anyone here?"},{"who":"You","t":"No, no conozco a nadie. ¿Sabes dónde está la oficina de Recursos Humanos?","tr":"No, I don't know anybody. Do you know where the HR office is?"},{"who":"Rodrigo","t":"Sí, está en el segundo piso. ¿Y conoces la ciudad?","tr":"Yes, it's on the second floor. And do you know the city?"},{"who":"You","t":"Un poco. Pero no sé manejar, entonces voy en metro.","tr":"A little. But I can't drive, so I take the subway."},{"who":"Rodrigo","t":"Yo tampoco sé manejar. ¡Vamos juntos!","tr":"I can't drive either. Let's go together!"}]},
+        {"p":"**Two verbs for “to know”.** {{saber}} is to know a fact, or to know how to do something. {{conocer}} is to know a person or a place: to be familiar with it, to have met it or been there."},
+        { "table": [
+          ["{{saber}}: facts, how to","{{conocer}}: people, places"],
+          ["{{Sé su nombre.}} I know her name.","{{Conozco a Paola.}} I know Paola."],
+          ["{{¿Sabes dónde vive?}} Do you know where he lives?","{{¿Conoces Oaxaca?}} Have you been to Oaxaca?"],
+          ["{{Sé nadar.}} I can swim.","{{No conozco este restaurante.}} I don't know this restaurant."]
+        ] },
+        {"p":"Both are irregular only for “I”: {{sé}} (with an accent), {{sabes}}, {{sabe}}, {{sabemos}}, {{saben}}; {{conozco}}, {{conoces}}, {{conoce}}, {{conocemos}}, {{conocen}}."},
+        {"p":"**{{saber}} + infinitive** is “to know how to”, the usual way to talk about a skill: {{Sé cocinar}} “I can cook”, {{¿Sabes bailar salsa?}} “Can you dance salsa?”. {{poder}} is for being able or allowed at the moment: {{Hoy no puedo nadar: hace mucho frío.}}"},
+        {"term":"object","means":"the person or thing that a verb is done to: in “I see Juan”, Juan; in “I buy bread”, bread."},
+        {"p":"**The personal {{a}}.** When the object is a particular person (or a much-loved pet), Spanish puts {{a}} in front of it. English has nothing there: it doesn't mean “to”, it just marks the person."},
+        { "table": [
+          ["a thing","a person"],
+          ["{{Veo la casa.}} I see the house.","{{Veo a Juan.}} I see Juan."],
+          ["{{Busco mi celular.}} I'm looking for my phone.","{{Busco a mi hijo.}} I'm looking for my son."],
+          ["{{Conozco Guadalajara.}} I know Guadalajara.","{{Conozco a tu hermana.}} I know your sister."]
+        ] },
+        { "ex": [
+          {"t":"¿Sabes qué hora es?","tr":"Do you know what time it is?"},
+          {"t":"No conozco a nadie en esta ciudad.","tr":"I don't know anybody in this city."},
+          {"t":"Mi hija ya sabe leer.","tr":"My daughter can already read."},
+          {"t":"¿Conoces a mis papás?","tr":"Have you met my parents?"},
+          {"t":"No sé. Voy a preguntar.","tr":"I don't know. I'll ask."},
+          {"t":"Visitamos a la abuela los domingos.","tr":"We visit Grandma on Sundays."},
+          {"t":"Quiero conocer Chiapas.","tr":"I want to visit Chiapas.","note":"{{conocer}} a place: to go there for the first time"}
+        ] },
+        {"tip":"{{Mucho gusto en conocerte}} “Nice to meet you” uses {{conocer}}: meeting someone for the first time. {{¿Ya se conocen?}} “Have you two met?”"}
+      ],
+      "mistakes": [
+        {"wrong":"¿Sabes a María?","right":"¿Conoces a María?","tr":"Do you know María?","why":"Knowing a person: {{conocer}}."},
+        {"wrong":"Conozco nadar.","right":"Sé nadar.","tr":"I can swim.","why":"Knowing how to do something: {{saber}} + infinitive."},
+        {"wrong":"Veo mi mamá los domingos.","right":"Veo a mi mamá los domingos.","tr":"I see my mom on Sundays.","why":"A particular person as the object takes the personal {{a}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ dónde está el baño?","tr":"Do you know where the bathroom is?","options":["Sabes","Conoces","Sé"],"answer":0,"why":"A fact: {{saber}}; to a friend: {{sabes}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"No ___ a tu novio.","tr":"I don't know your boyfriend.","options":["conozco","sé","conoco"],"answer":0,"why":"A person: {{conocer}}; “I”: {{conozco}}."},
+        {"type":"choice","q":"“I'm looking for my son.” Which one?","options":["{{Busco a mi hijo.}}","{{Busco mi hijo.}}","{{Busco para mi hijo.}}"],"answer":0,"why":"A particular person as the object: the personal {{a}}. ({{buscar}} already means “look for”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Mañana voy a visitar ___ mis abuelos.","tr":"Tomorrow I'm going to visit my grandparents.","options":["a","en","de"],"answer":0,"why":"Visiting people: the personal {{a}}.","from":"make-plans"},
+        {"type":"dialogue","q":"Planning a trip with a friend. Choose your replies.","lines":[{"who":"Friend","t":"¿Conoces Oaxaca?","tr":"Have you been to Oaxaca?"},{"options":["No, pero quiero conocer Oaxaca.","No, pero quiero saber Oaxaca."],"answer":0,"why":"A place: {{conocer}}."},{"who":"Friend","t":"¿Sabes manejar?","tr":"Can you drive?"},{"options":["Sí, sé manejar.","Sí, conozco manejar."],"answer":0,"why":"A skill: {{saber}} + infinitive."},{"who":"Friend","t":"¡Perfecto! Rentamos un carro y nos vamos.","tr":"Perfect! We'll rent a car and go."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't know anybody in this city.","words":["No","conozco","a nadie","en esta ciudad."]},
+        {"type":"say","q":"Ask a friend “Can you dance salsa?”","answer":"¿Sabes bailar salsa?"},
+        {"type":"free","q":"Your turn: say one thing you know how to do, one you don't, and a place you want to see. Use {{sé}}, {{no sé}} and {{quiero conocer}}.","answers":[{"t":"Sé cocinar, pero no sé bailar. Quiero conocer Yucatán.","tr":"I can cook, but I can't dance. I want to visit Yucatán."},{"t":"Sé nadar y sé hablar un poco de español. No sé manejar. Quiero conocer la Ciudad de México.","tr":"I can swim and I can speak a little Spanish. I can't drive. I want to visit Mexico City."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say what's bigger, cheaper or better, and what's the best: “My brother is taller than me, but I'm older.”",
+      "topic": "{{más … que}}, {{menos … que}}, {{tan … como}}; {{mejor, peor, mayor, menor}}; {{el más … de}}",
+      "blocks": [
+        {"goal":{"t":"Mi hermano es más alto que yo, pero yo soy mayor.","tr":"My brother is taller than me, but I'm older."}},
+        {"dialog":[{"who":"You","t":"¿Cuál es mejor, este o ese?","tr":"Which one is better, this one or that one?"},{"who":"Salesperson","t":"Este es más caro, pero es más rápido.","tr":"This one is more expensive, but it's faster."},{"who":"You","t":"¿Y la cámara?","tr":"And the camera?"},{"who":"Salesperson","t":"La cámara de ese es tan buena como la de este. Y ese es el más barato de la tienda.","tr":"That one's camera is as good as this one's. And that one is the cheapest in the store."},{"who":"You","t":"Entonces quiero ese.","tr":"Then I'll take that one."}]},
+        {"p":"**More and less.** {{más}} + adjective + {{que}}: {{más alto que}} “taller than”, {{más caro que}} “more expensive than”. Spanish has no “-er”: everything takes {{más}}. The opposite is {{menos … que}} “less … than”. The adjective still agrees: {{Las playas de aquí son más bonitas.}}"},
+        {"p":"**As … as.** {{tan}} + adjective + {{como}}: {{Es tan alto como su papá.}} “He's as tall as his dad.” With a noun, {{tanto}} + noun + {{como}}, matching the noun: {{No tengo tanto dinero como tú.}} {{No trabajo tantas horas como tú.}}"},
+        {"p":"**Four irregular ones.** Like English “better”, these don't use {{más}}:"},
+        { "table": [
+          ["","Spanish","Example"],
+          ["better","{{mejor}}","{{Este café es mejor.}}"],
+          ["worse","{{peor}}","{{El tráfico está peor hoy.}}"],
+          ["older (people)","{{mayor}}","{{Mi hermana es mayor que yo.}}"],
+          ["younger (people)","{{menor}}","{{Soy menor que mi esposo.}}"]
+        ] },
+        {"p":"{{mayor}} and {{menor}} are for people's age; for things, {{más viejo}} and {{más nuevo}}. In the plural they add -es: {{mejores}}, {{peores}}, {{mayores}}."},
+        {"p":"**The most.** {{el}}, {{la}}, {{los}} or {{las}} + noun + {{más}} + adjective, and “in” after it is {{de}}: {{el edificio más alto de la ciudad}} “the tallest building in the city”, {{la mejor comida del mundo}} “the best food in the world” ({{mejor}} and {{peor}} go before the noun)."},
+        { "ex": [
+          {"t":"El metro es más rápido que el camión.","tr":"The subway is faster than the bus."},
+          {"t":"Esta playera es menos cara que esa.","tr":"This T-shirt is less expensive than that one."},
+          {"t":"Mi hija es tan alta como yo.","tr":"My daughter is as tall as I am."},
+          {"t":"Es el mejor restaurante de la ciudad.","tr":"It's the best restaurant in town."},
+          {"t":"Mi abuelo es el mayor de la familia.","tr":"My grandfather is the oldest in the family."},
+          {"t":"Hoy hace más calor que ayer.","tr":"It's hotter today than yesterday."},
+          {"t":"Trabajo más que tú.","tr":"I work more than you do.","note":"with a verb: {{más que}}"}
+        ] },
+        {"tip":"After {{que}} and {{como}}, Spanish uses {{yo}} and {{tú}}, not “me”: {{más alto que yo}} “taller than me”, {{tan cansada como tú}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Es más grande de mi casa.","right":"Es más grande que mi casa.","tr":"It's bigger than my house.","why":"“Than” is {{que}}. ({{de}} is the “in” after “the most”, and comes before numbers: {{más de cien}}.)"},
+        {"wrong":"Este celular es más bueno que ese.","right":"Este celular es mejor que ese.","tr":"This phone is better than that one.","why":"For quality, “better” is {{mejor}}."},
+        {"wrong":"Es el más alto edificio de la ciudad.","right":"Es el edificio más alto de la ciudad.","tr":"It's the tallest building in the city.","why":"The noun first, then {{más}} + adjective; and “in” is {{de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"El metro es más rápido ___ el camión.","tr":"The subway is faster than the bus.","options":["que","de","como"],"answer":0,"why":"“Than”: {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mi hermana es tan alta ___ yo.","tr":"My sister is as tall as I am.","options":["como","que","de"],"answer":0,"why":"{{tan}} … {{como}}."},
+        {"type":"choice","q":"How do you say “the best tacos in Mexico”?","options":["{{los mejores tacos de México}}","{{los más buenos tacos en México}}","{{los tacos mejores en México}}"],"answer":0,"why":"{{mejor}}, plural {{mejores}}, before the noun; and “in” after a superlative is {{de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Soy ___ que mi hermano: él tiene veinte años y yo veinticinco.","tr":"I'm older than my brother: he's twenty and I'm twenty-five.","options":["mayor","menor","más viejo"],"answer":0,"why":"Older, for people: {{mayor}}.","from":"talk-about-your-family"},
+        {"type":"dialogue","q":"Talking about two cities. Choose your replies.","lines":[{"who":"Friend","t":"¿Qué ciudad te gusta más, Monterrey o Guadalajara?","tr":"Which city do you like better, Monterrey or Guadalajara?"},{"options":["Guadalajara. Hace menos calor que en Monterrey.","Guadalajara. Es menos calor que en Monterrey."],"answer":0,"why":"Weather you feel: {{hace}}."},{"who":"Friend","t":"¿Y la comida?","tr":"And the food?"},{"options":["La comida de Guadalajara es la mejor de México.","La comida de Guadalajara es la más buena en México."],"answer":0,"why":"“The best … in”: {{la mejor … de}}."},{"who":"Friend","t":"¡Eso dicen los tapatíos!","tr":"That's what people from Guadalajara say!"}],"from":"talk-about-the-weather"},
+        {"type":"order","q":"Put the words in order.","tr":"It's the tallest building in the city.","words":["Es","el edificio","más alto","de la ciudad."]},
+        {"type":"say","q":"Say “This one is more expensive, but it's better.”","answer":"Este es más caro, pero es mejor."},
+        {"type":"free","q":"Your turn: compare two people in your family, or two cities you know. Use {{más … que}}, and {{mayor}}, {{menor}} or {{mejor}}.","answers":[{"t":"Mi hermana es mayor que yo, pero yo soy más alta que ella.","tr":"My sister is older than me, but I'm taller than her."},{"t":"Chicago es más grande que Denver, pero en Denver hace más sol.","tr":"Chicago is bigger than Denver, but it's sunnier in Denver."}]}
+      ]
+    },
+    {
+      "id": "say-it-and-them",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say “it” and “them”",
+      "summary": "Talk about something without repeating its name: “Where's my phone? I can't find it.”",
+      "topic": "direct object pronouns {{lo, la, los, las}} (and {{me, te, nos}}); where they go",
+      "blocks": [
+        {"goal":{"t":"¿Dónde está mi celular? No lo encuentro.","tr":"Where's my phone? I can't find it."}},
+        {"dialog":[{"who":"Dani","t":"¿Tienes las llaves?","tr":"Do you have the keys?"},{"who":"Mar","t":"Sí, las tengo.","tr":"Yes, I have them."},{"who":"Dani","t":"¿Y los boletos?","tr":"And the tickets?"},{"who":"Mar","t":"No, no los tengo. ¿Tú los tienes?","tr":"No, I don't have them. Do you?"},{"who":"Dani","t":"Mmm… Creo que están en la mesa. Ahorita los traigo.","tr":"Hmm… I think they're on the table. I'll go get them."}]},
+        {"p":"**Not repeating.** Instead of saying {{el celular}} again, Spanish uses a short pronoun, and it goes **before the verb**: {{No lo encuentro.}} “I can't find it”, word for word “not it I-find”."},
+        {"term":"direct object pronoun","means":"a short word that stands for the object of a verb: it, them, him, her. In Spanish: {{lo, la, los, las}}, and {{me, te, nos}}."},
+        {"p":"**It matches the noun it stands for**, in gender and number:"},
+        { "table": [
+          ["it stands for","pronoun","Example"],
+          ["{{el celular}}","{{lo}}","{{Lo tengo.}} I have it."],
+          ["{{la llave}}","{{la}}","{{La tengo.}} I have it."],
+          ["{{los boletos}}","{{los}}","{{Los tengo.}} I have them."],
+          ["{{las llaves}}","{{las}}","{{Las tengo.}} I have them."]
+        ] },
+        {"p":"The same pronouns stand for people: {{lo}} “him” (and polite “you”, to a man), {{la}} “her” (and polite “you”, to a woman), {{los}}, {{las}} “them”: {{¿Conoces a Pablo? — Sí, lo conozco.}} For “me”, “you” and “us”: {{me}}, {{te}}, {{nos}}: {{¿Me ves?}} “Can you see me?” {{Te quiero.}} “I love you.”"},
+        {"p":"**Where it goes.** Before a conjugated verb: {{Lo compro.}} With an infinitive or a gerund, either before the first verb or joined to the end: {{Lo voy a comprar}} = {{Voy a comprarlo}} “I'm going to buy it”; {{La estoy buscando}} = {{Estoy buscándola}} “I'm looking for it”. With {{no}}: {{No lo sé.}} “I don't know.”"},
+        { "ex": [
+          {"t":"¿Dónde compras las tortillas? — Las compro en la tortillería.","tr":"Where do you buy tortillas? — I buy them at the tortilla shop."},
+          {"t":"Te llamo mañana.","tr":"I'll call you tomorrow.","note":"the present, for something you're about to do"},
+          {"t":"¿Me escuchas? — Sí, te escucho.","tr":"Can you hear me? — Yes, I can hear you."},
+          {"t":"Mi abuela nos visita cada domingo.","tr":"My grandmother visits us every Sunday."},
+          {"t":"No lo sé.","tr":"I don't know.","note":"word for word “I don't know it”: very common"},
+          {"t":"La película es muy buena. Tienes que verla.","tr":"The movie is really good. You have to see it."},
+          {"t":"¿Las invitaciones? Las voy a mandar hoy.","tr":"The invitations? I'm going to send them today."}
+        ] },
+        {"tip":"Mexicans use {{lo}} for “him”: {{Lo conozco}} “I know him”. (In Spain you'll also hear {{le}} there.)"}
+      ],
+      "mistakes": [
+        {"wrong":"Tengo lo.","right":"Lo tengo.","tr":"I have it.","why":"The pronoun goes before a conjugated verb."},
+        {"wrong":"¿Las llaves? Los tengo.","right":"¿Las llaves? Las tengo.","tr":"The keys? I have them.","why":"{{las llaves}} is feminine and plural: {{las}}."},
+        {"wrong":"Voy a lo comprar.","right":"Voy a comprarlo.","tr":"I'm going to buy it.","why":"Before {{voy}} ({{Lo voy a comprar}}) or joined to the infinitive ({{comprarlo}}), never between them."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿El libro? Sí, ___ tengo.","tr":"The book? Yes, I have it.","options":["lo","la","los"],"answer":0,"why":"{{el libro}}, masculine, one: {{lo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Y las fotos? ¿Dónde ___ tienes?","tr":"And the photos? Where do you have them?","options":["las","los","la"],"answer":0,"why":"{{la foto}} is feminine (one of the exceptions): {{las fotos}}, {{las}}.","from":"name-things"},
+        {"type":"choice","q":"“I'm going to call her tomorrow.” Which is right?","options":["both {{La voy a llamar mañana.}} and {{Voy a llamarla mañana.}}","only {{Voy a la llamar mañana.}}","only {{Voy a llamar la mañana.}}"],"answer":0,"why":"Before {{voy}}, or joined to the infinitive: both are right."},
+        {"type":"dialogue","q":"Making a shopping list with your partner. Choose your replies.","lines":[{"who":"Partner","t":"¿Tú compras las tortillas?","tr":"Will you buy the tortillas?"},{"options":["Sí, yo las compro.","Sí, yo los compro."],"answer":0,"why":"{{las tortillas}}: {{las}}."},{"who":"Partner","t":"¿Y el pan? ¿Hay pan?","tr":"And the bread? Is there any bread?"},{"options":["No, no hay nada. Lo compro también.","No, no hay algo. Lo compro también."],"answer":0,"why":"With {{no}} before the verb: {{nada}}."},{"who":"Partner","t":"Gracias, amor.","tr":"Thanks, love."}],"from":"say-how-often"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm going to buy it tomorrow.","words":["Lo","voy a","comprar","mañana."]},
+        {"type":"say","q":"Someone asks {{¿Conoces a Pablo?}} Answer “Yes, I know him.”","answer":"Sí, lo conozco.","from":"talk-about-people-you-know"},
+        {"type":"free","q":"Your turn: you've lost something. Say what it is, and that you can't find it.","answers":[{"t":"¿Dónde están mis lentes? No los encuentro.","tr":"Where are my glasses? I can't find them."},{"t":"No encuentro mi cartera. ¿La tienes tú?","tr":"I can't find my wallet. Do you have it?"}]}
+      ]
+    },
+    {
+      "id": "say-who-for",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say who you give, tell and send things to",
+      "summary": "Give, lend, tell and send things to people: “I'm going to send my brother a message.” “Can you pass me the salt?”",
+      "topic": "indirect object pronouns {{me, te, le, nos, les}}; {{dar, decir, mandar, prestar, pasar}}; {{le}} with {{a}} + the person",
+      "blocks": [
+        {"goal":{"t":"Le voy a mandar un mensaje a mi hermano.","tr":"I'm going to send my brother a message."}},
+        {"dialog":[{"who":"Hugo","t":"¿Qué le vas a dar a tu mamá para su cumpleaños?","tr":"What are you going to give your mom for her birthday?"},{"who":"Ana","t":"Le voy a dar unas flores. ¿Y tú?","tr":"I'm going to give her some flowers. And you?"},{"who":"Hugo","t":"Yo no tengo dinero. ¿Me prestas cien pesos?","tr":"I don't have any money. Can you lend me a hundred pesos?"},{"who":"Ana","t":"Bueno, te presto cien. Pero me los pagas el viernes.","tr":"Okay, I'll lend you a hundred. But you pay me back on Friday."}]},
+        {"term":"indirect object","means":"the person who receives something, or for whom something is done: in “I give Ana a present”, Ana."},
+        {"p":"**To whom, for whom.** Verbs like give, tell, send and lend have two objects: the thing, and the person who gets it. That person is the indirect object, and it has its own pronouns, which go before the verb:"},
+        { "table": [
+          ["","Spanish","Example"],
+          ["(to) me","{{me}}","{{¿Me das tu número?}} Will you give me your number?"],
+          ["(to) you (friendly)","{{te}}","{{Te mando la dirección.}} I'll send you the address."],
+          ["(to) him, her, you (polite)","{{le}}","{{Le digo la verdad.}} I tell him the truth."],
+          ["(to) us","{{nos}}","{{Nos prestan su carro.}} They lend us their car."],
+          ["(to) you (all), them","{{les}}","{{Les doy las gracias.}} I thank them."]
+        ] },
+        {"p":"You know these pronouns already: they're the ones in {{me gusta}}, {{te gusta}}, {{le gusta}}. With {{gustar}}, the person is an indirect object too: “it pleases **to me**”."},
+        {"p":"**{{le}} and {{a}} + the person, together.** Spanish usually says both: {{Le doy un regalo a mi mamá.}} “I give my mom a present.” {{Les mando un correo a mis jefes.}} It looks repeated, but that's normal Spanish."},
+        {"p":"**{{dar}}** “to give” is irregular for “I”: {{doy}}, {{das}}, {{da}}, {{damos}}, {{dan}}. Other verbs that take a person this way: {{decir}} (to tell), {{mandar}} (to send), {{prestar}} (to lend), {{pasar}} (to pass), {{traer}} (to bring), {{enseñar}} (to show, to teach), {{preguntar}} (to ask), {{regalar}} (to give as a present), {{comprar}} (to buy for). They go in the same places as {{lo}}: {{Le voy a mandar}} = {{Voy a mandarle}}."},
+        { "ex": [
+          {"t":"¿Me pasas la sal, por favor?","tr":"Can you pass me the salt, please?"},
+          {"t":"¿Me prestas tu pluma?","tr":"Can I borrow your pen?","note":"word for word “Do you lend me…?”"},
+          {"t":"Le voy a comprar un regalo a mi novia.","tr":"I'm going to buy my girlfriend a present."},
+          {"t":"¿Qué te dice el doctor?","tr":"What does the doctor tell you?"},
+          {"t":"Les enseño español a mis vecinos.","tr":"I teach my neighbors Spanish."},
+          {"t":"Mi abuela siempre nos da dulces.","tr":"My grandmother always gives us candy."},
+          {"t":"Le pregunto al mesero.","tr":"I'll ask the waiter."}
+        ] },
+        {"tip":"{{¿Me das…?}}, {{¿Me pasas…?}} and {{¿Me prestas…?}}, in the plain present, are the everyday friendly requests in Mexico. To someone you call {{usted}}: {{¿Me da…?}}, {{¿Me pasa…?}}, {{¿Me presta…?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Lo digo la verdad.","right":"Le digo la verdad.","tr":"I tell him the truth.","why":"The person who is told is an indirect object: {{le}}. {{lo}} would be the thing told."},
+        {"wrong":"Le mando un mensaje a mis papás.","right":"Les mando un mensaje a mis papás.","tr":"I send my parents a message.","why":"More than one person: {{les}}. (In fast speech you'll hear {{le}} for both, but {{les}} is right.)"},
+        {"wrong":"¿Puedes pasar me la sal?","right":"¿Me pasas la sal?","tr":"Can you pass me the salt?","why":"The pronoun goes before the conjugated verb, or joined to the infinitive: {{¿Puedes pasarme la sal?}} is right too."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ pasas el pan, por favor?","tr":"Can you pass me the bread, please?","options":["Me","Te","Le"],"answer":0,"why":"To me: {{me}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ voy a mandar un mensaje a mi hermana.","tr":"I'm going to send my sister a message.","options":["Le","La","Les"],"answer":0,"why":"The person who gets the message: {{le}}. ({{la}} would be the thing sent.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Mi abuela siempre ___ da dulces a los niños.","tr":"My grandmother always gives the kids candy.","options":["les","le","los"],"answer":0,"why":"{{a los niños}}, more than one: {{les}}."},
+        {"type":"choice","q":"Which one means “Can I borrow your car?”","options":["{{¿Me prestas tu carro?}}","{{¿Te presto tu carro?}}","{{¿Me presto tu carro?}}"],"answer":0,"why":"Spanish asks “Do you lend me…?”: {{¿Me prestas…?}}"},
+        {"type":"dialogue","q":"At a friend's birthday dinner. Choose your replies.","lines":[{"who":"Friend","t":"¿Te gusta el mole?","tr":"Do you like the mole?"},{"options":["¡Me gusta mucho! ¿Me pasas las tortillas?","¡Me gusta mucho! ¿Te pasas las tortillas?"],"answer":0,"why":"Pass them to me: {{¿Me pasas…?}}"},{"who":"Friend","t":"Claro. ¿Qué le vas a regalar a Sofi?","tr":"Sure. What are you going to give Sofi?"},{"options":["Le voy a regalar un libro.","La voy a regalar un libro."],"answer":0,"why":"The person who gets the present: {{le}}."},{"who":"Friend","t":"¡Qué buena idea!","tr":"What a good idea!"}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm going to buy my girlfriend a present.","words":["Le","voy a comprar","un regalo","a mi novia."]},
+        {"type":"say","q":"Ask a friend “Can you lend me your pen?”","answer":"¿Me prestas tu pluma?"},
+        {"type":"free","q":"Your turn: what are you going to give someone for their birthday? Use {{le voy a dar}} or {{le voy a regalar}}.","answers":[{"t":"Le voy a regalar un suéter a mi papá.","tr":"I'm going to give my dad a sweater."},{"t":"A mi esposa le voy a dar unas flores y una cena.","tr":"I'm going to give my wife some flowers and a dinner out."}]}
+      ]
+    },
+    {
+      "id": "say-what-hurts",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what hurts and what you need",
+      "summary": "At the doctor's or in a store: say what hurts, what you love, what's missing and how clothes fit: “My throat really hurts.”",
+      "topic": "verbs like {{gustar}}: {{doler, encantar, interesar, importar, faltar, quedar}}",
+      "blocks": [
+        {"goal":{"t":"Me duele mucho la garganta y tengo un poco de fiebre.","tr":"My throat really hurts and I have a bit of a fever."}},
+        {"dialog":[{"who":"Doctor","t":"¿Qué le pasa?","tr":"What's the matter?"},{"who":"You","t":"Me duele mucho la cabeza y me duelen los ojos.","tr":"I have a bad headache and my eyes hurt."},{"who":"Doctor","t":"¿Desde cuándo?","tr":"Since when?"},{"who":"You","t":"Desde ayer. Y no tengo energía.","tr":"Since yesterday. And I have no energy."},{"who":"Doctor","t":"Creo que es gripa. Le voy a dar algo para el dolor.","tr":"I think it's the flu. I'm going to give you something for the pain."}]},
+        {"p":"**Back to front, again.** You know {{Me gusta el café}}: the thing is the subject, and {{me}} says who. Several common verbs work exactly the same way:"},
+        { "table": [
+          ["verb","Spanish","English"],
+          ["{{doler}} (to hurt; o → ue)","{{Me duele la cabeza.}}","My head hurts. I have a headache."],
+          ["{{encantar}} (to love)","{{Me encanta esta canción.}}","I love this song."],
+          ["{{interesar}} (to interest)","{{Me interesa el arte.}}","I'm interested in art."],
+          ["{{importar}} (to matter)","{{No me importa.}}","I don't mind. I don't care."],
+          ["{{faltar}} (to be missing)","{{Me falta un peso.}}","I'm one peso short."],
+          ["{{quedar}} (to fit; to be left)","{{Me queda grande.}}","It's too big on me."]
+        ] },
+        {"p":"As with {{gustar}}, the verb matches the thing: {{Me duele el pie}} “my foot hurts”, {{Me duelen los pies}} “my feet hurt”; {{Me encantan los tamales}}. And {{a}} + the person names who: {{A mi hijo le duele el estómago.}}"},
+        {"p":"**Parts of the body take {{el}}, {{la}}**, not “my”: {{Me duele la espalda}} “My back hurts”. The {{me}} already says whose back it is."},
+        {"p":"**{{quedar}}** has two everyday uses. For clothes, how they fit: {{¿Cómo me queda?}} “How does it look on me?”, {{Te queda muy bien}} “It looks great on you”, {{Me queda chico}} “It's too small for me”. And what's left: {{Nos quedan diez minutos}} “We have ten minutes left”."},
+        { "ex": [
+          {"t":"¿Te duele?","tr":"Does it hurt?"},
+          {"t":"A mi esposo le duele la espalda.","tr":"My husband's back hurts."},
+          {"t":"Me encanta la comida de Oaxaca.","tr":"I love Oaxacan food."},
+          {"t":"¿Te interesa el futbol?","tr":"Are you into soccer?"},
+          {"t":"Nos falta tiempo.","tr":"We don't have enough time."},
+          {"t":"Estos pantalones me quedan grandes.","tr":"These pants are too big for me."},
+          {"t":"Ya no me quedan tortillas.","tr":"I don't have any tortillas left."}
+        ] },
+        {"tip":"Body words: {{la cabeza}} (head), {{la garganta}} (throat), {{el estómago}}, {{la espalda}} (back), {{el oído}} (ear, inside), {{el ojo}} (eye), {{la muela}} (back tooth), {{el pie}} (foot), {{la rodilla}} (knee). “I'm sick” is {{Estoy enfermo}} or {{Estoy enferma}}; “I have a cold” or “the flu”, in Mexico, is {{Tengo gripa}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Mi cabeza duele.","right":"Me duele la cabeza.","tr":"My head hurts.","why":"{{doler}} works like {{gustar}}: {{me duele}}, then {{la}} and the body part."},
+        {"wrong":"Me duele los pies.","right":"Me duelen los pies.","tr":"My feet hurt.","why":"More than one thing: {{duelen}}."},
+        {"wrong":"Yo encanto la música.","right":"Me encanta la música.","tr":"I love music.","why":"{{encantar}} works like {{gustar}}: “music delights me”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Me ___ las piernas.","tr":"My legs hurt.","options":["duelen","duele","dolen"],"answer":0,"why":"{{doler}} changes o → ue, and more than one thing: {{duelen}}.","from":"say-what-you-prefer"},
+        {"type":"fill","q":"Choose the missing word.","t":"A mi hija le ___ los perros.","tr":"My daughter loves dogs.","options":["encantan","encanta","encanto"],"answer":0,"why":"Like {{gustar}}: more than one thing, {{encantan}}."},
+        {"type":"choice","q":"In a store, the jacket you try on is too small. You say…","options":["{{Me queda chica.}}","{{Estoy chica.}}","{{Es chica para mí queda.}}"],"answer":0,"why":"How clothes fit: {{quedar}} + the size. {{la chamarra}} is feminine: {{chica}}."},
+        {"type":"dialogue","q":"At the pharmacy. Choose your replies.","lines":[{"who":"Pharmacist","t":"Buenas tardes. ¿Qué necesita?","tr":"Good afternoon. What do you need?"},{"options":["Algo para la garganta. Me duele mucho.","Algo para la garganta. Mi garganta duele mucho."],"answer":0,"why":"{{Me duele}}, like {{me gusta}}."},{"who":"Pharmacist","t":"¿Tiene fiebre?","tr":"Do you have a fever?"},{"options":["No, pero estoy muy cansado.","No, pero soy muy cansado."],"answer":0,"why":"How you are right now: {{estar}}."},{"who":"Pharmacist","t":"Tome estas pastillas cada ocho horas.","tr":"Take these pills every eight hours."}],"from":"say-how-and-where-you-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Cómo me ___ este vestido?","tr":"How does this dress look on me?","options":["queda","quedo","quedan"],"answer":0,"why":"{{quedar}}, matching {{este vestido}}: {{queda}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not interested in politics.","words":["No","me","interesa","la política."]},
+        {"type":"say","q":"Tell the doctor “My stomach hurts.”","answer":"Me duele el estómago."},
+        {"type":"free","q":"Your turn: you're at the doctor's. Say what hurts and since when (with {{desde}}: {{desde ayer}}, {{desde el lunes}}).","answers":[{"t":"Me duele la espalda desde el lunes.","tr":"My back has been hurting since Monday."},{"t":"Me duelen la cabeza y la garganta desde ayer.","tr":"My head and my throat have been hurting since yesterday."}]}
+      ]
     }
   ]
 }
