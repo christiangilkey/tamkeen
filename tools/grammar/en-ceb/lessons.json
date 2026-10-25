@@ -73,6 +73,7 @@
         {"p":"The same pattern as the last lesson: **the describing word first, then who or what**, and no “is”. {{Buotan siya}} is “kind she”; {{Init ang kape}} is “hot the coffee”."},
         {"term":"adjective","means":"a word that describes a person or a thing: hot, kind, beautiful, big."},
         {"p":"**{{ang}} and {{si}}.** When you name the thing or person you're talking about, put a little word before it: {{ang}} before a thing, a place or a person in general ({{ang kape}} “the coffee”, {{ang Cebu}}), {{si}} before a person's name ({{si Maria}}). They point at **who or what the sentence is about**. {{ang}} is often “the” in English, but it goes before place names too: {{Nindot ang Cebu.}} “Cebu is beautiful.”"},
+        {"term":"marker","means":"a little word in front of a noun that shows its job in the sentence. {{ang}} and {{si}} mark who or what the sentence is about; more markers come later."},
         {"p":"**Every person.** Here are all the words for “I, you, he, she, we, they”. Two things are new for an English speaker: {{siya}} is **he and she** (Bisaya doesn't say which), and there are **two words for “we”**: {{kami}} leaves out the person you're talking to, {{kita}} includes them."},
         { "table": [
           ["","full","short"],
@@ -283,6 +284,293 @@
         {"type":"say","q":"Say “This is my mom.”","answer":"Mao ni akong mama.","from":"point-at-things"},
         {"type":"say","q":"Say “My sister is really kind.”","answer":"Buotan kaayo ang akong igsoon.","from":"say-what-people-are-like"},
         {"type":"free","q":"Your turn: introduce two people in your family and say one thing about each.","answers":[{"t":"Mao ni akong papa. Doktor siya.","tr":"This is my dad. He's a doctor."},{"t":"Akong manghod si Sarah. Estudyante siya sa Boston.","tr":"Sarah is my little sister. She's a student in Boston."},{"t":"Si Lisa akong igsoon. Buotan kaayo siya.","tr":"Lisa is my sister. She's really kind."}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask if there is one, and say what you have",
+      "summary": "Ask “Is there a store near here?” and say what you have and don't have.",
+      "topic": "{{naa}}, {{may}}, {{aduna}} “there is, have”; {{wala}} “there isn't, don't have”; the joining {{-y}} ({{Naa koy…}}, {{Naa bay…?}})",
+      "blocks": [
+        {"goal":{"t":"Naa bay tindahan duol dinhi?","tr":"Is there a store near here?"}},
+        {"dialog":[{"who":"You","t":"Nang, naa bay tindahan duol dinhi?","tr":"Ma'am, is there a store near here?"},{"who":"Neighbor","t":"Oo, naay tindahan sa kanto.","tr":"Yes, there's a store on the corner."},{"who":"You","t":"Naa bay ATM?","tr":"Is there an ATM?"},{"who":"Neighbor","t":"Wala. Walay ATM dinhi. Naa sa mall.","tr":"No. There's no ATM here. There's one at the mall."},{"who":"You","t":"Salamat, Nang!","tr":"Thanks, Ma'am!"},{"who":"Neighbor","t":"Walay sapayan.","tr":"You're welcome."}]},
+        {"p":"**There is.** {{naa}} means “there is” or “there are”. To join it to the thing, add **-y** to the end: {{Naay tindahan.}} “There's a store.” In a question, {{ba}} comes in and takes the -y: {{Naa bay tindahan?}} “Is there a store?”"},
+        {"p":"**There isn't.** {{wala}} is “there isn't, there's no”, and it takes the same -y: {{Walay ATM.}} “There's no ATM.” Remember {{dili}} from the last unit? That one is for what something *is*; {{wala}} is for whether there is any."},
+        {"p":"**Have.** Bisaya says “I have” the same way: “there is, I, money”. The -y goes on the person: {{Naa koy kwarta.}} “I have money.” {{Wala koy kwarta.}} “I don't have any money.”"},
+        { "table": [
+          ["","there is, have","there isn't, don't have"],
+          ["a thing","{{Naay tubig.}} There's water.","{{Walay tubig.}} There's no water."],
+          ["I","{{Naa koy iro.}} I have a dog.","{{Wala koy iro.}} I don't have a dog."],
+          ["you","{{Naa kay iro.}} You have a dog.","{{Wala kay iro.}} You don't have a dog."],
+          ["he, she","{{Naa siyay iro.}} She has a dog.","{{Wala siyay iro.}} She doesn't have a dog."]
+        ] },
+        {"p":"**Short answers.** To {{Naa bay…?}} just answer {{Naa.}} “There is.” or {{Wala.}} “There isn't.”"},
+        { "ex": [
+          {"t":"Naa koy pangutana.","tr":"I have a question."},
+          {"t":"Wala koy kwarta.","tr":"I don't have any money."},
+          {"t":"Naa kay uyab?","tr":"Do you have a boyfriend? / Do you have a girlfriend?"},
+          {"t":"Naa bay WiFi dinhi?","tr":"Is there WiFi here?"},
+          {"t":"Walay tubig karon.","tr":"There's no water today."},
+          {"t":"May tawo sa gawas.","tr":"There's someone outside.","note":"{{may}} is another word for {{naay}}"},
+          {"t":"Aduna bay tindahan duol dinhi?","tr":"Is there a store near here?","note":"{{aduna}} is the same as {{naa}}, a little more careful"}
+        ] },
+        {"tip":"{{naa}}, {{may}} and {{aduna}} all mean “there is”. In everyday Cebu talk {{naa}} is the one you'll hear most; {{may}} comes before the thing without -y ({{May tawo}}), and {{aduna}} is common in writing."}
+      ],
+      "mistakes": [
+        {"wrong":"Naa tindahan duol dinhi?","right":"Naa bay tindahan duol dinhi?","tr":"Is there a store near here?","why":"Join {{naa}} to the thing with -y; in a question the -y goes on {{ba}}: {{naa bay}}."},
+        {"wrong":"Dili koy kwarta.","right":"Wala koy kwarta.","tr":"I don't have any money.","why":"“Don't have” and “there isn't” are always {{wala}}, never {{dili}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one means “I don't have any money”?","options":["{{Wala koy kwarta.}}","{{Dili koy kwarta.}}","{{Naa koy kwarta.}}"],"answer":0,"why":"Not having: {{wala}}, with -y on {{ko}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Naa ___ WiFi dinhi?","tr":"Is there WiFi here?","options":["bay","ba","ka"],"answer":0,"why":"In a question, {{ba}} takes the -y: {{naa bay}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ___ kwarta.","tr":"I have no money.","options":["koy","ko","siya"],"answer":0,"why":"The person takes the -y: {{koy}}."},
+        {"type":"dialogue","q":"At a small hotel: choose your replies.","lines":[{"who":"Receptionist","t":"Maayong gabii, Sir!","tr":"Good evening, Sir!"},{"options":["Maayong gabii! Naa bay kwarto?","Maayong gabii! Naa kwarto ba?"],"answer":0,"why":"{{Naa bay…?}} “Is there…?” ({{kwarto}} is a room.)"},{"who":"Receptionist","t":"Naa, Sir. Usa ra ka gabii?","tr":"There is, Sir. Just one night?"},{"options":["Oo. Naa bay WiFi?","Oo. Walay WiFi?"],"answer":0,"why":"You're asking whether there is WiFi: {{Naa bay WiFi?}}"},{"who":"Receptionist","t":"Naa, pero hinay.","tr":"There is, but it's slow."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I have a question.","words":["Naa","koy","pangutana."]},
+        {"type":"choice","q":"Someone asks {{Naa bay tubig?}} There isn't any. You say…","options":["{{Wala.}}","{{Dili.}}"],"answer":0,"why":"“There isn't” is {{wala}}; {{dili}} is for what something is.","from":"say-no"},
+        {"type":"free","q":"Your turn: say two things you have and one thing you don't have.","answers":[{"t":"Naa koy iro ug iring. Wala koy awto.","tr":"I have a dog and a cat. I don't have a car."},{"t":"Naa koy duha ka igsoon. Wala koy anak.","tr":"I have two brothers and sisters. I don't have any children."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where things and people are",
+      "summary": "Say where you are, find the bathroom, and say what's on, under or next to what.",
+      "topic": "{{naa}} + {{sa}} “is at”; {{wala}} “isn't here”; {{dinhi}}, {{diha}}, {{didto}}; {{sa tuo}}, {{sa wala}} and other places",
+      "blocks": [
+        {"goal":{"t":"Asa man ang banyo? — Naa sa tuo.","tr":"Where's the bathroom? — It's on the right."}},
+        {"dialog":[{"who":"Mom","t":"Ben, naa ka sa balay?","tr":"Ben, are you home?"},{"who":"Ben","t":"Wala, Ma. Naa ko sa eskwelahan.","tr":"No, Mom. I'm at school."},{"who":"Mom","t":"Asa ang yawe sa awto?","tr":"Where are the car keys?"},{"who":"Ben","t":"Naa sa lamesa, sa kusina.","tr":"On the table, in the kitchen."},{"who":"Mom","t":"Wala man dinhi!","tr":"They're not here!"},{"who":"Ben","t":"Ay, naa diay sa akong bag. Sorry, Ma!","tr":"Oh, they're in my bag after all. Sorry, Mom!"}]},
+        {"p":"**Is at.** The {{naa}} of “there is” also says where something or someone **is**: {{naa}} + {{sa}} + the place. {{Naa ko sa balay.}} “I'm at home.” One little word, {{sa}}, does the work of English “at”, “in” and “on”: {{sa balay}} at home, {{sa kusina}} in the kitchen, {{sa lamesa}} on the table."},
+        {"p":"**{{sa}} is a marker too**, like {{ang}} and {{si}}: it marks a place (and, later, a few other jobs). {{Asa}} “where” asks for it: {{Asa ka?}} “Where are you?” — {{Naa ko sa trabaho.}} “I'm at work.”"},
+        {"p":"**Isn't here.** When someone or something is not at a place, Bisaya says {{wala}}, the same word as “there isn't”: {{Wala siya sa balay.}} “He's not home.” {{Wala man dinhi!}} “It's not here!”"},
+        {"p":"**Here and there** match {{kini}}, {{kana}}, {{kadto}}: {{dinhi}} here (near me; {{diri}} in speech), {{diha}} there (near you), {{didto}} over there (away from us both)."},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{sa ibabaw sa lamesa}}","on (top of) the table"],
+          ["{{sa ilalum sa lamesa}}","under the table"],
+          ["{{sa sulod sa bag}}","inside the bag"],
+          ["{{sa gawas}}","outside"],
+          ["{{sa tupad sa simbahan}}","next to the church"],
+          ["{{sa atubangan sa simbahan}}","in front of the church"],
+          ["{{sa likod sa balay}}","behind the house"],
+          ["{{sa tuo}} / {{sa wala}}","on the right / on the left"]
+        ] },
+        { "ex": [
+          {"t":"Naa ko sa balay.","tr":"I'm at home."},
+          {"t":"Asa ka karon?","tr":"Where are you now?"},
+          {"t":"Wala siya sa opisina.","tr":"She's not in the office."},
+          {"t":"Naa sa sulod sa bag.","tr":"It's inside the bag."},
+          {"t":"Naa diha imong bag.","tr":"Your bag is right there."},
+          {"t":"Duol ra ang merkado.","tr":"The market is just nearby."},
+          {"t":"Naa sa wala ang banyo.","tr":"The bathroom is on the left.","note":"{{wala}} also means “left”: the sentence tells you which"}
+        ] },
+        {"tip":"{{duol}} is near, {{layo}} is far: {{Duol ra.}} “It's just nearby.” {{Layo pa.}} “It's still far.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Dili siya sa balay.","right":"Wala siya sa balay.","tr":"He's not home.","why":"Not at a place is {{wala}}, not {{dili}}."},
+        {"wrong":"Naa ko balay.","right":"Naa ko sa balay.","tr":"I'm at home.","why":"A place needs {{sa}} in front of it."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Naa sa wala.}} means…","options":["It's on the left.","It isn't there.","There's nothing."],"answer":0,"why":"After {{naa sa}}, {{wala}} is “left”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Naa ko ___ balay.","tr":"I'm at home.","options":["sa","ang","si"],"answer":0,"why":"A place: {{sa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ siya sa opisina.","tr":"She's not in the office.","options":["Wala","Dili","Naa"],"answer":0,"why":"Not at a place: {{wala}}."},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","lines":[{"who":"Joy","t":"Hello! Asa ka karon?","tr":"Hello! Where are you now?"},{"options":["Naa ko sa mall.","Mall ko."],"answer":0,"why":"Where you are: {{naa}} + {{sa}} + the place."},{"who":"Joy","t":"Naa ko sa atubangan sa simbahan. Asa ka dapit?","tr":"I'm in front of the church. Whereabouts are you?"},{"options":["Sa sulod, duol sa Jollibee.","Wala ko sa sulod."],"answer":0,"why":"Say where you are: {{sa sulod}}, inside."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The market is just nearby.","words":["Duol","ra","ang","merkado."]},
+        {"type":"say","q":"Ask: “Is there a store near here?”","answer":"Naa bay tindahan duol dinhi?","from":"say-what-there-is"},
+        {"type":"say","q":"Say: “My bag is under the table.”","answer":"Naa sa ilalum sa lamesa ang akong bag.","from":"introduce-your-family"},
+        {"type":"free","q":"Your turn: where are you now, and where's your phone?","answers":[{"t":"Naa ko sa balay. Naa sa lamesa akong selpon.","tr":"I'm at home. My phone is on the table."},{"t":"Naa ko sa trabaho. Naa sa akong bag ang akong selpon.","tr":"I'm at work. My phone is in my bag."}]}
+      ]
+    },
+    {
+      "id": "order-food-and-drinks",
+      "unit": 2,
+      "level": "A1",
+      "title": "Order food and drinks",
+      "summary": "Order at a café or a carinderia: “One coffee and two ensaymadas, please.”",
+      "topic": "{{gusto}} + {{og}} “a, some”; {{palihug}}; numbers with {{ka}} ({{usa ka}}, {{duha ka}}); {{lang}}",
+      "blocks": [
+        {"goal":{"t":"Usa ka kape ug duha ka ensaymada, palihug.","tr":"One coffee and two ensaymadas, please."}},
+        {"dialog":[{"who":"Waiter","t":"Maayong buntag! Unsa man ang imong order, Sir?","tr":"Good morning! What would you like, Sir?"},{"who":"You","t":"Gusto ko og kape, palihug.","tr":"I'd like a coffee, please."},{"who":"Waiter","t":"Init o bugnaw?","tr":"Hot or iced?"},{"who":"You","t":"Bugnaw. Ug duha ka ensaymada.","tr":"Iced. And two ensaymadas."},{"who":"Waiter","t":"Mao ra?","tr":"Is that all?"},{"who":"You","t":"Oo, mao ra. Salamat!","tr":"Yes, that's all. Thanks!"}]},
+        {"p":"**Saying what you want.** {{gusto}} is “want” or “would like”: {{Gusto ko og kape.}} “I'd like a coffee”, word for word “want I a coffee”. Before the thing you want goes {{og}}, a marker meaning “a” or “some”: {{og kape}}, {{og tubig}}."},
+        {"p":"**{{og}} is for a thing someone wants, buys, eats or drinks**, when it is not the topic of the sentence: {{og kape}}, {{og pan}}. Then the topic markers {{ang}} and {{si}}, and the place marker {{sa}}: that's four markers already."},
+        {"p":"**Numbers.** Put {{ka}} between the number and the thing: {{usa ka kape}} “one coffee”, {{duha ka ensaymada}} “two ensaymadas”. The thing doesn't change, and no {{mga}} is needed after a number. Ordering, you can just name it: {{Usa ka kape, palihug.}}"},
+        { "table": [
+          ["1","2","3","4","5","6","7","8","9","10"],
+          ["{{usa}}","{{duha}}","{{tulo}}","{{upat}}","{{lima}}","{{unom}}","{{pito}}","{{walo}}","{{siyam}}","{{napulo}}"]
+        ] },
+        {"p":"{{palihug}} is “please”, {{lang}} is “just”: {{Tubig lang, palihug.}} “Just water, please.” And {{Mao ra.}} “That's all.”"},
+        { "ex": [
+          {"t":"Gusto ko og tubig.","tr":"I'd like some water."},
+          {"t":"Usa ka kape, palihug.","tr":"One coffee, please."},
+          {"t":"Tubig lang, palihug.","tr":"Just water, please."},
+          {"t":"Tulo ka buko juice.","tr":"Three coconut juices."},
+          {"t":"Kape ug pan, palihug.","tr":"Coffee and bread, please."},
+          {"t":"Gusto mo og kape?","tr":"Do you want some coffee?","note":"after {{gusto}}, “you” is {{mo}}: lesson 12 explains"},
+          {"t":"Pwede ko mangayo og tubig?","tr":"Could I have some water?"}
+        ] },
+        {"tip":"{{og}} “a, some” and {{ug}} “and” sound almost the same, and many people write both as {{ug}}. This course writes {{og}} for “a, some” and {{ug}} for “and”, as the Basics course does: {{kape ug pan}}, {{Gusto ko og pan.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Gusto ko kape.","right":"Gusto ko og kape.","tr":"I'd like a coffee.","why":"The thing you want has {{og}} in front of it."},
+        {"wrong":"Duha kape, palihug.","right":"Duha ka kape, palihug.","tr":"Two coffees, please.","why":"Between a number and the thing: {{ka}}."},
+        {"wrong":"Duha ka mga kape.","right":"Duha ka kape.","tr":"Two coffees.","why":"After a number, no {{mga}}: the number already says there's more than one."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Gusto ko ___ kape.","tr":"I'd like a coffee.","options":["og","ang","si"],"answer":0,"why":"The thing you want: {{og}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Duha ___ ensaymada, palihug.","tr":"Two ensaymadas, please.","options":["ka","og","ang"],"answer":0,"why":"Number + {{ka}} + thing."},
+        {"type":"dialogue","q":"At a carinderia: choose your replies.","lines":[{"who":"Server","t":"Unsa imong gusto, Ma'am?","tr":"What would you like, Ma'am?"},{"options":["Usa ka adobo ug kan-on, palihug.","Usa adobo ug kan-on, palihug."],"answer":0,"why":"{{usa ka}}: the number needs {{ka}}. ({{kan-on}} is cooked rice.)"},{"who":"Server","t":"Unsa imong imnon?","tr":"What would you like to drink?"},{"options":["Tubig lang, palihug.","Tubig ka, palihug."],"answer":0,"why":"{{lang}} “just”: “Just water, please.”"},{"who":"Server","t":"Sige, Ma'am.","tr":"All right, Ma'am."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Just water, please.","words":["Tubig","lang,","palihug."]},
+        {"type":"choice","q":"{{Mao ra.}} means…","options":["That's all.","That's right.","That's expensive."],"answer":0,"why":"{{Mao ra}}, at the end of an order: “That's all.”"},
+        {"type":"say","q":"Ask: “Is there any coffee?”","answer":"Naa bay kape?","from":"say-what-there-is"},
+        {"type":"free","q":"Your turn: order a drink and something to eat.","answers":[{"t":"Usa ka kape ug usa ka ensaymada, palihug.","tr":"One coffee and one ensaymada, please."},{"t":"Gusto ko og buko juice ug duha ka pan, palihug.","tr":"I'd like a coconut juice and two rolls, please."},{"t":"Tulo ka kape, palihug.","tr":"Three coffees, please."}]}
+      ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask the price and count",
+      "summary": "Ask how much things cost, understand the answer, and bargain a little at the market.",
+      "topic": "{{pila}} “how much, how many”; Spanish numbers for money and time; {{mga}} “about”; {{mahal}}, {{barato}}",
+      "blocks": [
+        {"goal":{"t":"Pila ni? — Singkwenta pesos.","tr":"How much is this? — Fifty pesos."}},
+        {"dialog":[{"who":"You","t":"Nang, pila ang mangga?","tr":"Ma'am, how much are the mangoes?"},{"who":"Vendor","t":"Sisenta ang kilo.","tr":"Sixty a kilo."},{"who":"You","t":"Mahal man! Singkwenta na lang?","tr":"That's expensive! How about fifty?"},{"who":"Vendor","t":"Sige, singkwenta. Pila ka kilo?","tr":"Okay, fifty. How many kilos?"},{"who":"You","t":"Duha ka kilo, palihug.","tr":"Two kilos, please."},{"who":"Vendor","t":"Siyento tanan.","tr":"A hundred altogether."}]},
+        {"p":"**How much, how many.** {{pila}} asks both. {{Pila ni?}} “How much is this?” With a thing to count, it works like a number, with {{ka}}: {{Pila ka kilo?}} “How many kilos?” {{Pila ka buok?}} “How many pieces?”"},
+        {"p":"**Two sets of numbers.** You count things with the Bisaya numbers of the last lesson ({{duha ka kilo}}), but prices and the time are usually said with **Spanish** numbers: {{singkwenta pesos}} “fifty pesos”, {{alas tres}} “three o'clock”. Spanish numbers go straight before the word, with no {{ka}}."},
+        { "table": [
+          ["","Spanish number","","Spanish number"],
+          ["1","{{uno}}","20","{{baynte}}"],
+          ["2","{{dos}}","25","{{baynte singko}}"],
+          ["3","{{tres}}","30","{{traynta}}"],
+          ["4","{{kwatro}}","40","{{kwarenta}}"],
+          ["5","{{singko}}","50","{{singkwenta}}"],
+          ["6","{{sais}}","60","{{sisenta}}"],
+          ["7","{{siyete}}","70","{{setenta}}"],
+          ["8","{{otso}}","80","{{otsenta}}"],
+          ["9","{{nuwebe}}","90","{{nobenta}}"],
+          ["10","{{diyes}}","100","{{siyento}}"]
+        ] },
+        {"p":"**About.** {{mga}} before a number means “about, around”: {{mga tulo ka kilo}} “about three kilos”, {{mga alas tres}} “around three o'clock”. (It's the same {{mga}} that makes nouns plural: one word, two jobs.)"},
+        { "ex": [
+          {"t":"Pila ni?","tr":"How much is this?"},
+          {"t":"Baynte ang usa.","tr":"Twenty each."},
+          {"t":"Pila ka buok? — Lima ka buok.","tr":"How many pieces? — Five."},
+          {"t":"Mahal kaayo! Pwede menos?","tr":"That's really expensive! Can you give me a discount?"},
+          {"t":"Barato ra kaayo dinhi.","tr":"It's really cheap here."},
+          {"t":"Pila tanan?","tr":"How much is it altogether?"},
+          {"t":"Mga lima ka kilo.","tr":"About five kilos."}
+        ] },
+        {"tip":"English numbers are common in Cebu too, especially for big prices (“one fifty”), and you'll understand any of the three. When in doubt, say the price back in English: everyone will follow."}
+      ],
+      "mistakes": [
+        {"wrong":"Pila kilo?","right":"Pila ka kilo?","tr":"How many kilos?","why":"{{pila}} + {{ka}} + the thing, just like a number."},
+        {"wrong":"Singkwenta ka pesos.","right":"Singkwenta pesos.","tr":"Fifty pesos.","why":"Spanish numbers go straight before the word; {{ka}} is for Bisaya numbers ({{lima ka kilo}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Pila ___ kilo?","tr":"How many kilos?","options":["ka","og","ang"],"answer":0,"why":"{{pila}} + {{ka}} + the thing."},
+        {"type":"choice","q":"{{Singkwenta}} is…","options":["15","50","500"],"answer":1,"why":"{{singkwenta}} is fifty ({{kinse}} is fifteen)."},
+        {"type":"choice","q":"{{Mga alas tres}} means…","options":["around three o'clock","three o'clocks","after three"],"answer":0,"why":"{{mga}} before a number: about."},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Vendor","t":"Saging, Sir? Barato ra!","tr":"Bananas, Sir? They're cheap!"},{"options":["Pila ang usa ka kilo?","Pila ka usa kilo?"],"answer":0,"why":"{{Pila ang usa ka kilo?}} “How much is one kilo?”"},{"who":"Vendor","t":"Kwarenta.","tr":"Forty."},{"options":["Sige, duha ka kilo.","Sige, duha kilo."],"answer":0,"why":"A Bisaya number needs {{ka}}: {{duha ka kilo}}."},{"who":"Vendor","t":"Otsenta tanan.","tr":"Eighty altogether."}]},
+        {"type":"order","q":"Put the words in order.","tr":"How much are the mangoes?","words":["Pila","ang","mangga?"]},
+        {"type":"say","q":"Say “Two coffees, please.”","answer":"Duha ka kape, palihug.","from":"order-food-and-drinks"},
+        {"type":"free","q":"Your turn: ask the price of something, then ask for a discount or say how many you want.","answers":[{"t":"Pila ni? Mahal kaayo! Pwede menos?","tr":"How much is this? That's really expensive! Can you give me a discount?"},{"t":"Nang, pila ang saging? Duha ka kilo, palihug.","tr":"Ma'am, how much are the bananas? Two kilos, please."}]}
+      ]
+    },
+    {
+      "id": "describe-what-you-want",
+      "unit": 2,
+      "level": "A1",
+      "title": "Describe what you want",
+      "summary": "Say “cold water”, “a big house”, “this new phone”: join a describing word to a noun.",
+      "topic": "The linker {{nga}} and its short form {{-ng}} ({{bugnaw nga tubig}}, {{dakong balay}}, {{maayong buntag}}); {{kini nga…}}",
+      "blocks": [
+        {"goal":{"t":"Gusto ko og bugnaw nga tubig.","tr":"I'd like some cold water."}},
+        {"dialog":[{"who":"Shop assistant","t":"Unsa imong gipangita, Ma'am?","tr":"What are you looking for, Ma'am?"},{"who":"You","t":"Gusto ko og puti nga sinina.","tr":"I'd like a white top."},{"who":"Shop assistant","t":"Kini, Ma'am? Bag-ong estilo ni.","tr":"This one, Ma'am? It's a new style."},{"who":"You","t":"Nindot! Pero gamay ra. Naa bay dako nga sukod?","tr":"Nice! But it's too small. Is there a large size?"},{"who":"Shop assistant","t":"Naa, Ma'am. Ania.","tr":"There is, Ma'am. Here it is."}]},
+        {"p":"In English, “cold” just sits before “water”. In Bisaya the describing word and the noun are **joined by {{nga}}**: {{bugnaw nga tubig}} “cold water”, {{puti nga sinina}} “a white top”, {{nindot nga dapit}} “a nice place”."},
+        {"term":"linker","means":"a little word that joins a describing word to the noun it describes: {{nga}}, or its short form {{-ng}}."},
+        {"p":"**The short form {{-ng}}.** When the first word ends in a vowel, {{nga}} usually shrinks to **-ng** on its end: {{dako nga balay}} → {{dakong balay}} “a big house”, {{bag-o nga estilo}} → {{bag-ong estilo}} “a new style”. Words ending in -n swap it for -ng: {{daghan}} → {{daghang tawo}} “many people”. Now you can see why it's {{maayong buntag}}: {{maayo}} “good” + -ng + {{buntag}} “morning”."},
+        { "table": [
+          ["","with {{nga}}","short"],
+          ["a big house","{{dako nga balay}}","{{dakong balay}}"],
+          ["a new phone","{{bag-o nga selpon}}","{{bag-ong selpon}}"],
+          ["good morning","{{maayo nga buntag}}","{{maayong buntag}}"],
+          ["cold water","{{bugnaw nga tubig}}","(ends in -w: always {{nga}})"]
+        ] },
+        {"p":"The pointing words join the same way: {{kini nga libro}} or {{kining libro}} “this book”, {{kanang babaye}} “that woman”. And the order can flip with no change in meaning: {{tubig nga bugnaw}} is also “cold water”, but the describing word first is more common."},
+        { "ex": [
+          {"t":"Gusto ko og init nga kape.","tr":"I'd like a hot coffee."},
+          {"t":"Nindot kaayo kini nga dapit.","tr":"This place is really nice."},
+          {"t":"Naa silay dakong balay.","tr":"They have a big house."},
+          {"t":"Buotan kaayo siya nga tawo.","tr":"He's a really kind person."},
+          {"t":"Kinsa kanang babaye?","tr":"Who's that woman?"},
+          {"t":"Daghang salamat!","tr":"Many thanks!"}
+        ] },
+        {"tip":"Colors: {{puti}} white, {{itom}} black, {{pula}} red, {{asul}} blue, {{dalag}} yellow, {{berde}} green. Sizes: {{dako}} big, {{gamay}} small."}
+      ],
+      "mistakes": [
+        {"wrong":"bugnaw tubig","right":"bugnaw nga tubig","tr":"cold water","why":"Join the describing word and the noun with {{nga}}."},
+        {"wrong":"dakonga balay","right":"dakong balay","tr":"a big house","why":"After a vowel, {{nga}} shrinks to -ng: {{dakong}}. (Or keep it whole: {{dako nga balay}}.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Gusto ko og init ___ kape.","tr":"I'd like a hot coffee.","options":["nga","og","ang"],"answer":0,"why":"Join {{init}} and {{kape}} with {{nga}}."},
+        {"type":"choice","q":"{{dako}} “big” + {{balay}} “house”: a big house is…","options":["{{dakong balay}}","{{dako balay}}","{{balay dako}}"],"answer":0,"why":"{{dako}} ends in a vowel: {{dako nga}} → {{dakong}}."},
+        {"type":"choice","q":"Why is it {{maayong buntag}}, with -ng?","options":["{{maayo}} ends in a vowel, so {{nga}} becomes -ng","-ng means “morning”","it's plural"],"answer":0,"why":"{{maayo nga buntag}} → {{maayong buntag}}: the linker in its short form."},
+        {"type":"order","q":"Put the words in order.","tr":"This place is really nice.","words":["Nindot","kaayo","kini","nga","dapit."]},
+        {"type":"dialogue","q":"In a shop: choose your replies.","lines":[{"who":"Shop assistant","t":"Unsa imong gipangita, Sir?","tr":"What are you looking for, Sir?"},{"options":["Gusto ko og itom nga sapatos.","Gusto ko og itom sapatos."],"answer":0,"why":"{{itom}} ends in -m: join it with the whole {{nga}}."},{"who":"Shop assistant","t":"Kini, Sir?","tr":"This pair, Sir?"},{"options":["Nindot! Pila kini?","Nindot! Pila ka kini?"],"answer":0,"why":"{{Pila kini?}} “How much is this?”"}]},
+        {"type":"say","q":"Ask: “How much is this bag?”","answer":"Pila kini nga bag?","from":"ask-the-price"},
+        {"type":"free","q":"Your turn: say what you'd like, with a describing word.","answers":[{"t":"Gusto ko og bugnaw nga beer.","tr":"I'd like a cold beer."},{"t":"Gusto ko og bag-ong selpon.","tr":"I'd like a new phone."},{"t":"Gusto ko og dakong balay duol sa dagat.","tr":"I'd like a big house near the sea."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you want to do",
+      "summary": "Say what you want (and don't want) to do: “I want to go to Bohol.”",
+      "topic": "{{gusto}} + a verb with {{mo-}}; who wants: {{ko}}, {{nimo}}, {{niya}}…; {{dili}} + {{gusto}}",
+      "blocks": [
+        {"goal":{"t":"Gusto ko moadto sa Bohol.","tr":"I want to go to Bohol."}},
+        {"dialog":[{"who":"Ana","t":"Ben, unsay imong plano ugma?","tr":"Ben, what are your plans for tomorrow?"},{"who":"Ben","t":"Gusto ko moadto sa Bohol. Gusto nimo mouban?","tr":"I want to go to Bohol. Do you want to come along?"},{"who":"Ana","t":"Gusto ko! Gusto ko molangoy sa Panglao.","tr":"I'd love to! I want to swim at Panglao."},{"who":"Ben","t":"Ug gusto ko motan-aw sa Chocolate Hills.","tr":"And I want to see the Chocolate Hills."},{"who":"Ana","t":"Pero dili ko gusto mosakay og barko. Kusog ang balod!","tr":"But I don't want to take the boat. The waves are big!"}]},
+        {"term":"verb","means":"a word for an action or a state: go, eat, swim, want."},
+        {"p":"**Gusto + a verb.** To say what you want to do, put the verb after {{gusto}} and give it **mo-** on the front: {{adto}} “go” → {{Gusto ko moadto.}} “I want to go.” {{kaon}} “eat” → {{Gusto ko mokaon.}} “I want to eat.”"},
+        {"term":"root","means":"the bare core of a word, the form a dictionary lists: {{kaon}} (eat), {{adto}} (go). Bisaya builds verbs by adding pieces to the root."},
+        {"p":"{{mo-}} is the form of a verb for something **not done yet**. You'll meet it again and again; for now, it's the form that follows {{gusto}}: {{molangoy}} “to swim”, {{mopalit}} “to buy”, {{motan-aw}} “to see, to watch”."},
+        {"p":"**Who wants.** After {{gusto}}, “I” is {{ko}} (or {{nako}}), but the others come from the set you know for “my, your” after a noun: {{gusto nimo}} (short {{mo}}), {{gusto niya}}. So {{Gusto nimo mouban?}} “Do you want to come along?” and {{Gusto niya molangoy.}} “She wants to swim.”"},
+        { "table": [
+          ["","wants to go"],
+          ["I","{{Gusto ko moadto.}}"],
+          ["you","{{Gusto nimo moadto.}} / {{Gusto mo moadto.}}"],
+          ["he, she","{{Gusto niya moadto.}}"],
+          ["we (not you)","{{Gusto namo moadto.}}"],
+          ["we (you and I)","{{Gusto nato moadto.}}"],
+          ["you (more than one)","{{Gusto ninyo moadto.}}"],
+          ["they","{{Gusto nila moadto.}}"]
+        ] },
+        {"p":"**Don't want.** {{dili}} goes in front, and the short word follows it: {{Dili ko gusto mosakay og barko.}} “I don't want to take the boat.”"},
+        { "ex": [
+          {"t":"Gusto ko mokaon.","tr":"I want to eat."},
+          {"t":"Gusto ko molangoy.","tr":"I want to swim."},
+          {"t":"Gusto nimo mouban?","tr":"Do you want to come along?"},
+          {"t":"Gusto niya mopalit og sapatos.","tr":"She wants to buy shoes."},
+          {"t":"Dili ko gusto motrabaho karon.","tr":"I don't want to work today."},
+          {"t":"Asa nimo gusto mokaon?","tr":"Where do you want to eat?"}
+        ] },
+        {"tip":"You'll also hear {{gusto kong moadto}}, with -ng joining {{ko}} to the verb. It means exactly the same."}
+      ],
+      "mistakes": [
+        {"wrong":"Gusto ko adto sa Bohol.","right":"Gusto ko moadto sa Bohol.","tr":"I want to go to Bohol.","why":"The verb after {{gusto}} takes {{mo-}}."},
+        {"wrong":"Gusto siya mokaon.","right":"Gusto niya mokaon.","tr":"She wants to eat.","why":"After {{gusto}}, he or she is {{niya}}, the word for “his, her” after a noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Gusto ko ___ sa Bohol.","tr":"I want to go to Bohol.","options":["moadto","adto","ang"],"answer":0,"why":"After {{gusto}}: the verb with {{mo-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Gusto ___ mopalit og sapatos.","tr":"She wants to buy shoes.","options":["niya","siya","iyang"],"answer":0,"why":"After {{gusto}}: {{niya}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I don't want to work today.","words":["Dili","ko","gusto","motrabaho","karon."]},
+        {"type":"dialogue","q":"Your friend has an idea for the weekend. Choose your replies.","lines":[{"who":"Joy","t":"Gusto nimo moadto sa Moalboal?","tr":"Do you want to go to Moalboal?"},{"options":["Gusto ko! Gusto ko molangoy.","Gusto ko! Gusto ko langoy."],"answer":0,"why":"The verb after {{gusto}} has {{mo-}}: {{molangoy}}."},{"who":"Joy","t":"Ug gusto nimo mokaon og lechon?","tr":"And do you want to eat lechon?"},{"options":["Dili ko gusto. Busog pa ko.","Gusto dili ko."],"answer":0,"why":"{{dili}} first, then {{ko}}, then {{gusto}}."}]},
+        {"type":"say","q":"Say “I want to buy a new phone.”","answer":"Gusto ko mopalit og bag-ong selpon.","from":"describe-what-you-want"},
+        {"type":"choice","q":"Which one is right?","options":["{{Dili ko gusto mokaon.}}","{{Dili gusto ko mokaon.}}"],"answer":0,"why":"The short word goes right after {{dili}}.","from":"say-no"},
+        {"type":"free","q":"Your turn: say two things you want to do this year, and one you don't.","answers":[{"t":"Gusto ko moadto sa Siargao. Gusto ko mokat-on og Bisaya.","tr":"I want to go to Siargao. I want to learn Bisaya."},{"t":"Gusto ko molangoy sa dagat. Dili ko gusto mosakay og eroplano.","tr":"I want to swim in the sea. I don't want to take a plane."},{"t":"Gusto ko mopalit og bag-ong awto. Dili ko gusto motrabaho matag Sabado.","tr":"I want to buy a new car. I don't want to work every Saturday."}]}
       ]
     }
   ]
