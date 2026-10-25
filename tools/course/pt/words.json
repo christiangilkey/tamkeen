@@ -2783,6 +2783,927 @@
       "meaning": "long",
       "sentence": "O filme é muito longo.",
       "translation": "The movie is very ⟦long⟧."
+    },
+    {
+      "n": 301,
+      "rank": 307,
+      "word": "série",
+      "pos": "noun",
+      "meaning": "series (on TV); grade (at school)",
+      "sentence": "Estou assistindo uma série nova.",
+      "translation": "I'm watching a new ⟦series⟧."
+    },
+    {
+      "n": 302,
+      "rank": 308,
+      "word": "comigo",
+      "pos": "pron",
+      "meaning": "with me",
+      "sentence": "Você quer ir ao cinema comigo?",
+      "translation": "Do you want to go to the movies ⟦with me⟧?"
+    },
+    {
+      "n": 303,
+      "rank": 309,
+      "word": "professor",
+      "pos": "noun",
+      "meaning": "teacher; professor (feminine: professora)",
+      "sentence": "O professor explicou tudo.",
+      "translation": "The ⟦teacher⟧ explained everything."
+    },
+    {
+      "n": 304,
+      "rank": 310,
+      "word": "embora",
+      "pos": "conj",
+      "meaning": "although; away (ir embora: to leave)",
+      "sentence": "Embora esteja cansado, vou sair.",
+      "translation": "⟦Although⟧ I'm tired, I'm going out."
+    },
+    {
+      "n": 305,
+      "rank": 311,
+      "word": "causa",
+      "pos": "noun",
+      "meaning": "cause (por causa de: because of)",
+      "sentence": "Não fui por causa da chuva.",
+      "translation": "I didn't go ⟦because of⟧ the rain."
+    },
+    {
+      "n": 306,
+      "rank": 312,
+      "word": "corpo",
+      "pos": "noun",
+      "meaning": "body",
+      "sentence": "Meu corpo todo está doendo.",
+      "translation": "My whole ⟦body⟧ hurts."
+    },
+    {
+      "n": 307,
+      "rank": 313,
+      "word": "incluir",
+      "pos": "verb",
+      "meaning": "to include",
+      "sentence": "O café da manhã está incluído?",
+      "translation": "Is breakfast ⟦included⟧?",
+      "form": "incluído"
+    },
+    {
+      "n": 308,
+      "rank": 314,
+      "word": "quarto",
+      "pos": "noun",
+      "meaning": "bedroom, room; quarter; fourth",
+      "sentence": "Vou arrumar o meu quarto.",
+      "translation": "I'm going to tidy up my ⟦room⟧."
+    },
+    {
+      "n": 309,
+      "rank": 315,
+      "word": "logo",
+      "pos": "adv",
+      "meaning": "soon; right away; then (até logo: see you)",
+      "sentence": "Volto logo.",
+      "translation": "I'll be back ⟦soon⟧."
+    },
+    {
+      "n": 310,
+      "rank": 316,
+      "word": "sob",
+      "pos": "prep",
+      "meaning": "under",
+      "sentence": "Está tudo sob controle.",
+      "translation": "Everything is ⟦under⟧ control."
+    },
+    {
+      "n": 311,
+      "rank": 317,
+      "word": "rua",
+      "pos": "noun",
+      "meaning": "street",
+      "sentence": "Eu moro nesta rua.",
+      "translation": "I live on this ⟦street⟧."
+    },
+    {
+      "n": 312,
+      "rank": 318,
+      "word": "jovem",
+      "pos": "adj",
+      "meaning": "young; young person",
+      "sentence": "Ela é muito jovem.",
+      "translation": "She's very ⟦young⟧."
+    },
+    {
+      "n": 313,
+      "rank": 319,
+      "word": "isto",
+      "pos": "pron",
+      "meaning": "this (thing)",
+      "sentence": "Isto não é justo.",
+      "translation": "⟦This⟧ isn't fair."
+    },
+    {
+      "n": 314,
+      "rank": 320,
+      "word": "jogar",
+      "pos": "verb",
+      "meaning": "to play (a game, a sport); to throw",
+      "sentence": "Vamos jogar futebol?",
+      "translation": "Shall we ⟦play⟧ soccer?"
+    },
+    {
+      "n": 315,
+      "rank": 321,
+      "word": "segurança",
+      "pos": "noun",
+      "meaning": "safety; security; security guard",
+      "sentence": "Por segurança, não ande sozinho à noite.",
+      "translation": "For ⟦safety⟧, don't walk alone at night."
+    },
+    {
+      "n": 316,
+      "rank": 322,
+      "word": "resultado",
+      "pos": "noun",
+      "meaning": "result",
+      "sentence": "O resultado do exame saiu ontem.",
+      "translation": "The test ⟦results⟧ came out yesterday."
+    },
+    {
+      "n": 317,
+      "rank": 323,
+      "word": "internacional",
+      "pos": "adj",
+      "meaning": "international",
+      "sentence": "O aeroporto internacional fica longe.",
+      "translation": "The ⟦international⟧ airport is far away."
+    },
+    {
+      "n": 318,
+      "rank": 324,
+      "word": "população",
+      "pos": "noun",
+      "meaning": "population",
+      "sentence": "A população da cidade está crescendo.",
+      "translation": "The city's ⟦population⟧ is growing."
+    },
+    {
+      "n": 319,
+      "rank": 325,
+      "word": "pagar",
+      "pos": "verb",
+      "meaning": "to pay",
+      "sentence": "Posso pagar com cartão?",
+      "translation": "Can I ⟦pay⟧ by card?"
+    },
+    {
+      "n": 320,
+      "rank": 326,
+      "word": "publicar",
+      "pos": "verb",
+      "meaning": "to publish; to post",
+      "sentence": "Ela publicou um livro novo.",
+      "translation": "She ⟦published⟧ a new book.",
+      "form": "publicou"
+    },
+    {
+      "n": 321,
+      "rank": 327,
+      "word": "descobrir",
+      "pos": "verb",
+      "meaning": "to discover; to find out",
+      "sentence": "Descobri um restaurante ótimo.",
+      "translation": "I ⟦discovered⟧ a great restaurant.",
+      "form": "descobri"
+    },
+    {
+      "n": 322,
+      "rank": 328,
+      "word": "falta",
+      "pos": "noun",
+      "meaning": "lack; absence (sentir falta de: to miss)",
+      "sentence": "Sinto falta da minha família.",
+      "translation": "I ⟦miss⟧ my family."
+    },
+    {
+      "n": 323,
+      "rank": 329,
+      "word": "controlar",
+      "pos": "verb",
+      "meaning": "to control (controle: control; remote)",
+      "sentence": "Ele não consegue controlar a raiva.",
+      "translation": "He can't ⟦control⟧ his anger."
+    },
+    {
+      "n": 324,
+      "rank": 330,
+      "word": "favor",
+      "pos": "noun",
+      "meaning": "favor (por favor: please)",
+      "sentence": "Pode me fazer um favor?",
+      "translation": "Can you do me a ⟦favor⟧?"
+    },
+    {
+      "n": 325,
+      "rank": 331,
+      "word": "uso",
+      "pos": "noun",
+      "meaning": "use",
+      "sentence": "O uso do celular é proibido aqui.",
+      "translation": "Cell phone ⟦use⟧ isn't allowed here."
+    },
+    {
+      "n": 326,
+      "rank": 332,
+      "word": "lutar",
+      "pos": "verb",
+      "meaning": "to fight; to struggle",
+      "sentence": "Vamos lutar até o fim.",
+      "translation": "We'll ⟦fight⟧ to the end."
+    },
+    {
+      "n": 327,
+      "rank": 333,
+      "word": "especial",
+      "pos": "adj",
+      "meaning": "special",
+      "sentence": "Hoje é um dia especial.",
+      "translation": "Today is a ⟦special⟧ day."
+    },
+    {
+      "n": 328,
+      "rank": 334,
+      "word": "menino",
+      "pos": "noun",
+      "meaning": "boy (menina: girl)",
+      "sentence": "O menino está jogando bola.",
+      "translation": "The ⟦boy⟧ is playing ball."
+    },
+    {
+      "n": 329,
+      "rank": 336,
+      "word": "possível",
+      "pos": "adj",
+      "meaning": "possible",
+      "sentence": "É possível chegar a pé?",
+      "translation": "Is it ⟦possible⟧ to get there on foot?"
+    },
+    {
+      "n": 330,
+      "rank": 337,
+      "word": "feira",
+      "pos": "noun",
+      "meaning": "street market, fair (-feira: in the names of weekdays)",
+      "sentence": "Vou à feira comprar frutas.",
+      "translation": "I'm going to the ⟦market⟧ to buy fruit."
+    },
+    {
+      "n": 331,
+      "rank": 338,
+      "word": "feliz",
+      "pos": "adj",
+      "meaning": "happy",
+      "sentence": "Feliz aniversário!",
+      "translation": "⟦Happy⟧ birthday!"
+    },
+    {
+      "n": 332,
+      "rank": 340,
+      "word": "baixo",
+      "pos": "adj",
+      "meaning": "short (person); low; quiet",
+      "sentence": "Minha irmã é baixa.",
+      "translation": "My sister is ⟦short⟧.",
+      "form": "baixa"
+    },
+    {
+      "n": 333,
+      "rank": 341,
+      "word": "cabeça",
+      "pos": "noun",
+      "meaning": "head",
+      "sentence": "Minha cabeça está doendo.",
+      "translation": "My ⟦head⟧ hurts."
+    },
+    {
+      "n": 334,
+      "rank": 342,
+      "word": "polícia",
+      "pos": "noun",
+      "meaning": "police",
+      "sentence": "Chame a polícia!",
+      "translation": "Call the ⟦police⟧!"
+    },
+    {
+      "n": 335,
+      "rank": 343,
+      "word": "ação",
+      "pos": "noun",
+      "meaning": "action; share (of a company)",
+      "sentence": "Esse filme tem muita ação.",
+      "translation": "This movie has a lot of ⟦action⟧."
+    },
+    {
+      "n": 336,
+      "rank": 344,
+      "word": "imagem",
+      "pos": "noun",
+      "meaning": "image; picture",
+      "sentence": "A imagem está muito escura.",
+      "translation": "The ⟦picture⟧ is too dark."
+    },
+    {
+      "n": 337,
+      "rank": 345,
+      "word": "aparecer",
+      "pos": "verb",
+      "meaning": "to appear; to show up",
+      "sentence": "Ele apareceu de repente.",
+      "translation": "He ⟦showed up⟧ out of nowhere.",
+      "form": "apareceu"
+    },
+    {
+      "n": 338,
+      "rank": 346,
+      "word": "aumentar",
+      "pos": "verb",
+      "meaning": "to increase; to raise; to turn up",
+      "sentence": "Pode aumentar o volume?",
+      "translation": "Can you ⟦turn up⟧ the volume?"
+    },
+    {
+      "n": 339,
+      "rank": 347,
+      "word": "universidade",
+      "pos": "noun",
+      "meaning": "university",
+      "sentence": "Ela estuda na universidade.",
+      "translation": "She studies at the ⟦university⟧."
+    },
+    {
+      "n": 340,
+      "rank": 348,
+      "word": "lançar",
+      "pos": "verb",
+      "meaning": "to launch; to release; to throw",
+      "sentence": "A banda lançou um disco novo.",
+      "translation": "The band ⟦released⟧ a new album.",
+      "form": "lançou"
+    },
+    {
+      "n": 341,
+      "rank": 349,
+      "word": "quatro",
+      "pos": "num",
+      "meaning": "four",
+      "sentence": "Somos quatro na família.",
+      "translation": "There are ⟦four⟧ of us in the family."
+    },
+    {
+      "n": 342,
+      "rank": 350,
+      "word": "pessoal",
+      "pos": "adj",
+      "meaning": "personal; folks, everyone (informal); staff",
+      "sentence": "Oi, pessoal!",
+      "translation": "Hi, ⟦everyone⟧!"
+    },
+    {
+      "n": 343,
+      "rank": 351,
+      "word": "forte",
+      "pos": "adj",
+      "meaning": "strong",
+      "sentence": "Esse café está muito forte.",
+      "translation": "This coffee is very ⟦strong⟧."
+    },
+    {
+      "n": 344,
+      "rank": 352,
+      "word": "campo",
+      "pos": "noun",
+      "meaning": "field; countryside",
+      "sentence": "As vacas estão no campo.",
+      "translation": "The cows are in the ⟦field⟧."
+    },
+    {
+      "n": 345,
+      "rank": 353,
+      "word": "morto",
+      "pos": "adj",
+      "meaning": "dead",
+      "sentence": "A planta está morta.",
+      "translation": "The plant is ⟦dead⟧.",
+      "form": "morta"
+    },
+    {
+      "n": 346,
+      "rank": 354,
+      "word": "obra",
+      "pos": "noun",
+      "meaning": "work (of art, a writer); construction work (obras)",
+      "sentence": "A rua está em obras.",
+      "translation": "The street is under ⟦construction⟧.",
+      "form": "obras"
+    },
+    {
+      "n": 347,
+      "rank": 355,
+      "word": "maneira",
+      "pos": "noun",
+      "meaning": "way; manner",
+      "sentence": "Não tem outra maneira.",
+      "translation": "There's no other ⟦way⟧."
+    },
+    {
+      "n": 348,
+      "rank": 357,
+      "word": "olho",
+      "pos": "noun",
+      "meaning": "eye",
+      "sentence": "Ela tem olhos verdes.",
+      "translation": "She has green ⟦eyes⟧.",
+      "form": "olhos"
+    },
+    {
+      "n": 349,
+      "rank": 358,
+      "word": "povo",
+      "pos": "noun",
+      "meaning": "people (of a country)",
+      "sentence": "O povo brasileiro é muito alegre.",
+      "translation": "The Brazilian ⟦people⟧ are very cheerful."
+    },
+    {
+      "n": 350,
+      "rank": 359,
+      "word": "medo",
+      "pos": "noun",
+      "meaning": "fear (ter medo de: to be afraid of)",
+      "sentence": "Tenho medo de cachorro.",
+      "translation": "I'm ⟦afraid⟧ of dogs."
+    },
+    {
+      "n": 351,
+      "rank": 360,
+      "word": "oficial",
+      "pos": "adj",
+      "meaning": "official; officer",
+      "sentence": "A língua oficial do Brasil é o português.",
+      "translation": "The ⟦official⟧ language of Brazil is Portuguese."
+    },
+    {
+      "n": 352,
+      "rank": 361,
+      "word": "cerca",
+      "pos": "noun",
+      "meaning": "about, around (cerca de); fence",
+      "sentence": "Ele tem cerca de trinta anos.",
+      "translation": "He's ⟦about⟧ thirty years old."
+    },
+    {
+      "n": 353,
+      "rank": 362,
+      "word": "ajuda",
+      "pos": "noun",
+      "meaning": "help",
+      "sentence": "Ela pediu ajuda à vizinha.",
+      "translation": "She asked her neighbor for ⟦help⟧."
+    },
+    {
+      "n": 354,
+      "rank": 363,
+      "word": "difícil",
+      "pos": "adj",
+      "meaning": "difficult; hard",
+      "sentence": "Essa prova é muito difícil.",
+      "translation": "This test is really ⟦hard⟧."
+    },
+    {
+      "n": 355,
+      "rank": 364,
+      "word": "comer",
+      "pos": "verb",
+      "meaning": "to eat",
+      "sentence": "Vamos comer alguma coisa?",
+      "translation": "Shall we ⟦eat⟧ something?"
+    },
+    {
+      "n": 356,
+      "rank": 365,
+      "word": "carro",
+      "pos": "noun",
+      "meaning": "car",
+      "sentence": "Meu carro está na oficina.",
+      "translation": "My ⟦car⟧ is at the garage."
+    },
+    {
+      "n": 357,
+      "rank": 366,
+      "word": "permitir",
+      "pos": "verb",
+      "meaning": "to allow; to let",
+      "sentence": "Não é permitido fumar aqui.",
+      "translation": "Smoking isn't ⟦allowed⟧ here.",
+      "form": "permitido"
+    },
+    {
+      "n": 358,
+      "rank": 367,
+      "word": "membro",
+      "pos": "noun",
+      "meaning": "member",
+      "sentence": "Ele é membro do clube.",
+      "translation": "He's a ⟦member⟧ of the club."
+    },
+    {
+      "n": 359,
+      "rank": 368,
+      "word": "realmente",
+      "pos": "adv",
+      "meaning": "really; truly",
+      "sentence": "Você realmente gostou?",
+      "translation": "Did you ⟦really⟧ like it?"
+    },
+    {
+      "n": 360,
+      "rank": 369,
+      "word": "utilizar",
+      "pos": "verb",
+      "meaning": "to use (more formal than usar)",
+      "sentence": "Você pode utilizar o meu computador.",
+      "translation": "You can ⟦use⟧ my computer."
+    },
+    {
+      "n": 361,
+      "rank": 370,
+      "word": "plano",
+      "pos": "noun",
+      "meaning": "plan; flat (adjective)",
+      "sentence": "Qual é o plano para hoje?",
+      "translation": "What's the ⟦plan⟧ for today?"
+    },
+    {
+      "n": 362,
+      "rank": 371,
+      "word": "questão",
+      "pos": "noun",
+      "meaning": "question, matter, issue",
+      "sentence": "É uma questão de tempo.",
+      "translation": "It's a ⟦matter⟧ of time."
+    },
+    {
+      "n": 363,
+      "rank": 372,
+      "word": "desenvolvimento",
+      "pos": "noun",
+      "meaning": "development",
+      "sentence": "O desenvolvimento da cidade foi rápido.",
+      "translation": "The city's ⟦development⟧ was fast."
+    },
+    {
+      "n": 364,
+      "rank": 373,
+      "word": "abrir",
+      "pos": "verb",
+      "meaning": "to open",
+      "sentence": "Pode abrir a janela?",
+      "translation": "Can you ⟦open⟧ the window?"
+    },
+    {
+      "n": 365,
+      "rank": 374,
+      "word": "cinco",
+      "pos": "num",
+      "meaning": "five",
+      "sentence": "Acordo às cinco da manhã.",
+      "translation": "I wake up at ⟦five⟧ in the morning."
+    },
+    {
+      "n": 366,
+      "rank": 375,
+      "word": "início",
+      "pos": "noun",
+      "meaning": "beginning; start",
+      "sentence": "No início foi difícil.",
+      "translation": "At the ⟦beginning⟧ it was hard."
+    },
+    {
+      "n": 367,
+      "rank": 376,
+      "word": "minuto",
+      "pos": "noun",
+      "meaning": "minute",
+      "sentence": "Espere cinco minutos.",
+      "translation": "Wait five ⟦minutes⟧.",
+      "form": "minutos"
+    },
+    {
+      "n": 368,
+      "rank": 377,
+      "word": "mandar",
+      "pos": "verb",
+      "meaning": "to send; to tell (someone to do something)",
+      "sentence": "Me manda uma mensagem.",
+      "translation": "⟦Send⟧ me a message.",
+      "form": "manda"
+    },
+    {
+      "n": 369,
+      "rank": 378,
+      "word": "diverso",
+      "pos": "adj",
+      "meaning": "various (diversos: several)",
+      "sentence": "Visitamos diversas cidades.",
+      "translation": "We visited ⟦several⟧ cities.",
+      "form": "diversas"
+    },
+    {
+      "n": 370,
+      "rank": 379,
+      "word": "militar",
+      "pos": "adj",
+      "meaning": "military; soldier",
+      "sentence": "Meu pai era militar.",
+      "translation": "My father was in the ⟦military⟧."
+    },
+    {
+      "n": 371,
+      "rank": 380,
+      "word": "andar",
+      "pos": "verb",
+      "meaning": "to walk; to go around; floor (noun)",
+      "sentence": "Eu gosto de andar na praia.",
+      "translation": "I like to ⟦walk⟧ on the beach."
+    },
+    {
+      "n": 372,
+      "rank": 381,
+      "word": "base",
+      "pos": "noun",
+      "meaning": "base; basis",
+      "sentence": "Essa é a base de tudo.",
+      "translation": "That's the ⟦basis⟧ of everything."
+    },
+    {
+      "n": 373,
+      "rank": 382,
+      "word": "fato",
+      "pos": "noun",
+      "meaning": "fact (de fato: in fact)",
+      "sentence": "Isso é um fato.",
+      "translation": "That's a ⟦fact⟧."
+    },
+    {
+      "n": 374,
+      "rank": 383,
+      "word": "cair",
+      "pos": "verb",
+      "meaning": "to fall",
+      "sentence": "Cuidado para não cair!",
+      "translation": "Careful not to ⟦fall⟧!"
+    },
+    {
+      "n": 375,
+      "rank": 384,
+      "word": "valer",
+      "pos": "verb",
+      "meaning": "to be worth (vale a pena: it's worth it)",
+      "sentence": "Vale a pena visitar o museu.",
+      "translation": "It's ⟦worth⟧ visiting the museum.",
+      "form": "vale"
+    },
+    {
+      "n": 376,
+      "rank": 385,
+      "word": "atenção",
+      "pos": "noun",
+      "meaning": "attention",
+      "sentence": "Preste atenção na aula.",
+      "translation": "Pay ⟦attention⟧ in class."
+    },
+    {
+      "n": 377,
+      "rank": 386,
+      "word": "buscar",
+      "pos": "verb",
+      "meaning": "to pick up, to fetch; to look for",
+      "sentence": "Vou buscar as crianças na escola.",
+      "translation": "I'm going to ⟦pick up⟧ the kids from school."
+    },
+    {
+      "n": 378,
+      "rank": 387,
+      "word": "norte",
+      "pos": "noun",
+      "meaning": "north",
+      "sentence": "O norte do Brasil é muito quente.",
+      "translation": "The ⟦north⟧ of Brazil is very hot."
+    },
+    {
+      "n": 379,
+      "rank": 388,
+      "word": "legal",
+      "pos": "adj",
+      "meaning": "cool, nice (informal); legal",
+      "sentence": "Que legal!",
+      "translation": "How ⟦cool⟧!"
+    },
+    {
+      "n": 380,
+      "rank": 389,
+      "word": "rei",
+      "pos": "noun",
+      "meaning": "king (rainha: queen)",
+      "sentence": "O rei mora no palácio.",
+      "translation": "The ⟦king⟧ lives in the palace."
+    },
+    {
+      "n": 381,
+      "rank": 390,
+      "word": "esquecer",
+      "pos": "verb",
+      "meaning": "to forget",
+      "sentence": "Esqueci minha senha.",
+      "translation": "I ⟦forgot⟧ my password.",
+      "form": "esqueci"
+    },
+    {
+      "n": 382,
+      "rank": 391,
+      "word": "enviar",
+      "pos": "verb",
+      "meaning": "to send",
+      "sentence": "Vou enviar o documento por e-mail.",
+      "translation": "I'll ⟦send⟧ the document by email."
+    },
+    {
+      "n": 383,
+      "rank": 392,
+      "word": "papel",
+      "pos": "noun",
+      "meaning": "paper; role",
+      "sentence": "Você tem papel e caneta?",
+      "translation": "Do you have ⟦paper⟧ and a pen?"
+    },
+    {
+      "n": 384,
+      "rank": 393,
+      "word": "presente",
+      "pos": "noun",
+      "meaning": "present, gift; present (here, now)",
+      "sentence": "Ainda preciso comprar um presente de aniversário.",
+      "translation": "I still need to buy a birthday ⟦present⟧."
+    },
+    {
+      "n": 385,
+      "rank": 394,
+      "word": "apesar",
+      "pos": "prep",
+      "meaning": "despite (apesar de)",
+      "sentence": "Apesar da chuva, fomos à praia.",
+      "translation": "⟦Despite⟧ the rain, we went to the beach."
+    },
+    {
+      "n": 386,
+      "rank": 395,
+      "word": "pergunta",
+      "pos": "noun",
+      "meaning": "question",
+      "sentence": "Que pergunta difícil!",
+      "translation": "What a hard ⟦question⟧!"
+    },
+    {
+      "n": 387,
+      "rank": 396,
+      "word": "federal",
+      "pos": "adj",
+      "meaning": "federal",
+      "sentence": "Ele estuda na universidade federal.",
+      "translation": "He studies at the ⟦federal⟧ university."
+    },
+    {
+      "n": 388,
+      "rank": 397,
+      "word": "conversar",
+      "pos": "verb",
+      "meaning": "to talk; to chat",
+      "sentence": "Precisamos conversar.",
+      "translation": "We need to ⟦talk⟧."
+    },
+    {
+      "n": 389,
+      "rank": 398,
+      "word": "manhã",
+      "pos": "noun",
+      "meaning": "morning",
+      "sentence": "Eu corro todas as manhãs.",
+      "translation": "I run every ⟦morning⟧.",
+      "form": "manhãs"
+    },
+    {
+      "n": 390,
+      "rank": 399,
+      "word": "participar",
+      "pos": "verb",
+      "meaning": "to take part",
+      "sentence": "Você vai participar da reunião?",
+      "translation": "Are you going to ⟦take part in⟧ the meeting?"
+    },
+    {
+      "n": 391,
+      "rank": 400,
+      "word": "internet",
+      "pos": "noun",
+      "meaning": "internet",
+      "sentence": "A internet está muito lenta.",
+      "translation": "The ⟦internet⟧ is really slow."
+    },
+    {
+      "n": 392,
+      "rank": 402,
+      "word": "possuir",
+      "pos": "verb",
+      "meaning": "to own; to have",
+      "sentence": "Ele possui três casas.",
+      "translation": "He ⟦owns⟧ three houses.",
+      "form": "possui"
+    },
+    {
+      "n": 393,
+      "rank": 403,
+      "word": "valor",
+      "pos": "noun",
+      "meaning": "value; price, amount",
+      "sentence": "Qual é o valor da entrada?",
+      "translation": "What's the ⟦price⟧ of a ticket?"
+    },
+    {
+      "n": 394,
+      "rank": 404,
+      "word": "espaço",
+      "pos": "noun",
+      "meaning": "space; room",
+      "sentence": "Não tem espaço no carro.",
+      "translation": "There's no ⟦room⟧ in the car."
+    },
+    {
+      "n": 395,
+      "rank": 405,
+      "word": "língua",
+      "pos": "noun",
+      "meaning": "language; tongue",
+      "sentence": "Quantas línguas você fala?",
+      "translation": "How many ⟦languages⟧ do you speak?",
+      "form": "línguas"
+    },
+    {
+      "n": 396,
+      "rank": 406,
+      "word": "situação",
+      "pos": "noun",
+      "meaning": "situation",
+      "sentence": "A situação está difícil.",
+      "translation": "The ⟦situation⟧ is difficult."
+    },
+    {
+      "n": 397,
+      "rank": 407,
+      "word": "decidir",
+      "pos": "verb",
+      "meaning": "to decide",
+      "sentence": "Ainda não decidi.",
+      "translation": "I haven't ⟦decided⟧ yet.",
+      "form": "decidi"
+    },
+    {
+      "n": 398,
+      "rank": 408,
+      "word": "dado",
+      "pos": "noun",
+      "meaning": "piece of data (dados: data); dice",
+      "sentence": "Seus dados estão seguros.",
+      "translation": "Your ⟦data⟧ is safe.",
+      "form": "dados"
+    },
+    {
+      "n": 399,
+      "rank": 409,
+      "word": "demais",
+      "pos": "adv",
+      "meaning": "too much; too; really (informal)",
+      "sentence": "Você trabalha demais.",
+      "translation": "You work ⟦too much⟧."
+    },
+    {
+      "n": 400,
+      "rank": 410,
+      "word": "estudar",
+      "pos": "verb",
+      "meaning": "to study",
+      "sentence": "Ela estuda medicina.",
+      "translation": "She ⟦studies⟧ medicine.",
+      "form": "estuda"
     }
   ]
 }
