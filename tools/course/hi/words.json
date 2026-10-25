@@ -929,6 +929,925 @@
       "sentence": "मैं मानती हूँ कि मैं ग़लत थी।",
       "translation": "I ⟦admit⟧ I was wrong.",
       "form": "मानती"
+    },
+    {
+      "n": 101,
+      "rank": 110,
+      "word": "नया",
+      "pos": "adj",
+      "meaning": "[nayā] new",
+      "sentence": "यह मेरा नया फ़ोन है।",
+      "translation": "This is my ⟦new⟧ phone."
+    },
+    {
+      "n": 102,
+      "rank": 111,
+      "word": "माँ",
+      "pos": "noun",
+      "meaning": "[mā̃] mother; mum",
+      "sentence": "मेरी माँ टीचर हैं।",
+      "translation": "My ⟦mother⟧ is a teacher."
+    },
+    {
+      "n": 103,
+      "rank": 112,
+      "word": "खाना",
+      "pos": "verb",
+      "meaning": "[khānā] to eat; food (as a noun)",
+      "sentence": "चलो, खाना खाते हैं।",
+      "translation": "Come on, let's ⟦eat⟧.",
+      "form": "खाते"
+    },
+    {
+      "n": 104,
+      "rank": 113,
+      "word": "समझना",
+      "pos": "verb",
+      "meaning": "[samajhnā] to understand",
+      "sentence": "मैं हिंदी थोड़ी-थोड़ी समझती हूँ।",
+      "translation": "I ⟦understand⟧ a little Hindi.",
+      "form": "समझती"
+    },
+    {
+      "n": 105,
+      "rank": 115,
+      "word": "बारे",
+      "pos": "postp",
+      "meaning": "[bāre] about (के बारे में)",
+      "sentence": "मुझे अपने बारे में बताइए।",
+      "translation": "Tell me ⟦about⟧ yourself."
+    },
+    {
+      "n": 106,
+      "rank": 117,
+      "word": "बस",
+      "pos": "adv",
+      "meaning": "[bas] just; only; that's enough (also: bus)",
+      "sentence": "मुझे बस एक कप चाय चाहिए।",
+      "translation": "I ⟦just⟧ want a cup of tea."
+    },
+    {
+      "n": 107,
+      "rank": 118,
+      "word": "दिल",
+      "pos": "noun",
+      "meaning": "[dil] heart",
+      "sentence": "उसका दिल बहुत अच्छा है।",
+      "translation": "He has a really good ⟦heart⟧."
+    },
+    {
+      "n": 108,
+      "rank": 119,
+      "word": "जीवन",
+      "pos": "noun",
+      "meaning": "[jīvan] life (more formal than ज़िंदगी)",
+      "sentence": "जीवन में परिवार सबसे ज़रूरी है।",
+      "translation": "Family is the most important thing in ⟦life⟧."
+    },
+    {
+      "n": 109,
+      "rank": 120,
+      "word": "कारण",
+      "pos": "noun",
+      "meaning": "[kāraṇ] reason; cause (के कारण: because of)",
+      "sentence": "बारिश के कारण मैच रद्द हो गया।",
+      "translation": "The match was cancelled ⟦because of⟧ the rain."
+    },
+    {
+      "n": 110,
+      "rank": 121,
+      "word": "भाई",
+      "pos": "noun",
+      "meaning": "[bhāī] brother",
+      "sentence": "मेरा छोटा भाई स्कूल में है।",
+      "translation": "My little ⟦brother⟧ is at school."
+    },
+    {
+      "n": 111,
+      "rank": 122,
+      "word": "महिला",
+      "pos": "noun",
+      "meaning": "[mahilā] woman; lady",
+      "sentence": "वह महिला कौन है?",
+      "translation": "Who is that ⟦woman⟧?"
+    },
+    {
+      "n": 112,
+      "rank": 123,
+      "word": "सिर्फ़",
+      "pos": "adv",
+      "meaning": "[sirf] only; just",
+      "sentence": "मेरे पास सिर्फ़ सौ रुपये हैं।",
+      "translation": "I ⟦only⟧ have a hundred rupees."
+    },
+    {
+      "n": 113,
+      "rank": 124,
+      "word": "सा",
+      "pos": "part",
+      "meaning": "[sā] -ish; a bit (थोड़ा सा: a little)",
+      "sentence": "मुझे थोड़ा सा डर लग रहा है।",
+      "translation": "I'm a ⟦little⟧ scared."
+    },
+    {
+      "n": 114,
+      "rank": 125,
+      "word": "अभी",
+      "pos": "adv",
+      "meaning": "[abhī] right now; just now; still (अभी तक: yet)",
+      "sentence": "मैं अभी आती हूँ।",
+      "translation": "I'll be ⟦right⟧ there."
+    },
+    {
+      "n": 115,
+      "rank": 127,
+      "word": "सारा",
+      "pos": "adj",
+      "meaning": "[sārā] all; whole",
+      "sentence": "सारे बच्चे सो गए।",
+      "translation": "⟦All⟧ the children have gone to sleep.",
+      "form": "सारे"
+    },
+    {
+      "n": 116,
+      "rank": 129,
+      "word": "चुनाव",
+      "pos": "noun",
+      "meaning": "[chunāv] election; choice",
+      "sentence": "अगले साल चुनाव होंगे।",
+      "translation": "There will be ⟦elections⟧ next year."
+    },
+    {
+      "n": 117,
+      "rank": 130,
+      "word": "हिंदू",
+      "pos": "noun",
+      "meaning": "[hindū] Hindu",
+      "sentence": "दिवाली हिंदुओं का बड़ा त्योहार है।",
+      "translation": "Diwali is a big ⟦Hindu⟧ festival.",
+      "form": "हिंदुओं"
+    },
+    {
+      "n": 118,
+      "rank": 131,
+      "word": "लगाना",
+      "pos": "verb",
+      "meaning": "[lagānā] to put (on); to apply; to fix",
+      "sentence": "दीवार पर तस्वीर लगा दो।",
+      "translation": "⟦Hang⟧ the picture on the wall.",
+      "form": "लगा"
+    },
+    {
+      "n": 119,
+      "rank": 132,
+      "word": "पता",
+      "pos": "noun",
+      "meaning": "[patā] address; knowing (मुझे पता है: I know)",
+      "sentence": "आपका पता क्या है?",
+      "translation": "What's your ⟦address⟧?"
+    },
+    {
+      "n": 120,
+      "rank": 133,
+      "word": "कैसे",
+      "pos": "adv",
+      "meaning": "[kaise] how",
+      "sentence": "स्टेशन कैसे जाते हैं?",
+      "translation": "⟦How⟧ do you get to the station?"
+    },
+    {
+      "n": 121,
+      "rank": 134,
+      "word": "दुनिया",
+      "pos": "noun",
+      "meaning": "[duniyā] world",
+      "sentence": "दुनिया बहुत बड़ी है।",
+      "translation": "The ⟦world⟧ is very big."
+    },
+    {
+      "n": 122,
+      "rank": 135,
+      "word": "राज्य",
+      "pos": "noun",
+      "meaning": "[rājya] state (of a country)",
+      "sentence": "केरल एक सुंदर राज्य है।",
+      "translation": "Kerala is a beautiful ⟦state⟧."
+    },
+    {
+      "n": 123,
+      "rank": 136,
+      "word": "बीच",
+      "pos": "noun",
+      "meaning": "[bīch] middle; between (के बीच)",
+      "sentence": "बैंक और स्कूल के बीच एक पार्क है।",
+      "translation": "There's a park ⟦between⟧ the bank and the school."
+    },
+    {
+      "n": 124,
+      "rank": 138,
+      "word": "ख़ुद",
+      "pos": "pron",
+      "meaning": "[khud] oneself; myself, yourself…",
+      "sentence": "मैंने यह ख़ुद बनाया।",
+      "translation": "I made this ⟦myself⟧."
+    },
+    {
+      "n": 125,
+      "rank": 139,
+      "word": "शुरू",
+      "pos": "noun",
+      "meaning": "[shurū] start; beginning (शुरू करना: to start)",
+      "sentence": "फ़िल्म कब शुरू होगी?",
+      "translation": "When will the film ⟦start⟧?"
+    },
+    {
+      "n": 126,
+      "rank": 140,
+      "word": "दोनों",
+      "pos": "det",
+      "meaning": "[donõ] both",
+      "sentence": "दोनों बच्चे सो रहे हैं।",
+      "translation": "⟦Both⟧ children are asleep."
+    },
+    {
+      "n": 127,
+      "rank": 141,
+      "word": "विकास",
+      "pos": "noun",
+      "meaning": "[vikās] development; growth",
+      "sentence": "गाँव का विकास ज़रूरी है।",
+      "translation": "The village's ⟦development⟧ is important."
+    },
+    {
+      "n": 128,
+      "rank": 142,
+      "word": "मारना",
+      "pos": "verb",
+      "meaning": "[mārnā] to hit; to kill",
+      "sentence": "बच्चों को मत मारो।",
+      "translation": "Don't ⟦hit⟧ the children.",
+      "form": "मारो"
+    },
+    {
+      "n": 129,
+      "rank": 143,
+      "word": "तथा",
+      "pos": "conj",
+      "meaning": "[tathā] and (formal, written)",
+      "sentence": "कृपया अपना नाम तथा पता लिखें।",
+      "translation": "Please write your name ⟦and⟧ address."
+    },
+    {
+      "n": 130,
+      "rank": 144,
+      "word": "तब",
+      "pos": "adv",
+      "meaning": "[tab] then; at that time",
+      "sentence": "तब मैं बहुत छोटी थी।",
+      "translation": "I was very young ⟦then⟧."
+    },
+    {
+      "n": 131,
+      "rank": 145,
+      "word": "धर्म",
+      "pos": "noun",
+      "meaning": "[dharm] religion; duty",
+      "sentence": "भारत में कई धर्म हैं।",
+      "translation": "There are many ⟦religions⟧ in India."
+    },
+    {
+      "n": 132,
+      "rank": 146,
+      "word": "हिंदी",
+      "pos": "noun",
+      "meaning": "[hindī] Hindi",
+      "sentence": "मैं हिंदी सीख रही हूँ।",
+      "translation": "I'm learning ⟦Hindi⟧."
+    },
+    {
+      "n": 133,
+      "rank": 147,
+      "word": "बढ़ना",
+      "pos": "verb",
+      "meaning": "[baṛhnā] to grow; to increase; to go up",
+      "sentence": "पेट्रोल के दाम बढ़ गए हैं।",
+      "translation": "Petrol prices have ⟦gone up⟧.",
+      "form": "बढ़"
+    },
+    {
+      "n": 134,
+      "rank": 148,
+      "word": "पार्टी",
+      "pos": "noun",
+      "meaning": "[pārṭī] party",
+      "sentence": "कल मेरे घर पर पार्टी है।",
+      "translation": "There's a ⟦party⟧ at my place tomorrow."
+    },
+    {
+      "n": 135,
+      "rank": 149,
+      "word": "जहाँ",
+      "pos": "adv",
+      "meaning": "[jahā̃] where (relative)",
+      "sentence": "आप जहाँ चाहें, बैठ जाइए।",
+      "translation": "Sit ⟦wherever⟧ you like."
+    },
+    {
+      "n": 136,
+      "rank": 150,
+      "word": "आगे",
+      "pos": "adv",
+      "meaning": "[āge] ahead; forward; in front",
+      "sentence": "सीधे आगे जाइए।",
+      "translation": "Go straight ⟦ahead⟧."
+    },
+    {
+      "n": 137,
+      "rank": 151,
+      "word": "ओर",
+      "pos": "noun",
+      "meaning": "[or] side; direction (की ओर: towards)",
+      "sentence": "वह दरवाज़े की ओर चला गया।",
+      "translation": "He went ⟦towards⟧ the door."
+    },
+    {
+      "n": 138,
+      "rank": 152,
+      "word": "श्री",
+      "pos": "noun",
+      "meaning": "[shrī] Mr; Shri (respectful title)",
+      "sentence": "श्री शर्मा आज नहीं आएँगे।",
+      "translation": "⟦Mr⟧ Sharma won't come today."
+    },
+    {
+      "n": 139,
+      "rank": 154,
+      "word": "हाथ",
+      "pos": "noun",
+      "meaning": "[hāth] hand",
+      "sentence": "मेरे हाथ ठंडे हैं।",
+      "translation": "My ⟦hands⟧ are cold."
+    },
+    {
+      "n": 140,
+      "rank": 155,
+      "word": "मंदिर",
+      "pos": "noun",
+      "meaning": "[mandir] temple",
+      "sentence": "हम हर रविवार मंदिर जाते हैं।",
+      "translation": "We go to the ⟦temple⟧ every Sunday."
+    },
+    {
+      "n": 141,
+      "rank": 156,
+      "word": "छोटा",
+      "pos": "adj",
+      "meaning": "[chhoṭā] small; little; younger",
+      "sentence": "यह कमरा बहुत छोटा है।",
+      "translation": "This room is very ⟦small⟧."
+    },
+    {
+      "n": 142,
+      "rank": 157,
+      "word": "भाषा",
+      "pos": "noun",
+      "meaning": "[bhāshā] language",
+      "sentence": "आप कितनी भाषाएँ बोलते हैं?",
+      "translation": "How many ⟦languages⟧ do you speak?",
+      "form": "भाषाएँ"
+    },
+    {
+      "n": 143,
+      "rank": 159,
+      "word": "पुलिस",
+      "pos": "noun",
+      "meaning": "[pulis] police",
+      "sentence": "पुलिस को फ़ोन करो!",
+      "translation": "Call the ⟦police⟧!"
+    },
+    {
+      "n": 144,
+      "rank": 160,
+      "word": "सही",
+      "pos": "adj",
+      "meaning": "[sahī] right; correct",
+      "sentence": "आप बिल्कुल सही हैं।",
+      "translation": "You're absolutely ⟦right⟧."
+    },
+    {
+      "n": 145,
+      "rank": 161,
+      "word": "सोचना",
+      "pos": "verb",
+      "meaning": "[sochnā] to think",
+      "sentence": "मैं इसके बारे में सोचूँगी।",
+      "translation": "I'll ⟦think⟧ about it.",
+      "form": "सोचूँगी"
+    },
+    {
+      "n": 146,
+      "rank": 162,
+      "word": "कितना",
+      "pos": "adj",
+      "meaning": "[kitnā] how much; how many",
+      "sentence": "यह कितने का है?",
+      "translation": "⟦How much⟧ is this?",
+      "form": "कितने"
+    },
+    {
+      "n": 147,
+      "rank": 163,
+      "word": "सुनना",
+      "pos": "verb",
+      "meaning": "[sunnā] to hear; to listen",
+      "sentence": "मेरी बात सुनो।",
+      "translation": "⟦Listen⟧ to me.",
+      "form": "सुनो"
+    },
+    {
+      "n": 148,
+      "rank": 164,
+      "word": "क्षेत्र",
+      "pos": "noun",
+      "meaning": "[kshetra] area; region; field",
+      "sentence": "यह क्षेत्र बहुत शांत है।",
+      "translation": "This ⟦area⟧ is very quiet."
+    },
+    {
+      "n": 149,
+      "rank": 165,
+      "word": "कौन",
+      "pos": "pron",
+      "meaning": "[kaun] who",
+      "sentence": "वह कौन है?",
+      "translation": "⟦Who⟧ is that?"
+    },
+    {
+      "n": 150,
+      "rank": 166,
+      "word": "उत्तर",
+      "pos": "noun",
+      "meaning": "[uttar] answer; north",
+      "sentence": "इस सवाल का उत्तर क्या है?",
+      "translation": "What's the ⟦answer⟧ to this question?"
+    },
+    {
+      "n": 151,
+      "rank": 167,
+      "word": "क्योंकि",
+      "pos": "conj",
+      "meaning": "[kyõki] because",
+      "sentence": "मैं नहीं आई क्योंकि मैं बीमार थी।",
+      "translation": "I didn't come ⟦because⟧ I was ill."
+    },
+    {
+      "n": 152,
+      "rank": 168,
+      "word": "अलग",
+      "pos": "adj",
+      "meaning": "[alag] different; separate",
+      "sentence": "यह बिल्कुल अलग बात है।",
+      "translation": "That's a completely ⟦different⟧ matter."
+    },
+    {
+      "n": 153,
+      "rank": 169,
+      "word": "केवल",
+      "pos": "adv",
+      "meaning": "[keval] only (a bit formal)",
+      "sentence": "यह सेवा केवल सदस्यों के लिए है।",
+      "translation": "This service is ⟦only⟧ for members."
+    },
+    {
+      "n": 154,
+      "rank": 170,
+      "word": "पानी",
+      "pos": "noun",
+      "meaning": "[pānī] water",
+      "sentence": "एक गिलास पानी मिलेगा?",
+      "translation": "Could I have a glass of ⟦water⟧?"
+    },
+    {
+      "n": 155,
+      "rank": 172,
+      "word": "बदलना",
+      "pos": "verb",
+      "meaning": "[badalnā] to change",
+      "sentence": "मौसम बदल रहा है।",
+      "translation": "The weather is ⟦changing⟧.",
+      "form": "बदल"
+    },
+    {
+      "n": 156,
+      "rank": 173,
+      "word": "छोड़ना",
+      "pos": "verb",
+      "meaning": "[chhoṛnā] to leave; to let go; to drop off",
+      "sentence": "मुझे स्टेशन पर छोड़ दो।",
+      "translation": "⟦Drop⟧ me off at the station.",
+      "form": "छोड़"
+    },
+    {
+      "n": 157,
+      "rank": 174,
+      "word": "ज़िला",
+      "pos": "noun",
+      "meaning": "[zilā] district",
+      "sentence": "हमारा गाँव इसी ज़िले में है।",
+      "translation": "Our village is in this ⟦district⟧.",
+      "form": "ज़िले"
+    },
+    {
+      "n": 158,
+      "rank": 175,
+      "word": "वर्ष",
+      "pos": "noun",
+      "meaning": "[varsh] year (formal)",
+      "sentence": "वह पिछले वर्ष रिटायर हुए।",
+      "translation": "He retired last ⟦year⟧."
+    },
+    {
+      "n": 159,
+      "rank": 176,
+      "word": "मन",
+      "pos": "noun",
+      "meaning": "[man] mind; heart; mood (मन करना: to feel like)",
+      "sentence": "आज मेरा बाहर जाने का मन है।",
+      "translation": "I ⟦feel like⟧ going out today."
+    },
+    {
+      "n": 160,
+      "rank": 178,
+      "word": "अन्य",
+      "pos": "adj",
+      "meaning": "[anya] other; further (formal)",
+      "sentence": "अन्य जानकारी के लिए फ़ोन करें।",
+      "translation": "For ⟦further⟧ information, please call."
+    },
+    {
+      "n": 161,
+      "rank": 179,
+      "word": "बिना",
+      "pos": "postp",
+      "meaning": "[binā] without",
+      "sentence": "मुझे बिना चीनी की चाय चाहिए।",
+      "translation": "I'd like tea ⟦without⟧ sugar."
+    },
+    {
+      "n": 162,
+      "rank": 180,
+      "word": "पहला",
+      "pos": "adj",
+      "meaning": "[pahlā] first",
+      "sentence": "आज मेरा पहला दिन है।",
+      "translation": "Today is my ⟦first⟧ day."
+    },
+    {
+      "n": 163,
+      "rank": 181,
+      "word": "सामने",
+      "pos": "adv",
+      "meaning": "[sāmne] in front (of); opposite (के सामने)",
+      "sentence": "बैंक स्कूल के सामने है।",
+      "translation": "The bank is ⟦opposite⟧ the school."
+    },
+    {
+      "n": 164,
+      "rank": 182,
+      "word": "रात",
+      "pos": "noun",
+      "meaning": "[rāt] night",
+      "sentence": "कल रात बहुत ठंड थी।",
+      "translation": "It was very cold last ⟦night⟧."
+    },
+    {
+      "n": 165,
+      "rank": 183,
+      "word": "याद",
+      "pos": "noun",
+      "meaning": "[yād] memory (याद आना: to miss; याद रखना: to remember)",
+      "sentence": "मुझे तुम्हारी याद आती है।",
+      "translation": "I ⟦miss⟧ you."
+    },
+    {
+      "n": 166,
+      "rank": 184,
+      "word": "निकलना",
+      "pos": "verb",
+      "meaning": "[nikalnā] to come out; to leave; to set off",
+      "sentence": "हम सुबह छह बजे निकलेंगे।",
+      "translation": "We'll ⟦leave⟧ at six in the morning.",
+      "form": "निकलेंगे"
+    },
+    {
+      "n": 167,
+      "rank": 185,
+      "word": "इसलिए",
+      "pos": "adv",
+      "meaning": "[islie] so; that's why",
+      "sentence": "बारिश हो रही थी, इसलिए मैं नहीं आई।",
+      "translation": "It was raining, ⟦so⟧ I didn't come."
+    },
+    {
+      "n": 168,
+      "rank": 186,
+      "word": "परिवार",
+      "pos": "noun",
+      "meaning": "[parivār] family",
+      "sentence": "मेरा परिवार बड़ा है।",
+      "translation": "My ⟦family⟧ is big."
+    },
+    {
+      "n": 169,
+      "rank": 188,
+      "word": "तीन",
+      "pos": "num",
+      "meaning": "[tīn] three",
+      "sentence": "मेरे तीन बच्चे हैं।",
+      "translation": "I have ⟦three⟧ children."
+    },
+    {
+      "n": 170,
+      "rank": 189,
+      "word": "शब्द",
+      "pos": "noun",
+      "meaning": "[shabd] word",
+      "sentence": "इस शब्द का मतलब क्या है?",
+      "translation": "What does this ⟦word⟧ mean?"
+    },
+    {
+      "n": 171,
+      "rank": 190,
+      "word": "प्यार",
+      "pos": "noun",
+      "meaning": "[pyār] love (प्यार करना: to love)",
+      "sentence": "मैं तुमसे प्यार करती हूँ।",
+      "translation": "I ⟦love⟧ you."
+    },
+    {
+      "n": 172,
+      "rank": 191,
+      "word": "खेलना",
+      "pos": "verb",
+      "meaning": "[khelnā] to play",
+      "sentence": "क्या तुम क्रिकेट खेलते हो?",
+      "translation": "Do you ⟦play⟧ cricket?",
+      "form": "खेलते"
+    },
+    {
+      "n": 173,
+      "rank": 192,
+      "word": "कार्य",
+      "pos": "noun",
+      "meaning": "[kārya] work; task (formal)",
+      "sentence": "यह कार्य कल तक पूरा करना है।",
+      "translation": "This ⟦task⟧ has to be finished by tomorrow."
+    },
+    {
+      "n": 174,
+      "rank": 193,
+      "word": "पढ़ना",
+      "pos": "verb",
+      "meaning": "[paṛhnā] to read; to study",
+      "sentence": "मुझे किताबें पढ़ना पसंद है।",
+      "translation": "I like ⟦reading⟧ books."
+    },
+    {
+      "n": 175,
+      "rank": 194,
+      "word": "बंद",
+      "pos": "adj",
+      "meaning": "[band] closed; off (बंद करना: to close, to switch off)",
+      "sentence": "दुकान आज बंद है।",
+      "translation": "The shop is ⟦closed⟧ today."
+    },
+    {
+      "n": 176,
+      "rank": 195,
+      "word": "व्यक्ति",
+      "pos": "noun",
+      "meaning": "[vyakti] person (formal)",
+      "sentence": "वह एक ईमानदार व्यक्ति है।",
+      "translation": "He is an honest ⟦person⟧."
+    },
+    {
+      "n": 177,
+      "rank": 196,
+      "word": "जगह",
+      "pos": "noun",
+      "meaning": "[jagah] place; room, space",
+      "sentence": "यह बहुत सुंदर जगह है।",
+      "translation": "This is a very beautiful ⟦place⟧."
+    },
+    {
+      "n": 178,
+      "rank": 197,
+      "word": "शामिल",
+      "pos": "adj",
+      "meaning": "[shāmil] included; taking part (शामिल होना: to join)",
+      "sentence": "क्या इसमें टैक्स शामिल है?",
+      "translation": "Is tax ⟦included⟧ in this?"
+    },
+    {
+      "n": 179,
+      "rank": 198,
+      "word": "जानकारी",
+      "pos": "noun",
+      "meaning": "[jānkārī] information",
+      "sentence": "मुझे इसकी पूरी जानकारी चाहिए।",
+      "translation": "I need full ⟦information⟧ about this."
+    },
+    {
+      "n": 180,
+      "rank": 200,
+      "word": "गाँव",
+      "pos": "noun",
+      "meaning": "[gā̃v] village",
+      "sentence": "मेरे दादा-दादी गाँव में रहते हैं।",
+      "translation": "My grandparents live in a ⟦village⟧."
+    },
+    {
+      "n": 181,
+      "rank": 201,
+      "word": "भगवान",
+      "pos": "noun",
+      "meaning": "[bhagvān] God; a god",
+      "sentence": "भगवान आपका भला करे।",
+      "translation": "May ⟦God⟧ bless you."
+    },
+    {
+      "n": 182,
+      "rank": 202,
+      "word": "ख़िलाफ़",
+      "pos": "postp",
+      "meaning": "[khilāf] against (के ख़िलाफ़)",
+      "sentence": "आज भारत का मैच पाकिस्तान के ख़िलाफ़ है।",
+      "translation": "Today India plays ⟦against⟧ Pakistan."
+    },
+    {
+      "n": 183,
+      "rank": 203,
+      "word": "बैठना",
+      "pos": "verb",
+      "meaning": "[baiṭhnā] to sit",
+      "sentence": "आइए, बैठिए।",
+      "translation": "Come in, please ⟦sit down⟧.",
+      "form": "बैठिए"
+    },
+    {
+      "n": 184,
+      "rank": 204,
+      "word": "प्राप्त",
+      "pos": "adj",
+      "meaning": "[prāpt] received; obtained (formal) (प्राप्त करना: to get)",
+      "sentence": "आपका पत्र प्राप्त हुआ।",
+      "translation": "Your letter has been ⟦received⟧."
+    },
+    {
+      "n": 185,
+      "rank": 205,
+      "word": "वहाँ",
+      "pos": "adv",
+      "meaning": "[vahā̃] there",
+      "sentence": "वहाँ बहुत भीड़ है।",
+      "translation": "It's very crowded ⟦there⟧."
+    },
+    {
+      "n": 186,
+      "rank": 206,
+      "word": "पैसा",
+      "pos": "noun",
+      "meaning": "[paisā] money (usually पैसे)",
+      "sentence": "पैसे बचाना ज़रूरी है।",
+      "translation": "Saving ⟦money⟧ is important.",
+      "form": "पैसे"
+    },
+    {
+      "n": 187,
+      "rank": 207,
+      "word": "बाहर",
+      "pos": "adv",
+      "meaning": "[bāhar] outside; out",
+      "sentence": "वह अभी बाहर गया है।",
+      "translation": "He's just gone ⟦out⟧."
+    },
+    {
+      "n": 188,
+      "rank": 208,
+      "word": "शहर",
+      "pos": "noun",
+      "meaning": "[shahar] city; town",
+      "sentence": "यह शहर बहुत पुराना है।",
+      "translation": "This ⟦city⟧ is very old."
+    },
+    {
+      "n": 189,
+      "rank": 210,
+      "word": "अनुसार",
+      "pos": "postp",
+      "meaning": "[anusār] according to (के अनुसार)",
+      "sentence": "मौसम विभाग के अनुसार कल बारिश होगी।",
+      "translation": "⟦According to⟧ the weather office, it will rain tomorrow."
+    },
+    {
+      "n": 190,
+      "rank": 211,
+      "word": "दूर",
+      "pos": "adj",
+      "meaning": "[dūr] far; away",
+      "sentence": "स्टेशन यहाँ से कितना दूर है?",
+      "translation": "How ⟦far⟧ is the station from here?"
+    },
+    {
+      "n": 191,
+      "rank": 212,
+      "word": "दौरान",
+      "pos": "postp",
+      "meaning": "[daurān] during (के दौरान)",
+      "sentence": "छुट्टियों के दौरान हम गोवा गए।",
+      "translation": "We went to Goa ⟦during⟧ the holidays."
+    },
+    {
+      "n": 192,
+      "rank": 213,
+      "word": "पूर्व",
+      "pos": "noun",
+      "meaning": "[pūrv] east; former (formal)",
+      "sentence": "सूरज पूर्व में उगता है।",
+      "translation": "The sun rises in the ⟦east⟧."
+    },
+    {
+      "n": 193,
+      "rank": 214,
+      "word": "डालना",
+      "pos": "verb",
+      "meaning": "[ḍālnā] to put (in); to pour",
+      "sentence": "दाल में थोड़ा नमक डालो।",
+      "translation": "⟦Put⟧ a little salt in the dal.",
+      "form": "डालो"
+    },
+    {
+      "n": 194,
+      "rank": 215,
+      "word": "कल",
+      "pos": "adv",
+      "meaning": "[kal] tomorrow; yesterday",
+      "sentence": "कल मिलते हैं।",
+      "translation": "See you ⟦tomorrow⟧."
+    },
+    {
+      "n": 195,
+      "rank": 216,
+      "word": "लाना",
+      "pos": "verb",
+      "meaning": "[lānā] to bring",
+      "sentence": "कल अपनी किताब लाना।",
+      "translation": "⟦Bring⟧ your book tomorrow."
+    },
+    {
+      "n": 196,
+      "rank": 217,
+      "word": "सेवा",
+      "pos": "noun",
+      "meaning": "[sevā] service",
+      "sentence": "यहाँ इंटरनेट सेवा बहुत अच्छी है।",
+      "translation": "The internet ⟦service⟧ here is very good."
+    },
+    {
+      "n": 197,
+      "rank": 218,
+      "word": "लाख",
+      "pos": "num",
+      "meaning": "[lākh] lakh (a hundred thousand)",
+      "sentence": "इस कार की क़ीमत पाँच लाख रुपये है।",
+      "translation": "This car costs five ⟦lakh⟧ rupees."
+    },
+    {
+      "n": 198,
+      "rank": 219,
+      "word": "लड़की",
+      "pos": "noun",
+      "meaning": "[laṛkī] girl",
+      "sentence": "वह लड़की मेरी बहन है।",
+      "translation": "That ⟦girl⟧ is my sister."
+    },
+    {
+      "n": 199,
+      "rank": 221,
+      "word": "नेता",
+      "pos": "noun",
+      "meaning": "[netā] leader; politician",
+      "sentence": "नेता ने भाषण दिया।",
+      "translation": "The ⟦politician⟧ gave a speech."
+    },
+    {
+      "n": 200,
+      "rank": 222,
+      "word": "समाज",
+      "pos": "noun",
+      "meaning": "[samāj] society; community",
+      "sentence": "शिक्षा समाज को बदल सकती है।",
+      "translation": "Education can change ⟦society⟧."
     }
   ]
 }
