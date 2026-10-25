@@ -557,6 +557,324 @@
         {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My friend is from ___ United States.","tr":"صديقي من الولايات المتحدة.","options":["the","a"],"answer":0,"why":"في اسمها «ولايات»: {{the United States}}.","from":"say-who-you-are"},
         {"type":"free","q":"دورك: اذكر شيئًا في مدينتك أول مرة بـ{{a}}، ثم صِفه بـ{{the}}.","answers":[{"t":"There's a market in my town. The market is open every day.","tr":"في بلدتي سوق. السوق مفتوح كل يوم."},{"t":"There's a park near my house. The park is small, but it's beautiful.","tr":"قرب بيتي حديقة. الحديقة صغيرة، لكنها جميلة."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "صِف يومك",
+      "summary": "قل «أستيقظ في السابعة وأذهب إلى العمل بالحافلة»: المضارع البسيط لما تفعله كل يوم، بلا {{am}} قبل الفعل.",
+      "topic": "المضارع البسيط مع {{I, you, we, they}}؛ {{at, in, on}} للوقت؛ {{go home}} و{{go to work}}",
+      "blocks": [
+        {"goal":{"t":"I get up at seven, and I go to work by bus.","tr":"أستيقظ في السابعة، وأذهب إلى العمل بالحافلة."}},
+        {"dialog":[{"who":"إميلي","t":"So, what's your day like, Omar?","tr":"إذن، كيف يومك يا عمر؟"},{"who":"عمر","t":"Well, I get up at six, and I pray. Then I have breakfast with my family.","tr":"أستيقظ في السادسة وأصلّي، ثم أتناول الفطور مع عائلتي."},{"who":"إميلي","t":"Wow, that's early!","tr":"هذا مبكّر!"},{"who":"عمر","t":"I know. I start work at eight, and I finish at four.","tr":"أعرف. أبدأ العمل في الثامنة، وأنتهي في الرابعة."},{"who":"إميلي","t":"And in the evening?","tr":"وفي المساء؟"},{"who":"عمر","t":"I go home, and we eat dinner together. On Fridays, we visit my parents.","tr":"أعود إلى البيت ونتعشّى معًا. وفي أيام الجمعة نزور والديّ."}]},
+        {"p":"**ما تفعله كل يوم.** تقول العربية «أستيقظ، أذهب، أعمل» بالمضارع. والإنجليزية كذلك: الفعل في صورته الأصلية بلا زيادة: {{I get up}} «أستيقظ»، {{I go}} «أذهب»، {{I work}} «أعمل». ويُقال هذا الزمن لما يتكرّر: كل يوم، كل أسبوع، دائمًا."},
+        {"term":"المضارع البسيط","means":"زمن الفعل لما يحدث عادةً أو يتكرّر، ولما هو صحيح دائمًا: {{I work in a bank.}} «أعمل في بنك»."},
+        {"term":"الفاعل","means":"مَن يقوم بالفعل أو مَن نتحدّث عنه، ويأتي في الإنجليزية قبل الفعل: {{I}} في {{I work}}، و{{My sister}} في {{My sister is a doctor}}."},
+        {"p":"**الفاعل لا يُحذف.** العربية تعرف الفاعل من الفعل نفسه: في «أعمل» معنى «أنا». أما الفعل الإنجليزي {{work}} فلا يقول مَن يعمل، فلا بدّ أن تذكر الفاعل قبله دائمًا:"},
+        { "table": [
+          ["العربية","الإنجليزية"],
+          ["أعمل","{{I work}}"],
+          ["تعمل (أنتَ، أنتِ، أنتم)","{{you work}}"],
+          ["نعمل","{{we work}}"],
+          ["يعملون","{{they work}}"]
+        ] },
+        {"p":"**لا {{am}} قبل الفعل.** تعلّمت أن «أنا طالب» تحتاج إلى {{am}}. أما إذا كان في الجملة فعل آخر فلا مكان لـ{{am}}: {{I work here.}} «أعمل هنا»، لا {{I am work here}}. والقاعدة: الجملة الإنجليزية تحتاج إلى فعل واحد على الأقل؛ فإن لم يكن فيها فعل فضع {{am, is, are}}، وإن كان فيها فعل فلا."},
+        {"p":"**الوقت: {{at}} و{{on}} و{{in}}.** {{at}} للساعة، و{{on}} للأيام، و{{in}} لأجزاء اليوم والشهور والسنين:"},
+        { "table": [
+          ["","مثال"],
+          ["{{at}} + الساعة","{{at 7:30}}، {{at noon}}، {{at night}}"],
+          ["{{on}} + اليوم","{{on Sunday}}، {{on Fridays}}، {{on the weekend}}"],
+          ["{{in}} + جزء من اليوم، الشهر، السنة","{{in the morning}}، {{in July}}، {{in 2025}}"]
+        ] },
+        {"p":"**البيت والعمل والمدرسة بلا {{the}}.** تقول العربية «أذهب إلى العمل، إلى المدرسة، إلى البيت». أما الإنجليزية فتقول {{go to work}} و{{go to school}} بلا {{the}}، و{{go home}} بلا {{to}} أصلًا. وكذلك {{at home}} «في البيت»، و{{at work}} «في العمل»."},
+        { "ex": [
+          {"t":"I get up at six thirty.","tr":"أستيقظ في السادسة والنصف."},
+          {"t":"We have breakfast at home.","tr":"نتناول الفطور في البيت."},
+          {"t":"They go to school by bus.","tr":"يذهبون إلى المدرسة بالحافلة."},
+          {"t":"I work from nine to five.","tr":"أعمل من التاسعة إلى الخامسة."},
+          {"t":"In the evening, I watch TV or read.","tr":"في المساء أشاهد التلفاز أو أقرأ."},
+          {"t":"We go home at four.","tr":"نعود إلى البيت في الرابعة."}
+        ] },
+        {"tip":"{{have}} معناها «يملك»، لكنها تأتي أيضًا مع الوجبات: {{have breakfast}} «يتناول الفطور»، {{have lunch}} «يتغدّى»، {{have dinner}} «يتعشّى»."}
+      ],
+      "mistakes": [
+        {"wrong":"I am work in a bank.","right":"I work in a bank.","tr":"أعمل في بنك.","why":"في الجملة فعل ({{work}})، فلا تضع {{am}} قبله."},
+        {"wrong":"Work in a hospital.","right":"I work in a hospital.","tr":"أعمل في مستشفى.","why":"الفعل الإنجليزي لا يدلّ على فاعله، فاذكر الفاعل دائمًا: {{I work}}."},
+        {"wrong":"I go to the home at five.","right":"I go home at five.","tr":"أعود إلى البيت في الخامسة.","why":"{{home}} بلا {{to}} وبلا {{the}}: {{go home}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{I live in Amman.}}","{{I am live in Amman.}}","{{Live in Amman.}}"],"answer":0,"why":"فعل واحد يكفي، والفاعل قبله: {{I live}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I start work ___ eight.","tr":"أبدأ العمل في الثامنة.","options":["at","on","in"],"answer":0,"why":"الساعة مع {{at}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We visit my parents ___ Fridays.","tr":"نزور والديّ أيام الجمعة.","options":["on","at","in"],"answer":0,"why":"الأيام مع {{on}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"يذهبون إلى المدرسة بالحافلة.","words":["They","go","to","school","by","bus."]},
+        {"type":"dialogue","q":"زميل جديد يسألك عن يومك: اختر ردودك.","lines":[{"who":"زميلك","t":"So, what's your day like?","tr":"إذن، كيف يومك؟"},{"options":["I get up early and go to the gym.","I am get up early and go to the gym."],"answer":0,"why":"في الجملة فعلان ({{get up}} و{{go}})، فلا مكان لـ{{am}}."},{"who":"زميلك","t":"Nice. And in the evening?","tr":"جميل. وفي المساء؟"},{"options":["I go home and cook dinner.","I go to the home and cook dinner."],"answer":0,"why":"{{go home}}: بلا {{to}} وبلا {{the}}."},{"who":"زميلك","t":"Sounds like a good day!","tr":"يبدو يومًا جميلًا!"}],"from":"a-or-the"},
+        {"type":"say","q":"قل «نتناول الفطور في البيت».","answer":"We have breakfast at home."},
+        {"type":"free","q":"دورك: صِف صباحك في ثلاث جمل: متى تستيقظ، وماذا تفعل، ومتى تبدأ عملك أو دراستك.","answers":[{"t":"I get up at seven. I have coffee and toast. I start work at nine.","tr":"أستيقظ في السابعة. أشرب القهوة وآكل خبزًا محمّصًا. أبدأ عملي في التاسعة."},{"t":"I get up at six, and I pray. Then I take the bus to the university. My classes start at eight.","tr":"أستيقظ في السادسة وأصلّي. ثم أركب الحافلة إلى الجامعة. تبدأ محاضراتي في الثامنة."}]}
+      ]
+    },
+    {
+      "id": "say-what-others-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "قل ما يفعله غيرك",
+      "summary": "قل «أبي يعمل في مستشفى» و«أختي تدرس الطبّ»: مع {{he}} و{{she}} و{{it}} يأخذ الفعل {{-s}}.",
+      "topic": "المضارع البسيط مع {{he, she, it}}: {{works}}، {{goes}}، {{studies}}، {{has}}",
+      "blocks": [
+        {"goal":{"t":"My father works in a hospital, and my sister studies medicine.","tr":"أبي يعمل في مستشفى، وأختي تدرس الطبّ."}},
+        {"dialog":[{"who":"جيسيكا","t":"Is your husband a teacher, too?","tr":"هل زوجك معلّم أيضًا؟"},{"who":"هالة","t":"No, he isn't. He works for a big company. He fixes computers.","tr":"لا. يعمل في شركة كبيرة، ويصلح الحواسيب."},{"who":"جيسيكا","t":"Oh, nice. And your son?","tr":"جميل. وابنك؟"},{"who":"هالة","t":"He goes to college. He studies engineering, and he plays soccer on the weekend.","tr":"يدرس في الجامعة. يدرس الهندسة، ويلعب كرة القدم في عطلة نهاية الأسبوع."},{"who":"جيسيكا","t":"He sounds busy!","tr":"يبدو مشغولًا!"}]},
+        {"p":"**حرف واحد يكفي.** في العربية يتغيّر الفعل مع كل فاعل: أعمل، تعمل، يعمل، تعملين… أما في الإنجليزية فللفعل في المضارع البسيط صورة واحدة تقريبًا، إلا مع {{he}} و{{she}} و{{it}} (ومع كل اسم مفرد يقوم مقامها): هنا تُضاف {{-s}} إلى آخر الفعل."},
+        { "table": [
+          ["الفاعل","الفعل"],
+          ["{{I, you, we, they}}","{{work}}، {{live}}، {{play}}"],
+          ["{{he, she, it}}، {{my father}}، {{Sara}}","{{works}}، {{lives}}، {{plays}}"]
+        ] },
+        {"p":"**كيف تُكتب؟** أكثر الأفعال تأخذ {{-s}} وحدها. والفعل المنتهي بـ s أو sh أو ch أو x أو o يأخذ {{-es}}. والمنتهي بـ y وقبلها غير حرف علّة تُقلب فيه y إلى {{-ies}}؛ أما {{play}} فـ{{plays}}، لأن قبل y حرف علّة. وفعل واحد شاذّ: {{have}} ← {{has}}."},
+        { "table": [
+          ["القاعدة","أمثلة"],
+          ["{{-s}}","{{works}}، {{lives}}، {{plays}}"],
+          ["بعد s، sh، ch، x، o: {{-es}}","{{watches}}، {{fixes}}، {{goes}}، {{does}}"],
+          ["y بعد غير حرف علّة: {{-ies}}","{{studies}}، {{tries}}"],
+          ["شاذّ","{{have}} ← {{has}}"]
+        ] },
+        {"p":"**والشيء أيضًا.** الشيء ({{it}}) يأخذ {{-s}} كذلك: {{The store opens at nine.}} «يفتح المتجر في التاسعة»، {{It costs ten dollars.}} «ثمنه عشرة دولارات»."},
+        { "ex": [
+          {"t":"My wife teaches English.","tr":"زوجتي تدرّس الإنجليزية."},
+          {"t":"He lives in Dubai.","tr":"يسكن في دبي."},
+          {"t":"My son watches cartoons every morning.","tr":"ابني يشاهد الرسوم المتحرّكة كل صباح."},
+          {"t":"She has lunch at one.","tr":"تتغدّى في الواحدة."},
+          {"t":"The bus leaves at 7:15.","tr":"تنطلق الحافلة في السابعة والربع."},
+          {"t":"Our teacher speaks four languages.","tr":"معلّمنا يتكلّم أربع لغات."}
+        ] },
+        {"tip":"**كيف تُنطق {{-s}}؟** لها ثلاثة أصوات: «س» بعد بعض الأصوات المهموسة ({{works}}، {{stops}})، و«ز» بعد أكثر الأصوات ({{lives}}، {{plays}}، {{goes}})، و«إز» بعد أصوات الصفير ({{watches}}، {{fixes}}، {{uses}}). ولا تُسقطها في الكلام: هي التي تقول إن الفاعل «هو» أو «هي»."}
+      ],
+      "mistakes": [
+        {"wrong":"My father work in a hospital.","right":"My father works in a hospital.","tr":"أبي يعمل في مستشفى.","why":"{{my father}} = {{he}}، والفعل معه يأخذ {{-s}}."},
+        {"wrong":"She haves two cars.","right":"She has two cars.","tr":"عندها سيارتان.","why":"{{have}} شاذّ: مع {{he}} و{{she}} و{{it}} يصير {{has}}."},
+        {"wrong":"They works at night.","right":"They work at night.","tr":"يعملون في الليل.","why":"{{-s}} مع المفرد وحده ({{he, she, it}})، لا مع {{they}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Sara ___ in a bank.","tr":"سارة تعمل في بنك.","options":["works","work","working"],"answer":0,"why":"سارة = {{she}}: {{works}}."},
+        {"type":"choice","q":"ما صورة {{study}} مع {{he}}؟","options":["{{studies}}","{{studys}}","{{studyes}}"],"answer":0,"why":"y بعد غير حرف علّة تصير {{-ies}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My brothers ___ soccer on Saturdays.","tr":"إخوتي يلعبون كرة القدم أيام السبت.","options":["play","plays"],"answer":0,"why":"{{my brothers}} = {{they}}: بلا {{-s}}.","from":"talk-about-your-day"},
+        {"type":"dialogue","q":"زميلك في العمل يسألك عن صديقك: اختر ردودك.","lines":[{"who":"زميلك","t":"Who's that?","tr":"مَن ذاك؟"},{"options":["That's my friend Ziad. He works in the IT department.","That's my friend Ziad. He work in the IT department."],"answer":0,"why":"{{He works}}: مع {{he}} تُضاف {{-s}}."},{"who":"زميلك","t":"Is he new?","tr":"هل هو جديد؟"},{"options":["No, he isn't. He has a desk on the third floor.","No, he isn't. He have a desk on the third floor."],"answer":0,"why":"مع {{he}}: {{has}}."},{"who":"زميلك","t":"Oh, okay.","tr":"حسنًا."}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أمي تدرّس في مدرسة صغيرة.","words":["My","mother","teaches","at","a","small","school."]},
+        {"type":"say","q":"قل «يسكن أخي في دبي».","answer":"My brother lives in Dubai."},
+        {"type":"free","q":"دورك: اختر شخصًا تعرفه، وقل ثلاثة أشياء يفعلها كل يوم.","answers":[{"t":"My wife gets up at six. She goes to work by car. She comes home at five.","tr":"زوجتي تستيقظ في السادسة، وتذهب إلى العمل بالسيارة، وتعود إلى البيت في الخامسة."},{"t":"My friend Rami works at a restaurant. He cooks every night, and he sleeps late.","tr":"صديقي رامي يعمل في مطعم. يطبخ كل ليلة، وينام متأخّرًا."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-dont-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "قل ما لا تفعله",
+      "summary": "قل «لا آكل اللحم، وابني لا يشرب الحليب»: النفي في الإنجليزية يحتاج إلى فعل مساعد، {{don't}} أو {{doesn't}}.",
+      "topic": "النفي بـ{{don't}} و{{doesn't}} + الفعل في صورته الأصلية",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat, and my son doesn't drink milk.","tr":"لا آكل اللحم، وابني لا يشرب الحليب."}},
+        {"dialog":[{"who":"جيسيكا","t":"Here, try the chicken!","tr":"تفضّل، جرّب الدجاج!"},{"who":"عمر","t":"Thank you, but I don't eat meat. I'm a vegetarian.","tr":"شكرًا، لكني لا آكل اللحم. أنا نباتي."},{"who":"جيسيكا","t":"Oh, no problem. The salad doesn't have any meat in it.","tr":"لا مشكلة. السلطة ليس فيها لحم."},{"who":"عمر","t":"Perfect. And my wife doesn't drink coffee. Is there any tea?","tr":"ممتاز. وزوجتي لا تشرب القهوة. هل يوجد شاي؟"},{"who":"جيسيكا","t":"Of course! I have mint tea.","tr":"بالطبع! عندي شاي بالنعناع."}]},
+        {"p":"**النفي يحتاج إلى مساعد.** في العربية تكفي «لا» قبل الفعل: «لا آكل». أما الإنجليزية فلا تضع {{not}} قبل الفعل مباشرة، بل تأتي بفعل مساعد هو {{do}}، وتضع بعده {{not}}، ثم الفعل في صورته الأصلية: {{I do not eat}}، وفي الكلام {{I don't eat}}."},
+        {"term":"الفعل المساعد","means":"فعل يأتي مع الفعل الأصلي ليُبنى به النفي أو السؤال أو الزمن، ولا معنى له وحده هنا: {{do}} في {{I don't know}}."},
+        { "table": [
+          ["الفاعل","النفي","مختصرًا"],
+          ["{{I, you, we, they}}","{{do not eat}}","{{don't eat}}"],
+          ["{{he, she, it}}","{{does not eat}}","{{doesn't eat}}"]
+        ] },
+        {"p":"**{{-s}} تنتقل إلى المساعد.** مع {{he}} و{{she}} و{{it}} يصير المساعد {{does}}، فيأخذ هو {{-s}} بدل الفعل، ويعود الفعل الأصلي إلى صورته الأصلية: {{He drinks}} ← {{He doesn't drink}}، لا {{He doesn't drinks}}."},
+        {"p":"**متى {{not}} ومتى {{don't}}؟** مع {{am, is, are}} تضع {{not}} بعدها مباشرة كما تعلّمت: {{I'm not hungry}}. ومع أي فعل آخر تحتاج إلى {{don't}} أو {{doesn't}}: {{I don't like it}}. فلا تقل {{I'm not like}}، ولا {{I not like}}."},
+        { "table": [
+          ["في الجملة","النفي"],
+          ["{{am, is, are}}","{{I'm not tired.}} {{She isn't here.}}"],
+          ["فعل آخر","{{I don't work.}} {{She doesn't work.}}"]
+        ] },
+        { "ex": [
+          {"t":"I don't know.","tr":"لا أعرف."},
+          {"t":"We don't have a car.","tr":"ليست لدينا سيارة."},
+          {"t":"She doesn't speak Arabic.","tr":"لا تتكلّم العربية."},
+          {"t":"My phone doesn't work.","tr":"هاتفي لا يعمل.","note":"{{work}} للأجهزة: «يشتغل»"},
+          {"t":"They don't live here anymore.","tr":"لم يعودوا يسكنون هنا."},
+          {"t":"It doesn't matter.","tr":"لا يهمّ."}
+        ] },
+        {"tip":"{{I don't know}} «لا أعرف» و{{I don't understand}} «لا أفهم» من أنفع الجمل لمن يتعلّم، فاحفظهما. وأضف إليهما {{Can you say that again, please?}} «هل تعيد ما قلت، من فضلك؟»"}
+      ],
+      "mistakes": [
+        {"wrong":"I no eat meat.","right":"I don't eat meat.","tr":"لا آكل اللحم.","why":"«لا» قبل الفعل تصير في الإنجليزية {{don't}}، لا {{no}}."},
+        {"wrong":"He doesn't drinks coffee.","right":"He doesn't drink coffee.","tr":"لا يشرب القهوة.","why":"بعد {{doesn't}} يعود الفعل إلى صورته الأصلية: {{-s}} في {{does}} وحدها."},
+        {"wrong":"I'm not like tea.","right":"I don't like tea.","tr":"لا أحبّ الشاي.","why":"{{not}} بعد {{am}} حين لا يكون في الجملة فعل آخر. و{{like}} فعل، فنفيه بـ{{don't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My sister ___ eat fish.","tr":"أختي لا تأكل السمك.","options":["doesn't","don't","isn't"],"answer":0,"why":"{{my sister}} = {{she}}: {{doesn't}}."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{We don't have time.}}","{{We not have time.}}","{{We aren't have time.}}"],"answer":0,"why":"{{have}} فعل، ونفيه بـ{{don't}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I'm sorry, I ___ understand.","tr":"آسف، لا أفهم.","options":["don't","doesn't","am not"],"answer":0,"why":"مع {{I}}: {{don't}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"He ___ a doctor. He's a nurse.","tr":"ليس طبيبًا، بل ممرض.","options":["isn't","doesn't","don't"],"answer":0,"why":"لا فعل في الجملة غير {{is}}، فنفيها {{isn't}}.","from":"ask-yes-or-no"},
+        {"type":"dialogue","q":"على العشاء عند صديقة أمريكية: اختر ردودك.","lines":[{"who":"جيسيكا","t":"Here, try some of my lasagna!","tr":"تفضّل، جرّب قليلًا من اللازانيا التي صنعتها!"},{"options":["Thank you, but I don't eat pork. Is there pork in it?","Thank you, but I no eat pork. Is there pork in it?"],"answer":0,"why":"النفي: {{I don't eat}}."},{"who":"جيسيكا","t":"No, it's beef. Don't worry!","tr":"لا، إنه لحم بقر. لا تقلق!"},{"options":["Great! It smells amazing.","Great! It smell amazing."],"answer":0,"why":"{{it}} مفرد، فالفعل معه بـ{{-s}}: {{It smells}}."}],"from":"say-what-others-do"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أبي لا يعمل أيام الأحد.","words":["My","father","doesn't","work","on","Sundays."]},
+        {"type":"free","q":"دورك: قل شيئين لا تفعلهما، وشيئًا لا يفعله شخص من عائلتك.","answers":[{"t":"I don't drink coffee, and I don't watch TV. My husband doesn't like sweets.","tr":"لا أشرب القهوة، ولا أشاهد التلفاز. زوجي لا يحبّ الحلويات."},{"t":"I don't smoke, and I don't eat fast food. My brother doesn't get up early.","tr":"لا أدخّن، ولا آكل الوجبات السريعة. أخي لا يستيقظ مبكّرًا."}]}
+      ]
+    },
+    {
+      "id": "ask-about-routines",
+      "unit": 3,
+      "level": "A1",
+      "title": "اسأل عن العادات",
+      "summary": "اسأل {{Do you work on Saturdays?}} و{{Where does she live?}}: السؤال في الإنجليزية يبدأ بـ{{do}} أو {{does}} حيث تبدأ العربية بـ«هل».",
+      "topic": "السؤال بـ{{Do}} و{{Does}}؛ {{Where, What, What time do you…?}}؛ الجواب {{Yes, I do.}}",
+      "blocks": [
+        {"goal":{"t":"Do you work on Saturdays? — Yes, I do.","tr":"هل تعمل أيام السبت؟ — نعم."}},
+        {"dialog":[{"who":"مايك","t":"So, where do you work?","tr":"إذن، أين تعمل؟"},{"who":"عمر","t":"I work at the hospital downtown.","tr":"أعمل في المستشفى في وسط المدينة."},{"who":"مايك","t":"Oh! Does your wife work there, too?","tr":"وهل تعمل زوجتك هناك أيضًا؟"},{"who":"عمر","t":"No, she doesn't. She works from home.","tr":"لا. تعمل من البيت."},{"who":"مايك","t":"Nice. Do you have kids?","tr":"جميل. هل عندكم أولاد؟"},{"who":"عمر","t":"Yes, we do. Two boys.","tr":"نعم. ولدان."},{"who":"مايك","t":"What time do they go to school?","tr":"متى يذهبان إلى المدرسة؟"},{"who":"عمر","t":"At eight. Why?","tr":"في الثامنة. لماذا؟"},{"who":"مايك","t":"My son goes at eight, too. They can walk together!","tr":"ابني يذهب في الثامنة أيضًا. يمكنهم أن يمشوا معًا!"}]},
+        {"p":"**{{do}} مكان «هل».** تعلّمت أن السؤال مع {{am, is, are}} يكون بتقديمها: {{Are you tired?}}. أما مع سائر الأفعال فلا تقدّم الفعل نفسه، بل تضع في أول السؤال المساعد {{Do}} (أو {{Does}} مع {{he, she, it}})، ثم الفاعل، ثم الفعل في صورته الأصلية:"},
+        { "table": [
+          ["الخبر","السؤال"],
+          ["{{You work on Saturdays.}}","{{Do you work on Saturdays?}}"],
+          ["{{They have kids.}}","{{Do they have kids?}}"],
+          ["{{She lives here.}}","{{Does she live here?}}"]
+        ] },
+        {"p":"لاحظ في المثال الأخير أن {{lives}} صارت {{live}}، لأن {{-s}} انتقلت إلى {{Does}}، كما في النفي."},
+        {"p":"**الجواب المختصر** بالمساعد نفسه: {{Do you…? — Yes, I do. / No, I don't.}}، و{{Does he…? — Yes, he does. / No, he doesn't.}}"},
+        {"p":"**مع أدوات الاستفهام.** كلمة السؤال أولًا، ثم {{do}} أو {{does}}، ثم الفاعل، ثم الفعل: {{Where do you live?}} «أين تسكن؟»، {{What time does the store open?}} «متى يفتح المتجر؟». والآن تفهم السؤال الذي حفظته: {{What do you do?}} «ماذا تعمل؟»، وفيه {{do}} مرّتان: الأولى مساعدة، والثانية فعل معناه «يعمل، يفعل»."},
+        { "table": [
+          ["أداة الاستفهام","المساعد","الفاعل","الفعل"],
+          ["{{Where}}","{{do}}","{{you}}","{{live?}}"],
+          ["{{What time}}","{{does}}","{{the store}}","{{open?}}"],
+          ["{{What}}","{{do}}","{{you}}","{{do?}}"]
+        ] },
+        { "ex": [
+          {"t":"Do you speak English? — A little.","tr":"هل تتكلّم الإنجليزية؟ — قليلًا."},
+          {"t":"Does this bus go downtown?","tr":"هل تذهب هذه الحافلة إلى وسط المدينة؟"},
+          {"t":"Where do you live?","tr":"أين تسكن؟"},
+          {"t":"What time does the movie start?","tr":"متى يبدأ الفيلم؟"},
+          {"t":"How do you say this in English?","tr":"كيف تقول هذا بالإنجليزية؟"},
+          {"t":"Does your son like school? — Yes, he does.","tr":"هل يحبّ ابنك المدرسة؟ — نعم."}
+        ] },
+        {"tip":"{{How do you say … in English?}} سؤال ثمين لمن يتعلّم: «كيف تقول … بالإنجليزية؟». ومثله {{What does this word mean?}} «ما معنى هذه الكلمة؟»"}
+      ],
+      "mistakes": [
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"أين تسكن؟","why":"بعد كلمة السؤال يأتي المساعد {{do}}، ثم الفاعل، ثم الفعل."},
+        {"wrong":"Does she lives here?","right":"Does she live here?","tr":"هل تسكن هنا؟","why":"{{-s}} في {{Does}} وحدها، والفعل بعدها في صورته الأصلية."},
+        {"wrong":"Are you like coffee?","right":"Do you like coffee?","tr":"هل تحبّ القهوة؟","why":"{{Are}} للسؤال حين لا يكون في الجملة فعل آخر. و{{like}} فعل، فسؤاله بـ{{Do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ you have a car?","tr":"هل عندك سيارة؟","options":["Do","Are","Does"],"answer":0,"why":"{{have}} فعل، ومع {{you}}: {{Do}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ your brother live in Cairo?","tr":"هل يسكن أخوك في القاهرة؟","options":["Does","Do","Is"],"answer":0,"why":"{{your brother}} = {{he}}: {{Does}}.","from":"say-what-others-do"},
+        {"type":"choice","q":"«هل أنت متعب؟» بالإنجليزية…","options":["{{Are you tired?}}","{{Do you tired?}}","{{Do you are tired?}}"],"answer":0,"why":"لا فعل في الجملة غير {{be}}، فالسؤال بتقديم {{Are}}.","from":"ask-yes-or-no"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"متى يبدأ الفيلم؟","words":["What","time","does","the","movie","start?"]},
+        {"type":"dialogue","q":"جار جديد يتعرّف إليك: اختر ردودك.","lines":[{"who":"الجار","t":"Do you live here?","tr":"هل تسكن هنا؟"},{"options":["Yes, I do. I'm in apartment 4B.","Yes, I am. I'm in apartment 4B."],"answer":0,"why":"السؤال بـ{{Do}}، فالجواب بـ{{do}}: {{Yes, I do.}}"},{"who":"الجار","t":"Great! Do you have a parking spot?","tr":"رائع! هل عندك موقف سيارة؟"},{"options":["No, I don't. I don't have a car.","No, I'm not. I no have a car."],"answer":0,"why":"{{No, I don't}}، والنفي {{don't have}}."},{"who":"الجار","t":"Oh, okay. Where do you work?","tr":"حسنًا. أين تعمل؟"},{"options":["I work at a bank on Fifth Street.","I'm work at a bank on Fifth Street."],"answer":0,"why":"{{work}} فعل، فلا {{am}} قبله."}],"from":"say-what-you-dont-do"},
+        {"type":"say","q":"اسأل: «كيف تقول هذا بالإنجليزية؟»","answer":"How do you say this in English?"},
+        {"type":"free","q":"دورك: اكتب ثلاثة أسئلة تسأل بها صديقًا جديدًا عن يومه: واحدًا بـ{{Do you…?}}، واثنين بـ{{Where}} أو {{What time}}.","answers":[{"t":"Do you work on weekends? Where do you work? What time do you get up?","tr":"هل تعمل في عطلة نهاية الأسبوع؟ أين تعمل؟ متى تستيقظ؟"},{"t":"Do you like your job? Where do you live? What time do you finish work?","tr":"هل تحبّ عملك؟ أين تسكن؟ متى تنتهي من عملك؟"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "قل ما تحبّه وما لا تحبّه",
+      "summary": "قل «أحبّ القهوة، لكني لا أحبّ الشاي»: الأشياء بوجه عام بلا {{the}}، و{{it}} و{{them}} بعد الفعل.",
+      "topic": "{{like, love, hate}} + اسم بلا {{the}} أو فعل بـ{{-ing}}؛ ضمائر المفعول {{me, him, her, it, us, them}}",
+      "blocks": [
+        {"goal":{"t":"I love coffee, but I don't like tea.","tr":"أحبّ القهوة، لكني لا أحبّ الشاي."}},
+        {"dialog":[{"who":"مايك","t":"Do you like American food?","tr":"هل تحبّ الطعام الأمريكي؟"},{"who":"عمر","t":"I love burgers, but I don't like hot dogs.","tr":"أحبّ البرغر، لكني لا أحبّ النقانق."},{"who":"مايك","t":"What about sports? Do you like football?","tr":"والرياضة؟ هل تحبّ كرة القدم الأمريكية؟"},{"who":"عمر","t":"American football? I don't really understand it. I love soccer.","tr":"كرة القدم الأمريكية؟ لا أفهمها حقًّا. أحبّ كرة القدم."},{"who":"مايك","t":"Me too! I play it every Sunday.","tr":"وأنا أيضًا! ألعبها كل أحد."},{"who":"عمر","t":"Really? I love playing. Can I come?","tr":"حقًّا؟ أحبّ اللعب. هل أستطيع أن آتي؟"},{"who":"مايك","t":"Sure!","tr":"بالتأكيد!"}]},
+        {"p":"**أحبّ وأكره.** {{like}} «يحبّ، يعجبه»، {{love}} «يحبّ كثيرًا»، {{don't like}} «لا يحبّ»، {{hate}} «يكره». وبعدها ما تحبّه مباشرة: {{I like coffee.}}"},
+        {"p":"**بوجه عام: بلا {{the}}.** هذا موضع مهمّ تختلف فيه الإنجليزية عن العربية. حين تتكلّم عن شيء بوجه عام، كلّ القهوة أو كلّ الكتب، تقول العربية «أحبّ القهوة» و«أحبّ الكتب» بـ«الـ». أما الإنجليزية فتقوله بلا {{the}}: {{I like coffee.}} {{I love books.}} و{{the}} عندها لشيء معيّن معروف: {{I like the coffee here.}} «تعجبني القهوة هنا»، أي هذه القهوة بعينها."},
+        { "table": [
+          ["العربية","الإنجليزية","المعنى"],
+          ["أحبّ القهوة.","{{I like coffee.}}","القهوة بوجه عام"],
+          ["القهوة هنا لذيذة.","{{The coffee here is good.}}","قهوة معيّنة"],
+          ["أحبّ القطط.","{{I love cats.}}","القطط كلها"],
+          ["الحياة صعبة.","{{Life is hard.}}","الحياة بوجه عام"]
+        ] },
+        {"p":"ولاحظ أن ما يُعَدّ يأتي في هذا المعنى بالجمع: {{I love cats}} لا {{I love cat}}. وما لا يُعَدّ يبقى مفردًا: {{coffee}}، {{music}}، {{rice}}."},
+        {"p":"**أن تحبّ فعل شيء.** وقد يأتي بعد {{like}} و{{love}} و{{hate}} فعل بـ{{-ing}}: {{I like swimming.}} «أحبّ السباحة»، {{She loves cooking.}} «تحبّ الطبخ». (وتسمع أيضًا {{I like to swim}} بالمعنى نفسه.)"},
+        {"term":"المفعول به","means":"مَن يقع عليه الفعل، ويأتي في الإنجليزية بعد الفعل: {{coffee}} في {{I like coffee}}، و{{her}} في {{I love her}}."},
+        {"p":"**«ـه، ـها، ـهم» بعد الفعل.** في العربية يتّصل الضمير بالفعل: «أحبّه، أحبّها، أحبّهم». أما في الإنجليزية فهو كلمة بعد الفعل، ولبعض الضمائر صورة خاصّة في هذا الموضع:"},
+        { "table": [
+          ["الفاعل (قبل الفعل)","المفعول به (بعد الفعل)","مثال"],
+          ["{{I}}","{{me}}","{{Call me.}}"],
+          ["{{you}}","{{you}}","{{I love you.}}"],
+          ["{{he}}","{{him}}","{{I know him.}}"],
+          ["{{she}}","{{her}}","{{Ask her.}}"],
+          ["{{it}}","{{it}}","{{I like it.}}"],
+          ["{{we}}","{{us}}","{{Help us!}}"],
+          ["{{they}}","{{them}}","{{I love them.}}"]
+        ] },
+        {"p":"والشيء هنا أيضًا {{it}}، لا {{him}} ولا {{her}}. فإذا سألك أحد عن سيارته: {{Do you like my new car? — Yes, I love it!}} ولا يُحذف المفعول: لا تقل {{Yes, I love}}."},
+        { "ex": [
+          {"t":"My kids love pizza.","tr":"أولادي يحبّون البيتزا."},
+          {"t":"I don't like cold weather.","tr":"لا أحبّ الطقس البارد."},
+          {"t":"She hates waiting.","tr":"تكره الانتظار."},
+          {"t":"We love traveling.","tr":"نحبّ السفر."},
+          {"t":"Do you like this song? — Yes, I love it!","tr":"هل تعجبك هذه الأغنية؟ — نعم، أحبّها!"},
+          {"t":"I like the music in this café.","tr":"تعجبني الموسيقى في هذا المقهى.","note":"موسيقى معيّنة، فهي بـ{{the}}"}
+        ] },
+        {"tip":"{{Me too.}} «وأنا أيضًا» تردّ بها على جملة مثبتة: {{I love soccer. — Me too!}} أما بعد جملة منفيّة فتقول {{Me neither.}} «ولا أنا»: {{I don't like hot dogs. — Me neither.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I like the coffee.","right":"I like coffee.","tr":"أحبّ القهوة.","why":"القهوة بوجه عام بلا {{the}}. ({{I like the coffee}} معناها قهوة معيّنة يعرفها السامع.)"},
+        {"wrong":"This car? Yes, I like him.","right":"This car? Yes, I like it.","tr":"هذه السيارة؟ نعم، تعجبني.","why":"السيارة شيء، والشيء {{it}} بعد الفعل كما هو قبله."},
+        {"wrong":"Do you like pizza? — Yes, I like.","right":"Do you like pizza? — Yes, I like it.","tr":"هل تحبّ البيتزا؟ — نعم، أحبّها.","why":"{{like}} يحتاج إلى مفعول بعده: {{I like it}}، أو قل باختصار {{Yes, I do.}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"تريد أن تقول إنك تحبّ الكتب بوجه عام. تقول…","options":["{{I love books.}}","{{I love the books.}}","{{I love book.}}"],"answer":0,"why":"بوجه عام: بلا {{the}}، وبالجمع."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My son loves soccer. He plays ___ every day.","tr":"ابني يحبّ كرة القدم. يلعبها كل يوم.","options":["it","him","her"],"answer":0,"why":"كرة القدم شيء: {{it}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"This is my friend Ali. Do you know ___?","tr":"هذا صديقي علي. هل تعرفه؟","options":["him","he","his"],"answer":0,"why":"بعد الفعل يأتي {{him}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She ___ like spicy food.","tr":"لا تحبّ الطعام الحارّ.","options":["doesn't","don't","isn't"],"answer":0,"why":"مع {{she}}: {{doesn't}} + الفعل في صورته الأصلية.","from":"say-what-you-dont-do"},
+        {"type":"dialogue","q":"زميلتك تعرض عليك من طعامها في استراحة الغداء: اختر ردودك.","lines":[{"who":"إميلي","t":"Do you like Mexican food?","tr":"هل تحبّ الطعام المكسيكي؟"},{"options":["Yes, I do! I love tacos.","Yes, I am! I love the tacos."],"answer":0,"why":"السؤال بـ{{Do}}، فالجواب {{Yes, I do}}؛ وبوجه عام بلا {{the}}."},{"who":"إميلي","t":"Great! Try this salsa.","tr":"رائع! جرّب هذه الصلصة."},{"options":["Wow, it's really good. I love it!","Wow, she's really good. I love her!"],"answer":0,"why":"الصلصة شيء: {{it}}."},{"who":"إميلي","t":"I know, right?","tr":"أليس كذلك؟"}],"from":"ask-about-routines"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أولادي يحبّون السباحة في البحر.","words":["My","kids","love","swimming","in","the","ocean."]},
+        {"type":"free","q":"دورك: قل ثلاثة أشياء تحبّها وشيئًا لا تحبّه. تذكّر: بوجه عام بلا {{the}}.","answers":[{"t":"I love music, I like reading, and I like cats. I don't like cold weather.","tr":"أحبّ الموسيقى، وأحبّ القراءة، وأحبّ القطط. لا أحبّ الطقس البارد."},{"t":"I love coffee and chocolate, and I like walking. I hate traffic!","tr":"أحبّ القهوة والشوكولاتة، وأحبّ المشي. أكره زحمة السير!"}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 3,
+      "level": "A1",
+      "title": "قل كم مرة تفعل الشيء",
+      "summary": "قل «أمشي إلى العمل عادةً، وأركب الحافلة أحيانًا»، واسأل {{How often…?}}: كلمات التكرار ومكانها الثابت في الجملة.",
+      "topic": "{{always, usually, often, sometimes, never}} قبل الفعل وبعد {{be}}؛ {{How often…?}}؛ {{once a week}}",
+      "blocks": [
+        {"goal":{"t":"I usually walk to work, and I sometimes take the bus.","tr":"أمشي إلى العمل عادةً، وأركب الحافلة أحيانًا."}},
+        {"dialog":[{"who":"الطبيبة","t":"How often do you exercise?","tr":"كم مرة تمارس الرياضة؟"},{"who":"أنت","t":"Um… sometimes. I usually walk on the weekend.","tr":"أحيانًا. أمشي عادةً في عطلة نهاية الأسبوع."},{"who":"الطبيبة","t":"Do you eat fast food?","tr":"هل تأكل الوجبات السريعة؟"},{"who":"أنت","t":"Not often. Maybe once a week.","tr":"ليس كثيرًا. ربما مرة في الأسبوع."},{"who":"الطبيبة","t":"And do you sleep well?","tr":"وهل تنام جيدًا؟"},{"who":"أنت","t":"No. I'm always tired, and I never sleep before midnight.","tr":"لا. أنا متعب دائمًا، ولا أنام قبل منتصف الليل أبدًا."},{"who":"الطبيبة","t":"Okay. That's the problem!","tr":"حسنًا. هذه هي المشكلة!"}]},
+        {"p":"**من «دائمًا» إلى «أبدًا».**"},
+        { "table": [
+          ["الكلمة","المعنى","كم مرة تقريبًا"],
+          ["{{always}}","دائمًا","١٠٠٪"],
+          ["{{usually}}","عادةً","٩٠٪"],
+          ["{{often}}","كثيرًا، غالبًا","٧٠٪"],
+          ["{{sometimes}}","أحيانًا","٥٠٪"],
+          ["{{rarely}}","نادرًا","١٠٪"],
+          ["{{never}}","لا… أبدًا","٠٪"]
+        ] },
+        {"term":"ظروف التكرار","means":"كلمات تقول كم مرة يحدث الشيء: {{always}} «دائمًا»، {{sometimes}} «أحيانًا»، {{never}} «أبدًا»."},
+        {"p":"**مكانها قبل الفعل.** في العربية تتنقّل «دائمًا» في الجملة بحرّية: «أشرب الشاي دائمًا»، «دائمًا أشرب الشاي». أما في الإنجليزية فمكانها ثابت: قبل الفعل الأصلي: {{I always drink tea.}} لا {{I drink always tea}}. لكنها تأتي بعد {{am, is, are}}: {{I'm always tired.}} «أنا متعب دائمًا»."},
+        { "table": [
+          ["مع فعل: قبله","مع {{am, is, are}}: بعدها"],
+          ["{{She usually walks to work.}}","{{She's usually late.}}"],
+          ["{{We never eat meat.}}","{{We're never at home on Fridays.}}"]
+        ] },
+        {"p":"**{{never}} منفيّة بنفسها.** معناها «لا… أبدًا»، فلا تضع معها {{don't}}: {{I never smoke.}} «لا أدخّن أبدًا»، لا {{I don't never smoke}}. ولا تغيّر الفعل بعدها: {{She never drinks coffee.}} بـ{{-s}} كما هو."},
+        {"p":"**كم مرة؟** يُسأل بـ{{How often do you…?}} «كم مرة…؟»، ويُجاب بكلمة تكرار، أو بعدد المرّات: {{once a week}} «مرة في الأسبوع»، {{twice a day}} «مرّتين في اليوم»، {{three times a month}} «ثلاث مرّات في الشهر»، {{every day}} «كل يوم»."},
+        { "ex": [
+          {"t":"I always brush my teeth before bed.","tr":"أنظّف أسناني دائمًا قبل النوم."},
+          {"t":"We usually eat dinner at seven.","tr":"نتعشّى عادةً في السابعة."},
+          {"t":"He often works late.","tr":"كثيرًا ما يعمل حتى وقت متأخّر."},
+          {"t":"I sometimes forget my keys.","tr":"أنسى مفاتيحي أحيانًا."},
+          {"t":"She's never late.","tr":"لا تتأخّر أبدًا."},
+          {"t":"How often do you call your parents? — Every day.","tr":"كم مرة تتّصل بوالديك؟ — كل يوم."}
+        ] },
+        {"tip":"{{sometimes}} أكثرها حرّية، فقد تأتي في أول الجملة أيضًا: {{Sometimes I walk to work.}} أما {{always}} و{{never}} فلا تأتيان في أول الجملة الخبرية."}
+      ],
+      "mistakes": [
+        {"wrong":"I drink always tea.","right":"I always drink tea.","tr":"أشرب الشاي دائمًا.","why":"كلمة التكرار قبل الفعل الأصلي."},
+        {"wrong":"I don't never eat meat.","right":"I never eat meat.","tr":"لا آكل اللحم أبدًا.","why":"{{never}} منفيّة بنفسها، فلا تحتاج إلى {{don't}}."},
+        {"wrong":"Always I am late.","right":"I'm always late.","tr":"أتأخّر دائمًا.","why":"مع {{am, is, are}} تأتي كلمة التكرار بعدها: {{I'm always}}."}
+      ],
+      "practice": [
+        {"type":"order","q":"رتّب الكلمات.","tr":"نتعشّى عادةً في السابعة.","words":["We","usually","eat","dinner","at","seven."]},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{He's always busy.}}","{{He always is busy.}}","{{Always he is busy.}}"],"answer":0,"why":"مع {{is}} تأتي كلمة التكرار بعدها."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"How ___ do you go to the gym?","tr":"كم مرة تذهب إلى النادي الرياضي؟","options":["often","many","much"],"answer":0,"why":"السؤال عن التكرار: {{How often}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My wife never ___ coffee.","tr":"زوجتي لا تشرب القهوة أبدًا.","options":["drinks","drink"],"answer":0,"why":"{{never}} لا تغيّر الفعل: مع {{she}} تبقى {{-s}}.","from":"say-what-others-do"},
+        {"type":"dialogue","q":"عند الطبيب: اختر ردودك.","lines":[{"who":"الطبيب","t":"How often do you exercise?","tr":"كم مرة تمارس الرياضة؟"},{"options":["I usually run twice a week.","I run usually twice a week."],"answer":0,"why":"كلمة التكرار قبل الفعل."},{"who":"الطبيب","t":"Good. Do you smoke?","tr":"جيد. هل تدخّن؟"},{"options":["No, I never smoke.","No, I don't never smoke."],"answer":0,"why":"{{never}} وحدها تكفي للنفي."},{"who":"الطبيب","t":"Great. And do you drink a lot of coffee?","tr":"ممتاز. وهل تشرب القهوة كثيرًا؟"},{"options":["Yes, I do. Three cups a day!","Yes, I am. Three cups a day!"],"answer":0,"why":"السؤال بـ{{do}}، والجواب بـ{{do}}."}],"from":"ask-about-routines"},
+        {"type":"say","q":"قل «لا أتأخّر أبدًا».","answer":"I'm never late."},
+        {"type":"free","q":"دورك: قل كم مرة تفعل ثلاثة أشياء، بثلاث كلمات تكرار مختلفة.","answers":[{"t":"I always have breakfast. I often read before bed. I never drink soda.","tr":"أتناول الفطور دائمًا. كثيرًا ما أقرأ قبل النوم. لا أشرب المشروبات الغازية أبدًا."},{"t":"I usually go to the gym three times a week, I sometimes cook, and I'm never late for work.","tr":"أذهب عادةً إلى النادي الرياضي ثلاث مرّات في الأسبوع، وأطبخ أحيانًا، ولا أتأخّر عن العمل أبدًا."}]}
+      ]
     }
   ]
 }

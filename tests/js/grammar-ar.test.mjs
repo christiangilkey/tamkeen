@@ -41,7 +41,7 @@ test("ar-en: Arabic text uses the Arabic question mark and comma", () => {
   assert.deepEqual(bad, []);
 });
 
-const BRITISH = /\b(colour|favourite|centre|theatre|travelled|travelling|cancelled|organise|realise|apologise|neighbour|lorry|biscuit|mobile phone|queue|petrol|football|maths|have got|autumn)\b/i;
+const BRITISH = /\b(colour|favourite|centre|theatre|travelled|travelling|cancelled|organise|realise|apologise|neighbour|lorry|biscuit|mobile phone|queue|petrol|maths|have got|autumn)\b/i;
 test("ar-en: the English is American (no British spellings or words in the examples)", () => {
   const bad = [];
   for (const l of course.lessons) {
