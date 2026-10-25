@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-zh": {
+   "file": "en-zh/course.json",
+   "from": "en",
+   "to": "zh",
+   "title": "Chinese grammar",
+   "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+   "units": 9,
+   "lessons": 5,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 28484,
+   "sha256": "7836fe6439844f64be245d2fd2aa20bd3cedd93e681cc7f1577feb2a54eef685"
   }
  }
 }

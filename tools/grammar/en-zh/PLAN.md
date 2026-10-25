@@ -38,89 +38,90 @@ The order of this course, as a teacher of Chinese would choose it:
 |---|---|---|---|---|
 | **Unit 1** | | **First conversations** | | |
 | 1 | say-who-you-are | Say hello and who you are | 我是…, 我叫…, 你呢?; verbs never change | A1 |
-| 2 | ask-yes-or-no | Ask yes-or-no questions | 吗; answer with the verb (是 / 不是); 不; 也 | A1 |
-| 3 | say-how-you-are | Say how you are and what things are like | adjectives with 很, no 是; 不 + adjective; 太…了 | A1 |
-| 4 | ask-who-what-where | Ask who, what and where | 什么, 谁, 哪儿, 哪国: the question word stays in the answer's place | A1 |
+| 2 | read-pinyin | Read pinyin and say the tones | characters and pinyin; the four tones; how 不 and 一 change | A1 |
+| 3 | ask-yes-or-no | Ask yes-or-no questions | 吗; answer with the verb (是 / 不是); 不; 也 | A1 |
+| 4 | say-how-you-are | Say how you are and what things are like | adjectives with 很, no 是; 不 + adjective; 太…了 | A1 |
+| 5 | ask-who-what-where | Ask who, what and where | 什么, 谁, 哪儿, 哪国: the question word stays in the answer's place | A1 |
 | **Unit 2** | | **Shopping and ordering** | | |
-| 5 | count-things | Count things | numbers 1–99; measure words (个); 两 not 二; 几 | A1 |
-| 6 | point-and-choose | Point and choose: this one, that one | 这 / 那 / 哪 + measure word; 本, 杯, 张, 件, 只 | A1 |
-| 7 | say-what-you-want | Order food and drink | 要 / 想要 + thing; 想 + verb; 来一杯; 不要 | A1 |
-| 8 | ask-how-much | Ask how much it costs | 多少钱; 块 / 毛; 百, 千; a price needs no 是 | A1 |
+| 6 | count-things | Count things | numbers 1–99; measure words (个); 两 not 二; 几 | A1 |
+| 7 | point-and-choose | Point and choose: this one, that one | 这 / 那 / 哪 + measure word; 本, 杯, 张, 件, 只 | A1 |
+| 8 | say-what-you-want | Order food and drink | 要 / 想要 + thing; 想 + verb; 来一杯; 不要 | A1 |
+| 9 | ask-how-much | Ask how much it costs | 多少钱; 块 / 毛; 百, 千; a price needs no 是 | A1 |
 | **Unit 3** | | **Family, homes and places** | | |
-| 9 | say-whose-it-is | Say whose it is | 的 (我的, 老师的, 谁的); 我妈妈 without 的; 我的 alone | A1 |
-| 10 | talk-about-your-family | Talk about your family | 有 / 没有 (never 不有); 几口人; ages without 是; 都 | A1 |
-| 11 | say-where-things-are | Say where things are | 在 + place; 上, 下, 里, 旁边, 前面, 后面 after the noun | A1 |
-| 12 | say-what-is-there | Say what there is | place + 有 + thing; 有 for something new, 在 for something known | A1 |
+| 10 | say-whose-it-is | Say whose it is | 的 (我的, 老师的, 谁的); 我妈妈 without 的; 我的 alone | A1 |
+| 11 | talk-about-your-family | Talk about your family | 有 / 没有 (never 不有); 几口人; ages without 是; 都 | A1 |
+| 12 | say-where-things-are | Say where things are | 在 + place; 上, 下, 里, 旁边, 前面, 后面 after the noun | A1 |
+| 13 | say-what-is-there | Say what there is | place + 有 + thing; 有 for something new, 在 for something known | A1 |
 | **Unit 4** | | **Your day and your plans** | | |
-| 13 | say-when | Say when: days, dates and times | 今天, 星期一, 几月几号, 几点; big to small; time before the verb | A1 |
-| 14 | say-where-you-do-things | Say where you do things | 在 + place + verb; who + when + where + does what | A1 |
-| 15 | describe-your-day | Describe your day | verbs in a row (去超市买东西, 坐地铁上班); 每天; 先…然后… | A1 |
-| 16 | say-what-you-like | Say what you like | 喜欢 + thing / + verb; 爱; 还是 in "or" questions | A1 |
-| 17 | say-what-you-can-do | Say what you can do | 会 (know how), 能 (be able), 可以 (be allowed) | A1 |
-| 18 | make-plans | Make plans and suggestions | 要 / 想 / 打算 + verb; 吧 (let's); …怎么样? | A1 |
-| 19 | ask-politely | Ask politely | 请; 可以…吗?; A不A questions (能不能, 好不好); 一下; 看看 | A1 |
+| 14 | say-when | Say when: days, dates and times | 今天, 星期一, 几月几号, 几点; big to small; time before the verb | A1 |
+| 15 | say-where-you-do-things | Say where you do things | 在 + place + verb; who + when + where + does what | A1 |
+| 16 | describe-your-day | Describe your day | verbs in a row (去超市买东西, 坐地铁上班); 每天; 先…然后… | A1 |
+| 17 | say-what-you-like | Say what you like | 喜欢 + thing / + verb; 爱; 还是 in "or" questions | A1 |
+| 18 | say-what-you-can-do | Say what you can do | 会 (know how), 能 (be able), 可以 (be allowed) | A1 |
+| 19 | make-plans | Make plans and suggestions | 要 / 想 / 打算 + verb; 吧 (let's); …怎么样? | A1 |
+| 20 | ask-politely | Ask politely | 请; 可以…吗?; A不A questions (能不能, 好不好); 一下; 看看 | A1 |
 | **Unit 5** | | **Telling what happened** | | |
-| 20 | say-what-you-did | Say what you did | verb + 了 (done); 没 + verb (didn't, no 了) | A2 |
-| 21 | say-what-has-changed | Say what has changed | 了 at the end: something new (下雨了, 我饿了); 不…了 | A2 |
-| 22 | say-what-is-happening-now | Say what you're doing right now | 在 / 正在 + verb (+ 呢) | A2 |
-| 23 | talk-about-experiences | Talk about things you've done before | 过 (去过, 没去过); 一次, 两次 | A2 |
-| 24 | say-how-long | Say how long | duration after the verb (学了两年); …了两年了 (still going); 多长时间 | A2 |
+| 21 | say-what-you-did | Say what you did | verb + 了 (done); 没 + verb (didn't, no 了) | A2 |
+| 22 | say-what-has-changed | Say what has changed | 了 at the end: something new (下雨了, 我饿了); 不…了 | A2 |
+| 23 | say-what-is-happening-now | Say what you're doing right now | 在 / 正在 + verb (+ 呢) | A2 |
+| 24 | talk-about-experiences | Talk about things you've done before | 过 (去过, 没去过); 一次, 两次 | A2 |
+| 25 | say-how-long | Say how long | duration after the verb (学了两年); …了两年了 (still going); 多长时间 | A2 |
 | **Unit 6** | | **Comparing and describing** | | |
-| 25 | compare-things | Compare two things | A 比 B + adjective (no 很); 多了, 一点儿; 没有…那么 | A2 |
-| 26 | say-same-or-most | Say what's the same, different or the most | 跟…一样; 不一样; 最 | A2 |
-| 27 | say-how-well | Say how well someone does something | 得: 说得很好; 中文说得很好; …得怎么样? | A2 |
-| 28 | say-a-bit-or-too | Say a bit, rather, too and not at all | 有点儿 + adj vs adj + 一点儿; 太…了; 不太; 一点儿也不 | A2 |
-| 29 | say-which-one | Say which one you mean | describing phrase + 的 + noun: 我昨天买的书, 穿红衣服的人 | A2 |
+| 26 | compare-things | Compare two things | A 比 B + adjective (no 很); 多了, 一点儿; 没有…那么 | A2 |
+| 27 | say-same-or-most | Say what's the same, different or the most | 跟…一样; 不一样; 最 | A2 |
+| 28 | say-how-well | Say how well someone does something | 得: 说得很好; 中文说得很好; …得怎么样? | A2 |
+| 29 | say-a-bit-or-too | Say a bit, rather, too and not at all | 有点儿 + adj vs adj + 一点儿; 太…了; 不太; 一点儿也不 | A2 |
+| 30 | say-which-one | Say which one you mean | describing phrase + 的 + noun: 我昨天买的书, 穿红衣服的人 | A2 |
 | **Unit 7** | | **Getting things done** | | |
-| 30 | say-if-you-got-it | Say if you got it done | results: 完, 懂, 到, 见, 好, 错; 没听懂 | A2 |
-| 31 | say-if-you-can-manage | Say whether you can manage | 听得懂 / 听不懂, 吃不完, 买不到 | A2 |
-| 32 | give-directions | Ask the way and give directions | 往 + direction; 一直走; 进来, 出去, 回来, 上去 | A2 |
-| 33 | give-advice-and-rules | Give advice and say what's needed | 应该, 得 (děi), 要, 不用, 别 / 不要 | A2 |
-| 34 | say-its-about-to-happen | Say something is about to happen | 要…了, 快…了, 就要…了 | A2 |
+| 31 | say-if-you-got-it | Say if you got it done | results: 完, 懂, 到, 见, 好, 错; 没听懂 | A2 |
+| 32 | say-if-you-can-manage | Say whether you can manage | 听得懂 / 听不懂, 吃不完, 买不到 | A2 |
+| 33 | give-directions | Ask the way and give directions | 往 + direction; 一直走; 进来, 出去, 回来, 上去 | A2 |
+| 34 | give-advice-and-rules | Give advice and say what's needed | 应该, 得 (děi), 要, 不用, 别 / 不要 | A2 |
+| 35 | say-its-about-to-happen | Say something is about to happen | 要…了, 快…了, 就要…了 | A2 |
 | **Unit 8** | | **Connecting your ideas** | | |
-| 35 | say-why | Say why | 为什么; 因为…所以… | A2 |
-| 36 | say-but-and-although | Say "but" and "although" | 但是, 可是, 不过; 虽然…但是… (both halves) | A2 |
-| 37 | say-what-if | Say what happens if… | 如果 / 要是 … (的话), 就… | A2 |
-| 38 | say-what-comes-first | Say what happens first, next and when | …以前, …以后, …的时候 (after the clause); 先…再…; 一…就… | A2 |
-| 39 | give-your-opinion | Give your opinion and your reasons | 我觉得, 我认为; 对…来说; 同意; 不一定 | B1 |
+| 36 | say-why | Say why | 为什么; 因为…所以… | A2 |
+| 37 | say-but-and-although | Say "but" and "although" | 但是, 可是, 不过; 虽然…但是… (both halves) | A2 |
+| 38 | say-what-if | Say what happens if… | 如果 / 要是 … (的话), 就… | A2 |
+| 39 | say-what-comes-first | Say what happens first, next and when | …以前, …以后, …的时候 (after the clause); 先…再…; 一…就… | A2 |
+| 40 | give-your-opinion | Give your opinion and your reasons | 我觉得, 我认为; 对…来说; 同意; 不一定 | B1 |
 | **Unit 9** | | **Stories, wishes and conversation** | | |
-| 40 | say-how-it-happened | Say when, where and how it happened | 是…的; 不是…的 | B1 |
-| 41 | say-what-you-did-with-it | Say what you did with something | 把 + thing + verb + more (把门关上, 放在桌子上) | B1 |
-| 42 | say-what-happened-to-you | Say what happened to you | 被 (+ who) + verb + more: 我的钱包被偷了 | B1 |
-| 43 | describe-a-scene | Describe a scene | 着: 门开着, 墙上挂着一张画, 笑着说 | B1 |
-| 44 | tell-a-story | Tell a story | the past, in order: 那天, 就 / 才, 突然, 后来, 结果 | B1 |
-| 45 | say-how-things-are-changing | Say how things are changing | 越来越, 越…越…, 变得 | B1 |
-| 46 | pass-on-a-message | Pass on what someone said or asked | 他说…, 他让我…, 他问我去不去, 听说 | B1 |
-| 47 | imagine-and-wish | Imagine and wish | 要是…就好了; 如果我是你; 希望; 真想 | B1 |
-| 48 | keep-the-conversation-going | Keep the conversation going | 呢, 吧, 啊; 对吧?, 是吗?, 原来 | B1 |
+| 41 | say-how-it-happened | Say when, where and how it happened | 是…的; 不是…的 | B1 |
+| 42 | say-what-you-did-with-it | Say what you did with something | 把 + thing + verb + more (把门关上, 放在桌子上) | B1 |
+| 43 | say-what-happened-to-you | Say what happened to you | 被 (+ who) + verb + more: 我的钱包被偷了 | B1 |
+| 44 | describe-a-scene | Describe a scene | 着: 门开着, 墙上挂着一张画, 笑着说 | B1 |
+| 45 | tell-a-story | Tell a story | the past, in order: 那天, 就 / 才, 突然, 后来, 结果 | B1 |
+| 46 | say-how-things-are-changing | Say how things are changing | 越来越, 越…越…, 变得 | B1 |
+| 47 | pass-on-a-message | Pass on what someone said or asked | 他说…, 他让我…, 他问我去不去, 听说 | B1 |
+| 48 | imagine-and-wish | Imagine and wish | 要是…就好了; 如果我是你; 希望; 真想 | B1 |
+| 49 | keep-the-conversation-going | Keep the conversation going | 呢, 吧, 啊; 对吧?, 是吗?, 原来 | B1 |
 
-48 lessons: 19 A1, 19 A2, 10 B1.
+49 lessons: 20 A1, 19 A2, 10 B1.
 
 ## The spiral: where each big structure comes back (practice with `from`)
 
-- **是 and the missing 是**: 1 (I am a…) → 2 (是吗? 不是) → 3 (no 是 with adjectives) → 8 (no 是 with
-  prices) → 10 (no 是 with ages) → 25 (no 很 after 比) → 40 (是…的).
-- **Questions**: 2 (吗) → 4 (question words in place) → 16 (还是) → 19 (A不A) → 27 (得怎么样) → 35 (为什么)
-  → 46 (passing on a question: 他问我去不去) → 48 (呢).
-- **Measure words**: 5 → 6 → 7 (一杯) → 8 (prices) → 10 (几口人) → 29 (那本书) → 43 (一张画).
-- **的**: 9 (whose) → 29 (describing phrase) → 40 (是…的, a different job).
-- **有**: 10 (have) → 12 (there is) → 43 (墙上挂着…, a scene).
-- **在**: 11 (where it is) → 14 (where you do it) → 22 (in progress) → 41 (把…放在).
-- **Word order (who, when, where, does what)**: 13 → 14 → 15 → 20 (昨天…了) → 38 (以后 after the clause).
-- **想 / 要**: 7 (want a thing) → 18 (plans) → 33 (要: must) → 34 (要…了).
-- **会 / 能 / 可以**: 17 → 19 (可以…吗) → 31 (听不懂 vs 不能) → 33 (不可以).
-- **了 and the other aspect words**: 20 (done) → 21 (change) → 22 (在) → 23 (过) → 24 (how long) → 34
-  (要…了) → 40 (是…的, not 了) → 43 (着) → 44 (a story).
-- **不 and 没**: 2–3 (不) → 10 (没有) → 20 (没 for the past) → 23 (没…过) → 30 (没听懂) → 31 (听不懂).
-- **Complements after the verb**: 27 (得) → 30 (results) → 31 (can / can't) → 32 (directions) → 41 (把)
-  → 42 (被).
-- **Comparing**: 25 → 26 → 45 (比以前, 越来越).
-- **Linking**: 15 (先…然后) → 35 → 36 → 37 → 38 → 39 (because, in an opinion) → 44 (a story).
+- **是 and the missing 是**: 1 (I am a…) → 3 (是吗? 不是) → 4 (no 是 with adjectives) → 9 (no 是 with
+  prices) → 11 (no 是 with ages) → 26 (no 很 after 比) → 41 (是…的).
+- **Questions**: 3 (吗) → 5 (question words in place) → 17 (还是) → 20 (A不A) → 28 (得怎么样) → 36 (为什么)
+  → 47 (passing on a question: 他问我去不去) → 49 (呢).
+- **Measure words**: 6 → 7 → 8 (一杯) → 9 (prices) → 11 (几口人) → 30 (那本书) → 44 (一张画).
+- **的**: 10 (whose) → 30 (describing phrase) → 41 (是…的, a different job).
+- **有**: 11 (have) → 13 (there is) → 44 (墙上挂着…, a scene).
+- **在**: 12 (where it is) → 15 (where you do it) → 23 (in progress) → 42 (把…放在).
+- **Word order (who, when, where, does what)**: 14 → 15 → 16 → 21 (昨天…了) → 39 (以后 after the clause).
+- **想 / 要**: 8 (want a thing) → 19 (plans) → 34 (要: must) → 35 (要…了).
+- **会 / 能 / 可以**: 18 → 20 (可以…吗) → 32 (听不懂 vs 不能) → 34 (不可以).
+- **了 and the other aspect words**: 21 (done) → 22 (change) → 23 (在) → 24 (过) → 25 (how long) → 35
+  (要…了) → 41 (是…的, not 了) → 44 (着) → 45 (a story).
+- **不 and 没**: 3–4 (不) → 11 (没有) → 21 (没 for the past) → 24 (没…过) → 31 (没听懂) → 32 (听不懂).
+- **Complements after the verb**: 28 (得) → 31 (results) → 32 (can / can't) → 33 (directions) → 42 (把)
+  → 43 (被).
+- **Comparing**: 26 → 27 → 46 (比以前, 越来越).
+- **Linking**: 16 (先…然后) → 36 → 37 → 38 → 39 → 40 (because, in an opinion) → 45 (a story).
 
 ## Grammar words (each explained once, where first needed)
 
-pronoun, verb (1); particle (2); adjective (3); question word (4); noun, measure word (5); subject,
-object (14); helping verb (17); aspect (20); complement (27); passive (42).
+pronoun, verb (1); particle (3); adjective (4); question word (5); noun, measure word (6); subject,
+object (15); helping verb (18); aspect (21); complement (28); passive (43).
 
 ## Conventions
 
@@ -132,5 +133,6 @@ object (14); helping verb (17); aspect (20); complement (27); passive (42).
 - **Northern standard forms** as the basics course: 一点儿, 有点儿, 哪儿, 这儿, 那儿 (with a note that
   the south says 一点, 哪里, 这里).
 - **Numbers in characters** in examples (二十五块), so every character has its pinyin.
-- Practice options are characters only (the format has no readings there): every `why` gives the
-  pinyin of the right answer, and every mistake's `why` gives the right sentence with its reading.
+- Every fill question has its pinyin (`r`, with the gap) and one reading per option (`rs`); so do order
+  words and dialogue replies. A mistake has no reading field, so its `why` gives the right sentence with
+  its pinyin.

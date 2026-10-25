@@ -1,0 +1,256 @@
+{
+  "from": "en",
+  "to": "zh",
+  "title": "Chinese grammar",
+  "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+  "about": "From your very first conversation to everyday Chinese, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Chinese verbs never change, so the grammar is mostly word order and a few small words, and you can say a lot very soon. Every example is in simplified characters with its pinyin, the reading in Latin letters with the tones.",
+  "reading": "pinyin",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Shopping and ordering"},
+    {"n":3,"title":"Family, homes and places"},
+    {"n":4,"title":"Your day and your plans"},
+    {"n":5,"title":"Telling what happened"},
+    {"n":6,"title":"Comparing and describing"},
+    {"n":7,"title":"Getting things done"},
+    {"n":8,"title":"Connecting your ideas"},
+    {"n":9,"title":"Stories, wishes and conversation"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first conversation in Chinese.",
+      "topic": "{{我是…|wǒ shì…}} and {{我叫…|wǒ jiào…}}; {{你呢？|nǐ ne?}}; verbs that never change",
+      "blocks": [
+        {"goal":{"t":"你好！我叫安娜，我是美国人。","r":"Nǐ hǎo! Wǒ jiào Ānnà, wǒ shì Měiguórén.","tr":"Hi! My name is Anna, I'm American."}},
+        {"dialog":[{"who":"Wang Ming","t":"你好！我叫王明。你呢？","r":"Nǐ hǎo! Wǒ jiào Wáng Míng. Nǐ ne?","tr":"Hello! My name is Wang Ming. And you?"},{"who":"Anna","t":"你好！我叫安娜。我是美国人。","r":"Nǐ hǎo! Wǒ jiào Ānnà. Wǒ shì Měiguórén.","tr":"Hi! I'm Anna. I'm American."},{"who":"Wang Ming","t":"我是中国人，我是北京人。","r":"Wǒ shì Zhōngguórén, wǒ shì Běijīngrén.","tr":"I'm Chinese, I'm from Beijing."},{"who":"Anna","t":"认识你很高兴！","r":"Rènshi nǐ hěn gāoxìng!","tr":"Nice to meet you!"},{"who":"Wang Ming","t":"我也很高兴！","r":"Wǒ yě hěn gāoxìng!","tr":"Nice to meet you too!"}]},
+        {"p":"Look at the two verbs Anna uses. {{是|shì}} means “am, is, are”, and {{叫|jiào}} means “am called”. In Chinese a verb **never changes**: {{我是|wǒ shì}} “I am”, {{你是|nǐ shì}} “you are”, {{他是|tā shì}} “he is”. There are no endings to learn, ever: not for who does it, and not for when."},
+        {"term":"verb","means":"a word for an action or a state: eat, go, be, be called."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she."},
+        { "table": [
+          ["English","Chinese"],
+          ["I","{{我|wǒ}}"],
+          ["you","{{你|nǐ}}"],
+          ["he / she","{{他|tā}} / {{她|tā}}"],
+          ["we","{{我们|wǒmen}}"],
+          ["you (more than one)","{{你们|nǐmen}}"],
+          ["they","{{他们|tāmen}}"]
+        ] },
+        {"p":"**More than one person** is the same word with {{们|men}}: {{我们|wǒmen}} “we”, {{他们|tāmen}} “they”. {{他|tā}} “he” and {{她|tā}} “she” sound exactly the same; only the writing is different."},
+        {"p":"**Where you're from**: the country + {{人|rén}} “person”. {{美国|Měiguó}} is America, so {{美国人|Měiguórén}} is “an American”; {{中国人|Zhōngguórén}} is “a Chinese person”. And there is no word for “a”: {{我是学生。|Wǒ shì xuésheng.}} is, word for word, “I am student”."},
+        {"p":"**And you?** Put {{呢|ne}} after a word to turn the question back: {{你呢？|Nǐ ne?}} “And you?”"},
+        { "ex": [
+          {"t":"我是学生。","r":"Wǒ shì xuésheng.","tr":"I'm a student."},
+          {"t":"我叫大卫。","r":"Wǒ jiào Dàwèi.","tr":"My name is David.","note":"word for word: “I am called David”"},
+          {"t":"他是老师。","r":"Tā shì lǎoshī.","tr":"He's a teacher."},
+          {"t":"我们是英国人。","r":"Wǒmen shì Yīngguórén.","tr":"We're British."},
+          {"t":"我是加拿大人，你呢？","r":"Wǒ shì Jiānádàrén, nǐ ne?","tr":"I'm Canadian, and you?"},
+          {"t":"认识你很高兴。","r":"Rènshi nǐ hěn gāoxìng.","tr":"Nice to meet you.","note":"a set phrase: “knowing you, (I'm) very happy”"}
+        ] },
+        {"tip":"The marks over the vowels are the tones, and the next lesson shows how to say them. Until then, tap an example to hear it, and copy the melody as well as the sounds."}
+      ],
+      "mistakes": [
+        {"wrong":"我是叫安娜。","right":"我叫安娜。","tr":"My name is Anna.","why":"{{叫|jiào}} already means “am called”: no {{是|shì}} with it. Say {{我叫安娜。|Wǒ jiào Ānnà.}}, or {{我是安娜。|Wǒ shì Ānnà.}} “I'm Anna”."},
+        {"wrong":"我是美国。","right":"我是美国人。","tr":"I'm American.","why":"{{美国|Měiguó}} is the country, so this says “I am America”! A person from it is {{美国人|Měiguórén}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{她|tā}} means…","options":["he","she","they"],"answer":1,"why":"{{她|tā}} is “she” (it has {{女|nǚ}} “woman” on its left); {{他|tā}} is “he”. They sound the same."},
+        {"type":"fill","q":"Choose the missing word.","t":"我___美国人。","r":"Wǒ ___ Měiguórén.","tr":"I'm American.","options":["是","叫","呢"],"rs":["shì","jiào","ne"],"answer":0,"why":"Saying what you are: {{是|shì}}. {{叫|jiào}} is only for your name."},
+        {"type":"dialogue","q":"You're Tom, from England. Choose your replies.","lines":[{"who":"Li Wen","t":"你好！我叫李文。","r":"Nǐ hǎo! Wǒ jiào Lǐ Wén.","tr":"Hi! My name is Li Wen."},{"options":["你好！我叫汤姆。","你好！你叫汤姆。"],"rs":["Nǐ hǎo! Wǒ jiào Tāngmǔ.","Nǐ hǎo! Nǐ jiào Tāngmǔ."],"answer":0,"why":"About yourself: {{我|wǒ}} “I”."},{"who":"Li Wen","t":"我是中国人。你呢？","r":"Wǒ shì Zhōngguórén. Nǐ ne?","tr":"I'm Chinese. And you?"},{"options":["我是英国人。","我叫英国人。"],"rs":["Wǒ shì Yīngguórén.","Wǒ jiào Yīngguórén."],"answer":0,"why":"{{叫|jiào}} is for your name; for what you are, {{是|shì}}."},{"who":"Li Wen","t":"认识你很高兴！","r":"Rènshi nǐ hěn gāoxìng!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We're students.","words":["我们","是","学生。"],"rs":["wǒmen","shì","xuésheng."]},
+        {"type":"say","q":"Say “I'm a teacher. And you?”","answer":"我是老师。你呢？","r":"Wǒ shì lǎoshī. Nǐ ne?"},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{你好！我叫…|Nǐ hǎo! Wǒ jiào…}}","answers":[{"t":"你好！我叫约翰，我是美国人。","r":"Nǐ hǎo! Wǒ jiào Yuēhàn, wǒ shì Měiguórén.","tr":"Hi! My name is John, I'm American."},{"t":"你好！我叫玛丽亚，我是西班牙人。","r":"Nǐ hǎo! Wǒ jiào Mǎlìyà, wǒ shì Xībānyárén.","tr":"Hi! My name is Maria, I'm Spanish."}]}
+      ]
+    },
+    {
+      "id": "read-pinyin",
+      "unit": 1,
+      "level": "A1",
+      "title": "Read pinyin and say the tones",
+      "summary": "Read the pinyin under every example, and hear the four tones that make {{妈|mā}} “mum” and {{马|mǎ}} “horse” two different words.",
+      "topic": "Characters and pinyin; the four tones and the light tone; how {{不|bù}} and {{一|yī}} change",
+      "blocks": [
+        {"goal":{"t":"谢谢！再见！","r":"Xièxie! Zàijiàn!","tr":"Thank you! Goodbye!"}},
+        {"p":"Chinese is written in **characters**. Each character is one syllable with a meaning: {{人|rén}} “person”, {{好|hǎo}} “good”, {{大|dà}} “big”. A character doesn't show how it's said, so learners (and Chinese children) use **pinyin**: the same sounds in Latin letters. Every example in this course has its pinyin, and you can hide it once you know the characters."},
+        {"p":"**The tones.** Every syllable is said with a melody, its tone, shown by the mark over the vowel. The tone is part of the word, as much as its letters:"},
+        { "table": [
+          ["Tone","Mark","How it sounds","Example"],
+          ["1st","ā","high and level, as if singing a note","{{妈|mā}} mum"],
+          ["2nd","á","rising, like a surprised “What?”","{{麻|má}} numb"],
+          ["3rd","ǎ","low and dipping","{{马|mǎ}} horse"],
+          ["4th","à","falling, short and firm, like a firm “No!”","{{骂|mà}} scold"],
+          ["light","a (no mark)","short and light","{{吗|ma}} (makes a question)"]
+        ] },
+        {"p":"So {{买|mǎi}} is “buy” and {{卖|mài}} is “sell”. Don't worry about getting every tone right from the start: listen, copy, and people will understand you, as they understand a foreign accent in English."},
+        {"p":"**Letters that don't sound like English.** Most pinyin letters sound as you'd guess. These don't:"},
+        { "table": [
+          ["Pinyin","Sounds like","Example"],
+          ["x","“sh”, with a smile","{{谢谢|xièxie}} thank you"],
+          ["q","“ch” in “cheese”","{{去|qù}} go"],
+          ["j","“j” in “jeep”","{{家|jiā}} home"],
+          ["zh, ch, sh","“j”, “ch”, “sh”, with the tongue curled back","{{中国|Zhōngguó}} China"],
+          ["c","“ts” in “cats”","{{菜|cài}} dish"],
+          ["z","“ds” in “kids”","{{再见|zàijiàn}} goodbye"],
+          ["r","between “r” and the “s” of “pleasure”","{{人|rén}} person"],
+          ["e","the “u” of “duh”","{{喝|hē}} drink"],
+          ["ü (after j, q, x: written u)","“ee” said with rounded lips","{{女|nǚ}} woman"]
+        ] },
+        {"p":"**Tones that change.** Two 3rd tones in a row: the first one rises, so {{你好|nǐ hǎo}} is said “ní hǎo” (the pinyin keeps nǐ). {{不|bù}} “not” becomes bú before a 4th tone: {{不是|bú shì}}. {{一|yī}} “one” becomes yí before a 4th tone and yì before the others: {{一个|yí ge}}, {{一起|yìqǐ}}. This course writes the changed tones of {{不|bù}} and {{一|yī}}, as Chinese textbooks do."},
+        { "ex": [
+          {"t":"你好！","r":"Nǐ hǎo!","tr":"Hello!","note":"said “ní hǎo”"},
+          {"t":"谢谢！","r":"Xièxie!","tr":"Thank you!","note":"the second xie is light"},
+          {"t":"不客气。","r":"Bú kèqi.","tr":"You're welcome.","note":"bù becomes bú before kè"},
+          {"t":"再见！","r":"Zàijiàn!","tr":"Goodbye!"},
+          {"t":"对不起。","r":"Duìbuqǐ.","tr":"Sorry."},
+          {"t":"没关系。","r":"Méi guānxi.","tr":"That's all right."}
+        ] },
+        {"tip":"One character, one syllable: count the syllables of the pinyin and you know how many characters there are. {{谢谢你|xièxie nǐ}} “thank you”: three."}
+      ],
+      "mistakes": [
+        {"wrong":"我想吻你一个问题。","right":"我想问你一个问题。","tr":"I'd like to ask you a question.","why":"{{问|wèn}}, falling, is “ask”; said dipping, {{吻|wěn}}, it's “kiss”: “I'd like to kiss you a question”. Tones matter!"},
+        {"wrong":"我要一碗糖。","right":"我要一碗汤。","tr":"I'd like a bowl of soup.","why":"{{汤|tāng}}, high and level, is soup; {{糖|táng}}, rising, is sugar: a bowl of sugar!"}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which tone is {{是|shì}}?","options":["1st: high and level","2nd: rising","3rd: low and dipping","4th: falling"],"answer":3,"why":"The mark falls, like the voice: shì."},
+        {"type":"choice","q":"Before {{是|shì}}, {{不|bù}} is said…","options":["bù","bú"],"answer":1,"why":"Before a 4th tone, bù becomes bú: {{不是|bú shì}}."},
+        {"type":"choice","q":"How many characters are there in {{谢谢你|xièxie nǐ}}?","options":["two","three","four"],"answer":1,"why":"One character for each syllable: xiè, xie, nǐ."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm a student.","words":["我","是","学生。"],"rs":["wǒ","shì","xuésheng."],"from":"say-who-you-are"},
+        {"type":"say","q":"Say “Thank you! Goodbye!”","answer":"谢谢！再见！","r":"Xièxie! Zàijiàn!"},
+        {"type":"free","q":"Your turn: someone says {{谢谢！|Xièxie!}} What do you answer? Then say goodbye.","answers":[{"t":"不客气！再见！","r":"Bú kèqi! Zàijiàn!","tr":"You're welcome! Goodbye!"},{"t":"不客气！明天见！","r":"Bú kèqi! Míngtiān jiàn!","tr":"You're welcome! See you tomorrow!"}]}
+      ]
+    },
+    {
+      "id": "ask-yes-or-no",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask yes-or-no questions",
+      "summary": "Turn any sentence into a question with one small word, and answer “yes” and “no” the Chinese way.",
+      "topic": "{{吗|ma}} questions; answering with the verb ({{是|shì}} / {{不是|bú shì}}); {{不|bù}} “not”; {{也|yě}} “too”",
+      "blocks": [
+        {"goal":{"t":"你是中国人吗？","r":"Nǐ shì Zhōngguórén ma?","tr":"Are you Chinese?"}},
+        {"dialog":[{"who":"Mark","t":"你是老师吗？","r":"Nǐ shì lǎoshī ma?","tr":"Are you a teacher?"},{"who":"Zhang Li","t":"不是，我是医生。你呢？","r":"Bú shì, wǒ shì yīshēng. Nǐ ne?","tr":"No, I'm a doctor. And you?"},{"who":"Mark","t":"我是学生。你是北京人吗？","r":"Wǒ shì xuésheng. Nǐ shì Běijīngrén ma?","tr":"I'm a student. Are you from Beijing?"},{"who":"Zhang Li","t":"是，我是北京人。","r":"Shì, wǒ shì Běijīngrén.","tr":"Yes, I'm from Beijing."},{"who":"Mark","t":"我朋友也是北京人！","r":"Wǒ péngyou yě shì Běijīngrén!","tr":"My friend is from Beijing too!"}]},
+        {"p":"**A question with {{吗|ma}}.** Take any sentence and put {{吗|ma}} at the end: {{你是老师。|Nǐ shì lǎoshī.}} “You're a teacher.” becomes {{你是老师吗？|Nǐ shì lǎoshī ma?}} “Are you a teacher?” Nothing else moves."},
+        {"term":"particle","means":"a small word with no meaning of its own that changes what a sentence does: {{吗|ma}} makes it a question."},
+        {"p":"**Yes and no.** Chinese has no one word for “yes” or “no”. You answer with the verb of the question: “Are you…?” “(I) am”, {{是|shì}}, or “(I) am not”, {{不是|bú shì}}. {{不|bù}} “not” goes right before the verb."},
+        { "table": [
+          ["Question","Yes","No"],
+          ["{{你是学生吗？|Nǐ shì xuésheng ma?}} Are you a student?","{{是。|Shì.}}","{{不是。|Bú shì.}}"],
+          ["{{你去吗？|Nǐ qù ma?}} Are you going?","{{去。|Qù.}}","{{不去。|Bú qù.}}"],
+          ["{{你叫大卫吗？|Nǐ jiào Dàwèi ma?}} Is your name David?","{{对。|Duì.}} Right.","{{不，我叫马克。|Bù, wǒ jiào Mǎkè.}}"]
+        ] },
+        {"p":"{{对|duì}} “right” is a handy “yes” when someone checks a fact. **Too** is {{也|yě}}, and it goes before the verb: {{我也是学生。|Wǒ yě shì xuésheng.}} “I'm a student too.” Never at the end, as in English."},
+        { "ex": [
+          {"t":"他是医生吗？","r":"Tā shì yīshēng ma?","tr":"Is he a doctor?"},
+          {"t":"我不是英国人。","r":"Wǒ bú shì Yīngguórén.","tr":"I'm not British."},
+          {"t":"她也是老师。","r":"Tā yě shì lǎoshī.","tr":"She's a teacher too."},
+          {"t":"你们是学生吗？","r":"Nǐmen shì xuésheng ma?","tr":"Are you students?","note":"{{你们|nǐmen}}: talking to more than one person"},
+          {"t":"我们不是中国人。","r":"Wǒmen bú shì Zhōngguórén.","tr":"We're not Chinese."},
+          {"t":"你也去吗？","r":"Nǐ yě qù ma?","tr":"Are you going too?"}
+        ] },
+        {"tip":"Your voice doesn't need to go up at the end of a {{吗|ma}} question, as it does in English: {{吗|ma}} already makes it a question."}
+      ],
+      "mistakes": [
+        {"wrong":"我是学生也。","right":"我也是学生。","tr":"I'm a student too.","why":"{{也|yě}} goes before the verb, never at the end: {{我也是学生。|Wǒ yě shì xuésheng.}}"},
+        {"wrong":"我是不老师。","right":"我不是老师。","tr":"I'm not a teacher.","why":"{{不|bù}} goes right before the verb it denies: {{我不是老师。|Wǒ bú shì lǎoshī.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你是医生___？","r":"Nǐ shì yīshēng ___?","tr":"Are you a doctor?","options":["吗","呢","也"],"rs":["ma","ne","yě"],"answer":0,"why":"A yes-or-no question ends in {{吗|ma}}. ({{呢|ne}} is for “and you?”: {{你呢？|Nǐ ne?}})"},
+        {"type":"choice","q":"Someone asks {{你是美国人吗？|Nǐ shì Měiguórén ma?}} You're American. You say…","options":["{{是。|Shì.}}","{{吗。|Ma.}}","{{不是。|Bú shì.}}"],"answer":0,"why":"Answer with the verb: {{是|shì}} “(I) am”."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm not a teacher.","words":["我","不是","老师。"],"rs":["wǒ","bú shì","lǎoshī."]},
+        {"type":"dialogue","q":"At a language exchange. You're Emma, a student from Canada. Choose your replies.","lines":[{"who":"Li Ming","t":"你好！你是学生吗？","r":"Nǐ hǎo! Nǐ shì xuésheng ma?","tr":"Hi! Are you a student?"},{"options":["是，我是学生。","吗，我是学生。","不是，我是学生。"],"rs":["Shì, wǒ shì xuésheng.","Ma, wǒ shì xuésheng.","Bú shì, wǒ shì xuésheng."],"answer":0,"why":"Yes: {{是|shì}}, the verb of the question."},{"who":"Li Ming","t":"你是美国人吗？","r":"Nǐ shì Měiguórén ma?","tr":"Are you American?"},{"options":["不是，我是加拿大人。","是，我是加拿大人。"],"rs":["Bú shì, wǒ shì Jiānádàrén.","Shì, wǒ shì Jiānádàrén."],"answer":0,"why":"You're not American: {{不是|bú shì}}, then what you are."},{"who":"Li Ming","t":"我也是学生！","r":"Wǒ yě shì xuésheng!","tr":"I'm a student too!"}]},
+        {"type":"say","q":"Ask: “Are you Chinese?”","answer":"你是中国人吗？","r":"Nǐ shì Zhōngguórén ma?","from":"say-who-you-are"},
+        {"type":"free","q":"Your turn: say what you are, and what you're not.","answers":[{"t":"我是老师，我不是学生。","r":"Wǒ shì lǎoshī, wǒ bú shì xuésheng.","tr":"I'm a teacher, I'm not a student."},{"t":"我是英国人，我不是美国人。","r":"Wǒ shì Yīngguórén, wǒ bú shì Měiguórén.","tr":"I'm British, I'm not American."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say how you are and what things are like",
+      "summary": "“I'm busy”, “It's cold today”, “Chinese isn't hard”: describe people and things, without the word for “is”.",
+      "topic": "Adjectives with {{很|hěn}} and no {{是|shì}}; {{不|bù}} + adjective; {{太…了|tài…le}}",
+      "blocks": [
+        {"goal":{"t":"中文不难！","r":"Zhōngwén bù nán!","tr":"Chinese isn't hard!"}},
+        {"dialog":[{"who":"Xiao Wang","t":"最近忙吗？","r":"Zuìjìn máng ma?","tr":"Busy lately?"},{"who":"Anna","t":"很忙！工作很多。你呢？","r":"Hěn máng! Gōngzuò hěn duō. Nǐ ne?","tr":"Very busy! Lots of work. And you?"},{"who":"Xiao Wang","t":"我不忙。中文难吗？","r":"Wǒ bù máng. Zhōngwén nán ma?","tr":"I'm not busy. Is Chinese hard?"},{"who":"Anna","t":"不难！很有意思。","r":"Bù nán! Hěn yǒu yìsi.","tr":"Not hard! It's really interesting."},{"who":"Xiao Wang","t":"太好了！","r":"Tài hǎo le!","tr":"Great!"}]},
+        {"p":"**No “is” with describing words.** To say what someone or something is *like*, put the describing word straight after it, usually with {{很|hěn}}: {{我很忙。|Wǒ hěn máng.}} “I'm busy.” There is no {{是|shì}} here: {{是|shì}} joins two nouns (“I am a student”), not a person and a description."},
+        {"term":"adjective","means":"a word that describes a person or a thing: big, cold, busy, happy."},
+        {"p":"{{很|hěn}} means “very”, but in a plain sentence it's said lightly, almost without meaning, to make the sentence sound finished: {{我很好。|Wǒ hěn hǎo.}} is just “I'm fine”. In a {{吗|ma}} question and after {{不|bù}}, there's no {{很|hěn}}:"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["saying it","{{我很累。|Wǒ hěn lèi.}}","I'm tired."],
+          ["not","{{我不累。|Wǒ bú lèi.}}","I'm not tired."],
+          ["asking","{{你累吗？|Nǐ lèi ma?}}","Are you tired?"],
+          ["so…!","{{我太累了！|Wǒ tài lèi le!}}","I'm so tired!"]
+        ] },
+        {"p":"**Too, so** is {{太|tài}} before the adjective and {{了|le}} after it: {{太贵了！|Tài guì le!}} “Too expensive!”, {{太好了！|Tài hǎo le!}} “Great!”"},
+        { "ex": [
+          {"t":"我很高兴。","r":"Wǒ hěn gāoxìng.","tr":"I'm happy."},
+          {"t":"今天很热。","r":"Jīntiān hěn rè.","tr":"It's hot today.","note":"no word for “it”: “today very hot”"},
+          {"t":"中文不难。","r":"Zhōngwén bù nán.","tr":"Chinese isn't hard."},
+          {"t":"他很高。","r":"Tā hěn gāo.","tr":"He's tall."},
+          {"t":"北京很大。","r":"Běijīng hěn dà.","tr":"Beijing is big."},
+          {"t":"你累吗？","r":"Nǐ lèi ma?","tr":"Are you tired?"}
+        ] },
+        {"tip":"{{你好吗？|Nǐ hǎo ma?}} “How are you?” is in every textbook, but friends more often ask {{最近怎么样？|Zuìjìn zěnmeyàng?}} “How have you been?” or {{最近忙吗？|Zuìjìn máng ma?}} “Busy lately?”"}
+      ],
+      "mistakes": [
+        {"wrong":"我是很忙。","right":"我很忙。","tr":"I'm busy.","why":"No {{是|shì}} before a describing word: {{我很忙。|Wǒ hěn máng.}}"},
+        {"wrong":"我不是忙。","right":"我不忙。","tr":"I'm not busy.","why":"{{不|bù}} goes straight before the adjective, with no {{是|shì}} here either: {{我不忙。|Wǒ bù máng.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我___累。","r":"Wǒ ___ lèi.","tr":"I'm tired.","options":["很","是","吗"],"rs":["hěn","shì","ma"],"answer":0,"why":"A describing word takes {{很|hěn}}, not {{是|shì}}."},
+        {"type":"choice","q":"“Chinese isn't hard” is…","options":["{{中文不难。|Zhōngwén bù nán.}}","{{中文不是难。|Zhōngwén bú shì nán.}}","{{中文难不。|Zhōngwén nán bù.}}"],"answer":0,"why":"{{不|bù}} right before the adjective, and no {{是|shì}}."},
+        {"type":"dialogue","q":"A friend calls. Choose your replies.","lines":[{"who":"Xiao Li","t":"最近忙吗？","r":"Zuìjìn máng ma?","tr":"Busy lately?"},{"options":["很忙！","是忙！"],"rs":["Hěn máng!","Shì máng!"],"answer":0,"why":"{{很|hěn}} + the adjective, no {{是|shì}}."},{"who":"Xiao Li","t":"累吗？","r":"Lèi ma?","tr":"Tired?"},{"options":["不累。你呢？","不是累。你呢？"],"rs":["Bú lèi. Nǐ ne?","Bú shì lèi. Nǐ ne?"],"answer":0,"why":"{{不累|bú lèi}}: {{不|bù}} straight before the adjective. Then turn the question back with {{呢|ne}}."},{"who":"Xiao Li","t":"我也不累！","r":"Wǒ yě bú lèi!","tr":"I'm not tired either!"}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"Put the words in order.","tr":"It's very hot today.","words":["今天","很","热。"],"rs":["jīntiān","hěn","rè."]},
+        {"type":"say","q":"In a shop: “Too expensive!”","answer":"太贵了！","r":"Tài guì le!"},
+        {"type":"free","q":"Your turn: say how you are today, and what your city is like.","answers":[{"t":"我今天很忙。纽约很大，也很漂亮。","r":"Wǒ jīntiān hěn máng. Niǔyuē hěn dà, yě hěn piàoliang.","tr":"I'm busy today. New York is big, and beautiful too."},{"t":"我今天不累。伦敦很冷！","r":"Wǒ jīntiān bú lèi. Lúndūn hěn lěng!","tr":"I'm not tired today. London is cold!"}]}
+      ]
+    },
+    {
+      "id": "ask-who-what-where",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask who, what and where",
+      "summary": "“What's your name?”, “Who's she?”, “Where are you from?”: ask for information, and leave every word where it is.",
+      "topic": "Question words {{什么|shénme}}, {{谁|shéi}}, {{哪|nǎ}}, {{哪儿|nǎr}}: in the place of the answer",
+      "blocks": [
+        {"goal":{"t":"你叫什么名字？","r":"Nǐ jiào shénme míngzi?","tr":"What's your name?"}},
+        {"dialog":[{"who":"Wang Ming","t":"她是谁？","r":"Tā shì shéi?","tr":"Who's she?"},{"who":"Anna","t":"她是我朋友，叫玛丽。","r":"Tā shì wǒ péngyou, jiào Mǎlì.","tr":"She's my friend, her name is Mary."},{"who":"Wang Ming","t":"她是哪国人？","r":"Tā shì nǎ guó rén?","tr":"Where's she from?"},{"who":"Anna","t":"她是法国人。","r":"Tā shì Fǎguórén.","tr":"She's French."},{"who":"Wang Ming","t":"她做什么工作？","r":"Tā zuò shénme gōngzuò?","tr":"What does she do?"},{"who":"Anna","t":"她是老师。","r":"Tā shì lǎoshī.","tr":"She's a teacher."}]},
+        {"p":"**The question word goes where the answer goes.** English moves “what” and “who” to the front; Chinese moves nothing. Say the sentence as if you knew, and put the question word in the gap:"},
+        { "table": [
+          ["Saying","Asking"],
+          ["{{我叫安娜。|Wǒ jiào Ānnà.}} I'm called Anna.","{{你叫什么？|Nǐ jiào shénme?}} You're called what?"],
+          ["{{她是玛丽。|Tā shì Mǎlì.}} She's Mary.","{{她是谁？|Tā shì shéi?}} She's who?"],
+          ["{{他是美国人。|Tā shì Měiguórén.}} He's American.","{{他是哪国人？|Tā shì nǎ guó rén?}} He's which-country person?"],
+          ["{{这是茶。|Zhè shì chá.}} This is tea.","{{这是什么？|Zhè shì shénme?}} This is what?"]
+        ] },
+        {"term":"question word","means":"a word that asks for a piece of information: what, who, where, how many."},
+        {"p":"A question word already makes a question, so there's no {{吗|ma}} with it. {{谁|shéi}} “who” is also said shuí. {{哪|nǎ}} is “which”, and {{哪儿|nǎr}} “where”: northern China says {{哪儿|nǎr}}, the south {{哪里|nǎlǐ}}, and both are right."},
+        { "ex": [
+          {"t":"你叫什么名字？","r":"Nǐ jiào shénme míngzi?","tr":"What's your name?","note":"“you are called what name?”"},
+          {"t":"他是谁？","r":"Tā shì shéi?","tr":"Who is he?"},
+          {"t":"你是哪国人？","r":"Nǐ shì nǎ guó rén?","tr":"What country are you from?"},
+          {"t":"你是哪儿人？","r":"Nǐ shì nǎr rén?","tr":"Where are you from?","note":"which city or region"},
+          {"t":"这是什么？","r":"Zhè shì shénme?","tr":"What's this?"},
+          {"t":"谁是老师？","r":"Shéi shì lǎoshī?","tr":"Who's the teacher?","note":"the answer (“Mr Li is…”) would come first, so {{谁|shéi}} comes first"}
+        ] },
+        {"tip":"A polite way to ask a name: {{您贵姓？|Nín guìxìng?}} “What's your family name?” ({{您|nín}} is a respectful “you”). In Chinese the family name comes first: {{王明|Wáng Míng}} is Mr Wang."}
+      ],
+      "mistakes": [
+        {"wrong":"什么你叫？","right":"你叫什么？","tr":"What's your name?","why":"Don't move the question word to the front: it stays where the answer goes. {{你叫什么？|Nǐ jiào shénme?}}"},
+        {"wrong":"她是谁吗？","right":"她是谁？","tr":"Who's she?","why":"A question word already asks: no {{吗|ma}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"你是___国人？","r":"Nǐ shì ___ guó rén?","tr":"What country are you from?","options":["哪","什么","谁"],"rs":["nǎ","shénme","shéi"],"answer":0,"why":"{{哪|nǎ}} “which”: {{哪国人|nǎ guó rén}} “which-country person”."},
+        {"type":"choice","q":"How do you ask “Who's the teacher?”","options":["{{谁是老师？|Shéi shì lǎoshī?}}","{{谁是老师吗？|Shéi shì lǎoshī ma?}}","{{谁老师是？|Shéi lǎoshī shì?}}"],"answer":0,"why":"{{谁|shéi}} in the place of the answer, the normal word order, and no {{吗|ma}}."},
+        {"type":"dialogue","q":"At a party. Choose your replies.","lines":[{"who":"Liu Yang","t":"你好！你叫什么名字？","r":"Nǐ hǎo! Nǐ jiào shénme míngzi?","tr":"Hi! What's your name?"},{"options":["我叫汤姆。","我叫什么汤姆。"],"rs":["Wǒ jiào Tāngmǔ.","Wǒ jiào shénme Tāngmǔ."],"answer":0,"why":"Your name goes where {{什么|shénme}} was."},{"who":"Liu Yang","t":"你是哪国人？","r":"Nǐ shì nǎ guó rén?","tr":"Where are you from?"},{"options":["我是英国人。","我是哪英国人。"],"rs":["Wǒ shì Yīngguórén.","Wǒ shì nǎ Yīngguórén."],"answer":0,"why":"{{英国人|Yīngguórén}} takes the place of {{哪国人|nǎ guó rén}}."},{"who":"Liu Yang","t":"她呢？她是谁？","r":"Tā ne? Tā shì shéi?","tr":"And her? Who's she?"},{"options":["她是我朋友。","她是我朋友吗？"],"rs":["Tā shì wǒ péngyou.","Tā shì wǒ péngyou ma?"],"answer":0,"why":"You're answering, not asking: no {{吗|ma}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"What's your name?","words":["你","叫","什么","名字？"],"rs":["nǐ","jiào","shénme","míngzi?"]},
+        {"type":"say","q":"Ask someone new: “Where are you from? Are you a student?”","answer":"你是哪国人？你是学生吗？","r":"Nǐ shì nǎ guó rén? Nǐ shì xuésheng ma?","from":"ask-yes-or-no"},
+        {"type":"free","q":"Your turn: you've just met someone. Ask their name and where they're from, and ask who their friend is.","answers":[{"t":"你叫什么名字？你是哪国人？","r":"Nǐ jiào shénme míngzi? Nǐ shì nǎ guó rén?","tr":"What's your name? What country are you from?"},{"t":"你是哪儿人？他是谁？","r":"Nǐ shì nǎr rén? Tā shì shéi?","tr":"Where are you from? Who's he?"}]}
+      ]
+    }
+  ]
+}
