@@ -1602,6 +1602,194 @@
         {"type":"dialogue","q":"옷 가게에서 원피스를 입어 봤어요. 알맞은 대답을 고르세요.","from":"describe-people","lines":[{"who":"점원","t":"How does the dress look?","tr":"원피스 어떠세요?"},{"options":["It looks really nice, but it's too long.","It looks too nice, but it's very long."],"answer":0,"why":"좋은 건 {{really}}, 문제는 {{too}}."},{"who":"점원","t":"Do you want a shorter one?","tr":"더 짧은 걸로 드릴까요?"},{"options":["Yes, please. This one isn't short enough.","Yes, please. This one isn't enough short."],"answer":0,"why":"형용사 뒤에 {{enough}}."}]},
         {"type":"free","q":"여러분 차례예요: 정말 좋았던 것 하나({{so}}, {{really}})와 문제가 있었던 것 하나({{too}})를 말해 보세요.","answers":[{"t":"The concert was so amazing! But the tickets were too expensive.","tr":"콘서트 정말 대단했어요! 그런데 표가 너무 비쌌어요."},{"t":"My new apartment is really nice, but it's too far from my office.","tr":"새 아파트는 정말 좋은데, 회사에서 너무 멀어요."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 8,
+      "level": "A2",
+      "title": "경험 말하기",
+      "summary": "“뉴욕에 가 본 적 있어요?”, “한 번도 안 먹어 봤어요”처럼 지금까지의 경험을 말해요.",
+      "topic": "현재완료 {{have}} + 과거분사: {{Have you ever…?}}, {{I've never…}}; {{been}} vs {{gone}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York?","tr":"뉴욕에 가 본 적 있어요?"}},
+        {"dialog":[{"who":"클로이","t":"Have you ever been to the U.S.?","tr":"미국에 가 본 적 있어요?"},{"who":"도현","t":"Yes, I have. I've been to L.A. twice.","tr":"네, 있어요. LA에 두 번 가 봤어요."},{"who":"클로이","t":"Cool! Have you ever tried Mexican food?","tr":"멋지네요! 멕시코 음식은 먹어 본 적 있어요?"},{"who":"도현","t":"No, I haven't. I've never had tacos!","tr":"아니요, 없어요. 타코를 한 번도 안 먹어 봤어요!"},{"who":"클로이","t":"Really? Let's go to a taco place tonight!","tr":"정말요? 오늘 밤에 타코 집에 가요!"}]},
+        {"p":"**경험: {{have}} + 과거분사.** “~해 본 적이 있어요”는 {{have}} + 과거분사로 말해요: {{I've seen that movie.}} “그 영화 본 적 있어요.” 한국어 “-아/어 본 적이 있다”와 비슷해요. 언제였는지는 말하지 않아요. 중요한 건 지금까지 그런 경험이 있다는 사실이에요."},
+        {"term":"과거분사","means":"{{have}} 다음에 오는 동사 모양이에요. 규칙 동사는 과거형과 같고({{visited}}), 불규칙 동사는 따로 외워요({{seen}}, {{been}}, {{eaten}})."},
+        {"term":"현재완료","means":"{{have}}/{{has}} + 과거분사예요. 과거의 일이 지금과 이어질 때 써요: 경험, 지금까지 계속된 일, 방금 끝난 일."},
+        { "table": [
+          ["동사","과거","과거분사"],
+          ["{{be}}","{{was}} / {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{have}}","{{had}}","{{had}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{meet}}","{{met}}","{{met}}"],
+          ["{{try}}","{{tried}}","{{tried}}"]
+        ] },
+        {"p":"**묻고 대답하기.** {{Have you ever…?}} “(한 번이라도) ~해 본 적 있어요?” → {{Yes, I have.}} / {{No, I haven't.}} “한 번도 안 해 봤어요”는 {{I've never…}}예요. 3인칭은 {{has}}: {{She has never been to Japan.}}"},
+        {"p":"**{{been}}과 {{gone}}.** {{I've been to Paris.}} “파리에 가 본 적 있어요(다녀왔어요).” {{She's gone to Paris.}} “그녀는 파리에 갔어요(지금 거기 있어요).” 경험을 말할 때는 {{been}}이에요."},
+        { "ex": [
+          {"t":"I've seen this movie three times.","tr":"이 영화 세 번 봤어요."},
+          {"t":"Have you ever eaten sushi?","tr":"초밥 먹어 본 적 있어요?"},
+          {"t":"I've never been to Europe.","tr":"유럽에 한 번도 안 가 봤어요."},
+          {"t":"She's tried bungee jumping.","tr":"그녀는 번지점프를 해 본 적이 있어요."},
+          {"t":"Have you met my boyfriend?","tr":"제 남자 친구 만나 본 적 있어요?"},
+          {"t":"He's gone to Busan for the weekend.","tr":"그는 주말 동안 부산에 갔어요.","note":"지금 여기 없어요"}
+        ] },
+        {"tip":"{{I've}}는 {{I have}}, {{She's}}는 {{She has}}의 줄임말이에요. {{She's}}는 {{She is}}일 수도 있어요: 뒤에 과거분사가 오면 {{has}}예요."}
+      ],
+      "mistakes": [
+        {"wrong":"Have you ever went to Japan?","right":"Have you ever been to Japan?","tr":"일본에 가 본 적 있어요?","why":"{{have}} 다음에는 과거분사예요. 경험은 {{been}}."},
+        {"wrong":"I have never ate kimchi.","right":"I have never eaten kimchi.","tr":"김치를 한 번도 안 먹어 봤어요.","why":"{{eat}}의 과거분사는 {{eaten}}이에요."},
+        {"wrong":"I've been to Paris last year.","right":"I went to Paris last year.","tr":"작년에 파리에 갔어요.","why":"{{last year}}처럼 끝난 때를 말하면 과거형이에요 (38과)."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“제주도에 가 본 적 있어요?”","options":["{{Have you ever been to Jeju?}}","{{Have you ever went to Jeju?}}","{{Did you ever be to Jeju?}}"],"answer":0,"why":"경험: {{Have you ever been…?}}"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I've never ___ a horse.","tr":"말을 한 번도 안 타 봤어요.","options":["ridden","rode","ride"],"answer":0,"why":"{{ride}}의 과거분사: {{ridden}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"___ she ever tried Korean food?","tr":"그녀는 한국 음식을 먹어 본 적 있어요?","options":["Has","Have","Did"],"answer":0,"why":"3인칭 단수: {{Has}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"유럽에 한 번도 안 가 봤어요.","words":["I've","never","been","to","Europe."]},
+        {"type":"dialogue","q":"친구가 여행 경험을 물어요. 알맞은 대답을 고르세요.","from":"ask-about-the-past","lines":[{"who":"친구","t":"Have you ever been to Canada?","tr":"캐나다에 가 본 적 있어요?"},{"options":["Yes, I have. I went there in 2019.","Yes, I have. I've been there in 2019."],"answer":0,"why":"경험은 {{I have}}, 정확한 때는 과거형 {{went}}."},{"who":"친구","t":"Did you see the Rocky Mountains?","tr":"로키산맥 봤어요?"},{"options":["No, I didn't. But I saw Niagara Falls.","No, I haven't saw. But I seen Niagara Falls."],"answer":0,"why":"{{Did}} 질문에는 {{didn't}}, 과거의 일은 {{saw}}."}]},
+        {"type":"say","q":"“초밥 먹어 본 적 있어요?”","answer":"Have you ever eaten sushi?"},
+        {"type":"free","q":"여러분 차례예요: 해 본 적 있는 특별한 경험 하나와, 한 번도 안 해 본 것 하나를 말해 보세요.","answers":[{"t":"I've been to Thailand twice. I've never tried skiing.","tr":"태국에 두 번 가 봤어요. 스키는 한 번도 안 타 봤어요."},{"t":"I've met a famous singer! I've never been on a plane.","tr":"유명한 가수를 만나 본 적 있어요! 비행기는 한 번도 안 타 봤어요."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 8,
+      "level": "A2",
+      "title": "얼마나 오래 했는지 말하기",
+      "summary": "“서울에 산 지 10년 됐어요”, “2020년부터 여기서 일했어요”처럼 지금까지 계속된 일을 말해요.",
+      "topic": "현재완료 + {{for}} (기간) / {{since}} (시작점); {{How long have you…?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Seoul for ten years.","tr":"서울에 산 지 10년 됐어요."}},
+        {"dialog":[{"who":"면접관","t":"How long have you lived in the U.S.?","tr":"미국에 사신 지 얼마나 됐어요?"},{"who":"선희","t":"I've lived here for three years.","tr":"3년 됐어요."},{"who":"면접관","t":"And how long have you worked at your company?","tr":"지금 회사에서는 얼마나 일하셨어요?"},{"who":"선희","t":"Since 2022. So, about two years.","tr":"2022년부터요. 그러니까 2년쯤이요."},{"who":"면접관","t":"Have you studied English for a long time?","tr":"영어는 오래 공부하셨어요?"},{"who":"선희","t":"Yes. I've studied English since middle school!","tr":"네. 중학교 때부터 영어를 공부했어요!"}]},
+        {"p":"**지금까지 계속: 현재완료.** 과거에 시작해서 **지금도** 계속되는 일은 현재완료로 말해요: {{I've lived in Seoul for ten years.}} 한국어는 “10년째 살고 있어요”처럼 현재형으로 말하니까, 한국 사람들은 {{I live in Seoul for ten years}}라고 하기 쉬워요. 하지만 영어에서는 틀린 문장이에요."},
+        { "table": [
+          ["한국어","틀린 영어","맞는 영어"],
+          ["서울에 10년째 살고 있어요.","{{I live in Seoul for 10 years.}}","{{I've lived in Seoul for 10 years.}}"],
+          ["여기서 일한 지 2년 됐어요.","{{I work here for 2 years.}}","{{I've worked here for 2 years.}}"]
+        ] },
+        {"p":"**{{for}}와 {{since}}.** {{for}} + 기간 “~ 동안”: {{for three years}}, {{for a long time}}. {{since}} + 시작한 때 “~부터”: {{since 2020}}, {{since Monday}}, {{since I was a child}}."},
+        { "table": [
+          ["{{for}} + 기간","{{since}} + 시작점"],
+          ["{{for two hours}} 두 시간 동안","{{since nine o'clock}} 아홉 시부터"],
+          ["{{for five years}} 5년 동안","{{since 2019}} 2019년부터"],
+          ["{{for a long time}} 오랫동안","{{since high school}} 고등학교 때부터"]
+        ] },
+        {"p":"**얼마나 오래? {{How long have you…?}}** {{How long have you known her?}} “그녀를 안 지 얼마나 됐어요?” be동사는 {{been}}을 써요: {{How long have you been in Korea?}} “한국에 온 지 얼마나 됐어요?” → {{I've been here for six months.}}"},
+        { "ex": [
+          {"t":"I've known Jisu since college.","tr":"지수는 대학 때부터 알았어요."},
+          {"t":"We've been married for five years.","tr":"우리는 결혼한 지 5년 됐어요."},
+          {"t":"How long have you been in Korea?","tr":"한국에 온 지 얼마나 됐어요?"},
+          {"t":"She's worked here since March.","tr":"그녀는 3월부터 여기서 일했어요."},
+          {"t":"I haven't seen him for a long time.","tr":"그를 오랫동안 못 봤어요."},
+          {"t":"It's been raining since this morning.","tr":"아침부터 계속 비가 와요.","note":"{{have been}} + {{-ing}}: 지금까지 계속 진행 중인 일 (알아 두기)"}
+        ] },
+        {"tip":"{{How long are you here?}}는 “여기 얼마나 있을 거예요?”(앞으로)라는 뜻에 가까워요. 지금까지를 물을 때는 {{How long have you been here?}}예요."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here for five years.","right":"I've lived here for five years.","tr":"여기 산 지 5년 됐어요.","why":"지금까지 계속된 일은 현재완료예요."},
+        {"wrong":"I've worked here since two years.","right":"I've worked here for two years.","tr":"여기서 일한 지 2년 됐어요.","why":"기간은 {{for}}, 시작점은 {{since}}."},
+        {"wrong":"How long are you in Korea?","right":"How long have you been in Korea?","tr":"한국에 온 지 얼마나 됐어요?","why":"“~한 지 얼마나 됐어요?”는 현재완료: {{have you been}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“서울에 산 지 5년 됐어요.”","options":["{{I've lived in Seoul for five years.}}","{{I live in Seoul for five years.}}","{{I'm living in Seoul since five years.}}"],"answer":0,"why":"지금까지 계속: 현재완료 + {{for}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I've known her ___ 2015.","tr":"2015년부터 그녀를 알았어요.","options":["since","for","from"],"answer":0,"why":"시작점: {{since}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We've been married ___ ten years.","tr":"결혼한 지 10년 됐어요.","options":["for","since","during"],"answer":0,"why":"기간: {{for}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"한국에 온 지 얼마나 됐어요?","words":["How","long","have","you","been","in","Korea?"]},
+        {"type":"dialogue","q":"새 동료와 이야기해요. 알맞은 대답을 고르세요.","from":"talk-about-experiences","lines":[{"who":"동료","t":"How long have you worked here?","tr":"여기서 일한 지 얼마나 됐어요?"},{"options":["I've worked here for three years.","I work here for three years."],"answer":0,"why":"지금까지 계속: 현재완료."},{"who":"동료","t":"Have you ever worked abroad?","tr":"해외에서 일해 본 적 있어요?"},{"options":["No, I haven't. But I'd like to.","No, I didn't have. But I'd like to."],"answer":0,"why":"{{Have you…?}}에는 {{I haven't}}로 대답해요."}]},
+        {"type":"say","q":"“그를 오랫동안 못 봤어요.”","answer":"I haven't seen him for a long time."},
+        {"type":"free","q":"여러분 차례예요: 지금 사는 곳에 얼마나 살았는지, 영어를 언제부터 공부했는지 말해 보세요.","answers":[{"t":"I've lived in Incheon for seven years. I've studied English since elementary school.","tr":"인천에 산 지 7년 됐어요. 초등학교 때부터 영어를 공부했어요."},{"t":"I've lived in this apartment since 2021. I've known my best friend for twenty years.","tr":"2021년부터 이 아파트에 살았어요. 제일 친한 친구와는 안 지 20년 됐어요."}]}
+      ]
+    },
+    {
+      "id": "give-news",
+      "unit": 8,
+      "level": "A2",
+      "title": "새 소식 전하기",
+      "summary": "“방금 끝냈어요”, “벌써 보냈어요”, “아직 안 했어요”처럼 지금과 이어진 소식을 전해요.",
+      "topic": "현재완료 + {{just}}, {{already}}, {{yet}}; {{Not yet.}}",
+      "blocks": [
+        {"goal":{"t":"I've just finished my homework.","tr":"방금 숙제를 끝냈어요."}},
+        {"dialog":[{"who":"켈리","t":"Have you sent the email yet?","tr":"이메일 보냈어요?"},{"who":"재민","t":"Yes, I've already sent it.","tr":"네, 벌써 보냈어요."},{"who":"켈리","t":"Great. Has the client replied yet?","tr":"좋아요. 고객한테 답장 왔어요?"},{"who":"재민","t":"No, not yet. Oh, wait, she's just replied!","tr":"아니요, 아직이요. 아, 잠깐만요, 방금 답장 왔어요!"},{"who":"켈리","t":"Perfect. Have you had lunch?","tr":"완벽해요. 점심은 먹었어요?"},{"who":"재민","t":"Not yet. I'm starving!","tr":"아직요. 배고파 죽겠어요!"}]},
+        {"p":"**지금과 이어진 소식.** 현재완료는 과거에 한 일이 **지금** 영향을 줄 때도 써요: {{I've lost my key.}} “열쇠를 잃어버렸어요” (그래서 지금 없어요). 이때 {{just}}, {{already}}, {{yet}}과 자주 함께 써요."},
+        { "table": [
+          ["단어","뜻","위치","예"],
+          ["{{just}}","방금","{{have}}와 과거분사 사이","{{I've just arrived.}}"],
+          ["{{already}}","벌써, 이미","{{have}}와 과거분사 사이","{{I've already eaten.}}"],
+          ["{{yet}}","(질문) 벌써, 이제 / (부정) 아직","문장 끝","{{Have you eaten yet?}} / {{I haven't eaten yet.}}"]
+        ] },
+        {"p":"**{{yet}}.** 질문에서는 “벌써, 이제”: {{Has the movie started yet?}} “영화 벌써 시작했어요?” 부정문에서는 “아직”: {{It hasn't started yet.}} 짧게 {{Not yet.}} “아직이요.”라고 해도 돼요."},
+        {"p":"**미국 영어에서는.** 미국 사람들은 일상 대화에서 {{just}}, {{already}}, {{yet}}과 함께 과거형도 많이 써요: {{I just finished.}}, {{Did you eat yet?}} 들으면 이해하면 돼요. 이 과에서는 기본인 현재완료로 연습해요."},
+        { "ex": [
+          {"t":"I've just woken up.","tr":"방금 일어났어요."},
+          {"t":"She's already left.","tr":"그녀는 이미 떠났어요."},
+          {"t":"Have you finished the report yet?","tr":"보고서 다 끝냈어요?"},
+          {"t":"I haven't decided yet.","tr":"아직 결정 못 했어요."},
+          {"t":"I've lost my phone!","tr":"휴대폰을 잃어버렸어요!"},
+          {"t":"The package hasn't arrived yet.","tr":"택배가 아직 안 왔어요."}
+        ] },
+        {"tip":"{{Have you eaten yet?}}은 한국어 “밥 먹었어요?”처럼 인사로 쓰이지는 않아요. 진짜로 식사했는지 묻는 말이에요."}
+      ],
+      "mistakes": [
+        {"wrong":"I've finished already it.","right":"I've already finished it.","tr":"벌써 끝냈어요.","why":"{{already}}는 {{have}}와 과거분사 사이에 와요."},
+        {"wrong":"I've just arrive.","right":"I've just arrived.","tr":"방금 도착했어요.","why":"{{have}} 다음에는 과거분사: {{arrived}}."},
+        {"wrong":"Have you had lunch? — Yes, I've.","right":"Have you had lunch? — Yes, I have.","tr":"점심 먹었어요? — 네, 먹었어요.","why":"짧은 대답의 끝에서는 줄이지 않아요 (3과처럼)."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“방금 도착했어요.”","options":["{{I've just arrived.}}","{{I've arrived just.}}","{{I just have arrive.}}"],"answer":0,"why":"{{have}} + {{just}} + 과거분사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I haven't finished my homework ___.","tr":"아직 숙제를 다 못 했어요.","options":["yet","already","just"],"answer":0,"why":"부정문 끝의 “아직”: {{yet}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"She's ___ left. You missed her!","tr":"그녀는 이미 떠났어요. 엇갈렸네요!","options":["already","yet","since"],"answer":0,"why":"“이미”: {{already}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"택배가 아직 안 왔어요.","words":["The","package","hasn't","arrived","yet."]},
+        {"type":"dialogue","q":"친구와 콘서트 이야기를 해요. 알맞은 대답을 고르세요.","from":"say-how-long","lines":[{"who":"친구","t":"Have you bought the tickets yet?","tr":"표 샀어요?"},{"options":["Yes, I've already bought them.","Yes, I've bought already them."],"answer":0,"why":"{{already}}는 {{have}}와 과거분사 사이."},{"who":"친구","t":"Great! How long have you wanted to see this band?","tr":"좋아요! 이 밴드 보고 싶었던 게 얼마나 됐어요?"},{"options":["Since high school!","For high school!"],"answer":0,"why":"시작점은 {{since}}."}]},
+        {"type":"say","q":"“휴대폰을 잃어버렸어요!”","answer":"I've lost my phone!"},
+        {"type":"free","q":"여러분 차례예요: 오늘 벌써 한 일 두 가지와 아직 안 한 일 하나를 말해 보세요.","answers":[{"t":"I've already had breakfast, and I've just finished my English lesson. I haven't cleaned my room yet.","tr":"벌써 아침을 먹었고, 방금 영어 수업을 끝냈어요. 방 청소는 아직 안 했어요."},{"t":"I've already done the laundry. I haven't called my mom yet.","tr":"빨래는 벌써 했어요. 엄마한테는 아직 전화 안 했어요."}]}
+      ]
+    },
+    {
+      "id": "choose-past-or-perfect",
+      "unit": 8,
+      "level": "B1",
+      "title": "과거와 현재완료 구별하기",
+      "summary": "“어제 봤어요”와 “본 적 있어요”를 영어로 정확하게 구별해요. 끝난 때를 말하면 과거형, 지금까지를 말하면 현재완료예요.",
+      "topic": "과거형 (끝난 때: {{yesterday}}, {{in 2019}}, {{ago}}, {{When…?}}) vs 현재완료 (지금까지: {{ever}}, {{never}}, {{for}}, {{since}}, {{yet}})",
+      "blocks": [
+        {"goal":{"t":"I've been to Japan twice. I went there last year.","tr":"일본에 두 번 가 봤어요. 작년에 갔어요."}},
+        {"dialog":[{"who":"노아","t":"Have you ever seen a K-pop concert?","tr":"케이팝 콘서트 본 적 있어요?"},{"who":"민서","t":"Yes, I have. I saw BTS in 2019.","tr":"네, 있어요. 2019년에 BTS를 봤어요."},{"who":"노아","t":"Lucky! Where did you see them?","tr":"부러워요! 어디서 봤어요?"},{"who":"민서","t":"In Seoul. It was amazing. Have you been to Korea?","tr":"서울에서요. 정말 대단했어요. 한국에 가 본 적 있어요?"},{"who":"노아","t":"No, never. But I've wanted to go for years!","tr":"아니요, 한 번도요. 하지만 몇 년째 가고 싶었어요!"}]},
+        {"p":"**기준은 “언제”.** 과거형은 **끝난 때**에 일어난 일이에요: {{I saw it yesterday.}}, {{She called two hours ago.}} 현재완료는 **지금까지**의 이야기로, 정확한 때를 말하지 않아요: {{I've seen it.}} 한국어로는 둘 다 “봤어요”라서 헷갈리기 쉬워요."},
+        { "table": [
+          ["과거형과 함께: 끝난 때","현재완료와 함께: 지금까지"],
+          ["{{yesterday}}, {{last week}}, {{in 2019}}","{{ever}}, {{never}}, {{before}}"],
+          ["{{two days ago}}, {{when I was young}}","{{for}}, {{since}}"],
+          ["{{When did…?}}, {{What time did…?}}","{{already}}, {{yet}}, {{just}}, {{so far}}"]
+        ] },
+        {"p":"**대화의 흐름.** 보통 현재완료로 경험을 꺼내고, 자세한 이야기(언제, 어디서, 어땠는지)는 과거형으로 이어 가요: {{Have you been to Jeju? — Yes, I went there last summer. It was beautiful.}}"},
+        {"p":"**{{When}}은 과거형.** {{When}}으로 묻는 질문은 끝난 때를 묻는 거라서 항상 과거형이에요: {{When did you arrive?}} ({{When have you arrived?}}라고 하지 않아요.)"},
+        { "ex": [
+          {"t":"I've lost my wallet. I lost it on the bus.","tr":"지갑을 잃어버렸어요. 버스에서 잃어버렸어요."},
+          {"t":"Have you met Sarah? Yes, I met her at the party.","tr":"사라 만나 봤어요? 네, 파티에서 만났어요."},
+          {"t":"I lived in Busan when I was a child.","tr":"어렸을 때 부산에 살았어요.","note":"지금은 아니에요: 과거형"},
+          {"t":"I've lived in Busan since I was a child.","tr":"어렸을 때부터 부산에 살고 있어요.","note":"지금도 살아요: 현재완료"},
+          {"t":"When did you start learning English?","tr":"언제 영어를 배우기 시작했어요?"},
+          {"t":"We haven't seen each other since then.","tr":"그 후로 서로 못 봤어요."}
+        ] },
+        {"tip":"헷갈리면 문장에 “언제”가 있는지 보세요. {{yesterday}}, {{ago}}, {{in 2019}}처럼 끝난 때가 있으면 과거형, 없거나 {{ever}}, {{since}}, {{yet}}이 있으면 현재완료예요."}
+      ],
+      "mistakes": [
+        {"wrong":"I've seen her yesterday.","right":"I saw her yesterday.","tr":"어제 그녀를 봤어요.","why":"{{yesterday}}는 끝난 때라서 과거형이에요."},
+        {"wrong":"When have you come to Korea?","right":"When did you come to Korea?","tr":"언제 한국에 왔어요?","why":"{{When}} 질문은 과거형이에요."},
+        {"wrong":"I live here since 2020.","right":"I've lived here since 2020.","tr":"2020년부터 여기 살고 있어요.","why":"{{since}}가 있으면 현재완료예요 (36과)."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“어제 그 영화를 봤어요.”","options":["{{I saw that movie yesterday.}}","{{I've seen that movie yesterday.}}","{{I've saw that movie yesterday.}}"],"answer":0,"why":"{{yesterday}}: 과거형."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ to London three times.","tr":"런던에 세 번 가 봤어요.","options":["have been","went","was"],"answer":0,"why":"지금까지의 경험: {{have been}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"She ___ me two hours ago.","tr":"그녀가 두 시간 전에 전화했어요.","options":["called","has called","have called"],"answer":0,"why":"{{ago}}: 과거형."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"When ___ you arrive?","tr":"언제 도착했어요?","options":["did","have","has"],"answer":0,"why":"{{When}} 질문: {{did}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"그 후로 서로 못 봤어요.","words":["We","haven't","seen","each","other","since","then."]},
+        {"type":"dialogue","q":"친구가 경험을 물어요. 알맞은 대답을 고르세요.","from":"give-news","lines":[{"who":"친구","t":"Have you ever tried skydiving?","tr":"스카이다이빙 해 본 적 있어요?"},{"options":["Yes! I did it last summer in Hawaii.","Yes! I've done it last summer in Hawaii."],"answer":0,"why":"{{last summer}}: 끝난 때라서 과거형."},{"who":"친구","t":"Wow! Have you told your mom yet?","tr":"와! 엄마한테는 말했어요?"},{"options":["No, not yet. She'll be so worried!","No, I didn't tell yet her."],"answer":0,"why":"짧게 {{Not yet.}} “아직이요.”"}]},
+        {"type":"free","q":"여러분 차례예요: 해 본 경험 하나를 현재완료로 꺼내고, 언제, 어디서, 어땠는지 과거형으로 이어서 말해 보세요.","answers":[{"t":"I've been to Vietnam. I went there in 2022 with my family. The food was amazing.","tr":"베트남에 가 본 적 있어요. 2022년에 가족이랑 갔어요. 음식이 정말 맛있었어요."},{"t":"I've met a famous actor. I met him at a café in Gangnam last year.","tr":"유명한 배우를 만나 본 적 있어요. 작년에 강남에 있는 카페에서 만났어요."}]}
+      ]
     }
   ]
 }
