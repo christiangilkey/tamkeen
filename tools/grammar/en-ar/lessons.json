@@ -1994,7 +1994,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"الصِّحَّةُ أَهَمُّ ___ الْمَالِ.","tr":"Health is more important than money.","options":["مِنَ","عَلَى","إِلَى"],"answer":0,"why":"“Than”: {{مِنْ}} ({{مِنَ}} before {{الْـ}}).","from":"where-things-are"},
         {"type":"choice","q":"“The best restaurant” is…","options":["{{أَفْضَلُ مَطْعَمٍ}}","{{الْمَطْعَمُ أَفْضَلُ}}"],"answer":0,"why":"The second means “The restaurant is better.”"},
         {"type":"choice","q":"“My sister is older than me” is…","options":["{{أُخْتِي أَكْبَرُ مِنِّي.}}","{{أُخْتِي أَكْبَرَةٌ مِنِّي.}}"],"answer":0,"why":"No {{ة}} on the comparative."},
-        {"type":"dialogue","q":"Choosing a hotel. Choose your replies.","lines":[{"who":"Friend","t":"أَيُّ فُنْدُقٍ نَأْخُذُ؟","r":"ayyu funduqin naʾkhudhu?","tr":"Which hotel shall we take?"},{"options":["الْفُنْدُقُ الْأَوَّلُ أَرْخَصُ مِنَ الثَّانِي.","الْفُنْدُقُ الْأَوَّلُ رَخِيصٌ مِنَ الثَّانِي."],"answer":0,"why":"Comparing: {{أَرْخَصُ مِنْ}}."},{"who":"Friend","t":"لَكِنَّ الثَّانِيَ أَقْرَبُ إِلَى الْبَحْرِ.","r":"lākinna th-thāniya aqrabu ilā l-baḥri.","tr":"But the second one is nearer the sea."},{"options":["إِذَنْ نَأْخُذُ الثَّانِيَ.","إِذَنْ نَأْخُذُ الثَّانِي أَقْرَبُ."],"answer":0,"why":"“Then let's take the second one.”"}]},
+        {"type":"dialogue","q":"Choosing a hotel. Choose your replies.","lines":[{"who":"Friend","t":"أَيَّ فُنْدُقٍ نَأْخُذُ؟","r":"ayya funduqin naʾkhudhu?","tr":"Which hotel shall we take?"},{"options":["الْفُنْدُقُ الْأَوَّلُ أَرْخَصُ مِنَ الثَّانِي.","الْفُنْدُقُ الْأَوَّلُ رَخِيصٌ مِنَ الثَّانِي."],"answer":0,"why":"Comparing: {{أَرْخَصُ مِنْ}}."},{"who":"Friend","t":"لَكِنَّ الثَّانِيَ أَقْرَبُ إِلَى الْبَحْرِ.","r":"lākinna th-thāniya aqrabu ilā l-baḥri.","tr":"But the second one is nearer the sea."},{"options":["إِذَنْ نَأْخُذُ الثَّانِيَ.","إِذَنْ نَأْخُذُ الثَّانِي أَقْرَبُ."],"answer":0,"why":"“Then let's take the second one.”"}]},
         {"type":"say","q":"Say “Cairo is bigger than Amman.”","answer":"الْقَاهِرَةُ أَكْبَرُ مِنْ عَمَّانَ.","r":"al-qāhiratu akbaru min ʿammāna."},
         {"type":"free","q":"Your turn: compare two cities, foods or seasons you know, and say which is the best.","answers":[{"t":"الصَّيْفُ أَجْمَلُ مِنَ الشِّتَاءِ.","r":"aṣ-ṣayfu ajmalu mina sh-shitāʾi.","tr":"Summer is nicer than winter."},{"t":"الْمَنْسَفُ أَلَذُّ طَعَامٍ أَكَلْتُهُ.","r":"al-mansafu aladhdhu ṭaʿāmin akaltuhu.","tr":"Mansaf is the tastiest food I've eaten."}]}
       ]
@@ -2127,6 +2127,205 @@
         {"type":"order","q":"Put the words in order.","tr":"My brother lives in Damascus.","words":["أَخِي","سَاكِنٌ","فِي","دِمَشْقَ."]},
         {"type":"say","q":"A man says “I'm going to the market.”","answer":"أَنَا ذَاهِبٌ إِلَى السُّوقِ.","r":"anā dhāhibun ilā s-sūqi."},
         {"type":"free","q":"Your turn: say where you're going today, and describe a shop or place near you: open or closed, well known or not.","answers":[{"t":"أَنَا ذَاهِبَةٌ إِلَى الْعَمَلِ.","r":"anā dhāhibatun ilā l-ʿamali.","tr":"I'm going to work.","note":"a woman"},{"t":"الْمَخْبَزُ الَّذِي قُرْبَ بَيْتِي مَفْتُوحٌ كُلَّ يَوْمٍ.","r":"al-makhbazu lladhī qurba baytī maftūḥun kulla yawmin.","tr":"The bakery near my house is open every day."}]}
+      ]
+    },
+    {
+      "id": "still-already",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say “already”, “still”, “not yet”, “became”",
+      "summary": "Talk about change over time: “I've already eaten”, “he's still asleep”, “I haven't finished yet”, “it got cold”.",
+      "topic": "{{قَدْ}} + past, {{مَا زَالَ}}, {{لَمْ… بَعْدُ}}, {{أَصْبَحَ}}, {{بَدَأَ}}, {{لَمْ يَعُدْ}}",
+      "blocks": [
+        {"goal":{"t":"مَا زِلْتُ أَتَعَلَّمُ، لَكِنِّي أَصْبَحْتُ أَفْهَمُ أَكْثَرَ.","r":"mā ziltu ataʿallamu, lākinnī aṣbaḥtu afhamu akthara.","tr":"I'm still learning, but I've started to understand more."}},
+        {"dialog":[{"who":"Mother","t":"هَلْ أَنْهَيْتَ وَاجِبَاتِكَ؟","r":"hal anhayta wājibātika?","tr":"Have you finished your homework?"},{"who":"Karim","t":"لَمْ أُنْهِهَا بَعْدُ. مَا زِلْتُ أَكْتُبُ.","r":"lam unhihā baʿdu. mā ziltu aktubu.","tr":"I haven't finished it yet. I'm still writing."},{"who":"Mother","t":"أَصْبَحَتِ السَّاعَةُ التَّاسِعَةَ!","r":"aṣbaḥati s-sāʿatu t-tāsiʿata!","tr":"It's already nine o'clock!"},{"who":"Karim","t":"قَدْ بَدَأْتُ الْأَخِيرَ، يَا أُمِّي.","r":"qad badaʾtu l-akhīra, yā ummī.","tr":"I've already started the last one, Mum."}]},
+        {"p":"**{{قَدْ|qad}} + past**: “already, has indeed”: {{قَدْ وَصَلَ.|qad waṣala.}} “He has (already) arrived.” In a question just use the past: {{هَلْ أَنْهَيْتَ؟}} “Have you finished?”. Often joined to {{لَـ}}: {{لَقَدْ|laqad}}."},
+        {"p":"**{{مَا زَالَ|mā zāla}} “still”** works like {{كَانَ}}: it changes for the person (past endings) and takes a present verb or a word in -an: {{مَا زِلْتُ أَتَعَلَّمُ|mā ziltu ataʿallamu}} “I'm still learning”, {{مَا زَالَ نَائِمًا|mā zāla nāʾiman}} “he's still asleep”."},
+        {"p":"**“Not yet”**: {{لَمْ}} + the short form + {{بَعْدُ|baʿdu}}: {{لَمْ أَأْكُلْ بَعْدُ.}} “I haven't eaten yet.”"},
+        {"p":"**Becoming and starting**: {{أَصْبَحَ|aṣbaḥa}} “became” also works like {{كَانَ}}: {{أَصْبَحَ الْجَوُّ بَارِدًا.}} “It got cold.” {{بَدَأَ|badaʾa}} “began” + a present verb: {{بَدَأْتُ أَفْهَمُ.}} “I'm starting to understand.” And “no longer”: {{لَمْ يَعُدْ|lam yaʿud}} + present: {{لَمْ أَعُدْ أُدَخِّنُ.}} “I don't smoke any more.”"},
+        { "ex": [
+          {"t":"لَقَدْ وَصَلَ الْقِطَارُ.","r":"laqad waṣala l-qiṭāru.","tr":"The train has arrived."},
+          {"t":"مَا زَالَ أَبِي يَعْمَلُ فِي الْبَنْكِ.","r":"mā zāla abī yaʿmalu fī l-banki.","tr":"My father still works at the bank."},
+          {"t":"لَمْ أَزُرْ مِصْرَ بَعْدُ.","r":"lam azur miṣra baʿdu.","tr":"I haven't visited Egypt yet."},
+          {"t":"أَصْبَحَ الْجَوُّ بَارِدًا.","r":"aṣbaḥa l-jawwu bāridan.","tr":"It's got cold."},
+          {"t":"لَمْ يَعُدْ يَسْكُنُ هُنَا.","r":"lam yaʿud yaskunu hunā.","tr":"He doesn't live here any more."}
+        ] },
+        {"tip":"{{قَدْ}} + the present means something else: “may, sometimes”: {{قَدْ يَتَأَخَّرُ.}} “He may be late.”"}
+      ],
+      "mistakes": [
+        {"wrong":"هَلْ قَدْ أَنْهَيْتَ؟","right":"هَلْ أَنْهَيْتَ؟","tr":"Have you finished?","why":"No {{قَدْ}} after {{هَلْ}}."},
+        {"wrong":"مَا زَالَ نَائِمٌ.","right":"مَا زَالَ نَائِمًا.","tr":"He's still asleep.","why":"Like {{كَانَ}}, {{مَا زَالَ}} takes -an."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"لَمْ أَزُرْ مِصْرَ ___.","tr":"I haven't visited Egypt yet.","options":["بَعْدُ","قَدْ","مَا زَالَ"],"answer":0,"why":"“Not yet”: {{لَمْ}} … {{بَعْدُ}}.","from":"didnt"},
+        {"type":"choice","q":"{{مَا زِلْتُ أَتَعَلَّمُ.}} means…","options":["I'm still learning.","I'm no longer learning.","I didn't learn."],"answer":0,"why":"{{مَا زَالَ}}: “still”."},
+        {"type":"choice","q":"“It got cold.”","options":["{{أَصْبَحَ الْجَوُّ بَارِدًا.}}","{{أَصْبَحَ الْجَوُّ بَارِدٌ.}}"],"answer":0,"why":"-an after {{أَصْبَحَ}}, as after {{كَانَ}}.","from":"was"},
+        {"type":"dialogue","q":"A friend asks about your trip. Choose your replies.","lines":[{"who":"Friend","t":"هَلْ سَافَرْتَ إِلَى الْمَغْرِبِ؟","r":"hal sāfarta ilā l-maghribi?","tr":"Have you travelled to Morocco?"},{"options":["لَا، لَمْ أُسَافِرْ بَعْدُ.","لَا، قَدْ سَافَرْتُ."],"answer":0,"why":"“No, not yet.”"},{"who":"Friend","t":"وَهَلْ مَا زِلْتَ تُرِيدُ أَنْ تَذْهَبَ؟","r":"wa-hal mā zilta turīdu an tadhhaba?","tr":"And do you still want to go?"},{"options":["نَعَمْ، مَا زِلْتُ أُرِيدُ.","نَعَمْ، لَمْ أَعُدْ أُرِيدُ."],"answer":0,"why":"{{لَمْ أَعُدْ}} would mean “no longer”."}]},
+        {"type":"say","q":"Say “The train has arrived.”","answer":"لَقَدْ وَصَلَ الْقِطَارُ.","r":"laqad waṣala l-qiṭāru."},
+        {"type":"free","q":"Your turn: say something you still do, something you no longer do, and something you haven't done yet.","answers":[{"t":"مَا زِلْتُ أَلْعَبُ كُرَةَ الْقَدَمِ.","r":"mā ziltu alʿabu kurata l-qadami.","tr":"I still play football."},{"t":"لَمْ أَعُدْ آكُلُ اللَّحْمَ.","r":"lam aʿud ākulu l-laḥma.","tr":"I don't eat meat any more."},{"t":"لَمْ أَتَعَلَّمْ قِيَادَةَ السَّيَّارَةِ بَعْدُ.","r":"lam ataʿallam qiyādata s-sayyārati baʿdu.","tr":"I haven't learned to drive yet."}]}
+      ]
+    },
+    {
+      "id": "all-some",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say “every”, “all”, “some”, “another”, “the same”",
+      "summary": "Words for how much of something: “every day”, “all the students”, “some people”, “the same thing”, “something else”.",
+      "topic": "{{كُلّ}}, {{بَعْض}}, {{نَفْس}}, {{غَيْر}}, {{آخَر}} / {{أُخْرَى}}, {{أَيّ}}: words that work like the first noun of an iḍāfa",
+      "blocks": [
+        {"goal":{"t":"بَعْضُ النَّاسِ يَشْرَبُونَ الْقَهْوَةَ كُلَّ يَوْمٍ.","r":"baʿḍu n-nāsi yashrabūna l-qahwata kulla yawmin.","tr":"Some people drink coffee every day."}},
+        {"dialog":[{"who":"Waiter","t":"هَلْ تُرِيدُونَ نَفْسَ الطَّلَبِ؟","r":"hal turīdūna nafsa ṭ-ṭalabi?","tr":"Would you like the same order?"},{"who":"Huda","t":"نَعَمْ، لَكِنْ أُرِيدُ شَيْئًا آخَرَ لِلْأَطْفَالِ.","r":"naʿam, lākin urīdu shayʾan ākhara li-l-aṭfāli.","tr":"Yes, but I'd like something else for the children."},{"who":"Waiter","t":"كُلُّ الْعَصَائِرِ طَازَجَةٌ. أَيَّ عَصِيرٍ تُفَضِّلُونَ؟","r":"kullu l-ʿaṣāʾiri ṭāzajatun. ayya ʿaṣīrin tufaḍḍilūna?","tr":"All the juices are fresh. Which juice would you prefer?"},{"who":"Huda","t":"أَيَّ عَصِيرٍ غَيْرَ الْبُرْتُقَالِ.","r":"ayya ʿaṣīrin ghayra l-burtuqāli.","tr":"Any juice except orange."}]},
+        {"p":"{{كُلّ}}, {{بَعْض}}, {{نَفْس}}, {{غَيْر}} and {{أَيّ}} are nouns that go **before** another noun, like the first word of an iḍāfa: the next word takes -i, and they never take {{الْـ}}."},
+        {"p":"**{{كُلّ|kull}}** + a noun without “the” = “every”: {{كُلَّ يَوْمٍ|kulla yawmin}} “every day”. + a noun with “the” = “all (the), the whole”: {{كُلُّ الطُّلَّابِ}} “all the students”, {{كُلَّ الْيَوْمِ}} “all day”."},
+        {"p":"**{{بَعْض|baʿḍ}}** “some”: {{بَعْضُ النَّاسِ}} “some people”. **{{نَفْس|nafs}}** “the same”: {{نَفْسُ الشَّيْءِ}} “the same thing”. **{{غَيْر|ghayr}}** “other than, not, except”: {{غَيْرُ مُمْكِنٍ}} “not possible”. **{{أَيّ|ayy}}** “which?, any”: {{أَيُّ يَوْمٍ}} “which day? / any day”."},
+        {"p":"**{{آخَر|ākhar}}** “other, another” is an adjective instead: after the noun, with a feminine {{أُخْرَى|ukhrā}}: {{مَرَّةً أُخْرَى|marratan ukhrā}} “another time, again”, {{شَيْءٌ آخَرُ}} “something else”. It never takes -un."},
+        { "ex": [
+          {"t":"أَمْشِي كُلَّ صَبَاحٍ.","r":"amshī kulla ṣabāḥin.","tr":"I walk every morning."},
+          {"t":"كُلُّ الطُّلَّابِ حَاضِرُونَ.","r":"kullu ṭ-ṭullābi ḥāḍirūna.","tr":"All the students are here."},
+          {"t":"عِنْدِي بَعْضُ الْأَسْئِلَةِ.","r":"ʿindī baʿḍu l-asʾilati.","tr":"I have some questions."},
+          {"t":"نَحْنُ فِي نَفْسِ الصَّفِّ.","r":"naḥnu fī nafsi ṣ-ṣaffi.","tr":"We're in the same class."},
+          {"t":"هَلْ يُمْكِنُكَ أَنْ تَقُولَهَا مَرَّةً أُخْرَى؟","r":"hal yumkinuka an taqūlahā marratan ukhrā?","tr":"Can you say it again?"}
+        ] },
+        {"tip":"{{غَيْرُ}} makes negative adjectives: {{غَيْرُ صَحِيحٍ}} “not right”, {{غَيْرُ مُهِمٍّ}} “unimportant”."}
+      ],
+      "mistakes": [
+        {"wrong":"الْكُلُّ يَوْمٍ","right":"كُلَّ يَوْمٍ","tr":"every day","why":"{{كُلّ}} never takes {{الْـ}} before a noun."},
+        {"wrong":"مَرَّةً آخَرَ","right":"مَرَّةً أُخْرَى","tr":"another time","why":"{{مَرَّةٌ}} is feminine: {{أُخْرَى}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَمْشِي ___ صَبَاحٍ.","tr":"I walk every morning.","options":["كُلَّ","بَعْضَ","نَفْسَ"],"answer":0,"why":"{{كُلّ}} + a noun without “the”: every."},
+        {"type":"choice","q":"{{كُلُّ الطُّلَّابِ}} means…","options":["all the students","every student","some students"],"answer":0,"why":"{{كُلّ}} + a noun with “the”: all."},
+        {"type":"choice","q":"“Can you say it again?” ends with…","options":["{{مَرَّةً أُخْرَى}}","{{مَرَّةً آخَرَ}}"],"answer":0,"why":"Feminine noun: {{أُخْرَى}}.","from":"can-must"},
+        {"type":"order","q":"Put the words in order.","tr":"We're in the same class.","words":["نَحْنُ","فِي","نَفْسِ","الصَّفِّ."],"from":"two-nouns"},
+        {"type":"say","q":"Say “I have some questions.”","answer":"عِنْدِي بَعْضُ الْأَسْئِلَةِ.","r":"ʿindī baʿḍu l-asʾilati."},
+        {"type":"free","q":"Your turn: say something you do every day, something all your friends like, and something you'd like to try another time.","answers":[{"t":"أَقْرَأُ قَلِيلًا كُلَّ لَيْلَةٍ.","r":"aqraʾu qalīlan kulla laylatin.","tr":"I read a little every night."},{"t":"كُلُّ أَصْدِقَائِي يُحِبُّونَ الْبِيتْزَا.","r":"kullu aṣdiqāʾī yuḥibbūna l-bītzā.","tr":"All my friends love pizza."},{"t":"أُرِيدُ أَنْ أَزُورَ الْبَتْرَاءَ مَرَّةً أُخْرَى.","r":"urīdu an azūra l-batrāʾa marratan ukhrā.","tr":"I want to visit Petra again."}]}
+      ]
+    },
+    {
+      "id": "passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say “I was born”, “it's said”, “it's not allowed”",
+      "summary": "When who did it doesn't matter: “I was born in…”, “smoking is not allowed”, “it was built in…”.",
+      "topic": "The passive: u-i in the past ({{كُتِبَ}}), u-a in the present ({{يُكْتَبُ}}); the everyday ones",
+      "blocks": [
+        {"goal":{"t":"وُلِدْتُ فِي بَيْرُوتَ، لَكِنِّي نَشَأْتُ فِي كَنَدَا.","r":"wulidtu fī bayrūta, lākinnī nashaʾtu fī kanadā.","tr":"I was born in Beirut, but I grew up in Canada."}},
+        {"dialog":[{"who":"Guide","t":"بُنِيَ هَذَا الْمَسْجِدُ قَبْلَ أَلْفِ سَنَةٍ.","r":"buniya hādhā l-masjidu qabla alfi sanatin.","tr":"This mosque was built a thousand years ago."},{"who":"Tourist","t":"هَلْ يُسْمَحُ بِالتَّصْوِيرِ فِي الدَّاخِلِ؟","r":"hal yusmaḥu bi-t-taṣwīri fī d-dākhili?","tr":"Is taking photos allowed inside?"},{"who":"Guide","t":"يُسْمَحُ، لَكِنْ يُمْنَعُ اسْتِخْدَامُ الْفَلَاشِ.","r":"yusmaḥu, lākin yumnaʿu stikhdāmu l-flāshi.","tr":"Yes, but using flash isn't allowed."},{"who":"Tourist","t":"يُقَالُ إِنَّ الْمَنْظَرَ مِنَ الْمِئْذَنَةِ رَائِعٌ.","r":"yuqālu inna l-manẓara mina l-miʾdhanati rāʾiʿun.","tr":"They say the view from the minaret is wonderful."}]},
+        {"term":"passive","means":"a way of saying what was done to something without saying who did it: the house **was built**, smoking **is not allowed**."},
+        {"p":"In Arabic, the passive is made by **changing the vowels**, not by adding a word. In the past: u … i: {{كَتَبَ|kataba}} “wrote” → {{كُتِبَ|kutiba}} “was written”. In the present: u … a: {{يَكْتُبُ}} → {{يُكْتَبُ|yuktabu}} “is written”. The endings for who stay the same: {{وُلِدْتُ|wulidtu}} “I was born”."},
+        {"p":"The passive is mostly written, but a handful are everyday speech, and are worth learning as whole phrases:"},
+        { "table": [
+          ["passive","meaning"],
+          ["{{وُلِدْتُ فِي…|wulidtu fī…}}","I was born in…"],
+          ["{{يُقَالُ إِنَّ…|yuqālu inna…}}","it's said that…, they say…"],
+          ["{{يُمْنَعُ…|yumnaʿu…}}","… is forbidden"],
+          ["{{يُسْمَحُ بِـ…|yusmaḥu bi-…}}","… is allowed"],
+          ["{{بُنِيَ|buniya}}","was built"],
+          ["{{يُسْتَخْدَمُ|yustakhdamu}}","is used"]
+        ] },
+        {"p":"The thing done to takes the subject's -u ending: {{كُتِبَتِ الرِّسَالَةُ.}} “The letter was written.” To say who did it, everyday Arabic usually just uses an active sentence: {{كَتَبَ أَحْمَدُ الرِّسَالَةَ.}}"},
+        { "ex": [
+          {"t":"وُلِدَتْ أُخْتِي فِي الصَّيْفِ.","r":"wulidat ukhtī fī ṣ-ṣayfi.","tr":"My sister was born in the summer."},
+          {"t":"يُمْنَعُ التَّدْخِينُ.","r":"yumnaʿu t-tadkhīnu.","tr":"No smoking."},
+          {"t":"يُقَالُ إِنَّ الطَّعَامَ هُنَاكَ لَذِيذٌ.","r":"yuqālu inna ṭ-ṭaʿāma hunāka ladhīdhun.","tr":"They say the food there is delicious."},
+          {"t":"هَذَا الْكِتَابُ كُتِبَ بِالْعَرَبِيَّةِ.","r":"hādhā l-kitābu kutiba bi-l-ʿarabiyyati.","tr":"This book was written in Arabic."},
+          {"t":"تُسْتَخْدَمُ هَذِهِ الْغُرْفَةُ لِلِاجْتِمَاعَاتِ.","r":"tustakhdamu hādhihi l-ghurfatu li-l-ijtimāʿāti.","tr":"This room is used for meetings."}
+        ] },
+        {"tip":"In a text without vowel marks, {{كَتَبَ}} “wrote” and {{كُتِبَ}} “was written” look the same: readers tell them apart from the sense."}
+      ],
+      "mistakes": [
+        {"wrong":"وَلَدْتُ فِي بَيْرُوتَ.","right":"وُلِدْتُ فِي بَيْرُوتَ.","tr":"I was born in Beirut.","why":"{{وَلَدْتُ}} means “I gave birth”: the passive needs u … i."},
+        {"wrong":"يُقَالُ أَنَّ…","right":"يُقَالُ إِنَّ…","tr":"it's said that…","why":"Like {{قَالَ}}, {{يُقَالُ}} takes {{إِنَّ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ فِي بَيْرُوتَ.","tr":"I was born in Beirut.","options":["وُلِدْتُ","وَلَدْتُ","أَلِدُ"],"answer":0,"why":"Passive: u … i."},
+        {"type":"choice","q":"{{يُمْنَعُ التَّدْخِينُ.}} means…","options":["No smoking.","He stopped smoking.","Smoking is allowed."],"answer":0,"why":"{{يُمْنَعُ}}: “is forbidden”."},
+        {"type":"choice","q":"“They say that…”","options":["{{يُقَالُ إِنَّ…}}","{{يُقَالُ أَنَّ…}}"],"answer":0,"why":"After “say”: {{إِنَّ}}.","from":"i-think-that"},
+        {"type":"order","q":"Put the words in order.","tr":"This mosque was built a thousand years ago.","words":["بُنِيَ","هَذَا","الْمَسْجِدُ","قَبْلَ","أَلْفِ","سَنَةٍ."],"from":"when"},
+        {"type":"say","q":"Say “Is taking photos allowed?”","answer":"هَلْ يُسْمَحُ بِالتَّصْوِيرِ؟","r":"hal yusmaḥu bi-t-taṣwīri?"},
+        {"type":"free","q":"Your turn: say where and when you were born, and one thing that's forbidden where you work or study.","answers":[{"t":"وُلِدْتُ فِي لَنْدَنَ فِي الشِّتَاءِ.","r":"wulidtu fī landana fī sh-shitāʾi.","tr":"I was born in London in the winter."},{"t":"يُمْنَعُ الْأَكْلُ فِي الْمَكْتَبَةِ.","r":"yumnaʿu l-aklu fī l-maktabati.","tr":"Eating is not allowed in the library."}]}
+      ]
+    },
+    {
+      "id": "verbs-with-prepositions",
+      "unit": 8,
+      "level": "B1",
+      "title": "Use the right little word: “wait for”, “think about”",
+      "summary": "Many verbs come with their own preposition, and it isn't always the English one: “look for” = search about, “agree with”, “depend on”.",
+      "topic": "Verbs and the prepositions they take: {{بَحَثَ عَنْ}}, {{فَكَّرَ فِي}}, {{اِحْتَاجَ إِلَى}}, {{اِتَّصَلَ بِـ}}…",
+      "blocks": [
+        {"goal":{"t":"أَبْحَثُ عَنْ مِفْتَاحِي. هَلْ رَأَيْتَهُ؟","r":"abḥathu ʿan miftāḥī. hal raʾaytahu?","tr":"I'm looking for my key. Have you seen it?"}},
+        {"dialog":[{"who":"Laila","t":"مَا بِكَ؟ تَبْدُو قَلِقًا.","r":"mā bika? tabdū qaliqan.","tr":"What's the matter? You look worried."},{"who":"Sami","t":"أُفَكِّرُ فِي الْمُقَابَلَةِ غَدًا. أَحْتَاجُ إِلَى نَصِيحَةٍ.","r":"ufakkiru fī l-muqābalati ghadan. aḥtāju ilā naṣīḥatin.","tr":"I'm thinking about the interview tomorrow. I need some advice."},{"who":"Laila","t":"اِتَّصِلْ بِأُخْتِي، فَهِيَ تَعْمَلُ فِي نَفْسِ الشَّرِكَةِ.","r":"ittaṣil bi-ukhtī, fa-hiya taʿmalu fī nafsi sh-sharikati.","tr":"Call my sister: she works at the same company."},{"who":"Sami","t":"فِكْرَةٌ مُمْتَازَةٌ! شُكْرًا عَلَى مُسَاعَدَتِكِ.","r":"fikratun mumtāzatun! shukran ʿalā musāʿadatiki.","tr":"Great idea! Thanks for your help."}]},
+        {"p":"Like English “wait **for**” and “listen **to**”, many Arabic verbs come with their own preposition, but often a different one. Learn each verb with its little word, as a pair. The noun after it takes -i, and a pronoun becomes an ending: {{اِتَّصِلْ بِي|ittaṣil bī}} “call me”."},
+        { "table": [
+          ["verb + preposition","meaning","word for word"],
+          ["{{بَحَثَ عَنْ|baḥatha ʿan}}","look for","search about"],
+          ["{{فَكَّرَ فِي|fakkara fī}}","think about","think in"],
+          ["{{اِحْتَاجَ إِلَى|iḥtāja ilā}}","need","need to"],
+          ["{{اِتَّصَلَ بِـ|ittaṣala bi-}}","call (phone)","connect with"],
+          ["{{اِنْتَظَرَ|intaẓara}}","wait for","(no preposition)"],
+          ["{{اِسْتَمَعَ إِلَى|istamaʿa ilā}}","listen to","listen to"],
+          ["{{وَافَقَ عَلَى|wāfaqa ʿalā}}","agree to","agree on"],
+          ["{{اِعْتَمَدَ عَلَى|iʿtamada ʿalā}}","depend on, rely on","lean on"],
+          ["{{شَكَرَ عَلَى|shakara ʿalā}}","thank for","thank on"],
+          ["{{خَافَ مِنْ|khāfa min}}","be afraid of","fear from"]
+        ] },
+        {"p":"And the other way round: some verbs that need a preposition in English take none in Arabic: {{أَنْتَظِرُكَ.|antaẓiruka.}} “I'm waiting for you.”, {{أُرِيدُ قَهْوَةً.}} “I'd like a coffee.”"},
+        { "ex": [
+          {"t":"أَنَا أَبْحَثُ عَنْ عَمَلٍ.","r":"anā abḥathu ʿan ʿamalin.","tr":"I'm looking for a job."},
+          {"t":"اِتَّصِلْ بِي عِنْدَمَا تَصِلُ.","r":"ittaṣil bī ʿindamā taṣilu.","tr":"Call me when you arrive."},
+          {"t":"يَعْتَمِدُ ذَلِكَ عَلَى الطَّقْسِ.","r":"yaʿtamidu dhālika ʿalā ṭ-ṭaqsi.","tr":"That depends on the weather."},
+          {"t":"اِبْنِي يَخَافُ مِنَ الْكِلَابِ.","r":"ibnī yakhāfu mina l-kilābi.","tr":"My son is afraid of dogs."},
+          {"t":"سَأَنْتَظِرُكِ أَمَامَ الْبَابِ.","r":"saʾantaẓiruki amāma l-bābi.","tr":"I'll wait for you in front of the door.","note":"to a woman"}
+        ] },
+        {"tip":"{{يَعْتَمِدُ}} on its own is the handy answer “It depends.”"}
+      ],
+      "mistakes": [
+        {"wrong":"أَبْحَثُ لِمِفْتَاحِي.","right":"أَبْحَثُ عَنْ مِفْتَاحِي.","tr":"I'm looking for my key.","why":"{{بَحَثَ}} takes {{عَنْ}}, not “for”."},
+        {"wrong":"أَنْتَظِرُ لَكَ.","right":"أَنْتَظِرُكَ.","tr":"I'm waiting for you.","why":"{{اِنْتَظَرَ}} takes no preposition: the ending goes on the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أُفَكِّرُ ___ الْمُقَابَلَةِ.","tr":"I'm thinking about the interview.","options":["فِي","عَنْ","عَلَى"],"answer":0,"why":"{{فَكَّرَ فِي}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"أَحْتَاجُ ___ نَصِيحَةٍ.","tr":"I need some advice.","options":["إِلَى","مِنْ","بِـ"],"answer":0,"why":"{{اِحْتَاجَ إِلَى}}."},
+        {"type":"choice","q":"“I'm waiting for you” (to a man)","options":["{{أَنْتَظِرُكَ.}}","{{أَنْتَظِرُ لَكَ.}}"],"answer":0,"why":"No preposition: the ending goes on the verb.","from":"me-and-you"},
+        {"type":"dialogue","q":"On the phone. Choose your replies.","lines":[{"who":"Colleague","t":"هَلْ تَأْتِي إِلَى الِاجْتِمَاعِ غَدًا؟","r":"hal taʾtī ilā l-ijtimāʿi ghadan?","tr":"Are you coming to the meeting tomorrow?"},{"options":["يَعْتَمِدُ عَلَى الْوَقْتِ.","يَعْتَمِدُ فِي الْوَقْتِ."],"answer":0,"why":"{{اِعْتَمَدَ عَلَى}}: “depend on”."},{"who":"Colleague","t":"طَيِّبٌ، اِتَّصِلْ بِي فِي الْمَسَاءِ.","r":"ṭayyibun, ittaṣil bī fī l-masāʾi.","tr":"OK, call me in the evening."},{"options":["حَسَنًا، سَأَتَّصِلُ بِكَ.","حَسَنًا، سَأَتَّصِلُكَ."],"answer":0,"why":"{{اِتَّصَلَ}} needs {{بِـ}}."}],"from":"plans"},
+        {"type":"say","q":"Say “My son is afraid of dogs.”","answer":"اِبْنِي يَخَافُ مِنَ الْكِلَابِ.","r":"ibnī yakhāfu mina l-kilābi."},
+        {"type":"free","q":"Your turn: say what you're looking for these days, what you think about a lot, and who you rely on.","answers":[{"t":"أَبْحَثُ عَنْ شَقَّةٍ جَدِيدَةٍ.","r":"abḥathu ʿan shaqqatin jadīdatin.","tr":"I'm looking for a new flat."},{"t":"أُفَكِّرُ كَثِيرًا فِي الْمُسْتَقْبَلِ.","r":"ufakkiru kathīran fī l-mustaqbali.","tr":"I think a lot about the future."},{"t":"أَعْتَمِدُ عَلَى أَصْدِقَائِي.","r":"aʿtamidu ʿalā aṣdiqāʾī.","tr":"I rely on my friends."}]}
+      ]
+    },
+    {
+      "id": "report",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what people said and asked",
+      "summary": "Tell someone what another person said, asked or told you to do: everything from this course comes together.",
+      "topic": "Reported speech: {{قَالَ إِنَّ}}, {{سَأَلَ إِذَا كَانَ}} / {{سَأَلَ هَلْ}}, {{طَلَبَ مِنْ… أَنْ}}; review of the course",
+      "blocks": [
+        {"goal":{"t":"قَالَتْ إِنَّهَا مَشْغُولَةٌ، وَطَلَبَتْ مِنِّي أَنْ أَتَّصِلَ بِهَا غَدًا.","r":"qālat innahā mashghūlatun, wa-ṭalabat minnī an attaṣila bihā ghadan.","tr":"She said she was busy, and asked me to call her tomorrow."}},
+        {"dialog":[{"who":"Omar","t":"مَاذَا قَالَ الطَّبِيبُ؟","r":"mādhā qāla ṭ-ṭabību?","tr":"What did the doctor say?"},{"who":"Noor","t":"قَالَ إِنَّ الْأَمْرَ لَيْسَ خَطِيرًا.","r":"qāla inna l-amra laysa khaṭīran.","tr":"He said it wasn't serious."},{"who":"Omar","t":"الْحَمْدُ لِلَّهِ! وَهَلْ سَأَلْتِهِ عَنِ الرِّيَاضَةِ؟","r":"al-ḥamdu li-llāhi! wa-hal saʾaltihi ʿani r-riyāḍati?","tr":"Thank God! And did you ask him about sport?"},{"who":"Noor","t":"سَأَلْتُهُ هَلْ يُمْكِنُنِي أَنْ أَرْكُضَ، فَطَلَبَ مِنِّي أَنْ أَنْتَظِرَ أُسْبُوعًا.","r":"saʾaltuhu hal yumkinunī an arkuḍa, fa-ṭalaba minnī an antaẓira usbūʿan.","tr":"I asked him whether I could run, and he told me to wait a week."}]},
+        {"p":"**What someone said**: {{قَالَ إِنَّ|qāla inna}} + the words, with the noun or ending in -a after {{إِنَّ}} (as you learned with “I think that”): {{قَالَ إِنَّهُ مُتْعَبٌ.}} “He said he was tired.” Arabic keeps the tense of the original words: “He said he **is** tired”."},
+        {"p":"**What someone asked**: {{سَأَلَ|saʾala}} + {{هَلْ}} or {{إِذَا|idhā}} “whether”, or the question word: {{سَأَلَنِي أَيْنَ أَسْكُنُ.}} “He asked me where I live.”"},
+        {"p":"**What someone asked you to do**: {{طَلَبَ مِنْ… أَنْ|ṭalaba min… an}} + the -a form: {{طَلَبَتْ مِنِّي أَنْ أَتَّصِلَ بِهَا.}} “She asked me to call her.” And “told me not to”: {{قَالَ لِي أَلَّا…|qāla lī allā…}} ({{أَلَّا}} = {{أَنْ}} + {{لَا}})."},
+        { "ex": [
+          {"t":"قَالَ إِنَّهُ سَيَتَأَخَّرُ قَلِيلًا.","r":"qāla innahu sa-yataʾakhkharu qalīlan.","tr":"He said he'd be a bit late."},
+          {"t":"سَأَلَتْنِي مِنْ أَيْنَ أَنَا.","r":"saʾalatnī min ayna anā.","tr":"She asked me where I'm from."},
+          {"t":"سَأَلْتُهُ إِذَا كَانَ الْمَطْعَمُ مَفْتُوحًا.","r":"saʾaltuhu idhā kāna l-maṭʿamu maftūḥan.","tr":"I asked him whether the restaurant was open."},
+          {"t":"طَلَبَ مِنَّا الْمُدِيرُ أَنْ نَبْدَأَ.","r":"ṭalaba minnā l-mudīru an nabdaʾa.","tr":"The manager asked us to start."},
+          {"t":"قَالَتْ لِي أُمِّي أَلَّا أَتَأَخَّرَ.","r":"qālat lī ummī allā ataʾakhkhara.","tr":"My mother told me not to be late."}
+        ] },
+        {"tip":"You now have the grammar of everyday conversation. From here, the fastest progress comes from talking, listening and reading a lot, and coming back to these lessons when something puzzles you."}
+      ],
+      "mistakes": [
+        {"wrong":"قَالَ أَنَّهُ مُتْعَبٌ.","right":"قَالَ إِنَّهُ مُتْعَبٌ.","tr":"He said he was tired.","why":"After {{قَالَ}}: {{إِنَّ}}."},
+        {"wrong":"طَلَبَ مِنِّي أَنْ أَنْتَظِرُ.","right":"طَلَبَ مِنِّي أَنْ أَنْتَظِرَ.","tr":"He asked me to wait.","why":"After {{أَنْ}}: the -a form."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"قَالَ ___ الْأَمْرَ لَيْسَ خَطِيرًا.","tr":"He said it wasn't serious.","options":["إِنَّ","أَنْ","هَلْ"],"answer":0,"why":"After {{قَالَ}}: {{إِنَّ}}.","from":"is-not"},
+        {"type":"choice","q":"{{طَلَبَتْ مِنِّي أَنْ أَتَّصِلَ بِهَا.}} means…","options":["She asked me to call her.","She called me.","I asked her to call me."],"answer":0,"why":"{{طَلَبَ مِنْ… أَنْ}}: asked someone to do something."},
+        {"type":"choice","q":"“He asked me where I live.”","options":["{{سَأَلَنِي أَيْنَ أَسْكُنُ.}}","{{سَأَلَنِي أَيْنَ يَسْكُنُ.}}"],"answer":0,"why":"“I live”: {{أَسْكُنُ}}.","from":"ask-questions"},
+        {"type":"order","q":"Put the words in order.","tr":"My mother told me not to be late.","words":["قَالَتْ","لِي","أُمِّي","أَلَّا","أَتَأَخَّرَ."],"from":"verb-families-1"},
+        {"type":"dialogue","q":"Passing on a message. Choose your replies.","lines":[{"who":"Boss","t":"هَلِ اتَّصَلَ أَحَدٌ؟","r":"hali ttaṣala aḥadun?","tr":"Did anyone call?"},{"options":["نَعَمْ، اتَّصَلَتْ سَارَةُ وَقَالَتْ إِنَّهَا مَرِيضَةٌ.","نَعَمْ، اتَّصَلَتْ سَارَةُ وَقَالَتْ أَنَّهَا مَرِيضَةٌ."],"answer":0,"why":"After {{قَالَتْ}}: {{إِنَّ}}."},{"who":"Boss","t":"وَمَاذَا طَلَبَتْ؟","r":"wa-mādhā ṭalabat?","tr":"And what did she ask for?"},{"options":["طَلَبَتْ أَنْ تَعْمَلَ مِنَ الْبَيْتِ.","طَلَبَتْ أَنْ تَعْمَلُ مِنَ الْبَيْتِ."],"answer":0,"why":"After {{أَنْ}}: the -a form."}]},
+        {"type":"free","q":"Your turn: tell someone what a friend or relative said to you recently, what they asked, and what they asked you to do.","answers":[{"t":"قَالَ أَخِي إِنَّهُ سَيَزُورُنَا فِي الْعُطْلَةِ.","r":"qāla akhī innahu sa-yazūrunā fī l-ʿuṭlati.","tr":"My brother said he'd visit us in the holidays."},{"t":"سَأَلَتْنِي صَدِيقَتِي هَلْ أُرِيدُ أَنْ أَذْهَبَ مَعَهَا.","r":"saʾalatnī ṣadīqatī hal urīdu an adhhaba maʿahā.","tr":"My friend asked me whether I wanted to go with her."},{"t":"طَلَبَتْ مِنِّي أُمِّي أَنْ أَطْبُخَ الْعَشَاءَ.","r":"ṭalabat minnī ummī an aṭbukha l-ʿashāʾa.","tr":"My mother asked me to cook dinner."}]}
       ]
     }
   ]
