@@ -1934,6 +1934,150 @@
         {"type":"say","q":"Dites, avec {{I wish}} : « J'aimerais parler espagnol. »","answer":"I wish I spoke Spanish."},
         {"type":"free","q":"À vous : que feriez-vous si vous gagniez au loto ? Et où vivriez-vous si vous pouviez vivre n'importe où ?","answers":[{"t":"If I won the lottery, I'd stop working and I'd travel. If I could live anywhere, I'd live in New York.","tr":"Si je gagnais au loto, j'arrêterais de travailler et je voyagerais. Si je pouvais vivre n'importe où, je vivrais à New York."},{"t":"If I had a lot of money, I'd buy a house in the country. I'd live in Canada, near a lake.","tr":"Si j'avais beaucoup d'argent, j'achèterais une maison à la campagne. Je vivrais au Canada, près d'un lac."}]}
       ]
+    },
+    {
+      "id": "say-exactly-who-and-which",
+      "unit": 8,
+      "level": "B1",
+      "title": "Préciser qui et lequel",
+      "summary": "Relier deux idées sur la même personne ou la même chose : « la femme qui habite à côté », « le livre que je lis », « la ville où je suis né » : {{who}}, {{which}}, {{that}}, {{where}}.",
+      "topic": "{{who}} (personnes), {{which}} (choses), {{that}} (les deux) ; {{where}} ; le « que » qui disparaît ({{the book I'm reading}}) ; {{whose}} ; {{what}} « ce que »",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a doctor.","tr":"La femme qui habite à côté est médecin."}},
+        {"dialog":[{"who":"Mark","t":"Do you know the woman who's talking to Julien?","tr":"Tu connais la femme qui parle avec Julien ?"},{"who":"Lisa","t":"Yes, that's Claire, the colleague I met in Chicago.","tr":"Oui, c'est Claire, la collègue que j'ai rencontrée à Chicago."},{"who":"Mark","t":"The one who works in movies?","tr":"Celle qui travaille dans le cinéma ?"},{"who":"Lisa","t":"Exactly. And the restaurant where she took us was amazing.","tr":"Exactement. Et le restaurant où elle nous a emmenés était incroyable."},{"who":"Mark","t":"Can you give me the name? It's a place I'd love to try.","tr":"Tu peux me donner le nom ? C'est un endroit que j'aimerais essayer."}]},
+        {"term":"proposition relative","means":"un groupe de mots qui décrit un nom et commence par {{who}}, {{which}}, {{that}} ou {{where}} : l'homme **qui habite ici**."},
+        {"p":"**Qui, que : who, which, that.** {{who}} pour une personne, {{which}} pour une chose, {{that}} pour les deux (le plus courant à l'oral). Contrairement au français, il n'y a pas de différence entre « qui » et « que » : c'est le même mot."},
+        { "table": [
+          ["français","anglais"],
+          ["l'ami qui habite à Nice","{{the friend who lives in Nice}}"],
+          ["le livre qui est sur la table","{{the book that is on the table}}"],
+          ["l'ami que j'appelle","{{the friend I'm calling}}"],
+          ["le film que nous avons vu","{{the movie we saw}}"],
+          ["la ville où je suis né","{{the town where I was born}}"]
+        ] },
+        {"p":"**Le « que » disparaît souvent.** Quand le relatif est complément (le « que » français), l'anglais peut l'enlever : {{the book that I'm reading}} → {{the book I'm reading}}. C'est même la forme la plus naturelle à l'oral. Le « qui » sujet, lui, reste : {{the man who lives here}}."},
+        {"p":"**Pas de pronom en double.** Le relatif remplace déjà le pronom : {{the book I'm reading}}, et non « the book I'm reading it »."},
+        {"p":"**Où : where. Dont : whose.** {{where}} pour un lieu : {{the hotel where we stayed}}. {{whose}} « dont le, dont la » pour la possession : {{the man whose car was stolen}} « l'homme dont la voiture a été volée »."},
+        { "ex": [
+          {"t":"I have a friend who speaks five languages.","tr":"J'ai un ami qui parle cinq langues."},
+          {"t":"The movie we saw was great.","tr":"Le film que nous avons vu était super."},
+          {"t":"That's the house where I grew up.","tr":"C'est la maison où j'ai grandi."},
+          {"t":"Did you get the message I sent you?","tr":"Tu as reçu le message que je t'ai envoyé ?"},
+          {"t":"The bus that goes downtown is the number 5.","tr":"Le bus qui va au centre-ville, c'est le 5."},
+          {"t":"She's the woman whose son is a pilot.","tr":"C'est la femme dont le fils est pilote."}
+        ] },
+        {"tip":"« Ce que » se dit {{what}} : {{I don't understand what you're saying.}} « Je ne comprends pas ce que tu dis. » {{What I need is a vacation.}} « Ce dont j'ai besoin, ce sont des vacances. »"}
+      ],
+      "mistakes": [
+        {"wrong":"The man which lives here is French.","right":"The man who lives here is French.","tr":"L'homme qui habite ici est français.","why":"Pour une personne : {{who}} (ou {{that}}), jamais {{which}}."},
+        {"wrong":"The book that I'm reading it is good.","right":"The book I'm reading is good.","tr":"Le livre que je lis est bien.","why":"Pas de pronom en double : le relatif remplace déjà {{it}}."},
+        {"wrong":"I don't understand that you're saying.","right":"I don't understand what you're saying.","tr":"Je ne comprends pas ce que tu dis.","why":"« Ce que » : {{what}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I have a sister ___ lives in Boston.","tr":"J'ai une sœur qui habite à Boston.","options":["who","which","where"],"answer":0,"why":"Une personne, sujet du verbe : {{who}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"This is the café ___ we met.","tr":"C'est le café où nous nous sommes rencontrés.","options":["where","which","who"],"answer":0,"why":"Un lieu : {{where}}."},
+        {"type":"choice","q":"La façon la plus naturelle de dire « le film que j'ai vu » :","options":["{{the movie I saw}}","{{the movie what I saw}}","{{the movie I saw it}}"],"answer":0,"why":"Le « que » complément disparaît, et pas de pronom en double."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"Is this the jacket you ___ last week?","tr":"C'est la veste que tu as achetée la semaine dernière ?","options":["bought","have bought","buy"],"answer":0,"why":"{{last week}} : le prétérit.","from":"present-perfect-or-past"},
+        {"type":"dialogue","q":"À une fête, vous parlez des invités. Choisissez vos répliques.","from":"tell-a-story","lines":[{"who":"Your friend","t":"Did you see the guy who came with Sophie?","tr":"Tu as vu le garçon qui est venu avec Sophie ?"},{"options":["Yes! Is he the guy she met on vacation?","Yes! Is he the guy which she met him on vacation?"],"answer":0,"why":"Le « que » disparaît, et pas de {{him}} en double."},{"who":"Your friend","t":"Yes! He works at the hotel where they stayed.","tr":"Oui ! Il travaille à l'hôtel où ils ont logé."},{"options":["That's a story I love!","That's a story who I love!"],"answer":0,"why":"Une chose, complément : rien, ou {{that}}. Jamais {{who}}."},{"who":"Your friend","t":"Me too!","tr":"Moi aussi !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"La femme qui habite à côté est médecin.","words":["The woman","who","lives","next door","is a doctor."]},
+        {"type":"free","q":"À vous : décrivez trois choses avec {{who}}, {{that}} ou {{where}} : une personne que vous connaissez, un livre ou un film, et un lieu.","answers":[{"t":"I have a friend who lives in Japan. The last book I read was amazing. The town where I was born is very small.","tr":"J'ai un ami qui habite au Japon. Le dernier livre que j'ai lu était génial. La ville où je suis né est toute petite."},{"t":"My best friend is a woman who loves traveling. My favorite movie is a movie that makes me laugh. The café where I work is near the station.","tr":"Ma meilleure amie est une femme qui adore voyager. Mon film préféré est un film qui me fait rire. Le café où je travaille est près de la gare."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Donner votre avis, être d'accord ou pas",
+      "summary": "Dire ce que vous pensez et pourquoi, être d'accord ou non, poliment : {{I think}}, {{I don't think}}, {{in my opinion}}, et surtout {{I agree}} (jamais « I am agree »).",
+      "topic": "{{I think (that)…}}, {{I don't think…}} ; {{in my opinion}} ; {{I agree}}, {{I don't agree}} ; {{You're right}} ; {{I'm not sure}}",
+      "blocks": [
+        {"goal":{"t":"In my opinion, it's a great idea, but I don't think it's easy.","tr":"À mon avis, c'est une super idée, mais je ne pense pas que ce soit facile."}},
+        {"dialog":[{"who":"Hugo","t":"Did you like the movie?","tr":"Tu as aimé le film ?"},{"who":"Inès","t":"Yes, I think the actors were amazing. What about you?","tr":"Oui, je trouve que les acteurs étaient incroyables. Et toi ?"},{"who":"Hugo","t":"Meh. In my opinion, it was too long.","tr":"Bof. À mon avis, il était trop long."},{"who":"Inès","t":"You're right, it was a little long. But the story was beautiful, don't you think?","tr":"C'est vrai, il était un peu long. Mais l'histoire était belle, tu ne trouves pas ?"},{"who":"Hugo","t":"I don't agree. I don't think it was beautiful. It was sad!","tr":"Je ne suis pas d'accord. Je ne la trouve pas belle. Elle était triste !"},{"who":"Inès","t":"Sad, but beautiful!","tr":"Triste, mais belle !"}]},
+        {"p":"**Je pense que : I think.** {{I think}} + une phrase, avec ou sans {{that}} (souvent omis à l'oral) : {{I think (that) he's right.}} « Je pense qu'il a raison. » Pareil avec {{I believe}} « je crois » et {{I feel}} « j'ai l'impression »."},
+        {"p":"**Je ne pense pas : I don't think.** En anglais, on met la négation sur {{think}} plutôt que dans la suite : {{I don't think it's true.}} « Je ne pense pas que ce soit vrai. » C'est plus naturel que « I think it's not true ». Et pas de subjonctif : le verbe qui suit est normal."},
+        {"p":"**Être d'accord : agree, un verbe.** C'est LA faute des francophones. « Je suis d'accord » se dit {{I agree}}, sans {{am}} : {{agree}} est un verbe. Au négatif : {{I don't agree}} (ou {{I disagree}}). Avec quelqu'un : {{I agree with you.}} La question se fait avec {{do}} : {{Do you agree?}}"},
+        { "table": [
+          ["français","anglais"],
+          ["Je pense que…","{{I think…}}"],
+          ["À mon avis,…","{{In my opinion,…}}"],
+          ["Je suis d'accord.","{{I agree.}}"],
+          ["Je ne suis pas d'accord.","{{I don't agree.}}, {{I disagree.}}"],
+          ["Tu as raison.","{{You're right.}}"],
+          ["Je n'en suis pas sûr.","{{I'm not sure.}}"],
+          ["Ça dépend.","{{It depends.}}"]
+        ] },
+        {"p":"**Nuancer.** Pour contredire poliment : {{I see your point, but…}} « Je comprends ce que tu veux dire, mais… », {{Maybe, but…}}, {{I'm not so sure.}} « Je n'en suis pas si sûr. »"},
+        { "ex": [
+          {"t":"I think you're right.","tr":"Je pense que tu as raison."},
+          {"t":"In my opinion, Paris is more beautiful than London.","tr":"À mon avis, Paris est plus beau que Londres."},
+          {"t":"I totally agree with you.","tr":"Je suis tout à fait d'accord avec toi."},
+          {"t":"I don't think he's coming.","tr":"Je ne pense pas qu'il vienne."},
+          {"t":"What do you think about the new mayor?","tr":"Qu'est-ce que tu penses du nouveau maire ?"},
+          {"t":"I'm not sure it's a good idea.","tr":"Je ne suis pas sûr que ce soit une bonne idée."}
+        ] },
+        {"tip":"« Qu'est-ce que tu penses de… ? » se dit {{What do you think of…?}} ou {{What do you think about…?}} : {{What do you think of my dress?}} « Comment tu trouves ma robe ? »"}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"Je suis d'accord avec toi.","why":"{{agree}} est un verbe : pas de {{am}}."},
+        {"wrong":"I think it's not a good idea.","right":"I don't think it's a good idea.","tr":"Je ne pense pas que ce soit une bonne idée.","why":"La négation se met sur {{think}} : c'est bien plus naturel."},
+        {"wrong":"Are you agree?","right":"Do you agree?","tr":"Tu es d'accord ?","why":"{{agree}} est un verbe ordinaire : la question se fait avec {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ with you. It's a great idea!","tr":"Je suis d'accord avec toi. C'est une super idée !","options":["agree","am agree","agrees"],"answer":0,"why":"{{agree}}, un verbe, sans {{am}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ think it's true.","tr":"Je ne pense pas que ce soit vrai.","options":["don't","am not","not"],"answer":0,"why":"La négation sur {{think}} : {{don't think}}.","from":"ask-and-say-no-with-do"},
+        {"type":"choice","q":"« Tu es d'accord ? »","options":["{{Do you agree?}}","{{Are you agree?}}","{{You agree you?}}"],"answer":0,"why":"Un verbe ordinaire : question avec {{do}}."},
+        {"type":"choice","q":"Votre ami dit {{The train is better than the car.}} Vous êtes d'accord. Vous dites…","options":["{{You're right, it's faster and cheaper.}}","{{You're right, it's more fast and more cheap.}}","{{I'm agree, it's more better.}}"],"answer":0,"why":"{{You're right}}, et les comparatifs courts en {{-er}}.","from":"compare-things"},
+        {"type":"dialogue","q":"Vous parlez d'un nouveau café avec une amie. Choisissez vos répliques.","from":"give-reasons","lines":[{"who":"Your friend","t":"Do you like the new café?","tr":"Tu aimes le nouveau café ?"},{"options":["Yes, I think it's great because the staff is so friendly.","Yes, I'm think it's great because the staff is so friendly."],"answer":0,"why":"{{I think}}, sans {{am}}."},{"who":"Your friend","t":"I think it's too expensive.","tr":"Je trouve que c'est trop cher."},{"options":["Maybe, but in my opinion, the coffee is excellent.","Maybe, but in my opinion, the coffee is excellents."],"answer":0,"why":"Un adjectif ne prend jamais de {{-s}}."},{"who":"Your friend","t":"OK, I agree with you about the coffee!","tr":"D'accord, pour le café, je suis d'accord avec toi !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je ne pense pas qu'il vienne.","words":["I","don't","think","he's","coming."]},
+        {"type":"free","q":"À vous : donnez votre avis sur quelque chose (une ville, un film, un plat) : ce que vous pensez, pourquoi, et ce que vous ne pensez pas.","answers":[{"t":"In my opinion, New York is a fantastic city because there's so much to do. But I don't think it's a relaxing city!","tr":"À mon avis, New York est une ville fantastique, parce qu'il y a tellement de choses à faire. Mais je ne pense pas que ce soit une ville reposante !"},{"t":"I think French food is delicious. I don't think it's hard to cook. Do you agree?","tr":"Je trouve que la cuisine française est délicieuse. Je ne pense pas qu'elle soit difficile à faire. Tu es d'accord ?"}]}
+      ]
+    },
+    {
+      "id": "say-what-was-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Dire ce qui a été fait (et par qui)",
+      "summary": "Dire « On m'a volé mon vélo », « Le pont a été construit en 1883 », « On parle anglais ici » : la voix passive, que l'anglais emploie là où le français dit souvent « on ».",
+      "topic": "la voix passive : {{be}} + participe passé ({{is made}}, {{was built}}, {{has been sold}}) ; {{by}} ; « on » → le passif, ou {{they}}, {{people}}, {{you}}",
+      "blocks": [
+        {"goal":{"t":"My bike was stolen last night!","tr":"On m'a volé mon vélo hier soir !"}},
+        {"dialog":[{"who":"The guide","t":"This bridge was built in 1883.","tr":"Ce pont a été construit en 1883."},{"who":"A tourist","t":"Wow! Who was it designed by?","tr":"Waouh ! Qui l'a conçu ?"},{"who":"The guide","t":"It was designed by John Roebling. Today, it's used by thousands of people every day.","tr":"Il a été conçu par John Roebling. Aujourd'hui, des milliers de personnes l'empruntent chaque jour."},{"who":"A tourist","t":"Can we walk across it?","tr":"On peut le traverser à pied ?"},{"who":"The guide","t":"Yes! And photos are allowed, of course.","tr":"Oui ! Et les photos sont autorisées, bien sûr."}]},
+        {"term":"voix passive","means":"une phrase où le sujet subit l'action au lieu de la faire : « le pont **a été construit** ». En anglais : {{be}} + participe passé."},
+        {"p":"**Be + participe passé.** Comme en français (« être » + participe), le passif anglais se fait avec {{be}} au temps voulu + le participe passé (leçon 31) : {{English is spoken here.}} « On parle anglais ici. » {{The bridge was built in 1883.}} {{My car has been repaired.}}"},
+        { "table": [
+          ["temps","actif","passif"],
+          ["présent","{{They make cars here.}}","{{Cars are made here.}}"],
+          ["prétérit","{{Someone stole my bike.}}","{{My bike was stolen.}}"],
+          ["present perfect","{{They've sold the house.}}","{{The house has been sold.}}"],
+          ["futur","{{They will open a store.}}","{{A store will be opened.}}"]
+        ] },
+        {"p":"**« On » en anglais.** Le français dit « on » quand on ne sait pas qui agit, ou que ce n'est pas important : « on m'a volé mon vélo ». L'anglais n'a pas de « on » : il emploie le passif ({{My bike was stolen.}}), ou bien {{they}}, {{people}}, {{you}} : {{They say it's going to rain.}} « On dit qu'il va pleuvoir. » {{You can't smoke here.}} « On ne peut pas fumer ici. »"},
+        {"p":"**Par qui : by.** Pour dire qui a fait l'action : {{by}}. {{The book was written by a teacher.}} Mais souvent, on ne le dit pas : c'est justement l'intérêt du passif."},
+        {"p":"**Naître : was born.** « Je suis né » est un passif en anglais : {{I was born in 1990.}}, jamais « I am born »."},
+        { "ex": [
+          {"t":"Breakfast is served from seven to ten.","tr":"Le petit-déjeuner est servi de sept à dix heures."},
+          {"t":"This song was written in 1970.","tr":"Cette chanson a été écrite en 1970."},
+          {"t":"My phone was stolen on the subway.","tr":"On m'a volé mon téléphone dans le métro."},
+          {"t":"The meeting has been canceled.","tr":"La réunion a été annulée."},
+          {"t":"I was born in Lyon.","tr":"Je suis né à Lyon."},
+          {"t":"People say it's the best pizza in town.","tr":"On dit que c'est la meilleure pizza de la ville."}
+        ] },
+        {"tip":"Sur les panneaux et dans les annonces, le passif est partout : {{Smoking is not allowed.}} « Interdit de fumer. », {{Credit cards accepted.}} « Cartes de crédit acceptées. »"}
+      ],
+      "mistakes": [
+        {"wrong":"One stole my bike.","right":"My bike was stolen.","tr":"On m'a volé mon vélo.","why":"Pas de « on » en anglais : le passif (ou {{someone}})."},
+        {"wrong":"I am born in 1990.","right":"I was born in 1990.","tr":"Je suis né en 1990.","why":"La naissance est passée : {{was born}}."},
+        {"wrong":"The house was build in 1900.","right":"The house was built in 1900.","tr":"La maison a été construite en 1900.","why":"Le passif prend le participe passé : {{built}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"English is ___ here.","tr":"On parle anglais ici.","options":["spoken","speak","spoke"],"answer":0,"why":"Le passif : {{be}} + le participe {{spoken}}.","from":"talk-about-experiences"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My wallet ___ stolen yesterday.","tr":"On m'a volé mon portefeuille hier.","options":["was","is","has"],"answer":0,"why":"Au passé, avec {{yesterday}} : {{was}} + participe.","from":"ask-about-the-past"},
+        {"type":"choice","q":"« Je suis née à Montréal. »","options":["{{I was born in Montreal.}}","{{I am born in Montreal.}}","{{I born in Montreal.}}"],"answer":0,"why":"Naître : {{was born}}."},
+        {"type":"choice","q":"« On dit que ce restaurant est excellent. »","options":["{{People say this restaurant is excellent.}}","{{One says this restaurant is excellent.}}","{{It says this restaurant is excellent.}}"],"answer":0,"why":"« On » en général : {{people}} (ou {{they}})."},
+        {"type":"dialogue","q":"À la réception d'un hôtel. Choisissez vos répliques.","from":"say-what-just-happened","lines":[{"who":"The receptionist","t":"Good morning! How can I help?","tr":"Bonjour ! Que puis-je faire pour vous ?"},{"options":["Hi, my room hasn't been cleaned yet.","Hi, my room hasn't cleaned yet."],"answer":0,"why":"La chambre subit l'action : {{has been cleaned}}."},{"who":"The receptionist","t":"I'm sorry! It will be cleaned in an hour.","tr":"Je suis désolée ! Elle sera faite dans une heure."},{"options":["Thank you. Is breakfast served until ten?","Thank you. Is breakfast serving until ten?"],"answer":0,"why":"Le petit-déjeuner est servi : le passif, {{is served}}."},{"who":"The receptionist","t":"Yes, it is.","tr":"Oui."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ce pont a été construit en 1883.","words":["This bridge","was","built","in","1883."]},
+        {"type":"free","q":"À vous : dites où et quand vous êtes né, puis décrivez un monument ou un objet que vous connaissez avec le passif (construit, fabriqué, écrit…).","answers":[{"t":"I was born in Lille in 1985. The Eiffel Tower was built in 1889. It's visited by millions of people every year.","tr":"Je suis né à Lille en 1985. La tour Eiffel a été construite en 1889. Elle est visitée par des millions de personnes chaque année."},{"t":"I was born in Nantes. My favorite book was written by Victor Hugo. My watch was made in Switzerland.","tr":"Je suis née à Nantes. Mon livre préféré a été écrit par Victor Hugo. Ma montre a été fabriquée en Suisse."}]}
+      ]
     }
   ]
 }
