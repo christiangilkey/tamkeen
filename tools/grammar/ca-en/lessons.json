@@ -818,6 +818,233 @@
         {"type":"say","q":"Digues «Plou».","answer":"It's raining."},
         {"type":"free","q":"Et toca: què estàs fent ara? I què fa algú de casa teva?","answers":[{"t":"Right now I'm studying English, and my partner is cooking.","tr":"Ara mateix estudio anglès, i la meva parella està cuinant."},{"t":"I'm waiting for the bus, and it's raining!","tr":"Estic esperant l'autobús, i plou!"}]}
       ]
+    },
+    {
+      "id": "say-what-you-can",
+      "unit": 4,
+      "level": "A1",
+      "title": "Digues què saps fer i demana permís",
+      "summary": "Digues què pots fer i què saps fer, i demana permís: {{Can I pay by card?}}",
+      "topic": "{{can}} i {{can't}} + el verb (sense {{to}} i sense {{-s}}); {{Can I…?}}, {{Can you…?}}",
+      "blocks": [
+        {"goal":{"t":"Can I pay by card?","tr":"Puc pagar amb targeta?"}},
+        {"dialog":[{"who":"Arnau","t":"Can you swim?","tr":"Saps nedar?"},{"who":"Kelly","t":"Yes, I can. Why?","tr":"Sí. Per què?"},{"who":"Arnau","t":"Let's go kayaking on Saturday!","tr":"Anem en caiac dissabte!"},{"who":"Kelly","t":"I'd love to, but I can't on Saturday. I work.","tr":"M'encantaria, però dissabte no puc. Treballo."},{"who":"Arnau","t":"And on Sunday?","tr":"I diumenge?"},{"who":"Kelly","t":"On Sunday I can!","tr":"Diumenge sí que puc!"}]},
+        {"term":"verb modal","means":"un verb ajudant que afegeix una idea, com «poder» o «haver de», i va davant d'un altre verb: {{can}}, {{should}}, {{must}}."},
+        {"p":"**Poder i saber.** {{can}} fa la feina de «poder» i també la de «saber» fer una cosa: {{I can swim.}} «Sé nedar.» {{I can't come tomorrow.}} «Demà no puc venir.» És igual per a totes les persones: {{she can}}, mai {{she cans}}."},
+        {"p":"**Sense {{to}}.** Darrere de {{can}}, el verb va tal com és, sense {{to}} i sense {{-s}}: {{He can drive.}} «Sap conduir.» La negativa és {{can't}} ({{cannot}}). A la pregunta, {{can}} passa davant, sense {{do}}: {{Can you help me?}} «Em pots ajudar?»"},
+        { "table": [
+          ["","afirmativa","negativa","pregunta"],
+          ["totes les persones","{{I can go.}}","{{She can't go.}}","{{Can they go?}}"]
+        ] },
+        {"p":"**Demanar permís i favors.** {{Can I…?}} «Puc…?»: {{Can I sit here?}} «Puc seure aquí?» {{Can you…?}} «Pots…?»: {{Can you speak more slowly?}} «Pots parlar més a poc a poc?» Més educat encara: {{Could you…?}} (lliçó 37)."},
+        { "ex": [
+          {"t":"Can I open the window?","tr":"Puc obrir la finestra?"},
+          {"t":"My daughter can read.","tr":"La meva filla ja sap llegir."},
+          {"t":"I can't find my keys.","tr":"No trobo les claus.","note":"amb {{find}}, {{see}}, {{hear}}, l'anglès sovint hi posa {{can}}"},
+          {"t":"Can you help me, please?","tr":"Em pots ajudar, si us plau?"},
+          {"t":"We can't come on Saturday.","tr":"Dissabte no podem venir."},
+          {"t":"Can you speak more slowly?","tr":"Pots parlar més a poc a poc?"}
+        ] },
+        {"tip":"{{can}} sona fluix en una frase afirmativa («kən»), però {{can't}} sona fort i amb una «a» oberta. Escolta la força de la paraula, perquè la «t» final gairebé no se sent!"}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Sé nedar.","why":"Darrere de {{can}}, el verb sense {{to}}."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"Sap conduir.","why":"{{can}} no canvia mai: no porta {{-s}}."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"Em pots ajudar?","why":"Amb {{can}} no cal {{do}}: {{can}} passa davant."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ I sit here?","tr":"Puc seure aquí?","options":["Can","Do","Am"],"answer":0,"why":"Per demanar permís: {{Can I…?}}"},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"My brother can ___ three languages.","tr":"El meu germà sap parlar tres idiomes.","options":["speak","speaks","to speak"],"answer":0,"why":"Darrere de {{can}}, el verb tal com és."},
+        {"type":"choice","q":"{{I can't find my phone.}} vol dir…","options":["No trobo el mòbil.","No puc comprar un mòbil.","No vull el mòbil."],"answer":0,"why":"Amb {{find}}, l'anglès hi posa {{can}}: «no el trobo»."},
+        {"type":"dialogue","q":"Un amic et convida. Tria les respostes.","lines":[{"who":"Amic","t":"Can you come to my party on Saturday?","tr":"Pots venir a la meva festa dissabte?"},{"options":["Sorry, I can't. I work on Saturday.","Sorry, I don't can. I work in Saturday."],"answer":0,"why":"{{can't}}, sense {{do}}; i amb els dies, {{on}}."},{"who":"Amic","t":"What about Sunday?","tr":"I diumenge?"},{"options":["Yes, I can come on Sunday!","Yes, I can to come on Sunday!"],"answer":0,"why":"Darrere de {{can}}, sense {{to}}."}],"from":"say-when"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Em pots ajudar, si us plau?","words":["Can","you","help me,","please?"]},
+        {"type":"say","q":"Pregunta «Puc pagar amb targeta?»","answer":"Can I pay by card?"},
+        {"type":"free","q":"Et toca: digues una cosa que saps fer, una que no saps fer i una cosa que avui no pots fer.","answers":[{"t":"I can cook, but I can't swim. Today I can't go out.","tr":"Sé cuinar, però no sé nedar. Avui no puc sortir."},{"t":"I can play the guitar. I can't drive.","tr":"Sé tocar la guitarra. No sé conduir."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "Digues què vols fer i què has de fer",
+      "summary": "Digues què vols fer, què t'agradaria fer i què has de fer: {{I want to learn English, and I need to practice every day.}}",
+      "topic": "{{want to}}, {{need to}}, {{would like to}}, {{have to}} + verb",
+      "blocks": [
+        {"goal":{"t":"I want to learn English, and I need to practice every day.","tr":"Vull aprendre anglès, i he de practicar cada dia."}},
+        {"dialog":[{"who":"Laura","t":"What do you want to do this weekend?","tr":"Què vols fer aquest cap de setmana?"},{"who":"Tom","t":"I'd like to go to the mountains. And you?","tr":"M'agradaria anar a la muntanya. I tu?"},{"who":"Laura","t":"I have to study. I have an exam on Monday.","tr":"He d'estudiar. Dilluns tinc un examen."},{"who":"Tom","t":"Do you have to study all weekend?","tr":"Has d'estudiar tot el cap de setmana?"},{"who":"Laura","t":"No, only on Saturday. Do you want to have lunch on Sunday?","tr":"No, només dissabte. Vols que dinem plegats diumenge?"},{"who":"Tom","t":"Sure!","tr":"És clar!"}]},
+        {"p":"**Verb + {{to}} + verb.** {{want}} «voler», {{need}} «necessitar, haver de», {{would like}} «m'agradaria» i {{have}} (amb el sentit d'«haver de») van seguits de {{to}} i el segon verb: {{I want to go.}} «Vull anar-hi.» {{I need to sleep.}} «He de dormir.»"},
+        {"p":"**{{have to}}: haver de.** {{I have to work.}} «He de treballar.» Amb {{he}}, {{she}}, {{it}}, és {{has to}}. Les preguntes i les negatives es fan amb {{do}}, com amb un verb normal: {{Do you have to go?}} «Te n'has d'anar?» {{You don't have to come.}} «No cal que vinguis.»"},
+        { "table": [
+          ["català","anglès"],
+          ["Vull anar-hi.","{{I want to go.}}"],
+          ["M'agradaria anar-hi.","{{I'd like to go.}}"],
+          ["He d'anar-hi.","{{I have to go.}}"],
+          ["Necessito anar-hi.","{{I need to go.}}"],
+          ["No cal que hi vagis.","{{You don't have to go.}}"]
+        ] },
+        {"p":"**{{would like}}** és la forma educada de {{want}}: {{I'd like to book a table.}} «Voldria reservar una taula.» {{Would you like to come?}} «T'agradaria venir?»"},
+        { "ex": [
+          {"t":"I want to learn to cook.","tr":"Vull aprendre a cuinar."},
+          {"t":"She has to work late today.","tr":"Avui ha de treballar fins tard."},
+          {"t":"Would you like to come with us?","tr":"T'agradaria venir amb nosaltres?"},
+          {"t":"We need to talk.","tr":"Hem de parlar."},
+          {"t":"Do I have to pay now?","tr":"He de pagar ara?"},
+          {"t":"You don't have to come if you don't want to.","tr":"No cal que vinguis si no vols."}
+        ] },
+        {"tip":"Al final d'una frase, el {{to}} es pot quedar sol: {{I'd love to!}} «M'encantaria!» {{You don't have to if you don't want to.}} «No cal, si no vols.»"}
+      ],
+      "mistakes": [
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"Vull anar a casa.","why":"Darrere de {{want}}, cal {{to}}."},
+        {"wrong":"She have to go.","right":"She has to go.","tr":"Se n'ha d'anar.","why":"Amb {{she}}: {{has to}}."},
+        {"wrong":"I would like go.","right":"I would like to go.","tr":"M'agradaria anar-hi.","why":"{{would like}} també porta {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I need ___ some bread.","tr":"He de comprar pa.","options":["to buy","buy","buying"],"answer":0,"why":"{{need}} + {{to}} + verb."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"He ___ to get up early tomorrow.","tr":"Demà s'ha de llevar d'hora.","options":["has","have","must"],"answer":0,"why":"Amb {{he}}: {{has to}}."},
+        {"type":"choice","q":"«No cal que vinguis» és…","options":["{{You don't have to come.}}","{{You have not to come.}}","{{You no need come.}}"],"answer":0,"why":"{{don't have to}}: no és necessari."},
+        {"type":"dialogue","q":"Una amiga et proposa un pla. Tria les respostes.","lines":[{"who":"Amiga","t":"Would you like to go to the movies tonight?","tr":"T'agradaria anar al cine aquesta nit?"},{"options":["I'd love to, but I can't. I have to study.","I'd love, but I can't. I have study."],"answer":0,"why":"{{love to}} i {{have to}}: el {{to}} no pot faltar."},{"who":"Amiga","t":"Can you come tomorrow?","tr":"Pots venir demà?"},{"options":["Yes, I can!","Yes, I can to!"],"answer":0,"why":"Darrere de {{can}}, mai {{to}}."}],"from":"say-what-you-can"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Hem de parlar.","words":["We","need","to","talk."]},
+        {"type":"say","q":"Digues «Ho sento, me n'he d'anar».","answer":"Sorry, I have to go."},
+        {"type":"free","q":"Et toca: digues una cosa que vols fer aquest any i dues que has de fer aquesta setmana.","answers":[{"t":"This year I want to visit New York. This week I have to work a lot, and I need to go to the dentist.","tr":"Aquest any vull visitar Nova York. Aquesta setmana he de treballar molt, i he d'anar al dentista."},{"t":"I'd like to learn to surf. I have to clean the house and call my mom.","tr":"M'agradaria aprendre a fer surf. He de netejar la casa i trucar a la meva mare."}]}
+      ]
+    },
+    {
+      "id": "make-suggestions",
+      "unit": 4,
+      "level": "A1",
+      "title": "Proposa plans",
+      "summary": "Proposa fer coses i respon a les propostes dels altres: {{Let's go to the beach on Saturday!}}",
+      "topic": "{{let's}} + verb; {{Why don't we…?}}; {{How about…?}}; l'imperatiu ({{come}}, {{don't worry}})",
+      "blocks": [
+        {"goal":{"t":"Let's go to the beach on Saturday!","tr":"Anem a la platja dissabte!"}},
+        {"dialog":[{"who":"Marta","t":"I'm bored. Let's do something!","tr":"M'avorreixo. Fem alguna cosa!"},{"who":"Kevin","t":"How about a movie?","tr":"Què et sembla una pel·lícula?"},{"who":"Marta","t":"No, it's too nice outside. Why don't we go for a walk?","tr":"No, fa massa bon temps. Per què no anem a passejar?"},{"who":"Kevin","t":"Good idea! Let's go to the park.","tr":"Bona idea! Anem al parc."},{"who":"Marta","t":"Great. Bring your camera!","tr":"Genial. Porta la càmera!"},{"who":"Kevin","t":"OK. And don't forget your hat, it's hot!","tr":"D'acord. I no t'oblidis el barret, que fa calor!"}]},
+        {"p":"**{{let's}}: «fem», «anem».** Per proposar alguna cosa per a tu i per als altres: {{let's}} + el verb. {{Let's go!}} «Anem!» {{Let's eat.}} «Mengem.» {{Let's not wait.}} «No esperem.» ({{let's}} és {{let us}}.)"},
+        {"p":"**Altres maneres de proposar.** {{Why don't we…?}} «Per què no…?»: {{Why don't we eat out?}} «Per què no sopem fora?» {{How about…?}} «Què et sembla…?», amb un nom o un verb en {{-ing}}: {{How about Friday?}} {{How about going to the beach?}}"},
+        { "table": [
+          ["per proposar","per dir que sí","per dir que no"],
+          ["{{Let's go to the beach!}}","{{Good idea!}}","{{Sorry, I can't.}}"],
+          ["{{Why don't we have dinner?}}","{{Sure!}} {{Sounds good!}}","{{Maybe another time.}}"],
+          ["{{How about Friday?}}","{{Perfect!}}","{{Friday doesn't work for me.}}"]
+        ] },
+        {"term":"imperatiu","means":"la forma del verb per dir a algú què ha de fer: vine!, gira!, escolta!"},
+        {"p":"**L'imperatiu.** Per dir a algú què ha de fer, l'anglès fa servir el verb sol, sense subjecte: {{Come here!}} «Vine aquí!» {{Wait!}} «Espera!» {{Turn left.}} «Gira a l'esquerra.» En negatiu, {{don't}} al davant: {{Don't worry!}} «No et preocupis!» Afegeix-hi {{please}} per ser amable."},
+        { "ex": [
+          {"t":"Let's have a coffee!","tr":"Fem un cafè!"},
+          {"t":"Why don't we invite Laia?","tr":"Per què no convidem la Laia?"},
+          {"t":"How about Italian food tonight?","tr":"Què et sembla menjar italià aquesta nit?"},
+          {"t":"Sounds good!","tr":"Em sembla bé!"},
+          {"t":"Please sit down.","tr":"Seu, si us plau."},
+          {"t":"Don't be late!","tr":"No arribis tard!"}
+        ] },
+        {"tip":"{{Sounds good!}} «Em sembla bé!» i {{Sure!}} «És clar!» són les respostes més habituals dels americans a una proposta."}
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Anem!","why":"Darrere de {{let's}}, el verb sense {{to}}."},
+        {"wrong":"Why we don't go to the beach?","right":"Why don't we go to the beach?","tr":"Per què no anem a la platja?","why":"A la pregunta, {{don't}} passa davant: {{Why don't we…?}}"},
+        {"wrong":"No worry!","right":"Don't worry!","tr":"No et preocupis!","why":"L'imperatiu negatiu va amb {{don't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Let's ___ a pizza tonight.","tr":"Fem una pizza aquesta nit.","options":["make","to make","making"],"answer":0,"why":"{{let's}} + el verb tal com és."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ worry, it's not a problem.","tr":"No et preocupis, no és cap problema.","options":["Don't","No","Not"],"answer":0,"why":"Imperatiu negatiu: {{don't}}."},
+        {"type":"choice","q":"{{How about Friday?}} vol dir…","options":["Què et sembla divendres?","Com va divendres?","Quant val divendres?"],"answer":0,"why":"{{How about…?}} serveix per proposar."},
+        {"type":"dialogue","q":"Planegeu el cap de setmana. Tria les respostes.","lines":[{"who":"Amic","t":"What do you want to do on Saturday?","tr":"Què vols fer dissabte?"},{"options":["Let's go to the beach!","Let's to go to the beach!"],"answer":0,"why":"{{let's}} + verb, sense {{to}}."},{"who":"Amic","t":"Sounds good! What time?","tr":"Em sembla bé! A quina hora?"},{"options":["How about at ten?","How about in ten?"],"answer":0,"why":"Una hora: {{at ten}}."}],"from":"say-when"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Per què no sopem fora?","words":["Why","don't","we","eat out?"]},
+        {"type":"say","q":"Digues «Anem!»","answer":"Let's go!"},
+        {"type":"free","q":"Et toca: proposa a un amic fer alguna cosa aquest cap de setmana. Digues què, quan i on.","answers":[{"t":"Let's go to the beach on Sunday! How about at ten, at the station?","tr":"Anem a la platja diumenge! Què et sembla a les deu, a l'estació?"},{"t":"Why don't we have dinner at my place on Saturday?","tr":"Per què no sopem a casa meva dissabte?"}]}
+      ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "Explica els teus plans",
+      "summary": "Digues què faràs, perquè ja ho has decidit: {{I'm going to visit my cousins in New York next month.}}",
+      "topic": "{{be going to}} + verb per als plans; el present continu per a les cites; compte: {{going to}} no és el «vaig» del passat català",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my cousins in New York next month.","tr":"El mes que ve aniré a veure els meus cosins a Nova York."}},
+        {"dialog":[{"who":"Pol","t":"What are you going to do this summer?","tr":"Què faràs aquest estiu?"},{"who":"Amy","t":"I'm going to travel around Italy.","tr":"Viatjaré per Itàlia."},{"who":"Pol","t":"Nice! Are you going to go alone?","tr":"Que bé! Hi aniràs sola?"},{"who":"Amy","t":"No, I'm going with my sister. We're leaving on July 2.","tr":"No, hi vaig amb la meva germana. Marxem el 2 de juliol."},{"who":"Pol","t":"And where are you going to stay?","tr":"I on us allotjareu?"},{"who":"Amy","t":"We're going to rent an apartment in Rome.","tr":"Llogarem un pis a Roma."}]},
+        {"p":"**Plans: {{going to}}.** Per a una cosa que ja has decidit fer, {{be going to}} + el verb: {{I'm going to study medicine.}} «Estudiaré medicina.» També per a una cosa que es veu venir: {{It's going to rain.}} «Plourà.»"},
+        { "table": [
+          ["","afirmativa","pregunta","negativa"],
+          ["{{I}}","{{I'm going to work.}}","{{Am I going to work?}}","{{I'm not going to work.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She's going to work.}}","{{Is she going to work?}}","{{She isn't going to work.}}"],
+          ["{{you}}, {{we}}, {{they}}","{{We're going to work.}}","{{Are we going to work?}}","{{We aren't going to work.}}"]
+        ] },
+        {"p":"**Compte amb el «vaig» català.** En català, «vaig» + infinitiu és el passat: «vaig treballar» és {{I worked}}. En anglès, {{I'm going to work}} és el futur: «treballaré». És gairebé al revés! (Només quan en català dius «vaig a comprar pa», perquè hi vas ara, coincideixen: {{I'm going to buy bread.}})"},
+        {"p":"**Cites ja fixades.** Per a una cosa amb dia i hora, també es fa servir el present continu (lliçó 17): {{I'm meeting Anna tomorrow.}} «Demà he quedat amb l'Anna.» {{We're leaving on Friday.}} «Marxem divendres.» **Quan:** {{tomorrow}} «demà», {{next week}} «la setmana que ve», {{next month}}, {{next year}}, {{this weekend}} «aquest cap de setmana», {{tonight}} «aquesta nit»."},
+        { "ex": [
+          {"t":"We're going to buy a house.","tr":"Comprarem una casa."},
+          {"t":"Are you going to come to the party?","tr":"Vindràs a la festa?"},
+          {"t":"I'm not going to tell her.","tr":"No li ho diré."},
+          {"t":"Look at the sky! It's going to rain.","tr":"Mira el cel! Plourà."},
+          {"t":"I'm having dinner with my parents tonight.","tr":"Aquesta nit sopo amb els meus pares."},
+          {"t":"What are you doing this weekend?","tr":"Què fas aquest cap de setmana?"}
+        ] },
+        {"tip":"Parlant, {{going to}} sovint sona {{gonna}}: {{I'm gonna call you.}} Ho sentiràs a totes les pel·lícules, però escriu {{going to}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to travel.","right":"I'm going to travel.","tr":"Viatjaré.","why":"Cal {{be}}: {{I'm going to}}."},
+        {"wrong":"I'm going to visited my cousins.","right":"I'm going to visit my cousins.","tr":"Aniré a veure els meus cosins.","why":"Darrere de {{going to}}, el verb tal com és."},
+        {"wrong":"Yesterday I'm going to the beach.","right":"Yesterday I went to the beach.","tr":"Ahir vaig anar a la platja.","why":"«Vaig anar» és passat: {{went}} (lliçó 25). {{going to}} és futur."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"We're going ___ a car.","tr":"Llogarem un cotxe.","options":["to rent","rent","renting"],"answer":0,"why":"{{going to}} + el verb."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"___ you going to watch the game?","tr":"Miraràs el partit?","options":["Are","Do","Will"],"answer":0,"why":"Pregunta amb {{be}}: {{Are you going to…?}}"},
+        {"type":"choice","q":"«Demà compraré pa» (ja ho has decidit) és…","options":["{{Tomorrow I'm going to buy bread.}}","{{Tomorrow I bought bread.}}","{{Tomorrow I go buy bread.}}"],"answer":0,"why":"Un pla: {{I'm going to}}. {{bought}} és passat."},
+        {"type":"dialogue","q":"Un amic et pregunta pels teus plans. Tria les respostes.","lines":[{"who":"Amic","t":"What are you going to do this weekend?","tr":"Què faràs aquest cap de setmana?"},{"options":["I'm going to visit my grandparents.","I go to visited my grandparents."],"answer":0,"why":"{{I'm going to}} + verb."},{"who":"Amic","t":"Cool! Let's have dinner next week, then.","tr":"Genial! Doncs sopem la setmana que ve."},{"options":["Sounds good!","Sounds well!"],"answer":0,"why":"L'expressió és {{Sounds good!}}"}],"from":"make-suggestions"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Aquesta nit sopo amb els meus pares.","words":["I'm having","dinner","with my","parents","tonight."]},
+        {"type":"say","q":"Digues «Mira el cel! Plourà».","answer":"Look at the sky! It's going to rain."},
+        {"type":"free","q":"Et toca: explica dos plans que tens per a l'any que ve.","answers":[{"t":"Next year I'm going to learn to drive, and I'm going to visit London.","tr":"L'any que ve aprendré a conduir, i aniré a Londres."},{"t":"I'm going to change jobs, and we're going to move to Girona.","tr":"Canviaré de feina, i ens traslladarem a Girona."}]}
+      ]
+    },
+    {
+      "id": "him-her-it",
+      "unit": 4,
+      "level": "A2",
+      "title": "Parla de coses i persones sense repetir-les",
+      "summary": "Digues «el», «la», «li» i «els» a l'anglesa, darrere del verb: {{Where's my phone? I can't find it.}}",
+      "topic": "{{me}}, {{you}}, {{him}}, {{her}}, {{it}}, {{us}}, {{them}} darrere del verb (els pronoms febles catalans van davant)",
+      "blocks": [
+        {"goal":{"t":"Where's my phone? I can't find it.","tr":"On és el meu mòbil? No el trobo."}},
+        {"dialog":[{"who":"Clara","t":"Do you know Pau?","tr":"Coneixes en Pau?"},{"who":"Mike","t":"Yes, I know him. He's in my class.","tr":"Sí, el conec. És a la meva classe."},{"who":"Clara","t":"Can you give him this book?","tr":"Li pots donar aquest llibre?"},{"who":"Mike","t":"Sure. Is it yours?","tr":"És clar. És teu?"},{"who":"Clara","t":"No, it's his. I have to give it back to him.","tr":"No, és seu. L'hi he de tornar."},{"who":"Mike","t":"OK, I'll give it to him tomorrow.","tr":"D'acord, demà l'hi dono."}]},
+        {"term":"complement","means":"la persona o la cosa que rep l'acció del verb: a «Veig la Marta», la Marta és el complement."},
+        {"p":"**Darrere del verb.** En català, els pronoms febles van davant del verb: «el veig», «la conec», «li dono». En anglès, els pronoms de complement van darrere: {{I see him.}} «El veig.» {{I know her.}} «La conec.» {{Give me the book.}} «Dona'm el llibre.»"},
+        { "table": [
+          ["subjecte","complement","català","exemple"],
+          ["{{I}}","{{me}}","em, a mi","{{Call me!}} Truca'm!"],
+          ["{{you}}","{{you}}","et, a tu","{{I love you.}} T'estimo."],
+          ["{{he}}","{{him}}","el, li, a ell","{{I know him.}} El conec."],
+          ["{{she}}","{{her}}","la, li, a ella","{{Ask her.}} Pregunta-li."],
+          ["{{it}}","{{it}}","el, la, ho","{{I can't find it.}} No el trobo."],
+          ["{{we}}","{{us}}","ens, a nosaltres","{{Help us!}} Ajuda'ns!"],
+          ["{{they}}","{{them}}","els, les, a ells","{{I like them.}} M'agraden."]
+        ] },
+        {"p":"**Una sola forma.** Allà on el català distingeix «el» i «li», l'anglès fa servir la mateixa paraula: {{I see him}} «el veig» i {{I give him the keys}} «li dono les claus». I {{it}} serveix per a qualsevol cosa, masculina o femenina en català: {{The key? I have it.}} «La clau? La tinc jo.»"},
+        {"p":"**També darrere d'una preposició:** {{with me}} «amb mi», {{for her}} «per a ella», {{to them}} «a ells»: {{Come with us!}} «Vine amb nosaltres!»"},
+        { "ex": [
+          {"t":"I love you.","tr":"T'estimo."},
+          {"t":"Can you help me?","tr":"Em pots ajudar?"},
+          {"t":"Where are the keys? —I have them.","tr":"On són les claus? —Les tinc jo."},
+          {"t":"Call her tonight.","tr":"Truca-li aquesta nit."},
+          {"t":"This cake is for you.","tr":"Aquest pastís és per a tu."},
+          {"t":"We don't know them.","tr":"No els coneixem."}
+        ] },
+        {"tip":"{{I don't know}} «No ho sé» no porta res: l'anglès no té una paraula per a aquest «ho». Però {{I don't know him}} és «no el conec»."}
+      ],
+      "mistakes": [
+        {"wrong":"I him know.","right":"I know him.","tr":"El conec.","why":"El complement va darrere del verb."},
+        {"wrong":"Where's the key? I can't find her.","right":"Where's the key? I can't find it.","tr":"On és la clau? No la trobo.","why":"Una cosa és sempre {{it}}, encara que en català sigui femenina."},
+        {"wrong":"Come with we!","right":"Come with us!","tr":"Vine amb nosaltres!","why":"Darrere d'una preposició: {{us}}, no {{we}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I don't know ___ very well.","tr":"No el conec gaire bé.","options":["him","he","his"],"answer":0,"why":"Complement, un home: {{him}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"These cookies are great. I love ___!","tr":"Aquestes galetes són boníssimes. M'encanten!","options":["them","they","it"],"answer":0,"why":"Més d'una cosa, com a complement: {{them}}.","from":"say-what-you-like"},
+        {"type":"choice","q":"«Li dono les claus» (a ella) és…","options":["{{I give her the keys.}}","{{I her give the keys.}}","{{I give she the keys.}}"],"answer":0,"why":"{{her}}, i darrere del verb."},
+        {"type":"dialogue","q":"Busques una cosa a casa. Tria les respostes.","lines":[{"who":"Parella","t":"What are you looking for?","tr":"Què busques?"},{"options":["My phone. I can't find it!","My phone. I can't find him!"],"answer":0,"why":"Una cosa: {{it}}."},{"who":"Parella","t":"Is it in your bag?","tr":"És a la teva bossa?"},{"options":["I don't think so. Can you call me?","I don't think so. Can you me call?"],"answer":0,"why":"El complement va darrere del verb: {{call me}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"No els coneixem.","words":["We","don't","know","them."]},
+        {"type":"say","q":"Digues «T'estimo».","answer":"I love you."},
+        {"type":"free","q":"Et toca: parla d'una persona que coneixes i d'una cosa que t'agrada, sense repetir-ne el nom: fes servir {{him}}, {{her}}, {{it}} o {{them}}.","answers":[{"t":"My neighbor is very nice. I see her every morning.","tr":"La meva veïna és molt simpàtica. La veig cada matí."},{"t":"I have a new bike. I love it! I ride it every day.","tr":"Tinc una bici nova. M'encanta! La faig servir cada dia."}]}
+      ]
     }
   ]
 }
