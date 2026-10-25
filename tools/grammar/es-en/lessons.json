@@ -3,7 +3,7 @@
   "to": "en",
   "title": "Gramática del inglés",
   "variety": "inglés de Estados Unidos",
-  "about": "Desde tu primera conversación hasta el inglés de todos los días, una lección corta a la vez. Cada lección te da algo que puedes decir de inmediato, y luego la gramática que lo hace funcionar. No necesitas saber gramática: cada palabra gramatical se explica la primera vez que la necesitas. Los ejemplos son en inglés de Estados Unidos, y las explicaciones están pensadas para quien habla español: lo que ya es fácil para ti va rápido, y lo difícil (el do, la -s, el present perfect) vuelve una y otra vez.",
+  "about": "Desde tu primera conversación hasta el inglés de todos los días, una lección corta a la vez. Cada lección te da algo que puedes decir de inmediato, y luego la gramática que lo hace funcionar. No necesitas saber gramática: cada palabra gramatical se explica la primera vez que la necesitas. Los ejemplos son en inglés de Estados Unidos, y las explicaciones están pensadas para quien habla español: lo que ya es fácil para ti va rápido, y lo difícil (el verbo auxiliar, la -s de la tercera persona, el presente perfecto) vuelve una y otra vez.",
   "reading": "",
   "units": [
     {"n":1,"title":"Primeras conversaciones"},
@@ -1364,7 +1364,7 @@
           ["{{far}}","{{farther}}","{{the farthest}}"]
         ] },
         {"p":"**“De” es {{in}}.** En español decimos “el más alto **de** la ciudad”, “el mejor **del** mundo”. En inglés, con lugares y grupos se usa {{in}}: {{the tallest building in the city}}, {{the best food in the world}}, {{the youngest in my family}}. {{of}} va solo con un número o un periodo: {{the best of the three}}, {{the best day of my life}}."},
-        {"p":"**Con {{ever}}** y el present perfect (lección 32) sale una de las frases favoritas del inglés: {{It's the best movie I've ever seen!}} “¡Es la mejor película que he visto!”"},
+        {"p":"**Con {{ever}}** y el presente perfecto (lección 32) sale una de las frases favoritas del inglés: {{It's the best movie I've ever seen!}} “¡Es la mejor película que he visto!”"},
         { "ex": [
           {"t":"She's the smartest person I know.","tr":"Es la persona más inteligente que conozco."},
           {"t":"August is the hottest month here.","tr":"Agosto es el mes más caluroso aquí."},
@@ -1536,6 +1536,273 @@
         {"type":"order","q":"Pon las palabras en orden.","tr":"Me tengo que ir.","words":["I","have","to","go."]},
         {"type":"say","q":"Di “No tienes que traer nada.”","answer":"You don't have to bring anything."},
         {"type":"free","q":"Te toca: ¿qué tienes que hacer esta semana, y qué no tienes que hacer? ¿Y qué tuviste que hacer ayer?","answers":[{"t":"This week I have to go to the dentist and finish a report. I don't have to work on Friday. Yesterday I had to clean the house.","tr":"Esta semana tengo que ir al dentista y terminar un reporte. El viernes no tengo que trabajar. Ayer tuve que limpiar la casa."},{"t":"I have to take my kids to school every day, but I don't have to cook tonight. Yesterday I had to work late.","tr":"Tengo que llevar a mis hijos a la escuela todos los días, pero hoy en la noche no tengo que cocinar. Ayer tuve que trabajar hasta tarde."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Habla de tus experiencias",
+      "summary": "Pregunta y cuenta lo que has hecho en la vida: {{Have you ever been to New York? — No, I've never been there.}}",
+      "topic": "el presente perfecto: {{have}} o {{has}} + participio; {{Have you ever…?}}, {{I've never…}}; los participios irregulares",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"¿Has ido alguna vez a Nueva York? — No, nunca he ido."}},
+        {"dialog":[{"who":"Jess","t":"Have you ever been to Canada?","tr":"¿Alguna vez has ido a Canadá?"},{"who":"Tú","t":"Yes, I have. I went to Toronto in 2019.","tr":"Sí. Fui a Toronto en 2019."},{"who":"Jess","t":"Cool! Have you ever seen snow?","tr":"¡Qué padre! ¿Alguna vez has visto la nieve?"},{"who":"Tú","t":"Yes, in Toronto! But I've never skied.","tr":"¡Sí, en Toronto! Pero nunca he esquiado."},{"who":"Jess","t":"Me neither. Let's try it this winter!","tr":"Yo tampoco. ¡Hay que intentarlo este invierno!"}]},
+        {"p":"**Lo que has hecho en tu vida.** Para las experiencias, sin decir cuándo, el inglés usa {{have}} (o {{has}}, con {{he}}, {{she}} e {{it}}) + el participio: {{I've been to Canada.}} “He ido a Canadá.” Se parece mucho a “he comido”, “has visto”."},
+        {"term":"presente perfecto","means":"el tiempo {{have}} + participio, que en inglés se llama {{present perfect}}: {{I've eaten}} “he comido”. Une el pasado con el presente."},
+        {"term":"participio","means":"la forma del verbo que va después de “he” o “has”: comido, visto, hecho. En inglés: {{eaten}}, {{seen}}, {{done}}."},
+        { "table": [
+          ["","afirmación","negación","pregunta"],
+          ["{{I, you, we, they}}","{{I've seen it.}}","{{I haven't seen it.}}","{{Have you seen it?}}"],
+          ["{{he, she, it}}","{{She's seen it.}}","{{She hasn't seen it.}}","{{Has she seen it?}}"]
+        ] },
+        {"p":"**El participio.** En los verbos regulares es igual al pasado: {{worked}}, {{lived}}, {{visited}}. Con los irregulares hay que aprenderlo, porque muchos tienen una tercera forma:"},
+        { "table": [
+          ["verbo","pasado","participio"],
+          ["{{be}}","{{was}}, {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}, {{been}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{take}}","{{took}}","{{taken}}"],
+          ["{{write}}","{{wrote}}","{{written}}"],
+          ["{{drive}}","{{drove}}","{{driven}}"],
+          ["{{have}}","{{had}}","{{had}}"],
+          ["{{meet}}","{{met}}","{{met}}"]
+        ] },
+        {"p":"**{{ever}} y {{never}}.** {{Have you ever…?}} es “¿alguna vez has…?”, y {{I've never…}}, “nunca he…”. Ojo: {{never}} ya es negativo, así que no lleva {{not}}: {{I've never seen it}}, nunca {{I haven't never}}."},
+        {"p":"**{{been}} para “ido”.** Para un lugar que visitaste y del que ya regresaste se dice {{been}}: {{I've been to Mexico City}} “he ido”, “he estado”. {{She's gone to Mexico}} quiere decir que se fue y sigue allá."},
+        {"p":"**Luego, los detalles en pasado.** En cuanto dices **cuándo**, se cambia al pasado simple: {{Have you been to Cancún? — Yes, I went there last year.}} Nunca {{I've been there last year}}."},
+        { "ex": [
+          {"t":"I've never eaten sushi.","tr":"Nunca he comido sushi."},
+          {"t":"Have you ever met a famous person?","tr":"¿Alguna vez has conocido a alguien famoso?"},
+          {"t":"She's been to Europe three times.","tr":"Ha ido a Europa tres veces."},
+          {"t":"We've seen that movie.","tr":"Ya vimos esa película.","note":"en México muchas veces decimos el pretérito: “ya la vimos”"},
+          {"t":"Has he ever driven a truck?","tr":"¿Alguna vez ha manejado un camión de carga?"},
+          {"t":"I've lived in three different cities.","tr":"He vivido en tres ciudades distintas."},
+          {"t":"Have you ever been to Mexico? — Yes, I went in 2018.","tr":"¿Has ido a México? — Sí, fui en 2018."}
+        ] },
+        {"tip":"{{It's the best … I've ever…}}: {{It's the best pizza I've ever had!}} “¡Es la mejor pizza que he probado!”"}
+      ],
+      "mistakes": [
+        {"wrong":"I have been in Cancún last year.","right":"I went to Cancún last year.","tr":"El año pasado fui a Cancún.","why":"Con un cuándo ya terminado ({{last year}}): pasado simple."},
+        {"wrong":"I haven't never seen snow.","right":"I've never seen snow.","tr":"Nunca he visto la nieve.","why":"{{never}} ya es negativo: sin {{not}}."},
+        {"wrong":"Have you ever went to Chicago?","right":"Have you ever been to Chicago?","tr":"¿Alguna vez has ido a Chicago?","why":"Después de {{have}}, el participio ({{been}}), no el pasado ({{went}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Have you ever ___ to Canada?","tr":"¿Alguna vez has ido a Canadá?","options":["been","went","go"],"answer":0,"why":"El participio para un lugar que visitaste: {{been}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I've never ___ sushi.","tr":"Nunca he comido sushi.","options":["eaten","ate","eat"],"answer":0,"why":"{{eat}}: el participio es {{eaten}}."},
+        {"type":"choice","q":"“Ha ido a Europa tres veces.” ¿Cuál está bien?","options":["{{She's been to Europe three times.}}","{{She has went to Europe three times.}}","{{She have been to Europe three times.}}"],"answer":0,"why":"Con {{she}}: {{has}} + {{been}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Have you seen the new Spider-Man movie? — Yes, I ___ it last week.","tr":"¿Ya viste la nueva de Spider-Man? — Sí, la vi la semana pasada.","options":["saw","have seen","seen"],"answer":0,"why":"Con un cuándo ({{last week}}): pasado simple, {{saw}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"En una entrevista para un trabajo de cocinero. Escoge tus respuestas.","lines":[{"who":"Entrevistador","t":"Have you ever worked in a restaurant?","tr":"¿Alguna vez ha trabajado en un restaurante?"},{"options":["Yes, I have. I worked at a hotel in Cancún for two years.","Yes, I have. I have worked at a hotel in Cancún in 2020."],"answer":0,"why":"Con un cuándo o un periodo ya terminado: pasado simple."},{"who":"Entrevistador","t":"What's the hardest dish you can make?","tr":"¿Cuál es el platillo más difícil que sabe hacer?"},{"options":["Mole poblano. It's the most difficult dish I know.","Mole poblano. It's the more difficult dish of I know."],"answer":0,"why":"El superlativo: {{the most difficult}}."},{"who":"Entrevistador","t":"Impressive!","tr":"¡Impresionante!"}],"from":"talk-about-the-best"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Nunca he comido sushi.","words":["I've","never","eaten","sushi."]},
+        {"type":"say","q":"Pregunta “¿Alguna vez has ido a Nueva York?”","answer":"Have you ever been to New York?"},
+        {"type":"free","q":"Te toca: di dos cosas que has hecho en tu vida y una que nunca has hecho.","answers":[{"t":"I've been to the United States, and I've run a marathon. I've never seen the ocean in winter.","tr":"He ido a Estados Unidos y he corrido un maratón. Nunca he visto el mar en invierno."},{"t":"I've lived in two countries and I've met a famous singer. I've never been on a boat.","tr":"He vivido en dos países y he conocido a un cantante famoso. Nunca me he subido a un barco."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Di cuánto tiempo: {{for}} y {{since}}",
+      "summary": "Di desde cuándo y cuánto tiempo llevas haciendo algo: {{I've lived in Houston for five years.}}",
+      "topic": "el presente perfecto con {{for}} y {{since}}; {{How long have you…?}}; {{I've been working}}, para reconocerlo",
+      "blocks": [
+        {"goal":{"t":"I've lived in Houston for five years.","tr":"Llevo cinco años viviendo en Houston."}},
+        {"dialog":[{"who":"Linda","t":"How long have you lived here?","tr":"¿Cuánto tiempo llevas viviendo aquí?"},{"who":"Tú","t":"I've lived here since 2021. And you?","tr":"Vivo aquí desde 2021. ¿Y tú?"},{"who":"Linda","t":"Oh, I've been here for thirty years!","tr":"¡Uy, yo llevo treinta años aquí!"},{"who":"Tú","t":"Wow! Have you always lived on this street?","tr":"¡Órale! ¿Siempre has vivido en esta calle?"},{"who":"Linda","t":"Yes. I've known your landlord since he was a kid.","tr":"Sí. Conozco a tu casero desde que era niño."}]},
+        {"p":"**Lo que empezó antes y sigue.** En español decimos “vivo aquí desde 2021” o “llevo cinco años aquí”, en presente. En inglés, para algo que empezó en el pasado y **sigue ahora**, se usa el presente perfecto: {{I've lived here since 2021.}} Decir {{I live here since 2021}} es el error típico del hispanohablante."},
+        { "table": [
+          ["en español","en inglés"],
+          ["Vivo aquí desde 2021.","{{I've lived here since 2021.}}"],
+          ["Llevo cinco años aquí.","{{I've been here for five years.}}"],
+          ["La conozco desde hace mucho.","{{I've known her for a long time.}}"],
+          ["¿Cuánto tiempo llevas aquí?","{{How long have you been here?}}"]
+        ] },
+        {"p":"**¿{{for}} o {{since}}?** {{for}} + **un periodo** (cuánto tiempo): {{for five years}}, {{for two weeks}}, {{for a long time}}. {{since}} + **el momento en que empezó**: {{since 2021}}, {{since Monday}}, {{since I was a kid}}."},
+        { "table": [
+          ["{{for}}: cuánto tiempo","{{since}}: desde cuándo"],
+          ["{{for ten minutes}}","{{since ten o'clock}}"],
+          ["{{for three days}}","{{since Friday}}"],
+          ["{{for six months}}","{{since January}}"],
+          ["{{for years}}","{{since I was a child}}"]
+        ] },
+        {"p":"**Para acciones que siguen en curso** también vas a oír el presente perfecto continuo, {{have been}} + -ing: {{I've been studying English for two years.}} “Llevo dos años estudiando inglés.” {{I've been waiting for an hour!}} “¡Llevo una hora esperando!”"},
+        { "ex": [
+          {"t":"I've worked here for six months.","tr":"Llevo seis meses trabajando aquí."},
+          {"t":"We've been married since 2015.","tr":"Estamos casados desde 2015."},
+          {"t":"How long have you known Ana?","tr":"¿Desde cuándo conoces a Ana?"},
+          {"t":"She's had that car for ten years.","tr":"Tiene ese carro desde hace diez años."},
+          {"t":"I haven't seen him since Christmas.","tr":"No lo veo desde Navidad."},
+          {"t":"I've been waiting for the bus for twenty minutes.","tr":"Llevo veinte minutos esperando el camión."},
+          {"t":"It's been raining since this morning.","tr":"Está lloviendo desde la mañana.","note":"{{it's been}} es {{it has been}}"}
+        ] },
+        {"tip":"{{ago}} es otra cosa: dice cuándo pasó algo ya terminado, con pasado simple: {{I moved here five years ago}} (me mudé hace cinco años), pero {{I've lived here for five years}} (llevo cinco años)."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since 2021.","right":"I've lived here since 2021.","tr":"Vivo aquí desde 2021.","why":"Algo que empezó antes y sigue: presente perfecto."},
+        {"wrong":"I've worked here since five years.","right":"I've worked here for five years.","tr":"Llevo cinco años trabajando aquí.","why":"Con un periodo de tiempo: {{for}}."},
+        {"wrong":"How long do you know her?","right":"How long have you known her?","tr":"¿Desde cuándo la conoces?","why":"{{How long}} + presente perfecto: {{have you known}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I've lived in Chicago ___ 2018.","tr":"Vivo en Chicago desde 2018.","options":["since","for","from"],"answer":0,"why":"El momento en que empezó: {{since}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We've been married ___ ten years.","tr":"Llevamos diez años de casados.","options":["for","since","during"],"answer":0,"why":"Un periodo: {{for}}."},
+        {"type":"choice","q":"“¿Cuánto tiempo llevas trabajando aquí?” ¿Cuál está bien?","options":["{{How long have you worked here?}}","{{How long do you work here?}}","{{How much time you work here?}}"],"answer":0,"why":"{{How long}} + presente perfecto."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I moved to Texas three years ___.","tr":"Me mudé a Texas hace tres años.","options":["ago","for","since"],"answer":0,"why":"Un momento ya terminado, con pasado simple: {{ago}}.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Platicas con alguien en una boda. Escoge tus respuestas.","lines":[{"who":"Invitado","t":"How long have you known the bride?","tr":"¿Desde cuándo conoces a la novia?"},{"options":["I've known her since we were kids.","I know her since we were kids."],"answer":0,"why":"Empezó antes y sigue: {{I've known}}."},{"who":"Invitado","t":"Have you ever been to this town before?","tr":"¿Ya habías venido a este pueblo?"},{"options":["No, I've never been here. It's beautiful!","No, I haven't never been here. It's beautiful!"],"answer":0,"why":"{{never}} ya es negativo."},{"who":"Invitado","t":"It really is.","tr":"Sí, de veras."}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Llevo veinte minutos esperando el camión.","words":["I've been","waiting","for the bus","for twenty minutes."]},
+        {"type":"say","q":"Pregunta “¿Cuánto tiempo llevas viviendo aquí?”","answer":"How long have you lived here?"},
+        {"type":"free","q":"Te toca: ¿desde cuándo vives donde vives, y cuánto tiempo llevas estudiando inglés? Usa {{for}} y {{since}}.","answers":[{"t":"I've lived in Phoenix since 2019. I've been studying English for two years.","tr":"Vivo en Phoenix desde 2019. Llevo dos años estudiando inglés."},{"t":"I've lived in this house for ten years. I've studied English since January.","tr":"Llevo diez años viviendo en esta casa. Estudio inglés desde enero."}]}
+      ]
+    },
+    {
+      "id": "share-news",
+      "unit": 6,
+      "level": "A2",
+      "title": "Cuenta novedades: {{just}}, {{already}}, {{yet}}",
+      "summary": "Cuenta lo que acaba de pasar y pregunta si algo ya pasó: {{Have you eaten yet? — Yes, I've already had lunch.}}",
+      "topic": "{{just}}, {{already}}, {{yet}}; ¿presente perfecto o pasado simple?; cómo lo dicen en Estados Unidos ({{Did you eat yet?}})",
+      "blocks": [
+        {"goal":{"t":"Have you eaten yet? — Yes, I've already had lunch.","tr":"¿Ya comiste? — Sí, ya comí."}},
+        {"dialog":[{"who":"Mike","t":"Have you finished the report yet?","tr":"¿Ya terminaste el reporte?"},{"who":"Tú","t":"Yes, I've just sent it to you.","tr":"Sí, te lo acabo de mandar."},{"who":"Mike","t":"Great! Has the boss seen it?","tr":"¡Perfecto! ¿Ya lo vio el jefe?"},{"who":"Tú","t":"Not yet. He hasn't come back from lunch.","tr":"Todavía no. No ha regresado de comer."},{"who":"Mike","t":"Okay. Did you hear the news? Laura got a promotion!","tr":"Va. ¿Ya supiste? ¡A Laura la ascendieron!"}]},
+        {"p":"**Tres palabritas del presente perfecto:**"},
+        { "table": [
+          ["en inglés","en español","ejemplo"],
+          ["{{just}}","acabar de","{{I've just arrived.}} Acabo de llegar."],
+          ["{{already}}","ya (antes de lo que se esperaba)","{{She's already left.}} Ya se fue."],
+          ["{{yet}}","ya (en preguntas); todavía (en negativo)","{{Have you eaten yet?}} ¿Ya comiste? {{I haven't eaten yet.}} Todavía no como."]
+        ] },
+        {"p":"**Dónde van.** {{just}} y {{already}} van entre {{have}} y el participio: {{I've just finished}}, {{We've already paid}}. {{yet}} va al final, en preguntas y negaciones: {{Have they called yet?}}, {{They haven't called yet.}} Un “todavía no” solito es {{Not yet.}}"},
+        {"p":"**¿Present perfect o pasado simple?** Con un cuándo ya terminado ({{yesterday}}, {{last week}}, {{at three}}, {{in 2020}}), siempre pasado simple: {{I saw him yesterday}}, nunca {{I've seen him yesterday}}. Para noticias y resultados sin cuándo, el presente perfecto: {{I've lost my keys!}} “¡Perdí mis llaves!” (y no las encuentro)."},
+        {"p":"**Cómo lo dicen en Estados Unidos.** En la plática de todos los días, muchos estadounidenses usan el pasado simple con {{just}}, {{already}} y {{yet}}, como hacemos en México: {{Did you eat yet?}} {{I already ate.}} {{I just got here.}} Las dos formas están bien; en un examen o por escrito, mejor el presente perfecto."},
+        { "ex": [
+          {"t":"We've just had a baby!","tr":"¡Acabamos de tener un bebé!"},
+          {"t":"Has the movie started yet? — Yes, it's already started.","tr":"¿Ya empezó la película? — Sí, ya empezó."},
+          {"t":"I haven't decided yet.","tr":"Todavía no decido.","note":"en México: “todavía no decido”, en presente"},
+          {"t":"She's already gone home.","tr":"Ya se fue a su casa."},
+          {"t":"Did you hear? I just got a new job!","tr":"¿Ya supiste? ¡Acabo de conseguir un trabajo nuevo!","note":"al estilo estadounidense: pasado simple con {{just}}"},
+          {"t":"I've lost my phone. Have you seen it?","tr":"Perdí mi celular. ¿No lo has visto?"},
+          {"t":"We haven't paid the rent yet.","tr":"Todavía no pagamos la renta."}
+        ] },
+        {"tip":"Para dar noticias: {{Guess what!}} “¡Adivina qué!” Y para reaccionar: {{Congratulations!}} (¡felicidades!), {{That's great!}}, {{Oh no!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I've seen him yesterday.","right":"I saw him yesterday.","tr":"Lo vi ayer.","why":"Con {{yesterday}}, un cuándo ya terminado: pasado simple."},
+        {"wrong":"I haven't eaten already.","right":"I haven't eaten yet.","tr":"Todavía no como.","why":"En negativo, “todavía no” es {{not … yet}}."},
+        {"wrong":"I've finished just.","right":"I've just finished.","tr":"Acabo de terminar.","why":"{{just}} va entre {{have}} y el participio."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Have you finished your homework ___?","tr":"¿Ya terminaste la tarea?","options":["yet","already","just"],"answer":0,"why":"En preguntas, al final: {{yet}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I've ___ arrived. Where are you?","tr":"Acabo de llegar. ¿Dónde estás?","options":["just","yet","ever"],"answer":0,"why":"“Acabar de”: {{just}}, entre {{have}} y el participio."},
+        {"type":"choice","q":"“Lo vi ayer en el súper.” ¿Cuál está bien?","options":["{{I saw him yesterday at the supermarket.}}","{{I've seen him yesterday at the supermarket.}}","{{I've saw him yesterday at the supermarket.}}"],"answer":0,"why":"Con {{yesterday}}: pasado simple.","from":"ask-about-the-past"},
+        {"type":"choice","q":"En una plática informal en Texas, ¿cuál de estas oyes mucho, y está bien?","options":["{{Did you eat yet?}}","{{Did you ate yet?}}","{{You ate already yet?}}"],"answer":0,"why":"El estilo estadounidense usa el pasado simple con {{yet}}: {{Did you eat yet?}} (con {{did}}, la forma base)."},
+        {"type":"dialogue","q":"Tu amiga te escribe. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Guess what! I've just found an apartment!","tr":"¡Adivina qué! ¡Acabo de encontrar departamento!"},{"options":["Congratulations! Have you signed the lease yet?","Congratulations! Have you signed the lease already yet?"],"answer":0,"why":"En preguntas: {{yet}}, al final."},{"who":"Amiga","t":"Not yet. I'm signing it tomorrow.","tr":"Todavía no. Lo firmo mañana."},{"options":["Great! How long have you been looking?","Great! How long do you look?"],"answer":0,"why":"Algo que empezó antes y siguió: {{have you been looking}}."},{"who":"Amiga","t":"For three months! I'm so happy.","tr":"¡Tres meses! Estoy feliz."}],"from":"say-how-long"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Todavía no decido.","words":["I","haven't","decided","yet."]},
+        {"type":"say","q":"Di “Acabo de llegar.”","answer":"I've just arrived."},
+        {"type":"free","q":"Te toca: ¿qué ya hiciste hoy, y qué todavía no? Usa {{already}} y {{yet}}.","answers":[{"t":"I've already had breakfast and I've already gone to the gym. I haven't called my mom yet.","tr":"Ya desayuné y ya fui al gimnasio. Todavía no le llamo a mi mamá."},{"t":"I've already finished my work, but I haven't made dinner yet.","tr":"Ya terminé mi trabajo, pero todavía no hago la cena."}]}
+      ]
+    },
+    {
+      "id": "make-or-do",
+      "unit": 6,
+      "level": "A2",
+      "title": "¿{{Make}}, {{do}}, {{take}} o {{have}}?",
+      "summary": "Usa el verbo correcto con cada cosa: {{make a mistake}}, {{do homework}}, {{take a picture}}, {{have breakfast}}.",
+      "topic": "{{make}} y {{do}} (los dos son “hacer”); {{take}}, {{have}} y {{get}} con sus sustantivos",
+      "blocks": [
+        {"goal":{"t":"I made a mistake, so I have to do the exercise again.","tr":"Me equivoqué, así que tengo que hacer el ejercicio otra vez."}},
+        {"dialog":[{"who":"Pareja","t":"Can you do me a favor? Can you make dinner tonight?","tr":"¿Me haces un favor? ¿Puedes hacer la cena hoy?"},{"who":"Tú","t":"Sure. But first I have to do the laundry.","tr":"Claro. Pero primero tengo que lavar la ropa."},{"who":"Pareja","t":"Thanks! I'll do the dishes after.","tr":"¡Gracias! Yo lavo los trastes después."},{"who":"Tú","t":"Deal. And let's take a walk later.","tr":"Trato hecho. Y al rato salimos a caminar."},{"who":"Pareja","t":"Good idea. I need to take a break.","tr":"Buena idea. Necesito tomarme un descanso."}]},
+        {"p":"**Un “hacer”, dos verbos.** El español usa “hacer” para todo; el inglés lo reparte entre {{make}} y {{do}}. Una guía: {{make}} es **crear o producir** algo que antes no había ({{make a cake}}, {{make a decision}}); {{do}} es **realizar una tarea o una actividad** ({{do the dishes}}, {{do homework}}). Pero muchas son frases fijas: apréndetelas juntas."},
+        { "table": [
+          ["{{make}}","{{do}}"],
+          ["{{make dinner}} (hacer la cena)","{{do homework}} (hacer la tarea)"],
+          ["{{make a mistake}} (equivocarse)","{{do the dishes}} (lavar los trastes)"],
+          ["{{make money}} (ganar dinero)","{{do the laundry}} (lavar la ropa)"],
+          ["{{make a decision}} (tomar una decisión)","{{do someone a favor}} (hacerle un favor a alguien)"],
+          ["{{make friends}} (hacer amigos)","{{do exercise}} (hacer ejercicio)"],
+          ["{{make the bed}} (tender la cama)","{{do your best}} (echarle ganas)"],
+          ["{{make a phone call}} (hacer una llamada)","{{do business}} (hacer negocios)"]
+        ] },
+        {"p":"**Y donde el español dice “tomar” o “hacer”:** {{take a picture}} (tomar una foto, no {{make a photo}}), {{take a shower}} (bañarse), {{take a break}} (descansar un rato), {{take a walk}} (salir a caminar), {{take a test}} (presentar un examen); {{have breakfast}}, {{have lunch}}, {{have dinner}} (desayunar, comer, cenar), {{have a party}} (hacer una fiesta), {{have a good time}} (pasarla bien); {{get married}} (casarse), {{get a job}} (conseguir trabajo)."},
+        { "ex": [
+          {"t":"Can you do me a favor?","tr":"¿Me haces un favor?"},
+          {"t":"We're having a party on Saturday.","tr":"El sábado vamos a hacer una fiesta."},
+          {"t":"I take a shower every morning.","tr":"Me baño todas las mañanas."},
+          {"t":"She makes a lot of money.","tr":"Gana mucho dinero."},
+          {"t":"Let's take a picture!","tr":"¡Tomémonos una foto!"},
+          {"t":"I made a decision: I'm going back to school.","tr":"Tomé una decisión: voy a regresar a estudiar."},
+          {"t":"My kids are doing their homework.","tr":"Mis hijos están haciendo la tarea."}
+        ] },
+        {"tip":"Cuando no sepas cuál, piensa en el resultado: si al final hay algo nuevo (un pastel, una decisión, dinero), {{make}}; si es una tarea que se hace y ya, {{do}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"Me equivoqué.","why":"Frase fija: {{make a mistake}}."},
+        {"wrong":"Let's make a photo.","right":"Let's take a photo.","tr":"Tomémonos una foto.","why":"Las fotos se “toman”: {{take a photo}}."},
+        {"wrong":"I have to make my homework.","right":"I have to do my homework.","tr":"Tengo que hacer la tarea.","why":"Una tarea: {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Can you ___ me a favor?","tr":"¿Me haces un favor?","options":["do","make","take"],"answer":0,"why":"Frase fija: {{do someone a favor}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I need to ___ a decision.","tr":"Necesito tomar una decisión.","options":["make","take","do"],"answer":0,"why":"Frase fija: {{make a decision}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We ___ dinner at eight last night.","tr":"Anoche cenamos a las ocho.","options":["had","took","made"],"answer":0,"why":"Cenar: {{have dinner}}; en pasado, {{had}}.","from":"tell-about-your-weekend"},
+        {"type":"choice","q":"“Tengo que lavar los trastes.” ¿Cuál está bien?","options":["{{I have to do the dishes.}}","{{I have to make the dishes.}}","{{I have to take the dishes.}}"],"answer":0,"why":"Frase fija: {{do the dishes}}.","from":"say-what-you-have-to-do"},
+        {"type":"dialogue","q":"Platicas con tu compañero de cuarto. Escoge tus respuestas.","lines":[{"who":"Compañero","t":"What are you doing?","tr":"¿Qué estás haciendo?"},{"options":["I'm making a cake for my mom's birthday.","I'm doing a cake for my mom's birthday."],"answer":0,"why":"Crear algo nuevo: {{make}}."},{"who":"Compañero","t":"Nice! Are you having a party?","tr":"¡Qué bien! ¿Van a hacer fiesta?"},{"options":["Yes, and we're going to take a lot of pictures.","Yes, and we're going to make a lot of pictures."],"answer":0,"why":"Las fotos se toman: {{take pictures}}."},{"who":"Compañero","t":"Have fun!","tr":"¡Que se diviertan!"}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Me equivoqué.","words":["I","made","a","mistake."]},
+        {"type":"say","q":"Di “Me baño todas las mañanas.”","answer":"I take a shower every morning."},
+        {"type":"free","q":"Te toca: ¿qué quehaceres de la casa haces tú, y cuáles hace otra persona? Usa {{do}}, {{make}} y {{take}}.","answers":[{"t":"I do the laundry and make dinner. My husband does the dishes and takes out the trash.","tr":"Yo lavo la ropa y hago la cena. Mi esposo lava los trastes y saca la basura."},{"t":"I make the bed every morning, and my son does the shopping on Saturdays.","tr":"Yo tiendo la cama todas las mañanas, y mi hijo hace las compras los sábados."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 6,
+      "level": "A2",
+      "title": "Usa los verbos con partícula de todos los días",
+      "summary": "Entiende y usa los verbos de dos palabras que el inglés usa todo el tiempo: {{get up}}, {{turn off}}, {{pick up}}, {{find out}}.",
+      "topic": "verbos con partícula ({{get up, turn on, pick up, look for, find out, give up}}); {{turn it off}}, no {{turn off it}}",
+      "blocks": [
+        {"goal":{"t":"It's cold. Put on your jacket! — Okay, I'm putting it on.","tr":"Hace frío. ¡Ponte la chamarra! — Va, ya me la pongo."}},
+        {"dialog":[{"who":"Mamá","t":"Wake up! It's seven. Get up!","tr":"¡Despiértate! Son las siete. ¡Levántate!"},{"who":"Hijo","t":"Five more minutes…","tr":"Cinco minutos más…"},{"who":"Mamá","t":"No! Turn off that alarm and get dressed.","tr":"¡No! Apaga esa alarma y vístete."},{"who":"Hijo","t":"Okay, I'm turning it off. Can you pick me up after school?","tr":"Ya, ya la apago. ¿Pasas por mí después de la escuela?"},{"who":"Mamá","t":"Yes, I'll pick you up at three.","tr":"Sí, paso por ti a las tres."}]},
+        {"p":"**Dos palabras, un significado.** El inglés tiene cientos de verbos que van con una partícula ({{up}}, {{down}}, {{on}}, {{off}}, {{out}}, {{back}}…), y juntos significan algo que a veces no se adivina: {{look}} es “mirar”, pero {{look for}} es “buscar”; {{give}} es “dar”, pero {{give up}} es “rendirse”. Los nativos los usan mucho más que los verbos “elegantes”: dicen {{find out}}, no {{discover}}."},
+        {"term":"verbo con partícula","means":"un verbo que va con una palabrita ({{up}}, {{off}}, {{on}}, {{out}}…) y que junto con ella significa otra cosa: {{give up}} “rendirse”. En inglés se llaman {{phrasal verbs}}."},
+        { "table": [
+          ["verbo","en español","ejemplo"],
+          ["{{get up}}","levantarse","{{I get up at six.}}"],
+          ["{{wake up}}","despertarse","{{I woke up late.}}"],
+          ["{{turn on}}, {{turn off}}","prender, apagar","{{Turn off the lights.}}"],
+          ["{{put on}}, {{take off}}","ponerse, quitarse (ropa)","{{Take off your shoes.}}"],
+          ["{{pick up}}","recoger; pasar por alguien","{{I'll pick you up at eight.}}"],
+          ["{{look for}}","buscar","{{I'm looking for my keys.}}"],
+          ["{{find out}}","enterarse, averiguar","{{I found out yesterday.}}"],
+          ["{{give up}}","rendirse; dejar (un vicio)","{{Don't give up!}}"],
+          ["{{go out}}","salir (a divertirse)","{{Let's go out tonight.}}"],
+          ["{{come back}}","regresar","{{When are you coming back?}}"],
+          ["{{run out of}}","quedarse sin","{{We ran out of milk.}}"]
+        ] },
+        {"p":"**{{it}} y {{them}} van en medio.** Con muchos de estos verbos, el objeto puede ir antes o después de la partícula: {{Turn off the TV}} o {{Turn the TV off}}. Pero si es un pronombre ({{it}}, {{them}}, {{me}}, {{him}}…), **siempre va en medio**: {{Turn it off}}, nunca {{Turn off it}}. {{Pick me up}}, {{Put them on}}."},
+        {"p":"Ojo: {{look for}}, {{come back}} y {{run out of}} no se separan: {{I'm looking for it.}}"},
+        { "ex": [
+          {"t":"I usually get up at six thirty.","tr":"Normalmente me levanto a las seis y media."},
+          {"t":"Can you turn on the air conditioning?","tr":"¿Puedes prender el aire acondicionado?"},
+          {"t":"Take off your shoes, please.","tr":"Quítate los zapatos, por favor."},
+          {"t":"My dad gave up smoking ten years ago.","tr":"Mi papá dejó de fumar hace diez años."},
+          {"t":"I'll pick you up at the airport.","tr":"Paso por ti al aeropuerto."},
+          {"t":"We ran out of gas on the highway.","tr":"Nos quedamos sin gasolina en la carretera."},
+          {"t":"When did you find out?","tr":"¿Cuándo te enteraste?"}
+        ] },
+        {"tip":"No intentes memorizar cientos: aprende los de esta lección, y cuando oigas uno nuevo en una serie o en una canción, anótalo con su ejemplo."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it, please.","right":"Turn it off, please.","tr":"Apágalo, por favor.","why":"Un pronombre va en medio: {{turn it off}}."},
+        {"wrong":"I'm searching my keys.","right":"I'm looking for my keys.","tr":"Estoy buscando mis llaves.","why":"En la plática diaria, “buscar” es {{look for}}."},
+        {"wrong":"Can you pick up me at six?","right":"Can you pick me up at six?","tr":"¿Pasas por mí a las seis?","why":"{{me}} va en medio: {{pick me up}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Please turn ___ the lights when you leave.","tr":"Por favor apaga las luces cuando salgas.","options":["off","out","down"],"answer":0,"why":"Apagar: {{turn off}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I'm looking ___ my glasses. Have you seen them?","tr":"Estoy buscando mis lentes. ¿No los has visto?","options":["for","at","after"],"answer":0,"why":"Buscar: {{look for}}."},
+        {"type":"choice","q":"La tele está muy fuerte. Le dices a tu hijo “¡Apágala!”","options":["{{Turn it off!}}","{{Turn off it!}}","{{Turn it out!}}"],"answer":0,"why":"Con {{it}}, en medio: {{turn it off}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Yesterday we ___ out of coffee.","tr":"Ayer nos quedamos sin café.","options":["ran","run","runned"],"answer":0,"why":"{{run out of}}, en pasado: {{ran}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"Quedas de salir con una amiga. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Do you want to go out tonight?","tr":"¿Quieres salir hoy en la noche?"},{"options":["Sure! Can you pick me up at eight?","Sure! Can you pick up me at eight?"],"answer":0,"why":"{{me}} va en medio: {{pick me up}}."},{"who":"Amiga","t":"Okay. Wear something warm. It's going to be cold.","tr":"Va. Ponte algo calientito. Va a hacer frío."},{"options":["Don't worry, I'll put on my new jacket.","Don't worry, I'll put my new jacket in."],"answer":0,"why":"Ponerse ropa: {{put on}}."},{"who":"Amiga","t":"See you at eight!","tr":"¡Nos vemos a las ocho!"}],"from":"make-plans"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Apágalo, por favor.","words":["Turn","it","off,","please."]},
+        {"type":"say","q":"Pregunta “¿Cuándo te enteraste?”","answer":"When did you find out?"},
+        {"type":"free","q":"Te toca: describe tu mañana con al menos tres de estos verbos: {{wake up}}, {{get up}}, {{turn on}}, {{put on}}, {{pick up}}.","answers":[{"t":"I wake up at six, but I get up at six thirty. I turn on the coffee maker and put on my uniform.","tr":"Me despierto a las seis, pero me levanto a las seis y media. Prendo la cafetera y me pongo el uniforme."},{"t":"I get up early, turn on the radio and pick up my coworker on the way to work.","tr":"Me levanto temprano, prendo el radio y paso por mi compañero de camino al trabajo."}]}
       ]
     }
   ]
