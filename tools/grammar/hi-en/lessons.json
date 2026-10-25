@@ -1835,6 +1835,228 @@
         {"type":"say","q":"हौसला दीजिए: “हार मत मानो!”","answer":"Don't give up!"},
         {"type":"free","q":"आपकी बारी: अपनी सुबह के बारे में बताइए, कम से कम तीन {{phrasal verbs}} के साथ।","answers":[{"t":"I wake up at six and get up at six fifteen. I turn on the radio and put on my clothes.","tr":"मेरी आँख छह बजे खुलती है और मैं सवा छह बजे उठता हूँ। रेडियो चलाता हूँ और कपड़े पहनता हूँ।"},{"t":"I get up at seven, turn off my alarm and pick up my phone. Then I look for my keys!","tr":"मैं सात बजे उठती हूँ, अलार्म बंद करती हूँ और फ़ोन उठाती हूँ। फिर अपनी चाबियाँ ढूँढती हूँ!"}]}
       ]
+    },
+    {
+      "id": "if-and-when",
+      "unit": 7,
+      "level": "B1",
+      "title": "अगर… तो: {{if}} के बाद {{will}} नहीं",
+      "summary": "शर्त वाली योजनाएँ बताइए: “{{If it rains, we'll stay home}}”, “{{When I get home, I'll call you}}”।",
+      "topic": "{{If}} + {{present}}, … {{will}}; {{when / as soon as / before / after}} + {{present}}; {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll watch a movie at home.","tr":"अगर कल बारिश हुई, तो हम घर पर फ़िल्म देखेंगे।"}},
+        {"dialog":[{"who":"लीसा","t":"What are you doing this weekend?","tr":"इस वीकेंड क्या कर रहे हो?"},{"who":"रवि","t":"If the weather is nice, I'll go hiking.","tr":"अगर मौसम अच्छा रहा, तो मैं पहाड़ी रास्तों पर घूमने जाऊँगा।"},{"who":"लीसा","t":"And if it rains?","tr":"और अगर बारिश हुई तो?"},{"who":"रवि","t":"Then I'll stay home and read.","tr":"तो घर पर रहकर पढ़ूँगा।"},{"who":"लीसा","t":"OK. When you get back, call me.","tr":"ठीक है। जब वापस आओ, मुझे फ़ोन करना।"},{"who":"रवि","t":"I will. If I have time, we can have dinner together.","tr":"ज़रूर। अगर समय मिला, तो साथ खाना खा सकते हैं।"}]},
+        {"p":"**{{if}} के बाद {{will}} नहीं.** हिंदी के “अगर कल बारिश होगी” में भविष्य है, इसलिए भारत में {{If it will rain}} सुनाई देता है। अंग्रेज़ी में {{if}} वाले हिस्से में **वर्तमान** आता है, और नतीजे में {{will}}: {{If it rains, we'll stay home.}}"},
+        { "table": [
+          ["{{if}} वाला हिस्सा","नतीजा","हिंदी"],
+          ["{{If it rains,}}","{{we'll stay home.}}","अगर बारिश हुई, तो हम घर पर रहेंगे।"],
+          ["{{If you call me,}}","{{I'll come.}}","अगर तुम फ़ोन करोगे, तो मैं आऊँगा।"],
+          ["{{If she doesn't come,}}","{{we'll start without her.}}","अगर वह नहीं आई, तो हम उसके बिना शुरू कर देंगे।"]
+        ] },
+        {"p":"**“तो”?** हिंदी का “तो” अंग्रेज़ी में ज़रूरी नहीं: बस अल्पविराम ({{,}})। {{If it rains, then we'll…}} भी चलता है, लेकिन कम।"},
+        {"p":"**{{when}}, {{as soon as}}, {{before}}, {{after}}** के साथ भी यही नियम: {{When I get home, I'll call you}} (न कि {{When I will reach home}}), {{As soon as she arrives, we'll eat.}} और {{unless}} = “अगर … नहीं”: {{Unless you hurry, you'll miss the bus.}}"},
+        { "ex": [
+          {"t":"If you're hungry, I'll make a sandwich.","tr":"अगर तुम्हें भूख लगी है, तो मैं सैंडविच बना देता हूँ।"},
+          {"t":"If I see him, I'll tell him.","tr":"अगर मैं उसे देखूँगा, तो बता दूँगा।"},
+          {"t":"If you don't hurry, you'll miss the bus.","tr":"अगर जल्दी नहीं करोगे, तो बस छूट जाएगी।"},
+          {"t":"When I get home, I'll call you.","tr":"जब मैं घर पहुँचूँगा, तो आपको फ़ोन करूँगा।"},
+          {"t":"As soon as the movie ends, we'll leave.","tr":"जैसे ही फ़िल्म ख़त्म होगी, हम निकल जाएँगे।"},
+          {"t":"If you heat ice, it melts.","tr":"बर्फ़ को गरम करो, तो वह पिघल जाती है।","note":"हमेशा सच बातें: दोनों तरफ़ वर्तमान।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we will stay home.","right":"If it rains, we will stay home.","tr":"अगर बारिश हुई, तो हम घर पर रहेंगे।","why":"{{if}} वाले हिस्से में {{will}} नहीं।"},
+        {"wrong":"When I will reach home, I will call.","right":"When I get home, I'll call.","tr":"जब मैं घर पहुँचूँगा, फ़ोन करूँगा।","why":"{{when}} के बाद भी वर्तमान; और {{get home}}।"},
+        {"wrong":"If you will come, I will be happy.","right":"If you come, I'll be happy.","tr":"अगर तुम आओगे, तो मुझे ख़ुशी होगी।","why":"{{if}} के बाद वर्तमान।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"If it ___ tomorrow, we'll stay home.","tr":"अगर कल बारिश हुई, तो हम घर पर रहेंगे।","options":["rains","will rain","rained"],"answer":0,"why":"{{if}} के बाद वर्तमान: {{rains}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"When I get home, I ___ call you.","tr":"जब मैं घर पहुँचूँगा, आपको फ़ोन करूँगा।","options":["will","am","do"],"answer":0,"why":"नतीजा: {{will}}।","from":"will"},
+        {"type":"choice","q":"“अगर तुम जल्दी नहीं करोगे, तो बस छूट जाएगी।”","options":["{{If you don't hurry, you'll miss the bus.}}","{{If you won't hurry, you'll miss the bus.}}","{{If you don't hurry, you miss the bus will.}}"],"answer":0,"why":"{{if}} वाले हिस्से में {{don't}}, नतीजे में {{will}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"जैसे ही फ़िल्म ख़त्म होगी, हम निकल जाएँगे।","words":["As soon as","the movie","ends,","we'll","leave."]},
+        {"type":"dialogue","q":"दोस्त के साथ योजना।","from":"going-to","lines":[{"who":"दोस्त","t":"Are you going to come to the beach tomorrow?","tr":"कल समुद्र किनारे आओगे?"},{"options":["If the weather is good, I'll come.","If the weather will be good, I'll come."],"answer":0,"why":"{{if}} के बाद वर्तमान: {{is}}।"},{"who":"दोस्त","t":"Great! Call me when you leave.","tr":"बढ़िया! निकलते समय फ़ोन करना।"},{"options":["OK, I'll call you when I leave.","OK, I'll call you when I will leave."],"answer":0,"why":"{{when}} के बाद भी वर्तमान।"}]},
+        {"type":"say","q":"कहिए: “अगर मैं उसे देखूँगा, तो बता दूँगा।”","answer":"If I see him, I'll tell him."},
+        {"type":"free","q":"आपकी बारी: बताइए अगर इस वीकेंड मौसम अच्छा रहा तो आप क्या करेंगे, और अगर नहीं रहा तो।","answers":[{"t":"If it's sunny, I'll take my kids to the park. If it rains, we'll bake a cake.","tr":"अगर धूप रही, तो मैं बच्चों को पार्क ले जाऊँगी। अगर बारिश हुई, तो हम केक बनाएँगे।"},{"t":"If I finish my work early, I'll go to the movies. If not, I'll just relax at home.","tr":"अगर मैंने काम जल्दी ख़त्म कर लिया, तो फ़िल्म देखने जाऊँगा। नहीं तो घर पर आराम करूँगा।"}]}
+      ]
+    },
+    {
+      "id": "if-i-were",
+      "unit": 7,
+      "level": "B1",
+      "title": "कल्पना कीजिए: {{If I had…, I would…}}",
+      "summary": "जो सच नहीं, उसकी कल्पना कीजिए: “{{If I had more money, I would travel}}”, “{{If I were you, I'd take the job.}}”",
+      "topic": "{{If}} + बीता रूप, … {{would}}; {{If I were you}}; {{I wish I had}} / {{I wish I could}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would learn to play the guitar.","tr":"अगर मेरे पास ज़्यादा समय होता, तो मैं गिटार बजाना सीखता।"}},
+        {"dialog":[{"who":"सैम","t":"What would you do if you won a million dollars?","tr":"अगर तुम दस लाख डॉलर जीत जाओ, तो क्या करोगी?"},{"who":"प्रिया","t":"I would buy a house for my parents.","tr":"मैं अपने माता-पिता के लिए एक घर ख़रीदती।"},{"who":"सैम","t":"That's sweet. Would you quit your job?","tr":"कितनी अच्छी बात। क्या तुम नौकरी छोड़ देतीं?"},{"who":"प्रिया","t":"No, I wouldn't. I like my job! What about you?","tr":"नहीं। मुझे अपनी नौकरी पसंद है! और तुम?"},{"who":"सैम","t":"If I were rich, I'd travel around the world.","tr":"अगर मैं अमीर होता, तो पूरी दुनिया घूमता।"},{"who":"प्रिया","t":"I wish I could come with you!","tr":"काश मैं भी तुम्हारे साथ चल पाती!"}]},
+        {"p":"**जो सच नहीं, उसकी कल्पना.** हिंदी “अगर … होता, तो … करता”। अंग्रेज़ी में {{if}} वाले हिस्से में **बीता रूप** (भले ही बात अभी की है), और नतीजे में {{would}} + मूल रूप: {{If I had money, I would travel.}} बोलचाल में {{I'd}}।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["कल्पना","{{If I had a car, I'd drive to work.}}","अगर मेरे पास गाड़ी होती, तो मैं गाड़ी से काम पर जाता।"],
+          ["सलाह","{{If I were you, I'd take the job.}}","मैं आपकी जगह होता, तो नौकरी ले लेता।"],
+          ["काश","{{I wish I had more time.}}","काश मेरे पास ज़्यादा समय होता।"],
+          ["काश (सकना)","{{I wish I could fly.}}","काश मैं उड़ सकता।"]
+        ] },
+        {"p":"**{{If I were you}}.** सलाह देने का सबसे आम तरीक़ा: {{If I were you, I'd…}} “मैं आपकी जगह होता तो…”। यहाँ {{I}} के साथ भी {{were}} (बोलचाल में {{was}} भी सुनेंगे)।"},
+        {"p":"**पिछला पाठ या यह?** {{If it rains, I'll stay home}}: हो सकता है (पाठ 41)। {{If I won the lottery, I'd buy a house}}: शायद ही होगा, बस कल्पना।"},
+        { "ex": [
+          {"t":"If I were rich, I'd buy a big house.","tr":"अगर मैं अमीर होता, तो एक बड़ा घर ख़रीदता।"},
+          {"t":"What would you do if you lost your job?","tr":"अगर आपकी नौकरी चली जाए, तो आप क्या करेंगे?"},
+          {"t":"If I were you, I'd see a doctor.","tr":"मैं आपकी जगह होता, तो डॉक्टर को दिखाता।"},
+          {"t":"I wish I spoke better English.","tr":"काश मेरी अंग्रेज़ी और अच्छी होती।"},
+          {"t":"If she had a car, she wouldn't take the bus.","tr":"अगर उसके पास गाड़ी होती, तो वह बस से नहीं जाती।"},
+          {"t":"I wish you were here.","tr":"काश तुम यहाँ होते।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"अगर मेरे पास पैसे होते, तो मैं घूमता।","why":"{{if}} वाले हिस्से में {{would}} नहीं: बीता रूप {{had}}।"},
+        {"wrong":"If I am you, I will take it.","right":"If I were you, I'd take it.","tr":"मैं आपकी जगह होता, तो ले लेता।","why":"कल्पना: {{If I were you, I'd…}}"},
+        {"wrong":"I wish I can fly.","right":"I wish I could fly.","tr":"काश मैं उड़ सकता।","why":"{{wish}} के बाद एक क़दम पीछे: {{could}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"If I ___ more time, I would learn the guitar.","tr":"अगर मेरे पास ज़्यादा समय होता, तो मैं गिटार सीखता।","options":["had","have","would have"],"answer":0,"why":"कल्पना में {{if}} के बाद बीता रूप।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"If I were you, I ___ take the job.","tr":"मैं आपकी जगह होता, तो नौकरी ले लेता।","options":["would","will","am"],"answer":0,"why":"नतीजा: {{would}}।"},
+        {"type":"choice","q":"“काश मैं गा सकता।”","options":["{{I wish I could sing.}}","{{I wish I can sing.}}","{{I wish I will sing.}}"],"answer":0,"why":"{{wish}} + {{could}}।","from":"can-could"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"अगर आपकी नौकरी चली जाए, तो आप क्या करेंगे?","words":["What would","you do","if","you lost","your job?"]},
+        {"type":"dialogue","q":"एक दोस्त कल्पना कर रहा है।","from":"if-and-when","lines":[{"who":"दोस्त","t":"What would you do if you won the lottery?","tr":"अगर तुम लॉटरी जीत जाओ, तो क्या करोगे?"},{"options":["I'd buy a house for my parents.","I'll buy a house for my parents."],"answer":0,"why":"कल्पना: {{I'd}}।"},{"who":"दोस्त","t":"Would you stop working?","tr":"क्या काम करना छोड़ दोगे?"},{"options":["No, I wouldn't. I love my job.","No, I won't. I love my job."],"answer":0,"why":"कल्पना: {{wouldn't}}।"}]},
+        {"type":"say","q":"सलाह दीजिए: “मैं आपकी जगह होता, तो डॉक्टर को दिखाता।”","answer":"If I were you, I'd see a doctor."},
+        {"type":"free","q":"आपकी बारी: बताइए अगर आपको एक साल की छुट्टी मिलती तो आप क्या करते, और एक {{I wish…}}।","answers":[{"t":"If I had a year off, I'd travel around India. I wish I had more free time.","tr":"अगर मुझे एक साल की छुट्टी मिलती, तो मैं पूरा भारत घूमता। काश मेरे पास ज़्यादा ख़ाली समय होता।"},{"t":"If I didn't have to work, I would write a book. I wish I could speak five languages.","tr":"अगर मुझे काम नहीं करना पड़ता, तो मैं एक किताब लिखती। काश मैं पाँच भाषाएँ बोल पाती।"}]}
+      ]
+    },
+    {
+      "id": "who-which-that",
+      "unit": 7,
+      "level": "B1",
+      "title": "कौन-सा: {{who, which, that}}",
+      "summary": "बताइए आप किसकी बात कर रहे हैं: “{{the man who lives next door}}”, “{{the book that I'm reading}}”।",
+      "topic": "{{who}} (लोग), {{which}} / {{that}} (चीज़ें); संज्ञा के ठीक बाद; “वह” दोबारा नहीं",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a nurse.","tr":"जो औरत बगल में रहती है, वह नर्स है।"}},
+        {"dialog":[{"who":"लीसा","t":"Who's the man who's talking to your boss?","tr":"वह आदमी कौन है जो तुम्हारे बॉस से बात कर रहा है?"},{"who":"रवि","t":"That's Mr. Chen. He's the client who called yesterday.","tr":"वे मिस्टर चेन हैं। वही क्लाइंट जिन्होंने कल फ़ोन किया था।"},{"who":"लीसा","t":"And what's the project that he wants?","tr":"और वे कौन-सा प्रोजेक्ट चाहते हैं?"},{"who":"रवि","t":"It's the app that we built last year.","tr":"वही ऐप जो हमने पिछले साल बनाया था।"},{"who":"लीसा","t":"The one that won the award?","tr":"वही जिसे अवॉर्ड मिला था?"},{"who":"रवि","t":"Exactly.","tr":"बिल्कुल।"}]},
+        {"term":"संबंधवाचक वाक्यांश","means":"वाक्य का वह हिस्सा जो बताता है कि किस व्यक्ति या चीज़ की बात हो रही है: {{the man who lives next door}} में {{who lives next door}}।"},
+        {"p":"**हिंदी का “जो … वह”, अंग्रेज़ी में एक ही हिस्सा.** हिंदी: “जो औरत बगल में रहती है, वह नर्स है”। अंग्रेज़ी में {{who}} वाला हिस्सा सीधे संज्ञा के **बाद** आता है, और “वह” दोबारा नहीं लगता: {{The woman who lives next door is a nurse.}}"},
+        { "table": [
+          ["","किसके लिए","उदाहरण"],
+          ["{{who}}","लोग","{{the man who called}} वह आदमी जिसने फ़ोन किया"],
+          ["{{which}}","चीज़ें","{{the car which I bought}} वह गाड़ी जो मैंने ख़रीदी"],
+          ["{{that}}","लोग और चीज़ें (बोलचाल में सबसे आम)","{{the book that I'm reading}} वह किताब जो मैं पढ़ रहा हूँ"]
+        ] },
+        {"p":"**“वह” दोबारा नहीं.** भारत में {{The man who came yesterday, he is my uncle}} सुनने को मिलता है। अंग्रेज़ी में {{he}} नहीं लगता: {{The man who came yesterday is my uncle.}}"},
+        {"p":"**{{that}} को छोड़ना.** जब {{that}} के बाद कोई दूसरा कर्ता आता है, तो बोलचाल में {{that}} अक्सर छोड़ देते हैं: {{the book (that) I'm reading}}, {{the movie (that) we saw}}।"},
+        { "ex": [
+          {"t":"I have a friend who lives in Canada.","tr":"मेरी एक दोस्त है जो कनाडा में रहती है।"},
+          {"t":"This is the phone that I bought.","tr":"यह वह फ़ोन है जो मैंने ख़रीदा।"},
+          {"t":"The people who work here are very friendly.","tr":"यहाँ काम करने वाले लोग बहुत मिलनसार हैं।"},
+          {"t":"Where's the book I lent you?","tr":"वह किताब कहाँ है जो मैंने तुम्हें दी थी?"},
+          {"t":"He's the man who helped me.","tr":"यही वह आदमी है जिसने मेरी मदद की।"},
+          {"t":"Is this the bus that goes downtown?","tr":"क्या यही बस शहर के बीच जाती है?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"The man who came yesterday, he is my uncle.","right":"The man who came yesterday is my uncle.","tr":"जो आदमी कल आए थे, वे मेरे चाचा हैं।","why":"{{he}} दोबारा नहीं लगता।"},
+        {"wrong":"The book who is on the table is mine.","right":"The book that is on the table is mine.","tr":"जो किताब मेज़ पर है, वह मेरी है।","why":"चीज़ों के लिए {{that}} या {{which}}; {{who}} सिर्फ़ लोगों के लिए।"},
+        {"wrong":"This is the house where I am living in.","right":"This is the house where I live.","tr":"यह वह घर है जहाँ मैं रहता हूँ।","why":"{{where}} के साथ {{in}} नहीं; और पक्की बात: {{live}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I have a friend ___ lives in Canada.","tr":"मेरी एक दोस्त है जो कनाडा में रहती है।","options":["who","which","she"],"answer":0,"why":"व्यक्ति: {{who}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"This is the phone ___ I bought.","tr":"यह वह फ़ोन है जो मैंने ख़रीदा।","options":["that","who","what"],"answer":0,"why":"चीज़: {{that}}।"},
+        {"type":"choice","q":"“जो आदमी कल आए थे, वे मेरे चाचा हैं।”","options":["{{The man who came yesterday is my uncle.}}","{{The man who came yesterday, he is my uncle.}}","{{Who came yesterday man is my uncle.}}"],"answer":0,"why":"{{who}} वाला हिस्सा संज्ञा के बाद, और {{he}} नहीं।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"यहाँ काम करने वाले लोग बहुत मिलनसार हैं।","words":["The people","who","work","here","are","very","friendly."]},
+        {"type":"dialogue","q":"पार्टी में आपका दोस्त लोगों के बारे में पूछता है।","from":"he-she-it-they","lines":[{"who":"दोस्त","t":"Who's that woman?","tr":"वह औरत कौन है?"},{"options":["She's the doctor who helped my mom.","She's the doctor which helped my mom."],"answer":0,"why":"व्यक्ति: {{who}}।"},{"who":"दोस्त","t":"And the man next to her?","tr":"और उसके पास वाला आदमी?"},{"options":["That's her husband. He's the one who built this house.","That's her husband. He's the one who he built this house."],"answer":0,"why":"{{who}} के बाद {{he}} नहीं।"}]},
+        {"type":"say","q":"पूछिए: “क्या यही बस शहर के बीच जाती है?”","answer":"Is this the bus that goes downtown?"},
+        {"type":"free","q":"आपकी बारी: दो लोगों या चीज़ों के बारे में बताइए, {{who}} या {{that}} के साथ।","answers":[{"t":"My sister is the person who helps me the most. The best gift that I got was a bike.","tr":"मेरी बहन वह इंसान है जो मेरी सबसे ज़्यादा मदद करती है। मुझे मिला सबसे अच्छा तोहफ़ा एक साइकिल थी।"},{"t":"I have a neighbor who cooks amazing food. This is the city that I love.","tr":"मेरे एक पड़ोसी हैं जो कमाल का खाना बनाते हैं। यही वह शहर है जिससे मुझे प्यार है।"}]}
+      ]
+    },
+    {
+      "id": "reported-speech",
+      "unit": 7,
+      "level": "B1",
+      "title": "उसने कहा कि…: किसी की बात आगे बताइए",
+      "summary": "किसी की बात आगे पहुँचाइए: “{{She said she was tired}}”, “{{He told me to wait}}”, “{{Can you tell me where the station is?}}”",
+      "topic": "{{said (that)}}, {{told me}}: काल एक क़दम पीछे; {{asked if}}; {{told me to}}; सवाल के अंदर सवाल: सीधा क्रम",
+      "blocks": [
+        {"goal":{"t":"My boss said she was happy with my work.","tr":"मेरी बॉस ने कहा कि वे मेरे काम से ख़ुश हैं।"}},
+        {"dialog":[{"who":"रवि","t":"Did you talk to Lisa?","tr":"क्या तुमने लीसा से बात की?"},{"who":"नेहा","t":"Yes. She said she was sick.","tr":"हाँ। उसने कहा कि वह बीमार है।"},{"who":"रवि","t":"Oh no. Did she say when she'd come back?","tr":"अरे। क्या उसने बताया कि वह कब वापस आएगी?"},{"who":"नेहा","t":"She said she would come back on Monday. And she asked if you could send her the notes.","tr":"उसने कहा कि वह सोमवार को आएगी। और पूछा कि क्या तुम उसे नोट्स भेज सकते हो।"},{"who":"रवि","t":"Sure. Can you tell me what her email is?","tr":"ज़रूर। क्या तुम मुझे उसका ईमेल बता सकती हो?"},{"who":"नेहा","t":"It's on the team list.","tr":"टीम की लिस्ट में है।"}]},
+        {"p":"**हिंदी काल नहीं बदलती, अंग्रेज़ी बदलती है.** हिंदी: “उसने कहा कि वह बीमार है” (उसके अपने शब्द, वैसे ही)। अंग्रेज़ी में बताने वाली क्रिया ({{said}}) बीते रूप में हो, तो बताई गई बात भी आम तौर पर एक क़दम पीछे जाती है: {{“I'm sick.”}} → {{She said she was sick.}}"},
+        { "table": [
+          ["उसके शब्द","आगे बताना"],
+          ["{{“I'm tired.”}}","{{She said she was tired.}}"],
+          ["{{“I'll come on Monday.”}}","{{He said he would come on Monday.}}"],
+          ["{{“I can't swim.”}}","{{She said she couldn't swim.}}"],
+          ["{{“I lost my keys.”}}","{{He said he had lost his keys.}}"]
+        ] },
+        {"p":"**{{said}} या {{told}}?** {{say}} के बाद सीधे बात: {{She said (that) she was tired.}} {{tell}} के बाद व्यक्ति: {{She told me (that) she was tired.}} ({{She said me}} नहीं।)"},
+        {"p":"**कुछ करने को कहना:** {{told}} + व्यक्ति + {{to}}: {{He told me to wait.}} “उसने मुझसे रुकने को कहा।” **सवाल:** {{asked if}}: {{She asked if I was free.}} “उसने पूछा कि क्या मैं ख़ाली हूँ।”"},
+        {"p":"**सवाल के अंदर सवाल: सीधा क्रम.** {{Where is the station?}} → {{Can you tell me where the station is?}} (क्रिया आख़िर में, सामान्य वाक्य की तरह)। {{Do you know what time it is?}}, न कि {{what time is it}}।"},
+        { "ex": [
+          {"t":"He said he was busy.","tr":"उसने कहा कि वह व्यस्त है।"},
+          {"t":"She told me she would call.","tr":"उसने मुझसे कहा कि वह फ़ोन करेगी।"},
+          {"t":"My mom asked if I was eating well.","tr":"माँ ने पूछा कि क्या मैं ठीक से खा रहा हूँ।"},
+          {"t":"The doctor told me to rest.","tr":"डॉक्टर ने मुझे आराम करने को कहा।"},
+          {"t":"Can you tell me where the bathroom is?","tr":"क्या आप बता सकते हैं कि बाथरूम कहाँ है?"},
+          {"t":"Do you know what time the store opens?","tr":"क्या आपको पता है दुकान कितने बजे खुलती है?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"She said me that she was tired.","right":"She told me that she was tired.","tr":"उसने मुझसे कहा कि वह थकी हुई है।","why":"व्यक्ति के साथ {{told}}; {{said}} के साथ नहीं।"},
+        {"wrong":"Can you tell me where is the station?","right":"Can you tell me where the station is?","tr":"क्या आप बता सकते हैं कि स्टेशन कहाँ है?","why":"अंदर वाले सवाल में सीधा क्रम: {{the station is}}।"},
+        {"wrong":"He told that he will come.","right":"He said that he would come.","tr":"उसने कहा कि वह आएगा।","why":"{{told}} को व्यक्ति चाहिए; और बात एक क़दम पीछे: {{would}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ me she was tired.","tr":"उसने मुझसे कहा कि वह थकी हुई है।","options":["told","said","asked"],"answer":0,"why":"व्यक्ति ({{me}}) के साथ: {{told}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"He said he ___ call me later.","tr":"उसने कहा कि वह मुझे बाद में फ़ोन करेगा।","options":["would","will","is"],"answer":0,"why":"एक क़दम पीछे: {{will}} → {{would}}।","from":"will"},
+        {"type":"choice","q":"“क्या आप बता सकते हैं कि बाथरूम कहाँ है?”","options":["{{Can you tell me where the bathroom is?}}","{{Can you tell me where is the bathroom?}}","{{Can you tell me the bathroom where?}}"],"answer":0,"why":"अंदर वाला सवाल: सीधा क्रम।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"डॉक्टर ने मुझे आराम करने को कहा।","words":["The doctor","told","me","to","rest."]},
+        {"type":"dialogue","q":"आप अपनी साथी को एक फ़ोन संदेश बता रहे हैं।","from":"polite-requests","lines":[{"who":"साथी","t":"Did anyone call for me?","tr":"क्या मेरे लिए किसी का फ़ोन आया?"},{"options":["Yes, Mr. Lee called. He said he was in a meeting.","Yes, Mr. Lee called. He said me he is in a meeting."],"answer":0,"why":"{{said}} के बाद सीधे बात, और {{was}}।"},{"who":"साथी","t":"Did he want anything?","tr":"उन्हें कुछ चाहिए था?"},{"options":["He asked if you could call him back.","He asked could you call him back."],"answer":0,"why":"{{asked if}} + सीधा क्रम।"}]},
+        {"type":"say","q":"किसी से पूछिए: “क्या आपको पता है दुकान कितने बजे खुलती है?”","answer":"Do you know what time the store opens?"},
+        {"type":"free","q":"आपकी बारी: किसी की कही दो बातें आगे बताइए: एक {{said}} से, एक {{told me to}} से।","answers":[{"t":"My friend said she was moving to Canada. My doctor told me to walk every day.","tr":"मेरी दोस्त ने कहा कि वह कनाडा जा रही है। मेरे डॉक्टर ने मुझे रोज़ टहलने को कहा।"},{"t":"My boss said the meeting was canceled. My mom told me to call her more often.","tr":"मेरे बॉस ने कहा कि मीटिंग रद्द हो गई है। माँ ने मुझसे कहा कि उन्हें ज़्यादा फ़ोन किया करूँ।"}]}
+      ]
+    },
+    {
+      "id": "tags-and-negative-questions",
+      "unit": 7,
+      "level": "B1",
+      "title": "बात पक्की कीजिए: {{aren't you? didn't you?}}",
+      "summary": "हर बात के बाद {{isn't it?}} नहीं: “{{You're coming, aren't you?}}” और “{{Didn't you eat? — No, I didn't.}}”",
+      "topic": "{{question tags}}: वाक्य की सहायक क्रिया, उल्टी; नकारात्मक सवालों के जवाब",
+      "blocks": [
+        {"goal":{"t":"You're coming to the party, aren't you? — Yes, I am!","tr":"तुम पार्टी में आ रहे हो, है न? — हाँ, बिल्कुल!"}},
+        {"dialog":[{"who":"राज","t":"It's a beautiful day, isn't it?","tr":"आज कितना सुंदर दिन है, है न?"},{"who":"लीसा","t":"Yes, it is. You work near here, don't you?","tr":"हाँ। आप यहीं पास में काम करते हैं, है न?"},{"who":"राज","t":"Yes, I do. You didn't drive today, did you?","tr":"हाँ। आप आज गाड़ी से नहीं आईं, है न?"},{"who":"लीसा","t":"No, I didn't. I took the train.","tr":"नहीं। मैं ट्रेन से आई।"},{"who":"राज","t":"Smart! Parking is terrible here, isn't it?","tr":"समझदारी की! यहाँ पार्किंग बहुत बुरी है, है न?"},{"who":"लीसा","t":"It really is.","tr":"सच में।"}]},
+        {"p":"**हिंदी का “है न?”** हिंदी में किसी भी बात के आख़िर में “है न?” या “न?” लग जाता है, और भारत की अंग्रेज़ी में उसी तरह {{isn't it?}} हर जगह: {{You're coming, isn't it?}} अंग्रेज़ी में यह छोटा सवाल ({{tag}}) वाक्य की सहायक क्रिया और कर्ता से बनता है, और उल्टा होता है: हाँ वाली बात → नहीं वाला {{tag}}; नहीं वाली बात → हाँ वाला {{tag}}।"},
+        { "table": [
+          ["बात","{{tag}}"],
+          ["{{You're coming,}}","{{aren't you?}}"],
+          ["{{She works here,}}","{{doesn't she?}}"],
+          ["{{They didn't call,}}","{{did they?}}"],
+          ["{{It's cold,}}","{{isn't it?}}"],
+          ["{{You can swim,}}","{{can't you?}}"],
+          ["{{We'll be late,}}","{{won't we?}}"]
+        ] },
+        {"p":"**कैसे बनाएँ:** वाक्य में {{be}}, {{can}} या {{will}} हो तो वही; न हो तो {{do / does / did}} (पाठ 15, 23)। कर्ता सर्वनाम बनकर आता है: {{Priya is nice, isn't she?}} और एक आसान रास्ता: बोलचाल में {{…, right?}} हर जगह चलता है: {{You're coming, right?}}"},
+        {"p":"**नकारात्मक सवाल का जवाब.** {{Didn't you eat?}} “क्या तुमने नहीं खाया?” हिंदी में “हाँ, नहीं खाया” कह सकते हैं। अंग्रेज़ी में जवाब सच्चाई के हिसाब से: नहीं खाया तो {{No, I didn't.}}; खाया तो {{Yes, I did.}} {{Yes}} के साथ हमेशा हाँ वाली क्रिया, {{No}} के साथ नहीं वाली।"},
+        { "ex": [
+          {"t":"It's hot today, isn't it?","tr":"आज गर्मी है, है न?"},
+          {"t":"You're from Mumbai, aren't you?","tr":"आप मुंबई से हैं, है न?"},
+          {"t":"She doesn't eat meat, does she?","tr":"वह मांस नहीं खाती, है न?"},
+          {"t":"You called him, didn't you?","tr":"तुमने उसे फ़ोन किया था, है न?"},
+          {"t":"Aren't you hungry? — No, I'm not.","tr":"क्या तुम्हें भूख नहीं लगी? — नहीं।"},
+          {"t":"You can help me, can't you?","tr":"आप मेरी मदद कर सकते हैं, है न?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"You are coming, isn't it?","right":"You are coming, aren't you?","tr":"तुम आ रहे हो, है न?","why":"{{tag}} वाक्य से बनता है: {{you are}} → {{aren't you}}।"},
+        {"wrong":"Didn't you eat? — Yes, I didn't.","right":"Didn't you eat? — No, I didn't.","tr":"तुमने नहीं खाया? — नहीं।","why":"{{Yes}} और {{didn't}} एक साथ नहीं: नहीं खाया तो {{No, I didn't}}।"},
+        {"wrong":"She works here, isn't it?","right":"She works here, doesn't she?","tr":"वह यहीं काम करती है, है न?","why":"{{works}} के लिए {{does}} वाला {{tag}}, और {{she}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"You're from Mumbai, ___ you?","tr":"आप मुंबई से हैं, है न?","options":["aren't","isn't","don't"],"answer":0,"why":"{{you are}} → {{aren't you}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She works here, ___ she?","tr":"वह यहीं काम करती है, है न?","options":["doesn't","isn't","don't"],"answer":0,"why":"{{works}}: {{doesn't she}}।","from":"do-questions"},
+        {"type":"choice","q":"दोस्त पूछता है {{Didn't you sleep?}} आप सच में नहीं सोए। जवाब…","options":["{{No, I didn't.}}","{{Yes, I didn't.}}","{{Yes, I did.}}"],"answer":0,"why":"नहीं सोए: {{No, I didn't}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"आज गर्मी है, है न?","words":["It's","hot","today,","isn't it?"]},
+        {"type":"dialogue","q":"एक पड़ोसी से बातचीत।","from":"what-you-have","lines":[{"who":"पड़ोसी","t":"You moved here last year, didn't you?","tr":"आप पिछले साल यहाँ आए थे, है न?"},{"options":["Yes, I did. In June.","Yes, isn't it. In June."],"answer":0,"why":"छोटा जवाब: {{Yes, I did}}।"},{"who":"पड़ोसी","t":"You don't have a car, do you?","tr":"आपके पास गाड़ी नहीं है, है न?"},{"options":["No, I don't. I take the bus.","Yes, I don't. I take the bus."],"answer":0,"why":"गाड़ी नहीं है: {{No, I don't}}।"}]},
+        {"type":"say","q":"बात पक्की कीजिए: “तुम पार्टी में आ रहे हो, है न?”","answer":"You're coming to the party, aren't you?"},
+        {"type":"free","q":"आपकी बारी: किसी नए साथी के बारे में दो बातें {{tag}} के साथ पक्की कीजिए।","answers":[{"t":"You're new here, aren't you? You don't live far, do you?","tr":"आप यहाँ नए हैं, है न? आप ज़्यादा दूर नहीं रहते, है न?"},{"t":"You like coffee, don't you? You were at the meeting yesterday, weren't you?","tr":"आपको कॉफ़ी पसंद है, है न? आप कल मीटिंग में थे, है न?"}]}
+      ]
     }
   ]
 }
