@@ -2110,6 +2110,278 @@
         {"type":"say","q":"On a train, politely: “Excuse me, I think this is my seat.”","answer":"저기요, 여기 제 자리인데요.","r":"jeogiyo, yeogi je jariindeyo."},
         {"type":"free","q":"Your turn: give some background, then ask a friend something or suggest something, with {{-는데|-neunde}}.","answers":[{"t":"이번 주말에 시간이 있는데 같이 영화 볼까요?","tr":"I'm free this weekend; shall we see a movie?","r":"ibeon jumare sigani inneunde gachi yeonghwa bolkkayo?"},{"t":"어제 새 카페를 찾았는데 커피가 정말 맛있어요. 같이 가요!","tr":"I found a new café yesterday, and the coffee is really good. Let's go together!","r":"eoje sae kapereul chajanneunde keopiga jeongmal masisseoyo. gachi gayo!"}]}
       ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell a story",
+      "summary": "Tell what happened, in order and with its surprises: “I was walking down the street when I ran into an old friend.”",
+      "topic": "{{-다가|-daga}} “while doing…, then”; {{이|i}}/{{가|ga}} for someone new in a story, {{은|eun}}/{{는|neun}} once they're known; {{처음에|cheoeume}}, {{그때|geuttae}}, {{결국|gyeolguk}}",
+      "blocks": [
+        {"goal":{"t":"길을 걷다가 옛날 친구를 만났어요.","tr":"I was walking down the street when I ran into an old friend.","r":"gireul geotdaga yennal chingureul mannasseoyo."}},
+        {"dialog":[{"who":"Friend","t":"어제 무슨 일 있었어요? 기분이 좋아 보여요.","tr":"Did something happen yesterday? You look happy.","r":"eoje museun il isseosseoyo? gibuni joa boyeoyo."},{"who":"You","t":"네! 어제 퇴근하다가 고등학교 친구를 만났어요.","tr":"Yes! On my way home from work, I ran into a friend from high school.","r":"ne! eoje toegeunhadaga godeunghakgyo chingureul mannasseoyo."},{"who":"Friend","t":"우와, 정말요?","tr":"Wow, really?","r":"uwa, jeongmaryo?"},{"who":"You","t":"처음에는 못 알아봤어요. 그런데 그 친구가 제 이름을 불렀어요.","tr":"At first I didn't recognize her. But she called my name.","r":"cheoeumeneun mot arabwasseoyo. geureonde geu chinguga je ireumeul bulleosseoyo."},{"who":"Friend","t":"그래서요?","tr":"And then?","r":"geuraeseoyo?"},{"who":"You","t":"그래서 같이 카페에 가서 세 시간 동안 이야기했어요. 결국 막차를 놓쳤어요!","tr":"So we went to a café and talked for three hours. In the end, I missed the last train!","r":"geuraeseo gachi kapee gaseo se sigan dongan iyagihaesseoyo. gyeolguk makchareul nochyeosseoyo!"}]},
+        {"p":"**While doing, then: {{-다가|-daga}}.** Stem + {{-다가|-daga}} says you were in the middle of one thing when something else happened, or when you switched to something else: {{길을 걷다가 친구를 만났어요|gireul geotdaga chingureul mannasseoyo}} “I was walking down the street when I met a friend”, {{공부하다가 잠이 들었어요|gongbuhadaga jami deureosseoyo}} “I fell asleep while studying”. It has one shape for every stem, and the last verb carries the tense."},
+        {"p":"**Someone new, then someone known.** In a story, a person or thing that appears for the first time takes {{이|i}}/{{가|ga}}; once everyone knows who it is, it becomes the topic, with {{은|eun}}/{{는|neun}}. Korean folk tales begin exactly like this. It works like English “a man…” then “the man…”."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["new","{{옛날에 호랑이가 살았어요.|yennare horangiga sarasseoyo.}}","Once upon a time, there lived a tiger."],
+          ["known","{{그 호랑이는 배가 고팠어요.|geu horangineun baega gopasseoyo.}}","The tiger was hungry."],
+          ["new","{{그때 어떤 사람이 왔어요.|geuttae eotteon sarami wasseoyo.}}","Just then, someone came along."],
+          ["known","{{그 사람은 떡을 팔았어요.|geu sarameun tteogeul parasseoyo.}}","That person was a rice-cake seller."]
+        ] },
+        {"p":"**Story words.** {{처음에|cheoeume}} “at first”, {{그다음에|geudaeume}} “after that”, {{그때|geuttae}} “at that moment”, {{갑자기|gapjagi}} “suddenly”, {{그래서|geuraeseo}} “so”, {{그런데|geureonde}} “but then”, {{결국|gyeolguk}} “in the end”. And a background with {{-았/었는데|-at/eonneunde}} (lesson 44) sets up a surprise: {{집에 왔는데 아무도 없었어요|jibe wanneunde amudo eopseosseoyo}} “I got home, and nobody was there.”"},
+        { "ex": [
+          {"t":"텔레비전을 보다가 잠이 들었어요.","tr":"I fell asleep watching TV.","r":"tellebijeoneul bodaga jami deureosseoyo."},
+          {"t":"집에 가다가 마트에 들렀어요.","tr":"On my way home, I stopped by the supermarket.","r":"jibe gadaga mateue deulleosseoyo."},
+          {"t":"처음에는 한국 음식이 매웠어요. 그런데 지금은 정말 좋아해요.","tr":"At first Korean food was too spicy for me. But now I love it.","r":"cheoeumeneun hanguk eumsigi maewosseoyo. geureonde jigeumeun jeongmal joahaeyo."},
+          {"t":"집에 왔는데 아무도 없었어요.","tr":"I got home, and nobody was there.","r":"jibe wanneunde amudo eopseosseoyo."},
+          {"t":"갑자기 비가 와서 옷이 다 젖었어요.","tr":"It suddenly started raining, and my clothes got soaked.","r":"gapjagi biga waseo osi da jeojeosseoyo."},
+          {"t":"결국 막차를 놓쳤어요.","tr":"In the end, I missed the last train.","r":"gyeolguk makchareul nochyeosseoyo."}
+        ] },
+        {"tip":"{{좋아 보여요|joa boyeoyo}} “you look happy, it looks good” is the present form without {{요|yo}} + {{보여요|boyeoyo}} “looks”: {{맛있어 보여요|masisseo boyeoyo}} “it looks delicious”, {{피곤해 보여요|pigonhae boyeoyo}} “you look tired”."}
+      ],
+      "mistakes": [
+        {"wrong":"길을 걸다가 친구를 만났어요.","right":"길을 걷다가 친구를 만났어요.","tr":"I met a friend while walking down the street.","why":"{{-다가|-daga}} starts with a consonant, so {{걷다|geotda}} keeps its {{ㄷ}}: {{걷다가|geotdaga}}. (It becomes {{ㄹ}} only before a vowel: {{걸어요|georeoyo}}.)"},
+        {"wrong":"옛날에 한 남자는 살았어요.","right":"옛날에 한 남자가 살았어요.","tr":"Once upon a time, there lived a man.","why":"Someone new in a story takes {{이|i}}/{{가|ga}}; {{은|eun}}/{{는|neun}} comes once we know them."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I fell asleep watching TV” is…","options":["{{텔레비전을 보다가 잠이 들었어요.|tellebijeoneul bodaga jami deureosseoyo.}}","{{텔레비전을 보고 잠이 들었어요.|tellebijeoneul bogo jami deureosseoyo.}}","{{텔레비전을 봐서 잠이 들었어요.|tellebijeoneul bwaseo jami deureosseoyo.}}"],"answer":0,"why":"In the middle of watching: {{-다가|-daga}}. ({{보고|bogo}} is “I watched TV, then fell asleep”; {{봐서|bwaseo}} “because I watched”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"집에 ___ 마트에 들렀어요.","tr":"On my way home, I stopped by the supermarket.","options":["가다가","가서","가면"],"answer":0,"why":"While going, then something else: {{가다가|gadaga}}."},
+        {"type":"fill","q":"Choose the particle.","t":"옛날에 한 소녀___ 살았어요.","tr":"Once upon a time, there lived a girl.","options":["가","는","를"],"answer":0,"why":"Someone new in the story: {{가|ga}}."},
+        {"type":"fill","q":"Choose the particle.","t":"그 소녀___ 아주 착했어요.","tr":"The girl was very kind.","options":["는","를"],"answer":0,"why":"Now we know her: the topic, {{는|neun}}."},
+        {"type":"order","q":"Put the words in order.","tr":"In the end, I missed the last train.","words":["결국","막차를","놓쳤어요."]},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","from":"set-the-scene","lines":[{"who":"Friend","t":"주말에 무슨 일 있었어요?","tr":"Did anything happen at the weekend?","r":"jumare museun il isseosseoyo?"},{"options":["산에 갔는데 갑자기 비가 왔어요.","산에 갔은데 갑자기 비가 왔어요."],"answer":0,"why":"A past background: {{갔는데|ganneunde}}."},{"who":"Friend","t":"어머, 그래서 어떻게 했어요?","tr":"Oh no, so what did you do?","r":"eomeo, geuraeseo eotteoke haesseoyo?"},{"options":["내려오다가 작은 카페에 들어갔어요.","내려오다가는요 카페에 들어갔어요."],"answer":0,"why":"On the way down, then something else: {{내려오다가|naeryeoodaga}}."}]},
+        {"type":"free","q":"Your turn: tell a short story about something surprising that happened to you, with {{-다가|-daga}} or {{-았/었는데|-at/eonneunde}}.","answers":[{"t":"어제 버스를 기다리다가 유명한 가수를 봤어요. 너무 놀랐어요!","tr":"Yesterday I was waiting for the bus when I saw a famous singer. I was so surprised!","r":"eoje beoseureul gidaridaga yumyeonghan gasureul bwasseoyo. neomu nollasseoyo!"},{"t":"지난주에 카페에 갔는데 지갑이 없었어요. 그래서 친구가 커피를 사 줬어요.","tr":"Last week I went to a café, and I didn't have my wallet. So my friend bought me a coffee.","r":"jinanjue kapee ganneunde jigabi eopseosseoyo. geuraeseo chinguga keopireul sa jwosseoyo."}]}
+      ]
+    },
+    {
+      "id": "tell-what-someone-said",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell someone what another person said",
+      "summary": "Pass on messages and news: “Minsu said he can't come tomorrow”, “She asked if you're free”, “I heard it'll snow.”",
+      "topic": "reported speech: {{-다고 했어요|-dago haesseoyo}} (statements), {{-냐고|-nyago}} (questions), {{-자고|-jago}} (suggestions), {{-(으)라고|-(eu)rago}} (requests); {{-대요|-daeyo}}",
+      "blocks": [
+        {"goal":{"t":"민수 씨가 내일 못 온다고 했어요.","tr":"Minsu said he can't come tomorrow.","r":"minsu ssiga naeil mot ondago haesseoyo."}},
+        {"dialog":[{"who":"Coworker","t":"아까 과장님이 뭐라고 하셨어요?","tr":"What did the manager say earlier?","r":"akka gwajangnimi mworago hasyeosseoyo?"},{"who":"You","t":"회의가 세 시로 바뀌었다고 하셨어요.","tr":"He said the meeting has been moved to three.","r":"hoeuiga se siro bakkwieotdago hasyeosseoyo."},{"who":"Coworker","t":"그래요? 또 뭐라고 하셨어요?","tr":"Really? What else did he say?","r":"geuraeyo? tto mworago hasyeosseoyo?"},{"who":"You","t":"보고서를 오늘까지 보내라고 하셨어요. 그리고 금요일에 같이 저녁 먹자고 하셨어요.","tr":"He told us to send the report by today. And he suggested we all have dinner on Friday.","r":"bogoseoreul oneulkkaji bonaerago hasyeosseoyo. geurigo geumyoire gachi jeonyeok meokjago hasyeosseoyo."},{"who":"Coworker","t":"아, 그리고 지나 씨가 내일 시간 있냐고 물어봤어요.","tr":"Oh, and Jina asked if you're free tomorrow.","r":"a, geurigo jina ssiga naeil sigan innyago mureobwasseoyo."}]},
+        {"term":"reported speech","means":"telling what someone said without their exact words: “She said (that) she was tired.”"},
+        {"p":"**Passing on what someone said.** Korean reports speech by putting the sentence into its plain form, then adding {{-고 했어요|-go haesseoyo}} “said that”. The plain form is the style of books and newspapers: {{-다|-da}}. Each kind of sentence has its own ending:"},
+        { "table": [
+          ["they said…","ending","example"],
+          ["a statement, action verb","{{-ㄴ다고|-ndago}} / {{-는다고|-neundago}}","{{간다고 했어요|gandago haesseoyo}} said they're going; {{먹는다고 했어요|meongneundago haesseoyo}} said they eat it"],
+          ["a statement, descriptive verb, {{있다|itda}}/{{없다|eopda}}","{{-다고|-dago}}","{{바쁘다고 했어요|bappeudago haesseoyo}} said they're busy; {{있다고 했어요|itdago haesseoyo}}"],
+          ["a statement, noun","{{(이)라고|(i)rago}}","{{학생이라고 했어요|haksaengirago haesseoyo}} said they're a student"],
+          ["something past","{{-았/었다고|-at/eotdago}}","{{갔다고 했어요|gatdago haesseoyo}} said they went"],
+          ["something to come","{{-(으)ㄹ 거라고|-(eu)l georago}}","{{올 거라고 했어요|ol georago haesseoyo}} said they'll come"],
+          ["a question","{{-냐고|-nyago}}","{{시간 있냐고 했어요|sigan innyago haesseoyo}} asked if I had time"],
+          ["a suggestion","{{-자고|-jago}}","{{같이 가자고 했어요|gachi gajago haesseoyo}} suggested going together"],
+          ["a request","{{-(으)라고|-(eu)rago}}","{{기다리라고 했어요|gidarirago haesseoyo}} told me to wait"]
+        ] },
+        {"p":"**Other verbs, and the short form.** Instead of {{했어요|haesseoyo}}, you can use {{말했어요|malhaesseoyo}} “said”, {{물어봤어요|mureobwasseoyo}} “asked” or {{들었어요|deureosseoyo}} “heard”: {{내일 눈이 온다고 들었어요|naeil nuni ondago deureosseoyo}} “I heard it's going to snow tomorrow.” The same ending gives your own thoughts: {{좋은 생각이라고 생각해요|joeun saenggagirago saenggakaeyo}} “I think it's a good idea.” In speech, {{-다고 해요|-dago haeyo}} shortens to {{-대요|-daeyo}}: {{바쁘대요|bappeudaeyo}} “She says she's busy.”"},
+        { "ex": [
+          {"t":"엄마가 저녁 먹으러 오라고 했어요.","tr":"Mom told me to come over for dinner.","r":"eommaga jeonyeok meogeureo orago haesseoyo."},
+          {"t":"친구가 같이 여행 가자고 했어요.","tr":"My friend suggested going on a trip together.","r":"chinguga gachi yeohaeng gajago haesseoyo."},
+          {"t":"선생님이 숙제를 했냐고 물어보셨어요.","tr":"The teacher asked if I'd done my homework.","r":"seonsaengnimi sukjereul haennyago mureobosyeosseoyo."},
+          {"t":"뉴스에서 내일 눈이 온다고 했어요.","tr":"The news said it's going to snow tomorrow.","r":"nyuseueseo naeil nuni ondago haesseoyo."},
+          {"t":"지수 씨가 요즘 바쁘대요.","tr":"Jisu says she's busy these days.","r":"jisu ssiga yojeum bappeudaeyo."},
+          {"t":"저는 한국어가 재미있다고 생각해요.","tr":"I think Korean is fun.","r":"jeoneun hangugeoga jaemiitdago saenggakaeyo."}
+        ] },
+        {"tip":"{{뭐라고요?|mworagoyo?}} “What did you say?” is the same {{-라고|-rago}}: a natural way to ask someone to repeat. Politer: {{네? 다시 한번 말씀해 주시겠어요?|ne? dasi hanbeon malsseumhae jusigesseoyo?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"민수 씨가 내일 못 와요고 했어요.","right":"민수 씨가 내일 못 온다고 했어요.","tr":"Minsu said he can't come tomorrow.","why":"Reported speech uses the plain form: {{온다|onda}} + {{고|go}}."},
+        {"wrong":"친구가 기다려라고 했어요.","right":"친구가 기다리라고 했어요.","tr":"My friend told me to wait.","why":"A reported request is the stem + {{-(으)라고|-(eu)rago}}: {{기다리라고|gidarirago}}."},
+        {"wrong":"그 사람은 학생다고 했어요.","right":"그 사람은 학생이라고 했어요.","tr":"That person said they're a student.","why":"After a noun: {{(이)라고|(i)rago}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Jisu tells you {{저 지금 바빠요|jeo jigeum bappayo}}. You tell a friend…","options":["{{지수 씨가 지금 바쁘다고 했어요.|jisu ssiga jigeum bappeudago haesseoyo.}}","{{지수 씨가 지금 바빠요고 했어요.|jisu ssiga jigeum bappayogo haesseoyo.}}","{{지수 씨가 지금 바쁘라고 했어요.|jisu ssiga jigeum bappeurago haesseoyo.}}"],"answer":0,"why":"A statement with a descriptive verb: {{바쁘다고|bappeudago}}. ({{바쁘라고|bappeurago}} would be “told me to be busy”!)"},
+        {"type":"fill","q":"Choose the right form.","t":"친구가 같이 영화 ___ 했어요.","tr":"My friend suggested seeing a movie together.","options":["보자고","보라고","본다고"],"answer":0,"why":"A suggestion: {{-자고|-jago}}."},
+        {"type":"fill","q":"Choose the right form.","t":"엄마가 집에 일찍 ___ 했어요.","tr":"Mom told me to come home early.","options":["오라고","온다고","오자고"],"answer":0,"why":"A request: {{-(으)라고|-(eu)rago}}."},
+        {"type":"fill","q":"Choose the right form.","t":"뉴스에서 내일 비가 ___ 했어요.","tr":"The news said it's going to rain tomorrow.","options":["온다고","오다고","오냐고"],"answer":0,"why":"A statement, action verb: {{온다고|ondago}}."},
+        {"type":"order","q":"Put the words in order.","tr":"My friend asked if I had time.","words":["친구가","시간","있냐고","물어봤어요."]},
+        {"type":"dialogue","q":"Passing on the team leader's message. Choose your replies.","from":"say-what-you-will-do","lines":[{"who":"Coworker","t":"아까 팀장님이 뭐라고 하셨어요?","tr":"What did the team leader say earlier?","r":"akka timjangnimi mworago hasyeosseoyo?"},{"options":["내일 회의가 있다고 하셨어요.","내일 회의가 있는다고 하셨어요."],"answer":0,"why":"{{있다|itda}} takes just {{-다고|-dago}}: {{있다고|itdago}}."},{"who":"Coworker","t":"몇 시에요?","tr":"At what time?","r":"myeot sieyo?"},{"options":["열 시에 할 거라고 하셨어요.","열 시에 할 거다고 하셨어요."],"answer":0,"why":"After {{거|geo}}, a noun: {{-(으)ㄹ 거라고|-(eu)l georago}}."}]},
+        {"type":"free","q":"Your turn: pass on two messages: something a friend said, and something someone asked or told you to do.","answers":[{"t":"친구가 이번 주말에 바쁘다고 했어요. 그리고 다음 주에 만나자고 했어요.","tr":"My friend said she's busy this weekend. And she suggested meeting next week.","r":"chinguga ibeon jumare bappeudago haesseoyo. geurigo daeum jue mannajago haesseoyo."},{"t":"엄마가 내일 전화하라고 했어요. 동생은 생일 파티에 오냐고 물어봤어요.","tr":"Mom told me to call tomorrow. My younger sibling asked if I'm coming to the birthday party.","r":"eommaga naeil jeonhwaharago haesseoyo. dongsaengeun saengil patie onyago mureobwasseoyo."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-changed",
+      "unit": 9,
+      "level": "B1",
+      "title": "Say how things changed",
+      "summary": "Talk about change: “It's gotten cold”, “My Korean has gotten better”, “I ended up working in Korea.”",
+      "topic": "{{-아/어지다|-a/eojida}} “to become, to get”; {{-게 되다|-ge doeda}} “to come to, to end up”",
+      "blocks": [
+        {"goal":{"t":"한국어 실력이 많이 좋아졌어요.","tr":"My Korean has gotten a lot better.","r":"hangugeo sillyeogi mani joajyeosseoyo."}},
+        {"dialog":[{"who":"Teacher","t":"오랜만이에요! 한국어가 정말 많이 늘었네요.","tr":"Long time no see! Your Korean has really improved.","r":"oraenmanieyo! hangugeoga jeongmal mani neureonneyo."},{"who":"You","t":"감사합니다. 한국에서 일하게 돼서 매일 한국어를 써요.","tr":"Thank you. I ended up working in Korea, so I use Korean every day.","r":"gamsahamnida. hangugeseo ilhage dwaeseo maeil hangugeoreul sseoyo."},{"who":"Teacher","t":"그래요? 한국 생활은 어때요?","tr":"Really? How's life in Korea?","r":"geuraeyo? hanguk saenghwareun eottaeyo?"},{"who":"You","t":"처음에는 힘들었는데 지금은 많이 익숙해졌어요.","tr":"At first it was hard, but now I've gotten used to it.","r":"cheoeumeneun himdeureonneunde jigeumeun mani iksukaejyeosseoyo."},{"who":"Teacher","t":"요즘 날씨가 많이 추워졌죠?","tr":"It's gotten really cold lately, hasn't it?","r":"yojeum nalssiga mani chuwojyeotjyo?"},{"who":"You","t":"네, 정말 추워졌어요!","tr":"Yes, it's gotten so cold!","r":"ne, jeongmal chuwojyeosseoyo!"}]},
+        {"p":"**Becoming: {{-아/어지다|-a/eojida}}.** A descriptive verb's present form without {{요|yo}}, plus {{지다|jida}}, means “to become, to get”: {{추워요|chuwoyo}} → {{추워지다|chuwojida}} “to get cold”, {{좋아요|joayo}} → {{좋아지다|joajida}} “to get better”. It then takes endings like any verb: {{추워졌어요|chuwojyeosseoyo}} “it's gotten cold”, {{좋아질 거예요|joajil geoyeyo}} “it'll get better”."},
+        { "table": [
+          ["describing","becoming","example"],
+          ["{{추워요|chuwoyo}} it's cold","{{추워지다|chuwojida}}","{{날씨가 추워졌어요.|nalssiga chuwojyeosseoyo.}} It's gotten cold."],
+          ["{{좋아요|joayo}} it's good","{{좋아지다|joajida}}","{{기분이 좋아졌어요.|gibuni joajyeosseoyo.}} I feel better now."],
+          ["{{많아요|manayo}} there are many","{{많아지다|manajida}}","{{관광객이 많아졌어요.|gwangwanggaegi manajyeosseoyo.}} There are more tourists now."],
+          ["{{예뻐요|yeppeoyo}} it's pretty","{{예뻐지다|yeppeojida}}","{{더 예뻐졌네요!|deo yeppeojyeonneyo!}} You look even prettier!"],
+          ["{{익숙해요|iksukaeyo}} I'm used to it","{{익숙해지다|iksukaejida}}","{{이제 익숙해졌어요.|ije iksukaejyeosseoyo.}} I've gotten used to it now."]
+        ] },
+        {"p":"**Ending up: {{-게 되다|-ge doeda}}.** Stem + {{-게 되다|-ge doeda}} says something came about, often not by your own plan: {{한국에서 일하게 됐어요|hangugeseo ilhage dwaesseoyo}} “I ended up working in Korea”, {{그 사람을 좋아하게 됐어요|geu sarameul joahage dwaesseoyo}} “I came to like him”, {{알게 됐어요|alge dwaesseoyo}} “I found out”. It's also how Koreans share news modestly: {{다음 달에 결혼하게 됐어요|daeum dare gyeolhonhage dwaesseoyo}} “I'm getting married next month.” ({{됐어요|dwaesseoyo}} is the past of {{되다|doeda}}; {{돼서|dwaeseo}} is its {{-아서|-aseo}} form.)"},
+        { "ex": [
+          {"t":"날씨가 많이 따뜻해졌어요.","tr":"The weather has gotten a lot warmer.","r":"nalssiga mani ttatteutaejyeosseoyo."},
+          {"t":"요즘 물가가 많이 비싸졌어요.","tr":"Prices have gone up a lot lately.","r":"yojeum mulgaga mani bissajyeosseoyo."},
+          {"t":"운동을 시작해서 건강해졌어요.","tr":"I started working out, and I've gotten healthier.","r":"undongeul sijakaeseo geonganghaejyeosseoyo."},
+          {"t":"한국 드라마를 보다가 한국어를 공부하게 됐어요.","tr":"Watching Korean dramas got me into studying Korean.","r":"hanguk deuramareul bodaga hangugeoreul gongbuhage dwaesseoyo."},
+          {"t":"다음 달에 서울로 이사하게 됐어요.","tr":"It turns out I'm moving to Seoul next month.","r":"daeum dare seoullo isahage dwaesseoyo."},
+          {"t":"회사에서 지금 남자 친구를 만나게 됐어요.","tr":"I met my boyfriend at work.","r":"hoesaeseo jigeum namja chingureul mannage dwaesseoyo."}
+        ] },
+        {"tip":"{{늘다|neulda}} “to increase, to improve” is what Koreans say about a skill: {{한국어가 늘었어요|hangugeoga neureosseoyo}} “Your Korean has improved.” It's an {{ㄹ}} verb: {{늘었어요|neureosseoyo}}, {{느네요|neuneyo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"날씨가 춥어졌어요.","right":"날씨가 추워졌어요.","tr":"It's gotten cold.","why":"{{-지다|-jida}} goes after the present form without {{요|yo}}: {{추워|chuwo}} + {{지다|jida}}."},
+        {"wrong":"한국에서 일하게 했어요.","right":"한국에서 일하게 됐어요.","tr":"I ended up working in Korea.","why":"“Ended up”: {{-게 되다|-ge doeda}}, so {{됐어요|dwaesseoyo}}. {{-게 했어요|-ge haesseoyo}} means “made (someone) do it”."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“It's gotten cold” is…","options":["{{추워졌어요.|chuwojyeosseoyo.}}","{{추웠어요.|chuwosseoyo.}}","{{춥게 했어요.|chupge haesseoyo.}}"],"answer":0,"why":"Became cold: {{추워지다|chuwojida}}. ({{추웠어요|chuwosseoyo}} is “it was cold”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"기분이 많이 좋아___.","tr":"I feel a lot better now.","options":["졌어요","했어요","됐어요"],"answer":0,"why":"Became good: {{좋아지다|joajida}} → {{좋아졌어요|joajyeosseoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"다음 달에 서울로 이사하게 ___.","tr":"It turns out I'm moving to Seoul next month.","options":["됐어요","졌어요","했어요"],"answer":0,"why":"Came about: {{-게 되다|-ge doeda}} → {{됐어요|dwaesseoyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I've gotten used to life in Korea.","words":["한국","생활에","익숙해졌어요."]},
+        {"type":"dialogue","q":"Your old teacher asks about your Korean. Choose your replies.","from":"tell-a-story","lines":[{"who":"Teacher","t":"한국어를 어떻게 시작하게 됐어요?","tr":"How did you come to start Korean?","r":"hangugeoreul eotteoke sijakage dwaesseoyo?"},{"options":["한국 영화를 보다가 관심이 생겼어요.","한국 영화를 보고가 관심이 생겼어요."],"answer":0,"why":"While watching, something happened: {{-다가|-daga}}."},{"who":"Teacher","t":"지금은 한국어가 어때요?","tr":"And how's your Korean now?","r":"jigeumeun hangugeoga eottaeyo?"},{"options":["처음보다 많이 쉬워졌어요.","처음보다 많이 쉽어졌어요."],"answer":0,"why":"{{쉽다|swipda}} → {{쉬워요|swiwoyo}} → {{쉬워지다|swiwojida}}."}]},
+        {"type":"say","q":"Share your news modestly: “I'm getting married next month.” ({{결혼하다|gyeolhonhada}})","answer":"다음 달에 결혼하게 됐어요.","r":"daeum dare gyeolhonhage dwaesseoyo."},
+        {"type":"free","q":"Your turn: say how your life or your town has changed in the last few years, and one thing you ended up doing.","answers":[{"t":"요즘 우리 동네에 카페가 많아졌어요. 그리고 저는 운동을 시작해서 건강해졌어요.","tr":"There are more cafés in my neighborhood now. And I started working out, so I've gotten healthier.","r":"yojeum uri dongnee kapega manajyeosseoyo. geurigo jeoneun undongeul sijakaeseo geonganghaejyeosseoyo."},{"t":"작년에 회사를 옮기게 됐어요. 일이 좀 바빠졌어요.","tr":"Last year I ended up changing jobs. My work has gotten a bit busier.","r":"jangnyeone hoesareul omgige dwaesseoyo. iri jom bappajyeosseoyo."}]}
+      ]
+    },
+    {
+      "id": "make-a-wish",
+      "unit": 9,
+      "level": "B1",
+      "title": "Make wishes and imagine",
+      "summary": "Say what you hope for (“I hope the weather's nice tomorrow”) and imagine (“If I had lots of money, I'd travel the world”).",
+      "topic": "{{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}} “I hope, I wish”; {{-(으)면 좋겠어요|-(eu)myeon jokesseoyo}}; {{만약|manyak}} … {{-(으)면|-(eu)myeon}} … {{-(으)ㄹ 거예요|-(eu)l geoyeyo}}",
+      "blocks": [
+        {"goal":{"t":"내일 날씨가 좋았으면 좋겠어요.","tr":"I hope the weather is nice tomorrow.","r":"naeil nalssiga joasseumyeon jokesseoyo."}},
+        {"dialog":[{"who":"Friend","t":"새해 소원이 뭐예요?","tr":"What's your New Year's wish?","r":"saehae sowoni mwoyeyo?"},{"who":"You","t":"올해는 한국어를 더 잘했으면 좋겠어요. 그리고 가족들이 건강했으면 좋겠어요.","tr":"I hope my Korean gets better this year. And I hope my family stays healthy.","r":"olhaeneun hangugeoreul deo jalhaesseumyeon jokesseoyo. geurigo gajokdeuri geonganghaesseumyeon jokesseoyo."},{"who":"Friend","t":"좋은 소원이네요. 저는 로또에 당첨됐으면 좋겠어요!","tr":"Nice wishes. I wish I'd win the lottery!","r":"joeun sowonineyo. jeoneun rottoe dangcheomdwaesseumyeon jokesseoyo!"},{"who":"You","t":"하하! 만약 당첨되면 뭐 할 거예요?","tr":"Haha! If you won, what would you do?","r":"haha! manyak dangcheomdoemyeon mwo hal geoyeyo?"},{"who":"Friend","t":"세계 여행을 할 거예요. 그리고 맛있는 거 사 줄게요!","tr":"I'd travel the world. And I'd treat you to something nice!","r":"segye yeohaengeul hal geoyeyo. geurigo masinneun geo sa julgeyo!"}]},
+        {"p":"**I hope, I wish: {{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}}.** Word for word “if it happened, it would be good”: {{비가 그쳤으면 좋겠어요|biga geuchyeosseumyeon jokesseoyo}} “I wish the rain would stop.” The past shape ({{-았/었으면|-at/eosseumyeon}}) makes it sound like a wish; {{-(으)면 좋겠어요|-(eu)myeon jokesseoyo}} ({{비가 그치면 좋겠어요|biga geuchimyeon jokesseoyo}}) means the same and is just as common. Compare: to say what you want **to do**, {{-고 싶어요|-go sipeoyo}}; to hope something **happens**, {{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}}."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["a hope","{{합격했으면 좋겠어요.|hapgyeokaesseumyeon jokesseoyo.}}","I hope I pass."],
+          ["a wish","{{키가 좀 더 컸으면 좋겠어요.|kiga jom deo keosseumyeon jokesseoyo.}}","I wish I were a bit taller."],
+          ["for someone","{{빨리 나았으면 좋겠어요.|ppalli naasseumyeon jokesseoyo.}}","I hope you get well soon."],
+          ["what you want to do","{{여행을 가고 싶어요.|yeohaengeul gago sipeoyo.}}","I want to travel."]
+        ] },
+        {"p":"**Imagine: {{만약|manyak}} … {{-(으)면|-(eu)myeon}}.** {{만약|manyak}} “suppose, if” at the start makes a {{-(으)면|-(eu)myeon}} sentence clearly imaginary: {{만약 돈이 많으면 세계 여행을 할 거예요|manyak doni maneumyeon segye yeohaengeul hal geoyeyo}} “If I had lots of money, I'd travel around the world.” Korean needs no special “would”: {{-(으)ㄹ 거예요|-(eu)l geoyeyo}} does the job. And {{뭐 할 거예요?|mwo hal geoyeyo?}} asks “What would you do?”."},
+        { "ex": [
+          {"t":"이번 주말에는 비가 안 왔으면 좋겠어요.","tr":"I hope it doesn't rain this weekend.","r":"ibeon jumareneun biga an wasseumyeon jokesseoyo."},
+          {"t":"시험에 합격했으면 좋겠어요.","tr":"I hope I pass the exam.","r":"siheome hapgyeokaesseumyeon jokesseoyo."},
+          {"t":"빨리 나았으면 좋겠어요.","tr":"I hope you get well soon.","note":"{{낫다|natda}} “to get better” drops its {{ㅅ}} before a vowel: {{나았으면|naasseumyeon}}","r":"ppalli naasseumyeon jokesseoyo."},
+          {"t":"우리 집이 좀 더 넓었으면 좋겠어요.","tr":"I wish our place were a bit bigger.","r":"uri jibi jom deo neolbeosseumyeon jokesseoyo."},
+          {"t":"만약 시간이 많으면 뭐 하고 싶어요?","tr":"If you had lots of time, what would you want to do?","r":"manyak sigani maneumyeon mwo hago sipeoyo?"},
+          {"t":"만약 내일 세상이 끝나면 뭐 할 거예요?","tr":"If the world ended tomorrow, what would you do?","r":"manyak naeil sesangi kkeunnamyeon mwo hal geoyeyo?"}
+        ] },
+        {"tip":"{{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}} is also how you wish someone well: {{시험 잘 봤으면 좋겠어요|siheom jal bwasseumyeon jokesseoyo}} “I hope your exam goes well”, {{좋은 사람을 만났으면 좋겠어요|joeun sarameul mannasseumyeon jokesseoyo}} “I hope you meet someone nice.”"}
+      ],
+      "mistakes": [
+        {"wrong":"내일 날씨가 좋았으면 좋아요.","right":"내일 날씨가 좋았으면 좋겠어요.","tr":"I hope the weather is nice tomorrow.","why":"A wish ends in {{좋겠어요|jokesseoyo}} “it would be good”."},
+        {"wrong":"저는 한국에 가았으면 좋겠어요.","right":"저는 한국에 갔으면 좋겠어요.","tr":"I wish I could go to Korea.","why":"{{가|ga}} + {{았|at}} melts into {{갔|gat}}, as in the past tense."},
+        {"wrong":"빨리 낫았으면 좋겠어요.","right":"빨리 나았으면 좋겠어요.","tr":"I hope you get well soon.","why":"{{낫다|natda}} drops its {{ㅅ}} before a vowel: {{나았으면|naasseumyeon}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend has a job interview tomorrow. You say “I hope it goes well.”","options":["{{면접 잘 봤으면 좋겠어요.|myeonjeop jal bwasseumyeon jokesseoyo.}}","{{면접 잘 보고 싶어요.|myeonjeop jal bogo sipeoyo.}}","{{면접 잘 봤어요.|myeonjeop jal bwasseoyo.}}"],"answer":0,"why":"A hope for someone: {{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}}. ({{보고 싶어요|bogo sipeoyo}} is what **you** want to do.)"},
+        {"type":"fill","q":"Choose the right form.","t":"이번 주말에는 비가 안 ___ 좋겠어요.","tr":"I hope it doesn't rain this weekend.","options":["왔으면","와서","오고"],"answer":0,"why":"A wish: {{-았/었으면 좋겠어요|-at/eosseumyeon jokesseoyo}}."},
+        {"type":"fill","q":"Choose the ending.","t":"만약 돈이 많___ 세계 여행을 할 거예요.","tr":"If I had lots of money, I'd travel the world.","options":["으면","아서","지만"],"answer":0,"why":"Imagining: {{만약|manyak}} … {{-(으)면|-(eu)myeon}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I hope I pass the exam.","words":["시험에","합격했으면","좋겠어요."]},
+        {"type":"dialogue","q":"New Year's wishes with a friend. Choose your replies.","from":"offer-and-promise","lines":[{"who":"Friend","t":"새해 소원이 뭐예요?","tr":"What's your New Year's wish?","r":"saehae sowoni mwoyeyo?"},{"options":["가족들이 건강했으면 좋겠어요.","가족들이 건강했으면 좋아요."],"answer":0,"why":"A wish ends in {{좋겠어요|jokesseoyo}}."},{"who":"Friend","t":"좋은 소원이네요. 만약 로또에 당첨되면 뭐 할 거예요?","tr":"Nice wish. If you won the lottery, what would you do?","r":"joeun sowonineyo. manyak rottoe dangcheomdoemyeon mwo hal geoyeyo?"},{"options":["부모님께 집을 사 드릴 거예요.","부모님께 집을 사 줄 거예요."],"answer":0,"why":"For your parents, {{드리다|deurida}}, the respectful “give” (lesson 31)."}]},
+        {"type":"say","q":"Wish a sick friend well: “I hope you get well soon.”","answer":"빨리 나았으면 좋겠어요.","r":"ppalli naasseumyeon jokesseoyo."},
+        {"type":"free","q":"Your turn: say two things you hope for this year, and what you would do with a free month.","answers":[{"t":"올해는 한국에 갔으면 좋겠어요. 그리고 새 일을 찾았으면 좋겠어요. 만약 한 달 동안 시간이 있으면 제주도에서 살 거예요.","tr":"I hope I go to Korea this year. And I hope I find a new job. If I had a free month, I'd live on Jeju.","r":"olhaeneun hanguge gasseumyeon jokesseoyo. geurigo sae ireul chajasseumyeon jokesseoyo. manyak han dal dongan sigani isseumyeon jejudoeseo sal geoyeyo."},{"t":"가족들이 행복했으면 좋겠어요. 만약 시간이 많으면 요리를 배울 거예요.","tr":"I hope my family is happy. If I had lots of time, I'd learn to cook.","r":"gajokdeuri haengbokaesseumyeon jokesseoyo. manyak sigani maneumyeon yorireul baeul geoyeyo."}]}
+      ]
+    },
+    {
+      "id": "explain-yourself",
+      "unit": 9,
+      "level": "B1",
+      "title": "Explain yourself the way Koreans do",
+      "summary": "Give the reason behind what you say (“I'm busy these days, you see”) and remind people of what they know (“You know I don't eat meat!”).",
+      "topic": "{{-거든요|-geodeunyo}} “you see”; {{-잖아요|-janayo}} “you know, remember”",
+      "blocks": [
+        {"goal":{"t":"제가 요즘 좀 바쁘거든요.","tr":"I'm a bit busy these days, you see.","r":"jega yojeum jom bappeugeodeunyo."}},
+        {"dialog":[{"who":"Friend","t":"왜 요즘 연락이 없었어요?","tr":"Why haven't I heard from you lately?","r":"wae yojeum yeollagi eopseosseoyo?"},{"who":"You","t":"미안해요. 제가 얼마 전에 이사를 했거든요.","tr":"Sorry. I moved house recently, you see.","r":"mianhaeyo. jega eolma jeone isareul haetgeodeunyo."},{"who":"Friend","t":"아, 그랬군요! 새 집은 어디예요?","tr":"Oh, I see! Where's your new place?","r":"a, geuraetgunyo! sae jibeun eodiyeyo?"},{"who":"You","t":"회사 근처예요. 전에는 회사가 너무 멀었잖아요. 이제는 걸어서 십 분이에요!","tr":"Near work. Before, the office was so far, remember? Now it's a ten-minute walk!","r":"hoesa geuncheoyeyo. jeoneneun hoesaga neomu meoreotjanayo. ijeneun georeoseo sip bunieyo!"},{"who":"Friend","t":"잘됐네요! 집들이는 언제 해요?","tr":"That's great! When's the housewarming?","r":"jaldwaenneyo! jipdeurineun eonje haeyo?"},{"who":"You","t":"다음 주 토요일에 하려고 해요. 꼭 오세요!","tr":"I'm planning it for next Saturday. Be sure to come!","r":"daeum ju toyoire haryeogo haeyo. kkok oseyo!"}]},
+        {"p":"**You see: {{-거든요|-geodeunyo}}.** Stem + {{-거든요|-geodeunyo}} gives a reason or a background the listener didn't know, as an explanation: {{제가 요즘 바쁘거든요|jega yojeum bappeugeodeunyo}} “I'm busy these days, you see.” It often answers “why?”, or comes right after a request: {{좀 도와줄 수 있어요? 제가 한국어를 잘 못하거든요.|jom dowajul su isseoyo? jega hangugeoreul jal motageodeunyo.}} “Could you help me? My Korean isn't very good, you see.” Past: {{-았/었거든요|-at/eotgeodeunyo}}; after a noun, {{(이)거든요|(i)geodeunyo}}."},
+        {"p":"**You know: {{-잖아요|-janayo}}.** Stem + {{-잖아요|-janayo}} reminds the listener of something they already know, or should: {{제가 고기를 안 먹잖아요|jega gogireul an meokjanayo}} “I don't eat meat, remember?”, {{오늘 금요일이잖아요|oneul geumyoirijanayo}} “It's Friday, you know.” Said with a smile, it's friendly; with a sharp tone, it means “Obviously!”."},
+        { "table": [
+          ["","the listener…","example"],
+          ["{{-거든요|-geodeunyo}}","doesn't know it yet","{{내일 시험이 있거든요.|naeil siheomi itgeodeunyo.}} I have a test tomorrow, you see."],
+          ["{{-잖아요|-janayo}}","already knows it","{{내일 시험이 있잖아요.|naeil siheomi itjanayo.}} We have a test tomorrow, remember?"]
+        ] },
+        {"p":"**Where to use them.** Both belong to conversation, and you'll hear them constantly in dramas; both are polite with {{요|yo}}. In writing or a formal talk, use {{-아서|-aseo}} or {{-(으)니까|-(eu)nikka}} instead."},
+        { "ex": [
+          {"t":"미안해요, 늦었어요. 길이 많이 막혔거든요.","tr":"Sorry I'm late. The traffic was terrible, you see.","r":"mianhaeyo, neujeosseoyo. giri mani makyeotgeodeunyo."},
+          {"t":"이거 제가 만들었어요. 요리하는 걸 좋아하거든요.","tr":"I made this. I love cooking, you see.","r":"igeo jega mandeureosseoyo. yorihaneun geol joahageodeunyo."},
+          {"t":"저는 저녁에 커피를 못 마셔요. 잠을 못 자거든요.","tr":"I can't drink coffee in the evening. I can't sleep, you see.","r":"jeoneun jeonyeoge keopireul mot masyeoyo. jameul mot jageodeunyo."},
+          {"t":"제가 매운 거 못 먹잖아요!","tr":"You know I can't eat spicy food!","r":"jega maeun geo mot meokjanayo!"},
+          {"t":"오늘 금요일이잖아요. 같이 한잔해요!","tr":"It's Friday, you know. Let's have a drink!","r":"oneul geumyoirijanayo. gachi hanjanhaeyo!"},
+          {"t":"그거 어제 말했잖아요.","tr":"I told you that yesterday, remember?","r":"geugeo eoje malhaetjanayo."}
+        ] },
+        {"tip":"{{있잖아요|itjanayo}} on its own, at the start, is a way to get someone's attention before you tell them something: “You know what?”"}
+      ],
+      "mistakes": [
+        {"wrong":"오늘 금요일거든요.","right":"오늘 금요일이거든요.","tr":"It's Friday today, you see.","why":"After a noun ending in a consonant: {{이거든요|igeodeunyo}}."},
+        {"wrong":"처음 뵙겠습니다. 저는 고기를 안 먹잖아요.","right":"처음 뵙겠습니다. 저는 고기를 안 먹거든요.","tr":"Nice to meet you. I don't eat meat, you see.","why":"{{-잖아요|-janayo}} is for something the listener already knows. Someone you've just met can't know it: {{-거든요|-geodeunyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"A new coworker offers you meat. You explain politely: “I don't eat meat, you see.”","options":["{{제가 고기를 안 먹거든요.|jega gogireul an meokgeodeunyo.}}","{{제가 고기를 안 먹잖아요.|jega gogireul an meokjanayo.}}"],"answer":0,"why":"They don't know it yet: {{-거든요|-geodeunyo}}. ({{-잖아요|-janayo}} would sound like “You know that!”)"},
+        {"type":"choice","q":"Your best friend suggests a barbecue restaurant, but they know you're vegetarian. You laugh:","options":["{{저 고기 안 먹잖아요!|jeo gogi an meokjanayo!}}","{{저 고기 안 먹거든요!|jeo gogi an meokgeodeunyo!}}"],"answer":0,"why":"They already know: {{-잖아요|-janayo}} “you know!”."},
+        {"type":"fill","q":"Choose the ending.","t":"미안해요, 오늘은 못 가요. 내일 시험이 ___.","tr":"Sorry, I can't go today. I have a test tomorrow, you see.","options":["있거든요","있잖아요"],"answer":0,"why":"Explaining something new to them: {{-거든요|-geodeunyo}}."},
+        {"type":"fill","q":"Choose the ending.","t":"오늘 금요일___. 같이 한잔해요!","tr":"It's Friday, you know. Let's have a drink!","options":["이잖아요","잖아요","이거든요"],"answer":0,"why":"Something everyone knows, after a noun ending in a consonant: {{이잖아요|ijanayo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I told you that yesterday, remember?","words":["그거","어제","말했잖아요."]},
+        {"type":"dialogue","q":"A friend notices you've stopped working out. Choose your replies.","from":"say-how-things-changed","lines":[{"who":"Friend","t":"왜 요즘 운동 안 해요?","tr":"Why aren't you working out these days?","r":"wae yojeum undong an haeyo?"},{"options":["다리를 다쳤거든요.","다리를 다쳤잖아요."],"answer":0,"why":"Your friend didn't know: {{-거든요|-geodeunyo}}."},{"who":"Friend","t":"어머, 몰랐어요! 괜찮아요?","tr":"Oh no, I didn't know! Are you okay?","r":"eomeo, mollasseoyo! gwaenchanayo?"},{"options":["네, 지금은 많이 좋아졌어요.","네, 지금은 많이 좋았어졌어요."],"answer":0,"why":"Getting better: {{좋아지다|joajida}} → {{좋아졌어요|joajyeosseoyo}}."}]},
+        {"type":"free","q":"Your turn: explain why you can't meet this weekend with {{-거든요|-geodeunyo}}, then remind a friend of something with {{-잖아요|-janayo}}.","answers":[{"t":"이번 주말에는 못 만나요. 부모님이 오시거든요.","tr":"I can't meet this weekend. My parents are coming, you see.","r":"ibeon jumareneun mot mannayo. bumonimi osigeodeunyo."},{"t":"내일 민수 씨 생일이잖아요. 선물 샀어요?","tr":"It's Minsu's birthday tomorrow, remember? Did you buy a present?","r":"naeil minsu ssi saengirijanayo. seonmul sasseoyo?"}]}
+      ]
+    },
+    {
+      "id": "talk-to-friends",
+      "unit": 9,
+      "level": "B1",
+      "title": "Talk to friends",
+      "summary": "Switch to casual speech with close friends: “What are you doing?”, “Wanna eat?”, “Let's go!”, and know when not to.",
+      "topic": "{{반말|banmal}}, casual speech: dropping {{요|yo}}; {{이야|iya}}/{{야|ya}}; {{나|na}}, {{너|neo}}, {{내|nae}}, {{네|ne}}; {{응|eung}}/{{아니|ani}}; {{-자|-ja}} “let's”; {{-(으)ㄹ래?|-(eu)llae?}} “wanna?”",
+      "blocks": [
+        {"goal":{"t":"뭐 해? 같이 밥 먹을래?","tr":"What are you up to? Wanna grab something to eat?","r":"mwo hae? gachi bap meogeullae?"}},
+        {"dialog":[{"who":"Jimin","t":"야, 뭐 해?","tr":"Hey, what are you up to?","r":"ya, mwo hae?"},{"who":"You","t":"그냥 집에 있어. 왜?","tr":"Just at home. Why?","r":"geunyang jibe isseo. wae?"},{"who":"Jimin","t":"배고프지 않아? 같이 떡볶이 먹을래?","tr":"Aren't you hungry? Wanna get tteokbokki?","r":"baegopeuji ana? gachi tteokbokki meogeullae?"},{"who":"You","t":"좋아! 어디서 만날까?","tr":"Sure! Where shall we meet?","r":"joa! eodiseo mannalkka?"},{"who":"Jimin","t":"학교 앞에서 보자. 삼십 분 후에 갈게.","tr":"Let's meet in front of school. I'll be there in thirty minutes.","r":"hakgyo apeseo boja. samsip bun hue galge."},{"who":"You","t":"응, 이따 봐!","tr":"Okay, see you soon!","r":"eung, itta bwa!"}]},
+        {"p":"**Casual speech.** With close friends, younger siblings, and younger people once you're close, Koreans drop the polite endings: this is {{반말|banmal}}, “half speech”. Mostly, you simply drop {{요|yo}}: {{뭐 해요?|mwo haeyo?}} → {{뭐 해?|mwo hae?}}, {{좋아요|joayo}} → {{좋아|joa}}, {{갔어요|gasseoyo}} → {{갔어|gasseo}}, {{갈게요|galgeyo}} → {{갈게|galge}}."},
+        { "table": [
+          ["polite","casual","meaning"],
+          ["{{뭐 해요?|mwo haeyo?}}","{{뭐 해?|mwo hae?}}","What are you doing?"],
+          ["{{좋아요.|joayo.}}","{{좋아.|joa.}}","Sounds good."],
+          ["{{어제 갔어요.|eoje gasseoyo.}}","{{어제 갔어.|eoje gasseo.}}","I went yesterday."],
+          ["{{갈 거예요.|gal geoyeyo.}}","{{갈 거야.|gal geoya.}}","I'm going to go."],
+          ["{{학생이에요.|haksaengieyo.}}","{{학생이야.|haksaengiya.}}","I'm a student."],
+          ["{{친구예요.|chinguyeyo.}}","{{친구야.|chinguya.}}","He's my friend."],
+          ["{{네.|ne.}} / {{아니요.|aniyo.}}","{{응.|eung.}} / {{아니.|ani.}}","Yes. / No."]
+        ] },
+        {"p":"**What else changes.** {{이에요|ieyo}}/{{예요|yeyo}} become {{이야|iya}}/{{야|ya}}. {{저|jeo}} “I” becomes {{나|na}} (and {{제가|jega}} → {{내가|naega}}), {{제|je}} “my” becomes {{내|nae}}, and “you” is {{너|neo}} ({{네|ne}} “your”, often said {{니|ni}} so it doesn't sound like {{내|nae}}). To call a friend: the name + {{아|a}} after a consonant, {{야|ya}} after a vowel: {{민준아!|minjuna!}}, {{수지야!|sujiya!}}"},
+        {"p":"**Let's, and wanna?** {{-자|-ja}} is the casual “let's”: {{가자!|gaja!}} “let's go!”, {{먹자|meokja}} “let's eat”. {{-(으)ㄹ래?|-(eu)llae?}} asks what someone feels like doing: {{먹을래?|meogeullae?}} “wanna eat?”, {{갈래?|gallae?}} “wanna go?”. Answer {{응, 좋아|eung, joa}} or {{아니, 괜찮아|ani, gwaenchana}}. The casual “please do” is just the present form without {{요|yo}}: {{빨리 와!|ppalli wa!}} “come quick!”"},
+        {"p":"**When to switch.** Don't start in {{반말|banmal}}: it's for people who have agreed to it. An older or same-age friend may say {{우리 말 놓을까요?|uri mal noeulkkayo?}} “Shall we drop the formalities?”. Until then, keep {{요|yo}}; with strangers, older people and at work, always."},
+        { "ex": [
+          {"t":"나 지금 너무 배고파.","tr":"I'm starving right now.","r":"na jigeum neomu baegopa."},
+          {"t":"내일 시간 있어?","tr":"Are you free tomorrow?","r":"naeil sigan isseo?"},
+          {"t":"같이 영화 보자!","tr":"Let's watch a movie!","r":"gachi yeonghwa boja!"},
+          {"t":"커피 마실래?","tr":"Wanna get a coffee?","r":"keopi masillae?"},
+          {"t":"응, 알았어.","tr":"Okay, got it.","r":"eung, arasseo."},
+          {"t":"수지야, 이거 네 거야?","tr":"Suji, is this yours?","note":"{{네 거|ne geo}} “yours”","r":"sujiya, igeo ne geoya?"}
+        ] },
+        {"tip":"{{어디서|eodiseo}} is the everyday short form of {{어디에서|eodieseo}}, in polite speech too. And {{이따 봐!|itta bwa!}} “see you later!” is {{이따가 봐요|ittaga bwayo}} without {{요|yo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"사장님, 뭐 해?","right":"사장님, 뭐 하세요?","tr":"What are you doing, sir?","why":"{{반말|banmal}} is only for close friends and younger people who've agreed to it; to your boss, the honorific."},
+        {"wrong":"나는 학생이야요.","right":"나는 학생이야.","tr":"I'm a student.","why":"Casual speech has no {{요|yo}}: {{학생이야|haksaengiya}}."},
+        {"wrong":"민준야!","right":"민준아!","tr":"Minjun!","why":"After a consonant, call a friend with {{아|a}}: {{민준아|minjuna}}. After a vowel, {{야|ya}}: {{수지야|sujiya}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which is casual speech for “Shall we go?”","options":["{{갈까?|galkka?}}","{{갈까요?|galkkayo?}}","{{가실까요?|gasilkkayo?}}"],"answer":0,"why":"Drop {{요|yo}}: {{갈까?|galkka?}}. ({{가실까요?|gasilkkayo?}} is extra polite.)"},
+        {"type":"fill","q":"Choose the casual form.","t":"같이 밥 ___!","tr":"Let's eat together!","options":["먹자","먹을래요","먹어요"],"answer":0,"why":"The casual “let's”: {{-자|-ja}}."},
+        {"type":"fill","q":"Choose the casual form.","t":"이 사람은 내 친구___.","tr":"This is my friend.","options":["야","이야","예요"],"answer":0,"why":"{{친구|chingu}} ends in a vowel: {{야|ya}}. ({{예요|yeyo}} is polite.)"},
+        {"type":"order","q":"Put the words in order.","tr":"Wanna get a coffee tomorrow?","words":["내일","커피","마실래?"]},
+        {"type":"dialogue","q":"A close friend texts you. Choose your replies.","from":"talk-politely-about-others","lines":[{"who":"Jimin","t":"야, 뭐 해?","tr":"Hey, what are you up to?","r":"ya, mwo hae?"},{"options":["그냥 집에 있어. 왜?","그냥 집에 계셔. 왜?"],"answer":0,"why":"About yourself, casually: {{있어|isseo}}. ({{계셔|gyesyeo}} is the honorific, never for yourself.)"},{"who":"Jimin","t":"같이 떡볶이 먹을래?","tr":"Wanna get tteokbokki?","r":"gachi tteokbokki meogeullae?"},{"options":["좋아! 어디서 만날까?","좋아요! 어디서 만나실까요?"],"answer":0,"why":"Close friends talk casually: {{좋아|joa}}, {{만날까?|mannalkka?}}"}]},
+        {"type":"say","q":"Casually, to a friend: “Let's go!”","answer":"가자!","r":"gaja!"},
+        {"type":"free","q":"Your turn: text a close friend in casual speech. Ask what they're doing, and invite them somewhere.","answers":[{"t":"뭐 해? 오늘 저녁에 같이 밥 먹을래?","tr":"What are you up to? Wanna have dinner together tonight?","r":"mwo hae? oneul jeonyeoge gachi bap meogeullae?"},{"t":"내일 시간 있어? 한강 가자!","tr":"Are you free tomorrow? Let's go to the Han River!","r":"naeil sigan isseo? hangang gaja!"}]}
+      ]
     }
   ]
 }
