@@ -5388,3 +5388,95 @@ the meaning as possible".
   `change` and saved the setting; on a review card's back a tap copied the word, a tap copied the whole sentence, a sideways
   swipe copied nothing. **Not checked**: a real Android phone (the WebView should never open its own list since the select
   takes no taps), the reels panel (only the installed apps can get reels).
+
+## "Add words" → Scan: words from a photo of a list (2026-10-24; branch `worktree-agent-a9c9ef4471b5b2a51`, NOT merged, NOT pushed)
+Owner: "the ability to scan and upload vocab lists from the camera. It can also handle just single words. These will be
+treated in the same way that we are currently treating cards with no audio."
+- **Where**: a third segment **Scan** in the builder (`wordbuilder.js`; `openWordBuilder({mode: "scan"})`), and "Scan words" in
+  the Vocab page's ⋯ menu. The panel is `web/js/components/wordscan.js` (`scanPanel`), mounted in `.cb-scan-wrap` the first
+  time Scan is chosen. Phones / touch screens (`(pointer: coarse)` or an Android/iPhone user agent): "Take a photo"
+  (`<input type=file accept="image/*" capture="environment">`) and "Choose a photo" (`multiple`). Computer: "Choose a picture";
+  a picture dropped anywhere on the builder or pasted (Ctrl+V, a document `paste` listener while the builder is open) switches
+  to Scan and is read. Several photos queue and add to one batch; "Another page" (a small menu on phones).
+- **After reading**: thumbnails above (one photo shown 170 px tall, more as a strip; tap = the photo big in a modal), "N words
+  found", the list with ticks (repeats of saved words and of earlier items unticked and tagged "Already in your words" /
+  "Twice in the list"; unsure device readings tagged "Check it"), "Edit as text" (`scanwords.js itemsToPaste` → the paste box,
+  appended, then the existing paste preview) and "Use these (N)" (`useCards`, the same function the paste's "Use these" now
+  calls). A single word with nothing else in the batch goes straight into a row (toast). Nothing readable: a message with
+  three tips (light, flat page, close enough) and, when the device read it and AI could, "Read the next one with <AI>".
+  From there everything is the existing builder: no new saving path; cards from a scan have no recording, so the card voice
+  says them (Azure made at Add when chosen; device/computer voice otherwise).
+- **Readers** (`scanwords.js chooseReader`): the learner's AI when it is set up, not "No AI", online and can see pictures
+  (`VISION`: claude, gemini, openai, grok), unless the learner chose "Read on this device instead" (localStorage
+  `tk_scanreader`). Otherwise Tesseract on the device. The reader line under the panel says which, and for AI "The photo goes
+  to <provider> only, to be read, and isn't kept" (the one-line notice before any AI scan).
+  - **AI** (`scanread.js readWithAi`): the photo drawn to a canvas (≤ 2400 px, `openPicture` via `createImageBitmap(...,
+    {imageOrientation: "from-image"})`, falling back to `<img>`), sent as a JPEG ≤ 1600 px long side (`AI_SIDE`, quality 0.85)
+    with `scanPrompt` (strict JSON `SCAN_SCHEMA` {items: [{word, meaning, sentence, sentence_translation}]}: copy exactly with
+    marks/accents, meanings only from the page, skip headings/page numbers/instructions/list numbers, columns either order,
+    handwriting, flashcards, a single word; the user line is in ignore.txt, the system text has JSON so the extractor skips it).
+    `definer.js askJson` now takes `images` [{mime, data}] and `maxTokens` (12000 for scans): Claude image blocks, Gemini
+    `inline_data`, OpenAI/Grok `image_url` data URLs (`detail: "high"`, dropped in the plain retry). `readScan` reads any shape
+    (fences, text round it, bare lists, one entry, plain words, a lone word; "translation" without a sentence = the meaning).
+    A refused picture (HTTP 400/404/413/415/422, e.g. a Grok model without vision) falls back to the device with a note; other
+    errors (key, network) show the provider's message and "Read it on this device".
+  - **On the device** (`web/js/ocr.js`, `scanread.js readOnDevice`): **Tesseract.js 7.0.0** (Apache-2.0). Vendored:
+    `web/js/vendor/tesseract/` (tesseract.esm.min.js 63 KB, worker.min.js 111 KB, licences; in build-www SHARED). Downloaded
+    once on demand like the dictionaries (`app/lexicon.py` kinds **"ocr"** (SIMD build) / **"ocr-plain"**, `names_for(lang,
+    kind)` with `lang` = study + learner's own language, "es+en"; phone twin `mobile/src/js/lexicon-store.js namesFor`;
+    `/lexicon/data/ocr-*` sent as octet-stream, gzip-encoded): `docs/lexicon/ocr-core-simd-lstm.wasm.js.gz` (1.45 MB),
+    `ocr-core-lstm.wasm.js.gz` (1.45 MB, devices without WebAssembly SIMD), and `ocr-<tess>.traineddata.gz` (tessdata_best int
+    via @tesseract.js-data 1.0.0): ara 1.66, spa 2.10, fra 0.71, jpn 2.03, chi_sim 1.72 + chi_tra 1.66 (Chinese gets both),
+    rus 2.68, ita 1.66, tgl 3.30 (only the older 4.0.0 data exists; its LSTM part works), por 1.39, cat 0.64, ceb 0.49, tha
+    0.90, deu 1.33, fas 0.42, hin 1.39, kor 1.57, eng 2.95 MB. All made by `tools/build_ocr.mjs` (npm tarballs, npm integrity
+    checked, index.json entries with SHA-256). So Spanish + English = 6.5 MB the first time, Arabic + English 6.1 MB, a second
+    language only its own file. The size is said before downloading (reader line, or "To read it on this device, a one-time
+    download of N MB is needed. [Download and read it]" when a photo comes first). **The files must be on GitHub Pages
+    (docs/lexicon) for installed apps and the web app to download them**: they go out with the next push of docs/.
+  - How it runs with no web address: ocr.js makes ONE blob worker = a small prelude that points the worker's `fetch` for
+    `tamkeen-ocr:/<lang>.traineddata` at blob URLs of the kept bytes + the core (defines `TesseractCore`, so tesseract.js
+    never importScripts it) + worker.min.js (fetched from the app's own files). `createWorker(langs, OEM.LSTM_ONLY, {workerPath:
+    blob, workerBlobURL: false, langPath: "tamkeen-ocr:", gzip: false, cacheMethod: "none"})`; a failed load is caught through
+    `errorHandler` (tesseract.js otherwise never settles). One worker per builder; `closeOcr()` on close.
+  - Reading (`scanwords.js ocrList`): Tesseract blocks → lines with boxes; lines side by side (Tesseract often reads a column
+    at a time) are joined into rows by vertical overlap; a gap wider than the letters are tall is a column; 2 parts →
+    "word – meaning", 3+ → tabs (word, meaning, sentence…), 4+ short parts → pairs, whole "a – b" cards side by side stay apart;
+    list numbers stay with their word; "casa: house" → dash; rows of bigger letters alone (headings), no letters (page numbers),
+    average confidence < 50, and noise (half single letters, more marks than letters) dropped; Chinese/Japanese/Thai spaces
+    removed; bidi marks removed; lines with a word < 70 confident → `doubt` ("Check it"); `markOddOnes` marks a word not in
+    the study script when most are (Russian "OKHO"). Then `parseList` (the paste reader). **Page layout fallback**: PSM 3 first;
+    when `worthAnotherLook` (nothing, < half the lines in the study script, < half with a meaning, ≥ ¼ unsure) it reads again
+    with PSM 6 (and PSM 4 for scripts of their own) and keeps the higher `readingScore`; when PSM 3 found nothing the later
+    passes count only lines with every word ≥ 75 (else blank noise turns into Arabic-looking words).
+  - Languages: Tesseract covers all 16 + English. The reader line adds "Vowel marks are often missed" for Arabic/Persian and
+    "Text written from top to bottom isn't read" for ja/zh/ko.
+- **Privacy**: photos stay in memory (a ≤ 1400 px JPEG object URL for the thumbnail, revoked on close; the decoded picture
+  dropped once read); nothing saved or synced. Android: Capacitor's file chooser has the camera app write the photo into the
+  app's `Pictures/` (external files dir) and never deletes it: `forgetPhotos()` (phone app.js; desktop no-op) deletes
+  `JPEG_<date>_<time>_<n>.jpg` there once the photo is decoded. docs/privacy.html: new "Scanning words from a photo" section +
+  a sentence in the AI section. Android manifest: `<queries>` gains `android.media.action.IMAGE_CAPTURE` (without it Android
+  11+ hides the camera app and Capacitor falls back to the file chooser); no CAMERA permission (the camera app takes the
+  photo; declaring it would force a runtime request). iPhone Info.plist: NSCameraUsageDescription reworded,
+  NSPhotoLibraryUsageDescription added (WKWebView's picker shouldn't need it on iOS 14+, kept as a safeguard).
+- Also: the builder's body had `class="wb"` (the word bubble's prefix), so `.cb`'s centred column and 14 px gaps never
+  applied; now `cb`. Icons `camera`, `image`. Licence `licenses/tesseract.txt` (+ index, all versions). Translations
+  `tools/i18n/tr/<code>/75-scan-words.txt` (60 × 16); ignore.txt has the AI user line and "Pictures".
+- **Checked**: 841 JS (new tests/js/scanwords.test.mjs, 18: downscaling maths, readers, prompt, readScan shapes, askJson image
+  requests for the 4 providers + plain retry, OCR rows/columns/RTL/tabs/pairs/colon/CJK/noise/doubt, second-look rules,
+  itemsToPaste round trip, file names/sizes vs index.json, own language); pytest incl. new tests/test_scan_words.py (4: JS/Python
+  lists agree, names, status/download/data as bytes, published files) and test_lexicon's index check. **Real Tesseract** in the
+  desktop server (fresh scratch data folder, never signed in) at 1280×860 and the phone build (mobile/www served, IndexedDB,
+  `lexicon_base` pointed at a local copy) at 375×812, with generated pictures: Spanish two-column numbered list with heading and
+  page number → 8/8 right with accents (jardín, baño, sillón), heading and page number dropped, ~1.3-1.5 s warm; a second page
+  added to the batch, its repeat unticked; Arabic list (words right, English left) → 7/8 (مدرسة قلم سيارة مكتبة نافذة شمس and
+  vowelled بَيْت right; vowelled كِتَاب misread as "iS" and marked Check it); a lone Arabic word on a flashcard → straight into a
+  row; noisy blank pictures → "No words could be read"; 4-word lists in fr de ru zh ja ko th hi fa tl ceb pt it ca all read
+  (ru "окно" came out as Latin "OKHO", now marked; ko 3/4); Use these → rows; Add → cards saved with no audio/voice (the card
+  voice reads them); Edit as text → paste box; paste (Ctrl+V) and drop events; the leave-without-adding box. AI path with a
+  pretend relay: the request (image block, 1400×476 JPEG, max_tokens 12000, schema), fenced answer parsed, a 400 → read on the
+  device with the note, a 401 → message + "Read it on this device". Camera/gallery inputs checked for accept/capture/multiple.
+- **NOT checked**: a real camera (Android camera intent, iPhone WKWebView capture), real phones (blob worker + WebAssembly in
+  Android WebView / WKWebView, memory with big photos, `forgetPhotos` on a device), a real AI key (Claude/Gemini/OpenAI vision
+  answers, and whether grok-4.3 takes pictures: xAI's docs show only grok-4.7 with images), drag-and-drop inside the pywebview
+  window itself (tested in the browser pane), real photos of real pages (only rendered pictures), the web app build itself
+  (same bundle as the phone build tested), devices without WebAssembly SIMD (the plain build was not run).

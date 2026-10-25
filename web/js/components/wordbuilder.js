@@ -1,6 +1,7 @@
 // "Add words": the Vocab page's card builder (its "Add words" button and ⋯ menu). Every version has it.
 //
-// One card or many at once, typed one by one or pasted as a list, with as much or as little done for
+// One card or many at once, typed one by one, pasted as a list, or scanned from a photo of a list
+// (components/wordscan.js: its words become rows exactly as a pasted list's do), with as much or as little done for
 // the learner as they like: for each part of the cards ("For these cards") the app fills it in, leaves
 // it out, or the learner types it. Whatever the learner typed is never replaced (addwords.js).
 //   - Meanings: the learner's lookup setting (Settings → Word definitions): the built-in dictionary,
@@ -29,6 +30,7 @@ import { NO_MEANINGS, dictionaryDefine, downloadMeanings, meaningsStatus } from 
 import { azureReady, voiceChars, voiceMode } from "../cardvoice.js";
 import { voiceMaker } from "../voiceplay.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
+import { scanPanel } from "./wordscan.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
 const settings = () => (state.status && state.status.settings) || {};
@@ -69,8 +71,9 @@ function askName(title, label) {
  * Open the builder. `existing()` gives the saved words (to find repeats), `folders` the folders
  * ([{uid, name}]), `folder` the one open on the Vocab page (its cards go there unless another is
  * chosen). `onFolder(folder)` hears of a folder made here; `onAdded(cards)` gets the cards once added.
+ * `mode` is the way in it opens on: "one" (one by one), "paste" or "scan" (the ⋯ menu's "Scan words").
  */
-export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {} } = {}) {
+export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {}, mode: startMode = "one" } = {}) {
   const lang = studyLanguage();
   const info = langInfo(lang);
   const choices = cleanChoices(lsGet());
@@ -93,11 +96,13 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   box.classList.add("cb-box");
   sheet.el.classList.add("cb-back");
 
-  const body = h(`<div class="wb">
+  const body = h(`<div class="cb">
     <div class="segmented cb-modes" role="tablist" aria-label="How to enter the words">
       <button type="button" class="seg-btn on" role="tab" aria-selected="true" data-mode="one">${icon("edit", 16)} One by one</button>
       <button type="button" class="seg-btn" role="tab" aria-selected="false" data-mode="paste">${icon("list", 16)} Paste a list</button>
+      <button type="button" class="seg-btn" role="tab" aria-selected="false" data-mode="scan">${icon("camera", 16)} Scan</button>
     </div>
+    <div class="cb-scan-wrap" hidden></div>
     <div class="cb-one">
       <div class="cb-rows"></div>
       <button type="button" class="ghost cb-another">${icon("plus", 18)} Another word</button>
@@ -494,7 +499,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   let dirty = false;
   const dirtied = () => { dirty = true; warned = false; footNote(""); countUp(); };
   const hasInput = () => !done && (dirty || rows.some((r) => r.text.trim() || hasValue(r.meaning) || r.audio.word)
-    || $(".cb-paste-box").value.trim());
+    || $(".cb-paste-box").value.trim() || (scan && scan.hasInput()));
 
   // ---------------------------------------------------------------- the card's own audio
 
@@ -644,19 +649,51 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     box.append(list);
   }
   pasteBox.oninput = () => { preview(); dirty = true; };
-  $(".cb-use").onclick = () => {
-    if (!pasted.cards.length) return;
+  /** Cards from a pasted list or a photo become rows (typed = the learner's own), after the others. */
+  function useCards(cards) {
     // The empty card shown at the start is replaced; otherwise the list's cards come after the others.
     if (rows.length === 1 && !rows[0].text.trim() && !hasValue(rows[0].meaning)) { rows[0].el.remove(); rows.length = 0; }
     const room = MAX_ROWS - rows.length;
-    pasted.cards.slice(0, room).forEach((c, i) => addRow(c, { open: rows.length === 0 && i === 0, focus: false }));
-    if (pasted.cards.length > room) toast(t("Only {0} of them fit: at most 100 cards can be added at a time.", Math.max(0, room)));
-    pasteBox.value = "";
-    preview();
+    cards.slice(0, room).forEach((c, i) => addRow(c, { open: rows.length === 0 && i === 0, focus: false }));
+    if (cards.length > room) toast(t("Only {0} of them fit: at most 100 cards can be added at a time.", Math.max(0, room)));
     setMode("one");
     dirty = true;
     checkRepeats();
+  }
+  $(".cb-use").onclick = () => {
+    if (!pasted.cards.length) return;
+    const cards = pasted.cards;
+    pasteBox.value = "";
+    preview();
+    useCards(cards);
   };
+
+  // ----- scanning a photo (components/wordscan.js), made the first time Scan is chosen -----
+  let scan = null;
+  function scanner() {
+    if (!scan) {
+      scan = scanPanel({
+        lang, existing,
+        onUse: (cards) => useCards(cards),
+        onText: (text) => {  // "Edit as text": the paste box, with anything already in it kept
+          const before = pasteBox.value.replace(/\s+$/, "");
+          pasteBox.value = before ? `${before}\n${text}` : text;
+          preview();
+          dirty = true;
+          setMode("paste");
+        },
+        onDirty: () => { dirty = true; },
+        goTo: async (hash) => {  // going to Settings closes the builder (asking first when something would be lost)
+          if (!(await beforeClose())) return;
+          done = true;
+          sheet.close();
+          location.hash = hash;
+        },
+      });
+      $(".cb-scan-wrap").append(scan.el);
+    }
+    return scan;
+  }
 
   function setMode(m) {
     mode = m;
@@ -666,9 +703,41 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     }
     $(".cb-one").hidden = m !== "one";
     $(".cb-paste").hidden = m !== "paste";
+    $(".cb-scan-wrap").hidden = m !== "scan";
     if (m === "paste") pasteBox.focus();
+    if (m === "scan") scanner().shown();
   }
   for (const b of box.querySelectorAll(".cb-modes .seg-btn")) b.onclick = () => setMode(b.dataset.mode);
+
+  // A picture dropped anywhere on the builder (or beside it: the window would otherwise open the picture
+  // in place of the app), or pasted (Ctrl+V) anywhere in it, is scanned.
+  const pictures = (list) => [...(list || [])].filter((f) => f && /^image\//.test(f.type || ""));
+  const hasPicture = (dt) => !!dt && [...(dt.items || [])].some((i) => i.kind === "file" && /^image\//.test(i.type || ""));
+  sheet.el.addEventListener("dragover", (e) => {
+    if (!hasPicture(e.dataTransfer)) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+    box.classList.add("cb-dropping");
+  });
+  sheet.el.addEventListener("dragleave", (e) => { if (!sheet.el.contains(e.relatedTarget)) box.classList.remove("cb-dropping"); });
+  sheet.el.addEventListener("drop", (e) => {
+    box.classList.remove("cb-dropping");
+    const files = pictures(e.dataTransfer && e.dataTransfer.files);
+    if (!files.length) return;
+    e.preventDefault();
+    setMode("scan");
+    scanner().take(files);
+  });
+  const onPaste = (e) => {
+    if (!sheet.el.isConnected || busy) return;
+    const files = pictures([...((e.clipboardData && e.clipboardData.items) || [])].filter((i) => i.kind === "file").map((i) => i.getAsFile()));
+    if (!files.length) return;
+    // (A picture pasted while typing in a box would do nothing there: it is scanned too.)
+    e.preventDefault();
+    setMode("scan");
+    scanner().take(files);
+  };
+  document.addEventListener("paste", onPaste);
 
   // ---------------------------------------------------------------- filling in
 
@@ -863,6 +932,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   }
 
   function cleanUp() {
+    document.removeEventListener("paste", onPaste);
+    if (scan) scan.close();  // (the photos and their copies are let go of: nothing is kept)
     if (recording) { try { recording.ctl.stop(); } catch { /* gone */ } recording = null; }
     if (player) { player.pause(); try { URL.revokeObjectURL(player.src); } catch { /* gone */ } }
   }
@@ -871,7 +942,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   $(".cb-another").onclick = () => addRow();
   drawOptions();
-  addRow({}, { open: true });
+  addRow({}, { open: true, focus: startMode === "one" });
+  if (startMode === "paste" || startMode === "scan") setMode(startMode);
   meaningsStatus(lang).then((st) => { dict = st; paintOptions(); }, () => {});
   return sheet;
 }

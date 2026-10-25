@@ -121,7 +121,7 @@ export function rangeBounds(range, fromDate, toDate, now = Date.now() / 1000) {
 
 /** How words get here, for someone whose list is still empty. */
 const TIP = `In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”.
-  Or type your own with Add words, above: one at a time or a whole list.`;
+  Or add your own with Add words, above: one at a time, a whole list, or a photo of one.`;
 
 export async function render(view) {
   const prefs = lsGet("vocabView", {});
@@ -156,7 +156,7 @@ export async function render(view) {
       <div id="goal" hidden></div>
       <div class="vocab-actions">
         <span class="va-send" id="send-slot"></span>
-        <button type="button" class="ghost va-add" id="add-words" title="Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
+        <button type="button" class="ghost va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
       </div>
     </section>
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
@@ -728,8 +728,10 @@ export async function render(view) {
     download(exportUrl("apkg"), "tamkeen-vocab.apkg");
   };
   // "Add words": the card builder (components/wordbuilder.js). The open folder's cards go into it; the
-  // new cards come first in the list, lit up for a moment, whatever it is sorted by.
-  const openAdd = () => openWordBuilder({
+  // new cards come first in the list, lit up for a moment, whatever it is sorted by. "Scan words" opens
+  // it on Scan (a photo of a list, components/wordscan.js).
+  const openAdd = (mode = "one") => openWordBuilder({
+    mode,
     existing: () => all,
     folders,
     folder: st.folder && st.folder !== "none" ? st.folder : "",
@@ -744,12 +746,13 @@ export async function render(view) {
       if (view.isConnected) load().then(() => list.firstElementChild && list.firstElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }), () => {});
     },
   });
-  $("#add-words").onclick = openAdd;
+  $("#add-words").onclick = () => openAdd();
   // The ⋯ menu: the things used now and then.
   $("#more").onclick = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
     showMenu(r.left, r.bottom + 6, "", [
-      { label: "Add words", icon: icon("plus", 16), run: openAdd },
+      { label: "Add words", icon: icon("plus", 16), run: () => openAdd() },
+      { label: "Scan words", icon: icon("camera", 16), run: () => openAdd("scan") },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
       ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
@@ -764,13 +767,13 @@ export async function render(view) {
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
     { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
     { target: "#add-words", title: "Add words",
-      text: "Type or paste new words, one or many at a time. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
+      text: "Type or paste new words, one or many at a time, or scan a photo of a list. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
     { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
     { target: "#folders", title: "Folders",
       text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
     { target: "#list .vocab-item", title: "A saved word",
       text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
-    { target: "#more", title: "More", text: "Add words, export your words for Anki or as a spreadsheet, and Anki's settings." },
+    { target: "#more", title: "More", text: "Add words, scan words from a photo, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
   return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

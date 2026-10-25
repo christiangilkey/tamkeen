@@ -11,7 +11,7 @@
 <main>
   <header>
     <img src="icon.png" alt="">
-    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen · Last updated October 23, 2026</div></div>
+    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen · Last updated October 24, 2026</div></div>
   </header>
 
   <p>Tamkeen is an open-source app that runs on your own devices. Your library, transcripts and
@@ -37,6 +37,17 @@
   card voice: on your devices, and in your own Google Drive if you use sync. It is sent nowhere else. Words you ask
   Tamkeen to fill in (meanings, example sentences) are looked up in the built-in dictionary on your device, or sent
   to your own AI provider with your own key, as when you look up a word.</p>
+
+  <h2>Scanning words from a photo (optional)</h2>
+  <p>When you choose "Scan" in "Add words" and take, choose, drop or paste a photo of a list of words, the photo is
+  read in one of two ways. If you use AI and your provider can read pictures, a smaller copy of the photo is sent to
+  that provider (Anthropic Claude, Google Gemini, OpenAI or xAI Grok) with your own key, only to read the words on
+  it, and the words come back; that provider's privacy policy applies. Otherwise the photo is read on your device
+  itself (with Tesseract, whose program and language data are downloaded once from this website when you first
+  use it), and it is sent nowhere. Either way the photo is held in the app's memory only while it is read and
+  shown beside the words found; it is never saved, kept or synced, and it is gone when you close "Add words".
+  On Android, the copy the phone's camera app makes when you take the photo is deleted once it has been read.
+  Tamkeen uses the camera and your photos only when you choose to.</p>
 
   <h2>Anki companion (optional)</h2>
   <p>If you install the app's add-on in Anki on the same computer, it tells the app four numbers a day: how many cards
@@ -197,9 +208,10 @@
   <p>If you add your own API key for an AI provider (Anthropic Claude, Google Gemini, OpenAI or xAI Grok) and tap a
   word, the app sends that word, the sentence it appears in, the neighbouring sentences and the podcast and episode
   titles to the provider you chose, using your key. When you start a vocabulary quiz, the words in the chosen folder
-  and their saved meanings are sent the same way so the provider can write the answer choices. That provider's
-  privacy policy applies to those requests. No other data is sent, and nothing is sent unless you have added a
-  key.</p>
+  and their saved meanings are sent the same way so the provider can write the answer choices. When you scan a
+  photo of a list of words with AI (see "Scanning words from a photo" above), a smaller copy of that photo is sent
+  to it the same way. That provider's privacy policy applies to those requests. No other data is sent, and nothing
+  is sent unless you have added a key.</p>
 
   <h2>Cloud transcription (optional)</h2>
   <p>Transcripts are normally written on your own computer and no audio leaves it. If you turn on "Cloud

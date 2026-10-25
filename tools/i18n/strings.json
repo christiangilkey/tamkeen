@@ -5115,6 +5115,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "28cba55d",
+  "k": "Scan",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "f8c430d8",
   "k": "Another word",
   "f": "web/js/components/wordbuilder.js"
@@ -5543,6 +5548,241 @@
   "id": "7e3520a9",
   "k": "Leave",
   "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "8736c3f2",
+  "k": "You can also drop a picture here, or paste one (Ctrl+V).",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "90c9157a",
+  "k": "Edit as text",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "f4c667a4",
+  "k": "{0} and {1}",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "0e944cb6",
+  "k": "Read by your AI ({0}). The photo goes to {0} only, to be read, and isn't kept.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "7a306558",
+  "k": "Read on this device instead",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "6d311c94",
+  "k": "Read on this device: it reads printed text much better than handwriting.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "cb7d64aa",
+  "k": "Read with {0} instead (it reads handwriting too)",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "629506d7",
+  "k": "You're offline, so your AI can't read it now.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "7f24ba53",
+  "k": "Your AI can't read pictures.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "317a4d5c",
+  "k": "AI reads both:",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "4b7498b8",
+  "k": "set up AI",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "2183d7a8",
+  "k": "AI reads both, but it is turned off in Settings.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "dc75ff73",
+  "k": "Vowel marks are often missed: check them.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "a580792c",
+  "k": "Text written from top to bottom isn't read.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "4eb8f703",
+  "k": "Reading {0} on this device needs a one-time download of {1} MB.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "074b0ca6",
+  "k": "This device can't read photos itself, and AI isn't set up:",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "e7c6795e",
+  "k": "Take a photo of a list of words, a page of your book, or a single word.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "78781426",
+  "k": "Choose a picture of a list of words, a page of a book, or a single word.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "2298471c",
+  "k": "Take a photo",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "90bd2810",
+  "k": "Choose a photo",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "d2a4ac8c",
+  "k": "Choose a picture",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "c6600b3c",
+  "k": "Opening the photo…",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "4c2e3cb9",
+  "k": "{0} is reading the photo…",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "4b302c55",
+  "k": "{0} couldn't read the photo, so it was read on this device.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "90549f09",
+  "k": "This device can't read photos itself. Set up AI in Settings to read them.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "f2d2865b",
+  "k": "To read it on this device, a one-time download of {0} MB is needed.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "7790a9ef",
+  "k": "Download and read it",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "defaf485",
+  "k": "Reading the photo…",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "6154849b",
+  "k": "Looking at the photo again… {0}%",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "5aab84e9",
+  "k": "Reading the photo… {0}%",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "8d9261f9",
+  "k": "Read it on this device",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "2b0efe0f",
+  "k": "No words could be read in this photo.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "16794cc5",
+  "k": "Good light, without shadows or glare.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "d67897cf",
+  "k": "The page flat, and the photo taken straight on.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "cb1511e5",
+  "k": "Close enough that the words fill most of the photo.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "40e16b3e",
+  "k": "Read the next one with {0} (it reads handwriting too)",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "92ce39c1",
+  "k": "One word read from the photo: it's in the card.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "284a25bf",
+  "k": "Show photo {0}",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "a38a96de",
+  "k": "Another page",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "8ce61d1d",
+  "k": "Photo {0}",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "31f04a66",
+  "k": "Already in your words",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "d70f8708",
+  "k": "Check it",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "2fd6a925",
+  "k": "Hard to read: compare it with the photo, or fix it with Edit as text.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "904fef0d",
+  "k": "1 word found",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "92907f9b",
+  "k": "{0} words found",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "faa7e5b9",
+  "k": "{0} left out: already in your words, or twice",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "d3336fe8",
+  "k": "Use these ({0})",
+  "f": "web/js/components/wordscan.js"
  },
  {
   "id": "a13e07aa",
@@ -9790,6 +10030,21 @@
   "f": "web/js/nfmedia.js"
  },
  {
+  "id": "ade94960",
+  "k": "Text reading isn't downloaded on this device yet.",
+  "f": "web/js/ocr.js"
+ },
+ {
+  "id": "fa4ae56b",
+  "k": "This language can't be read on this device.",
+  "f": "web/js/ocr.js"
+ },
+ {
+  "id": "4d3aff1d",
+  "k": "Text reading couldn't start on this device.",
+  "f": "web/js/ocr.js"
+ },
+ {
   "id": "100892d9",
   "k": "No readable text was found on that page. Try opening it in the app's browser and pressing the round teal button there.",
   "f": "web/js/pageimport.js"
@@ -10143,11 +10398,6 @@
   "id": "2b73aff6",
   "k": "Sending voice note…",
   "f": "web/js/pages/chat.js"
- },
- {
-  "id": "f4c667a4",
-  "k": "{0} and {1}",
-  "f": "web/js/pages/discover.js"
  },
  {
   "id": "e79e9cf5",
@@ -13060,8 +13310,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "6c2882bb",
-  "k": "In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Or type your own with Add words, above: one at a time or a whole list.",
+  "id": "aba093a0",
+  "k": "In any transcript, right-click (or long-press) a word or a selected phrase and choose “Save to vocab”. Or add your own with Add words, above: one at a time, a whole list, or a photo of one.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -13075,8 +13325,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "e6a0568a",
-  "k": "Type or paste new words: Tamkeen can fill in their meanings, example sentences and audio",
+  "id": "62a03440",
+  "k": "Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -13350,6 +13600,11 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "8591e078",
+  "k": "Scan words",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "5755f9ac",
   "k": "Export CSV",
   "f": "web/js/pages/vocab.js"
@@ -13375,8 +13630,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "abd94e0c",
-  "k": "Type or paste new words, one or many at a time. Tamkeen can fill in their meanings, example sentences and audio, or you can.",
+  "id": "cbbd4e35",
+  "k": "Type or paste new words, one or many at a time, or scan a photo of a list. Tamkeen can fill in their meanings, example sentences and audio, or you can.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -13400,8 +13655,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "1d9f6beb",
-  "k": "Add words, export your words for Anki or as a spreadsheet, and Anki's settings.",
+  "id": "4ad83e22",
+  "k": "Add words, scan words from a photo, export your words for Anki or as a spreadsheet, and Anki's settings.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -14413,6 +14668,26 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "3da76359",
+  "k": "That isn't a picture. Choose a photo (JPEG or PNG).",
+  "f": "web/js/scanread.js"
+ },
+ {
+  "id": "2fbc84ce",
+  "k": "This picture can't be opened here (it may be in a format this device doesn't read, such as HEIC). Take or choose it as a JPEG or PNG.",
+  "f": "web/js/scanread.js"
+ },
+ {
+  "id": "fe5b5324",
+  "k": "This picture is empty.",
+  "f": "web/js/scanread.js"
+ },
+ {
+  "id": "d8256049",
+  "k": "The photo couldn't be prepared.",
+  "f": "web/js/scanread.js"
  },
  {
   "id": "4e0443a6",

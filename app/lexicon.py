@@ -13,6 +13,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 import sys
 import threading
 from pathlib import Path
@@ -48,6 +49,26 @@ MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", 
 FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES}
              | {"mean-arc": "ar-camel-meanings.json.gz", "mean-cebw": "ceb-wolff-meanings.json.gz"})
 KINDS = {"words": LANGUAGES, "meanings": MEANINGS}
+# Reading the text in a photo ("Add words" → Scan, web/js/ocr.js; files made by tools/build_ocr.mjs): Tesseract
+# itself (the "core": one build for devices with WebAssembly SIMD, kind "ocr", one for older ones, kind "ocr-plain")
+# and each language's trained data, by Tesseract's names. For these kinds `lang` is the study language and the
+# learner's own, "es+en": a list of words with their meanings has both on the page. web/js/scanwords.js OCR_LANGS
+# is the same list (tests/test_scan_words.py checks).
+OCR_LANGS = {"ar": ("ara",), "es": ("spa",), "fr": ("fra",), "ja": ("jpn",), "zh": ("chi_sim", "chi_tra"), "ru": ("rus",),
+             "it": ("ita",), "tl": ("tgl",), "pt": ("por",), "ca": ("cat",), "ceb": ("ceb",), "th": ("tha",), "de": ("deu",),
+             "fa": ("fas",), "hi": ("hin",), "ko": ("kor",), "en": ("eng",)}
+OCR_CORES = {"ocr": "ocr-core", "ocr-plain": "ocr-core-plain"}
+FILES.update({"ocr-core": "ocr-core-simd-lstm.wasm.js.gz", "ocr-core-plain": "ocr-core-lstm.wasm.js.gz"}
+             | {f"ocr-{code}": f"ocr-{code}.traineddata.gz" for codes in OCR_LANGS.values() for code in codes})
+
+
+def names_for(lang: str, kind: str = "words") -> tuple[str, ...]:
+    """The files a language needs for `kind`: its dictionaries, or, for reading text, the core and the
+    trained data of each language in "es+en" (a "+" may arrive as a space, from a web address)."""
+    if kind in OCR_CORES:
+        codes = [code for part in re.split(r"[+\s]+", lang or "") for code in OCR_LANGS.get(part, ())]
+        return (OCR_CORES[kind], *dict.fromkeys(f"ocr-{code}" for code in codes)) if codes else ()
+    return KINDS.get(kind, LANGUAGES).get(lang, ())
 
 _lock = threading.Lock()
 
@@ -108,7 +129,7 @@ def file_path(name: str) -> Path | None:
 
 
 def status(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
-    names = KINDS.get(kind, LANGUAGES).get(lang, ())
+    names = names_for(lang, kind)
     try:
         files = index().get("files", {})
     except (LexiconError, OSError, json.JSONDecodeError):
@@ -126,7 +147,7 @@ def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
     the published checksum before it is kept."""
     with _lock:
         files = index(refresh=True).get("files", {})
-        for name in KINDS.get(kind, LANGUAGES).get(lang, ()):
+        for name in names_for(lang, kind):
             if file_path(name) is not None:
                 continue
             meta = files.get(name)
@@ -143,7 +164,7 @@ def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
 
 def remove(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
     with _lock:
-        for name in KINDS.get(kind, LANGUAGES).get(lang, ()):
+        for name in names_for(lang, kind):
             path = file_path(name)
             if path is not None:
                 path.unlink(missing_ok=True)

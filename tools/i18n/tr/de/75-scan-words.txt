@@ -1,0 +1,59 @@
+28cba55d Scannen
+8736c3f2 Du kannst auch ein Bild hierher ziehen oder einfügen (Strg+V).
+90c9157a Als Text bearbeiten
+0e944cb6 Deine KI ({0}) liest es. Das Foto geht nur an {0}, damit es gelesen wird, und wird nicht aufbewahrt.
+7a306558 Stattdessen auf diesem Gerät lesen
+6d311c94 Auf diesem Gerät gelesen: Gedrucktes liest es viel besser als Handschrift.
+cb7d64aa Stattdessen mit {0} lesen (liest auch Handschrift)
+629506d7 Du bist offline, deshalb kann deine KI es jetzt nicht lesen.
+7f24ba53 Deine KI kann keine Bilder lesen.
+317a4d5c Die KI liest beides:
+4b7498b8 KI einrichten
+2183d7a8 Die KI liest beides, ist aber in den Einstellungen ausgeschaltet.
+dc75ff73 Vokalzeichen werden oft übersehen: prüfe sie.
+a580792c Von oben nach unten geschriebener Text wird nicht gelesen.
+4eb8f703 Um {0} auf diesem Gerät zu lesen, ist ein einmaliger Download von {1} MB nötig.
+074b0ca6 Dieses Gerät kann Fotos nicht selbst lesen, und die KI ist nicht eingerichtet:
+e7c6795e Fotografiere eine Wortliste, eine Seite deines Buchs oder ein einzelnes Wort.
+78781426 Wähle ein Bild einer Wortliste, einer Buchseite oder eines einzelnen Worts.
+2298471c Foto aufnehmen
+90bd2810 Foto auswählen
+d2a4ac8c Bild auswählen
+c6600b3c Foto wird geöffnet …
+4c2e3cb9 {0} liest das Foto …
+4b302c55 {0} konnte das Foto nicht lesen, deshalb wurde es auf diesem Gerät gelesen.
+90549f09 Dieses Gerät kann Fotos nicht selbst lesen. Richte in den Einstellungen die KI ein, um sie zu lesen.
+f2d2865b Um es auf diesem Gerät zu lesen, ist ein einmaliger Download von {0} MB nötig.
+7790a9ef Herunterladen und lesen
+defaf485 Foto wird gelesen …
+6154849b Foto wird noch einmal angesehen … {0} %
+5aab84e9 Foto wird gelesen … {0} %
+8d9261f9 Auf diesem Gerät lesen
+2b0efe0f Auf diesem Foto konnten keine Wörter gelesen werden.
+16794cc5 Gutes Licht, ohne Schatten oder Spiegelungen.
+d67897cf Die Seite flach und das Foto gerade von vorn aufgenommen.
+cb1511e5 Nah genug, dass die Wörter fast das ganze Foto füllen.
+40e16b3e Das nächste mit {0} lesen (liest auch Handschrift)
+92ce39c1 Ein Wort aus dem Foto gelesen: Es steht in der Karte.
+284a25bf Foto {0} zeigen
+a38a96de Noch eine Seite
+8ce61d1d Foto {0}
+31f04a66 Schon in deinen Wörtern
+d70f8708 Prüfen
+2fd6a925 Schwer zu lesen: Vergleiche es mit dem Foto oder korrigiere es mit „Als Text bearbeiten“.
+904fef0d 1 Wort gefunden
+92907f9b {0} Wörter gefunden
+faa7e5b9 {0} weggelassen: schon in deinen Wörtern oder doppelt
+d3336fe8 Diese übernehmen ({0})
+ade94960 Die Texterkennung ist auf diesem Gerät noch nicht heruntergeladen.
+fa4ae56b Diese Sprache kann auf diesem Gerät nicht gelesen werden.
+4d3aff1d Die Texterkennung konnte auf diesem Gerät nicht starten.
+aba093a0 Klicke in einem beliebigen Transkript mit der rechten Maustaste auf ein Wort oder eine markierte Wortgruppe (oder halte sie gedrückt) und wähle „In den Vokabeln speichern“. Oder füge deine eigenen mit Wörter hinzufügen hinzu, oben: einzeln, als ganze Liste oder als Foto einer Liste.
+62a03440 Neue Wörter tippen, einfügen oder scannen: Tamkeen kann ihre Bedeutungen, Beispielsätze und Audio ausfüllen
+8591e078 Wörter scannen
+cbbd4e35 Neue Wörter tippen oder einfügen, einzeln oder viele auf einmal, oder das Foto einer Liste scannen. Tamkeen kann ihre Bedeutungen, Beispielsätze und Audio ausfüllen – oder du machst es selbst.
+4ad83e22 Wörter hinzufügen, Wörter von einem Foto scannen, deine Wörter für Anki oder als Tabelle exportieren, und die Anki-Einstellungen.
+3da76359 Das ist kein Bild. Wähle ein Foto (JPEG oder PNG).
+2fbc84ce Dieses Bild lässt sich hier nicht öffnen (vielleicht ist es in einem Format, das dieses Gerät nicht liest, etwa HEIC). Nimm es als JPEG oder PNG auf oder wähle es so aus.
+fe5b5324 Dieses Bild ist leer.
+d8256049 Das Foto konnte nicht vorbereitet werden.

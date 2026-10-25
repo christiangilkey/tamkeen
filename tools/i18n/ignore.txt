@@ -367,3 +367,8 @@ aecf88cb  # changelog changes versions history what's new release notes  (Settin
 e9369867  # fill in: {0}
 # Song lyrics (web/js/lyrics.js): the words in a song's title that name a version, for matching LRCLIB's records.
 27054409  # feat|ft\.|featuring|with|remaster|live|version|edit|mix|remix|...  (a pattern, not shown)
+# "Add words" → Scan (web/js/scanwords.js scanPrompt): what the app tells the AI with the photo. (Its longer
+# instructions have JSON in them, so the extractor passes over them by itself.)
+32a9ff53  # The photo: read the {0} vocabulary on it.
+# The folder Android's camera app leaves photos in (mobile/src/js/app.js forgetPhotos), not shown.
+935edbe9  # Pictures

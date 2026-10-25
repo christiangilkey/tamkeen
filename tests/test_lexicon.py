@@ -146,6 +146,8 @@ def test_the_published_dictionaries_match_their_index():
         assert len(blob) == meta["bytes"] and hashlib.sha256(blob).hexdigest() == meta["sha256"]
         if meta["file"].endswith(".bin.gz"):  # the Japanese dictionary: binary, see web/js/lexicon/kuromoji.js
             assert gzip.decompress(blob)[:4] == b"TKJA"
+        elif meta["file"].startswith("ocr-"):  # reading text in photos (tests/test_scan_words.py)
+            assert len(gzip.decompress(blob)) > 500_000
         else:
             assert json.loads(gzip.decompress(blob))["format"] == 1
 

@@ -236,6 +236,10 @@ export async function saveRecording(vocabId, blob, times) {
   return res.json();
 }
 
+/** Photos taken for "Add words" → Scan that the device kept a copy of (Android does): nothing to do on a
+ * computer, where a picture is only ever chosen from the learner's own files (and left there). */
+export const forgetPhotos = async () => {};
+
 /** The phones' own text-to-speech; the computer speaks through the browser's (speechSynthesis). */
 export const speechPlugin = null;
 

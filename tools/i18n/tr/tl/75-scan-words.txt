@@ -1,0 +1,59 @@
+28cba55d I-scan
+8736c3f2 Puwede ka ring mag-drop ng larawan dito, o i-paste ito (Ctrl+V).
+90c9157a I-edit bilang text
+0e944cb6 Babasahin ng AI mo ({0}). Ipapadala lang ang larawan sa {0}, para mabasa, at hindi ito itatabi.
+7a306558 Basahin na lang sa device na ito
+6d311c94 Babasahin sa device na ito: mas mahusay nitong nababasa ang nakalimbag na text kaysa sulat-kamay.
+cb7d64aa Basahin na lang gamit ang {0} (nababasa rin nito ang sulat-kamay)
+629506d7 Offline ka, kaya hindi ito mababasa ng AI mo ngayon.
+7f24ba53 Hindi nakakabasa ng larawan ang AI mo.
+317a4d5c Nababasa ng AI ang dalawa:
+4b7498b8 i-set up ang AI
+2183d7a8 Nababasa ng AI ang dalawa, pero naka-off ito sa Settings.
+dc75ff73 Madalas makaligtaan ang mga tanda ng patinig: tingnan ang mga ito.
+a580792c Hindi nababasa ang text na nakasulat mula itaas pababa.
+4eb8f703 Para mabasa ang {0} sa device na ito, kailangan ng isang beses na pag-download na {1} MB.
+074b0ca6 Hindi kayang magbasa ng larawan ng device na ito nang mag-isa, at hindi pa naka-set up ang AI:
+e7c6795e Kunan ng larawan ang isang listahan ng mga salita, isang pahina ng libro mo, o isang salita.
+78781426 Pumili ng larawan ng isang listahan ng mga salita, isang pahina ng libro, o isang salita.
+2298471c Kumuha ng larawan
+90bd2810 Pumili ng larawan
+d2a4ac8c Pumili ng larawan
+c6600b3c Binubuksan ang larawan…
+4c2e3cb9 Binabasa ng {0} ang larawan…
+4b302c55 Hindi nabasa ng {0} ang larawan, kaya binasa ito sa device na ito.
+90549f09 Hindi kayang magbasa ng larawan ng device na ito nang mag-isa. I-set up ang AI sa Settings para mabasa ang mga ito.
+f2d2865b Para mabasa ito sa device na ito, kailangan ng isang beses na pag-download na {0} MB.
+7790a9ef I-download at basahin
+defaf485 Binabasa ang larawan…
+6154849b Tinitingnan ulit ang larawan… {0}%
+5aab84e9 Binabasa ang larawan… {0}%
+8d9261f9 Basahin sa device na ito
+2b0efe0f Walang salitang nabasa sa larawang ito.
+16794cc5 Maliwanag, walang anino o silaw.
+d67897cf Patag ang pahina, at kinunan nang diretso.
+cb1511e5 Sapat na malapit para halos mapuno ng mga salita ang larawan.
+40e16b3e Basahin ang susunod gamit ang {0} (nababasa rin nito ang sulat-kamay)
+92ce39c1 Isang salita ang nabasa sa larawan: nasa card na ito.
+284a25bf Ipakita ang larawan {0}
+a38a96de Isa pang pahina
+8ce61d1d Larawan {0}
+31f04a66 Nasa mga salita mo na
+d70f8708 Tingnan ito
+2fd6a925 Mahirap basahin: ikumpara sa larawan, o ayusin gamit ang I-edit bilang text.
+904fef0d 1 salitang nakita
+92907f9b {0} salitang nakita
+faa7e5b9 {0} ang hindi isinama: nasa mga salita mo na, o dalawang beses
+d3336fe8 Gamitin ang mga ito ({0})
+ade94960 Hindi pa naka-download sa device na ito ang pagbasa ng text.
+fa4ae56b Hindi mababasa ang wikang ito sa device na ito.
+4d3aff1d Hindi masimulan ang pagbasa ng text sa device na ito.
+aba093a0 Sa anumang transcript, i-right click (o pindutin nang matagal) ang isang salita o napiling parirala at piliin ang “I-save sa vocab”. O idagdag ang sarili mo gamit ang Magdagdag ng mga salita, sa itaas: isa-isa, buong listahan, o larawan ng listahan.
+62a03440 Mag-type, mag-paste, o mag-scan ng mga bagong salita: kayang punan ng Tamkeen ang mga kahulugan, halimbawang pangungusap at audio
+8591e078 Mag-scan ng mga salita
+cbbd4e35 Mag-type o mag-paste ng mga bagong salita, isa o marami nang sabay, o i-scan ang larawan ng isang listahan. Kayang punan ng Tamkeen ang mga kahulugan, halimbawang pangungusap at audio, o ikaw ang gagawa.
+4ad83e22 Magdagdag ng mga salita, mag-scan ng mga salita mula sa larawan, i-export ang mga salita mo para sa Anki o bilang spreadsheet, at ang settings ng Anki.
+3da76359 Hindi iyan larawan. Pumili ng larawan (JPEG o PNG).
+2fbc84ce Hindi mabuksan dito ang larawang ito (baka nasa format na hindi nababasa ng device na ito, gaya ng HEIC). Kunan o piliin ito bilang JPEG o PNG.
+fe5b5324 Walang laman ang larawang ito.
+d8256049 Hindi maihanda ang larawan.
