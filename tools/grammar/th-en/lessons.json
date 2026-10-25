@@ -938,6 +938,323 @@
         {"type":"say","q":"พูดว่า “ฉันชอบทำอาหารมาก แต่ไม่ชอบล้างจาน”","answer":"I love cooking, but I don't like washing the dishes."},
         {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่ชอบทำ สิ่งที่ไม่ชอบทำ และทำบ่อยแค่ไหน","answers":[{"t":"I love reading. I usually read before bed. I don't like running.","tr":"ฉันชอบอ่านหนังสือมาก ปกติอ่านก่อนนอน ไม่ชอบวิ่ง"},{"t":"I really like playing soccer. I play every Sunday, but I never play in the rain.","tr":"ผมชอบเล่นฟุตบอลมาก เล่นทุกวันอาทิตย์ แต่ไม่เคยเล่นตอนฝนตก"}]}
       ]
+    },
+    {
+      "id": "right-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "บอกว่ากำลังทำอะไรอยู่: am / is / are + -ing",
+      "summary": "บอกว่าตอนนี้กำลังทำอะไร และถามว่าเพื่อนทำอะไรอยู่: “กำลัง…อยู่” ในภาษาอังกฤษคือ {{be}} + -ing",
+      "topic": "present continuous (กำลัง…อยู่): {{am}} / {{is}} / {{are}} + {{-ing}}; {{What are you doing?}}; {{right now}}, {{this week}}",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now.","tr":"ตอนนี้ฉันกำลังทำกับข้าวอยู่"}},
+        {"dialog":[{"who":"เจค","t":"Hi, Nok! What are you doing?","tr":"หวัดดีนก ทำอะไรอยู่"},{"who":"นก","t":"I'm cooking dinner. Why?","tr":"กำลังทำกับข้าว ทำไมเหรอ"},{"who":"เจค","t":"We're watching the game at Tom's place. Come over!","tr":"พวกเรากำลังดูบอลอยู่ที่บ้านทอม มาสิ"},{"who":"นก","t":"I can't. My mom is visiting, and she's sleeping now.","tr":"ไปไม่ได้ แม่มาเยี่ยม ตอนนี้แม่กำลังนอนอยู่"},{"who":"เจค","t":"OK, no problem.","tr":"โอเค ไม่เป็นไร"}]},
+        {"term":"present continuous (ปัจจุบันกาลต่อเนื่อง)","means":"รูปคำกริยาที่บอกว่ากำลังทำอยู่: {{be}} + {{-ing}} เช่น {{I'm working.}} “ฉันกำลังทำงาน”"},
+        {"p":"**กำลัง…อยู่ = be + -ing** สิ่งที่กำลังเกิดขึ้น ภาษาอังกฤษใช้ {{am}} / {{is}} / {{are}} + คำกริยาเติม {{-ing}}: {{I'm cooking.}} {{She's sleeping.}} {{They're playing.}} ลองคิดว่า {{be}} คือ “กำลัง” และ {{-ing}} คือ “อยู่”: ต้องมีทั้งสองอย่าง"},
+        { "table": [
+          ["ประธาน","be + -ing","ความหมาย"],
+          ["{{I}}","{{am working}}","ฉันกำลังทำงาน"],
+          ["{{you}} / {{we}} / {{they}}","{{are working}}","คุณ / เรา / พวกเขากำลังทำงาน"],
+          ["{{he}} / {{she}} / {{it}}","{{is working}}","เขากำลังทำงาน"]
+        ] },
+        {"p":"**ถามและปฏิเสธ** คำถามสลับ {{be}} ขึ้นก่อน: {{Are you working?}} {{What are you doing?}} “ทำอะไรอยู่” ปฏิเสธใช้ {{not}}: {{I'm not working today.}} “วันนี้ไม่ได้ทำงาน”"},
+        {"p":"**ตอนนี้ และช่วงนี้** ใช้ได้ทั้งตอนนี้จริงๆ ({{right now}}) และช่วงนี้ชั่วคราว: {{I'm learning English this year.}} “ปีนี้ฉันกำลังเรียนภาษาอังกฤษ” {{My mom is staying with me.}} “ช่วงนี้แม่มาพักกับฉัน”"},
+        { "ex": [
+          {"t":"She's talking on the phone.","tr":"เขากำลังคุยโทรศัพท์"},
+          {"t":"It's raining.","tr":"ฝนกำลังตก"},
+          {"t":"We're waiting for the bus.","tr":"เรากำลังรอรถเมล์"},
+          {"t":"What are you doing?","tr":"ทำอะไรอยู่"},
+          {"t":"I'm not watching TV. You can turn it off.","tr":"ฉันไม่ได้ดูทีวีอยู่ ปิดได้เลย"},
+          {"t":"They're learning Thai this year.","tr":"ปีนี้พวกเขากำลังเรียนภาษาไทย"}
+        ] },
+        {"tip":"ภาษาไทยพูดว่า “ฝนตก” แต่ภาษาอังกฤษใช้ {{it}} เป็นประธาน: {{It's raining.}} “ฝนกำลังตก” {{It's snowing.}} “หิมะกำลังตก”"}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking now.","right":"I'm cooking now.","tr":"ตอนนี้ฉันกำลังทำกับข้าว","why":"ต้องมี {{am}} ({{I'm}}) หน้าคำกริยา {{-ing}}"},
+        {"wrong":"I am cook now.","right":"I am cooking now.","tr":"ตอนนี้ฉันกำลังทำกับข้าว","why":"มี {{am}} แล้ว คำกริยาต้องเติม {{-ing}}"},
+        {"wrong":"Rain is falling.","right":"It's raining.","tr":"ฝนกำลังตก","why":"แปลตรงตัวแล้วไม่เป็นธรรมชาติ: คนอเมริกันพูดว่า {{It's raining.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"She ___ talking on the phone.","tr":"เขากำลังคุยโทรศัพท์","options":["is","are","does"],"answer":0,"why":"{{she}} + {{is}} + {{-ing}}"},
+        {"type":"choice","q":"เพื่อนโทรมาถามว่าทำอะไรอยู่ คุณกำลังดูหนัง","options":["{{I'm watching a movie.}}","{{I watching a movie.}}","{{I watch a movie now.}}"],"answer":0,"why":"กำลังทำตอนนี้: {{am}} + {{-ing}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เรากำลังรอรถเมล์","words":["We're","waiting","for","the bus."]},
+        {"type":"dialogue","q":"แม่ถามว่าคนในบ้านอยู่ไหน เลือกคำตอบ","from":"he-works","lines":[{"who":"แม่","t":"Where's your brother?","tr":"น้องชายอยู่ไหน"},{"options":["He's in his room. He's playing games.","He's in his room. He playing games."],"answer":0,"why":"ต้องมี {{is}} หน้า {{playing}}"},{"who":"แม่","t":"And your dad?","tr":"แล้วพ่อล่ะ"},{"options":["He's washing the car.","He washes the car now."],"answer":0,"why":"สิ่งที่กำลังทำอยู่ตอนนี้: {{is}} + {{-ing}}"}]},
+        {"type":"say","q":"พูดว่า “ฝนกำลังตก”","answer":"It's raining."},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าตอนนี้คุณกำลังทำอะไร และคนรอบตัวกำลังทำอะไร","answers":[{"t":"I'm studying English. My cat is sleeping on the sofa.","tr":"ฉันกำลังเรียนภาษาอังกฤษ แมวกำลังนอนอยู่บนโซฟา"},{"t":"I'm sitting in a coffee shop. People are working on their laptops.","tr":"ผมนั่งอยู่ในร้านกาแฟ คนกำลังทำงานกับแล็ปท็อป"}]}
+      ]
+    },
+    {
+      "id": "usually-or-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "แยกสิ่งที่ทำประจำกับสิ่งที่กำลังทำ",
+      "summary": "บอกว่าปกติทำอะไร แต่วันนี้ทำต่างไป: present simple หรือ present continuous",
+      "topic": "present simple ({{I usually take the bus}}) กับ present continuous ({{today I'm driving}}); คำกริยาที่ไม่ใช้ -ing ({{want}}, {{like}}, {{know}}, {{need}}, {{understand}})",
+      "blocks": [
+        {"goal":{"t":"I usually take the bus, but today I'm driving.","tr":"ปกติฉันนั่งรถเมล์ แต่วันนี้ขับรถมา"}},
+        {"dialog":[{"who":"เจค","t":"Do you work on Saturdays?","tr":"ทำงานวันเสาร์ไหม"},{"who":"นก","t":"No, I don't. But I'm working this Saturday. We're really busy.","tr":"ไม่ทำ แต่เสาร์นี้ต้องทำ ช่วงนี้งานยุ่งมาก"},{"who":"เจค","t":"Oh no! What do you usually do on weekends?","tr":"แย่จัง ปกติวันหยุดทำอะไร"},{"who":"นก","t":"I usually see my family.","tr":"ปกติไปหาครอบครัว"},{"who":"เจค","t":"Do you want to have lunch on Sunday?","tr":"วันอาทิตย์ไปกินข้าวกลางวันกันไหม"},{"who":"นก","t":"I'd love to! I know a good place.","tr":"ไปสิ ฉันรู้จักร้านดีๆ ร้านหนึ่ง"}]},
+        {"p":"**สองแบบ สองความหมาย** ภาษาไทยใช้คำกริยาเดิม แล้วเติม “กำลัง” เมื่ออยากเน้น แต่ภาษาอังกฤษต้องเลือกทุกครั้ง: ทำเป็นประจำใช้ present simple ({{I work on Mondays.}}) กำลังทำตอนนี้หรือช่วงนี้ชั่วคราวใช้ present continuous ({{I'm working now.}})"},
+        { "table": [
+          ["ทำประจำ: present simple","ตอนนี้ ช่วงนี้: present continuous"],
+          ["{{I usually walk to work.}} ปกติเดินไปทำงาน","{{Today I'm taking a taxi.}} วันนี้นั่งแท็กซี่"],
+          ["{{She lives in Bangkok.}} เขาอยู่กรุงเทพฯ","{{She's staying in Phuket this week.}} สัปดาห์นี้เขาพักที่ภูเก็ต"],
+          ["{{It rains a lot in July.}} เดือนกรกฎาคมฝนตกบ่อย","{{It's raining now.}} ตอนนี้ฝนกำลังตก"]
+        ] },
+        {"p":"**คำบอกเวลาช่วยได้** {{usually}}, {{every day}}, {{on Mondays}} บอกว่าเป็นประจำ ส่วน {{now}}, {{right now}}, {{today}}, {{this week}} มักมากับ {{-ing}}"},
+        {"p":"**คำกริยาที่ไม่ใช้ -ing** คำกริยาบางคำบอกความคิด ความรู้สึก หรือความเป็นเจ้าของ ไม่ใช่การกระทำ จึงไม่ค่อยใช้ {{-ing}} แม้จะหมายถึงตอนนี้: {{want}}, {{like}}, {{love}}, {{know}}, {{understand}}, {{need}}, {{have}} (มี): {{I want a coffee now.}} ไม่ใช่ {{I'm wanting a coffee.}}"},
+        { "ex": [
+          {"t":"He works in an office, but this week he's working from home.","tr":"ปกติเขาทำงานที่ออฟฟิศ แต่สัปดาห์นี้ทำงานที่บ้าน"},
+          {"t":"I don't usually drink coffee, but I'm drinking one now.","tr":"ปกติฉันไม่ดื่มกาแฟ แต่ตอนนี้กำลังดื่มอยู่แก้วหนึ่ง"},
+          {"t":"Do you understand?","tr":"เข้าใจไหม"},
+          {"t":"I know that restaurant.","tr":"ฉันรู้จักร้านนั้น"},
+          {"t":"She's living with her parents right now.","tr":"ช่วงนี้เขาอยู่กับพ่อแม่"},
+          {"t":"I need a break.","tr":"ฉันต้องพักหน่อยแล้ว"}
+        ] },
+        {"tip":"{{I'm loving it}} ในโฆษณาเป็นการเล่นคำ ในชีวิตจริงคนพูดว่า {{I love it.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I'm wanting a coffee.","right":"I want a coffee.","tr":"ฉันอยากได้กาแฟ","why":"{{want}} บอกความต้องการ ไม่ใช่การกระทำ: ไม่ใช้ {{-ing}}"},
+        {"wrong":"Every day I'm walking to work.","right":"Every day I walk to work.","tr":"ทุกวันฉันเดินไปทำงาน","why":"ทำเป็นประจำใช้ present simple: {{I walk}}"},
+        {"wrong":"Are you understand?","right":"Do you understand?","tr":"เข้าใจไหม","why":"{{understand}} เป็นคำกริยาหลัก: ถามด้วย {{Do}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"Look! It's ___.","tr":"ดูสิ ฝนกำลังตก","options":["raining","rain","rains"],"answer":0,"why":"กำลังเกิดขึ้นตอนนี้: {{is}} + {{-ing}}"},
+        {"type":"choice","q":"“ปกติเขาทำงานที่ออฟฟิศ”","options":["{{He usually works in an office.}}","{{He's usually working in an office.}}","{{He usually work in an office.}}"],"answer":0,"why":"ทำเป็นประจำ: present simple และ {{he}} เติม s"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"สัปดาห์นี้ฉันทำงานที่บ้าน","words":["I'm","working","from","home","this","week."]},
+        {"type":"dialogue","q":"เพื่อนร่วมงานมาที่โต๊ะคุณ เลือกคำตอบ","from":"right-now","lines":[{"who":"เจค","t":"Are you busy?","tr":"ยุ่งอยู่ไหม"},{"options":["Yes, I'm writing a report.","Yes, I write a report."],"answer":0,"why":"สิ่งที่ทำอยู่ตอนนี้: {{be}} + {{-ing}}"},{"who":"เจค","t":"Do you want some coffee?","tr":"เอากาแฟไหม"},{"options":["Yes, please. I need one!","Yes, please. I'm needing one!"],"answer":0,"why":"{{need}} ไม่ใช้ {{-ing}}"}]},
+        {"type":"say","q":"พูดว่า “ปกติฉันนั่งรถเมล์ แต่วันนี้ขับรถมา”","answer":"I usually take the bus, but today I'm driving."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่คุณทำเป็นประจำ และสิ่งที่ช่วงนี้หรือวันนี้ทำต่างไป","answers":[{"t":"I usually get up at six, but this week I'm getting up at five.","tr":"ปกติฉันตื่นหกโมง แต่สัปดาห์นี้ตื่นตีห้า"},{"t":"I usually eat at home, but today I'm having lunch with my friends.","tr":"ปกติผมกินข้าวที่บ้าน แต่วันนี้กินข้าวกลางวันกับเพื่อน"}]}
+      ]
+    },
+    {
+      "id": "can-cant",
+      "unit": 4,
+      "level": "A2",
+      "title": "บอกว่าทำอะไรได้และไม่ได้: can / can't",
+      "summary": "บอกว่าพูดภาษาอังกฤษได้ ว่ายน้ำเป็น หรือไปไม่ได้: ภาษาไทยมี “ได้” “เป็น” “สามารถ” แต่ภาษาอังกฤษใช้ {{can}} คำเดียว",
+      "topic": "{{can}} / {{can't}} + คำกริยารูปเดิม; {{Can you…?}} และคำตอบ {{Yes, I can.}}; ขอร้อง ขออนุญาต ({{Can I…?}}, {{Could you…?}})",
+      "blocks": [
+        {"goal":{"t":"I can speak a little English.","tr":"ฉันพูดภาษาอังกฤษได้นิดหน่อย"}},
+        {"dialog":[{"who":"เจค","t":"Can you speak English?","tr":"พูดภาษาอังกฤษได้ไหม"},{"who":"ต้น","t":"Yes, I can. A little.","tr":"ได้ครับ นิดหน่อย"},{"who":"เจค","t":"Can you swim?","tr":"ว่ายน้ำเป็นไหม"},{"who":"ต้น","t":"No, I can't. But I can ride a motorbike!","tr":"ไม่เป็นครับ แต่ขี่มอเตอร์ไซค์เป็น"},{"who":"เจค","t":"Great! Can you take me to the beach tomorrow?","tr":"ดีเลย พรุ่งนี้พาผมไปทะเลได้ไหม"},{"who":"ต้น","t":"Sorry, I can't. I have to work.","tr":"ขอโทษครับ ไม่ได้ ต้องทำงาน"}]},
+        {"p":"**ได้ เป็น สามารถ = can** ภาษาไทยมีหลายคำ: “ได้” (ทำได้ เป็นไปได้), “เป็น” (ทำเป็น เพราะเรียนมา), “สามารถ” (ภาษาทางการ) ภาษาอังกฤษใช้ {{can}} คำเดียวกับทุกแบบ: {{I can swim.}} “ว่ายน้ำเป็น” {{I can come tomorrow.}} “พรุ่งนี้มาได้”"},
+        {"p":"**ตำแหน่ง: can + คำกริยารูปเดิม** ภาษาไทยวาง “ได้” ไว้ท้าย (“พูดภาษาอังกฤษได้”) แต่ภาษาอังกฤษวาง {{can}} **หน้า**คำกริยา และคำกริยาเป็นรูปเดิมเสมอ ไม่มี {{to}} ไม่เติม s: {{She can speak Thai.}}"},
+        { "table": [
+          ["","ภาษาอังกฤษ","ความหมาย"],
+          ["ได้","{{I can drive.}}","ฉันขับรถเป็น"],
+          ["ไม่ได้","{{I can't drive.}}","ฉันขับรถไม่เป็น"],
+          ["ถาม","{{Can you drive?}}","ขับรถเป็นไหม"],
+          ["ตอบ","{{Yes, I can.}} / {{No, I can't.}}","เป็น / ไม่เป็น"]
+        ] },
+        {"p":"**ขอร้องและขออนุญาต** {{Can you…?}} ใช้ขอให้คนอื่นช่วย: {{Can you help me?}} ส่วน {{Can I…?}} ใช้ขออนุญาต: {{Can I sit here?}} ถ้าอยากสุภาพขึ้น ใช้ {{Could you…?}}: {{Could you say that again?}}"},
+        {"p":"**can กับ can't ออกเสียงต่างกัน** {{can}} ในประโยคมักออกเสียงเบาและสั้น เหมือน “เคิน” ส่วน {{can't}} เน้นเสียงและยาวกว่า ถ้าฟังไม่ชัด ให้ฟังว่าคำนั้นถูกเน้นหรือเปล่า"},
+        { "ex": [
+          {"t":"Can you help me, please?","tr":"ช่วยฉันหน่อยได้ไหม"},
+          {"t":"I can't eat spicy food.","tr":"ฉันกินเผ็ดไม่ได้"},
+          {"t":"She can play the guitar.","tr":"เขาเล่นกีตาร์เป็น"},
+          {"t":"Can I pay by card?","tr":"จ่ายด้วยบัตรได้ไหม"},
+          {"t":"We can't come tomorrow.","tr":"พรุ่งนี้เรามาไม่ได้"},
+          {"t":"Could you speak more slowly?","tr":"ช่วยพูดช้าลงหน่อยได้ไหม"},
+          {"t":"You can't park here.","tr":"จอดรถที่นี่ไม่ได้"}
+        ] },
+        {"tip":"ถูกถามว่า {{Can you…?}} ให้ตอบว่า {{Yes, I can.}} หรือ {{No, I can't.}} อย่าตอบคำเดียวว่า {{Can.}} แบบที่คนไทยตอบว่า “ได้”"}
+      ],
+      "mistakes": [
+        {"wrong":"Can.","right":"Yes, I can.","tr":"(ทำได้ไหม) ได้","why":"ภาษาอังกฤษตอบด้วยประธาน + {{can}}: {{Yes, I can.}}"},
+        {"wrong":"I speak English can.","right":"I can speak English.","tr":"ฉันพูดภาษาอังกฤษได้","why":"{{can}} วางหน้าคำกริยา ไม่ใช่ท้ายประโยคแบบ “ได้”"},
+        {"wrong":"She can to swim.","right":"She can swim.","tr":"เขาว่ายน้ำเป็น","why":"หลัง {{can}} ไม่มี {{to}} และคำกริยาไม่เติม s"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I ___ eat spicy food. It's too hot for me.","tr":"ฉันกินเผ็ดไม่ได้ เผ็ดเกินไปสำหรับฉัน","options":["can't","don't can","not can"],"answer":0,"why":"“…ไม่ได้” คือ {{can't}}"},
+        {"type":"choice","q":"มีคนถาม {{Can you swim?}} คุณว่ายน้ำเป็น","options":["{{Yes, I can.}}","{{Can.}}","{{Yes, I swim can.}}"],"answer":0,"why":"ตอบด้วยประธาน + {{can}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ช่วยพูดช้าลงหน่อยได้ไหม","words":["Could","you","speak","more","slowly?"]},
+        {"type":"dialogue","q":"เพื่อนชวนไปคอนเสิร์ต เลือกคำตอบ","from":"want-to","lines":[{"who":"เจค","t":"Do you want to go to the concert on Friday?","tr":"วันศุกร์อยากไปคอนเสิร์ตไหม"},{"options":["I want to go, but I can't. I have to work.","I want go, but I can't. I have to work."],"answer":0,"why":"{{want to}} + คำกริยา"},{"who":"เจค","t":"Can you come on Saturday?","tr":"วันเสาร์มาได้ไหม"},{"options":["Yes, I can!","Yes, can!"],"answer":0,"why":"ต้องมีประธาน: {{Yes, I can.}}"}]},
+        {"type":"say","q":"ขอความช่วยเหลือว่า “ช่วยฉันหน่อยได้ไหม”","answer":"Can you help me, please?"},
+        {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณทำได้ และหนึ่งอย่างที่ทำไม่ได้","answers":[{"t":"I can cook Thai food and I can drive. I can't swim.","tr":"ฉันทำอาหารไทยเป็น และขับรถเป็น แต่ว่ายน้ำไม่เป็น"},{"t":"I can speak Thai and a little English, but I can't speak Chinese.","tr":"ผมพูดภาษาไทยได้ และภาษาอังกฤษได้นิดหน่อย แต่พูดภาษาจีนไม่ได้"}]}
+      ]
+    },
+    {
+      "id": "going-to",
+      "unit": 4,
+      "level": "A2",
+      "title": "บอกแผนการ: be going to",
+      "summary": "บอกแผนสุดสัปดาห์และแผนปีหน้า: “จะ” ที่คิดไว้แล้ว ภาษาอังกฤษใช้ {{be going to}}",
+      "topic": "{{am}} / {{is}} / {{are}} + {{going to}} + คำกริยารูปเดิม; {{tomorrow}}, {{this weekend}}, {{next week}}; คำถามและปฏิเสธ",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my grandma this weekend.","tr":"สุดสัปดาห์นี้ฉันจะไปเยี่ยมยาย"}},
+        {"dialog":[{"who":"เจค","t":"What are you going to do this weekend?","tr":"สุดสัปดาห์นี้จะทำอะไร"},{"who":"นก","t":"I'm going to visit my grandma in Ayutthaya.","tr":"จะไปเยี่ยมยายที่อยุธยา"},{"who":"เจค","t":"Nice! Are you going to drive?","tr":"ดีจัง จะขับรถไปไหม"},{"who":"นก","t":"No, I'm going to take the train.","tr":"เปล่า จะนั่งรถไฟไป"},{"who":"เจค","t":"I'm not going to do anything. I'm going to relax!","tr":"ผมจะไม่ทำอะไรเลย จะพักผ่อนอย่างเดียว"}]},
+        {"p":"**“จะ” ที่วางแผนไว้แล้ว** แผนที่ตัดสินใจไว้แล้ว ภาษาอังกฤษใช้ {{be going to}} + คำกริยารูปเดิม: {{I'm going to visit my grandma.}} “ฉันจะไปเยี่ยมยาย” ส่วน {{be}} เปลี่ยนตามประธาน: {{I'm}}, {{she's}}, {{they're}}"},
+        {"p":"**ไม่ได้แปลว่า “กำลังไป”** {{going to}} ในที่นี้ไม่ได้หมายความว่ากำลังเดินทางไปไหน แค่บอกอนาคต: {{It's going to rain.}} “ฝนจะตก” (เห็นเมฆดำแล้ว)"},
+        { "table": [
+          ["","ตัวอย่าง","ความหมาย"],
+          ["บอกเล่า","{{She's going to study in Japan.}}","เขาจะไปเรียนที่ญี่ปุ่น"],
+          ["ปฏิเสธ","{{I'm not going to buy it.}}","ฉันจะไม่ซื้อ"],
+          ["คำถาม","{{Are you going to come?}}","คุณจะมาไหม"],
+          ["คำถาม Wh-","{{What are you going to do?}}","คุณจะทำอะไร"]
+        ] },
+        {"p":"**คำบอกเวลาในอนาคต** {{tomorrow}} พรุ่งนี้, {{tonight}} คืนนี้, {{this weekend}} สุดสัปดาห์นี้, {{next week}} สัปดาห์หน้า, {{next year}} ปีหน้า คำที่มี {{next}} หรือ {{this}} ไม่ต้องมี {{in}}: {{next week}} ไม่ใช่ {{in next week}}"},
+        {"p":"**ฟังให้ออก** เวลาพูดเร็วๆ {{going to}} มักฟังเป็น “กอนนะ” (เขียนแบบภาษาพูดว่า {{gonna}}) ฟังให้ออกไว้ แต่เวลาเขียนให้ใช้ {{going to}}"},
+        { "ex": [
+          {"t":"We're going to have a party on Saturday.","tr":"วันเสาร์เราจะจัดปาร์ตี้"},
+          {"t":"He's going to buy a new car.","tr":"เขาจะซื้อรถใหม่"},
+          {"t":"I'm not going to tell anyone.","tr":"ฉันจะไม่บอกใคร"},
+          {"t":"Are you going to come tonight?","tr":"คืนนี้จะมาไหม"},
+          {"t":"It's going to rain.","tr":"ฝนจะตกแล้ว"},
+          {"t":"What are you going to cook?","tr":"จะทำอะไรกิน"}
+        ] },
+        {"tip":"ถ้าเป็นนัดที่ตกลงกันแน่นอนแล้ว คนอเมริกันใช้ present continuous ก็ได้: {{I'm meeting Tom tomorrow.}} “พรุ่งนี้ฉันนัดเจอทอม”"}
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit my grandma.","right":"I'm going to visit my grandma.","tr":"ฉันจะไปเยี่ยมยาย","why":"ต้องมี {{am}} ({{I'm}}) หน้า {{going to}}"},
+        {"wrong":"I'm going to visiting my grandma.","right":"I'm going to visit my grandma.","tr":"ฉันจะไปเยี่ยมยาย","why":"หลัง {{going to}} ใช้คำกริยารูปเดิม"},
+        {"wrong":"I'm going to go there in next week.","right":"I'm going to go there next week.","tr":"สัปดาห์หน้าฉันจะไปที่นั่น","why":"{{next week}} ไม่ต้องมี {{in}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"We're going to ___ a party.","tr":"เราจะจัดปาร์ตี้","options":["have","having","has"],"answer":0,"why":"หลัง {{going to}} ใช้คำกริยารูปเดิม"},
+        {"type":"choice","q":"“คืนนี้จะมาไหม”","options":["{{Are you going to come tonight?}}","{{You going to come tonight?}}","{{Do you going to come tonight?}}"],"answer":0,"why":"คำถามสลับ {{are}} ขึ้นก่อน (ไม่ใช้ {{do}})"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันจะไม่บอกใคร","words":["I'm","not","going","to","tell","anyone."]},
+        {"type":"dialogue","q":"เพื่อนชวนไปปาร์ตี้ เลือกคำตอบ","from":"can-cant","lines":[{"who":"เจค","t":"Can you come to my party on Friday?","tr":"วันศุกร์มางานปาร์ตี้ผมได้ไหม"},{"options":["Sorry, I can't. I'm going to visit my parents.","Sorry, I can't. I going to visit my parents."],"answer":0,"why":"ต้องมี {{am}}: {{I'm going to…}}"},{"who":"เจค","t":"Oh. When are you going to come back?","tr":"อ๋อ แล้วจะกลับมาเมื่อไร"},{"options":["I'm going to come back on Sunday.","I'm going to coming back on Sunday."],"answer":0,"why":"หลัง {{going to}} ใช้คำกริยารูปเดิม"}]},
+        {"type":"say","q":"พูดว่า “สุดสัปดาห์นี้ฉันจะไปทะเล”","answer":"I'm going to go to the beach this weekend."},
+        {"type":"free","q":"ถึงตาคุณ: บอกแผนของคุณสองอย่าง: สำหรับสุดสัปดาห์นี้ และสำหรับปีหน้า","answers":[{"t":"This weekend I'm going to clean my apartment. Next year I'm going to travel to Korea.","tr":"สุดสัปดาห์นี้ฉันจะทำความสะอาดห้อง ปีหน้าจะไปเที่ยวเกาหลี"},{"t":"Tomorrow I'm going to meet my friends. Next year I'm going to learn to drive.","tr":"พรุ่งนี้ผมจะไปเจอเพื่อน ปีหน้าจะไปเรียนขับรถ"}]}
+      ]
+    },
+    {
+      "id": "will",
+      "unit": 4,
+      "level": "A2",
+      "title": "สัญญา เสนอช่วย และเดา: will",
+      "summary": "เสนอช่วยทันที สัญญา และเดาอนาคต: “จะ” ที่ตัดสินใจตอนพูด ภาษาอังกฤษใช้ {{will}}",
+      "topic": "{{will}} / {{won't}} + คำกริยารูปเดิม; {{I'll}}; เสนอช่วย สัญญา เดา; {{will}} หรือ {{going to}}",
+      "blocks": [
+        {"goal":{"t":"I'll call you tonight.","tr":"คืนนี้ฉันจะโทรหานะ"}},
+        {"dialog":[{"who":"นก","t":"Oh no, it's raining and I don't have an umbrella.","tr":"แย่จัง ฝนตก แต่ไม่มีร่ม"},{"who":"เจค","t":"Don't worry. I'll drive you home.","tr":"ไม่ต้องห่วง เดี๋ยวผมขับรถไปส่ง"},{"who":"นก","t":"Really? Thank you! I'll buy you lunch tomorrow.","tr":"จริงเหรอ ขอบคุณนะ พรุ่งนี้ฉันเลี้ยงข้าวกลางวัน"},{"who":"เจค","t":"Deal! Do you think it will stop soon?","tr":"ตกลง คิดว่าฝนจะหยุดเร็วๆ นี้ไหม"},{"who":"นก","t":"I don't think so. It won't stop tonight.","tr":"ไม่น่าหยุด คืนนี้คงไม่หยุดหรอก"}]},
+        {"p":"**will: “จะ” ที่เพิ่งตัดสินใจ** {{will}} (ย่อ {{'ll}}) + คำกริยารูปเดิม ใช้เมื่อตัดสินใจตอนพูด เสนอช่วย หรือสัญญา: {{I'll drive you home.}} “เดี๋ยวผมไปส่ง” {{I'll call you.}} “จะโทรหานะ” คล้ายกับคำว่า “เดี๋ยว…” ในภาษาไทย"},
+        {"p":"**เดาอนาคต** ใช้ {{will}} บอกสิ่งที่คิดว่าจะเกิดขึ้น มักมี {{I think}} นำหน้า: {{I think it will be hot tomorrow.}} “คิดว่าพรุ่งนี้จะร้อน”"},
+        {"p":"**won't = will not** “จะไม่” ใช้ {{won't}}: {{I won't tell anyone.}} “ฉันจะไม่บอกใคร” ระวังเสียง: {{won't}} ออกเสียง “โวนท์” ต่างจาก {{want}} “วอนท์”"},
+        { "table": [
+          ["ใช้ {{will}}","ใช้ {{going to}}"],
+          ["ตัดสินใจตอนพูด: {{I'll have the soup.}}","วางแผนไว้แล้ว: {{I'm going to cook tonight.}}"],
+          ["เสนอช่วย สัญญา: {{I'll help you.}}","เห็นหลักฐานแล้ว: {{Look, it's going to rain.}}"],
+          ["เดาทั่วไป: {{You'll love it.}}",""]
+        ] },
+        { "ex": [
+          {"t":"I'll help you with your bags.","tr":"เดี๋ยวฉันช่วยถือกระเป๋า"},
+          {"t":"I'll have the green curry, please.","tr":"ขอแกงเขียวหวานครับ","note":"ตอนสั่งอาหาร"},
+          {"t":"Don't worry. I won't be late.","tr":"ไม่ต้องห่วง ฉันจะไม่สาย"},
+          {"t":"I think you'll like this movie.","tr":"ฉันว่าคุณจะชอบหนังเรื่องนี้"},
+          {"t":"Will you be home tonight?","tr":"คืนนี้จะอยู่บ้านไหม"},
+          {"t":"It's OK. I'll pay.","tr":"ไม่เป็นไร เดี๋ยวฉันจ่ายเอง"}
+        ] },
+        {"tip":"ตอนสั่งอาหาร {{I'll have…}} “ขอ…” เป็นวิธีที่เป็นธรรมชาติมาก: {{I'll have a coffee, please.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"ฉันจะโทรหา","why":"หลัง {{will}} ใช้คำกริยารูปเดิม ไม่มี {{to}}"},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"เขาจะมา","why":"{{will}} ไม่เปลี่ยนรูป ไม่เติม s"},
+        {"wrong":"I don't will tell anyone.","right":"I won't tell anyone.","tr":"ฉันจะไม่บอกใคร","why":"“จะไม่” คือ {{won't}} ({{will not}})"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"It's OK, I ___ pay.","tr":"ไม่เป็นไร เดี๋ยวฉันจ่ายเอง","options":["will","am","do"],"answer":0,"why":"ตัดสินใจเสนอตอนพูด: {{will}}"},
+        {"type":"choice","q":"เพื่อนกำลังยกของหนัก คุณเสนอช่วยทันที","options":["{{I'll help you.}}","{{I help you.}}","{{I'm helping you tomorrow.}}"],"answer":0,"why":"เสนอช่วยตอนนั้นเลย: {{I'll…}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันว่าคุณจะชอบหนังเรื่องนี้","words":["I","think","you'll","like","this","movie."]},
+        {"type":"dialogue","q":"คุณกินข้าวกับเพื่อน เลือกคำพูด","from":"going-to","lines":[{"who":"พนักงาน","t":"Are you ready to order?","tr":"สั่งเลยไหมครับ"},{"options":["Yes. I'll have the pad thai, please.","Yes. I will to have the pad thai, please."],"answer":0,"why":"{{I'll}} + คำกริยารูปเดิม"},{"who":"เพื่อน","t":"What are you going to do after dinner?","tr":"กินข้าวเสร็จจะทำอะไร"},{"options":["I'm going to see a movie. I have the tickets.","I'll see a movie. I have the tickets."],"answer":0,"why":"มีตั๋วแล้ว เป็นแผนที่เตรียมไว้: {{going to}}"}]},
+        {"type":"say","q":"สัญญาว่า “คืนนี้ฉันจะโทรหานะ”","answer":"I'll call you tonight."},
+        {"type":"free","q":"ถึงตาคุณ: เสนอช่วยเพื่อนหนึ่งอย่าง สัญญาหนึ่งอย่าง และเดาว่าพรุ่งนี้อากาศจะเป็นอย่างไร","answers":[{"t":"I'll help you with your homework. I won't be late. I think it will be sunny tomorrow.","tr":"เดี๋ยวฉันช่วยทำการบ้าน ฉันจะไม่สาย คิดว่าพรุ่งนี้แดดจะออก"},{"t":"Don't worry, I'll pay. I'll call you later. I think it will rain tomorrow.","tr":"ไม่ต้องห่วง เดี๋ยวผมจ่าย เดี๋ยวโทรหานะ คิดว่าพรุ่งนี้ฝนจะตก"}]}
+      ]
+    },
+    {
+      "id": "have-to-should",
+      "unit": 4,
+      "level": "A2",
+      "title": "บอกว่าต้องทำและควรทำ: have to, must, should",
+      "summary": "บอกว่าต้องทำอะไร ไม่ต้องทำอะไร ห้ามทำอะไร และควรทำอะไร",
+      "topic": "{{have to}} / {{has to}}; {{don't have to}}; {{must}} / {{mustn't}}; {{should}} / {{shouldn't}}",
+      "blocks": [
+        {"goal":{"t":"I have to work tomorrow.","tr":"พรุ่งนี้ฉันต้องทำงาน"}},
+        {"dialog":[{"who":"เจค","t":"Do you want to go out tonight?","tr":"คืนนี้ออกไปเที่ยวไหม"},{"who":"นก","t":"Sorry, I can't. I have to get up early tomorrow.","tr":"ขอโทษนะ ไปไม่ได้ พรุ่งนี้ต้องตื่นเช้า"},{"who":"เจค","t":"Do you have to work on Saturday?","tr":"วันเสาร์ต้องทำงานเหรอ"},{"who":"นก","t":"Yes. My boss has to finish a big project.","tr":"ใช่ หัวหน้าต้องปิดโปรเจกต์ใหญ่"},{"who":"เจค","t":"You work too much. You should take a vacation!","tr":"คุณทำงานหนักเกินไป ควรไปพักร้อนบ้างนะ"},{"who":"นก","t":"I know. I really should!","tr":"รู้ ควรไปจริงๆ แหละ"}]},
+        {"p":"**have to: ต้อง** “ต้อง…” ใช้ {{have to}} + คำกริยารูปเดิม: {{I have to work.}} กับ {{he}} / {{she}} / {{it}} เป็น {{has to}}: {{She has to go.}} คำถามและปฏิเสธใช้ {{do}}: {{Do you have to…?}} {{I don't have to…}}"},
+        {"p":"**“ไม่ต้อง” กับ “ห้าม”** ระวังให้ดี: {{don't have to}} แปลว่า “**ไม่ต้อง** (ไม่จำเป็น)” ส่วน “**ห้าม**” ใช้ {{mustn't}} หรือ {{can't}}: {{You don't have to pay.}} “ไม่ต้องจ่าย (ฟรี)” แต่ {{You mustn't smoke here.}} “ห้ามสูบบุหรี่ที่นี่”"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["ต้อง","{{I have to go.}}"],
+          ["ไม่ต้อง (ไม่จำเป็น)","{{You don't have to come.}}"],
+          ["ต้อง (กฎ ข้อบังคับ)","{{You must wear a seat belt.}}"],
+          ["ห้าม","{{You mustn't park here.}} / {{You can't park here.}}"],
+          ["ควร","{{You should rest.}}"],
+          ["ไม่ควร","{{You shouldn't drink so much coffee.}}"]
+        ] },
+        {"p":"**must** {{must}} ก็แปลว่า “ต้อง” แต่ฟังเป็นทางการหรือเป็นกฎ เจอบ่อยในป้ายและเอกสาร เวลาพูดทั่วไปคนอเมริกันใช้ {{have to}} มากกว่า"},
+        {"p":"**should: ควร** ให้คำแนะนำใช้ {{should}} + คำกริยารูปเดิม: {{You should try the mango sticky rice.}} “ควรลองข้าวเหนียวมะม่วงนะ” “ไม่ควร” คือ {{shouldn't}} เหมือน {{can}} และ {{will}}: ไม่มี {{to}} ไม่เติม s"},
+        { "ex": [
+          {"t":"I have to go now.","tr":"ฉันต้องไปแล้ว"},
+          {"t":"She has to study tonight.","tr":"คืนนี้เขาต้องอ่านหนังสือ"},
+          {"t":"You don't have to bring anything.","tr":"ไม่ต้องเอาอะไรมานะ"},
+          {"t":"Do I have to book in advance?","tr":"ต้องจองล่วงหน้าไหม"},
+          {"t":"You mustn't take photos here.","tr":"ห้ามถ่ายรูปที่นี่"},
+          {"t":"You should see a doctor.","tr":"คุณควรไปหาหมอ"},
+          {"t":"We shouldn't be late.","tr":"เราไม่ควรไปสาย"}
+        ] },
+        {"tip":"เวลาพูดเร็วๆ {{have to}} ออกเสียงเหมือน “แฮฟทะ” และ {{has to}} เหมือน “แฮสทะ”"}
+      ],
+      "mistakes": [
+        {"wrong":"I must to go.","right":"I have to go.","tr":"ฉันต้องไปแล้ว","why":"{{must}} ไม่มี {{to}} ({{I must go.}}) และเวลาพูดทั่วไป {{have to}} เป็นธรรมชาติกว่า"},
+        {"wrong":"You don't have to smoke here.","right":"You can't smoke here.","tr":"ห้ามสูบบุหรี่ที่นี่","why":"{{don't have to}} แปลว่า “ไม่จำเป็นต้อง” ไม่ใช่ “ห้าม”: “ห้าม” ใช้ {{can't}} หรือ {{mustn't}}"},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"เขาต้องทำงาน","why":"{{she}} ใช้ {{has to}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My brother ___ to work on Saturdays.","tr":"พี่ชายต้องทำงานวันเสาร์","options":["has","have","must"],"answer":0,"why":"{{my brother}} = {{he}}: {{has to}}"},
+        {"type":"choice","q":"พิพิธภัณฑ์เข้าฟรี เจ้าหน้าที่บอกว่า","options":["{{You don't have to pay.}}","{{You mustn't pay.}}","{{You have to pay.}}"],"answer":0,"why":"ไม่จำเป็นต้องจ่าย: {{don't have to}} ({{mustn't}} แปลว่าห้าม)"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"คุณควรไปหาหมอ","words":["You","should","see","a","doctor."]},
+        {"type":"dialogue","q":"เพื่อนไม่สบาย เลือกคำพูด","from":"will","lines":[{"who":"เพื่อน","t":"I have a headache.","tr":"ปวดหัว"},{"options":["You should take some medicine.","You should to take some medicine."],"answer":0,"why":"หลัง {{should}} ไม่มี {{to}}"},{"who":"เพื่อน","t":"I don't have any.","tr":"ไม่มียาเลย"},{"options":["Don't worry. I'll get you some.","Don't worry. I will to get you some."],"answer":0,"why":"เสนอช่วย: {{I'll}} + คำกริยารูปเดิม"}]},
+        {"type":"say","q":"พูดว่า “ฉันต้องไปแล้ว”","answer":"I have to go now."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่ต้องทำสัปดาห์นี้ สิ่งที่ไม่ต้องทำ และให้คำแนะนำเพื่อนหนึ่งข้อ","answers":[{"t":"I have to finish a report this week. I don't have to work on Saturday. You should come to Thailand!","tr":"สัปดาห์นี้ฉันต้องทำรายงานให้เสร็จ วันเสาร์ไม่ต้องทำงาน คุณควรมาเที่ยวเมืองไทยนะ"},{"t":"I have to go to the bank tomorrow. You shouldn't work so late.","tr":"พรุ่งนี้ผมต้องไปธนาคาร คุณไม่ควรทำงานดึกขนาดนั้น"}]}
+      ]
+    },
+    {
+      "id": "invite-and-ask",
+      "unit": 4,
+      "level": "A2",
+      "title": "ชวน เสนอ และขอให้ช่วย",
+      "summary": "ชวนไปกินข้าว เสนอความคิด ขอให้ช่วยอย่างสุภาพ และตอบรับหรือปฏิเสธ",
+      "topic": "{{Would you like…?}} / {{Would you like to…?}}; {{Let's…}}; {{How about…?}}; {{Why don't we…?}}; {{Could you…?}}",
+      "blocks": [
+        {"goal":{"t":"Would you like to have dinner with us on Saturday?","tr":"วันเสาร์ไปกินข้าวเย็นกับพวกเราไหม"}},
+        {"dialog":[{"who":"นก","t":"Would you like to have dinner with us on Saturday?","tr":"วันเสาร์ไปกินข้าวเย็นกับพวกเราไหม"},{"who":"เจค","t":"I'd love to! Where?","tr":"ไปสิ ที่ไหนล่ะ"},{"who":"นก","t":"How about the new Korean place?","tr":"ร้านเกาหลีที่เพิ่งเปิดดีไหม"},{"who":"เจค","t":"Great. Let's meet at seven.","tr":"ดีเลย เจอกันหนึ่งทุ่ม"},{"who":"นก","t":"Could you pick me up? My car is in the shop.","tr":"มารับฉันได้ไหม รถเข้าอู่อยู่"},{"who":"เจค","t":"Sure, no problem.","tr":"ได้สิ ไม่มีปัญหา"}]},
+        {"p":"**ชวนอย่างสุภาพ: Would you like…?** {{Would you like…?}} “รับ…ไหม / อยาก…ไหม” สุภาพกว่า {{Do you want…?}} ตามด้วยสิ่งของ ({{Would you like some tea?}}) หรือ {{to}} + คำกริยา ({{Would you like to come?}})"},
+        {"p":"**เสนอความคิด** “…กันเถอะ” คือ {{Let's}} + คำกริยารูปเดิม: {{Let's go!}} “…ดีไหม” คือ {{How about…?}} ตามด้วยคำนามหรือ {{-ing}}: {{How about pizza?}} {{How about going tomorrow?}} หรือ {{Why don't we…?}} “ทำไมเราไม่…ล่ะ”: {{Why don't we take a taxi?}}"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["รับชาไหมคะ","{{Would you like some tea?}}"],
+          ["ไปด้วยกันไหม","{{Would you like to come with us?}}"],
+          ["ไปกันเถอะ","{{Let's go.}}"],
+          ["พรุ่งนี้ดีไหม","{{How about tomorrow?}}"],
+          ["นั่งแท็กซี่ไปดีไหม","{{Why don't we take a taxi?}}"],
+          ["ช่วย…หน่อยได้ไหม","{{Could you…?}}"]
+        ] },
+        {"p":"**ขอให้ช่วย** {{Could you…?}} สุภาพกว่า {{Can you…?}}: {{Could you open the window?}} “ช่วยเปิดหน้าต่างหน่อยได้ไหม” และ {{Would you mind…?}} + {{-ing}} สุภาพมาก: {{Would you mind waiting?}} “รอสักครู่ได้ไหม”"},
+        {"p":"**ตอบรับและปฏิเสธ** ตอบรับ: {{I'd love to!}} {{Sounds great!}} {{Sure.}} ปฏิเสธอย่างสุภาพ: {{I'm sorry, I can't. Maybe next time?}} “ขอโทษนะ ไปไม่ได้ ไว้คราวหน้านะ” คนอเมริกันมักให้เหตุผลสั้นๆ ด้วย"},
+        { "ex": [
+          {"t":"Would you like some coffee?","tr":"รับกาแฟไหม"},
+          {"t":"Let's take a break.","tr":"พักกันเถอะ"},
+          {"t":"How about Thai food tonight?","tr":"คืนนี้กินอาหารไทยดีไหม"},
+          {"t":"Why don't we meet at the station?","tr":"เจอกันที่สถานีดีไหม"},
+          {"t":"Could you help me with this?","tr":"ช่วยอันนี้หน่อยได้ไหม"},
+          {"t":"Sounds great!","tr":"ดีเลย"},
+          {"t":"I'm sorry, I can't. Maybe next time.","tr":"ขอโทษนะ ไปไม่ได้ ไว้คราวหน้านะ"}
+        ] },
+        {"tip":"ตอบ {{Would you like…?}} สั้นๆ ว่า {{Yes, please.}} หรือ {{No, thanks.}} ส่วน {{Yes, I like.}} ผิด เพราะ {{like}} เฉยๆ แปลว่า “ชอบ”"}
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go.","right":"Let's go.","tr":"ไปกันเถอะ","why":"หลัง {{Let's}} ใช้คำกริยารูปเดิม ไม่มี {{to}}"},
+        {"wrong":"Would you like come?","right":"Would you like to come?","tr":"อยากมาไหม","why":"{{would like}} + คำกริยา ต้องมี {{to}}"},
+        {"wrong":"How about go tomorrow?","right":"How about going tomorrow?","tr":"ไปพรุ่งนี้ดีไหม","why":"หลัง {{How about}} ใช้คำนามหรือ {{-ing}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"___ go to the beach!","tr":"ไปทะเลกันเถอะ","options":["Let's","Let","Lets"],"answer":0,"why":"“…กันเถอะ” คือ {{Let's}} (ย่อจาก {{let us}}) มีเครื่องหมาย '"},
+        {"type":"choice","q":"เพื่อนถาม {{Would you like some cake?}} คุณอยากกิน","options":["{{Yes, please.}}","{{Yes, I like.}}","{{Yes, I want.}}"],"answer":0,"why":"ตอบรับอย่างสุภาพ: {{Yes, please.}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"มารับฉันได้ไหม","words":["Could","you","pick","me","up?"]},
+        {"type":"dialogue","q":"เพื่อนชวนไปทะเล เลือกคำตอบ","from":"have-to-should","lines":[{"who":"เจค","t":"Would you like to go to the beach this weekend?","tr":"สุดสัปดาห์นี้ไปทะเลไหม"},{"options":["I'm sorry, I can't. I have to work. Maybe next time?","I'm sorry, I can't. I must to work. Maybe next time?"],"answer":0,"why":"“ต้อง” คือ {{have to}} ({{must}} ไม่มี {{to}})"},{"who":"เจค","t":"How about next weekend?","tr":"สุดสัปดาห์หน้าล่ะ"},{"options":["Sounds great! Let's go.","Sounds great! Let's going."],"answer":0,"why":"หลัง {{Let's}} ใช้คำกริยารูปเดิม"}]},
+        {"type":"say","q":"ชวนเพื่อนอย่างสุภาพว่า “วันเสาร์ไปกินข้าวเย็นกับพวกเราไหม”","answer":"Would you like to have dinner with us on Saturday?"},
+        {"type":"free","q":"ถึงตาคุณ: ชวนเพื่อนทำอะไรสักอย่าง เสนอเวลาหรือสถานที่ และขอให้เขาช่วยหนึ่งอย่าง","answers":[{"t":"Would you like to see a movie on Friday? How about the seven o'clock show? Could you buy the tickets?","tr":"วันศุกร์ไปดูหนังไหม รอบหนึ่งทุ่มดีไหม ช่วยซื้อตั๋วได้ไหม"},{"t":"Let's have lunch tomorrow. Why don't we meet at noon? Could you book a table?","tr":"พรุ่งนี้กินข้าวกลางวันกันเถอะ เจอกันเที่ยงดีไหม ช่วยจองโต๊ะหน่อยได้ไหม"}]}
+      ]
     }
   ]
 }
