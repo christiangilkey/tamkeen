@@ -1367,6 +1367,294 @@
         {"type":"dialogue","q":"A coworker asks about a report. Choose your replies.","lines":[{"who":"Coworker","t":"Tapos mo na ba ang report?","tr":"Have you finished the report?"},{"options":["Oo, sinend ko na kanina.","Oo, i-send ko kanina."],"answer":0,"why":"Earlier: already done, so {{sinend}}."},{"who":"Coworker","t":"Talaga? I-che-check ko ang email ko.","tr":"Really? I'll check my email."},{"options":["Sige, i-check mo.","Sige, nag-check mo."],"answer":0,"why":"A command about a particular thing: {{i-check mo}}."}]},
         {"type":"free","q":"Your turn: tell a friend about your day in Taglish: something you texted, sent or checked, and something that happened to you.","answers":[{"t":"Nag-text ako kay Mama. Sinend ko ang report. Na-late ako sa meeting.","tr":"I texted Mom. I sent the report. I was late for the meeting."},{"t":"Na-traffic ako kanina, pero nag-enjoy ako sa party.","tr":"I got stuck in traffic earlier, but I had a good time at the party."}]}
       ]
+    },
+    {
+      "id": "tell-what-happened",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell someone what you did yesterday",
+      "summary": "Tell what happened, step by step: “On Saturday we went to Tagaytay. Then Ana bought a buko pie and we ate it in the car!”",
+      "topic": "The completed forms of every focus, one after another; {{una}}, {{tapos}}, {{pagkatapos}}; {{kahapon}}, {{kagabi}}, {{kanina}}, {{noong}}",
+      "blocks": [
+        {"goal":{"t":"Pumunta ako sa palengke kahapon, tapos nagluto ako.","tr":"I went to the market yesterday, then I cooked."}},
+        {"dialog":[{"who":"Liza","t":"Ano ang ginawa mo noong Sabado?","tr":"What did you do on Saturday?"},{"who":"Mark","t":"Pumunta kami sa Tagaytay. Kumain kami ng bulalo.","tr":"We went to Tagaytay. We had bulalo."},{"who":"Liza","t":"Wow! Tapos?","tr":"Wow! And then?"},{"who":"Mark","t":"Tapos, bumili si Ana ng buko pie, at kinain namin sa kotse!","tr":"Then Ana bought a buko pie, and we ate it in the car!"},{"who":"Liza","t":"Ang saya!","tr":"That sounds fun!"}]},
+        {"p":"Telling what happened means using the **completed** forms one after another, each with the focus that fits: {{Pumunta kami}} (we went), {{bumili si Ana ng buko pie}} (Ana bought a pie: just “a pie”), {{kinain namin}} (we ate it: that particular pie, so object focus)."},
+        { "table": [
+          ["kind of verb","basic","completed","example"],
+          ["{{-um-}}","{{kumain}}","{{kumain}}","{{Kumain kami ng bulalo.}}"],
+          ["{{mag-}}","{{magluto}}","{{nagluto}}","{{Nagluto ako.}}"],
+          ["{{ma-}}","{{matulog}}","{{natulog}}","{{Natulog ako nang maaga.}}"],
+          ["{{-in}}","{{kainin}}","{{kinain}}","{{Kinain namin ang pie.}}"],
+          ["{{i-}}","{{ibigay}}","{{ibinigay}}","{{Ibinigay ko kay Ana.}}"],
+          ["{{-an}}","{{tawagan}}","{{tinawagan}}","{{Tinawagan ko si Lola.}}"]
+        ] },
+        {"p":"**In order**: {{una}} “first”, {{tapos}} “then” (the everyday word), {{pagkatapos}} “after that”, {{saka}} “and then”. {{Una, naligo ako. Tapos, nag-almusal ako.}}"},
+        {"p":"**When**: {{kahapon}} “yesterday”, {{kagabi}} “last night”, {{kanina}} “earlier today” ({{kaninang umaga}} “this morning”), {{noong Sabado}} “on Saturday”, {{noong isang linggo}} “last week”. A time word often starts the story: {{Kahapon, pumunta ako…}}"},
+        {"p":"**Keeping the listener with you**: listeners say {{Tapos?}} “And then?” or {{Talaga?}} “Really?”; you can start with {{Alam mo,…}} “You know what,…”"},
+        { "ex": [
+          {"t":"Pumunta ako sa palengke kahapon, tapos nagluto ako.","tr":"I went to the market yesterday, then I cooked."},
+          {"t":"Kagabi, nanood kami ng sine.","tr":"Last night we went to the movies."},
+          {"t":"Natulog ako nang maaga.","tr":"I went to bed early."},
+          {"t":"Kaninang umaga, tinawagan ko si Lola.","tr":"This morning I called Grandma."},
+          {"t":"Una, naligo ako. Tapos, nag-almusal ako.","tr":"First I showered. Then I had breakfast."},
+          {"t":"Noong isang linggo, pumunta kami sa Cebu.","tr":"Last week we went to Cebu."}
+        ] },
+        {"tip":"{{kanina}} is earlier **today**; {{kahapon}} is yesterday. {{kaninang umaga}} “this morning” is said later the same day."}
+      ],
+      "mistakes": [
+        {"wrong":"Kahapon, pumupunta ako sa palengke.","right":"Kahapon, pumunta ako sa palengke.","tr":"Yesterday I went to the market.","why":"Yesterday, finished: the completed form."},
+        {"wrong":"Kinain ko ng bulalo.","right":"Kumain ako ng bulalo.","tr":"I had some bulalo.","why":"Just some bulalo: actor focus. For that particular bowl, {{Kinain ko ang bulalo}}."},
+        {"wrong":"Kanina gabi, nanood kami ng sine.","right":"Kagabi, nanood kami ng sine.","tr":"Last night we watched a movie.","why":"“Last night” is one word, {{kagabi}}; {{kanina}} is earlier today."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kagabi, ___ kami ng sine.","tr":"Last night we watched a movie.","options":["nanood","nanonood","manonood"],"answer":0,"why":"Finished: the completed {{nanood}}.","from":"talk-about-your-day"},
+        {"type":"fill","q":"Choose the missing word.","t":"Kaninang umaga, ___ ko si Lola.","tr":"This morning I called Grandma.","options":["tinawagan","tumawag","tatawagan"],"answer":0,"why":"Grandma is in focus, the call is done: {{tinawagan}}.","from":"do-things-to-people-and-places"},
+        {"type":"choice","q":"“Ana bought a buko pie, and we ate it.”","options":["{{Bumili si Ana ng buko pie, at kinain namin.}}","{{Binili si Ana ng buko pie, at kumain namin.}}","{{Bumili si Ana ng buko pie, at kumain kami ito.}}"],"answer":0,"why":"“A pie”: actor focus; “ate it” (that pie): object focus, {{kinain namin}}.","from":"focus-on-the-thing"},
+        {"type":"order","q":"Put the words in order.","tr":"First I showered. Then I had breakfast.","words":["Una,","naligo ako.","Tapos,","nag-almusal ako."]},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","lines":[{"who":"Ben","t":"Kumusta ang weekend mo?","tr":"How was your weekend?"},{"options":["Masaya! Pumunta kami sa beach.","Masaya! Pupunta kami sa beach."],"answer":0,"why":"It's over: the completed form."},{"who":"Ben","t":"Talaga? Ano ang ginawa ninyo?","tr":"Really? What did you do?"},{"options":["Lumangoy kami, tapos kumain kami ng inihaw na isda.","Lumalangoy kami, tapos kakain kami ng inihaw na isda."],"answer":0,"why":"Finished things, one after another: completed forms."},{"who":"Ben","t":"Ang saya naman!","tr":"That sounds like fun!"}],"from":"say-what-you-did"},
+        {"type":"say","q":"Say “Last week we went to Cebu.”","answer":"Noong isang linggo, pumunta kami sa Cebu."},
+        {"type":"free","q":"Your turn: tell what you did yesterday in three or four steps, with {{una}} and {{tapos}}, and at least one {{-in}}, {{i-}} or {{-an}} verb.","answers":[{"t":"Kahapon, nag-almusal muna ako. Tapos, tinawagan ko si Mama. Pagkatapos, pumunta ako sa mall at binili ko ang regalo ni Ben.","tr":"Yesterday I had breakfast first. Then I called Mom. After that, I went to the mall and bought Ben's present."},{"t":"Kagabi, nagluto ako ng adobo. Tapos, kinain namin ito habang nanonood ng TV.","tr":"Last night I cooked adobo. Then we ate it while watching TV."}]}
+      ]
+    },
+    {
+      "id": "say-you-just-did-it",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say you've just done something",
+      "summary": "Say something has only just happened: “I've just eaten.” “She's just arrived.”",
+      "topic": "The just-done form: {{ka-}} + the repeated syllable + the root ({{kakakain}}, {{kararating}}); the doer in the {{ko}} set; {{lang}}",
+      "blocks": [
+        {"goal":{"t":"Kakakain ko lang.","tr":"I've just eaten."}},
+        {"dialog":[{"who":"Tita","t":"Kain ka muna!","tr":"Have something to eat!"},{"who":"Mark","t":"Salamat po, pero kakakain ko lang.","tr":"Thank you, but I've just eaten."},{"who":"Tita","t":"E si Ana?","tr":"And Ana?"},{"who":"Mark","t":"Kararating lang po niya. Gutom na po siya!","tr":"She's just arrived. She's hungry!"},{"who":"Tita","t":"Ay, halika, Ana! Kain na!","tr":"Oh, come on, Ana! Eat!"}]},
+        {"p":"Tagalog has one more form, for something that has **just** happened: {{ka-}} + the root's first syllable repeated + the root, with no {{-um-}}, {{mag-}} or {{-in}}: {{kain}} → {{kakakain}} “have just eaten”, {{dating}} → {{kararating}} “have just arrived”."},
+        { "table": [
+          ["root","just…","example"],
+          ["{{kain}}","{{kakakain}}","{{Kakakain ko lang.}} I've just eaten."],
+          ["{{dating}}","{{kararating}}","{{Kararating lang niya.}} She's just arrived."],
+          ["{{gising}}","{{kagigising}}","{{Kagigising ko lang.}} I've just woken up."],
+          ["{{alis}}","{{kaaalis}}","{{Kaaalis lang ni Ben.}} Ben has just left."],
+          ["{{uwi}}","{{kauuwi}}","{{Kauuwi ko lang.}} I've just got home."]
+        ] },
+        {"p":"**The doer is in the {{ko}} set**, whatever kind of verb it was: {{Kakakain ko lang}}, never {{ako}}. With a name, {{ni}}: {{Kaaalis lang ni Ben.}}"},
+        {"p":"**Add {{lang}}** “just”: almost everyone does. It comes after {{ko}} and {{mo}}, but before {{niya}}, {{nila}} and names: {{Kakakain ko lang}}, {{Kararating lang niya}}."},
+        {"p":"In speech you'll often hear {{kaka-}} with every verb: {{kakarating}}, {{kakagising}}. Both are fine."},
+        { "ex": [
+          {"t":"Kakakain ko lang.","tr":"I've just eaten."},
+          {"t":"Kararating lang niya.","tr":"She's just arrived."},
+          {"t":"Kagigising ko lang.","tr":"I've just woken up."},
+          {"t":"Kaaalis lang ni Ben.","tr":"Ben has just left."},
+          {"t":"Kauuwi lang namin galing sa Cebu.","tr":"We've just got back from Cebu.","note":"{{galing sa}} “(coming) from”"},
+          {"t":"Kabibili ko lang ng cellphone na ito.","tr":"I've just bought this phone."}
+        ] },
+        {"tip":"This is the polite way to turn down food, which you will be offered a lot: {{Salamat po, kakakain ko lang.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Kakakain ako lang.","right":"Kakakain ko lang.","tr":"I've just eaten.","why":"With this form, the doer is in the {{ko}} set."},
+        {"wrong":"Kumain lang ako.","right":"Kakakain ko lang.","tr":"I've just eaten.","why":"{{Kumain lang ako}} means “I only ate”. For “I've just eaten”, use {{kakakain ko lang}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kakakain ___ lang.","tr":"I've just eaten.","options":["ko","ako","ka"],"answer":0,"why":"The doer is in the {{ko}} set."},
+        {"type":"choice","q":"“She's just arrived.”","options":["{{Kararating lang niya.}}","{{Dumating lang siya.}}","{{Darating lang siya.}}"],"answer":0,"why":"Just happened: {{ka-}} + {{ra}} + {{rating}}. ({{Dumating lang siya}} is “She only arrived”.)"},
+        {"type":"choice","q":"Ben's mom offers you food, but you've just eaten. You say…","options":["{{Salamat po, kakakain ko lang.}}","{{Salamat po, kakain ako lang.}}","{{Hindi, ayoko.}}"],"answer":0,"why":"Polite, with {{po}}, and the just-done form.","from":"speak-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"Ben has just left.","words":["Kaaalis","lang","ni","Ben."],"from":"say-whose-it-is"},
+        {"type":"fill","q":"Choose the missing word.","t":"Kagigising ko ___.","tr":"I've just woken up.","options":["lang","pa","ba"],"answer":0,"why":"{{lang}} “just”."},
+        {"type":"dialogue","q":"A friend calls you in the morning. Choose your replies.","lines":[{"who":"Ana","t":"Gising ka na ba?","tr":"Are you awake?"},{"options":["Oo, kagigising ko lang.","Oo, gumising lang ako."],"answer":0,"why":"Just woke up: {{kagigising ko lang}}."},{"who":"Ana","t":"Kumain ka na?","tr":"Have you eaten?"},{"options":["Hindi pa ako kumakain.","Hindi na ako kakain."],"answer":0,"why":"“Not yet”: {{hindi pa}} + the ongoing form."}],"from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: say two things you've just done today.","answers":[{"t":"Kagigising ko lang. Kakakain ko lang ng almusal.","tr":"I've just woken up. I've just had breakfast."},{"t":"Kauuwi ko lang galing sa trabaho. Kaliligo ko lang.","tr":"I've just got home from work. I've just showered."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you've done, and never done",
+      "summary": "Ask and answer “Have you ever…?”: “Have you ever been to Boracay?” “Not yet, but I've been to Palawan.”",
+      "topic": "{{naka-}} / {{nakapag-}} + {{na}} for experience ({{nakapunta na}}); {{hindi pa}} + {{nakaka-}}; {{kahit minsan}}",
+      "blocks": [
+        {"goal":{"t":"Nakapunta ka na ba sa Boracay?","tr":"Have you ever been to Boracay?"}},
+        {"dialog":[{"who":"Liza","t":"Nakapunta ka na ba sa Boracay?","tr":"Have you ever been to Boracay?"},{"who":"Tom","t":"Hindi pa. Pero nakapunta na ako sa Palawan.","tr":"Not yet. But I've been to Palawan."},{"who":"Liza","t":"Nakakain ka na ba ng balut?","tr":"Have you ever eaten balut?"},{"who":"Tom","t":"Hindi pa ako nakakakain ng balut! Masarap ba?","tr":"I've never had balut! Is it good?"},{"who":"Liza","t":"Oo! Subukan mo!","tr":"Yes! Try it!"}]},
+        {"p":"For experience, Tagalog uses {{naka-}} (on {{-um-}} roots) or {{nakapag-}} (on {{mag-}} roots), with {{na}} “already”: {{Nakapunta na ako sa Palawan.}} “I've been to Palawan.” {{Nakapag-aral ka na ba ng Espanyol?}} “Have you ever studied Spanish?”. The doer is in the {{ako}} set, and the thing takes {{ng}}: {{Nakakain ka na ba ng balut?}}"},
+        {"p":"**Not yet, never**: {{hindi pa}} + the ongoing form, which repeats {{ka}} after {{naka-}}: {{Hindi pa ako nakakapunta sa Boracay.}} “I haven't been to Boracay (yet).” Stronger: {{kahit minsan}} “not even once”."},
+        { "table": [
+          ["","have done it","haven't, not yet"],
+          ["go ({{pumunta}})","{{nakapunta na}}","{{hindi pa nakakapunta}}"],
+          ["eat ({{kumain}})","{{nakakain na}}","{{hindi pa nakakakain}}"],
+          ["ride ({{sumakay}})","{{nakasakay na}}","{{hindi pa nakakasakay}}"],
+          ["study ({{mag-aral}})","{{nakapag-aral na}}","{{hindi pa nakakapag-aral}}"]
+        ] },
+        {"p":"{{Hindi pa}} sounds hopeful: “not yet, but maybe one day”. That's how Filipinos usually answer; a flat “never” is rare."},
+        { "ex": [
+          {"t":"Nakapunta ka na ba sa Boracay?","tr":"Have you ever been to Boracay?"},
+          {"t":"Nakapunta na ako sa Palawan.","tr":"I've been to Palawan."},
+          {"t":"Hindi pa ako nakakapunta sa Japan.","tr":"I've never been to Japan."},
+          {"t":"Nakasakay ka na ba ng jeep?","tr":"Have you ever ridden a jeepney?"},
+          {"t":"Nakakain na ako ng balut. Masarap pala!","tr":"I've had balut. It's actually good!","note":"{{pala}}: “it turns out”"},
+          {"t":"Nakapag-aral ka na ba ng Espanyol?","tr":"Have you ever studied Spanish?"}
+        ] },
+        {"tip":"{{maka-}} also means “manage to, get to” (lesson 33): {{Nakapunta ka ba sa party?}} “Did you make it to the party?”. With {{na}} it's experience; without it, one time you managed."}
+      ],
+      "mistakes": [
+        {"wrong":"Pumunta ka na ba sa Boracay?","right":"Nakapunta ka na ba sa Boracay?","tr":"Have you ever been to Boracay?","why":"“Ever” is experience: {{naka-}}. {{Pumunta ka na ba?}} asks about one particular trip: “Have you gone yet?”"},
+        {"wrong":"Hindi pa ako nakapunta sa Japan.","right":"Hindi pa ako nakakapunta sa Japan.","tr":"I haven't been to Japan.","why":"With {{hindi pa}}, the ongoing form: {{naka-}} + the repeated {{ka}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka na ba sa Boracay?","tr":"Have you ever been to Boracay?","options":["Nakapunta","Pumupunta","Pupunta"],"answer":0,"why":"Experience: {{naka-}} + {{na}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi pa ako ___ ng balut.","tr":"I've never eaten balut.","options":["nakakakain","nakakain","kumain"],"answer":0,"why":"{{hindi pa}} + the ongoing form: {{naka-ka-kain}}."},
+        {"type":"choice","q":"“I've been to Palawan.”","options":["{{Nakapunta na ako sa Palawan.}}","{{Nakapunta ako na sa Palawan.}}","{{Pupunta na ako sa Palawan.}}"],"answer":0,"why":"{{na}} comes right after the verb, before {{ako}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Have you ever ridden a jeepney?","words":["Nakasakay","ka","na ba","ng jeep?"],"from":"find-your-way"},
+        {"type":"dialogue","q":"A Filipino friend asks about your travels. Choose your replies.","lines":[{"who":"Liza","t":"Nakapunta ka na ba sa Cebu?","tr":"Have you ever been to Cebu?"},{"options":["Hindi pa, pero gusto kong pumunta!","Hindi na, pero gusto kong pumunta!"],"answer":0,"why":"Not yet: {{hindi pa}}. ({{hindi na}} is “not any more”.)"},{"who":"Liza","t":"E sa Baguio?","tr":"And Baguio?"},{"options":["Oo, nakapunta na ako doon noong Disyembre.","Oo, pupunta na ako doon noong Disyembre."],"answer":0,"why":"Done, last December: {{nakapunta na}}."}],"from":"say-what-you-want"},
+        {"type":"say","q":"Ask a friend: “Have you ever eaten balut?”","answer":"Nakakain ka na ba ng balut?"},
+        {"type":"free","q":"Your turn: say two places you've been, and one thing you've never done but want to.","answers":[{"t":"Nakapunta na ako sa Maynila at sa Cebu. Hindi pa ako nakakasakay ng bangka, pero gusto ko!","tr":"I've been to Manila and Cebu. I've never been on a boat, but I'd like to!"},{"t":"Nakapunta na ako sa Japan at sa Korea. Hindi pa ako nakakakain ng balut.","tr":"I've been to Japan and Korea. I've never eaten balut."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-saw-and-heard",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you saw, heard and understood",
+      "summary": "Talk about seeing, hearing, understanding, knowing and remembering: “Have you seen Ana?” “Sorry, I didn't understand you.” “I don't know.”",
+      "topic": "{{ma-}} object-focus verbs ({{makita}}, {{marinig}}, {{maintindihan}}, {{malaman}}, {{makalimutan}}); {{alam}} and {{kilala}}",
+      "blocks": [
+        {"goal":{"t":"Pasensya na, hindi kita naintindihan.","tr":"Sorry, I didn't understand you."}},
+        {"dialog":[{"who":"Ben","t":"Nakita mo ba si Ana?","tr":"Have you seen Ana?"},{"who":"Liza","t":"Oo, nakita ko siya kanina sa canteen.","tr":"Yes, I saw her earlier in the canteen."},{"who":"Ben","t":"Narinig mo ba ang balita? Ikakasal na siya!","tr":"Did you hear the news? She's getting married!"},{"who":"Liza","t":"Talaga? Hindi ko alam!","tr":"Really? I didn't know!"},{"who":"Ben","t":"Kilala mo ba ang boyfriend niya?","tr":"Do you know her boyfriend?"},{"who":"Liza","t":"Hindi. Hindi ko pa siya nakikita.","tr":"No. I haven't seen him yet."}]},
+        {"p":"Seeing, hearing and understanding just **happen** to you: you don't really choose to do them. Tagalog uses {{ma-}} for them, in **object focus**: the thing or person seen or heard takes {{ang}} or {{si}}, and the one who sees is in the {{ko}} set. {{Nakita ko si Ana.}} “I saw Ana.”"},
+        { "table": [
+          ["","see","hear","understand","find out"],
+          ["basic","{{makita}}","{{marinig}}","{{maintindihan}}","{{malaman}}"],
+          ["completed","{{nakita}}","{{narinig}}","{{naintindihan}}","{{nalaman}}"],
+          ["ongoing","{{nakikita}}","{{naririnig}}","{{naiintindihan}}","{{nalalaman}}"],
+          ["not yet begun","{{makikita}}","{{maririnig}}","{{maiintindihan}}","{{malalaman}}"]
+        ] },
+        {"p":"After {{hindi}}, the basic form means “can't”: {{Hindi ko maintindihan.}} “I can't understand it.” {{Hindi kita marinig.}} “I can't hear you.” The ongoing form is for now: {{Naiintindihan mo ba ako?}} “Do you understand me?”"},
+        {"p":"**Know: two words.** {{alam}} is knowing a fact: {{Alam ko.}} “I know.”, {{Hindi ko alam.}} “I don't know.” {{kilala}} is knowing a person or a place: {{Kilala mo ba si Ben?}} “Do you know Ben?”. Neither changes for aspect, and the one who knows is in the {{ko}} set."},
+        {"p":"**Forgetting**: {{makalimutan}} “forget”: {{Nakalimutan ko!}} “I forgot!” And remembering: {{Naaalala mo pa ba ako?}} “Do you still remember me?”"},
+        { "ex": [
+          {"t":"Nakita mo ba si Ana?","tr":"Have you seen Ana?"},
+          {"t":"Narinig mo ba ang balita?","tr":"Did you hear the news?"},
+          {"t":"Hindi ko maintindihan.","tr":"I can't understand it."},
+          {"t":"Naiintindihan mo ba ako?","tr":"Do you understand me?"},
+          {"t":"Hindi ko alam.","tr":"I don't know."},
+          {"t":"Kilala mo ba si Ben?","tr":"Do you know Ben?"},
+          {"t":"Nakalimutan ko ang pangalan niya.","tr":"I forgot her name."}
+        ] },
+        {"tip":"Two lifesavers for learners: {{Hindi ko po naintindihan. Pakiulit po.}} “I didn't understand. Could you say it again?” and {{Dahan-dahan lang po.}} “Slowly, please.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Nakita ako si Ana.","right":"Nakita ko si Ana.","tr":"I saw Ana.","why":"Object focus: the one who sees is {{ko}}; Ana, the one seen, takes {{si}}."},
+        {"wrong":"Alam mo ba si Ben?","right":"Kilala mo ba si Ben?","tr":"Do you know Ben?","why":"A person: {{kilala}}. {{alam}} is for facts."},
+        {"wrong":"Hindi ko kilala kung nasaan siya.","right":"Hindi ko alam kung nasaan siya.","tr":"I don't know where she is.","why":"Where she is is a fact: {{alam}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Nakita ___ ba si Ana?","tr":"Have you seen Ana?","options":["mo","ka","ikaw"],"answer":0,"why":"Object focus: the one who sees is {{mo}}.","from":"focus-on-the-thing"},
+        {"type":"choice","q":"“Do you know Ben?”","options":["{{Kilala mo ba si Ben?}}","{{Alam mo ba si Ben?}}","{{Kilala ka ba si Ben?}}"],"answer":0,"why":"A person: {{kilala}}, with {{mo}}."},
+        {"type":"choice","q":"“I don't know.”","options":["{{Hindi ko alam.}}","{{Hindi ako alam.}}","{{Hindi ko kilala.}}"],"answer":0,"why":"A fact: {{alam}}, with {{ko}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi ko ___.","tr":"I can't understand it.","options":["maintindihan","naintindihan","maiintindihan"],"answer":0,"why":"“Can't”: {{hindi}} + the basic form."},
+        {"type":"order","q":"Put the words in order.","tr":"I forgot her name.","words":["Nakalimutan","ko","ang pangalan","niya."],"from":"say-whose-it-is"},
+        {"type":"dialogue","q":"A vendor speaks too fast for you. Choose your replies.","lines":[{"who":"Vendor","t":"Isang daan at bente po lahat. May barya po ba kayo?","tr":"A hundred and twenty altogether. Do you have change?"},{"options":["Pasensya na po, hindi ko po naintindihan. Pakiulit po.","Pasensya na po, hindi ako naintindihan."],"answer":0,"why":"{{hindi ko naintindihan}}: the one who didn't understand is {{ko}}."},{"who":"Vendor","t":"Isang daan at bente po.","tr":"A hundred and twenty."},{"options":["Ah, naiintindihan ko na po. Heto po.","Ah, nakikita ko na po. Heto po."],"answer":0,"why":"{{naiintindihan ko na}}: now I understand."}],"from":"ask-for-things-politely"},
+        {"type":"free","q":"Your turn: say something you saw or heard recently, and one thing you don't know.","answers":[{"t":"Nakita ko si Ben sa mall kahapon. Hindi ko alam kung saan siya nakatira.","tr":"I saw Ben at the mall yesterday. I don't know where he lives."},{"t":"Narinig ko ang balita kaninang umaga. Hindi ko alam kung totoo ito.","tr":"I heard the news this morning. I don't know if it's true."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you can and can't do",
+      "summary": "Say what you know how to do, what you can manage, and what you couldn't do this time: “Can you swim?” “I can do it!” “I couldn't sleep.”",
+      "topic": "{{marunong}} “know how to”; {{kaya}} “can manage”; {{maka-}} / {{makapag-}} “be able to” ({{makatulog}}, {{makapunta}})",
+      "blocks": [
+        {"goal":{"t":"Marunong ka bang lumangoy?","tr":"Can you swim?"}},
+        {"dialog":[{"who":"Liza","t":"Marunong ka bang lumangoy?","tr":"Can you swim?"},{"who":"Tom","t":"Oo, pero hindi ako makalangoy ngayon. Masakit ang paa ko.","tr":"Yes, but I can't swim today. My foot hurts."},{"who":"Liza","t":"Ay, kawawa ka naman! Kaya mo bang maglakad?","tr":"Oh, poor you! Can you walk?"},{"who":"Tom","t":"Oo, kaya ko. Pero hindi ako nakatulog kagabi.","tr":"Yes, I can manage. But I couldn't sleep last night."}]},
+        {"p":"English “can” is three different words in Tagalog, for three different meanings:"},
+        { "table": [
+          ["meaning","Tagalog","example"],
+          ["know how to (a skill)","{{marunong}}","{{Marunong akong magluto.}} I can cook."],
+          ["can manage, it's in my power","{{kaya}}","{{Kaya mo ba?}} Can you manage?"],
+          ["be able to (this time)","{{maka-}}, {{makapag-}}","{{Hindi ako makatulog.}} I can't sleep."]
+        ] },
+        {"p":"**{{marunong}}** “know how to”: the {{ako}} set with the linker, then the basic form: {{Marunong akong magluto.}} For languages, {{mag-}} + the language: {{Marunong ka bang mag-Tagalog?}} “Can you speak Tagalog?”"},
+        {"p":"**{{kaya}}** “can (manage)”, with the {{ko}} set: {{Kaya ko!}} “I can do it!”, {{Hindi ko kaya.}} “I can't (manage it).”, {{Kaya mo bang maglakad?}} “Can you walk?”"},
+        {"p":"**{{maka-}}** (on {{-um-}} roots) and **{{makapag-}}** (on {{mag-}} roots): being able to, on this occasion. The doer is in the {{ako}} set. Completed, {{naka-}} means “managed to”: {{Nakatulog ka ba?}} “Did you get any sleep?”, {{Hindi ako nakapunta.}} “I couldn't make it.” (With {{na}}, the same form tells experience: lesson 31.)"},
+        { "table": [
+          ["","sleep","go","cook"],
+          ["basic (can)","{{makatulog}}","{{makapunta}}","{{makapagluto}}"],
+          ["completed (managed to)","{{nakatulog}}","{{nakapunta}}","{{nakapagluto}}"],
+          ["ongoing","{{nakakatulog}}","{{nakakapunta}}","{{nakakapagluto}}"],
+          ["not yet begun","{{makakatulog}}","{{makakapunta}}","{{makakapagluto}}"]
+        ] },
+        { "ex": [
+          {"t":"Marunong ka bang lumangoy?","tr":"Can you swim?"},
+          {"t":"Marunong akong magluto ng adobo.","tr":"I know how to cook adobo."},
+          {"t":"Kaya ko!","tr":"I can do it!"},
+          {"t":"Hindi ko kaya.","tr":"I can't do it."},
+          {"t":"Hindi ako makatulog.","tr":"I can't sleep."},
+          {"t":"Hindi ako nakapunta sa party.","tr":"I couldn't make it to the party."},
+          {"t":"Makakapunta ka ba bukas?","tr":"Will you be able to come tomorrow?"}
+        ] },
+        {"tip":"{{Kaya mo 'yan!}} “You can do it!” is how Filipinos cheer someone on."}
+      ],
+      "mistakes": [
+        {"wrong":"Marunong ako lumangoy.","right":"Marunong akong lumangoy.","tr":"I can swim.","why":"The pronoun is tied to the verb with the linker: {{akong}}."},
+        {"wrong":"Kaya ako.","right":"Kaya ko.","tr":"I can do it.","why":"{{kaya}} takes the {{ko}} set."},
+        {"wrong":"Hindi ko kaya matulog.","right":"Hindi ako makatulog.","tr":"I can't sleep.","why":"Not being able to this time: the {{maka-}} form of the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Marunong ka ___ lumangoy?","tr":"Can you swim?","options":["bang","ba","na"],"answer":0,"why":"{{ba}} + the linker, before the verb.","from":"say-what-you-want"},
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi ___ kaya.","tr":"I can't do it.","options":["ko","ako","akong"],"answer":0,"why":"{{kaya}} takes {{ko}}."},
+        {"type":"choice","q":"You couldn't make it to the party. You say…","options":["{{Hindi ako nakapunta sa party.}}","{{Hindi ako pumupunta sa party.}}","{{Hindi ko kaya ang party.}}"],"answer":0,"why":"Didn't manage to: {{naka-}}."},
+        {"type":"choice","q":"“I know how to cook adobo.”","options":["{{Marunong akong magluto ng adobo.}}","{{Kaya akong magluto ng adobo.}}","{{Nakapagluto ako ng adobo.}}"],"answer":0,"why":"A skill: {{marunong}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Will you be able to come tomorrow?","words":["Makakapunta","ka","ba","bukas?"],"from":"say-what-you-will-do"},
+        {"type":"dialogue","q":"A friend asks about your Tagalog. Choose your replies.","lines":[{"who":"Ana","t":"Marunong ka bang mag-Tagalog?","tr":"Can you speak Tagalog?"},{"options":["Kaunti lang. Nag-aaral pa ako.","Kaunti lang. Nag-aral pa ako."],"answer":0,"why":"Still studying: {{pa}} with the ongoing form."},{"who":"Ana","t":"Ang galing! Naiintindihan mo ba ako?","tr":"Great! Do you understand me?"},{"options":["Oo, naiintindihan kita!","Oo, naiintindihan ako!"],"answer":0,"why":"I understand you: {{kita}}."}],"from":"say-what-you-saw-and-heard"},
+        {"type":"free","q":"Your turn: say one thing you know how to do, one you can't do, and one thing you couldn't do this week.","answers":[{"t":"Marunong akong magluto. Hindi ako marunong lumangoy. Hindi ako nakatulog nang maayos kagabi.","tr":"I can cook. I can't swim. I couldn't sleep well last night."},{"t":"Marunong akong mag-Ingles at mag-Espanyol. Hindi ko kaya ang maanghang na pagkain. Hindi ako nakapunta sa gym.","tr":"I can speak English and Spanish. I can't handle spicy food. I couldn't make it to the gym."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how you feel",
+      "summary": "Say you're hungry, sleepy, sad or happy, say what hurts, and react: “I'm exhausted.” “That's so funny!”",
+      "topic": "Feelings as adjectives ({{gutom}}, {{pagod}}) and as verbs ({{inaantok}}, {{nalulungkot}}); {{pagod na pagod}}; {{masakit ang…}}; {{nakaka-}} “it makes one…”",
+      "blocks": [
+        {"goal":{"t":"Inaantok na ako. Nakakapagod ang araw na ito.","tr":"I'm getting sleepy. Today has been so tiring."}},
+        {"dialog":[{"who":"Ana","t":"Ano'ng nangyari sa iyo? Mukha kang pagod.","tr":"What happened to you? You look tired."},{"who":"Ben","t":"Oo, pagod na pagod ako. Nakakapagod ang trabaho ngayon.","tr":"Yes, I'm exhausted. Work was so tiring today."},{"who":"Ana","t":"Gutom ka na ba?","tr":"Are you hungry?"},{"who":"Ben","t":"Oo, nagugutom na ako. At masakit ang ulo ko.","tr":"Yes, I'm getting hungry. And I have a headache."},{"who":"Ana","t":"Kawawa ka naman! Kain muna tayo.","tr":"Poor thing! Let's eat first."}]},
+        {"p":"**As describing words**, feelings come first like any adjective: {{Gutom ako.}} “I'm hungry.”, {{Pagod siya.}} “She's tired.”, {{Masaya kami.}} “We're happy.” Add {{na}} for “now”: {{Gutom na ako!}}"},
+        {"p":"**As verbs**, for a feeling coming over you: {{-in}} verbs like {{inaantok}} “getting sleepy” and {{giniginaw}} “feeling cold”, and {{ma-}} verbs like {{nagugutom}} “getting hungry” and {{nalulungkot}} “feeling sad”. They're in the ongoing form, because the feeling is going on."},
+        { "table": [
+          ["describing word","feeling (verb)","meaning"],
+          ["{{gutom}}","{{nagugutom}}","hungry"],
+          ["{{antok}} (sleepiness)","{{inaantok}}","sleepy"],
+          ["{{malungkot}}","{{nalulungkot}}","sad"],
+          ["{{masaya}}","{{natutuwa}}","happy, glad"],
+          ["{{takot}}","{{natatakot}}","scared"],
+          ["{{galit}}","{{nagagalit}}","angry"]
+        ] },
+        {"p":"**Very**: say the describing word twice, with the linker: {{pagod na pagod}} “exhausted”, {{gutom na gutom}} “starving”, {{masayang masaya}} “really happy”."},
+        {"p":"**What hurts**: {{masakit}} “painful” + {{ang}} + the body part: {{Masakit ang ulo ko.}} “I have a headache.” {{Masakit ang tiyan ko.}} “My stomach hurts.” And {{May sakit ako.}} “I'm sick.”"},
+        {"p":"**It makes me…**: {{nakaka-}} + a root says what something does to you: {{nakakapagod}} “tiring”, {{nakakatuwa}} “funny, delightful”, {{nakakatakot}} “scary”, {{nakakainis}} “annoying”, {{nakakahiya}} “embarrassing”. {{Nakakatakot ang pelikula!}} “The movie is scary!”"},
+        { "ex": [
+          {"t":"Gutom na ako!","tr":"I'm hungry!"},
+          {"t":"Pagod na pagod ako.","tr":"I'm exhausted."},
+          {"t":"Inaantok na ako.","tr":"I'm getting sleepy."},
+          {"t":"Nalulungkot ako ngayon.","tr":"I'm feeling sad today."},
+          {"t":"Masakit ang ulo ko.","tr":"I have a headache."},
+          {"t":"Nakakatuwa ang mga bata.","tr":"The kids are so funny."},
+          {"t":"Nakakahiya!","tr":"How embarrassing!"}
+        ] },
+        {"tip":"{{Kawawa ka naman!}} “Poor you!” and {{Okay ka lang?}} “Are you okay?” are the caring answers when someone tells you how they feel."}
+      ],
+      "mistakes": [
+        {"wrong":"Ako gutom.","right":"Gutom ako.","tr":"I'm hungry.","why":"The feeling comes first, like any describing word."},
+        {"wrong":"Nakakapagod ako.","right":"Pagod ako.","tr":"I'm tired.","why":"{{nakakapagod}} is “tiring”, what something does to others: {{Nakakapagod ako}} would mean “I'm tiring”! You feel {{pagod}}."},
+        {"wrong":"Masakit ulo ko.","right":"Masakit ang ulo ko.","tr":"I have a headache.","why":"The body part takes {{ang}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Masakit ___ ulo ko.","tr":"I have a headache.","options":["ang","ng","sa"],"answer":0,"why":"What hurts is what the sentence is about: {{ang}}.","from":"say-what-someone-is"},
+        {"type":"choice","q":"The movie made you scared. It was…","options":["{{nakakatakot}}","{{natatakot}}","{{takot}}"],"answer":0,"why":"What it does to you: {{nakaka-}}. ({{natatakot}} is how you feel.)"},
+        {"type":"choice","q":"“I'm exhausted.”","options":["{{Pagod na pagod ako.}}","{{Nakakapagod ako.}}","{{Pagod pagod ako.}}"],"answer":0,"why":"Said twice, with the linker {{na}} between."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ na ako.","tr":"I'm getting sleepy.","options":["Inaantok","Nakakaantok","Antok"],"answer":0,"why":"A feeling coming over you: {{inaantok}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm feeling sad today.","words":["Nalulungkot","ako","ngayon."]},
+        {"type":"dialogue","q":"A friend isn't feeling well. Choose your replies.","lines":[{"who":"Ben","t":"Ay, masakit ang tiyan ko.","tr":"Oh, my stomach hurts."},{"options":["Kawawa ka naman! Uminom ka na ba ng gamot?","Kawawa ka naman! Uminom ka ba ng gamot bukas?"],"answer":0,"why":"Have you taken some (already)? {{na}} with the completed form."},{"who":"Ben","t":"Hindi pa. Wala akong gamot.","tr":"Not yet. I don't have any medicine."},{"options":["Sandali, bibili ako ng gamot para sa iyo.","Sandali, bumili ako ng gamot para sa iyo."],"answer":0,"why":"You're about to go: not yet begun, {{bibili}}."}],"from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: say how you feel right now and why, with at least one {{nakaka-}} word.","answers":[{"t":"Pagod na ako, kasi nakakapagod ang trabaho ngayon.","tr":"I'm tired, because work was so tiring today."},{"t":"Masaya ako ngayon. Nakakatuwa ang mga kaibigan ko!","tr":"I'm happy today. My friends are so much fun!"}]}
+      ]
     }
   ]
 }
