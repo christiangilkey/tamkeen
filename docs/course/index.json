@@ -7,9 +7,9 @@
    "variety": "Modern Standard Arabic",
    "words": 1000,
    "planned": 1000,
-   "bytes": 366830,
-   "audio_bytes": 12859190,
-   "sha256": "42231497d15cf35b855f93d3a9d71e8d3b101ab461d5a83f9c195458bd526487",
+   "bytes": 366835,
+   "audio_bytes": 12856940,
+   "sha256": "8ebc692d1a2898a1d1b27468d1bbe0c885c596be29c0c575ddfd0791541d297d",
    "voice": {
     "engine": "azure",
     "name": "Zariyah (Azure, Saudi Arabia)",

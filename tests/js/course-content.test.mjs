@@ -66,6 +66,21 @@ for (const lang of langs) {
   });
 }
 
+// How the word said alone is voiced, when the voice would read it wrong (build_course.py): text, or an exact
+// sound in one of Azure's sound alphabets.
+test("each `say` is text or an exact sound the voice understands", () => {
+  for (const lang of langs) {
+    const course = JSON.parse(readFileSync(new URL(`${lang}/words.json`, DIR), "utf8"));
+    for (const w of course.words) {
+      if (!("say" in w)) continue;
+      const ok = (typeof w.say === "string" && w.say.trim() !== "")
+        || (w.say && typeof w.say === "object" && ["ipa", "sapi", "ups", "x-sampa"].includes(w.say.alphabet)
+          && typeof w.say.ph === "string" && w.say.ph.trim() !== "");
+      assert.ok(ok, `${lang} ${w.n}: say must be text or {alphabet: ipa|sapi|ups|x-sampa, ph}: ${JSON.stringify(w.say)}`);
+    }
+  }
+});
+
 test("the course languages are ones the build knows a voice for", () => {
   const build = readFileSync(new URL("build_course.py", DIR), "utf8");
   for (const lang of langs) assert.ok(new RegExp(`"${lang}": \\{"voice"|"${lang}": "`).test(build), `${lang} has no voice in build_course.py`);
