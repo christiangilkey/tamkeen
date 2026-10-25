@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "pt",
+ "title": "Portuguese basics",
+ "variety": "Brazilian Portuguese",
+ "about": "The most common words of written and spoken Portuguese (wordfreq counts, grouped by dictionary word with tools/course/pt/rank.py), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence in Brazilian Portuguese (você for 'you') that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Francisca (Azure, Brazil)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "de",
+   "pos": "prep",
+   "meaning": "of; from",
+   "sentence": "Quero um copo de água, por favor.",
+   "translation": "I'd like a glass ⟦of⟧ water, please.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.527,
+    "sent_start": 1.427,
+    "sent_end": 3.414
+   }
+  },
+  {
+   "n": 2,
+   "word": "o",
+   "pos": "art",
+   "meaning": "the (masculine; feminine: a)",
+   "sentence": "O café está quente.",
+   "translation": "⟦The⟧ coffee is hot.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.387,
+    "sent_start": 1.287,
+    "sent_end": 2.667
+   }
+  },
+  {
+   "n": 3,
+   "word": "ser",
+   "pos": "verb",
+   "meaning": "to be (who or what someone is)",
+   "sentence": "Eu sou professor.",
+   "translation": "I ⟦am⟧ a teacher.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.524,
+    "sent_start": 1.424,
+    "sent_end": 2.566
+   }
+  },
+  {
+   "n": 4,
+   "word": "que",
+   "pos": "conj",
+   "meaning": "that; what",
+   "sentence": "Eu sei que você está cansado.",
+   "translation": "I know ⟦that⟧ you're tired.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.345,
+    "sent_start": 1.245,
+    "sent_end": 3.041
+   }
+  },
+  {
+   "n": 5,
+   "word": "e",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Eu como arroz e feijão todo dia.",
+   "translation": "I eat rice ⟦and⟧ beans every day.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.381,
+    "sent_start": 1.281,
+    "sent_end": 3.449
+   }
+  },
+  {
+   "n": 6,
+   "word": "em",
+   "pos": "prep",
+   "meaning": "in; on; at",
+   "sentence": "Ela está em casa agora.",
+   "translation": "She's ⟦at⟧ home now.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.418,
+    "sent_start": 1.318,
+    "sent_end": 2.752
+   }
+  },
+  {
+   "n": 7,
+   "word": "um",
+   "pos": "art",
+   "meaning": "a; one (feminine: uma)",
+   "sentence": "Eu tenho um irmão.",
+   "translation": "I have ⟦a⟧ brother.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.453,
+    "sent_start": 1.353,
+    "sent_end": 2.392
+   }
+  },
+  {
+   "n": 8,
+   "word": "a",
+   "pos": "prep",
+   "meaning": "to; at",
+   "sentence": "Estou aprendendo a nadar.",
+   "translation": "I'm learning ⟦to⟧ swim.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.376,
+    "sent_start": 1.276,
+    "sent_end": 2.753
+   }
+  },
+  {
+   "n": 9,
+   "word": "para",
+   "pos": "prep",
+   "meaning": "for; to",
+   "sentence": "Este presente é para você.",
+   "translation": "This present is ⟦for⟧ you.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.488,
+    "sent_start": 1.388,
+    "sent_end": 2.997
+   }
+  },
+  {
+   "n": 10,
+   "word": "por",
+   "pos": "prep",
+   "meaning": "for; by; through",
+   "sentence": "Obrigado por tudo.",
+   "translation": "Thank you ⟦for⟧ everything.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.336,
+    "sent_start": 1.236,
+    "sent_end": 2.551
+   }
+  },
+  {
+   "n": 11,
+   "word": "não",
+   "pos": "adv",
+   "meaning": "no; not",
+   "sentence": "Eu não sei.",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.468,
+    "sent_start": 1.368,
+    "sent_end": 2.116
+   }
+  },
+  {
+   "n": 12,
+   "word": "com",
+   "pos": "prep",
+   "meaning": "with",
+   "sentence": "Eu moro com meus pais.",
+   "translation": "I live ⟦with⟧ my parents.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.364,
+    "sent_start": 1.264,
+    "sent_end": 2.72
+   }
+  },
+  {
+   "n": 13,
+   "word": "ter",
+   "pos": "verb",
+   "meaning": "to have",
+   "sentence": "Eu tenho dois filhos.",
+   "translation": "I ⟦have⟧ two children.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.38,
+    "sent_start": 1.28,
+    "sent_end": 2.698
+   }
+  },
+  {
+   "n": 14,
+   "word": "seu",
+   "pos": "pron",
+   "meaning": "your; his, her, their (feminine: sua)",
+   "sentence": "Qual é o seu nome?",
+   "translation": "What is ⟦your⟧ name?",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.559,
+    "sent_start": 1.459,
+    "sent_end": 2.555
+   }
+  },
+  {
+   "n": 15,
+   "word": "eu",
+   "pos": "pron",
+   "meaning": "I",
+   "sentence": "Eu sou estudante.",
+   "translation": "⟦I⟧ am a student.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.405,
+    "sent_start": 1.305,
+    "sent_end": 2.493
+   }
+  },
+  {
+   "n": 16,
+   "word": "estar",
+   "pos": "verb",
+   "meaning": "to be (how or where someone is)",
+   "sentence": "Estou cansado hoje.",
+   "translation": "I ⟦am⟧ tired today.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.575,
+    "sent_start": 1.475,
+    "sent_end": 2.816
+   }
+  },
+  {
+   "n": 17,
+   "word": "como",
+   "pos": "adv",
+   "meaning": "how; like, as",
+   "sentence": "Como você está?",
+   "translation": "⟦How⟧ are you?",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.461,
+    "sent_start": 1.361,
+    "sent_end": 2.392
+   }
+  },
+  {
+   "n": 18,
+   "word": "ele",
+   "pos": "pron",
+   "meaning": "he; it (feminine: ela, she)",
+   "sentence": "Ele é meu amigo.",
+   "translation": "⟦He⟧ is my friend.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.415,
+    "sent_start": 1.315,
+    "sent_end": 2.331
+   }
+  },
+  {
+   "n": 19,
+   "word": "mais",
+   "pos": "adv",
+   "meaning": "more",
+   "sentence": "Você quer mais café?",
+   "translation": "Do you want ⟦more⟧ coffee?",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.649,
+    "sent_start": 1.548,
+    "sent_end": 2.859
+   }
+  },
+  {
+   "n": 20,
+   "word": "ir",
+   "pos": "verb",
+   "meaning": "to go",
+   "sentence": "Vou para casa agora.",
+   "translation": "I'm ⟦going⟧ home now.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.323,
+    "sent_start": 1.223,
+    "sent_end": 2.529
+   }
+  }
+ ]
+}

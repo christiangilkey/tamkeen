@@ -1,0 +1,192 @@
+{
+  "lang": "pt",
+  "title": "Portuguese basics",
+  "variety": "Brazilian Portuguese",
+  "about": "The most common words of written and spoken Portuguese (wordfreq counts, grouped by dictionary word with tools/course/pt/rank.py), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence in Brazilian Portuguese (você for 'you') that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "de",
+      "pos": "prep",
+      "meaning": "of; from",
+      "sentence": "Quero um copo de água, por favor.",
+      "translation": "I'd like a glass ⟦of⟧ water, please."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "o",
+      "pos": "art",
+      "meaning": "the (masculine; feminine: a)",
+      "sentence": "O café está quente.",
+      "translation": "⟦The⟧ coffee is hot."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "ser",
+      "pos": "verb",
+      "meaning": "to be (who or what someone is)",
+      "sentence": "Eu sou professor.",
+      "translation": "I ⟦am⟧ a teacher.",
+      "form": "sou"
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "que",
+      "pos": "conj",
+      "meaning": "that; what",
+      "sentence": "Eu sei que você está cansado.",
+      "translation": "I know ⟦that⟧ you're tired."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "e",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Eu como arroz e feijão todo dia.",
+      "translation": "I eat rice ⟦and⟧ beans every day."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "em",
+      "pos": "prep",
+      "meaning": "in; on; at",
+      "sentence": "Ela está em casa agora.",
+      "translation": "She's ⟦at⟧ home now."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "um",
+      "pos": "art",
+      "meaning": "a; one (feminine: uma)",
+      "sentence": "Eu tenho um irmão.",
+      "translation": "I have ⟦a⟧ brother."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "a",
+      "pos": "prep",
+      "meaning": "to; at",
+      "sentence": "Estou aprendendo a nadar.",
+      "translation": "I'm learning ⟦to⟧ swim."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "para",
+      "pos": "prep",
+      "meaning": "for; to",
+      "sentence": "Este presente é para você.",
+      "translation": "This present is ⟦for⟧ you."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "por",
+      "pos": "prep",
+      "meaning": "for; by; through",
+      "sentence": "Obrigado por tudo.",
+      "translation": "Thank you ⟦for⟧ everything."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "não",
+      "pos": "adv",
+      "meaning": "no; not",
+      "sentence": "Eu não sei.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "com",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Eu moro com meus pais.",
+      "translation": "I live ⟦with⟧ my parents."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "ter",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Eu tenho dois filhos.",
+      "translation": "I ⟦have⟧ two children.",
+      "form": "tenho"
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "seu",
+      "pos": "pron",
+      "meaning": "your; his, her, their (feminine: sua)",
+      "sentence": "Qual é o seu nome?",
+      "translation": "What is ⟦your⟧ name?"
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "eu",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "Eu sou estudante.",
+      "translation": "⟦I⟧ am a student."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "estar",
+      "pos": "verb",
+      "meaning": "to be (how or where someone is)",
+      "sentence": "Estou cansado hoje.",
+      "translation": "I ⟦am⟧ tired today.",
+      "form": "estou"
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "como",
+      "pos": "adv",
+      "meaning": "how; like, as",
+      "sentence": "Como você está?",
+      "translation": "⟦How⟧ are you?"
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "ele",
+      "pos": "pron",
+      "meaning": "he; it (feminine: ela, she)",
+      "sentence": "Ele é meu amigo.",
+      "translation": "⟦He⟧ is my friend."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "mais",
+      "pos": "adv",
+      "meaning": "more",
+      "sentence": "Você quer mais café?",
+      "translation": "Do you want ⟦more⟧ coffee?"
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "ir",
+      "pos": "verb",
+      "meaning": "to go",
+      "sentence": "Vou para casa agora.",
+      "translation": "I'm ⟦going⟧ home now.",
+      "form": "vou"
+    }
+  ]
+}

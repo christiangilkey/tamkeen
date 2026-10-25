@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "pt": {
+   "file": "pt/course.json",
+   "title": "Portuguese basics",
+   "variety": "Brazilian Portuguese",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 8264,
+   "audio_bytes": 198576,
+   "sha256": "1f7474ad294ef8391e5bf54bc711ae10029b793d66d16e15eac3ceb87a3ee75f",
+   "voice": {
+    "engine": "azure",
+    "name": "Francisca (Azure, Brazil)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }
