@@ -1,12 +1,12 @@
-// What the extension's panels share: the subtitle bar on Netflix (panel.js) and the lyrics panel on
-// Spotify (spotify-panel.js). Each is a page of the extension shown in a frame over the site's page;
-// content/netflix.js or content/spotify.js puts it there and talks to it over a private channel.
+// The general parts of the extension's subtitle bar on Netflix (panel.js), kept apart from what is
+// Netflix's own: the private line to the page (the bar is a page of the extension shown in a frame
+// over Netflix's page; content/netflix.js puts it there and talks to it over a private channel), the
+// settings from the web app, the words of a transcript, small messages and the saved-words line.
 import { esc, h } from "../app.js";
 import { device, loadSettings, settings } from "../store.js";
 import { t } from "../i18n.js";
-import { gap, setStudyLanguage } from "../languages.js";
+import { gap, isLanguage, regroupWords, setStudyLanguage } from "../languages.js";
 import { readingsReady } from "../lexicon/readings.js";
-import { lineWords } from "../lyrics.js";
 import { WORD_KEY } from "../extbridge.js";
 
 /**
@@ -54,10 +54,23 @@ export function followSettings(fn) {
   });
 }
 
-// ---------- the words of a transcript (subtitle lines, lyric lines) ----------
+// ---------- the words of a transcript (subtitle lines) ----------
 
 /**
- * The words of `lines` ([{start, end, text, words}]) in `lang`, as the panels show and look them up:
+ * The words of `lines` in `lang`, as parallel lists {start, end, seg, text} (seg: the line a word is
+ * in). Languages written without spaces (Japanese, Chinese, Thai) are split into words by the same
+ * word splitters as everywhere in Tamkeen (languages.js regroupWords); Persian words keep their half
+ * spaces.
+ */
+function lineWords(lines, lang) {
+  const W = { start: [], end: [], seg: [], text: [] };
+  lines.forEach((l, si) => { for (const [s, e, w] of l.words || []) { W.start.push(s); W.end.push(e); W.text.push(w); W.seg.push(si); } });
+  if (!isLanguage(lang)) return W;
+  return regroupWords(W, lang, true, (si) => (lines[si] ? lines[si].text : ""));
+}
+
+/**
+ * The words of `lines` ([{start, end, text, words}]) in `lang`, as the bar shows and looks them up:
  * {n, starts, ends, segOf, texts, segFirst, segLast} (segFirst/segLast: each line's first and last
  * word, -1 for a line without words). Japanese and Chinese wait (a little) for the dictionary that
  * splits their words.
@@ -87,23 +100,16 @@ export function wordsHtml(texts, a, b, lang) {
 
 // ---------- small things on screen ----------
 
-/** A short message in `pop` for a few seconds (the word popup, if open, closes). `button`: optional
- * {text, onClick} under it. */
+/** A short message in `pop` for a few seconds (the word popup, if open, closes). */
 let flashTimer = 0;
-export function flash(pop, text, bubble, button = null) {
+export function flash(pop, text, bubble) {
   pop.querySelector(".bar-flash")?.remove();
   if (bubble && bubble.open) bubble.hide();
-  const el = h(`<div class="bar-flash small"><p></p></div>`);
-  el.firstChild.textContent = text;
-  if (button) {
-    const b = h(`<button type="button" class="primary"></button>`);
-    b.textContent = button.text;
-    b.onclick = () => { el.remove(); button.onClick(); };
-    el.append(b);
-  }
+  const el = h(`<p class="bar-flash small"></p>`);
+  el.textContent = text;
   pop.append(el);
   clearTimeout(flashTimer);
-  flashTimer = setTimeout(() => el.remove(), button ? 8000 : 4000);
+  flashTimer = setTimeout(() => el.remove(), 4000);
 }
 
 /** "N saved words go to your Vocab when you open Tamkeen", with Open Tamkeen, in `foot` (hidden

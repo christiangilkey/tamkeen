@@ -1980,16 +1980,6 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "2a0cb6b4",
-  "k": "Spotify",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "cce78a45",
-  "k": "Listen to songs with their lyrics as words you can click",
-  "f": "web/js/components/addsheet.js"
- },
- {
   "id": "154cf598",
   "k": "Web page",
   "f": "web/js/components/addsheet.js"
@@ -2137,21 +2127,6 @@
  {
   "id": "4189cc27",
   "k": "Once it is added, reload this page and choose Netflix again.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "82e4cd34",
-  "k": "Open Spotify",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "5ab6f3dd",
-  "k": "Spotify opens in a new tab. Sign in there with your own Spotify account and play a song: Tamkeen's panel beside it shows its lyrics line by line, and you can click any word. Words you save there come back here.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "fb95b2e7",
-  "k": "Once it is added, reload this page and choose Spotify again.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -14840,6 +14815,11 @@
   "f": "web/js/social.js"
  },
  {
+  "id": "2a0cb6b4",
+  "k": "Spotify",
+  "f": "web/js/social.js"
+ },
+ {
   "id": "effea02d",
   "k": "You can only message people on your friends list.",
   "f": "web/js/social.js"
@@ -14908,56 +14888,6 @@
   "id": "853b17b9",
   "k": "That gift couldn't be sent (ten gifts a day at most, and only to friends or guild-mates).",
   "f": "web/js/social.js"
- },
- {
-  "id": "980cf944",
-  "k": "Words you save there arrive in your Vocab, on every device that syncs.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "f98556d3",
-  "k": "Spotify needs the Tamkeen extension",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "2ca4249a",
-  "k": "With the Tamkeen extension in Chrome or Edge, Spotify's web player gets a panel beside it with the song's lyrics, line by line as it plays, and every word can be clicked.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "d85f04a5",
-  "k": "Words you save there come back here, to your Vocab.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "b5f5d2f3",
-  "k": "Spotify works in a web browser",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "43a57f4e",
-  "k": "Song lyrics as words you can click work with Spotify's web player in Chrome or Edge, with the Tamkeen extension: open the Tamkeen web app there and choose Spotify to add it.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "fb5bd03a",
-  "k": "Spotify's lyrics need a computer",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "6f6b63a2",
-  "k": "On a phone, Spotify's lyrics can't be shown as words you can click: browsers on phones don't take the Tamkeen extension.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "3c3f757e",
-  "k": "Tamkeen can't add its lyrics to Spotify's own app.",
-  "f": "web/js/spotify.js"
- },
- {
-  "id": "50330e1f",
-  "k": "On a computer, with the Tamkeen extension in Chrome or Edge, Spotify's web player shows the song's lyrics as words you can click.",
-  "f": "web/js/spotify.js"
  },
  {
   "id": "d034eb8e",
@@ -17475,16 +17405,6 @@
   "f": "mobile/src/js/web-extension.js"
  },
  {
-  "id": "446c9372",
-  "k": "1 word you saved on Spotify is now in your Vocab",
-  "f": "mobile/src/js/web-extension.js"
- },
- {
-  "id": "2e966c14",
-  "k": "{0} words you saved on Spotify are now in your Vocab",
-  "f": "mobile/src/js/web-extension.js"
- },
- {
   "id": "c79f28f8",
   "k": "Importing the page…",
   "f": "mobile/src/js/web-import.js"
@@ -18970,118 +18890,8 @@
   "f": "extension/src/js/ext/panel.js"
  },
  {
-  "id": "76c482d6",
-  "k": "Hide Tamkeen's lyrics",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "d43a7c66",
-  "k": "Follow along",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "ea515062",
-  "k": "Back to the start of the line (R)",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "68bb8891",
-  "k": "Back to the start of the line",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "96fe96cc",
-  "k": "Show Tamkeen's lyrics",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "dbf9cb9a",
-  "k": "Look up this song's words in {0}?",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "875dab7e",
-  "k": "Look up words in {0}",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "405a9c2c",
-  "k": "Lyrics from LRCLIB",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "d7415edb",
-  "k": "Lyrics as Spotify shows them",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "6155f1a4",
-  "k": "Tamkeen can't look up words in {0} yet. The lyrics still show here.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "5dc18dfd",
-  "k": "Tamkeen can't tell which language this song is in, so its words can't be looked up. The lyrics still show here.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "12c31782",
-  "k": "Play a song on Spotify: its lyrics show here, and you can click their words.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "c4c3ff0d",
-  "k": "Looking for this song's lyrics…",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "9de5c655",
-  "k": "Couldn't reach LRCLIB, the lyrics collection. Check the connection and try again.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "2a0f917a",
-  "k": "This song has no words to sing.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "4175ee41",
-  "k": "No lyrics found for this song.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "4cfb088a",
-  "k": "If Spotify has lyrics for it, open them with Spotify's lyrics button (the microphone): Tamkeen then shows them here.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "0f020d4b",
-  "k": "These lyrics have no timings, so they don't follow the song.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "9bf2e820",
-  "k": "This song is in {0}.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "d521d9bd",
-  "k": "Tamkeen couldn't tell which language this song is in.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
-  "id": "3d9d57d2",
-  "k": "Words are looked up in {0}.",
-  "f": "extension/src/js/ext/spotify-panel.js"
- },
- {
   "id": "2374f9ce",
   "k": "A browser extension for Chrome and Edge on a computer. On Netflix it adds Tamkeen's subtitle bar: the subtitles in the language you're learning become words you can click, with the whole transcript beside the video.",
-  "f": "extension/install.html"
- },
- {
-  "id": "82abd836",
-  "k": "On Spotify's web player it adds a lyrics panel: the song's lyrics line by line as it plays, and every word can be clicked.",
   "f": "extension/install.html"
  },
  {
@@ -19140,11 +18950,6 @@
   "f": "extension/install.html"
  },
  {
-  "id": "94eb48d7",
-  "k": "For songs, open Spotify's web player (<0/>) and play one.",
-  "f": "extension/install.html"
- },
- {
   "id": "e6ab499c",
   "k": "Open <0/>, choose This Firefox, then Load Temporary Add-on, and pick manifest.json in the unzipped folder. Firefox removes it again when it closes, until the extension is in Firefox's add-on store.",
   "f": "extension/install.html"
@@ -19172,11 +18977,6 @@
  {
   "id": "363e30f5",
   "k": "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.",
-  "f": "extension/install.html"
- },
- {
-  "id": "4c12ffbb",
-  "k": "The same goes for Spotify. Song lyrics come from LRCLIB, a free lyrics collection, and Tamkeen keeps only the line of each word you save.",
   "f": "extension/install.html"
  },
  {

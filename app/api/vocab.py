@@ -31,9 +31,8 @@ class VocabIn(BaseModel):
     meaning: str = ""
     notes: str = ""
     translation: str = ""  # the sentence in the learner's language, ⟦ ⟧ around the word's part
-    # A word with no episode (saved from a song on Spotify through the browser extension): where it
-    # came from, as the Vocab page shows it ("Spotify – Artist – Title"), and the language it was
-    # looked up in.
+    # A word with no episode: where it came from, as the Vocab page shows it, and the language it was
+    # looked up in (else the language its letters say).
     source: str = ""
     language: str = ""
 

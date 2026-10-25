@@ -365,8 +365,6 @@ a281c392  # CC BY 4.0
 aecf88cb  # changelog changes versions history what's new release notes  (Settings search words, not shown)
 # "Add words" (web/js/addwords.js batchPrompt): what the app tells the AI about each word.
 e9369867  # fill in: {0}
-# Song lyrics (web/js/lyrics.js): the words in a song's title that name a version, for matching LRCLIB's records.
-27054409  # feat|ft\.|featuring|with|remaster|live|version|edit|mix|remix|...  (a pattern, not shown)
 # "Add words" → Scan (web/js/scanwords.js scanPrompt): what the app tells the AI with the photo. (Its longer
 # instructions have JSON in them, so the extractor passes over them by itself.)
 32a9ff53  # The photo: read the {0} vocabulary on it.
