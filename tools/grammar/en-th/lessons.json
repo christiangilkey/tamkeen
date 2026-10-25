@@ -1836,6 +1836,232 @@
         {"type":"say","q":"You're a woman. Say “If you don't hurry, you'll miss the train.”","answer":"ถ้าไม่รีบ จะไม่ทันรถไฟนะคะ","r":"tâa mâi rîip, jà mâi tan rót-fai ná ká"},
         {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and if it isn't.","answers":[{"t":"ถ้าอากาศดี ผมจะไปเดินเล่นที่สวนครับ ถ้าฝนตก ก็จะอยู่บ้านดูหนัง","r":"tâa aa-gàat dii, pǒm jà bpai dəən lên tîi sǔuan kráp, tâa fǒn dtòk, gɔ̂ jà yùu bâan duu nǎng","tr":"If the weather's good, I'll go for a walk in the park. If it rains, I'll stay home and watch a movie."},{"t":"ถ้าอากาศดี ฉันจะไปทะเลค่ะ ถ้าไม่ดี ก็จะไปห้าง","r":"tâa aa-gàat dii, chǎn jà bpai tá-lee kâ, tâa mâi dii, gɔ̂ jà bpai hâang","tr":"If the weather's good, I'll go to the beach. If not, I'll go to the mall."}]}
       ]
+    },
+    {
+      "id": "say-what-you-think",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you think, know and heard",
+      "summary": "Say what you think, know, hope or heard, and ask whether someone knows: all with the little word {{ว่า|wâa}} “that”.",
+      "topic": "{{ว่า|wâa}} “that” after {{คิด|kít}}, {{รู้|rúu}}, {{ได้ยิน|dâi-yin}}, {{หวัง|wǎng}}, {{แน่ใจ|nɛ̂ɛ-jai}}, {{เชื่อ|chʉ̂ʉa}}; a question inside: {{ไม่รู้ว่า…|mâi rúu wâa}}; {{รู้ไหมว่า…|rúu mǎi wâa}}",
+      "blocks": [
+        {"goal":{"t":"ผมคิดว่าพรุ่งนี้ฝนจะตกครับ","r":"pǒm kít wâa prûng-níi fǒn jà dtòk kráp","tr":"I think it's going to rain tomorrow."}},
+        {"dialog":[{"who":"Nok","t":"คุณรู้ไหมว่าร้านนี้ปิดวันจันทร์","r":"kun rúu mǎi wâa ráan níi bpìt wan jan","tr":"Did you know this place is closed on Mondays?"},{"who":"Tom","t":"ไม่รู้เลยครับ ผมคิดว่าเปิดทุกวัน","r":"mâi rúu ləəi kráp, pǒm kít wâa bpə̀ət túk wan","tr":"I had no idea. I thought it was open every day."},{"who":"Nok","t":"ฉันได้ยินว่าเจ้าของไปต่างประเทศค่ะ","r":"chǎn dâi-yin wâa jâo-kɔ̌ɔng bpai dtàang-bprà-têet kâ","tr":"I heard the owner went abroad."},{"who":"Tom","t":"ไม่รู้ว่าจะกลับมาเมื่อไหร่นะครับ","r":"mâi rúu wâa jà glàp maa mʉ̂ʉa-rài ná kráp","tr":"I wonder when they'll be back."},{"who":"Nok","t":"หวังว่าอาทิตย์หน้าจะเปิดนะคะ","r":"wǎng wâa aa-tít nâa jà bpə̀ət ná ká","tr":"I hope it'll be open next week."}]},
+        {"p":"**ว่า: that.** After verbs of thinking, knowing and saying, {{ว่า|wâa}} “that” brings in what's thought or said: {{ผมคิดว่า…|pǒm kít-wâa …}} “I think (that)…”. English can drop “that”; Thai keeps {{ว่า|wâa}}. What follows is an ordinary sentence, with its own {{จะ|jà}}, {{แล้ว|lɛ́ɛo}} or {{ไม่|mâi}}."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{คิดว่า|kít wâa}}","think (that)"],
+          ["{{รู้ว่า|rúu wâa}}","know (that)"],
+          ["{{ได้ยินว่า|dâi-yin wâa}}","have heard (that)"],
+          ["{{หวังว่า|wǎng wâa}}","hope (that)"],
+          ["{{แน่ใจว่า|nɛ̂ɛ-jai wâa}}","be sure (that)"],
+          ["{{เชื่อว่า|chʉ̂ʉa wâa}}","believe (that)"],
+          ["{{ลืมว่า|lʉʉm wâa}}","forget (that)"]
+        ] },
+        {"p":"**A question inside.** A question word, or {{ไหม|mǎi}}, can sit inside the {{ว่า|wâa}} part: {{ไม่รู้ว่าเขาอยู่ไหน|mâi rúu wâa kǎo yùu nǎi}} “I don't know where he is”, {{ไม่แน่ใจว่าเขาจะมาไหม|mâi nɛ̂ɛ-jai wâa kǎo jà maa mǎi}} “I'm not sure whether she'll come”. The order stays Thai: the question word where the answer would go."},
+        {"p":"**Asking: รู้ไหมว่า.** To ask “do you know (that)…?”, {{ไหม|mǎi}} goes straight after the verb, before {{ว่า|wâa}}: {{รู้ไหมว่าร้านปิด|rúu mǎi wâa ráan bpìt}} “did you know the shop is closed?”. And “what do you think?” is {{คิดว่าไง|kít wâa ngai}}."},
+        {"p":"**I think so, I don't think so.** {{คิดว่าใช่|kít wâa châi}} “I think so”; {{คิดว่าไม่นะ|kít wâa mâi ná}} “I don't think so”. Less sure: {{ไม่แน่ใจ|mâi nɛ̂ɛ-jai}} “I'm not sure”."},
+        { "ex": [
+          {"t":"ฉันรู้ว่าเขาชอบคุณค่ะ","r":"chǎn rúu wâa kǎo chɔ̂ɔp kun kâ","tr":"I know she likes you."},
+          {"t":"ได้ยินว่าคุณจะย้ายไปเชียงใหม่ จริงไหมครับ","r":"dâi-yin wâa kun jà yáai bpai chiiang-mài, jing mǎi kráp","tr":"I heard you're moving to Chiang Mai. Is that true?"},
+          {"t":"ฉันไม่รู้ว่าเขาอยู่ไหนค่ะ","r":"chǎn mâi rúu wâa kǎo yùu nǎi kâ","tr":"I don't know where he is."},
+          {"t":"ไม่แน่ใจว่าเขาจะมาไหมครับ","r":"mâi nɛ̂ɛ-jai wâa kǎo jà maa mǎi kráp","tr":"I'm not sure whether she'll come."},
+          {"t":"หวังว่าคุณจะชอบนะคะ","r":"wǎng wâa kun jà chɔ̂ɔp ná ká","tr":"I hope you like it."},
+          {"t":"คุณคิดว่าไงครับ","r":"kun kít wâa ngai kráp","tr":"What do you think?"}
+        ] },
+        {"tip":"In quick speech, {{ผมว่า|pǒm wâa}} or {{ฉันว่า|chǎn wâa}} on its own means “I think”: {{ฉันว่าอร่อยนะ|chǎn wâa à-rɔ̀i ná}} “I think it's good”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมคิดพรุ่งนี้ฝนจะตกครับ","right":"ผมคิดว่าพรุ่งนี้ฝนจะตกครับ","tr":"I think it'll rain tomorrow.","why":"Thai keeps {{ว่า|wâa}} “that” after {{คิด|kít}}, even where English leaves “that” out."},
+        {"wrong":"คุณรู้ว่าไหมร้านปิด","right":"คุณรู้ไหมว่าร้านปิด","tr":"Did you know the shop is closed?","why":"{{ไหม|mǎi}} goes right after the verb, before {{ว่า|wâa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ว่า|wâa}} “that” or {{ไหม|mǎi}} (a question).","t":"ฉันคิด___เขาจะมาค่ะ","tr":"I think he'll come.","options":["ว่า","ไหม"],"answer":0,"why":"After {{คิด|kít}}: {{ว่า|wâa}}, then the sentence."},
+        {"type":"choice","q":"“I don't know where he is.”","options":["{{ไม่รู้ว่าเขาอยู่ไหน|mâi rúu wâa kǎo yùu nǎi}}","{{ไม่รู้ไหนเขาอยู่|mâi rúu nǎi kǎo yùu}}","{{ไม่รู้ว่าไหนเขาอยู่|mâi rúu wâa nǎi kǎo yùu}}"],"answer":0,"why":"After {{ว่า|wâa}}, the normal order: {{เขาอยู่ไหน|kǎo yùu nǎi}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I hope you like it. (a woman speaking)","words":["หวัง","ว่า","คุณ","จะ","ชอบ","นะคะ"]},
+        {"type":"dialogue","q":"Nok asks about the weather. Choose your replies (you're a man).","from":"say-what-you-will-do","lines":[{"who":"Nok","t":"คุณคิดว่าพรุ่งนี้ฝนจะตกไหมคะ","r":"kun kít wâa prûng-níi fǒn jà dtòk mǎi ká","tr":"Do you think it'll rain tomorrow?"},{"options":["คิดว่าไม่ตกครับ","คิดไม่ว่าตกครับ"],"answer":0,"why":"{{คิดว่า|kít wâa}}, then the ordinary sentence: {{ไม่ตก|mâi dtòk}}."},{"who":"Nok","t":"แน่ใจเหรอคะ","r":"nɛ̂ɛ-jai rə̌ə ká","tr":"Are you sure?"},{"options":["ไม่แน่ใจครับ แต่ได้ยินว่าอากาศจะดี","ไม่แน่ใจครับ แต่ได้ยินอากาศว่าจะดี"],"answer":0,"why":"{{ได้ยินว่า|dâi-yin wâa}}, then what you heard."}]},
+        {"type":"say","q":"You're a man. Ask “What do you think?”","answer":"คุณคิดว่าไงครับ","r":"kun kít wâa ngai kráp"},
+        {"type":"free","q":"Your turn: say something you think, something you've heard, and something you hope.","answers":[{"t":"ผมคิดว่าภาษาไทยไม่ยากเกินไปครับ ได้ยินว่าเชียงใหม่สวยมาก หวังว่าจะได้ไปปีหน้า","r":"pǒm kít wâa paa-sǎa tai mâi yâak gəən bpai kráp, dâi-yin wâa chiiang-mài sǔai mâak, wǎng wâa jà dâai bpai bpii nâa","tr":"I think Thai isn't too hard. I've heard Chiang Mai is beautiful; I hope I'll get to go next year."},{"t":"ฉันคิดว่าร้านนี้อร่อยที่สุดค่ะ หวังว่าคุณจะชอบนะคะ","r":"chǎn kít wâa ráan níi à-rɔ̀i tîi-sùt kâ, wǎng wâa kun jà chɔ̂ɔp ná ká","tr":"I think this place is the best. I hope you like it."}]}
+      ]
+    },
+    {
+      "id": "but-and-although",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say “but”, “although” and “still”",
+      "summary": "Contrast two ideas: it's cheap but good; although it rained, we went; he's still working.",
+      "topic": "{{แต่|dtɛ̀ɛ}} “but”; {{ถึงแม้ว่า…(แต่/ก็)…|tʉ̌ng mɛ́ɛ wâa}}, {{ถึง…ก็…|tʉ̌ng … gɔ̂}} “although”; {{ก็ยัง…อยู่|gɔ̂ yang … yùu}} “still”; {{ทั้งที่|táng tîi}} “even though”",
+      "blocks": [
+        {"goal":{"t":"ถึงแม้ว่าฝนจะตก เราก็ยังไปเที่ยวค่ะ","r":"tʉ̌ng mɛ́ɛ wâa fǒn jà dtòk, rao gɔ̂ yang bpai tîao kâ","tr":"Even though it was raining, we still went out."}},
+        {"dialog":[{"who":"Ton","t":"ร้านนี้เป็นยังไงบ้างครับ","r":"ráan níi bpen yang-ngai bâng kráp","tr":"What's this place like?"},{"who":"Anna","t":"อาหารอร่อยค่ะ แต่บริการช้ามาก","r":"aa-hǎan à-rɔ̀i kâ, dtɛ̀ɛ bɔɔ-rí-gaan cháa mâak","tr":"The food's good, but the service is really slow."},{"who":"Ton","t":"คนเยอะไหมครับ","r":"kon yə́ mǎi kráp","tr":"Is it busy?"},{"who":"Anna","t":"เยอะค่ะ ถึงแม้ว่าจะแพง คนก็ยังมากินทุกวัน","r":"yə́ kâ, tʉ̌ng mɛ́ɛ wâa jà pɛɛng, kon gɔ̂ yang maa gin túk wan","tr":"Yes. Even though it's expensive, people still come every day."},{"who":"Ton","t":"ทั้งที่บริการช้าเหรอครับ","r":"táng tîi bɔɔ-rí-gaan cháa rə̌ə kráp","tr":"Even though the service is slow?"},{"who":"Anna","t":"ใช่ค่ะ เพราะอร่อยจริงๆ","r":"châi kâ, prɔ́ à-rɔ̀i jing-jing","tr":"Yes, because it's really that good."}]},
+        {"p":"**แต่: but.** {{แต่|dtɛ̀ɛ}} joins two ideas that pull in different directions: {{ถูกแต่ดี|tùuk dtɛ̀ɛ dii}} “cheap but good”, {{อยากไปแต่ไม่มีเวลา|yàak bpai dtɛ̀ɛ mâi-mii wee-laa}} “I want to go, but I don't have time”."},
+        {"p":"**Although: ถึงแม้ว่า.** {{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}} (shorter: {{ถึงแม้|tʉ̌ng mɛ́ɛ}}, or just {{ถึง|tʉ̌ng}}) starts the “although” part, which usually has {{จะ|jà}} before its verb, whatever the time. The main part then starts with {{แต่|dtɛ̀ɛ}} or has {{ก็|gɔ̂}}: {{ถึงจะแพง แต่ก็คุ้ม|tʉ̌ng jà pɛɛng dtɛ̀ɛ gɔ̂ kúm}} “although it's expensive, it's worth it”. Thai happily says “although…, but…”, where English uses only one of the two."},
+        {"p":"**Still: ก็ยัง…อยู่.** {{ยัง|yang}} “still” (lesson 27) often pairs with {{ก็|gɔ̂}} in the main part: {{เขาก็ยังทำงานอยู่|kǎo gɔ̂ yang tam-ngaan yùu}} “he's still working”, {{ถึงจะเหนื่อย ฉันก็ยังไป|tʉ̌ng jà nʉ̀ai chǎn gɔ̂ yang bpai}} “even though I was tired, I still went”."},
+        {"p":"**Even though (and that's surprising).** {{ทั้งที่|táng tîi}} “even though, despite the fact that” adds surprise or complaint: {{เขาไม่มา ทั้งที่สัญญาแล้ว|kǎo mâi maa táng-tîi sǎn-yaa lɛ́ɛo}} “he didn't come, even though he'd promised”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{…แต่…|dtɛ̀ɛ}}","…, but …"],
+          ["{{ถึงแม้ว่า…แต่…|tʉ̌ng mɛ́ɛ wâa … dtɛ̀ɛ}}","although …, …"],
+          ["{{ถึง…ก็…|tʉ̌ng … gɔ̂}}","although / even if …, …"],
+          ["{{…ทั้งที่…|táng tîi}}","…, even though …"],
+          ["{{ก็ยัง…|gɔ̂ yang}}","still …"]
+        ] },
+        { "ex": [
+          {"t":"ห้องเล็กแต่สะอาดมากครับ","r":"hɔ̂ng lék dtɛ̀ɛ sà-àat mâak kráp","tr":"The room is small but very clean."},
+          {"t":"ถึงแม้ว่าจะเหนื่อย แต่ฉันก็มีความสุขค่ะ","r":"tʉ̌ng mɛ́ɛ wâa jà nʉ̀ai, dtɛ̀ɛ chǎn gɔ̂ mii kwaam-sùk kâ","tr":"Even though I'm tired, I'm happy."},
+          {"t":"ถึงจะแพง ก็คุ้มครับ","r":"tʉ̌ng jà pɛɛng, gɔ̂ kúm kráp","tr":"It may be expensive, but it's worth it."},
+          {"t":"เขาเรียนมาสามปีแล้ว แต่ก็ยังพูดไม่เก่งค่ะ","r":"kǎo riian maa sǎam bpii lɛ́ɛo, dtɛ̀ɛ gɔ̂ yang pûut mâi gèng kâ","tr":"He's been studying for three years, but he still doesn't speak well."},
+          {"t":"เขาไม่มา ทั้งที่สัญญาแล้วครับ","r":"kǎo mâi maa, táng tîi sǎn-yaa lɛ́ɛo kráp","tr":"He didn't come, even though he'd promised."},
+          {"t":"ตีหนึ่งแล้ว เขาก็ยังทำงานอยู่ค่ะ","r":"dtii nʉ̀ng lɛ́ɛo, kǎo gɔ̂ yang tam-ngaan yùu kâ","tr":"It's 1 a.m., and she's still working."}
+        ] },
+        {"tip":"{{แต่ว่า|dtɛ̀ɛ wâa}} is a softer “but”, good for disagreeing politely: {{ก็จริง แต่ว่า…|gɔ̂ jing, dtɛ̀ɛ wâa}} “that's true, but…”. You'll use it in the lesson on opinions."}
+      ],
+      "mistakes": [
+        {"wrong":"เขายังก็ทำงานอยู่ค่ะ","right":"เขาก็ยังทำงานอยู่ค่ะ","tr":"She's still working.","why":"The order is {{ก็|gɔ̂}}, then {{ยัง|yang}}: {{ก็ยัง|gɔ̂ yang}}."},
+        {"wrong":"ฝนตกถึงแม้ว่า เราก็ไป","right":"ถึงแม้ว่าฝนจะตก เราก็ไป","tr":"Although it rained, we went.","why":"{{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}} starts its part of the sentence, like “although”, and its verb usually takes {{จะ|jà}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{แต่|dtɛ̀ɛ}} “but” or {{เพราะ|prɔ́}} “because”.","t":"ห้องเล็ก___สะอาดมากครับ","tr":"The room is small but very clean.","options":["แต่","เพราะ"],"answer":0,"why":"Small (bad) but clean (good): {{แต่|dtɛ̀ɛ}}."},
+        {"type":"choice","q":"“She's still working.”","options":["{{เขาก็ยังทำงานอยู่|kǎo gɔ̂ yang tam-ngaan yùu}}","{{เขายังก็ทำงานอยู่|kǎo yang gɔ̂ tam-ngaan yùu}}","{{เขาทำงานยังอยู่|kǎo tam-ngaan yang yùu}}"],"answer":0,"why":"{{ก็ยัง|gɔ̂ yang}} before the verb, {{อยู่|yùu}} at the end."},
+        {"type":"order","q":"Put the words in order.","tr":"Even though it was raining, we still went out. (a woman speaking)","words":["ถึงแม้ว่า","ฝน","จะตก","เรา","ก็ยัง","ไปเที่ยว","ค่ะ"]},
+        {"type":"dialogue","q":"A friend asks about your hotel. Choose your replies (you're a man).","from":"compare","lines":[{"who":"Friend","t":"โรงแรมนี้ดีไหมคะ","r":"roong-rɛɛm níi dii mǎi ká","tr":"Is this hotel good?"},{"options":["ดีครับ แต่แพงกว่าที่อื่น","ดีครับ เพราะแพงกว่าที่อื่น"],"answer":0,"why":"Good, but expensive: two ideas that pull different ways, {{แต่|dtɛ̀ɛ}}."},{"who":"Friend","t":"แพงกว่าเยอะไหมคะ","r":"pɛɛng gwàa yə́ mǎi ká","tr":"Much more expensive?"},{"options":["นิดหน่อยครับ ถึงจะแพงก็คุ้ม","นิดหน่อยครับ แพงถึงจะก็คุ้ม"],"answer":0,"why":"{{ถึงจะ|tʉ̌ng jà}} + the adjective, then {{ก็|gɔ̂}}: {{ถึงจะแพงก็คุ้ม|tʉ̌ng jà pɛɛng gɔ̂ kúm}}."}]},
+        {"type":"say","q":"You're a man. Say “He didn't come, even though he'd promised.”","answer":"เขาไม่มา ทั้งที่สัญญาแล้วครับ","r":"kǎo mâi maa, táng tîi sǎn-yaa lɛ́ɛo kráp"},
+        {"type":"free","q":"Your turn: say something good and something bad about where you live, with {{แต่|dtɛ̀ɛ}} or {{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}}.","answers":[{"t":"บ้านผมเล็กครับ แต่อยู่ใกล้ทะเล ถึงแม้ว่าจะไกลจากที่ทำงาน ผมก็ชอบมาก","r":"bâan pǒm lék kráp, dtɛ̀ɛ yùu glâi tá-lee, tʉ̌ng mɛ́ɛ wâa jà glai jàak tîi tam-ngaan, pǒm gɔ̂ chɔ̂ɔp mâak","tr":"My house is small, but it's near the sea. Even though it's far from work, I love it."},{"t":"กรุงเทพร้อนมากค่ะ แต่อาหารอร่อย ถึงรถจะติด ฉันก็ยังชอบอยู่ที่นี่","r":"grung-têep rɔ́ɔn mâak kâ, dtɛ̀ɛ aa-hǎan à-rɔ̀i, tʉ̌ng rót jà dtìt, chǎn gɔ̂ yang chɔ̂ɔp yùu tîi-nîi","tr":"Bangkok is very hot, but the food is good. Even with the traffic, I still like living here."}]}
+      ]
+    },
+    {
+      "id": "report-what-was-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what someone said or asked",
+      "summary": "Tell someone what another person said, asked, or told you to do.",
+      "topic": "{{บอกว่า|bɔ̀ɔk wâa}} “said (that)”; {{ถามว่า…ไหม|tǎam wâa … mǎi}} “asked whether”; {{บอกให้|bɔ̀ɔk hâi}}, {{บอกไม่ให้|bɔ̀ɔk mâi hâi}} “told (someone) (not) to”; {{เขาว่า|kǎo wâa}} “they say”",
+      "blocks": [
+        {"goal":{"t":"เขาบอกว่าจะมาสายนิดหน่อยค่ะ","r":"kǎo bɔ̀ɔk wâa jà maa sǎai nít-nɔ̀i kâ","tr":"He said he'd be a bit late."}},
+        {"dialog":[{"who":"Nok","t":"เมื่อกี้ใครโทรมาคะ","r":"mʉ̂ʉa-gîi krai too maa ká","tr":"Who called just now?"},{"who":"Tom","t":"พี่ต้นครับ เขาบอกว่าวันนี้จะกลับดึก","r":"pîi dtôn kráp, kǎo bɔ̀ɔk wâa wan-níi jà glàp dʉ̀k","tr":"Ton. He said he'll be home late today."},{"who":"Nok","t":"แล้วเขาถามอะไรไหมคะ","r":"lɛ́ɛo kǎo tǎam à-rai mǎi ká","tr":"Did he ask anything?"},{"who":"Tom","t":"เขาถามว่าเราจะกินข้าวเย็นด้วยกันไหม แล้วก็บอกให้ผมซื้อน้ำแข็งไว้","r":"kǎo tǎam wâa rao jà gin kâao yen dûai-gan mǎi, lɛ́ɛo-gɔ̂ bɔ̀ɔk hâi pǒm sʉ́ʉ nám-kɛ̌ng wái","tr":"He asked if we'd have dinner together, and told me to get some ice in."},{"who":"Nok","t":"เขาว่าร้านแถวนี้ปิดเร็วนะคะ รีบไปซื้อเถอะ","r":"kǎo wâa ráan tɛ̌o níi bpìt reo ná ká, rîip bpai sʉ́ʉ tə̀","tr":"They say the shops around here close early. Better go and get it now."}]},
+        {"p":"**Said that: บอกว่า.** To pass on what someone said, use {{บอกว่า|bɔ̀ɔk wâa}} “told, said (that)” (or {{พูดว่า|pûut wâa}}), then their words as an ordinary sentence: {{เขาบอกว่าจะมา|kǎo bɔ̀ɔk wâa jà maa}} “he said he'd come”. Thai doesn't shift the time as English does (“will” → “would”): the words stay as they were said. The person told can come straight after {{บอก|bɔ̀ɔk}}: {{เขาบอกผมว่า…|kǎo bɔ̀ɔk pǒm wâa …}} “he told me that…”."},
+        {"p":"**Asked whether: ถามว่า…ไหม.** For a yes/no question, keep {{ไหม|mǎi}} at the end: {{เขาถามว่าคุณจะไปไหม|kǎo tǎam wâa kun jà bpai mǎi}} “she asked whether you're going”. For other questions the question word stays in place: {{เขาถามว่าคุณอยู่ที่ไหน|kǎo tǎam wâa kun yùu tîi-nǎi}} “he asked where you live”."},
+        {"p":"**Told (not) to: บอกให้, บอกไม่ให้.** An instruction takes {{บอกให้|bɔ̀ɔk hâi}} + who + what, as in lesson 38: {{แม่บอกให้ผมกลับบ้าน|mɛ̂ɛ bɔ̀ɔk hâi pǒm glàp-bâan}} “Mom told me to come home”. “Told … not to” is {{บอกไม่ให้|bɔ̀ɔk mâi hâi}}: {{หมอบอกไม่ให้กินเผ็ด|mɔ̌ɔ bɔ̀ɔk mâi hâi gin pèt}} “the doctor told me not to eat spicy food”."},
+        {"p":"**They say.** {{เขาว่า|kǎo wâa}}, or {{เขาว่ากันว่า|kǎo wâa gan wâa}}, passes on what people say: {{เขาว่าร้านนี้อร่อย|kǎo wâa ráan níi à-rɔ̀i}} “they say this place is good”."},
+        { "table": [
+          ["what was said","passed on"],
+          ["{{ผมจะมา|pǒm jà maa}} “I'll come.”","{{เขาบอกว่าจะมา|kǎo bɔ̀ɔk wâa jà maa}} He said he'd come."],
+          ["{{คุณหิวไหม|kun hǐu mǎi}} “Are you hungry?”","{{เขาถามว่าคุณหิวไหม|kǎo tǎam wâa kun hǐu mǎi}} She asked if you were hungry."],
+          ["{{รอตรงนี้|rɔɔ dtrong-níi}} “Wait here.”","{{เขาบอกให้รอตรงนี้|kǎo bɔ̀ɔk hâi rɔɔ dtrong-níi}} He told us to wait here."],
+          ["{{อย่าเข้าไป|yàa kâo bpai}} “Don't go in.”","{{เขาบอกไม่ให้เข้าไป|kǎo bɔ̀ɔk mâi hâi kâo bpai}} She told us not to go in."]
+        ] },
+        { "ex": [
+          {"t":"แม่บอกผมว่าพรุ่งนี้จะมาหาครับ","r":"mɛ̂ɛ bɔ̀ɔk pǒm wâa prûng-níi jà maa hǎa kráp","tr":"Mom told me she'd come and see me tomorrow."},
+          {"t":"เขาถามว่าคุณว่างไหมค่ะ","r":"kǎo tǎam wâa kun wâang mǎi kâ","tr":"She asked whether you're free.","note":"a statement, so a woman ends it with {{ค่ะ|kâ}}"},
+          {"t":"ลูกค้าถามว่ามีห้องว่างไหมครับ","r":"lûuk-káa tǎam wâa mii hɔ̂ng wâang mǎi kráp","tr":"A customer asked whether there are any rooms free."},
+          {"t":"หมอบอกไม่ให้กินเผ็ดค่ะ","r":"mɔ̌ɔ bɔ̀ɔk mâi hâi gin pèt kâ","tr":"The doctor told me not to eat spicy food."},
+          {"t":"เขาว่าพรุ่งนี้ฝนจะตกครับ","r":"kǎo wâa prûng-níi fǒn jà dtòk kráp","tr":"They say it's going to rain tomorrow."}
+        ] },
+        {"tip":"Passing on a question isn't asking one: {{เขาถามว่าคุณว่างไหมค่ะ|kǎo tǎam wâa kun wâang mǎi kâ}} is a statement, so a woman ends it with {{ค่ะ|kâ}}, not {{คะ|ká}}, even with {{ไหม|mǎi}} inside."}
+      ],
+      "mistakes": [
+        {"wrong":"เขาถามว่าคุณว่างไหมคะ","right":"เขาถามว่าคุณว่างไหมค่ะ","tr":"She asked whether you're free. (a woman telling you)","why":"You're telling, not asking: it's a statement, so a woman ends it with {{ค่ะ|kâ}}."},
+        {"wrong":"หมอบอกให้ไม่กินเผ็ดค่ะ","right":"หมอบอกไม่ให้กินเผ็ดค่ะ","tr":"The doctor told me not to eat spicy food.","why":"“Told … not to” is {{บอกไม่ให้|bɔ̀ɔk mâi hâi}}: {{ไม่|mâi}} goes before {{ให้|hâi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ถามว่า|tǎam wâa}} “asked” or {{บอกว่า|bɔ̀ɔk wâa}} “said that”.","t":"เขา___คุณจะมาไหมครับ","tr":"He asked whether you're coming.","options":["ถามว่า","บอกว่า"],"answer":0,"why":"A question passed on: {{ถามว่า…ไหม|tǎam wâa … mǎi}}."},
+        {"type":"choice","q":"Your friend said “I'm hungry.” You pass it on:","options":["{{เขาบอกว่าหิว|kǎo bɔ̀ɔk wâa hǐu}}","{{เขาถามว่าหิว|kǎo tǎam wâa hǐu}}","{{เขาบอกให้หิว|kǎo bɔ̀ɔk hâi hǐu}}"],"answer":0,"why":"Something said: {{บอกว่า|bɔ̀ɔk wâa}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The doctor told me not to eat spicy food. (a woman speaking)","words":["หมอ","บอก","ไม่ให้","กิน","เผ็ด","ค่ะ"]},
+        {"type":"dialogue","q":"Nok missed the meeting. Choose your replies (you're a man).","from":"ask-someone-to","lines":[{"who":"Nok","t":"หัวหน้าพูดว่าอะไรคะ","r":"hǔua-nâa pûut wâa à-rai ká","tr":"What did the boss say?"},{"options":["เขาบอกว่าพรุ่งนี้มีประชุมครับ","เขาถามว่าพรุ่งนี้มีประชุมครับ"],"answer":0,"why":"He said something: {{บอกว่า|bɔ̀ɔk wâa}}."},{"who":"Nok","t":"แล้วบอกให้เราทำอะไรคะ","r":"lɛ́ɛo bɔ̀ɔk hâi rao tam à-rai ká","tr":"And what did he tell us to do?"},{"options":["บอกให้เรามาเช้าครับ","บอกว่าเรามาเช้าให้ครับ"],"answer":0,"why":"An instruction: {{บอกให้|bɔ̀ɔk hâi}} + who + what."}]},
+        {"type":"say","q":"You're a man. Say “They say this place is good.”","answer":"เขาว่าร้านนี้อร่อยครับ","r":"kǎo wâa ráan níi à-rɔ̀i kráp"},
+        {"type":"free","q":"Your turn: pass on something someone told you recently, and something they asked you.","answers":[{"t":"แม่บอกว่าจะมาเที่ยวเดือนหน้าครับ แล้วก็ถามว่าผมกินข้าวหรือยัง","r":"mɛ̂ɛ bɔ̀ɔk wâa jà maa tîao dʉʉan nâa kráp, lɛ́ɛo-gɔ̂ tǎam wâa pǒm gin kâao rʉ̌ʉ yang","tr":"Mom said she'd come and visit next month, and asked whether I'd eaten."},{"t":"เพื่อนบอกให้ฉันไปหาหมอค่ะ แล้วถามว่าฉันสบายดีไหม","r":"pʉ̂ʉan bɔ̀ɔk hâi chǎn bpai hǎa mɔ̌ɔ kâ, lɛ́ɛo tǎam wâa chǎn sà-baai-dii mǎi","tr":"My friend told me to see a doctor, and asked whether I was OK."}]}
+      ]
+    },
+    {
+      "id": "describe-with-ti",
+      "unit": 8,
+      "level": "B1",
+      "title": "Describe with a whole sentence: the shop that…",
+      "summary": "Say exactly who or what you mean with a whole description: the restaurant we went to, the man who lives next door.",
+      "topic": "{{ที่|tîi}} “who, which, that” after a noun; a classifier + {{ที่|tîi}} ({{คนที่…|kon tîi}}, {{อันที่…|an tîi}}); {{ซึ่ง|sʉ̂ng}} (formal)",
+      "blocks": [
+        {"goal":{"t":"ร้านที่เราไปเมื่อวานอร่อยมากค่ะ","r":"ráan tîi rao bpai mʉ̂ʉa-waan à-rɔ̀i mâak kâ","tr":"The restaurant we went to yesterday was really good."}},
+        {"dialog":[{"who":"Tom","t":"ผู้ชายที่ใส่เสื้อสีแดงคือใครครับ","r":"pûu-chaai tîi sài sʉ̂ʉa sǐi dɛɛng kʉʉ krai kráp","tr":"Who's the man in the red shirt?"},{"who":"Nok","t":"คนที่ยืนอยู่ข้างประตูเหรอคะ","r":"kon tîi yʉʉn yùu kâang bprà-dtuu rə̌ə ká","tr":"The one standing by the door?"},{"who":"Tom","t":"ใช่ครับ","r":"châi kráp","tr":"Yes."},{"who":"Nok","t":"เขาเป็นคนที่ทำอาหารร้านนี้ค่ะ","r":"kǎo bpen kon tîi tam aa-hǎan ráan níi kâ","tr":"He's the one who cooks here."},{"who":"Tom","t":"อาหารที่เขาทำอร่อยที่สุดเลยครับ","r":"aa-hǎan tîi kǎo tam à-rɔ̀i tîi-sùt ləəi kráp","tr":"The food he makes is the best!"}]},
+        {"p":"**ที่ + a sentence.** To describe a noun with a whole sentence, put {{ที่|tîi}} after the noun, then the sentence: {{ร้านที่เราไป|ráan tîi rao bpai}} “the restaurant (that) we went to”, {{คนที่ทำอาหาร|kon tîi tam-aa-hǎan}} “the person who cooks”. {{ที่|tîi}} is “who”, “which” and “that” all in one, and, as in English, it comes after the noun."},
+        {"p":"**Nothing else changes.** The sentence after {{ที่|tîi}} keeps its normal order, and the little words English leaves dangling at the end (“to”, “in”, “with”) just aren't there: {{บ้านที่ฉันอยู่|bâan tîi chǎn yùu}} “the house (that) I live in”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{ร้านที่เราไปเมื่อวาน|ráan tîi rao bpai mʉ̂ʉa-waan}}","the restaurant we went to yesterday"],
+          ["{{ผู้หญิงที่ทำงานกับฉัน|pûu-yǐng tîi tam-ngaan gàp chǎn}}","the woman who works with me"],
+          ["{{หนังสือที่คุณให้ผม|nǎng-sʉ̌ʉ tîi kun hâi pǒm}}","the book you gave me"],
+          ["{{เมืองที่ผมเกิด|mʉʉang tîi pǒm gə̀ət}}","the town where I was born"]
+        ] },
+        {"p":"**The one who, the one that: classifier + ที่.** Leave out the noun and use its classifier: {{คนที่ใส่เสื้อแดง|kon tîi sài sʉ̂ʉa-dɛɛng}} “the one (person) in the red shirt”, {{อันที่ถูกกว่า|an tîi tùuk gwàa}} “the cheaper one”, {{ตัวที่ผมชอบ|dtuua tîi pǒm chɔ̂ɔp}} “the one I like” (a shirt). With the noun too, the classifier points it out more sharply: {{เสื้อตัวที่ผมชอบ|sʉ̂ʉa dtuua tîi pǒm chɔ̂ɔp}} “the shirt I like”."},
+        {"p":"**Formal: ซึ่ง.** In writing, {{ซึ่ง|sʉ̂ng}} sometimes replaces {{ที่|tîi}}, especially to add extra information: {{กรุงเทพ ซึ่งเป็นเมืองหลวง…|grung-têep sʉ̂ng bpen mʉʉang-lǔuang …}} “Bangkok, which is the capital…”. In conversation, {{ที่|tîi}}."},
+        { "ex": [
+          {"t":"ผู้ชายที่อยู่บ้านข้างๆ เป็นหมอครับ","r":"pûu-chaai tîi yùu bâan kâang-kâang bpen mɔ̌ɔ kráp","tr":"The man who lives next door is a doctor."},
+          {"t":"หนังสือที่คุณให้ผมสนุกมากครับ","r":"nǎng-sʉ̌ʉ tîi kun hâi pǒm sà-nùk mâak kráp","tr":"The book you gave me is really good."},
+          {"t":"เอาอันที่ถูกกว่าค่ะ","r":"ao an tîi tùuk gwàa kâ","tr":"I'll take the cheaper one."},
+          {"t":"คนที่พูดภาษาอังกฤษได้ยกมือหน่อยครับ","r":"kon tîi pûut paa-sǎa ang-grìt dâai yók mʉʉ nɔ̀i kráp","tr":"Could the people who speak English raise their hands?"},
+          {"t":"นี่คือเมืองที่ฉันเกิดค่ะ","r":"nîi kʉʉ mʉʉang tîi chǎn gə̀ət kâ","tr":"This is the town where I was born."},
+          {"t":"สิ่งที่ผมชอบที่สุดคืออาหารครับ","r":"sìng tîi pǒm chɔ̂ɔp tîi-sùt kʉʉ aa-hǎan kráp","tr":"The thing I like most is the food."}
+        ] },
+        {"tip":"{{ที่|tîi}} now has many jobs: “at” ({{ที่บ้าน|tîi bâan}}), “place” ({{ที่นี่|tîi-nîi}}), “-th” ({{ครั้งที่สอง|kráng tîi sɔ̌ɔng}}), “most” ({{ที่สุด|tîi-sùt}}) and “who, which, that”. Its place in the sentence tells you which."}
+      ],
+      "mistakes": [
+        {"wrong":"ที่เราไปร้านเมื่อวานอร่อย","right":"ร้านที่เราไปเมื่อวานอร่อย","tr":"The restaurant we went to yesterday was good.","why":"The noun comes first, then {{ที่|tîi}} and its description."},
+        {"wrong":"บ้านที่ฉันอยู่ในเล็กมาก","right":"บ้านที่ฉันอยู่เล็กมาก","tr":"The house I live in is very small.","why":"Thai doesn't keep the little word that English leaves at the end (“live *in*”): no {{ใน|nai}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ที่|tîi}} “who, which, that” or {{คือ|kʉʉ}} “is”.","t":"ผู้หญิง___ทำงานกับฉันเป็นคนเชียงใหม่ค่ะ","tr":"The woman who works with me is from Chiang Mai.","options":["ที่","คือ"],"answer":0,"why":"Describing the woman with a sentence: {{ที่|tîi}}."},
+        {"type":"choice","q":"Pointing at bags: “The cheaper one, please.”","options":["{{เอาใบที่ถูกกว่าค่ะ|ao bai tîi tùuk gwàa kâ}}","{{เอาที่ใบถูกกว่าค่ะ|ao tîi bai tùuk gwàa kâ}}","{{เอาถูกกว่าใบที่ค่ะ|ao tùuk gwàa bai tîi kâ}}"],"answer":0,"why":"The classifier, then {{ที่|tîi}}, then the description."},
+        {"type":"order","q":"Put the words in order.","tr":"The book you gave me is really good. (a man speaking)","words":["หนังสือ","ที่","คุณ","ให้ผม","สนุก","มาก","ครับ"]},
+        {"type":"dialogue","q":"Choosing a shirt. Choose your replies (you're a man).","from":"describe-in-detail","lines":[{"who":"Seller","t":"ชอบตัวไหนคะ","r":"chɔ̂ɔp dtuua nǎi ká","tr":"Which one do you like?"},{"options":["ตัวที่อยู่ข้างหลังครับ สีเขียว","ที่ตัวอยู่ข้างหลังครับ สีเขียว"],"answer":0,"why":"The classifier, then {{ที่|tîi}} and the description."},{"who":"Seller","t":"ตัวนี้เหรอคะ","r":"dtuua níi rə̌ə ká","tr":"This one?"},{"options":["ไม่ใช่ครับ ตัวที่ใหญ่กว่า","ไม่ใช่ครับ ตัวใหญ่กว่าที่"],"answer":0,"why":"{{ตัวที่ใหญ่กว่า|dtuua tîi yài gwàa}} “the bigger one”: {{ที่|tîi}} before the description."}]},
+        {"type":"say","q":"You're a woman. Say “This is the town where I was born.”","answer":"นี่คือเมืองที่ฉันเกิดค่ะ","r":"nîi kʉʉ mʉʉang tîi chǎn gə̀ət kâ"},
+        {"type":"free","q":"Your turn: describe a place you love and a person you know, each with {{ที่|tîi}}.","answers":[{"t":"ร้านที่ผมชอบที่สุดอยู่ใกล้บ้านครับ เพื่อนที่ทำงานกับผมเป็นคนญี่ปุ่น","r":"ráan tîi pǒm chɔ̂ɔp tîi-sùt yùu glâi bâan kráp, pʉ̂ʉan tîi tam-ngaan gàp pǒm bpen kon yîi-bpùn","tr":"The place I like best is near my house. The friend who works with me is Japanese."},{"t":"คนที่สอนภาษาไทยให้ฉันใจดีมากค่ะ เมืองที่ฉันอยากไปที่สุดคือเชียงใหม่","r":"kon tîi sɔ̌ɔn paa-sǎa tai hâi chǎn jai-dii mâak kâ, mʉʉang tîi chǎn yàak bpai tîi-sùt kʉʉ chiiang-mài","tr":"The person who teaches me Thai is very kind. The city I most want to visit is Chiang Mai."}]}
+      ]
+    },
+    {
+      "id": "what-happened-to-you",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what happened to you: got bitten, got fined",
+      "summary": "Tell about something unpleasant that happened to you: you got bitten, fined, cheated or told off.",
+      "topic": "{{โดน|doon}} / {{ถูก|tùuk}} + (who did it) + a verb: the “unlucky” passive; {{ได้|dâai}} for good things",
+      "blocks": [
+        {"goal":{"t":"เมื่อวานผมโดนหมากัดครับ","r":"mʉ̂ʉa-waan pǒm doon mǎa gàt kráp","tr":"I got bitten by a dog yesterday."}},
+        {"dialog":[{"who":"Nok","t":"เป็นอะไรคะ ทำไมเดินแบบนั้น","r":"bpen à-rai ká, tam-mai dəən bɛ̀ɛp nán","tr":"What's wrong? Why are you walking like that?"},{"who":"Tom","t":"เมื่อวานผมโดนหมากัดครับ ที่ขา","r":"mʉ̂ʉa-waan pǒm doon mǎa gàt kráp, tîi kǎa","tr":"I got bitten by a dog yesterday. On the leg."},{"who":"Nok","t":"ตายแล้ว ไปหาหมอหรือยังคะ","r":"dtaai lɛ́ɛo, bpai hǎa mɔ̌ɔ rʉ̌ʉ yang ká","tr":"Oh no! Have you seen a doctor yet?"},{"who":"Tom","t":"ไปแล้วครับ ซวยจริงๆ เมื่อเช้าก็โดนตำรวจจับอีก","r":"bpai lɛ́ɛo kráp, suai jing-jing, mʉ̂ʉa-cháao gɔ̂ doon dtam-rùuat jàp ìik","tr":"Yes. I'm so unlucky: this morning I got stopped by the police too."},{"who":"Nok","t":"โดนจับเพราะอะไรคะ","r":"doon jàp prɔ́ à-rai ká","tr":"What did they stop you for?"},{"who":"Tom","t":"ไม่ได้ใส่หมวกกันน็อคครับ โดนปรับห้าร้อย","r":"mâi dâai sài mùuak gan-nɔ́k kráp, doon bpràp hâa rɔ́ɔi","tr":"I wasn't wearing a helmet. I got fined five hundred."}]},
+        {"term":"passive","means":"a sentence about what happens to someone or something, rather than what they do: “I got bitten”, “the house was built”."},
+        {"p":"**When something happens to you.** To say a bad thing happened *to* someone, Thai puts {{โดน|doon}} or {{ถูก|tùuk}} before the verb: {{ผมโดนกัด|pǒm doon gàt}} “I got bitten”. Who did it goes in between: {{ผมโดนหมากัด|pǒm doon mǎa gàt}} “I got bitten by a dog” (I, suffered, dog, bite)."},
+        {"p":"**Mostly bad news.** {{โดน|doon}} and {{ถูก|tùuk}} are for unpleasant things: being bitten, scolded, fined, cheated, robbed. For something good that comes your way, Thai says {{ได้|dâai}} “get”: {{ได้รางวัล|dâai raang-wan}} “win a prize”. For neutral events, Thai just says who did what: {{ตำรวจจับขโมยได้|dtam-rùuat jàp kà-mooi dâai}} “the police caught the thief”."},
+        {"p":"**โดน or ถูก?** {{โดน|doon}} is everyday speech; {{ถูก|tùuk}} is a little more formal, and it's what the news uses: {{ถูกจับ|tùuk jàp}} “was arrested”. (Careful: {{ถูก|tùuk}} also means “cheap” and “right”.)"},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{โดนกัด|doon gàt}}","get bitten"],
+          ["{{โดนยุงกัด|doon yung gàt}}","get bitten by mosquitoes"],
+          ["{{โดนดุ|doon dù}}","get told off"],
+          ["{{โดนปรับ|doon bpràp}}","get fined"],
+          ["{{โดนหลอก|doon lɔ̀ɔk}}","get cheated, tricked"],
+          ["{{ถูกขโมย|tùuk kà-mooi}}","be stolen, get robbed"]
+        ] },
+        {"p":"**What was taken.** The thing affected can come after the verb: {{ผมโดนขโมยกระเป๋าเงิน|pǒm doon kà-mooi grà-bpǎo-ngən}} “I had my wallet stolen”."},
+        { "ex": [
+          {"t":"เมื่อคืนฉันโดนยุงกัดเยอะมากค่ะ","r":"mʉ̂ʉa-kʉʉn chǎn doon yung gàt yə́ mâak kâ","tr":"I got bitten by loads of mosquitoes last night."},
+          {"t":"เด็กคนนั้นโดนแม่ดุครับ","r":"dèk kon nán doon mɛ̂ɛ dù kráp","tr":"That kid got told off by his mom."},
+          {"t":"ระวังนะคะ ที่นี่นักท่องเที่ยวโดนหลอกบ่อย","r":"rá-wang ná ká, tîi-nîi nák-tɔ̂ng-tîao doon lɔ̀ɔk bɔ̀i","tr":"Be careful: tourists often get cheated here."},
+          {"t":"ผมโดนขโมยกระเป๋าเงินที่ตลาดครับ","r":"pǒm doon kà-mooi grà-bpǎo ngən tîi dtà-làat kráp","tr":"I had my wallet stolen at the market."},
+          {"t":"ขโมยถูกตำรวจจับแล้วค่ะ","r":"kà-mooi tùuk dtam-rùuat jàp lɛ́ɛo kâ","tr":"The thief has been arrested."},
+          {"t":"เมื่อวานฉันโดนฝน เปียกหมดเลยค่ะ","r":"mʉ̂ʉa-waan chǎn doon fǒn, bpìiak mòt ləəi kâ","tr":"I got caught in the rain yesterday and got soaked."}
+        ] },
+        {"tip":"{{โดน|doon}} can take a noun too, for whatever hit you: {{โดนฝน|doon fǒn}} “got caught in the rain”, {{โดนแดด|doon dɛ̀ɛt}} “got too much sun”. And a day like Tom's is {{ซวย|suai}} “unlucky” (casual)."}
+      ],
+      "mistakes": [
+        {"wrong":"หมาโดนผมกัด","right":"ผมโดนหมากัด","tr":"I got bitten by a dog.","why":"The one it happens to comes first, then {{โดน|doon}}, then who did it, then the verb."},
+        {"wrong":"ผมโดนให้รางวัลครับ","right":"ผมได้รางวัลครับ","tr":"I won a prize.","why":"{{โดน|doon}} is for bad luck. For something good that comes your way, say {{ได้|dâai}} “get”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{โดน|doon}} “got (something bad)” or {{ได้|dâai}} “got (something good)”.","t":"เมื่อวานผม___ปรับห้าร้อยบาทครับ","tr":"I got fined five hundred baht yesterday.","options":["โดน","ได้"],"answer":0,"why":"A fine is bad news: {{โดนปรับ|doon bpràp}}."},
+        {"type":"choice","q":"“I had my phone stolen.”","options":["{{ฉันโดนขโมยโทรศัพท์|chǎn doon kà-mooi too-rá-sàp}}","{{โทรศัพท์โดนฉันขโมย|too-rá-sàp doon chǎn kà-mooi}}","{{ฉันขโมยโทรศัพท์|chǎn kà-mooi too-rá-sàp}}"],"answer":0,"why":"Who it happened to, {{โดน|doon}}, the verb, then what was taken. ({{ฉันขโมยโทรศัพท์|chǎn kà-mooi too-rá-sàp}} would be “I stole a phone”!)"},
+        {"type":"order","q":"Put the words in order.","tr":"I got bitten by mosquitoes last night. (a woman speaking)","words":["เมื่อคืน","ฉัน","โดน","ยุง","กัด","ค่ะ"]},
+        {"type":"dialogue","q":"Telling a friend about a bad day. Choose your replies (you're a man).","from":"tell-a-story","lines":[{"who":"Friend","t":"เมื่อวานเป็นยังไงบ้างคะ","r":"mʉ̂ʉa-waan bpen yang-ngai bâng ká","tr":"How was yesterday?"},{"options":["แย่มากครับ ตอนที่กำลังเดินกลับบ้าน ผมโดนขโมยกระเป๋า","แย่มากครับ ตอนที่กำลังเดินกลับบ้าน กระเป๋าโดนผมขโมย"],"answer":0,"why":"Who it happened to, then {{โดน|doon}} and the verb."},{"who":"Friend","t":"ตายแล้ว แล้วทำยังไงต่อคะ","r":"dtaai lɛ́ɛo, lɛ́ɛo tam yang-ngai dtɔ̀ɔ ká","tr":"Oh no! So what did you do then?"},{"options":["ผมก็เลยไปแจ้งตำรวจครับ","ผมเพราะไปแจ้งตำรวจครับ"],"answer":0,"why":"What you did as a result: {{ก็เลย|gɔ̂ ləəi}}."}]},
+        {"type":"say","q":"You're a man. Say “I got bitten by a dog yesterday.”","answer":"เมื่อวานผมโดนหมากัดครับ","r":"mʉ̂ʉa-waan pǒm doon mǎa gàt kráp"},
+        {"type":"free","q":"Your turn: tell about a time something bad happened to you (cheated, rained on, told off…).","answers":[{"t":"ปีที่แล้วผมโดนหลอกที่ตลาดครับ ซื้อเสื้อแพงมาก","r":"bpii tîi-lɛ́ɛo pǒm doon lɔ̀ɔk tîi dtà-làat kráp, sʉ́ʉ sʉ̂ʉa pɛɛng mâak","tr":"Last year I got cheated at the market: I paid far too much for a shirt."},{"t":"เมื่อวานฉันโดนฝนค่ะ เปียกหมดเลย แล้วยังโดนยุงกัดอีก","r":"mʉ̂ʉa-waan chǎn doon fǒn kâ, bpìiak mòt ləəi, lɛ́ɛo yang doon yung gàt ìik","tr":"Yesterday I got caught in the rain and got soaked, and then I got bitten by mosquitoes too."}]}
+      ]
     }
   ]
 }
