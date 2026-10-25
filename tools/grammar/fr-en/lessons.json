@@ -1270,6 +1270,244 @@
         {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Il y avait un cinéma ici, avant.","words":["There","used to","be","a movie theater","here."]},
         {"type":"free","q":"À vous : décrivez votre enfance : où vous habitiez, et deux choses que vous faisiez souvent.","answers":[{"t":"When I was a kid, I lived in Normandy. I used to ride my bike every day and I used to play with my cousins.","tr":"Quand j'étais petit, j'habitais en Normandie. Je faisais du vélo tous les jours et je jouais avec mes cousins."},{"t":"I grew up in Paris. We used to go to the park on Sundays. I didn't use to like vegetables!","tr":"J'ai grandi à Paris. Nous allions au parc le dimanche. Je n'aimais pas les légumes !"}]}
       ]
+    },
+    {
+      "id": "make-or-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Faire : make ou do ?",
+      "summary": "Faire un gâteau, faire ses devoirs, faire une erreur, faire du sport : « faire » se dit {{make}} ou {{do}}, et chacun a ses expressions.",
+      "topic": "{{make}} (créer, fabriquer, produire) ou {{do}} (activité, tâche, travail) ; les expressions toutes faites",
+      "blocks": [
+        {"goal":{"t":"First I do my homework, then I make dinner.","tr":"D'abord je fais mes devoirs, puis je prépare le dîner."}},
+        {"dialog":[{"who":"Jake","t":"Can you do me a favor?","tr":"Tu peux me rendre un service ?"},{"who":"Lina","t":"Sure. What is it?","tr":"Bien sûr. C'est quoi ?"},{"who":"Jake","t":"Can you make dinner tonight? I have to do a lot of work.","tr":"Tu peux faire le dîner ce soir ? J'ai beaucoup de travail."},{"who":"Lina","t":"OK, but you do the dishes!","tr":"D'accord, mais c'est toi qui fais la vaisselle !"},{"who":"Jake","t":"Deal!","tr":"Marché conclu !"}]},
+        {"p":"**Un verbe français, deux verbes anglais.** « Faire » se traduit par {{make}} ou par {{do}}. En gros : {{make}} quand on fabrique ou qu'on produit quelque chose (un gâteau, du bruit, un projet) ; {{do}} pour une activité, une tâche, un travail, ou quelque chose de vague."},
+        { "table": [
+          ["{{make}} : créer, produire","{{do}} : activité, tâche"],
+          ["{{make a cake}} faire un gâteau","{{do homework}} faire ses devoirs"],
+          ["{{make dinner}} préparer le dîner","{{do the dishes}} faire la vaisselle"],
+          ["{{make a mistake}} faire une erreur","{{do the laundry}} faire la lessive"],
+          ["{{make noise}} faire du bruit","{{do yoga}} faire du yoga"],
+          ["{{make friends}} se faire des amis","{{do a favor}} rendre un service"],
+          ["{{make money}} gagner de l'argent","{{do your best}} faire de son mieux"],
+          ["{{make a decision}} prendre une décision","{{do business}} faire des affaires"]
+        ] },
+        {"p":"**Do pour le vague.** Avec {{something}}, {{nothing}}, {{anything}}, {{what}}, c'est {{do}} : {{What are you doing?}} {{I didn't do anything.}} « Je n'ai rien fait. »"},
+        {"p":"**Et parfois ni l'un ni l'autre.** Beaucoup d'expressions françaises avec « faire » prennent un autre verbe en anglais : {{take a walk}} (faire une promenade), {{go shopping}} (faire du shopping), {{take a trip}} (faire un voyage), {{pack}} (faire sa valise), {{It's cold.}} (il fait froid)."},
+        { "ex": [
+          {"t":"She made a delicious cake.","tr":"Elle a fait un délicieux gâteau."},
+          {"t":"I did my best.","tr":"J'ai fait de mon mieux."},
+          {"t":"Don't make so much noise!","tr":"Ne fais pas autant de bruit !"},
+          {"t":"Who does the cooking in your house?","tr":"Qui fait la cuisine chez vous ?"},
+          {"t":"Everybody makes mistakes.","tr":"Tout le monde fait des erreurs."},
+          {"t":"Let's go shopping this afternoon.","tr":"Allons faire du shopping cet après-midi."}
+        ] },
+        {"tip":"{{make}} + quelqu'un + un adjectif ou un verbe, c'est « rendre » ou « faire faire » : {{It makes me happy.}} « Ça me rend heureux. » {{You make me laugh!}} « Tu me fais rire ! »"}
+      ],
+      "mistakes": [
+        {"wrong":"I made my homework.","right":"I did my homework.","tr":"J'ai fait mes devoirs.","why":"Une tâche : {{do}}."},
+        {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"J'ai fait une erreur.","why":"Une erreur, on la « fabrique » : {{make}}."},
+        {"wrong":"We made a walk.","right":"We took a walk.","tr":"Nous avons fait une promenade.","why":"« Faire une promenade » : {{take a walk}} (ou {{go for a walk}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Can you ___ me a favor?","tr":"Tu peux me rendre un service ?","options":["do","make"],"answer":0,"why":"Rendre un service : {{do a favor}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I always ___ mistakes in English!","tr":"Je fais toujours des fautes en anglais !","options":["make","do"],"answer":0,"why":"Une erreur : {{make}}. Et {{always}} avant le verbe.","from":"say-when-and-how-often"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Who ___ the dishes last night?","tr":"Qui a fait la vaisselle hier soir ?","options":["did","made","do"],"answer":0,"why":"La vaisselle : {{do}}, au prétérit : {{did}}.","from":"tell-about-your-weekend"},
+        {"type":"choice","q":"« Faire du shopping »","options":["{{go shopping}}","{{make shopping}}","{{do shopping}}"],"answer":0,"why":"Ni {{make}} ni {{do}} : {{go shopping}}."},
+        {"type":"dialogue","q":"Votre colocataire vous demande de l'aide. Choisissez vos réponses.","from":"say-what-you-can-do","lines":[{"who":"Your roommate","t":"Can you make dinner tonight?","tr":"Tu peux faire le dîner ce soir ?"},{"options":["Sure, I can make pasta.","Sure, I can do pasta."],"answer":0,"why":"Préparer un plat : {{make}}."},{"who":"Your roommate","t":"Thanks! I have to do my homework.","tr":"Merci ! Je dois faire mes devoirs."},{"options":["No problem. But you do the dishes!","No problem. But you make the dishes!"],"answer":0,"why":"La vaisselle : {{do the dishes}}."},{"who":"Your roommate","t":"Deal!","tr":"Marché conclu !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ça me rend heureux.","words":["It","makes","me","happy."]},
+        {"type":"free","q":"À vous : dites trois choses que vous faites à la maison chaque semaine, avec {{make}} ou {{do}}.","answers":[{"t":"I do the laundry on Saturdays, I make breakfast every day and I do yoga on Mondays.","tr":"Je fais la lessive le samedi, je prépare le petit-déjeuner tous les jours et je fais du yoga le lundi."},{"t":"I make dinner every night. My husband does the dishes. On Sundays, we do the shopping.","tr":"Je fais le dîner tous les soirs. Mon mari fait la vaisselle. Le dimanche, nous faisons les courses."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people-and-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Parler des gens sans répéter leur nom",
+      "summary": "Dire « je l'aime », « appelle-moi », « je leur ai écrit » : {{me, him, her, it, us, them}}, qui se placent après le verbe.",
+      "topic": "les pronoms compléments {{me, you, him, her, it, us, them}} ; après le verbe et après une préposition ; {{it}} obligatoire ({{I like it}})",
+      "blocks": [
+        {"goal":{"t":"I called her, but she didn't answer me.","tr":"Je l'ai appelée, mais elle ne m'a pas répondu."}},
+        {"dialog":[{"who":"The clerk","t":"Do you like this jacket?","tr":"Cette veste vous plaît ?"},{"who":"You","t":"Yes, I love it! Can I try it on?","tr":"Oui, je l'adore ! Je peux l'essayer ?"},{"who":"The clerk","t":"Of course. And these shoes?","tr":"Bien sûr. Et ces chaussures ?"},{"who":"You","t":"I want them too!","tr":"Je les veux aussi !"},{"who":"The clerk","t":"Great. I can put them in a bag for you.","tr":"Parfait. Je vous les mets dans un sac."}]},
+        {"term":"complément d'objet","means":"la personne ou la chose sur laquelle porte l'action du verbe : j'aime **Marie** ; je **lui** parle."},
+        {"p":"**Me, him, her…** Pour ne pas répéter un nom, l'anglais a une série de pronoms compléments :"},
+        { "table": [
+          ["sujet","complément","exemple"],
+          ["{{I}}","{{me}}","{{Call me.}} « Appelle-moi. »"],
+          ["{{you}}","{{you}}","{{I love you.}} « Je t'aime. »"],
+          ["{{he}}","{{him}}","{{I know him.}} « Je le connais. »"],
+          ["{{she}}","{{her}}","{{I saw her.}} « Je l'ai vue. »"],
+          ["{{it}}","{{it}}","{{I like it.}} « Ça me plaît. »"],
+          ["{{we}}","{{us}}","{{Help us!}} « Aidez-nous ! »"],
+          ["{{they}}","{{them}}","{{I called them.}} « Je les ai appelés. »"]
+        ] },
+        {"p":"**Après le verbe.** C'est l'inverse du français : le pronom vient **après** le verbe. « Je l'aime » → {{I love her}}, mot à mot « j'aime elle ». « Il me parle » → {{He talks to me}}."},
+        {"p":"**« Le » ou « lui » : pareil.** L'anglais ne distingue pas « le » et « lui » : {{I see him}} « je le vois », {{I talk to him}} « je lui parle ». Après une préposition, toujours la forme complément : {{with me}}, {{for her}}, {{to them}}."},
+        {"p":"**N'oubliez pas it.** En français, on dit volontiers « J'aime bien », « Je connais », sans complément. En anglais, le verbe en a souvent besoin : {{Do you like the movie? — Yes, I like it.}}, jamais « Yes, I like »."},
+        { "ex": [
+          {"t":"Can you help me?","tr":"Tu peux m'aider ?"},
+          {"t":"I don't know her.","tr":"Je ne la connais pas."},
+          {"t":"We met them in Paris.","tr":"Nous les avons rencontrés à Paris."},
+          {"t":"Give it to me, please.","tr":"Donne-le-moi, s'il te plaît."},
+          {"t":"Come with us!","tr":"Viens avec nous !"},
+          {"t":"This cake? I made it myself.","tr":"Ce gâteau ? Je l'ai fait moi-même."}
+        ] },
+        {"tip":"Seul, et après {{than}}, l'anglais parlé emploie la forme complément : {{Who's there? — Me!}} « Qui est là ? — Moi ! », {{She's taller than me.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I her love.","right":"I love her.","tr":"Je l'aime.","why":"Le pronom complément se place après le verbe."},
+        {"wrong":"Do you like it? — Yes, I like.","right":"Do you like it? — Yes, I like it.","tr":"Ça te plaît ? — Oui, j'aime bien.","why":"{{like}} a besoin de son complément : {{it}}."},
+        {"wrong":"Can you help I?","right":"Can you help me?","tr":"Tu peux m'aider ?","why":"Après le verbe : la forme complément {{me}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Where's Paul? I can't see ___.","tr":"Où est Paul ? Je ne le vois pas.","options":["him","he","his"],"answer":0,"why":"Après le verbe : {{him}}.","from":"say-what-you-can-do"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My keys? I left ___ at home.","tr":"Mes clés ? Je les ai laissées à la maison.","options":["them","it","they"],"answer":0,"why":"Plusieurs choses, après le verbe : {{them}}.","from":"tell-about-your-weekend"},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je l'ai appelée hier.","words":["I","called","her","yesterday."]},
+        {"type":"choice","q":"On vous demande {{Do you like this song?}} Vous l'aimez. Vous répondez…","options":["{{Yes, I love it!}}","{{Yes, I love!}}","{{Yes, I it love!}}"],"answer":0,"why":"{{love}} a besoin de son complément, après le verbe."},
+        {"type":"dialogue","q":"Dans une boutique de chaussures. Choisissez vos réponses.","from":"ask-for-things","lines":[{"who":"The clerk","t":"Do you like these shoes?","tr":"Ces chaussures vous plaisent ?"},{"options":["Yes, I really like them. How much are they?","Yes, I really like. How much are they?"],"answer":0,"why":"{{like}} + complément : {{them}}."},{"who":"The clerk","t":"Ninety dollars.","tr":"Quatre-vingt-dix dollars."},{"options":["OK, I'd like them, please!","OK, I'd them like, please!"],"answer":0,"why":"Le pronom après le verbe."},{"who":"The clerk","t":"Great! Cash or card?","tr":"Parfait ! En espèces ou par carte ?"}]},
+        {"type":"say","q":"Votre ami demande si vous connaissez Paul. Dites : « Oui, je le connais bien. »","answer":"Yes, I know him well."},
+        {"type":"free","q":"À vous : répondez avec un pronom : {{Do you watch TV?}} {{Do you like vegetables?}} {{Did you see your friends this week?}}","answers":[{"t":"Yes, I watch it every evening. Yes, I love them. Yes, I saw them on Saturday.","tr":"Oui, je la regarde tous les soirs. Oui, je les adore. Oui, je les ai vus samedi."},{"t":"No, I never watch it. No, I don't like them. No, I didn't see them.","tr":"Non, je ne la regarde jamais. Non, je ne les aime pas. Non, je ne les ai pas vus."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Comparer et choisir",
+      "summary": "Dire qu'une chose est plus grande, moins chère, meilleure, et laquelle est la meilleure : {{-er}} ou {{more}}, {{than}}, et {{the -est}} ou {{the most}}.",
+      "topic": "le comparatif ({{bigger than}}, {{more expensive than}}) ; le superlatif ({{the biggest}}, {{the most expensive}}) ; {{good, better, best}}, {{bad, worse, worst}} ; {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"This hotel is more expensive, but it's better than the other one.","tr":"Cet hôtel est plus cher, mais il est meilleur que l'autre."}},
+        {"dialog":[{"who":"Paul","t":"Which hotel do you prefer?","tr":"Quel hôtel tu préfères ?"},{"who":"Léa","t":"The Harbor Inn is cheaper than the Bellevue.","tr":"Le Harbor Inn est moins cher que le Bellevue."},{"who":"Paul","t":"Yes, but the Bellevue is closer to the beach.","tr":"Oui, mais le Bellevue est plus près de la plage."},{"who":"Léa","t":"And the rooms are bigger. It's the best hotel in town!","tr":"Et les chambres sont plus grandes. C'est le meilleur hôtel de la ville !"},{"who":"Paul","t":"OK, let's book the Bellevue!","tr":"OK, on réserve le Bellevue !"}]},
+        {"term":"comparatif","means":"la forme qui compare deux choses : plus grand, moins cher, meilleur."},
+        {"term":"superlatif","means":"la forme qui désigne le premier ou le dernier d'un groupe : le plus grand, le meilleur."},
+        {"p":"**Plus … que : deux façons.** Les adjectifs courts (une syllabe, ou deux en {{-y}}) prennent {{-er}} : {{big}} → {{bigger}}, {{cheap}} → {{cheaper}}, {{easy}} → {{easier}}. Les longs prennent {{more}} devant : {{expensive}} → {{more expensive}}. « Que » se dit {{than}}."},
+        { "table": [
+          ["","adjectif court","adjectif long"],
+          ["adjectif","{{cheap}}","{{expensive}}"],
+          ["plus … que","{{cheaper than}}","{{more expensive than}}"],
+          ["le plus","{{the cheapest}}","{{the most expensive}}"]
+        ] },
+        {"p":"**Le plus : the -est, the most.** {{the cheapest}} « le moins cher », {{the most beautiful}} « le plus beau ». Le « de » qui suit se dit {{in}} pour un lieu : {{the best restaurant in town}} « le meilleur restaurant de la ville »."},
+        {"p":"**Les irréguliers** : {{good}} → {{better}} → {{the best}} ; {{bad}} → {{worse}} → {{the worst}} ; {{far}} → {{farther}} → {{the farthest}}."},
+        {"p":"**Moins, aussi.** {{less}} + adjectif veut dire « moins » ({{less expensive}}), mais on préfère souvent l'inverse : {{cheaper}}. « Aussi … que » se dit {{as … as}} : {{She's as tall as her mother.}} « Elle est aussi grande que sa mère. »"},
+        { "ex": [
+          {"t":"My brother is older than me.","tr":"Mon frère est plus âgé que moi."},
+          {"t":"Paris is bigger than Lyon.","tr":"Paris est plus grand que Lyon."},
+          {"t":"This book is more interesting than the movie.","tr":"Ce livre est plus intéressant que le film."},
+          {"t":"It's the best pizza in the world!","tr":"C'est la meilleure pizza du monde !"},
+          {"t":"Today is worse than yesterday.","tr":"Aujourd'hui, c'est pire qu'hier."},
+          {"t":"Tea isn't as strong as coffee.","tr":"Le thé n'est pas aussi fort que le café."}
+        ] },
+        {"tip":"Après {{than}}, à l'oral, on dit {{me}}, {{him}}, {{her}} : {{He's taller than me.}} (leçon 27). {{than I am}} est plus soutenu."}
+      ],
+      "mistakes": [
+        {"wrong":"more big","right":"bigger","tr":"plus grand","why":"Un adjectif court prend {{-er}}."},
+        {"wrong":"more better","right":"better","tr":"meilleur","why":"{{better}} est déjà un comparatif : pas de {{more}}."},
+        {"wrong":"She's taller that me.","right":"She's taller than me.","tr":"Elle est plus grande que moi.","why":"Le « que » d'une comparaison : {{than}}, pas {{that}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"The train is ___ than the plane.","tr":"Le train est moins cher que l'avion.","options":["cheaper","more cheap","cheapest"],"answer":0,"why":"Un adjectif court : {{-er}} + {{than}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"This is the ___ day of my life!","tr":"C'est le plus beau jour de ma vie !","options":["best","better","most good"],"answer":0,"why":"Le superlatif de {{good}} : {{the best}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My new job is ___ interesting than my old job.","tr":"Mon nouveau travail est plus intéressant que l'ancien.","options":["more","most","much"],"answer":0,"why":"Un adjectif long : {{more}} + {{than}}."},
+        {"type":"choice","q":"{{Sophie is taller than Mark.}} Donc…","options":["Mark est plus petit que Sophie.","Mark est plus grand que Sophie.","Ils font la même taille."],"answer":0,"why":"Sophie est plus grande, donc Mark est plus petit."},
+        {"type":"dialogue","q":"Vous choisissez entre deux appartements. Choisissez vos réponses.","from":"describe-things","lines":[{"who":"The agent","t":"Which apartment do you prefer?","tr":"Quel appartement préférez-vous ?"},{"options":["The first one is bigger, but the second one is cheaper.","The first one is more big, but the second one is more cheap."],"answer":0,"why":"Adjectifs courts : {{-er}}."},{"who":"The agent","t":"And the neighborhood?","tr":"Et le quartier ?"},{"options":["The second one is in the best neighborhood in the city.","The second one is in the most good neighborhood in the city."],"answer":0,"why":"Le superlatif de {{good}} : {{the best}}."},{"who":"The agent","t":"Great choice!","tr":"Excellent choix !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Mon frère est plus âgé que moi.","words":["My brother","is","older","than","me."],"from":"talk-about-people-and-things"},
+        {"type":"free","q":"À vous : comparez deux villes, deux plats ou deux personnes que vous connaissez, puis dites lequel est le meilleur.","answers":[{"t":"New York is bigger than Boston, but Boston is quieter. For me, the best city is Paris!","tr":"New York est plus grand que Boston, mais Boston est plus calme. Pour moi, la meilleure ville, c'est Paris !"},{"t":"My sister cooks better than me. She makes the best chocolate cake in the world.","tr":"Ma sœur cuisine mieux que moi. Elle fait le meilleur gâteau au chocolat du monde."}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen",
+      "unit": 5,
+      "level": "A2",
+      "title": "Annoncer, promettre, prévoir",
+      "summary": "Promettre « Je t'appellerai », décider sur le moment « Je prends le saumon », prévoir « Il fera beau » : {{will}}, et la différence avec {{going to}}.",
+      "topic": "{{will}} / {{won't}} + verbe ; décisions sur le moment, promesses, prévisions ; {{going to}} ou {{will}} ; le présent continu pour un rendez-vous",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you tomorrow.","tr":"Ne t'inquiète pas, je t'appellerai demain."}},
+        {"dialog":[{"who":"The server","t":"Are you ready to order?","tr":"Vous avez choisi ?"},{"who":"You","t":"Hmm… I'll have the salmon, please.","tr":"Hmm… Je vais prendre le saumon, s'il vous plaît."},{"who":"Your friend","t":"And I'll have the steak.","tr":"Et moi, je prendrai le steak."},{"who":"The server","t":"Great. I'll bring your drinks right away.","tr":"Très bien. Je vous apporte vos boissons tout de suite."},{"who":"Your friend","t":"By the way, what are you doing tomorrow?","tr":"Au fait, tu fais quoi demain ?"},{"who":"You","t":"I'm meeting my boss at ten. It won't be fun!","tr":"J'ai rendez-vous avec mon patron à dix heures. Ça ne va pas être drôle !"}]},
+        {"p":"**Will : le futur.** {{will}} + la forme de base, pour toutes les personnes (c'est un modal, comme {{can}}, leçon 18) : {{I will call}}, souvent {{I'll call}} à l'oral. Le négatif : {{will not}} → {{won't}} : {{It won't take long.}} « Ça ne prendra pas longtemps. »"},
+        {"p":"**Trois usages de will.**"},
+        { "table": [
+          ["usage","exemple"],
+          ["une décision prise sur le moment","{{I'm thirsty. — I'll get you some water.}} « Je vais te chercher de l'eau. »"],
+          ["une promesse, une offre","{{I'll help you.}} « Je vais t'aider. » {{I won't tell anyone.}} « Je ne le dirai à personne. »"],
+          ["une prévision, un avis sur l'avenir","{{It will be sunny tomorrow.}} {{I think you'll love it.}}"]
+        ] },
+        {"p":"**Will ou going to ?** {{going to}} (leçon 20) : un projet décidé à l'avance. {{will}} : une décision prise à l'instant. {{I'm going to buy a car}} : j'y pense depuis longtemps. {{It's raining? I'll take an umbrella}} : je viens de le décider."},
+        {"p":"**Un rendez-vous : le présent continu.** Pour un projet fixé dans l'agenda, l'anglais emploie souvent le présent continu (leçon 17) : {{I'm meeting Tom tomorrow.}} « Je vois Tom demain. » {{We're leaving on Friday.}} « Nous partons vendredi. »"},
+        {"p":"**Pas le présent simple.** Le français dit volontiers « je t'appelle demain », au présent. En anglais, le présent simple ne sert pas à cela : {{I'll call you tomorrow.}}"},
+        { "ex": [
+          {"t":"I'll be there in five minutes.","tr":"J'arrive dans cinq minutes."},
+          {"t":"It will be cold tomorrow.","tr":"Il fera froid demain."},
+          {"t":"I won't forget, I promise.","tr":"Je n'oublierai pas, promis."},
+          {"t":"Will you marry me?","tr":"Tu veux m'épouser ?"},
+          {"t":"I think it will rain.","tr":"Je pense qu'il va pleuvoir."},
+          {"t":"We're having a party on Saturday.","tr":"Nous faisons une fête samedi."}
+        ] },
+        {"tip":"{{Shall I…?}} « Voulez-vous que je… ? » est surtout britannique. Les Américains disent plutôt {{Should I…?}} ou {{Do you want me to…?}} (leçon 36)."}
+      ],
+      "mistakes": [
+        {"wrong":"I call you tomorrow.","right":"I'll call you tomorrow.","tr":"Je t'appelle demain.","why":"Une promesse, une décision : {{will}}, pas le présent simple."},
+        {"wrong":"I will to go.","right":"I'll go.","tr":"J'irai.","why":"Après {{will}}, la forme de base, sans {{to}}."},
+        {"wrong":"It willn't rain.","right":"It won't rain.","tr":"Il ne pleuvra pas.","why":"Le négatif de {{will}} : {{won't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Don't worry, I ___ help you.","tr":"Ne t'inquiète pas, je vais t'aider.","options":["will","am","do"],"answer":0,"why":"Une promesse : {{will}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"It ___ be cold tomorrow.","tr":"Il ne fera pas froid demain.","options":["won't","doesn't","isn't"],"answer":0,"why":"Une prévision, au négatif : {{won't}}."},
+        {"type":"choice","q":"Le téléphone sonne. Vous dites : « J'y vais ! » (vous le décidez sur le moment)","options":["{{I'll get it!}}","{{I'm going to get it!}}","{{I get it!}}"],"answer":0,"why":"Une décision prise à l'instant : {{will}}."},
+        {"type":"choice","q":"« Je vois le médecin demain à 10 h. » (c'est dans votre agenda)","options":["{{I'm seeing the doctor tomorrow at ten.}}","{{I see the doctor tomorrow at ten.}}"],"answer":0,"why":"Un rendez-vous fixé : le présent continu.","from":"say-what-youre-doing-now"},
+        {"type":"dialogue","q":"Au restaurant. Choisissez vos répliques.","from":"talk-about-your-plans","lines":[{"who":"The server","t":"Are you ready to order?","tr":"Vous avez choisi ?"},{"options":["Yes, I'll have the chicken, please.","Yes, I have the chicken, please."],"answer":0,"why":"Une décision sur le moment : {{I'll have}}."},{"who":"The server","t":"Anything else?","tr":"Autre chose ?"},{"options":["No, thanks. We're going to see a movie after this.","No, thanks. We see a movie after this."],"answer":0,"why":"Un projet déjà décidé : {{going to}}."},{"who":"The server","t":"Great, I'll be right back.","tr":"Très bien, je reviens tout de suite."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je n'oublierai pas, promis.","words":["I","won't","forget,","I promise."]},
+        {"type":"free","q":"À vous : faites une promesse, une prévision pour demain, et dites ce que vous faites ce week-end (c'est déjà prévu).","answers":[{"t":"I'll call my mother tonight. I think it will rain tomorrow. On Saturday, I'm meeting my friends for lunch.","tr":"J'appellerai ma mère ce soir. Je pense qu'il pleuvra demain. Samedi, je déjeune avec mes amis."},{"t":"I won't eat chocolate this week, I promise! It will be sunny tomorrow. We're leaving for Boston on Sunday.","tr":"Je ne mangerai pas de chocolat cette semaine, promis ! Il fera beau demain. Nous partons pour Boston dimanche."}]}
+      ]
+    },
+    {
+      "id": "give-advice-and-rules",
+      "unit": 5,
+      "level": "A2",
+      "title": "Donner des conseils, des règles et des obligations",
+      "summary": "Dire « tu devrais voir un médecin », « je dois travailler », « il est interdit de fumer », « tu n'es pas obligé » : {{should}}, {{have to}}, {{must}}, et le piège {{mustn't}} / {{don't have to}}.",
+      "topic": "{{should}} (conseil) ; {{have to}} (obligation) ; {{must}} (règle) ; {{mustn't}} (interdit) ou {{don't have to}} (pas obligé)",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor. — I know, but I have to work tomorrow.","tr":"Tu devrais voir un médecin. — Je sais, mais je dois travailler demain."}},
+        {"dialog":[{"who":"The pharmacist","t":"What's the problem?","tr":"Qu'est-ce qui ne va pas ?"},{"who":"You","t":"I have a sore throat and a fever.","tr":"J'ai mal à la gorge et j'ai de la fièvre."},{"who":"The pharmacist","t":"You should rest and drink a lot of water.","tr":"Vous devriez vous reposer et boire beaucoup d'eau."},{"who":"You","t":"Do I have to see a doctor?","tr":"Je dois voir un médecin ?"},{"who":"The pharmacist","t":"If the fever doesn't go down, yes. And you must take these pills with food.","tr":"Si la fièvre ne baisse pas, oui. Et vous devez prendre ces comprimés en mangeant."}]},
+        {"p":"**Un conseil : should.** {{should}} + la forme de base, c'est « tu devrais » : {{You should rest.}} « Tu devrais te reposer. » Négatif : {{You shouldn't eat so much sugar.}} C'est un modal (leçon 18) : pas de {{-s}}, pas de {{to}}, pas de {{do}}."},
+        {"p":"**Une obligation : have to.** {{have to}} « devoir, être obligé de » : {{I have to work tomorrow.}} Comme {{have}} est un verbe ordinaire, il change ({{she has to}}), prend {{do}} ({{Do you have to work?}}) et a un passé ({{I had to leave}} « j'ai dû partir »)."},
+        {"p":"**Une règle : must.** {{must}} exprime une obligation forte, souvent écrite (règlements, consignes) : {{You must wear a seatbelt.}} « Vous devez attacher votre ceinture. » À l'oral, les Américains préfèrent {{have to}}."},
+        {"p":"**Le piège : mustn't n'est pas don't have to.** En français, « tu ne dois pas » veut dire « c'est interdit ». En anglais, {{you mustn't}} veut bien dire « c'est interdit », mais {{you don't have to}} veut dire « tu n'es pas obligé » : c'est permis, mais pas nécessaire."},
+        { "table": [
+          ["anglais","sens","français"],
+          ["{{You should go.}}","conseil","Tu devrais y aller."],
+          ["{{You have to go.}}","obligation","Tu dois y aller."],
+          ["{{You must go.}}","obligation forte, règle","Il faut absolument que tu y ailles."],
+          ["{{You mustn't go.}}","interdiction","Tu ne dois pas y aller : c'est interdit."],
+          ["{{You don't have to go.}}","pas nécessaire","Tu n'es pas obligé d'y aller."]
+        ] },
+        { "ex": [
+          {"t":"You should try this restaurant.","tr":"Tu devrais essayer ce restaurant."},
+          {"t":"I have to go now.","tr":"Il faut que j'y aille."},
+          {"t":"Does she have to work on Saturday?","tr":"Elle doit travailler samedi ?"},
+          {"t":"Passengers must show their tickets.","tr":"Les passagers doivent présenter leur billet."},
+          {"t":"You mustn't smoke here.","tr":"Il est interdit de fumer ici."},
+          {"t":"You don't have to come if you're tired.","tr":"Tu n'es pas obligé de venir si tu es fatigué."}
+        ] },
+        {"tip":"À l'oral américain, {{have to}} se dit souvent « hafta », et {{have got to}} devient {{gotta}} : {{I gotta go!}} « Faut que j'y aille ! » (leçon 48)."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Tu devrais te reposer.","why":"Après {{should}}, la forme de base, sans {{to}}."},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"Elle doit travailler.","why":"{{have to}} change avec {{she}} : {{has to}}."},
+        {"wrong":"You mustn't come, it's optional.","right":"You don't have to come, it's optional.","tr":"Tu n'es pas obligé de venir, c'est facultatif.","why":"« Pas obligé » : {{don't have to}}. {{mustn't}} voudrait dire que c'est interdit."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"You look tired. You ___ go to bed.","tr":"Tu as l'air fatigué. Tu devrais aller te coucher.","options":["should","have","must to"],"answer":0,"why":"Un conseil : {{should}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ to get up at six tomorrow.","tr":"Je dois me lever à six heures demain.","options":["have","should","must"],"answer":0,"why":"{{have to}} : le {{to}} est déjà dans la phrase."},
+        {"type":"choice","q":"Un panneau dit {{You must not park here.}} Ça veut dire…","options":["Il est interdit de se garer ici.","Vous n'êtes pas obligé de vous garer ici.","Vous devriez vous garer ici."],"answer":0,"why":"{{must not}} : c'est interdit."},
+        {"type":"choice","q":"« Tu n'es pas obligé de payer, c'est gratuit. »","options":["{{You don't have to pay, it's free.}}","{{You mustn't pay, it's free.}}"],"answer":0,"why":"« Pas obligé » : {{don't have to}}."},
+        {"type":"dialogue","q":"À la pharmacie. Choisissez vos répliques.","from":"say-your-age-and-how-you-feel","lines":[{"who":"The pharmacist","t":"Hi! What's wrong?","tr":"Bonjour ! Qu'est-ce qui ne va pas ?"},{"options":["I'm really tired and I have a headache.","I have really tired and I'm a headache."],"answer":0,"why":"Fatigué : {{be tired}} ; mal à la tête : {{have a headache}}."},{"who":"The pharmacist","t":"You should rest. Do you have to work today?","tr":"Vous devriez vous reposer. Vous devez travailler aujourd'hui ?"},{"options":["Yes, I do. I have to finish a project.","Yes, I have. I must to finish a project."],"answer":0,"why":"{{Do you have to…?}} appelle {{Yes, I do}}."},{"who":"The pharmacist","t":"Then take these, and drink a lot of water.","tr":"Alors prenez ceux-ci, et buvez beaucoup d'eau."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Elle doit travailler samedi ?","words":["Does","she","have to","work","on Saturday?"],"from":"ask-and-say-no-with-do"},
+        {"type":"free","q":"À vous : un ami arrive dans votre ville. Donnez-lui deux conseils, une règle à respecter et une chose qu'il n'est pas obligé de faire.","answers":[{"t":"You should visit the old town and you should try the local cheese. You must buy a ticket before you get on the bus. You don't have to tip in cafés here.","tr":"Tu devrais visiter la vieille ville et goûter le fromage du coin. Tu dois acheter un ticket avant de monter dans le bus. Tu n'es pas obligé de laisser un pourboire dans les cafés ici."},{"t":"You should rent a bike. You mustn't walk on the grass in the park. You don't have to bring a coat, it's warm!","tr":"Tu devrais louer un vélo. Il est interdit de marcher sur la pelouse du parc. Tu n'as pas besoin d'apporter un manteau, il fait chaud !"}]}
+      ]
     }
   ]
 }
