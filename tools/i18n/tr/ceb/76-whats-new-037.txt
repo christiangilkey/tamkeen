@@ -1,0 +1,4 @@
+47815188 Mga kurso sa Library: ang 1000 ka labing naandang pulong sa imong pinulongan, uban ang mga sentence ug natural nga audio
+27480e58 Usa ka kurso sa gramatika, gipasabot lakang por lakang
+85c31f3a I-scan ang mga pulong: kuhai og litrato ang lista sa bokabularyo o usa ka pulong ug idugang isip mga card
+eb2c270e Gikuha na ang Spotify karaoke sa browser extension

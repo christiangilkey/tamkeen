@@ -1,0 +1,4 @@
+47815188 Cursos na Biblioteca: as 1000 palavras mais comuns do seu idioma, com frases e áudio natural
+27480e58 Um curso de gramática, explicado passo a passo
+85c31f3a Escanear palavras: fotografe uma lista de vocabulário ou uma única palavra e adicione como cartões
+eb2c270e O karaokê do Spotify foi removido da extensão do navegador

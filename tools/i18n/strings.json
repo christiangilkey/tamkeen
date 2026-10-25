@@ -16260,6 +16260,26 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "47815188",
+  "k": "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "27480e58",
+  "k": "A grammar course, explained step by step",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "85c31f3a",
+  "k": "Scan words: photograph a vocab list or a single word and add it as cards",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "eb2c270e",
+  "k": "Spotify karaoke was removed from the browser extension",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "902ae4cc",
   "k": "Add words: type or paste many new words at once, with meanings, sentences and audio filled in for you",
   "f": "web/js/whatsnew.js"

@@ -1,0 +1,4 @@
+47815188 Cursos a la Biblioteca: les 1000 paraules més comunes de la teva llengua, amb frases i àudio natural
+27480e58 Un curs de gramàtica, explicat pas a pas
+85c31f3a Escaneja paraules: fotografia una llista de vocabulari o una sola paraula i afegeix-les com a targetes
+eb2c270e S'ha tret el karaoke de Spotify de l'extensió del navegador
