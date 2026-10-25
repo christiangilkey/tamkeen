@@ -1813,6 +1813,321 @@
         {"type":"say","q":"قل «يجب أن أستيقظ مبكّرًا غدًا».","answer":"I have to get up early tomorrow."},
         {"type":"free","q":"دورك: اكتب شيئين يجب أن تفعلهما هذا الأسبوع، وشيئًا لا يلزمك، وقاعدة ممنوعة في عملك أو بيتك.","answers":[{"t":"I have to finish a report and call the bank. I don't have to work on Friday. At home, the kids can't play on their phones after nine.","tr":"يجب أن أُنهي تقريرًا وأتّصل بالبنك. لا يلزمني العمل يوم الجمعة. وفي البيت لا يجوز للأولاد أن يلعبوا بهواتفهم بعد التاسعة."},{"t":"I have to go to the dentist and pay the rent. I don't have to cook this week because my mom is visiting. At work, we mustn't eat at our desks.","tr":"يجب أن أذهب إلى طبيب الأسنان وأدفع الإيجار. لا يلزمني الطبخ هذا الأسبوع لأن أمي تزورنا. وفي العمل ممنوع أن نأكل على مكاتبنا."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 8,
+      "level": "A2",
+      "title": "تحدَّث عن تجاربك",
+      "summary": "اسأل {{Have you ever been to New York?}} وأجب {{No, I've never been there.}}: المضارع التامّ لما عشته في حياتك، دون أن تقول متى.",
+      "topic": "المضارع التامّ: {{have}} أو {{has}} + التصريف الثالث؛ {{ever}} و{{never}}؛ {{been}} و{{gone}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"هل سبق أن زرت نيويورك؟ — لا، لم أزرها قطّ."}},
+        {"dialog":[{"who":"إميلي","t":"Have you ever tried American barbecue?","tr":"هل سبق أن جرّبت الشواء الأمريكي؟"},{"who":"عمر","t":"No, I haven't. Is it good?","tr":"لا، لم أجرّبه. هل هو لذيذ؟"},{"who":"إميلي","t":"It's amazing! Have you ever been to Texas?","tr":"رائع! هل سبق أن ذهبت إلى تكساس؟"},{"who":"عمر","t":"Yes, I have. I've been to Houston twice, for work.","tr":"نعم. ذهبت إلى هيوستن مرّتين، للعمل."},{"who":"إميلي","t":"And you've never had barbecue there?","tr":"ولم تأكل الشواء هناك قطّ؟"},{"who":"عمر","t":"Never! I've only eaten at hotel restaurants.","tr":"أبدًا! لم آكل إلا في مطاعم الفنادق."},{"who":"إميلي","t":"Then this weekend, we're going to fix that!","tr":"إذن سنصلح ذلك في عطلة هذا الأسبوع!"}]},
+        {"p":"**«سبق أن…».** في العربية تقول «سبق أن زرتُ لندن» أو «زرتُ لندن من قبل»، أي في حياتي، ولا يهمّ متى. وللإنجليزية زمن خاصّ لهذا المعنى: {{have}} (أو {{has}}) ثم الفعل في صورته الثالثة: {{I've been to London.}} «سبق أن زرت لندن»."},
+        {"term":"المضارع التامّ","means":"زمن يربط الماضي بالآن: لما حدث في وقت غير محدّد من حياتك، أو بدأ في الماضي ولم ينتهِ بعد. يُبنى بـ{{have}} أو {{has}} + التصريف الثالث: {{I've seen it.}} «سبق أن رأيته». ويُسمّى بالإنجليزية {{present perfect}}."},
+        {"term":"التصريف الثالث","means":"صورة من صور الفعل تأتي بعد {{have}} في المضارع التامّ، وبعد {{be}} في المبني للمجهول، وتُسمّى بالإنجليزية {{past participle}}. هي في الأفعال القياسية كالماضي ({{worked}})، وفي الشاذّة تُحفظ: {{see}} ← {{saw}} ← {{seen}}."},
+        { "table": [
+          ["الفعل","الماضي","التصريف الثالث"],
+          ["{{work}}","{{worked}}","{{worked}}"],
+          ["{{be}}","{{was}}، {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{have}}","{{had}}","{{had}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{take}}","{{took}}","{{taken}}"],
+          ["{{meet}}","{{met}}","{{met}}"],
+          ["{{try}}","{{tried}}","{{tried}}"]
+        ] },
+        {"p":"**{{ever}} و{{never}}.** {{Have you ever…?}} «هل سبق أن…؟» سؤال عن الحياة كلّها. وجوابه {{Yes, I have.}} أو {{No, I haven't.}}، أو {{No, I've never…}} «لم… قطّ»: {{I've never eaten sushi.}} «لم آكل السوشي قطّ». و{{never}} منفيّة بنفسها، فلا تقل {{I haven't never}}."},
+        { "table": [
+          ["","مثال"],
+          ["الخبر","{{I've visited Egypt.}} {{She's seen that movie.}}"],
+          ["النفي","{{I haven't seen it.}} {{I've never seen it.}}"],
+          ["السؤال","{{Have you ever seen it?}} {{Has he ever been there?}}"],
+          ["الجواب","{{Yes, I have. / No, I haven't.}}"]
+        ] },
+        {"p":"**{{been}} و{{gone}}.** {{I've been to Paris.}} «زرت باريس ورجعت». أما {{He's gone to Paris.}} فمعناها «ذهب إلى باريس، وهو هناك الآن». فعن تجاربك تقول {{been}}."},
+        {"p":"**بلا وقت.** المضارع التامّ للتجربة دون وقت محدّد. فإذا ذكرت متى ({{last year}}، {{in 2020}}) عدت إلى الماضي البسيط: {{I've been to Paris. I went there in 2020.}} وستعود إلى هذا الفرق بعد قليل."},
+        { "ex": [
+          {"t":"I've met a lot of interesting people.","tr":"تعرّفت إلى كثير من الناس المثيرين للاهتمام."},
+          {"t":"Have you ever seen snow? — No, never!","tr":"هل سبق أن رأيت الثلج؟ — لا، أبدًا!"},
+          {"t":"She's lived in three countries.","tr":"عاشت في ثلاثة بلدان."},
+          {"t":"We've never been to Asia.","tr":"لم نذهب إلى آسيا قطّ."},
+          {"t":"He has tried every restaurant on this street.","tr":"جرّب كل مطعم في هذا الشارع."},
+          {"t":"I haven't read that book, but I've seen the movie.","tr":"لم أقرأ ذلك الكتاب، لكني شاهدت الفيلم."}
+        ] },
+        {"tip":"{{I've}} = {{I have}}. و{{she's}} قد تكون {{she is}} أو {{she has}}: إذا جاء بعدها تصريف ثالث ({{She's been}}، {{She's seen}}) فهي {{has}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Have you ever went to London?","right":"Have you ever been to London?","tr":"هل سبق أن ذهبت إلى لندن؟","why":"بعد {{have}} التصريف الثالث لا الماضي؛ ومع التجربة تقول {{been to}}."},
+        {"wrong":"I have seen him yesterday.","right":"I saw him yesterday.","tr":"رأيته أمس.","why":"حين تذكر متى ({{yesterday}}) فالماضي البسيط، لا المضارع التامّ."},
+        {"wrong":"I haven't never tried it.","right":"I've never tried it.","tr":"لم أجرّبه قطّ.","why":"{{never}} منفيّة بنفسها: نفي واحد يكفي."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Have you ever ___ a camel?","tr":"هل سبق أن رأيت جملًا؟","options":["seen","saw","see"],"answer":0,"why":"بعد {{have}} التصريف الثالث: {{seen}}."},
+        {"type":"choice","q":"ما التصريف الثالث من {{eat}}؟","options":["{{eaten}}","{{ate}}","{{eated}}"],"answer":0,"why":"شاذّ: {{eat}} ← {{ate}} ← {{eaten}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My parents ___ never been to America.","tr":"والداي لم يزورا أمريكا قطّ.","options":["have","has","are"],"answer":0,"why":"{{my parents}} = {{they}}: {{have}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I ___ to Dubai last year.","tr":"ذهبت إلى دبي العام الماضي.","options":["went","have been","have gone"],"answer":0,"why":"ذكرت متى ({{last year}}): الماضي البسيط.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"زميلتك تسألك عن تجاربك: اختر ردودك.","lines":[{"who":"إميلي","t":"Have you ever been to a baseball game?","tr":"هل سبق أن حضرت مباراة بيسبول؟"},{"options":["No, I haven't. Is it fun?","No, I didn't. Is it fun?"],"answer":0,"why":"السؤال بـ{{Have}}، فالجواب {{I haven't}}."},{"who":"إميلي","t":"It's long, but fun! What about American football?","tr":"طويلة، لكنها ممتعة! وماذا عن كرة القدم الأمريكية؟"},{"options":["I've watched it on TV, but I've never been to a game.","I've watch it on TV, but I've never went to a game."],"answer":0,"why":"بعد {{have}} التصريف الثالث: {{watched}}، {{been}}."},{"who":"إميلي","t":"Let's go together sometime!","tr":"لنذهب معًا يومًا ما!"}]},
+        {"type":"say","q":"قل «لم آكل السوشي قطّ».","answer":"I've never eaten sushi."},
+        {"type":"free","q":"دورك: اكتب ثلاث جمل عن تجاربك: شيئًا فعلته، وشيئًا لم تفعله قطّ، وسؤالًا تسأل به صديقًا بـ{{Have you ever…?}}","answers":[{"t":"I've been to Turkey twice. I've never seen snow. Have you ever climbed a mountain?","tr":"زرت تركيا مرّتين. لم أرَ الثلج قطّ. هل سبق أن تسلّقت جبلًا؟"},{"t":"I've met a famous singer. I've never eaten Japanese food. Have you ever traveled alone?","tr":"تعرّفت إلى مغنٍّ مشهور. لم آكل الطعام الياباني قطّ. هل سبق أن سافرت وحدك؟"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 8,
+      "level": "A2",
+      "title": "قل منذ متى",
+      "summary": "قل «أسكن هنا منذ خمس سنوات» كما يقولها الأمريكيون: {{I've lived here for five years}}، لا {{I live here since}}.",
+      "topic": "المضارع التامّ مع {{for}} و{{since}}؛ {{How long have you…?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Dallas for five years.","tr":"أسكن في دالاس منذ خمس سنوات."}},
+        {"dialog":[{"who":"جيسيكا","t":"How long have you lived in Dallas?","tr":"منذ متى تسكن في دالاس؟"},{"who":"عمر","t":"For five years. Since 2021.","tr":"منذ خمس سنوات، منذ ٢٠٢١."},{"who":"جيسيكا","t":"And how long have you worked at the hospital?","tr":"ومنذ متى تعمل في المستشفى؟"},{"who":"عمر","t":"Since I came here. I've been a nurse for twelve years.","tr":"منذ جئت إلى هنا. أنا ممرّض منذ اثني عشر عامًا."},{"who":"جيسيكا","t":"Wow. And your wife?","tr":"واو. وزوجتك؟"},{"who":"عمر","t":"She's been a teacher since last year. Before that, she stayed home with the kids.","tr":"هي معلّمة منذ العام الماضي. وقبل ذلك بقيت في البيت مع الأولاد."}]},
+        {"p":"**«منذ» مع المضارع في العربية، ومع المضارع التامّ في الإنجليزية.** تقول العربية «أسكن هنا منذ خمس سنوات» بالمضارع، لأني ما زلت أسكن. أما الإنجليزية فتقول {{I've lived here for five years.}}: المضارع التامّ، لأن الأمر بدأ في الماضي وما زال مستمرًّا الآن. وهذا من أكثر الأخطاء شيوعًا عند المتعلّمين العرب: {{I live here since five years}}."},
+        { "table": [
+          ["العربية","الإنجليزية"],
+          ["أسكن هنا منذ خمس سنوات.","{{I've lived here for five years.}}"],
+          ["أعرفه منذ الطفولة.","{{I've known him since childhood.}}"],
+          ["هو مريض منذ أسبوع.","{{He's been sick for a week.}}"]
+        ] },
+        {"p":"**{{for}} أم {{since}}؟** لـ«منذ» العربية في الإنجليزية كلمتان: {{for}} مع المدّة (كم من الوقت)، و{{since}} مع نقطة البداية (متى بدأ):"},
+        { "table": [
+          ["{{for}} + المدّة","{{since}} + البداية"],
+          ["{{for ten minutes}}","{{since nine o'clock}}"],
+          ["{{for three years}}","{{since 2019}}"],
+          ["{{for a long time}}","{{since Monday}}"],
+          ["{{for two weeks}}","{{since I was a child}}"]
+        ] },
+        {"p":"**{{How long…?}} «منذ متى؟»** {{How long have you lived here?}} «منذ متى تسكن هنا؟»، {{How long has she been a doctor?}} «منذ متى وهي طبيبة؟». ومع {{be}}: {{I've been}}، {{she's been}}: {{I've been here since eight.}} «أنا هنا منذ الثامنة»."},
+        {"p":"**وإذا انتهى الأمر؟** فالماضي البسيط مع {{for}}: {{I lived in Cairo for two years.}} «سكنت في القاهرة سنتين»، أي لم أعد أسكن فيها. قارن: {{I've lived in Cairo for two years.}} «أسكن في القاهرة منذ سنتين» (وما زلت)."},
+        { "ex": [
+          {"t":"I've known Sara for ten years.","tr":"أعرف سارة منذ عشر سنوات."},
+          {"t":"We've been married since 2015.","tr":"نحن متزوّجان منذ ٢٠١٥."},
+          {"t":"How long have you studied English?","tr":"منذ متى تدرس الإنجليزية؟"},
+          {"t":"She's worked here since January.","tr":"تعمل هنا منذ يناير."},
+          {"t":"I haven't seen him for a long time.","tr":"لم أره منذ وقت طويل."},
+          {"t":"It's been cold since Monday.","tr":"الجوّ بارد منذ الاثنين."}
+        ] },
+        {"tip":"مع أفعال العمل مثل {{work}} و{{live}} و{{study}} قد تسمع أيضًا {{I've been working here for two years}} بالمعنى نفسه تقريبًا. أما أفعال الحال مثل {{know}} و{{be}} فلا تأتي إلا هكذا: {{I've known him}}، {{I've been here}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since five years.","right":"I've lived here for five years.","tr":"أسكن هنا منذ خمس سنوات.","why":"ما بدأ في الماضي وما زال: المضارع التامّ، ومع المدّة {{for}}."},
+        {"wrong":"I've worked here since two years.","right":"I've worked here for two years.","tr":"أعمل هنا منذ سنتين.","why":"{{since}} لنقطة البداية ({{since 2024}})، و{{for}} للمدّة ({{for two years}})."},
+        {"wrong":"I know him since we were kids.","right":"I've known him since we were kids.","tr":"أعرفه منذ كنّا صغارًا.","why":"مع {{since}} المضارع التامّ: {{I've known}}؛ والتصريف الثالث من {{know}} هو {{known}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I've had this car ___ 2018.","tr":"عندي هذه السيارة منذ ٢٠١٨.","options":["since","for","from"],"answer":0,"why":"٢٠١٨ نقطة بداية: {{since}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We've been here ___ two hours!","tr":"نحن هنا منذ ساعتين!","options":["for","since","from"],"answer":0,"why":"ساعتان مدّة: {{for}}."},
+        {"type":"choice","q":"«أعرفها منذ زمن طويل» بالإنجليزية…","options":["{{I've known her for a long time.}}","{{I know her since a long time.}}","{{I knew her for a long time.}}"],"answer":0,"why":"ما زلت أعرفها: المضارع التامّ، ومع المدّة {{for}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"منذ متى تعمل هنا؟","words":["How","long","have","you","worked","here?"]},
+        {"type":"dialogue","q":"في مقابلة عمل: اختر ردودك.","lines":[{"who":"المدير","t":"How long have you been a programmer?","tr":"منذ متى وأنت مبرمج؟"},{"options":["I've been a programmer for six years.","I'm a programmer since six years."],"answer":0,"why":"المضارع التامّ مع {{for}} والمدّة."},{"who":"المدير","t":"And how long have you worked at your current company?","tr":"ومنذ متى تعمل في شركتك الحالية؟"},{"options":["Since 2022. Before that, I worked in Amman for two years.","For 2022. Before that, I've worked in Amman since two years."],"answer":0,"why":"٢٠٢٢ بداية: {{since}}؛ وما انتهى (العمل في عمّان) بالماضي البسيط مع {{for}}."},{"who":"المدير","t":"Great. Why do you want to leave?","tr":"ممتاز. لماذا تريد أن تترك عملك؟"},{"options":["I want more experience with big projects.","I'm wanting more experience with big projects."],"answer":0,"why":"{{want}} حال، فلا تأتي بـ{{-ing}}."}],"from":"say-what-is-happening"},
+        {"type":"say","q":"قل «نحن متزوّجان منذ ٢٠١٥».","answer":"We've been married since 2015."},
+        {"type":"free","q":"دورك: اكتب ثلاث جمل عن نفسك بـ{{for}} أو {{since}}: منذ متى تسكن في مدينتك، ومنذ متى تعمل أو تدرس، ومنذ متى تعرف أعزّ أصدقائك.","answers":[{"t":"I've lived in Jeddah since 2010. I've worked at the bank for eight years. I've known my best friend since high school.","tr":"أسكن في جدّة منذ ٢٠١٠. أعمل في البنك منذ ثماني سنوات. أعرف أعزّ أصدقائي منذ المدرسة الثانوية."},{"t":"I've lived in Michigan for three years. I've studied English since last year, and I've known my friend Ali for twenty years.","tr":"أسكن في ميشيغان منذ ثلاث سنوات. أدرس الإنجليزية منذ العام الماضي، وأعرف صديقي عليًّا منذ عشرين عامًا."}]}
+      ]
+    },
+    {
+      "id": "share-news",
+      "unit": 8,
+      "level": "A2",
+      "title": "أخبِر بالجديد",
+      "summary": "قل «انتهيت للتوّ!» و«هل تعشّيت بعد؟»: {{just}} و{{already}} و{{yet}} مع المضارع التامّ، وكيف يقولها الأمريكيون بالماضي أيضًا.",
+      "topic": "المضارع التامّ للأخبار: {{just, already, yet}}؛ {{I just…}} بالماضي البسيط في الإنجليزية الأمريكية",
+      "blocks": [
+        {"goal":{"t":"I've just finished work! Have you had dinner yet?","tr":"انتهيت من العمل للتوّ! هل تعشّيت بعد؟"}},
+        {"dialog":[{"who":"لينا","t":"Guess what? I've just passed my driving test!","tr":"احزري ماذا؟ نجحت للتوّ في امتحان القيادة!"},{"who":"سارة","t":"No way! Congratulations! Have you told your parents yet?","tr":"مستحيل! مبروك! هل أخبرتِ والديكِ بعد؟"},{"who":"لينا","t":"Not yet. You're the first one!","tr":"ليس بعد. أنتِ أوّل من أخبرت!"},{"who":"سارة","t":"Have you bought a car?","tr":"هل اشتريتِ سيارة؟"},{"who":"لينا","t":"Yes! I've already found one. It's small and red.","tr":"نعم! وجدت واحدة بالفعل. صغيرة وحمراء."},{"who":"سارة","t":"Amazing. You have to drive me to work tomorrow!","tr":"رائع. يجب أن توصليني إلى العمل غدًا!"}]},
+        {"p":"**الخبر الجديد.** حين تُخبر بشيء حدث للتوّ ونتيجته ظاهرة الآن، تستعمل الإنجليزية المضارع التامّ: {{I've lost my keys!}} «أضعت مفاتيحي!» (وما زلت لا أجدها)، {{She's had a baby!}} «رُزقت بمولود!». ومع هذا الخبر ثلاث كلمات مهمّة:"},
+        { "table": [
+          ["الكلمة","المعنى","مكانها","مثال"],
+          ["{{just}}","للتوّ، منذ لحظات","بين {{have}} والفعل","{{I've just arrived.}}"],
+          ["{{already}}","بالفعل، من قبل (أبكر مما يُتوقّع)","بين {{have}} والفعل","{{I've already eaten.}}"],
+          ["{{yet}}","بعدُ (في السؤال)، حتى الآن (في النفي)","آخر الجملة","{{Have you finished yet?}} {{I haven't finished yet.}}"]
+        ] },
+        {"p":"**{{yet}} في السؤال والنفي وحدهما.** {{Have you eaten yet?}} «هل أكلت بعد؟»، {{Not yet.}} «ليس بعد»، {{He hasn't called yet.}} «لم يتّصل حتى الآن». وهي تقابل «بعدُ» العربية في «لم يصل بعدُ»."},
+        {"p":"**وماذا يقول الأمريكيون؟** في الإنجليزية الأمريكية يُقال كثيرًا الماضي البسيط مع هذه الكلمات، والمعنى واحد: {{I just got here.}} «وصلت للتوّ»، {{Did you eat yet?}} «هل أكلت بعد؟»، {{I already did it.}} «فعلته بالفعل». فإذا سمعته فهو صحيح؛ والصيغتان مقبولتان."},
+        { "table": [
+          ["المضارع التامّ","الماضي البسيط (شائع في أمريكا)"],
+          ["{{I've just arrived.}}","{{I just arrived.}}"],
+          ["{{Have you eaten yet?}}","{{Did you eat yet?}}"],
+          ["{{I've already seen it.}}","{{I already saw it.}}"]
+        ] },
+        { "ex": [
+          {"t":"I've just sent you the email.","tr":"أرسلت إليك الرسالة للتوّ."},
+          {"t":"Oh no, I've lost my wallet!","tr":"يا للمصيبة، أضعت محفظتي!"},
+          {"t":"We've already booked the hotel.","tr":"حجزنا الفندق بالفعل."},
+          {"t":"Has the package arrived yet? — No, not yet.","tr":"هل وصل الطرد بعد؟ — لا، ليس بعد."},
+          {"t":"She hasn't decided yet.","tr":"لم تقرّر حتى الآن."},
+          {"t":"I just got your message.","tr":"وصلتني رسالتك للتوّ.","note":"الماضي البسيط مع {{just}}: شائع في أمريكا"}
+        ] },
+        {"tip":"إذا أردت أن تقول متى حدث الخبر بالضبط، فعد إلى الماضي البسيط: {{I've lost my keys. I lost them this morning at the gym.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I've finished yet.","right":"I've already finished.","tr":"انتهيت بالفعل.","why":"{{yet}} للسؤال والنفي وحدهما؛ وفي الخبر المثبت {{already}}."},
+        {"wrong":"He hasn't came yet.","right":"He hasn't come yet.","tr":"لم يأتِ بعد.","why":"بعد {{have}} التصريف الثالث: {{come}} ← {{came}} ← {{come}}."},
+        {"wrong":"I have just arrive.","right":"I've just arrived.","tr":"وصلت للتوّ.","why":"بعد {{have}} التصريف الثالث: {{arrived}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Have you finished your homework ___?","tr":"هل أنهيت واجبك بعد؟","options":["yet","already","just"],"answer":0,"why":"في السؤال، في آخر الجملة: {{yet}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I've ___ had lunch, thanks. I'm not hungry.","tr":"تغدّيت بالفعل، شكرًا. لست جائعًا.","options":["already","yet","ever"],"answer":0,"why":"في الخبر المثبت: {{already}}."},
+        {"type":"choice","q":"أيّ جملتين معناهما واحد في الإنجليزية الأمريكية؟","options":["{{I've just eaten.}} و{{I just ate.}}","{{I've just eaten.}} و{{I'm just eating.}}"],"answer":0,"why":"يقول الأمريكيون الماضي البسيط مع {{just}} بالمعنى نفسه؛ أما {{I'm eating}} فمعناها «آكل الآن»."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She ___ called me yet.","tr":"لم تتّصل بي حتى الآن.","options":["hasn't","haven't","didn't"],"answer":0,"why":"مع {{she}}: {{hasn't}}.","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"زميلك يسألك عن العمل: اختر ردودك.","lines":[{"who":"زميلك","t":"Have you sent the report to the boss yet?","tr":"هل أرسلت التقرير إلى المدير بعد؟"},{"options":["Yes, I've just sent it.","Yes, I've just send it."],"answer":0,"why":"بعد {{have}} التصريف الثالث: {{sent}}."},{"who":"زميلك","t":"Great. And have you called the client?","tr":"ممتاز. وهل اتّصلت بالعميل؟"},{"options":["Not yet. I'll call him after lunch.","Not already. I call him after lunch."],"answer":0,"why":"{{Not yet}} «ليس بعد»، ثم قرار للمستقبل: {{I'll call}}."},{"who":"زميلك","t":"Perfect, thanks.","tr":"ممتاز، شكرًا."}],"from":"promise-offer-predict"},
+        {"type":"say","q":"قل «أضعت مفاتيحي!»","answer":"I've lost my keys!"},
+        {"type":"free","q":"دورك: اكتب رسالة قصيرة إلى صديق: خبر جديد بـ{{just}}، وشيء فعلته بـ{{already}}، وشيء لم تفعله بعد بـ{{yet}}.","answers":[{"t":"I've just moved into my new apartment! I've already unpacked the kitchen, but I haven't bought a sofa yet.","tr":"انتقلت للتوّ إلى شقّتي الجديدة! رتّبت المطبخ بالفعل، لكني لم أشترِ أريكة بعد."},{"t":"Big news: I just got a new job! I've already told my family, but I haven't told my boss yet.","tr":"خبر كبير: حصلت للتوّ على عمل جديد! أخبرت عائلتي بالفعل، لكني لم أخبر مديري بعد."}]}
+      ]
+    },
+    {
+      "id": "when-it-happened",
+      "unit": 8,
+      "level": "A2",
+      "title": "الماضي أم المضارع التامّ؟",
+      "summary": "قل «زرت باريس من قبل، ذهبت إليها عام ٢٠١٩»: متى تقول {{I've been}} ومتى تقول {{I went}}، وأيّ الكلمات تدلّك على الزمن الصحيح.",
+      "topic": "الماضي البسيط والمضارع التامّ: وقت محدّد منتهٍ، أو الحياة حتى الآن",
+      "blocks": [
+        {"goal":{"t":"I've been to Paris. I went there in 2019.","tr":"زرت باريس من قبل. ذهبت إليها عام ٢٠١٩."}},
+        {"dialog":[{"who":"مايك","t":"Have you ever lived abroad?","tr":"هل سبق أن عشت خارج بلدك؟"},{"who":"لينا","t":"Yes, I have. I lived in France for two years.","tr":"نعم. عشت في فرنسا سنتين."},{"who":"مايك","t":"When did you live there?","tr":"متى عشت هناك؟"},{"who":"لينا","t":"From 2016 to 2018. I studied at a university in Lyon.","tr":"من ٢٠١٦ إلى ٢٠١٨. درست في جامعة في ليون."},{"who":"مايك","t":"Have you been back since then?","tr":"هل رجعت إليها منذ ذلك الحين؟"},{"who":"لينا","t":"Yes, I've visited twice. I went last summer, actually.","tr":"نعم، زرتها مرّتين. ذهبت الصيف الماضي في الواقع."}]},
+        {"p":"**سؤال يحسم الأمر.** «زرتُ» العربية تصلح للمعنيين. أما الإنجليزية فتختار بين زمنين، فاسأل نفسك: هل أذكر متى حدث، أو هل انتهى الوقت الذي حدث فيه؟ إن كان الجواب نعم، فالماضي البسيط. وإن كنت أتكلّم عن حياتي حتى الآن، أو عن شيء ما زال مستمرًّا، أو عن خبر نتيجته ظاهرة الآن، فالمضارع التامّ."},
+        { "table": [
+          ["الماضي البسيط","المضارع التامّ"],
+          ["وقت محدّد منتهٍ: {{I went to Paris in 2019.}}","الحياة حتى الآن، بلا وقت: {{I've been to Paris.}}"],
+          ["شيء انتهى: {{I lived in France for two years.}} (لم أعد هناك)","شيء ما زال: {{I've lived here for two years.}} (وما زلت)"],
+          ["سرد قصّة: {{First we went…, then we saw…}}","خبر جديد: {{I've lost my keys!}}"]
+        ] },
+        {"p":"**كلمات تدلّك.**"},
+        { "table": [
+          ["مع الماضي البسيط","مع المضارع التامّ"],
+          ["{{yesterday}}، {{last week}}، {{in 2019}}، {{two days ago}}، {{when I was a child}}","{{ever}}، {{never}}، {{just}}، {{already}}، {{yet}}، {{since}}، {{so far}}"],
+          ["{{When…?}} (السؤال عن الوقت)","{{How long…?}} (منذ متى)، {{How many times…?}}"]
+        ] },
+        {"p":"**المحادثة تنتقل بينهما.** يبدأ الكلام غالبًا بالمضارع التامّ ليفتح الموضوع ({{Have you ever been to Egypt?}})، ثم ينتقل إلى الماضي البسيط حين تأتي التفاصيل: متى، وأين، وماذا حدث ({{Yes! I went in 2022. We saw the pyramids.}})."},
+        {"p":"**{{today}} و{{this week}}.** مع زمن لم ينتهِ بعد يصلح المضارع التامّ: {{I've had three coffees today.}} «شربت ثلاثة فناجين اليوم»، واليوم لم ينتهِ. أما {{this morning}} وأنت في المساء فقد انتهى: {{I had coffee this morning.}}"},
+        { "ex": [
+          {"t":"I've seen this movie. I saw it last week.","tr":"شاهدت هذا الفيلم. شاهدته الأسبوع الماضي."},
+          {"t":"When did you arrive? — I arrived an hour ago.","tr":"متى وصلت؟ — وصلت قبل ساعة."},
+          {"t":"How many countries have you visited?","tr":"كم بلدًا زرت؟"},
+          {"t":"My grandfather worked in Kuwait for thirty years.","tr":"عمل جدّي في الكويت ثلاثين عامًا.","note":"انتهى: لم يعد يعمل هناك"},
+          {"t":"I've worked here for three years.","tr":"أعمل هنا منذ ثلاث سنوات.","note":"ما زال يعمل هنا"},
+          {"t":"We've had a lot of rain this week.","tr":"أمطرت كثيرًا هذا الأسبوع."}
+        ] },
+        {"tip":"إذا تردّدت فانظر: هل في الجملة وقت منتهٍ؟ {{yesterday}} و{{ago}} و{{last}} و{{in}} مع سنة ماضية لا تأتي أبدًا مع المضارع التامّ."}
+      ],
+      "mistakes": [
+        {"wrong":"I have visited Egypt in 2022.","right":"I visited Egypt in 2022.","tr":"زرت مصر عام ٢٠٢٢.","why":"مع وقت محدّد منتهٍ ({{in 2022}}): الماضي البسيط."},
+        {"wrong":"When have you arrived?","right":"When did you arrive?","tr":"متى وصلت؟","why":"{{When}} سؤال عن وقت محدّد، فالماضي البسيط."},
+        {"wrong":"I work here since 2020.","right":"I've worked here since 2020.","tr":"أعمل هنا منذ ٢٠٢٠.","why":"ما بدأ في الماضي ولم ينتهِ، مع {{since}}: المضارع التامّ."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I ___ my wallet yesterday, but I found it this morning.","tr":"أضعت محفظتي أمس، لكني وجدتها هذا الصباح.","options":["lost","have lost"],"answer":0,"why":"{{yesterday}} وقت منتهٍ: الماضي البسيط."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ you ever eaten Indian food?","tr":"هل سبق أن أكلت طعامًا هنديًّا؟","options":["Have","Did","Do"],"answer":0,"why":"{{ever}} والحياة حتى الآن: المضارع التامّ."},
+        {"type":"choice","q":"جدّك عمل في السعودية عشرين عامًا، وهو الآن متقاعد. تقول…","options":["{{He worked in Saudi Arabia for twenty years.}}","{{He has worked in Saudi Arabia for twenty years.}}"],"answer":0,"why":"انتهى العمل: الماضي البسيط مع {{for}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We've lived in this house ___ my son was born.","tr":"نسكن في هذا البيت منذ وُلد ابني.","options":["since","for","ago"],"answer":0,"why":"نقطة البداية: {{since}}.","from":"say-how-long"},
+        {"type":"dialogue","q":"صديق يسألك عن السفر: اختر ردودك.","lines":[{"who":"صديقك","t":"Have you ever been to Morocco?","tr":"هل سبق أن زرت المغرب؟"},{"options":["Yes, I have. I went there three years ago.","Yes, I have. I've been there three years ago."],"answer":0,"why":"تفتح بالمضارع التامّ، ثم {{ago}} وقت منتهٍ: الماضي البسيط."},{"who":"صديقك","t":"Cool! What did you do there?","tr":"رائع! ماذا فعلت هناك؟"},{"options":["We visited Fez and stayed in an old riad.","We have visited Fez and have stayed in an old riad."],"answer":0,"why":"تفاصيل الرحلة المنتهية: الماضي البسيط."},{"who":"صديقك","t":"Have you been back since then?","tr":"هل رجعت إليه منذ ذلك الحين؟"},{"options":["No, not yet. But I'd love to go again.","No, not yet. But I'd love to went again."],"answer":0,"why":"بعد {{to}} الفعل في صورته الأصلية."}],"from":"talk-about-experiences"},
+        {"type":"say","q":"اسأل صديقك: «متى وصلت؟»","answer":"When did you arrive?"},
+        {"type":"free","q":"دورك: اكتب عن مكان زرته: افتح بالمضارع التامّ ({{I've been to…}})، ثم أعطِ تفصيلين بالماضي البسيط: متى ذهبت، وماذا فعلت.","answers":[{"t":"I've been to Istanbul twice. The first time, I went with my parents in 2015. We took a boat on the Bosphorus.","tr":"زرت إسطنبول مرّتين. في المرة الأولى ذهبت مع والديّ عام ٢٠١٥، وركبنا قاربًا في البوسفور."},{"t":"I've been to New York. I went last December, and it was very cold. I saw the big Christmas tree at Rockefeller Center.","tr":"زرت نيويورك. ذهبت في ديسمبر الماضي، وكان الجوّ باردًا جدًّا. رأيت شجرة عيد الميلاد الكبيرة في مركز روكفلر."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-used-to-be",
+      "unit": 8,
+      "level": "B1",
+      "title": "تحدَّث عمّا كان",
+      "summary": "قل «كنت ألعب كرة القدم كل يوم» و«لم تكن عندنا هواتف»: {{used to}} لعادات الماضي وأحواله التي تغيّرت.",
+      "topic": "{{used to}} + الفعل في صورته الأصلية؛ {{didn't use to}}؛ {{Did you use to…?}}؛ ثلاث ترجمات لـ«كنتُ أفعل»",
+      "blocks": [
+        {"goal":{"t":"I used to play soccer every day, but now I don't have time.","tr":"كنت ألعب كرة القدم كل يوم، أما الآن فلا وقت عندي."}},
+        {"dialog":[{"who":"مايا","t":"Dad, did you have a phone when you were a kid?","tr":"يا أبي، هل كان عندك هاتف حين كنت صغيرًا؟"},{"who":"عمر","t":"No! We didn't use to have phones. We used to play outside all day.","tr":"لا! لم تكن عندنا هواتف. كنّا نلعب في الخارج طوال اليوم."},{"who":"مايا","t":"What did you use to play?","tr":"ماذا كنتم تلعبون؟"},{"who":"عمر","t":"Soccer, mostly. And my grandmother used to tell us stories every night.","tr":"كرة القدم غالبًا. وكانت جدّتي تحكي لنا القصص كل ليلة."},{"who":"مايا","t":"That sounds nice. Did you use to watch TV?","tr":"يبدو ذلك جميلًا. هل كنتم تشاهدون التلفاز؟"},{"who":"عمر","t":"There was only one channel! It used to start at four in the afternoon.","tr":"كانت هناك قناة واحدة فقط! وكان البثّ يبدأ في الرابعة بعد الظهر."}]},
+        {"p":"**«كنتُ أفعل» للعادة.** في العربية تقول «كنتُ ألعب كرة القدم كل يوم» لعادة في الماضي لم تعد. والإنجليزية تقول {{I used to play soccer every day.}}: {{used to}} ثم الفعل في صورته الأصلية، مع كل فاعل. ومعناها أن الأمر كان يتكرّر ثم تغيّر."},
+        {"p":"**وللأحوال أيضًا.** و{{used to}} للحال التي كانت ثم زالت: {{I used to be shy.}} «كنتُ خجولًا»، {{There used to be a cinema here.}} «كانت هنا سينما»، {{She used to live in Cairo.}} «كانت تسكن في القاهرة»."},
+        { "table": [
+          ["","مثال","المعنى"],
+          ["الخبر","{{I used to smoke.}}","كنتُ أدخّن (والآن لا)."],
+          ["النفي","{{I didn't use to like coffee.}}","لم أكن أحبّ القهوة (والآن أحبّها)."],
+          ["السؤال","{{Did you use to play sports?}}","هل كنتَ تمارس الرياضة؟"]
+        ] },
+        {"p":"**{{use}} بلا {{d}} بعد {{did}}.** كما تعلّمت، بعد {{did}} و{{didn't}} يعود الفعل إلى صورته الأصلية، فتُكتب {{use to}}: {{didn't use to}}، {{Did you use to…?}} وتُنطق كلّها «يوسْتو»، فلا تسمع الفرق."},
+        {"p":"**ثلاث ترجمات لـ«كنتُ أفعل».** لـ«كنتُ أفعل» العربية في الإنجليزية ثلاث ترجمات، بحسب المعنى:"},
+        { "table": [
+          ["المعنى","الإنجليزية","مثال"],
+          ["عادة تكرّرت ثم زالت","{{used to}} + الفعل","{{I used to walk to school.}} «كنت أمشي إلى المدرسة»"],
+          ["حدث كان يجري في لحظة معيّنة","الماضي المستمر","{{I was walking when it started to rain.}}"],
+          ["عادة في الماضي مع مدّة أو عدد","الماضي البسيط","{{I walked to school for six years.}}"]
+        ] },
+        { "ex": [
+          {"t":"I used to live in Amman, but now I live in Chicago.","tr":"كنت أسكن في عمّان، أما الآن فأسكن في شيكاغو."},
+          {"t":"My father used to work in a factory.","tr":"كان أبي يعمل في مصنع."},
+          {"t":"We didn't use to have a car.","tr":"لم تكن عندنا سيارة."},
+          {"t":"Did you use to play video games? — Yes, all the time!","tr":"هل كنت تلعب ألعاب الفيديو؟ — نعم، طوال الوقت!"},
+          {"t":"There used to be a bakery on this corner.","tr":"كان هنا عند الزاوية مخبز."},
+          {"t":"She used to hate vegetables. Now she's a vegetarian!","tr":"كانت تكره الخضار، والآن صارت نباتية!"}
+        ] },
+        {"tip":"{{used to}} للماضي وحده؛ ولعادات الحاضر المضارع البسيط مع {{usually}}: {{I usually walk to work.}} لا {{I use to walk}}. وتعبير {{I'm used to…}} «اعتدتُ…» شيء آخر: {{I'm used to the cold now.}} «اعتدت البرد الآن»."}
+      ],
+      "mistakes": [
+        {"wrong":"I was play soccer every day.","right":"I used to play soccer every day.","tr":"كنت ألعب كرة القدم كل يوم.","why":"«كنتُ أفعل» للعادة لا تُترجم بـ{{was}} + الفعل: قل {{used to}} + الفعل."},
+        {"wrong":"I use to drink tea in the morning.","right":"I usually drink tea in the morning.","tr":"أشرب الشاي صباحًا عادةً.","why":"{{used to}} للماضي وحده؛ ولعادة الحاضر المضارع البسيط مع {{usually}}."},
+        {"wrong":"Did you used to live here?","right":"Did you use to live here?","tr":"هل كنت تسكن هنا؟","why":"بعد {{did}} الفعل في صورته الأصلية: {{use to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"When I was a kid, I ___ to be afraid of dogs.","tr":"حين كنت صغيرًا، كنت أخاف من الكلاب.","options":["used","use","was used"],"answer":0,"why":"حال في الماضي زالت: {{used to}}."},
+        {"type":"choice","q":"«كنتُ أسكن في الرياض» (والآن لا). أيّها صحيح؟","options":["{{I used to live in Riyadh.}}","{{I was live in Riyadh.}}","{{I use to live in Riyadh.}}"],"answer":0,"why":"حال كانت ثم تغيّرت: {{used to}}، بـ{{d}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We didn't ___ to have a TV.","tr":"لم يكن عندنا تلفاز.","options":["use","used","using"],"answer":0,"why":"بعد {{didn't}}: {{use to}}.","from":"ask-what-happened"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"كان هنا مخبز.","words":["There","used","to","be","a","bakery","here."]},
+        {"type":"dialogue","q":"صديقك يرى صورة قديمة لك: اختر ردودك.","lines":[{"who":"صديقك","t":"Is this you? You look so different!","tr":"هل هذا أنت؟ تبدو مختلفًا جدًّا!"},{"options":["Yes! I used to have long hair.","Yes! I was have long hair."],"answer":0,"why":"حال كانت في الماضي: {{used to have}}."},{"who":"صديقك","t":"And you were so thin!","tr":"وكنت نحيفًا جدًّا!"},{"options":["I know. I used to run every morning. Now I'm too busy.","I know. I use to run every morning. Now I'm too busy."],"answer":0,"why":"للماضي {{used}} بـ{{d}}."},{"who":"صديقك","t":"Did you use to play basketball, too?","tr":"وهل كنت تلعب كرة السلّة أيضًا؟"},{"options":["No, I didn't. I was never very tall!","No, I didn't used. I was never very tall!"],"answer":0,"why":"الجواب المختصر: {{No, I didn't.}}"}],"from":"say-where-you-were"},
+        {"type":"say","q":"قل «كان أبي يعمل في مصنع».","answer":"My father used to work in a factory."},
+        {"type":"free","q":"دورك: قارن حياتك الآن بحياتك قبل عشر سنوات: ثلاث جمل بـ{{used to}} أو {{didn't use to}}.","answers":[{"t":"I used to live with my parents. I didn't use to cook, but now I cook every day. I used to be very shy.","tr":"كنت أسكن مع والديّ. لم أكن أطبخ، أما الآن فأطبخ كل يوم. وكنت خجولًا جدًّا."},{"t":"Ten years ago, I used to work in a bank. I used to wear a suit every day. I didn't use to have any free time!","tr":"قبل عشر سنوات كنت أعمل في بنك، وكنت ألبس بدلة كل يوم، ولم يكن عندي أيّ وقت فراغ!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-interests",
+      "unit": 8,
+      "level": "B1",
+      "title": "تحدَّث عن اهتماماتك وقراراتك",
+      "summary": "قل «أستمتع بالطبخ، وقرّرت أن أتعلّم الفرنسية»: بعض الأفعال يتبعها {{-ing}}، وبعضها {{to}}، والاختيار يتبع الفعل لا المعنى العربي.",
+      "topic": "الفعل + {{-ing}} ({{enjoy, finish, mind, stop}}) والفعل + {{to}} ({{want, decide, plan, hope}})؛ حرف الجرّ + {{-ing}}؛ {{look forward to}}",
+      "blocks": [
+        {"goal":{"t":"I enjoy cooking, and I've decided to learn French.","tr":"أستمتع بالطبخ، وقرّرت أن أتعلّم الفرنسية."}},
+        {"dialog":[{"who":"جيسيكا","t":"So, what do you like doing in your free time?","tr":"إذن، ماذا تحبّ أن تفعل في وقت فراغك؟"},{"who":"عمر","t":"I enjoy hiking, and I'm interested in photography. I want to buy a good camera.","tr":"أستمتع بالمشي في الطبيعة، وأهتمّ بالتصوير. أريد أن أشتري كاميرا جيدة."},{"who":"جيسيكا","t":"Nice! I'm thinking about taking a photography class.","tr":"جميل! أفكّر في أن آخذ دورة في التصوير."},{"who":"عمر","t":"You should! I'm planning to join one in the spring.","tr":"يجدر بك ذلك! أخطّط لأن أنضمّ إلى واحدة في الربيع."},{"who":"جيسيكا","t":"Let's take it together. I'd love to practice my Arabic, too!","tr":"لنأخذها معًا. وأودّ أن أتدرّب على عربيّتي أيضًا!"},{"who":"عمر","t":"Deal. I'm looking forward to seeing your photos!","tr":"اتّفقنا. أنا متشوّق لرؤية صورك!"}]},
+        {"p":"**فعلان متتاليان.** في العربية يأتي بعد الفعل غالبًا «أنْ» والمضارع، أو المصدر: «أريد أن أتعلّم»، «أستمتع بالطبخ». وللإنجليزية طريقتان: الفعل الثاني بـ{{to}} ({{I want to learn}})، أو بـ{{-ing}} ({{I enjoy cooking}}). والاختيار يتبع الفعل الأول لا المعنى، فاحفظ كل فعل مع صاحبه:"},
+        { "table": [
+          ["بعده {{-ing}}","بعده {{to}} + الفعل"],
+          ["{{enjoy}} يستمتع","{{want}} يريد"],
+          ["{{finish}} ينهي","{{decide}} يقرّر"],
+          ["{{mind}} يمانع","{{plan}} يخطّط"],
+          ["{{stop}} يتوقّف عن","{{hope}} يأمل"],
+          ["{{keep}} يواصل","{{need}} يحتاج"],
+          ["{{avoid}} يتجنّب","{{learn}} يتعلّم"],
+          ["{{miss}} يشتاق إلى","{{try}} يحاول"]
+        ] },
+        {"p":"أما {{like}} و{{love}} و{{hate}} و{{start}} فتقبل الطريقتين بمعنى متقارب: {{I like swimming}} و{{I like to swim}}."},
+        {"p":"**بعد حرف الجرّ: {{-ing}} دائمًا.** إذا جاء الفعل بعد حرف جرّ ({{in, about, of, at, for}}) فهو بـ{{-ing}}: {{I'm interested in learning Spanish.}} «أهتمّ بتعلّم الإسبانية»، {{I'm thinking about moving.}} «أفكّر في الانتقال»، {{She's good at drawing.}} «هي بارعة في الرسم»."},
+        {"p":"**{{look forward to}}.** «يتشوّق إلى»: فيها {{to}}، لكنها هنا حرف جرّ لا علامة فعل، فبعدها {{-ing}}: {{I'm looking forward to seeing you.}} «أتشوّق لرؤيتك»، لا {{to see you}}. ويخطئ فيها حتى المتقدّمون."},
+        {"p":"**{{-ing}} مبتدأً.** وقد يكون الفعل بـ{{-ing}} موضوع الجملة، كالمصدر في العربية: {{Swimming is good for you.}} «السباحة مفيدة لك»، {{Learning English takes time.}} «تعلّم الإنجليزية يحتاج إلى وقت»."},
+        { "ex": [
+          {"t":"I enjoy reading before bed.","tr":"أستمتع بالقراءة قبل النوم."},
+          {"t":"He decided to quit his job.","tr":"قرّر أن يترك عمله."},
+          {"t":"Have you finished cleaning the kitchen?","tr":"هل أنهيت تنظيف المطبخ؟"},
+          {"t":"We're planning to visit Petra next year.","tr":"نخطّط لزيارة البتراء العام القادم."},
+          {"t":"She's interested in starting her own business.","tr":"تهتمّ بأن تبدأ مشروعها الخاصّ."},
+          {"t":"I'm looking forward to meeting your family.","tr":"أتشوّق للتعرّف إلى عائلتك."},
+          {"t":"Stop worrying! Everything will be fine.","tr":"كفّ عن القلق! كل شيء سيكون بخير."}
+        ] },
+        {"tip":"**{{stop}} له معنيان.** {{I stopped smoking.}} «أقلعت عن التدخين». أما {{I stopped to smoke.}} فـ«توقّفت عمّا كنت أفعله لكي أدخّن». كلمة واحدة تغيّر القصّة كلّها!"}
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to swim.","right":"I enjoy swimming.","tr":"أستمتع بالسباحة.","why":"بعد {{enjoy}} يأتي الفعل بـ{{-ing}}، لا بـ{{to}}."},
+        {"wrong":"I'm looking forward to see you.","right":"I'm looking forward to seeing you.","tr":"أتشوّق لرؤيتك.","why":"{{to}} هنا حرف جرّ، وبعد حرف الجرّ الفعل بـ{{-ing}}."},
+        {"wrong":"She decided going home.","right":"She decided to go home.","tr":"قرّرت أن تعود إلى البيت.","why":"بعد {{decide}} يأتي {{to}} + الفعل."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"Do you mind ___ the door?","tr":"هل تمانع أن تغلق الباب؟","options":["closing","to close","close"],"answer":0,"why":"بعد {{mind}}: {{-ing}}.","from":"ask-politely"},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"We've decided ___ a new car.","tr":"قرّرنا أن نشتري سيارة جديدة.","options":["to buy","buying","buy"],"answer":0,"why":"بعد {{decide}}: {{to}} + الفعل."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{He's good at fixing things.}}","{{He's good at fix things.}}","{{He's good to fix things.}}"],"answer":0,"why":"بعد حرف الجرّ {{at}}: {{-ing}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I'm looking forward to ___ my cousins this summer.","tr":"أتشوّق لرؤية أولاد عمّي هذا الصيف.","options":["seeing","see","saw"],"answer":0,"why":"{{look forward to}} + {{-ing}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أفكّر في الانتقال إلى كندا.","words":["I'm","thinking","about","moving","to","Canada."]},
+        {"type":"dialogue","q":"صديقك يسألك عن هواياتك: اختر ردودك.","lines":[{"who":"صديقك","t":"What do you do on weekends?","tr":"ماذا تفعل في عطلة نهاية الأسبوع؟"},{"options":["I enjoy cooking for my family.","I enjoy to cook for my family."],"answer":0,"why":"بعد {{enjoy}}: {{-ing}}."},{"who":"صديقك","t":"Nice. Do you want to learn something new this year?","tr":"جميل. هل تريد أن تتعلّم شيئًا جديدًا هذا العام؟"},{"options":["Yes! I'm planning to take guitar lessons.","Yes! I'm planning taking guitar lessons."],"answer":0,"why":"بعد {{plan}}: {{to}} + الفعل."},{"who":"صديقك","t":"Cool. I've always wanted to play the guitar.","tr":"رائع. لطالما أردت أن أعزف على الغيتار."},{"options":["Then let's learn together!","Then let's learning together!"],"answer":0,"why":"بعد {{Let's}} الفعل في صورته الأصلية."}],"from":"invite-and-suggest"},
+        {"type":"free","q":"دورك: اكتب عن هوايتين تستمتع بهما، وعن شيء قرّرته أو تخطّط له، وعن شيء تتشوّق إليه.","answers":[{"t":"I enjoy swimming and reading history books. I've decided to learn to drive this year, and I'm looking forward to visiting my family in the summer.","tr":"أستمتع بالسباحة وقراءة كتب التاريخ. قرّرت أن أتعلّم القيادة هذا العام، وأتشوّق لزيارة عائلتي في الصيف."},{"t":"I love playing chess, and I'm interested in learning Japanese. I'm planning to start a course next month. I'm looking forward to meeting new people there.","tr":"أحبّ لعب الشطرنج، وأهتمّ بتعلّم اليابانية. أخطّط لأن أبدأ دورة الشهر القادم، وأتشوّق للتعرّف إلى أناس جدد هناك."}]}
+      ]
     }
   ]
 }

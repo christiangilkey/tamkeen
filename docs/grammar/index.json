@@ -8,13 +8,14 @@
    "title": "قواعد اللغة الإنجليزية",
    "variety": "الإنجليزية الأمريكية",
    "units": 9,
-   "lessons": 36,
+   "lessons": 42,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 257142,
-   "sha256": "826a4006eef5e12df2b3991d4fb0cbd3271f2feafa47104f922b6df2f27e249d"
+   "bytes": 305441,
+   "sha256": "a53c3a1d40f95994bb9d44b669dcd51a8eb39c266815eb76d55d267e54a74ca9"
   },
   "en-ar": {
    "file": "en-ar/course.json",
