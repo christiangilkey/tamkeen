@@ -3630,6 +3630,1814 @@
       "meaning": "wedding; married",
       "sentence": "Kailan ang kasal ninyo?",
       "translation": "When's your ⟦wedding⟧?"
+    },
+    {
+      "n": 401,
+      "rank": 480,
+      "word": "mataba",
+      "pos": "adj",
+      "meaning": "fat (taba: fat, grease)",
+      "sentence": "Mataba ang pusa namin.",
+      "translation": "Our cat is ⟦fat⟧."
+    },
+    {
+      "n": 402,
+      "rank": 481,
+      "word": "beses",
+      "pos": "noun",
+      "meaning": "time(s) (dalawang beses: twice)",
+      "sentence": "Dalawang beses akong tumawag.",
+      "translation": "I called two ⟦times⟧."
+    },
+    {
+      "n": 403,
+      "rank": 482,
+      "word": "dagat",
+      "pos": "noun",
+      "meaning": "sea",
+      "sentence": "Mahilig kaming lumangoy sa dagat.",
+      "translation": "We love swimming in the ⟦sea⟧."
+    },
+    {
+      "n": 404,
+      "rank": 483,
+      "word": "papel",
+      "pos": "noun",
+      "meaning": "paper; role",
+      "sentence": "Kailangan ko ng papel at ballpen.",
+      "translation": "I need ⟦paper⟧ and a pen."
+    },
+    {
+      "n": 405,
+      "rank": 485,
+      "word": "paaralan",
+      "pos": "noun",
+      "meaning": "school",
+      "sentence": "Malaki ang paaralan namin.",
+      "translation": "Our ⟦school⟧ is big."
+    },
+    {
+      "n": 406,
+      "rank": 486,
+      "word": "plano",
+      "pos": "noun",
+      "meaning": "plan",
+      "sentence": "Ano ang plano mo bukas?",
+      "translation": "What's your ⟦plan⟧ for tomorrow?"
+    },
+    {
+      "n": 407,
+      "rank": 493,
+      "word": "pilit",
+      "pos": "verb",
+      "meaning": "to force (pilitin); forced",
+      "sentence": "Pinilit niya akong sumama.",
+      "translation": "She ⟦made⟧ me come along.",
+      "form": "pinilit"
+    },
+    {
+      "n": 408,
+      "rank": 494,
+      "word": "kumpanya",
+      "pos": "noun",
+      "meaning": "company",
+      "sentence": "Nagtatrabaho ako sa isang kumpanya.",
+      "translation": "I work at a ⟦company⟧."
+    },
+    {
+      "n": 409,
+      "rank": 495,
+      "word": "ligtas",
+      "pos": "adj",
+      "meaning": "safe",
+      "sentence": "Ligtas ba dito?",
+      "translation": "Is it ⟦safe⟧ here?"
+    },
+    {
+      "n": 410,
+      "rank": 496,
+      "word": "diyan",
+      "pos": "adv",
+      "meaning": "there (near you)",
+      "sentence": "Ano ang ginagawa mo diyan?",
+      "translation": "What are you doing ⟦there⟧?"
+    },
+    {
+      "n": 411,
+      "rank": 497,
+      "word": "kapwa",
+      "pos": "noun",
+      "meaning": "fellow person, other people; both",
+      "sentence": "Tulungan natin ang ating kapwa.",
+      "translation": "Let's help our ⟦fellow⟧ people."
+    },
+    {
+      "n": 412,
+      "rank": 499,
+      "word": "tula",
+      "pos": "noun",
+      "meaning": "poem",
+      "sentence": "Sumulat siya ng tula.",
+      "translation": "She wrote a ⟦poem⟧."
+    },
+    {
+      "n": 413,
+      "rank": 500,
+      "word": "magulo",
+      "pos": "adj",
+      "meaning": "messy; confusing (gulo: trouble, mess)",
+      "sentence": "Magulo ang kuwarto mo.",
+      "translation": "Your room is ⟦messy⟧."
+    },
+    {
+      "n": 414,
+      "rank": 501,
+      "word": "iyo",
+      "pos": "pron",
+      "meaning": "yours; your (iyong); you (sa iyo)",
+      "sentence": "Sa iyo ba ito?",
+      "translation": "Is this ⟦yours⟧?"
+    },
+    {
+      "n": 415,
+      "rank": 502,
+      "word": "dulot",
+      "pos": "verb",
+      "meaning": "to cause, to bring (nagdulot: caused); effect",
+      "sentence": "Nagdulot ng baha ang bagyo.",
+      "translation": "The storm ⟦caused⟧ flooding."
+    },
+    {
+      "n": 416,
+      "rank": 503,
+      "word": "proseso",
+      "pos": "noun",
+      "meaning": "process",
+      "sentence": "Mahaba ang proseso.",
+      "translation": "The ⟦process⟧ is long."
+    },
+    {
+      "n": 417,
+      "rank": 504,
+      "word": "Bibliya",
+      "pos": "noun",
+      "meaning": "Bible",
+      "sentence": "Nagbabasa siya ng Bibliya.",
+      "translation": "She reads the ⟦Bible⟧."
+    },
+    {
+      "n": 418,
+      "rank": 505,
+      "word": "pigilan",
+      "pos": "verb",
+      "meaning": "to stop, to hold back",
+      "sentence": "Hindi ko napigilan ang tawa ko.",
+      "translation": "I couldn't ⟦hold back⟧ my laughter."
+    },
+    {
+      "n": 419,
+      "rank": 507,
+      "word": "artista",
+      "pos": "noun",
+      "meaning": "actor, actress; celebrity",
+      "sentence": "Gusto niyang maging artista.",
+      "translation": "She wants to be an ⟦actress⟧."
+    },
+    {
+      "n": 420,
+      "rank": 508,
+      "word": "matalo",
+      "pos": "verb",
+      "meaning": "to lose (a game, a fight)",
+      "sentence": "Natalo kami sa laro.",
+      "translation": "We ⟦lost⟧ the game.",
+      "form": "natalo"
+    },
+    {
+      "n": 421,
+      "rank": 509,
+      "word": "antas",
+      "pos": "noun",
+      "meaning": "level",
+      "sentence": "Mataas ang antas ng tubig.",
+      "translation": "The water ⟦level⟧ is high."
+    },
+    {
+      "n": 422,
+      "rank": 513,
+      "word": "nanay",
+      "pos": "noun",
+      "meaning": "mom, mother",
+      "sentence": "Nasaan si Nanay?",
+      "translation": "Where's ⟦Mom⟧?"
+    },
+    {
+      "n": 423,
+      "rank": 514,
+      "word": "maglakad",
+      "pos": "verb",
+      "meaning": "to walk (lakad: walk; errand)",
+      "sentence": "Maglakad tayo sa parke.",
+      "translation": "Let's ⟦walk⟧ in the park."
+    },
+    {
+      "n": 424,
+      "rank": 515,
+      "word": "tauhan",
+      "pos": "noun",
+      "meaning": "character (in a story); staff",
+      "sentence": "Sino ang paborito mong tauhan?",
+      "translation": "Who's your favorite ⟦character⟧?"
+    },
+    {
+      "n": 425,
+      "rank": 516,
+      "word": "tiwala",
+      "pos": "noun",
+      "meaning": "trust (magtiwala: to trust)",
+      "sentence": "Tiwala ako sa iyo.",
+      "translation": "I ⟦trust⟧ you."
+    },
+    {
+      "n": 426,
+      "rank": 517,
+      "word": "matupad",
+      "pos": "verb",
+      "meaning": "to come true; to be carried out",
+      "sentence": "Natupad ang pangarap niya.",
+      "translation": "Her dream ⟦came true⟧.",
+      "form": "natupad"
+    },
+    {
+      "n": 427,
+      "rank": 518,
+      "word": "pula",
+      "pos": "adj",
+      "meaning": "red",
+      "sentence": "Pula ang paborito kong kulay.",
+      "translation": "⟦Red⟧ is my favorite color."
+    },
+    {
+      "n": 428,
+      "rank": 519,
+      "word": "pumayag",
+      "pos": "verb",
+      "meaning": "to agree, to allow",
+      "sentence": "Pumayag ang nanay ko.",
+      "translation": "My mom ⟦agreed⟧."
+    },
+    {
+      "n": 429,
+      "rank": 520,
+      "word": "halip",
+      "pos": "prep",
+      "meaning": "instead (sa halip na)",
+      "sentence": "Tsaa na lang sa halip na kape.",
+      "translation": "Tea ⟦instead⟧ of coffee, then."
+    },
+    {
+      "n": 430,
+      "rank": 521,
+      "word": "hayop",
+      "pos": "noun",
+      "meaning": "animal",
+      "sentence": "Mahilig siya sa mga hayop.",
+      "translation": "She loves ⟦animals⟧."
+    },
+    {
+      "n": 431,
+      "rank": 522,
+      "word": "sapagkat",
+      "pos": "conj",
+      "meaning": "because (formal)",
+      "sentence": "Hindi siya nakapunta sapagkat may sakit siya.",
+      "translation": "He couldn't come ⟦because⟧ he was sick."
+    },
+    {
+      "n": 432,
+      "rank": 523,
+      "word": "ibabaw",
+      "pos": "prep",
+      "meaning": "on top (sa ibabaw ng: on top of)",
+      "sentence": "Nasa ibabaw ng mesa ang libro.",
+      "translation": "The book is ⟦on top of⟧ the table."
+    },
+    {
+      "n": 433,
+      "rank": 524,
+      "word": "malungkot",
+      "pos": "adj",
+      "meaning": "sad; lonely (lungkot: sadness)",
+      "sentence": "Bakit ka malungkot?",
+      "translation": "Why are you ⟦sad⟧?"
+    },
+    {
+      "n": 434,
+      "rank": 525,
+      "word": "tumayo",
+      "pos": "verb",
+      "meaning": "to stand up (nakatayo: standing; itayo: to build)",
+      "sentence": "Tumayo ang lahat.",
+      "translation": "Everyone ⟦stood up⟧."
+    },
+    {
+      "n": 435,
+      "rank": 526,
+      "word": "edukasyon",
+      "pos": "noun",
+      "meaning": "education",
+      "sentence": "Libre ang edukasyon dito.",
+      "translation": "⟦Education⟧ is free here."
+    },
+    {
+      "n": 436,
+      "rank": 527,
+      "word": "ukol",
+      "pos": "prep",
+      "meaning": "about, regarding (formal)",
+      "sentence": "Ukol saan ang pulong?",
+      "translation": "What's the meeting ⟦about⟧?"
+    },
+    {
+      "n": 437,
+      "rank": 530,
+      "word": "tahanan",
+      "pos": "noun",
+      "meaning": "home",
+      "sentence": "Maligayang pagdating sa aming tahanan.",
+      "translation": "Welcome to our ⟦home⟧."
+    },
+    {
+      "n": 438,
+      "rank": 532,
+      "word": "negosyo",
+      "pos": "noun",
+      "meaning": "business",
+      "sentence": "May maliit na negosyo ang tita ko.",
+      "translation": "My aunt has a small ⟦business⟧."
+    },
+    {
+      "n": 439,
+      "rank": 533,
+      "word": "tapat",
+      "pos": "adj",
+      "meaning": "honest, loyal; in front of (tapat ng)",
+      "sentence": "Tapat siyang kaibigan.",
+      "translation": "He's a ⟦loyal⟧ friend."
+    },
+    {
+      "n": 440,
+      "rank": 534,
+      "word": "proyekto",
+      "pos": "noun",
+      "meaning": "project",
+      "sentence": "Tapos na ang proyekto namin.",
+      "translation": "Our ⟦project⟧ is done."
+    },
+    {
+      "n": 441,
+      "rank": 540,
+      "word": "umiyak",
+      "pos": "verb",
+      "meaning": "to cry",
+      "sentence": "Umiyak ang sanggol buong gabi.",
+      "translation": "The baby ⟦cried⟧ all night."
+    },
+    {
+      "n": 442,
+      "rank": 541,
+      "word": "ganyan",
+      "pos": "adv",
+      "meaning": "like that (near you)",
+      "sentence": "Huwag kang ganyan.",
+      "translation": "Don't be ⟦like that⟧."
+    },
+    {
+      "n": 443,
+      "rank": 542,
+      "word": "gulat",
+      "pos": "noun",
+      "meaning": "surprise, shock (magulat: to be surprised)",
+      "sentence": "Nagulat ako sa balita.",
+      "translation": "I was ⟦surprised⟧ by the news."
+    },
+    {
+      "n": 444,
+      "rank": 543,
+      "word": "ugali",
+      "pos": "noun",
+      "meaning": "habit; behavior, attitude",
+      "sentence": "Ugali na niyang matulog nang maaga.",
+      "translation": "It's his ⟦habit⟧ to sleep early."
+    },
+    {
+      "n": 445,
+      "rank": 544,
+      "word": "matuto",
+      "pos": "verb",
+      "meaning": "to learn (natuto: learned)",
+      "sentence": "Gusto kong matuto ng Tagalog.",
+      "translation": "I want to ⟦learn⟧ Tagalog."
+    },
+    {
+      "n": 446,
+      "rank": 548,
+      "word": "dulo",
+      "pos": "noun",
+      "meaning": "end, tip",
+      "sentence": "Nasa dulo ng kalye ang bahay namin.",
+      "translation": "Our house is at the ⟦end⟧ of the street."
+    },
+    {
+      "n": 447,
+      "rank": 549,
+      "word": "bato",
+      "pos": "noun",
+      "meaning": "stone, rock",
+      "sentence": "Natisod ako sa bato.",
+      "translation": "I tripped on a ⟦rock⟧."
+    },
+    {
+      "n": 448,
+      "rank": 550,
+      "word": "hiya",
+      "pos": "noun",
+      "meaning": "shame, shyness (nahihiya: shy, embarrassed)",
+      "sentence": "Huwag kang mahiya.",
+      "translation": "Don't be ⟦shy⟧."
+    },
+    {
+      "n": 449,
+      "rank": 551,
+      "word": "itim",
+      "pos": "adj",
+      "meaning": "black",
+      "sentence": "Itim ang buhok niya.",
+      "translation": "His hair is ⟦black⟧."
+    },
+    {
+      "n": 450,
+      "rank": 552,
+      "word": "matanda",
+      "pos": "adj",
+      "meaning": "old (people); elderly person",
+      "sentence": "Matanda na ang lolo ko.",
+      "translation": "My grandpa is ⟦old⟧ now."
+    },
+    {
+      "n": 451,
+      "rank": 554,
+      "word": "listahan",
+      "pos": "noun",
+      "meaning": "list",
+      "sentence": "Nasa listahan ba ang pangalan ko?",
+      "translation": "Is my name on the ⟦list⟧?"
+    },
+    {
+      "n": 452,
+      "rank": 558,
+      "word": "sapat",
+      "pos": "adj",
+      "meaning": "enough",
+      "sentence": "Sapat na ito.",
+      "translation": "This is ⟦enough⟧."
+    },
+    {
+      "n": 453,
+      "rank": 561,
+      "word": "kultura",
+      "pos": "noun",
+      "meaning": "culture",
+      "sentence": "Gusto ko ang kultura ng Pilipinas.",
+      "translation": "I like Philippine ⟦culture⟧."
+    },
+    {
+      "n": 454,
+      "rank": 562,
+      "word": "labis",
+      "pos": "adv",
+      "meaning": "very much, deeply; too much (formal)",
+      "sentence": "Labis akong nagpapasalamat.",
+      "translation": "I'm ⟦deeply⟧ grateful."
+    },
+    {
+      "n": 455,
+      "rank": 564,
+      "word": "kababaihan",
+      "pos": "noun",
+      "meaning": "women (as a group)",
+      "sentence": "Para sa kababaihan ang programang ito.",
+      "translation": "This program is for ⟦women⟧."
+    },
+    {
+      "n": 456,
+      "rank": 565,
+      "word": "itago",
+      "pos": "verb",
+      "meaning": "to hide; to keep, to put away",
+      "sentence": "Itago mo ito.",
+      "translation": "⟦Hide⟧ this."
+    },
+    {
+      "n": 457,
+      "rank": 568,
+      "word": "epekto",
+      "pos": "noun",
+      "meaning": "effect",
+      "sentence": "Ano ang epekto ng gamot?",
+      "translation": "What's the ⟦effect⟧ of the medicine?"
+    },
+    {
+      "n": 458,
+      "rank": 569,
+      "word": "karanasan",
+      "pos": "noun",
+      "meaning": "experience (maranasan: to experience)",
+      "sentence": "Marami siyang karanasan.",
+      "translation": "She has a lot of ⟦experience⟧."
+    },
+    {
+      "n": 459,
+      "rank": 573,
+      "word": "hangga't",
+      "pos": "conj",
+      "meaning": "as long as",
+      "sentence": "Hangga't buhay ako, nandito ako.",
+      "translation": "⟦As long as⟧ I'm alive, I'm here."
+    },
+    {
+      "n": 460,
+      "rank": 574,
+      "word": "magbenta",
+      "pos": "verb",
+      "meaning": "to sell (benta: sale)",
+      "sentence": "Nagbebenta siya ng gulay.",
+      "translation": "She ⟦sells⟧ vegetables.",
+      "form": "nagbebenta"
+    },
+    {
+      "n": 461,
+      "rank": 576,
+      "word": "balita",
+      "pos": "noun",
+      "meaning": "news",
+      "sentence": "Narinig mo ba ang balita?",
+      "translation": "Have you heard the ⟦news⟧?"
+    },
+    {
+      "n": 462,
+      "rank": 577,
+      "word": "sangkap",
+      "pos": "noun",
+      "meaning": "ingredient",
+      "sentence": "Ano ang mga sangkap nito?",
+      "translation": "What are the ⟦ingredients⟧?"
+    },
+    {
+      "n": 463,
+      "rank": 578,
+      "word": "tanggalin",
+      "pos": "verb",
+      "meaning": "to remove, to take off",
+      "sentence": "Tanggalin mo ang sapatos mo.",
+      "translation": "⟦Take off⟧ your shoes."
+    },
+    {
+      "n": 464,
+      "rank": 579,
+      "word": "hangin",
+      "pos": "noun",
+      "meaning": "wind; air",
+      "sentence": "Malakas ang hangin ngayon.",
+      "translation": "The ⟦wind⟧ is strong today."
+    },
+    {
+      "n": 465,
+      "rank": 580,
+      "word": "sukat",
+      "pos": "noun",
+      "meaning": "size; measurement",
+      "sentence": "Ano ang sukat mo?",
+      "translation": "What's your ⟦size⟧?"
+    },
+    {
+      "n": 466,
+      "rank": 582,
+      "word": "gising",
+      "pos": "verb",
+      "meaning": "to wake up (gumising, magising); awake",
+      "sentence": "Gumising ako nang maaga.",
+      "translation": "I ⟦woke up⟧ early.",
+      "form": "gumising"
+    },
+    {
+      "n": 467,
+      "rank": 588,
+      "word": "humingi",
+      "pos": "verb",
+      "meaning": "to ask for (pahingi: can I have)",
+      "sentence": "Humingi siya ng tulong.",
+      "translation": "She ⟦asked⟧ for help."
+    },
+    {
+      "n": 468,
+      "rank": 589,
+      "word": "makinig",
+      "pos": "verb",
+      "meaning": "to listen",
+      "sentence": "Makinig ka sa akin.",
+      "translation": "⟦Listen⟧ to me."
+    },
+    {
+      "n": 469,
+      "rank": 590,
+      "word": "guro",
+      "pos": "noun",
+      "meaning": "teacher",
+      "sentence": "Mabait ang guro namin.",
+      "translation": "Our ⟦teacher⟧ is nice."
+    },
+    {
+      "n": 470,
+      "rank": 591,
+      "word": "ulat",
+      "pos": "noun",
+      "meaning": "report",
+      "sentence": "Narinig ko ang ulat sa radyo.",
+      "translation": "I heard the ⟦report⟧ on the radio."
+    },
+    {
+      "n": 471,
+      "rank": 592,
+      "word": "anim",
+      "pos": "num",
+      "meaning": "six",
+      "sentence": "Anim na buwan na ang sanggol.",
+      "translation": "The baby is ⟦six⟧ months old."
+    },
+    {
+      "n": 472,
+      "rank": 593,
+      "word": "lumitaw",
+      "pos": "verb",
+      "meaning": "to appear, to come out",
+      "sentence": "Biglang lumitaw ang araw.",
+      "translation": "The sun suddenly ⟦came out⟧."
+    },
+    {
+      "n": 473,
+      "rank": 594,
+      "word": "kamatayan",
+      "pos": "noun",
+      "meaning": "death",
+      "sentence": "Ikinalungkot namin ang kamatayan niya.",
+      "translation": "We were saddened by his ⟦death⟧."
+    },
+    {
+      "n": 474,
+      "rank": 595,
+      "word": "galaw",
+      "pos": "verb",
+      "meaning": "to move (gumalaw); movement",
+      "sentence": "Huwag kang gagalaw.",
+      "translation": "Don't ⟦move⟧."
+    },
+    {
+      "n": 475,
+      "rank": 596,
+      "word": "matindi",
+      "pos": "adj",
+      "meaning": "intense, strong, severe",
+      "sentence": "Matindi ang init ngayon.",
+      "translation": "The heat is ⟦intense⟧ today."
+    },
+    {
+      "n": 476,
+      "rank": 598,
+      "word": "maikli",
+      "pos": "adj",
+      "meaning": "short",
+      "sentence": "Maikli ang buhok niya.",
+      "translation": "Her hair is ⟦short⟧."
+    },
+    {
+      "n": 477,
+      "rank": 599,
+      "word": "sumali",
+      "pos": "verb",
+      "meaning": "to join, to take part",
+      "sentence": "Gusto mo bang sumali sa amin?",
+      "translation": "Do you want to ⟦join⟧ us?"
+    },
+    {
+      "n": 478,
+      "rank": 600,
+      "word": "ikalawa",
+      "pos": "num",
+      "meaning": "second",
+      "sentence": "Nasa ikalawang palapag ang opisina.",
+      "translation": "The office is on the ⟦second⟧ floor."
+    },
+    {
+      "n": 479,
+      "rank": 601,
+      "word": "langit",
+      "pos": "noun",
+      "meaning": "sky; heaven",
+      "sentence": "Ang ganda ng langit ngayon.",
+      "translation": "The ⟦sky⟧ is beautiful today."
+    },
+    {
+      "n": 480,
+      "rank": 605,
+      "word": "ngiti",
+      "pos": "noun",
+      "meaning": "smile (ngumiti: to smile)",
+      "sentence": "Ang ganda ng ngiti mo.",
+      "translation": "You have a beautiful ⟦smile⟧."
+    },
+    {
+      "n": 481,
+      "rank": 606,
+      "word": "ekonomiya",
+      "pos": "noun",
+      "meaning": "economy",
+      "sentence": "Mahina ang ekonomiya ngayon.",
+      "translation": "The ⟦economy⟧ is weak now."
+    },
+    {
+      "n": 482,
+      "rank": 609,
+      "word": "kuya",
+      "pos": "noun",
+      "meaning": "older brother; (polite for an older man)",
+      "sentence": "Nasa trabaho si Kuya.",
+      "translation": "My ⟦older brother⟧ is at work."
+    },
+    {
+      "n": 483,
+      "rank": 612,
+      "word": "pananaw",
+      "pos": "noun",
+      "meaning": "point of view, outlook",
+      "sentence": "Iba ang pananaw niya.",
+      "translation": "She has a different ⟦point of view⟧."
+    },
+    {
+      "n": 484,
+      "rank": 613,
+      "word": "maaga",
+      "pos": "adj",
+      "meaning": "early",
+      "sentence": "Maaga akong natulog.",
+      "translation": "I went to bed ⟦early⟧."
+    },
+    {
+      "n": 485,
+      "rank": 614,
+      "word": "kumalat",
+      "pos": "verb",
+      "meaning": "to spread (kalat: mess, scattered)",
+      "sentence": "Kumalat ang balita.",
+      "translation": "The news ⟦spread⟧."
+    },
+    {
+      "n": 486,
+      "rank": 616,
+      "word": "luma",
+      "pos": "adj",
+      "meaning": "old (things)",
+      "sentence": "Luma na ang kotse namin.",
+      "translation": "Our car is ⟦old⟧ now."
+    },
+    {
+      "n": 487,
+      "rank": 619,
+      "word": "malay",
+      "pos": "noun",
+      "meaning": "awareness (malay mo: who knows)",
+      "sentence": "Malay mo, manalo ka.",
+      "translation": "⟦Who knows⟧, you might win."
+    },
+    {
+      "n": 488,
+      "rank": 621,
+      "word": "bawasan",
+      "pos": "verb",
+      "meaning": "to reduce, to cut down on (bawas: discount)",
+      "sentence": "Bawasan mo ang asukal.",
+      "translation": "⟦Cut down on⟧ sugar."
+    },
+    {
+      "n": 489,
+      "rank": 627,
+      "word": "banda",
+      "pos": "noun",
+      "meaning": "around (a time or place); band (music)",
+      "sentence": "Bandang alas-tres ako darating.",
+      "translation": "I'll arrive ⟦around⟧ three."
+    },
+    {
+      "n": 490,
+      "rank": 629,
+      "word": "hanga",
+      "pos": "adj",
+      "meaning": "admiring (humanga: to admire)",
+      "sentence": "Hanga ako sa iyo!",
+      "translation": "I ⟦admire⟧ you!"
+    },
+    {
+      "n": 491,
+      "rank": 630,
+      "word": "sigurado",
+      "pos": "adj",
+      "meaning": "sure",
+      "sentence": "Sigurado ka ba?",
+      "translation": "Are you ⟦sure⟧?"
+    },
+    {
+      "n": 492,
+      "rank": 632,
+      "word": "away",
+      "pos": "noun",
+      "meaning": "fight, quarrel (mag-away: to fight)",
+      "sentence": "Nag-away sila kagabi.",
+      "translation": "They ⟦fought⟧ last night."
+    },
+    {
+      "n": 493,
+      "rank": 633,
+      "word": "bumagsak",
+      "pos": "verb",
+      "meaning": "to fall; to fail (a test)",
+      "sentence": "Bumagsak ako sa exam.",
+      "translation": "I ⟦failed⟧ the exam."
+    },
+    {
+      "n": 494,
+      "rank": 634,
+      "word": "balat",
+      "pos": "noun",
+      "meaning": "skin; peel",
+      "sentence": "Tuyo ang balat ko.",
+      "translation": "My ⟦skin⟧ is dry."
+    },
+    {
+      "n": 495,
+      "rank": 635,
+      "word": "hiling",
+      "pos": "noun",
+      "meaning": "wish, request (humiling: to ask)",
+      "sentence": "Ano ang hiling mo?",
+      "translation": "What's your ⟦wish⟧?"
+    },
+    {
+      "n": 496,
+      "rank": 636,
+      "word": "ingat",
+      "pos": "noun",
+      "meaning": "care (ingat!: take care!; mag-ingat: to be careful)",
+      "sentence": "Ingat ka sa biyahe!",
+      "translation": "Take ⟦care⟧ on your trip!"
+    },
+    {
+      "n": 497,
+      "rank": 637,
+      "word": "baga",
+      "pos": "noun",
+      "meaning": "lung",
+      "sentence": "Masama sa baga ang sigarilyo.",
+      "translation": "Cigarettes are bad for your ⟦lungs⟧."
+    },
+    {
+      "n": 498,
+      "rank": 642,
+      "word": "kahapon",
+      "pos": "adv",
+      "meaning": "yesterday",
+      "sentence": "Umulan nang malakas kahapon.",
+      "translation": "It rained hard ⟦yesterday⟧."
+    },
+    {
+      "n": 499,
+      "rank": 643,
+      "word": "paksa",
+      "pos": "noun",
+      "meaning": "topic, subject",
+      "sentence": "Ano ang paksa ng usapan?",
+      "translation": "What's the ⟦topic⟧ of the conversation?"
+    },
+    {
+      "n": 500,
+      "rank": 644,
+      "word": "tahimik",
+      "pos": "adj",
+      "meaning": "quiet",
+      "sentence": "Tahimik ang bahay.",
+      "translation": "The house is ⟦quiet⟧."
+    },
+    {
+      "n": 501,
+      "rank": 645,
+      "word": "magluto",
+      "pos": "verb",
+      "meaning": "to cook (luto: cooking, cooked)",
+      "sentence": "Marunong ka bang magluto?",
+      "translation": "Do you know how to ⟦cook⟧?"
+    },
+    {
+      "n": 502,
+      "rank": 646,
+      "word": "bundok",
+      "pos": "noun",
+      "meaning": "mountain",
+      "sentence": "Umakyat kami sa bundok.",
+      "translation": "We climbed the ⟦mountain⟧."
+    },
+    {
+      "n": 503,
+      "rank": 647,
+      "word": "mabigat",
+      "pos": "adj",
+      "meaning": "heavy (bigat: weight)",
+      "sentence": "Mabigat ang bag mo.",
+      "translation": "Your bag is ⟦heavy⟧."
+    },
+    {
+      "n": 504,
+      "rank": 648,
+      "word": "labi",
+      "pos": "noun",
+      "meaning": "lip; remains",
+      "sentence": "May lipstick sa labi mo.",
+      "translation": "There's lipstick on your ⟦lips⟧."
+    },
+    {
+      "n": 505,
+      "rank": 649,
+      "word": "pari",
+      "pos": "noun",
+      "meaning": "priest",
+      "sentence": "Nagsalita ang pari sa misa.",
+      "translation": "The ⟦priest⟧ spoke at Mass."
+    },
+    {
+      "n": 506,
+      "rank": 650,
+      "word": "alaga",
+      "pos": "noun",
+      "meaning": "pet; care (alagaan: to take care of)",
+      "sentence": "May alaga akong aso.",
+      "translation": "I have a ⟦pet⟧ dog."
+    },
+    {
+      "n": 507,
+      "rank": 651,
+      "word": "puro",
+      "pos": "adj",
+      "meaning": "all, nothing but; pure",
+      "sentence": "Puro bata ang nandito.",
+      "translation": "It's ⟦all⟧ kids here."
+    },
+    {
+      "n": 508,
+      "rank": 655,
+      "word": "lola",
+      "pos": "noun",
+      "meaning": "grandmother, grandma",
+      "sentence": "Masarap magluto si Lola.",
+      "translation": "⟦Grandma⟧ cooks really well."
+    },
+    {
+      "n": 509,
+      "rank": 657,
+      "word": "maliban",
+      "pos": "prep",
+      "meaning": "except (maliban sa)",
+      "sentence": "Bukas kami araw-araw maliban sa Linggo.",
+      "translation": "We're open every day ⟦except⟧ Sunday."
+    },
+    {
+      "n": 510,
+      "rank": 658,
+      "word": "kanina",
+      "pos": "adv",
+      "meaning": "earlier (today), a while ago",
+      "sentence": "Nakita ko siya kanina.",
+      "translation": "I saw him ⟦earlier⟧."
+    },
+    {
+      "n": 511,
+      "rank": 659,
+      "word": "paligid",
+      "pos": "noun",
+      "meaning": "surroundings (sa paligid: around)",
+      "sentence": "Maraming puno sa paligid.",
+      "translation": "There are lots of trees ⟦around⟧ here."
+    },
+    {
+      "n": 512,
+      "rank": 660,
+      "word": "mapanganib",
+      "pos": "adj",
+      "meaning": "dangerous (panganib: danger)",
+      "sentence": "Mapanganib dito sa gabi.",
+      "translation": "It's ⟦dangerous⟧ here at night."
+    },
+    {
+      "n": 513,
+      "rank": 661,
+      "word": "pinsala",
+      "pos": "noun",
+      "meaning": "damage",
+      "sentence": "Malaki ang pinsala ng bagyo.",
+      "translation": "The storm did a lot of ⟦damage⟧."
+    },
+    {
+      "n": 514,
+      "rank": 665,
+      "word": "pangalawa",
+      "pos": "num",
+      "meaning": "second (ikalawa)",
+      "sentence": "Pangalawa ako sa pila.",
+      "translation": "I'm ⟦second⟧ in line."
+    },
+    {
+      "n": 515,
+      "rank": 666,
+      "word": "matibay",
+      "pos": "adj",
+      "meaning": "durable, strong",
+      "sentence": "Matibay ang sapatos na ito.",
+      "translation": "These shoes are ⟦durable⟧."
+    },
+    {
+      "n": 516,
+      "rank": 667,
+      "word": "hayaan",
+      "pos": "verb",
+      "meaning": "to let, to leave alone",
+      "sentence": "Hayaan mo na.",
+      "translation": "⟦Let⟧ it go."
+    },
+    {
+      "n": 517,
+      "rank": 668,
+      "word": "heto",
+      "pos": "adv",
+      "meaning": "here it is, here you go (eto)",
+      "sentence": "Heto ang sukli mo.",
+      "translation": "⟦Here's⟧ your change."
+    },
+    {
+      "n": 518,
+      "rank": 669,
+      "word": "ate",
+      "pos": "noun",
+      "meaning": "older sister; (polite for an older woman)",
+      "sentence": "Si Ate ang nagluto ng hapunan.",
+      "translation": "My ⟦older sister⟧ cooked dinner."
+    },
+    {
+      "n": 519,
+      "rank": 674,
+      "word": "utak",
+      "pos": "noun",
+      "meaning": "brain; mind",
+      "sentence": "Gamitin mo ang utak mo.",
+      "translation": "Use your ⟦brain⟧."
+    },
+    {
+      "n": 520,
+      "rank": 675,
+      "word": "malinaw",
+      "pos": "adj",
+      "meaning": "clear",
+      "sentence": "Malinaw ba ang paliwanag ko?",
+      "translation": "Was my explanation ⟦clear⟧?"
+    },
+    {
+      "n": 521,
+      "rank": 676,
+      "word": "huminga",
+      "pos": "verb",
+      "meaning": "to breathe (hininga: breath)",
+      "sentence": "Huminga ka nang malalim.",
+      "translation": "⟦Breathe⟧ deeply."
+    },
+    {
+      "n": 522,
+      "rank": 677,
+      "word": "ulan",
+      "pos": "noun",
+      "meaning": "rain (umulan: to rain)",
+      "sentence": "Umuulan na naman.",
+      "translation": "It's ⟦raining⟧ again."
+    },
+    {
+      "n": 523,
+      "rank": 678,
+      "word": "maunawaan",
+      "pos": "verb",
+      "meaning": "to understand (more formal than maintindihan)",
+      "sentence": "Naunawaan ko na ang sinabi mo.",
+      "translation": "I ⟦understand⟧ what you said now.",
+      "form": "naunawaan"
+    },
+    {
+      "n": 524,
+      "rank": 679,
+      "word": "mahulog",
+      "pos": "verb",
+      "meaning": "to fall (nahulog: fell)",
+      "sentence": "Muntik akong mahulog sa hagdan.",
+      "translation": "I almost ⟦fell⟧ down the stairs."
+    },
+    {
+      "n": 525,
+      "rank": 680,
+      "word": "magaling",
+      "pos": "adj",
+      "meaning": "good at, skilled; well again",
+      "sentence": "Magaling siyang sumayaw.",
+      "translation": "She's ⟦good at⟧ dancing."
+    },
+    {
+      "n": 526,
+      "rank": 681,
+      "word": "pito",
+      "pos": "num",
+      "meaning": "seven",
+      "sentence": "Pitong araw sa isang linggo.",
+      "translation": "There are ⟦seven⟧ days in a week."
+    },
+    {
+      "n": 527,
+      "rank": 682,
+      "word": "libre",
+      "pos": "adj",
+      "meaning": "free (of charge); a treat (libre kita: my treat)",
+      "sentence": "Libre kita ng kape.",
+      "translation": "I'll ⟦treat⟧ you to coffee."
+    },
+    {
+      "n": 528,
+      "rank": 683,
+      "word": "silbi",
+      "pos": "noun",
+      "meaning": "use, purpose",
+      "sentence": "Ano ang silbi nito?",
+      "translation": "What's the ⟦use⟧ of this?"
+    },
+    {
+      "n": 529,
+      "rank": 684,
+      "word": "posible",
+      "pos": "adj",
+      "meaning": "possible",
+      "sentence": "Posible ba iyon?",
+      "translation": "Is that ⟦possible⟧?"
+    },
+    {
+      "n": 530,
+      "rank": 685,
+      "word": "teknolohiya",
+      "pos": "noun",
+      "meaning": "technology",
+      "sentence": "Mabilis magbago ang teknolohiya.",
+      "translation": "⟦Technology⟧ changes fast."
+    },
+    {
+      "n": 531,
+      "rank": 692,
+      "word": "mahilig",
+      "pos": "adj",
+      "meaning": "fond of, into (hilig: interest, hobby)",
+      "sentence": "Mahilig ka ba sa musika?",
+      "translation": "Are you ⟦into⟧ music?"
+    },
+    {
+      "n": 532,
+      "rank": 693,
+      "word": "ugat",
+      "pos": "noun",
+      "meaning": "root; vein",
+      "sentence": "Malalim ang ugat ng puno.",
+      "translation": "The tree's ⟦roots⟧ are deep."
+    },
+    {
+      "n": 533,
+      "rank": 694,
+      "word": "artikulo",
+      "pos": "noun",
+      "meaning": "article",
+      "sentence": "Nabasa mo ba ang artikulong ito?",
+      "translation": "Have you read this ⟦article⟧?"
+    },
+    {
+      "n": 534,
+      "rank": 695,
+      "word": "pagod",
+      "pos": "adj",
+      "meaning": "tired",
+      "sentence": "Pagod na pagod ako.",
+      "translation": "I'm so ⟦tired⟧."
+    },
+    {
+      "n": 535,
+      "rank": 696,
+      "word": "gobyerno",
+      "pos": "noun",
+      "meaning": "government",
+      "sentence": "Nagtatrabaho siya sa gobyerno.",
+      "translation": "He works for the ⟦government⟧."
+    },
+    {
+      "n": 536,
+      "rank": 698,
+      "word": "tungkulin",
+      "pos": "noun",
+      "meaning": "duty, responsibility",
+      "sentence": "Tungkulin natin ito.",
+      "translation": "This is our ⟦duty⟧."
+    },
+    {
+      "n": 537,
+      "rank": 704,
+      "word": "tiyan",
+      "pos": "noun",
+      "meaning": "stomach, belly",
+      "sentence": "Busog na ang tiyan ko.",
+      "translation": "My ⟦stomach⟧ is full."
+    },
+    {
+      "n": 538,
+      "rank": 705,
+      "word": "lalawigan",
+      "pos": "noun",
+      "meaning": "province",
+      "sentence": "Umuwi siya sa lalawigan.",
+      "translation": "She went home to the ⟦province⟧."
+    },
+    {
+      "n": 539,
+      "rank": 706,
+      "word": "alok",
+      "pos": "verb",
+      "meaning": "to offer (mag-alok); an offer",
+      "sentence": "Inalok niya ako ng kape.",
+      "translation": "She ⟦offered⟧ me coffee."
+    },
+    {
+      "n": 540,
+      "rank": 707,
+      "word": "malamig",
+      "pos": "adj",
+      "meaning": "cold (lamig: cold)",
+      "sentence": "Malamig ang tubig.",
+      "translation": "The water is ⟦cold⟧."
+    },
+    {
+      "n": 541,
+      "rank": 712,
+      "word": "tatay",
+      "pos": "noun",
+      "meaning": "dad, father",
+      "sentence": "Si Tatay ang nagmamaneho.",
+      "translation": "⟦Dad⟧ is driving."
+    },
+    {
+      "n": 542,
+      "rank": 714,
+      "word": "ipaliwanag",
+      "pos": "verb",
+      "meaning": "to explain (paliwanag: explanation)",
+      "sentence": "Pwede mo bang ipaliwanag ulit?",
+      "translation": "Can you ⟦explain⟧ it again?"
+    },
+    {
+      "n": 543,
+      "rank": 715,
+      "word": "kasing",
+      "pos": "adv",
+      "meaning": "as ... as (kasing laki: as big as)",
+      "sentence": "Kasing tangkad ko siya.",
+      "translation": "He's ⟦as⟧ tall as me."
+    },
+    {
+      "n": 544,
+      "rank": 716,
+      "word": "sisihin",
+      "pos": "verb",
+      "meaning": "to blame (pagsisisi: regret)",
+      "sentence": "Huwag mo akong sisihin.",
+      "translation": "Don't ⟦blame⟧ me."
+    },
+    {
+      "n": 545,
+      "rank": 719,
+      "word": "katao",
+      "pos": "noun",
+      "meaning": "person (when counting people)",
+      "sentence": "Sampung katao ang dumating.",
+      "translation": "Ten ⟦people⟧ came."
+    },
+    {
+      "n": 546,
+      "rank": 720,
+      "word": "sadya",
+      "pos": "adv",
+      "meaning": "on purpose (sinasadya: done on purpose)",
+      "sentence": "Hindi ko sinasadya.",
+      "translation": "I didn't ⟦mean⟧ to."
+    },
+    {
+      "n": 547,
+      "rank": 721,
+      "word": "sasakyan",
+      "pos": "noun",
+      "meaning": "vehicle, car",
+      "sentence": "Wala akong sasakyan.",
+      "translation": "I don't have a ⟦car⟧."
+    },
+    {
+      "n": 548,
+      "rank": 722,
+      "word": "libo",
+      "pos": "num",
+      "meaning": "thousand (isang libo)",
+      "sentence": "Isang libong piso ang sapatos.",
+      "translation": "The shoes cost one ⟦thousand⟧ pesos."
+    },
+    {
+      "n": 549,
+      "rank": 723,
+      "word": "wakas",
+      "pos": "noun",
+      "meaning": "end (sa wakas: at last)",
+      "sentence": "Sa wakas, tapos na!",
+      "translation": "⟦At last⟧, it's done!"
+    },
+    {
+      "n": 550,
+      "rank": 724,
+      "word": "relihiyon",
+      "pos": "noun",
+      "meaning": "religion",
+      "sentence": "Ano ang relihiyon mo?",
+      "translation": "What's your ⟦religion⟧?"
+    },
+    {
+      "n": 551,
+      "rank": 725,
+      "word": "boto",
+      "pos": "noun",
+      "meaning": "vote (bumoto: to vote)",
+      "sentence": "Sino ang iboboto mo?",
+      "translation": "Who will you ⟦vote⟧ for?"
+    },
+    {
+      "n": 552,
+      "rank": 726,
+      "word": "linya",
+      "pos": "noun",
+      "meaning": "line",
+      "sentence": "Abala ang linya.",
+      "translation": "The ⟦line⟧ is busy."
+    },
+    {
+      "n": 553,
+      "rank": 727,
+      "word": "bunga",
+      "pos": "noun",
+      "meaning": "fruit (of a plant); result",
+      "sentence": "Marami nang bunga ang puno.",
+      "translation": "The tree has lots of ⟦fruit⟧ now."
+    },
+    {
+      "n": 554,
+      "rank": 728,
+      "word": "operasyon",
+      "pos": "noun",
+      "meaning": "operation, surgery",
+      "sentence": "Kailangan niya ng operasyon.",
+      "translation": "He needs an ⟦operation⟧."
+    },
+    {
+      "n": 555,
+      "rank": 734,
+      "word": "maglakbay",
+      "pos": "verb",
+      "meaning": "to travel (paglalakbay: trip, journey)",
+      "sentence": "Gusto kong maglakbay sa buong mundo.",
+      "translation": "I want to ⟦travel⟧ the world."
+    },
+    {
+      "n": 556,
+      "rank": 735,
+      "word": "gastos",
+      "pos": "noun",
+      "meaning": "expense, cost (gumastos: to spend)",
+      "sentence": "Malaki ang gastos sa ospital.",
+      "translation": "Hospital ⟦expenses⟧ are big."
+    },
+    {
+      "n": 557,
+      "rank": 736,
+      "word": "sumigaw",
+      "pos": "verb",
+      "meaning": "to shout (sigaw: a shout)",
+      "sentence": "Huwag kang sumigaw.",
+      "translation": "Don't ⟦shout⟧."
+    },
+    {
+      "n": 558,
+      "rank": 737,
+      "word": "sunog",
+      "pos": "noun",
+      "meaning": "fire (a blaze); burnt",
+      "sentence": "May sunog sa kabilang kalye.",
+      "translation": "There's a ⟦fire⟧ on the next street."
+    },
+    {
+      "n": 559,
+      "rank": 738,
+      "word": "yata",
+      "pos": "part",
+      "meaning": "probably, I think, it seems",
+      "sentence": "Wala yata siya sa bahay.",
+      "translation": "He's ⟦probably⟧ not home."
+    },
+    {
+      "n": 560,
+      "rank": 739,
+      "word": "gana",
+      "pos": "noun",
+      "meaning": "appetite (gumana: to work, to function)",
+      "sentence": "Hindi gumagana ang aircon.",
+      "translation": "The aircon isn't ⟦working⟧."
+    },
+    {
+      "n": 561,
+      "rank": 740,
+      "word": "rehiyon",
+      "pos": "noun",
+      "meaning": "region",
+      "sentence": "Mainit sa rehiyong ito.",
+      "translation": "It's hot in this ⟦region⟧."
+    },
+    {
+      "n": 562,
+      "rank": 741,
+      "word": "sayaw",
+      "pos": "verb",
+      "meaning": "to dance (sumayaw); dance",
+      "sentence": "Sumayaw kami buong gabi.",
+      "translation": "We ⟦danced⟧ all night.",
+      "form": "sumayaw"
+    },
+    {
+      "n": 563,
+      "rank": 742,
+      "word": "bayani",
+      "pos": "noun",
+      "meaning": "hero",
+      "sentence": "Bayani ang tatay ko.",
+      "translation": "My dad is a ⟦hero⟧."
+    },
+    {
+      "n": 564,
+      "rank": 745,
+      "word": "kinatawan",
+      "pos": "noun",
+      "meaning": "representative",
+      "sentence": "Siya ang kinatawan ng klase namin.",
+      "translation": "She's our class ⟦representative⟧."
+    },
+    {
+      "n": 565,
+      "rank": 746,
+      "word": "eksena",
+      "pos": "noun",
+      "meaning": "scene",
+      "sentence": "Ang ganda ng eksenang iyon.",
+      "translation": "That ⟦scene⟧ was beautiful."
+    },
+    {
+      "n": 566,
+      "rank": 747,
+      "word": "kalusugan",
+      "pos": "noun",
+      "meaning": "health",
+      "sentence": "Alagaan mo ang kalusugan mo.",
+      "translation": "Take care of your ⟦health⟧."
+    },
+    {
+      "n": 567,
+      "rank": 749,
+      "word": "punto",
+      "pos": "noun",
+      "meaning": "point",
+      "sentence": "May punto ka.",
+      "translation": "You have a ⟦point⟧."
+    },
+    {
+      "n": 568,
+      "rank": 752,
+      "word": "hatiin",
+      "pos": "verb",
+      "meaning": "to split, to divide (hati: half, share)",
+      "sentence": "Hatiin natin ang pizza.",
+      "translation": "Let's ⟦split⟧ the pizza."
+    },
+    {
+      "n": 569,
+      "rank": 756,
+      "word": "isyu",
+      "pos": "noun",
+      "meaning": "issue",
+      "sentence": "Malaking isyu iyan.",
+      "translation": "That's a big ⟦issue⟧."
+    },
+    {
+      "n": 570,
+      "rank": 757,
+      "word": "buto",
+      "pos": "noun",
+      "meaning": "bone; seed",
+      "sentence": "Nabali ang buto niya.",
+      "translation": "He broke a ⟦bone⟧."
+    },
+    {
+      "n": 571,
+      "rank": 758,
+      "word": "mura",
+      "pos": "adj",
+      "meaning": "cheap",
+      "sentence": "Mura ang gulay sa palengke.",
+      "translation": "Vegetables are ⟦cheap⟧ at the market."
+    },
+    {
+      "n": 572,
+      "rank": 759,
+      "word": "pulo",
+      "pos": "noun",
+      "meaning": "island",
+      "sentence": "Maraming pulo ang Pilipinas.",
+      "translation": "The Philippines has many ⟦islands⟧."
+    },
+    {
+      "n": 573,
+      "rank": 760,
+      "word": "bagyo",
+      "pos": "noun",
+      "meaning": "typhoon, storm",
+      "sentence": "May bagyo bukas.",
+      "translation": "There's a ⟦typhoon⟧ coming tomorrow."
+    },
+    {
+      "n": 574,
+      "rank": 761,
+      "word": "malubha",
+      "pos": "adj",
+      "meaning": "serious, severe (illness, injury)",
+      "sentence": "Malubha ang sakit niya.",
+      "translation": "His illness is ⟦serious⟧."
+    },
+    {
+      "n": 575,
+      "rank": 762,
+      "word": "posisyon",
+      "pos": "noun",
+      "meaning": "position",
+      "sentence": "Ano ang posisyon mo sa kumpanya?",
+      "translation": "What's your ⟦position⟧ in the company?"
+    },
+    {
+      "n": 576,
+      "rank": 763,
+      "word": "ihatid",
+      "pos": "verb",
+      "meaning": "to take, to drop off (someone); to deliver",
+      "sentence": "Ihahatid kita sa bahay.",
+      "translation": "I'll ⟦take⟧ you home.",
+      "form": "ihahatid"
+    },
+    {
+      "n": 577,
+      "rank": 764,
+      "word": "malalim",
+      "pos": "adj",
+      "meaning": "deep",
+      "sentence": "Malalim ang dagat dito.",
+      "translation": "The sea is ⟦deep⟧ here."
+    },
+    {
+      "n": 578,
+      "rank": 767,
+      "word": "malamang",
+      "pos": "adv",
+      "meaning": "probably, likely",
+      "sentence": "Malamang pagod lang siya.",
+      "translation": "She's ⟦probably⟧ just tired."
+    },
+    {
+      "n": 579,
+      "rank": 769,
+      "word": "kapaligiran",
+      "pos": "noun",
+      "meaning": "environment, surroundings",
+      "sentence": "Alagaan natin ang kapaligiran.",
+      "translation": "Let's take care of the ⟦environment⟧."
+    },
+    {
+      "n": 580,
+      "rank": 770,
+      "word": "isda",
+      "pos": "noun",
+      "meaning": "fish",
+      "sentence": "Masarap ang isda dito.",
+      "translation": "The ⟦fish⟧ here is good."
+    },
+    {
+      "n": 581,
+      "rank": 771,
+      "word": "publiko",
+      "pos": "noun",
+      "meaning": "public",
+      "sentence": "Bukas ito sa publiko.",
+      "translation": "It's open to the ⟦public⟧."
+    },
+    {
+      "n": 582,
+      "rank": 772,
+      "word": "bisita",
+      "pos": "noun",
+      "meaning": "guest, visitor (bumisita: to visit)",
+      "sentence": "May bisita tayo mamaya.",
+      "translation": "We have ⟦guests⟧ coming later."
+    },
+    {
+      "n": 583,
+      "rank": 773,
+      "word": "patakaran",
+      "pos": "noun",
+      "meaning": "rule, policy",
+      "sentence": "Sundin mo ang patakaran.",
+      "translation": "Follow the ⟦rules⟧."
+    },
+    {
+      "n": 584,
+      "rank": 774,
+      "word": "silangan",
+      "pos": "noun",
+      "meaning": "east",
+      "sentence": "Sumisikat ang araw sa silangan.",
+      "translation": "The sun rises in the ⟦east⟧."
+    },
+    {
+      "n": 585,
+      "rank": 775,
+      "word": "panaginip",
+      "pos": "noun",
+      "meaning": "dream (while asleep)",
+      "sentence": "Ang weird ng panaginip ko kagabi.",
+      "translation": "My ⟦dream⟧ last night was weird."
+    },
+    {
+      "n": 586,
+      "rank": 776,
+      "word": "mabait",
+      "pos": "adj",
+      "meaning": "kind, nice; well-behaved",
+      "sentence": "Mabait ang kapitbahay namin.",
+      "translation": "Our neighbor is ⟦kind⟧."
+    },
+    {
+      "n": 587,
+      "rank": 777,
+      "word": "tumanggi",
+      "pos": "verb",
+      "meaning": "to refuse, to say no",
+      "sentence": "Tumanggi siya sa alok ko.",
+      "translation": "He ⟦refused⟧ my offer."
+    },
+    {
+      "n": 588,
+      "rank": 779,
+      "word": "ikot",
+      "pos": "noun",
+      "meaning": "turn, round (umikot: to go around, to spin)",
+      "sentence": "Umiikot ang mundo.",
+      "translation": "The world ⟦turns⟧."
+    },
+    {
+      "n": 589,
+      "rank": 780,
+      "word": "maya-maya",
+      "pos": "adv",
+      "meaning": "in a little while",
+      "sentence": "Maya-maya darating na siya.",
+      "translation": "He'll be here ⟦in a little while⟧."
+    },
+    {
+      "n": 590,
+      "rank": 782,
+      "word": "kapayapaan",
+      "pos": "noun",
+      "meaning": "peace (mapayapa: peaceful)",
+      "sentence": "Gusto namin ng kapayapaan.",
+      "translation": "We want ⟦peace⟧."
+    },
+    {
+      "n": 591,
+      "rank": 783,
+      "word": "ideya",
+      "pos": "noun",
+      "meaning": "idea",
+      "sentence": "May ideya ka ba?",
+      "translation": "Do you have any ⟦idea⟧?"
+    },
+    {
+      "n": 592,
+      "rank": 784,
+      "word": "utang",
+      "pos": "noun",
+      "meaning": "debt (may utang: to owe)",
+      "sentence": "May utang ako sa iyo.",
+      "translation": "I ⟦owe⟧ you."
+    },
+    {
+      "n": 593,
+      "rank": 785,
+      "word": "tunog",
+      "pos": "noun",
+      "meaning": "sound",
+      "sentence": "Ano ang tunog na iyon?",
+      "translation": "What's that ⟦sound⟧?"
+    },
+    {
+      "n": 594,
+      "rank": 787,
+      "word": "lihim",
+      "pos": "noun",
+      "meaning": "secret",
+      "sentence": "Lihim natin ito.",
+      "translation": "This is our ⟦secret⟧."
+    },
+    {
+      "n": 595,
+      "rank": 788,
+      "word": "pangako",
+      "pos": "noun",
+      "meaning": "promise (mangako: to promise)",
+      "sentence": "Pangako, babalik ako.",
+      "translation": "I ⟦promise⟧, I'll be back."
+    },
+    {
+      "n": 596,
+      "rank": 789,
+      "word": "sandali",
+      "pos": "noun",
+      "meaning": "moment (sandali lang: just a moment)",
+      "sentence": "Sandali lang, may tawag ako.",
+      "translation": "Just a ⟦moment⟧, I have a call."
+    },
+    {
+      "n": 597,
+      "rank": 791,
+      "word": "disenyo",
+      "pos": "noun",
+      "meaning": "design",
+      "sentence": "Gusto ko ang disenyo ng bahay.",
+      "translation": "I like the ⟦design⟧ of the house."
+    },
+    {
+      "n": 598,
+      "rank": 792,
+      "word": "damdamin",
+      "pos": "noun",
+      "meaning": "feelings, emotion",
+      "sentence": "Huwag mong saktan ang damdamin niya.",
+      "translation": "Don't hurt her ⟦feelings⟧."
+    },
+    {
+      "n": 599,
+      "rank": 795,
+      "word": "ilog",
+      "pos": "noun",
+      "meaning": "river",
+      "sentence": "Malinis ang ilog dito.",
+      "translation": "The ⟦river⟧ here is clean."
+    },
+    {
+      "n": 600,
+      "rank": 798,
+      "word": "estudyante",
+      "pos": "noun",
+      "meaning": "student",
+      "sentence": "Estudyante pa ako.",
+      "translation": "I'm still a ⟦student⟧."
     }
   ]
 }
