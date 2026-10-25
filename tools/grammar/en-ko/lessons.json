@@ -1278,6 +1278,247 @@
         {"type":"say","q":"Say: “I'm learning Korean to make Korean friends.” ({{사귀다|sagwida}} “to make friends with”)","answer":"한국 친구를 사귀려고 한국어를 배워요.","r":"hanguk chingureul sagwiryeogo hangugeoreul baewoyo."},
         {"type":"free","q":"Your turn: what are you planning to do this year, and what have you decided?","answers":[{"t":"올해 한국에 가려고 해요. 그리고 매일 한국어를 공부하기로 했어요.","tr":"I'm planning to go to Korea this year. And I've decided to study Korean every day.","r":"olhae hanguge garyeogo haeyo. geurigo maeil hangugeoreul gongbuhagiro haesseoyo."},{"t":"이번 달부터 운동하기로 했어요. 주말에는 등산하려고 해요.","tr":"I've decided to work out from this month. At weekends I'm planning to go hiking.","r":"ibeon dalbuteo undonghagiro haesseoyo. jumareneun deungsanharyeogo haeyo."}]}
       ]
+    },
+    {
+      "id": "say-if-and-when",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what happens if…",
+      "summary": "Talk about conditions: “If it rains, let's stay in”, “When you get home, text me”, “All you have to do is press this.”",
+      "topic": "{{-(으)면|-(eu)myeon}} “if, when”; {{-(으)면 돼요|-(eu)myeon dwaeyo}} “all you need to do is”",
+      "blocks": [
+        {"goal":{"t":"시간이 있으면 같이 영화 봐요.","tr":"If you have time, let's watch a movie together.","r":"sigani isseumyeon gachi yeonghwa bwayo."}},
+        {"dialog":[{"who":"Yuna","t":"내일 비가 오면 어떻게 할까요?","tr":"What shall we do if it rains tomorrow?","r":"naeil biga omyeon eotteoke halkkayo?"},{"who":"You","t":"비가 오면 집에서 영화 봐요.","tr":"If it rains, let's watch a movie at home.","r":"biga omyeon jibeseo yeonghwa bwayo."},{"who":"Yuna","t":"좋아요. 날씨가 좋으면요?","tr":"Okay. And if the weather's nice?","r":"joayo. nalssiga joeumyeonyo?"},{"who":"You","t":"날씨가 좋으면 한강공원에 가요!","tr":"If it's nice, let's go to the Han River park!","r":"nalssiga joeumyeon hanganggongwone gayo!"},{"who":"Yuna","t":"그럼 내일 아침에 일어나면 문자할게요.","tr":"Then I'll text you when I get up tomorrow morning.","r":"geureom naeil achime ireonamyeon munjahalgeyo."}]},
+        {"p":"**If: {{-(으)면|-(eu)myeon}}.** Stem + {{-면|-myeon}} after a vowel or {{ㄹ}}, {{-으면|-eumyeon}} after another consonant: {{비가 오면|biga omyeon}} “if it rains”, {{길을 알면|gireul almyeon}} “if you know the way”, {{시간이 있으면|sigani isseumyeon}} “if you have time”. The {{-(으)면|-(eu)myeon}} part comes first, then what happens: {{비가 오면 집에 있을 거예요|biga omyeon jibe isseul geoyeyo}} “If it rains, I'll stay at home.”"},
+        { "table": [
+          ["stem ends in…","add","example"],
+          ["a vowel","{{-면|-myeon}}","{{오다|oda}} → {{오면|omyeon}}; {{피곤하다|pigonhada}} → {{피곤하면|pigonhamyeon}}"],
+          ["{{ㄹ}}","{{-면|-myeon}}","{{알다|alda}} → {{알면|almyeon}}; {{멀다|meolda}} → {{멀면|meolmyeon}}"],
+          ["another consonant","{{-으면|-eumyeon}}","{{있다|itda}} → {{있으면|isseumyeon}}; {{좋다|jota}} → {{좋으면|joeumyeon}}"]
+        ] },
+        {"p":"**If and when.** {{-(으)면|-(eu)myeon}} is also “when, whenever” for something that will surely happen: {{집에 도착하면 문자 주세요|jibe dochakamyeon munja juseyo}} “When you get home, text me.”, {{봄이 오면|bomi omyeon}} “when spring comes”. As with {{-고|-go}}, the {{-(으)면|-(eu)myeon}} verb has no tense of its own: the last verb says when."},
+        {"p":"**All you need to do: {{-(으)면 돼요|-(eu)myeon dwaeyo}}.** Word for word “if you do it, it works”: {{여기에 이름을 쓰면 돼요|yeogie ireumeul sseumyeon dwaeyo}} “You just need to write your name here.” As a question, it asks what to do: {{어떻게 하면 돼요?|eotteoke hamyeon dwaeyo?}} “What do I need to do?”. Its opposite is {{-(으)면 안 돼요|-(eu)myeon an dwaeyo}} “mustn't” from lesson 24."},
+        { "ex": [
+          {"t":"피곤하면 좀 쉬세요.","tr":"If you're tired, have a rest.","r":"pigonhamyeon jom swiseyo."},
+          {"t":"이 길로 쭉 가면 은행이 있어요.","tr":"If you go straight along this road, there's a bank.","r":"i gillo jjuk gamyeon eunhaengi isseoyo."},
+          {"t":"집에 도착하면 문자 주세요.","tr":"Text me when you get home.","note":"{{문자|munja}} “text message”","r":"jibe dochakamyeon munja juseyo."},
+          {"t":"날씨가 더우면 바다에 갈 거예요.","tr":"If it's hot, we'll go to the beach.","note":"{{덥다|deopda}} → {{더우면|deoumyeon}}","r":"nalssiga deoumyeon badae gal geoyeyo."},
+          {"t":"이 버튼을 누르면 돼요.","tr":"You just need to press this button.","r":"i beoteuneul nureumyeon dwaeyo."},
+          {"t":"어떻게 하면 돼요?","tr":"What should I do?","r":"eotteoke hamyeon dwaeyo?"}
+        ] },
+        {"tip":"Stems that change shape before a vowel change before {{-으면|-eumyeon}} too: {{덥다|deopda}} → {{더우면|deoumyeon}}, {{듣다|deutda}} → {{들으면|deureumyeon}}."}
+      ],
+      "mistakes": [
+        {"wrong":"시간이 있면 같이 가요.","right":"시간이 있으면 같이 가요.","tr":"If you have time, let's go together.","why":"{{있|it}} ends in a consonant: {{-으면|-eumyeon}}."},
+        {"wrong":"길을 알으면 알려 주세요.","right":"길을 알면 알려 주세요.","tr":"If you know the way, please tell me.","why":"Stems ending in {{ㄹ}} take just {{-면|-myeon}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“If you're tired, have a rest” is…","options":["{{피곤하면 쉬세요.|pigonhamyeon swiseyo.}}","{{피곤하고 쉬세요.|pigonhago swiseyo.}}","{{피곤했어요. 쉬세요.|pigonhaesseoyo. swiseyo.}}"],"answer":0,"why":"If: {{-(으)면|-(eu)myeon}}. ({{피곤하고 쉬세요|pigonhago swiseyo}} would be “be tired and rest”!)"},
+        {"type":"fill","q":"Choose the ending.","t":"시간이 있___ 같이 가요.","tr":"If you have time, let's go together.","options":["으면","면","어면"],"answer":0,"why":"{{있|it}} ends in a consonant: {{있으면|isseumyeon}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"여기에 이름을 쓰면 ___.","tr":"You just need to write your name here.","options":["돼요","해요","있어요"],"answer":0,"why":"All you need to do: {{-(으)면 돼요|-(eu)myeon dwaeyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Text me when you get home.","words":["집에","도착하면","문자","주세요."]},
+        {"type":"dialogue","q":"Plans for tomorrow. Choose your replies.","from":"suggest-doing-something","lines":[{"who":"Friend","t":"내일 비가 오면 어떻게 할까요?","tr":"What shall we do if it rains tomorrow?","r":"naeil biga omyeon eotteoke halkkayo?"},{"options":["비가 오면 카페에 갈까요?","비가 오고 카페에 갈까요?"],"answer":0,"why":"“If it rains”: {{비가 오면|biga omyeon}}."},{"who":"Friend","t":"좋아요. 날씨가 좋으면요?","tr":"Good. And if the weather's nice?","r":"joayo. nalssiga joeumyeonyo?"},{"options":["날씨가 좋으면 공원에서 자전거 타요.","날씨가 좋면 공원에서 자전거 타요."],"answer":0,"why":"{{좋|jot}} ends in a consonant: {{좋으면|joeumyeon}}."}]},
+        {"type":"say","q":"Ask: “What should I do?” (word for word, “if I do it how, does it work?”)","answer":"어떻게 하면 돼요?","r":"eotteoke hamyeon dwaeyo?"},
+        {"type":"free","q":"Your turn: what will you do this weekend if the weather is nice? And if it rains?","answers":[{"t":"날씨가 좋으면 등산할 거예요. 비가 오면 집에서 책을 읽을 거예요.","tr":"If the weather's nice, I'll go hiking. If it rains, I'll read at home.","r":"nalssiga joeumyeon deungsanhal geoyeyo. biga omyeon jibeseo chaegeul ilgeul geoyeyo."},{"t":"날씨가 좋으면 친구하고 피크닉을 갈 거예요. 비가 오면 영화를 볼 거예요.","tr":"If it's nice, I'll go on a picnic with a friend. If it rains, I'll watch a movie.","r":"nalssiga joeumyeon chinguhago pikeunigeul gal geoyeyo. biga omyeon yeonghwareul bol geoyeyo."}]}
+      ]
+    },
+    {
+      "id": "get-around-town",
+      "unit": 6,
+      "level": "A2",
+      "title": "Ask the way and get around",
+      "summary": "Ask how to get somewhere, follow directions, take the subway, and say how long it takes.",
+      "topic": "{{에서|eseo}} … {{까지|kkaji}} “from… to”; {{(으)로|(eu)ro}} “towards”; {{걸려요|geollyeoyo}} “it takes (time)”; {{돌다|dolda}} → {{도세요|doseyo}}",
+      "blocks": [
+        {"goal":{"t":"여기에서 명동까지 어떻게 가요?","tr":"How do I get from here to Myeongdong?","r":"yeogieseo myeongdongkkaji eotteoke gayo?"}},
+        {"dialog":[{"who":"You","t":"실례합니다. 여기에서 경복궁까지 어떻게 가요?","tr":"Excuse me. How do I get from here to Gyeongbokgung Palace?","r":"sillyehamnida. yeogieseo gyeongbokgungkkaji eotteoke gayo?"},{"who":"Man","t":"지하철 삼 호선을 타세요. 경복궁역에서 내리면 돼요.","tr":"Take subway Line 3. Just get off at Gyeongbokgung Station.","r":"jihacheol sam hoseoneul taseyo. gyeongbokgungnyeogeseo naerimyeon dwaeyo."},{"who":"You","t":"얼마나 걸려요?","tr":"How long does it take?","r":"eolmana geollyeoyo?"},{"who":"Man","t":"이십 분쯤 걸려요.","tr":"About twenty minutes.","r":"isip bunjjeum geollyeoyo."},{"who":"You","t":"지하철역은 어디에 있어요?","tr":"And where's the subway station?","r":"jihacheollyeogeun eodie isseoyo?"},{"who":"Man","t":"이 길로 쭉 가세요. 그리고 사거리에서 오른쪽으로 도세요.","tr":"Go straight along this road. Then turn right at the intersection.","r":"i gillo jjuk gaseyo. geurigo sageorieseo oreunjjogeuro doseyo."}]},
+        {"p":"**From… to: {{에서|eseo}} … {{까지|kkaji}}.** For places, “from” is {{에서|eseo}} (lesson 8) and “to, as far as” is {{까지|kkaji}}: {{집에서 회사까지|jibeseo hoesakkaji}} “from home to work”. For times it's {{부터|buteo}} … {{까지|kkaji}} (lesson 15)."},
+        {"p":"**Towards: {{(으)로|(eu)ro}}.** The {{(으)로|(eu)ro}} of “by bus” also means “towards”: {{오른쪽으로 가세요|oreunjjogeuro gaseyo}} “go right”, {{이쪽으로 오세요|ijjogeuro oseyo}} “come this way”, {{명동으로 가 주세요|myeongdongeuro ga juseyo}} “to Myeongdong, please”. With {{가다|gada}} and {{오다|oda}}, {{에|e}} names the place you arrive at, {{(으)로|(eu)ro}} the direction you head in; often both work."},
+        { "table": [
+          ["Korean","meaning"],
+          ["{{쭉 가세요.|jjuk gaseyo.}}","Go straight on."],
+          ["{{왼쪽으로 도세요.|oenjjogeuro doseyo.}}","Turn left."],
+          ["{{길을 건너세요.|gireul geonneoseyo.}}","Cross the road."],
+          ["{{다음 역에서 내리세요.|daeum yeogeseo naeriseyo.}}","Get off at the next station."],
+          ["{{시청역에서 갈아타세요.|sicheongnyeogeseo garataseyo.}}","Change trains at City Hall Station."]
+        ] },
+        {"p":"**Getting on and off.** You get on something with {{을|eul}}/{{를|reul}} ({{버스를 타요|beoseureul tayo}}) and off it with {{에서|eseo}} ({{버스에서 내려요|beoseueseo naeryeoyo}}). {{돌다|dolda}} “to turn” is an {{ㄹ}} verb: {{도세요|doseyo}} “please turn”."},
+        {"p":"**How long does it take? {{얼마나 걸려요?|eolmana geollyeoyo?}}** {{걸려요|geollyeoyo}} (from {{걸리다|geollida}}) is “it takes (time)”: {{버스로 삼십 분 걸려요|beoseuro samsip bun geollyeoyo}} “It takes thirty minutes by bus.” {{쯤|jjeum}} after a number is “about”: {{십 분쯤|sip bunjjeum}} “about ten minutes”."},
+        { "ex": [
+          {"t":"실례합니다. 지하철역이 어디예요?","tr":"Excuse me, where's the subway station?","r":"sillyehamnida. jihacheollyeogi eodiyeyo?"},
+          {"t":"집에서 회사까지 한 시간 걸려요.","tr":"It takes an hour from home to work.","r":"jibeseo hoesakkaji han sigan geollyeoyo."},
+          {"t":"저기에서 왼쪽으로 도세요.","tr":"Turn left over there.","r":"jeogieseo oenjjogeuro doseyo."},
+          {"t":"이 버스가 강남에 가요?","tr":"Does this bus go to Gangnam?","r":"i beoseuga gangname gayo?"},
+          {"t":"걸어서 오 분쯤 걸려요.","tr":"It's about a five-minute walk.","r":"georeoseo o bunjjeum geollyeoyo."},
+          {"t":"시청역에서 이 호선으로 갈아타세요.","tr":"Change to Line 2 at City Hall Station.","r":"sicheongnyeogeseo i hoseoneuro garataseyo."}
+        ] },
+        {"tip":"{{실례합니다|sillyehamnida}} “excuse me” (word for word “I'm being rude”) is the polite way to stop a stranger. {{저기요|jeogiyo}} works too."}
+      ],
+      "mistakes": [
+        {"wrong":"오른쪽으로 돌으세요.","right":"오른쪽으로 도세요.","tr":"Turn right.","why":"{{돌다|dolda}} is an {{ㄹ}} verb: the {{ㄹ}} drops before {{-세요|-seyo}}."},
+        {"wrong":"이십 분 걸어요.","right":"이십 분 걸려요.","tr":"It takes twenty minutes.","why":"{{걸려요|geollyeoyo}} is “it takes (time)”; {{걸어요|georeoyo}} is “I walk”."},
+        {"wrong":"지하철을 내리세요.","right":"지하철에서 내리세요.","tr":"Get off the subway.","why":"You get off **from** something: {{에서 내리다|eseo naerida}}. You get on with {{을|eul}}/{{를|reul}}: {{지하철을 타세요|jihacheoreul taseyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{얼마나 걸려요?|eolmana geollyeoyo?}} asks…","options":["How far is it?","How long does it take?","How much is it?"],"answer":1,"why":"{{걸리다|geollida}} “to take (time)”."},
+        {"type":"fill","q":"Choose the missing particle.","t":"집___ 회사까지 버스로 가요.","tr":"I go from home to work by bus.","options":["에서","부터","에"],"answer":0,"why":"From a place: {{에서|eseo}}. ({{부터|buteo}} is for times.)"},
+        {"type":"fill","q":"Choose the right form.","t":"저기에서 오른쪽으로 ___.","tr":"Turn right over there.","options":["도세요","돌으세요","돌세요"],"answer":0,"why":"{{돌다|dolda}}: the {{ㄹ}} drops before {{-세요|-seyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"It takes an hour from home to work.","words":["집에서","회사까지","한","시간","걸려요."]},
+        {"type":"dialogue","q":"A stranger offers to help. Choose your replies.","from":"say-where-you-go","lines":[{"who":"Woman","t":"뭐 찾으세요?","tr":"Are you looking for something?","r":"mwo chajeuseyo?"},{"options":["네, 남산타워에 어떻게 가요?","네, 남산타워에서 어떻게 가요?"],"answer":0,"why":"The place you want to reach: {{에|e}}. ({{에서|eseo}} would be “from”.)"},{"who":"Woman","t":"이 버스를 타고 종점에서 내리면 돼요.","tr":"Take this bus and get off at the last stop.","r":"i beoseureul tago jongjeomeseo naerimyeon dwaeyo."},{"options":["감사합니다. 얼마나 걸려요?","감사합니다. 얼마나 걸어요?"],"answer":0,"why":"How long it takes: {{걸려요|geollyeoyo}}. ({{걸어요|georeoyo}} is “walk”.)"},{"who":"Woman","t":"이십 분쯤 걸려요.","tr":"About twenty minutes.","r":"isip bunjjeum geollyeoyo."}]},
+        {"type":"say","q":"Ask: “Where should I get off?” (word for word, “if I get off where, does it work?”)","answer":"어디에서 내리면 돼요?","from":"say-if-and-when","r":"eodieseo naerimyeon dwaeyo?"},
+        {"type":"free","q":"Your turn: tell someone how to get from your home to a café or a park near you, and how long it takes.","answers":[{"t":"집에서 쭉 가세요. 그리고 사거리에서 왼쪽으로 도세요. 걸어서 십 분쯤 걸려요.","tr":"From my home, go straight on. Then turn left at the intersection. It's about a ten-minute walk.","r":"jibeseo jjuk gaseyo. geurigo sageorieseo oenjjogeuro doseyo. georeoseo sip bunjjeum geollyeoyo."},{"t":"지하철로 두 정거장 가면 돼요. 이십 분쯤 걸려요.","tr":"You just go two stops on the subway. It takes about twenty minutes.","r":"jihacheollo du jeonggeojang gamyeon dwaeyo. isip bunjjeum geollyeoyo."}]}
+      ]
+    },
+    {
+      "id": "talk-politely-about-others",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk politely about older people",
+      "summary": "Talk about your grandparents, your boss or your teacher with respect, and ask them questions politely.",
+      "topic": "the honorific {{-(으)시-|-(eu)si-}}: {{가세요|gaseyo}}, {{가셨어요|gasyeosseoyo}}, {{가실 거예요|gasil geoyeyo}}; {{드세요|deuseyo}}, {{주무세요|jumuseyo}}, {{계세요|gyeseyo}}, {{말씀하세요|malsseumhaseyo}}; {{님|nim}}, {{께서|kkeseo}}",
+      "blocks": [
+        {"goal":{"t":"우리 할머니는 매일 아침 산책하세요.","tr":"My grandmother goes for a walk every morning.","r":"uri halmeonineun maeil achim sanchaekaseyo."}},
+        {"dialog":[{"who":"You","t":"김 부장님 지금 계세요?","tr":"Is Mr. Kim, the manager, in?","r":"gim bujangnim jigeum gyeseyo?"},{"who":"Coworker","t":"아니요, 지금 안 계세요. 회의 중이세요.","tr":"No, he isn't here right now. He's in a meeting.","r":"aniyo, jigeum an gyeseyo. hoeui jungiseyo."},{"who":"You","t":"언제 오세요?","tr":"When will he be back?","r":"eonje oseyo?"},{"who":"Coworker","t":"세 시쯤 오실 거예요.","tr":"He should be back around three.","r":"se sijjeum osil geoyeyo."},{"who":"You","t":"알겠습니다. 그럼 세 시에 다시 올게요.","tr":"I see. Then I'll come back at three.","r":"algetseumnida. geureom se sie dasi olgeyo."}]},
+        {"p":"**Respect inside the verb.** Korean shows respect for the **person you're talking about** (or to) inside the verb, with {{-(으)시-|-(eu)si-}}. In the present, it's stem + {{-세요|-seyo}} or {{-으세요|-euseyo}}: the same form as “please do” in lesson 16. {{할머니가 텔레비전을 보세요|halmeoniga tellebijeoneul boseyo}} “Grandma is watching TV.” Use it for older people, your boss, teachers, customers and strangers older than you, but **never for yourself**."},
+        {"term":"honorific","means":"a form that shows respect for the person you're talking about. In Korean: {{-(으)시-|-(eu)si-}} in the verb, and special respectful words like {{드시다|deusida}} “to eat”."},
+        { "table": [
+          ["","plain","with respect"],
+          ["present","{{가요|gayo}}","{{가세요|gaseyo}}"],
+          ["present","{{읽어요|ilgeoyo}}","{{읽으세요|ilgeuseyo}}"],
+          ["past","{{갔어요|gasseoyo}}","{{가셨어요|gasyeosseoyo}}"],
+          ["future","{{갈 거예요|gal geoyeyo}}","{{가실 거예요|gasil geoyeyo}}"],
+          ["question","{{뭐 해요?|mwo haeyo?}}","{{뭐 하세요?|mwo haseyo?}}"]
+        ] },
+        {"p":"**Special verbs.** A few everyday verbs have their own respectful word instead of {{-시-|-si-}}. Note the two kinds of {{있다|itda}}: “to have” is {{있으세요|isseuseyo}} ({{시간 있으세요?|sigan isseuseyo?}}), “to be somewhere” is {{계세요|gyeseyo}}."},
+        { "table": [
+          ["plain","with respect","meaning"],
+          ["{{먹다|meokda}}, {{마시다|masida}}","{{드시다|deusida}} → {{드세요|deuseyo}}","to eat, to drink"],
+          ["{{자다|jada}}","{{주무시다|jumusida}} → {{주무세요|jumuseyo}}","to sleep"],
+          ["{{있다|itda}}","{{계시다|gyesida}} → {{계세요|gyeseyo}}","to be (somewhere)"],
+          ["{{말하다|malhada}}","{{말씀하시다|malsseumhasida}} → {{말씀하세요|malsseumhaseyo}}","to speak"],
+          ["{{나이|nai}}","{{연세|yeonse}}","age"],
+          ["{{집|jip}}","{{댁|daek}}","home"]
+        ] },
+        {"p":"**Respectful nouns and particles.** {{님|nim}} after a title adds respect: {{선생님|seonsaengnim}} “teacher”, {{사장님|sajangnim}} “boss”, {{부장님|bujangnim}} “department head”, {{기사님|gisanim}} “driver”. In formal speech the subject particle becomes {{께서|kkeseo}}: {{할아버지께서 오셨어요|harabeojikkeseo osyeosseoyo}}. In everyday talk, {{이|i}}/{{가|ga}} or {{은|eun}}/{{는|neun}} with {{-시-|-si-}} is enough."},
+        { "ex": [
+          {"t":"아버지는 은행에서 일하세요.","tr":"My father works at a bank.","r":"abeojineun eunhaengeseo ilhaseyo."},
+          {"t":"사장님은 지금 안 계세요.","tr":"The boss isn't here right now.","r":"sajangnimeun jigeum an gyeseyo."},
+          {"t":"할아버지, 진지 드세요.","tr":"Grandpa, please come and eat.","note":"{{진지|jinji}} is the respectful word for “a meal”","r":"harabeoji, jinji deuseyo."},
+          {"t":"할머니, 안녕히 주무세요.","tr":"Good night, Grandma.","note":"word for word “sleep in peace”","r":"halmeoni, annyeonghi jumuseyo."},
+          {"t":"어머니께서 이 김치를 만드셨어요.","tr":"My mother made this kimchi.","note":"{{만들다|mandeulda}} → {{만드셨어요|mandeusyeosseoyo}}: the {{ㄹ}} drops","r":"eomeonikkeseo i gimchireul mandeusyeosseoyo."},
+          {"t":"선생님, 시간 있으세요?","tr":"Do you have a moment, sir?","r":"seonsaengnim, sigan isseuseyo?"}
+        ] },
+        {"tip":"{{-(으)세요|-(eu)seyo}} now has two jobs you know: “please do” ({{앉으세요|anjeuseyo}} “please sit”) and “you/they do, with respect” ({{어디 가세요?|eodi gaseyo?}} “where are you going?”). Your tone and the situation tell them apart."}
+      ],
+      "mistakes": [
+        {"wrong":"저는 학생이세요.","right":"저는 학생이에요.","tr":"I'm a student.","why":"Never use the honorific about yourself."},
+        {"wrong":"할머니가 자세요.","right":"할머니가 주무세요.","tr":"Grandma is sleeping.","why":"{{자다|jada}} has its own respectful verb: {{주무시다|jumusida}}."},
+        {"wrong":"사장님이 사무실에 있으세요.","right":"사장님이 사무실에 계세요.","tr":"The boss is in the office.","why":"Being somewhere, with respect: {{계세요|gyeseyo}}. ({{있으세요|isseuseyo}} is for “have”.)"}
+      ],
+      "practice": [
+        {"type":"choice","q":"About your grandfather: “He's sleeping.”","options":["{{할아버지가 주무세요.|harabeojiga jumuseyo.}}","{{할아버지가 자요.|harabeojiga jayo.}}"],"answer":0,"why":"With respect: {{주무세요|jumuseyo}}."},
+        {"type":"fill","q":"Choose the respectful form.","t":"아버지는 회사에서 일___.","tr":"My father works at a company.","options":["하세요","해요"],"answer":0,"why":"About your father: {{하세요|haseyo}}. ({{해요|haeyo}} isn't wrong grammar, but it sounds disrespectful.)"},
+        {"type":"fill","q":"Choose the respectful form.","t":"어제 할머니께서 김치를 ___.","tr":"Grandma made kimchi yesterday.","options":["만드셨어요","만들었어요","만들으셨어요"],"answer":0,"why":"With respect, in the past: {{만드셨어요|mandeusyeosseoyo}} (the {{ㄹ}} drops before {{-시-|-si-}})."},
+        {"type":"order","q":"Put the words in order.","tr":"The boss isn't here right now.","words":["사장님은","지금","안","계세요."]},
+        {"type":"dialogue","q":"You meet a friend's mother. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Mother","t":"어서 와요. 반가워요.","tr":"Welcome. Nice to meet you.","r":"eoseo wayo. bangawoyo."},{"options":["안녕하세요, 어머님. 처음 뵙겠습니다.","안녕, 어머님."],"answer":0,"why":"Greeting an older person: {{안녕하세요|annyeonghaseyo}}. ({{처음 뵙겠습니다|cheoeum boepgetseumnida}} is a very polite “nice to meet you”; {{안녕|annyeong}} is for friends.)"},{"who":"Mother","t":"저녁 먹었어요?","tr":"Have you had dinner?","r":"jeonyeok meogeosseoyo?"},{"options":["아니요, 아직이요. 어머님은 드셨어요?","아니요, 아직이요. 어머님은 먹었어요?"],"answer":0,"why":"Asking about her, with respect: {{드셨어요?|deusyeosseoyo?}}"}]},
+        {"type":"say","q":"Ask your teacher politely: “Do you have a moment?”","answer":"선생님, 시간 있으세요?","r":"seonsaengnim, sigan isseuseyo?"},
+        {"type":"free","q":"Your turn: talk about an older person in your family. What do they do, and what do they like? Use {{-(으)세요|-(eu)seyo}}.","answers":[{"t":"우리 할아버지는 일흔 살이세요. 매일 아침 산책하세요. 그리고 신문을 읽으세요.","tr":"My grandfather is seventy. He goes for a walk every morning. And he reads the newspaper.","r":"uri harabeojineun ilheun sariseyo. maeil achim sanchaekaseyo. geurigo sinmuneul ilgeuseyo."},{"t":"우리 어머니는 선생님이세요. 요리를 정말 좋아하세요.","tr":"My mother is a teacher. She really loves cooking.","r":"uri eomeonineun seonsaengnimiseyo. yorireul jeongmal joahaseyo."}]}
+      ]
+    },
+    {
+      "id": "understand-formal-speech",
+      "unit": 6,
+      "level": "A2",
+      "title": "Understand announcements and formal speech",
+      "summary": "Understand the subway, the weather forecast and a shop's welcome, and use the formal style in the phrases everyone uses.",
+      "topic": "the formal style {{-(스)ㅂ니다|-(seu)mnida}}, {{-(스)ㅂ니까?|-(seu)mnikka?}}, {{입니다|imnida}}; {{-(으)십시오|-(eu)sipsio}}; {{감사합니다|gamsahamnida}}, {{죄송합니다|joesonghamnida}}",
+      "blocks": [
+        {"goal":{"t":"이번 역은 서울역입니다.","tr":"This stop is Seoul Station.","r":"ibeon yeogeun seoullyeogimnida."}},
+        {"dialog":[{"who":"Announcement","t":"이번 역은 시청, 시청역입니다.","tr":"This stop is City Hall, City Hall Station.","r":"ibeon yeogeun sicheong, sicheongnyeogimnida."},{"who":"Announcement","t":"내리실 문은 오른쪽입니다.","tr":"The doors will open on the right.","r":"naerisil muneun oreunjjogimnida."},{"who":"Announcement","t":"일 호선으로 갈아타실 분은 이번 역에서 내리십시오.","tr":"Passengers changing to Line 1, please get off at this station.","r":"il hoseoneuro garatasil buneun ibeon yeogeseo naerisipsio."},{"who":"Clerk","t":"어서 오십시오. 무엇을 찾으십니까?","tr":"Welcome. What are you looking for?","r":"eoseo osipsio. mueoseul chajeusimnikka?"},{"who":"You","t":"이 카드로 계산할 수 있습니까?","tr":"Can I pay with this card?","r":"i kadeuro gyesanhal su itseumnikka?"},{"who":"Clerk","t":"네, 됩니다. 감사합니다.","tr":"Yes, you can. Thank you.","r":"ne, doemnida. gamsahamnida."}]},
+        {"p":"**The formal style.** Besides the polite {{-아요|-ayo}}/{{-어요|-eoyo}} you've learned, Korean has a more formal polite style: {{-(스)ㅂ니다|-(seu)mnida}}. It's the style of announcements, the news, speeches, presentations, job interviews and staff talking to customers. It sounds official rather than warm. You need it mostly to understand, and for a handful of phrases everyone says."},
+        {"p":"**How it's built.** Stem + {{-ㅂ니다|-mnida}} after a vowel, {{-습니다|-seumnida}} after a consonant; questions end in {{-ㅂ니까?|-mnikka?}} / {{-습니까?|-seumnikka?}}. {{이에요|ieyo}} becomes {{입니다|imnida}}. Stems ending in {{ㄹ}} drop it: {{살다|salda}} → {{삽니다|samnida}}."},
+        { "table": [
+          ["","해요 style","formal style"],
+          ["go","{{가요|gayo}}","{{갑니다|gamnida}}"],
+          ["eat","{{먹어요|meogeoyo}}","{{먹습니다|meokseumnida}}"],
+          ["do","{{해요|haeyo}}","{{합니다|hamnida}}"],
+          ["is","{{학생이에요|haksaengieyo}}","{{학생입니다|haksaengimnida}}"],
+          ["question","{{있어요?|isseoyo?}}","{{있습니까?|itseumnikka?}}"],
+          ["past","{{했어요|haesseoyo}}","{{했습니다|haetseumnida}}"]
+        ] },
+        {"p":"**Formal requests: {{-(으)십시오|-(eu)sipsio}}.** The formal “please do”: {{들어오십시오|deureoosipsio}} “please come in”, {{내리십시오|naerisipsio}} “please get off”. **The phrases everyone uses** are almost always formal: {{감사합니다|gamsahamnida}} “thank you”, {{죄송합니다|joesonghamnida}} “I'm sorry”, {{알겠습니다|algetseumnida}} “understood, certainly”, {{처음 뵙겠습니다|cheoeum boepgetseumnida}} “how do you do”, {{잘 먹겠습니다|jal meokgetseumnida}} “thank you for the meal” (before eating) and {{잘 먹었습니다|jal meogeotseumnida}} (after)."},
+        { "ex": [
+          {"t":"화장실이 어디에 있습니까?","tr":"Where is the restroom?","r":"hwajangsiri eodie itseumnikka?"},
+          {"t":"문이 닫힙니다.","tr":"The doors are closing.","r":"muni dachimnida."},
+          {"t":"처음 뵙겠습니다. 저는 마이클입니다.","tr":"How do you do? I'm Michael.","r":"cheoeum boepgetseumnida. jeoneun maikeurimnida."},
+          {"t":"잘 먹겠습니다!","tr":"Thank you for the meal!","note":"said before eating, to whoever cooked or is paying","r":"jal meokgetseumnida!"},
+          {"t":"늦어서 죄송합니다.","tr":"I'm sorry I'm late.","note":"{{늦다|neutda}} “to be late”","r":"neujeoseo joesonghamnida."},
+          {"t":"오늘 날씨는 맑겠습니다.","tr":"The weather will be clear today.","note":"the forecast's {{-겠-|-get-}} is a formal “will”","r":"oneul nalssineun malgetseumnida."}
+        ] },
+        {"tip":"Use the formal style when you introduce yourself to a group, at an interview, or when you speak in public. With people you talk to every day, even politely, {{-아요|-ayo}}/{{-어요|-eoyo}} is warmer."}
+      ],
+      "mistakes": [
+        {"wrong":"저는 학생입니다요.","right":"저는 학생입니다.","tr":"I'm a student.","why":"{{-(스)ㅂ니다|-(seu)mnida}} already ends the sentence: no {{요|yo}}."},
+        {"wrong":"저는 서울에 살습니다.","right":"저는 서울에 삽니다.","tr":"I live in Seoul.","why":"Stems ending in {{ㄹ}} drop it and take {{-ㅂ니다|-mnida}}: {{삽니다|samnida}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"On the subway you hear {{문이 닫힙니다|muni dachimnida}}. It means…","options":["The doors are opening.","The doors are closing.","Please open the doors."],"answer":1,"why":"{{닫히다|dachida}} “to close (by itself)”."},
+        {"type":"fill","q":"Choose the formal form.","t":"저는 회사원___.","tr":"I'm an office worker.","options":["입니다","습니다","입니다요"],"answer":0,"why":"{{이에요|ieyo}} → {{입니다|imnida}}."},
+        {"type":"fill","q":"Choose the formal form.","t":"저는 한국어를 공부___.","tr":"I study Korean.","options":["합니다","습니다","합니까"],"answer":0,"why":"{{해요|haeyo}} → {{합니다|hamnida}}. ({{합니까?|hamnikka?}} is a question.)"},
+        {"type":"choice","q":"Before eating, Koreans say…","options":["{{잘 먹겠습니다.|jal meokgetseumnida.}}","{{잘 먹었습니다.|jal meogeotseumnida.}}","{{죄송합니다.|joesonghamnida.}}"],"answer":0,"why":"Before: {{잘 먹겠습니다|jal meokgetseumnida}}; after: {{잘 먹었습니다|jal meogeotseumnida}}."},
+        {"type":"order","q":"Put the words in order.","tr":"How do you do? I'm Michael.","words":["처음","뵙겠습니다.","저는","마이클입니다."]},
+        {"type":"dialogue","q":"A job interview. Choose your replies.","from":"say-who-you-are","lines":[{"who":"Interviewer","t":"안녕하십니까. 앉으십시오.","tr":"Good afternoon. Please have a seat.","r":"annyeonghasimnikka. anjeusipsio."},{"options":["감사합니다. 저는 제임스 브라운입니다.","고마워. 나는 제임스 브라운이야."],"answer":0,"why":"An interview calls for the formal style: {{감사합니다|gamsahamnida}}, {{입니다|imnida}}. (The other reply is casual speech: lesson 50.)"},{"who":"Interviewer","t":"한국어를 얼마나 공부했습니까?","tr":"How long have you studied Korean?","r":"hangugeoreul eolmana gongbuhaetseumnikka?"},{"options":["이 년 동안 공부했습니다.","이 년 동안 공부합니까."],"answer":0,"why":"The formal past: {{했습니다|haetseumnida}}. ({{합니까|hamnikka}} asks a question.)"}]},
+        {"type":"free","q":"Your turn: introduce yourself formally, as at a meeting: your name, where you're from and your job.","answers":[{"t":"안녕하십니까. 저는 사라 존슨입니다. 미국에서 왔습니다. 간호사입니다. 감사합니다.","tr":"Good afternoon. I'm Sarah Johnson. I'm from the United States. I'm a nurse. Thank you.","r":"annyeonghasimnikka. jeoneun sara jonseunimnida. migugeseo watseumnida. ganhosaimnida. gamsahamnida."},{"t":"처음 뵙겠습니다. 저는 김민수입니다. 회사원입니다. 잘 부탁드립니다.","tr":"How do you do? I'm Kim Minsu. I'm an office worker. I look forward to working with you.","r":"cheoeum boepgetseumnida. jeoneun gimminsuimnida. hoesawonimnida. jal butakdeurimnida."}]}
+      ]
+    },
+    {
+      "id": "offer-and-promise",
+      "unit": 6,
+      "level": "A2",
+      "title": "Offer help and make promises",
+      "summary": "Say “I'll do it”, offer to do something for someone, and ask for a favor very politely.",
+      "topic": "{{-(으)ㄹ게요|-(eu)lgeyo}} “I'll (do it)”; {{-아/어 드릴까요?|-a/eo deurilkkayo?}} / {{드릴게요|deurilgeyo}} “shall I… for you?”; {{-아/어 주시겠어요?|-a/eo jusigesseoyo?}} “would you…?”",
+      "blocks": [
+        {"goal":{"t":"제가 사진 찍어 드릴게요.","tr":"I'll take a picture for you.","r":"jega sajin jjigeo deurilgeyo."}},
+        {"dialog":[{"who":"You","t":"사진 찍어 드릴까요?","tr":"Shall I take a picture for you?","r":"sajin jjigeo deurilkkayo?"},{"who":"Tourist","t":"아, 네! 감사합니다. 이 버튼을 누르시면 돼요.","tr":"Oh, yes! Thank you. Just press this button.","r":"a, ne! gamsahamnida. i beoteuneul nureusimyeon dwaeyo."},{"who":"You","t":"하나, 둘, 셋! 한 장 더 찍을게요.","tr":"One, two, three! I'll take one more.","r":"hana, dul, set! han jang deo jjigeulgeyo."},{"who":"Tourist","t":"정말 감사합니다!","tr":"Thank you so much!","r":"jeongmal gamsahamnida!"},{"who":"You","t":"아니에요. 즐거운 여행 하세요!","tr":"Not at all. Have a great trip!","r":"anieyo. jeulgeoun yeohaeng haseyo!"}]},
+        {"p":"**I'll do it: {{-(으)ㄹ게요|-(eu)lgeyo}}.** Stem + {{-ㄹ게요|-lgeyo}} after a vowel, {{-을게요|-eulgeyo}} after a consonant ({{ㄹ}} stems: {{만들게요|mandeulgeyo}}). It's a promise or a decision you make right now, with the other person in mind: {{제가 할게요|jega halgeyo}} “I'll do it”, {{내일 전화할게요|naeil jeonhwahalgeyo}} “I'll call you tomorrow”, {{먼저 갈게요|meonjeo galgeyo}} “I'll head off now”. It's only for yourself, and never a question."},
+        {"p":"**{{-(으)ㄹ게요|-(eu)lgeyo}} or {{-(으)ㄹ 거예요|-(eu)l geoyeyo}}?** {{거예요|geoyeyo}} tells your plan as a fact; {{게요|geyo}} answers the other person and promises. “Who'll bring the drinks?” → {{제가 가져갈게요|jega gajyeogalgeyo}} “I'll bring them.”"},
+        { "table": [
+          ["","Korean","feeling"],
+          ["plan","{{내일 전화할 거예요.|naeil jeonhwahal geoyeyo.}}","I'm going to call tomorrow (that's my plan)."],
+          ["promise","{{내일 전화할게요.|naeil jeonhwahalgeyo.}}","I'll call you tomorrow (you can count on it)."]
+        ] },
+        {"p":"**Doing something for someone you respect: {{-아/어 드리다|-a/eo deurida}}.** {{드리다|deurida}} is the respectful {{주다|juda}} “to give”. Where you ask a favor with {{-아/어 주세요|-a/eo juseyo}}, you offer one with {{-아/어 드릴까요?|-a/eo deurilkkayo?}} “shall I… for you?” or {{-아/어 드릴게요|-a/eo deurilgeyo}} “I'll… for you”. And to ask a favor very politely: {{-아/어 주시겠어요?|-a/eo jusigesseoyo?}} “would you…, please?”, which is {{주세요|juseyo}} with {{-시-|-si-}} and the softness of a question."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["you ask","{{문 좀 열어 주세요.|mun jom yeoreo juseyo.}}","Please open the door."],
+          ["you ask, very politely","{{문 좀 열어 주시겠어요?|mun jom yeoreo jusigesseoyo?}}","Would you open the door, please?"],
+          ["you offer","{{문 열어 드릴까요?|mun yeoreo deurilkkayo?}}","Shall I open the door for you?"],
+          ["you promise","{{문 열어 드릴게요.|mun yeoreo deurilgeyo.}}","I'll open the door for you."]
+        ] },
+        { "ex": [
+          {"t":"제가 할게요.","tr":"I'll do it.","r":"jega halgeyo."},
+          {"t":"내일 다시 전화할게요.","tr":"I'll call you again tomorrow.","r":"naeil dasi jeonhwahalgeyo."},
+          {"t":"저 먼저 갈게요.","tr":"I'll get going.","note":"said when you leave before the others","r":"jeo meonjeo galgeyo."},
+          {"t":"커피는 제가 살게요.","tr":"The coffee's on me.","note":"{{사다|sada}} “to buy” → {{살게요|salgeyo}}","r":"keopineun jega salgeyo."},
+          {"t":"짐 들어 드릴까요?","tr":"Shall I carry your luggage?","r":"jim deureo deurilkkayo?"},
+          {"t":"여기에 이름을 써 주시겠어요?","tr":"Would you write your name here, please?","r":"yeogie ireumeul sseo jusigesseoyo?"}
+        ] },
+        {"tip":"{{아니에요|anieyo}} “it isn't (so)” is also the usual reply to thanks, like “not at all”, and to compliments, like “oh, no”."}
+      ],
+      "mistakes": [
+        {"wrong":"내일 전화할게요?","right":"내일 전화할까요?","tr":"Shall I call you tomorrow?","why":"{{-(으)ㄹ게요|-(eu)lgeyo}} is a promise, never a question. To offer, ask with {{-(으)ㄹ까요?|-(eu)lkkayo?}}."},
+        {"wrong":"민수 씨가 할게요.","right":"민수 씨가 할 거예요.","tr":"Minsu will do it.","why":"{{-(으)ㄹ게요|-(eu)lgeyo}} promises what **you** will do. For someone else, {{-(으)ㄹ 거예요|-(eu)l geoyeyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"A friend asks who will book the restaurant. You answer “I'll do it!”","options":["{{제가 할게요!|jega halgeyo!}}","{{제가 할까요!|jega halkkayo!}}","{{제가 했어요!|jega haesseoyo!}}"],"answer":0,"why":"A promise: {{-(으)ㄹ게요|-(eu)lgeyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"커피는 제가 ___.","tr":"The coffee's on me.","options":["살게요","살을게요","사을게요"],"answer":0,"why":"{{사다|sada}} ends in a vowel: {{살게요|salgeyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"가방 들어 ___?","tr":"Shall I carry your bag for you?","options":["드릴까요","주세요","드릴게요"],"answer":0,"why":"An offer, as a question: {{드릴까요?|deurilkkayo?}} ({{드릴게요|deurilgeyo}} just announces it.)"},
+        {"type":"order","q":"Put the words in order.","tr":"Would you wait a moment, please?","words":["잠깐만","기다려","주시겠어요?"]},
+        {"type":"dialogue","q":"At the office. Choose your replies.","from":"say-what-you-have-to-do","lines":[{"who":"Manager","t":"이 서류를 오늘까지 보내야 해요.","tr":"This document has to go out today.","r":"i seoryureul oneulkkaji bonaeya haeyo."},{"options":["제가 보낼게요.","제가 보내세요."],"answer":0,"why":"Offering to do it yourself: {{-(으)ㄹ게요|-(eu)lgeyo}}. ({{보내세요|bonaeseyo}} tells someone else to send it.)"},{"who":"Manager","t":"고마워요. 그리고 회의실 좀 예약해 주시겠어요?","tr":"Thanks. And would you book the meeting room, please?","r":"gomawoyo. geurigo hoeuisil jom yeyakae jusigesseoyo?"},{"options":["네, 바로 예약할게요.","네, 바로 예약했어요?"],"answer":0,"why":"Promising: {{예약할게요|yeyakalgeyo}} “I'll book it”."}]},
+        {"type":"say","q":"Offer to a tourist: “Shall I take a picture for you?”","answer":"사진 찍어 드릴까요?","r":"sajin jjigeo deurilkkayo?"},
+        {"type":"free","q":"Your turn: a friend is moving house this weekend. Offer two kinds of help with {{-(으)ㄹ게요|-(eu)lgeyo}}.","answers":[{"t":"제가 차로 짐을 옮길게요. 그리고 점심은 제가 살게요.","tr":"I'll move your things in my car. And lunch is on me.","r":"jega charo jimeul omgilgeyo. geurigo jeomsimeun jega salgeyo."},{"t":"토요일 아침에 일찍 갈게요. 청소도 도와줄게요.","tr":"I'll come early on Saturday morning. I'll help with the cleaning too.","r":"toyoil achime iljjik galgeyo. cheongsodo dowajulgeyo."}]}
+      ]
     }
   ]
 }
