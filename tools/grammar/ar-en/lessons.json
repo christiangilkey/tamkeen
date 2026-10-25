@@ -1076,6 +1076,293 @@
         {"type":"order","q":"رتّب الكلمات.","tr":"هل تلتقط لنا صورة، من فضلك؟","words":["Would","you","take","a","picture","of","us,","please?"]},
         {"type":"free","q":"دورك: اكتب ثلاثة طلبات مهذّبة: لزميل في العمل، ولغريب في الشارع، ولموظف في فندق.","answers":[{"t":"Could you send me the report, please? Excuse me, could you take a picture of us? Would you mind calling a taxi for me?","tr":"هل يمكنك أن ترسل لي التقرير، من فضلك؟ عفوًا، هل تلتقط لنا صورة؟ هل تمانع أن تطلب لي سيارة أجرة؟"},{"t":"Can you help me with this printer? Excuse me, could you tell me the time? Could I have an extra towel, please?","tr":"هل تساعدني في هذه الطابعة؟ عفوًا، هل تخبرني كم الساعة؟ هل لي بمنشفة إضافية، من فضلك؟"}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "قل أين كنت",
+      "summary": "قل «كنت في البيت أمس» واسأل «أين كنت؟»: {{was}} و{{were}}، ماضي الفعل {{be}}، وهو «كان» العربية.",
+      "topic": "{{was}} و{{were}}؛ {{wasn't}} و{{weren't}}؛ {{Were you…?}}؛ {{yesterday, last night, ago}}",
+      "blocks": [
+        {"goal":{"t":"I was at home last night. Where were you?","tr":"كنت في البيت ليلة أمس. أين كنت أنت؟"}},
+        {"dialog":[{"who":"مايك","t":"Hey, where were you on Friday? You weren't at work.","tr":"أين كنت يوم الجمعة؟ لم تكن في العمل."},{"who":"عمر","t":"I was sick. I was in bed all day.","tr":"كنت مريضًا. بقيت في السرير طوال اليوم."},{"who":"مايك","t":"Oh no! Are you okay now?","tr":"يا للأسف! هل أنت بخير الآن؟"},{"who":"عمر","t":"Yes, I'm fine now. Was the meeting long?","tr":"نعم، أنا بخير الآن. هل كان الاجتماع طويلًا؟"},{"who":"مايك","t":"Yes, it was. It was three hours!","tr":"نعم. ثلاث ساعات!"},{"who":"عمر","t":"Wow. I was lucky, then!","tr":"إذن كنت محظوظًا!"}]},
+        {"p":"**«كان» = {{was}} و{{were}}.** هنا تقترب الإنجليزية من العربية: الجملة التي لا فعل فيها في الحاضر تأخذ في الماضي «كان»: «أنا في البيت» ← «كنتُ في البيت». والإنجليزية كذلك: {{I'm at home}} ← {{I was at home}}. وللفعل {{be}} في الماضي صورتان فقط:"},
+        { "table": [
+          ["الفاعل","الحاضر","الماضي"],
+          ["{{I}}","{{am}}","{{was}}"],
+          ["{{he, she, it}}","{{is}}","{{was}}"],
+          ["{{you, we, they}}","{{are}}","{{were}}"]
+        ] },
+        {"p":"**النفي والسؤال** كما في الحاضر تمامًا: {{not}} بعده ({{wasn't}}، {{weren't}})، والسؤال بتقديمه ({{Were you at work?}} {{Where was she?}}). والجواب المختصر: {{Yes, I was.}} {{No, they weren't.}}"},
+        {"p":"**كلمات الماضي.** {{yesterday}} «أمس»، {{last night}} «ليلة أمس»، {{last week}} «الأسبوع الماضي»، {{last year}} «العام الماضي»، {{two days ago}} «قبل يومين». ولاحظ أن {{ago}} تأتي بعد المدّة، عكس «قبل» العربية: «قبل ساعة» ← {{an hour ago}}."},
+        {"p":"**والأشياء أيضًا:** {{It was great!}} «كان رائعًا!»، {{The weather was beautiful.}} «كان الطقس جميلًا». وكذلك {{there was}} و{{there were}} «كان هناك»: {{There were a lot of people.}} «كان هناك ناس كثيرون»."},
+        { "ex": [
+          {"t":"I was tired yesterday.","tr":"كنت متعبًا أمس."},
+          {"t":"We were in Istanbul last summer.","tr":"كنّا في إسطنبول الصيف الماضي."},
+          {"t":"The movie was really funny.","tr":"كان الفيلم مضحكًا جدًّا."},
+          {"t":"She wasn't at the party.","tr":"لم تكن في الحفلة."},
+          {"t":"Were you at home an hour ago?","tr":"هل كنت في البيت قبل ساعة؟"},
+          {"t":"There was a long line at the bank.","tr":"كان هناك طابور طويل في البنك."}
+        ] },
+        {"tip":"{{How was…?}} «كيف كان…؟» سؤال تسمعه كثيرًا: {{How was your weekend?}} «كيف كانت عطلتك؟»، {{How was the trip?}} «كيف كانت الرحلة؟». وجوابه صفة: {{It was great!}} {{It was okay.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I am at home.","right":"Yesterday I was at home.","tr":"كنت في البيت أمس.","why":"أمس ماضٍ، فالفعل {{was}} لا {{am}}."},
+        {"wrong":"You was late.","right":"You were late.","tr":"تأخّرت.","why":"مع {{you}} يأتي {{were}}، ولو لشخص واحد."},
+        {"wrong":"I was go to the market.","right":"I went to the market.","tr":"ذهبت إلى السوق.","why":"{{was}} ماضي {{be}} وحده، ولا يوضع قبل فعل آخر. ولـ«ذهبتُ» صيغة خاصّة ستتعلّمها قريبًا: {{went}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We ___ in Cairo last week.","tr":"كنّا في القاهرة الأسبوع الماضي.","options":["were","was","are"],"answer":0,"why":"ماضٍ، ومع {{we}}: {{were}}."},
+        {"type":"choice","q":"«قبل ثلاثة أيام» بالإنجليزية…","options":["{{three days ago}}","{{ago three days}}","{{before three days}}"],"answer":0,"why":"{{ago}} بعد المدّة."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"The food ___ very good, but the music was too loud.","tr":"كان الطعام جيدًا جدًّا، لكن الموسيقى كانت صاخبة أكثر مما ينبغي.","options":["was","were","is"],"answer":0,"why":"{{the food}} مفرد: {{was}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ there a lot of people at the wedding?","tr":"هل كان هناك ناس كثيرون في العرس؟","options":["Were","Was","Did"],"answer":0,"why":"{{people}} جمع: {{Were there}}.","from":"say-where-things-are"},
+        {"type":"dialogue","q":"صباح الاثنين في العمل: اختر ردودك.","lines":[{"who":"زميلتك","t":"Hi! How was your weekend?","tr":"مرحبًا! كيف كانت عطلتك؟"},{"options":["It was great, thanks!","It is great, thanks!"],"answer":0,"why":"العطلة انتهت: {{It was}}."},{"who":"زميلتك","t":"Were you at the beach? You look tan.","tr":"هل كنت على الشاطئ؟ تبدو سمرتك واضحة."},{"options":["Yes, I was. We were there all day on Saturday.","Yes, I were. We was there all day on Saturday."],"answer":0,"why":"{{I was}}، و{{we were}}."},{"who":"زميلتك","t":"Lucky you! I was at home with a cold.","tr":"يا لحظّك! أنا بقيت في البيت مصابة بالزكام."},{"options":["Oh no! Are you better now?","Oh no! Were you better now?"],"answer":0,"why":"{{now}} حاضر: {{Are you}}."}],"from":"ask-yes-or-no"},
+        {"type":"say","q":"اسأل صديقك: «كيف كانت الرحلة؟»","answer":"How was the trip?"},
+        {"type":"free","q":"دورك: أين كنت أمس في الصباح وفي المساء؟ وكيف كان يومك؟","answers":[{"t":"I was at work in the morning, and I was at my sister's house in the evening. It was a nice day.","tr":"كنت في العمل صباحًا، وفي بيت أختي مساءً. كان يومًا جميلًا."},{"t":"I was at the university yesterday morning. In the evening, I was at home. I was very tired.","tr":"كنت في الجامعة صباح أمس، وفي المساء كنت في البيت. كنت متعبًا جدًّا."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "قل ما فعلته",
+      "summary": "قل «عملت حتى وقت متأخّر وشاهدت فيلمًا»: الماضي البسيط بـ{{-ed}}، وكيف يُنطق دون أن تزيد فيه مقطعًا.",
+      "topic": "الماضي البسيط للأفعال القياسية: {{-ed}}، كتابتها ونطقها",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked late, and then I watched a movie.","tr":"أمس عملت حتى وقت متأخّر، ثم شاهدت فيلمًا."}},
+        {"dialog":[{"who":"سارة","t":"You look tired. What happened?","tr":"تبدين متعبة. ماذا حدث؟"},{"who":"لينا","t":"I worked until ten last night.","tr":"عملت حتى العاشرة ليلة أمس."},{"who":"سارة","t":"Ten? Wow.","tr":"العاشرة؟ يا إلهي."},{"who":"لينا","t":"Yes. Then I cooked dinner and cleaned the kitchen. I finally relaxed at midnight.","tr":"نعم. ثم طبخت العشاء ونظّفت المطبخ، ولم أرتح إلا في منتصف الليل."},{"who":"سارة","t":"You need a vacation!","tr":"تحتاجين إلى إجازة!"},{"who":"لينا","t":"I know! I asked my boss for one this morning.","tr":"أعرف! طلبت واحدة من مديري هذا الصباح."}]},
+        {"p":"**الماضي بحرفين.** في العربية للماضي صيغ كثيرة: «عملتُ، عملتَ، عملوا». أما في الإنجليزية فأكثر الأفعال تأخذ في الماضي {{-ed}} فقط، وهي صورة واحدة مع كل فاعل: {{I worked}}، {{she worked}}، {{they worked}}. فلا {{-s}} هنا، ولا تغيّر."},
+        {"term":"الماضي البسيط","means":"زمن الفعل لما حدث وانتهى في وقت مضى: {{I worked yesterday.}} «عملت أمس»."},
+        {"term":"الأفعال القياسية","means":"الأفعال التي تأخذ في الماضي {{-ed}} على القاعدة: {{work}} ← {{worked}}، {{play}} ← {{played}}، وهي أكثر الأفعال."},
+        {"p":"**كتابتها.**"},
+        { "table": [
+          ["القاعدة","أمثلة"],
+          ["أكثر الأفعال: {{-ed}}","{{work}} ← {{worked}}، {{watch}} ← {{watched}}، {{play}} ← {{played}}"],
+          ["المنتهي بـ e: {{-d}}","{{live}} ← {{lived}}، {{like}} ← {{liked}}"],
+          ["y بعد غير حرف علّة: {{-ied}}","{{study}} ← {{studied}}، {{try}} ← {{tried}}"],
+          ["قصير، حرف علّة واحد ثم حرف آخر: يُضاعَف","{{stop}} ← {{stopped}}، {{plan}} ← {{planned}}"]
+        ] },
+        {"p":"**الزمن في الجملة.** الماضي البسيط لما انتهى، ومعه غالبًا كلمة تقول متى: {{yesterday}}، {{last week}}، {{in 2019}}، {{two hours ago}}. وتتّصل الأحداث بـ{{and}} و{{then}} «ثم»: {{I cooked dinner, and then I cleaned the kitchen.}}"},
+        { "ex": [
+          {"t":"I called my mother yesterday.","tr":"اتّصلت بأمي أمس."},
+          {"t":"We watched the game last night.","tr":"شاهدنا المباراة ليلة أمس."},
+          {"t":"She lived in Paris for three years.","tr":"سكنت في باريس ثلاث سنوات."},
+          {"t":"They moved to Texas in 2020.","tr":"انتقلوا إلى تكساس عام ٢٠٢٠."},
+          {"t":"The movie started at eight.","tr":"بدأ الفيلم في الثامنة."},
+          {"t":"I studied English in high school.","tr":"درست الإنجليزية في المدرسة الثانوية."}
+        ] },
+        {"tip":"**كيف تُنطق {{-ed}}؟** يخطئ فيها كثير من المتعلّمين العرب، فينطقونها «إد» دائمًا: «وُرْكِد». والصحيح أن لها ثلاثة أصوات: «ت» بعد الأصوات المهموسة: {{worked}} «وُرْكْت»، {{watched}}، {{stopped}}؛ و«د» بعد أكثر الأصوات: {{played}} «بْليد»، {{lived}}، {{called}}؛ و«إد» بعد t أو d وحدهما: {{started}}، {{needed}}، {{wanted}}. فلا تزد مقطعًا إلا بعد t وd."}
+      ],
+      "mistakes": [
+        {"wrong":"I work yesterday.","right":"I worked yesterday.","tr":"عملت أمس.","why":"أمس ماضٍ: أضف {{-ed}} إلى الفعل."},
+        {"wrong":"I was watched TV.","right":"I watched TV.","tr":"شاهدت التلفاز.","why":"الماضي البسيط فعل واحد: {{watched}}، بلا {{was}} قبله."},
+        {"wrong":"He studyed medicine.","right":"He studied medicine.","tr":"درس الطبّ.","why":"y بعد غير حرف علّة تصير {{-ied}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We ___ to music last night.","tr":"استمعنا إلى الموسيقى ليلة أمس.","options":["listened","listen","listening"],"answer":0,"why":"ماضٍ: {{-ed}}."},
+        {"type":"choice","q":"كيف تُنطق نهاية {{worked}}؟","options":["«ت»: «وُرْكْت»","«إد»: «وُرْكِد»","«د»: «وُرْكْد»"],"answer":0,"why":"بعد صوت مهموس (k) تُنطق «ت». و«إد» بعد t وd وحدهما."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"She ___ in Dubai ten years ago.","tr":"سكنت في دبي قبل عشر سنوات.","options":["lived","lives","living"],"answer":0,"why":"{{ten years ago}} ماضٍ، و{{live}} تنتهي بـ e فتأخذ {{-d}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"اتّصلت بأمي ثم طبخت العشاء.","words":["I","called","my","mother","and","then","cooked","dinner."]},
+        {"type":"dialogue","q":"صديقك يسألك عن يوم أمس: اختر ردودك.","lines":[{"who":"صديقك","t":"So, how was your Sunday?","tr":"إذن، كيف كان يوم الأحد؟"},{"options":["It was nice. I cleaned the house and cooked a big lunch.","It was nice. I clean the house and cook a big lunch."],"answer":0,"why":"يوم الأحد مضى: {{cleaned}}، {{cooked}}."},{"who":"صديقك","t":"Sounds relaxing.","tr":"يبدو مريحًا."},{"options":["Yes, and then I watched a movie with my kids.","Yes, and then I was watched a movie with my kids."],"answer":0,"why":"فعل واحد في الماضي: {{watched}}، بلا {{was}}."}],"from":"say-where-you-were"},
+        {"type":"say","q":"قل «انتقلنا إلى هنا العام الماضي».","answer":"We moved here last year."},
+        {"type":"free","q":"دورك: قل ثلاثة أشياء فعلتها أمس أو في عطلة نهاية الأسبوع، بأفعال قياسية مثل {{watched, called, cooked, played, visited}}.","answers":[{"t":"I visited my grandmother, I cooked lunch, and I watched a soccer game.","tr":"زرت جدّتي، وطبخت الغداء، وشاهدت مباراة كرة قدم."},{"t":"Yesterday I worked from home. In the evening, I called my brother and played video games.","tr":"أمس عملت من البيت. وفي المساء اتّصلت بأخي ولعبت ألعاب الفيديو."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 5,
+      "level": "A2",
+      "title": "احكِ عن عطلتك",
+      "summary": "قل «ذهبنا إلى الشاطئ وتغدّينا على البحر»: أكثر الأفعال استعمالًا ماضيها شاذّ، فاحفظها: {{went, saw, had, ate…}}",
+      "topic": "الأفعال الشاذّة في الماضي البسيط: {{go}} ← {{went}}، {{have}} ← {{had}}، {{see}} ← {{saw}}…",
+      "blocks": [
+        {"goal":{"t":"We went to the beach and had lunch by the sea.","tr":"ذهبنا إلى الشاطئ وتغدّينا على البحر."}},
+        {"dialog":[{"who":"إميلي","t":"How was your weekend?","tr":"كيف كانت عطلتك؟"},{"who":"عمر","t":"It was great! We went to San Diego.","tr":"رائعة! ذهبنا إلى سان دييغو."},{"who":"إميلي","t":"Oh, nice! Tell me everything!","tr":"جميل! احكِ لي كل شيء!"},{"who":"عمر","t":"We took the kids to the zoo, and we saw the pandas. Then we ate at a great Mexican place.","tr":"أخذنا الأولاد إلى حديقة الحيوان ورأينا الباندا. ثم أكلنا في مطعم مكسيكي رائع."},{"who":"إميلي","t":"Sounds fun!","tr":"يبدو ممتعًا!"},{"who":"عمر","t":"It was. But we got home at midnight, and I slept until ten!","tr":"كان كذلك. لكننا وصلنا إلى البيت في منتصف الليل، ونمت حتى العاشرة!"}]},
+        {"p":"**أهمّ الأفعال شاذّة.** قاعدة {{-ed}} تصلح لأكثر الأفعال، لكن أكثر الأفعال استعمالًا في الكلام اليومي لها ماضٍ خاصّ لا قاعدة له: {{go}} «يذهب» ← {{went}}، {{see}} «يرى» ← {{saw}}. وهذه تُحفظ حفظًا، كما تُحفظ جموع التكسير في العربية: كتاب ← كتب، رجل ← رجال."},
+        {"term":"الأفعال الشاذّة","means":"أفعال لا تأخذ {{-ed}} في الماضي، ولكلٍّ منها صورة خاصّة تُحفظ: {{go}} ← {{went}}، {{eat}} ← {{ate}}."},
+        {"p":"والخبر السارّ: كلّها صورة واحدة مع كل فاعل، كما في {{-ed}}: {{I went}}، {{she went}}، {{they went}}."},
+        { "table": [
+          ["الفعل","الماضي","المعنى"],
+          ["{{go}}","{{went}}","ذهب"],
+          ["{{have}}","{{had}}","كان عنده، تناول"],
+          ["{{see}}","{{saw}}","رأى"],
+          ["{{eat}}","{{ate}}","أكل"],
+          ["{{get}}","{{got}}","حصل على، وصل"],
+          ["{{take}}","{{took}}","أخذ"],
+          ["{{make}}","{{made}}","صنع"],
+          ["{{come}}","{{came}}","جاء"],
+          ["{{buy}}","{{bought}}","اشترى"],
+          ["{{meet}}","{{met}}","قابل، تعرّف إلى"],
+          ["{{say}}","{{said}}","قال"],
+          ["{{sleep}}","{{slept}}","نام"],
+          ["{{do}}","{{did}}","فعل"],
+          ["{{leave}}","{{left}}","غادر"]
+        ] },
+        {"p":"**{{got}} و{{had}} في كل مكان.** {{get}} من أكثر الأفعال معانيَ: {{I got a gift.}} «تلقّيت هدية»، {{We got home late.}} «وصلنا إلى البيت متأخّرين». و{{have}} مع الطعام والوقت: {{We had lunch.}} «تغدّينا»، {{We had a great time.}} «قضينا وقتًا رائعًا»."},
+        { "ex": [
+          {"t":"I met Sara at the mall.","tr":"قابلت سارة في المركز التجاري."},
+          {"t":"We had a great time.","tr":"قضينا وقتًا رائعًا."},
+          {"t":"My son ate three pieces of cake!","tr":"أكل ابني ثلاث قطع من الكعكة!"},
+          {"t":"They came to our house for dinner.","tr":"جاؤوا إلى بيتنا للعشاء."},
+          {"t":"I bought a new phone last week.","tr":"اشتريت هاتفًا جديدًا الأسبوع الماضي."},
+          {"t":"We got home at midnight.","tr":"وصلنا إلى البيت في منتصف الليل."}
+        ] },
+        {"tip":"احفظ هذه الأفعال في جمل لا في قوائم: {{I went home.}} {{I had lunch.}} {{I saw a movie.}} وردّدها بصوت عالٍ؛ ففي الكلام لا وقت للتفكير في القاعدة."}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the market.","right":"I went to the market.","tr":"ذهبت إلى السوق.","why":"{{go}} شاذّ: ماضيه {{went}}، لا {{goed}}."},
+        {"wrong":"Last year I go to Turkey.","right":"Last year I went to Turkey.","tr":"العام الماضي ذهبت إلى تركيا.","why":"{{last year}} ماضٍ، فالفعل {{went}}."},
+        {"wrong":"We eated pizza.","right":"We ate pizza.","tr":"أكلنا البيتزا.","why":"{{eat}} شاذّ: ماضيه {{ate}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"ما ماضي {{see}}؟","options":["{{saw}}","{{seed}}","{{seen}}"],"answer":0,"why":"شاذّ: {{see}} ← {{saw}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We ___ a great time at the party.","tr":"قضينا وقتًا رائعًا في الحفلة.","options":["had","have","haved"],"answer":0,"why":"{{have}} ← {{had}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I ___ a new jacket yesterday.","tr":"اشتريت سترة جديدة أمس.","options":["bought","buyed","buy"],"answer":0,"why":"{{buy}} ← {{bought}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"ذهبنا إلى الشاطئ يوم السبت.","words":["We","went","to","the","beach","on","Saturday."]},
+        {"type":"dialogue","q":"زميلتك تسألك عن عطلتك: اختر ردودك.","lines":[{"who":"إميلي","t":"How was your weekend?","tr":"كيف كانت عطلتك؟"},{"options":["It was great! I went to a wedding.","It is great! I go to a wedding."],"answer":0,"why":"العطلة انتهت: {{was}} و{{went}}."},{"who":"إميلي","t":"Oh, fun! Was it big?","tr":"ممتع! هل كان كبيرًا؟"},{"options":["Yes, it was. Three hundred people came!","Yes, it was. Three hundred people comed!"],"answer":0,"why":"{{come}} ← {{came}}."},{"who":"إميلي","t":"Wow! Did you dance?","tr":"واو! هل رقصت؟"},{"options":["Of course! And I ate too much.","Of course! And I eat too much."],"answer":0,"why":"{{eat}} ← {{ate}}."}],"from":"say-where-you-were"},
+        {"type":"say","q":"قل «قابلت صديقًا قديمًا في المركز التجاري».","answer":"I met an old friend at the mall."},
+        {"type":"free","q":"دورك: احكِ عن عطلة نهاية الأسبوع الماضية في ثلاث جمل أو أربع: أين ذهبت، وماذا أكلت، ومَن رأيت؟","answers":[{"t":"I went to my parents' house on Friday. We had a big lunch, and I saw my cousins.","tr":"ذهبت إلى بيت والديّ يوم الجمعة. تناولنا غداءً كبيرًا، ورأيت أولاد عمّي."},{"t":"On Saturday, I met my friends downtown. We ate burgers and saw a movie. I got home at eleven.","tr":"يوم السبت قابلت أصدقائي في وسط المدينة. أكلنا البرغر وشاهدنا فيلمًا. ووصلت إلى البيت في الحادية عشرة."}]}
+      ]
+    },
+    {
+      "id": "ask-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "اسأل عمّا حدث",
+      "summary": "اسأل {{Did you have a good weekend?}} و{{What did you do?}}، وانفِ بـ{{didn't}}: المساعد {{did}} يحمل الماضي، والفعل بعده في صورته الأصلية، كما بعد «لم».",
+      "topic": "السؤال والنفي في الماضي البسيط: {{did}} و{{didn't}} + الفعل في صورته الأصلية",
+      "blocks": [
+        {"goal":{"t":"Did you have a good weekend? What did you do?","tr":"هل قضيت عطلة جيدة؟ ماذا فعلت؟"}},
+        {"dialog":[{"who":"مايك","t":"Did you have a good trip?","tr":"هل كانت رحلتك جيدة؟"},{"who":"لينا","t":"Yes, I did, thanks! But I didn't sleep much.","tr":"نعم، شكرًا! لكني لم أنم كثيرًا."},{"who":"مايك","t":"Why not? Where did you go?","tr":"لماذا؟ أين ذهبت؟"},{"who":"لينا","t":"We went to New York. We walked everywhere, and we didn't stop!","tr":"ذهبنا إلى نيويورك. مشينا في كل مكان، ولم نتوقّف!"},{"who":"مايك","t":"Did you see the Statue of Liberty?","tr":"هل رأيت تمثال الحرية؟"},{"who":"لينا","t":"No, we didn't. There wasn't time. Next time!","tr":"لا. لم يكن هناك وقت. في المرة القادمة!"}]},
+        {"p":"**{{did}}: «هل» و«لم» في الماضي.** تعلّمت أن السؤال والنفي في الحاضر يكونان بـ{{do}} و{{does}}. أما في الماضي البسيط فيكونان بـ{{did}}، مع كل فاعل. والنفي بها يقابل «لم» العربية: «لم أنمْ» ← {{I didn't sleep}}."},
+        { "table": [
+          ["","الحاضر","الماضي"],
+          ["الخبر","{{I work.}}","{{I worked.}}"],
+          ["النفي","{{I don't work.}}","{{I didn't work.}}"],
+          ["السؤال","{{Do you work?}}","{{Did you work?}}"],
+          ["الجواب","{{Yes, I do. / No, I don't.}}","{{Yes, I did. / No, I didn't.}}"]
+        ] },
+        {"p":"**الماضي ينتقل إلى {{did}}.** كما انتقلت {{-s}} إلى {{does}}، ينتقل الماضي هنا إلى {{did}}، فيعود الفعل الأصلي إلى صورته الأصلية: {{I went}} ← {{I didn't go}}، و{{She saw it}} ← {{Did she see it?}} فلا تقل {{Did you went?}}: الماضي لا يُذكر مرّتين. وهذا يشبه «لم» العربية تمامًا: بعدها المضارع لا الماضي، «لم أذهبْ» لا «لم ذهبتُ»."},
+        {"p":"**مع أدوات الاستفهام:** {{Where did you go?}} «أين ذهبت؟»، {{What did you eat?}} «ماذا أكلت؟»، {{When did they arrive?}} «متى وصلوا؟». أما {{What happened?}} «ماذا حدث؟» فبلا {{did}}، لأن {{what}} فيها هي الفاعل، وستعود إليها في درس لاحق."},
+        {"p":"**وماذا عن {{was}}؟** {{was}} و{{were}} لا تحتاجان إلى {{did}}، كما لا يحتاج {{am, is, are}} إلى {{do}}: {{Were you tired?}} {{I wasn't hungry.}}"},
+        { "ex": [
+          {"t":"Did you call your mom?","tr":"هل اتّصلت بأمك؟"},
+          {"t":"I didn't see the message.","tr":"لم أرَ الرسالة."},
+          {"t":"Where did you buy that jacket?","tr":"من أين اشتريت تلك السترة؟"},
+          {"t":"What did the doctor say?","tr":"ماذا قال الطبيب؟"},
+          {"t":"We didn't have time for breakfast.","tr":"لم يكن لدينا وقت للفطور."},
+          {"t":"Did she like the gift? — Yes, she did. She loved it!","tr":"هل أعجبتها الهدية؟ — نعم. أحبّتها كثيرًا!"}
+        ] },
+        {"tip":"{{What happened?}} «ماذا حدث؟» و{{What's wrong?}} «ما الخطب؟» سؤالان تحتاج إليهما حين ترى أحدًا قلقًا أو حزينًا."}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"هل ذهبت إلى الحفلة؟","why":"بعد {{did}} الفعل في صورته الأصلية: الماضي في {{did}} وحدها، كما في «لم أذهبْ»."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"لم أره.","why":"بعد {{didn't}} الفعل في صورته الأصلية."},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"أين ذهبت؟","why":"بعد كلمة السؤال يأتي {{did}}، ثم الفاعل، ثم الفعل."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ you see the game last night?","tr":"هل شاهدت المباراة ليلة أمس؟","options":["Did","Do","Were"],"answer":0,"why":"ماضٍ، وفي الجملة فعل ({{see}}): {{Did}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I didn't ___ breakfast this morning.","tr":"لم أتناول الفطور هذا الصباح.","options":["have","had","has"],"answer":0,"why":"بعد {{didn't}} الفعل في صورته الأصلية."},
+        {"type":"choice","q":"أيّ سؤال صحيح؟","options":["{{What did you eat?}}","{{What you ate?}}","{{What did you ate?}}"],"answer":0,"why":"كلمة السؤال، ثم {{did}}، ثم الفاعل، ثم الفعل في صورته الأصلية."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ you tired after the trip?","tr":"هل كنت متعبًا بعد الرحلة؟","options":["Were","Did","Was"],"answer":0,"why":"لا فعل غير {{be}}: {{Were you}}، بلا {{did}}.","from":"say-where-you-were"},
+        {"type":"dialogue","q":"صديقك عاد من السفر: اختر أسئلتك.","lines":[{"who":"صديقك","t":"I'm back from Morocco!","tr":"عدت من المغرب!"},{"options":["Welcome back! Did you have a good time?","Welcome back! Did you had a good time?"],"answer":0,"why":"بعد {{Did}}: {{have}}."},{"who":"صديقك","t":"Yes! It was amazing.","tr":"نعم! كانت رائعة."},{"options":["Where did you go?","Where you went?"],"answer":0,"why":"كلمة السؤال، ثم {{did}}، ثم الفاعل، ثم الفعل."},{"who":"صديقك","t":"Marrakech and Fez. And I ate couscous every day!","tr":"مراكش وفاس. وأكلت الكسكس كل يوم!"},{"options":["Lucky you! Did you bring me any?","Lucky you! You brought me any?"],"answer":0,"why":"السؤال في الماضي بـ{{Did}}."}],"from":"tell-about-your-weekend"},
+        {"type":"say","q":"اسأل: «ماذا قال الطبيب؟»","answer":"What did the doctor say?"},
+        {"type":"free","q":"دورك: اكتب ثلاثة أسئلة في الماضي تسأل بها صديقًا عاد من رحلة، ثم أجب عن أحدها بالنفي.","answers":[{"t":"Where did you go? Did you take a lot of pictures? Did you buy any gifts? — No, I didn't buy any gifts.","tr":"أين ذهبت؟ هل التقطت صورًا كثيرة؟ هل اشتريت هدايا؟ — لا، لم أشترِ هدايا."},{"t":"When did you get back? What did you eat? Did you see the pyramids? — No, I didn't. There wasn't time.","tr":"متى عدت؟ ماذا أكلت؟ هل رأيت الأهرامات؟ — لا. لم يكن هناك وقت."}]}
+      ]
+    },
+    {
+      "id": "say-why",
+      "unit": 5,
+      "level": "A2",
+      "title": "قل السبب",
+      "summary": "قل «بقيت في البيت لأنّي كنت مريضًا، ففاتني الاجتماع»: اربط جملك بـ{{because}} و{{so}} و{{but}}.",
+      "topic": "{{because}} و{{because of}}؛ {{so}}؛ {{but}}؛ {{Why…? — Because…}}",
+      "blocks": [
+        {"goal":{"t":"I stayed home because I was sick, so I missed the meeting.","tr":"بقيت في البيت لأنّي كنت مريضًا، ففاتني الاجتماع."}},
+        {"dialog":[{"who":"المديرة","t":"Why weren't you at the meeting yesterday?","tr":"لماذا لم تكن في الاجتماع أمس؟"},{"who":"عمر","t":"I'm sorry. I was late because there was a lot of traffic.","tr":"آسف. تأخّرت لأن زحمة السير كانت شديدة."},{"who":"المديرة","t":"Traffic? On a Tuesday?","tr":"زحمة سير؟ يوم الثلاثاء؟"},{"who":"عمر","t":"Yes, there was an accident on the highway, so I took a different road. But it was slow, too.","tr":"نعم، كان هناك حادث على الطريق السريع، فأخذت طريقًا آخر. لكنه كان بطيئًا أيضًا."},{"who":"المديرة","t":"Okay. Next time, call me.","tr":"حسنًا. في المرة القادمة اتّصل بي."},{"who":"عمر","t":"I will. I didn't call because my phone was dead.","tr":"سأفعل. لم أتّصل لأن بطارية هاتفي كانت فارغة."}]},
+        {"p":"**{{because}}: «لأنّ».** تأتي قبل السبب، وبعدها جملة كاملة بفاعلها وفعلها: {{I stayed home because I was sick.}} «بقيت في البيت لأنّي كنت مريضًا». وإذا سُئلت {{Why…?}} «لماذا؟» فقد تجيب بها وحدها في الكلام: {{Why are you happy? — Because it's Friday!}}"},
+        {"p":"**{{because of}}: «بسبب».** وبعدها اسم لا جملة: {{because of the traffic}} «بسبب الزحمة»، {{because of the rain}} «بسبب المطر». قارن:"},
+        { "table": [
+          ["مع جملة: {{because}}","مع اسم: {{because of}}"],
+          ["{{I was late because the traffic was bad.}}","{{I was late because of the traffic.}}"],
+          ["{{We stayed home because it rained.}}","{{We stayed home because of the rain.}}"]
+        ] },
+        {"p":"**{{so}}: «لذلك، فـ».** تأتي قبل النتيجة: {{I was sick, so I stayed home.}} «كنت مريضًا، فبقيت في البيت». فـ{{because}} تقدّم السبب، و{{so}} تقدّم النتيجة، ولا تجتمعان في جملة واحدة."},
+        {"p":"**{{but}}: «لكنّ».** للمخالفة: {{The hotel was nice, but it was expensive.}} «كان الفندق جميلًا، لكنه كان غاليًا». و{{and}} «و» لجمع الأفكار. لكن الإنجليزية لا تكرّر {{and}} في أول كل جملة كما تتكرّر «و» في العربية؛ فالجملة الإنجليزية تبدأ غالبًا بلا رابط."},
+        { "ex": [
+          {"t":"I'm hungry because I didn't have breakfast.","tr":"أنا جائع لأنّي لم أتناول الفطور."},
+          {"t":"The flight was late because of the weather.","tr":"تأخّرت الرحلة بسبب الطقس."},
+          {"t":"It was cold, so we stayed inside.","tr":"كان الجوّ باردًا، فبقينا في الداخل."},
+          {"t":"I called you, but you didn't answer.","tr":"اتّصلت بك، لكنك لم تردّ."},
+          {"t":"Why did you leave early? — Because I was tired.","tr":"لماذا غادرت مبكّرًا؟ — لأنّي كنت متعبًا."},
+          {"t":"The store was closed, so I went to another one.","tr":"كان المتجر مغلقًا، فذهبت إلى متجر آخر."}
+        ] },
+        {"tip":"في الكتابة، {{Because I was tired.}} وحدها نصف جملة، فاكتب {{I left because I was tired.}} أما في الكلام، جوابًا عن {{Why?}}، فهي طبيعية تمامًا."}
+      ],
+      "mistakes": [
+        {"wrong":"I was late because of the traffic was bad.","right":"I was late because the traffic was bad.","tr":"تأخّرت لأن الزحمة كانت شديدة.","why":"بعد {{because of}} اسم وحده؛ فإذا جاءت جملة كاملة فـ{{because}} وحدها."},
+        {"wrong":"Because I was sick, so I stayed home.","right":"Because I was sick, I stayed home.","tr":"لأنّي كنت مريضًا، بقيت في البيت.","why":"تقول العربية «لأنّي… لذلك…»، أما الإنجليزية فرابط واحد يكفي: {{because}} أو {{so}}، لا الاثنان معًا."},
+        {"wrong":"Although it was late, but we stayed.","right":"Although it was late, we stayed.","tr":"مع أن الوقت كان متأخّرًا، بقينا.","why":"تقول العربية «رغم أنّ… إلا أنّ»، أما الإنجليزية فرابط واحد: {{although}} أو {{but}}: {{It was late, but we stayed.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"We stayed home ___ the rain.","tr":"بقينا في البيت بسبب المطر.","options":["because of","because","so"],"answer":0,"why":"بعدها اسم ({{the rain}}): {{because of}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"I was tired, ___ I went to bed early.","tr":"كنت متعبًا، فنمت مبكّرًا.","options":["so","because","but"],"answer":0,"why":"بعدها النتيجة: {{so}}."},
+        {"type":"choice","q":"أيّ جملة صحيحة؟","options":["{{I called him, but he didn't answer.}}","{{I called him, but he didn't answered.}}","{{Although I called him, but he didn't answer.}}"],"answer":0,"why":"بعد {{didn't}} الفعل في صورته الأصلية، ورابط واحد يكفي.","from":"ask-what-happened"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أنا جائع لأنّي لم أتناول الغداء.","words":["I'm","hungry","because","I","didn't","have","lunch."]},
+        {"type":"dialogue","q":"مديرك يسألك عن تأخّرك: اختر ردودك.","lines":[{"who":"المدير","t":"Why are you late?","tr":"لماذا تأخّرت؟"},{"options":["I'm sorry. I missed the bus because my alarm didn't ring.","I'm sorry. I missed the bus because of my alarm didn't ring."],"answer":0,"why":"بعدها جملة كاملة: {{because}} وحدها."},{"who":"المدير","t":"Again? That's the second time this week.","tr":"مرة أخرى؟ هذه المرة الثانية هذا الأسبوع."},{"options":["I know. I bought a new alarm clock, so it won't happen again.","I know. I buyed a new alarm clock, so it won't happen again."],"answer":0,"why":"{{buy}} ← {{bought}}."},{"who":"المدير","t":"Okay. Let's start the meeting.","tr":"حسنًا. لنبدأ الاجتماع."}],"from":"tell-about-your-weekend"},
+        {"type":"say","q":"قل «تأخّرت الرحلة بسبب الطقس».","answer":"The flight was late because of the weather."},
+        {"type":"free","q":"دورك: اذكر شيئًا فعلته مؤخّرًا، وقل لماذا فعلته بـ{{because}}، وماذا حدث بعده بـ{{so}}.","answers":[{"t":"I didn't go to the gym yesterday because I was tired, so I went to bed early.","tr":"لم أذهب إلى النادي الرياضي أمس لأنّي كنت متعبًا، فنمت مبكّرًا."},{"t":"I took a taxi this morning because I was late, but the traffic was terrible, so I was late anyway!","tr":"أخذت سيارة أجرة هذا الصباح لأنّي كنت متأخّرًا، لكن الزحمة كانت فظيعة، فتأخّرت على أيّ حال!"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "احكِ قصة قصيرة",
+      "summary": "قل «كنت أمشي إلى البيت حين بدأ المطر»: الماضي المستمر لخلفية القصة، والماضي البسيط لأحداثها، مع {{first, then, when}}.",
+      "topic": "الماضي المستمر {{was, were}} + {{-ing}} مع الماضي البسيط؛ {{when}} و{{while}}؛ {{first, then, after that, finally}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"كنت أمشي إلى البيت حين بدأ المطر."}},
+        {"dialog":[{"who":"سارة","t":"What happened to your phone?","tr":"ماذا حدث لهاتفك؟"},{"who":"لينا","t":"Oh, it's a funny story. I was having coffee with Maya, and we were talking and laughing.","tr":"قصة مضحكة. كنت أشرب القهوة مع مايا، وكنّا نتحدّث ونضحك."},{"who":"سارة","t":"And?","tr":"ثم؟"},{"who":"لينا","t":"While I was telling her a story, a little boy ran into our table. My coffee went all over my phone!","tr":"وبينما كنت أحكي لها قصة، اصطدم ولد صغير بطاولتنا، فانسكبت قهوتي كلّها على هاتفي!"},{"who":"سارة","t":"Oh no! Does it still work?","tr":"يا للأسف! هل ما زال يعمل؟"},{"who":"لينا","t":"Yes, but now it smells like coffee!","tr":"نعم، لكن رائحة القهوة تفوح منه الآن!"}]},
+        {"p":"**«كنتُ أفعل».** في العربية تقول «كنتُ أمشي» حين تصف ما كان يجري في لحظة من الماضي. والإنجليزية تقول {{I was walking}}: {{was}} أو {{were}}، ثم الفعل بـ{{-ing}}. فهو المضارع المستمر نفسه، لكن بـ{{be}} في الماضي."},
+        {"term":"الماضي المستمر","means":"زمن الفعل لما كان يجري في وقت معيّن من الماضي: {{was}} أو {{were}} + الفعل بـ{{-ing}}: {{At eight, I was having dinner.}} «في الثامنة كنت أتعشّى»."},
+        { "table": [
+          ["الفاعل","الماضي المستمر"],
+          ["{{I, he, she, it}}","{{was working}}"],
+          ["{{you, we, they}}","{{were working}}"]
+        ] },
+        {"p":"**الخلفية والحدث.** في القصة نوعان من الأفعال: الخلفية، أي ما كان يجري ({{I was walking home}})، والحدث الذي وقع فجأة في وسطها ({{it started to rain}}). الخلفية بالماضي المستمر، والحدث بالماضي البسيط. ويربطهما {{when}} «حين» قبل الحدث، أو {{while}} «بينما» قبل الخلفية:"},
+        { "table": [
+          ["الخلفية (ما كان يجري)","الحدث (ما وقع)"],
+          ["{{I was cooking}}","{{when the phone rang.}}"],
+          ["{{While we were watching TV,}}","{{the lights went out.}}"]
+        ] },
+        {"p":"**ترتيب الأحداث.** لتحكي ما حدث بالترتيب استعمل {{First}} «أوّلًا»، و{{Then}} «ثم»، و{{After that}} «بعد ذلك»، و{{Finally}} «أخيرًا»: {{First, we checked in. Then we had lunch. After that, we went to the beach.}}"},
+        { "ex": [
+          {"t":"I was sleeping when you called.","tr":"كنت نائمًا حين اتّصلت."},
+          {"t":"What were you doing at nine last night?","tr":"ماذا كنت تفعل في التاسعة ليلة أمس؟"},
+          {"t":"It was raining, so we stayed inside.","tr":"كانت تمطر، فبقينا في الداخل."},
+          {"t":"While she was driving, she saw an accident.","tr":"بينما كانت تقود السيارة، رأت حادثًا."},
+          {"t":"We were having dinner when the lights went out.","tr":"كنّا نتعشّى حين انقطعت الكهرباء."},
+          {"t":"First, I took a shower. Then I made breakfast.","tr":"أوّلًا استحممت، ثم أعددت الفطور."}
+        ] },
+        {"tip":"**كيف تبدأ قصة.** {{One day…}} «في يوم من الأيام…»، {{Last summer…}} «في الصيف الماضي…»، {{You won't believe what happened!}} «لن تصدّق ما حدث!». ويشجّعك من يسمعك بـ{{And then what?}} «ثم ماذا؟» أو {{No way!}} «مستحيل!»."}
+      ],
+      "mistakes": [
+        {"wrong":"I walking home when it started to rain.","right":"I was walking home when it started to rain.","tr":"كنت أمشي إلى البيت حين بدأ المطر.","why":"الماضي المستمر يحتاج إلى {{was}} أو {{were}} قبل الفعل بـ{{-ing}}."},
+        {"wrong":"I was cooking when the phone was ringing.","right":"I was cooking when the phone rang.","tr":"كنت أطبخ حين رنّ الهاتف.","why":"الحدث المفاجئ بالماضي البسيط؛ والماضي المستمر للخلفية وحدها."},
+        {"wrong":"I was play soccer every day.","right":"I played soccer every day.","tr":"كنت ألعب كرة القدم كل يوم.","why":"«كنتُ ألعب» بمعنى العادة في الماضي ليست ماضيًا مستمرًّا، فقل {{I played}}، أو {{I used to play}} (في درس لاحق)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"We ___ watching TV when the lights went out.","tr":"كنّا نشاهد التلفاز حين انقطعت الكهرباء.","options":["were","was","did"],"answer":0,"why":"مع {{we}}: {{were}} + {{-ing}}."},
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"I was sleeping when you ___.","tr":"كنت نائمًا حين اتّصلت.","options":["called","were calling","call"],"answer":0,"why":"الحدث المفاجئ: الماضي البسيط."},
+        {"type":"choice","q":"ما معنى {{What were you doing at eight?}}؟","options":["ماذا كنت تفعل في الثامنة؟","ماذا فعلت في الثامنة؟","ماذا تفعل في الثامنة؟"],"answer":0,"why":"الماضي المستمر: ما كان يجري في تلك اللحظة."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"بينما كانت تقود السيارة، رأت حادثًا.","words":["While","she","was","driving,","she saw","an","accident."]},
+        {"type":"dialogue","q":"صديقك يرى ضمادة على يدك: اختر ردودك.","lines":[{"who":"صديقك","t":"What happened to your arm?","tr":"ماذا حدث ليدك؟"},{"options":["I fell while I was running in the park.","I was falling while I ran in the park."],"answer":0,"why":"السقوط حدث مفاجئ: {{fell}} (ماضي {{fall}})؛ والجري خلفية: {{was running}}."},{"who":"صديقك","t":"Ouch! Did you go to the doctor?","tr":"آه! هل ذهبت إلى الطبيب؟"},{"options":["No, I didn't. It wasn't serious.","No, I didn't went. It wasn't serious."],"answer":0,"why":"{{No, I didn't}} يكفي، وبعد {{didn't}} لا يأتي الماضي."},{"who":"صديقك","t":"Good. Be careful next time!","tr":"جيد. انتبه في المرة القادمة!"}],"from":"ask-what-happened"},
+        {"type":"say","q":"قل «كنّا نتعشّى حين رنّ الهاتف».","answer":"We were having dinner when the phone rang."},
+        {"type":"free","q":"دورك: احكِ قصة قصيرة من ثلاث جمل أو أربع: ماذا كنت تفعل، وماذا حدث فجأة، وماذا فعلت بعد ذلك؟","answers":[{"t":"I was waiting for the bus when it started to rain. I didn't have an umbrella, so I went into a café. Then I had a coffee and waited.","tr":"كنت أنتظر الحافلة حين بدأ المطر. لم تكن معي مظلّة، فدخلت مقهى. ثم شربت قهوة وانتظرت."},{"t":"Last week, I was cooking dinner when my phone rang. It was my old friend from school! We talked for an hour, and the rice burned.","tr":"الأسبوع الماضي كنت أطبخ العشاء حين رنّ هاتفي. كان صديقي القديم من المدرسة! تحدّثنا ساعة، واحترق الأرز."}]}
+      ]
     }
   ]
 }
