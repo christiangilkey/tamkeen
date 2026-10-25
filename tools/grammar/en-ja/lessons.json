@@ -1911,6 +1911,232 @@
         {"type":"say","q":"How do you say “That looks like an interesting book.”?","answer":"おもしろそうな本ですね。","r":"Omoshirosō na hon desu ne.","from":"describe-things"},
         {"type":"free","q":"Your turn: look out of the window. Say how things look, and guess what the weather will be like tomorrow.","answers":[{"t":"空が暗くて、雨が降りそうです。明日も雨でしょう。","r":"Sora ga kurakute, ame ga furisō desu. Ashita mo ame deshō.","tr":"The sky is dark, and it looks like rain. It'll probably rain tomorrow too."},{"t":"今日はとても暖かそうです。明日は寒くなるかもしれません。","r":"Kyō wa totemo atatakasō desu. Ashita wa samuku naru kamo shiremasen.","tr":"It looks really warm today. It might get cold tomorrow."}]}
       ]
+    },
+    {
+      "id": "pass-on-news",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what you've heard",
+      "summary": "Report news and rumours: “I hear Mr Tanaka is getting married.” “Apparently the new café is good.”",
+      "topic": "plain form + {{そうです|sō desu}} “I hear”; {{～って|… tte}}; {{～らしいです|… rashii desu}}",
+      "blocks": [
+        {"goal":{"t":"田中さんは来月結婚するそうです。","r":"Tanaka-san wa raigetsu kekkon suru sō desu.","tr":"I hear Mr Tanaka is getting married next month."}},
+        {"dialog":[{"who":"Yui","t":"聞きましたか。田中さん、来月結婚するそうですよ。","r":"Kikimashita ka. Tanaka-san, raigetsu kekkon suru sō desu yo.","tr":"Have you heard? Mr Tanaka is getting married next month."},{"who":"Tom","t":"え、本当ですか。相手はだれですか。","r":"E, hontō desu ka. Aite wa dare desu ka.","tr":"Really? Who to?"},{"who":"Yui","t":"大学の時の友達らしいです。","r":"Daigaku no toki no tomodachi rashii desu.","tr":"Apparently a friend from his university days."},{"who":"Tom","t":"そうですか。結婚式はどこでするんですか。","r":"Sō desu ka. Kekkonshiki wa doko de suru n desu ka.","tr":"I see. Where's the wedding?"},{"who":"Yui","t":"京都でするって。","r":"Kyōto de suru tte.","tr":"In Kyoto, he says."}]},
+        {"p":"**I hear…: plain form + {{そうです|sō desu}}.** To pass on something you heard or read, add {{そうです|sō desu}} to the plain form: {{結婚するそうです|kekkon suru sō desu}} “I hear he's getting married”. Nouns and な-adjectives take {{だ|da}}: {{雨だそうです|ame da sō desu}} “I hear it'll rain”. To say where it comes from: {{ニュースによると|nyūsu ni yoru to}} “according to the news”."},
+        {"p":"**Not the same {{そう|sō}}!** Compare the last lesson: {{おいしそうです|oishisō desu}} (without the {{い|i}}) “it looks delicious”, but {{おいしいそうです|oishii sō desu}} (the full plain form) “I hear it's delicious”."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["looks","{{雨が降りそうです。|Ame ga furisō desu.}}","It looks like rain."],
+          ["I hear","{{雨が降るそうです。|Ame ga furu sō desu.}}","I hear it's going to rain."],
+          ["looks","{{おいしそうです。|Oishisō desu.}}","It looks delicious."],
+          ["I hear","{{おいしいそうです。|Oishii sō desu.}}","I hear it's delicious."]
+        ] },
+        {"p":"**Casual: {{って|tte}}.** With friends, put {{って|tte}} after the plain form: {{田中さん、結婚するって|Tanaka-san, kekkon suru tte}} “Tanaka's getting married, he says”. {{って|tte}} is the casual {{と|to}} for quoting."},
+        {"p":"**Apparently: {{らしいです|rashii desu}}.** For something you've gathered but can't quite confirm: {{あの店はおいしいらしいです|ano mise wa oishii rashii desu}} “Apparently that place is good”. Nouns and な-adjectives go straight before it: {{友達らしいです|tomodachi rashii desu}}."},
+        { "ex": [
+          {"t":"天気予報によると、明日は雪だそうです。","r":"Tenki yohō ni yoru to, ashita wa yuki da sō desu.","tr":"According to the weather forecast, it's going to snow tomorrow."},
+          {"t":"新しいカフェはおいしいらしいですよ。","r":"Atarashii kafe wa oishii rashii desu yo.","tr":"Apparently the new café is good."},
+          {"t":"ゆいさんは風邪で休むって。","r":"Yui-san wa kaze de yasumu tte.","tr":"Yui says she's off sick with a cold."},
+          {"t":"先生は昔、アメリカに住んでいたそうです。","r":"Sensei wa mukashi, Amerika ni sunde ita sō desu.","tr":"I hear our teacher used to live in America."},
+          {"t":"このお寺は八百年前からあるそうです。","r":"Kono otera wa happyaku-nen mae kara aru sō desu.","tr":"Apparently this temple has been here for eight hundred years."},
+          {"t":"田中さんは来ないそうです。","r":"Tanaka-san wa konai sō desu.","tr":"I hear Mr Tanaka isn't coming."}
+        ] },
+        {"tip":"Office news often starts with {{聞きましたか|kikimashita ka}} “Have you heard?” and ends with {{そうですよ|sō desu yo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"明日は雨そうです。","right":"明日は雨だそうです。","rw":"Ashita wa ame sō desu.","rr":"Ashita wa ame da sō desu.","tr":"I hear it'll rain tomorrow.","why":"To report news about a noun, add {{だ|da}}: {{雨だそうです|ame da sō desu}}."},
+        {"wrong":"あの店はおいしそうです。","right":"あの店はおいしいそうです。","rw":"Ano mise wa oishisō desu.","rr":"Ano mise wa oishii sō desu.","tr":"I hear that place is good.","why":"“I hear” uses the full plain form: {{おいしい|oishii}} + {{そうです|sō desu}}. {{おいしそう|oishisō}} means “it looks delicious”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"明日は雪だ___です。","r":"Ashita wa yuki da ___ desu.","tr":"I hear it'll snow tomorrow.","options":["そう","らしい","でしょう"],"rs":["sō","rashii","deshō"],"answer":0,"why":"Noun + {{だ|da}} + {{そうです|sō desu}}: “I hear”."},
+        {"type":"choice","q":"{{田中さんは来ないそうです。|Tanaka-san wa konai sō desu.}} means…","options":["I hear Mr Tanaka isn't coming.","Mr Tanaka looks like he isn't coming.","Mr Tanaka might not come."],"answer":0,"why":"Full plain form + {{そうです|sō desu}}: news you heard."},
+        {"type":"choice","q":"Which one means “I hear it's delicious”?","options":["{{おいしいそうです。|Oishii sō desu.}}","{{おいしそうです。|Oishisō desu.}}"],"answer":0,"why":"Keep the {{い|i}} for “I hear”."},
+        {"type":"dialogue","q":"A friend has news. Choose your replies.","lines":[{"who":"Yuki","t":"ねえ、聞いた？ケンが会社をやめるって。","r":"Nē, kiita? Ken ga kaisha o yameru tte.","tr":"Hey, did you hear? Ken says he's quitting his job."},{"options":["え、本当？どうしてやめるの？","え、本当？どうしてやめるそう？"],"rs":["E, hontō? Dōshite yameru no?","E, hontō? Dōshite yameru sō?"],"answer":0,"why":"Asking a friend for the story: {{の？|no?}}."},{"who":"Yuki","t":"アメリカの大学で勉強するらしいよ。","r":"Amerika no daigaku de benkyō suru rashii yo.","tr":"Apparently he's going to study at an American university."},{"options":["すごいね！","すごいそうだね！"],"rs":["Sugoi ne!","Sugoi sō da ne!"],"answer":0,"why":"Your own reaction needs no {{そう|sō}}."}],"from":"explain-situations"},
+        {"type":"order","q":"Put the words in order.","tr":"I hear our teacher used to live in America.","words":["先生は","昔、","アメリカに","住んでいたそうです。"],"rs":["Sensei wa","mukashi,","Amerika ni","sunde ita sō desu."],"why":"{{先生は昔、アメリカに住んでいたそうです。|Sensei wa mukashi, Amerika ni sunde ita sō desu.}}"},
+        {"type":"say","q":"Compare: how do you say “Mr Tanaka said he's coming.”?","answer":"田中さんは来ると言っていました。","r":"Tanaka-san wa kuru to itte imashita.","from":"say-what-you-think"},
+        {"type":"free","q":"Your turn: pass on some news you heard recently, about a friend, the weather, a new shop… Use {{そうです|sō desu}} or {{らしいです|rashii desu}}.","answers":[{"t":"ニュースによると、来週は暑くなるそうです。","r":"Nyūsu ni yoru to, raishū wa atsuku naru sō desu.","tr":"According to the news, it's going to get hot next week."},{"t":"駅の前に新しいパン屋ができたそうです。とてもおいしいらしいですよ。","r":"Eki no mae ni atarashii pan'ya ga dekita sō desu. Totemo oishii rashii desu yo.","tr":"I hear a new bakery has opened in front of the station. Apparently it's really good."}]}
+      ]
+    },
+    {
+      "id": "say-your-intentions",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you're thinking of doing",
+      "summary": "Suggest things casually, and talk about plans you're considering: “Let's eat something!” “I'm thinking of studying in Japan.”",
+      "topic": "the volitional form: {{行こう|ikō}}, {{食べよう|tabeyō}}; {{～ようと思っています|… yō to omotte imasu}}",
+      "blocks": [
+        {"goal":{"t":"来年、日本に留学しようと思っています。","r":"Rainen, Nihon ni ryūgaku shiyō to omotte imasu.","tr":"I'm thinking of studying in Japan next year."}},
+        {"dialog":[{"who":"Yuki","t":"お腹すいた。何か食べよう。","r":"Onaka suita. Nanika tabeyō.","tr":"I'm starving. Let's eat something."},{"who":"Ken","t":"うん、ラーメンにしよう。","r":"Un, rāmen ni shiyō.","tr":"Yeah, let's have ramen."},{"who":"Yuki","t":"そういえば、夏休みは何をするの？","r":"Sō ieba, natsuyasumi wa nani o suru no?","tr":"By the way, what are you doing in the summer holidays?"},{"who":"Ken","t":"アルバイトをしようと思ってる。秋に旅行したいから。","r":"Arubaito o shiyō to omotteru. Aki ni ryokō shitai kara.","tr":"I'm thinking of getting a part-time job. I want to travel in the autumn."}]},
+        {"term":"volitional form","means":"the form of a verb that means “let's…” or “I'll…”: {{行こう|ikō}} “let's go”."},
+        {"p":"**Let's (casual): the volitional form.** The plain version of {{ましょう|mashō}}. Group 1: the final u-sound becomes “ō”: {{行く|iku}} → {{行こう|ikō}}, {{飲む|nomu}} → {{飲もう|nomō}}, {{帰る|kaeru}} → {{帰ろう|kaerō}}. Group 2: {{る|ru}} → {{よう|yō}}: {{食べよう|tabeyō}}, {{見よう|miyō}}. Group 3: {{しよう|shiyō}}, {{来よう|koyō}}."},
+        { "table": [
+          ["group","dictionary form","volitional","polite “let's”"],
+          ["1","{{行く|iku}}","{{行こう|ikō}}","{{行きましょう|ikimashō}}"],
+          ["1","{{帰る|kaeru}}","{{帰ろう|kaerō}}","{{帰りましょう|kaerimashō}}"],
+          ["2","{{食べる|taberu}}","{{食べよう|tabeyō}}","{{食べましょう|tabemashō}}"],
+          ["3","{{する|suru}}","{{しよう|shiyō}}","{{しましょう|shimashō}}"],
+          ["3","{{来る|kuru}}","{{来よう|koyō}}","{{来ましょう|kimashō}}"]
+        ] },
+        {"p":"**I'm thinking of…: volitional + {{と思っています|to omotte imasu}}.** {{留学しようと思っています|ryūgaku shiyō to omotte imasu}} “I'm thinking of studying abroad”. It's softer and less fixed than {{つもり|tsumori}}: a plan you're still turning over. {{と思います|to omoimasu}} alone is for a decision made right now: {{今日は早く寝ようと思います|kyō wa hayaku neyō to omoimasu}} “I think I'll go to bed early tonight”. With friends: {{と思ってる|to omotteru}}."},
+        { "ex": [
+          {"t":"疲れたね。ちょっと休もう。","r":"Tsukareta ne. Chotto yasumō.","tr":"We're tired, huh. Let's take a break."},
+          {"t":"一緒に帰ろう。","r":"Issho ni kaerō.","tr":"Let's go home together."},
+          {"t":"週末は家の掃除をしようと思っています。","r":"Shūmatsu wa ie no sōji o shiyō to omotte imasu.","tr":"I'm thinking of cleaning the house this weekend."},
+          {"t":"仕事を変えようと思っています。","r":"Shigoto o kaeyō to omotte imasu.","tr":"I'm thinking of changing jobs."},
+          {"t":"今日は早く寝ようと思います。","r":"Kyō wa hayaku neyō to omoimasu.","tr":"I think I'll go to bed early tonight."},
+          {"t":"よし、がんばろう！","r":"Yoshi, ganbarō!","tr":"Right, let's do this!","note":"the volitional said to yourself"}
+        ] },
+        {"tip":"{{がんばろう！|ganbarō!}} “Let's do our best!” and {{がんばって！|ganbatte!}} “Good luck, go for it!” are two of the most-used phrases in Japanese."}
+      ],
+      "mistakes": [
+        {"wrong":"日本に留学すると思っています。","right":"日本に留学しようと思っています。","rw":"Nihon ni ryūgaku suru to omotte imasu.","rr":"Nihon ni ryūgaku shiyō to omotte imasu.","tr":"I'm thinking of studying in Japan.","why":"For your own intention, use the volitional {{しよう|shiyō}}. {{すると思っています|suru to omotte imasu}} sounds like a prediction: “I think (someone) will study…”."},
+        {"wrong":"帰よう。","right":"帰ろう。","rw":"Kaeyō.","rr":"Kaerō.","tr":"Let's go home.","why":"{{帰る|kaeru}} is group 1: {{る|ru}} → {{ろう|rō}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The volitional form of {{飲む|nomu}} is…","options":["{{飲もう|nomō}}","{{飲みよう|nomiyō}}","{{飲むよう|nomuyō}}"],"answer":0,"why":"Group 1: {{む|mu}} → {{もう|mō}}."},
+        {"type":"fill","q":"Choose the right ending.","t":"疲れたね。ちょっと休___。","r":"Tsukareta ne. Chotto yasu___.","tr":"We're tired, huh. Let's take a break.","options":["もう","みよう","むよう"],"rs":["mō","miyō","muyō"],"answer":0,"why":"{{休む|yasumu}} → {{休もう|yasumō}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"来年、引っ越そう___思っています。","r":"Rainen, hikkosō ___ omotte imasu.","tr":"I'm thinking of moving house next year.","options":["と","を","が"],"rs":["to","o","ga"],"answer":0,"why":"Volitional + {{と思っています|to omotte imasu}}."},
+        {"type":"dialogue","q":"With a friend: choose your replies.","lines":[{"who":"Yuki","t":"お腹すいた。何か食べよう。","r":"Onaka suita. Nanika tabeyō.","tr":"I'm starving. Let's eat something."},{"options":["うん、ラーメンにしよう。","うん、ラーメンにしようと思っています。"],"rs":["Un, rāmen ni shiyō.","Un, rāmen ni shiyō to omotte imasu."],"answer":0,"why":"Agreeing on the spot: {{しよう|shiyō}}."},{"who":"Yuki","t":"夏休みは何をするの？","r":"Natsuyasumi wa nani o suru no?","tr":"What are you doing in the summer holidays?"},{"options":["沖縄に行こうと思ってる。","沖縄に行くと思ってる。"],"rs":["Okinawa ni ikō to omotteru.","Okinawa ni iku to omotteru."],"answer":0,"why":"Your own plan: volitional + {{と思ってる|to omotteru}}."}],"from":"say-how-things-change"},
+        {"type":"order","q":"Put the words in order.","tr":"I'm thinking of changing jobs.","words":["仕事を","変えようと","思っています。"],"rs":["Shigoto o","kaeyō to","omotte imasu."],"why":"{{仕事を変えようと思っています。|Shigoto o kaeyō to omotte imasu.}}"},
+        {"type":"say","q":"Compare: how do you say “I'm planning to go to Japan next year.” (a firm plan)?","answer":"来年、日本へ行くつもりです。","r":"Rainen, Nihon e iku tsumori desu.","from":"talk-about-plans"},
+        {"type":"free","q":"Your turn: what are you thinking of doing this year? Use {{ようと思っています|yō to omotte imasu}}.","answers":[{"t":"今年は毎日日本語を勉強しようと思っています。夏に日本へ行こうと思っています。","r":"Kotoshi wa mainichi Nihongo o benkyō shiyō to omotte imasu. Natsu ni Nihon e ikō to omotte imasu.","tr":"This year I'm thinking of studying Japanese every day. I'm thinking of going to Japan in the summer."},{"t":"来月からジムに通おうと思っています。","r":"Raigetsu kara jimu ni kayoō to omotte imasu.","tr":"I'm thinking of joining a gym from next month."}]}
+      ]
+    },
+    {
+      "id": "say-what-happened-to-you",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what happened to you",
+      "summary": "Tell about things done to you, good or bad: “My wallet was stolen.” “My teacher praised me.” “I got caught in the rain.”",
+      "topic": "the passive: {{盗まれました|nusumaremashita}}, {{ほめられました|homeraremashita}}, {{雨に降られました|ame ni furaremashita}}",
+      "blocks": [
+        {"goal":{"t":"電車で財布を盗まれました。","r":"Densha de saifu o nusumaremashita.","tr":"My wallet was stolen on the train."}},
+        {"dialog":[{"who":"Police officer","t":"どうしましたか。","r":"Dō shimashita ka.","tr":"What's happened?"},{"who":"You","t":"電車の中で財布を盗まれたんです。","r":"Densha no naka de saifu o nusumareta n desu.","tr":"My wallet was stolen on the train."},{"who":"Police officer","t":"それは大変でしたね。何が入っていましたか。","r":"Sore wa taihen deshita ne. Nani ga haitte imashita ka.","tr":"That's terrible. What was in it?"},{"who":"You","t":"お金とカードです。それに、帰りに雨に降られて、びしょぬれです…。","r":"Okane to kādo desu. Sore ni, kaeri ni ame ni furarete, bishonure desu…","tr":"Money and cards. And on top of that, I got caught in the rain on the way, and I'm soaked…"},{"who":"Police officer","t":"じゃ、まずこの紙に名前と住所を書いてください。","r":"Ja, mazu kono kami ni namae to jūsho o kaite kudasai.","tr":"Right. First, please write your name and address on this form."}]},
+        {"term":"passive","means":"a form of the verb that tells what was done to someone: “was stolen”, “was praised”."},
+        {"p":"**Something done to you: the passive.** Group 1: the final u-sound becomes an a-sound + {{れる|reru}}: {{盗む|nusumu}} “steal” → {{盗まれる|nusumareru}} “be stolen”, {{言う|iu}} → {{言われる|iwareru}} “be told”. Group 2: {{る|ru}} → {{られる|rareru}}: {{ほめる|homeru}} → {{ほめられる|homerareru}} “be praised”. Group 3: {{される|sareru}}, {{来られる|korareru}}. The passive is itself a group 2 verb: {{盗まれました|nusumaremashita}}."},
+        { "table": [
+          ["group","dictionary form","passive","polite past"],
+          ["1","{{盗む|nusumu}} steal","{{盗まれる|nusumareru}}","{{盗まれました|nusumaremashita}}"],
+          ["1","{{言う|iu}} say","{{言われる|iwareru}}","{{言われました|iwaremashita}}"],
+          ["2","{{ほめる|homeru}} praise","{{ほめられる|homerareru}}","{{ほめられました|homeraremashita}}"],
+          ["3","{{する|suru}} do","{{される|sareru}}","{{されました|saremashita}}"]
+        ] },
+        {"p":"**The doer takes {{に|ni}}:** {{先生にほめられました|sensei ni homeraremashita}} “I was praised by my teacher”. What was taken keeps {{を|o}}: {{財布を盗まれました|saifu o nusumaremashita}}, word for word “I was wallet-stolen”. The person it happened to is the topic, and is often left out."},
+        {"p":"**The suffering passive.** Japanese also uses the passive for things not done to anyone, to say they affected you badly: {{雨に降られました|ame ni furaremashita}} “I got rained on”, {{隣の人にたばこを吸われました|tonari no hito ni tabako o suwaremashita}} “the person next to me smoked (and I had to put up with it)”."},
+        {"p":"**News and signs** use the passive a lot, as English does: {{このお寺は八百年前に建てられました|kono otera wa happyaku-nen mae ni tateraremashita}} “This temple was built 800 years ago”. Notice that group 2 passives look exactly like the potential ({{食べられる|taberareru}} is “can eat” or “be eaten”): the sentence tells you which."},
+        { "ex": [
+          {"t":"先生にほめられました。","r":"Sensei ni homeraremashita.","tr":"My teacher praised me."},
+          {"t":"帰りに雨に降られました。","r":"Kaeri ni ame ni furaremashita.","tr":"I got caught in the rain on the way home."},
+          {"t":"母にしかられました。","r":"Haha ni shikararemashita.","tr":"I got told off by my mother."},
+          {"t":"電車で足を踏まれました。","r":"Densha de ashi o fumaremashita.","tr":"Someone stepped on my foot on the train."},
+          {"t":"このお寺は八百年前に建てられました。","r":"Kono otera wa happyaku-nen mae ni tateraremashita.","tr":"This temple was built eight hundred years ago."},
+          {"t":"よく若く見えると言われます。","r":"Yoku wakaku mieru to iwaremasu.","tr":"People often tell me I look young."}
+        ] },
+        {"tip":"{{言われます|iwaremasu}} “I'm told” is handy for passing on what people say about you: {{よく母に似ていると言われます|yoku haha ni nite iru to iwaremasu}} “People often say I look like my mother”."}
+      ],
+      "mistakes": [
+        {"wrong":"財布を盗みました。","right":"財布を盗まれました。","rw":"Saifu o nusumimashita.","rr":"Saifu o nusumaremashita.","tr":"My wallet was stolen.","why":"Something done to you: the passive {{盗まれました|nusumaremashita}}. {{盗みました|nusumimashita}} would mean you stole it!"},
+        {"wrong":"先生からほめました。","right":"先生にほめられました。","rw":"Sensei kara homemashita.","rr":"Sensei ni homeraremashita.","tr":"My teacher praised me.","why":"Use the passive {{ほめられました|homeraremashita}}, and the doer takes {{に|ni}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right ending.","t":"電車で財布を盗ま___。","r":"Densha de saifu o nusuma___.","tr":"My wallet was stolen on the train.","options":["れました","せました","みました"],"rs":["remashita","semashita","mimashita"],"answer":0,"why":"Passive: {{盗まれました|nusumaremashita}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"先生___ほめられました。","r":"Sensei ___ homeraremashita.","tr":"My teacher praised me.","options":["に","を","が"],"rs":["ni","o","ga"],"answer":0,"why":"In the passive, the doer takes {{に|ni}}."},
+        {"type":"choice","q":"{{雨に降られました。|Ame ni furaremashita.}} means…","options":["I got caught in the rain.","I made it rain.","It might rain."],"answer":0,"why":"The suffering passive: the rain fell on me."},
+        {"type":"dialogue","q":"At a police box: choose your replies.","lines":[{"who":"Police officer","t":"どうしましたか。","r":"Dō shimashita ka.","tr":"What's happened?"},{"options":["かばんを盗まれたんです。","かばんを盗んだんです。"],"rs":["Kaban o nusumareta n desu.","Kaban o nusunda n desu."],"answer":0,"why":"Done to you: the passive {{盗まれた|nusumareta}}. {{盗んだ|nusunda}} means you stole it!"},{"who":"Police officer","t":"いつですか。","r":"Itsu desu ka.","tr":"When?"},{"options":["駅で電車を待っていたとき、盗まれました。","駅で電車を待っていたとき、盗みました。"],"rs":["Eki de densha o matte ita toki, nusumaremashita.","Eki de densha o matte ita toki, nusumimashita."],"answer":0,"why":"Still the passive: {{盗まれました|nusumaremashita}}."}],"from":"say-when"},
+        {"type":"order","q":"Put the words in order.","tr":"This temple was built eight hundred years ago.","words":["このお寺は","八百年前に","建てられました。"],"rs":["Kono otera wa","happyaku-nen mae ni","tateraremashita."],"why":"{{このお寺は八百年前に建てられました。|Kono otera wa happyaku-nen mae ni tateraremashita.}}"},
+        {"type":"say","q":"At a police box, explain: “My wallet was stolen, you see.”","answer":"財布を盗まれたんです。","r":"Saifu o nusumareta n desu.","from":"explain-situations"},
+        {"type":"free","q":"Your turn: tell about something that happened to you, good or bad: praised, told off, caught in the rain…","answers":[{"t":"子供のとき、よく母にしかられました。でも、テストでいい点を取ったとき、ほめられました。","r":"Kodomo no toki, yoku haha ni shikararemashita. Demo, tesuto de ii ten o totta toki, homeraremashita.","tr":"As a child, I often got told off by my mother. But when I got a good mark in a test, she praised me."},{"t":"昨日、傘を持っていなかったので、雨に降られました。","r":"Kinō, kasa o motte inakatta node, ame ni furaremashita.","tr":"Yesterday I didn't have an umbrella, so I got caught in the rain."}]}
+      ]
+    },
+    {
+      "id": "understand-polite-japanese",
+      "unit": 8,
+      "level": "B1",
+      "title": "Understand polite Japanese in shops and offices",
+      "summary": "Recognise the special polite words that staff and officials use, and use a few yourself: “Please wait a moment.” “My name is Smith.”",
+      "topic": "keigo: respectful words ({{いらっしゃる|irassharu}}, {{召し上がる|meshiagaru}}), humble words ({{申す|mōsu}}, {{いただく|itadaku}}), {{お～ください|o … kudasai}}, {{でございます|de gozaimasu}}",
+      "blocks": [
+        {"goal":{"t":"少々お待ちください。","r":"Shōshō omachi kudasai.","tr":"Please wait a moment."}},
+        {"dialog":[{"who":"Receptionist","t":"いらっしゃいませ。ご予約のお名前をお願いいたします。","r":"Irasshaimase. Go-yoyaku no onamae o onegai itashimasu.","tr":"Welcome. May I have the name on your reservation?"},{"who":"You","t":"スミスです。","r":"Sumisu desu.","tr":"Smith."},{"who":"Receptionist","t":"スミス様でございますね。少々お待ちください。…お待たせいたしました。お部屋は八階でございます。","r":"Sumisu-sama de gozaimasu ne. Shōshō omachi kudasai. … Omatase itashimashita. Oheya wa hachi-kai de gozaimasu.","tr":"Mr Smith, yes. Please wait a moment. …Thank you for waiting. Your room is on the eighth floor."},{"who":"You","t":"朝ご飯は何時からですか。","r":"Asagohan wa nan-ji kara desu ka.","tr":"What time is breakfast?"},{"who":"Receptionist","t":"七時から、二階のレストランでございます。ごゆっくりどうぞ。","r":"Shichi-ji kara, ni-kai no resutoran de gozaimasu. Goyukkuri dōzo.","tr":"From seven, in the restaurant on the second floor. Enjoy your stay."}]},
+        {"term":"keigo","means":"“respect language”: special polite words and forms used to customers, superiors and strangers."},
+        {"p":"**Keigo.** In shops, hotels, offices and announcements you'll hear **keigo**, words and forms that raise the customer or lower the speaker. As a learner you don't need to produce much of it (polite です/ます is fine), but you do need to understand it."},
+        {"p":"**Respectful words raise the other person**, for what *they* do, never for yourself: {{いらっしゃいます|irasshaimasu}} go, come, be; {{召し上がります|meshiagarimasu}} eat, drink; {{なさいます|nasaimasu}} do; {{おっしゃいます|osshaimasu}} say; {{ご覧になります|goran ni narimasu}} look. And a pattern for requests: {{お～ください|o … kudasai}}: {{お待ちください|omachi kudasai}} “please wait”, {{お入りください|ohairi kudasai}} “please come in”."},
+        {"p":"**Humble words lower the speaker**, for what *I* do: {{申します|mōshimasu}} say, be called; {{いたします|itashimasu}} do; {{参ります|mairimasu}} go, come; {{いただきます|itadakimasu}} receive, eat. And {{でございます|de gozaimasu}} is an extra-polite {{です|desu}}."},
+        { "table": [
+          ["meaning","polite","respectful (the customer)","humble (me, staff)"],
+          ["go, come","{{行きます|ikimasu}}, {{来ます|kimasu}}","{{いらっしゃいます|irasshaimasu}}","{{参ります|mairimasu}}"],
+          ["eat","{{食べます|tabemasu}}","{{召し上がります|meshiagarimasu}}","{{いただきます|itadakimasu}}"],
+          ["do","{{します|shimasu}}","{{なさいます|nasaimasu}}","{{いたします|itashimasu}}"],
+          ["say","{{言います|iimasu}}","{{おっしゃいます|osshaimasu}}","{{申します|mōshimasu}}"],
+          ["it is","{{です|desu}}","(none)","{{でございます|de gozaimasu}}"]
+        ] },
+        {"p":"**What you can use yourself, starting now:** {{～と申します|… to mōshimasu}} to give your name formally ({{スミスと申します|Sumisu to mōshimasu}}), {{いただきます|itadakimasu}} before eating, and {{お願いいたします|onegai itashimasu}} as an extra-polite “please”."},
+        { "ex": [
+          {"t":"お待たせいたしました。","r":"Omatase itashimashita.","tr":"Thank you for waiting. (Sorry to keep you.)"},
+          {"t":"何を召し上がりますか。","r":"Nani o meshiagarimasu ka.","tr":"What would you like to eat?"},
+          {"t":"はじめまして、スミスと申します。","r":"Hajimemashite, Sumisu to mōshimasu.","tr":"How do you do? My name is Smith."},
+          {"t":"社長は今、会議室にいらっしゃいます。","r":"Shachō wa ima, kaigishitsu ni irasshaimasu.","tr":"The company president is in the meeting room now."},
+          {"t":"お手洗いはあちらでございます。","r":"Otearai wa achira de gozaimasu.","tr":"The restroom is over there."},
+          {"t":"どうぞ、お入りください。","r":"Dōzo, ohairi kudasai.","tr":"Please come in."}
+        ] },
+        {"tip":"Station announcements are full of keigo: {{まもなく電車が参ります|mamonaku densha ga mairimasu}} “The train will arrive shortly”, {{白線の内側までお下がりください|hakusen no uchigawa made osagari kudasai}} “Please stand behind the white line”."}
+      ],
+      "mistakes": [
+        {"wrong":"私はスミスとおっしゃいます。","right":"私はスミスと申します。","rw":"Watashi wa Sumisu to osshaimasu.","rr":"Watashi wa Sumisu to mōshimasu.","tr":"My name is Smith.","why":"Respectful words like {{おっしゃいます|osshaimasu}} are for other people. For yourself, use the humble {{申します|mōshimasu}}."},
+        {"wrong":"お客様、何をいただきますか。","right":"お客様、何を召し上がりますか。","rw":"Okyakusama, nani o itadakimasu ka.","rr":"Okyakusama, nani o meshiagarimasu ka.","tr":"What would you like to eat, sir/madam?","why":"{{いただきます|itadakimasu}} is humble, for yourself. For a customer, use the respectful {{召し上がります|meshiagarimasu}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Staff say {{少々お待ちください。|Shōshō omachi kudasai.}} They mean…","options":["Please wait a moment.","Please come in.","Thank you for waiting."],"answer":0,"why":"{{お待ちください|omachi kudasai}}: polite “please wait”."},
+        {"type":"choice","q":"At a job interview, how do you give your name formally?","options":["{{スミスと申します。|Sumisu to mōshimasu.}}","{{スミスとおっしゃいます。|Sumisu to osshaimasu.}}","{{スミス様でございます。|Sumisu-sama de gozaimasu.}}"],"answer":0,"why":"Humble {{申します|mōshimasu}} for yourself; never {{様|sama}} for your own name."},
+        {"type":"fill","q":"Choose the missing word.","t":"どうぞ、お入り___。","r":"Dōzo, ohairi ___.","tr":"Please come in.","options":["ください","します","いたします"],"rs":["kudasai","shimasu","itashimasu"],"answer":0,"why":"The polite request {{お～ください|o … kudasai}}."},
+        {"type":"dialogue","q":"Checking in at a hotel: choose your replies.","lines":[{"who":"Receptionist","t":"いらっしゃいませ。ご予約のお名前をお願いいたします。","r":"Irasshaimase. Go-yoyaku no onamae o onegai itashimasu.","tr":"Welcome. May I have the name on your reservation?"},{"options":["ブラウンです。お願いします。","ブラウン様でございます。"],"rs":["Buraun desu. Onegai shimasu.","Buraun-sama de gozaimasu."],"answer":0,"why":"Never {{様|sama}} or keigo about yourself: plain polite is perfect."},{"who":"Receptionist","t":"ブラウン様ですね。少々お待ちください。","r":"Buraun-sama desu ne. Shōshō omachi kudasai.","tr":"Mr Brown, yes. Please wait a moment."},{"options":["はい、わかりました。","はい、お待ちください。"],"rs":["Hai, wakarimashita.","Hai, omachi kudasai."],"answer":0,"why":"{{お待ちください|omachi kudasai}} asks the other person to wait; just say {{わかりました|wakarimashita}}."}],"from":"ask-politely"},
+        {"type":"order","q":"Put the words in order.","tr":"The restroom is over there.","words":["お手洗いは","あちらで","ございます。"],"rs":["Otearai wa","achira de","gozaimasu."],"why":"{{お手洗いはあちらでございます。|Otearai wa achira de gozaimasu.}}"},
+        {"type":"say","q":"Introduce yourself formally: “How do you do? My name is Smith.”","answer":"はじめまして、スミスと申します。","r":"Hajimemashite, Sumisu to mōshimasu.","from":"introduce-yourself"},
+        {"type":"free","q":"Your turn: you're at a job interview. Introduce yourself formally with {{と申します|to mōshimasu}} and say one thing about yourself.","answers":[{"t":"はじめまして。マリア・ロペスと申します。メキシコから参りました。よろしくお願いいたします。","r":"Hajimemashite. Maria Ropesu to mōshimasu. Mekishiko kara mairimashita. Yoroshiku onegai itashimasu.","tr":"How do you do? My name is Maria Lopez. I come from Mexico. I look forward to working with you."},{"t":"ジョン・スミスと申します。大学で経済を勉強しました。どうぞよろしくお願いいたします。","r":"Jon Sumisu to mōshimasu. Daigaku de keizai o benkyō shimashita. Dōzo yoroshiku onegai itashimasu.","tr":"My name is John Smith. I studied economics at university. I look forward to working with you."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Tell a story, and what went wrong",
+      "summary": "Put it all together to tell a story in order, with feelings and regrets: “I left my umbrella on the train!”",
+      "topic": "{{～てしまいました|… te shimaimashita}}; telling a story with the past, the て-form, {{とき|toki}}, {{たら|tara}} and {{から|kara}}",
+      "blocks": [
+        {"goal":{"t":"電車に傘を忘れてしまいました！","r":"Densha ni kasa o wasurete shimaimashita!","tr":"I left my umbrella on the train!"}},
+        {"dialog":[{"who":"Yui","t":"週末の旅行はどうでしたか。","r":"Shūmatsu no ryokō wa dō deshita ka.","tr":"How was your trip at the weekend?"},{"who":"Tom","t":"大変でした！土曜日の朝、寝坊してしまって、新幹線に乗り遅れたんです。","r":"Taihen deshita! Doyōbi no asa, nebō shite shimatte, shinkansen ni noriokureta n desu.","tr":"It was a disaster! On Saturday morning I overslept and missed the bullet train."},{"who":"Yui","t":"え、それで？","r":"E, sorede?","tr":"Oh no. And then?"},{"who":"Tom","t":"次の新幹線で行きました。でも、京都に着いたら、雨が降っていて…。家に傘を忘れてしまったので、びしょぬれになりました。","r":"Tsugi no shinkansen de ikimashita. Demo, Kyōto ni tsuitara, ame ga futte ite… Ie ni kasa o wasurete shimatta node, bishonure ni narimashita.","tr":"I took the next one. But when I got to Kyoto, it was raining… I'd left my umbrella at home, so I got soaked."},{"who":"Yui","t":"かわいそうに。","r":"Kawaisō ni.","tr":"Oh, poor you."},{"who":"Tom","t":"でも、夜はおいしい湯豆腐を食べて、元気になりました！","r":"Demo, yoru wa oishii yudōfu o tabete, genki ni narimashita!","tr":"But in the evening I had delicious tofu hot pot and cheered up!"}]},
+        {"p":"**Something regrettable, or completely done: て-form + {{しまいました|shimaimashita}}.** {{忘れてしまいました|wasurete shimaimashita}} “I (went and) forgot”: it adds the feeling that it's done and can't be undone, usually with regret. It also means “finish completely”: {{全部食べてしまいました|zenbu tabete shimaimashita}} “I ate the whole thing”. With friends: {{～ちゃった|… chatta}} or {{～じゃった|… jatta}}: {{忘れちゃった|wasurechatta}}, {{飲んじゃった|nonjatta}}."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["polite","{{財布をなくしてしまいました。|Saifu o nakushite shimaimashita.}}","I've lost my wallet (oh no)."],
+          ["casual","{{財布をなくしちゃった。|Saifu o nakushichatta.}}","I've gone and lost my wallet."],
+          ["completely","{{宿題を全部してしまいました。|Shukudai o zenbu shite shimaimashita.}}","I've finished all my homework."]
+        ] },
+        {"p":"**Telling a story.** You now have all the tools. Set the scene with {{とき|toki}} ({{京都に着いたとき|Kyōto ni tsuita toki}}), or with {{たら|tara}} for what you found ({{着いたら、雨が降っていて|tsuitara, ame ga futte ite}} “when I arrived, it was raining”). Link events with the て-form, give reasons with {{から|kara}} and {{ので|node}}, describe what was going on with {{ていました|te imashita}}, say how you felt with past adjectives, and use {{てしまいました|te shimaimashita}} for what went wrong. Story words: {{それで|sorede}} “so”, {{それから|sorekara}} “after that”, {{でも|demo}} “but”, {{結局|kekkyoku}} “in the end”."},
+        {"p":"**Keep it alive.** Storytellers explain with {{んです|n desu}}: {{寝坊したんです|nebō shita n desu}} “I overslept, you see”. Listeners react: {{え|e}} “what?”, {{それで？|sorede?}} “and then?”, {{かわいそうに|kawaisō ni}} “poor you”, {{よかったですね|yokatta desu ne}} “I'm glad”."},
+        { "ex": [
+          {"t":"ケーキを全部食べてしまいました。","r":"Kēki o zenbu tabete shimaimashita.","tr":"I ate the whole cake."},
+          {"t":"寝坊して、会議に遅れてしまいました。","r":"Nebō shite, kaigi ni okurete shimaimashita.","tr":"I overslept and was late for the meeting."},
+          {"t":"京都に着いたら、雨が降っていました。","r":"Kyōto ni tsuitara, ame ga futte imashita.","tr":"When I arrived in Kyoto, it was raining."},
+          {"t":"道に迷ったとき、親切な人が駅まで連れていってくれました。","r":"Michi ni mayotta toki, shinsetsu na hito ga eki made tsurete itte kuremashita.","tr":"When I got lost, a kind person took me to the station."},
+          {"t":"結局、とても楽しい旅行になりました。","r":"Kekkyoku, totemo tanoshii ryokō ni narimashita.","tr":"In the end, it turned into a really fun trip."},
+          {"t":"スマホを落としちゃった。","r":"Sumaho o otoshichatta.","tr":"I've gone and dropped my phone."}
+        ] },
+        {"tip":"A Japanese story often ends with how you feel about it now: {{いい思い出になりました|ii omoide ni narimashita}} “It became a good memory”."}
+      ],
+      "mistakes": [
+        {"wrong":"傘を忘れりしまいました。","right":"傘を忘れてしまいました。","rw":"Kasa o wasureri shimaimashita.","rr":"Kasa o wasurete shimaimashita.","tr":"I forgot my umbrella.","why":"{{しまう|shimau}} follows the て-form: {{忘れて|wasurete}}."},
+        {"wrong":"ビールを全部飲みちゃった。","right":"ビールを全部飲んじゃった。","rw":"Bīru o zenbu nomichatta.","rr":"Bīru o zenbu nonjatta.","tr":"I drank all the beer.","why":"The casual {{ちゃった|chatta}} / {{じゃった|jatta}} comes from the て-form: {{飲んで|nonde}} → {{飲んじゃった|nonjatta}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"電車にかばんを忘れ___しまいました。","r":"Densha ni kaban o wasure___ shimaimashita.","tr":"I left my bag on the train.","options":["て","た","に"],"rs":["te","ta","ni"],"answer":0,"why":"て-form + {{しまいました|shimaimashita}}."},
+        {"type":"choice","q":"{{ケーキを全部食べてしまいました。|Kēki o zenbu tabete shimaimashita.}} means…","options":["I ate the whole cake (oops).","I'm going to eat the whole cake.","I didn't eat the cake."],"answer":0,"why":"{{てしまいました|te shimaimashita}}: completely done, with a hint of regret."},
+        {"type":"fill","q":"Choose the missing ending.","t":"京都に着い___、雨が降っていました。","r":"Kyōto ni tsui___, ame ga futte imashita.","tr":"When I arrived in Kyoto, it was raining.","options":["たら","たり","ても"],"rs":["tara","tari","temo"],"answer":0,"why":"What you found when you arrived: {{着いたら|tsuitara}}."},
+        {"type":"dialogue","q":"A friend tells you a story. React!","lines":[{"who":"Yuki","t":"昨日、スマホを落としちゃった。","r":"Kinō, sumaho o otoshichatta.","tr":"I dropped my phone yesterday."},{"options":["え、それで？","え、よかったね。"],"rs":["E, sorede?","E, yokatta ne."],"answer":0,"why":"Ask for the rest of the story: {{それで？|sorede?}} “and then?”."},{"who":"Yuki","t":"でも、駅員さんが見つけてくれたんだ。","r":"Demo, ekiin-san ga mitsukete kureta n da.","tr":"But a station attendant found it for me."},{"options":["よかったね！","かわいそうに。"],"rs":["Yokatta ne!","Kawaisō ni."],"answer":0,"why":"Good news: {{よかったね|yokatta ne}}."}],"from":"ask-for-favors"},
+        {"type":"order","q":"Put the words in order.","tr":"I overslept and was late for the meeting.","words":["寝坊して、","会議に","遅れてしまいました。"],"rs":["Nebō shite,","kaigi ni","okurete shimaimashita."],"why":"{{寝坊して、会議に遅れてしまいました。|Nebō shite, kaigi ni okurete shimaimashita.}}"},
+        {"type":"say","q":"Tell a friend: “My bike got stolen!” (casually)","answer":"自転車を盗まれちゃった！","r":"Jitensha o nusumarechatta!","from":"say-what-happened-to-you"},
+        {"type":"free","q":"Your turn: tell a short story about a trip or a day when something went wrong. Use the past, the て-form, {{とき|toki}} or {{たら|tara}}, and {{てしまいました|te shimaimashita}}.","answers":[{"t":"去年、大阪へ行ったとき、駅で財布をなくしてしまいました。でも、親切な人が交番に届けてくれたので、本当に助かりました。","r":"Kyonen, Ōsaka e itta toki, eki de saifu o nakushite shimaimashita. Demo, shinsetsu na hito ga kōban ni todokete kureta node, hontō ni tasukarimashita.","tr":"Last year, when I went to Osaka, I lost my wallet at the station. But a kind person took it to the police box, so I was really lucky."},{"t":"先週、友達の誕生日を忘れてしまいました。次の日、ケーキを持っていって、謝りました。友達は笑って、許してくれました。","r":"Senshū, tomodachi no tanjōbi o wasurete shimaimashita. Tsugi no hi, kēki o motte itte, ayamarimashita. Tomodachi wa waratte, yurushite kuremashita.","tr":"Last week I forgot a friend's birthday. The next day I took a cake round and apologised. My friend laughed and forgave me."}]}
+      ]
     }
   ]
 }
