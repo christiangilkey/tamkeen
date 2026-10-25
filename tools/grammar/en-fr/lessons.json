@@ -619,6 +619,308 @@
         {"type":"say","q":"Say the price: 80 €.","answer":"Quatre-vingts euros."},
         {"type":"free","q":"Your turn: you're at a market. Ask for two things with an amount, then ask the price.","answers":[{"t":"Je voudrais un kilo de tomates et six œufs, s'il vous plaît. Ça fait combien ?","tr":"I'd like a kilo of tomatoes and six eggs, please. How much is that?"},{"t":"Bonjour ! Deux baguettes et un pot de confiture, s'il vous plaît. C'est combien ?","tr":"Hello! Two baguettes and a jar of jam, please. How much is it?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do: work, home, languages",
+      "summary": "Say where you live, where you work and what languages you speak: the present of -er verbs (nine French verbs in ten), and {{on}} “we”.",
+      "topic": "the present of -er verbs ({{parler, habiter, travailler}}); silent endings; {{on}} for “we”",
+      "blocks": [
+        {"goal":{"t":"J'habite à Lyon et je travaille dans une banque.","tr":"I live in Lyon and I work in a bank."}},
+        {"dialog":[{"who":"Julien","t":"Tu habites où ?","tr":"Where do you live?"},{"who":"Amy","t":"J'habite à Lyon, près de la gare. Et toi ?","tr":"I live in Lyon, near the station. And you?"},{"who":"Julien","t":"Moi aussi ! Tu travailles ici ?","tr":"Me too! Do you work here?"},{"who":"Amy","t":"Oui, je travaille dans une école. J'enseigne l'anglais.","tr":"Yes, I work in a school. I teach English."},{"who":"Julien","t":"Tu parles bien français !","tr":"You speak French well!"},{"who":"Amy","t":"Merci ! Mon mari est français, alors on parle français à la maison.","tr":"Thanks! My husband is French, so we speak French at home."}]},
+        {"term":"infinitive","means":"the basic form of a verb, the one in the dictionary: “to speak”, {{parler}}. French infinitives end in {{-er}}, {{-ir}} or {{-re}}."},
+        {"p":"**Nine verbs in ten end in -er.** {{Parler}} “to speak”, {{habiter}} “to live”, {{travailler}} “to work”, {{aimer}} “to like”, {{regarder}} “to watch”… They all work the same way: take off {{-er}} and add the ending for each person."},
+        { "table": [
+          ["","{{parler}} “to speak”","ending"],
+          ["I","{{je parle}}","-e"],
+          ["you (a friend)","{{tu parles}}","-es"],
+          ["he, she; we (casual)","{{il parle}}, {{elle parle}}; {{on parle}}","-e"],
+          ["we","{{nous parlons}}","-ons"],
+          ["you (polite, or several)","{{vous parlez}}","-ez"],
+          ["they","{{ils parlent}}, {{elles parlent}}","-ent"]
+        ] },
+        {"p":"**The good news: most endings are silent.** {{Parle}}, {{parles}} and {{parlent}} all sound exactly the same: “parl”. Only {{nous parlons}} and {{vous parlez}} sound different. So when you speak, an -er verb has three forms, not six."},
+        {"p":"**On, the everyday “we”.** {{On}} means “one, people”, but in speech the French use it for “we” all the time: {{On parle français.}} “We speak French.” It takes the same form as {{il}}. {{Nous}} is for writing and careful speech."},
+        {"p":"**One present for two in English.** {{Je travaille}} is both “I work” and “I'm working”: French has a single present. {{Je travaille.}} “I'm working (right now).” {{Je travaille le samedi.}} “I work on Saturdays.”"},
+        { "ex": [
+          {"t":"Je parle anglais et un peu français.","tr":"I speak English and a little French."},
+          {"t":"Tu travailles où ?","tr":"Where do you work?"},
+          {"t":"Elle habite à Paris.","tr":"She lives in Paris.","note":"{{à}} before a city"},
+          {"t":"On regarde un film ce soir ?","tr":"Shall we watch a movie tonight?"},
+          {"t":"Vous parlez très bien !","tr":"You speak very well!"},
+          {"t":"Ils travaillent beaucoup.","tr":"They work a lot."},
+          {"t":"J'écoute la radio.","tr":"I'm listening to the radio.","note":"{{je}} → {{j'}} before a vowel"}
+        ] },
+        {"tip":"The {{-ent}} of a verb is never said: {{ils travaillent}} is “eel tra-vye”. But at the end of other words you do hear it, as a nasal “ahn”: {{souvent}} “often”, {{content}} “happy”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je suis parle anglais.","right":"Je parle anglais.","tr":"I speak English. / I'm speaking English.","why":"There's no “am” before a French verb: {{je parle}} is both “I speak” and “I'm speaking”."},
+        {"wrong":"Je habite à Lyon.","right":"J'habite à Lyon.","tr":"I live in Lyon.","why":"{{Je}} becomes {{j'}} before a vowel or a silent {{h}}."},
+        {"wrong":"Ils parlont français.","right":"Ils parlent français.","tr":"They speak French.","why":"“They” takes {{-ent}}, and it's silent. {{-ons}} goes with {{nous}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Nous ___ français.","tr":"We speak French.","options":["parlons","parlez","parle"],"answer":0,"why":"{{Nous}} takes {{-ons}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu ___ où ?","tr":"Where do you live?","options":["habites","habitez","habite"],"answer":0,"why":"{{Tu}} takes {{-es}}."},
+        {"type":"choice","q":"Which two sound exactly the same?","options":["{{je parle}} and {{ils parlent}}","{{je parle}} and {{vous parlez}}","{{nous parlons}} and {{ils parlent}}"],"answer":0,"why":"{{-e}} and {{-ent}} are both silent: “parl”."},
+        {"type":"dialogue","q":"At a party. Choose your replies.","from":"ask-how-someone-is","lines":[{"who":"A guest","t":"Vous habitez à Paris ?","tr":"Do you live in Paris?"},{"options":["Non, j'habite à Lille.","Non, je suis habite à Lille."],"answer":0,"why":"No “am”: {{j'habite}}."},{"who":"A guest","t":"Et vous travaillez où ?","tr":"And where do you work?"},{"options":["Je travaille dans un hôpital. Et vous ?","Je travaille dans un hôpital. Et toi ?"],"answer":0,"why":"She says {{vous}} to you: answer with {{vous}}."},{"who":"A guest","t":"Moi, je travaille à la mairie.","tr":"I work at the town hall."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We're watching a movie tonight.","words":["On","regarde","un film","ce soir."]},
+        {"type":"say","q":"Say: “I speak English and a little French.”","answer":"Je parle anglais et un peu français."},
+        {"type":"free","q":"Your turn: say where you live, where you work or study, and what languages you speak.","answers":[{"t":"J'habite à Chicago. Je travaille dans un bureau. Je parle anglais et espagnol.","tr":"I live in Chicago. I work in an office. I speak English and Spanish."},{"t":"J'habite à Londres et j'étudie à l'université. Je parle anglais et un peu français.","tr":"I live in London and I study at the university. I speak English and a little French."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like and don't like",
+      "summary": "Say what you love, like and can't stand, and what you like doing: {{aimer}} with {{le, la, les}}, and with a verb.",
+      "topic": "{{aimer, adorer, détester, préférer}} + {{le, la, les}} for things in general; + infinitive; {{aimer bien}}",
+      "blocks": [
+        {"goal":{"t":"J'adore le chocolat, mais je déteste le café.","tr":"I love chocolate, but I hate coffee."}},
+        {"dialog":[{"who":"Lucas","t":"Tu aimes le cinéma ?","tr":"Do you like movies?"},{"who":"Inès","t":"Oui, j'adore les films français. Et toi ?","tr":"Yes, I love French movies. And you?"},{"who":"Lucas","t":"J'aime bien, mais je préfère le théâtre.","tr":"I like them, but I prefer the theater."},{"who":"Inès","t":"Ah bon ? Moi, je n'aime pas beaucoup le théâtre…","tr":"Really? I don't much like the theater…"},{"who":"Lucas","t":"Tu aimes danser ?","tr":"Do you like dancing?"},{"who":"Inès","t":"Oui, j'adore danser !","tr":"Yes, I love dancing!"}]},
+        {"p":"**Things in general take “the”.** In English you like “coffee”, “cats”, “French movies”, with no article. French needs one, and when you mean a thing in general (coffee as such, cats as a whole), it's {{le, la, les}}: {{J'aime le café.}} {{J'adore les chats.}}"},
+        { "table": [
+          ["","French","English"],
+          ["love","{{J'adore le chocolat.}}","I love chocolate."],
+          ["like","{{J'aime les chats.}}","I like cats."],
+          ["quite like","{{J'aime bien la musique.}}","I like music."],
+          ["prefer","{{Je préfère le thé.}}","I prefer tea."],
+          ["don't like","{{Je n'aime pas le sport.}}","I don't like sports."],
+          ["hate","{{Je déteste les araignées.}}","I hate spiders."]
+        ] },
+        {"p":"**Aimer bien is a little less than aimer.** With things, the two are close. With a person, careful: {{je t'aime}} is “I love you”, but {{je t'aime bien}} is only “I like you”."},
+        {"p":"**Liking doing something: + infinitive.** Put the second verb in its basic form: {{J'aime danser.}} “I like dancing.” {{Je déteste attendre.}} “I hate waiting.” Where English has “-ing”, French has the infinitive."},
+        {"p":"**No de here.** After {{ne … pas}}, {{le, la, les}} stay as they are (only {{un, une, des}} become {{de}}): {{Je n'aime pas le café.}}"},
+        {"p":"**Préférer** changes its accent when the ending is silent: {{je préfère}}, {{tu préfères}}, {{il préfère}}, {{ils préfèrent}}, but {{nous préférons}}, {{vous préférez}}."},
+        { "ex": [
+          {"t":"J'aime beaucoup la cuisine italienne.","tr":"I really like Italian food."},
+          {"t":"Tu aimes les chiens ?","tr":"Do you like dogs?"},
+          {"t":"Elle adore lire.","tr":"She loves reading."},
+          {"t":"Je préfère la mer à la montagne.","tr":"I prefer the sea to the mountains."},
+          {"t":"Mon fils déteste les légumes.","tr":"My son hates vegetables."},
+          {"t":"Je n'aime pas travailler le dimanche.","tr":"I don't like working on Sundays."}
+        ] },
+        {"tip":"To agree: {{Moi aussi.}} “Me too.” To agree with a negative: {{Moi non plus.}} “Me neither.” To disagree: {{Pas moi !}} after a yes, {{Moi, si !}} after a no."}
+      ],
+      "mistakes": [
+        {"wrong":"J'aime café.","right":"J'aime le café.","tr":"I like coffee.","why":"French needs an article, and a thing in general takes {{le, la, les}}."},
+        {"wrong":"Je n'aime pas de café.","right":"Je n'aime pas le café.","tr":"I don't like coffee.","why":"Only {{un, une, des}} become {{de}} after a negative. {{Le, la, les}} stay."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"J'adore ___ chocolat.","tr":"I love chocolate.","options":["le","du","un"],"answer":0,"why":"Chocolate in general: {{le}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je n'aime pas ___ chats.","tr":"I don't like cats.","options":["les","de","des"],"answer":0,"why":"{{Les}} stays after a negative.","from":"say-no"},
+        {"type":"choice","q":"How do you say “I like swimming”?","options":["{{J'aime nager.}}","{{J'aime nageant.}}","{{J'aime le nager.}}"],"answer":0,"why":"After {{aimer}}, the infinitive."},
+        {"type":"dialogue","q":"A new friend asks about your tastes. Choose your replies.","from":"say-what-you-do","lines":[{"who":"Your friend","t":"Tu aimes le sport ?","tr":"Do you like sports?"},{"options":["Oui, j'adore le foot !","Oui, j'adore foot !"],"answer":0,"why":"A thing in general needs {{le}}."},{"who":"Your friend","t":"Moi, je préfère nager.","tr":"I prefer swimming."},{"options":["Moi aussi, j'aime nager. On nage ensemble samedi ?","Moi aussi, j'aime nage. On nage ensemble samedi ?"],"answer":0,"why":"After {{aimer}}, the infinitive {{nager}}; and {{on nage}}, “shall we swim”."},{"who":"Your friend","t":"Super !","tr":"Great!"}]},
+        {"type":"choice","q":"Your friend says {{Je n'aime pas le café.}} You don't either. You say…","options":["{{Moi non plus.}}","{{Moi aussi.}}","{{Moi, si !}}"],"answer":0,"why":"Agreeing with a negative: {{moi non plus}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I prefer the sea to the mountains.","words":["Je","préfère","la mer","à","la montagne."]},
+        {"type":"free","q":"Your turn: say two things you love, one thing you don't like and one thing you like doing.","answers":[{"t":"J'adore le chocolat et les chats. Je n'aime pas le froid. J'aime lire.","tr":"I love chocolate and cats. I don't like the cold. I like reading."},{"t":"J'aime beaucoup la musique et le cinéma, mais je déteste le sport. J'adore voyager.","tr":"I really like music and movies, but I hate sports. I love traveling."}]}
+      ]
+    },
+    {
+      "id": "order-food-and-drink",
+      "unit": 3,
+      "level": "A1",
+      "title": "Order food and drink",
+      "summary": "Order a meal, ask for water, say you don't eat meat: {{du, de la, des}} for “some”, with {{prendre}} and {{boire}}.",
+      "topic": "the partitive {{du, de la, de l', des}}; {{pas de}}; {{prendre}}, {{boire}}",
+      "blocks": [
+        {"goal":{"t":"Pour moi, du poulet avec des frites, et de l'eau, s'il vous plaît.","tr":"For me, chicken with fries, and some water, please."}},
+        {"dialog":[{"who":"The waiter","t":"Vous avez choisi ?","tr":"Have you decided?"},{"who":"You","t":"Oui. Je prends le poulet avec des frites.","tr":"Yes. I'll have the chicken with fries."},{"who":"The waiter","t":"Et comme boisson ?","tr":"And to drink?"},{"who":"You","t":"De l'eau, s'il vous plaît. Une carafe d'eau.","tr":"Water, please. A jug of tap water."},{"who":"Your friend","t":"Moi, je ne mange pas de viande. Il y a un plat végétarien ?","tr":"I don't eat meat. Is there a vegetarian dish?"},{"who":"The waiter","t":"Oui, des lasagnes aux légumes.","tr":"Yes, vegetable lasagna."}]},
+        {"p":"**Some: du, de la.** English often says nothing (“I'd like water”) or “some” (“Do you want some bread?”). French always needs an article. For an amount of something you don't count, like bread, water or cheese, it's {{du}} or {{de la}}: {{du pain}} “(some) bread”, {{de la confiture}} “(some) jam”."},
+        {"term":"partitive","means":"the article for “some of” a thing: {{du}}, {{de la}}, {{de l'}}, and {{des}} for several things. It means an amount of it, not all of it and not one."},
+        { "table": [
+          ["","the partitive","examples"],
+          ["masculine","{{du}}","{{du pain}}, {{du fromage}}"],
+          ["feminine","{{de la}}","{{de la soupe}}, {{de la viande}}"],
+          ["before a vowel","{{de l'}}","{{de l'eau}}, {{de l'huile}}"],
+          ["plural","{{des}}","{{des frites}}, {{des légumes}}"]
+        ] },
+        {"p":"**Three articles, three meanings.** {{J'aime le fromage.}} “I like cheese” (in general: lesson 14). {{Je voudrais un fromage.}} “I'd like a cheese” (one whole cheese). {{Je mange du fromage.}} “I'm eating cheese” (some of it)."},
+        {"p":"**After a negative: de.** Like {{un}} and {{une}}, {{du, de la, des}} become {{de}} (or {{d'}}) after a negative: {{Je ne mange pas de viande.}} “I don't eat meat.”"},
+        {"p":"**Ordering: je prends.** In a café or a restaurant the French say {{je prends…}} “I'll have…” (word for word “I take”) or {{pour moi…}} “for me…”, as well as {{je voudrais}}. {{Prendre}} “to take, to have” and {{boire}} “to drink” are irregular:"},
+        { "table": [
+          ["","{{prendre}} “to take, to have”","{{boire}} “to drink”"],
+          ["I","{{je prends}}","{{je bois}}"],
+          ["you (a friend)","{{tu prends}}","{{tu bois}}"],
+          ["he, she; we (casual)","{{il prend}}; {{on prend}}","{{il boit}}; {{on boit}}"],
+          ["we","{{nous prenons}}","{{nous buvons}}"],
+          ["you (polite, or several)","{{vous prenez}}","{{vous buvez}}"],
+          ["they","{{ils prennent}}","{{ils boivent}}"]
+        ] },
+        { "ex": [
+          {"t":"Je prends un café et un croissant.","tr":"I'll have a coffee and a croissant."},
+          {"t":"Tu veux du pain ?","tr":"Do you want some bread?"},
+          {"t":"Elle boit du thé le matin.","tr":"She drinks tea in the morning."},
+          {"t":"Il y a de la soupe ce soir.","tr":"There's soup tonight."},
+          {"t":"Je ne bois pas d'alcool.","tr":"I don't drink alcohol."},
+          {"t":"On mange des crêpes ?","tr":"Shall we have crêpes?"}
+        ] },
+        {"tip":"Tap water is free in a French restaurant: ask for {{une carafe d'eau}}. And {{manger}} keeps an {{e}} before {{-ons}}, so the {{g}} stays soft: {{nous mangeons}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Je voudrais eau.","right":"Je voudrais de l'eau.","tr":"I'd like some water.","why":"French needs an article: “some water” is {{de l'eau}}."},
+        {"wrong":"Je ne mange pas du poisson.","right":"Je ne mange pas de poisson.","tr":"I don't eat fish.","why":"After a negative, {{du}} becomes {{de}}."},
+        {"wrong":"J'aime du fromage.","right":"J'aime le fromage.","tr":"I like cheese.","why":"With {{aimer}}, you mean cheese in general: {{le}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Je voudrais ___ eau, s'il vous plaît.","tr":"I'd like some water, please.","options":["de l'","du","de la"],"answer":0,"why":"Before a vowel: {{de l'}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tu bois ___ café ?","tr":"Do you drink coffee?","options":["du","de la","le"],"answer":0,"why":"Some coffee, an amount: {{du}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Je ne mange pas ___ viande.","tr":"I don't eat meat.","options":["de","de la","la"],"answer":0,"why":"After a negative: {{de}}.","from":"say-no"},
+        {"type":"choice","q":"Which sentence is about cheese in general?","options":["{{J'adore le fromage.}}","{{Je mange du fromage.}}","{{Je voudrais un fromage.}}"],"answer":0,"why":"Things in general, and with {{adorer}}: {{le}}.","from":"say-what-you-like"},
+        {"type":"dialogue","q":"At a restaurant. Choose your replies.","from":"ask-for-things","lines":[{"who":"The waiter","t":"Bonsoir ! Vous avez choisi ?","tr":"Good evening! Have you decided?"},{"options":["Oui, je prends le poisson, s'il vous plaît.","Oui, je prenez le poisson, s'il vous plaît."],"answer":0,"why":"“I take”: {{je prends}}."},{"who":"The waiter","t":"Et comme boisson ?","tr":"And to drink?"},{"options":["Du vin blanc, s'il vous plaît.","Vin blanc, s'il vous plaît."],"answer":0,"why":"Some white wine: {{du vin blanc}}."},{"who":"The waiter","t":"Très bien. Je vous apporte du pain.","tr":"Very good. I'll bring you some bread."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We drink tea in the morning.","words":["Nous","buvons","du thé","le matin."]},
+        {"type":"free","q":"Your turn: you're in a restaurant. Order a dish and a drink, and say one thing you don't eat or drink.","answers":[{"t":"Je prends le steak-frites et de l'eau, s'il vous plaît. Je ne bois pas d'alcool.","tr":"I'll have the steak and fries and some water, please. I don't drink alcohol."},{"t":"Pour moi, la soupe et du pain, et un verre de vin rouge. Je ne mange pas de viande.","tr":"For me, the soup and some bread, and a glass of red wine. I don't eat meat."}]}
+      ]
+    },
+    {
+      "id": "say-where-youre-going",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you're going and where you're from",
+      "summary": "Say you're going to the market, to France or to a friend's place, or coming back from work: {{aller}} and {{venir}}, with {{au}}, {{en}} and {{chez}}.",
+      "topic": "{{aller}}, {{venir}}; {{à}} and {{de}} with places; {{en France}}, {{au Canada}}, {{aux États-Unis}}; {{chez}}",
+      "blocks": [
+        {"goal":{"t":"Je vais au marché, puis chez ma grand-mère.","tr":"I'm going to the market, then to my grandmother's."}},
+        {"dialog":[{"who":"Your neighbor","t":"Bonjour ! Vous allez où ?","tr":"Hello! Where are you going?"},{"who":"You","t":"Je vais à la poste, puis au supermarché. Et vous ?","tr":"I'm going to the post office, then to the supermarket. And you?"},{"who":"Your neighbor","t":"Je viens du marché. Et ce week-end, je vais chez ma fille, à Nantes.","tr":"I'm coming from the market. And this weekend I'm going to my daughter's, in Nantes."},{"who":"You","t":"Bon week-end !","tr":"Have a nice weekend!"}]},
+        {"p":"**Aller and venir.** “To go” and “to come” are irregular, and among the most useful verbs in French:"},
+        { "table": [
+          ["","{{aller}} “to go”","{{venir}} “to come”"],
+          ["I","{{je vais}}","{{je viens}}"],
+          ["you (a friend)","{{tu vas}}","{{tu viens}}"],
+          ["he, she; we (casual)","{{il va}}; {{on va}}","{{il vient}}; {{on vient}}"],
+          ["we","{{nous allons}}","{{nous venons}}"],
+          ["you (polite, or several)","{{vous allez}}","{{vous venez}}"],
+          ["they","{{ils vont}}","{{ils viennent}}"]
+        ] },
+        {"p":"**To a place: à.** “To” is {{à}}, and it joins with {{le}} and {{les}} as in lesson 11: {{je vais au cinéma}}, {{à la plage}}, {{à l'hôtel}}, {{aux toilettes}}. Before a city, just {{à}}: {{je vais à Paris}}."},
+        {"p":"**From a place: de.** “From” is {{de}}, which joins the same way: {{je viens du bureau}}, {{de la plage}}, {{de Paris}}. It's also how you say where you come from: {{Je viens de Chicago.}}"},
+        {"p":"**Countries.** Feminine countries (most of those ending in {{-e}}) take {{en}}: {{en France}}, {{en Italie}}, {{en Espagne}}. Masculine ones take {{au}}: {{au Canada}}, {{au Japon}}, {{au Mexique}}. Plural ones take {{aux}}: {{aux États-Unis}}. The same word means “to” and “in”: {{Je vais en France.}} {{J'habite en France.}}"},
+        {"p":"**To someone's place: chez.** {{Chez}} means “at the home of” or “to the home of”: {{chez ma grand-mère}}, {{chez Paul}}, {{chez moi}} “at my place, home”. Also for some professionals: {{chez le médecin}} “to the doctor's”."},
+        { "ex": [
+          {"t":"Tu vas où ? — Je vais au travail.","tr":"Where are you going? — I'm going to work."},
+          {"t":"On va à la plage cet après-midi ?","tr":"Shall we go to the beach this afternoon?"},
+          {"t":"Nous allons en Italie en août.","tr":"We're going to Italy in August."},
+          {"t":"Elle vient du Canada.","tr":"She comes from Canada.","note":"{{de}} + {{le Canada}}"},
+          {"t":"Je rentre chez moi.","tr":"I'm going home.","note":"{{rentrer}}: to go back home"},
+          {"t":"Vous venez avec nous ?","tr":"Are you coming with us?"}
+        ] },
+        {"tip":"{{Aller}} is also how the French ask how you are (lesson 2): {{Comment allez-vous ?}}, word for word “How are you going?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je vais à le cinéma.","right":"Je vais au cinéma.","tr":"I'm going to the movies.","why":"{{À}} + {{le}} is always {{au}}."},
+        {"wrong":"Je vais à France.","right":"Je vais en France.","tr":"I'm going to France.","why":"A feminine country takes {{en}}."},
+        {"wrong":"Je vais à ma grand-mère.","right":"Je vais chez ma grand-mère.","tr":"I'm going to my grandmother's.","why":"To a person's home: {{chez}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ce soir, je vais ___ cinéma.","tr":"Tonight I'm going to the movies.","options":["au","à le","à la"],"answer":0,"why":"{{Cinéma}} is masculine: {{à + le}} = {{au}}.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ils ___ au Japon en mai.","tr":"They're going to Japan in May.","options":["vont","vais","allez"],"answer":0,"why":"“They go”: {{ils vont}}."},
+        {"type":"choice","q":"“I live in Spain” is…","options":["{{J'habite en Espagne.}}","{{J'habite à Espagne.}}","{{J'habite au Espagne.}}"],"answer":0,"why":"{{Espagne}} is feminine: {{en}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Elle vient ___ États-Unis.","tr":"She comes from the United States.","options":["des","de","du"],"answer":0,"why":"{{De}} + {{les}} = {{des}}."},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","from":"ask-questions","lines":[{"who":"Your friend","t":"Salut ! Tu vas où ?","tr":"Hi! Where are you going?"},{"options":["Je vais chez Marc. Tu viens ?","Je vais à Marc. Tu viens ?"],"answer":0,"why":"To someone's place: {{chez}}."},{"who":"Your friend","t":"Oui ! C'est où, chez Marc ?","tr":"Yes! Where's Marc's place?"},{"options":["C'est à côté du parc.","C'est à côté de le parc."],"answer":0,"why":"{{De}} + {{le}} = {{du}}."},{"who":"Your friend","t":"OK, à tout de suite !","tr":"OK, see you in a minute!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We're going to Italy in August.","words":["Nous","allons","en Italie","en août."]},
+        {"type":"free","q":"Your turn: say where you're going this week, and where you come from.","answers":[{"t":"Cette semaine, je vais au cinéma et chez mes parents. Je viens de Boston.","tr":"This week I'm going to the movies and to my parents'. I come from Boston."},{"t":"Je vais au travail, puis à la piscine. Je viens du Canada.","tr":"I'm going to work, then to the pool. I come from Canada."}]}
+      ]
+    },
+    {
+      "id": "talk-about-free-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your free time and the weather",
+      "summary": "Say what you do on weekends, the sports and music you play, and what the weather's like: {{faire}}, {{jouer à}} and {{jouer de}}.",
+      "topic": "{{faire}}; {{faire du sport}}, {{faire les courses}}; {{jouer au foot}}, {{jouer du piano}}; {{il fait beau}}, {{il pleut}}",
+      "blocks": [
+        {"goal":{"t":"Le samedi, je fais du vélo, et le dimanche, je joue au tennis.","tr":"On Saturdays I go cycling, and on Sundays I play tennis."}},
+        {"dialog":[{"who":"Max","t":"Qu'est-ce que tu fais ce week-end ?","tr":"What are you doing this weekend?"},{"who":"Zoé","t":"S'il fait beau, je fais une randonnée.","tr":"If it's nice out, I'm going hiking."},{"who":"Max","t":"Et s'il pleut ?","tr":"And if it rains?"},{"who":"Zoé","t":"Je joue du piano et je fais le ménage !","tr":"I play the piano and do the cleaning!"},{"who":"Max","t":"Moi, je joue au foot avec des amis. Tu viens ?","tr":"I'm playing soccer with some friends. Are you coming?"}]},
+        {"p":"**Faire: “do” and “make”.** {{Faire}} is everywhere in French: it covers both “do” and “make”, and a lot of activities. Its {{vous}} and {{ils}} forms are irregular: {{vous faites}} (never “faisez”), {{ils font}}."},
+        { "table": [
+          ["","{{faire}} “to do, to make”"],
+          ["I","{{je fais}}"],
+          ["you (a friend)","{{tu fais}}"],
+          ["he, she; we (casual)","{{il fait}}; {{on fait}}"],
+          ["we","{{nous faisons}}"],
+          ["you (polite, or several)","{{vous faites}}"],
+          ["they","{{ils font}}"]
+        ] },
+        {"p":"**Sports and hobbies: faire du, de la.** They take {{faire}} and the partitive of lesson 15: {{faire du sport}}, {{du vélo}} (cycling), {{du yoga}}, {{de la natation}} (swimming), {{de la musique}}. Chores take {{faire}} with {{le, la, les}}: {{faire la cuisine}} (cook), {{faire le ménage}} (clean), {{faire les courses}} (do the grocery shopping)."},
+        {"p":"**Playing: jouer à, jouer de.** A game or a sport: {{jouer à}}, joined to the article: {{jouer au foot}}, {{jouer aux cartes}}. A musical instrument: {{jouer de}}: {{jouer du piano}}, {{jouer de la guitare}}."},
+        {"p":"**The weather: il fait.** {{Il fait beau.}} “It's nice out.” {{Il fait chaud.}} “It's hot.” {{Il fait froid.}} “It's cold.” Rain and snow have their own verbs: {{il pleut}} “it's raining”, {{il neige}} “it's snowing”. To ask: {{Quel temps fait-il ?}} “What's the weather like?”"},
+        { "ex": [
+          {"t":"Qu'est-ce que tu fais ce soir ?","tr":"What are you doing tonight?"},
+          {"t":"Je fais du yoga le matin.","tr":"I do yoga in the morning."},
+          {"t":"Mon frère joue de la guitare.","tr":"My brother plays the guitar."},
+          {"t":"On joue aux cartes ?","tr":"Shall we play cards?"},
+          {"t":"Nous faisons les courses le samedi.","tr":"We do the grocery shopping on Saturdays."},
+          {"t":"Il fait très chaud aujourd'hui !","tr":"It's really hot today!"},
+          {"t":"Il pleut, on reste à la maison.","tr":"It's raining, let's stay home."}
+        ] },
+        {"tip":"{{Qu'est-ce que tu fais ?}} can mean “What are you doing?” or “What do you do?”. To ask about someone's job, the French say {{Qu'est-ce que vous faites dans la vie ?}}, “What do you do in life?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Vous faisez du sport ?","right":"Vous faites du sport ?","tr":"Do you play any sports?","why":"{{Faire}} is irregular: {{vous faites}}."},
+        {"wrong":"Je joue le piano.","right":"Je joue du piano.","tr":"I play the piano.","why":"An instrument takes {{jouer de}}, and {{de}} + {{le}} = {{du}}."},
+        {"wrong":"Il est froid aujourd'hui.","right":"Il fait froid aujourd'hui.","tr":"It's cold today.","why":"The weather takes {{il fait}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Le dimanche, nous ___ du vélo.","tr":"On Sundays we go cycling.","options":["faisons","faites","font"],"answer":0,"why":"“We do”: {{nous faisons}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Elle joue ___ tennis.","tr":"She plays tennis.","options":["au","du","le"],"answer":0,"why":"A sport: {{jouer à}}, and {{à}} + {{le}} = {{au}}.","from":"say-where-things-are"},
+        {"type":"fill","q":"Choose the missing words.","t":"Tu joues ___ guitare ?","tr":"Do you play the guitar?","options":["de la","à la","la"],"answer":0,"why":"An instrument: {{jouer de}}."},
+        {"type":"choice","q":"It's sunny and warm. You say…","options":["{{Il fait beau.}}","{{Il est beau.}}","{{C'est beau temps.}}"],"answer":0,"why":"The weather takes {{il fait}}. ({{Il est beau}} means “He's good-looking”!)"},
+        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies.","from":"order-food-and-drink","lines":[{"who":"Your colleague","t":"Qu'est-ce que vous faites ce week-end ?","tr":"What are you doing this weekend?"},{"options":["Je fais du vélo avec mon fils.","Je fais le vélo avec mon fils."],"answer":0,"why":"A sport: {{faire du}}, the partitive."},{"who":"Your colleague","t":"Et s'il pleut ?","tr":"And if it rains?"},{"options":["On joue aux cartes à la maison !","On joue les cartes à la maison !"],"answer":0,"why":"A game: {{jouer à}}, and {{à}} + {{les}} = {{aux}}."},{"who":"Your colleague","t":"Bonne idée !","tr":"Good idea!"}]},
+        {"type":"say","q":"Say: “It's raining today.”","answer":"Il pleut aujourd'hui."},
+        {"type":"free","q":"Your turn: what do you do in your free time? Say a sport or hobby, an instrument or a game, and what you do when it rains.","answers":[{"t":"Je fais de la natation et je joue du piano. Quand il pleut, je regarde des films.","tr":"I swim and I play the piano. When it rains, I watch movies."},{"t":"Le week-end, je joue au foot. S'il pleut, je fais la cuisine.","tr":"On weekends I play soccer. If it rains, I cook."}]}
+      ]
+    },
+    {
+      "id": "say-when-and-how-often",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say when and how often",
+      "summary": "Tell the time, say on which days and how often you do things, and what you never do: {{à huit heures}}, {{le lundi}}, {{souvent}}, {{ne … jamais}}.",
+      "topic": "the time ({{il est … heures}}); {{lundi}} or {{le lundi}}; {{toujours, souvent, parfois}}; {{ne … jamais}}",
+      "blocks": [
+        {"goal":{"t":"Le lundi, je commence à huit heures, mais je ne travaille jamais le week-end.","tr":"On Mondays I start at eight, but I never work on weekends."}},
+        {"dialog":[{"who":"The receptionist","t":"Vous êtes libre quand ?","tr":"When are you free?"},{"who":"You","t":"Le mardi et le jeudi, après dix-sept heures.","tr":"On Tuesdays and Thursdays, after 5 p.m."},{"who":"The receptionist","t":"Jeudi à dix-huit heures, ça va ?","tr":"Thursday at 6 p.m., is that OK?"},{"who":"You","t":"Oui, parfait. À jeudi !","tr":"Yes, perfect. See you Thursday!"}]},
+        {"p":"**The time.** {{Quelle heure est-il ?}} “What time is it?” The answer is {{il est}}, the number and {{heures}}: {{Il est huit heures.}} The minutes come straight after: {{Il est huit heures dix.}} “It's 8:10.”"},
+        { "table": [
+          ["","French"],
+          ["8:00","{{huit heures}}"],
+          ["8:15","{{huit heures et quart}}"],
+          ["8:30","{{huit heures et demie}}"],
+          ["8:45","{{neuf heures moins le quart}} (nine less the quarter)"],
+          ["8:50","{{neuf heures moins dix}}"],
+          ["12:00","{{midi}} (noon), {{minuit}} (midnight)"]
+        ] },
+        {"p":"**The 24-hour clock.** Timetables, shops and appointments use it: {{dix-huit heures}} “6 p.m.”, {{vingt heures trente}} “8:30 p.m.”, written {{18 h}}, {{20 h 30}}. “At” a time is {{à}}: {{à huit heures}}."},
+        {"p":"**Days.** {{lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche}}, with small letters. One particular day takes no article: {{jeudi}} “on Thursday”. Every week takes {{le}}: {{le jeudi}} “on Thursdays”. The parts of the day work the same way: {{le matin}} “in the morning, every morning”, {{le soir}} “in the evening”."},
+        {"term":"adverb","means":"a word that says how, when or how often: often, well, very, never."},
+        {"p":"**How often.** {{Toujours}} (always), {{souvent}} (often), {{parfois}} (sometimes) and {{rarement}} (rarely) go right after the verb: {{Je mange souvent au restaurant.}} “I often eat out.”"},
+        {"p":"**Never: ne … jamais.** “Never” works like {{ne … pas}} (lesson 6), with {{jamais}} in place of {{pas}}: {{Je ne travaille jamais le dimanche.}} And like {{pas}}, it turns {{un, du, des}} into {{de}}: {{Il ne boit jamais de café.}}"},
+        { "ex": [
+          {"t":"Il est dix heures et demie.","tr":"It's ten thirty."},
+          {"t":"Le train part à quinze heures vingt.","tr":"The train leaves at 3:20 p.m."},
+          {"t":"Je fais les courses le samedi matin.","tr":"I do the grocery shopping on Saturday mornings."},
+          {"t":"On mange ensemble vendredi ?","tr":"Shall we have dinner together on Friday?"},
+          {"t":"Elle va souvent au cinéma.","tr":"She often goes to the movies."},
+          {"t":"Je ne mange jamais de viande.","tr":"I never eat meat."}
+        ] },
+        {"tip":"{{Quelle heure est-il ?}} is the textbook question. In the street you'll mostly hear {{Il est quelle heure ?}} or {{Vous avez l'heure ?}} “Do you have the time?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Je travaille à lundi.","right":"Je travaille lundi.","tr":"I'm working on Monday.","why":"No preposition before a day: {{lundi}}, or {{le lundi}} for every Monday."},
+        {"wrong":"Je ne jamais travaille le dimanche.","right":"Je ne travaille jamais le dimanche.","tr":"I never work on Sundays.","why":"The verb goes between {{ne}} and {{jamais}}."},
+        {"wrong":"Il est huit.","right":"Il est huit heures.","tr":"It's eight o'clock.","why":"The word {{heures}} is always said."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Il est neuf heures moins le quart.}} What time is it?","options":["8:45","9:15","9:45"],"answer":0,"why":"Nine o'clock less a quarter: 8:45."},
+        {"type":"choice","q":"“I play tennis on Saturdays” (every week) is…","options":["{{Je joue au tennis le samedi.}}","{{Je joue au tennis samedi.}}","{{Je joue au tennis à samedi.}}"],"answer":0,"why":"Every week: {{le samedi}}. ({{Samedi}} alone is this Saturday.)","from":"talk-about-free-time"},
+        {"type":"fill","q":"Choose the missing word.","t":"Je ne bois ___ de café le soir.","tr":"I never drink coffee in the evening.","options":["jamais","toujours","souvent"],"answer":0,"why":"“Never”: {{ne … jamais}}, and {{de}} after it."},
+        {"type":"order","q":"Put the words in order.","tr":"She often goes to the movies.","words":["Elle","va","souvent","au cinéma."],"from":"say-where-youre-going"},
+        {"type":"dialogue","q":"You're making an appointment at the doctor's office. Choose your replies.","lines":[{"who":"The receptionist","t":"Vous êtes libre quand ?","tr":"When are you free?"},{"options":["Le mardi, après dix-sept heures.","À mardi, après dix-sept heures."],"answer":0,"why":"Tuesdays in general: {{le mardi}}."},{"who":"The receptionist","t":"Mardi à dix-huit heures, ça va ?","tr":"Tuesday at 6 p.m., is that OK?"},{"options":["Oui, parfait. À mardi !","Oui, parfait. À le mardi !"],"answer":0,"why":"{{À mardi !}} “See you Tuesday!”: {{à}} and the day, nothing else."},{"who":"The receptionist","t":"Au revoir, madame !","tr":"Goodbye, madam!"}]},
+        {"type":"say","q":"Say: “It's eight thirty.”","answer":"Il est huit heures et demie."},
+        {"type":"free","q":"Your turn: describe your week. What time do you start? What do you do on certain days? Say something you often do and something you never do.","answers":[{"t":"Je commence à neuf heures. Le mercredi, je fais du yoga. Je vais souvent au cinéma, mais je ne regarde jamais la télé.","tr":"I start at nine. On Wednesdays I do yoga. I often go to the movies, but I never watch TV."},{"t":"Le lundi, je commence à huit heures. Le samedi, je fais les courses. Je ne travaille jamais le dimanche.","tr":"On Mondays I start at eight. On Saturdays I do the grocery shopping. I never work on Sundays."}]}
+      ]
     }
   ]
 }
