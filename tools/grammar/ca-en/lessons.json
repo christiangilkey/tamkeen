@@ -1841,6 +1841,198 @@
         {"type":"say","q":"Pregunta «Per què ho dius?»","answer":"Why do you say that?"},
         {"type":"free","q":"Et toca: per què aprens anglès? Dona'n una raó amb {{because}}, i afegeix-hi alguna cosa amb {{but}} o {{although}}.","answers":[{"t":"I'm learning English because I travel a lot for work, but it's still difficult for me.","tr":"Aprenc anglès perquè viatjo molt per la feina, però encara em costa."},{"t":"I'm learning English because I love American movies, although I don't have much time.","tr":"Aprenc anglès perquè m'encanten les pel·lícules americanes, tot i que no tinc gaire temps."}]}
       ]
+    },
+    {
+      "id": "if-and-when",
+      "unit": 8,
+      "level": "B1",
+      "title": "Parla de condicions reals: {{if}} i {{when}}",
+      "summary": "Digues què passarà si passa una cosa, i què faràs quan arribi el moment: {{If it rains tomorrow, we'll stay home.}}",
+      "topic": "El primer condicional: {{if}} + present, {{will}}; {{when}}, {{as soon as}}, {{before}}, {{until}} + present per al futur (on el català posa subjuntiu)",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Si demà plou, ens quedarem a casa."}},
+        {"dialog":[{"who":"Mare","t":"When you get to the airport, send me a message.","tr":"Quan arribis a l'aeroport, envia'm un missatge."},{"who":"Joan","t":"OK. And when I get to the hotel, I'll call you.","tr":"D'acord. I quan arribi a l'hotel, et trucaré."},{"who":"Mare","t":"If you need money, tell me.","tr":"Si necessites diners, digues-m'ho."},{"who":"Joan","t":"Mom! I'm twenty-five…","tr":"Mama! Tinc vint-i-cinc anys…"},{"who":"Mare","t":"I know. But call me before you go to bed!","tr":"Ja ho sé. Però truca'm abans d'anar a dormir!"}]},
+        {"term":"oració condicional","means":"una oració que comença per «si» i diu de què depèn una altra cosa: «si plou, ens quedarem a casa»."},
+        {"p":"**Si: {{if}} + present.** Igual que en català, darrere de {{if}} va el present, encara que parlis del futur, i a l'altra part, el futur: {{If it rains, we'll stay home.}} «Si plou, ens quedarem a casa.» Mai {{If it will rain}}."},
+        {"p":"**Quan: {{when}} + present.** Aquí el català i l'anglès se separen. En català, «quan» amb sentit de futur porta subjuntiu: «quan arribis». L'anglès hi posa el present: {{When you arrive, call me.}} «Quan arribis, truca'm.» Mai {{When you will arrive}}."},
+        { "table": [
+          ["català","anglès"],
+          ["Si plou, ens quedarem a casa.","{{If it rains, we'll stay home.}}"],
+          ["Quan arribis, truca'm.","{{When you arrive, call me.}}"],
+          ["Així que ho sàpiga, t'ho diré.","{{As soon as I know, I'll tell you.}}"],
+          ["Abans que te'n vagis…","{{Before you leave…}}"],
+          ["Fins que no tornis…","{{Until you come back…}}"]
+        ] },
+        {"p":"**Altres paraules que funcionen igual:** {{as soon as}} «així que, tan bon punt», {{before}} «abans que», {{after}} «després que», {{until}} «fins que». Totes van amb el present quan parles del futur. L'ordre es pot girar: {{We'll stay home if it rains.}} Quan {{if}} o {{when}} van primer, es posa una coma."},
+        { "ex": [
+          {"t":"If you're hungry, there's pizza in the fridge.","tr":"Si tens gana, hi ha pizza a la nevera."},
+          {"t":"If I have time, I'll call you.","tr":"Si tinc temps, et trucaré."},
+          {"t":"When I finish work, I'll go to the gym.","tr":"Quan plegui de la feina, aniré al gimnàs."},
+          {"t":"As soon as she arrives, we'll have dinner.","tr":"Així que arribi, soparem."},
+          {"t":"Don't go out until it stops raining.","tr":"No surtis fins que no pari de ploure."},
+          {"t":"What will you do if you don't get the job?","tr":"Què faràs si no et donen la feina?"}
+        ] },
+        {"tip":"{{unless}} vol dir «tret que, si no»: {{I'll go unless it rains.}} «Hi aniré, tret que plogui.»"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Si plou, ens quedarem a casa.","why":"Darrere de {{if}}, el present, mai {{will}}."},
+        {"wrong":"When you will arrive, call me.","right":"When you arrive, call me.","tr":"Quan arribis, truca'm.","why":"Darrere de {{when}}, amb sentit de futur, el present (on el català fa servir el subjuntiu)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"If you ___ tired, go to bed.","tr":"Si estàs cansat, vés a dormir.","options":["are","will be","be"],"answer":0,"why":"Darrere de {{if}}: el present."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"When I ___ home, I'll call you.","tr":"Quan arribi a casa, et trucaré.","options":["get","will get","got"],"answer":0,"why":"{{when}} amb sentit de futur: el present, {{get}}."},
+        {"type":"choice","q":"«Així que ho sàpiga, t'ho diré» és…","options":["{{As soon as I know, I'll tell you.}}","{{As soon as I will know, I tell you.}}","{{So that I know, I'll tell you.}}"],"answer":0,"why":"{{as soon as}} + present, i el futur a l'altra part."},
+        {"type":"dialogue","q":"Un amic se'n va de viatge. Tria les respostes.","lines":[{"who":"Amic","t":"I'm going to Lisbon tomorrow!","tr":"Demà me'n vaig a Lisboa!"},{"options":["Great! When you get there, send me a photo.","Great! When you will get there, send me a photo."],"answer":0,"why":"{{when}} + present: {{when you get there}}."},{"who":"Amic","t":"And when will you visit me?","tr":"I quan em vindràs a veure?"},{"options":["If I have time, I'll go in May.","If I will have time, I go in May."],"answer":0,"why":"{{if}} + present, i {{will}} a l'altra part."}],"from":"predict-and-promise"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Si tinc temps, et trucaré.","words":["If","I have","time,","I'll","call you."]},
+        {"type":"say","q":"Digues «Quan arribis, truca'm».","answer":"When you arrive, call me."},
+        {"type":"free","q":"Et toca: què faràs quan parlis bé anglès? I què faràs aquest cap de setmana si fa bon temps?","answers":[{"t":"When I speak English well, I'll travel to the United States. If it's sunny this weekend, I'll go to the beach.","tr":"Quan parli bé anglès, viatjaré als Estats Units. Si aquest cap de setmana fa sol, aniré a la platja."},{"t":"If the weather is nice, we'll have a picnic. When I finish this course, I'll watch movies in English.","tr":"Si fa bon temps, farem un pícnic. Quan acabi aquest curs, miraré pel·lícules en anglès."}]}
+      ]
+    },
+    {
+      "id": "before-leaving",
+      "unit": 8,
+      "level": "B1",
+      "title": "Després d'una preposició, {{-ing}}",
+      "summary": "Fes servir la forma en {{-ing}} allà on el català posa l'infinitiu: {{Thanks for coming!}}, {{before leaving}}, {{I'm good at cooking}}.",
+      "topic": "Preposició + {{-ing}} ({{before leaving}}, {{without saying}}); {{enjoy}}, {{finish}}, {{stop}}, {{mind}} + {{-ing}}; {{want}}, {{decide}} + {{to}}",
+      "blocks": [
+        {"goal":{"t":"Thanks for coming! I really enjoyed seeing you.","tr":"Gràcies per venir! M'ha encantat veure't."}},
+        {"dialog":[{"who":"Amfitriona","t":"Thanks for coming! Did you enjoy the party?","tr":"Gràcies per venir! T'ho has passat bé a la festa?"},{"who":"Convidat","t":"Yes, I loved it! Before leaving, can I help you clean up?","tr":"Sí, m'ha encantat! Abans de marxar, et puc ajudar a recollir?"},{"who":"Amfitriona","t":"No, don't worry. I'll finish cleaning tomorrow.","tr":"No, no pateixis. Ja acabaré de recollir demà."},{"who":"Convidat","t":"OK. Oh, and you're really good at cooking!","tr":"D'acord. Ah, i cuines de meravella!"},{"who":"Amfitriona","t":"Thank you! I'm thinking of opening a restaurant.","tr":"Gràcies! Estic pensant a obrir un restaurant."}]},
+        {"p":"**Preposició + {{-ing}}.** En català, darrere d'una preposició va l'infinitiu: «abans de marxar», «gràcies per venir», «sense dir res». En anglès, darrere d'una preposició ({{before}}, {{after}}, {{for}}, {{without}}, {{of}}, {{at}}, {{in}}…) el verb va en {{-ing}}: {{before leaving}}, {{thanks for coming}}, {{without saying anything}}."},
+        { "table": [
+          ["català","anglès"],
+          ["abans de marxar","{{before leaving}}"],
+          ["després de dinar","{{after having lunch}}"],
+          ["gràcies per venir","{{thanks for coming}}"],
+          ["sense dir res","{{without saying anything}}"],
+          ["cuino bé","{{I'm good at cooking}}"],
+          ["m'interessa aprendre","{{I'm interested in learning}}"],
+          ["estic pensant a anar-hi","{{I'm thinking of going}}"]
+        ] },
+        {"p":"**Verbs que demanen {{-ing}}.** Alguns verbs van seguits de {{-ing}}: {{enjoy}} «gaudir de, agradar molt», {{finish}} «acabar de», {{stop}} «deixar de», {{mind}} «fer res, importar», {{keep}} «continuar»: {{I enjoy reading.}} «M'agrada molt llegir.» {{Stop talking!}} «Para de parlar!»"},
+        {"p":"**Verbs que demanen {{to}}.** D'altres, {{to}} + verb (lliçó 19): {{want to}}, {{need to}}, {{decide to}}, {{hope to}}, {{try to}}, {{learn to}}: {{I decided to stay.}} «Vaig decidir quedar-me.» Cal aprendre cada verb amb la seva forma."},
+        { "ex": [
+          {"t":"Wash your hands before eating.","tr":"Renta't les mans abans de menjar."},
+          {"t":"He left without saying goodbye.","tr":"Se'n va anar sense dir adeu."},
+          {"t":"I'm not very good at dancing.","tr":"No ballo gaire bé.","note":"literalment «no soc gaire bo ballant»"},
+          {"t":"Have you finished cooking?","tr":"Has acabat de cuinar?"},
+          {"t":"I stopped smoking two years ago.","tr":"Vaig deixar de fumar fa dos anys."},
+          {"t":"We're interested in buying a house.","tr":"Ens interessa comprar una casa."}
+        ] },
+        {"tip":"{{Thank you for…}} sempre porta {{-ing}} o un nom: {{Thank you for your help.}} {{Thank you for helping me.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Before to leave, call me.","right":"Before leaving, call me.","tr":"Abans de marxar, truca'm.","why":"Darrere d'una preposició, el verb en {{-ing}}."},
+        {"wrong":"Thanks for come!","right":"Thanks for coming!","tr":"Gràcies per venir!","why":"Darrere de {{for}}, {{-ing}}: {{coming}}."},
+        {"wrong":"I enjoy to read.","right":"I enjoy reading.","tr":"M'agrada molt llegir.","why":"{{enjoy}} va seguit de {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Thanks for ___ me!","tr":"Gràcies per ajudar-me!","options":["helping","help","to help"],"answer":0,"why":"Darrere de {{for}}: {{-ing}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I decided ___ in Barcelona.","tr":"Vaig decidir quedar-me a Barcelona.","options":["to stay","staying","stay"],"answer":0,"why":"{{decide}} va amb {{to}}.","from":"say-what-you-want-to-do"},
+        {"type":"choice","q":"«Cuino bé» es pot dir…","options":["{{I'm good at cooking.}}","{{I'm good for cook.}}","{{I'm good to cooking.}}"],"answer":0,"why":"{{good at}} + {{-ing}}."},
+        {"type":"dialogue","q":"Al final d'un sopar a casa d'uns amics. Tria les respostes.","lines":[{"who":"Amfitrió","t":"Thanks for coming!","tr":"Gràcies per venir!"},{"options":["Thank you for inviting me! I really enjoyed it.","Thank you for invite me! I really enjoyed."],"answer":0,"why":"{{for}} + {{-ing}}, i {{enjoy}} necessita {{it}}."},{"who":"Amfitrió","t":"Do you want some coffee before leaving?","tr":"Vols un cafè abans de marxar?"},{"options":["No, thanks. I need to get up early.","No, thanks. I need getting up early."],"answer":0,"why":"{{need}} va amb {{to}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Se'n va anar sense dir adeu.","words":["He","left","without","saying","goodbye."]},
+        {"type":"say","q":"Digues «Renta't les mans abans de menjar».","answer":"Wash your hands before eating."},
+        {"type":"free","q":"Et toca: digues una cosa que fas bé ({{good at}}), una que t'agrada molt fer ({{enjoy}}) i una que vas deixar de fer ({{stop}}).","answers":[{"t":"I'm good at drawing. I enjoy swimming, and I stopped eating meat last year.","tr":"Dibuixo bé. M'encanta nedar, i l'any passat vaig deixar de menjar carn."},{"t":"I'm not good at singing, but I enjoy dancing. I stopped smoking ten years ago.","tr":"No canto gaire bé, però m'encanta ballar. Vaig deixar de fumar fa deu anys."}]}
+      ]
+    },
+    {
+      "id": "describe-with-who",
+      "unit": 8,
+      "level": "B1",
+      "title": "Digues de quina persona o cosa parles",
+      "summary": "Descriu persones, llocs i coses amb una oració sencera: {{The woman who lives next door is a doctor.}}",
+      "topic": "{{who}}, {{which}}, {{that}}, {{where}}; treure {{that}}; la preposició al final",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a doctor.","tr":"La dona que viu al costat és metgessa."}},
+        {"dialog":[{"who":"Clara","t":"Who's the guy who's talking to Marta?","tr":"Qui és el noi que parla amb la Marta?"},{"who":"Dan","t":"That's Pere, the guy who lives upstairs.","tr":"És en Pere, el noi que viu al pis de dalt."},{"who":"Clara","t":"The one who plays the guitar at night?","tr":"El que toca la guitarra a la nit?"},{"who":"Dan","t":"Yes! And the girl he's dancing with is his sister.","tr":"Sí! I la noia amb qui balla és la seva germana."},{"who":"Clara","t":"And is this the cake that you made?","tr":"I aquest és el pastís que has fet tu?"},{"who":"Dan","t":"Yes, it's the one I told you about!","tr":"Sí, és el que et vaig dir!"}]},
+        {"term":"oració de relatiu","means":"una oració que descriu un nom i hi va enganxada, com «que viu al costat» a «la dona que viu al costat»."},
+        {"p":"**«Que» en anglès.** El català fa servir «que» per a tot. L'anglès en té diversos: {{who}} per a persones ({{the woman who lives here}}), {{which}} per a coses ({{the book which I'm reading}}), i {{that}} per a totes dues, el més habitual parlant ({{the man that called}}, {{the car that I bought}}). I {{where}} per als llocs: {{the bar where we met}} «el bar on ens vam conèixer»."},
+        { "table": [
+          ["català","anglès"],
+          ["la dona que treballa amb mi","{{the woman who works with me}}"],
+          ["el llibre que llegeixo","{{the book (that) I'm reading}}"],
+          ["el poble on vaig néixer","{{the town where I was born}}"],
+          ["l'amic amb qui visc","{{the friend I live with}}"],
+          ["el que necessito","{{what I need}}"]
+        ] },
+        {"p":"**Es pot treure.** Quan la persona o la cosa és el complement de l'oració, i no el subjecte, l'anglès sol treure {{that}}: {{the book I'm reading}} «el llibre que llegeixo», {{the movie we saw}} «la pel·lícula que vam veure». En català, en canvi, el «que» no es pot treure mai."},
+        {"p":"**La preposició, al final.** En català la preposició va davant: «la noia amb qui balla». En anglès, parlant, va al final: {{the girl he's dancing with}}, {{the friend I told you about}} «l'amic de qui et vaig parlar»."},
+        {"p":"**«El que» és {{what}}.** {{I don't understand what you're saying.}} «No entenc el que dius.» {{What I need is a vacation.}} «El que necessito són unes vacances.»"},
+        { "ex": [
+          {"t":"I have a friend who speaks six languages.","tr":"Tinc un amic que parla sis idiomes."},
+          {"t":"The car we rented was really small.","tr":"El cotxe que vam llogar era molt petit."},
+          {"t":"This is the bar where we met.","tr":"Aquest és el bar on ens vam conèixer."},
+          {"t":"The person I was talking to is my boss.","tr":"La persona amb qui parlava és la meva cap."},
+          {"t":"It's not what it looks like!","tr":"No és el que sembla!"},
+          {"t":"Is this the book that you recommended?","tr":"Aquest és el llibre que em vas recomanar?"}
+        ] },
+        {"tip":"{{who}} és per a persones, mai per a coses: {{the dog that barks}} «el gos que borda» (o {{the dog who barks}}, si és la teva mascota!)."}
+      ],
+      "mistakes": [
+        {"wrong":"The woman which lives here.","right":"The woman who lives here.","tr":"La dona que viu aquí.","why":"Per a persones, {{who}} (o {{that}}), no {{which}}."},
+        {"wrong":"The friend with who I live.","right":"The friend I live with.","tr":"L'amic amb qui visc.","why":"Parlant, la preposició va al final."},
+        {"wrong":"I don't understand that you say.","right":"I don't understand what you're saying.","tr":"No entenc el que dius.","why":"«El que» és {{what}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I have a friend ___ lives in London.","tr":"Tinc una amiga que viu a Londres.","options":["who","which","where"],"answer":0,"why":"Una persona: {{who}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"This is the restaurant ___ we had dinner.","tr":"Aquest és el restaurant on vam sopar.","options":["where","which","who"],"answer":0,"why":"Un lloc: {{where}}.","from":"irregular-past"},
+        {"type":"choice","q":"«La pel·lícula que vam veure» és…","options":["{{the movie we saw}}","{{the movie who we saw}}","{{the movie what we saw}}"],"answer":0,"why":"Es pot treure {{that}}; mai {{who}} per a una cosa, ni {{what}}."},
+        {"type":"dialogue","q":"En una festa, un amic assenyala algú. Tria les respostes.","lines":[{"who":"Amic","t":"Do you know that girl?","tr":"Coneixes aquella noia?"},{"options":["Which one? The one who's wearing a red dress?","Which one? The one which is wearing a dress red?"],"answer":0,"why":"Una persona: {{who}}; i l'adjectiu davant: {{a red dress}}."},{"who":"Amic","t":"Yes. She's the girl who works with Pau.","tr":"Sí. És la noia que treballa amb en Pau."},{"options":["Oh, she's the person you told me about!","Oh, she's the person about who you told me!"],"answer":0,"why":"Parlant, la preposició va al final: {{you told me about}}."}],"from":"describe-things"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"No entenc el que dius.","words":["I","don't","understand","what","you're saying."]},
+        {"type":"say","q":"Digues «Tinc un amic que parla sis idiomes».","answer":"I have a friend who speaks six languages."},
+        {"type":"free","q":"Et toca: descriu un lloc especial per a tu i una persona que coneixes, amb {{where}} i {{who}}.","answers":[{"t":"Montserrat is the place where I like to go hiking. Laia is a friend who always helps me.","tr":"Montserrat és el lloc on m'agrada anar d'excursió. La Laia és una amiga que sempre m'ajuda."},{"t":"The town where I was born is very small. My brother is the person I love most.","tr":"El poble on vaig néixer és molt petit. El meu germà és la persona que més estimo."}]}
+      ]
+    },
+    {
+      "id": "phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "Parla com un nadiu: els {{phrasal verbs}}",
+      "summary": "Fes servir els verbs de dues paraules que els americans diuen tot el dia: {{Can you turn off the TV? I'm trying to sleep.}}",
+      "topic": "Verb + {{up}}, {{off}}, {{on}}, {{out}}, {{back}}…: {{get up}}, {{turn off}}, {{find out}}, {{give up}}, {{look for}}; on va {{it}}: {{turn it off}}",
+      "blocks": [
+        {"goal":{"t":"Can you turn off the TV? I'm trying to sleep.","tr":"Pots apagar la tele? Intento dormir."}},
+        {"dialog":[{"who":"Sam","t":"What are you looking for?","tr":"Què busques?"},{"who":"Ona","t":"My keys. I can't find them anywhere!","tr":"Les claus. No les trobo enlloc!"},{"who":"Sam","t":"Did you look in your jacket?","tr":"Has mirat a la jaqueta?"},{"who":"Ona","t":"Yes… Oh wait, here they are! Let's go. Turn off the lights, please.","tr":"Sí… Espera, són aquí! Anem. Apaga els llums, si us plau."},{"who":"Sam","t":"OK. And put on a sweater, it's cold outside.","tr":"D'acord. I posa't un jersei, que fa fred a fora."},{"who":"Ona","t":"Good idea. When will we get back?","tr":"Bona idea. Quan tornarem?"},{"who":"Sam","t":"Around ten.","tr":"Cap a les deu."}]},
+        {"term":"phrasal verb","means":"un verb anglès que va amb una partícula ({{up}}, {{off}}, {{out}}…) i junts volen dir una altra cosa: {{give}} és «donar», però {{give up}} és «rendir-se, deixar»."},
+        {"p":"**Dues paraules, un sol significat.** L'anglès parlat fa servir molts verbs amb una partícula, i sovint el significat no es pot endevinar: {{look}} és «mirar», però {{look for}} és «buscar», i {{look after}}, «cuidar». Aprèn-los com si fossin una sola paraula."},
+        { "table": [
+          ["phrasal verb","català","exemple"],
+          ["{{get up}}","llevar-se","{{I get up at seven.}}"],
+          ["{{wake up}}","despertar-se","{{I woke up late.}}"],
+          ["{{turn on}}, {{turn off}}","encendre, apagar","{{Turn off the light.}}"],
+          ["{{put on}}, {{take off}}","posar-se, treure's (roba)","{{Put on your coat.}}"],
+          ["{{look for}}","buscar","{{I'm looking for my keys.}}"],
+          ["{{find out}}","assabentar-se, descobrir","{{I found out yesterday.}}"],
+          ["{{give up}}","rendir-se, deixar","{{Don't give up!}}"],
+          ["{{come back}}, {{get back}}","tornar","{{When are you coming back?}}"],
+          ["{{pick up}}","recollir, passar a buscar","{{I'll pick you up at eight.}}"]
+        ] },
+        {"p":"**On va {{it}}?** Amb molts phrasal verbs, el complement pot anar al mig o al final: {{Turn off the TV.}} = {{Turn the TV off.}} Però si és un pronom ({{it}}, {{them}}, {{me}}), ha d'anar al mig: {{Turn it off.}}, mai {{Turn off it}}. {{I'll pick you up.}} «Et passaré a buscar.» Amb uns quants, com {{look for}} o {{look after}}, el complement va sempre al final: {{I'm looking for it.}}"},
+        { "ex": [
+          {"t":"Turn it off, please.","tr":"Apaga-ho, si us plau."},
+          {"t":"I'm looking for a new job.","tr":"Busco una feina nova."},
+          {"t":"She looks after her little brother.","tr":"Cuida el seu germà petit."},
+          {"t":"I'll pick you up at the station.","tr":"Et passaré a buscar a l'estació."},
+          {"t":"We found out the truth.","tr":"Vam descobrir la veritat."},
+          {"t":"Don't give up!","tr":"No et rendeixis!"}
+        ] },
+        {"tip":"Si dubtes, un verb més formal també funciona: {{find out}} = {{discover}}, {{come back}} = {{return}}. Però els phrasal verbs et faran sonar molt més natural."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"Apaga-ho.","why":"Un pronom va al mig del phrasal verb: {{turn it off}}."},
+        {"wrong":"I'm looking my keys.","right":"I'm looking for my keys.","tr":"Busco les claus.","why":"«Buscar» és {{look for}}; sense {{for}}, {{look}} és «mirar»."},
+        {"wrong":"Put on you the coat.","right":"Put on your coat.","tr":"Posa't l'abric.","why":"«Posar-se» és {{put on}}, sense pronom i amb {{your}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Can you turn the music ___? It's too loud.","tr":"Pots apagar la música? És massa forta.","options":["off","out","up"],"answer":0,"why":"«Apagar» és {{turn off}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I'm ___ for my glasses. Have you seen them?","tr":"Busco les ulleres. Les has vist?","options":["looking","finding","seeing"],"answer":0,"why":"«Buscar» és {{look for}}.","from":"talk-about-experiences"},
+        {"type":"choice","q":"Quina frase és correcta?","options":["{{Turn it on, please.}}","{{Turn on it, please.}}"],"answer":0,"why":"El pronom va al mig: {{turn it on}}."},
+        {"type":"dialogue","q":"Al matí, a casa. Tria les respostes.","lines":[{"who":"Parella","t":"It's eight! Wake up!","tr":"Són les vuit! Desperta't!"},{"options":["OK, I'm getting up!","OK, I'm getting me up!"],"answer":0,"why":"{{get up}}, sense «em»."},{"who":"Parella","t":"And can you pick up the kids at five?","tr":"I pots anar a buscar els nens a les cinc?"},{"options":["Sure, I'll pick them up.","Sure, I'll pick up them."],"answer":0,"why":"Un pronom va al mig: {{pick them up}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Et passaré a buscar a l'estació.","words":["I'll","pick","you","up","at the station."]},
+        {"type":"say","q":"Digues «No et rendeixis!»","answer":"Don't give up!"},
+        {"type":"free","q":"Et toca: explica el teu matí amb tres phrasal verbs ({{wake up}}, {{get up}}, {{turn on}}, {{put on}}…).","answers":[{"t":"I wake up at seven, I get up at seven fifteen, and I turn on the radio.","tr":"Em desperto a les set, em llevo a un quart de vuit i engego la ràdio."},{"t":"I get up, I put on my clothes, and I pick up my friend on the way to work.","tr":"Em llevo, em vesteixo i passo a buscar la meva amiga de camí a la feina."}]}
+      ]
     }
   ]
 }
