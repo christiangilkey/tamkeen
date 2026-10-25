@@ -5650,15 +5650,6 @@
     },
     {
       "n": 614,
-      "rank": 633,
-      "word": "filla",
-      "pos": "noun",
-      "meaning": "daughter",
-      "sentence": "La meva filla té sis anys.",
-      "translation": "My ⟦daughter⟧ is six."
-    },
-    {
-      "n": 615,
       "rank": 634,
       "word": "qualitat",
       "pos": "noun",
@@ -5667,7 +5658,7 @@
       "translation": "It's good ⟦quality⟧."
     },
     {
-      "n": 616,
+      "n": 615,
       "rank": 635,
       "word": "clau",
       "pos": "noun",
@@ -5676,7 +5667,7 @@
       "translation": "Where are the car ⟦keys⟧?"
     },
     {
-      "n": 617,
+      "n": 616,
       "rank": 636,
       "word": "familiar",
       "pos": "noun",
@@ -5685,7 +5676,7 @@
       "translation": "I have ⟦relatives⟧ in France."
     },
     {
-      "n": 618,
+      "n": 617,
       "rank": 637,
       "word": "departament",
       "pos": "noun",
@@ -5694,7 +5685,7 @@
       "translation": "I work in the sales ⟦department⟧."
     },
     {
-      "n": 619,
+      "n": 618,
       "rank": 638,
       "word": "acceptar",
       "pos": "verb",
@@ -5704,7 +5695,7 @@
       "form": "accepteu"
     },
     {
-      "n": 620,
+      "n": 619,
       "rank": 639,
       "word": "dubte",
       "pos": "noun",
@@ -5713,7 +5704,7 @@
       "translation": "There's no ⟦doubt⟧."
     },
     {
-      "n": 621,
+      "n": 620,
       "rank": 640,
       "word": "efecte",
       "pos": "noun",
@@ -5722,7 +5713,7 @@
       "translation": "This medicine has no ⟦effect⟧ on me."
     },
     {
-      "n": 622,
+      "n": 621,
       "rank": 641,
       "word": "data",
       "pos": "noun",
@@ -5731,7 +5722,7 @@
       "translation": "What's today's ⟦date⟧?"
     },
     {
-      "n": 623,
+      "n": 622,
       "rank": 642,
       "word": "allà",
       "pos": "adv",
@@ -5740,7 +5731,7 @@
       "translation": "The keys are over ⟦there⟧."
     },
     {
-      "n": 624,
+      "n": 623,
       "rank": 647,
       "word": "vendre",
       "pos": "verb",
@@ -5750,7 +5741,7 @@
       "form": "venen"
     },
     {
-      "n": 625,
+      "n": 624,
       "rank": 648,
       "word": "assassinat",
       "pos": "noun",
@@ -5759,7 +5750,7 @@
       "translation": "The police are investigating the ⟦murder⟧."
     },
     {
-      "n": 626,
+      "n": 625,
       "rank": 649,
       "word": "opinió",
       "pos": "noun",
@@ -5768,7 +5759,7 @@
       "translation": "What's your ⟦opinion⟧?"
     },
     {
-      "n": 627,
+      "n": 626,
       "rank": 650,
       "word": "violència",
       "pos": "noun",
@@ -5777,7 +5768,7 @@
       "translation": "No to ⟦violence⟧!"
     },
     {
-      "n": 628,
+      "n": 627,
       "rank": 651,
       "word": "votar",
       "pos": "verb",
@@ -5786,7 +5777,7 @@
       "translation": "Have you been to ⟦vote⟧?"
     },
     {
-      "n": 629,
+      "n": 628,
       "rank": 652,
       "word": "assegurar",
       "pos": "verb",
@@ -5796,7 +5787,7 @@
       "form": "assegura"
     },
     {
-      "n": 630,
+      "n": 629,
       "rank": 653,
       "word": "ull",
       "pos": "noun",
@@ -5805,7 +5796,7 @@
       "translation": "She has blue ⟦eyes⟧."
     },
     {
-      "n": 631,
+      "n": 630,
       "rank": 654,
       "word": "castell",
       "pos": "noun",
@@ -5814,7 +5805,7 @@
       "translation": "We visited a medieval ⟦castle⟧."
     },
     {
-      "n": 632,
+      "n": 631,
       "rank": 655,
       "word": "euro",
       "pos": "noun",
@@ -5823,7 +5814,7 @@
       "translation": "It costs ten ⟦euros⟧."
     },
     {
-      "n": 633,
+      "n": 632,
       "rank": 656,
       "word": "directe",
       "pos": "adj",
@@ -5832,7 +5823,7 @@
       "translation": "It's a ⟦direct⟧ train."
     },
     {
-      "n": 634,
+      "n": 633,
       "rank": 657,
       "word": "fotografia",
       "pos": "noun",
@@ -5841,7 +5832,7 @@
       "translation": "I like ⟦photography⟧."
     },
     {
-      "n": 635,
+      "n": 634,
       "rank": 658,
       "word": "mapa",
       "pos": "noun",
@@ -5850,7 +5841,7 @@
       "translation": "Do you have a ⟦map⟧ of the city?"
     },
     {
-      "n": 636,
+      "n": 635,
       "rank": 659,
       "word": "àrea",
       "pos": "noun",
@@ -5859,7 +5850,7 @@
       "translation": "We'll stop at the ⟦service area⟧."
     },
     {
-      "n": 637,
+      "n": 636,
       "rank": 660,
       "word": "jornada",
       "pos": "noun",
@@ -5868,7 +5859,7 @@
       "translation": "I work ⟦part-time⟧."
     },
     {
-      "n": 638,
+      "n": 637,
       "rank": 661,
       "word": "text",
       "pos": "noun",
@@ -5877,7 +5868,7 @@
       "translation": "Read the ⟦text⟧ aloud."
     },
     {
-      "n": 639,
+      "n": 638,
       "rank": 662,
       "word": "economia",
       "pos": "noun",
@@ -5886,7 +5877,7 @@
       "translation": "The ⟦economy⟧ is doing better."
     },
     {
-      "n": 640,
+      "n": 639,
       "rank": 664,
       "word": "futbol",
       "pos": "noun",
@@ -5895,7 +5886,7 @@
       "translation": "Do you like ⟦football⟧?"
     },
     {
-      "n": 641,
+      "n": 640,
       "rank": 666,
       "word": "premsa",
       "pos": "noun",
@@ -5904,7 +5895,7 @@
       "translation": "The ⟦press⟧ says so."
     },
     {
-      "n": 642,
+      "n": 641,
       "rank": 667,
       "word": "sobretot",
       "pos": "adv",
@@ -5913,7 +5904,7 @@
       "translation": "I like summer ⟦most of all⟧."
     },
     {
-      "n": 643,
+      "n": 642,
       "rank": 668,
       "word": "dissabte",
       "pos": "noun",
@@ -5922,7 +5913,7 @@
       "translation": "On ⟦Saturday⟧ we're going to the beach."
     },
     {
-      "n": 644,
+      "n": 643,
       "rank": 669,
       "word": "formació",
       "pos": "noun",
@@ -5931,7 +5922,7 @@
       "translation": "She has good ⟦training⟧."
     },
     {
-      "n": 645,
+      "n": 644,
       "rank": 670,
       "word": "ministre",
       "pos": "noun",
@@ -5940,7 +5931,7 @@
       "translation": "The ⟦minister⟧ has resigned."
     },
     {
-      "n": 646,
+      "n": 645,
       "rank": 671,
       "word": "independent",
       "pos": "adj",
@@ -5949,7 +5940,7 @@
       "translation": "She's a very ⟦independent⟧ girl."
     },
     {
-      "n": 647,
+      "n": 646,
       "rank": 672,
       "word": "desenvolupar",
       "pos": "verb",
@@ -5959,7 +5950,7 @@
       "form": "desenvolupa"
     },
     {
-      "n": 648,
+      "n": 647,
       "rank": 673,
       "word": "televisió",
       "pos": "noun",
@@ -5968,7 +5959,7 @@
       "translation": "I don't watch much ⟦television⟧."
     },
     {
-      "n": 649,
+      "n": 648,
       "rank": 674,
       "word": "professional",
       "pos": "adj",
@@ -5977,7 +5968,7 @@
       "translation": "He's a ⟦professional⟧ photographer."
     },
     {
-      "n": 650,
+      "n": 649,
       "rank": 675,
       "word": "comissió",
       "pos": "noun",
@@ -5986,7 +5977,7 @@
       "translation": "He gets a ⟦commission⟧ on every sale."
     },
     {
-      "n": 651,
+      "n": 650,
       "rank": 676,
       "word": "greu",
       "pos": "adj",
@@ -5995,7 +5986,7 @@
       "translation": "I'm ⟦sorry⟧, I can't come."
     },
     {
-      "n": 652,
+      "n": 651,
       "rank": 677,
       "word": "versió",
       "pos": "noun",
@@ -6004,7 +5995,7 @@
       "translation": "Is there a Catalan ⟦version⟧?"
     },
     {
-      "n": 653,
+      "n": 652,
       "rank": 678,
       "word": "signar",
       "pos": "verb",
@@ -6014,7 +6005,7 @@
       "form": "signi"
     },
     {
-      "n": 654,
+      "n": 653,
       "rank": 679,
       "word": "màxim",
       "pos": "adj",
@@ -6023,7 +6014,7 @@
       "translation": "It'll take us an hour at the ⟦most⟧."
     },
     {
-      "n": 655,
+      "n": 654,
       "rank": 680,
       "word": "casar",
       "pos": "verb",
@@ -6032,7 +6023,7 @@
       "translation": "They ⟦got married⟧ last year."
     },
     {
-      "n": 656,
+      "n": 655,
       "rank": 681,
       "word": "proposar",
       "pos": "verb",
@@ -6042,7 +6033,7 @@
       "form": "proposes"
     },
     {
-      "n": 657,
+      "n": 656,
       "rank": 682,
       "word": "víctima",
       "pos": "noun",
@@ -6051,7 +6042,7 @@
       "translation": "He was the ⟦victim⟧ of a robbery."
     },
     {
-      "n": 658,
+      "n": 657,
       "rank": 683,
       "word": "origen",
       "pos": "noun",
@@ -6060,7 +6051,7 @@
       "translation": "He's of Italian ⟦origin⟧."
     },
     {
-      "n": 659,
+      "n": 658,
       "rank": 684,
       "word": "recuperar",
       "pos": "verb",
@@ -6070,7 +6061,7 @@
       "form": "recuperat"
     },
     {
-      "n": 660,
+      "n": 659,
       "rank": 685,
       "word": "endavant",
       "pos": "adv",
@@ -6079,7 +6070,7 @@
       "translation": "Keep going ⟦straight on⟧ to the traffic lights."
     },
     {
-      "n": 661,
+      "n": 660,
       "rank": 688,
       "word": "construcció",
       "pos": "noun",
@@ -6088,7 +6079,7 @@
       "translation": "The house is under ⟦construction⟧."
     },
     {
-      "n": 662,
+      "n": 661,
       "rank": 689,
       "word": "museu",
       "pos": "noun",
@@ -6097,7 +6088,7 @@
       "translation": "The ⟦museum⟧ is closed on Mondays."
     },
     {
-      "n": 663,
+      "n": 662,
       "rank": 690,
       "word": "referència",
       "pos": "noun",
@@ -6106,7 +6097,7 @@
       "translation": "Can you give me a ⟦reference⟧?"
     },
     {
-      "n": 664,
+      "n": 663,
       "rank": 691,
       "word": "defensar",
       "pos": "verb",
@@ -6116,7 +6107,7 @@
       "form": "defensa"
     },
     {
-      "n": 665,
+      "n": 664,
       "rank": 692,
       "word": "revista",
       "pos": "noun",
@@ -6125,7 +6116,7 @@
       "translation": "I'm reading a ⟦magazine⟧."
     },
     {
-      "n": 666,
+      "n": 665,
       "rank": 693,
       "word": "créixer",
       "pos": "verb",
@@ -6135,7 +6126,7 @@
       "form": "crescut"
     },
     {
-      "n": 667,
+      "n": 666,
       "rank": 694,
       "word": "església",
       "pos": "noun",
@@ -6144,7 +6135,7 @@
       "translation": "The ⟦church⟧ is in the middle of the village."
     },
     {
-      "n": 668,
+      "n": 667,
       "rank": 695,
       "word": "manifestació",
       "pos": "noun",
@@ -6153,7 +6144,7 @@
       "translation": "There's a ⟦demonstration⟧ tomorrow."
     },
     {
-      "n": 669,
+      "n": 668,
       "rank": 696,
       "word": "pitjor",
       "pos": "adj",
@@ -6162,7 +6153,7 @@
       "translation": "I feel ⟦worse⟧ today."
     },
     {
-      "n": 670,
+      "n": 669,
       "rank": 698,
       "word": "aprovar",
       "pos": "verb",
@@ -6172,7 +6163,7 @@
       "form": "aprovat"
     },
     {
-      "n": 671,
+      "n": 670,
       "rank": 699,
       "word": "contingut",
       "pos": "noun",
@@ -6181,7 +6172,7 @@
       "translation": "The course ⟦content⟧ is interesting."
     },
     {
-      "n": 672,
+      "n": 671,
       "rank": 700,
       "word": "direcció",
       "pos": "noun",
@@ -6190,7 +6181,7 @@
       "translation": "You're going in the right ⟦direction⟧."
     },
     {
-      "n": 673,
+      "n": 672,
       "rank": 701,
       "word": "vell",
       "pos": "adj",
@@ -6199,7 +6190,7 @@
       "translation": "My car is very ⟦old⟧."
     },
     {
-      "n": 674,
+      "n": 673,
       "rank": 702,
       "word": "investigació",
       "pos": "noun",
@@ -6208,7 +6199,7 @@
       "translation": "She works in medical ⟦research⟧."
     },
     {
-      "n": 675,
+      "n": 674,
       "rank": 703,
       "word": "set",
       "pos": "noun",
@@ -6217,7 +6208,7 @@
       "translation": "I'm ⟦thirsty⟧."
     },
     {
-      "n": 676,
+      "n": 675,
       "rank": 704,
       "word": "sorprendre",
       "pos": "verb",
@@ -6227,7 +6218,7 @@
       "form": "sorprès"
     },
     {
-      "n": 677,
+      "n": 676,
       "rank": 705,
       "word": "iniciar",
       "pos": "verb",
@@ -6237,7 +6228,7 @@
       "form": "iniciem"
     },
     {
-      "n": 678,
+      "n": 677,
       "rank": 707,
       "word": "taula",
       "pos": "noun",
@@ -6246,7 +6237,7 @@
       "translation": "We've booked a ⟦table⟧ for two."
     },
     {
-      "n": 679,
+      "n": 678,
       "rank": 708,
       "word": "personatge",
       "pos": "noun",
@@ -6255,7 +6246,7 @@
       "translation": "He's my favourite ⟦character⟧."
     },
     {
-      "n": 680,
+      "n": 679,
       "rank": 709,
       "word": "diputat",
       "pos": "noun",
@@ -6264,7 +6255,7 @@
       "translation": "He's a ⟦member⟧ of Parliament."
     },
     {
-      "n": 681,
+      "n": 680,
       "rank": 710,
       "word": "conjunt",
       "pos": "noun",
@@ -6273,7 +6264,7 @@
       "translation": "⟦Overall⟧, it's been a good year."
     },
     {
-      "n": 682,
+      "n": 681,
       "rank": 711,
       "word": "amor",
       "pos": "noun",
@@ -6282,7 +6273,7 @@
       "translation": "It's a ⟦love⟧ story."
     },
     {
-      "n": 683,
+      "n": 682,
       "rank": 712,
       "word": "superar",
       "pos": "verb",
@@ -6292,7 +6283,7 @@
       "form": "superat"
     },
     {
-      "n": 684,
+      "n": 683,
       "rank": 713,
       "word": "digital",
       "pos": "adj",
@@ -6301,7 +6292,7 @@
       "translation": "I read the paper in ⟦digital⟧ form."
     },
     {
-      "n": 685,
+      "n": 684,
       "rank": 714,
       "word": "posició",
       "pos": "noun",
@@ -6310,7 +6301,7 @@
       "translation": "What ⟦position⟧ do you play?"
     },
     {
-      "n": 686,
+      "n": 685,
       "rank": 715,
       "word": "condició",
       "pos": "noun",
@@ -6319,7 +6310,7 @@
       "translation": "On one ⟦condition⟧."
     },
     {
-      "n": 687,
+      "n": 686,
       "rank": 716,
       "word": "carta",
       "pos": "noun",
@@ -6328,7 +6319,7 @@
       "translation": "Could you bring us the ⟦menu⟧, please?"
     },
     {
-      "n": 688,
+      "n": 687,
       "rank": 717,
       "word": "muntanya",
       "pos": "noun",
@@ -6337,7 +6328,7 @@
       "translation": "We go to the ⟦mountains⟧ every weekend."
     },
     {
-      "n": 689,
+      "n": 688,
       "rank": 718,
       "word": "actuar",
       "pos": "verb",
@@ -6347,7 +6338,7 @@
       "form": "actua"
     },
     {
-      "n": 690,
+      "n": 689,
       "rank": 719,
       "word": "iniciativa",
       "pos": "noun",
@@ -6356,7 +6347,7 @@
       "translation": "She shows a lot of ⟦initiative⟧."
     },
     {
-      "n": 691,
+      "n": 690,
       "rank": 720,
       "word": "peu",
       "pos": "noun",
@@ -6365,7 +6356,7 @@
       "translation": "Shall we go on ⟦foot⟧?"
     },
     {
-      "n": 692,
+      "n": 691,
       "rank": 721,
       "word": "unitat",
       "pos": "noun",
@@ -6374,7 +6365,7 @@
       "translation": "This lesson is ⟦unit⟧ three."
     },
     {
-      "n": 693,
+      "n": 692,
       "rank": 722,
       "word": "concert",
       "pos": "noun",
@@ -6383,7 +6374,7 @@
       "translation": "Did you come to the ⟦concert⟧?"
     },
     {
-      "n": 694,
+      "n": 693,
       "rank": 723,
       "word": "ràdio",
       "pos": "noun",
@@ -6392,7 +6383,7 @@
       "translation": "I listen to the ⟦radio⟧ in the car."
     },
     {
-      "n": 695,
+      "n": 694,
       "rank": 724,
       "word": "metre",
       "pos": "noun",
@@ -6401,7 +6392,7 @@
       "translation": "It's two ⟦metres⟧ high."
     },
     {
-      "n": 696,
+      "n": 695,
       "rank": 725,
       "word": "periodista",
       "pos": "noun",
@@ -6410,7 +6401,7 @@
       "translation": "My sister is a ⟦journalist⟧."
     },
     {
-      "n": 697,
+      "n": 696,
       "rank": 726,
       "word": "triar",
       "pos": "verb",
@@ -6420,7 +6411,7 @@
       "form": "tria"
     },
     {
-      "n": 698,
+      "n": 697,
       "rank": 727,
       "word": "castellà",
       "pos": "noun",
@@ -6429,7 +6420,7 @@
       "translation": "At home we speak ⟦Spanish⟧."
     },
     {
-      "n": 699,
+      "n": 698,
       "rank": 728,
       "word": "tallar",
       "pos": "verb",
@@ -6437,6 +6428,935 @@
       "sentence": "M'he tallat el dit.",
       "translation": "I've ⟦cut⟧ my finger.",
       "form": "tallat"
+    },
+    {
+      "n": 699,
+      "rank": 729,
+      "word": "administració",
+      "pos": "noun",
+      "meaning": "administration; (public) authorities",
+      "sentence": "Treballa a l'administració pública.",
+      "translation": "She works in public ⟦administration⟧."
+    },
+    {
+      "n": 700,
+      "rank": 730,
+      "word": "responsable",
+      "pos": "adj",
+      "meaning": "responsible; (noun) person in charge",
+      "sentence": "Qui és el responsable?",
+      "translation": "Who's in ⟦charge⟧?"
+    },
+    {
+      "n": 701,
+      "rank": 731,
+      "word": "escriptor",
+      "pos": "noun",
+      "meaning": "writer",
+      "sentence": "Vull ser escriptor.",
+      "translation": "I want to be a ⟦writer⟧."
+    },
+    {
+      "n": 702,
+      "rank": 732,
+      "word": "crític",
+      "pos": "adj",
+      "meaning": "critical; (noun) critic (la crítica: criticism, review)",
+      "sentence": "La pel·lícula té bones crítiques.",
+      "translation": "The film has good ⟦reviews⟧.",
+      "form": "crítiques"
+    },
+    {
+      "n": 703,
+      "rank": 733,
+      "word": "pràctica",
+      "pos": "noun",
+      "meaning": "practice; (adj.) practical",
+      "sentence": "La pràctica fa el mestre.",
+      "translation": "⟦Practice⟧ makes perfect."
+    },
+    {
+      "n": 704,
+      "rank": 734,
+      "word": "gaire",
+      "pos": "adv",
+      "meaning": "much, many; very (in negatives and questions)",
+      "sentence": "No tinc gaire temps.",
+      "translation": "I don't have ⟦much⟧ time."
+    },
+    {
+      "n": 705,
+      "rank": 735,
+      "word": "diumenge",
+      "pos": "noun",
+      "meaning": "Sunday",
+      "sentence": "Diumenge dinem amb els avis.",
+      "translation": "On ⟦Sunday⟧ we have lunch with my grandparents."
+    },
+    {
+      "n": 706,
+      "rank": 736,
+      "word": "diferència",
+      "pos": "noun",
+      "meaning": "difference",
+      "sentence": "Quina diferència hi ha?",
+      "translation": "What's the ⟦difference⟧?"
+    },
+    {
+      "n": 707,
+      "rank": 737,
+      "word": "habitatge",
+      "pos": "noun",
+      "meaning": "housing; home, dwelling",
+      "sentence": "L'habitatge és molt car a Barcelona.",
+      "translation": "⟦Housing⟧ is very expensive in Barcelona."
+    },
+    {
+      "n": 708,
+      "rank": 738,
+      "word": "arreu",
+      "pos": "adv",
+      "meaning": "everywhere, all over",
+      "sentence": "Hi ha turistes arreu.",
+      "translation": "There are tourists ⟦everywhere⟧."
+    },
+    {
+      "n": 709,
+      "rank": 740,
+      "word": "mil",
+      "pos": "num",
+      "meaning": "thousand",
+      "sentence": "Costa mil euros.",
+      "translation": "It costs a ⟦thousand⟧ euros."
+    },
+    {
+      "n": 710,
+      "rank": 743,
+      "word": "gènere",
+      "pos": "noun",
+      "meaning": "genre, kind; gender",
+      "sentence": "Quin gènere de pel·lícules prefereixes?",
+      "translation": "What ⟦genre⟧ of films do you prefer?"
+    },
+    {
+      "n": 711,
+      "rank": 744,
+      "word": "tecnologia",
+      "pos": "noun",
+      "meaning": "technology",
+      "sentence": "M'interessa molt la tecnologia.",
+      "translation": "I'm very interested in ⟦technology⟧."
+    },
+    {
+      "n": 712,
+      "rank": 745,
+      "word": "provocar",
+      "pos": "verb",
+      "meaning": "to cause; to provoke",
+      "sentence": "La pluja ha provocat inundacions.",
+      "translation": "The rain has ⟦caused⟧ floods.",
+      "form": "provocat"
+    },
+    {
+      "n": 713,
+      "rank": 746,
+      "word": "exposició",
+      "pos": "noun",
+      "meaning": "exhibition",
+      "sentence": "Anem a veure l'exposició?",
+      "translation": "Shall we go and see the ⟦exhibition⟧?"
+    },
+    {
+      "n": 714,
+      "rank": 747,
+      "word": "foc",
+      "pos": "noun",
+      "meaning": "fire (focs artificials: fireworks)",
+      "sentence": "Encenem el foc?",
+      "translation": "Shall we light the ⟦fire⟧?"
+    },
+    {
+      "n": 715,
+      "rank": 748,
+      "word": "disposar",
+      "pos": "verb",
+      "meaning": "(disposar de) to have, to have available",
+      "sentence": "L'hotel disposa de piscina.",
+      "translation": "The hotel ⟦has⟧ a pool.",
+      "form": "disposa"
+    },
+    {
+      "n": 716,
+      "rank": 749,
+      "word": "canal",
+      "pos": "noun",
+      "meaning": "channel; canal",
+      "sentence": "Canvia de canal, si us plau.",
+      "translation": "Change the ⟦channel⟧, please."
+    },
+    {
+      "n": 717,
+      "rank": 750,
+      "word": "democràtic",
+      "pos": "adj",
+      "meaning": "democratic",
+      "sentence": "És un país democràtic.",
+      "translation": "It's a ⟦democratic⟧ country."
+    },
+    {
+      "n": 718,
+      "rank": 751,
+      "word": "victòria",
+      "pos": "noun",
+      "meaning": "victory, win",
+      "sentence": "Ha estat una gran victòria.",
+      "translation": "It's been a great ⟦win⟧."
+    },
+    {
+      "n": 719,
+      "rank": 752,
+      "word": "tribunal",
+      "pos": "noun",
+      "meaning": "court",
+      "sentence": "El cas va arribar al tribunal.",
+      "translation": "The case went to ⟦court⟧."
+    },
+    {
+      "n": 720,
+      "rank": 753,
+      "word": "funció",
+      "pos": "noun",
+      "meaning": "function; show, performance",
+      "sentence": "Quina és la seva funció?",
+      "translation": "What's its ⟦function⟧?"
+    },
+    {
+      "n": 721,
+      "rank": 754,
+      "word": "oblidar",
+      "pos": "verb",
+      "meaning": "to forget",
+      "sentence": "No t'oblidis de trucar-me.",
+      "translation": "Don't ⟦forget⟧ to call me.",
+      "form": "oblidis"
+    },
+    {
+      "n": 722,
+      "rank": 755,
+      "word": "planta",
+      "pos": "noun",
+      "meaning": "plant; floor (of a building)",
+      "sentence": "Som a la tercera planta.",
+      "translation": "We're on the third ⟦floor⟧."
+    },
+    {
+      "n": 723,
+      "rank": 756,
+      "word": "funcionar",
+      "pos": "verb",
+      "meaning": "to work (of a machine), to run",
+      "sentence": "L'ascensor no funciona.",
+      "translation": "The lift isn't ⟦working⟧.",
+      "form": "funciona"
+    },
+    {
+      "n": 724,
+      "rank": 757,
+      "word": "tarda",
+      "pos": "noun",
+      "meaning": "afternoon; early evening",
+      "sentence": "Ens veiem aquesta tarda.",
+      "translation": "See you this ⟦afternoon⟧."
+    },
+    {
+      "n": 725,
+      "rank": 758,
+      "word": "aleshores",
+      "pos": "adv",
+      "meaning": "then; at that time",
+      "sentence": "Aleshores vivíem a Girona.",
+      "translation": "⟦Back then⟧ we lived in Girona."
+    },
+    {
+      "n": 726,
+      "rank": 760,
+      "word": "època",
+      "pos": "noun",
+      "meaning": "time, period, era",
+      "sentence": "En aquella època no hi havia mòbils.",
+      "translation": "At that ⟦time⟧ there were no mobile phones."
+    },
+    {
+      "n": 727,
+      "rank": 761,
+      "word": "noia",
+      "pos": "noun",
+      "meaning": "girl, young woman",
+      "sentence": "Aquella noia és la meva cosina.",
+      "translation": "That ⟦girl⟧ is my cousin."
+    },
+    {
+      "n": 728,
+      "rank": 762,
+      "word": "trencar",
+      "pos": "verb",
+      "meaning": "to break",
+      "sentence": "He trencat un got.",
+      "translation": "I've ⟦broken⟧ a glass.",
+      "form": "trencat"
+    },
+    {
+      "n": 729,
+      "rank": 763,
+      "word": "acompanyar",
+      "pos": "verb",
+      "meaning": "to go with, to accompany",
+      "sentence": "T'acompanyo a casa.",
+      "translation": "I'll ⟦walk⟧ you home.",
+      "form": "acompanyo"
+    },
+    {
+      "n": 730,
+      "rank": 764,
+      "word": "superior",
+      "pos": "adj",
+      "meaning": "upper; higher; superior",
+      "sentence": "El pis superior és més gran.",
+      "translation": "The ⟦upper⟧ floor is bigger."
+    },
+    {
+      "n": 731,
+      "rank": 765,
+      "word": "vall",
+      "pos": "noun",
+      "meaning": "valley",
+      "sentence": "El poble és a la vall.",
+      "translation": "The village is in the ⟦valley⟧."
+    },
+    {
+      "n": 732,
+      "rank": 766,
+      "word": "mínim",
+      "pos": "adj",
+      "meaning": "minimum (com a mínim: at least)",
+      "sentence": "Com a mínim, truca'm.",
+      "translation": "⟦At least⟧ call me."
+    },
+    {
+      "n": 733,
+      "rank": 767,
+      "word": "hospital",
+      "pos": "noun",
+      "meaning": "hospital",
+      "sentence": "La meva mare és a l'hospital.",
+      "translation": "My mother is in ⟦hospital⟧."
+    },
+    {
+      "n": 734,
+      "rank": 768,
+      "word": "present",
+      "pos": "noun",
+      "meaning": "present (time); (adj.) present",
+      "sentence": "Pensa en el present.",
+      "translation": "Think about the ⟦present⟧."
+    },
+    {
+      "n": 735,
+      "rank": 769,
+      "word": "animal",
+      "pos": "noun",
+      "meaning": "animal",
+      "sentence": "T'agraden els animals?",
+      "translation": "Do you like ⟦animals⟧?"
+    },
+    {
+      "n": 736,
+      "rank": 770,
+      "word": "oficina",
+      "pos": "noun",
+      "meaning": "office",
+      "sentence": "Treballo en una oficina.",
+      "translation": "I work in an ⟦office⟧."
+    },
+    {
+      "n": 737,
+      "rank": 771,
+      "word": "divendres",
+      "pos": "noun",
+      "meaning": "Friday",
+      "sentence": "Divendres sortim a sopar.",
+      "translation": "On ⟦Friday⟧ we're going out for dinner."
+    },
+    {
+      "n": 738,
+      "rank": 773,
+      "word": "mena",
+      "pos": "noun",
+      "meaning": "kind, sort (tota mena de: all kinds of)",
+      "sentence": "Hi ha tota mena de botigues.",
+      "translation": "There are all ⟦kinds⟧ of shops."
+    },
+    {
+      "n": 739,
+      "rank": 774,
+      "word": "presentació",
+      "pos": "noun",
+      "meaning": "presentation; introduction",
+      "sentence": "Demà faig una presentació a la feina.",
+      "translation": "Tomorrow I'm giving a ⟦presentation⟧ at work."
+    },
+    {
+      "n": 740,
+      "rank": 775,
+      "word": "parell",
+      "pos": "noun",
+      "meaning": "pair, couple (un parell de: a couple of)",
+      "sentence": "Dona'm un parell de minuts.",
+      "translation": "Give me a ⟦couple⟧ of minutes."
+    },
+    {
+      "n": 741,
+      "rank": 776,
+      "word": "interessant",
+      "pos": "adj",
+      "meaning": "interesting",
+      "sentence": "Quina idea més interessant!",
+      "translation": "What an ⟦interesting⟧ idea!"
+    },
+    {
+      "n": 742,
+      "rank": 777,
+      "word": "format",
+      "pos": "noun",
+      "meaning": "format; size",
+      "sentence": "En quin format vols el document?",
+      "translation": "What ⟦format⟧ do you want the document in?"
+    },
+    {
+      "n": 743,
+      "rank": 778,
+      "word": "necessitat",
+      "pos": "noun",
+      "meaning": "need, necessity",
+      "sentence": "No hi ha necessitat de cridar.",
+      "translation": "There's no ⟦need⟧ to shout."
+    },
+    {
+      "n": 744,
+      "rank": 779,
+      "word": "tirar",
+      "pos": "verb",
+      "meaning": "to throw; to pull; to go (tira!: go on!)",
+      "sentence": "Tira-ho a la paperera.",
+      "translation": "⟦Throw⟧ it in the bin.",
+      "form": "tira"
+    },
+    {
+      "n": 745,
+      "rank": 780,
+      "word": "tècnic",
+      "pos": "adj",
+      "meaning": "technical; (noun) technician",
+      "sentence": "Truca al servei tècnic.",
+      "translation": "Call ⟦technical⟧ support."
+    },
+    {
+      "n": 746,
+      "rank": 781,
+      "word": "cinema",
+      "pos": "noun",
+      "meaning": "cinema",
+      "sentence": "Anem al cinema aquesta nit?",
+      "translation": "Shall we go to the ⟦cinema⟧ tonight?"
+    },
+    {
+      "n": 747,
+      "rank": 782,
+      "word": "estació",
+      "pos": "noun",
+      "meaning": "station; season",
+      "sentence": "L'estació de tren és a prop.",
+      "translation": "The train ⟦station⟧ is nearby."
+    },
+    {
+      "n": 748,
+      "rank": 783,
+      "word": "inici",
+      "pos": "noun",
+      "meaning": "start, beginning",
+      "sentence": "Ho vaig entendre des de l'inici.",
+      "translation": "I understood it from the ⟦start⟧."
+    },
+    {
+      "n": 749,
+      "rank": 784,
+      "word": "ciència",
+      "pos": "noun",
+      "meaning": "science",
+      "sentence": "M'agrada molt la ciència.",
+      "translation": "I really like ⟦science⟧."
+    },
+    {
+      "n": 750,
+      "rank": 786,
+      "word": "unir",
+      "pos": "verb",
+      "meaning": "to join, to unite",
+      "sentence": "Uneix els punts.",
+      "translation": "⟦Join⟧ the dots.",
+      "form": "uneix"
+    },
+    {
+      "n": 751,
+      "rank": 787,
+      "word": "preocupar",
+      "pos": "verb",
+      "meaning": "to worry (preocupat: worried)",
+      "sentence": "Estic preocupat per la meva mare.",
+      "translation": "I'm ⟦worried⟧ about my mother.",
+      "form": "preocupat"
+    },
+    {
+      "n": 752,
+      "rank": 788,
+      "word": "avançar",
+      "pos": "verb",
+      "meaning": "to move forward; to make progress; to overtake",
+      "sentence": "Avança el rellotge una hora.",
+      "translation": "Put the clock ⟦forward⟧ an hour.",
+      "form": "avança"
+    },
+    {
+      "n": 753,
+      "rank": 789,
+      "word": "darrere",
+      "pos": "adv",
+      "meaning": "behind (darrere de: behind)",
+      "sentence": "El gat és darrere el sofà.",
+      "translation": "The cat is ⟦behind⟧ the sofa."
+    },
+    {
+      "n": 754,
+      "rank": 790,
+      "word": "rus",
+      "pos": "noun",
+      "meaning": "Russian (the language; from Russia)",
+      "sentence": "Parla rus perfectament.",
+      "translation": "She speaks ⟦Russian⟧ perfectly."
+    },
+    {
+      "n": 755,
+      "rank": 791,
+      "word": "resultar",
+      "pos": "verb",
+      "meaning": "to turn out (to be)",
+      "sentence": "Ha resultat molt fàcil.",
+      "translation": "It ⟦turned out⟧ to be very easy.",
+      "form": "resultat"
+    },
+    {
+      "n": 756,
+      "rank": 792,
+      "word": "negoci",
+      "pos": "noun",
+      "meaning": "business",
+      "sentence": "Té un negoci de roba.",
+      "translation": "She has a clothes ⟦business⟧."
+    },
+    {
+      "n": 757,
+      "rank": 793,
+      "word": "retirar",
+      "pos": "verb",
+      "meaning": "to withdraw; to take away; to retire",
+      "sentence": "Vull retirar diners.",
+      "translation": "I want to ⟦withdraw⟧ some money."
+    },
+    {
+      "n": 758,
+      "rank": 794,
+      "word": "tradicional",
+      "pos": "adj",
+      "meaning": "traditional",
+      "sentence": "És un plat tradicional català.",
+      "translation": "It's a ⟦traditional⟧ Catalan dish."
+    },
+    {
+      "n": 759,
+      "rank": 795,
+      "word": "energia",
+      "pos": "noun",
+      "meaning": "energy",
+      "sentence": "Avui no tinc energia.",
+      "translation": "I've got no ⟦energy⟧ today."
+    },
+    {
+      "n": 760,
+      "rank": 796,
+      "word": "basar",
+      "pos": "verb",
+      "meaning": "to base (basat en: based on)",
+      "sentence": "La pel·lícula està basada en un llibre.",
+      "translation": "The film is ⟦based⟧ on a book.",
+      "form": "basada"
+    },
+    {
+      "n": 761,
+      "rank": 797,
+      "word": "operació",
+      "pos": "noun",
+      "meaning": "operation",
+      "sentence": "Demà tinc una operació al genoll.",
+      "translation": "Tomorrow I'm having an ⟦operation⟧ on my knee."
+    },
+    {
+      "n": 762,
+      "rank": 798,
+      "word": "esdeveniment",
+      "pos": "noun",
+      "meaning": "event",
+      "sentence": "És un esdeveniment important.",
+      "translation": "It's an important ⟦event⟧."
+    },
+    {
+      "n": 763,
+      "rank": 799,
+      "word": "participació",
+      "pos": "noun",
+      "meaning": "participation; turnout (in an election)",
+      "sentence": "La participació ha estat molt alta.",
+      "translation": "⟦Turnout⟧ has been very high."
+    },
+    {
+      "n": 764,
+      "rank": 800,
+      "word": "taller",
+      "pos": "noun",
+      "meaning": "workshop; garage (for car repairs)",
+      "sentence": "El cotxe és al taller.",
+      "translation": "The car is at the ⟦garage⟧."
+    },
+    {
+      "n": 765,
+      "rank": 801,
+      "word": "vila",
+      "pos": "noun",
+      "meaning": "town",
+      "sentence": "És una vila amb molta història.",
+      "translation": "It's a ⟦town⟧ with a lot of history."
+    },
+    {
+      "n": 766,
+      "rank": 802,
+      "word": "feliç",
+      "pos": "adj",
+      "meaning": "happy",
+      "sentence": "Feliç aniversari!",
+      "translation": "⟦Happy⟧ birthday!"
+    },
+    {
+      "n": 767,
+      "rank": 803,
+      "word": "líder",
+      "pos": "noun",
+      "meaning": "leader",
+      "sentence": "És el líder del grup.",
+      "translation": "He's the ⟦leader⟧ of the group."
+    },
+    {
+      "n": 768,
+      "rank": 804,
+      "word": "est",
+      "pos": "noun",
+      "meaning": "east",
+      "sentence": "El sol surt per l'est.",
+      "translation": "The sun rises in the ⟦east⟧."
+    },
+    {
+      "n": 769,
+      "rank": 805,
+      "word": "ensenyar",
+      "pos": "verb",
+      "meaning": "to teach; to show",
+      "sentence": "M'ensenyes a cuinar?",
+      "translation": "Will you ⟦teach⟧ me to cook?",
+      "form": "ensenyes"
+    },
+    {
+      "n": 770,
+      "rank": 806,
+      "word": "val",
+      "pos": "interj",
+      "meaning": "OK, all right (from valer: to be worth, to cost)",
+      "sentence": "Val, ens veiem demà.",
+      "translation": "⟦OK⟧, see you tomorrow."
+    },
+    {
+      "n": 771,
+      "rank": 807,
+      "word": "trobada",
+      "pos": "noun",
+      "meaning": "meeting, get-together",
+      "sentence": "Fem una trobada d'antics alumnes.",
+      "translation": "We're having a former students' ⟦reunion⟧."
+    },
+    {
+      "n": 772,
+      "rank": 808,
+      "word": "arma",
+      "pos": "noun",
+      "meaning": "weapon",
+      "sentence": "La policia porta armes.",
+      "translation": "The police carry ⟦weapons⟧.",
+      "form": "armes"
+    },
+    {
+      "n": 773,
+      "rank": 809,
+      "word": "tradició",
+      "pos": "noun",
+      "meaning": "tradition",
+      "sentence": "És una tradició molt antiga.",
+      "translation": "It's a very old ⟦tradition⟧."
+    },
+    {
+      "n": 774,
+      "rank": 810,
+      "word": "element",
+      "pos": "noun",
+      "meaning": "element",
+      "sentence": "L'aigua és un element essencial.",
+      "translation": "Water is an essential ⟦element⟧."
+    },
+    {
+      "n": 775,
+      "rank": 811,
+      "word": "declarar",
+      "pos": "verb",
+      "meaning": "to declare; to testify",
+      "sentence": "Té alguna cosa a declarar?",
+      "translation": "Do you have anything to ⟦declare⟧?"
+    },
+    {
+      "n": 776,
+      "rank": 812,
+      "word": "apuntar",
+      "pos": "verb",
+      "meaning": "to write down; to point (apuntar-se: to sign up)",
+      "sentence": "Apunta el meu número.",
+      "translation": "⟦Write down⟧ my number.",
+      "form": "apunta"
+    },
+    {
+      "n": 777,
+      "rank": 813,
+      "word": "aplicació",
+      "pos": "noun",
+      "meaning": "app; application",
+      "sentence": "Has baixat l'aplicació?",
+      "translation": "Have you downloaded the ⟦app⟧?"
+    },
+    {
+      "n": 778,
+      "rank": 814,
+      "word": "recerca",
+      "pos": "noun",
+      "meaning": "research; search",
+      "sentence": "Fa recerca a la universitat.",
+      "translation": "She does ⟦research⟧ at the university."
+    },
+    {
+      "n": 779,
+      "rank": 815,
+      "word": "lluny",
+      "pos": "adv",
+      "meaning": "far, far away",
+      "sentence": "Viu molt lluny.",
+      "translation": "He lives very ⟦far away⟧."
+    },
+    {
+      "n": 780,
+      "rank": 816,
+      "word": "volta",
+      "pos": "noun",
+      "meaning": "turn; lap (fer una volta: to go for a walk)",
+      "sentence": "Anem a fer una volta?",
+      "translation": "Shall we go for a ⟦walk⟧?"
+    },
+    {
+      "n": 781,
+      "rank": 817,
+      "word": "comercial",
+      "pos": "adj",
+      "meaning": "commercial; shopping (centre comercial: shopping centre)",
+      "sentence": "Anem al centre comercial.",
+      "translation": "Let's go to the ⟦shopping⟧ centre."
+    },
+    {
+      "n": 782,
+      "rank": 818,
+      "word": "conflicte",
+      "pos": "noun",
+      "meaning": "conflict",
+      "sentence": "Hi ha un conflicte entre els veïns.",
+      "translation": "There's a ⟦conflict⟧ between the neighbours."
+    },
+    {
+      "n": 783,
+      "rank": 819,
+      "word": "solució",
+      "pos": "noun",
+      "meaning": "solution",
+      "sentence": "Hi ha una solució fàcil.",
+      "translation": "There's an easy ⟦solution⟧."
+    },
+    {
+      "n": 784,
+      "rank": 820,
+      "word": "obligar",
+      "pos": "verb",
+      "meaning": "to force, to make (someone do something)",
+      "sentence": "No t'obligo a venir.",
+      "translation": "I'm not ⟦forcing⟧ you to come.",
+      "form": "obligo"
+    },
+    {
+      "n": 785,
+      "rank": 821,
+      "word": "cobrir",
+      "pos": "verb",
+      "meaning": "to cover",
+      "sentence": "Cobreix la paella amb una tapa.",
+      "translation": "⟦Cover⟧ the pan with a lid.",
+      "form": "cobreix"
+    },
+    {
+      "n": 786,
+      "rank": 822,
+      "word": "crisi",
+      "pos": "noun",
+      "meaning": "crisis",
+      "sentence": "Hi ha una crisi econòmica.",
+      "translation": "There's an economic ⟦crisis⟧."
+    },
+    {
+      "n": 787,
+      "rank": 823,
+      "word": "judici",
+      "pos": "noun",
+      "meaning": "trial; judgement",
+      "sentence": "El judici serà la setmana que ve.",
+      "translation": "The ⟦trial⟧ will be next week."
+    },
+    {
+      "n": 788,
+      "rank": 824,
+      "word": "perill",
+      "pos": "noun",
+      "meaning": "danger",
+      "sentence": "Està fora de perill.",
+      "translation": "He's out of ⟦danger⟧."
+    },
+    {
+      "n": 789,
+      "rank": 825,
+      "word": "marc",
+      "pos": "noun",
+      "meaning": "frame; framework",
+      "sentence": "Aquest marc és de fusta.",
+      "translation": "This ⟦frame⟧ is made of wood."
+    },
+    {
+      "n": 790,
+      "rank": 826,
+      "word": "aire",
+      "pos": "noun",
+      "meaning": "air",
+      "sentence": "Obre la finestra, que entri aire.",
+      "translation": "Open the window to let some ⟦air⟧ in."
+    },
+    {
+      "n": 791,
+      "rank": 827,
+      "word": "opció",
+      "pos": "noun",
+      "meaning": "option",
+      "sentence": "No tenim cap altra opció.",
+      "translation": "We have no other ⟦option⟧."
+    },
+    {
+      "n": 792,
+      "rank": 828,
+      "word": "educatiu",
+      "pos": "adj",
+      "meaning": "educational",
+      "sentence": "És un joc educatiu.",
+      "translation": "It's an ⟦educational⟧ game."
+    },
+    {
+      "n": 793,
+      "rank": 829,
+      "word": "menor",
+      "pos": "adj",
+      "meaning": "younger; smaller; minor (menor d'edat: under age)",
+      "sentence": "És menor d'edat.",
+      "translation": "He's ⟦under age⟧."
+    },
+    {
+      "n": 794,
+      "rank": 830,
+      "word": "risc",
+      "pos": "noun",
+      "meaning": "risk",
+      "sentence": "No vull córrer cap risc.",
+      "translation": "I don't want to take any ⟦risks⟧."
+    },
+    {
+      "n": 795,
+      "rank": 831,
+      "word": "doctor",
+      "pos": "noun",
+      "meaning": "doctor (as a title); PhD",
+      "sentence": "El doctor la visitarà ara.",
+      "translation": "The ⟦doctor⟧ will see you now."
+    },
+    {
+      "n": 796,
+      "rank": 832,
+      "word": "quantitat",
+      "pos": "noun",
+      "meaning": "quantity, amount",
+      "sentence": "Hi ha una gran quantitat de neu.",
+      "translation": "There's a large ⟦amount⟧ of snow."
+    },
+    {
+      "n": 797,
+      "rank": 833,
+      "word": "generar",
+      "pos": "verb",
+      "meaning": "to generate, to create",
+      "sentence": "Aquest projecte generarà feina.",
+      "translation": "This project will ⟦create⟧ jobs.",
+      "form": "generarà"
+    },
+    {
+      "n": 798,
+      "rank": 835,
+      "word": "estil",
+      "pos": "noun",
+      "meaning": "style",
+      "sentence": "M'agrada el teu estil.",
+      "translation": "I like your ⟦style⟧."
+    },
+    {
+      "n": 799,
+      "rank": 836,
+      "word": "reunir",
+      "pos": "verb",
+      "meaning": "to gather (reunir-se: to meet, to get together)",
+      "sentence": "Ens reunim cada dilluns.",
+      "translation": "We ⟦meet⟧ every Monday.",
+      "form": "reunim"
     }
   ]
 }
