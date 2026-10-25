@@ -8,13 +8,14 @@
    "title": "Englische Grammatik",
    "variety": "American English",
    "units": 9,
-   "lessons": 35,
+   "lessons": 39,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 195963,
-   "sha256": "134126c5380db438e6f912f1a201f349369e3e980f45333c880f3bbf197b0436"
+   "bytes": 220831,
+   "sha256": "e347b58c2231c03d038b8e98c63f178fc910ac0b1392781132ad5ed32765de3a"
   },
   "en-ar": {
    "file": "en-ar/course.json",

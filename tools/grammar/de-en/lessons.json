@@ -1699,6 +1699,191 @@
         {"type":"dialogue","q":"Bei einem Abendessen.","lines":[{"who":"Host","t":"Do you like the soup? My husband made it. He's a chef.","tr":"Schmeckt dir die Suppe? Mein Mann hat sie gemacht. Er ist Koch."},{"options":["It's delicious! Actually, I'd love the recipe.","It's delicious! Actual, I'd love the recipe."],"answer":0,"why":"„Übrigens, eigentlich“: {{actually}}."},{"who":"Host","t":"Sure! And what do you do?","tr":"Klar! Und was machst du beruflich?"},{"options":["I'm a nurse. My boss is a doctor from Berlin.","I'm a nurse. My chef is a doctor from Berlin."],"answer":0,"why":"„Chef“ ist {{boss}}."}]},
         {"type":"free","q":"Jetzt du: Schreib zwei Sätze, in denen du mindestens zwei der falschen Freunde richtig benutzt (zum Beispiel {{actually}}, {{also}}, {{boss}}, {{cell phone}}).","answers":[{"t":"Actually, I don't like my boss. I also don't like my job!","tr":"Eigentlich mag ich meinen Chef nicht. Meinen Job mag ich auch nicht!"},{"t":"I left my cell phone at home. So I can't call you, but maybe I'll see you later.","tr":"Ich habe mein Handy zu Hause gelassen. Also kann ich dich nicht anrufen, aber eventuell sehen wir uns später."}]}
       ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 8,
+      "level": "A2",
+      "title": "Begründe und sag deine Meinung",
+      "summary": "Sag, warum, und was du denkst: „I think English is useful because I travel a lot.“ Und behalte die englische Wortstellung auch nach „weil“.",
+      "topic": "{{because}}, {{so}}, {{but}}; {{I think (that)…}}; Subjekt und Verb auch im Nebensatz",
+      "blocks": [
+        {"goal":{"t":"I think English is useful because I travel a lot.","tr":"Ich finde Englisch nützlich, weil ich viel reise."}},
+        {"dialog":[{"who":"Interviewer","t":"Why do you want to work here?","tr":"Warum möchten Sie hier arbeiten?"},{"who":"Jana","t":"Because I love your products, and I think I can help your team.","tr":"Weil ich Ihre Produkte liebe und weil ich glaube, dass ich Ihrem Team helfen kann."},{"who":"Interviewer","t":"Why did you leave your last job?","tr":"Warum haben Sie Ihre letzte Stelle verlassen?"},{"who":"Jana","t":"The company moved to another city, so I decided to stay here.","tr":"Die Firma ist in eine andere Stadt gezogen, also habe ich beschlossen hierzubleiben."},{"who":"Interviewer","t":"I see. Do you think you're a good team player?","tr":"Verstehe. Glauben Sie, dass Sie teamfähig sind?"},{"who":"Jana","t":"Yes, I do. I think teamwork is very important.","tr":"Ja. Ich finde Teamarbeit sehr wichtig."}]},
+        {"term":"Nebensatz","means":"ein Satzteil mit eigenem Verb, der nicht allein stehen kann: …, weil ich müde bin. Im Deutschen steht sein Verb am Ende, im Englischen nicht."},
+        {"p":"**because: kein Verb am Ende!** Im Deutschen schickt „weil“ das Verb ans Ende: „…, weil ich viel **reise**.“ Englisch macht das nie. Nach {{because}} kommt ein ganz normaler Satz: Subjekt, Verb, Rest: {{…because I travel a lot.}}"},
+        { "table": [
+          ["Deutsch","Englisch"],
+          ["…, weil ich keine Zeit habe.","{{…because I don't have time.}}"],
+          ["…, dass er morgen kommt.","{{…that he's coming tomorrow.}}"],
+          ["…, wenn ich Zeit habe.","{{…if I have time.}}"],
+          ["…, obwohl es regnet.","{{…although it's raining.}}"]
+        ] },
+        {"p":"Das gilt für alle Nebensätze, ob mit {{because}}, {{that}}, {{if}}, {{when}} oder {{although}}: Die Wortstellung ändert sich im Englischen nicht. Für dich heißt das: einfach weitersprechen wie immer."},
+        {"p":"**so und but.** {{so}} „also, deshalb“ nennt die Folge: {{It was raining, so we stayed home.}}; {{but}} „aber“ den Gegensatz. Vor {{because}} braucht man kein Komma, anders als vor „weil“."},
+        {"p":"**Deine Meinung: I think (that)…** {{I think}} „ich finde, ich glaube“ + ein Satz; das {{that}} „dass“ lässt man meistens weg: {{I think it's a good idea.}} Beim Verneinen schiebt Englisch das „nicht“ nach vorn: „Ich glaube, er kommt nicht“ → {{I don't think he's coming.}}"},
+        { "ex": [
+          {"t":"I'm tired because I didn't sleep well.","tr":"Ich bin müde, weil ich nicht gut geschlafen habe."},
+          {"t":"The store was closed, so I went home.","tr":"Der Laden hatte zu, also bin ich nach Hause gegangen."},
+          {"t":"I think you're right.","tr":"Ich glaube, du hast recht."},
+          {"t":"I don't think it's a good idea.","tr":"Ich finde, das ist keine gute Idee."},
+          {"t":"Why are you laughing? – Because your hat is funny!","tr":"Warum lachst du? – Weil dein Hut so lustig ist!"},
+          {"t":"In my opinion, the book is better than the movie.","tr":"Meiner Meinung nach ist das Buch besser als der Film."}
+        ] },
+        {"tip":"Zustimmen und widersprechen: {{I agree.}} „Das finde ich auch.“ / {{I don't agree.}}, {{That's true.}}, {{I'm not so sure.}} Und Achtung: {{I agree}}, ohne {{am}}. Nicht {{I am agree}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"I'm learning English because I abroad work want.","right":"I'm learning English because I want to work abroad.","tr":"Ich lerne Englisch, weil ich im Ausland arbeiten will.","why":"Nach {{because}} bleibt die normale Wortstellung: Subjekt, Verb, Rest."},
+        {"wrong":"I think, he doesn't come.","right":"I don't think he's coming.","tr":"Ich glaube, er kommt nicht.","why":"Englisch verneint lieber {{think}}: {{I don't think…}}; und ohne Komma."},
+        {"wrong":"I am agree.","right":"I agree.","tr":"Das finde ich auch.","why":"{{agree}} ist ein Verb: ohne {{am}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„…, weil ich keine Zeit habe.“","options":["{{…because I don't have time.}}","{{…because I time don't have.}}","{{…because have I no time.}}"],"answer":0,"why":"Nach {{because}}: die normale Wortstellung."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"It was raining, ___ we took a taxi.","tr":"Es hat geregnet, also haben wir ein Taxi genommen.","options":["so","because","but"],"answer":0,"why":"Die Folge: {{so}}.","from":"talk-about-last-weekend"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ think it's a good idea.","tr":"Ich finde, das ist keine gute Idee.","options":["don't","not","no"],"answer":0,"why":"Englisch verneint {{think}}: {{I don't think…}}"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich bin müde, weil ich lange gearbeitet habe.","words":["I'm","tired","because","I","worked","late."]},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ with you. It's a great idea.","tr":"Da stimme ich dir zu. Es ist eine tolle Idee.","options":["agree","am agree","agreeing"],"answer":0,"why":"{{agree}} ist ein Verb: {{I agree}}."},
+        {"type":"dialogue","q":"Ein Freund fragt nach deinem Englischkurs.","from":"compare-things","lines":[{"who":"Friend","t":"Why are you learning English?","tr":"Warum lernst du Englisch?"},{"options":["Because I want to travel to the US.","Because I to the US travel want."],"answer":0,"why":"Nach {{because}}: die normale Wortstellung."},{"who":"Friend","t":"Do you think it's difficult?","tr":"Findest du es schwer?"},{"options":["Not really. I think the grammar is easier than German.","Not really. I think, the grammar is more easy than German."],"answer":0,"why":"{{easy}} → {{easier}}, und kein Komma nach {{I think}}."}]},
+        {"type":"free","q":"Jetzt du: Warum lernst du Englisch, und was denkst du darüber? Benutze {{because}} und {{I think}}.","answers":[{"t":"I'm learning English because I want to work for an international company. I think it's fun!","tr":"Ich lerne Englisch, weil ich für eine internationale Firma arbeiten will. Ich finde, es macht Spaß!"},{"t":"I'm learning English because my daughter lives in Canada. I think the pronunciation is hard.","tr":"Ich lerne Englisch, weil meine Tochter in Kanada lebt. Ich finde die Aussprache schwer."}]}
+      ]
+    },
+    {
+      "id": "say-what-happens-if",
+      "unit": 8,
+      "level": "A2",
+      "title": "Sag, was passiert, wenn…",
+      "summary": "Sprich über Bedingungen und Folgen: „If it rains, we'll stay home.“ Und lern, wann „wenn“ if heißt und wann when.",
+      "topic": "Der erste Konditional: {{if}} + Present, dann {{will}}; {{if}} oder {{when}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll go to the museum.","tr":"Wenn es morgen regnet, gehen wir ins Museum."}},
+        {"dialog":[{"who":"Kate","t":"Are we still having the barbecue on Saturday?","tr":"Machen wir am Samstag noch das Grillfest?"},{"who":"Paul","t":"If the weather is nice, yes.","tr":"Wenn das Wetter schön ist, ja."},{"who":"Kate","t":"And if it rains?","tr":"Und wenn es regnet?"},{"who":"Paul","t":"If it rains, we'll eat inside. I'll call everyone when I know more.","tr":"Wenn es regnet, essen wir drinnen. Ich ruf alle an, wenn ich mehr weiß."},{"who":"Kate","t":"Great. If you need help, let me know!","tr":"Super. Wenn du Hilfe brauchst, sag Bescheid!"}]},
+        {"term":"Konditional","means":"ein Satz mit „wenn“, der eine Bedingung und ihre Folge nennt: Wenn es regnet, bleiben wir zu Hause."},
+        {"p":"**Kein will nach if.** Im Wenn-Teil steht das Present, auch wenn es um die Zukunft geht: {{If it rains, …}}, nicht {{If it will rain}}. Die Folge steht mit {{will}}: {{…we'll stay home.}} Deutsch nimmt in beiden Teilen meist das Präsens; Englisch braucht in der Folge {{will}} (oder einen Imperativ, {{can}}, {{should}}…)."},
+        { "table": [
+          ["Wenn-Teil: Present","Folge: will"],
+          ["{{If you hurry,}}","{{you'll catch the bus.}}"],
+          ["{{If she calls,}}","{{I'll tell her.}}"],
+          ["{{If we don't leave now,}}","{{we'll be late.}}"]
+        ] },
+        {"p":"**Wortstellung** wie immer: das Subjekt vor dem Verb, auch nach dem Wenn-Teil: {{If I have time, I'll come.}}, nicht {{If I have time, will I come.}} Steht der Wenn-Teil vorn, kommt ein Komma; steht er hinten, keins: {{I'll come if I have time.}}"},
+        {"p":"**wenn = if oder when?** Das deutsche „wenn“ hat zwei Übersetzungen. {{if}} „falls“: Es ist nicht sicher, ob es passiert. {{when}} „sobald, wenn“: Es passiert sicher, nur der Zeitpunkt ist offen. {{If I see Tom, I'll tell him}} (vielleicht sehe ich ihn) / {{When I see Tom, I'll tell him}} (ich sehe ihn sicher)."},
+        { "ex": [
+          {"t":"If you're hungry, there's pizza in the fridge.","tr":"Wenn du Hunger hast: Im Kühlschrank ist Pizza."},
+          {"t":"I'll call you when I get home.","tr":"Ich ruf dich an, wenn ich zu Hause bin."},
+          {"t":"If it's sunny, let's go to the lake.","tr":"Wenn die Sonne scheint, lass uns an den See fahren."},
+          {"t":"What will you do if you don't get the job?","tr":"Was machst du, wenn du den Job nicht bekommst?"},
+          {"t":"If you need anything, just ask.","tr":"Wenn du etwas brauchst, frag einfach."},
+          {"t":"When the movie ends, we'll get dinner.","tr":"Wenn der Film zu Ende ist, gehen wir essen."}
+        ] },
+        {"tip":"Auch nach {{when}}, {{before}}, {{after}} und {{as soon as}} „sobald“ steht für die Zukunft das Present: {{As soon as I arrive, I'll text you.}} „Sobald ich ankomme, schreib ich dir.“"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we stay home.","right":"If it rains, we'll stay home.","tr":"Wenn es regnet, bleiben wir zu Hause.","why":"Nach {{if}}: Present; in der Folge: {{will}}."},
+        {"wrong":"If I'm 30 next year, I'll have a big party.","right":"When I'm 30 next year, I'll have a big party.","tr":"Wenn ich nächstes Jahr 30 werde, mache ich eine große Party.","why":"Das passiert sicher: {{when}}, nicht {{if}}."},
+        {"wrong":"If I have time, will I come.","right":"If I have time, I'll come.","tr":"Wenn ich Zeit habe, komme ich.","why":"Auch nach dem Wenn-Teil: das Subjekt vor dem Verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Wenn du dich beeilst, erwischst du den Bus.“","options":["{{If you hurry, you'll catch the bus.}}","{{If you will hurry, you catch the bus.}}","{{If you hurry, will you catch the bus.}}"],"answer":0,"why":"Nach {{if}}: Present; die Folge mit {{will}}, Subjekt vor dem Verb."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"If it ___ tomorrow, we'll stay home.","tr":"Wenn es morgen regnet, bleiben wir zu Hause.","options":["rains","will rain","rain"],"answer":0,"why":"Nach {{if}}: das Present, mit {{-s}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I'll text you ___ I arrive.","tr":"Ich schreib dir, wenn ich ankomme.","options":["when","if","as"],"answer":0,"why":"Du kommst sicher an: {{when}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"If you don't hurry, you ___ be late.","tr":"Wenn du dich nicht beeilst, kommst du zu spät.","options":["will","are","going"],"answer":0,"why":"Die Folge: {{will}}.","from":"promise-and-predict"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wenn du etwas brauchst, frag einfach.","words":["If","you need","anything,","just","ask."],"from":"tell-someone-what-to-do"},
+        {"type":"dialogue","q":"Ihr plant einen Ausflug.","lines":[{"who":"Friend","t":"Let's go to the beach on Sunday!","tr":"Lass uns am Sonntag an den Strand fahren!"},{"options":["OK, if the weather is good.","OK, if the weather will be good."],"answer":0,"why":"Nach {{if}}: kein {{will}}."},{"who":"Friend","t":"And if it's cold?","tr":"Und wenn es kalt ist?"},{"options":["Then we'll go to a café.","Then we go to a café will."],"answer":0,"why":"Die Folge: {{we'll}} + Grundform."}]},
+        {"type":"free","q":"Jetzt du: Was machst du am Wochenende, wenn das Wetter schön ist, und was, wenn es regnet?","answers":[{"t":"If the weather is nice, I'll go for a bike ride. If it rains, I'll stay home and read.","tr":"Wenn das Wetter schön ist, mache ich eine Radtour. Wenn es regnet, bleibe ich zu Hause und lese."},{"t":"If it's sunny, we'll have a picnic. If it rains, we'll watch movies.","tr":"Wenn die Sonne scheint, machen wir ein Picknick. Wenn es regnet, schauen wir Filme."}]}
+      ]
+    },
+    {
+      "id": "say-exactly-who",
+      "unit": 8,
+      "level": "A2",
+      "title": "Sag genau, wen oder was du meinst",
+      "summary": "Beschreib Menschen und Dinge mit einem ganzen Satz: „The woman who lives next door is a doctor.“ „The book I'm reading is great.“",
+      "topic": "Relativsätze: {{who}}, {{which}}, {{that}}; {{that}} weglassen; keine deutsche Wortstellung",
+      "blocks": [
+        {"goal":{"t":"That's the guy who helped me when my car broke down.","tr":"Das ist der Typ, der mir geholfen hat, als mein Auto liegen geblieben ist."}},
+        {"dialog":[{"who":"Anna","t":"Who's the man who's talking to your mom?","tr":"Wer ist der Mann, der mit deiner Mutter redet?"},{"who":"Ben","t":"That's my uncle Joe. He's the one who lives in Alaska.","tr":"Das ist mein Onkel Joe. Der, der in Alaska wohnt."},{"who":"Anna","t":"And the woman in the red dress?","tr":"Und die Frau im roten Kleid?"},{"who":"Ben","t":"That's his wife. She's the person who made the cake.","tr":"Das ist seine Frau. Sie hat die Torte gemacht."},{"who":"Anna","t":"The cake that we had for dessert? It was amazing!","tr":"Die Torte, die wir zum Nachtisch hatten? Die war fantastisch!"}]},
+        {"term":"Relativsatz","means":"ein Nebensatz, der ein Nomen genauer beschreibt: der Mann, **der nebenan wohnt**; das Buch, **das ich lese**."},
+        {"p":"**who, which, that statt der, die, das.** Im Deutschen beginnt ein Relativsatz mit „der, die, das“. Englisch nimmt {{who}} für Menschen, {{which}} für Dinge und {{that}} für beides: {{the woman who lives next door}}, {{the car which (that) I bought}}."},
+        { "table": [
+          ["Deutsch","Englisch"],
+          ["der Mann, der hier wohnt","{{the man who lives here}}"],
+          ["die Frau, die ich kenne","{{the woman (who) I know}}"],
+          ["das Buch, das auf dem Tisch liegt","{{the book that's on the table}}"],
+          ["die Stadt, in der ich wohne","{{the city (that) I live in}}"]
+        ] },
+        {"p":"**Keine Fälle, keine Endungen, kein Verb am Ende.** {{who}} ändert sich nicht (der, den, dem: alles {{who}}), und das Verb bleibt an seinem normalen Platz: {{the man who lives here}}, nicht {{the man who here lives}}."},
+        {"p":"**that darf oft weg.** Wenn danach eine neue Person kommt ({{who/which/that}} ist dann das Objekt), lässt man es im Gespräch meist weg: {{the book (that) I'm reading}}, {{the people (who) we met}}. Im Deutschen geht das nie."},
+        {"p":"**Präpositionen ans Ende.** „Die Stadt, in der ich wohne“ heißt im Alltag {{the city I live in}}: Die Präposition rutscht ans Ende."},
+        { "ex": [
+          {"t":"The woman who lives next door is a doctor.","tr":"Die Frau, die nebenan wohnt, ist Ärztin."},
+          {"t":"Is this the bus that goes downtown?","tr":"Ist das der Bus, der in die Innenstadt fährt?"},
+          {"t":"The movie we saw last night was boring.","tr":"Der Film, den wir gestern Abend gesehen haben, war langweilig."},
+          {"t":"I have a friend who speaks five languages.","tr":"Ich habe einen Freund, der fünf Sprachen spricht."},
+          {"t":"That's the restaurant I told you about.","tr":"Das ist das Restaurant, von dem ich dir erzählt habe."},
+          {"t":"Where's the book that was on my desk?","tr":"Wo ist das Buch, das auf meinem Schreibtisch lag?"}
+        ] },
+        {"tip":"Kommas: Bei Relativsätzen, die sagen, *welche* Person oder Sache gemeint ist, setzt Englisch kein Komma ({{The man who lives here is nice.}}). Das ist der häufigste Fall, und anders als im Deutschen."}
+      ],
+      "mistakes": [
+        {"wrong":"The man which lives here is nice.","right":"The man who lives here is nice.","tr":"Der Mann, der hier wohnt, ist nett.","why":"Für Menschen: {{who}} (oder {{that}}), nicht {{which}}."},
+        {"wrong":"The book that I yesterday bought is great.","right":"The book that I bought yesterday is great.","tr":"Das Buch, das ich gestern gekauft habe, ist toll.","why":"Keine deutsche Wortstellung: Subjekt, Verb, Objekt, dann die Zeit."},
+        {"wrong":"That's the woman about who I told you her.","right":"That's the woman I told you about.","tr":"Das ist die Frau, von der ich dir erzählt habe.","why":"Kein zusätzliches Pronomen; die Präposition rutscht ans Ende."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Die Frau, die nebenan wohnt“","options":["{{the woman who lives next door}}","{{the woman which lives next door}}","{{the woman who next door lives}}"],"answer":0,"why":"Für Menschen {{who}}, und das Verb bleibt an seinem Platz."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Is this the train ___ goes to Boston?","tr":"Ist das der Zug, der nach Boston fährt?","options":["that","who","what"],"answer":0,"why":"Für Dinge: {{that}} (oder {{which}})."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I have a friend ___ works at a hospital.","tr":"Ich habe eine Freundin, die in einem Krankenhaus arbeitet.","options":["who","which","what"],"answer":0,"why":"Für Menschen: {{who}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Der Film, den wir gesehen haben, war toll.","words":["The movie","we","saw","was","great."],"from":"talk-about-last-weekend"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"This is the city ___ I grew up in.","tr":"Das ist die Stadt, in der ich aufgewachsen bin.","options":["that","who","where"],"answer":0,"why":"Mit der Präposition am Ende: {{that}} (oder gar nichts). {{where}} ginge nur ohne {{in}}."},
+        {"type":"dialogue","q":"Auf einer Party.","from":"now-or-usually","lines":[{"who":"Friend","t":"Do you know that guy?","tr":"Kennst du den Typen da?"},{"options":["Yes, he's the guy who works with my sister.","Yes, he's the guy which works with my sister."],"answer":0,"why":"Für Menschen: {{who}}."},{"who":"Friend","t":"And the woman next to him?","tr":"Und die Frau neben ihm?"},{"options":["She's the neighbor I told you about.","She's the neighbor about I told you."],"answer":0,"why":"Die Präposition rutscht ans Ende."}]},
+        {"type":"free","q":"Jetzt du: Beschreib einen Menschen und einen Gegenstand, die dir wichtig sind, jeweils mit einem Relativsatz.","answers":[{"t":"My grandmother is the person who taught me to cook. My bike is the thing I use every day.","tr":"Meine Oma ist die Person, die mir das Kochen beigebracht hat. Mein Fahrrad ist das Ding, das ich jeden Tag benutze."},{"t":"I have a friend who always makes me laugh. This is the watch my father gave me.","tr":"Ich habe eine Freundin, die mich immer zum Lachen bringt. Das ist die Uhr, die mir mein Vater geschenkt hat."}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 8,
+      "level": "B1",
+      "title": "Frag höflich nach",
+      "summary": "Frag Fremde höflich, ohne direkte Frage: „Could you tell me where the station is?“ Achtung: Hier ändert sich die englische Wortstellung.",
+      "topic": "Indirekte Fragen: {{Could you tell me where…?}}, {{Do you know if…?}}; Wortstellung wie in der Aussage, kein {{do}}",
+      "blocks": [
+        {"goal":{"t":"Excuse me, could you tell me where the nearest subway station is?","tr":"Entschuldigung, könnten Sie mir sagen, wo die nächste U-Bahn-Station ist?"}},
+        {"dialog":[{"who":"Guest","t":"Excuse me, do you know what time breakfast starts?","tr":"Entschuldigung, wissen Sie, wann das Frühstück anfängt?"},{"who":"Receptionist","t":"At six thirty, in the restaurant.","tr":"Um halb sieben, im Restaurant."},{"who":"Guest","t":"Thanks. And could you tell me how I get to the convention center?","tr":"Danke. Und könnten Sie mir sagen, wie ich zum Kongresszentrum komme?"},{"who":"Receptionist","t":"Sure. Take the blue line. It's three stops.","tr":"Klar. Nehmen Sie die blaue Linie. Es sind drei Stationen."},{"who":"Guest","t":"Do you know if there's a pharmacy nearby?","tr":"Wissen Sie, ob es hier in der Nähe eine Apotheke gibt?"},{"who":"Receptionist","t":"Yes, there's one across the street.","tr":"Ja, gegenüber ist eine."}]},
+        {"p":"**Eingepackte Fragen.** Eine direkte Frage kann gegenüber Fremden schroff wirken: {{Where's the station?}} Höflicher packt man sie ein: {{Could you tell me where the station is?}} „Könnten Sie mir sagen, wo der Bahnhof ist?“"},
+        {"p":"**Die Falle: Die eingepackte Frage hat die Wortstellung einer Aussage.** Die direkte Frage dreht Verb und Subjekt um ({{Where is the station?}}), die eingepackte nicht: {{…where the station is.}} Und {{do/does/did}} fällt weg: {{What time does it start?}} → {{Do you know what time it starts?}}"},
+        { "table": [
+          ["direkte Frage","eingepackt"],
+          ["{{Where is the bank?}}","{{Could you tell me where the bank is?}}"],
+          ["{{What time does the museum open?}}","{{Do you know what time the museum opens?}}"],
+          ["{{How much did it cost?}}","{{Can you tell me how much it cost?}}"],
+          ["{{Is there a bus?}}","{{Do you know if there's a bus?}}"]
+        ] },
+        {"p":"**if für Ja-Nein-Fragen.** Ohne Fragewort nimmt man {{if}} „ob“: {{Is the store open?}} → {{Do you know if the store is open?}} ({{whether}} geht auch, klingt aber formeller.)"},
+        {"p":"**Höfliche Einleitungen:** {{Could you tell me…?}}, {{Do you know…?}}, {{I was wondering if…}} „Ich wollte fragen, ob…“, {{I don't know…}}, {{Can I ask…?}}"},
+        { "ex": [
+          {"t":"Do you know where the restrooms are?","tr":"Wissen Sie, wo die Toiletten sind?"},
+          {"t":"Could you tell me how much this costs?","tr":"Könnten Sie mir sagen, was das kostet?"},
+          {"t":"I don't know what time it is.","tr":"Ich weiß nicht, wie spät es ist."},
+          {"t":"Do you know if Anna is coming tonight?","tr":"Weißt du, ob Anna heute Abend kommt?"},
+          {"t":"I was wondering if you could help me.","tr":"Ich wollte fragen, ob Sie mir helfen könnten."},
+          {"t":"Can you tell me when the next train leaves?","tr":"Können Sie mir sagen, wann der nächste Zug fährt?"}
+        ] },
+        {"tip":"Hier ist Englisch dem Deutschen plötzlich ähnlich: Auch im Deutschen ändert sich die Wortstellung in der eingepackten Frage („wo der Bahnhof **ist**“). Nur steht das Verb im Englischen nicht ganz am Ende, sondern direkt nach dem Subjekt."}
+      ],
+      "mistakes": [
+        {"wrong":"Could you tell me where is the station?","right":"Could you tell me where the station is?","tr":"Könnten Sie mir sagen, wo der Bahnhof ist?","why":"In der eingepackten Frage: das Subjekt vor dem Verb."},
+        {"wrong":"Do you know what time does the store close?","right":"Do you know what time the store closes?","tr":"Wissen Sie, wann der Laden zumacht?","why":"In der eingepackten Frage fällt {{does}} weg, und das Verb bekommt sein {{-s}} zurück."},
+        {"wrong":"Do you know, is the museum open?","right":"Do you know if the museum is open?","tr":"Wissen Sie, ob das Museum offen ist?","why":"Für „ob“: {{if}}, dann Subjekt und Verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Wissen Sie, wo die Post ist?“","options":["{{Do you know where the post office is?}}","{{Do you know where is the post office?}}"],"answer":0,"why":"Eingepackt: das Subjekt vor dem Verb."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Could you tell me what time the museum ___?","tr":"Könnten Sie mir sagen, wann das Museum aufmacht?","options":["opens","does open","open"],"answer":0,"why":"Eingepackt: kein {{does}}, und das {{-s}} kommt zurück.","from":"ask-with-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Do you know ___ the bank is open today?","tr":"Wissen Sie, ob die Bank heute offen hat?","options":["if","that","when"],"answer":0,"why":"„Ob“: {{if}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Könnten Sie mir sagen, wo der Bahnhof ist?","words":["Could you","tell me","where","the station","is?"]},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich weiß nicht, wie viel es gekostet hat.","words":["I","don't know","how much","it","cost."],"from":"ask-about-the-past"},
+        {"type":"dialogue","q":"Am Flughafen.","lines":[{"who":"Staff","t":"Can I help you?","tr":"Kann ich Ihnen helfen?"},{"options":["Yes, could you tell me where gate 12 is?","Yes, could you tell me where is gate 12?"],"answer":0,"why":"Eingepackt: das Subjekt vor dem Verb."},{"who":"Staff","t":"It's down there on the left.","tr":"Da hinten links."},{"options":["Thanks. Do you know if the flight is on time?","Thanks. Do you know is the flight on time?"],"answer":0,"why":"„Ob“: {{if}}, dann Subjekt und Verb."}]},
+        {"type":"free","q":"Jetzt du: Du bist neu in einer amerikanischen Stadt. Stell einem Fremden zwei höfliche, eingepackte Fragen.","answers":[{"t":"Excuse me, could you tell me where the nearest supermarket is? Do you know if it's open on Sundays?","tr":"Entschuldigung, könnten Sie mir sagen, wo der nächste Supermarkt ist? Wissen Sie, ob er sonntags offen hat?"},{"t":"Do you know how I can get to the airport? Could you tell me how much a taxi costs?","tr":"Wissen Sie, wie ich zum Flughafen komme? Könnten Sie mir sagen, was ein Taxi kostet?"}]}
+      ]
     }
   ]
 }
