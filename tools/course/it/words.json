@@ -7393,6 +7393,927 @@
       "meaning": "sky; heaven",
       "sentence": "Il cielo è azzurro oggi.",
       "translation": "The ⟦sky⟧ is blue today."
+    },
+    {
+      "n": 801,
+      "rank": 856,
+      "word": "stella",
+      "pos": "noun",
+      "meaning": "star",
+      "sentence": "Stanotte si vedono le stelle.",
+      "translation": "You can see the ⟦stars⟧ tonight.",
+      "form": "stelle"
+    },
+    {
+      "n": 802,
+      "rank": 857,
+      "word": "associazione",
+      "pos": "noun",
+      "meaning": "association, organisation",
+      "sentence": "È un'associazione di volontariato.",
+      "translation": "It's a volunteer ⟦association⟧."
+    },
+    {
+      "n": 803,
+      "rank": 858,
+      "word": "malattia",
+      "pos": "noun",
+      "meaning": "illness, disease",
+      "sentence": "È una malattia grave.",
+      "translation": "It's a serious ⟦illness⟧."
+    },
+    {
+      "n": 804,
+      "rank": 859,
+      "word": "esprimere",
+      "pos": "verb",
+      "meaning": "to express; (esprimere un desiderio) to make a wish",
+      "sentence": "Esprimi un desiderio!",
+      "translation": "⟦Make⟧ a wish!",
+      "form": "esprimi"
+    },
+    {
+      "n": 805,
+      "rank": 860,
+      "word": "coppia",
+      "pos": "noun",
+      "meaning": "couple; pair",
+      "sentence": "Sono una bella coppia.",
+      "translation": "They're a lovely ⟦couple⟧."
+    },
+    {
+      "n": 806,
+      "rank": 861,
+      "word": "complesso",
+      "pos": "adj",
+      "meaning": "complicated, complex",
+      "sentence": "È una situazione complessa.",
+      "translation": "It's a ⟦complicated⟧ situation.",
+      "form": "complessa"
+    },
+    {
+      "n": 807,
+      "rank": 862,
+      "word": "classico",
+      "pos": "adj",
+      "meaning": "classic; classical",
+      "sentence": "Mi piace la musica classica.",
+      "translation": "I like ⟦classical⟧ music.",
+      "form": "classica"
+    },
+    {
+      "n": 808,
+      "rank": 863,
+      "word": "dormire",
+      "pos": "verb",
+      "meaning": "to sleep",
+      "sentence": "Hai dormito bene?",
+      "translation": "Did you ⟦sleep⟧ well?",
+      "form": "dormito"
+    },
+    {
+      "n": 809,
+      "rank": 864,
+      "word": "religioso",
+      "pos": "adj",
+      "meaning": "religious",
+      "sentence": "È una festa religiosa.",
+      "translation": "It's a ⟦religious⟧ holiday.",
+      "form": "religiosa"
+    },
+    {
+      "n": 810,
+      "rank": 865,
+      "word": "mattina",
+      "pos": "noun",
+      "meaning": "morning",
+      "sentence": "Ci vediamo domani mattina.",
+      "translation": "See you tomorrow ⟦morning⟧."
+    },
+    {
+      "n": 811,
+      "rank": 866,
+      "word": "suonare",
+      "pos": "verb",
+      "meaning": "to ring; to play (an instrument)",
+      "sentence": "Il telefono suona.",
+      "translation": "The phone is ⟦ringing⟧.",
+      "form": "suona"
+    },
+    {
+      "n": 812,
+      "rank": 867,
+      "word": "nazione",
+      "pos": "noun",
+      "meaning": "nation, country",
+      "sentence": "È una nazione molto piccola.",
+      "translation": "It's a very small ⟦nation⟧."
+    },
+    {
+      "n": 813,
+      "rank": 868,
+      "word": "aria",
+      "pos": "noun",
+      "meaning": "air",
+      "sentence": "Apri la finestra, serve aria.",
+      "translation": "Open the window, we need some ⟦air⟧."
+    },
+    {
+      "n": 814,
+      "rank": 869,
+      "word": "risultare",
+      "pos": "verb",
+      "meaning": "to turn out; (mi risulta) as far as I know",
+      "sentence": "Non mi risulta.",
+      "translation": "Not that I ⟦know⟧ of.",
+      "form": "risulta"
+    },
+    {
+      "n": 815,
+      "rank": 871,
+      "word": "infine",
+      "pos": "adv",
+      "meaning": "finally, lastly",
+      "sentence": "Infine, vorrei ringraziare tutti.",
+      "translation": "⟦Finally⟧, I'd like to thank everyone."
+    },
+    {
+      "n": 816,
+      "rank": 872,
+      "word": "là",
+      "pos": "adv",
+      "meaning": "there, over there",
+      "sentence": "Mettilo là, sul tavolo.",
+      "translation": "Put it over ⟦there⟧, on the table."
+    },
+    {
+      "n": 817,
+      "rank": 873,
+      "word": "qualunque",
+      "pos": "adj",
+      "meaning": "any, whatever",
+      "sentence": "Qualunque cosa succeda, ti aiuto.",
+      "translation": "⟦Whatever⟧ happens, I'll help you."
+    },
+    {
+      "n": 818,
+      "rank": 874,
+      "word": "artista",
+      "pos": "noun",
+      "meaning": "artist",
+      "sentence": "È un artista famoso.",
+      "translation": "He's a famous ⟦artist⟧."
+    },
+    {
+      "n": 819,
+      "rank": 875,
+      "word": "contenere",
+      "pos": "verb",
+      "meaning": "to contain",
+      "sentence": "Questo piatto contiene glutine?",
+      "translation": "Does this dish ⟦contain⟧ gluten?",
+      "form": "contiene"
+    },
+    {
+      "n": 820,
+      "rank": 876,
+      "word": "costruzione",
+      "pos": "noun",
+      "meaning": "construction, building",
+      "sentence": "La casa è in costruzione.",
+      "translation": "The house is under ⟦construction⟧."
+    },
+    {
+      "n": 821,
+      "rank": 877,
+      "word": "originale",
+      "pos": "adj",
+      "meaning": "original",
+      "sentence": "È un'idea originale.",
+      "translation": "It's an ⟦original⟧ idea."
+    },
+    {
+      "n": 822,
+      "rank": 878,
+      "word": "cliente",
+      "pos": "noun",
+      "meaning": "customer, client",
+      "sentence": "Il cliente ha sempre ragione.",
+      "translation": "The ⟦customer⟧ is always right."
+    },
+    {
+      "n": 823,
+      "rank": 879,
+      "word": "doppio",
+      "pos": "adj",
+      "meaning": "double",
+      "sentence": "Vorrei una camera doppia.",
+      "translation": "I'd like a ⟦double⟧ room.",
+      "form": "doppia"
+    },
+    {
+      "n": 824,
+      "rank": 880,
+      "word": "ritorno",
+      "pos": "noun",
+      "meaning": "return; (andata e ritorno) return ticket",
+      "sentence": "Vorrei un biglietto di andata e ritorno.",
+      "translation": "I'd like a ⟦return⟧ ticket."
+    },
+    {
+      "n": 825,
+      "rank": 882,
+      "word": "disponibile",
+      "pos": "adj",
+      "meaning": "available",
+      "sentence": "Sei disponibile domani?",
+      "translation": "Are you ⟦available⟧ tomorrow?"
+    },
+    {
+      "n": 826,
+      "rank": 883,
+      "word": "metodo",
+      "pos": "noun",
+      "meaning": "method",
+      "sentence": "Ho un metodo per imparare le parole.",
+      "translation": "I have a ⟦method⟧ for learning words."
+    },
+    {
+      "n": 827,
+      "rank": 884,
+      "word": "passato",
+      "pos": "noun",
+      "meaning": "past; (adj) past, last",
+      "sentence": "Non pensare al passato.",
+      "translation": "Don't think about the ⟦past⟧."
+    },
+    {
+      "n": 828,
+      "rank": 885,
+      "word": "riprendere",
+      "pos": "verb",
+      "meaning": "to start again, to resume; to take back",
+      "sentence": "Il lavoro riprende lunedì.",
+      "translation": "Work ⟦starts again⟧ on Monday.",
+      "form": "riprende"
+    },
+    {
+      "n": 829,
+      "rank": 886,
+      "word": "episodio",
+      "pos": "noun",
+      "meaning": "episode",
+      "sentence": "Hai visto l'ultimo episodio?",
+      "translation": "Have you seen the latest ⟦episode⟧?"
+    },
+    {
+      "n": 830,
+      "rank": 887,
+      "word": "assolutamente",
+      "pos": "adv",
+      "meaning": "absolutely",
+      "sentence": "Devi assolutamente provarlo.",
+      "translation": "You ⟦absolutely⟧ must try it."
+    },
+    {
+      "n": 831,
+      "rank": 890,
+      "word": "speranza",
+      "pos": "noun",
+      "meaning": "hope",
+      "sentence": "Non perdere la speranza.",
+      "translation": "Don't lose ⟦hope⟧."
+    },
+    {
+      "n": 832,
+      "rank": 891,
+      "word": "tradizione",
+      "pos": "noun",
+      "meaning": "tradition",
+      "sentence": "È una tradizione di famiglia.",
+      "translation": "It's a family ⟦tradition⟧."
+    },
+    {
+      "n": 833,
+      "rank": 892,
+      "word": "costringere",
+      "pos": "verb",
+      "meaning": "to force",
+      "sentence": "Nessuno ti costringe.",
+      "translation": "Nobody's ⟦forcing⟧ you.",
+      "form": "costringe"
+    },
+    {
+      "n": 834,
+      "rank": 893,
+      "word": "affrontare",
+      "pos": "verb",
+      "meaning": "to face, to deal with",
+      "sentence": "Dobbiamo affrontare il problema.",
+      "translation": "We have to ⟦face⟧ the problem."
+    },
+    {
+      "n": 835,
+      "rank": 894,
+      "word": "raccogliere",
+      "pos": "verb",
+      "meaning": "to pick (up); to collect",
+      "sentence": "Raccogliamo le mele in autunno.",
+      "translation": "We ⟦pick⟧ the apples in autumn.",
+      "form": "raccogliamo"
+    },
+    {
+      "n": 836,
+      "rank": 895,
+      "word": "memoria",
+      "pos": "noun",
+      "meaning": "memory",
+      "sentence": "Ho una pessima memoria.",
+      "translation": "I have a terrible ⟦memory⟧."
+    },
+    {
+      "n": 837,
+      "rank": 896,
+      "word": "anima",
+      "pos": "noun",
+      "meaning": "soul",
+      "sentence": "Non c'era anima viva.",
+      "translation": "There wasn't a living ⟦soul⟧."
+    },
+    {
+      "n": 838,
+      "rank": 897,
+      "word": "recente",
+      "pos": "adj",
+      "meaning": "recent",
+      "sentence": "È una foto recente.",
+      "translation": "It's a ⟦recent⟧ photo."
+    },
+    {
+      "n": 839,
+      "rank": 898,
+      "word": "direzione",
+      "pos": "noun",
+      "meaning": "direction; management",
+      "sentence": "Stiamo andando nella direzione giusta?",
+      "translation": "Are we going in the right ⟦direction⟧?"
+    },
+    {
+      "n": 840,
+      "rank": 899,
+      "word": "principe",
+      "pos": "noun",
+      "meaning": "prince",
+      "sentence": "Il piccolo principe è il mio libro preferito.",
+      "translation": "The Little ⟦Prince⟧ is my favourite book."
+    },
+    {
+      "n": 841,
+      "rank": 900,
+      "word": "materia",
+      "pos": "noun",
+      "meaning": "subject (at school); matter",
+      "sentence": "Qual è la tua materia preferita?",
+      "translation": "What's your favourite ⟦subject⟧?"
+    },
+    {
+      "n": 842,
+      "rank": 901,
+      "word": "minore",
+      "pos": "adj",
+      "meaning": "younger; smaller, lesser",
+      "sentence": "Mio fratello minore ha dieci anni.",
+      "translation": "My ⟦younger⟧ brother is ten."
+    },
+    {
+      "n": 843,
+      "rank": 902,
+      "word": "gestire",
+      "pos": "verb",
+      "meaning": "to run, to manage",
+      "sentence": "Gestisce un ristorante in centro.",
+      "translation": "She ⟦runs⟧ a restaurant in the centre.",
+      "form": "gestisce"
+    },
+    {
+      "n": 844,
+      "rank": 903,
+      "word": "spesa",
+      "pos": "noun",
+      "meaning": "shopping (for food); expense",
+      "sentence": "Vado a fare la spesa.",
+      "translation": "I'm going to do the ⟦shopping⟧."
+    },
+    {
+      "n": 845,
+      "rank": 904,
+      "word": "difficoltà",
+      "pos": "noun",
+      "meaning": "difficulty",
+      "sentence": "Ho qualche difficoltà con i verbi.",
+      "translation": "I have some ⟦difficulty⟧ with verbs."
+    },
+    {
+      "n": 846,
+      "rank": 907,
+      "word": "sette",
+      "pos": "num",
+      "meaning": "seven",
+      "sentence": "Una settimana ha sette giorni.",
+      "translation": "A week has ⟦seven⟧ days."
+    },
+    {
+      "n": 847,
+      "rank": 908,
+      "word": "categoria",
+      "pos": "noun",
+      "meaning": "category; class",
+      "sentence": "Scegli una categoria.",
+      "translation": "Choose a ⟦category⟧."
+    },
+    {
+      "n": 848,
+      "rank": 909,
+      "word": "distanza",
+      "pos": "noun",
+      "meaning": "distance",
+      "sentence": "Qual è la distanza da qui a Roma?",
+      "translation": "What's the ⟦distance⟧ from here to Rome?"
+    },
+    {
+      "n": 849,
+      "rank": 910,
+      "word": "palazzo",
+      "pos": "noun",
+      "meaning": "building, block of flats; palace",
+      "sentence": "Abito in un palazzo antico.",
+      "translation": "I live in an old ⟦building⟧."
+    },
+    {
+      "n": 850,
+      "rank": 911,
+      "word": "responsabile",
+      "pos": "noun",
+      "meaning": "person in charge; (adj) responsible",
+      "sentence": "Chi è il responsabile?",
+      "translation": "Who's ⟦in charge⟧?"
+    },
+    {
+      "n": 851,
+      "rank": 912,
+      "word": "ministero",
+      "pos": "noun",
+      "meaning": "ministry",
+      "sentence": "Lavora al ministero.",
+      "translation": "She works at the ⟦ministry⟧."
+    },
+    {
+      "n": 852,
+      "rank": 913,
+      "word": "raccolta",
+      "pos": "noun",
+      "meaning": "collection; (raccolta differenziata) recycling",
+      "sentence": "Facciamo la raccolta differenziata.",
+      "translation": "We do the ⟦recycling⟧."
+    },
+    {
+      "n": 853,
+      "rank": 914,
+      "word": "scientifico",
+      "pos": "adj",
+      "meaning": "scientific",
+      "sentence": "È una scoperta scientifica.",
+      "translation": "It's a ⟦scientific⟧ discovery.",
+      "form": "scientifica"
+    },
+    {
+      "n": 854,
+      "rank": 916,
+      "word": "caldo",
+      "pos": "adj",
+      "meaning": "hot, warm; (noun) heat",
+      "sentence": "Vorrei un tè caldo.",
+      "translation": "I'd like a ⟦hot⟧ tea."
+    },
+    {
+      "n": 855,
+      "rank": 918,
+      "word": "sacco",
+      "pos": "noun",
+      "meaning": "bag, sack; (un sacco di) loads of",
+      "sentence": "Ho un sacco di cose da fare.",
+      "translation": "I have ⟦loads⟧ of things to do."
+    },
+    {
+      "n": 856,
+      "rank": 919,
+      "word": "verde",
+      "pos": "adj",
+      "meaning": "green",
+      "sentence": "Il semaforo è verde.",
+      "translation": "The light is ⟦green⟧."
+    },
+    {
+      "n": 857,
+      "rank": 920,
+      "word": "fondamentale",
+      "pos": "adj",
+      "meaning": "essential, fundamental",
+      "sentence": "È fondamentale studiare ogni giorno.",
+      "translation": "It's ⟦essential⟧ to study every day."
+    },
+    {
+      "n": 858,
+      "rank": 921,
+      "word": "monte",
+      "pos": "noun",
+      "meaning": "mountain, mount",
+      "sentence": "Il paese è ai piedi del monte.",
+      "translation": "The village is at the foot of the ⟦mountain⟧."
+    },
+    {
+      "n": 859,
+      "rank": 923,
+      "word": "scienza",
+      "pos": "noun",
+      "meaning": "science",
+      "sentence": "Mi piace la scienza.",
+      "translation": "I like ⟦science⟧."
+    },
+    {
+      "n": 860,
+      "rank": 924,
+      "word": "norma",
+      "pos": "noun",
+      "meaning": "rule, norm; (di norma) as a rule",
+      "sentence": "Di norma pranzo all'una.",
+      "translation": "⟦As a rule⟧, I have lunch at one."
+    },
+    {
+      "n": 861,
+      "rank": 925,
+      "word": "dunque",
+      "pos": "conj",
+      "meaning": "so, then; therefore",
+      "sentence": "Dunque, dove eravamo?",
+      "translation": "⟦So⟧, where were we?"
+    },
+    {
+      "n": 862,
+      "rank": 926,
+      "word": "esattamente",
+      "pos": "adv",
+      "meaning": "exactly",
+      "sentence": "Esattamente, hai capito!",
+      "translation": "⟦Exactly⟧, you've got it!"
+    },
+    {
+      "n": 863,
+      "rank": 928,
+      "word": "gioco",
+      "pos": "noun",
+      "meaning": "game; toy",
+      "sentence": "I bambini hanno tanti giochi.",
+      "translation": "The children have lots of ⟦toys⟧.",
+      "form": "giochi"
+    },
+    {
+      "n": 864,
+      "rank": 931,
+      "word": "gara",
+      "pos": "noun",
+      "meaning": "race; competition",
+      "sentence": "Chi ha vinto la gara?",
+      "translation": "Who won the ⟦race⟧?"
+    },
+    {
+      "n": 865,
+      "rank": 932,
+      "word": "discussione",
+      "pos": "noun",
+      "meaning": "argument; discussion",
+      "sentence": "Abbiamo avuto una discussione.",
+      "translation": "We had an ⟦argument⟧."
+    },
+    {
+      "n": 866,
+      "rank": 933,
+      "word": "disposizione",
+      "pos": "noun",
+      "meaning": "disposal; arrangement",
+      "sentence": "Sono a tua disposizione.",
+      "translation": "I'm at your ⟦disposal⟧."
+    },
+    {
+      "n": 867,
+      "rank": 934,
+      "word": "commerciale",
+      "pos": "adj",
+      "meaning": "commercial; (centro commerciale) shopping centre",
+      "sentence": "C'è un centro commerciale qui vicino?",
+      "translation": "Is there a ⟦shopping⟧ centre near here?"
+    },
+    {
+      "n": 868,
+      "rank": 935,
+      "word": "combattere",
+      "pos": "verb",
+      "meaning": "to fight",
+      "sentence": "Dobbiamo combattere la povertà.",
+      "translation": "We have to ⟦fight⟧ poverty."
+    },
+    {
+      "n": 869,
+      "rank": 936,
+      "word": "lavoratore",
+      "pos": "noun",
+      "meaning": "worker",
+      "sentence": "È un gran lavoratore.",
+      "translation": "He's a hard ⟦worker⟧."
+    },
+    {
+      "n": 870,
+      "rank": 937,
+      "word": "giornalista",
+      "pos": "noun",
+      "meaning": "journalist",
+      "sentence": "Mia sorella fa la giornalista.",
+      "translation": "My sister is a ⟦journalist⟧."
+    },
+    {
+      "n": 871,
+      "rank": 938,
+      "word": "battaglia",
+      "pos": "noun",
+      "meaning": "battle",
+      "sentence": "È stata una lunga battaglia.",
+      "translation": "It's been a long ⟦battle⟧."
+    },
+    {
+      "n": 872,
+      "rank": 939,
+      "word": "riforma",
+      "pos": "noun",
+      "meaning": "reform",
+      "sentence": "Il governo ha fatto una riforma.",
+      "translation": "The government has made a ⟦reform⟧."
+    },
+    {
+      "n": 873,
+      "rank": 940,
+      "word": "tecnologia",
+      "pos": "noun",
+      "meaning": "technology",
+      "sentence": "La tecnologia cambia in fretta.",
+      "translation": "⟦Technology⟧ changes quickly."
+    },
+    {
+      "n": 874,
+      "rank": 941,
+      "word": "formare",
+      "pos": "verb",
+      "meaning": "to form; to train",
+      "sentence": "Formate dei gruppi di tre.",
+      "translation": "⟦Form⟧ groups of three.",
+      "form": "formate"
+    },
+    {
+      "n": 875,
+      "rank": 942,
+      "word": "regno",
+      "pos": "noun",
+      "meaning": "kingdom",
+      "sentence": "Vivo nel Regno Unito.",
+      "translation": "I live in the United ⟦Kingdom⟧."
+    },
+    {
+      "n": 876,
+      "rank": 943,
+      "word": "organizzare",
+      "pos": "verb",
+      "meaning": "to organise",
+      "sentence": "Organizziamo una cena sabato?",
+      "translation": "Shall we ⟦organise⟧ a dinner on Saturday?",
+      "form": "organizziamo"
+    },
+    {
+      "n": 877,
+      "rank": 944,
+      "word": "chiunque",
+      "pos": "pron",
+      "meaning": "anyone, anybody; whoever",
+      "sentence": "Chiunque può farlo.",
+      "translation": "⟦Anyone⟧ can do it."
+    },
+    {
+      "n": 878,
+      "rank": 945,
+      "word": "giustizia",
+      "pos": "noun",
+      "meaning": "justice",
+      "sentence": "Le famiglie chiedono giustizia.",
+      "translation": "The families are asking for ⟦justice⟧."
+    },
+    {
+      "n": 879,
+      "rank": 946,
+      "word": "mille",
+      "pos": "num",
+      "meaning": "a thousand",
+      "sentence": "Costa mille euro.",
+      "translation": "It costs a ⟦thousand⟧ euros."
+    },
+    {
+      "n": 880,
+      "rank": 947,
+      "word": "ovvero",
+      "pos": "conj",
+      "meaning": "that is, in other words",
+      "sentence": "Arrivo domenica, ovvero tra tre giorni.",
+      "translation": "I'm arriving on Sunday, ⟦that is⟧, in three days."
+    },
+    {
+      "n": 881,
+      "rank": 948,
+      "word": "radio",
+      "pos": "noun",
+      "meaning": "radio",
+      "sentence": "Ascolto la radio in macchina.",
+      "translation": "I listen to the ⟦radio⟧ in the car."
+    },
+    {
+      "n": 882,
+      "rank": 950,
+      "word": "peso",
+      "pos": "noun",
+      "meaning": "weight",
+      "sentence": "Ho perso peso.",
+      "translation": "I've lost ⟦weight⟧."
+    },
+    {
+      "n": 883,
+      "rank": 951,
+      "word": "isola",
+      "pos": "noun",
+      "meaning": "island",
+      "sentence": "Andiamo in vacanza su un'isola.",
+      "translation": "We're going on holiday to an ⟦island⟧."
+    },
+    {
+      "n": 884,
+      "rank": 953,
+      "word": "sviluppare",
+      "pos": "verb",
+      "meaning": "to develop",
+      "sentence": "Vogliamo sviluppare il turismo.",
+      "translation": "We want to ⟦develop⟧ tourism."
+    },
+    {
+      "n": 885,
+      "rank": 954,
+      "word": "organizzazione",
+      "pos": "noun",
+      "meaning": "organisation",
+      "sentence": "Complimenti per l'organizzazione!",
+      "translation": "Congratulations on the ⟦organisation⟧!"
+    },
+    {
+      "n": 886,
+      "rank": 955,
+      "word": "descrivere",
+      "pos": "verb",
+      "meaning": "to describe",
+      "sentence": "Puoi descrivere l'uomo?",
+      "translation": "Can you ⟦describe⟧ the man?"
+    },
+    {
+      "n": 887,
+      "rank": 956,
+      "word": "lezione",
+      "pos": "noun",
+      "meaning": "lesson, class",
+      "sentence": "Oggi non c'è lezione.",
+      "translation": "There's no ⟦class⟧ today."
+    },
+    {
+      "n": 888,
+      "rank": 957,
+      "word": "composto",
+      "pos": "adj",
+      "meaning": "made up (of), composed",
+      "sentence": "La squadra è composta da undici giocatori.",
+      "translation": "The team is ⟦made up⟧ of eleven players.",
+      "form": "composta"
+    },
+    {
+      "n": 889,
+      "rank": 958,
+      "word": "vento",
+      "pos": "noun",
+      "meaning": "wind",
+      "sentence": "Oggi c'è molto vento.",
+      "translation": "It's very ⟦windy⟧ today."
+    },
+    {
+      "n": 890,
+      "rank": 959,
+      "word": "risolvere",
+      "pos": "verb",
+      "meaning": "to solve, to sort out",
+      "sentence": "Ho risolto il problema.",
+      "translation": "I've ⟦solved⟧ the problem.",
+      "form": "risolto"
+    },
+    {
+      "n": 891,
+      "rank": 960,
+      "word": "fila",
+      "pos": "noun",
+      "meaning": "queue, line; row",
+      "sentence": "Mettiti in fila, per favore.",
+      "translation": "Get in ⟦line⟧, please."
+    },
+    {
+      "n": 892,
+      "rank": 961,
+      "word": "muro",
+      "pos": "noun",
+      "meaning": "wall",
+      "sentence": "Il quadro è sul muro.",
+      "translation": "The painting is on the ⟦wall⟧."
+    },
+    {
+      "n": 893,
+      "rank": 962,
+      "word": "appunto",
+      "pos": "adv",
+      "meaning": "exactly, precisely; (noun, appunti) notes",
+      "sentence": "Appunto, è quello che dico io.",
+      "translation": "⟦Exactly⟧, that's what I'm saying."
+    },
+    {
+      "n": 894,
+      "rank": 963,
+      "word": "sposare",
+      "pos": "verb",
+      "meaning": "to marry; (sposarsi) to get married",
+      "sentence": "Mi vuoi sposare?",
+      "translation": "Will you ⟦marry⟧ me?"
+    },
+    {
+      "n": 895,
+      "rank": 964,
+      "word": "affermare",
+      "pos": "verb",
+      "meaning": "to state, to claim",
+      "sentence": "Il ministro afferma che è vero.",
+      "translation": "The minister ⟦states⟧ that it's true.",
+      "form": "afferma"
+    },
+    {
+      "n": 896,
+      "rank": 966,
+      "word": "critico",
+      "pos": "adj",
+      "meaning": "critical; (noun) critic",
+      "sentence": "È un momento critico.",
+      "translation": "It's a ⟦critical⟧ moment."
+    },
+    {
+      "n": 897,
+      "rank": 967,
+      "word": "dolce",
+      "pos": "adj",
+      "meaning": "sweet; (noun) dessert",
+      "sentence": "Questo vino è troppo dolce.",
+      "translation": "This wine is too ⟦sweet⟧."
+    },
+    {
+      "n": 898,
+      "rank": 969,
+      "word": "capacità",
+      "pos": "noun",
+      "meaning": "ability; capacity",
+      "sentence": "Ha una grande capacità di ascoltare.",
+      "translation": "She has a great ⟦ability⟧ to listen."
+    },
+    {
+      "n": 899,
+      "rank": 972,
+      "word": "sé",
+      "pos": "pron",
+      "meaning": "oneself, himself, herself",
+      "sentence": "Pensa solo a sé stesso.",
+      "translation": "He only thinks about ⟦himself⟧."
+    },
+    {
+      "n": 900,
+      "rank": 973,
+      "word": "profilo",
+      "pos": "noun",
+      "meaning": "profile",
+      "sentence": "Ho cambiato la foto del profilo.",
+      "translation": "I changed my ⟦profile⟧ picture."
     }
   ]
 }
