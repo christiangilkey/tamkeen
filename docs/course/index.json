@@ -129,6 +129,22 @@
    },
    "built": "2026-10-25"
   },
+  "th": {
+   "file": "th/course.json",
+   "title": "Thai basics",
+   "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 405008,
+   "audio_bytes": 11719538,
+   "sha256": "686a0d214e52cf43b8037cd51d83745c0eb61da29bbb939a3c4caa94b5c3528d",
+   "voice": {
+    "engine": "azure",
+    "name": "Premwadee (Azure, Thailand)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "tl": {
    "file": "tl/course.json",
    "title": "Tagalog basics",
