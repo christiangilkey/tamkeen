@@ -183,6 +183,726 @@
       "meaning": "(yùu) to be (somewhere), to live, to stay; be …-ing",
       "sentence": "พี่สาวฉันอยู่กรุงเทพ",
       "translation": "My older sister ⟦lives⟧ in Bangkok."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "หรือ",
+      "pos": "conj",
+      "meaning": "(rʉ̌ʉ) or; (at the end: a yes/no question)",
+      "sentence": "รับชาหรือกาแฟคะ",
+      "translation": "Would you like tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "จาก",
+      "pos": "prep",
+      "meaning": "(jàak) from; to leave (someone, somewhere)",
+      "sentence": "ฉันมาจากอังกฤษ",
+      "translation": "I come ⟦from⟧ England."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "กัน",
+      "pos": "adv",
+      "meaning": "(gan) together; each other (after a verb)",
+      "sentence": "ไปกินข้าวกันเถอะ",
+      "translation": "Let's go and eat ⟦together⟧."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "นี้",
+      "pos": "det",
+      "meaning": "(níi) this (after a noun)",
+      "sentence": "ร้านนี้อร่อยมาก",
+      "translation": "⟦This⟧ restaurant is really good."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "แต่",
+      "pos": "conj",
+      "meaning": "(dtɛ̀ɛ) but; only",
+      "sentence": "อาหารอร่อยแต่แพง",
+      "translation": "The food is tasty ⟦but⟧ expensive."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "อย่าง",
+      "pos": "noun",
+      "meaning": "(yàang) kind, sort; like, as; -ly (before an adjective)",
+      "sentence": "ร้านนี้มีอาหารหลายอย่าง",
+      "translation": "This shop has many ⟦kinds⟧ of food."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "ต้อง",
+      "pos": "aux",
+      "meaning": "(dtɔ̂ng) must, have to",
+      "sentence": "พรุ่งนี้ฉันต้องตื่นเช้า",
+      "translation": "I ⟦have to⟧ get up early tomorrow."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "ด้วย",
+      "pos": "adv",
+      "meaning": "(dûai) too, as well; with (by means of); please (softening a request)",
+      "sentence": "ฉันไปด้วยได้ไหม",
+      "translation": "Can I come ⟦too⟧?"
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "ขึ้น",
+      "pos": "verb",
+      "meaning": "(kʉ̂n) to go up, to rise; to get on (a bus, train); up",
+      "sentence": "ราคาน้ำมันขึ้นอีกแล้ว",
+      "translation": "The price of fuel has ⟦gone up⟧ again."
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "เขา",
+      "pos": "pron",
+      "meaning": "(kǎo) he, she; they; him, her",
+      "sentence": "เขาเป็นครูสอนภาษาอังกฤษ",
+      "translation": "⟦He⟧ is an English teacher."
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "นั้น",
+      "pos": "det",
+      "meaning": "(nán) that (after a noun)",
+      "sentence": "บ้านหลังนั้นสวยมาก",
+      "translation": "⟦That⟧ house is very beautiful."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "ผู้",
+      "pos": "prefix",
+      "meaning": "(pûu) person who…, -er (before a verb)",
+      "sentence": "ขอบคุณผู้ชมทุกท่าน",
+      "translation": "Thank you to all our view⟦ers⟧."
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "ซึ่ง",
+      "pos": "pron",
+      "meaning": "(sʉ̂ng) which, who (joining a description; more formal than ที่)",
+      "sentence": "เขามีลูกชายซึ่งเป็นหมอ",
+      "translation": "He has a son ⟦who⟧ is a doctor."
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "ตาม",
+      "pos": "verb",
+      "meaning": "(dtaam) to follow; according to",
+      "sentence": "เดินตามฉันมานะ",
+      "translation": "Come on, ⟦follow⟧ me."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "มาก",
+      "pos": "adv",
+      "meaning": "(mâak) very; a lot, much",
+      "sentence": "วันนี้ร้อนมาก",
+      "translation": "It's ⟦very⟧ hot today."
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "โดย",
+      "pos": "prep",
+      "meaning": "(dooi) by (means of); by (someone)",
+      "sentence": "เราเดินทางโดยรถไฟ",
+      "translation": "We travelled ⟦by⟧ train."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "ใช้",
+      "pos": "verb",
+      "meaning": "(chái) to use",
+      "sentence": "ฉันใช้คอมพิวเตอร์ทุกวัน",
+      "translation": "I ⟦use⟧ a computer every day."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "ทาง",
+      "pos": "noun",
+      "meaning": "(taang) way, route; direction; by way of",
+      "sentence": "ไปทางนี้ใกล้กว่า",
+      "translation": "Going this ⟦way⟧ is shorter."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "เรื่อง",
+      "pos": "noun",
+      "meaning": "(rʉ̂ʉang) story; matter, subject; about",
+      "sentence": "เขาเล่าเรื่องตลกให้ฉันฟัง",
+      "translation": "He told me a funny ⟦story⟧."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "เรา",
+      "pos": "pron",
+      "meaning": "(rao) we, us (also: I, informally)",
+      "sentence": "เราเรียนที่โรงเรียนเดียวกัน",
+      "translation": "⟦We⟧ go to the same school."
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "ยัง",
+      "pos": "adv",
+      "meaning": "(yang) still; (not) yet",
+      "sentence": "ฉันยังไม่ได้กินข้าว",
+      "translation": "I haven't eaten ⟦yet⟧."
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "ทำ",
+      "pos": "verb",
+      "meaning": "(tam) to do; to make",
+      "sentence": "คุณทำอะไรอยู่",
+      "translation": "What are you ⟦doing⟧?"
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "เพื่อ",
+      "pos": "prep",
+      "meaning": "(pʉ̂ʉa) for; in order to",
+      "sentence": "ฉันออกกำลังกายเพื่อสุขภาพ",
+      "translation": "I exercise ⟦for⟧ my health."
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "ผม",
+      "pos": "pron",
+      "meaning": "(pǒm) I, me (said by men); hair (on the head)",
+      "sentence": "ผมชื่อสมชายครับ",
+      "translation": "⟦My⟧ name is Somchai."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "อีก",
+      "pos": "adv",
+      "meaning": "(ìik) another, more; again",
+      "sentence": "ขอน้ำอีกแก้วได้ไหมคะ",
+      "translation": "Could I have ⟦another⟧ glass of water?"
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "หนึ่ง",
+      "pos": "num",
+      "meaning": "(nʉ̀ng) one",
+      "sentence": "ขอข้าวผัดหนึ่งจานค่ะ",
+      "translation": "⟦One⟧ fried rice, please."
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "เมื่อ",
+      "pos": "conj",
+      "meaning": "(mʉ̂ʉa) when; (time) ago",
+      "sentence": "เมื่อฉันยังเด็ก ฉันชอบวาดรูป",
+      "translation": "⟦When⟧ I was a child, I loved drawing."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "ถึง",
+      "pos": "verb",
+      "meaning": "(tʉ̌ng) to arrive, to reach; to, until",
+      "sentence": "ถึงบ้านแล้วโทรหาฉันนะ",
+      "translation": "Call me when you ⟦get⟧ home."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "เข้า",
+      "pos": "verb",
+      "meaning": "(kâo) to go in, to come in, to enter",
+      "sentence": "เชิญเข้ามาเลยค่ะ",
+      "translation": "Please ⟦come in⟧."
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "เพราะ",
+      "pos": "conj",
+      "meaning": "(prɔ́) because",
+      "sentence": "ฉันไม่ไปเพราะฝนตก",
+      "translation": "I'm not going ⟦because⟧ it's raining."
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "ดี",
+      "pos": "adj",
+      "meaning": "(dii) good; well",
+      "sentence": "อากาศวันนี้ดีมาก",
+      "translation": "The weather is really ⟦nice⟧ today."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "ออก",
+      "pos": "verb",
+      "meaning": "(ɔ̀ɔk) to go out, to leave; out",
+      "sentence": "ฉันออกจากบ้านตอนเจ็ดโมง",
+      "translation": "I ⟦leave⟧ home at seven."
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "ฉัน",
+      "pos": "pron",
+      "meaning": "(chǎn) I, me",
+      "sentence": "ฉันหิวข้าวแล้ว",
+      "translation": "⟦I⟧'m getting hungry."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "เกิด",
+      "pos": "verb",
+      "meaning": "(gə̀ət) to be born; to happen",
+      "sentence": "ฉันเกิดที่เชียงใหม่",
+      "translation": "I was ⟦born⟧ in Chiang Mai."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "คือ",
+      "pos": "verb",
+      "meaning": "(kʉʉ) is (that is, namely)",
+      "sentence": "นี่คือพ่อของฉัน",
+      "translation": "This ⟦is⟧ my father."
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "เห็น",
+      "pos": "verb",
+      "meaning": "(hěn) to see",
+      "sentence": "คุณเห็นกุญแจของฉันไหม",
+      "translation": "Have you ⟦seen⟧ my keys?"
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "จึง",
+      "pos": "conj",
+      "meaning": "(jʉng) so, therefore",
+      "sentence": "ฝนตกหนัก เราจึงอยู่บ้าน",
+      "translation": "It rained hard, ⟦so⟧ we stayed at home."
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "ทำให้",
+      "pos": "verb",
+      "meaning": "(tam-hâi) to make (someone feel or do), to cause",
+      "sentence": "เพลงนี้ทำให้ฉันมีความสุข",
+      "translation": "This song ⟦makes⟧ me happy."
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "กว่า",
+      "pos": "adv",
+      "meaning": "(gwàa) more than, -er than",
+      "sentence": "น้องสูงกว่าฉัน",
+      "translation": "My little brother is tall⟦er than⟧ me."
+    },
+    {
+      "n": 60,
+      "rank": 61,
+      "word": "ไว้",
+      "pos": "verb",
+      "meaning": "(wái) to keep, to leave (something somewhere for later)",
+      "sentence": "วางกระเป๋าไว้ตรงนี้ได้เลย",
+      "translation": "You can ⟦leave⟧ your bag right here."
+    },
+    {
+      "n": 61,
+      "rank": 62,
+      "word": "ตัว",
+      "pos": "noun",
+      "meaning": "(dtuua) body; self; (classifier for animals, clothes, tables and chairs)",
+      "sentence": "ฉันปวดเมื่อยทั้งตัว",
+      "translation": "My whole ⟦body⟧ aches."
+    },
+    {
+      "n": 62,
+      "rank": 63,
+      "word": "ปี",
+      "pos": "noun",
+      "meaning": "(bpii) year",
+      "sentence": "ฉันอายุยี่สิบห้าปี",
+      "translation": "I'm twenty-five ⟦years⟧ old."
+    },
+    {
+      "n": 63,
+      "rank": 64,
+      "word": "เธอ",
+      "pos": "pron",
+      "meaning": "(təə) she, her; you (to a friend or someone younger)",
+      "sentence": "เธอเป็นเพื่อนสนิทของฉัน",
+      "translation": "⟦She⟧'s my best friend."
+    },
+    {
+      "n": 64,
+      "rank": 65,
+      "word": "คุณ",
+      "pos": "pron",
+      "meaning": "(kun) you (polite); Mr, Ms (before a name)",
+      "sentence": "คุณชื่ออะไรคะ",
+      "translation": "What's ⟦your⟧ name?"
+    },
+    {
+      "n": 65,
+      "rank": 66,
+      "word": "ต่อ",
+      "pos": "verb",
+      "meaning": "(dtɔ̀ɔ) to continue, to go on (doing); to connect; per",
+      "sentence": "ฉันจะอ่านหนังสือต่อ",
+      "translation": "I'll ⟦carry on⟧ reading."
+    },
+    {
+      "n": 66,
+      "rank": 67,
+      "word": "ทั้ง",
+      "pos": "adj",
+      "meaning": "(táng) all, whole; both",
+      "sentence": "ฉันนอนทั้งวัน",
+      "translation": "I slept ⟦all⟧ day."
+    },
+    {
+      "n": 67,
+      "rank": 68,
+      "word": "มัน",
+      "pos": "pron",
+      "meaning": "(man) it (also: fat, grease; potato, yam)",
+      "sentence": "มันแพงเกินไป",
+      "translation": "⟦It⟧'s too expensive."
+    },
+    {
+      "n": 68,
+      "rank": 69,
+      "word": "เลย",
+      "pos": "adv",
+      "meaning": "(ləəi) (not) at all; really, so (for emphasis); past, beyond",
+      "sentence": "ฉันไม่เข้าใจเลย",
+      "translation": "I don't understand ⟦at all⟧."
+    },
+    {
+      "n": 69,
+      "rank": 70,
+      "word": "ถ้า",
+      "pos": "conj",
+      "meaning": "(tâa) if",
+      "sentence": "ถ้าว่างก็มาหาฉันนะ",
+      "translation": "⟦If⟧ you're free, come and see me."
+    },
+    {
+      "n": 70,
+      "rank": 71,
+      "word": "อะไร",
+      "pos": "pron",
+      "meaning": "(à-rai) what; something, anything",
+      "sentence": "นี่คืออะไร",
+      "translation": "⟦What⟧ is this?"
+    },
+    {
+      "n": 71,
+      "rank": 72,
+      "word": "เวลา",
+      "pos": "noun",
+      "meaning": "(wee-laa) time; when, whenever",
+      "sentence": "ฉันไม่มีเวลา",
+      "translation": "I don't have ⟦time⟧."
+    },
+    {
+      "n": 72,
+      "rank": 73,
+      "word": "ลง",
+      "pos": "verb",
+      "meaning": "(long) to go down; to get off (a bus, train); down",
+      "sentence": "ฉันจะลงรถที่ป้ายหน้า",
+      "translation": "I'll ⟦get off⟧ at the next stop."
+    },
+    {
+      "n": 73,
+      "rank": 74,
+      "word": "ต่าง",
+      "pos": "adj",
+      "meaning": "(dtàang) different; various",
+      "sentence": "เราสองคนนิสัยต่างกัน",
+      "translation": "The two of us have ⟦different⟧ personalities."
+    },
+    {
+      "n": 74,
+      "rank": 75,
+      "word": "ส่วน",
+      "pos": "noun",
+      "meaning": "(sùuan) part, portion; as for",
+      "sentence": "ส่วนฉันเอาชาเย็น",
+      "translation": "⟦As for⟧ me, I'll have iced tea."
+    },
+    {
+      "n": 75,
+      "rank": 76,
+      "word": "ประเทศ",
+      "pos": "noun",
+      "meaning": "(bprà-têet) country",
+      "sentence": "คุณมาจากประเทศอะไร",
+      "translation": "What ⟦country⟧ are you from?"
+    },
+    {
+      "n": 76,
+      "rank": 77,
+      "word": "อาจ",
+      "pos": "aux",
+      "meaning": "(àat) may, might",
+      "sentence": "พรุ่งนี้ฉันอาจจะมาสาย",
+      "translation": "I ⟦might⟧ be late tomorrow."
+    },
+    {
+      "n": 77,
+      "rank": 78,
+      "word": "แบบ",
+      "pos": "noun",
+      "meaning": "(bɛ̀ɛp) style, kind, design; like (this, that)",
+      "sentence": "ฉันชอบเสื้อแบบนี้",
+      "translation": "I like shirts ⟦like⟧ this."
+    },
+    {
+      "n": 78,
+      "rank": 79,
+      "word": "ถูก",
+      "pos": "adj",
+      "meaning": "(tùuk) cheap; right, correct; (before a verb: is/was done to)",
+      "sentence": "ที่นี่อาหารถูกและอร่อย",
+      "translation": "The food here is ⟦cheap⟧ and tasty."
+    },
+    {
+      "n": 79,
+      "rank": 80,
+      "word": "ทุก",
+      "pos": "adj",
+      "meaning": "(túk) every, each",
+      "sentence": "ฉันดื่มกาแฟทุกเช้า",
+      "translation": "I drink coffee ⟦every⟧ morning."
+    },
+    {
+      "n": 80,
+      "rank": 81,
+      "word": "วัน",
+      "pos": "noun",
+      "meaning": "(wan) day",
+      "sentence": "สัปดาห์หนึ่งมีเจ็ดวัน",
+      "translation": "A week has seven ⟦days⟧."
+    },
+    {
+      "n": 81,
+      "rank": 82,
+      "word": "ก่อน",
+      "pos": "prep",
+      "meaning": "(gɔ̀ɔn) before; first, earlier",
+      "sentence": "ล้างมือก่อนกินข้าว",
+      "translation": "Wash your hands ⟦before⟧ eating."
+    },
+    {
+      "n": 82,
+      "rank": 83,
+      "word": "เช่น",
+      "pos": "conj",
+      "meaning": "(chên) such as, for example",
+      "sentence": "ฉันชอบผลไม้ เช่น มะม่วงและกล้วย",
+      "translation": "I like fruit, ⟦such as⟧ mangoes and bananas."
+    },
+    {
+      "n": 83,
+      "rank": 84,
+      "word": "อื่น",
+      "pos": "adj",
+      "meaning": "(ʉ̀ʉn) other, else",
+      "sentence": "มีสีอื่นไหมคะ",
+      "translation": "Do you have it in ⟦other⟧ colours?"
+    },
+    {
+      "n": 84,
+      "rank": 85,
+      "word": "ดู",
+      "pos": "verb",
+      "meaning": "(duu) to look at, to watch; to look (+ adjective)",
+      "sentence": "เมื่อคืนฉันดูหนังกับแฟน",
+      "translation": "Last night I ⟦watched⟧ a film with my boyfriend."
+    },
+    {
+      "n": 85,
+      "rank": 86,
+      "word": "ครั้ง",
+      "pos": "noun",
+      "meaning": "(kráng) time (occasion)",
+      "sentence": "ฉันเคยไปญี่ปุ่นสองครั้ง",
+      "translation": "I've been to Japan two ⟦times⟧."
+    },
+    {
+      "n": 86,
+      "rank": 87,
+      "word": "รู้",
+      "pos": "verb",
+      "meaning": "(rúu) to know",
+      "sentence": "ฉันไม่รู้ว่าเขาอยู่ไหน",
+      "translation": "I don't ⟦know⟧ where he is."
+    },
+    {
+      "n": 87,
+      "rank": 88,
+      "word": "เอา",
+      "pos": "verb",
+      "meaning": "(ao) to take; to want (to have)",
+      "sentence": "เอาร่มไปด้วยนะ",
+      "translation": "⟦Take⟧ an umbrella with you."
+    },
+    {
+      "n": 88,
+      "rank": 89,
+      "word": "สอง",
+      "pos": "num",
+      "meaning": "(sɔ̌ɔng) two",
+      "sentence": "ฉันมีพี่ชายสองคน",
+      "translation": "I have ⟦two⟧ older brothers."
+    },
+    {
+      "n": 89,
+      "rank": 90,
+      "word": "นำ",
+      "pos": "verb",
+      "meaning": "(nam) to lead, to take, to bring",
+      "sentence": "ไกด์นำเราไปดูวัด",
+      "translation": "The guide ⟦took⟧ us to see the temple."
+    },
+    {
+      "n": 90,
+      "rank": 91,
+      "word": "งาน",
+      "pos": "noun",
+      "meaning": "(ngaan) work, job; event, party",
+      "sentence": "วันนี้งานเยอะมาก",
+      "translation": "I have a lot of ⟦work⟧ today."
+    },
+    {
+      "n": 91,
+      "rank": 92,
+      "word": "สามารถ",
+      "pos": "verb",
+      "meaning": "(sǎa-mâat) can, to be able to (more formal than ได้)",
+      "sentence": "เขาสามารถพูดได้สามภาษา",
+      "translation": "He ⟦can⟧ speak three languages."
+    },
+    {
+      "n": 92,
+      "rank": 93,
+      "word": "นาย",
+      "pos": "noun",
+      "meaning": "(naai) Mr (before a man's name); boss, master; you (between male friends)",
+      "sentence": "นายแดงทำงานที่ธนาคาร",
+      "translation": "⟦Mr⟧ Daeng works at a bank."
+    },
+    {
+      "n": 93,
+      "rank": 94,
+      "word": "นะ",
+      "pos": "part",
+      "meaning": "(ná) (softens what is said: OK?, all right?, please)",
+      "sentence": "อย่าลืมนะ",
+      "translation": "Don't forget⟦, OK⟧?"
+    },
+    {
+      "n": 94,
+      "rank": 95,
+      "word": "หน้า",
+      "pos": "noun",
+      "meaning": "(nâa) face; front; next (week, year); page",
+      "sentence": "เธอล้างหน้าทุกเช้า",
+      "translation": "She washes her ⟦face⟧ every morning."
+    },
+    {
+      "n": 95,
+      "rank": 96,
+      "word": "บอก",
+      "pos": "verb",
+      "meaning": "(bɔ̀ɔk) to tell",
+      "sentence": "แม่บอกให้ฉันกลับบ้านเร็ว",
+      "translation": "Mum ⟦told⟧ me to come home early."
+    },
+    {
+      "n": 96,
+      "rank": 97,
+      "word": "กลับ",
+      "pos": "verb",
+      "meaning": "(glàp) to go back, to return",
+      "sentence": "ฉันกลับบ้านตอนห้าโมงเย็น",
+      "translation": "I ⟦go back⟧ home at five in the evening."
+    },
+    {
+      "n": 97,
+      "rank": 98,
+      "word": "แห่ง",
+      "pos": "clf",
+      "meaning": "(hɛ̀ng) (classifier for places); of (formal)",
+      "sentence": "ที่นี่มีที่เที่ยวหลายแห่ง",
+      "translation": "There are lots of ⟦places⟧ to visit here."
+    },
+    {
+      "n": 98,
+      "rank": 99,
+      "word": "บาง",
+      "pos": "adj",
+      "meaning": "(baang) some; thin",
+      "sentence": "บางคนชอบกินเผ็ด",
+      "translation": "⟦Some⟧ people like spicy food."
+    },
+    {
+      "n": 99,
+      "rank": 100,
+      "word": "ได้รับ",
+      "pos": "verb",
+      "meaning": "(dâi-ráp) to receive, to get",
+      "sentence": "ฉันได้รับจดหมายจากแม่",
+      "translation": "I ⟦received⟧ a letter from Mum."
+    },
+    {
+      "n": 100,
+      "rank": 101,
+      "word": "จน",
+      "pos": "conj",
+      "meaning": "(jon) until; so … that; poor",
+      "sentence": "ฉันรอเขาจนมืด",
+      "translation": "I waited for him ⟦until⟧ it got dark."
     }
   ]
 }
