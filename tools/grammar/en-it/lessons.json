@@ -1719,6 +1719,250 @@
         {"type":"say","q":"Say to a man who helped you: “Thanks a lot, you're very kind!”","answer":"Grazie mille, sei gentilissimo!","from":"describe-things-and-people"},
         {"type":"free","q":"Your turn: recommend your city to an Italian: its most beautiful place, its best restaurant, its most interesting museum.","answers":[{"t":"Il posto più bello di San Francisco è il Golden Gate Park, e il ristorante migliore è a Chinatown.","tr":"The most beautiful place in San Francisco is Golden Gate Park, and the best restaurant is in Chinatown."},{"t":"A Londra il museo più interessante è il British Museum, ed è gratis!","tr":"In London the most interesting museum is the British Museum, and it's free!"}]}
       ]
+    },
+    {
+      "id": "talk-about-the-future",
+      "unit": 7,
+      "level": "A2",
+      "title": "Talk about the future",
+      "summary": "Say what you'll do next year, make promises and predictions, and make a guess: “He's probably at home.”",
+      "topic": "The futuro semplice: {{parlerò, prenderò, sarò, andrò}}; the future for guesses",
+      "blocks": [
+        {"goal":{"t":"L'anno prossimo andrò in Italia e studierò a Firenze.","tr":"Next year I'll go to Italy and study in Florence."}},
+        {"dialog":[{"who":"Sara","t":"Cosa farai dopo l'università?","tr":"What will you do after college?"},{"who":"You","t":"Lavorerò un anno, poi viaggerò in Sud America.","tr":"I'll work for a year, then I'll travel around South America."},{"who":"Sara","t":"Che bello! E dove abiterai?","tr":"How lovely! And where will you live?"},{"who":"You","t":"Non lo so ancora. Vedremo!","tr":"I don't know yet. We'll see!"},{"who":"Sara","t":"Sarà un'avventura!","tr":"It'll be an adventure!"}]},
+        {"p":"**The future is one word in Italian.** Take off the final {{-e}} of the infinitive and add {{-ò, -ai, -à, -emo, -ete, -anno}}; -are verbs also change their {{a}} to {{e}}: {{parlare → parlerò}}."},
+        { "table": [
+          ["","{{parlare}}","{{prendere}}","{{partire}}"],
+          ["I","{{parlerò}}","{{prenderò}}","{{partirò}}"],
+          ["you ({{tu}})","{{parlerai}}","{{prenderai}}","{{partirai}}"],
+          ["he, she, you ({{Lei}})","{{parlerà}}","{{prenderà}}","{{partirà}}"],
+          ["we","{{parleremo}}","{{prenderemo}}","{{partiremo}}"],
+          ["you (two or more)","{{parlerete}}","{{prenderete}}","{{partirete}}"],
+          ["they","{{parleranno}}","{{prenderanno}}","{{partiranno}}"]
+        ] },
+        {"p":"**Irregular, but in a pattern.** Several common verbs shorten their stem; the endings stay the same: {{essere → sarò}}, {{avere → avrò}}, {{andare → andrò}}, {{fare → farò}}, {{potere → potrò}}, {{dovere → dovrò}}, {{vedere → vedrò}}, {{sapere → saprò}}, {{venire → verrò}}, {{volere → vorrò}}, {{bere → berrò}}, {{rimanere → rimarrò}}."},
+        {"p":"**When do Italians use it?** For plans already fixed, the present is enough ({{Domani parto}}). The future is for what's further away or less certain, for promises and for predictions: {{Ti chiamerò}} “I'll call you”, {{Domani pioverà}} “It will rain tomorrow”. “In” a length of time from now is {{tra}} or {{fra}}: {{tra cinque anni}} “in five years”."},
+        {"p":"**Guessing.** The future also says what is probably true right now: {{Dov'è Marco? Sarà a casa}} “Where's Marco? He's probably at home”; {{Che ore sono? Saranno le dieci}} “It must be about ten”."},
+        { "ex": [
+          {"t":"Domani farà caldo.","tr":"It'll be hot tomorrow."},
+          {"t":"Un giorno avrò una casa al mare.","tr":"One day I'll have a house by the sea."},
+          {"t":"Quando finirai il libro?","tr":"When will you finish the book?"},
+          {"t":"Ci vedremo presto!","tr":"We'll see each other soon!"},
+          {"t":"Verrete alla festa?","tr":"Will you come to the party?"},
+          {"t":"Tra due settimane saremo in vacanza.","tr":"In two weeks we'll be on vacation."},
+          {"t":"Chi è alla porta? Sarà il postino.","tr":"Who's at the door? It's probably the mailman."}
+        ] },
+        {"tip":"Verbs in {{-care}} and {{-gare}} add an h to keep the hard sound: {{cercare → cercherò}}, {{pagare → pagherò}}. Verbs in {{-ciare}} and {{-giare}} drop their i: {{cominciare → comincerò}}, {{mangiare → mangerò}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Parlarò con lui.","right":"Parlerò con lui.","tr":"I'll talk to him.","why":"-are verbs change their a to e in the future: {{parlerò}}."},
+        {"wrong":"L'anno prossimo anderò in Sicilia.","right":"L'anno prossimo andrò in Sicilia.","tr":"Next year I'll go to Sicily.","why":"{{andare}} shortens its stem: {{andrò}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"L'estate prossima ___ in Grecia.","tr":"Next summer we'll go to Greece.","options":["andremo","anderemo","andremmo"],"answer":0,"why":"{{andare}} → {{andr-}}, and {{-emo}} is “we”. ({{andremmo}}, with two m's, means “we would go”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Domani ___ bel tempo.","tr":"The weather will be nice tomorrow.","options":["farà","fara","farò"],"answer":0,"why":"{{fare}} → {{far-}}; “it” (the weather) takes {{-à}}, with its accent.","from":"make-plans"},
+        {"type":"choice","q":"{{Dov'è Luca? Sarà in ufficio.}} means…","options":["Where's Luca? He's probably at the office.","Where's Luca? He was at the office.","Where's Luca? He has to be at the office."],"answer":0,"why":"The future can be a guess about now: “he's probably…”."},
+        {"type":"dialogue","q":"A friend asks about your plans: choose your replies.","lines":[{"who":"Sara","t":"Cosa farai dopo l'università?","tr":"What will you do after college?"},{"options":["Lavorerò un anno e poi viaggerò.","Lavorarò un anno e poi viaggiarò."],"answer":0,"why":"-are verbs change a to e: {{lavorerò}}, {{viaggerò}}."},{"who":"Sara","t":"E dove abiterai?","tr":"And where will you live?"},{"options":["Non lo so ancora. Vedremo!","Non lo so ancora. Vederemo!"],"answer":0,"why":"{{vedere}} shortens its stem: {{vedremo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"One day we'll have a house in the country.","words":["Un giorno","avremo","una casa","in campagna."]},
+        {"type":"say","q":"Promise a friend: “I'll call you tomorrow!”","answer":"Ti chiamerò domani!","from":"avoid-repeating-yourself"},
+        {"type":"free","q":"Your turn: what will your life be like in five years? Say where you'll live, what you'll do, and one wish.","answers":[{"t":"Tra cinque anni abiterò in Italia, lavorerò in un albergo e parlerò italiano benissimo!","tr":"In five years I'll live in Italy, I'll work in a hotel, and I'll speak Italian really well!"},{"t":"Fra cinque anni avrò due figli, sarò più tranquilla e andrò in vacanza ogni estate.","tr":"In five years I'll have two children, I'll be calmer, and I'll go on vacation every summer."}]}
+      ]
+    },
+    {
+      "id": "say-what-happens-if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what will happen if…",
+      "summary": "Make plans that depend on something: “If it rains, we'll stay home”, “As soon as I arrive, I'll call you.”",
+      "topic": "{{se}} + the present (or the future); {{quando}}, {{appena}}",
+      "blocks": [
+        {"goal":{"t":"Se domani piove, restiamo a casa.","tr":"If it rains tomorrow, we'll stay home."}},
+        {"dialog":[{"who":"Marco","t":"Facciamo un picnic domenica?","tr":"Shall we have a picnic on Sunday?"},{"who":"You","t":"Sì! Se fa bel tempo, andiamo al lago.","tr":"Yes! If the weather's nice, let's go to the lake."},{"who":"Marco","t":"E se piove?","tr":"And if it rains?"},{"who":"You","t":"Se piove, veniamo da te e guardiamo un film.","tr":"If it rains, we'll come to your place and watch a movie."},{"who":"Marco","t":"Perfetto. Se vuoi, preparo io i panini.","tr":"Perfect. If you like, I'll make the sandwiches."},{"who":"You","t":"Se li prepari tu, io porto il dolce!","tr":"If you make them, I'll bring dessert!"}]},
+        {"p":"**Real possibilities.** {{se}} “if” + the present, then the result, also in the present (or the future): {{Se piove, restiamo a casa}}. In everyday speech, the present in both halves is the most common."},
+        { "table": [
+          ["if…","then…"],
+          ["{{Se hai tempo,}}","{{andiamo al cinema.}} “let's go to the movies.”"],
+          ["{{Se studi,}}","{{passerai l'esame.}} “you'll pass the exam.”"],
+          ["{{Se arrivi tardi,}}","{{perdi il treno.}} “you'll miss the train.”"],
+          ["{{Se vuoi,}}","{{ti aiuto.}} “I'll help you.”"]
+        ] },
+        {"p":"**Further ahead**: when both halves are clearly in the future, careful Italian puts both in the future: {{Se avrò tempo, verrò}} “If I have time, I'll come”. English never uses “will” after “if”; Italian can."},
+        {"p":"**When, as soon as**: {{quando}} and {{appena}} work the same way: {{Quando arrivo, ti chiamo}} or {{Quando arriverò, ti chiamerò}} “When I arrive, I'll call you”; {{Appena finisco, esco}} “As soon as I finish, I'm going out”. And “unless” is simply {{se non}}: {{Se non piove, andiamo al mare}}."},
+        { "ex": [
+          {"t":"Se hai fame, c'è della pizza in frigo.","tr":"If you're hungry, there's some pizza in the fridge."},
+          {"t":"Se vuoi, ti accompagno alla stazione.","tr":"If you like, I'll walk you to the station."},
+          {"t":"Se perdi l'autobus, prendi un taxi.","tr":"If you miss the bus, take a taxi."},
+          {"t":"Se non ti piace, puoi cambiarlo.","tr":"If you don't like it, you can exchange it."},
+          {"t":"Se finiremo presto, andremo al ristorante.","tr":"If we finish early, we'll go to a restaurant."},
+          {"t":"Appena arrivo a casa, ti scrivo.","tr":"As soon as I get home, I'll text you."},
+          {"t":"Quando sarò in pensione, viaggerò tanto.","tr":"When I'm retired, I'll travel a lot."}
+        ] },
+        {"tip":"{{Se vuoi}} and {{se ti va}} “if you like, if you feel like it” are the friendly way to offer: {{Se ti va, ceniamo insieme}} “If you feel like it, let's have dinner together”."}
+      ],
+      "mistakes": [
+        {"wrong":"Se avrei tempo, vengo.","right":"Se ho tempo, vengo.","tr":"If I have time, I'll come.","why":"After {{se}}, never a “would” form like {{vorrei}} or {{avrei}}: for a real possibility, use the present."},
+        {"wrong":"Se vuoi, aiuto tu.","right":"Se vuoi, ti aiuto.","tr":"If you like, I'll help you.","why":"“I'll help you” is {{ti aiuto}}: the pronoun goes before the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Se ___ tempo, veniamo a trovarti.","tr":"If we have time, we'll come and see you.","options":["abbiamo","avremmo"],"answer":0,"why":"After {{se}}, for a real possibility: the present."},
+        {"type":"fill","q":"Choose the missing word.","t":"Se non ti piace, ___ cambiarlo.","tr":"If you don't like it, you can exchange it.","options":["puoi","può","posso"],"answer":0,"why":"“You can” ({{tu}}): {{puoi}}, followed directly by the infinitive.","from":"say-what-you-can-and-must"},
+        {"type":"choice","q":"{{Appena arrivo, ti chiamo}} means…","options":["As soon as I arrive, I'll call you.","If I arrive, I'll call you.","I've just arrived, I'm calling you."],"answer":0,"why":"{{appena}} + a verb in the present is “as soon as”. (With the past, {{sono appena arrivato}}, it means “I've just arrived”.)","from":"say-when-it-happened"},
+        {"type":"dialogue","q":"Planning a picnic: choose your replies.","lines":[{"who":"Marco","t":"Facciamo un picnic domenica?","tr":"Shall we have a picnic on Sunday?"},{"options":["Sì! Se fa bel tempo, andiamo al lago.","Sì! Se farebbe bel tempo, andiamo al lago."],"answer":0,"why":"After {{se}}: the present, {{fa}}."},{"who":"Marco","t":"E se piove?","tr":"And if it rains?"},{"options":["Se piove, restiamo a casa e guardiamo un film.","Se piove, restare a casa e guardare un film."],"answer":0,"why":"Both halves need a verb with its ending: {{restiamo}}, {{guardiamo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If you're tired, I'll drive.","words":["Se","sei stanco,","guido","io."]},
+        {"type":"say","q":"Offer: “If you like, I'll walk you to the station.”","answer":"Se vuoi, ti accompagno alla stazione."},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is nice, and what you'll do if it rains.","answers":[{"t":"Se fa bel tempo, vado in bicicletta. Se piove, leggo un libro sul divano.","tr":"If the weather's nice, I'll go for a bike ride. If it rains, I'll read a book on the sofa."},{"t":"Se c'è il sole, andremo al mare; se piove, andremo al museo.","tr":"If it's sunny, we'll go to the beach; if it rains, we'll go to the museum."}]}
+      ]
+    },
+    {
+      "id": "ask-politely-and-give-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask politely and give advice",
+      "summary": "“Could you…?”, “You should…”, “I'd love to…”: the condizionale, Italian's polite and dreaming form.",
+      "topic": "The condizionale: {{potrebbe, dovresti, mi piacerebbe, al tuo posto…}}",
+      "blocks": [
+        {"goal":{"t":"Potrebbe chiamarmi un taxi, per favore?","tr":"Could you call me a taxi, please?"}},
+        {"dialog":[{"who":"Luca","t":"Non dormo bene e sono sempre stanco.","tr":"I don't sleep well and I'm always tired."},{"who":"You","t":"Dovresti bere meno caffè.","tr":"You should drink less coffee."},{"who":"Luca","t":"Lo so... E poi lavoro troppo.","tr":"I know… And I work too much."},{"who":"You","t":"Al tuo posto, prenderei qualche giorno di ferie.","tr":"If I were you, I'd take a few days off."},{"who":"Luca","t":"Mi piacerebbe tanto! Andrei al mare...","tr":"I'd love to! I'd go to the beach…"},{"who":"You","t":"Allora perché non lo fai?","tr":"So why don't you do it?"}]},
+        {"p":"**“Would”: the condizionale.** You've used it since the café: {{vorrei}} “I'd like”. It's the polite form of everything, and the way to give advice and talk about wishes. It's built like the future, with {{-ei}} endings instead: {{parlerò}} “I'll speak” → {{parlerei}} “I'd speak”."},
+        { "table": [
+          ["","{{parlare}}","{{potere}}","{{volere}}"],
+          ["I","{{parlerei}}","{{potrei}}","{{vorrei}}"],
+          ["you ({{tu}})","{{parleresti}}","{{potresti}}","{{vorresti}}"],
+          ["he, she, you ({{Lei}})","{{parlerebbe}}","{{potrebbe}}","{{vorrebbe}}"],
+          ["we","{{parleremmo}}","{{potremmo}}","{{vorremmo}}"],
+          ["you (two or more)","{{parlereste}}","{{potreste}}","{{vorreste}}"],
+          ["they","{{parlerebbero}}","{{potrebbero}}","{{vorrebbero}}"]
+        ] },
+        {"p":"The future's short stems come back: {{sarei}}, {{avrei}}, {{andrei}}, {{farei}}, {{dovrei}}, {{verrei}}. Watch the double m: {{parleremo}} “we'll speak”, {{parleremmo}} “we'd speak”."},
+        {"p":"**Three everyday jobs.** Asking politely: {{Potrebbe aiutarmi?}} “Could you help me?”. Giving advice: {{Dovresti riposarti}} “You should rest”, {{Al tuo posto, andrei dal medico}} “If I were you, I'd go to the doctor”. Wishes: {{Mi piacerebbe vivere in Italia}} “I'd love to live in Italy”, {{Sarebbe bello!}} “That would be nice!”"},
+        { "ex": [
+          {"t":"Potrebbe ripetere, per favore?","tr":"Could you repeat that, please?"},
+          {"t":"Vorremmo un tavolo per quattro.","tr":"We'd like a table for four."},
+          {"t":"Dovresti chiamare tua madre.","tr":"You should call your mother."},
+          {"t":"Mi piacerebbe imparare a cucinare.","tr":"I'd love to learn to cook."},
+          {"t":"Al posto tuo, non direi niente.","tr":"If I were you, I wouldn't say anything."},
+          {"t":"Sarebbe meglio partire presto.","tr":"It would be better to leave early."},
+          {"t":"Avresti un minuto?","tr":"Would you have a minute?"}
+        ] },
+        {"tip":"The condizionale softens anything: {{Avrei una domanda}} “I'd have a question” sounds gentler than {{Ho una domanda}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Mi piacerei andare in Italia.","right":"Mi piacerebbe andare in Italia.","tr":"I'd love to go to Italy.","why":"{{piacere}} agrees with what you'd like (here, going): {{piacerebbe}}, just as you say {{mi piace}}."},
+        {"wrong":"Dovresti a riposare.","right":"Dovresti riposare.","tr":"You should rest.","why":"As with {{devo}}, the infinitive follows directly."},
+        {"wrong":"Potremo avere il conto?","right":"Potremmo avere il conto?","tr":"Could we have the check?","why":"Polite “could we”: {{potremmo}}, with two m's. {{potremo}} means “we will be able to”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ un caffè, per favore.","tr":"I'd like a coffee, please.","options":["Vorrei","Voglio","Vorrò"],"answer":0,"why":"The polite “I'd like”: the condizionale, {{vorrei}}.","from":"order-at-the-cafe"},
+        {"type":"fill","q":"Choose the missing word.","t":"Sei stanco: ___ andare a letto presto.","tr":"You're tired: you should go to bed early.","options":["dovresti","dovrai","devi a"],"answer":0,"why":"Advice: the condizionale of {{dovere}}, {{dovresti}}."},
+        {"type":"choice","q":"The politest way to ask a stranger for help:","options":["{{Scusi, potrebbe aiutarmi?}}","{{Scusi, può aiutarmi?}}","{{Aiutami!}}"],"answer":0,"why":"{{può}} is polite too; {{potrebbe}} is politer still. ({{Aiutami!}} is “Help me!”)"},
+        {"type":"dialogue","q":"A friend needs advice: choose your replies.","lines":[{"who":"Luca","t":"Ho mal di testa da tre giorni.","tr":"I've had a headache for three days."},{"options":["Dovresti andare dal medico.","Dovrai andare dal medico."],"answer":0,"why":"Advice: {{dovresti}} “you should”. ({{dovrai}} is “you will have to”.)"},{"who":"Luca","t":"Hai ragione. E tu, cosa faresti?","tr":"You're right. And what would you do?"},{"options":["Al tuo posto, prenderei qualche giorno di riposo.","Al tuo posto, prendo qualche giorno di riposo."],"answer":0,"why":"What you would do: the condizionale, {{prenderei}}."}],"from":"say-how-long"},
+        {"type":"order","q":"Put the words in order.","tr":"We'd love to come to your party.","words":["Ci","piacerebbe","venire","alla tua festa."]},
+        {"type":"say","q":"At the hotel desk: “Could you call me a taxi, please?”","answer":"Potrebbe chiamarmi un taxi, per favore?","from":"say-who-its-for"},
+        {"type":"free","q":"Your turn: a friend says {{Non ho mai tempo per me}} “I never have time for myself”. Give two pieces of advice, and say what you'd do in their place.","answers":[{"t":"Dovresti lavorare meno e fare più sport. Al tuo posto, prenderei una settimana di vacanza.","tr":"You should work less and exercise more. If I were you, I'd take a week's vacation."},{"t":"Potresti alzarti prima la mattina. Io al posto tuo spegnerei il telefono la sera.","tr":"You could get up earlier in the morning. If I were you, I'd turn off my phone in the evening."}]}
+      ]
+    },
+    {
+      "id": "give-instructions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give instructions to a friend",
+      "summary": "Teach a recipe, tell a friend what to do and what not to: “Stir it!”, “Don't worry!”, “Tell me!”",
+      "topic": "The imperative for {{tu}} and {{voi}}; {{non}} + infinitive; pronouns on the end: {{prendilo, dimmi}}",
+      "blocks": [
+        {"goal":{"t":"Metti la pasta nell'acqua e girala ogni tanto!","tr":"Put the pasta in the water and stir it now and then!"}},
+        {"dialog":[{"who":"Chiara","t":"Allora, prima metti l'acqua sul fuoco.","tr":"So, first put the water on the stove."},{"who":"You","t":"E il sale?","tr":"And the salt?"},{"who":"Chiara","t":"Aspetta... Ecco, bolle: aggiungi il sale e butta la pasta.","tr":"Wait… There, it's boiling: add the salt and throw in the pasta."},{"who":"You","t":"La giro?","tr":"Shall I stir it?"},{"who":"Chiara","t":"Sì, girala ogni tanto. E non cuocerla troppo!","tr":"Yes, stir it now and then. And don't overcook it!"},{"who":"You","t":"Quanti minuti?","tr":"How many minutes?"},{"who":"Chiara","t":"Leggi sulla confezione. Dieci minuti, al dente!","tr":"Read the package. Ten minutes, al dente!"}]},
+        {"term":"imperative","means":"the form of a verb for telling someone what to do: Look! Wait! Come in!"},
+        {"p":"**Telling a friend what to do.** The {{tu}} imperative of -ere and -ire verbs is the same as the present: {{prendi!}} “take!”, {{senti!}} “listen!”. For -are verbs it ends in {{-a}}: {{guarda!}} “look!”, {{aspetta!}} “wait!”. For two or more people ({{voi}}), it's simply the present: {{guardate!}}, {{prendete!}}, {{sentite!}}"},
+        { "table": [
+          ["","{{tu}}","{{voi}}"],
+          ["-are: {{guardare}}","{{guarda!}}","{{guardate!}}"],
+          ["-ere: {{prendere}}","{{prendi!}}","{{prendete!}}"],
+          ["-ire: {{sentire}}","{{senti!}}","{{sentite!}}"],
+          ["-isc-: {{finire}}","{{finisci!}}","{{finite!}}"],
+          ["{{andare}}","{{vai!}} or {{va'!}}","{{andate!}}"],
+          ["{{fare}}","{{fai!}} or {{fa'!}}","{{fate!}}"],
+          ["{{dire}}","{{di'!}}","{{dite!}}"],
+          ["{{essere}}, {{avere}}","{{sii!}}, {{abbi!}}","{{siate!}}, {{abbiate!}}"]
+        ] },
+        {"p":"**Don't!** For {{tu}}, the negative is {{non}} + the infinitive: {{Non toccare!}} “Don't touch!”, {{Non preoccuparti!}} “Don't worry!”. For {{voi}}, just {{non}} + the imperative: {{Non toccate!}}"},
+        {"p":"**Pronouns join the end**: {{Prendilo!}} “Take it!”, {{Girala!}} “Stir it!”, {{Aspettami!}} “Wait for me!”. After the short forms {{va', fa', di', da'}}, the pronoun's first letter doubles: {{Dimmi!}} “Tell me!”, {{Fammi vedere!}} “Let me see!”, {{Dammi!}} “Give me!”"},
+        {"p":"**Let's…**: the “we” form of the present: {{Andiamo!}} “Let's go!”, {{Mangiamo!}} “Let's eat!”"},
+        { "ex": [
+          {"t":"Guarda che bello!","tr":"Look how beautiful!"},
+          {"t":"Aspettami, arrivo!","tr":"Wait for me, I'm coming!"},
+          {"t":"Dimmi tutto!","tr":"Tell me everything!"},
+          {"t":"Non preoccuparti, ci penso io.","tr":"Don't worry, I'll take care of it."},
+          {"t":"Ragazzi, venite a tavola!","tr":"Kids, come to the table!","note":"{{voi}}: two or more people"},
+          {"t":"Non fate rumore, il bambino dorme.","tr":"Don't make noise, the baby's sleeping."},
+          {"t":"Fammi un favore: chiudi la finestra.","tr":"Do me a favor: close the window."}
+        ] },
+        {"tip":"{{Dai!}} (from {{dare}} “to give”) is everywhere: “Come on!”. And {{Senti…}} or {{Scusa…}} is how you get a friend's attention."}
+      ],
+      "mistakes": [
+        {"wrong":"Non tocca!","right":"Non toccare!","tr":"Don't touch!","why":"“Don't” to a friend: {{non}} + the infinitive."},
+        {"wrong":"Lo prendi!","right":"Prendilo!","tr":"Take it!","why":"In the imperative, the pronoun joins the end of the verb. ({{Lo prendi}} means “you take it”.)"},
+        {"wrong":"Mangi la verdura!","right":"Mangia la verdura!","tr":"Eat your vegetables!","why":"-are verbs end in {{-a}} in the {{tu}} imperative: {{mangia}}. ({{mangi}} means “you eat”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ la porta, per favore!","tr":"Close the door, please! (to a friend)","options":["Chiudi","Chiuda","Chiudere"],"answer":0,"why":"-ere verbs: the {{tu}} imperative is like the present, {{chiudi}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Non ___ il treno!","tr":"Don't miss the train!","options":["perdere","perdi","perso"],"answer":0,"why":"“Don't” to a friend: {{non}} + the infinitive."},
+        {"type":"choice","q":"“Tell me!” to a friend is…","options":["{{Dimmi!}}","{{Dici me!}}","{{Mi di'!}}"],"answer":0,"why":"The pronoun joins the end, and after {{di'}} its first letter doubles: {{dimmi}}."},
+        {"type":"dialogue","q":"You're teaching Chiara your pasta recipe: choose your instructions.","lines":[{"who":"Chiara","t":"L'acqua bolle. Adesso cosa faccio?","tr":"The water's boiling. Now what do I do?"},{"options":["Aggiungi il sale e butta la pasta.","Aggiunge il sale e butta la pasta."],"answer":0,"why":"To a friend: {{aggiungi}} (an -ere verb: like the present {{tu}} form)."},{"who":"Chiara","t":"Devo girarla?","tr":"Do I have to stir it?"},{"options":["Sì, girala ogni tanto.","Sì, la gira ogni tanto."],"answer":0,"why":"The pronoun joins the end of the imperative: {{girala}}."},{"who":"Chiara","t":"E il formaggio?","tr":"And the cheese?"},{"options":["Non metterlo adesso, alla fine!","Non lo metti adesso, alla fine!"],"answer":0,"why":"“Don't”: {{non}} + the infinitive, with the pronoun on the end: {{non metterlo}}."}],"from":"avoid-repeating-yourself"},
+        {"type":"order","q":"Put the words in order.","tr":"Kids, come here and look!","words":["Ragazzi,","venite","qui","e guardate!"]},
+        {"type":"say","q":"Tell a friend: “Don't worry, I'll take care of it!”","answer":"Non preoccuparti, ci penso io!","from":"talk-about-going-there"},
+        {"type":"free","q":"Your turn: give a friend three instructions: for your favorite recipe, or for getting to your house.","answers":[{"t":"Taglia i pomodori, mettili in una padella con l'olio e aggiungi il basilico.","tr":"Cut the tomatoes, put them in a pan with oil, and add the basil."},{"t":"Prendi la metro fino a Termini, esci in via Marsala e chiamami!","tr":"Take the subway to Termini, get out on Via Marsala, and call me!"}]}
+      ]
+    },
+    {
+      "id": "give-directions-politely",
+      "unit": 7,
+      "level": "B1",
+      "title": "Ask for and give directions politely",
+      "summary": "Understand and give directions to a stranger: “Go straight ahead and turn left.” Plus the polite words you hear in every store.",
+      "topic": "The imperative for {{Lei}}: {{scusi, vada, giri, prenda, mi dica, si accomodi}}",
+      "blocks": [
+        {"goal":{"t":"Vada sempre dritto e giri alla seconda a destra.","tr":"Keep going straight ahead and take the second right."}},
+        {"dialog":[{"who":"You","t":"Scusi, mi sa dire come arrivare alla stazione?","tr":"Excuse me, can you tell me how to get to the station?"},{"who":"Woman","t":"Certo. Attraversi la piazza e prenda via Garibaldi.","tr":"Of course. Cross the square and take Via Garibaldi."},{"who":"You","t":"Via Garibaldi... e poi?","tr":"Via Garibaldi… and then?"},{"who":"Woman","t":"Vada sempre dritto fino al semaforo, poi giri a destra. La stazione è lì.","tr":"Go straight ahead as far as the traffic light, then turn right. The station is right there."},{"who":"You","t":"È lontano?","tr":"Is it far?"},{"who":"Woman","t":"No, dieci minuti a piedi. Ma faccia attenzione al traffico!","tr":"No, ten minutes on foot. But watch out for the traffic!"},{"who":"You","t":"Grazie mille, molto gentile!","tr":"Thank you so much, that's very kind!"}]},
+        {"p":"**Telling someone you call {{Lei}} what to do** uses its own form: the vowels swap. -are verbs end in {{-i}}: {{giri!}} “turn!”, {{scusi!}} “excuse me!”. -ere and -ire verbs end in {{-a}}: {{prenda!}} “take!”, {{senta!}} “listen!”"},
+        { "table": [
+          ["","{{tu}} (a friend)","{{Lei}} (polite)"],
+          ["-are: {{girare}}","{{gira!}}","{{giri!}}"],
+          ["-ere: {{prendere}}","{{prendi!}}","{{prenda!}}"],
+          ["-ire: {{sentire}}","{{senti!}}","{{senta!}}"],
+          ["{{andare}}","{{vai!}}","{{vada!}}"],
+          ["{{fare}}","{{fai!}}","{{faccia!}}"],
+          ["{{venire}}","{{vieni!}}","{{venga!}}"],
+          ["{{dire}}","{{di'!}}","{{dica!}}"],
+          ["{{scusare}}","{{scusa!}}","{{scusi!}}"]
+        ] },
+        {"p":"You hear many of these all day in stores and offices: {{Mi dica!}} “How can I help you?”, word for word “Tell me!”; {{Prego, si accomodi}} “Please, have a seat” or “come in”; {{Senta, scusi…}} “Excuse me…”, to get someone's attention; {{Attenda in linea}} “Please hold”."},
+        {"p":"**The pronouns stay in front** with {{Lei}}: {{Mi dica}}, {{La prenda}} “Take it”, {{Si accomodi}}. And “don't” is just {{non}} + the same form: {{Non si preoccupi}} “Don't worry”."},
+        {"p":"**Keep these forms in mind.** {{vada, prenda, faccia, venga, dica}} are also the forms of the {{congiuntivo}}, the subjunctive, which the next unit uses for opinions and wishes. You're already halfway there."},
+        { "ex": [
+          {"t":"Giri a sinistra al semaforo.","tr":"Turn left at the traffic light."},
+          {"t":"Prenda la seconda strada a destra.","tr":"Take the second street on the right."},
+          {"t":"Attraversi il ponte.","tr":"Cross the bridge."},
+          {"t":"Mi scusi, signora!","tr":"I'm so sorry, madam!"},
+          {"t":"Prego, entri pure.","tr":"Please, come on in."},
+          {"t":"Non si preoccupi, non è niente.","tr":"Don't worry, it's nothing."},
+          {"t":"Venga a trovarci!","tr":"Come and see us!"}
+        ] },
+        {"tip":"To ask: {{Scusi, sa dov'è…?}} “Excuse me, do you know where … is?” or {{Mi sa dire come arrivare a…?}} “Can you tell me how to get to…?”. The answers often include {{sempre dritto}} “straight ahead”, {{all'incrocio}} “at the intersection” and {{al semaforo}} “at the traffic light”."}
+      ],
+      "mistakes": [
+        {"wrong":"Signora, prendi la seconda a destra.","right":"Signora, prenda la seconda a destra.","tr":"Take the second right, madam.","why":"To someone you call {{Lei}}: {{prenda}}, not {{prendi}}."},
+        {"wrong":"Gira a sinistra, signore.","right":"Giri a sinistra, signore.","tr":"Turn left, sir.","why":"-are verbs end in {{-i}} with {{Lei}}: {{giri}}."},
+        {"wrong":"Si accomoda, prego.","right":"Si accomodi, prego.","tr":"Please, have a seat.","why":"The polite imperative of {{accomodarsi}} is {{si accomodi}}. ({{si accomoda}} means “he sits down”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Signore, ___ dritto fino alla piazza.","tr":"Sir, go straight ahead to the square.","options":["vada","vai","va"],"answer":0,"why":"To {{Lei}}: {{vada}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Buongiorno, mi ___!","tr":"Good morning, how can I help you?","options":["dica","di'","dici"],"answer":0,"why":"{{Mi dica}}: the polite imperative of {{dire}}."},
+        {"type":"choice","q":"A receptionist says {{Si accomodi}}. It means…","options":["Please have a seat, or come in.","Excuse me, please.","Please wait outside."],"answer":0,"why":"{{accomodarsi}} is “to make yourself comfortable”: the polite invitation to sit down or come in."},
+        {"type":"dialogue","q":"A tourist stops you in the street: choose your replies.","lines":[{"who":"Tourist","t":"Scusi, sa dov'è il museo?","tr":"Excuse me, do you know where the museum is?"},{"options":["Sì, prenda questa strada e giri a destra.","Sì, prendi questa strada e gira a destra."],"answer":0,"why":"To a stranger ({{Lei}}): {{prenda}}, {{giri}}."},{"who":"Tourist","t":"È lontano?","tr":"Is it far?"},{"options":["No, cinque minuti. Ma non si preoccupi, c'è anche l'autobus.","No, cinque minuti. Ma non preoccuparti, c'è anche l'autobus."],"answer":0,"why":"“Don't worry” to {{Lei}}: {{non si preoccupi}}."}],"from":"give-instructions"},
+        {"type":"order","q":"Put the words in order.","tr":"Cross the square and take the first street on the left.","words":["Attraversi","la piazza","e prenda","la prima","a sinistra."]},
+        {"type":"say","q":"Ask a stranger: “Excuse me, can you tell me how to get to the station?”","answer":"Scusi, mi sa dire come arrivare alla stazione?","from":"ask-where-things-are"},
+        {"type":"free","q":"Your turn: a tourist stops you outside your home. Tell them politely how to get to the nearest café or station.","answers":[{"t":"Vada dritto fino al semaforo, poi giri a sinistra: il bar è lì, vicino alla farmacia.","tr":"Go straight ahead to the traffic light, then turn left: the café is there, next to the pharmacy."},{"t":"Prenda l'autobus numero cinque e scenda alla terza fermata. La stazione è proprio lì.","tr":"Take the number five bus and get off at the third stop. The station is right there."}]}
+      ]
     }
   ]
 }
