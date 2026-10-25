@@ -1535,6 +1535,292 @@
         {"type":"say","q":"พูดว่า “เมื่อก่อนฉันเคยอยู่กรุงเทพฯ”","answer":"I used to live in Bangkok."},
         {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณเคยทำตอนเด็ก แต่ตอนนี้ไม่ทำแล้ว","answers":[{"t":"I used to play outside every day. I used to hate vegetables, but now I love them.","tr":"เมื่อก่อนฉันเล่นข้างนอกทุกวัน และเคยเกลียดผัก แต่ตอนนี้ชอบมาก"},{"t":"When I was a kid, I used to watch cartoons every morning. I don't watch TV anymore.","tr":"ตอนเด็กผมดูการ์ตูนทุกเช้า ตอนนี้ไม่ดูทีวีแล้ว"}]}
       ]
+    },
+    {
+      "id": "at-on-in",
+      "unit": 6,
+      "level": "A2",
+      "title": "บอกเวลาและสถานที่: at, on, in",
+      "summary": "บอกว่าเจอกันกี่โมง วันไหน เดือนไหน และอยู่ที่ไหน: ภาษาไทยใช้ “ตอน” “วัน” “ที่” แต่ภาษาอังกฤษต้องเลือกระหว่าง {{at}}, {{on}}, {{in}}",
+      "topic": "เวลา: {{at 7:00}}, {{on Monday}}, {{in July}}; สถานที่: {{at home}}, {{in Bangkok}}, {{on the bus}}; ไม่มีคำบุพบทหน้า {{next}}, {{last}}, {{this}}",
+      "blocks": [
+        {"goal":{"t":"See you on Friday at seven.","tr":"เจอกันวันศุกร์หนึ่งทุ่มนะ"}},
+        {"dialog":[{"who":"เจค","t":"When's your birthday?","tr":"วันเกิดคุณวันไหน"},{"who":"นก","t":"It's on May 12th. I was born in 1998.","tr":"วันที่สิบสองพฤษภาคม ฉันเกิดปี 1998"},{"who":"เจค","t":"That's next week! Let's have dinner. Are you free on Friday?","tr":"สัปดาห์หน้าเองนี่ ไปกินข้าวกัน วันศุกร์ว่างไหม"},{"who":"นก","t":"Yes, I finish work at six.","tr":"ว่าง ฉันเลิกงานหกโมงเย็น"},{"who":"เจค","t":"Great. See you on Friday at seven, at the restaurant.","tr":"ดีเลย เจอกันวันศุกร์หนึ่งทุ่มที่ร้าน"}]},
+        {"p":"**เวลา: จากจุดเล็กไปช่วงใหญ่** จำเป็นภาพสามขั้น: เวลาเป๊ะๆ ใช้ {{at}} ({{at 7:00}}, {{at noon}}, {{at night}}) วันหรือวันที่ใช้ {{on}} ({{on Monday}}, {{on May 12th}}, {{on my birthday}}) ช่วงที่ยาวกว่า เช่น เดือน ปี ฤดู ช่วงของวัน ใช้ {{in}} ({{in July}}, {{in 2020}}, {{in the summer}}, {{in the morning}})"},
+        { "table": [
+          ["","ใช้กับ","ตัวอย่าง"],
+          ["{{at}}","เวลา โมง","{{at 6:30}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","วัน วันที่","{{on Sunday}}, {{on June 5th}}, {{on the weekend}}"],
+          ["{{in}}","เดือน ปี ช่วงของวัน","{{in April}}, {{in 2024}}, {{in the evening}}"]
+        ] },
+        {"p":"**สถานที่** {{at}} ใช้กับจุดหรือที่ที่ไปทำกิจกรรม: {{at home}}, {{at work}}, {{at the airport}} {{in}} ใช้กับข้างใน หรือเมือง ประเทศ: {{in the car}}, {{in Bangkok}}, {{in Thailand}} ส่วน {{on}} ใช้กับพื้นผิว ถนน ชั้น และรถสาธารณะ: {{on the table}}, {{on Main Street}}, {{on the bus}}"},
+        { "table": [
+          ["","ตัวอย่าง"],
+          ["{{at}}","{{at home}}, {{at school}}, {{at the station}}"],
+          ["{{in}}","{{in my room}}, {{in Chiang Mai}}, {{in a taxi}}"],
+          ["{{on}}","{{on the bus}}, {{on the train}}, {{on the third floor}}"]
+        ] },
+        {"p":"**บางทีไม่ต้องมีเลย** หน้า {{today}}, {{tomorrow}}, {{yesterday}} และคำที่ขึ้นต้นด้วย {{next}}, {{last}}, {{this}}, {{every}} ไม่ต้องมี {{at}} / {{on}} / {{in}}: {{I'm leaving tomorrow.}} {{See you next week.}}"},
+        { "ex": [
+          {"t":"The meeting is at 10 a.m.","tr":"ประชุมสิบโมงเช้า"},
+          {"t":"I go to the gym on Mondays.","tr":"ฉันไปยิมทุกวันจันทร์"},
+          {"t":"We're going to Japan in October.","tr":"เดือนตุลาคมเราจะไปญี่ปุ่น"},
+          {"t":"She was born in 2001.","tr":"เขาเกิดปี 2001"},
+          {"t":"I'm at home now.","tr":"ตอนนี้ฉันอยู่บ้าน"},
+          {"t":"He lives in Phuket.","tr":"เขาอยู่ภูเก็ต"},
+          {"t":"I read on the train.","tr":"ฉันอ่านหนังสือบนรถไฟ"}
+        ] },
+        {"tip":"{{in a car}} / {{in a taxi}} (รถเล็ก นั่งอยู่ข้างใน) แต่ {{on a bus}} / {{on a train}} / {{on a plane}} (รถใหญ่ ลุกเดินได้)"}
+      ],
+      "mistakes": [
+        {"wrong":"See you in Friday.","right":"See you on Friday.","tr":"เจอกันวันศุกร์","why":"วันในสัปดาห์ใช้ {{on}}"},
+        {"wrong":"I was born on 1998.","right":"I was born in 1998.","tr":"ฉันเกิดปี 1998","why":"ปีใช้ {{in}}"},
+        {"wrong":"I'm going home on next week.","right":"I'm going home next week.","tr":"สัปดาห์หน้าฉันจะกลับบ้าน","why":"หน้า {{next}} ไม่ต้องมีคำบุพบท"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"The store opens ___ 9 a.m.","tr":"ร้านเปิดเก้าโมงเช้า","options":["at","on","in"],"answer":0,"why":"เวลาเป็นโมง: {{at}}"},
+        {"type":"choice","q":"“ฉันเกิดเดือนมีนาคม”","options":["{{I was born in March.}}","{{I was born on March.}}","{{I was born at March.}}"],"answer":0,"why":"เดือนใช้ {{in}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เจอกันวันศุกร์หนึ่งทุ่ม","words":["See","you","on Friday","at seven."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องวันหยุด เลือกคำตอบ","from":"going-to","lines":[{"who":"เพื่อน","t":"When are you going to visit your family?","tr":"จะไปเยี่ยมครอบครัวเมื่อไร"},{"options":["I'm going to visit them in December.","I'm going to visit them on December."],"answer":0,"why":"เดือนใช้ {{in}}"},{"who":"เพื่อน","t":"Are you going to fly?","tr":"จะนั่งเครื่องบินไปไหม"},{"options":["Yes. My flight leaves at 6 a.m. on the 20th.","Yes. My flight leaves in 6 a.m. in the 20th."],"answer":0,"why":"เวลาใช้ {{at}} วันที่ใช้ {{on}}"}]},
+        {"type":"say","q":"บอกว่า “ฉันเกิดวันที่ 5 มิถุนายน”","answer":"I was born on June 5th."},
+        {"type":"free","q":"ถึงตาคุณ: บอกวันเกิดและปีที่เกิด แล้วนัดเพื่อน (วัน เวลา สถานที่)","answers":[{"t":"I was born on April 2nd, 1996. Let's meet on Saturday at noon at the mall.","tr":"ฉันเกิดวันที่ 2 เมษายน 1996 เจอกันวันเสาร์ตอนเที่ยงที่ห้างนะ"},{"t":"My birthday is in November. See you on Monday at 8 a.m. at the station.","tr":"วันเกิดผมอยู่เดือนพฤศจิกายน เจอกันวันจันทร์แปดโมงเช้าที่สถานี"}]}
+      ]
+    },
+    {
+      "id": "a-or-the",
+      "unit": 6,
+      "level": "A2",
+      "title": "a, the หรือไม่มีเลย",
+      "summary": "เลือกใช้ {{a}}, {{the}} หรือไม่ใช้อะไรเลย: จุดที่คนไทยสับสนที่สุดจุดหนึ่ง เพราะภาษาไทยไม่มีคำเหล่านี้",
+      "topic": "{{a}} / {{an}} (อันหนึ่ง ไม่เจาะจง), {{the}} (อันที่รู้กันอยู่), ไม่มีคำนำหน้า (พูดทั่วๆ ไป: {{I like dogs.}}); {{go to school}}, {{at home}}",
+      "blocks": [
+        {"goal":{"t":"I saw a dog. The dog was really cute.","tr":"ฉันเห็นหมาตัวหนึ่ง หมาตัวนั้นน่ารักมาก"}},
+        {"dialog":[{"who":"นก","t":"I had a strange day. A man gave me a flower on the train.","tr":"วันนี้แปลกมาก มีผู้ชายคนหนึ่งให้ดอกไม้ฉันบนรถไฟ"},{"who":"เจค","t":"Really? What did the man look like?","tr":"จริงเหรอ ผู้ชายคนนั้นหน้าตาเป็นยังไง"},{"who":"นก","t":"He was old. The flower was a rose.","tr":"อายุมากแล้ว ดอกไม้เป็นดอกกุหลาบ"},{"who":"เจค","t":"That's sweet. I love flowers.","tr":"น่ารักจัง ผมชอบดอกไม้"},{"who":"นก","t":"Me too. I put it on the table at home.","tr":"ฉันด้วย เอาไปวางไว้บนโต๊ะที่บ้าน"}]},
+        {"p":"**a: อันหนึ่ง อันไหนก็ได้** ใช้ {{a}} / {{an}} เมื่อพูดถึงของนับได้หนึ่งชิ้น ที่พูดถึงเป็นครั้งแรก หรือไม่ได้เจาะจงว่าอันไหน: {{a man}} “ผู้ชายคนหนึ่ง” {{I need a pen.}} “ฉันต้องการปากกา (ด้ามไหนก็ได้)”"},
+        {"p":"**the: อันนั้น ที่รู้กันอยู่** ใช้ {{the}} เมื่อทั้งคนพูดและคนฟังรู้ว่าหมายถึงอันไหน: เพราะพูดถึงไปแล้ว ({{a man}} → {{the man}}) เพราะมีอยู่อันเดียว ({{the sun}}, {{the moon}}) หรือเพราะเห็นอยู่ตรงหน้า ({{Close the door, please.}}) คล้าย “…นั้น” ในภาษาไทย แต่ภาษาอังกฤษขาดไม่ได้"},
+        {"p":"**ไม่มีเลย: พูดทั่วๆ ไป** ถ้าพูดถึงสิ่งต่างๆ แบบทั่วไป ไม่เจาะจง ใช้คำนามพหูพจน์หรือคำนามนับไม่ได้ โดย**ไม่มี** {{the}}: {{I like dogs.}} “ฉันชอบหมา (หมาทั่วๆ ไป)” {{Coffee is expensive here.}} “ที่นี่กาแฟแพง” ถ้าพูดว่า {{I like the dogs.}} จะกลายเป็น “ชอบหมาพวกนั้น (ที่รู้กันอยู่)”"},
+        { "table": [
+          ["ความหมาย","ภาษาอังกฤษ"],
+          ["มีหมาตัวหนึ่ง","{{There's a dog.}}"],
+          ["หมาตัวนั้นน่ารัก","{{The dog is cute.}}"],
+          ["ฉันชอบหมา (ทั่วไป)","{{I like dogs.}}"],
+          ["ข้าวแพงขึ้น","{{Rice is more expensive now.}}"],
+          ["ส่งข้าวมาหน่อย (จานตรงนั้น)","{{Pass the rice, please.}}"]
+        ] },
+        {"p":"**สำนวนที่ไม่มี the** บางวลีไม่มีคำนำหน้า ต้องจำไว้: {{go to school}}, {{go to work}}, {{go to bed}}, {{at home}}, {{have breakfast}} / {{lunch}} / {{dinner}}, {{by car}} / {{by bus}}"},
+        { "ex": [
+          {"t":"I bought a new phone. The phone is great.","tr":"ฉันซื้อโทรศัพท์ใหม่ เครื่องนั้นดีมาก"},
+          {"t":"Can you open the window?","tr":"ช่วยเปิดหน้าต่างหน่อยได้ไหม"},
+          {"t":"The sun is very hot today.","tr":"วันนี้แดดร้อนมาก"},
+          {"t":"I love Thai food.","tr":"ฉันชอบอาหารไทยมาก"},
+          {"t":"Cats are cute.","tr":"แมวน่ารัก"},
+          {"t":"She goes to work by bus.","tr":"เขานั่งรถเมล์ไปทำงาน"},
+          {"t":"We had lunch at home.","tr":"เรากินข้าวกลางวันที่บ้าน"}
+        ] },
+        {"tip":"ถ้าไม่แน่ใจ ให้ถามตัวเองว่า “คนฟังรู้ไหมว่าอันไหน” รู้ → {{the}} ไม่รู้หรืออันไหนก็ได้ → {{a}} พูดทั่วๆ ไป → ไม่ใส่อะไร"}
+      ],
+      "mistakes": [
+        {"wrong":"I like the coffee.","right":"I like coffee.","tr":"ฉันชอบกาแฟ","why":"พูดถึงกาแฟทั่วๆ ไป ไม่ต้องมี {{the}} ({{the coffee}} คือกาแฟแก้วนั้น)"},
+        {"wrong":"I go to the bed at eleven.","right":"I go to bed at eleven.","tr":"ฉันเข้านอนห้าทุ่ม","why":"{{go to bed}} เป็นสำนวน ไม่มี {{the}}"},
+        {"wrong":"Can you close door?","right":"Can you close the door?","tr":"ช่วยปิดประตูหน่อยได้ไหม","why":"ประตูบานที่อยู่ตรงนั้น ทั้งสองคนรู้ว่าบานไหน: {{the door}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I saw a movie last night. ___ movie was great.","tr":"เมื่อคืนดูหนังเรื่องหนึ่ง หนังเรื่องนั้นสนุกมาก","options":["The","A"],"answer":0,"why":"พูดถึงซ้ำ คนฟังรู้แล้วว่าเรื่องไหน: {{The}}"},
+        {"type":"choice","q":"“ฉันชอบแมว” (แมวทั่วๆ ไป)","options":["{{I like cats.}}","{{I like the cats.}}","{{I like cat.}}"],"answer":0,"why":"พูดทั่วไป: พหูพจน์ ไม่มี {{the}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ช่วยเปิดหน้าต่างหน่อยได้ไหม","words":["Can","you","open","the","window?"]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องร้านอาหารใกล้โรงแรม เลือกคำตอบ","from":"there-is","lines":[{"who":"เพื่อน","t":"Is there a good restaurant near your hotel?","tr":"ใกล้โรงแรมมีร้านอร่อยไหม"},{"options":["Yes, there's a small Thai restaurant. The food is amazing.","Yes, there's small Thai restaurant. A food is amazing."],"answer":0,"why":"ครั้งแรกใช้ {{a}} ส่วนอาหารของร้านนั้น รู้กันแล้ว: {{the food}}"},{"who":"เพื่อน","t":"Do you like spicy food?","tr":"ชอบเผ็ดไหม"},{"options":["Yes, I love spicy food.","Yes, I love the spicy food."],"answer":0,"why":"พูดทั่วๆ ไป ไม่มี {{the}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันชอบอาหารไทยมาก”","answer":"I love Thai food."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าเรื่องสั้นๆ ที่เจออะไรบางอย่าง (ครั้งแรกใช้ {{a}} ครั้งต่อไปใช้ {{the}}) แล้วบอกสิ่งที่คุณชอบแบบทั่วไป","answers":[{"t":"I found a wallet on the street. The wallet had a lot of money in it. I took it to the police. I like helping people.","tr":"ฉันเจอกระเป๋าสตางค์ใบหนึ่งบนถนน ในนั้นมีเงินเยอะมาก ฉันเอาไปให้ตำรวจ ฉันชอบช่วยคน"},{"t":"Yesterday I bought a cake. The cake was chocolate. I love chocolate!","tr":"เมื่อวานผมซื้อเค้กมาก้อนหนึ่ง เป็นเค้กช็อกโกแลต ผมชอบช็อกโกแลตมาก"}]}
+      ]
+    },
+    {
+      "id": "some-any-much-many",
+      "unit": 6,
+      "level": "A2",
+      "title": "พูดถึงปริมาณ: some, any, much, many",
+      "summary": "บอกว่ามีมากหรือน้อย และใช้คำให้ถูกกับของที่นับได้และนับไม่ได้",
+      "topic": "นับได้ / นับไม่ได้; {{some}} / {{any}}; {{many}} / {{much}} / {{a lot of}}; {{a few}} / {{a little}}; {{How many…?}} / {{How much…?}}",
+      "blocks": [
+        {"goal":{"t":"We don't have much time.","tr":"เราไม่ค่อยมีเวลาแล้ว"}},
+        {"dialog":[{"who":"นก","t":"Do we have any eggs?","tr":"มีไข่ไหม"},{"who":"เจค","t":"Yes, we have some eggs, but we don't have any milk.","tr":"มีไข่ แต่ไม่มีนมเลย"},{"who":"นก","t":"How much rice do we have?","tr":"มีข้าวเท่าไหร่"},{"who":"เจค","t":"Not much. Just a little.","tr":"ไม่เยอะ นิดเดียว"},{"who":"นก","t":"And how many tomatoes?","tr":"แล้วมะเขือเทศกี่ลูก"},{"who":"เจค","t":"A lot! We have a lot of tomatoes.","tr":"เยอะเลย มีมะเขือเทศเยอะมาก"}]},
+        {"term":"คำนามนับไม่ได้ (uncountable noun)","means":"คำนามที่ไม่นับเป็นชิ้น ไม่มี {{a}} และไม่เติม s เช่น {{water}} น้ำ, {{money}} เงิน, {{advice}} คำแนะนำ"},
+        {"p":"**นับได้และนับไม่ได้** ภาษาไทยนับทุกอย่างด้วยลักษณนาม แต่ภาษาอังกฤษแบ่งคำนามเป็นสองแบบ: คำนาม**นับได้** มีพหูพจน์ ({{an egg}}, {{two eggs}}) และคำนาม**นับไม่ได้** ไม่มีพหูพจน์ ไม่ใช้ {{a}} ({{water}}, {{rice}}, {{money}}, {{time}}, {{information}}, {{advice}})"},
+        { "table": [
+          ["","นับได้","นับไม่ได้"],
+          ["ตัวอย่าง","{{eggs}}, {{people}}, {{dollars}}","{{rice}}, {{money}}, {{time}}"],
+          ["เยอะ (คำถาม ปฏิเสธ)","{{many}}: {{not many people}}","{{much}}: {{not much time}}"],
+          ["เยอะ (ใช้ได้ทุกแบบ)","{{a lot of eggs}}","{{a lot of money}}"],
+          ["นิดหน่อย","{{a few}}: {{a few friends}}","{{a little}}: {{a little sugar}}"],
+          ["กี่ / เท่าไหร่","{{How many eggs?}}","{{How much money?}}"]
+        ] },
+        {"p":"**some และ any** “บ้าง นิดหน่อย” ในประโยคบอกเล่าใช้ {{some}}: {{I have some eggs.}} ในคำถามและประโยคปฏิเสธใช้ {{any}}: {{Do you have any eggs?}} {{I don't have any money.}} (แต่ตอนเสนอหรือขอของ ใช้ {{some}}: {{Would you like some tea?}})"},
+        {"p":"**much หรือ a lot of** ในประโยคบอกเล่า คนอเมริกันใช้ {{a lot of}} เป็นธรรมชาติกว่า: {{I have a lot of work.}} ส่วน {{much}} ใช้ในคำถามและประโยคปฏิเสธ: {{I don't have much work.}}"},
+        { "ex": [
+          {"t":"There are a lot of people here.","tr":"ที่นี่คนเยอะมาก"},
+          {"t":"I have a few friends in Japan.","tr":"ฉันมีเพื่อนที่ญี่ปุ่นไม่กี่คน"},
+          {"t":"Can I have a little sugar?","tr":"ขอน้ำตาลนิดหนึ่งได้ไหม"},
+          {"t":"How much money do you need?","tr":"ต้องใช้เงินเท่าไหร่"},
+          {"t":"I don't have any brothers.","tr":"ฉันไม่มีพี่น้องผู้ชาย"},
+          {"t":"Can you give me some advice?","tr":"ช่วยแนะนำหน่อยได้ไหม"}
+        ] },
+        {"tip":"{{information}}, {{advice}}, {{furniture}} และ {{homework}} เป็นคำนามนับไม่ได้ในภาษาอังกฤษ ไม่เติม s: {{some information}} ไม่ใช่ {{informations}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I don't have many money.","right":"I don't have much money.","tr":"ฉันไม่ค่อยมีเงิน","why":"{{money}} นับไม่ได้: ใช้ {{much}}"},
+        {"wrong":"Can you give me some advices?","right":"Can you give me some advice?","tr":"ช่วยแนะนำหน่อยได้ไหม","why":"{{advice}} นับไม่ได้ ไม่เติม s"},
+        {"wrong":"How many water do you drink?","right":"How much water do you drink?","tr":"คุณดื่มน้ำเท่าไหร่","why":"{{water}} นับไม่ได้: {{How much}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"There are ___ people at the beach today.","tr":"วันนี้คนที่ชายหาดเยอะมาก","options":["a lot of","much","a little"],"answer":0,"why":"ประโยคบอกเล่า คนนับได้: {{a lot of}}"},
+        {"type":"choice","q":"“ฉันไม่มีเงินเลย”","options":["{{I don't have any money.}}","{{I don't have some money.}}","{{I don't have many money.}}"],"answer":0,"why":"ประโยคปฏิเสธใช้ {{any}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ต้องใช้เงินเท่าไหร่","words":["How","much","money","do","you","need?"]},
+        {"type":"dialogue","q":"คุณเข้าร้านอาหาร เลือกคำตอบ","from":"how-much-many","lines":[{"who":"พนักงาน","t":"How many people?","tr":"กี่ท่านครับ"},{"options":["Just a few. Three people.","Just a little. Three people."],"answer":0,"why":"คนนับได้: {{a few}}"},{"who":"พนักงาน","t":"Would you like some water?","tr":"รับน้ำไหมครับ"},{"options":["Yes, please. And a little ice.","Yes, please. And a few ice."],"answer":0,"why":"น้ำแข็ง ({{ice}}) นับไม่ได้: {{a little}}"}]},
+        {"type":"say","q":"พูดว่า “เราไม่ค่อยมีเวลาแล้ว”","answer":"We don't have much time."},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าในตู้เย็นหรือห้องของคุณมีอะไรเยอะ อะไรน้อย และอะไรไม่มีเลย","answers":[{"t":"There's a lot of fruit in my fridge, but there isn't any milk. I have a few eggs.","tr":"ในตู้เย็นฉันมีผลไม้เยอะ แต่ไม่มีนมเลย มีไข่อยู่ไม่กี่ฟอง"},{"t":"I have a lot of books in my room, but I don't have much space.","tr":"ในห้องผมมีหนังสือเยอะมาก แต่ไม่ค่อยมีที่"}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "เปรียบเทียบของสองอย่าง",
+      "summary": "บอกว่าอะไรใหญ่กว่า ถูกกว่า ดีกว่า: ภาษาอังกฤษเปลี่ยนรูปคำคุณศัพท์ หรือเติม {{more}} แทนคำว่า “กว่า”",
+      "topic": "คำคุณศัพท์ + {{-er}} + {{than}}; {{more}} + คำยาว + {{than}}; {{better}}, {{worse}}; {{as … as}}; ไม่ใช่ {{more bigger}}",
+      "blocks": [
+        {"goal":{"t":"Bangkok is bigger than Chiang Mai.","tr":"กรุงเทพฯ ใหญ่กว่าเชียงใหม่"}},
+        {"dialog":[{"who":"เจค","t":"Which is better, Bangkok or Chiang Mai?","tr":"กรุงเทพฯ กับเชียงใหม่ ที่ไหนดีกว่า"},{"who":"นก","t":"Bangkok is bigger and more exciting.","tr":"กรุงเทพฯ ใหญ่กว่าและน่าตื่นเต้นกว่า"},{"who":"เจค","t":"But Chiang Mai is cooler, right?","tr":"แต่เชียงใหม่อากาศเย็นกว่าใช่ไหม"},{"who":"นก","t":"Yes, and it's quieter and cheaper.","tr":"ใช่ แล้วก็เงียบกว่า ถูกกว่าด้วย"},{"who":"เจค","t":"The traffic in Bangkok is worse, too.","tr":"รถในกรุงเทพฯ ก็ติดกว่าด้วย"},{"who":"นก","t":"True. Chiang Mai isn't as busy as Bangkok.","tr":"จริง เชียงใหม่ไม่วุ่นวายเท่ากรุงเทพฯ"}]},
+        {"term":"รูปเปรียบเทียบ (comparative)","means":"รูปของคำคุณศัพท์ที่ใช้เปรียบเทียบของสองอย่าง เช่น {{bigger}} ใหญ่กว่า, {{more expensive}} แพงกว่า"},
+        {"p":"**“กว่า” = -er than** ภาษาไทยเติม “กว่า” หลังคำคุณศัพท์ ภาษาอังกฤษเปลี่ยนคำคุณศัพท์สั้นๆ ด้วยการเติม {{-er}} แล้วตามด้วย {{than}} “กว่า”: {{big}} → {{bigger than}} “ใหญ่กว่า”, {{cheap}} → {{cheaper than}} “ถูกกว่า”"},
+        {"p":"**คำยาวใช้ more** คำคุณศัพท์ที่ยาว (ส่วนใหญ่สองพยางค์ขึ้นไป) ไม่เติม {{-er}} แต่ใช้ {{more}} ข้างหน้า: {{expensive}} → {{more expensive than}}, {{beautiful}} → {{more beautiful than}} ห้ามใช้ทั้งสองอย่างพร้อมกัน: {{more bigger}} ผิด"},
+        { "table": [
+          ["คำคุณศัพท์","รูปเปรียบเทียบ","ความหมาย"],
+          ["{{cheap}}","{{cheaper}}","ถูกกว่า"],
+          ["{{big}}","{{bigger}}","ใหญ่กว่า"],
+          ["{{easy}}","{{easier}}","ง่ายกว่า"],
+          ["{{expensive}}","{{more expensive}}","แพงกว่า"],
+          ["{{interesting}}","{{more interesting}}","น่าสนใจกว่า"],
+          ["{{good}}","{{better}}","ดีกว่า"],
+          ["{{bad}}","{{worse}}","แย่กว่า"]
+        ] },
+        {"p":"**สะกด** คำสั้นที่ลงท้ายด้วยสระเดี่ยว + พยัญชนะ ให้ซ้ำตัวท้าย: {{big}} → {{bigger}}, {{hot}} → {{hotter}} คำที่ลงท้ายด้วย y เปลี่ยนเป็น {{-ier}}: {{easy}} → {{easier}}, {{busy}} → {{busier}}"},
+        {"p":"**เท่ากัน: as … as** “…เท่า…” ใช้ {{as}} + คำคุณศัพท์ + {{as}}: {{He's as tall as his dad.}} “เขาสูงเท่าพ่อ” ปฏิเสธ: {{It's not as hot as yesterday.}} “ไม่ร้อนเท่าเมื่อวาน”"},
+        { "ex": [
+          {"t":"The train is cheaper than the plane.","tr":"รถไฟถูกกว่าเครื่องบิน"},
+          {"t":"My brother is taller than me.","tr":"พี่ชายสูงกว่าฉัน"},
+          {"t":"This hotel is more expensive than that one.","tr":"โรงแรมนี้แพงกว่าโรงแรมนั้น"},
+          {"t":"Today is hotter than yesterday.","tr":"วันนี้ร้อนกว่าเมื่อวาน"},
+          {"t":"Your English is better than mine!","tr":"ภาษาอังกฤษของคุณดีกว่าของฉันอีก"},
+          {"t":"Coffee isn't as expensive as tea here.","tr":"ที่นี่กาแฟไม่แพงเท่าชา"}
+        ] },
+        {"tip":"หลัง {{than}} เวลาพูด คนอเมริกันมักใช้ {{me}}, {{him}}, {{her}}: {{She's older than me.}} “เขาแก่กว่าฉัน”"}
+      ],
+      "mistakes": [
+        {"wrong":"Bangkok is more bigger than Chiang Mai.","right":"Bangkok is bigger than Chiang Mai.","tr":"กรุงเทพฯ ใหญ่กว่าเชียงใหม่","why":"เติม {{-er}} แล้ว ไม่ต้องมี {{more}}"},
+        {"wrong":"This bag is expensiver.","right":"This bag is more expensive.","tr":"กระเป๋าใบนี้แพงกว่า","why":"คำยาวอย่าง {{expensive}} ใช้ {{more}}"},
+        {"wrong":"He is tall than me.","right":"He is taller than me.","tr":"เขาสูงกว่าฉัน","why":"ต้องเปลี่ยนคำคุณศัพท์เป็นรูปเปรียบเทียบ: {{taller}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"This phone is ___ than that one.","tr":"โทรศัพท์เครื่องนี้ถูกกว่าเครื่องนั้น","options":["cheaper","more cheap","cheap"],"answer":0,"why":"คำสั้น: เติม {{-er}}"},
+        {"type":"choice","q":"“ภาษาอังกฤษของคุณดีกว่าของฉัน”","options":["{{Your English is better than mine.}}","{{Your English is gooder than mine.}}","{{Your English is more good than mine.}}"],"answer":0,"why":"{{good}} เป็นคำพิเศษ: {{better}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"โรงแรมนี้แพงกว่าโรงแรมนั้น","words":["This hotel","is","more","expensive","than","that one."]},
+        {"type":"dialogue","q":"เพื่อนถามว่าชอบแมวหรือหมา เลือกคำตอบ","from":"a-or-the","lines":[{"who":"เพื่อน","t":"Do you like cats or dogs?","tr":"ชอบแมวหรือหมา"},{"options":["I like dogs. They're friendlier than cats.","I like the dogs. They're friendlier than the cats."],"answer":0,"why":"พูดถึงหมาและแมวทั่วๆ ไป ไม่ใช้ {{the}}"},{"who":"เพื่อน","t":"But cats are cleaner!","tr":"แต่แมวสะอาดกว่านะ"},{"options":["True, but dogs are more fun.","True, but dogs are more funner."],"answer":0,"why":"ใช้ {{more}} อย่างเดียว ไม่ต้องเติม {{-er}} ซ้ำ"}]},
+        {"type":"say","q":"พูดว่า “วันนี้ร้อนกว่าเมื่อวาน”","answer":"Today is hotter than yesterday."},
+        {"type":"free","q":"ถึงตาคุณ: เปรียบเทียบสองเมือง หรืออาหารสองอย่างที่คุณรู้จัก","answers":[{"t":"Chiang Mai is cooler than Bangkok, but Bangkok is more exciting.","tr":"เชียงใหม่อากาศเย็นกว่ากรุงเทพฯ แต่กรุงเทพฯ น่าตื่นเต้นกว่า"},{"t":"Pad thai is sweeter than tom yum, but tom yum is more delicious.","tr":"ผัดไทยหวานกว่าต้มยำ แต่ต้มยำอร่อยกว่า"}]}
+      ]
+    },
+    {
+      "id": "the-best",
+      "unit": 6,
+      "level": "A2",
+      "title": "บอกว่าอะไรดีที่สุด",
+      "summary": "บอกว่าอะไรใหญ่ที่สุด อร่อยที่สุด แย่ที่สุด: “ที่สุด” ในภาษาอังกฤษคือ {{the -est}} หรือ {{the most}}",
+      "topic": "{{the}} + คำคุณศัพท์ + {{-est}}; {{the most}} + คำยาว; {{the best}}, {{the worst}}; {{in}} / {{of}}; {{one of the…}}",
+      "blocks": [
+        {"goal":{"t":"This is the best restaurant in town.","tr":"ร้านนี้อร่อยที่สุดในเมือง"}},
+        {"dialog":[{"who":"เจค","t":"What's the best Thai dish?","tr":"อาหารไทยจานไหนอร่อยที่สุด"},{"who":"นก","t":"That's hard! I think massaman curry is the most delicious.","tr":"ยากนะ ฉันว่าแกงมัสมั่นอร่อยที่สุด"},{"who":"เจค","t":"And what's the spiciest?","tr":"แล้วจานไหนเผ็ดที่สุด"},{"who":"นก","t":"Probably som tam. It's one of the spiciest dishes in Thailand.","tr":"น่าจะส้มตำ เป็นอาหารที่เผ็ดที่สุดจานหนึ่งของไทย"},{"who":"เจค","t":"OK, I'll try the massaman first!","tr":"โอเค งั้นลองมัสมั่นก่อนดีกว่า"}]},
+        {"term":"รูปสูงสุด (superlative)","means":"รูปของคำคุณศัพท์ที่บอกว่า “ที่สุด” เช่น {{the biggest}} ใหญ่ที่สุด, {{the most expensive}} แพงที่สุด"},
+        {"p":"**“ที่สุด” = the -est** คำคุณศัพท์สั้นเติม {{-est}} และมี {{the}} ข้างหน้าเสมอ: {{big}} → {{the biggest}} “ใหญ่ที่สุด”, {{cheap}} → {{the cheapest}} “ถูกที่สุด”"},
+        {"p":"**คำยาวใช้ the most** คำยาวใช้ {{the most}}: {{the most expensive}} “แพงที่สุด”, {{the most beautiful}} “สวยที่สุด” และมีคำพิเศษสองคำ: {{good}} → {{the best}}, {{bad}} → {{the worst}}"},
+        { "table": [
+          ["คำคุณศัพท์","…กว่า","…ที่สุด"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{hot}}","{{hotter}}","{{the hottest}}"],
+          ["{{spicy}}","{{spicier}}","{{the spiciest}}"],
+          ["{{delicious}}","{{more delicious}}","{{the most delicious}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**ในกลุ่มไหน: in หรือ of** สถานที่หรือกลุ่มใช้ {{in}}: {{the best restaurant in town}}, {{the tallest in my family}} ส่วนช่วงเวลาหรือจำนวนใช้ {{of}}: {{the best of all}}, {{the hottest month of the year}}"},
+        {"p":"**one of the…** “…ที่สุดอันหนึ่ง” ใช้ {{one of the}} + รูปสูงสุด + คำนามพหูพจน์: {{It's one of the best movies.}} “เป็นหนังที่ดีที่สุดเรื่องหนึ่ง” (คำนามต้องเติม s)"},
+        { "ex": [
+          {"t":"April is the hottest month of the year.","tr":"เมษายนเป็นเดือนที่ร้อนที่สุดของปี"},
+          {"t":"She's the youngest in her family.","tr":"เขาเป็นคนเล็กสุดในบ้าน"},
+          {"t":"This is the most beautiful beach in Thailand.","tr":"นี่คือชายหาดที่สวยที่สุดในเมืองไทย"},
+          {"t":"That was the worst movie ever!","tr":"นั่นเป็นหนังที่แย่ที่สุดเท่าที่เคยดูมา"},
+          {"t":"What's the cheapest way to get there?","tr":"ไปที่นั่นวิธีไหนถูกที่สุด"},
+          {"t":"It's one of the biggest cities in the world.","tr":"เป็นหนึ่งในเมืองที่ใหญ่ที่สุดในโลก"}
+        ] },
+        {"tip":"{{the best}} ใช้ชมได้หลายแบบ: {{You're the best!}} “คุณเยี่ยมที่สุด” และ {{All the best!}} “ขอให้โชคดีนะ”"}
+      ],
+      "mistakes": [
+        {"wrong":"It's most delicious.","right":"It's the most delicious.","tr":"อร่อยที่สุด","why":"รูปสูงสุดต้องมี {{the}} ข้างหน้า"},
+        {"wrong":"the most hottest","right":"the hottest","tr":"ร้อนที่สุด","why":"เติม {{-est}} แล้ว ไม่ต้องมี {{most}}"},
+        {"wrong":"one of the best movie","right":"one of the best movies","tr":"หนังที่ดีที่สุดเรื่องหนึ่ง","why":"หลัง {{one of the…}} คำนามเป็นพหูพจน์"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"This is the ___ beach in Thailand.","tr":"นี่คือชายหาดที่สวยที่สุดในเมืองไทย","options":["most beautiful","beautifulest","more beautiful"],"answer":0,"why":"คำยาว: {{the most}}"},
+        {"type":"choice","q":"“เขาเป็นคนที่สูงที่สุดในครอบครัว”","options":["{{He's the tallest in his family.}}","{{He's the most tall in his family.}}","{{He's tallest in his family.}}"],"answer":0,"why":"คำสั้นเติม {{-est}} และต้องมี {{the}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เมษายนเป็นเดือนที่ร้อนที่สุดของปี","words":["April","is","the hottest","month","of","the year."]},
+        {"type":"dialogue","q":"เพื่อนถามวิธีเดินทาง เลือกคำตอบ","from":"compare","lines":[{"who":"เจค","t":"Is the train cheaper than the bus?","tr":"รถไฟถูกกว่ารถบัสไหม"},{"options":["No, the bus is cheaper. It's the cheapest way to go.","No, the bus is more cheap. It's the cheaper way to go."],"answer":0,"why":"คำสั้นเติม {{-er}} / {{-est}}"},{"who":"เจค","t":"And what's the fastest way?","tr":"แล้ววิธีไหนเร็วที่สุด"},{"options":["The plane is the fastest, but it's the most expensive.","The plane is fastest, but it's most expensive."],"answer":0,"why":"รูปสูงสุดต้องมี {{the}}"}]},
+        {"type":"say","q":"ชมเพื่อนว่า “คุณเยี่ยมที่สุด”","answer":"You're the best!"},
+        {"type":"free","q":"ถึงตาคุณ: บอกสิ่งที่ดีที่สุดสองอย่างในเมืองหรือประเทศของคุณ (อาหาร ที่เที่ยว เดือน…)","answers":[{"t":"The best food in Thailand is som tam. The most beautiful place is Krabi.","tr":"อาหารที่อร่อยที่สุดในเมืองไทยคือส้มตำ ที่ที่สวยที่สุดคือกระบี่"},{"t":"December is the best month in Bangkok. It's the coolest month of the year.","tr":"ธันวาคมเป็นเดือนที่ดีที่สุดของกรุงเทพฯ เป็นเดือนที่อากาศเย็นที่สุดของปี"}]}
+      ]
+    },
+    {
+      "id": "too-enough",
+      "unit": 6,
+      "level": "A2",
+      "title": "บรรยายสิ่งของ: คำคุณศัพท์หน้าคำนาม too และ enough",
+      "summary": "บรรยายของให้ละเอียด เช่น กระเป๋าสีดำใบเล็ก และบอกว่ามันใหญ่เกินไปหรือไม่ใหญ่พอ",
+      "topic": "คำคุณศัพท์วางหน้าคำนาม ({{a red car}}); {{too}} + คำคุณศัพท์ (เกินไป); คำคุณศัพท์ + {{enough}} (พอ); {{very}} หรือ {{too}}",
+      "blocks": [
+        {"goal":{"t":"This shirt is too big for me.","tr":"เสื้อตัวนี้ใหญ่เกินไปสำหรับฉัน"}},
+        {"dialog":[{"who":"พนักงานขาย","t":"Can I help you?","tr":"มีอะไรให้ช่วยไหมคะ"},{"who":"นก","t":"I'm looking for a black dress.","tr":"กำลังหาชุดสีดำค่ะ"},{"who":"พนักงานขาย","t":"How about this long black dress?","tr":"ชุดยาวสีดำตัวนี้ดีไหมคะ"},{"who":"นก","t":"It's beautiful, but it's too long for me. Do you have a shorter one?","tr":"สวยค่ะ แต่ยาวเกินไปสำหรับฉัน มีตัวที่สั้นกว่านี้ไหมคะ"},{"who":"พนักงานขาย","t":"This one is shorter.","tr":"ตัวนี้สั้นกว่าค่ะ"},{"who":"นก","t":"Perfect! But is it big enough?","tr":"เยี่ยมเลย แต่ใหญ่พอไหมนะ"}]},
+        {"p":"**คำคุณศัพท์วางหน้าคำนาม** ภาษาไทยวางคำคุณศัพท์ไว้หลังคำนาม (“รถสีแดง” “บ้านหลังใหญ่”) แต่ภาษาอังกฤษวาง**ข้างหน้า**: {{a red car}} “รถสีแดง” {{a big house}} “บ้านหลังใหญ่” และไม่มีลักษณนาม"},
+        {"p":"**หลายคำคุณศัพท์** ถ้ามีมากกว่าหนึ่งคำ มักเรียงแบบนี้: ความเห็น → ขนาด → อายุ → สี → คำนาม: {{a beautiful old house}} “บ้านเก่าสวยๆ” {{a small black bag}} “กระเป๋าสีดำใบเล็ก”"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["รถสีแดงคันหนึ่ง","{{a red car}}"],
+          ["ร้านอาหารเล็กๆ","{{a small restaurant}}"],
+          ["กระเป๋าสีดำใบใหญ่","{{a big black bag}}"],
+          ["ชายหาดสวยๆ","{{a beautiful beach}}"]
+        ] },
+        {"p":"**too: เกินไป** {{too}} + คำคุณศัพท์ แปลว่า “…เกินไป” (เป็นปัญหา): {{It's too expensive.}} “แพงเกินไป (เลยไม่ซื้อ)” อย่าสับสนกับ {{very}} “มาก” ที่ไม่ได้บอกว่าเป็นปัญหา: {{It's very expensive, but I love it.}} “แพงมาก แต่ชอบมาก”"},
+        {"p":"**enough: พอ** คำคุณศัพท์ + {{enough}} แปลว่า “…พอ” (วาง**หลัง**คำคุณศัพท์): {{It's big enough.}} “ใหญ่พอ” {{not old enough}} “ยังโตไม่พอ” แต่ถ้าตามด้วยคำนาม {{enough}} วางข้างหน้า: {{enough money}} “เงินพอ”"},
+        { "ex": [
+          {"t":"She has a big black dog.","tr":"เขามีหมาสีดำตัวใหญ่"},
+          {"t":"We stayed in a small hotel.","tr":"เราพักโรงแรมเล็กๆ"},
+          {"t":"This soup is too spicy for me.","tr":"ซุปนี้เผ็ดเกินไปสำหรับฉัน"},
+          {"t":"The room is very small, but it's clean.","tr":"ห้องเล็กมาก แต่สะอาด"},
+          {"t":"Is it warm enough to swim?","tr":"น้ำอุ่นพอจะว่ายไหม"},
+          {"t":"I don't have enough time.","tr":"ฉันมีเวลาไม่พอ"},
+          {"t":"He's not old enough to drive.","tr":"เขายังโตไม่พอที่จะขับรถ"}
+        ] },
+        {"tip":"สีต่างๆ: {{red}} แดง, {{blue}} น้ำเงิน, {{light blue}} ฟ้า, {{green}} เขียว, {{yellow}} เหลือง, {{black}} ดำ, {{white}} ขาว, {{pink}} ชมพู ภาษาอังกฤษไม่ต้องมีคำว่า “สี”: {{a red car}} ไม่ใช่ {{a color red car}}"}
+      ],
+      "mistakes": [
+        {"wrong":"a car red","right":"a red car","tr":"รถสีแดง","why":"คำคุณศัพท์วางหน้าคำนาม"},
+        {"wrong":"It's enough big.","right":"It's big enough.","tr":"ใหญ่พอ","why":"{{enough}} วางหลังคำคุณศัพท์"},
+        {"wrong":"It's too delicious!","right":"It's really delicious!","tr":"อร่อยมาก","why":"{{too}} แปลว่า “เกินไป” (เป็นปัญหา): ถ้าชมว่าอร่อยมาก ใช้ {{really}} หรือ {{so}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"This coffee is ___ hot. I can't drink it.","tr":"กาแฟร้อนเกินไป ดื่มไม่ได้","options":["too","very","enough"],"answer":0,"why":"ร้อนจนเป็นปัญหา (ดื่มไม่ได้): {{too}}"},
+        {"type":"choice","q":"“กระเป๋าสีดำใบเล็ก”","options":["{{a small black bag}}","{{a bag black small}}","{{a black small bag}}"],"answer":0,"why":"ขนาดมาก่อนสี และทั้งหมดอยู่หน้าคำนาม"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เขายังโตไม่พอที่จะขับรถ","words":["He's","not","old","enough","to","drive."]},
+        {"type":"dialogue","q":"คุณดูห้องพักในโรงแรม เลือกคำพูด","from":"the-best","lines":[{"who":"พนักงาน","t":"This is our biggest room.","tr":"นี่คือห้องที่ใหญ่ที่สุดของเราครับ"},{"options":["It's nice, but it's too expensive for me.","It's nice, but it's enough expensive for me."],"answer":0,"why":"แพงจนเป็นปัญหา: {{too expensive}}"},{"who":"พนักงาน","t":"We have a smaller room. It's cheaper.","tr":"มีห้องที่เล็กกว่าครับ ถูกกว่าด้วย"},{"options":["Is it big enough for two people?","Is it enough big for two people?"],"answer":0,"why":"{{enough}} วางหลังคำคุณศัพท์"}]},
+        {"type":"say","q":"พูดว่า “ซุปนี้เผ็ดเกินไปสำหรับฉัน”","answer":"This soup is too spicy for me."},
+        {"type":"free","q":"ถึงตาคุณ: บรรยายของที่อยากได้ (สี ขนาด) และบอกปัญหาของของที่คุณมี ด้วย {{too}} หรือ {{not … enough}}","answers":[{"t":"I want a small white car. My car is too old.","tr":"ฉันอยากได้รถสีขาวคันเล็ก รถฉันเก่าเกินไปแล้ว"},{"t":"I'd like a big comfortable sofa. My sofa isn't big enough.","tr":"ผมอยากได้โซฟาตัวใหญ่ที่นั่งสบาย โซฟาที่บ้านไม่ใหญ่พอ"}]}
+      ]
     }
   ]
 }
