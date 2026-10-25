@@ -1293,6 +1293,234 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"这里以前有一家电影院。","words":["There","used","to","be","a","cinema","here."]},
         {"type":"free","q":"轮到你了：说说两件你以前常做、现在不做的事。","answers":[{"t":"I used to play video games every day. I used to get up late, but now I get up at six.","tr":"我以前每天打游戏。我以前起得很晚，现在六点就起床。"},{"t":"I used to live with my parents. I didn't use to cook, but now I cook every night.","tr":"我以前和父母住在一起。我以前不做饭，现在每天晚上都做。"}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "比较：-er than / more… than",
+      "summary": "“今天比昨天冷”“这套比那套贵”“我没有我哥哥高”：比较两个人或两样东西。",
+      "topic": "短形容词 + {{-er than}}；长形容词 {{more… than}}；{{better}}、{{worse}}；{{as… as}}、{{not as… as}}",
+      "blocks": [
+        {"goal":{"t":"My brother is taller than me.","tr":"我哥哥比我高。"}},
+        {"dialog":[{"who":"Agent","t":"This apartment is bigger than the other one.","tr":"这套公寓比另一套大。"},{"who":"李明","t":"Yes, but it's more expensive.","tr":"是，但也更贵。"},{"who":"Agent","t":"It's newer, and it's closer to the subway.","tr":"它更新，离地铁也更近。"},{"who":"李明","t":"Hmm. Is it quieter?","tr":"嗯……更安静吗？"},{"who":"Agent","t":"Not really. The other one is quieter, but it's not as nice.","tr":"不太。另一套更安静，但没这套好。"}]},
+        {"p":"**英语的形容词自己会变。** 中文说“A 比 B 高”，“高”不变；英语要把形容词变成比较级：{{tall}} → {{taller}}，再用 {{than}}（比）连接：{{He is taller than me.}}（他比我高。）注意语序：先说 A，再说 {{be}} 和比较级，最后才是 {{than}} B。"},
+        {"term":"比较级","means":"形容词表示“更……”的形式，比如 {{taller}}（更高）、{{more expensive}}（更贵）。"},
+        {"p":"**短词加 {{-er}}，长词用 {{more}}。** 一两个音节的词加 {{-er}}：{{cheap}} → {{cheaper}}，{{big}} → {{bigger}}（双写），{{easy}} → {{easier}}（y 变 i）。三个音节以上的，前面加 {{more}}：{{more expensive}}、{{more beautiful}}。两种方法不能一起用：不能说 {{more taller}}。"},
+        { "table": [
+          ["形容词","比较级","例句"],
+          ["{{cheap}}","{{cheaper}}","{{This one is cheaper.}} 这个更便宜。"],
+          ["{{big}}","{{bigger}}","{{Our new house is bigger.}} 我们的新房子更大。"],
+          ["{{easy}}","{{easier}}","{{The test was easier than I thought.}} 考试比我想的容易。"],
+          ["{{expensive}}","{{more expensive}}","{{It's more expensive.}} 更贵。"],
+          ["{{good}}","{{better}}","{{This is better.}} 这个更好。"],
+          ["{{bad}}","{{worse}}","{{The traffic is worse today.}} 今天堵得更厉害。"]
+        ] },
+        {"p":"**一样和没那么：{{as… as}}。** {{as}} + 形容词原形 + {{as}}：{{She's as tall as her mom.}}（她和她妈妈一样高。）否定的 {{not as… as}}，就是中文的“没有……那么……”：{{I'm not as busy as you.}}（我没有你那么忙。）"},
+        { "ex": [
+          {"t":"My brother is taller than me.","tr":"我哥哥比我高。"},
+          {"t":"Today is colder than yesterday.","tr":"今天比昨天冷。"},
+          {"t":"This phone is more expensive than that one.","tr":"这部手机比那部贵。"},
+          {"t":"Your English is better than mine.","tr":"你的英语比我的好。"},
+          {"t":"The subway is faster than the bus.","tr":"地铁比公交车快。"},
+          {"t":"I'm not as busy as you.","tr":"我没有你那么忙。"}
+        ] },
+        {"tip":"“比我高”，口语里说 {{taller than me}}，比较正式的写法是 {{taller than I am}}。两种都对。"}
+      ],
+      "mistakes": [
+        {"wrong":"He is more taller than me.","right":"He is taller than me.","tr":"他比我高。","why":"短形容词只加 {{-er}}，不再加 {{more}}。"},
+        {"wrong":"He than me tall.","right":"He is taller than me.","tr":"他比我高。","why":"英语的语序：A + {{be}} + 比较级 + {{than}} + B。"},
+        {"wrong":"This is gooder.","right":"This is better.","tr":"这个更好。","why":"{{good}} 的比较级不规则：{{better}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"The subway is ___ than the bus.","tr":"地铁比公交车快。","options":["faster","more fast","fast"],"answer":0,"why":"短形容词加 {{-er}}：{{faster}}。"},
+        {"type":"choice","q":"“这本书比那本有意思。”","options":["{{This book is more interesting than that one.}}","{{This book is interestinger than that one.}}","{{This book is more interestinger than that one.}}"],"answer":0,"why":"长形容词用 {{more}}。"},
+        {"type":"choice","q":"“我没有我姐姐那么高。”","options":["{{I'm not as tall as my sister.}}","{{I don't have my sister tall.}}","{{I'm not tall than my sister.}}"],"answer":0,"why":"“没有……那么……”：{{not as… as}}。"},
+        {"type":"dialogue","q":"和朋友选晚饭吃什么。选出你的回答。","lines":[{"who":"Friend","t":"Pizza or sushi?","tr":"披萨还是寿司？"},{"options":["Pizza. It's cheaper than sushi.","Pizza. It's more cheap than sushi."],"answer":0,"why":"{{cheap}} 是短词，加 {{-er}}：{{cheaper}}。"},{"who":"Friend","t":"But the sushi place is closer.","tr":"可是寿司店更近。"},{"options":["OK, and it's better than the pizza place too.","OK, and it's more good than the pizza place too."],"answer":0,"why":"{{good}} → {{better}}。"},{"who":"Friend","t":"Sushi it is!","tr":"那就吃寿司！"}],"from":"say-what-people-are-like"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"你的英语比我的好。","words":["Your","English","is","better","than","mine."],"from":"say-whose-it-is"},
+        {"type":"free","q":"轮到你了：比较你住的城市和另一个城市，或者比较你和一个家人。","answers":[{"t":"New York is bigger than my hometown, but it's more expensive.","tr":"纽约比我的家乡大，但是更贵。"},{"t":"My sister is younger than me, but she's taller. I'm not as funny as her.","tr":"我妹妹比我小，但比我高。我没有她那么有趣。"}]}
+      ]
+    },
+    {
+      "id": "say-the-best",
+      "unit": 7,
+      "level": "A2",
+      "title": "说最……的",
+      "summary": "“他是我们班最高的”“这是城里最好吃的披萨”：用最高级说“最……”。",
+      "topic": "{{the}} + {{-est}}；{{the most}} + 长形容词；{{the best}}、{{the worst}}；{{in}} / {{of}}；{{one of the…}}",
+      "blocks": [
+        {"goal":{"t":"This is the best pizza in town.","tr":"这是城里最好吃的披萨。"}},
+        {"dialog":[{"who":"Kevin","t":"This is the oldest building in the city.","tr":"这是城里最古老的建筑。"},{"who":"王芳","t":"Wow. And what's that tall one?","tr":"哇。那栋高的是什么？"},{"who":"Kevin","t":"That's the tallest building in the state.","tr":"那是全州最高的楼。"},{"who":"王芳","t":"Cool! Where's the best place for dinner?","tr":"酷！晚饭去哪儿吃最好？"},{"who":"Kevin","t":"Luigi's. It's one of the most popular restaurants here.","tr":"路易吉餐厅，是这儿最受欢迎的餐厅之一。"}]},
+        {"p":"**“最……”：{{the}} + {{-est}}，或者 {{the most}}。** 中文在形容词前面加“最”；英语和比较级一样分长短：短词加 {{-est}}：{{tall}} → {{the tallest}}；长词用 {{the most}}：{{the most expensive}}。前面通常要有 {{the}}。"},
+        {"term":"最高级","means":"形容词表示“最……”的形式，比如 {{the tallest}}（最高的）、{{the most beautiful}}（最漂亮的）。"},
+        { "table": [
+          ["形容词","比较级","最高级"],
+          ["{{tall}}","{{taller}}","{{the tallest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{happy}}","{{happier}}","{{the happiest}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**“在……里最……”：地方用 {{in}}，一组人或东西用 {{of}}。** {{the tallest in the class}}（班里最高的），{{the best of the three}}（三个里最好的）。注意顺序：中文“班里最高的”，“班里”在前；英语的 {{in the class}} 放在后面。"},
+        {"p":"**“最……之一”：{{one of the}} + 最高级 + 复数名词。** {{It's one of the best restaurants in New York.}}（这是纽约最好的餐厅之一。）名词一定要用复数。"},
+        { "ex": [
+          {"t":"This is the best pizza in town.","tr":"这是城里最好吃的披萨。"},
+          {"t":"He's the tallest in our class.","tr":"他是我们班最高的。"},
+          {"t":"It's the most expensive hotel in the city.","tr":"那是城里最贵的酒店。"},
+          {"t":"Today is the hottest day of the year.","tr":"今天是一年中最热的一天。"},
+          {"t":"She's one of my best friends.","tr":"她是我最好的朋友之一。"},
+          {"t":"That was the worst movie ever!","tr":"那是史上最烂的电影！"}
+        ] },
+        {"tip":"{{favorite}}（最喜欢的）本身就有“最”的意思，不用再加 {{most}}：{{my favorite food}}（我最喜欢的食物）。"}
+      ],
+      "mistakes": [
+        {"wrong":"He is tallest in class.","right":"He is the tallest in the class.","tr":"他是班里最高的。","why":"最高级前面要加 {{the}}。"},
+        {"wrong":"It's one of the best restaurant.","right":"It's one of the best restaurants.","tr":"这是最好的餐厅之一。","why":"{{one of the}} 后面的名词要用复数。"},
+        {"wrong":"the most biggest","right":"the biggest","tr":"最大的","why":"短词只加 {{-est}}，不再加 {{most}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"This is the ___ day of the year.","tr":"这是一年中最热的一天。","options":["hottest","hotter","most hot"],"answer":0,"why":"最高级：{{the hottest}}（t 要双写）。"},
+        {"type":"choice","q":"“她是我们公司最聪明的人。”","options":["{{She's the smartest person in our company.}}","{{She's the smartest person of our company.}}","{{She's smartest person in our company.}}"],"answer":0,"why":"地方、单位用 {{in}}，前面要有 {{the}}。"},
+        {"type":"choice","q":"“这是我最喜欢的歌之一。”","options":["{{It's one of my favorite songs.}}","{{It's one of my favorite song.}}","{{It's one of my most favorite songs.}}"],"answer":0,"why":"{{one of}} + 复数名词；{{favorite}} 不加 {{most}}。","from":"count-things"},
+        {"type":"dialogue","q":"朋友问起你的家乡。选出你的回答。","lines":[{"who":"Friend","t":"What's the best thing about your hometown?","tr":"你家乡最好的是什么？"},{"options":["The food! It's the best in China.","The food! It's the goodest in China."],"answer":0,"why":"{{good}} → {{the best}}。"},{"who":"Friend","t":"What's the most famous dish?","tr":"最有名的菜是什么？"},{"options":["Hot pot. It's the most popular dish there.","Hot pot. It's the popularest dish there."],"answer":0,"why":"长形容词用 {{the most}}。"},{"who":"Friend","t":"I want to try it!","tr":"我想尝尝！"}],"from":"compare-things"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"他是我们班最高的。","words":["He's","the","tallest","in","our","class."]},
+        {"type":"free","q":"轮到你了：介绍你的城市：最好的餐厅、最高的楼、最美的地方。","answers":[{"t":"The best restaurant in my city is a small noodle shop. The tallest building is the TV tower.","tr":"我们城市最好的餐厅是一家小面馆，最高的楼是电视塔。"},{"t":"The most beautiful place in my hometown is the lake. It's one of the most popular places in the area.","tr":"我家乡最美的地方是那个湖，是当地最受欢迎的地方之一。"}]}
+      ]
+    },
+    {
+      "id": "say-how-you-do-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "说做得怎么样：副词",
+      "summary": "“他英语说得很好”“请开慢点儿”：中文用“得”，英语用副词，而且副词常常放在最后。",
+      "topic": "副词：{{slowly}}、{{carefully}}、{{well}}、{{fast}}、{{hard}}；放在动词和宾语后面；{{good}} 和 {{well}}",
+      "blocks": [
+        {"goal":{"t":"He speaks English very well.","tr":"他英语说得很好。"}},
+        {"dialog":[{"who":"Teacher","t":"You did very well on the test!","tr":"你考得很好！"},{"who":"李明","t":"Thank you! I studied really hard.","tr":"谢谢！我学得很努力。"},{"who":"Teacher","t":"And you speak very clearly now.","tr":"而且你现在说得很清楚。"},{"who":"李明","t":"But I still speak slowly.","tr":"可是我说得还是很慢。"},{"who":"Teacher","t":"That's OK. Slow and clear is perfect.","tr":"没关系。又慢又清楚，就很好了。"}]},
+        {"p":"**“得”的英语：副词放在后面。** 中文说“他英语说得很好”，用“得”把“怎么样”接在动词后面。英语用副词，放在动词（和宾语）的后面：{{He speaks English well.}}（他英语说得好。）{{She drives carefully.}}（她开车很小心。）副词不能夹在动词和宾语中间：不能说 {{He speaks well English.}}"},
+        {"term":"副词","means":"说明动作“怎么做”的词，比如 {{slowly}}（慢慢地）、{{well}}（好）。很多副词是形容词加 {{-ly}}。"},
+        {"p":"**形容词 + {{-ly}} = 副词。** {{slow}} → {{slowly}}，{{careful}} → {{carefully}}，{{quiet}} → {{quietly}}，{{easy}} → {{easily}}。几个特别的：{{good}} → {{well}}；{{fast}}、{{hard}}、{{late}}、{{early}} 不变。"},
+        { "table": [
+          ["形容词（说人或东西）","副词（说动作）"],
+          ["{{She's a good singer.}} 她是个好歌手。","{{She sings well.}} 她唱得好。"],
+          ["{{He's a careful driver.}} 他是个小心的司机。","{{He drives carefully.}} 他开车很小心。"],
+          ["{{It's a fast car.}} 这是辆快车。","{{It goes fast.}} 它跑得快。"],
+          ["{{I'm a hard worker.}} 我是个勤快的人。","{{I work hard.}} 我工作很努力。"]
+        ] },
+        {"p":"**{{good}} 还是 {{well}}？** 说人或东西用 {{good}}：{{Your English is good.}}（你的英语很好。）说动作用 {{well}}：{{You speak English well.}}（你英语说得很好。）"},
+        { "ex": [
+          {"t":"He speaks English very well.","tr":"他英语说得很好。"},
+          {"t":"Please drive carefully.","tr":"请小心开车。"},
+          {"t":"She works really hard.","tr":"她工作很努力。"},
+          {"t":"I didn't sleep well last night.","tr":"我昨晚没睡好。"},
+          {"t":"Can you speak more slowly?","tr":"你能说慢一点儿吗？","note":"副词的比较级：{{more slowly}}"},
+          {"t":"The kids are playing quietly.","tr":"孩子们在安安静静地玩。"}
+        ] },
+        {"tip":"{{hard}} 和 {{hardly}} 意思完全不一样！{{I work hard.}} 是“我很努力”，{{I hardly work.}} 是“我几乎不工作”。"}
+      ],
+      "mistakes": [
+        {"wrong":"He speaks well English.","right":"He speaks English well.","tr":"他英语说得好。","why":"副词放在宾语后面：{{speaks English well}}。"},
+        {"wrong":"You speak English very good.","right":"You speak English very well.","tr":"你英语说得很好。","why":"说动作用副词 {{well}}，不用 {{good}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"She sings ___.","tr":"她唱得很好。","options":["well","good","nice"],"answer":0,"why":"说动作用 {{well}}。"},
+        {"type":"choice","q":"“他英语说得很好。”","options":["{{He speaks English very well.}}","{{He speaks very well English.}}","{{He very well speaks English.}}"],"answer":0,"why":"副词放在动词和宾语后面。"},
+        {"type":"choice","q":"{{careful}} 的副词是……","options":["{{carefully}}","{{carefuly}}","{{carefulness}}"],"answer":0,"why":"形容词 + {{-ly}}：{{carefully}}。"},
+        {"type":"dialogue","q":"面试的时候。选出你的回答。","lines":[{"who":"Interviewer","t":"Do you speak Chinese?","tr":"你会说中文吗？"},{"options":["Yes, I speak it fluently. It's my first language.","Yes, I speak fluently it. It's my first language."],"answer":0,"why":"副词放在宾语 {{it}} 后面。"},{"who":"Interviewer","t":"And how is your English?","tr":"英语呢？"},{"options":["It's good. I can work well in English.","It's well. I can work good in English."],"answer":0,"why":"说英语本身（东西）用 {{good}}，说动作用 {{well}}。"},{"who":"Interviewer","t":"Great.","tr":"很好。"}],"from":"say-what-you-can-do"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"她工作很努力。","words":["She","works","really","hard."],"from":"say-what-someone-else-does"},
+        {"type":"free","q":"轮到你了：说两件你做得好的事和一件做得不太好的事。","answers":[{"t":"I cook well and I swim fast. I don't sing very well.","tr":"我做饭做得好，游泳游得快。我唱歌唱得不太好。"},{"t":"I work hard and I learn quickly. I speak English slowly.","tr":"我工作很努力，学东西很快。我英语说得很慢。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-amounts",
+      "unit": 7,
+      "level": "A2",
+      "title": "说多少：much、many、a lot of",
+      "summary": "“有多少人来？”“只有一点儿时间”“你们有什么问题吗？”：说数量多少，先要分清能数的和不能数的。",
+      "topic": "{{many}} + 可数复数、{{much}} + 不可数；{{a lot of}}；{{a few}} / {{a little}}；{{some}} / {{any}}",
+      "blocks": [
+        {"goal":{"t":"How many people are coming?","tr":"有多少人要来？"}},
+        {"dialog":[{"who":"Kate","t":"How many people are coming to the party?","tr":"有多少人来参加聚会？"},{"who":"王芳","t":"About twenty. Do we have enough food?","tr":"大概二十个。吃的够吗？"},{"who":"Kate","t":"We have a lot of chips, but there isn't much fruit.","tr":"薯片很多，但水果不多。"},{"who":"王芳","t":"I'll buy some apples and a few bottles of juice.","tr":"我去买些苹果和几瓶果汁。"},{"who":"Kate","t":"Great. How much money do you need?","tr":"好。你需要多少钱？"},{"who":"王芳","t":"Just a little. Don't worry!","tr":"就一点儿。别担心！"}]},
+        {"p":"**能数的和不能数的，用词不一样。** 中文的“多”“少”“一点儿”什么都能说；英语要先看名词能不能数。能数的复数名词（{{apples}}、{{people}}）用 {{many}}、{{a few}}；不可数的（{{money}}、{{time}}、{{water}}）用 {{much}}、{{a little}}。"},
+        { "table": [
+          ["","可数复数","不可数"],
+          ["多少？","{{How many apples?}}","{{How much money?}}"],
+          ["很多","{{many apples}} / {{a lot of apples}}","{{a lot of money}}"],
+          ["几个、一点儿","{{a few apples}}","{{a little money}}"],
+          ["不多","{{not many apples}}","{{not much money}}"]
+        ] },
+        {"p":"**{{a lot of}} 最好用。** 肯定句里说“很多”，美国人最常用 {{a lot of}}，可数不可数都行：{{a lot of people}}、{{a lot of time}}。{{much}} 主要用在否定句和问句里：{{I don't have much time.}}（我没多少时间。）"},
+        {"p":"**{{some}} 和 {{any}}。** {{some}}（一些）用在肯定句里：{{I need some eggs.}} {{any}} 用在否定句和问句里：{{Do you have any questions?}}（你们有什么问题吗？）{{I don't have any money.}}（我一点儿钱也没有。）不过请别人吃喝的时候，问句也用 {{some}}：{{Would you like some tea?}}"},
+        { "ex": [
+          {"t":"How many people are coming?","tr":"有多少人要来？"},
+          {"t":"How much time do we have?","tr":"我们有多少时间？"},
+          {"t":"I don't have much time.","tr":"我没多少时间。"},
+          {"t":"There are a lot of cars on the road.","tr":"路上车很多。"},
+          {"t":"Can I have a little sugar?","tr":"能给我一点儿糖吗？"},
+          {"t":"Do you have any questions?","tr":"你们有什么问题吗？"}
+        ] },
+        {"tip":"{{a few}} / {{a little}} 是“有一些”（好事），没有 {{a}} 的 {{few}} / {{little}} 是“几乎没有”（不太好）：{{I have a few friends here.}}（我在这儿有几个朋友。）{{I have few friends here.}}（我在这儿几乎没有朋友。）"}
+      ],
+      "mistakes": [
+        {"wrong":"How much people?","right":"How many people?","tr":"多少人？","why":"{{people}} 是可数的复数，用 {{many}}。"},
+        {"wrong":"I have many homeworks.","right":"I have a lot of homework.","tr":"我有很多作业。","why":"{{homework}} 在英语里不可数，没有复数：{{a lot of homework}}。"},
+        {"wrong":"I don't have some money.","right":"I don't have any money.","tr":"我一点儿钱也没有。","why":"否定句里用 {{any}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"How ___ money do you need?","tr":"你需要多少钱？","options":["much","many","lot"],"answer":0,"why":"{{money}} 不可数：{{how much}}。"},
+        {"type":"choice","q":"“这儿人很多。”","options":["{{There are a lot of people here.}}","{{There is a lot of people here.}}","{{There are much people here.}}"],"answer":0,"why":"{{people}} 是复数：{{there are a lot of}}。","from":"say-what-is-there"},
+        {"type":"choice","q":"哪一个名词在英语里不可数？","options":["{{advice}}","{{suggestion}}","{{idea}}"],"answer":0,"why":"{{advice}}（建议）不可数：说 {{some advice}}，不能说 {{an advice}}。","from":"order-food-and-drinks"},
+        {"type":"dialogue","q":"和朋友在超市买东西。选出你的回答。","lines":[{"who":"Friend","t":"Do we need any eggs?","tr":"我们需要买鸡蛋吗？"},{"options":["Yes, we only have a few.","Yes, we only have a little."],"answer":0,"why":"{{eggs}} 可数：{{a few}}。"},{"who":"Friend","t":"And milk?","tr":"牛奶呢？"},{"options":["We don't have much milk. Let's buy some.","We don't have many milk. Let's buy any."],"answer":0,"why":"{{milk}} 不可数：{{much}}；肯定句里用 {{some}}。"},{"who":"Friend","t":"OK.","tr":"好。"}]},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我没多少时间。","words":["I","don't","have","much","time."]},
+        {"type":"free","q":"轮到你了：说说你的冰箱里有什么：哪些很多，哪些只有一点儿，哪些一点儿也没有。","answers":[{"t":"There are a lot of vegetables. There's a little milk. There isn't any meat.","tr":"有很多蔬菜，有一点儿牛奶，一点儿肉也没有。"},{"t":"I have a few eggs and a lot of fruit, but I don't have any bread.","tr":"我有几个鸡蛋和很多水果，但是一点儿面包也没有。"}]}
+      ]
+    },
+    {
+      "id": "use-a-and-the",
+      "unit": 7,
+      "level": "A2",
+      "title": "用好 a 和 the",
+      "summary": "“我昨晚看了一部电影。那部电影很好看。”：中文没有冠词，所以这一课专门讲 {{a}}、{{the}} 和什么都不用。",
+      "topic": "第一次提到用 {{a}}，再提到用 {{the}}；大家都知道的用 {{the}}；泛指不用冠词（{{I like dogs.}}）；{{go to bed}}、{{go to school}}",
+      "blocks": [
+        {"goal":{"t":"I saw a movie last night. The movie was great.","tr":"我昨晚看了一部电影。那部电影很好看。"}},
+        {"dialog":[{"who":"Mike","t":"I have a new dog.","tr":"我养了一只新狗。"},{"who":"李明","t":"Really? What's the dog's name?","tr":"真的？那只狗叫什么名字？"},{"who":"Mike","t":"Max. I take him to the park every morning.","tr":"麦克斯。我每天早上带它去公园。"},{"who":"李明","t":"I love dogs! I don't have a dog, but I have a cat.","tr":"我很喜欢狗！我没有狗，但我有一只猫。"},{"who":"Mike","t":"Cats are nice too.","tr":"猫也很好。"}]},
+        {"p":"**第一次说用 {{a}}，再说用 {{the}}。** 第一次提到一个东西，对方还不知道是哪个，用 {{a}}（某一个）：{{I saw a movie.}}（我看了一部电影。）再提到它，双方都知道是哪个了，用 {{the}}（那个）：{{The movie was great.}}（那部电影很好看。）中文常用“这个”“那个”，或者什么都不加；英语一定要选一个冠词。"},
+        {"p":"**大家都知道是哪个，也用 {{the}}。** 只有一个的：{{the sun}}（太阳）、{{the moon}}（月亮）；在场的人都知道的：{{Close the door, please.}}（请关门。）{{Where's the bathroom?}}（洗手间在哪儿？）{{the}} 就像在说“你知道的那个”。"},
+        {"p":"**泛指：复数或不可数，什么都不加。** 说一类东西或一般的情况，中文说“我喜欢狗”，英语用复数，不加冠词：{{I like dogs.}} 不可数的也一样：{{Coffee is bitter.}}（咖啡是苦的。）如果说 {{I like the dogs.}}，意思就变成了“我喜欢那几只狗”。"},
+        { "table": [
+          ["什么情况","用什么","例句"],
+          ["第一次提到","{{a}} / {{an}}","{{There's a man at the door.}} 门口有个男人。"],
+          ["再次提到、大家知道","{{the}}","{{The man wants to see you.}} 那个男人要见你。"],
+          ["独一无二","{{the}}","{{The sun is hot.}} 太阳很晒。"],
+          ["泛指一类","不加（复数）","{{Cats are cute.}} 猫很可爱。"],
+          ["泛指不可数的东西","不加","{{Water is important.}} 水很重要。"]
+        ] },
+        {"p":"**几个固定说法不加冠词**：{{go to school}}（上学）、{{go to work}}（上班）、{{go to bed}}（睡觉）、{{at home}}（在家）、{{have breakfast}}（吃早饭）。"},
+        { "ex": [
+          {"t":"I saw a movie last night. The movie was great.","tr":"我昨晚看了一部电影。那部电影很好看。"},
+          {"t":"There's a cat in the yard.","tr":"院子里有一只猫。"},
+          {"t":"The cat is black.","tr":"那只猫是黑色的。"},
+          {"t":"Can you open the window?","tr":"你能开一下窗吗？","note":"屋里那扇窗，大家都知道是哪扇"},
+          {"t":"I like dogs.","tr":"我喜欢狗。","note":"泛指所有的狗"},
+          {"t":"My son goes to school at eight.","tr":"我儿子八点上学。"}
+        ] },
+        {"tip":"拿不准的时候问问自己：对方知道我说的是哪一个吗？知道，用 {{the}}；不知道，而且只是一个，用 {{a}}；在说一类东西，用复数，什么都不加。"}
+      ],
+      "mistakes": [
+        {"wrong":"I like the cats.","right":"I like cats.","tr":"我喜欢猫。","why":"泛指一类东西，用复数，不加 {{the}}。{{the cats}} 是“那几只猫”。"},
+        {"wrong":"Sun is very hot today.","right":"The sun is very hot today.","tr":"今天太阳很晒。","why":"独一无二的东西用 {{the}}：{{the sun}}。"},
+        {"wrong":"I go to the bed at eleven.","right":"I go to bed at eleven.","tr":"我十一点睡觉。","why":"{{go to bed}} 是固定说法，不加冠词。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I bought a dress. ___ dress is red.","tr":"我买了一条裙子，是红色的。","options":["The","A","An"],"answer":0,"why":"第二次提到，已经知道是哪条：{{the}}。"},
+        {"type":"choice","q":"“我喜欢咖啡。”","options":["{{I like coffee.}}","{{I like the coffee.}}","{{I like a coffee.}}"],"answer":0,"why":"泛指：不可数名词，不加冠词。"},
+        {"type":"choice","q":"你在家，想让家人关灯。你说……","options":["{{Can you turn off the light?}}","{{Can you turn off a light?}}","{{Can you turn off light?}}"],"answer":0,"why":"大家都知道是哪盏灯：{{the}}。","from":"make-suggestions-and-requests"},
+        {"type":"dialogue","q":"给朋友讲一件事。选出你的话。","lines":[{"who":"Friend","t":"What happened?","tr":"怎么了？"},{"options":["I found a wallet on the bus.","I found the wallet on a bus."],"answer":0,"why":"第一次提到的钱包：{{a wallet}}；{{the bus}} 是你坐的那辆公交车。"},{"who":"Friend","t":"Wow! What was in it?","tr":"哇！里面有什么？"},{"options":["There was some money in the wallet.","There was some money in a wallet."],"answer":0,"why":"已经说过的那个钱包：{{the wallet}}。"},{"who":"Friend","t":"What did you do?","tr":"那你怎么做的？"},{"options":["I gave it to the driver.","I gave it to driver."],"answer":0,"why":"那辆车的司机，大家都知道是谁：{{the driver}}。"}],"from":"tell-what-happened"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我儿子八点上学。","words":["My","son","goes","to","school","at","eight."]},
+        {"type":"free","q":"轮到你了：讲一件最近的小事：先用 {{a}} 引出一个人或东西，再用 {{the}} 接着说。","answers":[{"t":"I met a woman on the train. The woman was from Spain.","tr":"我在火车上遇到了一位女士。她是西班牙人。"},{"t":"I bought a new phone last week. The phone is fast, but the battery is bad.","tr":"我上周买了一部新手机。手机很快，但是电池不好。"}]}
+      ]
     }
   ]
 }
