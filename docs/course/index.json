@@ -7,9 +7,9 @@
    "variety": "Modern Standard Arabic",
    "words": 1000,
    "planned": 1000,
-   "bytes": 366835,
+   "bytes": 381973,
    "audio_bytes": 12856940,
-   "sha256": "8ebc692d1a2898a1d1b27468d1bbe0c885c596be29c0c575ddfd0791541d297d",
+   "sha256": "d5de06c41e9d24926a2133b7fa22349499a14639266d6d1c29aac79d23e80953",
    "voice": {
     "engine": "azure",
     "name": "Zariyah (Azure, Saudi Arabia)",
@@ -23,12 +23,28 @@
    "variety": "Latin American Spanish (Mexico)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 330329,
+   "bytes": 345467,
    "audio_bytes": 12315147,
-   "sha256": "c55fbad87f62ed4897b47f4042146eb885b25e54a842fd2678907347fc23572a",
+   "sha256": "796991ca90b5bc76e54a42bf28ae73a11f5c78e10e46c080a5105d5da505aa76",
    "voice": {
     "engine": "azure",
     "name": "Dalia (Azure, Mexico)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "fr": {
+   "file": "fr/course.json",
+   "title": "French basics",
+   "variety": "French (France)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 351057,
+   "audio_bytes": 11651328,
+   "sha256": "b9649fd330ad3aae4a6838fbae491d1c39c579cc7b2e2cad201c77ceb19afd70",
+   "voice": {
+    "engine": "azure",
+    "name": "Denise (Azure, France)",
     "synthetic": true
    },
    "built": "2026-10-24"
