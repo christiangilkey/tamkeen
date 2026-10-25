@@ -25,6 +25,8 @@ const LETTERS = {
 export const WORD = /[А-Яа-яЁё́]+(?:-[А-Яа-яЁё́]+)*/g;
 const plain = (p) => p.replace(/́/g, "").toLowerCase();
 /** Words in -ого / -его whose г is said g (every other one is said v: его́ "yevó", но́вого "nóvovo"). */
+/** Prepositions of two syllables that lean on the next word and have no stress of their own. */
+const UNSTRESSED = new Set(["обо", "ото", "изо", "подо", "передо"]);
 const G_WORDS = new Set(["много", "немного", "дорого", "недорого", "строго", "нестрого", "убого", "полого", "отлого", "ого"]);
 
 /** The word as it is said, still in Cyrillic (stress marks kept). */
@@ -106,6 +108,7 @@ export function stressProblems(text) {
     const marks = (w.match(/́/g) || []).length;
     const yo = /[ёЁ]/.test(w);
     if (vowels <= 1) { if (marks && plain(w) !== "не") bad.push(`${w}: a stress mark on a word of one syllable`); continue; }
+    if (!marks && UNSTRESSED.has(plain(w))) continue; // обо мне́, передо мно́й
     if (yo && marks && parts.length === 1) bad.push(`${w}: ё and a stress mark`);
     else if (!yo && !marks) bad.push(`${w}: no stress mark`);
     else if (marks > parts.length) bad.push(`${w}: too many stress marks`);

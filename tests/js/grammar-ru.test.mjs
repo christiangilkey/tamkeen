@@ -16,7 +16,7 @@ const load = (id) => JSON.parse(readFileSync(path(id), "utf8"));
 const own = (s) => parseRich(s).filter((p) => p.kind === "text").map((p) => p.text).join(" ");
 
 /** British words and spellings, where the courses use American English (apartment, mom, color…). */
-const BRITISH_SPELLING = /\b(colour\w*|favourite\w*|centre|centres|theatre|theatres|metres?|litres?|reali[sz]e?s?\b|realis\w+|organis\w+|recognis\w+|apologis\w+|travelled|travelling|travellers?|cancelled|programme\w*|grey|jewellery|cheque\w*|tyres?|licence|practise[sd]?|learnt|spelt|whilst|amongst)\b/i;
+const BRITISH_SPELLING = /\b(colour\w*|favourite\w*|centre|centres|theatre|theatres|metres?|litres?|realis\w+|organis\w+|recognis\w+|apologis\w+|travelled|travelling|travellers?|cancelled|programmes?|grey|jewellery|cheque\w*|tyres?|licence|practise[sd]?|learnt|spelt|whilst|amongst)\b/i;
 const BRITISH_WORDS = /\b(mum|mums|mummy|holidays?|queue\w*|rubbish|petrol|biscuits?|lorry|lorries|motorway|cinema|cinemas|postcode|maths|trainers|mobile phone|timetable|fortnight|underground|pavement|chemist's|flatmate|ground floor)\b/i;
 
 test("a reading is the Cyrillic in Latin letters, with the stress, said as it is said", () => {
@@ -43,6 +43,7 @@ test("the stress check finds missing, doubled and stray marks, and Latin letters
   assert.deepEqual(stressProblems("мо́локо́"), ["мо́локо́: too many stress marks"]);
   assert.deepEqual(stressProblems("е́щё"), ["е́щё: ё and a stress mark"]);
   assert.ok(stressProblems("Кнóга").some((p) => /mixed/.test(p)), "a Latin ó inside a Russian word");
+  assert.ok(BRITISH_SPELLING.test("colour") && !BRITISH_SPELLING.test("I realize, I'm a programmer"));
 });
 
 if (existsSync(path("en-ru"))) {

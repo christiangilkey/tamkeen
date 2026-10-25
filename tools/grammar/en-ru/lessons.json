@@ -1105,6 +1105,249 @@
         {"type":"say","q":"Tell a friend: “Call me tomorrow!”","answer":"Позвони́ мне за́втра!","r":"Pozvoní mne závtra!","from":"promise-to-do"},
         {"type":"free","q":"Your turn: a Russian-speaking guest comes to your home. Welcome them in, offer them something, and ask them for one thing. Use the {{вы|vy}} imperative.","answers":[{"t":"Проходи́те, сади́тесь! Бери́те ко́фе. Расскажи́те, как вы живёте!","r":"Prokhodíte, sadítes'! Beríte kófe. Rasskazhíte, kak vy zhivyóte!","tr":"Come in, sit down! Have some coffee. Tell me how you're doing!"},{"t":"Здра́вствуйте! Проходи́те, пожа́луйста. Попро́буйте торт!","r":"Zdrástvuyte! Prokhodíte, pozháluysta. Popróbuyte tort!","tr":"Hello! Come in, please. Try the cake!"}]}
       ]
+    },
+    {
+      "id": "give-and-tell",
+      "unit": 5,
+      "level": "A2",
+      "title": "Give, send and tell things to people",
+      "summary": "Say who you give, send, write, tell and show things to: “I'm buying Mom a present.”",
+      "topic": "The dative case ({{кому́?|komú?}}): {{-у|-u}}, {{-ю|-yu}}, {{-е|-e}}, {{-и|-i}}; {{мне|mne}}, {{тебе́|tebé}}, {{ему́|yemú}}…",
+      "blocks": [
+        {"goal":{"t":"Я покупа́ю ма́ме пода́рок.","r":"Ya pokupáyu máme podárok.","tr":"I'm buying Mom a present."}},
+        {"dialog":[{"who":"Seller","t":"Вам помо́чь?","r":"Vam pomóch'?","tr":"Can I help you?"},{"who":"You","t":"Да. Я ищу́ пода́рок бра́ту.","r":"Da. Ya ishchú podárok brátu.","tr":"Yes. I'm looking for a present for my brother."},{"who":"Seller","t":"Ско́лько ему́ лет?","r":"Skól'ko yemú let?","tr":"How old is he?"},{"who":"You","t":"Два́дцать. Он лю́бит му́зыку.","r":"Dvádtsat'. On lyúbit múzyku.","tr":"Twenty. He loves music."},{"who":"Seller","t":"Мо́жет, нау́шники?","r":"Mózhet, naúshniki?","tr":"Maybe headphones?"},{"who":"You","t":"Отли́чно! А ещё я ищу́ что́-нибудь сестре́.","r":"Otlíchno! A yeshchó ya ishchú shtó-nibud' sestré.","tr":"Great! And I'm also looking for something for my sister."}]},
+        {"term":"dative case","means":"the case of the person something is given, sent, told or shown to: {{Я пишу́ ма́ме.|Ya pishú máme.}} “I'm writing to Mom.” It answers {{кому́?|komú?}} “to whom?”."},
+        {"p":"You already know the dative from {{мне два́дцать лет|mne dvádtsat' let}} and {{мне на́до|mne nádo}}: “to me”. Now for nouns. English shows who gets something with “to” or with the word order (“I gave the book to Anna”, “I gave Anna the book”). Russian puts that person in the dative, with no preposition: {{Я дал А́нне кни́гу.|Ya dal Ánne knígu.}}"},
+        { "table": [
+          ["","nominative","dative ({{кому́?|komú?}})"],
+          ["masculine: add {{-у|-u}} ({{-ю|-yu}} after {{-й|-y}}, {{-ь|-'}})","{{брат|brat}}, {{учи́тель|uchítel'}}","{{бра́ту|brátu}}, {{учи́телю|uchítelyu}}"],
+          ["feminine: {{-а|-a}}, {{-я|-ya}} → {{-е|-e}}","{{ма́ма|máma}}, {{Та́ня|Tánya}}","{{ма́ме|máme}}, {{Та́не|Táne}}"],
+          ["feminine in {{-ия|-iya}} and {{-ь|-'}}: → {{-и|-i}}","{{Мари́я|Maríya}}, {{дочь|doch'}}","{{Мари́и|Maríi}}, {{до́чери|dócheri}}"],
+          ["men in {{-а|-a}}","{{па́па|pápa}}","{{па́пе|pápe}}"]
+        ] },
+        {"p":"**Verbs that take the dative.** {{дать|dat'}} / {{дава́ть|davát'}} “give”, {{подари́ть|podarít'}} “give as a present”, {{купи́ть|kupít'}} “buy (for)”, {{писа́ть|pisát'}} “write”, {{сказа́ть|skazát'}} “tell”, {{показа́ть|pokazát'}} “show”, {{отпра́вить|otprávit'}} “send”. And two that surprise English speakers, because English uses no “to”: {{звони́ть|zvonít'}} “call (on the phone)” and {{помога́ть|pomogát'}} / {{помо́чь|pomóch'}} “help”: {{Я звоню́ ма́ме.|Ya zvonyú máme.}} {{Помоги́ мне!|Pomogí mne!}}"},
+        {"p":"The pronouns are the ones you know from age: {{мне|mne}}, {{тебе́|tebé}}, {{ему́|yemú}}, {{ей|yey}}, {{нам|nam}}, {{вам|vam}}, {{им|im}}. And {{(Мо́жно) вам помо́чь?|(Mózhno) vam pomóch'?}} is what shop assistants say: “Can I help you?”."},
+        { "ex": [
+          {"t":"Я пишу́ сестре́ письмо́.","r":"Ya pishú sestré pis'mó.","tr":"I'm writing my sister a letter."},
+          {"t":"Позвони́ па́пе!","r":"Pozvoní pápe!","tr":"Call Dad!"},
+          {"t":"Что ты подари́л жене́ на день рожде́ния?","r":"Shto ty podaríl zhené na den' rozhdéniya?","tr":"What did you give your wife for her birthday?"},
+          {"t":"Покажи́те мне, пожа́луйста, э́ту ку́ртку.","r":"Pokazhíte mne, pozháluysta, étu kúrtku.","tr":"Could you show me this jacket, please?"},
+          {"t":"Мы помога́ем сосе́ду.","r":"My pomogáyem sosédu.","tr":"We're helping our neighbor."},
+          {"t":"Дай ему́ мой но́мер.","r":"Day yemú moy nómer.","tr":"Give him my number."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я звоню́ ма́му.","right":"Я звоню́ ма́ме.","tr":"I'm calling Mom.","why":"{{звони́ть|zvonít'}} takes the dative: in Russian, you ring “to” someone."},
+        {"wrong":"Я дал кни́гу к А́нне.","right":"Я дал кни́гу А́нне.","tr":"I gave the book to Anna.","why":"No preposition: the person is just in the dative."},
+        {"wrong":"Помоги́ меня́!","right":"Помоги́ мне!","tr":"Help me!","why":"{{помо́чь|pomóch'}} takes the dative: {{мне|mne}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я купи́л пода́рок ___.","tr":"I bought a present for my brother.","options":["бра́ту","бра́та","брат"],"answer":0,"why":"Who it's for: the dative, {{бра́ту|brátu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Позвони́ ___!","tr":"Call Mom!","options":["ма́ме","ма́му","ма́ма"],"answer":0,"why":"{{звони́ть|zvonít'}} + the dative: {{ма́ме|máme}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мо́жно ___ помо́чь?","tr":"May I help you?","options":["вам","вас","вы"],"answer":0,"why":"{{помо́чь|pomóch'}} + the dative: {{вам|vam}}."},
+        {"type":"choice","q":"In {{Я пишу́ Та́не письмо́|Ya pishú Táne pis'mó}}, who gets the letter?","options":["Tanya","I do","nobody: Tanya is writing it"],"answer":0,"why":"{{Та́не|Táne}} is the dative: the person who gets it. {{письмо́|pis'mó}} is the accusative: the thing written."},
+        {"type":"dialogue","q":"Planning a birthday: choose your replies.","from":"promise-to-do","lines":[{"who":"Friend","t":"У Ми́ши за́втра день рожде́ния!","r":"U Míshi závtra den' rozhdéniya!","tr":"It's Misha's birthday tomorrow!"},{"options":["Пра́вда? Что мы ему́ пода́рим?","Пра́вда? Что мы его́ пода́рим?"],"answer":0,"why":"Giving to him: the dative {{ему́|yemú}}."},{"who":"Friend","t":"Мо́жет, кни́гу?","r":"Mózhet, knígu?","tr":"Maybe a book?"},{"options":["Хоро́шая иде́я. Я куплю́ её за́втра.","Хоро́шая иде́я. Я бу́ду купи́ть её за́втра."],"answer":0,"why":"A promise: the perfective future {{куплю́|kuplyú}}."},{"who":"Friend","t":"Отли́чно!","r":"Otlíchno!","tr":"Great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Please show me the menu.","words":["Покажи́те","мне,","пожа́луйста,","меню́."],"from":"ask-someone-to-do"},
+        {"type":"free","q":"Your turn: who do you often call, write to or help? And what will you give someone for their birthday? Use the dative.","answers":[{"t":"Я ча́сто звоню́ ма́ме. На день рожде́ния я подарю́ ей цветы́.","r":"Ya chásto zvonyú máme. Na den' rozhdéniya ya podaryú yey tsvetý.","tr":"I often call my mom. For her birthday I'll give her flowers."},{"t":"Я помога́ю бра́ту. Я куплю́ ему́ кни́гу.","r":"Ya pomogáyu brátu. Ya kuplyú yemú knígu.","tr":"I help my brother. I'll buy him a book."}]}
+      ]
+    },
+    {
+      "id": "likes-and-needs",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you like, need and feel",
+      "summary": "Say what you like, what you need and how you feel: “I like this city.” “I need a hat.” “I'm cold.”",
+      "topic": "{{нра́вится|nrávitsa}} and {{нра́вятся|nrávyatsa}}; {{ну́жен|núzhen}}, {{нужна́|nuzhná}}, {{ну́жно|núzhno}}, {{нужны́|nuzhný}}; {{мне хо́лодно|mne khólodno}}, {{мне ску́чно|mne skúshno}}",
+      "blocks": [
+        {"goal":{"t":"Мне о́чень нра́вится э́тот го́род.","r":"Mne óchen' nrávitsa étot górod.","tr":"I really like this city."}},
+        {"dialog":[{"who":"Lyuda","t":"Вам нра́вится Москва́?","r":"Vam nrávitsa Moskvá?","tr":"Do you like Moscow?"},{"who":"Paul","t":"Да, о́чень! Мне нра́вятся па́рки и метро́.","r":"Da, óchen'! Mne nrávyatsa párki i metró.","tr":"Yes, very much! I like the parks and the subway."},{"who":"Lyuda","t":"А пого́да?","r":"A pogóda?","tr":"And the weather?"},{"who":"Paul","t":"Пого́да не о́чень. Мне хо́лодно!","r":"Pogóda ne óchen'. Mne khólodno!","tr":"The weather, not so much. I'm cold!"},{"who":"Lyuda","t":"Вам нужна́ ша́пка! Здесь ря́дом магази́н.","r":"Vam nuzhná shápka! Zdes' ryádom magazín.","tr":"You need a hat! There's a store nearby."},{"who":"Paul","t":"Спаси́бо, ша́пка мне то́чно нужна́.","r":"Spasíbo, shápka mne tóchno nuzhná.","tr":"Thanks, I definitely need a hat."}]},
+        {"p":"**Like.** Russian turns “I like it” around: {{Мне нра́вится э́тот го́род.|Mne nrávitsa étot górod.}} is word for word “This city is pleasing to me”. The thing you like is the subject, in the nominative, and you are in the dative. So the verb agrees with the thing: {{нра́вится|nrávitsa}} for one thing, {{нра́вятся|nrávyatsa}} for several."},
+        { "table": [
+          ["English","Russian, word for word","Russian"],
+          ["I like this city.","to me pleases this city","{{Мне нра́вится э́тот го́род.|Mne nrávitsa étot górod.}}"],
+          ["She likes cats.","to her please cats","{{Ей нра́вятся ко́шки.|Yey nrávyatsa kóshki.}}"],
+          ["Do you like it?","to you pleases?","{{Тебе́ нра́вится?|Tebé nrávitsa?}}"],
+          ["Anna liked the movie.","to Anna pleased the movie","{{А́нне понра́вился фильм.|Ánne ponrávilsya fil'm.}}"]
+        ] },
+        {"p":"**{{нра́вится|nrávitsa}} or {{люблю́|lyublyú}}?** {{нра́вится|nrávitsa}} is for liking something, especially something new: a city, a dress, a movie. {{люблю́|lyublyú}} is stronger and lasts: things you love and always do. To say you liked something you saw or tried once, use the perfective past, which agrees with the thing: {{Мне понра́вился фильм.|Mne ponrávilsya fil'm.}} “I liked the movie.”, {{понра́вилась|ponrávilas'}} (feminine), {{понра́вилось|ponrávilos'}} (neuter), {{понра́вились|ponrávilis'}} (plural)."},
+        {"p":"**Need.** {{Мне ну́жен…|Mne núzhen…}} “I need…” works the same way: the thing is the subject, and {{ну́жен|núzhen}} agrees with it: {{ну́жен|núzhen}}, {{нужна́|nuzhná}}, {{ну́жно|núzhno}}, {{нужны́|nuzhný}}. With a verb, it's {{ну́жно|núzhno}} or {{на́до|nádo}}, as you know: {{Мне ну́жно идти́.|Mne núzhno idtí.}}"},
+        { "table": [
+          ["","I need…"],
+          ["masculine","{{Мне ну́жен биле́т.|Mne núzhen bilét.}}"],
+          ["feminine","{{Мне нужна́ ша́пка.|Mne nuzhná shápka.}}"],
+          ["neuter","{{Мне ну́жно пальто́.|Mne núzhno pal'tó.}}"],
+          ["plural","{{Мне нужны́ де́ньги.|Mne nuzhný dén'gi.}}"]
+        ] },
+        {"p":"**How you feel.** The same shape once more: the dative and a word in {{-о|-o}}. {{Мне хо́лодно.|Mne khólodno.}} “I'm cold.” {{Мне жа́рко.|Mne zhárko.}} “I'm hot.” {{Мне ску́чно.|Mne skúshno.}} “I'm bored.” {{Мне интере́сно.|Mne interésno.}} “I'm interested.” {{Мне пло́хо.|Mne plókho.}} “I feel sick.” {{Мне ве́село.|Mne véselo.}} “I'm having fun.”"},
+        { "ex": [
+          {"t":"Тебе́ нра́вится моё пла́тье?","r":"Tebé nrávitsa moyó plát'ye?","tr":"Do you like my dress?"},
+          {"t":"Мне не нра́вится э́та му́зыка.","r":"Mne ne nrávitsa éta múzyka.","tr":"I don't like this music."},
+          {"t":"Нам о́чень понра́вился рестора́н.","r":"Nam óchen' ponrávilsya restorán.","tr":"We really liked the restaurant."},
+          {"t":"Вам ну́жен врач?","r":"Vam núzhen vrach?","tr":"Do you need a doctor?"},
+          {"t":"Мне нужны́ но́вые очки́.","r":"Mne nuzhný nóvyye ochkí.","tr":"I need new glasses."},
+          {"t":"Ему́ ску́чно на рабо́те.","r":"Yemú skúshno na rabóte.","tr":"He's bored at work."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я нра́влюсь э́тот го́род.","right":"Мне нра́вится э́тот го́род.","tr":"I like this city.","why":"The thing you like is the subject; you are in the dative: {{мне|mne}}."},
+        {"wrong":"Мне нра́вится э́ти кроссо́вки.","right":"Мне нра́вятся э́ти кроссо́вки.","tr":"I like these sneakers.","why":"Several things: {{нра́вятся|nrávyatsa}}."},
+        {"wrong":"Мне ну́жно но́вая ша́пка.","right":"Мне нужна́ но́вая ша́пка.","tr":"I need a new hat.","why":"{{ну́жен|núzhen}} agrees with the thing: {{ша́пка|shápka}} is feminine, so {{нужна́|nuzhná}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Мне ___ э́ти цветы́.","tr":"I like these flowers.","options":["нра́вятся","нра́вится"],"answer":0,"why":"Flowers are several: {{нра́вятся|nrávyatsa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мне ___ биле́т на по́езд.","tr":"I need a train ticket.","options":["ну́жен","нужна́","нужны́"],"answer":0,"why":"{{биле́т|bilét}} is masculine: {{ну́жен|núzhen}}."},
+        {"type":"choice","q":"How do you say “I'm cold”?","options":["{{Мне хо́лодно.|Mne khólodno.}}","{{Я хо́лодно.|Ya khólodno.}}","{{Я холо́дный.|Ya kholódnyy.}}"],"answer":0,"why":"How you feel: {{мне|mne}} and {{хо́лодно|khólodno}}. {{Я холо́дный|Ya kholódnyy}} would mean you're a cold person!"},
+        {"type":"dialogue","q":"A friend shows you their new place. Choose your replies.","from":"describe-things","lines":[{"who":"Friend","t":"Как тебе́ мой но́вый дива́н?","r":"Kak tebé moy nóvyy diván?","tr":"How do you like my new sofa?"},{"options":["О́чень нра́вится! Он тако́й краси́вый.","О́чень нра́вится! Она́ така́я краси́вая."],"answer":0,"why":"{{дива́н|diván}} is masculine: {{он тако́й краси́вый|on takóy krasívyy}}."},{"who":"Friend","t":"А карти́ны?","r":"A kartíny?","tr":"And the paintings?"},{"options":["Карти́ны мне то́же нра́вятся.","Карти́ны мне то́же нра́вится."],"answer":0,"why":"Several paintings: {{нра́вятся|nrávyatsa}}."},{"who":"Friend","t":"Спаси́бо!","r":"Spasíbo!","tr":"Thank you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My sister liked the present.","words":["Сестре́","понра́вился","пода́рок."],"from":"give-and-tell"},
+        {"type":"say","q":"Say: “I'm bored. Let's go to the movies!”","answer":"Мне ску́чно. Дава́й пойдём в кино́!","r":"Mne skúshno. Daváy poydyóm v kinó!","from":"ask-someone-to-do"},
+        {"type":"free","q":"Your turn: say what you like about where you live, what you don't like, and something you need. Use {{Мне нра́вится / нра́вятся…|Mne nrávitsa / nrávyatsa…}} and {{Мне ну́жен / нужна́ / нужны́…|Mne núzhen / nuzhná / nuzhný…}}","answers":[{"t":"Мне нра́вится мой го́род, но мне не нра́вится пого́да. Мне нужна́ тёплая ку́ртка.","r":"Mne nrávitsa moy górod, no mne ne nrávitsa pogóda. Mne nuzhná tyóplaya kúrtka.","tr":"I like my city, but I don't like the weather. I need a warm jacket."},{"t":"Мне нра́вятся па́рки здесь. А ещё мне ну́жен велосипе́д!","r":"Mne nrávyatsa párki zdes'. A yeshchó mne núzhen velosipéd!","tr":"I like the parks here. And I need a bike!"}]}
+      ]
+    },
+    {
+      "id": "talk-about-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what something is about",
+      "summary": "Say what a book or a movie is about, what you're thinking about, and who you're talking about.",
+      "topic": "{{о|o}} + the prepositional; {{обо мне|obo mne}}, {{о нём|o nyom}}, {{о ней|o ney}}; adjectives in {{-ом|-om}}, {{-ой|-oy}}",
+      "blocks": [
+        {"goal":{"t":"Э́то фильм о любви́.","r":"Éto fil'm o lyubví.","tr":"It's a movie about love."}},
+        {"dialog":[{"who":"Galya","t":"О чём э́та кни́га?","r":"O chom éta kníga?","tr":"What's this book about?"},{"who":"Rob","t":"О большо́й семье́ в Москве́.","r":"O bol'shóy sem'yé v Moskvé.","tr":"About a big family in Moscow."},{"who":"Galya","t":"Интере́сно. А о ком ты сейча́с ду́маешь? Ты тако́й гру́стный.","r":"Interésno. A o kom ty seychás dúmayesh'? Ty takóy grústnyy.","tr":"Interesting. And who are you thinking about? You look so sad."},{"who":"Rob","t":"О сестре́. Она́ сейча́с в больни́це.","r":"O sestré. Oná seychás v bol'nítse.","tr":"My sister. She's in the hospital."},{"who":"Galya","t":"Ой… Расскажи́ о ней.","r":"Oy… Rasskazhí o ney.","tr":"Oh no… Tell me about her."}]},
+        {"p":"{{о|o}} “about” takes the prepositional, the case of {{в|v}} and {{на|na}} for “where” (lesson 9), with the same endings. {{О чём?|O chom?}} “About what?” and {{О ком?|O kom?}} “About whom?” ask about it. Before a vowel, {{о|o}} becomes {{об|ob}}: {{об э́том|ob étom}} “about this”, {{об А́нне|ob Ánne}}."},
+        { "table": [
+          ["","about…"],
+          ["me","{{обо мне|obo mne}}"],
+          ["you","{{о тебе́|o tebé}}"],
+          ["him, it","{{о нём|o nyom}}"],
+          ["her","{{о ней|o ney}}"],
+          ["us","{{о нас|o nas}}"],
+          ["you","{{о вас|o vas}}"],
+          ["them","{{о них|o nikh}}"]
+        ] },
+        {"p":"**Adjectives in the prepositional** end in {{-ом|-om}} (masculine and neuter) or {{-ой|-oy}} (feminine): {{в большо́м до́ме|v bol'shóm dóme}} “in a big house”, {{о но́вой рабо́те|o nóvoy rabóte}} “about the new job”, {{в ру́сском рестора́не|v rússkom restoráne}}. After {{ж|zh}}, {{ш|sh}}, {{ч|ch}}, {{щ|shch}}, when the ending isn't stressed, they are {{-ем|-em}} and {{-ей|-ey}}: {{о хоро́шем фи́льме|o khoróshem fíl'me}}, {{о хоро́шей пого́де|o khoróshey pogóde}}."},
+        {"p":"**Verbs.** {{говори́ть о|govorít' o}} “talk about”, {{ду́мать о|dúmat' o}} “think about”, {{расска́зывать|rasskázyvat'}} / {{рассказа́ть о|rasskazát' o}} “tell about”, {{мечта́ть о|mechtát' o}} “dream of”, {{знать о|znat' o}} “know about”. And to say what something is about: {{кни́га о…|kníga o…}}, {{фильм о…|fil'm o…}}, {{пе́сня о…|pésnya o…}}. Watch out for {{любо́вь|lyubóv'}} “love”: {{о любви́|o lyubví}}."},
+        { "ex": [
+          {"t":"О чём ты ду́маешь?","r":"O chom ty dúmayesh'?","tr":"What are you thinking about?"},
+          {"t":"Расскажи́ о себе́!","r":"Rasskazhí o sebé!","tr":"Tell me about yourself!","note":"{{себе́|sebé}} “yourself”: a later lesson"},
+          {"t":"Мы говори́ли о рабо́те.","r":"My govoríli o rabóte.","tr":"We were talking about work."},
+          {"t":"Я ча́сто ду́маю о ней.","r":"Ya chásto dúmayu o ney.","tr":"I often think about her."},
+          {"t":"Он мечта́ет о большо́й маши́не.","r":"On mechtáyet o bol'shóy mashíne.","tr":"He dreams of a big car."},
+          {"t":"Что ты зна́ешь об э́том?","r":"Shto ty znáyesh' ob étom?","tr":"What do you know about this?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Э́то фильм о любо́вь.","right":"Э́то фильм о любви́.","tr":"It's a movie about love.","why":"{{о|o}} takes the prepositional: {{о любви́|o lyubví}}."},
+        {"wrong":"Я ду́маю о его́.","right":"Я ду́маю о нём.","tr":"I'm thinking about him.","why":"After {{о|o}}: {{нём|nyom}}, {{ней|ney}}, {{них|nikh}}."},
+        {"wrong":"О что э́та кни́га?","right":"О чём э́та кни́га?","tr":"What's this book about?","why":"“About what?” is {{О чём?|O chom?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"О ___ ты ду́маешь?","tr":"Who are you thinking about?","options":["ком","кто","кого́"],"answer":0,"why":"“About whom?”: {{о ком|o kom}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Расскажи́ о ___.","tr":"Tell me about her.","options":["ней","её","она́"],"answer":0,"why":"After {{о|o}}: {{ней|ney}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мы говори́ли о ___ рабо́те.","tr":"We talked about the new job.","options":["но́вой","но́вая","но́вую"],"answer":0,"why":"A feminine adjective in the prepositional: {{-ой|-oy}}."},
+        {"type":"dialogue","q":"Chatting with a new friend: choose your replies.","from":"say-what-you-like","lines":[{"who":"Friend","t":"Что ты сейча́с чита́ешь?","r":"Shto ty seychás chitáyesh'?","tr":"What are you reading now?"},{"options":["Кни́гу о Росси́и.","Кни́гу о Росси́я."],"answer":0,"why":"After {{о|o}}: the prepositional {{о Росси́и|o Rossíi}}."},{"who":"Friend","t":"Интере́сно! А о чём ты пи́шешь в бло́ге?","r":"Interésno! A o chom ty píshesh' v blóge?","tr":"Interesting! And what do you write about on your blog?"},{"options":["О ру́сской ку́хне.","О ру́сская ку́хня."],"answer":0,"why":"After {{о|o}}: {{о ру́сской ку́хне|o rússkoy kúkhne}}."},{"who":"Friend","t":"Вку́сно!","r":"Vkúsno!","tr":"Yum!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We talked about you all evening.","words":["Мы","весь","ве́чер","говори́ли","о","тебе́."],"from":"say-what-you-did"},
+        {"type":"say","q":"Ask: “What's this book about?”","answer":"О чём э́та кни́га?","r":"O chom éta kníga?"},
+        {"type":"free","q":"Your turn: what is your favorite book or movie about? And what do you often think about? Use {{о|o}} and the prepositional.","answers":[{"t":"Мой люби́мый фильм — о дру́жбе и о любви́. Я ча́сто ду́маю о рабо́те.","r":"Moy lyubímyy fil'm — o drúzhbe i o lyubví. Ya chásto dúmayu o rabóte.","tr":"My favorite movie is about friendship and love. I often think about work."},{"t":"Моя́ люби́мая кни́га — о ма́ленькой де́вочке в большо́м го́роде.","r":"Moyá lyubímaya kníga — o málen'koy dévochke v bol'shóm górode.","tr":"My favorite book is about a little girl in a big city."}]}
+      ]
+    },
+    {
+      "id": "with-whom",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say who you're with",
+      "summary": "Say who you live, go and talk with, and what your coffee comes with: “My sister and I are going to the movies.”",
+      "topic": "The instrumental case with {{с|s}}: {{-ом|-om}}, {{-ем|-em}}, {{-ой|-oy}}, {{-ей|-ey}}, {{-ью|-'yu}}; {{со мной|so mnoy}}, {{с ним|s nim}}…; {{мы с дру́гом|my s drúgom}}",
+      "blocks": [
+        {"goal":{"t":"Я иду́ в кино́ с подру́гой. Хо́чешь с на́ми?","r":"Ya idú v kinó s podrúgoy. Khóchesh' s námi?","tr":"I'm going to the movies with a friend. Want to come with us?"}},
+        {"dialog":[{"who":"Igor","t":"Ты живёшь одна́?","r":"Ty zhivyósh' odná?","tr":"Do you live alone?"},{"who":"Yulia","t":"Нет, с сестро́й. А ты?","r":"Net, s sestróy. A ty?","tr":"No, with my sister. And you?"},{"who":"Igor","t":"Я живу́ с дру́гом. Мы с ним вме́сте рабо́таем.","r":"Ya zhivú s drúgom. My s nim vméste rabótayem.","tr":"I live with a friend. He and I work together."},{"who":"Yulia","t":"В суббо́ту мы с сестро́й идём в кино́. Хоти́те с на́ми?","r":"V subbótu my s sestróy idyóm v kinó. Khotíte s námi?","tr":"On Saturday my sister and I are going to the movies. Do you two want to come with us?"},{"who":"Igor","t":"С удово́льствием!","r":"S udovól'stviyem!","tr":"We'd love to!"}]},
+        {"term":"instrumental case","means":"the case for “with” (who you're with, what something comes with), for the tool you do something with, and for what someone works as or becomes. It answers {{с кем?|s kem?}} “with whom?” and {{чем?|chem?}} “with what?”."},
+        {"p":"{{с|s}} “with” takes the **instrumental**, your fifth case. Masculine and neuter words end in {{-ом|-om}}, feminine words in {{-ой|-oy}}:"},
+        { "table": [
+          ["","nominative","with…"],
+          ["masculine, neuter: add {{-ом|-om}} ({{-ем|-em}} after {{-й|-y}}, {{-ь|-'}})","{{брат|brat}}, {{молоко́|molokó}}, {{учи́тель|uchítel'}}","{{с бра́том|s brátom}}, {{с молоко́м|s molokóm}}, {{с учи́телем|s uchítelem}}"],
+          ["feminine: {{-а|-a}} → {{-ой|-oy}}, {{-я|-ya}} → {{-ей|-ey}}","{{сестра́|sestrá}}, {{Та́ня|Tánya}}","{{с сестро́й|s sestróy}}, {{с Та́ней|s Táney}}"],
+          ["feminine in {{-ь|-'}}: → {{-ью|-'yu}}","{{дочь|doch'}}","{{с до́черью|s dócher'yu}}"],
+          ["men in {{-а|-a}}","{{па́па|pápa}}","{{с па́пой|s pápoy}}"]
+        ] },
+        {"p":"After {{ж|zh}}, {{ш|sh}}, {{ч|ch}}, {{щ|shch}} and {{ц|ts}}, an unstressed {{-ом|-om}} or {{-ой|-oy}} is written {{-ем|-em}} or {{-ей|-ey}}: {{с му́жем|s múzhem}}, {{с Ма́шей|s Máshey}}. Adjectives end in {{-ым|-ym}} (masculine) and {{-ой|-oy}} (feminine): {{с но́вым дру́гом|s nóvym drúgom}}, {{с ру́сской подру́гой|s rússkoy podrúgoy}}."},
+        { "table": [
+          ["","with…"],
+          ["me","{{со мной|so mnoy}}"],
+          ["you","{{с тобо́й|s tobóy}}"],
+          ["him","{{с ним|s nim}}"],
+          ["her","{{с ней|s ney}}"],
+          ["us","{{с на́ми|s námi}}"],
+          ["you","{{с ва́ми|s vámi}}"],
+          ["them","{{с ни́ми|s ními}}"]
+        ] },
+        {"p":"**My friend and I.** Russian says “we with my friend”: {{мы с дру́гом|my s drúgom}} “my friend and I”, {{мы с ней|my s ney}} “she and I”, with the verb in the {{мы|my}} form. And “with” for food and drink: {{чай с лимо́ном|chay s limónom}}, {{ко́фе с молоко́м|kófe s molokóm}}, {{пирожо́к с мя́сом|pirozhók s myásom}}."},
+        { "ex": [
+          {"t":"С кем ты живёшь? — С му́жем.","r":"S kem ty zhivyósh'? — S múzhem.","tr":"Who do you live with? — With my husband."},
+          {"t":"Мо́жно ко́фе с молоко́м?","r":"Mózhno kófe s molokóm?","tr":"Can I have a coffee with milk?"},
+          {"t":"Мы с жено́й о́чень лю́бим путеше́ствовать.","r":"My s zhenóy óchen' lyúbim puteshéstvovat'.","tr":"My wife and I really love traveling."},
+          {"t":"Я хочу́ поговори́ть с тобо́й.","r":"Ya khochú pogovorít' s tobóy.","tr":"I want to talk to you.","note":"{{говори́ть с|govorít' s}}: “talk with”, a conversation"},
+          {"t":"Ты пойдёшь с на́ми?","r":"Ty poydyósh' s námi?","tr":"Will you come with us?"},
+          {"t":"Э́то пирожо́к с мя́сом и́ли с капу́стой?","r":"Éto pirozhók s myásom íli s kapústoy?","tr":"Is this pirozhok with meat or with cabbage?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я живу́ с сестра́.","right":"Я живу́ с сестро́й.","tr":"I live with my sister.","why":"After {{с|s}} “with”: the instrumental."},
+        {"wrong":"Я с дру́гом идём в кино́.","right":"Мы с дру́гом идём в кино́.","tr":"My friend and I are going to the movies.","why":"“My friend and I” is {{мы с дру́гом|my s drúgom}}, with the {{мы|my}} form. ({{Я с дру́гом|Ya s drúgom}} needs {{иду́|idú}}: “I'm going with a friend”.)"},
+        {"wrong":"Иди́ с я!","right":"Иди́ со мной!","tr":"Come with me!","why":"“With me”: {{со мной|so mnoy}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я живу́ с ___.","tr":"I live with my brother.","options":["бра́том","бра́та","бра́ту"],"answer":0,"why":"After {{с|s}}: the instrumental, {{-ом|-om}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Чай с ___, пожа́луйста.","tr":"Tea with lemon, please.","options":["лимо́ном","лимо́н","лимо́на"],"answer":0,"why":"What it comes with: {{с лимо́ном|s limónom}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Хо́чешь пойти́ со ___?","tr":"Do you want to come with me?","options":["мной","мне","меня́"],"answer":0,"why":"“With me”: {{со мной|so mnoy}}."},
+        {"type":"choice","q":"{{Мы с ма́мой|My s mámoy}} means…","options":["Mom and I","us and Mom","with our mom"],"answer":0,"why":"{{мы с…|my s…}} is “… and I”."},
+        {"type":"dialogue","q":"You're a woman. A friend asks about your vacation. Choose your replies.","from":"give-and-tell","lines":[{"who":"Friend","t":"С кем ты е́дешь на мо́ре?","r":"S kem ty yédesh' na móre?","tr":"Who are you going to the seaside with?"},{"options":["С подру́гой.","С подру́га."],"answer":0,"why":"After {{с|s}}: {{подру́га|podrúga}} → {{с подру́гой|s podrúgoy}}."},{"who":"Friend","t":"А ма́ме ты сказа́ла?","r":"A máme ty skazála?","tr":"Did you tell your mom?"},{"options":["Да, я ей сказа́ла.","Да, я её сказа́ла."],"answer":0,"why":"{{сказа́ть|skazát'}} takes the dative: {{ей|yey}}."},{"who":"Friend","t":"Ну хорошо́. Отдыха́й!","r":"Nu khoroshó. Otdykháy!","tr":"Well, OK. Have a good rest!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I have to talk to you.","words":["Мне","на́до","поговори́ть","с","тобо́й."],"from":"can-and-must"},
+        {"type":"free","q":"Your turn: who do you live with, and who do you spend weekends with? Use {{с|s}} + the instrumental, and {{мы с…|my s…}} if you like.","answers":[{"t":"Я живу́ с жено́й и с соба́кой. В выходны́е мы с жено́й гуля́ем в па́рке.","r":"Ya zhivú s zhenóy i s sobákoy. V vykhodnýye my s zhenóy gulyáyem v párke.","tr":"I live with my wife and our dog. On weekends my wife and I go for walks in the park."},{"t":"Я живу́ с сосе́дом. В выходны́е я ча́сто гото́влю с ним у́жин.","r":"Ya zhivú s sosédom. V vykhodnýye ya chásto gotóvlyu s nim úzhin.","tr":"I live with a roommate. On weekends I often cook dinner with him."}]}
+      ]
+    },
+    {
+      "id": "jobs-and-hobbies",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about your job and your hobbies",
+      "summary": "Say what you work as, what you wanted to be, and what you do in your free time: “I work as a teacher, and I do yoga.”",
+      "topic": "The instrumental without {{с|s}}: {{рабо́тать врачо́м|rabótat' vrachóm}}; {{быть|byt'}} and {{стать|stat'}} + instrumental; {{занима́ться спо́ртом|zanimátsa spórtom}}",
+      "blocks": [
+        {"goal":{"t":"Я рабо́таю программи́стом, а в свобо́дное вре́мя занима́юсь му́зыкой.","r":"Ya rabótayu programmístom, a v svobódnoye vrémya zanimáyus' múzykoy.","tr":"I work as a programmer, and in my free time I play music."}},
+        {"dialog":[{"who":"Olga","t":"Кем вы рабо́таете?","r":"Kem vy rabótayete?","tr":"What do you do for a living?"},{"who":"Sam","t":"Я рабо́таю учи́телем. А вы?","r":"Ya rabótayu uchítelem. A vy?","tr":"I'm a teacher. And you?"},{"who":"Olga","t":"Я врач. Но в де́тстве я хоте́ла стать актри́сой!","r":"Ya vrach. No v détstve ya khotéla stat' aktrísoy!","tr":"I'm a doctor. But as a kid I wanted to be an actress!"},{"who":"Sam","t":"А сейча́с вы занима́етесь теа́тром?","r":"A seychás vy zanimáyetes' teátrom?","tr":"And do you do theater now?"},{"who":"Olga","t":"Нет, сейча́с я занима́юсь йо́гой и пла́ванием.","r":"Net, seychás ya zanimáyus' yógoy i plávaniyem.","tr":"No, now I do yoga and swimming."},{"who":"Sam","t":"А я интересу́юсь исто́рией.","r":"A ya interesúyus' istóriyey.","tr":"And I'm into history."}]},
+        {"p":"The instrumental has a second big job: saying what someone **works as or becomes**. {{Кем вы рабо́таете?|Kem vy rabótayete?}}, word for word “As whom do you work?”, means “What do you do for a living?”. The answer is in the instrumental, with no word for “as”: {{Я рабо́таю врачо́м.|Ya rabótayu vrachóm.}} “I work as a doctor.”"},
+        {"p":"**Be and become.** In the present there's no “is”, so the nominative: {{Я врач.|Ya vrach.}} But after the past, the future and the infinitive of {{быть|byt'}}, and always after {{стать|stat'}} “to become”, the job or role goes into the instrumental: {{Он был учи́телем.|On byl uchítelem.}} “He was a teacher.” {{Я хочу́ стать врачо́м.|Ya khochú stat' vrachóm.}} “I want to become a doctor.”"},
+        { "table": [
+          ["","present","past, future, “become”"],
+          ["teacher","{{Он учи́тель.|On uchítel'.}}","{{Он был учи́телем.|On byl uchítelem.}}"],
+          ["doctor","{{Она́ врач.|Oná vrach.}}","{{Она́ ста́нет врачо́м.|Oná stánet vrachóm.}}"],
+          ["actress","{{Она́ актри́са.|Oná aktrísa.}}","{{Она́ хоте́ла стать актри́сой.|Oná khotéla stat' aktrísoy.}}"],
+          ["child","{{Я ребёнок.|Ya rebyónok.}}","{{Я был ребёнком.|Ya byl rebyónkom.}}"]
+        ] },
+        {"p":"**Hobbies.** {{занима́ться|zanimátsa}} and the instrumental means “to do, to go in for” a sport, a hobby or a subject: {{занима́ться спо́ртом|zanimátsa spórtom}}, {{му́зыкой|múzykoy}}, {{йо́гой|yógoy}}, {{ру́сским языко́м|rússkim yazykóm}}. It has {{рабо́тать|rabótat'}}'s forms with {{-ся|-sya}} on the end: {{я занима́юсь|ya zanimáyus'}}, {{ты занима́ешься|ty zanimáyesh'sya}}, {{он занима́ется|on zanimáyetsa}} (lesson 33 explains {{-ся|-sya}}). {{интересова́ться|interesovátsa}} “to be interested in” works the same way: {{я интересу́юсь исто́рией|ya interesúyus' istóriyey}}. And {{Чем ты занима́ешься?|Chem ty zanimáyesh'sya?}} asks “What do you do?”."},
+        { "ex": [
+          {"t":"Кем ты хо́чешь стать? — Инжене́ром.","r":"Kem ty khóchesh' stat'? — Inzhenérom.","tr":"What do you want to be? — An engineer."},
+          {"t":"Мой оте́ц рабо́тал води́телем.","r":"Moy otéts rabótal vodítelem.","tr":"My father worked as a driver."},
+          {"t":"Я занима́юсь спо́ртом три ра́за в неде́лю.","r":"Ya zanimáyus' spórtom tri ráza v nedélyu.","tr":"I work out three times a week."},
+          {"t":"Чем ты занима́ешься в свобо́дное вре́мя?","r":"Chem ty zanimáyesh'sya v svobódnoye vrémya?","tr":"What do you do in your free time?"},
+          {"t":"Он интересу́ется поли́тикой.","r":"On interesúyetsa polítikoy.","tr":"He's interested in politics."},
+          {"t":"В де́тстве я был о́чень ти́хим ребёнком.","r":"V détstve ya byl óchen' tíkhim rebyónkom.","tr":"As a kid I was a very quiet child."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я рабо́таю как врач.","right":"Я рабо́таю врачо́м.","tr":"I work as a doctor.","why":"“Work as” is the instrumental, with no word for “as”."},
+        {"wrong":"Я занима́юсь спорт.","right":"Я занима́юсь спо́ртом.","tr":"I do sports.","why":"{{занима́ться|zanimátsa}} takes the instrumental."},
+        {"wrong":"Я хочу́ стать врач.","right":"Я хочу́ стать врачо́м.","tr":"I want to become a doctor.","why":"After {{стать|stat'}}: the instrumental."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я рабо́таю ___.","tr":"I work as a teacher.","options":["учи́телем","учи́тель","учи́теля"],"answer":0,"why":"Work as: the instrumental, {{учи́телем|uchítelem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Чем ты ___ в свобо́дное вре́мя?","tr":"What do you do in your free time?","options":["занима́ешься","занима́ешь","де́лаешь"],"answer":0,"why":"Hobbies: {{занима́ться|zanimátsa}}, with {{-ся|-sya}}."},
+        {"type":"choice","q":"Which is right?","options":["{{Мой брат — инжене́р.|Moy brat — inzhenér.}}","{{Мой брат — инжене́ром.|Moy brat — inzhenérom.}}"],"answer":0,"why":"In the present there's no “is”: the nominative. The instrumental comes with {{был|byl}}, {{бу́ду|búdu}} and {{стать|stat'}}."},
+        {"type":"dialogue","q":"You're a man at a job interview. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Interviewer","t":"Кем вы рабо́тали ра́ньше?","r":"Kem vy rabótali rán'she?","tr":"What did you do before?"},{"options":["Я рабо́тал ме́неджером в ба́нке.","Я рабо́тал ме́неджер в ба́нке."],"answer":0,"why":"Worked as: the instrumental."},{"who":"Interviewer","t":"А чем вы занима́етесь в свобо́дное вре́мя?","r":"A chem vy zanimáyetes' v svobódnoye vrémya?","tr":"And what do you do in your free time?"},{"options":["Я занима́юсь те́ннисом и чита́ю.","Я занима́юсь те́ннис и чита́ю."],"answer":0,"why":"{{занима́ться|zanimátsa}} + the instrumental."},{"who":"Interviewer","t":"Отли́чно. Спаси́бо!","r":"Otlíchno. Spasíbo!","tr":"Great. Thank you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My brother and I do sports.","words":["Мы","с","бра́том","занима́емся","спо́ртом."],"from":"with-whom"},
+        {"type":"say","q":"Say: “I want to become a doctor.”","answer":"Я хочу́ стать врачо́м.","r":"Ya khochú stat' vrachóm.","from":"ask-for-things"},
+        {"type":"free","q":"Your turn: what do you do for a living (or study), what did you want to be as a child, and what do you do in your free time?","answers":[{"t":"Я рабо́таю бухга́лтером. В де́тстве я хоте́л стать космона́втом. Сейча́с я занима́юсь бе́гом.","r":"Ya rabótayu bukhgálterom. V détstve ya khotél stat' kosmonávtom. Seychás ya zanimáyus' bégom.","tr":"I work as an accountant. As a kid I wanted to be a cosmonaut. Now I run."},{"t":"Я студе́нтка. В свобо́дное вре́мя я занима́юсь йо́гой и интересу́юсь иску́сством.","r":"Ya studéntka. V svobódnoye vrémya ya zanimáyus' yógoy i interesúyus' iskússtvom.","tr":"I'm a student. In my free time I do yoga, and I'm interested in art."}]}
+      ]
     }
   ]
 }
