@@ -30,6 +30,20 @@
    ],
    "bytes": 262704,
    "sha256": "b52bde41ef70f0a88f7ae94a262b8d88436d353aafc153a11cddc33dbfe8a461"
+  },
+  "tl-en": {
+   "file": "tl-en/course.json",
+   "from": "tl",
+   "to": "en",
+   "title": "Gramatika ng Ingles",
+   "variety": "Ingles na Amerikano (American English)",
+   "units": 8,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 31095,
+   "sha256": "5abe4cbf452d437b9ae26bdf51f1fea118a0ee71abc09855c6a0c03de8c43a6b"
   }
  }
 }
