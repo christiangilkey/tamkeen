@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-ru": {
+   "file": "en-ru/course.json",
+   "from": "en",
+   "to": "ru",
+   "title": "Russian grammar",
+   "variety": "Standard Russian",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 43220,
+   "sha256": "e82d25c8960395d8888404639745118e1f57891316c2e244c51ff53f01b742de"
   }
  }
 }
