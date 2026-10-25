@@ -187,6 +187,1679 @@
       "sentence": "Vou para casa agora.",
       "translation": "I'm ⟦going⟧ home now.",
       "form": "vou"
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "fazer",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "O que você vai fazer hoje?",
+      "translation": "What are you going to ⟦do⟧ today?"
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "se",
+      "pos": "conj",
+      "meaning": "if",
+      "sentence": "Se chover, eu fico em casa.",
+      "translation": "⟦If⟧ it rains, I'll stay home."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "meu",
+      "pos": "pron",
+      "meaning": "my (feminine: minha)",
+      "sentence": "Este é o meu carro.",
+      "translation": "This is ⟦my⟧ car."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "mas",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "A casa é pequena, mas é bonita.",
+      "translation": "The house is small, ⟦but⟧ it's pretty."
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "se",
+      "pos": "pron",
+      "meaning": "oneself; himself, herself; each other",
+      "sentence": "Ela se olhou no espelho.",
+      "translation": "She looked at ⟦herself⟧ in the mirror."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "esse",
+      "pos": "pron",
+      "meaning": "that; this (feminine: essa)",
+      "sentence": "Esse livro é muito bom.",
+      "translation": "⟦That⟧ book is very good."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "poder",
+      "pos": "verb",
+      "meaning": "can; to be able to",
+      "sentence": "Posso sentar aqui?",
+      "translation": "⟦Can⟧ I sit here?",
+      "form": "posso"
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "você",
+      "pos": "pron",
+      "meaning": "you",
+      "sentence": "Você fala inglês?",
+      "translation": "Do ⟦you⟧ speak English?"
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "este",
+      "pos": "pron",
+      "meaning": "this (feminine: esta)",
+      "sentence": "Esta é minha irmã.",
+      "translation": "⟦This⟧ is my sister.",
+      "form": "esta"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "muito",
+      "pos": "adv",
+      "meaning": "very; a lot; much",
+      "sentence": "Ela é muito simpática.",
+      "translation": "She's ⟦very⟧ nice."
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "todo",
+      "pos": "adj",
+      "meaning": "all; every (todo dia: every day)",
+      "sentence": "Eu trabalho todos os dias.",
+      "translation": "I work ⟦every⟧ day.",
+      "form": "todos"
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "ver",
+      "pos": "verb",
+      "meaning": "to see; to watch",
+      "sentence": "Você viu o meu celular?",
+      "translation": "Have you ⟦seen⟧ my phone?",
+      "form": "viu"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "querer",
+      "pos": "verb",
+      "meaning": "to want",
+      "sentence": "Eu quero um café.",
+      "translation": "I ⟦want⟧ a coffee.",
+      "form": "quero"
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "isso",
+      "pos": "pron",
+      "meaning": "that; this",
+      "sentence": "O que é isso?",
+      "translation": "What is ⟦that⟧?"
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "ou",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "Você quer chá ou café?",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "ano",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "Eu tenho vinte anos.",
+      "translation": "I'm twenty ⟦years⟧ old.",
+      "form": "anos"
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "saber",
+      "pos": "verb",
+      "meaning": "to know (a fact); to know how",
+      "sentence": "Você sabe onde fica o banco?",
+      "translation": "Do you ⟦know⟧ where the bank is?",
+      "form": "sabe"
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "outro",
+      "pos": "adj",
+      "meaning": "other; another",
+      "sentence": "Quero outro café, por favor.",
+      "translation": "I'd like ⟦another⟧ coffee, please."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "dia",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "Hoje foi um dia longo.",
+      "translation": "Today was a long ⟦day⟧."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "dizer",
+      "pos": "verb",
+      "meaning": "to say; to tell",
+      "sentence": "Ele disse que vem amanhã.",
+      "translation": "He ⟦said⟧ he's coming tomorrow.",
+      "form": "disse"
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "já",
+      "pos": "adv",
+      "meaning": "already; ever",
+      "sentence": "Eu já comi.",
+      "translation": "I've ⟦already⟧ eaten."
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "também",
+      "pos": "adv",
+      "meaning": "also; too",
+      "sentence": "Eu também gosto de café.",
+      "translation": "I like coffee ⟦too⟧."
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "mesmo",
+      "pos": "adj",
+      "meaning": "same; even; really",
+      "sentence": "Nós moramos na mesma rua.",
+      "translation": "We live on the ⟦same⟧ street.",
+      "form": "mesma"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "quando",
+      "pos": "conj",
+      "meaning": "when",
+      "sentence": "Me liga quando chegar.",
+      "translation": "Call me ⟦when⟧ you get there."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "pessoa",
+      "pos": "noun",
+      "meaning": "person (pessoas: people)",
+      "sentence": "Ela é uma pessoa muito boa.",
+      "translation": "She's a very good ⟦person⟧."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "dar",
+      "pos": "verb",
+      "meaning": "to give",
+      "sentence": "Ele me deu um presente.",
+      "translation": "He ⟦gave⟧ me a present.",
+      "form": "deu"
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "ficar",
+      "pos": "verb",
+      "meaning": "to stay; to be (located); to become",
+      "sentence": "Vou ficar em casa hoje.",
+      "translation": "I'm going to ⟦stay⟧ home today."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "só",
+      "pos": "adv",
+      "meaning": "only; just",
+      "sentence": "Só um minuto, por favor.",
+      "translation": "⟦Just⟧ a minute, please."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "haver",
+      "pos": "verb",
+      "meaning": "there is, there are (há); ago",
+      "sentence": "Há muitas pessoas aqui.",
+      "translation": "⟦There are⟧ a lot of people here.",
+      "form": "há"
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "sobre",
+      "pos": "prep",
+      "meaning": "about; on",
+      "sentence": "Vamos falar sobre isso amanhã.",
+      "translation": "Let's talk ⟦about⟧ it tomorrow."
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "bem",
+      "pos": "adv",
+      "meaning": "well; fine",
+      "sentence": "Eu estou bem, obrigado.",
+      "translation": "I'm ⟦well⟧, thank you."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "nosso",
+      "pos": "pron",
+      "meaning": "our (feminine: nossa)",
+      "sentence": "Esta é a nossa casa.",
+      "translation": "This is ⟦our⟧ house.",
+      "form": "nossa"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "bom",
+      "pos": "adj",
+      "meaning": "good (feminine: boa)",
+      "sentence": "Este restaurante é muito bom.",
+      "translation": "This restaurant is very ⟦good⟧."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "aqui",
+      "pos": "adv",
+      "meaning": "here",
+      "sentence": "Venha aqui, por favor.",
+      "translation": "Come ⟦here⟧, please."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "até",
+      "pos": "prep",
+      "meaning": "until; up to; even",
+      "sentence": "Eu trabalho até as seis.",
+      "translation": "I work ⟦until⟧ six."
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "te",
+      "pos": "pron",
+      "meaning": "you (as object: I love you)",
+      "sentence": "Eu te amo.",
+      "translation": "I love ⟦you⟧."
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "tudo",
+      "pos": "pron",
+      "meaning": "everything; all",
+      "sentence": "Eu entendi tudo.",
+      "translation": "I understood ⟦everything⟧."
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "novo",
+      "pos": "adj",
+      "meaning": "new; young",
+      "sentence": "Comprei um carro novo.",
+      "translation": "I bought a ⟦new⟧ car."
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "ainda",
+      "pos": "adv",
+      "meaning": "still; yet",
+      "sentence": "Você ainda mora aqui?",
+      "translation": "Do you ⟦still⟧ live here?"
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "algum",
+      "pos": "adj",
+      "meaning": "some; any (feminine: alguma)",
+      "sentence": "Você tem alguma pergunta?",
+      "translation": "Do you have ⟦any⟧ questions?",
+      "form": "alguma"
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "falar",
+      "pos": "verb",
+      "meaning": "to speak; to talk",
+      "sentence": "Eu falo um pouco de português.",
+      "translation": "I ⟦speak⟧ a little Portuguese.",
+      "form": "falo"
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "coisa",
+      "pos": "noun",
+      "meaning": "thing",
+      "sentence": "Preciso comprar umas coisas.",
+      "translation": "I need to buy a few ⟦things⟧.",
+      "form": "coisas"
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "passar",
+      "pos": "verb",
+      "meaning": "to pass; to spend (time)",
+      "sentence": "Passei o fim de semana na praia.",
+      "translation": "I ⟦spent⟧ the weekend at the beach.",
+      "form": "passei"
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "vez",
+      "pos": "noun",
+      "meaning": "time (occasion); turn",
+      "sentence": "É a minha primeira vez aqui.",
+      "translation": "It's my first ⟦time⟧ here."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "quem",
+      "pos": "pron",
+      "meaning": "who",
+      "sentence": "Quem é ele?",
+      "translation": "⟦Who⟧ is he?"
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "sem",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "Café sem açúcar, por favor.",
+      "translation": "Coffee ⟦without⟧ sugar, please."
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "dois",
+      "pos": "num",
+      "meaning": "two (feminine: duas)",
+      "sentence": "Eu tenho dois gatos.",
+      "translation": "I have ⟦two⟧ cats."
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "agora",
+      "pos": "adv",
+      "meaning": "now",
+      "sentence": "Estou ocupado agora.",
+      "translation": "I'm busy ⟦now⟧."
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "entre",
+      "pos": "prep",
+      "meaning": "between; among",
+      "sentence": "O banco fica entre a farmácia e o mercado.",
+      "translation": "The bank is ⟦between⟧ the pharmacy and the market."
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "primeiro",
+      "pos": "adj",
+      "meaning": "first",
+      "sentence": "Ele foi o primeiro a chegar.",
+      "translation": "He was the ⟦first⟧ to arrive."
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "achar",
+      "pos": "verb",
+      "meaning": "to think (have an opinion); to find",
+      "sentence": "Acho que vai chover.",
+      "translation": "I ⟦think⟧ it's going to rain.",
+      "form": "acho"
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "tempo",
+      "pos": "noun",
+      "meaning": "time; weather",
+      "sentence": "Não tenho tempo hoje.",
+      "translation": "I don't have ⟦time⟧ today."
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "melhor",
+      "pos": "adj",
+      "meaning": "better; best",
+      "sentence": "Você é o meu melhor amigo.",
+      "translation": "You're my ⟦best⟧ friend."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "assim",
+      "pos": "adv",
+      "meaning": "like this, like that; so",
+      "sentence": "Não fale assim comigo.",
+      "translation": "Don't talk to me ⟦like that⟧."
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "depois",
+      "pos": "adv",
+      "meaning": "after; later",
+      "sentence": "A gente conversa depois.",
+      "translation": "We'll talk ⟦later⟧."
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "dever",
+      "pos": "verb",
+      "meaning": "should; must; to owe",
+      "sentence": "Você deve descansar.",
+      "translation": "You ⟦should⟧ rest.",
+      "form": "deve"
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "grande",
+      "pos": "adj",
+      "meaning": "big; large; great",
+      "sentence": "Eles moram numa casa grande.",
+      "translation": "They live in a ⟦big⟧ house."
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "vida",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "A vida no interior é tranquila.",
+      "translation": "⟦Life⟧ in the countryside is quiet."
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "onde",
+      "pos": "adv",
+      "meaning": "where",
+      "sentence": "Onde fica o banheiro?",
+      "translation": "⟦Where⟧ is the bathroom?"
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "mundo",
+      "pos": "noun",
+      "meaning": "world",
+      "sentence": "Quero viajar pelo mundo.",
+      "translation": "I want to travel around the ⟦world⟧."
+    },
+    {
+      "n": 81,
+      "rank": 82,
+      "word": "casa",
+      "pos": "noun",
+      "meaning": "house; home",
+      "sentence": "Minha casa fica perto daqui.",
+      "translation": "My ⟦house⟧ is near here."
+    },
+    {
+      "n": 82,
+      "rank": 83,
+      "word": "deixar",
+      "pos": "verb",
+      "meaning": "to leave; to let",
+      "sentence": "Deixei a chave em casa.",
+      "translation": "I ⟦left⟧ the key at home.",
+      "form": "deixei"
+    },
+    {
+      "n": 83,
+      "rank": 84,
+      "word": "vir",
+      "pos": "verb",
+      "meaning": "to come",
+      "sentence": "Você vem à festa?",
+      "translation": "Are you ⟦coming⟧ to the party?",
+      "form": "vem"
+    },
+    {
+      "n": 84,
+      "rank": 85,
+      "word": "porque",
+      "pos": "conj",
+      "meaning": "because",
+      "sentence": "Não fui porque estava doente.",
+      "translation": "I didn't go ⟦because⟧ I was sick."
+    },
+    {
+      "n": 85,
+      "rank": 86,
+      "word": "dele",
+      "pos": "pron",
+      "meaning": "his; of him (dela: her; deles: their)",
+      "sentence": "Esse é o carro dele.",
+      "translation": "That's ⟦his⟧ car."
+    },
+    {
+      "n": 86,
+      "rank": 87,
+      "word": "precisar",
+      "pos": "verb",
+      "meaning": "to need",
+      "sentence": "Preciso de ajuda.",
+      "translation": "I ⟦need⟧ help.",
+      "form": "preciso"
+    },
+    {
+      "n": 87,
+      "rank": 88,
+      "word": "nada",
+      "pos": "pron",
+      "meaning": "nothing; anything",
+      "sentence": "Não comi nada hoje.",
+      "translation": "I haven't eaten ⟦anything⟧ today."
+    },
+    {
+      "n": 88,
+      "rank": 89,
+      "word": "aquele",
+      "pos": "pron",
+      "meaning": "that (over there) (feminine: aquela)",
+      "sentence": "Quem é aquele homem?",
+      "translation": "Who is ⟦that⟧ man?"
+    },
+    {
+      "n": 89,
+      "rank": 90,
+      "word": "qual",
+      "pos": "pron",
+      "meaning": "which; what",
+      "sentence": "Qual você prefere?",
+      "translation": "⟦Which⟧ one do you prefer?"
+    },
+    {
+      "n": 90,
+      "rank": 91,
+      "word": "segundo",
+      "pos": "adj",
+      "meaning": "second; according to",
+      "sentence": "Moro no segundo andar.",
+      "translation": "I live on the ⟦second⟧ floor."
+    },
+    {
+      "n": 91,
+      "rank": 92,
+      "word": "estado",
+      "pos": "noun",
+      "meaning": "state; condition",
+      "sentence": "Em que estado você mora?",
+      "translation": "Which ⟦state⟧ do you live in?"
+    },
+    {
+      "n": 92,
+      "rank": 93,
+      "word": "usar",
+      "pos": "verb",
+      "meaning": "to use; to wear",
+      "sentence": "Posso usar o seu telefone?",
+      "translation": "Can I ⟦use⟧ your phone?"
+    },
+    {
+      "n": 93,
+      "rank": 94,
+      "word": "sempre",
+      "pos": "adv",
+      "meaning": "always",
+      "sentence": "Ela sempre chega atrasada.",
+      "translation": "She ⟦always⟧ arrives late."
+    },
+    {
+      "n": 94,
+      "rank": 95,
+      "word": "parte",
+      "pos": "noun",
+      "meaning": "part",
+      "sentence": "A melhor parte do filme é o final.",
+      "translation": "The best ⟦part⟧ of the movie is the end."
+    },
+    {
+      "n": 95,
+      "rank": 96,
+      "word": "chegar",
+      "pos": "verb",
+      "meaning": "to arrive; to get (somewhere)",
+      "sentence": "Que horas você chega?",
+      "translation": "What time do you ⟦arrive⟧?",
+      "form": "chega"
+    },
+    {
+      "n": 96,
+      "rank": 97,
+      "word": "cidade",
+      "pos": "noun",
+      "meaning": "city; town",
+      "sentence": "Eu adoro esta cidade.",
+      "translation": "I love this ⟦city⟧."
+    },
+    {
+      "n": 97,
+      "rank": 98,
+      "word": "apenas",
+      "pos": "adv",
+      "meaning": "only; just",
+      "sentence": "Tenho apenas dez reais.",
+      "translation": "I have ⟦only⟧ ten reais."
+    },
+    {
+      "n": 98,
+      "rank": 99,
+      "word": "nos",
+      "pos": "pron",
+      "meaning": "us; to us; ourselves",
+      "sentence": "Ele nos ajudou muito.",
+      "translation": "He helped ⟦us⟧ a lot."
+    },
+    {
+      "n": 99,
+      "rank": 100,
+      "word": "nunca",
+      "pos": "adv",
+      "meaning": "never",
+      "sentence": "Eu nunca fui ao Japão.",
+      "translation": "I've ⟦never⟧ been to Japan."
+    },
+    {
+      "n": 100,
+      "rank": 101,
+      "word": "começar",
+      "pos": "verb",
+      "meaning": "to begin; to start",
+      "sentence": "A aula começa às oito.",
+      "translation": "The class ⟦starts⟧ at eight.",
+      "form": "começa"
+    },
+    {
+      "n": 101,
+      "rank": 102,
+      "word": "mim",
+      "pos": "pron",
+      "meaning": "me (after a preposition)",
+      "sentence": "Isso é para mim?",
+      "translation": "Is this for ⟦me⟧?"
+    },
+    {
+      "n": 102,
+      "rank": 103,
+      "word": "maior",
+      "pos": "adj",
+      "meaning": "bigger; biggest",
+      "sentence": "São Paulo é a maior cidade do Brasil.",
+      "translation": "São Paulo is the ⟦biggest⟧ city in Brazil."
+    },
+    {
+      "n": 103,
+      "rank": 104,
+      "word": "filho",
+      "pos": "noun",
+      "meaning": "son; child (filha: daughter)",
+      "sentence": "Meu filho tem cinco anos.",
+      "translation": "My ⟦son⟧ is five years old."
+    },
+    {
+      "n": 104,
+      "rank": 105,
+      "word": "levar",
+      "pos": "verb",
+      "meaning": "to take; to carry",
+      "sentence": "Levo meus filhos à escola todo dia.",
+      "translation": "I ⟦take⟧ my kids to school every day.",
+      "form": "levo"
+    },
+    {
+      "n": 105,
+      "rank": 106,
+      "word": "gostar",
+      "pos": "verb",
+      "meaning": "to like (gostar de)",
+      "sentence": "Eu gosto muito de música.",
+      "translation": "I really ⟦like⟧ music.",
+      "form": "gosto"
+    },
+    {
+      "n": 106,
+      "rank": 107,
+      "word": "trabalho",
+      "pos": "noun",
+      "meaning": "work; job",
+      "sentence": "Tenho muito trabalho hoje.",
+      "translation": "I have a lot of ⟦work⟧ today."
+    },
+    {
+      "n": 107,
+      "rank": 108,
+      "word": "hoje",
+      "pos": "adv",
+      "meaning": "today",
+      "sentence": "Hoje está muito quente.",
+      "translation": "It's very hot ⟦today⟧."
+    },
+    {
+      "n": 108,
+      "rank": 109,
+      "word": "tão",
+      "pos": "adv",
+      "meaning": "so; as",
+      "sentence": "Você é tão gentil!",
+      "translation": "You're ⟦so⟧ kind!"
+    },
+    {
+      "n": 109,
+      "rank": 110,
+      "word": "conhecer",
+      "pos": "verb",
+      "meaning": "to know (a person or place); to meet",
+      "sentence": "Eu conheço a irmã dele.",
+      "translation": "I ⟦know⟧ his sister.",
+      "form": "conheço"
+    },
+    {
+      "n": 110,
+      "rank": 111,
+      "word": "pensar",
+      "pos": "verb",
+      "meaning": "to think",
+      "sentence": "Estou pensando em você.",
+      "translation": "I'm ⟦thinking⟧ about you.",
+      "form": "pensando"
+    },
+    {
+      "n": 111,
+      "rank": 112,
+      "word": "pouco",
+      "pos": "adv",
+      "meaning": "little; a little; few",
+      "sentence": "Ele come muito pouco.",
+      "translation": "He eats very ⟦little⟧."
+    },
+    {
+      "n": 112,
+      "rank": 113,
+      "word": "hora",
+      "pos": "noun",
+      "meaning": "hour; time (o'clock)",
+      "sentence": "Que horas são?",
+      "translation": "What ⟦time⟧ is it?",
+      "form": "horas"
+    },
+    {
+      "n": 113,
+      "rank": 114,
+      "word": "então",
+      "pos": "adv",
+      "meaning": "so; then",
+      "sentence": "Está chovendo, então vou ficar em casa.",
+      "translation": "It's raining, ⟦so⟧ I'll stay home."
+    },
+    {
+      "n": 114,
+      "rank": 115,
+      "word": "nem",
+      "pos": "conj",
+      "meaning": "not even; nor",
+      "sentence": "Eu nem sei o nome dele.",
+      "translation": "I don't ⟦even⟧ know his name."
+    },
+    {
+      "n": 115,
+      "rank": 116,
+      "word": "forma",
+      "pos": "noun",
+      "meaning": "way; form; shape",
+      "sentence": "Essa é a melhor forma de aprender.",
+      "translation": "That's the best ⟦way⟧ to learn."
+    },
+    {
+      "n": 116,
+      "rank": 117,
+      "word": "mulher",
+      "pos": "noun",
+      "meaning": "woman; wife",
+      "sentence": "Aquela mulher é minha professora.",
+      "translation": "That ⟦woman⟧ is my teacher."
+    },
+    {
+      "n": 117,
+      "rank": 118,
+      "word": "brasileiro",
+      "pos": "adj",
+      "meaning": "Brazilian",
+      "sentence": "A comida brasileira é deliciosa.",
+      "translation": "⟦Brazilian⟧ food is delicious.",
+      "form": "brasileira"
+    },
+    {
+      "n": 118,
+      "rank": 119,
+      "word": "Deus",
+      "pos": "noun",
+      "meaning": "God",
+      "sentence": "Graças a Deus, deu tudo certo.",
+      "translation": "Thank ⟦God⟧, everything turned out fine."
+    },
+    {
+      "n": 119,
+      "rank": 120,
+      "word": "sair",
+      "pos": "verb",
+      "meaning": "to go out; to leave",
+      "sentence": "Ela saiu de casa cedo.",
+      "translation": "She ⟦left⟧ home early.",
+      "form": "saiu"
+    },
+    {
+      "n": 120,
+      "rank": 121,
+      "word": "encontrar",
+      "pos": "verb",
+      "meaning": "to find; to meet",
+      "sentence": "Não encontro as minhas chaves.",
+      "translation": "I can't ⟦find⟧ my keys.",
+      "form": "encontro"
+    },
+    {
+      "n": 121,
+      "rank": 122,
+      "word": "acontecer",
+      "pos": "verb",
+      "meaning": "to happen",
+      "sentence": "O que aconteceu?",
+      "translation": "What ⟦happened⟧?",
+      "form": "aconteceu"
+    },
+    {
+      "n": 122,
+      "rank": 123,
+      "word": "nome",
+      "pos": "noun",
+      "meaning": "name",
+      "sentence": "Meu nome é Ana.",
+      "translation": "My ⟦name⟧ is Ana."
+    },
+    {
+      "n": 123,
+      "rank": 124,
+      "word": "conseguir",
+      "pos": "verb",
+      "meaning": "to manage to; to be able to; to get",
+      "sentence": "Consegui terminar o trabalho.",
+      "translation": "I ⟦managed to⟧ finish the work.",
+      "form": "consegui"
+    },
+    {
+      "n": 124,
+      "rank": 125,
+      "word": "amigo",
+      "pos": "noun",
+      "meaning": "friend (feminine: amiga)",
+      "sentence": "Vou jantar com uns amigos.",
+      "translation": "I'm having dinner with some ⟦friends⟧.",
+      "form": "amigos"
+    },
+    {
+      "n": 125,
+      "rank": 126,
+      "word": "foto",
+      "pos": "noun",
+      "meaning": "photo; picture",
+      "sentence": "Posso tirar uma foto?",
+      "translation": "Can I take a ⟦photo⟧?"
+    },
+    {
+      "n": 126,
+      "rank": 127,
+      "word": "nós",
+      "pos": "pron",
+      "meaning": "we",
+      "sentence": "Nós vamos à praia amanhã.",
+      "translation": "⟦We⟧'re going to the beach tomorrow."
+    },
+    {
+      "n": 127,
+      "rank": 128,
+      "word": "caso",
+      "pos": "noun",
+      "meaning": "case; in case",
+      "sentence": "Nesse caso, vamos amanhã.",
+      "translation": "In that ⟦case⟧, let's go tomorrow."
+    },
+    {
+      "n": 128,
+      "rank": 129,
+      "word": "sentir",
+      "pos": "verb",
+      "meaning": "to feel; to be sorry (sinto muito)",
+      "sentence": "Eu me sinto muito melhor hoje.",
+      "translation": "I ⟦feel⟧ much better today.",
+      "form": "sinto"
+    },
+    {
+      "n": 129,
+      "rank": 130,
+      "word": "grupo",
+      "pos": "noun",
+      "meaning": "group",
+      "sentence": "Viajamos em grupo.",
+      "translation": "We traveled in a ⟦group⟧."
+    },
+    {
+      "n": 130,
+      "rank": 131,
+      "word": "meio",
+      "pos": "adj",
+      "meaning": "half; middle; kind of",
+      "sentence": "Comprei meio quilo de queijo.",
+      "translation": "I bought ⟦half⟧ a kilo of cheese."
+    },
+    {
+      "n": 131,
+      "rank": 132,
+      "word": "durante",
+      "pos": "prep",
+      "meaning": "during",
+      "sentence": "Ele dormiu durante o filme.",
+      "translation": "He slept ⟦during⟧ the movie."
+    },
+    {
+      "n": 132,
+      "rank": 133,
+      "word": "qualquer",
+      "pos": "adj",
+      "meaning": "any; whatever",
+      "sentence": "Você pode me ligar a qualquer hora.",
+      "translation": "You can call me at ⟦any⟧ time."
+    },
+    {
+      "n": 133,
+      "rank": 134,
+      "word": "país",
+      "pos": "noun",
+      "meaning": "country",
+      "sentence": "O Brasil é um país enorme.",
+      "translation": "Brazil is a huge ⟦country⟧."
+    },
+    {
+      "n": 134,
+      "rank": 135,
+      "word": "último",
+      "pos": "adj",
+      "meaning": "last; latest",
+      "sentence": "Este é o último ônibus.",
+      "translation": "This is the ⟦last⟧ bus."
+    },
+    {
+      "n": 135,
+      "rank": 136,
+      "word": "parecer",
+      "pos": "verb",
+      "meaning": "to seem; to look (like)",
+      "sentence": "Você parece cansado.",
+      "translation": "You ⟦look⟧ tired.",
+      "form": "parece"
+    },
+    {
+      "n": 136,
+      "rank": 137,
+      "word": "viver",
+      "pos": "verb",
+      "meaning": "to live",
+      "sentence": "Ele vive sozinho.",
+      "translation": "He ⟦lives⟧ alone.",
+      "form": "vive"
+    },
+    {
+      "n": 137,
+      "rank": 138,
+      "word": "esperar",
+      "pos": "verb",
+      "meaning": "to wait; to hope; to expect",
+      "sentence": "Espere aqui, por favor.",
+      "translation": "⟦Wait⟧ here, please.",
+      "form": "espere"
+    },
+    {
+      "n": 138,
+      "rank": 139,
+      "word": "cada",
+      "pos": "adj",
+      "meaning": "each; every",
+      "sentence": "Cada pessoa paga a sua parte.",
+      "translation": "⟦Each⟧ person pays their share."
+    },
+    {
+      "n": 139,
+      "rank": 140,
+      "word": "lá",
+      "pos": "adv",
+      "meaning": "there",
+      "sentence": "Eu nunca estive lá.",
+      "translation": "I've never been ⟦there⟧."
+    },
+    {
+      "n": 140,
+      "rank": 141,
+      "word": "sim",
+      "pos": "adv",
+      "meaning": "yes",
+      "sentence": "Sim, claro!",
+      "translation": "⟦Yes⟧, of course!"
+    },
+    {
+      "n": 141,
+      "rank": 142,
+      "word": "seguir",
+      "pos": "verb",
+      "meaning": "to follow; to keep going",
+      "sentence": "Siga em frente até o semáforo.",
+      "translation": "⟦Keep going⟧ straight until the traffic light.",
+      "form": "siga"
+    },
+    {
+      "n": 142,
+      "rank": 143,
+      "word": "público",
+      "pos": "adj",
+      "meaning": "public; audience",
+      "sentence": "Ela trabalha num hospital público.",
+      "translation": "She works at a ⟦public⟧ hospital."
+    },
+    {
+      "n": 143,
+      "rank": 144,
+      "word": "acabar",
+      "pos": "verb",
+      "meaning": "to end; to finish; to have just (acabar de)",
+      "sentence": "A aula acabou mais cedo.",
+      "translation": "The class ⟦ended⟧ early.",
+      "form": "acabou"
+    },
+    {
+      "n": 144,
+      "rank": 145,
+      "word": "menos",
+      "pos": "adv",
+      "meaning": "less; fewer; minus",
+      "sentence": "Preciso gastar menos dinheiro.",
+      "translation": "I need to spend ⟦less⟧ money."
+    },
+    {
+      "n": 145,
+      "rank": 146,
+      "word": "homem",
+      "pos": "noun",
+      "meaning": "man",
+      "sentence": "Um homem bateu na porta.",
+      "translation": "A ⟦man⟧ knocked on the door."
+    },
+    {
+      "n": 146,
+      "rank": 147,
+      "word": "história",
+      "pos": "noun",
+      "meaning": "story; history",
+      "sentence": "Meu avô conta histórias incríveis.",
+      "translation": "My grandfather tells amazing ⟦stories⟧.",
+      "form": "histórias"
+    },
+    {
+      "n": 147,
+      "rank": 148,
+      "word": "chamar",
+      "pos": "verb",
+      "meaning": "to call; to be called (chamar-se)",
+      "sentence": "Vou chamar um táxi.",
+      "translation": "I'm going to ⟦call⟧ a taxi."
+    },
+    {
+      "n": 148,
+      "rank": 149,
+      "word": "direito",
+      "pos": "noun",
+      "meaning": "right (to something); right-hand; properly",
+      "sentence": "Todo mundo tem direito à educação.",
+      "translation": "Everyone has the ⟦right⟧ to education."
+    },
+    {
+      "n": 149,
+      "rank": 150,
+      "word": "alguém",
+      "pos": "pron",
+      "meaning": "someone; anyone",
+      "sentence": "Tem alguém em casa?",
+      "translation": "Is ⟦anyone⟧ home?"
+    },
+    {
+      "n": 150,
+      "rank": 151,
+      "word": "antes",
+      "pos": "adv",
+      "meaning": "before (antes de)",
+      "sentence": "Lave as mãos antes de comer.",
+      "translation": "Wash your hands ⟦before⟧ eating."
+    },
+    {
+      "n": 151,
+      "rank": 152,
+      "word": "mãe",
+      "pos": "noun",
+      "meaning": "mother; mom",
+      "sentence": "Minha mãe cozinha muito bem.",
+      "translation": "My ⟦mother⟧ cooks very well."
+    },
+    {
+      "n": 152,
+      "rank": 153,
+      "word": "desde",
+      "pos": "prep",
+      "meaning": "since",
+      "sentence": "Estou esperando desde as oito.",
+      "translation": "I've been waiting ⟦since⟧ eight."
+    },
+    {
+      "n": 153,
+      "rank": 154,
+      "word": "tornar",
+      "pos": "verb",
+      "meaning": "to become (tornar-se); to make",
+      "sentence": "Ele se tornou médico.",
+      "translation": "He ⟦became⟧ a doctor.",
+      "form": "tornou"
+    },
+    {
+      "n": 154,
+      "rank": 155,
+      "word": "tipo",
+      "pos": "noun",
+      "meaning": "type; kind; like (informal)",
+      "sentence": "Que tipo de música você gosta?",
+      "translation": "What ⟦kind⟧ of music do you like?"
+    },
+    {
+      "n": 155,
+      "rank": 156,
+      "word": "rio",
+      "pos": "noun",
+      "meaning": "river",
+      "sentence": "Nós nadamos no rio.",
+      "translation": "We swam in the ⟦river⟧."
+    },
+    {
+      "n": 156,
+      "rank": 157,
+      "word": "contra",
+      "pos": "prep",
+      "meaning": "against",
+      "sentence": "Sou contra essa ideia.",
+      "translation": "I'm ⟦against⟧ that idea."
+    },
+    {
+      "n": 157,
+      "rank": 158,
+      "word": "problema",
+      "pos": "noun",
+      "meaning": "problem",
+      "sentence": "Tenho um problema com o meu carro.",
+      "translation": "I have a ⟦problem⟧ with my car."
+    },
+    {
+      "n": 158,
+      "rank": 159,
+      "word": "pai",
+      "pos": "noun",
+      "meaning": "father; dad (pais: parents)",
+      "sentence": "Meu pai trabalha num banco.",
+      "translation": "My ⟦father⟧ works at a bank."
+    },
+    {
+      "n": 159,
+      "rank": 160,
+      "word": "noite",
+      "pos": "noun",
+      "meaning": "night; evening",
+      "sentence": "Eu trabalho à noite.",
+      "translation": "I work at ⟦night⟧."
+    },
+    {
+      "n": 160,
+      "rank": 161,
+      "word": "tanto",
+      "pos": "adv",
+      "meaning": "so much; so many; as much",
+      "sentence": "Por que você trabalha tanto?",
+      "translation": "Why do you work ⟦so much⟧?"
+    },
+    {
+      "n": 161,
+      "rank": 162,
+      "word": "jogo",
+      "pos": "noun",
+      "meaning": "game; match",
+      "sentence": "Vamos ver o jogo hoje à noite?",
+      "translation": "Shall we watch the ⟦game⟧ tonight?"
+    },
+    {
+      "n": 162,
+      "rank": 163,
+      "word": "três",
+      "pos": "num",
+      "meaning": "three",
+      "sentence": "O show começa às três.",
+      "translation": "The show starts at ⟦three⟧."
+    },
+    {
+      "n": 163,
+      "rank": 164,
+      "word": "quanto",
+      "pos": "pron",
+      "meaning": "how much; how many",
+      "sentence": "Quanto custa isso?",
+      "translation": "⟦How much⟧ is this?"
+    },
+    {
+      "n": 164,
+      "rank": 165,
+      "word": "olhar",
+      "pos": "verb",
+      "meaning": "to look; to watch",
+      "sentence": "Olha que bonito!",
+      "translation": "⟦Look⟧ how pretty!",
+      "form": "olha"
+    },
+    {
+      "n": 165,
+      "rank": 166,
+      "word": "vários",
+      "pos": "adj",
+      "meaning": "several; various (feminine: várias)",
+      "sentence": "Eu tenho vários amigos lá.",
+      "translation": "I have ⟦several⟧ friends there."
+    },
+    {
+      "n": 166,
+      "rank": 167,
+      "word": "cara",
+      "pos": "noun",
+      "meaning": "guy (informal); face",
+      "sentence": "Esse cara é muito engraçado.",
+      "translation": "This ⟦guy⟧ is really funny."
+    },
+    {
+      "n": 167,
+      "rank": 168,
+      "word": "momento",
+      "pos": "noun",
+      "meaning": "moment",
+      "sentence": "Um momento, por favor.",
+      "translation": "One ⟦moment⟧, please."
+    },
+    {
+      "n": 168,
+      "rank": 169,
+      "word": "lugar",
+      "pos": "noun",
+      "meaning": "place; seat",
+      "sentence": "Que lugar lindo!",
+      "translation": "What a beautiful ⟦place⟧!"
+    },
+    {
+      "n": 169,
+      "rank": 170,
+      "word": "tentar",
+      "pos": "verb",
+      "meaning": "to try",
+      "sentence": "Vou tentar de novo.",
+      "translation": "I'll ⟦try⟧ again."
+    },
+    {
+      "n": 170,
+      "rank": 171,
+      "word": "criar",
+      "pos": "verb",
+      "meaning": "to create; to raise (children)",
+      "sentence": "Criei uma conta nova.",
+      "translation": "I ⟦created⟧ a new account.",
+      "form": "criei"
+    },
+    {
+      "n": 171,
+      "rank": 172,
+      "word": "além",
+      "pos": "adv",
+      "meaning": "besides; beyond (além de)",
+      "sentence": "Além disso, o hotel é barato.",
+      "translation": "⟦Besides⟧ that, the hotel is cheap."
+    },
+    {
+      "n": 172,
+      "rank": 173,
+      "word": "perder",
+      "pos": "verb",
+      "meaning": "to lose; to miss",
+      "sentence": "Perdi minha carteira.",
+      "translation": "I ⟦lost⟧ my wallet.",
+      "form": "perdi"
+    },
+    {
+      "n": 173,
+      "rank": 174,
+      "word": "vídeo",
+      "pos": "noun",
+      "meaning": "video",
+      "sentence": "Vi um vídeo engraçado.",
+      "translation": "I saw a funny ⟦video⟧."
+    },
+    {
+      "n": 174,
+      "rank": 175,
+      "word": "voltar",
+      "pos": "verb",
+      "meaning": "to come back; to go back",
+      "sentence": "Ele voltou para casa tarde.",
+      "translation": "He ⟦came back⟧ home late.",
+      "form": "voltou"
+    },
+    {
+      "n": 175,
+      "rank": 176,
+      "word": "semana",
+      "pos": "noun",
+      "meaning": "week",
+      "sentence": "Vejo você na semana que vem.",
+      "translation": "See you next ⟦week⟧."
+    },
+    {
+      "n": 176,
+      "rank": 177,
+      "word": "aí",
+      "pos": "adv",
+      "meaning": "there (where you are); then",
+      "sentence": "O que você está fazendo aí?",
+      "translation": "What are you doing ⟦there⟧?"
+    },
+    {
+      "n": 177,
+      "rank": 178,
+      "word": "lado",
+      "pos": "noun",
+      "meaning": "side (ao lado de: next to)",
+      "sentence": "A farmácia fica ao lado do banco.",
+      "translation": "The pharmacy is ⟦next to⟧ the bank."
+    },
+    {
+      "n": 178,
+      "rank": 179,
+      "word": "receber",
+      "pos": "verb",
+      "meaning": "to receive; to get",
+      "sentence": "Recebi sua mensagem.",
+      "translation": "I ⟦got⟧ your message.",
+      "form": "recebi"
+    },
+    {
+      "n": 179,
+      "rank": 180,
+      "word": "nacional",
+      "pos": "adj",
+      "meaning": "national",
+      "sentence": "Hoje é feriado nacional.",
+      "translation": "Today is a ⟦national⟧ holiday."
+    },
+    {
+      "n": 180,
+      "rank": 181,
+      "word": "próprio",
+      "pos": "adj",
+      "meaning": "own; itself",
+      "sentence": "Quero ter minha própria casa.",
+      "translation": "I want to have my ⟦own⟧ house.",
+      "form": "própria"
+    },
+    {
+      "n": 181,
+      "rank": 182,
+      "word": "conta",
+      "pos": "noun",
+      "meaning": "bill; account",
+      "sentence": "A conta, por favor.",
+      "translation": "The ⟦bill⟧, please."
+    },
+    {
+      "n": 182,
+      "rank": 183,
+      "word": "após",
+      "pos": "prep",
+      "meaning": "after",
+      "sentence": "Após o jantar, fomos dormir.",
+      "translation": "⟦After⟧ dinner, we went to bed."
+    },
+    {
+      "n": 183,
+      "rank": 184,
+      "word": "família",
+      "pos": "noun",
+      "meaning": "family",
+      "sentence": "Minha família é muito grande.",
+      "translation": "My ⟦family⟧ is very big."
+    },
+    {
+      "n": 184,
+      "rank": 185,
+      "word": "escrever",
+      "pos": "verb",
+      "meaning": "to write",
+      "sentence": "Escrevi uma carta para minha avó.",
+      "translation": "I ⟦wrote⟧ a letter to my grandmother.",
+      "form": "escrevi"
+    },
+    {
+      "n": 185,
+      "rank": 187,
+      "word": "existir",
+      "pos": "verb",
+      "meaning": "to exist",
+      "sentence": "Fantasmas não existem.",
+      "translation": "Ghosts don't ⟦exist⟧.",
+      "form": "existem"
+    },
+    {
+      "n": 186,
+      "rank": 188,
+      "word": "ouvir",
+      "pos": "verb",
+      "meaning": "to hear; to listen to",
+      "sentence": "Você está me ouvindo?",
+      "translation": "Can you ⟦hear⟧ me?",
+      "form": "ouvindo"
+    },
+    {
+      "n": 187,
+      "rank": 189,
+      "word": "mostrar",
+      "pos": "verb",
+      "meaning": "to show",
+      "sentence": "Pode me mostrar o caminho?",
+      "translation": "Can you ⟦show⟧ me the way?"
+    },
+    {
+      "n": 188,
+      "rank": 190,
+      "word": "mês",
+      "pos": "noun",
+      "meaning": "month",
+      "sentence": "Vou viajar no mês que vem.",
+      "translation": "I'm traveling next ⟦month⟧."
+    },
+    {
+      "n": 189,
+      "rank": 191,
+      "word": "presidente",
+      "pos": "noun",
+      "meaning": "president",
+      "sentence": "O presidente fez um discurso.",
+      "translation": "The ⟦president⟧ gave a speech."
+    },
+    {
+      "n": 190,
+      "rank": 192,
+      "word": "pedir",
+      "pos": "verb",
+      "meaning": "to ask for; to order",
+      "sentence": "Vamos pedir uma pizza?",
+      "translation": "Shall we ⟦order⟧ a pizza?"
+    },
+    {
+      "n": 191,
+      "rank": 193,
+      "word": "verdade",
+      "pos": "noun",
+      "meaning": "truth; true (é verdade)",
+      "sentence": "Me diga a verdade.",
+      "translation": "Tell me the ⟦truth⟧."
+    },
+    {
+      "n": 192,
+      "rank": 194,
+      "word": "social",
+      "pos": "adj",
+      "meaning": "social",
+      "sentence": "Ele não usa redes sociais.",
+      "translation": "He doesn't use ⟦social⟧ media.",
+      "form": "sociais"
+    },
+    {
+      "n": 193,
+      "rank": 195,
+      "word": "certo",
+      "pos": "adj",
+      "meaning": "right; correct; certain",
+      "sentence": "Você está certo.",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 194,
+      "rank": 196,
+      "word": "enquanto",
+      "pos": "conj",
+      "meaning": "while",
+      "sentence": "Ela canta enquanto cozinha.",
+      "translation": "She sings ⟦while⟧ she cooks."
+    },
+    {
+      "n": 195,
+      "rank": 197,
+      "word": "ninguém",
+      "pos": "pron",
+      "meaning": "nobody; anybody",
+      "sentence": "Ninguém sabe a resposta.",
+      "translation": "⟦Nobody⟧ knows the answer."
+    },
+    {
+      "n": 196,
+      "rank": 198,
+      "word": "continuar",
+      "pos": "verb",
+      "meaning": "to continue; to keep (doing)",
+      "sentence": "Continue estudando!",
+      "translation": "⟦Keep⟧ studying!",
+      "form": "continue"
+    },
+    {
+      "n": 197,
+      "rank": 199,
+      "word": "entrar",
+      "pos": "verb",
+      "meaning": "to come in; to go in; to enter",
+      "sentence": "Pode entrar!",
+      "translation": "⟦Come in⟧!"
+    },
+    {
+      "n": 198,
+      "rank": 200,
+      "word": "área",
+      "pos": "noun",
+      "meaning": "area; field",
+      "sentence": "Essa área é perigosa à noite.",
+      "translation": "This ⟦area⟧ is dangerous at night."
+    },
+    {
+      "n": 199,
+      "rank": 201,
+      "word": "tomar",
+      "pos": "verb",
+      "meaning": "to take; to drink, to have (tomar café)",
+      "sentence": "Vamos tomar um café?",
+      "translation": "Shall we ⟦have⟧ a coffee?"
+    },
+    {
+      "n": 200,
+      "rank": 202,
+      "word": "música",
+      "pos": "noun",
+      "meaning": "music; song",
+      "sentence": "Eu adoro essa música.",
+      "translation": "I love this ⟦song⟧."
     }
   ]
 }
