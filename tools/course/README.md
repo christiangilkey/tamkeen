@@ -45,7 +45,7 @@ only when it is played or added.
 ## Other languages
 
 Every language the app teaches has its voice in `build_course.py` (`AZURE`, the same voices as the app's
-card voices; Bisaya, which Azure has no voice for, uses Meta's MMS voice made on this computer, `--voice mms`).
+card voices; Bisaya, which Azure has no voice for, is read by Azure's Filipino voice, which was far clearer than Meta's MMS voice (`--voice mms`, still there for comparison)).
 Each language is made on a branch of its own off `basics-course` (`basics-<lang>`), touching only its own
 files: `tools/course/<lang>/` (its words, and any ranking script it needs), `docs/course/<lang>/`, and its
 entry in `docs/course/index.json` (which merges by language: keep every language's entry). The full brief
@@ -57,6 +57,10 @@ for a language's session, with the variety each voice speaks, is `tools/course/L
 - Rows of a batch can carry a seventh item, `form`: the word as the sentence has it when it isn't written
   the same ("went" for "go"); `tests/js/course-content.test.mjs` checks the sentence contains the word or
   that form, and the numbering, ranks, length, ending and ⟦ ⟧ marks, for every language but Arabic.
+- A word said on its own can come out in the wrong reading (Chinese 的 as "dí", Japanese は as "ha", Portuguese
+  "o" as the letter's name). Such a word carries `say`: the text to voice for the word part instead, or its
+  exact sound for Azure (`{"alphabet": "sapi", "ph": "de 5"}`, `{"alphabet": "ipa", "ph": "u"}`). Words without
+  it keep their audio; adding it remakes only that word's file.
 - Several builds can run at once on this computer: they take turns with Azure (a lock file in the temp
   folder), since its free tier allows about 20 requests a minute for the whole key.
 - If Azure refuses (401/403), the month's free allowance may be used up: what is made is kept, and the
