@@ -7423,6 +7423,916 @@
       "sentence": "La semaine précédente, il était malade.",
       "translation": "The ⟦previous⟧ week, he was ill.",
       "form": "précédente"
+    },
+    {
+      "n": 803,
+      "rank": 844,
+      "word": "village",
+      "pos": "noun",
+      "meaning": "village",
+      "sentence": "Il y a une boulangerie dans le village.",
+      "translation": "There's a bakery in the ⟦village⟧."
+    },
+    {
+      "n": 804,
+      "rank": 845,
+      "word": "historique",
+      "pos": "adj",
+      "meaning": "historic; historical",
+      "sentence": "Le centre historique est très joli.",
+      "translation": "The ⟦historic⟧ centre is very pretty."
+    },
+    {
+      "n": 805,
+      "rank": 846,
+      "word": "île",
+      "pos": "noun",
+      "meaning": "island",
+      "sentence": "On passe nos vacances sur une île.",
+      "translation": "We're spending our holiday on an ⟦island⟧."
+    },
+    {
+      "n": 806,
+      "rank": 847,
+      "word": "installer",
+      "pos": "verb",
+      "meaning": "to install, to set up (s'installer: to settle; to sit down)",
+      "sentence": "On s'est installés à Bordeaux.",
+      "translation": "We've ⟦settled⟧ in Bordeaux.",
+      "form": "installés"
+    },
+    {
+      "n": 807,
+      "rank": 850,
+      "word": "quant",
+      "pos": "prep",
+      "meaning": "quant à: as for",
+      "sentence": "Quant à moi, je reste ici.",
+      "translation": "⟦As for⟧ me, I'm staying here."
+    },
+    {
+      "n": 808,
+      "rank": 851,
+      "word": "déclarer",
+      "pos": "verb",
+      "meaning": "to declare, to state",
+      "sentence": "Vous avez quelque chose à déclarer ?",
+      "translation": "Do you have anything to ⟦declare⟧?"
+    },
+    {
+      "n": 809,
+      "rank": 852,
+      "word": "complet",
+      "pos": "adj",
+      "meaning": "full (no room left); complete (complète: feminine)",
+      "sentence": "Désolé, l'hôtel est complet.",
+      "translation": "Sorry, the hotel is ⟦full⟧."
+    },
+    {
+      "n": 810,
+      "rank": 853,
+      "word": "rêve",
+      "pos": "noun",
+      "meaning": "dream",
+      "sentence": "J'ai fait un rêve bizarre.",
+      "translation": "I had a strange ⟦dream⟧."
+    },
+    {
+      "n": 811,
+      "rank": 854,
+      "word": "défendre",
+      "pos": "verb",
+      "meaning": "to defend; to forbid",
+      "sentence": "Il défend toujours sa sœur.",
+      "translation": "He always ⟦defends⟧ his sister.",
+      "form": "défend"
+    },
+    {
+      "n": 812,
+      "rank": 855,
+      "word": "réel",
+      "pos": "adj",
+      "meaning": "real (réelle: feminine)",
+      "sentence": "C'est un problème réel.",
+      "translation": "It's a ⟦real⟧ problem."
+    },
+    {
+      "n": 813,
+      "rank": 856,
+      "word": "religieux",
+      "pos": "adj",
+      "meaning": "religious (religieuse: feminine)",
+      "sentence": "C'est une fête religieuse.",
+      "translation": "It's a ⟦religious⟧ holiday.",
+      "form": "religieuse"
+    },
+    {
+      "n": 814,
+      "rank": 858,
+      "word": "événement",
+      "pos": "noun",
+      "meaning": "event",
+      "sentence": "C'est un grand événement pour la ville.",
+      "translation": "It's a big ⟦event⟧ for the town."
+    },
+    {
+      "n": 815,
+      "rank": 859,
+      "word": "contraire",
+      "pos": "noun",
+      "meaning": "opposite (au contraire: on the contrary)",
+      "sentence": "Au contraire, j'adore ça !",
+      "translation": "⟦On the contrary⟧, I love it!"
+    },
+    {
+      "n": 816,
+      "rank": 860,
+      "word": "intéressant",
+      "pos": "adj",
+      "meaning": "interesting (intéressante: feminine)",
+      "sentence": "Ce livre est très intéressant.",
+      "translation": "This book is very ⟦interesting⟧."
+    },
+    {
+      "n": 817,
+      "rank": 861,
+      "word": "chiffre",
+      "pos": "noun",
+      "meaning": "figure, number, digit",
+      "sentence": "Écris le chiffre sept.",
+      "translation": "Write the ⟦number⟧ seven."
+    },
+    {
+      "n": 818,
+      "rank": 862,
+      "word": "auprès",
+      "pos": "prep",
+      "meaning": "auprès de: with, at (an office); beside",
+      "sentence": "Renseignez-vous auprès de la mairie.",
+      "translation": "Ask ⟦at⟧ the town hall."
+    },
+    {
+      "n": 819,
+      "rank": 863,
+      "word": "ouest",
+      "pos": "noun",
+      "meaning": "west",
+      "sentence": "Le soleil se couche à l'ouest.",
+      "translation": "The sun sets in the ⟦west⟧."
+    },
+    {
+      "n": 820,
+      "rank": 864,
+      "word": "rapidement",
+      "pos": "adv",
+      "meaning": "quickly",
+      "sentence": "Il a répondu rapidement.",
+      "translation": "He replied ⟦quickly⟧."
+    },
+    {
+      "n": 821,
+      "rank": 865,
+      "word": "sept",
+      "pos": "num",
+      "meaning": "seven",
+      "sentence": "La semaine a sept jours.",
+      "translation": "The week has ⟦seven⟧ days."
+    },
+    {
+      "n": 822,
+      "rank": 866,
+      "word": "régler",
+      "pos": "verb",
+      "meaning": "to sort out, to settle; to pay; to adjust",
+      "sentence": "On va régler ce problème.",
+      "translation": "We'll ⟦sort out⟧ this problem."
+    },
+    {
+      "n": 823,
+      "rank": 867,
+      "word": "couple",
+      "pos": "noun",
+      "meaning": "couple",
+      "sentence": "C'est un couple très sympa.",
+      "translation": "They're a really nice ⟦couple⟧."
+    },
+    {
+      "n": 824,
+      "rank": 868,
+      "word": "lutter",
+      "pos": "verb",
+      "meaning": "to fight, to struggle",
+      "sentence": "Il lutte contre une maladie grave.",
+      "translation": "He's ⟦fighting⟧ a serious illness.",
+      "form": "lutte"
+    },
+    {
+      "n": 825,
+      "rank": 869,
+      "word": "autorité",
+      "pos": "noun",
+      "meaning": "authority; (plural) the authorities",
+      "sentence": "Les autorités ont fermé la route.",
+      "translation": "The ⟦authorities⟧ have closed the road.",
+      "form": "autorités"
+    },
+    {
+      "n": 826,
+      "rank": 870,
+      "word": "média",
+      "pos": "noun",
+      "meaning": "medium; (plural) the media",
+      "sentence": "Les médias parlent beaucoup de cette affaire.",
+      "translation": "The ⟦media⟧ are talking a lot about this case.",
+      "form": "médias"
+    },
+    {
+      "n": 827,
+      "rank": 871,
+      "word": "coucher",
+      "pos": "verb",
+      "meaning": "to put to bed (se coucher: to go to bed; to set, of the sun)",
+      "sentence": "Je me couche à onze heures.",
+      "translation": "I ⟦go to bed⟧ at eleven.",
+      "form": "couche"
+    },
+    {
+      "n": 828,
+      "rank": 872,
+      "word": "conduire",
+      "pos": "verb",
+      "meaning": "to drive; to lead",
+      "sentence": "Tu sais conduire ?",
+      "translation": "Can you ⟦drive⟧?"
+    },
+    {
+      "n": 829,
+      "rank": 873,
+      "word": "analyse",
+      "pos": "noun",
+      "meaning": "analysis; (medical) test",
+      "sentence": "J'attends les résultats de mes analyses.",
+      "translation": "I'm waiting for my ⟦test⟧ results.",
+      "form": "analyses"
+    },
+    {
+      "n": 830,
+      "rank": 874,
+      "word": "rire",
+      "pos": "verb",
+      "meaning": "to laugh; (noun) laughter, a laugh",
+      "sentence": "Il me fait toujours rire.",
+      "translation": "He always makes me ⟦laugh⟧."
+    },
+    {
+      "n": 831,
+      "rank": 875,
+      "word": "impossible",
+      "pos": "adj",
+      "meaning": "impossible",
+      "sentence": "C'est impossible !",
+      "translation": "That's ⟦impossible⟧!"
+    },
+    {
+      "n": 832,
+      "rank": 876,
+      "word": "régime",
+      "pos": "noun",
+      "meaning": "diet; regime",
+      "sentence": "Je suis au régime.",
+      "translation": "I'm on a ⟦diet⟧."
+    },
+    {
+      "n": 833,
+      "rank": 877,
+      "word": "financier",
+      "pos": "adj",
+      "meaning": "financial (financière: feminine)",
+      "sentence": "Ils ont des problèmes financiers.",
+      "translation": "They have ⟦financial⟧ problems.",
+      "form": "financiers"
+    },
+    {
+      "n": 834,
+      "rank": 878,
+      "word": "remplacer",
+      "pos": "verb",
+      "meaning": "to replace; to stand in for",
+      "sentence": "Il faut remplacer la batterie.",
+      "translation": "The battery needs ⟦replacing⟧."
+    },
+    {
+      "n": 835,
+      "rank": 879,
+      "word": "débat",
+      "pos": "noun",
+      "meaning": "debate, discussion",
+      "sentence": "Il y a un débat à la télé ce soir.",
+      "translation": "There's a ⟦debate⟧ on TV tonight."
+    },
+    {
+      "n": 836,
+      "rank": 881,
+      "word": "entier",
+      "pos": "adj",
+      "meaning": "whole, entire (entière: feminine)",
+      "sentence": "Il a mangé la pizza entière.",
+      "translation": "He ate the ⟦whole⟧ pizza.",
+      "form": "entière"
+    },
+    {
+      "n": 837,
+      "rank": 882,
+      "word": "samedi",
+      "pos": "noun",
+      "meaning": "Saturday",
+      "sentence": "On se voit samedi ?",
+      "translation": "Shall we meet on ⟦Saturday⟧?"
+    },
+    {
+      "n": 838,
+      "rank": 883,
+      "word": "commerce",
+      "pos": "noun",
+      "meaning": "trade, business; shop",
+      "sentence": "Les petits commerces ferment le dimanche.",
+      "translation": "Small ⟦shops⟧ close on Sundays.",
+      "form": "commerces"
+    },
+    {
+      "n": 839,
+      "rank": 884,
+      "word": "scientifique",
+      "pos": "adj",
+      "meaning": "scientific; (noun) scientist",
+      "sentence": "C'est une découverte scientifique.",
+      "translation": "It's a ⟦scientific⟧ discovery."
+    },
+    {
+      "n": 840,
+      "rank": 885,
+      "word": "défense",
+      "pos": "noun",
+      "meaning": "defence (défense de fumer: no smoking)",
+      "sentence": "Il a pris ma défense.",
+      "translation": "He ⟦stood up for⟧ me."
+    },
+    {
+      "n": 841,
+      "rank": 886,
+      "word": "prison",
+      "pos": "noun",
+      "meaning": "prison",
+      "sentence": "Il a passé deux ans en prison.",
+      "translation": "He spent two years in ⟦prison⟧."
+    },
+    {
+      "n": 842,
+      "rank": 887,
+      "word": "émission",
+      "pos": "noun",
+      "meaning": "programme (on TV, on the radio)",
+      "sentence": "Tu as vu l'émission hier soir ?",
+      "translation": "Did you see the ⟦programme⟧ last night?"
+    },
+    {
+      "n": 843,
+      "rank": 889,
+      "word": "arrivée",
+      "pos": "noun",
+      "meaning": "arrival; finish (of a race)",
+      "sentence": "L'arrivée est prévue à midi.",
+      "translation": "⟦Arrival⟧ is planned for noon."
+    },
+    {
+      "n": 844,
+      "rank": 890,
+      "word": "midi",
+      "pos": "noun",
+      "meaning": "noon, midday; lunchtime",
+      "sentence": "On mange à midi.",
+      "translation": "We eat at ⟦noon⟧."
+    },
+    {
+      "n": 845,
+      "rank": 891,
+      "word": "mission",
+      "pos": "noun",
+      "meaning": "mission; assignment",
+      "sentence": "Il est en mission à l'étranger.",
+      "translation": "He's on an ⟦assignment⟧ abroad."
+    },
+    {
+      "n": 846,
+      "rank": 892,
+      "word": "moitié",
+      "pos": "noun",
+      "meaning": "half",
+      "sentence": "Tu veux la moitié de mon sandwich ?",
+      "translation": "Do you want ⟦half⟧ of my sandwich?"
+    },
+    {
+      "n": 847,
+      "rank": 893,
+      "word": "particulièrement",
+      "pos": "adv",
+      "meaning": "particularly, especially",
+      "sentence": "Je n'aime pas particulièrement le froid.",
+      "translation": "I don't ⟦particularly⟧ like the cold."
+    },
+    {
+      "n": 848,
+      "rank": 894,
+      "word": "union",
+      "pos": "noun",
+      "meaning": "union",
+      "sentence": "L'Union européenne compte vingt-sept pays.",
+      "translation": "The European ⟦Union⟧ has twenty-seven countries."
+    },
+    {
+      "n": 849,
+      "rank": 896,
+      "word": "dossier",
+      "pos": "noun",
+      "meaning": "file; folder; case",
+      "sentence": "Mets ce document dans le dossier bleu.",
+      "translation": "Put this document in the blue ⟦folder⟧."
+    },
+    {
+      "n": 850,
+      "rank": 897,
+      "word": "assemblée",
+      "pos": "noun",
+      "meaning": "assembly; meeting",
+      "sentence": "L'assemblée générale a lieu demain.",
+      "translation": "The general ⟦meeting⟧ is tomorrow."
+    },
+    {
+      "n": 851,
+      "rank": 898,
+      "word": "organiser",
+      "pos": "verb",
+      "meaning": "to organise",
+      "sentence": "On organise une fête pour son anniversaire.",
+      "translation": "We're ⟦organising⟧ a party for his birthday.",
+      "form": "organise"
+    },
+    {
+      "n": 852,
+      "rank": 899,
+      "word": "table",
+      "pos": "noun",
+      "meaning": "table",
+      "sentence": "Mets la table, s'il te plaît.",
+      "translation": "Set the ⟦table⟧, please."
+    },
+    {
+      "n": 853,
+      "rank": 900,
+      "word": "établissement",
+      "pos": "noun",
+      "meaning": "establishment (a school, a hotel, a business)",
+      "sentence": "Cet établissement est fermé le lundi.",
+      "translation": "This ⟦establishment⟧ is closed on Mondays."
+    },
+    {
+      "n": 854,
+      "rank": 901,
+      "word": "soin",
+      "pos": "noun",
+      "meaning": "care (prendre soin de: to take care of); (plural) treatment",
+      "sentence": "Prends soin de toi.",
+      "translation": "⟦Take care⟧ of yourself."
+    },
+    {
+      "n": 855,
+      "rank": 902,
+      "word": "préférer",
+      "pos": "verb",
+      "meaning": "to prefer",
+      "sentence": "Je préfère le thé au café.",
+      "translation": "I ⟦prefer⟧ tea to coffee.",
+      "form": "préfère"
+    },
+    {
+      "n": 856,
+      "rank": 903,
+      "word": "surpris",
+      "pos": "adj",
+      "meaning": "surprised (surprise: feminine)",
+      "sentence": "Je suis surpris de te voir ici.",
+      "translation": "I'm ⟦surprised⟧ to see you here."
+    },
+    {
+      "n": 857,
+      "rank": 904,
+      "word": "sourire",
+      "pos": "noun",
+      "meaning": "smile; (verb) to smile",
+      "sentence": "Elle a un beau sourire.",
+      "translation": "She has a lovely ⟦smile⟧."
+    },
+    {
+      "n": 858,
+      "rank": 905,
+      "word": "unité",
+      "pos": "noun",
+      "meaning": "unit; unity (l'unité: each)",
+      "sentence": "C'est deux euros l'unité.",
+      "translation": "It's two euros ⟦each⟧."
+    },
+    {
+      "n": 859,
+      "rank": 906,
+      "word": "fournir",
+      "pos": "verb",
+      "meaning": "to provide, to supply",
+      "sentence": "L'hôtel fournit les serviettes.",
+      "translation": "The hotel ⟦provides⟧ towels.",
+      "form": "fournit"
+    },
+    {
+      "n": 860,
+      "rank": 907,
+      "word": "application",
+      "pos": "noun",
+      "meaning": "app; application",
+      "sentence": "Télécharge l'application.",
+      "translation": "Download the ⟦app⟧."
+    },
+    {
+      "n": 861,
+      "rank": 908,
+      "word": "département",
+      "pos": "noun",
+      "meaning": "department (one of the areas France is divided into)",
+      "sentence": "La France a cent un départements.",
+      "translation": "France has a hundred and one ⟦departments⟧.",
+      "form": "départements"
+    },
+    {
+      "n": 862,
+      "rank": 909,
+      "word": "connaissance",
+      "pos": "noun",
+      "meaning": "knowledge; acquaintance (faire connaissance: to get to know)",
+      "sentence": "Enchanté de faire votre connaissance.",
+      "translation": "Pleased to ⟦meet you⟧."
+    },
+    {
+      "n": 863,
+      "rank": 910,
+      "word": "visite",
+      "pos": "noun",
+      "meaning": "visit; tour",
+      "sentence": "On a fait une visite guidée du château.",
+      "translation": "We went on a guided ⟦tour⟧ of the castle."
+    },
+    {
+      "n": 864,
+      "rank": 911,
+      "word": "rejoindre",
+      "pos": "verb",
+      "meaning": "to join; to meet (up with)",
+      "sentence": "Je te rejoins au café.",
+      "translation": "I'll ⟦meet⟧ you at the café.",
+      "form": "rejoins"
+    },
+    {
+      "n": 865,
+      "rank": 912,
+      "word": "combien",
+      "pos": "adv",
+      "meaning": "how much, how many",
+      "sentence": "Tu as combien de frères et sœurs ?",
+      "translation": "⟦How many⟧ brothers and sisters do you have?"
+    },
+    {
+      "n": 866,
+      "rank": 914,
+      "word": "sang",
+      "pos": "noun",
+      "meaning": "blood",
+      "sentence": "Il a donné son sang.",
+      "translation": "He gave ⟦blood⟧."
+    },
+    {
+      "n": 867,
+      "rank": 915,
+      "word": "appliquer",
+      "pos": "verb",
+      "meaning": "to apply",
+      "sentence": "Appliquez la crème deux fois par jour.",
+      "translation": "⟦Apply⟧ the cream twice a day.",
+      "form": "appliquez"
+    },
+    {
+      "n": 868,
+      "rank": 916,
+      "word": "dormir",
+      "pos": "verb",
+      "meaning": "to sleep",
+      "sentence": "Je n'arrive pas à dormir.",
+      "translation": "I can't ⟦sleep⟧."
+    },
+    {
+      "n": 869,
+      "rank": 917,
+      "word": "adresse",
+      "pos": "noun",
+      "meaning": "address",
+      "sentence": "Quelle est ton adresse ?",
+      "translation": "What's your ⟦address⟧?"
+    },
+    {
+      "n": 870,
+      "rank": 918,
+      "word": "riche",
+      "pos": "adj",
+      "meaning": "rich",
+      "sentence": "Ses parents sont très riches.",
+      "translation": "His parents are very ⟦rich⟧.",
+      "form": "riches"
+    },
+    {
+      "n": 871,
+      "rank": 919,
+      "word": "joli",
+      "pos": "adj",
+      "meaning": "pretty, nice (jolie: feminine)",
+      "sentence": "Quelle jolie robe !",
+      "translation": "What a ⟦pretty⟧ dress!",
+      "form": "jolie"
+    },
+    {
+      "n": 872,
+      "rank": 920,
+      "word": "intéresser",
+      "pos": "verb",
+      "meaning": "to interest (s'intéresser à: to be interested in)",
+      "sentence": "Ça ne m'intéresse pas.",
+      "translation": "That doesn't ⟦interest⟧ me.",
+      "form": "intéresse"
+    },
+    {
+      "n": 873,
+      "rank": 921,
+      "word": "extérieur",
+      "pos": "noun",
+      "meaning": "outside (à l'extérieur: outside); (adjective) outer, outdoor",
+      "sentence": "Les enfants jouent à l'extérieur.",
+      "translation": "The children are playing ⟦outside⟧."
+    },
+    {
+      "n": 874,
+      "rank": 922,
+      "word": "chaud",
+      "pos": "adj",
+      "meaning": "hot, warm (avoir chaud: to be hot)",
+      "sentence": "J'ai chaud.",
+      "translation": "I'm ⟦hot⟧."
+    },
+    {
+      "n": 875,
+      "rank": 923,
+      "word": "policier",
+      "pos": "noun",
+      "meaning": "police officer; (adjective) police, detective (un film policier)",
+      "sentence": "Un policier m'a aidé.",
+      "translation": "A ⟦police officer⟧ helped me."
+    },
+    {
+      "n": 876,
+      "rank": 924,
+      "word": "retourner",
+      "pos": "verb",
+      "meaning": "to go back, to return; to turn over",
+      "sentence": "Je retourne en France l'année prochaine.",
+      "translation": "I'm ⟦going back⟧ to France next year.",
+      "form": "retourne"
+    },
+    {
+      "n": 877,
+      "rank": 925,
+      "word": "content",
+      "pos": "adj",
+      "meaning": "happy, pleased (contente: feminine)",
+      "sentence": "Je suis content de te voir.",
+      "translation": "I'm ⟦happy⟧ to see you."
+    },
+    {
+      "n": 878,
+      "rank": 926,
+      "word": "froid",
+      "pos": "adj",
+      "meaning": "cold (avoir froid: to be cold); (noun) the cold",
+      "sentence": "Il fait froid ce matin.",
+      "translation": "It's ⟦cold⟧ this morning."
+    },
+    {
+      "n": 879,
+      "rank": 927,
+      "word": "professeur",
+      "pos": "noun",
+      "meaning": "teacher; professor",
+      "sentence": "Mon professeur de français est très patient.",
+      "translation": "My French ⟦teacher⟧ is very patient."
+    },
+    {
+      "n": 880,
+      "rank": 929,
+      "word": "désormais",
+      "pos": "adv",
+      "meaning": "from now on; now",
+      "sentence": "Désormais, je prendrai le bus.",
+      "translation": "⟦From now on⟧, I'll take the bus."
+    },
+    {
+      "n": 881,
+      "rank": 931,
+      "word": "majorité",
+      "pos": "noun",
+      "meaning": "majority",
+      "sentence": "La majorité des gens sont d'accord.",
+      "translation": "The ⟦majority⟧ of people agree."
+    },
+    {
+      "n": 882,
+      "rank": 932,
+      "word": "outre",
+      "pos": "adv",
+      "meaning": "en outre: moreover, besides",
+      "sentence": "En outre, le prix est raisonnable.",
+      "translation": "⟦Moreover⟧, the price is reasonable."
+    },
+    {
+      "n": 883,
+      "rank": 933,
+      "word": "paix",
+      "pos": "noun",
+      "meaning": "peace",
+      "sentence": "Laisse-moi en paix !",
+      "translation": "Leave me in ⟦peace⟧!"
+    },
+    {
+      "n": 884,
+      "rank": 934,
+      "word": "tandis",
+      "pos": "conj",
+      "meaning": "tandis que: while, whereas",
+      "sentence": "Il lit tandis que je cuisine.",
+      "translation": "He reads ⟦while⟧ I cook."
+    },
+    {
+      "n": 885,
+      "rank": 935,
+      "word": "gérer",
+      "pos": "verb",
+      "meaning": "to manage, to handle",
+      "sentence": "Ne t'inquiète pas, je gère.",
+      "translation": "Don't worry, I'm ⟦handling⟧ it.",
+      "form": "gère"
+    },
+    {
+      "n": 886,
+      "rank": 936,
+      "word": "détail",
+      "pos": "noun",
+      "meaning": "detail",
+      "sentence": "Je t'expliquerai les détails plus tard.",
+      "translation": "I'll explain the ⟦details⟧ later.",
+      "form": "détails"
+    },
+    {
+      "n": 887,
+      "rank": 937,
+      "word": "soutien",
+      "pos": "noun",
+      "meaning": "support",
+      "sentence": "Merci pour ton soutien.",
+      "translation": "Thanks for your ⟦support⟧."
+    },
+    {
+      "n": 888,
+      "rank": 938,
+      "word": "annoncer",
+      "pos": "verb",
+      "meaning": "to announce",
+      "sentence": "Ils ont annoncé leur mariage.",
+      "translation": "They ⟦announced⟧ their wedding.",
+      "form": "annoncé"
+    },
+    {
+      "n": 889,
+      "rank": 939,
+      "word": "voler",
+      "pos": "verb",
+      "meaning": "to steal; to fly",
+      "sentence": "On m'a volé mon vélo.",
+      "translation": "My bike was ⟦stolen⟧.",
+      "form": "volé"
+    },
+    {
+      "n": 890,
+      "rank": 940,
+      "word": "large",
+      "pos": "adj",
+      "meaning": "wide, broad",
+      "sentence": "La rue est très large.",
+      "translation": "The street is very ⟦wide⟧."
+    },
+    {
+      "n": 891,
+      "rank": 941,
+      "word": "champ",
+      "pos": "noun",
+      "meaning": "field",
+      "sentence": "Il y a des vaches dans le champ.",
+      "translation": "There are cows in the ⟦field⟧."
+    },
+    {
+      "n": 892,
+      "rank": 942,
+      "word": "manquer",
+      "pos": "verb",
+      "meaning": "to miss (tu me manques: I miss you); to be missing",
+      "sentence": "Tu me manques.",
+      "translation": "I ⟦miss⟧ you.",
+      "form": "manques"
+    },
+    {
+      "n": 893,
+      "rank": 944,
+      "word": "mémoire",
+      "pos": "noun",
+      "meaning": "memory",
+      "sentence": "J'ai une mauvaise mémoire.",
+      "translation": "I have a bad ⟦memory⟧."
+    },
+    {
+      "n": 894,
+      "rank": 945,
+      "word": "remarquer",
+      "pos": "verb",
+      "meaning": "to notice",
+      "sentence": "Tu as remarqué quelque chose ?",
+      "translation": "Did you ⟦notice⟧ anything?",
+      "form": "remarqué"
+    },
+    {
+      "n": 895,
+      "rank": 946,
+      "word": "mur",
+      "pos": "noun",
+      "meaning": "wall",
+      "sentence": "Il y a une photo sur le mur.",
+      "translation": "There's a photo on the ⟦wall⟧."
+    },
+    {
+      "n": 896,
+      "rank": 947,
+      "word": "actuellement",
+      "pos": "adv",
+      "meaning": "currently, at the moment",
+      "sentence": "Il est actuellement en vacances.",
+      "translation": "He's ⟦currently⟧ on holiday."
+    },
+    {
+      "n": 897,
+      "rank": 948,
+      "word": "tôt",
+      "pos": "adv",
+      "meaning": "early",
+      "sentence": "Il est encore trop tôt.",
+      "translation": "It's still too ⟦early⟧."
+    },
+    {
+      "n": 898,
+      "rank": 949,
+      "word": "industrie",
+      "pos": "noun",
+      "meaning": "industry",
+      "sentence": "Il travaille dans l'industrie automobile.",
+      "translation": "He works in the car ⟦industry⟧."
+    },
+    {
+      "n": 899,
+      "rank": 950,
+      "word": "radio",
+      "pos": "noun",
+      "meaning": "radio",
+      "sentence": "J'écoute la radio dans la voiture.",
+      "translation": "I listen to the ⟦radio⟧ in the car."
+    },
+    {
+      "n": 900,
+      "rank": 951,
+      "word": "mètre",
+      "pos": "noun",
+      "meaning": "metre",
+      "sentence": "La piscine est à cent mètres.",
+      "translation": "The pool is a hundred ⟦metres⟧ away.",
+      "form": "mètres"
     }
   ]
 }
