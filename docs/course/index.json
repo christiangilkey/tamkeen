@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "it": {
+   "file": "it/course.json",
+   "title": "Italian basics",
+   "variety": "Standard Italian (Italy)",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 8248,
+   "audio_bytes": 211238,
+   "sha256": "e6ac1382d3492a8b2fb2315ba03801bd92446f213b9b26127e0cfd83b6ebbf6d",
+   "voice": {
+    "engine": "azure",
+    "name": "Elsa (Azure, Italy)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

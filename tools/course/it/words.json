@@ -1,0 +1,191 @@
+{
+  "lang": "it",
+  "title": "Italian basics",
+  "variety": "Standard Italian (Italy)",
+  "about": "The most common words of written and spoken Italian (wordfreq counts, grouped by dictionary word with tools/course/it/rank.py), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence in standard Italian as it is spoken in Italy, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "il",
+      "pos": "art",
+      "meaning": "the (masculine)",
+      "sentence": "Il caffè è caldo.",
+      "translation": "⟦The⟧ coffee is hot."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "di",
+      "pos": "prep",
+      "meaning": "of; from",
+      "sentence": "Vorrei una tazza di tè.",
+      "translation": "I'd like a cup ⟦of⟧ tea."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "essere",
+      "pos": "verb",
+      "meaning": "to be",
+      "sentence": "Oggi è una bella giornata.",
+      "translation": "⟦It's⟧ a beautiful day today.",
+      "form": "è"
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "a",
+      "pos": "prep",
+      "meaning": "to; at; in (a town)",
+      "sentence": "Domani vado a Roma.",
+      "translation": "Tomorrow I'm going ⟦to⟧ Rome."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "e",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Vorrei un caffè e un cornetto.",
+      "translation": "I'd like a coffee ⟦and⟧ a croissant."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "un",
+      "pos": "art",
+      "meaning": "a; an",
+      "sentence": "Aspetta un momento, per favore.",
+      "translation": "Wait ⟦a⟧ moment, please."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "in",
+      "pos": "prep",
+      "meaning": "in; to (a country)",
+      "sentence": "Lavoro in un ufficio.",
+      "translation": "I work ⟦in⟧ an office."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "che",
+      "pos": "conj",
+      "meaning": "that; who, which; what",
+      "sentence": "So che hai ragione.",
+      "translation": "I know ⟦that⟧ you're right."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "avere",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Ho una domanda.",
+      "translation": "I ⟦have⟧ a question.",
+      "form": "ho"
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "non",
+      "pos": "adv",
+      "meaning": "not; don't",
+      "sentence": "Non lo so.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "per",
+      "pos": "prep",
+      "meaning": "for; to (in order to)",
+      "sentence": "Questo regalo è per te.",
+      "translation": "This present is ⟦for⟧ you."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "da",
+      "pos": "prep",
+      "meaning": "from; since; at (someone's place)",
+      "sentence": "Da dove vieni?",
+      "translation": "Where are you ⟦from⟧?"
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "si",
+      "pos": "pron",
+      "meaning": "oneself; one, you (in general)",
+      "sentence": "Come si dice in italiano?",
+      "translation": "How do ⟦you⟧ say it in Italian?"
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "con",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Vivo con i miei genitori.",
+      "translation": "I live ⟦with⟧ my parents."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "fare",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "Che cosa fai stasera?",
+      "translation": "What are you ⟦doing⟧ tonight?",
+      "form": "fai"
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "questo",
+      "pos": "pron",
+      "meaning": "this",
+      "sentence": "Questo è mio fratello.",
+      "translation": "⟦This⟧ is my brother."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "su",
+      "pos": "prep",
+      "meaning": "on; about",
+      "sentence": "Il libro è sul tavolo.",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "ma",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "È buono, ma costa troppo.",
+      "translation": "It's good, ⟦but⟧ it costs too much."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "come",
+      "pos": "adv",
+      "meaning": "how; like, as",
+      "sentence": "Ciao, come stai?",
+      "translation": "Hi, ⟦how⟧ are you?"
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "tutto",
+      "pos": "pron",
+      "meaning": "all; everything",
+      "sentence": "Va tutto bene?",
+      "translation": "Is ⟦everything⟧ OK?"
+    }
+  ]
+}
