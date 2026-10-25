@@ -1697,6 +1697,138 @@
         {"type":"say","q":"Say “You need to rest.”","answer":"Kinahanglan ka mopahulay.","from":"say-what-you-need"},
         {"type":"free","q":"Your turn: say how you feel today, and why.","answers":[{"t":"Gikapoy ko kay naa koy daghang trabaho.","tr":"I'm tired because I have a lot of work."},{"t":"Nalipay kaayo ko karon! Moabot akong igsoon.","tr":"I'm really happy today! My sister is arriving."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say what's bigger, cheaper or nicer, what's the best, and “How beautiful!”",
+      "topic": "{{mas}} … {{kaysa}} “more … than”; {{pinaka-}} “the most”; {{parehas}} “the same”; {{ka-}} + describing word “How …!”",
+      "blocks": [
+        {"goal":{"t":"Mas init sa Cebu kaysa sa Baguio.","tr":"It's hotter in Cebu than in Baguio."}},
+        {"dialog":[{"who":"Ana","t":"Asa man ang mas nindot, Bohol o Siargao?","tr":"Which is nicer, Bohol or Siargao?"},{"who":"Ben","t":"Para nako, mas nindot ang Siargao. Pero mas duol ang Bohol.","tr":"For me, Siargao is nicer. But Bohol is closer."},{"who":"Ana","t":"Ug ang pagkaon?","tr":"And the food?"},{"who":"Ben","t":"Parehas ra kalami!","tr":"Both just as delicious!"},{"who":"Ana","t":"Asa ang pinakanindot nga baybayon sa Cebu?","tr":"Which is the most beautiful beach in Cebu?"},{"who":"Ben","t":"Para nako, ang Malapascua. Kanindot didto!","tr":"For me, Malapascua. It's so beautiful there!"}]},
+        {"p":"**More: {{mas}}.** Put {{mas}} before the describing word: {{mas dako}} “bigger”, {{mas nindot}} “nicer”, {{mas mahal}} “more expensive”. Bisaya never changes the word itself, so there's nothing like “-er” or “better” to learn."},
+        {"p":"**Than: {{kaysa}}**, with {{sa}} before a noun or place ({{kaysa sa Baguio}}) and the “to” words before a pronoun ({{kaysa kanako}} “than me”). In everyday talk the {{kaysa}} part is often dropped: {{Mas taas siya kanako.}} “She's taller than me.”"},
+        {"p":"**The most: {{pinaka-}}**, joined to the word: {{pinakadako}} “the biggest”, {{pinakanindot}} “the most beautiful”. Before a noun it links with {{nga}}: {{ang pinakanindot nga baybayon}} “the most beautiful beach”. ({{labing}} means the same: {{labing nindot}}.)"},
+        {"p":"**The same: {{parehas}}.** {{Parehas ra.}} “It's the same.” {{Parehas mi og edad.}} “We're the same age.” {{Parehas ra kalami.}} “Just as delicious.” And {{ka-}} + a describing word is an exclamation: {{Kanindot!}} “How beautiful!”, {{Kainit!}} “It's so hot!”, {{Kamahal!}} “So expensive!”"},
+        { "table": [
+          ["","Bisaya","English"],
+          ["more","{{mas dako}}","bigger"],
+          ["than","{{mas dako kaysa niana}}","bigger than that"],
+          ["the most","{{pinakadako}}","the biggest"],
+          ["the same","{{parehas ra kadako}}","just as big"],
+          ["How…!","{{Kadako!}}","How big!"]
+        ] },
+        { "ex": [
+          {"t":"Mas dako kini kaysa niana.","tr":"This one is bigger than that one."},
+          {"t":"Mas barato dinhi kaysa sa mall.","tr":"It's cheaper here than at the mall."},
+          {"t":"Mas taas siya kanako.","tr":"She's taller than me."},
+          {"t":"Kini ang pinakanindot nga baybayon.","tr":"This is the most beautiful beach."},
+          {"t":"Parehas mi og edad.","tr":"We're the same age."},
+          {"t":"Kainit karon!","tr":"It's so hot today!"}
+        ] },
+        {"tip":"{{Asa ang mas…?}} “Which is more…?” uses {{asa}}, “where”, for “which of two”: {{Asa ang mas barato?}} “Which one is cheaper?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Dako kini kaysa niana.","right":"Mas dako kini kaysa niana.","tr":"This one is bigger than that one.","why":"Comparing needs {{mas}} before the describing word."},
+        {"wrong":"Kini ang pinaka nindot baybayon.","right":"Kini ang pinakanindot nga baybayon.","tr":"This is the most beautiful beach.","why":"{{pinaka-}} joins the word, and {{nga}} links it to the noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ init sa Cebu kaysa sa Baguio.","tr":"It's hotter in Cebu than in Baguio.","options":["Mas","Pinaka","Ka"],"answer":0,"why":"More: {{mas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mas dako kini ___ niana.","tr":"This one is bigger than that one.","options":["kaysa","kay","ug"],"answer":0,"why":"Than: {{kaysa}}. ({{kay}} is “because”.)"},
+        {"type":"choice","q":"{{Pinakadako}} means…","options":["the biggest","bigger","very big"],"answer":0,"why":"{{pinaka-}}: the most."},
+        {"type":"dialogue","q":"Choosing a place to eat: choose your replies.","lines":[{"who":"Joy","t":"Asa ta mokaon, sa mall o sa Larsian?","tr":"Where shall we eat, at the mall or at Larsian (the street barbecue)?"},{"options":["Sa Larsian. Mas barato didto.","Sa Larsian. Barato kaysa didto."],"answer":0,"why":"Cheaper: {{mas barato}}."},{"who":"Joy","t":"Ug mas lami?","tr":"And tastier?"},{"options":["Oo! Ang sugba didto ang pinakalami.","Oo! Ang sugba didto ang mas pinakalami."],"answer":0,"why":"Don't double up: {{pinakalami}} alone."}]},
+        {"type":"order","q":"Put the words in order.","tr":"This is the most beautiful beach.","words":["Kini","ang","pinakanindot","nga","baybayon."]},
+        {"type":"say","q":"Say “I'd like a cheaper room.”","answer":"Gusto ko og mas barato nga kwarto.","from":"describe-what-you-want"},
+        {"type":"say","q":"Say “It's cheaper here than at the mall.”","answer":"Mas barato dinhi kaysa sa mall.","from":"ask-the-price"},
+        {"type":"free","q":"Your turn: compare two places or foods you know.","answers":[{"t":"Mas init sa Cebu kaysa sa London, pero mas lami ang pagkaon dinhi!","tr":"It's hotter in Cebu than in London, but the food is tastier here!"},{"t":"Para nako, ang mangga sa Guimaras ang pinakatam-is.","tr":"For me, Guimaras mangoes are the sweetest."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give reasons",
+      "summary": "Explain why: “I didn't go because it was raining”, “That's why…”, “so that…”.",
+      "topic": "{{kay}} and {{tungod kay}} “because”; {{tungod sa}} “because of”; {{mao nga}}, {{busa}} “so, that's why”; {{aron}} “so that”",
+      "blocks": [
+        {"goal":{"t":"Wala ko moadto kay nag-ulan.","tr":"I didn't go because it was raining."}},
+        {"dialog":[{"who":"Joy","t":"Nganong wala ka moadto sa party gahapon?","tr":"Why didn't you come to the party yesterday?"},{"who":"Ben","t":"Kay gihilantan ko. Mao nga natulog ko og sayo.","tr":"Because I had a fever. That's why I went to bed early."},{"who":"Joy","t":"Ay, sorry! Okay na ka karon?","tr":"Oh, sorry! Are you okay now?"},{"who":"Ben","t":"Oo, mas maayo na. Miinom ko og tambal aron mamaayo dayon.","tr":"Yes, better now. I took some medicine so I'd get well fast."},{"who":"Joy","t":"Maayo kay naa pay laing party sa Sabado!","tr":"Good, because there's another party on Saturday!"},{"who":"Ben","t":"Tungod niana, kinahanglan gyud ko mamaayo!","tr":"Because of that, I really have to get better!"}]},
+        {"p":"**Because: {{kay}}**, before a whole sentence: {{Wala ko moadto kay nag-ulan.}} It also starts the answer to {{Ngano?}}: {{Kay gikapoy ko.}} “Because I'm tired.” {{tungod kay}} means the same, a little more carefully. Before a **noun**, “because of” is {{tungod sa}}: {{tungod sa ulan}} “because of the rain”."},
+        {"p":"**So, that's why: {{mao nga}}** (or {{busa}}, more formal), before the result: {{Gikapoy ko, mao nga mouli na ko.}} “I'm tired, so I'm going home.”"},
+        {"p":"**So that: {{aron}}**, for the purpose, usually with a {{maka-}} or {{ma-}} verb: {{Nagtuon ko aron makapasar.}} “I studied so that I'd pass.” {{Mobangon ko og sayo aron dili ko maulahi.}} “I'll get up early so I won't be late.”"},
+        { "table": [
+          ["Bisaya","English","example"],
+          ["{{kay}}, {{tungod kay}}","because","{{…kay nag-ulan.}}"],
+          ["{{tungod sa}}","because of","{{…tungod sa ulan.}}"],
+          ["{{mao nga}}, {{busa}}","so, that's why","{{…mao nga natulog ko.}}"],
+          ["{{aron}}","so that, in order to","{{…aron makapasar.}}"]
+        ] },
+        { "ex": [
+          {"t":"Wala ko kaadto tungod sa ulan.","tr":"I couldn't go because of the rain."},
+          {"t":"Gikapoy ko, mao nga mouli na ko.","tr":"I'm tired, so I'm going home."},
+          {"t":"Nagtuon ko og maayo aron makapasar.","tr":"I studied hard so that I'd pass."},
+          {"t":"Nag-ulan, busa wala mi mogawas.","tr":"It rained, so we didn't go out."},
+          {"t":"Ngano? — Kay ganahan ko nimo.","tr":"Why? — Because I like you."},
+          {"t":"Mobangon ko og sayo aron dili ko maulahi.","tr":"I'll get up early so I won't be late."}
+        ] },
+        {"tip":"In casual Cebu talk you'll also hear {{kay}} used almost like “is”: {{Ang Cebu kay nindot.}} “Cebu, it's beautiful.” That's a different {{kay}}; you only need to recognize it."}
+      ],
+      "mistakes": [
+        {"wrong":"Wala ko moadto tungod sa nag-ulan.","right":"Wala ko moadto tungod kay nag-ulan.","tr":"I didn't go because it was raining.","why":"Before a whole sentence: {{kay}} or {{tungod kay}}. {{tungod sa}} goes before a noun ({{tungod sa ulan}})."},
+        {"wrong":"Mao nga gikapoy ko, natulog ko.","right":"Gikapoy ko, mao nga natulog ko.","tr":"I was tired, so I went to sleep.","why":"{{mao nga}} goes before the result, not the reason."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ko moadto ___ nag-ulan.","tr":"I didn't go because it was raining.","options":["kay","aron","mao"],"answer":0,"why":"Because + a sentence: {{kay}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ko kaadto tungod ___ ulan.","tr":"I couldn't go because of the rain.","options":["sa","kay","nga"],"answer":0,"why":"Because of + a noun: {{tungod sa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nagtuon ko ___ makapasar.","tr":"I studied so that I'd pass.","options":["aron","kay","busa"],"answer":0,"why":"So that: {{aron}}."},
+        {"type":"dialogue","q":"A friend asks why you missed the trip. Choose your replies.","lines":[{"who":"Mark","t":"Nganong wala ka mouban sa Bantayan?","tr":"Why didn't you come along to Bantayan?"},{"options":["Kay naa koy trabaho.","Aron naa koy trabaho."],"answer":0,"why":"The reason: {{kay}}."},{"who":"Mark","t":"Sayang! Nindot kaayo didto.","tr":"What a shame! It was really beautiful there."},{"options":["Mao nga mouban gyud ko sa sunod!","Kay mouban gyud ko sa sunod!"],"answer":0,"why":"The result, “that's why”: {{mao nga}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I studied hard so that I'd pass.","words":["Nagtuon","ko","og","maayo","aron","makapasar."]},
+        {"type":"say","q":"Answer {{Ngano?}}: “Because I was tired.”","answer":"Kay gikapoy ko.","from":"say-how-you-feel"},
+        {"type":"say","q":"Say “I have to get up early so I won't be late.”","answer":"Kinahanglan ko mobangon og sayo aron dili ko maulahi.","from":"say-what-you-need"},
+        {"type":"free","q":"Your turn: say why you're learning Bisaya.","answers":[{"t":"Nagtuon ko og Bisaya kay taga-Cebu ang akong asawa.","tr":"I'm studying Bisaya because my wife is from Cebu."},{"t":"Gusto ko makasulti og Bisaya aron makaistorya ko sa akong mga higala.","tr":"I want to be able to speak Bisaya so I can talk with my friends."}]}
+      ]
+    },
+    {
+      "id": "the-one-who",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say which one you mean",
+      "summary": "Point out people and things by what they do: “the woman who's singing”, “the bus that goes to Lahug”, “the one cooking”.",
+      "topic": "{{nga}} + a doer verb: {{ang babaye nga nagkanta}}; {{ang nagluto}} “the one who cooked”; {{hain}} “which one”",
+      "blocks": [
+        {"goal":{"t":"Kinsa ang babaye nga nagkanta? — Akong igsoon.","tr":"Who's the woman who's singing? — My sister."}},
+        {"dialog":[{"who":"Emma","t":"Kinsa kadtong lalaki nga nagsul-ob og pula?","tr":"Who's that guy wearing red?"},{"who":"Joy","t":"Si Lito, ang akong silingan.","tr":"That's Lito, my neighbor."},{"who":"Emma","t":"Ug ang babaye nga nagkanta?","tr":"And the woman who's singing?"},{"who":"Joy","t":"Iyang asawa. Ug ang mga bata nga nagdula sa gawas, ilang mga anak.","tr":"His wife. And the kids playing outside are their children."},{"who":"Emma","t":"Hain man ang imong bana?","tr":"So which one is your husband?"},{"who":"Joy","t":"Kadtong nagluto sa sugba!","tr":"The one grilling the fish!"}]},
+        {"p":"To say **which** person or thing you mean, put {{nga}} and a verb after the noun: {{ang babaye nga nagkanta}} “the woman who's singing”, {{ang bus nga moadto sa Lahug}} “the bus that goes to Lahug”. One word, {{nga}}, does the work of English “who”, “which” and “that”: it's the same linker that joined describing words in lesson 11."},
+        {"term":"clause","means":"a part of a sentence with its own verb, like “who's singing” in “the woman who's singing”."},
+        {"p":"**The verb keeps its form**: {{nag-}} for what's going on ({{nga nagkanta}} “who's singing”), {{mi-}} for what happened ({{nga miabot gahapon}} “who arrived yesterday”), {{mo-}} for what will happen or happens regularly ({{nga moadto sa Lahug}} “that goes to Lahug”). In this lesson the person or thing **does** the action; lesson 42 adds “the book that I read”."},
+        {"p":"**“The one who…”**: leave out the noun. {{ang nagluto}} “the one who cooked”, {{kadtong nagluto}} “that one who's cooking” ({{kadto}} + -ng), {{ang mga miadto}} “the ones who went”."},
+        {"p":"**Which one? {{hain}}.** {{Hain man ang imong bana?}} “Which one is your husband?” {{Hain ang imoha?}} “Which one is yours?” ({{imoha}} is “yours”, {{akoa}} is “mine”.)"},
+        { "ex": [
+          {"t":"Kinsa ang lalaki nga nagsul-ob og pula?","tr":"Who's the guy wearing red?"},
+          {"t":"Asa ang bus nga moadto sa Lahug?","tr":"Where's the bus that goes to Lahug?"},
+          {"t":"Siya ang tawo nga nagtabang nako.","tr":"He's the person who helped me."},
+          {"t":"Kadtong nagluto, akong bana.","tr":"The one who's cooking is my husband."},
+          {"t":"Hain ang imoha?","tr":"Which one is yours?"},
+          {"t":"Ang mga bata nga nagdula sa gawas, akong mga apo.","tr":"The kids playing outside are my grandchildren."}
+        ] },
+        {"tip":"A sentence can start with the long description, pause, then say what it is: {{Ang babaye nga nagkanta, akong igsoon.}} “The woman who's singing, that's my sister.” Very natural in speech."}
+      ],
+      "mistakes": [
+        {"wrong":"ang babaye nagkanta","right":"ang babaye nga nagkanta","tr":"the woman who's singing","why":"Link the noun and its verb with {{nga}}."},
+        {"wrong":"Asa ang bus nga miadto sa Lahug?","right":"Asa ang bus nga moadto sa Lahug?","tr":"Where's the bus that goes to Lahug?","why":"A bus that goes there (regularly, or next): {{mo-}}. {{miadto}} would be “that went”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kinsa ang babaye ___ nagkanta?","tr":"Who's the woman who's singing?","options":["nga","ang","si"],"answer":0,"why":"Who, which, that: {{nga}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Asa ang bus nga ___ sa Lahug?","tr":"Where's the bus that goes to Lahug?","options":["moadto","miadto","adto"],"answer":0,"why":"Goes there (regularly, or next): {{mo-}}."},
+        {"type":"choice","q":"{{Hain ang imoha?}} means…","options":["Which one is yours?","Where are you?","What's yours?"],"answer":0,"why":"{{hain}} which one, {{imoha}} yours."},
+        {"type":"dialogue","q":"At a family party: choose your replies.","lines":[{"who":"Lola","t":"Nakaila ka na sa akong mga apo?","tr":"Have you met my grandchildren?"},{"options":["Wala pa. Kinsa ang bata nga nagkanta?","Wala pa. Kinsa ang bata nagkanta?"],"answer":0,"why":"Link with {{nga}}."},{"who":"Lola","t":"Si Nica. Ug kadtong nagdula og bola, si Paolo.","tr":"That's Nica. And the one playing ball is Paolo."},{"options":["Ug hain si Mia?","Ug kinsa hain si Mia?"],"answer":0,"why":"Which one: {{hain}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Who's the guy wearing red?","words":["Kinsa","ang","lalaki","nga","nagsul-ob","og","pula?"]},
+        {"type":"say","q":"Say “My dad is the man who works at the bank.”","answer":"Akong papa ang lalaki nga nagtrabaho sa bangko.","from":"say-what-youre-doing"},
+        {"type":"choice","q":"{{ang balay nga dako}} and {{ang dakong balay}}…","options":["mean the same: the big house","mean different things"],"answer":0,"why":"The same linker {{nga}} / -ng, either order.","from":"describe-what-you-want"},
+        {"type":"free","q":"Your turn: point out two people in a room or a photo by what they're doing or wearing.","answers":[{"t":"Ang babaye nga nagsul-ob og puti, akong igsoon. Ang lalaki nga nagkanta, akong higala.","tr":"The woman wearing white is my sister. The man who's singing is my friend."},{"t":"Kadtong nagluto sa kusina, akong mama.","tr":"The one cooking in the kitchen is my mom."}]}
+      ]
     }
   ]
 }
