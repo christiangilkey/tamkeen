@@ -1,0 +1,189 @@
+{
+  "lang": "ru",
+  "title": "Russian basics",
+  "variety": "Standard Russian",
+  "about": "The most common words of written and spoken Russian (wordfreq counts, grouped by dictionary word with tools/course/ru/rank.py and the OpenRussian.org dictionary; the two verbs of an aspect pair count as two words), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence that uses it the way native speakers do, written with ё and without stress marks, and its English translation; ⟦ ⟧ marks the part that translates the word. The meaning shows where the word's stress falls (до́ма), except in words of one vowel and words with ё, which is always stressed.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "в",
+      "pos": "prep",
+      "meaning": "in; at; to (into)",
+      "sentence": "Я живу в Москве.",
+      "translation": "I live ⟦in⟧ Moscow."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "и",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Я люблю чай и кофе.",
+      "translation": "I like tea ⟦and⟧ coffee."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "на",
+      "pos": "prep",
+      "meaning": "on; at; to",
+      "sentence": "Книга лежит на столе.",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "не",
+      "pos": "part",
+      "meaning": "not",
+      "sentence": "Я не знаю.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "с",
+      "pos": "prep",
+      "meaning": "with; from",
+      "sentence": "Я живу с родителями.",
+      "translation": "I live ⟦with⟧ my parents."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "что",
+      "pos": "pron",
+      "meaning": "what; that",
+      "sentence": "Что ты делаешь?",
+      "translation": "⟦What⟧ are you doing?"
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "я",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "Я студент.",
+      "translation": "⟦I⟧ am a student."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "быть",
+      "pos": "verb",
+      "meaning": "to be",
+      "sentence": "Вчера я был дома.",
+      "translation": "Yesterday I ⟦was⟧ at home.",
+      "form": "был"
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "он",
+      "pos": "pron",
+      "meaning": "he; it",
+      "sentence": "Он мой брат.",
+      "translation": "⟦He⟧ is my brother."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "по",
+      "pos": "prep",
+      "meaning": "along; on; by",
+      "sentence": "Я говорю с мамой по телефону.",
+      "translation": "I'm talking to my mum ⟦on⟧ the phone."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "а",
+      "pos": "conj",
+      "meaning": "and; but (contrast)",
+      "sentence": "Я дома, а ты где?",
+      "translation": "I'm at home, ⟦and⟧ where are you?"
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "как",
+      "pos": "adv",
+      "meaning": "how; like",
+      "sentence": "Как дела?",
+      "translation": "⟦How⟧ are things?"
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "этот",
+      "pos": "pron",
+      "meaning": "this (э́тот)",
+      "sentence": "Этот дом очень старый.",
+      "translation": "⟦This⟧ house is very old."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "весь",
+      "pos": "pron",
+      "meaning": "all; the whole",
+      "sentence": "Я работал весь день.",
+      "translation": "I worked ⟦all⟧ day."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "из",
+      "pos": "prep",
+      "meaning": "from; out of",
+      "sentence": "Я из России.",
+      "translation": "I'm ⟦from⟧ Russia."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "о",
+      "pos": "prep",
+      "meaning": "about",
+      "sentence": "Мы говорим о работе.",
+      "translation": "We're talking ⟦about⟧ work."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "это",
+      "pos": "pron",
+      "meaning": "this (is); it (э́то)",
+      "sentence": "Это мой друг.",
+      "translation": "⟦This⟧ is my friend."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "за",
+      "pos": "prep",
+      "meaning": "for; behind",
+      "sentence": "Спасибо за помощь!",
+      "translation": "Thanks ⟦for⟧ the help!"
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "для",
+      "pos": "prep",
+      "meaning": "for",
+      "sentence": "Это подарок для тебя.",
+      "translation": "This is a present ⟦for⟧ you."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "к",
+      "pos": "prep",
+      "meaning": "to (someone); towards",
+      "sentence": "Я иду к врачу.",
+      "translation": "I'm going ⟦to⟧ the doctor."
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "ru",
+ "title": "Russian basics",
+ "variety": "Standard Russian",
+ "about": "The most common words of written and spoken Russian (wordfreq counts, grouped by dictionary word with tools/course/ru/rank.py and the OpenRussian.org dictionary; the two verbs of an aspect pair count as two words), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence that uses it the way native speakers do, written with ё and without stress marks, and its English translation; ⟦ ⟧ marks the part that translates the word. The meaning shows where the word's stress falls (до́ма), except in words of one vowel and words with ё, which is always stressed.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Svetlana (Azure, Russia)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "в",
+   "pos": "prep",
+   "meaning": "in; at; to (into)",
+   "sentence": "Я живу в Москве.",
+   "translation": "I live ⟦in⟧ Moscow.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.284,
+    "sent_start": 1.184,
+    "sent_end": 2.473
+   }
+  },
+  {
+   "n": 2,
+   "word": "и",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Я люблю чай и кофе.",
+   "translation": "I like tea ⟦and⟧ coffee.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.291,
+    "sent_start": 1.191,
+    "sent_end": 2.949
+   }
+  },
+  {
+   "n": 3,
+   "word": "на",
+   "pos": "prep",
+   "meaning": "on; at; to",
+   "sentence": "Книга лежит на столе.",
+   "translation": "The book is ⟦on⟧ the table.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.402,
+    "sent_start": 1.302,
+    "sent_end": 2.81
+   }
+  },
+  {
+   "n": 4,
+   "word": "не",
+   "pos": "part",
+   "meaning": "not",
+   "sentence": "Я не знаю.",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.384,
+    "sent_start": 1.284,
+    "sent_end": 2.201
+   }
+  },
+  {
+   "n": 5,
+   "word": "с",
+   "pos": "prep",
+   "meaning": "with; from",
+   "sentence": "Я живу с родителями.",
+   "translation": "I live ⟦with⟧ my parents.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.284,
+    "sent_start": 1.184,
+    "sent_end": 2.775
+   }
+  },
+  {
+   "n": 6,
+   "word": "что",
+   "pos": "pron",
+   "meaning": "what; that",
+   "sentence": "Что ты делаешь?",
+   "translation": "⟦What⟧ are you doing?",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.504,
+    "sent_start": 1.404,
+    "sent_end": 2.562
+   }
+  },
+  {
+   "n": 7,
+   "word": "я",
+   "pos": "pron",
+   "meaning": "I",
+   "sentence": "Я студент.",
+   "translation": "⟦I⟧ am a student.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.43,
+    "sent_start": 1.33,
+    "sent_end": 2.328
+   }
+  },
+  {
+   "n": 8,
+   "word": "быть",
+   "pos": "verb",
+   "meaning": "to be",
+   "sentence": "Вчера я был дома.",
+   "translation": "Yesterday I ⟦was⟧ at home.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.535,
+    "sent_start": 1.435,
+    "sent_end": 2.912
+   }
+  },
+  {
+   "n": 9,
+   "word": "он",
+   "pos": "pron",
+   "meaning": "he; it",
+   "sentence": "Он мой брат.",
+   "translation": "⟦He⟧ is my brother.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.349,
+    "sent_start": 1.25,
+    "sent_end": 2.206
+   }
+  },
+  {
+   "n": 10,
+   "word": "по",
+   "pos": "prep",
+   "meaning": "along; on; by",
+   "sentence": "Я говорю с мамой по телефону.",
+   "translation": "I'm talking to my mum ⟦on⟧ the phone.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.318,
+    "sent_start": 1.218,
+    "sent_end": 3.224
+   }
+  },
+  {
+   "n": 11,
+   "word": "а",
+   "pos": "conj",
+   "meaning": "and; but (contrast)",
+   "sentence": "Я дома, а ты где?",
+   "translation": "I'm at home, ⟦and⟧ where are you?",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.302,
+    "sent_start": 1.202,
+    "sent_end": 2.902
+   }
+  },
+  {
+   "n": 12,
+   "word": "как",
+   "pos": "adv",
+   "meaning": "how; like",
+   "sentence": "Как дела?",
+   "translation": "⟦How⟧ are things?",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.421,
+    "sent_start": 1.321,
+    "sent_end": 2.024
+   }
+  },
+  {
+   "n": 13,
+   "word": "этот",
+   "pos": "pron",
+   "meaning": "this (э́тот)",
+   "sentence": "Этот дом очень старый.",
+   "translation": "⟦This⟧ house is very old.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.598,
+    "sent_start": 1.498,
+    "sent_end": 3.095
+   }
+  },
+  {
+   "n": 14,
+   "word": "весь",
+   "pos": "pron",
+   "meaning": "all; the whole",
+   "sentence": "Я работал весь день.",
+   "translation": "I worked ⟦all⟧ day.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.545,
+    "sent_start": 1.445,
+    "sent_end": 2.829
+   }
+  },
+  {
+   "n": 15,
+   "word": "из",
+   "pos": "prep",
+   "meaning": "from; out of",
+   "sentence": "Я из России.",
+   "translation": "I'm ⟦from⟧ Russia.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.413,
+    "sent_start": 1.313,
+    "sent_end": 2.508
+   }
+  },
+  {
+   "n": 16,
+   "word": "о",
+   "pos": "prep",
+   "meaning": "about",
+   "sentence": "Мы говорим о работе.",
+   "translation": "We're talking ⟦about⟧ work.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.302,
+    "sent_start": 1.202,
+    "sent_end": 2.716
+   }
+  },
+  {
+   "n": 17,
+   "word": "это",
+   "pos": "pron",
+   "meaning": "this (is); it (э́то)",
+   "sentence": "Это мой друг.",
+   "translation": "⟦This⟧ is my friend.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.508,
+    "sent_start": 1.407,
+    "sent_end": 2.399
+   }
+  },
+  {
+   "n": 18,
+   "word": "за",
+   "pos": "prep",
+   "meaning": "for; behind",
+   "sentence": "Спасибо за помощь!",
+   "translation": "Thanks ⟦for⟧ the help!",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.417,
+    "sent_start": 1.317,
+    "sent_end": 2.687
+   }
+  },
+  {
+   "n": 19,
+   "word": "для",
+   "pos": "prep",
+   "meaning": "for",
+   "sentence": "Это подарок для тебя.",
+   "translation": "This is a present ⟦for⟧ you.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.504,
+    "sent_start": 1.403,
+    "sent_end": 2.862
+   }
+  },
+  {
+   "n": 20,
+   "word": "к",
+   "pos": "prep",
+   "meaning": "to (someone); towards",
+   "sentence": "Я иду к врачу.",
+   "translation": "I'm going ⟦to⟧ the doctor.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.196,
+    "sent_start": 1.096,
+    "sent_end": 2.382
+   }
+  }
+ ]
+}

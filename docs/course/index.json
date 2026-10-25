@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "ru": {
+   "file": "ru/course.json",
+   "title": "Russian basics",
+   "variety": "Standard Russian",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 8625,
+   "audio_bytes": 201807,
+   "sha256": "681dfd0d12d982f9547d841cb658c8a8313c0cee777dfc4a99239a8677dcf555",
+   "voice": {
+    "engine": "azure",
+    "name": "Svetlana (Azure, Russia)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }
