@@ -30,7 +30,7 @@
         {"term":"वाक्य","means":"शब्दों का ऐसा समूह जो पूरी बात कहे: {{I'm from Delhi.}}"},
         {"term":"क्रिया","means":"काम या होने को बताने वाला शब्द। हिंदी में: जाना, खाना, है; अंग्रेज़ी में: {{go}}, {{eat}}, {{is}}।"},
         {"term":"कर्ता","means":"वाक्य में वह व्यक्ति या चीज़ जिसके बारे में बात हो रही है, या जो काम करता है: {{I am from Delhi}} में {{I}}।"},
-        {"p":"**am, is, are.** हिंदी के “हूँ, है, हैं” की तरह अंग्रेज़ी में भी तीन रूप हैं: {{I}} के साथ {{am}}, एक व्यक्ति या चीज़ के साथ {{is}}, और {{you}} या कई के साथ {{are}}।"},
+        {"p":"**{{am, is, are}}.** हिंदी के “हूँ, है, हैं” की तरह अंग्रेज़ी में भी तीन रूप हैं: {{I}} के साथ {{am}}, एक व्यक्ति या चीज़ के साथ {{is}}, और {{you}} या कई के साथ {{are}}।"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["{{I am}}","{{I am Priya.}}","मैं प्रिया हूँ।"],
@@ -38,7 +38,7 @@
           ["{{you are}}","{{You are from Chicago.}}","आप शिकागो से हैं।"]
         ] },
         {"p":"**बोलचाल के छोटे रूप.** अंग्रेज़ी बोलने वाले {{I am}} को लगभग हमेशा {{I'm}} बोलते हैं, {{you are}} को {{you're}}, {{it is}} को {{it's}}। लिखते समय बीच में {{'}} लगता है।"},
-        {"p":"**from** “से” जगह से **पहले** आता है: {{from Delhi}}, शब्दशः “से दिल्ली”। अंग्रेज़ी के ये छोटे शब्द ({{in}}, {{on}}, {{from}}) हमेशा अपने शब्द से पहले आते हैं (पाठ 11)।"},
+        {"p":"**{{from}}** “से” जगह से **पहले** आता है: {{from Delhi}}, शब्दशः “से दिल्ली”। अंग्रेज़ी के ये छोटे शब्द ({{in}}, {{on}}, {{from}}) हमेशा अपने शब्द से पहले आते हैं (पाठ 11)।"},
         { "ex": [
           {"t":"I'm Rahul.","tr":"मैं राहुल हूँ।"},
           {"t":"My name is Anjali.","tr":"मेरा नाम अंजलि है।"},
@@ -68,8 +68,8 @@
       "id": "he-she-it-they",
       "unit": 1,
       "level": "A1",
-      "title": "दूसरों के बारे में बताइए: he, she, it",
-      "summary": "किसी का परिचय कराइए: “This is my sister. She's a doctor.” हिंदी के “वह” के अंग्रेज़ी में दो रूप।",
+      "title": "दूसरों के बारे में बताइए: {{he, she, it}}",
+      "summary": "किसी का परिचय कराइए: “{{This is my sister. She's a doctor.}}” हिंदी के “वह” के अंग्रेज़ी में दो रूप।",
       "topic": "{{he}} / {{she}} / {{it}} / {{they}}, {{we}}, {{you}}, और उनके साथ {{is}} या {{are}}",
       "blocks": [
         {"goal":{"t":"This is my sister. She's a doctor.","tr":"यह मेरी बहन है। वह डॉक्टर है।"}},
@@ -118,7 +118,7 @@
       "unit": 1,
       "level": "A1",
       "title": "सवाल पूछिए और “नहीं” कहिए",
-      "summary": "“Are you…?” पूछिए, और “Yes, I am” या “No, I'm not” कहिए।",
+      "summary": "“{{Are you…?}}” पूछिए, और “{{Yes, I am}}” या “{{No, I'm not}}” कहिए।",
       "topic": "{{Are you…? Is she…?}}: सवाल में क्रिया पहले; छोटे जवाब; {{not}}, {{isn't}}, {{aren't}}",
       "blocks": [
         {"goal":{"t":"Are you a student? — No, I'm not. I'm a teacher.","tr":"क्या आप स्टूडेंट हैं? — नहीं। मैं टीचर हूँ।"}},
@@ -166,22 +166,22 @@
       "id": "a-an-this-that",
       "unit": 1,
       "level": "A1",
-      "title": "चीज़ों के नाम बताइए: a, an, this, that",
-      "summary": "“What's this?” पूछिए और “It's a book” कहिए: वह {{a}} / {{an}} जो हिंदी में होता ही नहीं।",
+      "title": "चीज़ों के नाम बताइए: {{a, an, this, that}}",
+      "summary": "“{{What's this?}}” पूछिए और “{{It's a book}}” कहिए: वह {{a}} / {{an}} जो हिंदी में होता ही नहीं।",
       "topic": "{{a}} / {{an}}; {{this, that, these, those}}; {{What's this?}}",
       "blocks": [
         {"goal":{"t":"What's this? — It's an umbrella.","tr":"यह क्या है? — छाता है।"}},
         {"dialog":[{"who":"टॉम","t":"What's this?","tr":"यह क्या है?"},{"who":"प्रिया","t":"It's a samosa.","tr":"समोसा है।"},{"who":"टॉम","t":"And what's that?","tr":"और वह क्या है?"},{"who":"प्रिया","t":"That's a jalebi. It's a sweet.","tr":"वह जलेबी है। एक मिठाई।"},{"who":"टॉम","t":"And these?","tr":"और ये?"},{"who":"प्रिया","t":"These are mangoes.","tr":"ये आम हैं।"}]},
         {"term":"संज्ञा","means":"किसी व्यक्ति, चीज़ या जगह का नाम: दोस्त, चाय, दिल्ली; {{friend}}, {{tea}}, {{Delhi}}।"},
         {"term":"आर्टिकल","means":"संज्ञा से पहले आने वाला छोटा शब्द, जो बताता है कि बात कोई भी एक चीज़ की है ({{a}}, {{an}}) या किसी ख़ास चीज़ की ({{the}})। हिंदी में ऐसा शब्द नहीं है।"},
-        {"p":"**a: “एक”, लेकिन हर जगह.** हिंदी में “यह किताब है” काफ़ी है। अंग्रेज़ी में एक गिनी जा सकने वाली चीज़ से पहले {{a}} लगाना ज़रूरी है: {{It's a book.}}, {{I'm a teacher.}} बिना {{a}} के वाक्य अधूरा लगता है।"},
-        {"p":"**a या an?** अगली **आवाज़** स्वर हो (“अ, ए, इ, ओ, उ” जैसी) तो {{an}}: {{an apple}}, {{an engineer}}, {{an hour}} ({{h}} बोला नहीं जाता)। बाक़ी जगह {{a}}: {{a car}}, {{a university}} (“यू” की आवाज़ “य” से शुरू होती है)। अक्षर नहीं, आवाज़ देखिए।"},
+        {"p":"**{{a}}: “एक”, लेकिन हर जगह.** हिंदी में “यह किताब है” काफ़ी है। अंग्रेज़ी में एक गिनी जा सकने वाली चीज़ से पहले {{a}} लगाना ज़रूरी है: {{It's a book.}}, {{I'm a teacher.}} बिना {{a}} के वाक्य अधूरा लगता है।"},
+        {"p":"**{{a}} या {{an}}?** अगली **आवाज़** स्वर हो (“अ, ए, इ, ओ, उ” जैसी) तो {{an}}: {{an apple}}, {{an engineer}}, {{an hour}} ({{h}} बोला नहीं जाता)। बाक़ी जगह {{a}}: {{a car}}, {{a university}} (“यू” की आवाज़ “य” से शुरू होती है)। अक्षर नहीं, आवाज़ देखिए।"},
         { "table": [
           ["","पास","दूर"],
           ["एक","{{this}} यह","{{that}} वह"],
           ["कई","{{these}} ये","{{those}} वे"]
         ] },
-        {"p":"**this, that, these, those.** {{this}} पास की एक चीज़, {{that}} दूर की; कई के लिए {{these}} और {{those}}, और उनके साथ {{are}}: {{These are mangoes.}}"},
+        {"p":"**{{this, that, these, those}}.** {{this}} पास की एक चीज़, {{that}} दूर की; कई के लिए {{these}} और {{those}}, और उनके साथ {{are}}: {{These are mangoes.}}"},
         { "ex": [
           {"t":"It's a book.","tr":"यह किताब है।"},
           {"t":"She's an engineer.","tr":"वह इंजीनियर है।"},
@@ -211,8 +211,8 @@
       "id": "ask-for-things",
       "unit": 1,
       "level": "A1",
-      "title": "कुछ माँगिए: I'd like, Can I have",
-      "summary": "कैफ़े या दुकान में ऑर्डर कीजिए: “Can I have a coffee, please?” और “मुझे चाहिए” को अंग्रेज़ी में उलटिए।",
+      "title": "कुछ माँगिए: {{I'd like, Can I have}}",
+      "summary": "कैफ़े या दुकान में ऑर्डर कीजिए: “{{Can I have a coffee, please?}}” और “मुझे चाहिए” को अंग्रेज़ी में उलटिए।",
       "topic": "{{I'd like…}}, {{Can I have…?}}, {{I need…}}, {{please}}: “मुझे” की जगह {{I}}",
       "blocks": [
         {"goal":{"t":"Can I have a coffee, please?","tr":"क्या मुझे एक कॉफ़ी मिल सकती है, प्लीज़?"}},
@@ -254,8 +254,8 @@
       "id": "more-than-one",
       "unit": 1,
       "level": "A1",
-      "title": "एक से ज़्यादा: plurals",
-      "summary": "“two books”, “three children”: अंग्रेज़ी के बहुवचन, जो हिंदी से आसान हैं, लेकिन कभी छूटते नहीं।",
+      "title": "एक से ज़्यादा: {{plurals}}",
+      "summary": "“{{two books}}”, “{{three children}}”: अंग्रेज़ी के बहुवचन, जो हिंदी से आसान हैं, लेकिन कभी छूटते नहीं।",
       "topic": "{{-s}}, {{-es}}, {{-ies}}; {{children, men, women, people}}; विशेषण नहीं बदलते",
       "blocks": [
         {"goal":{"t":"Two coffees and three samosas, please.","tr":"दो कॉफ़ी और तीन समोसे, प्लीज़।"}},
@@ -300,14 +300,14 @@
       "id": "when-to-say-the",
       "unit": 1,
       "level": "A1",
-      "title": "“the” कब लगाएँ",
+      "title": "“{{the}}” कब लगाएँ",
       "summary": "{{a}} और {{the}} का फ़र्क़, और कहाँ कोई आर्टिकल नहीं लगता।",
       "topic": "{{the}}: वह चीज़ जिसे दोनों जानते हैं; नाम, शहर, भाषाओं और आम बातों के आगे कुछ नहीं",
       "blocks": [
         {"goal":{"t":"Excuse me, where's the bathroom?","tr":"माफ़ कीजिए, बाथरूम कहाँ है?"}},
         {"dialog":[{"who":"बॉस","t":"Can you open the window, please?","tr":"खिड़की खोल देंगे, प्लीज़?"},{"who":"रवि","t":"Sure.","tr":"ज़रूर।"},{"who":"बॉस","t":"And where's the report?","tr":"और रिपोर्ट कहाँ है?"},{"who":"रवि","t":"It's on the table.","tr":"मेज़ पर है।"},{"who":"बॉस","t":"Thanks. Is the meeting at two?","tr":"शुक्रिया। मीटिंग दो बजे है?"},{"who":"रवि","t":"Yes, in the big room.","tr":"हाँ, बड़े कमरे में।"}]},
-        {"p":"**the: “वही वाला”.** {{the}} उस चीज़ के आगे लगता है जिसके बारे में सुनने वाला भी जानता है कि कौन-सी: {{the window}} (इसी कमरे की खिड़की), {{the report}} (वही रिपोर्ट जिसकी बात हो रही है)। हिंदी में यह फ़र्क़ संदर्भ से समझ आता है; अंग्रेज़ी में एक शब्द से।"},
-        {"p":"**पहले a, फिर the.** किसी चीज़ का पहली बार ज़िक्र: {{a}}; उसके बाद: {{the}}। {{I have a dog. The dog is very small.}} “मेरे पास एक कुत्ता है। कुत्ता बहुत छोटा है।” और जो चीज़ एक ही है: {{the sun}}, {{the sky}}।"},
+        {"p":"**{{the}}: “वही वाला”.** {{the}} उस चीज़ के आगे लगता है जिसके बारे में सुनने वाला भी जानता है कि कौन-सी: {{the window}} (इसी कमरे की खिड़की), {{the report}} (वही रिपोर्ट जिसकी बात हो रही है)। हिंदी में यह फ़र्क़ संदर्भ से समझ आता है; अंग्रेज़ी में एक शब्द से।"},
+        {"p":"**पहले {{a}}, फिर {{the}}.** किसी चीज़ का पहली बार ज़िक्र: {{a}}; उसके बाद: {{the}}। {{I have a dog. The dog is very small.}} “मेरे पास एक कुत्ता है। कुत्ता बहुत छोटा है।” और जो चीज़ एक ही है: {{the sun}}, {{the sky}}।"},
         {"p":"**कोई आर्टिकल नहीं:** लोगों, शहरों और ज़्यादातर देशों के नाम ({{Priya}}, {{Delhi}}, {{India}}; अपवाद: {{the US}}), भाषाएँ ({{Hindi}}, {{English}}), और आम तौर पर कही गई बातें: {{Life is beautiful}}, {{I love music}}।"},
         { "table": [
           ["","अंग्रेज़ी","क्यों"],
@@ -344,8 +344,8 @@
       "id": "whose-is-it",
       "unit": 2,
       "level": "A1",
-      "title": "किसका है?: my, your, his, her",
-      "summary": "“my sister”, “her name”, “Raj's car”: और {{his}} / {{her}} का वह नियम जो हिंदी से उल्टा है।",
+      "title": "किसका है?: {{my, your, his, her}}",
+      "summary": "“{{my sister}}”, “{{her name}}”, “{{Raj's car}}”: और {{his}} / {{her}} का वह नियम जो हिंदी से उल्टा है।",
       "topic": "{{my, your, his, her, its, our, their}}; {{'s}}; {{his}} / {{her}} मालिक के हिसाब से",
       "blocks": [
         {"goal":{"t":"This is my brother. His name is Arjun.","tr":"यह मेरा भाई है। उसका नाम अर्जुन है।"}},
@@ -362,7 +362,7 @@
           ["{{they}}","उनका","{{their}}"]
         ] },
         {"p":"**कभी नहीं बदलते.** {{my}} हमेशा {{my}}: {{my brother}}, {{my sister}}, {{my books}}। मेरा / मेरी / मेरे वाला फ़र्क़ अंग्रेज़ी में नहीं है।"},
-        {"p":"**'s: का, की, के.** नाम के बाद {{'s}} लगाइए: {{Raj's car}} “राज की गाड़ी”, {{my mother's name}} “मेरी माँ का नाम”। क्रम हिंदी जैसा ही है: पहले मालिक, फिर चीज़।"},
+        {"p":"**{{'s}}: का, की, के.** नाम के बाद {{'s}} लगाइए: {{Raj's car}} “राज की गाड़ी”, {{my mother's name}} “मेरी माँ का नाम”। क्रम हिंदी जैसा ही है: पहले मालिक, फिर चीज़।"},
         { "ex": [
           {"t":"What's your name?","tr":"आपका नाम क्या है?"},
           {"t":"Her name is Anjali.","tr":"उसका नाम अंजलि है।"},
@@ -392,14 +392,14 @@
       "id": "what-you-have",
       "unit": 2,
       "level": "A1",
-      "title": "आपके पास क्या है: have, has",
-      "summary": "“I have a car”, “She has two brothers”, “Do you have a pen?”: “मेरे पास” को अंग्रेज़ी में उलटकर।",
+      "title": "आपके पास क्या है: {{have, has}}",
+      "summary": "“{{I have a car}}”, “{{She has two brothers}}”, “{{Do you have a pen?}}”: “मेरे पास” को अंग्रेज़ी में उलटकर।",
       "topic": "{{have}} / {{has}}; {{Do you have…?}}, {{I don't have…}}; परिवार, चीज़ें, बीमारी: सबके लिए {{have}}",
       "blocks": [
         {"goal":{"t":"I have two brothers and a sister.","tr":"मेरे दो भाई और एक बहन है।"}},
         {"dialog":[{"who":"माइक","t":"Do you have a car?","tr":"क्या आपके पास गाड़ी है?"},{"who":"रवि","t":"No, I don't. But I have a bike.","tr":"नहीं। लेकिन मेरे पास साइकिल है।"},{"who":"माइक","t":"Do you have any brothers or sisters?","tr":"क्या आपके कोई भाई-बहन हैं?"},{"who":"रवि","t":"Yes, I have two sisters. They're in Chennai.","tr":"हाँ, मेरी दो बहनें हैं। वे चेन्नई में हैं।"},{"who":"माइक","t":"I have a brother. He has three kids!","tr":"मेरा एक भाई है। उसके तीन बच्चे हैं!"}]},
-        {"p":"**“मेरे पास” → I have.** हिंदी के “मेरे पास गाड़ी है” में व्यक्ति “पास” के साथ आता है। अंग्रेज़ी में व्यक्ति कर्ता है और {{have}} क्रिया: {{I have a car}}, शब्दशः “मैं रखता हूँ एक गाड़ी”। परिवार के लिए भी यही: “मेरे दो भाई हैं” → {{I have two brothers}}।"},
-        {"p":"**have या has?** {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ {{has}}; बाक़ी सबके साथ {{have}}: {{She has a dog.}}, {{They have two kids.}}"},
+        {"p":"**“मेरे पास” → {{I have}}.** हिंदी के “मेरे पास गाड़ी है” में व्यक्ति “पास” के साथ आता है। अंग्रेज़ी में व्यक्ति कर्ता है और {{have}} क्रिया: {{I have a car}}, शब्दशः “मैं रखता हूँ एक गाड़ी”। परिवार के लिए भी यही: “मेरे दो भाई हैं” → {{I have two brothers}}।"},
+        {"p":"**{{have}} या {{has}}?** {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ {{has}}; बाक़ी सबके साथ {{have}}: {{She has a dog.}}, {{They have two kids.}}"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["{{I, you, we, they}}","{{I have a phone.}}","मेरे पास फ़ोन है।"],
@@ -408,7 +408,7 @@
           ["बीमारी","{{I have a cold.}}","मुझे ज़ुकाम है।"]
         ] },
         {"p":"**सवाल और “नहीं”.** {{Do you have…?}} “क्या आपके पास … है?”, {{I don't have…}} “मेरे पास … नहीं है”; {{he}} / {{she}} के साथ {{Does she have…?}}, {{She doesn't have…}}। यह {{do}} वाला ढाँचा पाठ 15 में पूरा समझेंगे; अभी इन्हें ऐसे ही याद कर लीजिए।"},
-        {"p":"**have got.** भारत (और ब्रिटेन) में {{I've got a car}} भी बहुत चलता है; अमेरिका में {{I have a car}} ज़्यादा आम है। दोनों समझे जाते हैं।"},
+        {"p":"**{{have got}}.** भारत (और ब्रिटेन) में {{I've got a car}} भी बहुत चलता है; अमेरिका में {{I have a car}} ज़्यादा आम है। दोनों समझे जाते हैं।"},
         { "ex": [
           {"t":"I have a new phone.","tr":"मेरे पास नया फ़ोन है।"},
           {"t":"She has two brothers.","tr":"उसके दो भाई हैं।"},
@@ -437,20 +437,20 @@
       "id": "there-is",
       "unit": 2,
       "level": "A1",
-      "title": "कहाँ क्या है: there is, there are",
-      "summary": "पूछिए “Is there an ATM near here?” और कहिए “There are two hotels on this street.”",
+      "title": "कहाँ क्या है: {{there is, there are}}",
+      "summary": "पूछिए “{{Is there an ATM near here?}}” और कहिए “{{There are two hotels on this street}}.”",
       "topic": "{{there is}} / {{there are}}; {{Is there…? Are there…?}}; {{some}}, {{any}}",
       "blocks": [
         {"goal":{"t":"Is there an ATM near here?","tr":"क्या यहाँ पास में कोई एटीएम है?"}},
         {"dialog":[{"who":"रवि","t":"Excuse me, is there a pharmacy near here?","tr":"माफ़ कीजिए, क्या यहाँ पास में कोई दवाई की दुकान है?"},{"who":"औरत","t":"Yes, there's one on Main Street.","tr":"हाँ, मेन स्ट्रीट पर एक है।"},{"who":"रवि","t":"Are there any restaurants?","tr":"क्या कोई रेस्टोरेंट भी हैं?"},{"who":"औरत","t":"Yes, there are two Indian restaurants next to the bank.","tr":"हाँ, बैंक के पास दो भारतीय रेस्टोरेंट हैं।"},{"who":"रवि","t":"Great, thank you!","tr":"बढ़िया, शुक्रिया!"},{"who":"औरत","t":"You're welcome.","tr":"कोई बात नहीं।"}]},
-        {"p":"**“यहाँ … है” → There is.** हिंदी में “यहाँ एक बैंक है” काफ़ी है। अंग्रेज़ी में किसी जगह कुछ होने की बात {{there is}} (एक के लिए) या {{there are}} (कई के लिए) से शुरू होती है: {{There's a bank here.}}, {{There are two banks here.}} {{Here is a bank}} का मतलब कुछ और है: “यह रहा बैंक” (हाथ से दिखाते हुए)।"},
+        {"p":"**“यहाँ … है” → {{There is}}.** हिंदी में “यहाँ एक बैंक है” काफ़ी है। अंग्रेज़ी में किसी जगह कुछ होने की बात {{there is}} (एक के लिए) या {{there are}} (कई के लिए) से शुरू होती है: {{There's a bank here.}}, {{There are two banks here.}} {{Here is a bank}} का मतलब कुछ और है: “यह रहा बैंक” (हाथ से दिखाते हुए)।"},
         { "table": [
           ["","बात","सवाल","नहीं"],
           ["एक","{{There's a park.}}","{{Is there a park?}}","{{There isn't a park.}}"],
           ["कई","{{There are two parks.}}","{{Are there any parks?}}","{{There aren't any parks.}}"]
         ] },
-        {"p":"**some और any.** कई चीज़ों के साथ सीधी बात में {{some}} “कुछ”, सवाल और “नहीं” में {{any}} “कोई”: {{There are some good shops.}}, {{Are there any good shops?}}, {{There aren't any shops.}}"},
-        {"p":"**जवाब में one.** {{Is there an ATM?}} — {{Yes, there's one on the corner.}} “हाँ, कोने पर एक है।”"},
+        {"p":"**{{some}} और {{any}}.** कई चीज़ों के साथ सीधी बात में {{some}} “कुछ”, सवाल और “नहीं” में {{any}} “कोई”: {{There are some good shops.}}, {{Are there any good shops?}}, {{There aren't any shops.}}"},
+        {"p":"**जवाब में {{one}}.** {{Is there an ATM?}} — {{Yes, there's one on the corner.}} “हाँ, कोने पर एक है।”"},
         { "ex": [
           {"t":"There's a problem.","tr":"एक दिक़्क़त है।"},
           {"t":"There are a lot of people here.","tr":"यहाँ बहुत लोग हैं।"},
@@ -479,8 +479,8 @@
       "id": "where-things-are",
       "unit": 2,
       "level": "A1",
-      "title": "चीज़ें कहाँ हैं: in, on, under, next to",
-      "summary": "“The keys are on the table”, “I'm at home”: पूर्वसर्ग, जो संज्ञा से पहले आते हैं।",
+      "title": "चीज़ें कहाँ हैं: {{in, on, under, next to}}",
+      "summary": "“{{The keys are on the table}}”, “{{I'm at home}}”: पूर्वसर्ग, जो संज्ञा से पहले आते हैं।",
       "topic": "{{in, on, under, next to, in front of, behind, between}}; {{at home}}, {{at work}}; {{on the bus}}",
       "blocks": [
         {"goal":{"t":"Your keys are on the table, next to the TV.","tr":"आपकी चाबियाँ मेज़ पर हैं, टीवी के पास।"}},
@@ -497,7 +497,7 @@
           ["के पीछे","{{behind}}","{{behind the door}}"],
           ["के बीच","{{between}}","{{between the bank and the school}}"]
         ] },
-        {"p":"**at: किसी जगह पर.** कुछ आम जगहों के साथ {{at}}: {{at home}} “घर पर”, {{at work}} “काम पर”, {{at school}}, {{at the station}}। ({{at home}} में {{the}} नहीं लगता।)"},
+        {"p":"**{{at}}: किसी जगह पर.** कुछ आम जगहों के साथ {{at}}: {{at home}} “घर पर”, {{at work}} “काम पर”, {{at school}}, {{at the station}}। ({{at home}} में {{the}} नहीं लगता।)"},
         {"p":"**“में” हमेशा {{in}} नहीं.** हिंदी के “में” और “पर” हर बार अंग्रेज़ी से मेल नहीं खाते: {{on the bus}} “बस में”, {{on the second floor}} “दूसरी मंज़िल पर”, {{in the picture}} “तस्वीर में”। ऐसे जोड़े धीरे-धीरे याद हो जाते हैं।"},
         { "ex": [
           {"t":"The keys are in my bag.","tr":"चाबियाँ मेरे बैग में हैं।"},
@@ -528,14 +528,14 @@
       "unit": 2,
       "level": "A1",
       "title": "किसी से कुछ करने को कहिए, रास्ता बताइए",
-      "summary": "“Please sit down”, “Don't worry”, “Turn left”: अंग्रेज़ी का एक ही आज्ञा-रूप, आप, तुम, तू सबके लिए।",
+      "summary": "“{{Please sit down}}”, “{{Don't worry}}”, “{{Turn left}}”: अंग्रेज़ी का एक ही आज्ञा-रूप, आप, तुम, तू सबके लिए।",
       "topic": "आज्ञा: क्रिया का मूल रूप ({{sit}}, {{come}}); {{please}}; {{Don't…}}; {{Let's…}}; रास्ता बताना",
       "blocks": [
         {"goal":{"t":"Please come in and sit down.","tr":"आइए, अंदर आइए और बैठिए।"}},
         {"dialog":[{"who":"राहुल","t":"Excuse me, how do I get to the museum?","tr":"माफ़ कीजिए, म्यूज़ियम कैसे जाऊँ?"},{"who":"औरत","t":"Go straight for two blocks, then turn left.","tr":"दो ब्लॉक सीधे जाइए, फिर बाएँ मुड़िए।"},{"who":"राहुल","t":"Left at the bank?","tr":"बैंक से बाएँ?"},{"who":"औरत","t":"Yes. Then walk past the park. The museum is on your right.","tr":"हाँ। फिर पार्क के आगे से निकलिए। म्यूज़ियम आपके दाईं तरफ़ है।"},{"who":"राहुल","t":"Thank you so much!","tr":"बहुत-बहुत शुक्रिया!"},{"who":"औरत","t":"You're welcome. Don't worry, it's easy to find.","tr":"कोई बात नहीं। चिंता मत कीजिए, आसानी से मिल जाएगा।"}]},
         {"p":"**एक ही रूप सबके लिए.** हिंदी में “बैठिए, बैठो, बैठ” तीन रूप हैं। अंग्रेज़ी में बस क्रिया का मूल रूप: {{Sit.}}, {{Come.}}, {{Wait.}} कर्ता नहीं लगता। विनम्रता {{please}} से आती है: {{Please sit down.}} या {{Sit down, please.}}"},
-        {"p":"**“मत”: Don't.** {{don't}} क्रिया से पहले: {{Don't go.}} “मत जाओ”, {{Don't worry.}} “चिंता मत करो”।"},
-        {"p":"**“चलो”: Let's.** सुझाव के लिए {{Let's}} + क्रिया: {{Let's go.}} “चलो चलते हैं”, {{Let's eat.}} “चलो खाना खाते हैं”।"},
+        {"p":"**“मत”: {{Don't}}.** {{don't}} क्रिया से पहले: {{Don't go.}} “मत जाओ”, {{Don't worry.}} “चिंता मत करो”।"},
+        {"p":"**“चलो”: {{Let's}}.** सुझाव के लिए {{Let's}} + क्रिया: {{Let's go.}} “चलो चलते हैं”, {{Let's eat.}} “चलो खाना खाते हैं”।"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["करो","{{Close the door, please.}}","दरवाज़ा बंद कीजिए।"],
@@ -573,15 +573,15 @@
       "id": "how-much-is-it",
       "unit": 2,
       "level": "A1",
-      "title": "दाम पूछिए: How much is it?",
-      "summary": "दाम और गिनती पूछिए, और “the red one” कहिए।",
+      "title": "दाम पूछिए: {{How much is it?}}",
+      "summary": "दाम और गिनती पूछिए, और “{{the red one}}” कहिए।",
       "topic": "{{How much is…? How much are…?}}; {{How many…?}}; गिनती; {{this one}}, {{the red one}}",
       "blocks": [
         {"goal":{"t":"How much is this shirt?","tr":"यह शर्ट कितने की है?"}},
         {"dialog":[{"who":"आप","t":"Excuse me, how much is this shirt?","tr":"माफ़ कीजिए, यह शर्ट कितने की है?"},{"who":"सेल्सवुमन","t":"It's twenty-five dollars.","tr":"पच्चीस डॉलर की।"},{"who":"आप","t":"And the blue one?","tr":"और नीली वाली?"},{"who":"सेल्सवुमन","t":"That one is thirty dollars.","tr":"वह तीस डॉलर की है।"},{"who":"आप","t":"OK, I'll take the blue one. How much are these socks?","tr":"ठीक है, मैं नीली वाली लूँगा। ये मोज़े कितने के हैं?"},{"who":"सेल्सवुमन","t":"They're five dollars a pair.","tr":"पाँच डॉलर जोड़ी।"}]},
-        {"p":"**How much: दाम.** एक चीज़ के लिए {{How much is…?}}, कई के लिए {{How much are…?}}: {{How much is this bag?}}, {{How much are these shoes?}} जवाब: {{It's ten dollars.}}, {{They're forty dollars.}}"},
-        {"p":"**How many: गिनती.** गिनी जाने वाली चीज़ों के लिए {{How many}} + बहुवचन: {{How many people?}} “कितने लोग?”, {{How many tickets?}} “कितने टिकट?” ({{much}} और {{many}} का पूरा फ़र्क़: पाठ 37।)"},
-        {"p":"**the red one.** हिंदी “लाल वाला” → {{the red one}}; कई के लिए {{the red ones}}। {{this one}}, {{that one}}: “यह वाला, वह वाला”।"},
+        {"p":"**{{How much}}: दाम.** एक चीज़ के लिए {{How much is…?}}, कई के लिए {{How much are…?}}: {{How much is this bag?}}, {{How much are these shoes?}} जवाब: {{It's ten dollars.}}, {{They're forty dollars.}}"},
+        {"p":"**{{How many}}: गिनती.** गिनी जाने वाली चीज़ों के लिए {{How many}} + बहुवचन: {{How many people?}} “कितने लोग?”, {{How many tickets?}} “कितने टिकट?” ({{much}} और {{many}} का पूरा फ़र्क़: पाठ 37।)"},
+        {"p":"**{{the red one}}.** हिंदी “लाल वाला” → {{the red one}}; कई के लिए {{the red ones}}। {{this one}}, {{that one}}: “यह वाला, वह वाला”।"},
         { "table": [
           ["संख्या","अंग्रेज़ी","संख्या","अंग्रेज़ी"],
           ["13","{{thirteen}}","30","{{thirty}}"],
@@ -619,15 +619,15 @@
       "id": "every-day",
       "unit": 3,
       "level": "A1",
-      "title": "रोज़ क्या करते हैं: present simple",
-      "summary": "अपनी दिनचर्या बताइए: “I get up at six. My wife works in a bank.”",
+      "title": "रोज़ क्या करते हैं: {{present simple}}",
+      "summary": "अपनी दिनचर्या बताइए: “{{I get up at six. My wife works in a bank.}}”",
       "topic": "{{present simple}}: {{I work}}, {{she works}}; {{he / she / it}} के साथ {{-s}}; {{always, usually, sometimes, never}}",
       "blocks": [
         {"goal":{"t":"I get up at six and go for a walk.","tr":"मैं छह बजे उठता हूँ और टहलने जाता हूँ।"}},
         {"dialog":[{"who":"रवि","t":"I get up at six every day.","tr":"मैं रोज़ छह बजे उठता हूँ।"},{"who":"सारा","t":"Wow, early! I get up at eight.","tr":"वाह, जल्दी! मैं आठ बजे उठती हूँ।"},{"who":"रवि","t":"My wife gets up at five. She goes to the gym.","tr":"मेरी पत्नी पाँच बजे उठती हैं। वे जिम जाती हैं।"},{"who":"सारा","t":"And your son?","tr":"और आपका बेटा?"},{"who":"रवि","t":"He sleeps until ten on weekends!","tr":"वह छुट्टी के दिन दस बजे तक सोता है!"}]},
         {"term":"काल","means":"क्रिया का वह रूप जो बताता है कि बात कब की है: अभी, रोज़, पहले या बाद में।"},
         {"p":"**रोज़ की बातें: {{present simple}}.** आदतें, रोज़ के काम और हमेशा सच बातें क्रिया के मूल रूप में: {{I work}}, {{we eat}}, {{they live}}। हिंदी की तरह “-ता हूँ / -ती हूँ” वाला फ़र्क़ नहीं: आदमी और औरत दोनों {{I work}} कहते हैं।"},
-        {"p":"**he, she, it के साथ -s.** बस एक बदलाव है: {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ क्रिया में {{-s}} लगता है: {{she works}}, {{Ravi lives}}, {{it rains}}। हिंदी बोलने वाले इसे सबसे ज़्यादा भूलते हैं, इसलिए ध्यान से सुनिए।"},
+        {"p":"**{{he, she, it}} के साथ {{-s}}.** बस एक बदलाव है: {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ क्रिया में {{-s}} लगता है: {{she works}}, {{Ravi lives}}, {{it rains}}। हिंदी बोलने वाले इसे सबसे ज़्यादा भूलते हैं, इसलिए ध्यान से सुनिए।"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["{{I, you, we, they}}","{{I work.}}","मैं काम करता / करती हूँ।"],
@@ -664,21 +664,21 @@
       "id": "do-questions",
       "unit": 3,
       "level": "A1",
-      "title": "सवाल पूछिए: do, does",
-      "summary": "“Do you like tea?”, “Where does she work?”, “I don't eat meat.”",
+      "title": "सवाल पूछिए: {{do, does}}",
+      "summary": "पूछिए “{{Do you like tea?}}” और “{{Where does she work?}}”, और कहिए “{{I don't eat meat.}}”",
       "topic": "{{do}} / {{does}} सवाल में; {{don't}} / {{doesn't}}; सवाल वाले शब्द + {{do}}",
       "blocks": [
         {"goal":{"t":"Where do you live? — I live in Pune.","tr":"आप कहाँ रहते हैं? — मैं पुणे में रहता हूँ।"}},
         {"dialog":[{"who":"माइक","t":"Where do you work?","tr":"आप कहाँ काम करती हैं?"},{"who":"नेहा","t":"I work at a software company.","tr":"मैं एक सॉफ़्टवेयर कंपनी में काम करती हूँ।"},{"who":"माइक","t":"Do you like it?","tr":"क्या आपको वह अच्छा लगता है?"},{"who":"नेहा","t":"Yes, I do. And you? Where do you work?","tr":"हाँ। और आप? आप कहाँ काम करते हैं?"},{"who":"माइक","t":"I don't work. I'm a student.","tr":"मैं काम नहीं करता। मैं स्टूडेंट हूँ।"},{"who":"नेहा","t":"Oh! What do you study?","tr":"अच्छा! आप क्या पढ़ते हैं?"}]},
         {"term":"सहायक क्रिया","means":"मुख्य क्रिया की मदद करने वाली छोटी क्रिया, जैसे {{do}}, {{is}}, {{have}}। सवाल और “नहीं” बनाने में काम आती है।"},
-        {"p":"**सवाल के लिए do.** {{am / is / are}} वाले वाक्यों में क्रिया आगे चली जाती है (पाठ 3)। बाक़ी क्रियाओं ({{live}}, {{work}}, {{like}}) के साथ ऐसा नहीं होता: उनके आगे {{do}} लगता है। {{You live in Pune.}} → {{Do you live in Pune?}} यह हिंदी के “क्या” जैसा लगता है, लेकिन यह क्रिया है, और बदलती है:"},
+        {"p":"**सवाल के लिए {{do}}.** {{am / is / are}} वाले वाक्यों में क्रिया आगे चली जाती है (पाठ 3)। बाक़ी क्रियाओं ({{live}}, {{work}}, {{like}}) के साथ ऐसा नहीं होता: उनके आगे {{do}} लगता है। {{You live in Pune.}} → {{Do you live in Pune?}} यह हिंदी के “क्या” जैसा लगता है, लेकिन यह क्रिया है, और बदलती है:"},
         { "table": [
           ["","सवाल","नहीं"],
           ["{{I, you, we, they}}","{{Do you work?}}","{{I don't work.}}"],
           ["{{he, she, it}}","{{Does she work?}}","{{She doesn't work.}}"]
         ] },
-        {"p":"**-s एक ही बार.** {{does}} और {{doesn't}} में {{-s}} पहले से है, इसलिए मुख्य क्रिया अपने मूल रूप में रहती है: {{Does she work?}} (न कि {{Does she works?}}), {{He doesn't eat meat.}}"},
-        {"p":"**सवाल वाले शब्द + do.** {{where}}, {{what}}, {{when}}, {{why}}, {{how}} पहले, फिर {{do / does}}, फिर कर्ता: {{Where do you live?}}, {{What does he do?}} “वह क्या करता है?” (यानी उसका काम क्या है)। भारत की बोलचाल में {{Where you live?}} बहुत सुनाई देता है: अमेरिका में {{do}} ज़रूरी है। छोटे जवाब: {{Yes, I do.}}, {{No, she doesn't.}}"},
+        {"p":"**{{-s}} एक ही बार.** {{does}} और {{doesn't}} में {{-s}} पहले से है, इसलिए मुख्य क्रिया अपने मूल रूप में रहती है: {{Does she work?}} (न कि {{Does she works?}}), {{He doesn't eat meat.}}"},
+        {"p":"**सवाल वाले शब्द + {{do}}.** {{where}}, {{what}}, {{when}}, {{why}}, {{how}} पहले, फिर {{do / does}}, फिर कर्ता: {{Where do you live?}}, {{What does he do?}} “वह क्या करता है?” (यानी उसका काम क्या है)। भारत की बोलचाल में {{Where you live?}} बहुत सुनाई देता है: अमेरिका में {{do}} ज़रूरी है। छोटे जवाब: {{Yes, I do.}}, {{No, she doesn't.}}"},
         { "ex": [
           {"t":"Do you speak English?","tr":"क्या आप अंग्रेज़ी बोलते हैं?"},
           {"t":"Does your husband cook?","tr":"क्या आपके पति खाना बनाते हैं?"},
@@ -707,13 +707,13 @@
       "id": "what-you-like",
       "unit": 3,
       "level": "A1",
-      "title": "पसंद-नापसंद: like, love, hate",
-      "summary": "“I like cricket”, “She loves dancing”, “I don't like spicy food”: “मुझे पसंद है” को उलटिए।",
+      "title": "पसंद-नापसंद: {{like, love, hate}}",
+      "summary": "“{{I like cricket}}”, “{{She loves dancing}}”, “{{I don't like spicy food}}”: “मुझे पसंद है” को उलटिए।",
       "topic": "{{like}}, {{love}}, {{hate}}: व्यक्ति कर्ता; {{like + -ing}}; {{I like}} और {{I'd like}} का फ़र्क़",
       "blocks": [
         {"goal":{"t":"I love Indian food, but I don't like very spicy food.","tr":"मुझे भारतीय खाना बहुत पसंद है, लेकिन बहुत तीखा खाना पसंद नहीं।"}},
         {"dialog":[{"who":"सारा","t":"Do you like cricket?","tr":"क्या आपको क्रिकेट पसंद है?"},{"who":"अमित","t":"I love cricket! Do you?","tr":"मुझे क्रिकेट बहुत पसंद है! और आपको?"},{"who":"सारा","t":"Not really. I like tennis.","tr":"ख़ास नहीं। मुझे टेनिस पसंद है।"},{"who":"अमित","t":"My wife likes tennis too. She plays every Sunday.","tr":"मेरी पत्नी को भी टेनिस पसंद है। वे हर रविवार खेलती हैं।"},{"who":"सारा","t":"And what do you like to do on weekends?","tr":"और छुट्टी के दिन आपको क्या करना पसंद है?"},{"who":"अमित","t":"I like cooking. And I love watching movies.","tr":"मुझे खाना बनाना पसंद है। और फ़िल्में देखना बहुत पसंद है।"}]},
-        {"p":"**“मुझे पसंद है” → I like.** हिंदी में व्यक्ति “मुझे” बनता है और चीज़ कर्ता: “मुझे क्रिकेट पसंद है”। अंग्रेज़ी में व्यक्ति कर्ता है और {{like}} क्रिया: {{I like cricket}}, शब्दशः “मैं पसंद करता हूँ क्रिकेट”। ({{To me cricket is liked}} नहीं!)"},
+        {"p":"**“मुझे पसंद है” → {{I like}}.** हिंदी में व्यक्ति “मुझे” बनता है और चीज़ कर्ता: “मुझे क्रिकेट पसंद है”। अंग्रेज़ी में व्यक्ति कर्ता है और {{like}} क्रिया: {{I like cricket}}, शब्दशः “मैं पसंद करता हूँ क्रिकेट”। ({{To me cricket is liked}} नहीं!)"},
         {"p":"**ताक़त के हिसाब से:** {{love}} “बहुत पसंद है”, {{like}} “पसंद है”, {{don't like}} “पसंद नहीं”, {{hate}} “बिल्कुल पसंद नहीं”। ये आम क्रियाएँ हैं: {{she likes}} में {{-s}} (पाठ 14), और सवाल {{Do you like…?}} (पाठ 15)।"},
         { "table": [
           ["हिंदी","अंग्रेज़ी"],
@@ -724,7 +724,7 @@
           ["मुझे बारिश पसंद नहीं।","{{I don't like the rain.}}"]
         ] },
         {"p":"**कोई काम पसंद हो:** {{like}} + {{-ing}}: {{I like cooking}} “मुझे खाना बनाना पसंद है”। ({{I like to cook}} भी सही है।)"},
-        {"p":"**I like या I'd like?** {{I like coffee}} = मुझे कॉफ़ी पसंद है (आम तौर पर)। {{I'd like a coffee}} = मुझे अभी एक कॉफ़ी चाहिए (पाठ 5)।"},
+        {"p":"**{{I like}} या {{I'd like}}?** {{I like coffee}} = मुझे कॉफ़ी पसंद है (आम तौर पर)। {{I'd like a coffee}} = मुझे अभी एक कॉफ़ी चाहिए (पाठ 5)।"},
         { "ex": [
           {"t":"I like music.","tr":"मुझे संगीत पसंद है।"},
           {"t":"My son loves pizza.","tr":"मेरे बेटे को पिज़्ज़ा बहुत पसंद है।"},
@@ -753,13 +753,13 @@
       "id": "right-now",
       "unit": 3,
       "level": "A1",
-      "title": "अभी क्या हो रहा है: present continuous",
-      "summary": "“I'm cooking”, “It's raining”, “What are you doing?”, और कब {{-ing}} नहीं लगता।",
+      "title": "अभी क्या हो रहा है: {{present continuous}}",
+      "summary": "“{{I'm cooking}}”, “{{It's raining}}”, “{{What are you doing?}}”, और कब {{-ing}} नहीं लगता।",
       "topic": "{{am / is / are + -ing}}; अभी या रोज़; {{know, like, want, have}} के साथ {{-ing}} नहीं",
       "blocks": [
         {"goal":{"t":"I'm cooking dinner right now. Can I call you back?","tr":"मैं अभी खाना बना रहा हूँ। क्या मैं बाद में फ़ोन करूँ?"}},
         {"dialog":[{"who":"माँ","t":"Hi, Arjun! What are you doing?","tr":"हाय अर्जुन! क्या कर रहे हो?"},{"who":"अर्जुन","t":"I'm studying, Mom. I have an exam tomorrow.","tr":"पढ़ रहा हूँ, माँ। कल मेरी परीक्षा है।"},{"who":"माँ","t":"Is your roommate there?","tr":"क्या तुम्हारा रूममेट वहाँ है?"},{"who":"अर्जुन","t":"Yes, he's watching TV.","tr":"हाँ, वह टीवी देख रहा है।"},{"who":"माँ","t":"Is it raining there?","tr":"क्या वहाँ बारिश हो रही है?"},{"who":"अर्जुन","t":"Yes, it's raining a lot.","tr":"हाँ, बहुत बारिश हो रही है।"}]},
-        {"p":"**अभी, इस पल: am/is/are + -ing.** हिंदी के “रहा हूँ / रही है” की तरह: {{I'm studying}} “मैं पढ़ रहा हूँ”, {{It's raining}} “बारिश हो रही है”। दोनों हिस्से ज़रूरी हैं: {{am / is / are}} और क्रिया + {{-ing}}।"},
+        {"p":"**अभी, इस पल: {{am/is/are}} + {{-ing}}.** हिंदी के “रहा हूँ / रही है” की तरह: {{I'm studying}} “मैं पढ़ रहा हूँ”, {{It's raining}} “बारिश हो रही है”। दोनों हिस्से ज़रूरी हैं: {{am / is / are}} और क्रिया + {{-ing}}।"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["{{I}}","{{I'm working.}}","मैं काम कर रहा / रही हूँ।"],
@@ -768,7 +768,7 @@
           ["सवाल","{{What are you doing?}}","तुम क्या कर रहे हो?"]
         ] },
         {"p":"**अभी या रोज़?** {{I drink tea}} = मैं चाय पीता हूँ (आदत, पाठ 14); {{I'm drinking tea}} = मैं (अभी) चाय पी रहा हूँ। तय मुलाक़ातों के लिए भी यही रूप: {{I'm meeting Ravi tomorrow}} “मैं कल रवि से मिल रहा हूँ” (पाठ 27)।"},
-        {"p":"**कुछ क्रियाओं के साथ -ing नहीं.** जो क्रियाएँ किसी काम की नहीं, हालत की बात करती हैं, उनके साथ अंग्रेज़ी में {{-ing}} नहीं लगता: {{know}}, {{understand}}, {{like}}, {{want}}, {{need}}, {{have}} (किसी के पास होना)। {{I know}} (न कि {{I am knowing}}), {{I have a car}} (न कि {{I am having a car}})। भारत की अंग्रेज़ी में {{I am knowing}} आम है, लेकिन अमेरिका में यह ग़लत लगता है।"},
+        {"p":"**कुछ क्रियाओं के साथ {{-ing}} नहीं.** जो क्रियाएँ किसी काम की नहीं, हालत की बात करती हैं, उनके साथ अंग्रेज़ी में {{-ing}} नहीं लगता: {{know}}, {{understand}}, {{like}}, {{want}}, {{need}}, {{have}} (किसी के पास होना)। {{I know}} (न कि {{I am knowing}}), {{I have a car}} (न कि {{I am having a car}})। भारत की अंग्रेज़ी में {{I am knowing}} आम है, लेकिन अमेरिका में यह ग़लत लगता है।"},
         { "ex": [
           {"t":"What are you doing?","tr":"क्या कर रहे हो?"},
           {"t":"I'm waiting for the bus.","tr":"मैं बस का इंतज़ार कर रहा हूँ।"},
@@ -797,8 +797,8 @@
       "id": "time-and-days",
       "unit": 3,
       "level": "A1",
-      "title": "कब: at, on, in",
-      "summary": "समय पूछिए और बताइए: “at seven”, “on Monday”, “in the morning”, “in May”।",
+      "title": "कब: {{at, on, in}}",
+      "summary": "समय पूछिए और बताइए: “{{at seven}}”, “{{on Monday}}”, “{{in the morning}}”, “{{in May}}”।",
       "topic": "{{What time is it?}}; {{at}} (घड़ी), {{on}} (दिन, तारीख़), {{in}} (महीना, साल, दिन का हिस्सा); {{every, next, last}} बिना पूर्वसर्ग",
       "blocks": [
         {"goal":{"t":"The meeting is on Monday at ten in the morning.","tr":"मीटिंग सोमवार को सुबह दस बजे है।"}},
@@ -820,7 +820,7 @@
           {"t":"I go for a walk in the evening.","tr":"मैं शाम को टहलने जाता हूँ।"},
           {"t":"See you next week!","tr":"अगले हफ़्ते मिलते हैं!"}
         ] },
-        {"tip":"दिनों और महीनों के नाम अंग्रेज़ी में हमेशा बड़े अक्षर (capital) से लिखे जाते हैं: {{Monday}}, {{May}}। हिंदी में बड़े-छोटे अक्षर नहीं होते; अंग्रेज़ी में वाक्य की शुरुआत, नाम, दिन, महीने और {{I}} हमेशा बड़े अक्षर से।"}
+        {"tip":"दिनों और महीनों के नाम अंग्रेज़ी में हमेशा बड़े अक्षर ({{capital}}) से लिखे जाते हैं: {{Monday}}, {{May}}। हिंदी में बड़े-छोटे अक्षर नहीं होते; अंग्रेज़ी में वाक्य की शुरुआत, नाम, दिन, महीने और {{I}} हमेशा बड़े अक्षर से।"}
       ],
       "mistakes": [
         {"wrong":"See you on next Monday.","right":"See you next Monday.","tr":"अगले सोमवार को मिलते हैं।","why":"{{next}} के साथ पूर्वसर्ग नहीं लगता।"},
@@ -841,13 +841,13 @@
       "id": "was-were",
       "unit": 3,
       "level": "A1",
-      "title": "कल आप कहाँ थे: was, were",
-      "summary": "पहली बार बीती बात: “I was at home yesterday”, “The food was great.”",
+      "title": "कल आप कहाँ थे: {{was, were}}",
+      "summary": "पहली बार बीती बात: “{{I was at home yesterday}}”, “{{The food was great}}.”",
       "topic": "{{was}} / {{were}}; {{wasn't}} / {{weren't}}; {{Was it…? Were you…?}}; {{there was / there were}}",
       "blocks": [
         {"goal":{"t":"I was in Agra last weekend. The Taj Mahal was beautiful.","tr":"पिछले वीकेंड मैं आगरा में था। ताजमहल बहुत सुंदर था।"}},
         {"dialog":[{"who":"माइक","t":"Where were you yesterday?","tr":"कल आप कहाँ थे?"},{"who":"रवि","t":"I was at home. I was sick.","tr":"मैं घर पर था। मैं बीमार था।"},{"who":"माइक","t":"Oh no! Are you OK now?","tr":"अरे! अब ठीक हो?"},{"who":"रवि","t":"Yes, I'm fine. Were you at the party?","tr":"हाँ, मैं ठीक हूँ। क्या आप पार्टी में थे?"},{"who":"माइक","t":"Yes, I was. It was great! There were a lot of people.","tr":"हाँ। बहुत बढ़िया थी! बहुत लोग थे।"}]},
-        {"p":"**am/is → was, are → were.** हिंदी का “था / थी / थे” लिंग से बदलता है; अंग्रेज़ी का {{was}} / {{were}} सिर्फ़ व्यक्ति से: {{I}}, {{he}}, {{she}}, {{it}} के साथ {{was}}; {{you}}, {{we}}, {{they}} के साथ {{were}}। आदमी हो या औरत: {{I was}}।"},
+        {"p":"**{{am / is}} → {{was}}, {{are}} → {{were}}.** हिंदी का “था / थी / थे” लिंग से बदलता है; अंग्रेज़ी का {{was}} / {{were}} सिर्फ़ व्यक्ति से: {{I}}, {{he}}, {{she}}, {{it}} के साथ {{was}}; {{you}}, {{we}}, {{they}} के साथ {{were}}। आदमी हो या औरत: {{I was}}।"},
         { "table": [
           ["","अभी","बीता","नहीं"],
           ["{{I, he, she, it}}","{{am / is}}","{{was}}","{{wasn't}}"],
@@ -883,13 +883,13 @@
       "id": "want-to",
       "unit": 3,
       "level": "A1",
-      "title": "क्या करना चाहते हैं: want to, would like to, need to",
-      "summary": "“I want to learn English”, “I'd like to go”, “I need to call my mom.”",
+      "title": "क्या करना चाहते हैं: {{want to, would like to, need to}}",
+      "summary": "अपनी इच्छा और ज़रूरत बताइए: “{{I want to learn English}}”, “{{I'd like to go}}”, “{{I need to call my mom.}}”",
       "topic": "{{want to}} / {{would like to}} / {{need to}} + क्रिया; {{to}} ज़रूरी; {{I want you to…}}",
       "blocks": [
         {"goal":{"t":"I want to learn English this year.","tr":"मैं इस साल अंग्रेज़ी सीखना चाहता हूँ।"}},
         {"dialog":[{"who":"सारा","t":"What do you want to do this weekend?","tr":"इस वीकेंड तुम क्या करना चाहती हो?"},{"who":"नेहा","t":"I want to go to the beach. And you?","tr":"मैं समुद्र किनारे जाना चाहती हूँ। और तुम?"},{"who":"सारा","t":"I need to clean my apartment.","tr":"मुझे अपना फ़्लैट साफ़ करना है।"},{"who":"नेहा","t":"Boring! Would you like to come with me?","tr":"बोरिंग! मेरे साथ चलोगी?"},{"who":"सारा","t":"I'd love to!","tr":"ज़रूर, मुझे बहुत अच्छा लगेगा!"}]},
-        {"p":"**want to + क्रिया.** हिंदी “मैं सीखना चाहता हूँ” में “सीखना” पहले आता है; अंग्रेज़ी में {{want}} पहले, फिर {{to}} + क्रिया: {{I want to learn}}। {{to}} छोड़ना नहीं है: {{I want go}} ग़लत है।"},
+        {"p":"**{{want to}} + क्रिया.** हिंदी “मैं सीखना चाहता हूँ” में “सीखना” पहले आता है; अंग्रेज़ी में {{want}} पहले, फिर {{to}} + क्रिया: {{I want to learn}}। {{to}} छोड़ना नहीं है: {{I want go}} ग़लत है।"},
         { "table": [
           ["","अंग्रेज़ी","हिंदी"],
           ["चाहना","{{I want to sleep.}}","मैं सोना चाहता हूँ।"],
@@ -897,9 +897,9 @@
           ["ज़रूरत","{{I need to go.}}","मुझे जाना है।"],
           ["चीज़","{{I want a new phone.}}","मुझे नया फ़ोन चाहिए।"]
         ] },
-        {"p":"**“मुझे जाना है” → I need to go.** हिंदी में फिर “मुझे”, अंग्रेज़ी में फिर {{I}}: {{I need to call my mom}} “मुझे माँ को फ़ोन करना है”। ({{have to}} और {{should}}: पाठ 31।)"},
+        {"p":"**“मुझे जाना है” → {{I need to go}}.** हिंदी में फिर “मुझे”, अंग्रेज़ी में फिर {{I}}: {{I need to call my mom}} “मुझे माँ को फ़ोन करना है”। ({{have to}} और {{should}}: पाठ 31।)"},
         {"p":"**“मैं चाहता हूँ कि तुम आओ”** → {{I want you to come}}: {{want}} + व्यक्ति + {{to}} + क्रिया। {{I want that you come}} अंग्रेज़ी में नहीं कहते।"},
-        {"p":"**he, she के साथ:** {{He wants to}}, {{She needs to}} ({{-s}}, पाठ 14)। बुलाने का विनम्र सवाल: {{Would you like to…?}} और ख़ुशी से हाँ: {{I'd love to!}}"},
+        {"p":"**{{he, she}} के साथ:** {{He wants to}}, {{She needs to}} ({{-s}}, पाठ 14)। बुलाने का विनम्र सवाल: {{Would you like to…?}} और ख़ुशी से हाँ: {{I'd love to!}}"},
         { "ex": [
           {"t":"I want to visit my family.","tr":"मैं अपने परिवार से मिलने जाना चाहता हूँ।"},
           {"t":"She wants to be a doctor.","tr":"वह डॉक्टर बनना चाहती है।"},

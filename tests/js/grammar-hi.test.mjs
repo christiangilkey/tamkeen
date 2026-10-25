@@ -93,6 +93,8 @@ if (hi) {
       for (const k of ["title", "summary"]) if (!DEVANAGARI.test(l[k])) bad.push(`${l.id}: its ${k} isn't in Hindi`);
       const hindi = explanationTexts(l).map((x) => x.text.replace(/\{\{[^}]*\}\}/g, ""));
       bad.push(...spellingProblems(hindi).map((p) => `${l.id}: ${p}`));
+      // English in an explanation is marked {{ }} (shown left to right, and tappable to hear)
+      for (const h of hindi) if (LATIN.test(h)) bad.push(`${l.id}: English outside {{ }} in “${h.slice(0, 60)}”`);
     }
     assert.deepEqual(bad, [], bad.join("\n"));
   });
