@@ -991,8 +991,8 @@
           ["you (polite, or several)","{{vous voulez}}","{{vous pouvez}}"],
           ["they","{{ils veulent}}","{{ils peuvent}}"]
         ] },
-        {"p":"**Inviting: Tu veux … ?** {{Tu veux venir ?}} “Do you want to come?” is how friends invite each other; with {{vous}}, {{Vous voulez venir ?}}. {{On peut … ?}} suggests something: {{On peut aller au parc ?}} “Can we go to the park?”"},
-        {"p":"**Asking for help: Tu peux … ?** {{Tu peux m'aider ?}} “Can you help me?” {{Vous pouvez répéter, s'il vous plaît ?}} “Could you say that again, please?” ({{M'}} “me” goes before the verb: lesson 32 explains.)"},
+        {"p":"**Inviting.** {{Tu veux venir ?}} “Do you want to come?” is how friends invite each other; with {{vous}}, {{Vous voulez venir ?}}. {{On peut … ?}} suggests something: {{On peut aller au parc ?}} “Can we go to the park?”"},
+        {"p":"**Asking for help.** {{Tu peux m'aider ?}} “Can you help me?” {{Vous pouvez répéter, s'il vous plaît ?}} “Could you say that again, please?” ({{M'}} “me” goes before the verb: lesson 32 explains.)"},
         {"p":"**Saying yes.** {{Oui, je veux bien !}} “Yes, I'd love to!” (not “I want well”). {{Avec plaisir !}} “With pleasure!” {{D'accord.}} “OK.”"},
         {"p":"**Saying no nicely.** {{Désolé, je ne peux pas.}} “Sorry, I can't.” Then a reason ({{je travaille}}, {{je suis occupé}} “I'm busy”) and maybe {{Une autre fois ?}} “Another time?” A bare {{je ne veux pas}} sounds blunt: “I don't want to.”"},
         { "ex": [
@@ -1015,7 +1015,7 @@
         {"type":"fill","q":"Choose the missing word.","t":"Ils ___ visiter le château.","tr":"They want to visit the castle.","options":["veulent","voulons","veut"],"answer":0,"why":"“They want”: {{ils veulent}}."},
         {"type":"choice","q":"A friend invites you out and you'd love to go. You say…","options":["{{Oui, je veux bien !}}","{{Oui, je veux !}}","{{Oui, je peux bien !}}"],"answer":0,"why":"{{Je veux bien}}: “I'd love to, gladly”."},
         {"type":"dialogue","q":"A colleague invites you out. Choose your replies.","from":"say-what-youre-going-to-do","lines":[{"who":"Your colleague","t":"On va boire un verre après le travail. Tu veux venir ?","tr":"We're going for a drink after work. Do you want to come?"},{"options":["Désolé, je ne peux pas ce soir. Une autre fois ?","Désolé, je ne veux pas."],"answer":0,"why":"Polite: you can't, and maybe another time. {{Je ne veux pas}} sounds rude."},{"who":"Your colleague","t":"Pas de problème. Et vendredi ?","tr":"No problem. What about Friday?"},{"options":["Vendredi, je veux bien !","Vendredi, je vais bien !"],"answer":0,"why":"{{Je veux bien}} is “I'd love to”. ({{Je vais bien}} means “I'm fine”.)"}]},
-        {"type":"order","q":"Put the words in order.","tr":"Can you help me, please?","words":["Tu","peux","m'aider,","s'il te plaît ?"]},
+        {"type":"order","q":"Put the words in order.","tr":"Can you help me tomorrow?","words":["Tu","peux","m'aider","demain ?"]},
         {"type":"say","q":"Ask politely: “Could you speak more slowly, please?”","answer":"Vous pouvez parler plus lentement, s'il vous plaît ?"},
         {"type":"free","q":"Your turn: invite a friend to do something this weekend. Then say no nicely to another invitation.","answers":[{"t":"Tu veux aller au cinéma samedi ? … Désolée, dimanche je ne peux pas, je vais chez mes parents.","tr":"Do you want to go to the movies on Saturday? … Sorry, on Sunday I can't, I'm going to my parents'."},{"t":"On peut faire une randonnée dimanche ? … Merci, mais je ne peux pas, je travaille. Une autre fois ?","tr":"Can we go hiking on Sunday? … Thanks, but I can't, I'm working. Another time?"}]}
       ]
