@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "en": {
+   "file": "en/course.json",
+   "title": "English basics",
+   "variety": "American English",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 9099,
+   "audio_bytes": 193422,
+   "sha256": "4345ca06c77ad0923e6352faa2bca8c2cb91aa1f6290fdd98b94aaeefb334f42",
+   "voice": {
+    "engine": "azure",
+    "name": "Jenny (Azure, United States)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

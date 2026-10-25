@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "en",
+ "title": "English basics",
+ "variety": "American English",
+ "about": "The most common words of written and spoken English (wordfreq counts, grouped by dictionary word with tools/course/en/rank_en.py), most common first, 50 to a unit. Names of people and places are left out. Each word has a short, simple meaning in English and one short everyday sentence in American English that uses it the way native speakers do; ⟦ ⟧ marks the word in the sentence.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Jenny (Azure, United States)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "the",
+   "pos": "det",
+   "meaning": "used before a noun when we know which one we mean",
+   "sentence": "Close the door, please.",
+   "translation": "Close ⟦the⟧ door, please.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.355,
+    "sent_start": 1.255,
+    "sent_end": 2.926
+   }
+  },
+  {
+   "n": 2,
+   "word": "be",
+   "pos": "verb",
+   "meaning": "to exist; used to say what or where someone or something is (am, is, are, was, were)",
+   "sentence": "My brother is a doctor.",
+   "translation": "My brother ⟦is⟧ a doctor.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.41,
+    "sent_start": 1.31,
+    "sent_end": 2.696
+   }
+  },
+  {
+   "n": 3,
+   "word": "to",
+   "pos": "prep",
+   "meaning": "in the direction of a place or person; also used before a verb (to eat)",
+   "sentence": "I walk to school every day.",
+   "translation": "I walk ⟦to⟧ school every day.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.403,
+    "sent_start": 1.303,
+    "sent_end": 2.961
+   }
+  },
+  {
+   "n": 4,
+   "word": "a",
+   "pos": "det",
+   "meaning": "one; used before a singular noun (an before a vowel sound: an apple)",
+   "sentence": "We have a dog.",
+   "translation": "We have ⟦a⟧ dog.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.468,
+    "sent_start": 1.368,
+    "sent_end": 2.28
+   }
+  },
+  {
+   "n": 5,
+   "word": "and",
+   "pos": "conj",
+   "meaning": "joins two words or ideas; also",
+   "sentence": "I like tea and coffee.",
+   "translation": "I like tea ⟦and⟧ coffee.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.436,
+    "sent_start": 1.337,
+    "sent_end": 2.768
+   }
+  },
+  {
+   "n": 6,
+   "word": "of",
+   "pos": "prep",
+   "meaning": "belonging to; showing a part or an amount (a cup of tea)",
+   "sentence": "I'd like a cup of coffee.",
+   "translation": "I'd like a cup ⟦of⟧ coffee.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.378,
+    "sent_start": 1.278,
+    "sent_end": 2.717
+   }
+  },
+  {
+   "n": 7,
+   "word": "in",
+   "pos": "prep",
+   "meaning": "inside; during (in June)",
+   "sentence": "The keys are in my bag.",
+   "translation": "The keys are ⟦in⟧ my bag.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.404,
+    "sent_start": 1.304,
+    "sent_end": 2.682
+   }
+  },
+  {
+   "n": 8,
+   "word": "I",
+   "pos": "pron",
+   "meaning": "the person who is speaking (me, my, myself)",
+   "sentence": "I don't know.",
+   "translation": "⟦I⟧ don't know.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.507,
+    "sent_start": 1.407,
+    "sent_end": 2.155
+   }
+  },
+  {
+   "n": 9,
+   "word": "that",
+   "pos": "pron",
+   "meaning": "the person or thing over there, or the one already mentioned (plural: those)",
+   "sentence": "Is that your bag?",
+   "translation": "Is ⟦that⟧ your bag?",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.526,
+    "sent_start": 1.426,
+    "sent_end": 2.419
+   }
+  },
+  {
+   "n": 10,
+   "word": "it",
+   "pos": "pron",
+   "meaning": "the thing or animal we are talking about; also used for the weather and time",
+   "sentence": "Is it far from here?",
+   "translation": "Is ⟦it⟧ far from here?",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.358,
+    "sent_start": 1.258,
+    "sent_end": 2.328
+   }
+  },
+  {
+   "n": 11,
+   "word": "you",
+   "pos": "pron",
+   "meaning": "the person or people someone is talking to",
+   "sentence": "Can you help me?",
+   "translation": "Can ⟦you⟧ help me?",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.481,
+    "sent_start": 1.381,
+    "sent_end": 2.183
+   }
+  },
+  {
+   "n": 12,
+   "word": "have",
+   "pos": "verb",
+   "meaning": "to own or hold something; to eat or drink (have lunch) (has, had)",
+   "sentence": "I have two sisters.",
+   "translation": "I ⟦have⟧ two sisters.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.462,
+    "sent_start": 1.362,
+    "sent_end": 2.659
+   }
+  },
+  {
+   "n": 13,
+   "word": "for",
+   "pos": "prep",
+   "meaning": "meant to be given to someone; for a purpose; during a time (for two hours)",
+   "sentence": "This gift is for you.",
+   "translation": "This gift is ⟦for⟧ you.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.564,
+    "sent_start": 1.464,
+    "sent_end": 2.663
+   }
+  },
+  {
+   "n": 14,
+   "word": "on",
+   "pos": "prep",
+   "meaning": "touching the top of something; on a day (on Monday)",
+   "sentence": "Your phone is on the table.",
+   "translation": "Your phone is ⟦on⟧ the table.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.468,
+    "sent_start": 1.368,
+    "sent_end": 2.8
+   }
+  },
+  {
+   "n": 15,
+   "word": "this",
+   "pos": "det",
+   "meaning": "the one here, near me (plural: these)",
+   "sentence": "This coffee is really good.",
+   "translation": "⟦This⟧ coffee is really good.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.484,
+    "sent_start": 1.384,
+    "sent_end": 2.965
+   }
+  },
+  {
+   "n": 16,
+   "word": "with",
+   "pos": "prep",
+   "meaning": "together with someone or something; using something",
+   "sentence": "I live with my parents.",
+   "translation": "I live ⟦with⟧ my parents.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.414,
+    "sent_start": 1.314,
+    "sent_end": 2.721
+   }
+  },
+  {
+   "n": 17,
+   "word": "do",
+   "pos": "verb",
+   "meaning": "to carry out an action; also used to make questions and negatives (does, did, done)",
+   "sentence": "I do my homework after school.",
+   "translation": "I ⟦do⟧ my homework after school.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.491,
+    "sent_start": 1.391,
+    "sent_end": 3.175
+   }
+  },
+  {
+   "n": 18,
+   "word": "as",
+   "pos": "prep",
+   "meaning": "in the job or role of; in the same way (as fast as)",
+   "sentence": "She works as a nurse.",
+   "translation": "She works ⟦as⟧ a nurse.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.461,
+    "sent_start": 1.361,
+    "sent_end": 2.677
+   }
+  },
+  {
+   "n": 19,
+   "word": "he",
+   "pos": "pron",
+   "meaning": "a man or boy who has already been mentioned (him, his)",
+   "sentence": "He is my best friend.",
+   "translation": "⟦He⟧ is my best friend.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.454,
+    "sent_start": 1.354,
+    "sent_end": 2.686
+   }
+  },
+  {
+   "n": 20,
+   "word": "at",
+   "pos": "prep",
+   "meaning": "in or near a place; at a time (at six)",
+   "sentence": "My dad is at work.",
+   "translation": "My dad is ⟦at⟧ work.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.478,
+    "sent_start": 1.378,
+    "sent_end": 2.576
+   }
+  }
+ ]
+}

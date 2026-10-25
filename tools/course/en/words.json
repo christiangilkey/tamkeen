@@ -1,0 +1,189 @@
+{
+  "lang": "en",
+  "title": "English basics",
+  "variety": "American English",
+  "about": "The most common words of written and spoken English (wordfreq counts, grouped by dictionary word with tools/course/en/rank_en.py), most common first, 50 to a unit. Names of people and places are left out. Each word has a short, simple meaning in English and one short everyday sentence in American English that uses it the way native speakers do; ⟦ ⟧ marks the word in the sentence.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "the",
+      "pos": "det",
+      "meaning": "used before a noun when we know which one we mean",
+      "sentence": "Close the door, please.",
+      "translation": "Close ⟦the⟧ door, please."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "be",
+      "pos": "verb",
+      "meaning": "to exist; used to say what or where someone or something is (am, is, are, was, were)",
+      "sentence": "My brother is a doctor.",
+      "translation": "My brother ⟦is⟧ a doctor.",
+      "form": "is"
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "to",
+      "pos": "prep",
+      "meaning": "in the direction of a place or person; also used before a verb (to eat)",
+      "sentence": "I walk to school every day.",
+      "translation": "I walk ⟦to⟧ school every day."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "a",
+      "pos": "det",
+      "meaning": "one; used before a singular noun (an before a vowel sound: an apple)",
+      "sentence": "We have a dog.",
+      "translation": "We have ⟦a⟧ dog."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "and",
+      "pos": "conj",
+      "meaning": "joins two words or ideas; also",
+      "sentence": "I like tea and coffee.",
+      "translation": "I like tea ⟦and⟧ coffee."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "of",
+      "pos": "prep",
+      "meaning": "belonging to; showing a part or an amount (a cup of tea)",
+      "sentence": "I'd like a cup of coffee.",
+      "translation": "I'd like a cup ⟦of⟧ coffee."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "in",
+      "pos": "prep",
+      "meaning": "inside; during (in June)",
+      "sentence": "The keys are in my bag.",
+      "translation": "The keys are ⟦in⟧ my bag."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "I",
+      "pos": "pron",
+      "meaning": "the person who is speaking (me, my, myself)",
+      "sentence": "I don't know.",
+      "translation": "⟦I⟧ don't know."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "that",
+      "pos": "pron",
+      "meaning": "the person or thing over there, or the one already mentioned (plural: those)",
+      "sentence": "Is that your bag?",
+      "translation": "Is ⟦that⟧ your bag?"
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "it",
+      "pos": "pron",
+      "meaning": "the thing or animal we are talking about; also used for the weather and time",
+      "sentence": "Is it far from here?",
+      "translation": "Is ⟦it⟧ far from here?"
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "you",
+      "pos": "pron",
+      "meaning": "the person or people someone is talking to",
+      "sentence": "Can you help me?",
+      "translation": "Can ⟦you⟧ help me?"
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "have",
+      "pos": "verb",
+      "meaning": "to own or hold something; to eat or drink (have lunch) (has, had)",
+      "sentence": "I have two sisters.",
+      "translation": "I ⟦have⟧ two sisters."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "for",
+      "pos": "prep",
+      "meaning": "meant to be given to someone; for a purpose; during a time (for two hours)",
+      "sentence": "This gift is for you.",
+      "translation": "This gift is ⟦for⟧ you."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "on",
+      "pos": "prep",
+      "meaning": "touching the top of something; on a day (on Monday)",
+      "sentence": "Your phone is on the table.",
+      "translation": "Your phone is ⟦on⟧ the table."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "this",
+      "pos": "det",
+      "meaning": "the one here, near me (plural: these)",
+      "sentence": "This coffee is really good.",
+      "translation": "⟦This⟧ coffee is really good."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "with",
+      "pos": "prep",
+      "meaning": "together with someone or something; using something",
+      "sentence": "I live with my parents.",
+      "translation": "I live ⟦with⟧ my parents."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "do",
+      "pos": "verb",
+      "meaning": "to carry out an action; also used to make questions and negatives (does, did, done)",
+      "sentence": "I do my homework after school.",
+      "translation": "I ⟦do⟧ my homework after school."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "as",
+      "pos": "prep",
+      "meaning": "in the job or role of; in the same way (as fast as)",
+      "sentence": "She works as a nurse.",
+      "translation": "She works ⟦as⟧ a nurse."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "he",
+      "pos": "pron",
+      "meaning": "a man or boy who has already been mentioned (him, his)",
+      "sentence": "He is my best friend.",
+      "translation": "⟦He⟧ is my best friend."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "at",
+      "pos": "prep",
+      "meaning": "in or near a place; at a time (at six)",
+      "sentence": "My dad is at work.",
+      "translation": "My dad is ⟦at⟧ work."
+    }
+  ]
+}
