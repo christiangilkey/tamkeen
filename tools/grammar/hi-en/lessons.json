@@ -1197,6 +1197,277 @@
         {"type":"say","q":"कहिए: “पूरी सुबह बारिश हो रही थी।”","answer":"It was raining all morning."},
         {"type":"free","q":"आपकी बारी: बताइए कल शाम सात बजे आप क्या कर रहे थे, और तभी क्या हुआ।","answers":[{"t":"At seven I was cooking dinner when my sister called.","tr":"सात बजे मैं खाना बना रहा था जब मेरी बहन का फ़ोन आया।"},{"t":"I was watching TV when the lights went out.","tr":"मैं टीवी देख रही थी, तभी बिजली चली गई।"}]}
       ]
+    },
+    {
+      "id": "going-to",
+      "unit": 5,
+      "level": "A2",
+      "title": "अपनी योजनाएँ बताइए: {{going to}}",
+      "summary": "“{{I'm going to visit my parents}}”, “{{We're meeting at six}}”: आगे की योजनाएँ।",
+      "topic": "{{be going to}} + क्रिया; तय मुलाक़ात के लिए {{present continuous}}; {{tomorrow, next week, this weekend}}",
+      "blocks": [
+        {"goal":{"t":"This weekend I'm going to visit my parents.","tr":"इस वीकेंड मैं अपने माता-पिता से मिलने जाऊँगा।"}},
+        {"dialog":[{"who":"लीसा","t":"What are you going to do this weekend?","tr":"इस वीकेंड क्या करने वाले हो?"},{"who":"रवि","t":"I'm going to paint my apartment.","tr":"मैं अपने फ़्लैट में पेंट करने वाला हूँ।"},{"who":"लीसा","t":"By yourself?","tr":"अकेले?"},{"who":"रवि","t":"No, my brother is going to help me. What about you?","tr":"नहीं, मेरा भाई मदद करेगा। और तुम?"},{"who":"लीसा","t":"I'm meeting some friends on Saturday. We're going to see a concert.","tr":"शनिवार को मैं कुछ दोस्तों से मिल रही हूँ। हम एक कॉन्सर्ट देखने जाएँगे।"}]},
+        {"p":"**योजना: {{going to}}.** जो आपने पहले से सोच रखा है: {{am / is / are}} + {{going to}} + क्रिया: {{I'm going to study}} “मैं पढ़ाई करने वाला हूँ (सोच लिया है)”। सवाल: {{Are you going to…?}}"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["{{I}}","{{I'm going to cook.}}","मैं खाना बनाने वाला हूँ।"],
+          ["{{he, she}}","{{She's going to call you.}}","वह आपको फ़ोन करने वाली है।"],
+          ["{{you, we, they}}","{{We're going to move.}}","हम घर बदलने वाले हैं।"],
+          ["नहीं","{{I'm not going to go.}}","मैं नहीं जाऊँगा।"]
+        ] },
+        {"p":"**तय मुलाक़ात: {{-ing}}.** जब समय और जगह तय हो (कैलेंडर में लिखी बात), अमेरिका में सीधे {{present continuous}} (पाठ 17): {{I'm meeting Raj at six.}} “मैं छह बजे राज से मिल रहा हूँ।”, {{We're flying to Delhi on Monday.}}"},
+        {"p":"**साफ़ दिखती बात:** {{going to}} उस बात के लिए भी जो अभी से दिख रही हो: {{Look at those clouds. It's going to rain.}} “बादल देखो। बारिश होने वाली है।”"},
+        { "ex": [
+          {"t":"I'm going to learn to drive.","tr":"मैं गाड़ी चलाना सीखने वाला हूँ।"},
+          {"t":"Are you going to come to the party?","tr":"क्या आप पार्टी में आएँगे?"},
+          {"t":"She's going to have a baby.","tr":"उसका बच्चा होने वाला है।"},
+          {"t":"We're not going to buy a car this year.","tr":"हम इस साल गाड़ी नहीं ख़रीदेंगे।"},
+          {"t":"I'm seeing the doctor tomorrow.","tr":"कल मेरी डॉक्टर से मुलाक़ात है।"},
+          {"t":"It's going to rain.","tr":"बारिश होने वाली है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit my parents.","right":"I'm going to visit my parents.","tr":"मैं माता-पिता से मिलने जाऊँगा।","why":"{{am}} ज़रूरी है: {{I'm going to}}।"},
+        {"wrong":"She is going to visits us.","right":"She is going to visit us.","tr":"वह हमसे मिलने आने वाली है।","why":"{{going to}} के बाद मूल रूप।"},
+        {"wrong":"Tomorrow I am going to office.","right":"Tomorrow I'm going to the office.","tr":"कल मैं दफ़्तर जा रहा हूँ।","why":"अमेरिका में {{the office}}: {{the}} चाहिए (पाठ 7)।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I'm going ___ visit my parents.","tr":"मैं माता-पिता से मिलने जाऊँगा।","options":["to","for","at"],"answer":0,"why":"{{going to}} + क्रिया।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ going to call you later.","tr":"वह आपको बाद में फ़ोन करेगी।","options":["is","are","am"],"answer":0,"why":"{{she}}: {{is}}।"},
+        {"type":"choice","q":"कल दस बजे आपकी डॉक्टर से मुलाक़ात तय है।","options":["{{I'm seeing the doctor at ten tomorrow.}}","{{I see the doctor at ten tomorrow.}}","{{I seeing the doctor tomorrow.}}"],"answer":0,"why":"तय मुलाक़ात: {{present continuous}}।","from":"right-now"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"क्या आप पार्टी में आएँगे?","words":["Are","you","going","to","come","to the party?"]},
+        {"type":"dialogue","q":"शुक्रवार शाम, एक साथी से।","lines":[{"who":"साथी","t":"Any plans for the weekend?","tr":"वीकेंड का कोई प्लान?"},{"options":["Yes, I'm going to paint my apartment.","Yes, I going to paint my apartment."],"answer":0,"why":"{{I'm going to}}।"},{"who":"साथी","t":"Is anyone going to help you?","tr":"कोई मदद करेगा?"},{"options":["My brother is going to help me.","My brother is going to helps me."],"answer":0,"why":"{{going to}} के बाद मूल रूप: {{help}}।"}]},
+        {"type":"say","q":"बादल देखकर कहिए: “बारिश होने वाली है।”","answer":"It's going to rain."},
+        {"type":"free","q":"आपकी बारी: इस वीकेंड या अगले महीने की अपनी दो योजनाएँ बताइए।","answers":[{"t":"This weekend I'm going to clean my house and visit my friend.","tr":"इस वीकेंड मैं घर साफ़ करूँगा और अपने दोस्त से मिलने जाऊँगा।"},{"t":"Next month we're going to move to a new apartment. I'm also going to start a new job.","tr":"अगले महीने हम नए फ़्लैट में जाने वाले हैं। मैं नई नौकरी भी शुरू करने वाली हूँ।"}]}
+      ]
+    },
+    {
+      "id": "will",
+      "unit": 5,
+      "level": "A2",
+      "title": "वादे, पेशकश और अंदाज़े: {{will}}",
+      "summary": "वादा कीजिए, मदद की पेशकश कीजिए और अंदाज़ा लगाइए: “{{I'll call you}}”, “{{It'll be fine}}”, “{{Shall I open the window?}}”",
+      "topic": "{{will}} / {{'ll}} + क्रिया: वादा, उसी पल का फ़ैसला, अंदाज़ा; {{won't}}; {{Shall I…?}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you tonight.","tr":"चिंता मत करो, मैं आज रात फ़ोन करूँगा।"}},
+        {"dialog":[{"who":"वेटर","t":"Are you ready to order?","tr":"ऑर्डर देंगे?"},{"who":"रवि","t":"Yes. I'll have the chicken, please.","tr":"हाँ। मैं चिकन लूँगा, प्लीज़।"},{"who":"वेटर","t":"And to drink?","tr":"और पीने के लिए?"},{"who":"रवि","t":"I'll have a mango lassi.","tr":"एक मैंगो लस्सी।"},{"who":"वेटर","t":"Great. It won't take long.","tr":"बढ़िया। ज़्यादा देर नहीं लगेगी।"},{"who":"रवि","t":"Thanks. Oh, and I think my friend will be late.","tr":"शुक्रिया। और हाँ, मुझे लगता है मेरा दोस्त देर से आएगा।"}]},
+        {"p":"**{{will}}: वादा और फ़ैसला.** {{will}} + मूल रूप, सबके लिए एक: {{I will}}, {{she will}} (बोलचाल में {{I'll}}, {{she'll}})। इसके काम: वादा ({{I'll help you}}), बोलते-बोलते लिया फ़ैसला ({{I'll have the chicken}} “मैं चिकन लूँगा”), और अंदाज़ा ({{It will be hot tomorrow}})।"},
+        {"p":"**{{will}} या {{going to}}?** पहले से तय योजना: {{going to}} (पाठ 27)। अभी, इसी पल का फ़ैसला या वादा: {{will}}। फ़ोन बजा: {{I'll get it!}} “मैं उठाता हूँ!”"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["वादा","{{I'll call you tomorrow.}}","मैं कल फ़ोन करूँगा।"],
+          ["फ़ैसला","{{I'll take the blue one.}}","मैं नीला वाला लूँगा।"],
+          ["अंदाज़ा","{{I think it'll rain.}}","मुझे लगता है बारिश होगी।"],
+          ["नहीं","{{It won't take long.}}","ज़्यादा देर नहीं लगेगी।"],
+          ["पेशकश","{{Shall I open the window?}}","खिड़की खोल दूँ?"]
+        ] },
+        {"p":"**{{won't}} = {{will not}}:** {{I won't forget.}} “मैं नहीं भूलूँगा।” **{{Shall I…?}}** मदद की पेशकश: {{Shall I carry that?}} “यह मैं उठा लूँ?” (अमेरिका में {{Should I…?}} भी चलता है।)"},
+        { "ex": [
+          {"t":"I'll be there at six.","tr":"मैं छह बजे वहाँ पहुँच जाऊँगा।"},
+          {"t":"Don't worry, it'll be fine.","tr":"चिंता मत करो, सब ठीक हो जाएगा।"},
+          {"t":"I won't tell anyone.","tr":"मैं किसी को नहीं बताऊँगा।"},
+          {"t":"Will you help me?","tr":"क्या आप मेरी मदद करेंगे?"},
+          {"t":"I think she'll like it.","tr":"मुझे लगता है उसे पसंद आएगा।"},
+          {"t":"Shall I make some tea?","tr":"मैं चाय बना दूँ?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I will call you.","tr":"मैं आपको फ़ोन करूँगा।","why":"{{will}} के बाद सीधे मूल रूप, बिना {{to}}।"},
+        {"wrong":"She wills come.","right":"She will come.","tr":"वह आएगी।","why":"{{will}} कभी नहीं बदलता।"},
+        {"wrong":"The phone is ringing. I'm going to get it!","right":"The phone is ringing. I'll get it!","tr":"फ़ोन बज रहा है। मैं उठाता हूँ!","why":"इसी पल का फ़ैसला: {{will}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Don't worry, I ___ call you tonight.","tr":"चिंता मत करो, मैं आज रात फ़ोन करूँगा।","options":["will","am","to"],"answer":0,"why":"वादा: {{will}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"It ___ take long.","tr":"ज़्यादा देर नहीं लगेगी।","options":["won't","doesn't","isn't"],"answer":0,"why":"आगे की बात, “नहीं”: {{won't}}।"},
+        {"type":"choice","q":"फ़ोन बज रहा है। आप कहते हैं…","options":["{{I'll get it!}}","{{I'm going to get it next week!}}","{{I get it!}}"],"answer":0,"why":"इसी पल का फ़ैसला: {{will}}।","from":"going-to"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं किसी को नहीं बताऊँगा।","words":["I","won't","tell","anyone."]},
+        {"type":"dialogue","q":"रेस्टोरेंट में ऑर्डर।","from":"ask-for-things","lines":[{"who":"वेटर","t":"Are you ready to order?","tr":"ऑर्डर देंगे?"},{"options":["Yes, I'll have the paneer tikka, please.","Yes, I will to have the paneer tikka, please."],"answer":0,"why":"{{will}} के बाद {{to}} नहीं।"},{"who":"वेटर","t":"Anything to drink?","tr":"पीने के लिए कुछ?"},{"options":["I'll have water, please.","I'll to have water, please."],"answer":0,"why":"{{I'll have}}।"}]},
+        {"type":"say","q":"मदद की पेशकश कीजिए: “मैं चाय बना दूँ?”","answer":"Shall I make some tea?"},
+        {"type":"free","q":"आपकी बारी: किसी दोस्त से एक वादा कीजिए, और कल के मौसम या किसी बात का एक अंदाज़ा लगाइए।","answers":[{"t":"I'll help you with your move on Saturday. I think it'll be sunny.","tr":"शनिवार को सामान शिफ़्ट करने में मैं तुम्हारी मदद करूँगा। मुझे लगता है धूप होगी।"},{"t":"I won't be late tomorrow, I promise. I think the game will be exciting.","tr":"कल मैं देर नहीं करूँगी, वादा। मुझे लगता है मैच रोमांचक होगा।"}]}
+      ]
+    },
+    {
+      "id": "can-could",
+      "unit": 5,
+      "level": "A2",
+      "title": "क्या कर सकते हैं: {{can, could}}",
+      "summary": "बताइए आप क्या कर सकते हैं और क्या नहीं: “{{I can swim}}”, “{{Can I sit here?}}”, “{{I couldn't sleep.}}”",
+      "topic": "{{can}} / {{can't}} + मूल रूप; अनुमति: {{Can I…?}}; बीता: {{could}} / {{couldn't}}",
+      "blocks": [
+        {"goal":{"t":"I can speak three languages, but I can't drive.","tr":"मैं तीन भाषाएँ बोल सकता हूँ, लेकिन गाड़ी नहीं चला सकता।"}},
+        {"dialog":[{"who":"इंटरव्यूअर","t":"Can you use Excel?","tr":"क्या आप एक्सेल चला सकती हैं?"},{"who":"नेहा","t":"Yes, I can.","tr":"हाँ।"},{"who":"इंटरव्यूअर","t":"Can you speak Spanish?","tr":"क्या आप स्पैनिश बोल सकती हैं?"},{"who":"नेहा","t":"No, I can't. But I can speak Hindi and Tamil.","tr":"नहीं। लेकिन मैं हिंदी और तमिल बोल सकती हूँ।"},{"who":"इंटरव्यूअर","t":"Great. Can you start next week?","tr":"बढ़िया। क्या आप अगले हफ़्ते से शुरू कर सकती हैं?"},{"who":"नेहा","t":"Yes, I can!","tr":"हाँ, बिल्कुल!"}]},
+        {"p":"**{{can}}: सकना.** {{can}} + क्रिया का मूल रूप, सबके लिए एक: {{I can swim}}, {{she can swim}} (न {{-s}}, न {{to}})। “नहीं सकता”: {{can't}} (= {{cannot}})। सवाल में {{can}} पहले: {{Can you swim?}}"},
+        {"p":"**अनुमति:** {{Can I sit here?}} “क्या मैं यहाँ बैठ सकता हूँ?” और ज़्यादा विनम्र: {{May I…?}} (पाठ 30)।"},
+        {"p":"**बीता: {{could}}.** {{could}} “सकता था”: {{I could read when I was four.}} “चार साल की उम्र में मैं पढ़ लेता था।” {{couldn't}} “नहीं सका”: {{I couldn't sleep last night.}} “कल रात मुझे नींद नहीं आई।”"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["सकना","{{He can cook.}}","वह खाना बना सकता है।"],
+          ["नहीं","{{I can't come.}}","मैं नहीं आ सकता।"],
+          ["अनुमति","{{Can I come in?}}","क्या मैं अंदर आ सकता हूँ?"],
+          ["बीता","{{I couldn't find it.}}","मुझे वह नहीं मिला।"]
+        ] },
+        { "ex": [
+          {"t":"Can you help me?","tr":"क्या आप मेरी मदद कर सकते हैं?"},
+          {"t":"I can't hear you.","tr":"मुझे आपकी आवाज़ नहीं आ रही।"},
+          {"t":"She can play the piano.","tr":"वह पियानो बजा सकती है।"},
+          {"t":"Can I pay by card?","tr":"क्या मैं कार्ड से पैसे दे सकता हूँ?"},
+          {"t":"I couldn't sleep last night.","tr":"कल रात मुझे नींद नहीं आई।"},
+          {"t":"We couldn't find a taxi.","tr":"हमें टैक्सी नहीं मिली।"}
+        ] },
+        {"tip":"उच्चारण: अमेरिका में {{can}} बहुत हल्का (“कन्”) और {{can't}} ज़ोर से (“कैन्ट”) बोला जाता है, और {{t}} अक्सर सुनाई भी नहीं देता। फ़र्क़ ज़ोर से पहचानिए।"}
+      ],
+      "mistakes": [
+        {"wrong":"She can speaks English.","right":"She can speak English.","tr":"वह अंग्रेज़ी बोल सकती है।","why":"{{can}} के बाद मूल रूप।"},
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"मैं तैर सकता हूँ।","why":"{{can}} के बाद {{to}} नहीं।"},
+        {"wrong":"I can't able to come.","right":"I can't come.","tr":"मैं नहीं आ सकता।","why":"{{can}} और {{able to}} एक साथ नहीं: {{I can't come}} या {{I'm not able to come}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She can ___ the piano.","tr":"वह पियानो बजा सकती है।","options":["play","plays","to play"],"answer":0,"why":"{{can}} + मूल रूप।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ sleep last night.","tr":"कल रात मुझे नींद नहीं आई।","options":["couldn't","can't","don't"],"answer":0,"why":"बीती रात: {{couldn't}}।","from":"past-regular"},
+        {"type":"choice","q":"“मैं कल नहीं आ सकता।”","options":["{{I can't come tomorrow.}}","{{I can't able to come tomorrow.}}","{{I not can come tomorrow.}}"],"answer":0,"why":"सिर्फ़ {{can't}} + मूल रूप।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"क्या मैं कार्ड से पैसे दे सकता हूँ?","words":["Can","I","pay","by","card?"]},
+        {"type":"dialogue","q":"नौकरी का इंटरव्यू।","from":"do-questions","lines":[{"who":"इंटरव्यूअर","t":"Can you work on weekends?","tr":"क्या आप वीकेंड पर काम कर सकते हैं?"},{"options":["Yes, I can.","Yes, I can able."],"answer":0,"why":"छोटा जवाब: {{Yes, I can.}}"},{"who":"इंटरव्यूअर","t":"Do you speak any other languages?","tr":"क्या आप कोई और भाषा बोलते हैं?"},{"options":["Yes, I can speak Hindi and Bengali.","Yes, I can speaks Hindi and Bengali."],"answer":0,"why":"{{can}} + मूल रूप।"}]},
+        {"type":"say","q":"फ़ोन पर कहिए: “मुझे आपकी आवाज़ नहीं आ रही।”","answer":"I can't hear you."},
+        {"type":"free","q":"आपकी बारी: बताइए आप कौन-से दो काम कर सकते हैं, एक जो नहीं, और बचपन में आप क्या कर पाते थे।","answers":[{"t":"I can cook and I can swim, but I can't drive. When I was ten, I could climb trees really fast.","tr":"मैं खाना बना सकता हूँ और तैर सकता हूँ, लेकिन गाड़ी नहीं चला सकता। दस साल की उम्र में मैं पेड़ों पर बहुत तेज़ चढ़ जाता था।"},{"t":"I can speak Hindi and English. I can't sing. As a child I could run for hours.","tr":"मैं हिंदी और अंग्रेज़ी बोल सकती हूँ। मैं गा नहीं सकती। बचपन में मैं घंटों दौड़ सकती थी।"}]}
+      ]
+    },
+    {
+      "id": "polite-requests",
+      "unit": 5,
+      "level": "A2",
+      "title": "शिष्टाचार से माँगिए: {{Could you…? Would you mind…?}}",
+      "summary": "अंग्रेज़ी में आदर शब्दों से आता है: “{{Could you…?}}”, “{{Would you mind…?}}”, “{{May I…?}}”",
+      "topic": "{{Could you…?}}, {{Would you mind + -ing?}}, {{May I…?}}; {{please}}, {{thank you}}; {{Sir}} और नाम",
+      "blocks": [
+        {"goal":{"t":"Excuse me, could you help me with my bag, please?","tr":"माफ़ कीजिए, क्या आप मेरा बैग उठाने में मदद करेंगे?"}},
+        {"dialog":[{"who":"रवि","t":"Hi Jennifer, could you send me the report, please?","tr":"हाय जेनिफ़र, क्या आप मुझे रिपोर्ट भेज देंगी?"},{"who":"जेनिफ़र","t":"Sure. Would you mind waiting ten minutes?","tr":"ज़रूर। दस मिनट रुक सकते हैं?"},{"who":"रवि","t":"Not at all. And may I use the meeting room this afternoon?","tr":"बिल्कुल। और क्या मैं आज दोपहर मीटिंग रूम इस्तेमाल कर सकता हूँ?"},{"who":"जेनिफ़र","t":"Of course.","tr":"बिल्कुल।"},{"who":"रवि","t":"Thanks so much!","tr":"बहुत शुक्रिया!"},{"who":"जेनिफ़र","t":"No problem.","tr":"कोई बात नहीं।"}]},
+        {"p":"**आदर क्रिया में नहीं, शब्दों में.** हिंदी में “आप” और “-इए” से आदर दिखता है। अंग्रेज़ी में {{you}} सबके लिए एक है (पाठ 2), इसलिए आदर इन चीज़ों से आता है: बात को सवाल की तरह माँगना, {{could}}, {{would}}, {{please}}, {{thank you}}।"},
+        { "table": [
+          ["","अंग्रेज़ी","कितना विनम्र"],
+          ["सीधा","{{Send me the report.}}","आदेश जैसा (बॉस से भी ठीक नहीं)"],
+          ["ठीक","{{Can you send me the report?}}","दोस्त, साथी"],
+          ["विनम्र","{{Could you send me the report, please?}}","सबसे आम"],
+          ["बहुत विनम्र","{{Would you mind sending me the report?}}","अनजान लोग, बड़ा अनुरोध"]
+        ] },
+        {"p":"**{{Would you mind…?}}** इसके बाद {{-ing}}: {{Would you mind closing the door?}} “क्या आप दरवाज़ा बंद कर देंगे?” (शब्दशः “क्या आपको बुरा लगेगा…?”)। इसलिए “हाँ, ज़रूर” का जवाब है {{No, not at all}} या {{Sure}}।"},
+        {"p":"**{{May I…?}}** अपने लिए अनुमति: {{May I come in?}}, {{May I ask a question?}}"},
+        {"p":"**नाम और {{Sir}}.** अमेरिकी दफ़्तरों में लोग अक्सर अपने बॉस को भी पहले नाम से बुलाते हैं ({{Jennifer}}), {{Sir}} या {{Ma'am}} कम कहते हैं (दुकानों में ग्राहक के लिए चलता है)। आदर {{could you}} और {{please}} से दिखाइए।"},
+        { "ex": [
+          {"t":"Could you repeat that, please?","tr":"क्या आप फिर से बोलेंगे?"},
+          {"t":"Could you tell me the way to the station?","tr":"क्या आप स्टेशन का रास्ता बताएँगे?"},
+          {"t":"Would you mind opening the window?","tr":"क्या आप खिड़की खोल देंगे?"},
+          {"t":"May I sit here?","tr":"क्या मैं यहाँ बैठ सकता हूँ?"},
+          {"t":"Thank you so much for your help.","tr":"आपकी मदद के लिए बहुत शुक्रिया।"},
+          {"t":"Sorry to bother you.","tr":"परेशान करने के लिए माफ़ कीजिए।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Kindly send the report.","right":"Could you please send the report?","tr":"क्या आप रिपोर्ट भेज देंगे?","why":"{{Kindly}} भारत में बहुत चलता है, पर अमेरिका में अजीब और पुराना लगता है। {{Could you please…?}} कहिए।"},
+        {"wrong":"Would you mind to close the door?","right":"Would you mind closing the door?","tr":"क्या आप दरवाज़ा बंद कर देंगे?","why":"{{would you mind}} के बाद {{-ing}}।"},
+        {"wrong":"Please do one thing, send me the file.","right":"Could you send me the file, please?","tr":"क्या आप मुझे फ़ाइल भेज देंगे?","why":"{{Do one thing}} “एक काम करो” का शब्दशः अनुवाद है; अंग्रेज़ी में सीधे अनुरोध कीजिए।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Would you mind ___ the door?","tr":"क्या आप दरवाज़ा बंद कर देंगे?","options":["closing","close","to close"],"answer":0,"why":"{{would you mind}} + {{-ing}}।"},
+        {"type":"choice","q":"आपको एक अनजान व्यक्ति से रास्ता पूछना है।","options":["{{Excuse me, could you tell me the way to the station?}}","{{Tell me the way to the station.}}","{{Kindly do the needful and tell me the way.}}"],"answer":0,"why":"{{Excuse me}} + {{could you…?}}"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ I come in?","tr":"क्या मैं अंदर आ सकता हूँ?","options":["May","Do","Am"],"answer":0,"why":"विनम्र अनुमति: {{May I…?}}","from":"can-could"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"क्या आप फिर से बोलेंगे, प्लीज़?","words":["Could","you","repeat","that,","please?"]},
+        {"type":"dialogue","q":"दफ़्तर में एक साथी से।","lines":[{"who":"साथी","t":"Hi! What's up?","tr":"हाय! क्या चल रहा है?"},{"options":["Hi! Could you help me with this report?","Hi! Help me with this report."],"answer":0,"why":"सवाल की तरह माँगना विनम्र है।"},{"who":"साथी","t":"Sure. Would you mind waiting five minutes?","tr":"ज़रूर। पाँच मिनट रुक सकते हो?"},{"options":["Not at all. Thanks!","Yes, I mind. Thanks!"],"answer":0,"why":"“कोई बात नहीं”: {{Not at all}} (शब्दशः “बिल्कुल बुरा नहीं लगेगा”)।"}]},
+        {"type":"say","q":"बात शुरू कीजिए: “परेशान करने के लिए माफ़ कीजिए।”","answer":"Sorry to bother you."},
+        {"type":"free","q":"आपकी बारी: अपने दफ़्तर या किसी दुकान में विनम्रता से दो चीज़ें माँगिए।","answers":[{"t":"Could you send me the file, please? And would you mind calling the client?","tr":"क्या आप मुझे फ़ाइल भेज देंगे? और क्या आप क्लाइंट को फ़ोन कर देंगे?"},{"t":"Excuse me, could you help me find the milk? May I use your pen?","tr":"माफ़ कीजिए, दूध ढूँढने में मदद करेंगे? क्या मैं आपका पेन इस्तेमाल कर सकता हूँ?"}]}
+      ]
+    },
+    {
+      "id": "should-have-to",
+      "unit": 5,
+      "level": "A2",
+      "title": "सलाह और मजबूरी: {{should, have to, must}}",
+      "summary": "सलाह दीजिए और बताइए क्या करना ज़रूरी है: “{{You should rest}}”, “{{I have to work tomorrow}}”, “{{You don't have to come.}}”",
+      "topic": "{{should}} / {{shouldn't}}; {{have to}} / {{don't have to}}; {{must}} / {{mustn't}}: “चाहिए” और “पड़ेगा” उलटकर",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor. — I know, but I have to work today.","tr":"आपको डॉक्टर को दिखाना चाहिए। — पता है, लेकिन आज मुझे काम करना है।"}},
+        {"dialog":[{"who":"दोस्त","t":"You look tired. You should go to bed early.","tr":"तुम थके हुए लग रहे हो। तुम्हें जल्दी सो जाना चाहिए।"},{"who":"अमित","t":"I can't. I have to finish a project.","tr":"नहीं सो सकता। मुझे एक प्रोजेक्ट पूरा करना है।"},{"who":"दोस्त","t":"When is it due?","tr":"कब तक देना है?"},{"who":"अमित","t":"Tomorrow morning. And I have to get up at six.","tr":"कल सुबह तक। और मुझे छह बजे उठना है।"},{"who":"दोस्त","t":"Then you shouldn't drink so much coffee!","tr":"तो तुम्हें इतनी कॉफ़ी नहीं पीनी चाहिए!"},{"who":"अमित","t":"You're right.","tr":"तुम सही कह रहे हो।"}]},
+        {"p":"**“चाहिए” और “पड़ेगा” फिर उलटते हैं.** हिंदी: “आपको आराम करना चाहिए” (व्यक्ति “आपको”)। अंग्रेज़ी: {{You should rest}} (व्यक्ति कर्ता, सबसे पहले)। “मुझे जाना है / पड़ेगा” → {{I have to go}}।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["सलाह","{{You should rest.}}","आपको आराम करना चाहिए।"],
+          ["सलाह, नहीं","{{You shouldn't worry.}}","आपको चिंता नहीं करनी चाहिए।"],
+          ["मजबूरी","{{I have to work.}}","मुझे काम करना है।"],
+          ["ज़रूरत नहीं","{{You don't have to come.}}","आपको आने की ज़रूरत नहीं।"],
+          ["नियम","{{You must wear a seatbelt.}}","सीट बेल्ट लगाना ज़रूरी है।"],
+          ["मनाही","{{You mustn't smoke here.}}","यहाँ सिगरेट पीना मना है।"]
+        ] },
+        {"p":"**{{should}} और {{must}}** के बाद मूल रूप ({{to}} नहीं, {{-s}} नहीं): {{She should eat more.}} **{{have to}}** सामान्य क्रिया की तरह चलता है: {{she has to}}, {{I don't have to}}, {{Do you have to…?}}, और बीता {{had to}} “करना पड़ा”।"},
+        {"p":"**ध्यान दीजिए:** {{don't have to}} = “ज़रूरत नहीं” (चाहें तो कर सकते हैं); {{mustn't}} = “बिल्कुल मत कीजिए”। रोज़ की बातचीत में अमेरिकी {{must}} कम बोलते हैं, {{have to}} ज़्यादा।"},
+        { "ex": [
+          {"t":"You should drink more water.","tr":"आपको ज़्यादा पानी पीना चाहिए।"},
+          {"t":"I have to go now.","tr":"अब मुझे जाना है।"},
+          {"t":"She has to work on Saturday.","tr":"उसे शनिवार को काम करना है।"},
+          {"t":"We had to wait two hours.","tr":"हमें दो घंटे इंतज़ार करना पड़ा।"},
+          {"t":"You don't have to pay. It's free.","tr":"पैसे देने की ज़रूरत नहीं। मुफ़्त है।"},
+          {"t":"You shouldn't drive so fast.","tr":"आपको इतनी तेज़ गाड़ी नहीं चलानी चाहिए।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"आपको आराम करना चाहिए।","why":"{{should}} के बाद सीधे मूल रूप।"},
+        {"wrong":"Me have to go.","right":"I have to go.","tr":"मुझे जाना है।","why":"“मुझे” → {{I}}।"},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"उसे काम करना है।","why":"{{she}}: {{has to}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"You ___ see a doctor.","tr":"आपको डॉक्टर को दिखाना चाहिए।","options":["should","should to","have"],"answer":0,"why":"सलाह: {{should}} + मूल रूप।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ to work on Saturday.","tr":"उसे शनिवार को काम करना है।","options":["has","have","is"],"answer":0,"why":"{{she}}: {{has to}}।","from":"what-you-have"},
+        {"type":"choice","q":"“आपको आने की ज़रूरत नहीं, हम सँभाल लेंगे।”","options":["{{You don't have to come.}}","{{You mustn't come.}}","{{You shouldn't to come.}}"],"answer":0,"why":"ज़रूरत नहीं: {{don't have to}}। ({{mustn't}} = मत आइए!)"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"हमें दो घंटे इंतज़ार करना पड़ा।","words":["We","had","to","wait","two","hours."],"from":"past-irregular"},
+        {"type":"dialogue","q":"आपका दोस्त बीमार है।","lines":[{"who":"दोस्त","t":"I have a bad cold.","tr":"मुझे बहुत ज़ुकाम है।"},{"options":["You should stay home and rest.","You should to stay home and rest."],"answer":0,"why":"{{should}} के बाद {{to}} नहीं।"},{"who":"दोस्त","t":"But I have a meeting.","tr":"लेकिन मेरी मीटिंग है।"},{"options":["You don't have to go. Call your boss.","You mustn't to go. Call your boss."],"answer":0,"why":"ज़रूरत नहीं: {{don't have to}}।"}]},
+        {"type":"say","q":"कहिए: “अब मुझे जाना है।”","answer":"I have to go now."},
+        {"type":"free","q":"आपकी बारी: बताइए इस हफ़्ते आपको क्या करना है, और किसी दोस्त को एक सलाह दीजिए।","answers":[{"t":"This week I have to finish a report and pay my bills. You should try yoga!","tr":"इस हफ़्ते मुझे एक रिपोर्ट पूरी करनी है और बिल भरने हैं। तुम्हें योग करके देखना चाहिए!"},{"t":"I have to take my son to the doctor. You shouldn't work so late.","tr":"मुझे बेटे को डॉक्टर के पास ले जाना है। तुम्हें इतनी देर तक काम नहीं करना चाहिए।"}]}
+      ]
+    },
+    {
+      "id": "how-you-feel",
+      "unit": 5,
+      "level": "A2",
+      "title": "कैसा महसूस हो रहा है: डॉक्टर के पास भी",
+      "summary": "“{{I'm hungry}}”, “{{I'm cold}}”, “{{I have a headache}}”, “{{My back hurts}}”: “मुझे भूख लगी है” को अंग्रेज़ी में।",
+      "topic": "{{be}} + भावना ({{I'm hungry / tired / cold}}); {{have}} + बीमारी; {{hurt}}; {{I feel…}}",
+      "blocks": [
+        {"goal":{"t":"I'm not feeling well. I have a fever and my head hurts.","tr":"मेरी तबीयत ठीक नहीं है। मुझे बुख़ार है और सिर में दर्द है।"}},
+        {"dialog":[{"who":"डॉक्टर","t":"What seems to be the problem?","tr":"क्या तकलीफ़ है?"},{"who":"रवि","t":"I have a sore throat and a fever.","tr":"मेरा गला ख़राब है और बुख़ार है।"},{"who":"डॉक्टर","t":"When did it start?","tr":"कब शुरू हुआ?"},{"who":"रवि","t":"Two days ago. And my back hurts.","tr":"दो दिन पहले। और मेरी पीठ में दर्द है।"},{"who":"डॉक्टर","t":"OK. You should rest and drink a lot of water. Take this medicine twice a day.","tr":"ठीक है। आपको आराम करना चाहिए और ख़ूब पानी पीना चाहिए। यह दवाई दिन में दो बार लीजिए।"},{"who":"रवि","t":"Thank you, doctor.","tr":"शुक्रिया, डॉक्टर साहब।"}]},
+        {"p":"**“मुझे भूख लगी है” → {{I'm hungry}}.** हिंदी में भूख, प्यास, ठंड “मुझे लगती” हैं। अंग्रेज़ी में **आप** भूखे, प्यासे, ठंडे “होते” हैं: {{be}} + विशेषण: {{I'm hungry}}, {{I'm thirsty}}, {{I'm cold}}, {{I'm tired}}, {{I'm scared}}।"},
+        { "table": [
+          ["हिंदी","अंग्रेज़ी"],
+          ["मुझे भूख लगी है।","{{I'm hungry.}}"],
+          ["मुझे प्यास लगी है।","{{I'm thirsty.}}"],
+          ["मुझे ठंड लग रही है।","{{I'm cold.}}"],
+          ["मुझे गर्मी लग रही है।","{{I'm hot.}}"],
+          ["मुझे डर लगता है।","{{I'm scared.}}"],
+          ["मुझे नींद आ रही है।","{{I'm sleepy.}}"]
+        ] },
+        {"p":"**बीमारी: {{have}}.** {{I have a fever}} “मुझे बुख़ार है”, {{I have a cold}} “ज़ुकाम है”, {{I have a headache}} / {{a stomachache}} “सिर में / पेट में दर्द है”। (पाठ 9 याद कीजिए: {{I am having a headache}} नहीं।)"},
+        {"p":"**दर्द: {{hurt}}.** {{My back hurts}} “मेरी पीठ में दर्द है”, {{My feet hurt}}। और {{feel}}: {{I feel sick}} “जी मिचला रहा है / तबीयत ठीक नहीं”, {{I don't feel well}}।"},
+        { "ex": [
+          {"t":"I'm so hungry! Let's eat.","tr":"मुझे बहुत भूख लगी है! चलो खाते हैं।"},
+          {"t":"Are you cold?","tr":"क्या तुम्हें ठंड लग रही है?"},
+          {"t":"She's scared of dogs.","tr":"उसे कुत्तों से डर लगता है।"},
+          {"t":"I have a terrible headache.","tr":"मेरे सिर में बहुत दर्द है।"},
+          {"t":"My knee hurts when I walk.","tr":"चलते समय मेरे घुटने में दर्द होता है।"},
+          {"t":"I don't feel well today.","tr":"आज मेरी तबीयत ठीक नहीं है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am having fever.","right":"I have a fever.","tr":"मुझे बुख़ार है।","why":"बीमारी: {{have}}, बिना {{-ing}}, और {{a fever}}।"},
+        {"wrong":"I am fearing.","right":"I'm scared.","tr":"मुझे डर लग रहा है।","why":"डर: {{I'm scared}} या {{I'm afraid}}।"},
+        {"wrong":"My head is paining.","right":"My head hurts.","tr":"मेरे सिर में दर्द है।","why":"{{My head is paining}} भारत में आम है; अमेरिका में {{My head hurts}} या {{I have a headache}}।"}
+      ],
+      "practice": [
+        {"type":"choice","q":"“मुझे प्यास लगी है।”","options":["{{I'm thirsty.}}","{{Thirst is to me.}}","{{I have thirsty.}}"],"answer":0,"why":"{{be}} + विशेषण: {{I'm thirsty}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I ___ a fever.","tr":"मुझे बुख़ार है।","options":["have","am","am having"],"answer":0,"why":"बीमारी: {{have}}।","from":"what-you-have"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My back ___.","tr":"मेरी पीठ में दर्द है।","options":["hurts","is paining","pains me"],"answer":0,"why":"दर्द: {{hurt}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"आज मेरी तबीयत ठीक नहीं है।","words":["I","don't","feel","well","today."],"from":"do-questions"},
+        {"type":"dialogue","q":"डॉक्टर के पास।","from":"should-have-to","lines":[{"who":"डॉक्टर","t":"What's the problem?","tr":"क्या तकलीफ़ है?"},{"options":["I have a headache and I feel sick.","I am having headache and I am feeling sick."],"answer":0,"why":"{{have a headache}}, {{feel sick}}।"},{"who":"डॉक्टर","t":"You should rest. And drink a lot of water.","tr":"आपको आराम करना चाहिए। और ख़ूब पानी पीजिए।"},{"options":["OK. Should I take any medicine?","OK. Should I to take any medicine?"],"answer":0,"why":"{{should}} के बाद {{to}} नहीं।"}]},
+        {"type":"say","q":"कहिए: “मुझे बहुत भूख लगी है!”","answer":"I'm so hungry!"},
+        {"type":"free","q":"आपकी बारी: बताइए अभी आप कैसा महसूस कर रहे हैं, और पिछली बार की किसी बीमारी के बारे में एक वाक्य।","answers":[{"t":"I'm a little tired, but I'm not hungry. Last week I had a bad cold.","tr":"मैं थोड़ा थका हुआ हूँ, लेकिन भूख नहीं है। पिछले हफ़्ते मुझे बहुत ज़ुकाम था।"},{"t":"I'm cold! And my feet hurt because I walked a lot today.","tr":"मुझे ठंड लग रही है! और मेरे पैरों में दर्द है क्योंकि आज मैं बहुत चली।"}]}
+      ]
     }
   ]
 }
