@@ -245,6 +245,245 @@
         {"type":"say","q":"Di' alla cameriera: “Vorrei dell'acqua, per favore: ho tanta sete.”","answer":"I'd like some water, please. I'm really thirsty.","from":"say-your-age-and-how-you-feel"},
         {"type":"free","q":"Tocca a te: ordina la tua colazione preferita in un bar americano. Comincia con {{Can I get…}} o {{I'd like…}}","answers":[{"t":"Can I get a small latte and a bagel, please?","tr":"Mi fa un caffellatte piccolo e un bagel, per favore?"},{"t":"I'd like an espresso and a croissant, please. To go.","tr":"Vorrei un espresso e un cornetto, per favore. Da portare via."}]}
       ]
+    },
+    {
+      "id": "point-at-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Indica le cose",
+      "summary": "Questo, quello, questi, quelli: indica le cose in un negozio o a casa, e parla di più cose insieme.",
+      "topic": "{{this, that, these, those}}; il plurale dei nomi ({{-s, -es}}, e {{people, children}})",
+      "blocks": [
+        {"goal":{"t":"These are my keys, and that's my car.","tr":"Queste sono le mie chiavi, e quella è la mia macchina."}},
+        {"dialog":[{"who":"Tu","t":"Excuse me, how much is this?","tr":"Scusi, quanto costa questo?"},{"who":"Venditore","t":"That's ten dollars.","tr":"Quello costa dieci dollari."},{"who":"Tu","t":"And these?","tr":"E questi?"},{"who":"Venditore","t":"Those are five dollars each.","tr":"Quelli costano cinque dollari l'uno."},{"who":"Tu","t":"OK, two, please. And that bag over there?","tr":"Va bene, due, per favore. E quella borsa laggiù?"},{"who":"Venditore","t":"Sorry, that one isn't for sale.","tr":"Mi dispiace, quella non è in vendita."}]},
+        {"p":"**Vicino o lontano.** {{this}} “questo, questa” per una cosa vicina; {{that}} “quello, quella” per una cosa lontana. Al plurale: {{these}} “questi, queste” e {{those}} “quelli, quelle”. Non cambiano mai per maschile o femminile."},
+        { "table": [
+          ["","vicino","lontano"],
+          ["una cosa","{{this}} (questo, questa)","{{that}} (quello, quella)"],
+          ["più cose","{{these}} (questi, queste)","{{those}} (quelli, quelle)"]
+        ] },
+        {"term":"plurale","means":"la forma di una parola per più di una persona o cosa: {{book}} “libro”, {{books}} “libri”."},
+        {"p":"**Il plurale: quasi sempre {{-s}}.** {{a book, two books}}; {{a car, three cars}}. Dopo s, sh, ch e x si aggiunge {{-es}}: {{a bus, two buses}}; {{a glass, two glasses}}. Dopo una consonante, {{-y}} diventa {{-ies}}: {{a city, two cities}}."},
+        {"p":"**Qualche plurale irregolare**, da imparare a memoria: {{man → men}}, {{woman → women}}, {{child → children}}, {{person → people}}, {{foot → feet}}, {{tooth → teeth}}. E {{people}} “la gente, le persone” è plurale: {{People are nice here}} “Qui la gente è gentile”."},
+        { "ex": [
+          {"t":"This is my brother.","tr":"Questo è mio fratello."},
+          {"t":"That's a great idea!","tr":"È un'ottima idea!"},
+          {"t":"Are these your glasses?","tr":"Sono tuoi questi occhiali?"},
+          {"t":"Those shoes are beautiful.","tr":"Quelle scarpe sono bellissime."},
+          {"t":"My children are five and eight.","tr":"I miei figli hanno cinque e otto anni."},
+          {"t":"These cities are very old.","tr":"Queste città sono molto antiche."},
+          {"t":"People are really friendly here.","tr":"Qui la gente è davvero gentile."}
+        ] },
+        {"tip":"Il {{th}} di {{this}}, {{that}}, {{these}} e {{those}} non è né “d” né “t”: appoggia la punta della lingua tra i denti e fai vibrare la voce. Prova: {{this, that}}."}
+      ],
+      "mistakes": [
+        {"wrong":"This shoes are nice.","right":"These shoes are nice.","tr":"Queste scarpe sono belle.","why":"Al plurale: {{these}} (vicino) o {{those}} (lontano)."},
+        {"wrong":"The peoples here are friendly.","right":"The people here are friendly.","tr":"Le persone qui sono gentili.","why":"{{people}} è già il plurale di {{person}}: niente {{-s}}."},
+        {"wrong":"I have two childs.","right":"I have two children.","tr":"Ho due figli.","why":"{{child}} ha un plurale irregolare: {{children}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"___ are my friends, Jake and Amy.","tr":"Questi sono i miei amici, Jake e Amy.","options":["These","This","That"],"answer":0,"why":"Più persone, vicine: {{these}}."},
+        {"type":"choice","q":"Il plurale di {{city}} è…","options":["{{cities}}","{{citys}}","{{city}}"],"answer":0,"why":"Consonante + {{-y}}: diventa {{-ies}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Look at ___ mountains over there!","tr":"Guarda quelle montagne laggiù!","options":["those","these","that"],"answer":0,"why":"Più cose, lontane ({{over there}} “laggiù”): {{those}}."},
+        {"type":"dialogue","q":"Al mercatino. Scegli le frasi.","lines":[{"who":"Venditrice","t":"Hi! Can I help you?","tr":"Ciao! Posso aiutarti?"},{"options":["Yes, how much are these glasses?","Yes, how much are this glasses?"],"answer":0,"why":"Al plurale: {{these}}."},{"who":"Venditrice","t":"Those are twenty dollars.","tr":"Quelli costano venti dollari."},{"options":["And that bag?","And those bag?"],"answer":0,"why":"Una cosa sola, lontana: {{that}}."}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Sono tue queste chiavi?","words":["Are","these","your keys?"],"from":"ask-questions-with-be"},
+        {"type":"say","q":"Di': “Questi sono i miei figli. Hanno sei e nove anni.”","answer":"These are my children. They're six and nine.","from":"say-your-age-and-how-you-feel"},
+        {"type":"free","q":"Tocca a te: guardati intorno e indica tre cose, vicine e lontane, con {{this}}, {{that}}, {{these}} e {{those}}.","answers":[{"t":"This is my phone, these are my books, and that's my window.","tr":"Questo è il mio telefono, questi sono i miei libri e quella è la mia finestra."},{"t":"Those are my plants, and this is my coffee!","tr":"Quelle sono le mie piante, e questo è il mio caffè!"}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Descrivi cose e persone",
+      "summary": "Grande, piccolo, vecchio, bello: descrivi la tua città, la tua casa e le persone che conosci.",
+      "topic": "L'aggettivo prima del nome, e sempre uguale ({{two red cars}}); {{very}} e {{really}}",
+      "blocks": [
+        {"goal":{"t":"Rome is a beautiful old city.","tr":"Roma è una bellissima città antica."}},
+        {"dialog":[{"who":"Amy","t":"What's your apartment like?","tr":"Com'è il tuo appartamento?"},{"who":"Tu","t":"It's a small apartment, but it's really nice.","tr":"È un appartamento piccolo, ma è davvero carino."},{"who":"Amy","t":"Is it in a quiet neighborhood?","tr":"È in una zona tranquilla?"},{"who":"Tu","t":"Yes, it's on a quiet street near a big park.","tr":"Sì, è in una via tranquilla vicino a un grande parco."},{"who":"Amy","t":"Sounds perfect!","tr":"Sembra perfetto!"}]},
+        {"term":"aggettivo","means":"una parola che descrive un nome: {{big}} “grande”, {{red}} “rosso”, {{nice}} “gentile, carino”, {{Italian}} “italiano”."},
+        {"p":"**Prima del nome.** In italiano diciamo “una macchina rossa”; in inglese l'aggettivo va **prima** del nome: {{a red car}}. Sempre, anche con i colori e le nazionalità: {{an Italian restaurant}}."},
+        {"p":"**Non cambia mai.** L'aggettivo inglese non ha maschile, femminile o plurale: {{a tall man}}, {{a tall woman}}, {{two tall men}}. Mai {{reds cars}}: è {{red cars}}."},
+        { "table": [
+          ["italiano","inglese"],
+          ["una macchina rossa","{{a red car}}"],
+          ["due macchine rosse","{{two red cars}}"],
+          ["un ragazzo alto, una ragazza alta","{{a tall boy, a tall girl}}"],
+          ["La casa è grande.","{{The house is big.}}"]
+        ] },
+        {"p":"**Dopo {{be}}** l'aggettivo resta da solo, come in italiano: {{The house is big}}. Per dire “molto”: {{very}} o, più parlato, {{really}}: {{It's very good}}, {{It's really good}}."},
+        {"p":"**Più aggettivi**: di solito prima il giudizio, poi la grandezza, l'età e il colore: {{a nice big house}}, {{a beautiful old city}}, {{a little black dress}}."},
+        { "ex": [
+          {"t":"She's a great teacher.","tr":"È un'insegnante bravissima."},
+          {"t":"It's an expensive restaurant.","tr":"È un ristorante caro."},
+          {"t":"My parents are very nice.","tr":"I miei genitori sono molto simpatici."},
+          {"t":"These are my new shoes.","tr":"Queste sono le mie scarpe nuove."},
+          {"t":"New York is a really big city.","tr":"New York è una città davvero grande."},
+          {"t":"It's a long story.","tr":"È una lunga storia."},
+          {"t":"They're Italian students.","tr":"Sono studenti italiani."}
+        ] },
+        {"tip":"Gli americani usano tantissimo {{great}}, {{awesome}} e {{nice}} per dire “bello, ottimo”: {{That's great!}} “Fantastico!”."}
+      ],
+      "mistakes": [
+        {"wrong":"I have a car red.","right":"I have a red car.","tr":"Ho una macchina rossa.","why":"L'aggettivo va prima del nome."},
+        {"wrong":"Two reds cars.","right":"Two red cars.","tr":"Due macchine rosse.","why":"L'aggettivo non prende mai la {{-s}} del plurale."},
+        {"wrong":"It's a restaurant Italian.","right":"It's an Italian restaurant.","tr":"È un ristorante italiano.","why":"Anche la nazionalità va prima del nome, con la maiuscola; e {{Italian}} comincia con una vocale: {{an}}."}
+      ],
+      "practice": [
+        {"type":"order","q":"Metti le parole in ordine.","tr":"È una grande casa bianca.","words":["It's","a big","white","house."]},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"These are ___ shoes.","tr":"Queste sono scarpe nuove.","options":["new","news","newes"],"answer":0,"why":"L'aggettivo non cambia al plurale: {{new shoes}}."},
+        {"type":"choice","q":"“Un ristorante italiano molto buono”:","options":["{{a very good Italian restaurant}}","{{a restaurant Italian very good}}","{{a very good restaurant Italian}}"],"answer":0,"why":"Tutti gli aggettivi vanno prima del nome; la nazionalità per ultima, vicino al nome."},
+        {"type":"dialogue","q":"Un'amica ti chiede della tua città. Scegli le risposte.","lines":[{"who":"Amy","t":"What's your town like?","tr":"Com'è la tua città?"},{"options":["It's a small town near the sea.","It's a town small near the sea."],"answer":0,"why":"L'aggettivo prima del nome: {{a small town}}."},{"who":"Amy","t":"Is it pretty?","tr":"È carina?"},{"options":["Yes, it's really pretty, with old churches.","Yes, it's really pretty, with olds churches."],"answer":0,"why":"L'aggettivo non prende la {{-s}}: {{old churches}}."}],"from":"point-at-things"},
+        {"type":"say","q":"Di': “È un ragazzo molto simpatico.”","answer":"He's a very nice guy.","from":"introduce-someone"},
+        {"type":"free","q":"Tocca a te: descrivi la tua città e una persona che conosci, con almeno tre aggettivi.","answers":[{"t":"Milan is a big, busy city. My friend Sara is a very funny girl.","tr":"Milano è una città grande e caotica. La mia amica Sara è una ragazza molto divertente."},{"t":"I live in a small old town. My brother is tall and really smart.","tr":"Vivo in una piccola città antica. Mio fratello è alto e molto intelligente."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di' di chi è",
+      "summary": "Mio, tuo, suo, nostro: parla della tua famiglia e delle cose degli altri. E attento a “his” e “her”.",
+      "topic": "{{my, your, his, her, its, our, their}}; il genitivo sassone: {{Anna's}}",
+      "blocks": [
+        {"goal":{"t":"My sister's husband is from Texas. His name is Bob.","tr":"Il marito di mia sorella è del Texas. Si chiama Bob."}},
+        {"dialog":[{"who":"Kate","t":"Who's that?","tr":"Chi è quello?"},{"who":"Tu","t":"That's my brother. And that's his wife, Laura.","tr":"È mio fratello. E quella è sua moglie, Laura."},{"who":"Kate","t":"Is this their house?","tr":"Questa è casa loro?"},{"who":"Tu","t":"No, it's my parents' house, in Sicily.","tr":"No, è la casa dei miei genitori, in Sicilia."},{"who":"Kate","t":"Wow! Is that your dog?","tr":"Wow! Quello è il tuo cane?"},{"who":"Tu","t":"No, it's Laura's dog. His name is Pippo.","tr":"No, è il cane di Laura. Si chiama Pippo."}]},
+        {"term":"possessivo","means":"una parola che dice di chi è una cosa: {{my}} “mio”, {{your}} “tuo”, {{our}} “nostro”."},
+        {"p":"**Niente articolo.** “La mia casa” è {{my house}}: in inglese il possessivo non vuole {{the}}. E non cambia con la cosa posseduta: {{my house}}, {{my houses}}, {{my brother}}, {{my sisters}}."},
+        { "table": [
+          ["italiano","inglese"],
+          ["mio, mia, miei, mie","{{my}}"],
+          ["tuo, tua… / Suo (di Lei) / vostro","{{your}}"],
+          ["suo, sua… (di lui)","{{his}}"],
+          ["suo, sua… (di lei)","{{her}}"],
+          ["suo, sua… (di una cosa)","{{its}}"],
+          ["nostro, nostra…","{{our}}"],
+          ["loro","{{their}}"]
+        ] },
+        {"p":"**“Suo” dipende da chi possiede.** È la differenza più importante. In italiano “sua” si accorda con la cosa (“la sua macchina”); in inglese si guarda il proprietario: se è un uomo {{his}}, se è una donna {{her}}. {{Marco and his car}} “Marco e la sua macchina”; {{Anna and her car}} “Anna e la sua macchina”."},
+        {"p":"**“La macchina di Anna” è {{Anna's car}}.** Per dire di chi è qualcosa, si aggiunge {{'s}} al nome del proprietario e la cosa viene dopo: {{my sister's husband}} “il marito di mia sorella”, {{Tom's dog}} “il cane di Tom”. Se il nome è un plurale in -s, basta l'apostrofo: {{my parents' house}} “la casa dei miei genitori”."},
+        { "ex": [
+          {"t":"My name is Davide.","tr":"Mi chiamo Davide."},
+          {"t":"Is this your phone?","tr":"È tuo questo telefono?"},
+          {"t":"Paolo and his wife are here.","tr":"Paolo e sua moglie sono qui."},
+          {"t":"Maria is with her husband.","tr":"Maria è con suo marito."},
+          {"t":"Our apartment is small.","tr":"Il nostro appartamento è piccolo."},
+          {"t":"Their kids are really cute.","tr":"I loro figli sono proprio carini."},
+          {"t":"This is Jessica's bag.","tr":"Questa è la borsa di Jessica."}
+        ] },
+        {"tip":"{{its}} senza apostrofo è “suo” di una cosa: {{the city and its museums}} “la città e i suoi musei”. {{it's}}, con l'apostrofo, è {{it is}}. Li confondono anche gli americani!"}
+      ],
+      "mistakes": [
+        {"wrong":"Anna is with his husband.","right":"Anna is with her husband.","tr":"Anna è con suo marito.","why":"Il marito è di Anna, una donna: {{her}}. In inglese “suo” segue chi possiede, non la cosa."},
+        {"wrong":"Marco is with her sister.","right":"Marco is with his sister.","tr":"Marco è con sua sorella.","why":"Il proprietario è Marco: {{his}}, anche se la sorella è una donna."},
+        {"wrong":"The car of my father is red.","right":"My father's car is red.","tr":"La macchina di mio padre è rossa.","why":"Con le persone si usa {{'s}}: {{my father's car}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Laura is here with ___ boyfriend.","tr":"Laura è qui con il suo ragazzo.","options":["her","his","their"],"answer":0,"why":"Il ragazzo è di Laura, una donna: {{her}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Mark and ___ daughter are on vacation.","tr":"Mark e sua figlia sono in vacanza.","options":["his","her","its"],"answer":0,"why":"Il padre è Mark, un uomo: {{his}}."},
+        {"type":"choice","q":"“La macchina di Tom” si dice…","options":["{{Tom's car}}","{{the car of Tom}}","{{Tom car}}"],"answer":0,"why":"Proprietario + {{'s}} + la cosa: {{Tom's car}}."},
+        {"type":"dialogue","q":"Mostri le foto a un'amica. Scegli le frasi.","lines":[{"who":"Kate","t":"Who's this woman?","tr":"Chi è questa donna?"},{"options":["She's my mom. And that's her sister.","She's my mom. And that's his sister."],"answer":0,"why":"La sorella è della mamma: {{her}}."},{"who":"Kate","t":"And this house?","tr":"E questa casa?"},{"options":["It's my grandparents' house.","It's the house of my grandparents."],"answer":0,"why":"Con le persone: {{'s}}; con un plurale in -s, solo l'apostrofo: {{grandparents'}}."}],"from":"introduce-someone"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Il fratello di Jake fa il medico.","words":["Jake's","brother","is","a doctor."],"from":"introduce-someone"},
+        {"type":"say","q":"Di': “Questa è la nostra casa, e quelli sono i nostri figli.”","answer":"This is our house, and those are our kids.","from":"point-at-things"},
+        {"type":"free","q":"Tocca a te: parla di due persone della tua famiglia e di una cosa loro. Usa {{his}} o {{her}}, e {{'s}}.","answers":[{"t":"My brother's name is Luca. His car is red.","tr":"Mio fratello si chiama Luca. La sua macchina è rossa."},{"t":"My mother is a teacher. Her school is near our house.","tr":"Mia madre fa l'insegnante. La sua scuola è vicino a casa nostra."}]}
+      ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di' cosa c'è",
+      "summary": "C'è una farmacia qui vicino? Ci sono dei buoni ristoranti? Chiedi e descrivi cosa c'è intorno a te.",
+      "topic": "{{there is}} e {{there are}}; {{some}} e {{any}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"C'è una farmacia qui vicino?"}},
+        {"dialog":[{"who":"Tu","t":"Excuse me, is there a pharmacy near here?","tr":"Scusi, c'è una farmacia qui vicino?"},{"who":"Receptionist","t":"Yes, there's one on Main Street.","tr":"Sì, ce n'è una in Main Street."},{"who":"Tu","t":"Great. And are there any good restaurants?","tr":"Perfetto. E ci sono dei buoni ristoranti?"},{"who":"Receptionist","t":"There are some great restaurants downtown. There's an Italian one, too!","tr":"In centro ci sono degli ottimi ristoranti. Ce n'è anche uno italiano!"},{"who":"Tu","t":"Thanks, but I'm on vacation from Italian food!","tr":"Grazie, ma sono in vacanza anche dalla cucina italiana!"}]},
+        {"p":"**“C'è” e “ci sono”.** {{there is}} (nel parlato {{there's}}) per una cosa, {{there are}} per più cose: {{There's a bank on the corner}} “C'è una banca all'angolo”, {{There are two banks downtown}} “In centro ci sono due banche”. Anche qui ci vuole un soggetto: è la parolina {{there}}."},
+        { "table": [
+          ["italiano","inglese"],
+          ["c'è","{{there is}}, {{there's}}"],
+          ["ci sono","{{there are}}"],
+          ["c'è…?","{{Is there…?}}"],
+          ["ci sono…?","{{Are there…?}}"],
+          ["non c'è, non ci sono","{{there isn't}}, {{there aren't}}"]
+        ] },
+        {"p":"**Nella domanda**, come con {{be}}, il verbo va prima: {{Is there a bus?}} “C'è un autobus?”, {{Are there any stores?}} “Ci sono negozi?”. Le risposte brevi: {{Yes, there is.}} / {{No, there isn't.}}"},
+        {"p":"**{{some}} e {{any}}** “dei, degli, qualche”: {{some}} nelle frasi affermative ({{There are some nice stores}}), {{any}} nelle domande e nelle negative ({{Are there any stores?}}, {{There aren't any stores}})."},
+        {"p":"**{{there's}} o {{it's}}?** {{There's a museum}} “C'è un museo” dice che esiste; {{It's a museum}} “È un museo” dice che cos'è."},
+        { "ex": [
+          {"t":"There's a problem.","tr":"C'è un problema."},
+          {"t":"There are a lot of tourists in summer.","tr":"D'estate ci sono tanti turisti."},
+          {"t":"Is there Wi-Fi in the room?","tr":"In camera c'è il Wi-Fi?"},
+          {"t":"There isn't any milk.","tr":"Non c'è latte."},
+          {"t":"Are there any questions?","tr":"Ci sono domande?"},
+          {"t":"There are some nice stores downtown.","tr":"In centro ci sono dei bei negozi."}
+        ] },
+        {"tip":"Al telefono non si dice {{Is there Marco?}}, ma {{Is Marco there?}} “C'è Marco?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Is a bank near here?","right":"Is there a bank near here?","tr":"C'è una banca qui vicino?","why":"“C'è” ha bisogno di {{there}}: {{Is there…?}}"},
+        {"wrong":"There is two bathrooms.","right":"There are two bathrooms.","tr":"Ci sono due bagni.","why":"Più cose: {{there are}}."},
+        {"wrong":"There aren't some stores.","right":"There aren't any stores.","tr":"Non ci sono negozi.","why":"Nelle frasi negative: {{any}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"___ a supermarket near here?","tr":"C'è un supermercato qui vicino?","options":["Is there","There is","Is it"],"answer":0,"why":"Domanda su qualcosa che esiste: {{Is there…?}}","from":"ask-questions-with-be"},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"There ___ three museums in town.","tr":"In città ci sono tre musei.","options":["are","is","be"],"answer":0,"why":"Più cose: {{there are}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Are there ___ good restaurants here?","tr":"Ci sono dei buoni ristoranti qui?","options":["any","some","a"],"answer":0,"why":"Nelle domande: {{any}}."},
+        {"type":"dialogue","q":"All'hotel. Scegli le domande.","lines":[{"who":"Receptionist","t":"Good evening! How can I help you?","tr":"Buonasera! Come posso aiutarla?"},{"options":["Hi! Is there a gym in the hotel?","Hi! There is a gym in the hotel?"],"answer":0,"why":"Nella domanda il verbo va prima: {{Is there…?}}"},{"who":"Receptionist","t":"Yes, there is. It's on the second floor.","tr":"Sì, c'è. È al secondo piano."},{"options":["Great. Are there towels there?","Great. Is there towels there?"],"answer":0,"why":"{{towels}} “asciugamani” è plurale: {{Are there…?}}"}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Non c'è latte nel frigo.","words":["There isn't","any milk","in the fridge."]},
+        {"type":"say","q":"Chiedi: “C'è un bancomat qui vicino?”","answer":"Is there an ATM near here?","from":"order-at-the-cafe"},
+        {"type":"free","q":"Tocca a te: descrivi la tua zona: cosa c'è e cosa non c'è? Usa {{there's}}, {{there are}} e {{there isn't}}.","answers":[{"t":"There's a big park near my house, and there are two supermarkets, but there isn't a movie theater.","tr":"Vicino a casa mia c'è un grande parco e ci sono due supermercati, ma non c'è un cinema."},{"t":"In my town there are some nice cafés, but there aren't any museums.","tr":"Nella mia città ci sono dei bei bar, ma non ci sono musei."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Di' dove sono le cose",
+      "summary": "Sul tavolo, in cucina, all'angolo, accanto alla banca: di' dove sono le cose e le persone.",
+      "topic": "{{in, on, at}}; {{next to, near, under, between, in front of}}",
+      "blocks": [
+        {"goal":{"t":"Your keys are on the table, next to your phone.","tr":"Le tue chiavi sono sul tavolo, accanto al telefono."}},
+        {"dialog":[{"who":"Ben","t":"Where's my phone?","tr":"Dov'è il mio telefono?"},{"who":"Tu","t":"Is it in your bag?","tr":"È nella tua borsa?"},{"who":"Ben","t":"No. And it isn't in the kitchen.","tr":"No. E non è in cucina."},{"who":"Tu","t":"Oh, look! It's on the couch, under your jacket.","tr":"Oh, guarda! È sul divano, sotto la tua giacca."},{"who":"Ben","t":"Thanks! Now where are my keys?","tr":"Grazie! E adesso dove sono le mie chiavi?"}]},
+        {"term":"preposizione","means":"una parolina che indica luogo, direzione o tempo: “in, su, a, di, da”. In inglese: {{in}}, {{on}}, {{at}}, {{to}}, {{from}}."},
+        {"p":"**Dentro, sopra, presso.** Le tre più usate: {{in}} “dentro” ({{in the box}}, {{in the kitchen}}, {{in New York}}); {{on}} “sopra, appoggiato” ({{on the table}}, {{on the wall}}, {{on the bus}}); {{at}} “a, presso un punto” ({{at the door}}, {{at the bus stop}}, {{at home}}, {{at work}})."},
+        { "table": [
+          ["italiano","inglese"],
+          ["a casa, al lavoro, a scuola","{{at home, at work, at school}}"],
+          ["in cucina, in macchina","{{in the kitchen, in the car}}"],
+          ["sul tavolo, sull'autobus","{{on the table, on the bus}}"],
+          ["in Main Street (la via)","{{on Main Street}}"],
+          ["all'angolo","{{on the corner}}"],
+          ["accanto a, vicino a","{{next to, near}}"],
+          ["sotto, tra, davanti a, dietro","{{under, between, in front of, behind}}"]
+        ] },
+        {"p":"**Niente preposizioni articolate.** “Sul tavolo” è {{on the table}}, “nella borsa” è {{in the bag}}: preposizione e {{the}} restano separati. “Accanto al telefono” è {{next to the phone}}."},
+        {"p":"**Le vie** in America vogliono {{on}}: {{on Main Street}}, {{on Fifth Avenue}}. Con il numero civico, {{at}}: {{at 25 Main Street}}."},
+        { "ex": [
+          {"t":"The cat is under the bed.","tr":"Il gatto è sotto il letto."},
+          {"t":"I'm at home.","tr":"Sono a casa."},
+          {"t":"The bank is next to the post office.","tr":"La banca è accanto all'ufficio postale."},
+          {"t":"There's a café on the corner.","tr":"C'è un bar all'angolo."},
+          {"t":"My office is on the third floor.","tr":"Il mio ufficio è al terzo piano."},
+          {"t":"The bus stop is in front of the school.","tr":"La fermata dell'autobus è davanti alla scuola."},
+          {"t":"We're on the train.","tr":"Siamo in treno."}
+        ] },
+        {"tip":"{{on the train}}, {{on the bus}}, {{on a plane}} (ci sali e ci puoi camminare), ma {{in the car}}, {{in a taxi}}."}
+      ],
+      "mistakes": [
+        {"wrong":"The keys are on the bag.","right":"The keys are in the bag.","tr":"Le chiavi sono nella borsa.","why":"Dentro qualcosa: {{in}}. {{on}} vuol dire “sopra”."},
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Sono a casa.","why":"“A casa” si dice {{at home}}, senza {{the}}."},
+        {"wrong":"The bank is next the station.","right":"The bank is next to the station.","tr":"La banca è accanto alla stazione.","why":"“Accanto a” è {{next to}}: il {{to}} non si toglie."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Your glasses are ___ the table.","tr":"I tuoi occhiali sono sul tavolo.","options":["on","in","at"],"answer":0,"why":"Sopra una superficie: {{on}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"Sorry, I'm ___ work right now.","tr":"Scusa, adesso sono al lavoro.","options":["at","in","on"],"answer":0,"why":"“Al lavoro”: {{at work}}."},
+        {"type":"choice","q":"“Siamo sull'autobus” si dice…","options":["{{We're on the bus.}}","{{We're in the bus.}}","{{We're at bus.}}"],"answer":0,"why":"Autobus, treno, aereo: {{on}}."},
+        {"type":"dialogue","q":"Il tuo coinquilino non trova le cose. Scegli le risposte.","lines":[{"who":"Ben","t":"Where are the car keys?","tr":"Dove sono le chiavi della macchina?"},{"options":["Are they in your jacket?","Is they in your jacket?"],"answer":0,"why":"Con {{they}} il verbo è {{are}}, e nella domanda va prima."},{"who":"Ben","t":"Yes! Here they are. And my wallet?","tr":"Sì! Eccole. E il mio portafoglio?"},{"options":["It's on the shelf, next to the TV.","It's on the shelf, next the TV."],"answer":0,"why":"“Accanto a”: {{next to}}."}],"from":"ask-questions-with-be"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"C'è un bar all'angolo.","words":["There's","a café","on","the corner."],"from":"say-what-there-is"},
+        {"type":"say","q":"Di': “Il mio ufficio è in Main Street, accanto alla banca.”","answer":"My office is on Main Street, next to the bank."},
+        {"type":"free","q":"Tocca a te: guardati intorno e di' dove sono tre cose.","answers":[{"t":"My phone is on the desk, my bag is under the chair, and the cat is in the kitchen.","tr":"Il mio telefono è sulla scrivania, la borsa è sotto la sedia e il gatto è in cucina."},{"t":"I'm at home. My books are on the shelf, next to the window.","tr":"Sono a casa. I miei libri sono sullo scaffale, accanto alla finestra."}]}
+      ]
     }
   ]
 }
