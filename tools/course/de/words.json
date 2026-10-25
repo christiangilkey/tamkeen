@@ -6635,6 +6635,962 @@
       "meaning": "to solve; to buy (a ticket)",
       "sentence": "Wir müssen das Problem lösen.",
       "translation": "We have to ⟦solve⟧ the problem."
+    },
+    {
+      "n": 701,
+      "rank": 790,
+      "word": "die Serie",
+      "pos": "noun",
+      "meaning": "series, TV show (pl. Serien)",
+      "sentence": "Welche Serie schaust du gerade?",
+      "translation": "Which ⟦show⟧ are you watching right now?",
+      "form": "Serie"
+    },
+    {
+      "n": 702,
+      "rank": 791,
+      "word": "das Gebäude",
+      "pos": "noun",
+      "meaning": "building (pl. Gebäude)",
+      "sentence": "Das Gebäude hat zwanzig Stockwerke.",
+      "translation": "The ⟦building⟧ has twenty floors.",
+      "form": "Gebäude"
+    },
+    {
+      "n": 703,
+      "rank": 792,
+      "word": "dumm",
+      "pos": "adj",
+      "meaning": "stupid, dumb",
+      "sentence": "Das war eine dumme Idee.",
+      "translation": "That was a ⟦stupid⟧ idea."
+    },
+    {
+      "n": 704,
+      "rank": 793,
+      "word": "erneut",
+      "pos": "adv",
+      "meaning": "again, once more",
+      "sentence": "Bitte versuchen Sie es erneut.",
+      "translation": "Please try ⟦again⟧."
+    },
+    {
+      "n": 705,
+      "rank": 794,
+      "word": "heutig",
+      "pos": "adj",
+      "meaning": "today's, present-day",
+      "sentence": "Die heutige Zeitung liegt auf dem Tisch.",
+      "translation": "⟦Today's⟧ newspaper is on the table."
+    },
+    {
+      "n": 706,
+      "rank": 795,
+      "word": "das Hotel",
+      "pos": "noun",
+      "meaning": "hotel (pl. Hotels)",
+      "sentence": "Wir übernachten in einem Hotel.",
+      "translation": "We're staying at a ⟦hotel⟧.",
+      "form": "Hotel"
+    },
+    {
+      "n": 707,
+      "rank": 796,
+      "word": "die Liste",
+      "pos": "noun",
+      "meaning": "list (pl. Listen)",
+      "sentence": "Ich schreibe eine Liste.",
+      "translation": "I'm making a ⟦list⟧.",
+      "form": "Liste"
+    },
+    {
+      "n": 708,
+      "rank": 797,
+      "word": "gelingen",
+      "pos": "verb",
+      "meaning": "to succeed, to turn out well",
+      "sentence": "Der Kuchen ist mir gut gelungen.",
+      "translation": "My cake ⟦turned out⟧ well.",
+      "form": "gelungen"
+    },
+    {
+      "n": 709,
+      "rank": 798,
+      "word": "drehen",
+      "pos": "verb",
+      "meaning": "to turn; to shoot (a film)",
+      "sentence": "Dreh dich mal um!",
+      "translation": "⟦Turn⟧ around!",
+      "form": "dreh"
+    },
+    {
+      "n": 710,
+      "rank": 799,
+      "word": "wesentlich",
+      "pos": "adj",
+      "meaning": "essential; much, considerably",
+      "sentence": "Das ist wesentlich besser.",
+      "translation": "That's ⟦much⟧ better."
+    },
+    {
+      "n": 711,
+      "rank": 800,
+      "word": "der Vertrag",
+      "pos": "noun",
+      "meaning": "contract (pl. Verträge)",
+      "sentence": "Ich habe den Vertrag unterschrieben.",
+      "translation": "I signed the ⟦contract⟧.",
+      "form": "Vertrag"
+    },
+    {
+      "n": 712,
+      "rank": 801,
+      "word": "geschehen",
+      "pos": "verb",
+      "meaning": "to happen",
+      "sentence": "Es ist ein Unfall geschehen.",
+      "translation": "An accident has ⟦happened⟧."
+    },
+    {
+      "n": 713,
+      "rank": 802,
+      "word": "ansehen",
+      "pos": "verb",
+      "meaning": "to look at; to watch",
+      "sentence": "Sieh dir das mal an!",
+      "translation": "⟦Look at⟧ this!",
+      "form": "sieh"
+    },
+    {
+      "n": 714,
+      "rank": 803,
+      "word": "greifen",
+      "pos": "verb",
+      "meaning": "to grab, to reach",
+      "sentence": "Er greift nach seinem Handy.",
+      "translation": "He ⟦reaches⟧ for his phone.",
+      "form": "greift"
+    },
+    {
+      "n": 715,
+      "rank": 804,
+      "word": "der Sport",
+      "pos": "noun",
+      "meaning": "sports; exercise (no pl.)",
+      "sentence": "Treibst du Sport?",
+      "translation": "Do you play any ⟦sports⟧?",
+      "form": "Sport"
+    },
+    {
+      "n": 716,
+      "rank": 805,
+      "word": "der Februar",
+      "pos": "noun",
+      "meaning": "February (no pl.)",
+      "sentence": "Der Februar hat achtundzwanzig Tage.",
+      "translation": "⟦February⟧ has twenty-eight days.",
+      "form": "Februar"
+    },
+    {
+      "n": 717,
+      "rank": 806,
+      "word": "der Fußball",
+      "pos": "noun",
+      "meaning": "soccer; soccer ball (pl. Fußbälle)",
+      "sentence": "Spielst du gern Fußball?",
+      "translation": "Do you like playing ⟦soccer⟧?",
+      "form": "Fußball"
+    },
+    {
+      "n": 718,
+      "rank": 807,
+      "word": "heraus",
+      "pos": "adv",
+      "meaning": "out (towards the speaker)",
+      "sentence": "Er kam aus dem Haus heraus.",
+      "translation": "He came ⟦out⟧ of the house."
+    },
+    {
+      "n": 719,
+      "rank": 808,
+      "word": "nochmal",
+      "pos": "adv",
+      "meaning": "once more, again",
+      "sentence": "Kannst du das nochmal sagen?",
+      "translation": "Can you say that ⟦again⟧?"
+    },
+    {
+      "n": 720,
+      "rank": 809,
+      "word": "der Sonntag",
+      "pos": "noun",
+      "meaning": "Sunday (pl. Sonntage)",
+      "sentence": "Am Sonntag schlafen wir lange.",
+      "translation": "On ⟦Sunday⟧ we sleep in.",
+      "form": "Sonntag"
+    },
+    {
+      "n": 721,
+      "rank": 810,
+      "word": "unten",
+      "pos": "adv",
+      "meaning": "down, below; downstairs",
+      "sentence": "Die Küche ist unten.",
+      "translation": "The kitchen is ⟦downstairs⟧."
+    },
+    {
+      "n": 722,
+      "rank": 811,
+      "word": "die Wirtschaft",
+      "pos": "noun",
+      "meaning": "economy (pl. Wirtschaften)",
+      "sentence": "Die Wirtschaft wächst langsam.",
+      "translation": "The ⟦economy⟧ is growing slowly.",
+      "form": "Wirtschaft"
+    },
+    {
+      "n": 723,
+      "rank": 812,
+      "word": "lachen",
+      "pos": "verb",
+      "meaning": "to laugh",
+      "sentence": "Wir haben viel gelacht.",
+      "translation": "We ⟦laughed⟧ a lot.",
+      "form": "gelacht"
+    },
+    {
+      "n": 724,
+      "rank": 813,
+      "word": "leisten",
+      "pos": "verb",
+      "meaning": "to achieve (sich leisten: to afford)",
+      "sentence": "Das kann ich mir nicht leisten.",
+      "translation": "I can't ⟦afford⟧ that."
+    },
+    {
+      "n": 725,
+      "rank": 814,
+      "word": "antworten",
+      "pos": "verb",
+      "meaning": "to answer, to reply",
+      "sentence": "Warum antwortest du nicht?",
+      "translation": "Why don't you ⟦answer⟧?",
+      "form": "antwortest"
+    },
+    {
+      "n": 726,
+      "rank": 815,
+      "word": "besuchen",
+      "pos": "verb",
+      "meaning": "to visit",
+      "sentence": "Besuchst du uns am Wochenende?",
+      "translation": "Will you ⟦visit⟧ us this weekend?",
+      "form": "besuchst"
+    },
+    {
+      "n": 727,
+      "rank": 816,
+      "word": "der Autor",
+      "pos": "noun",
+      "meaning": "author (pl. Autoren)",
+      "sentence": "Der Autor kommt aus Wien.",
+      "translation": "The ⟦author⟧ is from Vienna.",
+      "form": "Autor"
+    },
+    {
+      "n": 728,
+      "rank": 817,
+      "word": "die Beziehung",
+      "pos": "noun",
+      "meaning": "relationship (pl. Beziehungen)",
+      "sentence": "Sie ist in einer Beziehung.",
+      "translation": "She's in a ⟦relationship⟧.",
+      "form": "Beziehung"
+    },
+    {
+      "n": 729,
+      "rank": 818,
+      "word": "knapp",
+      "pos": "adj",
+      "meaning": "scarce, tight; just under",
+      "sentence": "Die Zeit ist knapp.",
+      "translation": "Time is ⟦short⟧."
+    },
+    {
+      "n": 730,
+      "rank": 819,
+      "word": "trinken",
+      "pos": "verb",
+      "meaning": "to drink",
+      "sentence": "Ich trinke keinen Alkohol.",
+      "translation": "I don't ⟦drink⟧ alcohol.",
+      "form": "trinke"
+    },
+    {
+      "n": 731,
+      "rank": 820,
+      "word": "der Inhalt",
+      "pos": "noun",
+      "meaning": "contents (pl. Inhalte)",
+      "sentence": "Was ist der Inhalt des Pakets?",
+      "translation": "What are the ⟦contents⟧ of the package?",
+      "form": "Inhalt"
+    },
+    {
+      "n": 732,
+      "rank": 821,
+      "word": "die Bevölkerung",
+      "pos": "noun",
+      "meaning": "population (pl. Bevölkerungen)",
+      "sentence": "Die Bevölkerung wird immer älter.",
+      "translation": "The ⟦population⟧ is getting older and older.",
+      "form": "Bevölkerung"
+    },
+    {
+      "n": 733,
+      "rank": 822,
+      "word": "darin",
+      "pos": "adv",
+      "meaning": "in it, in there",
+      "sentence": "Was ist darin?",
+      "translation": "What's ⟦in it⟧?"
+    },
+    {
+      "n": 734,
+      "rank": 824,
+      "word": "die Rede",
+      "pos": "noun",
+      "meaning": "speech; talk (pl. Reden)",
+      "sentence": "Seine Rede war sehr lang.",
+      "translation": "His ⟦speech⟧ was very long.",
+      "form": "Rede"
+    },
+    {
+      "n": 735,
+      "rank": 825,
+      "word": "verwenden",
+      "pos": "verb",
+      "meaning": "to use",
+      "sentence": "Welches Shampoo verwendest du?",
+      "translation": "Which shampoo do you ⟦use⟧?",
+      "form": "verwendest"
+    },
+    {
+      "n": 736,
+      "rank": 826,
+      "word": "regelmäßig",
+      "pos": "adj",
+      "meaning": "regular; regularly",
+      "sentence": "Ich gehe regelmäßig zum Zahnarzt.",
+      "translation": "I go to the dentist ⟦regularly⟧."
+    },
+    {
+      "n": 737,
+      "rank": 827,
+      "word": "ergeben",
+      "pos": "verb",
+      "meaning": "to result in; to make (sense)",
+      "sentence": "Das ergibt keinen Sinn.",
+      "translation": "That doesn't ⟦make⟧ sense.",
+      "form": "ergibt"
+    },
+    {
+      "n": 738,
+      "rank": 828,
+      "word": "eng",
+      "pos": "adj",
+      "meaning": "tight; narrow; close",
+      "sentence": "Die Hose ist mir zu eng.",
+      "translation": "The pants are too ⟦tight⟧ on me."
+    },
+    {
+      "n": 739,
+      "rank": 829,
+      "word": "das Produkt",
+      "pos": "noun",
+      "meaning": "product (pl. Produkte)",
+      "sentence": "Das Produkt ist leider ausverkauft.",
+      "translation": "Unfortunately, the ⟦product⟧ is sold out.",
+      "form": "Produkt"
+    },
+    {
+      "n": 740,
+      "rank": 830,
+      "word": "die Marke",
+      "pos": "noun",
+      "meaning": "brand; stamp (pl. Marken)",
+      "sentence": "Welche Marke ist dein Handy?",
+      "translation": "What ⟦brand⟧ is your phone?",
+      "form": "Marke"
+    },
+    {
+      "n": 741,
+      "rank": 831,
+      "word": "die Bedeutung",
+      "pos": "noun",
+      "meaning": "meaning; importance (pl. Bedeutungen)",
+      "sentence": "Das Wort hat zwei Bedeutungen.",
+      "translation": "The word has two ⟦meanings⟧.",
+      "form": "Bedeutungen"
+    },
+    {
+      "n": 742,
+      "rank": 832,
+      "word": "total",
+      "pos": "adj",
+      "meaning": "total; totally (casual)",
+      "sentence": "Das ist total lecker!",
+      "translation": "That's ⟦totally⟧ delicious!"
+    },
+    {
+      "n": 743,
+      "rank": 833,
+      "word": "das Gespräch",
+      "pos": "noun",
+      "meaning": "conversation, talk (pl. Gespräche)",
+      "sentence": "Wir hatten ein langes Gespräch.",
+      "translation": "We had a long ⟦conversation⟧.",
+      "form": "Gespräch"
+    },
+    {
+      "n": 744,
+      "rank": 835,
+      "word": "lustig",
+      "pos": "adj",
+      "meaning": "funny",
+      "sentence": "Der Film ist sehr lustig.",
+      "translation": "The movie is very ⟦funny⟧."
+    },
+    {
+      "n": 745,
+      "rank": 836,
+      "word": "die Dame",
+      "pos": "noun",
+      "meaning": "lady (pl. Damen)",
+      "sentence": "Meine Damen und Herren!",
+      "translation": "⟦Ladies⟧ and gentlemen!",
+      "form": "Damen"
+    },
+    {
+      "n": 746,
+      "rank": 837,
+      "word": "der Begriff",
+      "pos": "noun",
+      "meaning": "term, concept (pl. Begriffe)",
+      "sentence": "Diesen Begriff kenne ich nicht.",
+      "translation": "I don't know that ⟦term⟧.",
+      "form": "Begriff"
+    },
+    {
+      "n": 747,
+      "rank": 838,
+      "word": "der Dienst",
+      "pos": "noun",
+      "meaning": "service; duty, shift (pl. Dienste)",
+      "sentence": "Ich habe heute Nacht Dienst.",
+      "translation": "I'm ⟦on duty⟧ tonight.",
+      "form": "Dienst"
+    },
+    {
+      "n": 748,
+      "rank": 839,
+      "word": "der Unterschied",
+      "pos": "noun",
+      "meaning": "difference (pl. Unterschiede)",
+      "sentence": "Was ist der Unterschied?",
+      "translation": "What's the ⟦difference⟧?",
+      "form": "Unterschied"
+    },
+    {
+      "n": 749,
+      "rank": 840,
+      "word": "die Ausbildung",
+      "pos": "noun",
+      "meaning": "training, apprenticeship (pl. Ausbildungen)",
+      "sentence": "Sie macht eine Ausbildung als Köchin.",
+      "translation": "She's doing an ⟦apprenticeship⟧ as a cook.",
+      "form": "Ausbildung"
+    },
+    {
+      "n": 750,
+      "rank": 841,
+      "word": "der Beginn",
+      "pos": "noun",
+      "meaning": "beginning, start (no pl.)",
+      "sentence": "Seit Beginn des Jahres wohne ich hier.",
+      "translation": "I've lived here since the ⟦beginning⟧ of the year.",
+      "form": "Beginn"
+    },
+    {
+      "n": 751,
+      "rank": 842,
+      "word": "beispielsweise",
+      "pos": "adv",
+      "meaning": "for example",
+      "sentence": "Man kann beispielsweise mit dem Zug fahren.",
+      "translation": "You can, ⟦for example⟧, take the train."
+    },
+    {
+      "n": 752,
+      "rank": 843,
+      "word": "deswegen",
+      "pos": "adv",
+      "meaning": "that's why, because of that",
+      "sentence": "Ich bin müde, deswegen gehe ich ins Bett.",
+      "translation": "I'm tired, ⟦that's why⟧ I'm going to bed."
+    },
+    {
+      "n": 753,
+      "rank": 845,
+      "word": "mittlerweile",
+      "pos": "adv",
+      "meaning": "by now, meanwhile",
+      "sentence": "Mittlerweile wohnt er in Berlin.",
+      "translation": "He lives in Berlin ⟦now⟧."
+    },
+    {
+      "n": 754,
+      "rank": 846,
+      "word": "teilweise",
+      "pos": "adv",
+      "meaning": "partly, in part",
+      "sentence": "Das stimmt nur teilweise.",
+      "translation": "That's only ⟦partly⟧ true."
+    },
+    {
+      "n": 755,
+      "rank": 847,
+      "word": "weder",
+      "pos": "conj",
+      "meaning": "weder … noch: neither … nor",
+      "sentence": "Ich trinke weder Kaffee noch Tee.",
+      "translation": "I drink ⟦neither⟧ coffee nor tea."
+    },
+    {
+      "n": 756,
+      "rank": 848,
+      "word": "empfehlen",
+      "pos": "verb",
+      "meaning": "to recommend",
+      "sentence": "Was können Sie empfehlen?",
+      "translation": "What can you ⟦recommend⟧?"
+    },
+    {
+      "n": 757,
+      "rank": 849,
+      "word": "das Gericht",
+      "pos": "noun",
+      "meaning": "dish (food); court (pl. Gerichte)",
+      "sentence": "Dieses Gericht ist typisch für Bayern.",
+      "translation": "This ⟦dish⟧ is typical of Bavaria.",
+      "form": "Gericht"
+    },
+    {
+      "n": 758,
+      "rank": 850,
+      "word": "das Wochenende",
+      "pos": "noun",
+      "meaning": "weekend (pl. Wochenenden)",
+      "sentence": "Schönes Wochenende!",
+      "translation": "Have a nice ⟦weekend⟧!",
+      "form": "Wochenende"
+    },
+    {
+      "n": 759,
+      "rank": 851,
+      "word": "blau",
+      "pos": "adj",
+      "meaning": "blue",
+      "sentence": "Der Himmel ist blau.",
+      "translation": "The sky is ⟦blue⟧."
+    },
+    {
+      "n": 760,
+      "rank": 852,
+      "word": "kämpfen",
+      "pos": "verb",
+      "meaning": "to fight",
+      "sentence": "Wir kämpfen für unsere Rechte.",
+      "translation": "We're ⟦fighting⟧ for our rights."
+    },
+    {
+      "n": 761,
+      "rank": 853,
+      "word": "die Veranstaltung",
+      "pos": "noun",
+      "meaning": "event (pl. Veranstaltungen)",
+      "sentence": "Die Veranstaltung beginnt um sieben.",
+      "translation": "The ⟦event⟧ starts at seven.",
+      "form": "Veranstaltung"
+    },
+    {
+      "n": 762,
+      "rank": 854,
+      "word": "teilen",
+      "pos": "verb",
+      "meaning": "to share; to divide",
+      "sentence": "Wollen wir uns eine Pizza teilen?",
+      "translation": "Shall we ⟦share⟧ a pizza?"
+    },
+    {
+      "n": 763,
+      "rank": 855,
+      "word": "acht",
+      "pos": "num",
+      "meaning": "eight",
+      "sentence": "Ich arbeite acht Stunden am Tag.",
+      "translation": "I work ⟦eight⟧ hours a day."
+    },
+    {
+      "n": 764,
+      "rank": 857,
+      "word": "die Hälfte",
+      "pos": "noun",
+      "meaning": "half (pl. Hälften)",
+      "sentence": "Ich habe nur die Hälfte verstanden.",
+      "translation": "I only understood ⟦half⟧.",
+      "form": "Hälfte"
+    },
+    {
+      "n": 765,
+      "rank": 860,
+      "word": "unbedingt",
+      "pos": "adv",
+      "meaning": "absolutely, definitely",
+      "sentence": "Du musst den Film unbedingt sehen!",
+      "translation": "You ⟦absolutely⟧ have to see the movie!"
+    },
+    {
+      "n": 766,
+      "rank": 861,
+      "word": "unterwegs",
+      "pos": "adv",
+      "meaning": "on the way, out and about",
+      "sentence": "Ich bin gerade unterwegs.",
+      "translation": "I'm ⟦out and about⟧ right now."
+    },
+    {
+      "n": 767,
+      "rank": 862,
+      "word": "wenigstens",
+      "pos": "adv",
+      "meaning": "at least",
+      "sentence": "Du hättest wenigstens anrufen können.",
+      "translation": "You could ⟦at least⟧ have called."
+    },
+    {
+      "n": 768,
+      "rank": 863,
+      "word": "zuvor",
+      "pos": "adv",
+      "meaning": "before, previously",
+      "sentence": "Ich war nie zuvor in Asien.",
+      "translation": "I had never been to Asia ⟦before⟧."
+    },
+    {
+      "n": 769,
+      "rank": 864,
+      "word": "die Bewegung",
+      "pos": "noun",
+      "meaning": "movement; exercise (pl. Bewegungen)",
+      "sentence": "Du brauchst mehr Bewegung.",
+      "translation": "You need more ⟦exercise⟧.",
+      "form": "Bewegung"
+    },
+    {
+      "n": 770,
+      "rank": 865,
+      "word": "schützen",
+      "pos": "verb",
+      "meaning": "to protect",
+      "sentence": "Die Creme schützt vor der Sonne.",
+      "translation": "The cream ⟦protects⟧ against the sun.",
+      "form": "schützt"
+    },
+    {
+      "n": 771,
+      "rank": 866,
+      "word": "der Lehrer",
+      "pos": "noun",
+      "meaning": "teacher (pl. Lehrer)",
+      "sentence": "Unser Lehrer ist sehr streng.",
+      "translation": "Our ⟦teacher⟧ is very strict.",
+      "form": "Lehrer"
+    },
+    {
+      "n": 772,
+      "rank": 867,
+      "word": "ständig",
+      "pos": "adv",
+      "meaning": "constantly, all the time",
+      "sentence": "Er redet ständig über Fußball.",
+      "translation": "He talks about soccer ⟦all the time⟧."
+    },
+    {
+      "n": 773,
+      "rank": 868,
+      "word": "der Lauf",
+      "pos": "noun",
+      "meaning": "run; course (im Laufe: in the course of) (pl. Läufe)",
+      "sentence": "Im Laufe des Tages wird es wärmer.",
+      "translation": "⟦In the course⟧ of the day it'll get warmer.",
+      "form": "Laufe"
+    },
+    {
+      "n": 774,
+      "rank": 869,
+      "word": "merken",
+      "pos": "verb",
+      "meaning": "to notice (sich merken: to remember)",
+      "sentence": "Hast du das gemerkt?",
+      "translation": "Did you ⟦notice⟧ that?",
+      "form": "gemerkt"
+    },
+    {
+      "n": 775,
+      "rank": 870,
+      "word": "die Universität",
+      "pos": "noun",
+      "meaning": "university (pl. Universitäten)",
+      "sentence": "Sie studiert an der Universität Heidelberg.",
+      "translation": "She studies at the ⟦University⟧ of Heidelberg.",
+      "form": "Universität"
+    },
+    {
+      "n": 776,
+      "rank": 872,
+      "word": "sogenannt",
+      "pos": "adj",
+      "meaning": "so-called",
+      "sentence": "Er hat eine sogenannte Midlife-Crisis.",
+      "translation": "He's having a ⟦so-called⟧ midlife crisis."
+    },
+    {
+      "n": 777,
+      "rank": 873,
+      "word": "verkaufen",
+      "pos": "verb",
+      "meaning": "to sell",
+      "sentence": "Wir verkaufen unser Auto.",
+      "translation": "We're ⟦selling⟧ our car."
+    },
+    {
+      "n": 778,
+      "rank": 874,
+      "word": "der Kontakt",
+      "pos": "noun",
+      "meaning": "contact (pl. Kontakte)",
+      "sentence": "Wir bleiben in Kontakt!",
+      "translation": "Let's stay in ⟦touch⟧!",
+      "form": "Kontakt"
+    },
+    {
+      "n": 779,
+      "rank": 875,
+      "word": "ehrlich",
+      "pos": "adj",
+      "meaning": "honest; honestly",
+      "sentence": "Sei ehrlich zu mir.",
+      "translation": "Be ⟦honest⟧ with me."
+    },
+    {
+      "n": 780,
+      "rank": 876,
+      "word": "jener",
+      "pos": "det",
+      "meaning": "that, that one (formal) (jener, jene, jenes)",
+      "sentence": "Dieses Kleid oder jenes?",
+      "translation": "This dress or ⟦that one⟧?",
+      "form": "jenes"
+    },
+    {
+      "n": 781,
+      "rank": 877,
+      "word": "die Ahnung",
+      "pos": "noun",
+      "meaning": "idea, clue (pl. Ahnungen)",
+      "sentence": "Keine Ahnung!",
+      "translation": "No ⟦idea⟧!",
+      "form": "Ahnung"
+    },
+    {
+      "n": 782,
+      "rank": 878,
+      "word": "eins",
+      "pos": "num",
+      "meaning": "one (counting)",
+      "sentence": "Eins, zwei, drei, los!",
+      "translation": "⟦One⟧, two, three, go!"
+    },
+    {
+      "n": 783,
+      "rank": 879,
+      "word": "erzählen",
+      "pos": "verb",
+      "meaning": "to tell (a story)",
+      "sentence": "Erzähl mal, wie war der Urlaub?",
+      "translation": "⟦Tell⟧ me, how was the vacation?",
+      "form": "erzähl"
+    },
+    {
+      "n": 784,
+      "rank": 880,
+      "word": "funktionieren",
+      "pos": "verb",
+      "meaning": "to work (function)",
+      "sentence": "Wie funktioniert das?",
+      "translation": "How does that ⟦work⟧?",
+      "form": "funktioniert"
+    },
+    {
+      "n": 785,
+      "rank": 881,
+      "word": "indem",
+      "pos": "conj",
+      "meaning": "by (doing something)",
+      "sentence": "Man lernt eine Sprache, indem man viel spricht.",
+      "translation": "You learn a language ⟦by⟧ speaking a lot."
+    },
+    {
+      "n": 786,
+      "rank": 883,
+      "word": "das Zimmer",
+      "pos": "noun",
+      "meaning": "room (pl. Zimmer)",
+      "sentence": "Mein Zimmer ist sehr klein.",
+      "translation": "My ⟦room⟧ is very small.",
+      "form": "Zimmer"
+    },
+    {
+      "n": 787,
+      "rank": 884,
+      "word": "zuerst",
+      "pos": "adv",
+      "meaning": "first, at first",
+      "sentence": "Wer war zuerst da?",
+      "translation": "Who was here ⟦first⟧?"
+    },
+    {
+      "n": 788,
+      "rank": 885,
+      "word": "die Position",
+      "pos": "noun",
+      "meaning": "position (pl. Positionen)",
+      "sentence": "Welche Position spielst du?",
+      "translation": "What ⟦position⟧ do you play?",
+      "form": "Position"
+    },
+    {
+      "n": 789,
+      "rank": 886,
+      "word": "liefern",
+      "pos": "verb",
+      "meaning": "to deliver",
+      "sentence": "Wir liefern auch nach Hause.",
+      "translation": "We also ⟦deliver⟧ to your home."
+    },
+    {
+      "n": 790,
+      "rank": 887,
+      "word": "erinnern",
+      "pos": "verb",
+      "meaning": "to remind (sich erinnern: to remember)",
+      "sentence": "Ich kann mich nicht erinnern.",
+      "translation": "I can't ⟦remember⟧."
+    },
+    {
+      "n": 791,
+      "rank": 888,
+      "word": "betragen",
+      "pos": "verb",
+      "meaning": "to amount to, to come to",
+      "sentence": "Die Miete beträgt achthundert Euro.",
+      "translation": "The rent ⟦comes to⟧ eight hundred euros.",
+      "form": "beträgt"
+    },
+    {
+      "n": 792,
+      "rank": 889,
+      "word": "fliegen",
+      "pos": "verb",
+      "meaning": "to fly",
+      "sentence": "Wir fliegen nächste Woche nach Spanien.",
+      "translation": "We're ⟦flying⟧ to Spain next week."
+    },
+    {
+      "n": 793,
+      "rank": 890,
+      "word": "verhindern",
+      "pos": "verb",
+      "meaning": "to prevent",
+      "sentence": "Wir müssen das verhindern.",
+      "translation": "We have to ⟦prevent⟧ that."
+    },
+    {
+      "n": 794,
+      "rank": 891,
+      "word": "böse",
+      "pos": "adj",
+      "meaning": "angry, mad; bad, evil",
+      "sentence": "Bist du mir böse?",
+      "translation": "Are you ⟦mad⟧ at me?"
+    },
+    {
+      "n": 795,
+      "rank": 892,
+      "word": "der Betrieb",
+      "pos": "noun",
+      "meaning": "operation; business, company (pl. Betriebe)",
+      "sentence": "Der Aufzug ist außer Betrieb.",
+      "translation": "The elevator is out of ⟦order⟧.",
+      "form": "Betrieb"
+    },
+    {
+      "n": 796,
+      "rank": 893,
+      "word": "messen",
+      "pos": "verb",
+      "meaning": "to measure",
+      "sentence": "Hast du Fieber gemessen?",
+      "translation": "Did you ⟦take⟧ your temperature?",
+      "form": "gemessen"
+    },
+    {
+      "n": 797,
+      "rank": 894,
+      "word": "der Druck",
+      "pos": "noun",
+      "meaning": "pressure; print (no pl.)",
+      "sentence": "Ich stehe unter Druck.",
+      "translation": "I'm under ⟦pressure⟧.",
+      "form": "Druck"
+    },
+    {
+      "n": 798,
+      "rank": 895,
+      "word": "entfernt",
+      "pos": "adj",
+      "meaning": "away, distant",
+      "sentence": "Wie weit ist das entfernt?",
+      "translation": "How far ⟦away⟧ is that?"
+    },
+    {
+      "n": 799,
+      "rank": 897,
+      "word": "genauso",
+      "pos": "adv",
+      "meaning": "just as, exactly the same",
+      "sentence": "Ich sehe das genauso.",
+      "translation": "I see it ⟦the same way⟧."
+    },
+    {
+      "n": 800,
+      "rank": 899,
+      "word": "lediglich",
+      "pos": "adv",
+      "meaning": "only, merely",
+      "sentence": "Es fehlt lediglich eine Unterschrift.",
+      "translation": "⟦Only⟧ a signature is missing."
     }
   ]
 }
