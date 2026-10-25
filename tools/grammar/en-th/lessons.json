@@ -1425,6 +1425,243 @@
         {"type":"say","q":"You're a man. Say “I was in the shower when the phone rang.”","answer":"ตอนที่ผมกำลังอาบน้ำอยู่ โทรศัพท์ก็ดังครับ","r":"dtɔɔn tîi pǒm gam-lang àap-náam yùu, too-rá-sàp gɔ̂ dang kráp"},
         {"type":"free","q":"Your turn: tell what happened on a day you remember, in three steps: first, then, in the end.","answers":[{"t":"ตอนแรกผมไปสนามบินครับ แล้วก็รอเครื่องบินสามชั่วโมง สุดท้ายก็ถึงเชียงใหม่ตอนเที่ยงคืน","r":"dtɔɔn rɛ̂ɛk pǒm bpai sà-nǎam-bin kráp, lɛ́ɛo-gɔ̂ rɔɔ krʉ̂ʉang-bin sǎam chûua-moong, sùt-táai gɔ̂ tʉ̌ng chiiang-mài dtɔɔn tîiang-kʉʉn","tr":"First I went to the airport, then I waited three hours for the plane. In the end I got to Chiang Mai at midnight."},{"t":"ตอนแรกฉันหลงทางค่ะ แล้วก็ถามตำรวจ สุดท้ายก็หาโรงแรมเจอ","r":"dtɔɔn rɛ̂ɛk chǎn lǒng taang kâ, lɛ́ɛo-gɔ̂ tǎam dtam-rùuat, sùt-táai gɔ̂ hǎa roong-rɛɛm jəə","tr":"At first I got lost, then I asked a police officer, and in the end I found the hotel."}]}
       ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell the time and say when",
+      "summary": "Ask and tell the time the way Thais really say it, and say when things happen.",
+      "topic": "The Thai clock: {{ตี|dtii}}, {{โมงเช้า|moong cháao}}, {{บ่าย…โมง|bàai … moong}}, {{โมงเย็น|moong yen}}, {{ทุ่ม|tûm}}; {{ครึ่ง|krʉ̂ng}}; {{กี่โมง|gìi moong}}; {{ตอน|dtɔɔn}} + a time",
+      "blocks": [
+        {"goal":{"t":"เจอกันบ่ายสามโมงนะคะ","r":"jəə gan bàai sǎam moong ná ká","tr":"See you at three in the afternoon."}},
+        {"dialog":[{"who":"Tom","t":"ตอนนี้กี่โมงแล้วครับ","r":"dtɔɔn-níi gìi moong lɛ́ɛo kráp","tr":"What time is it now?"},{"who":"Nok","t":"บ่ายสองโมงครึ่งค่ะ","r":"bàai sɔ̌ɔng moong krʉ̂ng kâ","tr":"Half past two."},{"who":"Tom","t":"รถไฟออกกี่โมงครับ","r":"rót-fai ɔ̀ɔk gìi moong kráp","tr":"What time does the train leave?"},{"who":"Nok","t":"สี่โมงเย็นค่ะ ถึงเชียงใหม่ตีห้า","r":"sìi moong yen kâ, tʉ̌ng chiiang-mài dtii hâa","tr":"At four. It gets to Chiang Mai at five in the morning."},{"who":"Tom","t":"ตีห้าเลยเหรอครับ เช้ามาก","r":"dtii hâa ləəi rə̌ə kráp, cháao mâak","tr":"Five in the morning? That's very early."}]},
+        {"p":"**A clock in parts.** In everyday speech Thais split the day into parts, each with its own word. In the daytime the number goes before {{โมง|moong}}; in the evening before {{ทุ่ม|tûm}}; in the small hours after {{ตี|dtii}} (once, the night watch struck a gong: {{ตี|dtii}} “strike”)."},
+        { "table": [
+          ["time","Thai","example"],
+          ["1–5 a.m.","{{ตี|dtii}} + 1–5","{{ตีสาม|dtii sǎam}} 3 a.m."],
+          ["6–11 a.m.","6–11 + {{โมงเช้า|moong cháao}}","{{เจ็ดโมงเช้า|jèt moong cháao}} 7 a.m."],
+          ["noon","{{เที่ยง|tîiang}}","{{เที่ยงครึ่ง|tîiang krʉ̂ng}} 12:30"],
+          ["1–3 p.m.","{{บ่าย|bàai}} + 1–3 + {{โมง|moong}}","{{บ่ายสองโมง|bàai sɔ̌ɔng moong}} 2 p.m."],
+          ["4–6 p.m.","4–6 + {{โมงเย็น|moong yen}}","{{ห้าโมงเย็น|hâa moong yen}} 5 p.m."],
+          ["7–11 p.m.","1–5 + {{ทุ่ม|tûm}}","{{สองทุ่ม|sɔ̌ɔng tûm}} 8 p.m."],
+          ["midnight","{{เที่ยงคืน|tîiang-kʉʉn}}","{{เที่ยงคืนครึ่ง|tîiang-kʉʉn krʉ̂ng}} 12:30 a.m."]
+        ] },
+        {"p":"**Two surprises.** 1 p.m. is just {{บ่ายโมง|bàai moong}}, with no “one”. And the evening count starts again at 7 p.m.: {{หนึ่งทุ่ม|nʉ̀ng tûm}} “one tûm” is 7, {{สองทุ่ม|sɔ̌ɔng tûm}} is 8, up to {{ห้าทุ่ม|hâa tûm}}, 11 p.m."},
+        {"p":"**Half past, and minutes.** {{ครึ่ง|krʉ̂ng}} “half” goes at the end: {{สามทุ่มครึ่ง|sǎam tûm krʉ̂ng}} “9:30 p.m.”. Minutes are {{นาที|naa-tii}}, and in speech often just the number: {{สิบโมงสิบห้า|sìp moong sìp-hâa}} “10:15”. Timetables and the news use a 24-hour clock with {{นาฬิกา|naa-lí-gaa}}: {{สิบแปดนาฬิกา|sìp-bpɛ̀ɛt naa-lí-gaa}} “18:00”, worth knowing when you see it."},
+        {"p":"**Asking, and saying when.** {{กี่โมง|gìi moong}} is “what time?”: {{ตอนนี้กี่โมงแล้ว|dtɔɔn-níi gìi-moong lɛ́ɛo}} “what time is it now?” ({{แล้ว|lɛ́ɛo}}: “by now”). For *when* something happens, the time goes after the verb, or after {{ตอน|dtɔɔn}} “at”: {{ร้านเปิดเก้าโมงเช้า|ráan bpə̀ət gâao moong cháao}} “the shop opens at 9 a.m.”, {{เจอกันตอนเที่ยง|jəə-gan dtɔɔn tîiang}} “see you at noon”."},
+        { "ex": [
+          {"t":"ตอนนี้กี่โมงแล้วคะ","r":"dtɔɔn-níi gìi moong lɛ́ɛo ká","tr":"What time is it now?"},
+          {"t":"เจ็ดโมงเช้าครับ","r":"jèt moong cháao kráp","tr":"Seven in the morning."},
+          {"t":"ร้านเปิดสิบโมงถึงสองทุ่มค่ะ","r":"ráan bpə̀ət sìp moong tʉ̌ng sɔ̌ɔng tûm kâ","tr":"The shop is open from 10 a.m. to 8 p.m."},
+          {"t":"เราจะกินข้าวเที่ยงตอนเที่ยงครึ่งครับ","r":"rao jà gin kâao tîiang dtɔɔn tîiang krʉ̂ng kráp","tr":"We'll have lunch at twelve-thirty."},
+          {"t":"เครื่องบินออกตีห้าค่ะ","r":"krʉ̂ʉang-bin ɔ̀ɔk dtii hâa kâ","tr":"The plane leaves at 5 a.m."},
+          {"t":"ผมเลิกงานห้าโมงเย็นครับ","r":"pǒm lə̂ək ngaan hâa moong yen kráp","tr":"I finish work at 5 p.m."},
+          {"t":"เมื่อคืนฉันนอนเที่ยงคืนค่ะ","r":"mʉ̂ʉa-kʉʉn chǎn nɔɔn tîiang-kʉʉn kâ","tr":"I went to bed at midnight last night."}
+        ] },
+        {"tip":"{{ชั่วโมง|chûua-moong}} is an hour of time, {{โมง|moong}} a time on the clock: {{สองชั่วโมง|sɔ̌ɔng chûua-moong}} “two hours”, {{บ่ายสองโมง|bàai sɔ̌ɔng moong}} “2 p.m.”."}
+      ],
+      "mistakes": [
+        {"wrong":"บ่ายหนึ่งโมง","right":"บ่ายโมง","tr":"1 p.m.","why":"1 p.m. has no “one”: just {{บ่ายโมง|bàai moong}}."},
+        {"wrong":"แปดทุ่ม","right":"สองทุ่ม","tr":"8 p.m.","why":"The evening count starts again at 7 p.m.: 7 is {{หนึ่งทุ่ม|nʉ̀ng tûm}}, 8 is {{สองทุ่ม|sɔ̌ɔng tûm}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"9 p.m. is…","options":["{{สามทุ่ม|sǎam tûm}}","{{เก้าทุ่ม|gâao tûm}}","{{เก้าโมงเย็น|gâao moong yen}}"],"answer":0,"why":"7 p.m. is {{หนึ่งทุ่ม|nʉ̀ng tûm}}, so 9 p.m. is {{สามทุ่ม|sǎam tûm}}."},
+        {"type":"fill","q":"Choose: {{โมงเช้า|moong cháao}} “a.m.” or {{ทุ่ม|tûm}} “evening hours”.","t":"ผมตื่นหก___ครับ","tr":"I get up at 6 a.m.","options":["โมงเช้า","ทุ่ม"],"answer":0,"why":"6 to 11 a.m.: the number + {{โมงเช้า|moong cháao}}."},
+        {"type":"order","q":"Put the words in order.","tr":"What time is it now? (a woman asking)","words":["ตอนนี้","กี่โมง","แล้ว","คะ"]},
+        {"type":"dialogue","q":"An early flight. Choose your replies (you're a man).","from":"say-what-you-will-do","lines":[{"who":"Friend","t":"พรุ่งนี้จะไปสนามบินกี่โมงคะ","r":"prûng-níi jà bpai sà-nǎam-bin gìi moong ká","tr":"What time are you going to the airport tomorrow?"},{"options":["ตีสี่ครับ เครื่องบินออกเจ็ดโมงเช้า","สี่ทุ่มครับ เครื่องบินออกเจ็ดโมงเช้า"],"answer":0,"why":"4 a.m. is {{ตีสี่|dtii sìi}}; {{สี่ทุ่ม|sìi tûm}} would be 10 p.m.!"},{"who":"Friend","t":"เช้ามากเลยนะคะ จะนอนกี่โมงคะ","r":"cháao mâak ləəi ná ká, jà nɔɔn gìi moong ká","tr":"That's so early! What time will you go to bed?"},{"options":["สามทุ่มครับ","สามโมงเช้าครับ"],"answer":0,"why":"9 p.m.: {{สามทุ่ม|sǎam tûm}}."}]},
+        {"type":"say","q":"You're a man. Say “See you at three in the afternoon.”","answer":"เจอกันบ่ายสามโมงนะครับ","r":"jəə gan bàai sǎam moong ná kráp"},
+        {"type":"free","q":"Your turn: say what time you get up, start work or school, and go to bed.","answers":[{"t":"ผมตื่นหกโมงเช้าครับ เริ่มทำงานเก้าโมง แล้วก็นอนห้าทุ่ม","r":"pǒm dtʉ̀ʉn hòk moong cháao kráp, rə̂əm tam-ngaan gâao moong, lɛ́ɛo-gɔ̂ nɔɔn hâa tûm","tr":"I get up at 6 a.m., start work at 9, and go to bed at 11 p.m."},{"t":"ฉันตื่นเจ็ดโมงเช้าค่ะ ไปโรงเรียนแปดโมง นอนสี่ทุ่มค่ะ","r":"chǎn dtʉ̀ʉn jèt moong cháao kâ, bpai roong-riian bpɛ̀ɛt moong, nɔɔn sìi tûm kâ","tr":"I get up at 7 a.m., go to school at 8, and go to bed at 10 p.m."}]}
+      ]
+    },
+    {
+      "id": "make-a-date",
+      "unit": 6,
+      "level": "A2",
+      "title": "Make a date: days, dates and “the second time”",
+      "summary": "Name the days and the months, give a date, set up a meeting, and say first, second, last.",
+      "topic": "{{วัน|wan}} + a day ({{วันจันทร์|wan jan}}…); {{วันที่|wan tîi}} + a number; the months; {{ที่|tîi}} + a number for “second, third” ({{ครั้งที่สอง|kráng tîi sɔ̌ɔng}}); {{แรก|rɛ̂ɛk}}, {{สุดท้าย|sùt-táai}}; {{นัด|nát}}",
+      "blocks": [
+        {"goal":{"t":"เจอกันวันศุกร์ตอนหกโมงเย็นนะคะ","r":"jəə gan wan sùk dtɔɔn hòk moong yen ná ká","tr":"See you on Friday at 6 p.m."}},
+        {"dialog":[{"who":"Tom","t":"เราจะนัดกันวันไหนดีครับ","r":"rao jà nát gan wan nǎi dii kráp","tr":"What day shall we meet?"},{"who":"Nok","t":"วันพฤหัสได้ไหมคะ","r":"wan pá-rʉ́-hàt dâai mǎi ká","tr":"Could you do Thursday?"},{"who":"Tom","t":"วันพฤหัสผมไม่ว่างครับ วันศุกร์ดีไหมครับ","r":"wan pá-rʉ́-hàt pǒm mâi wâang kráp, wan sùk dii mǎi kráp","tr":"I'm busy on Thursday. How about Friday?"},{"who":"Nok","t":"ได้ค่ะ วันศุกร์ที่สิบห้าใช่ไหมคะ","r":"dâai kâ, wan sùk tîi sìp-hâa châi mǎi ká","tr":"OK. Friday the 15th, right?"},{"who":"Tom","t":"ใช่ครับ เจอกันหกโมงเย็นที่ร้านเดิมนะครับ","r":"châi kráp, jəə gan hòk moong yen tîi ráan dəəm ná kráp","tr":"Yes. See you at six at the usual place."}]},
+        {"p":"**Days.** Each day is {{วัน|wan}} “day” + its name: {{วันจันทร์|wan jan}} “Monday”. “On Monday” needs nothing more: {{วันจันทร์ผมทำงาน|wan jan pǒm tam-ngaan}} “on Monday I work”. “Which day?” is {{วันไหน|wan nǎi}}; “what day is it today?” is {{วันนี้วันอะไร|wan-níi wan à-rai}}."},
+        { "table": [
+          ["","Thai","","Thai"],
+          ["Monday","{{วันจันทร์|wan jan}}","Friday","{{วันศุกร์|wan sùk}}"],
+          ["Tuesday","{{วันอังคาร|wan ang-kaan}}","Saturday","{{วันเสาร์|wan sǎo}}"],
+          ["Wednesday","{{วันพุธ|wan pút}}","Sunday","{{วันอาทิตย์|wan aa-tít}}"],
+          ["Thursday","{{วันพฤหัส|wan pá-rʉ́-hàt}}","",""]
+        ] },
+        {"p":"**Dates.** The day of the month is {{วันที่|wan tîi}} + the number: {{วันที่สิบห้า|wan-tîi sìp-hâa}} “the 15th”. The month comes after: {{วันที่ห้าเดือนมีนาคม|wan-tîi hâa dʉʉan mii-naa-kom}} “March 5th”. “What's the date today?” is {{วันนี้วันที่เท่าไหร่|wan-níi wan tîi tâo-rài}}."},
+        { "table": [
+          ["","Thai","","Thai"],
+          ["January","{{มกราคม|mók-gà-raa-kom}}","July","{{กรกฎาคม|gà-rá-gà-daa-kom}}"],
+          ["February","{{กุมภาพันธ์|gum-paa-pan}}","August","{{สิงหาคม|sǐng-hǎa-kom}}"],
+          ["March","{{มีนาคม|mii-naa-kom}}","September","{{กันยายน|gan-yaa-yon}}"],
+          ["April","{{เมษายน|mee-sǎa-yon}}","October","{{ตุลาคม|dtù-laa-kom}}"],
+          ["May","{{พฤษภาคม|prʉ́t-sà-paa-kom}}","November","{{พฤศจิกายน|prʉ́t-sà-jì-gaa-yon}}"],
+          ["June","{{มิถุนายน|mí-tù-naa-yon}}","December","{{ธันวาคม|tan-waa-kom}}"]
+        ] },
+        {"p":"**First, second: ที่ + a number.** {{ที่|tîi}} before a number makes “-th”, after the classifier: {{ครั้งที่สอง|kráng tîi sɔ̌ɔng}} “the second time”, {{คนที่สาม|kon tîi sǎam}} “the third person”. “First” is usually {{แรก|rɛ̂ɛk}}: {{ครั้งแรก|kráng rɛ̂ɛk}} “the first time”, {{วันแรก|wan rɛ̂ɛk}} “the first day”. “Last” is {{สุดท้าย|sùt-táai}}: {{วันสุดท้าย|wan sùt-táai}} “the last day”."},
+        {"p":"**Making a date.** {{นัด|nát}} is “to arrange to meet; an appointment”: {{นัดกัน|nát gan}} “arrange to meet”, {{มีนัด|mii nát}} “have an appointment”. {{เจอกัน|jəə gan}} “meet”: {{เจอกันพรุ่งนี้|jəə-gan prûng-níi}} “see you tomorrow”."},
+        { "ex": [
+          {"t":"วันนี้วันอะไรครับ","r":"wan-níi wan à-rai kráp","tr":"What day is it today?"},
+          {"t":"วันเสาร์นี้ว่างไหมคะ","r":"wan sǎo níi wâang mǎi ká","tr":"Are you free this Saturday?"},
+          {"t":"ฉันเกิดวันที่สิบสองเดือนสิงหาคมค่ะ","r":"chǎn gə̀ət wan tîi sìp-sɔ̌ɔng dʉʉan sǐng-hǎa-kom kâ","tr":"I was born on August 12th."},
+          {"t":"นี่เป็นครั้งที่สองที่ผมมาที่นี่ครับ","r":"nîi bpen kráng tîi sɔ̌ɔng tîi pǒm maa tîi-nîi kráp","tr":"This is the second time I've been here."},
+          {"t":"เขาเป็นลูกคนที่สองค่ะ","r":"kǎo bpen lûuk kon tîi sɔ̌ɔng kâ","tr":"She's the second child."},
+          {"t":"พรุ่งนี้ฉันมีนัดหมอตอนสิบโมงค่ะ","r":"prûng-níi chǎn mii nát mɔ̌ɔ dtɔɔn sìp moong kâ","tr":"I have a doctor's appointment at ten tomorrow."},
+          {"t":"วันจันทร์หน้าเจอกันนะครับ","r":"wan jan nâa jəə gan ná kráp","tr":"See you next Monday."}
+        ] },
+        {"tip":"The months' endings tell you their length: those ending in {{คม|kom}} have 31 days, those in {{ยน|yon}} 30, and February ({{กุมภาพันธ์|gum-paa-pan}}) ends in {{พันธ์|pan}}. In speech the ending is often dropped: {{มีนา|mii-naa}} “March”."}
+      ],
+      "mistakes": [
+        {"wrong":"ครั้งสองที่","right":"ครั้งที่สอง","tr":"the second time","why":"The classifier, then {{ที่|tîi}}, then the number."},
+        {"wrong":"นี่เป็นสองครั้งที่ผมมา","right":"นี่เป็นครั้งที่สองที่ผมมา","tr":"This is the second time I've come.","why":"{{สองครั้ง|sɔ̌ɔng kráng}} is “twice, two times”. “The second (time)” puts {{ที่|tîi}} before the number: {{ครั้งที่สอง|kráng tîi sɔ̌ɔng}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“The third person” is…","options":["{{คนที่สาม|kon tîi sǎam}}","{{สามคน|sǎam kon}}","{{ที่สามคน|tîi sǎam kon}}"],"answer":0,"why":"Classifier, {{ที่|tîi}}, number. {{สามคน|sǎam kon}} is “three people”."},
+        {"type":"fill","q":"Choose: {{วันไหน|wan nǎi}} “which day” or {{วันที่|wan tîi}} “the date”.","t":"เราจะเจอกัน___คะ","tr":"Which day shall we meet?","options":["วันไหน","วันที่"],"answer":0,"why":"“Which day?” is {{วันไหน|wan nǎi}}."},
+        {"type":"order","q":"Put the words in order.","tr":"See you on Friday at 6 p.m. (a woman speaking)","words":["เจอกัน","วันศุกร์","ตอน","หกโมงเย็น","นะคะ"]},
+        {"type":"dialogue","q":"Booking at a clinic. Choose your replies (you're a man).","from":"tell-the-time","lines":[{"who":"Clinic","t":"จะนัดวันไหนดีคะ","r":"jà nát wan nǎi dii ká","tr":"Which day would you like the appointment?"},{"options":["วันอังคารได้ไหมครับ","วันอังคารเป็นไหมครับ"],"answer":0,"why":"Is it possible? {{ได้ไหม|dâai mǎi}}."},{"who":"Clinic","t":"วันอังคารที่สามนะคะ กี่โมงดีคะ","r":"wan ang-kaan tîi sǎam ná ká, gìi moong dii ká","tr":"Tuesday the 3rd, then. What time?"},{"options":["บ่ายสองโมงครับ","สองบ่ายโมงครับ"],"answer":0,"why":"2 p.m.: {{บ่ายสองโมง|bàai sɔ̌ɔng moong}}."}]},
+        {"type":"say","q":"You're a woman. Ask “Are you free this Saturday?”","answer":"วันเสาร์นี้ว่างไหมคะ","r":"wan sǎo níi wâang mǎi ká"},
+        {"type":"free","q":"Your turn: say when your birthday is, and arrange to meet a friend: the day and the time.","answers":[{"t":"ผมเกิดวันที่สามเดือนมีนาคมครับ เจอกันวันเสาร์บ่ายสามโมงนะครับ","r":"pǒm gə̀ət wan tîi sǎam dʉʉan mii-naa-kom kráp, jəə gan wan sǎo bàai sǎam moong ná kráp","tr":"I was born on March 3rd. See you on Saturday at 3 p.m."},{"t":"ฉันเกิดวันที่ยี่สิบเดือนตุลาคมค่ะ วันอาทิตย์เจอกันสิบโมงเช้าดีไหมคะ","r":"chǎn gə̀ət wan tîi yîi-sìp dʉʉan dtù-laa-kom kâ, wan aa-tít jəə gan sìp moong cháao dii mǎi ká","tr":"I was born on October 20th. How about meeting on Sunday at 10 a.m.?"}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare: bigger, the biggest, the same",
+      "summary": "Compare two things, say which one is the best, and say when things are the same or different.",
+      "topic": "an adjective + {{กว่า|gwàa}} “-er than”; {{มากกว่า|mâak gwàa}}, {{ดีกว่า|dii gwàa}}; an adjective + {{ที่สุด|tîi-sùt}} “the most”; {{เหมือนกัน|mʉ̌ʉan gan}}, {{ต่างกัน|dtàang gan}}, {{เท่ากัน|tâo gan}}",
+      "blocks": [
+        {"goal":{"t":"เชียงใหม่เย็นกว่ากรุงเทพค่ะ","r":"chiiang-mài yen gwàa grung-têep kâ","tr":"Chiang Mai is cooler than Bangkok."}},
+        {"dialog":[{"who":"Anna","t":"โรงแรมนี้กับโรงแรมนั้น ที่ไหนดีกว่าคะ","r":"roong-rɛɛm níi gàp roong-rɛɛm nán, tîi-nǎi dii gwàa ká","tr":"This hotel or that one: which is better?"},{"who":"Nok","t":"ที่นี่ถูกกว่าค่ะ แต่ที่นั่นใกล้ทะเลกว่า","r":"tîi-nîi tùuk gwàa kâ, dtɛ̀ɛ tîi-nân glâi tá-lee gwàa","tr":"This one's cheaper, but that one's closer to the beach."},{"who":"Anna","t":"แล้วที่ไหนสะอาดที่สุดคะ","r":"lɛ́ɛo tîi-nǎi sà-àat tîi-sùt ká","tr":"And which is the cleanest?"},{"who":"Nok","t":"ที่นั่นค่ะ ราคาก็ไม่ต่างกันมาก","r":"tîi-nân kâ, raa-kaa gɔ̂ mâi dtàang gan mâak","tr":"That one. And the prices aren't very different."},{"who":"Anna","t":"งั้นเอาที่นั่นดีกว่าค่ะ","r":"ngán ao tîi-nân dii gwàa kâ","tr":"Then I'd better take that one."}]},
+        {"p":"**-er than: กว่า.** Put {{กว่า|gwàa}} after the adjective, then what you're comparing with: {{แพงกว่า|pɛɛng gwàa}} “more expensive”, {{บ้านฉันใหญ่กว่าบ้านคุณ|bâan chǎn yài gwàa bâan kun}} “my house is bigger than yours”. English has two ways (bigger, more expensive); Thai always has one."},
+        {"p":"**More, less, better.** With a verb, use {{มากกว่า|mâak gwàa}} “more” or {{น้อยกว่า|nɔ́ɔi gwàa}} “less”: {{ผมกินมากกว่าคุณ|pǒm gin mâak-gwàa kun}} “I eat more than you”. {{ดีกว่า|dii gwàa}} “better” also means “had better”: {{ไปพรุ่งนี้ดีกว่า|bpai prûng-níi dii-gwàa}} “we'd better go tomorrow”."},
+        {"p":"**The most: ที่สุด.** {{ที่สุด|tîi-sùt}} after the adjective is “the most, the -est”: {{ร้านนี้อร่อยที่สุด|ráan níi à-rɔ̀i tîi-sùt}} “this place is the tastiest”, {{ใครสูงที่สุด|krai sǔung tîi-sùt}} “who's the tallest?”."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["","{{ใหญ่|yài}}","big"],
+          ["-er","{{ใหญ่กว่า|yài gwàa}}","bigger"],
+          ["-est","{{ใหญ่ที่สุด|yài tîi-sùt}}","the biggest"],
+          ["","{{ดี|dii}}","good"],
+          ["-er","{{ดีกว่า|dii gwàa}}","better"],
+          ["-est","{{ดีที่สุด|dii tîi-sùt}}","the best"]
+        ] },
+        {"p":"**The same, different.** {{เหมือนกัน|mʉ̌ʉan gan}} “the same, alike”, and {{เหมือน|mʉ̌ʉan}} + a noun “like”: {{เหมือนแม่|mʉ̌ʉan mɛ̂ɛ}} “like (her) mom”. {{ต่างกัน|dtàang gan}} “different”, {{คล้ายกัน|kláai gan}} “similar”. {{เท่ากัน|tâo gan}} “equal, the same amount”: {{ราคาเท่ากัน|raa-kaa tâo-gan}} “the same price”."},
+        { "ex": [
+          {"t":"รถไฟถูกกว่าเครื่องบินครับ","r":"rót-fai tùuk gwàa krʉ̂ʉang-bin kráp","tr":"The train is cheaper than the plane."},
+          {"t":"น้องชายฉันสูงกว่าฉันค่ะ","r":"nɔ́ɔng-chaai chǎn sǔung gwàa chǎn kâ","tr":"My younger brother is taller than me."},
+          {"t":"ร้านนี้อร่อยที่สุดในซอยครับ","r":"ráan níi à-rɔ̀i tîi-sùt nai sɔɔi kráp","tr":"This is the best place on the street.","note":"{{ซอย|sɔɔi}}: a side street, a lane"},
+          {"t":"เดือนเมษายนร้อนที่สุดค่ะ","r":"dʉʉan mee-sǎa-yon rɔ́ɔn tîi-sùt kâ","tr":"April is the hottest month."},
+          {"t":"สองคนนี้หน้าเหมือนกันมากครับ","r":"sɔ̌ɔng kon níi nâa mʉ̌ʉan gan mâak kráp","tr":"These two look really alike."},
+          {"t":"ภาษาไทยกับภาษาลาวคล้ายกันค่ะ","r":"paa-sǎa tai gàp paa-sǎa laao kláai gan kâ","tr":"Thai and Lao are similar."}
+        ] },
+        {"tip":"{{ที่สุด|tîi-sùt}} also makes a feeling as strong as it gets: {{ดีใจที่สุด|dii-jai tîi-sùt}} “I'm so happy”, {{รักที่สุด|rák tîi-sùt}} “love you most of all”."}
+      ],
+      "mistakes": [
+        {"wrong":"แพงมากกว่า","right":"แพงกว่า","tr":"more expensive","why":"An adjective takes {{กว่า|gwàa}} straight after it. {{มากกว่า|mâak gwàa}} is “more” with a verb or a noun."},
+        {"wrong":"เขากว่าสูงฉัน","right":"เขาสูงกว่าฉัน","tr":"He's taller than me.","why":"The adjective first, then {{กว่า|gwàa}}, then the one you compare with."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{กว่า|gwàa}} “-er than” or {{ที่สุด|tîi-sùt}} “the most”.","t":"รถไฟถูก___เครื่องบินครับ","tr":"The train is cheaper than the plane.","options":["กว่า","ที่สุด"],"answer":0,"why":"Comparing two things: {{กว่า|gwàa}}."},
+        {"type":"choice","q":"“This is the best restaurant” is…","options":["{{ร้านนี้ดีที่สุด|ráan níi dii tîi-sùt}}","{{ร้านนี้ดีกว่า|ráan níi dii gwàa}}","{{ร้านนี้ที่สุดดี|ráan níi tîi-sùt dii}}"],"answer":0,"why":"The best of all: {{ดีที่สุด|dii tîi-sùt}}, with {{ที่สุด|tîi-sùt}} after the adjective."},
+        {"type":"order","q":"Put the words in order.","tr":"Chiang Mai is cooler than Bangkok. (a woman speaking)","words":["เชียงใหม่","เย็น","กว่า","กรุงเทพ","ค่ะ"]},
+        {"type":"dialogue","q":"Fon asks what you prefer. Choose your replies (you're a man).","from":"like-and-dislike","lines":[{"who":"Fon","t":"ชอบทะเลหรือภูเขามากกว่าคะ","r":"chɔ̂ɔp tá-lee rʉ̌ʉ puu-kǎo mâak gwàa ká","tr":"Which do you prefer, the sea or the mountains?"},{"options":["ชอบทะเลมากกว่าครับ","ชอบทะเลกว่ามากครับ"],"answer":0,"why":"Prefer: {{ชอบ…มากกว่า|chɔ̂ɔp … mâak gwàa}}."},{"who":"Fon","t":"ทำไมคะ","r":"tam-mai ká","tr":"Why?"},{"options":["เพราะว่าภูเขาหนาวกว่าครับ","เพราะว่าภูเขากว่าหนาวครับ"],"answer":0,"why":"The adjective, then {{กว่า|gwàa}}: {{หนาวกว่า|nǎao gwàa}} “colder”."}]},
+        {"type":"say","q":"You're a man. Say “Chiang Mai is cooler than Bangkok.”","answer":"เชียงใหม่เย็นกว่ากรุงเทพครับ","r":"chiiang-mài yen gwàa grung-têep kráp"},
+        {"type":"free","q":"Your turn: compare two places or two dishes you know, and say which is the best of all.","answers":[{"t":"ผัดไทยอร่อยกว่าข้าวผัดครับ แต่ต้มยำอร่อยที่สุด","r":"pàt-tai à-rɔ̀i gwàa kâao-pàt kráp, dtɛ̀ɛ dtôm-yam à-rɔ̀i tîi-sùt","tr":"Pad thai is tastier than fried rice, but tom yum is the best of all."},{"t":"ภูเก็ตสวยกว่าพัทยาค่ะ แต่เชียงใหม่สวยที่สุด","r":"puu-gèt sǔai gwàa pát-tá-yaa kâ, dtɛ̀ɛ chiiang-mài sǔai tîi-sùt","tr":"Phuket is prettier than Pattaya, but Chiang Mai is the prettiest."}]}
+      ]
+    },
+    {
+      "id": "describe-in-detail",
+      "unit": 6,
+      "level": "A2",
+      "title": "Describe things in detail",
+      "summary": "Say exactly which one you mean (the small black bag, the red car) and say “too” and “rather”.",
+      "topic": "noun + classifier + adjective ({{กระเป๋าใบเล็ก|grà-bpǎo bai lék}}); {{สี|sǐi}} + a color; {{เกินไป|gəən bpai}} “too”; {{ค่อนข้าง|kɔ̂n-kâang}} “rather”; {{พอดี|pɔɔ-dii}}; doubled adjectives ({{เล็กๆ|lék-lék}})",
+      "blocks": [
+        {"goal":{"t":"ฉันอยากได้กระเป๋าใบเล็กๆ สีดำค่ะ","r":"chǎn yàak dâai grà-bpǎo bai lék-lék sǐi dam kâ","tr":"I'd like a small black bag."}},
+        {"dialog":[{"who":"Seller","t":"หาอะไรอยู่คะ","r":"hǎa à-rai yùu ká","tr":"Looking for something?"},{"who":"Tom","t":"ผมอยากได้เสื้อเชิ้ตสีขาวครับ","r":"pǒm yàak dâai sʉ̂ʉa-chə́ət sǐi kǎao kráp","tr":"I'd like a white shirt."},{"who":"Seller","t":"ตัวนี้ไหมคะ","r":"dtuua níi mǎi ká","tr":"How about this one?"},{"who":"Tom","t":"ตัวนี้เล็กเกินไปครับ มีตัวใหญ่กว่านี้ไหมครับ","r":"dtuua níi lék gəən bpai kráp, mii dtuua yài gwàa níi mǎi kráp","tr":"This one's too small. Do you have a bigger one?"},{"who":"Seller","t":"มีค่ะ ลองตัวนี้ดูนะคะ","r":"mii kâ, lɔɔng dtuua níi duu ná ká","tr":"Yes. Try this one."},{"who":"Tom","t":"ตัวนี้พอดีครับ แต่ค่อนข้างแพงนะครับ","r":"dtuua níi pɔɔ-dii kráp, dtɛ̀ɛ kɔ̂n-kâang pɛɛng ná kráp","tr":"This one fits. But it's rather expensive."}]},
+        {"p":"**Which one exactly: classifier + adjective.** To pick out one particular thing, Thai puts its classifier between the noun and the adjective: {{กระเป๋าใบเล็ก|grà-bpǎo bai lék}} “the small bag” (bag, classifier, small), {{รถคันสีแดง|rót kan sǐi dɛɛng}} “the red car”. Without the classifier, {{กระเป๋าเล็ก|grà-bpǎo lék}} is just “a small bag”, any small bag. And when you leave out the noun, the classifier stands for it: {{ตัวใหญ่|dtuua yài}} “a big one” (a shirt)."},
+        {"p":"**Colors.** A color is {{สี|sǐi}} “color” + the color word: {{สีแดง|sǐi dɛɛng}} “red”, {{เสื้อสีฟ้า|sʉ̂ʉa sǐi fáa}} “a light-blue shirt”."},
+        { "table": [
+          ["","Thai","","Thai"],
+          ["red","{{สีแดง|sǐi dɛɛng}}","black","{{สีดำ|sǐi dam}}"],
+          ["blue","{{สีน้ำเงิน|sǐi nám-ngən}}","white","{{สีขาว|sǐi kǎao}}"],
+          ["light blue","{{สีฟ้า|sǐi fáa}}","green","{{สีเขียว|sǐi kǐao}}"],
+          ["yellow","{{สีเหลือง|sǐi lʉ̌ʉang}}","pink","{{สีชมพู|sǐi chom-puu}}"]
+        ] },
+        {"p":"**Too, rather, just right.** {{เกินไป|gəən bpai}} goes after the adjective: {{เล็กเกินไป|lék gəən-bpai}} “too small”. {{ค่อนข้าง|kɔ̂n-kâang}} goes before it: {{ค่อนข้างแพง|kɔ̂n-kâang pɛɛng}} “rather expensive”. {{พอดี|pɔɔ-dii}} is “just right, it fits”."},
+        {"p":"**Doubled adjectives.** Saying an adjective twice softens it, or makes it sound friendly and vivid: {{เล็กๆ|lék-lék}} “nice and small”, {{สวยๆ|sǔai-sǔai}} “lovely”, {{ร้อนๆ|rɔ́ɔn-rɔ́ɔn}} “nice and hot”. You'll hear it all the time in shops and with food."},
+        { "ex": [
+          {"t":"ผมชอบรถคันสีแดงครับ","r":"pǒm chɔ̂ɔp rót kan sǐi dɛɛng kráp","tr":"I like the red car."},
+          {"t":"ผู้ชายคนสูงๆ คนนั้นเป็นใครคะ","r":"pûu-chaai kon sǔung-sǔung kon nán bpen krai ká","tr":"Who's that tall man?"},
+          {"t":"ห้องนี้ร้อนเกินไปค่ะ","r":"hɔ̂ng níi rɔ́ɔn gəən bpai kâ","tr":"This room is too hot."},
+          {"t":"ภาษาไทยค่อนข้างยากครับ","r":"paa-sǎa tai kɔ̂n-kâang yâak kráp","tr":"Thai is rather difficult."},
+          {"t":"ขอกาแฟร้อนๆ แก้วหนึ่งค่ะ","r":"kɔ̌ɔ gaa-fɛɛ rɔ́ɔn-rɔ́ɔn gɛ̂ɛo nʉ̀ng kâ","tr":"A nice hot coffee, please."},
+          {"t":"รองเท้าคู่นี้พอดีครับ","r":"rɔɔng-táao kûu níi pɔɔ-dii kráp","tr":"These shoes fit perfectly."},
+          {"t":"เขามีบ้านหลังใหญ่ใกล้ทะเลค่ะ","r":"kǎo mii bâan lǎng yài glâi tá-lee kâ","tr":"She has a big house near the sea."}
+        ] },
+        {"tip":"Two new classifiers here: {{คู่|kûu}} for pairs (shoes, socks, earrings) and {{หลัง|lǎng}} for houses."}
+      ],
+      "mistakes": [
+        {"wrong":"แดงสีเสื้อ","right":"เสื้อสีแดง","tr":"a red shirt","why":"The thing first, then {{สี|sǐi}} and the color."},
+        {"wrong":"เกินไปเล็ก","right":"เล็กเกินไป","tr":"too small","why":"{{เกินไป|gəən bpai}} goes after the adjective."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{เกินไป|gəən bpai}} “too” or {{ค่อนข้าง|kɔ̂n-kâang}} “rather”.","t":"เสื้อตัวนี้ใหญ่___ครับ","tr":"This shirt is too big.","options":["เกินไป","ค่อนข้าง"],"answer":0,"why":"After the adjective: {{เกินไป|gəən bpai}}. ({{ค่อนข้าง|kɔ̂n-kâang}} would go before it.)"},
+        {"type":"choice","q":"“The black bag” (that one, not the red one) is…","options":["{{กระเป๋าใบสีดำ|grà-bpǎo bai sǐi dam}}","{{สีดำกระเป๋า|sǐi dam grà-bpǎo}}","{{กระเป๋าดำสี|grà-bpǎo dam sǐi}}"],"answer":0,"why":"Noun, classifier, then the color: {{กระเป๋าใบสีดำ|grà-bpǎo bai sǐi dam}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like a small black bag. (a woman speaking)","words":["ฉัน","อยากได้","กระเป๋า","ใบเล็กๆ","สีดำ","ค่ะ"]},
+        {"type":"dialogue","q":"Buying a shirt at the market. Choose your replies (you're a man).","from":"this-one-how-much","lines":[{"who":"Seller","t":"เอาตัวไหนคะ","r":"ao dtuua nǎi ká","tr":"Which one would you like?"},{"options":["เอาตัวสีฟ้าครับ","เอาสีฟ้าตัวครับ"],"answer":0,"why":"The classifier, then the color: {{ตัวสีฟ้า|dtuua sǐi fáa}} “the light-blue one”."},{"who":"Seller","t":"ตัวนี้สามร้อยค่ะ","r":"dtuua níi sǎam rɔ́ɔi kâ","tr":"This one is three hundred."},{"options":["แพงเกินไปครับ ลดได้ไหมครับ","เกินไปแพงครับ ลดได้ไหมครับ"],"answer":0,"why":"{{เกินไป|gəən bpai}} after the adjective: {{แพงเกินไป|pɛɛng gəən-bpai}} “too expensive”."}]},
+        {"type":"say","q":"You're a man. Say “This room is too hot.”","answer":"ห้องนี้ร้อนเกินไปครับ","r":"hɔ̂ng níi rɔ́ɔn gəən bpai kráp"},
+        {"type":"free","q":"Your turn: describe something you'd like to buy: what it is, its color, its size.","answers":[{"t":"ผมอยากได้รองเท้าคู่ใหม่ครับ สีดำ ไม่ใหญ่เกินไป","r":"pǒm yàak dâai rɔɔng-táao kûu mài kráp, sǐi dam, mâi yài gəən bpai","tr":"I'd like a new pair of shoes. Black, not too big."},{"t":"ฉันอยากได้กระเป๋าใบเล็กๆ สีชมพูค่ะ ไม่แพงเกินไป","r":"chǎn yàak dâai grà-bpǎo bai lék-lék sǐi chom-puu kâ, mâi pɛɛng gəən bpai","tr":"I'd like a small pink bag, not too expensive."}]}
+      ]
+    },
+    {
+      "id": "how-much-and-how-many",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how much and how many",
+      "summary": "Talk about quantities: every, some, many, each, all, only a few, a lot, a little, about.",
+      "topic": "{{ทุก|túk}}, {{บาง|baang}}, {{หลาย|lǎai}}, {{แต่ละ|dtɛ̀ɛ-lá}}, {{ไม่กี่|mâi gìi}} + a classifier; {{ทั้งหมด|táng-mòt}}; {{เยอะ|yə́}}, {{นิดหน่อย|nít-nɔ̀i}}; {{ประมาณ|bprà-maan}}",
+      "blocks": [
+        {"goal":{"t":"ทุกคนชอบอาหารร้านนี้ค่ะ","r":"túk kon chɔ̂ɔp aa-hǎan ráan níi kâ","tr":"Everyone loves the food here."}},
+        {"dialog":[{"who":"Nok","t":"งานวันเกิดพรุ่งนี้มีกี่คนคะ","r":"ngaan wan-gə̀ət prûng-níi mii gìi kon ká","tr":"How many people are coming to the birthday party tomorrow?"},{"who":"Tom","t":"ประมาณยี่สิบคนครับ บางคนมาไม่ได้","r":"bprà-maan yîi-sìp kon kráp, baang kon maa mâi dâai","tr":"About twenty. Some can't come."},{"who":"Nok","t":"ต้องซื้อเค้กกี่ก้อนคะ","r":"dtɔ̂ng sʉ́ʉ kéek gìi gɔ̂ɔn ká","tr":"How many cakes do we need?"},{"who":"Tom","t":"สองก้อนพอครับ แต่ละคนกินไม่เยอะ","r":"sɔ̌ɔng gɔ̂ɔn pɔɔ kráp, dtɛ̀ɛ-lá kon gin mâi yə́","tr":"Two is enough. Nobody eats much."},{"who":"Nok","t":"แล้วน้ำล่ะคะ","r":"lɛ́ɛo náam lâ ká","tr":"And drinks?"},{"who":"Tom","t":"ซื้อหลายๆ ขวดเลยครับ อากาศร้อน ทุกคนจะหิวน้ำ","r":"sʉ́ʉ lǎai-lǎai kùuat ləəi kráp, aa-gàat rɔ́ɔn, túk kon jà hǐu náam","tr":"Buy lots of bottles. It's hot, everyone will be thirsty."}]},
+        {"p":"**With a classifier.** The words for “every”, “some”, “many” and “each” go *before* a classifier: {{ทุกคน|túk kon}} “everyone”, {{บางวัน|baang wan}} “some days”, {{หลายครั้ง|lǎai kráng}} “many times”, {{แต่ละคน|dtɛ̀ɛ-lá kon}} “each person”. The noun can come first: {{นักเรียนทุกคน|nák-riian túk-kon}} “every student”."},
+        { "table": [
+          ["word","meaning","example"],
+          ["{{ทุก|túk}}","every, all","{{ทุกวัน|túk wan}} every day"],
+          ["{{บาง|baang}}","some","{{บางคน|baang kon}} some people"],
+          ["{{หลาย|lǎai}}","many, several","{{หลายปี|lǎai bpii}} many years"],
+          ["{{แต่ละ|dtɛ̀ɛ-lá}}","each","{{แต่ละห้อง|dtɛ̀ɛ-lá hɔ̂ng}} each room"],
+          ["{{ไม่กี่|mâi gìi}}","only a few","{{ไม่กี่วัน|mâi gìi wan}} only a few days"]
+        ] },
+        {"p":"**All, a lot, a little.** {{ทั้งหมด|táng-mòt}} “all, in total” goes after: {{ทั้งหมดเท่าไหร่|táng-mòt tâo-rài}} “how much is it all together?”. {{เยอะ|yə́}} “a lot, lots” (or {{มาก|mâak}}), {{นิดหน่อย|nít-nɔ̀i}} “a little”, {{ไม่เยอะ|mâi yə́}} “not much” go after the verb or the noun: {{คนเยอะ|kon yə́}} “lots of people, crowded”."},
+        {"p":"**About.** {{ประมาณ|bprà-maan}} “about, around” goes before a number: {{ประมาณยี่สิบคน|bprà-maan yîi-sìp kon}} “about twenty people”."},
+        { "ex": [
+          {"t":"บางคนไม่กินเนื้อครับ","r":"baang kon mâi gin nʉ́ʉa kráp","tr":"Some people don't eat beef."},
+          {"t":"ผมไปเชียงใหม่มาหลายครั้งแล้วครับ","r":"pǒm bpai chiiang-mài maa lǎai kráng lɛ́ɛo kráp","tr":"I've been to Chiang Mai many times."},
+          {"t":"แต่ละห้องมีห้องน้ำค่ะ","r":"dtɛ̀ɛ-lá hɔ̂ng mii hɔ̂ng-náam kâ","tr":"Each room has a bathroom."},
+          {"t":"เขาอยู่ที่นี่ไม่กี่วันครับ","r":"kǎo yùu tîi-nîi mâi gìi wan kráp","tr":"He's only here for a few days."},
+          {"t":"วันเสาร์ตลาดคนเยอะมากค่ะ","r":"wan sǎo dtà-làat kon yə́ mâak kâ","tr":"The market is really crowded on Saturdays."},
+          {"t":"ทั้งหมดสามร้อยห้าสิบบาทครับ","r":"táng-mòt sǎam rɔ́ɔi hâa-sìp bàat kráp","tr":"That's three hundred fifty baht altogether."}
+        ] },
+        {"tip":"{{ทุก|túk}} + a time word gives “every …”: {{ทุกวัน|túk wan}}, {{ทุกเช้า|túk cháao}}, {{ทุกปี|túk bpii}}. And {{บางที|baang-tii}} “sometimes” is {{บาง|baang}} “some” + {{ที|tii}} “time, turn”."}
+      ],
+      "mistakes": [
+        {"wrong":"คนทุกชอบร้านนี้ค่ะ","right":"ทุกคนชอบร้านนี้ค่ะ","tr":"Everyone loves this place.","why":"{{ทุก|túk}} goes before the classifier: {{ทุกคน|túk kon}}."},
+        {"wrong":"ฉันมีหลายเพื่อนค่ะ","right":"ฉันมีเพื่อนหลายคนค่ะ","tr":"I have lots of friends.","why":"{{หลาย|lǎai}} goes with a classifier: the noun first, then {{หลาย|lǎai}} + {{คน|kon}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{บาง|baang}} “some” or {{ทุก|túk}} “every”.","t":"___คนไม่ชอบทุเรียนค่ะ","tr":"Some people don't like durian.","options":["บาง","ทุก"],"answer":0,"why":"Some, not all: {{บางคน|baang kon}}."},
+        {"type":"choice","q":"“Each room has a TV.”","options":["{{แต่ละห้องมีทีวี|dtɛ̀ɛ-lá hɔ̂ng mii tii-wii}}","{{ห้องแต่ละมีทีวี|hɔ̂ng dtɛ̀ɛ-lá mii tii-wii}}","{{ทุกห้องทีวี|túk hɔ̂ng tii-wii}}"],"answer":0,"why":"{{แต่ละ|dtɛ̀ɛ-lá}} before the classifier ({{ห้อง|hɔ̂ng}} counts itself), and {{มี|mii}} “has”."},
+        {"type":"order","q":"Put the words in order.","tr":"I've been to Chiang Mai many times. (a man speaking)","words":["ผม","ไป","เชียงใหม่","มา","หลายครั้ง","แล้ว","ครับ"]},
+        {"type":"dialogue","q":"Booking a table for a group. Choose your replies (you're a man).","from":"count-things","lines":[{"who":"Waiter","t":"กี่ท่านคะ","r":"gìi tâan ká","tr":"How many people?"},{"options":["ประมาณสิบคนครับ","สิบประมาณคนครับ"],"answer":0,"why":"{{ประมาณ|bprà-maan}} goes before the number."},{"who":"Waiter","t":"ทุกคนกินเผ็ดได้ไหมคะ","r":"túk kon gin pèt dâai mǎi ká","tr":"Can everyone eat spicy food?"},{"options":["บางคนกินไม่ได้ครับ","คนบางกินไม่ได้ครับ"],"answer":0,"why":"{{บาง|baang}} before the classifier: {{บางคน|baang kon}}."}]},
+        {"type":"say","q":"You're a woman. Say “The market is really crowded on Saturdays.”","answer":"วันเสาร์ตลาดคนเยอะมากค่ะ","r":"wan sǎo dtà-làat kon yə́ mâak kâ"},
+        {"type":"free","q":"Your turn: talk about people you know or places you've been, with every, some or many.","answers":[{"t":"เพื่อนผมทุกคนชอบฟุตบอลครับ บางคนเล่นทุกอาทิตย์","r":"pʉ̂ʉan pǒm túk kon chɔ̂ɔp fút-bɔn kráp, baang kon lên túk aa-tít","tr":"All my friends like soccer. Some play every week."},{"t":"ฉันไปญี่ปุ่นมาหลายครั้งแล้วค่ะ แต่ละครั้งไปไม่กี่วัน","r":"chǎn bpai yîi-bpùn maa lǎai kráng lɛ́ɛo kâ, dtɛ̀ɛ-lá kráng bpai mâi gìi wan","tr":"I've been to Japan many times. Each time I go for just a few days."}]}
+      ]
     }
   ]
 }
