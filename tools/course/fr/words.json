@@ -2698,8 +2698,8 @@
       "word": "possible",
       "pos": "adj",
       "meaning": "possible",
-      "sentence": "C'est possible de payer par carte ?",
-      "translation": "Is it ⟦possible⟧ to pay by card?"
+      "sentence": "C'est possible de réserver une table pour ce soir ?",
+      "translation": "Is it ⟦possible⟧ to book a table for tonight?"
     },
     {
       "n": 293,
@@ -2764,8 +2764,8 @@
       "word": "début",
       "pos": "noun",
       "meaning": "beginning, start",
-      "sentence": "Je commence au début du mois.",
-      "translation": "I start at the ⟦beginning⟧ of the month."
+      "sentence": "J'ai raté le début du film.",
+      "translation": "I missed the ⟦beginning⟧ of the film."
     },
     {
       "n": 300,
