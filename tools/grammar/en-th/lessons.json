@@ -923,6 +923,235 @@
         {"type":"say","q":"You're a woman. Say “This is my older brother.”","answer":"นี่คือพี่ชายของฉันค่ะ","r":"nîi kʉʉ pîi-chaai kɔ̌ɔng chǎn kâ"},
         {"type":"free","q":"Your turn: talk about someone in your family: who they are, how old, what they do.","answers":[{"t":"ผมมีพี่ชายหนึ่งคนครับ เขาอายุสามสิบสองปี เขาเป็นวิศวกร","r":"pǒm mii pîi-chaai nʉ̀ng kon kráp, kǎo aa-yú sǎam-sìp-sɔ̌ɔng bpii, kǎo bpen wít-sà-wá-gɔɔn","tr":"I have one older brother. He's thirty-two. He's an engineer."},{"t":"แม่ฉันอายุหกสิบปีค่ะ เขาเป็นครูค่ะ","r":"mɛ̂ɛ chǎn aa-yú hòk-sìp bpii kâ, kǎo bpen kruu kâ","tr":"My mom is sixty. She's a teacher."}]}
       ]
+    },
+    {
+      "id": "whats-happening-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you're doing right now",
+      "summary": "Say what you're in the middle of, and ask what someone is up to: on the phone, in a message, face to face.",
+      "topic": "{{กำลัง|gam-lang}} + a verb (+ {{อยู่|yùu}}); a verb + {{อยู่|yùu}}; {{ทำอะไรอยู่|tam à-rai yùu}}",
+      "blocks": [
+        {"goal":{"t":"ผมกำลังทำอาหารอยู่ครับ","r":"pǒm gam-lang tam aa-hǎan yùu kráp","tr":"I'm cooking right now."}},
+        {"dialog":[{"who":"Nok","t":"ฮัลโหล ทอม ทำอะไรอยู่คะ","r":"han-lǒo, tɔm, tam à-rai yùu ká","tr":"Hello, Tom. What are you doing?"},{"who":"Tom","t":"กำลังทำอาหารอยู่ครับ","r":"gam-lang tam aa-hǎan yùu kráp","tr":"I'm cooking."},{"who":"Nok","t":"ทำอะไรกินคะ","r":"tam à-rai gin ká","tr":"What are you making?"},{"who":"Tom","t":"ผัดกะเพราครับ ตอนนี้คุณอยู่ไหนครับ","r":"pàt gà-prao kráp, dtɔɔn-níi kun yùu nǎi kráp","tr":"Stir-fried basil. Where are you now?"},{"who":"Nok","t":"อยู่บนรถเมล์ค่ะ กำลังกลับบ้าน","r":"yùu bon rót-mee kâ, gam-lang glàp bâan","tr":"On the bus. I'm on my way home."},{"who":"Tom","t":"เดี๋ยวผมโทรกลับนะครับ มือไม่ว่าง","r":"dǐao pǒm too glàp ná kráp, mʉʉ mâi wâang","tr":"I'll call you back. My hands are full."}]},
+        {"p":"**Right now: กำลัง.** Put {{กำลัง|gam-lang}} before the verb to say something is going on at this moment: {{ผมกำลังกิน|pǒm gam-lang gin}} “I'm eating”. Thais often add {{อยู่|yùu}} at the end as well: {{กำลังกินอยู่|gam-lang gin yùu}}. One of the two is enough; both together is very common."},
+        {"p":"**อยู่ after a verb.** On its own after a verb (or after what follows the verb), {{อยู่|yùu}} also means “in the middle of, still at it”: {{ทำอะไรอยู่|tam à-rai yùu}} “what are you doing?”, {{เขานอนอยู่|kǎo nɔɔn yùu}} “he's asleep”. It's the same {{อยู่|yùu}} as “to be somewhere”: you *are* in that activity."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["{{กำลัง|gam-lang}} + a verb","{{กำลังมา|gam-lang maa}}","on the way, coming"],
+          ["a verb + {{อยู่|yùu}}","{{อาบน้ำอยู่|àap-náam yùu}}","in the shower"],
+          ["both","{{กำลังประชุมอยู่|gam-lang bprà-chum yùu}}","in a meeting right now"]
+        ] },
+        {"p":"**Asking.** {{ทำอะไรอยู่|tam à-rai yùu}} “what are you doing (right now)?” is the classic phone and message question. Without {{อยู่|yùu}}, {{ทำอะไร|tam à-rai}} can also mean “what do you do?” in general."},
+        {"p":"**Not only now.** {{กำลัง|gam-lang}} just says “in progress”; the time comes from the rest of the sentence. With a past moment it's “was …ing”: {{ตอนคุณโทรมา ผมกำลังอาบน้ำอยู่|dtɔɔn kun too maa pǒm gam-lang àap náam yùu}} “when you called, I was in the shower”."},
+        { "ex": [
+          {"t":"ฉันกำลังเรียนภาษาไทยอยู่ค่ะ","r":"chǎn gam-lang riian paa-sǎa tai yùu kâ","tr":"I'm studying Thai."},
+          {"t":"เขากำลังมาครับ","r":"kǎo gam-lang maa kráp","tr":"She's on her way."},
+          {"t":"ฝนกำลังตกค่ะ","r":"fǒn gam-lang dtòk kâ","tr":"It's raining.","note":"“rain is falling”"},
+          {"t":"แม่นอนอยู่ครับ พูดเบาๆ หน่อย","r":"mɛ̂ɛ nɔɔn yùu kráp, pûut bao-bao nɔ̀i","tr":"Mom's asleep. Speak quietly, please."},
+          {"t":"ตอนนี้ผมกำลังยุ่งอยู่ครับ","r":"dtɔɔn-níi pǒm gam-lang yûng yùu kráp","tr":"I'm busy right now."},
+          {"t":"คุณกำลังทำอะไรอยู่คะ","r":"kun gam-lang tam à-rai yùu ká","tr":"What are you doing?"}
+        ] },
+        {"tip":"On the phone Thais answer {{ฮัลโหล|han-lǒo}} “hello”, and finish with {{แค่นี้ก่อนนะ|kɛ̂ɛ níi gɔ̀ɔn ná}} “that's all for now”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมเป็นกินข้าวอยู่ครับ","right":"ผมกำลังกินข้าวอยู่ครับ","tr":"I'm eating.","why":"English “am eating” has a “be”; Thai doesn't. {{กำลัง|gam-lang}} and {{อยู่|yùu}} do the work of “-ing”: no {{เป็น|bpen}}."},
+        {"wrong":"ผมกินกำลังข้าวครับ","right":"ผมกำลังกินข้าวครับ","tr":"I'm eating.","why":"{{กำลัง|gam-lang}} goes right before the verb; {{อยู่|yùu}}, if you add it, at the end."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{กำลัง|gam-lang}} “in the middle of” or {{อยาก|yàak}} “want to”.","t":"ฉัน___ทำงานอยู่ค่ะ","tr":"I'm working right now.","options":["กำลัง","อยาก"],"answer":0,"why":"Happening now: {{กำลัง…อยู่|gam-lang … yùu}}."},
+        {"type":"choice","q":"A friend messages {{ทำอะไรอยู่|tam à-rai yùu}}. You're watching TV. You reply…","options":["{{ดูทีวีอยู่ครับ|duu tii-wii yùu kráp}}","{{อยู่ดูทีวีครับ|yùu duu tii-wii kráp}}","{{เป็นดูทีวีครับ|bpen duu tii-wii kráp}}"],"answer":0,"why":"The verb first, {{อยู่|yùu}} after it."},
+        {"type":"order","q":"Put the words in order.","tr":"It's raining. (a woman speaking)","words":["ฝน","กำลัง","ตก","ค่ะ"]},
+        {"type":"dialogue","q":"Your mom calls. Choose your replies (you're a man).","from":"say-where-it-is","lines":[{"who":"Mom","t":"ลูกอยู่ไหน","r":"lûuk yùu nǎi","tr":"Where are you, dear?"},{"options":["อยู่ที่ร้านกาแฟครับ","เป็นที่ร้านกาแฟครับ"],"answer":0,"why":"Where you are: {{อยู่|yùu}}."},{"who":"Mom","t":"ทำอะไรอยู่","r":"tam à-rai yùu","tr":"What are you doing?"},{"options":["กำลังอ่านหนังสืออยู่ครับ","กำลังอ่านหนังสือเป็นครับ"],"answer":0,"why":"{{กำลัง|gam-lang}} … {{อยู่|yùu}}: no {{เป็น|bpen}}."}]},
+        {"type":"say","q":"You're a woman. Tell a friend on the phone: “I'm on the bus, on my way home.”","answer":"ฉันอยู่บนรถเมล์ค่ะ กำลังกลับบ้าน","r":"chǎn yùu bon rót-mee kâ, gam-lang glàp bâan"},
+        {"type":"free","q":"Your turn: someone messages you {{ทำอะไรอยู่|tam à-rai yùu}}. Say what you're doing, and where you are.","answers":[{"t":"ผมกำลังเรียนภาษาไทยอยู่ครับ อยู่ที่บ้าน","r":"pǒm gam-lang riian paa-sǎa tai yùu kráp, yùu tîi bâan","tr":"I'm studying Thai. I'm at home."},{"t":"ฉันกำลังกินข้าวกับเพื่อนอยู่ค่ะ อยู่ที่ร้านใกล้ที่ทำงาน","r":"chǎn gam-lang gin kâao gàp pʉ̂ʉan yùu kâ, yùu tîi ráan glâi tîi tam-ngaan","tr":"I'm having lunch with a friend, at a place near work."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-will-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you're going to do",
+      "summary": "Talk about your plans for tomorrow, the weekend or next year, and ask about other people's.",
+      "topic": "{{จะ|jà}} + a verb; future time words ({{พรุ่งนี้|prûng-níi}}, {{อาทิตย์หน้า|aa-tít nâa}}, {{ปีหน้า|bpii nâa}}); {{จะ…ไหม|jà … mǎi}}; {{จะไม่|jà mâi}}; {{ไม่…หรอก|mâi … rɔ̀k}}",
+      "blocks": [
+        {"goal":{"t":"พรุ่งนี้ฉันจะไปทะเลค่ะ","r":"prûng-níi chǎn jà bpai tá-lee kâ","tr":"Tomorrow I'm going to the beach."}},
+        {"dialog":[{"who":"Ton","t":"อาทิตย์หน้าคุณจะทำอะไรครับ","r":"aa-tít nâa kun jà tam à-rai kráp","tr":"What are you doing next week?"},{"who":"Anna","t":"ฉันจะไปเชียงใหม่ค่ะ จะไปเที่ยวดอยสุเทพ","r":"chǎn jà bpai chiiang-mài kâ, jà bpai tîao dɔɔi sù-têep","tr":"I'm going to Chiang Mai. I'm going to visit Doi Suthep."},{"who":"Ton","t":"จะไปกี่วันครับ","r":"jà bpai gìi wan kráp","tr":"How many days are you going for?"},{"who":"Anna","t":"สามวันค่ะ คุณจะไปด้วยไหมคะ","r":"sǎam wan kâ, kun jà bpai dûai mǎi ká","tr":"Three days. Will you come too?"},{"who":"Ton","t":"ไม่ไปหรอกครับ ผมต้องทำงาน","r":"mâi bpai rɔ̀k kráp, pǒm dtɔ̂ng tam-ngaan","tr":"I won't, I have to work."}]},
+        {"p":"**จะ: what's coming.** {{จะ|jà}} goes before the verb to say something is going to happen: {{ผมจะไป|pǒm jà bpai}} “I'll go, I'm going to go”. It covers English “will”, “going to” and “I'm (doing it) tomorrow”."},
+        {"p":"**With a time word.** {{จะ|jà}} often comes with a time word at the start or the end: {{พรุ่งนี้ผมจะไปตลาด|prûng níi pǒm jà bpai dtà-làat}} “tomorrow I'm going to the market”. Once the time word makes it clear, quick speech may drop {{จะ|jà}}: {{พรุ่งนี้ไปตลาด|prûng níi bpai dtà-làat}}."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{พรุ่งนี้|prûng-níi}}","tomorrow"],
+          ["{{มะรืนนี้|má-rʉʉn-níi}}","the day after tomorrow"],
+          ["{{คืนนี้|kʉʉn-níi}}","tonight"],
+          ["{{อาทิตย์หน้า|aa-tít nâa}}","next week"],
+          ["{{เดือนหน้า|dʉʉan nâa}}","next month"],
+          ["{{ปีหน้า|bpii nâa}}","next year"],
+          ["{{เดี๋ยว|dǐao}}","in a moment, soon"]
+        ] },
+        {"p":"**Won't, and asking.** “Won't” is {{จะไม่|jà mâi}}: {{ฉันจะไม่บอกใคร|chǎn jà mâi bɔ̀ɔk krai}} “I won't tell anyone”. To ask: {{จะ…ไหม|jà … mǎi}} “will you…?”, or a question word: {{จะไปไหน|jà bpai nǎi}} “where are you going?”. And a soft “no”: {{ไม่…หรอก|mâi … rɔ̀k}}; {{หรอก|rɔ̀k}} at the end of a negative takes the edge off it."},
+        {"p":"**หน้า, “front, next”.** After a word for a time, {{หน้า|nâa}} means “next”: {{อาทิตย์หน้า|aa-tít nâa}} “next week”, {{ปีหน้า|bpii nâa}} “next year”."},
+        { "ex": [
+          {"t":"พรุ่งนี้ผมจะตื่นเช้าครับ","r":"prûng-níi pǒm jà dtʉ̀ʉn cháao kráp","tr":"I'm going to get up early tomorrow."},
+          {"t":"คืนนี้เราจะไปกินข้าวนอกบ้านค่ะ","r":"kʉʉn-níi rao jà bpai gin kâao nɔ̂ɔk bâan kâ","tr":"We're going out to eat tonight."},
+          {"t":"ปีหน้าเขาจะแต่งงานครับ","r":"bpii nâa kǎo jà dtɛ̀ng-ngaan kráp","tr":"She's getting married next year."},
+          {"t":"ฉันจะไม่บอกใครค่ะ","r":"chǎn jà mâi bɔ̀ɔk krai kâ","tr":"I won't tell anyone."},
+          {"t":"คุณจะกลับบ้านกี่โมงครับ","r":"kun jà glàp bâan gìi moong kráp","tr":"What time are you going home?"},
+          {"t":"เดี๋ยวผมจะโทรหานะครับ","r":"dǐao pǒm jà too hǎa ná kráp","tr":"I'll call you in a bit."},
+          {"t":"ฝนจะตกไหมคะ","r":"fǒn jà dtòk mǎi ká","tr":"Is it going to rain?"}
+        ] },
+        {"tip":"{{จะ|jà}} is really about anything that hasn't happened yet. As you leave, Thais say {{จะไปแล้วนะ|jà bpai lɛ́ɛo ná}} “I'm off now”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมไปจะพรุ่งนี้ครับ","right":"พรุ่งนี้ผมจะไปครับ","tr":"I'm going tomorrow.","why":"{{จะ|jà}} goes right before the verb, and the time word at the start (or the end)."},
+        {"wrong":"ฉันไม่จะไปค่ะ","right":"ฉันจะไม่ไปค่ะ","tr":"I won't go.","why":"“Won't” is {{จะไม่|jà mâi}}: {{จะ|jà}} first, then {{ไม่|mâi}}, then the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{จะ|jà}} “will, going to” or {{กำลัง|gam-lang}} “in the middle of”.","t":"ปีหน้าผม___ไปญี่ปุ่นครับ","tr":"Next year I'm going to Japan.","options":["จะ","กำลัง"],"answer":0,"why":"A plan: {{จะ|jà}}. {{กำลัง|gam-lang}} is for what's going on right now."},
+        {"type":"choice","q":"“I won't tell anyone” is…","options":["{{จะไม่บอกใคร|jà mâi bɔ̀ɔk krai}}","{{ไม่จะบอกใคร|mâi jà bɔ̀ɔk krai}}","{{จะบอกไม่ใคร|jà bɔ̀ɔk mâi krai}}"],"answer":0,"why":"{{จะ|jà}}, then {{ไม่|mâi}}, then the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"Tomorrow I'm going to the beach. (a woman speaking)","words":["พรุ่งนี้","ฉัน","จะ","ไป","ทะเล","ค่ะ"],"also":[["ฉัน","จะ","ไป","ทะเล","พรุ่งนี้","ค่ะ"]]},
+        {"type":"dialogue","q":"Weekend plans. Choose your replies (you're a man).","from":"want-to-do","lines":[{"who":"Friend","t":"เสาร์นี้จะทำอะไรคะ","r":"sǎo níi jà tam à-rai ká","tr":"What are you doing this Saturday?"},{"options":["จะไปดูหนังครับ","กำลังดูหนังครับ"],"answer":0,"why":"A plan: {{จะ|jà}}. {{กำลัง|gam-lang}} would mean you're watching one right now."},{"who":"Friend","t":"ดูเรื่องอะไรคะ","r":"duu rʉ̂ʉang à-rai ká","tr":"Which movie?"},{"options":["ยังไม่รู้ครับ อยากดูหนังตลก","ยังไม่รู้ครับ อยากได้หนังตลก"],"answer":0,"why":"Want to *do* something: {{อยาก|yàak}} + a verb, {{อยากดู|yàak duu}}."}]},
+        {"type":"say","q":"You're a man. Say “I'll call you in a bit.”","answer":"เดี๋ยวผมจะโทรหานะครับ","r":"dǐao pǒm jà too hǎa ná kráp"},
+        {"type":"free","q":"Your turn: say two things you're going to do this weekend, or next year.","answers":[{"t":"เสาร์นี้ผมจะไปตลาดนัดครับ แล้วจะไปกินข้าวกับเพื่อน","r":"sǎo níi pǒm jà bpai dtà-làat nát kráp, lɛ́ɛo jà bpai gin kâao gàp pʉ̂ʉan","tr":"This Saturday I'm going to the market, and then I'm having lunch with friends."},{"t":"ปีหน้าฉันจะไปเที่ยวญี่ปุ่นค่ะ จะเรียนภาษาญี่ปุ่นด้วย","r":"bpii nâa chǎn jà bpai tîao yîi-bpùn kâ, jà riian paa-sǎa yîi-bpùn dûai","tr":"Next year I'm going to Japan. I'm going to learn Japanese too."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you can and can't do",
+      "summary": "Say what you're able to do, what you know how to do, and what's allowed: Thai has three words for “can”.",
+      "topic": "a verb + {{ได้|dâai}} (able, allowed); a verb + {{เป็น|bpen}} (know how to); {{สามารถ|sǎa-mâat}} (formal); {{ไม่ได้|mâi dâai}} and {{ไม่เป็น|mâi bpen}}",
+      "blocks": [
+        {"goal":{"t":"ผมพูดภาษาไทยได้นิดหน่อยครับ","r":"pǒm pûut paa-sǎa tai dâai nít-nɔ̀i kráp","tr":"I can speak a little Thai."}},
+        {"dialog":[{"who":"Lek","t":"คุณพูดภาษาไทยได้ไหมคะ","r":"kun pûut paa-sǎa tai dâai mǎi ká","tr":"Can you speak Thai?"},{"who":"Tom","t":"ได้นิดหน่อยครับ แต่อ่านไม่ได้","r":"dâai nít-nɔ̀i kráp, dtɛ̀ɛ àan mâi dâai","tr":"A little. But I can't read it."},{"who":"Lek","t":"ขับรถเป็นไหมคะ","r":"kàp rót bpen mǎi ká","tr":"Do you know how to drive?"},{"who":"Tom","t":"เป็นครับ แต่ที่นี่ผมขับไม่ได้ ไม่มีใบขับขี่","r":"bpen kráp, dtɛ̀ɛ tîi-nîi pǒm kàp mâi dâai, mâi mii bai-kàp-kìi","tr":"Yes. But I can't drive here: I don't have a license."},{"who":"Lek","t":"ว่ายน้ำเป็นไหมคะ","r":"wâai-náam bpen mǎi ká","tr":"Can you swim?"},{"who":"Tom","t":"ไม่เป็นครับ","r":"mâi bpen kráp","tr":"No, I never learned."}]},
+        {"p":"**ได้ after the verb.** “Can” goes at the *end*: the verb, what follows it, then {{ได้|dâai}}: {{พูดภาษาไทยได้|pûut paa-sǎa tai dâai}} “speak Thai can”. It means you're able to, it's possible, or it's allowed. “Can't” is {{ไม่ได้|mâi dâai}}, also at the end: {{อ่านไม่ได้|àan mâi dâai}} “can't read (it)”."},
+        {"p":"**เป็น: know how to.** For a skill you've learned (swimming, driving, cooking, a language), Thais often say the verb + {{เป็น|bpen}}: {{ว่ายน้ำเป็น|wâai náam bpen}} “knows how to swim”, {{ไม่เป็น|mâi bpen}} “never learned how”. Tom's answers show the difference: {{ขับรถเป็น|kàp rót bpen}} “I know how to drive”, but {{ขับไม่ได้|kàp mâi dâai}} “I'm not able to (here)”."},
+        {"p":"**สามารถ: formal.** {{สามารถ|sǎa-mâat}} goes *before* the verb, usually with {{ได้|dâai}} still at the end: {{สามารถจ่ายด้วยบัตรได้|sǎa-mâat jàai dûai bàt dâai}} “(you) can pay by card”. You'll see it on signs and hear it in announcements more than in conversation."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["able, allowed","{{ไปได้|bpai dâai}}","can go"],
+          ["not able, not allowed","{{ไปไม่ได้|bpai mâi dâai}}","can't go"],
+          ["know how","{{ทำอาหารเป็น|tam aa-hǎan bpen}}","can cook"],
+          ["never learned","{{ทำอาหารไม่เป็น|tam aa-hǎan mâi bpen}}","can't cook"],
+          ["formal","{{สามารถใช้ได้|sǎa-mâat chái dâai}}","can be used"]
+        ] },
+        {"p":"**Asking and answering.** {{…ได้ไหม|… dâai mǎi}} “can you…?” and {{…เป็นไหม|… bpen mǎi}} “do you know how to…?”. The answer is {{ได้|dâai}} / {{ไม่ได้|mâi dâai}}, or {{เป็น|bpen}} / {{ไม่เป็น|mâi bpen}}."},
+        { "ex": [
+          {"t":"ผมกินเผ็ดได้ครับ","r":"pǒm gin pèt dâai kráp","tr":"I can eat spicy food."},
+          {"t":"ฉันกินเผ็ดไม่ได้ค่ะ","r":"chǎn gin pèt mâi dâai kâ","tr":"I can't eat spicy food."},
+          {"t":"พรุ่งนี้ผมไปไม่ได้ครับ","r":"prûng-níi pǒm bpai mâi dâai kráp","tr":"I can't go tomorrow."},
+          {"t":"คุณว่ายน้ำเป็นไหมคะ","r":"kun wâai-náam bpen mǎi ká","tr":"Can you swim?"},
+          {"t":"เขาทำอาหารไทยเป็นครับ","r":"kǎo tam aa-hǎan tai bpen kráp","tr":"He knows how to cook Thai food."},
+          {"t":"ที่นี่สูบบุหรี่ไม่ได้ค่ะ","r":"tîi-nîi sùup bù-rìi mâi dâai kâ","tr":"You can't smoke here."},
+          {"t":"ลูกค้าสามารถจ่ายด้วยบัตรเครดิตได้","r":"lûuk-káa sǎa-mâat jàai dûai bàt kree-dìt dâai","tr":"Customers can pay by credit card.","note":"formal, as on a sign: no end word"}
+        ] },
+        {"tip":"{{ได้|dâai}} is a busy word. Before a noun it's “get” ({{ได้เงิน|dâai ngən}} “get money”); at the end of a request, “may I” ({{ได้ไหม|dâai mǎi}}); and before a verb it says whether something happened (a later lesson)."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมได้พูดภาษาไทยครับ","right":"ผมพูดภาษาไทยได้ครับ","tr":"I can speak Thai.","why":"“Can” ({{ได้|dâai}}) goes at the end, after the verb and what follows it. Before the verb, {{ได้|dâai}} means something else."},
+        {"wrong":"ฉันไม่ว่ายน้ำได้ค่ะ","right":"ฉันว่ายน้ำไม่ได้ค่ะ","tr":"I can't swim.","why":"“Can't” is {{ไม่ได้|mâi dâai}}, together, at the end. (For a skill you never learned, {{ว่ายน้ำไม่เป็น|wâai náam mâi bpen}} is even more natural.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ได้|dâai}} “can (able, allowed)” or {{เป็น|bpen}} “know how to”.","t":"ที่นี่จอดรถไม่___ครับ","tr":"You can't park here.","options":["ได้","เป็น"],"answer":0,"why":"Allowed or not: {{ได้|dâai}}."},
+        {"type":"choice","q":"Your friend never learned to drive. She says…","options":["{{ขับรถไม่เป็นค่ะ|kàp rót mâi bpen kâ}}","{{ไม่เป็นขับรถค่ะ|mâi bpen kàp rót kâ}}","{{ขับรถไม่ใช่ค่ะ|kàp rót mâi châi kâ}}"],"answer":0,"why":"A skill never learned: the verb, then {{ไม่เป็น|mâi bpen}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I can speak a little Thai. (a man speaking)","words":["ผม","พูด","ภาษาไทย","ได้","นิดหน่อย","ครับ"]},
+        {"type":"dialogue","q":"Ordering with a peanut allergy. Choose your replies (you're a woman).","from":"ask-for-things","lines":[{"who":"Waiter","t":"รับอะไรดีครับ","r":"ráp à-rai dii kráp","tr":"What would you like?"},{"options":["ขอผัดไทยหนึ่งจานค่ะ แต่ฉันกินถั่วไม่ได้","ขอผัดไทยหนึ่งจานค่ะ แต่ฉันไม่ได้กินถั่ว"],"answer":0,"why":"“Can't eat” is {{กินไม่ได้|gin mâi dâai}}, at the end. ({{ไม่ได้กิน|mâi dâai gin}} means “didn't eat”: a later lesson.)"},{"who":"Waiter","t":"ได้ครับ ไม่ใส่ถั่วนะครับ","r":"dâai kráp, mâi sài tùua ná kráp","tr":"Sure, no peanuts then."},{"options":["ขอบคุณค่ะ จ่ายด้วยบัตรได้ไหมคะ","ขอบคุณค่ะ จ่ายด้วยบัตรเป็นไหมคะ"],"answer":0,"why":"Is it possible: {{ได้ไหม|dâai mǎi}}."}]},
+        {"type":"say","q":"You're a woman. Say “I can't go tomorrow.”","answer":"พรุ่งนี้ฉันไปไม่ได้ค่ะ","r":"prûng-níi chǎn bpai mâi dâai kâ"},
+        {"type":"free","q":"Your turn: say something you can do, something you know how to do, and something you can't.","answers":[{"t":"ผมว่ายน้ำเป็นครับ แต่ทำอาหารไม่เป็น ผมพูดภาษาไทยได้นิดหน่อยครับ","r":"pǒm wâai-náam bpen kráp, dtɛ̀ɛ tam aa-hǎan mâi bpen, pǒm pûut paa-sǎa tai dâai nít-nɔ̀i kráp","tr":"I can swim, but I can't cook. I can speak a little Thai."},{"t":"ฉันขับรถเป็นค่ะ กินเผ็ดได้ แต่กินกุ้งไม่ได้ค่ะ","r":"chǎn kàp rót bpen kâ, gin pèt dâai, dtɛ̀ɛ gin gûng mâi dâai kâ","tr":"I can drive. I can eat spicy food, but I can't eat shrimp."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-must-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you have to and should do",
+      "summary": "Say what you have to do, what you don't have to do, what you should do, and what's not allowed.",
+      "topic": "{{ต้อง|dtɔ̂ng}} “have to”; {{ไม่ต้อง|mâi dtɔ̂ng}} “don't have to”; {{ควร(จะ)|kuuan (jà)}} “should”; {{ห้าม|hâam}} “not allowed”; {{อย่า|yàa}} “don't”",
+      "blocks": [
+        {"goal":{"t":"พรุ่งนี้ผมต้องตื่นเช้าครับ","r":"prûng-níi pǒm dtɔ̂ng dtʉ̀ʉn cháao kráp","tr":"I have to get up early tomorrow."}},
+        {"dialog":[{"who":"Anna","t":"พรุ่งนี้เราจะไปวัดพระแก้ว ต้องใส่อะไรคะ","r":"prûng-níi rao jà bpai wát prá-gɛ̂ɛo, dtɔ̂ng sài à-rai ká","tr":"Tomorrow we're going to the Temple of the Emerald Buddha. What do we have to wear?"},{"who":"Nok","t":"ต้องใส่กางเกงขายาวค่ะ ห้ามใส่ขาสั้น","r":"dtɔ̂ng sài gaang-geeng kǎa yaao kâ, hâam sài kǎa sân","tr":"You have to wear long pants. Shorts aren't allowed."},{"who":"Anna","t":"ต้องซื้อตั๋วไหมคะ","r":"dtɔ̂ng sʉ́ʉ dtǔua mǎi ká","tr":"Do we have to buy tickets?"},{"who":"Nok","t":"คนต่างชาติต้องซื้อค่ะ คนไทยไม่ต้อง","r":"kon dtàang-châat dtɔ̂ng sʉ́ʉ kâ, kon tai mâi dtɔ̂ng","tr":"Foreigners do. Thais don't."},{"who":"Nok","t":"แล้วควรไปเช้าๆ นะคะ คนไม่เยอะ","r":"lɛ́ɛo kuuan bpai cháao-cháao ná ká, kon mâi yə́","tr":"And you should go early: there aren't many people then."},{"who":"Anna","t":"อย่าลืมเตือนฉันนะคะ","r":"yàa lʉʉm dtʉʉan chǎn ná ká","tr":"Don't forget to remind me!"}]},
+        {"p":"**ต้อง: have to.** {{ต้อง|dtɔ̂ng}} goes before the verb: {{ผมต้องไป|pǒm dtɔ̂ng bpai}} “I have to go”, {{ต้องจ่ายเงินสด|dtɔ̂ng jàai ngən-sòt}} “you have to pay cash”. To ask: {{ต้อง…ไหม|dtɔ̂ng … mǎi}} “do I have to…?”."},
+        {"p":"**ไม่ต้อง: no need.** {{ไม่ต้อง|mâi dtɔ̂ng}} says it isn't necessary: {{ไม่ต้องจ่าย|mâi dtɔ̂ng jàai}} “you don't have to pay”. On its own it's a friendly “no need”, and {{ไม่ต้องห่วง|mâi dtɔ̂ng hùuang}} is “don't worry”."},
+        {"p":"**ควร: should.** {{ควร|kuuan}}, or {{ควรจะ|kuuan jà}}, before the verb gives advice: {{คุณควรพักผ่อน|kun kuuan pák pɔ̀n}} “you should rest”. {{ไม่ควร|mâi kuuan}} is “shouldn't”."},
+        {"p":"**ห้าม and อย่า: don't.** {{ห้าม|hâam}} “it's forbidden to” is for rules and signs: {{ห้ามสูบบุหรี่|hâam sùup bù-rìi}} “no smoking”. {{อย่า|yàa}} “don't” is for telling someone: {{อย่าลืม|yàa lʉʉm}} “don't forget”. {{นะ|ná}} at the end makes it friendly: {{อย่าลืมนะ|yàa lʉʉm ná}}."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["necessary","{{ต้องไป|dtɔ̂ng bpai}}","have to go"],
+          ["not necessary","{{ไม่ต้องไป|mâi dtɔ̂ng bpai}}","don't have to go"],
+          ["advice","{{ควรไป|kuuan bpai}}","should go"],
+          ["advice","{{ไม่ควรไป|mâi kuuan bpai}}","shouldn't go"],
+          ["a rule","{{ห้ามเข้า|hâam kâo}}","no entry"],
+          ["to someone","{{อย่าไป|yàa bpai}}","don't go!"]
+        ] },
+        { "ex": [
+          {"t":"ฉันต้องทำงานวันเสาร์ค่ะ","r":"chǎn dtɔ̂ng tam-ngaan wan sǎo kâ","tr":"I have to work on Saturday."},
+          {"t":"ต้องจองก่อนไหมครับ","r":"dtɔ̂ng jɔɔng gɔ̀ɔn mǎi kráp","tr":"Do I have to book ahead?"},
+          {"t":"ไม่ต้องห่วงค่ะ","r":"mâi dtɔ̂ng hùuang kâ","tr":"Don't worry."},
+          {"t":"คุณควรไปหาหมอนะครับ","r":"kun kuuan bpai hǎa mɔ̌ɔ ná kráp","tr":"You should see a doctor."},
+          {"t":"ห้ามถ่ายรูปค่ะ","r":"hâam tàai rûup kâ","tr":"No photos, please."},
+          {"t":"อย่าลืมเอาหนังสือเดินทางไปนะคะ","r":"yàa lʉʉm ao nǎng-sʉ̌ʉ dəən-taang bpai ná ká","tr":"Don't forget to take your passport."},
+          {"t":"ไม่ควรดื่มน้ำก๊อกครับ","r":"mâi kuuan dʉ̀ʉm náam gɔ́k kráp","tr":"You shouldn't drink the tap water."}
+        ] },
+        {"tip":"Temples have signs with {{ห้าม|hâam}}: {{ห้ามถ่ายรูป|hâam tàai rûup}} “no photos”, {{ห้ามใส่รองเท้า|hâam sài rɔɔng-táao}} “no shoes”. Take your shoes off where you see others do."}
+      ],
+      "mistakes": [
+        {"wrong":"คุณไม่ต้องสูบบุหรี่ที่นี่","right":"ห้ามสูบบุหรี่ที่นี่","tr":"You can't smoke here.","why":"{{ไม่ต้อง|mâi dtɔ̂ng}} is “don't *need* to”. For something not allowed, it's {{ห้าม|hâam}} (or {{สูบบุหรี่ไม่ได้|sùup bù-rìi mâi dâai}})."},
+        {"wrong":"ผมไปต้องครับ","right":"ผมต้องไปครับ","tr":"I have to go.","why":"{{ต้อง|dtɔ̂ng}} goes before the verb (unlike {{ได้|dâai}} “can”, which goes after)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ต้อง|dtɔ̂ng}} “have to” or {{ได้|dâai}} “can”.","t":"พรุ่งนี้ฉัน___ไปทำงานค่ะ","tr":"I have to go to work tomorrow.","options":["ต้อง","ได้"],"answer":0,"why":"“Have to” comes before the verb. ({{ได้|dâai}} “can” would go at the end.)"},
+        {"type":"choice","q":"The museum is free. The guard tells you…","options":["{{ไม่ต้องซื้อตั๋วครับ|mâi dtɔ̂ng sʉ́ʉ dtǔua kráp}}","{{ห้ามซื้อตั๋วครับ|hâam sʉ́ʉ dtǔua kráp}}","{{ต้องซื้อตั๋วครับ|dtɔ̂ng sʉ́ʉ dtǔua kráp}}"],"answer":0,"why":"No need: {{ไม่ต้อง|mâi dtɔ̂ng}}. {{ห้าม|hâam}} would mean you're not allowed to buy one!"},
+        {"type":"order","q":"Put the words in order.","tr":"Don't forget to take your passport. (a woman speaking)","words":["อย่า","ลืม","เอา","หนังสือเดินทาง","ไป","นะคะ"]},
+        {"type":"dialogue","q":"A friend asks about tomorrow. Choose your replies (you're a man).","from":"say-what-you-will-do","lines":[{"who":"Friend","t":"พรุ่งนี้จะไปเที่ยวไหมคะ","r":"prûng-níi jà bpai tîao mǎi ká","tr":"Are you going out tomorrow?"},{"options":["ไปไม่ได้ครับ ต้องทำงาน","ไปไม่ได้ครับ ไม่ต้องทำงาน"],"answer":0,"why":"You have to work: {{ต้อง|dtɔ̂ng}}."},{"who":"Friend","t":"ทำงานหนักเกินไปนะคะ ควรพักบ้าง","r":"tam-ngaan nàk gəən bpai ná ká, kuuan pák bâng","tr":"You work too hard. You should take a break sometimes."},{"options":["ครับ อาทิตย์หน้าผมจะพักครับ","ครับ อาทิตย์หน้าผมกำลังพักครับ"],"answer":0,"why":"A plan for next week: {{จะ|jà}}."}]},
+        {"type":"say","q":"You're a man. Tell a friend “You should see a doctor.”","answer":"คุณควรไปหาหมอนะครับ","r":"kun kuuan bpai hǎa mɔ̌ɔ ná kráp"},
+        {"type":"free","q":"Your turn: say something you have to do this week, and give a friend some advice.","answers":[{"t":"อาทิตย์นี้ผมต้องไปธนาคารครับ คุณควรนอนเร็วๆ นะครับ","r":"aa-tít níi pǒm dtɔ̂ng bpai tá-naa-kaan kráp, kun kuuan nɔɔn reo-reo ná kráp","tr":"This week I have to go to the bank. You should go to bed early."},{"t":"พรุ่งนี้ฉันต้องตื่นเช้าค่ะ อย่าลืมกินข้าวนะคะ","r":"prûng-níi chǎn dtɔ̂ng dtʉ̀ʉn cháao kâ, yàa lʉʉm gin kâao ná ká","tr":"I have to get up early tomorrow. Don't forget to eat!"}]}
+      ]
+    },
+    {
+      "id": "suggest-and-invite",
+      "unit": 4,
+      "level": "A2",
+      "title": "Suggest and invite: let's…",
+      "summary": "Invite someone, suggest what to do together, and say yes, or no, politely.",
+      "topic": "{{…กันไหม|gan mǎi}} “shall we?”; {{…กันเถอะ|gan tə̀}} “let's”; {{…ดีไหม|dii mǎi}} “how about…?”; question word + {{ดี|dii}}; {{ชวน|chuuan}}",
+      "blocks": [
+        {"goal":{"t":"คืนนี้ไปกินข้าวกันไหมคะ","r":"kʉʉn-níi bpai gin kâao gan mǎi ká","tr":"Shall we go out to eat tonight?"}},
+        {"dialog":[{"who":"Nok","t":"คืนนี้ไปกินข้าวกันไหมคะ","r":"kʉʉn-níi bpai gin kâao gan mǎi ká","tr":"Shall we go out to eat tonight?"},{"who":"Tom","t":"ดีครับ ไปกินที่ไหนดีครับ","r":"dii kráp, bpai gin tîi-nǎi dii kráp","tr":"Great! Where shall we go?"},{"who":"Nok","t":"ร้านส้มตำใกล้ๆ บ้านฉันดีไหมคะ","r":"ráan sôm-dtam glâi-glâi bâan chǎn dii mǎi ká","tr":"How about the papaya salad place near my house?"},{"who":"Tom","t":"ได้ครับ ชวนฝนไปด้วยไหมครับ","r":"dâai kráp, chuuan fǒn bpai dûai mǎi kráp","tr":"Sure. Shall we ask Fon to come too?"},{"who":"Nok","t":"ดีค่ะ งั้นเจอกันหกโมงเย็นนะคะ","r":"dii kâ, ngán jəə gan hòk moong yen ná ká","tr":"Good idea. See you at six, then."}]},
+        {"p":"**กัน: together.** {{กัน|gan}} after a verb means “together, with each other”. Add {{ไหม|mǎi}} and you have an invitation: {{ไปกินข้าวกันไหม|bpai gin kâao gan mǎi}} “shall we go and eat (together)?”."},
+        {"p":"**Let's.** {{…กันเถอะ|gan tə̀}} is “let's”: {{ไปกันเถอะ|bpai gan tə̀}} “let's go”. {{เถอะ|tə̀}} on its own gently urges someone: {{นอนเถอะ|nɔɔn tə̀}} “go to sleep (you need it)”."},
+        {"p":"**How about…? ดีไหม.** {{…ดีไหม|dii mǎi}} “is … good?” puts forward an idea: {{ไปทะเลดีไหม|bpai tá-lee dii mǎi}} “how about the beach?”. And {{ดี|dii}} after a question word asks for a choice: {{ไปไหนดี|bpai nǎi dii}} “where shall we go?”, {{กินอะไรดี|gin à-rai dii}} “what shall we eat?”."},
+        {"p":"**Asking someone along.** {{ชวน|chuuan}} is “invite, ask (someone) to come”: {{ชวนเพื่อนไปด้วย|chuuan pʉ̂ʉan bpai dûai}} “ask a friend along”."},
+        { "table": [
+          ["you say","meaning"],
+          ["{{ดีครับ|dii kráp}} / {{ดีค่ะ|dii kâ}}","Great, good idea."],
+          ["{{ได้ครับ|dâai kráp}} / {{ได้ค่ะ|dâai kâ}}","Sure, OK."],
+          ["{{ไปสิ|bpai sì}}","Sure, let's go! (friendly)"],
+          ["{{ขอโทษนะครับ วันนี้ไม่ว่าง|kɔ̌ɔ-tôot ná kráp, wan-níi mâi wâang}}","Sorry, I'm busy today."],
+          ["{{วันหลังนะคะ|wan lǎng ná ká}}","Another time."]
+        ] },
+        { "ex": [
+          {"t":"ไปดูหนังกันไหมครับ","r":"bpai duu nǎng gan mǎi kráp","tr":"Shall we go to a movie?"},
+          {"t":"กินข้าวกันเถอะค่ะ","r":"gin kâao gan tə̀ kâ","tr":"Let's eat."},
+          {"t":"พรุ่งนี้ไปทะเลดีไหมคะ","r":"prûng-níi bpai tá-lee dii mǎi ká","tr":"How about going to the beach tomorrow?"},
+          {"t":"คืนนี้กินอะไรดีครับ","r":"kʉʉn-níi gin à-rai dii kráp","tr":"What shall we eat tonight?"},
+          {"t":"ผมชวนเพื่อนมาด้วยได้ไหมครับ","r":"pǒm chuuan pʉ̂ʉan maa dûai dâai mǎi kráp","tr":"Can I bring a friend along?"},
+          {"t":"ขอบคุณที่ชวนนะคะ แต่วันนี้ไม่ว่างค่ะ","r":"kɔ̀ɔp-kun tîi chuuan ná ká, dtɛ̀ɛ wan-níi mâi wâang kâ","tr":"Thanks for inviting me, but I'm not free today."}
+        ] },
+        {"tip":"Thais rarely give a flat “no” to an invitation. {{วันหลังนะ|wan lǎng ná}} “another day” and {{ไม่ว่าง|mâi wâang}} “I'm not free” are the polite way out."}
+      ],
+      "mistakes": [
+        {"wrong":"กันเถอะไปค่ะ","right":"ไปกันเถอะค่ะ","tr":"Let's go.","why":"{{กันเถอะ|gan tə̀}} comes after the verb."},
+        {"wrong":"ไปไหนดีไหมคะ","right":"ไปไหนดีคะ","tr":"Where shall we go?","why":"A question word already makes it a question: don't add {{ไหม|mǎi}}. Just {{ไปไหนดี|bpai nǎi dii}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{กันไหม|gan mǎi}} “shall we?” or {{กันเถอะ|gan tə̀}} “let's”.","t":"ไปว่ายน้ำ___คะ","tr":"Shall we go swimming?","options":["กันไหม","กันเถอะ"],"answer":0,"why":"A question, an invitation: {{กันไหม|gan mǎi}}."},
+        {"type":"choice","q":"You can't go to the party. A polite answer is…","options":["{{ขอบคุณที่ชวนนะครับ แต่วันนี้ไม่ว่าง|kɔ̀ɔp-kun tîi chuuan ná kráp, dtɛ̀ɛ wan-níi mâi wâang}}","{{ไม่ไป|mâi bpai}}","{{ไม่ชอบปาร์ตี้ครับ|mâi chɔ̂ɔp bpaa-dtîi kráp}}"],"answer":0,"why":"Thank them, and say you're not free: no flat “no”."},
+        {"type":"order","q":"Put the words in order.","tr":"What shall we eat tonight? (a man asking)","words":["คืนนี้","กิน","อะไร","ดี","ครับ"]},
+        {"type":"dialogue","q":"Nok has an idea. Choose your replies (you're a man).","from":"say-what-you-can-do","lines":[{"who":"Nok","t":"เสาร์นี้ไปเชียงใหม่กันไหมคะ","r":"sǎo níi bpai chiiang-mài gan mǎi ká","tr":"Shall we go to Chiang Mai this Saturday?"},{"options":["ไปไม่ได้ครับ ต้องทำงาน วันหลังนะครับ","ไม่ได้ไปครับ"],"answer":0,"why":"“Can't go” is {{ไปไม่ได้|bpai mâi dâai}}: give a reason, and a friendly {{วันหลังนะ|wan lǎng ná}}."},{"who":"Nok","t":"งั้นวันอาทิตย์ดีไหมคะ","r":"ngán wan aa-tít dii mǎi ká","tr":"Then how about Sunday?"},{"options":["ได้ครับ ไปกันเถอะ","ได้ครับ กันเถอะไป"],"answer":0,"why":"The verb first: {{ไปกันเถอะ|bpai gan tə̀}}."}]},
+        {"type":"say","q":"You're a woman. Suggest: “How about going to the beach tomorrow?”","answer":"พรุ่งนี้ไปทะเลดีไหมคะ","r":"prûng-níi bpai tá-lee dii mǎi ká"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend, and suggest where or when.","answers":[{"t":"วันเสาร์ไปดูหนังกันไหมครับ เจอกันที่สยามดีไหมครับ","r":"wan sǎo bpai duu nǎng gan mǎi kráp, jəə gan tîi sà-yǎam dii mǎi kráp","tr":"Shall we go to a movie on Saturday? How about meeting at Siam?"},{"t":"พรุ่งนี้ไปกินข้าวกันไหมคะ ร้านใกล้ๆ ที่ทำงานอร่อยมากค่ะ","r":"prûng-níi bpai gin kâao gan mǎi ká, ráan glâi-glâi tîi tam-ngaan à-rɔ̀i mâak kâ","tr":"Shall we go out to eat tomorrow? The place near work is really good."}]}
+      ]
     }
   ]
 }
