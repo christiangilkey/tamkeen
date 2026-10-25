@@ -1397,6 +1397,256 @@
         {"type":"say","q":"Paano mo sasabihin ang “Pagkatapos noon, naghapunan kami”?","answer":"After that, we had dinner."},
         {"type":"free","q":"Ikaw naman: ikuwento ang kahapon mo sa apat na hakbang, gamit ang {{first}}, {{then}}, {{after that}} at {{finally}}.","answers":[{"t":"First, I took my kids to school. Then I went to work. After that, I bought groceries. Finally, I cooked dinner and went to bed.","tr":"Una, inihatid ko ang mga anak ko sa eskuwela. Tapos, pumasok ako sa trabaho. Pagkatapos noon, namili ako ng grocery. Sa huli, nagluto ako ng hapunan at natulog."},{"t":"First, I woke up late. Then I missed the bus! After that, I took a taxi. Finally, I got to work at ten.","tr":"Una, tinanghali ako ng gising. Tapos, naiwan ako ng bus! Pagkatapos noon, nag-taxi ako. Sa wakas, nakarating ako sa trabaho nang alas-diyes."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "Pag-usapan ang mga plano mo",
+      "summary": "Sabihin ang balak mong gawin gamit ang {{going to}}, at ang mga planong naka-ayos na gamit ang {{-ing}}: {{I'm going to visit my lola.}} {{I'm flying to Manila on Friday.}}",
+      "topic": "{{be going to}} + pandiwa para sa plano; present continuous para sa naka-ayos na plano; mga salita ng hinaharap",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my family in the Philippines next month.","tr":"Bibisitahin ko ang pamilya ko sa Pilipinas sa susunod na buwan."}},
+        {"dialog":[{"who":"Sarah","t":"What are you going to do this weekend?","tr":"Ano ang gagawin mo ngayong weekend?"},{"who":"Ana","t":"I'm going to clean the house. And on Sunday, I'm meeting my friends for lunch.","tr":"Maglilinis ako ng bahay. At sa Linggo, magkikita kami ng mga kaibigan ko para mananghalian."},{"who":"Sarah","t":"Fun! Where are you going to eat?","tr":"Masaya! Saan kayo kakain?"},{"who":"Ana","t":"We're going to try a new Korean place.","tr":"Susubukan namin ang isang bagong Korean restaurant."}]},
+        {"term":"future","means":"ang hinaharap: ang panahon pagkatapos ng ngayon. Sa Ingles, may ilang paraan para sabihin ito: {{going to}}, {{will}}, at ang present continuous."},
+        {"p":"Para sa kilos na hindi pa nagsisimula ang “gagawin”, “bibisitahin” at “maglilinis” ng Tagalog. Sa Ingles, para sa plano o balak, ang pinakakaraniwan ay {{be going to}} + pandiwa: {{I'm going to visit my family.}}"},
+        {"p":"**Paano ito gawin**: {{am}} / {{is}} / {{are}} + {{going to}} + pandiwa: {{I'm going to cook.}}, {{She's going to call you.}}, {{We're going to move.}} Sa mabilis na usapan, madalas itong tumunog na “gonna”: “I'm gonna cook.” Huwag lang itong isulat sa pormal na sulat."},
+        { "table": [
+          ["","Ingles","Tagalog"],
+          ["plano","{{I'm going to visit my lola.}}","Bibisitahin ko ang lola ko."],
+          ["tanong","{{What are you going to do?}}","Ano ang gagawin mo?"],
+          ["hindi","{{I'm not going to go.}}","Hindi ako pupunta."],
+          ["naka-ayos na","{{I'm flying to Manila on Friday.}}","Lilipad ako papuntang Maynila sa Biyernes."]
+        ] },
+        {"p":"**Naka-ayos na**: para sa planong may oras at petsa na (may tiket ka na, may usapan na kayo), madalas ang present continuous ng aralin 17: {{I'm meeting Ana at six.}}, {{We're flying on Friday.}} Parang “Magkikita kami ni Ana nang alas-sais.”"},
+        {"p":"**Mga salita ng hinaharap**: {{tomorrow}}, {{tonight}}, {{this weekend}}, {{next week}}, {{next year}}, {{in two days}} (pagkalipas ng dalawang araw), at walang pang-ukol bago ang karamihan sa kanila (aralin 22)."},
+        { "ex": [
+          {"t":"I'm going to visit my lola.","tr":"Bibisitahin ko ang lola ko."},
+          {"t":"She's going to call you tonight.","tr":"Tatawagan ka niya mamayang gabi."},
+          {"t":"We're going to move to Texas next year.","tr":"Lilipat kami sa Texas sa susunod na taon."},
+          {"t":"What are you going to do this weekend?","tr":"Ano ang gagawin mo ngayong weekend?"},
+          {"t":"I'm not going to work tomorrow.","tr":"Hindi ako papasok bukas."},
+          {"t":"I'm meeting Ana at six.","tr":"Magkikita kami ni Ana nang alas-sais."},
+          {"t":"It's going to rain.","tr":"Uulan.","note":"may nakikita kang palatandaan, gaya ng maitim na ulap"}
+        ] },
+        {"tip":"Ginagamit din ang {{going to}} para sa nakikita mong mangyayari: {{Look at those clouds. It's going to rain.}} “Tingnan mo ang mga ulap. Uulan.”"}
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit my lola.","right":"I'm going to visit my lola.","tr":"Bibisitahin ko ang lola ko.","why":"Kailangan ang {{am}}: {{I'm going to}}."},
+        {"wrong":"I'm going to visited my lola.","right":"I'm going to visit my lola.","tr":"Bibisitahin ko ang lola ko.","why":"Pagkatapos ng {{going to}}: simpleng anyo ng pandiwa."},
+        {"wrong":"Next week I go to Cebu.","right":"I'm going to Cebu next week.","tr":"Pupunta ako sa Cebu sa susunod na linggo.","why":"Para sa plano, hindi present simple: {{I'm going to…}} o present continuous."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I'm going ___ visit my lola.","tr":"Bibisitahin ko ang lola ko.","options":["to","for","at"],"answer":0,"why":"{{going to}} + pandiwa."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She's going to ___ you tonight.","tr":"Tatawagan ka niya mamayang gabi.","options":["call","calls","called"],"answer":0,"why":"Pagkatapos ng {{going to}}: simpleng anyo, walang {{-s}}.","from":"talk-about-someone-elses-day"},
+        {"type":"choice","q":"“Ano ang gagawin mo ngayong weekend?”","options":["{{What are you going to do this weekend?}}","{{What you going to do this weekend?}}","{{What are you going to doing this weekend?}}"],"answer":0,"why":"Salitang pananong + {{are}} + {{you}} + {{going to}} + pandiwa.","from":"ask-where-when-why"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Lilipat kami sa Texas sa susunod na taon.","words":["We're","going to","move","to Texas","next year."]},
+        {"type":"dialogue","q":"Tinatanong ka ng katrabaho tungkol sa bakasyon mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Are you going to travel this summer?","tr":"Magbibiyahe ka ba ngayong summer?"},{"options":["Yes! I'm going to visit my family in Cebu.","Yes! I going to visit my family in Cebu."],"answer":0,"why":"Kailangan ang {{'m}}: {{I'm going to}}."},{"who":"Katrabaho","t":"When are you leaving?","tr":"Kailan ka aalis?"},{"options":["I'm flying out on June 2nd.","I fly out in June 2nd."],"answer":0,"why":"May tiket na: present continuous; at {{on}} para sa petsa."}],"from":"talk-about-times-and-dates"},
+        {"type":"say","q":"Nakikita mo ang maitim na ulap. Paano mo sasabihin ang “Uulan”?","answer":"It's going to rain."},
+        {"type":"free","q":"Ikaw naman: sabihin ang tatlong plano mo para sa susunod na linggo o buwan, gamit ang {{going to}}.","answers":[{"t":"I'm going to start a new job next month. I'm going to buy a car. And I'm going to call my parents every Sunday.","tr":"Magsisimula ako sa bagong trabaho sa susunod na buwan. Bibili ako ng kotse. At tatawagan ko ang mga magulang ko tuwing Linggo."},{"t":"This weekend, I'm going to clean my room. On Saturday, I'm meeting my cousins. Next month, we're going to go to the beach.","tr":"Ngayong weekend, maglilinis ako ng kuwarto ko. Sa Sabado, magkikita kami ng mga pinsan ko. Sa susunod na buwan, pupunta kami sa beach."}]}
+      ]
+    },
+    {
+      "id": "make-promises-and-predictions",
+      "unit": 6,
+      "level": "A2",
+      "title": "Mangako, mag-alok at manghula: {{will}}",
+      "summary": "Gamitin ang {{will}} para sa biglang desisyon, alok, pangako at hula: {{I'll call you later.}} {{I'll help you!}} {{Everything will be okay.}}",
+      "topic": "{{will}} / {{'ll}} + pandiwa; {{won't}}; {{will}} vs {{going to}}; ang “mauna na ako” sa Ingles",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you later.","tr":"Huwag kang mag-alala, tatawagan kita mamaya."}},
+        {"dialog":[{"who":"Mike","t":"This box is so heavy!","tr":"Ang bigat ng kahong ito!"},{"who":"Ana","t":"I'll help you!","tr":"Tutulungan kita!"},{"who":"Mike","t":"Thanks! Will you be home tonight?","tr":"Salamat! Nasa bahay ka ba mamayang gabi?"},{"who":"Ana","t":"Yes, I will. Why?","tr":"Oo. Bakit?"},{"who":"Mike","t":"I'll bring you some pizza. I promise!","tr":"Dadalhan kita ng pizza. Promise!"},{"who":"Ana","t":"Ha! I won't say no!","tr":"Ha! Hindi ako tatanggi!"}]},
+        {"p":"**Ang {{will}}** (pinaikli, {{'ll}}) + pandiwa ay para sa hinaharap kapag nagpapasya ka sa mismong sandali, nag-aalok, nangangako o nanghuhula: {{I'll help you!}}, {{I'll call you later.}}, {{It will be fine.}}"},
+        { "table": [
+          ["gamit","halimbawa","Tagalog"],
+          ["biglang desisyon","{{I'm hungry. I'll make a sandwich.}}","Gutom ako. Gagawa ako ng sandwich."],
+          ["alok","{{I'll help you.}}","Tutulungan kita."],
+          ["pangako","{{I'll call you tonight.}}","Tatawagan kita mamayang gabi."],
+          ["hula","{{It will be hot tomorrow.}}","Mainit bukas."],
+          ["hindi","{{I won't tell anyone.}}","Wala akong pagsasabihan."]
+        ] },
+        {"p":"**Ang anyo**: hindi nagbabago ang {{will}} ({{I will}}, {{she will}}, {{they will}}), at pandiwa lang ang kasunod, walang {{to}} at walang {{-s}}. Negatibo: {{will not}} → {{won't}}. Tanong: {{Will you…?}}"},
+        {"p":"**{{will}} o {{going to}}?** {{going to}} para sa planong napagpasyahan na ({{I'm going to buy a car}}: matagal mo na itong naisip). {{will}} para sa desisyong ginawa mo ngayon mismo: {{Oh, it's raining. I'll take an umbrella.}}"},
+        {"p":"**“Mauna na ako.”** Madalas itong isalin ng mga Pilipino na {{I'll go ahead}}, pero sa Amerika, ang ibig sabihin noon ay “sige, ituloy ko na” o “uunahin ko na ito”. Para magpaalam: {{I'm going to head out.}}, {{I have to go.}} o {{I'm leaving now. Bye!}}"},
+        { "ex": [
+          {"t":"I'll call you later.","tr":"Tatawagan kita mamaya."},
+          {"t":"I'll help you with that.","tr":"Tutulungan kita diyan."},
+          {"t":"It will be cold tomorrow.","tr":"Malamig bukas."},
+          {"t":"I won't forget.","tr":"Hindi ko makakalimutan."},
+          {"t":"Will you be home tonight?","tr":"Nasa bahay ka ba mamayang gabi?"},
+          {"t":"Don't worry. Everything will be okay.","tr":"Huwag kang mag-alala. Magiging maayos ang lahat."},
+          {"t":"I'm going to head out. See you tomorrow!","tr":"Mauna na ako. Kita tayo bukas!"}
+        ] },
+        {"tip":"Sa telepono, kapag kailangan mo nang ibaba: {{I'll call you back.}} “Tatawagan kita ulit.” At sa restawran, kapag umoorder: {{I'll have the chicken.}} “Chicken na lang po sa akin.”"}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Tatawagan kita.","why":"Walang {{to}} pagkatapos ng {{will}}."},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"Darating siya.","why":"Hindi nagbabago ang {{will}}, at walang {{-s}} ang pandiwa."},
+        {"wrong":"I'll go ahead.","right":"I'm going to head out. See you!","tr":"Mauna na ako. Kita tayo!","why":"Sa Amerika, hindi “mauna na ako” ang {{I'll go ahead}}. Para magpaalam: {{I'm going to head out}} o {{I have to go}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Ang bigat ng dala ng kaibigan mo. Sasabihin mo…","options":["{{I'll help you!}}","{{I help you!}}","{{I'm helping you tomorrow!}}"],"answer":0,"why":"Alok na naisip mo ngayon mismo: {{I'll}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ forget. I promise!","tr":"Hindi ko makakalimutan. Promise!","options":["won't","don't","willn't"],"answer":0,"why":"Pangako na hindi: {{won't}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She'll ___ you tomorrow.","tr":"Tatawagan ka niya bukas.","options":["call","calls","to call"],"answer":0,"why":"Pagkatapos ng {{will}}: pandiwa lang.","from":"talk-about-someone-elses-day"},
+        {"type":"choice","q":"Nasa party ka at aalis ka na. Sasabihin mo…","options":["{{I'm going to head out. Thanks for having me!}}","{{I'll go ahead. Thanks for having me!}}","{{I will go first.}}"],"answer":0,"why":"Ganito nagpapaalam ang mga Amerikano."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Magiging maayos ang lahat.","words":["Everything","will","be","okay."]},
+        {"type":"dialogue","q":"Nasa restawran kayo ng kaibigan mo. Piliin ang mga sagot mo.","lines":[{"who":"Waiter","t":"What can I get you?","tr":"Ano po ang sa inyo?"},{"options":["I'll have the fish tacos, please.","I have the fish tacos, please."],"answer":0,"why":"Desisyon mo ngayon: {{I'll have…}}"},{"who":"Kaibigan","t":"Oh no, I forgot my wallet!","tr":"Naku, naiwan ko ang wallet ko!"},{"options":["Don't worry, I'll pay.","Don't worry, I pay."],"answer":0,"why":"Alok sa mismong sandali: {{I'll pay}}."}],"from":"ask-for-things-and-help"},
+        {"type":"free","q":"Ikaw naman: mangako ng dalawang bagay sa isang kaibigan, at manghula ng isang bagay tungkol sa bukas.","answers":[{"t":"I'll call you on Sunday. I won't be late next time! I think it will rain tomorrow.","tr":"Tatawagan kita sa Linggo. Hindi na ako mahuhuli sa susunod! Sa tingin ko, uulan bukas."},{"t":"I'll help you move this weekend. I'll bring food. Tomorrow will be a good day!","tr":"Tutulungan kitang lumipat ngayong weekend. Magdadala ako ng pagkain. Magandang araw bukas!"}]}
+      ]
+    },
+    {
+      "id": "invite-and-suggest",
+      "unit": 6,
+      "level": "A2",
+      "title": "Mag-imbita at magmungkahi, tumanggap at tumanggi",
+      "summary": "Mag-imbita at magmungkahi: {{Do you want to…?}} {{Let's…}} {{Why don't we…?}} {{How about…?}} At sumagot nang magalang: {{I'd love to!}} {{Sorry, I can't.}}",
+      "topic": "{{Do you want to…?}}, {{Would you like to…?}}; {{Let's…}}, {{Why don't we…?}}, {{How about…?}} + {{-ing}}; pagtanggap at pagtanggi",
+      "blocks": [
+        {"goal":{"t":"Would you like to have dinner with us on Saturday?","tr":"Gusto mo bang maghapunan kasama namin sa Sabado?"}},
+        {"dialog":[{"who":"Sarah","t":"Would you like to have dinner with us on Saturday?","tr":"Gusto mo bang maghapunan kasama namin sa Sabado?"},{"who":"Ana","t":"I'd love to! What time?","tr":"Gustong-gusto ko! Anong oras?"},{"who":"Sarah","t":"How about seven?","tr":"Alas-siyete kaya?"},{"who":"Ana","t":"Perfect. Why don't I bring dessert?","tr":"Ayos. Ako na lang kaya ang magdadala ng dessert?"},{"who":"Sarah","t":"That sounds great!","tr":"Ang ganda niyan!"}]},
+        {"p":"**Mag-imbita**: {{Do you want to…?}} (kaswal) o {{Would you like to…?}} (mas magalang) + pandiwa: {{Do you want to see a movie?}}, {{Would you like to come to my party?}}"},
+        {"p":"**Magmungkahi**: {{Let's…}} + pandiwa (“Tara…”), {{Why don't we…?}} + pandiwa (“…kaya tayo?”), o {{How about…?}} + {{-ing}} o pangngalan (“…kaya?”): {{How about going to the beach?}}, {{How about Friday?}}"},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Gusto mo bang manood ng sine?","{{Do you want to see a movie?}}"],
+          ["Gusto mo bang pumunta sa party ko?","{{Would you like to come to my party?}}"],
+          ["Tara, kain tayo!","{{Let's eat!}}"],
+          ["Mag-beach kaya tayo?","{{Why don't we go to the beach?}} / {{How about going to the beach?}}"],
+          ["Biyernes kaya?","{{How about Friday?}}"]
+        ] },
+        {"p":"**Tumanggap**: {{Sure!}}, {{I'd love to!}}, {{Sounds great!}}, {{Why not?}}"},
+        {"p":"**Tumanggi nang magalang**: humingi ng tawad, magbigay ng dahilan, at mag-alok ng ibang araw: {{Sorry, I can't. I have to work. Maybe next time?}} Sa Amerika, katanggap-tanggap ang malinaw na “hindi” basta magalang ito."},
+        { "ex": [
+          {"t":"Do you want to get coffee?","tr":"Gusto mo bang magkape?"},
+          {"t":"Would you like to come to my party?","tr":"Gusto mo bang pumunta sa party ko?"},
+          {"t":"Let's go to the beach this weekend!","tr":"Tara, mag-beach tayo ngayong weekend!"},
+          {"t":"Why don't we eat out tonight?","tr":"Kumain kaya tayo sa labas mamayang gabi?"},
+          {"t":"How about Friday?","tr":"Biyernes kaya?"},
+          {"t":"I'd love to!","tr":"Gustong-gusto ko!"},
+          {"t":"Sorry, I can't. Maybe next time?","tr":"Pasensya na, hindi ako pwede. Sa susunod na lang kaya?"}
+        ] },
+        {"tip":"Sa Pilipinas, ang “Baka” o “Titingnan ko” ay madalas na magalang na “hindi”. Sa Amerika, sineseryoso ang {{Maybe}}, at baka hintayin ka pa nila! Kung hindi ka pupunta, sabihin nang malinaw at mabait: {{Sorry, I can't make it.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Do you want to going to the beach?","right":"Do you want to go to the beach?","tr":"Gusto mo bang mag-beach?","why":"{{want to}} + simpleng anyo ng pandiwa."},
+        {"wrong":"How about go to the beach?","right":"How about going to the beach?","tr":"Mag-beach kaya tayo?","why":"Pagkatapos ng {{How about}}: {{-ing}} o pangngalan."},
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Tara na!","why":"Walang {{to}} pagkatapos ng {{let's}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Would you like ___ come to my party?","tr":"Gusto mo bang pumunta sa party ko?","options":["to","for","at"],"answer":0,"why":"{{would like to}} + pandiwa.","from":"say-what-you-like-and-want"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"How about ___ to the beach?","tr":"Mag-beach kaya tayo?","options":["going","go","to go"],"answer":0,"why":"Pagkatapos ng {{How about}}: {{-ing}}."},
+        {"type":"choice","q":"May nag-imbita sa iyo sa birthday niya, pero may trabaho ka. Ang pinakamagandang sagot:","options":["{{Sorry, I can't. I have to work. Have a great party!}}","{{Maybe.}}","{{No.}}"],"answer":0,"why":"Paumanhin, dahilan, at mabuting hangad: malinaw at mabait."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Kumain kaya tayo sa labas mamayang gabi?","words":["Why","don't we","eat out","tonight?"]},
+        {"type":"dialogue","q":"Nag-uusap kayo ng katrabaho tungkol sa tanghalian. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Do you want to get lunch together?","tr":"Gusto mo bang sabay tayong mananghalian?"},{"options":["Sure! Where do you want to go?","Sure! Where you want to go?"],"answer":0,"why":"Kailangan ang {{do}}: {{Where do you want…?}}"},{"who":"Katrabaho","t":"How about the Thai place?","tr":"Sa Thai restaurant kaya?"},{"options":["Sounds great! Let's go at noon.","Sounds great! Let's to go at noon."],"answer":0,"why":"Walang {{to}} pagkatapos ng {{let's}}."}],"from":"ask-where-when-why"},
+        {"type":"say","q":"Paano mo sasabihin ang “Gustong-gusto ko!” bilang sagot sa imbitasyon?","answer":"I'd love to!"},
+        {"type":"free","q":"Ikaw naman: mag-imbita ng kaibigan sa isang gawain ngayong weekend, at magmungkahi ng oras at lugar.","answers":[{"t":"Do you want to watch a movie on Saturday? How about the seven o'clock show? Let's meet at the mall.","tr":"Gusto mo bang manood ng sine sa Sabado? Iyong alas-siyete kaya? Magkita tayo sa mall."},{"t":"Would you like to come over for dinner on Sunday? Why don't you bring your kids? Let's eat at six.","tr":"Gusto mo bang maghapunan sa amin sa Linggo? Isama mo kaya ang mga anak mo? Kain tayo nang alas-sais."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Paghambingin ang mga tao at bagay",
+      "summary": "Sabihin kung alin ang mas malaki, ang pinakamaganda, o kung magkapareho sila: {{Manila is bigger than Cebu.}} {{It's the best!}}",
+      "topic": "{{-er}} / {{more}} + {{than}}; {{the -est}} / {{the most}}; {{good}} → {{better}} → {{best}}; {{as … as}}; hindi {{more bigger}}",
+      "blocks": [
+        {"goal":{"t":"Manila is bigger than Cebu, but Cebu is more relaxing.","tr":"Mas malaki ang Maynila kaysa sa Cebu, pero mas nakakarelaks sa Cebu."}},
+        {"dialog":[{"who":"Mike","t":"Which is better, Boracay or Palawan?","tr":"Alin ang mas maganda, Boracay o Palawan?"},{"who":"Ana","t":"Palawan is quieter than Boracay, and the beaches are more beautiful.","tr":"Mas tahimik ang Palawan kaysa sa Boracay, at mas magaganda ang mga beach."},{"who":"Mike","t":"Is it more expensive?","tr":"Mas mahal ba?"},{"who":"Ana","t":"A little. But El Nido is the most beautiful place in the Philippines!","tr":"Medyo. Pero ang El Nido ang pinakamagandang lugar sa Pilipinas!"}]},
+        {"p":"Sa Tagalog, “mas” lang ang idinadagdag: “mas malaki”, “mas maganda”. Sa Ingles, dalawa ang paraan, depende sa haba ng pang-uri."},
+        { "table": [
+          ["pang-uri","mas…","pinaka-"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{happy}}","{{happier}}","{{the happiest}}"],
+          ["{{beautiful}}","{{more beautiful}}","{{the most beautiful}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**Maiikling pang-uri** (isang pantig, o dalawang pantig na nagtatapos sa {{-y}}): {{-er}} at {{the -est}}: {{bigger}}, {{the biggest}}; {{happier}}, {{the happiest}}. **Mahahaba**: {{more}} at {{the most}}: {{more beautiful}}, {{the most beautiful}}."},
+        {"p":"**Huwag pagsabayin.** Kapag may {{-er}} na, wala nang {{more}}: {{bigger}}, hindi {{more bigger}}. Dahil may “mas” ang Tagalog, natural na idagdag ang {{more}}, kaya bantayan ito."},
+        {"p":"**Kaysa**: {{than}}: {{Manila is bigger than Cebu.}} **Pinaka-**: laging may {{the}}: {{the best}}, {{the most beautiful}}. **Magkasing-**: {{as}} + pang-uri + {{as}}: {{Ana is as tall as Ben.}}; sa negatibo, {{not as … as}}: {{Cebu isn't as big as Manila.}}"},
+        { "ex": [
+          {"t":"Manila is bigger than Cebu.","tr":"Mas malaki ang Maynila kaysa sa Cebu."},
+          {"t":"This phone is cheaper.","tr":"Mas mura ang cellphone na ito."},
+          {"t":"Palawan is more beautiful than Boracay.","tr":"Mas maganda ang Palawan kaysa sa Boracay."},
+          {"t":"My mom's adobo is the best.","tr":"Pinakamasarap ang adobo ng nanay ko."},
+          {"t":"It's the most expensive restaurant in town.","tr":"Ito ang pinakamahal na restawran sa bayan."},
+          {"t":"Ana is as tall as Ben.","tr":"Magkasintangkad sina Ana at Ben."},
+          {"t":"Today is worse than yesterday.","tr":"Mas malala ngayon kaysa kahapon."}
+        ] },
+        {"tip":"Para sa “mas gusto”: {{prefer}} o {{like … better}}: {{I prefer tea.}}, {{I like coffee better than tea.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Manila is more bigger than Cebu.","right":"Manila is bigger than Cebu.","tr":"Mas malaki ang Maynila kaysa sa Cebu.","why":"May {{-er}} na: walang {{more}}."},
+        {"wrong":"It's the most good.","right":"It's the best.","tr":"Ito ang pinakamaganda.","why":"Di-regular ito: {{good}} → {{better}} → {{the best}}."},
+        {"wrong":"She's taller of me.","right":"She's taller than me.","tr":"Mas matangkad siya kaysa sa akin.","why":"Ang “kaysa” ay {{than}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Manila is ___ than Cebu.","tr":"Mas malaki ang Maynila kaysa sa Cebu.","options":["bigger","more bigger","more big"],"answer":0,"why":"Maikling pang-uri: {{-er}} lang."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Palawan is ___ beautiful than Boracay.","tr":"Mas maganda ang Palawan kaysa sa Boracay.","options":["more","most","very"],"answer":0,"why":"Mahabang pang-uri: {{more}}."},
+        {"type":"choice","q":"“Pinakamasarap ang adobo ng nanay ko.”","options":["{{My mom's adobo is the best.}}","{{My mom's adobo is the most good.}}","{{My mom's adobo is best than.}}"],"answer":0,"why":"{{good}} → {{the best}}.","from":"say-whose-it-is"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She's taller ___ me.","tr":"Mas matangkad siya kaysa sa akin.","options":["than","of","that"],"answer":0,"why":"“Kaysa”: {{than}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ito ang pinakamahal na restawran sa bayan.","words":["It's","the most","expensive","restaurant","in town."]},
+        {"type":"dialogue","q":"Namimili ka ng laptop kasama ang isang kaibigan. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Which one do you like?","tr":"Alin ang gusto mo?"},{"options":["This one is cheaper, but that one is faster.","This one is more cheap, but that one is more fast."],"answer":0,"why":"Maiikli ang {{cheap}} at {{fast}}: {{-er}}."},{"who":"Kaibigan","t":"The faster one is better for work.","tr":"Mas maganda sa trabaho ang mas mabilis."},{"options":["You're right. I'll get the faster one.","You're right. I'll get the more fast one."],"answer":0,"why":"{{faster}}, at {{I'll}} para sa desisyong ginawa mo ngayon."}],"from":"make-promises-and-predictions"},
+        {"type":"free","q":"Ikaw naman: paghambingin ang dalawang lugar na kilala mo, at sabihin ang pinakamasarap na pagkaing alam mo.","answers":[{"t":"Manila is busier than my hometown, but my hometown is more beautiful. The best food I know is my lola's kare-kare.","tr":"Mas abala ang Maynila kaysa sa bayan namin, pero mas maganda ang bayan namin. Ang pinakamasarap na pagkaing alam ko ay ang kare-kare ng lola ko."},{"t":"New York is bigger than Chicago, but Chicago is cheaper. Sinigang is the best soup in the world!","tr":"Mas malaki ang New York kaysa sa Chicago, pero mas mura sa Chicago. Sinigang ang pinakamasarap na sabaw sa mundo!"}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sabihin ang nararamdaman mo",
+      "summary": "Sabihin ang nararamdaman mo gamit ang {{be}} ({{I'm hungry}}, {{I'm cold}}), at huwag ipagkamali ang {{bored}} at {{boring}}: “naiinip” at “nakakainip”.",
+      "topic": "{{be}} + pakiramdam ({{I'm hungry}}, hindi {{I have hungry}}); {{I have a headache}}; {{-ed}} (nararamdaman) vs {{-ing}} (nagdudulot nito)",
+      "blocks": [
+        {"goal":{"t":"I'm so bored. This movie is boring!","tr":"Naiinip na ako. Nakakainip ang pelikulang ito!"}},
+        {"dialog":[{"who":"Mike","t":"Are you okay? You look tired.","tr":"Okay ka lang? Mukha kang pagod."},{"who":"Ana","t":"I'm exhausted. Work was so tiring today.","tr":"Pagod na pagod ako. Nakakapagod ang trabaho ngayon."},{"who":"Mike","t":"Are you hungry?","tr":"Gutom ka na ba?"},{"who":"Ana","t":"Yes, I'm starving! And I'm a little cold.","tr":"Oo, gutom na gutom na ako! At medyo nilalamig ako."},{"who":"Mike","t":"Let's get some hot soup.","tr":"Tara, kumain tayo ng mainit na sabaw."}]},
+        {"p":"**Pakiramdam ng katawan**: sa Ingles, {{be}} + pang-uri: {{I'm hungry}} (gutom ako), {{I'm thirsty}} (nauuhaw ako), {{I'm cold}} (nilalamig ako), {{I'm hot}} (naiinitan ako), {{I'm tired}} (pagod ako), {{I'm sleepy}} (inaantok ako). Huwag kalimutan ang {{be}}: {{I'm cold}}, hindi {{I cold}}."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Gutom ako.","{{I'm hungry.}}"],
+          ["Nauuhaw ako.","{{I'm thirsty.}}"],
+          ["Nilalamig ako.","{{I'm cold.}}"],
+          ["Naiinitan ako.","{{I'm hot.}}"],
+          ["Inaantok ako.","{{I'm sleepy.}}"],
+          ["Masakit ang ulo ko.","{{I have a headache.}}"]
+        ] },
+        {"p":"**Masakit**: {{I have a headache}} (ulo), {{a stomachache}} (tiyan), {{a toothache}} (ngipin); o {{My … hurts}}: {{My back hurts.}} “Masakit ang likod ko.”"},
+        {"p":"**{{-ed}} o {{-ing}}: naiinip o nakakainip?** Ito ang pinakamadalas na pagkakamali dito. Ang {{-ed}} ({{bored}}, {{tired}}, {{interested}}, {{excited}}) ay ang **nararamdaman** ng tao: “naiinip ako”. Ang {{-ing}} ({{boring}}, {{tiring}}, {{interesting}}, {{exciting}}) ay ang **nagdudulot** nito: “nakakainip”. Kahawig na kahawig ito ng “na-” at “nakaka-” ng Tagalog!"},
+        { "table": [
+          ["nararamdaman (na-)","nagdudulot (nakaka-)"],
+          ["{{I'm bored.}} Naiinip ako.","{{The movie is boring.}} Nakakainip ang pelikula."],
+          ["{{I'm tired.}} Pagod ako.","{{Work is tiring.}} Nakakapagod ang trabaho."],
+          ["{{I'm interested.}} Interesado ako.","{{It's interesting.}} Kawili-wili ito."],
+          ["{{I'm excited!}} Excited ako!","{{It's exciting!}} Nakakasabik!"]
+        ] },
+        {"p":"Kaya ang {{I'm boring}} ay “nakakainip akong kasama”, at ang {{I'm bored}} ay “naiinip ako”. Malaking pagkakaiba!"},
+        { "ex": [
+          {"t":"I'm hungry.","tr":"Gutom ako."},
+          {"t":"I'm so tired.","tr":"Pagod na pagod ako."},
+          {"t":"I have a headache.","tr":"Masakit ang ulo ko."},
+          {"t":"I'm bored.","tr":"Naiinip ako."},
+          {"t":"This class is boring.","tr":"Nakakainip ang klaseng ito."},
+          {"t":"I'm excited about my trip!","tr":"Excited ako sa biyahe ko!"},
+          {"t":"The news is very interesting.","tr":"Napakakawili-wili ng balita."}
+        ] },
+        {"tip":"Sa Amerika, pagbati lang ang {{How are you?}}; ang {{Are you okay?}} o {{How are you feeling?}} ang tunay na tanong tungkol sa pakiramdam."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm boring.","right":"I'm bored.","tr":"Naiinip ako.","why":"Ang {{boring}} ay “nakakainip”: ang {{I'm boring}} ay “nakakainip akong tao”! Ang nararamdaman mo: {{bored}}."},
+        {"wrong":"I have hungry.","right":"I'm hungry.","tr":"Gutom ako.","why":"Pakiramdam: {{be}} + pang-uri, hindi {{have}}."},
+        {"wrong":"The trip was excited.","right":"The trip was exciting.","tr":"Nakakasabik ang biyahe.","why":"Ang biyahe ang nagdudulot ng damdamin: {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I'm so ___. Let's do something!","tr":"Naiinip na ako. Gumawa tayo ng kahit ano!","options":["bored","boring","bore"],"answer":0,"why":"Ang nararamdaman mo: {{-ed}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"This movie is ___.","tr":"Nakakainip ang pelikulang ito.","options":["boring","bored","bore"],"answer":0,"why":"Ang pelikula ang nagdudulot: {{-ing}}."},
+        {"type":"choice","q":"“Nilalamig ako.”","options":["{{I'm cold.}}","{{I have cold.}}","{{I cold.}}"],"answer":0,"why":"{{be}} + pang-uri. ({{I have a cold}} ay “may sipon ako”!)"},
+        {"type":"choice","q":"“Excited ako sa party!”","options":["{{I'm excited about the party!}}","{{I'm exciting about the party!}}","{{The party excited me is.}}"],"answer":0,"why":"Ang nararamdaman mo: {{excited}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Masakit ang ulo ko.","words":["I","have","a headache."],"from":"say-what-you-have"},
+        {"type":"dialogue","q":"Nagkuwentuhan kayo pagkatapos ng isang meeting. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"How was the meeting?","tr":"Kumusta ang meeting?"},{"options":["It was so boring! I was bored after ten minutes.","It was so bored! I was boring after ten minutes."],"answer":0,"why":"Ang meeting ang nakakainip ({{boring}}); ikaw ang naiinip ({{bored}})."},{"who":"Katrabaho","t":"Ha! Are you tired?","tr":"Ha! Pagod ka ba?"},{"options":["Yes, and I'm hungry. Let's get lunch!","Yes, and I have hungry. Let's get lunch!"],"answer":0,"why":"{{I'm hungry}}, may {{be}}."}],"from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw naman: sabihin ang nararamdaman mo ngayon, at ilarawan ang isang bagay na nakakapagod, nakakainip o kawili-wili sa linggo mo.","answers":[{"t":"Right now, I'm tired and a little hungry. My job is interesting, but the commute is tiring.","tr":"Ngayon, pagod ako at medyo gutom. Kawili-wili ang trabaho ko, pero nakakapagod ang biyahe papunta doon."},{"t":"I'm excited because my sister is visiting this weekend. My English class is very interesting.","tr":"Excited ako kasi bibisita ang ate ko ngayong weekend. Napakakawili-wili ng klase ko sa Ingles."}]}
+      ]
     }
   ]
 }
