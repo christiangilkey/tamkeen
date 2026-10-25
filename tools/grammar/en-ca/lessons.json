@@ -1569,6 +1569,352 @@
         {"type":"say","q":"Say “These shoes are really expensive!”","answer":"Aquestes sabates són caríssimes!"},
         {"type":"free","q":"Your turn: compare two cities or two places you know. Which is bigger, cheaper, more beautiful?","answers":[{"t":"Nova York és més gran que Boston, però Boston és més tranquil·la.","tr":"New York is bigger than Boston, but Boston is quieter."},{"t":"Londres és més cara que Barcelona, i a Barcelona fa millor temps.","tr":"London is more expensive than Barcelona, and Barcelona has better weather."}]}
       ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give directions and instructions",
+      "summary": "Tell someone how to get somewhere or what to do: “Take the subway and get off at Plaça de Catalunya.”",
+      "topic": "The imperative: {{agafa}}, {{gira}}, {{segueix}} ({{tu}}); {{agafeu}} ({{vosaltres}}); {{agafi}} ({{vostè}}); {{ves}}, {{vine}}, {{fes}}, {{digues}}",
+      "blocks": [
+        {"goal":{"t":"Agafa el metro i baixa a plaça de Catalunya.","tr":"Take the subway and get off at Plaça de Catalunya."}},
+        {"dialog":[{"who":"Tourist","t":"Perdoni, per anar a la Pedrera?","tr":"Excuse me, how do I get to La Pedrera?"},{"who":"Man","t":"Segueixi recte fins al semàfor i després giri a la dreta.","tr":"Go straight on to the traffic light, and then turn right."},{"who":"Tourist","t":"És lluny?","tr":"Is it far?"},{"who":"Man","t":"Una mica. Si vol, agafi el metro, la línia verda, i baixi a Diagonal.","tr":"A bit. If you like, take the subway, the green line, and get off at Diagonal."},{"who":"Tourist","t":"Moltes gràcies!","tr":"Thank you very much!"},{"who":"Man","t":"De res. Vagi amb compte, que hi ha molta gent!","tr":"You're welcome. Be careful, there are lots of people!"}]},
+        {"term":"imperative","means":"the form of a verb for telling someone to do something: Come! Turn left! Listen!"},
+        {"p":"**To a friend ({{tu}}).** For most verbs, the imperative is the same as the “he, she” form of the present: {{agafa}} “take”, {{gira}} “turn”, {{mira}} “look”, {{espera}} “wait”, {{segueix}} “keep going, follow”. {{Gira a l'esquerra.}} “Turn left.”"},
+        {"p":"**To several friends ({{vosaltres}}).** The same as the present: {{agafeu}}, {{gireu}}, {{seguiu}}. {{Mireu!}} “Look, guys!”"},
+        {"p":"**To someone you call {{vostè}}.** These end in {{-i}}: {{agafi}}, {{giri}}, {{esperi}}, {{segueixi}}. To several people you call {{vostès}}, {{-in}}: {{agafin}}."},
+        { "table": [
+          ["","{{tu}}","{{vosaltres}}","{{vostè}}"],
+          ["{{agafar}} take","{{agafa}}","{{agafeu}}","{{agafi}}"],
+          ["{{girar}} turn","{{gira}}","{{gireu}}","{{giri}}"],
+          ["{{seguir}} follow","{{segueix}}","{{seguiu}}","{{segueixi}}"],
+          ["{{anar}} go","{{ves}}","{{aneu}}","{{vagi}}"],
+          ["{{venir}} come","{{vine}}","{{veniu}}","{{vingui}}"],
+          ["{{fer}} do, make","{{fes}}","{{feu}}","{{faci}}"],
+          ["{{dir}} say","{{digues}}","{{digueu}}","{{digui}}"]
+        ] },
+        {"p":"**Directions.** {{segueix recte}} “go straight on”, {{gira a la dreta}}, {{a l'esquerra}} “turn right, left”, {{agafa el primer carrer}} “take the first street”, {{travessa la plaça}} “cross the square”, {{baixa a…}} “get off at…”."},
+        { "ex": [
+          {"t":"Gira a la dreta i segueix recte.","tr":"Turn right and go straight on."},
+          {"t":"Vine aquí!","tr":"Come here!"},
+          {"t":"Espera un moment!","tr":"Wait a moment!"},
+          {"t":"Agafeu la segona a l'esquerra.","tr":"Take the second street on the left.","note":"to several people"},
+          {"t":"Giri aquí, si us plau.","tr":"Turn here, please.","note":"to a taxi driver: {{vostè}}"},
+          {"t":"Ves a dormir, que és tard!","tr":"Go to bed, it's late!"},
+          {"t":"Digues, què vols?","tr":"Go on, what do you want?","note":"{{digues}} “say”: “go on, tell me”"}
+        ] },
+        {"tip":"Add {{si us plau}} to soften any imperative. On the phone, Catalans answer {{Digui!}} or {{Digui'm!}} “Hello?”, word for word “say!”, “tell me!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Gires a la dreta.","right":"Gira a la dreta.","tr":"Turn right.","why":"Telling a friend to do something: the imperative {{gira}}, not the “you” form {{gires}}."},
+        {"wrong":"Senyora, gira a l'esquerra.","right":"Senyora, giri a l'esquerra.","tr":"Ma'am, turn left.","why":"To someone you call {{vostè}}: {{giri}}."},
+        {"wrong":"Fa els deures!","right":"Fes els deures!","tr":"Do your homework!","why":"{{fer}} is irregular: the imperative is {{fes}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ a l'esquerra i després segueix recte.","tr":"Turn left and then go straight on.","options":["Gira","Gires","Girar"],"answer":0,"why":"Telling a friend: {{gira}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Perdoni, ___ el primer carrer a la dreta.","tr":"Excuse me, take the first street on the right.","options":["agafi","agafa","agafes"],"answer":0,"why":"To someone you call {{vostè}}: {{-i}}, {{agafi}}.","from":"find-your-way"},
+        {"type":"choice","q":"You want your friend to come over. You say…","options":["{{Vine!}}","{{Vens!}}","{{Venir!}}"],"answer":0,"why":"The imperative of {{venir}} is {{vine}}."},
+        {"type":"dialogue","q":"A tourist asks you the way to the beach. Choose your replies.","lines":[{"who":"Tourist","t":"Perdona, per anar a la platja?","tr":"Excuse me, how do I get to the beach?"},{"options":["Segueix recte i gira a la dreta.","Segueixes recte i gires a la dreta."],"answer":0,"why":"Instructions: the imperative, {{segueix}}, {{gira}}."},{"who":"Tourist","t":"És lluny?","tr":"Is it far?"},{"options":["No, és a cinc minuts a peu.","No, està cinc minuts a peu."],"answer":0,"why":"Where something is: {{ser}}, {{és a cinc minuts}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Take the subway and get off at Diagonal.","words":["Agafa","el metro","i baixa","a Diagonal."]},
+        {"type":"say","q":"Tell a taxi driver, politely: “Turn here, please.”","answer":"Giri aquí, si us plau."},
+        {"type":"free","q":"Your turn: tell a friend how to get from the station to your place.","answers":[{"t":"Surt de l'estació, gira a l'esquerra i segueix recte fins a la plaça. Casa meva és al costat del bar.","tr":"Leave the station, turn left and go straight on to the square. My place is next to the bar."},{"t":"Agafa l'autobús 24 i baixa a la tercera parada.","tr":"Take the 24 bus and get off at the third stop."}]}
+      ]
+    },
+    {
+      "id": "ask-for-it",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask for things and hand them over",
+      "summary": "Ask someone to call you, tell you or give you something, and tell them not to: “Call me tomorrow, OK?”",
+      "topic": "Imperative + weak pronoun: {{truca'm}}, {{digues-me}}, {{dona-li}}, {{fes-ho}}, {{espera't}}; “don't”: {{no ho toquis}}",
+      "blocks": [
+        {"goal":{"t":"Truca'm demà, d'acord?","tr":"Call me tomorrow, OK?"}},
+        {"dialog":[{"who":"Marc","t":"Marxo! Necessites alguna cosa?","tr":"I'm off! Do you need anything?"},{"who":"Sara","t":"Sí, compra pa, si us plau. I dona-li això a la Marta.","tr":"Yes, buy some bread, please. And give this to Marta."},{"who":"Marc","t":"D'acord. Alguna cosa més?","tr":"OK. Anything else?"},{"who":"Sara","t":"No. Ah, i truca'm des de la feina!","tr":"No. Oh, and call me from work!"},{"who":"Marc","t":"Fet. I no toquis el meu pastís, eh!","tr":"Done. And don't touch my cake!"},{"who":"Sara","t":"Tranquil, no el toco!","tr":"Relax, I won't touch it!"}]},
+        {"p":"**On the end.** With an imperative, the weak pronoun goes on the end of the verb, joined by a hyphen or an apostrophe: {{Truca'm!}} “Call me!” {{Espera'm!}} “Wait for me!” {{Fes-ho!}} “Do it!” {{Dona-li això.}} “Give him this.”"},
+        { "table": [
+          ["pronoun","on the end","example"],
+          ["me","{{-me}}, {{'m}}","{{Digues-me.}} Tell me. {{Truca'm.}} Call me."],
+          ["yourself","{{-te}}, {{'t}}","{{Asseu-te.}} Sit down. {{Espera't!}} Wait!"],
+          ["(to) him, her","{{-li}}","{{Dona-li.}} Give it to him."],
+          ["it, him","{{-lo}}, {{'l}}","{{Compra-lo.}} Buy it. {{Agafa'l.}} Take it."],
+          ["it, her","{{-la}}","{{Obre-la.}} Open it."],
+          ["it, that","{{-ho}}","{{Fes-ho.}} Do it."],
+          ["us","{{-nos}}, {{'ns}}","{{Espereu-nos!}} Wait for us! {{Ajuda'ns!}} Help us!"],
+          ["there","{{-hi}}","{{Ves-hi.}} Go there."]
+        ] },
+        {"p":"After a vowel, the short forms with an apostrophe: {{truca'm}}, {{agafa'l}}, {{ajuda'ns}}. After a consonant or a {{u}}, the full forms with a hyphen: {{digues-me}}, {{compreu-lo}}, {{asseu-te}}."},
+        {"p":"**Don't!** “Don't” uses another form: the {{-i}} form you met for {{vostè}} in lesson 33, with {{-s}} for {{tu}}: {{no toquis}} “don't touch”, {{no parlis}} “don't talk”, {{no mengis}} “don't eat”, {{no vinguis}} “don't come”, {{no hi vagis}} “don't go there”. And the pronoun goes back in front: {{No ho toquis!}} “Don't touch it!”"},
+        { "ex": [
+          {"t":"Truca'm demà, d'acord?","tr":"Call me tomorrow, OK?"},
+          {"t":"Digues-me la veritat.","tr":"Tell me the truth."},
+          {"t":"Dona-li les claus a la Marta.","tr":"Give the keys to Marta.","note":"Catalan says {{li}} and also names the person"},
+          {"t":"Asseu-te, si us plau.","tr":"Sit down, please."},
+          {"t":"Ajuda'm amb les bosses, si us plau.","tr":"Help me with the bags, please."},
+          {"t":"No et preocupis!","tr":"Don't worry!","note":"{{preocupar-se}} “to worry”"},
+          {"t":"No ho diguis a ningú.","tr":"Don't tell anyone."}
+        ] },
+        {"tip":"{{No et preocupis}} and {{No pateixis}} (word for word “don't suffer”) both mean “Don't worry”: what Catalans say to calm someone down."}
+      ],
+      "mistakes": [
+        {"wrong":"Em truca demà.","right":"Truca'm demà.","tr":"Call me tomorrow.","why":"With an imperative, the pronoun goes on the end: {{truca'm}}. ({{Em truca}} means “he calls me”.)"},
+        {"wrong":"No toca-ho!","right":"No ho toquis!","tr":"Don't touch it!","why":"“Don't” uses the {{-is}} form, with the pronoun in front: {{no ho toquis}}."},
+        {"wrong":"Espera'me!","right":"Espera'm!","tr":"Wait for me!","why":"After a vowel, the short form with an apostrophe: {{espera'm}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ la veritat, si us plau.","tr":"Tell me the truth, please.","options":["Digues-me","Em digues","Digues-em"],"answer":0,"why":"With an imperative, the pronoun goes on the end: {{digues-me}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"No ___ el plat, que crema!","tr":"Don't touch the plate, it's hot!","options":["toquis","toca","toques"],"answer":0,"why":"“Don't”: the {{-is}} form, {{no toquis}}."},
+        {"type":"choice","q":"{{Ajuda'ns!}} means…","options":["Help us!","Help him!","Help me!"],"answer":0,"why":"{{'ns}} is {{ens}} “us” on the end of the verb."},
+        {"type":"dialogue","q":"Your friend is leaving your place. Choose your replies.","lines":[{"who":"Friend","t":"Bé, marxo!","tr":"Well, I'm off!"},{"options":["D'acord! Truca'm demà.","D'acord! Em truca demà."],"answer":0,"why":"Asking him to call you: {{truca'm}}."},{"who":"Friend","t":"I el paraigua? El necessito?","tr":"And the umbrella? Do I need it?"},{"options":["Sí, agafa'l, que plou!","Sí, l'agafa, que plou!"],"answer":0,"why":"An imperative takes the pronoun on the end: {{agafa'l}}."}],"from":"it-and-them"},
+        {"type":"order","q":"Put the words in order.","tr":"Give the keys to Marta.","words":["Dona-li","les claus","a la Marta."]},
+        {"type":"say","q":"Your friend looks stressed. Say “Don't worry!”","answer":"No et preocupis!"},
+        {"type":"free","q":"Your turn: a friend is looking after your apartment. Give two or three instructions, with pronouns.","answers":[{"t":"Rega les plantes, si us plau, i dona-li menjar al gat. No obris la finestra!","tr":"Water the plants, please, and feed the cat. Don't open the window!"},{"t":"Truca'm si hi ha cap problema, i no et preocupis per res.","tr":"Call me if there's any problem, and don't worry about anything."}]}
+      ]
+    },
+    {
+      "id": "at-the-doctors",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what hurts at the doctor's",
+      "summary": "Explain what's wrong and since when: “My throat has been hurting for two days.”",
+      "topic": "{{em fa mal}}, {{em fan mal}} (like {{m'agrada}}); {{tinc febre}}, {{tos}}, {{mal de cap}}; {{des de fa}}",
+      "blocks": [
+        {"goal":{"t":"Em fa mal la gola des de fa dos dies.","tr":"My throat has been hurting for two days."}},
+        {"dialog":[{"who":"Doctor","t":"Bon dia. Què li passa?","tr":"Good morning. What seems to be the problem?"},{"who":"You","t":"Em fa mal la gola i tinc una mica de febre.","tr":"My throat hurts, and I have a bit of a fever."},{"who":"Doctor","t":"Des de quan?","tr":"Since when?"},{"who":"You","t":"Des d'ahir al vespre. I també em fa mal el cap.","tr":"Since last night. And my head hurts too."},{"who":"Doctor","t":"A veure… Obri la boca, si us plau. Sí, la té una mica vermella.","tr":"Let's see… Open your mouth, please. Yes, it's a little red."},{"who":"You","t":"És greu?","tr":"Is it serious?"},{"who":"Doctor","t":"No, no és res. Prengui aquest xarop i descansi.","tr":"No, it's nothing. Take this syrup and get some rest."}]},
+        {"p":"**It hurts me.** {{fer mal}} works just like {{agradar}} (lesson 14): the part that hurts does the verb, and you are {{em}}: {{Em fa mal el cap.}} “My head hurts”, word for word “the head does me harm”. Several parts: {{Em fan mal els peus.}} “My feet hurt.” And it's “the head”, not “my head” (lesson 17)."},
+        { "table": [
+          ["who","one part","several parts"],
+          ["me","{{Em fa mal el cap.}}","{{Em fan mal els peus.}}"],
+          ["you","{{Et fa mal l'esquena?}}","{{Et fan mal les cames?}}"],
+          ["him, her; you (polite)","{{Li fa mal la panxa.}}","{{Li fan mal els ulls.}}"]
+        ] },
+        {"p":"**What you have.** With {{tenir}} (lesson 10), and no “a”: {{Tinc febre.}} “I have a fever.” {{Tinc tos.}} “I have a cough.” {{Tinc mal de cap.}} “I have a headache.” {{Tinc mal de panxa.}} “I have a stomachache.” Also: {{Estic refredat.}} “I have a cold.” {{Em trobo malament.}} “I don't feel well.”"},
+        {"p":"**Since when.** {{Des de quan?}} is answered with {{des de}} + a moment ({{des d'ahir}}, {{des de dilluns}}) or {{des de fa}} + a length of time ({{des de fa dos dies}}), as in lesson 27."},
+        { "table": [
+          ["Catalan","English"],
+          ["{{el cap}}","head"],
+          ["{{la gola}}","throat"],
+          ["{{l'esquena}}","back"],
+          ["{{la panxa}}","belly, stomach"],
+          ["{{el braç}}, {{la mà}}","arm, hand"],
+          ["{{la cama}}, {{el peu}}","leg, foot"],
+          ["{{l'ull}}, {{l'orella}}","eye, ear"],
+          ["{{la dent}}, {{el queixal}}","tooth, back tooth"]
+        ] },
+        { "ex": [
+          {"t":"Em fa molt mal l'esquena.","tr":"My back really hurts."},
+          {"t":"Al nen li fa mal l'orella.","tr":"The little boy has an earache."},
+          {"t":"Tinc febre des de dilluns.","tr":"I've had a fever since Monday."},
+          {"t":"Em trobo malament.","tr":"I don't feel well."},
+          {"t":"Estic refredada i tinc molta tos.","tr":"I have a cold and a bad cough.","note":"said by a woman"},
+          {"t":"Hi ha una farmàcia de guàrdia a prop?","tr":"Is there an all-night pharmacy nearby?","note":"{{de guàrdia}} “on duty”"}
+        ] },
+        {"tip":"In an emergency, call 112. {{Ajuda!}} or {{Socors!}} is “Help!”, and {{Necessito un metge!}} “I need a doctor!”."}
+      ],
+      "mistakes": [
+        {"wrong":"El meu cap fa mal.","right":"Em fa mal el cap.","tr":"My head hurts.","why":"Catalan says it like {{m'agrada}}: {{em fa mal}}, with “the”, not “my”."},
+        {"wrong":"Em fa mal els peus.","right":"Em fan mal els peus.","tr":"My feet hurt.","why":"Several parts: the verb is plural, {{fan}}."},
+        {"wrong":"Tinc un febre.","right":"Tinc febre.","tr":"I have a fever.","why":"No “a”: {{tinc febre}}, {{tinc tos}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Em ___ mal els ulls.","tr":"My eyes hurt.","options":["fan","fa","faig"],"answer":0,"why":"Two eyes: {{em fan mal}}, just like {{m'agraden}}.","from":"say-what-you-like"},
+        {"type":"fill","q":"Choose the missing word.","t":"Al meu fill li fa mal ___ panxa.","tr":"My son has a stomachache.","options":["la","seva","sa"],"answer":0,"why":"For the body, “the”: {{la panxa}}."},
+        {"type":"choice","q":"The doctor asks {{Des de quan?}}. A good answer is…","options":["{{Des de fa tres dies.}}","{{Fa mal tres dies.}}","{{Tres dies fa.}}"],"answer":0,"why":"A length of time up to now: {{des de fa}}.","from":"say-when-and-how-long"},
+        {"type":"dialogue","q":"At the doctor's. Choose your replies.","lines":[{"who":"Doctor","t":"Bon dia. Què li passa?","tr":"Good morning. What seems to be the problem?"},{"options":["Em fa mal la gola i tinc febre.","La meva gola fa mal i tinc un febre."],"answer":0,"why":"{{em fa mal la gola}}, and {{tinc febre}} with no “a”."},{"who":"Doctor","t":"Prengui aquestes pastilles i descansi.","tr":"Take these pills and get some rest."},{"options":["D'acord. Quantes n'he de prendre?","D'acord. Quantes he de prendre?"],"answer":0,"why":"A number of them: {{en}}, {{n'he de prendre}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My back really hurts.","words":["Em fa","molt","mal","l'esquena."]},
+        {"type":"say","q":"Tell the pharmacist: “I don't feel well. I have a cold.”","answer":"Em trobo malament. Estic refredat."},
+        {"type":"free","q":"Your turn: you're at the doctor's. Say what hurts or what you have, and since when.","answers":[{"t":"Em fa mal el cap i tinc tos des de fa tres dies.","tr":"My head hurts, and I've had a cough for three days."},{"t":"Em fan mal els genolls des de dissabte. Vaig córrer massa!","tr":"My knees have been hurting since Saturday. I ran too much!"}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask politely",
+      "summary": "Make requests that sound kind, not bossy: “Could you bring us the check, please?”",
+      "topic": "The conditional of {{poder}}, {{voler}}, {{agradar}}: {{podria}}, {{voldria}}, {{m'agradaria}}; {{et faria res…?}}",
+      "blocks": [
+        {"goal":{"t":"Ens podria portar el compte, si us plau?","tr":"Could you bring us the check, please?"}},
+        {"dialog":[{"who":"Waiter","t":"Bona nit. Què volen prendre?","tr":"Good evening. What would you like?"},{"who":"You","t":"Voldríem una ampolla de vi negre, si us plau.","tr":"We'd like a bottle of red wine, please."},{"who":"Waiter","t":"Molt bé. I per menjar?","tr":"Very good. And to eat?"},{"who":"You","t":"M'agradaria provar el peix del dia. Podria dir-nos què és?","tr":"I'd like to try the fish of the day. Could you tell us what it is?"},{"who":"Waiter","t":"És lluç a la planxa. Boníssim.","tr":"It's grilled hake. Delicious."},{"who":"You","t":"Perfecte. I després, ens podria portar el compte?","tr":"Perfect. And afterwards, could you bring us the check?"}]},
+        {"term":"conditional","means":"the form of a verb for “would”: I would like, could you…? In Catalan it ends in {{-ria}}."},
+        {"p":"**Softer with {{-ria}}.** The conditional makes a request polite, as “would” and “could” do in English: {{Pots…?}} “Can you…?” → {{Podries…?}} “Could you…?”; {{Vull…}} “I want…” → {{Voldria…}} “I'd like…”; {{M'agrada}} “I like” → {{M'agradaria}} “I'd like (to)”."},
+        { "table": [
+          ["","{{poder}}","{{voler}}","{{agradar}}"],
+          ["I","{{podria}}","{{voldria}}","{{m'agradaria}}"],
+          ["you","{{podries}}","{{voldries}}","{{t'agradaria}}"],
+          ["he, she; you (polite)","{{podria}}","{{voldria}}","{{li agradaria}}"],
+          ["we","{{podríem}}","{{voldríem}}","{{ens agradaria}}"],
+          ["you (more than one)","{{podríeu}}","{{voldríeu}}","{{us agradaria}}"],
+          ["they","{{podrien}}","{{voldrien}}","{{els agradaria}}"]
+        ] },
+        {"p":"**Asking a favor.** {{Et faria res…?}} “Would you mind…?”, word for word “would it do you anything?”, + an infinitive: {{Et faria res tancar la finestra?}} “Would you mind closing the window?”. To {{vostè}}: {{Li faria res…?}}. The answer: {{No, gens!}} “Not at all!”."},
+        {"p":"**With pronouns.** {{Em podries ajudar?}} = {{Podries ajudar-me?}} “Could you help me?”: the pronoun goes before {{podries}} or on the end of the infinitive, as in lesson 22."},
+        { "ex": [
+          {"t":"Podries parlar més a poc a poc?","tr":"Could you speak more slowly?"},
+          {"t":"Voldria reservar una taula per a quatre.","tr":"I'd like to book a table for four."},
+          {"t":"M'agradaria parlar amb el director.","tr":"I'd like to speak to the manager."},
+          {"t":"Em podria dir on és l'estació?","tr":"Could you tell me where the station is?"},
+          {"t":"Et faria res deixar-me el teu carregador?","tr":"Would you mind lending me your charger?"},
+          {"t":"Podríem seure a la terrassa?","tr":"Could we sit on the terrace?"}
+        ] },
+        {"tip":"More polite touches: {{si us plau}} “please”, {{si és tan amable}} “if you'd be so kind”, and at the end {{moltes gràcies, molt amable}} “thanks a lot, that's very kind”."}
+      ],
+      "mistakes": [
+        {"wrong":"Voldria a reservar una taula.","right":"Voldria reservar una taula.","tr":"I'd like to book a table.","why":"Nothing goes between {{voldria}} and the verb."},
+        {"wrong":"Podria tu ajudar-me?","right":"Podries ajudar-me?","tr":"Could you help me?","why":"“You” (a friend) is {{podries}}, and {{tu}} isn't needed."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ reservar una taula per a dos, si us plau.","tr":"I'd like to book a table for two, please.","options":["Voldria","Voldries","Vull a"],"answer":0,"why":"“I would like”: {{voldria}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Em ___ dir on és el lavabo?","tr":"Could you tell me where the restroom is?","options":["podria","podríem","puc"],"answer":0,"why":"To a waiter ({{vostè}}): {{podria}}, the form for “he, she”."},
+        {"type":"choice","q":"Which one is the most polite?","options":["{{Podries tancar la finestra?}}","{{Tanca la finestra.}}","{{Vull la finestra tancada.}}"],"answer":0,"why":"The conditional, {{podries}}, makes it a polite request; {{tanca}} is an order.","from":"give-directions"},
+        {"type":"dialogue","q":"At a restaurant. Choose your replies.","lines":[{"who":"Waiter","t":"Bona nit! Tenen reserva?","tr":"Good evening! Do you have a reservation?"},{"options":["No. Podríem seure a la terrassa?","No. Podem a seure a la terrassa?"],"answer":0,"why":"Polite: {{podríem}} “could we”, with nothing before the verb."},{"who":"Waiter","t":"Sí, és clar. Què volen beure?","tr":"Yes, of course. What would you like to drink?"},{"options":["Voldríem dues aigües, si us plau.","Voldríem dos aigües, si us plau."],"answer":0,"why":"{{aigua}} is feminine: {{dues}}."}],"from":"name-things"},
+        {"type":"order","q":"Put the words in order.","tr":"Could you help me, please?","words":["Em","podries","ajudar,","si us plau?"]},
+        {"type":"say","q":"Ask a friend: “Would you mind closing the window?”","answer":"Et faria res tancar la finestra?"},
+        {"type":"free","q":"Your turn: make two polite requests, one in a shop or restaurant and one to a friend.","answers":[{"t":"Ens podria portar més pa, si us plau? I tu, em podries deixar el teu bolígraf?","tr":"Could you bring us more bread, please? And you, could you lend me your pen?"},{"t":"M'agradaria emprovar-me aquesta jaqueta. Et faria res esperar-me un moment?","tr":"I'd like to try on this jacket. Would you mind waiting for me a moment?"}]}
+      ]
+    },
+    {
+      "id": "talk-about-the-future",
+      "unit": 7,
+      "level": "A2",
+      "title": "Talk about the future",
+      "summary": "Say what will happen, make predictions and promises: “Next year I'll go and live in Tarragona.”",
+      "topic": "The future tense: {{parlaré}}, {{viuré}}; irregular stems: {{faré, diré, seré, tindré, vindré, podré, sabré, aniré}}",
+      "blocks": [
+        {"goal":{"t":"L'any que ve aniré a viure a Tarragona.","tr":"Next year I'll go and live in Tarragona."}},
+        {"dialog":[{"who":"Pol","t":"Què faràs l'any que ve?","tr":"What will you do next year?"},{"who":"Megan","t":"Aniré a viure a Tarragona. Hi he trobat feina!","tr":"I'll go and live in Tarragona. I've found a job there!"},{"who":"Pol","t":"Que bé! I viuràs sola?","tr":"Great! And will you live alone?"},{"who":"Megan","t":"No, viuré amb la meva parella. Ell també hi vindrà.","tr":"No, I'll live with my partner. He'll come too."},{"who":"Pol","t":"Us trobaré a faltar!","tr":"I'll miss you!"},{"who":"Megan","t":"Tranquil, vindrem a Barcelona sovint. I tu ens vindràs a veure!","tr":"Don't worry, we'll come to Barcelona often. And you'll come and see us!"}]},
+        {"p":"**The future.** Take the whole infinitive and add {{-é}}, {{-às}}, {{-à}}, {{-em}}, {{-eu}}, {{-an}}: {{parlar}} → {{parlaré}} “I'll speak”. For {{-re}} verbs, drop the last {{e}} first: {{viure}} → {{viuré}}, {{beure}} → {{beuré}}."},
+        { "table": [
+          ["","{{parlar}}","{{viure}}","{{dormir}}"],
+          ["I","{{parlaré}}","{{viuré}}","{{dormiré}}"],
+          ["you","{{parlaràs}}","{{viuràs}}","{{dormiràs}}"],
+          ["he, she","{{parlarà}}","{{viurà}}","{{dormirà}}"],
+          ["we","{{parlarem}}","{{viurem}}","{{dormirem}}"],
+          ["you (more than one)","{{parlareu}}","{{viureu}}","{{dormireu}}"],
+          ["they","{{parlaran}}","{{viuran}}","{{dormiran}}"]
+        ] },
+        {"p":"**Irregular stems.** A few common verbs change the stem but keep the endings: {{fer}} → {{faré}}, {{dir}} → {{diré}}, {{ser}} → {{seré}}, {{tenir}} → {{tindré}}, {{venir}} → {{vindré}}, {{poder}} → {{podré}}, {{voler}} → {{voldré}}, {{saber}} → {{sabré}}, {{anar}} → {{aniré}}, {{veure}} → {{veuré}}, {{haver}} → {{hauré}} (and {{hi haurà}} “there will be”)."},
+        {"p":"**When.** For predictions ({{Demà plourà.}} “It'll rain tomorrow.”), promises ({{Ho faré, t'ho prometo.}} “I'll do it, I promise.”) and plans further ahead ({{L'any que ve aniré a Tarragona.}}). For the next few days, the present is just as common (lesson 21). Time words: {{demà}} “tomorrow”, {{demà passat}} “the day after tomorrow”, {{la setmana que ve}} “next week”, {{l'any que ve}} “next year”, {{d'aquí a dos anys}} “two years from now”."},
+        { "ex": [
+          {"t":"Demà plourà tot el dia.","tr":"It'll rain all day tomorrow."},
+          {"t":"Et trucaré aquesta nit.","tr":"I'll call you tonight."},
+          {"t":"Què faràs aquest estiu?","tr":"What will you do this summer?"},
+          {"t":"Hi haurà molta gent a la festa.","tr":"There'll be lots of people at the party."},
+          {"t":"D'aquí a dos anys parlaré català perfectament.","tr":"Two years from now, I'll speak Catalan perfectly."},
+          {"t":"No t'ho diré mai!","tr":"I'll never tell you!","note":"two pronouns together: lesson 41"}
+        ] },
+        {"tip":"To guess about the present, Catalan uses {{deure}} + a verb: {{On és la Marta? —Deu ser a la feina.}} “Where's Marta? —She must be at work.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Demà vaig a ploure.","right":"Demà plourà.","tr":"It'll rain tomorrow.","why":"Catalan doesn't use {{anar a}} for the future: say {{plourà}}."},
+        {"wrong":"Teniré temps.","right":"Tindré temps.","tr":"I'll have time.","why":"{{tenir}} has an irregular stem: {{tindré}}."},
+        {"wrong":"Aniré viure a Tarragona.","right":"Aniré a viure a Tarragona.","tr":"I'll go and live in Tarragona.","why":"After {{anar}} meaning real going, the next verb takes {{a}}: {{anar a viure}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Demà ___ tot el dia.","tr":"It'll rain all day tomorrow.","options":["plourà","va ploure","vaig a ploure"],"answer":0,"why":"A prediction: the future, {{plourà}}. {{va ploure}} is “it rained”.","from":"say-what-happened"},
+        {"type":"fill","q":"Choose the missing word.","t":"L'any que ve ___ a Itàlia.","tr":"Next year we'll go to Italy.","options":["anirem","anem a","vam anar"],"answer":0,"why":"The future of {{anar}}: {{anirem}}."},
+        {"type":"choice","q":"Which one is the future of {{fer}}?","options":["{{faré}}","{{feré}}","{{fiaré}}"],"answer":0,"why":"{{fer}} → {{faré}}, {{faràs}}, {{farà}}…"},
+        {"type":"dialogue","q":"A friend is wondering about the weekend. Choose your replies.","lines":[{"who":"Friend","t":"Creus que farà bon temps dissabte?","tr":"Do you think the weather will be nice on Saturday?"},{"options":["Sí, segur que farà sol.","Sí, segur que va fer sol."],"answer":0,"why":"A prediction: the future, {{farà}}."},{"who":"Friend","t":"I vindràs a la platja?","tr":"And will you come to the beach?"},{"options":["És clar! Hi seré a les deu.","És clar! Hi era a les deu."],"answer":0,"why":"A promise about Saturday: the future of {{ser}}, {{seré}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"There'll be lots of people at the party.","words":["Hi haurà","molta","gent","a la festa."]},
+        {"type":"say","q":"Promise a friend: “I'll call you tonight.”","answer":"Et trucaré aquesta nit."},
+        {"type":"free","q":"Your turn: what will your life be like in five years? Say two or three things.","answers":[{"t":"D'aquí a cinc anys viuré a Barcelona i parlaré català molt bé.","tr":"In five years I'll live in Barcelona, and I'll speak Catalan very well."},{"t":"Tindré un gos, treballaré menys i viatjaré més.","tr":"I'll have a dog, I'll work less, and I'll travel more."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give reasons and say “but”",
+      "summary": "Explain why, say what follows, and add a “but”: “I didn't come because I was sick.”",
+      "topic": "{{perquè}}, {{com que}}, {{així que}}, {{però}}, {{tot i que}}; {{per què?}} and {{perquè}}",
+      "blocks": [
+        {"goal":{"t":"No vaig venir perquè estava malalt.","tr":"I didn't come because I was sick."}},
+        {"dialog":[{"who":"Anna","t":"Per què no vas venir a la festa?","tr":"Why didn't you come to the party?"},{"who":"Joe","t":"Perquè estava malalt. Tenia febre.","tr":"Because I was sick. I had a fever."},{"who":"Anna","t":"Ostres! I ara com estàs?","tr":"Oh no! And how are you now?"},{"who":"Joe","t":"Millor, però encara estic cansat, així que avui em quedo a casa.","tr":"Better, but I'm still tired, so I'm staying home today."},{"who":"Anna","t":"Fas bé. Com que no vas venir, et vam guardar un tros de pastís!","tr":"Good idea. Since you didn't come, we saved you a piece of cake!"}]},
+        {"term":"clause","means":"a part of a sentence with its own verb: “I stayed home because I was sick” has two clauses."},
+        {"p":"**Why and because.** The question is {{Per què…?}}, two words; the answer is {{perquè…}}, one word: {{Per què plores? —Perquè estic trist.}} “Why are you crying? —Because I'm sad.”"},
+        {"p":"**Since, as.** {{com que}} puts the reason first, at the start of the sentence: {{Com que plovia, ens vam quedar a casa.}} “Since it was raining, we stayed home.”"},
+        {"p":"**So.** {{així que}} gives the result: {{Estava cansat, així que vaig anar a dormir aviat.}} “I was tired, so I went to bed early.” In speech, {{doncs}} also means “so, then”: {{Doncs anem!}} “Let's go, then!”"},
+        {"p":"**But and although.** {{però}} is “but”; {{tot i que}} or {{encara que}} is “although”: {{Tot i que fa fred, anirem a la platja.}} “Although it's cold, we'll go to the beach.”"},
+        { "table": [
+          ["to say","Catalan","example"],
+          ["why?","{{per què?}}","{{Per què no vens?}} Why aren't you coming?"],
+          ["because","{{perquè}}","{{Perquè treballo.}} Because I'm working."],
+          ["since, as","{{com que}}","{{Com que treballo, no puc venir.}} Since I'm working, I can't come."],
+          ["so","{{així que}}","{{Treballo, així que no puc venir.}} I'm working, so I can't come."],
+          ["but","{{però}}","{{Vull venir, però treballo.}} I want to come, but I'm working."],
+          ["although","{{tot i que}}","{{Tot i que treballo, vindré.}} Although I'm working, I'll come."]
+        ] },
+        { "ex": [
+          {"t":"Estudio català perquè la meva parella és de Girona.","tr":"I'm learning Catalan because my partner is from Girona."},
+          {"t":"Com que no tenia diners, no vaig sortir.","tr":"Since I didn't have any money, I didn't go out."},
+          {"t":"Ha perdut el tren, així que arribarà tard.","tr":"He's missed the train, so he'll be late."},
+          {"t":"M'agrada, però és massa car.","tr":"I like it, but it's too expensive."},
+          {"t":"Tot i que és tard, no tinc son.","tr":"Although it's late, I'm not sleepy."},
+          {"t":"Per què ho dius?","tr":"Why do you say that?"}
+        ] },
+        {"tip":"In everyday speech, {{que}} after an order often means “because”: {{Afanya't, que fem tard!}} “Hurry up, we're late!”"}
+      ],
+      "mistakes": [
+        {"wrong":"No vaig venir per què estava malalt.","right":"No vaig venir perquè estava malalt.","tr":"I didn't come because I was sick.","why":"“Because” is one word: {{perquè}}."},
+        {"wrong":"Estava cansat, així vaig anar a dormir.","right":"Estava cansat, així que vaig anar a dormir.","tr":"I was tired, so I went to bed.","why":"“So” is {{així que}}, with its {{que}}."},
+        {"wrong":"Com plovia, ens vam quedar a casa.","right":"Com que plovia, ens vam quedar a casa.","tr":"Since it was raining, we stayed home.","why":"“Since” at the start is {{com que}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No vaig venir ___ estava malalt.","tr":"I didn't come because I was sick.","options":["perquè","per què","però"],"answer":0,"why":"“Because”: {{perquè}}, one word.","from":"set-the-scene"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ plovia, ens vam quedar a casa.","tr":"Since it was raining, we stayed home.","options":["Com que","Així que","Però"],"answer":0,"why":"The reason first: {{com que}}."},
+        {"type":"choice","q":"{{Treballo demà, així que no sortiré.}} means…","options":["I'm working tomorrow, so I won't go out.","I'm working tomorrow because I won't go out.","Although I'm working tomorrow, I'll go out."],"answer":0,"why":"{{així que}}: “so”, the result."},
+        {"type":"dialogue","q":"A friend invites you to a concert. Choose your replies.","lines":[{"who":"Friend","t":"Vens al concert divendres?","tr":"Are you coming to the concert on Friday?"},{"options":["No puc, perquè he de treballar.","No puc, per què he de treballar."],"answer":0,"why":"“Because” is {{perquè}}, one word."},{"who":"Friend","t":"Llàstima! Per què no vens després de la feina?","tr":"Too bad! Why don't you come after work?"},{"options":["Bona idea, tot i que arribaré tard.","Bona idea, així que arribaré tard."],"answer":0,"why":"A contrast: {{tot i que}} “although”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I like it, but it's too expensive.","words":["M'agrada,","però","és","massa","car."]},
+        {"type":"say","q":"Ask: “Why do you say that?”","answer":"Per què ho dius?"},
+        {"type":"free","q":"Your turn: why are you learning Catalan? Give a reason with {{perquè}}, and add something with {{però}} or {{tot i que}}.","answers":[{"t":"Estudio català perquè vull viure a Barcelona, però encara em costa molt.","tr":"I'm learning Catalan because I want to live in Barcelona, but I still find it hard."},{"t":"Aprenc català perquè m'agrada molt, tot i que no tinc gaire temps.","tr":"I'm learning Catalan because I really like it, although I don't have much time."}]}
+      ]
+    },
+    {
+      "id": "describe-with-que",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say which person or thing you mean",
+      "summary": "Describe people, places and things with a whole sentence: “The restaurant where we had dinner yesterday belongs to a friend of mine.”",
+      "topic": "{{que}} “who, that, which”; {{on}} “where”; {{amb qui}}, {{de qui}}; {{el que}} “what”",
+      "blocks": [
+        {"goal":{"t":"El restaurant on vam sopar ahir és d'un amic meu.","tr":"The restaurant where we had dinner yesterday belongs to a friend of mine."}},
+        {"dialog":[{"who":"Clara","t":"Qui és aquell noi que parla amb la Marta?","tr":"Who's that guy who's talking to Marta?"},{"who":"Dan","t":"És en Pere, el noi que viu al pis de dalt.","tr":"That's Pere, the guy who lives in the apartment upstairs."},{"who":"Clara","t":"Ah, el que toca la guitarra a les tantes?","tr":"Oh, the one who plays guitar at all hours?"},{"who":"Dan","t":"Sí! I la noia amb qui balla és la seva germana.","tr":"Yes! And the girl he's dancing with is his sister."},{"who":"Clara","t":"Ara entenc el que em deies!","tr":"Now I understand what you were telling me!"}]},
+        {"p":"**{{que}}: who, that, which.** To describe someone or something with a verb, Catalan adds {{que}}, for people and things alike: {{el noi que viu a dalt}} “the guy who lives upstairs”, {{el llibre que llegeixo}} “the book (that) I'm reading”. English can leave out “that”; Catalan never leaves out {{que}}."},
+        {"p":"**{{on}}: where.** For a place: {{el bar on ens vam conèixer}} “the bar where we met”, {{la ciutat on visc}} “the city where I live”."},
+        {"p":"**With a preposition.** After {{amb}} “with”, {{de}} “of, about”, {{per}} “for”…, use {{qui}} for people and {{què}} for things, with the preposition first, never at the end (as in lesson 5): {{la noia amb qui balla}} “the girl he's dancing with”, {{l'amic de qui et parlava}} “the friend I was telling you about”, {{el tema de què parlem}} “the subject we're talking about”."},
+        {"p":"**{{el que}}: what.** “What” in the middle of a sentence, meaning “the thing that”, is {{el que}}: {{No entenc el que dius.}} “I don't understand what you're saying.” {{El que vull és descansar.}} “What I want is to rest.”"},
+        { "table": [
+          ["Catalan","English"],
+          ["{{la dona que treballa amb mi}}","the woman who works with me"],
+          ["{{la pel·lícula que vam veure}}","the movie (that) we saw"],
+          ["{{el poble on vaig néixer}}","the town where I was born"],
+          ["{{l'amic amb qui visc}}","the friend I live with"],
+          ["{{el que necessito}}","what I need"]
+        ] },
+        { "ex": [
+          {"t":"Tinc un amic que parla sis idiomes.","tr":"I have a friend who speaks six languages."},
+          {"t":"El cotxe que vam llogar era molt petit.","tr":"The car we rented was really small."},
+          {"t":"Aquest és el bar on ens vam conèixer.","tr":"This is the bar where we met."},
+          {"t":"La persona amb qui parlava era la meva cap.","tr":"The person I was talking to was my boss."},
+          {"t":"No és el que sembla!","tr":"It's not what it looks like!"},
+          {"t":"Fes el que vulguis.","tr":"Do whatever you like.","note":"{{vulguis}}: a form of {{voler}} you'll meet in lesson 43"}
+        ] },
+        {"tip":"To point someone out: {{el de la camisa blava}} “the one in the blue shirt”, {{la que porta ulleres}} “the one with glasses”."}
+      ],
+      "mistakes": [
+        {"wrong":"El llibre llegeixo és molt bo.","right":"El llibre que llegeixo és molt bo.","tr":"The book I'm reading is very good.","why":"Catalan never leaves out {{que}}."},
+        {"wrong":"La noia que balla amb és la seva germana.","right":"La noia amb qui balla és la seva germana.","tr":"The girl he's dancing with is his sister.","why":"The preposition goes first, followed by {{qui}}: {{amb qui}}."},
+        {"wrong":"La ciutat que visc és petita.","right":"La ciutat on visc és petita.","tr":"The city where I live is small.","why":"For the place where something happens: {{on}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tinc una amiga ___ viu a Londres.","tr":"I have a friend who lives in London.","options":["que","qui","on"],"answer":0,"why":"“Who” right after a noun: {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Aquest és el restaurant ___ vam sopar.","tr":"This is the restaurant where we had dinner.","options":["on","que","qui"],"answer":0,"why":"A place: {{on}}.","from":"say-what-happened"},
+        {"type":"choice","q":"“The friend I live with” is…","options":["{{l'amic amb qui visc}}","{{l'amic que visc amb}}","{{l'amic visc amb}}"],"answer":0,"why":"The preposition first, then {{qui}}."},
+        {"type":"dialogue","q":"At a party, a friend points at someone. Choose your replies.","lines":[{"who":"Friend","t":"Coneixes aquella noia?","tr":"Do you know that girl?"},{"options":["Quina? La que porta el vestit vermell?","Quina? La porta el vestit vermell?"],"answer":0,"why":"“The one who…”: {{la que}}."},{"who":"Friend","t":"Sí. És la noia que treballa amb en Pau.","tr":"Yes. She's the girl who works with Pau."},{"options":["Ah, sí! És la persona de qui em vas parlar.","Ah, sí! És la persona que em vas parlar de."],"answer":0,"why":"The preposition goes first: {{de qui}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't understand what you're saying.","words":["No","entenc","el que","dius."]},
+        {"type":"say","q":"Say “I have a friend who speaks six languages.”","answer":"Tinc un amic que parla sis idiomes."},
+        {"type":"free","q":"Your turn: describe a place that's special to you and a person you know, with {{on}} and {{que}}.","answers":[{"t":"Montserrat és el lloc on més m'agrada passejar. La Laia és una amiga que sempre m'ajuda.","tr":"Montserrat is the place where I most like to go walking. Laia is a friend who always helps me."},{"t":"El poble on vaig néixer és molt petit. El meu germà és la persona que més estimo.","tr":"The town where I was born is very small. My brother is the person I love most."}]}
+      ]
     }
   ]
 }
