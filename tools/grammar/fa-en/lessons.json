@@ -961,6 +961,283 @@
         {"type":"say","q":"بگویید: «لطفاً کمکم کنید.»","answer":"Please help me.","from":"ask-the-way"},
         {"type":"free","q":"نوبت شماست: دربارهٔ دو نفر که دوستشان دارید بگویید: کی‌اند و چه کاری برایشان یا با آن‌ها می‌کنید. از {{him}}، {{her}} یا {{them}} استفاده کنید.","answers":[{"t":"My grandmother is very kind. I call her every week and I visit her on Fridays.","tr":"مادربزرگم خیلی مهربان است. هر هفته به او زنگ می‌زنم و جمعه‌ها به دیدنش می‌روم."},{"t":"I have two nephews. I love them! I play soccer with them.","tr":"دو برادرزاده دارم. عاشقشانم! با آن‌ها فوتبال بازی می‌کنم."}]}
       ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "بگویید چه کاری از دستتان برمی‌آید",
+      "summary": "بگویید {{I can swim}} و {{I can't come tomorrow}}، و مؤدبانه بخواهید: {{Could you help me?}}",
+      "topic": "{{can}} و {{can't}} + فعل ساده (بدون {{to}})؛ {{Can I…?}} برای اجازه؛ {{Could you…?}} برای خواهش",
+      "blocks": [
+        {"goal":{"t":"Could you speak more slowly, please?","tr":"ممکن است آهسته‌تر صحبت کنید، لطفاً؟"}},
+        {"dialog":[{"who":"رضا","t":"Can you come to my party on Friday?","tr":"جمعه می‌توانی به مهمانی‌ام بیایی؟"},{"who":"تام","t":"I'm sorry, I can't. I work on Fridays.","tr":"ببخشید، نمی‌توانم. جمعه‌ها کار می‌کنم."},{"who":"رضا","t":"That's too bad! Can you come on Saturday?","tr":"حیف! شنبه می‌توانی؟"},{"who":"تام","t":"Yes, I can come on Saturday.","tr":"بله، شنبه می‌توانم بیایم."}]},
+        {"term":"فعل کمکی","means":"فعل کوچکی که به فعل اصلی معنایی اضافه می‌کند، مثل توانستن یا باید: {{can}}، {{must}}، {{will}}. بعد از آن فعل ساده می‌آید."},
+        {"p":"**{{can}} ساده‌ترین فعل انگلیسی است.** {{can}} «توانستن» برای همه یکی است ({{I can}}، {{she can}}، بدون {{-s}}) و فعل بعدش ساده است، **بدون {{to}}**: {{I can swim.}} «می‌توانم شنا کنم». در فارسی فعل دوم التزامی است («بروم»)؛ در انگلیسی فقط شکل ساده: {{I can go.}}"},
+        {"p":"**منفی و سؤال، بدون {{do}}.** {{can't}} ({{cannot}}): {{I can't drive.}} «نمی‌توانم رانندگی کنم». در سؤال {{can}} اول جمله می‌آید: {{Can you swim?}} «شنا بلدی؟»، و جواب: {{Yes, I can.}} یا {{No, I can't.}}"},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["می‌توانم","{{I can go.}}","می‌توانم بروم."],
+          ["نمی‌توانم","{{I can't go.}}","نمی‌توانم بروم."],
+          ["می‌توانی؟","{{Can you go?}}","می‌توانی بروی؟"],
+          ["اجازه","{{Can I sit here?}}","می‌توانم اینجا بنشینم؟"],
+          ["خواهش","{{Could you help me?}}","ممکن است کمکم کنید؟"]
+        ] },
+        {"p":"**اجازه و خواهش.** {{Can I…?}} برای اجازه گرفتن: {{Can I sit here?}} «اجازه هست اینجا بنشینم؟». {{Can you…?}} و مؤدب‌ترش {{Could you…?}} برای خواهش از کسی: {{Could you help me?}} «ممکن است کمکم کنید؟»."},
+        {"p":"**تلفظ.** در جملهٔ مثبت {{can}} کوتاه و بی‌تأکید است، تقریباً «کِن»؛ اما {{can't}} کشیده و با تأکید است، «کَنت». به همین فرق گوش کنید: {{I can come}} و {{I can't come}}."},
+        { "ex": [
+          {"t":"I can speak a little English.","tr":"کمی انگلیسی صحبت می‌کنم."},
+          {"t":"She can't come tomorrow.","tr":"او فردا نمی‌تواند بیاید."},
+          {"t":"Can I take a picture here?","tr":"می‌توانم اینجا عکس بگیرم؟"},
+          {"t":"Could you say that again, please?","tr":"ممکن است دوباره بگویید، لطفاً؟"},
+          {"t":"Can you drive?","tr":"رانندگی بلدی؟"},
+          {"t":"We can't find our hotel.","tr":"هتلمان را پیدا نمی‌کنیم."}
+        ] },
+        {"tip":"{{Could you speak more slowly?}} و {{Could you say that again?}} در اولین گفت‌وگوهایتان بهترین دوستان شما هستند."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"شنا بلدم.","why":"بعد از {{can}} فعل ساده می‌آید، بدون {{to}}."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"او رانندگی بلد است.","why":"{{can}} هیچ‌وقت {{-s}} نمی‌گیرد."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"می‌توانی کمکم کنی؟","why":"با {{can}}، {{do}} لازم نیست: خود {{can}} اول جمله می‌رود."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I can ___ a little English.","tr":"کمی انگلیسی صحبت می‌کنم.","options":["speak","to speak","speaks"],"answer":0,"why":"بعد از {{can}}: فعل ساده."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"___ you help me, please?","tr":"ممکن است کمکم کنید، لطفاً؟","options":["Could","Do","Are"],"answer":0,"why":"خواهش مؤدبانه: {{Could you…?}}"},
+        {"type":"choice","q":"در یک موزه می‌خواهید اجازهٔ عکس گرفتن بگیرید:","options":["{{Can I take a picture?}}","{{Do I can take a picture?}}","{{I can take a picture?}}"],"answer":0,"why":"{{can}} اول جمله، بدون {{do}}."},
+        {"type":"dialogue","q":"دوستتان دعوتتان می‌کند. جواب‌هایتان را انتخاب کنید.","from":"say-when","lines":[{"who":"رضا","t":"Can you come to my party on Friday?","tr":"جمعه می‌توانی به مهمانی‌ام بیایی؟"},{"options":["I'm sorry, I can't. I work on Fridays.","I'm sorry, I don't can. I work in Fridays."],"answer":0,"why":"{{can't}}، و روز با {{on}}."},{"who":"رضا","t":"That's too bad! What about Saturday?","tr":"حیف! شنبه چطور؟"},{"options":["Yes, I can come on Saturday.","Yes, I can to come on Saturday."],"answer":0,"why":"بعد از {{can}}، بدون {{to}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"ممکن است دوباره بگویید، لطفاً؟","words":["Could","you","say","that","again,","please?"]},
+        {"type":"say","q":"بپرسید: «اجازه هست اینجا بنشینم؟»","answer":"Can I sit here?"},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که بلدید و یک کار که بلد نیستید، با {{can}} و {{can't}}.","answers":[{"t":"I can swim and I can cook, but I can't drive.","tr":"شنا و آشپزی بلدم، ولی رانندگی بلد نیستم."},{"t":"I can speak Persian and a little English. I can't play the piano.","tr":"فارسی و کمی انگلیسی صحبت می‌کنم. پیانو بلد نیستم."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "بگویید می‌خواهید چه کار کنید",
+      "summary": "بگویید {{I want to learn English}}، {{I'd like to visit New York}} و {{I want you to come}}.",
+      "topic": "{{want to}}، {{would like to}} و {{need to}} + فعل؛ {{want someone to…}} (نه {{want that…}})",
+      "blocks": [
+        {"goal":{"t":"I want to visit New York next year.","tr":"می‌خواهم سال بعد به نیویورک بروم."}},
+        {"dialog":[{"who":"لیزا","t":"What do you want to do this summer?","tr":"تابستان می‌خواهی چه کار کنی؟"},{"who":"علی","t":"I want to travel. I'd like to see the Grand Canyon.","tr":"می‌خواهم سفر کنم. دلم می‌خواهد گرند کنیون را ببینم."},{"who":"لیزا","t":"Great! Do you want me to come with you?","tr":"عالی! می‌خواهی من هم با تو بیایم؟"},{"who":"علی","t":"Yes! I want you to come!","tr":"آره! می‌خواهم بیایی!"},{"who":"لیزا","t":"OK, but we need to save money first.","tr":"باشد، ولی اول باید پول جمع کنیم."}]},
+        {"p":"**دو فعل، با {{to}}.** در فارسی فعل دوم التزامی است: «می‌خواهم **بروم**». در انگلیسی فعل دوم با {{to}} می‌آید و شکلش ساده است: {{I want to go.}} «می‌خواهم بروم». فعل دوم شخص ندارد: {{she wants to go}} (فقط {{want}} است که {{-s}} می‌گیرد)."},
+        {"p":"**مؤدب‌تر: {{would like to}}.** مثل {{I'd like}} در درس ۱۲: {{I'd like to see the menu.}} «می‌خواهم منو را ببینم». {{Would you like to come?}} «دوست دارید بیایید؟». و {{need to}} «لازم است»: {{I need to go.}} «باید بروم»."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["می‌خواهم","{{I want to go.}}","می‌خواهم بروم."],
+          ["دلم می‌خواهد (مؤدب)","{{I'd like to go.}}","دوست دارم بروم."],
+          ["لازم است","{{I need to go.}}","باید بروم."],
+          ["نمی‌خواهم","{{I don't want to go.}}","نمی‌خواهم بروم."],
+          ["می‌خواهم که تو…","{{I want you to go.}}","می‌خواهم تو بروی."]
+        ] },
+        {"p":"**«می‌خواهم که تو بیایی»: {{want you to}}.** فارسی می‌گوید «می‌خواهم (که) بیایی»، با «که» و فعلی که شخص دارد. انگلیسی {{that}} نمی‌گذارد: {{I want you to come.}}، کلمه به کلمه «می‌خواهم تو را آمدن». {{I want that you come}} غلطی رایج است. همین‌طور: {{She wants me to call her.}} «می‌خواهد که به او زنگ بزنم»."},
+        { "ex": [
+          {"t":"I want to learn to drive.","tr":"می‌خواهم رانندگی یاد بگیرم."},
+          {"t":"She wants to be a doctor.","tr":"می‌خواهد دکتر شود.","note":"«شدن» این‌جا {{to be}} است"},
+          {"t":"Would you like to have dinner with us?","tr":"دوست دارید با ما شام بخورید؟"},
+          {"t":"I don't want to go to work today.","tr":"امروز نمی‌خواهم سر کار بروم."},
+          {"t":"My parents want me to study medicine.","tr":"پدر و مادرم می‌خواهند پزشکی بخوانم."},
+          {"t":"We need to talk.","tr":"باید با هم حرف بزنیم."}
+        ] },
+        {"tip":"در حرف زدن {{want to}} زیاد «وانا» شنیده می‌شود: {{I wanna go.}} بشناسیدش، ولی ننویسید."}
+      ],
+      "mistakes": [
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"می‌خواهم بروم خانه.","why":"بعد از {{want}}، {{to}} لازم است."},
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"می‌خواهم بیایی.","why":"انگلیسی {{that}} نمی‌گذارد: {{want}} + شخص + {{to}} + فعل."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"I want ___ English.","tr":"می‌خواهم انگلیسی یاد بگیرم.","options":["to learn","learn","learning"],"answer":0,"why":"{{want to}} + فعل ساده."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"My boss wants ___ to work on Saturday.","tr":"رئیسم می‌خواهد شنبه کار کنم.","options":["me","that I","I"],"answer":0,"why":"{{want}} + مفعول ({{me}}) + {{to}}."},
+        {"type":"choice","q":"مؤدبانه‌ترین راه برای دعوت کردن:","options":["{{Would you like to come?}}","{{Do you want come?}}","{{You want to come?}}"],"answer":0,"why":"{{Would you like to…?}} از همه مؤدبانه‌تر است."},
+        {"type":"dialogue","q":"دوستتان دربارهٔ برنامه‌هایتان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-can-do","lines":[{"who":"لیزا","t":"What do you want to do this summer?","tr":"تابستان می‌خواهی چه کار کنی؟"},{"options":["I want to travel. I'd like to see New York.","I want travel. I'd like see New York."],"answer":0,"why":"بعد از {{want}} و {{would like}}: {{to}}."},{"who":"لیزا","t":"Can I come with you?","tr":"می‌توانم با تو بیایم؟"},{"options":["Yes! I want you to come.","Yes! I want that you come."],"answer":0,"why":"{{want you to come}}، بدون {{that}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"پدر و مادرم می‌خواهند پزشکی بخوانم.","words":["My","parents","want","me","to","study","medicine."]},
+        {"type":"say","q":"بگویید: «باید بروم.» (با {{need}})","answer":"I need to go."},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که امسال می‌خواهید بکنید، و یک چیز که کسی از شما می‌خواهد ({{… wants me to…}}).","answers":[{"t":"I want to learn English and I'd like to visit Canada. My mother wants me to call her every day!","tr":"می‌خواهم انگلیسی یاد بگیرم و دوست دارم به کانادا بروم. مادرم می‌خواهد هر روز به او زنگ بزنم!"},{"t":"I want to find a new job. My wife wants me to rest more.","tr":"می‌خواهم یک کار تازه پیدا کنم. همسرم می‌خواهد بیشتر استراحت کنم."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-plans",
+      "unit": 4,
+      "level": "A2",
+      "title": "از برنامه‌هایتان بگویید",
+      "summary": "بگویید {{I'm going to visit my aunt}} و {{We're meeting at seven}}: آینده‌ای که از قبل برنامه‌ریزی شده.",
+      "topic": "{{be going to}} + فعل برای نقشه‌ها و تصمیم‌ها؛ حال استمراری برای قرارهای قطعی؛ {{tomorrow}}، {{next week}}",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my aunt in Shiraz next week.","tr":"هفتهٔ بعد می‌خواهم به دیدن خاله‌ام در شیراز بروم."}},
+        {"dialog":[{"who":"مینا","t":"What are you doing this weekend?","tr":"آخر هفته چه کار می‌کنی؟"},{"who":"سام","t":"I'm going to paint my apartment.","tr":"می‌خواهم آپارتمانم را رنگ کنم."},{"who":"مینا","t":"Wow! Are you going to do it alone?","tr":"اوه! تنهایی؟"},{"who":"سام","t":"No, my brother is helping me. He's coming on Saturday morning.","tr":"نه، برادرم کمکم می‌کند. شنبه صبح می‌آید."},{"who":"مینا","t":"And on Sunday?","tr":"یکشنبه چطور؟"},{"who":"سام","t":"On Sunday I'm not going to do anything!","tr":"یکشنبه قرار نیست هیچ کاری بکنم!"}]},
+        {"p":"**{{going to}}: نقشه.** برای کاری که تصمیمش را گرفته‌اید، انگلیسی {{am}}، {{is}} یا {{are}} + {{going to}} + فعل ساده می‌گوید: {{I'm going to study tonight.}} «امشب می‌خواهم درس بخوانم». در فارسی برای این معمولاً حال ساده، «می‌خواهم» یا «قرار است» را به کار می‌بریم."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["مثبت","{{I'm going to call her.}}","می‌خواهم به او زنگ بزنم."],
+          ["منفی","{{I'm not going to call her.}}","قرار نیست به او زنگ بزنم."],
+          ["سؤال","{{Are you going to call her?}}","می‌خواهی به او زنگ بزنی؟"],
+          ["او","{{She's going to call.}}","قرار است زنگ بزند."]
+        ] },
+        {"p":"**قرار قطعی: حال استمراری.** برای کاری که زمان و جایش معلوم است (در تقویم نوشته‌اید، بلیتش را گرفته‌اید)، آمریکایی‌ها حال استمراری را می‌آورند: {{We're meeting at seven.}} «ساعت هفت قرار داریم»، {{I'm flying to Dubai on Monday.}} «دوشنبه به دبی پرواز دارم». کلمهٔ زمان ({{tomorrow}}، {{on Monday}}) نشان می‌دهد که آینده است."},
+        {"p":"**بدون حرف اضافه:** {{tomorrow}}، {{next week}}، {{next year}}، {{this weekend}}، {{tonight}}: {{I'm going to see her tomorrow.}} و {{going to}} برای چیزی هم هست که الان پیداست که خواهد شد: {{Look at those clouds! It's going to rain.}} «آن ابرها را ببین! باران می‌آید»."},
+        { "ex": [
+          {"t":"I'm going to buy a new phone.","tr":"می‌خواهم یک گوشی نو بخرم."},
+          {"t":"What are you going to do after graduation?","tr":"بعد از فارغ‌التحصیلی می‌خواهی چه کار کنی؟"},
+          {"t":"She's not going to come tonight.","tr":"امشب نمی‌آید."},
+          {"t":"We're having dinner with friends on Friday.","tr":"جمعه با دوستان شام داریم.","note":"قرار قطعی: حال استمراری"},
+          {"t":"My parents are visiting us next month.","tr":"ماه آینده پدر و مادرم به دیدنمان می‌آیند."},
+          {"t":"It's going to be a hot day.","tr":"روز گرمی خواهد بود."}
+        ] },
+        {"tip":"در حرف زدن {{going to}} اغلب «گانا» شنیده می‌شود: {{I'm gonna call you.}} بشناسیدش، ولی در نوشته {{going to}} بنویسید."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to study.","right":"I'm going to study.","tr":"می‌خواهم درس بخوانم.","why":"{{am}} لازم است: {{I'm going to}}."},
+        {"wrong":"I'm going to studying.","right":"I'm going to study.","tr":"می‌خواهم درس بخوانم.","why":"بعد از {{going to}}، فعل ساده."},
+        {"wrong":"Tomorrow I visit my aunt.","right":"Tomorrow I'm visiting my aunt.","tr":"فردا به دیدن خاله‌ام می‌روم.","why":"برای یک قرار در آینده، حال استمراری یا {{going to}}؛ حال ساده برای عادت است."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"I'm going ___ my grandmother this weekend.","tr":"این آخر هفته می‌خواهم به دیدن مادربزرگم بروم.","options":["to visit","visit","visiting"],"answer":0,"why":"{{going to}} + فعل ساده."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"We ___ meeting at the café at seven.","tr":"ساعت هفت در کافه قرار داریم.","options":["are","is","do"],"answer":0,"why":"قرار قطعی: حال استمراری، و با {{we}}: {{are}}."},
+        {"type":"choice","q":"به ابرهای سیاه نگاه می‌کنید. «الان باران می‌آید»:","options":["{{It's going to rain.}}","{{It rains.}}","{{It's rain.}}"],"answer":0,"why":"نشانه پیداست: {{going to}}."},
+        {"type":"dialogue","q":"یک همکار دربارهٔ آخر هفته‌تان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-whats-happening-now","lines":[{"who":"همکار","t":"Any plans for the weekend?","tr":"برای آخر هفته برنامه‌ای داری؟"},{"options":["Yes, I'm going to paint my apartment.","Yes, I going to paint my apartment."],"answer":0,"why":"{{I'm going to}}، با {{am}}."},{"who":"همکار","t":"Is anyone helping you?","tr":"کسی کمکت می‌کند؟"},{"options":["Yes, my brother is coming on Saturday.","Yes, my brother comes always on Saturday."],"answer":0,"why":"قرار شنبه، قطعی: حال استمراری."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"می‌خواهم یک گوشی نو بخرم.","words":["I'm","going","to","buy","a","new","phone."]},
+        {"type":"say","q":"بپرسید: «امشب می‌خواهی چه کار کنی؟»","answer":"What are you going to do tonight?","from":"ask-where-what-who"},
+        {"type":"free","q":"نوبت شماست: از برنامه‌های هفتهٔ بعدتان بگویید: یک نقشه با {{going to}} و یک قرار قطعی با حال استمراری.","answers":[{"t":"Next week I'm going to start a new course. I'm meeting my teacher on Monday.","tr":"هفتهٔ بعد می‌خواهم یک دورهٔ تازه شروع کنم. دوشنبه با معلمم قرار دارم."},{"t":"I'm going to clean the house on Friday, and on Saturday we're having lunch with my parents.","tr":"جمعه می‌خواهم خانه را تمیز کنم، و شنبه با پدر و مادرم ناهار داریم."}]}
+      ]
+    },
+    {
+      "id": "offer-and-promise",
+      "unit": 4,
+      "level": "A2",
+      "title": "پیشنهاد کمک بدهید، قول بدهید و پیش‌بینی کنید",
+      "summary": "بگویید {{I'll help you}}، {{I'll call you tomorrow}} و {{It will be cold}}: {{will}} برای تصمیم‌های همان لحظه، قول‌ها و حدس‌ها.",
+      "topic": "{{will}} و {{'ll}} + فعل ساده؛ {{won't}}؛ {{Will you…?}}؛ {{will}} یا {{going to}}؟",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll help you.","tr":"نگران نباش، کمکت می‌کنم."}},
+        {"dialog":[{"who":"مینا","t":"This bag is so heavy!","tr":"این کیف چقدر سنگین است!"},{"who":"تام","t":"I'll carry it for you.","tr":"بده، من برایت می‌آورمش."},{"who":"مینا","t":"Thanks! Oh no, it's starting to rain.","tr":"ممنون! وای، دارد باران می‌گیرد."},{"who":"تام","t":"Don't worry. I'll get an umbrella from the car.","tr":"نگران نباش. از ماشین چتر می‌آورم."},{"who":"مینا","t":"You're so nice. I'll buy you a coffee!","tr":"چقدر مهربانی. یک قهوه مهمان من!"},{"who":"تام","t":"OK, but I won't say no to a cake too!","tr":"باشد، ولی به کیک هم نه نمی‌گویم!"}]},
+        {"p":"**{{will}}: همین الان تصمیم گرفتم.** وقتی همان لحظه تصمیم می‌گیرید کاری بکنید، یا پیشنهاد کمک می‌دهید، انگلیسی {{will}} می‌گوید، که کوتاهش {{'ll}} است: {{I'll help you.}} «کمکت می‌کنم»، {{I'll have the chicken.}} «من مرغ می‌خورم» (سفارش در رستوران). فارسی برای این همان حال ساده را می‌گوید."},
+        {"p":"**قول و حدس.** {{will}} برای قول دادن: {{I'll call you tomorrow.}} «فردا زنگ می‌زنم»؛ و برای حدس زدن دربارهٔ آینده: {{It will be cold tomorrow.}} «فردا هوا سرد خواهد بود»، {{I think she'll love it.}} «فکر کنم خیلی خوشش بیاید»."},
+        {"p":"**شکلش مثل {{can}} است:** برای همه یکی، بدون {{-s}}، و فعل بعدش ساده. منفی: {{won't}} ({{will not}}): {{I won't tell anyone.}} «به هیچ‌کس نمی‌گویم». سؤال با {{Will you…?}}، برای خواهش: {{Will you marry me?}} «با من ازدواج می‌کنی؟»."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["تصمیم همان لحظه","{{I'll take it.}}","همین را برمی‌دارم."],
+          ["پیشنهاد کمک","{{I'll help you.}}","کمکت می‌کنم."],
+          ["قول","{{I won't be late.}}","دیر نمی‌کنم."],
+          ["حدس","{{It will rain.}}","باران خواهد آمد."],
+          ["خواهش","{{Will you open the door?}}","در را باز می‌کنی؟"]
+        ] },
+        {"p":"**{{will}} یا {{going to}}؟** {{going to}} برای نقشه‌ای است که از قبل کشیده‌اید (درس قبل): {{I'm going to buy a car.}} (مدتی است فکرش را کرده‌ام). {{will}} برای تصمیمی که همین الان می‌گیرید: {{This one is nice. I'll take it!}} «این قشنگ است. همین را برمی‌دارم!»."},
+        { "ex": [
+          {"t":"I'll call you tonight.","tr":"امشب بهت زنگ می‌زنم."},
+          {"t":"I think it will snow tomorrow.","tr":"فکر کنم فردا برف بیاید."},
+          {"t":"Don't worry, I won't tell anyone.","tr":"نگران نباش، به کسی نمی‌گویم."},
+          {"t":"I'll have a burger and a soda, please.","tr":"یک برگر و یک نوشابه، لطفاً.","note":"سفارش دادن"},
+          {"t":"Will you be at home tonight?","tr":"امشب خانه هستی؟"},
+          {"t":"You'll love this movie!","tr":"از این فیلم خیلی خوشت می‌آید!"}
+        ] },
+        {"tip":"{{I'll}} را «آیل» بگویید و {{won't}} را «وُنت»، با «و» گرد؛ {{won't}} را با {{want}} «وانت» قاطی نکنید."}
+      ],
+      "mistakes": [
+        {"wrong":"I will to help you.","right":"I'll help you.","tr":"کمکت می‌کنم.","why":"بعد از {{will}} فعل ساده می‌آید، بدون {{to}}."},
+        {"wrong":"The phone is ringing. I'm going to answer it!","right":"The phone is ringing. I'll answer it!","tr":"تلفن زنگ می‌زند. من جواب می‌دهم!","why":"تصمیمی که همین لحظه می‌گیرید: {{will}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Wait, I ___ help you.","tr":"صبر کن، کمکت می‌کنم.","options":["will","am","going"],"answer":0,"why":"پیشنهاد کمک: {{will}} (یا {{I'll}})."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I promise I ___ be late.","tr":"قول می‌دهم دیر نکنم.","options":["won't","don't","not"],"answer":0,"why":"قول، منفی: {{won't}}."},
+        {"type":"choice","q":"در فروشگاه یک کت می‌بینید و همان لحظه تصمیم می‌گیرید بخرید:","options":["{{I'll take it!}}","{{I take it!}}","{{I'm going to take it yesterday.}}"],"answer":0,"why":"تصمیم همان لحظه: {{I'll}}."},
+        {"type":"dialogue","q":"دوستتان گرفتار است. پیشنهاد کمک بدهید.","from":"talk-about-your-plans","lines":[{"who":"مینا","t":"My car won't start, and I have a meeting at ten!","tr":"ماشینم روشن نمی‌شود و ساعت ده جلسه دارم!"},{"options":["Don't worry, I'll drive you.","Don't worry, I drive you yesterday."],"answer":0,"why":"پیشنهاد همان لحظه: {{I'll}}."},{"who":"مینا","t":"Really? Thank you! Are you going to work today?","tr":"واقعاً؟ ممنون! امروز سر کار می‌روی؟"},{"options":["Yes, I'm going to work at eleven. I'll drop you off first.","Yes, I'll going to work at eleven."],"answer":0,"why":"برنامهٔ از قبل: {{going to}}؛ تصمیم همین الان: {{I'll}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"امشب بهت زنگ می‌زنم.","words":["I'll","call","you","tonight."]},
+        {"type":"say","q":"قول بدهید: «به کسی نمی‌گویم.»","answer":"I won't tell anyone."},
+        {"type":"free","q":"نوبت شماست: دوستتان می‌گوید {{I'm moving to a new apartment on Saturday.}} دو پیشنهاد کمک و یک قول بدهید.","answers":[{"t":"I'll help you! I'll bring some boxes, and I won't be late.","tr":"کمکت می‌کنم! چند تا جعبه می‌آورم، و دیر نمی‌کنم."},{"t":"I'll come at nine and I'll bring lunch for everyone.","tr":"ساعت نه می‌آیم و برای همه ناهار می‌آورم."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "بگویید چه کارهایی باید بکنید",
+      "summary": "بگویید {{I have to work}}، {{You don't have to pay}}، {{You mustn't smoke here}} و {{You should rest}}: «باید» در انگلیسی چند کلمه است.",
+      "topic": "{{have to}} و {{has to}}؛ {{don't have to}} «لازم نیست»؛ {{must}} و {{mustn't}}؛ {{should}} و {{shouldn't}} برای توصیه",
+      "blocks": [
+        {"goal":{"t":"Sorry, I have to go. I have to get up early tomorrow.","tr":"ببخشید، باید بروم. فردا باید زود بیدار شوم."}},
+        {"dialog":[{"who":"دکتر","t":"You have a bad cold. You should rest for a few days.","tr":"سرمای بدی خورده‌اید. باید چند روز استراحت کنید."},{"who":"شما","t":"Do I have to stay home?","tr":"باید خانه بمانم؟"},{"who":"دکتر","t":"Yes, and you should drink a lot of water.","tr":"بله، و زیاد آب بخورید."},{"who":"شما","t":"Do I have to take medicine?","tr":"باید دارو بخورم؟"},{"who":"دکتر","t":"No, you don't have to. But you mustn't go to work this week.","tr":"نه، لازم نیست. ولی این هفته نباید سر کار بروید."}]},
+        {"p":"**«باید» در انگلیسی چند کلمه است.** فارسی برای همه یک «باید» دارد. انگلیسی بسته به معنا فرق می‌گذارد: {{have to}} برای ضرورت (قانون، کار، برنامه): {{I have to work on Saturday.}} «شنبه باید کار کنم»؛ {{should}} برای توصیه: {{You should see a doctor.}} «بهتر است دکتر بروی»؛ و {{must}} برای ضرورتی خیلی قوی، یا قانون نوشته‌شده."},
+        {"p":"**{{have to}} مثل فعل معمولی است.** {{-s}} می‌گیرد ({{she has to}}) و منفی و سؤالش با {{do}} است: {{Do I have to pay?}} «باید پول بدهم؟»، {{You don't have to pay.}} «لازم نیست پول بدهید»."},
+        {"p":"**مراقب {{don't have to}} و {{mustn't}} باشید!** فارسی برای هر دو «نباید» می‌گوید، اما معنایشان کاملاً فرق دارد: {{You don't have to come.}} «لازم نیست بیایی» (اگر خواستی بیا)؛ {{You mustn't come.}} «نباید بیایی» (ممنوع است). {{mustn't}} در آمریکا کم شنیده می‌شود؛ به جایش {{can't}} یا {{shouldn't}} زیاد می‌آید: {{You can't park here.}}"},
+        { "table": [
+          ["فارسی","انگلیسی","معنا"],
+          ["باید (ضرورت)","{{I have to go.}}","مجبورم بروم."],
+          ["بهتر است (توصیه)","{{You should rest.}}","بهتر است استراحت کنی."],
+          ["بهتر است نکنی","{{You shouldn't smoke.}}","بهتر است سیگار نکشی."],
+          ["لازم نیست","{{You don't have to pay.}}","لازم نیست پول بدهی."],
+          ["نباید (ممنوع)","{{You mustn't park here.}}","اینجا نباید پارک کنی."]
+        ] },
+        {"p":"**شکل‌ها.** {{should}} و {{must}} مثل {{can}} هستند: برای همه یکی، و بدون {{to}}: {{She should go.}} اما {{have to}} همیشه {{to}} دارد: {{She has to go.}}"},
+        { "ex": [
+          {"t":"I have to work late tonight.","tr":"امشب باید تا دیروقت کار کنم."},
+          {"t":"She has to take the bus to work.","tr":"او مجبور است با اتوبوس سر کار برود."},
+          {"t":"You should try this restaurant.","tr":"حتماً این رستوران را امتحان کن."},
+          {"t":"You don't have to bring anything.","tr":"لازم نیست چیزی بیاوری.","note":"در جواب {{What should I bring?}} «چه بیاورم؟»"},
+          {"t":"Do we have to take our shoes off?","tr":"باید کفش‌هایمان را دربیاوریم؟"},
+          {"t":"You mustn't use your phone during the exam.","tr":"سر امتحان نباید از گوشی استفاده کنید."}
+        ] },
+        {"tip":"{{have to}} در حرف زدن «هَفتو» شنیده می‌شود و {{has to}} «هَستو». {{have got to}}، یا خودمانی‌اش {{gotta}}، هم همین معنا را دارد: {{I gotta go!}} «باید بروم!»."}
+      ],
+      "mistakes": [
+        {"wrong":"You mustn't pay, it's free.","right":"You don't have to pay, it's free.","tr":"لازم نیست پول بدهی، مجانی است.","why":"«لازم نیست» {{don't have to}} است؛ {{mustn't}} یعنی «ممنوع است»."},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"او باید کار کند.","why":"{{have to}} با «او» می‌شود {{has to}}."},
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"بهتر است استراحت کنی.","why":"بعد از {{should}}، فعل ساده بدون {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"I ___ work on Saturday.","tr":"شنبه باید کار کنم.","options":["have to","has to","should to"],"answer":0,"why":"ضرورت، با {{I}}: {{have to}}."},
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"It's free. You ___ pay.","tr":"مجانی است. لازم نیست پول بدهید.","options":["don't have to","mustn't","shouldn't"],"answer":0,"why":"«لازم نیست»: {{don't have to}}."},
+        {"type":"choice","q":"دوستتان سرفه می‌کند و سیگار هم می‌کشد. توصیهٔ شما:","options":["{{You should stop smoking.}}","{{You have stop smoking.}}","{{You should to stop smoking.}}"],"answer":0,"why":"توصیه: {{should}} + فعل ساده."},
+        {"type":"dialogue","q":"پیش دکتر. سؤال‌هایتان را انتخاب کنید.","from":"say-what-you-want-to-do","lines":[{"who":"دکتر","t":"You have the flu. You should rest for a few days.","tr":"آنفولانزا گرفته‌اید. باید چند روز استراحت کنید."},{"options":["Do I have to stay home?","Do I must stay home?"],"answer":0,"why":"سؤال با {{have to}}: {{Do I have to…?}}"},{"who":"دکتر","t":"Yes. And you shouldn't go to the gym.","tr":"بله. و بهتر است باشگاه نروید."},{"options":["OK. Do I need to take medicine?","OK. I need take medicine?"],"answer":0,"why":"{{Do I need to…?}}: با {{do}} و {{to}}."},{"who":"دکتر","t":"No, you don't have to. Just drink a lot of water.","tr":"نه، لازم نیست. فقط زیاد آب بخورید."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"لازم نیست چیزی بیاوری.","words":["You","don't","have","to","bring","anything."]},
+        {"type":"say","q":"بگویید: «ببخشید، باید بروم.»","answer":"Sorry, I have to go."},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که این هفته باید بکنید، یک کار که لازم نیست بکنید، و یک توصیه به یک دوست ({{You should…}}).","answers":[{"t":"I have to go to the bank and I have to call my landlord. I don't have to work on Friday. You should come to the party!","tr":"باید به بانک بروم و به صاحبخانه‌ام زنگ بزنم. جمعه لازم نیست کار کنم. تو هم حتماً به مهمانی بیا!"},{"t":"I have to study for my exam. You should sleep more!","tr":"باید برای امتحانم درس بخوانم. تو باید بیشتر بخوابی!"}]}
+      ]
+    },
+    {
+      "id": "suggest-and-invite",
+      "unit": 4,
+      "level": "A2",
+      "title": "پیشنهاد بدهید و دعوت کنید",
+      "summary": "بگویید {{Let's go to the movies!}}، {{Why don't we eat out?}} و {{Would you like to come?}}، و مثل آمریکایی‌ها جواب بدهید.",
+      "topic": "{{Let's}} + فعل؛ {{Why don't we…?}}؛ {{How about…?}} + {{-ing}}؛ {{Would you like to…?}}؛ قبول و رد کردن بدون تعارف",
+      "blocks": [
+        {"goal":{"t":"Let's go to the movies tonight!","tr":"بیا امشب برویم سینما!"}},
+        {"dialog":[{"who":"نیک","t":"Are you free tonight?","tr":"امشب بیکاری؟"},{"who":"مینا","t":"Yes, why?","tr":"آره، چطور؟"},{"who":"نیک","t":"Let's have dinner together. How about that new Persian restaurant?","tr":"بیا با هم شام بخوریم. آن رستوران ایرانی تازه چطور است؟"},{"who":"مینا","t":"Great idea! What time?","tr":"فکر خوبی است! ساعت چند؟"},{"who":"نیک","t":"Why don't we meet at seven?","tr":"چطور است ساعت هفت همدیگر را ببینیم؟"},{"who":"مینا","t":"Perfect. See you then!","tr":"عالی. می‌بینمت!"}]},
+        {"p":"**{{Let's}}: «بیا…، بیایید…».** {{Let's}} ({{let us}}) + فعل ساده: {{Let's go!}} «بیا برویم!»، {{Let's eat.}} «بیا غذا بخوریم». منفی: {{Let's not…}}: {{Let's not talk about it.}} «بیا درباره‌اش حرف نزنیم»."},
+        {"p":"**پیشنهاد به صورت سؤال.** {{Why don't we…?}}، کلمه به کلمه «چرا … نکنیم؟»، یعنی «بیا … کنیم»: {{Why don't we take a taxi?}} و {{How about…?}} + اسم یا {{-ing}}: {{How about Friday?}} «جمعه چطور است؟»، {{How about going to the beach?}} «رفتن به ساحل چطور است؟». ({{Shall we…?}} بیشتر بریتانیایی است.)"},
+        {"p":"**دعوت.** {{Would you like to…?}} مؤدب‌ترین راه است: {{Would you like to come to my party?}} «دوست دارید به مهمانی‌ام بیایید؟». بین دوستان: {{Do you want to…?}}"},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["بیا…","{{Let's go.}}","بیا برویم."],
+          ["چرا … نکنیم؟","{{Why don't we go?}}","چطور است برویم؟"],
+          ["… چطور است؟","{{How about Friday?}}","جمعه چطور است؟"],
+          ["… چطور است؟ (یک کار)","{{How about going out?}}","بیرون رفتن چطور است؟"],
+          ["دعوت","{{Would you like to come?}}","دوست داری بیایی؟"]
+        ] },
+        {"p":"**جواب دادن، بدون تعارف.** در ایران معمولاً اول تعارف می‌کنیم و دعوت را رد می‌کنیم. در آمریکا {{No, thanks}} را جدی می‌گیرند و معمولاً دوباره اصرار نمی‌کنند! اگر دوست دارید بروید، همان بار اول بگویید: {{Sure!}}، {{I'd love to!}}، {{That sounds great!}} اگر نمی‌توانید، یک دلیل کوتاه بیاورید: {{I'm sorry, I can't. I have to work. Maybe next time?}}"},
+        { "ex": [
+          {"t":"Let's take a picture!","tr":"بیا عکس بگیریم!"},
+          {"t":"Why don't we go to the park?","tr":"چطور است برویم پارک؟"},
+          {"t":"How about pizza tonight?","tr":"امشب پیتزا چطور است؟"},
+          {"t":"Would you like to have coffee sometime?","tr":"دوست داری یک وقتی با هم قهوه بخوریم؟"},
+          {"t":"I'd love to!","tr":"خیلی دوست دارم!","note":"جوابی گرم به دعوت"},
+          {"t":"Thanks, but I can't tonight. How about tomorrow?","tr":"ممنون، ولی امشب نمی‌توانم. فردا چطور است؟"}
+        ] },
+        {"tip":"{{That sounds great!}} «عالی به نظر می‌رسد!» و {{Sounds good!}} «باشد، خوب است!» جواب‌های خیلی آمریکایی‌اند."}
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"بیا برویم!","why":"بعد از {{let's}}، فعل ساده بدون {{to}}."},
+        {"wrong":"How about go to the beach?","right":"How about going to the beach?","tr":"رفتن به ساحل چطور است؟","why":"بعد از {{How about}}، فعل با {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Let's ___ a taxi.","tr":"بیا تاکسی بگیریم.","options":["take","to take","taking"],"answer":0,"why":"{{Let's}} + فعل ساده."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"How about ___ out tonight?","tr":"امشب بیرون رفتن چطور است؟","options":["going","go","to go"],"answer":0,"why":"بعد از {{How about}}: {{-ing}}."},
+        {"type":"choice","q":"یک همکار آمریکایی دعوتتان می‌کند و دوست دارید بروید. بهترین جواب:","options":["{{I'd love to!}}","{{No, no, thank you.}}، و بعد منتظر اصرار بمانید","{{Maybe I come.}}"],"answer":0,"why":"در آمریکا همان بار اول با گرمی قبول کنید؛ ممکن است دوباره اصرار نکنند."},
+        {"type":"dialogue","q":"دوستتان پیشنهادی می‌دهد. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-have-to-do","lines":[{"who":"نیک","t":"Would you like to have lunch together on Friday?","tr":"دوست داری جمعه با هم ناهار بخوریم؟"},{"options":["I'm sorry, I can't. I have to work. How about Saturday?","No, I mustn't. I have work."],"answer":0,"why":"یک دلیل کوتاه با {{have to}} و یک پیشنهاد دیگر؛ {{mustn't}} یعنی «ممنوع است»."},{"who":"نیک","t":"Saturday is perfect. Why don't we meet at noon?","tr":"شنبه عالی است. چطور است ظهر همدیگر را ببینیم؟"},{"options":["Sounds great!","Yes, I meet you noon."],"answer":0,"why":"جواب آمریکایی و گرم: {{Sounds great!}}"}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"چطور است برویم پارک؟","words":["Why","don't","we","go","to","the","park?"]},
+        {"type":"say","q":"به دوستتان پیشنهاد بدهید: «بیا عکس بگیریم!»","answer":"Let's take a picture!"},
+        {"type":"free","q":"نوبت شماست: یک دوست را برای آخر هفته به کاری دعوت کنید و یک زمان پیشنهاد بدهید.","answers":[{"t":"Would you like to go hiking on Saturday? How about nine in the morning?","tr":"دوست داری شنبه برویم کوه؟ نه صبح چطور است؟"},{"t":"Let's watch a movie on Friday night. Why don't we meet at my place?","tr":"بیا جمعه شب فیلم ببینیم. چطور است خانهٔ من همدیگر را ببینیم؟"}]}
+      ]
     }
   ]
 }
