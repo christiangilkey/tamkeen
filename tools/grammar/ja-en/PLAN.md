@@ -1,5 +1,9 @@
 # Japanese → English grammar course: the plan
 
+**Status: written (45 lessons), kept as a draft** (`"draft": true`: checked by the build and tests, not
+published). The owner's plan (2026-10-25): courses for English speakers now, English for speakers of other
+languages in the next update. When he says, remove `"draft": true` and run the build.
+
 American English taught to a Japanese speaker. The explanations are written in natural Japanese
 (です/ます, plain and friendly, the way a good teacher writes for a beginner), not translated from
 English: they compare with Japanese, and the mistakes shown are the ones Japanese speakers really make.

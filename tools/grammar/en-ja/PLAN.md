@@ -27,13 +27,13 @@ both for talking with friends and because so much grammar is built on them.
   goal, line of dialogue, model answer and `say` answer has its rōmaji `r`; pieces in explanations are
   written `{{日本語|nihongo}}`.
 
-### Readings in practice questions (extra fields)
-The format has no reading for a `fill` sentence and its options, an `order` question's words, a dialogue
-reply's options or a mistake's sentences. A beginner who can't read kana yet couldn't do those, so this
-course adds optional fields the checks ignore: `r` (the fill sentence's reading, with `___`) and `rs`
-(the options' readings, in order) on `fill`; `rs` on `order` (the words' readings) and on a dialogue
-reply (its options' readings); `rw` and `rr` on a mistake (readings of `wrong` and `right`). Every
-`why` also repeats the right sentence as `{{…|reading}}`, which the app shows today.
+### Readings of the choices
+A beginner can't pick a word they can't read, so every choice has its rōmaji (README, "Readings of the
+choices"): `r` (with `___`) and `rs` on `fill`, `rs` on `order` and on dialogue replies, and
+`{{日本語|reading}}` in `choice` options and in every Japanese piece of an explanation. Each mistake also
+carries `rw` and `rr` (readings of `wrong` and `right`): not part of the format yet, so the app doesn't
+show them, but they're ready if it does. Most `why` texts repeat the right sentence as `{{…|reading}}`.
+`tests/js/grammar-ja.test.mjs` checks that all of these are there and are Latin letters.
 
 ### Rōmaji
 Modified Hepburn: は/へ/を as particles are wa/e/o; long vowels with macrons (Tōkyō, kōhī, jū, okāsan,
