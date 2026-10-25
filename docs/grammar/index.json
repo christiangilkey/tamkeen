@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-ceb": {
+   "file": "en-ceb/course.json",
+   "from": "en",
+   "to": "ceb",
+   "title": "Bisaya grammar",
+   "variety": "Bisaya (Cebuano) as spoken in Cebu",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 27478,
+   "sha256": "d4fcb372ced79658e18c3a5a9d66f44607fab812935be6d895e1669abec163f9"
   }
  }
 }

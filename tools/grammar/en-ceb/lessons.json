@@ -1,0 +1,289 @@
+{
+  "from": "en",
+  "to": "ceb",
+  "title": "Bisaya grammar",
+  "variety": "Bisaya (Cebuano) as spoken in Cebu",
+  "about": "From your very first conversation to everyday Bisaya, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is Bisaya as people say it in Cebu, written the way the Basics course writes it.",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Out and about"},
+    {"n":3,"title":"Everyday life"},
+    {"n":4,"title":"Doing things to things and people"},
+    {"n":5,"title":"Needs, likes and plans"},
+    {"n":6,"title":"Telling what happened"},
+    {"n":7,"title":"Describing, comparing, explaining"},
+    {"n":8,"title":"Connecting your ideas"},
+    {"n":9,"title":"Favors, wishes and imagination"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them back: your first Bisaya conversation.",
+      "topic": "Sentences without “am, is, are”; {{ako}} / {{ko}} “I”, {{ikaw}} / {{ka}} “you”; {{si}} before a name; {{taga-}} “from”",
+      "blocks": [
+        {"goal":{"t":"Maayong buntag! Ako si Ana. Taga-Cebu ko.","tr":"Good morning! I'm Ana. I'm from Cebu."}},
+        {"dialog":[{"who":"Ben","t":"Maayong buntag! Ako si Ben.","tr":"Good morning! I'm Ben."},{"who":"Ana","t":"Maayong buntag, Ben. Ako si Ana.","tr":"Good morning, Ben. I'm Ana."},{"who":"Ben","t":"Taga-asa ka, Ana?","tr":"Where are you from, Ana?"},{"who":"Ana","t":"Taga-Cebu ko. Ikaw?","tr":"I'm from Cebu. And you?"},{"who":"Ben","t":"Taga-Amerika ko. Estudyante ko dinhi.","tr":"I'm from America. I'm a student here."},{"who":"Ana","t":"Nalipay ko nga nakaila nimo!","tr":"Nice to meet you!"}]},
+        {"p":"Look at what is missing: Bisaya has no word for “am”, “is” or “are”. {{Taga-Cebu ko}} is, word for word, “from-Cebu I”, and {{Estudyante ko}} is “student I”. And the order is the other way round from English: **what you are comes first, then who**."},
+        {"term":"sentence","means":"a group of words that says something complete: I'm from Cebu."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she."},
+        {"p":"**Two words for “I”, two for “you”.** {{ako}} and {{ikaw}} are the full words: they start a sentence or stand alone ({{Ako si Ana.}} {{Ikaw?}}). {{ko}} and {{ka}} are short and can never start a sentence: they go **right after the first word** ({{Taga-Cebu ko.}} {{Taga-asa ka?}})."},
+        { "table": [
+          ["","full (first, or alone)","short (after the first word)"],
+          ["I","{{ako}}","{{ko}}"],
+          ["you","{{ikaw}}","{{ka}}"]
+        ] },
+        {"p":"**{{si}} before a name.** A person's name has the little word {{si}} in front of it: {{Ako si Ana.}} “I'm Ana.” It has no English translation; it just says “a name comes next”. And {{taga-}} before a place means “from”: {{taga-Cebu}}, {{taga-Amerika}}, and {{Taga-asa ka?}} “Where are you from?”"},
+        { "ex": [
+          {"t":"Ako si Miguel.","tr":"I'm Miguel."},
+          {"t":"Estudyante ko.","tr":"I'm a student."},
+          {"t":"Maestra ko.","tr":"I'm a teacher.","note":"said by a woman; a man says {{maestro}}"},
+          {"t":"Amerikano ko.","tr":"I'm American."},
+          {"t":"Taga-Bohol ka?","tr":"Are you from Bohol?","note":"a question just by raising your voice at the end"},
+          {"t":"Ikaw si Ben?","tr":"Are you Ben?"}
+        ] },
+        {"tip":"{{Maayong buntag}} “good morning”, {{maayong udto}} “good noon”, {{maayong hapon}} “good afternoon”, {{maayong gabii}} “good evening”. Bisaya has no special polite word: you show respect with Sir and Ma'am, or {{Nang}} (to an older woman) and {{Nong}} (to an older man)."}
+      ],
+      "mistakes": [
+        {"wrong":"Ko taga-Cebu.","right":"Taga-Cebu ko.","tr":"I'm from Cebu.","why":"{{ko}} is a short word: it can't start a sentence, it goes after the first word."},
+        {"wrong":"Ako Ana.","right":"Ako si Ana.","tr":"I'm Ana.","why":"Put {{si}} before a person's name."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one means “I'm from Cebu”?","options":["{{Taga-Cebu ko.}}","{{Ko taga-Cebu.}}","{{Taga-Cebu ka.}}"],"answer":0,"why":"What you are comes first, then the short {{ko}}. ({{Taga-Cebu ka}} is “you're from Cebu”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ako ___ Ana.","tr":"I'm Ana.","options":["si","ko","ka"],"answer":0,"why":"A name has {{si}} before it."},
+        {"type":"dialogue","q":"You're Tom, from Canada. Choose your replies.","lines":[{"who":"Lito","t":"Maayong hapon! Ako si Lito.","tr":"Good afternoon! I'm Lito."},{"options":["Maayong hapon! Ako si Tom.","Maayong hapon! Ikaw si Tom."],"answer":0,"why":"About yourself: {{ako}}. ({{Ikaw si Tom}} is “you're Tom”.)"},{"who":"Lito","t":"Taga-asa ka?","tr":"Where are you from?"},{"options":["Taga-Canada ko.","Taga-Canada ka."],"answer":0,"why":"{{ko}} is “I”; {{ka}} is “you”."},{"who":"Lito","t":"Nalipay ko nga nakaila nimo!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Good evening, I'm Maria.","words":["Maayong","gabii,","ako","si","Maria."]},
+        {"type":"say","q":"Say “I'm from America.”","answer":"Taga-Amerika ko."},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{Maayong…}}","answers":[{"t":"Maayong buntag! Ako si John. Taga-Amerika ko.","tr":"Good morning! I'm John. I'm from America."},{"t":"Maayong gabii! Ako si Emma. Taga-London ko.","tr":"Good evening! I'm Emma. I'm from London."}]}
+      ]
+    },
+    {
+      "id": "say-what-people-are-like",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say what people and things are like",
+      "summary": "Say that the coffee is hot, Cebu is beautiful and your friend is kind, with every “he”, “she”, “we” and “they”.",
+      "topic": "The describing word first; {{ang}} and {{si}} for who or what you mean; {{siya}}, {{kami}}, {{kita}}, {{kamo}}, {{sila}}; {{kaayo}} “very”",
+      "blocks": [
+        {"goal":{"t":"Nindot kaayo ang Cebu!","tr":"Cebu is really beautiful!"}},
+        {"dialog":[{"who":"Ana","t":"Kumusta ang Cebu, Ben?","tr":"How's Cebu, Ben?"},{"who":"Ben","t":"Nindot kaayo ang Cebu! Pero init.","tr":"Cebu is really beautiful! But hot."},{"who":"Ana","t":"Oo, init kaayo karon.","tr":"Yes, it's really hot today."},{"who":"Ben","t":"Kinsa siya?","tr":"Who's she?"},{"who":"Ana","t":"Si Maria. Maestra siya. Buotan kaayo siya.","tr":"That's Maria. She's a teacher. She's really kind."},{"who":"Ben","t":"Gwapa sad siya.","tr":"She's pretty too."}]},
+        {"p":"The same pattern as the last lesson: **the describing word first, then who or what**, and no “is”. {{Buotan siya}} is “kind she”; {{Init ang kape}} is “hot the coffee”."},
+        {"term":"adjective","means":"a word that describes a person or a thing: hot, kind, beautiful, big."},
+        {"p":"**{{ang}} and {{si}}.** When you name the thing or person you're talking about, put a little word before it: {{ang}} before a thing, a place or a person in general ({{ang kape}} “the coffee”, {{ang Cebu}}), {{si}} before a person's name ({{si Maria}}). They point at **who or what the sentence is about**. {{ang}} is often “the” in English, but it goes before place names too: {{Nindot ang Cebu.}} “Cebu is beautiful.”"},
+        {"p":"**Every person.** Here are all the words for “I, you, he, she, we, they”. Two things are new for an English speaker: {{siya}} is **he and she** (Bisaya doesn't say which), and there are **two words for “we”**: {{kami}} leaves out the person you're talking to, {{kita}} includes them."},
+        { "table": [
+          ["","full","short"],
+          ["I","{{ako}}","{{ko}}"],
+          ["you (one person)","{{ikaw}}","{{ka}}"],
+          ["he, she","{{siya}}","—"],
+          ["we (not you)","{{kami}}","{{mi}}"],
+          ["we (you and I)","{{kita}}","{{ta}}"],
+          ["you (more than one)","{{kamo}}","{{mo}}"],
+          ["they","{{sila}}","—"]
+        ] },
+        {"p":"**{{kaayo}} “very”** comes after the describing word: {{init kaayo}} “very hot”, {{nindot kaayo}} “really beautiful”."},
+        { "ex": [
+          {"t":"Init ang kape.","tr":"The coffee is hot."},
+          {"t":"Buotan si Lola.","tr":"Grandma is kind."},
+          {"t":"Doktor siya.","tr":"He's a doctor. / She's a doctor.","note":"{{siya}} is he or she: the situation tells you which"},
+          {"t":"Taga-Bohol sila.","tr":"They're from Bohol."},
+          {"t":"Gikapoy kaayo mi.","tr":"We're really tired.","note":"{{mi}}: we, not the person listening"},
+          {"t":"Lami kaayo!","tr":"It's really delicious!","note":"no word for “it”: everyone knows what you mean"}
+        ] },
+        {"tip":"“It” usually isn't said at all: {{Init!}} “It's hot!”, {{Lami!}} “It's tasty!”."}
+      ],
+      "mistakes": [
+        {"wrong":"Ang kape init.","right":"Init ang kape.","tr":"The coffee is hot.","why":"Bisaya puts the describing word first, then the thing it describes."},
+        {"wrong":"Buotan Maria.","right":"Buotan si Maria.","tr":"Maria is kind.","why":"A name needs {{si}} in front of it."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Siya}} means…","options":["he","she","he or she"],"answer":2,"why":"Bisaya has one word for both: {{siya}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Init ___ kape.","tr":"The coffee is hot.","options":["ang","si","ko"],"answer":0,"why":"A thing has {{ang}} before it; {{si}} is for names."},
+        {"type":"fill","q":"Choose the missing word.","t":"Maestra ___ Maria.","tr":"Maria is a teacher.","options":["si","ang","ka"],"answer":0,"why":"Maria is a name: {{si}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Cebu is really beautiful!","words":["Nindot","kaayo","ang","Cebu!"]},
+        {"type":"say","q":"Say “They're from Bohol.”","answer":"Taga-Bohol sila.","from":"say-who-you-are"},
+        {"type":"free","q":"Your turn: say what your city, a friend or your food is like. Use {{kaayo}}.","answers":[{"t":"Nindot kaayo ang Chicago, pero bugnaw.","tr":"Chicago is really beautiful, but cold."},{"t":"Buotan kaayo si Mark.","tr":"Mark is really kind."},{"t":"Lami kaayo ang pagkaon dinhi.","tr":"The food here is really delicious."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 1,
+      "level": "A1",
+      "title": "Ask simple questions",
+      "summary": "Ask yes-or-no questions with {{ba}}, and ask who, what and where.",
+      "topic": "{{ba}} for yes-or-no questions; {{unsa}}, {{kinsa}}, {{asa}}, {{taga-asa}}; {{man}}; {{unsay}}, {{kinsay}}",
+      "blocks": [
+        {"goal":{"t":"Taga-asa ka? Estudyante ka ba?","tr":"Where are you from? Are you a student?"}},
+        {"dialog":[{"who":"Lito","t":"Maayong gabii! Unsa imong ngalan?","tr":"Good evening! What's your name?"},{"who":"Emma","t":"Emma. Ikaw?","tr":"Emma. And you?"},{"who":"Lito","t":"Ako si Lito. Taga-asa ka, Emma?","tr":"I'm Lito. Where are you from, Emma?"},{"who":"Emma","t":"Taga-Australia ko.","tr":"I'm from Australia."},{"who":"Lito","t":"Turista ka ba?","tr":"Are you a tourist?"},{"who":"Emma","t":"Oo. Asa man ang Basilica?","tr":"Yes. So where's the Basilica?"},{"who":"Lito","t":"Duol ra kaayo!","tr":"It's really close!"}]},
+        {"p":"**Yes or no.** Take an ordinary sentence and add {{ba}} after the first word and its short word: {{Turista ka.}} “You're a tourist.” → {{Turista ka ba?}} “Are you a tourist?” You can also just raise your voice at the end, without {{ba}}. The answer is {{Oo}} “yes”."},
+        {"p":"**Who, what, where.** The question word comes **first**, and the short word ({{ka}}, {{ko}}) right after it: {{Taga-asa ka?}} “Where are you from?”"},
+        { "table": [
+          ["question word","meaning","example"],
+          ["{{unsa}}","what","{{Unsa imong ngalan?}} What's your name?"],
+          ["{{kinsa}}","who","{{Kinsa siya?}} Who's he?"],
+          ["{{asa}}","where","{{Asa ang banyo?}} Where's the bathroom?"],
+          ["{{taga-asa}}","from where","{{Taga-asa ka?}} Where are you from?"]
+        ] },
+        {"p":"**Two handy shortcuts.** {{unsa ang}} is often said {{unsay}}, and {{kinsa ang}} {{kinsay}}: {{Unsay imong ngalan?}} And {{man}} after the question word makes a question softer and friendlier, a little like “so…?”: {{Asa man ang banyo?}} “So where's the bathroom?”"},
+        { "ex": [
+          {"t":"Kinsa siya?","tr":"Who's she?"},
+          {"t":"Asa man ang banyo?","tr":"Where's the bathroom?"},
+          {"t":"Maestra ka ba?","tr":"Are you a teacher?"},
+          {"t":"Kinsay imong maestra?","tr":"Who's your teacher?"},
+          {"t":"Unsa man?","tr":"What is it?"},
+          {"t":"Taga-Cebu ba siya?","tr":"Is she from Cebu?","note":"{{ba}} comes before {{siya}} and {{sila}}"}
+        ] },
+        {"tip":"Where does {{ba}} go? After the short words {{ko}}, {{ka}}, {{mi}}, {{ta}}, {{mo}} ({{Turista ka ba?}}), but before the longer {{siya}}, {{sila}} and names ({{Turista ba siya?}} {{Naa ba si Ben?}})."}
+      ],
+      "mistakes": [
+        {"wrong":"Ka ba turista?","right":"Turista ka ba?","tr":"Are you a tourist?","why":"{{ka}} and {{ba}} never come first: they follow the first word."},
+        {"wrong":"Ka taga-asa?","right":"Taga-asa ka?","tr":"Where are you from?","why":"The question word comes first, then {{ka}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which little word turns {{Taga-Cebu ka}} into a yes-or-no question?","options":["{{ba}}","{{man}}","{{si}}"],"answer":0,"why":"{{Taga-Cebu ka ba?}} “Are you from Cebu?”"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ siya? — Si Maria.","tr":"Who's she? — Maria.","options":["Kinsa","Unsa","Asa"],"answer":0,"why":"Asking about a person: {{kinsa}}, who."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ man ang banyo?","tr":"Where's the bathroom?","options":["Asa","Kinsa","Unsa"],"answer":0,"why":"{{asa}} is where."},
+        {"type":"dialogue","q":"At a party: choose your replies.","lines":[{"who":"Joy","t":"Unsa imong ngalan?","tr":"What's your name?"},{"options":["Sam. Ikaw?","Kinsa ka?"],"answer":0,"why":"Answer, then ask back with {{Ikaw?}} ({{Kinsa ka?}} “who are you?” sounds rude here.)"},{"who":"Joy","t":"Joy. Taga-asa ka, Sam?","tr":"Joy. Where are you from, Sam?"},{"options":["Taga-Texas ko.","Taga-Texas ka ba?"],"answer":0,"why":"You're answering, not asking."},{"who":"Joy","t":"Turista ka ba?","tr":"Are you a tourist?"},{"options":["Oo, turista ko.","Oo, turista ka."],"answer":0,"why":"About yourself: {{ko}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Are you a student?","words":["Estudyante","ka","ba?"]},
+        {"type":"say","q":"Ask: “Where are you from?”","answer":"Taga-asa ka?","from":"say-who-you-are"},
+        {"type":"free","q":"Your turn: ask someone you've just met two or three questions.","answers":[{"t":"Unsa imong ngalan? Taga-asa ka?","tr":"What's your name? Where are you from?"},{"t":"Estudyante ka ba? Taga-Cebu ka?","tr":"Are you a student? Are you from Cebu?"},{"t":"Kinsa siya? Taga-dinhi ba siya?","tr":"Who's she? Is she from here?"}]}
+      ]
+    },
+    {
+      "id": "say-no",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say no and set things straight",
+      "summary": "Say what you're not (“I'm not American, I'm from Canada”) and answer no politely.",
+      "topic": "{{dili}} “not, no”; the short word moves to right after {{dili}}; {{oo}} and {{dili}}",
+      "blocks": [
+        {"goal":{"t":"Dili ko Amerikano. Taga-Canada ko.","tr":"I'm not American. I'm from Canada."}},
+        {"dialog":[{"who":"Vendor","t":"Amerikano ka, Sir?","tr":"Are you American, Sir?"},{"who":"Tom","t":"Dili, dili ko Amerikano. Taga-Canada ko.","tr":"No, I'm not American. I'm from Canada."},{"who":"Vendor","t":"Ay, sorry! Turista ka?","tr":"Oh, sorry! Are you a tourist?"},{"who":"Tom","t":"Dili. Maestro ko dinhi sa Cebu.","tr":"No. I'm a teacher here in Cebu."},{"who":"Vendor","t":"Maestro ka? Nindot!","tr":"You're a teacher? Nice!"}]},
+        {"p":"{{dili}} is “not”, and on its own, “no”. Put it **in front of** the describing word: {{Amerikano ko}} “I'm American” → {{Dili ko Amerikano}} “I'm not American”."},
+        {"p":"**Watch the short word move.** {{ko}} always goes right after the first word of the sentence. When {{dili}} comes in, {{dili}} is the first word, so {{ko}} jumps to just after it: {{Dili ko Amerikano}}, not {{Dili Amerikano ko}}. The same with {{ka}}, {{mi}}, {{ta}}, and the longer {{siya}} and {{sila}} too."},
+        { "table": [
+          ["yes","no"],
+          ["{{Gigutom ko.}} I'm hungry.","{{Dili ko gigutom.}} I'm not hungry."],
+          ["{{Maestra siya.}} She's a teacher.","{{Dili siya maestra.}} She's not a teacher."],
+          ["{{Init ang kape.}} The coffee is hot.","{{Dili init ang kape.}} The coffee isn't hot."]
+        ] },
+        { "ex": [
+          {"t":"Dili ko gigutom.","tr":"I'm not hungry."},
+          {"t":"Dili siya taga-dinhi.","tr":"She's not from here."},
+          {"t":"Dili mahal.","tr":"It's not expensive."},
+          {"t":"Dili lami ang kape.","tr":"The coffee isn't good."},
+          {"t":"Dili ka turista?","tr":"You're not a tourist?"},
+          {"t":"Dili, salamat.","tr":"No, thanks."}
+        ] },
+        {"tip":"Bisaya has a second word for “no”, {{wala}}, for “there isn't any” and for things that didn't happen. It comes in the next unit. For who and what someone or something is, it's always {{dili}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Dili Amerikano ko.","right":"Dili ko Amerikano.","tr":"I'm not American.","why":"{{ko}} goes right after the first word, and now the first word is {{dili}}."},
+        {"wrong":"Ko dili gigutom.","right":"Dili ko gigutom.","tr":"I'm not hungry.","why":"A sentence can't start with {{ko}}: start with {{dili}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one is “I'm not hungry”?","options":["{{Dili ko gigutom.}}","{{Dili gigutom ko.}}","{{Ko dili gigutom.}}"],"answer":0,"why":"{{dili}} first, then {{ko}} straight after it."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dili ___ maestra.","tr":"I'm not a teacher.","options":["ko","ka","siya"],"answer":0,"why":"“I” is {{ko}}, right after {{dili}}."},
+        {"type":"order","q":"Put the words in order.","tr":"She's not from here.","words":["Dili","siya","taga-dinhi."]},
+        {"type":"dialogue","q":"Someone in Cebu guesses wrong about you. Set them straight.","lines":[{"who":"Driver","t":"Taga-Manila ka, Ma'am?","tr":"Are you from Manila, Ma'am?"},{"options":["Dili, taga-Davao ko.","Oo, taga-Davao ko."],"answer":0,"why":"You're not from Manila, so start with {{Dili}}."},{"who":"Driver","t":"Estudyante ka?","tr":"Are you a student?"},{"options":["Dili ko estudyante. Nars ko.","Dili estudyante ko. Nars ko."],"answer":0,"why":"{{ko}} goes right after {{dili}}."}]},
+        {"type":"say","q":"Say “The coffee isn't hot.”","answer":"Dili init ang kape.","from":"say-what-people-are-like"},
+        {"type":"choice","q":"Someone asks you {{Estudyante ka ba?}} You're a teacher. You answer…","options":["{{Dili, maestro ko.}}","{{Oo, maestro ko.}}"],"answer":0,"why":"No, you're not a student: {{Dili}}.","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say one thing you're not and one thing you are.","answers":[{"t":"Dili ko Amerikano. Taga-England ko.","tr":"I'm not American. I'm from England."},{"t":"Dili ko maestra. Doktor ko.","tr":"I'm not a teacher. I'm a doctor."},{"t":"Dili ko gigutom, pero gikapoy ko.","tr":"I'm not hungry, but I'm tired."}]}
+      ]
+    },
+    {
+      "id": "point-at-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Point at things and ask what they are",
+      "summary": "Ask “What's this? What's that?” at the market, and introduce someone with “This is…”.",
+      "topic": "{{kini}}, {{kana}}, {{kadto}} (short {{ni}}, {{na}}, {{to}}); {{Mao ni…}}; {{Unsa ni?}}",
+      "blocks": [
+        {"goal":{"t":"Unsa kana? Lami ba?","tr":"What's that? Is it tasty?"}},
+        {"dialog":[{"who":"You","t":"Unsa kana?","tr":"What's that?"},{"who":"Vendor","t":"Lanzones kini. Tam-is kaayo!","tr":"These are lanzones. Really sweet!"},{"who":"You","t":"Ug kadto? Unsa kadto?","tr":"And that one over there? What's that?"},{"who":"Vendor","t":"Durian kadto.","tr":"That's durian."},{"who":"You","t":"Lami ba ang durian?","tr":"Is durian tasty?"},{"who":"Vendor","t":"Lami kaayo, pero baho!","tr":"Really tasty, but smelly!"}]},
+        {"p":"English has “this” and “that”. Bisaya has **three**, by distance: {{kini}} is near me, {{kana}} is near you, {{kadto}} is over there, away from us both. That's why you say {{Unsa kana?}} about the fruit by the vendor, and the vendor answers {{Lanzones kini}}: it's near *them*."},
+        { "table": [
+          ["","full","short (in speech)"],
+          ["this (near me)","{{kini}}","{{ni}}"],
+          ["that (near you)","{{kana}}","{{na}}"],
+          ["that (over there)","{{kadto}}","{{to}}"]
+        ] },
+        {"p":"They work like {{siya}} in the earlier lessons: what it is comes first, then the pointing word. {{Lanzones kini}} “these are lanzones”, {{Mahal kana}} “that's expensive”. In speech you'll hear the short ones all the time: {{Unsa ni?}} “What's this?”, {{Lami kaayo ni!}} “This is really tasty!”"},
+        {"p":"**{{Mao ni…}} “This is…”** introduces a person or shows the one you mean: {{Mao ni si Ben.}} “This is Ben.” And {{Mao na!}} on its own means “That's it! That's right!”"},
+        { "ex": [
+          {"t":"Unsa ni?","tr":"What's this?"},
+          {"t":"Lami kaayo ni!","tr":"This is really tasty!"},
+          {"t":"Mao ni si Ben.","tr":"This is Ben."},
+          {"t":"Kinsa kadto?","tr":"Who's that over there?"},
+          {"t":"Bag-o kini.","tr":"This is new."},
+          {"t":"Mahal kaayo kana.","tr":"That's really expensive."}
+        ] },
+        {"tip":"In Cebu you'll also hear {{kani}} for {{kini}}: {{Unsa kani?}} Both are right."}
+      ],
+      "mistakes": [
+        {"wrong":"Kini lanzones.","right":"Lanzones kini.","tr":"These are lanzones.","why":"What it is comes first, then {{kini}}: the same order as {{Maestra ko}}."},
+        {"wrong":"Unsa kini? (about the thing in your friend's hand)","right":"Unsa kana?","tr":"What's that?","why":"Near the person you're talking to: {{kana}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The thing is in your friend's hand. You ask:","options":["{{Unsa kana?}}","{{Unsa kini?}}","{{Unsa kadto?}}"],"answer":0,"why":"Near the person you're talking to: {{kana}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mao ___ si Ben.","tr":"This is Ben.","options":["ni","ka","si"],"answer":0,"why":"{{Mao ni}} “this is”."},
+        {"type":"order","q":"Put the words in order.","tr":"That's really expensive.","words":["Mahal","kaayo","kana."]},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Vendor","t":"Mangga, Ma'am? Tam-is kaayo!","tr":"Mangoes, Ma'am? Really sweet!"},{"options":["Unsa kana?","Unsa kadto?"],"answer":0,"why":"Pointing at what's in front of the vendor: {{kana}}."},{"who":"Vendor","t":"Chico kini. Lami kaayo.","tr":"This is chico. It's really tasty."},{"options":["Lami ba?","Lami ka ba?"],"answer":0,"why":"{{Lami ba?}} “Is it tasty?” needs no word for “it”. ({{Lami ka ba?}} would be “Are you tasty?”!)"}]},
+        {"type":"say","q":"Ask: “Is this tasty?”","answer":"Lami ba ni?","from":"ask-questions"},
+        {"type":"fill","q":"Choose the missing word.","t":"Dili ___ mahal.","tr":"This isn't expensive.","options":["ni","ko","ang"],"answer":0,"why":"“This” is {{ni}}, and it follows {{dili}} like the other short words.","from":"say-no"},
+        {"type":"free","q":"Your turn: point at two things near you and say what they are.","answers":[{"t":"Selpon kini. Bag-o kini.","tr":"This is a phone. It's new."},{"t":"Libro kana. Nindot kana.","tr":"That's a book. It's nice."},{"t":"Unsa kadto? Simbahan kadto.","tr":"What's that over there? It's a church."}]}
+      ]
+    },
+    {
+      "id": "introduce-your-family",
+      "unit": 1,
+      "level": "A1",
+      "title": "Introduce your family",
+      "summary": "Show a photo and say “This is my mom, my dad and my sister”: my, your, his, her, our, their.",
+      "topic": "{{akong}}, {{imong}}, {{iyang}}… before a noun; {{nako}}, {{nimo}}, {{niya}}… after it; {{mga}} for more than one",
+      "blocks": [
+        {"goal":{"t":"Mao ni akong pamilya: akong mama, akong papa ug akong manghod.","tr":"This is my family: my mom, my dad and my little sister."}},
+        {"dialog":[{"who":"Ana","t":"Kinsa man ni sila?","tr":"So who are these people?"},{"who":"Ben","t":"Akong pamilya. Mao ni akong mama ug akong papa.","tr":"My family. This is my mom and my dad."},{"who":"Ana","t":"Ug kini? Imong igsoon?","tr":"And this one? Your sister?"},{"who":"Ben","t":"Oo, akong manghod, si Lisa. Estudyante siya.","tr":"Yes, my little sister, Lisa. She's a student."},{"who":"Ana","t":"Gwapa kaayo ang imong manghod!","tr":"Your sister is really pretty!"},{"who":"Ben","t":"Salamat! Ug mao ni ang among iro, si Max.","tr":"Thanks! And this is our dog, Max."}]},
+        {"term":"noun","means":"a word for a person, a thing or a place: mom, house, Cebu."},
+        {"p":"**My, your, his…** Bisaya has two ways to say whose something is. The first goes **before** the noun and ends in -ng: {{akong mama}} “my mom”, {{imong ngalan}} “your name”. The second goes **after** the noun: {{ang mama nako}}, {{ang ngalan nimo}}. Both mean the same. Before the noun is the one you'll say most, and it often drops {{ang}}: {{Unsa imong ngalan?}}"},
+        { "table": [
+          ["","before the noun","after the noun"],
+          ["my","{{akong balay}}","{{ang balay nako}}"],
+          ["your (one person)","{{imong balay}}","{{ang balay nimo}}"],
+          ["his, her","{{iyang balay}}","{{ang balay niya}}"],
+          ["our (not you)","{{among balay}}","{{ang balay namo}}"],
+          ["our (you and I)","{{atong balay}}","{{ang balay nato}}"],
+          ["your (more than one)","{{inyong balay}}","{{ang balay ninyo}}"],
+          ["their","{{ilang balay}}","{{ang balay nila}}"]
+        ] },
+        {"p":"**{{mga}} for more than one.** Bisaya nouns don't change for the plural; put {{mga}} (said “ma-NGA”) in front instead: {{akong igsoon}} “my brother or sister”, {{akong mga igsoon}} “my brothers and sisters”."},
+        {"p":"**Family words**: {{mama}}, {{papa}}, {{igsoon}} (brother or sister), {{manghod}} (younger brother or sister), {{magulang}} (older brother or sister), {{anak}} (son or daughter), {{bana}} (husband), {{asawa}} (wife), {{lolo}}, {{lola}}."},
+        { "ex": [
+          {"t":"Akong mama siya.","tr":"She's my mom."},
+          {"t":"Unsa imong ngalan?","tr":"What's your name?"},
+          {"t":"Doktor ang iyang papa.","tr":"Her dad is a doctor.","note":"{{iyang}} is his or her, like {{siya}}"},
+          {"t":"Asa man ang bag nako?","tr":"Where's my bag?"},
+          {"t":"Gamay ra ang among balay.","tr":"Our house is just small."},
+          {"t":"Taga-Bohol ang akong mga lolo ug lola.","tr":"My grandparents are from Bohol."}
+        ] },
+        {"tip":"Two words for “our” again: {{atong}} includes the person you're talking to, {{among}} doesn't. To your brother: {{atong balay}}. To a visitor: {{among balay}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ako mama siya.","right":"Akong mama siya.","tr":"She's my mom.","why":"“My” before a noun is {{akong}}, with -ng."},
+        {"wrong":"ang nako balay","right":"ang balay nako","tr":"my house","why":"{{nako}} goes after the noun. Before it, say {{akong balay}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You show your house to a visitor: “This is our house.”","options":["{{Mao ni ang among balay.}}","{{Mao ni ang atong balay.}}"],"answer":0,"why":"The visitor doesn't live there: {{among}}, our but not yours."},
+        {"type":"fill","q":"Choose the missing word.","t":"Unsa ___ ngalan?","tr":"What's your name?","options":["imong","akong","iyang"],"answer":0,"why":"Your: {{imong}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Asa man ang bag ___?","tr":"Where's my bag?","options":["nako","akong","ako"],"answer":0,"why":"After the noun, “my” is {{nako}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Her dad is a doctor.","words":["Doktor","ang","iyang","papa."]},
+        {"type":"say","q":"Say “This is my mom.”","answer":"Mao ni akong mama.","from":"point-at-things"},
+        {"type":"say","q":"Say “My sister is really kind.”","answer":"Buotan kaayo ang akong igsoon.","from":"say-what-people-are-like"},
+        {"type":"free","q":"Your turn: introduce two people in your family and say one thing about each.","answers":[{"t":"Mao ni akong papa. Doktor siya.","tr":"This is my dad. He's a doctor."},{"t":"Akong manghod si Sarah. Estudyante siya sa Boston.","tr":"Sarah is my little sister. She's a student in Boston."},{"t":"Si Lisa akong igsoon. Buotan kaayo siya.","tr":"Lisa is my sister. She's really kind."}]}
+      ]
+    }
+  ]
+}
