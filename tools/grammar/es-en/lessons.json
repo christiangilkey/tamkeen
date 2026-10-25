@@ -601,6 +601,384 @@
         {"type":"say","q":"Pregunta “¿Cómo se llama tu hermano?”","answer":"What's your brother's name?"},
         {"type":"free","q":"Te toca: habla de tu familia. ¿Quiénes son, cómo se llaman y qué hacen?","answers":[{"t":"I have two brothers. Their names are Luis and Iván. Luis is a doctor and Iván is a student.","tr":"Tengo dos hermanos. Se llaman Luis e Iván. Luis es doctor e Iván es estudiante."},{"t":"My husband's name is Raúl. We have a daughter. Her name is Sofía, and she's five.","tr":"Mi esposo se llama Raúl. Tenemos una hija. Se llama Sofía y tiene cinco años."}]}
       ]
+    },
+    {
+      "id": "say-what-there-is",
+      "unit": 3,
+      "level": "A1",
+      "title": "Pregunta qué hay y dónde",
+      "summary": "Pregunta si hay una farmacia cerca y entiende dónde está: {{Is there a pharmacy near here?}}",
+      "topic": "{{there is}} y {{there are}}; {{some}} y {{any}}; {{next to}}, {{across from}}, {{between}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here? — Yes, there's one on the corner.","tr":"¿Hay una farmacia cerca de aquí? — Sí, hay una en la esquina."}},
+        {"dialog":[{"who":"Tú","t":"Excuse me, is there a bank near here?","tr":"Disculpe, ¿hay un banco cerca de aquí?"},{"who":"Señora","t":"Yes, there's one on Main Street, next to the post office.","tr":"Sí, hay uno en Main Street, junto a la oficina de correos."},{"who":"Tú","t":"And are there any restaurants around here?","tr":"¿Y hay restaurantes por aquí?"},{"who":"Señora","t":"There are some on Fifth Avenue. There's a great Mexican place across from the park.","tr":"Hay algunos en la Quinta Avenida. Hay un lugar mexicano buenísimo enfrente del parque."},{"who":"Tú","t":"Thanks a lot!","tr":"¡Muchas gracias!"}]},
+        {"p":"**“Hay” en inglés son dos.** El español tiene un solo “hay”. En inglés es {{there is}} (en corto, {{there's}}) para una cosa, y {{there are}} para varias: {{There's a bank.}} “Hay un banco.” {{There are two banks.}} “Hay dos bancos.”"},
+        { "table": [
+          ["","una cosa","varias cosas"],
+          ["afirmación","{{There's a park.}}","{{There are two parks.}}"],
+          ["negación","{{There isn't a park.}}","{{There aren't any parks.}}"],
+          ["pregunta","{{Is there a park?}}","{{Are there any parks?}}"],
+          ["respuesta corta","{{Yes, there is.}} / {{No, there isn't.}}","{{Yes, there are.}} / {{No, there aren't.}}"]
+        ] },
+        {"p":"**“Hay” no es {{have}}.** {{have}} es “tener”: {{I have a car.}} Para decir que algo existe en un lugar, siempre {{there is}} o {{there are}}: {{There's a car in the street}}, nunca {{Have a car in the street}}."},
+        {"p":"**{{some}} y {{any}}.** Con plurales, y con cosas que no se cuentan (como el agua o el dinero), {{some}} (unos, algo de) va en las afirmaciones, y {{any}} (ningún, nada de) en las negaciones y las preguntas: {{There are some good restaurants.}} {{There aren't any restaurants.}} {{Is there any milk?}}"},
+        {"term":"preposición","means":"una palabra corta que une un sustantivo con el resto de la oración, muchas veces para decir dónde o cuándo: en, junto a, entre, de."},
+        {"p":"**Dónde está:** {{next to}} (junto a, al lado de), {{across from}} (enfrente de, del otro lado de la calle), {{in front of}} (delante de), {{behind}} (detrás de), {{between}} (entre), {{near}} (cerca de, sin {{of}}), {{far from}} (lejos de), {{on the corner}} (en la esquina)."},
+        { "ex": [
+          {"t":"There's a gas station on the corner.","tr":"Hay una gasolinera en la esquina."},
+          {"t":"Are there any good restaurants near here?","tr":"¿Hay buenos restaurantes cerca de aquí?"},
+          {"t":"There isn't any milk in the fridge.","tr":"No hay leche en el refri."},
+          {"t":"There are three bedrooms in the apartment.","tr":"El departamento tiene tres recámaras.","note":"donde en español decimos “tiene”, el inglés prefiere {{there are}}"},
+          {"t":"The bank is next to the post office.","tr":"El banco está junto a la oficina de correos."},
+          {"t":"Is there a bathroom here? — Yes, there is. It's in the back.","tr":"¿Hay baño aquí? — Sí. Está al fondo."},
+          {"t":"There are a lot of people today.","tr":"Hoy hay mucha gente.","note":"{{people}} es plural: {{there are}}"}
+        ] },
+        {"tip":"{{there is}} dice que algo existe; para decir **dónde está** algo que ya conoces, se usa {{be}}: {{There's a pharmacy on Main Street.}} → {{The pharmacy is on Main Street.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Have a bank near here?","right":"Is there a bank near here?","tr":"¿Hay un banco cerca de aquí?","why":"“Hay” es {{there is}}; {{have}} es “tener”."},
+        {"wrong":"There is two parks.","right":"There are two parks.","tr":"Hay dos parques.","why":"Para varias cosas: {{there are}}."},
+        {"wrong":"The bank is near of the park.","right":"The bank is near the park.","tr":"El banco está cerca del parque.","why":"{{near}} va sin {{of}}. ({{far from}} sí lleva {{from}}.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ a pharmacy on the corner.","tr":"Hay una farmacia en la esquina.","options":["There's","It has","There are"],"answer":0,"why":"Una cosa: {{There's}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Are there ___ restaurants near here?","tr":"¿Hay restaurantes cerca de aquí?","options":["any","some","a"],"answer":0,"why":"En preguntas, con plurales: {{any}}."},
+        {"type":"choice","q":"“No hay agua.” ¿Cómo se dice?","options":["{{There isn't any water.}}","{{Don't have water.}}","{{There aren't water.}}"],"answer":0,"why":"{{there isn't any}}, con algo que no se cuenta, como el agua."},
+        {"type":"dialogue","q":"Buscas un cajero. Escoge tus respuestas.","lines":[{"who":"Señor","t":"Can I help you?","tr":"¿Le ayudo?"},{"options":["Yes, is there an ATM near here?","Yes, have an ATM near here?"],"answer":0,"why":"“Hay”: {{is there}}."},{"who":"Señor","t":"Yes, there's one in the supermarket.","tr":"Sí, hay uno en el súper."},{"options":["Is the supermarket far from here?","The supermarket is far from here?"],"answer":0,"why":"Pregunta con {{be}}: el verbo va primero."},{"who":"Señor","t":"No, it's across from the bank.","tr":"No, está enfrente del banco."}],"from":"ask-questions-with-be"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"El banco está junto a la oficina de correos.","words":["The bank","is","next to","the post office."]},
+        {"type":"say","q":"Pregunta “¿Hay un baño aquí?”","answer":"Is there a bathroom here?"},
+        {"type":"free","q":"Te toca: describe tu calle o tu colonia. ¿Qué hay, y dónde está?","answers":[{"t":"There's a park on my street, and there are two small stores. My house is next to the park.","tr":"En mi calle hay un parque y hay dos tienditas. Mi casa está junto al parque."},{"t":"There are a lot of houses and there's a school. There isn't a supermarket.","tr":"Hay muchas casas y hay una escuela. No hay supermercado."}]}
+      ]
+    },
+    {
+      "id": "say-where-and-when",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di dónde y cuándo",
+      "summary": "Usa bien {{in}}, {{on}} y {{at}} para los lugares y las horas, y di qué hora es: {{The party is on Saturday at eight, at my house.}}",
+      "topic": "{{in}}, {{on}}, {{at}} para el tiempo y el lugar; la hora ({{It's ten thirty}}, {{a quarter after five}})",
+      "blocks": [
+        {"goal":{"t":"The party is on Saturday at eight, at my house.","tr":"La fiesta es el sábado a las ocho, en mi casa."}},
+        {"dialog":[{"who":"Recepcionista","t":"Dr. Kim's office. How can I help you?","tr":"Consultorio de la doctora Kim. ¿En qué le puedo ayudar?"},{"who":"Tú","t":"Hi, I'd like an appointment, please.","tr":"Hola, quisiera una cita, por favor."},{"who":"Recepcionista","t":"Sure. Is Tuesday at three thirty okay?","tr":"Claro. ¿Le queda bien el martes a las tres y media?"},{"who":"Tú","t":"I work in the afternoon. Is there anything in the morning?","tr":"Trabajo en la tarde. ¿Hay algo en la mañana?"},{"who":"Recepcionista","t":"Yes, on Thursday at nine.","tr":"Sí, el jueves a las nueve."},{"who":"Tú","t":"Perfect. See you on Thursday.","tr":"Perfecto. Nos vemos el jueves."}]},
+        {"p":"**Tres palabras para un “en”.** Donde el español dice “en” (o nada), el inglés escoge entre {{in}}, {{on}} y {{at}}. Piensa en tres tamaños: {{in}} para lo grande (meses, años, países, ciudades), {{on}} para lo mediano (días, calles) y {{at}} para un punto exacto (horas, una dirección, un lugar concreto)."},
+        { "table": [
+          ["","el tiempo","el lugar"],
+          ["{{in}}","{{in July}}, {{in 2010}}, {{in the summer}}, {{in the morning}}","{{in Mexico}}, {{in Chicago}}, {{in the kitchen}}, {{in my car}}"],
+          ["{{on}}","{{on Monday}}, {{on July 4th}}, {{on the weekend}}","{{on Main Street}}, {{on the second floor}}, {{on the bus}}"],
+          ["{{at}}","{{at eight}}, {{at noon}}, {{at night}}","{{at home}}, {{at work}}, {{at school}}, {{at 25 Main Street}}"]
+        ] },
+        {"p":"Frases fijas que conviene aprender tal cual: {{in the morning}}, {{in the afternoon}} e {{in the evening}}, pero {{at night}}; {{at home}} (en la casa) y {{at work}} (en el trabajo). Y con {{next}}, {{last}}, {{this}} y {{every}}, nada: {{next Monday}}, {{every day}}."},
+        {"p":"**La hora.** {{What time is it?}} “¿Qué hora es?”. Lo más fácil es decir los números: {{It's ten thirty}} (10:30), {{It's five fifteen}} (5:15). También se oye {{It's a quarter after five}} (5:15) y {{It's a quarter to six}} (5:45). {{a.m.}} es de la mañana y {{p.m.}} de la tarde y de la noche: en Estados Unidos se usa el reloj de 12 horas."},
+        { "ex": [
+          {"t":"My birthday is in May.","tr":"Mi cumpleaños es en mayo."},
+          {"t":"The meeting is on Friday at ten.","tr":"La junta es el viernes a las diez."},
+          {"t":"I'm at work. Call me at five.","tr":"Estoy en el trabajo. Llámame a las cinco."},
+          {"t":"We live on Oak Street, in a small house.","tr":"Vivimos en la calle Oak, en una casa chica."},
+          {"t":"She works at night.","tr":"Trabaja en la noche."},
+          {"t":"What time is it? — It's a quarter to nine.","tr":"¿Qué hora es? — Son cuarto para las nueve."},
+          {"t":"There's a great restaurant at the airport.","tr":"Hay un restaurante muy bueno en el aeropuerto."}
+        ] },
+        {"tip":"Las fechas: en Estados Unidos se escribe primero el mes. 7/4 es el 4 de julio, {{July 4th}}, que se dice “July fourth”."}
+      ],
+      "mistakes": [
+        {"wrong":"The party is in Saturday.","right":"The party is on Saturday.","tr":"La fiesta es el sábado.","why":"Con los días: {{on}}."},
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Estoy en la casa.","why":"Frase fija: {{at home}}, como {{at work}}."},
+        {"wrong":"I work in the night.","right":"I work at night.","tr":"Trabajo en la noche.","why":"Se dice {{in the morning}}, pero {{at night}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My birthday is ___ March.","tr":"Mi cumpleaños es en marzo.","options":["in","on","at"],"answer":0,"why":"Con los meses: {{in}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"The class starts ___ seven thirty.","tr":"La clase empieza a las siete y media.","options":["at","on","in"],"answer":0,"why":"Con la hora: {{at}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We don't work ___ Sundays.","tr":"No trabajamos los domingos.","options":["on","in","at"],"answer":0,"why":"Con los días: {{on}}.","from":"say-what-you-dont-do"},
+        {"type":"choice","q":"“Estoy en el trabajo.” ¿Cómo se dice?","options":["{{I'm at work.}}","{{I'm in the work.}}","{{I'm on work.}}"],"answer":0,"why":"Frase fija: {{at work}}, sin {{the}}."},
+        {"type":"dialogue","q":"Quedas de verte con una amiga. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Are you free on Friday?","tr":"¿Estás libre el viernes?"},{"options":["Yes! Let's meet at six.","Yes! Let's meet in six."],"answer":0,"why":"Con la hora: {{at}}."},{"who":"Amiga","t":"Where?","tr":"¿Dónde?"},{"options":["There's a nice café on Main Street.","Has a nice café in Main Street."],"answer":0,"why":"“Hay”: {{there's}}; y con las calles, {{on}}."},{"who":"Amiga","t":"Perfect. See you on Friday!","tr":"Perfecto. ¡Nos vemos el viernes!"}],"from":"say-what-there-is"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Llámame a las cinco.","words":["Call","me","at","five."]},
+        {"type":"say","q":"Pregunta “¿Qué hora es?”","answer":"What time is it?"},
+        {"type":"free","q":"Te toca: ¿qué días trabajas o estudias, a qué hora y dónde? Usa {{on}}, {{at}} e {{in}}.","answers":[{"t":"I work on Mondays and Wednesdays at a hospital. I start at seven in the morning.","tr":"Trabajo los lunes y los miércoles en un hospital. Entro a las siete de la mañana."},{"t":"I study at night, at home. My class is on Tuesdays at eight.","tr":"Estudio en la noche, en la casa. Mi clase es los martes a las ocho."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di lo que puedes hacer y pide ayuda",
+      "summary": "Di lo que sabes y puedes hacer, pide permiso y pide favores: {{Can you help me? I can't find my keys.}}",
+      "topic": "{{can}} y {{can't}} + la forma base: sin {{to}}, sin -s y sin {{do}}",
+      "blocks": [
+        {"goal":{"t":"Can you help me? I can't find my keys.","tr":"¿Me ayudas? No encuentro mis llaves."}},
+        {"dialog":[{"who":"Tú","t":"Hi, can I ask you a favor?","tr":"Hola, ¿le puedo pedir un favor?"},{"who":"Tom","t":"Sure.","tr":"Claro."},{"who":"Tú","t":"My car won't start. Can you give me a ride to work?","tr":"Mi carro no arranca. ¿Me puede dar un aventón al trabajo?"},{"who":"Tom","t":"I can't right now, but I can take you in twenty minutes.","tr":"Ahorita no puedo, pero lo puedo llevar en veinte minutos."},{"who":"Tú","t":"That's great. Thank you so much!","tr":"Perfecto. ¡Muchísimas gracias!"}]},
+        {"p":"**{{can}}: poder y saber.** {{can}} sirve para lo que puedes hacer, lo que sabes hacer, y para pedir permiso o favores. El español usa “poder” o “saber”; el inglés, {{can}} para todo: {{I can swim}} “sé nadar”, {{I can come tomorrow}} “puedo venir mañana”."},
+        {"term":"verbo modal","means":"un verbo pequeño que va antes de otro para darle un matiz (poder, deber…): {{can}}, {{should}}, {{will}}. Nunca cambia y no usa {{do}}."},
+        {"p":"**Las tres reglas de {{can}}:** el verbo que sigue va en la forma base, **sin {{to}}** ({{I can go}}, nunca {{I can to go}}); {{can}} **nunca lleva -s** ({{she can}}, nunca {{she cans}}); y **no usa {{do}}**: se niega con {{can't}} ({{cannot}}) y se pregunta poniendo {{can}} primero: {{Can you…?}}"},
+        { "table": [
+          ["","{{can}}"],
+          ["afirmación","{{She can drive.}}"],
+          ["negación","{{She can't drive.}}"],
+          ["pregunta","{{Can she drive?}}"],
+          ["respuesta corta","{{Yes, she can.}} / {{No, she can't.}}"]
+        ] },
+        {"p":"**Pedir.** {{Can I…?}} pide permiso: {{Can I sit here?}} “¿Me puedo sentar aquí?” {{Can you…?}} pide un favor: {{Can you help me?}} “¿Me ayudas?” Para ser más amable: {{Could you…?}} (lección 40)."},
+        {"p":"**Cómo suena.** Dentro de una oración, {{can}} casi no se oye (“kn”), pero {{can't}} se dice clarito y fuerte: {{I can go}}, {{I CAN'T go}}. Fíjate en esa diferencia cuando escuches."},
+        { "ex": [
+          {"t":"I can speak English and Spanish.","tr":"Hablo inglés y español."},
+          {"t":"Can I pay with a card?","tr":"¿Puedo pagar con tarjeta?"},
+          {"t":"My son can't swim yet.","tr":"Mi hijo todavía no sabe nadar."},
+          {"t":"Can you speak more slowly, please?","tr":"¿Puede hablar más despacio, por favor?"},
+          {"t":"We can't come to the party.","tr":"No podemos ir a la fiesta."},
+          {"t":"Can she cook? — Yes, she can. She's a great cook.","tr":"¿Sabe cocinar? — Sí. Cocina buenísimo."},
+          {"t":"I can't hear you.","tr":"No te oigo.","note":"con {{see}} y {{hear}}, el inglés casi siempre pone {{can}}"}
+        ] },
+        {"tip":"{{I can't find my keys}} es la forma natural de decir “no encuentro mis llaves”, y {{I can't hear you}}, “no te oigo”."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to help you.","right":"I can help you.","tr":"Te puedo ayudar.","why":"Después de {{can}}, sin {{to}}."},
+        {"wrong":"She cans speak French.","right":"She can speak French.","tr":"Habla francés.","why":"{{can}} nunca lleva -s."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"¿Me puedes ayudar?","why":"{{can}} no usa {{do}}: va primero en la pregunta."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ swim very well.","tr":"Sé nadar muy bien.","options":["can","can to","cans"],"answer":0,"why":"{{can}} + la forma base."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ I sit here?","tr":"¿Me puedo sentar aquí?","options":["Can","Do","Am"],"answer":0,"why":"Para pedir permiso: {{Can I…?}}"},
+        {"type":"choice","q":"“Mi hermana no sabe manejar.” ¿Cuál está bien?","options":["{{My sister can't drive.}}","{{My sister doesn't can drive.}}","{{My sister can't to drive.}}"],"answer":0,"why":"{{can't}} + la forma base, sin {{do}} y sin {{to}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"He can ___ three languages.","tr":"Habla tres idiomas.","options":["speak","speaks","to speak"],"answer":0,"why":"Después de {{can}}, la forma base, sin -s: {{speak}}.","from":"talk-about-someone-else"},
+        {"type":"dialogue","q":"En una tienda de ropa. Escoge tus respuestas.","lines":[{"who":"Empleada","t":"Hi, can I help you?","tr":"Hola, ¿le ayudo?"},{"options":["Yes, please. Can I try on this jacket?","Yes, please. Do I can try on this jacket?"],"answer":0,"why":"Para pedir permiso: {{Can I…?}}"},{"who":"Empleada","t":"Sure. The fitting rooms are in the back.","tr":"Claro. Los probadores están al fondo."},{"options":["Thanks. And can I pay with a card?","Thanks. And can I to pay with a card?"],"answer":0,"why":"Sin {{to}} después de {{can}}."},{"who":"Empleada","t":"Of course.","tr":"Por supuesto."}],"from":"order-food"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"¿Puede hablar más despacio, por favor?","words":["Can you","speak","more slowly,","please?"]},
+        {"type":"say","q":"Pide ayuda: “¿Me puede ayudar?”","answer":"Can you help me?"},
+        {"type":"free","q":"Te toca: di dos cosas que sabes hacer y una que no.","answers":[{"t":"I can cook and I can play the guitar, but I can't dance.","tr":"Sé cocinar y sé tocar la guitarra, pero no sé bailar."},{"t":"I can speak two languages and I can drive. I can't swim.","tr":"Hablo dos idiomas y sé manejar. No sé nadar."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di qué está pasando ahorita",
+      "summary": "Di lo que estás haciendo en este momento, por teléfono o por mensaje: {{I can't talk right now. I'm driving.}}",
+      "topic": "el presente continuo: {{am, is, are}} + verbo con -ing",
+      "blocks": [
+        {"goal":{"t":"I can't talk right now. I'm driving.","tr":"Ahorita no puedo hablar. Estoy manejando."}},
+        {"dialog":[{"who":"Mamá","t":"Hi, honey! What are you doing?","tr":"¡Hola, mi amor! ¿Qué estás haciendo?"},{"who":"Tú","t":"I'm making dinner. The kids are doing their homework.","tr":"Estoy haciendo la cena. Los niños están haciendo la tarea."},{"who":"Mamá","t":"And where's Pedro?","tr":"¿Y Pedro?"},{"who":"Tú","t":"He's taking a shower. Is everything okay?","tr":"Se está bañando. ¿Todo bien?"},{"who":"Mamá","t":"Yes, yes. I'm just calling to say hi.","tr":"Sí, sí. Nada más te hablo para saludarte."}]},
+        {"p":"**Como “estar + -ando”.** El presente continuo se parece mucho al español: {{be}} ({{am}}, {{is}}, {{are}}) + el verbo con **-ing**: {{I'm working}} “estoy trabajando”, {{She's sleeping}} “está dormida”. No olvides el {{be}}: {{I working}} no existe."},
+        {"term":"presente continuo","means":"el tiempo del verbo para lo que está pasando ahorita: {{I'm eating}} “estoy comiendo”."},
+        { "table": [
+          ["","afirmación","negación","pregunta"],
+          ["{{I}}","{{I'm eating.}}","{{I'm not eating.}}","{{Am I…?}}"],
+          ["{{he, she, it}}","{{She's eating.}}","{{She isn't eating.}}","{{Is she eating?}}"],
+          ["{{you, we, they}}","{{They're eating.}}","{{They aren't eating.}}","{{Are they eating?}}"]
+        ] },
+        {"p":"**La ortografía de -ing.** Casi siempre se agrega tal cual: {{work}} → {{working}}. Si el verbo termina en una e que no suena, se quita: {{make}} → {{making}}, {{take}} → {{taking}}. Si termina en vocal + consonante, con el golpe al final, la consonante se duplica: {{sit}} → {{sitting}}, {{run}} → {{running}}, {{swim}} → {{swimming}}."},
+        {"p":"**¿Qué estás haciendo?** {{What are you doing?}} es la pregunta del momento, por teléfono o por mensaje. Respuestas típicas: {{Nothing much.}} “Nada, aquí nomás.”, {{I'm watching TV.}}, {{I'm on my way.}} “Voy en camino.”"},
+        { "ex": [
+          {"t":"It's raining.","tr":"Está lloviendo."},
+          {"t":"We're waiting for the bus.","tr":"Estamos esperando el camión.","note":"{{wait for}}: esperar a alguien o algo"},
+          {"t":"The baby is sleeping.","tr":"El bebé está dormido."},
+          {"t":"Are you listening to me?","tr":"¿Me estás escuchando?"},
+          {"t":"I'm not working today.","tr":"Hoy no estoy trabajando."},
+          {"t":"What's he doing? — He's playing video games.","tr":"¿Qué está haciendo? — Está jugando videojuegos."},
+          {"t":"My parents are traveling in Europe.","tr":"Mis papás andan de viaje por Europa."}
+        ] },
+        {"tip":"{{right now}} (ahorita, en este momento) y {{at the moment}} van muy bien con este tiempo: {{I'm busy right now.}} “Ahorita estoy ocupado.”"}
+      ],
+      "mistakes": [
+        {"wrong":"I working now.","right":"I'm working now.","tr":"Ahorita estoy trabajando.","why":"Falta {{be}}: {{I'm working}}."},
+        {"wrong":"She is sleep.","right":"She is sleeping.","tr":"Está dormida.","why":"Después de {{is}}, el verbo con -ing: {{sleeping}}."},
+        {"wrong":"He's runing.","right":"He's running.","tr":"Está corriendo.","why":"{{run}} duplica la n: {{running}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Shh! The baby ___ sleeping.","tr":"¡Shh! El bebé está dormido.","options":["is","are","does"],"answer":0,"why":"Una persona: {{is}} + -ing."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We're ___ for the bus.","tr":"Estamos esperando el camión.","options":["waiting","wait","waits"],"answer":0,"why":"Después de {{be}}, el verbo con -ing."},
+        {"type":"choice","q":"¿Cuál está bien?","options":["{{They're swimming in the pool.}}","{{They swimming in the pool.}}","{{They're swiming in the pool.}}"],"answer":0,"why":"{{be}} + -ing, y {{swim}} duplica la m."},
+        {"type":"dialogue","q":"Un amigo te llama. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"Hey! What are you doing?","tr":"¡Oye! ¿Qué estás haciendo?"},{"options":["I'm cooking. Can I call you later?","I cooking. Can I to call you later?"],"answer":0,"why":"{{I'm cooking}}; y sin {{to}} después de {{can}}."},{"who":"Amigo","t":"Sure. Is your sister there?","tr":"Claro. ¿Está tu hermana?"},{"options":["Yes, but she's taking a shower.","Yes, but she taking a shower."],"answer":0,"why":"Falta {{be}}: {{she's taking}}."},{"who":"Amigo","t":"Okay, talk to you later!","tr":"¡Va, al rato hablamos!"}],"from":"say-what-you-can-do"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"¿Me estás escuchando?","words":["Are","you","listening","to me?"]},
+        {"type":"say","q":"Contesta un mensaje: “Voy en camino.”","answer":"I'm on my way."},
+        {"type":"free","q":"Te toca: es sábado al mediodía. Escribe un mensaje: ¿qué están haciendo tú y tu familia ahorita?","answers":[{"t":"I'm cleaning the house and my husband is cooking. The kids are playing outside.","tr":"Estoy limpiando la casa y mi esposo está cocinando. Los niños están jugando afuera."},{"t":"I'm at the park. My dog is running and I'm reading a book.","tr":"Estoy en el parque. Mi perro está corriendo y yo estoy leyendo un libro."}]}
+      ]
+    },
+    {
+      "id": "routines-and-right-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "¿Siempre o ahorita?",
+      "summary": "Distingue lo que haces normalmente de lo que estás haciendo hoy: {{I usually take the bus, but today I'm walking.}}",
+      "topic": "presente simple o presente continuo; {{always, usually, sometimes, never}} y dónde van; {{I want}}, no {{I'm wanting}}",
+      "blocks": [
+        {"goal":{"t":"I usually take the bus, but today I'm walking.","tr":"Normalmente tomo el camión, pero hoy me voy caminando."}},
+        {"dialog":[{"who":"Matt","t":"Are you working from home today?","tr":"¿Hoy estás trabajando desde la casa?"},{"who":"Tú","t":"Yes. I usually work at the office, but my son is sick.","tr":"Sí. Normalmente trabajo en la oficina, pero mi hijo está enfermo."},{"who":"Matt","t":"Oh, I'm sorry. What's he doing now?","tr":"Ay, lo siento. ¿Qué está haciendo ahorita?"},{"who":"Tú","t":"He's sleeping. He never sleeps during the day!","tr":"Está dormido. ¡Nunca duerme de día!"},{"who":"Matt","t":"I hope he feels better soon.","tr":"Ojalá que se mejore pronto."}]},
+        {"p":"**Dos presentes, dos usos.** El **presente simple** es para costumbres, horarios y lo que siempre es cierto: {{I work at a bank.}} El **presente continuo** es para lo que pasa ahorita, o en estos días, algo temporal: {{I'm working from home today.}} En español a veces decimos “trabajo” para las dos cosas; en inglés, no."},
+        { "table": [
+          ["presente simple: siempre, normalmente","presente continuo: ahorita, estos días"],
+          ["{{I drink coffee every morning.}} Tomo café todas las mañanas.","{{I'm drinking tea today.}} Hoy estoy tomando té."],
+          ["{{She works at a hotel.}} Trabaja en un hotel.","{{She's working late tonight.}} Hoy se va a quedar trabajando hasta tarde."],
+          ["{{It rains a lot in June.}} En junio llueve mucho.","{{It's raining.}} Está lloviendo."]
+        ] },
+        {"p":"**¿Qué tan seguido?** {{always}} (siempre), {{usually}} (normalmente), {{often}} (seguido), {{sometimes}} (a veces), {{rarely}} (casi nunca), {{never}} (nunca). Van **antes** del verbo principal ({{I usually take the bus}}), pero **después** de {{be}} ({{I'm always late}})."},
+        {"p":"**Verbos que no van con -ing.** Algunos verbos describen un estado, no una acción, y casi nunca van en continuo, aunque hablen de ahorita: {{want}}, {{need}}, {{like}}, {{love}}, {{know}}, {{understand}}, {{believe}} y {{have}} (tener). Se dice {{I want a coffee}}, nunca {{I'm wanting a coffee}}; {{I understand}}, nunca {{I'm understanding}}."},
+        { "ex": [
+          {"t":"I usually get up at six.","tr":"Normalmente me levanto a las seis."},
+          {"t":"I'm always tired on Mondays.","tr":"Los lunes siempre ando cansado."},
+          {"t":"We never eat out.","tr":"Nunca comemos fuera."},
+          {"t":"Why are you wearing a suit today?","tr":"¿Por qué traes traje hoy?"},
+          {"t":"My sister is living with us this month.","tr":"Este mes mi hermana se está quedando con nosotros.","note":"algo temporal: continuo"},
+          {"t":"I need help.","tr":"Necesito ayuda.","note":"nunca {{I'm needing}}"},
+          {"t":"Do you know the answer? — No, I don't.","tr":"¿Sabes la respuesta? — No."}
+        ] },
+        {"tip":"Pregúntate: ¿es costumbre o es ahorita? {{What do you do?}} “¿A qué te dedicas?” y {{What are you doing?}} “¿Qué estás haciendo?” son preguntas muy distintas."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm wanting a coffee.","right":"I want a coffee.","tr":"Quiero un café.","why":"{{want}} es un estado: no va con -ing."},
+        {"wrong":"I go always to the gym.","right":"I always go to the gym.","tr":"Siempre voy al gimnasio.","why":"{{always}} va antes del verbo principal."},
+        {"wrong":"Look! It rains.","right":"Look! It's raining.","tr":"¡Mira! Está lloviendo.","why":"Está pasando ahorita: presente continuo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ to work every day.","tr":"Me voy caminando al trabajo todos los días.","options":["walk","am walking","walking"],"answer":0,"why":"Una costumbre ({{every day}}): presente simple."},
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"Be quiet! The baby ___.","tr":"¡Silencio! El bebé está dormido.","options":["is sleeping","sleeps","sleep"],"answer":0,"why":"Ahorita: presente continuo.","from":"say-what-is-happening-now"},
+        {"type":"choice","q":"¿Dónde va {{usually}}? “Normalmente como en casa.”","options":["{{I usually eat at home.}}","{{I eat usually at home.}}","{{Usually I'm eat at home.}}"],"answer":0,"why":"Antes del verbo principal: {{I usually eat}}."},
+        {"type":"choice","q":"¿Cuál está bien?","options":["{{I don't understand.}}","{{I'm not understanding.}}","{{I no understand.}}"],"answer":0,"why":"{{understand}} es un estado: presente simple, con {{don't}}."},
+        {"type":"dialogue","q":"Un amigo te ve en el gimnasio. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"Hey! Do you come here a lot?","tr":"¡Oye! ¿Vienes seguido?"},{"options":["Yes, I usually come on Mondays and Fridays.","Yes, I'm usually coming on Mondays and Fridays."],"answer":0,"why":"Una costumbre: presente simple, {{I usually come}}."},{"who":"Amigo","t":"And what are you doing now?","tr":"¿Y qué estás haciendo ahorita?"},{"options":["I'm waiting for my trainer.","I wait for my trainer now."],"answer":0,"why":"Ahorita: {{I'm waiting}}."},{"who":"Amigo","t":"Cool. See you around!","tr":"Va. ¡Nos vemos!"}],"from":"say-what-you-do"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Los lunes siempre llego tarde.","words":["I'm","always","late","on Mondays."]},
+        {"type":"say","q":"Di “Necesito ayuda.”","answer":"I need help."},
+        {"type":"free","q":"Te toca: di qué haces normalmente los sábados, y qué estás haciendo hoy.","answers":[{"t":"On Saturdays I usually go to the market, but today I'm working.","tr":"Los sábados normalmente voy al mercado, pero hoy estoy trabajando."},{"t":"I usually sleep late on weekends. Today I'm studying English!","tr":"Normalmente me levanto tarde los fines de semana. ¡Hoy estoy estudiando inglés!"}]}
+      ]
+    },
+    {
+      "id": "make-plans",
+      "unit": 3,
+      "level": "A1",
+      "title": "Haz planes",
+      "summary": "Di qué vas a hacer y qué tienes planeado: {{This weekend I'm going to visit my parents.}}",
+      "topic": "{{going to}} + la forma base; el presente continuo para citas y planes fijos ({{I'm meeting Ana on Friday}}); {{next week}}, {{this weekend}}",
+      "blocks": [
+        {"goal":{"t":"This weekend I'm going to visit my parents.","tr":"Este fin de semana voy a visitar a mis papás."}},
+        {"dialog":[{"who":"Sam","t":"What are you doing this weekend?","tr":"¿Qué vas a hacer este fin de semana?"},{"who":"Tú","t":"On Saturday I'm going to clean the house. And on Sunday I'm having lunch with my family.","tr":"El sábado voy a limpiar la casa. Y el domingo voy a comer con mi familia."},{"who":"Sam","t":"Nice. I'm going to watch the game.","tr":"Qué bien. Yo voy a ver el partido."},{"who":"Tú","t":"Are you going to watch it at home?","tr":"¿Lo vas a ver en tu casa?"},{"who":"Sam","t":"No, we're going to a bar downtown. Do you want to come?","tr":"No, vamos a ir a un bar en el centro. ¿Quieres venir?"}]},
+        {"p":"**Como “ir a”.** {{be going to}} + la forma base es casi igual que “voy a + infinitivo”: {{I'm going to eat}} “voy a comer”. Sirve para los planes y las intenciones: {{I'm going to study tonight.}}"},
+        { "table": [
+          ["","afirmación","pregunta"],
+          ["{{I}}","{{I'm going to call her.}}","{{Am I going to…?}}"],
+          ["{{he, she, it}}","{{It's going to rain.}}","{{Is it going to rain?}}"],
+          ["{{you, we, they}}","{{We're going to travel.}}","{{Are you going to travel?}}"]
+        ] },
+        {"p":"**Para citas y planes ya arreglados**, con hora y lugar, el inglés usa mucho el presente continuo: {{I'm meeting Ana at six.}} “Quedé de ver a Ana a las seis.” {{We're having dinner with my parents on Sunday.}} {{What are you doing tonight?}} “¿Qué vas a hacer hoy en la noche?”"},
+        {"p":"**Palabras de futuro, sin {{the}}:** {{tomorrow}} (mañana), {{tonight}} (hoy en la noche), {{this weekend}} (este fin de semana), {{next week}} (la próxima semana), {{next year}} (el próximo año), {{in two days}} (en dos días). Nunca {{the next week}}."},
+        {"p":"**Con el verbo {{go}}** se puede decir {{I'm going to go to the beach}}, pero lo más común es simplemente {{I'm going to the beach}}."},
+        { "ex": [
+          {"t":"It's going to rain tomorrow.","tr":"Mañana va a llover."},
+          {"t":"We're going to buy a new car.","tr":"Vamos a comprar un carro nuevo."},
+          {"t":"I'm not going to go out tonight.","tr":"Hoy en la noche no voy a salir."},
+          {"t":"Are you going to come to the party?","tr":"¿Vas a venir a la fiesta?"},
+          {"t":"My sister is going to have a baby.","tr":"Mi hermana va a tener un bebé."},
+          {"t":"I'm seeing the doctor on Monday.","tr":"El lunes tengo cita con el doctor."},
+          {"t":"What are you going to do next year?","tr":"¿Qué vas a hacer el próximo año?"}
+        ] },
+        {"tip":"En la plática rápida, {{going to}} suena “gonna”: {{I'm gonna call you}}. Lo vas a oír en todos lados, pero escríbelo completo."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to call you.","right":"I'm going to call you.","tr":"Te voy a llamar.","why":"Falta {{be}}: {{I'm going to}}."},
+        {"wrong":"I'm going to calling you.","right":"I'm going to call you.","tr":"Te voy a llamar.","why":"Después de {{going to}}, la forma base: {{call}}."},
+        {"wrong":"See you the next week.","right":"See you next week.","tr":"Nos vemos la próxima semana.","why":"Con {{next}}, sin {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"We're going ___ visit my grandma.","tr":"Vamos a visitar a mi abuela.","options":["to","for","at"],"answer":0,"why":"{{going to}} + la forma base."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It's going to ___ tomorrow.","tr":"Mañana va a llover.","options":["rain","rains","raining"],"answer":0,"why":"Después de {{going to}}, la forma base."},
+        {"type":"choice","q":"“La próxima semana empiezo un trabajo nuevo.” ¿Cuál está bien?","options":["{{I'm starting a new job next week.}}","{{I'm starting a new job the next week.}}","{{I start a new job in the next week.}}"],"answer":0,"why":"Un plan ya arreglado: presente continuo; y {{next week}}, sin {{the}}.","from":"say-what-is-happening-now"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Are you ___ to come to my party?","tr":"¿Vas a venir a mi fiesta?","options":["going","go","goes"],"answer":0,"why":"{{be going to}}: {{Are you going to…?}}"},
+        {"type":"dialogue","q":"Haces planes con un amigo. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"What are you doing on Saturday?","tr":"¿Qué vas a hacer el sábado?"},{"options":["I'm going to play soccer in the morning.","I'm going to play soccer on the morning."],"answer":0,"why":"Frase fija: {{in the morning}}."},{"who":"Amigo","t":"And in the evening?","tr":"¿Y en la noche?"},{"options":["I'm meeting some friends at eight.","I'm meeting some friends on eight."],"answer":0,"why":"Con la hora: {{at}}."},{"who":"Amigo","t":"Cool. Have fun!","tr":"Va. ¡Que te diviertas!"}],"from":"say-where-and-when"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Hoy en la noche no voy a salir.","words":["I'm","not going","to go out","tonight."]},
+        {"type":"say","q":"Pregunta “¿Qué vas a hacer este fin de semana?”","answer":"What are you going to do this weekend?"},
+        {"type":"free","q":"Te toca: ¿qué vas a hacer este fin de semana? Di dos planes, con {{going to}} o con el presente continuo.","answers":[{"t":"On Saturday I'm going to rest, and on Sunday I'm having lunch with my parents.","tr":"El sábado voy a descansar y el domingo voy a comer con mis papás."},{"t":"This weekend I'm going to clean my apartment and watch a movie.","tr":"Este fin de semana voy a limpiar mi departamento y ver una película."}]}
+      ]
+    },
+    {
+      "id": "talk-about-the-weather",
+      "unit": 3,
+      "level": "A1",
+      "title": "Habla del clima, la hora y las distancias",
+      "summary": "Platica del clima y di qué hora es, qué tan lejos está algo y cuánto se hace: {{It's raining.}} {{It's late.}} {{It takes twenty minutes.}}",
+      "topic": "{{it}} como sujeto: {{It's cold}}, {{It's raining}}, {{It's ten o'clock}}, {{It's far}}, {{It takes…}}",
+      "blocks": [
+        {"goal":{"t":"It's cold and it's raining. Let's stay home.","tr":"Hace frío y está lloviendo. Mejor quedémonos en casa."}},
+        {"dialog":[{"who":"Kim","t":"What's the weather like in Monterrey?","tr":"¿Cómo está el clima en Monterrey?"},{"who":"Tú","t":"It's really hot in the summer. It's usually sunny.","tr":"En verano hace muchísimo calor. Casi siempre está soleado."},{"who":"Kim","t":"Here it's cold and it's snowing!","tr":"¡Aquí hace frío y está nevando!"},{"who":"Tú","t":"Is it far from your house to work?","tr":"¿Está lejos tu trabajo de tu casa?"},{"who":"Kim","t":"Yes, it takes an hour by car when it snows.","tr":"Sí, cuando nieva hago una hora en carro."}]},
+        {"p":"**El sujeto que no significa nada.** El español dice “llueve”, “hace frío”, “es tarde”, “está lejos”, sin sujeto. El inglés no puede: pone {{it}}, que aquí no es “eso”, solo ocupa el lugar del sujeto: {{It's raining.}} {{It's cold.}} {{It's late.}} {{It's far.}}"},
+        { "table": [
+          ["en español","en inglés"],
+          ["Llueve. Está lloviendo.","{{It's raining.}}"],
+          ["Hace frío. Hace calor.","{{It's cold.}} {{It's hot.}}"],
+          ["Hace sol. Está nublado.","{{It's sunny.}} {{It's cloudy.}}"],
+          ["Son las diez.","{{It's ten o'clock.}}"],
+          ["Es tarde. Es temprano.","{{It's late.}} {{It's early.}}"],
+          ["Está lejos. Está cerca.","{{It's far.}} {{It's close.}}"],
+          ["Es lunes.","{{It's Monday.}}"]
+        ] },
+        {"p":"**Cuánto se hace: {{It takes…}}** {{It takes twenty minutes to get there.}} “Se hacen veinte minutos para llegar.” {{How long does it take?}} “¿Cuánto se hace?”"},
+        {"p":"**Para preguntar por el clima:** {{What's the weather like?}} “¿Cómo está el clima?”, o {{How's the weather?}} Y para opinar: {{It's important}}, {{It's easy}}, {{It's difficult}} + {{to}} + verbo: {{It's important to sleep well.}} “Es importante dormir bien.”"},
+        { "ex": [
+          {"t":"It's very windy today.","tr":"Hoy hace mucho viento."},
+          {"t":"It's going to snow tonight.","tr":"Hoy en la noche va a nevar."},
+          {"t":"Is it far? — No, it's just two blocks away.","tr":"¿Está lejos? — No, está a dos cuadras nomás."},
+          {"t":"It's almost midnight.","tr":"Ya casi es medianoche."},
+          {"t":"It takes ten minutes to walk to the store.","tr":"A la tienda se hacen diez minutos caminando."},
+          {"t":"It's easy to get lost here.","tr":"Aquí es fácil perderse."},
+          {"t":"It's my birthday today!","tr":"¡Hoy es mi cumpleaños!"}
+        ] },
+        {"tip":"En Estados Unidos la temperatura va en grados Fahrenheit: 32 °F son 0 °C, 70 °F son unos 21 °C y 90 °F son unos 32 °C. {{It's 90 degrees}} es un día de mucho calor."}
+      ],
+      "mistakes": [
+        {"wrong":"Is raining.","right":"It's raining.","tr":"Está lloviendo.","why":"Falta el sujeto: {{it}}."},
+        {"wrong":"Makes cold today.","right":"It's cold today.","tr":"Hoy hace frío.","why":"“Hace frío” no se traduce con {{make}}: es {{It's cold}}."},
+        {"wrong":"Is very far.","right":"It's very far.","tr":"Está muy lejos.","why":"El sujeto siempre va: {{It's}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ very hot today.","tr":"Hoy hace mucho calor.","options":["It's","Is","Makes"],"answer":0,"why":"El inglés pone {{it}}: {{It's hot}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It ___ raining right now.","tr":"Ahorita está lloviendo.","options":["is","does","has"],"answer":0,"why":"Presente continuo: {{it is}} + -ing.","from":"say-what-is-happening-now"},
+        {"type":"choice","q":"“¿Cuánto se hace al aeropuerto?” ¿Cuál está bien?","options":["{{How long does it take to get to the airport?}}","{{How long takes to the airport?}}","{{How much time is to the airport?}}"],"answer":0,"why":"{{How long does it take…?}}, con {{it}} y {{does}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It's ___ to learn a new language.","tr":"Es difícil aprender un idioma nuevo.","options":["difficult","difficulty","a difficult"],"answer":0,"why":"{{It's}} + adjetivo + {{to}} + verbo."},
+        {"type":"dialogue","q":"Haces planes para el domingo. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Do you want to go to the beach on Sunday?","tr":"¿Quieres ir a la playa el domingo?"},{"options":["Sure! Is it going to be sunny?","Sure! Is going to be sunny?"],"answer":0,"why":"Falta el sujeto: {{Is it going to be…?}}"},{"who":"Amiga","t":"Yes, but it's far. It takes two hours.","tr":"Sí, pero está lejos. Se hacen dos horas."},{"options":["That's okay. It's better to leave early.","That's okay. Is better leave early."],"answer":0,"why":"El sujeto siempre va: {{It's better to…}}"},{"who":"Amiga","t":"Okay!","tr":"¡Va!"}],"from":"make-plans"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"A la tienda se hacen diez minutos caminando.","words":["It takes","ten minutes","to walk","to the store."]},
+        {"type":"say","q":"Pregunta “¿Cómo está el clima?”","answer":"What's the weather like?"},
+        {"type":"free","q":"Te toca: ¿cómo está el clima hoy donde estás? ¿Y qué tan lejos te queda el trabajo o la escuela?","answers":[{"t":"It's sunny and it's very hot. My work is close: it takes ten minutes by car.","tr":"Está soleado y hace mucho calor. Mi trabajo está cerca: se hacen diez minutos en carro."},{"t":"It's cloudy and it's a little cold. My school is far. It takes an hour by bus.","tr":"Está nublado y hace un poco de frío. Mi escuela está lejos. Se hace una hora en camión."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 3,
+      "level": "A1",
+      "title": "Di dónde estabas y dónde naciste",
+      "summary": "Habla del pasado con {{be}}: dónde estabas, cómo estuvo algo y dónde naciste: {{I was born in Oaxaca.}}",
+      "topic": "{{was}} y {{were}}; {{there was}} y {{there were}}; {{I was born}}",
+      "blocks": [
+        {"goal":{"t":"I was born in Oaxaca, but I live in California.","tr":"Nací en Oaxaca, pero vivo en California."}},
+        {"dialog":[{"who":"Liz","t":"Where were you on Friday?","tr":"¿Dónde estabas el viernes?"},{"who":"Tú","t":"I was at home. I was sick.","tr":"Estaba en mi casa. Estaba enfermo."},{"who":"Liz","t":"Oh no! Are you okay now?","tr":"¡Ay, no! ¿Ya estás bien?"},{"who":"Tú","t":"Yes, thanks. How was the meeting?","tr":"Sí, gracias. ¿Qué tal estuvo la junta?"},{"who":"Liz","t":"It was long! There were a lot of people.","tr":"¡Estuvo larguísima! Había muchísima gente."}]},
+        {"p":"**El pasado de {{be}}** tiene solo dos formas: {{was}}, con {{I}}, {{he}}, {{she}} e {{it}}; y {{were}}, con {{you}}, {{we}} y {{they}}. Sirve para “era”, “fui”, “estaba” y “estuve”: el inglés no los distingue."},
+        { "table": [
+          ["","afirmación","negación","pregunta"],
+          ["{{I, he, she, it}}","{{I was tired.}}","{{I wasn't tired.}}","{{Was she tired?}}"],
+          ["{{you, we, they}}","{{We were tired.}}","{{We weren't tired.}}","{{Were they tired?}}"]
+        ] },
+        {"p":"**{{there was}} y {{there were}}** son “había” y “hubo”: {{There was a problem.}} “Hubo un problema.” {{There were a lot of people.}} “Había mucha gente.”"},
+        {"p":"**Nacer: {{I was born}}.** En inglés “nacer” no es un verbo normal: se dice algo así como “yo fui nacido”, {{I was born}}. {{Where were you born?}} “¿Dónde naciste?” {{My daughter was born in 2019.}} Nunca {{I born}} ni {{I am born}}."},
+        {"p":"**¿Qué tal estuvo?** {{How was…?}} pregunta por algo que ya pasó: {{How was your weekend?}} “¿Qué tal tu fin de semana?”, {{How was the movie?}} “¿Qué tal estuvo la película?”"},
+        { "ex": [
+          {"t":"I was very tired last night.","tr":"Anoche estaba muy cansado."},
+          {"t":"Where were you? — I was at work.","tr":"¿Dónde estabas? — Estaba en el trabajo."},
+          {"t":"The party was great.","tr":"La fiesta estuvo buenísima."},
+          {"t":"There weren't any tickets.","tr":"No había boletos."},
+          {"t":"Were you born in Mexico? — Yes, I was.","tr":"¿Naciste en México? — Sí."},
+          {"t":"My grandparents were farmers.","tr":"Mis abuelos eran campesinos."},
+          {"t":"How was your trip? — It was amazing!","tr":"¿Qué tal tu viaje? — ¡Estuvo increíble!"}
+        ] },
+        {"tip":"Para lo que hiciste con otros verbos ({{worked}}, {{went}}…), sigue la unidad 4. {{was}} y {{were}} ya te sirven para muchísimo: dónde estabas, cómo estuvo algo, cómo era."}
+      ],
+      "mistakes": [
+        {"wrong":"I born in Oaxaca.","right":"I was born in Oaxaca.","tr":"Nací en Oaxaca.","why":"“Nacer” en inglés es {{be born}}: {{I was born}}."},
+        {"wrong":"We was at the beach.","right":"We were at the beach.","tr":"Estábamos en la playa.","why":"Con {{we}}, {{you}} y {{they}}: {{were}}."},
+        {"wrong":"Was a lot of traffic.","right":"There was a lot of traffic.","tr":"Había mucho tráfico.","why":"“Había” es {{there was}}; sin {{there}} falta el sujeto."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ at home yesterday.","tr":"Ayer estuve en mi casa.","options":["was","were","am"],"answer":0,"why":"El pasado con {{I}}: {{was}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Where ___ you born?","tr":"¿Dónde naciste?","options":["were","was","did"],"answer":0,"why":"{{be born}}, con {{you}}: {{were}}."},
+        {"type":"choice","q":"“Había mucha gente en el concierto.” ¿Cuál está bien?","options":["{{There were a lot of people at the concert.}}","{{There was a lot of people at the concert.}}","{{Had a lot of people at the concert.}}"],"answer":0,"why":"{{people}} es plural: {{there were}}.","from":"name-things"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It ___ very cold last night.","tr":"Anoche hizo mucho frío.","options":["was","were","did"],"answer":0,"why":"{{it}} + {{was}}: el clima en pasado.","from":"talk-about-the-weather"},
+        {"type":"dialogue","q":"Un compañero te pregunta por tus vacaciones. Escoge tus respuestas.","lines":[{"who":"Compañero","t":"How was your vacation?","tr":"¿Qué tal tus vacaciones?"},{"options":["It was great! We were in Cancún.","It was great! We was in Cancún."],"answer":0,"why":"Con {{we}}: {{were}}."},{"who":"Compañero","t":"Was it hot?","tr":"¿Hacía calor?"},{"options":["Yes, it was very hot.","Yes, was very hot."],"answer":0,"why":"El sujeto siempre va: {{it was}}."},{"who":"Compañero","t":"Lucky you!","tr":"¡Qué suerte!"}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Mi hija nació en 2019.","words":["My daughter","was","born","in 2019."]},
+        {"type":"say","q":"Pregunta “¿Qué tal tu fin de semana?”","answer":"How was your weekend?"},
+        {"type":"free","q":"Te toca: ¿dónde naciste? ¿Y dónde estabas ayer a las ocho de la noche?","answers":[{"t":"I was born in Guadalajara. Yesterday at eight I was at home with my family.","tr":"Nací en Guadalajara. Ayer a las ocho estaba en mi casa con mi familia."},{"t":"I was born in a small town in Michoacán. Yesterday at eight I was at work.","tr":"Nací en un pueblito de Michoacán. Ayer a las ocho estaba en el trabajo."}]}
+      ]
     }
   ]
 }
