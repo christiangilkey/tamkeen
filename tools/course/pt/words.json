@@ -8297,6 +8297,926 @@
       "meaning": "to drive; to direct",
       "sentence": "Você sabe dirigir?",
       "translation": "Do you know how to ⟦drive⟧?"
+    },
+    {
+      "n": 901,
+      "rank": 946,
+      "word": "destruir",
+      "pos": "verb",
+      "meaning": "to destroy",
+      "sentence": "O fogo destruiu a casa.",
+      "translation": "The fire ⟦destroyed⟧ the house.",
+      "form": "destruiu"
+    },
+    {
+      "n": 902,
+      "rank": 947,
+      "word": "investigação",
+      "pos": "noun",
+      "meaning": "investigation",
+      "sentence": "A polícia abriu uma investigação.",
+      "translation": "The police opened an ⟦investigation⟧."
+    },
+    {
+      "n": 903,
+      "rank": 948,
+      "word": "cabo",
+      "pos": "noun",
+      "meaning": "cable; cape; corporal",
+      "sentence": "O cabo do carregador quebrou.",
+      "translation": "The charger ⟦cable⟧ broke."
+    },
+    {
+      "n": 904,
+      "rank": 949,
+      "word": "território",
+      "pos": "noun",
+      "meaning": "territory",
+      "sentence": "Esse território pertence ao Brasil.",
+      "translation": "This ⟦territory⟧ belongs to Brazil."
+    },
+    {
+      "n": 905,
+      "rank": 950,
+      "word": "episódio",
+      "pos": "noun",
+      "meaning": "episode",
+      "sentence": "Assisti ao último episódio ontem.",
+      "translation": "I watched the last ⟦episode⟧ yesterday."
+    },
+    {
+      "n": 906,
+      "rank": 951,
+      "word": "pensamento",
+      "pos": "noun",
+      "meaning": "thought",
+      "sentence": "Ela estava perdida em pensamentos.",
+      "translation": "She was lost in ⟦thought⟧.",
+      "form": "pensamentos"
+    },
+    {
+      "n": 907,
+      "rank": 952,
+      "word": "bola",
+      "pos": "noun",
+      "meaning": "ball",
+      "sentence": "Chuta a bola!",
+      "translation": "Kick the ⟦ball⟧!"
+    },
+    {
+      "n": 908,
+      "rank": 953,
+      "word": "discutir",
+      "pos": "verb",
+      "meaning": "to argue; to discuss",
+      "sentence": "Eles discutiram por causa de dinheiro.",
+      "translation": "They ⟦argued⟧ about money.",
+      "form": "discutiram"
+    },
+    {
+      "n": 909,
+      "rank": 954,
+      "word": "juiz",
+      "pos": "noun",
+      "meaning": "referee; judge (feminine: juíza)",
+      "sentence": "O juiz marcou pênalti.",
+      "translation": "The ⟦referee⟧ gave a penalty."
+    },
+    {
+      "n": 910,
+      "rank": 955,
+      "word": "combater",
+      "pos": "verb",
+      "meaning": "to fight, to combat",
+      "sentence": "O governo quer combater a corrupção.",
+      "translation": "The government wants to ⟦fight⟧ corruption."
+    },
+    {
+      "n": 911,
+      "rank": 956,
+      "word": "guarda",
+      "pos": "noun",
+      "meaning": "guard (guarda-chuva: umbrella)",
+      "sentence": "O guarda nos mostrou o caminho.",
+      "translation": "The ⟦guard⟧ showed us the way."
+    },
+    {
+      "n": 912,
+      "rank": 958,
+      "word": "alma",
+      "pos": "noun",
+      "meaning": "soul",
+      "sentence": "Ela é uma alma boa.",
+      "translation": "She's a good ⟦soul⟧."
+    },
+    {
+      "n": 913,
+      "rank": 959,
+      "word": "tiro",
+      "pos": "noun",
+      "meaning": "shot",
+      "sentence": "Ouvimos um tiro.",
+      "translation": "We heard a ⟦shot⟧."
+    },
+    {
+      "n": 914,
+      "rank": 960,
+      "word": "esquerda",
+      "pos": "noun",
+      "meaning": "left (à esquerda: on the left)",
+      "sentence": "Vire à esquerda.",
+      "translation": "Turn ⟦left⟧."
+    },
+    {
+      "n": 915,
+      "rank": 961,
+      "word": "natureza",
+      "pos": "noun",
+      "meaning": "nature",
+      "sentence": "Adoro estar em contato com a natureza.",
+      "translation": "I love being in touch with ⟦nature⟧."
+    },
+    {
+      "n": 916,
+      "rank": 963,
+      "word": "crise",
+      "pos": "noun",
+      "meaning": "crisis",
+      "sentence": "O país está em crise.",
+      "translation": "The country is in ⟦crisis⟧."
+    },
+    {
+      "n": 917,
+      "rank": 964,
+      "word": "quinta",
+      "pos": "noun",
+      "meaning": "Thursday (quinta-feira); fifth (feminine)",
+      "sentence": "Te vejo na quinta.",
+      "translation": "See you on ⟦Thursday⟧."
+    },
+    {
+      "n": 918,
+      "rank": 965,
+      "word": "limite",
+      "pos": "noun",
+      "meaning": "limit",
+      "sentence": "O limite de velocidade é oitenta.",
+      "translation": "The speed ⟦limit⟧ is eighty."
+    },
+    {
+      "n": 919,
+      "rank": 966,
+      "word": "prestar",
+      "pos": "verb",
+      "meaning": "to provide (a service) (prestar atenção: to pay attention)",
+      "sentence": "A empresa presta serviços de limpeza.",
+      "translation": "The company ⟦provides⟧ cleaning services.",
+      "form": "presta"
+    },
+    {
+      "n": 920,
+      "rank": 967,
+      "word": "identificar",
+      "pos": "verb",
+      "meaning": "to identify",
+      "sentence": "A polícia identificou o suspeito.",
+      "translation": "The police ⟦identified⟧ the suspect.",
+      "form": "identificou"
+    },
+    {
+      "n": 921,
+      "rank": 968,
+      "word": "agência",
+      "pos": "noun",
+      "meaning": "agency; branch (of a bank)",
+      "sentence": "Fui à agência do banco.",
+      "translation": "I went to the bank ⟦branch⟧."
+    },
+    {
+      "n": 922,
+      "rank": 969,
+      "word": "depender",
+      "pos": "verb",
+      "meaning": "to depend",
+      "sentence": "Depende do tempo.",
+      "translation": "It ⟦depends⟧ on the weather.",
+      "form": "depende"
+    },
+    {
+      "n": 923,
+      "rank": 970,
+      "word": "vila",
+      "pos": "noun",
+      "meaning": "village; small neighborhood",
+      "sentence": "Eles moram numa vila pequena.",
+      "translation": "They live in a small ⟦village⟧."
+    },
+    {
+      "n": 924,
+      "rank": 971,
+      "word": "jornalista",
+      "pos": "noun",
+      "meaning": "journalist",
+      "sentence": "Meu irmão é jornalista.",
+      "translation": "My brother is a ⟦journalist⟧."
+    },
+    {
+      "n": 925,
+      "rank": 972,
+      "word": "registrar",
+      "pos": "verb",
+      "meaning": "to record; to register",
+      "sentence": "O termômetro registrou quarenta graus.",
+      "translation": "The thermometer ⟦recorded⟧ forty degrees.",
+      "form": "registrou"
+    },
+    {
+      "n": 926,
+      "rank": 973,
+      "word": "esperança",
+      "pos": "noun",
+      "meaning": "hope",
+      "sentence": "Nunca perca a esperança.",
+      "translation": "Never lose ⟦hope⟧."
+    },
+    {
+      "n": 927,
+      "rank": 974,
+      "word": "link",
+      "pos": "noun",
+      "meaning": "link",
+      "sentence": "Me manda o link.",
+      "translation": "Send me the ⟦link⟧."
+    },
+    {
+      "n": 928,
+      "rank": 975,
+      "word": "pobre",
+      "pos": "adj",
+      "meaning": "poor",
+      "sentence": "Ele nasceu numa família pobre.",
+      "translation": "He was born into a ⟦poor⟧ family."
+    },
+    {
+      "n": 929,
+      "rank": 976,
+      "word": "fã",
+      "pos": "noun",
+      "meaning": "fan",
+      "sentence": "Sou fã dessa banda.",
+      "translation": "I'm a ⟦fan⟧ of this band."
+    },
+    {
+      "n": 930,
+      "rank": 977,
+      "word": "governador",
+      "pos": "noun",
+      "meaning": "governor",
+      "sentence": "O governador visitou a cidade.",
+      "translation": "The ⟦governor⟧ visited the city."
+    },
+    {
+      "n": 931,
+      "rank": 978,
+      "word": "cobrir",
+      "pos": "verb",
+      "meaning": "to cover",
+      "sentence": "Cubra a panela.",
+      "translation": "⟦Cover⟧ the pan.",
+      "form": "cubra"
+    },
+    {
+      "n": 932,
+      "rank": 979,
+      "word": "compartilhar",
+      "pos": "verb",
+      "meaning": "to share",
+      "sentence": "Obrigado por compartilhar.",
+      "translation": "Thanks for ⟦sharing⟧."
+    },
+    {
+      "n": 933,
+      "rank": 980,
+      "word": "cliente",
+      "pos": "noun",
+      "meaning": "customer, client",
+      "sentence": "O cliente sempre tem razão.",
+      "translation": "The ⟦customer⟧ is always right."
+    },
+    {
+      "n": 934,
+      "rank": 981,
+      "word": "organizar",
+      "pos": "verb",
+      "meaning": "to organize",
+      "sentence": "Vamos organizar uma festa.",
+      "translation": "Let's ⟦organize⟧ a party."
+    },
+    {
+      "n": 935,
+      "rank": 982,
+      "word": "desafio",
+      "pos": "noun",
+      "meaning": "challenge",
+      "sentence": "É um grande desafio.",
+      "translation": "It's a big ⟦challenge⟧."
+    },
+    {
+      "n": 936,
+      "rank": 984,
+      "word": "religioso",
+      "pos": "adj",
+      "meaning": "religious",
+      "sentence": "A família dela é muito religiosa.",
+      "translation": "Her family is very ⟦religious⟧.",
+      "form": "religiosa"
+    },
+    {
+      "n": 937,
+      "rank": 985,
+      "word": "opção",
+      "pos": "noun",
+      "meaning": "option, choice",
+      "sentence": "Não temos outra opção.",
+      "translation": "We have no other ⟦option⟧."
+    },
+    {
+      "n": 938,
+      "rank": 986,
+      "word": "cedo",
+      "pos": "adv",
+      "meaning": "early",
+      "sentence": "Acordei cedo hoje.",
+      "translation": "I woke up ⟦early⟧ today."
+    },
+    {
+      "n": 939,
+      "rank": 988,
+      "word": "fome",
+      "pos": "noun",
+      "meaning": "hunger (estar com fome: to be hungry)",
+      "sentence": "Estou com fome.",
+      "translation": "I'm ⟦hungry⟧."
+    },
+    {
+      "n": 940,
+      "rank": 989,
+      "word": "inclusive",
+      "pos": "adv",
+      "meaning": "including; even",
+      "sentence": "Todos foram, inclusive meu pai.",
+      "translation": "Everyone went, ⟦including⟧ my dad."
+    },
+    {
+      "n": 941,
+      "rank": 990,
+      "word": "leste",
+      "pos": "noun",
+      "meaning": "east",
+      "sentence": "O sol nasce no leste.",
+      "translation": "The sun rises in the ⟦east⟧."
+    },
+    {
+      "n": 942,
+      "rank": 992,
+      "word": "espírito",
+      "pos": "noun",
+      "meaning": "spirit",
+      "sentence": "Ele tem um espírito jovem.",
+      "translation": "He has a young ⟦spirit⟧."
+    },
+    {
+      "n": 943,
+      "rank": 993,
+      "word": "triste",
+      "pos": "adj",
+      "meaning": "sad",
+      "sentence": "Por que você está triste?",
+      "translation": "Why are you ⟦sad⟧?"
+    },
+    {
+      "n": 944,
+      "rank": 994,
+      "word": "viajar",
+      "pos": "verb",
+      "meaning": "to travel",
+      "sentence": "Adoro viajar.",
+      "translation": "I love to ⟦travel⟧."
+    },
+    {
+      "n": 945,
+      "rank": 995,
+      "word": "flor",
+      "pos": "noun",
+      "meaning": "flower",
+      "sentence": "Ela ganhou flores no aniversário.",
+      "translation": "She got ⟦flowers⟧ for her birthday.",
+      "form": "flores"
+    },
+    {
+      "n": 946,
+      "rank": 996,
+      "word": "análise",
+      "pos": "noun",
+      "meaning": "analysis; review",
+      "sentence": "Os resultados ainda estão em análise.",
+      "translation": "The results are still under ⟦review⟧."
+    },
+    {
+      "n": 947,
+      "rank": 997,
+      "word": "pedra",
+      "pos": "noun",
+      "meaning": "stone, rock",
+      "sentence": "Ele jogou uma pedra no rio.",
+      "translation": "He threw a ⟦stone⟧ into the river."
+    },
+    {
+      "n": 948,
+      "rank": 998,
+      "word": "princípio",
+      "pos": "noun",
+      "meaning": "principle; beginning (no princípio: at first)",
+      "sentence": "É uma questão de princípio.",
+      "translation": "It's a matter of ⟦principle⟧."
+    },
+    {
+      "n": 949,
+      "rank": 999,
+      "word": "telefone",
+      "pos": "noun",
+      "meaning": "phone, telephone",
+      "sentence": "O telefone está tocando.",
+      "translation": "The ⟦phone⟧ is ringing."
+    },
+    {
+      "n": 950,
+      "rank": 1000,
+      "word": "acidente",
+      "pos": "noun",
+      "meaning": "accident",
+      "sentence": "Houve um acidente na estrada.",
+      "translation": "There was an ⟦accident⟧ on the road."
+    },
+    {
+      "n": 951,
+      "rank": 1001,
+      "word": "quadro",
+      "pos": "noun",
+      "meaning": "painting, picture; board; chart",
+      "sentence": "Tem um quadro bonito na parede.",
+      "translation": "There's a nice ⟦painting⟧ on the wall."
+    },
+    {
+      "n": 952,
+      "rank": 1002,
+      "word": "carreira",
+      "pos": "noun",
+      "meaning": "career",
+      "sentence": "Ela quer seguir carreira na música.",
+      "translation": "She wants to pursue a ⟦career⟧ in music."
+    },
+    {
+      "n": 953,
+      "rank": 1003,
+      "word": "financeiro",
+      "pos": "adj",
+      "meaning": "financial",
+      "sentence": "Ele está com problemas financeiros.",
+      "translation": "He's having ⟦financial⟧ problems.",
+      "form": "financeiros"
+    },
+    {
+      "n": 954,
+      "rank": 1004,
+      "word": "veículo",
+      "pos": "noun",
+      "meaning": "vehicle",
+      "sentence": "Estacione o veículo aqui.",
+      "translation": "Park the ⟦vehicle⟧ here."
+    },
+    {
+      "n": 955,
+      "rank": 1005,
+      "word": "sentar",
+      "pos": "verb",
+      "meaning": "to sit (down) (sentar-se)",
+      "sentence": "Vamos sentar ali?",
+      "translation": "Shall we ⟦sit⟧ over there?"
+    },
+    {
+      "n": 956,
+      "rank": 1006,
+      "word": "retornar",
+      "pos": "verb",
+      "meaning": "to return, to come back; to call back",
+      "sentence": "Vou retornar a ligação mais tarde.",
+      "translation": "I'll ⟦return⟧ the call later."
+    },
+    {
+      "n": 957,
+      "rank": 1007,
+      "word": "beleza",
+      "pos": "noun",
+      "meaning": "beauty; cool, OK (beleza!, informal)",
+      "sentence": "A beleza do lugar me impressionou.",
+      "translation": "The ⟦beauty⟧ of the place impressed me."
+    },
+    {
+      "n": 958,
+      "rank": 1008,
+      "word": "regional",
+      "pos": "adj",
+      "meaning": "regional",
+      "sentence": "Experimente a comida regional.",
+      "translation": "Try the ⟦regional⟧ food."
+    },
+    {
+      "n": 959,
+      "rank": 1010,
+      "word": "publicação",
+      "pos": "noun",
+      "meaning": "post (online); publication",
+      "sentence": "A publicação teve muitas curtidas.",
+      "translation": "The ⟦post⟧ got a lot of likes."
+    },
+    {
+      "n": 960,
+      "rank": 1011,
+      "word": "pressão",
+      "pos": "noun",
+      "meaning": "pressure; blood pressure",
+      "sentence": "Ele tem pressão alta.",
+      "translation": "He has high blood ⟦pressure⟧."
+    },
+    {
+      "n": 961,
+      "rank": 1012,
+      "word": "avançar",
+      "pos": "verb",
+      "meaning": "to move forward, to advance",
+      "sentence": "O projeto está avançando bem.",
+      "translation": "The project is ⟦moving forward⟧ well.",
+      "form": "avançando"
+    },
+    {
+      "n": 962,
+      "rank": 1013,
+      "word": "chorar",
+      "pos": "verb",
+      "meaning": "to cry",
+      "sentence": "O bebê está chorando.",
+      "translation": "The baby is ⟦crying⟧.",
+      "form": "chorando"
+    },
+    {
+      "n": 963,
+      "rank": 1014,
+      "word": "enfrentar",
+      "pos": "verb",
+      "meaning": "to face",
+      "sentence": "Temos que enfrentar o problema.",
+      "translation": "We have to ⟦face⟧ the problem."
+    },
+    {
+      "n": 964,
+      "rank": 1015,
+      "word": "responsabilidade",
+      "pos": "noun",
+      "meaning": "responsibility",
+      "sentence": "É sua responsabilidade.",
+      "translation": "It's your ⟦responsibility⟧."
+    },
+    {
+      "n": 965,
+      "rank": 1016,
+      "word": "culpa",
+      "pos": "noun",
+      "meaning": "fault; blame; guilt",
+      "sentence": "A culpa não é sua.",
+      "translation": "It's not your ⟦fault⟧."
+    },
+    {
+      "n": 966,
+      "rank": 1017,
+      "word": "exatamente",
+      "pos": "adv",
+      "meaning": "exactly",
+      "sentence": "É exatamente isso!",
+      "translation": "That's ⟦exactly⟧ it!"
+    },
+    {
+      "n": 967,
+      "rank": 1018,
+      "word": "importância",
+      "pos": "noun",
+      "meaning": "importance",
+      "sentence": "Ele não entende a importância da escola.",
+      "translation": "He doesn't understand the ⟦importance⟧ of school."
+    },
+    {
+      "n": 968,
+      "rank": 1019,
+      "word": "provavelmente",
+      "pos": "adv",
+      "meaning": "probably",
+      "sentence": "Provavelmente vai chover amanhã.",
+      "translation": "It'll ⟦probably⟧ rain tomorrow."
+    },
+    {
+      "n": 969,
+      "rank": 1020,
+      "word": "arquivo",
+      "pos": "noun",
+      "meaning": "file; archive",
+      "sentence": "Salvei o arquivo no computador.",
+      "translation": "I saved the ⟦file⟧ on the computer."
+    },
+    {
+      "n": 970,
+      "rank": 1021,
+      "word": "hotel",
+      "pos": "noun",
+      "meaning": "hotel",
+      "sentence": "Ficamos num hotel no centro.",
+      "translation": "We stayed at a ⟦hotel⟧ downtown."
+    },
+    {
+      "n": 971,
+      "rank": 1022,
+      "word": "máximo",
+      "pos": "adj",
+      "meaning": "maximum; most; best (o máximo)",
+      "sentence": "Fiz o meu máximo.",
+      "translation": "I did my ⟦best⟧."
+    },
+    {
+      "n": 972,
+      "rank": 1023,
+      "word": "festival",
+      "pos": "noun",
+      "meaning": "festival",
+      "sentence": "O festival de música começa amanhã.",
+      "translation": "The music ⟦festival⟧ starts tomorrow."
+    },
+    {
+      "n": 973,
+      "rank": 1024,
+      "word": "praça",
+      "pos": "noun",
+      "meaning": "square, plaza",
+      "sentence": "Vamos nos encontrar na praça.",
+      "translation": "Let's meet in the ⟦square⟧."
+    },
+    {
+      "n": 974,
+      "rank": 1025,
+      "word": "taxa",
+      "pos": "noun",
+      "meaning": "fee; rate; tax",
+      "sentence": "Tem uma taxa de entrega?",
+      "translation": "Is there a delivery ⟦fee⟧?"
+    },
+    {
+      "n": 975,
+      "rank": 1026,
+      "word": "ferramenta",
+      "pos": "noun",
+      "meaning": "tool",
+      "sentence": "Preciso de uma ferramenta para consertar isso.",
+      "translation": "I need a ⟦tool⟧ to fix this."
+    },
+    {
+      "n": 976,
+      "rank": 1027,
+      "word": "rosto",
+      "pos": "noun",
+      "meaning": "face",
+      "sentence": "Lave o rosto.",
+      "translation": "Wash your ⟦face⟧."
+    },
+    {
+      "n": 977,
+      "rank": 1028,
+      "word": "votar",
+      "pos": "verb",
+      "meaning": "to vote",
+      "sentence": "Em quem você vai votar?",
+      "translation": "Who are you going to ⟦vote⟧ for?"
+    },
+    {
+      "n": 978,
+      "rank": 1029,
+      "word": "referência",
+      "pos": "noun",
+      "meaning": "reference",
+      "sentence": "Você tem alguma referência?",
+      "translation": "Do you have any ⟦references⟧?"
+    },
+    {
+      "n": 979,
+      "rank": 1030,
+      "word": "lançamento",
+      "pos": "noun",
+      "meaning": "release; launch",
+      "sentence": "O lançamento do filme é em junho.",
+      "translation": "The movie's ⟦release⟧ is in June."
+    },
+    {
+      "n": 980,
+      "rank": 1031,
+      "word": "comentar",
+      "pos": "verb",
+      "meaning": "to mention; to comment",
+      "sentence": "Ele comentou que estava cansado.",
+      "translation": "He ⟦mentioned⟧ he was tired.",
+      "form": "comentou"
+    },
+    {
+      "n": 981,
+      "rank": 1032,
+      "word": "ai",
+      "pos": "interj",
+      "meaning": "ouch; oh (ai!)",
+      "sentence": "Ai, que dor!",
+      "translation": "⟦Ouch⟧, that hurts!"
+    },
+    {
+      "n": 982,
+      "rank": 1033,
+      "word": "oito",
+      "pos": "num",
+      "meaning": "eight",
+      "sentence": "Eu trabalho oito horas por dia.",
+      "translation": "I work ⟦eight⟧ hours a day."
+    },
+    {
+      "n": 983,
+      "rank": 1034,
+      "word": "saída",
+      "pos": "noun",
+      "meaning": "exit; way out",
+      "sentence": "Onde fica a saída?",
+      "translation": "Where's the ⟦exit⟧?"
+    },
+    {
+      "n": 984,
+      "rank": 1035,
+      "word": "urbano",
+      "pos": "adj",
+      "meaning": "urban",
+      "sentence": "A violência urbana aumentou.",
+      "translation": "⟦Urban⟧ violence has increased.",
+      "form": "urbana"
+    },
+    {
+      "n": 985,
+      "rank": 1036,
+      "word": "tom",
+      "pos": "noun",
+      "meaning": "tone; shade (of a colour)",
+      "sentence": "Não fale comigo nesse tom.",
+      "translation": "Don't talk to me in that ⟦tone⟧."
+    },
+    {
+      "n": 986,
+      "rank": 1037,
+      "word": "ocupar",
+      "pos": "verb",
+      "meaning": "to take up; to occupy (ocupado: busy)",
+      "sentence": "O sofá ocupa muito espaço.",
+      "translation": "The sofa ⟦takes up⟧ a lot of space.",
+      "form": "ocupa"
+    },
+    {
+      "n": 987,
+      "rank": 1038,
+      "word": "elemento",
+      "pos": "noun",
+      "meaning": "element",
+      "sentence": "A água é um elemento essencial.",
+      "translation": "Water is an essential ⟦element⟧."
+    },
+    {
+      "n": 988,
+      "rank": 1039,
+      "word": "interno",
+      "pos": "adj",
+      "meaning": "internal; inner; indoor",
+      "sentence": "É um problema interno da empresa.",
+      "translation": "It's an ⟦internal⟧ company problem."
+    },
+    {
+      "n": 989,
+      "rank": 1040,
+      "word": "juntar",
+      "pos": "verb",
+      "meaning": "to save up (money); to gather; to join",
+      "sentence": "Estou juntando dinheiro para viajar.",
+      "translation": "I'm ⟦saving up⟧ money to travel.",
+      "form": "juntando"
+    },
+    {
+      "n": 990,
+      "rank": 1041,
+      "word": "impedir",
+      "pos": "verb",
+      "meaning": "to prevent; to stop",
+      "sentence": "A chuva impediu o jogo.",
+      "translation": "The rain ⟦stopped⟧ the game.",
+      "form": "impediu"
+    },
+    {
+      "n": 991,
+      "rank": 1042,
+      "word": "esconder",
+      "pos": "verb",
+      "meaning": "to hide",
+      "sentence": "Onde você escondeu o presente?",
+      "translation": "Where did you ⟦hide⟧ the present?",
+      "form": "escondeu"
+    },
+    {
+      "n": 992,
+      "rank": 1043,
+      "word": "declarar",
+      "pos": "verb",
+      "meaning": "to declare; to state",
+      "sentence": "Você tem algo a declarar?",
+      "translation": "Do you have anything to ⟦declare⟧?"
+    },
+    {
+      "n": 993,
+      "rank": 1044,
+      "word": "particular",
+      "pos": "adj",
+      "meaning": "private; particular",
+      "sentence": "Ela estuda numa escola particular.",
+      "translation": "She goes to a ⟦private⟧ school."
+    },
+    {
+      "n": 994,
+      "rank": 1045,
+      "word": "cantor",
+      "pos": "noun",
+      "meaning": "singer (feminine: cantora)",
+      "sentence": "Ele é um cantor famoso.",
+      "translation": "He's a famous ⟦singer⟧."
+    },
+    {
+      "n": 995,
+      "rank": 1046,
+      "word": "administração",
+      "pos": "noun",
+      "meaning": "administration; management",
+      "sentence": "Ela estuda administração.",
+      "translation": "She studies ⟦business administration⟧."
+    },
+    {
+      "n": 996,
+      "rank": 1047,
+      "word": "tamanho",
+      "pos": "noun",
+      "meaning": "size",
+      "sentence": "Qual é o seu tamanho?",
+      "translation": "What ⟦size⟧ are you?"
+    },
+    {
+      "n": 997,
+      "rank": 1048,
+      "word": "postar",
+      "pos": "verb",
+      "meaning": "to post (online)",
+      "sentence": "Ela postou uma foto nova.",
+      "translation": "She ⟦posted⟧ a new photo.",
+      "form": "postou"
+    },
+    {
+      "n": 998,
+      "rank": 1049,
+      "word": "privado",
+      "pos": "adj",
+      "meaning": "private",
+      "sentence": "Isso é um assunto privado.",
+      "translation": "That's a ⟦private⟧ matter."
+    },
+    {
+      "n": 999,
+      "rank": 1050,
+      "word": "contrato",
+      "pos": "noun",
+      "meaning": "contract",
+      "sentence": "Assinei o contrato ontem.",
+      "translation": "I signed the ⟦contract⟧ yesterday."
+    },
+    {
+      "n": 1000,
+      "rank": 1051,
+      "word": "marido",
+      "pos": "noun",
+      "meaning": "husband",
+      "sentence": "Meu marido cozinha muito bem.",
+      "translation": "My ⟦husband⟧ cooks really well."
     }
   ]
 }
