@@ -1445,6 +1445,200 @@
         {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ cross here. It's dangerous.","tr":"Ayaw tabok dinhi. Delikado.","options":["Don't","No","Not"],"answer":0,"why":"Ayaw: {{Don't}} + berbo.","from":"tell-people-what-to-do"},
         {"type":"free","q":"Ikaw na: tudloi og dalan ang usa ka turista gikan sa imong balay paingon sa pinakaduol nga tindahan.","answers":[{"t":"Go straight for one block, then turn left. The store is on your right, next to the church.","tr":"Diretso lang og usa ka block, dayon liko sa wala. Naa sa imong tuo ang tindahan, tupad sa simbahan."},{"t":"Take a jeepney to Colon and get off at the church. Walk past the plaza, and it's across the street.","tr":"Sakay og jeep paingon sa Colon ug naog sa simbahan. Lakaw lapas sa plaza, ug naa sa tabok sa dalan."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Itandi ang duha ka butang",
+      "summary": "Itandi ang duha ka butang, lugar o tawo: “This one is cheaper, but that one is faster.”",
+      "topic": "{{-er}} ug {{more}} … {{than}} (ang “mas … kaysa”); {{better}}, {{worse}}; {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"Cebu is hotter than Baguio, but Baguio is more expensive.","tr":"Mas init ang Cebu kaysa sa Baguio, pero mas mahal ang Baguio."}},
+        {"dialog":[{"who":"Ben","t":"Which phone is better, this one or that one?","tr":"Asa ang mas maayo nga selpon, kini o kana?"},{"who":"Tindera","t":"This one is cheaper, but that one is faster.","tr":"Mas barato kini, pero mas paspas kana."},{"who":"Ben","t":"Is the camera better?","tr":"Mas maayo ba ang camera?"},{"who":"Tindera","t":"Yes, it's much better. And the screen is bigger.","tr":"Oo, mas maayo kaayo. Ug mas dako ang screen."},{"who":"Ben","t":"Is it as light as this one?","tr":"Parehas ba kini kagaan niini?"},{"who":"Tindera","t":"No, it's a little heavier.","tr":"Dili, medyo mas bug-at."}]},
+        {"p":"Sa Bisaya, “mas” lang sa unahan sa adjective: “mas dako”, “mas nindot”. Sa Iningles, duha ka paagi: ang **mubo nga pulong** makadawat og **{{-er}}** ({{big}} → {{bigger}}, {{cheap}} → {{cheaper}}); ang **taas nga pulong** mogamit og **{{more}}** ({{more beautiful}}, {{more expensive}}). Dili mahimong duha: dili {{more bigger}}."},
+        {"p":"**Kaysa: {{than}}**: {{Cebu is hotter than Baguio.}} {{My brother is taller than me.}} Bantayi: {{than}}, dili {{that}}."},
+        { "table": [
+          ["adjective","itandi","Bisaya"],
+          ["{{cheap}}","{{cheaper}}","mas barato"],
+          ["{{big}}","{{bigger}}","mas dako"],
+          ["{{easy}}","{{easier}}","mas sayon"],
+          ["{{nice}}","{{nicer}}","mas nindot"],
+          ["{{expensive}}","{{more expensive}}","mas mahal"],
+          ["{{beautiful}}","{{more beautiful}}","mas gwapa, mas nindot"],
+          ["{{good}}","{{better}}","mas maayo"],
+          ["{{bad}}","{{worse}}","mas daotan, mas grabe"]
+        ] },
+        {"p":"**Pagsulat**: y → {{-ier}} ({{easy}} → {{easier}}); doble ang katapusang letra sa mubo kaayong pulong ({{big}} → {{bigger}}, {{hot}} → {{hotter}}); kung nagtapos sa e, {{-r}} lang ({{nice}} → {{nicer}}). Ug ang {{good}} ug {{bad}} kaugalingong paagi: {{better}}, {{worse}}."},
+        {"p":"**Parehas: {{as … as}}**: {{She's as tall as her mom.}} “Sama siya katas-on sa iyang mama.” Dili parehas: {{not as … as}}: {{Baguio isn't as hot as Cebu.}} Ug para sa kalainan: {{much better}} “mas maayo kaayo”, {{a little heavier}} “medyo mas bug-at”."},
+        { "ex": [
+          {"t":"Cebu is hotter than Baguio.","tr":"Mas init ang Cebu kaysa sa Baguio."},
+          {"t":"This one is cheaper.","tr":"Mas barato kini."},
+          {"t":"Bisaya is easier than English!","tr":"Mas sayon ang Bisaya kaysa sa Iningles!"},
+          {"t":"My brother is taller than me.","tr":"Mas taas akong igsoon kaysa nako."},
+          {"t":"The new phone is more expensive.","tr":"Mas mahal ang bag-ong selpon."},
+          {"t":"Today is better than yesterday.","tr":"Mas maayo karon kaysa gahapon."},
+          {"t":"She's as tall as her mom.","tr":"Sama siya katas-on sa iyang mama."}
+        ] },
+        {"tip":"Ang {{Which…?}} “Asa ang…?” para sa pagpili tali sa pipila: {{Which one is cheaper?}} “Asa ang mas barato?”"}
+      ],
+      "mistakes": [
+        {"wrong":"This is more bigger.","right":"This is bigger.","tr":"Mas dako kini.","why":"Usa ra: {{-er}} o {{more}}, dili duha."},
+        {"wrong":"This one is more good.","right":"This one is better.","tr":"Mas maayo kini.","why":"Ang {{good}}: {{better}}."},
+        {"wrong":"Cebu is hotter that Baguio.","right":"Cebu is hotter than Baguio.","tr":"Mas init ang Cebu kaysa sa Baguio.","why":"Kaysa: {{than}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"This bag is ___ than that one.","tr":"Mas dako kini nga bag kaysa niana.","options":["bigger","more big","biggest"],"answer":0,"why":"Mubo nga pulong: {{-er}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Cebu is hotter ___ Baguio.","tr":"Mas init ang Cebu kaysa sa Baguio.","options":["than","that","as"],"answer":0,"why":"Kaysa: {{than}}."},
+        {"type":"choice","q":"“Mas maayo kini.”","options":["{{This is better.}}","{{This is more good.}}","{{This is gooder.}}"],"answer":0,"why":"{{good}} → {{better}}."},
+        {"type":"dialogue","q":"Nagpili ka og hotel. Pilia ang imong mga sulti.","lines":[{"who":"Receptionist","t":"We have two rooms: one with a view and one without.","tr":"Naa mi duha ka kwarto: usa nga naay talan-awon ug usa nga wala."},{"options":["Which one is cheaper?","Which one is more cheap?"],"answer":0,"why":"Mubo nga pulong: {{cheaper}}."},{"who":"Receptionist","t":"The one without a view. But the other one is more comfortable.","tr":"Ang walay talan-awon. Pero mas komportable ang usa."},{"options":["Is it much more expensive?","Is it much expensiver?"],"answer":0,"why":"Taas nga pulong: {{more expensive}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Mas taas akong igsoon kaysa nako.","words":["My brother","is","taller","than","me."]},
+        {"type":"say","q":"Isulti: “Gusto unta ko og mas barato nga kwarto.”","answer":"I'd like a cheaper room.","from":"order-politely"},
+        {"type":"say","q":"Isulti: “Mas init gahapon.”","answer":"It was hotter yesterday.","from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw na: itandi ang duha ka lugar o pagkaon nga imong nahibal-an.","answers":[{"t":"Cebu is busier than Bohol, but Bohol is quieter and greener.","tr":"Mas daghag tawo sa Cebu kaysa sa Bohol, pero mas hilom ug mas lunhaw ang Bohol."},{"t":"Mangoes are sweeter than apples. And they're cheaper here!","tr":"Mas tam-is ang mangga kaysa sa mansanas. Ug mas barato pa dinhi!"}]}
+      ]
+    },
+    {
+      "id": "say-whats-the-best",
+      "unit": 6,
+      "level": "A2",
+      "title": "Isulti kung unsa ang pinakamaayo",
+      "summary": "Isulti kung unsa ang pinakanindot, pinakadako o pinakamaayo: “Cebu lechon is the best in the Philippines!”",
+      "topic": "{{the}} + {{-est}} / {{the most}} (ang “pinaka-”); {{the best}}, {{the worst}}; {{in}} + lugar; {{one of the…}}",
+      "blocks": [
+        {"goal":{"t":"Cebu lechon is the best in the Philippines!","tr":"Ang lechon sa Cebu ang pinakalami sa Pilipinas!"}},
+        {"dialog":[{"who":"Amy","t":"What's the best place to visit in Cebu?","tr":"Unsa ang pinakanindot nga adtoan sa Cebu?"},{"who":"Ana","t":"Moalboal. It has the clearest water and the most beautiful beaches.","tr":"Moalboal. Didto ang pinakatin-aw nga tubig ug ang pinakanindot nga mga baybayon."},{"who":"Amy","t":"What's the most popular food?","tr":"Unsa ang pinakabantog nga pagkaon?"},{"who":"Ana","t":"Lechon, of course! Cebu lechon is the best in the Philippines!","tr":"Lechon, siyempre! Ang lechon sa Cebu ang pinakalami sa Pilipinas!"},{"who":"Amy","t":"And the worst thing about Cebu?","tr":"Ug unsa ang pinakagrabe sa Cebu?"},{"who":"Ana","t":"The traffic! It's one of the worst in the country.","tr":"Ang trapiko! Usa kini sa pinakagrabe sa nasud."}]},
+        {"p":"Ang “pinaka-” sa Bisaya. Sa Iningles: **{{the}} + {{-est}}** sa mubo nga pulong ({{the biggest}}, {{the cheapest}}), ug **{{the most}}** sa taas nga pulong ({{the most beautiful}}). Kanunay naay {{the}}."},
+        { "table": [
+          ["adjective","mas","pinaka-"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{beautiful}}","{{more beautiful}}","{{the most beautiful}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**Asa?** Uban sa lugar o grupo, {{in}}: {{the best in the Philippines}}, {{the tallest in my family}}. (Gawas sa pipila ka panultihon sama sa {{the best day of my life}}.)"},
+        {"p":"**“Usa sa pinaka-”: {{one of the}}** + adjective + **plural**: {{one of the best beaches}}, {{one of the worst}}. Ayaw kalimti ang {{-s}}: usa sa daghan."},
+        { "ex": [
+          {"t":"It's the biggest mall in Cebu.","tr":"Kini ang pinakadakong mall sa Cebu."},
+          {"t":"She's the youngest in our family.","tr":"Siya ang kinamanghuran sa among pamilya."},
+          {"t":"This is the most expensive restaurant in town.","tr":"Kini ang pinakamahal nga restawran sa lungsod."},
+          {"t":"Cebu lechon is the best!","tr":"Ang lechon sa Cebu ang pinakalami!"},
+          {"t":"It was the worst day of my life.","tr":"Kadto ang pinakagrabe nga adlaw sa akong kinabuhi."},
+          {"t":"Moalboal is one of the most beautiful places in Cebu.","tr":"Usa ang Moalboal sa pinakanindot nga lugar sa Cebu."}
+        ] },
+        {"tip":"Ang {{favorite}} na mismo nagpasabot og “pinakaganahan”: {{My favorite food is lechon.}}, dili {{my most favorite}}."}
+      ],
+      "mistakes": [
+        {"wrong":"It's the most biggest mall.","right":"It's the biggest mall.","tr":"Kini ang pinakadakong mall.","why":"Usa ra: {{-est}} o {{most}}."},
+        {"wrong":"Cebu lechon is the goodest.","right":"Cebu lechon is the best.","tr":"Ang lechon sa Cebu ang pinakalami.","why":"Ang {{good}}: {{the best}}."},
+        {"wrong":"It's one of the best beach in Cebu.","right":"It's one of the best beaches in Cebu.","tr":"Usa kini sa pinakanindot nga baybayon sa Cebu.","why":"Human sa {{one of the}}: plural, {{beaches}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"It's the ___ mall in Cebu.","tr":"Kini ang pinakadakong mall sa Cebu.","options":["biggest","bigger","most big"],"answer":0,"why":"Pinaka-, mubo nga pulong: {{-est}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Cebu lechon is the ___.","tr":"Ang lechon sa Cebu ang pinakalami.","options":["best","goodest","better"],"answer":0,"why":"{{good}} → {{the best}}."},
+        {"type":"choice","q":"“Usa sa pinakanindot nga baybayon”:","options":["{{one of the most beautiful beaches}}","{{one of the most beautiful beach}}","{{one of the beautifulest beaches}}"],"answer":0,"why":"{{the most}} (taas nga pulong), ug plural."},
+        {"type":"dialogue","q":"Gipangutana ka sa usa ka turista. Pilia ang imong mga tubag.","lines":[{"who":"Turista","t":"What's the best restaurant in Cebu?","tr":"Unsa ang pinakamaayo nga restawran sa Cebu?"},{"options":["I think it's Lola's Kitchen. It's the most popular.","I think it's Lola's Kitchen. It's the popularest."],"answer":0,"why":"Taas nga pulong: {{the most popular}}."},{"who":"Turista","t":"Is it expensive?","tr":"Mahal ba?"},{"options":["No, it's one of the cheapest in the city.","No, it's one of the cheapest of the city."],"answer":0,"why":"Lugar: {{in the city}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Siya ang kinamanghuran sa among pamilya.","words":["She's","the youngest","in","our family."]},
+        {"type":"choice","q":"“Mas taas siya (lalaki).” ug “Siya ang pinakataas.”","options":["{{He's taller.}} ug {{He's the tallest.}}","{{He's the tallest.}} ug {{He's taller.}}"],"answer":0,"why":"Mas: {{-er}}. Pinaka-: {{the -est}}.","from":"compare-things"},
+        {"type":"say","q":"Isulti: “Naa sa Cebu ang pinakanindot nga simbahan.”","answer":"The most beautiful church is in Cebu.","from":"say-where-things-are"},
+        {"type":"free","q":"Ikaw na: isulti ang pinakanindot nga lugar ug ang pinakalami nga pagkaon sa imong lungsod.","answers":[{"t":"The most beautiful place in my town is the old church. The best food is our grilled fish.","tr":"Ang pinakanindot nga lugar sa among lungsod mao ang karaang simbahan. Ang pinakalami nga pagkaon mao ang among sinugba nga isda."},{"t":"Kawasan Falls is one of the most beautiful places in Cebu.","tr":"Usa ang Kawasan Falls sa pinakanindot nga lugar sa Cebu."}]}
+      ]
+    },
+    {
+      "id": "talk-about-quantities",
+      "unit": 6,
+      "level": "A2",
+      "title": "Isulti kung pila o unsa ka daghan",
+      "summary": "Isulti kung daghan o gamay: “There isn't much rice, but there are a lot of eggs.”",
+      "topic": "Maihap ug dili maihap; {{many}} / {{much}}, {{a few}} / {{a little}}, {{a lot of}}; {{some}} ug {{any}}",
+      "blocks": [
+        {"goal":{"t":"There isn't much rice, but there are a lot of eggs.","tr":"Gamay na lang ang bugas, pero daghan og itlog."}},
+        {"dialog":[{"who":"Ana","t":"Do we have any rice?","tr":"Naa pa ba tay bugas?"},{"who":"Ben","t":"A little. Not much.","tr":"Gamay. Dili daghan."},{"who":"Ana","t":"How many eggs are there?","tr":"Pila ka itlog ang naa?"},{"who":"Ben","t":"A lot! About twelve. But there aren't any onions.","tr":"Daghan! Mga dose. Pero walay sibuyas."},{"who":"Ana","t":"Okay, let's buy some onions and a few tomatoes.","tr":"Okay, mopalit ta og sibuyas ug pipila ka kamatis."},{"who":"Ben","t":"And some milk. There's only a little.","tr":"Ug gatas. Gamay na lang."}]},
+        {"p":"Sa Bisaya, “daghan” ug “gamay” para sa tanan. Sa Iningles, nagdepende kung ang butang **maihap** (itlog, sibuyas, tawo) o **dili maihap** (bugas, tubig, gatas, kwarta, panahon). Sama sa {{how many}} ug {{how much}} sa leksyon 10."},
+        { "table": [
+          ["","maihap ({{eggs}}, {{people}})","dili maihap ({{rice}}, {{water}})"],
+          ["daghan","{{many}}, {{a lot of}}","{{much}}, {{a lot of}}"],
+          ["gamay","{{a few}}","{{a little}}"],
+          ["pila?","{{How many…?}}","{{How much…?}}"]
+        ] },
+        {"p":"**{{a lot of}}** para sa duha, ug kini ang pinakanatural sa positibo nga sentence: {{a lot of eggs}}, {{a lot of rice}}. Ang {{much}} kasagaran sa “dili” ug pangutana: {{There isn't much rice.}} {{Do you have much time?}}"},
+        {"p":"**{{some}} ug {{any}}**: ang “og” sa pagpalit ug pagpangayo. {{some}} sa positibo ({{There's some milk.}} {{Let's buy some onions.}}); {{any}} sa “dili” ug pangutana ({{Is there any milk?}} {{There aren't any onions.}})."},
+        {"p":"**Ang dili maihap walay {{-s}} ug walay {{a}}**: dili {{rices}}, dili {{an information}}, dili {{moneys}}. Para maihap: {{a bag of rice}}, {{a glass of water}}, {{a piece of cake}}."},
+        { "ex": [
+          {"t":"There are a lot of people here.","tr":"Daghan kaayo og tawo dinhi."},
+          {"t":"I don't have much time.","tr":"Wala koy daghang panahon."},
+          {"t":"Can I have a little sugar?","tr":"Pwede ko mangayo og gamay nga asukar?"},
+          {"t":"I have a few friends in Manila.","tr":"Naa koy pipila ka higala sa Manila."},
+          {"t":"Is there any water?","tr":"Naa bay tubig?"},
+          {"t":"We need some eggs.","tr":"Kinahanglan ta og itlog."}
+        ] },
+        {"tip":"Ang {{people}} kanunay plural: {{many people}}, {{a lot of people}}, {{people are}}. Ang {{news}} ug {{information}} dili maihap: {{The news is good.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"There are much people.","right":"There are a lot of people.","tr":"Daghan og tawo.","why":"Ang {{people}} maihap: {{many}} o {{a lot of}}, dili {{much}}."},
+        {"wrong":"I need an information.","right":"I need some information.","tr":"Kinahanglan ko og impormasyon.","why":"Ang {{information}} dili maihap: walay {{an}}, gamita ang {{some}}."},
+        {"wrong":"There isn't some milk.","right":"There isn't any milk.","tr":"Walay gatas.","why":"Sa “dili”: {{any}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"How ___ eggs do we need?","tr":"Pila ka itlog ang atong kinahanglan?","options":["many","much","lot"],"answer":0,"why":"Ang itlog maihap: {{many}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Is there ___ milk?","tr":"Naa bay gatas?","options":["any","some","a"],"answer":0,"why":"Pangutana: {{any}}."},
+        {"type":"choice","q":"Asa ang dili maihap?","options":["{{rice}}","{{egg}}","{{onion}}"],"answer":0,"why":"Ang bugas dili maihap; ang itlog ug sibuyas maihap."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Can I have a ___ sugar?","tr":"Pwede ko mangayo og gamay nga asukar?","options":["little","few","many"],"answer":0,"why":"Dili maihap, gamay: {{a little}}."},
+        {"type":"dialogue","q":"Sa grocery uban sa imong kauban sa balay. Pilia ang imong mga tubag.","lines":[{"who":"Kauban","t":"Do we need any bread?","tr":"Kinahanglan ba ta og pan?"},{"options":["Yes, let's buy some bread.","Yes, let's buy any bread."],"answer":0,"why":"Positibo: {{some}}."},{"who":"Kauban","t":"How many bananas?","tr":"Pila ka saging?"},{"options":["Just a few. Maybe five.","Just a little. Maybe five."],"answer":0,"why":"Ang saging maihap: {{a few}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Wala koy daghang panahon.","words":["I","don't have","much","time."]},
+        {"type":"choice","q":"{{How ___ money do you have?}}","options":["{{much}}","{{many}}"],"answer":0,"why":"Ang kwarta dili maihap: {{how much}}.","from":"count-and-ask-prices"},
+        {"type":"free","q":"Ikaw na: isulti kung unsay daghan ug unsay gamay sa imong kusina karon.","answers":[{"t":"There's a lot of rice, but there isn't much oil. There are a few eggs.","tr":"Daghan og bugas, pero gamay na lang ang mantika. Naay pipila ka itlog."},{"t":"We have some fish, but we don't have any vegetables.","tr":"Naa tay isda, pero walay utanon."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Isulti ang imong gibati",
+      "summary": "Isulti ang imong gibati ug kung unsay sakit, ug ayaw na pagsayop sa {{bored}} ug {{boring}}.",
+      "topic": "{{I'm}} + adjective ({{hungry}}, {{tired}}); {{-ed}} (gibati) vs {{-ing}} (hinungdan): {{bored}} / {{boring}}; {{feel}}; {{I have a headache}}",
+      "blocks": [
+        {"goal":{"t":"I'm bored. This movie is so boring!","tr":"Nabagot ko. Makalaay kaayo kini nga sine!"}},
+        {"dialog":[{"who":"Lisa","t":"How do you feel?","tr":"Kumusta imong gibati?"},{"who":"Ben","t":"I'm tired and hungry. Work was crazy today.","tr":"Gikapoy ug gigutom ko. Grabe ka-busy ang trabaho karon."},{"who":"Lisa","t":"Let's watch a movie. It's exciting, I promise!","tr":"Manan-aw ta og sine. Makalingaw kini, promise!"},{"who":"Ben","t":"Hmm… I'm bored. This movie is boring!","tr":"Hmm… Nabagot ko. Makalaay kini nga sine!"},{"who":"Lisa","t":"Are you sleepy?","tr":"Gikatulgon ka?"},{"who":"Ben","t":"A little. I feel sleepy, and I have a headache.","tr":"Gamay. Gikatulgon ko, ug sakit akong ulo."}]},
+        {"p":"**Ang gibati: {{I'm}} + adjective.** Sa Bisaya, “Gigutom ko”, “Nabagot ko”. Sa Iningles, {{be}} + adjective: {{I'm hungry.}} {{I'm tired.}} {{I'm bored.}} Gamita ang adjective, dili ang nombre: dili {{I'm hunger}} o {{I have hunger}}."},
+        {"p":"**{{-ed}} ug {{-ing}}: ang lit-ag.** Ang {{-ed}} mao ang **imong gibati** ({{I'm bored}} “nabagot ko”). Ang {{-ing}} mao ang **hinungdan** ({{The movie is boring}} “makalaay ang sine”). Busa ang {{I'm boring}} nagpasabot nga ikaw ang makalaay nga tawo!"},
+        { "table": [
+          ["imong gibati ({{-ed}})","hinungdan ({{-ing}})"],
+          ["{{I'm bored.}} Nabagot ko.","{{It's boring.}} Makalaay."],
+          ["{{I'm tired.}} Gikapoy ko.","{{It's tiring.}} Makapakapoy."],
+          ["{{I'm interested.}} Interesado ko.","{{It's interesting.}} Makapaikag."],
+          ["{{I'm excited.}} Naukyab ko.","{{It's exciting.}} Makalingaw kaayo."],
+          ["{{I'm confused.}} Naglibog ko.","{{It's confusing.}} Makalibog."]
+        ] },
+        {"p":"**{{feel}}** + adjective: {{I feel sick.}} {{I feel better.}} {{How do you feel?}} “Kumusta imong gibati?”. **Ang lawas**: {{I have a headache.}} “Sakit akong ulo.” {{I have a fever.}} “Gihilantan ko.” {{I have a cold.}} “Gisip-on ko.” {{My stomach hurts.}} “Sakit akong tiyan.”"},
+        { "ex": [
+          {"t":"I'm hungry.","tr":"Gigutom ko."},
+          {"t":"I'm so tired.","tr":"Gikapoy kaayo ko."},
+          {"t":"I'm bored.","tr":"Nabagot ko."},
+          {"t":"This movie is boring.","tr":"Makalaay kini nga sine."},
+          {"t":"I feel sick.","tr":"Dili maayo akong pamati."},
+          {"t":"I have a headache.","tr":"Sakit akong ulo."},
+          {"t":"I'm interested in history.","tr":"Interesado ko sa kasaysayan."}
+        ] },
+        {"tip":"Ang {{I miss you}} = “Gimingaw ko nimo”: ang {{miss}} usa ka berbo, busa walay {{am}}: {{I miss my family.}}, dili {{I'm miss}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm boring.","right":"I'm bored.","tr":"Nabagot ko.","why":"Imong gibati: {{-ed}}. Ang {{I'm boring}} nagpasabot nga makalaay ka nga tawo."},
+        {"wrong":"I'm hunger.","right":"I'm hungry.","tr":"Gigutom ko.","why":"Human sa {{I'm}}: adjective ({{hungry}}), dili nombre ({{hunger}})."},
+        {"wrong":"I'm interesting in history.","right":"I'm interested in history.","tr":"Interesado ko sa kasaysayan.","why":"Imong gibati: {{interested}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm ___. Let's do something!","tr":"Nabagot ko. Magbuhat ta og bisan unsa!","options":["bored","boring","bore"],"answer":0,"why":"Imong gibati: {{-ed}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"This class is so ___.","tr":"Makalaay kaayo kini nga klase.","options":["boring","bored","bore"],"answer":0,"why":"Ang hinungdan: {{-ing}}."},
+        {"type":"choice","q":"{{I'm boring.}} nagpasabot og…","options":["Makalaay ko nga tawo.","Nabagot ko.","Gikapoy ko."],"answer":0,"why":"Ang {{-ing}} nagsulti kung unsay hinungdan: ikaw ang makalaay!"},
+        {"type":"dialogue","q":"Gipangutana ka sa imong higala. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"You look tired. Are you okay?","tr":"Morag gikapoy ka. Okay ra ka?"},{"options":["I'm okay, but I have a headache.","I'm okay, but I'm headache."],"answer":0,"why":"Sakit akong ulo: {{I have a headache.}}"},{"who":"Mark","t":"How was the meeting?","tr":"Kumusta ang miting?"},{"options":["Long and confusing. I'm so confused!","Long and confused. I'm so confusing!"],"answer":0,"why":"Ang miting {{confusing}} (hinungdan); ikaw {{confused}} (gibati)."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Sakit akong ulo.","words":["I","have","a headache."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"My sister ___ excited about her trip.","tr":"Naukyab kaayo ang akong igsoon sa iyang biyahe.","options":["is","are","has"],"answer":0,"why":"{{my sister}} = {{she}}: {{is}}.","from":"talk-about-people"},
+        {"type":"say","q":"Isulti: “Gikapoy kaayo ko gahapon.”","answer":"I was so tired yesterday.","from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw na: isulti ang imong gibati karon ug ngano.","answers":[{"t":"I'm tired because I worked late. But I'm excited about the weekend!","tr":"Gikapoy ko kay ulahi ko nahuman sa trabaho. Pero naukyab ko sa weekend!"},{"t":"I feel great today. My English class was really interesting.","tr":"Maayo kaayo akong pamati karon. Makapaikag kaayo ang akong klase sa Iningles."}]}
+      ]
     }
   ]
 }
