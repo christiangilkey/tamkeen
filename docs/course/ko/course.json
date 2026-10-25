@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "ko",
+ "title": "Korean basics",
+ "variety": "Standard Korean (Seoul), polite 요 style",
+ "about": "The most common words of written and spoken Korean (wordfreq counts, grouped by dictionary word with tools/course/ko/rank_ko.mjs), most common first, 50 to a unit. Names of people and places are left out. Particles (은/는, 을/를, 에 ...) count as words, as they do in Korean grammar; verb endings don't. Verbs and adjectives are given in their dictionary form (가다), and the sentence uses the form people say (가요). Each word has one short everyday sentence that uses it the way native speakers do, mostly in the polite 요 style, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "SunHi (Azure, South Korea)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "하다",
+   "pos": "verb",
+   "meaning": "to do",
+   "sentence": "주말에 뭐 해요?",
+   "translation": "What are you ⟦doing⟧ this weekend?",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.51,
+    "sent_start": 1.41,
+    "sent_end": 2.529
+   }
+  },
+  {
+   "n": 2,
+   "word": "은/는",
+   "pos": "part",
+   "meaning": "topic marker: as for (은 after a consonant, 는 after a vowel)",
+   "sentence": "저는 학생이에요.",
+   "translation": "⟦I⟧ am a student.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.729,
+    "sent_start": 1.629,
+    "sent_end": 2.931
+   }
+  },
+  {
+   "n": 3,
+   "word": "을/를",
+   "pos": "part",
+   "meaning": "object marker (을 after a consonant, 를 after a vowel)",
+   "sentence": "책을 읽어요.",
+   "translation": "I'm reading ⟦a book⟧.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.702,
+    "sent_start": 1.602,
+    "sent_end": 2.626
+   }
+  },
+  {
+   "n": 4,
+   "word": "이/가",
+   "pos": "part",
+   "meaning": "subject marker (이 after a consonant, 가 after a vowel)",
+   "sentence": "커피가 맛있어요.",
+   "translation": "⟦The coffee⟧ is good.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.789,
+    "sent_start": 1.689,
+    "sent_end": 2.986
+   }
+  },
+  {
+   "n": 5,
+   "word": "에",
+   "pos": "part",
+   "meaning": "at; in; to (a place or a time)",
+   "sentence": "학교에 가요.",
+   "translation": "I'm going ⟦to⟧ school.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.423,
+    "sent_start": 1.323,
+    "sent_end": 2.291
+   }
+  },
+  {
+   "n": 6,
+   "word": "의",
+   "pos": "part",
+   "meaning": "'s; of",
+   "sentence": "한국의 수도는 서울이에요.",
+   "translation": "The capital ⟦of⟧ Korea is Seoul.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.434,
+    "sent_start": 1.334,
+    "sent_end": 3.173
+   }
+  },
+  {
+   "n": 7,
+   "word": "이다",
+   "pos": "verb",
+   "meaning": "to be (it is ...)",
+   "sentence": "이건 제 가방이에요.",
+   "translation": "This ⟦is⟧ my bag.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.583,
+    "sent_start": 1.483,
+    "sent_end": 3.121
+   }
+  },
+  {
+   "n": 8,
+   "word": "있다",
+   "pos": "verb",
+   "meaning": "to be (somewhere); to have; there is",
+   "sentence": "시간 있어요?",
+   "translation": "Do you ⟦have⟧ time?",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.606,
+    "sent_start": 1.506,
+    "sent_end": 2.544
+   }
+  },
+  {
+   "n": 9,
+   "word": "(으)로",
+   "pos": "part",
+   "meaning": "by; with; towards (으로 after a consonant)",
+   "sentence": "회사에 버스로 가요.",
+   "translation": "I go to work ⟦by⟧ bus.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 1.06,
+    "sent_start": 1.96,
+    "sent_end": 3.368
+   }
+  },
+  {
+   "n": 10,
+   "word": "되다",
+   "pos": "verb",
+   "meaning": "to become; to be done",
+   "sentence": "의사가 되고 싶어요.",
+   "translation": "I want to ⟦become⟧ a doctor.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.541,
+    "sent_start": 1.441,
+    "sent_end": 2.808
+   }
+  },
+  {
+   "n": 11,
+   "word": "도",
+   "pos": "part",
+   "meaning": "too; also; even",
+   "sentence": "저도 한국 음식을 좋아해요.",
+   "translation": "I like Korean food ⟦too⟧.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.412,
+    "sent_start": 1.312,
+    "sent_end": 3.282
+   }
+  },
+  {
+   "n": 12,
+   "word": "와/과",
+   "pos": "part",
+   "meaning": "and; with (과 after a consonant, 와 after a vowel)",
+   "sentence": "빵과 우유를 샀어요.",
+   "translation": "I bought bread ⟦and⟧ milk.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.767,
+    "sent_start": 1.667,
+    "sent_end": 3.293
+   }
+  },
+  {
+   "n": 13,
+   "word": "나",
+   "pos": "pron",
+   "meaning": "I; me (casual)",
+   "sentence": "나도 가고 싶어.",
+   "translation": "⟦I⟧ want to go too.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.429,
+    "sent_start": 1.329,
+    "sent_end": 2.499
+   }
+  },
+  {
+   "n": 14,
+   "word": "에서",
+   "pos": "part",
+   "meaning": "at; in (where something happens); from",
+   "sentence": "도서관에서 공부해요.",
+   "translation": "I study ⟦at⟧ the library.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.617,
+    "sent_start": 1.517,
+    "sent_end": 3.053
+   }
+  },
+  {
+   "n": 15,
+   "word": "일",
+   "pos": "noun",
+   "meaning": "work; job; something to do",
+   "sentence": "오늘 일이 많아요.",
+   "translation": "I have a lot of ⟦work⟧ today.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.475,
+    "sent_start": 1.375,
+    "sent_end": 2.648
+   }
+  },
+  {
+   "n": 16,
+   "word": "보다",
+   "pos": "verb",
+   "meaning": "to see; to watch; to look at",
+   "sentence": "어제 영화를 봤어요.",
+   "translation": "I ⟦watched⟧ a movie yesterday.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.53,
+    "sent_start": 1.43,
+    "sent_end": 2.949
+   }
+  },
+  {
+   "n": 17,
+   "word": "이",
+   "pos": "det",
+   "meaning": "this",
+   "sentence": "이 사람은 누구예요?",
+   "translation": "Who is ⟦this⟧ person?",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.462,
+    "sent_start": 1.362,
+    "sent_end": 2.818
+   }
+  },
+  {
+   "n": 18,
+   "word": "거",
+   "pos": "noun",
+   "meaning": "thing (spoken form of 것)",
+   "sentence": "먹을 거 있어요?",
+   "translation": "Is there ⟦anything⟧ to eat?",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.429,
+    "sent_start": 1.329,
+    "sent_end": 2.455
+   }
+  },
+  {
+   "n": 19,
+   "word": "그",
+   "pos": "det",
+   "meaning": "that; the (one we talked about); he (in writing)",
+   "sentence": "그 책 어디서 샀어요?",
+   "translation": "Where did you buy ⟦that⟧ book?",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.438,
+    "sent_start": 1.338,
+    "sent_end": 2.862
+   }
+  },
+  {
+   "n": 20,
+   "word": "것",
+   "pos": "noun",
+   "meaning": "thing (in writing and careful speech)",
+   "sentence": "제일 중요한 것은 건강이에요.",
+   "translation": "The most important ⟦thing⟧ is health.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.337,
+    "sent_start": 1.237,
+    "sent_end": 3.487
+   }
+  }
+ ]
+}

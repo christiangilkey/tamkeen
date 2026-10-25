@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "ko": {
+   "file": "ko/course.json",
+   "title": "Korean basics",
+   "variety": "Standard Korean (Seoul), polite 요 style",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 9022,
+   "audio_bytes": 213997,
+   "sha256": "9de79f6a183f6b25934953aca50c167ca8db8eaf75c319d39d8e3ef32f0903a7",
+   "voice": {
+    "engine": "azure",
+    "name": "SunHi (Azure, South Korea)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }
