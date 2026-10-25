@@ -498,6 +498,23 @@ export async function saveClip(uid, blob, times) {
  * exactly like a voice made with Azure. */
 export const saveRecording = (uid, blob, times) => saveVoice(uid, blob, times);
 
+/** "Add words" → Scan (components/wordscan.js) never keeps a photo. On Android the camera app writes
+ * each photo it takes for the page into the app's own Pictures folder (Capacitor's file chooser makes
+ * it there, as JPEG_<date>_<time>_<n>.jpg) and nothing removes it: once the photo is read it goes.
+ * (The iPhone hands the page a copy in a temporary folder that iOS empties itself.) */
+export async function forgetPhotos() {
+  if (!Filesystem || isIOS) return;
+  try {
+    const { files } = await Filesystem.readdir({ path: "Pictures", directory: "EXTERNAL" });
+    for (const f of files || []) {
+      const name = typeof f === "string" ? f : f && f.name;
+      if (name && /^JPEG_\d{8}_\d{6}_\d*\.jpg$/i.test(name)) {
+        await Filesystem.deleteFile({ path: `Pictures/${name}`, directory: "EXTERNAL" }).catch(() => {});
+      }
+    }
+  } catch { /* no such folder: no photo was taken */ }
+}
+
 /** The file's real kind, whatever it was stored or downloaded as (Drive keeps every clip as audio/ogg;
  * a recording made on an iPhone is a WAV file): an iPhone plays a file only by its right type. */
 async function typedClip(blob) {
@@ -1031,6 +1048,7 @@ export async function saveSettings(values) {
   if ("game_state" in values) requestSync(90000); // the creature reaches the other devices after studying
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
+  if ("grammar_progress" in values) requestSync(30000); // and grammar lessons finished
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;

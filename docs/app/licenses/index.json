@@ -70,6 +70,11 @@
   "file": "pdfjs.txt"
  },
  {
+  "name": "Tesseract.js and Tesseract OCR with its language data: reading words in a photo on the device (optional download)",
+  "license": "Apache 2.0",
+  "file": "tesseract.txt"
+ },
+ {
   "name": "The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)",
   "license": "Public domain",
   "file": "free-books.txt"

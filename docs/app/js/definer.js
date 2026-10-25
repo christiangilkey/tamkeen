@@ -520,14 +520,20 @@ function geminiSchema(s) {
 }
 
 // `effort` is how hard the model may think: "off", "low" (word lookups), "medium" or "high" (see THINKING).
-function buildRequest(provider, model, key, system, user, schema, lite = false, effort = "low") {
+// `images` (optional): pictures sent with the question, [{mime: "image/jpeg", data: <base64>}] ("Add words" →
+// Scan reads a photo of a list this way); `maxTokens` how long Claude's answer may be (4000 unless said).
+function buildRequest(provider, model, key, system, user, schema, lite = false, effort = "low", { images = [], maxTokens = 4000 } = {}) {
+  const pics = (images || []).filter((p) => p && p.data);
   switch (provider) {
     case "claude": {
+      const content = pics.length
+        ? [...pics.map((p) => ({ type: "image", source: { type: "base64", media_type: p.mime || "image/jpeg", data: p.data } })), { type: "text", text: user }]
+        : user;
       const body = {
         model,
-        max_tokens: 4000,
+        max_tokens: maxTokens,
         system,
-        messages: [{ role: "user", content: user }],
+        messages: [{ role: "user", content }],
         output_config: { format: { type: "json_schema", schema } },
       };
       const headers = { "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json" };
@@ -549,7 +555,7 @@ function buildRequest(provider, model, key, system, user, schema, lite = false, 
     case "gemini": {
       const body = {
         systemInstruction: { parts: [{ text: system }] },
-        contents: [{ role: "user", parts: [{ text: user }] }],
+        contents: [{ role: "user", parts: [...pics.map((p) => ({ inline_data: { mime_type: p.mime || "image/jpeg", data: p.data } })), { text: user }] }],
         generationConfig: { responseMimeType: "application/json", responseSchema: geminiSchema(schema) },
       };
       // (Gemini 2.x has no thinking levels, and its lite model doesn't think unless asked to.)
@@ -564,9 +570,14 @@ function buildRequest(provider, model, key, system, user, schema, lite = false, 
     }
     case "openai":
     case "grok": {
+      // (A picture goes as a data: address; "detail: high" lets OpenAI see small print, left out of the plain retry.)
+      const content = pics.length
+        ? [{ type: "text", text: user }, ...pics.map((p) => ({ type: "image_url", image_url: lite ? { url: `data:${p.mime || "image/jpeg"};base64,${p.data}` }
+          : { url: `data:${p.mime || "image/jpeg"};base64,${p.data}`, detail: "high" } }))]
+        : user;
       const body = {
         model,
-        messages: [{ role: "system", content: system }, { role: "user", content: user }],
+        messages: [{ role: "system", content: system }, { role: "user", content }],
         response_format: lite
           ? { type: "json_object" }
           : { type: "json_schema", json_schema: { name: "word_definition", strict: true, schema } },
@@ -780,14 +791,16 @@ function friendlyHttpError(provider, status, bodyText) {
  * Ask the learner's AI for any small JSON answer: the same provider, key, model and transport as a
  * word lookup (the review card's Mnemonic maker uses it). `prompt` is {system, user, schema}.
  * `cfg.effort` is how hard the model may think (see THINKING; "low", as for a lookup, when absent).
- * Resolves to the parsed object; failures are DefinerErrors with the same plain messages as a
- * lookup's ("NO_KEY" when no key is set).
+ * `prompt.images` (optional) are pictures sent with it ([{mime, data: base64}]), `prompt.maxTokens` how long
+ * the answer may be. Resolves to the parsed object; failures are DefinerErrors with the same plain
+ * messages as a lookup's ("NO_KEY" when no key is set).
  */
-export async function askJson(cfg, { system, user, schema }, transport) {
+export async function askJson(cfg, { system, user, schema, images = [], maxTokens = 4000 }, transport) {
   if (!cfg.key) throw new DefinerError("NO_KEY");
   const model = cfg.model || PROVIDERS[cfg.provider].defaultModel;
-  let res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, false, cfg.effort || "low"));
-  if (res.status === 400) res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, true));
+  const more = { images, maxTokens };
+  let res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, false, cfg.effort || "low", more));
+  if (res.status === 400) res = await send(transport, buildRequest(cfg.provider, model, cfg.key, system, user, schema, true, "low", more));
   if (res.status < 200 || res.status >= 300) throw httpFailure(cfg.provider, res);
   let data;
   try { data = JSON.parse(res.text); } catch { throw new DefinerError("The provider returned an unreadable response."); }

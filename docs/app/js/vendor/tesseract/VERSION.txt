@@ -1,0 +1,1 @@
+tesseract.js 7.0.0 (npm), license Apache-2.0. Made by tools/build_ocr.mjs.

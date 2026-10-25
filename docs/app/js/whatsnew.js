@@ -8,6 +8,12 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.37.0",
+  "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
+  "A grammar course, explained step by step",
+  "Scan words: photograph a vocab list or a single word and add it as cards",
+  "Spotify karaoke was removed from the browser extension");
+
 notes("0.36.0",
   "Add words: type or paste many new words at once, with meanings, sentences and audio filled in for you",
   "Look up several words together: drag across them, or hold and slide on a phone",

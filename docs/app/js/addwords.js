@@ -112,8 +112,8 @@ export function duplicates(words, existing) {
 // ---------------------------------------------------------------- reading a pasted list
 
 // Letters of the study languages that have a script of their own: a line whose "meaning" is in it
-// and whose "word" is not was written the other way round ("book – كتاب").
-const SCRIPTS = {
+// and whose "word" is not was written the other way round ("book – كتاب"). (Also used by scanwords.js.)
+export const SCRIPTS = {
   ar: /\p{Script=Arabic}/u, fa: /\p{Script=Arabic}/u, ru: /\p{Script=Cyrillic}/u, ko: /\p{Script=Hangul}/u,
   ja: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u, zh: /\p{Script=Han}/u, th: /\p{Script=Thai}/u,
   hi: /\p{Script=Devanagari}/u,

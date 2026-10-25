@@ -99,7 +99,7 @@ async function renderList(view) {
   view.append(h(`
     <div class="page reels">
       <div class="disc-head">
-        <a class="btn ghost" href="#/library" title="Back to the library">←</a>
+        <a class="btn ghost" href="#/library?show=reels" title="Back to the library">←</a>
         <div class="meta">
           <h1>${icon("video", 26)} Reels</h1>
           <div class="small muted">Short Instagram videos in the language you're studying, with every word clickable.

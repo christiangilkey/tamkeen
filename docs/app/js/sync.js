@@ -12,6 +12,7 @@ import { parked } from "./reset.js";
 import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
+import { cleanProgress, mergeProgress } from "./grammardata.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 import { keepVoice } from "./cardvoice.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
@@ -148,6 +149,18 @@ export function merge(remote) {
     }
   }
 
+  // Grammar lessons finished (grammardata.js): for each lesson, the finish made last wins.
+  if (remote.grammar && typeof remote.grammar === "object" && Object.keys(remote.grammar).length) {
+    const before = cleanProgress(settings.grammar_progress);
+    const merged = mergeProgress(before, remote.grammar);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.grammar_progress = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      window.dispatchEvent(new CustomEvent("tamkeen:grammar")); // an open Grammar tab redraws its ticks
+      changed++;
+    }
+  }
+
   // Saved Instagram collections: the list found last, and the collection chosen last.
   if (remote.ig_collections && typeof remote.ig_collections === "object") {
     const before = cleanCollections(settings.ig_collections);
@@ -202,6 +215,7 @@ export function snapshot() {
     game: settings.game_state || null,
     channels: cleanFollows(settings.youtube_follows),
     sites: cleanSites(settings.browser_sites),
+    grammar: cleanProgress(settings.grammar_progress),
     ig_collections: cleanCollections(settings.ig_collections),
     keys: keysFromSettings(settings),
     learning: learningPayload(settings),
@@ -217,7 +231,8 @@ function canonical(value) {
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
-                                   channels: l.channels || [], sites: l.sites || [], ig_collections: cleanCollections(l.ig_collections),
+                                   channels: l.channels || [], sites: l.sites || [], grammar: cleanProgress(l.grammar),
+                                   ig_collections: cleanCollections(l.ig_collections),
                                    keys: cleanKeys(l.keys), learning: cleanPayload(l.learning) });
 
 // ---------- run ----------

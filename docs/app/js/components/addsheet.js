@@ -4,13 +4,12 @@
 // Each way opens the flow it always had: a podcast's feed address (or Trending), YouTube in the
 // app's own browser, the Web page screen (pages/websites.js, route #/sites: paste an address, your
 // saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
-// reels. Netflix and Spotify work with the Tamkeen browser extension (netflix.js, spotify.js).
+// reels.
 
 import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { extensionLink, extensionStore, storeButtonText, unavailableText } from "../netflix.js";
-import { SPOTIFY, spotifyReason, spotifyText } from "../spotify.js";
 import { uiLanguage } from "../i18n.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
@@ -19,7 +18,6 @@ const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
   { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
-  { key: "spotify", label: "Spotify", icon: "music", text: "Listen to songs with their lyrics as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
@@ -80,7 +78,6 @@ export function openAddSheet({ pickFile }) {
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
     else if (key === "netflix") netflixStep(box);
-    else if (key === "spotify") spotifyStep(box);
     else bookStep(box);
     box.querySelector("input")?.focus();
   }
@@ -212,52 +209,6 @@ export function openAddSheet({ pickFile }) {
       note.querySelectorAll("p")[0].textContent = lines[0];
       note.querySelectorAll("p")[1].textContent = lines[1];
       box.append(note);
-    });
-  }
-
-  /** The note for a version where something isn't available: a title and lines (netflix.js and
-   * spotify.js say what). */
-  function unavailableNote({ title, lines }) {
-    const note = h(`<div class="aw-unavailable"><strong></strong></div>`);
-    note.querySelector("strong").textContent = title;
-    lines.forEach((line, k) => {
-      const p = document.createElement("p");
-      if (k) p.className = "small muted";
-      p.textContent = line;
-      note.append(p);
-    });
-    return note;
-  }
-
-  /** "Get the Tamkeen extension" (or, once it is in the Chrome Web Store, "Add to Chrome"/"Add to Edge"). */
-  function getExtension() {
-    const store = extensionStore(navigator.userAgent);
-    const get = store.url
-      ? h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} <span></span></a>`)
-      : h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("puzzle", 18)} Get the Tamkeen extension</a>`);
-    if (store.url) get.querySelector("span").textContent = storeButtonText(store.browser);
-    get.href = extensionLink(navigator.userAgent, uiLanguage());
-    return get;
-  }
-
-  /** Spotify: in the web app on a computer with the browser extension, Spotify's web player in a new
-   * tab, where the extension's lyrics panel shows the song's lyrics as words to click; without the
-   * extension, where to get it; elsewhere, what is possible (spotify.js). */
-  function spotifyStep(box) {
-    const wait = h(`<p class="small muted aw-note">Checking…</p>`);
-    box.append(wait);
-    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ reason, extension }) => {
-      wait.remove();
-      const why = spotifyReason({ platform, reason, extension });
-      if (!why) {
-        const open = h(`<a class="btn primary aw-wide" target="_blank" rel="noopener">${icon("music", 18)} Open Spotify</a>`);
-        open.href = SPOTIFY;
-        open.onclick = () => sheet.close();
-        box.append(open, h(`<p class="small muted aw-note">Spotify opens in a new tab. Sign in there with your own Spotify account and play a song: Tamkeen's panel beside it shows its lyrics line by line, and you can click any word. Words you save there come back here.</p>`));
-        return;
-      }
-      box.append(unavailableNote(spotifyText(why)));
-      if (why === "web-computer") box.append(getExtension(), h(`<p class="small muted aw-note">Once it is added, reload this page and choose Spotify again.</p>`));
     });
   }
 
