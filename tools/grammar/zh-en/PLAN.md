@@ -1,5 +1,8 @@
 # Chinese → English (zh-en): the plan
 
+Status: all 49 lessons written and checked, held as a draft (`"draft": true`) by the owner's decision: the
+courses teaching English to its speakers come in a later update.
+
 American English taught to a speaker of Mandarin Chinese. The explanations are written in natural
 simplified Chinese, the way a good Chinese teacher of English explains to an adult beginner (not
 translated from English). Examples are American English with a Chinese translation; no readings.
