@@ -611,6 +611,349 @@
         {"type":"dialogue","q":"Bumibisita sa Pilipinas ang kaibigan mong Amerikano. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Wow, this place is amazing!","tr":"Wow, ang ganda dito!"},{"options":["I know! It's a really beautiful island.","I know! It's an island really beautiful."],"answer":0,"why":"Pang-uri bago ang pangngalan: {{a really beautiful island}}."},{"who":"Kaibigan","t":"And it's so hot!","tr":"At ang init!"},{"options":["Yes, it's very hot in April.","Yes, it's very hots in April."],"answer":0,"why":"Walang {{-s}} ang pang-uri."}]},
         {"type":"free","q":"Ikaw naman: ilarawan ang lungsod o bayan mo gamit ang tatlong pang-uri, at gumamit ng {{so}} o {{really}}.","answers":[{"t":"My city is big and busy. The people are really friendly. The traffic is so bad!","tr":"Malaki at abala ang lungsod ko. Sobrang palakaibigan ng mga tao. Ang sama ng traffic!"},{"t":"My town is a small, quiet place. The beach is really beautiful. The food is so cheap!","tr":"Maliit at tahimik na lugar ang bayan ko. Sobrang ganda ng beach. Ang mura ng pagkain!"}]}
       ]
+    },
+    {
+      "id": "talk-about-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ikuwento ang pang-araw-araw mong gawain",
+      "summary": "Sabihin ang ginagawa mo araw-araw at kung kailan: {{I wake up at six. I work in a hospital.}}",
+      "topic": "Ang present simple ({{I work}}, {{I live}}); {{every day}}, {{usually}}, {{always}}; oras na may {{at}}",
+      "blocks": [
+        {"goal":{"t":"I wake up at six every day.","tr":"Alas-sais ako gumigising araw-araw."}},
+        {"dialog":[{"who":"Sarah","t":"What do you do in the morning?","tr":"Ano ang ginagawa mo sa umaga?"},{"who":"Ana","t":"I wake up at six. I take a shower and I have coffee.","tr":"Alas-sais ako gumigising. Naliligo ako at nagkakape."},{"who":"Sarah","t":"And then?","tr":"Tapos?"},{"who":"Ana","t":"I take the bus to work. I work in a hospital.","tr":"Sumasakay ako ng bus papunta sa trabaho. Sa ospital ako nagtatrabaho."},{"who":"Sarah","t":"Wow, you're busy!","tr":"Wow, ang busy mo!"}]},
+        {"term":"pandiwa (verb)","means":"salita para sa kilos o kalagayan: {{work}}, {{eat}}, {{live}}, {{be}}."},
+        {"term":"panahunan (tense)","means":"anyo ng pandiwa na nagsasabi kung kailan nangyayari ang kilos: kasalukuyan, nakaraan o hinaharap."},
+        {"p":"Ang pandiwa sa Tagalog ay nagbabago ayon sa kung nagsimula na o tapos na ang kilos: kumain, kumakain, kakain. Sa Ingles, iba ang tanong: **kailan**? Ngayon ba, dati na, o mamaya pa? Iyan ang panahunan, at ito ang pinakamalaking pagkakaiba ng dalawang wika."},
+        {"p":"**Para sa nakagawian: ang present simple.** Ang pandiwa sa pinakasimpleng anyo nito, pagkatapos ng simuno: {{I work.}}, {{I live in Manila.}}, {{We eat dinner at seven.}} Ito ang anyo para sa “araw-araw”, “lagi” at “tuwing Lunes”."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["Sa ospital ako nagtatrabaho.","{{I work in a hospital.}}"],
+          ["Nakatira kami sa Maynila.","{{We live in Manila.}}"],
+          ["Alas-sais ako gumigising.","{{I wake up at six.}}"],
+          ["Lagi silang kumakain sa labas.","{{They always eat out.}}"]
+        ] },
+        {"p":"**Gaano kadalas.** {{every day}} “araw-araw”, {{every Monday}} “tuwing Lunes”, {{on weekends}} “tuwing Sabado at Linggo” ay nasa dulo ng pangungusap. Ang {{always}} (lagi), {{usually}} (karaniwan), {{often}} (madalas), {{sometimes}} (minsan) at {{never}} (hindi kailanman) ay nasa **pagitan** ng simuno at pandiwa: {{I usually take the bus.}}"},
+        {"p":"**Oras**: {{at}} + ang oras, kadalasan sa dulo: {{I wake up at six.}} (Sa Tagalog, madalas nauuna ang oras; sa Ingles, simuno pa rin ang nauuna.)"},
+        { "ex": [
+          {"t":"I work in an office.","tr":"Sa opisina ako nagtatrabaho."},
+          {"t":"We live in Quezon City.","tr":"Nakatira kami sa Quezon City."},
+          {"t":"I usually take the bus.","tr":"Karaniwan, sumasakay ako ng bus."},
+          {"t":"They always eat dinner at seven.","tr":"Lagi silang naghahapunan nang alas-siyete."},
+          {"t":"I go to church every Sunday.","tr":"Nagsisimba ako tuwing Linggo."},
+          {"t":"I sometimes cook on weekends.","tr":"Minsan, nagluluto ako tuwing Sabado at Linggo."}
+        ] },
+        {"tip":"Para sa bus, tren o taxi, karaniwan ang {{take}}: {{I take the bus to work.}} Maririnig mo rin ang {{ride the bus}}, pero mas madalas ang {{take}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I am work in a hospital.","right":"I work in a hospital.","tr":"Sa ospital ako nagtatrabaho.","why":"Walang {{am}} sa present simple: {{I work}} lang."},
+        {"wrong":"Always I take the bus.","right":"I always take the bus.","tr":"Lagi akong sumasakay ng bus.","why":"Ang {{always}}, {{usually}} at {{often}} ay nasa pagitan ng simuno at pandiwa."},
+        {"wrong":"I wake up six.","right":"I wake up at six.","tr":"Alas-sais ako gumigising.","why":"Sa oras, kailangan ang {{at}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ in a hospital.","tr":"Sa ospital ako nagtatrabaho.","options":["work","am work","working"],"answer":0,"why":"Nakagawian: {{I work}}, walang {{am}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I wake up ___ six.","tr":"Alas-sais ako gumigising.","options":["at","in","on"],"answer":0,"why":"Sa oras: {{at}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"“Karaniwan, sumasakay ako ng bus.”","options":["{{I usually take the bus.}}","{{Usually I am take the bus.}}","{{I take usually the bus.}}"],"answer":0,"why":"Simuno, saka {{usually}}, saka ang pandiwa."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Nagsisimba kami tuwing Linggo.","words":["We","go","to church","every Sunday."]},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Lagi silang kumakain sa labas.","words":["They","always","eat","out."],"from":"talk-about-more-than-one"},
+        {"type":"dialogue","q":"Tinatanong ka ng bagong kaibigan tungkol sa araw mo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"What time do you wake up?","tr":"Anong oras ka gumigising?"},{"options":["I wake up at five.","I am wake up at five."],"answer":0,"why":"Nakagawian: {{I wake up}}, walang {{am}}."},{"who":"Kaibigan","t":"Wow, early! Do you have breakfast?","tr":"Ang aga! Nag-aalmusal ka ba?"},{"options":["Yes, I always have rice and eggs.","Yes, always I have rice and eggs."],"answer":0,"why":"{{always}} sa pagitan ng simuno at pandiwa."}],"from":"say-what-you-have"},
+        {"type":"free","q":"Ikaw naman: ikuwento ang umaga mo sa tatlong pangungusap, na may oras at isang {{always}}, {{usually}} o {{sometimes}}.","answers":[{"t":"I wake up at seven. I usually have coffee and bread. I take the train to work.","tr":"Alas-siyete ako gumigising. Karaniwan, nagkakape ako at kumakain ng tinapay. Nagtetren ako papunta sa trabaho."},{"t":"I get up at five thirty. I always pray first. Then I cook breakfast for my kids.","tr":"Alas-singko y medya ako bumabangon. Lagi muna akong nagdarasal. Tapos, nagluluto ako ng almusal para sa mga anak ko."}]}
+      ]
+    },
+    {
+      "id": "talk-about-someone-elses-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ikuwento ang araw ng ibang tao",
+      "summary": "Idagdag ang {{-s}} sa pandiwa kapag {{he}}, {{she}} o isang tao ang simuno: {{She works in a bank.}} {{He goes to school.}}",
+      "topic": "Ang {{-s}} ng ikatlong panauhan: {{she works}}, {{he goes}}, {{it rains}}; {{-es}}, {{-ies}}",
+      "blocks": [
+        {"goal":{"t":"My sister works in a bank. She takes the train to work.","tr":"Sa bangko nagtatrabaho ang ate ko. Nagtetren siya papunta sa trabaho."}},
+        {"dialog":[{"who":"Sarah","t":"What does your husband do?","tr":"Ano ang trabaho ng asawa mo?"},{"who":"Ana","t":"He's a driver. He works at night.","tr":"Drayber siya. Sa gabi siya nagtatrabaho."},{"who":"Sarah","t":"Wow. When does he sleep?","tr":"Wow. Kailan siya natutulog?"},{"who":"Ana","t":"He sleeps in the morning, and he watches TV in the afternoon.","tr":"Natutulog siya sa umaga, at nanonood siya ng TV sa hapon."}]},
+        {"p":"Sa present simple, may maliit na pagbabago kapag ang simuno ay {{he}}, {{she}}, {{it}}, o isang tao o bagay: may {{-s}} ang pandiwa. {{I work}}, pero {{she works}}. Madaling makalimutan ang {{-s}} na ito, kaya isa ito sa pinakamadalas na pagkakamali sa Ingles."},
+        { "table": [
+          ["simuno","pandiwa"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{work}}, {{live}}, {{go}}"],
+          ["{{he}}, {{she}}, {{it}}, {{my mom}}, {{Ben}}","{{works}}, {{lives}}, {{goes}}"]
+        ] },
+        {"p":"**Paano ito gawin.** Kadalasan {{-s}} lang: {{works}}, {{lives}}. {{-es}} pagkatapos ng s, sh, ch, x at o: {{watches}}, {{goes}}, {{does}}. Katinig + {{y}}: {{-ies}}: {{study}} → {{studies}}. At ang {{have}} ay nagiging {{has}} (aralin 8)."},
+        { "table": [
+          ["{{I}}","{{she}}"],
+          ["{{work}}","{{works}}"],
+          ["{{watch}}","{{watches}}"],
+          ["{{go}}","{{goes}}"],
+          ["{{study}}","{{studies}}"],
+          ["{{have}}","{{has}}"]
+        ] },
+        {"p":"**Isang tao o bagay lang.** Kapag dalawa o higit pa ({{my parents}}, {{they}}), walang {{-s}}: {{My parents live in Cebu.}}"},
+        { "ex": [
+          {"t":"She works in a bank.","tr":"Sa bangko siya nagtatrabaho."},
+          {"t":"He goes to school by bus.","tr":"Sumasakay siya ng bus papunta sa eskuwela."},
+          {"t":"My mom cooks every day.","tr":"Nagluluto ang nanay ko araw-araw."},
+          {"t":"Ben watches TV at night.","tr":"Nanonood si Ben ng TV sa gabi."},
+          {"t":"My brother studies in Manila.","tr":"Sa Maynila nag-aaral ang kuya ko."},
+          {"t":"My parents live in Cebu.","tr":"Nakatira sa Cebu ang mga magulang ko.","note":"dalawa sila: walang {{-s}}"},
+          {"t":"It rains a lot in July.","tr":"Madalas umulan tuwing Hulyo."}
+        ] },
+        {"tip":"Basahin nang malakas ang mga halimbawa hanggang sa tumunog na mali sa tainga mo ang {{she work}}. Mas mabilis matuto ang tainga kaysa sa tuntunin."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Sa bangko siya nagtatrabaho.","why":"Sa {{she}}: may {{-s}} ang pandiwa."},
+        {"wrong":"He go to school.","right":"He goes to school.","tr":"Pumapasok siya sa eskuwela.","why":"{{go}} → {{goes}}."},
+        {"wrong":"My parents lives in Cebu.","right":"My parents live in Cebu.","tr":"Nakatira sa Cebu ang mga magulang ko.","why":"Dalawa ang magulang: walang {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She ___ in a bank.","tr":"Sa bangko siya nagtatrabaho.","options":["works","work","working"],"answer":0,"why":"Sa {{she}}: {{works}}.","from":"talk-about-him-and-her"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"My brother ___ in Manila.","tr":"Sa Maynila nag-aaral ang kuya ko.","options":["studies","studys","study"],"answer":0,"why":"Katinig + {{y}}: {{studies}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"My parents ___ in Cebu.","tr":"Nakatira sa Cebu ang mga magulang ko.","options":["live","lives","living"],"answer":0,"why":"Marami: walang {{-s}}.","from":"talk-about-more-than-one"},
+        {"type":"choice","q":"“Nanonood si Ben ng TV sa gabi.”","options":["{{Ben watches TV at night.}}","{{Ben watch TV at night.}}","{{Ben is watch TV at night.}}"],"answer":0,"why":"Isang tao: {{watches}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Nagluluto ang nanay ko araw-araw.","words":["My mom","cooks","every","day."]},
+        {"type":"dialogue","q":"Tinatanong ka tungkol sa pamilya mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"What does your sister do?","tr":"Ano ang trabaho ng ate mo?"},{"options":["She's a nurse. She works in a hospital.","She's a nurse. She work in a hospital."],"answer":0,"why":"Sa {{she}}: {{works}}."},{"who":"Katrabaho","t":"And your dad?","tr":"E ang tatay mo?"},{"options":["He has a small store. He opens it at six.","He have a small store. He open it at six."],"answer":0,"why":"Sa {{he}}: {{has}} at {{opens}}."}],"from":"say-what-you-have"},
+        {"type":"free","q":"Ikaw naman: ikuwento ang araw ng isang tao sa pamilya mo, sa tatlong pangungusap.","answers":[{"t":"My mom wakes up at five. She cooks breakfast. She goes to the market every morning.","tr":"Alas-singko gumigising ang nanay ko. Nagluluto siya ng almusal. Pumupunta siya sa palengke tuwing umaga."},{"t":"My brother works in Makati. He takes the train. He gets home at eight.","tr":"Sa Makati nagtatrabaho ang kuya ko. Nagtetren siya. Alas-otso siya nakakauwi."}]}
+      ]
+    },
+    {
+      "id": "ask-questions-with-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Magtanong tungkol sa nakagawian: {{do}} at {{does}}",
+      "summary": "Magtanong ng {{Do you…?}} at {{Does she…?}}, sumagot ng {{Yes, I do}}, at sabihin ang hindi: {{I don't}}, {{She doesn't}}.",
+      "topic": "{{Do you…?}}, {{Does he…?}}; {{don't}}, {{doesn't}}; walang {{-s}} ang pandiwa pagkatapos ng {{does}}",
+      "blocks": [
+        {"goal":{"t":"Do you live near here?","tr":"Malapit ka lang ba nakatira dito?"}},
+        {"dialog":[{"who":"Mike","t":"Do you live near here?","tr":"Malapit ka lang ba nakatira dito?"},{"who":"Ana","t":"Yes, I do. I live on Pine Street.","tr":"Oo. Sa Pine Street ako nakatira."},{"who":"Mike","t":"Does your sister live with you?","tr":"Kasama mo ba sa bahay ang ate mo?"},{"who":"Ana","t":"No, she doesn't. She lives in Texas.","tr":"Hindi. Sa Texas siya nakatira."},{"who":"Mike","t":"Do you visit her?","tr":"Binibisita mo ba siya?"},{"who":"Ana","t":"Not often. I don't have a car!","tr":"Hindi madalas. Wala akong kotse!"}]},
+        {"p":"Sa Tagalog, “ba” lang ang idinadagdag sa tanong. Sa Ingles, ang pangungusap na may {{be}} ay iniiba ang ayos ({{Are you…?}}, aralin 5). Pero sa ibang pandiwa, may bagong salitang kailangan sa unahan: {{do}}. {{You live here.}} → {{Do you live here?}}"},
+        {"p":"**{{do}} o {{does}}?** {{does}} para sa {{he}}, {{she}} at {{it}}; {{do}} para sa iba. At dahil nasa {{does}} na ang {{-s}}, **wala nang {{-s}}** ang pandiwa: {{Does she work?}}, hindi {{Does she works?}}"},
+        { "table": [
+          ["","tanong","oo","hindi"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{Do you work?}}","{{Yes, I do.}}","{{No, I don't.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{Does she work?}}","{{Yes, she does.}}","{{No, she doesn't.}}"]
+        ] },
+        {"p":"**Ang “hindi”**: {{don't}} ({{do not}}) o {{doesn't}} ({{does not}}) + ang pandiwa, walang {{-s}}: {{I don't eat meat.}}, {{He doesn't drive.}}"},
+        {"p":"**Ang maikling sagot** ay inuulit ang {{do}} o {{does}}, hindi ang pandiwa: {{Do you drive?}} → {{Yes, I do.}}"},
+        { "ex": [
+          {"t":"Do you live near here?","tr":"Malapit ka lang ba nakatira dito?"},
+          {"t":"Yes, I do.","tr":"Oo."},
+          {"t":"Does she speak Tagalog?","tr":"Marunong ba siyang mag-Tagalog?"},
+          {"t":"No, she doesn't.","tr":"Hindi."},
+          {"t":"I don't eat meat.","tr":"Hindi ako kumakain ng karne."},
+          {"t":"He doesn't drive.","tr":"Hindi siya nagmamaneho."},
+          {"t":"Do they have kids?","tr":"May anak ba sila?"}
+        ] },
+        {"tip":"Ngayon mo naiintindihan ang {{Do you have…?}} ng aralin 8: ito ang {{do}} ng tanong, kasama ang pandiwang {{have}}."}
+      ],
+      "mistakes": [
+        {"wrong":"You live here?","right":"Do you live here?","tr":"Dito ka ba nakatira?","why":"Sa tanong, kailangan ang {{do}} sa unahan. (Naiintindihan ang tonong patanong, pero ang tamang anyo ay {{Do you…?}})"},
+        {"wrong":"Does she works here?","right":"Does she work here?","tr":"Dito ba siya nagtatrabaho?","why":"Nasa {{does}} na ang {{-s}}: wala na sa pandiwa."},
+        {"wrong":"He don't drive.","right":"He doesn't drive.","tr":"Hindi siya nagmamaneho.","why":"Sa {{he}}: {{doesn't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"___ you live near here?","tr":"Malapit ka lang ba nakatira dito?","options":["Do","Does","Are"],"answer":0,"why":"Sa {{you}}: {{do}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Does she ___ Tagalog?","tr":"Marunong ba siyang mag-Tagalog?","options":["speak","speaks","speaking"],"answer":0,"why":"Pagkatapos ng {{does}}: walang {{-s}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"He ___ drive.","tr":"Hindi siya nagmamaneho.","options":["doesn't","don't","isn't"],"answer":0,"why":"Sa {{he}}: {{doesn't}}.","from":"talk-about-someone-elses-day"},
+        {"type":"choice","q":"Tanong sa iyo: {{Do you drink coffee?}} Oo. Ang pinakamagandang maikling sagot:","options":["{{Yes, I do.}}","{{Yes, I am.}}","{{Yes, I drink.}}"],"answer":0,"why":"May {{do}} ang tanong, kaya {{do}} rin ang sagot. ({{Yes, I am}} ay sagot sa {{Are you…?}})","from":"ask-and-answer-with-be"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Hindi ako kumakain ng karne.","words":["I","don't","eat","meat."]},
+        {"type":"dialogue","q":"Sa isang job interview. Piliin ang mga sagot mo.","lines":[{"who":"Interviewer","t":"Do you speak Spanish?","tr":"Marunong ka bang mag-Espanyol?"},{"options":["No, I don't. But I speak English and Tagalog.","No, I'm not. But I speak English and Tagalog."],"answer":0,"why":"May {{do}} ang tanong: {{No, I don't.}}"},{"who":"Interviewer","t":"Does your family live here?","tr":"Dito ba nakatira ang pamilya mo?"},{"options":["No, they don't. They live in the Philippines.","No, they doesn't. They lives in the Philippines."],"answer":0,"why":"Marami ({{they}}): {{don't}} at {{live}}, walang {{-s}}."}]},
+        {"type":"free","q":"Ikaw naman: magtanong ng tatlong {{Do you…?}} o {{Does…?}} na tanong sa isang bagong kaibigan tungkol sa buhay niya.","answers":[{"t":"Do you live near here? Do you have kids? Do you like your job?","tr":"Malapit ka lang ba nakatira dito? May anak ka ba? Gusto mo ba ang trabaho mo?"},{"t":"Do you work here? Do you speak Tagalog? Does your family live in New York?","tr":"Dito ka ba nagtatrabaho? Marunong ka bang mag-Tagalog? Sa New York ba nakatira ang pamilya mo?"}]}
+      ]
+    },
+    {
+      "id": "ask-where-when-why",
+      "unit": 3,
+      "level": "A1",
+      "title": "Itanong kung saan, kailan, ano at bakit",
+      "summary": "Magtanong para sa impormasyon: {{Where do you work?}} {{What time does the store open?}} {{Why do you like it?}}",
+      "topic": "Mga salitang pananong + {{do}} / {{does}}; {{What time…?}}; walang {{do}} kapag {{who}} ang simuno",
+      "blocks": [
+        {"goal":{"t":"Where do you work?","tr":"Saan ka nagtatrabaho?"}},
+        {"dialog":[{"who":"Mike","t":"Where do you work?","tr":"Saan ka nagtatrabaho?"},{"who":"Ana","t":"At a hospital downtown.","tr":"Sa isang ospital sa downtown."},{"who":"Mike","t":"What time do you start?","tr":"Anong oras ka nagsisimula?"},{"who":"Ana","t":"I start at seven, and I finish at three.","tr":"Alas-siyete ako nagsisimula, at alas-tres ako natatapos."},{"who":"Mike","t":"Why do you like your job?","tr":"Bakit gusto mo ang trabaho mo?"},{"who":"Ana","t":"Because I like helping people.","tr":"Kasi gusto kong tumulong sa mga tao."}]},
+        {"p":"**Ang ayos**: salitang pananong + {{do}} o {{does}} + simuno + pandiwa: {{Where do you work?}} Ito ang tanong na oo-o-hindi ng aralin 15, na may salitang pananong lang sa unahan."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["ano","{{what}}"],
+          ["saan","{{where}}"],
+          ["kailan","{{when}}"],
+          ["anong oras","{{what time}}"],
+          ["bakit","{{why}}"],
+          ["paano","{{how}}"],
+          ["sino","{{who}}"]
+        ] },
+        { "table": [
+          ["salitang pananong","{{do}} / {{does}}","simuno","pandiwa"],
+          ["{{Where}}","{{do}}","{{you}}","{{work?}}"],
+          ["{{What time}}","{{does}}","{{the store}}","{{open?}}"],
+          ["{{Why}}","{{do}}","{{they}}","{{live there?}}"]
+        ] },
+        {"p":"**Kasama ang {{be}}**, walang {{do}}: {{Where are you?}}, {{What time is it?}}, {{Why is she sad?}}"},
+        {"p":"**Kapag {{who}} o {{what}} ang gumagawa** (ang simuno), walang {{do}}: {{Who lives here?}} “Sino ang nakatira dito?” Ikumpara: {{Who do you live with?}} “Sino ang kasama mo sa bahay?”, kung saan {{you}} ang simuno. Kahawig ito ng “Sino ang kumain?” at “Ano ang kinain mo?” sa Tagalog."},
+        {"p":"**Bakit at kasi**: {{Why…?}} ay sinasagot ng {{Because…}}: {{Because I like it.}}"},
+        { "ex": [
+          {"t":"Where do you work?","tr":"Saan ka nagtatrabaho?"},
+          {"t":"What time does the store open?","tr":"Anong oras nagbubukas ang tindahan?"},
+          {"t":"When do you go home?","tr":"Kailan ka umuuwi?"},
+          {"t":"Why do you like New York?","tr":"Bakit gusto mo ang New York?"},
+          {"t":"How do you get to work?","tr":"Paano ka pumupunta sa trabaho?"},
+          {"t":"Who lives here?","tr":"Sino ang nakatira dito?"},
+          {"t":"Where is the bathroom?","tr":"Nasaan ang banyo?","note":"may {{be}}: walang {{do}}"}
+        ] },
+        {"tip":"Ang {{How are you?}} ay pagbati lang. Ang sagot ay {{Good, thanks! And you?}}, hindi mahabang kuwento."}
+      ],
+      "mistakes": [
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"Saan ka nagtatrabaho?","why":"Kailangan ang {{do}} pagkatapos ng salitang pananong."},
+        {"wrong":"What time the store opens?","right":"What time does the store open?","tr":"Anong oras nagbubukas ang tindahan?","why":"{{does}} para sa {{the store}}, at walang {{-s}} na ang {{open}}."},
+        {"wrong":"Who does live here?","right":"Who lives here?","tr":"Sino ang nakatira dito?","why":"Kapag {{who}} ang gumagawa (ang simuno), walang {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Where ___ you work?","tr":"Saan ka nagtatrabaho?","options":["do","does","are"],"answer":0,"why":"Sa {{you}}: {{do}}.","from":"ask-questions-with-do"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"What time ___ the store open?","tr":"Anong oras nagbubukas ang tindahan?","options":["does","do","is"],"answer":0,"why":"Isang tindahan: {{does}}."},
+        {"type":"choice","q":"“Nasaan ang banyo?”","options":["{{Where is the bathroom?}}","{{Where does the bathroom?}}","{{Where the bathroom is?}}"],"answer":0,"why":"May {{be}}: inilipat ang {{is}} sa unahan, walang {{do}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"“Sino ang nakatira dito?”","options":["{{Who lives here?}}","{{Who does live here?}}","{{Who do lives here?}}"],"answer":0,"why":"{{who}} ang simuno: walang {{do}}, at may {{-s}} ang pandiwa."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Paano ka pumupunta sa trabaho?","words":["How","do","you","get","to work?"]},
+        {"type":"dialogue","q":"Nakikilala mo ang bagong kapitbahay. Piliin ang mga sagot mo.","lines":[{"who":"Kapitbahay","t":"I'm Tom. I live next door.","tr":"Ako si Tom. Sa katabing bahay ako nakatira."},{"options":["Nice to meet you! Where do you work?","Nice to meet you! Where you work?"],"answer":0,"why":"Salitang pananong + {{do}} + simuno."},{"who":"Kapitbahay","t":"I'm a teacher at Lincoln High. What about you?","tr":"Guro ako sa Lincoln High. Ikaw?"},{"options":["I'm a nurse. Why do you like teaching?","I'm a nurse. Why you like teaching?"],"answer":0,"why":"{{Why}} + {{do}} + {{you}}."}]},
+        {"type":"free","q":"Ikaw naman: magtanong ng tatlong tanong sa bagong katrabaho: saan siya nakatira, paano siya pumupunta sa trabaho, at anong oras siya umuuwi.","answers":[{"t":"Where do you live? How do you get to work? What time do you go home?","tr":"Saan ka nakatira? Paano ka pumupunta sa trabaho? Anong oras ka umuuwi?"},{"t":"Where do you live? Do you take the bus? What time do you finish work?","tr":"Saan ka nakatira? Nagbu-bus ka ba? Anong oras natatapos ang trabaho mo?"}]}
+      ]
+    },
+    {
+      "id": "say-what-youre-doing-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sabihin ang ginagawa mo ngayon mismo",
+      "summary": "Iisa ang “nagluluto” sa Tagalog, pero dalawa sa Ingles: {{I cook}} (nakagawian) at {{I'm cooking}} (ngayon mismo).",
+      "topic": "Ang present continuous: {{am}} / {{is}} / {{are}} + pandiwa + {{-ing}}; ngayon mismo vs nakagawian",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now.","tr":"Nagluluto ako ng hapunan ngayon."}},
+        {"dialog":[{"who":"Mike","t":"Hi! What are you doing?","tr":"Hi! Ano ang ginagawa mo?"},{"who":"Ana","t":"I'm cooking dinner. My kids are doing their homework.","tr":"Nagluluto ako ng hapunan. Gumagawa ng assignment ang mga anak ko."},{"who":"Mike","t":"Is your husband home?","tr":"Nasa bahay ba ang asawa mo?"},{"who":"Ana","t":"No, he's working late today.","tr":"Wala, gagabihin siya sa trabaho ngayon."}]},
+        {"p":"Ang “nagluluto ako” sa Tagalog ay puwedeng dalawang bagay: ngayon mismo, o araw-araw. Sa Ingles, magkaiba ang dalawa: {{I cook}} (nakagawian, aralin 13) at {{I'm cooking}} (ngayon, habang nagsasalita ka)."},
+        {"term":"present continuous","means":"anyo ng pandiwa para sa kilos na nangyayari ngayon mismo: {{am}} / {{is}} / {{are}} + pandiwa + {{-ing}} ({{I'm eating}})."},
+        { "table": [
+          ["Tagalog","nakagawian","ngayon mismo"],
+          ["Nagluluto ako.","{{I cook every day.}}","{{I'm cooking now.}}"],
+          ["Nagtatrabaho siya.","{{She works in a bank.}}","{{She's working right now.}}"],
+          ["Umuulan.","{{It rains a lot here.}}","{{It's raining.}}"]
+        ] },
+        {"p":"**Paano ito gawin**: {{be}} + pandiwa + {{-ing}}: {{I'm cooking}}, {{she's working}}, {{they're playing}}. Kapag {{e}} ang dulo, tinatanggal ito: {{make}} → {{making}}. Kapag maikli at nagtatapos sa katinig-patinig-katinig, inuulit ang huling katinig: {{sit}} → {{sitting}}, {{run}} → {{running}}."},
+        {"p":"**Huwag kalimutan ang {{be}}.** Hindi gumagana nang mag-isa ang {{-ing}}: {{I'm cooking}}, hindi {{I cooking}}."},
+        {"p":"**Mga salitang tutulong**: {{now}}, {{right now}} (ngayon mismo), {{today}}; at para sa nakagawian, {{every day}}, {{usually}}."},
+        { "ex": [
+          {"t":"I'm cooking dinner.","tr":"Nagluluto ako ng hapunan."},
+          {"t":"She's working right now.","tr":"Nagtatrabaho siya ngayon."},
+          {"t":"It's raining.","tr":"Umuulan."},
+          {"t":"What are you doing?","tr":"Ano ang ginagawa mo?"},
+          {"t":"The kids are playing outside.","tr":"Naglalaro ang mga bata sa labas."},
+          {"t":"I'm not watching TV.","tr":"Hindi ako nanonood ng TV."},
+          {"t":"He works in a bank, but today he's working at home.","tr":"Sa bangko siya nagtatrabaho, pero ngayon, sa bahay siya nagtatrabaho."}
+        ] },
+        {"tip":"Ang mga pandiwa ng isip at damdamin ({{know}}, {{like}}, {{want}}, {{understand}}) ay karaniwang walang {{-ing}}: {{I know}}, hindi {{I'm knowing}}; {{I understand}}, hindi {{I'm understanding}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking now.","right":"I'm cooking now.","tr":"Nagluluto ako ngayon.","why":"Kailangan ang {{am}} ({{'m}})."},
+        {"wrong":"Look! It rains.","right":"Look! It's raining.","tr":"Tingnan mo! Umuulan.","why":"Nangyayari ngayon mismo: present continuous."},
+        {"wrong":"I'm knowing him.","right":"I know him.","tr":"Kilala ko siya.","why":"Karaniwang walang {{-ing}} ang {{know}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ cooking dinner.","tr":"Nagluluto ako ng hapunan.","options":["am","is","do"],"answer":0,"why":"Sa {{I}}: {{am}} + {{-ing}}."},
+        {"type":"choice","q":"Tumatawag ang kaibigan mo habang nanonood ka ng TV. Sasabihin mo…","options":["{{I'm watching TV.}}","{{I watch TV.}}","{{I watching TV.}}"],"answer":0,"why":"Ngayon mismo: {{I'm watching}}."},
+        {"type":"choice","q":"Tungkol sa trabaho mo: “Sa bangko ako nagtatrabaho.”","options":["{{I work in a bank.}}","{{I'm working in a bank now.}}","{{I working in a bank.}}"],"answer":0,"why":"Nakagawian, ang trabaho mo: present simple.","from":"talk-about-your-day"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"The kids are ___ outside.","tr":"Naglalaro ang mga bata sa labas.","options":["playing","play","plays"],"answer":0,"why":"{{are}} + pandiwa + {{-ing}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ano ang ginagawa mo?","words":["What","are","you","doing?"],"from":"ask-where-when-why"},
+        {"type":"dialogue","q":"Tumatawag ang isang kaibigan. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Hey! Are you busy?","tr":"Uy! Busy ka ba?"},{"options":["A little. I'm studying for a test.","A little. I study for a test now."],"answer":0,"why":"Ngayon mismo: {{I'm studying}}."},{"who":"Kaibigan","t":"Oh, okay. Is your roommate home?","tr":"Ah, sige. Nasa bahay ba ang roommate mo?"},{"options":["No, she's working tonight.","No, she works tonight now."],"answer":0,"why":"Ngayong gabi lang, hindi nakagawian: {{she's working}}."}]},
+        {"type":"free","q":"Ikaw naman: sabihin kung ano ang ginagawa mo at ng isang tao malapit sa iyo ngayon mismo, at isang bagay na ginagawa mo araw-araw.","answers":[{"t":"Right now, I'm studying English. My son is sleeping. I usually study every night.","tr":"Ngayon, nag-aaral ako ng Ingles. Natutulog ang anak ko. Karaniwan, nag-aaral ako gabi-gabi."},{"t":"I'm drinking coffee right now. My husband is reading the news. Every morning, I drink two cups of coffee.","tr":"Umiinom ako ng kape ngayon. Nagbabasa ng balita ang asawa ko. Tuwing umaga, dalawang tasa ng kape ang iniinom ko."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like-and-want",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sabihin ang gusto mo: {{like}}, {{want}} at {{would like}}",
+      "summary": "Iisa ang “gusto” sa Tagalog, pero tatlo sa Ingles: {{I like coffee}} (hilig), {{I want coffee}} (ngayon), {{I'd like a coffee}} (magalang na paghingi).",
+      "topic": "{{like}} vs {{want}} vs {{would like}}; {{like}} + {{-ing}}; {{want to}} + pandiwa; walang {{the}} kapag pangkalahatan",
+      "blocks": [
+        {"goal":{"t":"I like coffee, but right now I'd like a glass of water.","tr":"Gusto ko ang kape, pero ngayon, gusto ko ng isang basong tubig."}},
+        {"dialog":[{"who":"Waiter","t":"Hi! What would you like?","tr":"Hi! Ano po ang gusto ninyo?"},{"who":"Ana","t":"I'd like the chicken adobo, please.","tr":"Iyong chicken adobo po."},{"who":"Waiter","t":"Would you like something to drink?","tr":"Gusto po ba ninyo ng maiinom?"},{"who":"Ana","t":"Yes, I'd like an iced tea. I love iced tea!","tr":"Oo, isang iced tea po. Mahilig ako sa iced tea!"}]},
+        {"p":"Tatlo ang kahulugan ng “gusto” sa Tagalog, at tatlo rin ang katumbas nito sa Ingles:"},
+        { "table": [
+          ["kahulugan","Ingles","halimbawa"],
+          ["hilig, sa pangkalahatan","{{like}}, {{love}}","{{I like coffee.}} Gusto ko ang kape."],
+          ["kailangan o nais ngayon","{{want}}","{{I want coffee.}} Gusto ko ng kape."],
+          ["magalang na paghingi o alok","{{would like}} ({{'d like}})","{{I'd like a coffee, please.}} Isang kape po."]
+        ] },
+        {"p":"**{{I like…}}: hilig.** Hindi paghingi ng kape ang {{I like coffee}}; sinasabi mo lang na gusto mo ang kape sa pangkalahatan. Kapag sinabi mo ito sa waiter, pwede siyang sumagot ng {{Oh, nice!}} at walang kapeng darating!"},
+        {"p":"**{{I want…}}** ay kung ano ang kailangan o gusto mo ngayon: {{I want a new phone.}} Medyo direkta ito; sa tindahan o restawran, mas magalang ang {{I'd like…}}"},
+        {"p":"**Walang {{the}} kapag pangkalahatan.** {{I like dogs.}} (lahat ng aso), {{I love Filipino food.}} Hindi {{I like the dogs}}, maliban kung may tiyak kang mga aso na tinutukoy. Narito ang “ang” ng Tagalog na hindi {{the}}."},
+        {"p":"**May kasunod na pandiwa**: {{I like cooking}} o {{I like to cook}} (pareho lang), {{I want to go home}}, {{I'd like to pay}}. Pagkatapos ng {{want}} at {{would like}}: {{to}} + pandiwa."},
+        { "ex": [
+          {"t":"I like coffee.","tr":"Gusto ko ang kape."},
+          {"t":"I'd like a coffee, please.","tr":"Isang kape po."},
+          {"t":"I want to go home.","tr":"Gusto ko nang umuwi."},
+          {"t":"Do you like spicy food?","tr":"Mahilig ka ba sa maanghang?"},
+          {"t":"She loves dogs.","tr":"Mahilig siya sa aso."},
+          {"t":"I like cooking.","tr":"Mahilig akong magluto."},
+          {"t":"Would you like some water?","tr":"Gusto mo ba ng tubig?","note":"magalang na alok"}
+        ] },
+        {"tip":"Ang {{Would you like…?}} ay magalang na alok: {{Would you like some coffee?}} Sagot: {{Yes, please!}} o {{No, thank you.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I like a coffee.","right":"I'd like a coffee, please.","tr":"Isang kape po. (sa waiter)","why":"Hilig lang ang {{I like}}. Para humingi: {{I'd like}}."},
+        {"wrong":"I like the dogs.","right":"I like dogs.","tr":"Mahilig ako sa aso.","why":"Kapag pangkalahatan, walang {{the}}."},
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"Gusto ko nang umuwi.","why":"Pagkatapos ng {{want}}: {{to}} + pandiwa."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Nasa restawran ka at gusto mong umorder ng kape. Sasabihin mo…","options":["{{I'd like a coffee, please.}}","{{I like coffee.}}","{{I like a coffee.}}"],"answer":0,"why":"Paghingi: {{I'd like}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I want ___ go home.","tr":"Gusto ko nang umuwi.","options":["to","for","the"],"answer":0,"why":"{{want}} + {{to}} + pandiwa."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I like ___.","tr":"Mahilig ako sa aso.","options":["dogs","the dogs","dog"],"answer":0,"why":"Lahat ng aso: maramihan, walang {{the}}.","from":"talk-about-more-than-one"},
+        {"type":"choice","q":"“Gusto mo ba ng tubig?” (magalang na alok)","options":["{{Would you like some water?}}","{{You like water?}}","{{Do you want the water?}}"],"answer":0,"why":"Magalang na alok: {{Would you like…?}}"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Mahilig siyang magluto.","words":["She","likes","cooking."],"from":"talk-about-someone-elses-day"},
+        {"type":"dialogue","q":"Sa isang restawran sa Amerika. Piliin ang mga sagot mo.","lines":[{"who":"Waiter","t":"Are you ready to order?","tr":"Handa na po ba kayong umorder?"},{"options":["Yes, I'd like the fried chicken, please.","Yes, I like the fried chicken."],"answer":0,"why":"Paghingi: {{I'd like}}."},{"who":"Waiter","t":"Would you like a drink with that?","tr":"Gusto po ba ninyo ng inumin?"},{"options":["Yes, please. I'd like a lemonade.","Yes, please. I want the lemonade."],"answer":0,"why":"Magalang, at isang lemonade (hindi tiyak): {{I'd like a…}}"},{"who":"Waiter","t":"Sure! Anything else?","tr":"Sige po! May iba pa po ba?"},{"options":["No, thank you.","No, I don't like."],"answer":0,"why":"Magalang na hindi: {{No, thank you.}}"}]},
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang hilig mo ({{I like}}, {{I love}}), isang bagay na gusto mo ngayon ({{I want}}), at umorder nang magalang ({{I'd like}}).","answers":[{"t":"I love Filipino food and I like reading. I want a new phone. I'd like a cup of tea, please.","tr":"Mahilig ako sa pagkaing Pilipino at sa pagbabasa. Gusto ko ng bagong cellphone. Isang tasang tsaa po."},{"t":"I like dogs and I love the beach. I want to visit my family. I'd like a hamburger, please.","tr":"Mahilig ako sa aso at gustong-gusto ko ang beach. Gusto kong bisitahin ang pamilya ko. Isang hamburger po."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sabihin ang kaya mong gawin, at manghiram",
+      "summary": "Gamitin ang {{can}} at {{can't}} para sa kakayahan at pahintulot, at alamin ang {{borrow}} at {{lend}}: {{Can I borrow your pen?}}",
+      "topic": "{{can}} / {{can't}} + pandiwa; {{Can I…?}}, {{Can you…?}}; {{borrow}} vs {{lend}} (ang “pahiram”)",
+      "blocks": [
+        {"goal":{"t":"Can I borrow your pen?","tr":"Pahiram ng bolpen mo?"}},
+        {"dialog":[{"who":"Ana","t":"Can you speak Spanish?","tr":"Marunong ka bang mag-Espanyol?"},{"who":"Mike","t":"Yes, I can. But I can't speak Tagalog!","tr":"Oo. Pero hindi ako marunong mag-Tagalog!"},{"who":"Ana","t":"I can teach you! Can I borrow your pen?","tr":"Pwede kitang turuan! Pahiram ng bolpen mo?"},{"who":"Mike","t":"Sure, here you go.","tr":"Sige, heto."}]},
+        {"p":"Sinasaklaw ng {{can}} ang “marunong”, “kaya” at “pwede”: {{I can swim.}} “Marunong akong lumangoy.”, {{I can help you.}} “Kaya kitang tulungan.”, {{You can sit here.}} “Pwede kang umupo dito.”"},
+        {"p":"**Madali ang anyo.** Hindi nagbabago ang {{can}} ({{she can}}, walang {{-s}}), at ang kasunod na pandiwa ay walang {{to}} at walang {{-s}}: {{She can drive.}} Mali ang {{she cans}}, {{she can drives}} at {{she can to drive}}."},
+        { "table": [
+          ["","Ingles","Tagalog"],
+          ["kaya, marunong","{{I can cook.}}","Marunong akong magluto."],
+          ["hindi kaya","{{I can't swim.}}","Hindi ako marunong lumangoy."],
+          ["tanong","{{Can you drive?}}","Marunong ka bang magmaneho?"],
+          ["pahintulot","{{Can I sit here?}}","Pwede ba akong umupo dito?"],
+          ["pakiusap","{{Can you help me?}}","Pwede mo ba akong tulungan?"]
+        ] },
+        {"p":"**Tanong at sagot**: ilipat ang {{can}} sa unahan: {{Can you drive?}} → {{Yes, I can.}} / {{No, I can't.}}"},
+        {"p":"**Pahiram: {{borrow}} o {{lend}}?** May dalawang direksiyon ang “hiram” sa Ingles. {{borrow}}: ikaw ang kumukuha: {{Can I borrow your pen?}} “Pahiram ng bolpen mo?”. {{lend}}: ikaw ang nagbibigay: {{Can you lend me your pen?}} “Pahiramin mo nga ako ng bolpen?”, {{I can lend you my car.}} “Pahihiramin kita ng kotse ko.”"},
+        { "ex": [
+          {"t":"I can swim.","tr":"Marunong akong lumangoy."},
+          {"t":"She can't come today.","tr":"Hindi siya makakapunta ngayon."},
+          {"t":"Can you help me?","tr":"Pwede mo ba akong tulungan?"},
+          {"t":"Can I sit here?","tr":"Pwede ba akong umupo dito?"},
+          {"t":"Can I borrow your umbrella?","tr":"Pahiram ng payong mo?"},
+          {"t":"Can you lend me fifty dollars?","tr":"Pahiramin mo nga ako ng singkuwenta dolyar?"},
+          {"t":"Yes, I can.","tr":"Oo, kaya ko."}
+        ] },
+        {"tip":"Mas magalang ang {{could}} kaysa {{can}} sa pakiusap: {{Could you help me?}}, {{Could I borrow your pen?}} (aralin 20)."}
+      ],
+      "mistakes": [
+        {"wrong":"Can you borrow me your pen?","right":"Can you lend me your pen?","tr":"Pahiramin mo nga ako ng bolpen mo?","why":"{{lend}} ang nagbibigay ng hiram; {{borrow}} ang tumatanggap. Napakadalas na pagkakamali ito ng mga Pilipino."},
+        {"wrong":"She can drives.","right":"She can drive.","tr":"Marunong siyang magmaneho.","why":"Walang {{-s}} ang pandiwa pagkatapos ng {{can}}."},
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Marunong akong lumangoy.","why":"Walang {{to}} pagkatapos ng {{can}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Gusto mong hiramin ang payong ng kaibigan mo. Sasabihin mo…","options":["{{Can I borrow your umbrella?}}","{{Can you borrow me your umbrella?}}","{{Can I lend your umbrella?}}"],"answer":0,"why":"Ikaw ang kukuha: {{borrow}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Can you ___ me ten dollars?","tr":"Pahiramin mo nga ako ng sampung dolyar?","options":["lend","borrow","borrowing"],"answer":0,"why":"Siya ang magbibigay: {{lend}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She can ___ very well.","tr":"Magaling siyang kumanta.","options":["sing","sings","to sing"],"answer":0,"why":"Pagkatapos ng {{can}}: pandiwa lang, walang {{-s}} o {{to}}.","from":"talk-about-someone-elses-day"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Pwede ba akong umupo dito?","words":["Can","I","sit","here?"]},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Hindi ako marunong lumangoy.","words":["I","can't","swim."]},
+        {"type":"dialogue","q":"Sa opisina, kinakausap ka ng katrabaho. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Can you help me with this report?","tr":"Pwede mo ba akong tulungan sa report na ito?"},{"options":["Sure, I can help you after lunch.","Sure, I can helping you after lunch."],"answer":0,"why":"{{can}} + pandiwa, walang {{-ing}}."},{"who":"Katrabaho","t":"Thanks! Oh, and can I borrow your charger?","tr":"Salamat! At pahiram ng charger mo?"},{"options":["Of course! Here you go.","Of course! I borrow you."],"answer":0,"why":"Siya ang hihiram ({{borrow}}). Sapat na ang {{Here you go}} para iabot."}],"from":"be-polite-without-po"},
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kaya mong gawin, isang hindi mo kaya, at manghiram ng isang bagay sa kaibigan.","answers":[{"t":"I can cook and I can drive. I can't dance! Can I borrow your car this weekend?","tr":"Marunong akong magluto at magmaneho. Hindi ako marunong sumayaw! Pahiram ng kotse mo ngayong weekend?"},{"t":"I can speak three languages. I can play the guitar. I can't swim. Can I borrow your book?","tr":"Marunong ako ng tatlong wika. Marunong akong mag-gitara. Hindi ako marunong lumangoy. Pahiram ng libro mo?"}]}
+      ]
     }
   ]
 }
