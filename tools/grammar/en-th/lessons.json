@@ -1662,6 +1662,180 @@
         {"type":"say","q":"You're a woman. Say “The market is really crowded on Saturdays.”","answer":"วันเสาร์ตลาดคนเยอะมากค่ะ","r":"wan sǎo dtà-làat kon yə́ mâak kâ"},
         {"type":"free","q":"Your turn: talk about people you know or places you've been, with every, some or many.","answers":[{"t":"เพื่อนผมทุกคนชอบฟุตบอลครับ บางคนเล่นทุกอาทิตย์","r":"pʉ̂ʉan pǒm túk kon chɔ̂ɔp fút-bɔn kráp, baang kon lên túk aa-tít","tr":"All my friends like soccer. Some play every week."},{"t":"ฉันไปญี่ปุ่นมาหลายครั้งแล้วค่ะ แต่ละครั้งไปไม่กี่วัน","r":"chǎn bpai yîi-bpùn maa lǎai kráng lɛ́ɛo kâ, dtɛ̀ɛ-lá kráng bpai mâi gìi wan","tr":"I've been to Japan many times. Each time I go for just a few days."}]}
       ]
+    },
+    {
+      "id": "give-and-do-for",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give things and do things for people",
+      "summary": "Give someone something, say what you bought or did for someone, and ask someone to do something for you.",
+      "topic": "{{ให้|hâi}} “give”; a verb + (a thing) + {{ให้|hâi}} + a person “for someone”; {{เอา…มาให้|ao … maa hâi}}; {{ช่วย…ให้หน่อย|chûai … hâi nɔ̀i}}",
+      "blocks": [
+        {"goal":{"t":"ฉันซื้อของขวัญให้แม่ค่ะ","r":"chǎn sʉ́ʉ kɔ̌ɔng-kwǎn hâi mɛ̂ɛ kâ","tr":"I bought a present for my mom."}},
+        {"dialog":[{"who":"Nok","t":"สุขสันต์วันเกิดค่ะ นี่ของขวัญ ให้คุณค่ะ","r":"sùk-sǎn wan-gə̀ət kâ, nîi kɔ̌ɔng-kwǎn, hâi kun kâ","tr":"Happy birthday! Here's a present. For you."},{"who":"Tom","t":"ขอบคุณมากครับ ใครเป็นคนเลือกครับ","r":"kɔ̀ɔp-kun mâak kráp, krai bpen kon lʉ̂ʉak kráp","tr":"Thank you so much! Who chose it?"},{"who":"Nok","t":"ฉันเลือกเองค่ะ แม่ฉันทำขนมให้คุณด้วยนะคะ","r":"chǎn lʉ̂ʉak eeng kâ, mɛ̂ɛ chǎn tam kà-nǒm hâi kun dûai ná ká","tr":"I chose it myself. And my mom made you some dessert."},{"who":"Tom","t":"ใจดีจังครับ ฝากขอบคุณคุณแม่ด้วยนะครับ","r":"jai-dii jang kráp, fàak kɔ̀ɔp-kun kun-mɛ̂ɛ dûai ná kráp","tr":"That's so kind! Please thank your mom for me."}]},
+        {"p":"**ให้: give.** On its own, {{ให้|hâi}} is “give”: {{ให้ของขวัญ|hâi kɔ̌ɔng-kwǎn}} “give a present”. The person who gets it comes after the thing: {{พ่อให้เงินผม|pɔ̂ɔ hâi ngən pǒm}} “Dad gave me money” (Dad, give, money, me)."},
+        {"p":"**For someone: verb + ให้ + person.** After another verb, {{ให้|hâi}} + a person means “for (someone)”: {{ซื้อดอกไม้ให้แม่|sʉ́ʉ dɔ̀ɔk-máai hâi mɛ̂ɛ}} “buy flowers for Mom”, {{ทำขนมให้คุณ|tam kà-nǒm hâi kun}} “make you a dessert”. The action comes first, then the thing, then {{ให้|hâi}} and who it's for."},
+        { "table": [
+          ["Thai","word for word","meaning"],
+          ["{{ซื้อกาแฟให้เพื่อน|sʉ́ʉ gaa-fɛɛ hâi pʉ̂ʉan}}","buy coffee give friend","buy a friend a coffee"],
+          ["{{ทำอาหารให้ลูก|tam aa-hǎan hâi lûuk}}","make food give child","cook for the kids"],
+          ["{{เล่าเรื่องให้ฉันฟัง|lâo rʉ̂ʉang hâi chǎn fang}}","tell story give me listen","tell me a story"],
+          ["{{ส่งรูปให้ดูหน่อย|sòng rûup hâi duu nɔ̀i}}","send photo give look","send me a photo to see"]
+        ] },
+        {"p":"**Bring me, take it to: เอา…มาให้.** With the direction words of lesson 17: {{เอาน้ำมาให้หน่อย|ao náam maa hâi nɔ̀i}} “bring me some water”, {{เอาไปให้เขา|ao bpai hâi kǎo}} “take it to her”."},
+        {"p":"**Do it for me, please.** {{ช่วย|chûai}} + the verb + {{ให้หน่อย|hâi nɔ̀i}} asks a favor: {{ช่วยถ่ายรูปให้หน่อยได้ไหม|chûai tàai-rûup hâi nɔ̀i dâai mǎi}} “could you take a photo for me?”. With nobody after {{ให้|hâi}}, it means “for me”."},
+        { "ex": [
+          {"t":"พ่อให้เงินผมห้าร้อยบาทครับ","r":"pɔ̂ɔ hâi ngən pǒm hâa rɔ́ɔi bàat kráp","tr":"Dad gave me five hundred baht."},
+          {"t":"ช่วยถ่ายรูปให้หน่อยได้ไหมคะ","r":"chûai tàai rûup hâi nɔ̀i dâai mǎi ká","tr":"Could you take a photo for us?"},
+          {"t":"แม่ทำกับข้าวให้ทุกคนครับ","r":"mɛ̂ɛ tam gàp-kâao hâi túk kon kráp","tr":"Mom cooks for everyone."},
+          {"t":"เอาเมนูมาให้หน่อยค่ะ","r":"ao mee-nuu maa hâi nɔ̀i kâ","tr":"Could you bring us the menu?"},
+          {"t":"เขาเล่าเรื่องตลกให้ฉันฟังค่ะ","r":"kǎo lâo rʉ̂ʉang dtà-lòk hâi chǎn fang kâ","tr":"He told me a funny story."},
+          {"t":"ส่งรูปให้ดูหน่อยนะครับ","r":"sòng rûup hâi duu nɔ̀i ná kráp","tr":"Send me the photos so I can see."}
+        ] },
+        {"tip":"{{ให้|hâi}} is one of Thai's busiest words. Here it's “give, for”; in the next lesson it's “let” and “have someone do”."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันซื้อให้แม่ของขวัญค่ะ","right":"ฉันซื้อของขวัญให้แม่ค่ะ","tr":"I bought my mom a present.","why":"The thing comes right after the verb; {{ให้|hâi}} + the person comes after it."},
+        {"wrong":"ช่วยถ่ายรูปหน่อยให้ได้ไหมคะ","right":"ช่วยถ่ายรูปให้หน่อยได้ไหมคะ","tr":"Could you take a photo for me?","why":"The order is: verb (and thing), {{ให้|hâi}}, {{หน่อย|nɔ̀i}}, {{ได้ไหม|dâai mǎi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ให้|hâi}} “for” or {{กับ|gàp}} “with”.","t":"ผมทำอาหาร___แฟนครับ","tr":"I cook for my girlfriend.","options":["ให้","กับ"],"answer":0,"why":"For someone: {{ให้|hâi}}. ({{ทำอาหารกับแฟน|tam-aa-hǎan gàp fɛɛn}} would be cooking *with* her.)"},
+        {"type":"choice","q":"“Dad gave me five hundred baht.”","options":["{{พ่อให้เงินผมห้าร้อยบาท|pɔ̂ɔ hâi ngən pǒm hâa rɔ́ɔi bàat}}","{{ผมให้พ่อเงินห้าร้อยบาท|pǒm hâi pɔ̂ɔ ngən hâa rɔ́ɔi bàat}}","{{พ่อเงินให้ผมห้าร้อยบาท|pɔ̂ɔ ngən hâi pǒm hâa rɔ́ɔi bàat}}"],"answer":0,"why":"The giver, {{ให้|hâi}}, the thing, then who gets it."},
+        {"type":"order","q":"Put the words in order.","tr":"I bought a present for my mom. (a woman speaking)","words":["ฉัน","ซื้อ","ของขวัญ","ให้","แม่","ค่ะ"]},
+        {"type":"dialogue","q":"Asking a stranger to take your photo. Choose your replies (you're a man).","from":"when-you-dont-understand","lines":[{"who":"Woman","t":"คะ มีอะไรคะ","r":"ká, mii à-rai ká","tr":"Yes? Can I help?"},{"options":["ขอโทษครับ ช่วยถ่ายรูปให้หน่อยได้ไหมครับ","ขอโทษครับ ช่วยหน่อยถ่ายรูปได้ไหมครับ"],"answer":0,"why":"{{ช่วย|chûai}} + verb + {{ให้หน่อย|hâi nɔ̀i}}, then {{ได้ไหม|dâai mǎi}}."},{"who":"Woman","t":"ได้ค่ะ กดตรงไหนคะ","r":"dâai kâ, gòt dtrong-nǎi ká","tr":"Sure. Where do I press?"},{"options":["ตรงนี้ครับ ขอบคุณมากครับ","ตรงนี้ครับ ไม่เป็นไรครับ"],"answer":0,"why":"She's doing you a favor: thank her, {{ขอบคุณ|kɔ̀ɔp-kun}}."}]},
+        {"type":"say","q":"You're a woman. Ask a waiter “Could you bring us the menu?”","answer":"เอาเมนูมาให้หน่อยค่ะ","r":"ao mee-nuu maa hâi nɔ̀i kâ"},
+        {"type":"free","q":"Your turn: say something you did or bought for someone recently, and something someone gave you.","answers":[{"t":"เมื่อวานผมทำอาหารให้แฟนครับ แฟนให้หนังสือผมหนึ่งเล่ม","r":"mʉ̂ʉa-waan pǒm tam aa-hǎan hâi fɛɛn kráp, fɛɛn hâi nǎng-sʉ̌ʉ pǒm nʉ̀ng lêm","tr":"Yesterday I cooked for my girlfriend. She gave me a book."},{"t":"ฉันซื้อดอกไม้ให้แม่ค่ะ เพื่อนให้ขนมฉันด้วย","r":"chǎn sʉ́ʉ dɔ̀ɔk-máai hâi mɛ̂ɛ kâ, pʉ̂ʉan hâi kà-nǒm chǎn dûai","tr":"I bought flowers for my mom. A friend gave me some sweets, too."}]}
+      ]
+    },
+    {
+      "id": "ask-someone-to",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ask, tell and let someone do something",
+      "summary": "Say what you want someone else to do, pass on instructions, ask to be allowed, and wish people well.",
+      "topic": "{{ให้|hâi}} + a person + a verb: {{อยากให้|yàak hâi}}, {{บอกให้|bɔ̀ɔk hâi}}, {{ขอให้|kɔ̌ɔ hâi}}; {{ให้…ได้ไหม|hâi … dâai mǎi}} “let me…?”; {{ไม่ให้|mâi hâi}}",
+      "blocks": [
+        {"goal":{"t":"ฉันอยากให้คุณมาด้วยค่ะ","r":"chǎn yàak hâi kun maa dûai kâ","tr":"I'd like you to come too."}},
+        {"dialog":[{"who":"Tom","t":"แม่ครับ ให้ผมไปเที่ยวกับเพื่อนได้ไหมครับ","r":"mɛ̂ɛ kráp, hâi pǒm bpai tîao gàp pʉ̂ʉan dâai mǎi kráp","tr":"Mom, can I go out with my friends?"},{"who":"Mom","t":"ไปได้ แต่แม่อยากให้ลูกกลับก่อนสี่ทุ่มนะ","r":"bpai dâai, dtɛ̀ɛ mɛ̂ɛ yàak hâi lûuk glàp gɔ̀ɔn sìi tûm ná","tr":"You can, but I want you back before ten."},{"who":"Tom","t":"ครับ พ่อบอกให้ผมเอารถไปด้วยครับ","r":"kráp, pɔ̂ɔ bɔ̀ɔk hâi pǒm ao rót bpai dûai kráp","tr":"OK. Dad told me to take the car."},{"who":"Mom","t":"ขับรถดีๆ นะ ขอให้สนุกนะลูก","r":"kàp rót dii-dii ná, kɔ̌ɔ hâi sà-nùk ná lûuk","tr":"Drive carefully. Have fun, dear."}]},
+        {"p":"**ให้ + a person + a verb.** Put {{ให้|hâi}} before the person who is to do something: {{ให้เขารอ|hâi kǎo rɔɔ}} “have her wait, let her wait”. The verb before {{ให้|hâi}} says what kind of push it is: wanting, telling, asking."},
+        { "table": [
+          ["Thai","meaning","example"],
+          ["{{อยากให้|yàak hâi}}","want (someone) to","{{อยากให้คุณมา|yàak hâi kun maa}} I want you to come"],
+          ["{{บอกให้|bɔ̀ɔk hâi}}","tell (someone) to","{{บอกให้เขารอ|bɔ̀ɔk hâi kǎo rɔɔ}} tell him to wait"],
+          ["{{ขอให้|kɔ̌ɔ hâi}}","ask (someone) to; may…","{{ขอให้โชคดี|kɔ̌ɔ hâi chôok dii}} good luck!"],
+          ["{{ไม่ให้|mâi hâi}}","not let","{{แม่ไม่ให้ไป|mɛ̂ɛ mâi hâi bpai}} Mom won't let me go"],
+          ["{{ให้…ได้ไหม|hâi … dâai mǎi}}","let…?","{{ให้ผมช่วยได้ไหม|hâi pǒm chûai dâai mǎi}} can I help?"]
+        ] },
+        {"p":"**อยาก or อยากให้?** {{อยากไป|yàak bpai}} is “*I* want to go”; {{อยากให้คุณไป|yàak hâi kun bpai}} is “I want *you* to go”. The person after {{ให้|hâi}} is the one who does it."},
+        {"p":"**Let me.** {{ให้ผม…ได้ไหม|hâi pǒm … dâai mǎi}} / {{ให้ฉัน…ได้ไหม|hâi chǎn … dâai mǎi}} asks permission: {{ให้ฉันจ่ายได้ไหม|hâi chǎn jàai dâai mǎi}} “will you let me pay?”. Without {{ได้ไหม|dâai mǎi}} it's an offer: {{ให้ผมช่วยนะ|hâi pǒm chûai ná}} “let me help”."},
+        {"p":"**Good wishes: ขอให้.** {{ขอให้|kɔ̌ɔ hâi}} + a wish is how Thais wish someone well: {{ขอให้มีความสุข|kɔ̌ɔ-hâi mii kwaam-sùk}} “I wish you happiness”, {{ขอให้หายเร็วๆ|kɔ̌ɔ-hâi hǎai reo-reo}} “get well soon”."},
+        { "ex": [
+          {"t":"หมอบอกให้ผมพักสามวันครับ","r":"mɔ̌ɔ bɔ̀ɔk hâi pǒm pák sǎam wan kráp","tr":"The doctor told me to rest for three days."},
+          {"t":"แม่ไม่ให้ฉันกลับดึกค่ะ","r":"mɛ̂ɛ mâi hâi chǎn glàp dʉ̀k kâ","tr":"My mom doesn't let me come home late."},
+          {"t":"ให้ผมช่วยถือได้ไหมครับ","r":"hâi pǒm chûai tʉ̌ʉ dâai mǎi kráp","tr":"Can I help you carry that?"},
+          {"t":"เขาขอให้ฉันรอที่นี่ค่ะ","r":"kǎo kɔ̌ɔ hâi chǎn rɔɔ tîi-nîi kâ","tr":"She asked me to wait here."},
+          {"t":"ขอให้หายเร็วๆ นะครับ","r":"kɔ̌ɔ hâi hǎai reo-reo ná kráp","tr":"Get well soon."},
+          {"t":"ขอให้โชคดีนะคะ","r":"kɔ̌ɔ hâi chôok dii ná ká","tr":"Good luck!"}
+        ] },
+        {"tip":"In families, people often call themselves by their role. A mother says {{แม่|mɛ̂ɛ}} for “I” and {{ลูก|lûuk}} “child” for “you”: {{แม่อยากให้ลูกกลับเร็ว|mɛ̂ɛ yàak hâi lûuk glàp reo}} “I want you home early”."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันอยากคุณมาด้วยค่ะ","right":"ฉันอยากให้คุณมาด้วยค่ะ","tr":"I'd like you to come too.","why":"When someone else is to do it, put {{ให้|hâi}} before that person: {{อยากให้คุณมา|yàak hâi kun maa}}."},
+        {"wrong":"แม่ให้ไม่ฉันกลับดึกค่ะ","right":"แม่ไม่ให้ฉันกลับดึกค่ะ","tr":"My mom doesn't let me come home late.","why":"“Not let” is {{ไม่ให้|mâi hâi}}: {{ไม่|mâi}} before {{ให้|hâi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{อยากให้|yàak hâi}} “want (someone) to” or {{อยาก|yàak}} “want to”.","t":"ผม___คุณลองชิมครับ","tr":"I want you to taste it.","options":["อยากให้","อยาก"],"answer":0,"why":"*You* are to taste it: {{อยากให้คุณ…|yàak hâi kun …}}."},
+        {"type":"choice","q":"“The doctor told me to rest.”","options":["{{หมอบอกให้ผมพัก|mɔ̌ɔ bɔ̀ɔk hâi pǒm pák}}","{{หมอให้บอกผมพัก|mɔ̌ɔ hâi bɔ̀ɔk pǒm pák}}","{{ผมบอกให้หมอพัก|pǒm bɔ̀ɔk hâi mɔ̌ɔ pák}}"],"answer":0,"why":"Who tells, {{บอกให้|bɔ̀ɔk hâi}}, who is told, what to do."},
+        {"type":"order","q":"Put the words in order.","tr":"Can I help you carry that? (a man speaking)","words":["ให้","ผม","ช่วย","ถือ","ได้ไหม","ครับ"]},
+        {"type":"dialogue","q":"Your friend is cooking. Choose your replies (you're a man).","from":"give-and-do-for","lines":[{"who":"Friend","t":"คืนนี้ฉันจะทำอาหารไทยค่ะ","r":"kʉʉn-níi chǎn jà tam aa-hǎan tai kâ","tr":"I'm cooking Thai food tonight."},{"options":["ให้ผมช่วยได้ไหมครับ","ผมให้ช่วยได้ไหมครับ"],"answer":0,"why":"Let *me*: {{ให้ผม…|hâi pǒm …}}."},{"who":"Friend","t":"ได้ค่ะ ช่วยซื้อผักมาให้หน่อยนะคะ","r":"dâai kâ, chûai sʉ́ʉ pàk maa hâi nɔ̀i ná ká","tr":"Sure. Could you buy some vegetables for me?"},{"options":["ได้ครับ ซื้ออะไรบ้างครับ","ได้ครับ ให้อะไรบ้างครับ"],"answer":0,"why":"Ask what to buy: {{ซื้ออะไรบ้าง|sʉ́ʉ à-rai bâng}}."}]},
+        {"type":"say","q":"You're a woman. Wish a friend “Good luck!”","answer":"ขอให้โชคดีนะคะ","r":"kɔ̌ɔ hâi chôok dii ná ká"},
+        {"type":"free","q":"Your turn: say something you'd like someone you know to do, and something someone told you to do.","answers":[{"t":"ผมอยากให้พ่อมาเที่ยวเมืองไทยครับ หมอบอกให้ผมออกกำลังกายทุกวัน","r":"pǒm yàak hâi pɔ̂ɔ maa tîao mʉʉang tai kráp, mɔ̌ɔ bɔ̀ɔk hâi pǒm ɔ̀ɔk-gam-lang-gaai túk wan","tr":"I'd like my dad to visit Thailand. The doctor told me to exercise every day."},{"t":"ฉันอยากให้เพื่อนเรียนภาษาไทยด้วยค่ะ แม่บอกให้ฉันกินผักเยอะๆ","r":"chǎn yàak hâi pʉ̂ʉan riian paa-sǎa tai dûai kâ, mɛ̂ɛ bɔ̀ɔk hâi chǎn gin pàk yə́-yə́","tr":"I'd like my friend to learn Thai too. My mom told me to eat lots of vegetables."}]}
+      ]
+    },
+    {
+      "id": "say-why",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say why, and what happened because of it",
+      "summary": "Give reasons, ask why, and say what happened as a result: because, so, that's why.",
+      "topic": "{{เพราะ(ว่า)|prɔ́ (wâa)}} “because”; {{ก็เลย|gɔ̂ ləəi}} / {{เลย|ləəi}} “so”; {{ทำไม…ล่ะ|tam-mai … lâ}}; {{เพราะฉะนั้น|prɔ́ chà-nán}} (formal)",
+      "blocks": [
+        {"goal":{"t":"ฝนตกหนัก เราก็เลยไม่ได้ไปทะเลค่ะ","r":"fǒn dtòk nàk, rao gɔ̂ ləəi mâi dâai bpai tá-lee kâ","tr":"It rained hard, so we didn't go to the beach."}},
+        {"dialog":[{"who":"Ton","t":"ทำไมมาสายล่ะครับ","r":"tam-mai maa sǎai lâ kráp","tr":"Why are you late?"},{"who":"Anna","t":"ขอโทษค่ะ รถติดมาก เพราะฝนตก","r":"kɔ̌ɔ-tôot kâ, rót dtìt mâak, prɔ́ fǒn dtòk","tr":"Sorry. The traffic was terrible because of the rain."},{"who":"Ton","t":"ทำไมไม่นั่งรถไฟฟ้ามาล่ะครับ","r":"tam-mai mâi nâng rót-fai-fáa maa lâ kráp","tr":"Why didn't you take the Skytrain?"},{"who":"Anna","t":"บ้านฉันไม่ใกล้สถานี ก็เลยต้องนั่งแท็กซี่ค่ะ","r":"bâan chǎn mâi glâi sà-tǎa-nii, gɔ̂ ləəi dtɔ̂ng nâng tɛ́k-sîi kâ","tr":"My house isn't near a station, so I had to take a taxi."},{"who":"Ton","t":"เข้าใจครับ ไม่เป็นไร","r":"kâo-jai kráp, mâi bpen rai","tr":"I understand. Never mind."}]},
+        {"p":"**Because: เพราะ.** {{เพราะ|prɔ́}}, or {{เพราะว่า|prɔ́ wâa}}, brings in the reason, after what happened: {{ผมไม่ไป เพราะไม่ว่าง|pǒm mâi bpai prɔ́ mâi-wâang}} “I'm not going because I'm busy”. It can also start the sentence: {{เพราะฝนตก|prɔ́ fǒn dtòk}} “because it rained…”."},
+        {"p":"**So: ก็เลย, เลย.** {{ก็เลย|gɔ̂ ləəi}}, or just {{เลย|ləəi}}, goes before the result, after the person if there is one: {{ฉันหิว ก็เลยกินก่อน|chǎn hǐu gɔ̂ ləəi gin gɔ̀ɔn}} “I was hungry, so I ate first”, {{เขาเลยโกรธ|kǎo ləəi gròot}} “so he got angry”. It's the most natural way to tell cause and effect in speech."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["the reason after","{{ไม่ไป เพราะไม่ว่าง|mâi bpai, prɔ́ mâi wâang}}","not going, because I'm busy"],
+          ["the result after","{{ไม่ว่าง ก็เลยไม่ไป|mâi wâang, gɔ̂ ləəi mâi bpai}}","busy, so not going"],
+          ["both","{{เพราะไม่ว่าง ก็เลยไม่ไป|prɔ́ mâi wâang, gɔ̂ ləəi mâi bpai}}","because I'm busy, I'm not going"]
+        ] },
+        {"p":"**Why…? ทำไม…ล่ะ.** {{ทำไม|tam-mai}} at the start asks why. Thais often add {{ล่ะ|lâ}} at the end, which shows you really want to know, like “so why…?”: {{ทำไมไม่บอกล่ะ|tam-mai mâi bɔ̀ɔk lâ}} “why didn't you say?”. The answer starts with {{เพราะ|prɔ́}}."},
+        {"p":"**Formal: เพราะฉะนั้น.** In writing and speeches, “therefore” is {{เพราะฉะนั้น|prɔ́ chà-nán}} or {{ดังนั้น|dang-nán}}. In conversation, {{ก็เลย|gɔ̂ ləəi}}."},
+        { "ex": [
+          {"t":"ผมเรียนภาษาไทย เพราะอยากคุยกับคนไทยครับ","r":"pǒm riian paa-sǎa tai, prɔ́ yàak kui gàp kon tai kráp","tr":"I'm learning Thai because I want to talk with Thai people."},
+          {"t":"เมื่อคืนนอนดึก วันนี้เลยง่วงมากค่ะ","r":"mʉ̂ʉa-kʉʉn nɔɔn dʉ̀k, wan-níi ləəi ngûuang mâak kâ","tr":"I went to bed late last night, so I'm really sleepy today."},
+          {"t":"ทำไมไม่กินล่ะครับ ไม่อร่อยเหรอ","r":"tam-mai mâi gin lâ kráp, mâi à-rɔ̀i rə̌ə","tr":"Why aren't you eating? Isn't it good?"},
+          {"t":"เพราะว่าแพงเกินไปค่ะ","r":"prɔ́ wâa pɛɛng gəən bpai kâ","tr":"Because it's too expensive."},
+          {"t":"ร้านปิด ผมก็เลยกลับบ้านครับ","r":"ráan bpìt, pǒm gɔ̂ ləəi glàp bâan kráp","tr":"The shop was closed, so I went home."}
+        ] },
+        {"tip":"Unlike English, Thai happily uses “because” and “so” in the same sentence: {{เพราะฝนตก เราก็เลยอยู่บ้าน|prɔ́ fǒn dtòk rao gɔ̂ ləəi yùu bâan}} “because it rained, (so) we stayed home”."}
+      ],
+      "mistakes": [
+        {"wrong":"ก็เลยฉันกินก่อนค่ะ","right":"ฉันก็เลยกินก่อนค่ะ","tr":"So I ate first.","why":"{{ก็เลย|gɔ̂ ləəi}} goes after the person and before the verb."},
+        {"wrong":"ผมไม่ไป ก็เลยไม่ว่างครับ","right":"ผมไม่ไป เพราะไม่ว่างครับ","tr":"I'm not going because I'm busy.","why":"{{ก็เลย|gɔ̂ ləəi}} brings in the *result*; the *reason* takes {{เพราะ|prɔ́}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ก็เลย|gɔ̂ ləəi}} “so” or {{เพราะ|prɔ́}} “because”.","t":"ร้านปิด ผม___กลับบ้านครับ","tr":"The shop was closed, so I went home.","options":["ก็เลย","เพราะ"],"answer":0,"why":"Going home is the result: {{ก็เลย|gɔ̂ ləəi}}."},
+        {"type":"choice","q":"Which one gives a reason?","options":["{{…เพราะไม่สบาย|prɔ́ mâi sà-baai}}","{{…ก็เลยไม่สบาย|gɔ̂ ləəi mâi sà-baai}}","{{…ทำไมไม่สบาย|tam-mai mâi sà-baai}}"],"answer":0,"why":"A reason starts with {{เพราะ|prɔ́}} “because”."},
+        {"type":"order","q":"Put the words in order.","tr":"I'm learning Thai because I want to talk with Thai people. (a man speaking)","words":["ผม","เรียนภาษาไทย","เพราะ","อยาก","คุยกับ","คนไทย","ครับ"]},
+        {"type":"dialogue","q":"You missed a meeting. Choose your replies (you're a man).","from":"say-what-you-didnt","lines":[{"who":"Boss","t":"ทำไมเมื่อวานไม่ได้มาประชุมล่ะคะ","r":"tam-mai mʉ̂ʉa-waan mâi dâai maa bprà-chum lâ ká","tr":"Why didn't you come to the meeting yesterday?"},{"options":["ขอโทษครับ เพราะลูกไม่สบายครับ","ขอโทษครับ ก็เลยลูกไม่สบายครับ"],"answer":0,"why":"The reason: {{เพราะ|prɔ́}}."},{"who":"Boss","t":"แล้ววันนี้ลูกเป็นยังไงบ้างคะ","r":"lɛ́ɛo wan-níi lûuk bpen yang-ngai bâng ká","tr":"And how is your child today?"},{"options":["ดีขึ้นแล้วครับ ผมก็เลยมาทำงานได้","ดีขึ้นแล้วครับ เพราะผมมาทำงานได้"],"answer":0,"why":"Coming to work is the *result*: {{ก็เลย|gɔ̂ ləəi}}."}]},
+        {"type":"say","q":"You're a woman. Say “I went to bed late last night, so I'm really sleepy today.”","answer":"เมื่อคืนนอนดึก วันนี้เลยง่วงมากค่ะ","r":"mʉ̂ʉa-kʉʉn nɔɔn dʉ̀k, wan-níi ləəi ngûuang mâak kâ"},
+        {"type":"free","q":"Your turn: say why you're learning Thai, and something that happened recently and what you did because of it.","answers":[{"t":"ผมเรียนภาษาไทยเพราะอยากไปเที่ยวเมืองไทยครับ เมื่อวานฝนตก ผมก็เลยอยู่บ้าน","r":"pǒm riian paa-sǎa tai prɔ́ yàak bpai tîao mʉʉang tai kráp, mʉ̂ʉa-waan fǒn dtòk, pǒm gɔ̂ ləəi yùu bâan","tr":"I'm learning Thai because I want to visit Thailand. Yesterday it rained, so I stayed home."},{"t":"ฉันเรียนภาษาไทยเพราะแฟนเป็นคนไทยค่ะ เมื่อเช้ารถติดมาก ก็เลยไปทำงานสาย","r":"chǎn riian paa-sǎa tai prɔ́ fɛɛn bpen kon tai kâ, mʉ̂ʉa-cháao rót dtìt mâak, gɔ̂ ləəi bpai tam-ngaan sǎai","tr":"I'm learning Thai because my boyfriend is Thai. This morning the traffic was terrible, so I was late for work."}]}
+      ]
+    },
+    {
+      "id": "say-if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what happens if…",
+      "summary": "Talk about conditions: what you'll do if it rains, if you have time, if you don't hurry.",
+      "topic": "{{ถ้า|tâa}} … {{ก็|gɔ̂}} …; {{ถ้า…จะ…|tâa … jà}}; {{ถ้าไม่…|tâa mâi}}; {{ถ้าอย่างนั้น|tâa yàang nán}} / {{งั้น|ngán}} “in that case”",
+      "blocks": [
+        {"goal":{"t":"ถ้าฝนตก เราก็อยู่บ้านนะคะ","r":"tâa fǒn dtòk, rao gɔ̂ yùu bâan ná ká","tr":"If it rains, we'll stay home."}},
+        {"dialog":[{"who":"Nok","t":"พรุ่งนี้ไปเกาะเสม็ดกันไหมคะ","r":"prûng-níi bpai gɔ̀ sà-mèt gan mǎi ká","tr":"Shall we go to Koh Samet tomorrow?"},{"who":"Tom","t":"ถ้าอากาศดีก็ไปครับ","r":"tâa aa-gàat dii gɔ̂ bpai kráp","tr":"If the weather's good, sure."},{"who":"Nok","t":"ถ้าฝนตกล่ะคะ","r":"tâa fǒn dtòk lâ ká","tr":"And if it rains?"},{"who":"Tom","t":"ถ้าฝนตก เราไปดูหนังกันดีกว่าครับ","r":"tâa fǒn dtòk, rao bpai duu nǎng gan dii gwàa kráp","tr":"If it rains, we'd better go to a movie."},{"who":"Nok","t":"ได้ค่ะ ถ้าไม่ตื่นสาย เราจะออกเจ็ดโมงนะคะ","r":"dâai kâ, tâa mâi dtʉ̀ʉn sǎai, rao jà ɔ̀ɔk jèt moong ná ká","tr":"OK. If we don't oversleep, we'll leave at seven."}]},
+        {"p":"**ถ้า … ก็ …** {{ถ้า|tâa}} “if” starts the condition, and the result often begins with {{ก็|gɔ̂}} “then”: {{ถ้าหิว ก็กินก่อนนะ|tâa hǐu gɔ̂ gin gɔ̀ɔn ná}} “if you're hungry, (then) eat first”. When the result starts with a person, {{ก็|gɔ̂}} comes after them: {{ถ้าฝนตก เราก็อยู่บ้าน|tâa fǒn dtòk rao gɔ̂ yùu bâan}}."},
+        {"p":"**With จะ.** For what will happen, add {{จะ|jà}} in the result, often with {{ก็|gɔ̂}}: {{ถ้าคุณไป ฉันก็จะไปด้วย|tâa kun bpai, chǎn gɔ̂ jà bpai dûai}} “if you go, I'll go too”. After {{ถ้า|tâa}} the verb stays as it always is: no special form."},
+        { "table": [
+          ["condition","result"],
+          ["{{ถ้ามีเวลา|tâa mii wee-laa}} if I have time","{{ผมจะโทรหา|pǒm jà too hǎa}} I'll call you"],
+          ["{{ถ้าไม่รีบ|tâa mâi rîip}} if you don't hurry","{{จะไม่ทัน|jà mâi tan}} you won't make it"],
+          ["{{ถ้าแพงเกินไป|tâa pɛɛng gəən bpai}} if it's too expensive","{{ก็ไม่ต้องซื้อ|gɔ̂ mâi dtɔ̂ng sʉ́ʉ}} then don't buy it"]
+        ] },
+        {"p":"**In that case.** {{ถ้าอย่างนั้น|tâa yàang nán}} “if so, in that case”, shortened in speech to {{งั้น|ngán}}: {{งั้นไปพรุ่งนี้|ngán bpai prûng-níi}} “in that case, let's go tomorrow”."},
+        {"p":"**The result first.** The {{ถ้า|tâa}} part can also come second, and then there's no {{ก็|gɔ̂}}: {{โทรมานะ ถ้ามีปัญหา|too maa-ná tâa mii bpan-hǎa}} “call me if there's a problem”."},
+        { "ex": [
+          {"t":"ถ้ามีเวลา ผมจะไปหาคุณครับ","r":"tâa mii wee-laa, pǒm jà bpai hǎa kun kráp","tr":"If I have time, I'll come and see you."},
+          {"t":"ถ้าไม่รีบ จะไม่ทันรถไฟนะคะ","r":"tâa mâi rîip, jà mâi tan rót-fai ná ká","tr":"If you don't hurry, you'll miss the train."},
+          {"t":"ถ้าเหนื่อยก็นอนเถอะครับ","r":"tâa nʉ̀ai gɔ̂ nɔɔn tə̀ kráp","tr":"If you're tired, go to sleep."},
+          {"t":"ถ้าคุณไป ฉันก็จะไปด้วยค่ะ","r":"tâa kun bpai, chǎn gɔ̂ jà bpai dûai kâ","tr":"If you go, I'll go too."},
+          {"t":"โทรมานะครับ ถ้ามีปัญหา","r":"too maa ná kráp, tâa mii bpan-hǎa","tr":"Call me if there's a problem."},
+          {"t":"งั้นเจอกันพรุ่งนี้นะคะ","r":"ngán jəə gan prûng-níi ná ká","tr":"In that case, see you tomorrow."}
+        ] },
+        {"tip":"{{ถ้า|tâa}} is the everyday word; in writing you'll also see {{หาก|hàak}}, which means the same."}
+      ],
+      "mistakes": [
+        {"wrong":"ฝนตกถ้า เราก็อยู่บ้าน","right":"ถ้าฝนตก เราก็อยู่บ้าน","tr":"If it rains, we'll stay home.","why":"{{ถ้า|tâa}} comes at the start of the condition, like “if”."},
+        {"wrong":"ถ้าฝนตก ก็เราอยู่บ้าน","right":"ถ้าฝนตก เราก็อยู่บ้าน","tr":"If it rains, we'll stay home.","why":"{{ก็|gɔ̂}} goes after the person in the result, before the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ถ้า|tâa}} “if” or {{เพราะ|prɔ́}} “because”.","t":"___มีเวลา ผมจะไปหาคุณครับ","tr":"If I have time, I'll come and see you.","options":["ถ้า","เพราะ"],"answer":0,"why":"A condition: {{ถ้า|tâa}}."},
+        {"type":"choice","q":"“If you go, I'll go too.”","options":["{{ถ้าคุณไป ฉันก็จะไปด้วย|tâa kun bpai, chǎn gɔ̂ jà bpai dûai}}","{{คุณไปถ้า ฉันก็จะไปด้วย|kun bpai tâa, chǎn gɔ̂ jà bpai dûai}}","{{ถ้าคุณไป ก็ฉันจะไปด้วย|tâa kun bpai, gɔ̂ chǎn jà bpai dûai}}"],"answer":0,"why":"{{ถ้า|tâa}} first; in the result, the person, then {{ก็|gɔ̂}}."},
+        {"type":"order","q":"Put the words in order.","tr":"If you're tired, go to sleep. (a man speaking)","words":["ถ้า","เหนื่อย","ก็","นอน","เถอะ","ครับ"]},
+        {"type":"dialogue","q":"Nok makes a plan. Choose your replies (you're a man).","from":"suggest-and-invite","lines":[{"who":"Nok","t":"เสาร์นี้ไปตลาดน้ำกันไหมคะ","r":"sǎo níi bpai dtà-làat náam gan mǎi ká","tr":"Shall we go to the floating market this Saturday?"},{"options":["ถ้าไม่ต้องทำงานก็ไปครับ","ไม่ต้องทำงานถ้าก็ไปครับ"],"answer":0,"why":"{{ถ้า|tâa}} at the start of the condition, {{ก็|gɔ̂}} before the result."},{"who":"Nok","t":"ถ้าต้องทำงานล่ะคะ","r":"tâa dtɔ̂ng tam-ngaan lâ ká","tr":"And if you have to work?"},{"options":["งั้นไปวันอาทิตย์ดีไหมครับ","งั้นไปวันอาทิตย์ไหนครับ"],"answer":0,"why":"“In that case, how about…?”: {{งั้น…ดีไหม|ngán … dii mǎi}}."}]},
+        {"type":"say","q":"You're a woman. Say “If you don't hurry, you'll miss the train.”","answer":"ถ้าไม่รีบ จะไม่ทันรถไฟนะคะ","r":"tâa mâi rîip, jà mâi tan rót-fai ná ká"},
+        {"type":"free","q":"Your turn: say what you'll do this weekend if the weather is good, and if it isn't.","answers":[{"t":"ถ้าอากาศดี ผมจะไปเดินเล่นที่สวนครับ ถ้าฝนตก ก็จะอยู่บ้านดูหนัง","r":"tâa aa-gàat dii, pǒm jà bpai dəən lên tîi sǔuan kráp, tâa fǒn dtòk, gɔ̂ jà yùu bâan duu nǎng","tr":"If the weather's good, I'll go for a walk in the park. If it rains, I'll stay home and watch a movie."},{"t":"ถ้าอากาศดี ฉันจะไปทะเลค่ะ ถ้าไม่ดี ก็จะไปห้าง","r":"tâa aa-gàat dii, chǎn jà bpai tá-lee kâ, tâa mâi dii, gɔ̂ jà bpai hâang","tr":"If the weather's good, I'll go to the beach. If not, I'll go to the mall."}]}
+      ]
     }
   ]
 }
