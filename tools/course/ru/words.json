@@ -7516,6 +7516,953 @@
       "meaning": "repairman; master; craftsman (ма́стер)",
       "sentence": "Мастер придёт завтра.",
       "translation": "The ⟦repairman⟧ is coming tomorrow."
+    },
+    {
+      "n": 801,
+      "rank": 860,
+      "word": "реальный",
+      "pos": "adj",
+      "meaning": "real; true (реа́льный)",
+      "sentence": "Это реальная история.",
+      "translation": "It's a ⟦true⟧ story.",
+      "form": "реальная"
+    },
+    {
+      "n": 802,
+      "rank": 861,
+      "word": "река",
+      "pos": "noun",
+      "meaning": "river (река́)",
+      "sentence": "Мы купались в реке.",
+      "translation": "We swam in the ⟦river⟧.",
+      "form": "реке"
+    },
+    {
+      "n": 803,
+      "rank": 862,
+      "word": "войти",
+      "pos": "verb",
+      "meaning": "to come in; to go in; to enter (войти́, pf.)",
+      "sentence": "Он вошёл в комнату.",
+      "translation": "He ⟦came into⟧ the room.",
+      "form": "вошёл"
+    },
+    {
+      "n": 804,
+      "rank": 863,
+      "word": "окно",
+      "pos": "noun",
+      "meaning": "window (окно́)",
+      "sentence": "Окно выходит во двор.",
+      "translation": "The ⟦window⟧ looks out onto the courtyard."
+    },
+    {
+      "n": 805,
+      "rank": 864,
+      "word": "заметить",
+      "pos": "verb",
+      "meaning": "to notice (заме́тить, pf.)",
+      "sentence": "Я не заметил тебя.",
+      "translation": "I didn't ⟦notice⟧ you.",
+      "form": "заметил"
+    },
+    {
+      "n": 806,
+      "rank": 865,
+      "word": "больница",
+      "pos": "noun",
+      "meaning": "hospital (больни́ца)",
+      "sentence": "Он лежит в больнице.",
+      "translation": "He's in ⟦hospital⟧.",
+      "form": "больнице"
+    },
+    {
+      "n": 807,
+      "rank": 866,
+      "word": "плохой",
+      "pos": "adj",
+      "meaning": "bad (плохо́й)",
+      "sentence": "У меня плохая новость.",
+      "translation": "I have some ⟦bad⟧ news.",
+      "form": "плохая"
+    },
+    {
+      "n": 808,
+      "rank": 867,
+      "word": "разработка",
+      "pos": "noun",
+      "meaning": "development (of products); design (разрабо́тка)",
+      "sentence": "Он занимается разработкой игр.",
+      "translation": "He works in game ⟦development⟧.",
+      "form": "разработкой"
+    },
+    {
+      "n": 809,
+      "rank": 868,
+      "word": "необходимый",
+      "pos": "adj",
+      "meaning": "necessary (необходи́мый)",
+      "sentence": "У меня есть всё необходимое.",
+      "translation": "I have everything ⟦necessary⟧.",
+      "form": "необходимое"
+    },
+    {
+      "n": 810,
+      "rank": 869,
+      "word": "вдруг",
+      "pos": "adv",
+      "meaning": "suddenly",
+      "sentence": "Вдруг пошёл дождь.",
+      "translation": "⟦Suddenly⟧ it started raining."
+    },
+    {
+      "n": 811,
+      "rank": 870,
+      "word": "вечером",
+      "pos": "adv",
+      "meaning": "in the evening (ве́чером)",
+      "sentence": "Вечером я дома.",
+      "translation": "I'm at home ⟦in the evening⟧."
+    },
+    {
+      "n": 812,
+      "rank": 872,
+      "word": "примерно",
+      "pos": "adv",
+      "meaning": "about; approximately (приме́рно)",
+      "sentence": "Это примерно сто километров.",
+      "translation": "It's ⟦about⟧ a hundred kilometres."
+    },
+    {
+      "n": 813,
+      "rank": 873,
+      "word": "красивый",
+      "pos": "adj",
+      "meaning": "beautiful; handsome; pretty (краси́вый)",
+      "sentence": "Какая красивая девушка!",
+      "translation": "What a ⟦beautiful⟧ girl!",
+      "form": "красивая"
+    },
+    {
+      "n": 814,
+      "rank": 874,
+      "word": "технология",
+      "pos": "noun",
+      "meaning": "technology (техноло́гия)",
+      "sentence": "Новые технологии меняют мир.",
+      "translation": "New ⟦technologies⟧ are changing the world.",
+      "form": "технологии"
+    },
+    {
+      "n": 815,
+      "rank": 875,
+      "word": "папа",
+      "pos": "noun",
+      "meaning": "dad (па́па)",
+      "sentence": "Папа на работе.",
+      "translation": "⟦Dad⟧'s at work."
+    },
+    {
+      "n": 816,
+      "rank": 876,
+      "word": "парк",
+      "pos": "noun",
+      "meaning": "park",
+      "sentence": "Пойдём гулять в парк.",
+      "translation": "Let's go for a walk in the ⟦park⟧."
+    },
+    {
+      "n": 817,
+      "rank": 877,
+      "word": "иной",
+      "pos": "adj",
+      "meaning": "other; different (ино́й)",
+      "sentence": "Это совсем иное дело.",
+      "translation": "That's a completely ⟦different⟧ matter.",
+      "form": "иное"
+    },
+    {
+      "n": 818,
+      "rank": 878,
+      "word": "боевой",
+      "pos": "adj",
+      "meaning": "combat; fighting (боево́й)",
+      "sentence": "Это боевой самолёт.",
+      "translation": "It's a ⟦combat⟧ aircraft."
+    },
+    {
+      "n": 819,
+      "rank": 879,
+      "word": "футбол",
+      "pos": "noun",
+      "meaning": "football (футбо́л)",
+      "sentence": "Ты любишь футбол?",
+      "translation": "Do you like ⟦football⟧?"
+    },
+    {
+      "n": 820,
+      "rank": 880,
+      "word": "капитан",
+      "pos": "noun",
+      "meaning": "captain (капита́н)",
+      "sentence": "Он капитан команды.",
+      "translation": "He's the team ⟦captain⟧."
+    },
+    {
+      "n": 821,
+      "rank": 881,
+      "word": "требовать",
+      "pos": "verb",
+      "meaning": "to demand; to require; to take (time) (тре́бовать)",
+      "sentence": "Эта работа требует времени.",
+      "translation": "This work ⟦takes⟧ time.",
+      "form": "требует"
+    },
+    {
+      "n": 822,
+      "rank": 882,
+      "word": "скорость",
+      "pos": "noun",
+      "meaning": "speed (ско́рость)",
+      "sentence": "Какая скорость интернета?",
+      "translation": "What's the internet ⟦speed⟧?"
+    },
+    {
+      "n": 823,
+      "rank": 883,
+      "word": "основание",
+      "pos": "noun",
+      "meaning": "grounds; basis; base (основа́ние)",
+      "sentence": "У меня есть основания так думать.",
+      "translation": "I have ⟦grounds⟧ to think so.",
+      "form": "основания"
+    },
+    {
+      "n": 824,
+      "rank": 884,
+      "word": "конкурс",
+      "pos": "noun",
+      "meaning": "competition; contest (ко́нкурс)",
+      "sentence": "Она победила в конкурсе.",
+      "translation": "She won the ⟦competition⟧.",
+      "form": "конкурсе"
+    },
+    {
+      "n": 825,
+      "rank": 885,
+      "word": "северный",
+      "pos": "adj",
+      "meaning": "northern; north (се́верный)",
+      "sentence": "Мы видели северное сияние.",
+      "translation": "We saw the ⟦northern⟧ lights.",
+      "form": "северное"
+    },
+    {
+      "n": 826,
+      "rank": 886,
+      "word": "музей",
+      "pos": "noun",
+      "meaning": "museum (музе́й)",
+      "sentence": "Сегодня музей закрыт.",
+      "translation": "The ⟦museum⟧ is closed today."
+    },
+    {
+      "n": 827,
+      "rank": 887,
+      "word": "товар",
+      "pos": "noun",
+      "meaning": "goods; item; product (това́р)",
+      "sentence": "Этот товар есть в наличии?",
+      "translation": "Is this ⟦item⟧ in stock?"
+    },
+    {
+      "n": 828,
+      "rank": 888,
+      "word": "помогать",
+      "pos": "verb",
+      "meaning": "to help (помога́ть)",
+      "sentence": "Я всегда помогаю маме.",
+      "translation": "I always ⟦help⟧ my mum.",
+      "form": "помогаю"
+    },
+    {
+      "n": 829,
+      "rank": 889,
+      "word": "кино",
+      "pos": "noun",
+      "meaning": "cinema; films (кино́)",
+      "sentence": "Я люблю старое кино.",
+      "translation": "I love old ⟦films⟧."
+    },
+    {
+      "n": 830,
+      "rank": 890,
+      "word": "легко",
+      "pos": "adv",
+      "meaning": "easily; (it's) easy (легко́)",
+      "sentence": "Это легко!",
+      "translation": "That's ⟦easy⟧!"
+    },
+    {
+      "n": 831,
+      "rank": 891,
+      "word": "прекрасный",
+      "pos": "adj",
+      "meaning": "wonderful; beautiful; fine (прекра́сный)",
+      "sentence": "Сегодня прекрасная погода.",
+      "translation": "The weather is ⟦wonderful⟧ today.",
+      "form": "прекрасная"
+    },
+    {
+      "n": 832,
+      "rank": 892,
+      "word": "удар",
+      "pos": "noun",
+      "meaning": "blow; hit; kick; shot (уда́р)",
+      "sentence": "Какой сильный удар!",
+      "translation": "What a powerful ⟦kick⟧!"
+    },
+    {
+      "n": 833,
+      "rank": 893,
+      "word": "принцип",
+      "pos": "noun",
+      "meaning": "principle; в при́нципе: in principle (при́нцип)",
+      "sentence": "В принципе, я согласен.",
+      "translation": "⟦In principle⟧, I agree.",
+      "form": "принципе"
+    },
+    {
+      "n": 834,
+      "rank": 894,
+      "word": "шаг",
+      "pos": "noun",
+      "meaning": "step",
+      "sentence": "Это первый шаг.",
+      "translation": "It's the first ⟦step⟧."
+    },
+    {
+      "n": 835,
+      "rank": 895,
+      "word": "гость",
+      "pos": "noun",
+      "meaning": "guest; в гостя́х: visiting",
+      "sentence": "Сегодня у нас гости.",
+      "translation": "We have ⟦guests⟧ today.",
+      "form": "гости"
+    },
+    {
+      "n": 836,
+      "rank": 896,
+      "word": "воздух",
+      "pos": "noun",
+      "meaning": "air (во́здух)",
+      "sentence": "Здесь свежий воздух.",
+      "translation": "The ⟦air⟧ is fresh here."
+    },
+    {
+      "n": 837,
+      "rank": 897,
+      "word": "животное",
+      "pos": "noun",
+      "meaning": "animal (живо́тное)",
+      "sentence": "Ты любишь животных?",
+      "translation": "Do you like ⟦animals⟧?",
+      "form": "животных"
+    },
+    {
+      "n": 838,
+      "rank": 898,
+      "word": "применение",
+      "pos": "noun",
+      "meaning": "use; application (примене́ние)",
+      "sentence": "Читайте инструкцию по применению.",
+      "translation": "Read the instructions for ⟦use⟧.",
+      "form": "применению"
+    },
+    {
+      "n": 839,
+      "rank": 899,
+      "word": "поиск",
+      "pos": "noun",
+      "meaning": "search (по́иск)",
+      "sentence": "Поиск ничего не дал.",
+      "translation": "The ⟦search⟧ found nothing."
+    },
+    {
+      "n": 840,
+      "rank": 900,
+      "word": "отвечать",
+      "pos": "verb",
+      "meaning": "to answer; to reply (отвеча́ть)",
+      "sentence": "Почему ты не отвечаешь?",
+      "translation": "Why aren't you ⟦answering⟧?",
+      "form": "отвечаешь"
+    },
+    {
+      "n": 841,
+      "rank": 901,
+      "word": "лидер",
+      "pos": "noun",
+      "meaning": "leader (ли́дер)",
+      "sentence": "Он лидер группы.",
+      "translation": "He's the ⟦leader⟧ of the group."
+    },
+    {
+      "n": 842,
+      "rank": 902,
+      "word": "разговор",
+      "pos": "noun",
+      "meaning": "conversation; talk (разгово́р)",
+      "sentence": "Это не телефонный разговор.",
+      "translation": "This isn't a ⟦conversation⟧ for the phone."
+    },
+    {
+      "n": 843,
+      "rank": 903,
+      "word": "рад",
+      "pos": "adj",
+      "meaning": "glad (рад; ра́да, ра́ды)",
+      "sentence": "Рад тебя видеть!",
+      "translation": "⟦Glad⟧ to see you!"
+    },
+    {
+      "n": 844,
+      "rank": 904,
+      "word": "убить",
+      "pos": "verb",
+      "meaning": "to kill (уби́ть, pf.)",
+      "sentence": "Он убил комара.",
+      "translation": "He ⟦killed⟧ a mosquito.",
+      "form": "убил"
+    },
+    {
+      "n": 845,
+      "rank": 905,
+      "word": "нижний",
+      "pos": "adj",
+      "meaning": "lower; bottom (ни́жний)",
+      "sentence": "Книга на нижней полке.",
+      "translation": "The book is on the ⟦bottom⟧ shelf.",
+      "form": "нижней"
+    },
+    {
+      "n": 846,
+      "rank": 906,
+      "word": "шоу",
+      "pos": "noun",
+      "meaning": "show (шо́у)",
+      "sentence": "Это моё любимое шоу.",
+      "translation": "It's my favourite ⟦show⟧."
+    },
+    {
+      "n": 847,
+      "rank": 907,
+      "word": "десять",
+      "pos": "num",
+      "meaning": "ten (де́сять)",
+      "sentence": "Магазин открывается в десять.",
+      "translation": "The shop opens at ⟦ten⟧."
+    },
+    {
+      "n": 848,
+      "rank": 908,
+      "word": "передача",
+      "pos": "noun",
+      "meaning": "(TV, radio) programme; handing over (переда́ча)",
+      "sentence": "Это интересная передача.",
+      "translation": "It's an interesting ⟦programme⟧."
+    },
+    {
+      "n": 849,
+      "rank": 909,
+      "word": "студент",
+      "pos": "noun",
+      "meaning": "student (студе́нт)",
+      "sentence": "Он студент второго курса.",
+      "translation": "He's a second-year ⟦student⟧."
+    },
+    {
+      "n": 850,
+      "rank": 910,
+      "word": "здоровье",
+      "pos": "noun",
+      "meaning": "health (здоро́вье)",
+      "sentence": "Как здоровье?",
+      "translation": "How's your ⟦health⟧?"
+    },
+    {
+      "n": 851,
+      "rank": 911,
+      "word": "специалист",
+      "pos": "noun",
+      "meaning": "specialist; expert (специали́ст)",
+      "sentence": "Он хороший специалист.",
+      "translation": "He's a good ⟦specialist⟧."
+    },
+    {
+      "n": 852,
+      "rank": 912,
+      "word": "тяжёлый",
+      "pos": "adj",
+      "meaning": "heavy; hard; serious",
+      "sentence": "Эта сумка очень тяжёлая.",
+      "translation": "This bag is very ⟦heavy⟧.",
+      "form": "тяжёлая"
+    },
+    {
+      "n": 853,
+      "rank": 913,
+      "word": "генерал",
+      "pos": "noun",
+      "meaning": "general (генера́л)",
+      "sentence": "Его дед был генералом.",
+      "translation": "His grandfather was a ⟦general⟧.",
+      "form": "генералом"
+    },
+    {
+      "n": 854,
+      "rank": 914,
+      "word": "активный",
+      "pos": "adj",
+      "meaning": "active (акти́вный)",
+      "sentence": "Он очень активный ребёнок.",
+      "translation": "He's a very ⟦active⟧ child."
+    },
+    {
+      "n": 855,
+      "rank": 915,
+      "word": "влияние",
+      "pos": "noun",
+      "meaning": "influence (влия́ние)",
+      "sentence": "Он оказал на меня большое влияние.",
+      "translation": "He had a big ⟦influence⟧ on me."
+    },
+    {
+      "n": 856,
+      "rank": 916,
+      "word": "действовать",
+      "pos": "verb",
+      "meaning": "to act; to work; to be valid (де́йствовать)",
+      "sentence": "Билет действует один день.",
+      "translation": "The ticket is ⟦valid⟧ for one day.",
+      "form": "действует"
+    },
+    {
+      "n": 857,
+      "rank": 917,
+      "word": "потерять",
+      "pos": "verb",
+      "meaning": "to lose (потеря́ть, pf.)",
+      "sentence": "Я потерял ключи.",
+      "translation": "I've ⟦lost⟧ my keys.",
+      "form": "потерял"
+    },
+    {
+      "n": 858,
+      "rank": 918,
+      "word": "запись",
+      "pos": "noun",
+      "meaning": "appointment; recording; entry (за́пись)",
+      "sentence": "У меня запись к врачу на пять.",
+      "translation": "I have a doctor's ⟦appointment⟧ at five."
+    },
+    {
+      "n": 859,
+      "rank": 919,
+      "word": "входить",
+      "pos": "verb",
+      "meaning": "to come in; to go in; to be part of (входи́ть)",
+      "sentence": "Не входите без стука.",
+      "translation": "Don't ⟦come in⟧ without knocking.",
+      "form": "входите"
+    },
+    {
+      "n": 860,
+      "rank": 920,
+      "word": "предлагать",
+      "pos": "verb",
+      "meaning": "to suggest; to offer (предлага́ть)",
+      "sentence": "Что вы предлагаете?",
+      "translation": "What do you ⟦suggest⟧?",
+      "form": "предлагаете"
+    },
+    {
+      "n": 861,
+      "rank": 921,
+      "word": "сельский",
+      "pos": "adj",
+      "meaning": "village; rural; country (се́льский)",
+      "sentence": "Он учитель в сельской школе.",
+      "translation": "He's a teacher at a ⟦village⟧ school.",
+      "form": "сельской"
+    },
+    {
+      "n": 862,
+      "rank": 922,
+      "word": "постоянный",
+      "pos": "adj",
+      "meaning": "regular; permanent; constant (постоя́нный)",
+      "sentence": "Он наш постоянный клиент.",
+      "translation": "He's one of our ⟦regular⟧ customers."
+    },
+    {
+      "n": 863,
+      "rank": 923,
+      "word": "продукция",
+      "pos": "noun",
+      "meaning": "products; produce; output (проду́кция)",
+      "sentence": "Компания выпускает молочную продукцию.",
+      "translation": "The company makes dairy ⟦products⟧.",
+      "form": "продукцию"
+    },
+    {
+      "n": 864,
+      "rank": 924,
+      "word": "кубок",
+      "pos": "noun",
+      "meaning": "cup (trophy) (ку́бок)",
+      "sentence": "Наша команда выиграла кубок.",
+      "translation": "Our team won the ⟦cup⟧."
+    },
+    {
+      "n": 865,
+      "rank": 925,
+      "word": "отсутствие",
+      "pos": "noun",
+      "meaning": "absence; lack (отсу́тствие)",
+      "sentence": "Его отсутствие все заметили.",
+      "translation": "Everyone noticed his ⟦absence⟧."
+    },
+    {
+      "n": 866,
+      "rank": 926,
+      "word": "отметить",
+      "pos": "verb",
+      "meaning": "to celebrate; to mark; to note (отме́тить, pf.)",
+      "sentence": "Давай отметим мой день рождения!",
+      "translation": "Let's ⟦celebrate⟧ my birthday!",
+      "form": "отметим"
+    },
+    {
+      "n": 867,
+      "rank": 927,
+      "word": "интересно",
+      "pos": "adv",
+      "meaning": "it's interesting; I wonder (интере́сно)",
+      "sentence": "Интересно, где он сейчас?",
+      "translation": "⟦I wonder⟧ where he is now."
+    },
+    {
+      "n": 868,
+      "rank": 929,
+      "word": "ночью",
+      "pos": "adv",
+      "meaning": "at night (но́чью)",
+      "sentence": "Ночью шёл снег.",
+      "translation": "It snowed ⟦at night⟧."
+    },
+    {
+      "n": 869,
+      "rank": 931,
+      "word": "берег",
+      "pos": "noun",
+      "meaning": "shore; bank; coast (бе́рег)",
+      "sentence": "Мы сидели на берегу реки.",
+      "translation": "We sat on the river ⟦bank⟧.",
+      "form": "берегу"
+    },
+    {
+      "n": 870,
+      "rank": 932,
+      "word": "сестра",
+      "pos": "noun",
+      "meaning": "sister (сестра́)",
+      "sentence": "Моя сестра живёт в Москве.",
+      "translation": "My ⟦sister⟧ lives in Moscow."
+    },
+    {
+      "n": 871,
+      "rank": 933,
+      "word": "услуга",
+      "pos": "noun",
+      "meaning": "service; favour (услу́га)",
+      "sentence": "Можно попросить тебя об услуге?",
+      "translation": "Can I ask you a ⟦favour⟧?",
+      "form": "услуге"
+    },
+    {
+      "n": 872,
+      "rank": 934,
+      "word": "старший",
+      "pos": "adj",
+      "meaning": "older; elder; senior (ста́рший)",
+      "sentence": "Это мой старший брат.",
+      "translation": "This is my ⟦older⟧ brother."
+    },
+    {
+      "n": 873,
+      "rank": 935,
+      "word": "перевод",
+      "pos": "noun",
+      "meaning": "translation; (money) transfer (перево́д)",
+      "sentence": "Мне нужен перевод этого текста.",
+      "translation": "I need a ⟦translation⟧ of this text."
+    },
+    {
+      "n": 874,
+      "rank": 936,
+      "word": "принадлежать",
+      "pos": "verb",
+      "meaning": "to belong (принадлежа́ть)",
+      "sentence": "Кому принадлежит этот дом?",
+      "translation": "Who does this house ⟦belong⟧ to?",
+      "form": "принадлежит"
+    },
+    {
+      "n": 875,
+      "rank": 937,
+      "word": "позволять",
+      "pos": "verb",
+      "meaning": "to allow; to let (позволя́ть)",
+      "sentence": "Родители не позволяют мне гулять поздно.",
+      "translation": "My parents don't ⟦let⟧ me stay out late.",
+      "form": "позволяют"
+    },
+    {
+      "n": 876,
+      "rank": 938,
+      "word": "ум",
+      "pos": "noun",
+      "meaning": "mind; intelligence",
+      "sentence": "Ты с ума сошёл?",
+      "translation": "Are you out of your ⟦mind⟧?",
+      "form": "ума"
+    },
+    {
+      "n": 877,
+      "rank": 939,
+      "word": "сумма",
+      "pos": "noun",
+      "meaning": "sum; amount (су́мма)",
+      "sentence": "Какая общая сумма?",
+      "translation": "What's the total ⟦amount⟧?"
+    },
+    {
+      "n": 878,
+      "rank": 940,
+      "word": "метр",
+      "pos": "noun",
+      "meaning": "metre",
+      "sentence": "До остановки сто метров.",
+      "translation": "The stop is a hundred ⟦metres⟧ away.",
+      "form": "метров"
+    },
+    {
+      "n": 879,
+      "rank": 941,
+      "word": "солдат",
+      "pos": "noun",
+      "meaning": "soldier (солда́т)",
+      "sentence": "Солдат стоит на посту.",
+      "translation": "The ⟦soldier⟧ is on guard."
+    },
+    {
+      "n": 880,
+      "rank": 942,
+      "word": "практика",
+      "pos": "noun",
+      "meaning": "practice; work placement (пра́ктика)",
+      "sentence": "Мне нужно больше практики.",
+      "translation": "I need more ⟦practice⟧.",
+      "form": "практики"
+    },
+    {
+      "n": 881,
+      "rank": 943,
+      "word": "кто-то",
+      "pos": "pron",
+      "meaning": "someone; somebody (кто́-то)",
+      "sentence": "Кто-то стучит в дверь.",
+      "translation": "⟦Someone⟧'s knocking at the door."
+    },
+    {
+      "n": 882,
+      "rank": 944,
+      "word": "рассказывать",
+      "pos": "verb",
+      "meaning": "to tell (about); to talk about (расска́зывать)",
+      "sentence": "Рассказывай, как дела!",
+      "translation": "⟦Tell me⟧ how things are!",
+      "form": "Рассказывай"
+    },
+    {
+      "n": 883,
+      "rank": 945,
+      "word": "случиться",
+      "pos": "verb",
+      "meaning": "to happen (случи́ться, pf.)",
+      "sentence": "Что-то случилось?",
+      "translation": "Has something ⟦happened⟧?",
+      "form": "случилось"
+    },
+    {
+      "n": 884,
+      "rank": 946,
+      "word": "должность",
+      "pos": "noun",
+      "meaning": "position; post (job) (до́лжность)",
+      "sentence": "Какая у вас должность?",
+      "translation": "What's your ⟦position⟧?"
+    },
+    {
+      "n": 885,
+      "rank": 947,
+      "word": "оборона",
+      "pos": "noun",
+      "meaning": "defence (оборо́на)",
+      "sentence": "Он работает в министерстве обороны.",
+      "translation": "He works at the Ministry of ⟦Defence⟧.",
+      "form": "обороны"
+    },
+    {
+      "n": 886,
+      "rank": 949,
+      "word": "надежда",
+      "pos": "noun",
+      "meaning": "hope (наде́жда)",
+      "sentence": "Есть надежда, что он поправится.",
+      "translation": "There's ⟦hope⟧ he'll get better."
+    },
+    {
+      "n": 887,
+      "rank": 950,
+      "word": "отделение",
+      "pos": "noun",
+      "meaning": "branch; department; ward (отделе́ние)",
+      "sentence": "Где ближайшее отделение банка?",
+      "translation": "Where's the nearest bank ⟦branch⟧?"
+    },
+    {
+      "n": 888,
+      "rank": 951,
+      "word": "женский",
+      "pos": "adj",
+      "meaning": "women's; female (же́нский)",
+      "sentence": "Это женский журнал.",
+      "translation": "It's a ⟦women's⟧ magazine."
+    },
+    {
+      "n": 889,
+      "rank": 954,
+      "word": "иначе",
+      "pos": "adv",
+      "meaning": "otherwise; differently (ина́че)",
+      "sentence": "Поторопись, иначе опоздаем.",
+      "translation": "Hurry up, ⟦otherwise⟧ we'll be late."
+    },
+    {
+      "n": 890,
+      "rank": 955,
+      "word": "невозможно",
+      "pos": "adv",
+      "meaning": "(it's) impossible (невозмо́жно)",
+      "sentence": "Это невозможно!",
+      "translation": "That's ⟦impossible⟧!"
+    },
+    {
+      "n": 891,
+      "rank": 957,
+      "word": "акция",
+      "pos": "noun",
+      "meaning": "special offer; campaign; share (а́кция)",
+      "sentence": "В магазине сегодня акция.",
+      "translation": "There's a special ⟦offer⟧ at the shop today."
+    },
+    {
+      "n": 892,
+      "rank": 958,
+      "word": "штат",
+      "pos": "noun",
+      "meaning": "staff; state (in the USA)",
+      "sentence": "Он в штате компании.",
+      "translation": "He's on the company's ⟦staff⟧.",
+      "form": "штате"
+    },
+    {
+      "n": 893,
+      "rank": 959,
+      "word": "схема",
+      "pos": "noun",
+      "meaning": "diagram; map; scheme (схе́ма)",
+      "sentence": "Вот схема метро.",
+      "translation": "Here's the metro ⟦map⟧."
+    },
+    {
+      "n": 894,
+      "rank": 960,
+      "word": "морской",
+      "pos": "adj",
+      "meaning": "sea; marine (морско́й)",
+      "sentence": "Я люблю морской воздух.",
+      "translation": "I love the ⟦sea⟧ air."
+    },
+    {
+      "n": 895,
+      "rank": 961,
+      "word": "близкий",
+      "pos": "adj",
+      "meaning": "close; near (бли́зкий)",
+      "sentence": "Он мой близкий друг.",
+      "translation": "He's a ⟦close⟧ friend of mine."
+    },
+    {
+      "n": 896,
+      "rank": 962,
+      "word": "писатель",
+      "pos": "noun",
+      "meaning": "writer (писа́тель)",
+      "sentence": "Толстой — великий писатель.",
+      "translation": "Tolstoy is a great ⟦writer⟧."
+    },
+    {
+      "n": 897,
+      "rank": 963,
+      "word": "держать",
+      "pos": "verb",
+      "meaning": "to hold; to keep (держа́ть)",
+      "sentence": "Держи меня за руку.",
+      "translation": "⟦Hold⟧ my hand.",
+      "form": "Держи"
+    },
+    {
+      "n": 898,
+      "rank": 964,
+      "word": "выставка",
+      "pos": "noun",
+      "meaning": "exhibition; show (вы́ставка)",
+      "sentence": "Пойдём на выставку.",
+      "translation": "Let's go to the ⟦exhibition⟧.",
+      "form": "выставку"
+    },
+    {
+      "n": 899,
+      "rank": 965,
+      "word": "праздник",
+      "pos": "noun",
+      "meaning": "holiday; celebration; festival (пра́здник)",
+      "sentence": "С праздником!",
+      "translation": "Happy ⟦holiday⟧!",
+      "form": "праздником"
+    },
+    {
+      "n": 900,
+      "rank": 966,
+      "word": "круг",
+      "pos": "noun",
+      "meaning": "circle; ring",
+      "sentence": "Нарисуй круг.",
+      "translation": "Draw a ⟦circle⟧."
     }
   ]
 }
