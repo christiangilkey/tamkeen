@@ -1152,6 +1152,279 @@
         {"type":"say","q":"You're a woman. Suggest: “How about going to the beach tomorrow?”","answer":"พรุ่งนี้ไปทะเลดีไหมคะ","r":"prûng-níi bpai tá-lee dii mǎi ká"},
         {"type":"free","q":"Your turn: invite a friend to do something this weekend, and suggest where or when.","answers":[{"t":"วันเสาร์ไปดูหนังกันไหมครับ เจอกันที่สยามดีไหมครับ","r":"wan sǎo bpai duu nǎng gan mǎi kráp, jəə gan tîi sà-yǎam dii mǎi kráp","tr":"Shall we go to a movie on Saturday? How about meeting at Siam?"},{"t":"พรุ่งนี้ไปกินข้าวกันไหมคะ ร้านใกล้ๆ ที่ทำงานอร่อยมากค่ะ","r":"prûng-níi bpai gin kâao gan mǎi ká, ráan glâi-glâi tîi tam-ngaan à-rɔ̀i mâak kâ","tr":"Shall we go out to eat tomorrow? The place near work is really good."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did: the past without a past tense",
+      "summary": "Tell someone what you did yesterday or last weekend. Thai has no past tense: a time word is enough.",
+      "topic": "Past time words ({{เมื่อวาน|mʉ̂ʉa-waan}}, {{เมื่อกี้|mʉ̂ʉa-gîi}}, {{อาทิตย์ที่แล้ว|aa-tít tîi-lɛ́ɛo}}, {{…ก่อน|gɔ̀ɔn}}); {{ไป…มา|bpai … maa}} “went (and came back)”; {{ไปไหนมา|bpai nǎi maa}}",
+      "blocks": [
+        {"goal":{"t":"เมื่อวานฉันไปตลาดน้ำมาค่ะ","r":"mʉ̂ʉa-waan chǎn bpai dtà-làat náam maa kâ","tr":"Yesterday I went to the floating market."}},
+        {"dialog":[{"who":"Ton","t":"เมื่อวานไปไหนมาครับ","r":"mʉ̂ʉa-waan bpai nǎi maa kráp","tr":"Where did you go yesterday?"},{"who":"Anna","t":"ไปตลาดน้ำมาค่ะ","r":"bpai dtà-làat náam maa kâ","tr":"I went to the floating market."},{"who":"Ton","t":"สนุกไหมครับ","r":"sà-nùk mǎi kráp","tr":"Was it fun?"},{"who":"Anna","t":"สนุกมากค่ะ ฉันนั่งเรือ แล้วก็กินก๋วยเตี๋ยวเรือ","r":"sà-nùk mâak kâ, chǎn nâng rʉʉa, lɛ́ɛo-gɔ̂ gin gǔai-dtǐao rʉʉa","tr":"A lot of fun! I took a boat, and I had boat noodles."},{"who":"Ton","t":"ซื้ออะไรมาบ้างครับ","r":"sʉ́ʉ à-rai maa bâng kráp","tr":"What did you buy?"},{"who":"Anna","t":"ซื้อผลไม้มาเยอะเลยค่ะ","r":"sʉ́ʉ pǒn-lá-máai maa yə́ ləəi kâ","tr":"I bought loads of fruit."}]},
+        {"p":"**No past tense.** Thai verbs don't change for the past ({{ไป|bpai}} is “go” and “went”), so a time word does the work: {{เมื่อวานผมไปตลาด|mʉ̂ʉa waan pǒm bpai dtà-làat}} “yesterday I went to the market”. Once the time is clear, the rest of the story needs no more marking: {{ฉันนั่งเรือ แล้วก็กินก๋วยเตี๋ยว|chǎn nâng rʉʉa lɛ́ɛo gɔ̂ gin gǔai-dtǐao}} “I took a boat and had noodles”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{เมื่อกี้|mʉ̂ʉa-gîi}}","a moment ago, just now"],
+          ["{{เมื่อเช้า|mʉ̂ʉa-cháao}}","this morning (now over)"],
+          ["{{เมื่อวาน|mʉ̂ʉa-waan}}","yesterday"],
+          ["{{เมื่อคืน|mʉ̂ʉa-kʉʉn}}","last night"],
+          ["{{อาทิตย์ที่แล้ว|aa-tít tîi-lɛ́ɛo}}","last week"],
+          ["{{ปีที่แล้ว|bpii tîi-lɛ́ɛo}}","last year"],
+          ["{{สองวันก่อน|sɔ̌ɔng wan gɔ̀ɔn}}","two days ago"]
+        ] },
+        {"p":"**เมื่อ, ที่แล้ว, ก่อน.** {{เมื่อ|mʉ̂ʉa}} before a time word puts it in the past: {{เมื่อวาน|mʉ̂ʉa-waan}} “yesterday”, {{เมื่อคืน|mʉ̂ʉa-kʉʉn}} “last night”. {{ที่แล้ว|tîi-lɛ́ɛo}} after one means “last”: {{เดือนที่แล้ว|dʉʉan tîi-lɛ́ɛo}} “last month”. A length of time + {{ก่อน|gɔ̀ɔn}} is “… ago”: {{สามปีก่อน|sǎam bpii gɔ̀ɔn}} “three years ago”."},
+        {"p":"**ไป…มา: been and come back.** Thais love to finish with {{มา|maa}} after {{ไป|bpai}} and a place: {{ไปตลาดมา|bpai dtà-làat maa}} “went to the market (and I'm back)”. The everyday greeting {{ไปไหนมา|bpai nǎi maa}} “where have you been?” is like “what have you been up to?”. {{มา|maa}} also follows something you brought back: {{ซื้อผลไม้มา|sʉ́ʉ pǒn máai maa}} “bought (and brought back) some fruit”."},
+        { "ex": [
+          {"t":"เมื่อวานผมทำงานทั้งวันครับ","r":"mʉ̂ʉa-waan pǒm tam-ngaan táng wan kráp","tr":"Yesterday I worked all day."},
+          {"t":"เมื่อคืนฉันนอนไม่หลับค่ะ","r":"mʉ̂ʉa-kʉʉn chǎn nɔɔn mâi làp kâ","tr":"I couldn't sleep last night.","note":"“lie down, not fall asleep”"},
+          {"t":"ปีที่แล้วเราไปเที่ยวภูเก็ตมาค่ะ","r":"bpii tîi-lɛ́ɛo rao bpai tîao puu-gèt maa kâ","tr":"Last year we went to Phuket."},
+          {"t":"เมื่อกี้มีคนโทรมาหาคุณครับ","r":"mʉ̂ʉa-gîi mii kon too maa hǎa kun kráp","tr":"Someone called for you a moment ago."},
+          {"t":"คุณไปไหนมาคะ","r":"kun bpai nǎi maa ká","tr":"Where have you been?"},
+          {"t":"ผมไปตัดผมมาครับ","r":"pǒm bpai dtàt pǒm maa kráp","tr":"I went and got a haircut."},
+          {"t":"สองวันก่อนเขามาหาฉันค่ะ","r":"sɔ̌ɔng wan gɔ̀ɔn kǎo maa hǎa chǎn kâ","tr":"He came to see me two days ago."}
+        ] },
+        {"tip":"{{ผม|pǒm}} is also “hair”, so a man can say {{ผมไปตัดผมมา|pǒm bpai dtàt-pǒm maa}} “I went to cut (my) hair” with a straight face."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมไปเมื่อวานตลาดครับ","right":"เมื่อวานผมไปตลาดครับ","tr":"I went to the market yesterday.","why":"The time word goes at the start or at the very end, not between the verb and the place."},
+        {"wrong":"อาทิตย์แล้วฉันไปเชียงใหม่ค่ะ","right":"อาทิตย์ที่แล้วฉันไปเชียงใหม่ค่ะ","tr":"Last week I went to Chiang Mai.","why":"“Last” is {{ที่แล้ว|tîi-lɛ́ɛo}}, with {{ที่|tîi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{เมื่อวาน|mʉ̂ʉa-waan}} “yesterday” or {{พรุ่งนี้|prûng-níi}} “tomorrow”.","t":"___ฉันไปตลาดมาค่ะ","tr":"I went to the market yesterday.","options":["เมื่อวาน","พรุ่งนี้"],"answer":0,"why":"{{ไป…มา|bpai … maa}} says it's already happened: yesterday."},
+        {"type":"choice","q":"A friend greets you with {{ไปไหนมา|bpai nǎi maa}}. She's asking…","options":["where you've been","where you're going","where you live"],"answer":0,"why":"{{มา|maa}} at the end: you've been somewhere and come back."},
+        {"type":"order","q":"Put the words in order.","tr":"Last year we went to Phuket. (a woman speaking)","words":["ปีที่แล้ว","เรา","ไป","ภูเก็ต","มา","ค่ะ"]},
+        {"type":"dialogue","q":"Ploy asks about yesterday. Choose your replies (you're a man).","from":"ask-who-what-where","lines":[{"who":"Ploy","t":"เมื่อวานไปไหนมาคะ","r":"mʉ̂ʉa-waan bpai nǎi maa ká","tr":"Where did you go yesterday?"},{"options":["ไปเชียงใหม่มาครับ","จะไปเชียงใหม่ครับ"],"answer":0,"why":"It's done: {{ไป…มา|bpai … maa}}. {{จะ|jà}} would be a plan."},{"who":"Ploy","t":"ไปกับใครคะ","r":"bpai gàp krai ká","tr":"Who did you go with?"},{"options":["ไปกับเพื่อนครับ","ไปกับใครเพื่อนครับ"],"answer":0,"why":"Your answer takes the place of {{ใคร|krai}}."},{"who":"Ploy","t":"สนุกไหมคะ","r":"sà-nùk mǎi ká","tr":"Was it fun?"},{"options":["สนุกมากครับ","เป็นสนุกมากครับ"],"answer":0,"why":"An adjective needs no {{เป็น|bpen}}, in the past as in the present."}]},
+        {"type":"say","q":"You're a man. Say “I couldn't sleep last night.”","answer":"เมื่อคืนผมนอนไม่หลับครับ","r":"mʉ̂ʉa-kʉʉn pǒm nɔɔn mâi làp kráp"},
+        {"type":"free","q":"Your turn: say where you went last weekend, and two things you did there.","answers":[{"t":"เสาร์อาทิตย์ที่แล้วผมไปทะเลมาครับ ผมว่ายน้ำ แล้วก็กินอาหารทะเล","r":"sǎo aa-tít tîi-lɛ́ɛo pǒm bpai tá-lee maa kráp, pǒm wâai-náam, lɛ́ɛo-gɔ̂ gin aa-hǎan tá-lee","tr":"Last weekend I went to the beach. I swam, and I ate seafood."},{"t":"เมื่อวานฉันไปห้างมาค่ะ ซื้อเสื้อสองตัว แล้วก็ไปดูหนัง","r":"mʉ̂ʉa-waan chǎn bpai hâang maa kâ, sʉ́ʉ sʉ̂ʉa sɔ̌ɔng dtuua, lɛ́ɛo-gɔ̂ bpai duu nǎng","tr":"Yesterday I went to the mall. I bought two shirts, and then I saw a movie."}]}
+      ]
+    },
+    {
+      "id": "done-or-not-yet",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what's done and what isn't yet",
+      "summary": "Say you've already eaten, ask whether someone has done something yet, and say you haven't yet.",
+      "topic": "{{แล้ว|lɛ́ɛo}} (done, changed); {{…หรือยัง|rʉ̌ʉ yang}} “…yet?”; {{ยัง|yang}} “not yet”; {{ยังไม่ได้|yang mâi dâai}} + a verb; {{ยัง…อยู่|yang … yùu}} “still”",
+      "blocks": [
+        {"goal":{"t":"กินข้าวหรือยังคะ","r":"gin kâao rʉ̌ʉ yang ká","tr":"Have you eaten yet?"}},
+        {"dialog":[{"who":"Nok","t":"ทอม กินข้าวหรือยังคะ","r":"tɔm, gin kâao rʉ̌ʉ yang ká","tr":"Tom, have you eaten yet?"},{"who":"Tom","t":"ยังครับ ยังไม่ได้กินเลย หิวมาก","r":"yang kráp, yang mâi dâai gin ləəi, hǐu mâak","tr":"Not yet. I haven't eaten a thing. I'm starving."},{"who":"Nok","t":"ฉันกินแล้วค่ะ ร้านข้างล่างยังเปิดอยู่นะ","r":"chǎn gin lɛ́ɛo kâ, ráan kâang-lâang yang bpə̀ət yùu ná","tr":"I've already eaten. The place downstairs is still open."},{"who":"Tom","t":"ดีครับ แล้วรายงานเสร็จหรือยังครับ","r":"dii kráp, lɛ́ɛo raai-ngaan sèt rʉ̌ʉ yang kráp","tr":"Great. And is the report done yet?"},{"who":"Nok","t":"เสร็จแล้วค่ะ ส่งแล้วด้วย","r":"sèt lɛ́ɛo kâ, sòng lɛ́ɛo dûai","tr":"It's done. I've sent it too."}]},
+        {"p":"**แล้ว: done.** {{แล้ว|lɛ́ɛo}} at the end says something has happened, is over: {{ผมกินแล้ว|pǒm gin lɛ́ɛo}} “I've (already) eaten”, {{ถึงแล้ว|tʉ̌ng lɛ́ɛo}} “we're here (we've arrived)”."},
+        {"p":"**แล้ว: now changed.** After an adjective, {{แล้ว|lɛ́ɛo}} says something has *become* so: {{หิวแล้ว|hǐu lɛ́ɛo}} “I'm hungry now”, {{ดึกแล้ว|dʉ̀k lɛ́ɛo}} “it's late (now)”. After a verb of happening, it says it has started: {{ฝนตกแล้ว|fǒn dtòk lɛ́ɛo}} “it's raining now”."},
+        {"p":"**…yet? หรือยัง.** To ask whether something has happened yet, end with {{หรือยัง|rʉ̌ʉ yang}} “or not yet?”: {{กินข้าวหรือยัง|gin kâao rʉ̌ʉ yang}} “have you eaten yet?”. Thais ask this as a kind of “how are you?”. The answers: {{…แล้ว|… lɛ́ɛo}} “yes, I have”, or {{ยัง|yang}} “not yet”."},
+        {"p":"**ยัง: not yet, still.** {{ยังไม่|yang mâi}} + a verb is “not … yet”; for something you haven't *done* yet, add {{ได้|dâai}}: {{ยังไม่ได้กิน|yang mâi dâai gin}} “I haven't eaten yet”. With {{อยู่|yùu}} at the end, {{ยัง|yang}} means “still”: {{ร้านยังเปิดอยู่|ráan yang bpə̀ət yùu}} “the shop is still open”."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["done","{{ทำแล้ว|tam lɛ́ɛo}}","(I've) done it"],
+          ["yet?","{{ทำหรือยัง|tam rʉ̌ʉ yang}}","have you done it yet?"],
+          ["not yet","{{ยังไม่ได้ทำ|yang mâi dâai tam}}","I haven't done it yet"],
+          ["still","{{ยังทำอยู่|yang tam yùu}}","I'm still doing it"],
+          ["now so","{{เหนื่อยแล้ว|nʉ̀ai lɛ́ɛo}}","I'm tired now"]
+        ] },
+        { "ex": [
+          {"t":"ผมจ่ายเงินแล้วครับ","r":"pǒm jàai ngən lɛ́ɛo kráp","tr":"I've already paid."},
+          {"t":"เขาไปแล้วค่ะ","r":"kǎo bpai lɛ́ɛo kâ","tr":"She's gone. / She's already left."},
+          {"t":"ดึกแล้วครับ กลับบ้านกันเถอะ","r":"dʉ̀k lɛ́ɛo kráp, glàp bâan gan tə̀","tr":"It's late. Let's go home."},
+          {"t":"คุณจองโรงแรมหรือยังคะ","r":"kun jɔɔng roong-rɛɛm rʉ̌ʉ yang ká","tr":"Have you booked the hotel yet?"},
+          {"t":"ยังไม่ได้จองครับ","r":"yang mâi dâai jɔɔng kráp","tr":"Not yet."},
+          {"t":"ฉันยังไม่หิวค่ะ","r":"chǎn yang mâi hǐu kâ","tr":"I'm not hungry yet."},
+          {"t":"เขายังนอนอยู่ครับ","r":"kǎo yang nɔɔn yùu kráp","tr":"He's still asleep."}
+        ] },
+        {"tip":"{{แล้ว|lɛ́ɛo}} also links two actions, “and then”: {{กินข้าวแล้วไปดูหนัง|gin kâao lɛ́ɛo-bpai duu nǎng}} “eat, then go to a movie”. You've seen it as {{แล้วก็|lɛ́ɛo-gɔ̂}}, and at the start of a question: {{แล้วคุณล่ะ|lɛ́ɛo kun lâ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"คุณกินข้าวยังไหมคะ","right":"คุณกินข้าวหรือยังคะ","tr":"Have you eaten yet?","why":"“…yet?” is {{หรือยัง|rʉ̌ʉ yang}}, at the end, with no {{ไหม|mǎi}}."},
+        {"wrong":"ผมไม่ได้กินแล้วครับ","right":"ผมยังไม่ได้กินครับ","tr":"I haven't eaten yet.","why":"“Not yet” is {{ยังไม่|yang mâi}} (+ {{ได้|dâai}}), before the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{แล้ว|lɛ́ɛo}} “already” or {{ยัง|yang}} “not yet”.","t":"ผมจ่ายเงิน___ครับ","tr":"I've already paid.","options":["แล้ว","ยัง"],"answer":0,"why":"Done: {{แล้ว|lɛ́ɛo}} at the end."},
+        {"type":"choice","q":"“Have you booked the hotel yet?” You haven't. You answer…","options":["{{ยังไม่ได้จองครับ|yang mâi dâai jɔɔng kráp}}","{{จองแล้วครับ|jɔɔng lɛ́ɛo kráp}}","{{ไม่จองยังครับ|mâi jɔɔng yang kráp}}"],"answer":0,"why":"Not done yet: {{ยังไม่ได้|yang mâi dâai}} + the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"Have you eaten yet? (a woman asking)","words":["คุณ","กิน","ข้าว","หรือยัง","คะ"]},
+        {"type":"dialogue","q":"Your boss asks about the report. Choose your replies (you're a man).","from":"whats-happening-now","lines":[{"who":"Boss","t":"รายงานเสร็จหรือยังคะ","r":"raai-ngaan sèt rʉ̌ʉ yang ká","tr":"Is the report finished yet?"},{"options":["ยังครับ กำลังทำอยู่","แล้วครับ กำลังทำอยู่"],"answer":0,"why":"Not finished, and you're on it now: {{ยัง|yang}}, then {{กำลัง…อยู่|gam-lang … yùu}}."},{"who":"Boss","t":"จะเสร็จเมื่อไหร่คะ","r":"jà sèt mʉ̂ʉa-rài ká","tr":"When will it be done?"},{"options":["พรุ่งนี้เช้าครับ","เมื่อวานครับ"],"answer":0,"why":"It isn't done yet, so a future time: {{พรุ่งนี้เช้า|prûng níi cháao}} “tomorrow morning”."}]},
+        {"type":"say","q":"You're a woman. Say “It's late. Let's go home.”","answer":"ดึกแล้วค่ะ กลับบ้านกันเถอะ","r":"dʉ̀k lɛ́ɛo kâ, glàp bâan gan tə̀"},
+        {"type":"free","q":"Your turn: say one thing you've already done today, and one you haven't done yet.","answers":[{"t":"วันนี้ผมไปทำงานแล้วครับ แต่ยังไม่ได้กินข้าวเย็น","r":"wan-níi pǒm bpai tam-ngaan lɛ́ɛo kráp, dtɛ̀ɛ yang mâi dâai gin kâao yen","tr":"I've been to work today, but I haven't had dinner yet."},{"t":"ฉันอ่านหนังสือแล้วค่ะ แต่ยังไม่ได้ทำการบ้าน","r":"chǎn àan nǎng-sʉ̌ʉ lɛ́ɛo kâ, dtɛ̀ɛ yang mâi dâai tam gaan-bâan","tr":"I've done my reading, but I haven't done my homework yet."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-didnt",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you didn't do, and why",
+      "summary": "Say you didn't go, didn't eat or didn't hear, and give the reason.",
+      "topic": "{{ไม่ได้|mâi dâai}} + a verb “didn't”; {{ไม่ได้ไป|mâi dâai bpai}} vs {{ไปไม่ได้|bpai mâi dâai}} vs {{ไม่ไป|mâi bpai}}; {{เพราะ(ว่า)|prɔ́ (wâa)}} “because”",
+      "blocks": [
+        {"goal":{"t":"เมื่อวานผมไม่ได้ไปทำงานครับ เพราะไม่สบาย","r":"mʉ̂ʉa-waan pǒm mâi dâai bpai tam-ngaan kráp, prɔ́ mâi sà-baai","tr":"I didn't go to work yesterday, because I was sick."}},
+        {"dialog":[{"who":"Boss","t":"เมื่อวานคุณไม่ได้มาทำงาน เป็นอะไรหรือเปล่าครับ","r":"mʉ̂ʉa-waan kun mâi dâai maa tam-ngaan, bpen à-rai rʉ̌ʉ-bplàao kráp","tr":"You didn't come to work yesterday. Is something wrong?"},{"who":"Anna","t":"ไม่สบายค่ะ ไปหาหมอมา","r":"mâi sà-baai kâ, bpai hǎa mɔ̌ɔ maa","tr":"I was sick. I went to the doctor."},{"who":"Boss","t":"ได้อ่านอีเมลผมหรือยังครับ","r":"dâai àan ii-meel pǒm rʉ̌ʉ yang kráp","tr":"Have you read my email yet?"},{"who":"Anna","t":"ยังไม่ได้อ่านเลยค่ะ ขอโทษค่ะ","r":"yang mâi dâai àan ləəi kâ, kɔ̌ɔ-tôot kâ","tr":"I haven't read it yet. Sorry."},{"who":"Boss","t":"ไม่เป็นไรครับ","r":"mâi bpen rai kráp","tr":"That's OK."}]},
+        {"p":"**ไม่ได้ + a verb: didn't.** To say something did *not* happen, put {{ไม่ได้|mâi dâai}} before the verb: {{ผมไม่ได้ไป|pǒm mâi dâai bpai}} “I didn't go”, {{ฉันไม่ได้กินข้าวเช้า|chǎn mâi dâai gin kâao cháao}} “I didn't have breakfast”. Plain {{ไม่|mâi}} before a verb is for habits and decisions: {{ผมไม่ไป|pǒm mâi bpai}} “I'm not going, I won't go”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{ผมไม่ไป|pǒm mâi bpai}}","I'm not going. / I don't go."],
+          ["{{ผมไม่ได้ไป|pǒm mâi dâai bpai}}","I didn't go."],
+          ["{{ผมไปไม่ได้|pǒm bpai mâi dâai}}","I can't go. / I couldn't go."],
+          ["{{ผมยังไม่ได้ไป|pǒm yang mâi dâai bpai}}","I haven't gone yet."]
+        ] },
+        {"p":"**Where ได้ goes.** Watch the order: {{ไม่ได้ไป|mâi dâai bpai}}, before the verb, is “didn't go”; {{ไปไม่ได้|bpai mâi dâai}}, after it, is “can't go”. It's one of the trickiest pairs in Thai, and worth saying out loud a few times."},
+        {"p":"**“Not really”.** {{ไม่ได้|mâi dâai}} also puts a wrong idea right, even about now: {{ผมไม่ได้โกรธ|pǒm mâi dâai gròot}} “I'm not angry (that's not it)”, {{ฉันไม่ได้พูดแบบนั้น|chǎn mâi dâai pûut bɛ̀ɛp nán}} “I didn't say that”."},
+        {"p":"**Because.** {{เพราะ|prɔ́}}, or {{เพราะว่า|prɔ́ wâa}}, gives the reason, after what happened: {{ผมไม่ได้ไป เพราะฝนตก|pǒm mâi dâai bpai prɔ́ fǒn dtòk}} “I didn't go, because it rained”."},
+        { "ex": [
+          {"t":"เมื่อคืนฉันไม่ได้ดูข่าวค่ะ","r":"mʉ̂ʉa-kʉʉn chǎn mâi dâai duu kàao kâ","tr":"I didn't watch the news last night."},
+          {"t":"ผมไม่ได้ซื้ออะไรครับ","r":"pǒm mâi dâai sʉ́ʉ à-rai kráp","tr":"I didn't buy anything."},
+          {"t":"ขอโทษค่ะ ฉันไม่ได้ยิน","r":"kɔ̌ɔ-tôot kâ, chǎn mâi dâi-yin","tr":"Sorry, I didn't hear you.","note":"{{ได้ยิน|dâi-yin}} “hear” already has {{ได้|dâai}} in it"},
+          {"t":"เขาไม่ได้โกรธครับ เขาแค่เหนื่อย","r":"kǎo mâi dâai gròot kráp, kǎo kɛ̂ɛ nʉ̀ai","tr":"He isn't angry, he's just tired."},
+          {"t":"ผมไม่ได้ไปงานเลี้ยง เพราะต้องทำงานครับ","r":"pǒm mâi dâai bpai ngaan líiang, prɔ́ dtɔ̂ng tam-ngaan kráp","tr":"I didn't go to the party because I had to work."},
+          {"t":"วันนี้ไม่ได้เอารถมาค่ะ","r":"wan-níi mâi dâai ao rót maa kâ","tr":"I didn't bring the car today."}
+        ] },
+        {"tip":"In quick speech the {{ได้|dâai}} of {{ไม่ได้|mâi dâai}} is said short, dâi. And {{เป็นอะไรหรือเปล่า|bpen à-rai rʉ̌ʉ-bplàao}} “is something the matter?” is how Thais ask whether you're all right."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมไม่ไปเมื่อวานครับ","right":"เมื่อวานผมไม่ได้ไปครับ","tr":"I didn't go yesterday.","why":"For something that didn't happen, use {{ไม่ได้|mâi dâai}}. Plain {{ไม่|mâi}} sounds like a refusal or a habit."},
+        {"wrong":"เมื่อวานผมไปไม่ได้ทำงานครับ","right":"เมื่อวานผมไม่ได้ไปทำงานครับ","tr":"I didn't go to work yesterday.","why":"“Didn't” is {{ไม่ได้|mâi dâai}}, before the verbs. {{ไปไม่ได้|bpai mâi dâai}} is “couldn't go”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ไม่ได้|mâi dâai}} “didn't” or {{ไม่|mâi}} “don't”.","t":"เมื่อวานฉัน___กินข้าวเช้าค่ะ","tr":"I didn't have breakfast yesterday.","options":["ไม่ได้","ไม่"],"answer":0,"why":"Something that didn't happen: {{ไม่ได้|mâi dâai}} + the verb."},
+        {"type":"choice","q":"Which one means “I can't go”?","options":["{{ผมไปไม่ได้|pǒm bpai mâi dâai}}","{{ผมไม่ได้ไป|pǒm mâi dâai bpai}}","{{ผมยังไม่ได้ไป|pǒm yang mâi dâai bpai}}"],"answer":0,"why":"{{ได้|dâai}} after the verb is “can”. {{ไม่ได้ไป|mâi dâai bpai}} is “didn't go”, {{ยังไม่ได้ไป|yang mâi dâai bpai}} “haven't gone yet”."},
+        {"type":"order","q":"Put the words in order.","tr":"I didn't buy anything. (a man speaking)","words":["ผม","ไม่ได้","ซื้อ","อะไร","ครับ"]},
+        {"type":"dialogue","q":"Your mom asks about homework. Choose your replies (you're a boy).","from":"done-or-not-yet","lines":[{"who":"Mom","t":"ทำการบ้านหรือยัง","r":"tam gaan-bâan rʉ̌ʉ yang","tr":"Have you done your homework yet?"},{"options":["ยังครับ ยังไม่ได้ทำ","แล้วครับ ยังไม่ได้ทำ"],"answer":0,"why":"Not yet: {{ยัง|yang}}."},{"who":"Mom","t":"ทำไมยังไม่ทำ","r":"tam-mai yang mâi tam","tr":"Why haven't you done it?"},{"options":["เพราะเมื่อวานผมไม่สบายครับ","เพราะว่าผมเมื่อวานไม่สบายครับ"],"answer":0,"why":"{{เพราะ|prɔ́}}, then the reason, with its time word at the start."}]},
+        {"type":"say","q":"You're a woman. Say “Sorry, I didn't hear you.”","answer":"ขอโทษค่ะ ฉันไม่ได้ยิน","r":"kɔ̌ɔ-tôot kâ, chǎn mâi dâi-yin"},
+        {"type":"free","q":"Your turn: say something you didn't do last week, and why.","answers":[{"t":"อาทิตย์ที่แล้วผมไม่ได้ไปออกกำลังกายครับ เพราะงานยุ่งมาก","r":"aa-tít tîi-lɛ́ɛo pǒm mâi dâai bpai ɔ̀ɔk-gam-lang-gaai kráp, prɔ́ ngaan yûng mâak","tr":"I didn't go and exercise last week, because work was really busy."},{"t":"เมื่อวานฉันไม่ได้ไปเรียนค่ะ เพราะฝนตกหนัก","r":"mʉ̂ʉa-waan chǎn mâi dâai bpai riian kâ, prɔ́ fǒn dtòk nàk","tr":"I didn't go to class yesterday, because it rained hard."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about experiences: have you ever…?",
+      "summary": "Ask whether someone has ever done something, say what you have and haven't done, and how many times.",
+      "topic": "{{เคย|kəəi}} + a verb “have ever”; {{ไม่เคย|mâi kəəi}} “never”; {{เคย…ไหม|kəəi … mǎi}}; {{ครั้ง|kráng}} “times”; {{เคย|kəəi}} “used to”",
+      "blocks": [
+        {"goal":{"t":"คุณเคยไปภูเก็ตไหมคะ","r":"kun kəəi bpai puu-gèt mǎi ká","tr":"Have you ever been to Phuket?"}},
+        {"dialog":[{"who":"Fon","t":"คุณเคยไปภูเก็ตไหมคะ","r":"kun kəəi bpai puu-gèt mǎi ká","tr":"Have you ever been to Phuket?"},{"who":"Tom","t":"เคยครับ ไปมาสองครั้งแล้ว","r":"kəəi kráp, bpai maa sɔ̌ɔng kráng lɛ́ɛo","tr":"Yes, I've been twice."},{"who":"Fon","t":"เคยกินทุเรียนไหมคะ","r":"kəəi gin tú-riian mǎi ká","tr":"Have you ever tried durian?"},{"who":"Tom","t":"ไม่เคยครับ กลิ่นแรงมาก","r":"mâi kəəi kráp, glìn rɛɛng mâak","tr":"Never. It smells so strong."},{"who":"Fon","t":"ลองดูสิคะ อร่อยนะ","r":"lɔɔng duu sì ká, à-rɔ̀i ná","tr":"Give it a try! It's delicious."}]},
+        {"p":"**เคย: ever.** {{เคย|kəəi}} before a verb says you've had that experience at some time: {{ผมเคยไปญี่ปุ่น|pǒm kəəi bpai yîi-bpùn}} “I've been to Japan”. {{ไม่เคย|mâi kəəi}} is “never”: {{ฉันไม่เคยขี่ช้าง|chǎn mâi kəəi kìi cháang}} “I've never ridden an elephant”."},
+        {"p":"**Asking.** {{เคย…ไหม|kəəi … mǎi}} is “have you ever…?”. Answer {{เคย|kəəi}} or {{ไม่เคย|mâi kəəi}}: as always, the verb word from the question."},
+        {"p":"**How many times.** {{ครั้ง|kráng}} “time, occasion” is the classifier: {{สองครั้ง|sɔ̌ɔng kráng}} “twice”, {{หลายครั้ง|lǎai kráng}} “many times”, {{ครั้งแรก|kráng rɛ̂ɛk}} “the first time”. “How many times?” is {{กี่ครั้ง|gìi kráng}}."},
+        {"p":"**เคย: used to.** For a past habit, {{เคย|kəəi}} means “used to”: {{ผมเคยอยู่เชียงใหม่|pǒm kəəi yùu chiiang-mài}} “I used to live in Chiang Mai (I don't now)”. The situation tells you which it is: an experience, or a habit that's over."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["ever","{{เคยไป|kəəi bpai}}","have been"],
+          ["never","{{ไม่เคยไป|mâi kəəi bpai}}","have never been"],
+          ["ever?","{{เคยไปไหม|kəəi bpai mǎi}}","have you ever been?"],
+          ["how many times?","{{เคยไปกี่ครั้ง|kəəi bpai gìi kráng}}","how many times have you been?"],
+          ["used to","{{เคยสูบบุหรี่|kəəi sùup bù-rìi}}","used to smoke"]
+        ] },
+        { "ex": [
+          {"t":"ฉันเคยไปญี่ปุ่นสองครั้งค่ะ","r":"chǎn kəəi bpai yîi-bpùn sɔ̌ɔng kráng kâ","tr":"I've been to Japan twice."},
+          {"t":"ผมไม่เคยขี่ช้างครับ","r":"pǒm mâi kəəi kìi cháang kráp","tr":"I've never ridden an elephant."},
+          {"t":"คุณเคยกินส้มตำไหมคะ","r":"kun kəəi gin sôm-dtam mǎi ká","tr":"Have you ever had papaya salad?"},
+          {"t":"นี่เป็นครั้งแรกที่ผมมาเมืองไทยครับ","r":"nîi bpen kráng rɛ̂ɛk tîi pǒm maa mʉʉang tai kráp","tr":"This is my first time in Thailand."},
+          {"t":"เขาเคยเป็นครูค่ะ","r":"kǎo kəəi bpen kruu kâ","tr":"She used to be a teacher."},
+          {"t":"เคยได้ยินชื่อนี้ไหมครับ","r":"kəəi dâi-yin chʉ̂ʉ níi mǎi kráp","tr":"Have you ever heard this name?"}
+        ] },
+        {"tip":"{{ไม่เคย|mâi kəəi}} also means “never” for habits: {{เขาไม่เคยมาสาย|kǎo mâi kəəi maa sǎai}} “he's never late”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมเคยไม่ไปภูเก็ตครับ","right":"ผมไม่เคยไปภูเก็ตครับ","tr":"I've never been to Phuket.","why":"“Never” is {{ไม่เคย|mâi kəəi}}: {{ไม่|mâi}} goes before {{เคย|kəəi}}."},
+        {"wrong":"ฉันไปญี่ปุ่นสองครั้งเคยค่ะ","right":"ฉันเคยไปญี่ปุ่นสองครั้งค่ะ","tr":"I've been to Japan twice.","why":"{{เคย|kəəi}} goes right before the verb; the number of times goes at the end."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{เคย|kəəi}} “have ever” or {{จะ|jà}} “will”.","t":"คุณ___กินทุเรียนไหมคะ","tr":"Have you ever tried durian?","options":["เคย","จะ"],"answer":0,"why":"An experience: {{เคย…ไหม|kəəi … mǎi}}."},
+        {"type":"choice","q":"“How many times have you been to Bangkok?”","options":["{{เคยไปกรุงเทพกี่ครั้ง|kəəi bpai grung-têep gìi kráng}}","{{กี่ครั้งเคยไปกรุงเทพ|gìi kráng kəəi bpai grung-têep}}","{{เคยไปกรุงเทพไหมกี่ครั้ง|kəəi bpai grung-têep mǎi gìi kráng}}"],"answer":0,"why":"{{กี่ครั้ง|gìi kráng}} goes where the number of times will go: at the end."},
+        {"type":"order","q":"Put the words in order.","tr":"I've never ridden an elephant. (a man speaking)","words":["ผม","ไม่เคย","ขี่","ช้าง","ครับ"]},
+        {"type":"dialogue","q":"Lek asks about your travels. Choose your replies (you're a man).","from":"say-what-you-did","lines":[{"who":"Lek","t":"คุณเคยไปเชียงใหม่ไหมคะ","r":"kun kəəi bpai chiiang-mài mǎi ká","tr":"Have you ever been to Chiang Mai?"},{"options":["เคยครับ ปีที่แล้วผมไปมา","เคยครับ ปีหน้าผมไปมา"],"answer":0,"why":"It already happened: a past time word, {{ปีที่แล้ว|bpii tîi-lɛ́ɛo}}."},{"who":"Lek","t":"ไปกี่ครั้งแล้วคะ","r":"bpai gìi kráng lɛ́ɛo ká","tr":"How many times have you been?"},{"options":["ครั้งเดียวครับ","เดียวครั้งครับ"],"answer":0,"why":"{{ครั้งเดียว|kráng diao}} “just once”: {{เดียว|diao}} “single” comes after."}]},
+        {"type":"say","q":"You're a woman. Say “This is my first time in Thailand.”","answer":"นี่เป็นครั้งแรกที่ฉันมาเมืองไทยค่ะ","r":"nîi bpen kráng rɛ̂ɛk tîi chǎn maa mʉʉang tai kâ"},
+        {"type":"free","q":"Your turn: say something you've done, something you've never done, and ask a friend whether they have.","answers":[{"t":"ผมเคยไปญี่ปุ่นครับ แต่ไม่เคยไปเกาหลี คุณเคยไปไหมครับ","r":"pǒm kəəi bpai yîi-bpùn kráp, dtɛ̀ɛ mâi kəəi bpai gao-lǐi, kun kəəi bpai mǎi kráp","tr":"I've been to Japan, but I've never been to Korea. Have you?"},{"t":"ฉันไม่เคยกินทุเรียนค่ะ คุณเคยกินไหมคะ","r":"chǎn mâi kəəi gin tú-riian kâ, kun kəəi gin mǎi ká","tr":"I've never tried durian. Have you?"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how long and since when",
+      "summary": "Say how long you've lived here, studied Thai or been waiting, and since when.",
+      "topic": "a verb + {{มา|maa}} + a length of time + {{แล้ว|lɛ́ɛo}}; {{ตั้งแต่|dtâng-dtɛ̀ɛ}} “since”; {{นานแค่ไหน|naan kɛ̂ɛ nǎi}}, {{กี่ปีแล้ว|gìi bpii lɛ́ɛo}}",
+      "blocks": [
+        {"goal":{"t":"ผมเรียนภาษาไทยมาสองปีแล้วครับ","r":"pǒm riian paa-sǎa tai maa sɔ̌ɔng bpii lɛ́ɛo kráp","tr":"I've been learning Thai for two years."}},
+        {"dialog":[{"who":"Nok","t":"คุณอยู่เมืองไทยมานานแค่ไหนแล้วคะ","r":"kun yùu mʉʉang tai maa naan kɛ̂ɛ nǎi lɛ́ɛo ká","tr":"How long have you lived in Thailand?"},{"who":"Tom","t":"สามปีแล้วครับ ตั้งแต่เรียนจบ","r":"sǎam bpii lɛ́ɛo kráp, dtâng-dtɛ̀ɛ riian jòp","tr":"Three years, since I graduated."},{"who":"Nok","t":"พูดภาษาไทยเก่งนะคะ เรียนมานานไหมคะ","r":"pûut paa-sǎa tai gèng ná ká, riian maa naan mǎi ká","tr":"Your Thai is good! Have you been learning long?"},{"who":"Tom","t":"สองปีแล้วครับ แต่ยังพูดไม่ค่อยเก่ง","r":"sɔ̌ɔng bpii lɛ́ɛo kráp, dtɛ̀ɛ yang pûut mâi kɔ̂i gèng","tr":"Two years. But I still don't speak very well."}]},
+        {"p":"**How long, up to now.** For something that started in the past and is still going on, Thai says the verb, then {{มา|maa}} “come (up to now)”, the length of time, and {{แล้ว|lɛ́ɛo}}: {{ผมอยู่ที่นี่มาห้าปีแล้ว|pǒm yùu tîi nîi maa hâa bpii lɛ́ɛo}} “I've lived here for five years”. English needs “have been” for this; Thai just needs {{มา…แล้ว|maa … lɛ́ɛo}}."},
+        {"p":"**Asking how long.** {{นานแค่ไหน|naan kɛ̂ɛ nǎi}} is “how long”; or ask with the unit: {{กี่ปีแล้ว|gìi bpii lɛ́ɛo}} “how many years (now)?”, {{กี่วันแล้ว|gìi wan lɛ́ɛo}} “how many days?”. {{นานไหม|naan mǎi}} is “(has it been) long?”."},
+        {"p":"**Since.** {{ตั้งแต่|dtâng-dtɛ̀ɛ}} “since, from” + a time or an event: {{ตั้งแต่เมื่อวาน|dtâng-dtɛ̀ɛ mʉ̂ʉa waan}} “since yesterday”, {{ตั้งแต่เด็ก|dtâng-dtɛ̀ɛ dèk}} “since (I was) a child”."},
+        { "table": [
+          ["","Thai"],
+          ["minute","{{นาที|naa-tii}}"],
+          ["hour","{{ชั่วโมง|chûua-moong}}"],
+          ["day","{{วัน|wan}}"],
+          ["week","{{อาทิตย์|aa-tít}}"],
+          ["month","{{เดือน|dʉʉan}}"],
+          ["year","{{ปี|bpii}}"]
+        ] },
+        { "ex": [
+          {"t":"ฉันรอมาครึ่งชั่วโมงแล้วค่ะ","r":"chǎn rɔɔ maa krʉ̂ng chûua-moong lɛ́ɛo kâ","tr":"I've been waiting for half an hour."},
+          {"t":"เขาทำงานที่นี่มาสิบปีแล้วครับ","r":"kǎo tam-ngaan tîi-nîi maa sìp bpii lɛ́ɛo kráp","tr":"He's worked here for ten years."},
+          {"t":"เราแต่งงานกันมาห้าปีแล้วค่ะ","r":"rao dtɛ̀ng-ngaan gan maa hâa bpii lɛ́ɛo kâ","tr":"We've been married for five years."},
+          {"t":"ฝนตกตั้งแต่เมื่อคืนครับ","r":"fǒn dtòk dtâng-dtɛ̀ɛ mʉ̂ʉa-kʉʉn kráp","tr":"It's been raining since last night."},
+          {"t":"ฉันชอบวาดรูปตั้งแต่เด็กค่ะ","r":"chǎn chɔ̂ɔp wâat rûup dtâng-dtɛ̀ɛ dèk kâ","tr":"I've loved drawing since I was a child."},
+          {"t":"คุณรู้จักเขามานานแค่ไหนแล้วครับ","r":"kun rúu-jàk kǎo maa naan kɛ̂ɛ nǎi lɛ́ɛo kráp","tr":"How long have you known her?"},
+          {"t":"ไม่ได้เจอกันนานเลยนะคะ","r":"mâi dâai jəə gan naan ləəi ná ká","tr":"Long time no see!","note":"“(we) haven't met for a long time”"}
+        ] },
+        {"tip":"{{ไม่ได้เจอกันนาน|mâi dâai jəə gan naan}} “we haven't met for a long time” is the Thai “long time no see”. There's {{ไม่ได้|mâi dâai}} again: something that hasn't happened."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมอยู่ที่นี่ห้าปีครับ","right":"ผมอยู่ที่นี่มาห้าปีแล้วครับ","tr":"I've lived here for five years.","why":"Without {{มา…แล้ว|maa … lɛ́ɛo}} it can sound like five years you will stay, or stayed once. {{มา…แล้ว|maa … lɛ́ɛo}} says “up to now”."},
+        {"wrong":"ผมเรียนแล้วมาสองปีครับ","right":"ผมเรียนมาสองปีแล้วครับ","tr":"I've been learning for two years.","why":"The order is: the verb, {{มา|maa}}, the time, {{แล้ว|lɛ́ɛo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{มา|maa}} “up to now” or {{ไป|bpai}} “away”.","t":"ฉันเรียนภาษาไทย___หนึ่งปีแล้วค่ะ","tr":"I've been learning Thai for a year.","options":["มา","ไป"],"answer":0,"why":"From the past up to now: {{มา…แล้ว|maa … lɛ́ɛo}}."},
+        {"type":"choice","q":"“It's been raining since last night.”","options":["{{ฝนตกตั้งแต่เมื่อคืน|fǒn dtòk dtâng-dtɛ̀ɛ mʉ̂ʉa-kʉʉn}}","{{ฝนตกเมื่อคืนตั้งแต่|fǒn dtòk mʉ̂ʉa-kʉʉn dtâng-dtɛ̀ɛ}}","{{ตั้งแต่ฝนตกเมื่อคืน|dtâng-dtɛ̀ɛ fǒn dtòk mʉ̂ʉa-kʉʉn}}"],"answer":0,"why":"{{ตั้งแต่|dtâng-dtɛ̀ɛ}} goes right before the time it starts from."},
+        {"type":"order","q":"Put the words in order.","tr":"I've been waiting for half an hour. (a woman speaking)","words":["ฉัน","รอ","มา","ครึ่งชั่วโมง","แล้ว","ค่ะ"]},
+        {"type":"dialogue","q":"Lek welcomes you to Thailand. Choose your replies (you're a man).","from":"talk-about-experiences","lines":[{"who":"Lek","t":"เคยมาเมืองไทยไหมคะ","r":"kəəi maa mʉʉang tai mǎi ká","tr":"Have you been to Thailand before?"},{"options":["ไม่เคยครับ นี่เป็นครั้งแรก","เคยไม่ครับ นี่เป็นครั้งแรก"],"answer":0,"why":"“Never” is {{ไม่เคย|mâi kəəi}}."},{"who":"Lek","t":"มาถึงกี่วันแล้วคะ","r":"maa tʉ̌ng gìi wan lɛ́ɛo ká","tr":"How many days have you been here?"},{"options":["สามวันแล้วครับ","สามวันมาครับ"],"answer":0,"why":"The time, then {{แล้ว|lɛ́ɛo}} “so far”."}]},
+        {"type":"say","q":"You're a man. Ask “How long have you known her?”","answer":"คุณรู้จักเขามานานแค่ไหนแล้วครับ","r":"kun rúu-jàk kǎo maa naan kɛ̂ɛ nǎi lɛ́ɛo kráp"},
+        {"type":"free","q":"Your turn: say how long you've been learning Thai, and how long you've lived where you live now.","answers":[{"t":"ผมเรียนภาษาไทยมาหกเดือนแล้วครับ ผมอยู่บ้านนี้มาสิบปีแล้ว","r":"pǒm riian paa-sǎa tai maa hòk dʉʉan lɛ́ɛo kráp, pǒm yùu bâan níi maa sìp bpii lɛ́ɛo","tr":"I've been learning Thai for six months. I've lived in this house for ten years."},{"t":"ฉันเรียนภาษาไทยมาสามเดือนแล้วค่ะ อยู่ที่นี่ตั้งแต่ปีที่แล้ว","r":"chǎn riian paa-sǎa tai maa sǎam dʉʉan lɛ́ɛo kâ, yùu tîi-nîi dtâng-dtɛ̀ɛ bpii tîi-lɛ́ɛo","tr":"I've been learning Thai for three months. I've lived here since last year."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a story in order",
+      "summary": "Tell what happened, step by step: first, then, after that, and what was going on when it happened.",
+      "topic": "{{ตอนแรก|dtɔɔn rɛ̂ɛk}}, {{แล้วก็|lɛ́ɛo-gɔ̂}}, {{หลังจากนั้น|lǎng-jàak nán}}, {{สุดท้าย|sùt-táai}}; {{ตอนที่|dtɔɔn tîi}} “when”; {{กำลัง…อยู่|gam-lang … yùu}} for the background; {{ก็เลย|gɔ̂ ləəi}} “so”",
+      "blocks": [
+        {"goal":{"t":"ตอนที่ฉันกำลังเดินกลับบ้าน ฝนก็ตกลงมาค่ะ","r":"dtɔɔn tîi chǎn gam-lang dəən glàp bâan, fǒn gɔ̂ dtòk long maa kâ","tr":"I was walking home when it started to rain."}},
+        {"dialog":[{"who":"Nok","t":"เมื่อวานเป็นยังไงบ้างคะ","r":"mʉ̂ʉa-waan bpen yang-ngai bâng ká","tr":"How was yesterday?"},{"who":"Anna","t":"แย่มากค่ะ ตอนแรกฉันไปตลาด ซื้อผักกับผลไม้","r":"yɛ̂ɛ mâak kâ, dtɔɔn rɛ̂ɛk chǎn bpai dtà-làat, sʉ́ʉ pàk gàp pǒn-lá-máai","tr":"Awful! First I went to the market and bought vegetables and fruit."},{"who":"Anna","t":"หลังจากนั้นก็ไปรอรถเมล์ ตอนที่กำลังรอ ฉันเห็นว่ากระเป๋าเงินหายไป","r":"lǎng-jàak nán gɔ̂ bpai rɔɔ rót-mee, dtɔɔn tîi gam-lang rɔɔ, chǎn hěn wâa grà-bpǎo ngən hǎai bpai","tr":"After that I went to wait for the bus. While I was waiting, I saw my wallet was gone."},{"who":"Nok","t":"ตายแล้ว แล้วทำยังไงคะ","r":"dtaai lɛ́ɛo, lɛ́ɛo tam yang-ngai ká","tr":"Oh no! So what did you do?"},{"who":"Anna","t":"ฉันก็เลยวิ่งกลับไปที่ตลาด สุดท้ายแม่ค้าเก็บไว้ให้ค่ะ","r":"chǎn gɔ̂ ləəi wîng glàp bpai tîi dtà-làat, sùt-táai mɛ̂ɛ-káa gèp wái hâi kâ","tr":"So I ran back to the market. In the end the stall owner had kept it for me."}]},
+        {"p":"**Putting it in order.** A story moves on with little linking words: {{ตอนแรก|dtɔɔn rɛ̂ɛk}} “at first”, {{แล้วก็|lɛ́ɛo-gɔ̂}} “and then”, {{หลังจากนั้น|lǎng-jàak nán}} “after that”, {{สุดท้าย|sùt-táai}} “in the end”. The verbs stay as they are: the past is clear from the start of the story."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{ตอนแรก|dtɔɔn rɛ̂ɛk}}","at first, first"],
+          ["{{แล้วก็|lɛ́ɛo-gɔ̂}}","and then"],
+          ["{{หลังจากนั้น|lǎng-jàak nán}}","after that"],
+          ["{{ก่อนหน้านั้น|gɔ̀ɔn nâa nán}}","before that"],
+          ["{{ตอนนั้น|dtɔɔn nán}}","at that time, then"],
+          ["{{สุดท้าย|sùt-táai}}","finally, in the end"]
+        ] },
+        {"p":"**When: ตอนที่.** {{ตอนที่|dtɔɔn tîi}} “at the time that” + a sentence sets the scene: {{ตอนที่ฉันกลับถึงบ้าน|dtɔɔn tîi chǎn glàp tʉ̌ng bâan}} “when I got home”. The main event follows, often with {{ก็|gɔ̂}} “then”: {{ตอนที่ฉันกลับถึงบ้าน ทุกคนก็หลับแล้ว|dtɔɔn tîi chǎn glàp tʉ̌ng bâan túk kon gɔ̂ làp lɛ́ɛo}} “when I got home, everyone was already asleep”."},
+        {"p":"**The background.** What was going on at the time takes {{กำลัง…อยู่|gam-lang … yùu}}, as in lesson 21: {{ตอนที่ผมกำลังอาบน้ำอยู่ โทรศัพท์ก็ดัง|dtɔɔn tîi pǒm gam-lang àap náam yùu too-rá-sàp gɔ̂ dang}} “I was in the shower when the phone rang”."},
+        {"p":"**So: ก็เลย.** {{ก็เลย|gɔ̂ ləəi}} “so, and so” gives the result: {{ฝนตก ผมก็เลยไม่ได้ไป|fǒn-dtòk pǒm gɔ̂ ləəi mâi dâai bpai}} “it rained, so I didn't go”. Reasons and results come back in a later lesson."},
+        { "ex": [
+          {"t":"ตอนแรกผมไม่ชอบอาหารเผ็ด แต่ตอนนี้ชอบมากครับ","r":"dtɔɔn rɛ̂ɛk pǒm mâi chɔ̂ɔp aa-hǎan pèt, dtɛ̀ɛ dtɔɔn-níi chɔ̂ɔp mâak kráp","tr":"At first I didn't like spicy food, but now I love it."},
+          {"t":"เรากินข้าว แล้วก็ไปดูหนังค่ะ","r":"rao gin kâao, lɛ́ɛo-gɔ̂ bpai duu nǎng kâ","tr":"We ate, and then went to a movie."},
+          {"t":"หลังจากนั้นเขาก็กลับบ้านครับ","r":"lǎng-jàak nán kǎo gɔ̂ glàp bâan kráp","tr":"After that he went home."},
+          {"t":"ตอนที่ฉันกลับถึงบ้าน ทุกคนก็หลับแล้วค่ะ","r":"dtɔɔn tîi chǎn glàp tʉ̌ng bâan, túk kon gɔ̂ làp lɛ́ɛo kâ","tr":"When I got home, everyone was already asleep."},
+          {"t":"ตอนที่ผมกำลังอาบน้ำอยู่ โทรศัพท์ก็ดังครับ","r":"dtɔɔn tîi pǒm gam-lang àap-náam yùu, too-rá-sàp gɔ̂ dang kráp","tr":"I was in the shower when the phone rang."},
+          {"t":"สุดท้ายเราก็หาโรงแรมได้ค่ะ","r":"sùt-táai rao gɔ̂ hǎa roong-rɛɛm dâai kâ","tr":"In the end we managed to find a hotel."}
+        ] },
+        {"tip":"Thais react to a story with {{จริงเหรอ|jing rə̌ə}} “really?”, {{แล้วไงต่อ|lɛ́ɛo ngai dtɔ̀ɔ}} “and then what?”, or {{ตายแล้ว|dtaai lɛ́ɛo}} “oh no!” (literally “dead already”)."}
+      ],
+      "mistakes": [
+        {"wrong":"เมื่อวานผมไปแล้วตลาด","right":"เมื่อวานผมไปตลาด","tr":"Yesterday I went to the market.","why":"{{แล้ว|lɛ́ɛo}} isn't a past tense. {{เมื่อวาน|mʉ̂ʉa-waan}} already says it's past; {{แล้ว|lɛ́ɛo}} between the verb and the place makes no sense."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the linking word: {{หลังจากนั้น|lǎng-jàak nán}} “after that” or {{ตอนแรก|dtɔɔn rɛ̂ɛk}} “at first”.","t":"เรากินข้าว ___ก็ไปเดินเล่นค่ะ","tr":"We ate. After that we went for a walk.","options":["หลังจากนั้น","ตอนแรก"],"answer":0,"why":"The next step of the story: {{หลังจากนั้น|lǎng-jàak nán}}."},
+        {"type":"choice","q":"“I was walking home when it started to rain.” Which part takes {{กำลัง|gam-lang}}?","options":["walking home: the background","it started to rain: the event","both parts"],"answer":0,"why":"{{กำลัง|gam-lang}} is for what was going on; the event that happened in the middle of it gets {{ก็|gɔ̂}}."},
+        {"type":"order","q":"Put the words in order.","tr":"When I got home, everyone was already asleep. (a woman speaking)","words":["ตอนที่","ฉัน","กลับถึงบ้าน","ทุกคน","ก็","หลับแล้ว","ค่ะ"]},
+        {"type":"dialogue","q":"Nok asks about your day at the beach. Choose your replies (you're a man).","from":"say-what-you-did","lines":[{"who":"Nok","t":"เมื่อวานไปไหนมาคะ","r":"mʉ̂ʉa-waan bpai nǎi maa ká","tr":"Where did you go yesterday?"},{"options":["ไปทะเลมาครับ ตอนแรกว่ายน้ำ แล้วก็กินอาหารทะเล","ไปทะเลมาครับ แล้วก็ตอนแรกว่ายน้ำ"],"answer":0,"why":"{{ตอนแรก|dtɔɔn rɛ̂ɛk}} begins the story; {{แล้วก็|lɛ́ɛo-gɔ̂}} moves it on."},{"who":"Nok","t":"แล้วไงต่อคะ","r":"lɛ́ɛo ngai dtɔ̀ɔ ká","tr":"And then?"},{"options":["สุดท้ายก็กลับบ้านตอนดึกครับ","สุดท้ายจะกลับบ้านตอนดึกครับ"],"answer":0,"why":"It's the end of a past story: no {{จะ|jà}}."}]},
+        {"type":"say","q":"You're a man. Say “I was in the shower when the phone rang.”","answer":"ตอนที่ผมกำลังอาบน้ำอยู่ โทรศัพท์ก็ดังครับ","r":"dtɔɔn tîi pǒm gam-lang àap-náam yùu, too-rá-sàp gɔ̂ dang kráp"},
+        {"type":"free","q":"Your turn: tell what happened on a day you remember, in three steps: first, then, in the end.","answers":[{"t":"ตอนแรกผมไปสนามบินครับ แล้วก็รอเครื่องบินสามชั่วโมง สุดท้ายก็ถึงเชียงใหม่ตอนเที่ยงคืน","r":"dtɔɔn rɛ̂ɛk pǒm bpai sà-nǎam-bin kráp, lɛ́ɛo-gɔ̂ rɔɔ krʉ̂ʉang-bin sǎam chûua-moong, sùt-táai gɔ̂ tʉ̌ng chiiang-mài dtɔɔn tîiang-kʉʉn","tr":"First I went to the airport, then I waited three hours for the plane. In the end I got to Chiang Mai at midnight."},{"t":"ตอนแรกฉันหลงทางค่ะ แล้วก็ถามตำรวจ สุดท้ายก็หาโรงแรมเจอ","r":"dtɔɔn rɛ̂ɛk chǎn lǒng taang kâ, lɛ́ɛo-gɔ̂ tǎam dtam-rùuat, sùt-táai gɔ̂ hǎa roong-rɛɛm jəə","tr":"At first I got lost, then I asked a police officer, and in the end I found the hotel."}]}
+      ]
     }
   ]
 }
