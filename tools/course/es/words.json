@@ -8312,6 +8312,924 @@
       "meaning": "municipal, city, town",
       "sentence": "Fuimos a la biblioteca municipal.",
       "translation": "We went to the ⟦city⟧ library."
+    },
+    {
+      "n": 901,
+      "rank": 984,
+      "word": "beneficio",
+      "pos": "noun",
+      "meaning": "benefit",
+      "sentence": "El trabajo tiene muchos beneficios.",
+      "translation": "The job has a lot of ⟦benefits⟧.",
+      "form": "beneficios"
+    },
+    {
+      "n": 902,
+      "rank": 986,
+      "word": "correcto",
+      "pos": "adj",
+      "meaning": "correct, right",
+      "sentence": "¿Es correcto?",
+      "translation": "Is that ⟦correct⟧?"
+    },
+    {
+      "n": 903,
+      "rank": 987,
+      "word": "figura",
+      "pos": "noun",
+      "meaning": "figure; shape",
+      "sentence": "Cuida mucho su figura.",
+      "translation": "She takes good care of her ⟦figure⟧."
+    },
+    {
+      "n": 904,
+      "rank": 991,
+      "word": "importancia",
+      "pos": "noun",
+      "meaning": "importance",
+      "sentence": "No tiene importancia.",
+      "translation": "It's of no ⟦importance⟧."
+    },
+    {
+      "n": 905,
+      "rank": 992,
+      "word": "retirar",
+      "pos": "verb",
+      "meaning": "to withdraw; to remove; (retirarse) to retire",
+      "sentence": "Voy a retirar dinero del cajero.",
+      "translation": "I'm going to ⟦withdraw⟧ money from the ATM."
+    },
+    {
+      "n": 906,
+      "rank": 993,
+      "word": "destino",
+      "pos": "noun",
+      "meaning": "destination; destiny, fate",
+      "sentence": "Llegamos a nuestro destino.",
+      "translation": "We reached our ⟦destination⟧."
+    },
+    {
+      "n": 907,
+      "rank": 994,
+      "word": "electoral",
+      "pos": "adj",
+      "meaning": "electoral, voting, election",
+      "sentence": "¿Ya tienes tu credencial electoral?",
+      "translation": "Do you have your ⟦voter⟧ ID card yet?"
+    },
+    {
+      "n": 908,
+      "rank": 995,
+      "word": "cuidado",
+      "pos": "noun",
+      "meaning": "care (¡cuidado!: watch out!; tener cuidado: to be careful)",
+      "sentence": "¡Ten cuidado!",
+      "translation": "Be ⟦careful⟧!"
+    },
+    {
+      "n": 909,
+      "rank": 996,
+      "word": "esperanza",
+      "pos": "noun",
+      "meaning": "hope",
+      "sentence": "No pierdas la esperanza.",
+      "translation": "Don't lose ⟦hope⟧."
+    },
+    {
+      "n": 910,
+      "rank": 997,
+      "word": "secreto",
+      "pos": "noun",
+      "meaning": "secret",
+      "sentence": "¿Puedes guardar un secreto?",
+      "translation": "Can you keep a ⟦secret⟧?"
+    },
+    {
+      "n": 911,
+      "rank": 998,
+      "word": "periodista",
+      "pos": "noun",
+      "meaning": "journalist",
+      "sentence": "Quiero ser periodista.",
+      "translation": "I want to be a ⟦journalist⟧."
+    },
+    {
+      "n": 912,
+      "rank": 999,
+      "word": "sentimiento",
+      "pos": "noun",
+      "meaning": "feeling",
+      "sentence": "No quiero herir tus sentimientos.",
+      "translation": "I don't want to hurt your ⟦feelings⟧.",
+      "form": "sentimientos"
+    },
+    {
+      "n": 913,
+      "rank": 1000,
+      "word": "ambiente",
+      "pos": "noun",
+      "meaning": "atmosphere; environment (medio ambiente)",
+      "sentence": "Me gusta el ambiente de este lugar.",
+      "translation": "I like the ⟦atmosphere⟧ of this place."
+    },
+    {
+      "n": 914,
+      "rank": 1001,
+      "word": "detener",
+      "pos": "verb",
+      "meaning": "to arrest; to stop",
+      "sentence": "La policía detuvo al ladrón.",
+      "translation": "The police ⟦arrested⟧ the thief.",
+      "form": "detuvo"
+    },
+    {
+      "n": 915,
+      "rank": 1002,
+      "word": "escritor",
+      "pos": "noun",
+      "meaning": "writer (escritora: female writer)",
+      "sentence": "Es mi escritor favorito.",
+      "translation": "He's my favorite ⟦writer⟧."
+    },
+    {
+      "n": 916,
+      "rank": 1003,
+      "word": "marco",
+      "pos": "noun",
+      "meaning": "frame; framework",
+      "sentence": "Compré un marco para la foto.",
+      "translation": "I bought a ⟦frame⟧ for the photo."
+    },
+    {
+      "n": 917,
+      "rank": 1004,
+      "word": "requerir",
+      "pos": "verb",
+      "meaning": "to require",
+      "sentence": "El trabajo requiere experiencia.",
+      "translation": "The job ⟦requires⟧ experience.",
+      "form": "requiere"
+    },
+    {
+      "n": 918,
+      "rank": 1005,
+      "word": "verano",
+      "pos": "noun",
+      "meaning": "summer",
+      "sentence": "En verano hace mucho calor.",
+      "translation": "It's really hot in the ⟦summer⟧."
+    },
+    {
+      "n": 919,
+      "rank": 1006,
+      "word": "regla",
+      "pos": "noun",
+      "meaning": "rule; ruler",
+      "sentence": "Hay que seguir las reglas.",
+      "translation": "You have to follow the ⟦rules⟧.",
+      "form": "reglas"
+    },
+    {
+      "n": 920,
+      "rank": 1007,
+      "word": "estación",
+      "pos": "noun",
+      "meaning": "station; season",
+      "sentence": "¿Dónde está la estación del metro?",
+      "translation": "Where's the subway ⟦station⟧?"
+    },
+    {
+      "n": 921,
+      "rank": 1008,
+      "word": "independiente",
+      "pos": "adj",
+      "meaning": "independent",
+      "sentence": "Mi hija es muy independiente.",
+      "translation": "My daughter is very ⟦independent⟧."
+    },
+    {
+      "n": 922,
+      "rank": 1009,
+      "word": "hogar",
+      "pos": "noun",
+      "meaning": "home",
+      "sentence": "No hay nada como el hogar.",
+      "translation": "There's no place like ⟦home⟧."
+    },
+    {
+      "n": 923,
+      "rank": 1010,
+      "word": "tuyo",
+      "pos": "pron",
+      "meaning": "yours (informal)",
+      "sentence": "¿Este paraguas es tuyo?",
+      "translation": "Is this umbrella ⟦yours⟧?"
+    },
+    {
+      "n": 924,
+      "rank": 1011,
+      "word": "estructura",
+      "pos": "noun",
+      "meaning": "structure",
+      "sentence": "La estructura del edificio es segura.",
+      "translation": "The building's ⟦structure⟧ is safe."
+    },
+    {
+      "n": 925,
+      "rank": 1012,
+      "word": "golpe",
+      "pos": "noun",
+      "meaning": "blow, hit; bump",
+      "sentence": "Me di un golpe en la cabeza.",
+      "translation": "I got a ⟦bump⟧ on my head."
+    },
+    {
+      "n": 926,
+      "rank": 1013,
+      "word": "representante",
+      "pos": "noun",
+      "meaning": "representative",
+      "sentence": "Hablé con un representante de la empresa.",
+      "translation": "I spoke with a company ⟦representative⟧."
+    },
+    {
+      "n": 927,
+      "rank": 1014,
+      "word": "frío",
+      "pos": "noun",
+      "meaning": "cold; (adj.) cold",
+      "sentence": "Hace mucho frío hoy.",
+      "translation": "It's really ⟦cold⟧ today."
+    },
+    {
+      "n": 928,
+      "rank": 1016,
+      "word": "jamás",
+      "pos": "adv",
+      "meaning": "never (ever)",
+      "sentence": "¡Jamás lo voy a olvidar!",
+      "translation": "I'll ⟦never⟧ forget it!"
+    },
+    {
+      "n": 929,
+      "rank": 1017,
+      "word": "prensa",
+      "pos": "noun",
+      "meaning": "press",
+      "sentence": "Habló con la prensa.",
+      "translation": "He spoke to the ⟦press⟧."
+    },
+    {
+      "n": 930,
+      "rank": 1018,
+      "word": "voto",
+      "pos": "noun",
+      "meaning": "vote",
+      "sentence": "Cada voto cuenta.",
+      "translation": "Every ⟦vote⟧ counts."
+    },
+    {
+      "n": 931,
+      "rank": 1020,
+      "word": "mínimo",
+      "pos": "adj",
+      "meaning": "minimum; least",
+      "sentence": "El salario mínimo subió este año.",
+      "translation": "The ⟦minimum⟧ wage went up this year."
+    },
+    {
+      "n": 932,
+      "rank": 1021,
+      "word": "memoria",
+      "pos": "noun",
+      "meaning": "memory",
+      "sentence": "Tengo muy mala memoria.",
+      "translation": "I have a really bad ⟦memory⟧."
+    },
+    {
+      "n": 933,
+      "rank": 1022,
+      "word": "concepto",
+      "pos": "noun",
+      "meaning": "concept, idea",
+      "sentence": "No entiendo el concepto.",
+      "translation": "I don't understand the ⟦concept⟧."
+    },
+    {
+      "n": 934,
+      "rank": 1023,
+      "word": "volar",
+      "pos": "verb",
+      "meaning": "to fly",
+      "sentence": "Me da miedo volar.",
+      "translation": "I'm afraid of ⟦flying⟧."
+    },
+    {
+      "n": 935,
+      "rank": 1024,
+      "word": "democracia",
+      "pos": "noun",
+      "meaning": "democracy",
+      "sentence": "Vivimos en una democracia.",
+      "translation": "We live in a ⟦democracy⟧."
+    },
+    {
+      "n": 936,
+      "rank": 1026,
+      "word": "caja",
+      "pos": "noun",
+      "meaning": "box; checkout, cash register",
+      "sentence": "Pague en la caja, por favor.",
+      "translation": "Please pay at the ⟦register⟧."
+    },
+    {
+      "n": 937,
+      "rank": 1027,
+      "word": "enemigo",
+      "pos": "noun",
+      "meaning": "enemy",
+      "sentence": "No tengo enemigos.",
+      "translation": "I don't have any ⟦enemies⟧.",
+      "form": "enemigos"
+    },
+    {
+      "n": 938,
+      "rank": 1028,
+      "word": "abuelo",
+      "pos": "noun",
+      "meaning": "grandfather (abuela: grandmother; abuelos: grandparents)",
+      "sentence": "Mi abuela hace las mejores tortillas.",
+      "translation": "My ⟦grandma⟧ makes the best tortillas.",
+      "form": "abuela"
+    },
+    {
+      "n": 939,
+      "rank": 1029,
+      "word": "letra",
+      "pos": "noun",
+      "meaning": "letter (of the alphabet); handwriting; lyrics",
+      "sentence": "No entiendo tu letra.",
+      "translation": "I can't read your ⟦handwriting⟧."
+    },
+    {
+      "n": 940,
+      "rank": 1031,
+      "word": "completamente",
+      "pos": "adv",
+      "meaning": "completely",
+      "sentence": "Se me olvidó completamente.",
+      "translation": "I ⟦completely⟧ forgot."
+    },
+    {
+      "n": 941,
+      "rank": 1032,
+      "word": "enseñar",
+      "pos": "verb",
+      "meaning": "to teach; to show",
+      "sentence": "¿Me enseñas a bailar?",
+      "translation": "Will you ⟦teach⟧ me to dance?",
+      "form": "enseñas"
+    },
+    {
+      "n": 942,
+      "rank": 1033,
+      "word": "confirmar",
+      "pos": "verb",
+      "meaning": "to confirm",
+      "sentence": "Quiero confirmar mi reservación.",
+      "translation": "I'd like to ⟦confirm⟧ my reservation."
+    },
+    {
+      "n": 943,
+      "rank": 1034,
+      "word": "herido",
+      "pos": "adj",
+      "meaning": "injured, hurt; (noun) injured person",
+      "sentence": "Hubo dos heridos en el accidente.",
+      "translation": "Two people were ⟦injured⟧ in the accident.",
+      "form": "heridos"
+    },
+    {
+      "n": 944,
+      "rank": 1035,
+      "word": "amplio",
+      "pos": "adj",
+      "meaning": "spacious, roomy; wide, broad",
+      "sentence": "La casa es muy amplia.",
+      "translation": "The house is very ⟦spacious⟧.",
+      "form": "amplia"
+    },
+    {
+      "n": 945,
+      "rank": 1036,
+      "word": "declaración",
+      "pos": "noun",
+      "meaning": "statement; declaration",
+      "sentence": "El presidente hizo una declaración.",
+      "translation": "The president made a ⟦statement⟧."
+    },
+    {
+      "n": 946,
+      "rank": 1037,
+      "word": "temporada",
+      "pos": "noun",
+      "meaning": "season",
+      "sentence": "Es temporada de lluvias.",
+      "translation": "It's the rainy ⟦season⟧."
+    },
+    {
+      "n": 947,
+      "rank": 1038,
+      "word": "escena",
+      "pos": "noun",
+      "meaning": "scene",
+      "sentence": "Es mi escena favorita.",
+      "translation": "It's my favorite ⟦scene⟧."
+    },
+    {
+      "n": 948,
+      "rank": 1039,
+      "word": "saludo",
+      "pos": "noun",
+      "meaning": "greeting; (saludos) regards",
+      "sentence": "Saludos a tu familia.",
+      "translation": "Give my ⟦regards⟧ to your family.",
+      "form": "saludos"
+    },
+    {
+      "n": 949,
+      "rank": 1040,
+      "word": "distancia",
+      "pos": "noun",
+      "meaning": "distance",
+      "sentence": "¿Qué distancia hay de aquí a Puebla?",
+      "translation": "What's the ⟦distance⟧ from here to Puebla?"
+    },
+    {
+      "n": 950,
+      "rank": 1041,
+      "word": "piedra",
+      "pos": "noun",
+      "meaning": "stone, rock",
+      "sentence": "Me tropecé con una piedra.",
+      "translation": "I tripped on a ⟦rock⟧."
+    },
+    {
+      "n": 951,
+      "rank": 1042,
+      "word": "entrevista",
+      "pos": "noun",
+      "meaning": "interview",
+      "sentence": "Mañana tengo una entrevista de trabajo.",
+      "translation": "Tomorrow I have a job ⟦interview⟧."
+    },
+    {
+      "n": 952,
+      "rank": 1043,
+      "word": "manejar",
+      "pos": "verb",
+      "meaning": "to drive (Mexico); to handle, to manage",
+      "sentence": "¿Sabes manejar?",
+      "translation": "Do you know how to ⟦drive⟧?"
+    },
+    {
+      "n": 953,
+      "rank": 1044,
+      "word": "básico",
+      "pos": "adj",
+      "meaning": "basic",
+      "sentence": "Hablo un inglés básico.",
+      "translation": "I speak ⟦basic⟧ English."
+    },
+    {
+      "n": 954,
+      "rank": 1045,
+      "word": "doble",
+      "pos": "adj",
+      "meaning": "double",
+      "sentence": "Quiero una habitación doble.",
+      "translation": "I'd like a ⟦double⟧ room."
+    },
+    {
+      "n": 955,
+      "rank": 1046,
+      "word": "desaparecer",
+      "pos": "verb",
+      "meaning": "to disappear",
+      "sentence": "Mi gato desapareció.",
+      "translation": "My cat ⟦disappeared⟧.",
+      "form": "desapareció"
+    },
+    {
+      "n": 956,
+      "rank": 1047,
+      "word": "armar",
+      "pos": "verb",
+      "meaning": "to put together, to assemble; to arm",
+      "sentence": "¿Me ayudas a armar el mueble?",
+      "translation": "Can you help me ⟦put together⟧ the furniture?"
+    },
+    {
+      "n": 957,
+      "rank": 1048,
+      "word": "controlar",
+      "pos": "verb",
+      "meaning": "to control",
+      "sentence": "No puedo controlar mis nervios.",
+      "translation": "I can't ⟦control⟧ my nerves."
+    },
+    {
+      "n": 958,
+      "rank": 1050,
+      "word": "excelente",
+      "pos": "adj",
+      "meaning": "excellent",
+      "sentence": "¡Excelente trabajo!",
+      "translation": "⟦Excellent⟧ work!"
+    },
+    {
+      "n": 959,
+      "rank": 1051,
+      "word": "cliente",
+      "pos": "noun",
+      "meaning": "customer, client",
+      "sentence": "El cliente siempre tiene la razón.",
+      "translation": "The ⟦customer⟧ is always right."
+    },
+    {
+      "n": 960,
+      "rank": 1053,
+      "word": "tarea",
+      "pos": "noun",
+      "meaning": "homework; task, chore",
+      "sentence": "Tengo mucha tarea.",
+      "translation": "I have a lot of ⟦homework⟧."
+    },
+    {
+      "n": 961,
+      "rank": 1054,
+      "word": "atacar",
+      "pos": "verb",
+      "meaning": "to attack",
+      "sentence": "El perro atacó a un niño.",
+      "translation": "The dog ⟦attacked⟧ a child.",
+      "form": "atacó"
+    },
+    {
+      "n": 962,
+      "rank": 1055,
+      "word": "cama",
+      "pos": "noun",
+      "meaning": "bed",
+      "sentence": "Me voy a la cama.",
+      "translation": "I'm going to ⟦bed⟧."
+    },
+    {
+      "n": 963,
+      "rank": 1056,
+      "word": "moderno",
+      "pos": "adj",
+      "meaning": "modern",
+      "sentence": "Es un edificio muy moderno.",
+      "translation": "It's a very ⟦modern⟧ building."
+    },
+    {
+      "n": 964,
+      "rank": 1057,
+      "word": "fe",
+      "pos": "noun",
+      "meaning": "faith",
+      "sentence": "Hay que tener fe.",
+      "translation": "You have to have ⟦faith⟧."
+    },
+    {
+      "n": 965,
+      "rank": 1058,
+      "word": "ocho",
+      "pos": "num",
+      "meaning": "eight",
+      "sentence": "Trabajo ocho horas al día.",
+      "translation": "I work ⟦eight⟧ hours a day."
+    },
+    {
+      "n": 966,
+      "rank": 1060,
+      "word": "debate",
+      "pos": "noun",
+      "meaning": "debate",
+      "sentence": "Hubo un debate en la tele.",
+      "translation": "There was a ⟦debate⟧ on TV."
+    },
+    {
+      "n": 967,
+      "rank": 1061,
+      "word": "contener",
+      "pos": "verb",
+      "meaning": "to contain",
+      "sentence": "Este producto contiene leche.",
+      "translation": "This product ⟦contains⟧ milk.",
+      "form": "contiene"
+    },
+    {
+      "n": 968,
+      "rank": 1062,
+      "word": "beber",
+      "pos": "verb",
+      "meaning": "to drink",
+      "sentence": "Hay que beber mucha agua.",
+      "translation": "You need ⟦to drink⟧ a lot of water."
+    },
+    {
+      "n": 969,
+      "rank": 1063,
+      "word": "generación",
+      "pos": "noun",
+      "meaning": "generation",
+      "sentence": "Mi generación creció con internet.",
+      "translation": "My ⟦generation⟧ grew up with the internet."
+    },
+    {
+      "n": 970,
+      "rank": 1064,
+      "word": "positivo",
+      "pos": "adj",
+      "meaning": "positive",
+      "sentence": "Hay que ser positivo.",
+      "translation": "You have to be ⟦positive⟧."
+    },
+    {
+      "n": 971,
+      "rank": 1065,
+      "word": "mover",
+      "pos": "verb",
+      "meaning": "to move",
+      "sentence": "¿Me ayudas a mover el sillón?",
+      "translation": "Can you help me ⟦move⟧ the couch?"
+    },
+    {
+      "n": 972,
+      "rank": 1066,
+      "word": "creación",
+      "pos": "noun",
+      "meaning": "creation",
+      "sentence": "Esta receta es creación de mi abuela.",
+      "translation": "This recipe is my grandma's ⟦creation⟧."
+    },
+    {
+      "n": 973,
+      "rank": 1067,
+      "word": "causar",
+      "pos": "verb",
+      "meaning": "to cause",
+      "sentence": "La lluvia causó muchos problemas.",
+      "translation": "The rain ⟦caused⟧ a lot of problems.",
+      "form": "causó"
+    },
+    {
+      "n": 974,
+      "rank": 1068,
+      "word": "limitar",
+      "pos": "verb",
+      "meaning": "to limit",
+      "sentence": "Hay que limitar el tiempo de pantalla.",
+      "translation": "You have ⟦to limit⟧ screen time."
+    },
+    {
+      "n": 975,
+      "rank": 1069,
+      "word": "copa",
+      "pos": "noun",
+      "meaning": "glass (with a stem); cup, trophy",
+      "sentence": "¿Quieres una copa de vino?",
+      "translation": "Would you like a ⟦glass⟧ of wine?"
+    },
+    {
+      "n": 976,
+      "rank": 1070,
+      "word": "parque",
+      "pos": "noun",
+      "meaning": "park",
+      "sentence": "Vamos al parque.",
+      "translation": "Let's go to the ⟦park⟧."
+    },
+    {
+      "n": 977,
+      "rank": 1071,
+      "word": "suyo",
+      "pos": "pron",
+      "meaning": "his, hers, theirs; yours (usted)",
+      "sentence": "Ese carro es suyo.",
+      "translation": "That car is ⟦his⟧."
+    },
+    {
+      "n": 978,
+      "rank": 1072,
+      "word": "misión",
+      "pos": "noun",
+      "meaning": "mission",
+      "sentence": "Nuestra misión es ayudar.",
+      "translation": "Our ⟦mission⟧ is to help."
+    },
+    {
+      "n": 979,
+      "rank": 1074,
+      "word": "naturaleza",
+      "pos": "noun",
+      "meaning": "nature",
+      "sentence": "Me encanta la naturaleza.",
+      "translation": "I love ⟦nature⟧."
+    },
+    {
+      "n": 980,
+      "rank": 1075,
+      "word": "protección",
+      "pos": "noun",
+      "meaning": "protection",
+      "sentence": "Usa protección para los ojos.",
+      "translation": "Wear eye ⟦protection⟧."
+    },
+    {
+      "n": 981,
+      "rank": 1076,
+      "word": "prueba",
+      "pos": "noun",
+      "meaning": "test; proof",
+      "sentence": "Mañana tengo una prueba de matemáticas.",
+      "translation": "Tomorrow I have a math ⟦test⟧."
+    },
+    {
+      "n": 982,
+      "rank": 1078,
+      "word": "tienda",
+      "pos": "noun",
+      "meaning": "store, shop",
+      "sentence": "La tienda cierra a las nueve.",
+      "translation": "The ⟦store⟧ closes at nine."
+    },
+    {
+      "n": 983,
+      "rank": 1079,
+      "word": "azul",
+      "pos": "adj",
+      "meaning": "blue",
+      "sentence": "Mi color favorito es el azul.",
+      "translation": "My favorite color is ⟦blue⟧."
+    },
+    {
+      "n": 984,
+      "rank": 1080,
+      "word": "discurso",
+      "pos": "noun",
+      "meaning": "speech",
+      "sentence": "Dio un discurso muy bonito.",
+      "translation": "He gave a really nice ⟦speech⟧."
+    },
+    {
+      "n": 985,
+      "rank": 1081,
+      "word": "herramienta",
+      "pos": "noun",
+      "meaning": "tool",
+      "sentence": "¿Dónde están las herramientas?",
+      "translation": "Where are the ⟦tools⟧?",
+      "form": "herramientas"
+    },
+    {
+      "n": 986,
+      "rank": 1082,
+      "word": "cercano",
+      "pos": "adj",
+      "meaning": "close, nearby",
+      "sentence": "Es un amigo muy cercano.",
+      "translation": "He's a very ⟦close⟧ friend."
+    },
+    {
+      "n": 987,
+      "rank": 1083,
+      "word": "expresión",
+      "pos": "noun",
+      "meaning": "expression",
+      "sentence": "Es una expresión mexicana.",
+      "translation": "It's a Mexican ⟦expression⟧."
+    },
+    {
+      "n": 988,
+      "rank": 1084,
+      "word": "grave",
+      "pos": "adj",
+      "meaning": "serious",
+      "sentence": "No es nada grave.",
+      "translation": "It's nothing ⟦serious⟧."
+    },
+    {
+      "n": 989,
+      "rank": 1085,
+      "word": "negar",
+      "pos": "verb",
+      "meaning": "to deny; to refuse",
+      "sentence": "Él niega todo.",
+      "translation": "He ⟦denies⟧ everything.",
+      "form": "niega"
+    },
+    {
+      "n": 990,
+      "rank": 1086,
+      "word": "invitar",
+      "pos": "verb",
+      "meaning": "to invite; to treat (pay for someone)",
+      "sentence": "Te invito un café.",
+      "translation": "I'll ⟦treat⟧ you to a coffee.",
+      "form": "invito"
+    },
+    {
+      "n": 991,
+      "rank": 1087,
+      "word": "puro",
+      "pos": "adj",
+      "meaning": "pure; (Mexico) just, nothing but",
+      "sentence": "Es oro puro.",
+      "translation": "It's ⟦pure⟧ gold."
+    },
+    {
+      "n": 992,
+      "rank": 1088,
+      "word": "empleo",
+      "pos": "noun",
+      "meaning": "job, employment",
+      "sentence": "Busco empleo.",
+      "translation": "I'm looking for a ⟦job⟧."
+    },
+    {
+      "n": 993,
+      "rank": 1090,
+      "word": "plazo",
+      "pos": "noun",
+      "meaning": "period, deadline (a plazos: in installments)",
+      "sentence": "Lo pagué a plazos.",
+      "translation": "I paid for it in ⟦installments⟧."
+    },
+    {
+      "n": 994,
+      "rank": 1092,
+      "word": "delito",
+      "pos": "noun",
+      "meaning": "crime, offense",
+      "sentence": "Robar es un delito.",
+      "translation": "Stealing is a ⟦crime⟧."
+    },
+    {
+      "n": 995,
+      "rank": 1093,
+      "word": "teoría",
+      "pos": "noun",
+      "meaning": "theory",
+      "sentence": "En teoría, es fácil.",
+      "translation": "In ⟦theory⟧, it's easy."
+    },
+    {
+      "n": 996,
+      "rank": 1094,
+      "word": "resolver",
+      "pos": "verb",
+      "meaning": "to solve, to resolve",
+      "sentence": "Hay que resolver el problema.",
+      "translation": "We have ⟦to solve⟧ the problem."
+    },
+    {
+      "n": 997,
+      "rank": 1096,
+      "word": "pensamiento",
+      "pos": "noun",
+      "meaning": "thought",
+      "sentence": "Me leíste el pensamiento.",
+      "translation": "You read my ⟦thoughts⟧."
+    },
+    {
+      "n": 998,
+      "rank": 1097,
+      "word": "soldado",
+      "pos": "noun",
+      "meaning": "soldier",
+      "sentence": "Mi abuelo fue soldado.",
+      "translation": "My grandfather was a ⟦soldier⟧."
+    },
+    {
+      "n": 999,
+      "rank": 1098,
+      "word": "deporte",
+      "pos": "noun",
+      "meaning": "sport",
+      "sentence": "¿Qué deporte practicas?",
+      "translation": "What ⟦sport⟧ do you play?"
+    },
+    {
+      "n": 1000,
+      "rank": 1099,
+      "word": "detrás",
+      "pos": "adv",
+      "meaning": "behind (detrás de: behind)",
+      "sentence": "El gato está detrás del sillón.",
+      "translation": "The cat is ⟦behind⟧ the couch."
     }
   ]
 }
