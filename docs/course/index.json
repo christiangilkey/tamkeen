@@ -64,6 +64,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "zh": {
+   "file": "zh/course.json",
+   "title": "Chinese basics",
+   "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 356358,
+   "audio_bytes": 11234060,
+   "sha256": "0cb675838e26d51e0acfd521ce94885c64930109e79199f0b16c6a43b6b93809",
+   "voice": {
+    "engine": "azure",
+    "name": "Xiaoxiao (Azure, mainland China)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }
