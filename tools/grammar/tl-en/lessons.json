@@ -1149,6 +1149,254 @@
         {"type":"say","q":"Paano mo sasabihin ang “Kailangan ko nang umalis”?","answer":"I have to go now."},
         {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay na kailangan mong gawin ngayong linggo, at magbigay ng isang payo sa kaibigan ({{You should…}}).","answers":[{"t":"I have to work on Saturday. I need to call my mom. You should try the new Filipino restaurant!","tr":"Kailangan kong magtrabaho sa Sabado. Kailangan kong tawagan ang nanay ko. Subukan mo ang bagong Pilipinong restawran!"},{"t":"I have to pay my bills and I need to clean the house. You should get more sleep.","tr":"Kailangan kong magbayad ng mga bayarin at maglinis ng bahay. Dapat kang matulog nang mas mahaba."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Sabihin ang ginawa mo kahapon",
+      "summary": "Gamitin ang past simple na may {{-ed}} para sa tapos nang kilos: {{I worked late yesterday.}} {{We watched a movie.}}",
+      "topic": "Ang past simple ng regular na pandiwa: {{-ed}}; {{yesterday}}, {{last night}}, {{ago}}; ang tatlong tunog ng {{-ed}}",
+      "blocks": [
+        {"goal":{"t":"Yesterday I cooked dinner and watched a movie.","tr":"Kahapon, nagluto ako ng hapunan at nanood ng sine."}},
+        {"dialog":[{"who":"Sarah","t":"How was your weekend?","tr":"Kumusta ang weekend mo?"},{"who":"Ana","t":"Great! I visited my cousin on Saturday.","tr":"Masaya! Binisita ko ang pinsan ko noong Sabado."},{"who":"Sarah","t":"Nice! What did you do?","tr":"Ayos! Ano ang ginawa ninyo?"},{"who":"Ana","t":"We cooked adobo and watched movies. We talked all night!","tr":"Nagluto kami ng adobo at nanood ng mga pelikula. Nagkuwentuhan kami buong gabi!"}]},
+        {"p":"Sa Tagalog, sinasabi ng “nagluto” at “kumain” na tapos na ang kilos. Sa Ingles, ang tanong ay kailan, at para sa nakaraan, may sariling anyo ang pandiwa: ang past simple. Para sa karamihan ng pandiwa, idinadagdag lang ang {{-ed}}: {{work}} → {{worked}}, {{watch}} → {{watched}}."},
+        {"term":"past tense","means":"anyo ng pandiwa para sa nangyari at natapos na sa nakaraan: {{worked}}, {{watched}}, {{went}}."},
+        {"p":"**Iisang anyo para sa lahat.** Walang {{-s}} at hindi nagbabago ayon sa simuno: {{I worked}}, {{she worked}}, {{they worked}}."},
+        {"p":"**Pagbaybay.** Kapag {{e}} na ang dulo, {{-d}} lang: {{live}} → {{lived}}. Katinig + {{y}}: {{-ied}}: {{study}} → {{studied}}. Maikling katinig-patinig-katinig: inuulit ang huling katinig: {{stop}} → {{stopped}}."},
+        { "table": [
+          ["ngayon","nakaraan"],
+          ["{{work}}","{{worked}}"],
+          ["{{live}}","{{lived}}"],
+          ["{{study}}","{{studied}}"],
+          ["{{stop}}","{{stopped}}"],
+          ["{{visit}}","{{visited}}"]
+        ] },
+        {"p":"**Ang tunog ng {{-ed}}.** Tatlo ang bigkas: “t” pagkatapos ng tunog na p, k, s, sh, ch ({{worked}}, parang “workt”; {{watched}}); “d” pagkatapos ng ibang tunog ({{lived}}, {{played}}); at “id” pagkatapos ng t o d ({{visited}}, {{needed}}). Hindi “work-ed”!"},
+        {"p":"**Mga salita ng nakaraan**: {{yesterday}} (kahapon), {{last night}} (kagabi), {{last week}} (noong isang linggo), {{two days ago}} (dalawang araw na ang nakaraan), {{in 2020}}."},
+        { "ex": [
+          {"t":"I worked late yesterday.","tr":"Ginabi ako sa trabaho kahapon."},
+          {"t":"We watched a movie last night.","tr":"Nanood kami ng sine kagabi."},
+          {"t":"She lived in Cebu for ten years.","tr":"Sampung taon siyang tumira sa Cebu."},
+          {"t":"I studied English in school.","tr":"Nag-aral ako ng Ingles sa paaralan."},
+          {"t":"They visited us two weeks ago.","tr":"Binisita nila kami dalawang linggo na ang nakaraan."},
+          {"t":"It rained all day.","tr":"Umulan buong araw."}
+        ] },
+        {"tip":"Kahit sinabi mo na ang {{yesterday}}, kailangan pa rin ang {{-ed}}: {{Yesterday I worked}}, hindi {{Yesterday I work}}. Sa Ingles, ang pandiwa mismo ang nagsasabing nakaraan na."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"Ginabi ako sa trabaho kahapon.","why":"Kahit may {{yesterday}}, kailangan ng pandiwa ang {{-ed}}."},
+        {"wrong":"We watch a movie last night.","right":"We watched a movie last night.","tr":"Nanood kami ng sine kagabi.","why":"Kagabi ito, tapos na: {{watched}}."},
+        {"wrong":"I studyed English.","right":"I studied English.","tr":"Nag-aral ako ng Ingles.","why":"Katinig + {{y}}: {{-ied}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ late yesterday.","tr":"Ginabi ako sa trabaho kahapon.","options":["worked","work","works"],"answer":0,"why":"Kahapon: {{-ed}}.","from":"talk-about-your-day"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"We ___ a movie last night.","tr":"Nanood kami ng sine kagabi.","options":["watched","watch","watching"],"answer":0,"why":"Kagabi: {{watched}}."},
+        {"type":"choice","q":"Ang nakaraan ng {{study}}:","options":["{{studied}}","{{studyed}}","{{studed}}"],"answer":0,"why":"Katinig + {{y}}: {{-ied}}."},
+        {"type":"choice","q":"Paano binibigkas ang {{worked}}?","options":["“workt”, isang pantig","“work-ed”, dalawang pantig","“work-id”"],"answer":0,"why":"Pagkatapos ng tunog na k: “t”."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Binisita nila kami dalawang linggo na ang nakaraan.","words":["They","visited","us","two weeks","ago."]},
+        {"type":"dialogue","q":"Tinatanong ka ng katrabaho mo tungkol sa weekend mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"How was your weekend?","tr":"Kumusta ang weekend mo?"},{"options":["Good! I cleaned the house and cooked for my family.","Good! I clean the house and cook for my family."],"answer":0,"why":"Tapos na ang weekend: {{cleaned}}, {{cooked}}."},{"who":"Katrabaho","t":"Nice. I stayed home and watched TV.","tr":"Ayos. Nasa bahay lang ako at nanood ng TV."},{"options":["Me too! It rained all weekend.","Me too! It rain all weekend."],"answer":0,"why":"Nakaraan: {{rained}}."}],"from":"describe-people-and-things"},
+        {"type":"free","q":"Ikaw naman: sabihin ang tatlong bagay na ginawa mo kahapon o noong weekend, gamit ang mga pandiwang may {{-ed}}.","answers":[{"t":"Yesterday I worked from nine to five. Then I called my mom. In the evening, I watched a movie.","tr":"Kahapon, nagtrabaho ako mula alas-nuwebe hanggang alas-singko. Tapos, tinawagan ko ang nanay ko. Sa gabi, nanood ako ng sine."},{"t":"Last weekend, I visited my friends. We played basketball and talked a lot.","tr":"Noong weekend, binisita ko ang mga kaibigan ko. Naglaro kami ng basketball at nagkuwentuhan nang matagal."}]}
+      ]
+    },
+    {
+      "id": "use-common-irregular-pasts",
+      "unit": 5,
+      "level": "A2",
+      "title": "Gamitin ang mga karaniwang di-regular na nakaraan",
+      "summary": "Kabisaduhin ang mga pinakamadalas na pandiwang walang {{-ed}}: {{went}}, {{ate}}, {{saw}}, {{had}}, {{got}}, {{bought}}, {{came}}, {{took}}, {{made}}.",
+      "topic": "Mga di-regular na pandiwa sa past simple: {{go}} → {{went}}, {{eat}} → {{ate}}, {{buy}} → {{bought}}…",
+      "blocks": [
+        {"goal":{"t":"I went to the mall and bought new shoes.","tr":"Pumunta ako sa mall at bumili ng bagong sapatos."}},
+        {"dialog":[{"who":"Mike","t":"What did you do yesterday?","tr":"Ano ang ginawa mo kahapon?"},{"who":"Ana","t":"I went to the mall with my sister.","tr":"Pumunta ako sa mall kasama ang ate ko."},{"who":"Mike","t":"Did you buy anything?","tr":"May binili ka ba?"},{"who":"Ana","t":"Yes! I bought shoes, and we ate at a Filipino restaurant.","tr":"Oo! Bumili ako ng sapatos, at kumain kami sa isang Pilipinong restawran."},{"who":"Mike","t":"Lucky you! I had a boring day.","tr":"Ang suwerte mo! Nakakainip ang araw ko."}]},
+        {"p":"Maraming pinakakaraniwang pandiwa sa Ingles ang **walang {{-ed}}** sa nakaraan: may sarili silang anyo. Kaunti lang sila, pero sila ang pinakamadalas mong gagamitin, kaya sulit silang kabisaduhin."},
+        {"term":"di-regular na pandiwa (irregular verb)","means":"pandiwang hindi gumagamit ng {{-ed}} sa nakaraan: {{go}} → {{went}}, {{eat}} → {{ate}}."},
+        { "table": [
+          ["ngayon","nakaraan","Tagalog"],
+          ["{{go}}","{{went}}","pumunta"],
+          ["{{eat}}","{{ate}}","kumain"],
+          ["{{see}}","{{saw}}","nakita"],
+          ["{{have}}","{{had}}","nagkaroon; kumain (ng almusal…)"],
+          ["{{get}}","{{got}}","nakakuha; nakarating"],
+          ["{{buy}}","{{bought}}","bumili"],
+          ["{{come}}","{{came}}","dumating"],
+          ["{{take}}","{{took}}","kumuha; sumakay"],
+          ["{{make}}","{{made}}","gumawa"],
+          ["{{do}}","{{did}}","ginawa"],
+          ["{{say}}","{{said}}","sinabi"],
+          ["{{give}}","{{gave}}","ibinigay"]
+        ] },
+        {"p":"**Isang anyo pa rin para sa lahat**: {{I went}}, {{she went}}, {{they went}}."},
+        {"p":"**Paano kabisaduhin**: hindi isa-isang salita, kundi sa mga pariralang talagang sinasabi mo: {{I went home.}}, {{I had breakfast.}}, {{I got home late.}}, {{I took the bus.}} Basahin ang mga ito nang malakas."},
+        {"p":"**Ang {{got}}** ay maraming gamit: {{I got a new phone}} (nagkaroon ako), {{I got home at ten}} (nakauwi ako), {{I got tired}} (napagod ako)."},
+        { "ex": [
+          {"t":"I went to the mall.","tr":"Pumunta ako sa mall."},
+          {"t":"We ate at a Filipino restaurant.","tr":"Kumain kami sa isang Pilipinong restawran."},
+          {"t":"I saw your brother at church.","tr":"Nakita ko ang kuya mo sa simbahan."},
+          {"t":"She had a baby last month.","tr":"Nanganak siya noong isang buwan."},
+          {"t":"I got home at ten.","tr":"Alas-diyes ako nakauwi."},
+          {"t":"He bought a new car.","tr":"Bumili siya ng bagong kotse."},
+          {"t":"They came to my party.","tr":"Pumunta sila sa party ko."}
+        ] },
+        {"tip":"Walang {{goed}}: ang nakaraan ng {{go}} ay {{went}}. Pati mga batang Amerikano ay nagkakamali dito, kaya huwag kang mahiya!"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the mall.","right":"I went to the mall.","tr":"Pumunta ako sa mall.","why":"Di-regular ang {{go}}: {{went}}."},
+        {"wrong":"I buyed shoes.","right":"I bought shoes.","tr":"Bumili ako ng sapatos.","why":"{{buy}} → {{bought}}."},
+        {"wrong":"I eat at a restaurant yesterday.","right":"I ate at a restaurant yesterday.","tr":"Kumain ako sa restawran kahapon.","why":"Ang nakaraan ng {{eat}}: {{ate}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ to the mall yesterday.","tr":"Pumunta ako sa mall kahapon.","options":["went","goed","go"],"answer":0,"why":"{{go}} → {{went}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"We ___ at a Filipino restaurant.","tr":"Kumain kami sa isang Pilipinong restawran.","options":["ate","eated","eat"],"answer":0,"why":"{{eat}} → {{ate}}."},
+        {"type":"choice","q":"“Nakita ko ang kuya mo.”","options":["{{I saw your brother.}}","{{I seed your brother.}}","{{I see your brother yesterday.}}"],"answer":0,"why":"{{see}} → {{saw}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ home at ten last night.","tr":"Alas-diyes ako nakauwi kagabi.","options":["got","get","getted"],"answer":0,"why":"{{get}} → {{got}}; at walang {{to}} bago ang {{home}}.","from":"tell-people-what-to-do"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Bumili siya ng bagong kotse.","words":["He","bought","a new","car."],"from":"describe-people-and-things"},
+        {"type":"dialogue","q":"Ikinukuwento mo ang bakasyon mo. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"How was your trip to Boracay?","tr":"Kumusta ang biyahe mo sa Boracay?"},{"options":["Amazing! We went to the beach every day.","Amazing! We go to the beach every day."],"answer":0,"why":"Tapos na ang biyahe: {{went}}."},{"who":"Kaibigan","t":"Did you eat a lot?","tr":"Marami ba kayong kinain?"},{"options":["Yes! We ate fresh fish and I took a lot of photos.","Yes! We eated fresh fish and I taked a lot of photos."],"answer":0,"why":"{{eat}} → {{ate}}, {{take}} → {{took}}."}]},
+        {"type":"free","q":"Ikaw naman: ikuwento ang huling weekend mo gamit ang tatlong di-regular na pandiwa ({{went}}, {{ate}}, {{saw}}, {{had}}, {{bought}}…).","answers":[{"t":"On Saturday, I went to the market. I bought fish and vegetables. In the evening, I saw a movie with my husband.","tr":"Noong Sabado, pumunta ako sa palengke. Bumili ako ng isda at gulay. Sa gabi, nanood kami ng sine ng asawa ko."},{"t":"Last weekend, I had a party. My friends came, and we ate a lot of food.","tr":"Noong weekend, nagkaroon ako ng party. Dumating ang mga kaibigan ko, at ang dami naming kinain."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Magtanong tungkol sa nakaraan, at sabihin ang hindi mo ginawa",
+      "summary": "Magtanong ng {{Did you…?}}, sumagot ng {{Yes, I did}}, at sabihin ang {{I didn't…}}, laging kasama ang pandiwang walang {{-ed}}.",
+      "topic": "{{Did you…?}}, {{What did you…?}}; {{didn't}} + simpleng anyo ng pandiwa; maikling sagot",
+      "blocks": [
+        {"goal":{"t":"What did you do last weekend?","tr":"Ano ang ginawa mo noong weekend?"}},
+        {"dialog":[{"who":"Mike","t":"Did you go to the party on Friday?","tr":"Pumunta ka ba sa party noong Biyernes?"},{"who":"Ana","t":"No, I didn't. I worked late.","tr":"Hindi. Ginabi ako sa trabaho."},{"who":"Mike","t":"Oh, too bad! Did you eat dinner?","tr":"Ay, sayang! Naghapunan ka ba?"},{"who":"Ana","t":"Yes, I did. I ate at home.","tr":"Oo. Sa bahay ako kumain."},{"who":"Mike","t":"What did you eat?","tr":"Ano ang kinain mo?"},{"who":"Ana","t":"Just noodles. I didn't want to cook!","tr":"Noodles lang. Ayaw kong magluto!"}]},
+        {"p":"**Ang {{did}} ang tanda ng nakaraan sa tanong.** Gaya ng {{do}} at {{does}} (aralin 15), may {{did}} sa unahan ang tanong sa nakaraan: {{Did you go?}}, {{Did she call?}} Para sa lahat ng simuno, {{did}} lang."},
+        {"p":"**Dahil nasa {{did}} na ang nakaraan**, bumabalik ang pandiwa sa simpleng anyo: {{Did you go?}}, hindi {{Did you went?}}; {{I didn't eat}}, hindi {{I didn't ate}}. Ito ang pinakamadalas na pagkakamali sa nakaraan."},
+        { "table": [
+          ["","Ingles","Tagalog"],
+          ["pahayag","{{I went.}}","Pumunta ako."],
+          ["tanong","{{Did you go?}}","Pumunta ka ba?"],
+          ["oo","{{Yes, I did.}}","Oo."],
+          ["hindi","{{No, I didn't.}}","Hindi."],
+          ["negatibo","{{I didn't go.}}","Hindi ako pumunta."],
+          ["may salitang pananong","{{Where did you go?}}","Saan ka pumunta?"]
+        ] },
+        {"p":"**Mga salitang pananong**: {{What did you do?}}, {{Where did you go?}}, {{When did you arrive?}}, {{Why did you leave?}}"},
+        {"p":"**Kasama ang {{be}}**, walang {{did}}: {{Were you tired?}} (aralin 27)."},
+        { "ex": [
+          {"t":"Did you go to the party?","tr":"Pumunta ka ba sa party?"},
+          {"t":"No, I didn't.","tr":"Hindi."},
+          {"t":"What did you do last weekend?","tr":"Ano ang ginawa mo noong weekend?"},
+          {"t":"Where did you buy that?","tr":"Saan mo binili iyan?"},
+          {"t":"I didn't sleep well.","tr":"Hindi ako nakatulog nang maayos."},
+          {"t":"She didn't call me.","tr":"Hindi niya ako tinawagan."},
+          {"t":"Did you eat yet?","tr":"Kumain ka na ba?","note":"karaniwan din ang {{Have you eaten?}} (aralin 36)"}
+        ] },
+        {"tip":"Hindi pagbati sa Amerika ang “Kumain ka na ba?”. Kapag itinanong mo ito sa isang Amerikano, baka isipin niyang iniimbita mo siyang kumain!"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"Pumunta ka ba sa party?","why":"Pagkatapos ng {{did}}: ang simpleng anyo ng pandiwa."},
+        {"wrong":"I didn't ate.","right":"I didn't eat.","tr":"Hindi ako kumain.","why":"Pagkatapos ng {{didn't}}: ang simpleng anyo."},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"Saan ka pumunta?","why":"Kailangan ang {{did}} pagkatapos ng salitang pananong."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Did you ___ to the party?","tr":"Pumunta ka ba sa party?","options":["go","went","goes"],"answer":0,"why":"Pagkatapos ng {{did}}: {{go}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I didn't ___ well last night.","tr":"Hindi ako nakatulog nang maayos kagabi.","options":["sleep","slept","sleeping"],"answer":0,"why":"Pagkatapos ng {{didn't}}: simpleng anyo."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"Where ___ you buy that?","tr":"Saan mo binili iyan?","options":["did","do","were"],"answer":0,"why":"Nakaraan: {{did}}.","from":"ask-where-when-why"},
+        {"type":"choice","q":"Tanong sa iyo: {{Did you call your mom?}} Oo. Maikling sagot:","options":["{{Yes, I did.}}","{{Yes, I called.}}","{{Yes, I do.}}"],"answer":0,"why":"May {{did}} ang tanong, kaya {{did}} ang sagot.","from":"ask-questions-with-do"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ano ang ginawa mo noong weekend?","words":["What","did","you","do","last weekend?"]},
+        {"type":"dialogue","q":"Tinatanong ka ng manager mo tungkol sa isang email. Piliin ang mga sagot mo.","lines":[{"who":"Manager","t":"Did you send the email to the client?","tr":"Naipadala mo na ba ang email sa kliyente?"},{"options":["Yes, I did. I sent it this morning.","Yes, I did. I send it this morning."],"answer":0,"why":"Kaninang umaga: {{sent}}, ang nakaraan ng {{send}}."},{"who":"Manager","t":"Did they reply?","tr":"Sumagot ba sila?"},{"options":["No, they didn't. Maybe tomorrow.","No, they didn't replied. Maybe tomorrow."],"answer":0,"why":"Pagkatapos ng {{didn't}}: walang {{-ed}}."}]},
+        {"type":"free","q":"Ikaw naman: magtanong ng dalawang tanong sa kaibigan tungkol sa kahapon niya, at sabihin ang isang bagay na hindi mo ginawa.","answers":[{"t":"What did you do yesterday? Did you go to work? I didn't go to the gym.","tr":"Ano ang ginawa mo kahapon? Pumasok ka ba sa trabaho? Hindi ako nag-gym."},{"t":"Where did you eat lunch? Did you see Ben? I didn't have time to cook.","tr":"Saan ka nananghalian? Nakita mo ba si Ben? Wala akong oras magluto."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "Sabihin kung nasaan ka at kumusta ito",
+      "summary": "Gamitin ang {{was}} at {{were}}: {{I was at home.}} {{The food was great.}} {{There were a lot of people.}} {{I was born in Manila.}}",
+      "topic": "{{was}} / {{were}}; {{wasn't}} / {{weren't}}; {{Was it…?}}; {{there was}} / {{there were}}; {{I was born in…}}",
+      "blocks": [
+        {"goal":{"t":"The party was great, and there were a lot of people!","tr":"Ang saya ng party, at ang daming tao!"}},
+        {"dialog":[{"who":"Sarah","t":"Where were you last night?","tr":"Nasaan ka kagabi?"},{"who":"Ana","t":"I was at my friend's birthday party.","tr":"Nasa birthday party ako ng kaibigan ko."},{"who":"Sarah","t":"How was it?","tr":"Kumusta?"},{"who":"Ana","t":"It was great! There were a lot of people, and the food was amazing.","tr":"Ang saya! Ang daming tao, at ang sarap ng pagkain."},{"who":"Sarah","t":"Were you tired this morning?","tr":"Pagod ka ba kaninang umaga?"},{"who":"Ana","t":"Yes, I was!","tr":"Oo naman!"}]},
+        {"p":"May sariling nakaraan ang {{be}} ({{am}}, {{is}}, {{are}}): {{was}} para sa {{I}}, {{he}}, {{she}} at {{it}}; {{were}} para sa {{you}}, {{we}} at {{they}}."},
+        { "table": [
+          ["ngayon","nakaraan","halimbawa"],
+          ["{{I am}}","{{I was}}","{{I was tired.}}"],
+          ["{{he}} / {{she}} / {{it is}}","{{was}}","{{It was great.}}"],
+          ["{{you}} / {{we}} / {{they are}}","{{were}}","{{We were at home.}}"]
+        ] },
+        {"p":"**Tanong at negatibo**: walang {{did}}; inililipat lang ang {{was}} o {{were}}: {{Were you tired?}}, {{Was it expensive?}} Negatibo: {{wasn't}}, {{weren't}}: {{It wasn't expensive.}}"},
+        {"p":"**{{There was}}, {{there were}}**: ang nakaraan ng {{there is}} at {{there are}} (aralin 9): {{There was a problem.}}, {{There were a lot of people.}}"},
+        {"p":"**Ipinanganak**: sa Ingles, {{I was born}}, laging nakaraan at may {{was}} o {{were}}: {{I was born in Manila.}}, {{She was born in 1995.}} Hindi {{I born}} o {{I am born}}. {{in}} para sa lugar at taon, {{on}} para sa petsa: {{I was born on May 3rd.}}"},
+        {"p":"**Kumusta ang…?** {{How was…?}}: {{How was your trip?}}, {{How was the movie?}} Mga sagot: {{It was great!}}, {{It was okay.}}, {{It wasn't very good.}}"},
+        { "ex": [
+          {"t":"I was at home last night.","tr":"Nasa bahay ako kagabi."},
+          {"t":"The food was amazing.","tr":"Ang sarap ng pagkain."},
+          {"t":"We were very tired.","tr":"Pagod na pagod kami."},
+          {"t":"Was it expensive?","tr":"Mahal ba?"},
+          {"t":"There were a lot of people.","tr":"Ang daming tao."},
+          {"t":"I was born in Manila in 1990.","tr":"Ipinanganak ako sa Maynila noong 1990."},
+          {"t":"How was your trip?","tr":"Kumusta ang biyahe mo?"}
+        ] },
+        {"tip":"Ang {{How was your day?}} ay karaniwang tanong sa Amerika pag-uwi, parang “Kumusta ang araw mo?”. Maikling sagot lang ang inaasahan: {{Good! Busy, but good.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I born in Manila.","right":"I was born in Manila.","tr":"Ipinanganak ako sa Maynila.","why":"Laging may {{was}}: {{I was born}}."},
+        {"wrong":"We was at home.","right":"We were at home.","tr":"Nasa bahay kami.","why":"Sa {{we}}: {{were}}."},
+        {"wrong":"Did you were tired?","right":"Were you tired?","tr":"Pagod ka ba?","why":"Sa {{was}} at {{were}}, walang {{did}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ at home last night.","tr":"Nasa bahay ako kagabi.","options":["was","were","am"],"answer":0,"why":"Sa {{I}}, nakaraan: {{was}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"We ___ very tired.","tr":"Pagod na pagod kami.","options":["were","was","are"],"answer":0,"why":"Sa {{we}}, nakaraan: {{were}}.","from":"talk-about-more-than-one"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"There ___ a lot of people at the party.","tr":"Ang daming tao sa party.","options":["were","was","is"],"answer":0,"why":"Marami, nakaraan: {{there were}}.","from":"say-there-is"},
+        {"type":"choice","q":"“Ipinanganak ako sa Davao.”","options":["{{I was born in Davao.}}","{{I born in Davao.}}","{{I am born in Davao.}}"],"answer":0,"why":"{{I was born}}, at {{in}} para sa lugar."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Kumusta ang biyahe mo?","words":["How","was","your","trip?"]},
+        {"type":"dialogue","q":"Bumalik ka sa trabaho pagkatapos ng bakasyon. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Welcome back! How was the Philippines?","tr":"Welcome back! Kumusta ang Pilipinas?"},{"options":["It was wonderful! The weather was perfect.","It were wonderful! The weather were perfect."],"answer":0,"why":"Sa {{it}} at {{the weather}}: {{was}}."},{"who":"Katrabaho","t":"Were your parents happy to see you?","tr":"Natuwa ba ang mga magulang mo na makita ka?"},{"options":["Yes, they were! There was a big party for me.","Yes, they did! There were a big party for me."],"answer":0,"why":"{{Were…?}} → {{Yes, they were.}}; isang party: {{there was}}."}]},
+        {"type":"free","q":"Ikaw naman: sabihin kung saan at kailan ka ipinanganak, at ikuwento ang isang espesyal na araw: nasaan ka, at kumusta ito?","answers":[{"t":"I was born in Iloilo in 1992. Last Christmas, I was in Manila with my family. It was wonderful, and there was so much food!","tr":"Ipinanganak ako sa Iloilo noong 1992. Noong nakaraang Pasko, nasa Maynila ako kasama ang pamilya ko. Ang saya, at ang daming pagkain!"},{"t":"I was born in Quezon City. My wedding day was in June. It was hot, but everyone was happy.","tr":"Ipinanganak ako sa Quezon City. Noong Hunyo ang kasal ko. Mainit, pero masaya ang lahat."}]}
+      ]
+    },
+    {
+      "id": "tell-what-happened-in-order",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ikuwento ang nangyari, nang sunod-sunod",
+      "summary": "Ikuwento ang isang pangyayari mula simula hanggang wakas: {{First…, then…, after that…, finally…}}, at gamitin ang {{when}} at {{before}}.",
+      "topic": "{{first}}, {{then}}, {{after that}}, {{finally}}; {{before}} / {{after}} + pangungusap; {{when}} sa nakaraan",
+      "blocks": [
+        {"goal":{"t":"First we had lunch, then we went to the beach.","tr":"Kumain muna kami ng tanghalian, tapos pumunta kami sa beach."}},
+        {"dialog":[{"who":"Mike","t":"How was your day off?","tr":"Kumusta ang day off mo?"},{"who":"Ana","t":"Busy! First, I cleaned the house. Then I went to the market.","tr":"Ang dami kong ginawa! Una, naglinis ako ng bahay. Tapos, pumunta ako sa palengke."},{"who":"Mike","t":"And after that?","tr":"Tapos?"},{"who":"Ana","t":"After that, I cooked for my family. When my husband came home, we ate together.","tr":"Pagkatapos noon, nagluto ako para sa pamilya ko. Pagdating ng asawa ko, sabay kaming kumain."},{"who":"Mike","t":"Sounds nice!","tr":"Ang saya naman!"}]},
+        {"p":"**Mga salitang nagdudugtong**: {{first}} (una), {{then}} (tapos), {{after that}} (pagkatapos noon), {{later}} (kalaunan), {{finally}} (sa wakas, sa huli). Kadalasan ay nasa simula sila ng pangungusap, na may kuwit: {{First, I cleaned the house.}}"},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["una","{{first}}"],
+          ["tapos","{{then}}"],
+          ["pagkatapos noon","{{after that}}"],
+          ["kalaunan","{{later}}"],
+          ["sa wakas, sa huli","{{finally}}"]
+        ] },
+        {"p":"**{{before}} at {{after}} + isang pangungusap**: {{Before I left, I called my mom.}} “Bago ako umalis, tinawagan ko ang nanay ko.” Pansinin: may simuno at pandiwang nakaraan sa magkabilang bahagi."},
+        {"p":"**{{when}} sa nakaraan**, ang “nang”, “noong” o “pagdating ng” ng Tagalog: {{When I got home, I was tired.}} “Pag-uwi ko, pagod ako.”"},
+        {"p":"**Nakaraan ang bawat pandiwa.** Sa Tagalog, minsan sapat na ang isang “kahapon” sa simula. Sa Ingles, nasa nakaraan ang bawat pandiwa ng kuwento: {{I went}}, {{I bought}}, {{I cooked}}."},
+        { "ex": [
+          {"t":"First, I cleaned the house.","tr":"Una, naglinis ako ng bahay."},
+          {"t":"Then I went to the market.","tr":"Tapos, pumunta ako sa palengke."},
+          {"t":"After that, we had dinner.","tr":"Pagkatapos noon, naghapunan kami."},
+          {"t":"Finally, we went to bed at midnight.","tr":"Sa wakas, natulog kami nang hatinggabi."},
+          {"t":"Before I left, I locked the door.","tr":"Bago ako umalis, ni-lock ko ang pinto."},
+          {"t":"When I got home, the kids were asleep.","tr":"Pag-uwi ko, tulog na ang mga bata."}
+        ] },
+        {"tip":"Madalas simulan ng mga Amerikano ang kuwento sa {{So…}}: {{So, yesterday I went to the mall, and…}} Parang “Alam mo,…” ng Tagalog."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday, first I clean the house, then I go to the market.","right":"Yesterday, first I cleaned the house, then I went to the market.","tr":"Kahapon, una, naglinis ako ng bahay, tapos pumunta ako sa palengke.","why":"Nasa nakaraan ang bawat pandiwa ng kuwento, hindi lang ang una."},
+        {"wrong":"When I go home, I was tired.","right":"When I got home, I was tired.","tr":"Pag-uwi ko, pagod ako.","why":"Nakaraan din ang pandiwa pagkatapos ng {{when}}."},
+        {"wrong":"Before I leave, I called my mom.","right":"Before I left, I called my mom.","tr":"Bago ako umalis, tinawagan ko ang nanay ko.","why":"Nakaraan din pagkatapos ng {{before}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"First, I ___ the house.","tr":"Una, naglinis ako ng bahay.","options":["cleaned","clean","cleaning"],"answer":0,"why":"Nakaraan: {{cleaned}}.","from":"say-what-you-did"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"When I ___ home, the kids were asleep.","tr":"Pag-uwi ko, tulog na ang mga bata.","options":["got","get","gets"],"answer":0,"why":"Nakaraan din pagkatapos ng {{when}}: {{got}}.","from":"use-common-irregular-pasts"},
+        {"type":"choice","q":"Alin ang tamang pagkakasunod?","options":["{{First…, then…, after that…, finally…}}","{{Finally…, first…, then…}}","{{Then…, first…, finally…}}"],"answer":0,"why":"Una, tapos, pagkatapos noon, sa wakas."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Bago ako umalis, ni-lock ko ang pinto.","words":["Before","I left,","I locked","the door."]},
+        {"type":"dialogue","q":"Ikinukuwento mo ang unang araw mo sa bagong trabaho. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"So, how was your first day?","tr":"So, kumusta ang unang araw mo?"},{"options":["Good! First, I met my boss. Then she showed me the office.","Good! First, I meet my boss. Then she show me the office."],"answer":0,"why":"Nakaraan ang bawat pandiwa: {{met}}, {{showed}}."},{"who":"Kaibigan","t":"And after that?","tr":"Tapos?"},{"options":["After that, I had lunch with my team. When I got home, I was so tired!","After that, I have lunch with my team. When I get home, I was so tired!"],"answer":0,"why":"Nakaraan: {{had}}, {{got}}, {{was}}."}],"from":"say-where-you-were"},
+        {"type":"say","q":"Paano mo sasabihin ang “Pagkatapos noon, naghapunan kami”?","answer":"After that, we had dinner."},
+        {"type":"free","q":"Ikaw naman: ikuwento ang kahapon mo sa apat na hakbang, gamit ang {{first}}, {{then}}, {{after that}} at {{finally}}.","answers":[{"t":"First, I took my kids to school. Then I went to work. After that, I bought groceries. Finally, I cooked dinner and went to bed.","tr":"Una, inihatid ko ang mga anak ko sa eskuwela. Tapos, pumasok ako sa trabaho. Pagkatapos noon, namili ako ng grocery. Sa huli, nagluto ako ng hapunan at natulog."},{"t":"First, I woke up late. Then I missed the bus! After that, I took a taxi. Finally, I got to work at ten.","tr":"Una, tinanghali ako ng gising. Tapos, naiwan ako ng bus! Pagkatapos noon, nag-taxi ako. Sa wakas, nakarating ako sa trabaho nang alas-diyes."}]}
+      ]
     }
   ]
 }
