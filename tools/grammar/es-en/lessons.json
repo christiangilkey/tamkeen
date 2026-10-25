@@ -29,6 +29,7 @@
         {"p":"**“Ser” y “estar” en un solo verbo.** En inglés, {{be}} es “ser” y “estar” a la vez. Para hablar de ti se dice {{I am}}, que casi siempre se junta en {{I'm}}: {{I'm Daniel.}} “Soy Daniel.” {{I'm from Mexico.}} “Soy de México.” {{I'm tired.}} “Estoy cansado.”"},
         {"term":"verbo","means":"una palabra que dice lo que alguien hace o es: comer, ir, vivir, ser. {{am}} es un verbo."},
         {"term":"pronombre","means":"una palabra corta que toma el lugar de una persona o una cosa: yo, tú, él, ella."},
+        {"term":"sujeto","means":"quién o qué hace lo que dice el verbo: en “Ana trabaja”, el sujeto es Ana. En inglés casi siempre va antes del verbo."},
         {"p":"**El sujeto siempre va.** En español la terminación del verbo ya dice quién: “soy” solo puede ser “yo”. En inglés no: el verbo casi no cambia, así que **siempre** hay que decir quién. {{I'm from Mexico}}, nunca {{Am from Mexico}}. Y la {{I}} (yo) siempre se escribe con mayúscula."},
         {"term":"contracción","means":"dos palabras que se juntan en una, con un apóstrofo (’) donde falta una letra: {{I am}} → {{I'm}}."},
         { "table": [
@@ -847,7 +848,7 @@
       "blocks": [
         {"goal":{"t":"This weekend I'm going to visit my parents.","tr":"Este fin de semana voy a visitar a mis papás."}},
         {"dialog":[{"who":"Sam","t":"What are you doing this weekend?","tr":"¿Qué vas a hacer este fin de semana?"},{"who":"Tú","t":"On Saturday I'm going to clean the house. And on Sunday I'm having lunch with my family.","tr":"El sábado voy a limpiar la casa. Y el domingo voy a comer con mi familia."},{"who":"Sam","t":"Nice. I'm going to watch the game.","tr":"Qué bien. Yo voy a ver el partido."},{"who":"Tú","t":"Are you going to watch it at home?","tr":"¿Lo vas a ver en tu casa?"},{"who":"Sam","t":"No, we're going to a bar downtown. Do you want to come?","tr":"No, vamos a ir a un bar en el centro. ¿Quieres venir?"}]},
-        {"p":"**Como “ir a”.** {{be going to}} + la forma base es casi igual que “voy a + infinitivo”: {{I'm going to eat}} “voy a comer”. Sirve para los planes y las intenciones: {{I'm going to study tonight.}}"},
+        {"p":"**Como “ir a”.** {{be going to}} + la forma base es casi igual que “voy a” + infinitivo (el verbo terminado en -ar, -er o -ir): {{I'm going to eat}} “voy a comer”. Sirve para los planes y las intenciones: {{I'm going to study tonight.}}"},
         { "table": [
           ["","afirmación","pregunta"],
           ["{{I}}","{{I'm going to call her.}}","{{Am I going to…?}}"],
@@ -1776,6 +1777,7 @@
           ["{{come back}}","regresar","{{When are you coming back?}}"],
           ["{{run out of}}","quedarse sin","{{We ran out of milk.}}"]
         ] },
+        {"term":"objeto","means":"la persona o la cosa que recibe la acción del verbo: en “apaga la tele”, el objeto es la tele."},
         {"p":"**{{it}} y {{them}} van en medio.** Con muchos de estos verbos, el objeto puede ir antes o después de la partícula: {{Turn off the TV}} o {{Turn the TV off}}. Pero si es un pronombre ({{it}}, {{them}}, {{me}}, {{him}}…), **siempre va en medio**: {{Turn it off}}, nunca {{Turn off it}}. {{Pick me up}}, {{Put them on}}."},
         {"p":"Ojo: {{look for}}, {{come back}} y {{run out of}} no se separan: {{I'm looking for it.}}"},
         { "ex": [
@@ -2012,6 +2014,406 @@
         {"type":"order","q":"Pon las palabras en orden.","tr":"Avísame cuando llegues.","words":["Let me","know","when","you get there."]},
         {"type":"say","q":"Pide con cortesía: “¿Podría hablar más despacio, por favor?”","answer":"Could you speak more slowly, please?"},
         {"type":"free","q":"Te toca: ¿qué quieres que hagan las personas de tu vida? Escribe dos oraciones con {{I want … to…}} o {{I need … to…}}","answers":[{"t":"I want my kids to read more, and I need my husband to help me on Saturdays.","tr":"Quiero que mis hijos lean más, y necesito que mi esposo me ayude los sábados."},{"t":"I want my boss to give me a raise. I need my friends to visit me more!","tr":"Quiero que mi jefe me dé un aumento. ¡Necesito que mis amigos me visiten más!"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 8,
+      "level": "B1",
+      "title": "Imagina: si tuviera…",
+      "summary": "Habla de situaciones que no son reales o que son poco probables: {{If I had more time, I would learn to dance.}} {{If I were you…}}",
+      "topic": "el segundo condicional: {{if}} + pasado, y {{would}} + la forma base; {{If I were you}}; {{would}} y {{I'd}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would learn to dance.","tr":"Si tuviera más tiempo, aprendería a bailar."}},
+        {"dialog":[{"who":"Alex","t":"What would you do if you won the lottery?","tr":"¿Qué harías si te sacaras la lotería?"},{"who":"Tú","t":"I'd buy a house on the beach. And you?","tr":"Me compraría una casa en la playa. ¿Y tú?"},{"who":"Alex","t":"I'd travel around the world. I wouldn't work anymore!","tr":"Viajaría por todo el mundo. ¡Ya no trabajaría!"},{"who":"Tú","t":"If I were you, I'd buy a house first.","tr":"Yo que tú, primero me compraría una casa."},{"who":"Alex","t":"Ha! You're right.","tr":"¡Ja! Tienes razón."}]},
+        {"p":"**Dos tipos de “si”.** La lección 39 habla de lo posible: {{If it rains, we'll stay home.}} Para lo que **no es real**, o es difícil de imaginar, el inglés usa {{if}} + **pasado simple**, y el resultado con {{would}} + la forma base: {{If I had money, I would travel.}} “Si tuviera dinero, viajaría” (pero no tengo)."},
+        { "table": [
+          ["posible: el primer condicional","imaginado: el segundo condicional"],
+          ["{{If I have time, I'll call you.}} Si tengo tiempo, te llamo.","{{If I had time, I'd call you.}} Si tuviera tiempo, te llamaría."],
+          ["{{If it rains, we won't go.}} Si llueve, no vamos.","{{If it rained, we wouldn't go.}} Si lloviera, no iríamos."]
+        ] },
+        {"p":"**Aquí el pasado no es pasado.** {{If I had…}} habla del presente o del futuro: es como el subjuntivo “tuviera”. Y {{would}} + la forma base es el condicional del español: “viajaría”, “compraría”. En corto: {{I'd}}, {{you'd}}, {{she'd}}; en negativo, {{wouldn't}}."},
+        {"p":"**{{If I were you…}}** “Yo que tú…”, para dar consejos. Con este “si” imaginario se dice {{were}} con todos: {{If I were rich}}, {{If she were here}}. (En la plática también se oye {{If I was}}, pero {{were}} es lo correcto.)"},
+        {"p":"**{{would}} sin “si”** sirve para lo imaginado y para la cortesía: {{I'd love to go!}} “¡Me encantaría ir!”, {{Would you like some coffee?}} “¿Quieres un café?”, {{It would be great.}} “Estaría padrísimo.”"},
+        { "ex": [
+          {"t":"If I lived near the beach, I'd go swimming every day.","tr":"Si viviera cerca de la playa, iría a nadar todos los días."},
+          {"t":"What would you do if you were the president?","tr":"¿Qué harías si fueras presidente?"},
+          {"t":"If I were you, I wouldn't buy that car.","tr":"Yo que tú, no compraría ese carro."},
+          {"t":"If she spoke English, she'd get a better job.","tr":"Si hablara inglés, conseguiría un mejor trabajo."},
+          {"t":"I'd love to visit Japan someday.","tr":"Me encantaría conocer Japón algún día."},
+          {"t":"Would you like to have dinner with me?","tr":"¿Te gustaría cenar conmigo?"}
+        ] },
+        {"tip":"Nunca pongas {{would}} junto al {{if}}: {{If I had}}, no {{If I would have}}. El {{would}} va en la otra mitad de la oración."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"Si tuviera dinero, viajaría.","why":"Junto al {{if}}, el pasado simple; {{would}} va en la otra mitad."},
+        {"wrong":"If I had more time, I will learn French.","right":"If I had more time, I would learn French.","tr":"Si tuviera más tiempo, aprendería francés.","why":"Lo imaginado: el resultado con {{would}}."},
+        {"wrong":"If I am you, I would call her.","right":"If I were you, I would call her.","tr":"Yo que tú, le llamaría.","why":"Para aconsejar: {{If I were you}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"If I ___ rich, I'd buy a big house.","tr":"Si fuera rico, me compraría una casa grande.","options":["were","am","will be"],"answer":0,"why":"Lo imaginado: {{if}} + {{were}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"If she had a car, she ___ drive to work.","tr":"Si tuviera carro, se iría manejando al trabajo.","options":["would","will","does"],"answer":0,"why":"El resultado imaginado: {{would}} + la forma base."},
+        {"type":"choice","q":"¿Cuál habla de una posibilidad real (puede pasar mañana)?","options":["{{If it rains tomorrow, we'll stay home.}}","{{If it rained tomorrow, we'd stay home.}}"],"answer":0,"why":"{{if}} + presente y {{will}}: es posible. Con {{rained}} y {{would}}, solo lo estás imaginando.","from":"say-what-will-happen-if"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"What would you do if you ___ the lottery?","tr":"¿Qué harías si te sacaras la lotería?","options":["won","win","would win"],"answer":0,"why":"Junto al {{if}}: el pasado, {{won}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"Tu amigo no sabe qué hacer. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"My boss is terrible. Should I quit?","tr":"Mi jefe es terrible. ¿Renuncio?"},{"options":["If I were you, I'd look for another job first.","If I was you, I will look for another job first."],"answer":0,"why":"Para aconsejar: {{If I were you, I'd…}}"},{"who":"Amigo","t":"But I like my coworkers.","tr":"Pero me caen bien mis compañeros."},{"options":["I know. It would be hard to leave.","I know. It will be hard to leave if you would leave."],"answer":0,"why":"{{would}}, para lo imaginado."},{"who":"Amigo","t":"Thanks for the advice.","tr":"Gracias por el consejo."}],"from":"give-advice"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Yo que tú, no compraría ese carro.","words":["If I","were you,","I wouldn't","buy that car."]},
+        {"type":"say","q":"Pregunta “¿Qué harías si fueras presidente?”","answer":"What would you do if you were the president?"},
+        {"type":"free","q":"Te toca: si pudieras cambiar algo de tu vida, ¿qué sería? Empieza con {{If I could…}} o {{If I had…}}","answers":[{"t":"If I could, I'd live in Canada for a year. If I had more money, I'd travel a lot.","tr":"Si pudiera, viviría un año en Canadá. Si tuviera más dinero, viajaría mucho."},{"t":"If I had more time, I'd learn to play the piano and I'd spend more time with my family.","tr":"Si tuviera más tiempo, aprendería a tocar el piano y pasaría más tiempo con mi familia."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Da tu opinión",
+      "summary": "Di lo que piensas, si estás de acuerdo o no, y pregunta la opinión de otros: {{I don't think it's a good idea.}} {{I agree with you.}}",
+      "topic": "{{I think}} y {{I don't think}}; {{I agree}} (no {{I'm agree}}); {{It depends on}}; {{in my opinion}}",
+      "blocks": [
+        {"goal":{"t":"I don't think it's a good idea. — Really? I think it's great!","tr":"No creo que sea buena idea. — ¿De veras? ¡Yo creo que está padrísima!"}},
+        {"dialog":[{"who":"Tony","t":"What do you think about moving to Seattle?","tr":"¿Qué opinas de que nos mudemos a Seattle?"},{"who":"Tú","t":"I think it's a good idea, but it rains a lot there.","tr":"Creo que es buena idea, pero allá llueve mucho."},{"who":"Tony","t":"I agree. But the jobs are better.","tr":"Estoy de acuerdo. Pero los trabajos son mejores."},{"who":"Tú","t":"That's true. I don't think we'll find a cheap apartment, though.","tr":"Es cierto. Aunque no creo que encontremos un departamento barato."},{"who":"Tony","t":"It depends on the neighborhood.","tr":"Depende de la colonia."}]},
+        {"p":"**Opinar: {{I think}}.** {{I think (that)}} + una oración normal: {{I think it's expensive.}} “Creo que es caro.” El {{that}} se puede quitar. Y para negar, en inglés lo natural es negar el {{think}}: {{I don't think it's a good idea}} (“no creo que sea…”), más que {{I think it isn't…}}"},
+        {"p":"**Fácil para nosotros:** después de {{I don't think}} **no** hay subjuntivo: {{I don't think he's coming}} “no creo que venga”, con el presente de siempre."},
+        {"p":"**Estar de acuerdo.** ¡Ojo con esta! “Estoy de acuerdo” es {{I agree}}, sin {{am}}: {{agree}} ya es un verbo. En negativo, {{I don't agree}} o {{I disagree}}. Con alguien: {{I agree with you.}}"},
+        { "table": [
+          ["para","en inglés"],
+          ["preguntar","{{What do you think?}} {{What do you think about…?}}"],
+          ["opinar","{{I think…}} {{In my opinion,…}} {{For me,…}}"],
+          ["estar de acuerdo","{{I agree.}} {{You're right.}} {{Exactly!}}"],
+          ["no estar de acuerdo","{{I don't agree.}} {{I'm not sure about that.}}"],
+          ["ni sí ni no","{{It depends.}} {{Maybe.}}"],
+          ["creer que sí o que no","{{I think so.}} {{I don't think so.}}"]
+        ] },
+        {"p":"**{{depend on}}**, no “of”: {{It depends on the price.}} “Depende del precio.” Y para “qué opinas de…”: {{What do you think of my new haircut?}} o {{What do you think about…?}}"},
+        { "ex": [
+          {"t":"I think you're right.","tr":"Creo que tienes razón."},
+          {"t":"I don't think it's going to rain.","tr":"No creo que vaya a llover."},
+          {"t":"What do you think about the new manager?","tr":"¿Qué opinas del nuevo gerente?"},
+          {"t":"I agree with you: it's too expensive.","tr":"Estoy de acuerdo contigo: está demasiado caro."},
+          {"t":"In my opinion, the food here is better.","tr":"En mi opinión, la comida de aquí es mejor."},
+          {"t":"Is he coming? — I don't think so.","tr":"¿Va a venir? — Creo que no."},
+          {"t":"It depends on the weather.","tr":"Depende del clima."}
+        ] },
+        {"tip":"Para no sonar muy tajante, el inglés suaviza mucho: {{I'm not sure…}}, {{Maybe…}}, {{I see your point, but…}} (entiendo lo que dices, pero…)."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm agree with you.","right":"I agree with you.","tr":"Estoy de acuerdo contigo.","why":"{{agree}} ya es el verbo: sin {{am}}."},
+        {"wrong":"It depends of the price.","right":"It depends on the price.","tr":"Depende del precio.","why":"{{depend}} va con {{on}}."},
+        {"wrong":"I think that no.","right":"I don't think so.","tr":"Creo que no.","why":"“Creo que no” es {{I don't think so}}; “creo que sí”, {{I think so}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ with you. It's a great idea.","tr":"Estoy de acuerdo contigo. Es una gran idea.","options":["agree","am agree","am agreeing"],"answer":0,"why":"{{agree}} es el verbo: {{I agree}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It depends ___ the price.","tr":"Depende del precio.","options":["on","of","from"],"answer":0,"why":"{{depend on}}."},
+        {"type":"choice","q":"Te preguntan si va a llover. Tú crees que no:","options":["{{I don't think so.}}","{{I think that no.}}","{{I don't think it.}}"],"answer":0,"why":"“Creo que no”: {{I don't think so}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I don't think he ___ coming.","tr":"No creo que venga.","options":["is","be","will to"],"answer":0,"why":"Después de {{I don't think}}, el presente de siempre (sin subjuntivo): {{is coming}}.","from":"say-what-is-happening-now"},
+        {"type":"dialogue","q":"Platicas sobre una taquería nueva. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"What do you think about the new taco place?","tr":"¿Qué opinas de la nueva taquería?"},{"options":["I think it's better than the old one.","I think it's more better than the old one."],"answer":0,"why":"{{better}} ya es “mejor”: sin {{more}}."},{"who":"Amigo","t":"Really? I think it's too expensive.","tr":"¿De veras? Yo creo que está demasiado cara."},{"options":["You're right, but it depends on what you order.","You have reason, but it depends of what you order."],"answer":0,"why":"“Tener razón” es {{be right}}; y {{depend on}}."},{"who":"Amigo","t":"That's true.","tr":"Es cierto."}],"from":"compare-things"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Estoy de acuerdo contigo.","words":["I","agree","with","you."]},
+        {"type":"say","q":"Pregunta “¿Tú qué opinas?”","answer":"What do you think?"},
+        {"type":"free","q":"Te toca: ¿qué opinas de aprender idiomas con una app? Da tu opinión, y di algo con lo que no estás de acuerdo.","answers":[{"t":"I think apps are very useful, but I don't think they're enough. In my opinion, you have to talk to people too.","tr":"Creo que las apps son muy útiles, pero no creo que sean suficientes. En mi opinión, también hay que hablar con la gente."},{"t":"In my opinion, apps are great for vocabulary. Some people say grammar isn't important, but I don't agree.","tr":"En mi opinión, las apps son buenísimas para el vocabulario. Hay gente que dice que la gramática no es importante, pero no estoy de acuerdo."}]}
+      ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pasa un recado",
+      "summary": "Cuenta lo que alguien dijo, preguntó o pidió: {{She said she was tired and told me to call her later.}}",
+      "topic": "{{say}} y {{tell}}; {{She said (that)…}} con el verbo un paso atrás; {{He told me to…}}; {{She asked if…}}",
+      "blocks": [
+        {"goal":{"t":"She said she was tired and told me to call her later.","tr":"Dijo que estaba cansada y me dijo que le llamara más tarde."}},
+        {"dialog":[{"who":"Tú","t":"Your sister called.","tr":"Te habló tu hermana."},{"who":"Jen","t":"What did she say?","tr":"¿Qué dijo?"},{"who":"Tú","t":"She said she was coming on Saturday.","tr":"Dijo que venía el sábado."},{"who":"Jen","t":"Did she say what time?","tr":"¿Dijo a qué hora?"},{"who":"Tú","t":"She said she would arrive at noon, and she asked if you could pick her up.","tr":"Dijo que llegaría al mediodía, y preguntó si podías ir por ella."}]},
+        {"p":"**¿{{say}} o {{tell}}?** Los dos son “decir”. {{tell}} necesita a la persona a la que le dices algo: {{She told me…}}, {{Tell him…}}. {{say}} no lleva a la persona (o la lleva con {{to}}): {{She said…}}, {{She said to me…}}. Nunca {{She said me}}."},
+        { "table": [
+          ["{{say}}","{{tell}}"],
+          ["{{He said it was late.}}","{{He told me it was late.}}"],
+          ["{{What did she say?}}","{{What did she tell you?}}"],
+          ["{{Say hi to your mom!}}","{{Tell your mom I said hi!}}"]
+        ] },
+        {"p":"**Contar lo que alguien dijo.** Igual que en español (“dijo que **estaba** cansada”), el inglés echa el verbo **un paso atrás** en el tiempo: {{She said she was tired.}} {{He said he would call me.}} {{She said she couldn't come.}} El {{that}} es opcional: {{She said (that) she was tired.}}"},
+        { "table": [
+          ["lo que dijo","cómo lo cuentas"],
+          ["{{“I'm busy.”}}","{{He said he was busy.}}"],
+          ["{{“I'm going to be late.”}}","{{She said she was going to be late.}}"],
+          ["{{“I'll call you.”}}","{{He said he would call me.}}"],
+          ["{{“I can't come.”}}","{{She said she couldn't come.}}"],
+          ["{{“I lost my keys.”}}","{{He said he had lost his keys.}} o {{He said he lost his keys.}}"]
+        ] },
+        {"p":"**Pedidos y órdenes:** {{tell}} o {{ask}} + la persona + {{to}}: {{She told me to wait.}} “Me dijo que esperara.” {{He asked me to call him.}} “Me pidió que le llamara.” (Como en la lección 40.)"},
+        {"p":"**Preguntas:** con {{if}} para las de sí o no, y con la palabra de pregunta para las demás, pero **sin el orden de pregunta**: {{She asked if I was hungry.}} “Me preguntó si tenía hambre.” {{He asked where I lived.}} “Me preguntó dónde vivía.” (No {{where did I live}}.)"},
+        { "ex": [
+          {"t":"He said he was sick.","tr":"Dijo que estaba enfermo."},
+          {"t":"She told me she had a new job.","tr":"Me dijo que tenía un trabajo nuevo."},
+          {"t":"My boss said the meeting was canceled.","tr":"Mi jefe dijo que se canceló la junta."},
+          {"t":"The doctor told me to rest.","tr":"El doctor me dijo que descansara."},
+          {"t":"They asked if we wanted to go with them.","tr":"Nos preguntaron si queríamos ir con ellos."},
+          {"t":"She asked me what time it was.","tr":"Me preguntó qué hora era."},
+          {"t":"Tell her I'll be there in ten minutes.","tr":"Dile que llego en diez minutos."}
+        ] },
+        {"tip":"Cuando lo que dijo sigue siendo cierto, en la plática mucha gente no cambia el tiempo: {{He said he's coming tomorrow.}} También está bien."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me that she was tired.","right":"She told me that she was tired.","tr":"Me dijo que estaba cansada.","why":"Con la persona, {{tell}}: {{told me}}. {{say}} no lleva a la persona."},
+        {"wrong":"He told me that I call him.","right":"He told me to call him.","tr":"Me dijo que le llamara.","why":"Para un pedido: {{tell}} + persona + {{to}}."},
+        {"wrong":"She asked me where did I live.","right":"She asked me where I lived.","tr":"Me preguntó dónde vivía.","why":"Una pregunta contada pierde el orden de pregunta: sin {{did}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"She ___ me she was busy.","tr":"Me dijo que estaba ocupada.","options":["told","said","say"],"answer":0,"why":"Con la persona ({{me}}): {{told}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"He said he ___ call me later.","tr":"Dijo que me llamaría más tarde.","options":["would","will","can"],"answer":0,"why":"{{will}} da un paso atrás: {{would}}.","from":"predict-and-promise"},
+        {"type":"choice","q":"Tu jefa dijo {{I'm going to be late.}} Se lo cuentas a un compañero:","options":["{{She said she was going to be late.}}","{{She said she is going to been late.}}","{{She told she was going to be late.}}"],"answer":0,"why":"Un paso atrás ({{was going to}}); y {{said}}, porque no hay persona.","from":"make-plans"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"The teacher told us ___ open our books.","tr":"La maestra nos dijo que abriéramos los libros.","options":["to","that","for"],"answer":0,"why":"Para una orden: {{tell}} + persona + {{to}}.","from":"ask-someone-to-do-something"},
+        {"type":"dialogue","q":"Le pasas un recado a tu compañero de cuarto. Escoge tus respuestas.","lines":[{"who":"Compañero","t":"Did anyone call?","tr":"¿Llamó alguien?"},{"options":["Yes, your mom. She said she was at the airport.","Yes, your mom. She said me she was at the airport."],"answer":0,"why":"{{said}}, sin la persona."},{"who":"Compañero","t":"Did she say anything else?","tr":"¿Dijo algo más?"},{"options":["She asked if you could pick her up.","She asked if could you pick her up."],"answer":0,"why":"Una pregunta contada: {{if you could}}, sin el orden de pregunta."},{"who":"Compañero","t":"Oh no, I forgot! I'll go now.","tr":"¡Ay, no, se me olvidó! Ya voy."}],"from":"ask-about-the-past"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Me preguntó qué hora era.","words":["She","asked me","what time","it was."]},
+        {"type":"say","q":"Pasa el recado: “Dijo que estaba enfermo.”","answer":"He said he was sick."},
+        {"type":"free","q":"Te toca: piensa en una plática de esta semana. Cuenta algo que te dijo alguien y algo que te pidió o te preguntó.","answers":[{"t":"My friend told me she was moving to Austin, and she asked me to help her.","tr":"Mi amiga me dijo que se iba a mudar a Austin, y me pidió que la ayudara."},{"t":"My boss said we had a lot of work, and he asked if I could stay late on Friday.","tr":"Mi jefe dijo que teníamos mucho trabajo, y me preguntó si me podía quedar hasta tarde el viernes."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 8,
+      "level": "B1",
+      "title": "Di cómo te sientes",
+      "summary": "Describe tus emociones y lo que las causa: {{This movie is so boring. I'm really bored.}}",
+      "topic": "adjetivos en -ed ({{bored}}, {{tired}}) y en -ing ({{boring}}, {{tiring}}); {{feel}} + adjetivo; {{get}} + adjetivo",
+      "blocks": [
+        {"goal":{"t":"This movie is so boring. I'm really bored.","tr":"Esta película está aburridísima. Ya me aburrí."}},
+        {"dialog":[{"who":"Ana","t":"How was the concert?","tr":"¿Qué tal el concierto?"},{"who":"Tú","t":"Amazing! I'm so excited. I can't sleep!","tr":"¡Increíble! Estoy emocionadísima. ¡No me puedo dormir!"},{"who":"Ana","t":"And the trip there?","tr":"¿Y el viaje?"},{"who":"Tú","t":"It was tiring. Six hours by car! I was exhausted.","tr":"Fue cansadísimo. ¡Seis horas en carro! Llegué agotada."},{"who":"Ana","t":"Get some rest!","tr":"¡Descansa!"}]},
+        {"p":"**¿-ed o -ing?** Muchos adjetivos de emociones vienen en pareja. Con **-ed**: cómo **te sientes** tú. Con **-ing**: cómo **es** la cosa (o la persona) que causa ese sentimiento."},
+        { "table": [
+          ["-ed: cómo te sientes","-ing: lo que lo causa"],
+          ["{{I'm bored.}} Estoy aburrido.","{{The class is boring.}} La clase es aburrida."],
+          ["{{I'm tired.}} Estoy cansado.","{{The trip was tiring.}} El viaje fue cansado."],
+          ["{{I'm interested.}} Me interesa.","{{The book is interesting.}} El libro es interesante."],
+          ["{{I'm excited.}} Estoy emocionado.","{{The news is exciting.}} La noticia es emocionante."],
+          ["{{I'm confused.}} Estoy confundido.","{{The map is confusing.}} El mapa es confuso."],
+          ["{{I'm surprised.}} Estoy sorprendido.","{{It's surprising.}} Es sorprendente."]
+        ] },
+        {"p":"Cuidado: {{I'm boring}} quiere decir “soy aburrido” (¡aburro a los demás!). Para decir que te aburres: {{I'm bored}}."},
+        {"p":"**{{feel}} + adjetivo.** {{I feel tired.}} “Me siento cansado.” {{How do you feel?}} “¿Cómo te sientes?” Y {{get}} + adjetivo dice que cambias de estado: {{I get nervous before exams}} “me pongo nervioso”, {{She got angry}} “se enojó”."},
+        {"p":"**Palabras útiles:** {{happy}} (contento), {{sad}} (triste), {{angry}} o {{mad}} (enojado), {{worried}} (preocupado), {{nervous}} (nervioso), {{scared}} (con miedo), {{proud}} (orgulloso), {{lonely}} (que se siente solo), {{upset}} (molesto, alterado)."},
+        { "ex": [
+          {"t":"I'm worried about my exam.","tr":"Estoy preocupado por mi examen."},
+          {"t":"The news was shocking.","tr":"La noticia fue impactante."},
+          {"t":"My kids get bored on long trips.","tr":"Mis hijos se aburren en los viajes largos."},
+          {"t":"I feel much better today.","tr":"Hoy me siento mucho mejor."},
+          {"t":"She was very proud of her son.","tr":"Estaba muy orgullosa de su hijo."},
+          {"t":"That's interesting! Tell me more.","tr":"¡Qué interesante! Cuéntame más."},
+          {"t":"Are you nervous about the interview?","tr":"¿Estás nervioso por la entrevista?"}
+        ] },
+        {"tip":"Las preposiciones de los sentimientos: {{worried about}}, {{excited about}}, {{interested in}}, {{proud of}}, {{scared of}}, {{angry at}} o {{angry with}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm boring. Let's do something.","right":"I'm bored. Let's do something.","tr":"Estoy aburrido. Hagamos algo.","why":"Cómo te sientes: {{bored}}. {{I'm boring}} es “soy aburrido”."},
+        {"wrong":"The movie was very interested.","right":"The movie was very interesting.","tr":"La película estuvo muy interesante.","why":"Lo que causa el sentimiento: -ing."},
+        {"wrong":"I'm interesting in art.","right":"I'm interested in art.","tr":"Me interesa el arte.","why":"Lo que sientes tú: {{interested}}, con {{in}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"This class is so ___.","tr":"Esta clase es muy aburrida.","options":["boring","bored"],"answer":0,"why":"La clase causa el aburrimiento: {{boring}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I'm very ___ about my trip!","tr":"¡Estoy muy emocionada por mi viaje!","options":["excited","exciting"],"answer":0,"why":"Cómo te sientes: {{excited}}."},
+        {"type":"choice","q":"Después de trabajar doce horas, dices:","options":["{{I'm exhausted.}}","{{I'm exhausting.}}","{{I have tired.}}"],"answer":0,"why":"Cómo te sientes: -ed. (Y las sensaciones van con {{be}}.)","from":"ask-questions-with-be"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My son always ___ nervous before exams.","tr":"Mi hijo siempre se pone nervioso antes de los exámenes.","options":["gets","is getting","get"],"answer":0,"why":"Una costumbre, con {{he}}: {{gets}}.","from":"routines-and-right-now"},
+        {"type":"dialogue","q":"Platicas con una compañera de clase. Escoge tus respuestas.","lines":[{"who":"Compañera","t":"How do you feel about the exam?","tr":"¿Cómo te sientes con el examen?"},{"options":["I'm a little worried. Grammar is confusing.","I'm a little worrying. Grammar is confused."],"answer":0,"why":"Tú: {{worried}}; la gramática: {{confusing}}."},{"who":"Compañera","t":"Me too. Do you want to study together?","tr":"Yo también. ¿Quieres que estudiemos juntas?"},{"options":["Sure! I'm interested in studying with someone.","Sure! I'm interesting in study with someone."],"answer":0,"why":"{{interested in}} + -ing."},{"who":"Compañera","t":"Great!","tr":"¡Perfecto!"}],"from":"talk-about-activities"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Hoy me siento mucho mejor.","words":["I","feel","much better","today."]},
+        {"type":"say","q":"Di “¡Qué interesante! Cuéntame más.”","answer":"That's interesting! Tell me more."},
+        {"type":"free","q":"Te toca: ¿cómo te sientes hoy, y por qué? Usa un adjetivo en -ed y uno en -ing.","answers":[{"t":"I'm a little tired because my week was very tiring. But I'm excited about the weekend!","tr":"Estoy un poco cansado porque mi semana fue muy pesada. ¡Pero estoy emocionado por el fin de semana!"},{"t":"I feel relaxed. Today was a boring day, but that's okay.","tr":"Me siento relajada. Hoy fue un día aburrido, pero está bien."}]}
+      ]
+    },
+    {
+      "id": "avoid-false-friends",
+      "unit": 8,
+      "level": "B1",
+      "title": "No caigas en los falsos amigos",
+      "summary": "Evita las palabras que se parecen al español pero significan otra cosa: {{embarrassed}}, {{actually}}, {{realize}}, {{library}}…",
+      "topic": "falsos amigos: {{embarrassed, actually, realize, attend, assist, library, career, college, exit, sensible, pretend, carpet}}",
+      "blocks": [
+        {"goal":{"t":"I was so embarrassed! Actually, I didn't realize it was my boss.","tr":"¡Me dio muchísima vergüenza! La verdad, no me di cuenta de que era mi jefe."}},
+        {"dialog":[{"who":"Liz","t":"Is it true that Ana is pregnant?","tr":"¿Es cierto que Ana está embarazada?"},{"who":"Tú","t":"Yes! Actually, she's having twins.","tr":"¡Sí! De hecho, va a tener gemelos."},{"who":"Liz","t":"Wow! Did she leave her job?","tr":"¡Guau! ¿Dejó su trabajo?"},{"who":"Tú","t":"No, she's going to keep working at the library until May.","tr":"No, va a seguir trabajando en la biblioteca hasta mayo."},{"who":"Liz","t":"I didn't realize she worked at the library!","tr":"¡No me había dado cuenta de que trabajaba en la biblioteca!"}]},
+        {"p":"**Se parecen, pero no son.** El inglés y el español comparten miles de palabras ({{hospital}}, {{important}}, {{family}}), y eso ayuda muchísimo. Pero algunas se parecen y significan otra cosa. Estas son las que más problemas dan:"},
+        {"term":"falso amigo","means":"una palabra que se parece a una de tu idioma, pero significa otra cosa: {{embarrassed}} no es “embarazada”."},
+        { "table": [
+          ["en inglés","significa","y lo que parece se dice"],
+          ["{{embarrassed}}","apenado, con vergüenza","embarazada: {{pregnant}}"],
+          ["{{actually}}","en realidad, la verdad, de hecho","actualmente: {{currently}}, {{now}}"],
+          ["{{realize}}","darse cuenta","realizar: {{carry out}}, {{do}}"],
+          ["{{attend}}","asistir (ir a algo)","atender: {{serve}}, {{help}}"],
+          ["{{assist}}","ayudar","asistir (ir): {{attend}}"],
+          ["{{library}}","biblioteca","librería: {{bookstore}}"],
+          ["{{career}}","trayectoria profesional, profesión","la carrera (de la universidad): {{major}}, {{degree}}"],
+          ["{{college}}","universidad","el colegio: {{school}}"],
+          ["{{exit}}","salida","éxito: {{success}}"],
+          ["{{sensible}}","sensato","sensible: {{sensitive}}"],
+          ["{{pretend}}","fingir","pretender: {{intend}}, {{try to}}"],
+          ["{{carpet}}","alfombra","carpeta: {{folder}}"]
+        ] },
+        {"p":"**{{actually}}** es seguramente el que más se oye: no es “actualmente”, sino “en realidad”, “la verdad”, y sirve para corregir o para agregar algo que el otro no espera: {{Actually, I'm from Puebla, not Mexico City.}}"},
+        { "ex": [
+          {"t":"I'm so embarrassed. I forgot her name.","tr":"Qué pena. Se me olvidó su nombre."},
+          {"t":"Actually, I prefer tea.","tr":"La verdad, prefiero té."},
+          {"t":"I didn't realize it was so late.","tr":"No me di cuenta de que era tan tarde."},
+          {"t":"She attends a class every Thursday.","tr":"Va a una clase todos los jueves."},
+          {"t":"There's a bookstore next to the library.","tr":"Hay una librería junto a la biblioteca."},
+          {"t":"My daughter is in college. Her major is biology.","tr":"Mi hija está en la universidad. Estudia la carrera de Biología."},
+          {"t":"He's very sensitive. Don't make jokes about his weight.","tr":"Es muy sensible. No le hagas bromas sobre su peso."}
+        ] },
+        {"tip":"Si una palabra en inglés se parece mucho al español y la oración no tiene sentido, sospecha: puede ser un falso amigo. Y al revés: cuando no sepas una palabra, muchas veces la versión parecida sí existe ({{important}}, {{possible}}, {{information}})."}
+      ],
+      "mistakes": [
+        {"wrong":"My sister is embarrassed. She's having a baby in June.","right":"My sister is pregnant. She's having a baby in June.","tr":"Mi hermana está embarazada. Va a tener un bebé en junio.","why":"“Embarazada” es {{pregnant}}; {{embarrassed}} es “apenada”."},
+        {"wrong":"Actually I work at a bank, since 2020.","right":"Currently I work at a bank. I've worked there since 2020.","tr":"Actualmente trabajo en un banco. Trabajo ahí desde 2020.","why":"“Actualmente” es {{currently}} o {{now}}; {{actually}} es “en realidad”."},
+        {"wrong":"I want to assist to the meeting.","right":"I want to attend the meeting.","tr":"Quiero asistir a la junta.","why":"Asistir (ir) es {{attend}}, sin {{to}}; {{assist}} es “ayudar”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I was so ___ when I fell in front of everyone.","tr":"Me dio muchísima vergüenza cuando me caí enfrente de todos.","options":["embarrassed","pregnant","embarrassing"],"answer":0,"why":"Sentir vergüenza: {{embarrassed}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I didn't ___ you were here!","tr":"¡No me di cuenta de que estabas aquí!","options":["realize","realized","know of"],"answer":0,"why":"Darse cuenta: {{realize}}; y después de {{didn't}}, la forma base.","from":"ask-about-the-past"},
+        {"type":"choice","q":"“Voy a la biblioteca a estudiar.” ¿Cuál está bien?","options":["{{I'm going to the library to study.}}","{{I'm going to the bookstore to study.}}","{{I'm going to the librery to study.}}"],"answer":0,"why":"Biblioteca es {{library}}; librería es {{bookstore}}."},
+        {"type":"choice","q":"¿Qué quiere decir {{Actually, I'm from Texas.}}?","options":["En realidad, soy de Texas.","Actualmente soy de Texas."],"answer":0,"why":"{{actually}} es “en realidad”, “la verdad”."},
+        {"type":"dialogue","q":"Te encuentras a un conocido. Escoge tus respuestas.","lines":[{"who":"Conocido","t":"Are you going to Pedro's wedding?","tr":"¿Vas a ir a la boda de Pedro?"},{"options":["Yes, I'm going to attend. I'm so excited!","Yes, I'm going to assist. I'm so exciting!"],"answer":0,"why":"Ir a un evento: {{attend}}; y cómo te sientes: {{excited}}."},{"who":"Conocido","t":"Me too. Did you know his fiancée is from Mexico?","tr":"Yo también. ¿Sabías que su prometida es de México?"},{"options":["No, I didn't realize that!","No, I didn't realized that!"],"answer":0,"why":"{{realize}}, darse cuenta; después de {{didn't}}, la forma base."},{"who":"Conocido","t":"Yes, from Guadalajara.","tr":"Sí, de Guadalajara."}],"from":"say-how-you-feel"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"La verdad, prefiero té.","words":["Actually,","I","prefer","tea."]},
+        {"type":"say","q":"Di “No me di cuenta de que era tan tarde.”","answer":"I didn't realize it was so late."},
+        {"type":"free","q":"Te toca: escribe dos oraciones con falsos amigos bien usados, como {{actually}}, {{realize}} o {{embarrassed}}.","answers":[{"t":"Actually, I don't like coffee. I didn't realize my friend made it for me!","tr":"La verdad, no me gusta el café. ¡No me di cuenta de que mi amigo me lo había hecho!"},{"t":"I was embarrassed because I didn't realize my shirt was dirty.","tr":"Me dio vergüenza porque no me di cuenta de que mi camisa estaba sucia."}]}
+      ]
+    },
+    {
+      "id": "recognize-the-passive",
+      "unit": 8,
+      "level": "B1",
+      "title": "Entiende la voz pasiva",
+      "summary": "Entiende las oraciones en las que no importa quién hizo algo: {{It was built in 1750.}} {{Spanish is spoken here.}}",
+      "topic": "la voz pasiva: {{be}} + participio ({{is made}}, {{was built}}); {{by}}; donde el español dice “se” ({{Spanish is spoken here}})",
+      "blocks": [
+        {"goal":{"t":"This church was built in 1750.","tr":"Esta iglesia se construyó en 1750."}},
+        {"dialog":[{"who":"Guía","t":"This mural was painted in 1929 by Diego Rivera.","tr":"Este mural lo pintó Diego Rivera en 1929."},{"who":"Tú","t":"Wow. How long did it take?","tr":"¡Guau! ¿Cuánto se tardó?"},{"who":"Guía","t":"About a year. It was restored in 2010.","tr":"Como un año. Lo restauraron en 2010."},{"who":"Tú","t":"Can we take pictures?","tr":"¿Se pueden tomar fotos?"},{"who":"Guía","t":"Sorry, photos aren't allowed in this room.","tr":"Lo siento, en esta sala no se permiten fotos."}]},
+        {"p":"**Lo importante es la cosa, no quién lo hizo.** La voz pasiva es {{be}} + el participio: {{The house was built in 1910.}} “La casa fue construida (se construyó) en 1910.” Se usa mucho en noticias, letreros, instrucciones y para hablar de cosas. No tienes que usarla mucho, pero sí entenderla."},
+        {"term":"voz pasiva","means":"una forma de la oración en la que lo importante es a qué o a quién le pasa algo, no quién lo hace: “la casa fue construida en 1910”."},
+        { "table": [
+          ["","activa","pasiva"],
+          ["presente","{{They make these cars in Mexico.}}","{{These cars are made in Mexico.}}"],
+          ["pasado","{{Someone stole my bike.}}","{{My bike was stolen.}}"],
+          ["con quién","{{Diego Rivera painted it.}}","{{It was painted by Diego Rivera.}}"]
+        ] },
+        {"p":"**Donde el español dice “se”.** Muchas veces la pasiva del inglés es nuestro “se”: {{Spanish is spoken here.}} “Aquí se habla español.” {{Photos aren't allowed.}} “No se permiten fotos.” {{It's made of wood.}} “Está hecho de madera.”"},
+        {"p":"**Una que ya conoces:** {{I was born}} (lección 20) es pasiva: literalmente, “fui nacido”."},
+        {"p":"**{{by}}** dice quién lo hizo, solo cuando importa: {{The book was written by Octavio Paz.}}"},
+        { "ex": [
+          {"t":"English is spoken all over the world.","tr":"El inglés se habla en todo el mundo."},
+          {"t":"My car was stolen last night.","tr":"Anoche me robaron el carro."},
+          {"t":"Smoking isn't allowed in this building.","tr":"En este edificio no se permite fumar."},
+          {"t":"These tortillas are made by hand.","tr":"Estas tortillas están hechas a mano."},
+          {"t":"The meeting was canceled.","tr":"Se canceló la junta."},
+          {"t":"This song was written by Juan Gabriel.","tr":"Esta canción la escribió Juan Gabriel."},
+          {"t":"Breakfast is served from seven to ten.","tr":"El desayuno se sirve de siete a diez."}
+        ] },
+        {"tip":"En los letreros vas a ver mucho la pasiva: {{No pets allowed}} (no se permiten mascotas), {{Cash only}} (solo efectivo), {{Closed on Sundays}} (cerrado los domingos)."}
+      ],
+      "mistakes": [
+        {"wrong":"Here is spoken Spanish.","right":"Spanish is spoken here.","tr":"Aquí se habla español.","why":"En inglés la cosa va primero, como sujeto: {{Spanish is spoken}}."},
+        {"wrong":"My bike was steal.","right":"My bike was stolen.","tr":"Me robaron la bici.","why":"La pasiva lleva el participio: {{stolen}}."},
+        {"wrong":"I born in 1990.","right":"I was born in 1990.","tr":"Nací en 1990.","why":"“Nacer” en inglés es pasiva: {{was born}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"These shoes are ___ in Mexico.","tr":"Estos zapatos están hechos en México.","options":["made","make","making"],"answer":0,"why":"Pasiva: {{be}} + participio, {{made}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"The church ___ built in 1750.","tr":"La iglesia se construyó en 1750.","options":["was","is","did"],"answer":0,"why":"Pasiva en pasado: {{was}} + participio."},
+        {"type":"choice","q":"Un letrero dice {{No pets allowed.}} ¿Qué quiere decir?","options":["No se permiten mascotas.","Se venden mascotas.","Las mascotas pueden entrar."],"answer":0,"why":"{{allowed}} es “permitido”."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I was ___ in Guadalajara.","tr":"Nací en Guadalajara.","options":["born","borned","bear"],"answer":0,"why":"{{be born}}: “nacer”.","from":"say-where-you-were"},
+        {"type":"dialogue","q":"En un museo. Escoge tus preguntas.","lines":[{"who":"Guía","t":"This is one of the most famous paintings in Mexico.","tr":"Este es uno de los cuadros más famosos de México."},{"options":["When was it painted?","When did it painted?"],"answer":0,"why":"Pasiva en pasado: {{was it painted}}."},{"who":"Guía","t":"In 1931. Have you ever seen it before?","tr":"En 1931. ¿Ya lo había visto?"},{"options":["No, I haven't. Are pictures allowed here?","No, I haven't. Are pictures allow here?"],"answer":0,"why":"La respuesta corta del presente perfecto; y la pasiva, con el participio {{allowed}}."},{"who":"Guía","t":"Yes, but no flash, please.","tr":"Sí, pero sin flash, por favor."}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Aquí se habla español.","words":["Spanish","is","spoken","here."]},
+        {"type":"say","q":"Di “Anoche me robaron el carro.”","answer":"My car was stolen last night."},
+        {"type":"free","q":"Te toca: describe algo que tengas (una prenda, un objeto, un platillo): ¿dónde se hizo, de qué está hecho, quién lo hizo? Usa la pasiva.","answers":[{"t":"My guitar was made in Paracho. It's made of wood, and it was given to me by my dad.","tr":"Mi guitarra se hizo en Paracho. Es de madera, y me la regaló mi papá."},{"t":"My favorite shirt was made in Oaxaca. It was embroidered by hand.","tr":"Mi camisa favorita se hizo en Oaxaca. Está bordada a mano."}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 8,
+      "level": "B1",
+      "title": "Mantén viva la conversación",
+      "summary": "Reacciona y sigue la plática con preguntas y respuestas cortas: {{Oh, did you?}} {{So do I!}} {{It's hot today, isn't it?}}",
+      "topic": "preguntas de eco ({{Did you?}}, {{Is she?}}); {{So do I}} y {{Neither do I}}; preguntas cola ({{isn't it?}}, {{don't you?}})",
+      "blocks": [
+        {"goal":{"t":"I love this song! — So do I!","tr":"¡Me encanta esta canción! — ¡A mí también!"}},
+        {"dialog":[{"who":"Matt","t":"I just got back from Mexico.","tr":"Acabo de regresar de México."},{"who":"Tú","t":"Oh, did you? Where did you go?","tr":"¿Ah, sí? ¿Adónde fuiste?"},{"who":"Matt","t":"Oaxaca. I loved the food.","tr":"A Oaxaca. Me encantó la comida."},{"who":"Tú","t":"So did I! I was there last year. It's beautiful, isn't it?","tr":"¡A mí también! Fui el año pasado. Es preciosa, ¿verdad?"},{"who":"Matt","t":"It is! I didn't want to come back.","tr":"¡Sí! No me quería regresar."},{"who":"Tú","t":"Neither did I!","tr":"¡Yo tampoco!"}]},
+        {"p":"**El inglés reacciona con el ayudante.** En español basta con “¿ah, sí?” o “¿de veras?”. En inglés lo natural es repetir el verbo auxiliar ({{do}}, {{did}}, {{be}}, {{have}}, {{can}}…) con el sujeto: {{I live in Chicago. — Oh, do you?}} {{She's a doctor. — Is she?}} {{I can't swim. — Can't you?}}"},
+        { "table": [
+          ["lo que oyes","tu reacción"],
+          ["{{I'm from Puebla.}}","{{Oh, are you?}}"],
+          ["{{I went to the concert.}}","{{Did you?}}"],
+          ["{{She doesn't eat meat.}}","{{Doesn't she?}}"],
+          ["{{We've been here for years.}}","{{Have you?}}"]
+        ] },
+        {"p":"**Yo también, yo tampoco.** Además de {{Me too}} y {{Me neither}} (lección 11), se oye mucho {{So}} + ayudante + sujeto (también) y {{Neither}} + ayudante + sujeto (tampoco), con el ayudante en el mismo tiempo: {{I love tacos. — So do I.}} {{I went home early. — So did I.}} {{I'm tired. — So am I.}} {{I can't dance. — Neither can I.}}"},
+        {"p":"**Preguntas cola: “¿verdad?”, “¿no?”.** El español pone “¿verdad?” o “¿no?” al final. El inglés hace una preguntita con el ayudante, al revés de la oración: si la oración es positiva, la cola es negativa ({{It's hot, isn't it?}} {{You speak Spanish, don't you?}}); si es negativa, la cola es positiva ({{You aren't busy, are you?}})."},
+        { "ex": [
+          {"t":"I'm learning to cook. — Are you? That's great!","tr":"Estoy aprendiendo a cocinar. — ¿Ah, sí? ¡Qué bien!"},
+          {"t":"I don't like horror movies. — Neither do I.","tr":"No me gustan las películas de terror. — A mí tampoco."},
+          {"t":"We're going to the beach. — So are we!","tr":"Vamos a la playa. — ¡Nosotros también!"},
+          {"t":"The food was delicious, wasn't it?","tr":"La comida estuvo deliciosa, ¿verdad?"},
+          {"t":"You're coming tomorrow, aren't you?","tr":"Vienes mañana, ¿verdad?"},
+          {"t":"She can't come. — Can't she? Why not?","tr":"No puede venir. — ¿No? ¿Por qué?"}
+        ] },
+        {"tip":"Para seguir la plática, después de reaccionar haz una pregunta abierta: {{Really? How was it?}}, {{What happened next?}}, {{What was it like?}} (¿qué tal estuvo?)."}
+      ],
+      "mistakes": [
+        {"wrong":"I love this song. — So I do.","right":"I love this song. — So do I.","tr":"Me encanta esta canción. — A mí también.","why":"El orden es {{So}} + ayudante + sujeto: {{So do I}}."},
+        {"wrong":"I'm tired. — So do I.","right":"I'm tired. — So am I.","tr":"Estoy cansado. — Yo también.","why":"Se repite el mismo verbo: con {{be}}, {{So am I}}."},
+        {"wrong":"It's cold, no?","right":"It's cold, isn't it?","tr":"Hace frío, ¿no?","why":"En inglés la cola es una preguntita con el ayudante: {{isn't it?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I don't eat meat. — Neither ___ I.","tr":"Yo no como carne. — Yo tampoco.","options":["do","am","don't"],"answer":0,"why":"{{eat}} usa el ayudante {{do}}: {{Neither do I}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I went to bed late. — So ___ I.","tr":"Me dormí tarde. — Yo también.","options":["did","do","was"],"answer":0,"why":"En pasado: {{So did I}}.","from":"ask-about-the-past"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"You're Mexican, ___ you?","tr":"Eres mexicano, ¿verdad?","options":["aren't","don't","isn't"],"answer":0,"why":"Una oración positiva con {{are}}: la cola negativa, {{aren't you?}}"},
+        {"type":"choice","q":"Tu compañero dice {{I've been to Japan.}} Reaccionas con interés:","options":["{{Have you? When did you go?}}","{{Do you? When you went?}}","{{Yes? When did you went?}}"],"answer":0,"why":"Con el mismo ayudante: {{Have you?}}; y luego, el pasado con {{did}}.","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Platicas con una vecina nueva. Escoge tus respuestas.","lines":[{"who":"Vecina","t":"I'm from Guadalajara.","tr":"Soy de Guadalajara."},{"options":["Oh, are you? So am I!","Oh, do you? So do I!"],"answer":0,"why":"Con {{be}}: {{are you?}} y {{So am I}}."},{"who":"Vecina","t":"I don't know anyone here yet.","tr":"Todavía no conozco a nadie aquí."},{"options":["Don't you? Let's have coffee sometime!","Aren't you? Let's have coffee sometime!"],"answer":0,"why":"{{know}} usa {{do}}: {{Don't you?}}"},{"who":"Vecina","t":"I'd love that!","tr":"¡Me encantaría!"}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"La comida estuvo deliciosa, ¿verdad?","words":["The food","was","delicious,","wasn't it?"]},
+        {"type":"say","q":"Contesta “¡A mí también!” cuando alguien dice {{I love tacos.}}","answer":"So do I!"},
+        {"type":"free","q":"Te toca: tu amigo dice {{I'm going to Cancún next month!}} Reacciona y hazle dos preguntas para seguir la plática.","answers":[{"t":"Are you? That's great! Who are you going with? Have you been there before?","tr":"¿Ah, sí? ¡Qué padre! ¿Con quién vas? ¿Ya habías ido?"},{"t":"Oh, are you? Lucky you! How long are you staying? Are you going to swim with dolphins?","tr":"¿En serio? ¡Qué suerte! ¿Cuánto tiempo te vas a quedar? ¿Vas a nadar con delfines?"}]}
+      ]
+    },
+    {
+      "id": "tell-your-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Cuenta tu historia",
+      "summary": "Junta todo lo que has aprendido para contar tu vida: de dónde eres, qué has hecho, qué haces ahora y qué vas a hacer.",
+      "topic": "repaso: el presente, el pasado, el presente perfecto, {{used to}}, {{going to}} y {{would}}, juntos en una historia",
+      "blocks": [
+        {"goal":{"t":"I was born in Puebla, I've lived in Chicago for six years, and next year I'm going to start my own business.","tr":"Nací en Puebla, llevo seis años viviendo en Chicago y el próximo año voy a abrir mi propio negocio."}},
+        {"dialog":[{"who":"Entrevistador","t":"Tell me a little about yourself.","tr":"Cuénteme un poco de usted."},{"who":"Tú","t":"Sure. I was born in Mexico, and I moved to the US ten years ago.","tr":"Claro. Nací en México y me vine a Estados Unidos hace diez años."},{"who":"Entrevistador","t":"What did you do before this?","tr":"¿A qué se dedicaba antes?"},{"who":"Tú","t":"I used to work in a restaurant. Then I studied accounting, and I've worked at a bank since 2020.","tr":"Trabajaba en un restaurante. Luego estudié contabilidad, y trabajo en un banco desde 2020."},{"who":"Entrevistador","t":"And what are your goals?","tr":"¿Y cuáles son sus metas?"},{"who":"Tú","t":"I'm going to finish my degree next year. If I had the chance, I'd love to lead a team.","tr":"El próximo año voy a terminar la carrera. Si tuviera la oportunidad, me encantaría dirigir un equipo."}]},
+        {"p":"**Cada tiempo, su trabajo.** Contar tu vida es el mejor repaso, porque cada parte de la historia pide un tiempo distinto. Esta es tu caja de herramientas:"},
+        { "table": [
+          ["para","en inglés","ejemplo"],
+          ["dónde y cuándo naciste","{{was born}}","{{I was born in Puebla in 1990.}}"],
+          ["lo que pasó y terminó","pasado simple","{{I moved here in 2015.}}"],
+          ["lo que hacías antes, de costumbre","{{used to}}","{{I used to work at a restaurant.}}"],
+          ["lo que empezó antes y sigue","presente perfecto + {{for}}, {{since}}","{{I've lived here for ten years.}}"],
+          ["tus experiencias","presente perfecto + {{ever}}, {{never}}","{{I've never been to Europe.}}"],
+          ["tu vida ahora","presente simple","{{I work at a bank.}}"],
+          ["lo que estás haciendo estos días","presente continuo","{{I'm studying English.}}"],
+          ["tus planes","{{going to}}","{{I'm going to open a business.}}"],
+          ["tus sueños","{{would}}","{{I'd love to live by the beach.}}"]
+        ] },
+        {"p":"**Une las partes** con {{first}}, {{then}}, {{after that}}, {{later}}, {{now}} y {{someday}} (algún día), y con {{because}}, {{so}} (así que) y {{but}}. Así cualquiera te puede seguir."},
+        {"p":"**Tres trampas que ya conoces:** no {{I born}}, sino {{I was born}} (lección 20); no {{I live here since 2015}}, sino {{I've lived here since 2015}} (lección 33); y no {{I have 30 years}}, sino {{I'm 30}} (lección 3)."},
+        { "ex": [
+          {"t":"I grew up in a small town in Jalisco.","tr":"Crecí en un pueblito de Jalisco."},
+          {"t":"When I was a teenager, I used to play in a band.","tr":"Cuando era adolescente, tocaba en un grupo."},
+          {"t":"I came to the United States when I was twenty.","tr":"Llegué a Estados Unidos cuando tenía veinte años."},
+          {"t":"I've been married for twelve years, and we have two kids.","tr":"Llevo doce años de casado y tenemos dos hijos."},
+          {"t":"Right now I'm learning to speak English better.","tr":"Ahorita estoy aprendiendo a hablar mejor el inglés."},
+          {"t":"Someday I'd like to go back to Mexico.","tr":"Algún día me gustaría regresar a México."}
+        ] },
+        {"tip":"Prepara tu historia de 60 segundos y practícala en voz alta: en entrevistas, en citas, al conocer gente, siempre te van a decir {{Tell me about yourself.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I live in Chicago since 2015.","right":"I've lived in Chicago since 2015.","tr":"Vivo en Chicago desde 2015.","why":"Empezó antes y sigue: presente perfecto."},
+        {"wrong":"When I was a kid I was living in Puebla.","right":"When I was a kid, I lived in Puebla.","tr":"De niño vivía en Puebla.","why":"Para describir tu vida en el pasado: pasado simple (o {{used to}}), no el continuo."},
+        {"wrong":"In the future I would open a restaurant.","right":"In the future I'm going to open a restaurant.","tr":"En el futuro voy a abrir un restaurante.","why":"Un plan: {{going to}}. {{would}} es para lo imaginado: {{I'd love to…}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I ___ born in Monterrey.","tr":"Nací en Monterrey.","options":["was","am","did"],"answer":0,"why":"{{was born}}.","from":"say-where-you-were"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"I've worked here ___ 2019.","tr":"Trabajo aquí desde 2019.","options":["since","for","from"],"answer":0,"why":"Desde un momento: {{since}}.","from":"say-how-long"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"When I was a kid, I ___ to play soccer every day.","tr":"De niño jugaba futbol todos los días.","options":["used","use","was"],"answer":0,"why":"Una costumbre del pasado: {{used to}}.","from":"say-how-things-used-to-be"},
+        {"type":"choice","q":"¿Cuál habla de un plan que ya tienes?","options":["{{Next year I'm going to study nursing.}}","{{Next year I would study nursing.}}","{{Next year I study nursing would.}}"],"answer":0,"why":"Un plan: {{going to}}.","from":"make-plans"},
+        {"type":"dialogue","q":"Conoces a alguien en un curso. Escoge tus respuestas.","lines":[{"who":"Compañera","t":"So, tell me about yourself!","tr":"¡A ver, cuéntame de ti!"},{"options":["I'm from Mexico. I moved here five years ago.","I'm from Mexico. I moved here since five years."],"answer":0,"why":"Un momento ya terminado: {{five years ago}}, con pasado simple."},{"who":"Compañera","t":"Have you ever been back?","tr":"¿Has regresado alguna vez?"},{"options":["Yes, I go every December. I'm going to go this year too.","Yes, I go every December. I will to go this year too."],"answer":0,"why":"Una costumbre: presente simple; un plan: {{going to}}."},{"who":"Compañera","t":"That's nice!","tr":"¡Qué bonito!"}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Algún día me gustaría regresar a México.","words":["Someday","I'd like","to go back","to Mexico."]},
+        {"type":"say","q":"Di “Llevo seis años viviendo aquí.”","answer":"I've lived here for six years."},
+        {"type":"free","q":"Te toca: cuenta tu historia en cuatro o cinco oraciones: dónde naciste, algo que hacías antes, desde cuándo haces lo que haces ahora, y un plan o un sueño.","answers":[{"t":"I was born in Morelia. I used to work as a waiter. I've been a nurse since 2018, and next year I'm going to buy a house. Someday I'd love to travel to Spain.","tr":"Nací en Morelia. Antes trabajaba de mesero. Soy enfermero desde 2018, y el próximo año voy a comprar una casa. Algún día me encantaría viajar a España."},{"t":"I was born in a small town in Guanajuato. I moved to Dallas ten years ago, and I've worked at the same company for eight years. If I could, I'd start my own business.","tr":"Nací en un pueblito de Guanajuato. Me vine a Dallas hace diez años, y llevo ocho años trabajando en la misma empresa. Si pudiera, abriría mi propio negocio."}]}
       ]
     }
   ]

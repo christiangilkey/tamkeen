@@ -109,11 +109,11 @@ wishes, advice, *cuando* and opinions. The conditional and *si* clauses close th
 - **tener**: 10 → 17 (*tener que*) → 23 (*tener calor*) → 30 (*tuve*).
 
 ## Grammar words, where each is first explained
-pronoun, verb (1) · gender (2) · noun, article (4) · adjective (5) · infinitive (6) · conjugate (7) ·
-possessive (10) · demonstrative (12) · preposition (13) · irregular verb (18) · stem-changing verb (19) ·
-reflexive verb (20) · gerund (21) · object (24) · direct object pronoun (26) · indirect object (27) ·
-tense, preterite (29) · imperfect (32) · past participle (35) · command (38) · future (41) ·
-subjunctive (43) · conditional (48).
+verb, pronoun (1) · gender (2) · noun, article (4) · adjective, agree (5) · infinitive (6) · conjugate (7) ·
+possessive (10) · subject (11) · demonstrative (12) · preposition (13) · irregular verb (18) ·
+stem-changing verb (19) · reflexive verb (20) · gerund (21) · object (24) · direct object pronoun (26) ·
+indirect object (27) · tense, preterite (29) · imperfect (32) · past participle (35) · clause (37) ·
+command (38) · future (41) · subjunctive (43) · conditional (48) · imperfect subjunctive (49).
 
 ## Conventions
 - Every example is a whole Mexican Spanish sentence, accents and ¿ ¡ complete; English translations

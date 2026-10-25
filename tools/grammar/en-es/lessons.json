@@ -1966,7 +1966,7 @@
           {"t":"Vaya al final del pasillo y suba al segundo piso.","tr":"Go to the end of the hall and up to the second floor."},
           {"t":"Dígame, ¿en qué le puedo ayudar?","tr":"Yes, how can I help you?"}
         ] },
-        {"tip":"These forms will come back: they're the **subjunctive**, which the next unit uses for wishes, advice and plans (lesson 43). Learning them here gets you halfway there."}
+        {"tip":"These forms will come back: the next unit uses them, with an ending for every person, to say what you want others to do, to wish people well and to give advice (lesson 43). Learning them here gets you halfway there."}
       ],
       "mistakes": [
         {"wrong":"Señor, sigue derecho dos cuadras.","right":"Señor, siga derecho dos cuadras.","tr":"Sir, go straight for two blocks.","why":"To someone you call {{usted}}, the opposite vowel: {{siga}}. {{Sigue}} is for {{tú}}."},

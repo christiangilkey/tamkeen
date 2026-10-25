@@ -114,11 +114,13 @@ opinions, reported speech, feelings and false friends, the passive, keeping a co
 - **adjectives**: 5 → 27, 28 (comparing) → 44 (*-ed/-ing*).
 
 ## Grammar words, where each is first explained (in Spanish in the course)
-pronombre, verbo (1) · contracción (1) · artículo (2) · sustantivo, plural (4) · adjetivo (5) ·
+verbo, pronombre, sujeto, contracción (1) · artículo (2) · sustantivo, plural (4) · adjetivo (5) ·
 forma base (6) · presente simple (7) · verbo auxiliar (9) · posesivo (12) · preposición (13) ·
 verbo modal (15) · presente continuo (16) · pasado simple (21) · verbo irregular (22) ·
-pasado continuo (24) · contable / incontable (29) · participio (32) · presente perfecto (32) ·
-phrasal verb (36) · oración de relativo (38) · condicional (39) · voz pasiva (46).
+pasado continuo (24) · sustantivo contable (29) · presente perfecto, participio (32) ·
+verbo con partícula, objeto (36) · oración de relativo (38) · condicional (39) · falso amigo (45) ·
+voz pasiva (46). In the explanations the tenses go by their Spanish names (*presente perfecto*), with
+the English name given once.
 
 ## Conventions
 - Examples are natural American English (*apartment, check, cell phone, vacation, downtown, a quarter
