@@ -1127,6 +1127,282 @@
         {"type":"order","q":"Соберите предложение.","tr":"Сегодня солнце очень жаркое.","words":["The","sun","is","very","hot","today."]},
         {"type":"free","q":"Ваша очередь: скажите, что вы любите вообще (без артикля), и что вам нравится или не нравится в каком-то конкретном месте ({{the}}).","answers":[{"t":"I love music and books. But the music in my office is terrible!","tr":"Я люблю музыку и книги. Но музыка у меня в офисе ужасная!"},{"t":"I like coffee, but the coffee at my work is too weak.","tr":"Я люблю кофе, но кофе у меня на работе слишком слабый."}]}
       ]
+    },
+    {
+      "id": "have-you-ever",
+      "unit": 5,
+      "level": "A2",
+      "title": "Рассказать о своём опыте",
+      "summary": "Спросите «Have you ever…?» и расскажите, что вы уже делали в жизни, а чего никогда не делали.",
+      "topic": "Present Perfect: {{have}}/{{has}} + третья форма; {{ever}}, {{never}}; {{been to}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"Ты когда-нибудь был в Нью-Йорке? — Нет, ни разу."}},
+        {"dialog":[{"who":"Джесс","t":"Have you ever tried sushi?","tr":"Ты когда-нибудь пробовал суши?"},{"who":"Коля","t":"Yes, many times. I love it!","tr":"Да, много раз. Обожаю!"},{"who":"Джесс","t":"Have you ever been to Japan?","tr":"А в Японии бывал?"},{"who":"Коля","t":"No, I've never been to Asia. Have you?","tr":"Нет, в Азии я никогда не был. А ты?"},{"who":"Джесс","t":"Yes, I have. I went to Tokyo in 2019.","tr":"Да. Я ездила в Токио в 2019 году."}]},
+        {"term":"Present Perfect","means":"«настоящее совершённое» время: прошлое, которое важно сейчас — опыт, новость, результат: {{I've seen this movie}} «я видел этот фильм (и знаю его)»."},
+        {"term":"третья форма глагола","means":"форма для Present Perfect и страдательного залога: {{seen}}, {{been}}, {{worked}}. У правильных глаголов она совпадает с прошедшим ({{-ed}}), у неправильных её надо запомнить."},
+        {"p":"Это время — одно из самых трудных для русскоговорящих: в русском его нет. По-русски «Я был в Лондоне» — и про 2015 год, и про опыт вообще. По-английски, если важен **опыт** («когда-нибудь в жизни»), а не дата, — нужен Present Perfect: {{I've been to London}}."},
+        {"p":"**Форма:** {{have}} (или {{has}} для {{he}}, {{she}}, {{it}}) + третья форма глагола: {{I have seen}}, {{she has tried}}. Сокращённо — {{I've}}, {{she's}}. Вопрос: {{Have you seen…?}}, отрицание: {{I haven't seen}}."},
+        { "table": [
+          ["глагол","прошедшее","третья форма"],
+          ["{{be}}","{{was}}, {{were}}","{{been}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{try}}","{{tried}}","{{tried}}"]
+        ] },
+        {"p":"**{{ever}} и {{never}}.** {{ever}} «когда-нибудь» — в вопросах: {{Have you ever…?}} {{never}} «никогда» — в ответах, и тогда {{not}} не нужен: {{I've never been to Japan}}. **Бывать где-то** — {{have been to}}: {{I've been to Paris}} «Я бывал в Париже»."},
+        {"p":"**Дата — уже Past Simple.** Как только появляется «когда» ({{in 2019}}, {{last year}}, {{yesterday}}), говорят Past Simple: {{I've been to Tokyo. I went there in 2019.}} С точным прошлым временем Present Perfect не употребляют."},
+        { "ex": [
+          {"t":"I've never seen snow.","tr":"Я никогда не видел снега."},
+          {"t":"Has she ever been to Russia? — Yes, she has.","tr":"Она бывала в России? — Да."},
+          {"t":"We've tried all the restaurants on this street.","tr":"Мы перепробовали все рестораны на этой улице."},
+          {"t":"Have you ever met a famous person?","tr":"Ты когда-нибудь встречал знаменитость?"},
+          {"t":"I've read this book three times.","tr":"Я читал эту книгу три раза."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Did you ever be in London?","right":"Have you ever been to London?","tr":"Ты когда-нибудь был в Лондоне?","why":"Опыт «когда-нибудь в жизни» — Present Perfect: {{Have you ever been…?}}"},
+        {"wrong":"I have been in Moscow in 2018.","right":"I was in Moscow in 2018.","tr":"Я был в Москве в 2018 году.","why":"С датой — Past Simple."},
+        {"wrong":"I haven't never tried it.","right":"I've never tried it.","tr":"Я никогда этого не пробовал.","why":"{{never}} — уже отрицание, второе не нужно."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Have you ever ___ to Canada?","tr":"Ты бывал в Канаде?","options":["been","went","was"],"answer":0,"why":"{{have been to}} — «бывать»."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She ___ never eaten sushi.","tr":"Она никогда не ела суши.","options":["has","have","is"],"answer":0,"why":"{{she}} — {{has}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ to Paris last year.","tr":"В прошлом году мы ездили в Париж.","options":["went","have been","have gone"],"answer":0,"why":"{{last year}} — точное время: Past Simple."},
+        {"type":"choice","q":"Как спросить об опыте: «Ты когда-нибудь водил грузовик?»","options":["{{Have you ever driven a truck?}}","{{Did you ever drive a truck yesterday?}}","{{Do you ever drove a truck?}}"],"answer":0,"why":"Опыт: {{Have you ever}} + третья форма."},
+        {"type":"dialogue","q":"Друг расспрашивает о путешествиях. Выберите ответы.","from":"past-irregular","lines":[{"who":"Друг","t":"Have you ever been to Mexico?","tr":"Ты бывал в Мексике?"},{"options":["Yes, I have. I went there two years ago.","Yes, I have. I have been there two years ago."],"answer":0,"why":"Опыт — Present Perfect, а с датой ({{two years ago}}) — Past Simple."},{"who":"Друг","t":"Did you like it?","tr":"Понравилось?"},{"options":["Yes! I've never eaten such good food.","Yes! I've never ate such good food."],"answer":0,"why":"Третья форма: {{eaten}}."},{"who":"Друг","t":"I want to go!","tr":"Хочу туда!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я никогда не видел океан.","words":["I've","never","seen","the","ocean."]},
+        {"type":"free","q":"Ваша очередь: назовите две вещи, которые вы делали в жизни, и одну, которую не делали никогда. Спросите собеседника: {{Have you ever…?}}","answers":[{"t":"I've been to Italy and I've run a marathon, but I've never flown in a helicopter. Have you ever done it?","tr":"Я был в Италии и пробежал марафон, но никогда не летал на вертолёте. А ты?"},{"t":"I've tried Indian food and I've seen the Northern Lights. I've never been to Africa. Have you ever been there?","tr":"Я пробовала индийскую еду и видела северное сияние. В Африке никогда не была. А ты бывала?"}]}
+      ]
+    },
+    {
+      "id": "just-already-yet",
+      "unit": 5,
+      "level": "A2",
+      "title": "Сообщить новости",
+      "summary": "Сообщите новость и спросите, сделано ли что-то: «I've just finished! Have you eaten yet?»",
+      "topic": "Present Perfect с {{just}}, {{already}}, {{yet}}; новость и подробности",
+      "blocks": [
+        {"goal":{"t":"Great news! I've just found a new job!","tr":"Отличная новость! Я только что нашёл новую работу!"}},
+        {"dialog":[{"who":"Начальник","t":"Have you finished the report yet?","tr":"Вы уже закончили отчёт?"},{"who":"Игорь","t":"Yes, I've already sent it to you.","tr":"Да, я уже отправил его вам."},{"who":"Начальник","t":"Oh, I haven't checked my email yet. And the client?","tr":"А, я ещё не смотрел почту. А клиент?"},{"who":"Игорь","t":"I've just called him. He's happy.","tr":"Я только что ему звонил. Он доволен."},{"who":"Начальник","t":"Great job!","tr":"Отличная работа!"}]},
+        {"p":"Present Perfect — главное время для **новостей**: что-то случилось, и результат есть сейчас. По-русски мы скажем прошедшим: «Я потерял ключи!», а англичанин думает о результате — ключей нет сейчас: {{I've lost my keys!}}"},
+        {"p":"**Три слова-подсказки.** {{just}} «только что» стоит между {{have}} и глаголом: {{I've just arrived}}. {{already}} «уже» — там же: {{She's already left}}. {{yet}} — «уже?» в вопросах и «ещё не» в отрицаниях — в конце: {{Have you eaten yet?}} «Ты уже поел?», {{I haven't eaten yet}} «Я ещё не ел»."},
+        { "table": [
+          ["","пример","по-русски"],
+          ["{{just}}","{{I've just woken up.}}","Я только что проснулся."],
+          ["{{already}}","{{We've already seen it.}}","Мы это уже видели."],
+          ["{{yet}} в вопросе","{{Has he called yet?}}","Он уже позвонил?"],
+          ["{{not yet}}","{{He hasn't called yet.}}","Он ещё не позвонил."]
+        ] },
+        {"p":"**Сначала новость, потом подробности.** Новость — в Present Perfect, а подробности (когда, где, как) — уже в Past Simple: {{I've lost my phone! I left it on the bus this morning.}} Американцы в разговоре часто говорят и Past Simple ({{Did you eat yet?}}) — так тоже можно, но Present Perfect здесь ошибкой не будет никогда."},
+        { "ex": [
+          {"t":"I've lost my keys!","tr":"Я потерял ключи!"},
+          {"t":"Have you seen my glasses?","tr":"Ты не видела мои очки?"},
+          {"t":"The movie has just started.","tr":"Фильм только что начался."},
+          {"t":"I haven't decided yet.","tr":"Я ещё не решил."},
+          {"t":"She's already gone home.","tr":"Она уже ушла домой."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I've lost my keys yesterday.","right":"I lost my keys yesterday.","tr":"Я вчера потерял ключи.","why":"С {{yesterday}} — Past Simple."},
+        {"wrong":"Have you already finished yet?","right":"Have you finished yet?","tr":"Ты уже закончил?","why":"В вопросе одно из двух; обычно {{yet}} в конце."},
+        {"wrong":"I didn't eat still.","right":"I haven't eaten yet.","tr":"Я ещё не ел.","why":"«Ещё не» — {{haven't … yet}}, {{yet}} в конце."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I've ___ finished my homework!","tr":"Я только что сделал домашку!","options":["just","yet","ever"],"answer":0,"why":"«Только что» — {{just}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Has the bus arrived ___?","tr":"Автобус уже пришёл?","options":["yet","already","just"],"answer":0,"why":"«Уже?» в вопросе — {{yet}} в конце."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ him yesterday.","tr":"Я видел его вчера.","options":["saw","have seen"],"answer":0,"why":"{{yesterday}} — Past Simple."},
+        {"type":"choice","q":"Вы не можете найти телефон. Что сказать?","options":["{{I've lost my phone!}}","{{I lose my phone!}}","{{I was losing my phone!}}"],"answer":0,"why":"Новость с результатом сейчас: Present Perfect."},
+        {"type":"dialogue","q":"Сосед по квартире проверяет дела. Выберите ответы.","from":"will","lines":[{"who":"Сосед","t":"Have you bought milk yet?","tr":"Ты уже купил молоко?"},{"options":["No, not yet. I'll buy it tonight.","No, I didn't buy yet. I buy it tonight."],"answer":0,"why":"{{not yet}}; обещание на ходу — {{I'll}}."},{"who":"Сосед","t":"And have you called your mom?","tr":"А маме позвонил?"},{"options":["Yes, I've just called her.","Yes, I just have called her."],"answer":0,"why":"{{just}} — между {{have}} и глаголом."},{"who":"Сосед","t":"Good!","tr":"Молодец!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я ещё не решил.","words":["I","haven't","decided","yet."]},
+        {"type":"free","q":"Ваша очередь: сообщите две новости — одну с {{just}}, другую с {{already}} — и скажите, чего вы ещё не сделали ({{yet}}).","answers":[{"t":"I've just bought a new car! I've already driven it to work, but I haven't washed it yet.","tr":"Я только что купил новую машину! Уже съездил на ней на работу, но ещё не помыл."},{"t":"We've just moved! We've already painted the kitchen, but we haven't unpacked yet.","tr":"Мы только что переехали! Кухню уже покрасили, а вещи ещё не распаковали."}]}
+      ]
+    },
+    {
+      "id": "for-and-since",
+      "unit": 5,
+      "level": "A2",
+      "title": "Сказать, как давно",
+      "summary": "Скажите, сколько вы живёте, работаете, знаете кого-то: «I've lived here for five years» — без самой частой ошибки русскоговорящих.",
+      "topic": "{{have}} + третья форма с {{for}} и {{since}}; {{How long have you…?}}; «живу пять лет» → {{I've lived}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Boston for five years.","tr":"Я живу в Бостоне пять лет."}},
+        {"dialog":[{"who":"Соседка","t":"How long have you lived here?","tr":"Давно вы здесь живёте?"},{"who":"Галина","t":"Since 2018. And you?","tr":"С 2018 года. А вы?"},{"who":"Соседка","t":"For about ten years. Do you work nearby?","tr":"Лет десять. Вы работаете поблизости?"},{"who":"Галина","t":"Yes, at the hospital. I've worked there for three years.","tr":"Да, в больнице. Работаю там три года."},{"who":"Соседка","t":"Oh, my sister works there too!","tr":"О, моя сестра тоже там работает!"}]},
+        {"p":"**Самая частая ошибка русскоговорящих.** По-русски «Я живу здесь пять лет» — настоящее время: живу до сих пор. Англичанин видит отрезок от прошлого до сегодня и говорит Present Perfect: {{I've lived here for five years}}. Сказать {{I live here for five years}} — ошибка."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Я живу здесь пять лет.","{{I've lived here for five years.}}"],
+          ["Мы знакомы с детства.","{{We've known each other since childhood.}}"],
+          ["Сколько ты учишь английский?","{{How long have you studied English?}}"]
+        ] },
+        {"p":"**{{for}} или {{since}}?** {{for}} + сколько времени: {{for two hours}}, {{for ten years}}, {{for a long time}}. {{since}} + с какого момента: {{since Monday}}, {{since 2018}}, {{since I was a child}}."},
+        {"p":"**Вопрос:** {{How long have you…?}} «Как давно, сколько времени вы…?» А когда процесс идёт прямо сейчас, особенно с глаголами действия, часто говорят {{have been}} + {{-ing}}: {{I've been waiting for an hour!}} Об этом подробнее в 46-м уроке."},
+        { "ex": [
+          {"t":"We've been married for twenty years.","tr":"Мы женаты двадцать лет."},
+          {"t":"I've known her since school.","tr":"Я знаю её со школы."},
+          {"t":"How long have you had this car?","tr":"Сколько у тебя уже эта машина?"},
+          {"t":"She's worked here since March.","tr":"Она работает здесь с марта."},
+          {"t":"I haven't seen him for ages!","tr":"Я сто лет его не видел!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I live here for five years.","right":"I've lived here for five years.","tr":"Я живу здесь пять лет.","why":"Отрезок до сегодняшнего дня — Present Perfect."},
+        {"wrong":"I've lived here since five years.","right":"I've lived here for five years.","tr":"Я живу здесь пять лет.","why":"Сколько времени — {{for}}; {{since}} — с какого момента."},
+        {"wrong":"How long do you know him?","right":"How long have you known him?","tr":"Как давно ты его знаешь?","why":"«Как давно» до сих пор — {{How long have you…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I've worked here ___ 2020.","tr":"Я работаю здесь с 2020 года.","options":["since","for","from"],"answer":0,"why":"С какого момента — {{since}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We've been friends ___ ten years.","tr":"Мы дружим десять лет.","options":["for","since","during"],"answer":0,"why":"Сколько времени — {{for}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"How long ___ you lived in Chicago?","tr":"Сколько ты живёшь в Чикаго?","options":["have","do","are"],"answer":0,"why":"{{How long have you…?}}"},
+        {"type":"choice","q":"Как сказать «Я знаю его с детства»?","options":["{{I've known him since childhood.}}","{{I know him since childhood.}}","{{I've known him for childhood.}}"],"answer":0,"why":"Present Perfect и {{since}}."},
+        {"type":"dialogue","q":"Вы на собеседовании. Выберите ответы.","from":"have-you-ever","lines":[{"who":"Интервьюер","t":"How long have you been a teacher?","tr":"Сколько лет вы работаете учителем?"},{"options":["For twelve years.","Since twelve years."],"answer":0,"why":"Сколько времени — {{for}}."},{"who":"Интервьюер","t":"Have you ever taught adults?","tr":"Вы когда-нибудь преподавали взрослым?"},{"options":["Yes, I have. I've taught evening classes since 2019.","Yes, I did. I teach evening classes since 2019."],"answer":0,"why":"Опыт — {{Yes, I have}}; с 2019 до сих пор — {{I've taught}}."},{"who":"Интервьюер","t":"Excellent.","tr":"Отлично."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я сто лет его не видел!","words":["I","haven't","seen","him","for","ages!"]},
+        {"type":"free","q":"Ваша очередь: скажите, сколько вы живёте в своём городе, работаете или учитесь там, где сейчас, и как давно знаете лучшего друга.","answers":[{"t":"I've lived in Moscow for twenty years. I've worked at this company since 2021. I've known my best friend since school.","tr":"Я живу в Москве двадцать лет. Работаю в этой компании с 2021 года. С лучшим другом знаком со школы."},{"t":"I've studied English for two years, and I've had my dog for five.","tr":"Я учу английский два года, а собака у меня уже пять лет."}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 5,
+      "level": "A2",
+      "title": "Сравнить",
+      "summary": "Скажите, что больше, дешевле или лучше и что самое-самое: «The subway is faster than the bus».",
+      "topic": "{{-er}} и {{more}}, {{than}}; {{the -est}} и {{the most}}; {{as … as}}; {{much better}}",
+      "blocks": [
+        {"goal":{"t":"The subway is faster than the bus, but the bus is cheaper.","tr":"Метро быстрее автобуса, но автобус дешевле."}},
+        {"dialog":[{"who":"Продавец","t":"This one is cheaper, but that one is better.","tr":"Этот дешевле, а тот лучше."},{"who":"Лена","t":"Is the camera better too?","tr":"А камера тоже лучше?"},{"who":"Продавец","t":"Yes, much better. It's the best camera in the store.","tr":"Да, гораздо лучше. Это лучшая камера в магазине."},{"who":"Лена","t":"Is it as light as this one?","tr":"А он такой же лёгкий, как этот?"},{"who":"Продавец","t":"It's a little heavier, but it's more powerful.","tr":"Чуть тяжелее, зато мощнее."}]},
+        {"p":"**Короткие прилагательные** (в один слог и на {{-y}}) получают {{-er}} «более» и {{the -est}} «самый»: {{cheap}} — {{cheaper}} — {{the cheapest}}; {{easy}} — {{easier}} — {{the easiest}}. **Длинные** — {{more}} и {{the most}}: {{expensive}} — {{more expensive}} — {{the most expensive}}."},
+        { "table": [
+          ["","«более»","«самый»"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{interesting}}","{{more interesting}}","{{the most interesting}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"],
+          ["{{far}}","{{farther}}","{{the farthest}}"]
+        ] },
+        {"p":"**Чем — {{than}}.** {{Moscow is bigger than Boston.}} После {{than}} в разговоре говорят {{me}}, {{him}}: {{She's older than me}}. «Гораздо» — {{much}}: {{much better}}, {{much more expensive}}; «чуть-чуть» — {{a little}}: {{a little cheaper}}."},
+        {"p":"**«Самый» — всегда с {{the}}.** Самый лучший бывает только один, поэтому {{the best}}, {{the most beautiful}}. «Самый … в …» — {{in}}: {{the tallest building in the world}}."},
+        {"p":"**Такой же, как.** {{as … as}}: {{He's as tall as his father}} «Он такого же роста, как отец». {{not as … as}} — «не такой, как»: {{It's not as cold as yesterday}} «Не так холодно, как вчера»."},
+        { "ex": [
+          {"t":"My sister is two years older than me.","tr":"Сестра на два года старше меня."},
+          {"t":"This is the best pizza in town!","tr":"Это лучшая пицца в городе!"},
+          {"t":"English grammar is easier than Russian grammar.","tr":"Английская грамматика проще русской."},
+          {"t":"Today is much colder than yesterday.","tr":"Сегодня гораздо холоднее, чем вчера."},
+          {"t":"The new apartment isn't as big as the old one.","tr":"Новая квартира не такая большая, как старая."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"This one is more cheap.","right":"This one is cheaper.","tr":"Этот дешевле.","why":"Короткое прилагательное — {{-er}}."},
+        {"wrong":"She's taller then me.","right":"She's taller than me.","tr":"Она выше меня.","why":"«Чем» — {{than}}; {{then}} значит «потом»."},
+        {"wrong":"It's best restaurant in the city.","right":"It's the best restaurant in the city.","tr":"Это лучший ресторан в городе.","why":"«Самый» — всегда с {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Boston is ___ than Moscow.","tr":"Бостон меньше Москвы.","options":["smaller","more small","smallest"],"answer":0,"why":"Короткое слово: {{-er}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"This is the ___ expensive hotel in the city.","tr":"Это самый дорогой отель в городе.","options":["most","more","much"],"answer":0,"why":"«Самый» с длинным словом: {{the most}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My English is ___ than last year.","tr":"Мой английский лучше, чем в прошлом году.","options":["better","gooder","more good"],"answer":0,"why":"{{good}} — {{better}}."},
+        {"type":"choice","q":"Как сказать «Он такой же высокий, как брат»?","options":["{{He's as tall as his brother.}}","{{He's so tall like his brother.}}","{{He's tall as his brother is.}}"],"answer":0,"why":"«Такой же, как» — {{as … as}}."},
+        {"type":"dialogue","q":"Друг спрашивает, какой город вам больше нравится. Выберите ответы.","from":"general-or-specific","lines":[{"who":"Друг","t":"Which city do you like more, New York or Boston?","tr":"Какой город тебе больше нравится, Нью-Йорк или Бостон?"},{"options":["New York is more exciting, but Boston is quieter.","New York is excitinger, but Boston is more quiet."],"answer":0,"why":"Длинное слово — {{more exciting}}, короткое — {{quieter}}."},{"who":"Друг","t":"And the food?","tr":"А еда?"},{"options":["The food in New York is the best!","The food in New York is the goodest!"],"answer":0,"why":"{{good}} — {{the best}}; и {{the food}} — конкретная еда в Нью-Йорке."},{"who":"Друг","t":"Agreed!","tr":"Согласен!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Это лучший день в моей жизни!","words":["This","is","the","best","day","of","my","life!"]},
+        {"type":"free","q":"Ваша очередь: сравните два города, два времени года или два вида транспорта и назовите что-нибудь самое лучшее.","answers":[{"t":"Summer is warmer than winter, but winter is more beautiful. December is the best month!","tr":"Лето теплее зимы, но зима красивее. Декабрь — лучший месяц!"},{"t":"The subway is faster than the bus, but the bus is more comfortable. Walking is the cheapest!","tr":"Метро быстрее автобуса, зато автобус удобнее. А дешевле всего ходить пешком!"}]}
+      ]
+    },
+    {
+      "id": "how-much-how-many",
+      "unit": 5,
+      "level": "A2",
+      "title": "Покупки и количество",
+      "summary": "Спросите, сколько чего, и скажите «много», «немного», «совсем нет»: «How many eggs do we need? We don't have much milk».",
+      "topic": "Исчисляемые и неисчисляемые; {{much}}, {{many}}, {{a lot of}}, {{a few}}, {{a little}}; {{some}} и {{any}}; {{money}}, {{news}}, {{advice}} — в единственном числе",
+      "blocks": [
+        {"goal":{"t":"We need some eggs and a little milk. How much money do you have?","tr":"Нам нужны яйца и немного молока. Сколько у тебя денег?"}},
+        {"dialog":[{"who":"Кейт","t":"How many people are coming?","tr":"Сколько человек придёт?"},{"who":"Миша","t":"About ten. Do we have any wine?","tr":"Человек десять. У нас есть вино?"},{"who":"Кейт","t":"A little. And we don't have much cheese.","tr":"Немного. И сыра маловато."},{"who":"Миша","t":"How much money do we have?","tr":"Сколько у нас денег?"},{"who":"Кейт","t":"Not much. Let's buy a few bottles and some bread.","tr":"Немного. Давай купим пару бутылок и хлеба."}]},
+        {"term":"исчисляемое существительное","means":"то, что считают по штукам: яблоко — два яблока. Неисчисляемое не считают: вода, сахар, а в английском ещё деньги и советы."},
+        {"p":"В английском существительные делятся на те, что можно посчитать ({{an apple}}, {{two apples}}), и те, что нельзя ({{water}}, {{milk}}, {{money}}). У неисчисляемых нет {{a}} и нет множественного числа. И ловушка: многие слова, которые у нас во множественном числе, в английском неисчисляемые и стоят в **единственном**."},
+        { "table": [
+          ["по-русски","по-английски: единственное число!"],
+          ["деньги","{{money}}: {{The money is on the table.}}"],
+          ["новости","{{news}}: {{The news is good.}}"],
+          ["советы","{{advice}}: {{Can I give you some advice?}}"],
+          ["сведения","{{information}}"],
+          ["мебель","{{furniture}}"],
+          ["волосы","{{hair}}: {{Her hair is long.}}"]
+        ] },
+        {"p":"**Много и мало.** С исчисляемыми — {{many}} «много» и {{a few}} «несколько, немного»; с неисчисляемыми — {{much}} «много» и {{a little}} «немного». {{a lot of}} «много» подходит ко всем и звучит естественнее в утверждениях: {{a lot of friends}}, {{a lot of money}}. {{much}} и {{many}} чаще встречаются в вопросах и отрицаниях: {{How much…?}}, {{How many…?}}, {{not much}}."},
+        { "table": [
+          ["","исчисляемые","неисчисляемые"],
+          ["сколько?","{{How many eggs?}}","{{How much milk?}}"],
+          ["много","{{a lot of eggs}}, {{many eggs}}","{{a lot of milk}}, {{much milk}}"],
+          ["немного","{{a few eggs}}","{{a little milk}}"]
+        ] },
+        {"p":"**{{some}} и {{any}}** — «немного, какие-то». {{some}} — в утверждениях и предложениях: {{I need some help}}, {{Would you like some tea?}} {{any}} — в вопросах и отрицаниях: {{Do you have any questions?}}, {{We don't have any bread.}}"},
+        { "ex": [
+          {"t":"How many kids do you have?","tr":"Сколько у тебя детей?"},
+          {"t":"I don't have much time.","tr":"У меня мало времени."},
+          {"t":"There are a lot of people here.","tr":"Здесь много народу."},
+          {"t":"Can I give you some advice?","tr":"Можно дам тебе совет?"},
+          {"t":"The news is terrible.","tr":"Новости ужасные."},
+          {"t":"I have a few questions.","tr":"У меня есть несколько вопросов."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"How many money do you have?","right":"How much money do you have?","tr":"Сколько у тебя денег?","why":"{{money}} неисчисляемое: {{How much}}."},
+        {"wrong":"Can you give me an advice?","right":"Can you give me some advice?","tr":"Можешь дать мне совет?","why":"{{advice}} неисчисляемое: без {{a}}, с {{some}}. Один совет — {{a piece of advice}}."},
+        {"wrong":"The news are good.","right":"The news is good.","tr":"Новости хорошие.","why":"{{news}} — в единственном числе: {{is}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"How ___ eggs do we need?","tr":"Сколько яиц нам нужно?","options":["many","much"],"answer":0,"why":"Яйца можно посчитать: {{many}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I need ___ information.","tr":"Мне нужна информация.","options":["some","an","many"],"answer":0,"why":"{{information}} неисчисляемое: {{some}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We don't have ___ bread.","tr":"У нас нет хлеба.","options":["any","some","a"],"answer":0,"why":"Отрицание: {{any}}."},
+        {"type":"choice","q":"Какое предложение правильное?","options":["{{Your hair is beautiful.}}","{{Your hairs are beautiful.}}"],"answer":0,"why":"{{hair}} — неисчисляемое, единственное число."},
+        {"type":"dialogue","q":"Вы покупаете телефон. Выберите ответы.","from":"ask-politely","lines":[{"who":"Продавец","t":"Can I help you?","tr":"Вам помочь?"},{"options":["Yes, I need some information about this phone.","Yes, I need an information about this phone."],"answer":0,"why":"{{information}} — без {{a}}, с {{some}}."},{"who":"Продавец","t":"Sure. How many do you need?","tr":"Конечно. Сколько штук вам нужно?"},{"options":["Just one. How much does it cost?","Just one. How many does it cost?"],"answer":0,"why":"Цена — {{How much}}."},{"who":"Продавец","t":"Two hundred dollars.","tr":"Двести долларов."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"У меня мало времени.","words":["I","don't","have","much","time."]},
+        {"type":"free","q":"Ваша очередь: вы зовёте друзей на ужин. Скажите, чего у вас много, чего мало и что нужно купить.","answers":[{"t":"We have a lot of vegetables, but we don't have much meat. We need some bread and a few bottles of juice.","tr":"У нас много овощей, но мало мяса. Нужен хлеб и пара бутылок сока."},{"t":"There's a little cheese and a lot of fruit. We don't have any wine. How many people are coming?","tr":"Есть немного сыра и много фруктов. Вина нет совсем. Сколько человек придёт?"}]}
+      ]
+    },
+    {
+      "id": "nothing-and-nobody",
+      "unit": 5,
+      "level": "A2",
+      "title": "Сказать «ничего», «никто», «никогда»",
+      "summary": "Скажите, что вы никого не знаете и ничего не поняли, — по-английски, где отрицание в предложении только одно.",
+      "topic": "Одно отрицание: {{I don't know anybody}} = {{I know nobody}}; {{anything}}, {{anybody}}, {{anywhere}} после {{not}}",
+      "blocks": [
+        {"goal":{"t":"I didn't understand anything, and I don't know anybody here!","tr":"Я ничего не понял и никого здесь не знаю!"}},
+        {"dialog":[{"who":"Хозяйка","t":"Are you OK? You're not talking to anybody.","tr":"Всё нормально? Ты ни с кем не разговариваешь."},{"who":"Вова","t":"I don't know anyone here.","tr":"Я здесь никого не знаю."},{"who":"Хозяйка","t":"Come on! Nobody knows anybody at first.","tr":"Да брось! Сначала никто никого не знает."},{"who":"Вова","t":"And I can't hear anything. The music is so loud!","tr":"И я ничего не слышу. Музыка такая громкая!"},{"who":"Хозяйка","t":"Let's go to the kitchen. Nobody's there.","tr":"Пошли на кухню. Там никого нет."}]},
+        {"p":"**Только одно «не».** По-русски отрицаний может быть сколько угодно: «Я никогда никому ничего не говорю». В английском в предложении бывает **только одно** отрицание. Два — ошибка (в разговоре такое встречается, но звучит очень просторечно): не {{I don't know nothing}}."},
+        {"p":"**Два способа сказать одно и то же.** 1) {{not}} + слово на {{any-}}: {{I don't know anybody}}. 2) Слово на {{no-}} и глагол без {{not}}: {{I know nobody}}. Первый способ в разговоре гораздо обычнее. А если «никто» — подлежащее, то только {{no-}}: {{Nobody knows}} «Никто не знает»."},
+        { "table": [
+          ["","{{not}} + {{any-}}","{{no-}}, без {{not}}"],
+          ["никто, никого","{{I don't know anybody.}}","{{Nobody knows.}}"],
+          ["ничего","{{I didn't say anything.}}","{{Nothing happened.}}"],
+          ["нигде, никуда","{{We didn't go anywhere.}}","{{It's nowhere.}}"],
+          ["никогда","{{I don't ever smoke.}}","{{I never smoke.}}"]
+        ] },
+        {"p":"**{{-body}} или {{-one}}?** {{anybody}} = {{anyone}}, {{nobody}} = {{no one}}, {{somebody}} = {{someone}}: значение одинаковое. А в вопросах — снова {{any-}}: {{Did anybody call?}} «Кто-нибудь звонил?», {{Do you need anything?}} «Тебе что-нибудь нужно?»"},
+        { "ex": [
+          {"t":"Nobody called.","tr":"Никто не звонил."},
+          {"t":"I don't want anything, thanks.","tr":"Мне ничего не нужно, спасибо."},
+          {"t":"She never complains.","tr":"Она никогда не жалуется."},
+          {"t":"We didn't go anywhere last weekend.","tr":"В выходные мы никуда не ездили."},
+          {"t":"Is anybody home?","tr":"Есть кто дома?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I don't know nothing.","right":"I don't know anything.","tr":"Я ничего не знаю.","why":"В английском отрицание одно: {{not}} + {{anything}}."},
+        {"wrong":"Nobody doesn't know.","right":"Nobody knows.","tr":"Никто не знает.","why":"{{nobody}} — уже отрицание; {{doesn't}} лишнее."},
+        {"wrong":"I never don't eat meat.","right":"I never eat meat.","tr":"Я никогда не ем мясо.","why":"С {{never}} — без {{not}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I didn't see ___.","tr":"Я никого не видел.","options":["anybody","nobody","somebody"],"answer":0,"why":"После {{didn't}} — {{anybody}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ came to the meeting.","tr":"Никто не пришёл на собрание.","options":["Nobody","Anybody","Somebody"],"answer":0,"why":"«Никто» в роли подлежащего — {{Nobody}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She ___ eats meat.","tr":"Она никогда не ест мясо.","options":["never","doesn't never","not ever"],"answer":0,"why":"{{never}} — и глагол без {{not}}."},
+        {"type":"choice","q":"Как сказать «Я ничего не купил»?","options":["{{I didn't buy anything.}}","{{I didn't buy nothing.}}","{{I not bought anything.}}"],"answer":0,"why":"Одно отрицание: {{didn't}} + {{anything}}."},
+        {"type":"dialogue","q":"Друг спрашивает, как прошёл день. Выберите ответы.","from":"past-irregular","lines":[{"who":"Друг","t":"What did you do yesterday?","tr":"Что ты вчера делал?"},{"options":["Nothing. I didn't go anywhere.","Nothing. I didn't go nowhere."],"answer":0,"why":"После {{didn't}} — {{anywhere}}."},{"who":"Друг","t":"Did anybody call you?","tr":"Тебе кто-нибудь звонил?"},{"options":["No, nobody called.","No, nobody didn't call."],"answer":0,"why":"{{nobody}} — уже отрицание."},{"who":"Друг","t":"Quiet day!","tr":"Тихий денёк!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Тебе что-нибудь нужно?","words":["Do","you","need","anything?"]},
+        {"type":"free","q":"Ваша очередь: опишите очень скучный день — что вы не делали, куда не ходили, с кем не говорили. Помните: отрицание одно!","answers":[{"t":"Yesterday I didn't go anywhere. I didn't talk to anybody, and nothing interesting happened.","tr":"Вчера я никуда не ходил. Ни с кем не разговаривал, и ничего интересного не случилось."},{"t":"I stayed home. Nobody called, and I didn't do anything all day.","tr":"Я сидела дома. Никто не звонил, и я весь день ничего не делала."}]}
+      ]
     }
   ]
 }
