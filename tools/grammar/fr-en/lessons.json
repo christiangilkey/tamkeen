@@ -672,6 +672,214 @@
         {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ma sœur n'aime pas les chats.","words":["My sister","doesn't","like","cats."]},
         {"type":"free","q":"À vous : dites deux choses que vous adorez, une que vous n'aimez pas, et une activité que vous aimez.","answers":[{"t":"I love chocolate and cats. I don't like cold weather. I like reading.","tr":"J'adore le chocolat et les chats. Je n'aime pas le froid. J'aime lire."},{"t":"I really like music and movies, but I hate sports. I love traveling.","tr":"J'aime beaucoup la musique et le cinéma, mais je déteste le sport. J'adore voyager."}]}
       ]
+    },
+    {
+      "id": "order-food-and-drink",
+      "unit": 3,
+      "level": "A1",
+      "title": "Commander à manger et à boire",
+      "summary": "Commander un repas, demander de l'eau, du pain, des frites : les noms qu'on compte et ceux qu'on ne compte pas, avec {{some}}, {{any}}, {{How much}} et {{How many}}.",
+      "topic": "noms dénombrables et indénombrables ; {{some}} / {{any}} ; {{a glass of}}, {{a piece of}} ; {{How much?}} / {{How many?}} ; {{much}}, {{many}}, {{a lot of}}",
+      "blocks": [
+        {"goal":{"t":"Can I get some water and some bread, please?","tr":"Je pourrais avoir de l'eau et du pain, s'il vous plaît ?"}},
+        {"dialog":[{"who":"The server","t":"Are you ready to order?","tr":"Vous êtes prêts à commander ?"},{"who":"You","t":"Yes. I'd like the chicken with fries, please.","tr":"Oui. Je voudrais le poulet avec des frites, s'il vous plaît."},{"who":"The server","t":"Anything to drink?","tr":"Quelque chose à boire ?"},{"who":"You","t":"Just some water, please.","tr":"Juste de l'eau, s'il vous plaît."},{"who":"Your friend","t":"And I'd like a salad. Do you have any vegetarian dishes?","tr":"Et moi, je voudrais une salade. Vous avez des plats végétariens ?"},{"who":"The server","t":"Sure, we have some great veggie burgers.","tr":"Bien sûr, nous avons d'excellents burgers végétariens."}]},
+        {"term":"indénombrable","means":"se dit d'un nom qu'on ne peut pas compter et qui n'a pas de pluriel en anglais : {{water}}, {{bread}}, {{money}}, {{advice}}. Le contraire : dénombrable ({{an apple}}, {{two apples}})."},
+        {"p":"**Du, de la, des : rien, ou some.** Le français dit « du pain », « de l'eau ». L'anglais n'a pas d'article pour cela : on ne met rien, ou {{some}} « un peu de, quelques » : {{I'd like water.}} ou {{I'd like some water.}} {{some}} s'emploie dans les phrases affirmatives et dans les demandes."},
+        {"p":"**Any : dans les questions et au négatif.** {{Do you have any bread?}} « Vous avez du pain ? » {{We don't have any bread.}} « Nous n'avons pas de pain. » Mais pour offrir ou demander quelque chose, on garde {{some}} : {{Would you like some coffee?}} {{Can I have some water?}}"},
+        { "table": [
+          ["","dénombrable","indénombrable"],
+          ["exemples","{{an apple}}, {{two apples}}","{{water}}, {{bread}}, {{rice}}"],
+          ["affirmatif","{{some apples}}","{{some water}}"],
+          ["question, négatif","{{any apples}}","{{any water}}"],
+          ["combien ?","{{How many apples?}}","{{How much water?}}"],
+          ["beaucoup","{{many apples}}, {{a lot of apples}}","{{much water}}, {{a lot of water}}"]
+        ] },
+        {"p":"**Indénombrables : jamais de -s, jamais de a.** Certains noms qui se comptent en français ne se comptent pas en anglais : {{advice}} (un conseil), {{information}} (une information), {{news}} (une nouvelle), {{furniture}} (un meuble). On dit {{some advice}} ou {{a piece of advice}} « un conseil », jamais « an advice » ni « informations »."},
+        {"p":"**Une quantité : a … of.** {{a glass of water}}, {{a cup of coffee}}, {{a piece of cake}} « une part de gâteau », {{a bottle of wine}}, {{a slice of pizza}} « une part de pizza »."},
+        { "ex": [
+          {"t":"Would you like some coffee?","tr":"Vous voulez du café ?"},
+          {"t":"We don't have any milk.","tr":"Nous n'avons pas de lait."},
+          {"t":"Are there any eggs?","tr":"Il y a des œufs ?"},
+          {"t":"How much is it?","tr":"C'est combien ?","note":"pour un prix : {{How much}}"},
+          {"t":"How many people? — Four.","tr":"Combien de personnes ? — Quatre."},
+          {"t":"Can I have a piece of cake?","tr":"Je peux avoir une part de gâteau ?"},
+          {"t":"Thanks for the information!","tr":"Merci pour les informations !"}
+        ] },
+        {"tip":"Aux États-Unis, l'eau du robinet est gratuite au restaurant et souvent servie d'office. À la fin : {{Can I get the check, please?}} « L'addition, s'il vous plaît. » Et l'on laisse un pourboire ({{tip}}) de 15 à 20 %."}
+      ],
+      "mistakes": [
+        {"wrong":"I'd like some breads.","right":"I'd like some bread.","tr":"Je voudrais du pain.","why":"{{bread}} est indénombrable : pas de {{-s}}."},
+        {"wrong":"Can I give you an advice?","right":"Can I give you some advice?","tr":"Je peux te donner un conseil ?","why":"{{advice}} est indénombrable : {{some advice}} ou {{a piece of advice}}."},
+        {"wrong":"How many water do you drink?","right":"How much water do you drink?","tr":"Combien d'eau bois-tu ?","why":"Pour un indénombrable : {{how much}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Can I have ___ water, please?","tr":"Je peux avoir de l'eau, s'il vous plaît ?","options":["some","a","any"],"answer":0,"why":"Une demande : {{some}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We don't have ___ eggs.","tr":"Nous n'avons pas d'œufs.","options":["any","some","a"],"answer":0,"why":"Au négatif : {{any}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"How ___ apples do you want?","tr":"Combien de pommes voulez-vous ?","options":["many","much"],"answer":0,"why":"Des pommes, ça se compte : {{how many}}."},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{She gave me some good advice.}}","{{She gave me a good advice.}}","{{She gave me some good advices.}}"],"answer":0,"why":"{{advice}} : jamais de {{a}}, jamais de {{-s}}."},
+        {"type":"dialogue","q":"Au restaurant. Choisissez vos répliques.","from":"say-what-you-like","lines":[{"who":"The server","t":"Hi! Are you ready to order?","tr":"Bonjour ! Vous avez choisi ?"},{"options":["Yes, I'd like the fish, please.","Yes, I like the fish, please."],"answer":0,"why":"Pour commander : {{I'd like}}."},{"who":"The server","t":"Anything to drink?","tr":"Quelque chose à boire ?"},{"options":["Just some water, please.","Just some waters, please."],"answer":0,"why":"{{water}} est indénombrable : pas de {{-s}}."},{"who":"The server","t":"Sure. Do you want any bread?","tr":"Bien sûr. Vous voulez du pain ?"},{"options":["Yes, please!","Yes, some breads, please!"],"answer":0,"why":"Pas de {{-s}} à {{bread}}."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je voudrais une part de pizza, s'il vous plaît.","words":["I'd like","a slice","of","pizza,","please."]},
+        {"type":"free","q":"À vous : au restaurant, commandez un plat et une boisson, et demandez s'il y a quelque chose (du pain, des plats végétariens…).","answers":[{"t":"I'd like the steak and some fries, please. Do you have any vegetarian dishes?","tr":"Je voudrais le steak et des frites, s'il vous plaît. Vous avez des plats végétariens ?"},{"t":"Can I get a salad and a glass of white wine, please? Is there any bread?","tr":"Je pourrais avoir une salade et un verre de vin blanc, s'il vous plaît ? Il y a du pain ?"}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 3,
+      "level": "A1",
+      "title": "Poser toutes sortes de questions",
+      "summary": "Demander où, quand, quoi, qui, pourquoi, comment, combien : les mots interrogatifs, suivis de {{do}} ou de {{be}}.",
+      "topic": "{{where, when, what, who, why, how}} + {{do}} ou {{be}} ; {{what time}}, {{how old}}, {{how long}}, {{how far}} ; {{who}} sujet, sans {{do}}",
+      "blocks": [
+        {"goal":{"t":"Where do you live, and what do you do?","tr":"Où habitez-vous, et que faites-vous dans la vie ?"}},
+        {"dialog":[{"who":"Mike","t":"So, where do you work?","tr":"Alors, tu travailles où ?"},{"who":"Claire","t":"At a hospital. I'm a nurse.","tr":"Dans un hôpital. Je suis infirmière."},{"who":"Mike","t":"Oh, cool. What time do you start?","tr":"Ah, cool. Tu commences à quelle heure ?"},{"who":"Claire","t":"At seven. Why do you ask?","tr":"À sept heures. Pourquoi tu demandes ?"},{"who":"Mike","t":"My sister wants to be a nurse. How do you like it?","tr":"Ma sœur veut devenir infirmière. Ça te plaît ?"},{"who":"Claire","t":"I love it!","tr":"J'adore !"}]},
+        {"term":"mot interrogatif","means":"un mot qui demande une information : « où », « quand », « comment », « pourquoi ». En anglais, la plupart commencent par {{wh}}."},
+        { "table": [
+          ["français","anglais"],
+          ["où","{{where}}"],
+          ["quand","{{when}}"],
+          ["quoi, que, quel","{{what}}"],
+          ["qui","{{who}}"],
+          ["pourquoi","{{why}}"],
+          ["comment","{{how}}"],
+          ["lequel, laquelle","{{which}}"]
+        ] },
+        {"p":"**L'ordre : mot interrogatif + do + sujet + verbe.** C'est la question de la leçon 11, avec le mot interrogatif devant : {{Do you live here?}} → {{Where do you live?}} Avec {{be}}, on inverse simplement : {{Where are you?}} {{Where is the station?}}"},
+        { "table": [
+          ["mot","outil","sujet","verbe…"],
+          ["{{Where}}","{{do}}","{{you}}","{{live?}}"],
+          ["{{What time}}","{{does}}","{{the train}}","{{leave?}}"],
+          ["{{Why}}","{{are}}","{{you}}","{{sad?}}"]
+        ] },
+        {"p":"Pas de question « à la française », avec le mot interrogatif à la fin : elle ne s'entend que pour marquer la surprise. Et toujours {{do}} ou {{be}} : jamais « Where you live »."},
+        {"p":"**How + adjectif.** {{how}} se combine avec un adjectif : {{How old are you?}} « Quel âge as-tu ? », {{How long is the movie?}} « Le film dure combien de temps ? », {{How far is it?}} « C'est à quelle distance ? », {{How much is it?}} « C'est combien ? »"},
+        {"p":"**Who sujet : pas de do.** Quand {{who}} ou {{what}} est le sujet (celui qui fait l'action), pas de {{do}} : {{Who lives here?}} « Qui habite ici ? » Comparez : {{Who do you love?}} « Qui aimes-tu ? », où le sujet est {{you}}."},
+        { "ex": [
+          {"t":"What's your name?","tr":"Comment vous appelez-vous ?","note":"mot à mot « quel est votre nom ? »"},
+          {"t":"Where are you from?","tr":"D'où venez-vous ?"},
+          {"t":"What time does the store close?","tr":"Le magasin ferme à quelle heure ?"},
+          {"t":"Why do you want to learn English?","tr":"Pourquoi voulez-vous apprendre l'anglais ?"},
+          {"t":"How do you say this in English?","tr":"Comment dit-on ça en anglais ?"},
+          {"t":"Who wants coffee?","tr":"Qui veut du café ?"},
+          {"t":"How long is the flight?","tr":"Le vol dure combien de temps ?"}
+        ] },
+        {"tip":"« Comment vous appelez-vous ? » se dit {{What's your name?}} Et « Ça s'écrit comment ? » : {{How do you spell that?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"Où habites-tu ?","why":"Après le mot interrogatif : {{do}}, puis le sujet."},
+        {"wrong":"What time the train leaves?","right":"What time does the train leave?","tr":"Le train part à quelle heure ?","why":"{{does}} pour {{the train}}, et le verbe à la forme de base."},
+        {"wrong":"Who does live here?","right":"Who lives here?","tr":"Qui habite ici ?","why":"{{who}} est le sujet : pas de {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Where ___ your parents live?","tr":"Où habitent tes parents ?","options":["do","does","are"],"answer":0,"why":"{{your parents}} = {{they}} : {{do}}.","from":"ask-and-say-no-with-do"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ old is your son?","tr":"Quel âge a ton fils ?","options":["How","What","Who"],"answer":0,"why":"L'âge : {{How old…?}}","from":"say-your-age-and-how-you-feel"},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Le magasin ferme à quelle heure ?","words":["What time","does","the store","close?"]},
+        {"type":"choice","q":"« Qui veut du gâteau ? »","options":["{{Who wants cake?}}","{{Who does want cake?}}","{{Who want cake?}}"],"answer":0,"why":"{{who}} sujet : pas de {{do}}, et le {{-s}} de la 3e personne."},
+        {"type":"dialogue","q":"Vous faites connaissance avec une Américaine. Posez vos questions.","lines":[{"who":"Kate","t":"Hi, I'm Kate!","tr":"Salut, je suis Kate !"},{"options":["Hi, Kate! Where are you from?","Hi, Kate! Where you are from?"],"answer":0,"why":"Avec {{be}} : le verbe avant le sujet."},{"who":"Kate","t":"I'm from Seattle. I'm here for work.","tr":"Je viens de Seattle. Je suis ici pour le travail."},{"options":["What do you do?","What you do?"],"answer":0,"why":"Après {{what}} : {{do}}, puis le sujet."},{"who":"Kate","t":"I'm a journalist.","tr":"Je suis journaliste."}]},
+        {"type":"say","q":"Demandez : « Comment dit-on ça en anglais ? »","answer":"How do you say this in English?"},
+        {"type":"free","q":"À vous : vous rencontrez quelqu'un dans un train. Posez-lui trois questions avec des mots interrogatifs.","answers":[{"t":"Where are you from? Where do you live now? What do you do?","tr":"D'où venez-vous ? Où habitez-vous maintenant ? Que faites-vous dans la vie ?"},{"t":"What's your name? Why are you in France? How long is your trip?","tr":"Comment vous appelez-vous ? Pourquoi êtes-vous en France ? Votre voyage dure combien de temps ?"}]}
+      ]
+    },
+    {
+      "id": "say-when-and-how-often",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire quand et à quelle fréquence",
+      "summary": "Dire l'heure, le jour, le mois, et ce que vous faites toujours, souvent ou jamais : {{at}}, {{on}}, {{in}}, et {{always}}, {{usually}}, {{never}}.",
+      "topic": "l'heure ({{It's seven}}) ; {{at}} (heure), {{on}} (jour), {{in}} (mois, année, saison) ; {{always, usually, often, sometimes, never}} et leur place",
+      "blocks": [
+        {"goal":{"t":"I usually get up at seven on weekdays, but on Sundays I sleep late.","tr":"En semaine, je me lève d'habitude à sept heures, mais le dimanche je fais la grasse matinée."}},
+        {"dialog":[{"who":"The receptionist","t":"When are you free?","tr":"Quand êtes-vous libre ?"},{"who":"You","t":"I'm usually free on Tuesdays, after five.","tr":"D'habitude, je suis libre le mardi, après cinq heures."},{"who":"The receptionist","t":"How about Tuesday, June 10, at 5:30?","tr":"Que diriez-vous du mardi 10 juin, à 17 h 30 ?"},{"who":"You","t":"Perfect. See you then!","tr":"Parfait. À mardi !"}]},
+        {"p":"**L'heure : avec it.** « Il est sept heures » : {{It's seven.}} ou {{It's seven o'clock.}} Comme le « il » français, {{it}} ne désigne rien : on l'emploie aussi pour la météo ({{It's raining.}} « Il pleut. ») et pour la date. Pour demander : {{What time is it?}}"},
+        { "table": [
+          ["","anglais"],
+          ["7 h","{{seven o'clock}}"],
+          ["7 h 15","{{seven fifteen}}, {{a quarter after seven}}"],
+          ["7 h 30","{{seven thirty}}, {{half past seven}}"],
+          ["7 h 45","{{seven forty-five}}, {{a quarter to eight}}"],
+          ["le matin, l'après-midi","{{7 a.m.}}, {{7 p.m.}}"],
+          ["midi, minuit","{{noon}}, {{midnight}}"]
+        ] },
+        {"p":"Les Américains n'utilisent pas l'heure sur 24 heures au quotidien : 19 h, c'est {{7 p.m.}} ({{p.m.}} = après midi, {{a.m.}} = avant midi)."},
+        {"p":"**À, le, en : at, on, in.** Trois prépositions pour le temps, de la plus précise à la plus large : {{at}} pour une heure, {{on}} pour un jour ou une date, {{in}} pour un mois, une année, une saison, une partie de la journée."},
+        { "table": [
+          ["","exemples"],
+          ["{{at}} : une heure, un moment précis","{{at seven}}, {{at noon}}, {{at night}}"],
+          ["{{on}} : un jour, une date","{{on Monday}}, {{on June 10}}, {{on weekends}}"],
+          ["{{in}} : mois, année, saison, partie du jour","{{in July}}, {{in 2025}}, {{in the summer}}, {{in the morning}}"]
+        ] },
+        {"p":"Les jours et les mois prennent une majuscule : {{Monday}}, {{July}}. « Le lundi », chaque semaine : {{on Mondays}}, au pluriel."},
+        {"term":"adverbe de fréquence","means":"un mot qui dit à quelle fréquence on fait quelque chose : « toujours », « souvent », « jamais »."},
+        {"p":"**Toujours, souvent, jamais.** {{always}} (toujours), {{usually}} (d'habitude), {{often}} (souvent), {{sometimes}} (parfois), {{rarely}} (rarement), {{never}} (jamais). Leur place est fixe : **avant** le verbe ({{I always drink coffee.}}), mais **après** {{be}} ({{I'm always late.}})."},
+        { "ex": [
+          {"t":"What time is it? — It's ten thirty.","tr":"Quelle heure est-il ? — Il est dix heures et demie."},
+          {"t":"The meeting is at 3 p.m.","tr":"La réunion est à 15 heures."},
+          {"t":"My birthday is in May.","tr":"Mon anniversaire est en mai."},
+          {"t":"We go to the gym on Mondays and Thursdays.","tr":"Nous allons à la salle de sport le lundi et le jeudi."},
+          {"t":"I never eat breakfast.","tr":"Je ne prends jamais de petit-déjeuner."},
+          {"t":"She's usually at home in the evening.","tr":"Elle est généralement chez elle le soir."}
+        ] },
+        {"tip":"{{never}} est déjà négatif : on dit {{I never drink coffee}}, sans {{don't}}. « I don't never » est une double négation, à éviter."}
+      ],
+      "mistakes": [
+        {"wrong":"I go to work in Monday.","right":"I go to work on Monday.","tr":"Je vais au travail lundi.","why":"Un jour : {{on}}."},
+        {"wrong":"I drink always coffee.","right":"I always drink coffee.","tr":"Je bois toujours du café.","why":"{{always}} se place avant le verbe principal."},
+        {"wrong":"I don't never eat meat.","right":"I never eat meat.","tr":"Je ne mange jamais de viande.","why":"{{never}} est déjà négatif : pas de {{don't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"The movie starts ___ eight o'clock.","tr":"Le film commence à huit heures.","options":["at","on","in"],"answer":0,"why":"Une heure : {{at}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We go skiing ___ February.","tr":"Nous allons skier en février.","options":["in","on","at"],"answer":0,"why":"Un mois : {{in}}."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Elle est toujours en retard le lundi.","words":["She's","always","late","on","Mondays."],"from":"talk-about-people"},
+        {"type":"choice","q":"« Je prends d'habitude le bus. »","options":["{{I usually take the bus.}}","{{I take usually the bus.}}"],"answer":0,"why":"{{usually}} avant le verbe."},
+        {"type":"dialogue","q":"Vous prenez rendez-vous chez le dentiste. Choisissez vos répliques.","from":"ask-questions","lines":[{"who":"The receptionist","t":"When are you available?","tr":"Quand êtes-vous disponible ?"},{"options":["On Tuesdays, after 5 p.m.","In Tuesdays, after 5 p.m."],"answer":0,"why":"Un jour : {{on}}."},{"who":"The receptionist","t":"Is Tuesday at 5:30 OK?","tr":"Mardi à 17 h 30, ça vous va ?"},{"options":["Yes, perfect. What time do you close?","Yes, perfect. What time you close?"],"answer":0,"why":"{{what time}} + {{do}} + le sujet."},{"who":"The receptionist","t":"At 7 p.m.","tr":"À 19 heures."}]},
+        {"type":"say","q":"Dites : « Il est sept heures et demie. »","answer":"It's seven thirty."},
+        {"type":"free","q":"À vous : décrivez votre semaine : à quelle heure vous commencez, ce que vous faites certains jours, ce que vous faites souvent, et ce que vous ne faites jamais.","answers":[{"t":"I start work at nine. On Wednesdays, I do yoga. I often go to the movies, but I never watch TV.","tr":"Je commence le travail à neuf heures. Le mercredi, je fais du yoga. Je vais souvent au cinéma, mais je ne regarde jamais la télé."},{"t":"I usually get up at seven. On Saturdays, I go shopping. I never work on Sundays.","tr":"D'habitude, je me lève à sept heures. Le samedi, je fais les courses. Je ne travaille jamais le dimanche."}]}
+      ]
+    },
+    {
+      "id": "say-what-youre-doing-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire ce que vous êtes en train de faire",
+      "summary": "Dire « je cuisine, là, je te rappelle » ou « il pleut » : le présent continu, {{be}} + {{-ing}}, pour ce qui se passe en ce moment.",
+      "topic": "le présent continu : {{am}}, {{is}}, {{are}} + {{-ing}} ; maintenant ou d'habitude ; les verbes qui ne le prennent pas ({{know, like, want}})",
+      "blocks": [
+        {"goal":{"t":"I'm cooking right now. Can I call you back?","tr":"Je suis en train de cuisiner. Je peux te rappeler ?"}},
+        {"dialog":[{"who":"Tom","t":"Hi! What are you doing?","tr":"Salut ! Qu'est-ce que tu fais ?"},{"who":"Julie","t":"I'm working. I'm writing a report.","tr":"Je travaille. J'écris un rapport."},{"who":"Tom","t":"Oh. Is it raining there?","tr":"Ah. Il pleut chez toi ?"},{"who":"Julie","t":"Yes, it's raining a lot! Why?","tr":"Oui, il pleut beaucoup ! Pourquoi ?"},{"who":"Tom","t":"I'm at the park. The sun is shining here!","tr":"Je suis au parc. Ici, il y a un grand soleil !"},{"who":"Julie","t":"Lucky you!","tr":"Veinard !"}]},
+        {"term":"présent continu","means":"la forme {{be}} + verbe en {{-ing}}, pour ce qui est en train de se passer : {{I'm working}} « je suis en train de travailler »."},
+        {"p":"**Un présent en français, deux en anglais.** « Je travaille » veut dire « d'habitude » ou « en ce moment ». L'anglais sépare les deux : {{I work}} (présent simple, leçon 10) pour l'habitude, {{I'm working}} pour ce moment précis. C'est un peu « je suis en train de », mais beaucoup plus fréquent : on l'emploie dès qu'une action est en cours."},
+        { "table": [
+          ["","d'habitude : présent simple","en ce moment : présent continu"],
+          ["travailler","{{I work in a bank.}}","{{I'm working now.}}"],
+          ["pleuvoir","{{It rains a lot here.}}","{{It's raining.}}"],
+          ["porter","{{She wears glasses.}}","{{She's wearing a red dress.}}"]
+        ] },
+        {"p":"**La forme : be + -ing.** {{am}}, {{is}} ou {{are}}, puis le verbe + {{-ing}} : {{I'm eating}}, {{she's sleeping}}, {{they're waiting}}. Les questions et le négatif se font comme avec {{be}} (leçon 4), sans {{do}} : {{Are you working?}} {{I'm not listening.}}"},
+        {"p":"**L'orthographe.** Un {{-e}} final tombe : {{make}} → {{making}}. Une consonne finale après une voyelle courte double : {{run}} → {{running}}, {{sit}} → {{sitting}}."},
+        {"p":"**Les verbes qui ne le prennent pas.** Les verbes d'état (savoir, aimer, vouloir, comprendre, posséder) restent au présent simple, même en ce moment : {{I know.}} « Je sais. », {{I want a coffee.}}, {{I understand.}} Jamais « I'm knowing »."},
+        { "ex": [
+          {"t":"What are you doing?","tr":"Qu'est-ce que tu fais ?"},
+          {"t":"She's talking on the phone.","tr":"Elle est au téléphone."},
+          {"t":"It's snowing!","tr":"Il neige !"},
+          {"t":"We're watching a movie.","tr":"On regarde un film."},
+          {"t":"I'm not working today.","tr":"Je ne travaille pas aujourd'hui."},
+          {"t":"Are you listening to me?","tr":"Tu m'écoutes ?"}
+        ] },
+        {"tip":"Au téléphone et dans les messages, le présent continu est partout : {{I'm driving.}} « Je conduis. », {{I'm on my way!}} « J'arrive, je suis en route ! »"}
+      ],
+      "mistakes": [
+        {"wrong":"I cook now.","right":"I'm cooking now.","tr":"Je cuisine, là.","why":"Une action en cours : {{be}} + {{-ing}}."},
+        {"wrong":"I'm knowing the answer.","right":"I know the answer.","tr":"Je connais la réponse.","why":"{{know}} est un verbe d'état : jamais en {{-ing}}."},
+        {"wrong":"She working now.","right":"She's working now.","tr":"Elle travaille en ce moment.","why":"N'oubliez pas {{be}} : {{she's}}, c'est {{she is}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Shh! The baby ___ sleeping.","tr":"Chut ! Le bébé dort.","options":["is","are","does"],"answer":0,"why":"{{the baby}} = {{it}} : {{is}} + {{-ing}}."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"I ___ in a bank, but today I'm at home.","tr":"Je travaille dans une banque, mais aujourd'hui je suis à la maison.","options":["work","am working","working"],"answer":0,"why":"Un emploi, une habitude : le présent simple.","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{I want a sandwich.}}","{{I'm wanting a sandwich.}}"],"answer":0,"why":"{{want}} est un verbe d'état : présent simple."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Qu'est-ce que tu fais ?","words":["What","are","you","doing?"],"from":"ask-questions"},
+        {"type":"dialogue","q":"Un ami vous appelle. Choisissez vos réponses.","from":"ask-with-be","lines":[{"who":"Your friend","t":"Hey! Are you busy?","tr":"Salut ! Tu es occupé ?"},{"options":["Yes, I'm cooking dinner. Can I call you back?","Yes, I cook dinner. Can I call you back?"],"answer":0,"why":"Une action en cours : {{I'm cooking}}."},{"who":"Your friend","t":"Sure. Is it raining there?","tr":"Bien sûr. Il pleut chez toi ?"},{"options":["No, it isn't. The sun is shining!","No, it doesn't. The sun shines!"],"answer":0,"why":"Une question avec {{be}} appelle une réponse avec {{be}}, et l'action est en cours."},{"who":"Your friend","t":"Lucky you!","tr":"Veinard !"}]},
+        {"type":"say","q":"Dites à un ami : « Je suis en route ! »","answer":"I'm on my way!"},
+        {"type":"free","q":"À vous : dites ce que vous faites en ce moment, ce que font deux personnes autour de vous, et quel temps il fait.","answers":[{"t":"I'm learning English. My husband is watching TV and my son is playing video games. It's raining.","tr":"J'apprends l'anglais. Mon mari regarde la télé et mon fils joue aux jeux vidéo. Il pleut."},{"t":"Right now, I'm sitting in a café. A man is reading the newspaper. It's sunny and warm.","tr":"En ce moment, je suis assise dans un café. Un homme lit le journal. Il fait beau et chaud."}]}
+      ]
     }
   ]
 }
