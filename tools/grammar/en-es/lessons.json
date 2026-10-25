@@ -544,9 +544,9 @@
           ["you (all) like, they like","{{les gusta}}"]
         ] },
         {"p":"Spanish keeps “the” even for things in general: {{Me gusta el café}}, {{Me gustan los perros}} “I like dogs”."},
-        {"p":"**Me too, me neither.** Answer with {{a}} and the person: {{A mí también.}} “Me too.” {{A mí tampoco.}} “Me neither” (after a “not”). {{A mí sí.}} / {{A mí no.}} when you feel differently. {{¿Y a ti?}} turns it back: “And you?”. The same {{a}} names who: {{A mi papá le gusta el fútbol.}} “My dad likes soccer.”"},
+        {"p":"**Me too, me neither.** Answer with {{a}} and the person: {{A mí también.}} “Me too.” {{A mí tampoco.}} “Me neither” (after a “not”). {{A mí sí.}} / {{A mí no.}} when you feel differently. {{¿Y a ti?}} turns it back: “And you?”. The same {{a}} names who: {{A mi papá le gusta el futbol.}} “My dad likes soccer.”"},
         { "ex": [
-          {"t":"¿Te gusta el fútbol?","tr":"Do you like soccer?"},
+          {"t":"¿Te gusta el futbol?","tr":"Do you like soccer?"},
           {"t":"No me gustan las películas de terror.","tr":"I don't like horror movies.","note":"{{no}} goes before {{me}}"},
           {"t":"A mis hijos les gusta mucho nadar.","tr":"My kids really like swimming."},
           {"t":"Nos gusta caminar en el parque.","tr":"We like to walk in the park."},
@@ -863,6 +863,305 @@
         {"type":"order","q":"Put the words in order.","tr":"Can you help me?","words":["¿Me","puede","ayudar?"]},
         {"type":"say","q":"Ask someone politely: “Can you speak more slowly?”","answer":"¿Puede hablar más despacio?"},
         {"type":"free","q":"Your turn: what do you have to do this week, and what can't you do? Use {{tengo que}} and {{no puedo}}.","answers":[{"t":"El martes tengo que ir al doctor, y no puedo ir al gimnasio.","tr":"On Tuesday I have to go to the doctor, and I can't go to the gym."},{"t":"Esta semana tengo que trabajar mucho. No puedo salir con mis amigos.","tr":"This week I have to work a lot. I can't go out with my friends."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-free-time",
+      "unit": 4,
+      "level": "A1",
+      "title": "Talk about your free time",
+      "summary": "Say what you do on weekends and in your free time: “On Saturdays I go out with my friends.”",
+      "topic": "verbs whose “I” ends in -go: {{hago, salgo, pongo, traigo, vengo, digo}}; {{venir}} and {{decir}}",
+      "blocks": [
+        {"goal":{"t":"Los sábados salgo con mis amigos y los domingos no hago nada.","tr":"On Saturdays I go out with my friends, and on Sundays I don't do anything."}},
+        {"dialog":[{"who":"Iván","t":"¿Qué haces los fines de semana?","tr":"What do you do on weekends?"},{"who":"Ruth","t":"Los sábados salgo a correr y en la tarde hago la comida para mi familia.","tr":"On Saturdays I go running, and in the afternoon I make lunch for my family."},{"who":"Iván","t":"¿Y los domingos?","tr":"And on Sundays?"},{"who":"Ruth","t":"Vienen mis papás a comer. Siempre traen un pastel.","tr":"My parents come over for lunch. They always bring a cake."},{"who":"Iván","t":"¡Qué rico! Yo no hago nada: veo series todo el día.","tr":"Yum! I don't do anything: I watch shows all day."}]},
+        {"p":"**“I” ends in -go.** A handful of very common verbs are regular except for one form, “I”, which ends in **-go**. The other forms follow the patterns you know:"},
+        { "table": [
+          ["infinitive","I","the others"],
+          ["{{hacer}} (to do, to make)","{{hago}}","{{haces, hace, hacemos, hacen}}"],
+          ["{{salir}} (to go out, to leave)","{{salgo}}","{{sales, sale, salimos, salen}}"],
+          ["{{poner}} (to put)","{{pongo}}","{{pones, pone, ponemos, ponen}}"],
+          ["{{traer}} (to bring)","{{traigo}}","{{traes, trae, traemos, traen}}"]
+        ] },
+        {"term":"irregular verb","means":"a verb that doesn't follow the usual pattern in some of its forms, like {{ser}}, {{ir}} and {{tener}}. The most used verbs are often irregular."},
+        {"p":"Two more have the **-go** and also change their vowel in some forms:"},
+        { "table": [
+          ["","{{venir}} “to come”","{{decir}} “to say, to tell”"],
+          ["I","{{vengo}}","{{digo}}"],
+          ["you (friendly)","{{vienes}}","{{dices}}"],
+          ["he, she, you (polite)","{{viene}}","{{dice}}"],
+          ["we","{{venimos}}","{{decimos}}"],
+          ["you (all), they","{{vienen}}","{{dicen}}"]
+        ] },
+        {"p":"**{{hacer}}** is both “do” and “make”: {{¿Qué haces?}} “What are you doing?” or “What do you do?”, {{Hago la comida}} “I make lunch”. When the answer is “nothing”, Spanish keeps {{no}} as well: {{No hago nada.}} “I don't do anything” (lesson 22)."},
+        {"p":"**{{salir}}** is “to go out” or “to leave”: {{Salgo con mis amigos}} “I go out with my friends”, {{Salgo de casa a las siete}} “I leave home at seven” (leaving a place: {{salir de}})."},
+        { "ex": [
+          {"t":"¿Qué haces el fin de semana?","tr":"What are you doing this weekend?"},
+          {"t":"Salgo del trabajo a las seis.","tr":"I get off work at six."},
+          {"t":"¿Vienes a la fiesta?","tr":"Are you coming to the party?"},
+          {"t":"Siempre traigo mi comida al trabajo.","tr":"I always bring my lunch to work."},
+          {"t":"¿Dónde pongo las bolsas?","tr":"Where do I put the bags?"},
+          {"t":"Mi mamá dice que la comida está lista.","tr":"My mom says the food is ready."},
+          {"t":"Los viernes vemos películas en casa.","tr":"On Fridays we watch movies at home."}
+        ] },
+        {"tip":"Two other verbs are irregular only for “I”: {{ver}} → {{veo}} (I see, I watch) and {{saber}} → {{sé}} (I know). Among friends, {{¿Qué haces?}} is the natural “What are you up to?”."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo haco ejercicio.","right":"Yo hago ejercicio.","tr":"I exercise.","why":"“I” of {{hacer}} is {{hago}}."},
+        {"wrong":"Salo a las siete.","right":"Salgo a las siete.","tr":"I leave at seven.","why":"“I” of {{salir}} is {{salgo}}."},
+        {"wrong":"¿Tú venes mañana?","right":"¿Vienes mañana?","tr":"Are you coming tomorrow?","why":"{{venir}} changes e → ie: {{vienes}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Los sábados ___ con mis amigos.","tr":"On Saturdays I go out with my friends.","options":["salgo","salo","sale"],"answer":0,"why":"“I” of {{salir}}: {{salgo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Qué ___ tus hijos después de la escuela?","tr":"What do your kids do after school?","options":["hacen","hago","hacemos"],"answer":0,"why":"“They”: {{hacen}}."},
+        {"type":"choice","q":"Your friend asks {{¿Vienes a la fiesta?}} You answer “Yes, and I'll bring a salad.”","options":["{{Sí, y traigo una ensalada.}}","{{Sí, y traego una ensalada.}}","{{Sí, y trae una ensalada.}}"],"answer":0,"why":"“I” of {{traer}}: {{traigo}}. The present can also say what you're about to do."},
+        {"type":"dialogue","q":"A coworker asks about your week. Choose your replies.","lines":[{"who":"Coworker","t":"¿A qué hora sales del trabajo?","tr":"What time do you get off work?"},{"options":["Salgo a las cinco.","Salgo en las cinco."],"answer":0,"why":"At a time: {{a las}}."},{"who":"Coworker","t":"¿Y qué haces en la noche?","tr":"And what do you do in the evening?"},{"options":["Hago ejercicio o veo la tele.","Hago ejercicio o vo la tele."],"answer":0,"why":"“I see, I watch”: {{veo}}."},{"who":"Coworker","t":"Yo también.","tr":"Me too."}],"from":"say-when"},
+        {"type":"order","q":"Put the words in order.","tr":"My mom says the food is ready.","words":["Mi mamá","dice","que","la comida","está lista."]},
+        {"type":"say","q":"Ask a friend “What are you doing this weekend?”","answer":"¿Qué haces el fin de semana?"},
+        {"type":"free","q":"Your turn: what do you do on weekends? Use at least two of {{hago, salgo, veo, vengo}}.","answers":[{"t":"Los sábados salgo a correr y los domingos veo películas.","tr":"On Saturdays I go running, and on Sundays I watch movies."},{"t":"El fin de semana hago la comida para mi familia y salgo con mi novio.","tr":"On the weekend I cook for my family and go out with my boyfriend."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-prefer",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you prefer",
+      "summary": "Say what you prefer, what you order and when things start: “I prefer tea, but my husband always orders coffee.”",
+      "topic": "stem-changing verbs: e → ie ({{prefiero}}), o → ue ({{duermo}}), u → ue ({{juego}}), e → i ({{pido}})",
+      "blocks": [
+        {"goal":{"t":"Prefiero el té, pero mi esposo siempre pide café.","tr":"I prefer tea, but my husband always orders coffee."}},
+        {"dialog":[{"who":"Ale","t":"¿Quieres ver una película o prefieres jugar dominó?","tr":"Do you want to watch a movie, or would you rather play dominoes?"},{"who":"Beto","t":"Prefiero ver una película. ¿A qué hora empieza?","tr":"I'd rather watch a movie. What time does it start?"},{"who":"Ale","t":"Empieza a las nueve y dura dos horas.","tr":"It starts at nine and it's two hours long."},{"who":"Beto","t":"Uy, es un poco tarde. Entre semana duermo poco.","tr":"Oh, that's a little late. I don't sleep much on weeknights."},{"who":"Ale","t":"Bueno, ¿pedimos una pizza y vemos una más corta?","tr":"Okay, shall we order a pizza and watch a shorter one?"}]},
+        {"term":"stem-changing verb","means":"a verb whose stem (the part before -ar, -er or -ir) changes its vowel in most forms: {{querer}} → {{quiero}}, {{poder}} → {{puedo}}."},
+        {"p":"**Verbs that change their vowel.** You've met {{quiero}} (from {{querer}}) and {{puedo}} (from {{poder}}). Many verbs do this: the last vowel of the stem changes in every form **except “we”** ({{queremos}}, {{podemos}}). Draw a line around the forms that change and it looks like a boot, so teachers call them “boot verbs”."},
+        { "table": [
+          ["","e → ie: {{preferir}}","o → ue: {{dormir}}","e → i: {{pedir}}"],
+          ["I","{{prefiero}}","{{duermo}}","{{pido}}"],
+          ["you (friendly)","{{prefieres}}","{{duermes}}","{{pides}}"],
+          ["he, she, you (polite)","{{prefiere}}","{{duerme}}","{{pide}}"],
+          ["we","{{preferimos}}","{{dormimos}}","{{pedimos}}"],
+          ["you (all), they","{{prefieren}}","{{duermen}}","{{piden}}"]
+        ] },
+        {"p":"The infinitive doesn't warn you, so learn the common ones in their groups. **e → ie**: {{querer}}, {{preferir}}, {{pensar}} (to think), {{empezar}} (to start), {{entender}} (to understand), {{cerrar}} (to close), {{sentir}} (to feel). **o → ue**: {{poder}}, {{dormir}}, {{volver}} (to come back), {{costar}} (to cost), {{encontrar}} (to find), {{almorzar}} (to have lunch). **e → i**: {{pedir}} (to ask for, to order), {{servir}} (to serve), {{repetir}} (to repeat). And one on its own, **u → ue**: {{jugar}} (to play): {{juego}}, {{juegas}}, {{juega}}, {{jugamos}}, {{juegan}}."},
+        {"p":"{{tener}} ({{tienes}}, {{tiene}}) and {{venir}} ({{vienes}}) are boot verbs too, besides their -go for “I”."},
+        { "ex": [
+          {"t":"¿A qué hora empieza la película?","tr":"What time does the movie start?"},
+          {"t":"No entiendo. ¿Puede repetir, por favor?","tr":"I don't understand. Could you repeat that, please?"},
+          {"t":"Los domingos jugamos futbol.","tr":"On Sundays we play soccer.","note":"Mexicans say and write {{futbol}}, stressed at the end"},
+          {"t":"Mi hijo duerme diez horas.","tr":"My son sleeps ten hours."},
+          {"t":"¿Qué piensas?","tr":"What do you think?"},
+          {"t":"Siempre pido tacos al pastor.","tr":"I always order tacos al pastor."},
+          {"t":"¿Cuándo vuelves de tu viaje?","tr":"When are you coming back from your trip?"},
+          {"t":"No encuentro mis llaves.","tr":"I can't find my keys.","note":"Spanish says “I don't find”"}
+        ] },
+        {"tip":"{{pensar}} + infinitive is “to plan to”: {{Pienso viajar en diciembre.}} “I'm planning to travel in December.” {{pedir}} is to ask **for** something; to ask a question is {{preguntar}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo prefero el té.","right":"Yo prefiero el té.","tr":"I prefer tea.","why":"{{preferir}} changes e → ie: {{prefiero}}."},
+        {"wrong":"Nosotros quieremos ir.","right":"Nosotros queremos ir.","tr":"We want to go.","why":"“We” never changes its vowel: {{queremos}}, {{podemos}}, {{dormimos}}."},
+        {"wrong":"Pregunto un café.","right":"Pido un café.","tr":"I'll have a coffee.","why":"Asking for something is {{pedir}}; {{preguntar}} is asking a question."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿A qué hora ___ la clase?","tr":"What time does the class start?","options":["empieza","empeza","empiezan"],"answer":0,"why":"{{empezar}} changes e → ie, and one class: {{empieza}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nosotros ___ futbol los domingos.","tr":"We play soccer on Sundays.","options":["jugamos","juegamos","juegan"],"answer":0,"why":"“We” keeps the u: {{jugamos}}."},
+        {"type":"choice","q":"At a restaurant, “I'll have the soup” is…","options":["{{Pido la sopa.}}","{{Pregunto la sopa.}}","{{Piden la sopa.}}"],"answer":0,"why":"Asking for something: {{pedir}}; and “I”: {{pido}}."},
+        {"type":"dialogue","q":"Your friend is choosing a restaurant. Choose your replies.","lines":[{"who":"Friend","t":"¿Prefieres comida mexicana o italiana?","tr":"Do you prefer Mexican or Italian food?"},{"options":["Prefiero la comida mexicana.","Prefero la comida mexicana."],"answer":0,"why":"e → ie: {{prefiero}}."},{"who":"Friend","t":"¿Te gustan los tacos de canasta?","tr":"Do you like tacos de canasta?"},{"options":["Sí, me gustan mucho. Siempre pido cinco.","Sí, me gusta mucho. Siempre pido cinco."],"answer":0,"why":"{{los tacos}}, more than one: {{gustan}}."},{"who":"Friend","t":"¡Cinco! Muy bien, vamos.","tr":"Five! All right, let's go."}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"I don't understand the question.","words":["No","entiendo","la pregunta."]},
+        {"type":"say","q":"Say “I can't find my keys.”","answer":"No encuentro mis llaves."},
+        {"type":"free","q":"Your turn: coffee or tea? The beach or the mountains? And how many hours do you sleep? Use {{prefiero}} and {{duermo}}.","answers":[{"t":"Prefiero el café y la playa. Duermo siete horas.","tr":"I prefer coffee and the beach. I sleep seven hours."},{"t":"Prefiero el té. Entre semana duermo poco, pero los domingos duermo mucho.","tr":"I prefer tea. On weeknights I don't sleep much, but on Sundays I sleep a lot."}]}
+      ]
+    },
+    {
+      "id": "describe-your-routine",
+      "unit": 4,
+      "level": "A1",
+      "title": "Describe your daily routine",
+      "summary": "Tell someone about your day, from getting up to going to bed: “I get up at six, take a shower and head to work.”",
+      "topic": "reflexive verbs ({{me levanto, te bañas, se viste…}}); where {{me, te, se}} go",
+      "blocks": [
+        {"goal":{"t":"Me levanto a las seis, me baño y me voy al trabajo.","tr":"I get up at six, take a shower and head to work."}},
+        {"dialog":[{"who":"Fer","t":"¿A qué hora te levantas?","tr":"What time do you get up?"},{"who":"You","t":"Me levanto a las seis y media. ¿Por qué?","tr":"I get up at six thirty. Why?"},{"who":"Fer","t":"Porque yo me baño a las siete. ¿Tú te bañas en la mañana o en la noche?","tr":"Because I shower at seven. Do you shower in the morning or at night?"},{"who":"You","t":"En la noche. En la mañana solo me lavo la cara y me visto.","tr":"At night. In the morning I just wash my face and get dressed."},{"who":"Fer","t":"¡Perfecto!","tr":"Perfect!"}]},
+        {"term":"reflexive verb","means":"a verb used with {{me, te, se, nos}} because the action falls back on the person who does it: {{me baño}} “I bathe (myself)”."},
+        {"p":"**Doing something to yourself.** Many everyday actions in Spanish take a little pronoun that points back to the person: {{me}}, {{te}}, {{se}}… {{Me baño}} is, word for word, “I bathe myself”; {{Me levanto}} “I raise myself”: I get up."},
+        { "table": [
+          ["","{{levantarse}} “to get up”"],
+          ["I","{{me levanto}}"],
+          ["you (friendly)","{{te levantas}}"],
+          ["he, she, you (polite)","{{se levanta}}"],
+          ["we","{{nos levantamos}}"],
+          ["you (all), they","{{se levantan}}"]
+        ] },
+        {"p":"In the dictionary these verbs end in **-se**: {{levantarse}}, {{bañarse}} (to shower, to take a bath), {{despertarse}} (to wake up: e → ie), {{vestirse}} (to get dressed: e → i), {{lavarse}} (to wash), {{peinarse}} (to do your hair), {{acostarse}} (to go to bed: o → ue), {{irse}} (to leave, to head off). You already know one: {{llamarse}}, as in {{me llamo}}."},
+        {"p":"**Where the pronoun goes.** Before a conjugated verb: {{Me levanto temprano.}} With an infinitive you can also put it on the end: {{Voy a levantarme temprano}} or {{Me voy a levantar temprano}}, both right. With {{no}}: {{No me levanto temprano.}}"},
+        {"p":"**Parts of the body** take {{el}}, {{la}}, not “my”, because the {{me}} already says whose: {{Me lavo los dientes.}} “I brush my teeth.” {{Me lavo las manos.}} “I wash my hands.”"},
+        { "ex": [
+          {"t":"Me despierto a las seis, pero me levanto a las seis y media.","tr":"I wake up at six, but I get up at six thirty."},
+          {"t":"Mi hijo se viste solo.","tr":"My son gets dressed by himself."},
+          {"t":"¿A qué hora te acuestas?","tr":"What time do you go to bed?"},
+          {"t":"Nos vamos a las ocho.","tr":"We're leaving at eight."},
+          {"t":"Me voy a bañar.","tr":"I'm going to take a shower."},
+          {"t":"Los niños se lavan los dientes después de cenar.","tr":"The kids brush their teeth after dinner."}
+        ] },
+        {"tip":"Some verbs change their meaning with {{se}}: {{ir}} “to go”, {{irse}} “to leave”; {{dormir}} “to sleep”, {{dormirse}} “to fall asleep”: {{Me duermo a las once.}} “I fall asleep at eleven.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Levanto a las siete.","right":"Me levanto a las siete.","tr":"I get up at seven.","why":"{{levantarse}} needs {{me}}: without it, {{levanto}} means “I lift (something)”."},
+        {"wrong":"Me lavo mis dientes.","right":"Me lavo los dientes.","tr":"I brush my teeth.","why":"With parts of the body: {{los}}, not {{mis}}. The {{me}} already says whose."},
+        {"wrong":"Voy a me bañar.","right":"Voy a bañarme.","tr":"I'm going to take a shower.","why":"The pronoun goes before the conjugated verb ({{Me voy a bañar}}) or on the end of the infinitive ({{bañarme}}), never between them."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿A qué hora ___ levantas?","tr":"What time do you get up?","options":["te","me","se"],"answer":0,"why":"“You” (friendly): {{te levantas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mis hijos se ___ a las nueve.","tr":"My kids go to bed at nine.","options":["acuestan","acostan","acuesta"],"answer":0,"why":"{{acostarse}} changes o → ue, and “they”: {{se acuestan}}.","from":"say-what-you-prefer"},
+        {"type":"choice","q":"Which one means “I'm going to get dressed”?","options":["{{Me voy a vestir.}}","{{Voy a me vestir.}}","{{Voy a vestir.}}"],"answer":0,"why":"The pronoun before {{voy}}, or on the end: {{Voy a vestirme}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I brush my teeth after breakfast.","words":["Me lavo","los dientes","después del","desayuno."]},
+        {"type":"dialogue","q":"A doctor asks about your routine. Choose your replies.","lines":[{"who":"Doctor","t":"¿A qué hora se acuesta usted?","tr":"What time do you go to bed?"},{"options":["Me acuesto a las doce.","Se acuesto a las doce."],"answer":0,"why":"About yourself: {{me acuesto}}."},{"who":"Doctor","t":"¿Y a qué hora se levanta?","tr":"And what time do you get up?"},{"options":["Me levanto a las seis.","Levanto a las seis."],"answer":0,"why":"{{levantarse}} needs {{me}}."},{"who":"Doctor","t":"Mmm, duerme muy poco.","tr":"Hmm, you don't sleep much."}]},
+        {"type":"say","q":"Say “I wake up at seven, but I get up at seven thirty.”","answer":"Me despierto a las siete, pero me levanto a las siete y media."},
+        {"type":"free","q":"Your turn: describe your morning, in order. Use at least three verbs with {{me}}.","answers":[{"t":"Me despierto a las seis, me baño, me visto y me voy al trabajo.","tr":"I wake up at six, shower, get dressed and head to work."},{"t":"Me levanto a las siete, me lavo la cara y desayuno con mis hijos.","tr":"I get up at seven, wash my face and have breakfast with my kids."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what's happening right now",
+      "summary": "Say what you're doing at this moment, on the phone or in a text: “I can't talk right now: I'm driving.”",
+      "topic": "{{estar}} + the -ando / -iendo form ({{estoy comiendo}}); where pronouns go with it",
+      "blocks": [
+        {"goal":{"t":"Ahorita no puedo hablar: estoy manejando.","tr":"I can't talk right now: I'm driving."}},
+        {"dialog":[{"who":"Mom","t":"¿Qué estás haciendo?","tr":"What are you doing?"},{"who":"Lucía","t":"Estoy cocinando. ¿Por qué?","tr":"I'm cooking. Why?"},{"who":"Mom","t":"Tu papá y yo estamos saliendo de la casa. Vamos para allá.","tr":"Your dad and I are leaving the house. We're on our way over."},{"who":"Lucía","t":"¡Ay, no! Los niños se están bañando y la casa es un desastre.","tr":"Oh, no! The kids are in the bath and the house is a mess."},{"who":"Mom","t":"No importa, hija. ¡Ahí vamos!","tr":"It doesn't matter, sweetheart. We're coming!"}]},
+        {"p":"**Right now.** {{estar}} + a verb ending in **-ando** or **-iendo** says what is happening at this moment: {{Estoy manejando.}} “I'm driving.” Only {{estar}} changes: {{estoy}}, {{estás}}, {{está}}, {{estamos}}, {{están}}."},
+        {"term":"gerund","means":"the “-ing” form of a verb. In Spanish it ends in -ando or -iendo: {{hablando}} “speaking”, {{comiendo}} “eating”."},
+        {"p":"**Making it.** -ar verbs: drop -ar and add **-ando**: {{hablar}} → {{hablando}}. -er and -ir verbs: add **-iendo**: {{comer}} → {{comiendo}}, {{escribir}} → {{escribiendo}}. It never changes for the person."},
+        { "table": [
+          ["infinitive","gerund","Example"],
+          ["{{trabajar}}","{{trabajando}}","{{Estoy trabajando.}}"],
+          ["{{hacer}}","{{haciendo}}","{{¿Qué estás haciendo?}}"],
+          ["{{leer}}","{{leyendo}}","{{Mi hija está leyendo.}}"],
+          ["{{dormir}}","{{durmiendo}}","{{El bebé está durmiendo.}}"],
+          ["{{pedir}}","{{pidiendo}}","{{Estamos pidiendo la comida.}}"],
+          ["{{decir}}","{{diciendo}}","{{¿Qué estás diciendo?}}"]
+        ] },
+        {"p":"After a vowel, the i of -iendo becomes **y**: {{leer}} → {{leyendo}}, {{traer}} → {{trayendo}}, {{oír}} → {{oyendo}}. And -ir verbs that change e → i or o → ue change here too, to i and u: {{pedir}} → {{pidiendo}}, {{vestir}} → {{vistiendo}}, {{dormir}} → {{durmiendo}}."},
+        {"p":"**When not to use it.** English uses “-ing” much more than Spanish does. For habits and for plans, Spanish uses the plain present or {{ir a}}: {{Trabajo en un banco}} “I'm working at a bank (these days)”, {{Mañana voy a trabajar}} “I'm working tomorrow”. Keep {{estar}} + -ando for what is really in progress."},
+        {"p":"**Pronouns** go before {{estar}}, or on the end of the gerund, which then takes an accent mark: {{Me estoy bañando}} or {{Estoy bañándome}}."},
+        { "ex": [
+          {"t":"¿Qué estás haciendo? — Nada, estoy viendo la tele.","tr":"What are you doing? — Nothing, I'm watching TV."},
+          {"t":"Está lloviendo mucho.","tr":"It's raining hard."},
+          {"t":"Mis papás están viajando por Europa.","tr":"My parents are traveling around Europe."},
+          {"t":"Estamos esperando el camión.","tr":"We're waiting for the bus.","note":"{{esperar}} “to wait for”, with no word for “for”"},
+          {"t":"El bebé está durmiendo.","tr":"The baby is sleeping."},
+          {"t":"¿Me estás escuchando?","tr":"Are you listening to me?"}
+        ] },
+        {"tip":"{{Ahorita}} is Mexican for “right now”, but careful: it can also mean “in a little while”, or even “later, maybe”. {{¡Ahorita voy!}} may mean you're not going just yet."}
+      ],
+      "mistakes": [
+        {"wrong":"Estoy trabajo.","right":"Estoy trabajando.","tr":"I'm working.","why":"After {{estoy}}, the gerund: {{trabajando}}."},
+        {"wrong":"Mañana estoy trabajando.","right":"Mañana voy a trabajar.","tr":"I'm working tomorrow.","why":"For plans Spanish uses {{ir a}} (or the present: {{Mañana trabajo}}), not {{estar}} + -ando."},
+        {"wrong":"Estoy leiendo un libro.","right":"Estoy leyendo un libro.","tr":"I'm reading a book.","why":"After a vowel, the i of -iendo becomes y: {{leyendo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ahorita estoy ___ la comida.","tr":"I'm making lunch right now.","options":["haciendo","hacer","hago"],"answer":0,"why":"{{estar}} + gerund: {{haciendo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Los niños ___ jugando en el parque.","tr":"The kids are playing in the park.","options":["están","son","estamos"],"answer":0,"why":"{{estar}}, for “they”: {{están}}."},
+        {"type":"choice","q":"Which one means “The baby is sleeping”?","options":["{{El bebé está durmiendo.}}","{{El bebé está dormiendo.}}","{{El bebé es durmiendo.}}"],"answer":0,"why":"{{dormir}} → {{durmiendo}}, with {{estar}}."},
+        {"type":"dialogue","q":"Your friend calls early in the morning. Choose your replies.","lines":[{"who":"Friend","t":"¿Ya estás despierta?","tr":"Are you up yet?"},{"options":["Sí, me estoy vistiendo.","Sí, me estoy vestiendo."],"answer":0,"why":"{{vestirse}} changes e → i: {{vistiendo}}."},{"who":"Friend","t":"¿Puedes hablar?","tr":"Can you talk?"},{"options":["Ahorita no, me voy a bañar.","Ahorita no, voy a me bañar."],"answer":0,"why":"The pronoun before {{voy}}, or on the end: {{voy a bañarme}}."},{"who":"Friend","t":"Bueno, te llamo en un rato.","tr":"Okay, I'll call you in a bit."}],"from":"describe-your-routine"},
+        {"type":"order","q":"Put the words in order.","tr":"We're waiting for the bus.","words":["Estamos","esperando","el camión."]},
+        {"type":"say","q":"Ask a friend “What are you doing?”","answer":"¿Qué estás haciendo?"},
+        {"type":"free","q":"Your turn: it's Saturday at noon. Text a friend what you and your family are doing right now.","answers":[{"t":"Estoy limpiando la casa y mi esposo está cocinando.","tr":"I'm cleaning the house and my husband is cooking."},{"t":"Estamos en el parque. Los niños están jugando y yo estoy leyendo.","tr":"We're at the park. The kids are playing and I'm reading."}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say how often, and never",
+      "summary": "Say how often you do things, and use “never”, “nothing” and “nobody” the Spanish way: “I hardly ever eat meat.”",
+      "topic": "{{siempre, a veces, casi nunca, nunca}}; {{todos los días}}, {{una vez a la semana}}; {{no… nada / nadie / nunca}}",
+      "blocks": [
+        {"goal":{"t":"Casi nunca como carne, pero siempre tomo café.","tr":"I hardly ever eat meat, but I always drink coffee."}},
+        {"dialog":[{"who":"Doctor","t":"¿Hace ejercicio?","tr":"Do you exercise?"},{"who":"You","t":"Sí, voy al gimnasio dos veces a la semana.","tr":"Yes, I go to the gym twice a week."},{"who":"Doctor","t":"¿Fuma?","tr":"Do you smoke?"},{"who":"You","t":"No, nunca.","tr":"No, never."},{"who":"Doctor","t":"¿Y toma alcohol?","tr":"And do you drink alcohol?"},{"who":"You","t":"A veces, los fines de semana. Pero entre semana no tomo nada.","tr":"Sometimes, on weekends. But during the week I don't drink anything."}]},
+        {"p":"**How often.** From most to least: {{siempre}} (always), {{casi siempre}} (almost always), {{normalmente}} (usually), {{a veces}} (sometimes), {{casi nunca}} (hardly ever), {{nunca}} (never). They usually go before the verb: {{Siempre desayuno en casa.}}"},
+        {"p":"**Every…, once a…** {{todos los días}} (every day), {{todas las noches}} (every night), {{cada semana}} (every week), {{una vez a la semana}} (once a week), {{dos veces al mes}} (twice a month), {{los lunes}} (on Mondays)."},
+        {"p":"**Never, nothing, nobody.** Spanish has two ways to say them: the negative word alone before the verb ({{Nunca como carne.}}), or {{no}} before the verb and the negative word after it ({{No como carne nunca.}}). So Spanish happily doubles its negatives, and must do it when the negative word comes after the verb: {{No hay nada.}} “There's nothing.”"},
+        { "table": [
+          ["positive","negative","Example"],
+          ["{{algo}} (something)","{{nada}} (nothing)","{{No quiero nada.}} I don't want anything."],
+          ["{{alguien}} (someone)","{{nadie}} (nobody)","{{No hay nadie.}} There's nobody here."],
+          ["{{siempre}} (always)","{{nunca}} (never)","{{Nunca voy.}} / {{No voy nunca.}} I never go."],
+          ["{{también}} (too)","{{tampoco}} (neither)","{{Yo tampoco.}} Me neither."]
+        ] },
+        { "ex": [
+          {"t":"Siempre llego tarde.","tr":"I'm always late."},
+          {"t":"A veces trabajo los sábados.","tr":"Sometimes I work on Saturdays."},
+          {"t":"No hay nadie en la oficina.","tr":"There's nobody in the office."},
+          {"t":"¿Quieres algo? — No, nada, gracias.","tr":"Do you want anything? — No, nothing, thanks."},
+          {"t":"Mi hijo nunca come verduras.","tr":"My son never eats vegetables."},
+          {"t":"Vamos al cine una vez al mes.","tr":"We go to the movies once a month."},
+          {"t":"No sé nada de futbol.","tr":"I don't know anything about soccer."}
+        ] },
+        {"tip":"{{Nunca}} and {{nada}} stand alone as answers: {{¿Qué haces? — Nada.}} “What are you doing? — Nothing.” {{¿Vas al gimnasio? — Nunca.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"No quiero algo.","right":"No quiero nada.","tr":"I don't want anything.","why":"After {{no}}, Spanish uses the negative word: {{nada}}, not {{algo}}."},
+        {"wrong":"Hay nadie aquí.","right":"No hay nadie aquí.","tr":"There's nobody here.","why":"With the negative word after the verb, {{no}} must come before the verb."},
+        {"wrong":"Yo como nunca carne.","right":"Nunca como carne.","tr":"I never eat meat.","why":"{{nunca}} goes before the verb, or after it with {{no}} in front: {{No como carne nunca}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No hay ___ en la casa.","tr":"There's nobody in the house.","options":["nadie","alguien","nada"],"answer":0,"why":"Nobody: {{nadie}}, with {{no}} before the verb."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ desayuno en casa.","tr":"I always have breakfast at home.","options":["Siempre","Nunca","Nada"],"answer":0,"why":"Always: {{siempre}}."},
+        {"type":"choice","q":"How do you say “I don't want anything”?","options":["{{No quiero nada.}}","{{No quiero algo.}}","{{Quiero nada.}}"],"answer":0,"why":"Spanish doubles the negative: {{no}} … {{nada}}."},
+        {"type":"dialogue","q":"Getting to know a coworker. Choose your replies.","lines":[{"who":"Coworker","t":"¿Tomas café?","tr":"Do you drink coffee?"},{"options":["Sí, todos los días.","Sí, todo los días."],"answer":0,"why":"{{días}} is masculine plural: {{todos los días}}."},{"who":"Coworker","t":"Yo casi nunca tomo café. Y no me gusta el té.","tr":"I hardly ever drink coffee. And I don't like tea."},{"options":["A mí tampoco.","A mí también."],"answer":0,"why":"Agreeing with a “not”: {{a mí tampoco}}."},{"who":"Coworker","t":"¡Somos dos!","tr":"That makes two of us!"}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"I never eat meat.","words":["Nunca","como","carne."]},
+        {"type":"say","q":"Say “There's nothing in the fridge.”","answer":"No hay nada en el refri."},
+        {"type":"free","q":"Your turn: say two things you always do and one thing you never do.","answers":[{"t":"Siempre tomo café en la mañana y siempre camino al trabajo. Nunca veo la tele.","tr":"I always have coffee in the morning and I always walk to work. I never watch TV."},{"t":"Siempre desayuno con mi familia. Los domingos no hago nada.","tr":"I always have breakfast with my family. On Sundays I don't do anything."}]}
+      ]
+    },
+    {
+      "id": "talk-about-the-weather",
+      "unit": 4,
+      "level": "A2",
+      "title": "Make small talk about the weather",
+      "summary": "Talk about the weather the way Mexicans do: “It's so hot today!” “Yes, and it's going to rain this afternoon.”",
+      "topic": "{{hace calor}}, {{hace frío}}; {{está nublado}}; {{llueve}}, {{está lloviendo}}; {{tener calor}} and {{tener frío}}",
+      "blocks": [
+        {"goal":{"t":"¡Qué calor hace hoy! — Sí, y en la tarde va a llover.","tr":"It's so hot today! — Yes, and it's going to rain this afternoon."}},
+        {"dialog":[{"who":"Neighbor","t":"¡Qué frío hace hoy!","tr":"It's so cold today!"},{"who":"You","t":"Sí, y está muy nublado. ¿Va a llover?","tr":"Yes, and it's very cloudy. Is it going to rain?"},{"who":"Neighbor","t":"Creo que sí. En esta época siempre llueve en la noche.","tr":"I think so. At this time of year it always rains at night."},{"who":"You","t":"Pues voy por mi suéter. Tengo mucho frío.","tr":"Well, I'm going to get my sweater. I'm really cold."}]},
+        {"p":"**Three ways to talk about the weather.** {{hacer}} with what you feel (heat, cold, wind, sun), {{estar}} with how the sky looks, and the weather's own verbs for rain and snow. There's no “it”: the verb is enough."},
+        { "table": [
+          ["{{hace}} + noun","{{está}} + adjective","its own verb"],
+          ["{{Hace calor.}} It's hot.","{{Está nublado.}} It's cloudy.","{{Llueve.}} / {{Está lloviendo.}} It's raining."],
+          ["{{Hace frío.}} It's cold.","{{Está soleado.}} It's sunny.","{{Nieva.}} It's snowing."],
+          ["{{Hace viento.}} It's windy.","{{Está despejado.}} The sky is clear.","{{Va a llover.}} It's going to rain."],
+          ["{{Hace buen tiempo.}} The weather is nice.","{{Está fresco.}} It's cool.","{{Va a nevar.}} It's going to snow."]
+        ] },
+        {"p":"{{calor}} and {{frío}} are nouns here (heat, cold), so “very” is {{mucho}}, not {{muy}}: {{Hace mucho calor.}} And {{¡Qué calor!}} “It's so hot!” is how many conversations start. {{hay}} works for what's in the air: {{Hay neblina}} (it's foggy), {{Hay mucha humedad}} (it's very humid)."},
+        {"p":"**The weather, you, or a thing?** For the weather: {{hacer}}. For how **you** feel: {{tener}}. For a thing you touch: {{estar}}. English says “hot” and “cold” for all three; Spanish doesn't:"},
+        { "table": [
+          ["the weather","a person","a thing"],
+          ["{{Hace calor.}} It's hot out.","{{Tengo calor.}} I'm hot.","{{El café está caliente.}} The coffee is hot."],
+          ["{{Hace frío.}} It's cold out.","{{Tengo frío.}} I'm cold.","{{La sopa está fría.}} The soup is cold."]
+        ] },
+        { "ex": [
+          {"t":"Hoy hace mucho calor.","tr":"It's very hot today."},
+          {"t":"Está lloviendo. ¿Traes paraguas?","tr":"It's raining. Do you have an umbrella?","note":"{{¿Traes…?}} “Do you have … on you?”"},
+          {"t":"En Monterrey hace mucho calor en verano.","tr":"In Monterrey it's very hot in summer."},
+          {"t":"Mañana va a hacer frío.","tr":"It's going to be cold tomorrow."},
+          {"t":"¿Tienes frío? Te presto mi chamarra.","tr":"Are you cold? I'll lend you my jacket.","note":"{{chamarra}}: a jacket, in Mexico"},
+          {"t":"¿Qué tiempo hace en tu ciudad?","tr":"What's the weather like in your city?"}
+        ] },
+        {"tip":"Seasons: {{la primavera}} (spring), {{el verano}} (summer), {{el otoño}} (fall), {{el invierno}} (winter). In much of Mexico people talk more about {{la época de lluvias}}, the rainy season, roughly June to October."}
+      ],
+      "mistakes": [
+        {"wrong":"Es calor.","right":"Hace calor.","tr":"It's hot.","why":"Weather you feel: {{hace}}. No “it”, and no {{es}}."},
+        {"wrong":"Estoy calor.","right":"Tengo calor.","tr":"I'm hot.","why":"How you feel: {{tener}} + {{calor}} or {{frío}}."},
+        {"wrong":"Hace muy frío.","right":"Hace mucho frío.","tr":"It's very cold.","why":"Here {{frío}} is a noun, “cold”: {{mucho}}, not {{muy}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Hoy ___ mucho viento.","tr":"It's very windy today.","options":["hace","está","es"],"answer":0,"why":"Wind, heat, cold: {{hace}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Tienes frío? — Sí, ___ mucho frío.","tr":"Are you cold? — Yes, I'm really cold.","options":["tengo","hace","estoy"],"answer":0,"why":"How you feel: {{tengo}}.","from":"talk-about-your-family"},
+        {"type":"choice","q":"You touch your coffee: it's gone cold. You say…","options":["{{El café está frío.}}","{{El café hace frío.}}","{{El café tiene frío.}}"],"answer":0,"why":"A thing you touch: {{estar}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ahorita está ___. ¿Traes paraguas?","tr":"It's raining right now. Do you have an umbrella?","options":["lloviendo","llueve","llover"],"answer":0,"why":"Raining right now: {{estar}} + {{lloviendo}}.","from":"say-what-is-happening-now"},
+        {"type":"dialogue","q":"Small talk at the bus stop. Choose your replies.","lines":[{"who":"Woman","t":"¡Uf, qué calor!","tr":"Phew, it's so hot!"},{"options":["Sí, hace mucho calor hoy.","Sí, es mucho calor hoy."],"answer":0,"why":"Weather you feel: {{hace}}."},{"who":"Woman","t":"Y dicen que mañana va a llover.","tr":"And they say it's going to rain tomorrow."},{"options":["¡Qué bueno! Va a estar más fresco.","¡Qué bueno! Va estar más fresco."],"answer":0,"why":"{{ir a}} + infinitive: don't forget the {{a}}."},{"who":"Woman","t":"Ojalá.","tr":"I hope so."}],"from":"make-plans"},
+        {"type":"say","q":"Say “It's cold and it's very cloudy.”","answer":"Hace frío y está muy nublado."},
+        {"type":"free","q":"Your turn: what's the weather like where you are today, and what's it going to be like tomorrow?","answers":[{"t":"Hoy hace sol y hace calor. Mañana va a llover.","tr":"Today it's sunny and hot. Tomorrow it's going to rain."},{"t":"Hoy está nublado y hace frío. Mañana va a hacer buen tiempo.","tr":"Today it's cloudy and cold. Tomorrow the weather is going to be nice."}]}
       ]
     }
   ]
