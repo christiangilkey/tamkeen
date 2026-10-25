@@ -1238,6 +1238,339 @@
         {"type":"say","q":"به دوستتان پیشنهاد بدهید: «بیا عکس بگیریم!»","answer":"Let's take a picture!"},
         {"type":"free","q":"نوبت شماست: یک دوست را برای آخر هفته به کاری دعوت کنید و یک زمان پیشنهاد بدهید.","answers":[{"t":"Would you like to go hiking on Saturday? How about nine in the morning?","tr":"دوست داری شنبه برویم کوه؟ نه صبح چطور است؟"},{"t":"Let's watch a movie on Friday night. Why don't we meet at my place?","tr":"بیا جمعه شب فیلم ببینیم. چطور است خانهٔ من همدیگر را ببینیم؟"}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "بگویید کجا بودید",
+      "summary": "بگویید {{I was at home}}، {{We were tired}} و {{I was born in Tabriz}}: گذشتهٔ «بودن».",
+      "topic": "{{was}} و {{were}}؛ {{wasn't}} و {{weren't}}؛ {{Were you…?}}؛ {{I was born…}}",
+      "blocks": [
+        {"goal":{"t":"I was born in Tabriz, but I was a student in Tehran.","tr":"در تبریز به دنیا آمدم، ولی در تهران دانشجو بودم."}},
+        {"dialog":[{"who":"لیزا","t":"Where were you yesterday? You weren't at work.","tr":"دیروز کجا بودی؟ سر کار نبودی."},{"who":"علی","t":"I was sick. I was at home all day.","tr":"مریض بودم. تمام روز خانه بودم."},{"who":"لیزا","t":"Oh no! Were you at the doctor's?","tr":"وای! دکتر رفتی؟"},{"who":"علی","t":"No, it wasn't serious. I was just very tired.","tr":"نه، جدی نبود. فقط خیلی خسته بودم."},{"who":"لیزا","t":"Well, it's good you're back!","tr":"خب، خوب است که برگشتی!"}]},
+        {"p":"**گذشتهٔ «بودن»: {{was}} و {{were}}.** {{am}} و {{is}} در گذشته می‌شوند {{was}}، و {{are}} می‌شود {{were}}: {{I was tired.}} «خسته بودم»، {{They were at home.}} «خانه بودند». باز هم فاعل همیشه گفته می‌شود: «خسته بودم» یعنی {{I was tired}}."},
+        { "table": [
+          ["","حال","گذشته"],
+          ["من","{{I am}}","{{I was}}"],
+          ["تو، شما","{{you are}}","{{you were}}"],
+          ["او، آن","{{he is}}، {{she is}}، {{it is}}","{{he was}}، {{she was}}، {{it was}}"],
+          ["ما","{{we are}}","{{we were}}"],
+          ["آن‌ها","{{they are}}","{{they were}}"]
+        ] },
+        {"p":"**منفی و سؤال، مثل حال.** {{I wasn't}} ({{was not}})، {{they weren't}}: {{It wasn't expensive.}} «گران نبود». در سؤال فعل اول می‌آید: {{Were you at home?}} «خانه بودی؟»، و جواب: {{Yes, I was.}} یا {{No, I wasn't.}}"},
+        {"p":"**«به دنیا آمدم»: {{I was born}}.** فارسی «آمدن» می‌گوید؛ انگلیسی «بودن»: {{I was born in 1990.}} «سال ۱۹۹۰ به دنیا آمدم». {{Where were you born?}} «کجا به دنیا آمدی؟». {{I born}} یا {{I am born}} غلط است."},
+        {"p":"**کلمه‌های زمان گذشته:** {{yesterday}} «دیروز»، {{last night}} «دیشب»، {{last week}} «هفتهٔ پیش»، {{last year}} «پارسال»؛ و {{ago}} «پیش»، بعد از مدت: {{two days ago}} «دو روز پیش» (درس بعد)."},
+        { "ex": [
+          {"t":"I was at work yesterday.","tr":"دیروز سر کار بودم."},
+          {"t":"The movie was great!","tr":"فیلم عالی بود!"},
+          {"t":"We were in Isfahan last week.","tr":"هفتهٔ پیش اصفهان بودیم."},
+          {"t":"She wasn't at the party.","tr":"او در مهمانی نبود."},
+          {"t":"Were you tired last night?","tr":"دیشب خسته بودی؟"},
+          {"t":"My grandparents were born in Rasht.","tr":"پدربزرگ و مادربزرگم در رشت به دنیا آمدند."}
+        ] },
+        {"tip":"{{there is}} هم گذشته دارد: {{There was a problem.}} «مشکلی بود، مشکلی پیش آمد»، {{There were a lot of people.}} «آدم زیادی بود»."}
+      ],
+      "mistakes": [
+        {"wrong":"I born in Tabriz.","right":"I was born in Tabriz.","tr":"در تبریز به دنیا آمدم.","why":"«به دنیا آمدن» در انگلیسی {{was born}} است."},
+        {"wrong":"They was at home.","right":"They were at home.","tr":"آن‌ها خانه بودند.","why":"با {{they}}، {{we}} و {{you}}: {{were}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ very tired last night.","tr":"دیشب خیلی خسته بودم.","options":["was","were","am"],"answer":0,"why":"گذشته، با {{I}}: {{was}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Where ___ you yesterday?","tr":"دیروز کجا بودی؟","options":["were","was","did"],"answer":0,"why":"با {{you}}: {{were}}."},
+        {"type":"choice","q":"«کجا به دنیا آمدی؟» کدام است؟","options":["{{Where were you born?}}","{{Where did you born?}}","{{Where you were born?}}"],"answer":0,"why":"با {{be born}}: {{Where were you born?}}"},
+        {"type":"dialogue","q":"یک همکار دربارهٔ دیروز می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"ask-yes-no-questions","lines":[{"who":"لیزا","t":"Where were you yesterday? You weren't at work.","tr":"دیروز کجا بودی؟ سر کار نبودی."},{"options":["I was sick. I was at home all day.","I sick. I at home all day."],"answer":0,"why":"«بودن» در گذشته هم لازم است: {{I was}}."},{"who":"لیزا","t":"Were you at the doctor's?","tr":"دکتر رفتی؟"},{"options":["No, it wasn't serious.","No, it weren't serious."],"answer":0,"why":"با {{it}}: {{wasn't}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"هفتهٔ پیش اصفهان بودیم.","words":["We","were","in","Isfahan","last","week."]},
+        {"type":"say","q":"بگویید: «در تهران به دنیا آمدم.»","answer":"I was born in Tehran.","from":"say-who-you-are"},
+        {"type":"free","q":"نوبت شماست: بگویید کجا به دنیا آمدید، و دیروز و آخر هفتهٔ پیش کجا بودید.","answers":[{"t":"I was born in Shiraz. Yesterday I was at work, and last weekend I was at my parents' house.","tr":"در شیراز به دنیا آمدم. دیروز سر کار بودم و آخر هفتهٔ پیش خانهٔ پدر و مادرم بودم."},{"t":"I was born in a small town. Last night I was at home. It was a quiet evening.","tr":"در یک شهر کوچک به دنیا آمدم. دیشب خانه بودم. شب آرامی بود."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "بگویید چه کار کردید",
+      "summary": "بگویید {{I worked late}}، {{We visited my aunt}} و {{I moved here two years ago}}: گذشتهٔ ساده با {{-ed}}.",
+      "topic": "گذشتهٔ ساده با {{-ed}}؛ سه تلفظ {{-ed}}؛ {{yesterday}}، {{last}}، {{ago}} (نه {{before}})",
+      "blocks": [
+        {"goal":{"t":"I moved to Toronto two years ago.","tr":"دو سال پیش به تورنتو نقل مکان کردم."}},
+        {"dialog":[{"who":"مارک","t":"What did you do on the weekend?","tr":"آخر هفته چه کار کردی؟"},{"who":"سارا","t":"I stayed home on Saturday. I cleaned the house and cooked.","tr":"شنبه خانه ماندم. خانه را تمیز کردم و آشپزی کردم."},{"who":"مارک","t":"And on Sunday?","tr":"یکشنبه چطور؟"},{"who":"سارا","t":"We visited my aunt. We talked and laughed all day!","tr":"به دیدن خاله‌ام رفتیم. تمام روز حرف زدیم و خندیدیم!"},{"who":"مارک","t":"Sounds like fun!","tr":"به نظر خوش گذشته!"}]},
+        {"term":"زمان گذشتهٔ ساده","means":"زمانی برای کاری که در گذشته انجام شد و تمام شد: {{I worked yesterday.}} «دیروز کار کردم»."},
+        {"p":"**گذشتهٔ ساده: {{-ed}}.** برای کاری که در گذشته تمام شده، بیشتر فعل‌ها فقط {{-ed}} می‌گیرند: {{work}} → {{worked}}، {{play}} → {{played}}. خبر خوب: گذشته برای همه یکی است: {{I worked}}، {{she worked}}، {{they worked}}؛ نه شناسه دارد و نه {{-s}}."},
+        {"p":"**املای {{-ed}}.** فعلی که به {{e}} تمام می‌شود فقط {{-d}} می‌گیرد: {{live}} → {{lived}}. صامت + {{y}} می‌شود {{-ied}}: {{study}} → {{studied}}. بعضی فعل‌ها صامت آخر را دوتا می‌کنند: {{stop}} → {{stopped}}."},
+        {"p":"**سه تلفظ.** {{-ed}} همیشه «اِد» خوانده نمی‌شود: بعد از صداهای بی‌واک «ت» ({{worked}} «وُرکت»، {{watched}})، بعد از صداهای واک‌دار «د» ({{played}}، {{lived}})، و فقط بعد از «ت» و «د» یک هجای «اید» اضافه می‌شود ({{wanted}}، {{needed}}). {{worked}} را دوهجایی نگویید."},
+        { "table": [
+          ["فعل","گذشته","آخرش خوانده می‌شود"],
+          ["{{work}}","{{worked}}","ت"],
+          ["{{watch}}","{{watched}}","ت"],
+          ["{{play}}","{{played}}","د"],
+          ["{{live}}","{{lived}}","د"],
+          ["{{want}}","{{wanted}}","اید"],
+          ["{{study}}","{{studied}}","د"]
+        ] },
+        {"p":"**«پیش»: {{ago}}، بعد از مدت.** فارسی می‌گوید «دو روز پیش». انگلیسی هم {{ago}} را **بعد** از مدت می‌گذارد: {{two days ago}}، {{a year ago}}. {{before two days}} غلطی رایج بین فارسی‌زبان‌هاست. و {{last}} یعنی «قبلی، گذشته»: {{last week}} «هفتهٔ پیش»، {{last night}} «دیشب»."},
+        { "ex": [
+          {"t":"I worked late last night.","tr":"دیشب تا دیروقت کار کردم."},
+          {"t":"We watched a movie yesterday.","tr":"دیروز فیلم دیدیم."},
+          {"t":"She studied medicine in Tehran.","tr":"او در تهران پزشکی خواند."},
+          {"t":"They arrived two hours ago.","tr":"دو ساعت پیش رسیدند."},
+          {"t":"I called my mother last week.","tr":"هفتهٔ پیش به مادرم زنگ زدم."},
+          {"t":"It rained all day.","tr":"تمام روز باران آمد."}
+        ] },
+        {"tip":"کلمهٔ زمان در انگلیسی معمولاً آخر جمله است، حتی در گذشته: {{I stayed home yesterday.}} «دیروز خانه ماندم»."}
+      ],
+      "mistakes": [
+        {"wrong":"I moved here before two years.","right":"I moved here two years ago.","tr":"دو سال پیش به اینجا آمدم.","why":"«پیش» یعنی {{ago}}، بعد از مدت: {{two years ago}}."},
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"دیروز تا دیروقت کار کردم.","why":"کاری در گذشته: {{-ed}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"We ___ my aunt last Sunday.","tr":"یکشنبهٔ پیش به دیدن خاله‌ام رفتیم.","options":["visited","visit","visits"],"answer":0,"why":"گذشته: {{-ed}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I started this job three years ___.","tr":"سه سال پیش این کار را شروع کردم.","options":["ago","before","last"],"answer":0,"why":"«پیش» بعد از مدت: {{ago}}."},
+        {"type":"choice","q":"{{-ed}} در {{wanted}} چطور خوانده می‌شود؟","options":["«اید»، یک هجای اضافه","«ت»","«د»"],"answer":0,"why":"بعد از «ت» و «د»: «اید»."},
+        {"type":"dialogue","q":"یک دوست دربارهٔ آخر هفته‌تان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-where-you-were","lines":[{"who":"مارک","t":"How was your weekend?","tr":"آخر هفته‌ات چطور بود؟"},{"options":["It was great! I visited my cousins.","It was great! I visit my cousins."],"answer":0,"why":"گذشته: {{was}} و {{visited}}."},{"who":"مارک","t":"Nice! When did they move to Dallas?","tr":"چه خوب! کی به دالاس رفتند؟"},{"options":["They moved there five years ago.","They moved there before five years."],"answer":0,"why":"{{ago}} بعد از مدت."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"دو ساعت پیش رسیدند.","words":["They","arrived","two","hours","ago."]},
+        {"type":"say","q":"بگویید: «دیشب به مادرم زنگ زدم.»","answer":"I called my mother last night."},
+        {"type":"free","q":"نوبت شماست: دو سه کار بگویید که دیروز یا آخر هفتهٔ پیش کردید، با فعل‌های {{-ed}}، و یکی با {{ago}}.","answers":[{"t":"Yesterday I cooked dinner and watched a movie. I started English classes a month ago.","tr":"دیروز شام درست کردم و فیلم دیدم. یک ماه پیش کلاس انگلیسی را شروع کردم."},{"t":"Last weekend I cleaned my apartment and played soccer with my friends.","tr":"آخر هفتهٔ پیش آپارتمانم را تمیز کردم و با دوستانم فوتبال بازی کردم."}]}
+      ]
+    },
+    {
+      "id": "tell-what-happened",
+      "unit": 5,
+      "level": "A2",
+      "title": "تعریف کنید چه اتفاقی افتاد",
+      "summary": "بگویید {{I went to the beach}}، {{We ate kebab}} و {{She saw a whale!}}: گذشتهٔ پرکاربردترین فعل‌ها بی‌قاعده است.",
+      "topic": "گذشتهٔ بی‌قاعده: {{go}} → {{went}}، {{see}} → {{saw}}، {{have}} → {{had}}، {{come}} → {{came}}، {{eat}} → {{ate}} و…",
+      "blocks": [
+        {"goal":{"t":"Last summer we went to Florida and saw the ocean.","tr":"تابستان پارسال به فلوریدا رفتیم و اقیانوس را دیدیم."}},
+        {"dialog":[{"who":"نیک","t":"How was your trip?","tr":"سفرت چطور بود؟"},{"who":"مینا","t":"Amazing! We went to San Francisco.","tr":"فوق‌العاده! رفتیم سان‌فرانسیسکو."},{"who":"نیک","t":"What did you see?","tr":"چه دیدی؟"},{"who":"مینا","t":"We saw the Golden Gate Bridge and we took a boat tour.","tr":"پل گلدن گیت را دیدیم و با قایق گشتی زدیم."},{"who":"نیک","t":"And the food?","tr":"غذا چطور؟"},{"who":"مینا","t":"We ate seafood every day. I had a great time!","tr":"هر روز غذای دریایی خوردیم. خیلی خوش گذشت!"}]},
+        {"p":"**پرکاربردترین فعل‌ها بی‌قاعده‌اند.** فعل‌هایی که هر روز به کار می‌بریم گذشتهٔ خاص خودشان را دارند: {{go}} → {{went}}، {{see}} → {{saw}}. خوشبختانه این‌ها هم برای همه یکی‌اند: {{I went}}، {{she went}}. باید حفظشان کنید، کم‌کم و با به کار بردن."},
+        { "table": [
+          ["فعل","گذشته","یعنی"],
+          ["{{go}}","{{went}}","رفتم، رفت…"],
+          ["{{come}}","{{came}}","آمدم"],
+          ["{{see}}","{{saw}}","دیدم"],
+          ["{{have}}","{{had}}","داشتم، خوردم"],
+          ["{{eat}}","{{ate}}","خوردم"],
+          ["{{take}}","{{took}}","گرفتم، بردم"],
+          ["{{get}}","{{got}}","گرفتم، رسیدم"],
+          ["{{make}}","{{made}}","درست کردم"],
+          ["{{buy}}","{{bought}}","خریدم"],
+          ["{{say}}","{{said}}","گفتم"],
+          ["{{tell}}","{{told}}","گفتم (به کسی)"],
+          ["{{find}}","{{found}}","پیدا کردم"],
+          ["{{leave}}","{{left}}","رفتم، ترک کردم"],
+          ["{{meet}}","{{met}}","دیدم، آشنا شدم"]
+        ] },
+        {"p":"**{{had}} برای خیلی کارها.** همان‌طور که «خوردن» در فارسی هم برای غذاست و هم برای چای، {{have}} در انگلیسی هم کار زیادی می‌کند: {{I had breakfast.}} «صبحانه خوردم»، {{We had a great time.}} «خیلی خوش گذشت»، {{I had a problem.}} «مشکلی داشتم»."},
+        {"p":"**با کلمه‌های زمان.** {{yesterday}}، {{last summer}}، {{in 2019}}، {{two days ago}}: {{I met my wife in 2015.}} «سال ۲۰۱۵ با همسرم آشنا شدم»."},
+        { "ex": [
+          {"t":"I went to the bank this morning.","tr":"امروز صبح بانک رفتم."},
+          {"t":"She came home late.","tr":"دیر به خانه آمد."},
+          {"t":"We had dinner at a Persian restaurant.","tr":"در یک رستوران ایرانی شام خوردیم."},
+          {"t":"I bought a new jacket.","tr":"یک کاپشن نو خریدم."},
+          {"t":"He told me a funny story.","tr":"یک داستان خنده‌دار برایم تعریف کرد."},
+          {"t":"I met Sara at college.","tr":"با سارا در دانشگاه آشنا شدم.","note":"آمریکایی‌ها به دانشگاه دورهٔ کارشناسی اغلب {{college}} می‌گویند"}
+        ] },
+        {"tip":"{{said}} را «سِد» بگویید، نه «سِید»؛ و {{bought}} را «باتْ»."}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the park.","right":"I went to the park.","tr":"به پارک رفتم.","why":"{{go}} بی‌قاعده است: {{went}}."},
+        {"wrong":"Yesterday I eat pizza.","right":"Yesterday I ate pizza.","tr":"دیروز پیتزا خوردم.","why":"گذشتهٔ {{eat}}: {{ate}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Last year we ___ to Canada.","tr":"پارسال به کانادا رفتیم.","options":["went","goed","go"],"answer":0,"why":"گذشتهٔ {{go}}: {{went}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ a great movie last night.","tr":"دیشب یک فیلم عالی دیدم.","options":["saw","seed","see"],"answer":0,"why":"گذشتهٔ {{see}}: {{saw}}."},
+        {"type":"choice","q":"«خیلی خوش گذشت» در انگلیسی:","options":["{{We had a great time.}}","{{We passed a good time.}}","{{It was good passing.}}"],"answer":0,"why":"{{have a great time}} یعنی «خوش گذراندن»."},
+        {"type":"dialogue","q":"دوستتان دربارهٔ سفرتان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-did","lines":[{"who":"نیک","t":"How was your trip?","tr":"سفرت چطور بود؟"},{"options":["Amazing! We went to Chicago.","Amazing! We goed to Chicago."],"answer":0,"why":"گذشتهٔ {{go}}: {{went}}."},{"who":"نیک","t":"Cool! What did you do there?","tr":"چه جالب! آنجا چه کار کردی؟"},{"options":["We saw the lake and ate deep-dish pizza.","We see the lake and eat deep-dish pizza."],"answer":0,"why":"گذشته: {{saw}} و {{ate}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"با سارا در دانشگاه آشنا شدم.","words":["I","met","Sara","at","college."]},
+        {"type":"say","q":"بگویید: «امروز صبح بانک رفتم.»","answer":"I went to the bank this morning."},
+        {"type":"free","q":"نوبت شماست: از آخرین سفر یا گردشتان بگویید: کجا رفتید، چه دیدید، چه خوردید.","answers":[{"t":"Last spring I went to Shiraz. I saw Persepolis and I ate a lot of kebab!","tr":"بهار پارسال به شیراز رفتم. تخت جمشید را دیدم و کلی کباب خوردم!"},{"t":"Last month we went to the mountains. We took a lot of pictures and had a great time.","tr":"ماه پیش رفتیم کوه. کلی عکس گرفتیم و خیلی خوش گذشت."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "بپرسید کسی چه کار کرد",
+      "summary": "بپرسید {{Did you call him?}} و {{Where did you go?}}، و بگویید {{I didn't see it}}: {{did}} برای سؤال و منفی در گذشته.",
+      "topic": "{{did}} و {{didn't}} + شکل سادهٔ فعل ({{Did you go?}}، نه {{Did you went?}})؛ {{What did you do?}}؛ جواب کوتاه",
+      "blocks": [
+        {"goal":{"t":"Did you have a good weekend? What did you do?","tr":"آخر هفتهٔ خوبی داشتی؟ چه کار کردی؟"}},
+        {"dialog":[{"who":"رضا","t":"Did you call the landlord?","tr":"به صاحبخانه زنگ زدی؟"},{"who":"مینا","t":"No, I didn't. I forgot!","tr":"نه. یادم رفت!"},{"who":"رضا","t":"Did you pay the rent?","tr":"اجاره را دادی؟"},{"who":"مینا","t":"Yes, I did. I paid it on Monday.","tr":"آره. دوشنبه دادم."},{"who":"رضا","t":"Good. And did you buy milk?","tr":"خوب است. شیر خریدی؟"},{"who":"مینا","t":"Oh no! I didn't buy it. Sorry!","tr":"وای! نخریدم. ببخشید!"}]},
+        {"p":"**سؤال در گذشته: {{did}}.** همان‌طور که در حال {{do}} می‌آید، در گذشته {{did}} اول جمله می‌آید و فعل اصلی **ساده** می‌شود: {{You went.}} → {{Did you go?}} «رفتی؟». گذشته بودن را {{did}} نشان می‌دهد، پس فعل اصلی دیگر گذشته نمی‌شود: {{Did you went?}} غلط است."},
+        {"p":"**منفی: {{didn't}}.** {{didn't}} ({{did not}}) + فعل ساده: {{I didn't go.}} «نرفتم»، {{She didn't call.}} «زنگ نزد». برای همه یکی است."},
+        {"p":"**با کلمهٔ پرسشی.** {{What did you do?}} «چه کار کردی؟»، {{Where did you go?}} «کجا رفتی؟»، {{When did she arrive?}} «کی رسید؟». جواب کوتاه: {{Yes, I did.}} یا {{No, I didn't.}}"},
+        { "table": [
+          ["","حال","گذشته"],
+          ["سؤال","{{Do you work?}}","{{Did you work?}}"],
+          ["منفی","{{I don't work.}}","{{I didn't work.}}"],
+          ["با کلمهٔ پرسشی","{{Where do you go?}}","{{Where did you go?}}"],
+          ["با {{be}}، بدون {{did}}","{{Are you tired?}}","{{Were you tired?}}"]
+        ] },
+        {"p":"**{{be}} را فراموش نکنید.** با {{was}} و {{were}}، {{did}} لازم نیست (درس ۲۷): {{Were you at home?}}، نه {{Did you be at home?}}"},
+        { "ex": [
+          {"t":"Did you sleep well?","tr":"خوب خوابیدی؟"},
+          {"t":"I didn't see the email.","tr":"ایمیل را ندیدم."},
+          {"t":"What did she say?","tr":"چه گفت؟"},
+          {"t":"Where did you buy that dress?","tr":"آن لباس را از کجا خریدی؟"},
+          {"t":"We didn't have time.","tr":"وقت نداشتیم."},
+          {"t":"Did they like the food? Yes, they did.","tr":"غذا را دوست داشتند؟ بله."}
+        ] },
+        {"tip":"{{How was your…?}} «… چطور بود؟» یک سؤال عالی برای شروع گفت‌وگوست: {{How was your trip?}}، {{How was your day?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"به مهمانی رفتی؟","why":"بعد از {{did}}، فعل ساده: {{go}}."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"او را ندیدم.","why":"بعد از {{didn't}}، فعل ساده: {{see}}."},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"کجا رفتی؟","why":"در سؤال گذشته با کلمهٔ پرسشی، {{did}} لازم است."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"___ you call your mother?","tr":"به مادرت زنگ زدی؟","options":["Did","Do","Were"],"answer":0,"why":"سؤال گذشته با فعل معمولی: {{Did}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I didn't ___ the news.","tr":"اخبار را ندیدم.","options":["see","saw","seen"],"answer":0,"why":"بعد از {{didn't}}: فعل ساده."},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"کجا رفتی؟","words":["Where","did","you","go?"]},
+        {"type":"dialogue","q":"هم‌خانه‌تان دربارهٔ کارهای امروز می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"tell-what-happened","lines":[{"who":"رضا","t":"Did you buy bread?","tr":"نان خریدی؟"},{"options":["Yes, I did. I went to the bakery this morning.","Yes, I did. I go to the bakery this morning."],"answer":0,"why":"{{Yes, I did.}} و گذشتهٔ {{go}}: {{went}}."},{"who":"رضا","t":"Did you see Ali?","tr":"علی را دیدی؟"},{"options":["No, I didn't see him.","No, I didn't saw him."],"answer":0,"why":"بعد از {{didn't}}: {{see}}."}]},
+        {"type":"choice","q":"{{What did you do yesterday?}} یعنی:","options":["دیروز چه کار کردی؟","دیروز چه کار می‌کنی؟","دیروز کجا بودی؟"],"answer":0,"why":"{{did}} + {{do}}: «چه کار کردی؟»."},
+        {"type":"say","q":"بپرسید: «خوب خوابیدی؟»","answer":"Did you sleep well?"},
+        {"type":"free","q":"نوبت شماست: از یک دوست دربارهٔ سفر یا آخر هفته‌اش چند سؤال بپرسید، با {{Did…?}} و {{Where did…?}} یا {{What did…?}}","answers":[{"t":"Where did you go? Did you take a lot of pictures? What did you eat?","tr":"کجا رفتی؟ کلی عکس گرفتی؟ چه خوردی؟"},{"t":"Did you have fun? Who did you go with?","tr":"خوش گذشت؟ با کی رفتی؟"}]}
+      ]
+    },
+    {
+      "id": "say-what-was-happening",
+      "unit": 5,
+      "level": "A2",
+      "title": "بگویید چه چیزی در جریان بود",
+      "summary": "صحنهٔ یک ماجرا را بچینید: {{I was cooking when the phone rang}}، {{It was raining and everyone was tired.}}",
+      "topic": "گذشتهٔ استمراری: {{was}} یا {{were}} + {{-ing}}؛ با {{when}} و {{while}}؛ پس‌زمینه و اتفاق",
+      "blocks": [
+        {"goal":{"t":"I was cooking dinner when the phone rang.","tr":"داشتم شام درست می‌کردم که تلفن زنگ زد."}},
+        {"dialog":[{"who":"مینا","t":"Why didn't you answer my call?","tr":"چرا جواب تلفنم را ندادی؟"},{"who":"علی","t":"Sorry, I was driving.","tr":"ببخشید، داشتم رانندگی می‌کردم."},{"who":"مینا","t":"And at nine? I called again.","tr":"ساعت نه چطور؟ دوباره زنگ زدم."},{"who":"علی","t":"At nine I was having dinner with my parents.","tr":"ساعت نه داشتم با پدر و مادرم شام می‌خوردم."},{"who":"مینا","t":"OK. What were you talking about?","tr":"باشد. دربارهٔ چه حرف می‌زدید؟"},{"who":"علی","t":"About you, of course!","tr":"دربارهٔ تو، البته!"}]},
+        {"p":"**«داشتم … می‌کردم».** برای کاری که در یک لحظه از گذشته در جریان بود، انگلیسی {{was}} یا {{were}} + {{-ing}} می‌گوید: {{I was cooking.}} «داشتم آشپزی می‌کردم». این همان «داشتم می‌رفتم» یا «می‌رفتم» در فارسی است."},
+        {"term":"گذشتهٔ استمراری","means":"زمانی برای کاری که در یک لحظه از گذشته در جریان بود: {{I was sleeping.}} «خواب بودم، داشتم می‌خوابیدم»."},
+        {"p":"**پس‌زمینه و اتفاق.** در یک ماجرا، گذشتهٔ استمراری صحنه را می‌چیند و گذشتهٔ ساده اتفاقی را که وسط آن افتاد: {{I was cooking}} (صحنه) {{when the phone rang}} (اتفاق). {{when}} «وقتی، که» معمولاً با گذشتهٔ ساده می‌آید، و {{while}} «در حالی که» با استمراری: {{While I was walking, I saw an old friend.}}"},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["پس‌زمینه","{{It was raining.}}","باران می‌آمد."],
+          ["در جریان","{{I was sleeping.}}","خواب بودم."],
+          ["… که ناگهان","{{I was sleeping when you called.}}","خواب بودم که زنگ زدی."],
+          ["در حالی که","{{While she was cooking, he set the table.}}","در حالی که زن آشپزی می‌کرد، مرد میز را چید."]
+        ] },
+        {"p":"**سؤال و منفی، مثل {{be}}:** {{What were you doing?}} «داشتی چه کار می‌کردی؟»، {{I wasn't listening.}} «حواسم نبود، گوش نمی‌دادم»."},
+        { "ex": [
+          {"t":"It was snowing when we left.","tr":"وقتی راه افتادیم برف می‌آمد."},
+          {"t":"What were you doing at eight?","tr":"ساعت هشت داشتی چه کار می‌کردی؟"},
+          {"t":"We were watching TV when the power went out.","tr":"داشتیم تلویزیون نگاه می‌کردیم که برق رفت."},
+          {"t":"Sorry, I wasn't listening.","tr":"ببخشید، حواسم نبود."},
+          {"t":"While I was waiting for the bus, I met my neighbor.","tr":"در حالی که منتظر اتوبوس بودم، همسایه‌ام را دیدم."},
+          {"t":"The kids were playing in the yard.","tr":"بچه‌ها توی حیاط بازی می‌کردند."}
+        ] },
+        {"tip":"فارسی برای عادت‌های گذشته هم «می‌کردم» می‌گوید: «بچه که بودم، فوتبال بازی می‌کردم». انگلیسی برای آن گذشتهٔ استمراری نمی‌گوید، بلکه {{used to}} (درس ۳۳)."}
+      ],
+      "mistakes": [
+        {"wrong":"I cooked when the phone rang.","right":"I was cooking when the phone rang.","tr":"داشتم آشپزی می‌کردم که تلفن زنگ زد.","why":"کاری که در جریان بود: {{was}} + {{-ing}}."},
+        {"wrong":"They was sleeping.","right":"They were sleeping.","tr":"خواب بودند.","why":"با {{they}}: {{were}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ cooking when you called.","tr":"داشتم آشپزی می‌کردم که زنگ زدی.","options":["was","were","did"],"answer":0,"why":"در جریان، با {{I}}: {{was}} + {{-ing}}."},
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"We were watching a movie when the power ___ out.","tr":"داشتیم فیلم می‌دیدیم که برق رفت.","options":["went","was going","goes"],"answer":0,"why":"اتفاقی که وسط صحنه افتاد: گذشتهٔ ساده."},
+        {"type":"choice","q":"در {{It was raining when I left.}} کدام بخش پس‌زمینه است؟","options":["{{It was raining}}","{{I left}}"],"answer":0,"why":"{{was raining}} در جریان بود؛ {{I left}} اتفاق است."},
+        {"type":"dialogue","q":"دوستتان می‌پرسد چرا جواب ندادید. جواب‌هایتان را انتخاب کنید.","from":"ask-about-the-past","lines":[{"who":"مینا","t":"I called you last night. Why didn't you answer?","tr":"دیشب زنگ زدم. چرا جواب ندادی؟"},{"options":["Sorry! I was taking a shower.","Sorry! I took a shower when."],"answer":0,"why":"در جریان بود: {{was taking}}."},{"who":"مینا","t":"And at ten? What were you doing?","tr":"ساعت ده چطور؟ داشتی چه کار می‌کردی؟"},{"options":["I was sleeping! I was very tired.","I slept! I was being very tired."],"answer":0,"why":"در جریان: {{was sleeping}}؛ حالت: {{was tired}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"ببخشید، حواسم نبود.","words":["Sorry,","I","wasn't","listening."]},
+        {"type":"say","q":"بپرسید: «ساعت هشت داشتی چه کار می‌کردی؟»","answer":"What were you doing at eight?","from":"say-whats-happening-now"},
+        {"type":"free","q":"نوبت شماست: بگویید دیروز سر یک ساعت معین داشتید چه کار می‌کردید و چه اتفاقی افتاد، با {{I was … when …}}","answers":[{"t":"Yesterday at six I was walking home when I saw my old teacher.","tr":"دیروز ساعت شش داشتم پیاده به خانه می‌رفتم که معلم قدیمی‌ام را دیدم."},{"t":"I was studying when my brother called. He had good news!","tr":"داشتم درس می‌خواندم که برادرم زنگ زد. خبر خوبی داشت!"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "یک ماجرا تعریف کنید",
+      "summary": "ماجرایی را قدم به قدم تعریف کنید ({{First…, then…, after that…}}) و دلیل و نتیجه را بگویید: {{because}}، {{so}}، {{but}}.",
+      "topic": "{{first}}، {{then}}، {{after that}}، {{finally}}؛ {{because}}، {{so}}، {{but}}؛ {{he}} و {{she}} در یک ماجرا",
+      "blocks": [
+        {"goal":{"t":"First we missed the bus, so we took a taxi, but we were still late!","tr":"اول از اتوبوس جا ماندیم، برای همین تاکسی گرفتیم، ولی باز هم دیر رسیدیم!"}},
+        {"dialog":[{"who":"نیک","t":"How was your first day at the new job?","tr":"اولین روزت در کار تازه چطور بود؟"},{"who":"سارا","t":"Crazy! First I got lost, because the building is huge.","tr":"دیوانه‌کننده! اول گم شدم، چون ساختمان خیلی بزرگ است."},{"who":"نیک","t":"Oh no! Then what happened?","tr":"وای! بعد چه شد؟"},{"who":"سارا","t":"Then I met my boss. She was very nice, so I felt better.","tr":"بعد رئیسم را دیدم. خیلی مهربان بود، برای همین حالم بهتر شد."},{"who":"نیک","t":"And after that?","tr":"بعدش چی؟"},{"who":"سارا","t":"After that we had lunch, and finally I went home at six. I was exhausted!","tr":"بعد ناهار خوردیم و آخر سر ساعت شش رفتم خانه. از خستگی مرده بودم!"}]},
+        {"p":"**قدم به قدم.** {{first}} «اول»، {{then}} «بعد»، {{after that}} «بعد از آن»، {{finally}} «آخر سر»: {{First I had breakfast, then I took a shower.}} «اول صبحانه خوردم، بعد دوش گرفتم»."},
+        {"term":"حرف ربط","means":"کلمه‌ای که دو جمله یا دو بخش جمله را به هم وصل می‌کند: و، ولی، چون؛ {{and}}، {{but}}، {{because}}."},
+        {"p":"**چرا، و پس.** {{because}} «چون» دلیل را می‌گوید: {{I was late because I missed the bus.}}؛ {{so}} «برای همین، پس» نتیجه را: {{I missed the bus, so I took a taxi.}}؛ {{but}} «ولی» چیزی برخلاف انتظار: {{I took a taxi, but I was late.}}"},
+        { "table": [
+          ["","انگلیسی","مثال"],
+          ["اول","{{first}}","{{First I called her.}}"],
+          ["بعد","{{then}}، {{after that}}","{{Then we met.}}"],
+          ["آخر سر","{{finally}}","{{Finally I went home.}}"],
+          ["چون","{{because}}","{{… because it was late.}}"],
+          ["برای همین","{{so}}","{{… so I left.}}"],
+          ["ولی","{{but}}","{{… but it was closed.}}"]
+        ] },
+        {"p":"**{{he}} و {{she}} در ماجرا.** در فارسی «او» برای همه است و شنونده از متن می‌فهمد. در انگلیسی، وقتی ماجرای چند نفر را تعریف می‌کنید، هر بار باید درست {{he}} یا {{she}} را انتخاب کنید، وگرنه داستان گیج‌کننده می‌شود: {{My sister called my brother. She was angry, but he didn't answer.}}"},
+        {"p":"**صحنه و اتفاق.** یادتان باشد: پس‌زمینه با گذشتهٔ استمراری ({{It was raining}})، و اتفاق‌ها با گذشتهٔ ساده ({{I fell}})."},
+        { "ex": [
+          {"t":"First we went to the museum, then we had lunch.","tr":"اول رفتیم موزه، بعد ناهار خوردیم."},
+          {"t":"I stayed home because I was sick.","tr":"خانه ماندم چون مریض بودم."},
+          {"t":"It was late, so we took a taxi.","tr":"دیر بود، برای همین تاکسی گرفتیم."},
+          {"t":"I called him, but he didn't answer.","tr":"به او زنگ زدم، ولی جواب نداد."},
+          {"t":"After that, we walked by the river.","tr":"بعد از آن، کنار رودخانه قدم زدیم."},
+          {"t":"Finally, we got home at midnight.","tr":"آخر سر، نیمه‌شب رسیدیم خانه."}
+        ] },
+        {"tip":"برای اینکه نشان بدهید گوش می‌دهید: {{Really?}} «واقعاً؟»، {{Oh no!}} «وای!»، {{What happened next?}} «بعدش چه شد؟»."}
+      ],
+      "mistakes": [
+        {"wrong":"Because I was tired, so I went to bed.","right":"I was tired, so I went to bed.","tr":"خسته بودم، برای همین خوابیدم.","why":"{{because}} و {{so}} را با هم نیاورید؛ یکی کافی است."},
+        {"wrong":"My mother called. He was worried.","right":"My mother called. She was worried.","tr":"مادرم زنگ زد. نگران بود.","why":"مادر زن است: {{she}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I was hungry, ___ I made a sandwich.","tr":"گرسنه بودم، برای همین ساندویچ درست کردم.","options":["so","because","but"],"answer":0,"why":"نتیجه: {{so}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"We went to the store, ___ it was closed.","tr":"رفتیم مغازه، ولی بسته بود.","options":["but","so","because"],"answer":0,"why":"برخلاف انتظار: {{but}}."},
+        {"type":"choice","q":"{{I stayed home because it was raining.}} یعنی:","options":["خانه ماندم چون باران می‌آمد.","باران آمد چون خانه ماندم.","خانه ماندم ولی باران آمد."],"answer":0,"why":"{{because}} دلیل را می‌گوید."},
+        {"type":"dialogue","q":"دوستتان از روز بدتان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-what-was-happening","lines":[{"who":"نیک","t":"You look tired. What happened?","tr":"خسته به نظر می‌آیی. چه شده؟"},{"options":["First I missed my bus, so I walked to work.","First I missed my bus, because I walked to work."],"answer":0,"why":"نتیجه با {{so}}."},{"who":"نیک","t":"Oh no! Then what?","tr":"وای! بعدش؟"},{"options":["Then it started to rain while I was walking!","Then it was starting to rain while I walked!"],"answer":0,"why":"اتفاق با گذشتهٔ ساده ({{started}})، پس‌زمینه با استمراری ({{was walking}})."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"به او زنگ زدم، ولی جواب نداد.","words":["I","called","him,","but","he","didn't","answer."]},
+        {"type":"say","q":"بپرسید: «بعدش چه شد؟»","answer":"What happened next?"},
+        {"type":"free","q":"نوبت شماست: یک ماجرای کوتاه از زندگی‌تان را در سه قدم تعریف کنید ({{First…}}، {{Then…}}، {{Finally…}})، با یک {{because}} یا {{so}}.","answers":[{"t":"First I lost my keys, so I called my sister. Then she came with her keys. Finally I got home at midnight!","tr":"اول کلیدهایم را گم کردم، برای همین به خواهرم زنگ زدم. بعد او با کلیدهایش آمد. آخر سر نیمه‌شب رسیدم خانه!"},{"t":"Last year I went to New York. First I visited the museums, then I saw a show. It was expensive, but it was amazing.","tr":"پارسال به نیویورک رفتم. اول به موزه‌ها رفتم، بعد یک نمایش دیدم. گران بود، ولی فوق‌العاده بود."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-used-to-be",
+      "unit": 5,
+      "level": "A2",
+      "title": "بگویید قبلاً چطور بود",
+      "summary": "از کودکی و عادت‌های قدیمتان بگویید: {{I used to play soccer every day}}، {{I didn't use to like coffee.}}",
+      "topic": "{{used to}} + فعل ساده برای عادت‌ها و حالت‌های گذشته؛ {{didn't use to}}؛ {{Did you use to…?}}",
+      "blocks": [
+        {"goal":{"t":"When I was a child, I used to spend every summer by the Caspian Sea.","tr":"بچه که بودم، هر تابستان را کنار دریای خزر می‌گذراندم."}},
+        {"dialog":[{"who":"سارا","t":"Grandpa, what did you use to do when you were young?","tr":"پدربزرگ، جوان که بودید چه کار می‌کردید؟"},{"who":"پدربزرگ","t":"I used to work on my father's farm.","tr":"در مزرعهٔ پدرم کار می‌کردم."},{"who":"سارا","t":"Did you use to have a TV?","tr":"تلویزیون داشتید؟"},{"who":"پدربزرگ","t":"No! We used to listen to the radio every night.","tr":"نه! هر شب رادیو گوش می‌دادیم."},{"who":"سارا","t":"Did you use to go to school?","tr":"مدرسه می‌رفتید؟"},{"who":"پدربزرگ","t":"Yes, I used to walk five miles every day!","tr":"آره، هر روز هشت کیلومتر پیاده می‌رفتم!"}]},
+        {"p":"**«می‌کردم»: {{used to}}.** فارسی برای عادت‌های گذشته «می» را به گذشته اضافه می‌کند: «بچه که بودم، فوتبال بازی **می**‌کردم». انگلیسی {{used to}} + فعل ساده می‌گوید: {{I used to play soccer.}} معنایش این است که آن موقع مرتب این کار را می‌کردید و حالا دیگر نه."},
+        {"p":"**حالت‌ها هم.** {{used to}} برای چیزی که قبلاً درست بود و دیگر نیست هم هست: {{I used to have long hair.}} «قبلاً موهایم بلند بود»، {{There used to be a cinema here.}} «قبلاً اینجا سینما بود»."},
+        {"p":"**منفی و سؤال** با {{did}}، و آن وقت {{use to}} بدون {{d}}: {{I didn't use to like coffee.}} «قبلاً قهوه دوست نداشتم»، {{Did you use to live here?}} «قبلاً اینجا زندگی می‌کردید؟»."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["عادت قدیمی","{{I used to smoke.}}","قبلاً سیگار می‌کشیدم."],
+          ["حالت قدیمی","{{She used to be shy.}}","قبلاً خجالتی بود."],
+          ["منفی","{{I didn't use to like tea.}}","قبلاً چای دوست نداشتم."],
+          ["سؤال","{{Did you use to play?}}","قبلاً بازی می‌کردی؟"]
+        ] },
+        {"p":"**یک بار یا عادت؟** برای یک بار، گذشتهٔ ساده: {{I went to Paris in 2010.}} برای عادت، {{used to}} (یا گذشتهٔ ساده با {{every…}}): {{I used to go to Paris every summer.}}"},
+        { "ex": [
+          {"t":"I used to live in Mashhad.","tr":"قبلاً در مشهد زندگی می‌کردم."},
+          {"t":"We used to play in the street every evening.","tr":"هر عصر توی کوچه بازی می‌کردیم."},
+          {"t":"My father used to read me stories.","tr":"پدرم برایم قصه می‌خواند."},
+          {"t":"I didn't use to like vegetables.","tr":"قبلاً سبزیجات دوست نداشتم."},
+          {"t":"Did you use to have a bike?","tr":"قبلاً دوچرخه داشتی؟"},
+          {"t":"There used to be a bakery on this corner.","tr":"قبلاً سر این نبش یک نانوایی بود."}
+        ] },
+        {"tip":"{{used to}} را «یوستو» بگویید، با «س». {{I'm used to…}} چیز دیگری است، یعنی «به … عادت دارم»؛ فعلاً همان {{I used to}} را به کار ببرید."}
+      ],
+      "mistakes": [
+        {"wrong":"When I was a child, I was playing soccer every day.","right":"When I was a child, I used to play soccer every day.","tr":"بچه که بودم، هر روز فوتبال بازی می‌کردم.","why":"برای عادت گذشته {{used to}}؛ گذشتهٔ استمراری برای کاری است که در یک لحظه در جریان بود."},
+        {"wrong":"I use to live in Tehran.","right":"I used to live in Tehran.","tr":"قبلاً در تهران زندگی می‌کردم.","why":"در جملهٔ مثبت: {{used to}}، با {{d}}."},
+        {"wrong":"Did you used to smoke?","right":"Did you use to smoke?","tr":"قبلاً سیگار می‌کشیدی؟","why":"بعد از {{did}}: {{use to}}، بدون {{d}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ to have long hair.","tr":"قبلاً موهایم بلند بود.","options":["used","use","was"],"answer":0,"why":"حالت قدیمی: {{used to}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Did you ___ to live here?","tr":"قبلاً اینجا زندگی می‌کردی؟","options":["use","used","using"],"answer":0,"why":"بعد از {{did}}: {{use}}، بدون {{d}}."},
+        {"type":"choice","q":"«بچه که بودم، هر شب کتاب می‌خواندم»:","options":["{{When I was a child, I used to read every night.}}","{{When I was a child, I was reading every night.}}","{{When I was a child, I use read every night.}}"],"answer":0,"why":"عادت گذشته: {{used to}}."},
+        {"type":"dialogue","q":"یک دوست قدیمی از دوران مدرسه یاد می‌کند. جواب‌هایتان را انتخاب کنید.","from":"tell-a-story","lines":[{"who":"علی","t":"Do you remember our school? We used to walk there together!","tr":"مدرسه‌مان یادت هست؟ با هم پیاده می‌رفتیم!"},{"options":["Yes! And we always used to be late!","Yes! And we always use to be late!"],"answer":0,"why":"عادت گذشته، مثبت: {{used to}}."},{"who":"علی","t":"You didn't use to like math.","tr":"تو آن موقع ریاضی دوست نداشتی."},{"options":["That's true, but now I'm an engineer!","That's true, but now I used to be an engineer!"],"answer":0,"why":"«حالا» زمان حال است: {{I'm}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"قبلاً در مشهد زندگی می‌کردم.","words":["I","used","to","live","in","Mashhad."]},
+        {"type":"say","q":"بگویید: «قبلاً سر این نبش یک نانوایی بود.»","answer":"There used to be a bakery on this corner.","from":"say-what-there-is"},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که در کودکی می‌کردید و حالا نمی‌کنید، و یک کار که آن موقع نمی‌کردید.","answers":[{"t":"I used to play in the street with my cousins, and I used to eat a lot of candy. I didn't use to like reading.","tr":"با بچه‌های فامیل توی کوچه بازی می‌کردم و کلی آب‌نبات می‌خوردم. آن موقع کتاب خواندن دوست نداشتم."},{"t":"When I was young, I used to go to the mountains every Friday.","tr":"جوان که بودم، هر جمعه کوه می‌رفتم."}]}
+      ]
     }
   ]
 }
