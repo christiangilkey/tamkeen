@@ -1521,6 +1521,230 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"我儿子八点上学。","words":["My","son","goes","to","school","at","eight."]},
         {"type":"free","q":"轮到你了：讲一件最近的小事：先用 {{a}} 引出一个人或东西，再用 {{the}} 接着说。","answers":[{"t":"I met a woman on the train. The woman was from Spain.","tr":"我在火车上遇到了一位女士。她是西班牙人。"},{"t":"I bought a new phone last week. The phone is fast, but the battery is bad.","tr":"我上周买了一部新手机。手机很快，但是电池不好。"}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 8,
+      "level": "A2",
+      "title": "说经历：Have you ever…?",
+      "summary": "“你去过美国吗？”“我从来没吃过……”：用现在完成时说这辈子做过、没做过的事，就像中文的“过”。",
+      "topic": "现在完成时：{{have}} / {{has}} + 过去分词；{{ever}}、{{never}}；{{been to}}；和一般过去时的区别",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to China?","tr":"你去过中国吗？"}},
+        {"dialog":[{"who":"Mike","t":"Have you ever tried American barbecue?","tr":"你吃过美国烧烤吗？"},{"who":"李明","t":"No, I've never tried it. Is it good?","tr":"没有，从来没吃过。好吃吗？"},{"who":"Mike","t":"It's amazing. Have you ever been to Texas?","tr":"超好吃。你去过得克萨斯州吗？"},{"who":"李明","t":"Yes, I've been there once. I went to Houston last year.","tr":"去过一次。我去年去了休斯敦。"},{"who":"Mike","t":"Next time you have to try the barbecue!","tr":"下次你一定要尝尝那儿的烧烤！"}]},
+        {"p":"**“过”的英语：现在完成时。** 说一辈子里有没有过某种经历，中文用“过”：“我去过北京”。英语用 {{have}}（他、她、它用 {{has}}）+ 过去分词：{{I have been to Beijing.}}（我去过北京。）口语里缩成 {{I've}}、{{she's}}。"},
+        {"term":"现在完成时","means":"{{have}} / {{has}} + 过去分词，把过去的事和现在连起来，比如说经历：{{I've seen it.}}（我看过。）"},
+        {"term":"过去分词","means":"动词的另一种形式，用在 {{have}} 后面。规则动词的过去分词和过去式一样（{{worked}}），不规则的要另外记：{{see}} → {{seen}}，{{eat}} → {{eaten}}。"},
+        { "table": [
+          ["原形","过去式","过去分词"],
+          ["{{try}}","{{tried}}","{{tried}}"],
+          ["{{go}}","{{went}}","{{gone}} / {{been}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{have}}","{{had}}","{{had}}"],
+          ["{{meet}}","{{met}}","{{met}}"]
+        ] },
+        {"p":"**问“你……过吗？”：{{Have you ever…?}}** {{ever}}（曾经）放在过去分词前面：{{Have you ever seen snow?}}（你见过雪吗？）回答：{{Yes, I have.}} / {{No, I haven't.}} **“从来没有”是 {{never}}**：{{I've never been to Japan.}}（我从来没去过日本。）{{never}} 本身就是否定，不再加 {{not}}。"},
+        {"p":"**一说出具体时间，就用一般过去时。** 现在完成时只说“有过”，不说什么时候；一提到 {{last year}}、{{in 2020}}、{{yesterday}}，就要换回一般过去时：{{I've been to Texas. I went there last year.}}（我去过得州，是去年去的。）"},
+        { "ex": [
+          {"t":"Have you ever been to China?","tr":"你去过中国吗？"},
+          {"t":"I've never eaten sushi.","tr":"我从来没吃过寿司。"},
+          {"t":"She has visited Paris three times.","tr":"她去过巴黎三次。"},
+          {"t":"Have you seen this movie?","tr":"你看过这部电影吗？"},
+          {"t":"Yes, I have. I saw it last week.","tr":"看过，上周看的。"},
+          {"t":"We've met before.","tr":"我们以前见过。"}
+        ] },
+        {"tip":"“去过”用 {{been}}：{{I've been to London.}}（我去过伦敦，已经回来了。）{{He's gone to London.}} 是“他去伦敦了”（人还在那儿）。"}
+      ],
+      "mistakes": [
+        {"wrong":"I have went to Beijing.","right":"I have been to Beijing.","tr":"我去过北京。","why":"{{have}} 后面用过去分词：“去过”是 {{been}}。"},
+        {"wrong":"I have seen it yesterday.","right":"I saw it yesterday.","tr":"我昨天看的。","why":"有了具体时间（{{yesterday}}），就用一般过去时。"},
+        {"wrong":"I haven't never tried it.","right":"I've never tried it.","tr":"我从来没试过。","why":"{{never}} 已经是否定，不再加 {{not}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Have you ever ___ snow?","tr":"你见过雪吗？","options":["seen","saw","see"],"answer":0,"why":"{{have}} + 过去分词：{{seen}}。"},
+        {"type":"choice","q":"“我从来没坐过飞机。”","options":["{{I've never been on a plane.}}","{{I never have on a plane.}}","{{I haven't never been on a plane.}}"],"answer":0,"why":"{{have}} + {{never}} + 过去分词。"},
+        {"type":"choice","q":"“她去年去了日本。”","options":["{{She went to Japan last year.}}","{{She has been to Japan last year.}}"],"answer":0,"why":"有具体时间：一般过去时。","from":"tell-what-happened"},
+        {"type":"dialogue","q":"认识新朋友，聊聊经历。选出你的回答。","lines":[{"who":"Friend","t":"Have you ever been to New York?","tr":"你去过纽约吗？"},{"options":["Yes, I have. I went there in 2023.","Yes, I have. I have gone there in 2023."],"answer":0,"why":"先答 {{Yes, I have.}}；说具体时间就用一般过去时：{{I went}}。"},{"who":"Friend","t":"Have you ever tried a real New York bagel?","tr":"你吃过正宗的纽约贝果吗？"},{"options":["No, I've never tried one.","No, I've never try one."],"answer":0,"why":"{{have}} 后面用过去分词：{{tried}}。"},{"who":"Friend","t":"Oh, you have to!","tr":"哦，那你一定要尝尝！"}],"from":"ask-about-the-past"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我们以前见过。","words":["We've","met","before."]},
+        {"type":"free","q":"轮到你了：说一件你做过的特别的事，和一件你从来没做过的事。","answers":[{"t":"I've climbed the Great Wall. I've never been to Europe.","tr":"我爬过长城。我从来没去过欧洲。"},{"t":"I've seen a panda in Chengdu. I've never driven a car.","tr":"我在成都见过熊猫。我从来没开过车。"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 8,
+      "level": "A2",
+      "title": "说做了多久：for 和 since",
+      "summary": "“我在这儿住了三年了”“我从二〇二〇年就开始学英语了”：说一件从过去一直持续到现在的事。",
+      "topic": "现在完成时 + {{for}}（多长时间）/ {{since}}（从什么时候起）；{{How long have you…?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived here for three years.","tr":"我在这儿住了三年了。"}},
+        {"dialog":[{"who":"Neighbor","t":"How long have you lived in this building?","tr":"你在这栋楼住多久了？"},{"who":"王芳","t":"I've lived here for two years. And you?","tr":"住了两年了。你呢？"},{"who":"Neighbor","t":"Since 2015! I love this neighborhood.","tr":"从二〇一五年开始！我很喜欢这个街区。"},{"who":"王芳","t":"Me too. How long have you known Mrs. Lee upstairs?","tr":"我也是。你认识楼上的李太太多久了？"},{"who":"Neighbor","t":"Oh, for a long time. She's a good friend.","tr":"哦，很久了。她是我的好朋友。"}]},
+        {"p":"**从过去一直到现在：现在完成时。** 中文说“我在这儿住了三年了”（现在还住着）；英语不能用一般现在时说 {{I live here for three years}}，而要用现在完成时：{{I've lived here for three years.}} 意思是：三年前开始住，到现在还住着。"},
+        {"p":"**{{for}} 说多长时间，{{since}} 说从什么时候起。** {{for}} + 一段时间：{{for two years}}（两年）、{{for a week}}（一个星期）、{{for a long time}}（很久）。{{since}} + 开始的时间点：{{since 2020}}、{{since Monday}}、{{since I was a kid}}（从我小时候起）。"},
+        { "table": [
+          ["{{for}}（多长时间）","{{since}}（从……起）"],
+          ["{{for three years}} 三年","{{since 2023}} 从二〇二三年起"],
+          ["{{for two hours}} 两个小时","{{since nine o'clock}} 从九点起"],
+          ["{{for a long time}} 很久","{{since last summer}} 从去年夏天起"]
+        ] },
+        {"p":"**问多久：{{How long have you…?}}** {{How long have you worked here?}}（你在这儿工作多久了？）{{How long have you known him?}}（你认识他多久了？）"},
+        { "ex": [
+          {"t":"I've lived here for three years.","tr":"我在这儿住了三年了。"},
+          {"t":"She's worked at the hospital since 2019.","tr":"她从二〇一九年起就在那家医院工作。"},
+          {"t":"How long have you studied English?","tr":"你学英语多久了？"},
+          {"t":"We've known each other for ten years.","tr":"我们认识十年了。"},
+          {"t":"I haven't seen him since Christmas.","tr":"从圣诞节以后我就没见过他。"},
+          {"t":"He's been sick for a week.","tr":"他病了一个星期了。"}
+        ] },
+        {"tip":"现在已经不这样了，就用一般过去时：{{I lived in Shanghai for five years.}}（我在上海住过五年，现在不住了。）"}
+      ],
+      "mistakes": [
+        {"wrong":"I live here for three years.","right":"I've lived here for three years.","tr":"我在这儿住了三年了。","why":"从过去持续到现在，用现在完成时：{{I've lived}}。"},
+        {"wrong":"I've worked here since three years.","right":"I've worked here for three years.","tr":"我在这儿工作三年了。","why":"一段时间用 {{for}}；{{since}} 后面是开始的时间点。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I've known her ___ 2018.","tr":"我从二〇一八年就认识她了。","options":["since","for","from"],"answer":0,"why":"开始的时间点：{{since}}。"},
+        {"type":"choice","q":"“你在这家公司工作多久了？”","options":["{{How long have you worked at this company?}}","{{How long do you work at this company?}}","{{How long you have worked at this company?}}"],"answer":0,"why":"{{How long have you…?}}，{{have}} 放在主语前面。"},
+        {"type":"choice","q":"“他病了一个星期了。”","options":["{{He's been sick for a week.}}","{{He's sick since a week.}}","{{He is sick for a week.}}"],"answer":0,"why":"持续到现在：现在完成时；一段时间：{{for}}。","from":"say-where-you-were"},
+        {"type":"dialogue","q":"面试的时候。选出你的回答。","lines":[{"who":"Interviewer","t":"How long have you lived in the US?","tr":"你在美国住多久了？"},{"options":["I've lived here for five years.","I live here for five years."],"answer":0,"why":"到现在还住着：{{I've lived}}。"},{"who":"Interviewer","t":"And how long have you worked as a nurse?","tr":"你当护士多久了？"},{"options":["Since 2016.","For 2016."],"answer":0,"why":"年份是开始的时间点：{{since}}。"},{"who":"Interviewer","t":"That's a lot of experience.","tr":"经验很丰富啊。"}],"from":"talk-about-experiences"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我们认识十年了。","words":["We've","known","each","other","for","ten","years."]},
+        {"type":"free","q":"轮到你了：你在现在的地方住多久了？学英语多久了？","answers":[{"t":"I've lived in my apartment for two years. I've studied English since 2022.","tr":"我在现在的公寓住了两年了。我从二〇二二年开始学英语。"},{"t":"I've lived in Guangzhou since I was a child. I've studied English for six months.","tr":"我从小就住在广州。我学英语学了六个月了。"}]}
+      ]
+    },
+    {
+      "id": "say-what-just-happened",
+      "unit": 8,
+      "level": "A2",
+      "title": "说刚刚、已经、还没",
+      "summary": "“我刚做完”“我已经付过钱了”“你吃饭了吗？——还没”：说刚发生的、已经做了的、还没做的事。",
+      "topic": "{{just}}、{{already}}、{{yet}} + 现在完成时；中文的“了”和英语的时态",
+      "blocks": [
+        {"goal":{"t":"I've just finished my homework.","tr":"我刚做完作业。"}},
+        {"dialog":[{"who":"妈妈","t":"Have you done your homework yet?","tr":"你作业做完了吗？"},{"who":"小杰","t":"Yes, I've already finished it.","tr":"做完了，早就做完了。"},{"who":"妈妈","t":"Have you eaten?","tr":"你吃饭了吗？"},{"who":"小杰","t":"No, not yet. I just got home.","tr":"还没，我刚到家。"},{"who":"妈妈","t":"OK. Dinner will be ready in five minutes.","tr":"好，晚饭五分钟就好。"}]},
+        {"p":"**刚刚：{{just}}。** {{just}} 放在 {{have}} 和过去分词中间：{{I've just finished.}}（我刚做完。）{{She's just left.}}（她刚走。）"},
+        {"p":"**已经：{{already}}；还没：{{not… yet}}。** {{already}} 也放在中间：{{I've already eaten.}}（我已经吃过了。）{{yet}} 用在否定句和问句里，放在句末：{{I haven't eaten yet.}}（我还没吃。）{{Have you finished yet?}}（你做完了吗？）简短回答：{{Not yet.}}（还没。）"},
+        { "table": [
+          ["","例句","中文"],
+          ["{{just}}","{{The movie has just started.}}","电影刚开始。"],
+          ["{{already}}","{{I've already paid.}}","我已经付过钱了。"],
+          ["{{not… yet}}","{{He hasn't called yet.}}","他还没打电话。"],
+          ["{{…yet?}}","{{Have you decided yet?}}","你决定了吗？"]
+        ] },
+        {"p":"**中文的“了”，英语不一定用过去时。** “你吃饭了吗？”“我做完了”，说的是现在的结果，英语常用现在完成时：{{Have you eaten?}} {{I've finished.}} 但只要说出过去的时间，就用一般过去时：{{I ate at six.}}（我六点吃的。）另外，美国人说话时也常用一般过去时加 {{just}} / {{already}}：{{I just got home.}}（我刚到家。）{{I already ate.}}（我已经吃了。）两种都对。"},
+        { "ex": [
+          {"t":"I've just finished my homework.","tr":"我刚做完作业。"},
+          {"t":"She's already left.","tr":"她已经走了。"},
+          {"t":"I haven't decided yet.","tr":"我还没决定。"},
+          {"t":"Have you eaten yet?","tr":"你吃饭了吗？"},
+          {"t":"The bus has just left!","tr":"公交车刚开走！"},
+          {"t":"I just got home.","tr":"我刚到家。","note":"美国口语常这样说"}
+        ] },
+        {"tip":"服务员常问 {{Have you decided yet?}} 或 {{Are you ready to order?}}（可以点菜了吗？）。还没想好，就说 {{Not yet. Can we have a few more minutes?}}（还没有，能再给我们几分钟吗？）"}
+      ],
+      "mistakes": [
+        {"wrong":"I have finished it yesterday.","right":"I finished it yesterday.","tr":"我昨天做完的。","why":"说了具体的过去时间，就用一般过去时。"},
+        {"wrong":"I haven't eaten already.","right":"I haven't eaten yet.","tr":"我还没吃。","why":"否定句里的“还没”用 {{yet}}，放在句末。"},
+        {"wrong":"I yet haven't finished.","right":"I haven't finished yet.","tr":"我还没做完。","why":"{{yet}} 放在句子最后。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I haven't called her ___.","tr":"我还没给她打电话。","options":["yet","already","just"],"answer":0,"why":"否定句里的“还没”：{{yet}}，放在句末。"},
+        {"type":"choice","q":"“电影刚开始。”","options":["{{The movie has just started.}}","{{The movie has started just.}}","{{The movie just has started.}}"],"answer":0,"why":"{{just}} 放在 {{has}} 和过去分词中间。"},
+        {"type":"choice","q":"朋友问 {{Have you seen the new Star Wars movie?}}，你上周看的。你说……","options":["{{Yes, I saw it last week.}}","{{Yes, I have seen it last week.}}"],"answer":0,"why":"说了 {{last week}}，就用一般过去时。","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"在餐厅。选出你的回答。","lines":[{"who":"Waiter","t":"Have you decided yet?","tr":"你们想好了吗？"},{"options":["Not yet. Can we have a few more minutes?","Yet not. Can we have a few more minutes?"],"answer":0,"why":"“还没”：{{Not yet.}}"},{"who":"Waiter","t":"Sure. Can I get you something to drink?","tr":"好的。先来点儿喝的吗？"},{"options":["We've already ordered drinks, thanks.","We've ordered already drinks, thanks."],"answer":0,"why":"{{already}} 放在 {{have}} 和过去分词中间。"},{"who":"Waiter","t":"Oh, OK. I'll be right back.","tr":"哦，好的。我马上回来。"}],"from":"make-suggestions-and-requests"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我还没决定。","words":["I","haven't","decided","yet."]},
+        {"type":"free","q":"轮到你了：说说今天你已经做了什么，还有什么还没做。","answers":[{"t":"I've already had lunch. I haven't called my mom yet.","tr":"我已经吃过午饭了。我还没给妈妈打电话。"},{"t":"I've just finished work. I haven't cooked dinner yet.","tr":"我刚下班。我还没做晚饭。"}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 8,
+      "level": "A2",
+      "title": "给建议：should",
+      "summary": "“你应该多休息”“你不应该喝那么多咖啡”“我该怎么办？”：用 {{should}} 给建议、问意见。",
+      "topic": "{{should}} / {{shouldn't}} + 动词原形；{{I think you should…}}、{{Maybe you should…}}；{{You'd better…}}",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor.","tr":"你应该去看医生。"}},
+        {"dialog":[{"who":"李明","t":"I have a terrible headache.","tr":"我头疼得厉害。"},{"who":"Mike","t":"You should take some medicine.","tr":"你应该吃点儿药。"},{"who":"李明","t":"I don't like taking medicine.","tr":"我不喜欢吃药。"},{"who":"Mike","t":"Then maybe you should drink some water and rest.","tr":"那也许你应该喝点儿水，休息一下。"},{"who":"李明","t":"Should I go home early?","tr":"我应该早点儿回家吗？"},{"who":"Mike","t":"Yes, I think you should. You shouldn't work today.","tr":"对，我觉得应该。你今天不该再工作了。"}]},
+        {"p":"**{{should}}：应该。** {{should}} 是情态动词，和 {{can}} 一样，后面跟动词原形，对谁都不变：{{You should rest.}}（你应该休息。）{{He should call her.}}（他应该给她打电话。）否定是 {{shouldn't}}：{{You shouldn't eat so late.}}（你不应该吃那么晚。）"},
+        {"p":"**问意见：{{Should I…?}}** {{should}} 自己放到前面：{{Should I buy it?}}（我该买吗？）{{What should I do?}}（我该怎么办？）"},
+        {"p":"**说得更客气一点儿。** 直接说 {{You should…}}，有时听起来有点儿像命令。美国人常在前面加 {{I think}} 或 {{Maybe}}：{{I think you should talk to him.}}（我觉得你应该跟他谈谈。）{{Maybe you should take a break.}}（也许你该歇一会儿。）语气更强、带点儿警告的是 {{You'd better…}}（你最好……）：{{You'd better hurry.}}（你最好快点儿。）"},
+        { "table": [
+          ["","例句","中文"],
+          ["建议","{{You should try this.}}","你应该试试这个。"],
+          ["不建议","{{You shouldn't worry.}}","你不必担心。"],
+          ["客气地建议","{{Maybe you should ask your boss.}}","也许你应该问问你的老板。"],
+          ["问意见","{{What should I wear?}}","我该穿什么？"],
+          ["警告","{{You'd better leave now.}}","你最好现在就走。"]
+        ] },
+        { "ex": [
+          {"t":"You should see a doctor.","tr":"你应该去看医生。"},
+          {"t":"You shouldn't drink so much coffee.","tr":"你不应该喝那么多咖啡。"},
+          {"t":"What should I do?","tr":"我该怎么办？"},
+          {"t":"I think you should go to bed early.","tr":"我觉得你应该早点儿睡。"},
+          {"t":"Should I bring anything?","tr":"我需要带点儿什么吗？","note":"去别人家做客之前常问这一句"},
+          {"t":"You'd better take an umbrella.","tr":"你最好带把伞。"}
+        ] },
+        {"tip":"{{You'd better}} = {{you had better}}，后面也是动词原形：{{You'd better go.}}，不说 {{You'd better to go.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"你应该休息。","why":"{{should}} 后面直接跟动词原形，不加 {{to}}。"},
+        {"wrong":"He shoulds call her.","right":"He should call her.","tr":"他应该给她打电话。","why":"{{should}} 不加 {{-s}}。"},
+        {"wrong":"Do I should go?","right":"Should I go?","tr":"我应该去吗？","why":"{{should}} 自己放到前面提问，不用 {{do}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"You ___ eat so much sugar.","tr":"你不应该吃那么多糖。","options":["shouldn't","don't should","not should"],"answer":0,"why":"不应该：{{shouldn't}} + 原形。"},
+        {"type":"choice","q":"朋友很累。最自然、最客气的建议是……","options":["{{Maybe you should take a break.}}","{{You must take break.}}","{{You should to take a break.}}"],"answer":0,"why":"{{Maybe you should…}} 客气又自然。"},
+        {"type":"choice","q":"去朋友家吃饭之前，你想问“我需要带点儿什么吗？”","options":["{{Should I bring anything?}}","{{Do I should bring anything?}}","{{I should bring anything?}}"],"answer":0,"why":"{{should}} 放在前面提问，和 {{can}} 一样。","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"朋友明天要面试，很紧张。选出你的建议。","lines":[{"who":"Friend","t":"I have a job interview tomorrow. I'm so nervous!","tr":"我明天有个面试，好紧张！"},{"options":["You should get a good night's sleep.","You should getting a good night's sleep."],"answer":0,"why":"{{should}} + 动词原形。"},{"who":"Friend","t":"What should I wear?","tr":"我该穿什么？"},{"options":["I think you should wear a suit.","I think you should wears a suit."],"answer":0,"why":"{{should}} 后面的动词不加 {{-s}}。"},{"who":"Friend","t":"Good idea. Thanks!","tr":"好主意，谢谢！"}],"from":"say-what-people-are-like"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"你最好带把伞。","words":["You'd","better","take","an","umbrella."]},
+        {"type":"free","q":"轮到你了：一个朋友说 {{I can't sleep at night.}} 给他两个建议，再说一件他不应该做的事。","answers":[{"t":"You should exercise more. Maybe you should read before bed. You shouldn't look at your phone at night.","tr":"你应该多运动。也许你睡前可以看看书。你晚上不应该看手机。"},{"t":"I think you should drink some warm milk. You should go to bed earlier. You shouldn't drink coffee after lunch.","tr":"我觉得你应该喝点儿热牛奶，早点儿上床。午饭以后你不应该喝咖啡。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 8,
+      "level": "A2",
+      "title": "说必须做的事：have to 和 must",
+      "summary": "“我得上班”“你不用来”“这里不许停车”：说必须做的、不用做的和不许做的事。",
+      "topic": "{{have to}} / {{has to}}；{{don't have to}}（不用）；{{must}} / {{mustn't}}（不许）；过去的 {{had to}}",
+      "blocks": [
+        {"goal":{"t":"I have to work tomorrow.","tr":"我明天得上班。"}},
+        {"dialog":[{"who":"Kate","t":"Do you want to go to the beach on Saturday?","tr":"星期六想去海边吗？"},{"who":"王芳","t":"I'd love to, but I have to work.","tr":"很想去，可是我得上班。"},{"who":"Kate","t":"Oh no. Do you have to work on Sunday too?","tr":"哎呀。星期天也要上班吗？"},{"who":"王芳","t":"No, I don't have to. Let's go on Sunday!","tr":"不用。我们星期天去吧！"},{"who":"Kate","t":"Great. But we have to leave early. Parking is hard there.","tr":"好。不过我们得早点儿出发，那儿很难停车。"}]},
+        {"p":"**必须、得：{{have to}}。** 中文说“我得……”“我要……”；英语最常用 {{have to}} + 动词原形，他、她、它用 {{has to}}：{{I have to go.}}（我得走了。）{{She has to work late.}}（她得加班。）提问和否定用 {{do}}：{{Do you have to…?}}"},
+        {"p":"**不用：{{don't have to}}；不许：{{mustn't}}。** 这两个中国学生最容易混。{{don't have to}} 是“不用、不必”（做也行，不做也行）：{{You don't have to come.}}（你不用来。）{{mustn't}} 是“不许、绝对不能”：{{You mustn't smoke here.}}（这里不许抽烟。）"},
+        { "table": [
+          ["","意思","例句"],
+          ["{{have to}}","得、必须","{{I have to finish this today.}} 我今天得做完。"],
+          ["{{must}}","必须（正式、语气强）","{{You must wear a seatbelt.}} 必须系安全带。"],
+          ["{{don't have to}}","不用、不必","{{You don't have to pay.}} 你不用付钱。"],
+          ["{{mustn't}}","不许、绝对不能","{{You mustn't tell anyone.}} 你绝对不能告诉任何人。"]
+        ] },
+        {"p":"**过去：{{had to}}。** {{must}} 没有过去式，说“当时不得不”用 {{had to}}：{{I had to wait an hour.}}（我当时不得不等了一个小时。）美国人日常说话时，{{have to}} 比 {{must}} 常用得多；{{must}} 多见于规定和标志。"},
+        { "ex": [
+          {"t":"I have to work tomorrow.","tr":"我明天得上班。"},
+          {"t":"She has to take the bus to work.","tr":"她得坐公交车上班。"},
+          {"t":"You don't have to bring anything.","tr":"你什么都不用带。"},
+          {"t":"Do I have to pay now?","tr":"我现在就得付钱吗？"},
+          {"t":"You mustn't park here.","tr":"这里不许停车。"},
+          {"t":"We had to wait for two hours.","tr":"我们不得不等了两个小时。"}
+        ] },
+        {"tip":"{{have to}} 读作 /ˈhæftə/，{{has to}} 读作 /ˈhæstə/：这里的 v 读得像 f。"}
+      ],
+      "mistakes": [
+        {"wrong":"Tomorrow is a holiday. You mustn't come to work.","right":"Tomorrow is a holiday. You don't have to come to work.","tr":"明天放假，你不用来上班。","why":"“不用”是 {{don't have to}}；{{mustn't}} 是“不许”，意思完全不同！"},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"她得上班。","why":"{{she}} 用 {{has to}}。"},
+        {"wrong":"I must to go.","right":"I must go.","tr":"我必须走了。","why":"{{must}} 是情态动词，后面直接跟原形，不加 {{to}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Tomorrow is Sunday. I ___ get up early.","tr":"明天星期天，我不用早起。","options":["don't have to","mustn't","haven't"],"answer":0,"why":"“不用”：{{don't have to}}。"},
+        {"type":"choice","q":"飞机上的规定：“必须系好安全带。”","options":["{{You must fasten your seatbelt.}}","{{You must to fasten your seatbelt.}}","{{You don't have to fasten your seatbelt.}}"],"answer":0,"why":"规定、正式：{{must}} + 原形。"},
+        {"type":"choice","q":"“我昨天不得不加班。”","options":["{{I had to work late yesterday.}}","{{I must work late yesterday.}}","{{I have to worked late yesterday.}}"],"answer":0,"why":"过去的“不得不”：{{had to}} + 原形。","from":"say-what-you-did"},
+        {"type":"dialogue","q":"朋友请你周末出去玩。选出你的回答。","lines":[{"who":"Friend","t":"Can you come to my party on Saturday?","tr":"星期六能来我的派对吗？"},{"options":["Sorry, I have to visit my grandma.","Sorry, I have visit my grandma."],"answer":0,"why":"{{have to}} + 动词原形。"},{"who":"Friend","t":"What about Sunday? Do you have to work?","tr":"星期天呢？你要上班吗？"},{"options":["No, I don't have to. I'm free!","No, I mustn't. I'm free!"],"answer":0,"why":"“不用上班”：{{don't have to}}。"},{"who":"Friend","t":"Great, come on Sunday then!","tr":"太好了，那星期天来吧！"}],"from":"say-what-you-can-do"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"你什么都不用带。","words":["You","don't","have","to","bring","anything."]},
+        {"type":"free","q":"轮到你了：说说这个星期你必须做的两件事，和一件你不用做的事。","answers":[{"t":"I have to finish a report. I have to take my son to the doctor. I don't have to work on Friday.","tr":"我得写完一份报告，还得带儿子去看医生。星期五我不用上班。"},{"t":"I have to clean my apartment and buy groceries. I don't have to cook tonight.","tr":"我得打扫公寓、买菜。今晚我不用做饭。"}]}
+      ]
     }
   ]
 }

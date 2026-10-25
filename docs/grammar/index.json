@@ -38,13 +38,13 @@
    "title": "英语语法",
    "variety": "美式英语",
    "units": 9,
-   "lessons": 34,
+   "lessons": 39,
    "levels": [
     "A1",
     "A2"
    ],
-   "bytes": 166932,
-   "sha256": "970891843cfed582760ae21e8ba2fe0620e722b460318c3d1858d56d0b8b1ab4"
+   "bytes": 194042,
+   "sha256": "88254189dbc9c737fc8079ff20edcd2379f5e528cf1861291847ae9a1d739bba"
   }
  }
 }
