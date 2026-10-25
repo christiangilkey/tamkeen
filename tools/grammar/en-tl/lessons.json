@@ -1122,6 +1122,251 @@
         {"type":"say","q":"Ask, politely: “May I sit here?”","answer":"Pwede po ba akong umupo dito?"},
         {"type":"free","q":"Your turn: say one thing you have to do this week, one thing you should do, and one thing that isn't allowed where you live.","answers":[{"t":"Kailangan kong magtrabaho sa Sabado. Dapat akong mag-ehersisyo. Bawal manigarilyo sa bahay namin.","tr":"I have to work on Saturday. I should exercise. Smoking isn't allowed in our house."},{"t":"Kailangan kong mag-aral ng Tagalog. Dapat akong matulog nang maaga. Bawal ang aso sa apartment namin.","tr":"I have to study Tagalog. I should go to bed early. Dogs aren't allowed in our apartment."}]}
       ]
+    },
+    {
+      "id": "focus-on-the-thing",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about the particular thing you ate, bought or read",
+      "summary": "Say what you did to a particular thing (“I ate the mango.” “Did you eat my cake?”) and see why Tagalog has two ways to say “I ate”.",
+      "topic": "Object focus with {{-in}}: {{Kumain ako ng mangga}} vs {{Kinain ko ang mangga}}; the doer in the {{ko}} set",
+      "blocks": [
+        {"goal":{"t":"Kinain mo ba ang cake ko?","tr":"Did you eat my cake?"}},
+        {"dialog":[{"who":"Ana","t":"Nasaan ang cake ko? Kinain mo ba?","tr":"Where's my cake? Did you eat it?"},{"who":"Ben","t":"Hindi! Kumain ako ng mangga, pero hindi ko kinain ang cake mo.","tr":"No! I ate a mango, but I didn't eat your cake."},{"who":"Ana","t":"E sino?","tr":"Then who did?"},{"who":"Ben","t":"Tingnan mo ang aso!","tr":"Look at the dog!"}]},
+        {"p":"Ben says “ate” in two ways: {{Kumain ako ng mangga}} “I ate a mango”, and {{hindi ko kinain ang cake}} “I didn't eat the cake”. Same action, but each sentence is **about** something different."},
+        {"p":"In the first, the verb has {{-um-}}: the sentence is about the **eater**, so the eater is {{ako}} and the mango is just “a mango”, with {{ng}}. In the second, the verb has {{-in-}}: the sentence is about **the thing eaten**, so the cake takes {{ang}} (that particular cake), and the eater moves to the {{ko}} set."},
+        {"term":"focus","means":"which part of the sentence the verb is about: the doer (actor focus: {{-um-}}, {{mag-}}, {{ma-}}) or the thing or person the action is done to (object focus: {{-in}}, {{i-}}, {{-an}}). The one in focus takes {{ang}}, {{si}} or an {{ako}}-set pronoun."},
+        { "table": [
+          ["","about the doer","about the thing"],
+          ["the verb","{{kumain}}","{{kinain}}"],
+          ["the doer","{{ako}}","{{ko}}"],
+          ["the thing","{{ng mangga}} a mango","{{ang mangga}} the mango"],
+          ["the sentence","{{Kumain ako ng mangga.}}","{{Kinain ko ang mangga.}}"]
+        ] },
+        {"p":"**When to use which.** When the thing is **particular** (the cake, my book, this shirt), use object focus. When it's just “a” or “some”, use actor focus. English shows the difference with “a” and “the”; Tagalog shows it with the verb."},
+        {"p":"**The {{-in}} forms.** Before the action begins, {{-in}} sits at the end ({{kainin}}, {{kakainin}}); once it has begun, it moves inside the root as {{-in-}} ({{kinain}}, {{kinakain}})."},
+        { "table": [
+          ["","eat","read","buy","do"],
+          ["basic","{{kainin}}","{{basahin}}","{{bilhin}}","{{gawin}}"],
+          ["completed","{{kinain}}","{{binasa}}","{{binili}}","{{ginawa}}"],
+          ["ongoing","{{kinakain}}","{{binabasa}}","{{binibili}}","{{ginagawa}}"],
+          ["not yet begun","{{kakainin}}","{{babasahin}}","{{bibilhin}}","{{gagawin}}"]
+        ] },
+        {"p":"A root ending in a vowel adds {{h}} before {{-in}} ({{basa}} → {{basahin}}), and a few short roots lose a vowel ({{bili}} → {{bilhin}}). And now you can see what {{Ano ang ginagawa mo?}} really says: “What is the thing being done by you?”"},
+        { "ex": [
+          {"t":"Kinain ko na ang mangga.","tr":"I've already eaten the mango."},
+          {"t":"Binasa mo ba ang libro?","tr":"Did you read the book?"},
+          {"t":"Binili niya ang bahay.","tr":"She bought the house."},
+          {"t":"Bumili siya ng bahay.","tr":"She bought a house.","note":"actor focus: just “a house”"},
+          {"t":"Hindi ko kinain ang cake mo.","tr":"I didn't eat your cake."},
+          {"t":"Gagawin ko bukas.","tr":"I'll do it tomorrow.","note":"“it” is left unsaid when it's clear"},
+          {"t":"Ano ang binili mo?","tr":"What did you buy?"}
+        ] },
+        {"tip":"When the thing is clear from the conversation, Tagalog simply leaves it out: {{Kinain mo ba?}} “Did you eat it?”, {{Gagawin ko.}} “I'll do it.” There's no word for “it” to add."}
+      ],
+      "mistakes": [
+        {"wrong":"Kinain ako ang mangga.","right":"Kinain ko ang mangga.","tr":"I ate the mango.","why":"With object focus, the doer is in the {{ko}} set."},
+        {"wrong":"Kumain ako ang mangga.","right":"Kinain ko ang mangga.","tr":"I ate the mango.","why":"{{kumain}} is about you, the eater, so the mango can't take {{ang}}. For “the mango”, use {{kinain}}."},
+        {"wrong":"Binili ko ng libro.","right":"Binili ko ang libro.","tr":"I bought the book.","why":"{{binili}} is about the thing bought, so the book takes {{ang}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I ate the mango” (the one that was on the table) is…","options":["{{Kinain ko ang mangga.}}","{{Kumain ako ng mangga.}}","{{Kinain ako ang mangga.}}"],"answer":0,"why":"A particular mango: object focus, {{kinain ko ang}}."},
+        {"type":"choice","q":"“She bought a house” (just a house, which one doesn't matter) is…","options":["{{Bumili siya ng bahay.}}","{{Binili niya ang bahay.}}","{{Binili siya ng bahay.}}"],"answer":0,"why":"Just “a house”: actor focus, {{bumili siya ng}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Binasa ___ ba ang libro?","tr":"Did you read the book?","options":["mo","ka","ikaw"],"answer":0,"why":"Object focus: the reader is {{mo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hindi ko kinain ___ cake mo.","tr":"I didn't eat your cake.","options":["ang","ng","si"],"answer":0,"why":"The cake is in focus: {{ang}}."},
+        {"type":"order","q":"Put the words in order.","tr":"What did you buy?","words":["Ano","ang","binili","mo?"],"from":"ask-questions"},
+        {"type":"dialogue","q":"Your roommate asks about the leftovers. Choose your replies.","lines":[{"who":"Roommate","t":"Kinain mo ba ang adobo?","tr":"Did you eat the adobo?"},{"options":["Oo, kinain ko na. Sorry!","Oo, kumain ko na. Sorry!"],"answer":0,"why":"{{kinain ko}}: you ate that particular adobo."},{"who":"Roommate","t":"E ano ang kakainin ko?","tr":"So what am I going to eat?"},{"options":["Bumili tayo ng pizza!","Binili tayo ng pizza!"],"answer":0,"why":"Just some pizza: actor focus {{bumili}}, with {{tayo}} “let's”."}],"from":"tell-people-what-to-do"},
+        {"type":"say","q":"Say “I'll do it tomorrow.”","answer":"Gagawin ko bukas."},
+        {"type":"free","q":"Your turn: say something particular you bought, read or ate recently, with an {{-in}} verb.","answers":[{"t":"Binili ko ang bagong cellphone ko kahapon.","tr":"I bought my new phone yesterday."},{"t":"Binasa ko ang libro ni Rizal.","tr":"I read Rizal's book."},{"t":"Kinain namin ang lechon sa party.","tr":"We ate the lechon at the party."}]}
+      ]
+    },
+    {
+      "id": "put-and-give-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say where to put things and who to give them to",
+      "summary": "Put, give, close and throw away particular things: “Put the bag here.” “Give this to Ana.”",
+      "topic": "Object focus with {{i-}} ({{ilagay}}, {{ibigay}}, {{isara}}, {{itapon}}); commands with {{mo}}",
+      "blocks": [
+        {"goal":{"t":"Ibigay mo ito kay Ana.","tr":"Give this to Ana."}},
+        {"dialog":[{"who":"Ana","t":"Saan ko ilalagay ang mga libro?","tr":"Where should I put the books?"},{"who":"Ben","t":"Ilagay mo sa mesa.","tr":"Put them on the table."},{"who":"Ana","t":"E itong kahon?","tr":"And this box?"},{"who":"Ben","t":"Itapon mo na. Wala nang laman.","tr":"Throw it out. It's empty."},{"who":"Ana","t":"Sige. Isasara ko ba ang bintana?","tr":"Okay. Shall I close the window?"},{"who":"Ben","t":"Oo, pakisara.","tr":"Yes, please close it."}]},
+        {"p":"Some verbs are about a thing that **moves**: you put it somewhere, give it to someone, throw it away. Their object focus puts {{i-}} at the front: {{ilagay}} “put”, {{ibigay}} “give”, {{itapon}} “throw away”, {{isara}} “close”, {{isulat}} “write (down)”. As with {{-in}}, the thing takes {{ang}} and the doer is in the {{ko}} set."},
+        {"p":"**Commands** with object focus: the basic form + {{mo}} (one person) or {{ninyo}} (several, or polite). {{Ilagay mo dito.}} “Put it here.” {{Ibigay po ninyo kay Ana.}} “Please give it to Ana.” Compare lesson 17: {{Umupo ka}} (actor focus, {{ka}}), but {{Ilagay mo}} (object focus, {{mo}})."},
+        { "table": [
+          ["","put","give","close"],
+          ["basic, commands","{{ilagay}}","{{ibigay}}","{{isara}}"],
+          ["completed","{{inilagay}}","{{ibinigay}}","{{isinara}}"],
+          ["ongoing","{{inilalagay}}","{{ibinibigay}}","{{isinasara}}"],
+          ["not yet begun","{{ilalagay}}","{{ibibigay}}","{{isasara}}"]
+        ] },
+        {"p":"Once the action has begun, {{-in-}} goes into the root ({{i-b-in-igay}}). In everyday speech the {{i}} at the front is often dropped: {{binigay}}, {{nilagay}}, {{sinara}}."},
+        {"p":"**Where to, who to**: {{sa}} for the place or the person, {{kay}} for a name. {{Ilagay mo sa ref.}} “Put it in the fridge.” {{Ibinigay ko kay Ana.}} “I gave it to Ana.”"},
+        { "ex": [
+          {"t":"Ilagay mo ang bag dito.","tr":"Put the bag here."},
+          {"t":"Ibigay mo ito kay Ana.","tr":"Give this to Ana."},
+          {"t":"Saan ko ilalagay ito?","tr":"Where should I put this?"},
+          {"t":"Binigay ko na sa kanya.","tr":"I already gave it to him."},
+          {"t":"Isara mo ang pinto.","tr":"Close the door."},
+          {"t":"Huwag mong itapon iyan!","tr":"Don't throw that away!","note":"{{huwag}} + {{mo}} + the linker"},
+          {"t":"Isulat mo ang pangalan mo dito.","tr":"Write your name here."}
+        ] },
+        {"tip":"{{paki-}} (lesson 20) works with these verbs too: {{Pakibigay po ito kay Ana.}} “Please give this to Ana.” {{Pakisara ng pinto.}} “Please close the door.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ilagay ka dito.","right":"Ilagay mo dito.","tr":"Put it here.","why":"With object focus, the doer is {{mo}}, even in a command."},
+        {"wrong":"Huwag kang itapon iyan.","right":"Huwag mong itapon iyan.","tr":"Don't throw that away.","why":"Object focus: {{mo}}, tied on with the linker: {{mong}}."},
+        {"wrong":"Ibigay mo ito sa Ana.","right":"Ibigay mo ito kay Ana.","tr":"Give this to Ana.","why":"Before a name, {{sa}} becomes {{kay}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ilagay ___ ang bag dito.","tr":"Put the bag here.","options":["mo","ka","ikaw"],"answer":0,"why":"An object-focus command: {{mo}}.","from":"tell-people-what-to-do"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ibigay mo ito ___ Ana.","tr":"Give this to Ana.","options":["kay","sa","si"],"answer":0,"why":"To a name: {{kay}}.","from":"say-where-things-are"},
+        {"type":"choice","q":"“Where should I put this?” is…","options":["{{Saan ko ilalagay ito?}}","{{Saan ako ilalagay ito?}}","{{Saan ko inilagay ito?}}"],"answer":0,"why":"Not done yet: {{ilalagay}}, with {{ko}}. ({{inilagay}} is “put”, already done.)"},
+        {"type":"order","q":"Put the words in order.","tr":"Don't throw that away!","words":["Huwag","mong","itapon","iyan!"]},
+        {"type":"dialogue","q":"Helping a friend tidy up. Choose your replies.","lines":[{"who":"Liza","t":"Pakilagay naman ito sa ref.","tr":"Could you put this in the fridge?"},{"options":["Sige. Saan ko ilalagay ang gatas?","Sige. Saan ako maglagay ang gatas?"],"answer":0,"why":"The particular milk: object focus, {{ilalagay}} with {{ko}}."},{"who":"Liza","t":"Sa itaas. Tapos, itapon mo na ang lumang tinapay.","tr":"On the top shelf. Then throw out the old bread."},{"options":["Ah, itinapon ko na kanina.","Ah, itatapon ko na kanina."],"answer":0,"why":"{{kanina}} “earlier”: already done, so the completed {{itinapon}}."}],"from":"say-what-you-did"},
+        {"type":"say","q":"Ask a friend: “Please close the door.”","answer":"Pakisara ng pinto."},
+        {"type":"free","q":"Your turn: give a friend three instructions with {{i-}} verbs to tidy your room.","answers":[{"t":"Ilagay mo ang mga libro sa mesa. Itapon mo ang mga kahon. Isara mo ang bintana.","tr":"Put the books on the table. Throw out the boxes. Close the window."},{"t":"Pakilagay ng damit sa kabinet. Ibigay mo ito kay Mama. Isara mo ang pinto.","tr":"Please put the clothes in the closet. Give this to Mom. Close the door."}]}
+      ]
+    },
+    {
+      "id": "do-things-to-people-and-places",
+      "unit": 5,
+      "level": "A2",
+      "title": "Call, help, visit and open",
+      "summary": "Talk about the people and places you do things to: “Call me later.” “Can you help me?” “We visited Grandma.”",
+      "topic": "Object focus with {{-an}} ({{tawagan}}, {{tulungan}}, {{puntahan}}, {{buksan}}); {{kita}} “I … you”",
+      "blocks": [
+        {"goal":{"t":"Tawagan mo ako mamaya.","tr":"Call me later."}},
+        {"dialog":[{"who":"Liza","t":"Pwede mo ba akong tulungan bukas?","tr":"Can you help me tomorrow?"},{"who":"Mark","t":"Sige! Pupuntahan kita sa bahay mo.","tr":"Sure! I'll come over to your place."},{"who":"Liza","t":"Salamat! Tawagan mo ako bago ka umalis.","tr":"Thanks! Call me before you leave."},{"who":"Mark","t":"Okay, tatawagan kita.","tr":"Okay, I'll call you."}]},
+        {"p":"A third object focus, {{-an}} at the end, is for the **person or place** an action is aimed at: the one you call, help, visit, pay or teach. {{Tawagan mo ako.}} “Call me.” {{Tinulungan ako ni Ben.}} “Ben helped me.” Here you ({{ako}}) are in focus, the one called or helped; the doer is in the {{ko}} set, or takes {{ni}} or {{ng}}."},
+        { "table": [
+          ["","call","help","go to, visit","open"],
+          ["basic","{{tawagan}}","{{tulungan}}","{{puntahan}}","{{buksan}}"],
+          ["completed","{{tinawagan}}","{{tinulungan}}","{{pinuntahan}}","{{binuksan}}"],
+          ["ongoing","{{tinatawagan}}","{{tinutulungan}}","{{pinupuntahan}}","{{binubuksan}}"],
+          ["not yet begun","{{tatawagan}}","{{tutulungan}}","{{pupuntahan}}","{{bubuksan}}"]
+        ] },
+        {"p":"**Which object focus?** Roughly: {{-in}} for the thing you act on directly (eat it, read it, buy it), {{i-}} for the thing you move (put it, give it), {{-an}} for the person or place you aim at (call them, visit them, open it). Each verb has its own; learn it with the verb. Some verbs have two: {{Ibigay mo ito kay Ana}} “Give this to Ana” (the thing in focus) and {{Bigyan mo si Ana ng tubig}} “Give Ana some water” (the person in focus)."},
+        {"p":"**{{kita}}: I + you.** When “I” does something to “you” with an object-focus verb, {{ko}} + {{ka}} become one word, {{kita}}: {{Tatawagan kita.}} “I'll call you.” {{Mahal kita.}} “I love you.” {{Tutulungan kita.}} “I'll help you.”"},
+        {"p":"**Asking for help**: {{Pwede mo ba akong tulungan?}} “Can you help me?”: {{mo}} the helper, {{ako}} the one helped, tied to the verb with the linker."},
+        { "ex": [
+          {"t":"Tawagan mo ako mamaya.","tr":"Call me later."},
+          {"t":"Tinulungan ako ni Ben.","tr":"Ben helped me."},
+          {"t":"Pinuntahan namin si Lola sa probinsya.","tr":"We visited Grandma in the province."},
+          {"t":"Buksan mo ang bintana.","tr":"Open the window."},
+          {"t":"Tatawagan kita bukas.","tr":"I'll call you tomorrow."},
+          {"t":"Mahal kita.","tr":"I love you."},
+          {"t":"Bigyan mo si Ana ng tubig.","tr":"Give Ana some water."}
+        ] },
+        {"tip":"{{Mahal kita}} is “I love you”, and {{Miss na kita}} “I miss you” (Taglish, and how everyone says it). Both use {{kita}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Tatawagan ko ikaw.","right":"Tatawagan kita.","tr":"I'll call you.","why":"“I … you” with an object-focus verb is one word: {{kita}}."},
+        {"wrong":"Tinulungan ako si Ben.","right":"Tinulungan ako ni Ben.","tr":"Ben helped me.","why":"You're in focus here, not Ben: the doer of an object-focus verb takes {{ni}} (or {{ng}})."},
+        {"wrong":"Tumawag mo ako.","right":"Tawagan mo ako.","tr":"Call me.","why":"“Call me”: the object-focus {{tawagan}}, with {{mo}}. ({{Tumawag ka}} is “Make a call”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Tatawagan ___ bukas.","tr":"I'll call you tomorrow.","options":["kita","ka","ikaw"],"answer":0,"why":"I + you: {{kita}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tinulungan ako ___ Ben.","tr":"Ben helped me.","options":["ni","si","kay"],"answer":0,"why":"The helper isn't in focus: {{ni}} before a name.","from":"say-whose-it-is"},
+        {"type":"choice","q":"“Open the window.”","options":["{{Buksan mo ang bintana.}}","{{Bumukas ka ang bintana.}}","{{Buksan ka ng bintana.}}"],"answer":0,"why":"The window is in focus ({{ang}}); the opener is {{mo}}."},
+        {"type":"choice","q":"“We visited Grandma.”","options":["{{Pinuntahan namin si Lola.}}","{{Pinuntahan kami si Lola.}}","{{Pumunta namin si Lola.}}"],"answer":0,"why":"Grandma is in focus ({{si}}), and the visitors are in the {{ko}} set: {{namin}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Can you help me?","words":["Pwede","mo","ba","akong","tulungan?"],"from":"ask-for-things-politely"},
+        {"type":"dialogue","q":"On the phone with a friend. Choose your replies.","lines":[{"who":"Ana","t":"Busy ka ba? Tatawagan kita mamaya.","tr":"Are you busy? I'll call you later."},{"options":["Sige, tawagan mo ako pagkatapos ng trabaho.","Sige, tawagan ka ako pagkatapos ng trabaho."],"answer":0,"why":"Object focus: {{tawagan mo ako}}."},{"who":"Ana","t":"Pupuntahan ba natin si Ben sa ospital?","tr":"Are we going to visit Ben in the hospital?"},{"options":["Oo, puntahan natin siya bukas.","Oo, pumunta natin siya bukas."],"answer":0,"why":"“Let's visit him”: {{puntahan}}, with {{natin}} for “we (you too)”."}],"from":"make-plans"},
+        {"type":"say","q":"Say “I love you.”","answer":"Mahal kita."},
+        {"type":"free","q":"Your turn: say who you'll call this week, and who helped you recently.","answers":[{"t":"Tatawagan ko si Mama sa Linggo. Tinulungan ako ng kaibigan ko kahapon.","tr":"I'll call Mom on Sunday. My friend helped me yesterday."},{"t":"Tatawagan kita bukas! Tinulungan ako ni Ben sa trabaho.","tr":"I'll call you tomorrow! Ben helped me at work."}]}
+      ]
+    },
+    {
+      "id": "ask-who-did-what",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ask who did it and what they did",
+      "summary": "Ask “Who cooked this?” and “What did you buy?”, choosing the verb that fits the question.",
+      "topic": "Questions and focus: {{Sino ang nagluto?}} vs {{Ano ang niluto mo?}}; the word asked about takes {{ang}}",
+      "blocks": [
+        {"goal":{"t":"Sino ang nagluto nito? Ang sarap!","tr":"Who cooked this? It's delicious!"}},
+        {"dialog":[{"who":"Mark","t":"Sino ang nagluto nito? Ang sarap!","tr":"Who cooked this? It's delicious!"},{"who":"Liza","t":"Si Lola ang nagluto.","tr":"Grandma did."},{"who":"Mark","t":"Ano pa ang niluto niya?","tr":"What else did she cook?"},{"who":"Liza","t":"Lumpia at pansit. Natikman mo na ba ang lumpia?","tr":"Lumpia and pancit. Have you tried the lumpia?"},{"who":"Mark","t":"Hindi pa! Saan niya inilagay?","tr":"Not yet! Where did she put it?"}]},
+        {"p":"**The rule**: with {{sino}} “who” and {{ano}} “what”, the word you ask about is the one the sentence is about. It takes {{ang}}, and the verb must focus on it. Asking about the **doer**: actor focus. Asking about the **thing**: object focus."},
+        { "table": [
+          ["you ask about","the verb","question","answer"],
+          ["the doer","actor focus","{{Sino ang nagluto?}} Who cooked?","{{Si Lola.}}"],
+          ["the thing","object focus","{{Ano ang niluto ni Lola?}} What did Grandma cook?","{{Adobo.}}"],
+          ["the doer","actor focus","{{Sino ang bumili ng cake?}} Who bought the cake?","{{Si Ben.}}"],
+          ["the thing","object focus","{{Ano ang binili mo?}} What did you buy?","{{Sapatos.}}"]
+        ] },
+        {"p":"So it's {{Sino ang nagluto?}}, never {{Sino ang niluto?}} (that would be “Who got cooked?”!). And {{Ano ang niluto mo?}}, never {{Ano ang nagluto ka?}}"},
+        {"p":"**Saying who did it**: to stress the person, put them first and the verb after {{ang}}: {{Si Lola ang nagluto.}} “It was Grandma who cooked.” {{Ako ang bumili.}} “I'm the one who bought it.”"},
+        {"p":"**Where, when, how**: {{saan}}, {{kailan}} and {{paano}} don't take {{ang}}, so either focus works; choose as you learned in lesson 24, by whether the thing is particular: {{Saan mo inilagay ang susi?}} “Where did you put the key?”, {{Saan ka bumili ng sapatos?}} “Where did you buy shoes?”"},
+        { "ex": [
+          {"t":"Sino ang nagluto nito?","tr":"Who cooked this?"},
+          {"t":"Si Lola ang nagluto.","tr":"Grandma did."},
+          {"t":"Ano ang niluto ni Lola?","tr":"What did Grandma cook?"},
+          {"t":"Ano ang binili mo sa mall?","tr":"What did you buy at the mall?"},
+          {"t":"Sino ang kumain ng cake ko?","tr":"Who ate my cake?"},
+          {"t":"Ako ang kumain. Sorry!","tr":"It was me. Sorry!"},
+          {"t":"Saan mo inilagay ang susi?","tr":"Where did you put the key?"}
+        ] },
+        {"tip":"{{Ano ang ginagawa mo?}} “What are you doing?” follows the same rule: you ask about the thing being done, so the verb is in object focus, {{ginagawa}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Sino ang niluto?","right":"Sino ang nagluto?","tr":"Who cooked?","why":"You're asking about the cook, the doer: actor focus. {{Sino ang niluto?}} means “Who got cooked?”"},
+        {"wrong":"Ano ang bumili ka?","right":"Ano ang binili mo?","tr":"What did you buy?","why":"Asking about the thing bought: object focus, with {{mo}}."},
+        {"wrong":"Ako ang binili.","right":"Ako ang bumili.","tr":"I'm the one who bought it.","why":"You're the doer: actor focus, {{bumili}}. ({{Ako ang binili}} is “I'm the one who got bought”.)"}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Who ate my cake?”","options":["{{Sino ang kumain ng cake ko?}}","{{Sino ang kinain ng cake ko?}}","{{Ano ang kumain ng cake ko?}}"],"answer":0,"why":"Asking about the eater: actor focus, {{kumain}}."},
+        {"type":"choice","q":"“What did you eat?”","options":["{{Ano ang kinain mo?}}","{{Ano ang kumain ka?}}","{{Sino ang kinain mo?}}"],"answer":0,"why":"Asking about the thing eaten: object focus, {{kinain mo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ano ang ___ mo sa mall?","tr":"What did you buy at the mall?","options":["binili","bumili","bibili"],"answer":0,"why":"The thing bought, already done: {{binili}}.","from":"focus-on-the-thing"},
+        {"type":"fill","q":"Choose the missing word.","t":"Si Lola ang ___.","tr":"Grandma is the one who cooked it.","options":["nagluto","niluto","magluto"],"answer":0,"why":"Grandma is the cook: actor focus, completed."},
+        {"type":"order","q":"Put the words in order.","tr":"Where did you put the key?","words":["Saan","mo","inilagay","ang susi?"],"from":"put-and-give-things"},
+        {"type":"dialogue","q":"Your mom asks about the shopping. Choose your replies.","lines":[{"who":"Mom","t":"Ano ang binili mo?","tr":"What did you buy?"},{"options":["Bumili po ako ng isda at gulay.","Binili po ako ng isda at gulay."],"answer":0,"why":"Just some fish and vegetables: actor focus, {{bumili ako ng}}."},{"who":"Mom","t":"Sino ang nagbayad?","tr":"Who paid?"},{"options":["Ako po ang nagbayad.","Ako po ang binayaran."],"answer":0,"why":"You're the one who paid: {{nagbayad}}. ({{binayaran}} is “got paid”.)"}],"from":"speak-politely"},
+        {"type":"free","q":"Your turn: ask a friend two questions about last weekend: one about who did something, one about what they did.","answers":[{"t":"Sino ang nagluto sa party? Ano ang ginawa mo noong Sabado?","tr":"Who cooked at the party? What did you do on Saturday?"},{"t":"Sino ang sumama sa iyo sa beach? Ano ang kinain ninyo?","tr":"Who went to the beach with you? What did you eat?"}]}
+      ]
+    },
+    {
+      "id": "use-english-words-the-tagalog-way",
+      "unit": 5,
+      "level": "A2",
+      "title": "Use English words the Tagalog way",
+      "summary": "Do what Manila does every day and put English words into Tagalog sentences: “Text me later.” “I already sent it.” “I got stuck in traffic.”",
+      "topic": "Taglish verbs: {{mag-}} + English ({{mag-text}}), {{i-}} + English ({{i-send}}), {{na-}} + English ({{na-late}}), with the forms you know",
+      "blocks": [
+        {"goal":{"t":"I-text mo ako mamaya.","tr":"Text me later."}},
+        {"dialog":[{"who":"Ana","t":"Nag-text ka ba kay Ben?","tr":"Did you text Ben?"},{"who":"Liza","t":"Oo, pero hindi pa siya nagre-reply.","tr":"Yes, but he hasn't replied yet."},{"who":"Ana","t":"Baka busy siya. I-send mo na lang sa akin ang address.","tr":"Maybe he's busy. Just send me the address."},{"who":"Liza","t":"Sige, i-se-send ko ngayon.","tr":"Okay, I'll send it now."},{"who":"Ana","t":"Bilisan mo, late na tayo!","tr":"Hurry up, we're late!"}]},
+        {"p":"Manila Tagalog borrows English words all the time, above all for phones, work and school, and it bends them with the same pieces you already know. The mix is called **Taglish**. It's normal everyday speech, not a mistake, though formal Tagalog (the news, speeches) avoids it."},
+        {"p":"**Doing something (actor focus)**: {{mag-}} + the English word: {{mag-text}} “text”, {{mag-drive}} “drive”, {{mag-shopping}} “go shopping”, {{mag-enjoy}} “have a good time”. Its forms work exactly like {{magluto}}, repeating the first sounds of the English word."},
+        { "table": [
+          ["","text","drive"],
+          ["basic","{{mag-text}}","{{mag-drive}}"],
+          ["completed","{{nag-text}}","{{nag-drive}}"],
+          ["ongoing","{{nagte-text}}","{{nagda-drive}}"],
+          ["not yet begun","{{magte-text}}","{{magda-drive}}"]
+        ] },
+        {"p":"**Doing it to a particular thing (object focus)**: {{i-}} + the English word: {{i-send}} “send (it)”, {{i-check}} “check (it)”, {{i-save}}, {{i-print}}. {{I-send mo sa akin.}} “Send it to me.” Once done, people usually say {{sinend}}, {{chineck}}: {{Sinend ko na.}} “I've already sent it.” Not yet begun: {{i-se-send}}, {{i-che-check}}."},
+        {"p":"**Something that happened to you**: {{na-}} + the English word: {{na-late}} “was late”, {{na-traffic}} “got stuck in traffic”, {{na-stress}} “got stressed”. {{Na-traffic ako.}} “I got stuck in traffic.” (Lesson 45 explains this {{na-}}.)"},
+        { "ex": [
+          {"t":"I-text mo ako mamaya.","tr":"Text me later."},
+          {"t":"Nag-text ako sa iyo kanina.","tr":"I texted you earlier."},
+          {"t":"Sinend ko na ang file.","tr":"I've already sent the file."},
+          {"t":"I-check mo muna.","tr":"Check it first."},
+          {"t":"Na-traffic kami sa EDSA.","tr":"We got stuck in traffic on EDSA."},
+          {"t":"Nag-enjoy ba kayo?","tr":"Did you have a good time?"},
+          {"t":"Magsha-shopping kami bukas.","tr":"We're going shopping tomorrow."}
+        ] },
+        {"tip":"Taglish spelling is loose: you'll see {{i-text}} and {{itext}}, {{nag-text}} and {{nagtext}}. Write it as you like; what matters is saying it with the Tagalog pattern."}
+      ],
+      "mistakes": [
+        {"wrong":"Nag-text ako ikaw.","right":"Nag-text ako sa iyo.","tr":"I texted you.","why":"The person you text takes {{sa}}: {{sa iyo}} “to you”."},
+        {"wrong":"I-send ko kahapon.","right":"Sinend ko kahapon.","tr":"I sent it yesterday.","why":"{{i-send}} is the basic form; yesterday it was done, so the completed form, {{sinend}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ako sa iyo kanina.","tr":"I texted you earlier.","options":["Nag-text","Mag-text","I-text"],"answer":0,"why":"Earlier, done, actor focus: {{nag-text}}."},
+        {"type":"choice","q":"“Send it to me.”","options":["{{I-send mo sa akin.}}","{{Mag-send mo sa akin.}}","{{I-send ka sa akin.}}"],"answer":0,"why":"A particular thing: {{i-}} + English, with {{mo}}.","from":"put-and-give-things"},
+        {"type":"choice","q":"You arrive late because of the traffic. You say…","options":["{{Sorry, na-traffic ako!}}","{{Sorry, nag-traffic ako!}}","{{Sorry, i-traffic ako!}}"],"answer":0,"why":"Something that happened to you: {{na-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Sinend ko ___ ang file.","tr":"I've already sent the file.","options":["na","pa","ba"],"answer":0,"why":"{{na}}: already.","from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"We're going shopping tomorrow.","words":["Magsha-shopping","kami","bukas."]},
+        {"type":"dialogue","q":"A coworker asks about a report. Choose your replies.","lines":[{"who":"Coworker","t":"Tapos mo na ba ang report?","tr":"Have you finished the report?"},{"options":["Oo, sinend ko na kanina.","Oo, i-send ko kanina."],"answer":0,"why":"Earlier: already done, so {{sinend}}."},{"who":"Coworker","t":"Talaga? I-che-check ko ang email ko.","tr":"Really? I'll check my email."},{"options":["Sige, i-check mo.","Sige, nag-check mo."],"answer":0,"why":"A command about a particular thing: {{i-check mo}}."}]},
+        {"type":"free","q":"Your turn: tell a friend about your day in Taglish: something you texted, sent or checked, and something that happened to you.","answers":[{"t":"Nag-text ako kay Mama. Sinend ko ang report. Na-late ako sa meeting.","tr":"I texted Mom. I sent the report. I was late for the meeting."},{"t":"Na-traffic ako kanina, pero nag-enjoy ako sa party.","tr":"I got stuck in traffic earlier, but I had a good time at the party."}]}
+      ]
     }
   ]
 }
