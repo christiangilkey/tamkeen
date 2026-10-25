@@ -56,7 +56,7 @@ the friendly style of a good teacher), comparing with Korean wherever that helps
 | 15 | say-what-you-like-and-want | 좋아하는 것과 원하는 것 말하기 | like + plural (I like dogs); like -ing; want (to); would like | A1 |
 | 16 | use-a-and-the | a와 the 구별하기 | first mention *a*, then *the*; the only one; no article for things in general | A1 |
 | **4** | | **숫자, 시간, 할 수 있는 것** (Numbers, time and can) | | |
-| 17 | ask-how-much-and-how-many | 얼마나, 몇 개인지 말하기 | countable and uncountable; how much/many; some/any; a lot of | A1 |
+| 17 | ask-how-much-and-how-many | 얼마인지, 몇 개인지 말하기 | countable and uncountable; how much/many; some/any; a lot of | A1 |
 | 18 | say-when | 날짜와 시간 말하기 | at/on/in for time | A1 |
 | 19 | say-what-you-can-do | 할 수 있는 것 말하고 부탁하기 | can/can't: ability, requests, permission | A1 |
 | 20 | say-what-youre-doing-now | 지금 하고 있는 일 말하기 | present continuous vs present simple | A2 |

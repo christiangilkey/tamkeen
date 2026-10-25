@@ -70,14 +70,14 @@ things are, and say what they want: so unit 1 does exactly that with nouns, 이�
 | 32 | give-reasons | Say why | -아서/어서 "because"; 그래서; 왜요? | A2 |
 | 33 | give-a-reason-and-advice | Give a reason with advice or a suggestion | -(으)니까, and when it must replace -아서 | A2 |
 | 34 | say-but | Say "but" and contrast two things | -지만; 그런데/근데; 그렇지만 | A2 |
-| 35 | go-and-do | Say where you went and what you did there | -아서/어서 for "and then, there" vs -고 | A2 |
+| 35 | go-and-do | Say where you went and what you did there | -아서/어서 for "and then, there" vs -고; -(으)러 가요 "go to do" | A2 |
 | 36 | say-before-and-after | Say what you do before and after | -기 전에; -(으)ㄴ 후에/다음에; N 전에/후에; 동안 | A2 |
 | 37 | compare-things | Compare things | 보다 (더); 제일/가장; 같아요/달라요/비슷해요; N처럼 | A2 |
 | 38 | talk-about-experiences | Say what you've tried, and what you've ever done | -아/어 보세요; -아/어 봤어요; -(으)ㄴ 적이 있어요 | A2 |
 | **8** | | **Describing and explaining** | | |
 | 39 | react-and-agree | React, and check that others agree | -네요; -죠?; -군요 to recognise | A2 |
 | 40 | describe-with-a-sentence | Describe people and things with a whole sentence | modifiers -는 (actions) and -(으)ㄴ (descriptions) | B1 |
-| 41 | the-one-you-saw | Talk about things done and things to do | past modifier -(으)ㄴ; future modifier -(으)ㄹ | B1 |
+| 41 | the-one-you-saw | Talk about things done and things to do | past modifier -(으)ㄴ; future modifier -(으)ㄹ; -(으)ㄹ 때 "when" | B1 |
 | 42 | talk-about-hobbies | Talk about your hobbies | -는 것 (거); -기 | B1 |
 | 43 | give-your-opinion | Give your opinion and make guesses | -(으)ㄴ/는 것 같아요; -(으)ㄹ 것 같아요; 제 생각에는 | B1 |
 | 44 | set-the-scene | Give the background before you ask or tell | -는데/-(으)ㄴ데(요) | B1 |
@@ -113,6 +113,7 @@ things are, and say what they want: so unit 1 does exactly that with nouns, 이�
   (39), reported questions -냐고 (46).
 - **Reasons and "but"**: -아서 (32), -(으)니까 (33), -지만 (34), -는데 (44), -거든요 (49).
 - **-(으)면**: as a chunk in 24 (-(으)면 안 돼요), taught in 27, used for directions (28) and wishes (48).
+  "When" comes back as -(으)ㄹ 때 (41); purpose as -(으)려고 (26) and -(으)러 (35).
 
 ## Reading notes
 
