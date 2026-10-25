@@ -22,12 +22,12 @@
    "title": "Italian grammar",
    "variety": "Italian (Italy)",
    "units": 8,
-   "lessons": 10,
+   "lessons": 14,
    "levels": [
     "A1"
    ],
-   "bytes": 49292,
-   "sha256": "25a94318a7e2ca5bffb761d7510f379706b90bfaf361e7f0d3cd646bdb288f26"
+   "bytes": 69575,
+   "sha256": "17af6794a8da74626c9812ee14d444fdb6f5470b0cb54dd1cf6e18a5f734b809"
   }
  }
 }

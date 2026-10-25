@@ -492,6 +492,213 @@
         {"type":"say","q":"Ask: “Are there any cheap hotels here?”","answer":"Ci sono alberghi economici qui?","from":"talk-about-more-than-one"},
         {"type":"free","q":"Your turn: describe the area where you live: what is there, and what isn't? Use {{c'è}}, {{ci sono}}, {{non c'è}}.","answers":[{"t":"Qui c'è un parco e ci sono due supermercati, ma non c'è un cinema.","tr":"There's a park here and there are two supermarkets, but there isn't a movie theater."},{"t":"Vicino a casa c'è una farmacia, ma non ci sono ristoranti.","tr":"Near my house there's a pharmacy, but there are no restaurants."}]}
       ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask the price and pay",
+      "summary": "Ask how much things cost, understand the numbers, and pay: “How much are the tickets?”",
+      "topic": "Numbers; {{quanto costa?}} / {{quanto costano?}}; {{quanti, quante}}",
+      "blocks": [
+        {"goal":{"t":"Scusi, quanto costano i biglietti?","tr":"Excuse me, how much are the tickets?"}},
+        {"dialog":[{"who":"You","t":"Buongiorno. Quanto costa il giornale?","tr":"Good morning. How much is the newspaper?"},{"who":"Newsagent","t":"Due euro.","tr":"Two euros."},{"who":"You","t":"E le cartoline?","tr":"And the postcards?"},{"who":"Newsagent","t":"Le cartoline costano un euro e cinquanta.","tr":"The postcards are one euro fifty."},{"who":"You","t":"Allora, il giornale e tre cartoline. Quant'è?","tr":"So, the newspaper and three postcards. How much is that?"},{"who":"Newsagent","t":"Sei euro e cinquanta.","tr":"Six euros fifty."}]},
+        {"p":"**How much?** {{Quanto costa?}} for one thing, {{Quanto costano?}} for more than one: the verb {{costare}} “to cost” agrees with what you're buying. When you pay for everything together: {{Quant'è?}} “How much is it?”"},
+        { "table": [
+          ["","Italian","","Italian"],
+          ["1","{{uno}}","11","{{undici}}"],
+          ["2","{{due}}","12","{{dodici}}"],
+          ["3","{{tre}}","13","{{tredici}}"],
+          ["4","{{quattro}}","14","{{quattordici}}"],
+          ["5","{{cinque}}","15","{{quindici}}"],
+          ["6","{{sei}}","16","{{sedici}}"],
+          ["7","{{sette}}","17","{{diciassette}}"],
+          ["8","{{otto}}","18","{{diciotto}}"],
+          ["9","{{nove}}","19","{{diciannove}}"],
+          ["10","{{dieci}}","20","{{venti}}"]
+        ] },
+        {"p":"**The tens**: {{trenta}} 30, {{quaranta}} 40, {{cinquanta}} 50, {{sessanta}} 60, {{settanta}} 70, {{ottanta}} 80, {{novanta}} 90, {{cento}} 100, {{mille}} 1,000. In between, just join them: {{ventidue}} 22, {{trentacinque}} 35. Two small rules: a ten drops its last vowel before {{uno}} and {{otto}} ({{ventuno}}, {{ventotto}}), and a {{tre}} at the end takes an accent ({{ventitré}}, {{trentatré}})."},
+        {"p":"**Prices**: {{euro}} never changes: {{un euro}}, {{dieci euro}}. Cents are {{centesimi}}, but people usually just say the numbers: {{tre euro e cinquanta}} “three fifty”."},
+        {"p":"**How many?** {{quanto}} agrees with its noun, like an adjective: {{Quanti biglietti?}} “How many tickets?”, {{Quante persone?}} “How many people?”"},
+        { "ex": [
+          {"t":"Quanto costa un caffè?","tr":"How much is a coffee?"},
+          {"t":"Quanto costano le arance?","tr":"How much are the oranges?"},
+          {"t":"Costa venti euro.","tr":"It's twenty euros."},
+          {"t":"Quant'è in tutto?","tr":"How much is it altogether?"},
+          {"t":"Quanti biglietti?","tr":"How many tickets?"},
+          {"t":"È troppo caro!","tr":"It's too expensive!"},
+          {"t":"Ventitré euro, per favore.","tr":"Twenty-three euros, please."}
+        ] },
+        {"tip":"Prices are written with a comma: {{2,50 €}} is two euros fifty, said {{due e cinquanta}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Quanto costa le scarpe?","right":"Quanto costano le scarpe?","tr":"How much are the shoes?","why":"More than one thing: {{costano}}."},
+        {"wrong":"Dieci euros.","right":"Dieci euro.","tr":"Ten euros.","why":"{{euro}} doesn't change in the plural."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quanto ___ i biglietti?","tr":"How much are the tickets?","options":["costano","costa"],"answer":0,"why":"{{biglietti}} is plural: {{costano}}."},
+        {"type":"choice","q":"{{diciassette}} is…","options":["17","70","7"],"answer":0,"why":"{{diciassette}} is “ten-seven”, 17. 70 is {{settanta}}."},
+        {"type":"choice","q":"How do you say 28?","options":["{{ventotto}}","{{ventiotto}}","{{ottoventi}}"],"answer":0,"why":"{{venti}} drops its -i before {{otto}}: {{ventotto}}."},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Stallholder","t":"Buongiorno! Cosa desidera?","tr":"Good morning! What would you like?"},{"options":["Quanto costano le pesche?","Quanto costa le pesche?"],"answer":0,"why":"{{pesche}} “peaches” is plural: {{costano}}."},{"who":"Stallholder","t":"Tre euro al chilo.","tr":"Three euros a kilo."},{"options":["Vorrei un chilo, per favore.","Sono un chilo, per favore."],"answer":0,"why":"What you want: {{vorrei}}."}],"from":"order-at-the-cafe"},
+        {"type":"order","q":"Put the words in order.","tr":"How many people are there?","words":["Quante","persone","ci sono?"],"from":"say-what-there-is"},
+        {"type":"say","q":"Ask the waiter: “How much is it altogether?”","answer":"Quant'è in tutto?"},
+        {"type":"free","q":"Your turn: you're at a market. Ask the price of two things, and say how much you'd like.","answers":[{"t":"Quanto costano i pomodori? E quanto costa il pane?","tr":"How much are the tomatoes? And how much is the bread?"},{"t":"Quanto costa il formaggio? Vorrei due etti, per favore.","tr":"How much is the cheese? I'd like two hundred grams, please."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-are-going",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you're going",
+      "summary": "Tell someone where you're going (to Rome, to Italy, to the beach, to the doctor's) and suggest going somewhere together.",
+      "topic": "{{andare}} “to go”; {{a}} Roma, {{in}} Italia, {{al}} mare, {{dal}} medico",
+      "blocks": [
+        {"goal":{"t":"Stasera vado al cinema con Marco.","tr":"Tonight I'm going to the movies with Marco."}},
+        {"dialog":[{"who":"Giulia","t":"Ciao! Dove vai?","tr":"Hi! Where are you going?"},{"who":"You","t":"Vado in centro. E tu?","tr":"I'm going downtown. And you?"},{"who":"Giulia","t":"Vado a casa. Domani andiamo al mare?","tr":"I'm going home. Shall we go to the beach tomorrow?"},{"who":"You","t":"Sì, volentieri!","tr":"Yes, I'd love to!"}]},
+        {"p":"**{{andare}} “to go”** is irregular, and you'll use it every day:"},
+        { "table": [
+          ["","{{andare}} (to go)"],
+          ["I","{{vado}}"],
+          ["you ({{tu}})","{{vai}}"],
+          ["he, she, you ({{Lei}})","{{va}}"],
+          ["we","{{andiamo}}"],
+          ["you (two or more)","{{andate}}"],
+          ["they","{{vanno}}"]
+        ] },
+        {"term":"preposition","means":"a little word that shows place, direction or time: to, in, on, from, with."},
+        {"p":"**To where?** Italian chooses the preposition by the kind of place:"},
+        { "table": [
+          ["going to…","Italian","examples"],
+          ["a town or a city","{{a}}","{{Vado a Roma. Vado a Londra.}}"],
+          ["a country or a region","{{in}}","{{Vado in Italia. Vado in Toscana.}}"],
+          ["many everyday places, with no “the”","{{in}}","{{in centro, in banca, in farmacia, in ufficio, in vacanza}}"],
+          ["home, school, bed","{{a}}","{{a casa, a scuola, a letto}}"],
+          ["places that take “the”","{{al, alla, all'}}","{{al cinema, al mare, alla stazione, all'aeroporto}}"],
+          ["someone's place","{{da}}","{{dal medico}} “to the doctor's”, {{da Marco}} “to Marco's”"]
+        ] },
+        {"p":"**{{a}} and “the” become one word**: {{a + il = al}}, {{a + la = alla}}, {{a + l' = all'}}. The same happens with {{da}}: {{da + il = dal}}. The next lesson shows the whole pattern."},
+        {"p":"**{{andiamo}}** also means “let's go”: {{Andiamo!}} And {{Andiamo al mare?}} suggests it: “Shall we go to the beach?”"},
+        { "ex": [
+          {"t":"Vado a Milano in treno.","tr":"I'm going to Milan by train.","note":"by train, by car: {{in treno, in macchina}}"},
+          {"t":"Andiamo in Italia a luglio.","tr":"We're going to Italy in July."},
+          {"t":"Stasera vai al cinema?","tr":"Are you going to the movies tonight?"},
+          {"t":"Luca va in palestra.","tr":"Luca is going to the gym."},
+          {"t":"Domani vado dal dentista.","tr":"Tomorrow I'm going to the dentist's."},
+          {"t":"I bambini vanno a scuola.","tr":"The children go to school."},
+          {"t":"Andiamo a casa!","tr":"Let's go home!"}
+        ] },
+        {"tip":"As in English, the present works for plans: {{Domani vado a Firenze}} “Tomorrow I'm going to Florence”."}
+      ],
+      "mistakes": [
+        {"wrong":"Vado a Italia.","right":"Vado in Italia.","tr":"I'm going to Italy.","why":"Countries take {{in}}; cities take {{a}}."},
+        {"wrong":"Vado al casa.","right":"Vado a casa.","tr":"I'm going home.","why":"Home is just {{a casa}}, with no “the”."},
+        {"wrong":"Ando al mare.","right":"Vado al mare.","tr":"I'm going to the beach.","why":"{{andare}} is irregular: “I go” is {{vado}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"A luglio vado ___ Spagna.","tr":"In July I'm going to Spain.","options":["in","a","al"],"answer":0,"why":"A country: {{in}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Stasera andiamo ___ cinema.","tr":"Tonight we're going to the movies.","options":["al","a","in"],"answer":0,"why":"{{cinema}} takes “the”: {{a + il = al}}."},
+        {"type":"choice","q":"“They go” is…","options":["{{vanno}}","{{vado}}","{{andano}}"],"answer":0,"why":"{{andare}} is irregular: {{vanno}}."},
+        {"type":"dialogue","q":"You meet a friend in the street: choose your replies.","lines":[{"who":"Luca","t":"Ciao! Dove vai?","tr":"Hi! Where are you going?"},{"options":["Vado in banca.","Vado al banca."],"answer":0,"why":"{{in banca}}, like {{in farmacia}} and {{in ufficio}}: no “the”."},{"who":"Luca","t":"Dopo andiamo a prendere un caffè?","tr":"Shall we go for a coffee afterwards?"},{"options":["Sì, andiamo al bar Centrale!","Sì, andiamo a bar Centrale!"],"answer":0,"why":"{{bar}} takes “the”: {{al bar}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Tomorrow I'm going to the doctor's.","words":["Domani","vado","dal medico."]},
+        {"type":"say","q":"Say (as a man): “I'm going home, I'm tired.”","answer":"Vado a casa, sono stanco.","from":"describe-things-and-people"},
+        {"type":"free","q":"Your turn: where are you going this week? Say two places and when.","answers":[{"t":"Lunedì vado in ufficio e sabato vado al mare.","tr":"On Monday I'm going to the office and on Saturday I'm going to the beach."},{"t":"Domani vado a Roma e stasera vado al cinema con un amico.","tr":"Tomorrow I'm going to Rome and tonight I'm going to the movies with a friend."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say exactly where things are",
+      "summary": "On the table, in the bag, in front of the church, next to the phone: find things and tell others where they are.",
+      "topic": "Prepositions joined to “the”: {{nel, sul, al, dal, del}}…; {{vicino a, davanti a, sotto}}",
+      "blocks": [
+        {"goal":{"t":"Le chiavi sono sul tavolo, vicino al telefono.","tr":"The keys are on the table, next to the phone."}},
+        {"dialog":[{"who":"Marco","t":"Dove sono le chiavi?","tr":"Where are the keys?"},{"who":"Giulia","t":"Sono sul tavolo, in cucina.","tr":"They're on the table, in the kitchen."},{"who":"Marco","t":"No, non ci sono.","tr":"No, they aren't there."},{"who":"Giulia","t":"Allora sono nella borsa, o nel cassetto.","tr":"Then they're in the bag, or in the drawer."},{"who":"Marco","t":"Ah, ecco! Sono nella tasca della giacca.","tr":"Oh, here they are! In the jacket pocket."}]},
+        {"p":"**The prepositions for place** are {{in}} “in”, {{su}} “on”, {{a}} “at, to”, {{da}} “from, at someone's”, and {{di}} “of”. Before “the”, they join it to make one word:"},
+        { "table": [
+          ["","{{il}}","{{lo}}","{{la}}","{{l'}}","{{i}}","{{gli}}","{{le}}"],
+          ["{{a}}","{{al}}","{{allo}}","{{alla}}","{{all'}}","{{ai}}","{{agli}}","{{alle}}"],
+          ["{{in}}","{{nel}}","{{nello}}","{{nella}}","{{nell'}}","{{nei}}","{{negli}}","{{nelle}}"],
+          ["{{su}}","{{sul}}","{{sullo}}","{{sulla}}","{{sull'}}","{{sui}}","{{sugli}}","{{sulle}}"],
+          ["{{di}}","{{del}}","{{dello}}","{{della}}","{{dell'}}","{{dei}}","{{degli}}","{{delle}}"],
+          ["{{da}}","{{dal}}","{{dallo}}","{{dalla}}","{{dall'}}","{{dai}}","{{dagli}}","{{dalle}}"]
+        ] },
+        {"p":"It looks like a lot, but the pattern is simple: the preposition + the article, with {{in}} turning into {{ne-}} and {{di}} into {{de-}}, and a double l whenever the article starts with l ({{la}} → {{nella}})."},
+        {"p":"**No “the”, nothing to join**: city names ({{a Roma}}) and many everyday places ({{in cucina}}, {{in centro}}, {{a casa}}). With “the”, for one particular thing, they join: {{nella cucina di Marco}} “in Marco's kitchen”."},
+        {"p":"**Where exactly**: {{vicino a}} “near, next to”, {{davanti a}} “in front of”, {{in fondo a}} “at the end of”, {{dietro}} “behind”, {{sotto}} “under”, {{sopra}} “on top of”, {{tra}} “between”. The ones with {{a}} join it to “the”: {{vicino al telefono}}, {{davanti alla stazione}}."},
+        { "ex": [
+          {"t":"Il gatto è sotto il letto.","tr":"The cat is under the bed."},
+          {"t":"Il bagno è in fondo al corridoio.","tr":"The bathroom is at the end of the hallway."},
+          {"t":"Abito nel centro storico.","tr":"I live in the old town."},
+          {"t":"La farmacia è davanti alla chiesa.","tr":"The pharmacy is in front of the church."},
+          {"t":"Il menù è sul tavolo.","tr":"The menu is on the table."},
+          {"t":"È il libro dello studente.","tr":"It's the student's book.","note":"{{di}} “of” says whose it is"},
+          {"t":"Ci vediamo davanti al cinema.","tr":"See you in front of the movie theater."}
+        ] },
+        {"tip":"{{di}} + “the” can also mean “some”: {{Vorrei del pane}} “I'd like some bread”. You'll hear it in stores."}
+      ],
+      "mistakes": [
+        {"wrong":"Le chiavi sono su il tavolo.","right":"Le chiavi sono sul tavolo.","tr":"The keys are on the table.","why":"{{su}} and {{il}} join: {{sul}}."},
+        {"wrong":"Il libro è in la borsa.","right":"Il libro è nella borsa.","tr":"The book is in the bag.","why":"{{in}} + {{la}} = {{nella}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Il telefono è ___ borsa.","tr":"The phone is in the bag.","options":["nella","nel","sulla"],"answer":0,"why":"In: {{in}} + {{la}} = {{nella}}. ({{sulla}} would be “on the”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Il gatto dorme ___ divano.","tr":"The cat is sleeping on the sofa.","options":["sul","sulla","su"],"answer":0,"why":"{{divano}} is masculine: {{su}} + {{il}} = {{sul}}."},
+        {"type":"choice","q":"{{dalla}} is…","options":["{{da}} + {{la}}","{{di}} + {{la}}","{{a}} + {{la}}"],"answer":0,"why":"{{da + la = dalla}}; {{di + la}} is {{della}}, {{a + la}} is {{alla}}."},
+        {"type":"dialogue","q":"You can't find the phone: choose your replies.","lines":[{"who":"Marco","t":"Dov'è il telefono?","tr":"Where's the phone?"},{"options":["Non so... forse è nella macchina.","Non so... forse è in la macchina."],"answer":0,"why":"{{in}} + {{la}} = {{nella}}."},{"who":"Marco","t":"No, non c'è. È sul tavolo della cucina?","tr":"No, it isn't there. Is it on the kitchen table?"},{"options":["Sì! È lì, vicino al computer.","Sì! È lì, vicino il computer."],"answer":0,"why":"{{vicino a}} + {{il}} = {{vicino al}}."}],"from":"say-what-there-is"},
+        {"type":"order","q":"Put the words in order.","tr":"The bank is in front of the station.","words":["La banca","è","davanti","alla stazione."]},
+        {"type":"say","q":"Say: “I'm going to the airport.”","answer":"Vado all'aeroporto.","from":"say-where-you-are-going"},
+        {"type":"free","q":"Your turn: look around you and say where three things are.","answers":[{"t":"Il telefono è sul tavolo, le chiavi sono nella borsa e il gatto è sotto il letto.","tr":"The phone is on the table, the keys are in the bag and the cat is under the bed."},{"t":"Il computer è sulla scrivania, vicino alla finestra.","tr":"The computer is on the desk, next to the window."}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell the time and make an appointment",
+      "summary": "Ask and say the time, say when things open and start, and book a table or an appointment.",
+      "topic": "{{Che ore sono? Sono le tre, è l'una}}; {{alle otto}}; the days of the week",
+      "blocks": [
+        {"goal":{"t":"Il treno parte alle otto e mezza.","tr":"The train leaves at eight thirty."}},
+        {"dialog":[{"who":"Receptionist","t":"Studio medico, buongiorno.","tr":"Doctor's office, good morning."},{"who":"You","t":"Buongiorno. Vorrei un appuntamento con la dottoressa Neri.","tr":"Good morning. I'd like an appointment with Dr. Neri."},{"who":"Receptionist","t":"Giovedì alle tre va bene?","tr":"Is Thursday at three OK?"},{"who":"You","t":"Alle tre no, lavoro. Alle cinque?","tr":"Not at three, I'm working. At five?"},{"who":"Receptionist","t":"Va bene: giovedì alle cinque.","tr":"All right: Thursday at five."},{"who":"You","t":"Perfetto, grazie mille!","tr":"Perfect, thanks a lot!"}]},
+        {"p":"**What time is it?** {{Che ore sono?}} (or {{Che ora è?}}). The answer is {{sono le}} + the hour, because hours are counted as feminine plural: {{sono le tre}} “it's three o'clock”. Only one o'clock is singular: {{è l'una}}. And {{è mezzogiorno}} “it's noon”, {{è mezzanotte}} “it's midnight”."},
+        { "table": [
+          ["time","Italian"],
+          ["1:00","{{È l'una.}}"],
+          ["3:00","{{Sono le tre.}}"],
+          ["3:10","{{Sono le tre e dieci.}}"],
+          ["3:15","{{Sono le tre e un quarto.}}"],
+          ["3:30","{{Sono le tre e mezza.}}"],
+          ["3:45","{{Sono le quattro meno un quarto.}}"],
+          ["3:50","{{Sono le quattro meno dieci.}}"]
+        ] },
+        {"p":"**At what time?** {{A che ora…?}}, and the answer with {{alle}} ({{a + le}}): {{alle otto}} “at eight”, {{all'una}} “at one”, {{a mezzogiorno}} “at noon”. Timetables and stores use the 24-hour clock: {{alle diciotto}} “at 6 p.m.”."},
+        {"p":"**The days**: {{lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica}}, with no capital letter. {{Lunedì}} alone means “on Monday”, this one; {{il lunedì}} means “on Mondays”, every week."},
+        { "ex": [
+          {"t":"Che ore sono? Sono le dieci.","tr":"What time is it? It's ten o'clock."},
+          {"t":"È l'una e mezza.","tr":"It's one thirty."},
+          {"t":"A che ora apre il museo?","tr":"What time does the museum open?"},
+          {"t":"Apre alle nove e chiude alle diciannove.","tr":"It opens at nine and closes at 7 p.m."},
+          {"t":"Ci vediamo sabato alle otto.","tr":"See you on Saturday at eight."},
+          {"t":"Il lunedì il ristorante è chiuso.","tr":"The restaurant is closed on Mondays."},
+          {"t":"Sono le sette di sera.","tr":"It's seven in the evening.","note":"{{di mattina}}, {{di pomeriggio}}, {{di sera}}, {{di notte}}"}
+        ] },
+        {"tip":"“Ten-ish” is {{verso le dieci}} “around ten”. {{In orario}} means “on time”, {{in ritardo}} “late”."}
+      ],
+      "mistakes": [
+        {"wrong":"È le tre.","right":"Sono le tre.","tr":"It's three o'clock.","why":"Hours are plural: {{sono le tre}}. Only one o'clock is singular: {{è l'una}}."},
+        {"wrong":"Alle una.","right":"All'una.","tr":"At one o'clock.","why":"One o'clock is {{l'una}}, and {{a + l'}} = {{all'}}."},
+        {"wrong":"Il treno parte a le otto.","right":"Il treno parte alle otto.","tr":"The train leaves at eight.","why":"{{a}} and {{le}} join: {{alle}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"3:30 is…","options":["{{Sono le tre e mezza.}}","{{È le tre e mezza.}}","{{Sono tre e mezza.}}"],"answer":0,"why":"{{sono le}} + the hour, and {{e mezza}} for half past."},
+        {"type":"fill","q":"Choose the missing word.","t":"Il film comincia ___ nove.","tr":"The movie starts at nine.","options":["alle","a","le"],"answer":0,"why":"“At” with a time: {{alle}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ l'una e un quarto.","tr":"It's a quarter past one.","options":["È","Sono","C'è"],"answer":0,"why":"One o'clock is singular: {{è l'una}}."},
+        {"type":"dialogue","q":"Booking a table by phone: choose your replies.","lines":[{"who":"Restaurant","t":"Ristorante Da Mario, buonasera.","tr":"Da Mario restaurant, good evening."},{"options":["Buonasera. Vorrei prenotare un tavolo per due, sabato.","Buonasera. Sono un tavolo per due, sabato."],"answer":0,"why":"{{vorrei}} + what you want to do: {{vorrei prenotare}} “I'd like to book”."},{"who":"Restaurant","t":"A che ora?","tr":"At what time?"},{"options":["Alle otto e mezza.","Le otto e mezza sono."],"answer":0,"why":"“At” + a time: {{alle}}."},{"who":"Restaurant","t":"Perfetto. A sabato!","tr":"Perfect. See you Saturday!"}],"from":"order-at-the-cafe"},
+        {"type":"order","q":"Put the words in order.","tr":"What time does the bank open?","words":["A che ora","apre","la banca?"]},
+        {"type":"say","q":"Ask a stranger politely: “Excuse me, what time is it?”","answer":"Scusi, che ore sono?","from":"ask-where-things-are"},
+        {"type":"free","q":"Your turn: describe your day with three times: when you work, when you eat, when you go home.","answers":[{"t":"Lavoro dalle nove alle cinque. Pranzo all'una e vado a casa alle sei.","tr":"I work from nine to five. I have lunch at one and I go home at six."},{"t":"Il lunedì vado in palestra alle sette di sera.","tr":"On Mondays I go to the gym at seven in the evening."}]}
+      ]
     }
   ]
 }
