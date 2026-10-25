@@ -1639,6 +1639,195 @@
         {"type":"say","q":"Isulti: “Gikapoy kaayo ko gahapon.”","answer":"I was so tired yesterday.","from":"say-where-you-were"},
         {"type":"free","q":"Ikaw na: isulti ang imong gibati karon ug ngano.","answers":[{"t":"I'm tired because I worked late. But I'm excited about the weekend!","tr":"Gikapoy ko kay ulahi ko nahuman sa trabaho. Pero naukyab ko sa weekend!"},{"t":"I feel great today. My English class was really interesting.","tr":"Maayo kaayo akong pamati karon. Makapaikag kaayo ang akong klase sa Iningles."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 7,
+      "level": "A2",
+      "title": "Isulti ang imong mga kasinatian",
+      "summary": "Pangutana ug isulti ang mga kasinatian: “Have you ever been to Bohol? — Yes, twice!”",
+      "topic": "Ang present perfect ({{have}} / {{has}} + past participle) para sa kasinatian; {{ever}}, {{never}}; {{been}}; dili uban sa {{last year}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to Bohol? — Yes, I have. Twice!","tr":"Nakaadto ka na sa Bohol? — Oo. Kaduha na!"}},
+        {"dialog":[{"who":"Amy","t":"Have you ever been to the United States?","tr":"Nakaadto ka na sa Amerika?"},{"who":"Joy","t":"No, I haven't. But I've been to Singapore.","tr":"Wala pa. Pero nakaadto na ko sa Singapore."},{"who":"Joy","t":"Have you ever tried balut?","tr":"Nakatilaw ka na og balut?"},{"who":"Amy","t":"No, never! Is it good?","tr":"Wala gyud! Lami ba?"},{"who":"Joy","t":"I've eaten it many times. It's delicious!","tr":"Nakakaon na ko niini daghang higayon. Lami kaayo!"},{"who":"Amy","t":"Okay, I'll try it. I've never even seen one!","tr":"Okay, sulayan nako. Wala pa gyud ko kakita ana!"}]},
+        {"p":"Sa Bisaya, ang “naka-” uban sa “na” para sa kasinatian: “Nakaadto ka na sa Bohol?” Sa Iningles, ang **present perfect**: {{have}} (o {{has}} uban sa {{he}}, {{she}}, {{it}}) + ang **past participle**: {{Have you ever been to Bohol?}} {{I've eaten balut.}}"},
+        {"term":"past participle","means":"ang ikatulong porma sa berbo, gamiton human sa {{have}}: {{eat}} – {{ate}} – {{eaten}}. Sa regular nga berbo, parehas sa {{-ed}}: {{visit}} – {{visited}} – {{visited}}."},
+        { "table": [
+          ["berbo","kaniadto","past participle"],
+          ["{{be}}","{{was}} / {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}} / {{been}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{take}}","{{took}}","{{taken}}"],
+          ["{{meet}}","{{met}}","{{met}}"],
+          ["{{try}}","{{tried}}","{{tried}}"]
+        ] },
+        {"p":"**{{ever}} ug {{never}}.** Sa pangutana, {{ever}} = “na (bisan kausa)”: {{Have you ever…?}} Ang “wala pa gyud”: {{never}}: {{I've never been to Japan.}} Ang {{never}} na mismo ang “dili”: dili {{I haven't never}}. Ug para sa mga lugar, {{been}}: {{I've been to Bohol}} (miadto ug mibalik)."},
+        {"p":"**Ang dakong kalainan sa Bisaya**: kung naay **tino nga panahon nga nahuman na** ({{last year}}, {{yesterday}}, {{in 2020}}), ang Iningles mobalik sa past simple: {{I went to Bohol last year.}} Ang present perfect walay tino nga panahon: {{I've been to Bohol.}} (bisan kanus-a sa akong kinabuhi)."},
+        { "ex": [
+          {"t":"I've been to Bohol twice.","tr":"Nakaadto na ko sa Bohol kaduha."},
+          {"t":"Have you ever eaten durian?","tr":"Nakakaon ka na og durian?"},
+          {"t":"I've never seen snow.","tr":"Wala pa gyud ko kakita og niyebe."},
+          {"t":"She has visited Japan three times.","tr":"Nakaadto na siya sa Japan katulo."},
+          {"t":"Have you ever ridden a horse? — No, I haven't.","tr":"Nakasakay ka na og kabayo? — Wala pa."},
+          {"t":"We've met before!","tr":"Nagkita na ta kaniadto!"}
+        ] },
+        {"tip":"Kapila: {{once}} kausa, {{twice}} kaduha, {{three times}} katulo, {{many times}} daghang higayon. Mubo nga tubag: {{Yes, I have.}} / {{No, I haven't.}} / {{No, never.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Have you ever went to Bohol?","right":"Have you ever been to Bohol?","tr":"Nakaadto ka na sa Bohol?","why":"Human sa {{have}}: past participle ({{been}}), dili ang kaniadto ({{went}})."},
+        {"wrong":"I have been to Bohol last year.","right":"I went to Bohol last year.","tr":"Miadto ko sa Bohol sa miaging tuig.","why":"Uban sa tino nga panahon nga nahuman ({{last year}}): past simple."},
+        {"wrong":"I haven't never eaten it.","right":"I've never eaten it.","tr":"Wala pa gyud nako kini makaon.","why":"Ang {{never}} na mismo ang “dili”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Have you ever ___ to Bohol?","tr":"Nakaadto ka na sa Bohol?","options":["been","went","go"],"answer":0,"why":"{{have}} + {{been}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I've never ___ durian.","tr":"Wala pa gyud ko kakaon og durian.","options":["eaten","ate","eat"],"answer":0,"why":"{{have}} + past participle: {{eaten}}."},
+        {"type":"choice","q":"“Miadto ko sa Japan sa miaging tuig.”","options":["{{I went to Japan last year.}}","{{I've been to Japan last year.}}"],"answer":0,"why":"Tino nga panahon ({{last year}}): past simple."},
+        {"type":"dialogue","q":"Nag-istorya mo bahin sa mga biyahe. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Have you ever been to Manila?","tr":"Nakaadto ka na sa Manila?"},{"options":["Yes, I have. I went there in 2022.","Yes, I have. I've been there in 2022."],"answer":0,"why":"Ang tino nga panahon ({{in 2022}}): past simple, {{went}}."},{"who":"Amy","t":"Have you ever been to another country?","tr":"Nakaadto ka na sa laing nasud?"},{"options":["No, never. But I'd love to!","No, I haven't never. But I'd love to!"],"answer":0,"why":"{{No, never.}} o {{No, I haven't.}}, dili duha ka “dili”."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Wala pa gyud ko kakita og niyebe.","words":["I've","never","seen","snow."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ to Bohol last year.","tr":"Miadto ko sa Bohol sa miaging tuig.","options":["went","been","gone"],"answer":0,"why":"{{last year}}: kaniadto, {{went}}.","from":"tell-about-your-weekend"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She ___ visited Japan three times.","tr":"Nakaadto na siya sa Japan katulo.","options":["has","have","is"],"answer":0,"why":"Uban sa {{she}}: {{has}}, sama sa {{she has a dog}}.","from":"talk-about-your-family"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga nabuhat na nimo, ug usa nga wala pa gyud.","answers":[{"t":"I've been to Bohol and Siargao. I've never been on a plane.","tr":"Nakaadto na ko sa Bohol ug Siargao. Wala pa gyud ko kasakay og eroplano."},{"t":"I've eaten balut many times. I've never tried sushi.","tr":"Nakakaon na ko og balut daghang higayon. Wala pa gyud ko katilaw og sushi."}]}
+      ]
+    },
+    {
+      "id": "say-whats-done",
+      "unit": 7,
+      "level": "A2",
+      "title": "Isulti kung unsay nahuman na",
+      "summary": "Isulti kung unsay nahuman na ug wala pa: “I've already eaten, but I haven't had coffee yet.”",
+      "topic": "Present perfect uban sa {{already}}, {{yet}}, {{just}} (ang “na”, “pa”, “bag-o lang”); kanus-a ang past simple",
+      "blocks": [
+        {"goal":{"t":"I've already eaten, but I haven't had coffee yet.","tr":"Nikaon na ko, pero wala pa ko kainom og kape."}},
+        {"dialog":[{"who":"Boss","t":"Have you finished the report yet?","tr":"Nahuman na nimo ang report?"},{"who":"Ana","t":"Yes, I've just sent it to you.","tr":"Oo, bag-o lang nako kini gipadala nimo."},{"who":"Boss","t":"Great! Has Ben called the client yet?","tr":"Nindot! Natawagan na ba ni Ben ang kliyente?"},{"who":"Ana","t":"No, he hasn't called yet. He's in a meeting.","tr":"Wala pa. Naa siya sa miting."},{"who":"Boss","t":"Have you had lunch?","tr":"Naniudto ka na?"},{"who":"Ana","t":"Not yet. I'll eat after this.","tr":"Wala pa. Mokaon ko human ani."}]},
+        {"p":"Ang “na”, “wala pa” ug “bag-o lang” sa Bisaya, sa Iningles: ang present perfect uban sa tulo ka gagmay nga pulong:"},
+        { "table": [
+          ["Bisaya","Iningles","asa ibutang"],
+          ["Nikaon na ko.","{{I've already eaten.}}","{{already}}: taliwala sa {{have}} ug sa berbo"],
+          ["Wala pa ko mokaon.","{{I haven't eaten yet.}}","{{yet}}: sa katapusan (dili ug pangutana)"],
+          ["Nikaon na ka?","{{Have you eaten yet?}}","{{yet}}: sa katapusan"],
+          ["Bag-o lang ko nikaon.","{{I've just eaten.}}","{{just}}: taliwala sa {{have}} ug sa berbo"]
+        ] },
+        {"p":"**Nahuman nga panahon = past simple.** Kung naay tino nga panahon nga nahuman na, sama sa leksyon 35: {{I finished it yesterday.}} Kung wala, ug ang importante kay ang **karon** (nahuman na ba o wala pa): {{I've finished it.}}"},
+        {"p":"**Sa Amerika**, sa adlaw-adlaw nga istorya, kasagaran gamiton ang past simple uban sa {{already}} ug {{yet}}: {{Did you eat yet?}} {{I already ate.}} Husto kini sa American English. Pero ayaw isagol ang duha: {{Have you eaten yet?}} o {{Did you eat yet?}}, dili {{Did you eaten}}."},
+        { "ex": [
+          {"t":"I've already eaten.","tr":"Nikaon na ko."},
+          {"t":"Have you finished yet?","tr":"Nahuman na ka?"},
+          {"t":"I haven't finished yet.","tr":"Wala pa ko mahuman."},
+          {"t":"She's just left.","tr":"Bag-o lang siya milakaw."},
+          {"t":"Has the bus arrived yet?","tr":"Niabot na ba ang bus?"},
+          {"t":"We've already paid.","tr":"Nakabayad na mi."}
+        ] },
+        {"tip":"Ang {{She's just left}} = {{She has just left}}. Ang {{'s}} mahimong {{is}} o {{has}}: {{She's tired}} ({{is}}), {{She's eaten}} ({{has}}). Ang sunod nga pulong ang magsulti."}
+      ],
+      "mistakes": [
+        {"wrong":"I haven't already eaten.","right":"I haven't eaten yet.","tr":"Wala pa ko mokaon.","why":"Sa “dili”: {{yet}}, sa katapusan."},
+        {"wrong":"I've finished it yesterday.","right":"I finished it yesterday.","tr":"Nahuman nako kini gahapon.","why":"Uban sa {{yesterday}}: past simple."},
+        {"wrong":"I've eaten just.","right":"I've just eaten.","tr":"Bag-o lang ko nikaon.","why":"Ang {{just}} taliwala sa {{have}} ug sa berbo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I haven't finished ___.","tr":"Wala pa ko mahuman.","options":["yet","already","just"],"answer":0,"why":"Sa “dili”, sa katapusan: {{yet}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"We've ___ paid.","tr":"Nakabayad na mi.","options":["already","yet","still"],"answer":0,"why":"Positibo, “na”: {{already}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She's ___ left.","tr":"Bag-o lang siya milakaw.","options":["just","yet","ever"],"answer":0,"why":"Bag-o lang: {{just}}."},
+        {"type":"choice","q":"“Wala pa ko mahuman.”","options":["{{I haven't finished yet.}}","{{I haven't already finished.}}","{{I didn't finished yet.}}"],"answer":0,"why":"{{haven't}} + participle + {{yet}}."},
+        {"type":"dialogue","q":"Sa trabaho: pilia ang imong mga tubag.","lines":[{"who":"Boss","t":"Have you sent the email yet?","tr":"Napadala na nimo ang email?"},{"options":["Yes, I've just sent it.","Yes, I've sent it just."],"answer":0,"why":"{{just}} taliwala sa {{have}} ug {{sent}}."},{"who":"Boss","t":"And the report?","tr":"Ug ang report?"},{"options":["I haven't finished it yet.","I haven't finished it already."],"answer":0,"why":"Sa “dili”: {{yet}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Bag-o lang siya milakaw.","words":["She's","just","left."]},
+        {"type":"choice","q":"“Nikaon ka gahapon?” ug “Nikaon ka na?”","options":["{{Did you eat yesterday?}} ug {{Have you eaten?}}","{{Have you eaten yesterday?}} ug {{Did you eat?}}"],"answer":0,"why":"Uban sa {{yesterday}}: past simple. “Na”, walay panahon: present perfect.","from":"ask-what-happened"},
+        {"type":"free","q":"Ikaw na: isulti ang duha ka butang nga nabuhat na nimo karon, ug usa nga wala pa.","answers":[{"t":"I've already had breakfast and I've cleaned my room. I haven't called my mom yet.","tr":"Namahaw na ko ug nalimpyohan na nako ang akong kwarto. Wala pa nako matawagan ang akong mama."},{"t":"I've just finished work. I haven't eaten dinner yet.","tr":"Bag-o lang ko nahuman sa trabaho. Wala pa ko manihapon."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Ihatag ang rason",
+      "summary": "Isulti kung ngano, unsay resulta, ug unsay tumong: “I'm learning English because I want to work abroad.”",
+      "topic": "{{because}} (kay) ug {{because of}} (tungod sa); {{so}} (busa); {{to}} + berbo (aron); dili {{because}} ug {{so}} dungan",
+      "blocks": [
+        {"goal":{"t":"I'm learning English because I want to work abroad.","tr":"Nagtuon ko og Iningles kay gusto ko motrabaho sa gawas sa nasud."}},
+        {"dialog":[{"who":"Amy","t":"Why are you learning English?","tr":"Nganong nagtuon ka og Iningles?"},{"who":"Ben","t":"Because I want to work on a cruise ship.","tr":"Kay gusto ko motrabaho sa usa ka cruise ship."},{"who":"Amy","t":"Wow! Is it hard?","tr":"Wow! Lisud ba?"},{"who":"Ben","t":"A little. I practice every day to improve my speaking.","tr":"Gamay. Mopraktis ko matag adlaw aron mouswag ang akong pagsulti."},{"who":"Amy","t":"Your English is great, so I'm sure you'll pass.","tr":"Maayo kaayo imong Iningles, busa sigurado ko nga makapasar ka."},{"who":"Ben","t":"Thanks! I watch American movies to learn new words.","tr":"Salamat! Motan-aw ko og mga sine sa Amerika aron makakat-on og bag-ong mga pulong."}]},
+        {"p":"**Kay: {{because}}** + kompleto nga sentence (tawo + berbo): {{I stayed home because it was raining.}} Sa unahan sa nombre, “tungod sa”: {{because of}}: {{because of the rain}}."},
+        {"p":"**Busa, mao nga: {{so}}**, para sa resulta: {{It was raining, so I stayed home.}} **Usa ra ang gamiton**: {{because}} o {{so}}, dili duha. Sa Bisaya, usahay mogawas ang duha (“Kay nag-ulan, busa…”), pero sa Iningles sayop ang {{Because it was raining, so I stayed home.}}"},
+        {"p":"**Aron: {{to}}** + berbo, para sa tumong: {{I practice every day to improve.}} Dili {{for improve}} o {{for to improve}}: kini usa sa pinakasagad nga sayop sa mga Pilipino."},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["…kay nag-ulan.","{{…because it was raining.}}"],
+          ["…tungod sa ulan.","{{…because of the rain.}}"],
+          ["Nag-ulan, busa…","{{It was raining, so…}}"],
+          ["…aron makakat-on.","{{…to learn.}}"]
+        ] },
+        { "ex": [
+          {"t":"I stayed home because it was raining.","tr":"Nagpabilin ko sa balay kay nag-ulan."},
+          {"t":"We didn't go because of the traffic.","tr":"Wala mi moadto tungod sa trapiko."},
+          {"t":"It was late, so we took a taxi.","tr":"Gabii na, busa misakay mi og taxi."},
+          {"t":"I'm saving money to buy a house.","tr":"Nagtigom ko og kwarta aron makapalit og balay."},
+          {"t":"She went to Manila to visit her sister.","tr":"Miadto siya sa Manila aron bisitahon ang iyang igsoon."},
+          {"t":"Why? — Because I love it!","tr":"Ngano? — Kay ganahan kaayo ko!"}
+        ] },
+        {"tip":"Sa istorya, ang tubag sa {{Why?}} mahimong {{Because…}} lang, sama sa “Kay…”. Pero sa pagsulat, kasagaran tibuok: {{I stayed home because I was sick.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I practice for improve my English.","right":"I practice to improve my English.","tr":"Mopraktis ko aron mouswag ang akong Iningles.","why":"Tumong (aron): {{to}} + berbo."},
+        {"wrong":"I stayed home because the rain.","right":"I stayed home because of the rain.","tr":"Nagpabilin ko sa balay tungod sa ulan.","why":"Sa unahan sa nombre: {{because of}}."},
+        {"wrong":"Because it was raining, so I stayed home.","right":"Because it was raining, I stayed home.","tr":"Kay nag-ulan, nagpabilin ko sa balay.","why":"Usa ra: {{because}} o {{so}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I stayed home ___ I was sick.","tr":"Nagpabilin ko sa balay kay masakiton ko.","options":["because","so","to"],"answer":0,"why":"Rason + sentence: {{because}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"It was late, ___ we took a taxi.","tr":"Gabii na, busa misakay mi og taxi.","options":["so","because","to"],"answer":0,"why":"Resulta: {{so}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I'm saving money ___ buy a house.","tr":"Nagtigom ko og kwarta aron makapalit og balay.","options":["to","for","for to"],"answer":0,"why":"Tumong: {{to}} + berbo."},
+        {"type":"choice","q":"“Wala mi moadto tungod sa trapiko.”","options":["{{We didn't go because of the traffic.}}","{{We didn't go because the traffic.}}","{{We didn't go so the traffic.}}"],"answer":0,"why":"Sa unahan sa nombre: {{because of}}."},
+        {"type":"dialogue","q":"Gipangutana ka nganong nagtuon ka og Iningles. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"Why are you learning English?","tr":"Nganong nagtuon ka og Iningles?"},{"options":["Because I want to work in Canada.","Because of I want to work in Canada."],"answer":0,"why":"Sentence human niini: {{because}}, dili {{because of}}."},{"who":"Amy","t":"How do you practice?","tr":"Unsaon nimo pagpraktis?"},{"options":["I talk to tourists to practice my speaking.","I talk to tourists for practice my speaking."],"answer":0,"why":"Tumong: {{to}} + berbo."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nagtigom ko og kwarta aron makapalit og balay.","words":["I'm saving","money","to buy","a house."]},
+        {"type":"say","q":"Isulti: “Gusto ko mokat-on og Iningles kay gusto ko mobiyahe.”","answer":"I want to learn English because I want to travel.","from":"say-what-you-want-to-do"},
+        {"type":"free","q":"Ikaw na: isulti nganong nagtuon ka og Iningles, ug unsay imong gibuhat aron mouswag.","answers":[{"t":"I'm learning English because I want a better job. I watch videos every day to learn new words.","tr":"Nagtuon ko og Iningles kay gusto ko og mas maayong trabaho. Motan-aw ko og mga video matag adlaw aron makakat-on og bag-ong mga pulong."},{"t":"I need English for my work, so I practice with my coworkers.","tr":"Kinahanglan nako ang Iningles sa akong trabaho, busa mopraktis ko uban sa akong mga kauban."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 7,
+      "level": "A2",
+      "title": "Isulti kung unsa na kadugay",
+      "summary": "Isulti kung unsa na kadugay ka nagpuyo, nagtrabaho o nagtuon: “I've lived in Cebu for ten years.”",
+      "topic": "Present perfect para sa nagsugod kaniadto ug nagpadayon karon; {{for}} (gidugayon) ug {{since}} (sugod); {{How long have you…?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Cebu for ten years.","tr":"Napulo ka tuig na ko nagpuyo sa Cebu."}},
+        {"dialog":[{"who":"Amy","t":"How long have you lived in Cebu?","tr":"Unsa na ka dugay nga nagpuyo ka sa Cebu?"},{"who":"Joy","t":"I've lived here for ten years, since 2016.","tr":"Napulo ka tuig na ko dinhi, sukad pa sa 2016."},{"who":"Amy","t":"And how long have you worked at the hotel?","tr":"Ug unsa na ka dugay nga nagtrabaho ka sa hotel?"},{"who":"Joy","t":"For three years. And you? How long have you been in the Philippines?","tr":"Tulo ka tuig na. Ikaw? Unsa na ka dugay nga naa ka sa Pilipinas?"},{"who":"Amy","t":"Only two weeks! But I've already eaten lechon five times.","tr":"Duha pa lang ka semana! Pero nakakaon na ko og lechon kalima."}]},
+        {"p":"Sa Bisaya: “Napulo ka tuig na ko dinhi”: ang “na” ang nagsulti nga nagpadayon pa. Sa Iningles, ang butang nga **nagsugod kaniadto ug nagpadayon karon** gisulti sa present perfect: {{I've lived here for ten years.}} Dili {{I live here since 2016}}: kini ang klasiko nga sayop sa Philippine English."},
+        {"p":"**{{for}} ug {{since}}.** {{for}} + ang **gidugayon** (pila ka panahon): {{for ten years}}, {{for two weeks}}, {{for a long time}}. {{since}} + ang **sugod** (kanus-a nagsugod): {{since 2016}}, {{since Monday}}, {{since I was a child}}."},
+        { "table": [
+          ["{{for}} (gidugayon)","{{since}} (sugod)"],
+          ["{{for ten years}}","{{since 2016}}"],
+          ["{{for three days}}","{{since Monday}}"],
+          ["{{for a long time}}","{{since I was a child}}"]
+        ] },
+        {"p":"**Ang pangutana**: {{How long have you…?}} “Unsa na ka dugay nga…?”: {{How long have you lived here?}} Uban sa {{be}}: {{How long have you been here?}} {{I've been sick since Monday.}}"},
+        {"p":"**Kung nahuman na**, ang past simple: “Napulo ka tuig ko didto” (wala na ko didto) → {{I lived there for ten years.}}"},
+        { "ex": [
+          {"t":"I've lived in Cebu for ten years.","tr":"Napulo ka tuig na ko nagpuyo sa Cebu."},
+          {"t":"She's worked here since 2020.","tr":"Nagtrabaho siya dinhi sukad pa sa 2020."},
+          {"t":"We've been married for five years.","tr":"Lima ka tuig na mi nga minyo."},
+          {"t":"I've known him since high school.","tr":"Kaila na nako siya sukad pa sa high school."},
+          {"t":"How long have you been here?","tr":"Unsa na ka dugay nga naa ka dinhi?"},
+          {"t":"I lived in Davao for two years.","tr":"Duha ka tuig ko nagpuyo sa Davao."}
+        ] },
+        {"tip":"{{Long time no see!}} “Dugay na ta wala magkita!” kay panultihon nga dili mosunod sa gramatika, pero gamiton kini sa tanan."}
+      ],
+      "mistakes": [
+        {"wrong":"I live in Cebu since 2016.","right":"I've lived in Cebu since 2016.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2016.","why":"Nagsugod kaniadto ug nagpadayon karon: present perfect."},
+        {"wrong":"I've lived here since ten years.","right":"I've lived here for ten years.","tr":"Napulo ka tuig na ko nagpuyo dinhi.","why":"Gidugayon: {{for}}. Ang {{since}} para sa sugod."},
+        {"wrong":"How long you live here?","right":"How long have you lived here?","tr":"Unsa na ka dugay nga nagpuyo ka dinhi?","why":"{{How long have you}} + past participle."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I've lived here ___ ten years.","tr":"Napulo ka tuig na ko nagpuyo dinhi.","options":["for","since","from"],"answer":0,"why":"Gidugayon: {{for}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"She's worked here ___ 2020.","tr":"Nagtrabaho siya dinhi sukad pa sa 2020.","options":["since","for","from"],"answer":0,"why":"Sugod: {{since}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ in Cebu since 2016.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2016.","options":["have lived","live","lived"],"answer":0,"why":"Nagpadayon pa: present perfect."},
+        {"type":"choice","q":"“Unsa na ka dugay nga naa ka dinhi?”","options":["{{How long have you been here?}}","{{How long are you here?}}","{{How long you are here?}}"],"answer":0,"why":"{{How long have you been…?}}"},
+        {"type":"dialogue","q":"Gipangutana ka sa usa ka Amerikano. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"How long have you worked here?","tr":"Unsa na ka dugay nga nagtrabaho ka dinhi?"},{"options":["I've worked here for five years.","I work here since five years."],"answer":0,"why":"Present perfect + {{for}}."},{"who":"Amy","t":"And how long have you known Lisa?","tr":"Ug unsa na ka dugay nga kaila nimo si Lisa?"},{"options":["Since we were kids!","For we were kids!"],"answer":0,"why":"Sugod: {{since}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Lima ka tuig na mi nga minyo.","words":["We've been","married","for","five years."]},
+        {"type":"say","q":"Isulti: “Naa ko sa Manila og duha ka tuig, pero karon nagpuyo ko sa Cebu.”","answer":"I was in Manila for two years, but now I live in Cebu.","from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw na: isulti kung unsa na kadugay ka nagpuyo sa imong lugar ug nagtuon og Iningles.","answers":[{"t":"I've lived in Mandaue for twenty years. I've studied English since high school.","tr":"Baynte ka tuig na ko nagpuyo sa Mandaue. Nagtuon ko og Iningles sukad pa sa high school."},{"t":"I've worked at a call center for three years, and I've used this app for two months.","tr":"Tulo ka tuig na ko nagtrabaho sa call center, ug duha ka bulan na nakong gigamit kini nga app."}]}
+      ]
     }
   ]
 }
