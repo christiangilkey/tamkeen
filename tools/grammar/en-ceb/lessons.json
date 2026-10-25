@@ -226,7 +226,7 @@
       ],
       "mistakes": [
         {"wrong":"Kini lanzones.","right":"Lanzones kini.","tr":"These are lanzones.","why":"What it is comes first, then {{kini}}: the same order as {{Maestra ko}}."},
-        {"wrong":"Unsa kini? (about the thing in your friend's hand)","right":"Unsa kana?","tr":"What's that?","why":"Near the person you're talking to: {{kana}}."}
+        {"wrong":"Unsa kini?","right":"Unsa kana?","tr":"What's that?","why":"About the thing in your friend’s hand, near the person you’re talking to: {{kana}}. {{kini}} is near you."}
       ],
       "practice": [
         {"type":"choice","q":"The thing is in your friend's hand. You ask:","options":["{{Unsa kana?}}","{{Unsa kini?}}","{{Unsa kadto?}}"],"answer":0,"why":"Near the person you're talking to: {{kana}}."},
@@ -1352,7 +1352,7 @@
         {"tip":"A plan with a question mark is a gentle suggestion: {{Magsine ta?}} {{Mokaon ta sa gawas?}} “Shall we eat out?” Answer {{Sige!}} “Okay!” or {{Dili ko makaadto, sorry.}}"}
       ],
       "mistakes": [
-        {"wrong":"Adto mi! (inviting a friend)","right":"Adto ta!","tr":"Let's go!","why":"Inviting someone includes them: {{ta}}. {{Adto mi}} would mean “We're off” without them."},
+        {"wrong":"Adto mi!","right":"Adto ta!","tr":"Let's go!","why":"Inviting a friend includes them: {{ta}}. {{Adto mi}} would mean “We’re off” without them."},
         {"wrong":"Nagkita ta ugma.","right":"Magkita ta ugma.","tr":"Let's meet tomorrow.","why":"Tomorrow is not yet: {{mag-}}. {{nag-}} is done or going on."}
       ],
       "practice": [
@@ -1498,7 +1498,7 @@
         {"tip":"{{Kumusta ang…?}} “How was the…?” opens any story: {{Kumusta ang imong weekend?}} {{Kumusta ang biyahe?}}"}
       ],
       "mistakes": [
-        {"wrong":"Una, moadto mi sa baybayon, dayon molangoy mi. (about last Sunday)","right":"Una, miadto mi sa baybayon, dayon naglangoy mi.","tr":"First, we went to the beach, then we swam.","why":"A story of what happened uses the done forms; with {{mo-}} it sounds like a plan."},
+        {"wrong":"Una, moadto mi sa baybayon, dayon molangoy mi.","right":"Una, miadto mi sa baybayon, dayon naglangoy mi.","tr":"First, we went to the beach, then we swam.","why":"Telling what happened last Sunday needs the done forms; with {{mo-}} it sounds like a plan."},
         {"wrong":"Pag-abot ako, natulog na siya.","right":"Pag-abot nako, natulog na siya.","tr":"When I arrived, she was already asleep.","why":"After {{pag-}}, the person comes from the {{nako}} set: “at my arriving”."}
       ],
       "practice": [
@@ -1591,7 +1591,7 @@
         {"tip":"In fast speech you may hear {{Wala pa ko nakaadto}}, keeping the whole {{naka-}}. People understand it; {{Wala pa ko kaadto}} is the standard."}
       ],
       "mistakes": [
-        {"wrong":"Miadto ka na sa Bohol? (asking about their experience)","right":"Nakaadto ka na sa Bohol?","tr":"Have you ever been to Bohol?","why":"“Have you ever” is {{naka-}}. {{Miadto ka na sa Bohol?}} asks whether they've already left for Bohol."},
+        {"wrong":"Miadto ka na sa Bohol?","right":"Nakaadto ka na sa Bohol?","tr":"Have you ever been to Bohol?","why":"To ask “Have you ever been…?”, use {{naka-}}. {{Miadto ka na sa Bohol?}} asks whether they’ve already left for Bohol."},
         {"wrong":"Wala pa ko nakaadto.","right":"Wala pa ko kaadto.","tr":"I haven't been yet.","why":"After {{wala}}, {{naka-}} shrinks to {{ka-}}."}
       ],
       "practice": [
@@ -1637,7 +1637,7 @@
         {"tip":"{{Dugay na ta wala magkita!}} “Long time no see!” is the greeting for a friend you haven't seen in ages."}
       ],
       "mistakes": [
-        {"wrong":"Tulo ka tuig ko dinhi. (you still live here)","right":"Tulo ka tuig na ko dinhi.","tr":"I've been here three years.","why":"Up to now needs {{na}}. Without it, it sounds like a stay that's over."},
+        {"wrong":"Tulo ka tuig ko dinhi.","right":"Tulo ka tuig na ko dinhi.","tr":"I've been here three years.","why":"You still live here, so it’s “up to now”: that needs {{na}}. Without it, it sounds like a stay that’s over."},
         {"wrong":"Kanus-a ka moabot? — Gahapon.","right":"Kanus-a ka miabot? — Gahapon.","tr":"When did you arrive? — Yesterday.","why":"Yesterday is done: {{mi-}}."}
       ],
       "practice": [
@@ -2056,6 +2056,188 @@
         {"type":"say","q":"Say “For me, Cebu lechon is the tastiest.”","answer":"Para nako, ang lechon sa Cebu ang pinakalami.","from":"compare-things"},
         {"type":"choice","q":"{{Basin moabot siya.}} and {{Moabot daw siya.}} mean…","options":["“He might come” and “He says he'll come”","“He says he'll come” and “He might come”","the same thing"],"answer":0,"why":"{{basin}}: your guess. {{daw}}: someone else's words.","from":"report-what-was-said"},
         {"type":"free","q":"Your turn: give your opinion about a place or a food, and say how sure you are.","answers":[{"t":"Para nako, ang Moalboal ang pinakanindot sa Cebu, pero dili ko sigurado kay wala pa ko kaadto sa Malapascua.","tr":"For me, Moalboal is the most beautiful place in Cebu, but I'm not sure because I haven't been to Malapascua yet."},{"t":"Sa akong hunahuna, mas lami ang mangga dinhi kaysa sa Amerika.","tr":"I think the mangoes here are tastier than in America."}]}
+      ]
+    },
+    {
+      "id": "ask-for-favors",
+      "unit": 9,
+      "level": "B1",
+      "title": "Ask for favors and get things done",
+      "summary": "Say “Let me see”, “Could I borrow your charger?”, “Excuse me, let me through”, and “I'll have my phone fixed.”",
+      "topic": "{{pa-}} “let, have someone do”: {{Patan-awa ko.}}, {{Pahulama ko…}}; {{ipa-}} and {{magpa-}} for getting something done",
+      "blocks": [
+        {"goal":{"t":"Pahulama ko sa imong charger, palihug.","tr":"Could I borrow your charger, please?"}},
+        {"dialog":[{"who":"Ben","t":"Joy, pahulama ko sa imong charger, palihug. Patay na akong selpon.","tr":"Joy, could I borrow your charger, please? My phone is dead."},{"who":"Joy","t":"Sige, ania. Ug patan-awa ko sa imong mga litrato sa Bohol!","tr":"Sure, here. And let me see your Bohol photos!"},{"who":"Ben","t":"Unya na lang. Guba sad ang akong screen; ipaayo nako ugma.","tr":"Later. My screen is broken too; I'm having it fixed tomorrow."},{"who":"Joy","t":"Asa nimo ipaayo?","tr":"Where are you having it fixed?"},{"who":"Ben","t":"Sa mall. Ug magpaputol ko og buhok didto.","tr":"At the mall. And I'll get a haircut there too."},{"who":"Joy","t":"Pakuyoga ko! Mamalit ko didto.","tr":"Let me come with you! I'll do some shopping there."}]},
+        {"p":"**{{pa-}}: let, have.** The prefix {{pa-}} means letting or having someone do something. Its handiest use is the polite **“let me…”**: {{pa-}} + root + {{-a}} + {{ko}}. {{Patan-awa ko.}} “Let me see.” {{Patilawa ko.}} “Let me taste.” {{Pahulama ko sa imong ballpen.}} “Let me borrow your pen.” {{Paagia ko.}} “Let me through.” Even {{palihug}} “please” is built this way."},
+        {"p":"**Borrow and lend** are one word in Bisaya, {{hulam}}: {{Pahulama ko og kwarta.}} “Lend me some money.” (word for word “let me borrow money”)."},
+        {"p":"**Getting something done** by someone else: {{ipa-}} points at the thing ({{Ipaayo nako ang akong selpon.}} “I'll have my phone fixed.” {{Gipaayo nako.}} “I had it fixed.”), and {{magpa-}} / {{nagpa-}} points at you ({{Nagpaputol ko og buhok.}} “I got a haircut”, word for word “I had hair cut”)."},
+        { "table": [
+          ["","Bisaya","English"],
+          ["let me","{{Patan-awa ko.}}","Let me see."],
+          ["let me borrow","{{Pahulama ko sa imong payong.}}","Could I borrow your umbrella?"],
+          ["let me through","{{Paagia ko.}}","Excuse me, let me through."],
+          ["have it done (the thing)","{{Ipaayo nako ang relo.}}","I'll have the watch fixed."],
+          ["have it done (you)","{{Nagpaputol ko og buhok.}}","I got a haircut."]
+        ] },
+        { "ex": [
+          {"t":"Patan-awa ko.","tr":"Let me see."},
+          {"t":"Pahulama ko sa imong ballpen.","tr":"Could I borrow your pen?"},
+          {"t":"Paagia ko, palihug.","tr":"Excuse me, let me through."},
+          {"t":"Ipaayo nako ang akong relo.","tr":"I'll have my watch repaired."},
+          {"t":"Nagpaputol ko og buhok.","tr":"I got a haircut."},
+          {"t":"Asa ka nagpatahi sa imong sinina?","tr":"Where did you have your dress made?"}
+        ] },
+        {"tip":"In a crowded jeepney or market, a quiet {{Paagi, palihug}} or {{Paagia ko}} gets you through politely."}
+      ],
+      "mistakes": [
+        {"wrong":"Hulam ko sa imong ballpen.","right":"Pahulama ko sa imong ballpen.","tr":"Could I borrow your pen?","why":"Asking to borrow: “let me borrow”, {{pa-}} + root + {{-a}} + {{ko}}."},
+        {"wrong":"Giayo nako ang akong selpon.","right":"Gipaayo nako ang akong selpon.","tr":"I had my phone fixed.","why":"The shop fixed it for you: {{pa-}}. {{Giayo nako}} means you fixed it yourself."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko sa imong ballpen.","tr":"Could I borrow your pen?","options":["Pahulama","Hulam","Gihulam"],"answer":0,"why":"Let me borrow: {{pahulama ko}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ nako ang akong selpon ugma.","tr":"I'll have my phone fixed tomorrow.","options":["Ipaayo","Ayohon","Giayo"],"answer":0,"why":"Have it done by someone else, not yet: {{ipa-}}."},
+        {"type":"choice","q":"When do you say {{Paagia ko, palihug}}?","options":["squeezing past people in a crowd","asking the way","paying the bill"],"answer":0,"why":"“Let me pass, please.”"},
+        {"type":"dialogue","q":"At a friend's house: choose your replies.","lines":[{"who":"Joy","t":"Mao ni ang bag-o nakong selpon.","tr":"This is my new phone."},{"options":["Nindot! Patan-awa ko.","Nindot! Tan-aw ko."],"answer":0,"why":"Let me see: {{Patan-awa ko}}."},{"who":"Joy","t":"Ania. Ikaw, asa imong selpon?","tr":"Here. And you, where's your phone?"},{"options":["Gipaayo nako. Nabuak ang screen.","Giayo nako. Nabuak ang screen."],"answer":0,"why":"A shop is fixing it for you: {{gipaayo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Let me taste it, please.","words":["Patilawa","ko,","palihug."]},
+        {"type":"say","q":"Say “I got a haircut yesterday.”","answer":"Nagpaputol ko og buhok gahapon.","from":"say-what-youre-doing"},
+        {"type":"choice","q":"{{Pwede ko motan-aw?}} and {{Patan-awa ko.}}…","options":["both ask to see","mean different things"],"answer":0,"why":"Two polite ways of asking: “May I look?” and “Let me see.”","from":"say-what-you-can-do"},
+        {"type":"free","q":"Your turn: ask to borrow something, and say something you'll have done this week.","answers":[{"t":"Pahulama ko sa imong payong, palihug. Ipaayo nako ang akong sapatos ugma.","tr":"Could I borrow your umbrella, please? I'm having my shoes repaired tomorrow."},{"t":"Patan-awa ko sa imong mga litrato! Magpaputol ko og buhok sa Sabado.","tr":"Let me see your photos! I'm getting a haircut on Saturday."}]}
+      ]
+    },
+    {
+      "id": "wish-and-hope",
+      "unit": 9,
+      "level": "B1",
+      "title": "Wish and hope",
+      "summary": "Say “I hope it doesn't rain”, “I hope you're well”, and “someday, God willing”.",
+      "topic": "{{unta}} “I hope, hopefully”; {{hinaut nga}}; {{puhon}} “God willing”; {{unta}} to soften a request",
+      "blocks": [
+        {"goal":{"t":"Unta dili moulan ugma!","tr":"I hope it doesn't rain tomorrow!"}},
+        {"dialog":[{"who":"Ana","t":"Ugma na ang atong biyahe sa Camiguin!","tr":"Our trip to Camiguin is tomorrow!"},{"who":"Ben","t":"Unta dili moulan. Murag naay bagyo.","tr":"I hope it doesn't rain. It looks like there's a typhoon."},{"who":"Ana","t":"Hinaut nga wala! Unta makakita ta og mga dolphin.","tr":"Hopefully not! I hope we get to see dolphins."},{"who":"Ben","t":"Puhon. Ug unta wala kaayoy tawo sa baybayon.","tr":"God willing. And I hope there aren't too many people at the beach."},{"who":"Ana","t":"Basta kauban ko nimo, lingaw gyud!","tr":"As long as I'm with you, it'll be fun!"}]},
+        {"p":"**{{unta}}: I hope, hopefully.** Put it at the start of the sentence, which keeps its usual verb ({{mo-}} for what's still to come): {{Unta dili moulan.}} “I hope it doesn't rain.” {{Unta makapasar ko.}} “I hope I pass.” Like the other little words, it can also sit after the first word: {{Moabot unta siya.}} “I hope he comes.”"},
+        {"p":"**{{hinaut nga}}** means the same, a little more heartfelt, and joins with {{nga}}: {{Hinaut nga maayo ka.}} “I hope you're well.” **{{puhon}}** is “God willing, someday”, said about any plan or dream: {{Mobalik ko, puhon.}} “I'll come back, God willing.” You'll hear it every day in Cebu."},
+        {"p":"**Softening a request.** {{unta}} also makes a request gentler, like English “perhaps” or “could I possibly”: {{Pwede unta ko mangayo og tabang?}} “Could I perhaps ask for some help?”"},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{Unta dili moulan.}}","I hope it doesn't rain."],
+          ["{{Hinaut nga himsog ka.}}","I hope you're healthy."],
+          ["{{Mobalik ko, puhon.}}","I'll come back, God willing."],
+          ["{{Pwede unta ko…?}}","Could I perhaps…?"]
+        ] },
+        { "ex": [
+          {"t":"Unta dili moulan ugma.","tr":"I hope it doesn't rain tomorrow."},
+          {"t":"Moabot unta siya karong gabii.","tr":"I hope he comes tonight."},
+          {"t":"Hinaut nga maayo ka.","tr":"I hope you're well."},
+          {"t":"Mobalik ko sa Cebu, puhon.","tr":"I'll come back to Cebu someday, God willing."},
+          {"t":"Unta makapasar ko.","tr":"I hope I pass."},
+          {"t":"Pwede unta ko mangayo og tabang?","tr":"Could I perhaps ask for some help?"}
+        ] },
+        {"tip":"With a done verb, {{unta}} turns into “should have, would have”: {{Mitawag unta ka!}} “You should have called!” That's the next lesson."}
+      ],
+      "mistakes": [
+        {"wrong":"Unta miulan ugma.","right":"Unta moulan ugma.","tr":"I hope it rains tomorrow.","why":"Hoping about what's still to come: {{mo-}}."},
+        {"wrong":"Hinaut dili moulan.","right":"Hinaut nga dili moulan.","tr":"Hopefully it won't rain.","why":"{{hinaut}} joins the rest with {{nga}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ dili moulan ugma.","tr":"I hope it doesn't rain tomorrow.","options":["Unta","Kung","Kay"],"answer":0,"why":"I hope: {{unta}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hinaut ___ maayo ka.","tr":"I hope you're well.","options":["nga","sa","kay"],"answer":0,"why":"{{hinaut nga}}."},
+        {"type":"choice","q":"{{Puhon}} means…","options":["someday, God willing","yesterday","never"],"answer":0,"why":"Said about plans and dreams."},
+        {"type":"dialogue","q":"Your friend has an exam tomorrow. Choose your replies.","lines":[{"who":"Lisa","t":"Ugma na akong exam. Nahadlok ko!","tr":"My exam is tomorrow. I'm scared!"},{"options":["Ayaw kabalaka. Unta makapasar ka!","Ayaw kabalaka. Unta nakapasar ka!"],"answer":0,"why":"Tomorrow: the not-yet {{maka-}}."},{"who":"Lisa","t":"Salamat! Ug ikaw, kanus-a ka mobalik sa Amerika?","tr":"Thanks! And you, when are you going back to America?"},{"options":["Sa Disyembre, puhon.","Sa Disyembre, gahapon."],"answer":0,"why":"A plan: {{puhon}}, God willing."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I hope I pass.","words":["Unta","makapasar","ko."]},
+        {"type":"say","q":"Say “I hope I can come.”","answer":"Unta makaadto ko.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"{{Kung moulan…}} and {{Unta dili moulan.}} mean…","options":["“If it rains…” and “I hope it doesn't rain.”","“I hope it rains…” and “If it doesn't rain.”"],"answer":0,"why":"{{kung}} if; {{unta}} I hope.","from":"if-and-when"},
+        {"type":"free","q":"Your turn: say two hopes you have for this year.","answers":[{"t":"Unta makaadto ko sa Siargao. Hinaut nga himsog ang akong pamilya.","tr":"I hope I get to go to Siargao. I hope my family stays healthy."},{"t":"Unta makasulti na ko og Bisaya sa Disyembre, puhon!","tr":"I hope I can speak Bisaya by December, God willing!"}]}
+      ]
+    },
+    {
+      "id": "imagine-what-if",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagine what would happen",
+      "summary": "Imagine and regret: “If I had lots of money, I'd buy a house”, “If I were you…”, “If only I'd known!”",
+      "topic": "{{kung}} … {{pa}}, then {{mo-}} + {{unta}} “would”; {{kung ako pa nimo}} “if I were you”; done verb + {{unta}} “would have, should have”",
+      "blocks": [
+        {"goal":{"t":"Kung naa pa koy daghang kwarta, mopalit unta ko og balay duol sa dagat.","tr":"If I had lots of money, I'd buy a house by the sea."}},
+        {"dialog":[{"who":"Joy","t":"Kung daghan ka og kwarta, unsa imong buhaton?","tr":"If you had lots of money, what would you do?"},{"who":"Ben","t":"Mopalit unta ko og balay duol sa dagat sa Moalboal!","tr":"I'd buy a house by the sea in Moalboal!"},{"who":"Joy","t":"Ako, mobiyahe unta ko sa Japan ug sa Korea.","tr":"Me, I'd travel to Japan and Korea."},{"who":"Ben","t":"Kung ako pa nimo, moadto sad ko sa Europe.","tr":"If I were you, I'd go to Europe too."},{"who":"Joy","t":"Kung nahibal-an pa lang nako nga barato ang tiket ganiha, mipalit unta ko!","tr":"If only I'd known the tickets were cheap earlier, I would have bought one!"},{"who":"Ben","t":"Sayang! Sa sunod na lang, puhon.","tr":"What a shame! Next time, God willing."}]},
+        {"p":"**Imagining.** For something that isn't true now, start with {{kung}} (often with {{pa}}), and put {{unta}} in the result with a {{mo-}} verb: {{Kung naa pa koy daghang kwarta, mopalit unta ko og balay.}} “If I had lots of money, I'd buy a house.” {{mo-}} + {{unta}} is English “would”."},
+        {"p":"**If I were you**: {{Kung ako pa nimo,…}}, word for word “if I were still you”: {{Kung ako pa nimo, mopahulay ko.}} “If I were you, I'd rest.”"},
+        {"p":"**The past that didn't happen.** Use a done verb in both halves: {{kung}} + a done form + {{pa (lang)}}, then {{mi-}} + {{unta}} for “would have”: {{Kung nahibal-an pa lang nako, miadto unta ko.}} “If only I'd known, I would have gone.” On its own, a done verb + {{unta}} is a regret or a reproach: {{Mitawag unta ka!}} “You should have called!”"},
+        { "table": [
+          ["","Bisaya","English"],
+          ["imagine (now)","{{Kung naa pa koy oras, mouban unta ko.}}","If I had time, I'd come along."],
+          ["if I were you","{{Kung ako pa nimo, moadto ko.}}","If I were you, I'd go."],
+          ["the past","{{Kung nahibal-an pa lang nako, miadto unta ko.}}","If I'd known, I would have gone."],
+          ["regret","{{Mitawag unta ka!}}","You should have called!"]
+        ] },
+        { "ex": [
+          {"t":"Kung naa pa koy oras, mouban unta ko nimo.","tr":"If I had time, I'd come with you."},
+          {"t":"Kung ako pa nimo, mopahulay ko.","tr":"If I were you, I'd rest."},
+          {"t":"Kung nahibal-an pa lang nako, miadto unta ko.","tr":"If only I'd known, I would have gone."},
+          {"t":"Mitawag unta ka!","tr":"You should have called!"},
+          {"t":"Mas maayo unta kung miabot ka og sayo.","tr":"It would have been better if you'd come early."},
+          {"t":"Kung wala ka mianhi, nag-inusara unta ko.","tr":"If you hadn't come, I would have been all alone."}
+        ] },
+        {"tip":"{{Sayang!}} “What a waste, what a shame!” is the word for missed chances, and you'll hear it after every “if only”."}
+      ],
+      "mistakes": [
+        {"wrong":"Kung naa pa koy kwarta, mopalit ko og balay.","right":"Kung naa pa koy kwarta, mopalit unta ko og balay.","tr":"If I had money, I'd buy a house.","why":"When you’re dreaming, add {{unta}}. Without it, it sounds like a real plan: “if I still have money, I’ll buy a house”."},
+        {"wrong":"Kung nahibal-an pa lang nako, moadto unta ko.","right":"Kung nahibal-an pa lang nako, miadto unta ko.","tr":"If only I'd known, I would have gone.","why":"About the past: {{mi-}} + {{unta}}, “would have”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Kung daghan pa koy kwarta, mopalit ___ ko og balay.","tr":"If I had lots of money, I'd buy a house.","options":["unta","na","daw"],"answer":0,"why":"“Would”: {{mo-}} + {{unta}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kung nahibal-an pa lang nako, ___ unta ko.","tr":"If only I'd known, I would have gone.","options":["miadto","moadto","adto"],"answer":0,"why":"“Would have”: {{mi-}} + {{unta}}."},
+        {"type":"choice","q":"{{Mitawag unta ka!}} means…","options":["You should have called!","Please call!","I hope you'll call!"],"answer":0,"why":"A done verb + {{unta}}: should have."},
+        {"type":"dialogue","q":"Daydreaming with a friend: choose your replies.","lines":[{"who":"Mark","t":"Kung makapili ka, asa ka magpuyo?","tr":"If you could choose, where would you live?"},{"options":["Magpuyo unta ko sa Siargao!","Nagpuyo unta ko sa Siargao!"],"answer":0,"why":"Imagining now: the not-yet {{mag-}} + {{unta}}. ({{Nagpuyo unta}} is “would have lived”.)"},{"who":"Mark","t":"Ako, dili ko ganahan sa init. Kung ako pa nimo, sa Baguio ko.","tr":"Me, I don't like the heat. If I were you, I'd go for Baguio."},{"options":["Sayang, ganahan kaayo ko sa dagat!","Unta, ganahan kaayo ko sa dagat!"],"answer":0,"why":"Too bad, you love the sea: {{Sayang}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I'd rest.","words":["Kung","ako","pa","nimo,","mopahulay","ko."]},
+        {"type":"choice","q":"{{Unta moabot siya.}} and {{Miabot unta siya.}} mean…","options":["“I hope he comes” and “He should have come”","“He should have come” and “I hope he comes”"],"answer":0,"why":"{{unta}} + not yet: a hope. A done verb + {{unta}}: should have.","from":"wish-and-hope"},
+        {"type":"choice","q":"{{Kung moulan, dili ta moadto.}} is…","options":["a real possibility","imagined, not true"],"answer":0,"why":"No {{unta}}, no {{pa}}: it may really happen.","from":"if-and-when"},
+        {"type":"free","q":"Your turn: what would you do with a month off and lots of money?","answers":[{"t":"Kung naa pa koy usa ka bulan ug daghang kwarta, mobiyahe unta ko sa tibuok Pilipinas.","tr":"If I had a month and lots of money, I'd travel all over the Philippines."},{"t":"Kung daghan pa koy kwarta, mopalit unta ko og balay sa Cebu, ug magtuon ko og Bisaya matag adlaw!","tr":"If I had lots of money, I'd buy a house in Cebu, and I'd study Bisaya every day!"}]}
+      ]
+    },
+    {
+      "id": "tell-your-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "Tell your story",
+      "summary": "Tell someone your own story in Bisaya: where you're from, what brought you here, what you do now and what you hope for.",
+      "topic": "Everything together: describing sentences, {{naa}}, done / going on / not yet, focus, time, reasons, plans and hopes",
+      "blocks": [
+        {"goal":{"t":"Tulo ka tuig na ko dinhi sa Cebu, ug dili na ko gusto mobiya!","tr":"I've been here in Cebu for three years, and I don't want to leave anymore!"}},
+        {"dialog":[{"who":"Lito","t":"Ben, nganong miabot ka dinhi sa Cebu?","tr":"Ben, why did you come to Cebu?"},{"who":"Ben","t":"Upat ka tuig na ang milabay, mibakasyon ko dinhi. Nalipay kaayo ko, mao nga mibalik ko.","tr":"Four years ago, I came here on vacation. I loved it, so I came back."},{"who":"Lito","t":"Unsay imong trabaho kaniadto sa Amerika?","tr":"What was your job back in America?"},{"who":"Ben","t":"Nagtrabaho ko sa usa ka bangko. Karon, nagtudlo ko og Iningles.","tr":"I worked at a bank. Now I teach English."},{"who":"Lito","t":"Ug unsay imong plano?","tr":"And what are your plans?"},{"who":"Ben","t":"Gusto ko magtukod og gamay nga resort sa Moalboal, puhon. Kung madawat ang akong aplikasyon, magsugod ko sa sunod tuig.","tr":"I want to build a small resort in Moalboal, God willing. If my application is accepted, I'll start next year."},{"who":"Lito","t":"Wow! Unta molampos ka!","tr":"Wow! I hope you succeed!"}]},
+        {"p":"This last lesson puts the whole course to work. Telling your own story is something Cebuanos will ask for again and again ({{Unsay imong istorya?}}), and it uses nearly everything you've learned. Each part has its lesson, if you want to look back:"},
+        { "table": [
+          ["part of the story","example","lessons"],
+          ["who you are","{{Taga-Canada ko. Maestra ko.}}","1, 2, 6"],
+          ["what happened","{{Miabot ko sa Cebu niadtong 2022.}}","16, 32"],
+          ["how long","{{Tulo ka tuig na ko dinhi.}}","35"],
+          ["why","{{Mibalik ko kay nalipay kaayo ko dinhi.}}","38"],
+          ["your life now","{{Nagtrabaho ko sa usa ka eskwelahan.}}","15"],
+          ["plans and hopes","{{Gusto ko mopalit og balay, puhon.}}","12, 40, 46"]
+        ] },
+        {"p":"**Keep the verbs straight**: {{mi-}} and {{nag-}} for what happened, {{nag-}} for your life now, {{mo-}} and {{mag-}} for plans, {{naka-}} for experiences, {{gi-}} when a particular thing is in focus. And the little words ({{na}}, {{pa}}, {{gyud}}, {{sad}}) make it sound like you."},
+        { "ex": [
+          {"t":"Taga-Canada ko, pero nagpuyo na ko sa Cebu.","tr":"I'm from Canada, but I live in Cebu now."},
+          {"t":"Niadtong 2022, miadto ko dinhi sa unang higayon.","tr":"In 2022, I came here for the first time."},
+          {"t":"Nalipay kaayo ko sa mga tawo, mao nga mibalik ko.","tr":"I loved the people, so I came back."},
+          {"t":"Karon, nagtrabaho ko sa usa ka eskwelahan sa Mandaue.","tr":"Now I work at a school in Mandaue."},
+          {"t":"Nakaadto na ko sa daghang isla, pero ang Bohol gihapon ang akong paborito.","tr":"I've been to lots of islands, but Bohol is still my favorite."},
+          {"t":"Unta makasulti ko og Bisaya sama sa usa ka lumad.","tr":"I hope I can speak Bisaya like a native."}
+        ] },
+        {"tip":"Practice your story out loud until it comes out without stopping. Then tell it to someone in Cebu: it's the best way to start a long conversation, and people will love that you tried."}
+      ],
+      "mistakes": [
+        {"wrong":"Tulo ka tuig ko dinhi na.","right":"Tulo ka tuig na ko dinhi.","tr":"I've been here three years.","why":"{{na}} and {{ko}} gather right after the first phrase ({{tulo ka tuig}})."},
+        {"wrong":"Kung madawat ang akong aplikasyon, nagsugod ko sa sunod tuig.","right":"Kung madawat ang akong aplikasyon, magsugod ko sa sunod tuig.","tr":"If my application is accepted, I'll start next year.","why":"Next year is not yet: {{mag-}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Upat ka tuig ___ ang milabay, mibakasyon ko dinhi.","tr":"Four years ago, I came here on vacation.","options":["na","pa","ra"],"answer":0,"why":"{{X ka tuig na ang milabay}}: X years ago."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nalipay kaayo ko, ___ nga mibalik ko.","tr":"I loved it, so I came back.","options":["mao","kay","aron"],"answer":0,"why":"That's why: {{mao nga}}."},
+        {"type":"choice","q":"{{Unta molampos ka!}} means…","options":["I hope you succeed!","You succeeded!","Succeed or else!"],"answer":0,"why":"{{unta}} + a not-yet verb: a hope."},
+        {"type":"dialogue","q":"A new friend asks about your life. Choose your replies.","lines":[{"who":"Joy","t":"Kanus-a ka nagsugod og tuon og Bisaya?","tr":"When did you start studying Bisaya?"},{"options":["Usa ka tuig na ang milabay.","Usa ka tuig pa ang milabay."],"answer":0,"why":"A year ago: {{na ang milabay}}."},{"who":"Joy","t":"Ngano man?","tr":"Why?"},{"options":["Kay gusto ko makaistorya sa akong mga silingan.","Aron gusto ko makaistorya sa akong mga silingan."],"answer":0,"why":"The reason: {{kay}}."},{"who":"Joy","t":"Maayo kaayo imong Bisaya!","tr":"Your Bisaya is really good!"},{"options":["Salamat! Unta mas maayo pa sa sunod tuig.","Salamat! Kung mas maayo pa sa sunod tuig."],"answer":0,"why":"A hope: {{unta}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Now I teach English.","words":["Karon,","nagtudlo","ko","og","Iningles."]},
+        {"type":"say","q":"Say “I've been studying Bisaya for a year.”","answer":"Usa ka tuig na ko nagtuon og Bisaya.","from":"say-when-and-how-long"},
+        {"type":"say","q":"Say “If I have time, I'll come back next year.”","answer":"Kung naa koy oras, mobalik ko sa sunod tuig.","from":"if-and-when"},
+        {"type":"free","q":"Your turn: tell your own story: where you're from, what brought you to Bisaya, what you do now, and one hope.","answers":[{"t":"Taga-Amerika ko. Duha ka tuig na ang milabay, nakaila ko og usa ka Cebuana, ug karon akong asawa na siya. Nagtrabaho ko sa usa ka opisina, ug nagtuon ko og Bisaya matag adlaw. Unta makaistorya ko sa iyang pamilya sa Pasko, puhon!","tr":"I'm from America. Two years ago, I met a woman from Cebu, and now she's my wife. I work in an office, and I study Bisaya every day. I hope I can talk with her family at Christmas, God willing!"},{"t":"Taga-England ko, pero nagpuyo ko sa Cebu sukad pa sa 2023. Miabot ko kay ganahan ko sa dagat. Karon nagtudlo ko og diving sa Moalboal. Gusto ko magpabilin dinhi hangtod sa akong pagkatigulang!","tr":"I'm from England, but I've lived in Cebu since 2023. I came because I love the sea. Now I teach diving in Moalboal. I want to stay here until I'm old!"}]}
       ]
     }
   ]

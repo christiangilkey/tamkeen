@@ -22,14 +22,14 @@
    "title": "Bisaya grammar",
    "variety": "Bisaya (Cebuano) as spoken in Cebu",
    "units": 9,
-   "lessons": 44,
+   "lessons": 48,
    "levels": [
     "A1",
     "A2",
     "B1"
    ],
-   "bytes": 221712,
-   "sha256": "eee3e506a83d6eaaa32253ddeb30d4a70c4a70ab03a43d748d6fbeeb4c22ca54"
+   "bytes": 244700,
+   "sha256": "b6e0e5585a2dd7b0cde87dfc1a0948e088a4837a528c0ca11e87f14048fcb8fe"
   }
  }
 }
