@@ -97,6 +97,22 @@
    },
    "built": "2026-10-25"
   },
+  "tl": {
+   "file": "tl/course.json",
+   "title": "Tagalog basics",
+   "variety": "Tagalog (Filipino) as spoken in Manila",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 342395,
+   "audio_bytes": 11631363,
+   "sha256": "10e9f80de0777fb7e5280c5b8008b6db237513e78631338fe469d0318e0de49a",
+   "voice": {
+    "engine": "azure",
+    "name": "Blessica (Azure, Philippines)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
   "zh": {
    "file": "zh/course.json",
    "title": "Chinese basics",
