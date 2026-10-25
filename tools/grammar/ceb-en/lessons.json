@@ -916,6 +916,294 @@
         {"type":"choice","q":"Asa ang mas matinahuron?","options":["{{Could you close the window, please?}}","{{Close the window!}}"],"answer":0,"why":"{{Could you…, please?}}: humok nga pangayo.","from":"say-what-you-can-do"},
         {"type":"free","q":"Ikaw na: dawata ang usa ka bisita sa imong balay sa Iningles.","answers":[{"t":"Come in! Please sit down. Let's eat!","tr":"Dayon! Lingkod, palihug. Kaon ta!"},{"t":"Welcome! Don't be shy. Let me turn on the fan.","tr":"Dayon! Ayaw kaulaw. Ablihan nako ang bentilador."}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 4,
+      "level": "A2",
+      "title": "Isulti kung asa ka kaniadto",
+      "summary": "Isulti kung asa ka ug unsa ka gahapon: “I was at home. I was sick.” Ang {{am}}, {{is}}, {{are}} sa kaniadto.",
+      "topic": "{{was}} ug {{were}}; {{wasn't}}, {{weren't}}; {{Were you…?}}; {{I was born in…}}",
+      "blocks": [
+        {"goal":{"t":"Where were you yesterday? — I was at home. I was sick.","tr":"Asa ka gahapon? — Naa ko sa balay. Masakiton ko."}},
+        {"dialog":[{"who":"Boss","t":"Where were you yesterday?","tr":"Asa ka gahapon?"},{"who":"Ana","t":"I was at home. I was sick.","tr":"Naa ko sa balay. Masakiton ko."},{"who":"Boss","t":"Oh no! Were you at the doctor's?","tr":"Hala! Nagpatan-aw ka sa doktor?"},{"who":"Ana","t":"Yes, I was. It was just the flu.","tr":"Oo. Trangkaso ra diay."},{"who":"Boss","t":"Were your kids okay?","tr":"Okay ra ba ang imong mga anak?"},{"who":"Ana","t":"Yes, they were at school all day.","tr":"Oo, naa sila sa eskwelahan sa tibuok adlaw."}]},
+        {"p":"Sa Bisaya, ang “gahapon” ra ang nagsulti nga kaniadto: “Naa ko sa balay gahapon”, ang sentence wala mausab. Sa Iningles, **ang {{am}}, {{is}}, {{are}} mausab**: {{am}} ug {{is}} → {{was}}; {{are}} → {{were}}."},
+        { "table": [
+          ["karon","kaniadto"],
+          ["{{I am}}","{{I was}}"],
+          ["{{you are}}","{{you were}}"],
+          ["{{he / she / it is}}","{{he / she / it was}}"],
+          ["{{we are}}","{{we were}}"],
+          ["{{they are}}","{{they were}}"]
+        ] },
+        {"p":"**Pangutana ug dili**: sama sa leksyon 3 ug 4. {{Were you at home?}} {{Was it expensive?}} {{It wasn't expensive.}} {{They weren't there.}} Mubo nga tubag: {{Yes, I was.}} / {{No, it wasn't.}}"},
+        {"p":"**Natawo.** Ang “Natawo ko sa Cebu” sa Iningles kanunay {{I was born in Cebu.}}, uban ang {{was}}. Dili {{I born}} o {{I am born}}."},
+        { "ex": [
+          {"t":"I was at home yesterday.","tr":"Naa ko sa balay gahapon."},
+          {"t":"It was really hot last week.","tr":"Init kaayo sa miaging semana."},
+          {"t":"We were in Bohol last month.","tr":"Naa mi sa Bohol sa miaging bulan."},
+          {"t":"Were you tired?","tr":"Gikapoy ka?"},
+          {"t":"The food wasn't expensive.","tr":"Dili mahal ang pagkaon."},
+          {"t":"I was born in Cebu.","tr":"Natawo ko sa Cebu."}
+        ] },
+        {"tip":"Mga pulong sa kaniadto: {{yesterday}} gahapon, {{last night}} kagabii, {{last week}} sa miaging semana, {{two days ago}} duha ka adlaw na ang milabay."}
+      ],
+      "mistakes": [
+        {"wrong":"I am at home yesterday.","right":"I was at home yesterday.","tr":"Naa ko sa balay gahapon.","why":"Gahapon: {{am}} → {{was}}."},
+        {"wrong":"They was tired.","right":"They were tired.","tr":"Gikapoy sila.","why":"Uban sa {{they}}: {{were}}."},
+        {"wrong":"I born in Cebu.","right":"I was born in Cebu.","tr":"Natawo ko sa Cebu.","why":"Natawo: {{was born}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ at home yesterday.","tr":"Naa ko sa balay gahapon.","options":["was","were","am"],"answer":0,"why":"Kaniadto, uban sa {{I}}: {{was}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"We ___ in Bohol last month.","tr":"Naa mi sa Bohol sa miaging bulan.","options":["were","was","are"],"answer":0,"why":"Kaniadto, uban sa {{we}}: {{were}}."},
+        {"type":"choice","q":"“Natawo ko sa Davao.”","options":["{{I was born in Davao.}}","{{I born in Davao.}}","{{I am born in Davao.}}"],"answer":0,"why":"{{was born}}."},
+        {"type":"dialogue","q":"Gipangutana ka sa imong maestra. Pilia ang imong mga tubag.","lines":[{"who":"Maestra","t":"Where were you on Monday?","tr":"Asa ka kadtong Lunes?"},{"options":["I was sick, ma'am.","I am sick, ma'am."],"answer":0,"why":"Kadtong Lunes: {{was}}."},{"who":"Maestra","t":"Were you at the hospital?","tr":"Naa ka sa ospital?"},{"options":["No, I wasn't. I was at home.","No, I weren't. I was at home."],"answer":0,"why":"Uban sa {{I}}: {{wasn't}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Naa mi sa Bohol sa miaging bulan.","words":["We","were","in Bohol","last month."]},
+        {"type":"say","q":"Isulti: “Naa ko sa trabaho gahapon.”","answer":"I was at work yesterday.","from":"say-where-things-are"},
+        {"type":"choice","q":"“Gikapoy siya (babaye) gahapon.”","options":["{{She was tired yesterday.}}","{{She is tired yesterday.}}","{{He was tired yesterday.}}"],"answer":0,"why":"Babaye: {{she}}; gahapon: {{was}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: asa ka gahapon ug kagabii? Kumusta ka?","answers":[{"t":"I was at work yesterday. Last night I was at home. I was very tired.","tr":"Naa ko sa trabaho gahapon. Kagabii naa ko sa balay. Gikapoy kaayo ko."},{"t":"I was at the mall with my friends. It was fun!","tr":"Naa ko sa mall uban sa akong mga higala. Lingaw kaayo!"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 4,
+      "level": "A2",
+      "title": "Isulti ang imong gibuhat",
+      "summary": "Isulti kung unsay imong gibuhat gahapon o sa miaging semana: “I cooked dinner and watched a movie.”",
+      "topic": "Ang past simple sa {{-ed}} ({{cooked}}, {{watched}}); ang tulo ka tingog sa {{-ed}}; {{on Monday}}, {{in May}}",
+      "blocks": [
+        {"goal":{"t":"Yesterday I cooked dinner and watched a movie.","tr":"Gahapon nagluto ko sa panihapon ug nanan-aw og sine."}},
+        {"dialog":[{"who":"Amy","t":"What did you do last weekend?","tr":"Unsay imong gibuhat sa miaging weekend?"},{"who":"Ben","t":"I stayed home. I cleaned the house and cooked adobo.","tr":"Nagpabilin ko sa balay. Naglimpyo ko sa balay ug nagluto og adobo."},{"who":"Amy","t":"Nice! Just you?","tr":"Nindot! Ikaw ra?"},{"who":"Ben","t":"No, I invited my neighbors. We talked and laughed all night.","tr":"Dili, gidapit nako ang akong mga silingan. Nag-istorya mi ug nangatawa tibuok gabii."},{"who":"Amy","t":"Sounds fun!","tr":"Lingaw kaayo!"}]},
+        {"p":"Sa Bisaya, ang “mi-”, “nag-” o “gi-” nagsulti nga nahuman na. Sa Iningles, ang kaniadto gisulti pinaagi sa **{{-ed}}** sa katapusan sa berbo: {{cook}} → {{cooked}}, {{watch}} → {{watched}}. Parehas para sa tanan: {{I cooked}}, {{she cooked}}, {{they cooked}}: walay {{-s}} sa kaniadto."},
+        {"p":"**Ang pagsulat**: {{-d}} lang kung nagtapos sa e ({{live}} → {{lived}}); y → {{-ied}} ({{study}} → {{studied}}); usahay doble ang katapusang letra ({{stop}} → {{stopped}})."},
+        {"p":"**Ang tingog sa {{-ed}}: tulo.** Kasagaran dili kini dugang silaba: {{cooked}} sama sa “kukt”, {{cleaned}} sama sa “klind”. Kung ang berbo nagtapos sa t o d, dugang silaba: {{waited}} “wey-tid”, {{needed}} “nii-did”. Ayaw kalimti nga isulti ang {{-ed}}: kung wala kini, morag karon ang imong giingon."},
+        { "table": [
+          ["tingog","pananglitan"],
+          ["“t” (human sa p, k, s, sh, ch)","{{cooked}}, {{watched}}, {{stopped}}"],
+          ["“d” (kasagaran)","{{cleaned}}, {{stayed}}, {{lived}}"],
+          ["“id” (human sa t, d)","{{waited}}, {{needed}}, {{wanted}}"]
+        ] },
+        {"p":"**Kanus-a**: {{on}} + adlaw ({{on Monday}}), {{in}} + bulan o tuig ({{in May}}, {{in 2020}}), {{at}} + oras ({{at six}}); {{yesterday}}, {{last night}}, {{two years ago}}."},
+        { "ex": [
+          {"t":"I cooked adobo.","tr":"Nagluto ko og adobo."},
+          {"t":"We watched a movie last night.","tr":"Nanan-aw mi og sine kagabii."},
+          {"t":"She studied in Manila.","tr":"Nagtuon siya sa Manila."},
+          {"t":"They lived in Davao in 2015.","tr":"Nagpuyo sila sa Davao niadtong 2015."},
+          {"t":"I waited for an hour.","tr":"Naghulat ko og usa ka oras."},
+          {"t":"He called me on Monday.","tr":"Gitawagan ko niya niadtong Lunes."}
+        ] },
+        {"tip":"Bisan naa nay {{yesterday}} sa sentence, kinahanglan gihapon ang {{-ed}}: {{Yesterday I cooked.}} Sa Iningles, ang berbo mismo ang nagsulti sa panahon."}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I cook dinner.","right":"Yesterday I cooked dinner.","tr":"Gahapon nagluto ko sa panihapon.","why":"Kaniadto: {{-ed}}, bisan naa nay {{yesterday}}."},
+        {"wrong":"She studyed nursing.","right":"She studied nursing.","tr":"Nagtuon siya og nursing.","why":"Ang y nahimong {{-ied}}."},
+        {"wrong":"We talked in Monday.","right":"We talked on Monday.","tr":"Nag-istorya mi niadtong Lunes.","why":"Adlaw sa semana: {{on}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Yesterday I ___ dinner.","tr":"Gahapon nagluto ko sa panihapon.","options":["cooked","cook","cooking"],"answer":0,"why":"Kaniadto: {{-ed}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"He called me ___ Monday.","tr":"Gitawagan ko niya niadtong Lunes.","options":["on","in","at"],"answer":0,"why":"Adlaw: {{on}}."},
+        {"type":"choice","q":"Asa ang naay dugang silaba (“id”) sa {{-ed}}?","options":["{{waited}}","{{cooked}}","{{cleaned}}"],"answer":0,"why":"Ang {{wait}} nagtapos sa t: {{waited}}, “wey-tid”."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong weekend. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"What did you do on Saturday?","tr":"Unsay imong gibuhat sa Sabado?"},{"options":["I cleaned my room and watched TV.","I clean my room and watch TV."],"answer":0,"why":"Kaniadto: {{cleaned}}, {{watched}}."},{"who":"Amy","t":"And on Sunday?","tr":"Ug sa Domingo?"},{"options":["I visited my grandma.","I visit my grandma."],"answer":0,"why":"Kaniadto: {{visited}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nanan-aw mi og sine kagabii.","words":["We","watched","a movie","last night."]},
+        {"type":"choice","q":"“Moluto ko matag adlaw.” ug “Nagluto ko gahapon.”","options":["{{I cook every day.}} ug {{I cooked yesterday.}}","{{I cooked every day.}} ug {{I cook yesterday.}}"],"answer":0,"why":"Naandan: present simple. Gahapon: {{-ed}}.","from":"talk-about-your-routine"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Yesterday she ___ to me for an hour.","tr":"Gahapon nakig-istorya siya nako og usa ka oras.","options":["talked","talks","talk"],"answer":0,"why":"Kaniadto: {{-ed}}, ug walay {{-s}} bisan uban sa {{she}}.","from":"talk-about-someone-elses-day"},
+        {"type":"free","q":"Ikaw na: isulti ang tulo ka butang nga imong gibuhat gahapon.","answers":[{"t":"I worked until five. Then I cooked dinner and watched TV.","tr":"Nagtrabaho ko hangtod alas singko. Dayon nagluto ko sa panihapon ug nanan-aw og TV."},{"t":"I visited my mom, cleaned the house and played basketball.","tr":"Gibisitahan nako ang akong mama, naglimpyo ko sa balay ug nagdula og basketball."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 4,
+      "level": "A2",
+      "title": "Isaysay ang imong weekend",
+      "summary": "Isaysay ang imong weekend gamit ang mga berbo nga dili mosunod sa {{-ed}}: went, ate, saw, bought…",
+      "topic": "Ang irregular nga past ({{went}}, {{ate}}, {{saw}}, {{had}}, {{bought}}, {{took}}…); “Nawala akong selpon” = {{I lost my phone.}}",
+      "blocks": [
+        {"goal":{"t":"I went to the beach, ate lechon and saw my friends.","tr":"Miadto ko sa baybayon, mikaon og lechon ug nakita nako ang akong mga higala."}},
+        {"dialog":[{"who":"Mark","t":"How was your weekend?","tr":"Kumusta ang imong weekend?"},{"who":"Joy","t":"Great! I went to Moalboal with my family.","tr":"Nindot! Miadto ko sa Moalboal uban sa akong pamilya."},{"who":"Mark","t":"What did you do there?","tr":"Unsay inyong gibuhat didto?"},{"who":"Joy","t":"We swam with turtles! And we ate grilled fish.","tr":"Nanglangoy mi uban sa mga pawikan! Ug nangaon mi og sugba."},{"who":"Mark","t":"Wow! Did you take pictures?","tr":"Wow! Nagkuha ka og litrato?"},{"who":"Joy","t":"Yes, I took a hundred! But I lost my sunglasses.","tr":"Oo, usa ka gatus! Pero nawala akong sunglasses."}]},
+        {"p":"Daghan sa pinakasagad nga berbo **dili mosunod sa {{-ed}}**: sila mausab sa ilang kaugalingong paagi. {{go}} → {{went}}, {{eat}} → {{ate}}, {{see}} → {{saw}}. Kini ang mga berbo nga imong gamiton matag adlaw, busa angay silang kat-onan sama sa bag-ong mga pulong."},
+        { "table": [
+          ["karon","kaniadto","Bisaya"],
+          ["{{go}}","{{went}}","adto"],
+          ["{{eat}}","{{ate}}","kaon"],
+          ["{{see}}","{{saw}}","kita"],
+          ["{{have}}","{{had}}","naa, baton"],
+          ["{{take}}","{{took}}","kuha, sakay"],
+          ["{{buy}}","{{bought}}","palit"],
+          ["{{come}}","{{came}}","anhi"],
+          ["{{get}}","{{got}}","kuha, dawat"],
+          ["{{make}}","{{made}}","himo"],
+          ["{{give}}","{{gave}}","hatag"],
+          ["{{swim}}","{{swam}}","langoy"],
+          ["{{sleep}}","{{slept}}","tulog"],
+          ["{{say}}","{{said}}","ingon"],
+          ["{{lose}}","{{lost}}","wala (nawala)"]
+        ] },
+        {"p":"Sama sa {{-ed}}, parehas sila para sa tanan: {{I went}}, {{she went}}, {{they went}}."},
+        {"p":"**“Nawala akong selpon.”** Sa Bisaya, ang selpon ang nawala. Sa Iningles, ang tawo ang nagbuhat: {{I lost my phone.}} Dili {{My phone lost}} (nagpasabot kana nga ang selpon ang naay nawala!). Kung gusto nimo nga ang butang ang mag-una: {{My phone got lost.}}"},
+        { "ex": [
+          {"t":"I went to Moalboal.","tr":"Miadto ko sa Moalboal."},
+          {"t":"We ate grilled fish.","tr":"Nangaon mi og sugba."},
+          {"t":"She saw a whale shark!","tr":"Nakakita siya og tuki!"},
+          {"t":"I bought a new phone.","tr":"Mipalit ko og bag-ong selpon."},
+          {"t":"He came home late.","tr":"Ulahi siya miuli."},
+          {"t":"I lost my keys.","tr":"Nawala akong yawe."},
+          {"t":"We had a great time.","tr":"Nalingaw kaayo mi."}
+        ] },
+        {"tip":"Ang {{have}} sa Iningles daghan og gamit: {{have breakfast}} mamahaw, {{have lunch}} maniudto, {{have dinner}} manihapon, {{have a great time}} malingaw. Sa kaniadto: {{We had dinner at seven.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the beach.","right":"I went to the beach.","tr":"Miadto ko sa baybayon.","why":"Ang {{go}} irregular: {{went}}."},
+        {"wrong":"Yesterday I eat lechon.","right":"Yesterday I ate lechon.","tr":"Gahapon mikaon ko og lechon.","why":"Kaniadto: {{eat}} → {{ate}}."},
+        {"wrong":"My phone lost.","right":"I lost my phone.","tr":"Nawala akong selpon.","why":"Sa Iningles, ang tawo ang {{lost}}: {{I lost my phone}} (o {{My phone got lost}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ to the beach on Sunday.","tr":"Miadto ko sa baybayon kadtong Domingo.","options":["went","goed","go"],"answer":0,"why":"{{go}} → {{went}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"We ___ lechon for lunch.","tr":"Nangaon mi og lechon sa paniudto.","options":["ate","eated","eat"],"answer":0,"why":"{{eat}} → {{ate}}."},
+        {"type":"choice","q":"Ang kaniadto sa {{buy}}:","options":["{{bought}}","{{buyed}}","{{boughted}}"],"answer":0,"why":"{{buy}} → {{bought}}."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong weekend. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"How was your weekend?","tr":"Kumusta ang imong weekend?"},{"options":["Fun! I went to Bohol.","Fun! I go to Bohol."],"answer":0,"why":"Kaniadto: {{went}}."},{"who":"Mark","t":"Did you see the Chocolate Hills?","tr":"Nakita nimo ang Chocolate Hills?"},{"options":["Yes! And I took a lot of pictures.","Yes! And I taked a lot of pictures."],"answer":0,"why":"{{take}} → {{took}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nawala akong yawe.","words":["I","lost","my keys."]},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"We ___ a movie, and then we went home.","tr":"Nanan-aw mi og sine, dayon miuli mi.","options":["watched","watch","watching"],"answer":0,"why":"Regular nga berbo: {{-ed}}.","from":"say-what-you-did"},
+        {"type":"say","q":"Isulti: “Asa ka? — Naa ko sa baybayon.”","answer":"Where were you? — I was at the beach.","from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw na: isaysay ang imong miaging weekend sa tulo o upat ka sentence.","answers":[{"t":"I went to the mall with my sister. We bought shoes and ate pizza. I had a great time!","tr":"Miadto ko sa mall uban sa akong igsoon. Mipalit mi og sapatos ug mikaon og pizza. Nalingaw kaayo ko!"},{"t":"I slept late on Saturday. On Sunday I went to church and saw my cousins.","tr":"Ulahi ko nimata sa Sabado. Sa Domingo, nisimba ko ug nakita nako ang akong mga ig-agaw."}]}
+      ]
+    },
+    {
+      "id": "ask-what-happened",
+      "unit": 4,
+      "level": "A2",
+      "title": "Pangutana kung unsay nahitabo",
+      "summary": "Pangutana “Nikaon ka? Asa ka niadto? Unsay nahitabo?” ug isulti kung unsay wala nimo buhata.",
+      "topic": "{{Did}} + berbo nga walay usab; {{didn't}}; {{What happened?}}; pagtubag sa {{You didn't…?}}",
+      "blocks": [
+        {"goal":{"t":"Did you eat? — No, I didn't. I didn't have time.","tr":"Nikaon ka? — Wala. Wala koy panahon."}},
+        {"dialog":[{"who":"Mama","t":"Did you eat lunch?","tr":"Naniudto ka?"},{"who":"Ben","t":"No, I didn't. I didn't have time.","tr":"Wala. Wala koy panahon."},{"who":"Mama","t":"Why? What happened?","tr":"Ngano? Unsay nahitabo?"},{"who":"Ben","t":"I missed the bus, so I walked to school.","tr":"Nabiyaan ko sa bus, busa naglakaw ko paingon sa eskwelahan."},{"who":"Mama","t":"Did you finish your homework?","tr":"Nahuman nimo ang imong assignment?"},{"who":"Ben","t":"Yes, I did! But I forgot it at home…","tr":"Oo! Pero nalimtan nako sa balay…"}]},
+        {"p":"**Ang pangutana sa kaniadto**: {{Did}} + ang tawo + berbo nga **walay usab**: {{Did you eat?}} {{Did she call?}} Ang “kaniadto” naa na sa {{did}}, busa ang berbo mobalik sa iyang yano nga porma. Dili {{Did you ate?}}"},
+        {"p":"**Ang “wala”**: {{didn't}} + berbo nga walay usab: {{I didn't eat.}} {{She didn't come.}} Pamatia: parehas kini sa Bisaya! Sa “Wala ko mokaon”, ang “wala” ang nagdala sa kaniadto, ug ang berbo mobalik sa “mo-”. Sa Iningles, ang {{didn't}} ang nagdala, ug ang berbo mobalik sa yano."},
+        { "table": [
+          ["pahayag","pangutana","dili"],
+          ["{{You ate.}}","{{Did you eat?}}","{{You didn't eat.}}"],
+          ["{{She called.}}","{{Did she call?}}","{{She didn't call.}}"],
+          ["{{They went.}}","{{Did they go?}}","{{They didn't go.}}"]
+        ] },
+        {"p":"**Unsa, asa**: {{What did you do?}} {{Where did you go?}} Pero {{What happened?}} “Unsay nahitabo?” walay {{did}}, kay ang {{what}} mismo ang nahitabo. Mubo nga tubag: {{Yes, I did.}} / {{No, I didn't.}}"},
+        {"p":"**Ang lit-ag, usab.** “Wala ka mokaon?” Sa Bisaya, “Oo” kung uyon ka nga wala ka mokaon. Sa Iningles, sumala sa tinuod: wala ka mokaon → {{No, I didn't.}} Mikaon ka → {{Yes, I did!}}"},
+        { "ex": [
+          {"t":"Did you eat?","tr":"Nikaon ka?"},
+          {"t":"I didn't sleep well.","tr":"Wala ko kaayo makatulog."},
+          {"t":"Where did you go?","tr":"Asa ka niadto?"},
+          {"t":"What did she say?","tr":"Unsay iyang giingon?"},
+          {"t":"What happened?","tr":"Unsay nahitabo?"},
+          {"t":"You didn't call me! — No, I didn't. Sorry!","tr":"Wala ka nitawag nako! — Oo, wala. Sorry!"}
+        ] },
+        {"tip":"Ang “Nikaon ka na?” sa Iningles mahimong {{Have you eaten?}} o, sa Amerika, {{Did you eat yet?}} Pero sa Amerika, dili kini pangumusta: tinuod kini nga pangutana bahin sa pagkaon!"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you ate?","right":"Did you eat?","tr":"Nikaon ka?","why":"Human sa {{did}}, ang berbo walay usab."},
+        {"wrong":"I didn't went.","right":"I didn't go.","tr":"Wala ko moadto.","why":"Human sa {{didn't}}: {{go}}, dili {{went}}."},
+        {"wrong":"You didn't eat? — Yes.","right":"You didn't eat? — No, I didn't.","tr":"Wala ka mokaon? — Oo, wala.","why":"Kung wala ka mokaon, ang tubag sa Iningles {{No}}: sumala sa tinuod."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___ you eat lunch?","tr":"Naniudto ka?","options":["Did","Do","Were"],"answer":0,"why":"Pangutana sa kaniadto: {{did}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I didn't ___ to school.","tr":"Wala ko moadto sa eskwelahan.","options":["go","went","going"],"answer":0,"why":"Human sa {{didn't}}: walay usab."},
+        {"type":"choice","q":"“Unsay nahitabo?”","options":["{{What happened?}}","{{What did happen?}}","{{What happen?}}"],"answer":0,"why":"Ang {{what}} ang nahitabo: walay {{did}}, ug {{happened}}."},
+        {"type":"dialogue","q":"Gipangutana ka sa imong mama. Pilia ang imong mga tubag.","lines":[{"who":"Mama","t":"Did you call your lola?","tr":"Gitawagan nimo ang imong lola?"},{"options":["Yes, I did.","Yes, I called."],"answer":0,"why":"Mubo nga tubag: {{Yes, I did.}}"},{"who":"Mama","t":"You didn't clean your room?","tr":"Wala nimo limpyohi ang imong kwarto?"},{"options":["No, I didn't. Sorry!","Yes. Sorry!"],"answer":0,"why":"Wala nimo limpyohi: {{No, I didn't.}}"}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Asa ka niadto?","words":["Where","did","you","go?"]},
+        {"type":"choice","q":"Pangutana: {{You weren't at home?}} Wala ka sa balay. Unsay imong tubag?","options":["{{No, I wasn't.}}","{{Yes, I wasn't.}}"],"answer":0,"why":"Sama sa leksyon 4: ang tubag sumala sa tinuod.","from":"say-no-with-be"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"Did you ___ the movie?","tr":"Nakita nimo ang sine?","options":["see","saw","seen"],"answer":0,"why":"Human sa {{did}}: {{see}}, dili {{saw}}.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Ikaw na: pangutan-a ang usa ka higala bahin sa iyang adlaw gahapon, ug isulti ang usa ka butang nga wala nimo buhata.","answers":[{"t":"Where did you go yesterday? Did you have fun? I didn't go out.","tr":"Asa ka niadto gahapon? Nalingaw ka? Wala ko mogawas."},{"t":"What did you eat for dinner? I didn't cook last night.","tr":"Unsay imong gikaon sa panihapon? Wala ko moluto kagabii."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story-in-order",
+      "unit": 4,
+      "level": "A2",
+      "title": "Isaysay ang istorya sa husto nga han-ay",
+      "summary": "Isaysay ang imong biyahe o adlaw sa han-ay: first, then, after that, finally.",
+      "topic": "{{First}}, {{Then}}, {{After that}}, {{Finally}}; {{When we arrived,…}}; tanang berbo sa kaniadto; {{he}} / {{she}} sa istorya",
+      "blocks": [
+        {"goal":{"t":"First we went to the market. Then we cooked lunch.","tr":"Una, miadto mi sa merkado. Dayon, nagluto mi sa paniudto."}},
+        {"dialog":[{"who":"Amy","t":"How was your trip to Bohol?","tr":"Kumusta ang imong biyahe sa Bohol?"},{"who":"Ana","t":"Amazing! First, we took the ferry at six.","tr":"Nindot kaayo! Una, misakay mi og barko alas sais."},{"who":"Amy","t":"And then?","tr":"Dayon?"},{"who":"Ana","t":"When we arrived, we rented a car and drove to the Chocolate Hills.","tr":"Pag-abot namo, nag-abang mi og awto ug miadto sa Chocolate Hills."},{"who":"Ana","t":"After that, we had lunch on the Loboc River.","tr":"Human ana, naniudto mi sa suba sa Loboc."},{"who":"Ana","t":"Finally, we came back to Cebu at night. I was so tired!","tr":"Sa katapusan, mibalik mi sa Cebu sa gabii. Gikapoy kaayo ko!"}]},
+        {"p":"**Ang han-ay**: sama sa Bisaya nga “una, dayon, human ana, sa katapusan”. Sa Iningles, kasagaran naay koma human niini:"},
+        { "table": [
+          ["Bisaya","Iningles"],
+          ["una","{{First,…}}"],
+          ["dayon","{{Then,…}}"],
+          ["human ana","{{After that,…}}"],
+          ["pag-abot namo","{{When we arrived,…}}"],
+          ["sa katapusan","{{Finally,…}}"]
+        ] },
+        {"p":"**{{When}} + sentence.** Ang “Pag-abot namo” sa Iningles kinahanglan og kompleto nga sentence: {{When}} + tawo + berbo sa kaniadto: {{When we arrived,…}} {{When I got home,…}}"},
+        {"p":"**Ayaw pagbalik sa karon.** Tungod kay ang berbo sa Bisaya wala nagsulti og panahon, dali ra mahisalaag sa tunga sa istorya: “First we went…, then we eat…”. Sa Iningles, **ang tanang berbo** sa istorya sa kaniadto magpabilin sa kaniadto. Ug bantayi ang {{he}} ug {{she}} sa matag tawo sa imong istorya."},
+        { "ex": [
+          {"t":"First, I woke up at five.","tr":"Una, nimata ko alas singko."},
+          {"t":"Then I took a shower.","tr":"Dayon, naligo ko."},
+          {"t":"After that, I had breakfast.","tr":"Human ana, namahaw ko."},
+          {"t":"When I got to work, the meeting started.","tr":"Pag-abot nako sa trabaho, nagsugod ang miting."},
+          {"t":"Finally, we went home.","tr":"Sa katapusan, miuli mi."},
+          {"t":"My mom came too. She brought food.","tr":"Miuban sad akong mama. Nagdala siya og pagkaon."}
+        ] },
+        {"tip":"Ang {{get}} sa {{got to work}}, {{got home}} nagpasabot og “miabot”: {{When I got home, I slept.}} “Pag-abot nako sa balay, natulog ko.” Walay {{to}} sa {{home}}."}
+      ],
+      "mistakes": [
+        {"wrong":"First we went to the market, then we cook lunch.","right":"First we went to the market, then we cooked lunch.","tr":"Una miadto mi sa merkado, dayon nagluto mi sa paniudto.","why":"Ang tanang berbo sa istorya: kaniadto."},
+        {"wrong":"When we arrive, we rented a car.","right":"When we arrived, we rented a car.","tr":"Pag-abot namo, nag-abang mi og awto.","why":"Nahitabo na ang pag-abot: {{arrived}}."},
+        {"wrong":"My sister came too. He brought food.","right":"My sister came too. She brought food.","tr":"Miuban sad akong igsoon. Nagdala siya og pagkaon.","why":"Babaye ang imong igsoon: {{she}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"___, we went to the market.","tr":"Una, miadto mi sa merkado.","options":["First","Finally","After"],"answer":0,"why":"Una: {{First}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"When we ___, we rented a car.","tr":"Pag-abot namo, nag-abang mi og awto.","options":["arrived","arrive","arriving"],"answer":0,"why":"Kaniadto: {{arrived}}."},
+        {"type":"choice","q":"“Sa katapusan” sa Iningles:","options":["{{Finally}}","{{First}}","{{Then}}"],"answer":0,"why":"{{Finally}}."},
+        {"type":"dialogue","q":"Gipangutana ka bahin sa imong biyahe. Pilia ang imong mga tubag.","lines":[{"who":"Amy","t":"How was your trip to Camiguin?","tr":"Kumusta ang imong biyahe sa Camiguin?"},{"options":["Great! First, we took a plane to Cagayan.","Great! First, we take a plane to Cagayan."],"answer":0,"why":"Kaniadto: {{took}}."},{"who":"Amy","t":"And then?","tr":"Dayon?"},{"options":["Then we got on a ferry. My dad got seasick, but he was okay.","Then we got on a ferry. My dad got seasick, but she was okay."],"answer":0,"why":"Ang imong papa: {{he}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Human ana, naniudto mi.","words":["After that,","we","had","lunch."]},
+        {"type":"say","q":"Isulti: “Dayon nanglangoy mi ug nangaon og sugba.”","answer":"Then we swam and ate grilled fish.","from":"tell-about-your-weekend"},
+        {"type":"choice","q":"“Miuban sad akong igsoon (babaye). ___ nagdala og pagkaon.”","options":["{{She}}","{{He}}","{{It}}"],"answer":0,"why":"Babaye: {{she}}.","from":"talk-about-people"},
+        {"type":"free","q":"Ikaw na: isaysay ang usa ka adlaw o biyahe sa tulo ka lakang ({{First}}, {{Then}}, {{Finally}}).","answers":[{"t":"First, I went to the market. Then I cooked sinigang for my family. Finally, we ate together.","tr":"Una, miadto ko sa merkado. Dayon, nagluto ko og sinigang para sa akong pamilya. Sa katapusan, nangaon mi nga dungan."},{"t":"First, we took a bus to Oslob. When we arrived, we swam with whale sharks. Finally, we went home.","tr":"Una, misakay mi og bus paingon sa Oslob. Pag-abot namo, nanglangoy mi uban sa mga tuki. Sa katapusan, miuli mi."}]}
+      ]
+    },
+    {
+      "id": "set-the-scene",
+      "unit": 4,
+      "level": "A2",
+      "title": "Isulti kung unsay nagkahitabo niadto",
+      "summary": "Isulti kung unsay imong gibuhat sa dihang naay nahitabo: “I was cooking when you called.”",
+      "topic": "Ang past continuous ({{was}} / {{were}} + {{-ing}}) para sa nagpadayon; {{when}} ug {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was cooking when you called.","tr":"Nagluto ko sa dihang nitawag ka."}},
+        {"dialog":[{"who":"Joy","t":"I called you last night. Where were you?","tr":"Gitawagan tika kagabii. Asa ka?"},{"who":"Ben","t":"Sorry! I was taking a shower when you called.","tr":"Sorry! Naligo ko sa dihang nitawag ka."},{"who":"Joy","t":"And at ten? I called again.","tr":"Ug alas diyes? Nitawag ko usab."},{"who":"Ben","t":"I was sleeping! What were you doing so late?","tr":"Natulog na ko! Unsay imong gibuhat nga ulahi na kaayo?"},{"who":"Joy","t":"I was watching a movie, and I wanted to tell you about it!","tr":"Nanan-aw ko og sine, ug gusto nako isulti nimo ang bahin niini!"}]},
+        {"p":"Ang “nag-” sa Bisaya usab: “Nagluto ko sa dihang nitawag ka.” Sa Iningles, ang lihok nga **nagpadayon** sa kaniadto (ang background) gisulti sa **past continuous**: {{was}} / {{were}} + {{-ing}}: {{I was cooking.}} Ang mubo nga hitabo nga mitunga gisulti sa past simple: {{you called}}."},
+        { "table": [
+          ["nagpadayon (background)","mubo nga hitabo"],
+          ["{{I was cooking}}","{{when you called.}}"],
+          ["{{She was sleeping}}","{{when I got home.}}"],
+          ["{{While we were eating,}}","{{the lights went out.}}"]
+        ] },
+        {"p":"**{{when}} ug {{while}}.** {{when}} + ang mubo nga hitabo: {{I was cooking when you called.}} {{while}} + ang nagpadayon: {{While I was cooking, you called.}} Ang “sa dihang” ug “samtang” sa Bisaya."},
+        {"p":"**Ang porma**: {{was}} uban sa {{I}}, {{he}}, {{she}}, {{it}}; {{were}} uban sa {{you}}, {{we}}, {{they}}. Pangutana: {{What were you doing at ten?}} “Unsay imong gibuhat alas diyes?”"},
+        { "ex": [
+          {"t":"I was cooking when you called.","tr":"Nagluto ko sa dihang nitawag ka."},
+          {"t":"She was sleeping when I got home.","tr":"Natulog na siya pag-abot nako."},
+          {"t":"It was raining all day.","tr":"Nag-ulan sa tibuok adlaw."},
+          {"t":"What were you doing at ten?","tr":"Unsay imong gibuhat alas diyes?"},
+          {"t":"While we were eating, the lights went out.","tr":"Samtang nangaon mi, nabrownout."},
+          {"t":"They were watching TV.","tr":"Nagtan-aw sila og TV."}
+        ] },
+        {"tip":"Kini ang paagi sa pagsugod og maayong istorya: isulti una ang background ({{It was raining, and I was walking home…}}), dayon ang nahitabo ({{…when I saw a dog in the street.}})."}
+      ],
+      "mistakes": [
+        {"wrong":"I cooking when you called.","right":"I was cooking when you called.","tr":"Nagluto ko sa dihang nitawag ka.","why":"Kinahanglan ang {{was}}: {{I was cooking}}."},
+        {"wrong":"I was cook when you called.","right":"I was cooking when you called.","tr":"Nagluto ko sa dihang nitawag ka.","why":"Human sa {{was}}: berbo-{{ing}}."},
+        {"wrong":"While I cooked, you were calling.","right":"While I was cooking, you called.","tr":"Samtang nagluto ko, nitawag ka.","why":"Ang taas nga lihok ang {{-ing}}; ang mubo nga hitabo ang past simple."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I ___ cooking when you called.","tr":"Nagluto ko sa dihang nitawag ka.","options":["was","were","am"],"answer":0,"why":"Kaniadto, uban sa {{I}}: {{was}}."},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"I was sleeping when you ___.","tr":"Natulog ko sa dihang nitawag ka.","options":["called","were calling","call"],"answer":0,"why":"Ang mubo nga hitabo: past simple."},
+        {"type":"choice","q":"“Samtang nangaon mi, nabrownout.”","options":["{{While we were eating, the lights went out.}}","{{While we ate, the lights were going out.}}"],"answer":0,"why":"Ang nagpadayon: {{were eating}}; ang hitabo: {{went out}}."},
+        {"type":"dialogue","q":"Gipangutana ka sa imong higala. Pilia ang imong mga tubag.","lines":[{"who":"Mark","t":"I saw you at the mall yesterday. What were you doing?","tr":"Nakita tika sa mall gahapon. Unsay imong gibuhat?"},{"options":["I was shopping for shoes.","I shopping for shoes."],"answer":0,"why":"Kinahanglan ang {{was}}."},{"who":"Mark","t":"I called you, but you didn't answer.","tr":"Gitawagan tika, pero wala ka mitubag."},{"options":["Sorry! I was trying on clothes when you called.","Sorry! I was try on clothes when you called."],"answer":0,"why":"{{was}} + {{-ing}}: {{was trying}}."}]},
+        {"type":"order","q":"Han-aya ang mga pulong.","tr":"Nag-ulan sa tibuok adlaw.","words":["It","was","raining","all day."]},
+        {"type":"choice","q":"{{I'm cooking.}} ug {{I was cooking.}}","options":["“Nagluto ko karon.” ug “Nagluto ko niadto.”","“Nagluto ko niadto.” ug “Nagluto ko karon.”"],"answer":0,"why":"{{am}}: karon. {{was}}: kaniadto.","from":"say-what-youre-doing-now"},
+        {"type":"fill","q":"Pilia ang kulang nga pulong.","t":"They ___ watching TV.","tr":"Nagtan-aw sila og TV.","options":["were","was","is"],"answer":0,"why":"Kaniadto, uban sa {{they}}: {{were}}.","from":"say-where-you-were"},
+        {"type":"free","q":"Ikaw na: unsay imong gibuhat kagabii alas otso? Ug unsay nahitabo?","answers":[{"t":"I was watching TV at eight. Then my brother came home with pizza!","tr":"Nanan-aw ko og TV alas otso. Dayon miabot akong igsoon nga nagdala og pizza!"},{"t":"I was cooking dinner when my friend called me.","tr":"Nagluto ko sa panihapon sa dihang gitawagan ko sa akong higala."}]}
+      ]
     }
   ]
 }
