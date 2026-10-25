@@ -22,12 +22,12 @@
    "title": "Japanese grammar",
    "variety": "Standard Japanese",
    "units": 8,
-   "lessons": 4,
+   "lessons": 9,
    "levels": [
     "A1"
    ],
-   "bytes": 29948,
-   "sha256": "d13c963e3f5547a34b44c602eb39f372895bceda13a5a7af5a6add9c92091178"
+   "bytes": 66725,
+   "sha256": "9b160b7a9dfbddc7417e0102d56acf2dcf1dd8e9a4206aa911569fd361f0adca"
   }
  }
 }

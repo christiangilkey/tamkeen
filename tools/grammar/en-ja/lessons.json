@@ -209,6 +209,229 @@
         {"type":"say","q":"How do you say “Two coffees, please.”?","answer":"コーヒーを二つください。","r":"Kōhī o futatsu kudasai."},
         {"type":"free","q":"Your turn: you're in a bakery. Ask how much something is, then order. Use {{いくらですか|ikura desu ka}} and {{をください|o kudasai}}.","answers":[{"t":"このパンはいくらですか。じゃ、二つください。","r":"Kono pan wa ikura desu ka. Ja, futatsu kudasai.","tr":"How much is this bread? Then two, please."},{"t":"すみません、あのケーキを一つください。","r":"Sumimasen, ano kēki o hitotsu kudasai.","tr":"Excuse me, one of those cakes over there, please."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you do, and what you don't",
+      "summary": "Talk about everyday actions, what you eat, drink, watch and study, and what you don't: “I drink coffee every morning.”",
+      "topic": "verbs in {{ます|masu}} and {{ません|masen}}; {{を|o}}; the verb at the end",
+      "blocks": [
+        {"goal":{"t":"毎朝コーヒーを飲みます。","r":"Maiasa kōhī o nomimasu.","tr":"I drink coffee every morning."}},
+        {"dialog":[{"who":"Ken","t":"エマさん、肉を食べますか。","r":"Ema-san, niku o tabemasu ka.","tr":"Emma, do you eat meat?"},{"who":"Emma","t":"いいえ、食べません。魚を食べます。","r":"Iie, tabemasen. Sakana o tabemasu.","tr":"No, I don't. I eat fish."},{"who":"Ken","t":"お酒を飲みますか。","r":"Osake o nomimasu ka.","tr":"Do you drink alcohol?"},{"who":"Emma","t":"はい、ときどき飲みます。","r":"Hai, tokidoki nomimasu.","tr":"Yes, sometimes."}]},
+        {"term":"verb","means":"a word for an action or a state: eat, go, sleep, have."},
+        {"p":"**Verbs end in {{ます|masu}}.** {{食べます|tabemasu}} “eat”, {{飲みます|nomimasu}} “drink”, {{見ます|mimasu}} “watch, see”. The polite form of every verb ends in {{ます|masu}}, and it's the same whoever does it: {{私は飲みます|watashi wa nomimasu}} “I drink”, {{田中さんは飲みます|Tanaka-san wa nomimasu}} “Mr Tanaka drinks”. No endings for I, you or she to learn."},
+        {"term":"object","means":"the person or thing an action is done to: I drink **coffee**."},
+        {"p":"**The object takes {{を|o}}, and the verb comes last.** Word for word, Japanese says “I coffee drink”: {{私はコーヒーを飲みます|watashi wa kōhī o nomimasu}}. {{を|o}} goes right after the object, and the verb closes the sentence. Time words usually come first: {{毎朝|maiasa}} “every morning”."},
+        { "table": [
+          ["","do","don't","do you…?"],
+          ["eat","{{食べます|tabemasu}}","{{食べません|tabemasen}}","{{食べますか|tabemasu ka}}"],
+          ["drink","{{飲みます|nomimasu}}","{{飲みません|nomimasen}}","{{飲みますか|nomimasu ka}}"],
+          ["watch, see","{{見ます|mimasu}}","{{見ません|mimasen}}","{{見ますか|mimasu ka}}"],
+          ["read","{{読みます|yomimasu}}","{{読みません|yomimasen}}","{{読みますか|yomimasu ka}}"],
+          ["do","{{します|shimasu}}","{{しません|shimasen}}","{{しますか|shimasu ka}}"]
+        ] },
+        {"p":"**Not: {{ません|masen}}.** Change {{ます|masu}} to {{ません|masen}}: {{飲みません|nomimasen}} “I don't drink”. Questions take {{か|ka}} as before, and the answer repeats the verb: {{食べますか。|Tabemasu ka.}} → {{はい、食べます。|Hai, tabemasu.}} or {{いいえ、食べません。|Iie, tabemasen.}}"},
+        {"p":"**Now and later.** The {{ます|masu}} form covers what you do (habits) and what you will do: {{明日、映画を見ます|ashita, eiga o mimasu}} “I'll watch a movie tomorrow”. The time word tells you which. And {{します|shimasu}} “do” makes many verbs out of nouns: {{勉強します|benkyō shimasu}} “study”, {{テニスをします|tenisu o shimasu}} “play tennis”."},
+        { "ex": [
+          {"t":"毎朝コーヒーを飲みます。","r":"Maiasa kōhī o nomimasu.","tr":"I drink coffee every morning."},
+          {"t":"私は肉を食べません。","r":"Watashi wa niku o tabemasen.","tr":"I don't eat meat."},
+          {"t":"毎晩テレビを見ます。","r":"Maiban terebi o mimasu.","tr":"I watch TV every evening."},
+          {"t":"日本語を勉強します。","r":"Nihongo o benkyō shimasu.","tr":"I study Japanese."},
+          {"t":"明日、テニスをします。","r":"Ashita, tenisu o shimasu.","tr":"I'm going to play tennis tomorrow.","note":"the same form for the future"},
+          {"t":"田中さんは新聞を読みますか。","r":"Tanaka-san wa shinbun o yomimasu ka.","tr":"Does Mr Tanaka read the newspaper?"}
+        ] },
+        {"tip":"{{ときどき|tokidoki}} “sometimes”, {{よく|yoku}} “often”, {{毎日|mainichi}} “every day” go before the verb, usually near the start: {{よくテレビを見ます|yoku terebi o mimasu}} “I often watch TV”."}
+      ],
+      "mistakes": [
+        {"wrong":"私は飲みますコーヒーを。","right":"私はコーヒーを飲みます。","rw":"Watashi wa nomimasu kōhī o.","rr":"Watashi wa kōhī o nomimasu.","tr":"I drink coffee.","why":"The verb comes at the end: the object with {{を|o}}, then the verb. {{私はコーヒーを飲みます。|Watashi wa kōhī o nomimasu.}}"},
+        {"wrong":"肉を食べますじゃありません。","right":"肉を食べません。","rw":"Niku o tabemasu ja arimasen.","rr":"Niku o tabemasen.","tr":"I don't eat meat.","why":"{{じゃありません|ja arimasen}} is for nouns. A verb says “not” with {{ません|masen}}: {{食べません|tabemasen}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"毎晩テレビ___見ます。","r":"Maiban terebi ___ mimasu.","tr":"I watch TV every evening.","options":["を","は","の"],"rs":["o","wa","no"],"answer":0,"why":"The object takes {{を|o}}: {{毎晩テレビを見ます。|Maiban terebi o mimasu.}}"},
+        {"type":"choice","q":"Which one means “I don't eat meat”?","options":["{{肉を食べません。|Niku o tabemasen.}}","{{肉を食べます。|Niku o tabemasu.}}","{{肉じゃありません。|Niku ja arimasen.}}"],"answer":0,"why":"{{ません|masen}} is “don't”. {{肉じゃありません|niku ja arimasen}} means “It isn't meat.”","from":"ask-yes-no-questions"},
+        {"type":"order","q":"Put the words in order.","tr":"I study Japanese every day.","words":["毎日","日本語を","勉強します。"],"rs":["Mainichi","Nihongo o","benkyō shimasu."],"why":"{{毎日日本語を勉強します。|Mainichi Nihongo o benkyō shimasu.}}"},
+        {"type":"dialogue","q":"A new colleague asks about you. Choose your replies.","lines":[{"who":"Colleague","t":"お酒を飲みますか。","r":"Osake o nomimasu ka.","tr":"Do you drink alcohol?"},{"options":["いいえ、飲みません。","いいえ、飲みますじゃありません。"],"rs":["Iie, nomimasen.","Iie, nomimasu ja arimasen."],"answer":0,"why":"A verb says “not” with {{ません|masen}}."},{"who":"Colleague","t":"そうですか。コーヒーは？","r":"Sō desu ka. Kōhī wa?","tr":"I see. What about coffee?"},{"options":["はい、毎朝飲みます。","はい、毎朝コーヒーです。"],"rs":["Hai, maiasa nomimasu.","Hai, maiasa kōhī desu."],"answer":0,"why":"Answer with the verb: {{毎朝飲みます|maiasa nomimasu}} “I drink it every morning”."}]},
+        {"type":"fill","q":"Choose the missing word.","t":"田中さんは新聞を読みます___。","r":"Tanaka-san wa shinbun o yomimasu ___.","tr":"Does Mr Tanaka read the newspaper?","options":["か","も","を"],"rs":["ka","mo","o"],"answer":0,"why":"A question ends with {{か|ka}}, after verbs too.","from":"ask-yes-no-questions"},
+        {"type":"say","q":"How do you say “I'll watch a movie tomorrow.”?","answer":"明日、映画を見ます。","r":"Ashita, eiga o mimasu."},
+        {"type":"free","q":"Your turn: say two things you do every day and one thing you don't do. Use {{ます|masu}} and {{ません|masen}}.","answers":[{"t":"毎朝パンを食べます。毎晩本を読みます。テレビを見ません。","r":"Maiasa pan o tabemasu. Maiban hon o yomimasu. Terebi o mimasen.","tr":"I eat bread every morning. I read a book every evening. I don't watch TV."},{"t":"毎日日本語を勉強します。コーヒーを飲みます。お酒を飲みません。","r":"Mainichi Nihongo o benkyō shimasu. Kōhī o nomimasu. Osake o nomimasen.","tr":"I study Japanese every day. I drink coffee. I don't drink alcohol."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-go",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where you're going, when and how",
+      "summary": "Talk about going places: where to, at what time, on which day, and how you get there: “I go to work by train at eight.”",
+      "topic": "{{行きます|ikimasu}}, {{来ます|kimasu}}, {{帰ります|kaerimasu}}; {{へ|e}} or {{に|ni}} “to”; {{に|ni}} with times; {{で|de}} “by”",
+      "blocks": [
+        {"goal":{"t":"毎朝八時に電車で会社へ行きます。","r":"Maiasa hachi-ji ni densha de kaisha e ikimasu.","tr":"Every morning I go to work by train at eight."}},
+        {"dialog":[{"who":"Yui","t":"週末、どこへ行きますか。","r":"Shūmatsu, doko e ikimasu ka.","tr":"Where are you going at the weekend?"},{"who":"Tom","t":"土曜日に京都へ行きます。","r":"Doyōbi ni Kyōto e ikimasu.","tr":"I'm going to Kyoto on Saturday."},{"who":"Yui","t":"いいですね。何で行きますか。","r":"Ii desu ne. Nan de ikimasu ka.","tr":"Nice! How are you getting there?"},{"who":"Tom","t":"新幹線で行きます。日曜日の夜に帰ります。","r":"Shinkansen de ikimasu. Nichiyōbi no yoru ni kaerimasu.","tr":"By bullet train. I'm coming back on Sunday night."}]},
+        {"p":"**Three verbs of movement.** {{行きます|ikimasu}} “go”, {{来ます|kimasu}} “come”, {{帰ります|kaerimasu}} “go back, go home”: back to where you live, your home or your country. Japanese uses {{帰ります|kaerimasu}} where English says “go home” or “come back”."},
+        {"p":"**Where to: {{へ|e}} or {{に|ni}}.** The place, then {{へ|e}} or {{に|ni}}, then the verb: {{京都へ行きます|Kyōto e ikimasu}} or {{京都に行きます|Kyōto ni ikimasu}} “I'm going to Kyoto”. Both are right. {{へ|e}}, as a particle, is said “e”. {{どこへ|doko e}} is “where to?”."},
+        {"p":"**When: {{に|ni}} with clock times and days.** {{八時に|hachi-ji ni}} “at eight”, {{土曜日に|doyōbi ni}} “on Saturday”, {{三月に|sangatsu ni}} “in March”. Words that count from today, like {{今日|kyō}} “today”, {{明日|ashita}} “tomorrow”, {{毎日|mainichi}} “every day” and {{週末|shūmatsu}} “the weekend”, take no {{に|ni}}."},
+        {"p":"**How: {{で|de}}.** The means of transport, then {{で|de}}: {{電車で|densha de}} “by train”, {{バスで|basu de}} “by bus”, {{車で|kuruma de}} “by car”. On foot is {{歩いて|aruite}} “walking”. To ask how, say {{何で|nan de}} “by what?”."},
+        { "table": [
+          ["","particle","example"],
+          ["where to","{{へ|e}} / {{に|ni}}","{{東京へ|Tōkyō e}} to Tokyo"],
+          ["at what time, on what day","{{に|ni}}","{{七時に|shichi-ji ni}} at seven"],
+          ["by what","{{で|de}}","{{バスで|basu de}} by bus"]
+        ] },
+        {"p":"The usual order is: when, how, where to, then the verb. But the particles carry the meaning, so the order can change. Only the verb must stay last."},
+        { "ex": [
+          {"t":"明日、東京へ行きます。","r":"Ashita, Tōkyō e ikimasu.","tr":"I'm going to Tokyo tomorrow."},
+          {"t":"何時に家へ帰りますか。","r":"Nan-ji ni ie e kaerimasu ka.","tr":"What time are you going home?"},
+          {"t":"七時に帰ります。","r":"Shichi-ji ni kaerimasu.","tr":"I'll be home at seven."},
+          {"t":"バスで学校へ行きます。","r":"Basu de gakkō e ikimasu.","tr":"I go to school by bus."},
+          {"t":"姉は来月日本へ来ます。","r":"Ane wa raigetsu Nihon e kimasu.","tr":"My sister is coming to Japan next month."},
+          {"t":"歩いて駅へ行きます。","r":"Aruite eki e ikimasu.","tr":"I walk to the station."}
+        ] },
+        {"tip":"Clock times are a number + {{時|ji}}. Watch three of them: {{四時|yo-ji}} four o'clock, {{七時|shichi-ji}} seven, {{九時|ku-ji}} nine. Half past is {{半|han}}: {{三時半|san-ji han}} “half past three”."}
+      ],
+      "mistakes": [
+        {"wrong":"明日に東京へ行きます。","right":"明日、東京へ行きます。","rw":"Ashita ni Tōkyō e ikimasu.","rr":"Ashita, Tōkyō e ikimasu.","tr":"I'm going to Tokyo tomorrow.","why":"{{明日|ashita}}, {{今日|kyō}} and {{毎日|mainichi}} take no {{に|ni}}: only clock times, days of the week and dates do."},
+        {"wrong":"電車に会社へ行きます。","right":"電車で会社へ行きます。","rw":"Densha ni kaisha e ikimasu.","rr":"Densha de kaisha e ikimasu.","tr":"I go to work by train.","why":"“By” train, bus or car is {{で|de}}: {{電車で|densha de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"九時___会社へ行きます。","r":"Ku-ji ___ kaisha e ikimasu.","tr":"I go to work at nine.","options":["に","で","を"],"rs":["ni","de","o"],"answer":0,"why":"A clock time takes {{に|ni}}: {{九時に|ku-ji ni}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"バス___学校へ行きます。","r":"Basu ___ gakkō e ikimasu.","tr":"I go to school by bus.","options":["で","に","の"],"rs":["de","ni","no"],"answer":0,"why":"“By bus” is {{バスで|basu de}}."},
+        {"type":"choice","q":"Which sentence is right?","options":["{{明日、京都へ行きます。|Ashita, Kyōto e ikimasu.}}","{{明日に京都へ行きます。|Ashita ni Kyōto e ikimasu.}}","{{明日、京都を行きます。|Ashita, Kyōto o ikimasu.}}"],"answer":0,"why":"No {{に|ni}} after {{明日|ashita}}, and “to” a place is {{へ|e}} or {{に|ni}}, not {{を|o}}."},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","lines":[{"who":"Friend","t":"週末、どこへ行きますか。","r":"Shūmatsu, doko e ikimasu ka.","tr":"Where are you going at the weekend?"},{"options":["日曜日に海へ行きます。","日曜日を海へ行きます。"],"rs":["Nichiyōbi ni umi e ikimasu.","Nichiyōbi o umi e ikimasu."],"answer":0,"why":"A day of the week takes {{に|ni}}."},{"who":"Friend","t":"いいですね。何で行きますか。","r":"Ii desu ne. Nan de ikimasu ka.","tr":"Nice! How are you getting there?"},{"options":["車で行きます。","車を行きます。"],"rs":["Kuruma de ikimasu.","Kuruma o ikimasu."],"answer":0,"why":"“By car” is {{車で|kuruma de}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"What time are you going home?","words":["何時に","家へ","帰りますか。"],"rs":["Nan-ji ni","ie e","kaerimasu ka."],"why":"{{何時に家へ帰りますか。|Nan-ji ni ie e kaerimasu ka.}}"},
+        {"type":"say","q":"How do you say “I'm not going to school tomorrow.”?","answer":"明日、学校へ行きません。","r":"Ashita, gakkō e ikimasen.","from":"say-what-you-do"},
+        {"type":"free","q":"Your turn: where are you going this weekend, when, and how? Use {{に|ni}}, {{で|de}} and {{へ|e}}.","answers":[{"t":"土曜日に電車で大阪へ行きます。","r":"Doyōbi ni densha de Ōsaka e ikimasu.","tr":"I'm going to Osaka by train on Saturday."},{"t":"日曜日の朝、自転車で公園へ行きます。","r":"Nichiyōbi no asa, jitensha de kōen e ikimasu.","tr":"On Sunday morning I'm going to the park by bike."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-day",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about your daily routine",
+      "summary": "Say where you do things, who with, and from when until when: “I study Japanese at home every evening.”",
+      "topic": "{{で|de}} “at, in” (where something is done); {{と|to}} “with”; {{から|kara}} and {{まで|made}}",
+      "blocks": [
+        {"goal":{"t":"毎晩、家で日本語を勉強します。","r":"Maiban, ie de Nihongo o benkyō shimasu.","tr":"Every evening I study Japanese at home."}},
+        {"dialog":[{"who":"Yui","t":"毎日、何をしますか。","r":"Mainichi, nani o shimasu ka.","tr":"What do you do every day?"},{"who":"Tom","t":"九時から五時まで会社で働きます。","r":"Ku-ji kara go-ji made kaisha de hatarakimasu.","tr":"I work at the office from nine to five."},{"who":"Yui","t":"晩ご飯は？","r":"Bangohan wa?","tr":"What about dinner?"},{"who":"Tom","t":"たいてい友達とレストランで食べます。","r":"Taitei tomodachi to resutoran de tabemasu.","tr":"I usually eat at a restaurant with friends."},{"who":"Yui","t":"週末は？","r":"Shūmatsu wa?","tr":"And at the weekend?"},{"who":"Tom","t":"週末は家で寝ます！","r":"Shūmatsu wa ie de nemasu!","tr":"At the weekend I sleep at home!"}]},
+        {"p":"**Where you do something: {{で|de}}.** The place where an action happens takes {{で|de}}: {{家で勉強します|ie de benkyō shimasu}} “I study at home”, {{会社で働きます|kaisha de hatarakimasu}} “I work at the office”. Don't mix it up with {{へ|e}} / {{に|ni}}, which mark where you go **to**. {{で|de}} is where you **are** while you do it."},
+        { "table": [
+          ["","particle","example"],
+          ["where you go to","{{へ|e}} / {{に|ni}}","{{図書館へ行きます|toshokan e ikimasu}} I go to the library"],
+          ["where you do it","{{で|de}}","{{図書館で勉強します|toshokan de benkyō shimasu}} I study at the library"]
+        ] },
+        {"p":"**Who with: {{と|to}}.** {{友達と|tomodachi to}} “with a friend”, {{家族と|kazoku to}} “with my family”: the same {{と|to}} that means “and” between nouns. On your own is {{一人で|hitori de}}."},
+        {"p":"**From… to…: {{から|kara}} and {{まで|made}}.** For times and places: {{九時から五時まで|ku-ji kara go-ji made}} “from nine to five”, {{東京から大阪まで|Tōkyō kara Ōsaka made}} “from Tokyo to Osaka”. Each one also works alone: {{月曜日から|getsuyōbi kara}} “from Monday”."},
+        {"p":"**What do you do?** {{何をしますか。|Nani o shimasu ka.}} Before {{を|o}}, {{何|nan}} is said “nani”."},
+        { "ex": [
+          {"t":"図書館で本を読みます。","r":"Toshokan de hon o yomimasu.","tr":"I read books at the library."},
+          {"t":"友達とカフェで話します。","r":"Tomodachi to kafe de hanashimasu.","tr":"I talk with friends at a café."},
+          {"t":"九時から五時まで働きます。","r":"Ku-ji kara go-ji made hatarakimasu.","tr":"I work from nine to five."},
+          {"t":"一人で映画を見ます。","r":"Hitori de eiga o mimasu.","tr":"I watch movies on my own."},
+          {"t":"週末、何をしますか。","r":"Shūmatsu, nani o shimasu ka.","tr":"What do you do at the weekend?"},
+          {"t":"駅から家まで歩きます。","r":"Eki kara ie made arukimasu.","tr":"I walk from the station to my house."}
+        ] },
+        {"tip":"{{～は？|… wa?}} on its own, with your voice going up, means “what about…?”: {{晩ご飯は？|Bangohan wa?}} “What about dinner?”. A very handy way to keep a conversation going."}
+      ],
+      "mistakes": [
+        {"wrong":"家に勉強します。","right":"家で勉強します。","rw":"Ie ni benkyō shimasu.","rr":"Ie de benkyō shimasu.","tr":"I study at home.","why":"Where you do something takes {{で|de}}. {{に|ni}} is for where you go."},
+        {"wrong":"友達で映画を見ます。","right":"友達と映画を見ます。","rw":"Tomodachi de eiga o mimasu.","rr":"Tomodachi to eiga o mimasu.","tr":"I watch movies with friends.","why":"“With” a person is {{と|to}}. {{で|de}} is for places and for means, like {{バスで|basu de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"図書館___本を読みます。","r":"Toshokan ___ hon o yomimasu.","tr":"I read books at the library.","options":["で","に","を"],"rs":["de","ni","o"],"answer":0,"why":"Where you do it: {{図書館で|toshokan de}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"九時___五時まで働きます。","r":"Ku-ji ___ go-ji made hatarakimasu.","tr":"I work from nine to five.","options":["から","まで","で"],"rs":["kara","made","de"],"answer":0,"why":"“From” is {{から|kara}}, “until” is {{まで|made}}."},
+        {"type":"choice","q":"{{レストランへ行きます|resutoran e ikimasu}} and {{レストランで食べます|resutoran de tabemasu}}: what's the difference?","options":["The first says where you go, the second where you eat.","They mean the same thing.","The first one is in the past."],"answer":0,"why":"{{へ|e}}: where you go to. {{で|de}}: where you do something."},
+        {"type":"dialogue","q":"A friend asks about your weekend. Choose your replies.","lines":[{"who":"Friend","t":"週末、何をしますか。","r":"Shūmatsu, nani o shimasu ka.","tr":"What are you doing at the weekend?"},{"options":["家族と公園へ行きます。","家族で公園を行きます。"],"rs":["Kazoku to kōen e ikimasu.","Kazoku de kōen o ikimasu."],"answer":0,"why":"“With my family” is {{家族と|kazoku to}}; “to the park” is {{公園へ|kōen e}}."},{"who":"Friend","t":"いいですね。公園で何をしますか。","r":"Ii desu ne. Kōen de nani o shimasu ka.","tr":"Nice! What will you do in the park?"},{"options":["サッカーをします。","サッカーへします。"],"rs":["Sakkā o shimasu.","Sakkā e shimasu."],"answer":0,"why":"The object takes {{を|o}}: {{サッカーをします|sakkā o shimasu}} “play football”."}],"from":"say-what-you-do"},
+        {"type":"order","q":"Put the words in order.","tr":"I talk with friends at a café.","words":["友達と","カフェで","話します。"],"also":[["カフェで","友達と","話します。"]],"rs":["Tomodachi to","kafe de","hanashimasu."],"why":"Only the verb has to be last: {{友達とカフェで話します。|Tomodachi to kafe de hanashimasu.}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"毎朝電車___会社へ行きます。","r":"Maiasa densha ___ kaisha e ikimasu.","tr":"Every morning I go to work by train.","options":["で","と","を"],"rs":["de","to","o"],"answer":0,"why":"“By train”: {{電車で|densha de}}.","from":"say-where-you-go"},
+        {"type":"free","q":"Your turn: describe your day. Where do you work or study, from when to when, and who do you eat with?","answers":[{"t":"九時から六時まで会社で働きます。昼ご飯は同僚と食べます。","r":"Ku-ji kara roku-ji made kaisha de hatarakimasu. Hirugohan wa dōryō to tabemasu.","tr":"I work at the office from nine to six. I have lunch with my colleagues."},{"t":"毎日、大学で勉強します。晩ご飯は家で家族と食べます。","r":"Mainichi, daigaku de benkyō shimasu. Bangohan wa ie de kazoku to tabemasu.","tr":"I study at university every day. I have dinner at home with my family."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you did yesterday",
+      "summary": "Talk about the past: what you did, where you went, and what you didn't do: “I saw a movie with a friend yesterday.”",
+      "topic": "{{ました|mashita}} and {{ませんでした|masen deshita}}; {{何も|nani mo}} and {{どこへも|doko e mo}} with a negative",
+      "blocks": [
+        {"goal":{"t":"昨日、友達と映画を見ました。","r":"Kinō, tomodachi to eiga o mimashita.","tr":"I saw a movie with a friend yesterday."}},
+        {"dialog":[{"who":"Ms Sato","t":"週末、何をしましたか。","r":"Shūmatsu, nani o shimashita ka.","tr":"What did you do at the weekend?"},{"who":"You","t":"土曜日に友達と鎌倉へ行きました。","r":"Doyōbi ni tomodachi to Kamakura e ikimashita.","tr":"On Saturday I went to Kamakura with a friend."},{"who":"Ms Sato","t":"いいですね。日曜日は？","r":"Ii desu ne. Nichiyōbi wa?","tr":"Nice. And on Sunday?"},{"who":"You","t":"日曜日はどこへも行きませんでした。家で寝ました。","r":"Nichiyōbi wa doko e mo ikimasen deshita. Ie de nemashita.","tr":"On Sunday I didn't go anywhere. I slept at home."}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: now, in the past, in the future."},
+        {"p":"**The past: {{ました|mashita}}.** Change {{ます|masu}} to {{ました|mashita}}: {{見ます|mimasu}} → {{見ました|mimashita}} “saw, watched”, {{行きます|ikimasu}} → {{行きました|ikimashita}} “went”. Every verb, no exceptions, the same for everyone."},
+        { "table": [
+          ["","now, later","past"],
+          ["yes","{{見ます|mimasu}} I watch","{{見ました|mimashita}} I watched"],
+          ["not","{{見ません|mimasen}} I don't watch","{{見ませんでした|mimasen deshita}} I didn't watch"]
+        ] },
+        {"p":"**Didn't: {{ませんでした|masen deshita}}.** The negative {{ません|masen}}, then {{でした|deshita}}: {{食べませんでした|tabemasen deshita}} “I didn't eat”."},
+        {"p":"**Nothing, nowhere, nobody.** A question word + {{も|mo}}, with a negative verb: {{何も食べませんでした|nani mo tabemasen deshita}} “I didn't eat anything”, {{どこへも行きませんでした|doko e mo ikimasen deshita}} “I didn't go anywhere”, {{だれも来ませんでした|dare mo kimasen deshita}} “Nobody came”. {{も|mo}} takes the place of {{を|o}}, but comes after {{へ|e}}."},
+        { "ex": [
+          {"t":"先週、京都へ行きました。","r":"Senshū, Kyōto e ikimashita.","tr":"I went to Kyoto last week."},
+          {"t":"今朝は何も食べませんでした。","r":"Kesa wa nani mo tabemasen deshita.","tr":"I didn't eat anything this morning."},
+          {"t":"昨日の晩、どこへ行きましたか。","r":"Kinō no ban, doko e ikimashita ka.","tr":"Where did you go last night?"},
+          {"t":"何時に寝ましたか。","r":"Nan-ji ni nemashita ka.","tr":"What time did you go to bed?"},
+          {"t":"パーティーにだれも来ませんでした。","r":"Pātī ni dare mo kimasen deshita.","tr":"Nobody came to the party."},
+          {"t":"去年、日本語の勉強を始めました。","r":"Kyonen, Nihongo no benkyō o hajimemashita.","tr":"I started studying Japanese last year."}
+        ] },
+        {"tip":"Past time words: {{昨日|kinō}} yesterday, {{今朝|kesa}} this morning, {{先週|senshū}} last week, {{去年|kyonen}} last year. Like {{明日|ashita}}, they take no {{に|ni}}."}
+      ],
+      "mistakes": [
+        {"wrong":"昨日、映画を見ます。","right":"昨日、映画を見ました。","rw":"Kinō, eiga o mimasu.","rr":"Kinō, eiga o mimashita.","tr":"I saw a movie yesterday.","why":"Japanese shows the past on the verb: {{ました|mashita}}. {{昨日|kinō}} alone isn't enough."},
+        {"wrong":"何を食べませんでした。","right":"何も食べませんでした。","rw":"Nani o tabemasen deshita.","rr":"Nani mo tabemasen deshita.","tr":"I didn't eat anything.","why":"“Nothing” is {{何も|nani mo}} with a negative verb. {{何を|nani o}} asks a question: {{何を食べましたか|nani o tabemashita ka}} “What did you eat?”"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing ending.","t":"先週、京都へ行き___。","r":"Senshū, Kyōto e iki___.","tr":"I went to Kyoto last week.","options":["ました","ます","ません"],"rs":["mashita","masu","masen"],"answer":0,"why":"Last week is the past: {{行きました|ikimashita}}."},
+        {"type":"choice","q":"How do you say “I didn't eat anything”?","options":["{{何も食べませんでした。|Nani mo tabemasen deshita.}}","{{何を食べませんでした。|Nani o tabemasen deshita.}}","{{何も食べました。|Nani mo tabemashita.}}"],"answer":0,"why":"{{何も|nani mo}} with a negative verb in the past."},
+        {"type":"dialogue","q":"Monday morning: choose your replies.","lines":[{"who":"Colleague","t":"週末、何をしましたか。","r":"Shūmatsu, nani o shimashita ka.","tr":"What did you do at the weekend?"},{"options":["友達と買い物をしました。","友達と買い物をします。"],"rs":["Tomodachi to kaimono o shimashita.","Tomodachi to kaimono o shimasu."],"answer":0,"why":"The weekend is over: {{しました|shimashita}}."},{"who":"Colleague","t":"どこで買い物をしましたか。","r":"Doko de kaimono o shimashita ka.","tr":"Where did you go shopping?"},{"options":["渋谷でしました。","渋谷へしました。"],"rs":["Shibuya de shimashita.","Shibuya e shimashita."],"answer":0,"why":"Where you did it: {{渋谷で|Shibuya de}}."}],"from":"talk-about-your-day"},
+        {"type":"order","q":"Put the words in order.","tr":"Where did you go last night?","words":["昨日の晩、","どこへ","行きましたか。"],"rs":["Kinō no ban,","doko e","ikimashita ka."],"why":"{{昨日の晩、どこへ行きましたか。|Kinō no ban, doko e ikimashita ka.}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"何時___寝ましたか。","r":"Nan-ji ___ nemashita ka.","tr":"What time did you go to bed?","options":["に","で","へ"],"rs":["ni","de","e"],"answer":0,"why":"A clock time takes {{に|ni}}.","from":"say-where-you-go"},
+        {"type":"say","q":"How do you say “I didn't go anywhere on Sunday.”?","answer":"日曜日はどこへも行きませんでした。","r":"Nichiyōbi wa doko e mo ikimasen deshita."},
+        {"type":"free","q":"Your turn: what did you do yesterday? Say two things you did and one thing you didn't.","answers":[{"t":"昨日、図書館で勉強しました。夜、友達と晩ご飯を食べました。テレビは見ませんでした。","r":"Kinō, toshokan de benkyō shimashita. Yoru, tomodachi to bangohan o tabemashita. Terebi wa mimasen deshita.","tr":"Yesterday I studied at the library. In the evening I had dinner with a friend. I didn't watch TV."},{"t":"昨日は七時に起きました。会社で働きました。夜はどこへも行きませんでした。","r":"Kinō wa shichi-ji ni okimashita. Kaisha de hatarakimashita. Yoru wa doko e mo ikimasen deshita.","tr":"Yesterday I got up at seven and worked at the office. In the evening I didn't go anywhere."}]}
+      ]
+    },
+    {
+      "id": "invite-someone",
+      "unit": 2,
+      "level": "A1",
+      "title": "Invite someone and make plans together",
+      "summary": "Invite a friend, say yes, decide when and where, and turn an invitation down politely: “Would you like to have lunch together?”",
+      "topic": "{{ませんか|masen ka}} “would you like to…?”; {{ましょう|mashō}} “let's”; {{ましょうか|mashō ka}} “shall we…?”",
+      "blocks": [
+        {"goal":{"t":"一緒に昼ご飯を食べませんか。","r":"Issho ni hirugohan o tabemasen ka.","tr":"Would you like to have lunch together?"}},
+        {"dialog":[{"who":"Ken","t":"ゆいさん、土曜日に一緒に映画を見ませんか。","r":"Yui-san, doyōbi ni issho ni eiga o mimasen ka.","tr":"Yui, would you like to see a movie together on Saturday?"},{"who":"Yui","t":"いいですね。見ましょう。","r":"Ii desu ne. Mimashō.","tr":"Sounds good. Let's!"},{"who":"Ken","t":"何時に会いましょうか。","r":"Nan-ji ni aimashō ka.","tr":"What time shall we meet?"},{"who":"Yui","t":"二時はどうですか。","r":"Ni-ji wa dō desu ka.","tr":"How about two o'clock?"},{"who":"Ken","t":"いいですよ。じゃ、二時に駅で会いましょう。","r":"Ii desu yo. Ja, ni-ji ni eki de aimashō.","tr":"Fine. So let's meet at the station at two."}]},
+        {"p":"**Inviting: {{～ませんか|… masen ka}}.** Word for word “won't you…?”, a negative question: {{一緒に映画を見ませんか。|Issho ni eiga o mimasen ka.}} “Won't you see a movie with me?”, meaning “Would you like to…?”. It's the most polite way to invite, because it leaves the other person room to say no. {{一緒に|issho ni}} is “together”."},
+        {"p":"**Let's: {{～ましょう|… mashō}}.** {{見ましょう|mimashō}} “let's watch”, {{行きましょう|ikimashō}} “let's go”. Use it to accept an invitation, or to suggest something you both already want."},
+        {"p":"**Shall we…? Shall I…?: {{～ましょうか|… mashō ka}}.** To decide something together: {{何時に会いましょうか|nan-ji ni aimashō ka}} “What time shall we meet?”. And to offer help: {{手伝いましょうか|tetsudaimashō ka}} “Shall I help?”."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["inviting","{{行きませんか|ikimasen ka}}","would you like to go?"],
+          ["agreeing, suggesting","{{行きましょう|ikimashō}}","let's go"],
+          ["deciding, offering","{{行きましょうか|ikimashō ka}}","shall we go? shall I go?"]
+        ] },
+        {"p":"**Saying no, nicely.** Japanese rarely says a flat “no” to an invitation. Say {{すみません|sumimasen}} “sorry”, the day, then {{ちょっと…|chotto…}} “it's a bit…”, and let the sentence trail off: {{土曜日はちょっと…|doyōbi wa chotto…}} “Saturday is a bit…”. Everyone understands."},
+        { "ex": [
+          {"t":"コーヒーを飲みませんか。","r":"Kōhī o nomimasen ka.","tr":"Would you like a coffee?"},
+          {"t":"いいですね。行きましょう。","r":"Ii desu ne. Ikimashō.","tr":"Sounds good. Let's go."},
+          {"t":"どこで会いましょうか。","r":"Doko de aimashō ka.","tr":"Where shall we meet?"},
+          {"t":"窓を開けましょうか。","r":"Mado o akemashō ka.","tr":"Shall I open the window?"},
+          {"t":"すみません、明日はちょっと…。","r":"Sumimasen, ashita wa chotto…","tr":"Sorry, tomorrow's a bit… (difficult)."},
+          {"t":"じゃ、また今度行きましょう。","r":"Ja, mata kondo ikimashō.","tr":"Then let's go another time."}
+        ] },
+        {"tip":"{{いいですね|ii desu ne}} “that sounds good” is the warmest way to say yes. {{ね|ne}} at the end asks the other person to agree with you: “isn't it?”."}
+      ],
+      "mistakes": [
+        {"wrong":"はい、見ません。","right":"いいですね。見ましょう。","rw":"Hai, mimasen.","rr":"Ii desu ne. Mimashō.","tr":"Sounds good. Let's (see it).","why":"{{見ませんか|mimasen ka}} is an invitation, not a real negative question. Say yes with {{いいですね|ii desu ne}} or {{～ましょう|… mashō}}: {{はい、見ません|hai, mimasen}} would mean “Yes, I won't watch it”."},
+        {"wrong":"一緒に映画を見ますか。","right":"一緒に映画を見ませんか。","rw":"Issho ni eiga o mimasu ka.","rr":"Issho ni eiga o mimasen ka.","tr":"Would you like to see a movie together?","why":"{{見ますか|mimasu ka}} only asks for information (“Are you going to see a movie?”). To invite, use {{ませんか|masen ka}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You want to invite a colleague for a coffee. You say…","options":["{{コーヒーを飲みませんか。|Kōhī o nomimasen ka.}}","{{コーヒーを飲みましたか。|Kōhī o nomimashita ka.}}","{{コーヒーを飲みません。|Kōhī o nomimasen.}}"],"answer":0,"why":"Inviting: {{～ませんか|… masen ka}}. ({{飲みましたか|nomimashita ka}} asks “Did you drink…?”)"},
+        {"type":"fill","q":"Choose the missing ending.","t":"何時に会い___か。","r":"Nan-ji ni ai___ ka.","tr":"What time shall we meet?","options":["ましょう","ません","ました"],"rs":["mashō","masen","mashita"],"answer":0,"why":"Deciding together: {{会いましょうか|aimashō ka}}."},
+        {"type":"dialogue","q":"A friend invites you. Choose your replies.","lines":[{"who":"Friend","t":"日曜日に一緒にテニスをしませんか。","r":"Nichiyōbi ni issho ni tenisu o shimasen ka.","tr":"Would you like to play tennis together on Sunday?"},{"options":["いいですね。しましょう。","はい、しません。"],"rs":["Ii desu ne. Shimashō.","Hai, shimasen."],"answer":0,"why":"Accept with {{いいですね|ii desu ne}} and {{～ましょう|… mashō}}."},{"who":"Friend","t":"どこでしましょうか。","r":"Doko de shimashō ka.","tr":"Where shall we play?"},{"options":["公園でしましょう。","公園へしましょう。"],"rs":["Kōen de shimashō.","Kōen e shimashō."],"answer":0,"why":"Where you do it: {{公園で|kōen de}}."}],"from":"talk-about-your-day"},
+        {"type":"dialogue","q":"A colleague invites you, but you're busy. Choose your reply.","lines":[{"who":"Colleague","t":"今晩、飲みに行きませんか。","r":"Konban, nomi ni ikimasen ka.","tr":"Would you like to go for a drink tonight?"},{"options":["すみません、今晩はちょっと…。","いいえ、行きません。"],"rs":["Sumimasen, konban wa chotto…","Iie, ikimasen."],"answer":0,"why":"Say no softly: {{すみません|sumimasen}}, then {{ちょっと…|chotto…}}."},{"who":"Colleague","t":"そうですか。じゃ、また今度。","r":"Sō desu ka. Ja, mata kondo.","tr":"I see. Another time, then."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Let's meet at the station at two.","words":["二時に","駅で","会いましょう。"],"also":[["駅で","二時に","会いましょう。"]],"rs":["Ni-ji ni","eki de","aimashō."],"why":"{{二時に駅で会いましょう。|Ni-ji ni eki de aimashō.}}"},
+        {"type":"fill","q":"Choose the missing ending.","t":"昨日、映画を見___。","r":"Kinō, eiga o mi___.","tr":"I saw a movie yesterday.","options":["ました","ましょう","ませんか"],"rs":["mashita","mashō","masen ka"],"answer":0,"why":"Yesterday is the past: {{見ました|mimashita}}.","from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend. Say what, when and where. Use {{ませんか|masen ka}}.","answers":[{"t":"土曜日に一緒に買い物に行きませんか。駅で十時に会いましょう。","r":"Doyōbi ni issho ni kaimono ni ikimasen ka. Eki de jū-ji ni aimashō.","tr":"Would you like to go shopping together on Saturday? Let's meet at the station at ten."},{"t":"日曜日、私の家で晩ご飯を食べませんか。","r":"Nichiyōbi, watashi no ie de bangohan o tabemasen ka.","tr":"Would you like to have dinner at my place on Sunday?"}]}
+      ]
     }
   ]
 }
