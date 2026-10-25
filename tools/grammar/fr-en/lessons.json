@@ -1508,6 +1508,194 @@
         {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Elle doit travailler samedi ?","words":["Does","she","have to","work","on Saturday?"],"from":"ask-and-say-no-with-do"},
         {"type":"free","q":"À vous : un ami arrive dans votre ville. Donnez-lui deux conseils, une règle à respecter et une chose qu'il n'est pas obligé de faire.","answers":[{"t":"You should visit the old town and you should try the local cheese. You must buy a ticket before you get on the bus. You don't have to tip in cafés here.","tr":"Tu devrais visiter la vieille ville et goûter le fromage du coin. Tu dois acheter un ticket avant de monter dans le bus. Tu n'es pas obligé de laisser un pourboire dans les cafés ici."},{"t":"You should rent a bike. You mustn't walk on the grass in the park. You don't have to bring a coat, it's warm!","tr":"Tu devrais louer un vélo. Il est interdit de marcher sur la pelouse du parc. Tu n'as pas besoin d'apporter un manteau, il fait chaud !"}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Parler de vos expériences",
+      "summary": "Demander « Tu es déjà allé à New York ? » et répondre « Non, jamais » : le present perfect, {{have}} + participe passé, avec {{ever}} et {{never}}.",
+      "topic": "le present perfect : {{have}} / {{has}} + participe passé ; {{ever}}, {{never}} ; {{been}} ou {{gone}} ; les participes irréguliers",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, never, but I'd love to go!","tr":"Tu es déjà allé à New York ? — Non, jamais, mais j'adorerais y aller !"}},
+        {"dialog":[{"who":"Kate","t":"Have you ever eaten snails?","tr":"Tu as déjà mangé des escargots ?"},{"who":"Ben","t":"Yes, I have! In Paris. Have you?","tr":"Oui ! À Paris. Et toi ?"},{"who":"Kate","t":"No, I've never tried them. I've never been to France.","tr":"Non, je n'en ai jamais goûté. Je ne suis jamais allée en France."},{"who":"Ben","t":"Really? You should go! Have you ever traveled to Europe?","tr":"Vraiment ? Tu devrais y aller ! Tu as déjà voyagé en Europe ?"},{"who":"Kate","t":"Yes, I've been to Spain twice.","tr":"Oui, je suis allée deux fois en Espagne."}]},
+        {"term":"participe passé","means":"la forme du verbe qui sert à former les temps composés : « mangé », « vu ». En anglais : {{eaten}}, {{seen}}, {{worked}}."},
+        {"term":"present perfect","means":"le temps formé de {{have}} + participe passé ({{I have seen}}). Il relie le passé au présent : une expérience de la vie, un changement visible maintenant, une situation qui dure encore."},
+        {"p":"**Have + participe passé.** Le present perfect ressemble au passé composé ({{I have eaten}} « j'ai mangé »), mais il ne s'emploie pas pareil. Premier usage : parler de vos expériences, sans dire quand : {{I've been to Japan.}} « Je suis déjà allé au Japon. »"},
+        { "table": [
+          ["français","anglais"],
+          ["j'ai déjà vu…","{{I've seen…}}"],
+          ["elle est déjà allée…","{{She's been…}} ({{she has}})"],
+          ["tu as déjà… ?","{{Have you ever…?}}"],
+          ["je n'ai jamais…","{{I've never…}}"],
+          ["réponses courtes","{{Yes, I have.}} {{No, I haven't.}}"]
+        ] },
+        {"p":"**Ever et never.** {{ever}} « déjà, une fois dans ta vie » s'emploie dans les questions : {{Have you ever seen a ghost?}} {{never}} « jamais » est déjà négatif : {{I've never seen a ghost.}}, sans {{not}}."},
+        {"p":"**Les participes.** Réguliers : comme le prétérit, en {{-ed}} ({{worked}}, {{visited}}). Irréguliers : souvent une troisième forme à apprendre : {{be}} → {{been}}, {{go}} → {{gone}}, {{see}} → {{seen}}, {{eat}} → {{eaten}}, {{do}} → {{done}}, {{take}} → {{taken}}, {{write}} → {{written}}. Mais beaucoup sont identiques au prétérit : {{had}}, {{made}}, {{bought}}, {{met}}. En américain, {{get}} → {{gotten}}."},
+        {"p":"**Been ou gone ?** {{She has been to Paris}} : elle y est allée et elle est revenue (une expérience). {{She has gone to Paris}} : elle y est partie, elle n'est pas là."},
+        { "ex": [
+          {"t":"I've been to Canada three times.","tr":"Je suis allé au Canada trois fois."},
+          {"t":"Have you ever seen a bear?","tr":"Tu as déjà vu un ours ?"},
+          {"t":"She's never driven a car.","tr":"Elle n'a jamais conduit de voiture."},
+          {"t":"I think we've met before.","tr":"Je crois que nous nous sommes déjà rencontrés."},
+          {"t":"Have you ever tried sushi? — Yes, I have.","tr":"Tu as déjà goûté aux sushis ? — Oui."},
+          {"t":"He's gone to the store.","tr":"Il est parti au magasin.","note":"il n'est pas là"}
+        ] },
+        {"tip":"Dès que vous dites **quand**, l'anglais repasse au prétérit (leçon 32) : {{I've been to Rome.}} mais {{I went to Rome in 2019.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I've never went there.","right":"I've never been there.","tr":"Je n'y suis jamais allé.","why":"Après {{have}} : le participe passé ({{been}}), pas le prétérit."},
+        {"wrong":"Have you ever see a ghost?","right":"Have you ever seen a ghost?","tr":"Tu as déjà vu un fantôme ?","why":"Après {{have}} : le participe passé {{seen}}."},
+        {"wrong":"I am been to Spain.","right":"I've been to Spain.","tr":"Je suis allé en Espagne.","why":"Le present perfect se fait toujours avec {{have}}, même pour les verbes qui prennent « être » en français."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Have you ever ___ to Mexico?","tr":"Tu es déjà allé au Mexique ?","options":["been","went","go"],"answer":0,"why":"Une expérience : {{have been}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I've never ___ sushi.","tr":"Je n'ai jamais mangé de sushis.","options":["eaten","ate","eat"],"answer":0,"why":"Le participe de {{eat}} : {{eaten}}."},
+        {"type":"choice","q":"{{Paul has gone to Chicago.}} Où est Paul ?","options":["À Chicago : il n'est pas revenu.","Ici : il est revenu de Chicago.","On ne sait pas."],"answer":0,"why":"{{gone}} : parti, pas revenu. ({{been}} : allé et revenu.)"},
+        {"type":"choice","q":"Le participe passé de {{take}} :","options":["{{taken}}","{{took}}","{{taked}}"],"answer":0,"why":"Prétérit {{took}}, participe {{taken}}.","from":"tell-about-your-weekend"},
+        {"type":"dialogue","q":"Un collègue américain vous pose des questions. Choisissez vos réponses.","from":"ask-questions","lines":[{"who":"Your colleague","t":"Have you ever been to the US before?","tr":"Vous étiez déjà venu aux États-Unis ?"},{"options":["Yes, I have. I've been to New York twice.","Yes, I did. I've went to New York twice."],"answer":0,"why":"Réponse courte avec {{have}}, et le participe {{been}}."},{"who":"Your colleague","t":"Have you ever tried a real American burger?","tr":"Vous avez déjà goûté un vrai burger américain ?"},{"options":["No, I haven't! Where can I get one?","No, I didn't tried! Where can I get one?"],"answer":0,"why":"{{Have you…?}} appelle {{No, I haven't}}."},{"who":"Your colleague","t":"Come with me, I know the best place.","tr":"Venez avec moi, je connais le meilleur endroit."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Elle n'a jamais conduit de voiture.","words":["She","has","never","driven","a car."]},
+        {"type":"free","q":"À vous : dites deux choses que vous avez déjà faites dans votre vie, une que vous n'avez jamais faite, et posez une question avec {{Have you ever…?}}","answers":[{"t":"I've been to Italy and I've seen the Eiffel Tower. I've never been to Asia. Have you ever been to Japan?","tr":"Je suis allé en Italie et j'ai vu la tour Eiffel. Je ne suis jamais allé en Asie. Tu es déjà allé au Japon ?"},{"t":"I've run a marathon and I've lived in London. I've never eaten sushi. Have you ever tried it?","tr":"J'ai couru un marathon et j'ai habité à Londres. Je n'ai jamais mangé de sushis. Tu en as déjà goûté ?"}]}
+      ]
+    },
+    {
+      "id": "present-perfect-or-past",
+      "unit": 6,
+      "level": "A2",
+      "title": "Dire ce qui a changé, ou quand c'est arrivé",
+      "summary": "« J'ai perdu mes clés ! » ou « Je les ai perdues hier » : en français, un seul passé composé ; en anglais, le present perfect ou le prétérit, selon qu'on dit quand ou non.",
+      "topic": "present perfect (pas de moment précis, lien avec maintenant) ou prétérit (moment passé précis : {{yesterday}}, {{in 2010}}, {{ago}}, {{when}})",
+      "blocks": [
+        {"goal":{"t":"I've lost my keys! — When did you lose them?","tr":"J'ai perdu mes clés ! — Quand est-ce que tu les as perdues ?"}},
+        {"dialog":[{"who":"Tom","t":"Oh no, I've lost my wallet!","tr":"Oh non, j'ai perdu mon portefeuille !"},{"who":"Emma","t":"When did you last see it?","tr":"Tu l'as vu pour la dernière fois quand ?"},{"who":"Tom","t":"I paid for lunch at the café an hour ago.","tr":"J'ai payé le déjeuner au café il y a une heure."},{"who":"Emma","t":"Did you leave it there?","tr":"Tu l'as laissé là-bas ?"},{"who":"Tom","t":"Maybe… Oh look, a message from the café. They've found it!","tr":"Peut-être… Oh, regarde, un message du café. Ils l'ont retrouvé !"}]},
+        {"p":"**Un passé composé, deux temps anglais.** « J'ai perdu mes clés » peut se dire {{I've lost my keys}} ou {{I lost my keys}}. La règle d'or : si vous dites **quand** (ou s'il est clair que c'est fini et daté), le prétérit. Si le moment n'a pas d'importance et que le résultat compte **maintenant**, le present perfect."},
+        { "table": [
+          ["present perfect : pas de moment, résultat maintenant","prétérit : moment passé précis"],
+          ["{{I've lost my keys.}} (je ne les ai pas)","{{I lost my keys yesterday.}}"],
+          ["{{She's broken her leg.}} (elle a un plâtre)","{{She broke her leg in 2019.}}"],
+          ["{{Have you eaten?}} (tu as faim ?)","{{What did you eat last night?}}"],
+          ["{{I've seen that movie.}} (je le connais)","{{I saw it last week.}}"]
+        ] },
+        {"p":"**Les mots qui imposent le prétérit.** {{yesterday}}, {{last week}}, {{in 2010}}, {{two days ago}}, {{when I was young}}, {{What time…?}}, {{When…?}} : avec eux, jamais de present perfect. {{When did you arrive?}}, et non « When have you arrived »."},
+        {"p":"**Une conversation typique.** On commence souvent au present perfect (l'expérience, la nouvelle), puis on passe au prétérit pour les détails : {{I've been to Rome. — Really? When did you go? — I went last summer.}}"},
+        {"p":"**Une nuance américaine.** Aux États-Unis, on entend souvent le prétérit là où un Britannique mettrait le present perfect, surtout avec {{just}}, {{already}} et {{yet}} (leçon 34) : {{Did you eat yet?}} Pour vous, la règle ci-dessus marche toujours."},
+        { "ex": [
+          {"t":"I've finished my report. Here it is.","tr":"J'ai fini mon rapport. Le voilà."},
+          {"t":"I finished it at midnight.","tr":"Je l'ai fini à minuit."},
+          {"t":"Have you seen my glasses?","tr":"Tu as vu mes lunettes ?"},
+          {"t":"My sister has had a baby!","tr":"Ma sœur a eu un bébé !"},
+          {"t":"She had the baby last Tuesday.","tr":"Elle a eu le bébé mardi dernier."},
+          {"t":"When did you move here?","tr":"Quand est-ce que vous avez emménagé ici ?"}
+        ] },
+        {"tip":"Petite astuce : si la phrase répond à « quand ? » par une date ou un moment précis, c'est le prétérit."}
+      ],
+      "mistakes": [
+        {"wrong":"I've seen him yesterday.","right":"I saw him yesterday.","tr":"Je l'ai vu hier.","why":"Avec {{yesterday}}, un moment passé précis : le prétérit."},
+        {"wrong":"When have you arrived?","right":"When did you arrive?","tr":"Quand es-tu arrivé ?","why":"Une question avec {{when}} : le prétérit."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I ___ lost my phone! Can you call it?","tr":"J'ai perdu mon téléphone ! Tu peux l'appeler ?","options":["have","did","am"],"answer":0,"why":"Pas de moment, et le résultat compte maintenant : le present perfect."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"We ___ to Spain in 2018.","tr":"Nous sommes allés en Espagne en 2018.","options":["went","have gone","have been"],"answer":0,"why":"Une date précise : le prétérit."},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{She arrived two hours ago.}}","{{She has arrived two hours ago.}}"],"answer":0,"why":"{{ago}} impose le prétérit.","from":"say-what-you-did"},
+        {"type":"choice","q":"« Tu as déjà vu ce film ? — Oui, je l'ai vu la semaine dernière. »","options":["{{Have you seen this movie? — Yes, I saw it last week.}}","{{Did you see this movie? — Yes, I have seen it last week.}}"],"answer":0,"why":"L'expérience au present perfect, puis le moment précis au prétérit.","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Une amie a une grande nouvelle. Choisissez vos répliques.","from":"ask-about-the-past","lines":[{"who":"Your friend","t":"Guess what? I've found a new job!","tr":"Devine quoi ? J'ai trouvé un nouveau travail !"},{"options":["That's great! When did you find out?","That's great! When have you found out?"],"answer":0,"why":"Une question avec {{when}} : le prétérit."},{"who":"Your friend","t":"They called me this morning!","tr":"Ils m'ont appelée ce matin !"},{"options":["Congratulations! Have you told your parents?","Congratulations! Did you told your parents?"],"answer":0,"why":"Pas de moment précis : {{Have you told…?}} (et jamais {{did}} + prétérit)."},{"who":"Your friend","t":"Not yet!","tr":"Pas encore !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Quand est-ce que tu es arrivé ?","words":["When","did","you","arrive?"]},
+        {"type":"free","q":"À vous : annoncez une nouvelle (present perfect), puis donnez un détail avec un moment précis (prétérit).","answers":[{"t":"I've bought a new car! I bought it last Saturday.","tr":"J'ai acheté une nouvelle voiture ! Je l'ai achetée samedi dernier."},{"t":"I've started a new job. I started on Monday and I love it!","tr":"J'ai commencé un nouveau travail. J'ai commencé lundi et j'adore !"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Dire depuis combien de temps",
+      "summary": "Dire « J'habite ici depuis trois ans », « Je t'attends depuis une heure » : en anglais, pas de présent avec « depuis », mais le present perfect, avec {{for}} et {{since}}.",
+      "topic": "present perfect + {{for}} (une durée) ou {{since}} (un point de départ) ; {{How long have you…?}} ; le present perfect continu ({{I've been waiting}})",
+      "blocks": [
+        {"goal":{"t":"I've lived in Lyon for three years.","tr":"J'habite à Lyon depuis trois ans."}},
+        {"dialog":[{"who":"The doctor","t":"How long have you had this pain?","tr":"Depuis combien de temps avez-vous cette douleur ?"},{"who":"You","t":"For three days.","tr":"Depuis trois jours."},{"who":"The doctor","t":"And have you had a fever?","tr":"Et vous avez de la fièvre ?"},{"who":"You","t":"Yes, since last night. I've been sleeping badly since Monday.","tr":"Oui, depuis hier soir. Je dors mal depuis lundi."},{"who":"The doctor","t":"OK. Take this medicine for a week.","tr":"D'accord. Prenez ce médicament pendant une semaine."}]},
+        {"p":"**Depuis : pas de présent.** C'est le piège le plus célèbre des francophones. En français : « j'habite ici depuis trois ans », au présent. En anglais, une situation qui a commencé dans le passé et qui dure encore se met au present perfect : {{I've lived here for three years.}} Jamais « I live here since three years »."},
+        {"p":"**For ou since ?** « Depuis » a deux traductions. {{for}} + une **durée** : {{for three years}}, {{for two hours}}, {{for a long time}}. {{since}} + un **point de départ** : {{since 2020}}, {{since Monday}}, {{since I was a child}}."},
+        { "table": [
+          ["français","anglais"],
+          ["depuis trois ans","{{for three years}}"],
+          ["depuis 2020","{{since 2020}}"],
+          ["depuis lundi","{{since Monday}}"],
+          ["depuis longtemps","{{for a long time}}"],
+          ["depuis combien de temps… ?","{{How long have you…?}}"]
+        ] },
+        {"p":"**Une activité qui dure : been + -ing.** Pour une activité en cours depuis un moment, on emploie souvent le present perfect continu, {{have been}} + {{-ing}} : {{I've been waiting for an hour!}} « J'attends depuis une heure ! » {{She's been studying English since September.}} Les verbes d'état gardent le present perfect simple : {{I've known him for years.}}"},
+        {"p":"**Et « il y a » ?** Ne confondez pas avec {{ago}} (leçon 21) : {{I moved here three years ago}} « j'ai emménagé il y a trois ans » (un moment), {{I've lived here for three years}} « j'habite ici depuis trois ans » (une durée qui continue)."},
+        { "ex": [
+          {"t":"We've been married for twenty years.","tr":"Nous sommes mariés depuis vingt ans."},
+          {"t":"How long have you known her?","tr":"Tu la connais depuis combien de temps ?"},
+          {"t":"I've had this car since 2015.","tr":"J'ai cette voiture depuis 2015."},
+          {"t":"It's been raining since this morning.","tr":"Il pleut depuis ce matin."},
+          {"t":"How long have you been learning English?","tr":"Depuis combien de temps apprenez-vous l'anglais ?"},
+          {"t":"I haven't seen him for ages!","tr":"Je ne l'ai pas vu depuis une éternité !"}
+        ] },
+        {"tip":"{{for}} sert aussi au prétérit pour une durée terminée, comme « pendant » : {{I lived in Rome for two years.}} « J'ai habité à Rome pendant deux ans » (et je n'y habite plus)."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since three years.","right":"I've lived here for three years.","tr":"J'habite ici depuis trois ans.","why":"Une situation qui dure encore : le present perfect, avec {{for}} + une durée."},
+        {"wrong":"I've worked here since five years.","right":"I've worked here for five years.","tr":"Je travaille ici depuis cinq ans.","why":"Avec une durée : {{for}}. {{since}} est pour un point de départ."},
+        {"wrong":"I wait for you since an hour!","right":"I've been waiting for you for an hour!","tr":"Je t'attends depuis une heure !","why":"Une action qui dure jusqu'à maintenant : {{have been}} + {{-ing}}, et {{for}} + une durée."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I've known Paul ___ 2010.","tr":"Je connais Paul depuis 2010.","options":["since","for","ago"],"answer":0,"why":"Un point de départ : {{since}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We've lived here ___ ten years.","tr":"Nous habitons ici depuis dix ans.","options":["for","since","during"],"answer":0,"why":"Une durée : {{for}}."},
+        {"type":"choice","q":"« Je t'attends depuis vingt minutes ! »","options":["{{I've been waiting for twenty minutes!}}","{{I wait for twenty minutes!}}","{{I'm waiting since twenty minutes!}}"],"answer":0,"why":"Une action qui dure : {{have been}} + {{-ing}}, et {{for}}.","from":"say-what-youre-doing-now"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I moved to Boston two years ___.","tr":"J'ai emménagé à Boston il y a deux ans.","options":["ago","for","since"],"answer":0,"why":"Un moment passé : {{ago}}, après la durée.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Chez le médecin. Choisissez vos réponses.","from":"present-perfect-or-past","lines":[{"who":"The doctor","t":"How long have you had this cough?","tr":"Depuis combien de temps toussez-vous ?"},{"options":["For about a week.","Since about a week."],"answer":0,"why":"Une durée : {{for}}."},{"who":"The doctor","t":"Have you taken any medicine?","tr":"Vous avez pris des médicaments ?"},{"options":["Yes, I took some cough syrup two hours ago.","Yes, I've taken some cough syrup two hours ago."],"answer":0,"why":"Un moment précis ({{two hours ago}}) : le prétérit."},{"who":"The doctor","t":"OK. Let me check your throat.","tr":"Bien. Je vais regarder votre gorge."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Depuis combien de temps apprends-tu l'anglais ?","words":["How long","have","you","been learning","English?"]},
+        {"type":"free","q":"À vous : depuis combien de temps habitez-vous où vous habitez ? Depuis quand faites-vous votre travail ou vos études ? Et depuis combien de temps apprenez-vous l'anglais ?","answers":[{"t":"I've lived in Toulouse for eight years. I've been a nurse since 2015. I've been learning English for six months.","tr":"J'habite à Toulouse depuis huit ans. Je suis infirmière depuis 2015. J'apprends l'anglais depuis six mois."},{"t":"I've lived in my apartment since 2020. I've worked at the bank for ten years. I've been learning English since September.","tr":"J'habite dans mon appartement depuis 2020. Je travaille à la banque depuis dix ans. J'apprends l'anglais depuis septembre."}]}
+      ]
+    },
+    {
+      "id": "say-what-just-happened",
+      "unit": 6,
+      "level": "A2",
+      "title": "Dire ce qui vient d'arriver",
+      "summary": "Dire « Je viens d'arriver », « J'ai déjà mangé », « Tu as fini ? Pas encore » : {{just}}, {{already}}, {{yet}} et {{still}}.",
+      "topic": "{{just}} (venir de) ; {{already}} (déjà) ; {{yet}} (dans les questions et au négatif : déjà, pas encore) ; {{still}} (toujours, encore)",
+      "blocks": [
+        {"goal":{"t":"I've just arrived at the station. Where are you?","tr":"Je viens d'arriver à la gare. Tu es où ?"}},
+        {"dialog":[{"who":"Lucas","t":"Hi! Are you ready?","tr":"Salut ! Tu es prête ?"},{"who":"Emma","t":"Almost. I've just gotten out of the shower.","tr":"Presque. Je viens de sortir de la douche."},{"who":"Lucas","t":"Have you called the restaurant yet?","tr":"Tu as appelé le restaurant ?"},{"who":"Emma","t":"Yes, I've already booked a table for eight.","tr":"Oui, j'ai déjà réservé une table pour huit heures."},{"who":"Lucas","t":"Great. I'm still at the office, but I'm leaving now.","tr":"Super. Je suis encore au bureau, mais je pars maintenant."}]},
+        {"p":"**Venir de : just.** « Je viens de… » se dit avec le present perfect et {{just}}, placé entre {{have}} et le participe : {{I've just arrived.}} « Je viens d'arriver. » Ne traduisez pas « venir » : « I come from arriving » ne veut rien dire. (Aux États-Unis, on entend aussi {{I just arrived}}, au prétérit.)"},
+        {"p":"**Déjà : already.** {{already}} « déjà » (plus tôt que prévu), entre {{have}} et le participe : {{I've already eaten.}} « J'ai déjà mangé. »"},
+        {"p":"**Yet : dans les questions et au négatif.** {{yet}} se place en fin de phrase. Dans une question, il veut dire « déjà » : {{Have you finished yet?}} « Tu as (déjà) fini ? » Au négatif, « pas encore » : {{I haven't finished yet.}} En réponse courte : {{Not yet.}} « Pas encore. »"},
+        {"p":"**Toujours, encore : still.** {{still}} dit qu'une situation continue : {{I'm still at the office.}} « Je suis encore au bureau. » {{She still lives with her parents.}} Il se place avant le verbe, mais après {{be}}."},
+        { "table": [
+          ["français","anglais"],
+          ["je viens de manger","{{I've just eaten.}}"],
+          ["j'ai déjà mangé","{{I've already eaten.}}"],
+          ["tu as déjà mangé ?","{{Have you eaten yet?}}"],
+          ["je n'ai pas encore mangé","{{I haven't eaten yet.}}"],
+          ["j'ai encore faim","{{I'm still hungry.}}"]
+        ] },
+        { "ex": [
+          {"t":"He's just left.","tr":"Il vient de partir."},
+          {"t":"We've just bought a house!","tr":"Nous venons d'acheter une maison !"},
+          {"t":"Has the movie started yet?","tr":"Le film a déjà commencé ?"},
+          {"t":"I've already seen it.","tr":"Je l'ai déjà vu."},
+          {"t":"They haven't called yet.","tr":"Ils n'ont pas encore appelé."},
+          {"t":"Are you still working on it?","tr":"Tu es encore dessus ?"}
+        ] },
+        {"tip":"« Toujours » a deux sens : {{always}} (à chaque fois : {{I always drink tea}}) et {{still}} (encore maintenant : {{I still drink tea}}). Ne les confondez pas !"}
+      ],
+      "mistakes": [
+        {"wrong":"I come from arriving.","right":"I've just arrived.","tr":"Je viens d'arriver.","why":"« Venir de » se dit {{have just}} + participe passé."},
+        {"wrong":"I haven't finished already.","right":"I haven't finished yet.","tr":"Je n'ai pas encore fini.","why":"« Pas encore » : {{not … yet}}, en fin de phrase."},
+        {"wrong":"She lives always with her parents.","right":"She still lives with her parents.","tr":"Elle habite toujours chez ses parents.","why":"« Toujours » au sens de « encore » : {{still}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"The train has ___ left.","tr":"Le train vient de partir.","options":["just","yet","still"],"answer":0,"why":"« Venir de » : {{have just}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Have you done your homework ___?","tr":"Tu as fait tes devoirs ?","options":["yet","already","just"],"answer":0,"why":"Une question sur ce qu'on attend : {{yet}}, en fin de phrase."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I'm ___ hungry. Is there any more pizza?","tr":"J'ai encore faim. Il reste de la pizza ?","options":["still","yet","always"],"answer":0,"why":"Une situation qui continue : {{still}}.","from":"say-your-age-and-how-you-feel"},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je n'ai pas encore fini.","words":["I","haven't","finished","yet."]},
+        {"type":"dialogue","q":"Un ami vous appelle. Choisissez vos réponses.","from":"talk-about-experiences","lines":[{"who":"Your friend","t":"Hey! Where are you?","tr":"Salut ! Tu es où ?"},{"options":["I've just arrived at the airport.","I come from arriving at the airport."],"answer":0,"why":"« Je viens de » : {{I've just}} + participe."},{"who":"Your friend","t":"Have you gotten your bags yet?","tr":"Tu as récupéré tes bagages ?"},{"options":["No, not yet. I'm still waiting.","No, already not. I'm always waiting."],"answer":0,"why":"« Pas encore » : {{not yet}} ; « encore » : {{still}}."},{"who":"Your friend","t":"OK, I'll wait for you outside.","tr":"D'accord, je t'attends dehors."}]},
+        {"type":"say","q":"Dites : « Nous venons d'acheter une maison ! »","answer":"We've just bought a house!"},
+        {"type":"free","q":"À vous : dites une chose que vous venez de faire, une chose que vous avez déjà faite aujourd'hui, et une chose que vous n'avez pas encore faite.","answers":[{"t":"I've just eaten lunch. I've already called my mother today. I haven't done my homework yet.","tr":"Je viens de déjeuner. J'ai déjà appelé ma mère aujourd'hui. Je n'ai pas encore fait mes devoirs."},{"t":"I've just finished work. I've already been to the gym. I haven't made dinner yet.","tr":"Je viens de finir le travail. Je suis déjà allé à la salle de sport. Je n'ai pas encore fait le dîner."}]}
+      ]
     }
   ]
 }

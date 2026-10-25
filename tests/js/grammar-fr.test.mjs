@@ -16,6 +16,13 @@ const read = (id) => {
 };
 /** A text with each {{ }} piece of the language taught replaced by a word-like placeholder. */
 const outside = (s) => String(s).replace(/\{\{[^{}]*\}\}/g, "X");
+/** The pieces of the language taught in a lesson, with a fill question's gap filled by a placeholder word
+ * (taughtTexts drops the gap, which would leave “homework ?” out of “homework ___?”). */
+const taught = (lesson) => {
+  const gaps = new Set((lesson.practice || []).filter((q) => q.type === "fill").map((q) => String(q.t || "").replace("___", "")));
+  const fills = (lesson.practice || []).filter((q) => q.type === "fill").map((q) => String(q.t || "").replace("___", "X"));
+  return [...taughtTexts(lesson).filter((t) => !gaps.has(t)), ...fills];
+};
 
 // Words that are never right without their accent (whole words, any case).
 const UNACCENTED = ["tres", "deja", "apres", "etre", "francais", "francaise", "voila", "garcon", "lecon",
@@ -48,7 +55,7 @@ test("en-fr: the French in it is typed as in France, with its accents", { skip: 
   const course = read("en-fr");
   const bad = [];
   for (const lesson of course.lessons) {
-    for (const t of taughtTexts(lesson)) {
+    for (const t of taught(lesson)) {
       const p = frenchProblem(t);
       if (p) bad.push(`${lesson.id}: ${p} (“${t}”)`);
       const u = unaccented(t);
@@ -74,7 +81,7 @@ test("fr-en: the explanations are typed as in France, the English as in English"
       const u = unaccented(outside(text));
       if (u.length) bad.push(`${lesson.id}: without its accent: ${u.join(", ")} (“${text}”)`);
     }
-    for (const t of taughtTexts(lesson)) {
+    for (const t of taught(lesson)) {
       const p = englishProblem(t);
       if (p) bad.push(`${lesson.id}: ${p} (“${t}”)`);
     }
