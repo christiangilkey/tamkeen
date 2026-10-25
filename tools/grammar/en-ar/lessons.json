@@ -52,9 +52,9 @@
       ],
       "practice": [
         {"type":"choice","q":"You're talking to a woman. “You” is…","options":["{{أَنْتَ}}","{{أَنْتِ}}","{{أَنَا}}"],"answer":1,"why":"{{أَنْتِ}}, anti, is for a woman; {{أَنْتَ}}, anta, for a man."},
-        {"type":"fill","q":"Choose the missing word.","t":"مِنْ ___ أَنْتَ؟","tr":"Where are you from?","options":["أَيْنَ","أَنَا","هُنَا"],"answer":0,"why":"{{أَيْنَ}} is “where”: min ayna anta?"},
-        {"type":"dialogue","q":"You're Sami, from Jordan. Choose your replies.","lines":[{"who":"Layla","t":"مَرْحَبًا! أَنَا لَيْلَى.","r":"marḥaban! anā laylā.","tr":"Hello! I'm Layla."},{"options":["أَهْلًا، أَنَا سَامِي.","أَهْلًا، أَنْتِ سَامِي."],"answer":0,"why":"Say who you are with {{أَنَا}}."},{"who":"Layla","t":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?","tr":"Where are you from?"},{"options":["أَنَا مِنَ الْأُرْدُنِّ.","أَنْتَ مِنَ الْأُرْدُنِّ."],"answer":0,"why":"About yourself: {{أَنَا}}. (Jordan is “the Jordan” in Arabic: {{الْأُرْدُنُّ}}.)"},{"who":"Layla","t":"تَشَرَّفْنَا!","r":"tasharrafnā!","tr":"Nice to meet you!"}]},
-        {"type":"order","q":"Put the words in order.","tr":"I'm from Egypt.","words":["أَنَا","مِنْ","مِصْرَ."]},
+        {"type":"fill","q":"Choose the missing word.","t":"مِنْ ___ أَنْتَ؟","tr":"Where are you from?","options":["أَيْنَ","أَنَا","هُنَا"],"answer":0,"why":"{{أَيْنَ}} is “where”: min ayna anta?","r":"min ___ anta?","rs":["ayna","anā","hunā"]},
+        {"type":"dialogue","q":"You're Sami, from Jordan. Choose your replies.","lines":[{"who":"Layla","t":"مَرْحَبًا! أَنَا لَيْلَى.","r":"marḥaban! anā laylā.","tr":"Hello! I'm Layla."},{"options":["أَهْلًا، أَنَا سَامِي.","أَهْلًا، أَنْتِ سَامِي."],"answer":0,"why":"Say who you are with {{أَنَا}}.","rs":["ahlan, anā sāmī.","ahlan, anti sāmī."]},{"who":"Layla","t":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?","tr":"Where are you from?"},{"options":["أَنَا مِنَ الْأُرْدُنِّ.","أَنْتَ مِنَ الْأُرْدُنِّ."],"answer":0,"why":"About yourself: {{أَنَا}}. (Jordan is “the Jordan” in Arabic: {{الْأُرْدُنُّ}}.)","rs":["anā mina l-urdunni.","anta mina l-urdunni."]},{"who":"Layla","t":"تَشَرَّفْنَا!","r":"tasharrafnā!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm from Egypt.","words":["أَنَا","مِنْ","مِصْرَ."],"rs":["anā","min","miṣra."]},
         {"type":"say","q":"Ask a man: “Where are you from?”","answer":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?"},
         {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{مَرْحَبًا، أَنَا…}}","answers":[{"t":"مَرْحَبًا، أَنَا جُون. أَنَا مِنْ أَمْرِيكَا.","r":"marḥaban, anā jūn. anā min amrīkā.","tr":"Hello, I'm John. I'm from America."},{"t":"أَهْلًا، أَنَا مَارِيَا. أَنَا مِنْ إِسْبَانِيَا.","r":"ahlan, anā māriyā. anā min isbāniyā.","tr":"Hi, I'm Maria. I'm from Spain."}]}
       ]
@@ -99,7 +99,7 @@
         {"type":"choice","q":"Which mark is the vowel i?","options":["{{بَ}}","{{بِ}}","{{بُ}}"],"answer":1,"why":"The kasra, a small line **below** the letter, is i."},
         {"type":"choice","q":"What does the doubled mark at the end of {{كِتَابٌ}} add?","options":["the sound -un, meaning “a” (a book)","the sound -a","nothing: it is silent"],"answer":0,"why":"{{ـٌ}} is said -un, and it means “a”: kitābun, a book."},
         {"type":"choice","q":"Which word has a long ā?","options":["{{بَابٌ}}","{{مِنْ}}","{{هُوَ}}"],"answer":0,"why":"The {{ا}} after the first letter makes a long ā: bābun."},
-        {"type":"order","q":"Read the words, then put them in order.","tr":"Hello, I'm Sarah.","words":["مَرْحَبًا،","أَنَا","سَارَةُ."],"from":"say-who-you-are"},
+        {"type":"order","q":"Read the words, then put them in order.","tr":"Hello, I'm Sarah.","words":["مَرْحَبًا،","أَنَا","سَارَةُ."],"from":"say-who-you-are","rs":["marḥaban,","anā","sāratu."]},
         {"type":"say","q":"Read this word aloud, then check: {{مُدَرِّسٌ}}","answer":"مُدَرِّسٌ","r":"mudarrisun","why":"The shadda on {{ر}} says it twice: mu-dar-ri-sun."},
         {"type":"free","q":"Your turn: read these aloud without looking at the Latin letters, then write how you would thank someone: {{شُكْرًا جَزِيلًا}}, {{مَرْحَبًا}}, {{أَنَا مِنْ هُنَا}}","answers":[{"t":"شُكْرًا جَزِيلًا!","r":"shukran jazīlan!","tr":"Thank you very much!"},{"t":"شُكْرًا!","r":"shukran!","tr":"Thanks!"}]}
       ]
@@ -139,10 +139,10 @@
         {"wrong":"أُرِيدُ أَنْ أَذْهَبُ.","right":"أُرِيدُ أَنْ أَذْهَبَ.","tr":"I want to go.","why":"After {{أَنْ}}, the verb ends in -a, not -u."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"أُرِيدُ ___ أَذْهَبَ.","tr":"I want to go.","options":["أَنْ","أَنَا","مِنْ"],"answer":0,"why":"Two verbs: {{أَنْ}} between them."},
+        {"type":"fill","q":"Choose the missing word.","t":"أُرِيدُ ___ أَذْهَبَ.","tr":"I want to go.","options":["أَنْ","أَنَا","مِنْ"],"answer":0,"why":"Two verbs: {{أَنْ}} between them.","r":"urīdu ___ adhhaba.","rs":["an","anā","min"]},
         {"type":"choice","q":"Which one means “I want to understand”?","options":["{{أُرِيدُ أَنْ أَفْهَمَ.}}","{{أُرِيدُ أَنْ أَفْهَمُ.}}","{{أُرِيدُ أَفْهَمُ.}}"],"answer":0,"why":"{{أَنْ}}, and the verb after it ends in -a."},
-        {"type":"dialogue","q":"At the café: choose your replies.","lines":[{"who":"Waiter","t":"مَاذَا تُرِيدُ؟","r":"mādhā turīdu?","tr":"What would you like?"},{"options":["أُرِيدُ شَايًا، مِنْ فَضْلِكَ.","أَنَا شَايٌ، مِنْ فَضْلِكَ."],"answer":0,"why":"{{أُرِيدُ}} and what you want. ({{أَنَا شَايٌ}} would be “I am tea”!)"},{"who":"Waiter","t":"بِسُكَّرٍ؟","r":"bi-sukkarin?","tr":"With sugar?"},{"options":["لَا، شُكْرًا.","لَا أَنْتَ."],"answer":0,"why":"“No, thanks”: {{لَا، شُكْرًا}}."}]},
-        {"type":"order","q":"Put the words in order.","tr":"I want to speak fluently.","words":["أُرِيدُ","أَنْ","أَتَكَلَّمَ","بِطَلَاقَةٍ."]},
+        {"type":"dialogue","q":"At the café: choose your replies.","lines":[{"who":"Waiter","t":"مَاذَا تُرِيدُ؟","r":"mādhā turīdu?","tr":"What would you like?"},{"options":["أُرِيدُ شَايًا، مِنْ فَضْلِكَ.","أَنَا شَايٌ، مِنْ فَضْلِكَ."],"answer":0,"why":"{{أُرِيدُ}} and what you want. ({{أَنَا شَايٌ}} would be “I am tea”!)","rs":["urīdu shāyan, min faḍlika.","anā shāyun, min faḍlika."]},{"who":"Waiter","t":"بِسُكَّرٍ؟","r":"bi-sukkarin?","tr":"With sugar?"},{"options":["لَا، شُكْرًا.","لَا أَنْتَ."],"answer":0,"why":"“No, thanks”: {{لَا، شُكْرًا}}.","rs":["lā, shukran.","lā anta."]}]},
+        {"type":"order","q":"Put the words in order.","tr":"I want to speak fluently.","words":["أُرِيدُ","أَنْ","أَتَكَلَّمَ","بِطَلَاقَةٍ."],"rs":["urīdu","an","atakallama","bi-ṭalāqatin."]},
         {"type":"say","q":"How do you say “I want to learn Arabic”?","answer":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","r":"urīdu an ataʿallama l-ʿarabiyyata."},
         {"type":"free","q":"Your turn: what do you want to learn, and where do you want to go this year? Answer with {{أُرِيدُ أَنْ…}}","answers":[{"t":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","r":"urīdu an ataʿallama l-ʿarabiyyata.","tr":"I want to learn Arabic."},{"t":"أُرِيدُ أَنْ أَذْهَبَ إِلَى الْمَغْرِبِ.","r":"urīdu an adhhaba ilā l-maghribi.","tr":"I want to go to Morocco."},{"t":"أُرِيدُ أَنْ أَتَكَلَّمَ مَعَ أَصْدِقَائِي بِالْعَرَبِيَّةِ.","r":"urīdu an atakallama maʿa aṣdiqāʾī bi-l-ʿarabiyyati.","tr":"I want to talk to my friends in Arabic."}]}
       ]
@@ -184,10 +184,10 @@
         {"wrong":"أَنْتِ طَالِبٌ.","right":"أَنْتِ طَالِبَةٌ.","tr":"You're a student. (to a woman)","why":"A woman is a {{طَالِبَةٌ}}, with {{ة}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ سَيَّارَةٌ.","tr":"This is a car.","options":["هَذَا","هَذِهِ"],"answer":1,"why":"{{سَيَّارَةٌ}} ends in {{ة}}: feminine, so {{هَذِهِ}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ سَيَّارَةٌ.","tr":"This is a car.","options":["هَذَا","هَذِهِ"],"answer":1,"why":"{{سَيَّارَةٌ}} ends in {{ة}}: feminine, so {{هَذِهِ}}.","r":"___ sayyāratun.","rs":["hādhā","hādhihi"]},
         {"type":"choice","q":"Which word is feminine?","options":["{{بَابٌ}}","{{كِتَابٌ}}","{{مَدِينَةٌ}}"],"answer":2,"why":"{{مَدِينَةٌ}} “city” ends in {{ة}}."},
         {"type":"choice","q":"{{أُمٌّ}} “mother” is…","options":["masculine","feminine"],"answer":1,"why":"It has no {{ة}}, but a mother is a woman: one of the feminine words to learn by heart."},
-        {"type":"dialogue","q":"A friend points at things in your bag. Choose your replies.","lines":[{"who":"Friend","t":"مَا هَذِهِ؟","r":"mā hādhihi?","tr":"What's this?"},{"options":["هَذِهِ حَقِيبَةٌ صَغِيرَةٌ.","هَذَا حَقِيبَةٌ صَغِيرَةٌ."],"answer":0,"why":"{{حَقِيبَةٌ}} “bag” is feminine: {{هَذِهِ}}. (And the word for “small” takes {{ة}} too: the next lessons show why.)"},{"who":"Friend","t":"وَمَا هَذَا؟","r":"wa-mā hādhā?","tr":"And what's this?"},{"options":["هَذَا هَاتِفِي.","هَذِهِ هَاتِفِي."],"answer":0,"why":"{{هَاتِفٌ}} “phone” is masculine: {{هَذَا}}. ({{هَاتِفِي}} is “my phone”.)"}]},
+        {"type":"dialogue","q":"A friend points at things in your bag. Choose your replies.","lines":[{"who":"Friend","t":"مَا هَذِهِ؟","r":"mā hādhihi?","tr":"What's this?"},{"options":["هَذِهِ حَقِيبَةٌ صَغِيرَةٌ.","هَذَا حَقِيبَةٌ صَغِيرَةٌ."],"answer":0,"why":"{{حَقِيبَةٌ}} “bag” is feminine: {{هَذِهِ}}. (And the word for “small” takes {{ة}} too: the next lessons show why.)","rs":["hādhihi ḥaqībatun ṣaghīratun.","hādhā ḥaqībatun ṣaghīratun."]},{"who":"Friend","t":"وَمَا هَذَا؟","r":"wa-mā hādhā?","tr":"And what's this?"},{"options":["هَذَا هَاتِفِي.","هَذِهِ هَاتِفِي."],"answer":0,"why":"{{هَاتِفٌ}} “phone” is masculine: {{هَذَا}}. ({{هَاتِفِي}} is “my phone”.)","rs":["hādhā hātifī.","hādhihi hātifī."]}]},
         {"type":"say","q":"A woman says “I'm a student”. What does she say?","answer":"أَنَا طَالِبَةٌ.","r":"anā ṭālibatun.","from":"say-who-you-are"},
         {"type":"free","q":"Your turn: point at three things around you and name them with {{هَذَا…}} or {{هَذِهِ…}}.","answers":[{"t":"هَذَا بَابٌ.","r":"hādhā bābun.","tr":"This is a door."},{"t":"هَذِهِ نَافِذَةٌ.","r":"hādhihi nāfidhatun.","tr":"This is a window."},{"t":"هَذَا هَاتِفٌ.","r":"hādhā hātifun.","tr":"This is a phone."}]}
       ]
@@ -227,10 +227,10 @@
         {"wrong":"الْشَّمْسُ","right":"الشَّمْسُ","tr":"the sun","why":"Before a sun letter the l is silent and has no mark of its own: say ash-shamsu."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the word that means “the car”.","t":"أَيْنَ ___؟","tr":"Where's the car?","options":["السَّيَّارَةُ","سَيَّارَةٌ","السَّيَّارَةٌ"],"answer":0,"why":"{{الْـ}} in front, and a single mark at the end."},
+        {"type":"fill","q":"Choose the word that means “the car”.","t":"أَيْنَ ___؟","tr":"Where's the car?","options":["السَّيَّارَةُ","سَيَّارَةٌ","السَّيَّارَةٌ"],"answer":0,"why":"{{الْـ}} in front, and a single mark at the end.","r":"ayna ___?","rs":["as-sayyāratu","sayyāratun","as-sayyāratun"]},
         {"type":"choice","q":"In which word is the l of {{الْـ}} **not** said?","options":["{{الْقَمَرُ}}","{{الْبَابُ}}","{{الشَّمْسُ}}"],"answer":2,"why":"{{ش}} is a sun letter: ash-shamsu."},
         {"type":"choice","q":"{{مِفْتَاحٌ}} means…","options":["the key","a key","keys"],"answer":1,"why":"The doubled mark -un means “a”."},
-        {"type":"order","q":"Put the words in order.","tr":"The key is here.","words":["الْمِفْتَاحُ","هُنَا."]},
+        {"type":"order","q":"Put the words in order.","tr":"The key is here.","words":["الْمِفْتَاحُ","هُنَا."],"rs":["al-miftāḥu","hunā."]},
         {"type":"say","q":"Point at a book and say “This is a book.”","answer":"هَذَا كِتَابٌ.","r":"hādhā kitābun.","from":"this-is"},
         {"type":"free","q":"Your turn: ask where three things or places are, with {{أَيْنَ…؟}}","answers":[{"t":"أَيْنَ الْحَمَّامُ؟","r":"ayna l-ḥammāmu?","tr":"Where's the bathroom?"},{"t":"أَيْنَ الْفُنْدُقُ؟","r":"ayna l-funduqu?","tr":"Where's the hotel?"},{"t":"أَيْنَ الْمَطْعَمُ؟","r":"ayna l-maṭʿamu?","tr":"Where's the restaurant?"}]}
       ]
@@ -270,10 +270,10 @@
         {"wrong":"الْبَيْتُ الْكَبِيرُ.","right":"الْبَيْتُ كَبِيرٌ.","tr":"The house is big.","why":"With {{الْـ}} on both words it's a phrase, “the big house”. For a sentence, the adjective has no {{الْـ}}."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"السَّيَّارَةُ ___.","tr":"The car is new.","options":["جَدِيدَةٌ","جَدِيدٌ","الْجَدِيدَةُ"],"answer":0,"why":"Feminine ({{ة}}), and no {{الْـ}}: it's what you say about the car."},
+        {"type":"fill","q":"Choose the missing word.","t":"السَّيَّارَةُ ___.","tr":"The car is new.","options":["جَدِيدَةٌ","جَدِيدٌ","الْجَدِيدَةُ"],"answer":0,"why":"Feminine ({{ة}}), and no {{الْـ}}: it's what you say about the car.","r":"as-sayyāratu ___.","rs":["jadīdatun","jadīdun","al-jadīdatu"]},
         {"type":"choice","q":"“The new car” (a phrase) is…","options":["{{السَّيَّارَةُ جَدِيدَةٌ}}","{{السَّيَّارَةُ الْجَدِيدَةُ}}","{{سَيَّارَةٌ الْجَدِيدَةُ}}"],"answer":1,"why":"“The” on both words, and {{ة}} on both."},
         {"type":"choice","q":"{{الْمَطْعَمُ جَدِيدٌ.}} means…","options":["the new restaurant","The restaurant is new.","a new restaurant"],"answer":1,"why":"{{الْـ}} on the noun only: a sentence."},
-        {"type":"order","q":"Put the words in order.","tr":"This is a big house.","words":["هَذَا","بَيْتٌ","كَبِيرٌ."],"from":"this-is"},
+        {"type":"order","q":"Put the words in order.","tr":"This is a big house.","words":["هَذَا","بَيْتٌ","كَبِيرٌ."],"from":"this-is","rs":["hādhā","baytun","kabīrun."]},
         {"type":"say","q":"How do you say “a beautiful city”?","answer":"مَدِينَةٌ جَمِيلَةٌ","r":"madīnatun jamīlatun"},
         {"type":"free","q":"Your turn: describe the place where you are now in two short sentences.","answers":[{"t":"الْغُرْفَةُ صَغِيرَةٌ وَجَمِيلَةٌ.","r":"al-ghurfatu ṣaghīratun wa-jamīlatun.","tr":"The room is small and nice."},{"t":"الْمَدِينَةُ كَبِيرَةٌ وَالْجَوُّ حَارٌّ.","r":"al-madīnatu kabīratun wa-l-jawwu ḥārrun.","tr":"The city is big and the weather is hot."}]}
       ]
@@ -317,10 +317,10 @@
         {"wrong":"هَلْ الْمَطْعَمُ مَفْتُوحٌ؟","right":"هَلِ الْمَطْعَمُ مَفْتُوحٌ؟","tr":"Is the restaurant open?","why":"Before {{الْـ}}, {{هَلْ}} becomes {{هَلِ}}: hali l-maṭʿamu."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ الْفُنْدُقُ؟","tr":"Where's the hotel?","options":["أَيْنَ","هَلْ","مَنْ"],"answer":0,"why":"{{أَيْنَ}}, ayna, is “where”."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ الْفُنْدُقُ؟","tr":"Where's the hotel?","options":["أَيْنَ","هَلْ","مَنْ"],"answer":0,"why":"{{أَيْنَ}}, ayna, is “where”.","r":"___ l-funduqu?","rs":["ayna","hal","man"]},
         {"type":"choice","q":"How do you ask “Is the hotel near?”","options":["{{هَلِ الْفُنْدُقُ قَرِيبٌ؟}}","{{أَيْنَ الْفُنْدُقُ قَرِيبٌ؟}}","{{مَا الْفُنْدُقُ قَرِيبٌ؟}}"],"answer":0,"why":"Yes or no: {{هَلْ}} in front of the sentence."},
-        {"type":"dialogue","q":"In a shop. Choose your replies.","lines":[{"who":"Seller","t":"أَهْلًا، تَفَضَّلْ.","r":"ahlan, tafaḍḍal.","tr":"Hello, how can I help?"},{"options":["بِكَمْ هَذَا؟","مَنْ هَذَا؟"],"answer":0,"why":"{{بِكَمْ}} asks the price; {{مَنْ}} is “who”."},{"who":"Seller","t":"هَذَا رَخِيصٌ جِدًّا!","r":"hādhā rakhīṣun jiddan!","tr":"This one is very cheap!"},{"options":["هَلْ هُوَ جَدِيدٌ؟","هَلْ أَيْنَ جَدِيدٌ؟"],"answer":0,"why":"A yes-or-no question: {{هَلْ}} and the sentence."}]},
-        {"type":"order","q":"Put the words in order.","tr":"Is the restaurant open?","words":["هَلِ","الْمَطْعَمُ","مَفْتُوحٌ؟"],"from":"describe"},
+        {"type":"dialogue","q":"In a shop. Choose your replies.","lines":[{"who":"Seller","t":"أَهْلًا، تَفَضَّلْ.","r":"ahlan, tafaḍḍal.","tr":"Hello, how can I help?"},{"options":["بِكَمْ هَذَا؟","مَنْ هَذَا؟"],"answer":0,"why":"{{بِكَمْ}} asks the price; {{مَنْ}} is “who”.","rs":["bikam hādhā?","man hādhā?"]},{"who":"Seller","t":"هَذَا رَخِيصٌ جِدًّا!","r":"hādhā rakhīṣun jiddan!","tr":"This one is very cheap!"},{"options":["هَلْ هُوَ جَدِيدٌ؟","هَلْ أَيْنَ جَدِيدٌ؟"],"answer":0,"why":"A yes-or-no question: {{هَلْ}} and the sentence.","rs":["hal huwa jadīdun?","hal ayna jadīdun?"]}]},
+        {"type":"order","q":"Put the words in order.","tr":"Is the restaurant open?","words":["هَلِ","الْمَطْعَمُ","مَفْتُوحٌ؟"],"from":"describe","rs":["hali","al-maṭʿamu","maftūḥun?"]},
         {"type":"say","q":"Ask a woman where she's from.","answer":"مِنْ أَيْنَ أَنْتِ؟","r":"min ayna anti?","from":"say-who-you-are"},
         {"type":"free","q":"Your turn: write three questions you'd ask someone you've just met.","answers":[{"t":"مَا اسْمُكَ؟","r":"mā smuka?","tr":"What's your name?"},{"t":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?","tr":"Where are you from?"},{"t":"هَلْ أَنْتَ طَالِبٌ؟","r":"hal anta ṭālibun?","tr":"Are you a student?"}]}
       ]
@@ -364,10 +364,10 @@
         {"wrong":"نَحْنُ صَدِيقٌ.","right":"نَحْنُ أَصْدِقَاءُ.","tr":"We're friends.","why":"“We” needs a plural word: {{أَصْدِقَاءُ}} “friends”."}
       ],
       "practice": [
-        {"type":"fill","q":"Choose the missing word.","t":"___ طَبِيبَةٌ.","tr":"She's a doctor.","options":["هِيَ","هُوَ","هُمْ"],"answer":0,"why":"{{هِيَ}}, hiya, is “she”."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ طَبِيبَةٌ.","tr":"She's a doctor.","options":["هِيَ","هُوَ","هُمْ"],"answer":0,"why":"{{هِيَ}}, hiya, is “she”.","r":"___ ṭabībatun.","rs":["hiya","huwa","hum"]},
         {"type":"choice","q":"{{نَحْنُ}} means…","options":["we","they","you"],"answer":0,"why":"{{نَحْنُ}}, naḥnu, is “we”."},
         {"type":"choice","q":"“The car? It's new.” Which word is “it”: {{السَّيَّارَةُ؟ ___ جَدِيدَةٌ.}}","options":["{{هُوَ}}","{{هِيَ}}"],"answer":1,"why":"{{سَيَّارَةٌ}} is feminine, so “it” is {{هِيَ}}.","from":"this-is"},
-        {"type":"order","q":"Put the words in order.","tr":"We're from Tunisia.","words":["نَحْنُ","مِنْ","تُونِسَ."]},
+        {"type":"order","q":"Put the words in order.","tr":"We're from Tunisia.","words":["نَحْنُ","مِنْ","تُونِسَ."],"rs":["naḥnu","min","tūnisa."]},
         {"type":"say","q":"Introduce your friend Karim: “This is Karim. He's an engineer.”","answer":"هَذَا كَرِيمٌ. هُوَ مُهَنْدِسٌ.","r":"hādhā karīmun. huwa muhandisun."},
         {"type":"free","q":"Your turn: tell someone about two people you know: who they are and what they do.","answers":[{"t":"هَذَا صَدِيقِي. هُوَ مُعَلِّمٌ.","r":"hādhā ṣadīqī. huwa muʿallimun.","tr":"This is my friend. He's a teacher."},{"t":"هَذِهِ أُخْتِي. هِيَ طَالِبَةٌ.","r":"hādhihi ukhtī. hiya ṭālibatun.","tr":"This is my sister. She's a student."}]}
       ]

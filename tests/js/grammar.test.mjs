@@ -212,6 +212,27 @@ test("the new kinds of practice keep their languages apart: fill and dialogue op
   for (const t of ["أُرِيدُ قَهْوَةً.", "مَاذَا تُرِيدُ؟", "أَنْ", "أُرِيدُ  أَذْهَبَ.", "لَا، شُكْرًا.", "بِسُكَّرٍ؟", "أُرِيدُ شَايًا."]) assert.ok(taught.includes(t), t);
 });
 
+test("the choices a learner taps can carry readings: one for each, never sent to be translated", () => {
+  const course = JSON.parse(readFileSync(new URL("../../tools/grammar/en-ar/lessons.json", import.meta.url), "utf8"));
+  const lesson = course.lessons.find((l) => l.practice.some((q) => q.type === "fill") && l.practice.some((q) => q.type === "order") && l.practice.some((q) => q.type === "dialogue"));
+  const fill = lesson.practice.find((q) => q.type === "fill");
+  const order = lesson.practice.find((q) => q.type === "order");
+  const reply = lesson.practice.find((q) => q.type === "dialogue").lines.find((x) => x.options);
+  fill.r = "reading ___ here"; fill.rs = fill.options.map((_, k) => `opt${k}`);
+  order.rs = order.words.map((_, k) => `word${k}`);
+  reply.rs = reply.options.map((_, k) => `reply${k}`);
+  assert.deepEqual(checkCourse(course), []);
+  const texts = explanationTexts(lesson).map((t) => t.text).join("\n");
+  assert.doesNotMatch(texts, /opt0|word0|reply0|reading ___/);
+
+  fill.r = "no gap"; fill.rs = ["one"]; order.rs = [...order.rs, "extra"]; reply.rs = reply.options.map(() => "");
+  const problems = checkCourse(course).join("\n");
+  assert.match(problems, /the sentence's reading \(r\) must have exactly one gap/);
+  assert.match(problems, /the options: rs must give one reading for each/);
+  assert.match(problems, /the words: rs must give one reading for each/);
+  assert.match(problems, /a reply's options: rs must give one reading for each/);
+});
+
 test("the mixed review brings back done lessons, the oldest and weakest most, never one lesson twice in a row", () => {
   const q = (n) => ({ type: "choice", q: `q${n}`, options: ["a", "b"], answer: 0, why: "w" });
   const course = { lessons: ["one", "two", "three"].map((id) => ({ id, practice: [q(1), q(2), q(3), { type: "free", q: "mine", answers: [] }] })) };

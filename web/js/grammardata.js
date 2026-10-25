@@ -7,6 +7,9 @@
 // ("en-ar": Arabic, explained in English). In a lesson, the language taught is in an example's `t` and
 // `r`, a mistake's `wrong` and `right`, an "order" question's `words` and `also`, a "say" question's
 // `answer` and `r`, and inside {{ }} in any other text. Everything else is in the explanation language.
+// Readings of the choices a learner taps (optional): a "fill" question's `r` (its sentence's reading, with
+// ___) and `rs` (one reading per option), an "order" question's `rs` (one per word), and a dialogue
+// reply's `rs` (one per option). Shown under the choices when readings are on; never translated.
 
 export const GRAMMAR_BASE = "https://christiangilkey.github.io/tamkeen/grammar/";
 const SITE_HOST = "christiangilkey.github.io";
@@ -586,6 +589,11 @@ export function checkCourse(course, { languages = null } = {}) {
         if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= list.length) say(at, "the answer isn't one of the options");
         if (new Set(list).size !== list.length) say(at, "two options are the same");
       };
+      // Readings of the choices (optional): one non-empty reading for each.
+      const readingsOf = (list, rs, what) => {
+        if (rs === undefined) return;
+        if (!Array.isArray(rs) || rs.length !== (list || []).length || rs.some((x) => !String(x || "").trim())) say(at, `${what}: rs must give one reading for each, in the same order`);
+      };
       if (q.type === "choice") {
         options();
         if (!String(q.why || "").trim()) say(at, "no why");
@@ -595,6 +603,8 @@ export function checkCourse(course, { languages = null } = {}) {
         if (!String(q.tr || "").trim()) say(at, "no translation (tr) of the sentence");
         options();
         if ((q.options || []).some((o) => /\{\{|\*\*/.test(o))) say(at, "a fill option is the language taught itself: no {{ }} marks");
+        if (q.r !== undefined && (String(q.r).match(/___/g) || []).length !== 1) say(at, "the sentence's reading (r) must have exactly one gap: ___");
+        readingsOf(q.options, q.rs, "the options");
         if (!String(q.why || "").trim()) say(at, "no why");
       }
       if (q.type === "order") {
@@ -605,6 +615,7 @@ export function checkCourse(course, { languages = null } = {}) {
         const sorted = (a) => [...a].sort().join("\u0000");
         for (const alt of q.also || []) if (sorted(alt) !== sorted(words)) say(at, "an other right order that doesn't use the same words");
         if (new Set(words).size !== words.length) say(at, "the same word twice (the learner couldn't tell which goes where)");
+        readingsOf(words, q.rs, "the words");
       }
       if (q.type === "say") {
         if (!String(q.answer || "").trim()) say(at, "no answer");
@@ -619,6 +630,7 @@ export function checkCourse(course, { languages = null } = {}) {
             if (x.options.length < 2 || x.options.length > 4 || new Set(x.options).size !== x.options.length) say(at, "a reply needs 2 to 4 different options");
             if (!Number.isInteger(x.answer) || x.answer < 0 || x.answer >= x.options.length) say(at, "a reply's answer isn't one of its options");
             if (!String(x.why || "").trim()) say(at, "a reply without its why");
+            readingsOf(x.options, x.rs, "a reply's options");
           } else {
             if (!String(x.who || "").trim()) say(at, "a line without its speaker (who)");
             sentence(x, "a line of the dialogue");

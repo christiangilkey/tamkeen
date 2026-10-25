@@ -559,17 +559,20 @@ export function grammarPanel(box, lang, choice) {
     sentence.children[0].textContent = before;
     sentence.children[2].textContent = after;
     const gap = sentence.querySelector(".gq-gap");
-    li.append(sentence, h(`<div class="gq-tr" translate="no">“${rich(q.tr)}”</div>`));
+    li.append(sentence);
+    const reading = q.r ? h(`<div class="gx-r gq-fill-r" dir="ltr" translate="no"></div>`) : null;
+    if (reading) { reading.textContent = String(q.r).replace("___", "…"); li.append(reading); }
+    li.append(h(`<div class="gq-tr" translate="no">“${rich(q.tr)}”</div>`));
     const opts = h(`<div class="gq-words" ${attrs}></div>`);
     q.options.forEach((o, k) => {
-      const b = h(`<button type="button" class="gq-tile" translate="no"></button>`);
-      b.textContent = o;
+      const b = tile(o, q.rs?.[k]);
       b.onclick = () => {
         if (li.classList.contains("answered")) return;
         li.classList.add("answered");
         const ok = k === q.answer;
         gap.textContent = q.options[q.answer];
         gap.classList.add(ok ? "right" : "wrong");
+        if (reading && q.rs) reading.textContent = String(q.r).replace("___", q.rs[q.answer]);
         for (const [j, x] of [...opts.children].entries()) {
           x.disabled = true;
           if (j === q.answer) x.classList.add("right");
@@ -591,9 +594,8 @@ export function grammarPanel(box, lang, choice) {
     const again = h(`<button type="button" class="ghost gq-again" hidden>Try again</button>`);
     li.append(line, pool, again);
     let tries = 0;
-    const tiles = shuffled(q).map(({ word }) => {
-      const t = h(`<button type="button" class="gq-tile"></button>`);
-      t.textContent = word;
+    const tiles = shuffled(q).map(({ i, word }) => {
+      const t = tile(word, q.rs?.[i]);
       t.onclick = () => {
         if (li.classList.contains("checked")) return;
         (t.parentNode === pool ? line : pool).append(t);
@@ -603,7 +605,7 @@ export function grammarPanel(box, lang, choice) {
       return t;
     });
     function check() {
-      const picked = [...line.children].map((t) => t.textContent);
+      const picked = [...line.children].map((t) => t.dataset.word);
       const ok = orderIsRight(q, picked);
       li.classList.add("checked");
       if (ok) sayText(picked.join(" "), lang);
@@ -640,13 +642,14 @@ export function grammarPanel(box, lang, choice) {
       const line = q.lines[i];
       const opts = h(`<div class="gq-replies"></div>`);
       line.options.forEach((o, k) => {
-        const b = h(`<button type="button" class="gq-opt gq-reply" ${attrs} translate="no"></button>`);
-        b.textContent = o;
+        const b = h(`<button type="button" class="gq-opt gq-reply" ${attrs} translate="no"><span class="gq-reply-t"></span></button>`);
+        b.firstChild.textContent = o;
+        if (line.rs?.[k]) { const r = h(`<span class="gx-r" dir="ltr" translate="no"></span>`); r.textContent = line.rs[k]; b.append(r); }
         b.onclick = () => {
           const ok = k === line.answer;
           if (!ok) allRight = false;
           opts.remove();
-          chat.append(bubble({ t: line.options[line.answer] }, true));
+          chat.append(bubble({ t: line.options[line.answer], r: line.rs?.[line.answer] }, true));
           const fb = h(`<div class="gq-fb small ${ok ? "ok" : "no"}"><strong>${ok ? `${icon("check", 14)} <span>Right!</span>` : `${icon("close", 14)} <span>Not quite.</span>`}</strong></div>`);
           if (line.why) fb.append(h(`<span translate="no">${rich(line.why)}</span>`));
           chat.append(fb);
@@ -659,6 +662,15 @@ export function grammarPanel(box, lang, choice) {
       chat.append(opts);
     };
     next();
+  }
+
+  /** A word tile to tap: the word, and its reading under it when there is one (hidden with readings off). */
+  function tile(word, reading) {
+    const t = h(`<button type="button" class="gq-tile" translate="no"><span class="gq-tile-t"></span></button>`);
+    t.dataset.word = word;
+    t.firstChild.textContent = word;
+    if (reading) { const r = h(`<span class="gx-r" dir="ltr" translate="no"></span>`); r.textContent = reading; t.append(r); }
+    return t;
   }
 
   function bubble(line, mine) {

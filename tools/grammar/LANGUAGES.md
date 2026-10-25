@@ -74,6 +74,10 @@ courses, is American English. A course whose examples are in a script the learne
 | en-ar | transliteration (done) |
 | Latin-script courses (es, fr, it, pt, ca, de, tl, ceb) and every `<lang>-en` | none (`"reading": ""`) |
 
+In those courses, give the choices the learner taps their readings too (README, "Readings of the choices"):
+`r` (with `___`) and `rs` on `fill` questions, `rs` on `order` questions and on dialogue replies, and
+`{{word|reading}}` in `choice` options. A beginner can't pick a word they can't read.
+
 ## Starting points, language by language
 
 These are the structures that make each language what it is, and a sensible early order. Plan the rest.
