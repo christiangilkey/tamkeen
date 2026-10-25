@@ -1227,6 +1227,300 @@
         {"type":"say","q":"How do you say “Do you want to come with me?”","answer":"Quer ir comigo?","from":"invite-and-suggest"},
         {"type":"free","q":"Your turn: talk about someone important to you. How do you help each other? Use {{me}}, {{te}} or {{nos}}.","answers":[{"t":"Minha irmã sempre me ajuda. Eu ligo pra ela todo domingo.","tr":"My sister always helps me. I call her every Sunday."},{"t":"Meus pais nos visitam no Natal e a gente leva eles pra passear.","tr":"My parents visit us at Christmas and we take them out and about."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "Tell someone what you did yesterday or last week, and ask what they did: the past of regular verbs.",
+      "topic": "The pretérito perfeito of regular verbs ({{falei, comi, abri}}); {{ontem}}, {{semana passada}}, {{há}} “ago”",
+      "blocks": [
+        {"goal":{"t":"Ontem eu trabalhei até tarde e depois jantei com uma amiga.","tr":"Yesterday I worked late and then had dinner with a friend."}},
+        {"dialog":[{"who":"Renata","t":"E aí, o que você fez ontem?","tr":"So, what did you do yesterday?"},{"who":"Alex","t":"Trabalhei o dia todo. E à noite assisti a um filme.","tr":"I worked all day. And in the evening I watched a movie."},{"who":"Renata","t":"Qual filme?","tr":"Which movie?"},{"who":"Alex","t":"Um brasileiro. Gostei muito! E você?","tr":"A Brazilian one. I liked it a lot! And you?"},{"who":"Renata","t":"Eu estudei pra prova e dormi cedo.","tr":"I studied for the test and went to bed early."},{"who":"Alex","t":"Coitada!","tr":"Poor you!"}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: I work (now), I worked (in the past)."},
+        {"p":"**What happened, and is finished.** For actions that are over (yesterday, last week, in 2019), Portuguese uses the {{pretérito perfeito}}. Regular verbs follow three patterns:"},
+        { "table": [
+          ["","{{falar}}","{{comer}}","{{abrir}}"],
+          ["I","{{falei}}","{{comi}}","{{abri}}"],
+          ["you, he, she, {{a gente}}","{{falou}}","{{comeu}}","{{abriu}}"],
+          ["we ({{nós}})","{{falamos}}","{{comemos}}","{{abrimos}}"],
+          ["you all, they","{{falaram}}","{{comeram}}","{{abriram}}"]
+        ] },
+        {"p":"The {{nós}} form is the same as in the present: {{falamos}} is “we speak” or “we spoke”, and the time words make it clear. ({{A gente falou}} avoids the question.)"},
+        {"p":"**Spelling in the “I” form.** To keep their sound, verbs in {{-car}}, {{-gar}} and {{-çar}} change their last consonant: {{ficar}} → {{fiquei}}, {{chegar}} → {{cheguei}}, {{começar}} → {{comecei}}."},
+        {"p":"**When.** {{ontem}} yesterday, {{anteontem}} the day before yesterday, {{ontem à noite}} last night, {{semana passada}} last week, {{mês passado}}, {{ano passado}}. And “ago” is {{há}} + the time: {{há dois dias}} “two days ago” (lesson 30 says more)."},
+        {"p":"**Questions and answers** work as always, with no helper word: {{Você gostou?}} “Did you like it?” — {{Gostei!}} / {{Não gostei.}}"},
+        { "ex": [
+          {"t":"Cheguei ontem à noite.","tr":"I arrived last night."},
+          {"t":"Você gostou do filme?","tr":"Did you like the movie?"},
+          {"t":"A gente comeu muito bem.","tr":"We ate really well."},
+          {"t":"Ela morou dois anos no Japão.","tr":"She lived in Japan for two years."},
+          {"t":"Eles abriram uma loja no centro.","tr":"They opened a store downtown."},
+          {"t":"Não dormi nada.","tr":"I didn't sleep at all."},
+          {"t":"Comprei esse vestido há uma semana.","tr":"I bought this dress a week ago."}
+        ] },
+        {"tip":"{{Gostei!}} “I liked it!” is how Brazilians say they enjoyed something they just tried: a meal, a show, a place."}
+      ],
+      "mistakes": [
+        {"wrong":"Ontem eu trabalho muito.","right":"Ontem eu trabalhei muito.","tr":"Yesterday I worked a lot.","why":"A finished action in the past: {{trabalhei}}."},
+        {"wrong":"Eu chegei às dez.","right":"Eu cheguei às dez.","tr":"I arrived at ten.","why":"{{Chegar}} keeps its hard g sound with a {{u}}: {{cheguei}}."},
+        {"wrong":"Você comeu? — Sim, eu fiz.","right":"Você comeu? — Comi.","tr":"Did you eat? — Yes, I did.","why":"No helper verb in Portuguese, in the past either: answer with the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ontem eu ___ até tarde.","tr":"Yesterday I worked late.","options":["trabalhei","trabalhou","trabalho"],"answer":0,"why":"“I worked”: {{trabalhei}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Vocês ___ a pizza toda?","tr":"Did you eat the whole pizza?","options":["comeram","comemos","comeu"],"answer":0,"why":"With {{vocês}}: {{comeram}}."},
+        {"type":"choice","q":"{{Nós falamos com ele}} can mean…","options":["“We speak to him” or “We spoke to him”","only “We speak to him”","only “We spoke to him”"],"answer":0,"why":"The {{nós}} form of {{-ar}} verbs is the same in the present and the past."},
+        {"type":"dialogue","q":"A friend asks about your dinner out. Choose your replies.","from":"say-yes-and-no","lines":[{"who":"Renata","t":"Você gostou do restaurante?","tr":"Did you like the restaurant?"},{"options":["Gostei muito!","Sim, eu fiz!"],"answer":0,"why":"Answer with the verb: {{gostei}}."},{"who":"Renata","t":"E o que vocês comeram?","tr":"And what did you eat?"},{"options":["A gente comeu uma moqueca deliciosa.","A gente comemos uma moqueca deliciosa."],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{comeu}}."},{"who":"Renata","t":"Que delícia!","tr":"Yum!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I arrived in Brazil last week.","words":["Cheguei","no Brasil","semana","passada."]},
+        {"type":"say","q":"How do you say “Did you like it?”","answer":"Você gostou?"},
+        {"type":"free","q":"Your turn: what did you do yesterday? Say three things, with regular verbs.","answers":[{"t":"Ontem eu trabalhei, estudei português e assisti a uma série.","tr":"Yesterday I worked, studied Portuguese and watched a series."},{"t":"Acordei tarde, almocei com meus pais e à noite saí com amigos.","tr":"I woke up late, had lunch with my parents and in the evening went out with friends."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell someone about your weekend",
+      "summary": "Say where you went, what you did and how it was, with the irregular verbs you use most.",
+      "topic": "Irregular perfeito: {{fui}} ({{ir}} and {{ser}}), {{tive, estive, fiz, pude, quis, disse, vi, vim, dei, trouxe}}; {{Como foi?}}",
+      "blocks": [
+        {"goal":{"t":"No sábado eu fui à praia e fiz um churrasco com os amigos.","tr":"On Saturday I went to the beach and had a barbecue with friends."}},
+        {"dialog":[{"who":"Lucas","t":"E o fim de semana, como foi?","tr":"So how was your weekend?"},{"who":"Emma","t":"Foi ótimo! Fui a Petrópolis com meu namorado.","tr":"It was great! I went to Petrópolis with my boyfriend."},{"who":"Lucas","t":"Que legal! O que vocês fizeram?","tr":"How cool! What did you do?"},{"who":"Emma","t":"A gente foi ao museu, fez uma trilha e trouxe chocolate pra todo mundo.","tr":"We went to the museum, did a hike and brought chocolate for everyone."},{"who":"Lucas","t":"E cadê o meu?","tr":"So where's mine?"},{"who":"Emma","t":"Ih… não deu!","tr":"Oops… it didn't work out!"}]},
+        {"p":"**The irregular ones.** The verbs you use most are irregular in the past. Look at the “I” and “he” forms first: they're the ones you'll say most often."},
+        { "table": [
+          ["","I","you, he, she","we","you all, they"],
+          ["{{ser}}, {{ir}}","{{fui}}","{{foi}}","{{fomos}}","{{foram}}"],
+          ["{{ter}}","{{tive}}","{{teve}}","{{tivemos}}","{{tiveram}}"],
+          ["{{estar}}","{{estive}}","{{esteve}}","{{estivemos}}","{{estiveram}}"],
+          ["{{fazer}}","{{fiz}}","{{fez}}","{{fizemos}}","{{fizeram}}"],
+          ["{{poder}}","{{pude}}","{{pôde}}","{{pudemos}}","{{puderam}}"],
+          ["{{querer}}","{{quis}}","{{quis}}","{{quisemos}}","{{quiseram}}"],
+          ["{{dizer}}","{{disse}}","{{disse}}","{{dissemos}}","{{disseram}}"],
+          ["{{ver}}","{{vi}}","{{viu}}","{{vimos}}","{{viram}}"],
+          ["{{vir}}","{{vim}}","{{veio}}","{{viemos}}","{{vieram}}"],
+          ["{{dar}}","{{dei}}","{{deu}}","{{demos}}","{{deram}}"],
+          ["{{trazer}}","{{trouxe}}","{{trouxe}}","{{trouxemos}}","{{trouxeram}}"]
+        ] },
+        {"p":"**{{ser}} and {{ir}} share one past.** {{Fui}} is both “I went” and “I was”: {{Fui ao Rio}} “I went to Rio”, {{Fui professor}} “I was a teacher”. The rest of the sentence tells you which."},
+        {"p":"**{{pôde}} or {{pode}}?** The hat tells them apart in writing: {{ele pode}} “he can”, {{ele pôde}} “he could, was able to”."},
+        {"p":"**How was it?** {{Como foi?}} — {{Foi ótimo!}}, {{Foi legal}}, {{Foi horrível}}."},
+        { "ex": [
+          {"t":"Como foi a viagem? — Foi incrível!","tr":"How was the trip? — It was amazing!"},
+          {"t":"Ontem eu tive uma reunião muito longa.","tr":"Yesterday I had a very long meeting."},
+          {"t":"Onde você esteve?","tr":"Where have you been?"},
+          {"t":"Ela disse que sim.","tr":"She said yes."},
+          {"t":"Vi um show maravilhoso no sábado.","tr":"I saw an amazing show on Saturday."},
+          {"t":"Meus pais vieram me visitar.","tr":"My parents came to visit me."},
+          {"t":"Não pude ir, desculpa.","tr":"I couldn't go, sorry."}
+        ] },
+        {"tip":"{{Deu certo!}} (“it gave right”) means “It worked out!”, and {{Não deu}} “It didn't work out”: the {{dá pra}} of lesson 20, in the past."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu fazi um bolo.","right":"Eu fiz um bolo.","tr":"I made a cake.","why":"{{Fazer}} is irregular in the past: {{fiz}}, {{fez}}."},
+        {"wrong":"Eu teve um problema.","right":"Eu tive um problema.","tr":"I had a problem.","why":"“I had” is {{tive}}; {{teve}} is “he, she had”."},
+        {"wrong":"Ele veio ontem? — Sim, ele vim.","right":"Ele veio ontem? — Veio.","tr":"Did he come yesterday? — Yes, he did.","why":"“He came” is {{veio}}; {{vim}} is “I came”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No sábado eu ___ ao cinema.","tr":"On Saturday I went to the movies.","options":["fui","foi","vou"],"answer":0,"why":"“I went”: {{fui}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"O que vocês ___ no fim de semana?","tr":"What did you do on the weekend?","options":["fizeram","fazem","fez"],"answer":0,"why":"With {{vocês}}, in the past: {{fizeram}}."},
+        {"type":"choice","q":"{{Fui}} can mean…","options":["“I went” or “I was”","only “I went”","“I'm going”"],"answer":0,"why":"{{Ser}} and {{ir}} share the same past."},
+        {"type":"dialogue","q":"Monday at work: choose your replies.","from":"say-what-you-need-to-do","lines":[{"who":"Colleague","t":"E aí, como foi o fim de semana?","tr":"So, how was the weekend?"},{"options":["Foi ótimo! Fui à praia.","Foi ótimo! Vou à praia."],"answer":0,"why":"Last weekend: the past, {{fui}}."},{"who":"Colleague","t":"Com quem você foi?","tr":"Who did you go with?"},{"options":["Com uns amigos. A gente fez um churrasco.","Com uns amigos. A gente fizemos um churrasco."],"answer":0,"why":"{{A gente}} takes the {{ele}} form: {{fez}}."},{"who":"Colleague","t":"Que inveja! Eu tive que trabalhar.","tr":"I'm jealous! I had to work."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My parents came to visit me.","words":["Meus pais","vieram","me","visitar."]},
+        {"type":"say","q":"How do you say “I couldn't go, sorry”?","answer":"Não pude ir, desculpa."},
+        {"type":"free","q":"Your turn: tell someone about your last weekend. Where did you go, what did you do, and how was it?","answers":[{"t":"No sábado fui ao mercado e à noite fiz um jantar pra uns amigos. Foi muito divertido!","tr":"On Saturday I went to the market and in the evening I made dinner for some friends. It was a lot of fun!"},{"t":"Fiquei em casa, vi dois filmes e dormi muito. Foi ótimo!","tr":"I stayed home, watched two movies and slept a lot. It was great!"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-done",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you've done and haven't done yet",
+      "summary": "Talk about your experiences and what you've done so far: “Have you ever been to Bahia?”, “Not yet!”.",
+      "topic": "{{já}}, {{ainda não}}, {{nunca}} with the perfeito, where English says “have done”; {{uma vez}}, {{duas vezes}}",
+      "blocks": [
+        {"goal":{"t":"Já comi feijoada, mas nunca experimentei açaí.","tr":"I've had feijoada, but I've never tried açaí."}},
+        {"dialog":[{"who":"Mariana","t":"Você já foi a Salvador?","tr":"Have you ever been to Salvador?"},{"who":"Josh","t":"Ainda não. Mas já fui ao Rio duas vezes.","tr":"Not yet. But I've been to Rio twice."},{"who":"Mariana","t":"E você já comeu acarajé?","tr":"And have you ever eaten acarajé?"},{"who":"Josh","t":"Nunca! O que é isso?","tr":"Never! What's that?"},{"who":"Mariana","t":"É uma comida da Bahia. Você tem que experimentar!","tr":"It's a food from Bahia. You have to try it!"},{"who":"Josh","t":"Já anotei!","tr":"I've already written it down!"}]},
+        {"p":"**English “have done” → the plain past.** English says “I have eaten”, “Have you ever been…?” for experiences and for things done by now. Portuguese uses lesson 25's past, with a small word that gives the meaning:"},
+        { "table": [
+          ["English","Portuguese"],
+          ["Have you ever been to Rio?","{{Você já foi ao Rio?}}"],
+          ["I've been there twice.","{{Já fui duas vezes.}}"],
+          ["I've never tried it.","{{Nunca experimentei.}}"],
+          ["Have you eaten yet?","{{Você já comeu?}}"],
+          ["Not yet.","{{Ainda não.}}"],
+          ["I've already paid.","{{Já paguei.}}"]
+        ] },
+        {"p":"**{{já}}** is “already” or “ever”: {{Você já…?}} asks “Have you (ever, already)…?”. Answer yes with {{Já!}} or the verb: {{Já fui.}}, {{Fui, sim.}}"},
+        {"p":"**{{ainda não}}** “not yet” goes before the verb: {{Ainda não terminei}} “I haven't finished yet”."},
+        {"p":"**{{nunca}}** “never” goes before the verb, with no {{não}}: {{Nunca fui à Bahia.}} If it comes after the verb, put {{não}} before: {{Não fui nunca.}}"},
+        {"p":"**How many times.** {{uma vez}} once, {{duas vezes}} twice, {{muitas vezes}} many times, {{várias vezes}} several times."},
+        { "ex": [
+          {"t":"Você já esteve em São Paulo?","tr":"Have you ever been to São Paulo?"},
+          {"t":"Já li esse livro duas vezes.","tr":"I've read this book twice."},
+          {"t":"Ainda não almocei.","tr":"I haven't had lunch yet."},
+          {"t":"Nunca vi neve.","tr":"I've never seen snow."},
+          {"t":"O ônibus já saiu?","tr":"Has the bus left already?"},
+          {"t":"Já tomei café, obrigada.","tr":"I've already had coffee, thanks."}
+        ] },
+        {"tip":"Careful: {{tenho comido}} doesn't mean “I have eaten”. It means “I've been eating (lately)”, and lesson 45 shows it. For “I've eaten”, say {{Já comi}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu tenho comido feijoada uma vez.","right":"Eu já comi feijoada uma vez.","tr":"I've had feijoada once.","why":"For an experience, use the plain past with {{já}}."},
+        {"wrong":"Não nunca fui a Salvador.","right":"Nunca fui a Salvador.","tr":"I've never been to Salvador.","why":"{{Nunca}} before the verb already says “never”: no {{não}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Você ___ foi à Bahia?","tr":"Have you ever been to Bahia?","options":["já","ainda","nunca"],"answer":0,"why":"“Have you ever…?”: {{Você já…?}}"},
+        {"type":"choice","q":"Someone asks {{Você já almoçou?}} You haven't. You say…","options":["{{Ainda não.}}","{{Já não.}}","{{Nunca não.}}"],"answer":0,"why":"“Not yet”: {{ainda não}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ vi neve.","tr":"I've never seen snow.","options":["nunca","já","ainda"],"answer":0,"why":"“Never”: {{nunca}}, before the verb."},
+        {"type":"dialogue","q":"Talking about travel: choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Mariana","t":"Você já foi a Salvador?","tr":"Have you ever been to Salvador?"},{"options":["Ainda não, mas já fui ao Recife.","Ainda não, mas já vou ao Recife."],"answer":0,"why":"An experience: the past, {{fui}}."},{"who":"Mariana","t":"E já comeu acarajé?","tr":"And have you ever eaten acarajé?"},{"options":["Nunca comi. É bom?","Não nunca comi. É bom?"],"answer":0,"why":"{{Nunca}} before the verb, with no {{não}}."},{"who":"Mariana","t":"É uma delícia!","tr":"It's delicious!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I haven't finished yet.","words":["Ainda","não","terminei."]},
+        {"type":"say","q":"How do you say “I've read this book twice”?","answer":"Já li esse livro duas vezes."},
+        {"type":"free","q":"Your turn: say two things you've done in your life and one you've never done.","answers":[{"t":"Já morei na Espanha e já corri uma maratona, mas nunca fui ao Brasil.","tr":"I've lived in Spain and I've run a marathon, but I've never been to Brazil."},{"t":"Já comi pão de queijo muitas vezes. Nunca andei de avião!","tr":"I've had cheese bread many times. I've never been on a plane!"}]}
+      ]
+    },
+    {
+      "id": "describe-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "Describe how things used to be",
+      "summary": "Describe your childhood and the old days: where you lived, what things were like, what you used to do.",
+      "topic": "The imperfeito ({{morava, fazia, era, tinha, ia}}) for habits and descriptions; {{costumava}}; {{o senhor}}, {{a senhora}}",
+      "blocks": [
+        {"goal":{"t":"Quando eu era criança, eu morava numa cidade pequena.","tr":"When I was a kid, I lived in a small town."}},
+        {"dialog":[{"who":"Grandma","t":"Na minha época, a gente não tinha celular.","tr":"In my day, we didn't have cell phones."},{"who":"Grandson","t":"E o que vocês faziam?","tr":"So what did you do?"},{"who":"Grandma","t":"A gente brincava na rua o dia todo. Era muito bom.","tr":"We played in the street all day. It was really nice."},{"who":"Grandson","t":"E a senhora ia à escola a pé?","tr":"And did you walk to school?"},{"who":"Grandma","t":"Ia, sim. A escola ficava longe, mas todo mundo ia junto.","tr":"Yes, I did. The school was far, but everyone went together."}]},
+        {"p":"**A second past.** Lesson 25's past tells what happened and is over. Portuguese has another past, the {{imperfeito}}, for how things **were** and what **used to** happen: habits, descriptions, the background of a story."},
+        { "table": [
+          ["","{{morar}}","{{fazer}}","{{sair}}"],
+          ["I","{{morava}}","{{fazia}}","{{saía}}"],
+          ["you, he, she, {{a gente}}","{{morava}}","{{fazia}}","{{saía}}"],
+          ["we ({{nós}})","{{morávamos}}","{{fazíamos}}","{{saíamos}}"],
+          ["you all, they","{{moravam}}","{{faziam}}","{{saíam}}"]
+        ] },
+        {"p":"**Easy forms.** {{-ar}} verbs take {{-ava}}; {{-er}} and {{-ir}} verbs take {{-ia}}. “I” and “he” are the same ({{eu morava}}, {{ele morava}}), and {{ir}} is {{ia}}. Only four verbs are irregular:"},
+        { "table": [
+          ["","I, you, he, she","we","you all, they"],
+          ["{{ser}}","{{era}}","{{éramos}}","{{eram}}"],
+          ["{{ter}}","{{tinha}}","{{tínhamos}}","{{tinham}}"],
+          ["{{vir}}","{{vinha}}","{{vínhamos}}","{{vinham}}"],
+          ["{{pôr}} put","{{punha}}","{{púnhamos}}","{{punham}}"]
+        ] },
+        {"p":"**What it's for.** Habits: {{Eu jogava futebol todo sábado}} “I used to play soccer every Saturday”. Descriptions: {{A casa era grande e tinha um jardim}} “The house was big and had a garden”. Age and the time: {{Eu tinha dez anos}}, {{Eram oito horas}}."},
+        {"p":"**“Used to”.** The imperfeito alone already means it. You'll also hear {{costumava}} + infinitive: {{Eu costumava acordar cedo}} “I used to get up early”."},
+        {"p":"**{{a senhora}}, {{o senhor}}.** The grandson says {{a senhora}} to his grandmother: it's the respectful “you” for older people and formal moments, with the same verb form as {{você}}."},
+        { "ex": [
+          {"t":"Eu era muito tímido.","tr":"I used to be very shy."},
+          {"t":"A gente morava perto da praia.","tr":"We lived near the beach."},
+          {"t":"Meu avô tinha uma fazenda.","tr":"My grandfather had a farm."},
+          {"t":"Todo verão a gente ia pra casa da minha tia.","tr":"Every summer we would go to my aunt's house."},
+          {"t":"Antigamente não tinha internet.","tr":"In the old days there was no internet.","note":"{{tinha}}: the past of {{tem}} “there is”"},
+          {"t":"O que você queria ser quando era criança?","tr":"What did you want to be when you were a kid?"}
+        ] },
+        {"tip":"{{Tinha}} is also the past of {{tem}} “there is”: {{Tinha muita gente na festa}} “There were a lot of people at the party”."}
+      ],
+      "mistakes": [
+        {"wrong":"Quando eu fui criança, eu morei no Rio.","right":"Quando eu era criança, eu morava no Rio.","tr":"When I was a kid, I lived in Rio.","why":"A long period, and how things were: the imperfeito, {{era}}, {{morava}}."},
+        {"wrong":"Eu tive dez anos.","right":"Eu tinha dez anos.","tr":"I was ten.","why":"Age in the past is a description: {{tinha}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quando eu ___ criança, eu adorava desenho animado.","tr":"When I was a kid, I loved cartoons.","options":["era","fui","sou"],"answer":0,"why":"A description of a long time: {{era}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Antigamente a gente ___ no interior.","tr":"We used to live in the countryside.","options":["morava","mora","vai morar"],"answer":0,"why":"“Used to”: the imperfeito, {{morava}}."},
+        {"type":"choice","q":"Which sentence describes a habit in the past?","options":["{{Eu nadava todo dia.}}","{{Eu nadei ontem.}}","{{Eu vou nadar.}}"],"answer":0,"why":"Something that happened again and again: the imperfeito, {{nadava}}."},
+        {"type":"dialogue","q":"Your grandmother tells you about her youth. Choose your replies.","from":"say-what-you-have","lines":[{"who":"Grandma","t":"Quando eu tinha a sua idade, eu já trabalhava.","tr":"When I was your age, I was already working."},{"options":["Sério? E a senhora gostava?","Sério? E a senhora gosta?"],"answer":0,"why":"Asking how things were: the imperfeito, {{gostava}}."},{"who":"Grandma","t":"Gostava, mas era muito difícil.","tr":"I did, but it was very hard."},{"options":["E quantos anos a senhora tinha?","E quantos anos a senhora era?"],"answer":0,"why":"Age goes with {{ter}}, and in the past it's {{tinha}}."},{"who":"Grandma","t":"Tinha quinze anos.","tr":"I was fifteen."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My grandfather had a farm.","words":["Meu avô","tinha","uma","fazenda."]},
+        {"type":"say","q":"How do you say “In the old days there was no internet”?","answer":"Antigamente não tinha internet.","from":"say-what-there-is"},
+        {"type":"free","q":"Your turn: describe your childhood. Where did you live, what was it like, and what did you use to do?","answers":[{"t":"Quando eu era criança, morava numa cidade pequena. Eu andava de bicicleta todo dia.","tr":"When I was a kid, I lived in a small town. I rode my bike every day."},{"t":"Eu morava com meus avós. A casa era velha e tinha um jardim enorme.","tr":"I lived with my grandparents. The house was old and had a huge garden."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "Tell a story",
+      "summary": "Set the scene and tell what happened: “I was sleeping when the phone rang.”",
+      "topic": "Perfeito (events) and imperfeito (the scene) together; {{estava}} + {{-ndo}}; {{quando}}, {{enquanto}}, {{aí}}, {{de repente}}",
+      "blocks": [
+        {"goal":{"t":"Eu estava dormindo quando o telefone tocou.","tr":"I was sleeping when the phone rang."}},
+        {"dialog":[{"who":"Pedro","t":"Você não vai acreditar no que aconteceu ontem!","tr":"You won't believe what happened yesterday!"},{"who":"Sofia","t":"O quê?","tr":"What?"},{"who":"Pedro","t":"Eu estava andando na praia, estava tudo tranquilo… e aí um macaco roubou o meu sanduíche!","tr":"I was walking on the beach, everything was calm… and then a monkey stole my sandwich!"},{"who":"Sofia","t":"Mentira! Onde você estava?","tr":"No way! Where were you?"},{"who":"Pedro","t":"Em Ilhabela. Eu estava comendo e, de repente, ele pegou e saiu correndo!","tr":"In Ilhabela. I was eating and suddenly he grabbed it and ran off!"},{"who":"Sofia","t":"Que história!","tr":"What a story!"}]},
+        {"p":"**The scene and the events.** A story needs both pasts. The imperfeito paints the scene, what **was going on**: the weather, where you were, what you were doing. The perfeito tells what **happened**, one event after another."},
+        { "table": [
+          ["the scene: imperfeito","what happened: perfeito"],
+          ["{{Estava chovendo.}} It was raining.","{{Eu saí.}} I went out."],
+          ["{{Eu estava cansado.}} I was tired.","{{Dormi às nove.}} I went to bed at nine."],
+          ["{{A gente estava jantando}} We were having dinner","{{quando ele chegou.}} when he arrived."]
+        ] },
+        {"p":"**{{estava}} + {{-ndo}}.** Lesson 18's form, in the past: {{Eu estava dormindo}} “I was sleeping”. It's the usual way to set a scene that something interrupts: {{Eu estava dormindo quando o telefone tocou.}}"},
+        {"p":"**{{quando}} and {{enquanto}}.** {{quando}} “when” often brings in the event: {{…quando o telefone tocou}}. {{enquanto}} “while” goes with the background: {{Enquanto eu cozinhava, ele arrumava a casa}} “While I cooked, he tidied the house”."},
+        {"p":"**Moving the story on.** {{primeiro}} first, {{depois}} then, afterwards, {{aí}} and then (very Brazilian, in speech), {{de repente}} suddenly, {{no fim}} in the end."},
+        { "ex": [
+          {"t":"Estava fazendo sol, então a gente foi à praia.","tr":"It was sunny, so we went to the beach."},
+          {"t":"Quando eu cheguei, todo mundo estava dançando.","tr":"When I arrived, everyone was dancing."},
+          {"t":"Eu estava no ônibus quando vi o acidente.","tr":"I was on the bus when I saw the accident."},
+          {"t":"Enquanto ela trabalhava, eu cuidava das crianças.","tr":"While she was working, I looked after the kids."},
+          {"t":"Aí ele olhou pra mim e começou a rir.","tr":"And then he looked at me and started laughing."},
+          {"t":"No fim, deu tudo certo.","tr":"In the end, everything worked out."}
+        ] },
+        {"tip":"Brazilians love telling stories with {{aí}}: {{Aí eu falei… aí ele falou…}} “So I said… and then he said…”. Perfect in speech; in writing, use {{depois}} or {{então}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Eu estava dormindo quando o telefone tocava.","right":"Eu estava dormindo quando o telefone tocou.","tr":"I was sleeping when the phone rang.","why":"The ringing happened once, at one moment: the perfeito, {{tocou}}."},
+        {"wrong":"Quando eu chegava, ele saiu.","right":"Quando eu cheguei, ele saiu.","tr":"When I arrived, he left.","why":"Two events, one after the other: both in the perfeito."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu estava ___ banho quando você ligou.","tr":"I was taking a shower when you called.","options":["tomando","tomei","tomo"],"answer":0,"why":"The scene: {{estava}} + {{-ndo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Estava chovendo quando eu ___ de casa.","tr":"It was raining when I left home.","options":["saí","saía","saio"],"answer":0,"why":"Leaving happened once, at one moment: the perfeito, {{saí}}."},
+        {"type":"choice","q":"In {{Eu estava lendo quando a luz acabou}}, which part is the background?","options":["{{Eu estava lendo}}","{{a luz acabou}}"],"answer":0,"why":"What was going on: {{estava lendo}}. The event that interrupts it: {{acabou}}."},
+        {"type":"dialogue","q":"You arrive late. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Friend","t":"Você chegou tarde! O que aconteceu?","tr":"You got here late! What happened?"},{"options":["Eu estava saindo de casa quando começou a chover.","Eu saía de casa quando começava a chover."],"answer":0,"why":"The scene ({{estava saindo}}) and the event ({{começou}})."},{"who":"Friend","t":"E aí?","tr":"And then?"},{"options":["Aí eu voltei pra pegar o guarda-chuva.","Aí eu voltava pra pegar o guarda-chuva."],"answer":0,"why":"The next event: the perfeito, {{voltei}}."},{"who":"Friend","t":"Faz sentido!","tr":"Makes sense!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"When I arrived, everyone was dancing.","words":["Quando","eu cheguei,","todo mundo","estava","dançando."]},
+        {"type":"say","q":"How do you say “It was sunny, so we went to the beach”?","answer":"Estava fazendo sol, então a gente foi à praia.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Your turn: tell a short story about something surprising that happened to you. Set the scene with {{estava}}, then say what happened.","answers":[{"t":"Eu estava esperando o ônibus e estava chovendo muito. De repente, um carro parou e era o meu chefe!","tr":"I was waiting for the bus and it was pouring. Suddenly a car stopped, and it was my boss!"},{"t":"A gente estava jantando num restaurante quando a luz acabou. Aí todo mundo começou a cantar!","tr":"We were having dinner at a restaurant when the power went out. Then everyone started singing!"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how long and how long ago",
+      "summary": "Say how long you've lived, worked or studied somewhere, and when things happened: “for two years”, “two years ago”.",
+      "topic": "{{há}} / {{faz}} + time with the present (“for”) and with the past (“ago”); {{desde}}; {{daqui a}}",
+      "blocks": [
+        {"goal":{"t":"Moro no Brasil há dois anos.","tr":"I've lived in Brazil for two years."}},
+        {"dialog":[{"who":"Neighbor","t":"Você mora aqui há muito tempo?","tr":"Have you lived here long?"},{"who":"You","t":"Não, só há seis meses. Cheguei em abril.","tr":"No, only six months. I arrived in April."},{"who":"Neighbor","t":"E você estuda português há quanto tempo?","tr":"And how long have you been studying Portuguese?"},{"who":"You","t":"Faz um ano. Comecei antes de vir.","tr":"For a year. I started before I came."},{"who":"Neighbor","t":"Você fala muito bem!","tr":"You speak really well!"},{"who":"You","t":"Obrigada! Mas ainda tenho muito que aprender.","tr":"Thanks! But I still have a lot to learn."}]},
+        {"p":"**For how long: {{há}} + the present.** Where English says “I've lived here for two years”, Portuguese uses the **present**, because you still live there: {{Moro aqui há dois anos}}, literally “I live here, it has been two years”."},
+        {"p":"**Ago: {{há}} + the past.** With the perfeito, the same {{há}} means “ago”: {{Cheguei há dois anos}} “I arrived two years ago”."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["still true","{{Moro aqui há dois anos.}}","I've lived here for two years."],
+          ["over","{{Cheguei há dois anos.}}","I arrived two years ago."],
+          ["asking","{{Há quanto tempo você mora aqui?}}","How long have you lived here?"],
+          ["a starting point","{{Moro aqui desde 2023.}}","I've lived here since 2023."]
+        ] },
+        {"p":"**{{faz}}: the same, in speech.** In conversation {{faz}} often takes the place of {{há}}: {{Moro aqui faz dois anos}}, or {{Faz dois anos que moro aqui}}. And {{Faz tempo!}} “It's been a while!”."},
+        {"p":"**{{há}} or {{a}}?** {{Há}}, with an h (it's the verb {{haver}}), is for time that has passed: {{há dois dias}}. Plain {{a}} is for the future and for distance: {{daqui a dois dias}} “in two days”, {{a dez minutos daqui}} “ten minutes from here”."},
+        {"p":"**{{desde}}** “since” takes a starting point: {{desde ontem}}, {{desde janeiro}}, {{desde criança}} “since I was a kid”."},
+        { "ex": [
+          {"t":"Estudo português há seis meses.","tr":"I've been studying Portuguese for six months."},
+          {"t":"Faz uma hora que estou esperando!","tr":"I've been waiting for an hour!"},
+          {"t":"A gente se conhece há muito tempo.","tr":"We've known each other for a long time."},
+          {"t":"Ela saiu há cinco minutos.","tr":"She left five minutes ago."},
+          {"t":"Trabalho aqui desde 2020.","tr":"I've worked here since 2020."},
+          {"t":"Nossa, faz tempo que a gente não se vê!","tr":"Wow, it's been ages since we saw each other!"}
+        ] },
+        {"tip":"{{Há quanto tempo!}} “Long time no see!” is the classic greeting for an old friend you haven't seen in a while."}
+      ],
+      "mistakes": [
+        {"wrong":"Moro aqui por dois anos.","right":"Moro aqui há dois anos.","tr":"I've lived here for two years.","why":"For something still going on, Portuguese uses {{há}} (or {{faz}}) with the present, not {{por}}."},
+        {"wrong":"Vou viajar há dois dias.","right":"Vou viajar daqui a dois dias.","tr":"I'm traveling in two days.","why":"{{Há}} is for time that has passed. For the future: {{daqui a}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Moro em Curitiba ___ três anos.","tr":"I've lived in Curitiba for three years.","options":["há","por","desde"],"answer":0,"why":"Still true: {{há}} + time, with the present."},
+        {"type":"choice","q":"{{Ela chegou há uma semana}} means…","options":["She arrived a week ago.","She has been arriving for a week.","She arrives in a week."],"answer":0,"why":"{{Há}} with the past: “ago”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Trabalho aqui ___ janeiro.","tr":"I've worked here since January.","options":["desde","há","faz"],"answer":0,"why":"A starting point: {{desde}}."},
+        {"type":"dialogue","q":"A neighbor asks about you. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Neighbor","t":"Você mora aqui há muito tempo?","tr":"Have you lived here long?"},{"options":["Não, só há seis meses. Cheguei em abril.","Não, só por seis meses. Cheguei em abril."],"answer":0,"why":"Still living here: {{há}} + time."},{"who":"Neighbor","t":"E já conhece a cidade?","tr":"And do you know the city yet?"},{"options":["Conheço um pouco. Fui ao centro há dois dias.","Conheço um pouco. Vou ao centro há dois dias."],"answer":0,"why":"{{Há}} “ago” goes with the past: {{fui}}."},{"who":"Neighbor","t":"Tem muita coisa pra ver!","tr":"There's a lot to see!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I've been waiting for an hour!","words":["Faz","uma hora","que","estou","esperando!"],"from":"say-what-is-happening-now"},
+        {"type":"say","q":"Greet an old friend: “Long time no see!”","answer":"Há quanto tempo!"},
+        {"type":"free","q":"Your turn: how long have you lived where you live, and how long have you studied Portuguese? When did you start?","answers":[{"t":"Moro em Toronto há dez anos. Estudo português há três meses: comecei em agosto.","tr":"I've lived in Toronto for ten years. I've been studying Portuguese for three months: I started in August."},{"t":"Faz cinco anos que moro aqui. Comecei a estudar português há um ano.","tr":"I've lived here for five years. I started studying Portuguese a year ago."}]}
+      ]
     }
   ]
 }
