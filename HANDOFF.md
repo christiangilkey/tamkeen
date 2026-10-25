@@ -5456,3 +5456,16 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
 - **Next**: `check_audio.py ar` on all 1000 → listen to the flagged ones → other languages → publish with a release
   (ask first). Meanings/translations are English only.
 
+- **2026-10-24 evening (basics-course session)**: Arabic diacritics read word by word: 9 fixes (5c0bd0c; عَضِضْتُ,
+  دُبَيَّ/تِكْسَاسَ without tanween, وَسَط, كُلَّمَا + past, لِيَ before ال, headword بَاقٍ), audio remade (7676355). Shared
+  tools: `tools/course/LANGUAGES.md` (per-language brief, variety per voice), check_audio.py for zh/ja/th (letters) and
+  Thai/Bisaya models (Typhoon from `%TEMP%\tasr\models\typhoon-turbo-app`, BuzzASR), `--out`; optional `say` per
+  word (75f3093: text or Azure `<phoneme>` sapi/ipa) for words misread when said alone (pt o/e, ja は, ko 은/는).
+  **16 language sessions** on branches `basics-<lang>` in worktrees `tamkeen-basics-<lang>` (all from basics-course;
+  the app couldn't give them worktrees, they made them per LANGUAGES.md). 20-word samples checked: all 15 Azure
+  voices fine (sentences 0.88-1.00; low ones are Whisper's spelling). Bisaya: MMS unclear (0.62, words 3/20);
+  Azure fil-PH Blessica reading the Bisaya text 0.81, words 18/20, and commercially usable: owner to choose.
+  **Azure characters voiced this month** ~60,000 (ar ~37k incl. remakes, es half, samples); still to voice
+  ~410,000 (+~29,000 if Bisaya uses Azure); free tier ~500,000/month, so the allowance may run out near the end.
+  Owner wants to be told at once if Azure refuses, with step-by-step for upgrading (Speech resource → Pricing
+  tier → Standard S0; key and region stay the same). Sample results: side-session notes `basics-samples.md`.
