@@ -1414,6 +1414,370 @@
         {"type":"say","q":"Tell the doctor “My stomach hurts.”","answer":"Me duele el estómago."},
         {"type":"free","q":"Your turn: you're at the doctor's. Say what hurts and since when (with {{desde}}: {{desde ayer}}, {{desde el lunes}}).","answers":[{"t":"Me duele la espalda desde el lunes.","tr":"My back has been hurting since Monday."},{"t":"Me duelen la cabeza y la garganta desde ayer.","tr":"My head and my throat have been hurting since yesterday."}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you did yesterday",
+      "summary": "Tell someone what you did yesterday, last night or last week: “Yesterday I worked late and had dinner at home.”",
+      "topic": "the preterite of regular verbs ({{hablé, comí, viví}}); {{ayer, anoche, el … pasado}}; {{¿Ya…?}}",
+      "blocks": [
+        {"goal":{"t":"Ayer trabajé hasta tarde y cené en casa.","tr":"Yesterday I worked late and had dinner at home."}},
+        {"dialog":[{"who":"Toño","t":"¿Cómo te fue el fin de semana?","tr":"How was your weekend?"},{"who":"You","t":"Muy bien. El sábado limpié la casa y en la noche cenamos con unos amigos.","tr":"Really good. On Saturday I cleaned the house, and in the evening we had dinner with some friends."},{"who":"Toño","t":"¿Y el domingo?","tr":"And on Sunday?"},{"who":"You","t":"Descansé todo el día. ¿Y tú?","tr":"I rested all day. And you?"},{"who":"Toño","t":"Yo trabajé el sábado, pero el domingo comí con mi familia.","tr":"I worked on Saturday, but on Sunday I had lunch with my family."}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: present, past, future."},
+        {"p":"**The past of finished events.** Spanish has two main past tenses. This one, the preterite, tells what happened: actions that started and finished, often one after another: “I worked”, “we had dinner”, “she called”."},
+        {"term":"preterite","means":"the Spanish past tense for finished events: {{trabajé}} “I worked”, {{comí}} “I ate”."},
+        { "table": [
+          ["","{{trabajar}}","{{comer}}","{{vivir}}"],
+          ["I","{{trabajé}}","{{comí}}","{{viví}}"],
+          ["you (friendly)","{{trabajaste}}","{{comiste}}","{{viviste}}"],
+          ["he, she, you (polite)","{{trabajó}}","{{comió}}","{{vivió}}"],
+          ["we","{{trabajamos}}","{{comimos}}","{{vivimos}}"],
+          ["you (all), they","{{trabajaron}}","{{comieron}}","{{vivieron}}"]
+        ] },
+        {"p":"**The accent marks matter.** {{trabajo}} is “I work”; {{trabajó}}, stressed on the end, is “he worked”. Say the last syllable loud: {{hablé}} (ha-BLÉ), {{habló}} (ha-BLÓ). -er and -ir verbs share one set of endings."},
+        {"p":"**“We” looks like the present** for -ar and -ir verbs: {{trabajamos}}, {{vivimos}}. A word like {{ayer}} makes it clear: {{Ayer trabajamos mucho.}}"},
+        {"p":"**Spelling, in “I” only.** To keep their sound, three endings change their spelling: -car → -qué ({{buscar}} → {{busqué}}), -gar → -gué ({{llegar}} → {{llegué}}, {{pagar}} → {{pagué}}), -zar → -cé ({{empezar}} → {{empecé}}). Stem-changing -ar and -er verbs don't change in the preterite: {{pensé}}, {{volví}}."},
+        {"p":"**When.** {{ayer}} (yesterday), {{anoche}} (last night), {{anteayer}} (the day before yesterday), {{el lunes}} (on Monday), {{la semana pasada}} (last week), {{el año pasado}} (last year), {{hace dos días}} (two days ago)."},
+        { "ex": [
+          {"t":"Anoche cené con mis papás.","tr":"Last night I had dinner with my parents."},
+          {"t":"¿A qué hora llegaste?","tr":"What time did you get here?"},
+          {"t":"Mi hermana vivió en Canadá dos años.","tr":"My sister lived in Canada for two years."},
+          {"t":"Llegué tarde y no desayuné.","tr":"I got here late and didn't have breakfast."},
+          {"t":"¿Ya comiste?","tr":"Have you eaten yet?","note":"Mexicans use the preterite for things done today, too"},
+          {"t":"La semana pasada compramos un sofá.","tr":"Last week we bought a couch."},
+          {"t":"¿Les gustó la película?","tr":"Did you all like the movie?","note":"{{gustar}}: {{gustó}}, {{gustaron}}"}
+        ] },
+        {"tip":"{{¿Ya…?}} “already, yet” with the preterite is the everyday Mexican way to ask if something is done: {{¿Ya pagaste?}} “Have you paid?” {{Ya terminé.}} “I'm done.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ayer trabajo mucho.","right":"Ayer trabajé mucho.","tr":"I worked a lot yesterday.","why":"A finished action in the past: the preterite, {{trabajé}}."},
+        {"wrong":"Ella hablo con el jefe.","right":"Ella habló con el jefe.","tr":"She talked to the boss.","why":"Without the accent, {{hablo}} is “I speak”. “She spoke”: {{habló}}."},
+        {"wrong":"Yo llegé a las ocho.","right":"Yo llegué a las ocho.","tr":"I got there at eight.","why":"-gar verbs add a u in “I” to keep the hard g: {{llegué}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Anoche ___ con mi mamá por teléfono.","tr":"Last night I talked to my mom on the phone.","options":["hablé","hablo","habló"],"answer":0,"why":"“I”, finished: {{hablé}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿A qué hora ___ ustedes?","tr":"What time did you all get here?","options":["llegaron","llegamos","llegó"],"answer":0,"why":"{{ustedes}}: -aron, {{llegaron}}."},
+        {"type":"choice","q":"Which one means “He ate at a restaurant”?","options":["{{Comió en un restaurante.}}","{{Como en un restaurante.}}","{{Comí en un restaurante.}}"],"answer":0,"why":"“He”, in the past: {{comió}}. ({{como}} is “I eat”, {{comí}} “I ate”.)"},
+        {"type":"fill","q":"Choose the missing words.","t":"Ayer ___ a las nueve y pagué la renta.","tr":"Yesterday I got up at nine and paid the rent.","options":["me levanté","me levanto","se levantó"],"answer":0,"why":"“I”, finished: {{me levanté}}. The {{me}} stays.","from":"describe-your-routine"},
+        {"type":"dialogue","q":"Your friend asks about a party. Choose your replies.","lines":[{"who":"Friend","t":"¿Te gustó la fiesta?","tr":"Did you like the party?"},{"options":["Sí, me gustó mucho. Bailé toda la noche.","Sí, me gusta mucho. Bailo toda la noche."],"answer":0,"why":"In the past: {{gustó}}, {{bailé}}."},{"who":"Friend","t":"¿A qué hora regresaste?","tr":"What time did you get back?"},{"options":["Regresé a las tres de la mañana.","Regresó a las tres de la mañana."],"answer":0,"why":"“I”: {{regresé}}. ({{regresó}} is “he came back”.)"},{"who":"Friend","t":"¡Qué barbaridad!","tr":"Wow, that's late!"}],"from":"say-what-you-like"},
+        {"type":"order","q":"Put the words in order.","tr":"Last week we bought a couch.","words":["La semana pasada","compramos","un sofá."]},
+        {"type":"say","q":"Ask a friend, the Mexican way, “Have you eaten yet?”","answer":"¿Ya comiste?"},
+        {"type":"free","q":"Your turn: what did you do yesterday? Say three things, in order.","answers":[{"t":"Ayer trabajé, cociné y hablé con mi hermana.","tr":"Yesterday I worked, cooked and talked to my sister."},{"t":"Ayer me levanté temprano, caminé en el parque y en la noche cené con mi novio.","tr":"Yesterday I got up early, walked in the park, and in the evening had dinner with my boyfriend."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-went",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say where you went and what you did",
+      "summary": "Talk about trips and outings with the four irregular pasts you'll use most: “I went to the beach with my friends.”",
+      "topic": "the preterite of {{ir}} and {{ser}} ({{fui}}), {{hacer}} ({{hice}}), {{tener}} ({{tuve}}), {{estar}} ({{estuve}})",
+      "blocks": [
+        {"goal":{"t":"¿Qué hiciste el fin de semana? — Fui a la playa con mis amigos.","tr":"What did you do last weekend? — I went to the beach with my friends."}},
+        {"dialog":[{"who":"Lupita","t":"¿Qué hiciste en vacaciones?","tr":"What did you do on vacation?"},{"who":"You","t":"Fui a Oaxaca con mi familia.","tr":"I went to Oaxaca with my family."},{"who":"Lupita","t":"¡Qué padre! ¿Y cómo estuvo?","tr":"How cool! And how was it?"},{"who":"You","t":"Estuvo increíble. Hicimos muchas cosas y comimos muy bien.","tr":"It was amazing. We did lots of things and ate really well."},{"who":"Lupita","t":"¿Cuánto tiempo estuvieron allá?","tr":"How long were you there?"},{"who":"You","t":"Una semana. Pero tuvimos que regresar el domingo.","tr":"A week. But we had to come back on Sunday."}]},
+        {"p":"**Four irregular pasts for every day.** They have their own stems, and their endings take **no accent mark**:"},
+        { "table": [
+          ["","{{ir}} / {{ser}}","{{hacer}}","{{tener}}","{{estar}}"],
+          ["I","{{fui}}","{{hice}}","{{tuve}}","{{estuve}}"],
+          ["you (friendly)","{{fuiste}}","{{hiciste}}","{{tuviste}}","{{estuviste}}"],
+          ["he, she, you (polite)","{{fue}}","{{hizo}}","{{tuvo}}","{{estuvo}}"],
+          ["we","{{fuimos}}","{{hicimos}}","{{tuvimos}}","{{estuvimos}}"],
+          ["you (all), they","{{fueron}}","{{hicieron}}","{{tuvieron}}","{{estuvieron}}"]
+        ] },
+        {"p":"**{{ir}} and {{ser}} share one past.** {{fui}} is both “I went” and “I was”; the sentence tells you which: {{Fui al cine}} “I went to the movies”, {{Fue un día muy bonito}} “It was a lovely day”. With {{ir}} there's nearly always an {{a}}."},
+        {"p":"**{{hizo}}** is written with a z, to keep the sound of {{hice}}. And {{¿Qué hiciste?}} “What did you do?” is one of the most useful questions in Spanish."},
+        {"p":"**How was it?** Mexicans ask {{¿Cómo te fue?}} “How did it go (for you)?” and {{¿Cómo estuvo?}} “How was it?” about a trip, a party or a movie. Answers: {{¡Muy bien!}}, {{Estuvo padrísimo}} (it was great), {{Me fue mal}} (it went badly)."},
+        { "ex": [
+          {"t":"Fuimos al cine el sábado.","tr":"We went to the movies on Saturday."},
+          {"t":"¿Cómo te fue en el examen?","tr":"How did your exam go?"},
+          {"t":"Ayer hizo mucho calor.","tr":"It was really hot yesterday.","note":"the weather: {{hace}} → {{hizo}}"},
+          {"t":"Estuve en casa todo el día.","tr":"I was at home all day."},
+          {"t":"Tuve que trabajar el domingo.","tr":"I had to work on Sunday."},
+          {"t":"La fiesta fue en casa de Pepe.","tr":"The party was at Pepe's place."},
+          {"t":"Mis hijos ya hicieron la tarea.","tr":"My kids already did their homework."}
+        ] },
+        {"tip":"{{tener que}} in the past says what you had to do: {{Tuve que ir al doctor.}} “I had to go to the doctor.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Fuí al mercado.","right":"Fui al mercado.","tr":"I went to the market.","why":"These short pasts take no accent mark: {{fui}}, {{fue}}."},
+        {"wrong":"Ayer hací la comida.","right":"Ayer hice la comida.","tr":"Yesterday I made lunch.","why":"{{hacer}} has its own past: {{hice}}."},
+        {"wrong":"Él hico la tarea.","right":"Él hizo la tarea.","tr":"He did the homework.","why":"With a z: {{hizo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"El verano pasado ___ a Cancún.","tr":"Last summer I went to Cancún.","options":["fui","fue","voy"],"answer":0,"why":"“I went”: {{fui}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Qué ___ tú anoche?","tr":"What did you do last night?","options":["hiciste","hizo","haces"],"answer":0,"why":"“You”, in the past: {{hiciste}}."},
+        {"type":"choice","q":"“The concert was amazing.” Which one?","options":["{{El concierto fue increíble.}}","{{El concierto fui increíble.}}","{{El concierto es increíble.}}"],"answer":0,"why":"{{ser}} in the past, “it was”: {{fue}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ayer ___ mucho frío.","tr":"It was very cold yesterday.","options":["hizo","hace","fue"],"answer":0,"why":"The weather: {{hace}} → {{hizo}}.","from":"talk-about-the-weather"},
+        {"type":"dialogue","q":"Monday morning at work. Choose your replies.","lines":[{"who":"Coworker","t":"¿Cómo te fue el fin de semana?","tr":"How was your weekend?"},{"options":["Muy bien. Fui a Puebla con mi novia.","Muy bien. Fue a Puebla con mi novia."],"answer":0,"why":"“I went”: {{fui}}."},{"who":"Coworker","t":"¿Y qué hicieron?","tr":"And what did you do?"},{"options":["Visitamos el centro y comimos mole.","Visitamos el centro y comemos mole."],"answer":0,"why":"Finished, in the past: {{comimos}}."},{"who":"Coworker","t":"¡Qué rico!","tr":"Yum!"}],"from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"I had to work on Sunday.","words":["Tuve","que","trabajar","el domingo."]},
+        {"type":"say","q":"Ask a friend “How was the party?”","answer":"¿Cómo estuvo la fiesta?"},
+        {"type":"free","q":"Your turn: where did you go on your last vacation, and what did you do there?","answers":[{"t":"Fui a San Diego con mi familia. Fuimos a la playa todos los días.","tr":"I went to San Diego with my family. We went to the beach every day."},{"t":"Fui a la Ciudad de México. Hice muchas cosas: visité museos y comí muchos tacos.","tr":"I went to Mexico City. I did lots of things: I visited museums and ate lots of tacos."}]}
+      ]
+    },
+    {
+      "id": "tell-about-your-weekend",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell someone about your weekend",
+      "summary": "Tell what happened, with more of the everyday irregular pasts: “My cousins came, and we showed them around the city.”",
+      "topic": "more irregular preterites ({{pude, puse, quise, supe, vine, dije, traje}}; {{di, vi}}); {{leyó}}; {{pidió, durmió}}",
+      "blocks": [
+        {"goal":{"t":"Vinieron mis primos y les enseñamos la ciudad.","tr":"My cousins came, and we showed them around the city."}},
+        {"dialog":[{"who":"Rosa","t":"¿Fuiste a la boda de Marisol?","tr":"Did you go to Marisol's wedding?"},{"who":"You","t":"No, no pude. Mi hijo se enfermó.","tr":"No, I couldn't. My son got sick."},{"who":"Rosa","t":"¡Ay, qué mal! ¿Y cómo está?","tr":"Oh, that's too bad! How is he?"},{"who":"You","t":"Ya está mejor. Durmió mucho, y el domingo vino el doctor.","tr":"He's better now. He slept a lot, and on Sunday the doctor came."},{"who":"Rosa","t":"Qué bueno. Oye, ¿viste las fotos de la boda?","tr":"Good. Hey, did you see the wedding photos?"},{"who":"You","t":"Sí, Marisol me las mandó. ¡Me dijo que la fiesta estuvo increíble!","tr":"Yes, Marisol sent them to me. She told me the party was amazing!"}]},
+        {"p":"**The strong pasts.** A group of common verbs take a new stem in the preterite, and share one set of endings, again with **no accent marks**: -e, -iste, -o, -imos, -ieron."},
+        { "table": [
+          ["infinitive","new stem","I","he, she"],
+          ["{{poder}}","{{pud-}}","{{pude}}","{{pudo}}"],
+          ["{{poner}}","{{pus-}}","{{puse}}","{{puso}}"],
+          ["{{querer}}","{{quis-}}","{{quise}}","{{quiso}}"],
+          ["{{saber}}","{{sup-}}","{{supe}}","{{supo}}"],
+          ["{{venir}}","{{vin-}}","{{vine}}","{{vino}}"],
+          ["{{decir}}","{{dij-}}","{{dije}}","{{dijo}}"],
+          ["{{traer}}","{{traj-}}","{{traje}}","{{trajo}}"]
+        ] },
+        {"p":"After a j, “they” drops the i: {{dijeron}}, {{trajeron}}. The others keep it: {{pudieron}}, {{vinieron}}."},
+        {"p":"**{{dar}} and {{ver}}** take the -er/-ir endings, without accents: {{di}}, {{diste}}, {{dio}}, {{dimos}}, {{dieron}}; {{vi}}, {{viste}}, {{vio}}, {{vimos}}, {{vieron}}."},
+        {"p":"**A y in the middle.** When the stem ends in a vowel, “he, she” and “they” get a y: {{leer}} → {{leyó}}, {{leyeron}}; {{oír}} → {{oyó}}; {{creer}} → {{creyó}}; {{caerse}} (to fall) → {{se cayó}}."},
+        {"p":"**-ir stem-changers** change only in “he, she” and “they”, e → i and o → u: {{pedir}} → {{pidió}}, {{pidieron}}; {{dormir}} → {{durmió}}, {{durmieron}}; {{sentirse}} → {{se sintió}}; {{preferir}} → {{prefirió}}. “I” is regular: {{pedí}}, {{dormí}}."},
+        {"p":"**{{supe}} and {{no pude}}.** In the preterite, {{saber}} often means “found out”: {{Supe la noticia ayer}} “I heard the news yesterday”. And {{no pude}} means you tried and couldn't: {{No pude dormir.}}"},
+        { "ex": [
+          {"t":"No pude ir a la boda.","tr":"I couldn't go to the wedding."},
+          {"t":"¿Qué te dijo el doctor?","tr":"What did the doctor tell you?"},
+          {"t":"Mis papás vinieron a cenar.","tr":"My parents came over for dinner."},
+          {"t":"¿Dónde pusiste las llaves?","tr":"Where did you put the keys?"},
+          {"t":"Le di un regalo a mi mamá.","tr":"I gave my mom a present."},
+          {"t":"¿Viste el partido?","tr":"Did you watch the game?"},
+          {"t":"Mi esposo pidió unos tacos y yo pedí una sopa.","tr":"My husband ordered tacos and I ordered soup."},
+          {"t":"Anoche el bebé no durmió bien.","tr":"The baby didn't sleep well last night."}
+        ] },
+        {"tip":"{{traje}} is also a “suit”, and {{vino}} is also “wine”: {{Mi tío trajo vino}} “My uncle brought wine”. The sentence always makes it clear."}
+      ],
+      "mistakes": [
+        {"wrong":"No podí ir.","right":"No pude ir.","tr":"I couldn't go.","why":"{{poder}} has its own past stem: {{pude}}."},
+        {"wrong":"Ellos dijieron la verdad.","right":"Ellos dijeron la verdad.","tr":"They told the truth.","why":"After a j, “they” is -eron: {{dijeron}}, {{trajeron}}."},
+        {"wrong":"Ella pedió una sopa.","right":"Ella pidió una sopa.","tr":"She ordered soup.","why":"-ir stem-changers change e → i for “she”: {{pidió}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ayer no ___ ir al gimnasio.","tr":"Yesterday I couldn't go to the gym.","options":["pude","podí","puedo"],"answer":0,"why":"“I couldn't”: {{no pude}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Qué te ___ tu jefe ayer?","tr":"What did your boss tell you yesterday?","options":["dijo","dició","dice"],"answer":0,"why":"{{decir}} → {{dijo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mis amigos ___ a mi casa el sábado.","tr":"My friends came to my house on Saturday.","options":["vinieron","venieron","vinimos"],"answer":0,"why":"{{venir}} takes the stem {{vin-}}: {{vinieron}}."},
+        {"type":"choice","q":"Which one means “I saw your sister downtown”?","options":["{{Vi a tu hermana en el centro.}}","{{Ví tu hermana en el centro.}}","{{Veo a tu hermana en el centro.}}"],"answer":0,"why":"{{vi}} has no accent; and a person as the object takes the personal {{a}}.","from":"talk-about-people-you-know"},
+        {"type":"dialogue","q":"Your roommate is looking for something. Choose your replies.","lines":[{"who":"Roommate","t":"¿Dónde pusiste mi cargador?","tr":"Where did you put my charger?"},{"options":["Lo puse en la mesa.","Lo poní en la mesa."],"answer":0,"why":"{{poner}} → {{puse}}; and {{lo}} for {{el cargador}}."},{"who":"Roommate","t":"Ah, sí, aquí está. ¿Y viste mis lentes?","tr":"Oh, yes, here it is. And have you seen my glasses?"},{"options":["No, no los vi.","No, no las vi."],"answer":0,"why":"{{los lentes}}: {{los}}."},{"who":"Roommate","t":"¡Ay, siempre pierdo todo!","tr":"Ugh, I always lose everything!"}],"from":"say-it-and-them"},
+        {"type":"order","q":"Put the words in order.","tr":"My husband ordered some tacos.","words":["Mi esposo","pidió","unos","tacos."]},
+        {"type":"say","q":"Say “I didn't sleep well last night.”","answer":"Anoche no dormí bien."},
+        {"type":"free","q":"Your turn: tell a friend about your weekend. Use at least two of {{vine, vi, dije, pude, puse, di}} or their other forms.","answers":[{"t":"El sábado vi una película con mi novio y el domingo vinieron mis papás.","tr":"On Saturday I watched a movie with my boyfriend, and on Sunday my parents came over."},{"t":"No pude salir porque tuve mucho trabajo, pero el domingo vi a mis amigos.","tr":"I couldn't go out because I had a lot of work, but on Sunday I saw my friends."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-used-to-be",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what life used to be like",
+      "summary": "Talk about your childhood and how things used to be: “When I was a kid, I lived in a small town and played in the street all day.”",
+      "topic": "the imperfect ({{-aba}}, {{-ía}}); {{era}}, {{iba}}, {{veía}}; {{había}}; habits and descriptions in the past",
+      "blocks": [
+        {"goal":{"t":"Cuando era niño, vivía en un pueblo y jugaba en la calle todo el día.","tr":"When I was a kid, I lived in a small town and played in the street all day."}},
+        {"dialog":[{"who":"Grandson","t":"Abuela, ¿cómo era tu vida cuando eras joven?","tr":"Grandma, what was your life like when you were young?"},{"who":"Grandma","t":"Era muy diferente. Vivíamos en un rancho y no había luz.","tr":"It was very different. We lived on a ranch and there was no electricity."},{"who":"Grandson","t":"¿Y qué hacían en la noche?","tr":"And what did you all do at night?"},{"who":"Grandma","t":"Mi papá nos contaba historias y mi mamá cantaba.","tr":"My dad used to tell us stories and my mom would sing."},{"who":"Grandson","t":"¿Ibas a la escuela?","tr":"Did you go to school?"},{"who":"Grandma","t":"Sí, caminaba una hora todos los días.","tr":"Yes, I walked an hour every day."}]},
+        {"p":"**A second past.** The preterite tells what happened. This one describes how things **were**, and what used to happen again and again: “we lived on a ranch”, “my dad used to tell stories”, “there was no electricity”. It paints the background."},
+        {"term":"imperfect","means":"the Spanish past tense for how things were and what used to happen: {{vivía}} “I lived, I used to live”."},
+        { "table": [
+          ["","{{trabajar}}","{{comer}}","{{vivir}}"],
+          ["I","{{trabajaba}}","{{comía}}","{{vivía}}"],
+          ["you (friendly)","{{trabajabas}}","{{comías}}","{{vivías}}"],
+          ["he, she, you (polite)","{{trabajaba}}","{{comía}}","{{vivía}}"],
+          ["we","{{trabajábamos}}","{{comíamos}}","{{vivíamos}}"],
+          ["you (all), they","{{trabajaban}}","{{comían}}","{{vivían}}"]
+        ] },
+        {"p":"Good news: it's the most regular tense in Spanish. No stem changes ({{quería}}, {{podía}}, {{dormía}}), and “I” and “he, she” are the same, so name the person when it isn't clear. Mind the accent marks: {{trabajábamos}}, and every -ía."},
+        {"p":"**Only three irregular verbs:**"},
+        { "table": [
+          ["","{{ser}}","{{ir}}","{{ver}}"],
+          ["I, he, she, you (polite)","{{era}}","{{iba}}","{{veía}}"],
+          ["you (friendly)","{{eras}}","{{ibas}}","{{veías}}"],
+          ["we","{{éramos}}","{{íbamos}}","{{veíamos}}"],
+          ["you (all), they","{{eran}}","{{iban}}","{{veían}}"]
+        ] },
+        {"p":"“There was, there were”, in a description, is {{había}} (the past of {{hay}}), and like {{hay}} it never changes: {{Había muchos árboles.}}"},
+        {"p":"**What it's for:** habits, English “used to” or “would” ({{Los domingos íbamos al parque}}); descriptions of people, places and states ({{La casa era grande}}, {{Estaba cansado}}); age and the time ({{Tenía diez años}}, {{Eran las ocho}})."},
+        { "ex": [
+          {"t":"Cuando era niña, quería ser doctora.","tr":"When I was a little girl, I wanted to be a doctor."},
+          {"t":"Mis abuelos vivían en Zacatecas.","tr":"My grandparents lived in Zacatecas."},
+          {"t":"Antes trabajaba en un banco.","tr":"I used to work at a bank."},
+          {"t":"Los domingos íbamos a casa de mi tía.","tr":"On Sundays we would go to my aunt's house."},
+          {"t":"Mi primer carro era rojo.","tr":"My first car was red."},
+          {"t":"En mi escuela había una cancha de futbol.","tr":"There was a soccer field at my school."},
+          {"t":"Tenía veinte años cuando llegué a México.","tr":"I was twenty when I came to Mexico.","note":"the background ({{tenía}}) and the event ({{llegué}}): the next lesson"}
+        ] },
+        {"tip":"{{antes}} “before, back then” and {{de niño}}, {{de niña}} “as a child” go well with the imperfect: {{De niño, nunca comía verduras.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Cuando fui niño, vivía en Texas.","right":"Cuando era niño, vivía en Texas.","tr":"When I was a kid, I lived in Texas.","why":"Describing a time of your life: the imperfect, {{era}}."},
+        {"wrong":"Antes yo trabajo en un banco.","right":"Antes trabajaba en un banco.","tr":"I used to work at a bank.","why":"“Used to”: the imperfect, {{trabajaba}}."},
+        {"wrong":"Nosotros ibamos a la playa.","right":"Nosotros íbamos a la playa.","tr":"We used to go to the beach.","why":"“We” in the imperfect has an accent mark: {{íbamos}}, {{éramos}}, {{trabajábamos}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Cuando ___ niña, vivía con mis abuelos.","tr":"When I was a little girl, I lived with my grandparents.","options":["era","fui","soy"],"answer":0,"why":"Describing a time of life: {{era}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Antes mi papá ___ en una fábrica.","tr":"My dad used to work in a factory.","options":["trabajaba","trabajó","trabaja"],"answer":0,"why":"“Used to”: the imperfect, {{trabajaba}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Todos los veranos ___ a la playa con mis primos.","tr":"Every summer we would go to the beach with my cousins.","options":["íbamos","fuimos","vamos"],"answer":0,"why":"A habit in the past: {{íbamos}}."},
+        {"type":"choice","q":"“There were lots of trees in my neighborhood.” Which one?","options":["{{Había muchos árboles en mi colonia.}}","{{Habían muchos árboles en mi colonia.}}","{{Hay muchos árboles en mi colonia.}}"],"answer":0,"why":"Like {{hay}}, {{había}} doesn't change for more than one. (You'll hear {{habían}}, but it isn't standard.)","from":"find-places"},
+        {"type":"dialogue","q":"A friend asks about your childhood. Choose your replies.","lines":[{"who":"Friend","t":"¿Qué hacías de niño?","tr":"What did you do as a kid?"},{"options":["Jugaba futbol todos los días.","Juego futbol todos los días."],"answer":0,"why":"A habit in the past: the imperfect, {{jugaba}}."},{"who":"Friend","t":"¿Y tenías hermanos?","tr":"And did you have brothers and sisters?"},{"options":["Sí, tenía dos hermanas mayores.","Sí, era dos hermanas mayores."],"answer":0,"why":"Having: {{tener}}, here {{tenía}}; and older sisters: {{mayores}}."},{"who":"Friend","t":"¡Como yo!","tr":"Like me!"}],"from":"talk-about-your-family"},
+        {"type":"order","q":"Put the words in order.","tr":"When I was a kid, I wanted to be a pilot.","words":["Cuando","era niño,","quería","ser piloto."]},
+        {"type":"say","q":"Say “I used to live in Texas.”","answer":"Antes vivía en Texas."},
+        {"type":"free","q":"Your turn: what was your life like when you were ten? Where did you live, and what did you use to do?","answers":[{"t":"Cuando tenía diez años, vivía en Ohio. Iba a la escuela en bici y jugaba béisbol.","tr":"When I was ten, I lived in Ohio. I rode my bike to school and played baseball."},{"t":"De niña vivía en un pueblo pequeño. Los domingos íbamos a casa de mis abuelos.","tr":"As a girl I lived in a small town. On Sundays we would go to my grandparents' house."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell a story",
+      "summary": "Tell what happened, with the scene around it: “I was in the shower when the phone rang.”",
+      "topic": "preterite or imperfect: the events and the scene; {{estaba}} + -ando; {{cuando}}, {{mientras}}, {{de repente}}",
+      "blocks": [
+        {"goal":{"t":"Estaba en la regadera cuando sonó el teléfono.","tr":"I was in the shower when the phone rang."}},
+        {"dialog":[{"who":"Pati","t":"¿Qué te pasó? ¿Por qué llegaste tarde?","tr":"What happened to you? Why were you late?"},{"who":"You","t":"Ay, iba en el camión y de repente se descompuso.","tr":"Ugh, I was on the bus and suddenly it broke down."},{"who":"Pati","t":"¡No! ¿Y qué hiciste?","tr":"No! And what did you do?"},{"who":"You","t":"Estaba lloviendo, entonces tomé un taxi. Pero había mucho tráfico.","tr":"It was raining, so I took a taxi. But there was a lot of traffic."},{"who":"Pati","t":"¡Qué mala suerte!","tr":"What bad luck!"}]},
+        {"p":"**Two pasts in one story.** A story needs both. The **imperfect** sets the scene: what was going on, how things were, the time, the weather, how people felt. The **preterite** moves the story on: what happened, and then what happened next."},
+        { "table": [
+          ["imperfect: the scene","preterite: the events"],
+          ["{{Eran las once.}} It was eleven.","{{Sonó el teléfono.}} The phone rang."],
+          ["{{Llovía mucho.}} It was raining hard.","{{Tomé un taxi.}} I took a taxi."],
+          ["{{Estaba muy cansada.}} I was very tired.","{{Me dormí en el sofá.}} I fell asleep on the couch."],
+          ["{{Íbamos a la playa.}} We were on our way to the beach.","{{Vimos un accidente.}} We saw an accident."]
+        ] },
+        {"p":"**Interrupted.** For something in progress that another event interrupts: {{estaba}} + -ando (or the plain imperfect), then {{cuando}} and the preterite: {{Estaba cocinando cuando llegaron mis suegros.}} “I was cooking when my in-laws arrived.” Two things going on at the same time: imperfect + {{mientras}} + imperfect: {{Mientras yo cocinaba, los niños jugaban.}}"},
+        {"p":"**A quick test.** Could you say “at that moment, it was going on”? Imperfect. Could you say “and then”? Preterite. Words like {{de repente}} (suddenly), {{entonces}} (so, then), {{luego}} and {{después}} (then, afterwards) and {{al final}} (in the end) usually bring the preterite."},
+        { "ex": [
+          {"t":"Cuando llegué a la fiesta, todos estaban bailando.","tr":"When I got to the party, everyone was dancing."},
+          {"t":"Hacía mucho frío, entonces nos quedamos en casa.","tr":"It was very cold, so we stayed home."},
+          {"t":"Estábamos en el parque cuando empezó a llover.","tr":"We were at the park when it started to rain."},
+          {"t":"Mientras yo trabajaba, mi esposa cuidaba a los niños.","tr":"While I was working, my wife looked after the kids."},
+          {"t":"No fui a clase porque estaba enfermo.","tr":"I didn't go to class because I was sick."},
+          {"t":"Mi hijo se cayó cuando estaba jugando.","tr":"My son fell while he was playing."}
+        ] },
+        {"tip":"Two phrases that keep a story going: {{¿Qué pasó?}} “What happened?” and {{¿Y luego?}} “And then what?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Estuve en la regadera cuando sonaba el teléfono.","right":"Estaba en la regadera cuando sonó el teléfono.","tr":"I was in the shower when the phone rang.","why":"The scene (where you were): imperfect. The event that interrupts it: preterite."},
+        {"wrong":"Cuando era niño, un día me rompía el brazo.","right":"Cuando era niño, un día me rompí el brazo.","tr":"When I was a kid, I broke my arm one day.","why":"{{un día}} marks a single event: the preterite."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eran las diez cuando ___ mi hermano.","tr":"It was ten when my brother arrived.","options":["llegó","llegaba","llega"],"answer":0,"why":"The event: the preterite, {{llegó}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Cuando salí de casa, ___ mucho.","tr":"When I left home, it was raining hard.","options":["llovía","llovió","llueve"],"answer":0,"why":"The scene: the imperfect, {{llovía}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ cocinando cuando se fue la luz.","tr":"I was cooking when the power went out.","options":["Estaba","Estuve","Estoy"],"answer":0,"why":"Something in progress, interrupted: {{estaba}} + -ando.","from":"say-what-is-happening-now"},
+        {"type":"choice","q":"Which sentence describes two things going on at the same time?","options":["{{Mientras yo lavaba los platos, él veía la tele.}}","{{Mientras yo lavé los platos, él vio la tele.}}"],"answer":0,"why":"Two things going on together: imperfect + {{mientras}} + imperfect."},
+        {"type":"dialogue","q":"Tell your friend why you missed the movie. Choose your replies.","lines":[{"who":"Friend","t":"¿Por qué no fuiste al cine?","tr":"Why didn't you go to the movies?"},{"options":["Porque estaba muy cansada y me dormí.","Porque estuve muy cansada y me dormía."],"answer":0,"why":"How you were: {{estaba}}; what happened: {{me dormí}}."},{"who":"Friend","t":"¿A qué hora te dormiste?","tr":"What time did you fall asleep?"},{"options":["Eran las siete, ¡imagínate!","Fueron las siete, ¡imagínate!"],"answer":0,"why":"The time, as part of the scene: {{eran}}."},{"who":"Friend","t":"¡Qué barbaridad!","tr":"Wow!"}],"from":"say-where-you-went"},
+        {"type":"order","q":"Put the words in order.","tr":"We were at the park when it started to rain.","words":["Estábamos","en el parque","cuando","empezó","a llover."]},
+        {"type":"say","q":"Say “I didn't go to work because I was sick.”","answer":"No fui a trabajar porque estaba enfermo."},
+        {"type":"free","q":"Your turn: tell a short story about a surprise. Set the scene (where you were, what was going on), then say what happened.","answers":[{"t":"Estaba en el súper y de repente vi a mi maestra de la prepa.","tr":"I was at the supermarket and suddenly I saw my high school teacher."},{"t":"Era domingo y llovía mucho. Estábamos en casa cuando llegaron unos amigos con pizza.","tr":"It was Sunday and it was raining hard. We were at home when some friends showed up with pizza."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how long ago and how long",
+      "summary": "Say when something happened and how long it's been going on: “I came three years ago.” “I've lived here for three years.”",
+      "topic": "{{hace}} + time (ago); for and since: {{hace … que}} + present, {{desde}}, {{llevar}}",
+      "blocks": [
+        {"goal":{"t":"Vivo en México desde hace tres años.","tr":"I've been living in Mexico for three years."}},
+        {"dialog":[{"who":"Jorge","t":"¿Cuánto tiempo hace que vives aquí?","tr":"How long have you lived here?"},{"who":"You","t":"Dos años. Llegué hace dos años, en enero.","tr":"Two years. I came two years ago, in January."},{"who":"Jorge","t":"¿Y estudias español desde entonces?","tr":"And have you been studying Spanish since then?"},{"who":"You","t":"Sí, llevo dos años estudiando. ¿Y tú? ¿Desde cuándo trabajas aquí?","tr":"Yes, I've been studying for two years. And you? Since when have you worked here?"},{"who":"Jorge","t":"Desde 2019. ¡Hace mucho!","tr":"Since 2019. A long time!"}]},
+        {"p":"**Ago: {{hace}} + time**, with the preterite: {{Llegué hace tres años.}} “I came three years ago.” {{¿Cuándo la conociste? — Hace un mes.}} Here {{hace}} has nothing to do with doing or the weather: it means “ago”, and it comes before the time."},
+        {"p":"**For and since, with the present.** For something that started in the past and **is still going on**, English says “I've lived here for three years”. Spanish uses the **present**, because it's still true:"},
+        { "table": [
+          ["Spanish","English"],
+          ["{{Hace tres años que vivo aquí.}}","I've lived here for three years."],
+          ["{{Vivo aquí desde hace tres años.}}","I've lived here for three years."],
+          ["{{Vivo aquí desde 2022.}}","I've lived here since 2022."],
+          ["{{Llevo tres años aquí.}}","I've been here for three years."],
+          ["{{Llevo tres años estudiando español.}}","I've been studying Spanish for three years."]
+        ] },
+        {"p":"**{{llevar}}** + an amount of time (+ a gerund) is very common: {{Llevo una hora esperando.}} “I've been waiting for an hour.” It's a regular -ar verb: {{llevas}}, {{lleva}}, {{llevamos}}, {{llevan}}."},
+        {"p":"**Asking.** {{¿Cuánto tiempo hace que…?}} or {{¿Cuánto tiempo llevas…?}} “How long have you…?”, and {{¿Desde cuándo…?}} “Since when…?”: {{¿Desde cuándo te duele?}} “How long has it been hurting?”"},
+        { "ex": [
+          {"t":"Me casé hace diez años.","tr":"I got married ten years ago."},
+          {"t":"Hace mucho que no te veo.","tr":"I haven't seen you in ages.","note":"with {{no}}: how long since it last happened"},
+          {"t":"Trabajo aquí desde enero.","tr":"I've worked here since January."},
+          {"t":"¿Cuánto tiempo llevan juntos?","tr":"How long have you two been together?"},
+          {"t":"Llevo media hora esperando el camión.","tr":"I've been waiting for the bus for half an hour."},
+          {"t":"Mi hija nació hace un mes.","tr":"My daughter was born a month ago."},
+          {"t":"¿Desde cuándo tienes fiebre? — Desde anoche.","tr":"How long have you had a fever? — Since last night."}
+        ] },
+        {"tip":"{{¡Cuánto tiempo!}} or {{¡Hace mucho que no te veo!}} is what you say to someone you haven't seen in a long time."}
+      ],
+      "mistakes": [
+        {"wrong":"Vivo aquí por tres años.","right":"Vivo aquí desde hace tres años.","tr":"I've lived here for three years.","why":"For something still going on, Spanish says {{desde hace}} (or {{hace … que}}, or {{llevo}}), not {{por}}."},
+        {"wrong":"Llegué tres años hace.","right":"Llegué hace tres años.","tr":"I came three years ago.","why":"{{hace}} goes before the time."},
+        {"wrong":"Estoy esperando desde una hora.","right":"Llevo una hora esperando.","tr":"I've been waiting for an hour.","why":"{{desde}} needs a starting point ({{desde las tres}}). For an amount of time: {{llevo}}, or {{desde hace una hora}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Me mudé a Chicago ___ cinco años.","tr":"I moved to Chicago five years ago.","options":["hace","desde","por"],"answer":0,"why":"“Ago”: {{hace}} + time."},
+        {"type":"fill","q":"Choose the missing word.","t":"Trabajo en esta empresa ___ 2020.","tr":"I've worked at this company since 2020.","options":["desde","hace","por"],"answer":0,"why":"Since a starting point: {{desde}}."},
+        {"type":"choice","q":"“I've been studying Spanish for a year.” Which one?","options":["{{Llevo un año estudiando español.}}","{{He estudiando español por un año.}}","{{Estudio español desde un año.}}"],"answer":0,"why":"{{llevar}} + time + gerund. ({{Estudio español desde hace un año}} is right too.)"},
+        {"type":"dialogue","q":"At the doctor's. Choose your replies.","lines":[{"who":"Doctor","t":"¿Desde cuándo le duele la rodilla?","tr":"How long has your knee been hurting?"},{"options":["Me duele desde el sábado.","Me duele hace el sábado."],"answer":0,"why":"Since a day: {{desde}}."},{"who":"Doctor","t":"¿Qué pasó?","tr":"What happened?"},{"options":["Me caí hace tres días, cuando corría en el parque.","Me caía hace tres días, cuando corrí en el parque."],"answer":0,"why":"The event: {{me caí}}; the scene: {{corría}}. And “ago”: {{hace}}."},{"who":"Doctor","t":"A ver, vamos a revisarla.","tr":"Let's see, we're going to take a look at it."}],"from":"say-what-hurts"},
+        {"type":"order","q":"Put the words in order.","tr":"I got married ten years ago.","words":["Me casé","hace","diez años."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Hace dos horas que ___ en la fila.","tr":"I've been in line for two hours.","options":["estoy","estuve","estaba"],"answer":0,"why":"{{hace … que}} + the present: it's still going on."},
+        {"type":"say","q":"Ask a friend “How long have you lived here?”","answer":"¿Cuánto tiempo hace que vives aquí?"},
+        {"type":"free","q":"Your turn: when did you start learning Spanish, and how long have you been at it? Use {{hace}}, and {{llevo}} or {{desde}}.","answers":[{"t":"Empecé a estudiar español hace un año. Llevo un año estudiando.","tr":"I started learning Spanish a year ago. I've been studying for a year."},{"t":"Estudio español desde enero. Mi primera clase fue hace diez meses.","tr":"I've been studying Spanish since January. My first class was ten months ago."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Talk about your experiences",
+      "summary": "Ask what someone has done, and say what you have and haven't done: “Have you ever tried chapulines? — No, I've never tried them.”",
+      "topic": "the present perfect ({{he ido}}, {{has visto}}); past participles; {{alguna vez}}, {{nunca}}, {{todavía no}}",
+      "blocks": [
+        {"goal":{"t":"¿Alguna vez has probado los chapulines? — No, nunca los he probado.","tr":"Have you ever tried chapulines (grasshoppers)? — No, I've never tried them."}},
+        {"dialog":[{"who":"Valeria","t":"¿Has ido a Oaxaca?","tr":"Have you been to Oaxaca?"},{"who":"Jim","t":"No, nunca he ido. ¿Tú sí?","tr":"No, I've never been. Have you?"},{"who":"Valeria","t":"Sí, he ido tres veces. La última vez fui en marzo.","tr":"Yes, I've been three times. The last time I went was in March."},{"who":"Jim","t":"¿Y has probado el mezcal?","tr":"And have you tried mezcal?"},{"who":"Valeria","t":"¡Claro! Y tú lo tienes que probar.","tr":"Of course! And you have to try it."}]},
+        {"p":"**What you've done in your life.** For experiences, without saying when, Spanish uses the present perfect, like English “I have…”: {{haber}} + a past participle: {{He ido a Oaxaca.}} “I've been to Oaxaca.”"},
+        { "table": [
+          ["","{{haber}}","+ participle"],
+          ["I have","{{he}}","{{he comido}}"],
+          ["you have (friendly)","{{has}}","{{has visto}}"],
+          ["he, she has, you have (polite)","{{ha}}","{{ha trabajado}}"],
+          ["we have","{{hemos}}","{{hemos viajado}}"],
+          ["you (all), they have","{{han}}","{{han vivido}}"]
+        ] },
+        {"term":"past participle","means":"the form of a verb that goes after “have”: eaten, gone, seen. In Spanish it ends in -ado or -ido: {{hablado}}, {{comido}}."},
+        {"p":"**Making the participle.** -ar → **-ado** ({{hablar}} → {{hablado}}); -er and -ir → **-ido** ({{comer}} → {{comido}}, {{vivir}} → {{vivido}}). After {{haber}} it never changes. Some common ones are irregular:"},
+        { "table": [
+          ["infinitive","participle","infinitive","participle"],
+          ["{{hacer}}","{{hecho}}","{{ver}}","{{visto}}"],
+          ["{{decir}}","{{dicho}}","{{escribir}}","{{escrito}}"],
+          ["{{poner}}","{{puesto}}","{{volver}}","{{vuelto}}"],
+          ["{{abrir}}","{{abierto}}","{{romper}}","{{roto}}"]
+        ] },
+        {"p":"**Nothing in between.** {{haber}} and the participle stay together; {{no}} and pronouns go before {{haber}}: {{No lo he visto.}} “I haven't seen it.”"},
+        {"p":"**In Mexico**, the present perfect is mostly for **experiences** (with {{alguna vez}} “ever”, {{nunca}} “never”, {{tres veces}} “three times”) and for what has or hasn't happened **so far** ({{todavía no}} “not yet”, {{últimamente}} “lately”). For something finished, even today, Mexicans use the preterite: {{¿Ya comiste?}} (lesson 29). And as soon as you say when, it's the preterite: {{Fui en marzo.}}"},
+        { "ex": [
+          {"t":"Nunca he visto la nieve.","tr":"I've never seen snow."},
+          {"t":"¿Alguna vez has estado en Guadalajara?","tr":"Have you ever been to Guadalajara?"},
+          {"t":"Hemos viajado mucho este año.","tr":"We've traveled a lot this year."},
+          {"t":"Todavía no he terminado el libro.","tr":"I haven't finished the book yet."},
+          {"t":"Mi hijo nunca se ha subido a un avión.","tr":"My son has never been on a plane."},
+          {"t":"¿Qué has hecho últimamente?","tr":"What have you been up to lately?"},
+          {"t":"He escrito tres correos y nadie me ha contestado.","tr":"I've written three emails and nobody has answered."}
+        ] },
+        {"tip":"{{He ido}} and {{he estado}} both mean “I've been (to a place)”: {{¿Has estado en Cancún?}} Answer an experience question, then give the details in the preterite: {{Sí, fui hace dos años.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"He visto lo.","right":"Lo he visto.","tr":"I've seen it.","why":"Pronouns go before {{haber}}, never after it or after the participle."},
+        {"wrong":"Nunca he hacido eso.","right":"Nunca he hecho eso.","tr":"I've never done that.","why":"{{hacer}} has an irregular participle: {{hecho}}."},
+        {"wrong":"He ido a Cancún el año pasado.","right":"Fui a Cancún el año pasado.","tr":"I went to Cancún last year.","why":"Once you say when ({{el año pasado}}), use the preterite."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿Alguna vez ___ comido mole?","tr":"Have you ever had mole?","options":["has","he","ha"],"answer":0,"why":"“You” (friendly): {{has}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Nunca he ___ esa película.","tr":"I've never seen that movie.","options":["visto","veído","vido"],"answer":0,"why":"{{ver}} → {{visto}}, irregular."},
+        {"type":"choice","q":"Which one is right?","options":["{{Todavía no lo he leído.}}","{{Todavía no he lo leído.}}","{{Todavía no he leído lo.}}"],"answer":0,"why":"The pronoun goes before {{haber}}.","from":"say-it-and-them"},
+        {"type":"fill","q":"Choose the missing words.","t":"El año pasado ___ a Chiapas.","tr":"Last year I went to Chiapas.","options":["fui","he ido","iba"],"answer":0,"why":"A finished time ({{el año pasado}}): the preterite, {{fui}}.","from":"say-where-you-went"},
+        {"type":"dialogue","q":"Getting to know a new friend. Choose your replies.","lines":[{"who":"Friend","t":"¿Has vivido en otro país?","tr":"Have you ever lived in another country?"},{"options":["Sí, viví en España hace muchos años.","Sí, he vivido en España hace muchos años."],"answer":0,"why":"With {{hace muchos años}}, a when: the preterite, {{viví}}."},{"who":"Friend","t":"¿Y alguna vez has estado en Asia?","tr":"And have you ever been to Asia?"},{"options":["No, nunca he estado en Asia.","No, nunca estoy en Asia."],"answer":0,"why":"An experience in your life: {{nunca he estado}}."},{"who":"Friend","t":"Yo tampoco. ¡Algún día!","tr":"Me neither. Someday!"}],"from":"say-how-long"},
+        {"type":"order","q":"Put the words in order.","tr":"I haven't finished the book yet.","words":["Todavía","no","he terminado","el libro."]},
+        {"type":"say","q":"Ask “Have you ever been to Mexico City?”","answer":"¿Alguna vez has estado en la Ciudad de México?"},
+        {"type":"free","q":"Your turn: say two things you've done in your life and one you've never done. Use {{he}} + participle and {{nunca he}}.","answers":[{"t":"He viajado a Europa y he corrido un maratón, pero nunca he visto el mar Caribe.","tr":"I've traveled to Europe and run a marathon, but I've never seen the Caribbean."},{"t":"He vivido en tres ciudades. Nunca he comido chapulines.","tr":"I've lived in three cities. I've never eaten chapulines."}]}
+      ]
     }
   ]
 }
