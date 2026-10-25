@@ -1543,6 +1543,413 @@
         {"type":"say","q":"Como se diz “Aqui tinha um cinema”?","answer":"There used to be a movie theater here."},
         {"type":"free","q":"Sua vez: descreva a sua infância. Onde você morava? O que você fazia?","answers":[{"t":"When I was a kid, I used to live in a small town. I used to ride my bike every day.","tr":"Quando eu era criança, morava numa cidade pequena. Andava de bicicleta todo dia."},{"t":"I used to live with my grandparents. Their house was old, and it had a huge garden.","tr":"Eu morava com meus avós. A casa deles era antiga e tinha um quintal enorme."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Fale das suas experiências",
+      "summary": "Pergunte e conte o que você já fez na vida: “Have you ever been to New York?”",
+      "topic": "O present perfect ({{have}} + particípio): {{Have you ever…?}}, {{I've never…}}; o passado simples quando se diz quando",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, I've never been there.","tr":"Você já foi a Nova York? — Não, nunca fui."}},
+        {"dialog":[{"who":"Lauren","t":"Have you ever tried clam chowder?","tr":"Você já experimentou clam chowder?"},{"who":"Você","t":"No, I haven't. What is it?","tr":"Não. O que é isso?"},{"who":"Lauren","t":"It's a soup from Boston. Have you ever been to Boston?","tr":"É uma sopa de Boston. Você já foi a Boston?"},{"who":"Você","t":"Yes, I have! I went there last year.","tr":"Já! Fui no ano passado."},{"who":"Lauren","t":"And you didn't try the chowder? You have to!","tr":"E não experimentou a sopa? Você precisa!"}]},
+        {"term":"particípio","means":"uma forma do verbo usada depois de “ter” e para descrever um resultado: (tenho) comido, (está) fechado. Em inglês: {{eaten}}, {{closed}}."},
+        {"term":"present perfect","means":"um tempo do inglês ({{have}} + particípio) que liga o passado ao presente: {{I have eaten}}, {{She has been}}."},
+        {"p":"**“Você já…?” = {{Have you ever…?}}** Para experiências, o português usa o passado com “já”: “Você já foi a Nova York?”. O inglês usa um tempo próprio, o present perfect: {{have}} (ou {{has}}) + o particípio."},
+        { "table": [
+          ["","inglês","português"],
+          ["pergunta","{{Have you ever been to Rio?}}","Você já foi ao Rio?"],
+          ["sim","{{Yes, I have.}} / {{I've been there twice.}}","Já. / Já fui duas vezes."],
+          ["não","{{No, I haven't.}} / {{I've never been there.}}","Não. / Nunca fui."],
+          ["ela","{{She has never eaten sushi.}}","Ela nunca comeu sushi."]
+        ] },
+        {"p":"**O particípio.** Nos verbos regulares é igual ao passado: {{worked}}, {{tried}}, {{visited}}. Nos irregulares, muitas vezes é outra palavra:"},
+        { "table": [
+          ["verbo","passado","particípio"],
+          ["{{be}}","{{was}}, {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{take}}","{{took}}","{{taken}}"],
+          ["{{write}}","{{wrote}}","{{written}}"],
+          ["{{have}}","{{had}}","{{had}}"]
+        ] },
+        {"p":"Para “já fui a algum lugar”, os americanos dizem {{have been}}: {{I've been to Paris}} “Já fui a Paris”."},
+        {"p":"**Com data: o passado simples.** Se você diz **quando** aconteceu (ontem, em 2019, no ano passado), volta o passado simples: {{I went to Boston last year}}, nunca {{I've been to Boston last year}}. O present perfect é para a experiência, sem data."},
+        {"p":"**{{ever}} e {{never}}.** {{ever}} “alguma vez” vai nas perguntas; {{never}} “nunca” vai nas afirmativas, sem {{not}}: {{I've never seen snow}}."},
+        { "ex": [
+          {"t":"Have you ever been to Salvador?","tr":"Você já foi a Salvador?"},
+          {"t":"I've read this book twice.","tr":"Já li este livro duas vezes."},
+          {"t":"She's never seen snow.","tr":"Ela nunca viu neve.","note":"{{she's}} aqui é {{she has}}"},
+          {"t":"We've tried a lot of American food.","tr":"A gente já experimentou muita comida americana."},
+          {"t":"I've met him before.","tr":"Já conheço ele.","note":"palavra por palavra, “já o encontrei antes”"},
+          {"t":"I saw that movie last week.","tr":"Vi esse filme semana passada.","note":"com data: passado simples"}
+        ] },
+        {"tip":"{{She's}} pode ser {{she is}} ou {{she has}}: {{She's tired}} (is), {{She's been there}} (has). O que vem depois mostra qual é."}
+      ],
+      "mistakes": [
+        {"wrong":"I've been to Boston last year.","right":"I went to Boston last year.","tr":"Fui a Boston no ano passado.","why":"Com a data ({{last year}}): passado simples."},
+        {"wrong":"I've never not seen snow.","right":"I've never seen snow.","tr":"Nunca vi neve.","why":"{{never}} já é negativo."},
+        {"wrong":"Have you ever ate sushi?","right":"Have you ever eaten sushi?","tr":"Você já comeu sushi?","why":"Depois de {{have}}, o particípio: {{eaten}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Have you ever ___ to Rio?","tr":"Você já foi ao Rio?","options":["go","been","went"],"answer":1,"why":"“Já foi a” é {{have been to}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I've never ___ sushi.","tr":"Nunca comi sushi.","options":["ate","eat","eaten"],"answer":2,"why":"Depois de {{have}}: o particípio, {{eaten}}."},
+        {"type":"choice","q":"Como se diz “Fui a Boston no ano passado”?","options":["{{I went to Boston last year.}}","{{I've been to Boston last year.}}","{{I've went to Boston last year.}}"],"answer":0,"why":"Com data: passado simples.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Falando de viagens: escolha suas respostas.","from":"tell-about-your-weekend","lines":[{"who":"Lauren","t":"Have you ever been to Chicago?","tr":"Você já foi a Chicago?"},{"options":["Yes, I have. I've been there in 2022.","Yes, I have. I went there in 2022."],"answer":1,"why":"Com a data: passado simples, {{went}}."},{"who":"Lauren","t":"Have you ever tried deep-dish pizza?","tr":"Já experimentou a pizza de lá, a deep-dish?"},{"options":["No, I've never tried it.","No, I never have tried."],"answer":0,"why":"{{I've never}} + particípio, e o objeto {{it}}."},{"who":"Lauren","t":"You have to!","tr":"Você precisa!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Já li este livro duas vezes.","words":["I've","read","this","book","twice."]},
+        {"type":"say","q":"Pergunte: “Você já viu neve?”","answer":"Have you ever seen snow?"},
+        {"type":"free","q":"Sua vez: diga duas coisas que você já fez na vida e uma que nunca fez.","answers":[{"t":"I've lived in Portugal and I've run a marathon, but I've never been to the United States.","tr":"Já morei em Portugal e já corri uma maratona, mas nunca fui aos Estados Unidos."},{"t":"I've eaten a lot of strange food. I've never flown in a helicopter!","tr":"Já comi muita comida estranha. Nunca andei de helicóptero!"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Diga há quanto tempo",
+      "summary": "Diga há quanto tempo você mora, trabalha ou estuda num lugar: “I've lived here for two years.”",
+      "topic": "{{for}} e {{since}} com o present perfect; {{How long have you…?}}; o {{há}} do passado é {{ago}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Toronto for two years.","tr":"Moro em Toronto há dois anos."}},
+        {"dialog":[{"who":"Vizinha","t":"How long have you lived here?","tr":"Há quanto tempo você mora aqui?"},{"who":"Você","t":"For six months. I moved here in April.","tr":"Há seis meses. Me mudei em abril."},{"who":"Vizinha","t":"And how long have you studied English?","tr":"E há quanto tempo você estuda inglês?"},{"who":"Você","t":"For about three years. I started in Brazil.","tr":"Há uns três anos. Comecei no Brasil."},{"who":"Vizinha","t":"Your English is really good!","tr":"Seu inglês é muito bom!"},{"who":"Você","t":"Thanks! But I still have a lot to learn.","tr":"Obrigado! Mas ainda tenho muito a aprender."}]},
+        {"p":"**O grande erro.** Em português: “Moro aqui há dois anos”, com o presente. Em inglês, para algo que começou no passado e continua até agora, é present perfect: {{I've lived here for two years}}. Dizer {{I live here for two years}} é o erro mais típico dos brasileiros!"},
+        { "table": [
+          ["português","inglês"],
+          ["Moro aqui há dois anos.","{{I've lived here for two years.}}"],
+          ["Trabalho aqui desde 2020.","{{I've worked here since 2020.}}"],
+          ["Há quanto tempo você mora aqui?","{{How long have you lived here?}}"],
+          ["Conheço ela há anos.","{{I've known her for years.}}"]
+        ] },
+        {"p":"**{{for}} ou {{since}}?** {{for}} + um período (quanto tempo): {{for two years}}, {{for a week}}, {{for a long time}}. {{since}} + o ponto de partida (desde quando): {{since 2020}}, {{since Monday}}, {{since I was a kid}}."},
+        {"p":"**O “há” do passado é {{ago}}.** O nosso “há” tem dois trabalhos; o inglês tem duas palavras. Para o que continua: {{for}}. Para o que terminou: {{ago}} + passado simples: {{I moved here two years ago}} “Me mudei para cá há dois anos”."},
+        { "table": [
+          ["","inglês","português"],
+          ["continua","{{I've lived here for two years.}}","Moro aqui há dois anos."],
+          ["terminou","{{I moved here two years ago.}}","Me mudei há dois anos."]
+        ] },
+        {"p":"**Para uma ação em andamento**, também se usa {{have been}} + {{-ing}}: {{I've been waiting for an hour!}} “Estou esperando há uma hora!”."},
+        { "ex": [
+          {"t":"I've studied English for six months.","tr":"Estudo inglês há seis meses."},
+          {"t":"We've known each other for a long time.","tr":"A gente se conhece há muito tempo."},
+          {"t":"She's worked here since 2018.","tr":"Ela trabalha aqui desde 2018."},
+          {"t":"How long have you been married?","tr":"Há quanto tempo você é casado?"},
+          {"t":"I've been waiting for an hour!","tr":"Estou esperando há uma hora!"},
+          {"t":"He left five minutes ago.","tr":"Ele saiu há cinco minutos.","note":"terminou: {{ago}} e o passado simples"}
+        ] },
+        {"tip":"{{Long time no see!}} “Quanto tempo!” é o jeito informal de cumprimentar um amigo que você não vê faz tempo."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here for two years.","right":"I've lived here for two years.","tr":"Moro aqui há dois anos.","why":"Começou no passado e continua: present perfect + {{for}}."},
+        {"wrong":"I've worked here for 2020.","right":"I've worked here since 2020.","tr":"Trabalho aqui desde 2020.","why":"O ponto de partida: {{since}}."},
+        {"wrong":"How long do you live here?","right":"How long have you lived here?","tr":"Há quanto tempo você mora aqui?","why":"{{How long}} + present perfect."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I've lived here ___ three years.","tr":"Moro aqui há três anos.","options":["for","since","ago"],"answer":0,"why":"Um período: {{for}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"She's worked here ___ January.","tr":"Ela trabalha aqui desde janeiro.","options":["ago","since","for"],"answer":1,"why":"O ponto de partida: {{since}}."},
+        {"type":"choice","q":"Como se diz “Estudo inglês há um ano”?","options":["{{I studied English since a year.}}","{{I've studied English for a year.}}","{{I study English for a year.}}"],"answer":1,"why":"Continua até agora: present perfect + {{for}}."},
+        {"type":"dialogue","q":"Uma vizinha nova puxa conversa. Escolha suas respostas.","from":"say-what-you-did","lines":[{"who":"Vizinha","t":"How long have you lived here?","tr":"Há quanto tempo você mora aqui?"},{"options":["Since six months. I moved here in April.","For six months. I moved here in April."],"answer":1,"why":"Um período: {{for}}."},{"who":"Vizinha","t":"Oh! And when did you arrive in the US?","tr":"Ah! E quando você chegou aos Estados Unidos?"},{"options":["I arrived a year ago.","I've arrived a year ago."],"answer":0,"why":"Terminou, com {{ago}}: passado simples."},{"who":"Vizinha","t":"Welcome!","tr":"Seja bem-vindo!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Há quanto tempo você mora aqui?","words":["How long","have","you","lived","here?"]},
+        {"type":"say","q":"Como se diz “Estou esperando há uma hora!”?","answer":"I've been waiting for an hour!","from":"say-what-youre-doing-now"},
+        {"type":"free","q":"Sua vez: há quanto tempo você mora onde mora, e há quanto tempo estuda inglês? Quando começou?","answers":[{"t":"I've lived in Curitiba for ten years. I've studied English for three years: I started in college.","tr":"Moro em Curitiba há dez anos. Estudo inglês há três anos: comecei na faculdade."},{"t":"I've lived here for five years, and I started English classes a year ago.","tr":"Moro aqui há cinco anos, e comecei as aulas de inglês há um ano."}]}
+      ]
+    },
+    {
+      "id": "say-what-youve-just-done",
+      "unit": 6,
+      "level": "A2",
+      "title": "Diga o que você acabou de fazer",
+      "summary": "Diga o que você acabou de fazer, o que já fez e o que ainda não fez: {{just}}, {{already}}, {{yet}}.",
+      "topic": "{{just}} (acabei de), {{already}} (já), {{yet}} (já? ainda não) com o present perfect",
+      "blocks": [
+        {"goal":{"t":"I've just arrived! Have you ordered yet?","tr":"Acabei de chegar! Você já pediu?"}},
+        {"dialog":[{"who":"Você","t":"Sorry I'm late! I've just left work.","tr":"Desculpa o atraso! Acabei de sair do trabalho."},{"who":"Megan","t":"No problem. I've already ordered drinks.","tr":"Sem problema. Já pedi as bebidas."},{"who":"Você","t":"Great. Have you looked at the menu yet?","tr":"Ótimo. Você já olhou o cardápio?"},{"who":"Megan","t":"Not yet. I was waiting for you!","tr":"Ainda não. Estava te esperando!"},{"who":"Você","t":"Oh, look, the waiter has just brought the drinks.","tr":"Ah, olha, o garçom acabou de trazer as bebidas."}]},
+        {"p":"**Acabei de: {{I've just}} + particípio.** Para algo que aconteceu agorinha, o inglês usa {{just}} com o present perfect: {{I've just arrived}} “Acabei de chegar”."},
+        { "table": [
+          ["","inglês","português"],
+          ["acabei de","{{I've just eaten.}}","Acabei de comer."],
+          ["já","{{I've already paid.}}","Já paguei."],
+          ["já? (pergunta)","{{Have you eaten yet?}}","Você já comeu?"],
+          ["ainda não","{{I haven't eaten yet.}} / {{Not yet.}}","Ainda não comi. / Ainda não."]
+        ] },
+        {"p":"**{{already}} e {{yet}}: dois “já”.** {{already}} vai nas afirmativas, antes do particípio: {{She's already left}} “Ela já saiu”. {{yet}} vai no fim das perguntas e das negativas: {{Has she left yet?}} “Ela já saiu?”, {{She hasn't left yet}} “Ela ainda não saiu”. E {{Not yet}} é a resposta curta: “Ainda não”."},
+        {"p":"**Na fala americana**, o passado simples também aparece com essas palavras: {{I just got home}}, {{Did you eat yet?}} Os dois jeitos estão certos; o present perfect soa um pouco mais cuidadoso."},
+        { "ex": [
+          {"t":"I've just finished my homework.","tr":"Acabei de terminar a lição de casa."},
+          {"t":"The movie has already started.","tr":"O filme já começou."},
+          {"t":"Have you called your mom yet?","tr":"Você já ligou para a sua mãe?"},
+          {"t":"I haven't decided yet.","tr":"Ainda não decidi."},
+          {"t":"Is he here? — No, he's just left.","tr":"Ele está aí? — Não, ele acabou de sair."},
+          {"t":"Did you eat? — Not yet.","tr":"Você comeu? — Ainda não."}
+        ] },
+        {"tip":"{{I just…}} também quer dizer “eu só…”: {{I just want to sleep}} “Eu só quero dormir”. O contexto mostra qual dos dois sentidos é."}
+      ],
+      "mistakes": [
+        {"wrong":"I've finished yet.","right":"I've already finished.","tr":"Já terminei.","why":"Na afirmativa, “já” é {{already}}; {{yet}} é para perguntas e negativas."},
+        {"wrong":"I've just arrive.","right":"I've just arrived.","tr":"Acabei de chegar.","why":"Depois de {{have}}, o particípio: {{arrived}}."},
+        {"wrong":"I finished just.","right":"I just finished.","tr":"Acabei de terminar.","why":"{{just}} vem antes do verbo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I've ___ arrived.","tr":"Acabei de chegar.","options":["yet","ever","just"],"answer":2,"why":"“Acabei de”: {{just}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Have you finished ___?","tr":"Você já terminou?","options":["already","just","yet"],"answer":2,"why":"Na pergunta, no fim: {{yet}}."},
+        {"type":"choice","q":"Alguém pergunta {{Have you had lunch yet?}} Você ainda não almoçou. Você responde…","options":["{{Already not.}}","{{Yet not.}}","{{Not yet.}}"],"answer":2,"why":"“Ainda não”: {{Not yet}}."},
+        {"type":"dialogue","q":"Chegando ao restaurante: escolha suas respostas.","from":"talk-about-experiences","lines":[{"who":"Megan","t":"Have you ordered yet?","tr":"Você já pediu?"},{"options":["Not yet. I've just arrived.","Not yet. I've just arrive."],"answer":0,"why":"{{have}} + particípio: {{arrived}}."},{"who":"Megan","t":"I've already ordered the drinks.","tr":"Já pedi as bebidas."},{"options":["Great! Have they brought them yet?","Great! Have they brought them already yet?"],"answer":0,"why":"Na pergunta, só {{yet}}, no fim."},{"who":"Megan","t":"Here they come!","tr":"Olha elas aí!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"O filme já começou.","words":["The","movie","has","already","started."]},
+        {"type":"say","q":"Como se diz “Ainda não decidi”?","answer":"I haven't decided yet."},
+        {"type":"free","q":"Sua vez: diga uma coisa que você acabou de fazer, uma que já fez hoje e uma que ainda não fez.","answers":[{"t":"I've just had a coffee. I've already answered my emails, but I haven't cooked dinner yet.","tr":"Acabei de tomar um café. Já respondi os e-mails, mas ainda não fiz o jantar."},{"t":"I just got home. I've already gone to the gym, but I haven't studied yet.","tr":"Acabei de chegar em casa. Já fui à academia, mas ainda não estudei."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare coisas",
+      "summary": "Diga o que é maior, melhor ou mais barato: compare cidades, preços e pessoas.",
+      "topic": "{{-er}} / {{more}} … {{than}}; {{as}} … {{as}}; {{better}}, {{worse}}; {{much bigger}}",
+      "blocks": [
+        {"goal":{"t":"New York is bigger than Boston, but Boston is quieter.","tr":"Nova York é maior que Boston, mas Boston é mais tranquila."}},
+        {"dialog":[{"who":"Corretora","t":"So, which apartment do you like better?","tr":"E então, de qual apartamento você gostou mais?"},{"who":"Você","t":"The one on Elm Street is bigger, but it's more expensive.","tr":"O da Elm Street é maior, mas é mais caro."},{"who":"Corretora","t":"True. The other one is cheaper and closer to the subway.","tr":"É verdade. O outro é mais barato e mais perto do metrô."},{"who":"Você","t":"Is it as quiet as the first one?","tr":"Ele é tão tranquilo quanto o primeiro?"},{"who":"Corretora","t":"No, it's noisier. It's on a busy street.","tr":"Não, é mais barulhento. Fica numa rua movimentada."}]},
+        {"term":"comparativo","means":"a forma do adjetivo para comparar duas coisas: maior, mais barato, melhor."},
+        {"p":"**Duas maneiras.** Em português é sempre “mais”: mais barato, mais bonito. Em inglês, depende do tamanho do adjetivo:"},
+        { "table": [
+          ["adjetivo","regra","exemplo"],
+          ["curto (uma sílaba)","{{-er}}","{{cheap}} → {{cheaper}}, {{big}} → {{bigger}}"],
+          ["terminado em {{-y}}","{{-ier}}","{{easy}} → {{easier}}, {{busy}} → {{busier}}"],
+          ["longo (duas sílabas ou mais)","{{more}}","{{expensive}} → {{more expensive}}"],
+          ["irregular","decore","{{good}} → {{better}}, {{bad}} → {{worse}}, {{far}} → {{farther}}"]
+        ] },
+        {"p":"**O “que” da comparação é {{than}}.** {{São Paulo is bigger than Rio}} “São Paulo é maior que o Rio”. Não confunda {{than}} (do que) com {{then}} (então, depois)."},
+        {"p":"**Igual: {{as}} … {{as}}.** {{as tall as}} “tão alto quanto”: {{She's as smart as her sister}}. Na negativa, {{not as … as}} “não tão… quanto”: {{It's not as cold as yesterday}}."},
+        {"p":"**Muito mais: {{much}}.** {{much bigger}} “muito maior”, {{a little cheaper}} “um pouco mais barato”. Nunca {{very bigger}}."},
+        { "ex": [
+          {"t":"My brother is taller than me.","tr":"Meu irmão é mais alto que eu."},
+          {"t":"This phone is better and cheaper.","tr":"Este celular é melhor e mais barato."},
+          {"t":"Today is not as hot as yesterday.","tr":"Hoje não está tão quente quanto ontem."},
+          {"t":"English is easier than I thought.","tr":"O inglês é mais fácil do que eu pensava."},
+          {"t":"The subway is much faster than the bus.","tr":"O metrô é muito mais rápido que o ônibus."},
+          {"t":"Is it more expensive than the other one?","tr":"É mais caro que o outro?"}
+        ] },
+        {"tip":"Depois de {{than}}, na conversa, os americanos usam a forma objeto: {{taller than me}}, {{older than him}}. Em textos formais você vai ver {{taller than I am}}."}
+      ],
+      "mistakes": [
+        {"wrong":"more big","right":"bigger","tr":"maior","why":"Adjetivo curto: {{-er}}, não {{more}}."},
+        {"wrong":"more good","right":"better","tr":"melhor","why":"{{good}} é irregular: {{better}}."},
+        {"wrong":"Rio is bigger that Curitiba.","right":"Rio is bigger than Curitiba.","tr":"O Rio é maior que Curitiba.","why":"O “que” da comparação é {{than}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"The subway is ___ than the bus.","tr":"O metrô é mais rápido que o ônibus.","options":["more fast","fastest","faster"],"answer":2,"why":"Adjetivo curto: {{-er}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"This restaurant is ___ than that one.","tr":"Este restaurante é melhor que aquele.","options":["better","gooder","more good"],"answer":0,"why":"{{good}} → {{better}}."},
+        {"type":"choice","q":"{{She's as tall as me}} quer dizer…","options":["Ela é tão alta quanto eu.","Ela é mais alta que eu.","Ela é muito alta!"],"answer":0,"why":"{{as… as}}: “tão… quanto”."},
+        {"type":"dialogue","q":"Escolhendo um apartamento: escolha suas respostas.","from":"describe-people-and-things","lines":[{"who":"Corretora","t":"Which apartment do you like better?","tr":"De qual apartamento você gostou mais?"},{"options":["The first one. It's more big and moderner.","The first one. It's bigger and more modern."],"answer":1,"why":"Curto: {{bigger}}; longo: {{more modern}}."},{"who":"Corretora","t":"But it's more expensive.","tr":"Mas é mais caro."},{"options":["That's true, but it's very closer to my work.","That's true, but it's much closer to my work."],"answer":1,"why":"“Muito mais”: {{much}}."},{"who":"Corretora","t":"Good point!","tr":"Bem lembrado!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Meu irmão é mais alto que eu.","words":["My","brother","is","taller","than me."]},
+        {"type":"say","q":"Como se diz “Hoje não está tão frio quanto ontem”?","answer":"Today is not as cold as yesterday."},
+        {"type":"free","q":"Sua vez: compare dois lugares que você conhece: duas cidades, dois restaurantes ou dois países.","answers":[{"t":"São Paulo is bigger and more exciting than Curitiba, but Curitiba is cleaner and quieter.","tr":"São Paulo é maior e mais agitada que Curitiba, mas Curitiba é mais limpa e mais tranquila."},{"t":"Brazilian coffee is better than American coffee, and it's much cheaper!","tr":"O café brasileiro é melhor que o americano, e é muito mais barato!"}]}
+      ]
+    },
+    {
+      "id": "say-whats-the-best",
+      "unit": 6,
+      "level": "A2",
+      "title": "Diga qual é o melhor",
+      "summary": "Diga qual é o maior, o melhor e o mais bonito: “It's the best pizza in the city!”",
+      "topic": "O superlativo: {{the}} + {{-est}} / {{the most}}; {{the best}}, {{the worst}}; {{in the city}}; {{the best… I've ever…}}",
+      "blocks": [
+        {"goal":{"t":"It's the best pizza I've ever had!","tr":"É a melhor pizza que eu já comi!"}},
+        {"dialog":[{"who":"Chris","t":"What's the best restaurant in town?","tr":"Qual é o melhor restaurante da cidade?"},{"who":"Você","t":"For me, Luigi's. It's the most popular place on our street.","tr":"Para mim, o Luigi's. É o lugar mais famoso da nossa rua."},{"who":"Chris","t":"Is it the cheapest too?","tr":"É o mais barato também?"},{"who":"Você","t":"No, it's one of the most expensive! But it's worth it.","tr":"Não, é um dos mais caros! Mas vale a pena."},{"who":"Chris","t":"OK, let's go there tonight!","tr":"Tá, vamos lá hoje à noite!"}]},
+        {"p":"**O mais: {{the}} + {{-est}} ou {{the most}}.** É a regra do comparativo da lição 35: os curtos ganham {{-est}}, os longos usam {{the most}}, e sempre com {{the}}."},
+        { "table": [
+          ["adjetivo","comparativo","superlativo"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**“Da cidade” é {{in the city}}.** Em português dizemos “o melhor do mundo”, “o mais caro da cidade”. Em inglês, com lugares e grupos, é {{in}}: {{the best restaurant in the city}}, {{the tallest building in the world}}. Nunca {{of the world}}."},
+        {"p":"**“Que eu já…”: com o present perfect.** {{It's the best movie I've ever seen}} “É o melhor filme que eu já vi”. (O “que” pode sumir em inglês: lição 43.)"},
+        {"p":"**Um dos: {{one of the}} + plural.** {{one of the best restaurants}} “um dos melhores restaurantes”."},
+        { "ex": [
+          {"t":"It's the biggest city in Brazil.","tr":"É a maior cidade do Brasil."},
+          {"t":"This is the most beautiful beach I've ever seen.","tr":"Esta é a praia mais bonita que eu já vi."},
+          {"t":"Monday is the worst day of the week.","tr":"Segunda é o pior dia da semana.","note":"com um período, {{of}}"},
+          {"t":"She's the smartest person in the class.","tr":"Ela é a pessoa mais inteligente da turma."},
+          {"t":"It's one of the oldest buildings in the city.","tr":"É um dos prédios mais antigos da cidade."},
+          {"t":"What's the best way to get downtown?","tr":"Qual é o melhor jeito de chegar ao centro?"}
+        ] },
+        {"tip":"{{the best}} aparece muito em elogios: {{You're the best!}} “Você é demais!”, {{It was the best!}} “Foi o máximo!”."}
+      ],
+      "mistakes": [
+        {"wrong":"the most big","right":"the biggest","tr":"o maior","why":"Adjetivo curto: {{-est}}."},
+        {"wrong":"the best restaurant of the city","right":"the best restaurant in the city","tr":"o melhor restaurante da cidade","why":"Com lugar: {{in}}."},
+        {"wrong":"It's best movie.","right":"It's the best movie.","tr":"É o melhor filme.","why":"O superlativo leva {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"It's the ___ building in the city.","tr":"É o prédio mais alto da cidade.","options":["tallest","taller","most tall"],"answer":0,"why":"Superlativo de adjetivo curto: {{-est}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"It's the best café ___ the neighborhood.","tr":"É o melhor café do bairro.","options":["in","of","from"],"answer":0,"why":"Com lugar: {{in}}."},
+        {"type":"choice","q":"Como se diz “o filme mais engraçado que eu já vi”?","options":["{{the funnier movie I've seen ever}}","{{the funniest movie I've ever seen}}","{{the most funny movie I ever saw it}}"],"answer":1,"why":"{{the funniest}} + present perfect com {{ever}}.","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Um amigo quer uma dica de restaurante. Escolha suas respostas.","from":"compare-things","lines":[{"who":"Chris","t":"What's the best restaurant in town?","tr":"Qual é o melhor restaurante da cidade?"},{"options":["For me, it's Luigi's. It's more good than all the others.","For me, it's Luigi's. It's better than all the others."],"answer":1,"why":"{{better}}, não {{more good}}."},{"who":"Chris","t":"Is it the cheapest?","tr":"É o mais barato?"},{"options":["No, it's one of the most expensive.","No, it's one of the most expensive restaurant."],"answer":0,"why":"{{one of the}} + plural, ou sem o substantivo."},{"who":"Chris","t":"Then you're paying!","tr":"Então você paga!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"É a maior cidade do Brasil.","words":["It's","the","biggest","city","in Brazil."]},
+        {"type":"say","q":"Elogie um amigo: “Você é demais!”","answer":"You're the best!"},
+        {"type":"free","q":"Sua vez: na sua opinião, qual é o melhor lugar da sua cidade, a melhor comida e o seu pior hábito?","answers":[{"t":"The best place in my city is the park. The best food is my mom's lasagna. My worst habit is checking my phone all the time.","tr":"O melhor lugar da minha cidade é o parque. A melhor comida é a lasanha da minha mãe. Meu pior hábito é olhar o celular o tempo todo."},{"t":"The most beautiful beach I've ever seen is in Fernando de Noronha.","tr":"A praia mais bonita que eu já vi fica em Fernando de Noronha."}]}
+      ]
+    },
+    {
+      "id": "talk-about-amounts",
+      "unit": 6,
+      "level": "A2",
+      "title": "Fale de quantidades",
+      "summary": "Diga quanto tem e quanto falta: muito, pouco, demais, o suficiente.",
+      "topic": "Contável e incontável ({{information}}, {{advice}}, {{news}}, {{money}}); {{much}}, {{many}}, {{a lot of}}; {{too}} ou {{very}}; {{enough}}",
+      "blocks": [
+        {"goal":{"t":"There's too much traffic and not enough parking.","tr":"Tem trânsito demais e vaga de menos."}},
+        {"dialog":[{"who":"Rachel","t":"How many people are coming to the party?","tr":"Quantas pessoas vêm para a festa?"},{"who":"Você","t":"About twenty. Do we have enough food?","tr":"Umas vinte. A gente tem comida suficiente?"},{"who":"Rachel","t":"I think so. We have a lot of chips, but not many drinks.","tr":"Acho que sim. Temos muito salgadinho, mas pouca bebida."},{"who":"Você","t":"How much money do we have left?","tr":"Quanto dinheiro sobrou?"},{"who":"Rachel","t":"Not much. Twenty dollars.","tr":"Pouco. Vinte dólares."},{"who":"Você","t":"That's enough for some sodas.","tr":"Dá para uns refrigerantes."}]},
+        {"term":"contável e incontável","means":"um substantivo contável dá para contar (uma maçã, duas maçãs); um incontável não se conta e não vai para o plural (água, dinheiro, tempo)."},
+        {"p":"**Contáveis e incontáveis.** Alguns substantivos se contam ({{one apple}}, {{two apples}}); outros não: {{water}}, {{money}}, {{time}}, {{traffic}}. Os incontáveis não têm plural e não levam {{a}}."},
+        {"p":"**A pegadinha.** Algumas palavras são contáveis em português e incontáveis em inglês: nunca vão para o plural e não levam {{a}}:"},
+        { "table": [
+          ["português","inglês"],
+          ["informações","{{information}}"],
+          ["conselhos","{{advice}}"],
+          ["notícias","{{news}}"],
+          ["móveis","{{furniture}}"],
+          ["equipamentos","{{equipment}}"],
+          ["um trabalho, um emprego","{{work}} (incontável), {{a job}}"]
+        ] },
+        {"p":"Para contar, use {{a piece of}}: {{a piece of advice}} “um conselho”. E {{news}} parece plural, mas é singular: {{The news is good}}."},
+        {"p":"**Muito: {{many}}, {{much}}, {{a lot of}}.**"},
+        { "table": [
+          ["","contável (no plural)","incontável"],
+          ["muitos, muito","{{many people}}","{{much time}}"],
+          ["muito (na fala)","{{a lot of people}}","{{a lot of time}}"],
+          ["quantos? quanto?","{{How many people?}}","{{How much money?}}"],
+          ["poucos, pouco","{{a few people}}","{{a little time}}"]
+        ] },
+        {"p":"Na afirmativa, os americanos preferem {{a lot of}}: {{I have a lot of work}}. {{Much}} aparece mais nas perguntas e nas negativas: {{I don't have much time}}."},
+        {"p":"**{{very}}, {{too}}, {{enough}}.** O nosso “muito” às vezes quer dizer “demais”. Em inglês são palavras diferentes: {{very}} “muito” (só intensidade), {{too}} “demais” (passou do ponto, é um problema), {{enough}} “suficiente”. {{It's very expensive}} “É muito caro”; {{It's too expensive}} “É caro demais (não dá)”. {{enough}} vem depois do adjetivo e antes do substantivo: {{big enough}}, {{enough money}}."},
+        { "ex": [
+          {"t":"Can I give you some advice?","tr":"Posso te dar um conselho?"},
+          {"t":"I need more information, please.","tr":"Preciso de mais informações, por favor."},
+          {"t":"How many kids do you have?","tr":"Quantos filhos você tem?"},
+          {"t":"I don't have much time today.","tr":"Não tenho muito tempo hoje."},
+          {"t":"This coffee is too hot.","tr":"Este café está quente demais."},
+          {"t":"We don't have enough chairs.","tr":"A gente não tem cadeira suficiente."}
+        ] },
+        {"tip":"Cuidado com {{too}}: {{The hotel is too expensive}} soa como “Não dá, é caro demais”. Para elogiar, use {{very}} ou {{really}}: {{It's really beautiful}}, nunca {{too beautiful}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"Preciso de umas informações.","why":"{{information}} é incontável: sem plural."},
+        {"wrong":"She gave me an advice.","right":"She gave me some advice.","tr":"Ela me deu um conselho.","why":"{{advice}} é incontável: {{some advice}} ou {{a piece of advice}}."},
+        {"wrong":"Your house is too beautiful!","right":"Your house is really beautiful!","tr":"Sua casa é muito bonita!","why":"{{too}} é “demais” no sentido de problema; para elogiar, {{very}} ou {{really}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"How ___ people are coming?","tr":"Quantas pessoas vêm?","options":["much","lot","many"],"answer":2,"why":"{{people}} se conta: {{many}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I don't have ___ time.","tr":"Não tenho muito tempo.","options":["many","a few","much"],"answer":2,"why":"{{time}} é incontável: {{much}}."},
+        {"type":"choice","q":"Qual está certa?","options":["{{Can you give me some information?}}","{{Can you give me some informations?}}","{{Can you give me an information?}}"],"answer":0,"why":"{{information}} é incontável: sem plural e sem {{an}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"This bag is ___ small. I need a bigger one.","tr":"Esta bolsa é pequena demais. Preciso de uma maior.","options":["very","enough","too"],"answer":2,"why":"Passou do ponto, é um problema: {{too}}.","from":"compare-things"},
+        {"type":"dialogue","q":"Preparando uma festa: escolha suas respostas.","from":"say-what-there-is","lines":[{"who":"Rachel","t":"Is there enough food for the party?","tr":"Tem comida suficiente para a festa?"},{"options":["I think so. There are a lot of chips.","I think so. Have a lot of chips."],"answer":0,"why":"“Tem” de existir: {{there are}}."},{"who":"Rachel","t":"And how much money do we have?","tr":"E quanto dinheiro a gente tem?"},{"options":["Not much. About twenty dollars.","Not many. About twenty dollars."],"answer":0,"why":"{{money}} é incontável: {{much}}."},{"who":"Rachel","t":"OK, that's enough for drinks.","tr":"Tá, dá para as bebidas."}]},
+        {"type":"say","q":"Ofereça: “Posso te dar um conselho?”","answer":"Can I give you some advice?"},
+        {"type":"free","q":"Sua vez: fale da sua cidade: do que tem demais e do que não tem o suficiente.","answers":[{"t":"There's too much traffic in my city, and there aren't enough parks.","tr":"Tem trânsito demais na minha cidade, e não tem parques suficientes."},{"t":"There are a lot of good restaurants, but there isn't enough parking downtown.","tr":"Tem muitos restaurantes bons, mas não tem vaga suficiente no centro."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 6,
+      "level": "A2",
+      "title": "Dê conselhos",
+      "summary": "Dê conselhos e diga o que alguém deveria fazer: “You should see a doctor.”",
+      "topic": "{{should}} / {{shouldn't}} + verbo; {{I think you should…}}; {{Should I…?}}; {{Why don't you…?}}; {{You'd better…}}",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor. You don't look well.","tr":"Você devia ir ao médico. Você não parece bem."}},
+        {"dialog":[{"who":"Amy","t":"I'm so tired. I can't sleep at night.","tr":"Estou tão cansada. Não consigo dormir à noite."},{"who":"Você","t":"Maybe you should drink less coffee.","tr":"Talvez você devesse tomar menos café."},{"who":"Amy","t":"But I love coffee!","tr":"Mas eu amo café!"},{"who":"Você","t":"I know. But you shouldn't drink it after six. Why don't you try tea?","tr":"Eu sei. Mas você não devia tomar depois das seis. Por que você não experimenta chá?"},{"who":"Amy","t":"Good idea. I'll try.","tr":"Boa ideia. Vou tentar."}]},
+        {"p":"**{{should}}: “deveria, devia”.** Funciona como {{can}} e {{will}}: nunca muda, sem {{-s}}, sem {{do}}, e o verbo vem sem {{to}}. {{You should rest}} “Você devia descansar”."},
+        { "table": [
+          ["","inglês","português"],
+          ["conselho","{{You should rest.}}","Você devia descansar."],
+          ["negativa","{{You shouldn't work so much.}}","Você não devia trabalhar tanto."],
+          ["pergunta","{{Should I call her?}}","Será que eu ligo para ela?"],
+          ["opinião","{{I think you should go.}}","Acho que você devia ir."],
+          ["sugestão","{{Why don't you take a break?}}","Por que você não faz uma pausa?"]
+        ] },
+        {"p":"**Mais suave e mais forte.** Para suavizar: {{I think you should…}}, {{Maybe you should…}}. Para avisar com força (senão vai dar problema): {{You'd better…}} “É melhor você…”. {{You'd better leave now, or you'll miss the bus}}."},
+        {"p":"**{{Should I…?}}** é ótimo para pedir opinião: {{Should I take an umbrella?}} “Será que eu levo guarda-chuva?”."},
+        {"p":"**Negar o “achar”.** Em inglês é mais natural negar o {{think}}: {{I don't think you should go}} “Acho que você não devia ir”."},
+        { "ex": [
+          {"t":"You should try the fish here.","tr":"Você devia experimentar o peixe daqui."},
+          {"t":"You shouldn't drive so fast.","tr":"Você não devia dirigir tão rápido."},
+          {"t":"Should I bring something?","tr":"Será que eu levo alguma coisa?"},
+          {"t":"I think you should talk to your boss.","tr":"Acho que você devia falar com o seu chefe."},
+          {"t":"Why don't you ask for help?","tr":"Por que você não pede ajuda?"},
+          {"t":"You'd better hurry, the store closes at nine.","tr":"É melhor você se apressar, a loja fecha às nove."}
+        ] },
+        {"tip":"{{I think so}} “Acho que sim” e {{I don't think so}} “Acho que não” são as respostas curtas para dar uma opinião."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Você devia descansar.","why":"Depois de {{should}}, sem {{to}}."},
+        {"wrong":"I think you shouldn't go.","right":"I don't think you should go.","tr":"Acho que você não devia ir.","why":"Não está errado, mas em inglês o natural é negar o {{think}}."},
+        {"wrong":"She shoulds study more.","right":"She should study more.","tr":"Ela devia estudar mais.","why":"{{should}} nunca ganha {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"You ___ see a doctor.","tr":"Você devia ir ao médico.","options":["shoulds","should","should to"],"answer":1,"why":"{{should}} + verbo, sem {{to}} e sem {{-s}}."},
+        {"type":"choice","q":"Seu amigo trabalha demais. Um conselho gentil:","options":["{{You take a break.}}","{{Maybe you should take a break.}}","{{You should to take a break.}}"],"answer":1,"why":"Suave: {{Maybe you should…}}"},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"___ I bring an umbrella?","tr":"Será que eu levo guarda-chuva?","options":["Should","Do","Am"],"answer":0,"why":"Pedindo opinião: {{Should I…?}}"},
+        {"type":"dialogue","q":"Uma amiga não consegue dormir. Escolha suas respostas.","from":"say-what-you-can-do","lines":[{"who":"Amy","t":"I can't sleep at night.","tr":"Não consigo dormir à noite."},{"options":["Maybe you should drinking less coffee.","Maybe you should drink less coffee."],"answer":1,"why":"{{should}} + o verbo na forma do dicionário."},{"who":"Amy","t":"But I love coffee!","tr":"Mas eu amo café!"},{"options":["Why you don't try tea after six?","Why don't you try tea after six?"],"answer":1,"why":"Pergunta: {{Why don't you…?}}"},{"who":"Amy","t":"Good idea.","tr":"Boa ideia."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Acho que você devia falar com o seu chefe.","words":["I think","you","should","talk","to your boss."]},
+        {"type":"say","q":"Como se diz “É melhor você se apressar”?","answer":"You'd better hurry."},
+        {"type":"free","q":"Sua vez: um amigo vai visitar o Brasil pela primeira vez. Dê três conselhos.","answers":[{"t":"You should visit Rio and Salvador. You should try açaí. And you shouldn't forget sunscreen!","tr":"Você devia visitar o Rio e Salvador. Devia experimentar açaí. E não devia esquecer o protetor solar!"},{"t":"I think you should learn some Portuguese. Why don't you start with a basic course?","tr":"Acho que você devia aprender um pouco de português. Por que você não começa com um curso básico?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 6,
+      "level": "A2",
+      "title": "Diga o que você tem que fazer",
+      "summary": "Diga o que você tem que fazer, o que não precisa e o que é proibido: “I have to work tomorrow.”",
+      "topic": "{{have to}} / {{has to}} / {{had to}}; {{don't have to}} (não precisa) e {{can't}}, {{mustn't}} (não pode); {{must}} em regras e para deduzir",
+      "blocks": [
+        {"goal":{"t":"I have to go. I have to get up early tomorrow.","tr":"Tenho que ir. Tenho que acordar cedo amanhã."}},
+        {"dialog":[{"who":"Anna","t":"Leaving already? It's early!","tr":"Já vai? Está cedo!"},{"who":"Você","t":"I know, but I have to work tomorrow at seven.","tr":"Eu sei, mas tenho que trabalhar amanhã às sete."},{"who":"Anna","t":"Do you have to drive?","tr":"Você tem que dirigir?"},{"who":"Você","t":"No, I don't have to. I'm taking an Uber.","tr":"Não, não preciso. Vou de Uber."},{"who":"Anna","t":"Good. You can't drink and drive!","tr":"Que bom. Não pode beber e dirigir!"},{"who":"Você","t":"Exactly. See you!","tr":"Exatamente. Tchau!"}]},
+        {"p":"**Ter que: {{have to}}.** {{I have to go}} “Tenho que ir”. Com {{he}}, {{she}} e {{it}}: {{has to}}. No passado: {{had to}} “tive que”. Na pergunta e na negativa, com {{do}}, {{does}} e {{did}}, como um verbo comum: {{Do you have to work?}}, {{She didn't have to pay}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["obrigação","{{I have to work.}}","Tenho que trabalhar."],
+          ["ela","{{She has to study.}}","Ela tem que estudar."],
+          ["passado","{{I had to wait.}}","Tive que esperar."],
+          ["pergunta","{{Do you have to go?}}","Você tem que ir?"]
+        ] },
+        {"p":"**A grande pegadinha: {{don't have to}} não é “não pode”.** {{You don't have to pay}} quer dizer “Você não precisa pagar” (é opcional). Para “não pode, é proibido”: {{You can't}} ou {{You mustn't}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["não precisa","{{You don't have to come.}}","Você não precisa vir."],
+          ["não pode","{{You can't park here.}}","Você não pode estacionar aqui."],
+          ["proibido (formal)","{{You mustn't smoke here.}}","É proibido fumar aqui."]
+        ] },
+        {"p":"**{{must}}.** {{must}} também quer dizer “ter que”, mas soa formal ou forte: aparece em regras, placas e avisos ({{Passengers must wear seat belts}}). Na conversa, os americanos dizem {{have to}}. Já o {{must}} de dedução é muito comum: {{You must be tired}} “Você deve estar cansado”."},
+        { "ex": [
+          {"t":"I have to work on Saturday.","tr":"Tenho que trabalhar no sábado."},
+          {"t":"Do you have to wear a uniform?","tr":"Você tem que usar uniforme?"},
+          {"t":"We had to wait for an hour.","tr":"A gente teve que esperar uma hora."},
+          {"t":"You don't have to bring anything!","tr":"Você não precisa trazer nada!"},
+          {"t":"You can't smoke in here.","tr":"Não pode fumar aqui dentro."},
+          {"t":"You must be hungry after the trip.","tr":"Você deve estar com fome depois da viagem.","note":"dedução"}
+        ] },
+        {"tip":"{{I've got to go}} (na fala, “I gotta go”) é o jeito mais casual de dizer “Tenho que ir”: você vai ouvir no fim de muita ligação."}
+      ],
+      "mistakes": [
+        {"wrong":"I have go now.","right":"I have to go now.","tr":"Tenho que ir agora.","why":"“Ter que” é {{have to}}: o {{to}} não pode faltar."},
+        {"wrong":"You don't have to smoke here.","right":"You can't smoke here.","tr":"Não pode fumar aqui.","why":"{{don't have to}} é “não precisa”; proibido é {{can't}} ou {{mustn't}}."},
+        {"wrong":"She have to study.","right":"She has to study.","tr":"Ela tem que estudar.","why":"Com {{she}}: {{has to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I ___ to work tomorrow.","tr":"Tenho que trabalhar amanhã.","options":["have","has","must"],"answer":0,"why":"Com {{I}}: {{have to}}."},
+        {"type":"choice","q":"{{You don't have to pay}} quer dizer…","options":["Você não precisa pagar.","Você não pode pagar.","Você não quer pagar."],"answer":0,"why":"{{don't have to}}: não é obrigatório."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"You ___ park here. It's for ambulances.","tr":"Você não pode estacionar aqui. É para ambulâncias.","options":["doesn't","can't","don't have to"],"answer":1,"why":"Proibido: {{can't}}."},
+        {"type":"dialogue","q":"Saindo de uma festa: escolha suas respostas.","from":"make-plans","lines":[{"who":"Anna","t":"Leaving already? It's early!","tr":"Já vai? Está cedo!"},{"options":["I know, but I have get up early.","I know, but I have to get up early."],"answer":1,"why":"“Ter que”: {{have to}} + verbo."},{"who":"Anna","t":"Do you need a ride?","tr":"Precisa de carona?"},{"options":["No, thanks. I take an Uber now.","No, thanks. I'm taking an Uber."],"answer":1,"why":"Algo já combinado: o present continuous."},{"who":"Anna","t":"OK, text me when you get home!","tr":"Tá, me manda mensagem quando chegar!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"A gente teve que esperar uma hora.","words":["We","had to","wait","for","an hour."]},
+        {"type":"say","q":"Diga a um convidado: “Você não precisa trazer nada!”","answer":"You don't have to bring anything!"},
+        {"type":"free","q":"Sua vez: diga duas coisas que você tem que fazer esta semana e uma que você não precisa fazer.","answers":[{"t":"I have to go to the dentist and I have to buy a present. I don't have to work on Friday!","tr":"Tenho que ir ao dentista e tenho que comprar um presente. Não preciso trabalhar na sexta!"},{"t":"This week I have to study a lot, but I don't have to cook: my mom is coming!","tr":"Esta semana tenho que estudar muito, mas não preciso cozinhar: minha mãe vem aí!"}]}
+      ]
     }
   ]
 }
