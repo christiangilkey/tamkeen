@@ -294,6 +294,304 @@
         {"type":"say","q":"Say “I miss you.” (word for word, “I want to see”)","answer":"보고 싶어요.","r":"bogo sipeoyo."},
         {"type":"free","q":"Your turn: name things you want to do in Korea. Use {{-고 싶어요|-go sipeoyo}}.","answers":[{"t":"한국 음식을 먹고 싶어요.","tr":"I want to eat Korean food.","r":"hanguk eumsigeul meokgo sipeoyo."},{"t":"한국 친구를 만나고 싶어요.","tr":"I want to meet Korean friends.","r":"hanguk chingureul mannago sipeoyo."},{"t":"케이팝 콘서트를 보고 싶어요.","tr":"I want to see a K-pop concert.","r":"keipap konseoteureul bogo sipeoyo."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your day: what you eat, drink, watch and do. Your first real verb ending.",
+      "topic": "the present tense {{-아요|-ayo}} / {{-어요|-eoyo}} / {{해요|haeyo}}, chosen by the stem's last vowel",
+      "blocks": [
+        {"goal":{"t":"저는 매일 아침 커피를 마셔요.","tr":"I drink coffee every morning.","r":"jeoneun maeil achim keopireul masyeoyo."}},
+        {"dialog":[{"who":"Jieun","t":"소피 씨는 아침에 뭐 먹어요?","tr":"What do you eat in the morning, Sophie?","r":"sopi ssineun achime mwo meogeoyo?"},{"who":"Sophie","t":"저는 빵을 먹어요. 그리고 커피를 마셔요.","tr":"I eat bread. And I drink coffee.","r":"jeoneun ppangeul meogeoyo. geurigo keopireul masyeoyo."},{"who":"Jieun","t":"저는 밥을 먹어요.","tr":"I eat rice.","r":"jeoneun babeul meogeoyo."},{"who":"Sophie","t":"아, 그래요? 저녁에는 뭐 해요?","tr":"Oh, really? And what do you do in the evening?","r":"a, geuraeyo? jeonyeogeneun mwo haeyo?"},{"who":"Jieun","t":"저녁에는 운동해요. 그리고 드라마를 봐요.","tr":"In the evening I work out. And I watch dramas.","r":"jeonyeogeneun undonghaeyo. geurigo deuramareul bwayo."}]},
+        {"p":"**The polite present.** In lesson 6 you added {{-고 싶어요|-go sipeoyo}} to a stem. Now the main ending: the present tense, for what you do in general or right now. It has three shapes, and the stem's **last vowel** chooses."},
+        {"term":"vowel harmony","means":"choosing an ending by the vowel before it. In Korean, a stem whose last vowel is {{ㅏ}} or {{ㅗ}} takes {{-아|-a}}; any other vowel takes {{-어|-eo}}."},
+        { "table": [
+          ["the stem's last vowel is…","add","examples"],
+          ["{{ㅏ}} or {{ㅗ}}","{{-아요|-ayo}}","{{살다|salda}} → {{살아요|sarayo}} I live; {{좋다|jota}} → {{좋아요|joayo}} it's good"],
+          ["any other vowel","{{-어요|-eoyo}}","{{먹다|meokda}} → {{먹어요|meogeoyo}} I eat; {{읽다|ikda}} → {{읽어요|ilgeoyo}} I read"],
+          ["{{하다|hada}}","{{해요|haeyo}}","{{하다|hada}} → {{해요|haeyo}} I do; {{공부하다|gongbuhada}} → {{공부해요|gongbuhaeyo}} I study"]
+        ] },
+        {"p":"**Shortened forms.** When the stem ends in a vowel, the two vowels melt together, and the short form is the only one people say: {{ㅏ}} + {{아|a}} stays {{ㅏ}}, {{ㅗ}} + {{아|a}} becomes {{ㅘ}}, {{ㅣ}} + {{어|eo}} becomes {{ㅕ}}, {{ㅜ}} + {{어|eo}} becomes {{ㅝ}}."},
+        { "table": [
+          ["dictionary form","stem + ending","you say"],
+          ["{{가다|gada}} to go","{{가|ga}} + {{아요|ayo}}","{{가요|gayo}}"],
+          ["{{만나다|mannada}} to meet","{{만나|manna}} + {{아요|ayo}}","{{만나요|mannayo}}"],
+          ["{{보다|boda}} to watch","{{보|bo}} + {{아요|ayo}}","{{봐요|bwayo}}"],
+          ["{{오다|oda}} to come","{{오|o}} + {{아요|ayo}}","{{와요|wayo}}"],
+          ["{{마시다|masida}} to drink","{{마시|masi}} + {{어요|eoyo}}","{{마셔요|masyeoyo}}"],
+          ["{{배우다|baeuda}} to learn","{{배우|baeu}} + {{어요|eoyo}}","{{배워요|baewoyo}}"]
+        ] },
+        {"p":"**One form, many meanings.** {{먹어요|meogeoyo}} is “I eat”, “you eat”, “she eats”, and with your voice going up, “do you eat?”. Who it is comes from the sentence or the situation: Koreans leave out “I” and “you” whenever it's clear. The order is who, when, what, and the verb last: {{저는 매일 커피를 마셔요|jeoneun maeil keopireul masyeoyo}} “I every-day coffee drink”."},
+        { "ex": [
+          {"t":"저는 서울에 살아요.","tr":"I live in Seoul.","r":"jeoneun seoure sarayo."},
+          {"t":"매일 한국어를 공부해요.","tr":"I study Korean every day.","r":"maeil hangugeoreul gongbuhaeyo."},
+          {"t":"주말에 친구를 만나요.","tr":"I meet my friends at the weekend.","r":"jumare chingureul mannayo."},
+          {"t":"동생은 책을 많이 읽어요.","tr":"My younger sibling reads a lot of books.","note":"{{많이|mani}} “a lot”","r":"dongsaengeun chaegeul mani ilgeoyo."},
+          {"t":"뭐 해요?","tr":"What are you doing? / What do you do?","note":"the same form for both","r":"mwo haeyo?"},
+          {"t":"저녁에 드라마를 봐요.","tr":"I watch dramas in the evening.","r":"jeonyeoge deuramareul bwayo."}
+        ] },
+        {"tip":"Many verbs are a noun + {{하다|hada}}: {{공부|gongbu}} “study” → {{공부하다|gongbuhada}} “to study”, {{운동|undong}} “exercise” → {{운동하다|undonghada}} “to work out”, {{요리|yori}} “cooking” → {{요리하다|yorihada}} “to cook”. They all end in {{해요|haeyo}}: one form for hundreds of verbs."}
+      ],
+      "mistakes": [
+        {"wrong":"저는 커피를 마시어요.","right":"저는 커피를 마셔요.","tr":"I drink coffee.","why":"{{마시|masi}} + {{어요|eoyo}} melts into {{마셔요|masyeoyo}}: nobody says the long form."},
+        {"wrong":"저는 빵을 먹아요.","right":"저는 빵을 먹어요.","tr":"I eat bread.","why":"The vowel of {{먹|meok}} is {{ㅓ}}, not {{ㅏ}} or {{ㅗ}}: {{-어요|-eoyo}}."},
+        {"wrong":"저는 한국어를 공부하요.","right":"저는 한국어를 공부해요.","tr":"I study Korean.","why":"{{하다|hada}} always becomes {{해요|haeyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The present of {{살다|salda}} “to live” is…","options":["{{살어요|sareoyo}}","{{살아요|sarayo}}","{{살해요|salhaeyo}}"],"answer":1,"why":"The vowel of {{살|sal}} is {{ㅏ}}: {{-아요|-ayo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"저는 매일 커피를 ___.","tr":"I drink coffee every day.","options":["마셔요","마시요","마시다"],"answer":0,"why":"{{마시|masi}} + {{어요|eoyo}} → {{마셔요|masyeoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"동생은 책을 많이 ___.","tr":"My younger sibling reads a lot of books.","options":["읽어요","읽아요"],"answer":0,"why":"The vowel of {{읽|ik}} is {{ㅣ}}: {{-어요|-eoyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I study Korean every day.","words":["저는","매일","한국어를","공부해요."],"also":[["매일","저는","한국어를","공부해요."]]},
+        {"type":"dialogue","q":"A coworker asks about your weekend. Choose your replies.","from":"say-what-you-want-to-do","lines":[{"who":"Coworker","t":"주말에 뭐 해요?","tr":"What do you do at the weekend?","r":"jumare mwo haeyo?"},{"options":["친구를 만나요.","친구를 만나어요."],"answer":0,"why":"{{만나|manna}} + {{아요|ayo}} → {{만나요|mannayo}}: the two {{ㅏ}} melt into one."},{"who":"Coworker","t":"친구하고 뭐 해요?","tr":"What do you do with your friends?","r":"chinguhago mwo haeyo?"},{"options":["영화를 봐요.","영화가 봐요."],"answer":0,"why":"The movie is what you watch, the object: {{영화를|yeonghwareul}}."}]},
+        {"type":"say","q":"Say: “I live in Seoul.” ({{살다|salda}} “to live”)","answer":"저는 서울에 살아요.","r":"jeoneun seoure sarayo."},
+        {"type":"free","q":"Your turn: describe your day. Say three things you do every day.","answers":[{"t":"저는 매일 아침 커피를 마셔요.","tr":"I drink coffee every morning.","r":"jeoneun maeil achim keopireul masyeoyo."},{"t":"저녁에 운동해요.","tr":"I work out in the evening.","r":"jeonyeoge undonghaeyo."},{"t":"밤에 한국 드라마를 봐요.","tr":"At night I watch Korean dramas.","r":"bame hanguk deuramareul bwayo."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-go",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where you go and where you do things",
+      "summary": "Say where you're going and where things happen: “I'm going to the gym. I work out at the gym.”",
+      "topic": "{{에|e}} “to” (going) and “at, in” (being somewhere); {{에서|eseo}} “at, in” (doing something)",
+      "blocks": [
+        {"goal":{"t":"저는 도서관에 가요. 도서관에서 공부해요.","tr":"I'm going to the library. I study at the library.","r":"jeoneun doseogwane gayo. doseogwaneseo gongbuhaeyo."}},
+        {"dialog":[{"who":"Hana","t":"어디 가요?","tr":"Where are you going?","r":"eodi gayo?"},{"who":"You","t":"헬스장에 가요.","tr":"I'm going to the gym.","r":"helseujange gayo."},{"who":"Hana","t":"매일 헬스장에서 운동해요?","tr":"Do you work out at the gym every day?","r":"maeil helseujangeseo undonghaeyo?"},{"who":"You","t":"네. 하나 씨는 어디 가요?","tr":"Yes. Where are you going, Hana?","r":"ne. hana ssineun eodi gayo?"},{"who":"Hana","t":"저는 카페에 가요. 카페에서 친구를 만나요.","tr":"I'm going to a café. I'm meeting a friend at the café.","r":"jeoneun kapee gayo. kapeeseo chingureul mannayo."}]},
+        {"p":"**Two particles for places.** Korean asks a question English doesn't: is someone just going somewhere or being there, or is something being **done** there?"},
+        { "table": [
+          ["particle","used for","example"],
+          ["{{에|e}}","going and coming: “to”","{{학교에 가요|hakgyoe gayo}} I go to school"],
+          ["{{에|e}}","being somewhere: “at, in”","{{집에 있어요|jibe isseoyo}} I'm at home"],
+          ["{{에서|eseo}}","doing something somewhere: “at, in”","{{학교에서 공부해요|hakgyoeseo gongbuhaeyo}} I study at school"]
+        ] },
+        {"p":"**The test is the verb.** With {{가요|gayo}} “go”, {{와요|wayo}} “come”, {{있어요|isseoyo}} and {{없어요|eopseoyo}}, the place takes {{에|e}}. With an action ({{먹어요|meogeoyo}}, {{공부해요|gongbuhaeyo}}, {{일해요|ilhaeyo}}, {{만나요|mannayo}}…), the place where it happens takes {{에서|eseo}}. Each has one shape, after a consonant or a vowel."},
+        {"p":"**{{에서|eseo}} also means “from”.** {{어디에서 왔어요?|eodieseo wasseoyo?}} “Where are you from?” (word for word “where-from came?”) is how Koreans ask where you're from. The answer: {{미국에서 왔어요|migugeseo wasseoyo}} “I'm from America.” ({{왔어요|wasseoyo}} “came” is a past form: lesson 17.)"},
+        { "ex": [
+          {"t":"저는 회사에 가요.","tr":"I'm going to work.","note":"{{회사|hoesa}} “company, office”","r":"jeoneun hoesae gayo."},
+          {"t":"회사에서 일해요.","tr":"I work at the office.","r":"hoesaeseo ilhaeyo."},
+          {"t":"친구가 우리 집에 와요.","tr":"A friend is coming to my place.","r":"chinguga uri jibe wayo."},
+          {"t":"식당에서 점심을 먹어요.","tr":"I have lunch at a restaurant.","r":"sikdangeseo jeomsimeul meogeoyo."},
+          {"t":"지금 집에 있어요.","tr":"I'm at home now.","r":"jigeum jibe isseoyo."},
+          {"t":"공원에서 산책해요.","tr":"I go for a walk in the park.","r":"gongwoneseo sanchaekaeyo."},
+          {"t":"영국에서 왔어요.","tr":"I'm from the UK.","note":"word for word “I came from the UK”","r":"yeonggugeseo wasseoyo."}
+        ] },
+        {"tip":"{{어디 가요?|eodi gayo?}} “Where are you going?” is also a friendly greeting between neighbors and coworkers, like “Off somewhere?”. A short answer is enough: {{회사에 가요.|hoesae gayo.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"저는 도서관에서 가요.","right":"저는 도서관에 가요.","tr":"I'm going to the library.","why":"Going to a place: {{에|e}}."},
+        {"wrong":"카페에 친구를 만나요.","right":"카페에서 친구를 만나요.","tr":"I'm meeting a friend at a café.","why":"Meeting is an action done there: {{에서|eseo}}."},
+        {"wrong":"저는 집에서 있어요.","right":"저는 집에 있어요.","tr":"I'm at home.","why":"Just being there, with {{있어요|isseoyo}}: {{에|e}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which particle goes with a place where you do something, like eating or studying?","options":["{{에|e}}","{{에서|eseo}}"],"answer":1,"why":"Doing something there: {{에서|eseo}}."},
+        {"type":"fill","q":"Choose the missing particle.","t":"학교___ 가요.","tr":"I go to school.","options":["에","에서","를"],"answer":0,"why":"Going to a place: {{에|e}}."},
+        {"type":"fill","q":"Choose the missing particle.","t":"식당___ 점심을 먹어요.","tr":"I have lunch at a restaurant.","options":["에서","에"],"answer":0,"why":"Eating is an action: {{에서|eseo}}."},
+        {"type":"dialogue","q":"You meet a neighbor. Choose your replies.","from":"say-what-you-do","lines":[{"who":"Neighbor","t":"어디 가요?","tr":"Where are you going?","r":"eodi gayo?"},{"options":["시장에 가요.","시장에서 가요."],"answer":0,"why":"Going to a place: {{에|e}}."},{"who":"Neighbor","t":"시장에서 뭐 사요?","tr":"What are you buying at the market?","r":"sijangeseo mwo sayo?"},{"options":["과일을 사요.","과일을 사아요."],"answer":0,"why":"{{사|sa}} + {{아요|ayo}} → {{사요|sayo}}: the two {{ㅏ}} melt into one."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I work out at the gym.","words":["저는","헬스장에서","운동해요."]},
+        {"type":"say","q":"Ask a new friend: “Where are you from?” (word for word, “where-from came?”)","answer":"어디에서 왔어요?","r":"eodieseo wasseoyo?"},
+        {"type":"free","q":"Your turn: name two places you go every week, and say what you do there. Use {{에 가요|e gayo}} and {{에서|eseo}}.","answers":[{"t":"주말에 공원에 가요. 공원에서 산책해요.","tr":"At the weekend I go to the park. I take a walk in the park.","r":"jumare gongwone gayo. gongwoneseo sanchaekaeyo."},{"t":"매일 회사에 가요. 회사에서 일해요.","tr":"I go to the office every day. I work at the office.","r":"maeil hoesae gayo. hoesaeseo ilhaeyo."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-dont-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you don't do",
+      "summary": "Say no to things (“I don't eat meat”, “I don't drink”) and say what you only have.",
+      "topic": "{{안|an}} + verb; {{-지 않아요|-ji anayo}}; {{만|man}} “only”",
+      "blocks": [
+        {"goal":{"t":"저는 고기를 안 먹어요.","tr":"I don't eat meat.","r":"jeoneun gogireul an meogeoyo."}},
+        {"dialog":[{"who":"Server","t":"뭐 드릴까요?","tr":"What can I get you?","r":"mwo deurilkkayo?"},{"who":"You","t":"저는 고기를 안 먹어요. 비빔밥에 고기가 있어요?","tr":"I don't eat meat. Is there meat in the bibimbap?","r":"jeoneun gogireul an meogeoyo. bibimbabe gogiga isseoyo?"},{"who":"Server","t":"네, 있어요. 고기 빼 드릴까요?","tr":"Yes, there is. Shall I leave the meat out?","r":"ne, isseoyo. gogi ppae deurilkkayo?"},{"who":"You","t":"네, 감사합니다. 그리고 저는 술을 안 마셔요. 물만 주세요.","tr":"Yes, thank you. And I don't drink alcohol. Just water, please.","r":"ne, gamsahamnida. geurigo jeoneun sureul an masyeoyo. mulman juseyo."}]},
+        {"p":"**Put {{안|an}} before the verb.** {{먹어요|meogeoyo}} “I eat” → {{안 먹어요|an meogeoyo}} “I don't eat”. That's all: the verb keeps its ending, and {{안|an}} comes right before it."},
+        {"p":"**Noun + {{하다|hada}} verbs** put {{안|an}} between the two parts: {{공부해요|gongbuhaeyo}} → {{공부 안 해요|gongbu an haeyo}} “I don't study”, {{운동해요|undonghaeyo}} → {{운동 안 해요|undong an haeyo}} “I don't work out”."},
+        {"p":"**The longer way: {{-지 않아요|-ji anayo}}.** Stem + {{-지 않아요|-ji anayo}} means the same: {{먹지 않아요|meokji anayo}} “I don't eat”. It sounds a little more careful and is common in writing; in conversation {{안|an}} is more usual. Both are polite."},
+        { "table": [
+          ["","short, with {{안|an}}","long, with {{-지 않아요|-ji anayo}}"],
+          ["{{가요|gayo}} I go","{{안 가요|an gayo}}","{{가지 않아요|gaji anayo}}"],
+          ["{{먹어요|meogeoyo}} I eat","{{안 먹어요|an meogeoyo}}","{{먹지 않아요|meokji anayo}}"],
+          ["{{마셔요|masyeoyo}} I drink","{{안 마셔요|an masyeoyo}}","{{마시지 않아요|masiji anayo}}"],
+          ["{{운동해요|undonghaeyo}} I work out","{{운동 안 해요|undong an haeyo}}","{{운동하지 않아요|undonghaji anayo}}"]
+        ] },
+        {"p":"**Only: {{만|man}}.** {{만|man}} after a noun means “only, just”: {{물만 주세요|mulman juseyo}} “Just water, please.” With an object, it takes the place of {{을|eul}}/{{를|reul}}: {{채소만 먹어요|chaesoman meogeoyo}} “I only eat vegetables.”"},
+        { "ex": [
+          {"t":"저는 술을 안 마셔요.","tr":"I don't drink alcohol.","r":"jeoneun sureul an masyeoyo."},
+          {"t":"오늘은 회사에 안 가요.","tr":"I'm not going to work today.","r":"oneureun hoesae an gayo."},
+          {"t":"동생은 운동 안 해요.","tr":"My younger sibling doesn't work out.","r":"dongsaengeun undong an haeyo."},
+          {"t":"저는 아침을 안 먹어요.","tr":"I don't eat breakfast.","note":"{{아침|achim}} is both “morning” and “breakfast”","r":"jeoneun achimeul an meogeoyo."},
+          {"t":"주말에는 일하지 않아요.","tr":"I don't work at weekends.","r":"jumareneun ilhaji anayo."},
+          {"t":"저는 주스만 마셔요.","tr":"I only drink juice.","r":"jeoneun juseuman masyeoyo."},
+          {"t":"고기는 안 먹어요. 생선은 먹어요.","tr":"Meat, I don't eat. Fish, I do.","r":"gogineun an meogeoyo. saengseoneun meogeoyo."}
+        ] },
+        {"tip":"Look at the last example: {{고기는|gogineun}}, {{생선은|saengseoneun}}. When you contrast two things (this, but not that), Koreans mark them with {{은|eun}}/{{는|neun}} instead of {{을|eul}}/{{를|reul}}. Lesson 10 shows more of this."}
+      ],
+      "mistakes": [
+        {"wrong":"저는 안 공부해요.","right":"저는 공부 안 해요.","tr":"I don't study.","why":"With a noun + {{하다|hada}} verb, {{안|an}} goes just before {{해요|haeyo}}."},
+        {"wrong":"저는 고기를 먹어요 안.","right":"저는 고기를 안 먹어요.","tr":"I don't eat meat.","why":"{{안|an}} comes right before the verb, never after it."},
+        {"wrong":"물을만 주세요.","right":"물만 주세요.","tr":"Just water, please.","why":"{{만|man}} takes the place of {{을|eul}}/{{를|reul}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I don't work out” is…","options":["{{안 운동해요.|an undonghaeyo.}}","{{운동 안 해요.|undong an haeyo.}}","{{운동해요 안.|undonghaeyo an.}}"],"answer":1,"why":"{{안|an}} goes between {{운동|undong}} and {{해요|haeyo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"저는 커피를 ___ 마셔요.","tr":"I don't drink coffee.","options":["안","만"],"answer":0,"why":"“Not”: {{안|an}}, just before the verb."},
+        {"type":"fill","q":"Choose the missing word.","t":"물___ 주세요.","tr":"Just water, please.","options":["만","을","안"],"answer":0,"why":"“Only, just”: {{만|man}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I don't eat breakfast.","words":["저는","아침을","안","먹어요."]},
+        {"type":"dialogue","q":"A coworker asks about tomorrow. Choose your replies.","from":"say-where-you-go","lines":[{"who":"Coworker","t":"내일 회사에 와요?","tr":"Are you coming to the office tomorrow?","r":"naeil hoesae wayo?"},{"options":["아니요, 내일은 안 가요.","아니요, 내일은 가요 안."],"answer":0,"why":"{{안|an}} comes before the verb."},{"who":"Coworker","t":"아, 집에서 일해요?","tr":"Oh, are you working from home?","r":"a, jibeseo ilhaeyo?"},{"options":["네, 집에서 일해요.","네, 집에 일해요."],"answer":0,"why":"Working is an action: the place takes {{에서|eseo}}."}]},
+        {"type":"say","q":"Say: “I don't drink alcohol.” ({{술|sul}} “alcohol”)","answer":"저는 술을 안 마셔요.","r":"jeoneun sureul an masyeoyo."},
+        {"type":"free","q":"Your turn: say two things you don't do, and one thing you only do. Use {{안|an}} and {{만|man}}.","answers":[{"t":"저는 고기를 안 먹어요. 채소만 먹어요.","tr":"I don't eat meat. I only eat vegetables.","r":"jeoneun gogireul an meogeoyo. chaesoman meogeoyo."},{"t":"주말에는 일 안 해요. 집에서 쉬어요.","tr":"I don't work at weekends. I rest at home.","r":"jumareneun il an haeyo. jibeseo swieoyo."},{"t":"저는 술을 안 마셔요. 물만 마셔요.","tr":"I don't drink alcohol. I only drink water.","r":"jeoneun sureul an masyeoyo. mulman masyeoyo."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you like, and what others like",
+      "summary": "Say what you like and don't like, say “me too!”, and compare yourself with someone else.",
+      "topic": "{{좋아해요|joahaeyo}} (with {{을|eul}}/{{를|reul}}) and {{좋아요|joayo}} (with {{이|i}}/{{가|ga}}); {{싫어해요|sireohaeyo}}; {{도|do}} “too”; {{은|eun}}/{{는|neun}} for contrast",
+      "blocks": [
+        {"goal":{"t":"저는 한국 드라마를 좋아해요.","tr":"I like Korean dramas.","r":"jeoneun hanguk deuramareul joahaeyo."}},
+        {"dialog":[{"who":"Minho","t":"사라 씨는 한국 음식을 좋아해요?","tr":"Sarah, do you like Korean food?","r":"sara ssineun hanguk eumsigeul joahaeyo?"},{"who":"Sarah","t":"네, 좋아해요! 김치찌개를 정말 좋아해요.","tr":"Yes, I do! I really like kimchi stew.","r":"ne, joahaeyo! gimchijjigaereul jeongmal joahaeyo."},{"who":"Minho","t":"저도 김치찌개를 좋아해요. 삼계탕은요?","tr":"I like kimchi stew too. What about samgyetang?","r":"jeodo gimchijjigaereul joahaeyo. samgyetangeunyo?"},{"who":"Sarah","t":"삼계탕은 별로 안 좋아해요.","tr":"Samgyetang, I don't really like.","r":"samgyetangeun byeollo an joahaeyo."},{"who":"Minho","t":"아, 그래요? 저는 삼계탕이 정말 좋아요!","tr":"Oh, really? I love samgyetang!","r":"a, geuraeyo? jeoneun samgyetangi jeongmal joayo!"}]},
+        {"p":"**Two ways to say “like”.** {{좋아해요|joahaeyo}} (from {{좋아하다|joahada}}) is “like” as an action: what you like is its object, with {{을|eul}}/{{를|reul}}: {{김치를 좋아해요|gimchireul joahaeyo}}. {{좋아요|joayo}} (from {{좋다|jota}} “to be good”) is “it's good (to me)”: the thing is its subject, with {{이|i}}/{{가|ga}}: {{김치가 좋아요|gimchiga joayo}}. Both mean “I like kimchi”. {{좋아해요|joahaeyo}} is the safe one, and the only one for talking about other people."},
+        { "table": [
+          ["","the thing takes…","example"],
+          ["{{좋아해요|joahaeyo}} like","{{을|eul}}/{{를|reul}}","{{저는 커피를 좋아해요.|jeoneun keopireul joahaeyo.}}"],
+          ["{{좋아요|joayo}} it's good, I like","{{이|i}}/{{가|ga}}","{{저는 커피가 좋아요.|jeoneun keopiga joayo.}}"],
+          ["{{싫어해요|sireohaeyo}} dislike","{{을|eul}}/{{를|reul}}","{{저는 비를 싫어해요.|jeoneun bireul sireohaeyo.}}"],
+          ["{{싫어요|sireoyo}} I don't like it, I don't want it","{{이|i}}/{{가|ga}}","{{저는 비가 싫어요.|jeoneun biga sireoyo.}}"]
+        ] },
+        {"p":"**Me too: {{도|do}}.** {{도|do}} means “too, also”, and it **takes the place of** {{은|eun}}/{{는|neun}}, {{이|i}}/{{가|ga}} or {{을|eul}}/{{를|reul}}: {{저도 좋아해요|jeodo joahaeyo}} “I like it too”, {{김치도 좋아해요|gimchido joahaeyo}} “I like kimchi too”. On its own: {{저도요!|jeodoyo!}} “Me too!”."},
+        {"p":"**Contrast: {{은|eun}}/{{는|neun}}.** When you compare, {{은|eun}}/{{는|neun}} marks each side: {{저는 커피를 좋아해요. 동생은 차를 좋아해요.|jeoneun keopireul joahaeyo. dongsaengeun chareul joahaeyo.}} “I like coffee; my younger sibling likes tea.” This is the second big job of {{은|eun}}/{{는|neun}}, after marking the topic: “X, as opposed to others”. Sarah's {{삼계탕은 별로 안 좋아해요|samgyetangeun byeollo an joahaeyo}} is one too: samgyetang, unlike kimchi stew."},
+        { "ex": [
+          {"t":"저는 고양이를 좋아해요.","tr":"I like cats.","r":"jeoneun goyangireul joahaeyo."},
+          {"t":"우리 엄마는 꽃을 정말 좋아해요.","tr":"My mom really likes flowers.","r":"uri eommaneun kkocheul jeongmal joahaeyo."},
+          {"t":"저는 여름이 좋아요.","tr":"I like summer.","r":"jeoneun yeoreumi joayo."},
+          {"t":"저도 여름을 좋아해요.","tr":"I like summer too.","r":"jeodo yeoreumeul joahaeyo."},
+          {"t":"동생은 수학을 싫어해요.","tr":"My younger sibling hates math.","r":"dongsaengeun suhageul sireohaeyo."},
+          {"t":"저는 운동을 별로 안 좋아해요.","tr":"I don't really like exercise.","note":"{{별로 안|byeollo an}} “not really”: softer than {{싫어해요|sireohaeyo}}","r":"jeoneun undongeul byeollo an joahaeyo."}
+        ] },
+        {"tip":"{{싫어요|sireoyo}} is strong (“I don't like it”, “No!”). To be polite about food someone offers you, {{별로 안 좋아해요|byeollo an joahaeyo}} “I don't really like it” or simply {{괜찮아요|gwaenchanayo}} “I'm fine, thanks” is kinder."}
+      ],
+      "mistakes": [
+        {"wrong":"저는 커피가 좋아해요.","right":"저는 커피를 좋아해요.","tr":"I like coffee.","why":"{{좋아해요|joahaeyo}} takes an object: {{을|eul}}/{{를|reul}}. ({{커피가 좋아요|keopiga joayo}} is right too.)"},
+        {"wrong":"저는도 좋아해요.","right":"저도 좋아해요.","tr":"I like it too.","why":"{{도|do}} takes the place of {{는|neun}}: {{저도|jeodo}}."},
+        {"wrong":"제 친구는 축구가 좋아요.","right":"제 친구는 축구를 좋아해요.","tr":"My friend likes soccer.","why":"For other people, use {{좋아해요|joahaeyo}}: {{좋아요|joayo}} says how something feels to you."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend says {{저는 고양이를 좋아해요|jeoneun goyangireul joahaeyo}}. You like cats too. You say…","options":["{{저도요!|jeodoyo!}}","{{저는요!|jeoneunyo!}}","{{저가요!|jeogayo!}}"],"answer":0,"why":"“Me too”: {{저도요|jeodoyo}}. ({{저는요?|jeoneunyo?}} would be “what about me?”)"},
+        {"type":"fill","q":"Choose the missing particle.","t":"저는 비빔밥___ 좋아해요.","tr":"I like bibimbap.","options":["을","이"],"answer":0,"why":"{{좋아해요|joahaeyo}} takes an object: {{을|eul}} after a consonant."},
+        {"type":"fill","q":"Choose the missing particle.","t":"저는 여름___ 좋아요.","tr":"I like summer.","options":["이","을"],"answer":0,"why":"{{좋아요|joayo}} “is good”: summer is the subject, so {{이|i}}."},
+        {"type":"dialogue","q":"Talking about drinks. Choose your replies.","from":"say-what-you-dont-do","lines":[{"who":"Minji","t":"저는 커피를 정말 좋아해요. 마크 씨는요?","tr":"I really like coffee. What about you, Mark?","r":"jeoneun keopireul jeongmal joahaeyo. makeu ssineunyo?"},{"options":["저도 커피를 좋아해요.","저는도 커피를 좋아해요."],"answer":0,"why":"“Me too”: {{저도|jeodo}}."},{"who":"Minji","t":"차도 좋아해요?","tr":"Do you like tea too?","r":"chado joahaeyo?"},{"options":["아니요, 차는 별로 안 좋아해요.","아니요, 차는 안 별로 좋아해요."],"answer":0,"why":"{{별로 안|byeollo an}} “not really”, with {{안|an}} just before the verb."}]},
+        {"type":"order","q":"Put the words in order.","tr":"My younger sibling hates math.","words":["동생은","수학을","싫어해요."]},
+        {"type":"say","q":"Say: “I like Korean dramas.”","answer":"저는 한국 드라마를 좋아해요.","r":"jeoneun hanguk deuramareul joahaeyo."},
+        {"type":"free","q":"Your turn: say something you like, something you don't really like, and something someone in your family likes.","answers":[{"t":"저는 커피를 좋아해요. 운동은 별로 안 좋아해요. 우리 아빠는 축구를 좋아해요.","tr":"I like coffee. Exercise, I don't really like. My dad likes soccer.","r":"jeoneun keopireul joahaeyo. undongeun byeollo an joahaeyo. uri appaneun chukgureul joahaeyo."},{"t":"저는 여름이 좋아요. 겨울은 싫어요. 동생은 겨울을 좋아해요.","tr":"I like summer. I don't like winter. My younger sibling likes winter.","r":"jeoneun yeoreumi joayo. gyeoureun sireoyo. dongsaengeun gyeoureul joahaeyo."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask who, what, where, when and why",
+      "summary": "Ask real questions: who's coming, what you're eating, where and when you're meeting, and why.",
+      "topic": "question words {{누구|nugu}}, {{뭐|mwo}}, {{어디|eodi}}, {{언제|eonje}}, {{왜|wae}}, {{어떻게|eotteoke}}, {{무슨|museun}}, {{어느|eoneu}}; {{누가|nuga}} “who” as the subject",
+      "blocks": [
+        {"goal":{"t":"언제 한국에 가요?","tr":"When are you going to Korea?","r":"eonje hanguge gayo?"}},
+        {"dialog":[{"who":"Junho","t":"내일 누가 와요?","tr":"Who's coming tomorrow?","r":"naeil nuga wayo?"},{"who":"You","t":"민지 씨가 와요.","tr":"Minji is coming.","r":"minji ssiga wayo."},{"who":"Junho","t":"어디에서 만나요?","tr":"Where are we meeting?","r":"eodieseo mannayo?"},{"who":"You","t":"강남에서 만나요.","tr":"We're meeting in Gangnam.","r":"gangnameseo mannayo."},{"who":"Junho","t":"왜 강남에서 만나요?","tr":"Why in Gangnam?","r":"wae gangnameseo mannayo?"},{"who":"You","t":"민지 씨 회사가 강남에 있어요.","tr":"Minji's office is in Gangnam.","r":"minji ssi hoesaga gangname isseoyo."}]},
+        {"p":"**The question word stays where the answer goes.** English moves question words to the front (“What do you eat?”); Korean leaves them where the answer will be: {{뭐 먹어요?|mwo meogeoyo?}} “what eat?” → {{김밥 먹어요|gimbap meogeoyo}} “gimbap eat”. The verb stays last, with the same ending as an ordinary sentence."},
+        { "table": [
+          ["question word","meaning","example"],
+          ["{{누구|nugu}}","who","{{저 사람은 누구예요?|jeo sarameun nuguyeyo?}} Who's that?"],
+          ["{{누가|nuga}}","who (as the subject)","{{누가 와요?|nuga wayo?}} Who's coming?"],
+          ["{{뭐|mwo}}","what","{{뭐 먹어요?|mwo meogeoyo?}} What are you eating?"],
+          ["{{어디|eodi}}","where","{{어디에서 만나요?|eodieseo mannayo?}} Where are we meeting?"],
+          ["{{언제|eonje}}","when","{{언제 와요?|eonje wayo?}} When are you coming?"],
+          ["{{왜|wae}}","why","{{왜 한국어를 배워요?|wae hangugeoreul baewoyo?}} Why are you learning Korean?"],
+          ["{{어떻게|eotteoke}}","how","{{어떻게 가요?|eotteoke gayo?}} How do you get there?"]
+        ] },
+        {"p":"**Who: {{누구|nugu}} or {{누가|nuga}}?** When “who” is the subject, the one doing something, it's {{누가|nuga}}: {{누구|nugu}} + {{가|ga}}, shortened. {{누가 와요?|nuga wayo?}} “Who's coming?”. The answer takes {{이|i}}/{{가|ga}} too: {{민지 씨가 와요|minji ssiga wayo}}. Question words, and the answers to them, are **new information**, and new information takes {{이|i}}/{{가|ga}}, not {{은|eun}}/{{는|neun}}."},
+        {"p":"**What kind, which.** {{무슨|museun}} “what (kind of)” and {{어느|eoneu}} “which” go before a noun: {{무슨 음식을 좋아해요?|museun eumsigeul joahaeyo?}} “What food do you like?”, {{어느 나라 사람이에요?|eoneu nara saramieyo?}} “Which country are you from?” (which country person-are)."},
+        { "ex": [
+          {"t":"이름이 뭐예요?","tr":"What's your name?","r":"ireumi mwoyeyo?"},
+          {"t":"어느 나라 사람이에요?","tr":"Which country are you from?","r":"eoneu nara saramieyo?"},
+          {"t":"무슨 음식을 좋아해요?","tr":"What kind of food do you like?","r":"museun eumsigeul joahaeyo?"},
+          {"t":"왜 한국어를 배워요?","tr":"Why are you learning Korean?","r":"wae hangugeoreul baewoyo?"},
+          {"t":"누가 김치찌개를 먹어요?","tr":"Who's having the kimchi stew?","r":"nuga gimchijjigaereul meogeoyo?"},
+          {"t":"언제 시간이 있어요?","tr":"When are you free?","r":"eonje sigani isseoyo?"}
+        ] },
+        {"tip":"In speech, {{뭐|mwo}} and {{어디|eodi}} usually drop their particles: {{뭐 해요?|mwo haeyo?}}, {{어디 가요?|eodi gayo?}}. {{뭐를|mworeul}} often shortens to {{뭘|mwol}}: {{뭘 먹어요?|mwol meogeoyo?}}."}
+      ],
+      "mistakes": [
+        {"wrong":"누구가 와요?","right":"누가 와요?","tr":"Who's coming?","why":"{{누구|nugu}} + {{가|ga}} shortens to {{누가|nuga}}."},
+        {"wrong":"뭐 음식을 좋아해요?","right":"무슨 음식을 좋아해요?","tr":"What kind of food do you like?","why":"Before a noun, “what” is {{무슨|museun}}; {{뭐|mwo}} stands alone."},
+        {"wrong":"어디에 공부해요?","right":"어디에서 공부해요?","tr":"Where do you study?","why":"Studying is an action: where it happens takes {{에서|eseo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{누가 와요?|nuga wayo?}} The most natural answer is…","options":["{{민지 씨가 와요.|minji ssiga wayo.}}","{{민지 씨는 와요.|minji ssineun wayo.}}","{{민지 씨를 와요.|minji ssireul wayo.}}"],"answer":0,"why":"The answer to “who?” is new information: {{이|i}}/{{가|ga}}. With {{는|neun}}, it would sound like “Minji, at least, is coming”."},
+        {"type":"fill","q":"Choose the question word.","t":"___ 음식을 좋아해요?","tr":"What kind of food do you like?","options":["무슨","뭐","누구"],"answer":0,"why":"Before a noun: {{무슨|museun}}."},
+        {"type":"fill","q":"Choose the question word.","t":"___ 와요?","tr":"Who's coming?","options":["누가","누구가","누구를"],"answer":0,"why":"“Who” as the subject: {{누가|nuga}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Why are you learning Korean?","words":["왜","한국어를","배워요?"]},
+        {"type":"dialogue","q":"A coworker invites you to lunch. Choose your replies.","from":"say-where-you-go","lines":[{"who":"Yuna","t":"내일 시간 있어요? 같이 점심 먹어요.","tr":"Are you free tomorrow? Let's have lunch together.","r":"naeil sigan isseoyo? gachi jeomsim meogeoyo."},{"options":["좋아요! 어디에서 먹어요?","좋아요! 어디에 먹어요?"],"answer":0,"why":"Eating is an action: {{어디에서|eodieseo}}."},{"who":"Yuna","t":"회사 앞 식당에서 먹어요.","tr":"Let's eat at the restaurant in front of the office.","r":"hoesa ap sikdangeseo meogeoyo."},{"options":["언제 만나요?","누가 만나요?"],"answer":0,"why":"You want to know when: {{언제|eonje}}."},{"who":"Yuna","t":"열두 시에 만나요.","tr":"Let's meet at twelve.","r":"yeoldu sie mannayo."}]},
+        {"type":"say","q":"Ask a new friend: “What kind of music do you like?” ({{음악|eumak}} “music”)","answer":"무슨 음악을 좋아해요?","from":"say-what-you-like","r":"museun eumageul joahaeyo?"},
+        {"type":"free","q":"Your turn: ask a new Korean friend three questions, each with a different question word.","answers":[{"t":"이름이 뭐예요?","tr":"What's your name?","r":"ireumi mwoyeyo?"},{"t":"어디에 살아요?","tr":"Where do you live?","r":"eodie sarayo?"},{"t":"주말에 보통 뭐 해요?","tr":"What do you usually do at the weekend?","r":"jumare botong mwo haeyo?"}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Describe people and things",
+      "summary": "Say what things are like: big, cheap, delicious, spicy, busy. In Korean, these words work like verbs.",
+      "topic": "descriptive verbs; {{아주|aju}}, {{정말|jeongmal}}, {{너무|neomu}}, {{좀|jom}}; the dropped {{ㅡ}} ({{커요|keoyo}}, {{바빠요|bappayo}}) and the {{ㅂ}} that becomes {{우|u}} ({{매워요|maewoyo}})",
+      "blocks": [
+        {"goal":{"t":"이 떡볶이는 정말 맛있어요. 좀 매워요.","tr":"This tteokbokki is really good. It's a bit spicy.","r":"i tteokbokkineun jeongmal masisseoyo. jom maewoyo."}},
+        {"dialog":[{"who":"Friend","t":"떡볶이 어때요?","tr":"How's the tteokbokki?","r":"tteokbokki eottaeyo?"},{"who":"You","t":"정말 맛있어요! 그런데 좀 매워요.","tr":"It's really good! But it's a bit spicy.","r":"jeongmal masisseoyo! geureonde jom maewoyo."},{"who":"Friend","t":"물 마셔요.","tr":"Have some water.","r":"mul masyeoyo."},{"who":"You","t":"고마워요. 이 식당은 비싸요?","tr":"Thanks. Is this restaurant expensive?","r":"gomawoyo. i sikdangeun bissayo?"},{"who":"Friend","t":"아니요, 안 비싸요. 여기 진짜 싸요.","tr":"No, it isn't. It's really cheap here.","r":"aniyo, an bissayo. yeogi jinjja ssayo."}]},
+        {"p":"**Describing words are verbs.** In Korean, “expensive”, “big”, “delicious” are verbs: {{비싸다|bissada}} means “to be expensive”. So there's no {{이에요|ieyo}}: {{비싸요|bissayo}} alone is “it's expensive”. They take the same endings as action verbs: {{-아요|-ayo}}/{{-어요|-eoyo}}, {{안|an}}, the rising voice for a question."},
+        {"term":"descriptive verb","means":"a Korean verb that describes, like {{크다|keuda}} “to be big” or {{좋다|jota}} “to be good”. English uses an adjective with “is”; Korean uses one verb."},
+        { "table": [
+          ["dictionary form","present","meaning"],
+          ["{{비싸다|bissada}}","{{비싸요|bissayo}}","it's expensive"],
+          ["{{싸다|ssada}}","{{싸요|ssayo}}","it's cheap"],
+          ["{{많다|manta}}","{{많아요|manayo}}","there's a lot, there are many"],
+          ["{{작다|jakda}}","{{작아요|jagayo}}","it's small"],
+          ["{{맛있다|masitda}}","{{맛있어요|masisseoyo}}","it's delicious"],
+          ["{{재미있다|jaemiitda}}","{{재미있어요|jaemiisseoyo}}","it's fun, interesting"]
+        ] },
+        {"p":"**What you describe** takes {{이|i}}/{{가|ga}}, or {{은|eun}}/{{는|neun}} when it's your topic: {{이 가방이 비싸요|i gabangi bissayo}} “this bag is expensive”, {{서울은 커요|seoureun keoyo}} “Seoul is big”. {{맛있어요|masisseoyo}} and {{재미있어요|jaemiisseoyo}} are “taste-exists” and “fun-exists”, so their opposites use {{없어요|eopseoyo}}: {{맛없어요|madeopseoyo}} “it doesn't taste good”, {{재미없어요|jaemieopseoyo}} “it's boring”."},
+        {"p":"**Two families that change shape.** A stem ending in {{ㅡ}} drops it, and takes {{-아요|-ayo}} or {{-어요|-eoyo}} by the vowel before: {{크다|keuda}} → {{커요|keoyo}}, {{바쁘다|bappeuda}} → {{바빠요|bappayo}}. And many stems ending in {{ㅂ}} turn it into {{우|u}}: {{맵다|maepda}} → {{매워요|maewoyo}}, {{춥다|chupda}} → {{추워요|chuwoyo}}."},
+        { "table": [
+          ["","dictionary form","present"],
+          ["{{ㅡ}} drops","{{크다|keuda}} to be big","{{커요|keoyo}}"],
+          ["{{ㅡ}} drops","{{바쁘다|bappeuda}} to be busy","{{바빠요|bappayo}}"],
+          ["{{ㅡ}} drops","{{아프다|apeuda}} to hurt, to be ill","{{아파요|apayo}}"],
+          ["{{ㅂ}} → {{우|u}}","{{맵다|maepda}} to be spicy","{{매워요|maewoyo}}"],
+          ["{{ㅂ}} → {{우|u}}","{{춥다|chupda}} to be cold","{{추워요|chuwoyo}}"],
+          ["{{ㅂ}} → {{우|u}}","{{어렵다|eoryeopda}} to be difficult","{{어려워요|eoryeowoyo}}"]
+        ] },
+        {"p":"**How much?** {{아주|aju}} and {{정말|jeongmal}} “very, really”, {{진짜|jinjja}} “really” (casual), {{좀|jom}} “a bit”, and {{너무|neomu}} “too”, which in everyday speech often just means “so”: {{너무 맛있어요!|neomu masisseoyo!}} “It's so good!”."},
+        { "ex": [
+          {"t":"이 가방은 너무 비싸요.","tr":"This bag is too expensive.","r":"i gabangeun neomu bissayo."},
+          {"t":"서울은 정말 커요.","tr":"Seoul is really big.","r":"seoureun jeongmal keoyo."},
+          {"t":"오늘 너무 추워요.","tr":"It's so cold today.","r":"oneul neomu chuwoyo."},
+          {"t":"한국어는 좀 어려워요.","tr":"Korean is a bit difficult.","r":"hangugeoneun jom eoryeowoyo."},
+          {"t":"이 영화는 정말 재미있어요.","tr":"This movie is really good.","r":"i yeonghwaneun jeongmal jaemiisseoyo."},
+          {"t":"저는 요즘 바빠요.","tr":"I'm busy these days.","r":"jeoneun yojeum bappayo."},
+          {"t":"머리가 아파요.","tr":"I have a headache.","note":"word for word “the head hurts”","r":"meoriga apayo."}
+        ] },
+        {"tip":"No “it” is needed for the weather: {{추워요|chuwoyo}} “it's cold”, {{더워요|deowoyo}} “it's hot” ({{덥다|deopda}}). And no “I”: {{배고파요|baegopayo}} “I'm hungry” ({{배고프다|baegopeuda}}, the {{ㅡ}} drops)."}
+      ],
+      "mistakes": [
+        {"wrong":"이 가방은 비싸이에요.","right":"이 가방은 비싸요.","tr":"This bag is expensive.","why":"{{비싸다|bissada}} is already a verb: no {{이에요|ieyo}}."},
+        {"wrong":"오늘 너무 춥어요.","right":"오늘 너무 추워요.","tr":"It's so cold today.","why":"{{춥다|chupda}} turns its {{ㅂ}} into {{우|u}}: {{추워요|chuwoyo}}."},
+        {"wrong":"저는 바쁘어요.","right":"저는 바빠요.","tr":"I'm busy.","why":"The {{ㅡ}} drops: {{바빠요|bappayo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“This movie is boring” is…","options":["{{이 영화는 재미있어요.|i yeonghwaneun jaemiisseoyo.}}","{{이 영화는 재미없어요.|i yeonghwaneun jaemieopseoyo.}}","{{이 영화는 재미가 아니에요.|i yeonghwaneun jaemiga anieyo.}}"],"answer":1,"why":"The opposite of {{재미있어요|jaemiisseoyo}} is {{재미없어요|jaemieopseoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"떡볶이가 너무 ___.","tr":"The tteokbokki is so spicy.","options":["매워요","맵어요","매우요"],"answer":0,"why":"{{맵다|maepda}}: the {{ㅂ}} becomes {{우|u}}, then {{-어요|-eoyo}}: {{매워요|maewoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"저는 요즘 ___.","tr":"I'm busy these days.","options":["바빠요","바쁘어요","바뻐요"],"answer":0,"why":"{{바쁘|bappeu}}: the {{ㅡ}} drops, and {{바|ba}} has {{ㅏ}}: {{바빠요|bappayo}}."},
+        {"type":"dialogue","q":"Shopping for a bag. Choose your replies.","from":"say-what-you-dont-do","lines":[{"who":"Clerk","t":"이 가방 어때요?","tr":"How about this bag?","r":"i gabang eottaeyo?"},{"options":["정말 예뻐요. 비싸요?","정말 예쁘어요. 비싸요?"],"answer":0,"why":"{{예쁘다|yeppeuda}} drops its {{ㅡ}}: {{예뻐요|yeppeoyo}}."},{"who":"Clerk","t":"아니요, 안 비싸요. 만 원이에요.","tr":"No, it isn't expensive. It's ten thousand won.","r":"aniyo, an bissayo. man wonieyo."},{"options":["와, 정말 싸요! 이거 주세요.","와, 정말 안 싸요! 이거 주세요."],"answer":0,"why":"About eight dollars for a bag is cheap: {{싸요|ssayo}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Korean is a bit difficult.","words":["한국어는","좀","어려워요."]},
+        {"type":"say","q":"Say: “It's so cold today!”","answer":"오늘 너무 추워요!","r":"oneul neomu chuwoyo!"},
+        {"type":"free","q":"Your turn: describe your city or your favorite food, with two describing verbs.","answers":[{"t":"우리 동네는 작아요. 그리고 조용해요.","tr":"My neighborhood is small. And it's quiet.","r":"uri dongneneun jagayo. geurigo joyonghaeyo."},{"t":"김치찌개는 정말 맛있어요. 좀 매워요.","tr":"Kimchi stew is really good. It's a bit spicy.","r":"gimchijjigaeneun jeongmal masisseoyo. jom maewoyo."}]}
+      ]
     }
   ]
 }
