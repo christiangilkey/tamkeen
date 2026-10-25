@@ -58,7 +58,7 @@ function rightTagalog(l) {
 }
 
 // The basics course writes these words this way; the grammar courses follow it.
-const SPELLINGS = [[/\bkamusta\b/i, "kumusta"], [/\bpuwede\b/i, "pwede"], [/\bkwento\b/i, "kuwento"]];
+const SPELLINGS = [[/\bkamusta\b/i, "kumusta"], [/\bpuwede/i, "pwede"], [/\bkwento\b/i, "kuwento"]];
 
 test("din/rin and daw/raw follow the sound before them", () => {
   assert.deepEqual(dinRinProblems("Ako rin. Pagod din ako. Masarap daw. Uuwi raw siya. Late daw siya. Maaari din."), []);
