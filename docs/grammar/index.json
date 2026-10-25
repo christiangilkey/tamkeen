@@ -30,6 +30,20 @@
    ],
    "bytes": 361159,
    "sha256": "576491f40747a6e01f91937ae63200f5983c98d19da97256d7913cc5da0a8d24"
+  },
+  "ja-en": {
+   "file": "ja-en/course.json",
+   "from": "ja",
+   "to": "en",
+   "title": "英語の文法",
+   "variety": "アメリカ英語",
+   "units": 8,
+   "lessons": 5,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 29029,
+   "sha256": "86dafac3154bdefd85f984f5dda9a75f463cd52a3ce400258033ab45648f5731"
   }
  }
 }
