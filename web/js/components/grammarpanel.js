@@ -82,7 +82,7 @@ export function grammarPanel(box, lang, choice) {
   const ask = (prompt) => askAi(prompt);
   const readingsOn = () => lsGet("grammar:readings") !== "off";
 
-  const target = (t, r) => `<span class="gt" ${attrs} translate="no" data-say="${esc(t)}">${esc(t)}</span>${r ? `<span class="gt-r" dir="ltr" translate="no">${esc(r)}</span>` : ""}`;
+  const target = (t, r) => `<span class="gt${t.length <= 24 ? " short" : ""}" ${attrs} translate="no" data-say="${esc(t)}">${esc(t)}</span>${r ? `<span class="gt-r" dir="ltr" translate="no">${esc(r)}</span>` : ""}`;
   const rich = (s) => richHtml(s, esc, target);
 
   async function load() {

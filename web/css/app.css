@@ -2006,3 +2006,6 @@ html.sel-sheets select { pointer-events: none; }
 .gm-wrong .gm-text { text-decoration: none; color: color-mix(in srgb, var(--danger) 75%, var(--text)); } /* (a line through would hide the vowel marks) */
 .gq .gq-opt { display: block; text-align: start; min-height: 44px; }
 .gq-options { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+.gt.short { white-space: nowrap; }
+.gb-table .gt-r { display: block; margin: 0; font-size: .85em; }
+.gb-table .gt-r::before, .gb-table .gt-r::after { content: none; }
