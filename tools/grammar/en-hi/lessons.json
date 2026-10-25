@@ -335,6 +335,302 @@
         {"type":"say","q":"Say: “These rooms are big.”","answer":"ये कमरे बड़े हैं।","r":"ye kamre baṛe haĩ.","from":"point-and-name"},
         {"type":"free","q":"Your turn: order several things at a market or a café, and say how many of each.","answers":[{"t":"मुझे छह केले और दो आम चाहिए।","r":"mujhe chhah kele aur do ām chāhie.","tr":"I'd like six bananas and two mangoes."},{"t":"चार चाय और चार समोसे दीजिए।","r":"chār chāy aur chār samose dījie.","tr":"Four teas and four samosas, please."}]}
       ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where things are",
+      "summary": "Ask “Where is…?” and say “on the table”, “in the bag”, “near the station”.",
+      "topic": "Postpositions after the noun: {{में|mẽ}}, {{पर|par}}, {{के पास|ke pās}}, {{के सामने|ke sāmne}}, {{के पीछे|ke pīchhe}}, {{के नीचे|ke nīche}}, {{के अंदर|ke andar}}; {{कहाँ|kahā̃}}",
+      "blocks": [
+        {"goal":{"t":"मेरी चाबी कहाँ है? — मेज़ पर है।","r":"merī chābī kahā̃ hai? — mez par hai.","tr":"Where's my key? — It's on the table."}},
+        {"dialog":[{"who":"Rohan","t":"माँ, मेरा फ़ोन कहाँ है?","r":"mā̃, merā fon kahā̃ hai?","tr":"Mom, where's my phone?"},{"who":"Mom","t":"मेज़ पर है।","r":"mez par hai.","tr":"It's on the table."},{"who":"Rohan","t":"नहीं, मेज़ पर नहीं है।","r":"nahī̃, mez par nahī̃ hai.","tr":"No, it's not on the table."},{"who":"Mom","t":"तो बैग में देखो!","r":"to baig mẽ dekho!","tr":"Then look in your bag!"},{"who":"Rohan","t":"हाँ, बैग में है। शुक्रिया!","r":"hā̃, baig mẽ hai. shukriyā!","tr":"Yes, it's in the bag. Thanks!"}]},
+        {"term":"postposition","means":"a little word that says where, when or how, like “in”, “on”, “from” in English, but placed after the noun: {{घर में|ghar mẽ}} “in the house”."},
+        {"p":"**After the noun.** English says “in the bag”; Hindi says “bag in”: {{बैग में|baig mẽ}}. Hindi's postpositions always come after their word: {{मेज़ पर|mez par}} “on the table”, {{दिल्ली से|dillī se}} “from Delhi” (lesson 1)."},
+        {"p":"**Where is it?** {{कहाँ|kahā̃}} “where” takes the place of the answer: {{चाबी कहाँ है?|chābī kahā̃ hai?}} → {{चाबी मेज़ पर है।|chābī mez par hai.}} When it's clear what you're talking about, the answer can be just {{मेज़ पर|mez par}}."},
+        { "table": [
+          ["","Hindi","example"],
+          ["in","{{में|mẽ}}","{{बैग में|baig mẽ}} in the bag"],
+          ["on, at","{{पर|par}}","{{मेज़ पर|mez par}} on the table"],
+          ["near","{{के पास|ke pās}}","{{स्टेशन के पास|sṭeshan ke pās}} near the station"],
+          ["in front of","{{के सामने|ke sāmne}}","{{होटल के सामने|hoṭal ke sāmne}} in front of the hotel"],
+          ["behind","{{के पीछे|ke pīchhe}}","{{घर के पीछे|ghar ke pīchhe}} behind the house"],
+          ["under","{{के नीचे|ke nīche}}","{{मेज़ के नीचे|mez ke nīche}} under the table"],
+          ["inside","{{के अंदर|ke andar}}","{{गाड़ी के अंदर|gāṛī ke andar}} inside the car"]
+        ] },
+        {"p":"**Two-word postpositions** start with {{के|ke}}: {{के पास|ke pās}}, {{के सामने|ke sāmne}}. The {{के|ke}} always stays: “near the station” is {{स्टेशन के पास|sṭeshan ke pās}}."},
+        { "ex": [
+          {"t":"चाबी बैग में है।","r":"chābī baig mẽ hai.","tr":"The key is in the bag."},
+          {"t":"किताब मेज़ पर है।","r":"kitāb mez par hai.","tr":"The book is on the table."},
+          {"t":"बैंक कहाँ है? — स्टेशन के पास।","r":"baiṅk kahā̃ hai? — sṭeshan ke pās.","tr":"Where's the bank? — Near the station."},
+          {"t":"बिल्ली बिस्तर के नीचे है।","r":"billī bistar ke nīche hai.","tr":"The cat is under the bed."},
+          {"t":"गाड़ी घर के सामने है।","r":"gāṛī ghar ke sāmne hai.","tr":"The car is in front of the house."},
+          {"t":"राहुल घर पर नहीं है।","r":"rāhul ghar par nahī̃ hai.","tr":"Rahul isn't at home.","note":"“at home” is {{घर पर|ghar par}}"},
+          {"t":"मैं दिल्ली में हूँ।","r":"maĩ dillī mẽ hū̃.","tr":"I'm in Delhi."}
+        ] },
+        {"tip":"{{पर|par}} is “on”, and also “at” for some places: {{घर पर|ghar par}} “at home”, {{काम पर|kām par}} “at work”. For a town or a country, “in” is {{में|mẽ}}: {{मुंबई में|mumbaī mẽ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"चाबी में बैग है।","right":"चाबी बैग में है।","tr":"The key is in the bag.","why":"The postposition comes after its noun: “bag in”."},
+        {"wrong":"बैंक स्टेशन पास है।","right":"बैंक स्टेशन के पास है।","tr":"The bank is near the station.","why":"{{के पास|ke pās}} keeps its {{के|ke}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the word for “on”: {{पर|par}}, {{में|mẽ}} or {{से|se}}?","t":"फ़ोन मेज़ ___ है।","tr":"The phone is on the table.","options":["पर","में","से"],"answer":0,"why":"“On” is {{पर|par}}."},
+        {"type":"choice","q":"How do you say “near the hotel”?","options":["{{होटल के पास|hoṭal ke pās}}","{{के पास होटल|ke pās hoṭal}}","{{पास होटल|pās hoṭal}}"],"answer":0,"why":"After the noun, with {{के|ke}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The cat is under the bed.","words":["बिल्ली","बिस्तर","के","नीचे","है।"]},
+        {"type":"dialogue","q":"You can't find your glasses. Choose your lines.","from":"ask-and-say-no","lines":[{"who":"Friend","t":"क्या चाहिए?","r":"kyā chāhie?","tr":"What do you need?"},{"options":["मेरा चश्मा कहाँ है?","मेरा चश्मा क्या है?"],"answer":0,"why":"“Where” is {{कहाँ|kahā̃}}."},{"who":"Friend","t":"बैग में नहीं है?","r":"baig mẽ nahī̃ hai?","tr":"Isn't it in your bag?"},{"options":["नहीं, बैग में नहीं है।","नहीं, में बैग नहीं है।"],"answer":0,"why":"{{में|mẽ}} after {{बैग|baig}}, and {{नहीं|nahī̃}} before the verb."},{"who":"Friend","t":"अरे, वह मेज़ के नीचे है!","r":"are, vah mez ke nīche hai!","tr":"Oh, it's under the table!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"आप कहाँ ___ हैं?","tr":"Where are you from?","options":["से","में","पर"],"answer":0,"why":"“From” is {{से|se}}, after the word it belongs to.","from":"say-who-you-are"},
+        {"type":"say","q":"Ask politely: “Where is the station?”","answer":"स्टेशन कहाँ है?","r":"sṭeshan kahā̃ hai?"},
+        {"type":"free","q":"Your turn: say where three things in your room are right now.","answers":[{"t":"मेरा फ़ोन मेज़ पर है।","r":"merā fon mez par hai.","tr":"My phone is on the table."},{"t":"किताबें बैग में हैं, और बिल्ली बिस्तर के नीचे है।","r":"kitābẽ baig mẽ haĩ, aur billī bistar ke nīche hai.","tr":"The books are in the bag, and the cat is under the bed."}]}
+      ]
+    },
+    {
+      "id": "around-town",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about places in town",
+      "summary": "Say “in the room”, “behind that door”, “with friends”: how Hindi words change before in, on and from.",
+      "topic": "The oblique form: {{कमरा → कमरे में|kamrā → kamre mẽ}}; plurals in {{-ओं|-õ}}; {{इस|is}}, {{उस|us}} “this, that”",
+      "blocks": [
+        {"goal":{"t":"मैं बड़े बाज़ार में हूँ, दोस्तों के साथ।","r":"maĩ baṛe bāzār mẽ hū̃, dostõ ke sāth.","tr":"I'm at the big market, with friends."}},
+        {"dialog":[{"who":"Guest","t":"मेरा कमरा कहाँ है?","r":"merā kamrā kahā̃ hai?","tr":"Where's my room?"},{"who":"Receptionist","t":"आपका कमरा दूसरी मंज़िल पर है।","r":"āpkā kamrā dūsrī manzil par hai.","tr":"Your room is on the second floor."},{"who":"Guest","t":"और नाश्ता?","r":"aur nāshtā?","tr":"And breakfast?"},{"who":"Receptionist","t":"नाश्ता नीचे, छोटे कमरे में है।","r":"nāshtā nīche, chhoṭe kamre mẽ hai.","tr":"Breakfast is downstairs, in the small room."},{"who":"Guest","t":"और लिफ़्ट?","r":"aur lifṭ?","tr":"And the elevator?"},{"who":"Receptionist","t":"लिफ़्ट उस दरवाज़े के पीछे है।","r":"lifṭ us darvāze ke pīchhe hai.","tr":"The elevator is behind that door."}]},
+        {"p":"Look at the receptionist's words: {{कमरा|kamrā}} “room” becomes {{कमरे में|kamre mẽ}} “in the room”, and {{दरवाज़ा|darvāzā}} “door” becomes {{दरवाज़े के पीछे|darvāze ke pīchhe}} “behind the door”. A word changes when a postposition comes after it."},
+        {"term":"oblique form","means":"the form a Hindi noun, adjective or pronoun takes before a postposition (in, on, from…): {{कमरा|kamrā}} “room”, but {{कमरे में|kamre mẽ}} “in the room”."},
+        {"p":"**Masculine nouns in {{-आ|-ā}}** change it to {{-ए|-e}} when a postposition follows: {{कमरे में|kamre mẽ}}, {{दरवाज़े पर|darvāze par}} “at the door”. Other nouns don't change in the singular: {{घर में|ghar mẽ}}, {{गाड़ी में|gāṛī mẽ}}, {{मेज़ पर|mez par}}."},
+        {"p":"**Adjectives and “this, that” follow.** An adjective in {{-आ|-ā}} also takes {{-ए|-e}} with a masculine noun: {{बड़ा बाज़ार|baṛā bāzār}} → {{बड़े बाज़ार में|baṛe bāzār mẽ}}. And {{यह|yah}}, {{वह|vah}} become {{इस|is}}, {{उस|us}}: {{उस दरवाज़े के पीछे|us darvāze ke pīchhe}} “behind that door”, {{इस शहर में|is shahar mẽ}} “in this city”."},
+        {"p":"**Plurals take {{-ओं|-õ}}.** Before a postposition, every plural noun ends in {{-ओं|-õ}}: {{दोस्तों के साथ|dostõ ke sāth}} “with friends”, {{कमरों में|kamrõ mẽ}} “in the rooms”, {{गाड़ियों में|gāṛiyõ mẽ}} “in the cars”. And {{ये|ye}}, {{वे|ve}} become {{इन|in}}, {{उन|un}}."},
+        { "table": [
+          ["","on its own","before a postposition"],
+          ["room","{{कमरा|kamrā}}","{{कमरे में|kamre mẽ}}"],
+          ["rooms","{{कमरे|kamre}}","{{कमरों में|kamrõ mẽ}}"],
+          ["house","{{घर|ghar}}","{{घर में|ghar mẽ}}"],
+          ["houses","{{घर|ghar}}","{{घरों में|gharõ mẽ}}"],
+          ["car","{{गाड़ी|gāṛī}}","{{गाड़ी में|gāṛī mẽ}}"],
+          ["cars","{{गाड़ियाँ|gāṛiyā̃}}","{{गाड़ियों में|gāṛiyõ mẽ}}"],
+          ["this, that","{{यह|yah}}, {{वह|vah}}","{{इस|is}}, {{उस|us}}"]
+        ] },
+        { "ex": [
+          {"t":"बच्चे कमरे में हैं।","r":"bachche kamre mẽ haĩ.","tr":"The children are in the room."},
+          {"t":"स्टेशन इस सड़क के आख़िर में है।","r":"sṭeshan is saṛak ke ākhir mẽ hai.","tr":"The station is at the end of this road."},
+          {"t":"हम दोस्तों के साथ हैं।","r":"ham dostõ ke sāth haĩ.","tr":"We're with friends."},
+          {"t":"मेरा बैग उस कुर्सी पर है।","r":"merā baig us kursī par hai.","tr":"My bag is on that chair."},
+          {"t":"पैसे उस लिफ़ाफ़े में हैं।","r":"paise us lifāfe mẽ haĩ.","tr":"The money is in that envelope.","note":"{{लिफ़ाफ़ा|lifāfā}} “envelope” → {{लिफ़ाफ़े में|lifāfe mẽ}}"},
+          {"t":"दुकान बड़े होटल के पास है।","r":"dukān baṛe hoṭal ke pās hai.","tr":"The shop is near the big hotel."}
+        ] },
+        {"tip":"This change comes back with every postposition you will learn, so it's worth getting used to now. A quick test: is there a {{में, पर, से, को|mẽ, par, se, ko}} or a {{के …|ke …}} after the word? Then a masculine {{-आ|-ā}} becomes {{-ए|-e}}, and a plural ends in {{-ओं|-õ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"बच्चे कमरा में हैं।","right":"बच्चे कमरे में हैं।","tr":"The children are in the room.","why":"Before {{में|mẽ}}, {{कमरा|kamrā}} becomes {{कमरे|kamre}}."},
+        {"wrong":"किताब वह मेज़ पर है।","right":"किताब उस मेज़ पर है।","tr":"The book is on that table.","why":"“That” before a postposition: {{उस|us}}."},
+        {"wrong":"हम दोस्त के साथ हैं।","right":"हम दोस्तों के साथ हैं।","tr":"We're with friends.","why":"Several friends, before a postposition: {{दोस्तों|dostõ}}. ({{दोस्त के साथ|dost ke sāth}} is “with a friend”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"बच्चे ___ में हैं।","tr":"The children are in the room.","options":["कमरे","कमरा","कमरों"],"answer":0,"why":"One room, before {{में|mẽ}}: {{कमरे|kamre}}."},
+        {"type":"fill","q":"Choose the right word for “that”.","t":"बैग ___ कुर्सी पर है।","tr":"The bag is on that chair.","options":["उस","वह","उन"],"answer":0,"why":"“That”, with one thing, before a postposition: {{उस|us}}."},
+        {"type":"choice","q":"“With friends” is…","options":["{{दोस्तों के साथ|dostõ ke sāth}}","{{दोस्त के साथ|dost ke sāth}}","{{दोस्तें के साथ|dostẽ ke sāth}}"],"answer":0,"why":"Plurals before a postposition end in {{-ओं|-õ}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The shop is near the big hotel.","words":["दुकान","बड़े","होटल","के","पास","है।"],"from":"say-where-things-are"},
+        {"type":"dialogue","q":"At a hotel: choose your questions.","from":"ask-and-say-no","lines":[{"who":"Receptionist","t":"आपका कमरा तीसरी मंज़िल पर है।","r":"āpkā kamrā tīsrī manzil par hai.","tr":"Your room is on the third floor."},{"options":["और नाश्ता कहाँ है?","और नाश्ता कौन है?"],"answer":0,"why":"Asking for a place: {{कहाँ|kahā̃}}."},{"who":"Receptionist","t":"नीचे, उस बड़े कमरे में।","r":"nīche, us baṛe kamre mẽ.","tr":"Downstairs, in that big room."},{"options":["और लिफ़्ट कहाँ है?","और लिफ़्ट कहाँ हैं?"],"answer":0,"why":"One elevator: {{है|hai}}."},{"who":"Receptionist","t":"उस दरवाज़े के पीछे।","r":"us darvāze ke pīchhe.","tr":"Behind that door."}]},
+        {"type":"say","q":"Say: “I'm in the big room.”","answer":"मैं बड़े कमरे में हूँ।","r":"maĩ baṛe kamre mẽ hū̃."},
+        {"type":"free","q":"Your turn: you're on the phone. Say where you are, and who you're with.","answers":[{"t":"मैं बड़े बाज़ार में हूँ, दोस्तों के साथ।","r":"maĩ baṛe bāzār mẽ hū̃, dostõ ke sāth.","tr":"I'm at the big market, with friends."},{"t":"मैं स्टेशन के पास एक छोटे ढाबे में हूँ।","r":"maĩ sṭeshan ke pās ek chhoṭe ḍhābe mẽ hū̃.","tr":"I'm at a little roadside restaurant near the station."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say whose it is, and talk about your family",
+      "summary": "Say “my brother”, “Priya's car”, “for you”, and how old someone is.",
+      "topic": "{{का / की / के|kā / kī / ke}} “'s, of”, which match the thing owned; {{मेरा|merā}}, {{आपका|āpkā}}, {{उसका|uskā}}…; {{मेरे साथ|mere sāth}}, {{आपके लिए|āpke lie}}; age",
+      "blocks": [
+        {"goal":{"t":"यह मेरी बहन है। उसका नाम मीरा है।","r":"yah merī bahan hai. uskā nām mīrā hai.","tr":"This is my sister. Her name is Meera."}},
+        {"dialog":[{"who":"Jake","t":"यह कौन है?","r":"yah kaun hai?","tr":"Who's this?"},{"who":"Neha","t":"यह मेरा भाई है, विक्रम।","r":"yah merā bhāī hai, vikram.","tr":"This is my brother, Vikram."},{"who":"Jake","t":"और यह लड़की?","r":"aur yah laṛkī?","tr":"And this girl?"},{"who":"Neha","t":"यह उसकी बेटी है। वह पाँच साल की है।","r":"yah uskī beṭī hai. vah pā̃ch sāl kī hai.","tr":"This is his daughter. She's five."},{"who":"Jake","t":"और ये आपके माता-पिता हैं?","r":"aur ye āpke mātā-pitā haĩ?","tr":"And are these your parents?"},{"who":"Neha","t":"जी हाँ, ये मेरे माता-पिता हैं।","r":"jī hā̃, ye mere mātā-pitā haĩ.","tr":"Yes, these are my parents."}]},
+        {"p":"**'s and of.** {{का|kā}} works like English “'s”: {{प्रिया का घर|priyā kā ghar}} “Priya's house”. It is a postposition, so it comes after the owner. And it changes to match the **thing owned**, like an adjective in {{-आ|-ā}}:"},
+        { "table": [
+          ["the thing owned","","example"],
+          ["masculine","{{का|kā}}","{{राहुल का भाई|rāhul kā bhāī}} Rahul's brother"],
+          ["feminine","{{की|kī}}","{{राहुल की बहन|rāhul kī bahan}} Rahul's sister"],
+          ["masculine plural, or before a postposition","{{के|ke}}","{{राहुल के दोस्त|rāhul ke dost}} Rahul's friends"]
+        ] },
+        {"p":"**My, your, his.** The words for “my”, “your” and so on change in the same way: {{मेरा भाई|merā bhāī}} “my brother”, {{मेरी बहन|merī bahan}} “my sister”, {{मेरे दोस्त|mere dost}} “my friends”."},
+        { "table": [
+          ["","masculine","feminine","plural, or before a postposition"],
+          ["my","{{मेरा|merā}}","{{मेरी|merī}}","{{मेरे|mere}}"],
+          ["your ({{आप|āp}})","{{आपका|āpkā}}","{{आपकी|āpkī}}","{{आपके|āpke}}"],
+          ["your ({{तुम|tum}})","{{तुम्हारा|tumhārā}}","{{तुम्हारी|tumhārī}}","{{तुम्हारे|tumhāre}}"],
+          ["his, her","{{उसका|uskā}}","{{उसकी|uskī}}","{{उसके|uske}}"],
+          ["our","{{हमारा|hamārā}}","{{हमारी|hamārī}}","{{हमारे|hamāre}}"],
+          ["their","{{उनका|unkā}}","{{उनकी|unkī}}","{{उनके|unke}}"]
+        ] },
+        {"p":"**His or her?** {{उसका|uskā}} is both “his” and “her”: its ending tells you about the thing, not the owner. {{उसकी बहन|uskī bahan}} is “his sister” or “her sister”; {{उसका भाई|uskā bhāī}} is “his brother” or “her brother”. This is the opposite of English, so take your time with it."},
+        {"p":"**With me, for you.** Two-word postpositions start with {{के|ke}}, so with a pronoun they take the {{-ए|-e}} form: {{मेरे साथ|mere sāth}} “with me”, {{आपके लिए|āpke lie}} “for you”, {{उसके पास|uske pās}} “near him, near her”."},
+        {"p":"**Respect for elders.** Hindi speakers talk about parents, grandparents and teachers in the plural, as a mark of respect: {{मेरे पिता डॉक्टर हैं|mere pitā ḍôkṭar haĩ}} “My father is a doctor”, with {{मेरे|mere}} and {{हैं|haĩ}}, though it is one father."},
+        {"p":"**How old?** Age is said with {{का|kā}} too: {{मैं तीस साल का हूँ|maĩ tīs sāl kā hū̃}} “I'm thirty” (a man), {{मैं तीस साल की हूँ|maĩ tīs sāl kī hū̃}} (a woman), word for word “I am of thirty years”."},
+        { "ex": [
+          {"t":"यह मेरे दोस्त का घर है।","r":"yah mere dost kā ghar hai.","tr":"This is my friend's house.","note":"{{मेरे|mere}}: before a postposition ({{का|kā}}), {{मेरा|merā}} takes {{-ए|-e}}"},
+          {"t":"आपका नाम क्या है?","r":"āpkā nām kyā hai?","tr":"What's your name?"},
+          {"t":"उसकी गाड़ी नई है।","r":"uskī gāṛī naī hai.","tr":"His (or her) car is new."},
+          {"t":"यह तोहफ़ा आपके लिए है।","r":"yah tohfā āpke lie hai.","tr":"This gift is for you."},
+          {"t":"मेरी माँ टीचर हैं।","r":"merī mā̃ ṭīchar haĩ.","tr":"My mother is a teacher.","note":"{{हैं|haĩ}}: respect"},
+          {"t":"मेरा बेटा सात साल का है।","r":"merā beṭā sāt sāl kā hai.","tr":"My son is seven."}
+        ] },
+        {"tip":"{{तू|tū}} has its own “your”: {{तेरा|terā}}, {{तेरी|terī}}, {{तेरे|tere}}. And a few family words in {{-आ|-ā}} never take {{-ए|-e}}: {{पिता|pitā}} “father”, {{चाचा|chāchā}} “uncle”, {{दादा|dādā}} “grandfather”."}
+      ],
+      "mistakes": [
+        {"wrong":"यह राहुल की भाई है।","right":"यह राहुल का भाई है।","tr":"This is Rahul's brother.","why":"{{का|kā}} matches the thing owned: {{भाई|bhāī}} is masculine."},
+        {"wrong":"उसका बहन डॉक्टर है।","right":"उसकी बहन डॉक्टर है।","tr":"His (or her) sister is a doctor.","why":"{{बहन|bahan}} is feminine, so {{उसकी|uskī}}, whether the owner is a man or a woman."},
+        {"wrong":"मैं तीस साल हूँ।","right":"मैं तीस साल का हूँ।","tr":"I'm thirty.","why":"Age needs {{का|kā}} (a woman: {{की|kī}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Neha says {{उसका भाई|uskā bhāī}}. Whose brother is he?","options":["His or her brother: {{उसका|uskā}} doesn't tell you","Only a man's brother","Only a woman's brother"],"answer":0,"why":"{{उसका|uskā}} matches {{भाई|bhāī}}, the thing owned, not the owner."},
+        {"type":"fill","q":"Choose: {{का|kā}}, {{की|kī}} or {{के|ke}}?","t":"यह प्रिया ___ किताब है।","tr":"This is Priya's book.","options":["की","का","के"],"answer":0,"why":"{{किताब|kitāb}} is feminine: {{की|kī}}."},
+        {"type":"fill","q":"Choose: {{के|ke}}, {{का|kā}} or {{की|kī}}?","t":"ये मेरे भाई ___ बच्चे हैं।","tr":"These are my brother's children.","options":["के","का","की"],"answer":0,"why":"{{बच्चे|bachche}} “children” is masculine plural: {{के|ke}}.","from":"more-than-one"},
+        {"type":"order","q":"Put the words in order.","tr":"This gift is for you.","words":["यह","तोहफ़ा","आपके","लिए","है।"]},
+        {"type":"dialogue","q":"A neighbor asks about your family. Choose your replies.","from":"say-where-things-are","lines":[{"who":"Mrs Gupta","t":"आपकी बहन कहाँ है?","r":"āpkī bahan kahā̃ hai?","tr":"Where's your sister?"},{"options":["मेरी बहन दिल्ली में है।","मेरा बहन दिल्ली में है।"],"answer":0,"why":"{{बहन|bahan}} is feminine: {{मेरी|merī}}."},{"who":"Mrs Gupta","t":"और आपके पिता?","r":"aur āpke pitā?","tr":"And your father?"},{"options":["मेरे पिता घर पर हैं।","मेरा पिता घर पर है।"],"answer":0,"why":"For a father, the respectful plural: {{मेरे|mere}} … {{हैं|haĩ}}."}]},
+        {"type":"say","q":"Say: “My son is seven.”","answer":"मेरा बेटा सात साल का है।","r":"merā beṭā sāt sāl kā hai."},
+        {"type":"free","q":"Your turn: tell someone about two people in your family: who they are, their name or their age.","answers":[{"t":"मेरा भाई डॉक्टर है। उसका नाम मार्क है।","r":"merā bhāī ḍôkṭar hai. uskā nām mārk hai.","tr":"My brother is a doctor. His name is Mark."},{"t":"मेरी बेटी दस साल की है।","r":"merī beṭī das sāl kī hai.","tr":"My daughter is ten."},{"t":"मेरी माँ टीचर हैं, और मेरे पिता बैंक में हैं।","r":"merī mā̃ ṭīchar haĩ, aur mere pitā baiṅk mẽ haĩ.","tr":"My mother is a teacher, and my father is at the bank."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you have and what there is",
+      "summary": "Say “I have a bike”, “I have two brothers”, and ask “Is there a bank near here?”",
+      "topic": "{{मेरे पास … है|mere pās … hai}} for things; {{मेरे दो भाई हैं|mere do bhāī haĩ}} for family; {{है|hai}} for “there is”; {{कोई|koī}}, {{कुछ|kuchh}}",
+      "blocks": [
+        {"goal":{"t":"मेरे पास गाड़ी नहीं है, लेकिन मेरे पास साइकिल है।","r":"mere pās gāṛī nahī̃ hai, lekin mere pās sāikil hai.","tr":"I don't have a car, but I have a bike."}},
+        {"dialog":[{"who":"Ravi","t":"क्या तुम्हारे पास गाड़ी है?","r":"kyā tumhāre pās gāṛī hai?","tr":"Do you have a car?"},{"who":"You","t":"नहीं, मेरे पास गाड़ी नहीं है, लेकिन मेरे भाई के पास है।","r":"nahī̃, mere pās gāṛī nahī̃ hai, lekin mere bhāī ke pās hai.","tr":"No, I don't have a car, but my brother has one."},{"who":"Ravi","t":"तुम्हारे कितने भाई हैं?","r":"tumhāre kitne bhāī haĩ?","tr":"How many brothers do you have?"},{"who":"You","t":"मेरे दो भाई हैं, और एक बहन।","r":"mere do bhāī haĩ, aur ek bahan.","tr":"I have two brothers, and a sister."},{"who":"Ravi","t":"अच्छा! यहाँ पास में कोई पेट्रोल पंप है?","r":"achchhā! yahā̃ pās mẽ koī peṭrol pamp hai?","tr":"OK! Is there a gas station near here?"},{"who":"You","t":"हाँ, स्टेशन के पास एक है।","r":"hā̃, sṭeshan ke pās ek hai.","tr":"Yes, there's one near the station."}]},
+        {"p":"**I have.** Hindi has no verb “to have” for things. It says “near me is”: {{मेरे पास गाड़ी है|mere pās gāṛī hai}}, word for word “near me car is”. The owner goes before {{के पास|ke pās}} ({{मेरे पास|mere pās}}, {{आपके पास|āpke pās}}, {{उसके पास|uske pās}}, {{राहुल के पास|rāhul ke pās}}), and the verb agrees with the thing: {{मेरे पास दो पेन हैं|mere pās do pen haĩ}} “I have two pens”."},
+        {"p":"**Family and friends** aren't “near you”: they are “yours”. {{मेरे दो भाई हैं|mere do bhāī haĩ}} “I have two brothers”, word for word “my two brothers are”; {{उसकी एक बेटी है|uskī ek beṭī hai}} “He (or she) has a daughter”."},
+        {"p":"**There is, there are.** {{है|hai}} and {{हैं|haĩ}} alone also mean “there is”, “there are”. Put the place first: {{कमरे में टीवी है|kamre mẽ ṭīvī hai}} “There's a TV in the room”, {{यहाँ बहुत लोग हैं|yahā̃ bahut log haĩ}} “There are a lot of people here”."},
+        {"p":"**Any, some.** {{कोई|koī}} is “some, any” for one person or thing; {{कुछ|kuchh}} is “something, anything, some”: {{क्या यहाँ कोई होटल है?|kyā yahā̃ koī hoṭal hai?}} “Is there a hotel here?”, {{मेरे पास कुछ पैसे हैं|mere pās kuchh paise haĩ}} “I have some money.”"},
+        { "table": [
+          ["","Hindi","word for word"],
+          ["I have a car.","{{मेरे पास गाड़ी है।|mere pās gāṛī hai.}}","near me car is"],
+          ["I have a sister.","{{मेरी एक बहन है।|merī ek bahan hai.}}","my one sister is"],
+          ["There's a bank here.","{{यहाँ एक बैंक है।|yahā̃ ek baiṅk hai.}}","here one bank is"]
+        ] },
+        { "ex": [
+          {"t":"मेरे पास समय नहीं है।","r":"mere pās samay nahī̃ hai.","tr":"I don't have time."},
+          {"t":"क्या आपके पास छुट्टे पैसे हैं?","r":"kyā āpke pās chhuṭṭe paise haĩ?","tr":"Do you have change?"},
+          {"t":"उसके पास नया फ़ोन है।","r":"uske pās nayā fon hai.","tr":"He (or she) has a new phone."},
+          {"t":"हमारे तीन बच्चे हैं।","r":"hamāre tīn bachche haĩ.","tr":"We have three children."},
+          {"t":"कमरे में दो बिस्तर हैं।","r":"kamre mẽ do bistar haĩ.","tr":"There are two beds in the room."},
+          {"t":"दरवाज़े पर कोई है।","r":"darvāze par koī hai.","tr":"There's someone at the door."}
+        ] },
+        {"tip":"Pets and things go with {{के पास|ke pās}} ({{मेरे पास एक कुत्ता है|mere pās ek kuttā hai}} “I have a dog”). An illness doesn't: {{मुझे बुख़ार है|mujhe bukhār hai}} “I have a fever” (lesson 34)."}
+      ],
+      "mistakes": [
+        {"wrong":"मेरे पास दो भाई हैं।","right":"मेरे दो भाई हैं।","tr":"I have two brothers.","why":"Family isn't “near you”: say {{मेरे दो भाई हैं|mere do bhāī haĩ}}."},
+        {"wrong":"मेरा पास पैसे हैं।","right":"मेरे पास पैसे हैं।","tr":"I have money.","why":"Before {{पास|pās}}, it is always {{मेरे|mere}}."},
+        {"wrong":"मेरे पास दो पेन है।","right":"मेरे पास दो पेन हैं।","tr":"I have two pens.","why":"The verb agrees with the things: two pens, {{हैं|haĩ}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How do you say “I have a brother”?","options":["{{मेरा एक भाई है।|merā ek bhāī hai.}}","{{मेरे पास एक भाई है।|mere pās ek bhāī hai.}}","{{मैं एक भाई हूँ।|maĩ ek bhāī hū̃.}}"],"answer":0,"why":"Family: {{मेरा|merā}} … {{है|hai}}. ({{मैं एक भाई हूँ|maĩ ek bhāī hū̃}} means “I am a brother”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"क्या आपके ___ छुट्टे पैसे हैं?","tr":"Do you have change?","options":["पास","साथ","लिए"],"answer":0,"why":"“To have” is {{के पास|ke pās}}."},
+        {"type":"fill","q":"Choose: {{हैं|haĩ}}, {{है|hai}} or {{हूँ|hū̃}}?","t":"मेरे पास दो टिकट ___।","tr":"I have two tickets.","options":["हैं","है","हूँ"],"answer":0,"why":"The verb agrees with the things: two tickets, {{हैं|haĩ}}.","from":"more-than-one"},
+        {"type":"order","q":"Put the words in order.","tr":"There are two beds in the room.","words":["कमरे","में","दो","बिस्तर","हैं।"],"from":"around-town"},
+        {"type":"dialogue","q":"Looking for a hotel. Choose your questions.","from":"say-where-things-are","lines":[{"who":"Man","t":"जी, बोलिए?","r":"jī, bolie?","tr":"Yes, can I help you?"},{"options":["क्या यहाँ पास में कोई होटल है?","क्या यहाँ पास में कोई होटल हूँ?"],"answer":0,"why":"“There is”: {{है|hai}}."},{"who":"Man","t":"हाँ, बाज़ार में दो होटल हैं।","r":"hā̃, bāzār mẽ do hoṭal haĩ.","tr":"Yes, there are two hotels in the market."},{"options":["शुक्रिया! बाज़ार कहाँ है?","शुक्रिया! बाज़ार कौन है?"],"answer":0,"why":"A place: {{कहाँ|kahā̃}}."},{"who":"Man","t":"बस, यहाँ से सीधे।","r":"bas, yahā̃ se sīdhe.","tr":"Just straight on from here."}]},
+        {"type":"say","q":"Say: “I don't have time.”","answer":"मेरे पास समय नहीं है।","r":"mere pās samay nahī̃ hai."},
+        {"type":"free","q":"Your turn: say one or two things you have (or don't have), and how many brothers or sisters you have.","answers":[{"t":"मेरे पास एक कुत्ता है। मेरी दो बहनें हैं।","r":"mere pās ek kuttā hai. merī do bahnẽ haĩ.","tr":"I have a dog. I have two sisters."},{"t":"मेरा कोई भाई नहीं है, लेकिन मेरी एक बहन है।","r":"merā koī bhāī nahī̃ hai, lekin merī ek bahan hai.","tr":"I don't have any brothers, but I have a sister."}]}
+      ]
+    },
+    {
+      "id": "ask-people-to-do-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask people to do things, and give directions",
+      "summary": "Say “Please sit down”, “Come in”, “Don't worry”, and give or follow directions.",
+      "topic": "Commands for {{आप|āp}} ({{-इए|-ie}}), {{तुम|tum}} ({{-ओ|-o}}) and {{तू|tū}} (the stem); {{दीजिए|dījie}}, {{लीजिए|lījie}}, {{कीजिए|kījie}}, {{पीजिए|pījie}}; {{मत|mat}} “don't”",
+      "blocks": [
+        {"goal":{"t":"आइए, बैठिए! चाय पीजिए।","r":"āie, baiṭhie! chāy pījie.","tr":"Come in, sit down! Have some tea."}},
+        {"dialog":[{"who":"You","t":"माफ़ कीजिए, स्टेशन कहाँ है?","r":"māf kījie, sṭeshan kahā̃ hai?","tr":"Excuse me, where's the station?"},{"who":"Woman","t":"सीधे जाइए, फिर बाएँ मुड़िए।","r":"sīdhe jāie, phir bāẽ muṛie.","tr":"Go straight, then turn left."},{"who":"You","t":"बाएँ?","r":"bāẽ?","tr":"Left?"},{"who":"Woman","t":"हाँ, और पुल के बाद दाएँ मुड़िए। स्टेशन वहीं है।","r":"hā̃, aur pul ke bād dāẽ muṛie. sṭeshan vahī̃ hai.","tr":"Yes, and after the bridge turn right. The station's right there."},{"who":"You","t":"बहुत शुक्रिया!","r":"bahut shukriyā!","tr":"Thank you very much!"},{"who":"Woman","t":"कोई बात नहीं।","r":"koī bāt nahī̃.","tr":"No problem."}]},
+        {"term":"stem","means":"what is left of a Hindi verb when you take off its {{-ना|-nā}}: {{बैठना|baiṭhnā}} “to sit” → {{बैठ|baiṭh}}."},
+        {"p":"**Three “you”s, three commands.** A Hindi verb is listed with {{-ना|-nā}}: {{बैठना|baiṭhnā}} “to sit”. Take off {{-ना|-nā}} and you have its stem, {{बैठ|baiṭh}}. Then add the ending that goes with the “you” you would use (lesson 2): {{-इए|-ie}} for {{आप|āp}}, {{-ओ|-o}} for {{तुम|tum}}, nothing for {{तू|tū}}."},
+        { "table": [
+          ["","{{आप|āp}}","{{तुम|tum}}","{{तू|tū}}"],
+          ["sit {{बैठना|baiṭhnā}}","{{बैठिए|baiṭhie}}","{{बैठो|baiṭho}}","{{बैठ|baiṭh}}"],
+          ["come {{आना|ānā}}","{{आइए|āie}}","{{आओ|āo}}","{{आ|ā}}"],
+          ["go {{जाना|jānā}}","{{जाइए|jāie}}","{{जाओ|jāo}}","{{जा|jā}}"],
+          ["give {{देना|denā}}","{{दीजिए|dījie}}","{{दो|do}}","{{दे|de}}"],
+          ["take {{लेना|lenā}}","{{लीजिए|lījie}}","{{लो|lo}}","{{ले|le}}"],
+          ["do {{करना|karnā}}","{{कीजिए|kījie}}","{{करो|karo}}","{{कर|kar}}"],
+          ["drink {{पीना|pīnā}}","{{पीजिए|pījie}}","{{पियो|piyo}}","{{पी|pī}}"]
+        ] },
+        {"p":"Four very common verbs have a special {{आप|āp}} form: {{दीजिए|dījie}} “please give”, {{लीजिए|lījie}} “please take”, {{कीजिए|kījie}} “please do” (you'll hear {{करिए|karie}} too) and {{पीजिए|pījie}} “please drink”. {{आइए|āie}} “come” is also how you welcome someone in, and {{लीजिए|lījie}} is “here you are”."},
+        {"p":"**Don't.** Put {{मत|mat}} just before the verb: {{मत जाओ|mat jāo}} “Don't go”, {{चिंता मत कीजिए|chintā mat kījie}} “Don't worry” (word for word “worry don't do”)."},
+        {"p":"**Directions.** {{सीधे जाइए|sīdhe jāie}} “go straight”, {{बाएँ मुड़िए|bāẽ muṛie}} “turn left”, {{दाएँ मुड़िए|dāẽ muṛie}} “turn right”, {{रुकिए|rukie}} “stop, wait”."},
+        { "ex": [
+          {"t":"एक मिनट रुकिए।","r":"ek minaṭ rukie.","tr":"Wait a minute, please."},
+          {"t":"मुझे थोड़ा पानी दीजिए।","r":"mujhe thoṛā pānī dījie.","tr":"Please give me a little water."},
+          {"t":"यहाँ आओ!","r":"yahā̃ āo!","tr":"Come here!","note":"to a friend or a child"},
+          {"t":"चिंता मत करो।","r":"chintā mat karo.","tr":"Don't worry.","note":"to a friend; to someone you call {{आप|āp}}: {{चिंता मत कीजिए|chintā mat kījie}}"},
+          {"t":"थोड़ा धीरे बोलिए।","r":"thoṛā dhīre bolie.","tr":"Please speak a little slower."},
+          {"t":"दरवाज़ा बंद करो।","r":"darvāzā band karo.","tr":"Close the door."}
+        ] },
+        {"tip":"A command with {{आप|āp}} already sounds like “please”. To catch someone's attention politely, say {{सुनिए|sunie}} “excuse me” (word for word “listen”), and {{माफ़ कीजिए|māf kījie}} is “excuse me” or “sorry”."}
+      ],
+      "mistakes": [
+        {"wrong":"आप बैठो।","right":"आप बैठिए।","tr":"Please sit down.","why":"With {{आप|āp}}, the ending is {{-इए|-ie}}. ({{बैठो|baiṭho}} goes with {{तुम|tum}}.)"},
+        {"wrong":"मत चिंता करो।","right":"चिंता मत करो।","tr":"Don't worry.","why":"{{मत|mat}} goes right before the verb, here {{करो|karo}}."},
+        {"wrong":"मुझे पानी देइए।","right":"मुझे पानी दीजिए।","tr":"Please give me water.","why":"{{देना|denā}} has a special form: {{दीजिए|dījie}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your new boss walks into the room. How do you ask her to sit down?","options":["{{बैठिए|baiṭhie}}","{{बैठो|baiṭho}}","{{बैठ|baiṭh}}"],"answer":0,"why":"To someone you respect: {{-इए|-ie}}."},
+        {"type":"choice","q":"{{बैठिए|baiṭhie}}, {{बैठो|baiṭho}}, {{बैठ|baiṭh}}: which one goes with {{तुम|tum}}?","options":["{{बैठो|baiṭho}}","{{बैठिए|baiṭhie}}","{{बैठ|baiṭh}}"],"answer":0,"why":"{{तुम|tum}} → {{-ओ|-o}}, like {{तुम हो|tum ho}}.","from":"speak-with-respect"},
+        {"type":"fill","q":"Choose the polite form of {{देना|denā}} “to give”.","t":"मुझे एक टिकट ___।","tr":"A ticket, please.","options":["दीजिए","देइए","दो"],"answer":0,"why":"{{देना|denā}} → {{दीजिए|dījie}}, its special polite form.","from":"ask-for-what-you-need"},
+        {"type":"fill","q":"Choose the word for “don't”.","t":"चिंता ___ करो।","tr":"Don't worry.","options":["मत","नहीं"],"answer":0,"why":"With a command, “don't” is {{मत|mat}}. ({{नहीं|nahī̃}} is for statements: lesson 3.)"},
+        {"type":"order","q":"Put the words in order.","tr":"Go straight, then turn left.","words":["सीधे","जाइए,","फिर","बाएँ","मुड़िए।"]},
+        {"type":"dialogue","q":"A friend comes to your home. Choose what you say.","lines":[{"who":"Friend","t":"नमस्ते!","r":"namaste!","tr":"Hello!"},{"options":["आओ, आओ! बैठो।","आओ, आओ! बैठ।"],"answer":0,"why":"To a friend: the {{तुम|tum}} forms, in {{-ओ|-o}}. ({{बैठ|baiṭh}} is only for a very close friend or a child.)"},{"who":"Friend","t":"शुक्रिया। वाह, सुंदर घर है!","r":"shukriyā. vāh, sundar ghar hai!","tr":"Thanks. Wow, it's a beautiful house!"},{"options":["चाय पियो, और मिठाई भी लो।","चाय पियो, और मिठाई भी लेओ।"],"answer":0,"why":"{{लेना|lenā}} “to take” → {{लो|lo}} for {{तुम|tum}}."}]},
+        {"type":"say","q":"Ask someone politely to speak a little slower.","answer":"थोड़ा धीरे बोलिए।","r":"thoṛā dhīre bolie."},
+        {"type":"free","q":"Your turn: tell a visitor how to get from your door to the nearest shop, with {{आप|āp}} commands.","answers":[{"t":"सीधे जाइए, फिर दाएँ मुड़िए। दुकान बैंक के सामने है।","r":"sīdhe jāie, phir dāẽ muṛie. dukān baiṅk ke sāmne hai.","tr":"Go straight, then turn right. The shop is opposite the bank."},{"t":"बाएँ मुड़िए, और पुल के बाद रुकिए।","r":"bāẽ muṛie, aur pul ke bād rukie.","tr":"Turn left, and stop after the bridge."}]}
+      ]
+    },
+    {
+      "id": "shop-and-ask-prices",
+      "unit": 2,
+      "level": "A1",
+      "title": "Shop and ask the price",
+      "summary": "Ask how much things cost and how many there are, and point to “the red one”.",
+      "topic": "{{कितना / कितनी / कितने|kitnā / kitnī / kitne}}; {{का|kā}} for a price; {{वाला|vālā}} “the … one”; numbers to 100",
+      "blocks": [
+        {"goal":{"t":"यह कितने का है? — सौ रुपये का।","r":"yah kitne kā hai? — sau rupye kā.","tr":"How much is this? — A hundred rupees."}},
+        {"dialog":[{"who":"You","t":"यह कुर्ता कितने का है?","r":"yah kurtā kitne kā hai?","tr":"How much is this kurta?"},{"who":"Seller","t":"आठ सौ रुपये का।","r":"āṭh sau rupye kā.","tr":"Eight hundred rupees."},{"who":"You","t":"बहुत महँगा है! और वह लाल वाला?","r":"bahut mahãgā hai! aur vah lāl vālā?","tr":"That's very expensive! And the red one?"},{"who":"Seller","t":"वह छह सौ का है।","r":"vah chhah sau kā hai.","tr":"That one's six hundred."},{"who":"You","t":"ठीक है, लाल वाला दीजिए।","r":"ṭhīk hai, lāl vālā dījie.","tr":"OK, I'll take the red one."}]},
+        {"p":"**How much, how many?** {{कितना|kitnā}} is an adjective in {{-आ|-ā}}, so it changes with its noun: {{कितना पानी?|kitnā pānī?}} “how much water?”, {{कितनी चीनी?|kitnī chīnī?}} “how much sugar?”, {{कितने लोग?|kitne log?}} “how many people?”"},
+        {"p":"**What's the price?** A price is said with {{का|kā}} “of”: {{यह कितने का है?|yah kitne kā hai?}} “How much is this?”, word for word “this of how much is?”, and the answer {{सौ रुपये का|sau rupye kā}} “(of) a hundred rupees”. {{का|kā}} matches the thing, as always (lesson 10): {{यह साड़ी कितने की है?|yah sāṛī kitne kī hai?}} “How much is this sari?”, {{ये आम कितने के हैं?|ye ām kitne ke haĩ?}} “How much are these mangoes?”"},
+        {"p":"**The red one.** {{वाला|vālā}} after an adjective means “the … one”: {{लाल वाला|lāl vālā}} “the red one”, {{बड़ी वाली|baṛī vālī}} “the big one” (for something feminine). It changes like {{अच्छा|achchhā}}."},
+        { "table": [
+          ["number","Hindi","number","Hindi"],
+          ["20","{{बीस|bīs}}","60","{{साठ|sāṭh}}"],
+          ["30","{{तीस|tīs}}","70","{{सत्तर|sattar}}"],
+          ["40","{{चालीस|chālīs}}","80","{{अस्सी|assī}}"],
+          ["50","{{पचास|pachās}}","90","{{नब्बे|nabbe}}"],
+          ["100","{{सौ|sau}}","1000","{{हज़ार|hazār}}"]
+        ] },
+        { "ex": [
+          {"t":"ये केले कितने के हैं?","r":"ye kele kitne ke haĩ?","tr":"How much are these bananas?"},
+          {"t":"यह किताब कितने की है?","r":"yah kitāb kitne kī hai?","tr":"How much is this book?"},
+          {"t":"कितने लोग हैं?","r":"kitne log haĩ?","tr":"How many people are there?"},
+          {"t":"आपको कितना चावल चाहिए?","r":"āpko kitnā chāval chāhie?","tr":"How much rice do you need?"},
+          {"t":"लाल वाला दिखाइए।","r":"lāl vālā dikhāie.","tr":"Show me the red one."},
+          {"t":"दो सौ रुपये? यह बहुत महँगा है!","r":"do sau rupye? yah bahut mahãgā hai!","tr":"Two hundred rupees? That's very expensive!"}
+        ] },
+        {"tip":"Hindi numbers from 11 to 99 each have their own word (25 is {{पच्चीस|pachchīs}}), so learn the ones you need for prices as you meet them. At the end, ask {{कितना हुआ?|kitnā huā?}} “How much does that come to?”"}
+      ],
+      "mistakes": [
+        {"wrong":"कितना लोग हैं?","right":"कितने लोग हैं?","tr":"How many people are there?","why":"{{कितना|kitnā}} changes like an adjective: many people, {{कितने|kitne}}."},
+        {"wrong":"यह साड़ी कितने का है?","right":"यह साड़ी कितने की है?","tr":"How much is this sari?","why":"{{साड़ी|sāṛī}} is feminine: {{की|kī}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{कितने|kitne}}, {{कितना|kitnā}} or {{कितनी|kitnī}}?","t":"___ लोग हैं?","tr":"How many people are there?","options":["कितने","कितना","कितनी"],"answer":0,"why":"{{लोग|log}} is masculine plural: {{कितने|kitne}}."},
+        {"type":"fill","q":"Choose: {{की|kī}}, {{का|kā}} or {{के|ke}}?","t":"यह साड़ी कितने ___ है?","tr":"How much is this sari?","options":["की","का","के"],"answer":0,"why":"{{साड़ी|sāṛī}} is feminine.","from":"say-whose-it-is"},
+        {"type":"choice","q":"{{लाल वाला|lāl vālā}} means…","options":["the red one","a red man","very red"],"answer":0,"why":"{{वाला|vālā}} after an adjective: “the … one”."},
+        {"type":"order","q":"Put the words in order.","tr":"How much are these bananas?","words":["ये","केले","कितने","के","हैं?"]},
+        {"type":"dialogue","q":"At a market stall: choose your lines.","from":"ask-people-to-do-things","lines":[{"who":"Seller","t":"आइए, क्या चाहिए?","r":"āie, kyā chāhie?","tr":"Come in, what would you like?"},{"options":["ये आम कितने के हैं?","ये आम कितने की हैं?"],"answer":0,"why":"{{आम|ām}} is masculine plural: {{के|ke}}."},{"who":"Seller","t":"सौ रुपये के छह।","r":"sau rupye ke chhah.","tr":"Six for a hundred rupees."},{"options":["ठीक है, छह दीजिए।","ठीक है, छह देइए।"],"answer":0,"why":"{{देना|denā}} → {{दीजिए|dījie}} (lesson 12)."}]},
+        {"type":"say","q":"Ask: “How much is this?”","answer":"यह कितने का है?","r":"yah kitne kā hai?"},
+        {"type":"free","q":"Your turn: you're buying a shirt. Ask the price, say it's too expensive, and ask about another one.","answers":[{"t":"यह शर्ट कितने की है? बहुत महँगी है! और वह नीली वाली?","r":"yah sharṭ kitne kī hai? bahut mahãgī hai! aur vah nīlī vālī?","tr":"How much is this shirt? It's very expensive! And the blue one?"},{"t":"वह बड़ा वाला कितने का है?","r":"vah baṛā vālā kitne kā hai?","tr":"How much is that big one?"}]}
+      ]
     }
   ]
 }
