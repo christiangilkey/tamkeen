@@ -2078,6 +2078,300 @@
         {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ce pont a été construit en 1883.","words":["This bridge","was","built","in","1883."]},
         {"type":"free","q":"À vous : dites où et quand vous êtes né, puis décrivez un monument ou un objet que vous connaissez avec le passif (construit, fabriqué, écrit…).","answers":[{"t":"I was born in Lille in 1985. The Eiffel Tower was built in 1889. It's visited by millions of people every year.","tr":"Je suis né à Lille en 1985. La tour Eiffel a été construite en 1889. Elle est visitée par des millions de personnes chaque année."},{"t":"I was born in Nantes. My favorite book was written by Victor Hugo. My watch was made in Switzerland.","tr":"Je suis née à Nantes. Mon livre préféré a été écrit par Victor Hugo. Ma montre a été fabriquée en Suisse."}]}
       ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Rapporter ce que quelqu'un a dit",
+      "summary": "Transmettre un message : « Elle a dit qu'elle était fatiguée », « Il m'a demandé si je venais » : le discours indirect, {{say}} ou {{tell}}, et les temps qui reculent.",
+      "topic": "{{say}} ou {{tell}} ({{tell someone}}) ; les temps reculent ({{is}} → {{was}}, {{will}} → {{would}}) ; {{asked if}}, {{asked where}} ; l'ordre normal dans une question rapportée",
+      "blocks": [
+        {"goal":{"t":"She told me she was tired and that she wouldn't come.","tr":"Elle m'a dit qu'elle était fatiguée et qu'elle ne viendrait pas."}},
+        {"dialog":[{"who":"Paul","t":"Who called?","tr":"Qui a appelé ?"},{"who":"Anne","t":"Your brother. He said he was arriving tomorrow.","tr":"Ton frère. Il a dit qu'il arrivait demain."},{"who":"Paul","t":"Did he say what time?","tr":"Il a dit à quelle heure ?"},{"who":"Anne","t":"He said he would take the ten o'clock train. And he asked if you could pick him up.","tr":"Il a dit qu'il prendrait le train de dix heures. Et il a demandé si tu pouvais venir le chercher."},{"who":"Paul","t":"Sure. Did he ask anything else?","tr":"Bien sûr. Il a demandé autre chose ?"},{"who":"Anne","t":"Yes, he asked what you wanted for your birthday!","tr":"Oui, il a demandé ce que tu voulais pour ton anniversaire !"}]},
+        {"term":"discours indirect","means":"rapporter les paroles de quelqu'un sans les citer mot pour mot : « Elle a dit qu'elle était fatiguée. »"},
+        {"p":"**Dire : say ou tell ?** Deux verbes pour « dire ». {{say}} + ce qu'on dit : {{He said he was tired.}} {{tell}} + **la personne** à qui on le dit : {{He told me he was tired.}} « Il m'a dit… » On ne dit ni « he said me », ni « he told that… » sans la personne."},
+        { "table": [
+          ["français","anglais"],
+          ["Il a dit qu'il était fatigué.","{{He said (that) he was tired.}}"],
+          ["Il m'a dit qu'il était fatigué.","{{He told me (that) he was tired.}}"],
+          ["Dis-lui bonjour de ma part.","{{Tell him I said hi.}}"]
+        ] },
+        {"p":"**Les temps reculent**, comme en français : présent → prétérit, {{will}} → {{would}}, {{can}} → {{could}}, et prétérit ou present perfect → {{had}} + participe (leçon 45)."},
+        { "table": [
+          ["paroles","rapportées au passé"],
+          ["{{I'm tired.}}","{{She said she was tired.}}"],
+          ["{{I'll call you.}}","{{She said she would call me.}}"],
+          ["{{I can come.}}","{{She said she could come.}}"],
+          ["{{I've finished.}}","{{She said she had finished.}}"]
+        ] },
+        {"p":"**Les questions rapportées : pas d'inversion.** Une question fermée se rapporte avec {{if}} : {{Are you coming?}} → {{He asked if I was coming.}} Une question avec un mot interrogatif le garde, mais l'ordre redevient celui d'une phrase normale, sans {{do}} : {{Where do you live?}} → {{She asked where I lived.}}"},
+        { "ex": [
+          {"t":"He says it's sunny in Miami.","tr":"Il dit qu'il fait beau à Miami."},
+          {"t":"She told me she liked jazz.","tr":"Elle m'a dit qu'elle aimait le jazz."},
+          {"t":"They said they would be late.","tr":"Ils ont dit qu'ils seraient en retard."},
+          {"t":"The doctor said it wasn't serious.","tr":"Le médecin a dit que ce n'était pas grave."},
+          {"t":"I asked him if he wanted to come.","tr":"Je lui ai demandé s'il voulait venir."},
+          {"t":"She asked me where I lived.","tr":"Elle m'a demandé où j'habitais."}
+        ] },
+        {"tip":"{{tell}} sert aussi pour les histoires et la vérité : {{tell a story}} « raconter une histoire », {{tell the truth}} « dire la vérité », {{tell a lie}} « mentir »."}
+      ],
+      "mistakes": [
+        {"wrong":"He said me he was tired.","right":"He told me he was tired.","tr":"Il m'a dit qu'il était fatigué.","why":"Avec la personne : {{tell}} + la personne. {{say}} ne prend pas la personne directement."},
+        {"wrong":"She asked me where did I live.","right":"She asked me where I lived.","tr":"Elle m'a demandé où j'habitais.","why":"Dans une question rapportée : l'ordre normal, sans {{did}}."},
+        {"wrong":"He asked me that I was coming.","right":"He asked me if I was coming.","tr":"Il m'a demandé si je venais.","why":"Une question fermée rapportée : {{if}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"She ___ me she was busy.","tr":"Elle m'a dit qu'elle était occupée.","options":["told","said","say"],"answer":0,"why":"Avec la personne ({{me}}) : {{told}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"He ___ he would call later.","tr":"Il a dit qu'il appellerait plus tard.","options":["said","told","says to"],"answer":0,"why":"Sans la personne : {{said}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"They said they ___ be late.","tr":"Ils ont dit qu'ils seraient en retard.","options":["would","will","are"],"answer":0,"why":"{{will}} recule en {{would}}.","from":"imagine"},
+        {"type":"choice","q":"Votre collègue vous a demandé {{Where do you work?}} Vous le rapportez :","options":["{{She asked me where I worked.}}","{{She asked me where did I work.}}","{{She asked me where do I work.}}"],"answer":0,"why":"L'ordre normal, sans {{do}}, et le temps qui recule.","from":"ask-questions"},
+        {"type":"dialogue","q":"Vous transmettez un message téléphonique. Choisissez vos répliques.","from":"talk-about-people-and-things","lines":[{"who":"Your roommate","t":"Did anyone call?","tr":"Quelqu'un a appelé ?"},{"options":["Yes, your mom. She said she would come by tonight.","Yes, your mom. She said me she will come by tonight."],"answer":0,"why":"{{said}} sans la personne, et {{will}} → {{would}}."},{"who":"Your roommate","t":"Did she say anything else?","tr":"Elle a dit autre chose ?"},{"options":["She asked if you needed anything.","She asked that you need anything."],"answer":0,"why":"Une question fermée rapportée : {{if}}, et le temps recule."},{"who":"Your roommate","t":"Thanks!","tr":"Merci !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Elle m'a demandé où j'habitais.","words":["She","asked","me","where","I lived."]},
+        {"type":"free","q":"À vous : rapportez une conversation récente : une chose qu'on vous a dite, et une question qu'on vous a posée.","answers":[{"t":"My friend told me he was getting married. He asked me if I wanted to be his best man!","tr":"Mon ami m'a dit qu'il allait se marier. Il m'a demandé si je voulais être son témoin !"},{"t":"My colleague said she was tired. She asked me what I was doing this weekend.","tr":"Ma collègue a dit qu'elle était fatiguée. Elle m'a demandé ce que je faisais ce week-end."}]}
+      ]
+    },
+    {
+      "id": "enjoy-doing-want-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Dire ce que vous aimez, voulez ou avez arrêté de faire",
+      "summary": "« J'adore cuisiner », « je veux apprendre », « j'ai arrêté de fumer », « avant de partir » : après certains verbes, l'anglais met {{-ing}}, après d'autres {{to}}, et après une préposition, toujours {{-ing}}.",
+      "topic": "verbe + {{-ing}} ({{enjoy, finish, stop, mind, avoid, keep}}) ; verbe + {{to}} ({{want, decide, hope, need, learn, plan}}) ; préposition + {{-ing}} ({{before leaving}}, {{thank you for coming}}) ; le gérondif sujet",
+      "blocks": [
+        {"goal":{"t":"I've decided to learn the guitar, and I really enjoy practicing.","tr":"J'ai décidé d'apprendre la guitare, et j'adore m'entraîner."}},
+        {"dialog":[{"who":"The coach","t":"So, why do you want to run a marathon?","tr":"Alors, pourquoi voulez-vous courir un marathon ?"},{"who":"You","t":"I stopped smoking last year, and I'd like to get in shape.","tr":"J'ai arrêté de fumer l'an dernier, et j'aimerais me remettre en forme."},{"who":"The coach","t":"Great! Do you enjoy running?","tr":"Super ! Vous aimez courir ?"},{"who":"You","t":"Yes, but I hate getting up early.","tr":"Oui, mais je déteste me lever tôt."},{"who":"The coach","t":"No problem. Before starting, you need to buy good shoes.","tr":"Pas de problème. Avant de commencer, il vous faut de bonnes chaussures."}]},
+        {"term":"gérondif","means":"en anglais, la forme en {{-ing}} employée comme un nom : {{Swimming is fun.}} « Nager, c'est amusant. »"},
+        {"p":"**Après un verbe : -ing ou to ?** Quand deux verbes se suivent, le second prend soit {{-ing}}, soit {{to}} + la forme de base. Cela dépend du premier verbe : apprenez-le avec lui. Le français, lui, met un infinitif dans les deux cas."},
+        { "table": [
+          ["+ {{-ing}}","+ {{to}}"],
+          ["{{enjoy}} aimer, apprécier","{{want}} vouloir"],
+          ["{{finish}} finir de","{{decide}} décider de"],
+          ["{{stop}} arrêter de","{{hope}} espérer"],
+          ["{{mind}} être gêné de","{{need}} avoir besoin de"],
+          ["{{avoid}} éviter de","{{learn}} apprendre à"],
+          ["{{keep}} continuer à","{{plan}} prévoir de"],
+          ["{{suggest}} proposer de","{{would like}} aimer, vouloir"]
+        ] },
+        {"p":"Quelques verbes acceptent les deux sans changer de sens : {{like}}, {{love}}, {{hate}}, {{start}}, {{begin}} : {{I love cooking}} = {{I love to cook}} (leçon 13)."},
+        {"p":"**Après une préposition : toujours -ing.** C'est le piège des francophones : « avant de partir », « après avoir mangé », « intéressé par ». En anglais, après {{before}}, {{after}}, {{without}}, {{in}}, {{of}}, {{about}}, {{for}}…, le verbe prend {{-ing}} : {{before leaving}}, {{after eating}}, {{without saying goodbye}}, {{I'm interested in learning Spanish.}} {{Thank you for coming!}}"},
+        {"p":"**Le -ing sujet.** Un verbe en tête de phrase, comme sujet, prend {{-ing}} : {{Learning English is fun.}} « Apprendre l'anglais, c'est amusant. »"},
+        { "ex": [
+          {"t":"I enjoy cooking for my friends.","tr":"J'aime cuisiner pour mes amis."},
+          {"t":"She decided to move to Canada.","tr":"Elle a décidé de partir vivre au Canada."},
+          {"t":"He stopped smoking two years ago.","tr":"Il a arrêté de fumer il y a deux ans."},
+          {"t":"We need to talk.","tr":"Il faut qu'on parle."},
+          {"t":"Wash your hands before eating.","tr":"Lave-toi les mains avant de manger."},
+          {"t":"Thank you for inviting me!","tr":"Merci de m'avoir invité !"},
+          {"t":"Swimming is good for your back.","tr":"La natation, c'est bon pour le dos."}
+        ] },
+        {"tip":"{{stop}} change de sens : {{I stopped smoking}} « j'ai arrêté de fumer », mais {{I stopped to smoke}} « je me suis arrêté pour fumer »."}
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"J'aime cuisiner.","why":"Après {{enjoy}} : {{-ing}}."},
+        {"wrong":"Before to leave, close the window.","right":"Before leaving, close the window.","tr":"Avant de partir, ferme la fenêtre.","why":"Après une préposition comme {{before}} : {{-ing}}."},
+        {"wrong":"I want going home.","right":"I want to go home.","tr":"Je veux rentrer à la maison.","why":"Après {{want}} : {{to}} + la forme de base."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"I've finished ___ my report.","tr":"J'ai fini d'écrire mon rapport.","options":["writing","to write","write"],"answer":0,"why":"Après {{finish}} : {{-ing}}."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"We've decided ___ a house.","tr":"Nous avons décidé d'acheter une maison.","options":["to buy","buying","buy"],"answer":0,"why":"Après {{decide}} : {{to}}."},
+        {"type":"fill","q":"Choisissez les mots qui manquent.","t":"Thank you for ___ me!","tr":"Merci de m'avoir aidé !","options":["helping","to help","help"],"answer":0,"why":"Après la préposition {{for}} : {{-ing}}."},
+        {"type":"choice","q":"« Ça vous dérangerait d'attendre ? »","options":["{{Would you mind waiting?}}","{{Would you mind to wait?}}","{{Would you mind wait?}}"],"answer":0,"why":"Après {{mind}} : {{-ing}}.","from":"ask-politely-and-offer"},
+        {"type":"dialogue","q":"Vous parlez de vos bonnes résolutions avec un ami. Choisissez vos réponses.","from":"talk-about-old-habits","lines":[{"who":"Your friend","t":"Do you still smoke?","tr":"Tu fumes toujours ?"},{"options":["No, I stopped smoking last year!","No, I stopped to smoke last year!"],"answer":0,"why":"Arrêter de faire : {{stop}} + {{-ing}}. ({{stopped to smoke}} : « s'est arrêté pour fumer » !)"},{"who":"Your friend","t":"Great! What else?","tr":"Bravo ! Et quoi d'autre ?"},{"options":["I want to learn Spanish before going to Mexico.","I want learning Spanish before to go to Mexico."],"answer":0,"why":"{{want}} + {{to}} ; {{before}} + {{-ing}}."},{"who":"Your friend","t":"Good luck!","tr":"Bon courage !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Lave-toi les mains avant de manger.","words":["Wash","your hands","before","eating."]},
+        {"type":"free","q":"À vous : dites une chose que vous aimez faire ({{enjoy}}), une chose que vous voulez faire cette année, et une chose que vous avez arrêté de faire.","answers":[{"t":"I enjoy reading in the morning. This year, I want to learn to swim. I stopped drinking soda last month.","tr":"J'aime lire le matin. Cette année, je veux apprendre à nager. J'ai arrêté de boire des sodas le mois dernier."},{"t":"I really enjoy cooking. I've decided to run a marathon. I stopped working on weekends.","tr":"J'adore cuisiner. J'ai décidé de courir un marathon. J'ai arrêté de travailler le week-end."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story-in-order",
+      "unit": 8,
+      "level": "B1",
+      "title": "Raconter une histoire dans l'ordre",
+      "summary": "Dire ce qui s'était déjà passé, puis ce qui est arrivé ensuite : le past perfect ({{had}} + participe passé), comme le plus-que-parfait, et {{first}}, {{then}}, {{after that}}, {{finally}}.",
+      "topic": "le past perfect ({{had}} + participe passé) ; {{already}}, {{never … before}} ; {{first, then, after that, finally}} ; {{before}}, {{after}} + {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"When I got to the station, the train had already left.","tr":"Quand je suis arrivé à la gare, le train était déjà parti."}},
+        {"dialog":[{"who":"Clara","t":"Why were you so late?","tr":"Pourquoi tu es arrivé si tard ?"},{"who":"Max","t":"First, I'd left my phone at home, so I went back.","tr":"D'abord, j'avais oublié mon portable chez moi, donc je suis retourné le chercher."},{"who":"Clara","t":"And then?","tr":"Et ensuite ?"},{"who":"Max","t":"Then I ran to the station, but the train had already left!","tr":"Ensuite, j'ai couru à la gare, mais le train était déjà parti !"},{"who":"Clara","t":"Oh no! So what did you do?","tr":"Oh non ! Et alors, qu'est-ce que tu as fait ?"},{"who":"Max","t":"Finally, I took a taxi… and paid sixty dollars!","tr":"Finalement, j'ai pris un taxi… et j'ai payé soixante dollars !"}]},
+        {"term":"past perfect","means":"le temps du « passé dans le passé » : {{had}} + participe passé ({{I had eaten}} « j'avais mangé »). C'est l'équivalent du plus-que-parfait."},
+        {"p":"**Le plus-que-parfait : had + participe.** Quand on raconte au passé et qu'on remonte encore plus loin, l'anglais emploie le past perfect, comme le français emploie le plus-que-parfait : {{had}} + participe passé, pour toutes les personnes. {{I had forgotten}} « j'avais oublié », {{the train had left}} « le train était parti » : avec {{had}}, même là où le français dit « être »."},
+        { "table": [
+          ["","français","anglais"],
+          ["prétérit","j'ai oublié","{{I forgot}}"],
+          ["past perfect","j'avais oublié","{{I had forgotten}}, {{I'd forgotten}}"],
+          ["past perfect","le train était parti","{{the train had left}}"]
+        ] },
+        {"p":"**Déjà, jamais avant.** {{already}} et {{never … before}} vont bien avec lui : {{She had already eaten.}} « Elle avait déjà mangé. » {{I had never seen the ocean before.}} « Je n'avais jamais vu l'océan. »"},
+        {"p":"**Pas toujours obligatoire.** Si l'ordre est clair (avec {{before}}, {{after}}, ou des événements racontés dans l'ordre), le prétérit suffit : {{I ate and then I left.}} Le past perfect sert surtout quand on revient en arrière."},
+        {"p":"**Mettre de l'ordre.** {{first}} (d'abord), {{then}} (ensuite), {{after that}} (après ça), {{later}} (plus tard), {{finally}} (finalement), {{in the end}} (au bout du compte). Pour commencer une histoire : {{One day…}} « Un jour… », {{Once upon a time…}} « Il était une fois… »"},
+        { "ex": [
+          {"t":"I had never seen the ocean before.","tr":"Je n'avais jamais vu l'océan."},
+          {"t":"She had already left when I arrived.","tr":"Elle était déjà partie quand je suis arrivé."},
+          {"t":"We had booked a table, but there was no room.","tr":"Nous avions réservé une table, mais il n'y avait pas de place."},
+          {"t":"After he'd finished work, he went to the gym.","tr":"Après avoir fini le travail, il est allé à la salle de sport."},
+          {"t":"First I took a shower, then I got dressed.","tr":"D'abord j'ai pris une douche, puis je me suis habillé."},
+          {"t":"In the end, everything was fine.","tr":"Au bout du compte, tout s'est bien passé."}
+        ] },
+        {"tip":"{{I'd}} devant un participe passé, c'est {{I had}} : {{I'd forgotten}}. Devant une forme de base, c'est {{I would}} : {{I'd forget}} (leçon 39)."}
+      ],
+      "mistakes": [
+        {"wrong":"When I arrived, the train left already.","right":"When I arrived, the train had already left.","tr":"Quand je suis arrivé, le train était déjà parti.","why":"Le train est parti avant votre arrivée : le past perfect."},
+        {"wrong":"The train was already left.","right":"The train had already left.","tr":"Le train était déjà parti.","why":"Le past perfect se fait toujours avec {{had}}, jamais avec {{be}}."},
+        {"wrong":"After to finish work, he went home.","right":"After finishing work, he went home.","tr":"Après avoir fini le travail, il est rentré.","why":"Après {{after}} : {{-ing}} (leçon 44)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"When we arrived, the movie ___ already started.","tr":"Quand nous sommes arrivés, le film avait déjà commencé.","options":["had","has","was"],"answer":0,"why":"Avant notre arrivée : {{had}} + participe.","from":"tell-a-story"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I had never ___ snow before.","tr":"Je n'avais jamais vu de neige avant.","options":["seen","saw","see"],"answer":0,"why":"Après {{had}} : le participe {{seen}}.","from":"talk-about-experiences"},
+        {"type":"choice","q":"« Elle était partie avant moi. »","options":["{{She had left before me.}}","{{She was left before me.}}","{{She has left before me.}}"],"answer":0,"why":"Le past perfect : {{had}} + participe, jamais {{was}}."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"D'abord j'ai pris une douche, puis je me suis habillé.","words":["First","I took","a shower,","then","I got dressed."]},
+        {"type":"dialogue","q":"Vous expliquez à un ami pourquoi vous avez raté la fête. Choisissez vos répliques.","from":"enjoy-doing-want-to-do","lines":[{"who":"Your friend","t":"Why didn't you come on Saturday?","tr":"Pourquoi tu n'es pas venu samedi ?"},{"options":["I did! But when I got there, everyone had already left.","I did! But when I got there, everyone has already left."],"answer":0,"why":"Tout le monde était parti avant votre arrivée : {{had left}}."},{"who":"Your friend","t":"What time did you get there?","tr":"Tu es arrivé à quelle heure ?"},{"options":["At midnight. After finishing work, I took the bus.","At midnight. After to finish work, I took the bus."],"answer":0,"why":"Après {{after}} : {{-ing}}."},{"who":"Your friend","t":"Too bad!","tr":"Dommage !"}]},
+        {"type":"say","q":"Dites : « Je n'avais jamais vu l'océan. »","answer":"I had never seen the ocean before."},
+        {"type":"free","q":"À vous : racontez une petite histoire dans l'ordre : ce qui s'était passé avant, puis ce qui est arrivé, étape par étape, et comment ça s'est fini.","answers":[{"t":"One day, I had forgotten my keys. First, I called my sister, but she had gone on vacation. Then I waited for my husband. Finally, he arrived at midnight!","tr":"Un jour, j'avais oublié mes clés. D'abord, j'ai appelé ma sœur, mais elle était partie en vacances. Ensuite, j'ai attendu mon mari. Finalement, il est arrivé à minuit !"},{"t":"Last summer, I went to New York. I had never taken a plane before. After arriving, I visited Central Park, then I ate a hot dog. In the end, I loved it!","tr":"L'été dernier, je suis allée à New York. Je n'avais jamais pris l'avion. Après être arrivée, j'ai visité Central Park, puis j'ai mangé un hot-dog. Au bout du compte, j'ai adoré !"}]}
+      ]
+    },
+    {
+      "id": "talk-in-general",
+      "unit": 8,
+      "level": "B1",
+      "title": "Parler des choses en général",
+      "summary": "Dire « La vie est courte », « Les enfants ont besoin de sommeil », « Je vais au travail en bus » : quand mettre {{the}}, et quand ne rien mettre.",
+      "topic": "pas d'article pour une généralité ({{Life is short}}, {{Children need sleep}}) ; {{the}} pour une chose précise ; les expressions sans article ({{at home, at work, by bus, in bed}}) ; {{the}} avec les instruments, les océans, {{the beach}}",
+      "blocks": [
+        {"goal":{"t":"Life is short, so I eat dessert first!","tr":"La vie est courte, alors je mange le dessert en premier !"}},
+        {"dialog":[{"who":"Emma","t":"Do you think money makes people happy?","tr":"Tu penses que l'argent rend les gens heureux ?"},{"who":"Lucas","t":"Not really. I think love and friendship are more important.","tr":"Pas vraiment. Je pense que l'amour et l'amitié sont plus importants."},{"who":"Emma","t":"But the money in my bank account would make me happy!","tr":"Mais l'argent sur mon compte en banque, lui, me rendrait heureuse !"},{"who":"Lucas","t":"Ha! Well, nature makes me happy. I go to the mountains every weekend.","tr":"Ha ! Eh bien moi, c'est la nature qui me rend heureux. Je vais à la montagne tous les week-ends."}]},
+        {"p":"**Le grand principe.** En français, une généralité prend « le, la, les » : « la vie », « l'amour », « les enfants ». En anglais, une généralité **n'a pas d'article** : {{Life is short.}} {{Love is blind.}} {{Children need sleep.}} {{the}} désigne quelque chose de précis, que les deux personnes identifient (leçon 13)."},
+        { "table": [
+          ["en général : rien","précis : {{the}}"],
+          ["{{Money doesn't make people happy.}}","{{The money is on the table.}}"],
+          ["{{I love music.}}","{{I love the music in this movie.}}"],
+          ["{{Dogs are friendly.}}","{{The dogs next door bark all night.}}"],
+          ["{{French people love bread.}}","{{The French people I know love bread.}}"]
+        ] },
+        {"p":"**Sans article : des expressions toutes faites.** {{at home}} (à la maison), {{at work}} (au travail), {{at school}}, {{in bed}} (au lit), {{go to bed}}, {{go to work}}, {{by bus}}, {{by car}}, {{by train}} (en bus, en voiture, en train), {{have breakfast}}, {{have lunch}}, {{have dinner}}."},
+        {"p":"**Avec the, contre toute attente.** Les instruments de musique ({{play the piano}}), les océans, fleuves et chaînes de montagnes ({{the Atlantic}}, {{the Mississippi}}, {{the Rockies}}), les pays au nom pluriel ({{the United States}}), et des lieux vus comme « celui du coin » : {{go to the beach}}, {{the mountains}}, {{the movies}}, {{the doctor}}."},
+        {"p":"**Les nationalités en général** : {{French people}} ou {{the French}} « les Français ». Pour une seule personne, le plus naturel : {{He's French.}}"},
+        { "ex": [
+          {"t":"Life is beautiful.","tr":"La vie est belle."},
+          {"t":"Coffee is my favorite drink.","tr":"Le café, c'est ma boisson préférée."},
+          {"t":"Cats sleep a lot.","tr":"Les chats dorment beaucoup."},
+          {"t":"I go to work by bus.","tr":"Je vais au travail en bus."},
+          {"t":"The kids are already in bed.","tr":"Les enfants sont déjà au lit."},
+          {"t":"She plays the violin.","tr":"Elle joue du violon."},
+          {"t":"We're going to the beach this weekend.","tr":"On va à la plage ce week-end."}
+        ] },
+        {"tip":"Petit test : si vous pouvez ajouter « en général » ou « tous les… » à la phrase française, l'anglais ne met pas d'article. « J'aime les chiens (en général) » → {{I like dogs.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"The life is short.","right":"Life is short.","tr":"La vie est courte.","why":"Une généralité : pas d'article en anglais."},
+        {"wrong":"I go to the work by the bus.","right":"I go to work by bus.","tr":"Je vais au travail en bus.","why":"{{go to work}} et {{by bus}} : des expressions sans article."},
+        {"wrong":"The French people are very elegant.","right":"French people are very elegant.","tr":"Les Français sont très élégants.","why":"En général : pas de {{the}} devant {{French people}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"« L'amour est aveugle. »","options":["{{Love is blind.}}","{{The love is blind.}}","{{A love is blind.}}"],"answer":0,"why":"Une généralité : pas d'article."},
+        {"type":"choice","q":"« Je prends le petit-déjeuner à sept heures. »","options":["{{I have breakfast at seven.}}","{{I have the breakfast at seven.}}"],"answer":0,"why":"Les repas, sans article : {{have breakfast}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My daughter plays ___ piano.","tr":"Ma fille joue du piano.","options":["the","a","of"],"answer":0,"why":"Un instrument : {{play the}}."},
+        {"type":"choice","q":"« J'adore les chats. » (en général)","options":["{{I love cats.}}","{{I love the cats.}}","{{I love a cat.}}"],"answer":0,"why":"Les chats en général : pas de {{the}}, et le pluriel.","from":"say-what-you-like"},
+        {"type":"dialogue","q":"Un débat entre amis. Choisissez vos répliques.","from":"give-your-opinion","lines":[{"who":"Your friend","t":"Do you think money is important?","tr":"Tu penses que l'argent est important ?"},{"options":["Yes, but I think health is more important.","Yes, but I think the health is more important."],"answer":0,"why":"La santé en général : pas d'article."},{"who":"Your friend","t":"I agree. And what about work?","tr":"Je suis d'accord. Et le travail ?"},{"options":["Work is important, but I prefer to stay at home!","The work is important, but I prefer to stay at the home!"],"answer":0,"why":"En général : {{work}} ; et {{at home}}, sans article."},{"who":"Your friend","t":"Ha! Me too.","tr":"Ha ! Moi aussi."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je vais au travail en bus.","words":["I","go","to work","by","bus."]},
+        {"type":"free","q":"À vous : donnez trois opinions générales : sur la vie, les enfants, les animaux, l'argent, le sport… Attention aux articles !","answers":[{"t":"Life is too short to be sad. Children need a lot of love. Money doesn't make people happy.","tr":"La vie est trop courte pour être triste. Les enfants ont besoin de beaucoup d'amour. L'argent ne rend pas les gens heureux."},{"t":"I think dogs are better than cats. Sports are good for your health. Coffee is the best drink in the world!","tr":"Je pense que les chiens sont mieux que les chats. Le sport, c'est bon pour la santé. Le café est la meilleure boisson du monde !"}]}
+      ]
+    },
+    {
+      "id": "agree-in-a-few-words",
+      "unit": 8,
+      "level": "B1",
+      "title": "Réagir en deux mots",
+      "summary": "Dire « Moi aussi », « Moi non plus », « Ah bon ? », « C'est ça, hein ? » à l'anglaise : {{So do I}}, {{Neither do I}}, {{Oh, do you?}}, et les {{question tags}} ({{You're French, aren't you?}}).",
+      "topic": "{{Me too}}, {{Me neither}} ; {{So do I}}, {{So am I}}, {{Neither do I}} ; réagir avec l'auxiliaire ({{Oh, do you?}}) ; les question tags ({{isn't it?}}, {{don't you?}})",
+      "blocks": [
+        {"goal":{"t":"I love this song! — So do I!","tr":"J'adore cette chanson ! — Moi aussi !"}},
+        {"dialog":[{"who":"Kate","t":"You're French, aren't you?","tr":"Tu es française, c'est ça ?"},{"who":"Léa","t":"Yes, I am. I'm from Lyon.","tr":"Oui. Je viens de Lyon."},{"who":"Kate","t":"Oh, really? I've been to Lyon! I loved the food.","tr":"Ah bon ? Je suis allée à Lyon ! J'ai adoré la cuisine."},{"who":"Léa","t":"So did I… well, I grew up with it!","tr":"Moi aussi… enfin, j'ai grandi avec !"},{"who":"Kate","t":"I don't like big cities very much.","tr":"Je n'aime pas trop les grandes villes."},{"who":"Léa","t":"Neither do I. Lyon is perfect, isn't it?","tr":"Moi non plus. Lyon, c'est parfait, non ?"}]},
+        {"p":"**Moi aussi, moi non plus.** À l'oral, le plus simple : {{Me too.}} « Moi aussi. » et {{Me neither.}} « Moi non plus. » Un peu plus soigné, on reprend l'auxiliaire de la phrase : {{So do I.}}, {{Neither do I.}}"},
+        { "table": [
+          ["l'autre dit…","vous répondez"],
+          ["{{I love jazz.}}","{{So do I.}} {{Me too.}}"],
+          ["{{I'm tired.}}","{{So am I.}}"],
+          ["{{I can swim.}}","{{So can I.}}"],
+          ["{{I went to the party.}}","{{So did I.}}"],
+          ["{{I don't like it.}}","{{Neither do I.}} {{Me neither.}}"],
+          ["{{I'm not hungry.}}","{{Neither am I.}}"]
+        ] },
+        {"p":"La règle : on reprend {{be}}, {{can}}, {{have}} ou {{will}} s'il y en a un ; sinon {{do}}, {{does}} ou {{did}} (leçons 11 et 23). Attention à l'ordre : {{So do I}}, le verbe avant le sujet."},
+        {"p":"**Réagir avec l'auxiliaire.** Pour montrer de l'intérêt (« Ah bon ? », « Ah oui ? »), on reprend aussi l'auxiliaire : {{I live in Boston. — Oh, do you?}} {{I've been to Japan. — Have you? Wow!}} Le plus simple reste {{Really?}}"},
+        {"term":"question tag","means":"une petite question ajoutée en fin de phrase pour demander confirmation, comme « hein ? », « n'est-ce pas ? », « c'est ça ? » : {{You're French, aren't you?}}"},
+        {"p":"**Les question tags.** Là où le français dit « n'est-ce pas ? » ou « non ? », l'anglais reprend l'auxiliaire et le sujet, à l'inverse : phrase positive, tag négatif ; phrase négative, tag positif. {{It's nice, isn't it?}} {{You don't eat meat, do you?}} {{She lives here, doesn't she?}}"},
+        { "ex": [
+          {"t":"I'm so hungry! — Me too!","tr":"J'ai trop faim ! — Moi aussi !"},
+          {"t":"I can't swim. — Neither can I.","tr":"Je ne sais pas nager. — Moi non plus."},
+          {"t":"We loved the movie. — So did we!","tr":"On a adoré le film. — Nous aussi !"},
+          {"t":"It's a beautiful day, isn't it?","tr":"Il fait beau, hein ?"},
+          {"t":"You're coming tonight, aren't you?","tr":"Tu viens ce soir, n'est-ce pas ?"},
+          {"t":"He doesn't speak French, does he?","tr":"Il ne parle pas français, si ?"}
+        ] },
+        {"tip":"Si le tag monte à la fin, c'est une vraie question ; s'il descend, on attend juste un « oui ». Et {{right?}} « hein ? » marche avec tout, à l'oral : {{You're French, right?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I love pizza. — Me also.","right":"I love pizza. — Me too.","tr":"J'adore la pizza. — Moi aussi.","why":"« Moi aussi » : {{me too}} (ou {{so do I}})."},
+        {"wrong":"I don't like spiders. — Me too.","right":"I don't like spiders. — Me neither.","tr":"Je n'aime pas les araignées. — Moi non plus.","why":"Pour être d'accord avec une phrase négative : {{me neither}} ou {{neither do I}}."},
+        {"wrong":"You're French, isn't it?","right":"You're French, aren't you?","tr":"Tu es française, n'est-ce pas ?","why":"Le tag reprend le verbe et le sujet de la phrase : {{are}} et {{you}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I'm tired. — So ___ I.","tr":"Je suis fatigué. — Moi aussi.","options":["am","do","have"],"answer":0,"why":"La phrase a {{be}} : {{So am I}}.","from":"ask-with-be"},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I went to the concert. — So ___ I!","tr":"Je suis allé au concert. — Moi aussi !","options":["did","was","do"],"answer":0,"why":"Au prétérit, sans {{be}} : {{did}}.","from":"ask-about-the-past"},
+        {"type":"choice","q":"Votre ami dit {{I don't eat meat.}} Vous non plus. Vous répondez…","options":["{{Neither do I.}}","{{So do I.}}","{{Me too.}}"],"answer":0,"why":"D'accord avec une phrase négative : {{Neither do I}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"It's cold today, ___ it?","tr":"Il fait froid aujourd'hui, hein ?","options":["isn't","doesn't","is"],"answer":0,"why":"Phrase positive avec {{is}} : tag négatif, {{isn't it}}."},
+        {"type":"dialogue","q":"Vous faites connaissance avec un Américain. Choisissez vos réactions.","from":"talk-about-experiences","lines":[{"who":"A man","t":"I've been to Paris three times!","tr":"Je suis allé à Paris trois fois !"},{"options":["Have you? Did you like it?","Do you? Did you like it?"],"answer":0,"why":"Il a dit {{I've been}} : on réagit avec {{have}}."},{"who":"A man","t":"Yes! I love French food.","tr":"Oui ! J'adore la cuisine française."},{"options":["So do I! And you speak a little French, don't you?","So am I! And you speak a little French, aren't you?"],"answer":0,"why":"{{love}}, sans {{be}} : {{So do I}} ; et le tag de {{you speak}} : {{don't you}}."},{"who":"A man","t":"Just a little!","tr":"Un petit peu !"}]},
+        {"type":"say","q":"Votre amie dit {{I can't wait for the weekend!}} Vous non plus. Répondez.","answer":"Neither can I!"},
+        {"type":"free","q":"À vous : réagissez à ces phrases : {{I love traveling.}} {{I'm not a morning person.}} {{I went to the beach last weekend.}} Puis ajoutez un question tag à une phrase de votre choix.","answers":[{"t":"So do I! Neither am I. So did I! You speak English, don't you?","tr":"Moi aussi ! Moi non plus. Moi aussi ! Tu parles anglais, n'est-ce pas ?"},{"t":"Me too! Me neither! Oh, did you? It's a nice day, isn't it?","tr":"Moi aussi ! Moi non plus ! Ah bon ? Il fait beau, hein ?"}]}
+      ]
+    },
+    {
+      "id": "follow-everyday-english",
+      "unit": 8,
+      "level": "B1",
+      "title": "Comprendre l'anglais de tous les jours",
+      "summary": "Comprendre l'anglais américain tel qu'on le parle, vite et détendu : {{gonna}}, {{wanna}}, {{gotta}}, {{kinda}}, les contractions et les petits mots de la conversation.",
+      "topic": "l'oral : {{gonna, wanna, gotta, kinda, lemme, dunno}} ; {{should've}} ; {{like}}, {{you know}}, {{I mean}}, {{actually}} ; {{Sure}}, {{No worries}}, {{Sounds good}}",
+      "blocks": [
+        {"goal":{"t":"I'm gonna grab a coffee. Wanna come?","tr":"Je vais prendre un café. Tu viens ?"}},
+        {"dialog":[{"who":"Jake","t":"Hey! What's up?","tr":"Salut ! Quoi de neuf ?"},{"who":"Emma","t":"Not much. I'm kinda tired, you know?","tr":"Pas grand-chose. Je suis un peu fatiguée, tu vois ?"},{"who":"Jake","t":"Wanna grab some food?","tr":"Tu veux aller manger un morceau ?"},{"who":"Emma","t":"Sure! But I gotta be home by nine.","tr":"Carrément ! Mais je dois être rentrée à neuf heures."},{"who":"Jake","t":"No worries. Lemme get my jacket.","tr":"Pas de souci. Attends, je prends ma veste."},{"who":"Emma","t":"Cool. Let's go!","tr":"Cool. On y va !"}]},
+        {"p":"**L'anglais parlé.** Tout ce cours est de l'anglais correct. Mais entre amis, les Américains parlent vite et collent les mots. Vous n'êtes pas obligé de parler comme ça, mais il faut le comprendre : c'est ce que vous entendrez dans les séries et dans la rue."},
+        { "table": [
+          ["vous entendez","forme complète","sens"],
+          ["{{gonna}}","{{going to}}","aller faire : {{I'm gonna call you.}}"],
+          ["{{wanna}}","{{want to}}","vouloir : {{Wanna come?}}"],
+          ["{{gotta}}","{{have got to}}","devoir : {{I gotta go.}}"],
+          ["{{kinda}}","{{kind of}}","un peu, plutôt : {{It's kinda cold.}}"],
+          ["{{lemme}}","{{let me}}","laisse-moi : {{Lemme see.}}"],
+          ["{{dunno}}","{{I don't know}}","je sais pas"],
+          ["{{should've}}","{{should have}}","j'aurais dû : {{You should've told me!}}"]
+        ] },
+        {"p":"**Ne les écrivez pas** dans un e-mail ou un document : {{gonna}} et {{wanna}} ne s'écrivent que dans les messages entre amis, les chansons et les dialogues de BD."},
+        {"p":"**Les petits mots de la conversation.** {{like}} sert de « genre », de pause, ou pour citer : {{It was, like, amazing.}} {{you know}} « tu vois », {{I mean}} « je veux dire », {{anyway}} « bref », {{actually}} « en fait » (et non « actuellement » !)."},
+        {"p":"**Répondre à l'américaine.** {{Sure!}} « Bien sûr ! Avec plaisir ! », {{No worries.}} {{No problem.}} « Pas de souci. », {{Sounds good!}} « Ça marche ! », {{What's up?}} « Quoi de neuf ? » (réponse : {{Not much.}}), {{I'm good.}} « Ça va. », {{Cool!}}"},
+        { "ex": [
+          {"t":"I'm gonna be late, sorry!","tr":"Je vais être en retard, désolé !"},
+          {"t":"Do you wanna go to the movies?","tr":"Tu veux aller au ciné ?"},
+          {"t":"I gotta go. See you later!","tr":"Faut que j'y aille. À plus !"},
+          {"t":"It's kinda expensive.","tr":"C'est un peu cher."},
+          {"t":"Actually, I've never been there.","tr":"En fait, je n'y suis jamais allé."},
+          {"t":"Thanks! — No worries.","tr":"Merci ! — Pas de souci."},
+          {"t":"Sounds good, see you at eight!","tr":"Ça marche, on se voit à huit heures !"}
+        ] },
+        {"tip":"Si quelqu'un parle trop vite, demandez simplement : {{Sorry, could you say that again more slowly?}} Personne ne s'en offusque. Et {{y'all}} « vous tous », que vous entendrez dans le Sud des États-Unis, n'est que {{you all}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I'm gonna send you the report.","right":"I'm going to send you the report.","tr":"Je vais vous envoyer le rapport.","why":"Dans un message professionnel, n'écrivez pas {{gonna}} : écrivez {{going to}}."},
+        {"wrong":"Actually, I live in Lyon.","right":"Right now, I live in Lyon.","tr":"Actuellement, j'habite à Lyon.","why":"Pour dire « actuellement », ce n'est pas {{actually}} : {{actually}} veut dire « en fait ». « Actuellement » se dit {{right now}}, {{currently}} ou {{at the moment}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{I'm gonna call you.}} veut dire…","options":["{{I'm going to call you.}}","{{I want to call you.}}","{{I have to call you.}}"],"answer":0,"why":"{{gonna}} = {{going to}}.","from":"talk-about-your-plans"},
+        {"type":"choice","q":"{{I gotta go.}}","options":["Il faut que j'y aille.","Je veux y aller.","Je vais y aller demain."],"answer":0,"why":"{{gotta}} = {{have got to}}, « devoir ».","from":"give-advice-and-rules"},
+        {"type":"choice","q":"« Actuellement, je travaille à Paris. »","options":["{{Right now, I work in Paris.}}","{{Actually, I work in Paris.}}"],"answer":0,"why":"{{actually}} est un faux ami : il veut dire « en fait »."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Thanks for your help! — No ___!","tr":"Merci pour ton aide ! — Pas de souci !","options":["worries","problems","worry"],"answer":0,"why":"L'expression : {{No worries!}}"},
+        {"type":"dialogue","q":"Une amie vous envoie un message. Choisissez vos réponses.","from":"ask-politely-and-offer","lines":[{"who":"Your friend","t":"Hey! Wanna grab lunch?","tr":"Salut ! Tu veux aller déjeuner ?"},{"options":["Sure! Where do you wanna go?","Sure! Where would you be so kind as to go?"],"answer":0,"why":"Entre amis, restez détendu : la phrase trop formelle sonne bizarre ici."},{"who":"Your friend","t":"How about the Mexican place?","tr":"Et si on allait au mexicain ?"},{"options":["Sounds good! See you at noon.","It sounds good for me! I see you at noon."],"answer":0,"why":"L'expression : {{Sounds good!}} ; et un rendez-vous : {{See you…}}"},{"who":"Your friend","t":"Cool!","tr":"Cool !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Tu veux aller au ciné ?","words":["Do","you","wanna","go to","the movies?"]},
+        {"type":"free","q":"À vous : écrivez un petit message décontracté à un ami pour l'inviter, puis la même invitation, poliment, à votre patron.","answers":[{"t":"Hey! Wanna grab a pizza tonight? … Hello, would you like to join us for dinner tonight?","tr":"Salut ! Une pizza ce soir, ça te dit ? … Bonjour, voudriez-vous vous joindre à nous pour dîner ce soir ?"},{"t":"What's up? We're having a picnic on Saturday. Wanna come? … Would you be free on Saturday for a team lunch?","tr":"Quoi de neuf ? On fait un pique-nique samedi. Tu viens ? … Seriez-vous libre samedi pour un déjeuner d'équipe ?"}]}
+      ]
     }
   ]
 }
