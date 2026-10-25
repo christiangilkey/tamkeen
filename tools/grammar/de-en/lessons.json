@@ -1455,6 +1455,250 @@
         {"type":"dialogue","q":"Deine Mitbewohnerin fragt, was erledigt ist.","from":"promise-and-predict","lines":[{"who":"Roommate","t":"Have you bought milk yet?","tr":"Hast du schon Milch gekauft?"},{"options":["Yes, I've already bought it.","Yes, I've yet bought it."],"answer":0,"why":"„Schon“ in einer Aussage: {{already}}."},{"who":"Roommate","t":"Great! And have you called the landlord?","tr":"Super! Und hast du den Vermieter angerufen?"},{"options":["No, not yet. I'll call him tomorrow.","No, still not. I call him tomorrow."],"answer":0,"why":"„Noch nicht“: {{not yet}}; ein spontanes Versprechen: {{I'll}}."}]},
         {"type":"free","q":"Jetzt du: Erzähl zwei Neuigkeiten mit {{just}} oder {{already}} und eine Sache, die du noch nicht gemacht hast ({{yet}}).","answers":[{"t":"I've just started a new English course, and I've already learned a lot. I haven't booked my summer vacation yet.","tr":"Ich habe gerade einen neuen Englischkurs angefangen und schon viel gelernt. Meinen Sommerurlaub habe ich noch nicht gebucht."},{"t":"My sister has just had a baby! I haven't seen him yet.","tr":"Meine Schwester hat gerade ein Baby bekommen! Ich habe ihn noch nicht gesehen."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Vergleich Dinge miteinander",
+      "summary": "Vergleich Städte, Preise und Menschen: „New York is bigger than Boston.“ „This is the best pizza in town!“",
+      "topic": "{{-er than}}, {{more … than}}, {{as … as}}, {{the -est}}, {{the most}}; {{better}}, {{best}}",
+      "blocks": [
+        {"goal":{"t":"New York is bigger than Boston, but Boston is more relaxed.","tr":"New York ist größer als Boston, aber Boston ist entspannter."}},
+        {"dialog":[{"who":"Salesperson","t":"This phone is cheaper than that one, but the camera isn't as good.","tr":"Dieses Handy ist billiger als das da, aber die Kamera ist nicht so gut."},{"who":"Julia","t":"Which one is the most popular?","tr":"Welches ist am beliebtesten?"},{"who":"Salesperson","t":"This one. It's the newest model, and it has the best battery.","tr":"Dieses hier. Es ist das neueste Modell und hat den besten Akku."},{"who":"Julia","t":"Is it more expensive?","tr":"Ist es teurer?"},{"who":"Salesperson","t":"Yes, it's the most expensive one we have. But it's also the fastest.","tr":"Ja, es ist das teuerste, das wir haben. Aber auch das schnellste."}]},
+        {"term":"Adjektiv","means":"ein Wort, das eine Person oder Sache beschreibt: groß, alt, teuer, schön."},
+        {"term":"Komparativ","means":"die Steigerungsform, mit der man zwei Dinge vergleicht: größer, teurer. Auf Englisch: {{bigger}}, {{more expensive}}."},
+        {"term":"Superlativ","means":"die höchste Steigerungsform: am größten, der teuerste. Auf Englisch: {{the biggest}}, {{the most expensive}}."},
+        {"p":"**Kurze Adjektive: -er, -est.** Wie im Deutschen: {{small}} → {{smaller}} → {{the smallest}}, {{cheap}} → {{cheaper}} → {{the cheapest}}. Schreibregeln: {{big}} → {{bigger}}, {{nice}} → {{nicer}}, {{easy}} → {{easier}}, {{happy}} → {{happier}}."},
+        {"p":"**Lange Adjektive: more, most.** Anders als im Deutschen (teuer – teurer, interessant – interessanter) bekommen lange Adjektive im Englischen keine Endung, sondern {{more}} und {{the most}} davor: {{expensive}} → {{more expensive}} → {{the most expensive}}. „Lang“ heißt: ab drei Silben und viele mit zwei."},
+        { "table": [
+          ["","Komparativ","Superlativ"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{interesting}}","{{more interesting}}","{{the most interesting}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"],
+          ["{{far}}","{{farther}}","{{the farthest}}"]
+        ] },
+        {"p":"**als = than!** „Größer als“ heißt {{bigger than}}, nicht {{bigger as}}. {{as}} brauchst du nur für „so … wie“: {{She's as tall as her brother.}} „Sie ist so groß wie ihr Bruder.“, {{It's not as cold as yesterday.}}"},
+        {"p":"**Der Superlativ** hat fast immer {{the}} davor: {{the best day of my life}}, {{the biggest city in the world}} (bei einem Ort: {{in}}, nicht {{of}})."},
+        { "ex": [
+          {"t":"My brother is older than me.","tr":"Mein Bruder ist älter als ich.","note":"nach {{than}} sagt man im Alltag {{me}}, {{him}}, {{her}}"},
+          {"t":"Is the train faster than the bus?","tr":"Ist der Zug schneller als der Bus?"},
+          {"t":"This is the best pizza in town!","tr":"Das ist die beste Pizza der Stadt!"},
+          {"t":"Today is hotter than yesterday.","tr":"Heute ist es heißer als gestern."},
+          {"t":"English isn't as hard as German.","tr":"Englisch ist nicht so schwer wie Deutsch."},
+          {"t":"That was the most boring movie ever.","tr":"Das war der langweiligste Film aller Zeiten."}
+        ] },
+        {"tip":"Bei manchen zweisilbigen Adjektiven geht beides: {{quieter}} oder {{more quiet}}. Im Zweifel: kurz mit {{-er}}, lang mit {{more}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Berlin is bigger as Munich.","right":"Berlin is bigger than Munich.","tr":"Berlin ist größer als München.","why":"„Als“ beim Vergleich ist {{than}}."},
+        {"wrong":"This hotel is expensiver.","right":"This hotel is more expensive.","tr":"Dieses Hotel ist teurer.","why":"Lange Adjektive: {{more}}, keine Endung."},
+        {"wrong":"It's the most good restaurant.","right":"It's the best restaurant.","tr":"Es ist das beste Restaurant.","why":"{{good}} ist unregelmäßig: {{better}}, {{the best}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ein Auto ist teurer als ein Fahrrad.“","options":["{{A car is more expensive than a bike.}}","{{A car is expensiver than a bike.}}","{{A car is more expensive as a bike.}}"],"answer":0,"why":"Ein langes Adjektiv: {{more}}; „als“: {{than}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My sister is taller ___ me.","tr":"Meine Schwester ist größer als ich.","options":["than","as","then"],"answer":0,"why":"„Als“: {{than}}. ({{then}} heißt „dann“!)"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"This is the ___ day of my life!","tr":"Das ist der beste Tag meines Lebens!","options":["best","goodest","most good"],"answer":0,"why":"{{good}} → {{the best}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"The bus isn't as fast ___ the train.","tr":"Der Bus ist nicht so schnell wie der Zug.","options":["as","than","like"],"answer":0,"why":"„So … wie“: {{as … as}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Gestern war es kälter als heute.","words":["Yesterday","it","was","colder","than today."],"from":"say-how-often"},
+        {"type":"dialogue","q":"Ihr plant eine Reise.","from":"say-what-you-must","lines":[{"who":"Friend","t":"Should we fly or drive?","tr":"Sollen wir fliegen oder fahren?"},{"options":["Flying is faster, but driving is cheaper.","Flying is more fast, but driving is more cheap."],"answer":0,"why":"Kurze Adjektive: {{-er}}."},{"who":"Friend","t":"And which hotel is better?","tr":"Und welches Hotel ist besser?"},{"options":["The Grand is the most beautiful, but the Plaza is closer to the beach.","The Grand is the beautifulest, but the Plaza is more close to the beach."],"answer":0,"why":"Lang: {{the most beautiful}}; kurz: {{closer}}."}]},
+        {"type":"free","q":"Jetzt du: Vergleich deine Stadt mit einer anderen und sag, was das Beste an deiner Stadt ist.","answers":[{"t":"Munich is smaller than Berlin, but it's more beautiful. The best thing about Munich is the beer gardens.","tr":"München ist kleiner als Berlin, aber schöner. Das Beste an München sind die Biergärten."},{"t":"My town is quieter than Hamburg, and it's not as expensive. The best thing is the lake.","tr":"Meine Stadt ist ruhiger als Hamburg und nicht so teuer. Das Beste ist der See."}]}
+      ]
+    },
+    {
+      "id": "describe-how",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sag, wie jemand etwas macht",
+      "summary": "Beschreib nicht nur, wie etwas ist, sondern wie jemand etwas tut: „She speaks English fluently.“ „You look tired.“",
+      "topic": "Adverbien auf {{-ly}}; {{good}} oder {{well}}; {{look, sound, feel, taste}} + Adjektiv",
+      "blocks": [
+        {"goal":{"t":"She speaks English really well, and she sings beautifully.","tr":"Sie spricht richtig gut Englisch, und sie singt wunderschön."}},
+        {"dialog":[{"who":"Emma","t":"Wow, she sings beautifully!","tr":"Wow, sie singt wunderschön!"},{"who":"Chris","t":"Yes, and she dances well too.","tr":"Ja, und sie tanzt auch gut."},{"who":"Emma","t":"Her brother plays the piano really badly, though.","tr":"Ihr Bruder spielt allerdings richtig schlecht Klavier."},{"who":"Chris","t":"Shh! He's sitting right behind us!","tr":"Psst! Er sitzt direkt hinter uns!"},{"who":"Emma","t":"Oops. Well, his sister looks happy, at least.","tr":"Hoppla. Na ja, seine Schwester sieht wenigstens glücklich aus."}]},
+        {"term":"Adverb","means":"ein Wort, das sagt, wie, wann oder wo etwas passiert: schnell, gut, gestern, hier."},
+        {"p":"**Wie? Mit -ly.** Im Deutschen ist „schnell“ in „Das Auto ist schnell“ und in „Er fährt schnell“ dasselbe Wort. Im Englischen nicht: Wenn ein Wort beschreibt, *wie* jemand etwas tut, bekommt es meist {{-ly}}: {{quick}} → {{quickly}}, {{careful}} → {{carefully}}, {{easy}} → {{easily}}."},
+        { "table": [
+          ["Adjektiv: wie etwas ist","Adverb: wie man etwas tut"],
+          ["{{He's a careful driver.}}","{{He drives carefully.}}"],
+          ["{{Her English is fluent.}}","{{She speaks English fluently.}}"],
+          ["{{The test was easy.}}","{{I passed the test easily.}}"],
+          ["{{It's a good song.}}","{{She sings well.}}"]
+        ] },
+        {"p":"**good wird well.** Das wichtigste unregelmäßige Adverb: {{good}} wird zu {{well}}: {{You speak English well!}}, nicht {{good}}. Ohne {{-ly}} bleiben auch {{fast}} ({{He runs fast}}), {{hard}} ({{She works hard}} „sie arbeitet fleißig“), {{late}} und {{early}}."},
+        {"p":"**Aber nach look, sound, feel, taste: das Adjektiv.** Diese Verben beschreiben, wie etwas wirkt, nicht wie jemand handelt: {{You look tired.}} „Du siehst müde aus.“, {{That sounds great!}}, {{I feel good.}}, {{This tastes delicious.}}"},
+        {"p":"**Und vor dem Nomen: ohne Endung.** Englische Adjektive ändern sich nie: {{a new car}}, {{the new cars}}, {{with my new car}}. Keine Endungen wie bei „ein neues, mit meinem neuen“."},
+        { "ex": [
+          {"t":"Please drive carefully.","tr":"Fahr bitte vorsichtig."},
+          {"t":"Can you speak more slowly, please?","tr":"Können Sie bitte langsamer sprechen?"},
+          {"t":"She works very hard.","tr":"Sie arbeitet sehr fleißig."},
+          {"t":"I didn't sleep well last night.","tr":"Ich habe letzte Nacht nicht gut geschlafen."},
+          {"t":"You look great today!","tr":"Du siehst heute toll aus!"},
+          {"t":"This soup smells amazing.","tr":"Diese Suppe riecht fantastisch."}
+        ] },
+        {"tip":"{{How are you? – I'm good.}} ist im amerikanischen Alltag völlig normal; {{I'm well}} klingt etwas förmlicher. Beides ist richtig, denn nach {{be}} steht ein Adjektiv."}
+      ],
+      "mistakes": [
+        {"wrong":"You speak English very good.","right":"You speak English very well.","tr":"Du sprichst sehr gut Englisch.","why":"Wie jemand spricht: das Adverb, {{well}}."},
+        {"wrong":"Drive careful!","right":"Drive carefully!","tr":"Fahr vorsichtig!","why":"Wie man fährt: {{-ly}}."},
+        {"wrong":"You look tiredly.","right":"You look tired.","tr":"Du siehst müde aus.","why":"Nach {{look}}: das Adjektiv."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Er kocht sehr gut.“","options":["{{He cooks very well.}}","{{He cooks very good.}}","{{He cooks very goodly.}}"],"answer":0,"why":"Wie er kocht: {{well}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Please speak ___. I'm still learning.","tr":"Bitte sprich langsam. Ich lerne noch.","options":["slowly","slow","slowlier"],"answer":0,"why":"Wie jemand spricht: {{-ly}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"That ___ like a great idea!","tr":"Das klingt nach einer tollen Idee!","options":["sounds","sound","is sounding"],"answer":0,"why":"{{sound}} beschreibt einen Eindruck, einen Zustand: Simple Present mit {{-s}}.","from":"now-or-usually"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"You look ___. Are you OK?","tr":"Du siehst traurig aus. Alles okay?","options":["sad","sadly","sadness"],"answer":0,"why":"Nach {{look}}: das Adjektiv."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Sie arbeitet sehr fleißig.","words":["She","works","very","hard."]},
+        {"type":"dialogue","q":"Nach deinem Vorstellungsgespräch.","from":"ask-about-the-past","lines":[{"who":"Friend","t":"How did the interview go?","tr":"Wie lief das Vorstellungsgespräch?"},{"options":["I think it went well!","I think it went good!"],"answer":0,"why":"Wie es lief: {{well}}."},{"who":"Friend","t":"Great! Did you answer all the questions?","tr":"Super! Hast du alle Fragen beantwortet?"},{"options":["Yes, and I answered them confidently.","Yes, and I answered them confident."],"answer":0,"why":"Wie du geantwortet hast: {{-ly}}."}]},
+        {"type":"free","q":"Jetzt du: Beschreib jemanden, den du kennst: Was macht er oder sie gut, schnell, langsam oder schlecht?","answers":[{"t":"My dad cooks really well, but he drives very slowly.","tr":"Mein Vater kocht richtig gut, aber er fährt sehr langsam."},{"t":"My best friend speaks Spanish fluently and dances beautifully. I dance badly!","tr":"Meine beste Freundin spricht fließend Spanisch und tanzt wunderschön. Ich tanze schlecht!"}]}
+      ]
+    },
+    {
+      "id": "say-how-much",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sag, wie viel und wie viele",
+      "summary": "Frag und sag, wie viel du brauchst: „How much water? How many people?“ Und warum „information“ keinen Plural hat.",
+      "topic": "{{much}}, {{many}}, {{a lot of}}, {{a few}}, {{a little}}; zählbare und unzählbare Nomen ({{information, advice, news}})",
+      "blocks": [
+        {"goal":{"t":"How many people are coming, and how much food do we need?","tr":"Wie viele Leute kommen, und wie viel Essen brauchen wir?"}},
+        {"dialog":[{"who":"Tom","t":"How many people did you invite?","tr":"Wie viele Leute hast du eingeladen?"},{"who":"Mia","t":"A lot! About thirty.","tr":"Viele! Ungefähr dreißig."},{"who":"Tom","t":"Wow. How much money do we have?","tr":"Wow. Wie viel Geld haben wir?"},{"who":"Mia","t":"Not much. But we have a few bottles of wine and a lot of chips.","tr":"Nicht viel. Aber wir haben ein paar Flaschen Wein und jede Menge Chips."},{"who":"Tom","t":"Do you need any advice?","tr":"Brauchst du einen Rat?"},{"who":"Mia","t":"No thanks, I have a little experience with parties!","tr":"Nein danke, ich habe ein bisschen Erfahrung mit Partys!"}]},
+        {"p":"**Zählbar oder nicht?** Wie im Deutschen gibt es Dinge, die man zählen kann ({{one apple, two apples}}), und solche, die man nicht zählt ({{water}}, {{money}}, {{time}}). Unzählbare Nomen haben keinen Plural und kein {{a}}."},
+        {"p":"**many oder much?** „Viele“ vor zählbaren Nomen ist {{many}}, „viel“ vor unzählbaren {{much}}: {{How many apples?}} / {{How much water?}} In Aussagen sagt man meist {{a lot of}}, für beide: {{a lot of people}}, {{a lot of money}}."},
+        { "table": [
+          ["","zählbar","unzählbar"],
+          ["viele, viel","{{many friends}}","{{much time}}"],
+          ["in Aussagen","{{a lot of friends}}","{{a lot of time}}"],
+          ["ein paar, ein bisschen","{{a few friends}}","{{a little time}}"],
+          ["wie viele, wie viel","{{How many friends?}}","{{How much time?}}"]
+        ] },
+        {"p":"**Die Falle: Was im Deutschen zählbar ist, ist es im Englischen nicht immer.** „Informationen“, „Ratschläge“, „Möbel“ und „Nachrichten“ haben auf Deutsch einen Plural, auf Englisch nicht: {{information}}, {{advice}}, {{furniture}} und {{news}} sind unzählbar, mit dem Verb in der Einzahl: {{The news is good.}} Für ein einzelnes Stück: {{a piece of advice}} „ein Rat“."},
+        { "ex": [
+          {"t":"How much is this? – Twenty dollars.","tr":"Wie viel kostet das? – Zwanzig Dollar."},
+          {"t":"I don't have much time.","tr":"Ich habe nicht viel Zeit."},
+          {"t":"There are a lot of tourists here.","tr":"Hier sind viele Touristen."},
+          {"t":"Can I ask a few questions?","tr":"Darf ich ein paar Fragen stellen?"},
+          {"t":"I need some information about the tour.","tr":"Ich brauche Informationen über die Tour."},
+          {"t":"Let me give you a piece of advice.","tr":"Lass mich dir einen Rat geben."}
+        ] },
+        {"tip":"{{people}} ist schon Plural: {{People are friendly here.}} (nie {{peoples is}}). Eine einzelne Person ist {{a person}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Can you give me some informations?","right":"Can you give me some information?","tr":"Können Sie mir ein paar Informationen geben?","why":"{{information}} hat keinen Plural."},
+        {"wrong":"How much people are coming?","right":"How many people are coming?","tr":"Wie viele Leute kommen?","why":"Menschen kann man zählen: {{many}}."},
+        {"wrong":"The news are good.","right":"The news is good.","tr":"Die Nachrichten sind gut.","why":"{{news}} ist unzählbar, mit dem Verb in der Einzahl."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich brauche einen Rat.“","options":["{{I need some advice.}}","{{I need an advice.}}","{{I need advices.}}"],"answer":0,"why":"{{advice}} ist unzählbar: kein {{a}}, kein Plural."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"How ___ kids do you have?","tr":"Wie viele Kinder hast du?","options":["many","much","lot"],"answer":0,"why":"Kinder kann man zählen: {{many}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We don't have ___ time.","tr":"Wir haben nicht viel Zeit.","options":["much","many","a few"],"answer":0,"why":"Zeit ist unzählbar: {{much}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"There are ___ good restaurants on this street.","tr":"In dieser Straße gibt es viele gute Restaurants.","options":["a lot of","much","a little"],"answer":0,"why":"In einer Aussage: {{a lot of}}.","from":"say-where-things-are"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Darf ich ein paar Fragen stellen?","words":["Can","I","ask","a few","questions?"]},
+        {"type":"dialogue","q":"In der Touristeninformation.","lines":[{"who":"Clerk","t":"Hi! How can I help you?","tr":"Hallo! Wie kann ich helfen?"},{"options":["Hi! I need some information about the city tours.","Hi! I need some informations about the city tours."],"answer":0,"why":"{{information}}: kein Plural."},{"who":"Clerk","t":"Sure. How many people are in your group?","tr":"Klar. Wie viele Leute sind in Ihrer Gruppe?"},{"options":["Just a few. We're four.","Just a little. We're four."],"answer":0,"why":"Personen sind zählbar: {{a few}}."}]},
+        {"type":"free","q":"Jetzt du: Wovon hast du viel, wovon wenig? Sag es mit {{a lot of}}, {{a few}}, {{a little}} oder {{not much}}.","answers":[{"t":"I have a lot of books but not much space. I have a few close friends.","tr":"Ich habe viele Bücher, aber nicht viel Platz. Ich habe ein paar enge Freunde."},{"t":"I drink a lot of coffee, but I only have a little free time.","tr":"Ich trinke viel Kaffee, aber ich habe nur wenig Freizeit."}]}
+      ]
+    },
+    {
+      "id": "make-do-get",
+      "unit": 7,
+      "level": "A2",
+      "title": "Sprich über Alltag und Erledigungen",
+      "summary": "make oder do? Und was get alles bedeutet: „I have to do the dishes, make dinner and get some milk.“",
+      "topic": "{{make}} oder {{do}}; die vielen Bedeutungen von {{get}}; {{become}} ist nicht „bekommen“",
+      "blocks": [
+        {"goal":{"t":"Tonight I have to do the dishes, make dinner and get some milk.","tr":"Heute Abend muss ich abspülen, Abendessen kochen und Milch holen."}},
+        {"dialog":[{"who":"Dad","t":"Did you do your homework?","tr":"Hast du deine Hausaufgaben gemacht?"},{"who":"Ella","t":"Not yet. I'm making a cake for Grandma.","tr":"Noch nicht. Ich backe einen Kuchen für Oma."},{"who":"Dad","t":"Nice! But don't make a mess in the kitchen.","tr":"Schön! Aber mach in der Küche keine Sauerei."},{"who":"Ella","t":"Can you get me some eggs from the store?","tr":"Kannst du mir Eier aus dem Laden holen?"},{"who":"Dad","t":"Sure. I'll be back in ten minutes. Then you do your homework!","tr":"Klar. Ich bin in zehn Minuten zurück. Dann machst du deine Hausaufgaben!"},{"who":"Ella","t":"Deal!","tr":"Abgemacht!"}]},
+        {"p":"**machen = make oder do.** Das deutsche „machen“ hat zwei englische Übersetzungen. Grob gesagt: {{make}} heißt herstellen, etwas Neues schaffen ({{make dinner}}, {{make a cake}}, {{make a plan}}); {{do}} heißt eine Tätigkeit, Arbeit oder Pflicht erledigen ({{do homework}}, {{do the dishes}}, {{do sports}}). Viele Verbindungen sind einfach fest und werden gelernt:"},
+        { "table": [
+          ["{{make}}","{{do}}"],
+          ["{{make dinner}} Essen kochen","{{do the dishes}} abspülen"],
+          ["{{make a mistake}} einen Fehler machen","{{do homework}} Hausaufgaben machen"],
+          ["{{make a phone call}} telefonieren","{{do the laundry}} Wäsche waschen"],
+          ["{{make money}} Geld verdienen","{{do sports}} Sport treiben"],
+          ["{{make friends}} Freunde finden","{{do your best}} sein Bestes geben"],
+          ["{{make a decision}} eine Entscheidung treffen","{{do someone a favor}} jemandem einen Gefallen tun"]
+        ] },
+        {"p":"**get, das Alleskönner-Verb.** Je nach Satz heißt {{get}} „bekommen“ ({{I got a letter}}), „holen, kaufen“ ({{get some milk}}), „ankommen“ ({{get home}}), „werden“ ({{get tired}}, {{get married}}) oder „verstehen“ ({{I don't get it}})."},
+        {"p":"**Falscher Freund: become ist nicht „bekommen“.** {{become}} heißt „werden“: {{She became a doctor.}} „Sie wurde Ärztin.“ „Bekommen“ ist {{get}} oder {{receive}}. Wer im Restaurant {{Can I become a steak?}} sagt, fragt, ob er sich in ein Steak verwandeln darf."},
+        { "ex": [
+          {"t":"I made a big mistake.","tr":"Ich habe einen großen Fehler gemacht."},
+          {"t":"Can you do me a favor?","tr":"Kannst du mir einen Gefallen tun?"},
+          {"t":"She makes a lot of money.","tr":"Sie verdient viel Geld."},
+          {"t":"What time did you get home?","tr":"Wann bist du nach Hause gekommen?"},
+          {"t":"It's getting dark.","tr":"Es wird dunkel."},
+          {"t":"I got a new phone for my birthday.","tr":"Ich habe zum Geburtstag ein neues Handy bekommen."}
+        ] },
+        {"tip":"{{Make yourself at home!}} „Fühl dich wie zu Hause!“ und {{What do you do?}} „Was machst du beruflich?“: zwei Sätze, die {{make}} und {{do}} gut zeigen."}
+      ],
+      "mistakes": [
+        {"wrong":"I have to make my homework.","right":"I have to do my homework.","tr":"Ich muss meine Hausaufgaben machen.","why":"Hausaufgaben erledigt man: {{do}}."},
+        {"wrong":"I became a letter from my bank.","right":"I got a letter from my bank.","tr":"Ich habe einen Brief von meiner Bank bekommen.","why":"{{become}} heißt „werden“. „Bekommen“ ist {{get}}."},
+        {"wrong":"Sorry, I did a mistake.","right":"Sorry, I made a mistake.","tr":"Entschuldigung, ich habe einen Fehler gemacht.","why":"Fester Ausdruck: {{make a mistake}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich habe ein Geschenk bekommen.“","options":["{{I got a present.}}","{{I became a present.}}"],"answer":0,"why":"{{I became a present}} hieße „Ich wurde ein Geschenk“!"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Who's going to ___ the dishes tonight?","tr":"Wer spült heute Abend ab?","options":["do","make","get"],"answer":0,"why":"Fester Ausdruck: {{do the dishes}}.","from":"talk-about-plans"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Can I ___ a quick phone call?","tr":"Kann ich kurz telefonieren?","options":["make","do","get"],"answer":0,"why":"Fester Ausdruck: {{make a phone call}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"It's ___ cold. Let's go inside.","tr":"Es wird kalt. Gehen wir rein.","options":["getting","making","doing"],"answer":0,"why":"„Werden“ im Sinne von „allmählich werden“: {{get}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Kannst du mir einen Gefallen tun?","words":["Can","you","do","me","a favor?"]},
+        {"type":"dialogue","q":"Samstag: Was muss erledigt werden?","from":"promise-and-predict","lines":[{"who":"Partner","t":"What do we have to do today?","tr":"Was müssen wir heute erledigen?"},{"options":["We have to do the laundry and make lunch.","We have to make the laundry and do lunch."],"answer":0,"why":"{{do the laundry}}, {{make lunch}}."},{"who":"Partner","t":"OK. Can you get some bread too?","tr":"Okay. Kannst du auch Brot holen?"},{"options":["Sure. I'll get it on my way home.","Sure. I'll become it on my way home."],"answer":0,"why":"„Holen“ ist {{get}}."}]},
+        {"type":"free","q":"Jetzt du: Was musst du diese Woche erledigen? Benutze {{do}}, {{make}} und {{get}}.","answers":[{"t":"I have to do the laundry, make a doctor's appointment and get a birthday present for my mom.","tr":"Ich muss Wäsche waschen, einen Arzttermin machen und ein Geburtstagsgeschenk für meine Mutter besorgen."},{"t":"This week I have to do a lot of work, make a decision about my vacation and get my car fixed.","tr":"Diese Woche muss ich viel arbeiten, mich wegen meines Urlaubs entscheiden und mein Auto reparieren lassen."}]}
+      ]
+    },
+    {
+      "id": "avoid-false-friends",
+      "unit": 7,
+      "level": "A2",
+      "title": "Vermeide falsche Freunde",
+      "summary": "Wörter, die deutsch aussehen, aber etwas anderes bedeuten: warum „Handy“ nicht handy ist und „eventuell“ nicht eventually.",
+      "topic": "Falsche Freunde: {{also, actually, eventually, chef, handy, gift, sensible, who, when}}",
+      "blocks": [
+        {"goal":{"t":"Actually, I don't need a new cell phone.","tr":"Eigentlich brauche ich kein neues Handy."}},
+        {"dialog":[{"who":"Lukas","t":"Can I borrow your handy?","tr":"Kann ich dein Handy leihen?"},{"who":"Megan","t":"My… what? Do you mean my cell phone?","tr":"Mein… was? Meinst du mein Handy?"},{"who":"Lukas","t":"Yes! Sorry. Mine is dead.","tr":"Ja! Sorry. Meins ist leer."},{"who":"Megan","t":"Sure, here. By the way, “handy” means “useful” in English.","tr":"Klar, hier. Übrigens heißt „handy“ auf Englisch „praktisch“."},{"who":"Lukas","t":"Oh! That's actually very handy to know.","tr":"Oh! Das ist tatsächlich sehr praktisch zu wissen."}]},
+        {"p":"**Gleich aussehen heißt nicht gleich bedeuten.** Weil Deutsch und Englisch verwandt sind, sehen viele Wörter ähnlich aus. Meistens hilft das ({{house}}, {{water}}, {{finger}}). Aber manche bedeuten etwas anderes, und die führen zu Missverständnissen:"},
+        { "table": [
+          ["Englisch","heißt","das deutsche Wort heißt auf Englisch"],
+          ["{{also}}","auch","also → {{so}}"],
+          ["{{actually}}","eigentlich, tatsächlich","aktuell → {{current}}"],
+          ["{{eventually}}","schließlich, irgendwann","eventuell → {{maybe}}"],
+          ["{{become}}","werden","bekommen → {{get}}"],
+          ["{{chef}}","Koch, Köchin","Chef → {{boss}}"],
+          ["{{handy}}","praktisch","Handy → {{cell phone}}"],
+          ["{{gift}}","Geschenk","Gift → {{poison}}"],
+          ["{{sensible}}","vernünftig","sensibel → {{sensitive}}"],
+          ["{{who}}","wer","wo → {{where}}"],
+          ["{{when}}","wann, wenn (sobald)","wenn (falls) → {{if}}"],
+          ["{{will}}","werden (Zukunft)","will → {{want}}"]
+        ] },
+        {"p":"**also und so.** {{also}} heißt „auch“: {{I also speak French.}} Das deutsche „also“ ist {{so}}: {{So, what do we do now?}} „Also, was machen wir jetzt?“"},
+        {"p":"**actually und eventually.** {{actually}} heißt „eigentlich, tatsächlich“: {{Actually, I'm from Austria, not Germany.}} „Aktuell“ ist {{current}} oder {{right now}}. Und {{eventually}} heißt „am Ende, irgendwann“, nie „vielleicht“: {{Eventually we found the hotel.}} „Schließlich haben wir das Hotel gefunden.“"},
+        { "ex": [
+          {"t":"I also like jazz.","tr":"Ich mag auch Jazz."},
+          {"t":"So, are you coming or not?","tr":"Also, kommst du oder nicht?"},
+          {"t":"Actually, I've changed my mind.","tr":"Eigentlich habe ich es mir anders überlegt."},
+          {"t":"Maybe I'll come later.","tr":"Eventuell komme ich später."},
+          {"t":"My boss is very nice.","tr":"Mein Chef ist sehr nett."},
+          {"t":"She's very sensitive.","tr":"Sie ist sehr sensibel."}
+        ] },
+        {"tip":"Noch ein paar: {{map}} „Landkarte“ (Mappe → {{folder}}), {{brave}} „mutig“ (brav → {{well-behaved}}), {{bald}} „glatzköpfig“ (bald → {{soon}}), {{sympathetic}} „mitfühlend“ (sympathisch → {{likable}}, {{nice}})."}
+      ],
+      "mistakes": [
+        {"wrong":"My chef is very strict.","right":"My boss is very strict.","tr":"Mein Chef ist sehr streng.","why":"{{chef}} ist ein Koch. „Chef“ ist {{boss}}."},
+        {"wrong":"I eventually come tomorrow.","right":"Maybe I'll come tomorrow.","tr":"Eventuell komme ich morgen.","why":"„Eventuell“ ist {{maybe}}. {{eventually}} heißt „schließlich, irgendwann“."},
+        {"wrong":"What is the actual weather?","right":"What's the weather like right now?","tr":"Wie ist das aktuelle Wetter?","why":"„Aktuell“ ist {{current}} oder {{right now}}; {{actual}} heißt „tatsächlich“."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{My brother is a chef.}} heißt…","options":["Mein Bruder ist Koch.","Mein Bruder ist Chef."],"answer":0,"why":"{{chef}} = Koch."},
+        {"type":"choice","q":"„Also, wann treffen wir uns?“","options":["{{So, when are we meeting?}}","{{Also, when are we meeting?}}"],"answer":0,"why":"{{also}} heißt „auch“. Das deutsche „also“ ist {{so}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ have two cats.","tr":"Ich habe auch zwei Katzen.","options":["also","so","too"],"answer":0,"why":"„Auch“ vor dem Verb: {{also}}. ({{too}} steht am Satzende.)"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Where's my ___? I can't find it!","tr":"Wo ist mein Handy? Ich finde es nicht!","options":["cell phone","handy"],"answer":0,"why":"„Handy“ ist {{cell phone}}.","from":"say-what-you-can-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We got lost, but ___ we found the hotel.","tr":"Wir haben uns verlaufen, aber schließlich haben wir das Hotel gefunden.","options":["eventually","maybe","actually"],"answer":0,"why":"„Schließlich“: {{eventually}}.","from":"tell-a-story"},
+        {"type":"dialogue","q":"Bei einem Abendessen.","lines":[{"who":"Host","t":"Do you like the soup? My husband made it. He's a chef.","tr":"Schmeckt dir die Suppe? Mein Mann hat sie gemacht. Er ist Koch."},{"options":["It's delicious! Actually, I'd love the recipe.","It's delicious! Actual, I'd love the recipe."],"answer":0,"why":"„Übrigens, eigentlich“: {{actually}}."},{"who":"Host","t":"Sure! And what do you do?","tr":"Klar! Und was machst du beruflich?"},{"options":["I'm a nurse. My boss is a doctor from Berlin.","I'm a nurse. My chef is a doctor from Berlin."],"answer":0,"why":"„Chef“ ist {{boss}}."}]},
+        {"type":"free","q":"Jetzt du: Schreib zwei Sätze, in denen du mindestens zwei der falschen Freunde richtig benutzt (zum Beispiel {{actually}}, {{also}}, {{boss}}, {{cell phone}}).","answers":[{"t":"Actually, I don't like my boss. I also don't like my job!","tr":"Eigentlich mag ich meinen Chef nicht. Meinen Job mag ich auch nicht!"},{"t":"I left my cell phone at home. So I can't call you, but maybe I'll see you later.","tr":"Ich habe mein Handy zu Hause gelassen. Also kann ich dich nicht anrufen, aber eventuell sehen wir uns später."}]}
+      ]
     }
   ]
 }
