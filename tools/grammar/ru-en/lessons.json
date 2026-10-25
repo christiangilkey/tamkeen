@@ -282,6 +282,354 @@
         {"type":"say","q":"Скажите: «Это моя жена, а это наши дети».","answer":"This is my wife, and these are our kids."},
         {"type":"free","q":"Ваша очередь: расскажите о двух людях из вашей семьи — как их зовут и что у них есть. Используйте {{his}}, {{her}} и {{'s}}.","answers":[{"t":"My brother's name is Oleg. His wife is a teacher. Their son is five.","tr":"Моего брата зовут Олег. Его жена учительница. Их сыну пять лет."},{"t":"This is my mom. Her name is Irina. Her car is red.","tr":"Это моя мама. Её зовут Ирина. Её машина красная."}]}
       ]
+    },
+    {
+      "id": "every-day",
+      "unit": 2,
+      "level": "A1",
+      "title": "Рассказать, что вы делаете каждый день",
+      "summary": "Расскажите о работе и привычках — своих и чужих: «Я работаю в банке, а жена преподаёт английский».",
+      "topic": "Present Simple: {{I work}}, {{she works}}; {{-s}} у {{he}}, {{she}}, {{it}}",
+      "blocks": [
+        {"goal":{"t":"I work in a bank. My wife teaches English.","tr":"Я работаю в банке. Моя жена преподаёт английский."}},
+        {"dialog":[{"who":"Эми","t":"What do you do?","tr":"Чем ты занимаешься?"},{"who":"Сергей","t":"I'm a programmer. I work from home.","tr":"Я программист. Работаю из дома."},{"who":"Эми","t":"Nice! And your wife?","tr":"Здорово! А твоя жена?"},{"who":"Сергей","t":"She works in a hospital. She's a nurse.","tr":"Она работает в больнице. Она медсестра."},{"who":"Эми","t":"And your kids?","tr":"А дети?"},{"who":"Сергей","t":"They go to school. They love it!","tr":"Ходят в школу. Им нравится!"}]},
+        {"term":"грамматическое время","means":"форма глагола, которая показывает, когда происходит действие: сейчас, раньше или потом."},
+        {"term":"Present Simple","means":"«простое настоящее» время английского: для привычек, работы, расписаний и того, что верно всегда: {{I work}}, {{She lives in Boston}}."},
+        {"p":"В русском одно настоящее время, а в английском два. Первое, **Present Simple**, — для того, что бывает регулярно или верно вообще: {{I work in a bank}} «я работаю в банке (это моя работа)». Второе, для того, что происходит прямо сейчас, — в десятом уроке."},
+        {"p":"**Форма очень простая**: глагол как в словаре. Меняется только одно: у {{he}}, {{she}}, {{it}} (и у любого человека или предмета в единственном числе) к глаголу добавляется {{-s}}."},
+        { "table": [
+          ["","{{work}} «работать»","{{live}} «жить»"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{work}}","{{live}}"],
+          ["{{he}}, {{she}}, {{it}}","{{works}}","{{lives}}"]
+        ] },
+        {"p":"**Как добавлять {{-s}}.** Как у существительных: после {{s}}, {{sh}}, {{ch}}, {{x}} и {{o}} — {{-es}} ({{watches}}, {{goes}}, {{does}}); согласная + {{y}} → {{-ies}} ({{study}} → {{studies}}). И одно исключение: {{have}} → {{has}}."},
+        {"p":"**Слова-подсказки.** {{every day}} «каждый день», {{usually}} «обычно», {{always}} «всегда», {{often}} «часто», {{on Mondays}} «по понедельникам», {{in the morning}} «по утрам»."},
+        { "ex": [
+          {"t":"We live in an apartment downtown.","tr":"Мы живём в квартире в центре."},
+          {"t":"My son plays soccer on Saturdays.","tr":"По субботам мой сын играет в футбол.","note":"{{soccer}} — наш футбол; {{football}} в Америке — американский футбол"},
+          {"t":"She speaks three languages.","tr":"Она говорит на трёх языках."},
+          {"t":"The store opens at nine.","tr":"Магазин открывается в девять."},
+          {"t":"He watches TV every evening.","tr":"Он каждый вечер смотрит телевизор."}
+        ] },
+        {"tip":"Долгота гласного в английском меняет смысл: {{live}} [лив] «жить» и {{leave}} [лиив] «уходить», {{ship}} «корабль» и {{sheep}} «овца». Тяните долгие гласные."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Она работает в банке.","why":"{{she}} — значит {{-s}}: {{works}}."},
+        {"wrong":"I works in a bank.","right":"I work in a bank.","tr":"Я работаю в банке.","why":"{{-s}} бывает только у {{he}}, {{she}}, {{it}}."},
+        {"wrong":"He haves a car.","right":"He has a car.","tr":"У него есть машина.","why":"{{have}} с {{he}}, {{she}}, {{it}} — {{has}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My brother ___ in Boston.","tr":"Мой брат живёт в Бостоне.","options":["lives","live","living"],"answer":0,"why":"Брат — это {{he}}: {{lives}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ English on Tuesdays.","tr":"По вторникам мы учим английский.","options":["study","studies"],"answer":0,"why":"С {{we}} — без {{-s}}."},
+        {"type":"choice","q":"Какая форма правильная?","options":["{{She watches TV.}}","{{She watchs TV.}}","{{She watch TV.}}"],"answer":0,"why":"После {{ch}} — {{-es}}."},
+        {"type":"dialogue","q":"Вы знакомитесь с соседкой. Выберите ответы.","from":"say-who-you-are","lines":[{"who":"Соседка","t":"Hi! Are you new here?","tr":"Привет! Вы здесь недавно?"},{"options":["Yes, I am. I live on the third floor.","Yes, I'm. I lives on the third floor."],"answer":0,"why":"{{Yes, I am}}, и с {{I}} — {{live}} без {{-s}}."},{"who":"Соседка","t":"What do you do?","tr":"Чем вы занимаетесь?"},{"options":["I'm a nurse. I work at the hospital.","I nurse. I works at the hospital."],"answer":0,"why":"{{I'm a nurse}}; {{I work}} — без {{-s}}."},{"who":"Соседка","t":"Nice to meet you!","tr":"Приятно познакомиться!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Он каждый вечер смотрит телевизор.","words":["He","watches","TV","every","evening."]},
+        {"type":"say","q":"Скажите: «Моя жена работает в школе».","answer":"My wife works at a school."},
+        {"type":"free","q":"Ваша очередь: расскажите, чем занимаетесь вы и кто-нибудь из ваших близких. Не забудьте {{-s}}.","answers":[{"t":"I work in an office. My husband teaches math.","tr":"Я работаю в офисе. Мой муж преподаёт математику."},{"t":"I live in Moscow. My sister lives in New York and works in a restaurant.","tr":"Я живу в Москве. Моя сестра живёт в Нью-Йорке и работает в ресторане."}]}
+      ]
+    },
+    {
+      "id": "questions-with-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Расспросить человека о его жизни",
+      "summary": "Спросите, где человек живёт, что любит и чем занимается: «Where do you work? Does she speak Russian?»",
+      "topic": "{{do}} и {{does}} в вопросах; {{Where do you…?}}; краткие ответы {{Yes, I do}}",
+      "blocks": [
+        {"goal":{"t":"Where do you live? Do you like it?","tr":"Где вы живёте? Вам там нравится?"}},
+        {"dialog":[{"who":"Ник","t":"Do you live in the city?","tr":"Ты живёшь в городе?"},{"who":"Маша","t":"Yes, I do. And you?","tr":"Да. А ты?"},{"who":"Ник","t":"No, I live in a small town. Where do you work?","tr":"Нет, я живу в маленьком городке. Где ты работаешь?"},{"who":"Маша","t":"At a bank. Does your sister still work in Chicago?","tr":"В банке. Твоя сестра всё ещё работает в Чикаго?"},{"who":"Ник","t":"Yes, she does. She loves it.","tr":"Да. Ей очень нравится."}]},
+        {"p":"В вопросах с {{be}} глагол просто встаёт вперёд: {{Are you…?}} С другими глаголами так нельзя: {{Work you here?}} — ошибка. Нужен помощник {{do}}. Он встаёт перед подлежащим, а основной глагол остаётся в словарной форме."},
+        {"term":"вспомогательный глагол","means":"глагол-помощник, который сам ничего не значит, а помогает построить вопрос, отрицание или время: {{do}}, {{does}}, {{did}}."},
+        { "table": [
+          ["утверждение","вопрос"],
+          ["{{You work here.}}","{{Do you work here?}}"],
+          ["{{They like pizza.}}","{{Do they like pizza?}}"],
+          ["{{She speaks Russian.}}","{{Does she speak Russian?}}"]
+        ] },
+        {"p":"**{{does}} для {{he}}, {{she}}, {{it}}.** С третьим лицом помощник становится {{does}} и забирает себе {{-s}}, а основной глагол остаётся без окончания: {{She speaks}} → {{Does she speak?}} (не {{speaks}})."},
+        {"p":"**С вопросительным словом** порядок такой: вопросительное слово — {{do}}/{{does}} — подлежащее — глагол. {{Where do you work?}} {{What does he do?}} «Кем он работает?» {{When does the store open?}}"},
+        {"p":"**Краткие ответы** — снова с помощником: {{Do you like coffee? — Yes, I do.}} / {{No, I don't.}} {{Does he drive? — Yes, he does.}} / {{No, he doesn't.}}"},
+        { "ex": [
+          {"t":"What do you do? — I'm a nurse.","tr":"Кем вы работаете? — Я медсестра.","note":"{{What do you do?}} — обычный вопрос о профессии"},
+          {"t":"Does your husband speak Russian? — No, he doesn't.","tr":"Ваш муж говорит по-русски? — Нет."},
+          {"t":"Where does she live?","tr":"Где она живёт?"},
+          {"t":"How often do you go to the gym?","tr":"Как часто ты ходишь в спортзал?"},
+          {"t":"Do you have kids? — Yes, I do.","tr":"У вас есть дети? — Да."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"You like coffee?","right":"Do you like coffee?","tr":"Ты любишь кофе?","why":"Без {{do}} это не вопрос, а удивлённое переспрашивание."},
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"Где ты работаешь?","why":"После вопросительного слова нужен {{do}}."},
+        {"wrong":"Does she speaks English?","right":"Does she speak English?","tr":"Она говорит по-английски?","why":"{{-s}} уже в {{does}}: основной глагол без окончания."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ you like jazz?","tr":"Ты любишь джаз?","options":["Do","Does","Are"],"answer":0,"why":"С {{you}} — {{do}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Where ___ your parents live?","tr":"Где живут твои родители?","options":["do","does","are"],"answer":0,"why":"Родители — это {{they}}: {{do}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Does he ___ a car?","tr":"У него есть машина?","options":["have","has","haves"],"answer":0,"why":"После {{does}} — словарная форма {{have}}."},
+        {"type":"choice","q":"Как кратко ответить «нет» на {{Do you smoke?}}","options":["{{No, I don't.}}","{{No, I'm not.}}","{{No, I not.}}"],"answer":0,"why":"Вопрос с {{do}} — ответ с {{do}}: {{No, I don't}}."},
+        {"type":"dialogue","q":"Коллега расспрашивает вас. Выберите ответы.","from":"every-day","lines":[{"who":"Коллега","t":"Do you live near here?","tr":"Ты живёшь недалеко?"},{"options":["No, I don't. I live in Brooklyn.","No, I not. I lives in Brooklyn."],"answer":0,"why":"{{No, I don't}}; {{I live}} без {{-s}}."},{"who":"Коллега","t":"How do you get to work?","tr":"Как ты добираешься до работы?"},{"options":["I take the subway. It takes forty minutes.","I takes the subway. It take forty minutes."],"answer":0,"why":"{{I take}} — без {{-s}}; {{it takes}} — с {{-s}}."},{"who":"Коллега","t":"That's a long way!","tr":"Далековато!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Кем работает твой брат?","words":["What","does","your","brother","do?"]},
+        {"type":"free","q":"Ваша очередь: задайте новому знакомому три вопроса о его жизни, с {{do}} и {{does}}.","answers":[{"t":"Where do you work? Do you like your job? Does your wife work too?","tr":"Где вы работаете? Вам нравится ваша работа? Ваша жена тоже работает?"},{"t":"Do you live downtown? What do you do on weekends? Does your son play sports?","tr":"Вы живёте в центре? Что вы делаете по выходным? Ваш сын занимается спортом?"}]}
+      ]
+    },
+    {
+      "id": "negatives-with-dont",
+      "unit": 2,
+      "level": "A1",
+      "title": "Сказать, чего вы не делаете",
+      "summary": "Скажите, что вы не курите, не едите мясо или не понимаете: отрицание с {{don't}} и {{doesn't}}.",
+      "topic": "{{don't}} и {{doesn't}} + глагол; после {{doesn't}} — без {{-s}}; {{I'm not}} или {{I don't}}",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat, and my husband doesn't drink coffee.","tr":"Я не ем мясо, а мой муж не пьёт кофе."}},
+        {"dialog":[{"who":"Хозяйка","t":"Do you eat fish?","tr":"Вы едите рыбу?"},{"who":"Гость","t":"Yes, I do, but I don't eat meat.","tr":"Да, а вот мясо не ем."},{"who":"Хозяйка","t":"OK! And your wife?","tr":"Хорошо! А ваша жена?"},{"who":"Гость","t":"She eats everything, but she doesn't like spicy food.","tr":"Она ест всё, но не любит острое."},{"who":"Хозяйка","t":"No problem. We don't cook spicy food anyway.","tr":"Без проблем. Мы всё равно не готовим острое."}]},
+        {"p":"По-русски «не» просто ставится перед глаголом: «я не знаю». В английском одного {{not}} перед обычным глаголом мало, нужен тот же помощник: {{I don't know}} (это {{do not}}). Для {{he}}, {{she}}, {{it}} — {{doesn't}} ({{does not}}), и {{-s}} опять уходит в помощника."},
+        { "table": [
+          ["","утверждение","отрицание"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{I smoke.}}","{{I don't smoke.}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She smokes.}}","{{She doesn't smoke.}}"]
+        ] },
+        {"p":"**А {{be}} справляется сам.** С глаголом {{be}} помощник не нужен: {{I'm not tired}}, {{He isn't here}}, {{They aren't at home}}. Не путайте: {{I'm not}} — с прилагательным, местом, профессией; {{I don't}} — с действием."},
+        { "table": [
+          ["с {{be}}","с другими глаголами"],
+          ["{{I'm not hungry.}}","{{I don't eat meat.}}"],
+          ["{{She isn't a teacher.}}","{{She doesn't teach.}}"]
+        ] },
+        { "ex": [
+          {"t":"I don't understand.","tr":"Я не понимаю."},
+          {"t":"He doesn't have a car.","tr":"У него нет машины."},
+          {"t":"We don't live here anymore.","tr":"Мы здесь больше не живём."},
+          {"t":"The bus doesn't stop here.","tr":"Автобус здесь не останавливается."},
+          {"t":"I'm sorry, I don't know.","tr":"Простите, я не знаю."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I not understand.","right":"I don't understand.","tr":"Я не понимаю.","why":"Перед обычным глаголом — {{don't}}: одного {{not}} мало."},
+        {"wrong":"She doesn't likes coffee.","right":"She doesn't like coffee.","tr":"Она не любит кофе.","why":"После {{doesn't}} глагол без {{-s}}."},
+        {"wrong":"I don't hungry.","right":"I'm not hungry.","tr":"Я не голоден.","why":"«Голодный» — не действие, а состояние: здесь работает {{be}}: {{I'm not}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My dad ___ speak English.","tr":"Мой папа не говорит по-английски.","options":["doesn't","don't","isn't"],"answer":0,"why":"Папа — {{he}}, действие: {{doesn't}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ have a car.","tr":"У нас нет машины.","options":["don't","doesn't","aren't"],"answer":0,"why":"С {{we}} — {{don't}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She ___ at home now.","tr":"Её сейчас нет дома.","options":["isn't","doesn't","don't"],"answer":0,"why":"Где человек — это {{be}}: {{isn't}}."},
+        {"type":"choice","q":"Как сказать «Он не курит»?","options":["{{He doesn't smoke.}}","{{He don't smoke.}}","{{He doesn't smokes.}}"],"answer":0,"why":"{{he}} — {{doesn't}}, а глагол без {{-s}}."},
+        {"type":"dialogue","q":"Вы в гостях у подруги. Выберите ответы.","from":"questions-with-do","lines":[{"who":"Подруга","t":"Do you want some coffee?","tr":"Хочешь кофе?"},{"options":["No, thanks. I don't drink coffee.","No, thanks. I not drink coffee."],"answer":0,"why":"Отрицание с помощником: {{I don't drink}}."},{"who":"Подруга","t":"Does your husband drink tea?","tr":"А твой муж пьёт чай?"},{"options":["No, he doesn't. He only drinks water.","No, he don't. He only drink water."],"answer":0,"why":"{{he doesn't}}, но {{he drinks}}."},{"who":"Подруга","t":"OK, water it is!","tr":"Ладно, значит, воду!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Автобус здесь не останавливается.","words":["The","bus","doesn't","stop","here."]},
+        {"type":"free","q":"Ваша очередь: назовите две вещи, которых вы не делаете, и одну, которую не делает кто-то из ваших близких.","answers":[{"t":"I don't smoke and I don't eat sugar. My brother doesn't like sports.","tr":"Я не курю и не ем сахар. Мой брат не любит спорт."},{"t":"I don't watch TV. My wife doesn't drive.","tr":"Я не смотрю телевизор. Моя жена не водит машину."}]}
+      ]
+    },
+    {
+      "id": "right-now",
+      "unit": 2,
+      "level": "A1",
+      "title": "Сказать, что происходит сейчас",
+      "summary": "Скажите, что вы делаете прямо сейчас, и почувствуйте разницу между «я работаю (вообще)» и «я работаю (сейчас)».",
+      "topic": "Present Continuous: {{I'm working}}; чем он отличается от Present Simple",
+      "blocks": [
+        {"goal":{"t":"Sorry, I can't talk now. I'm driving.","tr":"Извини, не могу говорить. Я за рулём."}},
+        {"dialog":[{"who":"Мама","t":"Hi, honey! What are you doing?","tr":"Привет, дорогая! Что делаешь?"},{"who":"Дочь","t":"I'm cooking dinner. Dad's watching the game.","tr":"Готовлю ужин. Папа смотрит матч."},{"who":"Мама","t":"And the kids?","tr":"А дети?"},{"who":"Дочь","t":"Jake is doing his homework, and Lily is sleeping.","tr":"Джейк делает уроки, а Лили спит."},{"who":"Мама","t":"OK, I'll call you later!","tr":"Ладно, позвоню попозже!"}]},
+        {"term":"Present Continuous","means":"«продолженное настоящее»: то, что происходит прямо сейчас или в эти дни: {{I'm reading}} «я читаю (сейчас)»."},
+        {"p":"Русское «я читаю» значит и «я вообще читаю книги», и «я читаю прямо сейчас». В английском это два разных времени. О привычках и о том, что верно всегда, — Present Simple: {{I read a lot}}. О том, что происходит в эту минуту или в эти дни, — Present Continuous: {{I'm reading a great book}}."},
+        {"p":"**Форма:** {{be}} + глагол с {{-ing}}: {{I am working}}, {{she is working}}, {{they are working}}. В вопросе {{be}} встаёт вперёд ({{Are you working?}}), в отрицании получает {{not}} ({{I'm not working}}). Никакого {{do}}!"},
+        { "table": [
+          ["Present Simple: вообще, обычно","Present Continuous: сейчас"],
+          ["{{I work in a bank.}}","{{I'm working from home today.}}"],
+          ["{{She speaks Russian.}}","{{She's speaking English now.}}"],
+          ["{{Do you cook?}}","{{What are you cooking?}}"]
+        ] },
+        {"p":"**Как добавлять {{-ing}}.** Обычно просто {{-ing}}: {{read}} → {{reading}}. Немое {{e}} на конце уходит: {{make}} → {{making}}. В коротком слове с одной согласной на конце она удваивается: {{sit}} → {{sitting}}, {{run}} → {{running}}."},
+        {"p":"**Глаголы, которые не любят {{-ing}}.** Глаголы чувств, знания и обладания обычно остаются в Present Simple, даже «сейчас»: {{I know}}, {{I understand}}, {{I like}}, {{I want}}, {{I have a car}}. Никаких {{I'm knowing}}!"},
+        { "ex": [
+          {"t":"Look! It's snowing!","tr":"Смотри! Идёт снег!"},
+          {"t":"What are you doing? — I'm waiting for a friend.","tr":"Что ты делаешь? — Жду друга."},
+          {"t":"She isn't working today. She's at home.","tr":"Она сегодня не работает. Она дома."},
+          {"t":"I'm reading a great book these days.","tr":"Я сейчас читаю отличную книгу.","note":"в эти дни, не обязательно в эту минуту"},
+          {"t":"I usually walk to work, but today I'm taking a taxi.","tr":"Обычно я хожу на работу пешком, но сегодня еду на такси."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I cook dinner now.","right":"I'm cooking dinner now.","tr":"Я сейчас готовлю ужин.","why":"Прямо сейчас — Present Continuous: {{I'm cooking}}."},
+        {"wrong":"She is work now.","right":"She is working now.","tr":"Она сейчас работает.","why":"После {{be}} — глагол с {{-ing}}."},
+        {"wrong":"I'm knowing the answer.","right":"I know the answer.","tr":"Я знаю ответ.","why":"{{know}} — глагол знания: без {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Be quiet! The baby ___.","tr":"Тише! Ребёнок спит.","options":["is sleeping","sleeps","sleeping"],"answer":0,"why":"Прямо сейчас: {{is sleeping}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ to work every day.","tr":"Я каждый день езжу на работу на машине.","options":["drive","am driving"],"answer":0,"why":"«Каждый день» — привычка: Present Simple."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"What ___ you doing?","tr":"Что ты делаешь?","options":["are","do","is"],"answer":0,"why":"Present Continuous строится с {{be}}: {{are you doing}}."},
+        {"type":"choice","q":"Какое предложение правильное?","options":["{{I want a coffee.}}","{{I'm wanting a coffee.}}"],"answer":0,"why":"{{want}} обычно не бывает с {{-ing}}."},
+        {"type":"dialogue","q":"Вам звонит друг. Выберите ответы.","from":"negatives-with-dont","lines":[{"who":"Друг","t":"Hi! Are you busy?","tr":"Привет! Ты занят?"},{"options":["A little. I'm cooking dinner.","A little. I cook dinner."],"answer":0,"why":"Прямо сейчас: {{I'm cooking}}."},{"who":"Друг","t":"Do you want to go to the movies tonight?","tr":"Хочешь вечером в кино?"},{"options":["Sorry, I can't. I don't feel well.","Sorry, I can't. I'm not feel well."],"answer":0,"why":"{{feel}} — глагол: отрицание с {{don't}}."},{"who":"Друг","t":"Oh no! Feel better!","tr":"Ой! Выздоравливай!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Сейчас идёт дождь.","words":["It's","raining","now."]},
+        {"type":"free","q":"Ваша очередь: скажите, что вы обычно делаете в это время дня, и что делаете прямо сейчас.","answers":[{"t":"I usually work at this time, but today I'm relaxing at home.","tr":"Обычно в это время я работаю, но сегодня отдыхаю дома."},{"t":"I'm learning English right now. My cat is sleeping next to me.","tr":"Я сейчас учу английский. Рядом спит мой кот."}]}
+      ]
+    },
+    {
+      "id": "there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Описать, что где находится",
+      "summary": "Расскажите, что есть в вашем городе или квартире: «Рядом с моим домом есть хорошее кафе».",
+      "topic": "{{there is}}, {{there are}}; {{Is there…?}}; предлоги места {{in}}, {{on}}, {{under}}, {{next to}}",
+      "blocks": [
+        {"goal":{"t":"There's a nice café next to my house.","tr":"Рядом с моим домом есть хорошее кафе."}},
+        {"dialog":[{"who":"Подруга","t":"So, how's the new apartment?","tr":"Ну, как новая квартира?"},{"who":"Ира","t":"Great! There are two bedrooms and a big kitchen.","tr":"Отличная! Две спальни и большая кухня."},{"who":"Подруга","t":"Is there a balcony?","tr":"А балкон есть?"},{"who":"Ира","t":"Yes, there is. And there's a park across the street.","tr":"Есть. А через дорогу парк."},{"who":"Подруга","t":"Are there any stores nearby?","tr":"А магазины рядом есть?"},{"who":"Ира","t":"There's a supermarket on the corner.","tr":"На углу супермаркет."}]},
+        {"p":"По-русски мы начинаем с места: «В комнате (есть) стол». Англичанин начинает с особой конструкции {{there is}}: {{There is a table in the room.}} Место — в конце. Так сообщают, что что-то где-то есть, называя его впервые."},
+        { "table": [
+          ["","один предмет","несколько"],
+          ["есть","{{There's a park.}}","{{There are two parks.}}"],
+          ["нет","{{There isn't a park.}}","{{There aren't any parks.}}"],
+          ["вопрос","{{Is there a park?}}","{{Are there any parks?}}"]
+        ] },
+        {"p":"**Артикль после {{there is}}.** Раз предмет называют впервые, он идёт с {{a}}, а во множественном числе — с {{some}} «несколько, какие-то» или {{any}}: {{There's a bank}}, {{There are some cafés}}. {{any}} — в вопросах и отрицаниях: {{Are there any questions?}}"},
+        {"p":"**Где именно.** {{in}} «в», {{on}} «на», {{under}} «под», {{next to}} «рядом с», {{near}} «недалеко от», {{across from}} «напротив», {{between}} «между», {{behind}} «за», {{in front of}} «перед»."},
+        { "ex": [
+          {"t":"There's a bank on the corner.","tr":"На углу есть банк."},
+          {"t":"There are a lot of people here.","tr":"Здесь много народу."},
+          {"t":"Is there a pharmacy near here?","tr":"Здесь поблизости есть аптека?"},
+          {"t":"There aren't any eggs in the fridge.","tr":"В холодильнике нет яиц."},
+          {"t":"The keys are on the table.","tr":"Ключи на столе.","note":"о том, что уже известно, говорят без {{there}}"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"In my room is a big bed.","right":"There's a big bed in my room.","tr":"В моей комнате большая кровать.","why":"Сообщая, что что-то есть, начинайте с {{there is}}; место — в конце."},
+        {"wrong":"There is two bedrooms.","right":"There are two bedrooms.","tr":"Здесь две спальни.","why":"Несколько предметов: {{there are}}."},
+        {"wrong":"Is there bank here?","right":"Is there a bank here?","tr":"Здесь есть банк?","why":"Называем предмет впервые: {{a bank}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ a supermarket near my house.","tr":"Рядом с моим домом есть супермаркет.","options":["There's","It's","There are"],"answer":0,"why":"Один предмет, впервые: {{There's}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Are there ___ good restaurants here?","tr":"Здесь есть хорошие рестораны?","options":["any","a","the"],"answer":0,"why":"Вопрос о нескольких: {{any}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The cat is ___ the bed.","tr":"Кошка под кроватью.","options":["under","between","next"],"answer":0,"why":"«Под» — {{under}}."},
+        {"type":"choice","q":"Как сказать «В холодильнике есть молоко»?","options":["{{There's some milk in the fridge.}}","{{In the fridge is milk.}}","{{It's milk in the fridge.}}"],"answer":0,"why":"Сначала {{there is}}, место в конце."},
+        {"type":"dialogue","q":"Вы ищете банкомат. Выберите ответы.","from":"a-and-the","lines":[{"who":"Прохожий","t":"Can I help you?","tr":"Вам помочь?"},{"options":["Yes, is there an ATM near here?","Yes, there is an ATM near here?"],"answer":0,"why":"Вопрос: {{Is there…?}}"},{"who":"Прохожий","t":"Yes, there's one next to the bank.","tr":"Да, есть один рядом с банком."},{"options":["And where's the bank?","And where's a bank?"],"answer":0,"why":"Банк уже упомянут: {{the}}."},{"who":"Прохожий","t":"On the corner, across from the park.","tr":"На углу, напротив парка."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"На углу есть аптека.","words":["There's","a","pharmacy","on","the","corner."]},
+        {"type":"free","q":"Ваша очередь: опишите свою улицу или квартиру — что там есть и чего нет.","answers":[{"t":"There's a small park on my street. There are two cafés, but there isn't a supermarket.","tr":"На моей улице есть маленький парк. Есть два кафе, но нет супермаркета."},{"t":"In my apartment there are three rooms and a big kitchen. There isn't a balcony.","tr":"В моей квартире три комнаты и большая кухня. Балкона нет."}]}
+      ]
+    },
+    {
+      "id": "have-and-have-got",
+      "unit": 2,
+      "level": "A1",
+      "title": "Сказать, что у вас есть",
+      "summary": "Скажите, что у вас есть, и спросите о том же: «У меня есть собака. А у тебя есть время?»",
+      "topic": "{{I have}}, {{she has}}; {{Do you have…?}}; {{I've got}}; «у меня есть» → {{I have}}",
+      "blocks": [
+        {"goal":{"t":"I have two kids and a dog. Do you have any pets?","tr":"У меня двое детей и собака. А у вас есть домашние животные?"}},
+        {"dialog":[{"who":"Анна","t":"Do you have a car?","tr":"У тебя есть машина?"},{"who":"Бен","t":"No, I don't. But my wife has one.","tr":"Нет. Но у жены есть."},{"who":"Анна","t":"Do you have time on Saturday? I need help with my move.","tr":"У тебя есть время в субботу? Мне нужна помощь с переездом."},{"who":"Бен","t":"Sure, I've got time. What time?","tr":"Конечно, время есть. Во сколько?"},{"who":"Анна","t":"At ten. Thank you so much!","tr":"В десять. Огромное спасибо!"}]},
+        {"p":"По-русски «у меня есть машина»: машина — подлежащее, а я — «у меня». В английском наоборот: подлежащее — вы, а глагол — {{have}} «иметь»: {{I have a car}}. Так говорят и о вещах, и о семье, и о времени, и даже о болезнях: {{I have a brother}}, {{I have a cold}} «у меня простуда»."},
+        { "table": [
+          ["","есть","нет","вопрос"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{I have a car.}}","{{I don't have a car.}}","{{Do you have a car?}}"],
+          ["{{he}}, {{she}}, {{it}}","{{She has a car.}}","{{She doesn't have a car.}}","{{Does she have a car?}}"]
+        ] },
+        {"p":"**{{have}} — обычный глагол**: вопросы и отрицания с {{do}}/{{does}}, а с {{he}}, {{she}}, {{it}} — {{has}}. После {{does}} и {{doesn't}} — снова {{have}}: {{She doesn't have…}}"},
+        {"p":"**{{have got}}.** В разговоре часто говорят {{I've got}} вместо {{I have}} и {{she's got}} вместо {{she has}}: {{I've got two sisters}}. Значит то же самое, только разговорнее. Вопрос — {{Have you got…?}}, но американцы обычно спрашивают {{Do you have…?}}"},
+        { "ex": [
+          {"t":"I have a headache.","tr":"У меня болит голова."},
+          {"t":"Do you have any brothers or sisters? — Yes, I have a sister.","tr":"У тебя есть братья или сёстры? — Да, сестра."},
+          {"t":"He has blue eyes.","tr":"У него голубые глаза."},
+          {"t":"We don't have time.","tr":"У нас нет времени."},
+          {"t":"I've got an idea!","tr":"У меня есть идея!"}
+        ] },
+        {"tip":"{{h}} в {{have}} и {{has}} — лёгкий выдох, совсем не русское «х». Представьте, что дышите на очки, чтобы их протереть."}
+      ],
+      "mistakes": [
+        {"wrong":"At me is a car.","right":"I have a car.","tr":"У меня есть машина.","why":"«У меня есть» по-английски — {{I have}}: подлежащее — вы."},
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"У неё есть собака.","why":"С {{she}} — {{has}}."},
+        {"wrong":"Do you have got a pen?","right":"Do you have a pen?","tr":"У тебя есть ручка?","why":"Либо {{Do you have…?}}, либо {{Have you got…?}}, но не вместе."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My sister ___ two kids.","tr":"У моей сестры двое детей.","options":["has","have","is"],"answer":0,"why":"Сестра — {{she}}: {{has}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ you have a pen?","tr":"У тебя есть ручка?","options":["Do","Are","Have"],"answer":0,"why":"Американцы спрашивают {{Do you have…?}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We don't ___ any milk.","tr":"У нас нет молока.","options":["have","has","got"],"answer":0,"why":"После {{don't}} — {{have}}."},
+        {"type":"choice","q":"Как сказать «У меня простуда»?","options":["{{I have a cold.}}","{{At me is a cold.}}","{{I am cold.}}"],"answer":0,"why":"{{I have a cold}}. А {{I am cold}} — это «мне холодно»."},
+        {"type":"dialogue","q":"Друг советует вам заняться спортом. Выберите ответы.","from":"there-is","lines":[{"who":"Друг","t":"Is there a good gym near your place?","tr":"У тебя рядом есть хороший спортзал?"},{"options":["Yes, there is. But I don't have time to go!","Yes, it is. But I haven't time to go!"],"answer":0,"why":"{{Yes, there is}}; «у меня нет времени» — {{I don't have time}}."},{"who":"Друг","t":"Do you have a bike? There's a nice park too.","tr":"А велосипед у тебя есть? Там ещё хороший парк."},{"options":["No, I don't. But my son has one.","No, I haven't. But my son have one."],"answer":0,"why":"{{No, I don't}}; у сына — {{has}}."},{"who":"Друг","t":"Borrow his!","tr":"Возьми у него!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"У него голубые глаза.","words":["He","has","blue","eyes."]},
+        {"type":"free","q":"Ваша очередь: что у вас есть и чего нет? Расскажите о семье, вещах или времени. Используйте {{I have}}, {{I don't have}} и {{has}}.","answers":[{"t":"I have a husband, two kids and a cat. I don't have a car, but my husband has a bike.","tr":"У меня муж, двое детей и кошка. Машины у меня нет, но у мужа есть велосипед."},{"t":"I have a lot of friends, but I don't have much free time.","tr":"У меня много друзей, но мало свободного времени."}]}
+      ]
+    },
+    {
+      "id": "like-and-want",
+      "unit": 2,
+      "level": "A1",
+      "title": "Сказать, что вам нравится и чего вы хотите",
+      "summary": "Скажите, что вы любите, что любите делать и чего хотите: «I like jazz. I want to see New York».",
+      "topic": "{{I like}} (подлежащее — вы!); {{like}} + {{-ing}}; {{want to}}; {{would like}}; вещи вообще — без {{the}}",
+      "blocks": [
+        {"goal":{"t":"I love jazz, and I want to see New York.","tr":"Я люблю джаз и хочу увидеть Нью-Йорк."}},
+        {"dialog":[{"who":"Джен","t":"What kind of music do you like?","tr":"Какую музыку ты любишь?"},{"who":"Алексей","t":"I like rock and jazz. And you?","tr":"Рок и джаз. А ты?"},{"who":"Джен","t":"I like pop. Do you like dancing?","tr":"Я люблю поп. А танцевать любишь?"},{"who":"Алексей","t":"Not really. But I love cooking!","tr":"Не очень. Зато обожаю готовить!"},{"who":"Джен","t":"Really? I'd like to try your food!","tr":"Правда? Я бы хотела попробовать твою еду!"}]},
+        {"p":"**Кто кому нравится.** По-русски «Мне нравится джаз»: джаз — подлежащее, а я — «мне». В английском, как и с {{have}}, подлежащее — вы: {{I like jazz}}. Это и «нравится», и «люблю». Сильнее — {{I love}} «обожаю», совсем не нравится — {{I don't like}}, терпеть не могу — {{I hate}}."},
+        {"p":"**Вообще — без {{the}}.** Когда говорите о вещах вообще, артикля нет: {{I like coffee}} «я люблю кофе (вообще)», {{I like dogs}} «я люблю собак». {{the}} указывает на конкретное: {{I like the coffee here}} «мне нравится здешний кофе». Лишний {{the}} — одна из самых частых ошибок русскоговорящих."},
+        {"p":"**Любить делать.** После {{like}}, {{love}}, {{hate}} глагол чаще всего с {{-ing}}: {{I like reading}}, {{She loves cooking}}. А после {{want}} — с {{to}}: {{I want to go home}} «Я хочу домой»."},
+        {"p":"**Хотеть вежливо.** {{I'd like}} ({{I would like}}) «я бы хотел(а)» мягче, чем {{I want}}: {{I'd like to book a table}}. А приглашают так: {{Would you like a coffee?}} «Хотите кофе?», {{Would you like to come?}} «Хочешь пойти с нами?»"},
+        { "table": [
+          ["","+ существительное","+ глагол"],
+          ["{{like}}, {{love}}, {{hate}}","{{I like music.}}","{{I like dancing.}}"],
+          ["{{want}}","{{I want a coffee.}}","{{I want to sleep.}}"],
+          ["{{would like}}","{{I'd like a coffee.}}","{{I'd like to sleep.}}"]
+        ] },
+        { "ex": [
+          {"t":"Do you like Italian food? — I love it!","tr":"Ты любишь итальянскую кухню? — Обожаю!"},
+          {"t":"My son doesn't like vegetables.","tr":"Мой сын не любит овощи."},
+          {"t":"I want to learn Spanish.","tr":"Я хочу выучить испанский."},
+          {"t":"Would you like some tea? — Yes, please.","tr":"Хотите чаю? — Да, спасибо."},
+          {"t":"She hates waiting.","tr":"Она терпеть не может ждать."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Me like this city.","right":"I like this city.","tr":"Мне нравится этот город.","why":"Подлежащее — вы: {{I like}}, а не «мне»."},
+        {"wrong":"I like the cats.","right":"I like cats.","tr":"Я люблю кошек.","why":"О кошках вообще — без {{the}}."},
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"Я хочу домой.","why":"После {{want}} нужен {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ chocolate.","tr":"Я люблю шоколад.","options":["love","am love","loves"],"answer":0,"why":"Present Simple: {{I love}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She likes ___.","tr":"Она любит плавать.","options":["swimming","swim"],"answer":0,"why":"После {{like}} — глагол с {{-ing}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Would you like ___ come with us?","tr":"Хочешь пойти с нами?","options":["to","for"],"answer":0,"why":"{{would like to}} + глагол."},
+        {"type":"choice","q":"Как сказать «Я люблю собак» (вообще)?","options":["{{I love dogs.}}","{{I love the dogs.}}","{{Me like dogs.}}"],"answer":0,"why":"Вообще — без {{the}}, и подлежащее {{I}}."},
+        {"type":"dialogue","q":"Новый знакомый предлагает сыграть в теннис. Выберите ответы.","from":"questions-with-do","lines":[{"who":"Знакомый","t":"Do you like sports?","tr":"Ты любишь спорт?"},{"options":["Yes, I do. I love playing tennis.","Yes, I like. I love play tennis."],"answer":0,"why":"{{Yes, I do}}; после {{love}} — {{playing}}."},{"who":"Знакомый","t":"Would you like to play on Sunday?","tr":"Хочешь сыграть в воскресенье?"},{"options":["I'd love to!","I'd love!"],"answer":0,"why":"{{I'd love to}} — «с удовольствием», {{to}} остаётся."},{"who":"Знакомый","t":"Great!","tr":"Отлично!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я хочу выучить английский.","words":["I","want","to","learn","English."]},
+        {"type":"free","q":"Ваша очередь: что вы любите, что не любите и чего хотите в этом году?","answers":[{"t":"I love traveling and I don't like cold weather. This year I want to go to Mexico.","tr":"Я люблю путешествовать и не люблю холод. В этом году хочу поехать в Мексику."},{"t":"I like reading and cooking. I'd like to learn to play the guitar.","tr":"Я люблю читать и готовить. Я бы хотела научиться играть на гитаре."}]}
+      ]
+    },
+    {
+      "id": "can",
+      "unit": 2,
+      "level": "A1",
+      "title": "Сказать, что вы умеете и можете",
+      "summary": "Скажите, что вы умеете, что можно, а что нельзя, и попросите о помощи: «I can swim. Can you help me?»",
+      "topic": "{{can}} и {{can't}}: умение, возможность, разрешение, просьба",
+      "blocks": [
+        {"goal":{"t":"I can speak a little English. Can you speak more slowly?","tr":"Я немного говорю по-английски. Можете говорить помедленнее?"}},
+        {"dialog":[{"who":"Коллега","t":"Can you speak Russian?","tr":"Ты говоришь по-русски?"},{"who":"Даша","t":"Yes, I can. It's my first language.","tr":"Да. Это мой родной язык."},{"who":"Коллега","t":"Great! Can you help me with this letter?","tr":"Отлично! Поможешь мне с этим письмом?"},{"who":"Даша","t":"Sure. Can I see it?","tr":"Конечно. Можно посмотреть?"},{"who":"Коллега","t":"Here. I can't read Russian handwriting!","tr":"Вот. Не могу разобрать русский почерк!"}]},
+        {"p":"{{can}} — это и «уметь», и «мочь», и «можно». После него — глагол в словарной форме, без {{to}}: {{I can swim}}. {{can}} не меняется по лицам: {{she can}}, без {{-s}}. Вопрос — {{can}} вперёд: {{Can you swim?}}; отрицание — {{can't}} (полностью {{cannot}}). Никакого {{do}}."},
+        { "table": [
+          ["значение","пример","по-русски"],
+          ["умение","{{I can swim.}}","Я умею плавать."],
+          ["возможность","{{I can't come today.}}","Я не могу сегодня прийти."],
+          ["разрешение","{{Can I sit here?}}","Можно здесь сесть?"],
+          ["просьба","{{Can you help me?}}","Можешь мне помочь?"]
+        ] },
+        {"p":"**{{can}} или {{could}}?** {{Could you…?}} вежливее, чем {{Can you…?}}: к незнакомым лучше обращаться с {{Could you…?}} (четвёртый урок). А ещё {{could}} — прошедшее время от {{can}}: {{I couldn't sleep}} «Я не мог уснуть»."},
+        { "ex": [
+          {"t":"Can you drive? — No, I can't.","tr":"Ты водишь машину? — Нет."},
+          {"t":"My daughter can read now.","tr":"Моя дочь уже умеет читать."},
+          {"t":"You can't park here.","tr":"Здесь нельзя парковаться."},
+          {"t":"Can I pay by card?","tr":"Можно оплатить картой?"},
+          {"t":"I can't hear you.","tr":"Я тебя не слышу.","note":"с {{hear}}, {{see}}, {{understand}} часто добавляют {{can}}"}
+        ] },
+        {"tip":"Расслышать разницу трудно: {{can}} в утвердительной фразе звучит коротко и безударно, а {{can't}} — долго и с ударением. Если сомневаетесь, переспросите: {{Can or can't?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Я умею плавать.","why":"После {{can}} — без {{to}}."},
+        {"wrong":"She cans play the piano.","right":"She can play the piano.","tr":"Она умеет играть на пианино.","why":"{{can}} не меняется: {{she can}}."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"Можешь мне помочь?","why":"{{can}} сам строит вопрос: встаёт вперёд, без {{do}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ I use your phone?","tr":"Можно воспользоваться вашим телефоном?","options":["Can","Do","Am"],"answer":0,"why":"Разрешение: {{Can I…?}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My grandma ___ use a computer.","tr":"Моя бабушка не умеет пользоваться компьютером.","options":["can't","doesn't can","isn't"],"answer":0,"why":"«Не умеет» — {{can't}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"He can ___ three languages.","tr":"Он говорит на трёх языках.","options":["speak","speaks","to speak"],"answer":0,"why":"После {{can}} — словарная форма, без {{-s}} и без {{to}}."},
+        {"type":"choice","q":"Вежливо попросите незнакомого человека сфотографировать вас:","options":["{{Could you take a photo of us, please?}}","{{Take a photo of us.}}","{{You can take a photo?}}"],"answer":0,"why":"К незнакомому — {{Could you…, please?}}"},
+        {"type":"dialogue","q":"Друг зовёт вас кататься на лыжах. Выберите ответы.","from":"like-and-want","lines":[{"who":"Друг","t":"Would you like to go skiing this weekend?","tr":"Хочешь покататься на лыжах в эти выходные?"},{"options":["I'd love to, but I can't ski.","I'd love to, but I don't can ski."],"answer":0,"why":"«Не умею» — {{can't}}, без {{do}}."},{"who":"Друг","t":"No problem, I can teach you!","tr":"Не беда, я тебя научу!"},{"options":["Really? Can you teach me on Saturday?","Really? Do you can teach me on Saturday?"],"answer":0,"why":"Вопрос с {{can}}: {{Can you…?}}"},{"who":"Друг","t":"Sure!","tr":"Конечно!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Можно оплатить картой?","words":["Can","I","pay","by","card?"]},
+        {"type":"free","q":"Ваша очередь: скажите, что вы умеете, чего не умеете, и попросите кого-нибудь о помощи.","answers":[{"t":"I can cook and I can drive, but I can't swim. Can you teach me?","tr":"Я умею готовить и водить машину, но не умею плавать. Научишь меня?"},{"t":"I can speak Russian and a little English. Could you help me with my homework?","tr":"Я говорю по-русски и немного по-английски. Не могли бы вы помочь мне с домашним заданием?"}]}
+      ]
     }
   ]
 }
