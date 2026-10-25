@@ -1,0 +1,54 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Prima aggiungi una chiave IA in Impostazioni → Definizioni delle parole.
+a3cec11b Non è stato possibile caricare il corso di grammatica. Controlla la connessione e riprova.
+f9a6c9a2 Continua: lezione {0}
+f15568dc Inizia: lezione {0}
+149bf640 Spiegato in {0:lower}
+4bbb7f2f {0} lezioni su {1} completate
+49e2081b Tocca un esempio per ascoltarlo con la voce delle tue schede (Impostazioni → Voci delle schede).
+c93acba6 Crea queste lezioni in {0:lower} con la mia chiave IA
+d97c9f98 Lezioni in {0:lower}: create con la tua chiave IA la prima volta che le apri e conservate su questo dispositivo.
+7099bd88 Mostra in {0:lower}
+f36237ec Queste lezioni sono scritte in {0:lower}. Con l'IA attiva (Impostazioni → Definizioni delle parole), Tamkeen potrebbe tradurle in {1:lower} per te.
+a3eb7ec1 Queste lezioni sono scritte in {0:lower}. Tamkeen può tradurle in {1:lower} per te con la tua chiave IA: aggiungine una in Impostazioni → Definizioni delle parole.
+379c494a Aggiungi una chiave IA
+ec2877bb L'intero corso costa meno di 1 centesimo di dollaro.
+6281eb38 L'intero corso costa circa {0} centesimi di dollaro.
+dab5e7bc Queste lezioni sono scritte in {0:lower}. Tamkeen può tradurle in {1:lower} per te con la tua chiave IA ({2}): si traducono solo le spiegazioni, il testo in {3:lower} resta esattamente come è stato controllato. Ogni lezione viene creata una sola volta e conservata su questo dispositivo.
+bcc738d9 Creale in {0:lower}
+df2f1e44 Lascia in {0:lower}
+d19e938b Preparazione dell'elenco delle lezioni…
+1b852e35 Crea le altre {0} adesso
+9bbcb594 Così le hai tutte qui, anche senza connessione
+8ac06f2f Creazione della lezione {0} di {1}…
+f4110c4c {0} lezioni create in {1:lower}.
+c61a07c1 Creazione della lezione {0} in {1:lower}…
+c1cbd097 Nascondi la pronuncia
+deb9b5e4 Mostra la pronuncia
+ebba3665 In {0:lower}
+3c9b567e Completata: {0} su {1} giuste
+bd425e9e Tutte le lezioni
+6a371244 Lezione {0} di {1} · {2}
+dae12711 Ora non è stato possibile creare questa lezione in {0:lower}, quindi è mostrata in {1:lower}.
+d19ceca5 Consiglio
+85c69987 Termine grammaticale
+c518fb06 Ascolta
+62264fc1 Errori comuni
+346a2f5c Sbagliato
+954daa8b Giusto
+3e15ac78 Esercizi
+45e6a5e8 {0} su {1} giuste.
+12532d83 Bravo!
+5b0859f5 Lezione completata: riguarda quelle che hai sbagliato.
+5ed1c2fe Lezione successiva
+640ece3b Non è stato possibile segnare questa lezione come completata: {0}
+879fee0d Giusto!
+651b1933 Non proprio.
+62cdce39 L'ordine giusto:
+f5206956 Dillo, poi guarda la risposta
+3a13b69b Ti è venuto?
+5397e058 Sì
+756c7660 Non proprio
+471492a9 ← Precedente
+dd17342c Grammatica
+0336262a Questo dispositivo non ha una voce per questa lingua.

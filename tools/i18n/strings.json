@@ -3075,6 +3075,271 @@
   "f": "web/js/components/gameswitch.js"
  },
  {
+  "id": "4f79e08b",
+  "k": "Add an AI key in Settings → Word definitions first.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "a3cec11b",
+  "k": "The grammar course couldn't be loaded. Check your connection and try again.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f9a6c9a2",
+  "k": "Continue: lesson {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f15568dc",
+  "k": "Start: lesson {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "149bf640",
+  "k": "Explained in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "4bbb7f2f",
+  "k": "{0} of {1} lessons done",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "49e2081b",
+  "k": "Tap an example to hear it, in your card voice (Settings → Card voices).",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c93acba6",
+  "k": "Make these lessons in {0} with my AI key",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d97c9f98",
+  "k": "Lessons in {0}, made with your AI key the first time you open them, and kept on this device.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "7099bd88",
+  "k": "Show in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f36237ec",
+  "k": "These lessons are written in {0}. With AI turned on (Settings → Word definitions), Tamkeen could put them into {1} for you.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "a3eb7ec1",
+  "k": "These lessons are written in {0}. Tamkeen can put them into {1} for you with your own AI key: add one in Settings → Word definitions.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "379c494a",
+  "k": "Add an AI key",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ec2877bb",
+  "k": "It costs less than 1 US cent for the whole course.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "6281eb38",
+  "k": "It costs about {0} US cents for the whole course.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "dab5e7bc",
+  "k": "These lessons are written in {0}. Tamkeen can put them into {1} for you with your AI key ({2}): only the explanations are translated, the {3} stays exactly as checked. Each lesson is made once and kept on this device.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "bcc738d9",
+  "k": "Make them in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "df2f1e44",
+  "k": "Keep {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d19e938b",
+  "k": "Making the list of lessons…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "1b852e35",
+  "k": "Make the other {0} now",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "9bbcb594",
+  "k": "So they are all here, also without a connection",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "8ac06f2f",
+  "k": "Making lesson {0} of {1}…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "9e253470",
+  "k": "Stop",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f4110c4c",
+  "k": "{0} lessons made in {1}.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c61a07c1",
+  "k": "Making lesson {0} in {1}…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c1cbd097",
+  "k": "Hide readings",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "deb9b5e4",
+  "k": "Show readings",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ebba3665",
+  "k": "In {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3c9b567e",
+  "k": "Done: {0} of {1} right",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "bd425e9e",
+  "k": "All lessons",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "6a371244",
+  "k": "Lesson {0} of {1} · {2}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "dae12711",
+  "k": "This lesson couldn't be made in {0} now, so it's shown in {1}.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d19ceca5",
+  "k": "Tip",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "85c69987",
+  "k": "Grammar word",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c518fb06",
+  "k": "Listen",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62264fc1",
+  "k": "Common mistakes",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "346a2f5c",
+  "k": "Wrong",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "954daa8b",
+  "k": "Right",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3e15ac78",
+  "k": "Practice",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "45e6a5e8",
+  "k": "{0} of {1} right.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "12532d83",
+  "k": "Well done!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5b0859f5",
+  "k": "Lesson done: look again at the ones you missed.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5ed1c2fe",
+  "k": "Next lesson",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "640ece3b",
+  "k": "This lesson couldn't be marked as done: {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "879fee0d",
+  "k": "Right!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "651b1933",
+  "k": "Not quite.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62cdce39",
+  "k": "The right order:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f5206956",
+  "k": "Say it, then show the answer",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3a13b69b",
+  "k": "Did you get it?",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5397e058",
+  "k": "Yes",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "756c7660",
+  "k": "Not quite",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "471492a9",
+  "k": "← Previous",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "2f04eb15",
+  "k": "Next →",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
   "id": "7fab27b4",
   "k": "the Claude Console",
   "f": "web/js/components/keyhelp.js"
@@ -3557,11 +3822,6 @@
  {
   "id": "defca688",
   "k": "Step {0} of 4",
-  "f": "web/js/components/onboarding.js"
- },
- {
-  "id": "2f04eb15",
-  "k": "Next →",
   "f": "web/js/components/onboarding.js"
  },
  {
@@ -4807,11 +5067,6 @@
  {
   "id": "8e4d2c67",
   "k": "{0} {1} card{2} have no voice yet (about {3} characters). Each is made the first time it is played, or all of them now, ready for an Anki export.",
-  "f": "web/js/components/voicesetup.js"
- },
- {
-  "id": "9e253470",
-  "k": "Stop",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -13200,6 +13455,11 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "dd17342c",
+  "k": "Grammar",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "39b187b0",
   "k": "My words",
   "f": "web/js/pages/vocab.js"
@@ -14538,6 +14798,11 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "0336262a",
+  "k": "This device has no voice for this language.",
+  "f": "web/js/saytext.js"
  },
  {
   "id": "4e0443a6",

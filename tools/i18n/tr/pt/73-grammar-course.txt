@@ -1,0 +1,54 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Primeiro adicione uma chave de IA em Configurações → Definições de palavras.
+a3cec11b Não foi possível carregar o curso de gramática. Confira sua conexão e tente de novo.
+f9a6c9a2 Continuar: lição {0}
+f15568dc Começar: lição {0}
+149bf640 Explicado em {0:lower}
+4bbb7f2f {0} de {1} lições feitas
+49e2081b Toque em um exemplo para ouvi-lo com a voz dos seus cartões (Configurações → Vozes dos cartões).
+c93acba6 Fazer estas lições em {0:lower} com a minha chave de IA
+d97c9f98 Lições em {0:lower}: feitas com a sua chave de IA na primeira vez que você abre cada uma e guardadas neste aparelho.
+7099bd88 Mostrar em {0:lower}
+f36237ec Estas lições estão escritas em {0:lower}. Com a IA ligada (Configurações → Definições de palavras), o Tamkeen poderia passá-las para o {1:lower} para você.
+a3eb7ec1 Estas lições estão escritas em {0:lower}. O Tamkeen pode passá-las para o {1:lower} para você com a sua própria chave de IA: adicione uma em Configurações → Definições de palavras.
+379c494a Adicionar uma chave de IA
+ec2877bb O curso inteiro custa menos de 1 centavo de dólar.
+6281eb38 O curso inteiro custa cerca de {0} centavos de dólar.
+dab5e7bc Estas lições estão escritas em {0:lower}. O Tamkeen pode passá-las para o {1:lower} para você com a sua chave de IA ({2}): só as explicações são traduzidas, e o texto em {3:lower} fica exatamente como foi revisado. Cada lição é feita uma vez só e guardada neste aparelho.
+bcc738d9 Fazer em {0:lower}
+df2f1e44 Manter em {0:lower}
+d19e938b Preparando a lista de lições…
+1b852e35 Fazer as outras {0} agora
+9bbcb594 Assim todas ficam aqui, mesmo sem conexão
+8ac06f2f Fazendo a lição {0} de {1}…
+f4110c4c {0} lições feitas em {1:lower}.
+c61a07c1 Fazendo a lição {0} em {1:lower}…
+c1cbd097 Ocultar pronúncia
+deb9b5e4 Mostrar pronúncia
+ebba3665 Em {0:lower}
+3c9b567e Feita: {0} de {1} certas
+bd425e9e Todas as lições
+6a371244 Lição {0} de {1} · {2}
+dae12711 Não deu para fazer esta lição em {0:lower} agora, então ela aparece em {1:lower}.
+d19ceca5 Dica
+85c69987 Termo de gramática
+c518fb06 Ouvir
+62264fc1 Erros comuns
+346a2f5c Errado
+954daa8b Certo
+3e15ac78 Prática
+45e6a5e8 {0} de {1} certas.
+12532d83 Muito bem!
+5b0859f5 Lição feita: veja de novo as que você errou.
+5ed1c2fe Próxima lição
+640ece3b Não foi possível marcar esta lição como feita: {0}
+879fee0d Certo!
+651b1933 Não exatamente.
+62cdce39 A ordem certa:
+f5206956 Fale em voz alta e depois veja a resposta
+3a13b69b Você acertou?
+5397e058 Sim
+756c7660 Não exatamente
+471492a9 ← Anterior
+dd17342c Gramática
+0336262a Este aparelho não tem voz para este idioma.

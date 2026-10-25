@@ -26,8 +26,9 @@ const AI_SETTINGS = "#/settings?s=words&show=key";
 const url = (name) => grammarUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet = (k, v) => { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch { /* storage off */ } };
-const uiName = (code) => (UI_LANGUAGES[code] || {}).native || code;
-const uiEnglishName = (code) => (UI_LANGUAGES[code] || {}).name || code;
+// A language's name in English ("Chinese"): on screen the app's dictionary puts it in the learner's language.
+const uiName = (code) => (UI_LANGUAGES[code] || {}).name || code;
+const uiEnglishName = uiName;
 const uiDir = (code) => (UI_LANGUAGES[code] || {}).dir || "ltr";
 
 /** The published list of grammar courses ({courses: {"en-ar": {...}}}), or null when it can't be reached. */
@@ -144,7 +145,7 @@ export function grammarPanel(box, lang, choice) {
       <div class="ch-title"><h2 translate="no"></h2><span class="ch-sub"><span class="ch-variety" translate="no"></span><span>Explained in ${esc(uiName(shownIn))}</span></span></div>
       <div class="ch-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${p.total}" aria-valuenow="${p.count}"><span style="width:${Math.max(pct, p.count ? 1 : 0)}%"></span></div>
       <div class="ch-stats">${p.count} of ${p.total} lessons done</div>
-      ${p.next ? `<button type="button" class="primary ch-go">${icon("play", 16)} <span>${p.count ? "Continue" : "Start"}: lesson ${course.lessons.indexOf(p.next) + 1}</span></button>` : ""}
+      ${p.next ? `<button type="button" class="primary ch-go">${icon("play", 16)} <span>${p.count ? `Continue: lesson ${course.lessons.indexOf(p.next) + 1}` : `Start: lesson ${course.lessons.indexOf(p.next) + 1}`}</span></button>` : ""}
     </section>`);
     head.querySelector("h2").textContent = title;
     head.querySelector("h2").dir = listDir();
@@ -186,7 +187,7 @@ export function grammarPanel(box, lang, choice) {
     box.append(units);
     box.append(h(`<p class="small muted course-credit">Tap an example to hear it, in your card voice (Settings → Card voices).</p>`));
     if (into && mode() === "off") {
-      const again = h(`<p class="course-credit"><button type="button" class="linkish g-offer-again">${icon("sparkle", 15)} Make these lessons in ${esc(uiName(into))} with my AI key</button></p>`);
+      const again = h(`<p class="course-credit"><button type="button" class="linkish g-offer-again">${icon("sparkle", 15)} <span>Make these lessons in ${esc(uiName(into))} with my AI key</span></button></p>`);
       again.querySelector("button").onclick = () => { lsSet(modeKey, null); drawCourse(); };
       box.append(again);
     }
@@ -209,7 +210,7 @@ export function grammarPanel(box, lang, choice) {
       card.querySelector(".g-english").onclick = () => { if (making) making.stop = true; lsSet(modeKey, "off"); drawCourse(); };
       return card;
     }
-    let text, go;
+    let text, go, cost = "";
     if (noAi()) {
       text = `These lessons are written in ${from}. With AI turned on (Settings → Word definitions), Tamkeen could put them into ${lang2} for you.`;
       go = `<a class="btn primary" href="${AI_SETTINGS}">Open Settings</a>`;
@@ -220,18 +221,18 @@ export function grammarPanel(box, lang, choice) {
       const provider = PROVIDERS[cfg.provider];
       const model = provider && provider.models.find((x) => x.id === cfg.model);
       const cents = costCents(course, model, into);
-      const cost = cents == null ? "" : cents < 1 ? " It costs less than 1 US cent for the whole course." : ` It costs about ${Math.ceil(cents)} US cents for the whole course.`;
-      text = `These lessons are written in ${from}. Tamkeen can put them into ${lang2} for you with your AI key (${esc(model ? model.name : cfg.model)}): only the explanations are translated, the ${esc(taught)} stays exactly as checked.${cost} Each lesson is made once and kept on this device.`;
-      go = `<button type="button" class="primary g-yes">${icon("sparkle", 16)} Make them in ${lang2}</button>`;
+      cost = cents == null ? "" : cents < 1 ? "It costs less than 1 US cent for the whole course." : `It costs about ${Math.ceil(cents)} US cents for the whole course.`;
+      text = `These lessons are written in ${from}. Tamkeen can put them into ${lang2} for you with your AI key (${esc(model ? model.name : cfg.model)}): only the explanations are translated, the ${esc(taught)} stays exactly as checked. Each lesson is made once and kept on this device.`;
+      go = `<button type="button" class="primary g-yes">${icon("sparkle", 16)} <span>Make them in ${lang2}</span></button>`;
     }
-    card.innerHTML = `<div class="g-offer-text">${icon("sparkle", 18)} <span>${text}</span></div>
+    card.innerHTML = `<div class="g-offer-text">${icon("sparkle", 18)} <span><span>${text}</span>${cost ? ` <span>${cost}</span>` : ""}</span></div>
       <div class="g-offer-actions">${go}<button type="button" class="ghost g-no">Keep ${from}</button></div>`;
     card.querySelector(".g-no").onclick = () => { lsSet(modeKey, "off"); drawCourse(); };
     const yes = card.querySelector(".g-yes");
     if (yes) {
       yes.onclick = async () => {
         yes.disabled = true;
-        yes.innerHTML = `<span class="spinner"></span> Making the list of lessons…`;
+        yes.innerHTML = `<span class="spinner"></span> <span>Making the list of lessons…</span>`;
         const ok = await loadList(true);
         if (!alive) return;
         if (!ok) { drawCourse(); return; }
@@ -252,7 +253,7 @@ export function grammarPanel(box, lang, choice) {
     const n = await madeCount();
     if (!btn.isConnected) return;
     btn.hidden = n >= course.lessons.length;
-    btn.innerHTML = `${icon("sparkle", 15)} Make the other ${course.lessons.length - n} now`;
+    btn.innerHTML = `${icon("sparkle", 15)} <span>Make the other ${course.lessons.length - n} now</span>`;
     btn.title = "So they are all here, also without a connection";
   }
 
@@ -265,7 +266,7 @@ export function grammarPanel(box, lang, choice) {
       let done = 0;
       for (const l of todo) {
         if (job.stop || !alive) break;
-        if (btn.isConnected) btn.innerHTML = `<span class="spinner"></span> Making lesson ${done + 1} of ${todo.length}… (Stop)`;
+        if (btn.isConnected) btn.innerHTML = `<span class="spinner"></span> <span>Making lesson ${done + 1} of ${todo.length}…</span> <b>Stop</b>`;
         const { lesson } = await makeLesson(l, { names: names(), ask });
         await keep(lessonKey(id, into, l.id), { v: l.v, lesson, at: Date.now() });
         done++;
@@ -291,7 +292,7 @@ export function grammarPanel(box, lang, choice) {
       const have = await kept(lessonKey(id, into, src.id));
       if (have && have.v === src.v) { lesson = have.lesson; shownIn = into; }
       else {
-        box.innerHTML = `<div class="course-note"><span class="spinner"></span> Making lesson ${n} in ${esc(uiName(into))}…</div>`;
+        box.innerHTML = `<div class="course-note"><span class="spinner"></span> <span>Making lesson ${n} in ${esc(uiName(into))}…</span></div>`;
         box.scrollIntoView({ block: "start" });
         try {
           const made = await makeLesson(src, { names: names(), ask });
@@ -325,7 +326,7 @@ export function grammarPanel(box, lang, choice) {
       <header class="gl-header" dir="${dir}">
         <h2 class="gl-title" translate="no"></h2>
         <p class="gl-summary" translate="no"></p>
-        ${before ? `<p class="gl-before small">${icon("check", 14)} Done: ${before.right} of ${before.of} right</p>` : ""}
+        ${before ? `<p class="gl-before small">${icon("check", 14)} <span>Done: ${before.right} of ${before.of} right</span></p>` : ""}
       </header>
       <div class="gl-body" dir="${dir}"></div>
     </article>`);
@@ -372,11 +373,11 @@ export function grammarPanel(box, lang, choice) {
   function block(b) {
     if ("p" in b) return h(`<p class="gb-p" translate="no">${rich(b.p)}</p>`);
     if ("tip" in b) {
-      const el = h(`<div class="gb-tip"><span class="gb-tag">${icon("star", 14)} Tip</span><p translate="no">${rich(b.tip)}</p></div>`);
+      const el = h(`<div class="gb-tip"><span class="gb-tag">${icon("star", 14)} <span>Tip</span></span><p translate="no">${rich(b.tip)}</p></div>`);
       return el;
     }
     if ("term" in b) {
-      return h(`<div class="gb-term"><span class="gb-tag">${icon("learn", 14)} Grammar word</span><p translate="no"><b class="gb-term-word">${rich(b.term)}</b>: ${rich(b.means)}</p></div>`);
+      return h(`<div class="gb-term"><span class="gb-tag">${icon("learn", 14)} <span>Grammar word</span></span><p translate="no"><b class="gb-term-word">${rich(b.term)}</b>: ${rich(b.means)}</p></div>`);
     }
     if ("ex" in b) {
       const ul = h(`<ul class="gx-list"></ul>`);
@@ -406,7 +407,7 @@ export function grammarPanel(box, lang, choice) {
   }
 
   function mistakes(list) {
-    const sec = h(`<section class="gm-list"><h3>${icon("close", 18)} Common mistakes</h3><ul></ul></section>`);
+    const sec = h(`<section class="gm-list"><h3>${icon("close", 18)} <span>Common mistakes</span></h3><ul></ul></section>`);
     const ul = sec.querySelector("ul");
     for (const m of list) {
       ul.append(h(`<li class="gm">
@@ -423,7 +424,7 @@ export function grammarPanel(box, lang, choice) {
   function practice(src, lesson, key) {
     const qs = lesson.practice || [];
     const results = new Array(qs.length).fill(null); // true / false once answered (the first try counts)
-    const sec = h(`<section class="gp"><h3>${icon("puzzle", 18)} Practice</h3><ol class="gp-list"></ol><div class="gp-done" hidden></div></section>`);
+    const sec = h(`<section class="gp"><h3>${icon("puzzle", 18)} <span>Practice</span></h3><ol class="gp-list"></ol><div class="gp-done" hidden></div></section>`);
     const ol = sec.querySelector("ol");
     const doneBox = sec.querySelector(".gp-done");
     const answered = (i, right) => {
@@ -443,7 +444,9 @@ export function grammarPanel(box, lang, choice) {
       const right = results.filter(Boolean).length;
       const next = course.lessons[course.lessons.indexOf(src) + 1];
       doneBox.hidden = false;
-      doneBox.innerHTML = `<p class="gp-score"><strong>${right} of ${results.length} right.</strong> ${right === results.length ? "Well done!" : "Lesson done: look again at the ones you missed."}</p>`;
+      doneBox.innerHTML = `<p class="gp-score"><strong></strong> <span></span></p>`;
+      doneBox.querySelector("strong").textContent = `${right} of ${results.length} right.`;
+      doneBox.querySelector(".gp-score span").textContent = right === results.length ? "Well done!" : "Lesson done: look again at the ones you missed.";
       if (next) {
         const b = h(`<button type="button" class="primary">${icon("play", 16)} <span>Next lesson</span></button>`);
         b.onclick = () => drawLesson(next.id);
@@ -466,7 +469,7 @@ export function grammarPanel(box, lang, choice) {
 
   function feedback(li, ok, why) {
     li.classList.add(ok ? "right" : "wrong");
-    const f = h(`<div class="gq-fb"><strong>${ok ? `${icon("check", 15)} Right!` : `${icon("close", 15)} Not quite.`}</strong></div>`);
+    const f = h(`<div class="gq-fb"><strong>${ok ? `${icon("check", 15)} <span>Right!</span>` : `${icon("close", 15)} <span>Not quite.</span>`}</strong></div>`);
     if (why) f.append(h(`<span translate="no">${rich(why)}</span>`));
     li.append(f);
   }
@@ -538,7 +541,7 @@ export function grammarPanel(box, lang, choice) {
   }
 
   function sayQ(li, q, done) {
-    const show = h(`<button type="button" class="ghost gq-show">${icon("speak", 16)} Say it, then show the answer</button>`);
+    const show = h(`<button type="button" class="ghost gq-show">${icon("speak", 16)} <span>Say it, then show the answer</span></button>`);
     li.append(show);
     show.onclick = () => {
       show.remove();
@@ -549,7 +552,7 @@ export function grammarPanel(box, lang, choice) {
       li.append(ans);
       sayText(q.answer, lang);
       if (q.why) li.append(h(`<div class="gq-why" translate="no">${rich(q.why)}</div>`));
-      const ask2 = h(`<div class="gq-self"><span>Did you get it?</span><button type="button" class="ghost gq-yes">${icon("check", 15)} Yes</button><button type="button" class="ghost gq-no">${icon("close", 15)} Not quite</button></div>`);
+      const ask2 = h(`<div class="gq-self"><span>Did you get it?</span><button type="button" class="ghost gq-yes">${icon("check", 15)} <span>Yes</span></button><button type="button" class="ghost gq-no">${icon("close", 15)} <span>Not quite</span></button></div>`);
       li.append(ask2);
       const pick = (ok) => {
         ask2.remove();

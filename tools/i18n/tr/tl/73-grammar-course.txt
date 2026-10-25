@@ -1,0 +1,54 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Magdagdag muna ng AI key sa Settings → Kahulugan ng mga salita.
+a3cec11b Hindi ma-load ang kurso sa grammar. Tingnan ang koneksyon mo at subukan ulit.
+f9a6c9a2 Ituloy: aralin {0}
+f15568dc Simulan: aralin {0}
+149bf640 Ipinaliliwanag sa {0}
+4bbb7f2f {0} sa {1} aralin ang tapos na
+49e2081b I-tap ang isang halimbawa para marinig ito sa boses ng mga card mo (Settings → Mga boses ng card).
+c93acba6 Gawin ang mga araling ito sa {0} gamit ang AI key ko
+d97c9f98 Mga aralin sa {0}: ginagawa gamit ang AI key mo sa unang beses na buksan mo ang mga ito, at itinatago sa device na ito.
+7099bd88 Ipakita sa {0}
+f36237ec Nakasulat sa {0} ang mga araling ito. Kapag naka-on ang AI (Settings → Kahulugan ng mga salita), maisasalin ito ng Tamkeen sa {1} para sa iyo.
+a3eb7ec1 Nakasulat sa {0} ang mga araling ito. Maisasalin ito ng Tamkeen sa {1} para sa iyo gamit ang sarili mong AI key: magdagdag ng isa sa Settings → Kahulugan ng mga salita.
+379c494a Magdagdag ng AI key
+ec2877bb Wala pang 1 US cent ang buong kurso.
+6281eb38 Mga {0} US cents ang buong kurso.
+dab5e7bc Nakasulat sa {0} ang mga araling ito. Maisasalin ito ng Tamkeen sa {1} para sa iyo gamit ang AI key mo ({2}): ang mga paliwanag lang ang isinasalin, at nananatiling eksakto ang {3} gaya ng pagkakasuri nito. Isang beses lang ginagawa ang bawat aralin at itinatago sa device na ito.
+bcc738d9 Gawin sa {0}
+df2f1e44 Manatili sa {0}
+d19e938b Ginagawa ang listahan ng mga aralin…
+1b852e35 Gawin na ngayon ang iba pang {0}
+9bbcb594 Para nandito silang lahat, kahit walang koneksyon
+8ac06f2f Ginagawa ang aralin {0} sa {1}…
+f4110c4c {0} aralin ang nagawa sa {1}.
+c61a07c1 Ginagawa ang aralin {0} sa {1}…
+c1cbd097 Itago ang bigkas
+deb9b5e4 Ipakita ang bigkas
+ebba3665 Sa {0}
+3c9b567e Tapos na: {0} sa {1} ang tama
+bd425e9e Lahat ng aralin
+6a371244 Aralin {0} sa {1} · {2}
+dae12711 Hindi magawa ngayon ang araling ito sa {0}, kaya ipinapakita ito sa {1}.
+d19ceca5 Tip
+85c69987 Salitang pang-grammar
+c518fb06 Pakinggan
+62264fc1 Mga karaniwang mali
+346a2f5c Mali
+954daa8b Tama
+3e15ac78 Pagsasanay
+45e6a5e8 {0} sa {1} ang tama.
+12532d83 Magaling!
+5b0859f5 Tapos na ang aralin: balikan ang mga namali mo.
+5ed1c2fe Susunod na aralin
+640ece3b Hindi mamarkahang tapos ang araling ito: {0}
+879fee0d Tama!
+651b1933 Hindi pa eksakto.
+62cdce39 Ang tamang ayos:
+f5206956 Sabihin ito, saka ipakita ang sagot
+3a13b69b Nakuha mo ba?
+5397e058 Oo
+756c7660 Hindi pa eksakto
+471492a9 ← Nakaraan
+dd17342c Grammar
+0336262a Walang boses para sa wikang ito ang device na ito.

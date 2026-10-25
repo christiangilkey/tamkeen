@@ -1,0 +1,54 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Ajoutez d'abord une clé d'IA dans Réglages → Définitions des mots.
+a3cec11b Impossible de charger le cours de grammaire. Vérifiez votre connexion et réessayez.
+f9a6c9a2 Continuer : leçon {0}
+f15568dc Commencer : leçon {0}
+149bf640 Expliqué en {0:lower}
+4bbb7f2f {0} leçons sur {1} terminées
+49e2081b Touchez un exemple pour l'écouter avec la voix de vos cartes (Réglages → Voix des cartes).
+c93acba6 Faire ces leçons en {0:lower} avec ma clé d'IA
+d97c9f98 Leçons en {0:lower} : faites avec votre clé d'IA la première fois que vous les ouvrez, puis gardées sur cet appareil.
+7099bd88 Afficher en {0:lower}
+f36237ec Ces leçons sont écrites en {0:lower}. Avec l'IA activée (Réglages → Définitions des mots), Tamkeen pourrait les mettre en {1:lower} pour vous.
+a3eb7ec1 Ces leçons sont écrites en {0:lower}. Tamkeen peut les mettre en {1:lower} pour vous avec votre propre clé d'IA : ajoutez-en une dans Réglages → Définitions des mots.
+379c494a Ajouter une clé d'IA
+ec2877bb Le cours entier coûte moins d'un centime de dollar.
+6281eb38 Le cours entier coûte environ {0} centimes de dollar.
+dab5e7bc Ces leçons sont écrites en {0:lower}. Tamkeen peut les mettre en {1:lower} pour vous avec votre clé d'IA ({2}) : seules les explications sont traduites, le texte en {3:lower} reste exactement tel qu'il a été vérifié. Chaque leçon est faite une seule fois et gardée sur cet appareil.
+bcc738d9 Les faire en {0:lower}
+df2f1e44 Rester en {0:lower}
+d19e938b Préparation de la liste des leçons…
+1b852e35 Faire les {0} autres maintenant
+9bbcb594 Pour les avoir toutes ici, même sans connexion
+8ac06f2f Préparation de la leçon {0} sur {1}…
+f4110c4c {0} leçons faites en {1:lower}.
+c61a07c1 Préparation de la leçon {0} en {1:lower}…
+c1cbd097 Masquer la prononciation
+deb9b5e4 Afficher la prononciation
+ebba3665 En {0:lower}
+3c9b567e Terminée : {0} sur {1} justes
+bd425e9e Toutes les leçons
+6a371244 Leçon {0} sur {1} · {2}
+dae12711 Cette leçon n'a pas pu être faite en {0:lower} pour l'instant, elle s'affiche donc en {1:lower}.
+d19ceca5 Astuce
+85c69987 Mot de grammaire
+c518fb06 Écouter
+62264fc1 Erreurs fréquentes
+346a2f5c Faux
+954daa8b Juste
+3e15ac78 Exercices
+45e6a5e8 {0} sur {1} justes.
+12532d83 Bravo !
+5b0859f5 Leçon terminée : revoyez celles que vous avez manquées.
+5ed1c2fe Leçon suivante
+640ece3b Impossible de marquer cette leçon comme terminée : {0}
+879fee0d Juste !
+651b1933 Pas tout à fait.
+62cdce39 Le bon ordre :
+f5206956 Dites-le, puis affichez la réponse
+3a13b69b Vous l'aviez ?
+5397e058 Oui
+756c7660 Pas tout à fait
+471492a9 ← Précédente
+dd17342c Grammaire
+0336262a Cet appareil n'a pas de voix pour cette langue.

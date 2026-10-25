@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   GRAMMAR_BASE, checkCourse, cleanProgress, costCents, courseFor, explanationTexts, finished, grammarUrl, groups,
-  keepsMarks, lessonVersion, listTexts, markProblem, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
+  keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
   richHtml, shuffled, taughtTexts, targetsOf, translationPrompt, unvowelled, withListTexts, withTexts,
 } from "../../web/js/grammardata.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
@@ -100,6 +100,27 @@ test("the translation request names the languages, says to copy {{ }} exactly, a
   assert.ok(p.maxTokens >= 8000);
   const parts = groups(items.map((t) => ({ ...t, text: t.text.repeat(30) })), 1500);
   assert.ok(parts.length > 1 && parts.flat().length === items.length, "long lessons go in several requests, nothing lost");
+});
+
+test("making a lesson: a text that broke its Arabic is asked for again once, then kept in the original", async () => {
+  const asked = [];
+  let round = 0;
+  const ask = async (prompt) => {
+    const items = JSON.parse(prompt.user.slice(prompt.user.indexOf("[")));
+    asked.push(items.length);
+    round++;
+    // The first answer breaks every text with a {{ }} piece; the retry fixes all but the summary-free title.
+    return { texts: items.map((it) => (round === 1 && /\{\{/.test(it.text) ? it.text.replace(/\{\{[^}]*\}\}/g, "{{X}}")
+      : round === 2 && it.text.startsWith("Nouns") ? "ZH broken {{Y}}" : `ZH ${it.text}`)) };
+  };
+  const { lesson, kept } = await makeLesson(LESSON, { names: { from: "English", into: "Chinese", taught: "Arabic" }, ask });
+  assert.equal(asked[0], explanationTexts(LESSON).length, "one request for a short lesson");
+  assert.equal(asked[1], explanationTexts(LESSON).filter((t) => /\{\{/.test(t.text)).length, "then only the broken ones");
+  assert.equal(lesson.blocks[0].p, "ZH The word {{الْبَيْتُ|al-baytu}} is **the house**.", "fixed by the retry");
+  assert.equal(lesson.title, LESSON.title, "still broken after the retry: kept in English");
+  assert.deepEqual(kept, [0]);
+  assert.equal(lesson.summary, "ZH Say “the house”.");
+  await assert.rejects(makeLesson(LESSON, { names: {}, ask: async () => { throw new Error("NO_KEY"); } }), /NO_KEY/);
 });
 
 test("the course list can be translated on its own, for one cheap request", () => {

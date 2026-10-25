@@ -1,0 +1,54 @@
+# The grammar course (Vocab → Grammar: web/js/components/grammarpanel.js)
+4f79e08b Füge zuerst einen KI-Schlüssel unter Einstellungen → Worterklärungen hinzu.
+a3cec11b Der Grammatikkurs konnte nicht geladen werden. Prüfe deine Verbindung und versuche es noch einmal.
+f9a6c9a2 Weiter: Lektion {0}
+f15568dc Starten: Lektion {0}
+149bf640 Erklärt auf {0}
+4bbb7f2f {0} von {1} Lektionen fertig
+49e2081b Tippe auf ein Beispiel, um es mit der Stimme deiner Karten zu hören (Einstellungen → Kartenstimmen).
+c93acba6 Diese Lektionen mit meinem KI-Schlüssel auf {0} erstellen
+d97c9f98 Lektionen auf {0}: beim ersten Öffnen mit deinem KI-Schlüssel erstellt und auf diesem Gerät gespeichert.
+7099bd88 Auf {0} anzeigen
+f36237ec Diese Lektionen sind auf {0} geschrieben. Mit eingeschalteter KI (Einstellungen → Worterklärungen) könnte Tamkeen sie für dich auf {1} übertragen.
+a3eb7ec1 Diese Lektionen sind auf {0} geschrieben. Tamkeen kann sie mit deinem eigenen KI-Schlüssel für dich auf {1} übertragen: Füge einen unter Einstellungen → Worterklärungen hinzu.
+379c494a KI-Schlüssel hinzufügen
+ec2877bb Der ganze Kurs kostet weniger als 1 US-Cent.
+6281eb38 Der ganze Kurs kostet etwa {0} US-Cent.
+dab5e7bc Diese Lektionen sind auf {0} geschrieben. Tamkeen kann sie mit deinem KI-Schlüssel ({2}) für dich auf {1} übertragen: Nur die Erklärungen werden übersetzt, der Text auf {3} bleibt genau so, wie er geprüft wurde. Jede Lektion wird nur einmal erstellt und auf diesem Gerät gespeichert.
+bcc738d9 Auf {0} erstellen
+df2f1e44 Auf {0} lassen
+d19e938b Liste der Lektionen wird erstellt…
+1b852e35 Die anderen {0} jetzt erstellen
+9bbcb594 Damit alle hier sind, auch ohne Verbindung
+8ac06f2f Lektion {0} von {1} wird erstellt…
+f4110c4c {0} Lektionen auf {1} erstellt.
+c61a07c1 Lektion {0} wird auf {1} erstellt…
+c1cbd097 Aussprache ausblenden
+deb9b5e4 Aussprache einblenden
+ebba3665 Auf {0}
+3c9b567e Fertig: {0} von {1} richtig
+bd425e9e Alle Lektionen
+6a371244 Lektion {0} von {1} · {2}
+dae12711 Diese Lektion konnte gerade nicht auf {0} erstellt werden, deshalb wird sie auf {1} gezeigt.
+d19ceca5 Tipp
+85c69987 Grammatikwort
+c518fb06 Anhören
+62264fc1 Häufige Fehler
+346a2f5c Falsch
+954daa8b Richtig
+3e15ac78 Übung
+45e6a5e8 {0} von {1} richtig.
+12532d83 Gut gemacht!
+5b0859f5 Lektion fertig: Schau dir die falschen Antworten noch einmal an.
+5ed1c2fe Nächste Lektion
+640ece3b Diese Lektion konnte nicht als fertig markiert werden: {0}
+879fee0d Richtig!
+651b1933 Nicht ganz.
+62cdce39 Die richtige Reihenfolge:
+f5206956 Sag es laut, dann zeig die Antwort
+3a13b69b Hat es geklappt?
+5397e058 Ja
+756c7660 Nicht ganz
+471492a9 ← Zurück
+dd17342c Grammatik
+0336262a Dieses Gerät hat keine Stimme für diese Sprache.
