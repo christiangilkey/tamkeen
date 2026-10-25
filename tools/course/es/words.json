@@ -187,6 +187,750 @@
       "sentence": "Tengo dos hermanos.",
       "translation": "I ⟦have⟧ two brothers.",
       "form": "tengo"
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "al",
+      "pos": "prep",
+      "meaning": "to the; at the (a + el)",
+      "sentence": "Vamos al cine esta noche.",
+      "translation": "Let's go ⟦to the⟧ movies tonight."
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "como",
+      "pos": "adv",
+      "meaning": "like; as; about",
+      "sentence": "Habla como su papá.",
+      "translation": "He talks ⟦like⟧ his dad."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "hacer",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "¿Qué vas a hacer mañana?",
+      "translation": "What are you going ⟦to do⟧ tomorrow?"
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "me",
+      "pos": "pron",
+      "meaning": "me; myself",
+      "sentence": "¿Me ayudas, por favor?",
+      "translation": "Can you help ⟦me⟧, please?"
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "todo",
+      "pos": "pron",
+      "meaning": "all; everything; every",
+      "sentence": "Todo está bien.",
+      "translation": "⟦Everything⟧ is fine."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "poder",
+      "pos": "verb",
+      "meaning": "can; to be able to",
+      "sentence": "¿Puedo pasar?",
+      "translation": "⟦Can⟧ I come in?",
+      "form": "puedo"
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "más",
+      "pos": "adv",
+      "meaning": "more; most",
+      "sentence": "Quiero más agua, por favor.",
+      "translation": "I'd like ⟦more⟧ water, please."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "si",
+      "pos": "conj",
+      "meaning": "if",
+      "sentence": "Si llueve, no salimos.",
+      "translation": "⟦If⟧ it rains, we're not going out."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "pero",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "Es caro, pero es bueno.",
+      "translation": "It's expensive, ⟦but⟧ it's good."
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "ese",
+      "pos": "adj",
+      "meaning": "that (esa, eso; esos, esas: those)",
+      "sentence": "¿Cuánto cuesta ese vestido?",
+      "translation": "How much is ⟦that⟧ dress?"
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "te",
+      "pos": "pron",
+      "meaning": "you; yourself (informal)",
+      "sentence": "Te quiero mucho.",
+      "translation": "I love ⟦you⟧ so much."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "ir",
+      "pos": "verb",
+      "meaning": "to go",
+      "sentence": "Mañana voy al doctor.",
+      "translation": "Tomorrow I'm ⟦going⟧ to the doctor.",
+      "form": "voy"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "o",
+      "pos": "conj",
+      "meaning": "or",
+      "sentence": "¿Quieres té o café?",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "decir",
+      "pos": "verb",
+      "meaning": "to say; to tell",
+      "sentence": "¿Qué dijo el maestro?",
+      "translation": "What did the teacher ⟦say⟧?",
+      "form": "dijo"
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "mi",
+      "pos": "adj",
+      "meaning": "my",
+      "sentence": "Mi mamá cocina muy bien.",
+      "translation": "⟦My⟧ mom cooks really well."
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "otro",
+      "pos": "adj",
+      "meaning": "other; another",
+      "sentence": "¿Me da otro café, por favor?",
+      "translation": "Could I have ⟦another⟧ coffee, please?"
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "ver",
+      "pos": "verb",
+      "meaning": "to see; to watch",
+      "sentence": "Vamos a ver una película.",
+      "translation": "Let's ⟦watch⟧ a movie."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "le",
+      "pos": "pron",
+      "meaning": "(to) him, (to) her; (to) you (usted)",
+      "sentence": "Le escribí una carta.",
+      "translation": "I wrote ⟦her⟧ a letter."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "ya",
+      "pos": "adv",
+      "meaning": "already; now; (ya no) not anymore",
+      "sentence": "Ya comí, gracias.",
+      "translation": "I ⟦already⟧ ate, thanks."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "querer",
+      "pos": "verb",
+      "meaning": "to want; to love",
+      "sentence": "Quiero un vaso de agua.",
+      "translation": "I ⟦want⟧ a glass of water.",
+      "form": "quiero"
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "año",
+      "pos": "noun",
+      "meaning": "year",
+      "sentence": "Tengo veinte años.",
+      "translation": "I'm twenty ⟦years⟧ old.",
+      "form": "años"
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "tu",
+      "pos": "adj",
+      "meaning": "your (informal)",
+      "sentence": "¿Dónde está tu carro?",
+      "translation": "Where's ⟦your⟧ car?"
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "cuando",
+      "pos": "conj",
+      "meaning": "when",
+      "sentence": "Llámame cuando llegues.",
+      "translation": "Call me ⟦when⟧ you get there."
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "yo",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "Yo no sé nadar.",
+      "translation": "⟦I⟧ can't swim."
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "mucho",
+      "pos": "adj",
+      "meaning": "a lot (of); much; many",
+      "sentence": "Tengo mucho trabajo.",
+      "translation": "I have ⟦a lot of⟧ work."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "dar",
+      "pos": "verb",
+      "meaning": "to give",
+      "sentence": "Dame tu número, por favor.",
+      "translation": "⟦Give⟧ me your number, please.",
+      "form": "dame"
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "solo",
+      "pos": "adv",
+      "meaning": "only; alone",
+      "sentence": "Solo tengo cinco pesos.",
+      "translation": "I ⟦only⟧ have five pesos."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "sin",
+      "pos": "prep",
+      "meaning": "without",
+      "sentence": "Un café sin azúcar, por favor.",
+      "translation": "A coffee ⟦without⟧ sugar, please."
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "pasar",
+      "pos": "verb",
+      "meaning": "to happen; to pass; to come in; to spend (time)",
+      "sentence": "¿Qué pasó con tu hermano?",
+      "translation": "What ⟦happened⟧ with your brother?",
+      "form": "pasó"
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "bueno",
+      "pos": "adj",
+      "meaning": "good (buen before a masculine noun)",
+      "sentence": "Este restaurante es muy bueno.",
+      "translation": "This restaurant is really ⟦good⟧."
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "muy",
+      "pos": "adv",
+      "meaning": "very",
+      "sentence": "La comida está muy rica.",
+      "translation": "The food is ⟦very⟧ tasty."
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "vez",
+      "pos": "noun",
+      "meaning": "time (an occasion)",
+      "sentence": "Voy al gimnasio dos veces por semana.",
+      "translation": "I go to the gym two ⟦times⟧ a week.",
+      "form": "veces"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "sobre",
+      "pos": "prep",
+      "meaning": "on; about",
+      "sentence": "Las llaves están sobre la mesa.",
+      "translation": "The keys are ⟦on⟧ the table."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "también",
+      "pos": "adv",
+      "meaning": "also; too",
+      "sentence": "Yo también quiero ir.",
+      "translation": "I want to go ⟦too⟧."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "deber",
+      "pos": "verb",
+      "meaning": "should; must; to owe",
+      "sentence": "Debes descansar un poco.",
+      "translation": "You ⟦should⟧ rest a little.",
+      "form": "debes"
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "día",
+      "pos": "noun",
+      "meaning": "day",
+      "sentence": "Trabajo todos los días.",
+      "translation": "I work every ⟦day⟧.",
+      "form": "días"
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "nuestro",
+      "pos": "adj",
+      "meaning": "our",
+      "sentence": "Nuestra casa está cerca.",
+      "translation": "⟦Our⟧ house is close by.",
+      "form": "nuestra"
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "nos",
+      "pos": "pron",
+      "meaning": "us; ourselves",
+      "sentence": "Mi abuela nos visita cada domingo.",
+      "translation": "My grandma visits ⟦us⟧ every Sunday."
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "porque",
+      "pos": "conj",
+      "meaning": "because",
+      "sentence": "No fui porque estaba enfermo.",
+      "translation": "I didn't go ⟦because⟧ I was sick."
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "mismo",
+      "pos": "adj",
+      "meaning": "same; -self (yo mismo: myself)",
+      "sentence": "Tenemos el mismo carro.",
+      "translation": "We have the ⟦same⟧ car."
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "nuevo",
+      "pos": "adj",
+      "meaning": "new",
+      "sentence": "¿Te gusta mi celular nuevo?",
+      "translation": "Do you like my ⟦new⟧ phone?"
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "alguno",
+      "pos": "adj",
+      "meaning": "some; any (algún before a masculine noun)",
+      "sentence": "¿Tienes alguna pregunta?",
+      "translation": "Do you have ⟦any⟧ questions?",
+      "form": "alguna"
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "qué",
+      "pos": "pron",
+      "meaning": "what; how (¡qué...!)",
+      "sentence": "¿Qué quieres comer?",
+      "translation": "⟦What⟧ do you want to eat?"
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "bien",
+      "pos": "adv",
+      "meaning": "well; fine",
+      "sentence": "Estoy bien, gracias.",
+      "translation": "I'm ⟦fine⟧, thanks."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "primero",
+      "pos": "adj",
+      "meaning": "first (primer before a masculine noun)",
+      "sentence": "Es mi primer día de trabajo.",
+      "translation": "It's my ⟦first⟧ day at work.",
+      "form": "primer"
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "así",
+      "pos": "adv",
+      "meaning": "like this; like that; so",
+      "sentence": "Se hace así.",
+      "translation": "You do it ⟦like this⟧."
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "dos",
+      "pos": "num",
+      "meaning": "two",
+      "sentence": "Tengo dos hijos.",
+      "translation": "I have ⟦two⟧ children."
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "entre",
+      "pos": "prep",
+      "meaning": "between; among",
+      "sentence": "La farmacia está entre el banco y el café.",
+      "translation": "The pharmacy is ⟦between⟧ the bank and the café."
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "saber",
+      "pos": "verb",
+      "meaning": "to know (a fact); to know how to",
+      "sentence": "No sé dónde está.",
+      "translation": "I don't ⟦know⟧ where it is.",
+      "form": "sé"
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "desde",
+      "pos": "prep",
+      "meaning": "since; from",
+      "sentence": "Lo conozco desde niño.",
+      "translation": "I've known him ⟦since⟧ I was a kid."
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "hasta",
+      "pos": "prep",
+      "meaning": "until; up to; even",
+      "sentence": "Trabajo hasta las seis.",
+      "translation": "I work ⟦until⟧ six."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "parte",
+      "pos": "noun",
+      "meaning": "part",
+      "sentence": "Esta es la mejor parte de la película.",
+      "translation": "This is the best ⟦part⟧ of the movie."
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "ahora",
+      "pos": "adv",
+      "meaning": "now",
+      "sentence": "Ahora no puedo hablar.",
+      "translation": "I can't talk ⟦now⟧."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "mejor",
+      "pos": "adj",
+      "meaning": "better; best",
+      "sentence": "Hoy me siento mejor.",
+      "translation": "I feel ⟦better⟧ today."
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "creer",
+      "pos": "verb",
+      "meaning": "to think; to believe",
+      "sentence": "Creo que tienes razón.",
+      "translation": "I ⟦think⟧ you're right.",
+      "form": "creo"
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "persona",
+      "pos": "noun",
+      "meaning": "person",
+      "sentence": "Es una persona muy amable.",
+      "translation": "She's a very kind ⟦person⟧."
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "nada",
+      "pos": "pron",
+      "meaning": "nothing; (not) anything",
+      "sentence": "No quiero nada, gracias.",
+      "translation": "I don't want ⟦anything⟧, thanks."
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "ni",
+      "pos": "conj",
+      "meaning": "nor; not even; (no... ni) neither... nor",
+      "sentence": "No como carne ni pescado.",
+      "translation": "I don't eat meat ⟦or⟧ fish."
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "cosa",
+      "pos": "noun",
+      "meaning": "thing",
+      "sentence": "Tengo muchas cosas que hacer.",
+      "translation": "I have a lot of ⟦things⟧ to do.",
+      "form": "cosas"
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "tiempo",
+      "pos": "noun",
+      "meaning": "time; weather",
+      "sentence": "No tengo tiempo hoy.",
+      "translation": "I don't have ⟦time⟧ today."
+    },
+    {
+      "n": 81,
+      "rank": 81,
+      "word": "donde",
+      "pos": "adv",
+      "meaning": "where (not in a question)",
+      "sentence": "Esta es la casa donde nací.",
+      "translation": "This is the house ⟦where⟧ I was born."
+    },
+    {
+      "n": 82,
+      "rank": 82,
+      "word": "dejar",
+      "pos": "verb",
+      "meaning": "to leave; to let; (dejar de) to stop",
+      "sentence": "Dejé las llaves en el carro.",
+      "translation": "I ⟦left⟧ the keys in the car.",
+      "form": "dejé"
+    },
+    {
+      "n": 83,
+      "rank": 83,
+      "word": "seguir",
+      "pos": "verb",
+      "meaning": "to keep (doing); to still be; to follow",
+      "sentence": "Sigue lloviendo.",
+      "translation": "It's ⟦still⟧ raining.",
+      "form": "sigue"
+    },
+    {
+      "n": 84,
+      "rank": 84,
+      "word": "llegar",
+      "pos": "verb",
+      "meaning": "to arrive; to get (somewhere)",
+      "sentence": "¿A qué hora llegas?",
+      "translation": "What time do you ⟦arrive⟧?",
+      "form": "llegas"
+    },
+    {
+      "n": 85,
+      "rank": 85,
+      "word": "algo",
+      "pos": "pron",
+      "meaning": "something; anything",
+      "sentence": "¿Necesitas algo?",
+      "translation": "Do you need ⟦anything⟧?"
+    },
+    {
+      "n": 86,
+      "rank": 86,
+      "word": "poner",
+      "pos": "verb",
+      "meaning": "to put; to turn on",
+      "sentence": "¿Dónde pongo las bolsas?",
+      "translation": "Where do I ⟦put⟧ the bags?",
+      "form": "pongo"
+    },
+    {
+      "n": 87,
+      "rank": 87,
+      "word": "hablar",
+      "pos": "verb",
+      "meaning": "to speak; to talk",
+      "sentence": "¿Hablas inglés?",
+      "translation": "Do you ⟦speak⟧ English?",
+      "form": "hablas"
+    },
+    {
+      "n": 88,
+      "rank": 88,
+      "word": "vida",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "Así es la vida.",
+      "translation": "That's ⟦life⟧."
+    },
+    {
+      "n": 89,
+      "rank": 89,
+      "word": "tan",
+      "pos": "adv",
+      "meaning": "so; as",
+      "sentence": "¡Eres tan amable!",
+      "translation": "You're ⟦so⟧ kind!"
+    },
+    {
+      "n": 90,
+      "rank": 90,
+      "word": "poco",
+      "pos": "adj",
+      "meaning": "little; a bit; few (un poco: a little)",
+      "sentence": "Hablo un poco de español.",
+      "translation": "I speak ⟦a little⟧ Spanish."
+    },
+    {
+      "n": 91,
+      "rank": 91,
+      "word": "tanto",
+      "pos": "adv",
+      "meaning": "so much; so many",
+      "sentence": "No trabajes tanto.",
+      "translation": "Don't work ⟦so much⟧."
+    },
+    {
+      "n": 92,
+      "rank": 92,
+      "word": "encontrar",
+      "pos": "verb",
+      "meaning": "to find",
+      "sentence": "No encuentro mis lentes.",
+      "translation": "I can't ⟦find⟧ my glasses.",
+      "form": "encuentro"
+    },
+    {
+      "n": 93,
+      "rank": 94,
+      "word": "siempre",
+      "pos": "adv",
+      "meaning": "always",
+      "sentence": "Siempre desayuno en casa.",
+      "translation": "I ⟦always⟧ have breakfast at home."
+    },
+    {
+      "n": 94,
+      "rank": 95,
+      "word": "país",
+      "pos": "noun",
+      "meaning": "country",
+      "sentence": "México es un país muy grande.",
+      "translation": "Mexico is a very big ⟦country⟧."
+    },
+    {
+      "n": 95,
+      "rank": 96,
+      "word": "salir",
+      "pos": "verb",
+      "meaning": "to go out; to leave",
+      "sentence": "Salgo del trabajo a las cinco.",
+      "translation": "I ⟦leave⟧ work at five.",
+      "form": "salgo"
+    },
+    {
+      "n": 96,
+      "rank": 97,
+      "word": "parecer",
+      "pos": "verb",
+      "meaning": "to seem; to look like",
+      "sentence": "Parece que va a llover.",
+      "translation": "It ⟦looks like⟧ it's going to rain.",
+      "form": "parece"
+    },
+    {
+      "n": 97,
+      "rank": 98,
+      "word": "gente",
+      "pos": "noun",
+      "meaning": "people",
+      "sentence": "Hay mucha gente en el mercado.",
+      "translation": "There are a lot of ⟦people⟧ at the market."
+    },
+    {
+      "n": 98,
+      "rank": 99,
+      "word": "cada",
+      "pos": "adj",
+      "meaning": "each; every",
+      "sentence": "Cada día aprendo algo nuevo.",
+      "translation": "⟦Every⟧ day I learn something new."
+    },
+    {
+      "n": 99,
+      "rank": 100,
+      "word": "después",
+      "pos": "adv",
+      "meaning": "after; later",
+      "sentence": "Nos vemos después de clase.",
+      "translation": "See you ⟦after⟧ class."
+    },
+    {
+      "n": 100,
+      "rank": 101,
+      "word": "mundo",
+      "pos": "noun",
+      "meaning": "world",
+      "sentence": "Quiero viajar por todo el mundo.",
+      "translation": "I want to travel all over the ⟦world⟧."
     }
   ]
 }
