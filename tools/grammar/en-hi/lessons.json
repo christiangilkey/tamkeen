@@ -2071,6 +2071,268 @@
         {"type":"say","q":"Say the proverb: “Where there's a will, there's a way.”","answer":"जहाँ चाह, वहाँ राह।","r":"jahā̃ chāh, vahā̃ rāh."},
         {"type":"free","q":"Your turn: say what you do whenever you have free time, and what you'll do as soon as you get home today.","answers":[{"t":"जब भी मेरे पास समय होता है, मैं पढ़ता हूँ। आज जैसे ही मैं घर पहुँचूँगा, खाना बनाऊँगा।","r":"jab bhī mere pās samay hotā hai, maĩ paṛhtā hū̃. āj jaise hī maĩ ghar pahũchū̃gā, khānā banāū̃gā.","tr":"Whenever I have time, I read. Today, as soon as I get home, I'll cook."},{"t":"जब भी मुझे समय मिलता है, मैं पार्क में टहलती हूँ। जैसे ही मैं घर पहुँचूँगी, चाय पिऊँगी।","r":"jab bhī mujhe samay miltā hai, maĩ pārk mẽ ṭahaltī hū̃. jaise hī maĩ ghar pahũchū̃gī, chāy piū̃gī.","tr":"Whenever I get time, I go for a walk in the park. As soon as I get home, I'll have some tea."}]}
       ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Tell a story",
+      "summary": "Tell what happened, from the background to the ending: “I was sitting in the park when suddenly it started to rain…”",
+      "topic": "The past tenses together; {{-ने लगना|-ne lagnā}} “to begin to”; story words: {{अचानक|achānak}}, {{तभी|tabhī}}, {{आख़िर में|ākhir mẽ}}",
+      "blocks": [
+        {"goal":{"t":"मैं बस का इंतज़ार कर रहा था, तभी एक बंदर आया और मेरा केला लेकर भाग गया!","r":"maĩ bas kā intazār kar rahā thā, tabhī ek bandar āyā aur merā kelā lekar bhāg gayā!","tr":"I was waiting for the bus when a monkey came along and ran off with my banana!","note":"said by a man; a woman says {{कर रही थी|kar rahī thī}}"}},
+        {"dialog":[{"who":"Sita","t":"पता है कल क्या हुआ?","r":"patā hai kal kyā huā?","tr":"Do you know what happened yesterday?"},{"who":"Ravi","t":"क्या हुआ?","r":"kyā huā?","tr":"What happened?"},{"who":"Sita","t":"मैं पार्क में बैठकर किताब पढ़ रही थी। अचानक बारिश होने लगी।","r":"maĩ pārk mẽ baiṭhkar kitāb paṛh rahī thī. achānak bārish hone lagī.","tr":"I was sitting in the park reading a book. Suddenly it started to rain."},{"who":"Ravi","t":"अरे! फिर?","r":"are! phir?","tr":"Oh no! Then what?"},{"who":"Sita","t":"मैं भागकर एक कैफ़े में गई। वहाँ मैंने अपने पुराने दोस्त को देखा!","r":"maĩ bhāgkar ek kaife mẽ gaī. vahā̃ maĩne apne purāne dost ko dekhā!","tr":"I ran into a café. And there I saw an old friend of mine!"},{"who":"Ravi","t":"वाह! फिर क्या हुआ?","r":"vāh! phir kyā huā?","tr":"Wow! Then what happened?"},{"who":"Sita","t":"हमने दो घंटे बातें कीं, और बारिश रुक गई।","r":"hamne do ghaṇṭe bātẽ kī̃, aur bārish ruk gaī.","tr":"We talked for two hours, and the rain stopped."}]},
+        {"p":"**A story puts together everything you know about the past**: the background with {{रहा था|rahā thā}} (lesson 32), the events with the simple past and {{ने|ne}} (lessons 26 to 28), one action after another with {{-कर|-kar}} (lesson 35), and sudden or finished actions with compound verbs (lesson 40). One new tool: {{लगना|lagnā}} after the {{-ने|-ne}} form means “to begin to”: {{बारिश होने लगी|bārish hone lagī}} “it began to rain”, {{वह रोने लगा|vah rone lagā}} “he started crying”."},
+        {"p":"**Begin to.** {{-ने लगना|-ne lagnā}} never takes {{ने|ne}}, and it agrees with the person: {{बच्चे हँसने लगे|bachche hãsne lage}} “The children started laughing”. It is the everyday way to say something started, often suddenly. ({{शुरू करना|shurū karnā}} “to start” is for planned starts: {{मैंने काम शुरू किया|maĩne kām shurū kiyā}}.)"},
+        { "table": [
+          ["for","Hindi","example"],
+          ["the background","{{रहा था|rahā thā}}","{{मैं घर जा रहा था…|maĩ ghar jā rahā thā…}} I was going home…"],
+          ["what happened","the past","{{…तभी फ़ोन बजा।|…tabhī fon bajā.}} …when the phone rang."],
+          ["one thing, then another","{{-कर|-kar}}","{{मैंने फ़ोन उठाकर कहा…|maĩne fon uṭhākar kahā…}} I picked up the phone and said…"],
+          ["it began","{{-ने लगा|-ne lagā}}","{{वह हँसने लगी।|vah hãsne lagī.}} She started laughing."],
+          ["done, suddenly","compound verbs","{{बंदर भाग गया।|bandar bhāg gayā.}} The monkey ran off."]
+        ] },
+        {"p":"**Story words.** {{एक दिन|ek din}} “one day”, {{अचानक|achānak}} “suddenly”, {{तभी|tabhī}} “just then”, {{फिर|phir}} “then”, {{उसके बाद|uske bād}} “after that”, {{आख़िर में|ākhir mẽ}} “in the end”. And the listener's {{फिर क्या हुआ?|phir kyā huā?}} “Then what happened?”"},
+        { "ex": [
+          {"t":"अचानक बत्ती चली गई।","r":"achānak battī chalī gaī.","tr":"Suddenly the power went out."},
+          {"t":"बच्चा मुझे देखकर हँसने लगा।","r":"bachchā mujhe dekhkar hãsne lagā.","tr":"The child saw me and started laughing."},
+          {"t":"एक दिन मैं बाज़ार जा रहा था, तभी मेरा पुराना दोस्त दिखा।","r":"ek din maĩ bāzār jā rahā thā, tabhī merā purānā dost dikhā.","tr":"One day I was going to the market when I spotted an old friend."},
+          {"t":"फ़ोन पर ख़बर सुनकर वह रोने लगी।","r":"fon par khabar sunkar vah rone lagī.","tr":"When she heard the news on the phone, she started crying."},
+          {"t":"आख़िर में सब ठीक हो गया।","r":"ākhir mẽ sab ṭhīk ho gayā.","tr":"In the end everything turned out fine."},
+          {"t":"हमने दो घंटे बातें कीं।","r":"hamne do ghaṇṭe bātẽ kī̃.","tr":"We talked for two hours.","note":"{{बातें|bātẽ}} “talk” is feminine plural, so {{कीं|kī̃}}"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"बारिश होना लगी।","right":"बारिश होने लगी।","tr":"It started to rain.","why":"“Begin to”: the {{-ने|-ne}} form + {{लगना|lagnā}}."},
+        {"wrong":"उसने रोने लगी।","right":"वह रोने लगी।","tr":"She started crying.","why":"{{लगना|lagnā}} never takes {{ने|ne}}."},
+        {"wrong":"मैं घर गया, तभी फ़ोन बजा।","right":"मैं घर जा रहा था, तभी फ़ोन बजा।","tr":"I was going home when the phone rang.","why":"The background, going on at the time: {{जा रहा था|jā rahā thā}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"अचानक बारिश होने ___।","tr":"Suddenly it started to rain.","options":["लगी","लगा","लगे"],"answer":0,"why":"{{बारिश|bārish}} is feminine: {{लगी|lagī}}.","from":"describe-things","r":"achānak bārish hone ___.","rs":["lagī","lagā","lage"]},
+        {"type":"fill","q":"Choose the right form.","t":"बच्चा मुझे ___ हँसने लगा।","tr":"The child saw me and started laughing.","options":["देखकर","देखना","देखा"],"answer":0,"why":"One action, then the next: {{देखकर|dekhkar}}.","from":"one-thing-after-another","r":"bachchā mujhe ___ hãsne lagā.","rs":["dekhkar","dekhnā","dekhā"]},
+        {"type":"choice","q":"Which sentence gives the background of a story?","options":["{{मैं बस का इंतज़ार कर रहा था।|maĩ bas kā intazār kar rahā thā.}}","{{एक बंदर आया।|ek bandar āyā.}}","{{बंदर भाग गया।|bandar bhāg gayā.}}"],"answer":0,"why":"What was going on: {{रहा था|rahā thā}}. The other two are events.","from":"say-what-was-going-on"},
+        {"type":"order","q":"Put the words in order.","tr":"She started laughing.","words":["वह","हँसने","लगी।"],"rs":["vah","hãsne","lagī."]},
+        {"type":"dialogue","q":"Your friend tells you a story. Choose your reactions.","from":"ask-what-happened","lines":[{"who":"Friend","t":"कल मैं ट्रेन में था, और एक आदमी गाने लगा।","r":"kal maĩ ṭren mẽ thā, aur ek ādmī gāne lagā.","tr":"Yesterday I was on the train, and a man started singing."},{"options":["सच में? फिर क्या हुआ?","सच में? फिर क्या होगा?"],"answer":0,"why":"Asking about the past: {{फिर क्या हुआ?|phir kyā huā?}}","rs":["sach mẽ? phir kyā huā?","sach mẽ? phir kyā hogā?"]},{"who":"Friend","t":"फिर सब लोग उसके साथ गाने लगे!","r":"phir sab log uske sāth gāne lage!","tr":"Then everyone started singing with him!"},{"options":["वाह! तुमने भी गाया?","वाह! तुम भी गाया?"],"answer":0,"why":"{{गाना|gānā}} “to sing” takes {{ने|ne}}: {{तुमने|tumne}}.","rs":["vāh! tumne bhī gāyā?","vāh! tum bhī gāyā?"]}]},
+        {"type":"say","q":"Ask the storyteller: “Then what happened?”","answer":"फिर क्या हुआ?","r":"phir kyā huā?"},
+        {"type":"free","q":"Your turn: tell a short story (three or four sentences) about something surprising that happened to you: the background, what happened, and how it ended.","answers":[{"t":"एक दिन मैं पार्क में दौड़ रहा था। अचानक एक कुत्ता मेरे पीछे भागने लगा! मैं डरकर एक पेड़ पर चढ़ गया। आख़िर में उसका मालिक आया और हम दोनों हँसने लगे।","r":"ek din maĩ pārk mẽ dauṛ rahā thā. achānak ek kuttā mere pīchhe bhāgne lagā! maĩ ḍarkar ek peṛ par chaṛh gayā. ākhir mẽ uskā mālik āyā aur ham donõ hãsne lage.","tr":"One day I was running in the park. Suddenly a dog started chasing me! I got scared and climbed a tree. In the end its owner came, and we both started laughing."},{"t":"पिछले हफ़्ते मैं दुकान में थी, तभी मैंने अपनी स्कूल की टीचर को देखा। हमने एक घंटे बात की।","r":"pichhle hafte maĩ dukān mẽ thī, tabhī maĩne apnī skūl kī ṭīchar ko dekhā. hamne ek ghaṇṭe bāt kī.","tr":"Last week I was in a store when I saw my old school teacher. We talked for an hour."}]}
+      ]
+    },
+    {
+      "id": "while-doing",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what happened while…",
+      "summary": "Say “while cooking”, “as soon as I got home”, “he kept talking”.",
+      "topic": "{{-ते हुए|-te hue}} “while”; {{-ते ही|-te hī}} “as soon as”; {{-ता रहना|-tā rahnā}} “to keep doing”",
+      "blocks": [
+        {"goal":{"t":"मैं गाने सुनते हुए खाना बनाती हूँ।","r":"maĩ gāne sunte hue khānā banātī hū̃.","tr":"I listen to music while I cook.","note":"said by a woman; a man says {{बनाता हूँ|banātā hū̃}}"}},
+        {"dialog":[{"who":"Amit","t":"तुम फ़ोन देखते हुए खाना क्यों खाते हो?","r":"tum fon dekhte hue khānā kyõ khāte ho?","tr":"Why do you eat while looking at your phone?"},{"who":"Sam","t":"आदत है! मैं सुबह उठते ही फ़ोन देखता हूँ।","r":"ādat hai! maĩ subah uṭhte hī fon dekhtā hū̃.","tr":"It's a habit! I check my phone as soon as I get up."},{"who":"Amit","t":"और कल रात तुम दो बजे तक फ़िल्में देखते रहे!","r":"aur kal rāt tum do baje tak filmẽ dekhte rahe!","tr":"And last night you kept watching movies until two!"},{"who":"Sam","t":"हाँ, मैं सोचता रहा कि बस एक और…","r":"hā̃, maĩ sochtā rahā ki bas ek aur…","tr":"Yes, I kept thinking “just one more…”"}]},
+        {"p":"**While.** The {{-ते|-te}} form + {{हुए|hue}} means “while doing”: {{गाने सुनते हुए|gāne sunte hue}} “while listening to songs”. It describes something going on at the same time as the main verb, done by the same person, and it doesn't change: {{वह मुस्कुराते हुए बोली|vah muskurāte hue bolī}} “She said with a smile (smiling)”."},
+        {"p":"**As soon as.** {{-ते ही|-te hī}} is “as soon as, the moment”: {{घर पहुँचते ही|ghar pahũchte hī}} “as soon as I got (or get) home”, {{मुझे देखते ही|mujhe dekhte hī}} “the moment he saw me”. It is a short way to say {{जैसे ही …|jaise hī …}} (lesson 45)."},
+        {"p":"**Keep doing.** The {{-ता|-tā}} form + {{रहना|rahnā}} “to stay” means “to keep on doing”: {{वह बोलता रहा|vah boltā rahā}} “He kept talking”, {{बारिश होती रही|bārish hotī rahī}} “It kept on raining”. No {{ने|ne}}: {{रहना|rahnā}} decides, and agrees with the person."},
+        { "table": [
+          ["","Hindi","example"],
+          ["while doing","{{-ते हुए|-te hue}}","{{चलते हुए|chalte hue}} while walking"],
+          ["as soon as","{{-ते ही|-te hī}}","{{पहुँचते ही|pahũchte hī}} as soon as (I) arrive"],
+          ["keep doing","{{-ता रहना|-tā rahnā}}","{{वह हँसता रहा।|vah hãstā rahā.}} He kept laughing."]
+        ] },
+        { "ex": [
+          {"t":"मैं गाड़ी चलाते हुए फ़ोन नहीं उठाता।","r":"maĩ gāṛī chalāte hue fon nahī̃ uṭhātā.","tr":"I don't answer the phone while I'm driving."},
+          {"t":"घर पहुँचते ही मुझे फ़ोन करना।","r":"ghar pahũchte hī mujhe fon karnā.","tr":"Call me as soon as you get home.","note":"{{करना|karnā}} as a gentle command: “do call me”"},
+          {"t":"बच्चा मुझे देखते ही रोने लगा।","r":"bachchā mujhe dekhte hī rone lagā.","tr":"The child started crying the moment he saw me."},
+          {"t":"रात भर बारिश होती रही।","r":"rāt bhar bārish hotī rahī.","tr":"It kept raining all night."},
+          {"t":"वह मुस्कुराते हुए बोली, “कोई बात नहीं।”","r":"vah muskurāte hue bolī, “koī bāt nahī̃.”","tr":"She said with a smile, “No problem.”"},
+          {"t":"तुम बोलते रहो, मैं सुन रहा हूँ।","r":"tum bolte raho, maĩ sun rahā hū̃.","tr":"Keep talking, I'm listening."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं खाना खाता हुए टीवी देखता हूँ।","right":"मैं खाना खाते हुए टीवी देखता हूँ।","tr":"I watch TV while I eat.","why":"“While” is always {{-ते हुए|-te hue}}, for everyone."},
+        {"wrong":"उसने बोलता रहा।","right":"वह बोलता रहा।","tr":"He kept talking.","why":"With {{रहना|rahnā}}, never {{ने|ne}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मैं गाड़ी ___ हुए फ़ोन नहीं उठाता।","tr":"I don't answer the phone while I'm driving.","options":["चलाते","चलाता","चलाकर"],"answer":0,"why":"“While”: {{-ते हुए|-te hue}}.","r":"maĩ gāṛī ___ hue fon nahī̃ uṭhātā.","rs":["chalāte","chalātā","chalākar"]},
+        {"type":"fill","q":"Choose the right word.","t":"घर पहुँचते ___ मुझे फ़ोन करना।","tr":"Call me as soon as you get home.","options":["ही","भी","तो"],"answer":0,"why":"“As soon as”: {{-ते ही|-te hī}}.","from":"say-when-and-where","r":"ghar pahũchte ___ mujhe fon karnā.","rs":["hī","bhī","to"]},
+        {"type":"choice","q":"{{रात भर बारिश होती रही।|rāt bhar bārish hotī rahī.}} means…","options":["It kept raining all night.","It rained once in the night.","It will rain all night."],"answer":0,"why":"{{-ती रही|-tī rahī}}: kept on."},
+        {"type":"order","q":"Put the words in order.","tr":"Keep talking, I'm listening.","words":["तुम","बोलते","रहो,","मैं","सुन","रहा","हूँ।"],"from":"say-whats-happening-now","rs":["tum","bolte","raho,","maĩ","sun","rahā","hū̃."]},
+        {"type":"dialogue","q":"Your roommate has a habit. Choose your lines (you're a woman).","from":"say-what-you-can-do","lines":[{"who":"Roommate","t":"मैं हमेशा टीवी देखते हुए खाना खाता हूँ।","r":"maĩ hameshā ṭīvī dekhte hue khānā khātā hū̃.","tr":"I always eat while watching TV."},{"options":["और मैं खाना बनाते हुए गाने सुनती हूँ।","और मैं खाना बनाती हुए गाने सुनती हूँ।"],"answer":0,"why":"“While” never changes: {{बनाते हुए|banāte hue}}.","rs":["aur maĩ khānā banāte hue gāne suntī hū̃.","aur maĩ khānā banātī hue gāne suntī hū̃."]},{"who":"Roommate","t":"हाँ, कल तुम आधी रात तक गाती रहीं!","r":"hā̃, kal tum ādhī rāt tak gātī rahī̃!","tr":"Yes, yesterday you kept singing until midnight!"},{"options":["हाँ, मैं रुक ही नहीं पाई!","हाँ, मैंने रुक ही नहीं पाई!"],"answer":0,"why":"{{पाना|pānā}}, like {{सकना|saknā}}, takes no {{ने|ne}}.","rs":["hā̃, maĩ ruk hī nahī̃ pāī!","hā̃, maĩne ruk hī nahī̃ pāī!"]}]},
+        {"type":"say","q":"Say, as a woman: “I listen to music while I cook.”","answer":"मैं गाने सुनते हुए खाना बनाती हूँ।","r":"maĩ gāne sunte hue khānā banātī hū̃."},
+        {"type":"free","q":"Your turn: say one thing you do while doing something else, and one thing you do as soon as you wake up.","answers":[{"t":"मैं चलते हुए पॉडकास्ट सुनता हूँ। उठते ही मैं एक गिलास पानी पीता हूँ।","r":"maĩ chalte hue pôḍkāsṭ suntā hū̃. uṭhte hī maĩ ek gilās pānī pītā hū̃.","tr":"I listen to podcasts while I walk. As soon as I get up, I drink a glass of water."},{"t":"मैं कॉफ़ी पीते हुए ख़बरें पढ़ती हूँ। उठते ही मैं खिड़की खोलती हूँ।","r":"maĩ kôfī pīte hue khabrẽ paṛhtī hū̃. uṭhte hī maĩ khiṛkī kholtī hū̃.","tr":"I read the news while I have my coffee. As soon as I get up, I open the window."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion and make a guess",
+      "summary": "Say what you think, agree or disagree, and guess: “In my view…”, “I don't think so”, “He must be at home.”",
+      "topic": "{{मेरे ख़याल से|mere khayāl se}}, {{मुझे लगता है कि|mujhe lagtā hai ki}}; {{सहमत|sahmat}}; {{शायद|shāyad}} + the subjunctive; {{होगा|hogā}} “must be”",
+      "blocks": [
+        {"goal":{"t":"मेरे ख़याल से यह फ़िल्म बहुत अच्छी है। तुम्हें ज़रूर देखनी चाहिए!","r":"mere khayāl se yah film bahut achchhī hai. tumhẽ zarūr dekhnī chāhie!","tr":"In my view this movie is really good. You should definitely see it!"}},
+        {"dialog":[{"who":"Neel","t":"तुम्हें क्या लगता है, हमें दिल्ली में घर लेना चाहिए?","r":"tumhẽ kyā lagtā hai, hamẽ dillī mẽ ghar lenā chāhie?","tr":"What do you think, should we get a place in Delhi?"},{"who":"Anya","t":"मेरे ख़याल से हाँ। वहाँ काम ज़्यादा है।","r":"mere khayāl se hā̃. vahā̃ kām zyādā hai.","tr":"I think so. There's more work there."},{"who":"Neel","t":"लेकिन वहाँ बहुत महँगा होगा।","r":"lekin vahā̃ bahut mahãgā hogā.","tr":"But it must be very expensive there."},{"who":"Anya","t":"शायद हो, लेकिन मुझे लगता है कि हम सँभाल लेंगे।","r":"shāyad ho, lekin mujhe lagtā hai ki ham sambhāl lẽge.","tr":"Maybe, but I think we'll manage."},{"who":"Neel","t":"तुम सही कह रही हो।","r":"tum sahī kah rahī ho.","tr":"You're right."}]},
+        {"p":"**In my view.** Three common ways: {{मुझे लगता है कि…|mujhe lagtā hai ki…}} “I think that…” (lesson 33), {{मेरे ख़याल से…|mere khayāl se…}} “in my view…”, and {{मेरी राय में…|merī rāy mẽ…}} “in my opinion…” (a bit more formal). To ask: {{आपको क्या लगता है?|āpko kyā lagtā hai?}} “What do you think?”, {{आपकी क्या राय है?|āpkī kyā rāy hai?}} “What's your opinion?”"},
+        {"p":"**Agreeing and disagreeing.** {{आप सही कह रहे हैं|āp sahī kah rahe haĩ}} “You're right”, {{मैं आपसे सहमत हूँ|maĩ āpse sahmat hū̃}} “I agree with you”, {{मुझे ऐसा नहीं लगता|mujhe aisā nahī̃ lagtā}} “I don't think so”, {{हो सकता है|ho saktā hai}} “could be”."},
+        {"p":"**Maybe, must be.** For a guess, {{शायद|shāyad}} “maybe” + the subjunctive (lesson 24): {{शायद वह घर पर हो|shāyad vah ghar par ho}} “Maybe he's at home”. When you're fairly sure, use the future of {{होना|honā}} (lesson 21) about *now*: {{वह घर पर होगा|vah ghar par hogā}} “He must be at home”, {{तुम थके हुए होगे|tum thake hue hoge}} “You must be tired”."},
+        { "table": [
+          ["how sure","Hindi","Meaning"],
+          ["sure","{{वह ज़रूर घर पर है।|vah zarūr ghar par hai.}}","He's definitely at home."],
+          ["fairly sure","{{वह घर पर होगा।|vah ghar par hogā.}}","He must be at home."],
+          ["I think","{{मुझे लगता है कि वह घर पर है।|mujhe lagtā hai ki vah ghar par hai.}}","I think he's at home."],
+          ["maybe","{{शायद वह घर पर हो।|shāyad vah ghar par ho.}}","Maybe he's at home."]
+        ] },
+        { "ex": [
+          {"t":"मेरे ख़याल से यह सही नहीं है।","r":"mere khayāl se yah sahī nahī̃ hai.","tr":"In my view, this isn't right."},
+          {"t":"आपको क्या लगता है, कल बारिश होगी?","r":"āpko kyā lagtā hai, kal bārish hogī?","tr":"What do you think, will it rain tomorrow?"},
+          {"t":"मैं आपसे पूरी तरह सहमत हूँ।","r":"maĩ āpse pūrī tarah sahmat hū̃.","tr":"I completely agree with you."},
+          {"t":"मुझे ऐसा नहीं लगता।","r":"mujhe aisā nahī̃ lagtā.","tr":"I don't think so."},
+          {"t":"तुम बहुत थके हुए होगे।","r":"tum bahut thake hue hoge.","tr":"You must be really tired."},
+          {"t":"शायद वह रास्ते में हो।","r":"shāyad vah rāste mẽ ho.","tr":"Maybe she's on her way."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं लगता हूँ कि वह सही है।","right":"मुझे लगता है कि वह सही है।","tr":"I think he's right.","why":"“I think” is “it seems to me”: {{मुझे लगता है|mujhe lagtā hai}}."},
+        {"wrong":"आपका क्या राय है?","right":"आपकी क्या राय है?","tr":"What's your opinion?","why":"{{राय|rāy}} “opinion” is feminine: {{आपकी|āpkī}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right word.","t":"___ लगता है कि वह सही है।","tr":"I think he's right.","options":["मुझे","मैं","मेरा"],"answer":0,"why":"“It seems to me”: {{मुझे लगता है|mujhe lagtā hai}}.","from":"say-how-you-feel","r":"___ lagtā hai ki vah sahī hai.","rs":["mujhe","maĩ","merā"]},
+        {"type":"fill","q":"Choose the right form.","t":"तुम बहुत थके हुए ___।","tr":"You must be really tired.","options":["होगे","हो","थे"],"answer":0,"why":"A confident guess about now: the future of {{होना|honā}}, {{होगे|hoge}} with {{तुम|tum}}.","from":"say-what-you-will-do","r":"tum bahut thake hue ___.","rs":["hoge","ho","the"]},
+        {"type":"choice","q":"{{शायद वह रास्ते में हो।|shāyad vah rāste mẽ ho.}} The speaker is…","options":["guessing: maybe she's on her way","sure that she's on her way","saying she was on her way"],"answer":0,"why":"{{शायद|shāyad}} + the subjunctive: a guess."},
+        {"type":"order","q":"Put the words in order.","tr":"I completely agree with you.","words":["मैं","आपसे","पूरी","तरह","सहमत","हूँ।"],"rs":["maĩ","āpse","pūrī","tarah","sahmat","hū̃."]},
+        {"type":"dialogue","q":"A friend asks your opinion. Choose your replies.","from":"make-suggestions","lines":[{"who":"Friend","t":"तुम्हें क्या लगता है, मुझे यह नौकरी लेनी चाहिए?","r":"tumhẽ kyā lagtā hai, mujhe yah naukrī lenī chāhie?","tr":"What do you think, should I take this job?"},{"options":["मेरे ख़याल से हाँ। पैसे ज़्यादा हैं।","मैं ख़याल से हाँ। पैसे ज़्यादा हैं।"],"answer":0,"why":"“In my view”: {{मेरे ख़याल से|mere khayāl se}}.","rs":["mere khayāl se hā̃. paise zyādā haĩ.","maĩ khayāl se hā̃. paise zyādā haĩ."]},{"who":"Friend","t":"लेकिन दफ़्तर बहुत दूर है।","r":"lekin daftar bahut dūr hai.","tr":"But the office is very far."},{"options":["हाँ, शायद यह थोड़ा मुश्किल हो।","हाँ, शायद यह थोड़ा मुश्किल होगी।"],"answer":0,"why":"{{शायद|shāyad}} + the subjunctive: {{हो|ho}}.","rs":["hā̃, shāyad yah thoṛā mushkil ho.","hā̃, shāyad yah thoṛā mushkil hogī."]}]},
+        {"type":"say","q":"Disagree politely: “I don't think so.”","answer":"मुझे ऐसा नहीं लगता।","r":"mujhe aisā nahī̃ lagtā."},
+        {"type":"free","q":"Your turn: give your opinion about a movie, a city or a food, and make one guess with {{शायद|shāyad}} or {{होगा|hogā}}.","answers":[{"t":"मेरे ख़याल से मुंबई बहुत दिलचस्प शहर है। वहाँ रहना महँगा होगा।","r":"mere khayāl se mumbaī bahut dilchasp shahar hai. vahā̃ rahnā mahãgā hogā.","tr":"In my view Mumbai is a really interesting city. Living there must be expensive."},{"t":"मुझे लगता है कि यह फ़िल्म बहुत अच्छी है। शायद तुम्हें भी पसंद आए।","r":"mujhe lagtā hai ki yah film bahut achchhī hai. shāyad tumhẽ bhī pasand āe.","tr":"I think this movie is really good. Maybe you'll like it too."}]}
+      ]
+    },
+    {
+      "id": "imagine-and-wish",
+      "unit": 8,
+      "level": "B1",
+      "title": "Imagine and wish",
+      "summary": "Say what you would do: “If I had money, I'd travel the world”, “If only you were here!”",
+      "topic": "{{अगर … होता, तो …|agar … hotā, to …}}: the {{-ता|-tā}} form for what isn't true; {{काश|kāsh}} “if only”",
+      "blocks": [
+        {"goal":{"t":"अगर मेरे पास पैसे होते, तो मैं पूरी दुनिया घूमता।","r":"agar mere pās paise hote, to maĩ pūrī duniyā ghūmtā.","tr":"If I had the money, I'd travel the whole world.","note":"said by a man; a woman says {{घूमती|ghūmtī}}"}},
+        {"dialog":[{"who":"Isha","t":"अगर तुम्हें एक महीने की छुट्टी मिलती, तो तुम क्या करते?","r":"agar tumhẽ ek mahīne kī chhuṭṭī miltī, to tum kyā karte?","tr":"If you got a month off, what would you do?"},{"who":"Tom","t":"मैं भारत जाता और हिमालय में घूमता। और तुम?","r":"maĩ bhārat jātā aur himālay mẽ ghūmtā. aur tum?","tr":"I'd go to India and travel in the Himalayas. And you?"},{"who":"Isha","t":"मैं तो बस सोती रहती!","r":"maĩ to bas sotī rahtī!","tr":"I'd just keep sleeping!"},{"who":"Tom","t":"काश हमें सच में छुट्टी मिलती!","r":"kāsh hamẽ sach mẽ chhuṭṭī miltī!","tr":"If only we really got a vacation!"},{"who":"Isha","t":"हाँ, काश! अगर मैंने पिछले साल छुट्टी ली होती, तो अब इतनी थकी नहीं होती।","r":"hā̃, kāsh! agar maĩne pichhle sāl chhuṭṭī lī hotī, to ab itnī thakī nahī̃ hotī.","tr":"Yes, if only! If I'd taken a vacation last year, I wouldn't be so tired now."}]},
+        {"p":"**Imagining.** For something that isn't true, or didn't happen, Hindi uses the {{-ता|-tā}} form alone, with no {{है|hai}} or {{था|thā}}, on both sides of {{अगर … तो|agar … to}}: {{अगर मेरे पास पैसे होते, तो मैं दुनिया घूमता|agar mere pās paise hote, to maĩ duniyā ghūmtā}} “If I had the money, I'd travel the world”. It agrees as usual: {{मैं घूमती|maĩ ghūmtī}} (a woman), {{हम जाते|ham jāte}}."},
+        {"p":"**One form, two times.** The same form covers “would” and “would have”: {{अगर तुम आते, तो मज़ा आता|agar tum āte, to mazā ātā}} is “If you came, it would be fun” *or* “If you had come, it would have been fun”; the situation tells you which. To make the past clear, put the past + {{होता|hotā}} after {{अगर|agar}}: {{अगर मैंने छुट्टी ली होती…|agar maĩne chhuṭṭī lī hotī…}} “If I had taken a vacation…”."},
+        {"p":"**If only.** {{काश|kāsh}} “if only, I wish” takes the same form: {{काश तुम यहाँ होते|kāsh tum yahā̃ hote}} “I wish you were here”, {{काश मैं हिंदी अच्छी तरह बोल पाता|kāsh maĩ hindī achchhī tarah bol pātā}} “I wish I could speak Hindi well”."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["imagine now","{{अगर मैं अमीर होता, तो…|agar maĩ amīr hotā, to…}}","If I were rich…"],
+          ["what you'd do","{{… तो मैं एक बड़ा घर ख़रीदता।|… to maĩ ek baṛā ghar kharīdtā.}}","… I'd buy a big house."],
+          ["imagine the past","{{अगर तुमने बताया होता…|agar tumne batāyā hotā…}}","If you had told me…"],
+          ["wish","{{काश तुम यहाँ होते!|kāsh tum yahā̃ hote!}}","I wish you were here!"]
+        ] },
+        { "ex": [
+          {"t":"अगर मुझे पता होता, तो मैं ज़रूर आता।","r":"agar mujhe patā hotā, to maĩ zarūr ātā.","tr":"If I'd known, I'd definitely have come."},
+          {"t":"अगर आज छुट्टी होती, तो हम समुद्र किनारे जाते।","r":"agar āj chhuṭṭī hotī, to ham samudra kināre jāte.","tr":"If today were a holiday, we'd go to the beach."},
+          {"t":"काश मैं तुम्हारे साथ होती!","r":"kāsh maĩ tumhāre sāth hotī!","tr":"I wish I were with you!","note":"a woman speaking"},
+          {"t":"अगर तुमने मुझे बताया होता, तो मैं मदद करता।","r":"agar tumne mujhe batāyā hotā, to maĩ madad kartā.","tr":"If you'd told me, I would have helped."},
+          {"t":"मैं तुम्हारी जगह होता, तो यह नौकरी ले लेता।","r":"maĩ tumhārī jagah hotā, to yah naukrī le letā.","tr":"If I were you, I'd take this job.","note":"{{तुम्हारी जगह|tumhārī jagah}} “in your place”; the {{तो|to}} shows it's an “if”, even without {{अगर|agar}}"},
+          {"t":"काश मैंने बचपन में हिंदी सीखी होती!","r":"kāsh maĩne bachpan mẽ hindī sīkhī hotī!","tr":"I wish I'd learned Hindi as a child!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"अगर मेरे पास पैसे होंगे, तो मैं दुनिया घूमता।","right":"अगर मेरे पास पैसे होते, तो मैं दुनिया घूमता।","tr":"If I had the money, I'd travel the world.","why":"Imagining (it isn't true): {{होते|hote}}, not the future."},
+        {"wrong":"अगर मैं अमीर होता, तो मैं बड़ा घर ख़रीदूँगा।","right":"अगर मैं अमीर होता, तो मैं बड़ा घर ख़रीदता।","tr":"If I were rich, I'd buy a big house.","why":"Both halves take the {{-ता|-tā}} form."},
+        {"wrong":"अगर तुम बताया होता, तो मैं मदद करता।","right":"अगर तुमने बताया होता, तो मैं मदद करता।","tr":"If you'd told me, I would have helped.","why":"{{बताना|batānā}} is transitive: {{तुमने|tumne}}, even here."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"अगर मेरे पास पैसे ___, तो मैं दुनिया घूमता।","tr":"If I had the money, I'd travel the world.","options":["होते","होंगे","हैं"],"answer":0,"why":"Imagining: {{होते|hote}} (plural, for {{पैसे|paise}}).","r":"agar mere pās paise ___, to maĩ duniyā ghūmtā.","rs":["hote","hõge","haĩ"]},
+        {"type":"fill","q":"Choose the right form.","t":"काश तुम यहाँ ___!","tr":"I wish you were here!","options":["होते","हो","होगे"],"answer":0,"why":"{{काश|kāsh}} + the {{-ता|-tā}} form.","r":"kāsh tum yahā̃ ___!","rs":["hote","ho","hoge"]},
+        {"type":"choice","q":"{{अगर तुम आते, तो मज़ा आता।|agar tum āte, to mazā ātā.}} can mean…","options":["“If you came, it'd be fun” or “If you had come, it would have been fun”","only “When you come, it's fun”","only “You'll come and it'll be fun”"],"answer":0,"why":"The same form for “would” and “would have”."},
+        {"type":"fill","q":"Choose the right word.","t":"अगर ___ मुझे बताया होता, तो मैं मदद करता।","tr":"If you'd told me, I would have helped.","options":["तुमने","तुम","तुम्हें"],"answer":0,"why":"{{बताना|batānā}} is transitive: {{ने|ne}}.","from":"say-what-you-did","r":"agar ___ mujhe batāyā hotā, to maĩ madad kartā.","rs":["tumne","tum","tumhẽ"]},
+        {"type":"order","q":"Put the words in order.","tr":"If I were rich, I'd buy a big house.","words":["अगर","मैं","अमीर","होता,","तो","बड़ा","घर","ख़रीदता।"],"rs":["agar","maĩ","amīr","hotā,","to","baṛā","ghar","kharīdtā."]},
+        {"type":"dialogue","q":"A friend asks you to imagine. Choose your replies (you're a woman).","from":"say-what-you-used-to-do","lines":[{"who":"Friend","t":"अगर तुम कहीं भी रह सकतीं, तो कहाँ रहतीं?","r":"agar tum kahī̃ bhī rah saktī̃, to kahā̃ rahtī̃?","tr":"If you could live anywhere, where would you live?"},{"options":["मैं गोवा में रहती, समुद्र के पास।","मैं गोवा में रहूँगी, समुद्र के पास।"],"answer":0,"why":"Imagining: {{रहती|rahtī}}.","rs":["maĩ govā mẽ rahtī, samudra ke pās.","maĩ govā mẽ rahū̃gī, samudra ke pās."]},{"who":"Friend","t":"और वहाँ क्या करतीं?","r":"aur vahā̃ kyā kartī̃?","tr":"And what would you do there?"},{"options":["मैं एक छोटा कैफ़े खोलती।","मैंने एक छोटा कैफ़े खोलती।"],"answer":0,"why":"No {{ने|ne}} with the {{-ता|-tā}} form.","rs":["maĩ ek chhoṭā kaife kholtī.","maĩne ek chhoṭā kaife kholtī."]}]},
+        {"type":"free","q":"Your turn: say what you would do if you had a year off, and one wish with {{काश|kāsh}}.","answers":[{"t":"अगर मुझे एक साल की छुट्टी मिलती, तो मैं भारत में रहता और हिंदी सीखता। काश मेरे पास और समय होता!","r":"agar mujhe ek sāl kī chhuṭṭī miltī, to maĩ bhārat mẽ rahtā aur hindī sīkhtā. kāsh mere pās aur samay hotā!","tr":"If I got a year off, I'd live in India and learn Hindi. If only I had more time!"},{"t":"अगर मेरे पास एक साल होता, तो मैं पूरा यूरोप घूमती। काश मैंने पहले ही यह सोचा होता!","r":"agar mere pās ek sāl hotā, to maĩ pūrā yūrop ghūmtī. kāsh maĩne pahle hī yah sochā hotā!","tr":"If I had a year, I'd travel all over Europe. If only I'd thought of it sooner!"}]}
+      ]
+    },
+    {
+      "id": "read-signs-and-news",
+      "unit": 8,
+      "level": "B1",
+      "title": "Understand signs, rules and the news",
+      "summary": "Read “No photos”, “Please take off your shoes”, and “The fort was built in 1565”.",
+      "topic": "The passive: the past form + {{जाना|jānā}} ({{बनाया गया|banāyā gayā}}, {{बोली जाती है|bolī jātī hai}}); {{… मना है|… manā hai}}; {{कृपया|kripayā}}",
+      "blocks": [
+        {"goal":{"t":"यह मंदिर सत्रहवीं सदी में बनाया गया था।","r":"yah mandir satrahvī̃ sadī mẽ banāyā gayā thā.","tr":"This temple was built in the seventeenth century."}},
+        {"dialog":[{"who":"Guide","t":"यह क़िला सोलहवीं सदी में बनाया गया था।","r":"yah qilā solahvī̃ sadī mẽ banāyā gayā thā.","tr":"This fort was built in the sixteenth century."},{"who":"Tourist","t":"वाह! और यहाँ क्या रखा जाता था?","r":"vāh! aur yahā̃ kyā rakhā jātā thā?","tr":"Wow! And what was kept here?"},{"who":"Guide","t":"यहाँ राजा का ख़ज़ाना रखा जाता था।","r":"yahā̃ rājā kā khazānā rakhā jātā thā.","tr":"The king's treasure used to be kept here."},{"who":"Tourist","t":"क्या अंदर फ़ोटो ले सकते हैं?","r":"kyā andar foṭo le sakte haĩ?","tr":"Can we take photos inside?"},{"who":"Guide","t":"नहीं, अंदर फ़ोटो लेना मना है। लेकिन बाहर ले सकते हैं।","r":"nahī̃, andar foṭo lenā manā hai. lekin bāhar le sakte haĩ.","tr":"No, photos aren't allowed inside. But you can take them outside."}]},
+        {"term":"passive","means":"a sentence about what is done to something, rather than who does it: “The fort *was built* in 1565.”"},
+        {"p":"**Is done, was made.** Hindi builds the passive from the past form of the verb + {{जाना|jānā}}, in any tense: {{बनाया गया|banāyā gayā}} “was made”, {{किया जाता है|kiyā jātā hai}} “is done”. Both parts agree with the thing: {{यह मस्जिद बनाई गई थी|yah masjid banāī gaī thī}} “This mosque was built”."},
+        { "table": [
+          ["","Hindi","Meaning"],
+          ["is done (usually)","{{यहाँ हिंदी बोली जाती है।|yahā̃ hindī bolī jātī hai.}}","Hindi is spoken here."],
+          ["was done","{{यह क़िला 1565 में बनाया गया।|yah qilā 1565 mẽ banāyā gayā.}}","This fort was built in 1565."],
+          ["will be done","{{नतीजे कल बताए जाएँगे।|natīje kal batāe jāẽge.}}","The results will be announced tomorrow."],
+          ["is being done","{{सड़क ठीक की जा रही है।|saṛak ṭhīk kī jā rahī hai.}}","The road is being repaired."]
+        ] },
+        {"p":"**Where you'll meet it.** Mostly in writing: signs, the news, history, instructions. In conversation, people prefer an ordinary sentence with “they” or “people”: {{लोग यहाँ हिंदी बोलते हैं|log yahā̃ hindī bolte haĩ}} “People speak Hindi here”."},
+        {"p":"**Not allowed, please.** Signs often say {{मना है|manā hai}} “is forbidden” after the {{-ना|-nā}} form: {{धूम्रपान करना मना है|dhūmrapān karnā manā hai}} “No smoking”, {{यहाँ गाड़ी खड़ी करना मना है|yahā̃ gāṛī khaṛī karnā manā hai}} “No parking here”. And polite requests use {{कृपया|kripayā}} “please” + the {{आप|āp}} subjunctive (lesson 24): {{कृपया जूते बाहर उतारें|kripayā jūte bāhar utārẽ}} “Please take your shoes off outside”."},
+        { "ex": [
+          {"t":"यहाँ फ़ोटो लेना मना है।","r":"yahā̃ foṭo lenā manā hai.","tr":"No photos here."},
+          {"t":"भारत में कई भाषाएँ बोली जाती हैं।","r":"bhārat mẽ kaī bhāshāẽ bolī jātī haĩ.","tr":"Many languages are spoken in India."},
+          {"t":"चोर को पकड़ लिया गया है।","r":"chor ko pakaṛ liyā gayā hai.","tr":"The thief has been caught."},
+          {"t":"कृपया अपना टिकट दिखाएँ।","r":"kripayā apnā ṭikaṭ dikhāẽ.","tr":"Please show your ticket."},
+          {"t":"यह खाना हाथ से खाया जाता है।","r":"yah khānā hāth se khāyā jātā hai.","tr":"This food is eaten with your hands."},
+          {"t":"नई सड़क अगले साल खोली जाएगी।","r":"naī saṛak agle sāl kholī jāegī.","tr":"The new road will be opened next year."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"यह क़िला बनाता गया।","right":"यह क़िला बनाया गया।","tr":"This fort was built.","why":"The passive uses the past form: {{बनाया|banāyā}} + {{गया|gayā}}."},
+        {"wrong":"यहाँ हिंदी बोला जाता है।","right":"यहाँ हिंदी बोली जाती है।","tr":"Hindi is spoken here.","why":"Both parts agree with {{हिंदी|hindī}} (feminine)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"भारत में कई भाषाएँ बोली ___ हैं।","tr":"Many languages are spoken in India.","options":["जाती","जाता","जाते"],"answer":0,"why":"{{भाषाएँ|bhāshāẽ}} is feminine plural: {{बोली जाती हैं|bolī jātī haĩ}}.","from":"more-than-one","r":"bhārat mẽ kaī bhāshāẽ bolī ___ haĩ.","rs":["jātī","jātā","jāte"]},
+        {"type":"fill","q":"Choose the right form.","t":"यह क़िला सोलहवीं सदी में ___ गया था।","tr":"This fort was built in the sixteenth century.","options":["बनाया","बनाता","बनाने"],"answer":0,"why":"The passive: the past form + {{जाना|jānā}}.","r":"yah qilā solahvī̃ sadī mẽ ___ gayā thā.","rs":["banāyā","banātā","banāne"]},
+        {"type":"choice","q":"A sign says {{यहाँ धूम्रपान करना मना है।|yahā̃ dhūmrapān karnā manā hai.}} It means…","options":["No smoking here.","Smoking area.","Smoking is good here."],"answer":0,"why":"{{… करना मना है|… karnā manā hai}}: “… is forbidden”."},
+        {"type":"choice","q":"{{कृपया अपना टिकट दिखाएँ।|kripayā apnā ṭikaṭ dikhāẽ.}} is…","options":["a polite request: “Please show your ticket.”","a question: “Will you show your ticket?”","about the past: “He showed his ticket.”"],"answer":0,"why":"{{कृपया|kripayā}} + the polite subjunctive (lesson 24).","from":"make-suggestions"},
+        {"type":"order","q":"Put the words in order.","tr":"This food is eaten with your hands.","words":["यह","खाना","हाथ","से","खाया","जाता","है।"],"rs":["yah","khānā","hāth","se","khāyā","jātā","hai."]},
+        {"type":"dialogue","q":"At a museum. Choose your questions.","from":"say-what-you-can-do","lines":[{"who":"Guard","t":"टिकट दिखाइए।","r":"ṭikaṭ dikhāie.","tr":"Your ticket, please."},{"options":["यह लीजिए। क्या अंदर फ़ोटो ले सकते हैं?","यह लीजिए। क्या अंदर फ़ोटो लिया सकते हैं?"],"answer":0,"why":"{{सकना|saknā}} after the stem: {{ले सकते हैं|le sakte haĩ}} (lesson 22).","rs":["yah lījie. kyā andar foṭo le sakte haĩ?","yah lījie. kyā andar foṭo liyā sakte haĩ?"]},{"who":"Guard","t":"नहीं, अंदर फ़ोटो लेना मना है।","r":"nahī̃, andar foṭo lenā manā hai.","tr":"No, photos aren't allowed inside."},{"options":["अच्छा। यह इमारत कब बनाई गई थी?","अच्छा। यह इमारत कब बनाया गई थी?"],"answer":0,"why":"Both parts agree with {{इमारत|imārat}} “building”, which is feminine.","rs":["achchhā. yah imārat kab banāī gaī thī?","achchhā. yah imārat kab banāyā gaī thī?"]}]},
+        {"type":"free","q":"Your turn: write a sign for your home or office, and one sentence about a famous building, with the passive.","answers":[{"t":"कृपया जूते बाहर उतारें। ताजमहल सत्रहवीं सदी में बनाया गया था।","r":"kripayā jūte bāhar utārẽ. tājmahal satrahvī̃ sadī mẽ banāyā gayā thā.","tr":"Please take your shoes off outside. The Taj Mahal was built in the seventeenth century."},{"t":"यहाँ खाना खाना मना है। हमारा दफ़्तर दस साल पहले बनाया गया था।","r":"yahā̃ khānā khānā manā hai. hamārā daftar das sāl pahle banāyā gayā thā.","tr":"No eating here. Our office was built ten years ago."}]}
+      ]
+    },
+    {
+      "id": "get-things-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Get things done for you",
+      "summary": "Say “I got my hair cut”, “We're having a house built”, “I need to get my phone fixed.”",
+      "topic": "{{-वाना|-vānā}} verbs: {{कटवाना|kaṭvānā}}, {{बनवाना|banvānā}}, {{करवाना|karvānā}}; {{से|se}} for the person who does it; {{-आना|-ānā}} verbs: {{सिखाना|sikhānā}}, {{दिखाना|dikhānā}}",
+      "blocks": [
+        {"goal":{"t":"मैंने कल अपने बाल कटवाए।","r":"maĩne kal apne bāl kaṭvāe.","tr":"I got my hair cut yesterday."}},
+        {"dialog":[{"who":"Riya","t":"तुम्हारे बाल बहुत अच्छे लग रहे हैं!","r":"tumhāre bāl bahut achchhe lag rahe haĩ!","tr":"Your hair looks great!"},{"who":"Tom","t":"शुक्रिया! मैंने कल कटवाए।","r":"shukriyā! maĩne kal kaṭvāe.","tr":"Thanks! I had it cut yesterday."},{"who":"Riya","t":"कहाँ से?","r":"kahā̃ se?","tr":"Where?"},{"who":"Tom","t":"बाज़ार में एक नया सैलून है। मैंने वहीं पास में अपना कुर्ता भी सिलवाया।","r":"bāzār mẽ ek nayā sailūn hai. maĩne vahī̃ pās mẽ apnā kurtā bhī silvāyā.","tr":"There's a new salon in the market. I had a kurta made right near there too."},{"who":"Riya","t":"वाह! मुझे भी अपना फ़ोन ठीक करवाना है।","r":"vāh! mujhe bhī apnā fon ṭhīk karvānā hai.","tr":"Wow! I need to get my phone fixed too."}]},
+        {"p":"**Have something done.** Many Hindi verbs have a form in {{-वाना|-vānā}} that means “to have someone do it”: {{काटना|kāṭnā}} “to cut” → {{कटवाना|kaṭvānā}} “to have cut”, {{बनाना|banānā}} “to make” → {{बनवाना|banvānā}} “to have made”, {{करना|karnā}} → {{करवाना|karvānā}} “to have done”. English needs “get” or “have”; Hindi changes the verb. (The stem often gets shorter: {{काट-|kāṭ-}} → {{कट-|kaṭ-}}.)"},
+        { "table": [
+          ["","do it yourself","have it done"],
+          ["cut","{{काटना|kāṭnā}}","{{बाल कटवाना|bāl kaṭvānā}} get a haircut"],
+          ["make","{{बनाना|banānā}}","{{घर बनवाना|ghar banvānā}} have a house built"],
+          ["do","{{करना|karnā}}","{{ठीक करवाना|ṭhīk karvānā}} get (something) fixed"],
+          ["sew","{{सिलना|silnā}}","{{कुर्ता सिलवाना|kurtā silvānā}} have a kurta made"],
+          ["wash","{{धोना|dhonā}}","{{कपड़े धुलवाना|kapṛe dhulvānā}} have clothes washed"]
+        ] },
+        {"p":"**By whom.** The person who does the work takes {{से|se}}: {{मैंने दर्ज़ी से कुर्ता सिलवाया|maĩne darzī se kurtā silvāyā}} “I had the tailor make a kurta”. The {{-वाना|-vānā}} verbs are transitive, so the past takes {{ने|ne}} and agrees with the thing: {{मैंने बाल कटवाए|maĩne bāl kaṭvāe}} ({{बाल|bāl}} “hair” is plural in Hindi)."},
+        {"p":"**Making someone do it.** Some verbs also have a form in {{-आना|-ānā}} for making or helping someone do it: {{सीखना|sīkhnā}} “to learn” → {{सिखाना|sikhānā}} “to teach”, {{देखना|dekhnā}} “to see” → {{दिखाना|dikhānā}} “to show”, {{उठना|uṭhnā}} “to get up” → {{उठाना|uṭhānā}} “to wake someone, to lift”. You have used one since lesson 13: {{लाल वाला दिखाइए|lāl vālā dikhāie}} “Show me the red one”."},
+        { "ex": [
+          {"t":"हम नया घर बनवा रहे हैं।","r":"ham nayā ghar banvā rahe haĩ.","tr":"We're having a new house built."},
+          {"t":"मुझे अपनी गाड़ी ठीक करवानी है।","r":"mujhe apnī gāṛī ṭhīk karvānī hai.","tr":"I need to get my car fixed."},
+          {"t":"उसने दर्ज़ी से नया सूट सिलवाया।","r":"usne darzī se nayā sūṭ silvāyā.","tr":"He had the tailor make a new suit."},
+          {"t":"माँ ने मुझे खाना बनाना सिखाया।","r":"mā̃ ne mujhe khānā banānā sikhāyā.","tr":"My mother taught me to cook."},
+          {"t":"क्या आप मुझे रास्ता दिखा सकते हैं?","r":"kyā āp mujhe rāstā dikhā sakte haĩ?","tr":"Could you show me the way?"},
+          {"t":"मैं अपने कपड़े धोबी से धुलवाता हूँ।","r":"maĩ apne kapṛe dhobī se dhulvātā hū̃.","tr":"I have my clothes washed by the laundry man."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैंने अपने बाल काटे।","right":"मैंने अपने बाल कटवाए।","tr":"I got my hair cut.","why":"{{काटे|kāṭe}} means you cut it yourself; at the barber's, it's {{कटवाए|kaṭvāe}}."},
+        {"wrong":"मैंने दर्ज़ी को कुर्ता सिलवाया।","right":"मैंने दर्ज़ी से कुर्ता सिलवाया।","tr":"I had the tailor make a kurta.","why":"The person who does the work takes {{से|se}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"मैंने कल अपने बाल ___।","tr":"I got my hair cut yesterday.","options":["कटवाए","काटे","कटे"],"answer":0,"why":"Someone else cut it: {{कटवाए|kaṭvāe}}.","r":"maĩne kal apne bāl ___.","rs":["kaṭvāe","kāṭe","kaṭe"]},
+        {"type":"fill","q":"Choose the right word.","t":"उसने दर्ज़ी ___ नया सूट सिलवाया।","tr":"He had the tailor make a new suit.","options":["से","को","ने"],"answer":0,"why":"The one who does the work: {{से|se}}.","r":"usne darzī ___ nayā sūṭ silvāyā.","rs":["se","ko","ne"]},
+        {"type":"choice","q":"{{हम नया घर बनवा रहे हैं।|ham nayā ghar banvā rahe haĩ.}} means…","options":["We're having a new house built.","We're building a new house ourselves.","We built a new house."],"answer":0,"why":"{{बनवाना|banvānā}}: to have it made by someone.","from":"say-whats-happening-now"},
+        {"type":"fill","q":"Choose the right word.","t":"मुझे अपनी गाड़ी ठीक करवानी ___।","tr":"I need to get my car fixed.","options":["है","हूँ","चाहता"],"answer":0,"why":"“Have to”: {{मुझे … है|mujhe … hai}} (lesson 23).","from":"say-what-you-have-to-do","r":"mujhe apnī gāṛī ṭhīk karvānī ___.","rs":["hai","hū̃","chāhtā"]},
+        {"type":"order","q":"Put the words in order.","tr":"My mother taught me to cook.","words":["माँ","ने","मुझे","खाना","बनाना","सिखाया।"],"from":"say-what-you-did","rs":["mā̃","ne","mujhe","khānā","banānā","sikhāyā."]},
+        {"type":"dialogue","q":"At a tailor's. Choose your lines.","from":"tell-the-time","lines":[{"who":"Tailor","t":"जी, क्या सिलवाना है?","r":"jī, kyā silvānā hai?","tr":"Yes, what would you like made?"},{"options":["मुझे एक कुर्ता सिलवाना है।","मुझे एक कुर्ता सिलना है।"],"answer":0,"why":"He'll sew it for you: {{सिलवाना|silvānā}}. ({{सिलना|silnā}} would mean you sew it yourself.)","rs":["mujhe ek kurtā silvānā hai.","mujhe ek kurtā silnā hai."]},{"who":"Tailor","t":"कब तक चाहिए?","r":"kab tak chāhie?","tr":"When do you need it by?"},{"options":["शुक्रवार तक चाहिए।","शुक्रवार से चाहिए।"],"answer":0,"why":"“By Friday”: {{तक|tak}} (lesson 18).","rs":["shukravār tak chāhie.","shukravār se chāhie."]}]},
+        {"type":"free","q":"Your turn: say one thing you had done for you recently, and one thing you need to get done.","answers":[{"t":"मैंने पिछले हफ़्ते अपनी गाड़ी ठीक करवाई। अब मुझे अपने बाल कटवाने हैं।","r":"maĩne pichhle hafte apnī gāṛī ṭhīk karvāī. ab mujhe apne bāl kaṭvāne haĩ.","tr":"I got my car fixed last week. Now I need to get a haircut."},{"t":"मैंने अपने लिए एक साड़ी बनवाई। अब मुझे अपना फ़ोन ठीक करवाना है।","r":"maĩne apne lie ek sāṛī banvāī. ab mujhe apnā fon ṭhīk karvānā hai.","tr":"I had a sari made for myself. Now I need to get my phone fixed."}]}
+      ]
     }
   ]
 }
