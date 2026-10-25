@@ -2033,6 +2033,238 @@
         {"type":"say","q":"Digues «No et rendeixis!»","answer":"Don't give up!"},
         {"type":"free","q":"Et toca: explica el teu matí amb tres phrasal verbs ({{wake up}}, {{get up}}, {{turn on}}, {{put on}}…).","answers":[{"t":"I wake up at seven, I get up at seven fifteen, and I turn on the radio.","tr":"Em desperto a les set, em llevo a un quart de vuit i engego la ràdio."},{"t":"I get up, I put on my clothes, and I pick up my friend on the way to work.","tr":"Em llevo, em vesteixo i passo a buscar la meva amiga de camí a la feina."}]}
       ]
+    },
+    {
+      "id": "want-someone-to",
+      "unit": 9,
+      "level": "B1",
+      "title": "Demana a algú que faci una cosa",
+      "summary": "Digues què vols que facin els altres, i passa encàrrecs: {{I want you to come to my party.}}",
+      "topic": "{{want}}, {{ask}}, {{tell}} + persona + {{to}} + verb (on el català diu «que» + subjuntiu); {{Can you tell him to call me?}}",
+      "blocks": [
+        {"goal":{"t":"I want you to come to my party.","tr":"Vull que vinguis a la meva festa."}},
+        {"dialog":[{"who":"Núria","t":"I'm turning thirty on Saturday, and I want you to come to the party!","tr":"Dissabte faig trenta anys i vull que vinguis a la festa!"},{"who":"Chris","t":"Of course! Do you want me to bring anything?","tr":"És clar! Vols que porti alguna cosa?"},{"who":"Núria","t":"Could you bring some drinks? And please tell Marc to come too.","tr":"Podries portar begudes? I digues-li a en Marc que vingui també, si us plau."},{"who":"Chris","t":"OK. Should I ask him to bring his guitar?","tr":"D'acord. Li demano que porti la guitarra?"},{"who":"Núria","t":"Yes! And ask him not to be late!","tr":"Sí! I demana-li que no arribi tard!"}]},
+        {"p":"**Vull que vinguis.** En català, quan vols que una altra persona faci una cosa, diem «vull que» + subjuntiu. L'anglès no té aquesta estructura: diu {{want}} + la persona + {{to}} + el verb: {{I want you to come.}} «Vull que vinguis», literalment «vull tu venir». Mai {{I want that you come}}."},
+        { "table": [
+          ["català","anglès"],
+          ["Vull que vinguis.","{{I want you to come.}}"],
+          ["Vols que t'ajudi?","{{Do you want me to help you?}}"],
+          ["Li he demanat que truqui.","{{I asked him to call.}}"],
+          ["Digues-li que vingui.","{{Tell her to come.}}"],
+          ["Li he dit que no arribi tard.","{{I told him not to be late.}}"]
+        ] },
+        {"p":"**La persona, com a complement:** {{me}}, {{you}}, {{him}}, {{her}}, {{us}}, {{them}} (lliçó 22): {{She wants me to stay.}} «Vol que em quedi.»"},
+        {"p":"**Demanar i dir: {{ask}} i {{tell}}.** {{ask}} és demanar amablement; {{tell}}, dir o manar: {{I asked her to help me.}} «Li vaig demanar que m'ajudés.» {{Tell him to call me.}} «Digues-li que em truqui.» En negatiu, {{not}} davant de {{to}}: {{I told them not to wait.}} «Els vaig dir que no esperessin.» Per deixar un encàrrec: {{Can you tell him to call me?}} «Li pots dir que em truqui?»"},
+        { "ex": [
+          {"t":"My mom wants me to study medicine.","tr":"La meva mare vol que estudiï medicina."},
+          {"t":"Do you want me to help you?","tr":"Vols que t'ajudi?"},
+          {"t":"I asked the waiter to bring the check.","tr":"Li vaig demanar al cambrer que portés el compte."},
+          {"t":"Tell her to call me back.","tr":"Digues-li que em torni la trucada."},
+          {"t":"The doctor told me not to drink coffee.","tr":"El metge em va dir que no prengués cafè."},
+          {"t":"I'd like you to meet my sister.","tr":"Et vull presentar la meva germana.","note":"literalment «m'agradaria que coneguessis la meva germana»: és la manera de presentar algú"}
+        ] },
+        {"tip":"{{let}} també va amb la persona, però sense {{to}}: {{Let me help you.}} «Deixa que t'ajudi.» {{Let me know.}} «Ja em diràs», «Avisa'm»."}
+      ],
+      "mistakes": [
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"Vull que vinguis.","why":"{{want}} + persona + {{to}} + verb, mai {{that}}."},
+        {"wrong":"She wants that I stay.","right":"She wants me to stay.","tr":"Vol que em quedi.","why":"La persona com a complement, {{me}}, i després {{to}}."},
+        {"wrong":"Tell him that he calls me.","right":"Tell him to call me.","tr":"Digues-li que em truqui.","why":"Per demanar una acció: {{tell}} + persona + {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I want you ___ to my party.","tr":"Vull que vinguis a la meva festa.","options":["to come","come","that you come"],"answer":0,"why":"{{want}} + persona + {{to}} + verb."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Do you want ___ to help you?","tr":"Vols que t'ajudi?","options":["me","I","that I"],"answer":0,"why":"La persona com a complement: {{me}}.","from":"him-her-it"},
+        {"type":"choice","q":"«Digues-li que em truqui» és…","options":["{{Tell her to call me.}}","{{Tell her that she calls me.}}","{{Say her to call me.}}"],"answer":0,"why":"{{tell}} + persona + {{to}}; {{say}} no va directament amb la persona."},
+        {"type":"dialogue","q":"Truques a l'oficina d'un amic. Tria les respostes.","lines":[{"who":"Secretària","t":"I'm sorry, Mr. Smith is in a meeting.","tr":"Ho sento, el senyor Smith és en una reunió."},{"options":["Can you tell him to call me, please?","Can you tell him that he calls me, please?"],"answer":0,"why":"{{tell him to call me}}."},{"who":"Secretària","t":"Sure. Do you want me to give him a message?","tr":"És clar. Vol que li doni algun missatge?"},{"options":["No, thanks. Just ask him to call me back.","No, thanks. Just ask him that he calls me back."],"answer":0,"why":"{{ask}} + persona + {{to}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"El metge em va dir que no prengués cafè.","words":["The doctor","told me","not","to drink","coffee."]},
+        {"type":"say","q":"Digues «Vols que t'ajudi?»","answer":"Do you want me to help you?"},
+        {"type":"free","q":"Et toca: què vols que facin les persones del teu voltant? Digues dues coses amb {{I want… to…}} o {{I'd like… to…}}.","answers":[{"t":"I want my kids to speak English, and I'd like my partner to come to London with me.","tr":"Vull que els meus fills parlin anglès, i m'agradaria que la meva parella vingués a Londres amb mi."},{"t":"I want my friends to visit me more often. I asked my boss to give me a day off.","tr":"Vull que els meus amics em vinguin a veure més sovint. Li he demanat al meu cap que em doni un dia lliure."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 9,
+      "level": "B1",
+      "title": "Dona la teva opinió",
+      "summary": "Digues què en penses, i estigues d'acord o no sense ofendre ningú: {{I agree with you, but I don't think it's that easy.}}",
+      "topic": "{{I think}}, {{I don't think}}; {{I agree}} (mai {{I am agree}}); {{you're right}}; {{it depends on}}; {{actually}}",
+      "blocks": [
+        {"goal":{"t":"I agree with you, but I don't think it's that easy.","tr":"Hi estic d'acord, però no crec que sigui tan fàcil."}},
+        {"dialog":[{"who":"Jordi","t":"I think there are too many tourists in Barcelona.","tr":"Crec que a Barcelona hi ha massa turistes."},{"who":"Emma","t":"I agree. The center is always crowded.","tr":"Hi estic d'acord. El centre sempre està ple de gent."},{"who":"Jordi","t":"They should limit the number of cruise ships.","tr":"Haurien de limitar els creuers."},{"who":"Emma","t":"Maybe, but I don't think it's that easy. The city needs tourism.","tr":"Potser sí, però no crec que sigui tan fàcil. La ciutat necessita el turisme."},{"who":"Jordi","t":"Well, you're right about that.","tr":"Bé, en això tens raó."},{"who":"Emma","t":"Actually, I think the real problem is the price of apartments.","tr":"De fet, crec que el problema de debò és el preu dels pisos."}]},
+        {"p":"**Opinar.** {{I think (that)…}} «Crec que…», {{In my opinion…}} «Al meu parer…», {{I feel that…}} «Em sembla que…». El {{that}} es pot treure: {{I think it's a good idea.}}"},
+        {"p":"**No crec que.** En català diem «no crec que sigui veritat», amb subjuntiu. En anglès, el verb no canvia: {{I don't think it's true.}} I la negació va a {{think}}: {{I don't think he'll come}} és més natural que {{I think he won't come}}."},
+        {"p":"**Estar d'acord: {{agree}} és un verb.** «Estic d'acord» és {{I agree}}, sense {{be}}: {{I agree with you.}} «Hi estic d'acord.» {{I don't agree.}} o {{I disagree.}} «No hi estic d'acord.» Mai {{I am agree}}."},
+        { "table": [
+          ["català","anglès"],
+          ["Crec que sí. Crec que no.","{{I think so.}} {{I don't think so.}}"],
+          ["No crec que sigui veritat.","{{I don't think it's true.}}"],
+          ["Hi estic d'acord.","{{I agree.}}"],
+          ["No hi estic d'acord.","{{I don't agree.}} {{I disagree.}}"],
+          ["Tens raó.","{{You're right.}}"],
+          ["Depèn.","{{It depends.}}"],
+          ["De fet…","{{Actually…}}"]
+        ] },
+        {"p":"**Tenir raó, dependre de.** «Tens raó» és {{You're right}}, amb {{be}} (lliçó 10). «Depèn de» és {{It depends on}}, amb {{on}}: {{It depends on the weather.}} **Per suavitzar:** {{I see your point, but…}} «Entenc el que dius, però…», {{Maybe, but…}} «Potser sí, però…», {{I'm not so sure.}} «No n'estic tan segur.»"},
+        { "ex": [
+          {"t":"I think English isn't that difficult.","tr":"Crec que l'anglès no és tan difícil."},
+          {"t":"I don't think it will rain today.","tr":"No crec que avui plogui."},
+          {"t":"I totally agree with you.","tr":"Hi estic totalment d'acord."},
+          {"t":"I see your point, but I disagree.","tr":"Entenc el que dius, però no hi estic d'acord."},
+          {"t":"It depends on the price.","tr":"Depèn del preu."},
+          {"t":"What do you think about it?","tr":"Tu què en penses?"}
+        ] },
+        {"tip":"Un fals amic: {{actually}} vol dir «de fet, en realitat», no «actualment», que és {{currently}} o {{nowadays}}. {{Actually, I'm from Girona.}} «De fet, soc de Girona.»"}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree.","right":"I agree.","tr":"Hi estic d'acord.","why":"{{agree}} ja és el verb: sense {{be}}."},
+        {"wrong":"It depends of the weather.","right":"It depends on the weather.","tr":"Depèn del temps.","why":"{{depend}} va amb {{on}}."},
+        {"wrong":"You have reason.","right":"You're right.","tr":"Tens raó.","why":"«Tenir raó» és {{be right}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I ___ with you.","tr":"Hi estic d'acord.","options":["agree","am agree","am agreed"],"answer":0,"why":"{{agree}} és un verb: {{I agree}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"I don't think ___ true.","tr":"No crec que sigui veritat.","options":["it's","it be","is"],"answer":0,"why":"El verb no canvia i porta el seu subjecte: {{it's}}."},
+        {"type":"choice","q":"{{Actually}} vol dir…","options":["de fet, en realitat","actualment","activament"],"answer":0,"why":"Fals amic: {{actually}} és «de fet»."},
+        {"type":"dialogue","q":"Un company de classe et demana l'opinió. Tria les respostes.","lines":[{"who":"Company","t":"Do you think the exam will be difficult?","tr":"Creus que l'examen serà difícil?"},{"options":["I don't think so. We've studied a lot.","I think no. We've studied a lot."],"answer":0,"why":"«Crec que no» és {{I don't think so}}."},{"who":"Company","t":"The last exam was really hard.","tr":"L'últim examen va ser molt difícil."},{"options":["You're right, but this one is easier.","You have reason, but this one is easier."],"answer":0,"why":"«Tenir raó» és {{be right}}."}],"from":"say-what-you-have"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Depèn del preu.","words":["It","depends","on","the price."]},
+        {"type":"say","q":"Digues «Hi estic totalment d'acord».","answer":"I totally agree with you."},
+        {"type":"free","q":"Et toca: dona la teva opinió sobre la ciutat on vius: una cosa que creus i una que no creus.","answers":[{"t":"I think my city is beautiful, but I don't think it's easy to find an apartment.","tr":"Crec que la meva ciutat és bonica, però no crec que sigui fàcil trobar pis."},{"t":"In my opinion, there are too many cars. I don't think people will change.","tr":"Al meu parer, hi ha massa cotxes. No crec que la gent canviï."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "Imagina: {{if I had…, I would…}}",
+      "summary": "Imagina coses que no són veritat o que no han passat: {{If I had more time, I would learn to play the guitar.}}",
+      "topic": "El segon condicional: {{if}} + passat, {{would}} + verb; {{If I were you}}; {{I wish}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would learn to play the guitar.","tr":"Si tingués més temps, aprendria a tocar la guitarra."}},
+        {"dialog":[{"who":"Marc","t":"What would you do if you won the lottery?","tr":"Què faries si et toqués la loteria?"},{"who":"Ana","t":"I'd quit my job and travel around the world!","tr":"Deixaria la feina i viatjaria per tot el món!"},{"who":"Marc","t":"I'd buy a house in the Empordà.","tr":"Jo em compraria una casa a l'Empordà."},{"who":"Ana","t":"And if you could live anywhere, where would you live?","tr":"I si poguessis viure a qualsevol lloc, on viuries?"},{"who":"Marc","t":"Right here! If I were rich, I'd just go to the beach more.","tr":"Aquí mateix! Si fos ric, simplement aniria més a la platja."}]},
+        {"term":"condicional","means":"la forma del verb que en català acaba en «-ria»: faria, aniria. En anglès, {{would}} + el verb."},
+        {"p":"**El català i l'anglès s'assemblen.** Per imaginar, en català diem «si tingués…, faria…». L'anglès diu {{if}} + el passat, i {{would}} + el verb: {{If I had money, I would travel.}} «Si tingués diners, viatjaria.» Aquí el passat no parla del passat: només marca que és imaginat."},
+        { "table": [
+          ["","català","anglès"],
+          ["real","Si tinc temps, vindré.","{{If I have time, I'll come.}}"],
+          ["imaginat","Si tingués temps, vindria.","{{If I had time, I'd come.}}"],
+          ["consell","Jo que tu, hi aniria.","{{If I were you, I'd go.}}"]
+        ] },
+        {"p":"**{{would}} ({{'d}}).** És igual per a tothom, i parlant gairebé sempre és {{'d}}: {{I'd}}, {{she'd}}, {{we'd}}. La negativa és {{wouldn't}}. I mai no va darrere de {{if}}: {{If I would have}} no és correcte."},
+        {"p":"**{{If I were you}}.** Amb {{be}}, en aquest condicional es fa servir {{were}} per a tothom: {{If I were rich…}} «Si fos ric…», {{If I were you, I'd say yes.}} «Jo que tu, diria que sí.» Parlant també se sent {{If I was…}}."},
+        {"p":"**Desitjos: {{I wish}}.** {{I wish}} + el passat és «tant de bo», «m'agradaria que»: {{I wish I had more time.}} «Tant de bo tingués més temps.» {{I wish it were Friday!}} «Tant de bo fos divendres!»"},
+        { "ex": [
+          {"t":"If I were rich, I'd travel around the world.","tr":"Si fos ric, viatjaria per tot el món."},
+          {"t":"What would you do if you won the lottery?","tr":"Què faries si et toqués la loteria?"},
+          {"t":"If I knew the answer, I'd tell you.","tr":"Si sabés la resposta, te la diria."},
+          {"t":"If I were you, I wouldn't go.","tr":"Jo que tu, no hi aniria."},
+          {"t":"I wish I could speak Japanese.","tr":"Tant de bo sabés parlar japonès."},
+          {"t":"It would be great to see you.","tr":"Seria genial veure't."}
+        ] },
+        {"tip":"{{would}} també fa més educades les peticions: {{Would you like some coffee?}} «Voldries un cafè?» {{I would love to!}} «M'encantaria!»"}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have time, I would come.","right":"If I had time, I would come.","tr":"Si tingués temps, vindria.","why":"Darrere de {{if}}, el passat, mai {{would}}."},
+        {"wrong":"If I had money, I will buy a house.","right":"If I had money, I would buy a house.","tr":"Si tingués diners, em compraria una casa.","why":"Una condició imaginada va amb {{would}}, no amb {{will}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"If I ___ more time, I'd learn to cook.","tr":"Si tingués més temps, aprendria a cuinar.","options":["had","would have","have"],"answer":0,"why":"Imaginat: {{if}} + passat."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"If I were you, I ___ talk to her.","tr":"Jo que tu, parlaria amb ella.","options":["would","will","am"],"answer":0,"why":"El resultat imaginat: {{would}}.","from":"give-advice"},
+        {"type":"choice","q":"{{If it rains, I'll stay home.}} i {{If it rained, I'd stay home.}} La segona…","options":["ho imagina (no sembla probable)","parla del passat","vol dir el mateix, però més educat"],"answer":0,"why":"{{if}} + passat: una condició imaginada."},
+        {"type":"dialogue","q":"Un amic et fa una pregunta divertida. Tria les respostes.","lines":[{"who":"Amic","t":"What would you do if you could travel in time?","tr":"Què faries si poguessis viatjar en el temps?"},{"options":["I'd go to Barcelona in 1900!","I'll go to Barcelona in 1900!"],"answer":0,"why":"Imaginat: {{I'd}} ({{would}})."},{"who":"Amic","t":"And if you were invisible for a day?","tr":"I si fossis invisible un dia?"},{"options":["I'd go to a Barça game for free!","I go to a Barça game for free!"],"answer":0,"why":"Encara imagines: {{would}}."}]},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Tant de bo tingués més temps.","words":["I","wish","I had","more","time."]},
+        {"type":"say","q":"Pregunta «Què faries si et toqués la loteria?»","answer":"What would you do if you won the lottery?"},
+        {"type":"free","q":"Et toca: imagina. Si poguessis viure a qualsevol lloc durant un any, on viuries i què hi faries?","answers":[{"t":"If I could live anywhere, I'd live in New York. I'd go to a lot of concerts and I'd practice my English every day.","tr":"Si pogués viure a qualsevol lloc, viuria a Nova York. Aniria a molts concerts i practicaria l'anglès cada dia."},{"t":"If I had a year off, I'd live in California and learn to surf.","tr":"Si tingués un any lliure, viuria a Califòrnia i aprendria a fer surf."}]}
+      ]
+    },
+    {
+      "id": "pass-on-a-message",
+      "unit": 9,
+      "level": "B1",
+      "title": "Explica què ha dit algú",
+      "summary": "Explica què t'ha dit algú i què t'ha preguntat: {{Marta told me she would be late.}}",
+      "topic": "{{say}} o {{tell}}; l'estil indirecte: els temps fan un pas enrere ({{is}} → {{was}}, {{will}} → {{would}}); {{asked if}}",
+      "blocks": [
+        {"goal":{"t":"Marta told me she would be late.","tr":"La Marta em va dir que arribaria tard."}},
+        {"dialog":[{"who":"Companya","t":"Jordi called.","tr":"Ha trucat en Jordi."},{"who":"Tu","t":"What did he say?","tr":"Què ha dit?"},{"who":"Companya","t":"He said he was sick and he wouldn't come in today.","tr":"Ha dit que estava malalt i que avui no vindria."},{"who":"Tu","t":"Oh no. And the meeting?","tr":"Vaja. I la reunió?"},{"who":"Companya","t":"He asked if we could do it tomorrow.","tr":"Ha preguntat si la podríem fer demà."},{"who":"Tu","t":"OK. He told me yesterday that he didn't feel well.","tr":"D'acord. Ahir ja em va dir que no es trobava bé."}]},
+        {"p":"**{{say}} o {{tell}}?** Tots dos són «dir». {{tell}} porta la persona a qui ho dius, sense preposició: {{She told me…}} «Em va dir…». {{say}} no la porta, o la porta amb {{to}}: {{She said…}}, {{She said to me…}}. Mai {{She said me}}."},
+        {"p":"**Els temps fan un pas enrere.** Quan expliques en passat el que algú va dir, els temps solen fer un pas enrere, com en català: el present passa a passat, {{will}} a {{would}}, i el passat a {{had}} + participi:"},
+        { "table": [
+          ["el que diu","{{She says…}}","{{She said…}}"],
+          ["{{I'm tired.}}","{{She says she's tired.}}","{{She said she was tired.}}"],
+          ["{{I'll come.}}","{{She says she'll come.}}","{{She said she would come.}}"],
+          ["{{I missed the train.}}","{{She says she missed the train.}}","{{She said she had missed the train.}}"],
+          ["{{I can't come.}}","{{She says she can't come.}}","{{She said she couldn't come.}}"]
+        ] },
+        {"p":"**Preguntes.** Una pregunta de sí o no s'explica amb {{if}} «si»: {{He asked if I was OK.}} «Em va preguntar si estava bé.» Amb una paraula interrogativa, la paraula es manté, però l'ordre és el d'una frase normal, sense {{do}} ni inversió: {{She asked where I lived.}} «Em va preguntar on vivia», mai {{where did I live}}. El {{that}} de {{He said (that)…}} es pot treure."},
+        { "ex": [
+          {"t":"Pere says he can't come.","tr":"En Pere diu que no pot venir."},
+          {"t":"She told me she would call you later.","tr":"Em va dir que et trucaria més tard."},
+          {"t":"They said it would rain, but it's sunny.","tr":"Van dir que plouria, però fa sol."},
+          {"t":"He asked me if I spoke Catalan.","tr":"Em va preguntar si parlava català."},
+          {"t":"I told her I didn't know.","tr":"Li vaig dir que no ho sabia."},
+          {"t":"Can you tell him I called?","tr":"Li pots dir que he trucat?"}
+        ] },
+        {"tip":"Al telèfon: {{Who's calling?}} «De part de qui?» i {{Can I take a message?}} «Vol deixar algun missatge?»."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"Em va dir que estava cansada.","why":"Amb la persona: {{tell}} ({{told me}}); {{say}} no la porta."},
+        {"wrong":"He asked me where did I live.","right":"He asked me where I lived.","tr":"Em va preguntar on vivia.","why":"En l'estil indirecte, l'ordre d'una frase normal, sense {{did}}."},
+        {"wrong":"She said she will come.","right":"She said she would come.","tr":"Va dir que vindria.","why":"Darrere de {{said}}, {{will}} passa a {{would}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"She ___ me she was tired.","tr":"Em va dir que estava cansada.","options":["told","said","say"],"answer":0,"why":"Amb la persona ({{me}}): {{told}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"He said he ___ come tomorrow.","tr":"Va dir que vindria demà.","options":["would","will","is"],"answer":0,"why":"Darrere de {{said}}: {{will}} → {{would}}.","from":"predict-and-promise"},
+        {"type":"choice","q":"«Em va preguntar si volia un cafè» és…","options":["{{She asked me if I wanted a coffee.}}","{{She asked me did I want a coffee.}}","{{She said me if I wanted a coffee.}}"],"answer":0,"why":"{{ask}} + {{if}}, amb l'ordre d'una frase normal."},
+        {"type":"dialogue","q":"Un company et passa un missatge. Tria les respostes.","lines":[{"who":"Company","t":"Your sister called.","tr":"Ha trucat la teva germana."},{"options":["Oh, what did she say?","Oh, what she said?"],"answer":0,"why":"Una pregunta directa en passat: {{did}} + verb."},{"who":"Company","t":"She said she couldn't come to lunch tomorrow.","tr":"Ha dit que demà no podria venir a dinar."},{"options":["Oh no. I'll tell her to call me tonight.","Oh no. I'll say her to call me tonight."],"answer":0,"why":"Amb la persona: {{tell her}}."}],"from":"want-someone-to"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Em va preguntar si parlava català.","words":["He","asked me","if","I spoke","Catalan."]},
+        {"type":"say","q":"Pregunta a un company «Li pots dir que he trucat?»","answer":"Can you tell him I called?"},
+        {"type":"free","q":"Et toca: algú et va donar una notícia ahir. Explica-la començant per {{He told me…}} o {{She said…}}.","answers":[{"t":"My friend told me she was getting married next year.","tr":"La meva amiga em va dir que es casaria l'any que ve."},{"t":"My boss said I didn't have to work on Friday.","tr":"El meu cap va dir que divendres no havia de treballar."}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 9,
+      "level": "B1",
+      "title": "Entén la veu passiva",
+      "summary": "Entén i fes servir les frases en què importa què es fa, no qui ho fa: {{English is spoken here.}}, {{The Sagrada Família was designed by Gaudí.}}",
+      "topic": "{{be}} + participi: {{is made}}, {{was built}}; el «es» impersonal català ({{Aquí es parla anglès}}); {{by}}",
+      "blocks": [
+        {"goal":{"t":"The Sagrada Família was designed by Gaudí.","tr":"La Sagrada Família la va dissenyar Gaudí."}},
+        {"dialog":[{"who":"Guia","t":"This church was designed by Antoni Gaudí.","tr":"Aquesta església la va dissenyar Antoni Gaudí."},{"who":"Turista","t":"When was it built?","tr":"Quan es va construir?"},{"who":"Guia","t":"Work started in 1882, and it still isn't finished!","tr":"Les obres van començar el 1882, i encara no està acabada!"},{"who":"Turista","t":"Wow. Is it visited by a lot of people?","tr":"Ostres. La visita molta gent?"},{"who":"Guia","t":"Yes, millions every year. And photos are allowed inside.","tr":"Sí, milions de persones cada any. I a dins es poden fer fotos."}]},
+        {"term":"veu passiva","means":"una manera de fer la frase en què el subjecte rep l'acció en lloc de fer-la: «la casa va ser construïda». En anglès, {{be}} + el participi."},
+        {"p":"**Qui ho fa no importa.** En català, quan no importa qui fa una cosa, sovint diem «es»: «aquí es parla anglès», «es va construir el 1882». L'anglès no té aquest «es»: fa servir la passiva, {{be}} + el participi (lliçó 33): {{English is spoken here.}} {{It was built in 1882.}}"},
+        { "table": [
+          ["català","anglès"],
+          ["Aquí es parla anglès.","{{English is spoken here.}}"],
+          ["Es va construir el 1882.","{{It was built in 1882.}}"],
+          ["Està prohibit fumar.","{{Smoking is not allowed.}}"],
+          ["Em van robar el mòbil.","{{My phone was stolen.}}"],
+          ["La va escriure Mercè Rodoreda.","{{It was written by Mercè Rodoreda.}}"]
+        ] },
+        {"p":"**El temps el diu {{be}}:** {{is made}} «es fa» (present), {{was made}} «es va fer» (passat), {{will be made}} «es farà» (futur), {{has been made}} «s'ha fet». El participi no canvia. I si vols dir qui ho va fer, {{by}}: {{It was painted by Picasso.}} «El va pintar Picasso.»"},
+        {"p":"**També amb {{they}} i {{you}}.** Parlant, sovint es diu el mateix amb {{they}} o {{you}} en lloc de la passiva: {{They speak English here.}} {{You can't smoke here.}} «Aquí no es pot fumar.» I «néixer», ja ho saps, també és passiva: {{I was born in 1990}} (lliçó 23)."},
+        { "ex": [
+          {"t":"English is spoken here.","tr":"Aquí es parla anglès."},
+          {"t":"This bridge was built by the Romans.","tr":"Aquest pont el van construir els romans."},
+          {"t":"My bike was stolen last night.","tr":"Ahir a la nit em van robar la bici."},
+          {"t":"Dinner is served at eight.","tr":"El sopar se serveix a les vuit."},
+          {"t":"Pets are not allowed.","tr":"No s'hi admeten animals."},
+          {"t":"The results will be announced tomorrow.","tr":"Els resultats es faran públics demà."}
+        ] },
+        {"tip":"Has arribat molt lluny: de {{Hi, I'm…}} a entendre la passiva! {{English is learned by millions of people}}… i ara, també per tu."}
+      ],
+      "mistakes": [
+        {"wrong":"Here is spoken English.","right":"English is spoken here.","tr":"Aquí es parla anglès.","why":"L'anglès no té el «es» català: la cosa fa de subjecte, amb {{be}} + el participi."},
+        {"wrong":"The house was build in 1900.","right":"The house was built in 1900.","tr":"La casa es va construir el 1900.","why":"La passiva porta el participi: {{built}}."},
+        {"wrong":"It was painted for Picasso.","right":"It was painted by Picasso.","tr":"El va pintar Picasso.","why":"Qui ho fa és {{by}}, no {{for}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Tria la paraula que falta.","t":"This church was ___ in the 14th century.","tr":"Aquesta església es va construir al segle XIV.","options":["built","build","building"],"answer":0,"why":"Passiva: {{was}} + el participi, {{built}}."},
+        {"type":"fill","q":"Tria la paraula que falta.","t":"Guernica was painted ___ Picasso.","tr":"El Guernica el va pintar Picasso.","options":["by","for","from"],"answer":0,"why":"Qui ho fa: {{by}}."},
+        {"type":"choice","q":"«Aquí no es pot fumar» es pot dir…","options":["{{Smoking is not allowed here.}}","{{Here not is smoked.}}","{{It smokes not here.}}"],"answer":0,"why":"Passiva amb {{be}} + participi; o, parlant, {{You can't smoke here.}}"},
+        {"type":"dialogue","q":"Fas de guia a un amic americà per Barcelona. Tria les respostes.","lines":[{"who":"Amic","t":"Who designed this building?","tr":"Qui va dissenyar aquest edifici?"},{"options":["It was designed by Gaudí.","It designed Gaudí."],"answer":0,"why":"Passiva: {{was designed by}}."},{"who":"Amic","t":"Have you ever been inside?","tr":"Hi has entrat mai?"},{"options":["Yes, I've been inside twice.","Yes, I was inside twice ever."],"answer":0,"why":"Una experiència, sense dir quan: present perfet, {{I've been}}."}],"from":"talk-about-experiences"},
+        {"type":"order","q":"Posa les paraules en ordre.","tr":"Ahir a la nit em van robar la bici.","words":["My bike","was","stolen","last night."]},
+        {"type":"say","q":"Digues «Aquí es parla anglès».","answer":"English is spoken here."},
+        {"type":"free","q":"Et toca: parla d'un edifici o d'un lloc famós de la teva ciutat: quan es va construir i qui el va fer.","answers":[{"t":"The Palau de la Música was built in 1908. It was designed by Domènech i Montaner.","tr":"El Palau de la Música es va acabar de construir el 1908. El va dissenyar Domènech i Montaner."},{"t":"Girona Cathedral was built over many centuries, and it's visited by thousands of tourists every year.","tr":"La catedral de Girona es va construir al llarg de molts segles, i la visiten milers de turistes cada any."}]}
+      ]
     }
   ]
 }
