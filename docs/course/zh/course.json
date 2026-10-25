@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "zh",
+ "title": "Chinese basics",
+ "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+ "about": "The most common words of written and spoken Mandarin (wordfreq counts; Chinese words don't change form, so nothing needs grouping), most common first, 50 to a unit. Names of people and places are left out. Each word has its pinyin and a short English meaning, and one short everyday sentence in simplified characters that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Xiaoxiao (Azure, mainland China)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "的",
+   "pos": "part",
+   "meaning": "(de) 's; of (joins a describing word or an owner to a noun)",
+   "sentence": "这是妈妈的手机。",
+   "translation": "This is Mum⟦'s⟧ phone.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.396,
+    "sent_start": 1.296,
+    "sent_end": 2.752
+   }
+  },
+  {
+   "n": 2,
+   "word": "是",
+   "pos": "verb",
+   "meaning": "(shì) to be (am, is, are)",
+   "sentence": "我是老师。",
+   "translation": "I ⟦am⟧ a teacher.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.46,
+    "sent_start": 1.36,
+    "sent_end": 2.342
+   }
+  },
+  {
+   "n": 3,
+   "word": "在",
+   "pos": "prep",
+   "meaning": "(zài) at; in; to be (somewhere)",
+   "sentence": "妈妈在厨房做饭。",
+   "translation": "Mum is cooking ⟦in⟧ the kitchen.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.411,
+    "sent_start": 1.311,
+    "sent_end": 2.931
+   }
+  },
+  {
+   "n": 4,
+   "word": "了",
+   "pos": "part",
+   "meaning": "(le) shows that something has happened or changed",
+   "sentence": "他已经走了。",
+   "translation": "He ⟦has⟧ already left.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.39,
+    "sent_start": 1.29,
+    "sent_end": 2.345
+   }
+  },
+  {
+   "n": 5,
+   "word": "我",
+   "pos": "pron",
+   "meaning": "(wǒ) I; me",
+   "sentence": "我想喝水。",
+   "translation": "⟦I⟧ want to drink some water.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.379,
+    "sent_start": 1.279,
+    "sent_end": 2.35
+   }
+  },
+  {
+   "n": 6,
+   "word": "和",
+   "pos": "conj",
+   "meaning": "(hé) and; with",
+   "sentence": "我喜欢猫和狗。",
+   "translation": "I like cats ⟦and⟧ dogs.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.447,
+    "sent_start": 1.347,
+    "sent_end": 2.657
+   }
+  },
+  {
+   "n": 7,
+   "word": "有",
+   "pos": "verb",
+   "meaning": "(yǒu) to have; there is",
+   "sentence": "我有一个哥哥。",
+   "translation": "I ⟦have⟧ an older brother.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.404,
+    "sent_start": 1.304,
+    "sent_end": 2.44
+   }
+  },
+  {
+   "n": 8,
+   "word": "不",
+   "pos": "adv",
+   "meaning": "(bù) not; no",
+   "sentence": "我不知道。",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.375,
+    "sent_start": 1.275,
+    "sent_end": 2.139
+   }
+  },
+  {
+   "n": 9,
+   "word": "人",
+   "pos": "noun",
+   "meaning": "(rén) person; people",
+   "sentence": "这里人很多。",
+   "translation": "There are a lot of ⟦people⟧ here.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.409,
+    "sent_start": 1.309,
+    "sent_end": 2.405
+   }
+  },
+  {
+   "n": 10,
+   "word": "也",
+   "pos": "adv",
+   "meaning": "(yě) also; too",
+   "sentence": "我也想去。",
+   "translation": "I want to go ⟦too⟧.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.385,
+    "sent_start": 1.285,
+    "sent_end": 2.231
+   }
+  },
+  {
+   "n": 11,
+   "word": "你",
+   "pos": "pron",
+   "meaning": "(nǐ) you",
+   "sentence": "你去哪儿？",
+   "translation": "Where are ⟦you⟧ going?",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.388,
+    "sent_start": 1.288,
+    "sent_end": 2.03
+   }
+  },
+  {
+   "n": 12,
+   "word": "为",
+   "pos": "prep",
+   "meaning": "(wèi) for; for the sake of",
+   "sentence": "我为你高兴。",
+   "translation": "I'm happy ⟦for⟧ you.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.423,
+    "sent_start": 1.323,
+    "sent_end": 2.415
+   }
+  },
+  {
+   "n": 13,
+   "word": "他",
+   "pos": "pron",
+   "meaning": "(tā) he; him",
+   "sentence": "他是我朋友。",
+   "translation": "⟦He⟧'s my friend.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.385,
+    "sent_start": 1.285,
+    "sent_end": 2.367
+   }
+  },
+  {
+   "n": 14,
+   "word": "这",
+   "pos": "pron",
+   "meaning": "(zhè) this",
+   "sentence": "这是什么？",
+   "translation": "What is ⟦this⟧?",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.416,
+    "sent_start": 1.316,
+    "sent_end": 2.172
+   }
+  },
+  {
+   "n": 15,
+   "word": "中",
+   "pos": "noun",
+   "meaning": "(zhōng) middle; in; among (在…中)",
+   "sentence": "在生活中，朋友很重要。",
+   "translation": "⟦In⟧ life, friends are important.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.407,
+    "sent_start": 1.307,
+    "sent_end": 3.547
+   }
+  },
+  {
+   "n": 16,
+   "word": "与",
+   "pos": "conj",
+   "meaning": "(yǔ) and; with (more formal than 和)",
+   "sentence": "这件事与你无关。",
+   "translation": "This has nothing to do ⟦with⟧ you.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.383,
+    "sent_start": 1.282,
+    "sent_end": 2.779
+   }
+  },
+  {
+   "n": 17,
+   "word": "年",
+   "pos": "noun",
+   "meaning": "(nián) year",
+   "sentence": "我学中文两年了。",
+   "translation": "I've been learning Chinese for two ⟦years⟧.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.416,
+    "sent_start": 1.317,
+    "sent_end": 2.856
+   }
+  },
+  {
+   "n": 18,
+   "word": "对",
+   "pos": "adj",
+   "meaning": "(duì) right; correct; (to) towards",
+   "sentence": "你说得对。",
+   "translation": "You're ⟦right⟧.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.386,
+    "sent_start": 1.286,
+    "sent_end": 2.232
+   }
+  },
+  {
+   "n": 19,
+   "word": "就",
+   "pos": "adv",
+   "meaning": "(jiù) then; right away; just",
+   "sentence": "如果你不去，我就不去。",
+   "translation": "If you don't go, ⟦then⟧ I won't go either.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.421,
+    "sent_start": 1.321,
+    "sent_end": 3.464
+   }
+  },
+  {
+   "n": 20,
+   "word": "都",
+   "pos": "adv",
+   "meaning": "(dōu) all; both",
+   "sentence": "我们都是学生。",
+   "translation": "We are ⟦all⟧ students.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.378,
+    "sent_start": 1.278,
+    "sent_end": 2.533
+   }
+  }
+ ]
+}

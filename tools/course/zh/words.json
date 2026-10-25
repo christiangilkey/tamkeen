@@ -1,0 +1,188 @@
+{
+  "lang": "zh",
+  "title": "Chinese basics",
+  "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+  "about": "The most common words of written and spoken Mandarin (wordfreq counts; Chinese words don't change form, so nothing needs grouping), most common first, 50 to a unit. Names of people and places are left out. Each word has its pinyin and a short English meaning, and one short everyday sentence in simplified characters that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "的",
+      "pos": "part",
+      "meaning": "(de) 's; of (joins a describing word or an owner to a noun)",
+      "sentence": "这是妈妈的手机。",
+      "translation": "This is Mum⟦'s⟧ phone."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "是",
+      "pos": "verb",
+      "meaning": "(shì) to be (am, is, are)",
+      "sentence": "我是老师。",
+      "translation": "I ⟦am⟧ a teacher."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "在",
+      "pos": "prep",
+      "meaning": "(zài) at; in; to be (somewhere)",
+      "sentence": "妈妈在厨房做饭。",
+      "translation": "Mum is cooking ⟦in⟧ the kitchen."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "了",
+      "pos": "part",
+      "meaning": "(le) shows that something has happened or changed",
+      "sentence": "他已经走了。",
+      "translation": "He ⟦has⟧ already left."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "我",
+      "pos": "pron",
+      "meaning": "(wǒ) I; me",
+      "sentence": "我想喝水。",
+      "translation": "⟦I⟧ want to drink some water."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "和",
+      "pos": "conj",
+      "meaning": "(hé) and; with",
+      "sentence": "我喜欢猫和狗。",
+      "translation": "I like cats ⟦and⟧ dogs."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "有",
+      "pos": "verb",
+      "meaning": "(yǒu) to have; there is",
+      "sentence": "我有一个哥哥。",
+      "translation": "I ⟦have⟧ an older brother."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "不",
+      "pos": "adv",
+      "meaning": "(bù) not; no",
+      "sentence": "我不知道。",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "人",
+      "pos": "noun",
+      "meaning": "(rén) person; people",
+      "sentence": "这里人很多。",
+      "translation": "There are a lot of ⟦people⟧ here."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "也",
+      "pos": "adv",
+      "meaning": "(yě) also; too",
+      "sentence": "我也想去。",
+      "translation": "I want to go ⟦too⟧."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "你",
+      "pos": "pron",
+      "meaning": "(nǐ) you",
+      "sentence": "你去哪儿？",
+      "translation": "Where are ⟦you⟧ going?"
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "为",
+      "pos": "prep",
+      "meaning": "(wèi) for; for the sake of",
+      "sentence": "我为你高兴。",
+      "translation": "I'm happy ⟦for⟧ you."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "他",
+      "pos": "pron",
+      "meaning": "(tā) he; him",
+      "sentence": "他是我朋友。",
+      "translation": "⟦He⟧'s my friend."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "这",
+      "pos": "pron",
+      "meaning": "(zhè) this",
+      "sentence": "这是什么？",
+      "translation": "What is ⟦this⟧?"
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "中",
+      "pos": "noun",
+      "meaning": "(zhōng) middle; in; among (在…中)",
+      "sentence": "在生活中，朋友很重要。",
+      "translation": "⟦In⟧ life, friends are important."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "与",
+      "pos": "conj",
+      "meaning": "(yǔ) and; with (more formal than 和)",
+      "sentence": "这件事与你无关。",
+      "translation": "This has nothing to do ⟦with⟧ you."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "年",
+      "pos": "noun",
+      "meaning": "(nián) year",
+      "sentence": "我学中文两年了。",
+      "translation": "I've been learning Chinese for two ⟦years⟧."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "对",
+      "pos": "adj",
+      "meaning": "(duì) right; correct; (to) towards",
+      "sentence": "你说得对。",
+      "translation": "You're ⟦right⟧."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "就",
+      "pos": "adv",
+      "meaning": "(jiù) then; right away; just",
+      "sentence": "如果你不去，我就不去。",
+      "translation": "If you don't go, ⟦then⟧ I won't go either."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "都",
+      "pos": "adv",
+      "meaning": "(dōu) all; both",
+      "sentence": "我们都是学生。",
+      "translation": "We are ⟦all⟧ students."
+    }
+  ]
+}
