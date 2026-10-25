@@ -1468,6 +1468,373 @@
         {"type":"say","q":"कहिए: “मुझे बहुत भूख लगी है!”","answer":"I'm so hungry!"},
         {"type":"free","q":"आपकी बारी: बताइए अभी आप कैसा महसूस कर रहे हैं, और पिछली बार की किसी बीमारी के बारे में एक वाक्य।","answers":[{"t":"I'm a little tired, but I'm not hungry. Last week I had a bad cold.","tr":"मैं थोड़ा थका हुआ हूँ, लेकिन भूख नहीं है। पिछले हफ़्ते मुझे बहुत ज़ुकाम था।"},{"t":"I'm cold! And my feet hurt because I walked a lot today.","tr":"मुझे ठंड लग रही है! और मेरे पैरों में दर्द है क्योंकि आज मैं बहुत चली।"}]}
       ]
+    },
+    {
+      "id": "have-you-ever",
+      "unit": 6,
+      "level": "A2",
+      "title": "अनुभव बताइए: {{Have you ever…?}}",
+      "summary": "अपने अनुभव बताइए: “{{Have you ever been to Goa?}}”, “{{I've never seen snow.}}”",
+      "topic": "{{present perfect}}: {{have / has}} + तीसरा रूप; {{ever}}, {{never}}; {{been}} या {{gone}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? — No, I've never been to America.","tr":"क्या आप कभी न्यूयॉर्क गए हैं? — नहीं, मैं कभी अमेरिका नहीं गया।"}},
+        {"dialog":[{"who":"लीसा","t":"Have you ever tried sushi?","tr":"क्या तुमने कभी सुशी खाई है?"},{"who":"रवि","t":"No, I've never tried it. Is it good?","tr":"नहीं, कभी नहीं खाई। अच्छी होती है?"},{"who":"लीसा","t":"I love it! Have you ever eaten Mexican food?","tr":"मुझे बहुत पसंद है! क्या तुमने कभी मैक्सिकन खाना खाया है?"},{"who":"रवि","t":"Yes, I have. I've eaten tacos a few times.","tr":"हाँ। मैंने कुछ बार टाको खाए हैं।"},{"who":"लीसा","t":"And have you ever been to a baseball game?","tr":"और क्या तुम कभी बेसबॉल मैच देखने गए हो?"},{"who":"रवि","t":"Never! Let's go!","tr":"कभी नहीं! चलो चलते हैं!"}]},
+        {"term":"पास्ट पार्टिसिपल","means":"क्रिया का “तीसरा रूप”, जैसे {{done}}, {{seen}}, {{worked}}। यह {{have}} के साथ (इस पाठ में) और कर्मवाच्य में (पाठ 49) काम आता है।"},
+        {"p":"**अनुभव: {{have}} + तीसरा रूप.** “क्या आपने कभी… किया है?” या “मैंने कभी… नहीं किया”: {{have}} (या {{he / she / it}} के साथ {{has}}) + पास्ट पार्टिसिपल: {{I have seen}} “मैंने देखा है”, {{She has tried}}। बोलचाल में {{I've}}, {{she's}}।"},
+        {"p":"**तीसरा रूप.** {{-ed}} वाली क्रियाओं में यह बीते रूप जैसा ही है ({{worked}})। अनियमित क्रियाओं का अक्सर अलग होता है:"},
+        { "table": [
+          ["क्रिया","बीता रूप","तीसरा रूप"],
+          ["{{go}}","{{went}}","{{gone}} / {{been}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{take}}","{{took}}","{{taken}}"],
+          ["{{write}}","{{wrote}}","{{written}}"],
+          ["{{be}}","{{was / were}}","{{been}}"],
+          ["{{have}}","{{had}}","{{had}}"]
+        ] },
+        {"p":"**{{ever}}, {{never}}.** सवाल में {{ever}} “कभी”: {{Have you ever…?}} जवाब: {{Yes, I have.}} / {{No, I haven't.}} / {{No, never.}} {{never}} = “कभी नहीं”, इसके साथ {{not}} नहीं लगता: {{I've never seen it.}}"},
+        {"p":"**{{been}} या {{gone}}?** {{I've been to Goa}} = मैं गोवा जा चुका हूँ (और लौट आया)। {{She's gone to Goa}} = वह गोवा गई है (अभी वहीं है)। अनुभव के लिए {{been}}।"},
+        { "ex": [
+          {"t":"I've been to Delhi three times.","tr":"मैं तीन बार दिल्ली जा चुका हूँ।"},
+          {"t":"Have you ever seen a tiger?","tr":"क्या आपने कभी बाघ देखा है?"},
+          {"t":"She has never flown before.","tr":"वह पहले कभी हवाई जहाज़ में नहीं बैठी।"},
+          {"t":"We've eaten here before.","tr":"हम पहले यहाँ खा चुके हैं।"},
+          {"t":"He's gone to the store.","tr":"वह दुकान गया है।","note":"अभी वहीं है।"},
+          {"t":"I've never been so happy!","tr":"मैं इतना ख़ुश कभी नहीं हुआ!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Have you ever went to Goa?","right":"Have you ever been to Goa?","tr":"क्या आप कभी गोवा गए हैं?","why":"{{have}} के बाद तीसरा रूप: {{been}}।"},
+        {"wrong":"I have never not seen snow.","right":"I have never seen snow.","tr":"मैंने कभी बर्फ़ नहीं देखी।","why":"{{never}} में “नहीं” पहले से है: {{not}} नहीं।"},
+        {"wrong":"She have been to London.","right":"She has been to London.","tr":"वह लंदन जा चुकी है।","why":"{{she}}: {{has}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Have you ever ___ a tiger?","tr":"क्या आपने कभी बाघ देखा है?","options":["seen","saw","see"],"answer":0,"why":"{{have}} + तीसरा रूप: {{seen}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ never flown before.","tr":"वह पहले कभी हवाई जहाज़ में नहीं बैठी।","options":["has","have","is"],"answer":0,"why":"{{she}}: {{has}}।"},
+        {"type":"choice","q":"आपकी बहन इस समय गोवा में है।","options":["{{She's gone to Goa.}}","{{She's been to Goa.}}"],"answer":0,"why":"अभी वहीं है: {{gone}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं तीन बार दिल्ली जा चुका हूँ।","words":["I've","been","to","Delhi","three","times."]},
+        {"type":"dialogue","q":"एक नए दोस्त से बातचीत।","from":"past-irregular","lines":[{"who":"दोस्त","t":"Have you ever been to a baseball game?","tr":"क्या तुम कभी बेसबॉल मैच देखने गए हो?"},{"options":["No, I haven't. Have you?","No, I didn't went. Have you?"],"answer":0,"why":"छोटा जवाब: {{No, I haven't.}}"},{"who":"दोस्त","t":"Yes! I went last summer. It was fun.","tr":"हाँ! पिछली गर्मियों में गया था। मज़ा आया।"},{"options":["Cool! I've never seen one.","Cool! I never have saw one."],"answer":0,"why":"{{I've never seen}}: {{have}} + तीसरा रूप।"}]},
+        {"type":"say","q":"पूछिए: “क्या आपने कभी सुशी खाई है?”","answer":"Have you ever eaten sushi?"},
+        {"type":"free","q":"आपकी बारी: दो चीज़ें बताइए जो आपने की हैं, और एक जो कभी नहीं की।","answers":[{"t":"I've been to Kerala and I've eaten Thai food. I've never seen snow.","tr":"मैं केरल जा चुका हूँ और थाई खाना खा चुका हूँ। मैंने कभी बर्फ़ नहीं देखी।"},{"t":"I've met a famous actor! I've never been on a plane.","tr":"मैं एक मशहूर अभिनेता से मिल चुकी हूँ! मैं कभी हवाई जहाज़ में नहीं बैठी।"}]}
+      ]
+    },
+    {
+      "id": "past-or-perfect",
+      "unit": 6,
+      "level": "A2",
+      "title": "कल या अब तक: {{I saw}} या {{I've seen}}",
+      "summary": "भारत की सबसे आम ग़लती से बचिए: {{I have seen him yesterday}}। और {{just, already, yet}}।",
+      "topic": "बीता समय बताया ({{yesterday, last week, in 2020}}) तो {{past simple}}; अब तक की बात: {{present perfect}}; {{just}}, {{already}}, {{yet}}",
+      "blocks": [
+        {"goal":{"t":"I've already eaten. I had lunch at one.","tr":"मैं खाना खा चुका हूँ। एक बजे खाया था।"}},
+        {"dialog":[{"who":"बॉस","t":"Have you sent the report yet?","tr":"रिपोर्ट भेज दी?"},{"who":"नेहा","t":"Yes, I sent it this morning.","tr":"हाँ, आज सुबह भेज दी।"},{"who":"बॉस","t":"Great. Have you called the client?","tr":"बढ़िया। क्लाइंट को फ़ोन किया?"},{"who":"नेहा","t":"Not yet. I'll call after lunch.","tr":"अभी नहीं। खाने के बाद करूँगी।"},{"who":"बॉस","t":"OK. Oh, Raj has just arrived.","tr":"ठीक है। अरे, राज अभी-अभी आए हैं।"},{"who":"नेहा","t":"Yes, I saw him at the door.","tr":"हाँ, मैंने उन्हें दरवाज़े पर देखा।"}]},
+        {"p":"**समय बताया, तो सीधा बीता रूप.** हिंदी में “मैंने उसे कल देखा है” ठीक लगता है, इसलिए भारत में {{I have seen him yesterday}} बहुत सुनाई देता है। अंग्रेज़ी में यह ग़लत है: बीता हुआ समय बताया ({{yesterday}}, {{last week}}, {{in 2019}}, {{two days ago}}, {{at 5 p.m.}}) तो सीधा बीता रूप: {{I saw him yesterday.}}"},
+        { "table": [
+          ["","{{past simple}}","{{present perfect}}"],
+          ["कब?","बीता समय बताया","समय नहीं बताया, या अब तक"],
+          ["उदाहरण","{{I saw that movie last week.}}","{{I've seen that movie.}}"],
+          ["सवाल","{{When did you arrive?}}","{{Have you eaten yet?}}"],
+          ["साथ के शब्द","{{yesterday, ago, last, in 2020}}","{{ever, never, just, already, yet}}"]
+        ] },
+        {"p":"**{{just}}, {{already}}, {{yet}}.** {{just}} “अभी-अभी”: {{She's just left.}} {{already}} “पहले ही”: {{I've already paid.}} {{yet}} सवाल और “नहीं” में, वाक्य के आख़िर में: {{Have you finished yet?}} “हो गया?”, {{I haven't finished yet.}} “अभी नहीं हुआ।”"},
+        { "ex": [
+          {"t":"I saw him yesterday.","tr":"मैंने उसे कल देखा।"},
+          {"t":"I've just finished my homework.","tr":"मैंने अभी-अभी होमवर्क ख़त्म किया।"},
+          {"t":"Have you had breakfast yet?","tr":"क्या तुमने नाश्ता कर लिया?"},
+          {"t":"She's already left.","tr":"वह पहले ही जा चुकी है।"},
+          {"t":"We moved here in 2018.","tr":"हम 2018 में यहाँ आए।"},
+          {"t":"I haven't called him yet.","tr":"मैंने अभी तक उसे फ़ोन नहीं किया।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I have seen him yesterday.","right":"I saw him yesterday.","tr":"मैंने उसे कल देखा।","why":"{{yesterday}} बीता समय है: सीधा बीता रूप।"},
+        {"wrong":"When have you arrived?","right":"When did you arrive?","tr":"आप कब आए?","why":"{{when}} समय पूछता है: सीधा बीता रूप।"},
+        {"wrong":"I didn't finish yet.","right":"I haven't finished yet.","tr":"मैंने अभी तक ख़त्म नहीं किया।","why":"{{yet}} “अब तक”: {{present perfect}}।"}
+      ],
+      "practice": [
+        {"type":"choice","q":"“मैंने उसे कल देखा।”","options":["{{I saw him yesterday.}}","{{I have seen him yesterday.}}","{{I have saw him yesterday.}}"],"answer":0,"why":"{{yesterday}}: सीधा बीता रूप।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Have you finished ___?","tr":"क्या तुमने ख़त्म कर लिया?","options":["yet","already","ago"],"answer":0,"why":"सवाल के आख़िर में {{yet}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ here in 2018.","tr":"हम 2018 में यहाँ आए।","options":["moved","have moved","have move"],"answer":0,"why":"साल बताया: सीधा बीता रूप।","from":"past-regular"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैंने अभी तक उसे फ़ोन नहीं किया।","words":["I","haven't","called","him","yet."]},
+        {"type":"dialogue","q":"आपकी बॉस काम के बारे में पूछती हैं।","from":"have-you-ever","lines":[{"who":"बॉस","t":"Have you sent the email yet?","tr":"ईमेल भेज दिया?"},{"options":["Yes, I sent it an hour ago.","Yes, I have sent it an hour ago."],"answer":0,"why":"{{an hour ago}}: सीधा बीता रूप।"},{"who":"बॉस","t":"And the report?","tr":"और रिपोर्ट?"},{"options":["I haven't finished it yet.","I didn't finish it yet."],"answer":0,"why":"{{yet}}: {{haven't finished}}।"}]},
+        {"type":"say","q":"एक औरत के बारे में कहिए: “वह पहले ही जा चुकी है।”","answer":"She's already left."},
+        {"type":"free","q":"आपकी बारी: आज आपने क्या-क्या कर लिया है, और क्या अभी नहीं किया? एक बात कल की भी बताइए, समय के साथ।","answers":[{"t":"Today I've already cooked lunch and cleaned the kitchen. I haven't called my mom yet. Yesterday I went to the bank at ten.","tr":"आज मैं दोपहर का खाना बना चुकी हूँ और रसोई साफ़ कर चुकी हूँ। माँ को अभी तक फ़ोन नहीं किया। कल मैं दस बजे बैंक गई।"},{"t":"I've just finished work. I haven't eaten dinner yet. I saw a great movie last night.","tr":"मैंने अभी-अभी काम ख़त्म किया है। अभी तक खाना नहीं खाया। कल रात मैंने एक बढ़िया फ़िल्म देखी।"}]}
+      ]
+    },
+    {
+      "id": "for-and-since",
+      "unit": 6,
+      "level": "A2",
+      "title": "कब से: {{for, since, How long?}}",
+      "summary": "बताइए आप कब से कुछ कर रहे हैं: “{{I've lived here for five years}}”, यानी “मैं पाँच साल से यहाँ रह रहा हूँ”।",
+      "topic": "{{How long have you…?}}; {{for}} (कितना समय), {{since}} (कब से); {{present perfect}}, न कि {{I am living … since}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Chicago for six years.","tr":"मैं छह साल से शिकागो में रह रहा हूँ।"}},
+        {"dialog":[{"who":"पड़ोसी","t":"How long have you lived here?","tr":"आप यहाँ कब से रह रहे हैं?"},{"who":"अमित","t":"For three years. We moved here in 2022.","tr":"तीन साल से। हम 2022 में यहाँ आए थे।"},{"who":"पड़ोसी","t":"And how long have you worked at the hospital?","tr":"और अस्पताल में कब से काम कर रहे हैं?"},{"who":"अमित","t":"Since January. Before that I worked in New Jersey.","tr":"जनवरी से। उससे पहले मैं न्यू जर्सी में काम करता था।"},{"who":"पड़ोसी","t":"Do you like it?","tr":"अच्छा लगता है?"},{"who":"अमित","t":"Yes, I've been very happy here.","tr":"हाँ, मैं यहाँ बहुत ख़ुश हूँ।"}]},
+        {"p":"**“से” के दो अनुवाद.** हिंदी के “दो साल से” और “2020 से” दोनों में “से” है। अंग्रेज़ी में:"},
+        { "table": [
+          ["","किसके साथ","उदाहरण"],
+          ["{{for}}","कितना समय (अवधि)","{{for two years}}, {{for ten minutes}}, {{for a long time}}"],
+          ["{{since}}","कब से (शुरुआत का पल)","{{since 2020}}, {{since Monday}}, {{since I was a kid}}"]
+        ] },
+        {"p":"**क्रिया: {{present perfect}}.** जो बात पहले शुरू हुई और अब भी चल रही है, उसके लिए हिंदी वर्तमान काल लेती है (“मैं यहाँ रह रहा हूँ”)। अंग्रेज़ी {{present perfect}}: {{I've lived here for five years}}। भारत में आम {{I am living here since five years}} में दो ग़लतियाँ हैं: क्रिया का काल, और {{since}}।"},
+        {"p":"**{{How long?}}** “कब से? कितने समय से?”: {{How long have you known her?}} “आप उसे कब से जानते हैं?” चलते काम के लिए {{have been + -ing}} भी आता है: {{I've been waiting for an hour!}} “मैं एक घंटे से इंतज़ार कर रहा हूँ!”"},
+        { "ex": [
+          {"t":"I've known him since college.","tr":"मैं उसे कॉलेज के ज़माने से जानता हूँ।"},
+          {"t":"She's worked here for ten years.","tr":"वह दस साल से यहाँ काम कर रही है।"},
+          {"t":"How long have you been married?","tr":"आपकी शादी को कितने साल हुए?"},
+          {"t":"We haven't seen them since the wedding.","tr":"शादी के बाद से हमने उन्हें नहीं देखा।"},
+          {"t":"I've been waiting for twenty minutes.","tr":"मैं बीस मिनट से इंतज़ार कर रहा हूँ।"},
+          {"t":"It's been raining since morning.","tr":"सुबह से बारिश हो रही है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am living here since five years.","right":"I have lived here for five years.","tr":"मैं पाँच साल से यहाँ रह रहा हूँ।","why":"अवधि: {{for}}; और अब तक चलती बात: {{have lived}}।"},
+        {"wrong":"I know him since 2015.","right":"I've known him since 2015.","tr":"मैं उसे 2015 से जानता हूँ।","why":"2015 से अब तक: {{present perfect}}।"},
+        {"wrong":"She's worked here since ten years.","right":"She's worked here for ten years.","tr":"वह दस साल से यहाँ काम कर रही है।","why":"{{ten years}} अवधि है: {{for}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I've lived here ___ 2019.","tr":"मैं 2019 से यहाँ रह रहा हूँ।","options":["since","for","from"],"answer":0,"why":"शुरुआत का पल: {{since}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She's worked here ___ ten years.","tr":"वह दस साल से यहाँ काम कर रही है।","options":["for","since","from"],"answer":0,"why":"अवधि: {{for}}।"},
+        {"type":"choice","q":"“मैं उसे बचपन से जानता हूँ।”","options":["{{I've known him since I was a kid.}}","{{I know him since I was a kid.}}","{{I am knowing him since childhood.}}"],"answer":0,"why":"अब तक: {{have known}}; और {{know}} के साथ {{-ing}} नहीं (पाठ 17)।","from":"right-now"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"आप कब से यहाँ रह रहे हैं?","words":["How","long","have","you","lived","here?"]},
+        {"type":"dialogue","q":"एक नया पड़ोसी।","from":"past-or-perfect","lines":[{"who":"पड़ोसी","t":"How long have you been in America?","tr":"आप कब से अमेरिका में हैं?"},{"options":["For two years. I came in 2023.","Since two years. I have come in 2023."],"answer":0,"why":"अवधि: {{for}}; साल बताया: {{came}} (पाठ 34)।"},{"who":"पड़ोसी","t":"Do you like it here?","tr":"यहाँ अच्छा लगता है?"},{"options":["Yes, I've been very happy here.","Yes, I am being very happy here."],"answer":0,"why":"अब तक: {{I've been}}।"}]},
+        {"type":"say","q":"शिकायत कीजिए: “मैं बीस मिनट से इंतज़ार कर रहा हूँ।”","answer":"I've been waiting for twenty minutes."},
+        {"type":"free","q":"आपकी बारी: बताइए आप कब से अपने शहर में रह रहे हैं, कब से अंग्रेज़ी सीख रहे हैं, और अपने सबसे अच्छे दोस्त को कब से जानते हैं।","answers":[{"t":"I've lived in Pune for eight years. I've been learning English since January. I've known my best friend since school.","tr":"मैं आठ साल से पुणे में रह रहा हूँ। जनवरी से अंग्रेज़ी सीख रहा हूँ। अपने सबसे अच्छे दोस्त को स्कूल के समय से जानता हूँ।"},{"t":"We've lived here since 2020. I've studied English for three months.","tr":"हम 2020 से यहाँ रह रहे हैं। मैं तीन महीने से अंग्रेज़ी पढ़ रही हूँ।"}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "तुलना कीजिए: {{bigger, more expensive, the best}}",
+      "summary": "दो चीज़ों की तुलना कीजिए: “{{Delhi is bigger than Pune}}”, “{{This is the best restaurant in town.}}”",
+      "topic": "{{-er than}} / {{more … than}}; {{the -est}} / {{the most}}; {{better, best, worse}}; {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"This phone is cheaper than that one, but it's not as good.","tr":"यह फ़ोन उससे सस्ता है, लेकिन उतना अच्छा नहीं।"}},
+        {"dialog":[{"who":"लीसा","t":"Which apartment do you like?","tr":"तुम्हें कौन-सा फ़्लैट पसंद है?"},{"who":"रवि","t":"The first one is bigger, but the second one is cheaper.","tr":"पहला बड़ा है, लेकिन दूसरा सस्ता है।"},{"who":"लीसा","t":"Which one is closer to your office?","tr":"तुम्हारे दफ़्तर के ज़्यादा पास कौन-सा है?"},{"who":"रवि","t":"The second one. It's the closest.","tr":"दूसरा। वही सबसे पास है।"},{"who":"लीसा","t":"Then I think it's the best choice.","tr":"तो मुझे लगता है वही सबसे अच्छा है।"},{"who":"रवि","t":"You're right. It's more practical.","tr":"तुम सही हो। वह ज़्यादा काम का है।"}]},
+        {"p":"**“से ज़्यादा” → {{-er than}}.** हिंदी के “दिल्ली पुणे से बड़ा है” में विशेषण नहीं बदलता। अंग्रेज़ी में छोटे विशेषण में {{-er}} लगता है और “से” की जगह {{than}}: {{Delhi is bigger than Pune.}} लंबे विशेषणों के आगे {{more}}: {{more expensive than}}।"},
+        { "table": [
+          ["","तुलना","सबसे"],
+          ["छोटा शब्द","{{cheap → cheaper}}","{{the cheapest}}"],
+          ["{{-y}} पर ख़त्म","{{easy → easier}}","{{the easiest}}"],
+          ["लंबा शब्द","{{expensive → more expensive}}","{{the most expensive}}"],
+          ["अनियमित","{{good → better}}, {{bad → worse}}","{{the best}}, {{the worst}}"]
+        ] },
+        {"p":"**सबसे: {{the -est}}.** {{the}} + {{-est}} या {{the most}}: {{the tallest building}} “सबसे ऊँची इमारत”, {{the most beautiful place}}। अक्सर {{in}} के साथ: {{the best restaurant in town}}।"},
+        {"p":"**बराबर: {{as … as}}.** {{He's as tall as his father.}} “वह अपने पिता जितना लंबा है।” और {{not as … as}} “उतना … नहीं”: {{It's not as hot as yesterday.}}"},
+        { "ex": [
+          {"t":"My brother is older than me.","tr":"मेरा भाई मुझसे बड़ा है।"},
+          {"t":"The train is faster than the bus.","tr":"ट्रेन बस से तेज़ है।"},
+          {"t":"This is the best pizza in New York!","tr":"यह न्यूयॉर्क का सबसे अच्छा पिज़्ज़ा है!"},
+          {"t":"English is easier than I thought.","tr":"अंग्रेज़ी मेरी सोच से आसान है।"},
+          {"t":"Today is worse than yesterday.","tr":"आज का दिन कल से भी बुरा है।"},
+          {"t":"She's not as busy as last week.","tr":"वह पिछले हफ़्ते जितनी व्यस्त नहीं है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"This is more better.","right":"This is better.","tr":"यह बेहतर है।","why":"{{better}} में “ज़्यादा” पहले से है: {{more}} नहीं।"},
+        {"wrong":"He is taller from me.","right":"He is taller than me.","tr":"वह मुझसे लंबा है।","why":"तुलना वाला “से”: {{than}}, {{from}} नहीं।"},
+        {"wrong":"It's the most cheap.","right":"It's the cheapest.","tr":"यह सबसे सस्ता है।","why":"छोटा शब्द: {{-est}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My brother is older ___ me.","tr":"मेरा भाई मुझसे बड़ा है।","options":["than","from","to"],"answer":0,"why":"तुलना: {{than}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"This is ___ pizza in town.","tr":"यह शहर का सबसे अच्छा पिज़्ज़ा है।","options":["the best","the most good","the better"],"answer":0,"why":"{{good}} → {{the best}}।"},
+        {"type":"choice","q":"“आज कल जितनी गर्मी नहीं है।”","options":["{{It's not as hot as yesterday.}}","{{It's not hot like yesterday as.}}","{{It's less hotter than yesterday.}}"],"answer":0,"why":"{{not as … as}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"ट्रेन बस से तेज़ है।","words":["The","train","is","faster","than","the bus."]},
+        {"type":"dialogue","q":"आप और आपकी पत्नी फ़्लैट देख रहे हैं।","from":"there-is","lines":[{"who":"पत्नी","t":"Which apartment do you like?","tr":"तुम्हें कौन-सा फ़्लैट पसंद है?"},{"options":["The second one. It's bigger and cheaper.","The second one. It's more big and more cheap."],"answer":0,"why":"छोटे शब्द: {{-er}}।"},{"who":"पत्नी","t":"But is there a park near it?","tr":"लेकिन क्या उसके पास कोई पार्क है?"},{"options":["Yes, there's one. It's the closest park to the school.","Yes, it has one. It's the most close park to the school."],"answer":0,"why":"{{there's one}} (पाठ 10); {{close}} → {{the closest}}।"}]},
+        {"type":"say","q":"कहिए: “अंग्रेज़ी मेरी सोच से आसान है।”","answer":"English is easier than I thought."},
+        {"type":"free","q":"आपकी बारी: दो शहरों या दो चीज़ों की तुलना कीजिए, और बताइए आपके लिए सबसे अच्छा क्या है।","answers":[{"t":"Mumbai is bigger and more expensive than Pune, but Pune is quieter. For me, Pune is the best.","tr":"मुंबई पुणे से बड़ा और महँगा है, लेकिन पुणे ज़्यादा शांत है। मेरे लिए पुणे सबसे अच्छा है।"},{"t":"Tea is cheaper than coffee, and I think it's healthier too.","tr":"चाय कॉफ़ी से सस्ती है, और मुझे लगता है सेहत के लिए भी बेहतर है।"}]}
+      ]
+    },
+    {
+      "id": "much-many",
+      "unit": 6,
+      "level": "A2",
+      "title": "कितना, कितने: {{much, many, some, any}}",
+      "summary": "गिनी जाने वाली और न गिनी जाने वाली चीज़ें: “{{How many apples?}}”, “{{How much water?}}”, और {{information}} जैसे शब्द।",
+      "topic": "गिनी जाने वाली / न गिनी जाने वाली संज्ञाएँ; {{many}} / {{much}} / {{a lot of}}; {{a few}} / {{a little}}; {{information, advice, luggage, furniture}}",
+      "blocks": [
+        {"goal":{"t":"We don't have much time, and there are too many people here!","tr":"हमारे पास ज़्यादा समय नहीं है, और यहाँ बहुत ज़्यादा लोग हैं!"}},
+        {"dialog":[{"who":"एजेंट","t":"How many bags do you have?","tr":"आपके पास कितने बैग हैं?"},{"who":"अमित","t":"Two bags.","tr":"दो बैग।"},{"who":"एजेंट","t":"Do you have any liquids?","tr":"कोई तरल चीज़ है?"},{"who":"अमित","t":"Just a little shampoo.","tr":"बस थोड़ा-सा शैम्पू।"},{"who":"एजेंट","t":"OK. Do you need any information about your flight?","tr":"ठीक है। क्या आपको अपनी फ़्लाइट के बारे में कोई जानकारी चाहिए?"},{"who":"अमित","t":"Yes, how much time do I have before boarding?","tr":"हाँ, बोर्डिंग से पहले मेरे पास कितना समय है?"}]},
+        {"p":"**गिनी जाने वाली और न गिनी जाने वाली.** {{apple}}, {{bag}}, {{person}} गिने जा सकते हैं: {{two apples}}। {{water}}, {{rice}}, {{money}}, {{time}} नहीं: {{two waters}} नहीं, {{some water}}। इसी हिसाब से शब्द बदलते हैं:"},
+        { "table": [
+          ["","गिनी जाने वाली","न गिनी जाने वाली"],
+          ["कितना?","{{How many apples?}}","{{How much water?}}"],
+          ["बहुत","{{many friends}}, {{a lot of friends}}","{{much money}}, {{a lot of money}}"],
+          ["थोड़ा","{{a few minutes}}","{{a little time}}"],
+          ["कुछ","{{some eggs}}","{{some milk}}"]
+        ] },
+        {"p":"**{{a lot of}}** दोनों के साथ चलता है और सीधी बात में सबसे आम है: {{a lot of people}}, {{a lot of work}}। {{much}} ज़्यादातर सवाल और “नहीं” में आता है: {{I don't have much time.}}"},
+        {"p":"**भारत की अंग्रेज़ी की आम ग़लती:** कुछ शब्द अंग्रेज़ी में गिने नहीं जाते, इसलिए उनमें {{-s}} नहीं लगता: {{information}}, {{advice}}, {{luggage}}, {{furniture}}, {{homework}}, {{equipment}}। कहिए {{some information}}, {{a piece of advice}}, {{two bags}} (न कि {{two luggages}})।"},
+        { "ex": [
+          {"t":"How many people are coming?","tr":"कितने लोग आ रहे हैं?"},
+          {"t":"How much does it cost?","tr":"इसकी क़ीमत कितनी है?","note":"{{How much}} दाम के लिए भी (पाठ 13)।"},
+          {"t":"I need some information.","tr":"मुझे कुछ जानकारी चाहिए।"},
+          {"t":"Can I give you some advice?","tr":"क्या मैं आपको एक सलाह दूँ?"},
+          {"t":"There isn't much milk left.","tr":"ज़्यादा दूध नहीं बचा।"},
+          {"t":"I have a few questions.","tr":"मेरे कुछ सवाल हैं।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"मुझे कुछ जानकारी चाहिए।","why":"{{information}} गिना नहीं जाता: {{-s}} नहीं।"},
+        {"wrong":"How much people are there?","right":"How many people are there?","tr":"कितने लोग हैं?","why":"लोग गिने जाते हैं: {{many}}।"},
+        {"wrong":"I have two luggages.","right":"I have two bags.","tr":"मेरे पास दो बैग हैं।","why":"{{luggage}} गिना नहीं जाता; बैग गिनिए: {{two bags}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"How ___ people are coming?","tr":"कितने लोग आ रहे हैं?","options":["many","much"],"answer":0,"why":"लोग गिने जाते हैं: {{many}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I need some ___.","tr":"मुझे कुछ जानकारी चाहिए।","options":["information","informations","an information"],"answer":0,"why":"{{information}}: बिना {{-s}}, बिना {{an}}।"},
+        {"type":"choice","q":"“ज़्यादा दूध नहीं बचा।”","options":["{{There isn't much milk left.}}","{{There aren't many milk left.}}","{{There isn't many milks left.}}"],"answer":0,"why":"दूध गिना नहीं जाता: {{much}}, {{isn't}}।","from":"there-is"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मेरे कुछ सवाल हैं।","words":["I","have","a","few","questions."],"from":"what-you-have"},
+        {"type":"dialogue","q":"एयरपोर्ट पर चेक-इन।","lines":[{"who":"एजेंट","t":"How many bags are you checking?","tr":"आप कितने बैग जमा कर रहे हैं?"},{"options":["Two bags, please.","Two luggages, please."],"answer":0,"why":"{{luggage}} गिना नहीं जाता: {{two bags}}।"},{"who":"एजेंट","t":"Do you need any help?","tr":"कोई मदद चाहिए?"},{"options":["Yes, I need some information about my connection.","Yes, I need some informations about my connection."],"answer":0,"why":"{{information}}: बिना {{-s}}।"}]},
+        {"type":"say","q":"पूछिए: “इसकी क़ीमत कितनी है?”","answer":"How much does it cost?"},
+        {"type":"free","q":"आपकी बारी: अपनी रसोई के बारे में बताइए: किस चीज़ की बहुत है, किसकी थोड़ी, और कौन-सी बिल्कुल नहीं।","answers":[{"t":"We have a lot of rice and a few onions, but there isn't much milk.","tr":"हमारे पास बहुत चावल और कुछ प्याज़ हैं, लेकिन दूध ज़्यादा नहीं है।"},{"t":"There are many spices in my kitchen. I have a little sugar, and I don't have any eggs.","tr":"मेरी रसोई में बहुत मसाले हैं। थोड़ी चीनी है, और अंडे बिल्कुल नहीं हैं।"}]}
+      ]
+    },
+    {
+      "id": "me-him-them",
+      "unit": 6,
+      "level": "A2",
+      "title": "मुझे, उसे: {{me, him, them}}, और उनकी क्रियाएँ",
+      "summary": "“{{Call me}}”, “{{I told him}}”, “{{Explain it to me}}”: कर्म वाले सर्वनाम, और भारत की अंग्रेज़ी की कुछ आम ग़लतियाँ।",
+      "topic": "{{me, you, him, her, it, us, them}}; {{tell me}} / {{say to me}}; {{explain it to me}}; {{discuss it}}; {{I miss them}}",
+      "blocks": [
+        {"goal":{"t":"Can you explain it to me again? I didn't understand.","tr":"क्या आप मुझे फिर से समझा सकते हैं? मुझे समझ नहीं आया।"}},
+        {"dialog":[{"who":"राज","t":"Did you call Neha?","tr":"क्या तुमने नेहा को फ़ोन किया?"},{"who":"लीसा","t":"Yes, I called her this morning.","tr":"हाँ, आज सुबह उसे फ़ोन किया।"},{"who":"राज","t":"Did you tell her about the meeting?","tr":"क्या तुमने उसे मीटिंग के बारे में बताया?"},{"who":"लीसा","t":"Yes, I told her. She can't come.","tr":"हाँ, बता दिया। वह नहीं आ सकती।"},{"who":"राज","t":"OK. Let's discuss it tomorrow.","tr":"ठीक है। कल इस पर बात करते हैं।"},{"who":"लीसा","t":"Sure. Send me the agenda, please.","tr":"ज़रूर। मुझे एजेंडा भेज देना, प्लीज़।"}]},
+        {"term":"कर्म","means":"वह व्यक्ति या चीज़ जिस पर क्रिया का असर होता है: {{I called her}} में {{her}}।"},
+        {"p":"**कर्ता का रूप, कर्म का रूप.** अंग्रेज़ी में सर्वनाम क्रिया के बाद आए तो बदल जाता है: {{I}} → {{me}}, {{he}} → {{him}}। हिंदी के “मुझे, मुझको, मुझसे” सबके लिए अंग्रेज़ी में बस {{me}}।"},
+        { "table": [
+          ["कर्ता","कर्म","उदाहरण"],
+          ["{{I}}","{{me}}","{{Call me.}} मुझे फ़ोन करना।"],
+          ["{{he}}","{{him}}","{{I know him.}} मैं उसे जानता हूँ।"],
+          ["{{she}}","{{her}}","{{I saw her.}} मैंने उसे देखा।"],
+          ["{{we}}","{{us}}","{{Join us!}} हमारे साथ आइए!"],
+          ["{{they}}","{{them}}","{{I like them.}} मुझे वे पसंद हैं।"]
+        ] },
+        {"p":"**{{tell}} या {{say}}?** {{tell}} के बाद सीधे व्यक्ति: {{Tell me.}}, {{He told me the news.}} {{say}} के बाद व्यक्ति आए तो {{to}}: {{What did she say to you?}} ज़्यादातर {{say}} बिना व्यक्ति के आता है: {{She said yes.}}"},
+        {"p":"**कुछ क्रियाएँ जिनमें भारत की अंग्रेज़ी उलझती है:**"},
+        { "table": [
+          ["ग़लत","सही","हिंदी"],
+          ["{{explain me}}","{{explain it to me}}","मुझे समझाइए"],
+          ["{{discuss about it}}","{{discuss it}}","उस पर बात कीजिए"],
+          ["{{tell to him}}","{{tell him}}","उसे बताइए"],
+          ["{{reply me}}","{{reply to me}}, {{answer me}}","मुझे जवाब दीजिए"]
+        ] },
+        { "ex": [
+          {"t":"Can you help me?","tr":"क्या आप मेरी मदद कर सकते हैं?"},
+          {"t":"I'll call you later.","tr":"मैं आपको बाद में फ़ोन करूँगा।"},
+          {"t":"Tell him I'm busy.","tr":"उसे बता दो कि मैं व्यस्त हूँ।"},
+          {"t":"Let's discuss it after lunch.","tr":"खाने के बाद इस पर बात करते हैं।"},
+          {"t":"Could you explain this to me?","tr":"क्या आप मुझे यह समझा सकते हैं?"},
+          {"t":"I miss them a lot.","tr":"मुझे उनकी बहुत याद आती है।","note":"हिंदी “मुझे याद आती है” → {{I miss them}}: फिर व्यक्ति कर्ता।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Please explain me the problem.","right":"Please explain the problem to me.","tr":"कृपया मुझे दिक़्क़त समझाइए।","why":"{{explain}} + चीज़ + {{to me}}।"},
+        {"wrong":"We discussed about the plan.","right":"We discussed the plan.","tr":"हमने योजना पर बात की।","why":"{{discuss}} के बाद {{about}} नहीं।"},
+        {"wrong":"Me and him went to the store.","right":"He and I went to the store.","tr":"मैं और वह दुकान गए।","why":"कर्ता के रूप में {{he}} और {{I}}; और विनम्रता से अपना नाम आख़िर में।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I saw ___ at the store.","tr":"मैंने उसे (औरत) दुकान पर देखा।","options":["her","she","hers"],"answer":0,"why":"क्रिया के बाद: {{her}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Could you explain it ___ me?","tr":"क्या आप मुझे यह समझा सकते हैं?","options":["to","for","with"],"answer":0,"why":"{{explain it to me}}।","from":"polite-requests"},
+        {"type":"choice","q":"“खाने के बाद इस पर बात करते हैं।”","options":["{{Let's discuss it after lunch.}}","{{Let's discuss about it after lunch.}}","{{Let's discuss on it after lunch.}}"],"answer":0,"why":"{{discuss}} के बाद सीधे चीज़।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"उसे बता दो कि मैं व्यस्त हूँ।","words":["Tell","him","I'm","busy."],"from":"ask-people-to-do-things"},
+        {"type":"dialogue","q":"दफ़्तर में।","lines":[{"who":"साथी","t":"Did you talk to the new manager?","tr":"क्या तुमने नई मैनेजर से बात की?"},{"options":["Yes, I met her this morning.","Yes, I met she this morning."],"answer":0,"why":"क्रिया के बाद: {{her}}।"},{"who":"साथी","t":"What did she say?","tr":"उन्होंने क्या कहा?"},{"options":["She told me about the new project.","She told to me about the new project."],"answer":0,"why":"{{tell}} के बाद सीधे व्यक्ति।"}]},
+        {"type":"say","q":"कहिए: “मुझे उनकी बहुत याद आती है।”","answer":"I miss them a lot."},
+        {"type":"free","q":"आपकी बारी: बताइए पिछली बार आप किससे मिले, आपने उन्हें क्या बताया, और आपको किसकी याद आती है।","answers":[{"t":"I met my cousin last week. I told her about my new job. I miss my parents a lot.","tr":"पिछले हफ़्ते मैं अपनी कज़न से मिला। मैंने उसे अपनी नई नौकरी के बारे में बताया। मुझे अपने माता-पिता की बहुत याद आती है।"},{"t":"Yesterday I called my friend and helped him with his move. I miss my grandmother.","tr":"कल मैंने अपने दोस्त को फ़ोन किया और सामान शिफ़्ट करने में उसकी मदद की। मुझे अपनी दादी की याद आती है।"}]}
+      ]
+    },
+    {
+      "id": "because-so-but",
+      "unit": 6,
+      "level": "A2",
+      "title": "क्योंकि, इसलिए: {{because, so, but}}",
+      "summary": "कारण और नतीजा जोड़िए, और “क्योंकि… इसलिए” वाली दोहरी ग़लती से बचिए।",
+      "topic": "{{because}} (कारण), {{so}} (नतीजा), {{but}}, {{and}}, {{or}}; {{because of}} + संज्ञा; दोनों एक साथ नहीं",
+      "blocks": [
+        {"goal":{"t":"I was tired, so I went to bed early.","tr":"मैं थका हुआ था, इसलिए जल्दी सो गया।"}},
+        {"dialog":[{"who":"लीसा","t":"Why didn't you come to the party?","tr":"तुम पार्टी में क्यों नहीं आए?"},{"who":"रवि","t":"Because I had to work late.","tr":"क्योंकि मुझे देर तक काम करना पड़ा।"},{"who":"लीसा","t":"Oh no. Did you eat dinner?","tr":"अरे। खाना खाया?"},{"who":"रवि","t":"No, I was too tired, so I just went to sleep.","tr":"नहीं, मैं बहुत थका हुआ था, इसलिए बस सो गया।"},{"who":"लीसा","t":"You work too much!","tr":"तुम बहुत ज़्यादा काम करते हो!"},{"who":"रवि","t":"I know, but the project ends next week.","tr":"पता है, लेकिन प्रोजेक्ट अगले हफ़्ते ख़त्म हो जाएगा।"}]},
+        {"p":"**{{because}}: कारण.** {{because}} कारण से पहले आता है: {{I stayed home because I was sick.}} “मैं घर पर रहा क्योंकि मैं बीमार था।” बातचीत में {{Why?}} का जवाब अकेले {{Because…}} से भी शुरू हो सकता है।"},
+        {"p":"**{{so}}: नतीजा.** {{so}} नतीजे से पहले आता है: {{I was sick, so I stayed home.}} “मैं बीमार था, इसलिए घर पर रहा।”"},
+        {"p":"**दोनों एक साथ नहीं.** हिंदी में “क्योंकि मैं बीमार था, इसलिए नहीं आया” ठीक है। अंग्रेज़ी में {{because}} या {{so}}, कोई एक: {{Because I was sick, so I didn't come}} ग़लत है। इसी तरह {{although}} के साथ {{but}} नहीं लगता।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["कारण","{{I'm happy because it's Friday.}}","मैं ख़ुश हूँ क्योंकि आज शुक्रवार है।"],
+          ["नतीजा","{{It's Friday, so I'm happy.}}","आज शुक्रवार है, इसलिए मैं ख़ुश हूँ।"],
+          ["लेकिन","{{It's cold, but it's sunny.}}","ठंड है, लेकिन धूप है।"],
+          ["संज्ञा के साथ","{{The flight was late because of the rain.}}","बारिश की वजह से फ़्लाइट लेट थी।"]
+        ] },
+        {"p":"**{{because of}}** + संज्ञा: {{because of the traffic}} “ट्रैफ़िक की वजह से”। {{because}} के बाद पूरा वाक्य, {{because of}} के बाद सिर्फ़ संज्ञा।"},
+        { "ex": [
+          {"t":"I'm learning English because I want to work abroad.","tr":"मैं अंग्रेज़ी सीख रहा हूँ क्योंकि मैं विदेश में काम करना चाहता हूँ।"},
+          {"t":"It was raining, so we stayed inside.","tr":"बारिश हो रही थी, इसलिए हम अंदर रहे।"},
+          {"t":"I like the job, but the pay is low.","tr":"मुझे नौकरी पसंद है, लेकिन तनख़्वाह कम है।"},
+          {"t":"We were late because of the traffic.","tr":"ट्रैफ़िक की वजह से हमें देर हो गई।"},
+          {"t":"Do you want tea or coffee?","tr":"आप चाय लेंगे या कॉफ़ी?"},
+          {"t":"She's tired, but she's happy.","tr":"वह थकी हुई है, लेकिन ख़ुश है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Because I was tired, so I slept early.","right":"I was tired, so I went to bed early.","tr":"मैं थका हुआ था, इसलिए जल्दी सो गया।","why":"अंग्रेज़ी में {{because}} और {{so}} एक साथ नहीं।"},
+        {"wrong":"I was late because the traffic.","right":"I was late because of the traffic.","tr":"ट्रैफ़िक की वजह से मुझे देर हो गई।","why":"संज्ञा से पहले {{because of}}।"},
+        {"wrong":"Although it was raining, but we went out.","right":"Although it was raining, we went out.","tr":"हालाँकि बारिश हो रही थी, फिर भी हम बाहर गए।","why":"{{although}} के साथ {{but}} नहीं।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"It was raining, ___ we stayed inside.","tr":"बारिश हो रही थी, इसलिए हम अंदर रहे।","options":["so","because","but"],"answer":0,"why":"नतीजा: {{so}}।","from":"was-doing"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We were late because ___ the traffic.","tr":"ट्रैफ़िक की वजह से हमें देर हो गई।","options":["of","for","to"],"answer":0,"why":"संज्ञा से पहले: {{because of}}।"},
+        {"type":"choice","q":"कौन-सा वाक्य सही है?","options":["{{I was sick, so I didn't come.}}","{{Because I was sick, so I didn't come.}}","{{So I was sick, because I didn't come.}}"],"answer":0,"why":"{{because}} और {{so}} में से एक।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मुझे नौकरी पसंद है, लेकिन तनख़्वाह कम है।","words":["I","like","the job,","but","the pay","is","low."]},
+        {"type":"dialogue","q":"दोस्त पूछता है कि आप देर से क्यों आए।","from":"did-questions","lines":[{"who":"दोस्त","t":"Why are you so late?","tr":"तुम इतनी देर से क्यों आए?"},{"options":["Because my bus didn't come.","Because my bus didn't came."],"answer":0,"why":"{{didn't}} के बाद मूल रूप।"},{"who":"दोस्त","t":"Why didn't you call me?","tr":"फ़ोन क्यों नहीं किया?"},{"options":["My phone was dead, so I couldn't call.","Because my phone was dead, so I couldn't call."],"answer":0,"why":"{{so}} अकेला काफ़ी है।"}]},
+        {"type":"say","q":"कहिए: “मैं अंग्रेज़ी सीख रहा हूँ क्योंकि मैं विदेश में काम करना चाहता हूँ।”","answer":"I'm learning English because I want to work abroad."},
+        {"type":"free","q":"आपकी बारी: बताइए आप अंग्रेज़ी क्यों सीख रहे हैं, और इस हफ़्ते की एक बात {{so}} के साथ।","answers":[{"t":"I'm learning English because I want to study in Canada. I had a lot of work this week, so I didn't go to the gym.","tr":"मैं अंग्रेज़ी सीख रहा हूँ क्योंकि मैं कनाडा में पढ़ना चाहता हूँ। इस हफ़्ते बहुत काम था, इसलिए जिम नहीं गया।"},{"t":"I want to talk to my clients, so I'm learning English. It rained on Sunday, so we stayed home.","tr":"मैं अपने क्लाइंट्स से बात करना चाहती हूँ, इसलिए अंग्रेज़ी सीख रही हूँ। रविवार को बारिश हुई, इसलिए हम घर पर रहे।"}]}
+      ]
+    },
+    {
+      "id": "phrasal-verbs",
+      "unit": 6,
+      "level": "A2",
+      "title": "रोज़ की क्रियाएँ: {{get up, turn on, pick up}}",
+      "summary": "दो शब्दों वाली वे क्रियाएँ जो अमेरिकी हर दिन बोलते हैं, जैसे {{wake up}}, {{turn off}}, {{look for}}।",
+      "topic": "{{phrasal verbs}}: {{get up, wake up, turn on / off, pick up, look for, put on, take off, give up}}; {{turn it on}}",
+      "blocks": [
+        {"goal":{"t":"I wake up at six, but I get up at six thirty!","tr":"मेरी आँख छह बजे खुलती है, लेकिन मैं साढ़े छह बजे उठता हूँ!"}},
+        {"dialog":[{"who":"माँ","t":"Wake up! It's seven o'clock!","tr":"उठो! सात बज गए!"},{"who":"बेटा","t":"Five more minutes…","tr":"बस पाँच मिनट और…"},{"who":"माँ","t":"Get up now. And turn off your alarm.","tr":"अभी उठो। और अपना अलार्म बंद करो।"},{"who":"बेटा","t":"OK, OK. Where are my shoes?","tr":"ठीक है, ठीक है। मेरे जूते कहाँ हैं?"},{"who":"माँ","t":"Look for them under your bed. And put on your jacket, it's cold.","tr":"बिस्तर के नीचे ढूँढो। और जैकेट पहन लो, ठंड है।"},{"who":"बेटा","t":"Can you pick me up after school?","tr":"क्या आप स्कूल के बाद मुझे लेने आ सकती हैं?"}]},
+        {"p":"**दो शब्द, एक मतलब.** अंग्रेज़ी की बहुत-सी रोज़ की क्रियाएँ क्रिया + छोटा शब्द ({{up}}, {{on}}, {{off}}…) होती हैं, और मतलब दोनों मिलकर बनता है: {{get up}} “बिस्तर से उठना”, {{give up}} “हार मान लेना, छोड़ देना”। हिंदी के “उठ जाना, बैठ जाना” की तरह इन्हें जोड़े में याद कीजिए।"},
+        { "table": [
+          ["","मतलब","उदाहरण"],
+          ["{{wake up}}","जागना","{{I wake up early.}}"],
+          ["{{get up}}","बिस्तर से उठना","{{Get up! We're late.}}"],
+          ["{{turn on / off}}","चालू / बंद करना","{{Turn off the lights.}}"],
+          ["{{put on / take off}}","पहनना / उतारना","{{Take off your shoes.}}"],
+          ["{{pick up}}","उठाना; किसी को लेने जाना","{{I'll pick you up at six.}}"],
+          ["{{look for}}","ढूँढना","{{I'm looking for my keys.}}"],
+          ["{{give up}}","छोड़ देना, हार मानना","{{Don't give up!}}"]
+        ] },
+        {"p":"**सर्वनाम बीच में.** जब कर्म {{it}}, {{them}}, {{me}} जैसा सर्वनाम हो, तो वह दोनों शब्दों के **बीच** आता है: {{Turn it on.}} (न कि {{Turn on it}}), {{Pick me up.}} संज्ञा के साथ दोनों क्रम चलते हैं: {{Turn on the TV}} / {{Turn the TV on}}।"},
+        { "ex": [
+          {"t":"What time do you get up?","tr":"आप कितने बजे उठते हैं?"},
+          {"t":"Please turn off your phone.","tr":"कृपया अपना फ़ोन बंद कर दीजिए।"},
+          {"t":"Put on your coat. It's cold.","tr":"कोट पहन लो। ठंड है।"},
+          {"t":"I'll pick up the kids today.","tr":"आज बच्चों को मैं ले आऊँगा।"},
+          {"t":"I'm looking for a new job.","tr":"मैं नई नौकरी ढूँढ रहा हूँ।"},
+          {"t":"She gave up sugar last year.","tr":"उसने पिछले साल चीनी छोड़ दी।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Please on the light.","right":"Please turn on the light.","tr":"कृपया बत्ती जला दीजिए।","why":"भारत में “लाइट ऑन कर दो” से {{on the light}} बन जाता है; अंग्रेज़ी में {{turn on}}।"},
+        {"wrong":"Turn on it.","right":"Turn it on.","tr":"इसे चालू करो।","why":"सर्वनाम बीच में आता है।"},
+        {"wrong":"I'm searching my keys.","right":"I'm looking for my keys.","tr":"मैं अपनी चाबियाँ ढूँढ रहा हूँ।","why":"रोज़ की बात में {{look for}}; {{search}} के साथ {{for}} भी चाहिए ({{search for}})।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Please ___ off your phone.","tr":"कृपया अपना फ़ोन बंद कीजिए।","options":["turn","put","get"],"answer":0,"why":"बंद करना: {{turn off}}।"},
+        {"type":"choice","q":"“इसे चालू करो।” (टीवी)","options":["{{Turn it on.}}","{{Turn on it.}}","{{On it.}}"],"answer":0,"why":"सर्वनाम बीच में।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I'm looking ___ my keys.","tr":"मैं अपनी चाबियाँ ढूँढ रहा हूँ।","options":["for","at","after"],"answer":0,"why":"ढूँढना: {{look for}}।","from":"right-now"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं छह बजे आपको लेने आऊँगा।","words":["I'll","pick","you","up","at","six."],"from":"will"},
+        {"type":"dialogue","q":"सुबह की भागदौड़।","lines":[{"who":"पत्नी","t":"Did you turn off the stove?","tr":"क्या तुमने चूल्हा बंद किया?"},{"options":["Yes, I turned it off.","Yes, I turned off it."],"answer":0,"why":"सर्वनाम बीच में: {{turned it off}}।"},{"who":"पत्नी","t":"And can you pick up the kids at three?","tr":"और क्या तुम तीन बजे बच्चों को ले आओगे?"},{"options":["Sure, I'll pick them up.","Sure, I'll pick up them."],"answer":0,"why":"{{pick them up}}।"}]},
+        {"type":"say","q":"हौसला दीजिए: “हार मत मानो!”","answer":"Don't give up!"},
+        {"type":"free","q":"आपकी बारी: अपनी सुबह के बारे में बताइए, कम से कम तीन {{phrasal verbs}} के साथ।","answers":[{"t":"I wake up at six and get up at six fifteen. I turn on the radio and put on my clothes.","tr":"मेरी आँख छह बजे खुलती है और मैं सवा छह बजे उठता हूँ। रेडियो चलाता हूँ और कपड़े पहनता हूँ।"},{"t":"I get up at seven, turn off my alarm and pick up my phone. Then I look for my keys!","tr":"मैं सात बजे उठती हूँ, अलार्म बंद करती हूँ और फ़ोन उठाती हूँ। फिर अपनी चाबियाँ ढूँढती हूँ!"}]}
+      ]
     }
   ]
 }
