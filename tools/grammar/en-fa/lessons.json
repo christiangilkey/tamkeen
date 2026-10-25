@@ -1633,6 +1633,229 @@
         {"type":"say","q":"Say “I miss you.”","answer":"دلم برایت تنگ شده است.","r":"delam barâyat tang shode ast."},
         {"type":"free","q":"Your turn: say what you did for someone recently, or what someone did for you. Use {{برایش}}, {{برایم}} or {{به او}}.","answers":[{"t":"دیروز برای مادرم گل خریدم و به او زنگ زدم.","r":"diruz barâye mâdaram gol kharidam va be u zang zadam.","tr":"Yesterday I bought flowers for my mother and called her."},{"t":"دوستم برایم یک کیک درست کرد. خودش درست کرد!","r":"dustam barâyam yek keyk dorost kard. khodash dorost kard!","tr":"My friend made me a cake. She made it herself!"}]}
       ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give reasons and say why",
+      "summary": "Say why: “because I was ill”, “because of the rain”, “so I stayed home”, and “to learn Persian”.",
+      "topic": "{{چون}} and {{برای اینکه}} “because”; {{به خاطر}} + noun; {{پس}}, {{به همین دلیل}} “so”; {{برای اینکه}} + subjunctive “in order to”",
+      "blocks": [
+        {"goal":{"t":"فارسی یاد می‌گیرم، چون می‌خواهم شعر حافظ را بخوانم.","r":"fârsi yâd mi-giram, chon mi-khâham she'r-e hâfez râ bekhânam.","tr":"I'm learning Persian because I want to read Hafez's poetry."}},
+        {"dialog":[{"who":"Mina","t":"چرا دیروز به کلاس نیامدی؟","r":"cherâ diruz be kelâs nayâmadi?","tr":"Why didn't you come to class yesterday?"},{"who":"Tom","t":"چون مریض بودم.","r":"chon mariz budam.","tr":"Because I was ill."},{"who":"Mina","t":"الان بهتری؟","r":"al'ân behtari?","tr":"Are you better now?"},{"who":"Tom","t":"بله، ولی به خاطر باران امروز هم از خانه بیرون نرفتم.","r":"bale, vali be khâter-e bârân emruz ham az khâne birun naraftam.","tr":"Yes, but because of the rain I didn't go out today either."},{"who":"Mina","t":"پس جزوه‌ام را برایت می‌فرستم.","r":"pas jozve-am râ barâyat mi-ferestam.","tr":"Then I'll send you my notes."},{"who":"Tom","t":"مرسی، خیلی لطف داری!","r":"mersi, kheyli lotf dâri!","tr":"Thanks, that's really kind of you!"}]},
+        {"p":"**Because.** {{چون|chon}} or {{برای اینکه|barâye inke}} + a whole clause: {{نیامدم، چون مریض بودم.|nayâmadam, chon mariz budam.}} “I didn't come because I was ill.” The reason can also come first: {{چون مریض بودم، نیامدم.}}"},
+        {"p":"**Because of.** Before a noun, {{به خاطر|be khâter-e}}, with the ezafe: {{به خاطر باران|be khâter-e bârân}} “because of the rain”, {{به خاطر تو|be khâter-e to}} “because of you, for your sake”. In writing also {{به دلیل|be dalil-e}}."},
+        {"p":"**So.** {{پس|pas}} “so, then” and {{به همین دلیل|be hamin dalil}} “that's why, for this reason”: {{خسته بودم، به همین دلیل زود خوابیدم.|khaste budam, be hamin dalil zud khâbidam.}} “I was tired, so I went to bed early.”"},
+        {"p":"**In order to.** {{برای اینکه|barâye inke}} + the **subjunctive** gives a purpose: {{برای اینکه فارسی یاد بگیرم، به ایران رفتم.|barâye inke fârsi yâd begiram, be irân raftam.}} “I went to Iran to learn Persian.” With an ordinary verb it means “because”; with the subjunctive, “so that”: the verb tells you which."},
+        { "table": [
+          ["","Persian","for example"],
+          ["because","{{چون|chon}}","{{چون خسته بودم|chon khaste budam}} because I was tired"],
+          ["because","{{برای اینکه|barâye inke}}","{{برای اینکه دیر شد|barâye inke dir shod}} because it got late"],
+          ["because of","{{به خاطر|be khâter-e}}","{{به خاطر باران|be khâter-e bârân}} because of the rain"],
+          ["so","{{پس|pas}}, {{به همین دلیل|be hamin dalil}}","{{پس زود رفتم|pas zud raftam}} so I left early"],
+          ["in order to","{{برای اینکه}} + subjunctive","{{برای اینکه یاد بگیرم|barâye inke yâd begiram}} so that I learn"]
+        ] },
+        { "ex": [
+          {"t":"امروز نمی‌آیم، چون خیلی کار دارم.","r":"emruz nemi-âyam, chon kheyli kâr dâram.","tr":"I'm not coming today, because I have a lot of work."},
+          {"t":"به خاطر ترافیک دیر رسیدیم.","r":"be khâter-e terâfik dir residim.","tr":"We arrived late because of the traffic."},
+          {"t":"هوا خیلی گرم بود، به همین دلیل به ساحل رفتیم.","r":"havâ kheyli garm bud, be hamin dalil be sâhel raftim.","tr":"It was very hot, so we went to the beach."},
+          {"t":"برای اینکه پول جمع کنم، هر روز پیاده سر کار می‌روم.","r":"barâye inke pul jam' konam, har ruz piyâde sar-e kâr mi-ravam.","tr":"To save money, I walk to work every day."},
+          {"t":"چرا فارسی؟ برای اینکه همسرم ایرانی است.","r":"cherâ fârsi? barâye inke hamsaram irâni ast.","tr":"Why Persian? Because my wife is Iranian."},
+          {"t":"ممنون، به خاطر همه چیز.","r":"mamnun, be khâter-e hame chiz.","tr":"Thank you for everything."}
+        ] },
+        {"tip":"{{هم}} “too” with a negative verb is “either”: {{من هم نرفتم.|man ham naraftam.}} “I didn't go either.”"}
+      ],
+      "mistakes": [
+        {"wrong":"به خاطر خسته بودم، نیامدم.","right":"چون خسته بودم، نیامدم.","tr":"Because I was tired, I didn't come.","why":"{{به خاطر}} goes before a noun; before a clause, use {{چون}}."},
+        {"wrong":"برای اینکه فارسی یاد می‌گیرم، به ایران رفتم.","right":"برای اینکه فارسی یاد بگیرم، به ایران رفتم.","tr":"I went to Iran to learn Persian.","why":"For a purpose, the subjunctive: {{یاد بگیرم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دیروز نیامدم، ___ مریض بودم.","tr":"I didn't come yesterday because I was ill.","options":["چون","به خاطر","پس"],"answer":0,"why":"Before a whole clause: {{چون}}."},
+        {"type":"fill","q":"Choose the missing words.","t":"___ باران به پارک نرفتیم.","tr":"We didn't go to the park because of the rain.","options":["به خاطر","چون","پس"],"answer":0,"why":"Before a noun: {{به خاطر}} + the ezafe."},
+        {"type":"fill","q":"Choose the missing word.","t":"برای اینکه فارسی بهتر یاد ___، هر روز تمرین می‌کنم.","tr":"I practise every day so that I learn Persian better.","options":["بگیرم","می‌گیرم","گرفتم"],"answer":0,"why":"A purpose: {{برای اینکه}} + the subjunctive.","from":"say-what-you-want-to-do"},
+        {"type":"dialogue","q":"Your boss asks why you're late. Choose your replies.","from":"say-what-happened-to-you","lines":[{"who":"Boss","t":"چرا دیر آمدید؟","r":"cherâ dir âmadid?","tr":"Why are you late?"},{"options":["ببخشید، به خاطر ترافیک. خیابان‌ها خیلی شلوغ بود.","ببخشید، چون ترافیک. خیابان‌ها خیلی شلوغ بود."],"answer":0,"why":"Before a noun ({{ترافیک}}): {{به خاطر}}."},{"who":"Boss","t":"خب، جلسه شروع شده است.","r":"khob, jalase shoru' shode ast.","tr":"Well, the meeting has started."},{"options":["پس همین الان می‌روم.","چون همین الان می‌روم."],"answer":0,"why":"“So, then” is {{پس}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We arrived late because of the traffic.","words":["به","خاطر","ترافیک","دیر","رسیدیم."]},
+        {"type":"say","q":"Thank someone: “Thank you for everything.”","answer":"ممنون، به خاطر همه چیز.","r":"mamnun, be khâter-e hame chiz."},
+        {"type":"free","q":"Your turn: why are you learning Persian? Give two reasons, with {{چون}} and {{برای اینکه}}.","answers":[{"t":"فارسی یاد می‌گیرم، چون دوستان ایرانی زیادی دارم و برای اینکه می‌خواهم به ایران سفر کنم.","r":"fârsi yâd mi-giram, chon dustân-e irâni-ye ziyâdi dâram va barâye inke mi-khâham be irân safar konam.","tr":"I'm learning Persian because I have a lot of Iranian friends, and because I want to travel to Iran."},{"t":"برای اینکه شعر فارسی را بخوانم. شعر حافظ را خیلی دوست دارم.","r":"barâye inke she'r-e fârsi râ bekhânam. she'r-e hâfez râ kheyli dust dâram.","tr":"So that I can read Persian poetry. I love Hafez's poetry."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-think",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what you think",
+      "summary": "Give your opinion, agree and disagree: “I think you're right”, “In my opinion…”, “I agree with you.”",
+      "topic": "{{فکر می‌کنم که …}}; {{به نظر من}}, {{به نظرم}}; {{موافقم}} / {{مخالفم}}; {{مطمئنم که}}; {{شاید}} + subjunctive",
+      "blocks": [
+        {"goal":{"t":"به نظر من، اصفهان قشنگ‌ترین شهر ایران است.","r":"be nazar-e man, esfahân ghashang-tarin shahr-e irân ast.","tr":"In my opinion, Isfahan is the most beautiful city in Iran."}},
+        {"dialog":[{"who":"Ali","t":"به نظر تو، کدام شهر قشنگ‌تر است، اصفهان یا شیراز؟","r":"be nazar-e to, kodâm shahr ghashang-tar ast, esfahân yâ shirâz?","tr":"Which city do you think is prettier, Isfahan or Shiraz?"},{"who":"Sara","t":"فکر می‌کنم اصفهان قشنگ‌تر است. میدان نقش جهان را دیده‌ای؟","r":"fekr mi-konam esfahân ghashang-tar ast. meydân-e naghsh-e jahân râ dide-i?","tr":"I think Isfahan is prettier. Have you seen Naqsh-e Jahan Square?"},{"who":"Ali","t":"بله، ولی موافق نیستم. به نظرم شیراز قشنگ‌تر است.","r":"bale, vali movâfegh nistam. be nazaram shirâz ghashang-tar ast.","tr":"Yes, but I don't agree. I think Shiraz is prettier."},{"who":"Sara","t":"چرا؟","r":"cherâ?","tr":"Why?"},{"who":"Ali","t":"چون باغ‌های شیراز فوق‌العاده‌اند!","r":"chon bâgh-hâ-ye shirâz fowgh-ol'âde-and!","tr":"Because the gardens of Shiraz are amazing!"},{"who":"Sara","t":"خب، شاید حق با تو باشد. هر دو قشنگ‌اند!","r":"khob, shâyad hagh bâ to bâshad. har do ghashang-and!","tr":"Well, maybe you're right. They're both beautiful!"}]},
+        {"p":"**I think.** {{فکر می‌کنم|fekr mi-konam}} “I think”, then what you think, with or without {{که|ke}} “that”: {{فکر می‌کنم که حق با شماست.|fekr mi-konam ke hagh bâ shomâst.}} “I think you're right.” “I don't think so”: {{فکر نمی‌کنم.|fekr nemi-konam.}} For something uncertain in the future, the subjunctive often follows: {{فکر می‌کنم فردا باران بیاید.|fekr mi-konam fardâ bârân biyâyad.}} “I think it'll rain tomorrow.”"},
+        {"p":"**In my opinion.** {{به نظر من|be nazar-e man}} or {{به نظرم|be nazaram}} “in my view” (word for word “to my sight”). To ask: {{به نظر شما … ؟|be nazar-e shomâ …?}} “What do you think…?”, {{نظرت چیست؟|nazarat chist?}} “What's your opinion?”."},
+        {"p":"**Agree, disagree.** {{موافقم|movâfegham}} “I agree” and {{مخالفم|mokhâlefam}} “I disagree”: adjectives (“agreeing”, “opposed”) with the short “am”. With whom: {{با تو موافقم.|bâ to movâfegham.}} “I agree with you.” And {{حق با توست|hagh bâ tost}} “you're right” (word for word “the right is with you”)."},
+        {"p":"**How sure.** {{مطمئنم که …|motma'enam ke …}} “I'm sure that…”, {{مطمئن نیستم|motma'en nistam}} “I'm not sure”, and {{شاید|shâyad}} + the subjunctive “maybe”: {{شاید حق با تو باشد.|shâyad hagh bâ to bâshad.}} “Maybe you're right.”"},
+        { "table": [
+          ["","Persian","meaning"],
+          ["I think","{{فکر می‌کنم که …|fekr mi-konam ke …}}","I think that…"],
+          ["in my opinion","{{به نظر من …|be nazar-e man …}}","in my opinion…"],
+          ["what do you think?","{{نظرت چیست؟|nazarat chist?}}","what do you think?"],
+          ["I agree","{{موافقم.|movâfegham.}}","I agree."],
+          ["I disagree","{{مخالفم.|mokhâlefam.}}","I disagree."],
+          ["I'm sure","{{مطمئنم که …|motma'enam ke …}}","I'm sure that…"]
+        ] },
+        { "ex": [
+          {"t":"فکر می‌کنم فکر خوبی است.","r":"fekr mi-konam fekr-e khubi ast.","tr":"I think it's a good idea."},
+          {"t":"به نظر شما این فیلم خوب بود؟","r":"be nazar-e shomâ in film khub bud?","tr":"Did you think the film was good?"},
+          {"t":"با شما کاملاً موافقم.","r":"bâ shomâ kâmelan movâfegham.","tr":"I completely agree with you."},
+          {"t":"ببخشید، ولی من مخالفم.","r":"bebakhshid, vali man mokhâlefam.","tr":"Sorry, but I disagree."},
+          {"t":"مطمئنم که او می‌آید.","r":"motma'enam ke u mi-âyad.","tr":"I'm sure she'll come."},
+          {"t":"نظرت دربارهٔ این کتاب چیست؟","r":"nazarat darbâre-ye in ketâb chist?","tr":"What do you think of this book?"}
+        ] },
+        {"tip":"Iranians soften disagreement: {{ببخشید، ولی…|bebakhshid, vali…}} “sorry, but…”, or {{شاید حق با شما باشد، ولی…|shâyad hagh bâ shomâ bâshad, vali…}} “you may be right, but…”."}
+      ],
+      "mistakes": [
+        {"wrong":"من موافق می‌کنم.","right":"موافقم.","tr":"I agree.","why":"{{موافق}} is an adjective, “agreeing”: with the short “am”, {{موافقم}} (or {{موافق هستم}})."},
+        {"wrong":"در نظر من، این خوب است.","right":"به نظر من، این خوب است.","tr":"In my opinion, this is good.","why":"“In my opinion” is {{به نظر من}}, with {{به}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"به ___ من، این بهترین فیلم سال است.","tr":"In my opinion, this is the best film of the year.","options":["نظر","فکر","موافق"],"answer":0,"why":"“In my opinion”: {{به نظر من}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"با شما کاملاً ___.","tr":"I completely agree with you.","options":["موافقم","موافق می‌کنم","فکر می‌کنم"],"answer":0,"why":"“I agree”: {{موافقم}}, with the short “am”."},
+        {"type":"choice","q":"{{فکر نمی‌کنم.}} means…","options":["I don't think so.","I'm not thinking.","Don't think!"],"answer":0,"why":"{{فکر کردن}} “to think”, in the negative: “I don't think (so)”."},
+        {"type":"dialogue","q":"A friend asks your opinion. Choose your replies.","from":"compare-things","lines":[{"who":"Ali","t":"به نظرت کدام بهتر است، قطار یا اتوبوس؟","r":"be nazarat kodâm behtar ast, ghatâr yâ otobus?","tr":"Which do you think is better, the train or the bus?"},{"options":["به نظرم قطار راحت‌تر است.","به نظرم قطار راحت‌ترین است."],"answer":0,"why":"Comparing two things: {{راحت‌تر}} “more comfortable”."},{"who":"Ali","t":"ولی اتوبوس ارزان‌تر است!","r":"vali otobus arzân-tar ast!","tr":"But the bus is cheaper!"},{"options":["حق با توست. شاید اتوبوس بهتر باشد.","حق با توست. شاید اتوبوس بهتر است باشد."],"answer":0,"why":"{{شاید}} + the subjunctive of “be”: {{باشد}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm sure she'll come.","words":["مطمئنم","که","او","می‌آید."]},
+        {"type":"say","q":"Ask a friend: “What do you think?”","answer":"نظرت چیست؟","r":"nazarat chist?"},
+        {"type":"free","q":"Your turn: do you agree? {{غذای ایرانی بهترین غذای دنیاست.}} Give your opinion and one reason.","answers":[{"t":"به نظر من، غذای ایرانی خیلی خوشمزه است. با این جمله موافقم!","r":"be nazar-e man, ghazâ-ye irâni kheyli khoshmaze ast. bâ in jomle movâfegham!","tr":"In my opinion, Persian food is delicious. I agree with that!"},{"t":"فکر می‌کنم غذای ایرانی خوب است، ولی مخالفم. غذای ایتالیایی را بیشتر دوست دارم.","r":"fekr mi-konam ghazâ-ye irâni khub ast, vali mokhâlefam. ghazâ-ye itâliyâyi râ bishtar dust dâram.","tr":"I think Persian food is good, but I disagree. I like Italian food more."}]}
+      ]
+    },
+    {
+      "id": "say-which-person-or-thing",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say which person or thing you mean",
+      "summary": "Say “the book I bought”, “the neighbour who lives upstairs” and “someone who speaks English”.",
+      "topic": "relative clauses: the noun + {{ی}} + {{که}} ({{کتابی که خریدم}}); {{را}} with them; the pronoun that stays ({{کسی که با او …}})",
+      "blocks": [
+        {"goal":{"t":"کتابی که دیروز خریدم خیلی جالب است.","r":"ketâbi ke diruz kharidam kheyli jâleb ast.","tr":"The book I bought yesterday is very interesting."}},
+        {"dialog":[{"who":"Sara","t":"آن مردی که کنار پنجره ایستاده کیست؟","r":"ân mardi ke kenâr-e panjere istâde kist?","tr":"Who's that man standing by the window?"},{"who":"Neda","t":"همسایه‌ای است که طبقهٔ بالا زندگی می‌کند.","r":"hamsâye-i ast ke tabaghe-ye bâlâ zendegi mi-konad.","tr":"He's a neighbour who lives upstairs."},{"who":"Sara","t":"همان کسی است که پیانو می‌زند؟","r":"hamân kasi ast ke piyâno mi-zanad?","tr":"Is he the one who plays the piano?"},{"who":"Neda","t":"بله! و خانمی که با او صحبت می‌کند همسرش است.","r":"bale! va khânomi ke bâ u sohbat mi-konad hamsarash ast.","tr":"Yes! And the woman talking to him is his wife."}]},
+        {"term":"relative clause","means":"a clause that describes a noun and says which one you mean: “who lives upstairs” in “the neighbour who lives upstairs”."},
+        {"p":"**Which one?** To say which person or thing you mean, Persian adds {{ی}} (-i) to the noun, puts {{که|ke}} “who, which, that” after it, then the rest: {{کتابی که خریدم|ketâbi ke kharidam}} “the book (that) I bought”, {{مردی که آنجاست|mardi ke ânjâst}} “the man who's there”. The noun comes first, as in English."},
+        {"p":"**One word for who, which and that.** {{که}} is used for people and things alike, and it is never left out: English can say “the book I bought”, Persian can't drop {{که}}. After a final {{ه}} the -i is written {{ای}}: {{خانه‌ای که خریدیم|khâne-i ke kharidim}} “the house we bought”."},
+        {"p":"**With {{را}}.** When the noun is the object of the main verb, {{را}} comes after the noun and its -i, before {{که}}: {{کتابی را که خریدم خواندم.|ketâbi râ ke kharidam khândam.}} “I read the book I bought.”"},
+        {"p":"**The pronoun that stays.** When the noun is “with”, “to” or “in” something inside the clause, Persian keeps a pronoun there: {{کسی که با او صحبت کردم|kasi ke bâ u sohbat kardam}} “the person I talked to” (word for word “the person that I talked with him”), {{شهری که در آن زندگی می‌کنم|shahri ke dar ân zendegi mi-konam}} “the city I live in”."},
+        { "ex": [
+          {"t":"دوستی که در لندن دارم ایرانی است.","r":"dusti ke dar landan dâram irâni ast.","tr":"The friend I have in London is Iranian."},
+          {"t":"فیلمی که دیشب دیدیم عالی بود.","r":"filmi ke dishab didim âli bud.","tr":"The film we saw last night was great."},
+          {"t":"کسی که انگلیسی بلد باشد اینجا هست؟","r":"kasi ke engelisi balad bâshad injâ hast?","tr":"Is there anyone here who speaks English?","note":"“anyone who” takes the subjunctive: {{بلد باشد}}"},
+          {"t":"این همان رستورانی است که درباره‌اش گفتم.","r":"in hamân resturâni ast ke darbâre-ash goftam.","tr":"This is the restaurant I told you about.","note":"{{درباره‌اش}} “about it”: the pronoun that stays"},
+          {"t":"خانمی را که دیروز دیدی می‌شناسم.","r":"khânomi râ ke diruz didi mi-shenâsam.","tr":"I know the woman you saw yesterday."},
+          {"t":"دوستی دارم که در شیراز زندگی می‌کند.","r":"dusti dâram ke dar shirâz zendegi mi-konad.","tr":"I have a friend who lives in Shiraz.","note":"the clause can also follow the verb"}
+        ] },
+        {"tip":"{{همان … که|hamân … ke}} “the very same … that” is very common: {{همان کسی که|hamân kasi ke}} “the same person who”, {{همان جایی که|hamân jâyi ke}} “the very place where”. And {{هر چه|har che}} is “whatever”: {{هر چه می‌خواهی بخور.|har che mi-khâhi bokhor.}} “Eat whatever you like.”"}
+      ],
+      "mistakes": [
+        {"wrong":"کتاب خریدم خیلی جالب است.","right":"کتابی که خریدم خیلی جالب است.","tr":"The book I bought is very interesting.","why":"Persian never leaves out {{که}}, and the noun takes {{ی}}: {{کتابی که}}."},
+        {"wrong":"شهری که زندگی می‌کنم بزرگ است.","right":"شهری که در آن زندگی می‌کنم بزرگ است.","tr":"The city I live in is big.","why":"“In” needs its own pronoun inside the clause: {{در آن}} “in it”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"فیلمی ___ دیشب دیدیم عالی بود.","tr":"The film we saw last night was great.","options":["که","چه","را"],"answer":0,"why":"“That, which”: {{که}}, after the noun with {{ی}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ که آنجا ایستاده برادرم است.","tr":"The man standing over there is my brother.","options":["مردی","مرد","مرد را"],"answer":0,"why":"The noun the clause describes takes {{ی}}: {{مردی که}}."},
+        {"type":"choice","q":"{{کسی که با او صحبت کردم}} means…","options":["the person I talked to","someone who talked to me","the person who talked to him"],"answer":0,"why":"Word for word “the person that I talked with him”: Persian keeps {{او}} inside the clause."},
+        {"type":"dialogue","q":"At a party, your friend points at people. Choose your replies.","from":"describe-things","lines":[{"who":"Neda","t":"آن خانم را می‌شناسی؟","r":"ân khânom râ mi-shenâsi?","tr":"Do you know that woman?"},{"options":["کدام؟ خانمی که لباس قرمز دارد؟","کدام؟ خانم لباس قرمز دارد؟"],"answer":0,"why":"The noun takes {{ی}}, and {{که}} is never left out: {{خانمی که}}."},{"who":"Neda","t":"بله. همان کسی است که این کیک را درست کرده!","r":"bale. hamân kasi ast ke in keyk râ dorost karde!","tr":"Yes. She's the one who made this cake!"},{"options":["کیکی که درست کرده خیلی خوشمزه است!","کیک درست کرده خیلی خوشمزه است!"],"answer":0,"why":"“The cake (that) she made”: {{کیکی که}} + the clause."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The book I bought yesterday is very interesting.","words":["کتابی","که","دیروز","خریدم","خیلی","جالب","است."]},
+        {"type":"say","q":"Ask in a shop: “Is there anyone here who speaks English?”","answer":"کسی که انگلیسی بلد باشد اینجا هست؟","r":"kasi ke engelisi balad bâshad injâ hast?","from":"say-what-there-is"},
+        {"type":"free","q":"Your turn: describe two people or things with a {{… ی که …}} clause: a friend, a place, a film.","answers":[{"t":"بهترین فیلمی که دیده‌ام «جدایی» است.","r":"behtarin filmi ke dide-am “jodâyi” ast.","tr":"The best film I've ever seen is “A Separation”."},{"t":"شهری که در آن به دنیا آمدم خیلی کوچک است.","r":"shahri ke dar ân be donyâ âmadam kheyli kuchak ast.","tr":"The town I was born in is very small."}]}
+      ]
+    },
+    {
+      "id": "before-and-after",
+      "unit": 7,
+      "level": "B1",
+      "title": "Say what happens before and after",
+      "summary": "Connect events in time: “before I go to sleep”, “after we've eaten”, “until you tidy your room” and “as soon as I arrive”.",
+      "topic": "{{قبل از اینکه}} + subjunctive; {{بعد از اینکه}} + past; {{تا}} + subjunctive “until, so that”; {{همین که}} + past",
+      "blocks": [
+        {"goal":{"t":"قبل از اینکه بخوابم، کمی کتاب می‌خوانم.","r":"ghabl az inke bekhâbam, kami ketâb mi-khânam.","tr":"Before I go to sleep, I read a little."}},
+        {"dialog":[{"who":"Mother","t":"قبل از اینکه بیرون بروی، اتاقت را مرتب کن!","r":"ghabl az inke birun beravi, otâghat râ morattab kon!","tr":"Before you go out, tidy your room!"},{"who":"Arash","t":"باشد، مامان. بعد از اینکه ناهار خوردم، مرتب می‌کنم.","r":"bâshad, mâmân. ba'd az inke nâhâr khordam, morattab mi-konam.","tr":"OK, Mum. I'll tidy it after I've had lunch."},{"who":"Mother","t":"نه، همین الان! تا اتاقت را مرتب نکنی، بیرون نمی‌روی.","r":"na, hamin al'ân! tâ otâghat râ morattab nakoni, birun nemi-ravi.","tr":"No, right now! You're not going out until you've tidied your room."},{"who":"Arash","t":"باشد… ولی همین که تمام شد، می‌روم!","r":"bâshad… vali hamin ke tamâm shod, mi-ravam!","tr":"OK… but as soon as it's done, I'm going!"}]},
+        {"p":"**Before: the subjunctive.** {{قبل از اینکه|ghabl az inke}} “before” is always followed by the subjunctive, whatever the time, because what comes after it hasn't happened yet: {{قبل از اینکه بخوابم|ghabl az inke bekhâbam}} “before I sleep”; and in the past too: {{قبل از اینکه برود، به من زنگ زد.|ghabl az inke beravad, be man zang zad.}} “Before he left, he called me.”"},
+        {"p":"**After: the past.** {{بعد از اینکه|ba'd az inke}} “after” takes the simple past, even for the future: {{بعد از اینکه شام خوردیم، می‌رویم.|ba'd az inke shâm khordim, mi-ravim.}} “After we've had dinner, we'll go.”"},
+        {"p":"**Until, so that.** {{تا|tâ}} + the subjunctive is “until” or “so that”: {{صبر کن تا بیایم.|sabr kon tâ biyâyam.}} “Wait until I come.” {{بلند صحبت کن تا بشنوند.|boland sohbat kon tâ beshenavand.}} “Speak up so that they can hear.” With a negative it means “until … has”: {{تا تمام نکنی، نمی‌روی.|tâ tamâm nakoni, nemi-ravi.}} “You won't go until you've finished.”"},
+        {"p":"**As soon as.** {{همین که|hamin ke}} + the past, for one event, even in the future: {{همین که رسیدم، زنگ می‌زنم.|hamin ke residam, zang mi-zanam.}} “As soon as I arrive, I'll call.”"},
+        { "table": [
+          ["","the verb after it","for example"],
+          ["before","{{قبل از اینکه}} + subjunctive","{{قبل از اینکه بروم|ghabl az inke beravam}} before I go"],
+          ["after","{{بعد از اینکه}} + past","{{بعد از اینکه رفتم|ba'd az inke raftam}} after I went, after I've gone"],
+          ["until, so that","{{تا}} + subjunctive","{{تا بیایی|tâ biyâyi}} until you come"],
+          ["as soon as","{{همین که}} + past","{{همین که رسیدم|hamin ke residam}} as soon as I arrive(d)"]
+        ] },
+        { "ex": [
+          {"t":"قبل از اینکه غذا بخورید، دست‌هایتان را بشویید.","r":"ghabl az inke ghazâ bokhorid, dast-hâyetân râ beshuyid.","tr":"Wash your hands before you eat."},
+          {"t":"بعد از اینکه از دانشگاه فارغ‌التحصیل شدم، به ایران آمدم.","r":"ba'd az inke az dâneshgâh fâregh-ottahsil shodam, be irân âmadam.","tr":"After I graduated from university, I came to Iran."},
+          {"t":"صبر کن تا من هم بیایم!","r":"sabr kon tâ man ham biyâyam!","tr":"Wait till I come too!"},
+          {"t":"همین که به خانه رسیدم، باران شروع شد.","r":"hamin ke be khâne residam, bârân shoru' shod.","tr":"As soon as I got home, it started to rain."},
+          {"t":"تا او را ندیدم، باور نکردم.","r":"tâ u râ nadidam, bâvar nakardam.","tr":"I didn't believe it until I saw him."},
+          {"t":"بلیت را زود بخر تا گران نشود.","r":"belit râ zud bekhar tâ gerân nashavad.","tr":"Buy the ticket early, before it gets expensive.","note":"word for word “so that it doesn't get expensive”"}
+        ] },
+        {"tip":"With the same person in both clauses, {{قبل از}} and {{بعد از}} also take an infinitive, as in English “before going”: {{قبل از خوابیدن|ghabl az khâbidan}} “before sleeping”, {{بعد از خوردن|ba'd az khordan}} “after eating”."}
+      ],
+      "mistakes": [
+        {"wrong":"قبل از اینکه می‌روم، زنگ می‌زنم.","right":"قبل از اینکه بروم، زنگ می‌زنم.","tr":"I'll call before I go.","why":"{{قبل از اینکه}} always takes the subjunctive: {{بروم}}."},
+        {"wrong":"قبل از اینکه رفت، به من زنگ زد.","right":"قبل از اینکه برود، به من زنگ زد.","tr":"Before he left, he called me.","why":"Even in the past, {{قبل از اینکه}} takes the subjunctive: {{برود}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"قبل از اینکه ___، کمی کتاب می‌خوانم.","tr":"Before I go to sleep, I read a little.","options":["بخوابم","می‌خوابم","خوابیدم"],"answer":0,"why":"{{قبل از اینکه}} + the subjunctive: {{بخوابم}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"بعد از اینکه شام ___، فیلم دیدیم.","tr":"After we'd had dinner, we watched a film.","options":["خوردیم","بخوریم","می‌خوریم"],"answer":0,"why":"{{بعد از اینکه}} + the past: {{خوردیم}}.","from":"say-what-you-did"},
+        {"type":"choice","q":"{{صبر کن تا بیایم.}} means…","options":["Wait until I come.","Wait, I'm coming.","Wait, so I can't come."],"answer":0,"why":"{{تا}} + the subjunctive: “until (so that) I come”."},
+        {"type":"dialogue","q":"Your host gives you advice before a trip. Choose your replies.","from":"say-what-you-must-do","lines":[{"who":"Host","t":"قبل از اینکه به فرودگاه بروی، پاسپورتت را چک کن.","r":"ghabl az inke be forudgâh beravi, pâsportat râ chek kon.","tr":"Before you go to the airport, check your passport."},{"options":["حتماً. همین که رسیدم، به شما زنگ می‌زنم.","حتماً. همین که می‌رسم، به شما زنگ زدم."],"answer":0,"why":"{{همین که}} + the past ({{رسیدم}}), and the call is still to come: {{زنگ می‌زنم}}."},{"who":"Host","t":"باید ساعت چهار راه بیفتی تا دیرت نشود.","r":"bâyad sâ'at-e chahâr râh biyofti tâ dirat nashavad.","tr":"You should set off at four so you're not late."},{"options":["باشد، قبل از چهار آماده می‌شوم.","باشد، قبل از اینکه چهار آماده می‌شوم."],"answer":0,"why":"Before a time (a noun): {{قبل از}}. {{قبل از اینکه}} needs a clause, with a subjunctive."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Wash your hands before you eat.","words":["قبل","از","اینکه","غذا","بخورید،","دست‌هایتان","را","بشویید."]},
+        {"type":"say","q":"Say: “As soon as I arrive, I'll call.”","answer":"همین که رسیدم، زنگ می‌زنم.","r":"hamin ke residam, zang mi-zanam."},
+        {"type":"free","q":"Your turn: describe your evening with {{بعد از اینکه}} and {{قبل از اینکه}}.","answers":[{"t":"بعد از اینکه شام خوردم، ظرف‌ها را می‌شویم. قبل از اینکه بخوابم، کمی فارسی تمرین می‌کنم.","r":"ba'd az inke shâm khordam, zarf-hâ râ mi-shuyam. ghabl az inke bekhâbam, kami fârsi tamrin mi-konam.","tr":"After I've had dinner, I wash the dishes. Before I go to sleep, I practise a little Persian."},{"t":"قبل از اینکه به خانه بروم، به فروشگاه می‌روم.","r":"ghabl az inke be khâne beravam, be forushgâh mi-ravam.","tr":"Before I go home, I go to the shop."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 7,
+      "level": "B1",
+      "title": "Tell what someone said",
+      "summary": "Pass on messages and news: “She said she'd be late”, “He asked whether you were free”, “Mum asked me to buy bread”.",
+      "topic": "{{گفت که}} + the tense they used; {{پرسید که آیا …}}; requests: {{گفت که}} + subjunctive ({{گفت بیایم}}); {{به من گفت}}",
+      "blocks": [
+        {"goal":{"t":"علی گفت که فردا نمی‌آید.","r":"ali goft ke fardâ nemi-âyad.","tr":"Ali said he wasn't coming tomorrow."}},
+        {"dialog":[{"who":"Sara","t":"مریم زنگ زد. گفت که امشب دیر می‌آید.","r":"maryam zang zad. goft ke emshab dir mi-âyad.","tr":"Maryam called. She said she'd be late tonight."},{"who":"Reza","t":"چرا؟","r":"cherâ?","tr":"Why?"},{"who":"Sara","t":"گفت که جلسه دارد. پرسید که آیا می‌توانی بچه‌ها را از مدرسه بیاوری.","r":"goft ke jalase dârad. porsid ke âyâ mi-tavâni bachche-hâ râ az madrese biyâvari.","tr":"She said she had a meeting. She asked whether you could pick the kids up from school."},{"who":"Reza","t":"باشد. چیز دیگری هم گفت؟","r":"bâshad. chiz-e digari ham goft?","tr":"OK. Did she say anything else?"},{"who":"Sara","t":"بله، گفت که نان بخری!","r":"bale, goft ke nân bekhari!","tr":"Yes, she said you should buy bread!"}]},
+        {"p":"**Persian keeps the tense.** To report what someone said, Persian puts {{گفت که|goft ke}} “he said that”, then the words **in the tense they were said in**. Ali said “I'm not coming” → {{علی گفت که نمی‌آید.}} English moves the tense back (“he wasn't coming”); Persian doesn't. Only the person changes: Ali's “I” becomes “he”."},
+        {"p":"**To whom.** {{به من گفت|be man goft}} “he told me”, {{به او گفتم|be u goftam}} “I told him”. {{که}} can be left out: {{گفت فردا نمی‌آید.}}"},
+        {"p":"**Asking.** {{پرسید|porsid}} “he asked” (from {{پرسیدن}}). With a question word, keep it, in its place: {{پرسید کجا زندگی می‌کنی.|porsid kojâ zendegi mi-koni.}} “He asked where you lived.” For yes-or-no questions, {{که آیا|ke âyâ}} “whether”: {{پرسید که آیا وقت داری.|porsid ke âyâ vaght dâri.}} “He asked whether you had time.”"},
+        {"p":"**Requests** become the subjunctive: “Come!” → {{گفت که بیایم.|goft ke biyâyam.}} “He told me to come” (“he said that I come”). {{از من خواست که کمکش کنم.|az man khâst ke komakash konam.}} “She asked me to help her.”"},
+        { "table": [
+          ["they said","you report","meaning"],
+          ["{{خسته‌ام.}}","{{گفت که خسته است.|goft ke khaste ast.}}","He said he was tired."],
+          ["{{فردا می‌آیم.}}","{{گفت که فردا می‌آید.|goft ke fardâ mi-âyad.}}","She said she'd come tomorrow."],
+          ["{{دیروز رفتم.}}","{{گفت که دیروز رفت.|goft ke diruz raft.}}","He said he'd gone the day before."],
+          ["{{کجا هستی؟}}","{{پرسید کجا هستم.|porsid kojâ hastam.}}","She asked where I was."],
+          ["{{بیا!}}","{{گفت که بیایم.|goft ke biyâyam.}}","He told me to come."]
+        ] },
+        { "ex": [
+          {"t":"گفت که حالش خوب نیست.","r":"goft ke hâlash khub nist.","tr":"She said she wasn't feeling well."},
+          {"t":"به من گفتند که جلسه ساعت ده است.","r":"be man goftand ke jalase sâ'at-e dah ast.","tr":"They told me the meeting was at ten."},
+          {"t":"پرسید که آیا فارسی بلدم.","r":"porsid ke âyâ fârsi baladam.","tr":"He asked whether I spoke Persian."},
+          {"t":"دکتر گفت که باید استراحت کنم.","r":"doktor goft ke bâyad esterâhat konam.","tr":"The doctor said I had to rest."},
+          {"t":"مادرم از من خواست که نان بخرم.","r":"mâdaram az man khâst ke nân bekharam.","tr":"My mother asked me to buy bread."},
+          {"t":"نمی‌دانم کجا رفت.","r":"nemi-dânam kojâ raft.","tr":"I don't know where he went.","note":"the same after “know”: the question word stays where it is"}
+        ] },
+        {"tip":"To pass on news you've heard: {{شنیدم که …|shenidam ke …}} “I heard that…”, {{می‌گویند که …|mi-guyand ke …}} “they say that…”, and the very Persian {{مثل اینکه …|mesl-e inke …}} “apparently…”."}
+      ],
+      "mistakes": [
+        {"wrong":"علی گفت که فردا نمی‌آیم.","right":"علی گفت که فردا نمی‌آید.","tr":"Ali said he wasn't coming tomorrow.","why":"Keep the tense, but change the person: Ali's “I” is “he” now, {{نمی‌آید}}."},
+        {"wrong":"به من گفت که می‌آیم.","right":"به من گفت که بیایم.","tr":"He told me to come.","why":"A request becomes the subjunctive: {{بیایم}}. ({{… که می‌آیم}} would report “I'm coming”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"مریم گفت که امشب دیر ___.","tr":"Maryam said she'd be late tonight.","options":["می‌آید","می‌آیم","آمد"],"answer":0,"why":"Her words were “I'll come late”: the same tense, but “she”, {{می‌آید}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"مادرم از من خواست که نان ___.","tr":"My mother asked me to buy bread.","options":["بخرم","می‌خرم","خریدم"],"answer":0,"why":"A request: the subjunctive, {{بخرم}}.","from":"say-what-you-want-to-do"},
+        {"type":"choice","q":"Your friend said “{{خسته‌ام.}}”. How do you pass it on?","options":["{{گفت که خسته است.}}","{{گفت که خسته‌ام.}}"],"answer":0,"why":"Keep the tense, change the person: “he is tired”, {{خسته است}}."},
+        {"type":"dialogue","q":"Pass on a phone message to your flatmate. Choose your replies.","from":"talk-about-the-future","lines":[{"who":"Flatmate","t":"کسی زنگ زد؟","r":"kasi zang zad?","tr":"Did anyone call?"},{"options":["بله، رضا زنگ زد. گفت که فردا ساعت ده می‌آید.","بله، رضا زنگ زد. گفت که فردا ساعت ده می‌آیم."],"answer":0,"why":"Reza's “I'll come” is passed on as “he'll come”: {{می‌آید}}."},{"who":"Flatmate","t":"چیز دیگری هم گفت؟","r":"chiz-e digari ham goft?","tr":"Did he say anything else?"},{"options":["پرسید که آیا وقت داری.","پرسید که وقت داری آیا."],"answer":0,"why":"“Whether”: {{که آیا}}, before the question."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The doctor said I had to rest.","words":["دکتر","گفت","که","باید","استراحت","کنم."]},
+        {"type":"say","q":"Say: “I don't know where he went.”","answer":"نمی‌دانم کجا رفت.","r":"nemi-dânam kojâ raft."},
+        {"type":"free","q":"Your turn: pass on something someone told you recently, and something they asked you.","answers":[{"t":"دوستم گفت که یک کار جدید پیدا کرده است. پرسید که آیا جمعه وقت دارم.","r":"dustam goft ke yek kâr-e jadid peydâ karde ast. porsid ke âyâ jom'e vaght dâram.","tr":"My friend said he'd found a new job. He asked whether I was free on Friday."},{"t":"مادرم به من گفت که بیشتر استراحت کنم.","r":"mâdaram be man goft ke bishtar esterâhat konam.","tr":"My mother told me to rest more."}]}
+      ]
     }
   ]
 }
