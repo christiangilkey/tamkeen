@@ -28,11 +28,11 @@
         {"dialog":[{"who":"Mike","t":"Hi! I'm Mike.","tr":"Salut ! Moi, c'est Mike."},{"who":"Julie","t":"Hello, I'm Julie. Nice to meet you.","tr":"Bonjour, je suis Julie. Enchantée."},{"who":"Mike","t":"Nice to meet you too. Where are you from?","tr":"Enchanté. Tu viens d'où ?"},{"who":"Julie","t":"I'm from France, from Lyon. And you?","tr":"Je viens de France, de Lyon. Et toi ?"},{"who":"Mike","t":"I'm from Chicago.","tr":"Moi, je viens de Chicago."}]},
         {"term":"phrase","means":"un groupe de mots qui dit quelque chose de complet : {{I'm from Lyon.}}"},
         {"term":"pronom","means":"un petit mot qui remplace une personne ou une chose : {{I}} « je », {{you}} « tu, vous », {{he}} « il », {{she}} « elle »."},
-        {"p":"**Je suis : I am, ou I'm.** « Je suis » se dit {{I am}}. À l'oral, on le raccourcit presque toujours en {{I'm}} : {{I'm Julie.}} {{I'm from France.}} « Je viens de France. » Le petit mot {{from}} veut dire « de », pour dire d'où l'on vient."},
+        {"p":"**Je suis : {{I am}}, ou {{I'm}}.** « Je suis » se dit {{I am}}. À l'oral, on le raccourcit presque toujours en {{I'm}} : {{I'm Julie.}} {{I'm from France.}} « Je viens de France. » Le petit mot {{from}} veut dire « de », pour dire d'où l'on vient."},
         {"term":"contraction","means":"deux mots collés en un seul, avec une apostrophe à la place des lettres qui tombent : {{I am}} → {{I'm}}. Un peu comme « je ai » → « j'ai », sauf qu'en anglais c'est facultatif : on contracte surtout à l'oral."},
-        {"p":"**I, toujours en majuscule.** Le pronom {{I}} « je » s'écrit toujours avec une majuscule, même au milieu d'une phrase : {{Yes, I'm French.}}"},
+        {"p":"**{{I}}, toujours en majuscule.** Le pronom {{I}} « je » s'écrit toujours avec une majuscule, même au milieu d'une phrase : {{Yes, I'm French.}}"},
         {"p":"**Votre nom.** Deux façons de le dire : {{I'm Julie.}} ou {{My name is Julie.}}, mot à mot « mon nom est Julie ». L'anglais n'a pas de verbe comme « s'appeler » : ne dites jamais « I call me »."},
-        {"p":"**Un seul « you ».** L'anglais n'a pas de « tu » et de « vous » : {{you}} sert pour tout le monde, un ami comme votre patron. La politesse passe par le ton et par des mots comme {{please}} « s'il vous plaît »."},
+        {"p":"**Un seul {{you}}.** L'anglais n'a pas de « tu » et de « vous » : {{you}} sert pour tout le monde, un ami comme votre patron. La politesse passe par le ton et par des mots comme {{please}} « s'il vous plaît »."},
         {"p":"**Les nationalités** prennent une majuscule et ne changent pas au féminin : {{I'm French.}} se dit pareil pour un homme et pour une femme."},
         { "table": [
           ["français","anglais"],
@@ -79,7 +79,7 @@
         {"term":"verbe","means":"un mot qui dit ce qu'on fait ou ce qu'on est : {{work}} « travailler », {{eat}} « manger », {{be}} « être »."},
         {"term":"sujet","means":"la personne ou la chose dont on parle, en général juste avant le verbe : **Marc** est médecin ; **nous** sommes là."},
         {"term":"conjuguer","means":"donner au verbe la forme qui va avec son sujet : {{I am}}, {{she is}}, {{they are}}."},
-        {"p":"**Être : be.** Le verbe « être » se dit {{be}}. Au présent, il n'a que trois formes : {{am}} avec {{I}}, {{is}} avec {{he}}, {{she}} et {{it}}, et {{are}} avec tous les autres. À l'oral, on les colle au pronom."},
+        {"p":"**Être : {{be}}.** Le verbe « être » se dit {{be}}. Au présent, il n'a que trois formes : {{am}} avec {{I}}, {{is}} avec {{he}}, {{she}} et {{it}}, et {{are}} avec tous les autres. À l'oral, on les colle au pronom."},
         { "table": [
           ["","forme complète","forme courte"],
           ["je suis","{{I am}}","{{I'm}}"],
@@ -90,9 +90,9 @@
           ["nous sommes","{{we are}}","{{we're}}"],
           ["ils sont, elles sont","{{they are}}","{{they're}}"]
         ] },
-        {"p":"**He, she… et it.** {{He}} est pour un homme ou un garçon, {{she}} pour une femme ou une fille. Pour une chose, une idée ou un animal qu'on ne connaît pas, c'est toujours {{it}}, que le mot soit masculin ou féminin en français : la table → {{it}}, le livre → {{it}}. Les noms anglais n'ont pas de genre."},
-        {"p":"**They** sert pour tout groupe, d'hommes, de femmes ou de choses : pas de différence entre « ils » et « elles »."},
-        {"p":"**Un métier : avec a.** C'est une grande différence avec le français : devant un métier, l'anglais met {{a}} « un, une ». {{He's a doctor.}} « Il est médecin. » {{She's a teacher.}} « Elle est professeure. » Au pluriel, rien : {{They're nurses.}}"},
+        {"p":"**{{He}}, {{she}}… et {{it}}.** {{He}} est pour un homme ou un garçon, {{she}} pour une femme ou une fille. Pour une chose, une idée ou un animal qu'on ne connaît pas, c'est toujours {{it}}, que le mot soit masculin ou féminin en français : la table → {{it}}, le livre → {{it}}. Les noms anglais n'ont pas de genre."},
+        {"p":"**{{They}}** sert pour tout groupe, d'hommes, de femmes ou de choses : pas de différence entre « ils » et « elles »."},
+        {"p":"**Un métier : avec {{a}}.** C'est une grande différence avec le français : devant un métier, l'anglais met {{a}} « un, une ». {{He's a doctor.}} « Il est médecin. » {{She's a teacher.}} « Elle est professeure. » Au pluriel, rien : {{They're nurses.}}"},
         { "ex": [
           {"t":"I'm a student.","tr":"Je suis étudiant."},
           {"t":"She's my sister.","tr":"C'est ma sœur."},
@@ -128,8 +128,8 @@
       "blocks": [
         {"goal":{"t":"I'm 30 and I'm really hungry!","tr":"J'ai trente ans et j'ai vraiment faim !"}},
         {"dialog":[{"who":"Lucas","t":"Happy birthday, Emma! How old are you today?","tr":"Joyeux anniversaire, Emma ! Tu as quel âge aujourd'hui ?"},{"who":"Emma","t":"I'm 25!","tr":"J'ai 25 ans !"},{"who":"Lucas","t":"Here's your cake!","tr":"Voilà ton gâteau !"},{"who":"Emma","t":"Thank you! I'm so happy… and I'm really hungry!","tr":"Merci ! Je suis tellement contente… et j'ai vraiment faim !"}]},
-        {"p":"**L'âge : avec be.** En français, on « a » 25 ans. En anglais, on « est » 25 ans : {{I'm 25.}} On peut ajouter {{years old}}, mais jamais {{years}} tout seul : {{I'm 25 years old.}} Pour demander : {{How old are you?}} « Quel âge avez-vous ? », mot à mot « comment vieux êtes-vous ? »."},
-        {"p":"**Faim, soif, froid… : avec be.** Presque tout ce que le français dit avec « avoir », l'anglais le dit avec {{be}} + un adjectif :"},
+        {"p":"**L'âge : avec {{be}}.** En français, on « a » 25 ans. En anglais, on « est » 25 ans : {{I'm 25.}} On peut ajouter {{years old}}, mais jamais {{years}} tout seul : {{I'm 25 years old.}} Pour demander : {{How old are you?}} « Quel âge avez-vous ? », mot à mot « comment vieux êtes-vous ? »."},
+        {"p":"**Faim, soif, froid… : avec {{be}}.** Presque tout ce que le français dit avec « avoir », l'anglais le dit avec {{be}} + un adjectif :"},
         { "table": [
           ["français : j'ai…","anglais : {{I'm…}}"],
           ["faim","{{I'm hungry.}}"],
@@ -179,7 +179,7 @@
       "blocks": [
         {"goal":{"t":"Are you American? — No, I'm not. I'm Canadian.","tr":"Vous êtes américain ? — Non. Je suis canadien."}},
         {"dialog":[{"who":"The receptionist","t":"Good evening. Are you Mr. Martin?","tr":"Bonsoir. Vous êtes monsieur Martin ?"},{"who":"Paul","t":"Yes, I am.","tr":"Oui, c'est moi."},{"who":"The receptionist","t":"Is this your first time in New York?","tr":"C'est votre première fois à New York ?"},{"who":"Paul","t":"No, it isn't. I'm here every year for work.","tr":"Non. Je viens chaque année pour le travail."},{"who":"The receptionist","t":"Great! Your room is ready.","tr":"Très bien ! Votre chambre est prête."},{"who":"Paul","t":"Is breakfast included?","tr":"Le petit-déjeuner est compris ?"},{"who":"The receptionist","t":"Yes, it is.","tr":"Oui."}]},
-        {"p":"**Une question avec be : on inverse.** Avec {{be}}, on met le verbe avant le sujet, comme dans « Êtes-vous… ? » : {{You are French.}} → {{Are you French?}} {{It is far.}} → {{Is it far?}} Contrairement au français parlé, l'intonation seule ne suffit pas : on inverse toujours."},
+        {"p":"**Une question avec {{be}} : on inverse.** Avec {{be}}, on met le verbe avant le sujet, comme dans « Êtes-vous… ? » : {{You are French.}} → {{Are you French?}} {{It is far.}} → {{Is it far?}} Contrairement au français parlé, l'intonation seule ne suffit pas : on inverse toujours."},
         { "table": [
           ["affirmation","question"],
           ["{{You're tired.}}","{{Are you tired?}}"],
@@ -188,7 +188,7 @@
           ["{{They're ready.}}","{{Are they ready?}}"]
         ] },
         {"term":"forme négative","means":"la forme d'une phrase qui dit que quelque chose n'est pas vrai : {{I'm not tired.}} « Je ne suis pas fatigué. »"},
-        {"p":"**Dire non : not.** On ajoute {{not}} juste après {{be}}. À l'oral, on contracte : {{is not}} → {{isn't}}, {{are not}} → {{aren't}}. Avec {{I}}, une seule forme courte : {{I'm not}}."},
+        {"p":"**Dire non : {{not}}.** On ajoute {{not}} juste après {{be}}. À l'oral, on contracte : {{is not}} → {{isn't}}, {{are not}} → {{aren't}}. Avec {{I}}, une seule forme courte : {{I'm not}}."},
         { "table": [
           ["","forme complète","forme courte"],
           ["je ne suis pas","{{I am not}}","{{I'm not}}"],
@@ -197,7 +197,7 @@
           ["nous ne sommes pas","{{we are not}}","{{we aren't}}, {{we're not}}"]
         ] },
         {"term":"réponse courte","means":"une réponse qui reprend seulement le sujet et le verbe de la question : {{Are you ready? — Yes, I am.}} C'est plus naturel qu'un simple {{yes}}."},
-        {"p":"**Répondre : Yes, I am. No, I'm not.** Un {{yes}} ou un {{no}} tout seul est possible, mais les anglophones reprennent volontiers le verbe : {{Are you French? — Yes, I am.}} {{Is it far? — No, it isn't.}} Dans la réponse affirmative, jamais de contraction : {{Yes, I am}}, et non « Yes, I'm »."},
+        {"p":"**Répondre : {{Yes, I am.}} {{No, I'm not.}}** Un {{yes}} ou un {{no}} tout seul est possible, mais les anglophones reprennent volontiers le verbe : {{Are you French? — Yes, I am.}} {{Is it far? — No, it isn't.}} Dans la réponse affirmative, jamais de contraction : {{Yes, I am}}, et non « Yes, I'm »."},
         { "ex": [
           {"t":"Are you OK?","tr":"Ça va ?","note":"quand quelqu'un a l'air d'aller mal"},
           {"t":"Is it far from here?","tr":"C'est loin d'ici ?"},
@@ -236,7 +236,7 @@
         {"term":"nom","means":"un mot qui désigne une chose, une personne, un lieu ou une idée : {{coffee}} « café », {{friend}} « ami », {{love}} « amour »."},
         {"term":"article","means":"un petit mot devant un nom : « un », « le » en français, {{a}} et {{the}} en anglais. Les articles anglais ne changent pas selon le genre, puisque les noms n'en ont pas."},
         {"p":"**Demander poliment.** Deux formules passe-partout : {{I'd like…}} « je voudrais… » ({{I'd}} est la forme courte de {{I would}}) et {{Can I have…?}} « je peux avoir… ? ». Ajoutez toujours {{please}} : un « please » oublié sonne sec en anglais. Aux États-Unis, on entend aussi beaucoup {{Can I get…?}}"},
-        {"p":"**Un, une : a ou an.** C'est le même article pour tous les noms : {{a coffee}}, {{a beer}}. Seul le son qui suit compte : devant un son de voyelle, {{a}} devient {{an}}, pour que les deux voyelles ne se cognent pas : {{an orange}}, {{an apple}}, {{an egg}}."},
+        {"p":"**Un, une : {{a}} ou {{an}}.** C'est le même article pour tous les noms : {{a coffee}}, {{a beer}}. Seul le son qui suit compte : devant un son de voyelle, {{a}} devient {{an}}, pour que les deux voyelles ne se cognent pas : {{an orange}}, {{an apple}}, {{an egg}}."},
         { "table": [
           ["{{a}} + son de consonne","{{an}} + son de voyelle"],
           ["{{a coffee}}","{{an orange juice}}"],
@@ -287,8 +287,8 @@
           ["plusieurs","{{these}} : {{these keys}}","{{those}} : {{those keys}}"]
         ] },
         {"p":"Ils s'emploient devant un nom ({{this bag}} « ce sac ») ou seuls ({{This is my bag.}} « C'est mon sac. »). {{That's}} est la forme courte de {{that is}}."},
-        {"p":"**Le, la, les : the.** « Le », « la » et « les » se disent tous {{the}}, au singulier comme au pluriel : {{the bag}}, {{the keys}}. Il se prononce « thuh » devant une consonne et « thi » devant une voyelle : {{the apple}}."},
-        {"p":"**Le pluriel : -s.** Comme en français, on ajoute un {{-s}}, mais en anglais il se prononce : {{books}} (« s »), {{keys}} (« z »). Après {{s, sh, ch, x}}, on ajoute {{-es}}, qui fait une syllabe de plus : {{bus}} → {{buses}}, {{watch}} → {{watches}}."},
+        {"p":"**Le, la, les : {{the}}.** « Le », « la » et « les » se disent tous {{the}}, au singulier comme au pluriel : {{the bag}}, {{the keys}}. Il se prononce « thuh » devant une consonne et « thi » devant une voyelle : {{the apple}}."},
+        {"p":"**Le pluriel : {{-s}}.** Comme en français, on ajoute un {{-s}}, mais en anglais il se prononce : {{books}} (« s »), {{keys}} (« z »). Après {{s, sh, ch, x}}, on ajoute {{-es}}, qui fait une syllabe de plus : {{bus}} → {{buses}}, {{watch}} → {{watches}}."},
         {"p":"**Quelques pluriels irréguliers** très courants : {{man}} → {{men}}, {{woman}} → {{women}}, {{child}} → {{children}}, {{person}} → {{people}}, {{foot}} → {{feet}}, {{tooth}} → {{teeth}}."},
         { "ex": [
           {"t":"This is my wife, Laura.","tr":"Voici ma femme, Laura."},
@@ -335,7 +335,7 @@
           ["des petites maisons","{{small houses}}"],
           ["la maison est petite","{{the house is small}}"]
         ] },
-        {"p":"**Après be**, l'adjectif reste tel quel : {{The house is small.}} {{They're tired.}}"},
+        {"p":"**Après {{be}}**, l'adjectif reste tel quel : {{The house is small.}} {{They're tired.}}"},
         {"p":"**Très, vraiment, tellement.** {{very}}, {{really}} et {{so}} se placent devant l'adjectif : {{It's very good.}} {{She's really nice.}} {{It's so beautiful!}}"},
         {"p":"**Plusieurs adjectifs** : en général, l'opinion d'abord, puis la taille, puis la couleur, puis l'origine, sans « et » entre eux : {{a beautiful big white house}}, {{a nice little Italian restaurant}}."},
         { "ex": [
@@ -385,14 +385,14 @@
           ["notre, nos","{{our}}"],
           ["leur, leurs","{{their}}"]
         ] },
-        {"p":"**His ou her : c'est le propriétaire qui décide.** C'est le piège numéro un pour un francophone. En français, « sa mère » s'accorde avec « mère ». En anglais, on regarde à qui elle est : la mère de Paul, c'est {{his mother}} ; la mère de Julie, c'est {{her mother}}. Et le père de Julie, c'est {{her father}}."},
+        {"p":"**{{His}} ou {{her}} : c'est le propriétaire qui décide.** C'est le piège numéro un pour un francophone. En français, « sa mère » s'accorde avec « mère ». En anglais, on regarde à qui elle est : la mère de Paul, c'est {{his mother}} ; la mère de Julie, c'est {{her mother}}. Et le père de Julie, c'est {{her father}}."},
         { "table": [
           ["","à Paul","à Julie"],
           ["sa mère","{{his mother}}","{{her mother}}"],
           ["son père","{{his father}}","{{her father}}"],
           ["ses amis","{{his friends}}","{{her friends}}"]
         ] },
-        {"p":"**La voiture de Paul : Paul's car.** Pour dire à qui est quelque chose, on ajoute {{'s}} au propriétaire et on met la chose après : {{Paul's car}} « la voiture de Paul », {{my sister's son}} « le fils de ma sœur ». Après un pluriel en {{-s}}, juste l'apostrophe : {{my parents' house}} « la maison de mes parents »."},
+        {"p":"**La voiture de Paul : {{Paul's car}}.** Pour dire à qui est quelque chose, on ajoute {{'s}} au propriétaire et on met la chose après : {{Paul's car}} « la voiture de Paul », {{my sister's son}} « le fils de ma sœur ». Après un pluriel en {{-s}}, juste l'apostrophe : {{my parents' house}} « la maison de mes parents »."},
         { "ex": [
           {"t":"My brother is a teacher.","tr":"Mon frère est professeur."},
           {"t":"Is this your phone?","tr":"C'est ton téléphone ?"},
@@ -429,7 +429,7 @@
       "blocks": [
         {"goal":{"t":"There's a pharmacy next to the station.","tr":"Il y a une pharmacie à côté de la gare."}},
         {"dialog":[{"who":"You","t":"Excuse me, is there a supermarket near here?","tr":"Excusez-moi, il y a un supermarché près d'ici ?"},{"who":"The receptionist","t":"Yes, there's one across from the park.","tr":"Oui, il y en a un en face du parc."},{"who":"You","t":"And are there any good restaurants in the area?","tr":"Et il y a de bons restaurants dans le quartier ?"},{"who":"The receptionist","t":"Sure, there are a lot of restaurants on Main Street.","tr":"Bien sûr, il y a beaucoup de restaurants dans la rue principale."},{"who":"You","t":"Great, thanks!","tr":"Super, merci !"}]},
-        {"p":"**Il y a : there is, there are.** « Il y a » se dit {{there is}} (forme courte {{there's}}) devant un singulier, et {{there are}} devant un pluriel : {{There's a problem.}} {{There are two problems.}} Ne dites jamais « it has » : c'est la traduction mot à mot de « il y a », et elle ne veut rien dire."},
+        {"p":"**Il y a : {{there is}}, {{there are}}.** « Il y a » se dit {{there is}} (forme courte {{there's}}) devant un singulier, et {{there are}} devant un pluriel : {{There's a problem.}} {{There are two problems.}} Ne dites jamais « it has » : c'est la traduction mot à mot de « il y a », et elle ne veut rien dire."},
         { "table": [
           ["","singulier","pluriel"],
           ["il y a","{{There's a bank.}}","{{There are two banks.}}"],
@@ -497,7 +497,7 @@
           ["{{we}}","{{we work}}","{{we live}}"],
           ["{{they}}","{{they work}}","{{they live}}"]
         ] },
-        {"p":"**Le -s de he, she, it.** Avec {{he}}, {{she}}, {{it}}, et avec tout ce qu'ils remplacent ({{my sister}}, {{Paul}}, {{the train}}), le verbe prend un {{-s}} : {{she works}}, {{Paul lives}}, {{the train leaves}}. C'est la faute la plus fréquente des francophones : pensez-y à chaque fois !"},
+        {"p":"**Le {{-s}} de {{he}}, {{she}}, {{it}}.** Avec {{he}}, {{she}}, {{it}}, et avec tout ce qu'ils remplacent ({{my sister}}, {{Paul}}, {{the train}}), le verbe prend un {{-s}} : {{she works}}, {{Paul lives}}, {{the train leaves}}. C'est la faute la plus fréquente des francophones : pensez-y à chaque fois !"},
         {"p":"**L'orthographe.** Après {{s, sh, ch, x, o}} : {{-es}} ({{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}). Consonne + {{y}} : {{-ies}} ({{study}} → {{studies}}). Un seul verbe irrégulier : {{have}} → {{has}}."},
         {"p":"**La prononciation.** Ce {{-s}} se prononce, comme au pluriel des noms (leçon 6) : « s » dans {{works}}, « z » dans {{lives}}, « iz » dans {{watches}}."},
         {"p":"**Quand l'employer ?** Pour ce qui est habituel ou toujours vrai : {{I work in a bank.}} {{The store opens at nine.}} Pour ce qui se passe en ce moment, l'anglais a une autre forme (leçon 17)."},
@@ -538,8 +538,8 @@
         {"goal":{"t":"Do you speak English? — Yes, I do, but I don't speak it very well.","tr":"Vous parlez anglais ? — Oui, mais je ne le parle pas très bien."}},
         {"dialog":[{"who":"Kevin","t":"Do you live in New York?","tr":"Tu habites à New York ?"},{"who":"Léa","t":"No, I don't. I live in Paris. I'm here on vacation.","tr":"Non. J'habite à Paris. Je suis ici en vacances."},{"who":"Kevin","t":"Cool! Do you like the city?","tr":"Super ! Tu aimes la ville ?"},{"who":"Léa","t":"Yes, I do! But my husband doesn't like the subway.","tr":"Oui ! Mais mon mari n'aime pas le métro."},{"who":"Kevin","t":"Does he speak English?","tr":"Il parle anglais ?"},{"who":"Léa","t":"A little.","tr":"Un peu."}]},
         {"term":"auxiliaire","means":"un verbe « outil » qui aide un autre verbe à former une question, un négatif ou un temps. En anglais : {{do}}, {{be}}, {{have}}, {{will}}…"},
-        {"p":"**Do, un outil pour poser des questions.** Avec {{be}}, on inverse (leçon 4). Avec tous les autres verbes, c'est impossible : on ajoute {{do}} devant le sujet. {{You speak English.}} → {{Do you speak English?}} Ce {{do}} ne se traduit pas : c'est juste le signal « question »."},
-        {"p":"**Do ou does.** Avec {{he}}, {{she}}, {{it}}, c'est {{does}}, et le {{-s}} passe sur {{does}} : le verbe principal revient à sa forme de base. {{She works.}} → {{Does she work?}} Jamais « Does she works »."},
+        {"p":"**{{Do}}, un outil pour poser des questions.** Avec {{be}}, on inverse (leçon 4). Avec tous les autres verbes, c'est impossible : on ajoute {{do}} devant le sujet. {{You speak English.}} → {{Do you speak English?}} Ce {{do}} ne se traduit pas : c'est juste le signal « question »."},
+        {"p":"**{{Do}} ou {{does}}.** Avec {{he}}, {{she}}, {{it}}, c'est {{does}}, et le {{-s}} passe sur {{does}} : le verbe principal revient à sa forme de base. {{She works.}} → {{Does she work?}} Jamais « Does she works »."},
         { "table": [
           ["affirmation","question","négatif"],
           ["{{I work.}}","{{Do I work?}}","{{I don't work.}}"],
@@ -547,7 +547,7 @@
           ["{{She lives here.}}","{{Does she live here?}}","{{She doesn't live here.}}"],
           ["{{They like coffee.}}","{{Do they like coffee?}}","{{They don't like coffee.}}"]
         ] },
-        {"p":"**Le négatif : don't, doesn't.** Pour dire non, on met {{do not}} ({{don't}}) ou {{does not}} ({{doesn't}}) devant le verbe, qui reste à la forme de base : {{I don't understand.}} « Je ne comprends pas. » {{He doesn't eat meat.}} « Il ne mange pas de viande. »"},
+        {"p":"**Le négatif : {{don't}}, {{doesn't}}.** Pour dire non, on met {{do not}} ({{don't}}) ou {{does not}} ({{doesn't}}) devant le verbe, qui reste à la forme de base : {{I don't understand.}} « Je ne comprends pas. » {{He doesn't eat meat.}} « Il ne mange pas de viande. »"},
         {"p":"**Les réponses courtes** reprennent {{do}} ou {{does}} : {{Do you like jazz? — Yes, I do.}} / {{No, I don't.}} {{Does she work here? — Yes, she does.}}"},
         {"p":"Attention : {{be}} n'a jamais besoin de {{do}}. {{Are you French?}}, et jamais « Do you are French »."},
         { "ex": [
@@ -585,8 +585,8 @@
       "blocks": [
         {"goal":{"t":"I have two brothers. Do you have a big family?","tr":"J'ai deux frères. Vous avez une grande famille ?"}},
         {"dialog":[{"who":"You","t":"Excuse me, do you have this shirt in blue?","tr":"Excusez-moi, vous avez cette chemise en bleu ?"},{"who":"The clerk","t":"Let me check… No, sorry, we don't have it in blue. We have it in black.","tr":"Je regarde… Non, désolé, nous ne l'avons pas en bleu. Nous l'avons en noir."},{"who":"You","t":"Does the other store have it?","tr":"L'autre magasin l'a ?"},{"who":"The clerk","t":"Maybe. They have a lot of colors.","tr":"Peut-être. Ils ont beaucoup de couleurs."},{"who":"You","t":"OK, thanks!","tr":"D'accord, merci !"}]},
-        {"p":"**Have, has.** « Avoir » se dit {{have}}, et {{has}} avec {{he}}, {{she}}, {{it}} (leçon 10) : {{I have a car.}} {{She has two kids.}}"},
-        {"p":"**Questions et négatif : avec do.** {{have}} est un verbe comme les autres : il prend {{do}} (leçon 11). « As-tu un stylo ? » se dit {{Do you have a pen?}}, pas « Have you a pen », qui sonne très vieillot. Au négatif : {{I don't have a car.}} {{He doesn't have time.}}"},
+        {"p":"**{{Have}}, {{has}}.** « Avoir » se dit {{have}}, et {{has}} avec {{he}}, {{she}}, {{it}} (leçon 10) : {{I have a car.}} {{She has two kids.}}"},
+        {"p":"**Questions et négatif : avec {{do}}.** {{have}} est un verbe comme les autres : il prend {{do}} (leçon 11). « As-tu un stylo ? » se dit {{Do you have a pen?}}, pas « Have you a pen », qui sonne très vieillot. Au négatif : {{I don't have a car.}} {{He doesn't have time.}}"},
         { "table": [
           ["français","anglais"],
           ["j'ai","{{I have}}"],
@@ -596,8 +596,8 @@
           ["je n'ai pas","{{I don't have}}"],
           ["elle n'a pas","{{she doesn't have}}"]
         ] },
-        {"p":"**Have got, à reconnaître.** Vous entendrez aussi {{I've got}} « j'ai » et {{Have you got…?}} : même sens. C'est surtout britannique, mais les Américains disent souvent {{I've got}} à l'oral. Pour vous, {{have}} suffit."},
-        {"p":"**Have pour faire des choses.** {{have}} s'emploie aussi là où le français dit « prendre » ou « faire » : {{have breakfast}} « prendre le petit-déjeuner », {{have lunch}}, {{have dinner}}, {{have a shower}} « prendre une douche », {{have fun}} « s'amuser », {{have a good time}} « passer un bon moment »."},
+        {"p":"**{{Have got}}, à reconnaître.** Vous entendrez aussi {{I've got}} « j'ai » et {{Have you got…?}} : même sens. C'est surtout britannique, mais les Américains disent souvent {{I've got}} à l'oral. Pour vous, {{have}} suffit."},
+        {"p":"**{{Have}} pour faire des choses.** {{have}} s'emploie aussi là où le français dit « prendre » ou « faire » : {{have breakfast}} « prendre le petit-déjeuner », {{have lunch}}, {{have dinner}}, {{have a shower}} « prendre une douche », {{have fun}} « s'amuser », {{have a good time}} « passer un bon moment »."},
         {"p":"**Rappel :** pour l'âge, la faim ou le froid, pas de {{have}} mais {{be}} (leçon 3) : {{I'm hungry}}, et non « I have hungry »."},
         { "ex": [
           {"t":"We have a small apartment.","tr":"Nous avons un petit appartement."},
@@ -635,7 +635,7 @@
       "blocks": [
         {"goal":{"t":"I love chocolate, but I hate coffee.","tr":"J'adore le chocolat, mais je déteste le café."}},
         {"dialog":[{"who":"Ryan","t":"Do you like movies?","tr":"Tu aimes le cinéma ?"},{"who":"Inès","t":"Yes, I love French movies. And you?","tr":"Oui, j'adore les films français. Et toi ?"},{"who":"Ryan","t":"I like them, but I prefer music. I love jazz.","tr":"Je les aime bien, mais je préfère la musique. J'adore le jazz."},{"who":"Inès","t":"Really? I don't like jazz very much…","tr":"Ah bon ? Je n'aime pas trop le jazz…"},{"who":"Ryan","t":"Do you like dancing?","tr":"Tu aimes danser ?"},{"who":"Inès","t":"Yes, I love dancing!","tr":"Oui, j'adore danser !"}]},
-        {"p":"**En général : pas de the.** C'est l'inverse du français. « J'aime le café », « j'adore les chats » : en français, l'article est obligatoire. En anglais, quand on parle d'une chose en général, on n'en met pas : {{I like coffee.}} {{I love cats.}} {{I hate spiders.}}"},
+        {"p":"**En général : pas de {{the}}.** C'est l'inverse du français. « J'aime le café », « j'adore les chats » : en français, l'article est obligatoire. En anglais, quand on parle d'une chose en général, on n'en met pas : {{I like coffee.}} {{I love cats.}} {{I hate spiders.}}"},
         { "table": [
           ["français","anglais"],
           ["J'aime le café.","{{I like coffee.}}"],
@@ -644,10 +644,10 @@
           ["Je n'aime pas le sport.","{{I don't like sports.}}"],
           ["Je déteste les araignées.","{{I hate spiders.}}"]
         ] },
-        {"p":"**The : une chose précise.** {{the}} désigne quelque chose de précis, que l'on connaît : {{I like the coffee here.}} « J'aime le café d'ici. » {{I love the cats}} voudrait dire « j'adore les chats (ceux dont on parle) »."},
+        {"p":"**{{The}} : une chose précise.** {{the}} désigne quelque chose de précis, que l'on connaît : {{I like the coffee here.}} « J'aime le café d'ici. » {{I love the cats}} voudrait dire « j'adore les chats (ceux dont on parle) »."},
         {"p":"**Au pluriel, les choses qu'on compte.** Pour une généralité, on met au pluriel ce qui se compte : {{I like dogs}}, {{I love movies}}. Le reste reste au singulier : {{coffee}}, {{music}}, {{chocolate}}."},
-        {"p":"**Aimer faire : like + -ing.** Pour une activité, on ajoute {{-ing}} au verbe : {{I like swimming.}} « J'aime nager. » {{She loves reading.}} On entend aussi {{I like to swim}}, avec le même sens."},
-        {"p":"**Like ou would like ?** {{I like coffee}} « j'aime le café » (en général) ; {{I'd like a coffee}} « je voudrais un café » (maintenant, leçon 5). Ne les confondez pas au comptoir !"},
+        {"p":"**Aimer faire : {{like}} + {{-ing}}.** Pour une activité, on ajoute {{-ing}} au verbe : {{I like swimming.}} « J'aime nager. » {{She loves reading.}} On entend aussi {{I like to swim}}, avec le même sens."},
+        {"p":"**{{Like}} ou {{would like}} ?** {{I like coffee}} « j'aime le café » (en général) ; {{I'd like a coffee}} « je voudrais un café » (maintenant, leçon 5). Ne les confondez pas au comptoir !"},
         { "ex": [
           {"t":"I really like Italian food.","tr":"J'aime beaucoup la cuisine italienne."},
           {"t":"Do you like dogs?","tr":"Tu aimes les chiens ?"},
@@ -684,8 +684,8 @@
         {"goal":{"t":"Can I get some water and some bread, please?","tr":"Je pourrais avoir de l'eau et du pain, s'il vous plaît ?"}},
         {"dialog":[{"who":"The server","t":"Are you ready to order?","tr":"Vous êtes prêts à commander ?"},{"who":"You","t":"Yes. I'd like the chicken with fries, please.","tr":"Oui. Je voudrais le poulet avec des frites, s'il vous plaît."},{"who":"The server","t":"Anything to drink?","tr":"Quelque chose à boire ?"},{"who":"You","t":"Just some water, please.","tr":"Juste de l'eau, s'il vous plaît."},{"who":"Your friend","t":"And I'd like a salad. Do you have any vegetarian dishes?","tr":"Et moi, je voudrais une salade. Vous avez des plats végétariens ?"},{"who":"The server","t":"Sure, we have some great veggie burgers.","tr":"Bien sûr, nous avons d'excellents burgers végétariens."}]},
         {"term":"indénombrable","means":"se dit d'un nom qu'on ne peut pas compter et qui n'a pas de pluriel en anglais : {{water}}, {{bread}}, {{money}}, {{advice}}. Le contraire : dénombrable ({{an apple}}, {{two apples}})."},
-        {"p":"**Du, de la, des : rien, ou some.** Le français dit « du pain », « de l'eau ». L'anglais n'a pas d'article pour cela : on ne met rien, ou {{some}} « un peu de, quelques » : {{I'd like water.}} ou {{I'd like some water.}} {{some}} s'emploie dans les phrases affirmatives et dans les demandes."},
-        {"p":"**Any : dans les questions et au négatif.** {{Do you have any bread?}} « Vous avez du pain ? » {{We don't have any bread.}} « Nous n'avons pas de pain. » Mais pour offrir ou demander quelque chose, on garde {{some}} : {{Would you like some coffee?}} {{Can I have some water?}}"},
+        {"p":"**Du, de la, des : rien, ou {{some}}.** Le français dit « du pain », « de l'eau ». L'anglais n'a pas d'article pour cela : on ne met rien, ou {{some}} « un peu de, quelques » : {{I'd like water.}} ou {{I'd like some water.}} {{some}} s'emploie dans les phrases affirmatives et dans les demandes."},
+        {"p":"**{{Any}} : dans les questions et au négatif.** {{Do you have any bread?}} « Vous avez du pain ? » {{We don't have any bread.}} « Nous n'avons pas de pain. » Mais pour offrir ou demander quelque chose, on garde {{some}} : {{Would you like some coffee?}} {{Can I have some water?}}"},
         { "table": [
           ["","dénombrable","indénombrable"],
           ["exemples","{{an apple}}, {{two apples}}","{{water}}, {{bread}}, {{rice}}"],
@@ -694,8 +694,8 @@
           ["combien ?","{{How many apples?}}","{{How much water?}}"],
           ["beaucoup","{{many apples}}, {{a lot of apples}}","{{much water}}, {{a lot of water}}"]
         ] },
-        {"p":"**Indénombrables : jamais de -s, jamais de a.** Certains noms qui se comptent en français ne se comptent pas en anglais : {{advice}} (un conseil), {{information}} (une information), {{news}} (une nouvelle), {{furniture}} (un meuble). On dit {{some advice}} ou {{a piece of advice}} « un conseil », jamais « an advice » ni « informations »."},
-        {"p":"**Une quantité : a … of.** {{a glass of water}}, {{a cup of coffee}}, {{a piece of cake}} « une part de gâteau », {{a bottle of wine}}, {{a slice of pizza}} « une part de pizza »."},
+        {"p":"**Indénombrables : jamais de {{-s}}, jamais de {{a}}.** Certains noms qui se comptent en français ne se comptent pas en anglais : {{advice}} (un conseil), {{information}} (une information), {{news}} (une nouvelle), {{furniture}} (un meuble). On dit {{some advice}} ou {{a piece of advice}} « un conseil », jamais « an advice » ni « informations »."},
+        {"p":"**Une quantité : {{a … of}}.** {{a glass of water}}, {{a cup of coffee}}, {{a piece of cake}} « une part de gâteau », {{a bottle of wine}}, {{a slice of pizza}} « une part de pizza »."},
         { "ex": [
           {"t":"Would you like some coffee?","tr":"Vous voulez du café ?"},
           {"t":"We don't have any milk.","tr":"Nous n'avons pas de lait."},
@@ -743,7 +743,7 @@
           ["comment","{{how}}"],
           ["lequel, laquelle","{{which}}"]
         ] },
-        {"p":"**L'ordre : mot interrogatif + do + sujet + verbe.** C'est la question de la leçon 11, avec le mot interrogatif devant : {{Do you live here?}} → {{Where do you live?}} Avec {{be}}, on inverse simplement : {{Where are you?}} {{Where is the station?}}"},
+        {"p":"**L'ordre : mot interrogatif + {{do}} + sujet + verbe.** C'est la question de la leçon 11, avec le mot interrogatif devant : {{Do you live here?}} → {{Where do you live?}} Avec {{be}}, on inverse simplement : {{Where are you?}} {{Where is the station?}}"},
         { "table": [
           ["mot","outil","sujet","verbe…"],
           ["{{Where}}","{{do}}","{{you}}","{{live?}}"],
@@ -751,8 +751,8 @@
           ["{{Why}}","{{are}}","{{you}}","{{sad?}}"]
         ] },
         {"p":"Pas de question « à la française », avec le mot interrogatif à la fin : elle ne s'entend que pour marquer la surprise. Et toujours {{do}} ou {{be}} : jamais « Where you live »."},
-        {"p":"**How + adjectif.** {{how}} se combine avec un adjectif : {{How old are you?}} « Quel âge as-tu ? », {{How long is the movie?}} « Le film dure combien de temps ? », {{How far is it?}} « C'est à quelle distance ? », {{How much is it?}} « C'est combien ? »"},
-        {"p":"**Who sujet : pas de do.** Quand {{who}} ou {{what}} est le sujet (celui qui fait l'action), pas de {{do}} : {{Who lives here?}} « Qui habite ici ? » Comparez : {{Who do you love?}} « Qui aimes-tu ? », où le sujet est {{you}}."},
+        {"p":"**{{How}} + adjectif.** {{how}} se combine avec un adjectif : {{How old are you?}} « Quel âge as-tu ? », {{How long is the movie?}} « Le film dure combien de temps ? », {{How far is it?}} « C'est à quelle distance ? », {{How much is it?}} « C'est combien ? »"},
+        {"p":"**{{Who}} sujet : pas de {{do}}.** Quand {{who}} ou {{what}} est le sujet (celui qui fait l'action), pas de {{do}} : {{Who lives here?}} « Qui habite ici ? » Comparez : {{Who do you love?}} « Qui aimes-tu ? », où le sujet est {{you}}."},
         { "ex": [
           {"t":"What's your name?","tr":"Comment vous appelez-vous ?","note":"mot à mot « quel est votre nom ? »"},
           {"t":"Where are you from?","tr":"D'où venez-vous ?"},
@@ -789,7 +789,7 @@
       "blocks": [
         {"goal":{"t":"I usually get up at seven on weekdays, but on Sundays I sleep late.","tr":"En semaine, je me lève d'habitude à sept heures, mais le dimanche je fais la grasse matinée."}},
         {"dialog":[{"who":"The receptionist","t":"When are you free?","tr":"Quand êtes-vous libre ?"},{"who":"You","t":"I'm usually free on Tuesdays, after five.","tr":"D'habitude, je suis libre le mardi, après cinq heures."},{"who":"The receptionist","t":"How about Tuesday, June 10, at 5:30?","tr":"Que diriez-vous du mardi 10 juin, à 17 h 30 ?"},{"who":"You","t":"Perfect. See you then!","tr":"Parfait. À mardi !"}]},
-        {"p":"**L'heure : avec it.** « Il est sept heures » : {{It's seven.}} ou {{It's seven o'clock.}} Comme le « il » français, {{it}} ne désigne rien : on l'emploie aussi pour la météo ({{It's raining.}} « Il pleut. ») et pour la date. Pour demander : {{What time is it?}}"},
+        {"p":"**L'heure : avec {{it}}.** « Il est sept heures » : {{It's seven.}} ou {{It's seven o'clock.}} Comme le « il » français, {{it}} ne désigne rien : on l'emploie aussi pour la météo ({{It's raining.}} « Il pleut. ») et pour la date. Pour demander : {{What time is it?}}"},
         { "table": [
           ["","anglais"],
           ["7 h","{{seven o'clock}}"],
@@ -800,7 +800,7 @@
           ["midi, minuit","{{noon}}, {{midnight}}"]
         ] },
         {"p":"Les Américains n'utilisent pas l'heure sur 24 heures au quotidien : 19 h, c'est {{7 p.m.}} ({{p.m.}} = après midi, {{a.m.}} = avant midi)."},
-        {"p":"**À, le, en : at, on, in.** Trois prépositions pour le temps, de la plus précise à la plus large : {{at}} pour une heure, {{on}} pour un jour ou une date, {{in}} pour un mois, une année, une saison, une partie de la journée."},
+        {"p":"**À, le, en : {{at}}, {{on}}, {{in}}.** Trois prépositions pour le temps, de la plus précise à la plus large : {{at}} pour une heure, {{on}} pour un jour ou une date, {{in}} pour un mois, une année, une saison, une partie de la journée."},
         { "table": [
           ["","exemples"],
           ["{{at}} : une heure, un moment précis","{{at seven}}, {{at noon}}, {{at night}}"],
@@ -853,7 +853,7 @@
           ["pleuvoir","{{It rains a lot here.}}","{{It's raining.}}"],
           ["porter","{{She wears glasses.}}","{{She's wearing a red dress.}}"]
         ] },
-        {"p":"**La forme : be + -ing.** {{am}}, {{is}} ou {{are}}, puis le verbe + {{-ing}} : {{I'm eating}}, {{she's sleeping}}, {{they're waiting}}. Les questions et le négatif se font comme avec {{be}} (leçon 4), sans {{do}} : {{Are you working?}} {{I'm not listening.}}"},
+        {"p":"**La forme : {{be}} + {{-ing}}.** {{am}}, {{is}} ou {{are}}, puis le verbe + {{-ing}} : {{I'm eating}}, {{she's sleeping}}, {{they're waiting}}. Les questions et le négatif se font comme avec {{be}} (leçon 4), sans {{do}} : {{Are you working?}} {{I'm not listening.}}"},
         {"p":"**L'orthographe.** Un {{-e}} final tombe : {{make}} → {{making}}. Une consonne finale après une voyelle courte double : {{run}} → {{running}}, {{sit}} → {{sitting}}."},
         {"p":"**Les verbes qui ne le prennent pas.** Les verbes d'état (savoir, aimer, vouloir, comprendre, posséder) restent au présent simple, même en ce moment : {{I know.}} « Je sais. », {{I want a coffee.}}, {{I understand.}} Jamais « I'm knowing »."},
         { "ex": [
@@ -892,7 +892,7 @@
         {"goal":{"t":"I can swim, but I can't drive.","tr":"Je sais nager, mais je ne sais pas conduire."}},
         {"dialog":[{"who":"The manager","t":"Can you speak Spanish?","tr":"Vous parlez espagnol ?"},{"who":"You","t":"No, I can't, but I can speak French and English.","tr":"Non, mais je parle français et anglais."},{"who":"The manager","t":"Great. Can you work on weekends?","tr":"Très bien. Vous pouvez travailler le week-end ?"},{"who":"You","t":"Yes, I can. Can I ask a question?","tr":"Oui. Je peux poser une question ?"},{"who":"The manager","t":"Of course.","tr":"Bien sûr."},{"who":"You","t":"Can I start next month?","tr":"Je peux commencer le mois prochain ?"}]},
         {"term":"verbe modal","means":"un petit verbe qui ajoute une idée (pouvoir, devoir, falloir…) au verbe qui le suit : {{can}}, {{must}}, {{should}}, {{will}}. Il ne change jamais et se construit sans {{to}}."},
-        {"p":"**Can : pouvoir et savoir.** {{can}} couvre « pouvoir » et « savoir faire » : {{I can swim.}} « Je sais nager. » {{I can come tomorrow.}} « Je peux venir demain. » C'est le modèle de tous les verbes modaux."},
+        {"p":"**{{Can}} : pouvoir et savoir.** {{can}} couvre « pouvoir » et « savoir faire » : {{I can swim.}} « Je sais nager. » {{I can come tomorrow.}} « Je peux venir demain. » C'est le modèle de tous les verbes modaux."},
         {"p":"**Le verbe le plus simple de l'anglais.** {{can}} ne prend jamais de {{-s}} ({{she can}}), est suivi du verbe sans {{to}} ({{I can swim}}), et n'a jamais besoin de {{do}} : on inverse pour la question ({{Can you swim?}}) et on ajoute {{not}} pour le négatif ({{can't}}, ou {{cannot}} en un seul mot)."},
         { "table": [
           ["français","anglais"],
@@ -902,7 +902,7 @@
           ["oui, non","{{Yes, I can.}} {{No, I can't.}}"]
         ] },
         {"p":"**Demander la permission, demander un service.** {{Can I…?}} « Je peux… ? » : {{Can I sit here?}} {{Can you…?}} « Tu peux… ? » : {{Can you help me?}} Plus poli : {{Could I…?}}, {{Could you…?}} {{Could you repeat that, please?}} « Vous pourriez répéter, s'il vous plaît ? »"},
-        {"p":"**Can ou can't ? Écoutez bien.** Dans la phrase, {{can}} se dit vite, presque « kn » : {{I can swim}}. {{can't}} est long et accentué, avec un « a » bien ouvert en américain, « kènt ». Le {{t}} final s'entend à peine : c'est la longueur du son qui fait la différence."},
+        {"p":"**{{Can}} ou {{can't}} ? Écoutez bien.** Dans la phrase, {{can}} se dit vite, presque « kn » : {{I can swim}}. {{can't}} est long et accentué, avec un « a » bien ouvert en américain, « kènt ». Le {{t}} final s'entend à peine : c'est la longueur du son qui fait la différence."},
         { "ex": [
           {"t":"Can you help me, please?","tr":"Vous pouvez m'aider, s'il vous plaît ?"},
           {"t":"I can't find my keys.","tr":"Je ne trouve pas mes clés.","note":"l'anglais aime {{can't}} ici : « je ne peux pas trouver »"},
@@ -940,8 +940,8 @@
         {"dialog":[{"who":"A tourist","t":"Excuse me, how do I get to the museum?","tr":"Excusez-moi, comment je vais au musée ?"},{"who":"A woman","t":"Go straight and turn right at the light.","tr":"Allez tout droit et tournez à droite au feu."},{"who":"A tourist","t":"At the light, OK.","tr":"Au feu, d'accord."},{"who":"A woman","t":"Then take the second left. The museum is across from the church.","tr":"Ensuite, prenez la deuxième à gauche. Le musée est en face de l'église."},{"who":"A tourist","t":"Thank you so much!","tr":"Merci beaucoup !"},{"who":"A woman","t":"You're welcome. And don't take the bus, it's really close!","tr":"De rien. Et ne prenez pas le bus, c'est tout près !"}]},
         {"term":"impératif","means":"la forme du verbe qui sert à dire de faire quelque chose : « Viens ! », « Tournez à gauche. »"},
         {"p":"**L'impératif : le verbe tout seul.** Rien de plus simple : on prend le verbe à la forme de base, sans sujet : {{Turn left.}} « Tournez à gauche. » {{Come here!}} « Viens ici ! » Il n'y a qu'une forme, pour « tu » comme pour « vous »."},
-        {"p":"**Ne… pas : Don't.** {{Don't}} + le verbe : {{Don't worry.}} « Ne t'inquiète pas. » {{Don't touch!}} « Ne touche pas ! » Même avec {{be}} : {{Don't be late!}} « Ne sois pas en retard ! »"},
-        {"p":"**Allons… : Let's.** Pour proposer de faire quelque chose ensemble, {{Let's}} + le verbe : {{Let's go!}} « Allons-y ! » {{Let's eat.}} « Mangeons. » Au négatif : {{Let's not…}}"},
+        {"p":"**Ne… pas : {{Don't}}.** {{Don't}} + le verbe : {{Don't worry.}} « Ne t'inquiète pas. » {{Don't touch!}} « Ne touche pas ! » Même avec {{be}} : {{Don't be late!}} « Ne sois pas en retard ! »"},
+        {"p":"**Allons… : {{Let's}}.** Pour proposer de faire quelque chose ensemble, {{Let's}} + le verbe : {{Let's go!}} « Allons-y ! » {{Let's eat.}} « Mangeons. » Au négatif : {{Let's not…}}"},
         { "table": [
           ["français","anglais"],
           ["tournez, tourne","{{Turn.}}"],
@@ -985,7 +985,7 @@
       "blocks": [
         {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"Je vais rendre visite à mes parents ce week-end."}},
         {"dialog":[{"who":"Sarah","t":"What are you going to do this summer?","tr":"Qu'est-ce que tu vas faire cet été ?"},{"who":"Hugo","t":"I'm going to travel in California. We're going to rent a car!","tr":"Je vais voyager en Californie. On va louer une voiture !"},{"who":"Sarah","t":"Awesome! How long are you going to stay?","tr":"Génial ! Tu vas rester combien de temps ?"},{"who":"Hugo","t":"Three weeks. And you?","tr":"Trois semaines. Et toi ?"},{"who":"Sarah","t":"I'm not going to travel. I'm going to work…","tr":"Je ne vais pas voyager. Je vais travailler…"}]},
-        {"p":"**Aller faire : be going to.** C'est l'équivalent exact de « je vais + infinitif » : {{be}} (leçon 2), puis {{going to}}, puis le verbe à la forme de base. {{I'm going to call my mother.}} « Je vais appeler ma mère. »"},
+        {"p":"**Aller faire : {{be going to}}.** C'est l'équivalent exact de « je vais + infinitif » : {{be}} (leçon 2), puis {{going to}}, puis le verbe à la forme de base. {{I'm going to call my mother.}} « Je vais appeler ma mère. »"},
         { "table": [
           ["français","anglais"],
           ["je vais manger","{{I'm going to eat.}}"],
@@ -1035,7 +1035,7 @@
         {"term":"prétérit","means":"le temps du passé pour une action terminée, à un moment passé : {{I worked yesterday}} « j'ai travaillé hier ». On l'appelle aussi « past simple »."},
         {"p":"**Le passé de tous les jours.** Pour raconter ce que vous avez fait, l'anglais emploie le prétérit. Pour les verbes réguliers, on ajoute {{-ed}} : {{work}} → {{worked}}. Une seule forme pour toutes les personnes : {{I worked}}, {{she worked}}, {{they worked}}. Pas d'auxiliaire comme « avoir » : {{I worked}}, c'est « j'ai travaillé » en un seul mot."},
         {"p":"**L'orthographe.** Verbe en {{-e}} : juste {{-d}} ({{live}} → {{lived}}). Consonne + {{y}} : {{-ied}} ({{study}} → {{studied}}). Une consonne finale après une voyelle courte double : {{stop}} → {{stopped}}, {{plan}} → {{planned}}."},
-        {"p":"**Trois façons de prononcer -ed.** Jamais « é » comme en français ! « t » après un son sourd ({{worked}}, {{stopped}}), « d » après un son sonore ({{played}}, {{lived}}), et « id », une syllabe de plus, seulement après {{t}} ou {{d}} ({{wanted}}, {{needed}})."},
+        {"p":"**Trois façons de prononcer {{-ed}}.** Jamais « é » comme en français ! « t » après un son sourd ({{worked}}, {{stopped}}), « d » après un son sonore ({{played}}, {{lived}}), et « id », une syllabe de plus, seulement après {{t}} ou {{d}} ({{wanted}}, {{needed}})."},
         { "table": [
           ["son","exemples"],
           ["« t »","{{worked}}, {{watched}}, {{stopped}}, {{helped}}"],
@@ -1097,7 +1097,7 @@
           ["{{think}} penser","{{thought}}","{{I thought so.}}"],
           ["{{leave}} partir, laisser","{{left}}","{{The train left.}}"]
         ] },
-        {"p":"**Be : was et were.** {{be}} a deux formes au passé : {{was}} avec {{I}}, {{he}}, {{she}}, {{it}}, et {{were}} avec {{you}}, {{we}}, {{they}} : {{It was great!}} « C'était super ! » La leçon 23 y revient."},
+        {"p":"**{{Be}} : {{was}} et {{were}}.** {{be}} a deux formes au passé : {{was}} avec {{I}}, {{he}}, {{she}}, {{it}}, et {{were}} avec {{you}}, {{we}}, {{they}} : {{It was great!}} « C'était super ! » La leçon 23 y revient."},
         {"p":"**Pour apprendre**, groupez ceux qui se ressemblent : {{buy}} → {{bought}}, {{think}} → {{thought}}, {{bring}} → {{brought}} ; {{meet}} → {{met}}, {{leave}} → {{left}}, {{feel}} → {{felt}}."},
         { "ex": [
           {"t":"I got up late on Sunday.","tr":"Je me suis levé tard dimanche."},
@@ -1134,15 +1134,15 @@
       "blocks": [
         {"goal":{"t":"Did you have a good weekend? — Yes, it was great, but I didn't do much.","tr":"Tu as passé un bon week-end ? — Oui, c'était super, mais je n'ai pas fait grand-chose."}},
         {"dialog":[{"who":"Sophie","t":"Did you go to Mike's party?","tr":"Tu es allé à la fête de Mike ?"},{"who":"Ben","t":"No, I didn't. I was really tired.","tr":"Non. J'étais vraiment fatigué."},{"who":"Sophie","t":"Oh, too bad! It was so much fun.","tr":"Oh, dommage ! C'était tellement bien."},{"who":"Ben","t":"Were there a lot of people?","tr":"Il y avait beaucoup de monde ?"},{"who":"Sophie","t":"Yes, there were about fifty people. Did you stay home?","tr":"Oui, il y avait une cinquantaine de personnes. Tu es resté chez toi ?"},{"who":"Ben","t":"Yes, I watched a movie and went to bed early.","tr":"Oui, j'ai regardé un film et je me suis couché tôt."}]},
-        {"p":"**Did : le do du passé.** Pour poser une question au prétérit, on emploie {{did}}, le passé de {{do}} (leçon 11), pour toutes les personnes. Le verbe principal revient à sa forme de base, puisque {{did}} porte déjà le passé : {{You went.}} → {{Did you go?}} (jamais « Did you went »)."},
+        {"p":"**{{Did}} : le {{do}} du passé.** Pour poser une question au prétérit, on emploie {{did}}, le passé de {{do}} (leçon 11), pour toutes les personnes. Le verbe principal revient à sa forme de base, puisque {{did}} porte déjà le passé : {{You went.}} → {{Did you go?}} (jamais « Did you went »)."},
         { "table": [
           ["affirmation","question","négatif"],
           ["{{I worked.}}","{{Did you work?}}","{{I didn't work.}}"],
           ["{{She went out.}}","{{Did she go out?}}","{{She didn't go out.}}"],
           ["{{They saw it.}}","{{Did they see it?}}","{{They didn't see it.}}"]
         ] },
-        {"p":"**Le négatif : didn't + forme de base.** {{I didn't go.}} « Je n'y suis pas allé. » {{She didn't call.}} « Elle n'a pas appelé. » Les réponses courtes : {{Yes, I did.}} / {{No, I didn't.}}"},
-        {"p":"**Be au passé : was, were.** {{be}}, lui, se passe de {{did}}, comme au présent (leçon 4) : on inverse et on ajoute {{not}}."},
+        {"p":"**Le négatif : {{didn't}} + forme de base.** {{I didn't go.}} « Je n'y suis pas allé. » {{She didn't call.}} « Elle n'a pas appelé. » Les réponses courtes : {{Yes, I did.}} / {{No, I didn't.}}"},
+        {"p":"**{{Be}} au passé : {{was}}, {{were}}.** {{be}}, lui, se passe de {{did}}, comme au présent (leçon 4) : on inverse et on ajoute {{not}}."},
         { "table": [
           ["","affirmatif","négatif","question"],
           ["{{I}}, {{he}}, {{she}}, {{it}}","{{was}}","{{wasn't}}","{{Was it…?}}"],
@@ -1192,7 +1192,7 @@
           ["exemple","{{I was reading.}} « Je lisais. »","{{Someone knocked.}} « Quelqu'un a frappé. »"]
         ] },
         {"p":"**Une action interrompue.** {{I was taking a shower when the phone rang.}} « Je prenais ma douche quand le téléphone a sonné. » L'action longue au continu, l'action courte qui l'interrompt au prétérit. {{while}} « pendant que » introduit souvent l'action longue : {{While I was cooking, the kids were watching TV.}}"},
-        {"p":"**Attention : l'imparfait n'est pas toujours was …-ing.** Le prétérit continu ne sert qu'aux actions **en cours**. Pour une description ({{It was cold.}} « Il faisait froid. ») ou un état ({{I was tired.}}, {{I knew him.}}), l'anglais emploie le prétérit simple. Pour une habitude passée, voyez la leçon 25."},
+        {"p":"**Attention : l'imparfait n'est pas toujours {{was}} + {{-ing}}.** Le prétérit continu ne sert qu'aux actions **en cours**. Pour une description ({{It was cold.}} « Il faisait froid. ») ou un état ({{I was tired.}}, {{I knew him.}}), l'anglais emploie le prétérit simple. Pour une habitude passée, voyez la leçon 25."},
         {"p":"**Les mots du récit.** {{suddenly}} (tout à coup), {{then}} (ensuite), {{after that}} (après ça), {{when}} (quand), {{while}} (pendant que)."},
         { "ex": [
           {"t":"It was raining, so we stayed home.","tr":"Il pleuvait, alors nous sommes restés à la maison."},
@@ -1229,7 +1229,7 @@
       "blocks": [
         {"goal":{"t":"When I was a kid, I used to play outside all day.","tr":"Quand j'étais petit, je jouais dehors toute la journée."}},
         {"dialog":[{"who":"Léa","t":"Is that you in the photo, Grandma?","tr":"C'est toi sur la photo, mamie ?"},{"who":"Grandma","t":"Yes! I was ten. We used to live in a small town in Ohio.","tr":"Oui ! J'avais dix ans. Nous habitions dans une petite ville de l'Ohio."},{"who":"Léa","t":"Did you use to walk to school?","tr":"Tu allais à l'école à pied ?"},{"who":"Grandma","t":"Yes, every day. And we didn't use to have a TV!","tr":"Oui, tous les jours. Et nous n'avions pas de télé !"},{"who":"Léa","t":"What did you use to do in the evening?","tr":"Qu'est-ce que vous faisiez le soir ?"},{"who":"Grandma","t":"We used to play cards and listen to the radio.","tr":"Nous jouions aux cartes et nous écoutions la radio."}]},
-        {"p":"**L'imparfait d'habitude : used to.** Pour une habitude passée qui n'existe plus, l'anglais dit {{used to}} + verbe : {{I used to smoke.}} « Avant, je fumais. » {{We used to live in Ohio.}} « Nous habitions dans l'Ohio. » C'est souvent la meilleure traduction de l'imparfait d'habitude."},
+        {"p":"**L'imparfait d'habitude : {{used to}}.** Pour une habitude passée qui n'existe plus, l'anglais dit {{used to}} + verbe : {{I used to smoke.}} « Avant, je fumais. » {{We used to live in Ohio.}} « Nous habitions dans l'Ohio. » C'est souvent la meilleure traduction de l'imparfait d'habitude."},
         {"p":"**La forme.** {{used to}} ne change pas selon la personne. La question et le négatif se font avec {{did}}, et alors {{use to}}, sans {{d}} : {{Did you use to…?}} {{I didn't use to…}}"},
         { "table": [
           ["français","anglais"],
@@ -1292,7 +1292,7 @@
           ["{{make money}} gagner de l'argent","{{do your best}} faire de son mieux"],
           ["{{make a decision}} prendre une décision","{{do business}} faire des affaires"]
         ] },
-        {"p":"**Do pour le vague.** Avec {{something}}, {{nothing}}, {{anything}}, {{what}}, c'est {{do}} : {{What are you doing?}} {{I didn't do anything.}} « Je n'ai rien fait. »"},
+        {"p":"**{{Do}} pour le vague.** Avec {{something}}, {{nothing}}, {{anything}}, {{what}}, c'est {{do}} : {{What are you doing?}} {{I didn't do anything.}} « Je n'ai rien fait. »"},
         {"p":"**Et parfois ni l'un ni l'autre.** Beaucoup d'expressions françaises avec « faire » prennent un autre verbe en anglais : {{take a walk}} (faire une promenade), {{go shopping}} (faire du shopping), {{take a trip}} (faire un voyage), {{pack}} (faire sa valise), {{It's cold.}} (il fait froid)."},
         { "ex": [
           {"t":"She made a delicious cake.","tr":"Elle a fait un délicieux gâteau."},
@@ -1330,7 +1330,7 @@
         {"goal":{"t":"I called her, but she didn't answer me.","tr":"Je l'ai appelée, mais elle ne m'a pas répondu."}},
         {"dialog":[{"who":"The clerk","t":"Do you like this jacket?","tr":"Cette veste vous plaît ?"},{"who":"You","t":"Yes, I love it! Can I try it on?","tr":"Oui, je l'adore ! Je peux l'essayer ?"},{"who":"The clerk","t":"Of course. And these shoes?","tr":"Bien sûr. Et ces chaussures ?"},{"who":"You","t":"I want them too!","tr":"Je les veux aussi !"},{"who":"The clerk","t":"Great. I can put them in a bag for you.","tr":"Parfait. Je vous les mets dans un sac."}]},
         {"term":"complément d'objet","means":"la personne ou la chose sur laquelle porte l'action du verbe : j'aime **Marie** ; je **lui** parle."},
-        {"p":"**Me, him, her…** Pour ne pas répéter un nom, l'anglais a une série de pronoms compléments :"},
+        {"p":"**{{Me}}, {{him}}, {{her}}…** Pour ne pas répéter un nom, l'anglais a une série de pronoms compléments :"},
         { "table": [
           ["sujet","complément","exemple"],
           ["{{I}}","{{me}}","{{Call me.}} « Appelle-moi. »"],
@@ -1343,7 +1343,7 @@
         ] },
         {"p":"**Après le verbe.** C'est l'inverse du français : le pronom vient **après** le verbe. « Je l'aime » → {{I love her}}, mot à mot « j'aime elle ». « Il me parle » → {{He talks to me}}."},
         {"p":"**« Le » ou « lui » : pareil.** L'anglais ne distingue pas « le » et « lui » : {{I see him}} « je le vois », {{I talk to him}} « je lui parle ». Après une préposition, toujours la forme complément : {{with me}}, {{for her}}, {{to them}}."},
-        {"p":"**N'oubliez pas it.** En français, on dit volontiers « J'aime bien », « Je connais », sans complément. En anglais, le verbe en a souvent besoin : {{Do you like the movie? — Yes, I like it.}}, jamais « Yes, I like »."},
+        {"p":"**N'oubliez pas {{it}}.** En français, on dit volontiers « J'aime bien », « Je connais », sans complément. En anglais, le verbe en a souvent besoin : {{Do you like the movie? — Yes, I like it.}}, jamais « Yes, I like »."},
         { "ex": [
           {"t":"Can you help me?","tr":"Tu peux m'aider ?"},
           {"t":"I don't know her.","tr":"Je ne la connais pas."},
@@ -1388,7 +1388,7 @@
           ["plus … que","{{cheaper than}}","{{more expensive than}}"],
           ["le plus","{{the cheapest}}","{{the most expensive}}"]
         ] },
-        {"p":"**Le plus : the -est, the most.** {{the cheapest}} « le moins cher », {{the most beautiful}} « le plus beau ». Le « de » qui suit se dit {{in}} pour un lieu : {{the best restaurant in town}} « le meilleur restaurant de la ville »."},
+        {"p":"**Le plus : {{the -est}}, {{the most}}.** {{the cheapest}} « le moins cher », {{the most beautiful}} « le plus beau ». Le « de » qui suit se dit {{in}} pour un lieu : {{the best restaurant in town}} « le meilleur restaurant de la ville »."},
         {"p":"**Les irréguliers** : {{good}} → {{better}} → {{the best}} ; {{bad}} → {{worse}} → {{the worst}} ; {{far}} → {{farther}} → {{the farthest}}."},
         {"p":"**Moins, aussi.** {{less}} + adjectif veut dire « moins » ({{less expensive}}), mais on préfère souvent l'inverse : {{cheaper}}. « Aussi … que » se dit {{as … as}} : {{She's as tall as her mother.}} « Elle est aussi grande que sa mère. »"},
         { "ex": [
@@ -1426,15 +1426,15 @@
       "blocks": [
         {"goal":{"t":"Don't worry, I'll call you tomorrow.","tr":"Ne t'inquiète pas, je t'appellerai demain."}},
         {"dialog":[{"who":"The server","t":"Are you ready to order?","tr":"Vous avez choisi ?"},{"who":"You","t":"Hmm… I'll have the salmon, please.","tr":"Hmm… Je vais prendre le saumon, s'il vous plaît."},{"who":"Your friend","t":"And I'll have the steak.","tr":"Et moi, je prendrai le steak."},{"who":"The server","t":"Great. I'll bring your drinks right away.","tr":"Très bien. Je vous apporte vos boissons tout de suite."},{"who":"Your friend","t":"By the way, what are you doing tomorrow?","tr":"Au fait, tu fais quoi demain ?"},{"who":"You","t":"I'm meeting my boss at ten. It won't be fun!","tr":"J'ai rendez-vous avec mon patron à dix heures. Ça ne va pas être drôle !"}]},
-        {"p":"**Will : le futur.** {{will}} + la forme de base, pour toutes les personnes (c'est un modal, comme {{can}}, leçon 18) : {{I will call}}, souvent {{I'll call}} à l'oral. Le négatif : {{will not}} → {{won't}} : {{It won't take long.}} « Ça ne prendra pas longtemps. »"},
-        {"p":"**Trois usages de will.**"},
+        {"p":"**{{Will}} : le futur.** {{will}} + la forme de base, pour toutes les personnes (c'est un modal, comme {{can}}, leçon 18) : {{I will call}}, souvent {{I'll call}} à l'oral. Le négatif : {{will not}} → {{won't}} : {{It won't take long.}} « Ça ne prendra pas longtemps. »"},
+        {"p":"**Trois usages de {{will}}.**"},
         { "table": [
           ["usage","exemple"],
           ["une décision prise sur le moment","{{I'm thirsty. — I'll get you some water.}} « Je vais te chercher de l'eau. »"],
           ["une promesse, une offre","{{I'll help you.}} « Je vais t'aider. » {{I won't tell anyone.}} « Je ne le dirai à personne. »"],
           ["une prévision, un avis sur l'avenir","{{It will be sunny tomorrow.}} {{I think you'll love it.}}"]
         ] },
-        {"p":"**Will ou going to ?** {{going to}} (leçon 20) : un projet décidé à l'avance. {{will}} : une décision prise à l'instant. {{I'm going to buy a car}} : j'y pense depuis longtemps. {{It's raining? I'll take an umbrella}} : je viens de le décider."},
+        {"p":"**{{Will}} ou {{going to}} ?** {{going to}} (leçon 20) : un projet décidé à l'avance. {{will}} : une décision prise à l'instant. {{I'm going to buy a car}} : j'y pense depuis longtemps. {{It's raining? I'll take an umbrella}} : je viens de le décider."},
         {"p":"**Un rendez-vous : le présent continu.** Pour un projet fixé dans l'agenda, l'anglais emploie souvent le présent continu (leçon 17) : {{I'm meeting Tom tomorrow.}} « Je vois Tom demain. » {{We're leaving on Friday.}} « Nous partons vendredi. »"},
         {"p":"**Pas le présent simple.** Le français dit volontiers « je t'appelle demain », au présent. En anglais, le présent simple ne sert pas à cela : {{I'll call you tomorrow.}}"},
         { "ex": [
@@ -1472,10 +1472,10 @@
       "blocks": [
         {"goal":{"t":"You should see a doctor. — I know, but I have to work tomorrow.","tr":"Tu devrais voir un médecin. — Je sais, mais je dois travailler demain."}},
         {"dialog":[{"who":"The pharmacist","t":"What's the problem?","tr":"Qu'est-ce qui ne va pas ?"},{"who":"You","t":"I have a sore throat and a fever.","tr":"J'ai mal à la gorge et j'ai de la fièvre."},{"who":"The pharmacist","t":"You should rest and drink a lot of water.","tr":"Vous devriez vous reposer et boire beaucoup d'eau."},{"who":"You","t":"Do I have to see a doctor?","tr":"Je dois voir un médecin ?"},{"who":"The pharmacist","t":"If the fever doesn't go down, yes. And you must take these pills with food.","tr":"Si la fièvre ne baisse pas, oui. Et vous devez prendre ces comprimés en mangeant."}]},
-        {"p":"**Un conseil : should.** {{should}} + la forme de base, c'est « tu devrais » : {{You should rest.}} « Tu devrais te reposer. » Négatif : {{You shouldn't eat so much sugar.}} C'est un modal (leçon 18) : pas de {{-s}}, pas de {{to}}, pas de {{do}}."},
-        {"p":"**Une obligation : have to.** {{have to}} « devoir, être obligé de » : {{I have to work tomorrow.}} Comme {{have}} est un verbe ordinaire, il change ({{she has to}}), prend {{do}} ({{Do you have to work?}}) et a un passé ({{I had to leave}} « j'ai dû partir »)."},
-        {"p":"**Une règle : must.** {{must}} exprime une obligation forte, souvent écrite (règlements, consignes) : {{You must wear a seatbelt.}} « Vous devez attacher votre ceinture. » À l'oral, les Américains préfèrent {{have to}}."},
-        {"p":"**Le piège : mustn't n'est pas don't have to.** En français, « tu ne dois pas » veut dire « c'est interdit ». En anglais, {{you mustn't}} veut bien dire « c'est interdit », mais {{you don't have to}} veut dire « tu n'es pas obligé » : c'est permis, mais pas nécessaire."},
+        {"p":"**Un conseil : {{should}}.** {{should}} + la forme de base, c'est « tu devrais » : {{You should rest.}} « Tu devrais te reposer. » Négatif : {{You shouldn't eat so much sugar.}} C'est un modal (leçon 18) : pas de {{-s}}, pas de {{to}}, pas de {{do}}."},
+        {"p":"**Une obligation : {{have to}}.** {{have to}} « devoir, être obligé de » : {{I have to work tomorrow.}} Comme {{have}} est un verbe ordinaire, il change ({{she has to}}), prend {{do}} ({{Do you have to work?}}) et a un passé ({{I had to leave}} « j'ai dû partir »)."},
+        {"p":"**Une règle : {{must}}.** {{must}} exprime une obligation forte, souvent écrite (règlements, consignes) : {{You must wear a seatbelt.}} « Vous devez attacher votre ceinture. » À l'oral, les Américains préfèrent {{have to}}."},
+        {"p":"**Le piège : {{mustn't}} n'est pas {{don't have to}}.** En français, « tu ne dois pas » veut dire « c'est interdit ». En anglais, {{you mustn't}} veut bien dire « c'est interdit », mais {{you don't have to}} veut dire « tu n'es pas obligé » : c'est permis, mais pas nécessaire."},
         { "table": [
           ["anglais","sens","français"],
           ["{{You should go.}}","conseil","Tu devrais y aller."],
@@ -1521,7 +1521,7 @@
         {"dialog":[{"who":"Kate","t":"Have you ever eaten snails?","tr":"Tu as déjà mangé des escargots ?"},{"who":"Ben","t":"Yes, I have! In Paris. Have you?","tr":"Oui ! À Paris. Et toi ?"},{"who":"Kate","t":"No, I've never tried them. I've never been to France.","tr":"Non, je n'en ai jamais goûté. Je ne suis jamais allée en France."},{"who":"Ben","t":"Really? You should go! Have you ever traveled to Europe?","tr":"Vraiment ? Tu devrais y aller ! Tu as déjà voyagé en Europe ?"},{"who":"Kate","t":"Yes, I've been to Spain twice.","tr":"Oui, je suis allée deux fois en Espagne."}]},
         {"term":"participe passé","means":"la forme du verbe qui sert à former les temps composés : « mangé », « vu ». En anglais : {{eaten}}, {{seen}}, {{worked}}."},
         {"term":"present perfect","means":"le temps formé de {{have}} + participe passé ({{I have seen}}). Il relie le passé au présent : une expérience de la vie, un changement visible maintenant, une situation qui dure encore."},
-        {"p":"**Have + participe passé.** Le present perfect ressemble au passé composé ({{I have eaten}} « j'ai mangé »), mais il ne s'emploie pas pareil. Premier usage : parler de vos expériences, sans dire quand : {{I've been to Japan.}} « Je suis déjà allé au Japon. »"},
+        {"p":"**{{Have}} + participe passé.** Le present perfect ressemble au passé composé ({{I have eaten}} « j'ai mangé »), mais il ne s'emploie pas pareil. Premier usage : parler de vos expériences, sans dire quand : {{I've been to Japan.}} « Je suis déjà allé au Japon. »"},
         { "table": [
           ["français","anglais"],
           ["j'ai déjà vu…","{{I've seen…}}"],
@@ -1530,9 +1530,9 @@
           ["je n'ai jamais…","{{I've never…}}"],
           ["réponses courtes","{{Yes, I have.}} {{No, I haven't.}}"]
         ] },
-        {"p":"**Ever et never.** {{ever}} « déjà, une fois dans ta vie » s'emploie dans les questions : {{Have you ever seen a ghost?}} {{never}} « jamais » est déjà négatif : {{I've never seen a ghost.}}, sans {{not}}."},
+        {"p":"**{{Ever}} et {{never}}.** {{ever}} « déjà, une fois dans ta vie » s'emploie dans les questions : {{Have you ever seen a ghost?}} {{never}} « jamais » est déjà négatif : {{I've never seen a ghost.}}, sans {{not}}."},
         {"p":"**Les participes.** Réguliers : comme le prétérit, en {{-ed}} ({{worked}}, {{visited}}). Irréguliers : souvent une troisième forme à apprendre : {{be}} → {{been}}, {{go}} → {{gone}}, {{see}} → {{seen}}, {{eat}} → {{eaten}}, {{do}} → {{done}}, {{take}} → {{taken}}, {{write}} → {{written}}. Mais beaucoup sont identiques au prétérit : {{had}}, {{made}}, {{bought}}, {{met}}. En américain, {{get}} → {{gotten}}."},
-        {"p":"**Been ou gone ?** {{She has been to Paris}} : elle y est allée et elle est revenue (une expérience). {{She has gone to Paris}} : elle y est partie, elle n'est pas là."},
+        {"p":"**{{Been}} ou {{gone}} ?** {{She has been to Paris}} : elle y est allée et elle est revenue (une expérience). {{She has gone to Paris}} : elle y est partie, elle n'est pas là."},
         { "ex": [
           {"t":"I've been to Canada three times.","tr":"Je suis allé au Canada trois fois."},
           {"t":"Have you ever seen a bear?","tr":"Tu as déjà vu un ours ?"},
@@ -1614,7 +1614,7 @@
         {"goal":{"t":"I've lived in Lyon for three years.","tr":"J'habite à Lyon depuis trois ans."}},
         {"dialog":[{"who":"The doctor","t":"How long have you had this pain?","tr":"Depuis combien de temps avez-vous cette douleur ?"},{"who":"You","t":"For three days.","tr":"Depuis trois jours."},{"who":"The doctor","t":"And have you had a fever?","tr":"Et vous avez de la fièvre ?"},{"who":"You","t":"Yes, since last night. I've been sleeping badly since Monday.","tr":"Oui, depuis hier soir. Je dors mal depuis lundi."},{"who":"The doctor","t":"OK. Take this medicine for a week.","tr":"D'accord. Prenez ce médicament pendant une semaine."}]},
         {"p":"**Depuis : pas de présent.** C'est le piège le plus célèbre des francophones. En français : « j'habite ici depuis trois ans », au présent. En anglais, une situation qui a commencé dans le passé et qui dure encore se met au present perfect : {{I've lived here for three years.}} Jamais « I live here since three years »."},
-        {"p":"**For ou since ?** « Depuis » a deux traductions. {{for}} + une **durée** : {{for three years}}, {{for two hours}}, {{for a long time}}. {{since}} + un **point de départ** : {{since 2020}}, {{since Monday}}, {{since I was a child}}."},
+        {"p":"**{{For}} ou {{since}} ?** « Depuis » a deux traductions. {{for}} + une **durée** : {{for three years}}, {{for two hours}}, {{for a long time}}. {{since}} + un **point de départ** : {{since 2020}}, {{since Monday}}, {{since I was a child}}."},
         { "table": [
           ["français","anglais"],
           ["depuis trois ans","{{for three years}}"],
@@ -1623,7 +1623,7 @@
           ["depuis longtemps","{{for a long time}}"],
           ["depuis combien de temps… ?","{{How long have you…?}}"]
         ] },
-        {"p":"**Une activité qui dure : been + -ing.** Pour une activité en cours depuis un moment, on emploie souvent le present perfect continu, {{have been}} + {{-ing}} : {{I've been waiting for an hour!}} « J'attends depuis une heure ! » {{She's been studying English since September.}} Les verbes d'état gardent le present perfect simple : {{I've known him for years.}}"},
+        {"p":"**Une activité qui dure : {{been}} + {{-ing}}.** Pour une activité en cours depuis un moment, on emploie souvent le present perfect continu, {{have been}} + {{-ing}} : {{I've been waiting for an hour!}} « J'attends depuis une heure ! » {{She's been studying English since September.}} Les verbes d'état gardent le present perfect simple : {{I've known him for years.}}"},
         {"p":"**Et « il y a » ?** Ne confondez pas avec {{ago}} (leçon 21) : {{I moved here three years ago}} « j'ai emménagé il y a trois ans » (un moment), {{I've lived here for three years}} « j'habite ici depuis trois ans » (une durée qui continue)."},
         { "ex": [
           {"t":"We've been married for twenty years.","tr":"Nous sommes mariés depuis vingt ans."},
@@ -1660,10 +1660,10 @@
       "blocks": [
         {"goal":{"t":"I've just arrived at the station. Where are you?","tr":"Je viens d'arriver à la gare. Tu es où ?"}},
         {"dialog":[{"who":"Lucas","t":"Hi! Are you ready?","tr":"Salut ! Tu es prête ?"},{"who":"Emma","t":"Almost. I've just gotten out of the shower.","tr":"Presque. Je viens de sortir de la douche."},{"who":"Lucas","t":"Have you called the restaurant yet?","tr":"Tu as appelé le restaurant ?"},{"who":"Emma","t":"Yes, I've already booked a table for eight.","tr":"Oui, j'ai déjà réservé une table pour huit heures."},{"who":"Lucas","t":"Great. I'm still at the office, but I'm leaving now.","tr":"Super. Je suis encore au bureau, mais je pars maintenant."}]},
-        {"p":"**Venir de : just.** « Je viens de… » se dit avec le present perfect et {{just}}, placé entre {{have}} et le participe : {{I've just arrived.}} « Je viens d'arriver. » Ne traduisez pas « venir » : « I come from arriving » ne veut rien dire. (Aux États-Unis, on entend aussi {{I just arrived}}, au prétérit.)"},
-        {"p":"**Déjà : already.** {{already}} « déjà » (plus tôt que prévu), entre {{have}} et le participe : {{I've already eaten.}} « J'ai déjà mangé. »"},
-        {"p":"**Yet : dans les questions et au négatif.** {{yet}} se place en fin de phrase. Dans une question, il veut dire « déjà » : {{Have you finished yet?}} « Tu as (déjà) fini ? » Au négatif, « pas encore » : {{I haven't finished yet.}} En réponse courte : {{Not yet.}} « Pas encore. »"},
-        {"p":"**Toujours, encore : still.** {{still}} dit qu'une situation continue : {{I'm still at the office.}} « Je suis encore au bureau. » {{She still lives with her parents.}} Il se place avant le verbe, mais après {{be}}."},
+        {"p":"**Venir de : {{just}}.** « Je viens de… » se dit avec le present perfect et {{just}}, placé entre {{have}} et le participe : {{I've just arrived.}} « Je viens d'arriver. » Ne traduisez pas « venir » : « I come from arriving » ne veut rien dire. (Aux États-Unis, on entend aussi {{I just arrived}}, au prétérit.)"},
+        {"p":"**Déjà : {{already}}.** {{already}} « déjà » (plus tôt que prévu), entre {{have}} et le participe : {{I've already eaten.}} « J'ai déjà mangé. »"},
+        {"p":"**{{Yet}} : dans les questions et au négatif.** {{yet}} se place en fin de phrase. Dans une question, il veut dire « déjà » : {{Have you finished yet?}} « Tu as (déjà) fini ? » Au négatif, « pas encore » : {{I haven't finished yet.}} En réponse courte : {{Not yet.}} « Pas encore. »"},
+        {"p":"**Toujours, encore : {{still}}.** {{still}} dit qu'une situation continue : {{I'm still at the office.}} « Je suis encore au bureau. » {{She still lives with her parents.}} Il se place avant le verbe, mais après {{be}}."},
         { "table": [
           ["français","anglais"],
           ["je viens de manger","{{I've just eaten.}}"],
@@ -1716,7 +1716,7 @@
           ["Dès qu'il sera là, on mangera.","{{As soon as he gets here, we'll eat.}}"],
           ["Avant de partir, je fermerai la porte.","{{Before I leave, I'll lock the door.}}"]
         ] },
-        {"p":"**Unless : sauf si.** {{unless}} = {{if … not}} : {{We'll go to the beach unless it rains.}} « On ira à la plage, sauf s'il pleut. »"},
+        {"p":"**{{Unless}} : sauf si.** {{unless}} = {{if … not}} : {{We'll go to the beach unless it rains.}} « On ira à la plage, sauf s'il pleut. »"},
         {"p":"**Une vérité générale** : le présent des deux côtés. {{If you heat water, it boils.}} {{When it rains, I take the bus.}}"},
         { "ex": [
           {"t":"If you're hungry, there's some pizza in the fridge.","tr":"Si tu as faim, il y a de la pizza dans le frigo."},
@@ -1754,10 +1754,10 @@
         {"goal":{"t":"Would you like some coffee? — Yes, please. Could you add a little milk?","tr":"Vous voulez du café ? — Oui, s'il vous plaît. Vous pourriez ajouter un peu de lait ?"}},
         {"dialog":[{"who":"The receptionist","t":"Good morning, Grand Hotel. How can I help you?","tr":"Bonjour, Grand Hôtel. Que puis-je faire pour vous ?"},{"who":"You","t":"Good morning. I'd like to book a room for Saturday, please.","tr":"Bonjour. Je voudrais réserver une chambre pour samedi, s'il vous plaît."},{"who":"The receptionist","t":"Of course. Would you like a room with a view?","tr":"Bien sûr. Vous voulez une chambre avec vue ?"},{"who":"You","t":"Yes, that would be great. Could you send me a confirmation by email?","tr":"Oui, ce serait parfait. Vous pourriez m'envoyer une confirmation par e-mail ?"},{"who":"The receptionist","t":"Certainly. Would you mind spelling your name?","tr":"Certainement. Ça vous dérangerait d'épeler votre nom ?"}]},
         {"term":"conditionnel","means":"en français, le temps de « je voudrais », « je pourrais ». En anglais, il se forme avec {{would}} + la forme de base ({{I would go}}), et {{could}} sert de conditionnel à {{can}}."},
-        {"p":"**Offrir, inviter : Would you like…?** {{Would you like…?}} « Voulez-vous… ? Vous aimeriez… ? » est la façon polie d'offrir ou d'inviter : {{Would you like a drink?}} {{Would you like to come for dinner?}} Réponses : {{Yes, please.}} {{No, thank you.}} {{I'd love to!}} « Avec plaisir ! »"},
-        {"p":"**Demander poliment : Could you…?** {{Could you…?}} « Pourriez-vous… ? » est plus poli que {{Can you…?}} (leçon 18). Plus poli encore : {{Would you mind}} + {{-ing}}, « Ça vous dérangerait de… ? » : {{Would you mind closing the window?}} Attention : pour dire oui, on répond {{No, not at all}}, « non, ça ne me dérange pas »."},
+        {"p":"**Offrir, inviter : {{Would you like…?}}** {{Would you like…?}} « Voulez-vous… ? Vous aimeriez… ? » est la façon polie d'offrir ou d'inviter : {{Would you like a drink?}} {{Would you like to come for dinner?}} Réponses : {{Yes, please.}} {{No, thank you.}} {{I'd love to!}} « Avec plaisir ! »"},
+        {"p":"**Demander poliment : {{Could you…?}}** {{Could you…?}} « Pourriez-vous… ? » est plus poli que {{Can you…?}} (leçon 18). Plus poli encore : {{Would you mind}} + {{-ing}}, « Ça vous dérangerait de… ? » : {{Would you mind closing the window?}} Attention : pour dire oui, on répond {{No, not at all}}, « non, ça ne me dérange pas »."},
         {"p":"**Proposer son aide.** {{Do you want me to…?}} ou {{Would you like me to…?}} « Vous voulez que je… ? » : {{Do you want me to call a taxi?}}"},
-        {"p":"**Vouloir que quelqu'un fasse : want + personne + to.** C'est le grand piège. En français : « je veux que tu viennes ». En anglais, pas de {{that}} : {{want}} + la personne (forme complément, leçon 27) + {{to}} + le verbe. {{I want you to come.}} {{She'd like me to help her.}}"},
+        {"p":"**Vouloir que quelqu'un fasse : {{want}} + personne + {{to}}.** C'est le grand piège. En français : « je veux que tu viennes ». En anglais, pas de {{that}} : {{want}} + la personne (forme complément, leçon 27) + {{to}} + le verbe. {{I want you to come.}} {{She'd like me to help her.}}"},
         { "table": [
           ["français","anglais"],
           ["Je veux que tu viennes.","{{I want you to come.}}"],
@@ -1811,9 +1811,9 @@
           ["comme, puisque","{{since}}","{{Since you're here, let's start.}}"],
           ["pour (un but)","{{to}} + verbe","{{I'm going out to buy bread.}}"]
         ] },
-        {"p":"**Pour faire quelque chose : to, pas for.** Pour dire le but d'une action, l'anglais met {{to}} + le verbe : {{I'm saving money to buy a car.}} « J'économise pour acheter une voiture. » Le mot à mot « for to buy » ou « for buy » est une faute très fréquente. {{for}} se met devant un nom : {{I went out for a walk.}} {{This is for you.}}"},
-        {"p":"**So, deux sens.** {{so}} veut dire « donc » ({{I was tired, so I went to bed.}}), et aussi « tellement » devant un adjectif ({{It's so beautiful!}})."},
-        {"p":"**Although, even though** « bien que, même si » : le verbe qui suit est tout à fait normal. Il n'y a pas de subjonctif en anglais : {{Although it's late, I'm not tired.}}"},
+        {"p":"**Pour faire quelque chose : {{to}}, pas {{for}}.** Pour dire le but d'une action, l'anglais met {{to}} + le verbe : {{I'm saving money to buy a car.}} « J'économise pour acheter une voiture. » Le mot à mot « for to buy » ou « for buy » est une faute très fréquente. {{for}} se met devant un nom : {{I went out for a walk.}} {{This is for you.}}"},
+        {"p":"**{{So}}, deux sens.** {{so}} veut dire « donc » ({{I was tired, so I went to bed.}}), et aussi « tellement » devant un adjectif ({{It's so beautiful!}})."},
+        {"p":"**{{Although}}, {{even though}}** « bien que, même si » : le verbe qui suit est tout à fait normal. Il n'y a pas de subjonctif en anglais : {{Although it's late, I'm not tired.}}"},
         { "ex": [
           {"t":"Why are you laughing? — Because it's funny!","tr":"Pourquoi tu ris ? — Parce que c'est drôle !"},
           {"t":"I was hungry, so I made a sandwich.","tr":"J'avais faim, alors je me suis fait un sandwich."},
@@ -1907,10 +1907,10 @@
           ["possible (leçon 35)","présent : {{If it's sunny,}}","{{will}} : {{we'll go to the beach.}}"],
           ["imaginaire","prétérit : {{If it was sunny,}}","{{would}} : {{we'd go to the beach.}}"]
         ] },
-        {"p":"**Jamais de would après if.** Comme en français, où « si j'aurais » est une faute, l'anglais ne met pas {{would}} après {{if}} : {{if I had}}, et non « if I would have »."},
-        {"p":"**If I were.** Avec {{be}}, l'anglais soigné dit {{were}} pour toutes les personnes : {{If I were rich…}}, {{If she were here…}} À l'oral, on entend aussi {{If I was}}. Pour un conseil : {{If I were you, I'd call her.}} « À ta place, je l'appellerais. »"},
-        {"p":"**Could, aussi.** {{could}} veut dire « pourrait » : {{If I had a car, I could visit you more often.}}"},
-        {"p":"**Regretter : I wish.** {{I wish}} + prétérit, « j'aimerais que… », pour une chose qui n'est pas vraie : {{I wish I spoke Spanish.}} « J'aimerais parler espagnol. » {{I wish I were taller!}}"},
+        {"p":"**Jamais de {{would}} après {{if}}.** Comme en français, où « si j'aurais » est une faute, l'anglais ne met pas {{would}} après {{if}} : {{if I had}}, et non « if I would have »."},
+        {"p":"**{{If I were}}.** Avec {{be}}, l'anglais soigné dit {{were}} pour toutes les personnes : {{If I were rich…}}, {{If she were here…}} À l'oral, on entend aussi {{If I was}}. Pour un conseil : {{If I were you, I'd call her.}} « À ta place, je l'appellerais. »"},
+        {"p":"**{{Could}}, aussi.** {{could}} veut dire « pourrait » : {{If I had a car, I could visit you more often.}}"},
+        {"p":"**Regretter : {{I wish}}.** {{I wish}} + prétérit, « j'aimerais que… », pour une chose qui n'est pas vraie : {{I wish I spoke Spanish.}} « J'aimerais parler espagnol. » {{I wish I were taller!}}"},
         { "ex": [
           {"t":"If I had a car, I'd go to the mountains this weekend.","tr":"Si j'avais une voiture, j'irais à la montagne ce week-end."},
           {"t":"What would you do in my place?","tr":"Que ferais-tu à ma place ?"},
@@ -1946,7 +1946,7 @@
         {"goal":{"t":"The woman who lives next door is a doctor.","tr":"La femme qui habite à côté est médecin."}},
         {"dialog":[{"who":"Mark","t":"Do you know the woman who's talking to Julien?","tr":"Tu connais la femme qui parle avec Julien ?"},{"who":"Lisa","t":"Yes, that's Claire, the colleague I met in Chicago.","tr":"Oui, c'est Claire, la collègue que j'ai rencontrée à Chicago."},{"who":"Mark","t":"The one who works in movies?","tr":"Celle qui travaille dans le cinéma ?"},{"who":"Lisa","t":"Exactly. And the restaurant where she took us was amazing.","tr":"Exactement. Et le restaurant où elle nous a emmenés était incroyable."},{"who":"Mark","t":"Can you give me the name? It's a place I'd love to try.","tr":"Tu peux me donner le nom ? C'est un endroit que j'aimerais essayer."}]},
         {"term":"proposition relative","means":"un groupe de mots qui décrit un nom et commence par {{who}}, {{which}}, {{that}} ou {{where}} : l'homme **qui habite ici**."},
-        {"p":"**Qui, que : who, which, that.** {{who}} pour une personne, {{which}} pour une chose, {{that}} pour les deux (le plus courant à l'oral). Contrairement au français, il n'y a pas de différence entre « qui » et « que » : c'est le même mot."},
+        {"p":"**Qui, que : {{who}}, {{which}}, {{that}}.** {{who}} pour une personne, {{which}} pour une chose, {{that}} pour les deux (le plus courant à l'oral). Contrairement au français, il n'y a pas de différence entre « qui » et « que » : c'est le même mot."},
         { "table": [
           ["français","anglais"],
           ["l'ami qui habite à Nice","{{the friend who lives in Nice}}"],
@@ -1957,7 +1957,7 @@
         ] },
         {"p":"**Le « que » disparaît souvent.** Quand le relatif est complément (le « que » français), l'anglais peut l'enlever : {{the book that I'm reading}} → {{the book I'm reading}}. C'est même la forme la plus naturelle à l'oral. Le « qui » sujet, lui, reste : {{the man who lives here}}."},
         {"p":"**Pas de pronom en double.** Le relatif remplace déjà le pronom : {{the book I'm reading}}, et non « the book I'm reading it »."},
-        {"p":"**Où : where. Dont : whose.** {{where}} pour un lieu : {{the hotel where we stayed}}. {{whose}} « dont le, dont la » pour la possession : {{the man whose car was stolen}} « l'homme dont la voiture a été volée »."},
+        {"p":"**Où : {{where}}. Dont : {{whose}}.** {{where}} pour un lieu : {{the hotel where we stayed}}. {{whose}} « dont le, dont la » pour la possession : {{the man whose car was stolen}} « l'homme dont la voiture a été volée »."},
         { "ex": [
           {"t":"I have a friend who speaks five languages.","tr":"J'ai un ami qui parle cinq langues."},
           {"t":"The movie we saw was great.","tr":"Le film que nous avons vu était super."},
@@ -1993,9 +1993,9 @@
       "blocks": [
         {"goal":{"t":"In my opinion, it's a great idea, but I don't think it's easy.","tr":"À mon avis, c'est une super idée, mais je ne pense pas que ce soit facile."}},
         {"dialog":[{"who":"Hugo","t":"Did you like the movie?","tr":"Tu as aimé le film ?"},{"who":"Inès","t":"Yes, I think the actors were amazing. What about you?","tr":"Oui, je trouve que les acteurs étaient incroyables. Et toi ?"},{"who":"Hugo","t":"Meh. In my opinion, it was too long.","tr":"Bof. À mon avis, il était trop long."},{"who":"Inès","t":"You're right, it was a little long. But the story was beautiful, don't you think?","tr":"C'est vrai, il était un peu long. Mais l'histoire était belle, tu ne trouves pas ?"},{"who":"Hugo","t":"I don't agree. I don't think it was beautiful. It was sad!","tr":"Je ne suis pas d'accord. Je ne la trouve pas belle. Elle était triste !"},{"who":"Inès","t":"Sad, but beautiful!","tr":"Triste, mais belle !"}]},
-        {"p":"**Je pense que : I think.** {{I think}} + une phrase, avec ou sans {{that}} (souvent omis à l'oral) : {{I think (that) he's right.}} « Je pense qu'il a raison. » Pareil avec {{I believe}} « je crois » et {{I feel}} « j'ai l'impression »."},
-        {"p":"**Je ne pense pas : I don't think.** En anglais, on met la négation sur {{think}} plutôt que dans la suite : {{I don't think it's true.}} « Je ne pense pas que ce soit vrai. » C'est plus naturel que « I think it's not true ». Et pas de subjonctif : le verbe qui suit est normal."},
-        {"p":"**Être d'accord : agree, un verbe.** C'est LA faute des francophones. « Je suis d'accord » se dit {{I agree}}, sans {{am}} : {{agree}} est un verbe. Au négatif : {{I don't agree}} (ou {{I disagree}}). Avec quelqu'un : {{I agree with you.}} La question se fait avec {{do}} : {{Do you agree?}}"},
+        {"p":"**Je pense que : {{I think}}.** {{I think}} + une phrase, avec ou sans {{that}} (souvent omis à l'oral) : {{I think (that) he's right.}} « Je pense qu'il a raison. » Pareil avec {{I believe}} « je crois » et {{I feel}} « j'ai l'impression »."},
+        {"p":"**Je ne pense pas : {{I don't think}}.** En anglais, on met la négation sur {{think}} plutôt que dans la suite : {{I don't think it's true.}} « Je ne pense pas que ce soit vrai. » C'est plus naturel que « I think it's not true ». Et pas de subjonctif : le verbe qui suit est normal."},
+        {"p":"**Être d'accord : {{agree}}, un verbe.** C'est LA faute des francophones. « Je suis d'accord » se dit {{I agree}}, sans {{am}} : {{agree}} est un verbe. Au négatif : {{I don't agree}} (ou {{I disagree}}). Avec quelqu'un : {{I agree with you.}} La question se fait avec {{do}} : {{Do you agree?}}"},
         { "table": [
           ["français","anglais"],
           ["Je pense que…","{{I think…}}"],
@@ -2043,7 +2043,7 @@
         {"goal":{"t":"My bike was stolen last night!","tr":"On m'a volé mon vélo hier soir !"}},
         {"dialog":[{"who":"The guide","t":"This bridge was built in 1883.","tr":"Ce pont a été construit en 1883."},{"who":"A tourist","t":"Wow! Who was it designed by?","tr":"Waouh ! Qui l'a conçu ?"},{"who":"The guide","t":"It was designed by John Roebling. Today, it's used by thousands of people every day.","tr":"Il a été conçu par John Roebling. Aujourd'hui, des milliers de personnes l'empruntent chaque jour."},{"who":"A tourist","t":"Can we walk across it?","tr":"On peut le traverser à pied ?"},{"who":"The guide","t":"Yes! And photos are allowed, of course.","tr":"Oui ! Et les photos sont autorisées, bien sûr."}]},
         {"term":"voix passive","means":"une phrase où le sujet subit l'action au lieu de la faire : « le pont **a été construit** ». En anglais : {{be}} + participe passé."},
-        {"p":"**Be + participe passé.** Comme en français (« être » + participe), le passif anglais se fait avec {{be}} au temps voulu + le participe passé (leçon 31) : {{English is spoken here.}} « On parle anglais ici. » {{The bridge was built in 1883.}} {{My car has been repaired.}}"},
+        {"p":"**{{Be}} + participe passé.** Comme en français (« être » + participe), le passif anglais se fait avec {{be}} au temps voulu + le participe passé (leçon 31) : {{English is spoken here.}} « On parle anglais ici. » {{The bridge was built in 1883.}} {{My car has been repaired.}}"},
         { "table": [
           ["temps","actif","passif"],
           ["présent","{{They make cars here.}}","{{Cars are made here.}}"],
@@ -2052,8 +2052,8 @@
           ["futur","{{They will open a store.}}","{{A store will be opened.}}"]
         ] },
         {"p":"**« On » en anglais.** Le français dit « on » quand on ne sait pas qui agit, ou que ce n'est pas important : « on m'a volé mon vélo ». L'anglais n'a pas de « on » : il emploie le passif ({{My bike was stolen.}}), ou bien {{they}}, {{people}}, {{you}} : {{They say it's going to rain.}} « On dit qu'il va pleuvoir. » {{You can't smoke here.}} « On ne peut pas fumer ici. »"},
-        {"p":"**Par qui : by.** Pour dire qui a fait l'action : {{by}}. {{The book was written by a teacher.}} Mais souvent, on ne le dit pas : c'est justement l'intérêt du passif."},
-        {"p":"**Naître : was born.** « Je suis né » est un passif en anglais : {{I was born in 1990.}}, jamais « I am born »."},
+        {"p":"**Par qui : {{by}}.** Pour dire qui a fait l'action : {{by}}. {{The book was written by a teacher.}} Mais souvent, on ne le dit pas : c'est justement l'intérêt du passif."},
+        {"p":"**Naître : {{was born}}.** « Je suis né » est un passif en anglais : {{I was born in 1990.}}, jamais « I am born »."},
         { "ex": [
           {"t":"Breakfast is served from seven to ten.","tr":"Le petit-déjeuner est servi de sept à dix heures."},
           {"t":"This song was written in 1970.","tr":"Cette chanson a été écrite en 1970."},
@@ -2090,7 +2090,7 @@
         {"goal":{"t":"She told me she was tired and that she wouldn't come.","tr":"Elle m'a dit qu'elle était fatiguée et qu'elle ne viendrait pas."}},
         {"dialog":[{"who":"Paul","t":"Who called?","tr":"Qui a appelé ?"},{"who":"Anne","t":"Your brother. He said he was arriving tomorrow.","tr":"Ton frère. Il a dit qu'il arrivait demain."},{"who":"Paul","t":"Did he say what time?","tr":"Il a dit à quelle heure ?"},{"who":"Anne","t":"He said he would take the ten o'clock train. And he asked if you could pick him up.","tr":"Il a dit qu'il prendrait le train de dix heures. Et il a demandé si tu pouvais venir le chercher."},{"who":"Paul","t":"Sure. Did he ask anything else?","tr":"Bien sûr. Il a demandé autre chose ?"},{"who":"Anne","t":"Yes, he asked what you wanted for your birthday!","tr":"Oui, il a demandé ce que tu voulais pour ton anniversaire !"}]},
         {"term":"discours indirect","means":"rapporter les paroles de quelqu'un sans les citer mot pour mot : « Elle a dit qu'elle était fatiguée. »"},
-        {"p":"**Dire : say ou tell ?** Deux verbes pour « dire ». {{say}} + ce qu'on dit : {{He said he was tired.}} {{tell}} + **la personne** à qui on le dit : {{He told me he was tired.}} « Il m'a dit… » On ne dit ni « he said me », ni « he told that… » sans la personne."},
+        {"p":"**Dire : {{say}} ou {{tell}} ?** Deux verbes pour « dire ». {{say}} + ce qu'on dit : {{He said he was tired.}} {{tell}} + **la personne** à qui on le dit : {{He told me he was tired.}} « Il m'a dit… » On ne dit ni « he said me », ni « he told that… » sans la personne."},
         { "table": [
           ["français","anglais"],
           ["Il a dit qu'il était fatigué.","{{He said (that) he was tired.}}"],
@@ -2142,7 +2142,7 @@
         {"goal":{"t":"I've decided to learn the guitar, and I really enjoy practicing.","tr":"J'ai décidé d'apprendre la guitare, et j'adore m'entraîner."}},
         {"dialog":[{"who":"The coach","t":"So, why do you want to run a marathon?","tr":"Alors, pourquoi voulez-vous courir un marathon ?"},{"who":"You","t":"I stopped smoking last year, and I'd like to get in shape.","tr":"J'ai arrêté de fumer l'an dernier, et j'aimerais me remettre en forme."},{"who":"The coach","t":"Great! Do you enjoy running?","tr":"Super ! Vous aimez courir ?"},{"who":"You","t":"Yes, but I hate getting up early.","tr":"Oui, mais je déteste me lever tôt."},{"who":"The coach","t":"No problem. Before starting, you need to buy good shoes.","tr":"Pas de problème. Avant de commencer, il vous faut de bonnes chaussures."}]},
         {"term":"gérondif","means":"en anglais, la forme en {{-ing}} employée comme un nom : {{Swimming is fun.}} « Nager, c'est amusant. »"},
-        {"p":"**Après un verbe : -ing ou to ?** Quand deux verbes se suivent, le second prend soit {{-ing}}, soit {{to}} + la forme de base. Cela dépend du premier verbe : apprenez-le avec lui. Le français, lui, met un infinitif dans les deux cas."},
+        {"p":"**Après un verbe : {{-ing}} ou {{to}} ?** Quand deux verbes se suivent, le second prend soit {{-ing}}, soit {{to}} + la forme de base. Cela dépend du premier verbe : apprenez-le avec lui. Le français, lui, met un infinitif dans les deux cas."},
         { "table": [
           ["+ {{-ing}}","+ {{to}}"],
           ["{{enjoy}} aimer, apprécier","{{want}} vouloir"],
@@ -2154,8 +2154,8 @@
           ["{{suggest}} proposer de","{{would like}} aimer, vouloir"]
         ] },
         {"p":"Quelques verbes acceptent les deux sans changer de sens : {{like}}, {{love}}, {{hate}}, {{start}}, {{begin}} : {{I love cooking}} = {{I love to cook}} (leçon 13)."},
-        {"p":"**Après une préposition : toujours -ing.** C'est le piège des francophones : « avant de partir », « après avoir mangé », « intéressé par ». En anglais, après {{before}}, {{after}}, {{without}}, {{in}}, {{of}}, {{about}}, {{for}}…, le verbe prend {{-ing}} : {{before leaving}}, {{after eating}}, {{without saying goodbye}}, {{I'm interested in learning Spanish.}} {{Thank you for coming!}}"},
-        {"p":"**Le -ing sujet.** Un verbe en tête de phrase, comme sujet, prend {{-ing}} : {{Learning English is fun.}} « Apprendre l'anglais, c'est amusant. »"},
+        {"p":"**Après une préposition : toujours {{-ing}}.** C'est le piège des francophones : « avant de partir », « après avoir mangé », « intéressé par ». En anglais, après {{before}}, {{after}}, {{without}}, {{in}}, {{of}}, {{about}}, {{for}}…, le verbe prend {{-ing}} : {{before leaving}}, {{after eating}}, {{without saying goodbye}}, {{I'm interested in learning Spanish.}} {{Thank you for coming!}}"},
+        {"p":"**Le {{-ing}} sujet.** Un verbe en tête de phrase, comme sujet, prend {{-ing}} : {{Learning English is fun.}} « Apprendre l'anglais, c'est amusant. »"},
         { "ex": [
           {"t":"I enjoy cooking for my friends.","tr":"J'aime cuisiner pour mes amis."},
           {"t":"She decided to move to Canada.","tr":"Elle a décidé de partir vivre au Canada."},
@@ -2193,7 +2193,7 @@
         {"goal":{"t":"When I got to the station, the train had already left.","tr":"Quand je suis arrivé à la gare, le train était déjà parti."}},
         {"dialog":[{"who":"Clara","t":"Why were you so late?","tr":"Pourquoi tu es arrivé si tard ?"},{"who":"Max","t":"First, I'd left my phone at home, so I went back.","tr":"D'abord, j'avais oublié mon portable chez moi, donc je suis retourné le chercher."},{"who":"Clara","t":"And then?","tr":"Et ensuite ?"},{"who":"Max","t":"Then I ran to the station, but the train had already left!","tr":"Ensuite, j'ai couru à la gare, mais le train était déjà parti !"},{"who":"Clara","t":"Oh no! So what did you do?","tr":"Oh non ! Et alors, qu'est-ce que tu as fait ?"},{"who":"Max","t":"Finally, I took a taxi… and paid sixty dollars!","tr":"Finalement, j'ai pris un taxi… et j'ai payé soixante dollars !"}]},
         {"term":"past perfect","means":"le temps du « passé dans le passé » : {{had}} + participe passé ({{I had eaten}} « j'avais mangé »). C'est l'équivalent du plus-que-parfait."},
-        {"p":"**Le plus-que-parfait : had + participe.** Quand on raconte au passé et qu'on remonte encore plus loin, l'anglais emploie le past perfect, comme le français emploie le plus-que-parfait : {{had}} + participe passé, pour toutes les personnes. {{I had forgotten}} « j'avais oublié », {{the train had left}} « le train était parti » : avec {{had}}, même là où le français dit « être »."},
+        {"p":"**Le plus-que-parfait : {{had}} + participe.** Quand on raconte au passé et qu'on remonte encore plus loin, l'anglais emploie le past perfect, comme le français emploie le plus-que-parfait : {{had}} + participe passé, pour toutes les personnes. {{I had forgotten}} « j'avais oublié », {{the train had left}} « le train était parti » : avec {{had}}, même là où le français dit « être »."},
         { "table": [
           ["","français","anglais"],
           ["prétérit","j'ai oublié","{{I forgot}}"],
@@ -2247,7 +2247,7 @@
           ["{{French people love bread.}}","{{The French people I know love bread.}}"]
         ] },
         {"p":"**Sans article : des expressions toutes faites.** {{at home}} (à la maison), {{at work}} (au travail), {{at school}}, {{in bed}} (au lit), {{go to bed}}, {{go to work}}, {{by bus}}, {{by car}}, {{by train}} (en bus, en voiture, en train), {{have breakfast}}, {{have lunch}}, {{have dinner}}."},
-        {"p":"**Avec the, contre toute attente.** Les instruments de musique ({{play the piano}}), les océans, fleuves et chaînes de montagnes ({{the Atlantic}}, {{the Mississippi}}, {{the Rockies}}), les pays au nom pluriel ({{the United States}}), et des lieux vus comme « celui du coin » : {{go to the beach}}, {{the mountains}}, {{the movies}}, {{the doctor}}."},
+        {"p":"**Avec {{the}}, contre toute attente.** Les instruments de musique ({{play the piano}}), les océans, fleuves et chaînes de montagnes ({{the Atlantic}}, {{the Mississippi}}, {{the Rockies}}), les pays au nom pluriel ({{the United States}}), et des lieux vus comme « celui du coin » : {{go to the beach}}, {{the mountains}}, {{the movies}}, {{the doctor}}."},
         {"p":"**Les nationalités en général** : {{French people}} ou {{the French}} « les Français ». Pour une seule personne, le plus naturel : {{He's French.}}"},
         { "ex": [
           {"t":"Life is beautiful.","tr":"La vie est belle."},
