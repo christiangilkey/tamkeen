@@ -1571,6 +1571,288 @@
         {"type":"say","q":"Saluta un vecchio amico: “Quanto tempo! Come stai?”","answer":"It's been a long time! How are you?","from":"introduce-yourself"},
         {"type":"free","q":"Tocca a te: di' da quanto tempo fai tre cose: vivi dove vivi, fai il tuo lavoro (o studi), studi inglese. Usa {{for}} e {{since}}.","answers":[{"t":"I've lived in Bologna for twelve years. I've been a nurse since 2015, and I've been studying English for two years.","tr":"Vivo a Bologna da dodici anni. Faccio l'infermiera dal 2015 e studio inglese da due anni."},{"t":"I've lived in this apartment since I got married. I've worked at the bank for eight years.","tr":"Vivo in questo appartamento da quando mi sono sposato. Lavoro in banca da otto anni."}]}
       ]
+    },
+    {
+      "id": "make-promises-and-predictions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Fai promesse e previsioni",
+      "summary": "Ti chiamo domani, pago io, domani pioverà: “will” per le decisioni al volo, le promesse e le previsioni.",
+      "topic": "{{will}} ({{I'll}}) per decisioni prese adesso, promesse, offerte e previsioni; {{will}} o {{going to}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you tomorrow.","tr":"Non preoccuparti, ti chiamo domani."}},
+        {"dialog":[{"who":"Cameriere","t":"Are you ready to order?","tr":"Siete pronti per ordinare?"},{"who":"Tu","t":"Yes. I'll have the salmon, please.","tr":"Sì. Per me il salmone, per favore."},{"who":"Anna","t":"And I'll have a burger. Oh no, I left my wallet at home!","tr":"E per me un hamburger. Oh no, ho lasciato il portafoglio a casa!"},{"who":"Tu","t":"Don't worry, I'll pay.","tr":"Non preoccuparti, pago io."},{"who":"Anna","t":"Thanks! I'll pay you back tomorrow, I promise.","tr":"Grazie! Domani ti ridò i soldi, promesso."},{"who":"Tu","t":"No problem. I'm sure you won't forget!","tr":"Nessun problema. Sono sicuro che non te ne dimenticherai!"}]},
+        {"p":"**{{will}}: il futuro delle decisioni al volo.** {{will}} (nel parlato {{'ll}}) + il verbo, uguale per tutti: {{I'll call you}}, {{She'll help}}. Si usa quando decidi qualcosa mentre parli, quando ti offri, quando prometti: {{I'll get it!}} “Vado io!”, {{I'll help you}} “Ti aiuto io”, {{I'll be careful}} “Starò attento”."},
+        { "table": [
+          ["","esempio"],
+          ["affermazione","{{I'll call you.}} {{It will rain.}}"],
+          ["negazione","{{I won't tell anybody.}} ({{won't}} = {{will not}})"],
+          ["domanda","{{Will you help me?}}"],
+          ["offrirsi","{{Should I open the window?}}"]
+        ] },
+        {"p":"**{{will}} o {{going to}}?** {{going to}} è per i piani già decisi ({{I'm going to buy a car}}: ci pensavo da tempo); {{will}} per le decisioni prese adesso ({{The phone's ringing. I'll get it!}}). Per le previsioni vanno bene tutti e due; con {{going to}} si vedono già i segni: {{Look at the sky! It's going to rain}}."},
+        {"p":"**Al ristorante**: {{I'll have…}} “Per me…, prendo…” è il modo più comune per ordinare: {{I'll have a coffee}}. E per offrirti, gli americani dicono {{Should I…?}} o {{Do you want me to…?}}: {{Should I call a taxi?}} “Chiamo un taxi?”. ({{Shall I…?}} è più britannico.)"},
+        { "ex": [
+          {"t":"I'll have the chicken, please.","tr":"Per me il pollo, per favore."},
+          {"t":"It's cold. I'll close the window.","tr":"Fa freddo. Chiudo la finestra."},
+          {"t":"I promise I won't be late.","tr":"Prometto che non farò tardi."},
+          {"t":"Will you marry me?","tr":"Mi vuoi sposare?"},
+          {"t":"I think it'll be sunny tomorrow.","tr":"Credo che domani ci sarà il sole."},
+          {"t":"Should I call a taxi?","tr":"Chiamo un taxi?"},
+          {"t":"Don't worry, everything will be fine.","tr":"Non preoccuparti, andrà tutto bene."}
+        ] },
+        {"tip":"Dove l'italiano usa il presente (“pago io”, “ti chiamo domani”), l'inglese di solito vuole {{will}}: {{I'll pay}}, {{I'll call you tomorrow}}. Il present simple, qui, suona sbagliato."}
+      ],
+      "mistakes": [
+        {"wrong":"Don't worry, I pay.","right":"Don't worry, I'll pay.","tr":"Non preoccuparti, pago io.","why":"Una decisione presa adesso, un'offerta: {{I'll}}, non il presente come in italiano."},
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Ti chiamo.","why":"Dopo {{will}}, il verbo senza {{to}}."},
+        {"wrong":"I don't will tell anybody.","right":"I won't tell anybody.","tr":"Non lo dirò a nessuno.","why":"Il negativo di {{will}} è {{won't}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"The phone's ringing. ___ get it!","tr":"Suona il telefono. Vado io!","options":["I'll","I","I'm"],"answer":0,"why":"Una decisione presa adesso: {{I'll}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"I ___ tell anybody, I promise.","tr":"Non lo dirò a nessuno, te lo prometto.","options":["won't","don't will","willn't"],"answer":0,"why":"Il negativo di {{will}}: {{won't}}."},
+        {"type":"choice","q":"Ci pensi da settimane: “Quest'estate vado in Messico.”","options":["{{I'm going to go to Mexico this summer.}}","{{I'll go to Mexico this summer.}}"],"answer":0,"why":"Un piano già deciso: {{going to}}. {{I'll go}} sembrerebbe una decisione appena presa.","from":"make-plans"},
+        {"type":"dialogue","q":"Al ristorante con un'amica. Scegli le frasi.","lines":[{"who":"Cameriere","t":"Are you ready to order?","tr":"Siete pronti per ordinare?"},{"options":["Yes, I'll have the pasta, please.","Yes, I have the pasta, please."],"answer":0,"why":"Per ordinare: {{I'll have…}}."},{"who":"Anna","t":"Oh no, I forgot my wallet!","tr":"Oh no, ho dimenticato il portafoglio!"},{"options":["Don't worry, I'll pay.","Don't worry, I pay."],"answer":0,"why":"Un'offerta fatta adesso: {{I'll pay}}."}],"from":"give-directions"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Non preoccuparti, andrà tutto bene.","words":["Don't worry,","everything","will be","fine."]},
+        {"type":"say","q":"Prometti: “Ti chiamo appena arrivo.”","answer":"I'll call you as soon as I arrive."},
+        {"type":"free","q":"Tocca a te: fai due promesse a un amico e una previsione sul tuo futuro.","answers":[{"t":"I'll help you move on Saturday, and I won't be late! I think I'll live abroad one day.","tr":"Sabato ti aiuto con il trasloco, e non farò tardi! Credo che un giorno vivrò all'estero."},{"t":"I'll call you every week, I promise. I'm sure we'll see each other soon.","tr":"Ti chiamerò ogni settimana, promesso. Sono sicura che ci vedremo presto."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Fai confronti",
+      "summary": "Più grande, più caro, migliore, alto come: confronta città, case e ristoranti.",
+      "topic": "I comparativi: {{-er}} ({{bigger}}), {{more}} ({{more expensive}}), {{than}}; {{better, worse}}; {{as… as}}",
+      "blocks": [
+        {"goal":{"t":"The train is faster than the bus, but it's more expensive.","tr":"Il treno è più veloce dell'autobus, ma è più caro."}},
+        {"dialog":[{"who":"Josh","t":"So, which apartment do you like?","tr":"Allora, quale appartamento ti piace?"},{"who":"Tu","t":"The one on Pine Street is bigger, but the other one is cheaper.","tr":"Quello in Pine Street è più grande, ma l'altro costa meno."},{"who":"Josh","t":"Which one is closer to your office?","tr":"Qual è più vicino al tuo ufficio?"},{"who":"Tu","t":"The cheaper one. And it's quieter, too.","tr":"Quello più economico. Ed è anche più tranquillo."},{"who":"Josh","t":"Then that one is better! Why do you need a bigger place?","tr":"Allora è meglio quello! Perché ti serve una casa più grande?"}]},
+        {"p":"**Aggettivi corti: {{-er}}.** Con gli aggettivi di una sillaba (e quelli di due che finiscono in {{-y}}) si aggiunge {{-er}}: {{big → bigger}}, {{cheap → cheaper}}, {{easy → easier}}. “Di, che” nei confronti è {{than}}: {{Rome is bigger than Florence}}."},
+        {"p":"**Aggettivi lunghi: {{more}}.** Con gli aggettivi di due o più sillabe si mette {{more}} davanti: {{more expensive}}, {{more interesting}}, {{more beautiful}}. Mai tutti e due insieme: {{more bigger}} è sbagliato."},
+        { "table": [
+          ["aggettivo","comparativo","regola"],
+          ["{{cheap}}","{{cheaper}}","+ {{-er}}"],
+          ["{{nice}}","{{nicer}}","finisce in {{-e}}: + {{-r}}"],
+          ["{{big}}","{{bigger}}","vocale breve + consonante: raddoppia"],
+          ["{{easy}}","{{easier}}","{{-y}} → {{-ier}}"],
+          ["{{expensive}}","{{more expensive}}","aggettivo lungo: {{more}}"],
+          ["{{good}}, {{bad}}, {{far}}","{{better}}, {{worse}}, {{farther}}","irregolari"]
+        ] },
+        {"p":"**Uguale**: {{as}} + aggettivo + {{as}}: {{He's as tall as his father}} “È alto come suo padre”. **Meno**: {{not as… as}} è più naturale di {{less}}: {{It's not as expensive as Rome}} “Non è cara come Roma”."},
+        { "ex": [
+          {"t":"My brother is older than me.","tr":"Mio fratello è più grande di me."},
+          {"t":"This book is more interesting than the movie.","tr":"Questo libro è più interessante del film."},
+          {"t":"Is it cheaper to take the train?","tr":"Costa meno prendere il treno?"},
+          {"t":"Your English is better than mine!","tr":"Il tuo inglese è migliore del mio!"},
+          {"t":"Today is hotter than yesterday.","tr":"Oggi fa più caldo di ieri."},
+          {"t":"The weather is worse in the north.","tr":"Al nord il tempo è peggiore."},
+          {"t":"This hotel isn't as nice as the other one.","tr":"Quest'hotel non è bello come l'altro."}
+        ] },
+        {"tip":"Nel parlato, dopo {{than}}, gli americani dicono {{me}}, non {{I}}: {{She's taller than me}} “È più alta di me”."}
+      ],
+      "mistakes": [
+        {"wrong":"Rome is more big than Milan.","right":"Rome is bigger than Milan.","tr":"Roma è più grande di Milano.","why":"Aggettivo corto: {{-er}}, non {{more}}."},
+        {"wrong":"It's more cheaper.","right":"It's cheaper.","tr":"Costa meno.","why":"{{-er}} e {{more}} non vanno mai insieme."},
+        {"wrong":"She's taller of me.","right":"She's taller than me.","tr":"È più alta di me.","why":"“Di” nei confronti è {{than}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"New York is ___ than Boston.","tr":"New York è più grande di Boston.","options":["bigger","more big","biger"],"answer":0,"why":"{{big}}: vocale breve + consonante, che raddoppia: {{bigger}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"This restaurant is ___ expensive than the other one.","tr":"Questo ristorante è più caro dell'altro.","options":["more","most","much"],"answer":0,"why":"Aggettivo lungo: {{more expensive}}."},
+        {"type":"choice","q":"“Il tuo inglese è migliore del mio”:","options":["{{Your English is better than mine.}}","{{Your English is more good than mine.}}","{{Your English is gooder than mine.}}"],"answer":0,"why":"{{good}} è irregolare: {{better}}."},
+        {"type":"dialogue","q":"Scegli un appartamento con un amico. Scegli le frasi.","lines":[{"who":"Josh","t":"Which apartment do you like?","tr":"Quale appartamento ti piace?"},{"options":["The first one. It's bigger and quieter.","The first one. It's more big and more quiet."],"answer":0,"why":"Aggettivi corti: {{bigger}}, {{quieter}}."},{"who":"Josh","t":"But it's more expensive, right?","tr":"Ma costa di più, vero?"},{"options":["Yes, but it isn't as far as the other one.","Yes, but it isn't so far than the other one."],"answer":0,"why":"“Non lontano come”: {{not as far as}}."}],"from":"describe-things"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Oggi fa più freddo di ieri.","words":["It's","colder","today","than yesterday."],"from":"ask-questions-with-be"},
+        {"type":"say","q":"Di': “Mia sorella è più giovane di me, ma è più alta.”","answer":"My sister is younger than me, but she's taller."},
+        {"type":"free","q":"Tocca a te: confronta la tua città con un'altra che conosci, con almeno tre aggettivi.","answers":[{"t":"Milan is bigger than Verona, but Verona is more beautiful and quieter.","tr":"Milano è più grande di Verona, ma Verona è più bella e più tranquilla."},{"t":"Naples is warmer than Turin, and the food is better!","tr":"Napoli è più calda di Torino, e si mangia meglio!"}]}
+      ]
+    },
+    {
+      "id": "say-what-is-best",
+      "unit": 7,
+      "level": "A2",
+      "title": "Di' qual è il migliore",
+      "summary": "Il più grande, il più bello, il migliore della città, il caffè più buono che abbia mai bevuto: i superlativi.",
+      "topic": "{{the -est}}, {{the most}}; {{the best, the worst}}; {{in}} o {{of}}; {{the best… I've ever…}}",
+      "blocks": [
+        {"goal":{"t":"It's the best pizza in New York!","tr":"È la pizza più buona di New York!"}},
+        {"dialog":[{"who":"Tu","t":"What's the best restaurant in town?","tr":"Qual è il ristorante migliore della città?"},{"who":"Jessica","t":"Tony's, for sure. But it's also the most expensive.","tr":"Da Tony, sicuramente. Ma è anche il più caro."},{"who":"Tu","t":"And the cheapest?","tr":"E il più economico?"},{"who":"Jessica","t":"Taco Loco. It's the best cheap food I've ever had!","tr":"Taco Loco. È il miglior cibo economico che abbia mai mangiato!"},{"who":"Tu","t":"Perfect, that's the most important thing!","tr":"Perfetto, è la cosa più importante!"}]},
+        {"p":"**Il più…**: con gli aggettivi corti, {{the}} + {{-est}}: {{the biggest}}, {{the cheapest}}, {{the easiest}}. Con quelli lunghi, {{the most}}: {{the most beautiful}}, {{the most expensive}}. E gli irregolari: {{the best}}, {{the worst}}."},
+        { "table": [
+          ["aggettivo","comparativo","superlativo"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{happy}}","{{happier}}","{{the happiest}}"],
+          ["{{beautiful}}","{{more beautiful}}","{{the most beautiful}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**“Della città, del mondo”**: con un luogo o un gruppo, l'inglese usa {{in}}, non {{of}}: {{the tallest building in the world}}, {{the best student in the class}}. {{of}} va con un numero o un periodo: {{the best of all}}, {{the best day of my life}}."},
+        {"p":"**“Il più bello che abbia mai visto”**: {{the best movie I've ever seen}}, con il present perfect e {{ever}}. In italiano qui c'è il congiuntivo; in inglese basta il present perfect."},
+        { "ex": [
+          {"t":"It's the tallest building in the city.","tr":"È il palazzo più alto della città."},
+          {"t":"She's the youngest in the family.","tr":"È la più piccola della famiglia."},
+          {"t":"That was the worst day of my life!","tr":"È stato il giorno peggiore della mia vita!"},
+          {"t":"What's the most beautiful place in Italy?","tr":"Qual è il posto più bello d'Italia?"},
+          {"t":"This is the best coffee I've ever had.","tr":"È il caffè più buono che abbia mai bevuto."},
+          {"t":"He's the funniest person I know.","tr":"È la persona più divertente che conosca."}
+        ] },
+        {"tip":"Gli americani esagerano volentieri: {{the best ever!}} “il migliore di sempre!”, {{the worst!}} “terribile!”. E {{You're the best!}} “Sei il migliore!” è un grazie affettuoso."}
+      ],
+      "mistakes": [
+        {"wrong":"It's the most big city of the world.","right":"It's the biggest city in the world.","tr":"È la città più grande del mondo.","why":"Aggettivo corto: {{the biggest}}; e con un luogo, {{in}}."},
+        {"wrong":"She's the most good student.","right":"She's the best student.","tr":"È la studentessa migliore.","why":"{{good}} è irregolare: {{the best}}."},
+        {"wrong":"It's the best movie I never saw.","right":"It's the best movie I've ever seen.","tr":"È il film più bello che abbia mai visto.","why":"“Che abbia mai visto”: {{I've ever seen}}, con {{ever}} e il present perfect."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"It's the ___ city in the country.","tr":"È la città più grande del paese.","options":["biggest","most big","bigger"],"answer":0,"why":"Superlativo di un aggettivo corto: {{the biggest}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"She's the best player ___ the team.","tr":"È la giocatrice migliore della squadra.","options":["in","of","from"],"answer":0,"why":"Con un gruppo: {{in}}."},
+        {"type":"choice","q":"“È il film più bello che abbia mai visto”:","options":["{{It's the best movie I've ever seen.}}","{{It's the most good movie I ever see.}}","{{It's the better movie I've never seen.}}"],"answer":0,"why":"{{the best}} + {{I've ever seen}}.","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Chiedi consiglio a una ragazza del posto. Scegli le domande.","lines":[{"who":"Jessica","t":"Hi! Do you need help?","tr":"Ciao! Ti serve aiuto?"},{"options":["Yes! What's the best restaurant in town?","Yes! What's the more good restaurant of the town?"],"answer":0,"why":"{{the best}}, e {{in}} con un luogo."},{"who":"Jessica","t":"Tony's. But it's the most expensive.","tr":"Da Tony. Ma è il più caro."},{"options":["OK. And what's the cheapest?","OK. And what's the most cheap?"],"answer":0,"why":"Aggettivo corto: {{the cheapest}}."}],"from":"compare-things"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"È stato il giorno più bello della mia vita.","words":["It was","the best","day","of my life."]},
+        {"type":"say","q":"Ringrazia un'amica: “Grazie, sei la migliore!”","answer":"Thanks, you're the best!"},
+        {"type":"free","q":"Tocca a te: consiglia la tua città a un americano: il posto più bello, il ristorante migliore e la cosa più strana.","answers":[{"t":"The most beautiful place in Florence is Piazzale Michelangelo, and the best restaurant is near the Duomo.","tr":"Il posto più bello di Firenze è il Piazzale Michelangelo, e il ristorante migliore è vicino al Duomo."},{"t":"In my town, the best pizza is at Da Mario. The strangest thing is our little bread museum!","tr":"Nella mia città la pizza più buona è da Mario. La cosa più strana è il nostro piccolo museo del pane!"}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "Dai consigli",
+      "summary": "Dovresti riposarti, perché non provi lo yoga?, al tuo posto…: dai e chiedi consigli.",
+      "topic": "{{should}} e {{shouldn't}}; {{Why don't you…?}}; {{If I were you…}}",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor.","tr":"Dovresti andare dal medico."}},
+        {"dialog":[{"who":"Amy","t":"I'm always tired these days.","tr":"In questi giorni sono sempre stanca."},{"who":"Tu","t":"You should go to bed earlier.","tr":"Dovresti andare a letto prima."},{"who":"Amy","t":"I know, but I work late.","tr":"Lo so, ma lavoro fino a tardi."},{"who":"Tu","t":"Then you shouldn't drink coffee after dinner. And why don't you take a few days off?","tr":"Allora non dovresti bere caffè dopo cena. E perché non ti prendi qualche giorno di ferie?"},{"who":"Amy","t":"That's a good idea. Should I talk to my boss?","tr":"È una buona idea. Ne parlo con il mio capo?"},{"who":"Tu","t":"Definitely!","tr":"Assolutamente!"}]},
+        {"p":"**{{should}}: “dovrei, dovresti”.** Per i consigli si usa {{should}} + il verbo, uguale per tutti: {{You should rest}} “Dovresti riposare”. Negativo: {{shouldn't}} “non dovresti”. Domanda: {{Should I…?}} “Dovrei…?”, {{What should I do?}} “Che cosa dovrei fare?”."},
+        { "table": [
+          ["","esempio"],
+          ["consiglio","{{You should try the pizza here.}}"],
+          ["consiglio negativo","{{You shouldn't eat so late.}}"],
+          ["chiedere un consiglio","{{Should I call him?}} {{What should I do?}}"],
+          ["proposta gentile","{{Why don't you take a break?}}"],
+          ["al tuo posto","{{If I were you, I'd…}}"]
+        ] },
+        {"p":"**Come {{can}}**: {{should}} non prende {{-s}} e non vuole né {{to}} né {{do}}: {{She should go}}, {{Should we leave?}}"},
+        {"p":"**Altri modi.** {{Why don't you…?}} “Perché non…?” è un suggerimento gentile, non una vera domanda: {{Why don't you call her?}}. {{If I were you, I'd…}} “Al tuo posto…”: {{If I were you, I'd say no}}. (Più avanti vedremo perché si dice {{were}}.)"},
+        { "ex": [
+          {"t":"You should drink more water.","tr":"Dovresti bere più acqua."},
+          {"t":"You shouldn't work so much.","tr":"Non dovresti lavorare così tanto."},
+          {"t":"What should I wear tonight?","tr":"Cosa mi metto stasera?"},
+          {"t":"Should we bring something?","tr":"Portiamo qualcosa?"},
+          {"t":"Why don't you ask your teacher?","tr":"Perché non lo chiedi al tuo insegnante?"},
+          {"t":"If I were you, I'd buy the red one.","tr":"Al tuo posto prenderei quello rosso."},
+          {"t":"Maybe you should talk to her.","tr":"Forse dovresti parlarle."}
+        ] },
+        {"tip":"{{maybe}} “forse” rende il consiglio più gentile: {{Maybe you should rest}}. Gli americani lo usano spessissimo."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Dovresti riposare.","why":"Dopo {{should}}, il verbo senza {{to}}."},
+        {"wrong":"He shoulds call his mom.","right":"He should call his mom.","tr":"Dovrebbe chiamare sua madre.","why":"{{should}} non prende mai la {{-s}}."},
+        {"wrong":"Do I should call him?","right":"Should I call him?","tr":"Dovrei chiamarlo?","why":"Con {{should}} la domanda non vuole {{do}}: {{should}} va davanti."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli la parola che manca.","t":"You look tired. You ___ go to bed.","tr":"Sembri stanco. Dovresti andare a letto.","options":["should","should to","shoulds"],"answer":0,"why":"{{should}} + il verbo, senza {{to}}."},
+        {"type":"fill","q":"Scegli la parola che manca.","t":"You ___ drive so fast!","tr":"Non dovresti guidare così veloce!","options":["shouldn't","don't should","not should"],"answer":0,"why":"Consiglio negativo: {{shouldn't}}."},
+        {"type":"choice","q":"Un'amica dice {{I have a headache.}} Un consiglio gentile:","options":["{{Why don't you take an aspirin?}}","{{Why you don't take an aspirin?}}","{{You don't take an aspirin?}}"],"answer":0,"why":"{{Why don't you…?}} è un suggerimento, con l'ordine della domanda.","from":"ask-about-habits"},
+        {"type":"dialogue","q":"Un'amica ti chiede consiglio. Scegli le risposte.","lines":[{"who":"Amy","t":"I'm always tired these days.","tr":"In questi giorni sono sempre stanca."},{"options":["You should go to bed earlier.","You should going to bed earlier."],"answer":0,"why":"Dopo {{should}}: la forma base, {{go}}."},{"who":"Amy","t":"And what about coffee?","tr":"E il caffè?"},{"options":["You shouldn't drink it after dinner.","You don't should drink it after dinner."],"answer":0,"why":"“Non dovresti”: {{shouldn't}}."}],"from":"say-how-often"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Che cosa dovrei fare?","words":["What","should","I","do?"]},
+        {"type":"say","q":"Consiglia: “Dovresti provare la pizza qui: è la migliore della città!”","answer":"You should try the pizza here. It's the best in town!","from":"say-what-is-best"},
+        {"type":"free","q":"Tocca a te: un amico americano viene in Italia per la prima volta. Dagli tre consigli.","answers":[{"t":"You should visit Florence, you shouldn't drive in Rome, and you should try a real espresso!","tr":"Dovresti visitare Firenze, non dovresti guidare a Roma e dovresti provare un vero espresso!"},{"t":"Why don't you take the train? You should eat dinner late, like the Italians, and you shouldn't order a cappuccino after lunch.","tr":"Perché non prendi il treno? Dovresti cenare tardi, come gli italiani, e non dovresti ordinare il cappuccino dopo pranzo."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 7,
+      "level": "A2",
+      "title": "Di' cosa devi fare",
+      "summary": "Devo lavorare, non serve pagare, qui non si può fumare: obblighi e divieti. E attento a “non devi”, che in inglese ha due traduzioni!",
+      "topic": "{{have to}} e {{must}}; {{don't have to}} (non è necessario) e {{can't}}, {{mustn't}} (è vietato); {{had to}}",
+      "blocks": [
+        {"goal":{"t":"I have to work on Saturday, but I don't have to get up early.","tr":"Sabato devo lavorare, ma non devo alzarmi presto."}},
+        {"dialog":[{"who":"Lisa","t":"Welcome! So, you have to be here at nine every day.","tr":"Benvenuto! Allora, devi essere qui alle nove tutti i giorni."},{"who":"Tu","t":"Do I have to wear a suit?","tr":"Devo mettermi giacca e cravatta?"},{"who":"Lisa","t":"No, you don't have to. Jeans are fine.","tr":"No, non serve. Vanno bene i jeans."},{"who":"Tu","t":"Great! And can I use my phone?","tr":"Ottimo! E posso usare il telefono?"},{"who":"Lisa","t":"Yes, but you can't use it in meetings. That's the only rule!","tr":"Sì, ma non puoi usarlo durante le riunioni. È l'unica regola!"}]},
+        {"p":"**“Devo”: {{have to}}.** Nel parlato americano “dovere” è quasi sempre {{have to}}: {{I have to go}}, {{She has to work}}, {{Do you have to leave?}}. {{must}} esiste, ma suona forte o scritto: lo trovi sui cartelli e nei regolamenti ({{Passengers must show ID}})."},
+        { "table": [
+          ["","esempio"],
+          ["affermazione","{{I have to go.}} {{She has to work.}}"],
+          ["domanda","{{Do you have to work today?}}"],
+          ["non è necessario","{{You don't have to pay.}}"],
+          ["è vietato","{{You can't smoke here.}} {{You mustn't touch it.}}"],
+          ["al passato","{{I had to wait an hour.}}"]
+        ] },
+        {"p":"**Il tranello di “non devi”.** In italiano “non devi pagare” può voler dire due cose: “non è necessario” o “è vietato”. In inglese sono due frasi diverse: {{You don't have to pay}} “Non serve pagare, è gratis”; {{You can't pay here}} o {{You mustn't pay here}} “Qui è vietato pagare”. Nel parlato, per i divieti, gli americani usano soprattutto {{can't}}."},
+        {"p":"**Al passato**: “dovevo, ho dovuto” è {{had to}}: {{I had to work late}}. {{must}} non ha passato."},
+        { "ex": [
+          {"t":"I have to get up at six tomorrow.","tr":"Domani devo alzarmi alle sei."},
+          {"t":"Do we have to bring anything?","tr":"Dobbiamo portare qualcosa?"},
+          {"t":"You don't have to come if you're tired.","tr":"Non sei obbligato a venire, se sei stanco."},
+          {"t":"You can't park here.","tr":"Qui non si può parcheggiare."},
+          {"t":"My daughter has to study tonight.","tr":"Stasera mia figlia deve studiare."},
+          {"t":"We had to take a taxi.","tr":"Abbiamo dovuto prendere un taxi."},
+          {"t":"All visitors must sign in.","tr":"Tutti i visitatori devono registrarsi.","note":"un cartello: {{must}}"}
+        ] },
+        {"tip":"{{I have to go!}} (nel parlato spesso {{I gotta go!}}) è il modo più comune per chiudere una telefonata."}
+      ],
+      "mistakes": [
+        {"wrong":"You mustn't pay, it's free.","right":"You don't have to pay, it's free.","tr":"Non serve pagare, è gratis.","why":"Non è necessario, non è vietato: {{don't have to}}."},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"Deve lavorare.","why":"Con {{she}}: {{has to}}."},
+        {"wrong":"Yesterday I must go to the doctor.","right":"Yesterday I had to go to the doctor.","tr":"Ieri sono dovuto andare dal medico.","why":"{{must}} non ha passato: “ho dovuto” è {{had to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I ___ work tomorrow. It's a holiday!","tr":"Domani non devo lavorare. È festa!","options":["don't have to","mustn't","haven't to"],"answer":0,"why":"Non è necessario: {{don't have to}}."},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"Sorry, you ___ take photos in the museum.","tr":"Mi dispiace, nel museo non si possono fare foto.","options":["can't","don't have to","haven't"],"answer":0,"why":"È vietato: {{can't}}.","from":"say-what-you-can-do"},
+        {"type":"choice","q":"“Ieri ho dovuto aspettare due ore”:","options":["{{Yesterday I had to wait two hours.}}","{{Yesterday I must wait two hours.}}","{{Yesterday I have to waited two hours.}}"],"answer":0,"why":"Al passato: {{had to}} + il verbo.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Il primo giorno di lavoro. Scegli le domande e le risposte.","lines":[{"who":"Lisa","t":"You have to be here at nine.","tr":"Devi essere qui alle nove."},{"options":["OK. Do I have to wear a suit?","OK. Must I to wear a suit?"],"answer":0,"why":"Domanda con {{have to}}: {{Do I have to…?}}"},{"who":"Lisa","t":"No, you don't have to. Jeans are fine.","tr":"No, non serve. Vanno bene i jeans."},{"options":["Great! I don't have to buy new clothes, then.","Great! I mustn't buy new clothes, then."],"answer":0,"why":"“Non è necessario”: {{don't have to}}. ({{mustn't}} vorrebbe dire che è vietato!)"}]},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Mio figlio deve fare i compiti.","words":["My son","has to","do","his homework."]},
+        {"type":"say","q":"Chiudi la telefonata: “Scusa, devo andare! Ti chiamo dopo.”","answer":"Sorry, I have to go! I'll call you later.","from":"make-promises-and-predictions"},
+        {"type":"free","q":"Tocca a te: di' due cose che devi fare questa settimana e una che non devi fare (per fortuna!).","answers":[{"t":"I have to finish a report and I have to go to the dentist, but I don't have to work on Friday!","tr":"Devo finire una relazione e devo andare dal dentista, ma venerdì non devo lavorare!"},{"t":"This week I have to clean the house and call my bank. Luckily, I don't have to cook: my mom is here!","tr":"Questa settimana devo pulire casa e chiamare la banca. Per fortuna non devo cucinare: c'è mia madre!"}]}
+      ]
+    },
+    {
+      "id": "say-what-happens-if",
+      "unit": 7,
+      "level": "A2",
+      "title": "Di' cosa succede se…",
+      "summary": "Se piove restiamo a casa, quando arrivo ti chiamo: le condizioni vere. E dopo “if” mai “will”!",
+      "topic": "Il primo condizionale ({{If it rains, we'll stay home}}); niente {{will}} dopo {{if}} e {{when}}; {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"Se domani piove, restiamo a casa."}},
+        {"dialog":[{"who":"Ben","t":"Let's have a picnic on Sunday!","tr":"Facciamo un picnic domenica!"},{"who":"Tu","t":"Good idea. But what if it rains?","tr":"Bella idea. Ma se piove?"},{"who":"Ben","t":"If it rains, we'll go to the movies.","tr":"Se piove, andiamo al cinema."},{"who":"Tu","t":"OK. If you bring the sandwiches, I'll bring the drinks.","tr":"Va bene. Se tu porti i panini, io porto da bere."},{"who":"Ben","t":"Deal! I'll text you when I leave home.","tr":"Affare fatto! Ti scrivo quando esco di casa."}]},
+        {"p":"**Le condizioni vere.** Per una cosa possibile e il suo risultato: {{if}} + present simple, poi {{will}} + il verbo: {{If it rains, we'll stay home}}. L'ordine si può invertire: {{We'll stay home if it rains}} (senza virgola)."},
+        {"term":"condizionale","means":"una frase con “se”, che dice che cosa succede (o succederebbe) a una certa condizione: “Se piove, resto a casa”."},
+        { "table": [
+          ["condizione: {{if}} + presente","risultato: {{will}} + verbo"],
+          ["{{If you study,}}","{{you'll pass the exam.}}"],
+          ["{{If it's sunny,}}","{{we'll go to the beach.}}"],
+          ["{{If you don't hurry,}}","{{you'll miss the train.}}"],
+          ["{{If I have time,}}","{{I'll call you.}}"]
+        ] },
+        {"p":"**Dopo {{if}}, mai {{will}}.** In italiano diciamo spesso “se pioverà, resteremo a casa”, con il futuro in tutte e due le parti. In inglese no: dopo {{if}} ci vuole il presente. {{If it will rain}} è sbagliato. Lo stesso dopo {{when}}, {{as soon as}} “appena”, {{before}} e {{after}}: {{I'll call you when I arrive}} “Ti chiamerò quando arriverò”."},
+        {"p":"**{{unless}}** “a meno che non, se non”: {{We'll go unless it rains}} “Andiamo, a meno che non piova”, cioè {{if it doesn't rain}}."},
+        { "ex": [
+          {"t":"If you're hungry, there's pizza in the fridge.","tr":"Se hai fame, c'è la pizza in frigo.","note":"nell'altra metà può esserci anche un presente o un imperativo"},
+          {"t":"If you need help, call me.","tr":"Se ti serve aiuto, chiamami."},
+          {"t":"If we leave now, we'll get there on time.","tr":"Se partiamo adesso, arriviamo in orario."},
+          {"t":"I'll tell her when I see her.","tr":"Glielo dirò quando la vedo."},
+          {"t":"As soon as I get home, I'll text you.","tr":"Appena arrivo a casa, ti scrivo."},
+          {"t":"You won't get a table unless you book.","tr":"Non troverai un tavolo se non prenoti."},
+          {"t":"What will you do if you don't get the job?","tr":"Cosa farai se non ottieni il lavoro?"}
+        ] },
+        {"tip":"{{What if…?}} “E se…?” è una domanda velocissima per le ipotesi: {{What if it rains?}} “E se piove?”."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"Se piove, restiamo a casa.","why":"Dopo {{if}}, il present simple, non {{will}}."},
+        {"wrong":"I'll call you when I will arrive.","right":"I'll call you when I arrive.","tr":"Ti chiamo quando arrivo.","why":"Anche dopo {{when}} si usa il presente."},
+        {"wrong":"If you will study, you pass.","right":"If you study, you'll pass.","tr":"Se studi, passerai.","why":"{{will}} va nel risultato, non nella condizione."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"If it ___ sunny, we'll go to the beach.","tr":"Se c'è il sole, andiamo al mare.","options":["is","will be","be"],"answer":0,"why":"Dopo {{if}}: il presente, {{is}}."},
+        {"type":"fill","q":"Scegli le parole che mancano.","t":"I'll text you as soon as I ___ home.","tr":"Ti scrivo appena arrivo a casa.","options":["get","will get","got"],"answer":0,"why":"Dopo {{as soon as}}: il presente.","from":"make-promises-and-predictions"},
+        {"type":"choice","q":"“Non andiamo, a meno che non smetta di piovere”:","options":["{{We won't go unless it stops raining.}}","{{We won't go unless it will stop raining.}}","{{We don't go if it not stops raining.}}"],"answer":0,"why":"Dopo {{unless}}, come dopo {{if}}: il presente."},
+        {"type":"dialogue","q":"Organizzi un picnic. Scegli le frasi.","lines":[{"who":"Ben","t":"Let's have a picnic on Sunday!","tr":"Facciamo un picnic domenica!"},{"options":["Great! But what if it rains?","Great! But what if it will rain?"],"answer":0,"why":"Dopo {{if}}: {{rains}}."},{"who":"Ben","t":"Then we'll go to the movies.","tr":"Allora andiamo al cinema."},{"options":["OK. If you bring the food, I'll bring the drinks.","OK. If you will bring the food, I bring the drinks."],"answer":0,"why":"Condizione al presente, risultato con {{will}}."}],"from":"give-directions"},
+        {"type":"order","q":"Metti le parole in ordine.","tr":"Se ti serve aiuto, chiamami.","words":["If","you need help,","call","me."]},
+        {"type":"say","q":"Avverti un amico: “Se non ti sbrighi, perderai il treno!”","answer":"If you don't hurry, you'll miss the train!"},
+        {"type":"free","q":"Tocca a te: di' cosa farai questo weekend se fa bel tempo, e cosa farai se piove.","answers":[{"t":"If it's sunny, I'll go hiking with my friends. If it rains, I'll stay home and read.","tr":"Se c'è il sole, vado a fare un'escursione con gli amici. Se piove, resto a casa a leggere."},{"t":"If the weather is nice, we'll have lunch outside. If it rains, we'll go to a museum.","tr":"Se fa bel tempo, pranziamo fuori. Se piove, andiamo in un museo."}]}
+      ]
     }
   ]
 }
