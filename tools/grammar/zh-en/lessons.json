@@ -235,6 +235,228 @@
         {"type":"say","q":"指着一个女的问：“她是谁？”","answer":"Who is she?","from":"say-what-people-are-like"},
         {"type":"free","q":"轮到你了：问一个新朋友三个问题：名字、哪里人、做什么工作。","answers":[{"t":"What's your name? Where are you from? What do you do?","tr":"你叫什么名字？你是哪里人？你做什么工作？"},{"t":"What's your name? Where are you from? Are you a student?","tr":"你叫什么名字？你是哪里人？你是学生吗？"}]}
       ]
+    },
+    {
+      "id": "point-at-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "指着东西说：这个、那个",
+      "summary": "“这是什么？”“那些是我的书”：用 {{this}}、{{that}}、{{these}}、{{those}} 指东西，再说说它们是什么。",
+      "topic": "{{this}} / {{that}}（一个）、{{these}} / {{those}}（多个）；回答用 {{It's a…}}、{{They're…}}",
+      "blocks": [
+        {"goal":{"t":"What's this?","tr":"这是什么？"}},
+        {"dialog":[{"who":"李明","t":"Excuse me, what's this?","tr":"请问，这是什么？"},{"who":"Seller","t":"It's a persimmon.","tr":"这是柿子。"},{"who":"李明","t":"And what are those?","tr":"那些是什么？"},{"who":"Seller","t":"Those are figs. They're very sweet.","tr":"那些是无花果，很甜。"},{"who":"李明","t":"I'll take these two.","tr":"我要这两个。"}]},
+        {"p":"**近的用 {{this}}，远的用 {{that}}。** {{this}}（这个）指离你近的东西，{{that}}（那个）指远一点儿的：{{This is my phone.}}（这是我的手机。）{{That is my car.}}（那是我的车。）"},
+        {"p":"**多个东西用 {{these}} 和 {{those}}。** 英语的“这”“那”也分单复数：{{these}}（这些）、{{those}}（那些）。后面的动词也跟着变成 {{are}}，名词加 {{-s}}：{{These are my books.}}（这些是我的书。）"},
+        { "table": [
+          ["","一个","多个"],
+          ["近","{{this}} 这个","{{these}} 这些"],
+          ["远","{{that}} 那个","{{those}} 那些"]
+        ] },
+        {"p":"**回答“这是什么？”** 大家已经知道说的是哪个东西，回答时就用 {{it}}（一个）或 {{they}}（多个）：{{What's this? — It's a pen.}}（这是什么？——是一支笔。）{{What are those? — They're apples.}}（那些是什么？——是苹果。）"},
+        { "ex": [
+          {"t":"What's this?","tr":"这是什么？"},
+          {"t":"This is my friend, Tom.","tr":"这是我的朋友汤姆。","note":"介绍别人也用 {{this}}"},
+          {"t":"That's a nice bag.","tr":"那个包真好看。"},
+          {"t":"These are my kids.","tr":"这是我的孩子们。"},
+          {"t":"Those shoes are cheap.","tr":"那双鞋很便宜。"},
+          {"t":"Is that your car?","tr":"那是你的车吗？"}
+        ] },
+        {"tip":"{{th}} 的发音：舌尖轻轻放在上下牙齿之间。{{this}}、{{that}} 的 {{th}} 要振动声带，不是 z，也不是 d。"}
+      ],
+      "mistakes": [
+        {"wrong":"This are my books.","right":"These are my books.","tr":"这些是我的书。","why":"多个东西用 {{these}}，动词用 {{are}}。"},
+        {"wrong":"What is these?","right":"What are these?","tr":"这些是什么？","why":"{{these}} 是复数，要用 {{are}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"___ are my children.","tr":"这些是我的孩子。","options":["These","This","That"],"answer":0,"why":"多个人、离得近：{{these}}。"},
+        {"type":"choice","q":"朋友指着远处的一栋楼问你。你说“那是我的学校”：","options":["{{That's my school.}}","{{This is my school.}}","{{Those is my school.}}"],"answer":0,"why":"远的、一个：{{that}}。"},
+        {"type":"choice","q":"{{What are those?}} 最好的回答是……","options":["{{They're oranges.}}","{{It's oranges.}}","{{They oranges.}}"],"answer":0,"why":"多个东西用 {{they}}，后面要有 {{are}}。","from":"say-what-people-are-like"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"这是我的朋友汤姆。","words":["This","is","my","friend,","Tom."]},
+        {"type":"dialogue","q":"在美国的农贸市场。选出你的回答。","lines":[{"who":"Seller","t":"Hi there! Can I help you?","tr":"你好！需要帮忙吗？"},{"options":["Yes, what are these?","Yes, what is these?"],"answer":0,"why":"{{these}} 是复数：{{what are}}。"},{"who":"Seller","t":"They're plums.","tr":"这些是李子。"},{"options":["Are they sweet?","Is they sweet?"],"answer":0,"why":"{{they}} 用 {{are}}：{{Are they…?}}"},{"who":"Seller","t":"Yes, very sweet!","tr":"对，特别甜！"}],"from":"ask-yes-or-no"},
+        {"type":"free","q":"轮到你了：指着你身边的两样东西，说说它们是什么、怎么样。","answers":[{"t":"This is my phone. It's new.","tr":"这是我的手机，是新的。"},{"t":"These are my books. They're very old.","tr":"这些是我的书，已经很旧了。"}]}
+      ]
+    },
+    {
+      "id": "count-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "数东西：复数",
+      "summary": "“两张票”“三个孩子”“几位？”：数东西的时候，英语的名词要变成复数。",
+      "topic": "复数加 {{-s}}：{{two tickets}}；不规则的 {{people}}、{{children}}、{{men}}、{{women}}；{{How many…?}}",
+      "blocks": [
+        {"goal":{"t":"Two tickets, please.","tr":"请给我两张票。"}},
+        {"dialog":[{"who":"Cashier","t":"Hi! How many tickets?","tr":"你好！几张票？"},{"who":"王芳","t":"Three tickets, please. Two adults and one child.","tr":"三张票，两个大人，一个孩子。"},{"who":"Cashier","t":"That's twenty-seven dollars.","tr":"一共二十七美元。"},{"who":"王芳","t":"And two hot dogs, please.","tr":"再要两个热狗。"}]},
+        {"p":"**一个以上，名词就加 {{-s}}。** 中文说“两张票”，名词“票”不变，只靠量词。英语没有量词，但名词本身要变：{{one ticket}} → {{two tickets}}，{{one cat}} → {{three cats}}。只要是两个或更多，就一定要加 {{-s}}，哪怕前面已经有数字了。"},
+        {"p":"**{{-s}} 的拼写和读音。** 一般直接加 {{-s}}；以 s、x、ch、sh 结尾的加 {{-es}}：{{box}} → {{boxes}}，{{watch}} → {{watches}}；辅音字母 + y 结尾的，把 y 变成 i 再加 {{-es}}：{{city}} → {{cities}}。读音有三种：{{books}} 的结尾读 /s/，{{dogs}} 读 /z/，{{boxes}} 读 /ɪz/。"},
+        { "table": [
+          ["一个","多个","规则"],
+          ["{{a book}}","{{two books}}","加 {{-s}}"],
+          ["{{a bus}}","{{two buses}}","加 {{-es}}"],
+          ["{{a city}}","{{two cities}}","y 变 i，加 {{-es}}"],
+          ["{{a man}}","{{two men}}","不规则"],
+          ["{{a woman}}","{{two women}}","不规则"],
+          ["{{a child}}","{{two children}}","不规则"],
+          ["{{a person}}","{{two people}}","不规则"]
+        ] },
+        {"p":"**问数量：{{How many}} + 复数名词？** {{How many tickets?}}（几张票？）{{How many people?}}（几位？）"},
+        { "ex": [
+          {"t":"Two tickets, please.","tr":"请给我两张票。"},
+          {"t":"We need two chairs.","tr":"我们需要两把椅子。"},
+          {"t":"How many people?","tr":"几位？","note":"餐厅服务员常这样问"},
+          {"t":"My kids are five and seven.","tr":"我的孩子一个五岁，一个七岁。"},
+          {"t":"Ten dollars for two boxes.","tr":"两盒十美元。"},
+          {"t":"The children are in the park.","tr":"孩子们在公园。"}
+        ] },
+        {"tip":"数字后面的 {{-s}} 最容易忘：{{three dollars}}、{{two hours}}、{{five years}}。说的时候注意把最后的 /s/ 或 /z/ 发出来。"}
+      ],
+      "mistakes": [
+        {"wrong":"We need two chair.","right":"We need two chairs.","tr":"我们需要两把椅子。","why":"两个以上，名词要加 {{-s}}：{{two chairs}}。"},
+        {"wrong":"three childs","right":"three children","tr":"三个孩子","why":"{{child}} 的复数不规则：{{children}}。"},
+        {"wrong":"two peoples","right":"two people","tr":"两个人","why":"{{person}} 的复数是 {{people}}，不再加 {{-s}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"We need two ___.","tr":"我们需要两把椅子。","options":["chairs","chair","chaires"],"answer":0,"why":"两个以上：{{chairs}}。"},
+        {"type":"choice","q":"“三个女人”是……","options":["{{three women}}","{{three womans}}","{{three woman}}"],"answer":0,"why":"{{woman}} 的复数不规则：{{women}}。"},
+        {"type":"choice","q":"{{boxes}} 的结尾怎么读？","options":["/ɪz/","/s/","/z/"],"answer":0,"why":"以 x 结尾，加 {{-es}}，读 /ɪz/。"},
+        {"type":"dialogue","q":"在电影院买票。选出你的回答。","lines":[{"who":"Cashier","t":"Hi! How many tickets?","tr":"你好！几张票？"},{"options":["Two tickets, please.","Two ticket, please."],"answer":0,"why":"两张：{{tickets}}，别忘了 {{-s}}。"},{"who":"Cashier","t":"For adults or children?","tr":"大人还是孩子？"},{"options":["One adult and one child.","One adult and one children."],"answer":0,"why":"一个孩子：{{child}}；两个以上才是 {{children}}。"},{"who":"Cashier","t":"That's eighteen dollars.","tr":"一共十八美元。"}],"from":"talk-about-jobs"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"孩子们在公园。","words":["The","children","are","in","the","park."]},
+        {"type":"free","q":"轮到你了：数一数你身边的东西，用数字和复数说出来。","answers":[{"t":"Two cups, three books and a phone.","tr":"两个杯子、三本书和一部手机。"},{"t":"We need four chairs and two tables.","tr":"我们需要四把椅子和两张桌子。"}]}
+      ]
+    },
+    {
+      "id": "order-food-and-drinks",
+      "unit": 2,
+      "level": "A1",
+      "title": "点餐：I'd like…",
+      "summary": "在咖啡店或餐厅点东西：“我要一杯咖啡”“能给我一些水吗？”，顺便学会英语里“不能数”的东西。",
+      "topic": "{{I'd like…}}、{{Can I have…?}}；{{a cup of}}、{{a glass of}}；不可数名词和 {{some}}",
+      "blocks": [
+        {"goal":{"t":"I'd like a coffee, please.","tr":"我要一杯咖啡，谢谢。"}},
+        {"dialog":[{"who":"Barista","t":"Hi! What can I get you?","tr":"你好！想喝点儿什么？"},{"who":"李明","t":"I'd like a large coffee, please.","tr":"我要一杯大杯咖啡。"},{"who":"Barista","t":"Sure. Anything else?","tr":"好的。还要别的吗？"},{"who":"李明","t":"Can I have a glass of water, too?","tr":"能再给我一杯水吗？"},{"who":"Barista","t":"Of course. For here or to go?","tr":"当然。在这儿喝还是带走？"},{"who":"李明","t":"To go, please.","tr":"带走，谢谢。"}]},
+        {"p":"**点餐最常用的两句：{{I'd like…}} 和 {{Can I have…?}}** {{I'd like}} 就是 {{I would like}}，意思是“我想要”，比 {{I want}} 礼貌得多。{{Can I have…?}}（能给我……吗？）也很自然。最后别忘了 {{please}}。"},
+        {"p":"**可数和不可数。** 有些东西英语把它看成“一团”，不能直接数：{{water}}（水）、{{coffee}}（咖啡）、{{rice}}（米饭）、{{milk}}（牛奶）、{{bread}}（面包）。它们没有复数，也不能直接加 {{a}}。要数的时候，就用一个“容器”，有点儿像中文的量词：{{a cup of coffee}}（一杯咖啡）、{{a glass of water}}（一杯水）、{{a bowl of rice}}（一碗米饭）。"},
+        {"term":"不可数名词","means":"不能直接用数字来数的名词，比如 {{water}}、{{rice}}、{{money}}。它们没有复数，前面也不能直接加 {{a}}。"},
+        { "table": [
+          ["容器","例子"],
+          ["{{a cup of}}","{{a cup of tea}} 一杯茶"],
+          ["{{a glass of}}","{{a glass of milk}} 一杯牛奶"],
+          ["{{a bottle of}}","{{a bottle of water}} 一瓶水"],
+          ["{{a bowl of}}","{{a bowl of soup}} 一碗汤"],
+          ["{{a piece of}}","{{a piece of cake}} 一块蛋糕"]
+        ] },
+        {"p":"**不说具体多少，就用 {{some}}**（一些）：{{some water}}、{{some bread}}。不过在咖啡店，大家常常直接说 {{a coffee}}、{{two coffees}}，意思是“一杯咖啡”“两杯咖啡”。"},
+        { "ex": [
+          {"t":"I'd like a coffee, please.","tr":"我要一杯咖啡，谢谢。"},
+          {"t":"Can I have some water?","tr":"能给我点儿水吗？"},
+          {"t":"Two cups of tea, please.","tr":"两杯茶，谢谢。"},
+          {"t":"I'd like a bowl of noodles.","tr":"我要一碗面。"},
+          {"t":"Can I have the check, please?","tr":"请帮我结账。","note":"美式说法：{{check}} 是“账单”"},
+          {"t":"No sugar, please.","tr":"不要糖，谢谢。"}
+        ] },
+        {"tip":"美国的服务员常问 {{For here or to go?}}（在这儿吃还是带走？）。在餐厅吃完饭一般要给小费（{{tip}}），通常是账单的百分之十五到二十。"}
+      ],
+      "mistakes": [
+        {"wrong":"I want a water.","right":"I'd like some water, please.","tr":"我想要点儿水。","why":"{{water}} 不可数，不能直接加 {{a}}：说 {{some water}} 或 {{a glass of water}}。{{I'd like}} 也比 {{I want}} 礼貌。"},
+        {"wrong":"Two cup of coffee.","right":"Two cups of coffee.","tr":"两杯咖啡。","why":"{{coffee}} 不变，但 {{cup}} 要变复数：{{two cups of coffee}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I'd like a ___ of milk, please.","tr":"我要一杯牛奶，谢谢。","options":["glass","glasses","milk"],"answer":0,"why":"一杯：{{a glass of}}。"},
+        {"type":"choice","q":"在餐厅，哪一句最礼貌？","options":["{{I'd like the chicken, please.}}","{{I want chicken.}}","{{Give me chicken.}}"],"answer":0,"why":"{{I'd like…, please.}} 是点餐最礼貌、最自然的说法。"},
+        {"type":"choice","q":"哪一个不能直接加 {{a}}？","options":["{{rice}}","{{apple}}","{{sandwich}}"],"answer":0,"why":"{{rice}} 不可数：{{some rice}}、{{a bowl of rice}}。"},
+        {"type":"dialogue","q":"在咖啡店。选出你的回答。","lines":[{"who":"Barista","t":"What can I get you?","tr":"想喝点儿什么？"},{"options":["I'd like two coffees, please.","I like two coffee, please."],"answer":0,"why":"{{I'd like}} 是“我想要”，{{I like}} 是“我喜欢”。两杯：{{two coffees}}。"},{"who":"Barista","t":"Anything else?","tr":"还要别的吗？"},{"options":["Can I have a piece of cake?","Can I have a cake piece?"],"answer":0,"why":"一块蛋糕：{{a piece of cake}}。"},{"who":"Barista","t":"Sure! For here or to go?","tr":"好的！在这儿吃还是带走？"}],"from":"count-things"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"能给我点儿水吗？","words":["Can","I","have","some","water?"]},
+        {"type":"free","q":"轮到你了：你在一家美国餐厅，点一样吃的和一样喝的。","answers":[{"t":"I'd like a burger and a glass of orange juice, please.","tr":"我要一个汉堡和一杯橙汁，谢谢。"},{"t":"Can I have a bowl of soup and some bread, please?","tr":"能给我一碗汤和一些面包吗？"}]}
+      ]
+    },
+    {
+      "id": "ask-the-price",
+      "unit": 2,
+      "level": "A1",
+      "title": "问价钱",
+      "summary": "“这个多少钱？”“二十五块九毛九”：问价钱、听懂价钱，还有英语和中文最不一样的地方：大数字。",
+      "topic": "{{How much is it?}} / {{How much are they?}}；{{hundred}}、{{thousand}}、{{million}}（一万 = {{ten thousand}}）；美元的读法",
+      "blocks": [
+        {"goal":{"t":"How much is this jacket?","tr":"这件夹克多少钱？"}},
+        {"dialog":[{"who":"李明","t":"Excuse me, how much is this jacket?","tr":"请问，这件夹克多少钱？"},{"who":"Clerk","t":"It's sixty-nine ninety-nine.","tr":"六十九块九毛九。"},{"who":"李明","t":"And how much are these shoes?","tr":"这双鞋呢？"},{"who":"Clerk","t":"They're on sale. Forty dollars.","tr":"在打折，四十美元。"},{"who":"李明","t":"Great, I'll take them.","tr":"太好了，我买了。"}]},
+        {"p":"**一样东西用 {{is}}，多样用 {{are}}。** {{How much is this?}}（这个多少钱？）{{How much are these?}}（这些多少钱？）回答也一样：{{It's ten dollars.}} {{They're five dollars each.}}（每个五美元。）注意：鞋、裤子、眼镜这些“成对”的东西，英语算复数：{{How much are these shoes?}}"},
+        {"p":"**美元的读法。** {{$25}} 读 {{twenty-five dollars}}；{{$25.99}} 一般读 {{twenty-five ninety-nine}}，不说“点”。一美元等于一百美分（{{cents}}）。"},
+        {"p":"**大数字：英语三位一组，中文四位一组。** 中文有“万”，英语没有！英语用 {{thousand}}（千）、{{million}}（百万）、{{billion}}（十亿）。所以一万是 {{ten thousand}}（十个千），十万是 {{a hundred thousand}}（一百个千），一百万是 {{a million}}。"},
+        { "table": [
+          ["数字","中文","英语"],
+          ["1,000","一千","{{a thousand}}"],
+          ["10,000","一万","{{ten thousand}}"],
+          ["100,000","十万","{{a hundred thousand}}"],
+          ["1,000,000","一百万","{{a million}}"],
+          ["100,000,000","一亿","{{a hundred million}}"]
+        ] },
+        { "ex": [
+          {"t":"How much is this jacket?","tr":"这件夹克多少钱？"},
+          {"t":"It's twenty dollars.","tr":"二十美元。"},
+          {"t":"How much are the tickets?","tr":"票多少钱？"},
+          {"t":"They're fifteen dollars each.","tr":"每张十五美元。"},
+          {"t":"That's too expensive!","tr":"太贵了！"},
+          {"t":"The car is thirty thousand dollars.","tr":"那辆车三万美元。","note":"三万 = {{thirty thousand}}"}
+        ] },
+        {"tip":"写数字时，英语每三位加一个逗号：10,000、1,000,000。年份通常两位两位地读：2026 读作 {{twenty twenty-six}}。"}
+      ],
+      "mistakes": [
+        {"wrong":"How much is these?","right":"How much are these?","tr":"这些多少钱？","why":"{{these}} 是复数，要用 {{are}}。"},
+        {"wrong":"The car is twenty thousands dollars.","right":"The car is twenty thousand dollars.","tr":"那辆车两万美元。","why":"数字后面的 {{hundred}}、{{thousand}}、{{million}} 不加 {{-s}}：{{twenty thousand}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"How much ___ these shoes?","tr":"这双鞋多少钱？","options":["are","is","am"],"answer":0,"why":"鞋是“一双”，英语算复数：{{are}}。"},
+        {"type":"choice","q":"“五万”用英语怎么说？","options":["{{fifty thousand}}","{{five thousand}}","{{five ten thousand}}"],"answer":0,"why":"一万是 {{ten thousand}}，所以五万是五十个千：{{fifty thousand}}。"},
+        {"type":"choice","q":"$12.50 一般怎么读？","options":["{{twelve fifty}}","{{twelve point five zero}}","{{twelve dollars five}}"],"answer":0,"why":"价钱一般分成两段读：{{twelve fifty}}。"},
+        {"type":"dialogue","q":"在服装店。选出你的回答。","lines":[{"who":"Clerk","t":"Hi! Can I help you?","tr":"你好！需要帮忙吗？"},{"options":["Yes, how much is this sweater?","Yes, how much this sweater?"],"answer":0,"why":"别忘了 {{is}}：{{How much is…?}}"},{"who":"Clerk","t":"It's thirty-five dollars.","tr":"三十五美元。"},{"options":["OK. And how much are those socks?","OK. And how much is those socks?"],"answer":0,"why":"{{socks}} 是复数：{{are}}。"}],"from":"point-at-things"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"这些多少钱？","words":["How","much","are","these?"]},
+        {"type":"free","q":"轮到你了：在商店里问两样东西的价钱，一个用 {{is}}，一个用 {{are}}。","answers":[{"t":"How much is this bag? And how much are these glasses?","tr":"这个包多少钱？这副眼镜多少钱？"},{"t":"How much is that phone? How much are the headphones?","tr":"那部手机多少钱？耳机多少钱？"}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "说是谁的",
+      "summary": "“我的手机”“汤姆的车”“这是谁的？”：说东西是谁的。特别注意 {{his}} 和 {{her}}！",
+      "topic": "{{my}}、{{your}}、{{his}}、{{her}}、{{our}}、{{their}}；{{Tom's}}；{{Whose…?}}；{{mine}}、{{yours}}",
+      "blocks": [
+        {"goal":{"t":"Is this your phone?","tr":"这是你的手机吗？"}},
+        {"dialog":[{"who":"Manager","t":"Whose bag is this?","tr":"这是谁的包？"},{"who":"张伟","t":"It's not mine. I think it's Lisa's.","tr":"不是我的。我想是丽莎的。"},{"who":"Manager","t":"Lisa, is this your bag?","tr":"丽莎，这是你的包吗？"},{"who":"Lisa","t":"Yes, it's mine! Thanks.","tr":"是，是我的！谢谢。"},{"who":"Manager","t":"And this umbrella?","tr":"这把伞呢？"},{"who":"张伟","t":"That's David's. His desk is over there.","tr":"那是大卫的。他的桌子在那边。"}]},
+        {"p":"**“我的”“你的”：放在名词前面。** 英语的“……的”不是在每个词后面加一个字，而是换一个词：{{I}} → {{my}}，{{you}} → {{your}}。{{my phone}}（我的手机），{{your car}}（你的车）。"},
+        { "table": [
+          ["人","……的 + 名词","……的（单用）"],
+          ["我 {{I}}","{{my}}","{{mine}}"],
+          ["你 {{you}}","{{your}}","{{yours}}"],
+          ["他 {{he}}","{{his}}","{{his}}"],
+          ["她 {{she}}","{{her}}","{{hers}}"],
+          ["我们 {{we}}","{{our}}","{{ours}}"],
+          ["他们 {{they}}","{{their}}","{{theirs}}"]
+        ] },
+        {"p":"**{{his}} 是“他的”，{{her}} 是“她的”。** 中国学生常常把它们说反，因为中文的“他的”“她的”读音一样。记住：看主人是男是女，不看东西。丽莎的哥哥是 {{her brother}}（她的哥哥），汤姆的妈妈是 {{his mother}}（他的妈妈）。"},
+        {"p":"**名字 + {{'s}}**：{{Tom's car}}（汤姆的车），{{my mom's phone}}（我妈妈的手机）。**问“谁的”**：{{Whose…?}}：{{Whose bag is this?}}（这是谁的包？）**单独用**：{{It's mine.}}（是我的。）"},
+        { "ex": [
+          {"t":"Is this your phone?","tr":"这是你的手机吗？"},
+          {"t":"My sister's name is Amy.","tr":"我妹妹叫艾米。"},
+          {"t":"His wife is a doctor.","tr":"他的太太是医生。"},
+          {"t":"Her husband is from Canada.","tr":"她的丈夫是加拿大人。"},
+          {"t":"Whose keys are these?","tr":"这是谁的钥匙？"},
+          {"t":"They're mine.","tr":"是我的。"}
+        ] },
+        {"tip":"{{it's}} 和 {{its}} 不一样：{{it's}} = {{it is}}，{{its}} 是“它的”：{{The dog wants its food.}}（狗要吃它的饭。）"}
+      ],
+      "mistakes": [
+        {"wrong":"Lisa is here with his husband.","right":"Lisa is here with her husband.","tr":"丽莎和她丈夫来了。","why":"丽莎是女的，用 {{her}}。主人是谁，就用谁的词。"},
+        {"wrong":"This is my mother car.","right":"This is my mother's car.","tr":"这是我妈妈的车。","why":"名词表示“谁的”，要加 {{'s}}：{{my mother's car}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Tom is here with ___ wife.","tr":"汤姆和他太太来了。","options":["his","her","he"],"answer":0,"why":"汤姆是男的：{{his}}。"},
+        {"type":"choice","q":"“这是谁的外套？”","options":["{{Whose coat is this?}}","{{Who coat is this?}}","{{This is whose coat?}}"],"answer":0,"why":"问“谁的”用 {{whose}}，放在句首。","from":"ask-who-what-where"},
+        {"type":"choice","q":"朋友问 {{Is this your pen?}}，是你的。你说……","options":["{{Yes, it's mine.}}","{{Yes, it's my.}}","{{Yes, it's me.}}"],"answer":0,"why":"单独用的“我的”是 {{mine}}。"},
+        {"type":"dialogue","q":"在办公室找东西。选出你的回答。","lines":[{"who":"Colleague","t":"Is this your coffee?","tr":"这是你的咖啡吗？"},{"options":["No, it's Mike's.","No, it's Mike."],"answer":0,"why":"“迈克的”：{{Mike's}}。"},{"who":"Colleague","t":"And this phone? Is it Sarah's?","tr":"这部手机呢？是萨拉的吗？"},{"options":["Yes, it's her phone.","Yes, it's his phone."],"answer":0,"why":"萨拉是女的：{{her}}。"},{"who":"Colleague","t":"OK, thanks!","tr":"好的，谢谢！"}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"他的太太是医生。","words":["His","wife","is","a","doctor."]},
+        {"type":"free","q":"轮到你了：介绍两个家人，说说他们的名字和工作。用 {{my}}、{{his}} 或 {{her}}。","answers":[{"t":"My brother's name is Wei. His wife is a teacher.","tr":"我哥哥叫伟。他的太太是老师。"},{"t":"My mom's name is Li Hua. Her job is very busy.","tr":"我妈妈叫李华。她的工作很忙。"}]}
+      ]
     }
   ]
 }
