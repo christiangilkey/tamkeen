@@ -14,6 +14,11 @@ the website, like docs/lexicon):
                             the learner's cards keeps its audio exactly as a voiced card does
     index.json              every course there is, with its size and checksum
 
+A word said alone can come out in the wrong reading (Chinese 的 as "dí", Japanese は as "ha", Portuguese
+"o" as the letter's name). Such a word carries `say`: the text to voice for the word part instead
+(kana: "わ"), or its exact sound, {"alphabet": "sapi", "ph": "de 5"} (Azure's pinyin for zh-CN) or
+{"alphabet": "ipa", "ph": "u"}. The sentence is always voiced as written.
+
 Audio already made for the same text and voice is kept (a small list next to it says which), so a
 second run only makes what is new or changed.
 
@@ -181,13 +186,15 @@ def azure_turn() -> None:
     _lock["file"] = f  # held until this program ends
 
 
-def azure_synth(text: str, lang: str, rate: str = "") -> tuple[np.ndarray, int]:
+def azure_synth(text: str, lang: str, rate: str = "", ph: dict[str, str] | None = None) -> tuple[np.ndarray, int]:
     import httpx
 
     azure_turn()
     key, region = azure_key()
     v = AZURE[lang]
     body = escape(text)
+    if ph:  # the exact sound: <phoneme alphabet="sapi" ph="de 5">的</phoneme>
+        body = f'<phoneme alphabet="{escape(ph.get("alphabet", "ipa"), {chr(34): "&quot;"})}" ph="{escape(ph["ph"], {chr(34): "&quot;"})}">{body}</phoneme>'
     if rate:
         body = f'<prosody rate="{rate}">{body}</prosody>'
     ssml = (f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="{v["locale"]}">'
@@ -275,11 +282,19 @@ def trim(pcm: np.ndarray, rate: int, floor: int = 300) -> np.ndarray:
     return pcm[max(0, loud[0] - pad): loud[-1] + pad]
 
 
-def make_audio(word: str, sentence: str, lang: str, engine: str) -> tuple[bytes, dict[str, float]]:
+def spoken(w: dict[str, Any]) -> str:
+    """The text voiced for the word part: its `say` when that is text, else the word as written."""
+    return w["say"] if isinstance(w.get("say"), str) and w["say"].strip() else w["word"]
+
+
+def make_audio(word: str, sentence: str, lang: str, engine: str, say: Any = None) -> tuple[bytes, dict[str, float]]:
     from app import audio
 
     synth = {"azure": azure_synth, "piper": piper_synth, "mms": mms_synth}[engine]
-    w, rate = synth(word, lang)
+    if isinstance(say, dict) and say.get("ph") and engine == "azure":
+        w, rate = azure_synth(word, lang, ph=say)
+    else:  # other voices can't take a sound spelling: they say the text
+        w, rate = synth(say if isinstance(say, str) and say.strip() else word, lang)
     s, rate2 = synth(sentence, lang, SENTENCE_RATE if engine == "azure" else "")
     if rate2 != rate:
         raise SystemExit("The voice changed its sample rate between the word and the sentence.")
@@ -296,8 +311,11 @@ def make_audio(word: str, sentence: str, lang: str, engine: str) -> tuple[bytes,
 # ---------------------------------------------------------------- building
 
 def fingerprint(w: dict[str, Any], engine: str, lang: str) -> str:
-    return hashlib.sha1(json.dumps([w["word"], w["sentence"], engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE],
-                                   ensure_ascii=False).encode()).hexdigest()[:16]
+    # `say` only counts when it is there, so words without one keep the audio they have.
+    parts = [w["word"], w["sentence"], engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE]
+    if w.get("say"):
+        parts.append(w["say"])
+    return hashlib.sha1(json.dumps(parts, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
 
 
 def main() -> None:
@@ -333,7 +351,7 @@ def main() -> None:
     if engine == "mms":  # everything still to make, said in one run
         todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine, lang)
                 or not (folder / "audio" / f"{w['n']:04d}.ogg").exists() or not old_times.get(w["n"])]
-        mms_prepare([t for w in todo for t in (w["word"], w["sentence"])], lang)
+        mms_prepare([t for w in todo for t in (spoken(w), w["sentence"])], lang)
     items = []
     for w in words:
         name = f"{w['n']:04d}.ogg"
@@ -342,7 +360,7 @@ def main() -> None:
         times = old_times.get(w["n"])
         if args.redo or made.get(name) != fp or not path.exists() or not times:
             log(f"{w['n']:4d}  {plain(w['word'])}")
-            ogg, times = make_audio(w["word"], w["sentence"], lang, engine)
+            ogg, times = make_audio(w["word"], w["sentence"], lang, engine, w.get("say"))
             path.write_bytes(ogg)
             made[name] = fp
             made_list.write_text(json.dumps(made, indent=0), encoding="utf-8")
