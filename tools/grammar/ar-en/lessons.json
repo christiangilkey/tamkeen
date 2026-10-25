@@ -301,6 +301,262 @@
         {"type":"say","q":"اطلب في المقهى شايًا وبعض البسكويت.","answer":"Can I have a tea and some cookies, please?"},
         {"type":"free","q":"دورك: أنت في مقهى. اطلب مشروبًا وشيئًا تأكله.","answers":[{"t":"Can I get a cappuccino and a croissant, please?","tr":"هل لي بكابتشينو وكرواسون، من فضلك؟"},{"t":"I'd like a tea with milk and some cookies, please.","tr":"أودّ شايًا بالحليب وبعض البسكويت، من فضلك."}]}
       ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "صِف الأشياء والناس",
+      "summary": "قل «سيارة حمراء صغيرة» و«الجوّ حارّ اليوم»: الصفة في الإنجليزية قبل الاسم، ولا تُجمع أبدًا.",
+      "topic": "الصفة قبل الاسم وبلا جمع؛ {{be}} + صفة؛ {{It's hot.}}",
+      "blocks": [
+        {"goal":{"t":"It's a small red car, but it's very fast.","tr":"إنها سيارة حمراء صغيرة، لكنها سريعة جدًّا."}},
+        {"dialog":[{"who":"سارة","t":"How's your new apartment?","tr":"كيف شقّتك الجديدة؟"},{"who":"لينا","t":"It's great! It's small, but it's very nice.","tr":"رائعة! إنها صغيرة، لكنها جميلة جدًّا."},{"who":"سارة","t":"Is it quiet?","tr":"هل هي هادئة؟"},{"who":"لينا","t":"Yes, it is. It's on a quiet street.","tr":"نعم. إنها في شارع هادئ."},{"who":"سارة","t":"And your neighbors?","tr":"وجيرانك؟"},{"who":"لينا","t":"They're really friendly.","tr":"إنهم ودودون جدًّا."}]},
+        {"p":"**الصفة قبل الاسم.** في العربية تأتي الصفة بعد الموصوف: «سيارة حمراء»، «شارع هادئ». أما في الإنجليزية فالعكس: الصفة أولًا، ثم الاسم: {{a red car}}، {{a quiet street}}. وإذا كانت هناك أداة فهي في أول الكل: {{a}}، ثم الصفة، ثم الاسم."},
+        {"term":"الصفة","means":"كلمة تصف اسمًا: {{big}} «كبير»، {{new}} «جديد»، {{red}} «أحمر»."},
+        { "table": [
+          ["العربية","الإنجليزية"],
+          ["سيارة حمراء","{{a red car}}"],
+          ["بيت كبير جديد","{{a big new house}}"],
+          ["أصدقاء طيّبون","{{good friends}}"]
+        ] },
+        {"p":"**الصفة لا تتغيّر.** في العربية تتبع الصفة موصوفها: «ولد طويل، بنت طويلة، أولاد طوال». أما في الإنجليزية فللصفة صورة واحدة دائمًا، لا تُؤنَّث ولا تُجمع: {{a tall boy}}، {{a tall girl}}، {{tall boys}}. الجمع يظهر في الاسم وحده: {{red cars}}. وإذا اجتمعت صفتان فالحجم عادةً قبل اللون: {{a small black dog}}."},
+        {"p":"**الصفة بعد الفعل {{be}}.** وتأتي الصفة أيضًا بعد {{is}} و{{are}}: {{The car is red.}} «السيارة حمراء»، {{They're friendly.}} «هم ودودون». وهنا كذلك لا يُحذف الفعل. وتقوّيها {{very}} «جدًّا» أو {{really}} «حقًّا»، وتأتيان قبلها لا بعدها: {{very fast}} «سريع جدًّا»."},
+        {"p":"**{{It's}} للجوّ والوقت.** تقول العربية «الجوّ حارّ» أو «حارٌّ اليوم». أما الإنجليزية فلا تبدأ الجملة بالفعل، فتضع {{it}} قبله، وإن لم يكن هناك شيء معيّن تشير إليه: {{It's hot today.}} «الجوّ حارّ اليوم»، {{It's late.}} «تأخّر الوقت»، {{It's far.}} «المكان بعيد»."},
+        { "ex": [
+          {"t":"She's a great cook.","tr":"إنها طبّاخة ماهرة."},
+          {"t":"This is a very old city.","tr":"هذه مدينة قديمة جدًّا."},
+          {"t":"My shoes are new.","tr":"حذائي جديد."},
+          {"t":"It's cold today.","tr":"الجوّ بارد اليوم."},
+          {"t":"They're nice people.","tr":"إنهم أناس لطفاء."},
+          {"t":"The food here is really good.","tr":"الطعام هنا لذيذ حقًّا."}
+        ] },
+        {"tip":"**حروف العلّة القصيرة.** في الإنجليزية أصوات قصيرة متقاربة تغيّر المعنى: {{bag}} «حقيبة»، {{bed}} «سرير»، {{big}} «كبير». قد تسمع الأولى والثانية متشابهتين، فاستمع إليهما وكرّرهما: في {{bag}} يُفتح الفم أكثر."}
+      ],
+      "mistakes": [
+        {"wrong":"a car red","right":"a red car","tr":"سيارة حمراء","why":"الصفة في الإنجليزية قبل الاسم."},
+        {"wrong":"beautifuls flowers","right":"beautiful flowers","tr":"زهور جميلة","why":"الصفة لا تُجمع أبدًا؛ الجمع في الاسم وحده."},
+        {"wrong":"Is very hot today.","right":"It's very hot today.","tr":"الجوّ حارّ جدًّا اليوم.","why":"لا تبدأ الجملة الإنجليزية بالفعل: ضع {{It}} قبله."}
+      ],
+      "practice": [
+        {"type":"order","q":"رتّب الكلمات.","tr":"إنه كلب أسود صغير.","words":["It's","a","small","black","dog."]},
+        {"type":"choice","q":"كيف تقول «سيارات جديدة»؟","options":["{{new cars}}","{{news cars}}","{{cars new}}"],"answer":0,"why":"الصفة قبل الاسم، ولا تُجمع."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"___ cold today.","tr":"الجوّ بارد اليوم.","options":["It's","Is","It"],"answer":0,"why":"لا بدّ من {{It}} قبل الفعل: {{It's}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"The children ___ very happy.","tr":"الأطفال سعداء جدًّا.","options":["are","is","am"],"answer":0,"why":"{{children}} جمع، والجمع مع {{are}}.","from":"point-and-name"},
+        {"type":"dialogue","q":"صديقك الأمريكي يسألك عن مدينتك: اختر ردودك.","lines":[{"who":"مايك","t":"Where are you from?","tr":"من أين أنت؟"},{"options":["I'm from Fez. It's an old city in Morocco.","I'm from Fez. It's a city old in Morocco."],"answer":0,"why":"الصفة قبل الاسم: {{an old city}}."},{"who":"مايك","t":"Is it big?","tr":"هل هي كبيرة؟"},{"options":["Yes, it's very big.","Yes, she's very big."],"answer":0,"why":"المدينة شيء، والشيء {{it}}."},{"who":"مايك","t":"Cool! Is the food good?","tr":"رائع! وهل الطعام لذيذ؟"},{"options":["Yes! The food is really good.","Yes! The food really good."],"answer":0,"why":"لا تحذف الفعل قبل الصفة: {{is}}."}],"from":"say-who-you-are"},
+        {"type":"say","q":"قل «إنهم أناس لطفاء».","answer":"They're nice people."},
+        {"type":"free","q":"دورك: صِف بيتك أو مدينتك في جملتين أو ثلاث، بصفتين على الأقل.","answers":[{"t":"My apartment is small, but it's very nice. It's on a quiet street.","tr":"شقّتي صغيرة، لكنها جميلة جدًّا. إنها في شارع هادئ."},{"t":"I'm from Alexandria. It's a big, beautiful city by the sea.","tr":"أنا من الإسكندرية. إنها مدينة كبيرة جميلة على البحر."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 2,
+      "level": "A1",
+      "title": "تحدَّث عن عائلتك",
+      "summary": "قل «عندي أخوان وأخت» و«اسم ابني آدم»: {{have}} و{{has}}، وكلمات الملكية {{my, your, his, her}}.",
+      "topic": "{{have}} و{{has}}؛ صفات الملكية {{my, your, his, her, its, our, their}}؛ الجمع بعد الأعداد",
+      "blocks": [
+        {"goal":{"t":"I have two brothers and a sister. Their names are Ali, Hassan, and Mona.","tr":"عندي أخوان وأخت. أسماؤهم علي وحسن ومنى."}},
+        {"dialog":[{"who":"جيسيكا","t":"Is this your family?","tr":"هل هذه عائلتك؟"},{"who":"عمر","t":"Yes. This is my wife, Hala, and these are our kids.","tr":"نعم. هذه زوجتي هالة، وهؤلاء أولادنا."},{"who":"جيسيكا","t":"Oh, they're so cute! How old are they?","tr":"ما أجملهم! كم أعمارهم؟"},{"who":"عمر","t":"Our son is eight, and our daughter is five.","tr":"ابننا عمره ثماني سنوات، وابنتنا خمس."},{"who":"جيسيكا","t":"I have a son, too. He's ten.","tr":"عندي ابن أيضًا. عمره عشر سنوات."},{"who":"عمر","t":"What's his name?","tr":"ما اسمه؟"},{"who":"جيسيكا","t":"His name is Ryan.","tr":"اسمه رايان."}]},
+        {"p":"**«عندي» = {{I have}}.** تقول العربية «عندي» أو «لديّ»، أما الإنجليزية فتجعل صاحب الشيء أول الجملة، ثم الفعل {{have}} «يملك»: {{I have a car.}} «عندي سيارة»، {{We have three children.}} «لدينا ثلاثة أطفال». ومع {{he}} و{{she}} و{{it}} يصير الفعل {{has}}: {{She has a big family.}} «لها عائلة كبيرة»."},
+        { "table": [
+          ["مع","الفعل","مثال"],
+          ["{{I, you, we, they}}","{{have}}","{{They have a dog.}}"],
+          ["{{he, she, it}}","{{has}}","{{He has a new job.}}"]
+        ] },
+        {"p":"(قد تسمع أيضًا {{I've got}} و{{she's got}} بالمعنى نفسه، وهي شائعة في الكلام؛ لكن {{have}} وحدها صحيحة في كل موضع.)"},
+        {"term":"صفات الملكية","means":"كلمات تأتي قبل الاسم لتقول لمن هو: {{my}} «ـي»، {{your}} «ـكَ، ـكِ، ـكم»، {{his}} «ـه»، {{her}} «ـها»، {{its}} «ـه، ـها» لغير الإنسان، {{our}} «ـنا»، {{their}} «ـهم»."},
+        {"p":"**«ـي، ـك، ـه» كلمة قبل الاسم.** في العربية يتّصل الضمير بآخر الاسم: «بيتي، بيتك، بيته». أما في الإنجليزية فهو كلمة مستقلّة قبل الاسم، والاسم بعده لا يتغيّر:"},
+        { "table": [
+          ["العربية","الإنجليزية"],
+          ["بيتي","{{my house}}"],
+          ["بيتكَ، بيتكِ، بيتكم","{{your house}}"],
+          ["بيته","{{his house}}"],
+          ["بيتها","{{her house}}"],
+          ["بيتنا","{{our house}}"],
+          ["بيتهم","{{their house}}"]
+        ] },
+        {"p":"**الجمع بعد العدد.** في العربية يأتي المعدود بعد أحد عشر فما فوق مفردًا: «عشرون كتابًا»، «مئة شخص». أما الإنجليزية فكلّ ما زاد على واحد جمع: {{two brothers}}، {{twenty books}}، {{a hundred people}}."},
+        { "ex": [
+          {"t":"I have a big family.","tr":"عندي عائلة كبيرة."},
+          {"t":"My wife has two sisters.","tr":"لزوجتي أختان."},
+          {"t":"We have a cat. Its name is Mishmish.","tr":"عندنا قطّة، اسمها مشمش.","note":"{{its}} لغير الإنسان، بلا فاصلة عليا"},
+          {"t":"His name is Karim, and her name is Dina.","tr":"اسمه كريم، واسمها دينا."},
+          {"t":"Their house is near the beach.","tr":"بيتهم قريب من الشاطئ."},
+          {"t":"Our school has fifteen teachers.","tr":"في مدرستنا خمسة عشر معلّمًا."}
+        ] },
+        {"tip":"**صوت {{v}}.** ليس في العربية حرف «ڤ»، فقد يخرج {{very}} و{{have}} و{{five}} بالفاء. الفرق: مع {{v}} يهتزّ الحلق كما يهتزّ مع الزاي، ومع {{f}} لا يهتزّ. ضع يدك على حلقك وقل {{fan}} ثم {{van}}: في الثانية تشعر بالاهتزاز."}
+      ],
+      "mistakes": [
+        {"wrong":"She have a car.","right":"She has a car.","tr":"عندها سيارة.","why":"مع {{he}} و{{she}} و{{it}}: {{has}}."},
+        {"wrong":"I have two brother.","right":"I have two brothers.","tr":"عندي أخوان.","why":"كل ما زاد على واحد جمع في الإنجليزية، اثنين كان أو عشرين."},
+        {"wrong":"My brother he has a car.","right":"My brother has a car.","tr":"عند أخي سيارة.","why":"لا تُعِد الاسم بضمير بعده: إما {{My brother has…}} وإما {{He has…}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My father ___ a new car.","tr":"عند أبي سيارة جديدة.","options":["has","have","is"],"answer":0,"why":"{{my father}} = {{he}}، فالفعل {{has}}."},
+        {"type":"choice","q":"«بيتهم» بالإنجليزية…","options":["{{their house}}","{{house their}}","{{they house}}"],"answer":0,"why":"صفة الملكية قبل الاسم: {{their house}}."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"This is my sister. ___ name is Mona.","tr":"هذه أختي. اسمها منى.","options":["Her","His","She"],"answer":0,"why":"لصاحبة الشيء الأنثى: {{her}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"لدينا ثلاثة أطفال.","words":["We","have","three","children."]},
+        {"type":"dialogue","q":"زميلتك تنظر إلى صورة على هاتفك: اختر ردودك.","lines":[{"who":"إميلي","t":"Is this your brother?","tr":"هل هذا أخوك؟"},{"options":["Yes, it is. His name is Fadi.","Yes, it is. Her name is Fadi."],"answer":0,"why":"أخوك ذكر: {{his}}."},{"who":"إميلي","t":"Is he a student?","tr":"هل هو طالب؟"},{"options":["No, he isn't. He's a pilot.","No, he not. He's pilot."],"answer":0,"why":"النفي {{isn't}}، والمهنة مع {{a}}."},{"who":"إميلي","t":"A pilot? That's so cool!","tr":"طيّار؟ هذا رائع!"}],"from":"ask-yes-or-no"},
+        {"type":"say","q":"قل «عندي أخت واحدة وثلاثة إخوة».","answer":"I have one sister and three brothers."},
+        {"type":"free","q":"دورك: صِف عائلتك: كم أخًا وأختًا عندك، وما أسماؤهم، وكم أعمارهم؟","answers":[{"t":"I have two sisters. Their names are Rania and Huda. Rania is twelve, and Huda is nine.","tr":"عندي أختان، اسماهما رانيا وهدى. رانيا عمرها اثنا عشر عامًا، وهدى تسعة."},{"t":"I have a brother and a sister. They're students, and they're very funny.","tr":"عندي أخ وأخت. هما طالبان، وظريفان جدًّا."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "قل لمن هذا الشيء",
+      "summary": "قل «سيارة أخي» و«بيت عمر» كما يقولها الأمريكيون: الإضافة في الإنجليزية بـ{{'s}}، وصاحب الشيء أولًا.",
+      "topic": "الملكية بـ{{'s}}؛ {{of}} للأشياء؛ {{Whose…?}} و{{mine, yours}}",
+      "blocks": [
+        {"goal":{"t":"This is my brother's car.","tr":"هذه سيارة أخي."}},
+        {"dialog":[{"who":"صاحبة البيت","t":"Whose jacket is this?","tr":"لمن هذه السترة؟"},{"who":"لينا","t":"It's my husband's.","tr":"إنها لزوجي."},{"who":"صاحبة البيت","t":"And this phone? Is it yours?","tr":"وهذا الهاتف؟ هل هو لكِ؟"},{"who":"لينا","t":"No, it isn't mine. I think it's Sara's.","tr":"لا، ليس لي. أظنّه لسارة."},{"who":"صاحبة البيت","t":"Okay. And the keys?","tr":"حسنًا. والمفاتيح؟"},{"who":"لينا","t":"Those are my parents' keys.","tr":"تلك مفاتيح والديّ."}]},
+        {"p":"**الإضافة مقلوبة.** في العربية يأتي الشيء أولًا ثم صاحبه: «سيارةُ أخي»، «بيتُ عمر». أما الإنجليزية فتبدأ بصاحب الشيء، وتضيف إليه {{'s}}، ثم تذكر الشيء: {{my brother's car}}، {{Omar's house}}. كأنك تقول «أخي، سيارتُه»."},
+        { "table": [
+          ["العربية","الإنجليزية"],
+          ["سيارة أخي","{{my brother's car}}"],
+          ["بيت عمر","{{Omar's house}}"],
+          ["غرفة الأولاد","{{the children's room}}"],
+          ["مفاتيح والديّ","{{my parents' keys}}"]
+        ] },
+        {"p":"**أين توضع الفاصلة العليا؟** مع الاسم المفرد: {{'s}}، {{my sister's}}. ومع الجمع المنتهي بـ{{s}} تكفي الفاصلة وحدها بعده: {{my parents'}} «والديّ»، {{the students'}} «الطلاب». ومع الجمع الشاذّ ترجع {{'s}}: {{the children's}}، {{people's}}."},
+        {"p":"**{{of}} للأشياء.** حين يكون «الصاحب» شيئًا لا شخصًا، يقولون غالبًا {{the … of …}} كما في العربية: {{the end of the street}} «نهاية الشارع»، {{the name of the hotel}} «اسم الفندق». أما مع الناس فـ{{'s}}: لا تقل {{the car of my brother}}، بل {{my brother's car}}."},
+        {"p":"**لمن؟** يُسأل عن الصاحب بـ{{Whose…?}} «لمن…؟»: {{Whose bag is this?}}. وفي الجواب، إذا لم تُرِد أن تكرّر الاسم، تقول {{It's mine.}} «إنه لي». وهذه كلماتها:"},
+        { "table": [
+          ["قبل اسم","وحدها","المعنى"],
+          ["{{my}}","{{mine}}","لي"],
+          ["{{your}}","{{yours}}","لكَ، لكِ، لكم"],
+          ["{{his}}","{{his}}","له"],
+          ["{{her}}","{{hers}}","لها"],
+          ["{{our}}","{{ours}}","لنا"],
+          ["{{their}}","{{theirs}}","لهم"]
+        ] },
+        { "ex": [
+          {"t":"This is Sara's bag.","tr":"هذه حقيبة سارة."},
+          {"t":"My friend's name is Ahmed.","tr":"اسم صديقي أحمد."},
+          {"t":"That's my parents' house.","tr":"ذلك بيت والديّ."},
+          {"t":"What's the name of the restaurant?","tr":"ما اسم المطعم؟"},
+          {"t":"Is this pen yours? — No, it's Omar's.","tr":"هل هذا القلم لك؟ — لا، إنه لعمر."},
+          {"t":"The kids' toys are everywhere!","tr":"ألعاب الأولاد في كل مكان!"}
+        ] },
+        {"tip":"{{'s}} نفسها اختصار لـ{{is}} أيضًا: {{Omar's here.}} «عمر هنا». والمعنى يتّضح مما بعدها: {{Omar's car}} «سيارة عمر» (بعدها اسم)، و{{Omar's tired}} «عمر متعب» (بعدها صفة)."}
+      ],
+      "mistakes": [
+        {"wrong":"the car of my brother","right":"my brother's car","tr":"سيارة أخي","why":"مع الناس يأتي صاحب الشيء أولًا مع {{'s}}. ({{the car of my brother}} مفهومة، لكن أهل اللغة لا يقولونها.)"},
+        {"wrong":"my brother car","right":"my brother's car","tr":"سيارة أخي","why":"لا تنسَ {{'s}}: هي التي تدلّ على الملكية."},
+        {"wrong":"Is this your?","right":"Is this yours?","tr":"هل هذا لك؟","why":"إذا لم يأتِ بعدها اسم فهي {{yours}} لا {{your}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"«بيت عمر» بالإنجليزية…","options":["{{Omar's house}}","{{house Omar's}}","{{the house of Omar}}"],"answer":0,"why":"الصاحب أولًا مع {{'s}}، ثم الشيء."},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Whose phone is this? — It's ___.","tr":"لمن هذا الهاتف؟ — إنه لي.","options":["mine","my","me"],"answer":0,"why":"لا يأتي بعدها اسم، فهي {{mine}}."},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هذه غرفة ابنتي.","words":["This","is","my","daughter's","room."]},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"What's the name ___ the hotel?","tr":"ما اسم الفندق؟","options":["of","from","in"],"answer":0,"why":"مع الأشياء: {{the name of the hotel}}.","from":"ask-name-age-and-more"},
+        {"type":"dialogue","q":"بعد الاجتماع تجمعان الأشياء المنسيّة: اختر ردودك.","lines":[{"who":"زميلك","t":"Whose laptop is this?","tr":"لمن هذا الحاسوب؟"},{"options":["It's Ryan's.","It's of Ryan."],"answer":0,"why":"{{Ryan's}}: الاسم ثم {{'s}}."},{"who":"زميلك","t":"And these glasses? Are they yours?","tr":"وهذه النظارة؟ هل هي لك؟"},{"options":["No, they aren't mine. They're Emily's.","No, they isn't my. They're Emily."],"answer":0,"why":"{{glasses}} جمع: {{they aren't}}؛ و{{mine}} لأنه لا اسم بعدها."},{"who":"زميلك","t":"Okay, thanks!","tr":"حسنًا، شكرًا!"}],"from":"point-and-name"},
+        {"type":"say","q":"قل «هذه سيارة والديّ».","answer":"This is my parents' car."},
+        {"type":"free","q":"دورك: اذكر ثلاثة أشياء في بيتك، ولمن هي.","answers":[{"t":"This is my son's bike. That's my wife's phone. These are my books.","tr":"هذه درّاجة ابني. ذلك هاتف زوجتي. هذه كتبي."},{"t":"The big room is my parents' room. The small room is mine.","tr":"الغرفة الكبيرة غرفة والديّ. والصغيرة لي."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "قل أين الأشياء",
+      "summary": "قل «هناك صيدلية بجانب البنك»، واسأل {{Is there a bank near here?}}: {{there is}} و{{there are}} مع كلمات المكان.",
+      "topic": "{{there is}} و{{there are}}؛ حروف الجرّ {{in, on, at, next to, near, between, across from}}",
+      "blocks": [
+        {"goal":{"t":"There's a pharmacy next to the bank.","tr":"هناك صيدلية بجانب البنك."}},
+        {"dialog":[{"who":"أنت","t":"Excuse me. Is there a pharmacy near here?","tr":"عفوًا. هل توجد صيدلية قريبة من هنا؟"},{"who":"امرأة","t":"Yes, there is. There's one on Main Street, next to the bank.","tr":"نعم. هناك واحدة في الشارع الرئيسي، بجانب البنك."},{"who":"أنت","t":"Great. And are there any restaurants on Main Street?","tr":"رائع. وهل توجد مطاعم في الشارع الرئيسي؟"},{"who":"امرأة","t":"Yes, there are a lot. There's a good Lebanese place across from the park.","tr":"نعم، كثيرة. هناك مطعم لبناني جيّد مقابل الحديقة."},{"who":"أنت","t":"Thank you so much!","tr":"شكرًا جزيلًا!"}]},
+        {"p":"**«يوجد» و«هناك».** تقول العربية «في الشارع مطعم» أو «يوجد مطعم في الشارع». أما الإنجليزية فتبدأ الجملة بـ{{there is}} «يوجد، هناك»، ثم الشيء، ثم المكان: {{There's a restaurant on the street.}} ومع الجمع {{there are}}: {{There are two banks here.}}"},
+        { "table": [
+          ["","المفرد","الجمع"],
+          ["الخبر","{{There's a bank.}}","{{There are two banks.}}"],
+          ["السؤال","{{Is there a bank?}}","{{Are there any banks?}}"],
+          ["النفي","{{There isn't a bank.}}","{{There aren't any banks.}}"]
+        ] },
+        {"p":"لاحظ أن السؤال والنفي يجريان كما تعلّمت مع {{is}} و{{are}}: الفعل يتقدّم في السؤال، و{{not}} بعده في النفي. ومع الجمع في السؤال والنفي تأتي {{any}} «أيّ»: {{Are there any shops?}}"},
+        {"p":"**{{there is}} أم {{it is}}؟** {{There is}} تُخبر بوجود شيء لم يُذكر بعد: {{There's a café on my street.}} فإذا عرفنا الشيء وأردنا أن نقول أين هو، استعملنا {{it}}: {{Where's the café? — It's on the corner.}} «أين المقهى؟ — هو عند الزاوية»."},
+        {"term":"حرف الجر","means":"كلمة صغيرة تربط الاسم بما قبله، وتدلّ على المكان أو الزمان أو غيرهما: {{in}} «في»، {{on}} «على»، {{from}} «من»."},
+        { "table": [
+          ["الكلمة","معناها","مثال"],
+          ["{{in}}","في (داخل)","{{in the box}}، {{in New York}}"],
+          ["{{on}}","على (فوق السطح)","{{on the table}}"],
+          ["{{at}}","عند (نقطة معيّنة)","{{at the door}}، {{at the station}}"],
+          ["{{next to}}","بجانب","{{next to the bank}}"],
+          ["{{near}}","قريب من","{{near the park}}"],
+          ["{{between}}","بين","{{between the bank and the hotel}}"],
+          ["{{across from}}","مقابل","{{across from the mall}}"]
+        ] },
+        {"p":"انتبه: {{in}} و{{on}} لا تطابقان «في» و«على» دائمًا. يقول الأمريكيون {{on Main Street}} «في الشارع الرئيسي»، و{{on the bus}} «في الحافلة»، لكن {{in the car}} «في السيارة»."},
+        { "ex": [
+          {"t":"There's a problem with my room.","tr":"هناك مشكلة في غرفتي."},
+          {"t":"There are three bedrooms in the apartment.","tr":"في الشقة ثلاث غرف نوم."},
+          {"t":"Is there Wi-Fi here? — Yes, there is.","tr":"هل يوجد واي فاي هنا؟ — نعم."},
+          {"t":"There aren't any eggs in the fridge.","tr":"لا يوجد بيض في الثلّاجة."},
+          {"t":"The keys are on the table.","tr":"المفاتيح على الطاولة."},
+          {"t":"My office is between the bank and the post office.","tr":"مكتبي بين البنك ومكتب البريد."}
+        ] },
+        {"tip":"{{there's}} اختصار {{there is}}، وهو الأكثر في الكلام. أما {{there are}} فتبقى كما هي في الكتابة عادةً."}
+      ],
+      "mistakes": [
+        {"wrong":"In my street a big mosque.","right":"There's a big mosque on my street.","tr":"في شارعي مسجد كبير.","why":"لا بدّ من فعل: {{There's}} في أول الجملة. والشارع مع {{on}} عند الأمريكيين."},
+        {"wrong":"There is many people here.","right":"There are many people here.","tr":"هنا ناس كثيرون.","why":"{{people}} جمع، فتقول {{there are}}."},
+        {"wrong":"Is there a bank near from here?","right":"Is there a bank near here?","tr":"هل يوجد بنك قريب من هنا؟","why":"{{near}} وحدها معناها «قريب من»، فلا تحتاج إلى {{from}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر ما ينقص الجملة.","t":"___ two hotels on this street.","tr":"في هذا الشارع فندقان.","options":["There are","There is","They are"],"answer":0,"why":"فندقان جمع: {{There are}}."},
+        {"type":"choice","q":"تبحث عن صرّاف آلي. تسأل…","options":["{{Is there an ATM near here?}}","{{There is an ATM near here?}}","{{Is it an ATM near here?}}"],"answer":0,"why":"السؤال عن وجود شيء: {{Is there…?}}","from":"ask-yes-or-no"},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"Where are my glasses? — They're ___ the table.","tr":"أين نظارتي؟ — إنها على الطاولة.","options":["on","in","at"],"answer":0,"why":"فوق سطح الطاولة: {{on}}.","from":"point-and-name"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"هناك مقهى بجانب الفندق.","words":["There's","a","café","next","to","the","hotel."]},
+        {"type":"dialogue","q":"في الفندق تسأل موظف الاستقبال: اختر ردودك.","lines":[{"who":"موظف الاستقبال","t":"How can I help you?","tr":"كيف أستطيع مساعدتك؟"},{"options":["Is there a gym in the hotel?","There is a gym in the hotel?"],"answer":0,"why":"السؤال: {{Is there…?}}، بالفعل أولًا."},{"who":"موظف الاستقبال","t":"Yes, there is. It's on the second floor, next to the pool.","tr":"نعم. إنها في الطابق الثاني، بجانب المسبح."},{"options":["Great. And are there any restaurants near here?","Great. And is there any restaurants near here?"],"answer":0,"why":"المطاعم جمع: {{are there any}}."},{"who":"موظف الاستقبال","t":"Yes, there are a few across the street.","tr":"نعم، هناك بعضها في الجهة المقابلة من الشارع."}]},
+        {"type":"say","q":"اسأل: «هل توجد صيدلية قريبة من هنا؟»","answer":"Is there a pharmacy near here?"},
+        {"type":"free","q":"دورك: صِف شارعك أو حيّك: ماذا يوجد فيه، وأين؟","answers":[{"t":"There's a big supermarket on my street, and there are two cafés next to it.","tr":"في شارعي متجر كبير، وبجانبه مقهيان."},{"t":"There isn't a park near my house, but there's a mosque across from it.","tr":"لا توجد حديقة قرب بيتي، لكن مقابله مسجدًا."}]}
+      ]
+    },
+    {
+      "id": "a-or-the",
+      "unit": 2,
+      "level": "A1",
+      "title": "تحدَّث عن الجديد والمعروف",
+      "summary": "متى تقول {{a}} ومتى تقول {{the}}، وأين تختلف {{the}} عن «الـ» العربية: {{I speak Arabic}} بلا {{the}}.",
+      "topic": "{{a}} للجديد و{{the}} للمعروف؛ {{the}} و«الـ»",
+      "blocks": [
+        {"goal":{"t":"There's a café on my street. The café is small, but the coffee is great.","tr":"في شارعي مقهى. المقهى صغير، لكن قهوته رائعة."}},
+        {"dialog":[{"who":"سارة","t":"I have a new job!","tr":"عندي عمل جديد!"},{"who":"لينا","t":"Congratulations! Where is it?","tr":"مبروك! أين هو؟"},{"who":"سارة","t":"It's at a hotel downtown. The hotel is really nice.","tr":"في فندق في وسط المدينة. الفندق جميل جدًّا."},{"who":"لينا","t":"Is it far from your apartment?","tr":"هل هو بعيد عن شقّتك؟"},{"who":"سارة","t":"No. There's a bus from my street, and the ride is only ten minutes.","tr":"لا. هناك حافلة من شارعي، والرحلة عشر دقائق فقط."}]},
+        {"p":"**أول مرة {{a}}، وبعدها {{the}}.** حين تذكر شيئًا أول مرة والسامع لا يعرفه بعد، تقول {{a}}: {{It's at a hotel downtown.}} فإذا عدت إليه صار معروفًا لكما، فتقول {{the}}: {{The hotel is really nice.}} وهذا قريب من العربية: «في فندقٍ… الفندقُ جميل»."},
+        {"term":"أداة التعريف","means":"{{the}}، تأتي قبل الاسم المعروف للمتكلّم والسامع، مفردًا كان أو جمعًا: {{the hotel}}، {{the hotels}}. وهي كلمة مستقلّة تُنطق «ذَ»، وقبل صوت حرف علّة «ذِي»: {{the apple}}."},
+        {"p":"**{{the}} لما يُعرف من الموقف.** وتقول {{the}} أيضًا لما يعرفه السامع من غير أن يُذكر قبل ذلك: لأنه واحد لا ثاني له ({{the sun}} «الشمس»، {{the president}} «الرئيس»)، أو لأنه واضح في المكان: في مطعم تسأل {{Where's the bathroom?}} «أين الحمّام؟»، فلكل مطعم حمّامه."},
+        {"p":"**أين تختلف {{the}} عن «الـ»؟** «الـ» العربية أوسع استعمالًا من {{the}}. وهذه ثلاثة مواضع تقول فيها العربية «الـ» ولا تقول الإنجليزية {{the}}:"},
+        { "table": [
+          ["العربية","الإنجليزية","لماذا"],
+          ["أتكلّم العربية.","{{I speak Arabic.}}","أسماء اللغات بلا {{the}}"],
+          ["أنا من الأردن.","{{I'm from Jordan.}}","أسماء أكثر البلاد والمدن بلا {{the}}"],
+          ["الحياة جميلة.","{{Life is beautiful.}}","الشيء بوجه عام (في درس قادم)"]
+        ] },
+        {"p":"وفي المقابل، تحتاج الإنجليزية إلى {{a}} حيث لا تكتب العربية كلمة: «هذا كتابٌ» ← {{This is a book.}}"},
+        { "ex": [
+          {"t":"I have a dog and a cat. The dog is old, and the cat is young.","tr":"عندي كلب وقطّة. الكلب كبير في السنّ، والقطّة صغيرة."},
+          {"t":"Where's the bathroom?","tr":"أين الحمّام؟"},
+          {"t":"The sun is very hot today.","tr":"الشمس حارّة جدًّا اليوم."},
+          {"t":"Arabic is a beautiful language.","tr":"العربية لغة جميلة."},
+          {"t":"I'm from Lebanon, and my wife is from the United States.","tr":"أنا من لبنان، وزوجتي من الولايات المتحدة."}
+        ] },
+        {"tip":"قليل من البلاد يأخذ {{the}}، لأن في اسمه كلمة مثل «ولايات» أو «مملكة» أو «إمارات»: {{the United States}}، {{the United Arab Emirates}}، {{the United Kingdom}}. أما {{Egypt}} و{{Iraq}} و{{Sudan}} فبلا {{the}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I speak the Arabic.","right":"I speak Arabic.","tr":"أتكلّم العربية.","why":"أسماء اللغات بلا {{the}}، وإن كانت في العربية بـ«الـ»."},
+        {"wrong":"I'm from the Jordan.","right":"I'm from Jordan.","tr":"أنا من الأردن.","why":"اسم البلد بلا {{the}} في الإنجليزية، وإن كان في العربية بـ«الـ»: الأردن، العراق، السودان."},
+        {"wrong":"I have a car and a bike. A car is red.","right":"I have a car and a bike. The car is red.","tr":"عندي سيارة ودرّاجة. السيارة حمراء.","why":"ذكرت السيارة أول مرة بـ{{a}}، فصارت معروفة، فتعود إليها بـ{{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"There's a good restaurant near my house. ___ food is amazing.","tr":"قرب بيتي مطعم جيّد. طعامه رائع.","options":["The","A","An"],"answer":0,"why":"المطعم صار معروفًا، فطعامه معروف: {{The food}}."},
+        {"type":"choice","q":"كيف تقول «أنا من العراق»؟","options":["{{I'm from Iraq.}}","{{I'm from the Iraq.}}","{{I'm from a Iraq.}}"],"answer":0,"why":"أسماء أكثر البلاد بلا {{the}}."},
+        {"type":"fill","q":"في مطعم، تسأل:","t":"Excuse me, where's ___ bathroom?","tr":"عفوًا، أين الحمّام؟","options":["the","a","an"],"answer":0,"why":"حمّام المطعم معروف: {{the}}."},
+        {"type":"dialogue","q":"تحكي لصديقك عن شقّتك الجديدة: اختر ردودك.","lines":[{"who":"صديقك","t":"So, how's the new apartment?","tr":"إذن، كيف الشقّة الجديدة؟"},{"options":["It's great! There's a big window in the living room.","It's great! There's the big window in a living room."],"answer":0,"why":"النافذة تُذكر أول مرة: {{a}}؛ وغرفة الجلوس معروفة في كل شقّة: {{the}}."},{"who":"صديقك","t":"Nice! And the neighbors?","tr":"جميل! والجيران؟"},{"options":["They're nice. The woman next door is a teacher.","They're nice. A woman next door is the teacher."],"answer":0,"why":"جارتك معروفة: {{the woman next door}}؛ والمهنة بـ{{a}}."},{"who":"صديقك","t":"Cool. I want to see it!","tr":"رائع. أريد أن أراها!"}],"from":"say-what-you-do"},
+        {"type":"order","q":"رتّب الكلمات.","tr":"أتكلّم العربية والإنجليزية.","words":["I","speak","Arabic","and","English."]},
+        {"type":"fill","q":"اختر الكلمة الناقصة.","t":"My friend is from ___ United States.","tr":"صديقي من الولايات المتحدة.","options":["the","a"],"answer":0,"why":"في اسمها «ولايات»: {{the United States}}.","from":"say-who-you-are"},
+        {"type":"free","q":"دورك: اذكر شيئًا في مدينتك أول مرة بـ{{a}}، ثم صِفه بـ{{the}}.","answers":[{"t":"There's a market in my town. The market is open every day.","tr":"في بلدتي سوق. السوق مفتوح كل يوم."},{"t":"There's a park near my house. The park is small, but it's beautiful.","tr":"قرب بيتي حديقة. الحديقة صغيرة، لكنها جميلة."}]}
+      ]
     }
   ]
 }
