@@ -1687,6 +1687,230 @@
         {"type":"say","q":"Say to a friend: “Thanks for coming.”","answer":"来てくれて、ありがとう。","r":"Kite kurete, arigatō.","from":"give-and-receive"},
         {"type":"free","q":"Your turn: tell about someone who did something kind for you recently, and something you did for someone.","answers":[{"t":"先週、同僚が仕事を手伝ってくれました。私は友達に料理を作ってあげました。","r":"Senshū, dōryō ga shigoto o tetsudatte kuremashita. Watashi wa tomodachi ni ryōri o tsukutte agemashita.","tr":"Last week a colleague helped me with my work. I cooked for a friend."},{"t":"昨日、駅で知らない人が道を教えてくれました。とても助かりました。","r":"Kinō, eki de shiranai hito ga michi o oshiete kuremashita. Totemo tasukarimashita.","tr":"Yesterday at the station, a stranger showed me the way. It was a great help."}]}
       ]
+    },
+    {
+      "id": "describe-with-clauses",
+      "unit": 8,
+      "level": "B1",
+      "title": "Describe people and things in detail",
+      "summary": "Describe with whole sentences: “the movie I saw yesterday”, “the person wearing glasses”, “the cake my mother made”.",
+      "topic": "clauses before the noun: {{昨日見た映画|kinō mita eiga}}; {{が|ga}} inside them",
+      "blocks": [
+        {"goal":{"t":"昨日見た映画はとてもおもしろかったです。","r":"Kinō mita eiga wa totemo omoshirokatta desu.","tr":"The movie I saw yesterday was really good."}},
+        {"dialog":[{"who":"Yui","t":"あの眼鏡をかけている人はだれですか。","r":"Ano megane o kakete iru hito wa dare desu ka.","tr":"Who's that person wearing glasses?"},{"who":"Ken","t":"私が先週話した友達です。","r":"Watashi ga senshū hanashita tomodachi desu.","tr":"That's the friend I told you about last week."},{"who":"Yui","t":"ああ、大阪で働いている人ですか。","r":"Ā, Ōsaka de hataraite iru hito desu ka.","tr":"Oh, the one who works in Osaka?"},{"who":"Ken","t":"そうです。このケーキも彼が作ったんですよ。","r":"Sō desu. Kono kēki mo kare ga tsukutta n desu yo.","tr":"That's right. He made this cake, too."}]},
+        {"term":"clause","means":"a small sentence inside a bigger one, with its own verb: [the movie] **I saw yesterday**."},
+        {"p":"**Describing with a sentence.** In English, a describing sentence comes after the noun: “the movie (that) I saw yesterday”. In Japanese it comes **before** the noun, like an adjective, with no word for “that” or “who”: {{昨日見た映画|kinō mita eiga}}, word for word “yesterday-saw movie”. The verb is in the plain form, right before the noun."},
+        { "table": [
+          ["","Japanese","Meaning"],
+          ["a sentence","{{私は昨日映画を見ました。|Watashi wa kinō eiga o mimashita.}}","I saw a movie yesterday."],
+          ["→ describing the movie","{{私が昨日見た映画|watashi ga kinō mita eiga}}","the movie I saw yesterday"],
+          ["→ describing a person","{{眼鏡をかけている人|megane o kakete iru hito}}","the person wearing glasses"],
+          ["→ with a negative","{{肉を食べない人|niku o tabenai hito}}","people who don't eat meat"]
+        ] },
+        {"p":"**Inside the clause, the subject takes {{が|ga}}**, never {{は|wa}}: {{母が作ったケーキ|haha ga tsukutta kēki}} “the cake my mother made” ({{の|no}} is also possible there: {{母の作ったケーキ|haha no tsukutta kēki}}). The whole thing then works as one big noun: {{母が作ったケーキはおいしいです|haha ga tsukutta kēki wa oishii desu}} “The cake my mother made is delicious”."},
+        {"p":"**Any plain form works**: present ({{よく行く店|yoku iku mise}} “the shop I often go to”), past ({{昨日買った本|kinō katta hon}} “the book I bought yesterday”), ている ({{あそこに立っている人|asoko ni tatte iru hito}} “the person standing over there”), negative ({{わからない言葉|wakaranai kotoba}} “words I don't understand”)."},
+        { "ex": [
+          {"t":"母が作ったケーキはおいしいです。","r":"Haha ga tsukutta kēki wa oishii desu.","tr":"The cake my mother made is delicious."},
+          {"t":"あそこに立っている人は田中さんです。","r":"Asoko ni tatte iru hito wa Tanaka-san desu.","tr":"The person standing over there is Mr Tanaka."},
+          {"t":"これは私がよく行く店です。","r":"Kore wa watashi ga yoku iku mise desu.","tr":"This is the shop I often go to."},
+          {"t":"わからない言葉を辞書で調べました。","r":"Wakaranai kotoba o jisho de shirabemashita.","tr":"I looked up the words I didn't know in a dictionary."},
+          {"t":"日本で一番行きたい所はどこですか。","r":"Nihon de ichiban ikitai tokoro wa doko desu ka.","tr":"Where's the place you most want to go in Japan?"},
+          {"t":"肉を食べない人もいます。","r":"Niku o tabenai hito mo imasu.","tr":"Some people don't eat meat."}
+        ] },
+        {"tip":"Long descriptions are normal in Japanese: {{去年京都で買った赤い着物|kyonen Kyōto de katta akai kimono}} “the red kimono I bought in Kyoto last year”. Find the noun at the end, then read the description backwards."}
+      ],
+      "mistakes": [
+        {"wrong":"昨日見ました映画はおもしろかったです。","right":"昨日見た映画はおもしろかったです。","rw":"Kinō mimashita eiga wa omoshirokatta desu.","rr":"Kinō mita eiga wa omoshirokatta desu.","tr":"The movie I saw yesterday was good.","why":"The verb before a noun is in the plain form, never the ます form."},
+        {"wrong":"母は作ったケーキはおいしいです。","right":"母が作ったケーキはおいしいです。","rw":"Haha wa tsukutta kēki wa oishii desu.","rr":"Haha ga tsukutta kēki wa oishii desu.","tr":"The cake my mother made is delicious.","why":"Inside a describing clause, the subject takes {{が|ga}} (or {{の|no}}), not {{は|wa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right form.","t":"昨日___本はおもしろいです。","r":"Kinō ___ hon wa omoshiroi desu.","tr":"The book I bought yesterday is interesting.","options":["買った","買いました","買って"],"rs":["katta","kaimashita","katte"],"answer":0,"why":"Plain form before the noun: {{買った本|katta hon}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"これは母___作ったケーキです。","r":"Kore wa haha ___ tsukutta kēki desu.","tr":"This is a cake my mother made.","options":["が","は","を"],"rs":["ga","wa","o"],"answer":0,"why":"The subject inside a clause takes {{が|ga}}."},
+        {"type":"choice","q":"{{あそこに立っている人|asoko ni tatte iru hito}} means…","options":["the person standing over there","the person who will stand over there","Please stand over there."],"answer":0,"why":"A clause before {{人|hito}} describes the person."},
+        {"type":"order","q":"Put the words in order.","tr":"This is the shop I often go to.","words":["これは","私が","よく行く","店です。"],"rs":["Kore wa","watashi ga","yoku iku","mise desu."],"why":"{{これは私がよく行く店です。|Kore wa watashi ga yoku iku mise desu.}}"},
+        {"type":"dialogue","q":"At a party: choose your replies.","lines":[{"who":"Yui","t":"あの眼鏡をかけている人はだれですか。","r":"Ano megane o kakete iru hito wa dare desu ka.","tr":"Who's that person wearing glasses?"},{"options":["私が先週話した友達です。","私は先週話しました友達です。"],"rs":["Watashi ga senshū hanashita tomodachi desu.","Watashi wa senshū hanashimashita tomodachi desu."],"answer":0,"why":"Inside the clause: {{が|ga}}, and the plain form before the noun."},{"who":"Yui","t":"どんな仕事をしている人ですか。","r":"Donna shigoto o shite iru hito desu ka.","tr":"What kind of work does he do?"},{"options":["大阪の銀行で働いています。","大阪の銀行で働いていますの人です。"],"rs":["Ōsaka no ginkō de hataraite imasu.","Ōsaka no ginkō de hataraite imasu no hito desu."],"answer":0,"why":"A simple answer with {{ています|te imasu}} is best."}],"from":"say-whats-happening"},
+        {"type":"say","q":"How do you say “Where's the place you most want to go?”","answer":"一番行きたい所はどこですか。","r":"Ichiban ikitai tokoro wa doko desu ka.","from":"say-what-you-want"},
+        {"type":"free","q":"Your turn: describe something with a clause: a place you went, a book you read, someone you know.","answers":[{"t":"先月行ったレストランはとても安くておいしかったです。","r":"Sengetsu itta resutoran wa totemo yasukute oishikatta desu.","tr":"The restaurant I went to last month was really cheap and good."},{"t":"隣に住んでいる人は、ピアノを教えている先生です。","r":"Tonari ni sunde iru hito wa, piano o oshiete iru sensei desu.","tr":"The person who lives next door is a piano teacher."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-are-able-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you can do, the short way",
+      "summary": "Use the everyday “can” form: “I can speak a little Japanese.” “I still can't eat natto.” “Can you come tomorrow?”",
+      "topic": "the potential form: {{話せる|hanaseru}}, {{食べられる|taberareru}}, {{来られる|korareru}}, {{できる|dekiru}}",
+      "blocks": [
+        {"goal":{"t":"日本語が少し話せます。","r":"Nihongo ga sukoshi hanasemasu.","tr":"I can speak a little Japanese."}},
+        {"dialog":[{"who":"Mr Kato","t":"辛い物は食べられますか。","r":"Karai mono wa taberaremasu ka.","tr":"Can you eat spicy food?"},{"who":"You","t":"はい、食べられます。でも、納豆はまだ食べられません。","r":"Hai, taberaremasu. Demo, nattō wa mada taberaremasen.","tr":"Yes, I can. But I still can't eat natto."},{"who":"Mr Kato","t":"ははは。日本語が上手ですね。漢字も読めますか。","r":"Hahaha. Nihongo ga jōzu desu ne. Kanji mo yomemasu ka.","tr":"Ha ha. Your Japanese is very good. Can you read kanji too?"},{"who":"You","t":"少し読めます。でも、まだ書けません。","r":"Sukoshi yomemasu. Demo, mada kakemasen.","tr":"I can read a few. But I can't write them yet."}]},
+        {"term":"potential form","means":"the form of a verb that means “can”: {{話せる|hanaseru}} “can speak”."},
+        {"p":"**One word for “can”.** Instead of {{ことができます|koto ga dekimasu}}, everyday Japanese changes the verb itself. **Group 1**: the u-sound at the end of the dictionary form becomes an e-sound + {{る|ru}}: {{話す|hanasu}} → {{話せる|hanaseru}} “can speak”, {{読む|yomu}} → {{読める|yomeru}}, {{行く|iku}} → {{行ける|ikeru}}. **Group 2**: {{る|ru}} → {{られる|rareru}}: {{食べる|taberu}} → {{食べられる|taberareru}}. **Group 3**: {{する|suru}} → {{できる|dekiru}}, {{来る|kuru}} → {{来られる|korareru}}."},
+        { "table": [
+          ["group","dictionary form","potential","polite"],
+          ["1","{{話す|hanasu}}","{{話せる|hanaseru}}","{{話せます|hanasemasu}}"],
+          ["1","{{行く|iku}}","{{行ける|ikeru}}","{{行けます|ikemasu}}"],
+          ["2","{{食べる|taberu}}","{{食べられる|taberareru}}","{{食べられます|taberaremasu}}"],
+          ["3","{{する|suru}}","{{できる|dekiru}}","{{できます|dekimasu}}"],
+          ["3","{{来る|kuru}}","{{来られる|korareru}}","{{来られます|koraremasu}}"]
+        ] },
+        {"p":"The potential form is itself a group 2 verb: {{話せます|hanasemasu}}, {{話せない|hanasenai}} “can't speak”, {{話せなかった|hanasenakatta}} “couldn't speak”. **What you can do usually takes {{が|ga}}**, as with {{できます|dekimasu}}: {{日本語が話せます|Nihongo ga hanasemasu}}, {{漢字が読めます|kanji ga yomemasu}}."},
+        {"p":"In casual speech, group 2 verbs often drop the {{ら|ra}}: {{食べれる|tabereru}}, {{見れる|mireru}}. You'll hear it everywhere; in writing, use {{食べられる|taberareru}}."},
+        { "ex": [
+          {"t":"辛い物は食べられません。","r":"Karai mono wa taberaremasen.","tr":"I can't eat spicy food."},
+          {"t":"明日のパーティーに来られますか。","r":"Ashita no pātī ni koraremasu ka.","tr":"Can you come to the party tomorrow?"},
+          {"t":"すみません、明日は行けません。","r":"Sumimasen, ashita wa ikemasen.","tr":"Sorry, I can't go tomorrow."},
+          {"t":"この漢字が読めますか。","r":"Kono kanji ga yomemasu ka.","tr":"Can you read this kanji?"},
+          {"t":"昨日はよく眠れませんでした。","r":"Kinō wa yoku nemuremasen deshita.","tr":"I couldn't sleep well last night."},
+          {"t":"ここから富士山が見えます。","r":"Koko kara Fujisan ga miemasu.","tr":"You can see Mt Fuji from here.","note":"{{見えます|miemasu}}: “can be seen”, a special verb"}
+        ] },
+        {"tip":"{{見える|mieru}} “can be seen” and {{聞こえる|kikoeru}} “can be heard” are special verbs for things that reach your eyes and ears by themselves. {{見られる|mirareru}} is “able to watch”: {{今晩、試合が見られます|konban, shiai ga miraremasu}} “I can watch the match tonight”."}
+      ],
+      "mistakes": [
+        {"wrong":"日本語が話されます。","right":"日本語が話せます。","rw":"Nihongo ga hanasaremasu.","rr":"Nihongo ga hanasemasu.","tr":"I can speak Japanese.","why":"{{話す|hanasu}} is group 1: {{す|su}} → {{せる|seru}}. ({{話される|hanasareru}} is a different form, the passive.)"},
+        {"wrong":"行きられます。","right":"行けます。","rw":"Ikiraremasu.","rr":"Ikemasu.","tr":"I can go.","why":"Group 1: {{行く|iku}} → {{行ける|ikeru}}. {{られる|rareru}} is only for group 2 verbs."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The potential form of {{書く|kaku}} “write” is…","options":["{{書ける|kakeru}}","{{書かれる|kakareru}}","{{書きられる|kakirareru}}"],"answer":0,"why":"Group 1: {{く|ku}} → {{ける|keru}}."},
+        {"type":"fill","q":"Choose the right ending.","t":"辛い物は食べ___。","r":"Karai mono wa tabe___.","tr":"I can't eat spicy food.","options":["られません","けません","させません"],"rs":["raremasen","kemasen","sasemasen"],"answer":0,"why":"Group 2: {{食べられる|taberareru}} → {{食べられません|taberaremasen}}."},
+        {"type":"fill","q":"Choose the right form.","t":"明日のパーティーに___か。","r":"Ashita no pātī ni ___ ka.","tr":"Can you come to the party tomorrow?","options":["来られます","来ります","来れられます"],"rs":["koraremasu","kirimasu","koreraremasu"],"answer":0,"why":"{{来る|kuru}} → {{来られる|korareru}}."},
+        {"type":"dialogue","q":"Your manager asks about your Japanese. Choose your replies.","lines":[{"who":"Mr Kato","t":"漢字が読めますか。","r":"Kanji ga yomemasu ka.","tr":"Can you read kanji?"},{"options":["少し読めます。でも、まだ書けません。","少し読みられます。でも、まだ書きられません。"],"rs":["Sukoshi yomemasu. Demo, mada kakemasen.","Sukoshi yomiraremasu. Demo, mada kakiraremasen."],"answer":0,"why":"Group 1: {{読める|yomeru}}, {{書ける|kakeru}}."},{"who":"Mr Kato","t":"すごいですね。日本語はどのぐらい勉強していますか。","r":"Sugoi desu ne. Nihongo wa dono gurai benkyō shite imasu ka.","tr":"Impressive. How long have you been studying Japanese?"},{"options":["二年ぐらい勉強しています。","二年ぐらい勉強します。"],"rs":["Ni-nen gurai benkyō shite imasu.","Ni-nen gurai benkyō shimasu."],"answer":0,"why":"Something that started earlier and still goes on: {{ています|te imasu}}."}],"from":"say-whats-happening"},
+        {"type":"order","q":"Put the words in order.","tr":"Sorry, I can't go tomorrow.","words":["すみません、","明日は","行けません。"],"rs":["Sumimasen,","ashita wa","ikemasen."],"why":"{{すみません、明日は行けません。|Sumimasen, ashita wa ikemasen.}}"},
+        {"type":"say","q":"Say “I can swim” the short way.","answer":"泳げます。","r":"Oyogemasu.","from":"say-what-you-can-do"},
+        {"type":"free","q":"Your turn: say two things you can do (languages, sports, cooking…) and one food you can't eat.","answers":[{"t":"英語とフランス語が話せます。料理もできます。でも、生の魚は食べられません。","r":"Eigo to Furansugo ga hanasemasu. Ryōri mo dekimasu. Demo, nama no sakana wa taberaremasen.","tr":"I can speak English and French. I can cook too. But I can't eat raw fish."},{"t":"ギターが弾けます。速く走れます。納豆はまだ食べられません。","r":"Gitā ga hikemasu. Hayaku hashiremasu. Nattō wa mada taberaremasen.","tr":"I can play the guitar. I can run fast. I still can't eat natto."}]}
+      ]
+    },
+    {
+      "id": "say-what-if",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what will happen if…",
+      "summary": "Talk about conditions and what follows, and make gentle suggestions: “If it rains, I'll stay home.” “Why don't you ask the teacher?”",
+      "topic": "{{～たら|… tara}} “if, when”; {{～たらどうですか|… tara dō desu ka}}",
+      "blocks": [
+        {"goal":{"t":"雨が降ったら、家で映画を見ます。","r":"Ame ga futtara, ie de eiga o mimasu.","tr":"If it rains, I'll watch a movie at home."}},
+        {"dialog":[{"who":"Yui","t":"明日、天気がよかったら、ピクニックに行きませんか。","r":"Ashita, tenki ga yokattara, pikunikku ni ikimasen ka.","tr":"If the weather's nice tomorrow, shall we go for a picnic?"},{"who":"Tom","t":"いいですね。でも、雨が降ったら、どうしますか。","r":"Ii desu ne. Demo, ame ga futtara, dō shimasu ka.","tr":"Sounds good. But what shall we do if it rains?"},{"who":"Yui","t":"雨だったら、美術館に行きましょう。","r":"Ame dattara, bijutsukan ni ikimashō.","tr":"If it rains, let's go to a museum."},{"who":"Tom","t":"わかりました。駅に着いたら、電話しますね。","r":"Wakarimashita. Eki ni tsuitara, denwa shimasu ne.","tr":"OK. I'll call you when I get to the station."}]},
+        {"p":"**If…: the ta-form + {{ら|ra}}.** Take the plain past and add {{ら|ra}}: {{降った|futta}} → {{降ったら|futtara}} “if it rains”, {{よかった|yokatta}} → {{よかったら|yokattara}} “if it's good”, {{雨だった|ame datta}} → {{雨だったら|ame dattara}} “if it's rainy”, {{行かなかった|ikanakatta}} → {{行かなかったら|ikanakattara}} “if I don't go”. Despite the past form, it's usually about the future: the condition comes true first, then the rest follows."},
+        {"p":"**When, once…** If the first part is sure to happen, {{たら|tara}} means “when, once”: {{駅に着いたら、電話します|eki ni tsuitara, denwa shimasu}} “I'll call you when I get to the station”. Unlike {{と|to}}, anything can follow {{たら|tara}}: a plan, a request, an invitation."},
+        { "table": [
+          ["","+ {{ら|ra}}","Meaning"],
+          ["verb","{{雨が降ったら|ame ga futtara}}","if it rains"],
+          ["negative","{{来なかったら|konakattara}}","if he doesn't come"],
+          ["{{い|i}}-adjective","{{高かったら|takakattara}}","if it's expensive"],
+          ["{{な|na}}-adjective, noun","{{ひまだったら|hima dattara}}","if you're free"]
+        ] },
+        {"p":"**Suggesting: {{～たらどうですか|… tara dō desu ka}}** “How about…?”: {{先生に聞いたらどうですか|sensei ni kiitara dō desu ka}} “Why don't you ask the teacher?”. It's gentler than {{ほうがいい|hō ga ii}}; with friends, just {{聞いたら？|kiitara?}}."},
+        { "ex": [
+          {"t":"安かったら、買います。","r":"Yasukattara, kaimasu.","tr":"If it's cheap, I'll buy it."},
+          {"t":"ひまだったら、手伝ってくれませんか。","r":"Hima dattara, tetsudatte kuremasen ka.","tr":"If you're free, could you help me?"},
+          {"t":"日本に着いたら、メールしてください。","r":"Nihon ni tsuitara, mēru shite kudasai.","tr":"Please email me when you get to Japan."},
+          {"t":"宝くじが当たったら、何をしますか。","r":"Takarakuji ga atattara, nani o shimasu ka.","tr":"What would you do if you won the lottery?"},
+          {"t":"少し休んだらどうですか。","r":"Sukoshi yasundara dō desu ka.","tr":"Why don't you take a little rest?"},
+          {"t":"よかったら、一緒に来ませんか。","r":"Yokattara, issho ni kimasen ka.","tr":"Would you like to come with us, if you'd like?","note":"{{よかったら|yokattara}} “if it's OK with you”: a very common soft opener"}
+        ] },
+        {"tip":"{{たら|tara}} is the all-purpose “if, when” of everyday speech. When you're unsure which “if” to use, {{たら|tara}} is the safest choice."}
+      ],
+      "mistakes": [
+        {"wrong":"雨が降るたら、行きません。","right":"雨が降ったら、行きません。","rw":"Ame ga furu tara, ikimasen.","rr":"Ame ga futtara, ikimasen.","tr":"If it rains, I won't go.","why":"{{たら|tara}} is made from the plain past: {{降った|futta}} → {{降ったら|futtara}}."},
+        {"wrong":"安いたら、買います。","right":"安かったら、買います。","rw":"Yasuitara, kaimasu.","rr":"Yasukattara, kaimasu.","tr":"If it's cheap, I'll buy it.","why":"An い-adjective: {{安かった|yasukatta}} → {{安かったら|yasukattara}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the right ending.","t":"天気がよ___、海へ行きましょう。","r":"Tenki ga yo___, umi e ikimashō.","tr":"If the weather's good, let's go to the beach.","options":["かったら","いたら","くたら"],"rs":["kattara","itara","kutara"],"answer":0,"why":"{{いい|ii}} → {{よかった|yokatta}} → {{よかったら|yokattara}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"駅に着い___、電話してください。","r":"Eki ni tsui___, denwa shite kudasai.","tr":"Please call me when you get to the station.","options":["たら","ても","たり"],"rs":["tara","temo","tari"],"answer":0,"why":"“When (once) you arrive”: {{着いたら|tsuitara}}, and a request can follow it."},
+        {"type":"choice","q":"A friend has a headache. A gentle suggestion is…","options":["{{薬を飲んだらどうですか。|Kusuri o nondara dō desu ka.}}","{{薬を飲むとどうですか。|Kusuri o nomu to dō desu ka.}}","{{薬を飲んだらください。|Kusuri o nondara kudasai.}}"],"answer":0,"why":"Suggesting: {{～たらどうですか|… tara dō desu ka}}."},
+        {"type":"dialogue","q":"A friend invites you out. Choose your replies.","lines":[{"who":"Yui","t":"明日、ひまだったら、一緒に買い物に行きませんか。","r":"Ashita, hima dattara, issho ni kaimono ni ikimasen ka.","tr":"If you're free tomorrow, would you like to go shopping together?"},{"options":["いいですね。でも、雨が降ったら、どうしますか。","いいですね。でも、雨が降るたら、どうしますか。"],"rs":["Ii desu ne. Demo, ame ga futtara, dō shimasu ka.","Ii desu ne. Demo, ame ga furu tara, dō shimasu ka."],"answer":0,"why":"{{降ったら|futtara}}: from the plain past."},{"who":"Yui","t":"雨だったら、デパートに行きましょう。","r":"Ame dattara, depāto ni ikimashō.","tr":"If it rains, let's go to a department store."},{"options":["わかりました。家を出たら、メールしますね。","わかりました。家を出ると、メールしますね。"],"rs":["Wakarimashita. Ie o detara, mēru shimasu ne.","Wakarimashita. Ie o deru to, mēru shimasu ne."],"answer":0,"why":"A promise after the condition: {{たら|tara}}, not {{と|to}}."}],"from":"give-directions"},
+        {"type":"order","q":"Put the words in order.","tr":"What would you do if you won the lottery?","words":["宝くじが","当たったら、","何を","しますか。"],"rs":["Takarakuji ga","atattara,","nani o","shimasu ka."],"why":"{{宝くじが当たったら、何をしますか。|Takarakuji ga atattara, nani o shimasu ka.}}"},
+        {"type":"say","q":"How do you say “If you're free, could you help me?”","answer":"ひまだったら、手伝ってくれませんか。","r":"Hima dattara, tetsudatte kuremasen ka.","from":"ask-for-favors"},
+        {"type":"free","q":"Your turn: what will you do this weekend if the weather is good, and what if it rains?","answers":[{"t":"天気がよかったら、山に登ります。雨だったら、家で本を読みます。","r":"Tenki ga yokattara, yama ni noborimasu. Ame dattara, ie de hon o yomimasu.","tr":"If the weather's good, I'll go hiking. If it rains, I'll read at home."},{"t":"晴れたら、友達と海へ行きます。雨が降ったら、映画館へ行こうと思います。","r":"Haretara, tomodachi to umi e ikimasu. Ame ga futtara, eigakan e ikō to omoimasu.","tr":"If it's sunny, I'll go to the beach with friends. If it rains, I think I'll go to the cinema."}]}
+      ]
+    },
+    {
+      "id": "give-conditions",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give conditions and recommendations",
+      "summary": "Say what it takes for something to happen, and recommend things: “If you go by train, you'll get there in an hour.” “If it's Kyoto, go in autumn.”",
+      "topic": "{{～ば|… ba}}; {{～なら|… nara}}",
+      "blocks": [
+        {"goal":{"t":"京都なら、秋が一番きれいですよ。","r":"Kyōto nara, aki ga ichiban kirei desu yo.","tr":"If it's Kyoto you mean, autumn is the most beautiful time."}},
+        {"dialog":[{"who":"Tom","t":"来月、日本を旅行するんです。どこがいいですか。","r":"Raigetsu, Nihon o ryokō suru n desu. Doko ga ii desu ka.","tr":"I'm travelling around Japan next month. Where's good?"},{"who":"Yui","t":"温泉が好きなら、箱根がいいですよ。","r":"Onsen ga suki nara, Hakone ga ii desu yo.","tr":"If you like hot springs, Hakone is good."},{"who":"Tom","t":"東京から遠いですか。","r":"Tōkyō kara tōi desu ka.","tr":"Is it far from Tokyo?"},{"who":"Yui","t":"いいえ、電車で行けば、一時間半ぐらいで着きますよ。","r":"Iie, densha de ikeba, ichi-jikan han gurai de tsukimasu yo.","tr":"No, if you go by train, you'll get there in about an hour and a half."},{"who":"Tom","t":"どうすれば安く行けますか。","r":"Dō sureba yasuku ikemasu ka.","tr":"How can I get there cheaply?"},{"who":"Yui","t":"フリーパスを買えば、安くなりますよ。","r":"Furī pasu o kaeba, yasuku narimasu yo.","tr":"If you buy a travel pass, it's cheaper."}]},
+        {"p":"**If (that's what it takes): the {{ば|ba}} form.** It puts the focus on the condition, what needs to happen for the result. Verbs: the final u-sound becomes an e-sound + {{ば|ba}}: {{行く|iku}} → {{行けば|ikeba}}, {{買う|kau}} → {{買えば|kaeba}}, {{食べる|taberu}} → {{食べれば|tabereba}}, {{する|suru}} → {{すれば|sureba}}, {{来る|kuru}} → {{来れば|kureba}}. い-adjectives: {{い|i}} → {{ければ|kereba}}: {{安ければ|yasukereba}}. Negatives: {{ない|nai}} → {{なければ|nakereba}}: the ending you met in {{なければなりません|nakereba narimasen}}."},
+        { "table": [
+          ["","dictionary form","{{ば|ba}} form"],
+          ["group 1","{{行く|iku}}","{{行けば|ikeba}}"],
+          ["group 2","{{食べる|taberu}}","{{食べれば|tabereba}}"],
+          ["group 3","{{する|suru}}, {{来る|kuru}}","{{すれば|sureba}}, {{来れば|kureba}}"],
+          ["{{い|i}}-adjective","{{安い|yasui}}","{{安ければ|yasukereba}}"],
+          ["negative","{{行かない|ikanai}}","{{行かなければ|ikanakereba}}"]
+        ] },
+        {"p":"{{どうすれば|dō sureba}} “what should I do to…?” is very useful: {{どうすればいいですか|dō sureba ii desu ka}} “What should I do?”"},
+        {"p":"**If it's… (that you mean): {{なら|nara}}.** {{なら|nara}} picks up something the other person mentioned and adds advice or information about it: {{京都なら、秋がいいですよ|Kyōto nara, aki ga ii desu yo}} “If it's Kyoto, autumn's the time to go”. Nouns and な-adjectives go straight before it; verbs and い-adjectives in the plain form: {{温泉が好きなら|onsen ga suki nara}}, {{行くなら|iku nara}}, {{寒いなら|samui nara}}."},
+        {"p":"**Which one?** {{たら|tara}} is the everyday choice and works almost everywhere. {{ば|ba}} stresses the condition: “as long as…”, “all you need to do is…”. {{なら|nara}} responds to a topic someone has raised."},
+        { "ex": [
+          {"t":"電車で行けば、一時間で着きます。","r":"Densha de ikeba, ichi-jikan de tsukimasu.","tr":"If you go by train, you'll get there in an hour."},
+          {"t":"安ければ、買いたいです。","r":"Yasukereba, kaitai desu.","tr":"If it's cheap, I'd like to buy it."},
+          {"t":"どうすればいいですか。","r":"Dō sureba ii desu ka.","tr":"What should I do?"},
+          {"t":"毎日練習すれば、上手になりますよ。","r":"Mainichi renshū sureba, jōzu ni narimasu yo.","tr":"If you practise every day, you'll get good."},
+          {"t":"ラーメンなら、駅の前の店がおいしいですよ。","r":"Rāmen nara, eki no mae no mise ga oishii desu yo.","tr":"If it's ramen you want, the place in front of the station is good."},
+          {"t":"急がなければ、間に合いませんよ。","r":"Isoganakereba, maniaimasen yo.","tr":"If you don't hurry, you won't make it in time."}
+        ] },
+        {"tip":"A proverb: {{ちりも積もれば山となる|chiri mo tsumoreba yama to naru}} “Even dust, piled up, becomes a mountain”: a little study every day adds up!"}
+      ],
+      "mistakes": [
+        {"wrong":"安いば、買います。","right":"安ければ、買います。","rw":"Yasui ba, kaimasu.","rr":"Yasukereba, kaimasu.","tr":"If it's cheap, I'll buy it.","why":"An い-adjective: {{い|i}} → {{ければ|kereba}}."},
+        {"wrong":"行くば、わかります。","right":"行けば、わかります。","rw":"Iku ba, wakarimasu.","rr":"Ikeba, wakarimasu.","tr":"If you go, you'll see.","why":"Verbs: the last u-sound becomes an e-sound, then {{ば|ba}}: {{行く|iku}} → {{行けば|ikeba}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The ば form of {{買う|kau}} “buy” is…","options":["{{買えば|kaeba}}","{{買うば|kauba}}","{{買われば|kawareba}}"],"answer":0,"why":"{{う|u}} → {{え|e}} + {{ば|ba}}."},
+        {"type":"fill","q":"Choose the right ending.","t":"毎日練習す___、上手になりますよ。","r":"Mainichi renshū su___, jōzu ni narimasu yo.","tr":"If you practise every day, you'll get good.","options":["れば","るば","ば"],"rs":["reba","ruba","ba"],"answer":0,"why":"{{する|suru}} → {{すれば|sureba}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"ラーメン___、あの店がおいしいですよ。","r":"Rāmen ___, ano mise ga oishii desu yo.","tr":"If it's ramen you want, that place is good.","options":["なら","ければ","たら"],"rs":["nara","kereba","tara"],"answer":0,"why":"Picking up a topic and recommending: noun + {{なら|nara}}."},
+        {"type":"dialogue","q":"A friend asks for advice. Choose your replies.","lines":[{"who":"Tom","t":"日本語が上手になりたいんです。どうすればいいですか。","r":"Nihongo ga jōzu ni naritai n desu. Dō sureba ii desu ka.","tr":"I want to get good at Japanese. What should I do?"},{"options":["毎日少し話せば、上手になりますよ。","毎日少し話すば、上手になりますよ。"],"rs":["Mainichi sukoshi hanaseba, jōzu ni narimasu yo.","Mainichi sukoshi hanasu ba, jōzu ni narimasu yo."],"answer":0,"why":"{{話す|hanasu}} → {{話せば|hanaseba}}."},{"who":"Tom","t":"アニメも見たほうがいいですか。","r":"Anime mo mita hō ga ii desu ka.","tr":"Should I watch anime too?"},{"options":["アニメなら、毎日見てもいいですね。","アニメだなら、毎日見てもいいですね。"],"rs":["Anime nara, mainichi mite mo ii desu ne.","Anime da nara, mainichi mite mo ii desu ne."],"answer":0,"why":"A noun goes straight before {{なら|nara}}: no {{だ|da}}."}],"from":"give-advice"},
+        {"type":"order","q":"Put the words in order.","tr":"If you go by train, you'll get there in an hour.","words":["電車で","行けば、","一時間で","着きます。"],"rs":["Densha de","ikeba,","ichi-jikan de","tsukimasu."],"why":"{{電車で行けば、一時間で着きます。|Densha de ikeba, ichi-jikan de tsukimasu.}}"},
+        {"type":"say","q":"How do you say “If you practise every day, you'll get good.”?","answer":"毎日練習すれば、上手になりますよ。","r":"Mainichi renshū sureba, jōzu ni narimasu yo.","from":"say-how-things-change"},
+        {"type":"free","q":"Your turn: a friend is visiting your town. Recommend something with {{なら|nara}}, and give a condition with {{ば|ba}}.","answers":[{"t":"おいしいピザなら、駅の近くの店が一番ですよ。早く行けば、待たなくてもいいです。","r":"Oishii piza nara, eki no chikaku no mise ga ichiban desu yo. Hayaku ikeba, matanakute mo ii desu.","tr":"If it's good pizza you want, the place near the station is the best. If you go early, you won't have to wait."},{"t":"自然が好きなら、湖へ行ったらどうですか。バスで行けば、三十分ぐらいです。","r":"Shizen ga suki nara, mizuumi e ittara dō desu ka. Basu de ikeba, sanjuppun gurai desu.","tr":"If you like nature, why not go to the lake? If you go by bus, it's about thirty minutes."}]}
+      ]
+    },
+    {
+      "id": "guess",
+      "unit": 8,
+      "level": "B1",
+      "title": "Guess, and say how things look",
+      "summary": "Say how things look, and make guesses: “That looks delicious!” “It'll probably rain tomorrow.” “He might be late.”",
+      "topic": "{{～そうです|… sō desu}} “looks…”; {{～でしょう|… deshō}}; {{～かもしれません|… kamo shiremasen}}",
+      "blocks": [
+        {"goal":{"t":"このケーキ、おいしそうですね！","r":"Kono kēki, oishisō desu ne!","tr":"This cake looks delicious!"}},
+        {"dialog":[{"who":"Ken","t":"このケーキ、おいしそうですね！","r":"Kono kēki, oishisō desu ne!","tr":"This cake looks delicious!"},{"who":"Emma","t":"一つどうぞ。あ、空が暗いですね。雨が降りそうです。","r":"Hitotsu dōzo. A, sora ga kurai desu ne. Ame ga furisō desu.","tr":"Have one. Oh, the sky's dark. It looks like it's going to rain."},{"who":"Ken","t":"ええ、夜は雨でしょう。","r":"Ē, yoru wa ame deshō.","tr":"Yes, it'll probably rain tonight."},{"who":"Emma","t":"田中さん、遅いですね。","r":"Tanaka-san, osoi desu ne.","tr":"Mr Tanaka's late, isn't he?"},{"who":"Ken","t":"電車が遅れているかもしれませんね。","r":"Densha ga okurete iru kamo shiremasen ne.","tr":"Maybe his train's delayed."}]},
+        {"p":"**Looks…: {{そうです|sō desu}}.** For what you can see or sense right now. い-adjectives drop {{い|i}}: {{おいしい|oishii}} → {{おいしそうです|oishisō desu}} “it looks delicious”. な-adjectives just add it: {{元気そうです|genkisō desu}} “you look well”. Verbs use the stem: {{降ります|furimasu}} → {{雨が降りそうです|ame ga furisō desu}} “it looks like it's going to rain”. {{いい|ii}} becomes {{よさそう|yosasō}}. Before a noun: {{おいしそうなケーキ|oishisō na kēki}} “a delicious-looking cake”."},
+        {"p":"**Probably: plain form + {{でしょう|deshō}}.** A guess about something you can't see, fairly sure: {{明日は雨でしょう|ashita wa ame deshō}} “It'll probably rain tomorrow”, as weather forecasts say. Nouns and な-adjectives go straight before it, with no {{だ|da}}. With friends: {{だろう|darō}}."},
+        {"p":"**Maybe: plain form + {{かもしれません|kamo shiremasen}}.** Less sure: {{遅れるかもしれません|okureru kamo shiremasen}} “I might be late”. Again, nouns and な-adjectives go straight before it: {{雨かもしれません|ame kamo shiremasen}}. With friends: {{かも|kamo}}."},
+        { "table": [
+          ["how sure","Japanese","Meaning"],
+          ["what I can see","{{雨が降りそうです。|Ame ga furisō desu.}}","It looks like it's going to rain."],
+          ["fairly sure","{{雨が降るでしょう。|Ame ga furu deshō.}}","It'll probably rain."],
+          ["maybe","{{雨が降るかもしれません。|Ame ga furu kamo shiremasen.}}","It might rain."]
+        ] },
+        { "ex": [
+          {"t":"田中さんは元気そうでした。","r":"Tanaka-san wa genkisō deshita.","tr":"Mr Tanaka looked well."},
+          {"t":"明日は晴れるでしょう。","r":"Ashita wa hareru deshō.","tr":"It'll probably be sunny tomorrow."},
+          {"t":"会議に少し遅れるかもしれません。","r":"Kaigi ni sukoshi okureru kamo shiremasen.","tr":"I might be a little late for the meeting."},
+          {"t":"あの人は先生かもしれません。","r":"Ano hito wa sensei kamo shiremasen.","tr":"That person might be a teacher."},
+          {"t":"この本はおもしろそうです。","r":"Kono hon wa omoshirosō desu.","tr":"This book looks interesting."},
+          {"t":"あのレストランはよさそうですね。","r":"Ano resutoran wa yosasō desu ne.","tr":"That restaurant looks good."}
+        ] },
+        {"tip":"{{そう|sō}} is for impressions, not for what's obvious. For a beautiful view right in front of you, just say {{きれいですね|kirei desu ne}}: {{きれいそう|kireisō}} isn't used for things you can plainly see."}
+      ],
+      "mistakes": [
+        {"wrong":"おいしいそうです。","right":"おいしそうです。","rw":"Oishii sō desu.","rr":"Oishisō desu.","tr":"It looks delicious.","why":"For “looks…”, drop the {{い|i}}: {{おいしそう|oishisō}}. ({{おいしいそうです|oishii sō desu}} means “I hear it's delicious”: the next lesson.)"},
+        {"wrong":"雨だかもしれません。","right":"雨かもしれません。","rw":"Ame da kamo shiremasen.","rr":"Ame kamo shiremasen.","tr":"It might rain.","why":"Nouns go straight before {{かもしれません|kamo shiremasen}}: no {{だ|da}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing part.","t":"このラーメン、おいし___ですね。","r":"Kono rāmen, oishi___ desu ne.","tr":"This ramen looks delicious.","options":["そう","いそう","かも"],"rs":["sō","i sō","kamo"],"answer":0,"why":"Drop the {{い|i}}: {{おいしそう|oishisō}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"空が暗いですね。雨が降り___です。","r":"Sora ga kurai desu ne. Ame ga furi___ desu.","tr":"The sky's dark. It looks like it's going to rain.","options":["そう","でしょう","かも"],"rs":["sō","deshō","kamo"],"answer":0,"why":"What you can see: stem + {{そうです|sō desu}}."},
+        {"type":"choice","q":"Which one is the least sure?","options":["{{来るかもしれません。|Kuru kamo shiremasen.}}","{{来るでしょう。|Kuru deshō.}}","{{来ます。|Kimasu.}}"],"answer":0,"why":"{{かもしれません|kamo shiremasen}}: “maybe”."},
+        {"type":"dialogue","q":"A friend arrives, looking tired. Choose your replies.","lines":[{"who":"Yuki","t":"おはよう…。","r":"Ohayō…","tr":"Morning…"},{"options":["おはよう。眠そうだね。","おはよう。眠いそうだね。"],"rs":["Ohayō. Nemusō da ne.","Ohayō. Nemui sō da ne."],"answer":0,"why":"“You look sleepy”: {{眠そう|nemusō}}, without the {{い|i}}."},{"who":"Yuki","t":"うん、昨日あまり寝られなかった。","r":"Un, kinō amari nerarenakatta.","tr":"Yeah, I couldn't sleep much last night."},{"options":["今日は早く帰ったほうがいいかもしれないね。","今日は早く帰ったほうがいいだかもしれないね。"],"rs":["Kyō wa hayaku kaetta hō ga ii kamo shirenai ne.","Kyō wa hayaku kaetta hō ga ii da kamo shirenai ne."],"answer":0,"why":"No {{だ|da}} before {{かもしれない|kamo shirenai}}."}],"from":"give-advice"},
+        {"type":"order","q":"Put the words in order.","tr":"I might be a little late for the meeting.","words":["会議に","少し","遅れる","かもしれません。"],"rs":["Kaigi ni","sukoshi","okureru","kamo shiremasen."],"why":"{{会議に少し遅れるかもしれません。|Kaigi ni sukoshi okureru kamo shiremasen.}}"},
+        {"type":"say","q":"How do you say “That looks like an interesting book.”?","answer":"おもしろそうな本ですね。","r":"Omoshirosō na hon desu ne.","from":"describe-things"},
+        {"type":"free","q":"Your turn: look out of the window. Say how things look, and guess what the weather will be like tomorrow.","answers":[{"t":"空が暗くて、雨が降りそうです。明日も雨でしょう。","r":"Sora ga kurakute, ame ga furisō desu. Ashita mo ame deshō.","tr":"The sky is dark, and it looks like rain. It'll probably rain tomorrow too."},{"t":"今日はとても暖かそうです。明日は寒くなるかもしれません。","r":"Kyō wa totemo atatakasō desu. Ashita wa samuku naru kamo shiremasen.","tr":"It looks really warm today. It might get cold tomorrow."}]}
+      ]
     }
   ]
 }
