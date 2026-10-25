@@ -1774,6 +1774,269 @@
         {"type":"order","q":"Соберите предложение.","tr":"Мы решили остаться дома.","words":["We","decided","to","stay","at","home."]},
         {"type":"free","q":"Ваша очередь: чем вы любите заниматься ({{enjoy}} + {{-ing}}), что вы решили или хотите сделать в этом году ({{decide to}}, {{want to}}) и что бросили ({{stop}} + {{-ing}})?","answers":[{"t":"I enjoy hiking and reading. This year I want to learn Spanish. I stopped eating sugar last month.","tr":"Я люблю походы и чтение. В этом году хочу выучить испанский. В прошлом месяце перестал есть сахар."},{"t":"I love going swimming. I've decided to change my job, and I stopped drinking coffee.","tr":"Я обожаю плавать. Я решила сменить работу и бросила пить кофе."}]}
       ]
+    },
+    {
+      "id": "who-which-that",
+      "unit": 7,
+      "level": "B1",
+      "title": "Уточнить, о ком и о чём речь",
+      "summary": "Уточните, кого или что вы имеете в виду: «the woman who lives next door», «the book (that) I'm reading».",
+      "topic": "Придаточные с {{who}}, {{which}}, {{that}}, {{where}}, {{whose}}; {{that}} можно опустить; никакого лишнего {{it}}",
+      "blocks": [
+        {"goal":{"t":"That's the woman who lives next door.","tr":"Это та женщина, которая живёт по соседству."}},
+        {"dialog":[{"who":"Эми","t":"Who's the guy who's talking to your sister?","tr":"Кто этот парень, который разговаривает с твоей сестрой?"},{"who":"Рома","t":"That's Dan. He's the friend I told you about.","tr":"Это Дэн. Тот друг, о котором я тебе рассказывал."},{"who":"Эми","t":"The one who works at the hospital?","tr":"Тот, который работает в больнице?"},{"who":"Рома","t":"No, the one whose brother plays in a band.","tr":"Нет, тот, у которого брат играет в группе."},{"who":"Эми","t":"Oh! The band that played at your wedding?","tr":"А! Та группа, которая играла у тебя на свадьбе?"},{"who":"Рома","t":"Exactly!","tr":"Точно!"}]},
+        {"p":"Русское «который» меняется по родам и падежам: «который, которая, которого, с которым…». Английские слова не меняются вовсе — нужно только выбрать: {{who}} — о людях, {{which}} — о вещах и животных, {{that}} — и о тех, и о других (в разговоре чаще всего)."},
+        { "table": [
+          ["","о ком, о чём","пример"],
+          ["{{who}}","люди","{{the man who called}}"],
+          ["{{which}}","вещи, животные","{{the car which I bought}}"],
+          ["{{that}}","все (разговорное)","{{the book that I'm reading}}"],
+          ["{{where}}","место: где","{{the city where I was born}}"],
+          ["{{whose}}","чей, у которого","{{the man whose car was stolen}}"]
+        ] },
+        {"p":"**{{that}} можно выбросить**, если после него идёт своё подлежащее: {{the book (that) I'm reading}}, {{the friend (that) I told you about}}. Так говорят очень часто. Но если «который» сам подлежащее, его оставляют: {{the woman who lives next door}}."},
+        {"p":"**Никаких лишних слов.** «Который» уже заменяет предмет, повторять его нельзя: не {{the book that I bought it}}, а {{the book that I bought}}. А предлог остаётся в конце, как в вопросах: {{the friend I told you about}} «друг, о котором я тебе рассказывал»."},
+        { "ex": [
+          {"t":"I have a friend who speaks five languages.","tr":"У меня есть друг, который говорит на пяти языках."},
+          {"t":"Is this the bus that goes downtown?","tr":"Это автобус, который идёт в центр?"},
+          {"t":"The movie we saw yesterday was great.","tr":"Фильм, который мы вчера смотрели, был отличный."},
+          {"t":"That's the restaurant where we met.","tr":"Это ресторан, где мы познакомились."},
+          {"t":"She's the girl whose dad is a pilot.","tr":"Это та девочка, у которой папа лётчик."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"The man which called you is here.","right":"The man who called you is here.","tr":"Мужчина, который тебе звонил, пришёл.","why":"О людях — {{who}} (или {{that}}), не {{which}}."},
+        {"wrong":"This is the book that I bought it.","right":"This is the book that I bought.","tr":"Это книга, которую я купил.","why":"{{that}} уже заменяет книгу; {{it}} лишнее."},
+        {"wrong":"This is the city when I was born.","right":"This is the city where I was born.","tr":"Это город, где я родился.","why":"О месте — {{where}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I have a neighbor ___ plays the drums.","tr":"У меня есть сосед, который играет на барабанах.","options":["who","which","where"],"answer":0,"why":"О человеке — {{who}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"This is the café ___ we had our first date.","tr":"Это кафе, где у нас было первое свидание.","options":["where","which","who"],"answer":0,"why":"О месте — {{where}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The jacket ___ I bought is too small.","tr":"Куртка, которую я купил, мне мала.","options":["that","who","where"],"answer":0,"why":"О вещи — {{that}} (или {{which}})."},
+        {"type":"choice","q":"Какое предложение правильное?","options":["{{The movie we saw was great.}}","{{The movie we saw it was great.}}","{{The movie who we saw was great.}}"],"answer":0,"why":"{{that}} можно опустить, а лишнее {{it}} нельзя."},
+        {"type":"dialogue","q":"Подруга рассказывает о соседях. Выберите ответы.","from":"whose-is-it","lines":[{"who":"Подруга","t":"Do you know Kate?","tr":"Ты знаешь Кейт?"},{"options":["Is she the woman who works at the bank?","Is she the woman which works at the bank?"],"answer":0,"why":"О человеке — {{who}}."},{"who":"Подруга","t":"Yes! And her husband is the guy whose dog is always in our yard.","tr":"Да! А её муж — тот, чья собака вечно у нас во дворе."},{"options":["Oh, the dog that ate my shoes!","Oh, the dog that ate them my shoes!"],"answer":0,"why":"Без лишнего {{them}}."},{"who":"Подруга","t":"That's the one!","tr":"Она самая!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Это друг, о котором я тебе рассказывал.","words":["This","is","the","friend","I","told","you","about."]},
+        {"type":"free","q":"Ваша очередь: опишите человека, место и вещь с помощью {{who}}, {{where}} и {{that}}.","answers":[{"t":"My best friend is someone who always makes me laugh. My favorite place is the park where I walk my dog. The book that I'm reading now is about Japan.","tr":"Мой лучший друг — человек, который всегда меня смешит. Моё любимое место — парк, где я гуляю с собакой. Книга, которую я сейчас читаю, — про Японию."},{"t":"I have a sister who lives in Canada. Moscow is the city where I was born.","tr":"У меня есть сестра, которая живёт в Канаде. Москва — город, где я родился."}]}
+      ]
+    },
+    {
+      "id": "indirect-questions",
+      "unit": 7,
+      "level": "B1",
+      "title": "Спросить вежливо и косвенно",
+      "summary": "Спросите дорогу или время по-настоящему вежливо: «Could you tell me where the station is?»",
+      "topic": "Косвенные вопросы: {{Do you know where…?}}, {{Could you tell me what…?}}; прямой порядок слов; {{if}} для «ли»",
+      "blocks": [
+        {"goal":{"t":"Excuse me, could you tell me where the train station is?","tr":"Извините, не подскажете, где вокзал?"}},
+        {"dialog":[{"who":"Гость","t":"Hi. Do you know what time breakfast starts?","tr":"Здравствуйте. Не подскажете, во сколько начинается завтрак?"},{"who":"Администратор","t":"At seven.","tr":"В семь."},{"who":"Гость","t":"And could you tell me where I can buy a SIM card?","tr":"А не скажете, где можно купить сим-карту?"},{"who":"Администратор","t":"There's a store across the street.","tr":"Через дорогу есть магазин."},{"who":"Гость","t":"Great. Do you know if it's open now?","tr":"Отлично. Не знаете, он сейчас открыт?"},{"who":"Администратор","t":"I'm not sure if it's open on Sundays.","tr":"Не уверена, работает ли он по воскресеньям."}]},
+        {"p":"Прямой вопрос — {{Where is the station?}} — с незнакомым человеком может прозвучать резковато. Вежливее начать с {{Do you know…?}} или {{Could you tell me…?}} И тут ловушка: после такого начала порядок слов становится **прямым**, как в утверждении. Никакой перестановки и никакого {{do}}!"},
+        { "table": [
+          ["прямой вопрос","косвенный вопрос"],
+          ["{{Where is the station?}}","{{Do you know where the station is?}}"],
+          ["{{What time does it open?}}","{{Could you tell me what time it opens?}}"],
+          ["{{How much is this?}}","{{Do you know how much this is?}}"],
+          ["{{Is it far?}}","{{Do you know if it's far?}}"]
+        ] },
+        {"p":"**«Ли» — это {{if}}.** Если в прямом вопросе нет вопросительного слова, в косвенном появляется {{if}} или {{whether}}: {{Is the store open?}} → {{Do you know if the store is open?}} «Не знаете, открыт ли магазин?»"},
+        {"p":"**Не только вопросы.** Так же устроены фразы {{I don't know where he lives}} «Я не знаю, где он живёт», {{I wonder what she wants}} «Интересно, чего она хочет», {{I'm not sure if it's true}} «Не уверен, правда ли это». Русскоговорящие часто тащат сюда вопросительный порядок: {{I don't know where does he live}} — это ошибка."},
+        { "ex": [
+          {"t":"Do you know where the restroom is?","tr":"Не подскажете, где туалет?","note":"{{restroom}} — так в Америке говорят о туалете в общественном месте"},
+          {"t":"Could you tell me how much this costs?","tr":"Не скажете, сколько это стоит?"},
+          {"t":"I don't know what time it is.","tr":"Я не знаю, который час."},
+          {"t":"Do you know if there's a pharmacy near here?","tr":"Не знаете, есть ли поблизости аптека?"},
+          {"t":"I wonder why he's late.","tr":"Интересно, почему он опаздывает."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Do you know where is the station?","right":"Do you know where the station is?","tr":"Не знаете, где вокзал?","why":"После {{Do you know}} — прямой порядок: подлежащее перед глаголом."},
+        {"wrong":"Could you tell me what time does the bank open?","right":"Could you tell me what time the bank opens?","tr":"Не скажете, во сколько открывается банк?","why":"В косвенном вопросе нет {{does}}; {{-s}} возвращается к глаголу."},
+        {"wrong":"I don't know is he home.","right":"I don't know if he's home.","tr":"Не знаю, дома ли он.","why":"«Ли» — через {{if}}, и порядок прямой."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Do you know where ___?","tr":"Вы не знаете, где она живёт?","options":["she lives","does she live","lives she"],"answer":0,"why":"Прямой порядок: {{she lives}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Could you tell me how much ___?","tr":"Не подскажете, сколько стоит билет?","options":["the ticket is","is the ticket","does the ticket"],"answer":0,"why":"Прямой порядок: {{the ticket is}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'm not sure ___ he's coming.","tr":"Я не уверен, придёт ли он.","options":["if","that","what"],"answer":0,"why":"«Ли» — {{if}}."},
+        {"type":"choice","q":"Как вежливо спросить, где метро?","options":["{{Excuse me, do you know where the subway station is?}}","{{Excuse me, do you know where is the subway station?}}","{{Where subway?}}"],"answer":0,"why":"Вежливое начало и прямой порядок."},
+        {"type":"dialogue","q":"Вы заблудились. Выберите ответы.","from":"ask-politely","lines":[{"who":"Прохожий","t":"You look lost. Can I help?","tr":"Вы, кажется, заблудились. Помочь?"},{"options":["Yes, thanks! Do you know where the art museum is?","Yes, thanks! Do you know where is the art museum?"],"answer":0,"why":"Прямой порядок: {{where the art museum is}}."},{"who":"Прохожий","t":"It's two blocks from here, on Main Street.","tr":"В двух кварталах отсюда, на Мейн-стрит."},{"options":["Thank you! Do you know if it's open today?","Thank you! Do you know is it open today?"],"answer":0,"why":"«Ли» — {{if}}."},{"who":"Прохожий","t":"I think so. Enjoy!","tr":"Думаю, да. Приятной прогулки!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я не знаю, где он живёт.","words":["I","don't","know","where","he","lives."]},
+        {"type":"free","q":"Ваша очередь: вы в незнакомом городе. Задайте вежливо три вопроса — с {{Do you know…?}}, {{Could you tell me…?}} и {{if}}.","answers":[{"t":"Excuse me, do you know where the nearest bank is? Could you tell me how I can get downtown? Do you know if the buses run at night?","tr":"Извините, не знаете, где ближайший банк? Не подскажете, как добраться до центра? И не знаете, ходят ли автобусы ночью?"},{"t":"Could you tell me what time the museum closes? Do you know if I can buy tickets online?","tr":"Не подскажете, во сколько закрывается музей? И не знаете, можно ли купить билеты онлайн?"}]}
+      ]
+    },
+    {
+      "id": "reported-speech",
+      "unit": 7,
+      "level": "B1",
+      "title": "Передать чужие слова",
+      "summary": "Перескажите, что вам сказали и о чём спросили: «She said she was tired. He asked if I liked it».",
+      "topic": "{{said}} и {{told}}; время сдвигается назад; {{asked if}}, {{asked where}}; {{told me to}}",
+      "blocks": [
+        {"goal":{"t":"Anna said she was tired and asked if we could leave early.","tr":"Анна сказала, что устала, и спросила, можем ли мы уйти пораньше."}},
+        {"dialog":[{"who":"Жена","t":"Your mom called.","tr":"Звонила твоя мама."},{"who":"Муж","t":"What did she say?","tr":"Что она сказала?"},{"who":"Жена","t":"She said she was feeling better. And she asked if we were coming on Sunday.","tr":"Сказала, что ей лучше. И спросила, приедем ли мы в воскресенье."},{"who":"Муж","t":"What did you tell her?","tr":"А ты что ей сказала?"},{"who":"Жена","t":"I told her we would come at noon. And she told you to bring the photos.","tr":"Сказала, что приедем в полдень. А тебе она велела привезти фотографии."}]},
+        {"p":"**Время сдвигается назад.** По-русски «Она сказала, что **устала**» — время то же, что было в её словах («Я устала»). В английском, если «сказал» стоит в прошедшем, время пересказа обычно сдвигается на шаг назад: настоящее → прошедшее, {{will}} → {{would}}, {{can}} → {{could}}. Это непривычно, но очень важно."},
+        { "table": [
+          ["её слова","пересказ"],
+          ["{{“I'm tired.”}}","{{She said she was tired.}}"],
+          ["{{“I live in Boston.”}}","{{She said she lived in Boston.}}"],
+          ["{{“I'll call you.”}}","{{She said she would call me.}}"],
+          ["{{“I can't come.”}}","{{She said she couldn't come.}}"],
+          ["{{“I saw him.”}}","{{She said she had seen him.}}"]
+        ] },
+        {"p":"**{{said}} и {{told}}.** Как в 36-м уроке: {{told}} — с человеком ({{She told me…}}), {{said}} — без него ({{She said…}}). {{that}} «что» часто опускают: {{She said (that) she was tired.}} Местоимения меняются по смыслу, как и в русском: её «я» становится {{she}}."},
+        {"p":"**Вопросы.** {{asked}} + вопросительное слово + **прямой** порядок, как в косвенных вопросах: {{“Where do you live?”}} → {{He asked where I lived.}} Вопрос «да или нет» — через {{if}}: {{“Are you OK?”}} → {{She asked if I was OK.}}"},
+        {"p":"**Просьбы и указания:** {{told}} или {{asked}} + человек + {{to}}: {{“Call me!”}} → {{She told me to call her.}} {{“Please wait.”}} → {{He asked us to wait.}}"},
+        { "ex": [
+          {"t":"He said he was busy.","tr":"Он сказал, что занят."},
+          {"t":"She told me she would be late.","tr":"Она сказала мне, что опоздает."},
+          {"t":"They asked where we were from.","tr":"Они спросили, откуда мы."},
+          {"t":"I asked if I could pay by card.","tr":"Я спросил, можно ли расплатиться картой."},
+          {"t":"The doctor told me to rest.","tr":"Врач велел мне отдыхать."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"Она сказала мне, что устала.","why":"С человеком — {{told}}."},
+        {"wrong":"He asked where did I live.","right":"He asked where I lived.","tr":"Он спросил, где я живу.","why":"В пересказанном вопросе порядок прямой, без {{did}}."},
+        {"wrong":"She said that she will call.","right":"She said that she would call.","tr":"Она сказала, что позвонит.","why":"После {{said}} {{will}} обычно становится {{would}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Tom said he ___ hungry.","tr":"Том сказал, что голоден.","options":["was","were","be"],"answer":0,"why":"Время сдвигается: {{is}} → {{was}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She asked me ___ I liked the movie.","tr":"Она спросила, понравился ли мне фильм.","options":["if","that","what"],"answer":0,"why":"«Ли» — {{if}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"My boss ___ me to come early.","tr":"Начальник велел мне прийти пораньше.","options":["told","said","asked to"],"answer":0,"why":"Указание с человеком: {{told me to…}}"},
+        {"type":"choice","q":"Он сказал: {{“I'll help you.”}} Как это передать?","options":["{{He said he would help me.}}","{{He said he will help you.}}","{{He told he would help me.}}"],"answer":0,"why":"{{will}} → {{would}}, {{you}} → {{me}}, и {{said}} без «кому»."},
+        {"type":"dialogue","q":"Сосед спрашивает о звонке. Выберите ответы.","from":"make-do-say-tell","lines":[{"who":"Сосед","t":"Did Mike call?","tr":"Майк звонил?"},{"options":["Yes. He said he couldn't come tonight.","Yes. He said me he can't come tonight."],"answer":0,"why":"{{said}} без «кому», и {{can't}} → {{couldn't}}."},{"who":"Сосед","t":"Did he say why?","tr":"Он сказал почему?"},{"options":["He told me he was sick.","He said me he was sick."],"answer":0,"why":"С «кому» — {{told me}}."},{"who":"Сосед","t":"Oh, poor guy.","tr":"Бедняга."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Она спросила, где я живу.","words":["She","asked","where","I","lived."]},
+        {"type":"free","q":"Ваша очередь: перескажите недавний разговор — что вам сказали ({{said}}, {{told}}) и о чём спросили ({{asked}}).","answers":[{"t":"My friend said she was moving to Chicago. She asked if I wanted to visit her.","tr":"Подруга сказала, что переезжает в Чикаго. Спросила, хочу ли я к ней приехать."},{"t":"My boss told me I was doing a great job. He asked me to stay late on Friday.","tr":"Начальник сказал, что я отлично работаю. И попросил задержаться в пятницу."}]}
+      ]
+    },
+    {
+      "id": "passive",
+      "unit": 7,
+      "level": "B1",
+      "title": "Сказать, что что-то было сделано",
+      "summary": "Говорите о том, что делается или было сделано, когда неважно кем: «English is spoken here. The house was built in 1900».",
+      "topic": "Страдательный залог: {{be}} + третья форма; {{is made}}, {{was built}}, {{has been stolen}}; {{by}}",
+      "blocks": [
+        {"goal":{"t":"This bridge was built in 1883.","tr":"Этот мост построили в 1883 году."}},
+        {"dialog":[{"who":"Гид","t":"This church was built in the eighteenth century.","tr":"Эта церковь была построена в восемнадцатом веке."},{"who":"Турист","t":"Who was it designed by?","tr":"А кто её спроектировал?"},{"who":"Гид","t":"By an Italian architect. It was restored in 1990.","tr":"Итальянский архитектор. Её отреставрировали в 1990 году."},{"who":"Турист","t":"Is it still used?","tr":"Ею до сих пор пользуются?"},{"who":"Гид","t":"Yes, services are held here every Sunday.","tr":"Да, по воскресеньям здесь проходят службы."}]},
+        {"term":"страдательный залог","means":"форма, в которой подлежащее не действует само, а испытывает действие: «дом построен», «письмо отправлено»."},
+        {"p":"Когда неважно или неизвестно, **кто** это сделал, по-русски говорят по-разному: «Дом построили в 1900 году», «Дом был построен», «Здесь говорят по-английски», «Завтрак подают в семь». В английском для всего этого есть одна форма — страдательный залог: {{be}} + третья форма глагола. {{The house was built in 1900.}} {{English is spoken here.}}"},
+        { "table": [
+          ["время","пример","по-русски"],
+          ["настоящее","{{English is spoken here.}}","Здесь говорят по-английски."],
+          ["прошедшее","{{The house was built in 1900.}}","Дом построили в 1900 году."],
+          ["Present Perfect","{{My car has been stolen!}}","У меня угнали машину!"],
+          ["с {{will}}","{{It will be done tomorrow.}}","Это сделают завтра."]
+        ] },
+        {"p":"**Кем — {{by}}.** Если исполнителя всё же надо назвать: {{The book was written by Tolstoy.}} «Книгу написал Толстой». Но обычно его не называют: для этого залог и выбирают."},
+        {"p":"**«Я родился»** — тоже страдательный залог: {{I was born in 1985}}. И полезные готовые фразы: {{It's made in China}} «Сделано в Китае», {{Breakfast is included}} «Завтрак включён», {{I was told that…}} «Мне сказали, что…»."},
+        { "ex": [
+          {"t":"Breakfast is served from seven to ten.","tr":"Завтрак подают с семи до десяти."},
+          {"t":"My phone was stolen yesterday.","tr":"Вчера у меня украли телефон."},
+          {"t":"These shoes are made in Italy.","tr":"Эти туфли сделаны в Италии."},
+          {"t":"The meeting has been canceled.","tr":"Собрание отменили.","note":"по-американски {{canceled}} пишется с одной {{l}}"},
+          {"t":"The Mona Lisa was painted by Leonardo da Vinci.","tr":"«Мону Лизу» написал Леонардо да Винчи."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"The house built in 1900.","right":"The house was built in 1900.","tr":"Дом построили в 1900 году.","why":"Без {{be}} выходит «дом построил»; нужно {{was built}}."},
+        {"wrong":"My bike was stealed.","right":"My bike was stolen.","tr":"У меня украли велосипед.","why":"Нужна третья форма: {{steal}} — {{stole}} — {{stolen}}."},
+        {"wrong":"In this store speak English.","right":"English is spoken in this store.","tr":"В этом магазине говорят по-английски.","why":"Русское «говорят» без подлежащего — это страдательный залог (или {{They speak English in this store}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"This bridge ___ built in 1883.","tr":"Этот мост построили в 1883 году.","options":["was","is","were"],"answer":0,"why":"Прошлое, один мост: {{was built}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Spanish is ___ in Mexico.","tr":"В Мексике говорят по-испански.","options":["spoken","speak","spoke"],"answer":0,"why":"{{be}} + третья форма: {{spoken}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The book was written ___ a famous journalist.","tr":"Книгу написал известный журналист.","options":["by","from","with"],"answer":0,"why":"Кем — {{by}}."},
+        {"type":"choice","q":"Как сказать «У меня украли кошелёк!»?","options":["{{My wallet has been stolen!}}","{{My wallet stole!}}","{{They stolen my wallet!}}"],"answer":0,"why":"Новость — Present Perfect, и страдательный залог: {{has been stolen}}."},
+        {"type":"dialogue","q":"Вы заселяетесь в отель. Выберите ответы.","from":"was-and-were","lines":[{"who":"Администратор","t":"Welcome! Breakfast is included in the price.","tr":"Добро пожаловать! Завтрак входит в стоимость."},{"options":["Great! When is it served?","Great! When it serves?"],"answer":0,"why":"Завтрак подают: {{is it served}}."},{"who":"Администратор","t":"From seven to ten. And your room was cleaned this morning.","tr":"С семи до десяти. И ваш номер убрали сегодня утром."},{"options":["Thank you! Is the pool open?","Thank you! Is open the pool?"],"answer":0,"why":"Вопрос с {{be}}: {{Is the pool open?}}"},{"who":"Администратор","t":"Yes, until nine.","tr":"Да, до девяти."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Эти часы сделаны в Швейцарии.","words":["These","watches","are","made","in","Switzerland."]},
+        {"type":"free","q":"Ваша очередь: расскажите о своём городе или доме — когда что-то построили, когда основали, на каком языке там говорят.","answers":[{"t":"My city was founded in 1147. The Kremlin was built in the fifteenth century. Russian is spoken there, of course!","tr":"Мой город был основан в 1147 году. Кремль построили в пятнадцатом веке. Говорят там, конечно, по-русски!"},{"t":"Our house was built in 1960. It was painted last year.","tr":"Наш дом построили в 1960 году. В прошлом году его покрасили."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "Помечтать и представить",
+      "summary": "Помечтайте и представьте: «If I had more time, I would travel. I wish I spoke English better».",
+      "topic": "Условные предложения второго типа: {{If I had…, I would…}}; {{If I were you}}; {{I wish}} + прошедшее",
+      "blocks": [
+        {"goal":{"t":"If I had more money, I would travel around the world.","tr":"Если бы у меня было больше денег, я бы объездил весь мир."}},
+        {"dialog":[{"who":"Ира","t":"What would you do if you won the lottery?","tr":"Что бы ты сделал, если бы выиграл в лотерею?"},{"who":"Том","t":"I'd buy a house by the ocean. And you?","tr":"Купил бы дом у океана. А ты?"},{"who":"Ира","t":"I'd quit my job and learn to paint.","tr":"Я бы бросила работу и научилась рисовать."},{"who":"Том","t":"If I were you, I'd keep the job!","tr":"На твоём месте я бы работу не бросал!"},{"who":"Ира","t":"I wish I had your common sense!","tr":"Мне бы твой здравый смысл!"}]},
+        {"term":"сослагательное наклонение","means":"форма глагола для воображаемого, нереального: «если бы я знал», «я бы пошёл». В русском — с частицей «бы»."},
+        {"p":"По-русски всё просто: прошедшее + «бы» в обеих частях: «Если бы у меня **было** время, я **бы поехал**». В английском после {{if}} тоже прошедшее время, а во второй части — {{would}} («бы»): {{If I had time, I would go.}} {{would}} часто сокращают: {{I'd go}}."},
+        { "table": [
+          ["","реальное (первый тип)","воображаемое (второй тип)"],
+          ["по-английски","{{If I have time, I'll go.}}","{{If I had time, I'd go.}}"],
+          ["по-русски","Если будет время, поеду.","Если бы было время, поехал бы."]
+        ] },
+        {"p":"**Прошедшее здесь — не прошлое.** {{If I had a car…}} значит «если бы у меня (сейчас) была машина»: прошедшее только показывает, что это нереально. А «бы» после {{if}} не ставят: не {{If I would have…}}"},
+        {"p":"**{{If I were you}}** «На твоём месте» — с {{were}} даже для {{I}}: {{If I were you, I'd call her.}} В разговоре слышно и {{If I was…}}, но {{were}} правильнее."},
+        {"p":"**Мечты и сожаления — {{I wish}}.** {{I wish}} + прошедшее — «жаль, что не…», «вот бы…»: {{I wish I spoke Spanish}} «Жаль, что я не говорю по-испански», {{I wish I had a car}} «Вот бы у меня была машина». О прошлом — {{had}} + третья форма: {{I wish I had studied more}} «Жаль, что я мало учился»."},
+        { "ex": [
+          {"t":"If I lived in New York, I'd go to a museum every week.","tr":"Если бы я жил в Нью-Йорке, я бы каждую неделю ходил в музей."},
+          {"t":"What would you do if you were the president?","tr":"Что бы ты сделал, если бы был президентом?"},
+          {"t":"If I were you, I wouldn't buy that car.","tr":"На твоём месте я бы не покупал эту машину."},
+          {"t":"I wish it were summer!","tr":"Вот бы сейчас было лето!"},
+          {"t":"I'd love to come, but I can't.","tr":"Я бы с удовольствием пришёл, но не могу."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would buy a house.","right":"If I had money, I would buy a house.","tr":"Если бы у меня были деньги, я бы купил дом.","why":"После {{if}} — прошедшее, без {{would}}."},
+        {"wrong":"If I have more time, I would learn Italian.","right":"If I had more time, I would learn Italian.","tr":"Если бы у меня было больше времени, я бы выучил итальянский.","why":"Воображаемое: прошедшее после {{if}} и {{would}} во второй части — всегда вместе."},
+        {"wrong":"I wish I speak English better.","right":"I wish I spoke English better.","tr":"Жаль, что я не говорю по-английски лучше.","why":"После {{I wish}} — прошедшее."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"If I ___ a dog, I'd walk it every day.","tr":"Если бы у меня была собака, я бы гулял с ней каждый день.","options":["had","have","would have"],"answer":0,"why":"После {{if}} — прошедшее."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"If I were you, I ___ call her.","tr":"На твоём месте я бы ей позвонил.","options":["would","will","am"],"answer":0,"why":"«Бы» — {{would}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I wish I ___ more free time.","tr":"Вот бы у меня было больше свободного времени.","options":["had","have","will have"],"answer":0,"why":"После {{I wish}} — прошедшее."},
+        {"type":"choice","q":"Какое предложение — мечта, а не реальный план?","options":["{{If I won the lottery, I'd buy an island.}}","{{If I win the lottery, I'll buy an island.}}"],"answer":0,"why":"Прошедшее + {{would}} — воображаемое."},
+        {"type":"dialogue","q":"Друг зовёт вас на пляж. Выберите ответы.","from":"if-and-when","lines":[{"who":"Друг","t":"Are you coming to the beach on Sunday?","tr":"Пойдёшь в воскресенье на пляж?"},{"options":["I'd love to, but I have to work.","I will love to, but I have to work."],"answer":0,"why":"«Я бы с удовольствием» — {{I'd love to}}."},{"who":"Друг","t":"That's too bad. What would you do if you didn't have to work?","tr":"Жаль. А что бы ты делал, если бы не надо было работать?"},{"options":["I'd sleep all day!","I'll sleep all day!"],"answer":0,"why":"Воображаемое — {{I'd}}."},{"who":"Друг","t":"Ha! Me too.","tr":"Ха! Я тоже."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Если бы у нас было время, мы бы поехали.","words":["If","we","had","time,","we'd","go."]},
+        {"type":"free","q":"Ваша очередь: что бы вы сделали, если бы у вас был целый свободный год? И о чём вы мечтаете или жалеете ({{I wish…}})?","answers":[{"t":"If I had a free year, I'd travel around Asia and learn to cook Thai food. I wish I had more vacation days!","tr":"Если бы у меня был свободный год, я бы объездил Азию и научился готовить тайскую еду. Вот бы у меня было больше отпуска!"},{"t":"If I didn't have to work, I'd write a book. I wish I spoke English like a native speaker.","tr":"Если бы мне не нужно было работать, я бы написала книгу. Вот бы говорить по-английски как носитель!"}]}
+      ]
+    },
+    {
+      "id": "opinions",
+      "unit": 7,
+      "level": "B1",
+      "title": "Высказать мнение, согласиться и возразить",
+      "summary": "Скажите, что вы думаете, согласитесь или вежливо возразите: «I don't think he'll come. I agree with you».",
+      "topic": "{{I think}}, {{I don't think}} + утверждение; {{I agree}} (а не «I am agree»); {{In my opinion}}; {{I'm not sure}}",
+      "blocks": [
+        {"goal":{"t":"I don't think it's a good idea, but I agree that we need a change.","tr":"По-моему, это не лучшая идея, но я согласен, что нам нужны перемены."}},
+        {"dialog":[{"who":"Начальник","t":"What do you think about working from home on Fridays?","tr":"Что вы думаете о том, чтобы по пятницам работать из дома?"},{"who":"Ольга","t":"I think it's a great idea. People will be happier.","tr":"По-моему, отличная идея. Люди будут довольнее."},{"who":"Марк","t":"I agree with Olga. But I don't think it'll work for everyone.","tr":"Я согласен с Ольгой. Но не думаю, что это подойдёт всем."},{"who":"Начальник","t":"Why not?","tr":"Почему?"},{"who":"Марк","t":"In my opinion, some teams need to meet in person.","tr":"На мой взгляд, некоторым командам нужно встречаться лично."},{"who":"Ольга","t":"That's a good point.","tr":"Справедливо."}]},
+        {"p":"**«Я думаю, он не придёт».** По-русски отрицание стоит во второй части. По-английски его обычно переносят к {{think}}: {{I don't think he'll come}} — так звучит естественно. {{I think he won't come}} грамматически возможно, но звучит резко и непривычно."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Я думаю, он не придёт.","{{I don't think he'll come.}}"],
+          ["Думаю, это неправда.","{{I don't think it's true.}}"],
+          ["Думаю, да.","{{I think so.}}"],
+          ["Думаю, нет.","{{I don't think so.}}"]
+        ] },
+        {"p":"**{{agree}} — это глагол!** По-русски «я согласен» — краткое прилагательное, отсюда частая ошибка {{I am agree}}. {{agree}} — глагол: {{I agree}}, {{I don't agree}}, {{Do you agree?}}, {{I agree with you}}, {{I agree that…}}"},
+        {"p":"**Как высказать мнение.** {{I think…}}, {{In my opinion…}} «На мой взгляд…», {{I believe…}} «Я считаю…» (твёрже). Мягко возразить: {{I'm not sure about that}}, {{I see your point, but…}} «Понимаю, но…», {{That's true, but…}} Согласиться: {{You're right}}, {{Exactly!}}, {{That's a good point}}."},
+        { "ex": [
+          {"t":"I think you're right.","tr":"Думаю, ты прав."},
+          {"t":"I don't think it's going to rain.","tr":"Не думаю, что пойдёт дождь."},
+          {"t":"Do you agree with me?","tr":"Ты со мной согласен?"},
+          {"t":"In my opinion, the book is better than the movie.","tr":"На мой взгляд, книга лучше фильма."},
+          {"t":"I see your point, but I don't agree.","tr":"Понимаю тебя, но не согласен."},
+          {"t":"Is it a good idea? — I don't think so.","tr":"Это хорошая идея? — Не думаю."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"Я с тобой согласен.","why":"{{agree}} — глагол; {{am}} не нужен."},
+        {"wrong":"I think he won't come.","right":"I don't think he'll come.","tr":"Думаю, он не придёт.","why":"Отрицание естественнее перенести к {{think}}."},
+        {"wrong":"In my opinion is a bad idea.","right":"In my opinion, it's a bad idea.","tr":"По-моему, это плохая идея.","why":"Подлежащее обязательно: {{it's}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ with you completely.","tr":"Я полностью с тобой согласен.","options":["agree","am agree","agreed am"],"answer":0,"why":"{{agree}} — глагол."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I don't ___ it's a good price.","tr":"Не думаю, что это хорошая цена.","options":["think","thinking","thought"],"answer":0,"why":"{{I don't think…}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Is the restaurant open on Mondays? — I don't think ___.","tr":"Ресторан работает по понедельникам? — Думаю, нет.","options":["so","it","not"],"answer":0,"why":"«Думаю, нет» — {{I don't think so}}."},
+        {"type":"choice","q":"Как вежливо возразить?","options":["{{I see your point, but I'm not sure.}}","{{You are wrong.}}","{{I am not agree.}}"],"answer":0,"why":"Сначала признать мнение собеседника, потом мягко возразить."},
+        {"type":"dialogue","q":"Друг спорит о городе и деревне. Выберите ответы.","from":"compare","lines":[{"who":"Друг","t":"Which is better, living in the city or in the country?","tr":"Где лучше жить: в городе или за городом?"},{"options":["In my opinion, the city is better. There's more to do.","In my opinion is better the city. There's more to do."],"answer":0,"why":"Подлежащее и прямой порядок: {{the city is better}}."},{"who":"Друг","t":"I don't agree. The country is much quieter.","tr":"Не согласен. За городом гораздо тише."},{"options":["That's true, but I think it's boring.","That's true, but I'm agree it's boring."],"answer":0,"why":"{{I'm agree}} не бывает."},{"who":"Друг","t":"Well, it's a matter of taste.","tr":"Ну, на вкус и цвет…"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Не думаю, что он прав.","words":["I","don't","think","he's","right."]},
+        {"type":"free","q":"Ваша очередь: что вы думаете о работе из дома (или о соцсетях, или о больших городах)? Выскажите мнение и вежливо возразите воображаемому собеседнику.","answers":[{"t":"In my opinion, working from home is great. But I don't think it's for everyone. Some people need an office.","tr":"На мой взгляд, работать из дома отлично. Но не думаю, что это всем подходит. Некоторым нужен офис."},{"t":"I think social media is useful, but I don't agree that it makes people happier.","tr":"По-моему, соцсети полезны, но я не согласна, что они делают людей счастливее."}]}
+      ]
     }
   ]
 }
