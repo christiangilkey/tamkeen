@@ -307,6 +307,325 @@
         {"type":"say","q":"Order a coffee without sugar for yourself: “For me, a coffee without sugar, please.”","answer":"Para mí, un café sin azúcar, por favor."},
         {"type":"free","q":"Your turn: you're at a café in Mexico City. Order something to eat and something to drink.","answers":[{"t":"Quiero unos chilaquiles y un café, por favor.","tr":"I'd like some chilaquiles and a coffee, please."},{"t":"¿Me da un pan dulce y un chocolate caliente, por favor?","tr":"Can I have a sweet roll and a hot chocolate, please?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your work, your studies and your day: “I work at a hospital and I study English at night.”",
+      "topic": "the present of -ar verbs ({{hablo, hablas, habla, hablamos, hablan}}); {{no}} before the verb",
+      "blocks": [
+        {"goal":{"t":"Trabajo en un hospital y estudio inglés en la noche.","tr":"I work at a hospital and I study English at night."}},
+        {"dialog":[{"who":"Raúl","t":"¿Trabajas o estudias?","tr":"Do you work or study?"},{"who":"Kim","t":"Trabajo. Soy enfermera y trabajo en un hospital.","tr":"I work. I'm a nurse, and I work at a hospital."},{"who":"Raúl","t":"¿Y hablas español en el trabajo?","tr":"And do you speak Spanish at work?"},{"who":"Kim","t":"Sí, mucho. Muchos pacientes hablan español.","tr":"Yes, a lot. Lots of patients speak Spanish."},{"who":"Raúl","t":"¡Qué bien! Yo trabajo en una oficina y estudio en la noche.","tr":"Great! I work at an office and study at night."}]},
+        {"p":"**Verbs change for each person.** In English, “work” hardly changes: I work, she work**s**. In Spanish the ending changes for every person, and the ending tells you who is doing it. Take the infinitive {{hablar}} “to speak”, drop **-ar**, and add the endings:"},
+        {"term":"conjugate","means":"to change a verb's ending to show who is doing it: {{hablar}} → {{hablo}} “I speak”, {{hablas}} “you speak”."},
+        { "table": [
+          ["","{{hablar}} “to speak”","{{trabajar}} “to work”"],
+          ["I","{{hablo}}","{{trabajo}}"],
+          ["you (friendly)","{{hablas}}","{{trabajas}}"],
+          ["he, she, you (polite)","{{habla}}","{{trabaja}}"],
+          ["we","{{hablamos}}","{{trabajamos}}"],
+          ["you (all), they","{{hablan}}","{{trabajan}}"]
+        ] },
+        {"p":"Most -ar verbs work exactly like this: {{estudiar}} (to study), {{cocinar}} (to cook), {{escuchar}} (to listen), {{llegar}} (to arrive), {{tomar}} (to take, to drink), {{manejar}} (to drive), {{caminar}} (to walk), {{necesitar}} (to need), {{comprar}} (to buy). One Spanish present covers English “I work”, “I'm working” and “I do work”."},
+        {"p":"**Who?** Since the ending says who, Spanish usually leaves out {{yo}}, {{tú}} and {{nosotros}}: {{Trabajo en una oficina.}} “He”, “she” and polite “you” share one form, so say the person when it isn't clear: {{Ella trabaja aquí.}} {{¿Usted habla inglés?}}"},
+        {"p":"**Not.** Put {{no}} right before the verb: {{No hablo francés.}} “I don't speak French.” Spanish needs no extra word like “don't”."},
+        { "ex": [
+          {"t":"Hablo un poco de español.","tr":"I speak a little Spanish."},
+          {"t":"Mi esposo cocina muy bien.","tr":"My husband cooks really well."},
+          {"t":"¿Dónde trabajas?","tr":"Where do you work?"},
+          {"t":"Estudiamos en la misma escuela.","tr":"We study at the same school."},
+          {"t":"Mis hijos no toman café.","tr":"My kids don't drink coffee."},
+          {"t":"Necesito un taxi.","tr":"I need a taxi."},
+          {"t":"Ustedes trabajan mucho.","tr":"You all work a lot."}
+        ] },
+        {"tip":"In a question the ending does all the work: {{¿Hablas inglés?}} is just {{Hablas inglés}} with a question in your voice. Spanish has no “do” for questions."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo trabaja en un banco.","right":"Yo trabajo en un banco.","tr":"I work at a bank.","why":"With {{yo}}, the ending is -o: {{trabajo}}."},
+        {"wrong":"Yo hablo no francés.","right":"No hablo francés.","tr":"I don't speak French.","why":"{{No}} goes right before the verb."},
+        {"wrong":"Yo estoy trabajo en un hospital.","right":"Trabajo en un hospital.","tr":"I work at a hospital.","why":"One verb is enough: {{trabajo}} already means “I work”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mis papás ___ en una tienda.","tr":"My parents work in a store.","options":["trabajan","trabajamos","trabaja"],"answer":0,"why":"“They” (my parents): -an, {{trabajan}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ inglés?","tr":"Do you speak English? (to a friend)","options":["Hablas","Habla","Hablo"],"answer":0,"why":"To a friend ({{tú}}): -as, {{hablas}}."},
+        {"type":"choice","q":"How do you say “We don't need a car”?","options":["{{No necesitamos carro.}}","{{Necesitamos no carro.}}","{{No necesitan carro.}}"],"answer":0,"why":"{{No}} before the verb, and “we” ends in -amos."},
+        {"type":"order","q":"Put the words in order.","tr":"I work at a hospital.","words":["Trabajo","en","un","hospital."]},
+        {"type":"dialogue","q":"A new friend asks about your life. Choose your replies.","lines":[{"who":"Fernanda","t":"¿Trabajas o estudias?","tr":"Do you work or study?"},{"options":["Trabajo. Soy ingeniero.","Trabajas. Soy ingeniero."],"answer":0,"why":"About yourself: -o, {{trabajo}}. And a job without {{un}}: {{Soy ingeniero}}."},{"who":"Fernanda","t":"¿Y dónde trabajas?","tr":"And where do you work?"},{"options":["Trabajo en una empresa en el centro.","Estoy trabajo en una empresa en el centro."],"answer":0,"why":"{{Trabajo}} alone already means “I work”."},{"who":"Fernanda","t":"¡Qué interesante!","tr":"How interesting!"}],"from":"talk-about-people"},
+        {"type":"say","q":"Say “I don't speak French, but I speak a little Spanish.”","answer":"No hablo francés, pero hablo un poco de español."},
+        {"type":"free","q":"Your turn: where do you work or study, and what do you do in the evening? Use -ar verbs: {{trabajo, estudio, cocino, escucho…}}","answers":[{"t":"Trabajo en una oficina y en la noche cocino con mi esposa.","tr":"I work in an office, and in the evening I cook with my wife."},{"t":"Estudio en la universidad y en la noche escucho música.","tr":"I study at the university, and in the evening I listen to music."}]}
+      ]
+    },
+    {
+      "id": "say-where-you-live",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say where you live and what you eat",
+      "summary": "Talk about your home, your meals and what you read: the verbs ending in -er and -ir.",
+      "topic": "the present of -er and -ir verbs ({{como, comes, come…}}, {{vivo, vives, vive…}})",
+      "blocks": [
+        {"goal":{"t":"Vivo en Guadalajara y como en casa con mi familia.","tr":"I live in Guadalajara and I eat at home with my family."}},
+        {"dialog":[{"who":"Sara","t":"¿Dónde vives?","tr":"Where do you live?"},{"who":"Tom","t":"Vivo cerca de aquí, en la colonia Roma.","tr":"I live near here, in the Roma neighborhood."},{"who":"Sara","t":"¿Y comes aquí todos los días?","tr":"And do you eat here every day?"},{"who":"Tom","t":"No, normalmente como en casa. ¿Y tú?","tr":"No, I usually eat at home. And you?"},{"who":"Sara","t":"Yo como aquí. Mi esposo y yo vivimos lejos.","tr":"I eat here. My husband and I live far away."}]},
+        {"p":"**Two more groups.** Spanish infinitives end in -ar, -er or -ir. You know the -ar endings. Verbs in **-er** and **-ir** use **e** where -ar verbs use **a**, and the two groups are the same except for “we”:"},
+        { "table": [
+          ["","{{comer}} “to eat”","{{vivir}} “to live”"],
+          ["I","{{como}}","{{vivo}}"],
+          ["you (friendly)","{{comes}}","{{vives}}"],
+          ["he, she, you (polite)","{{come}}","{{vive}}"],
+          ["we","{{comemos}}","{{vivimos}}"],
+          ["you (all), they","{{comen}}","{{viven}}"]
+        ] },
+        {"p":"**-er verbs** like {{comer}}: {{beber}} (to drink), {{leer}} (to read), {{aprender}} (to learn), {{vender}} (to sell), {{correr}} (to run), {{creer}} (to believe, to think). **-ir verbs** like {{vivir}}: {{escribir}} (to write), {{abrir}} (to open), {{recibir}} (to receive), {{subir}} (to go up), {{compartir}} (to share)."},
+        {"p":"**The trick:** for “I”, all three groups end in **-o** ({{hablo}}, {{como}}, {{vivo}}). Only “we” shows the infinitive's own vowel: {{hablamos}}, {{comemos}}, {{vivimos}}."},
+        { "ex": [
+          {"t":"Vivimos en un departamento pequeño.","tr":"We live in a small apartment.","note":"{{departamento}}: an apartment, in Mexico"},
+          {"t":"¿Lees el periódico?","tr":"Do you read the newspaper?"},
+          {"t":"Mi hija aprende inglés en la escuela.","tr":"My daughter is learning English at school."},
+          {"t":"La tienda abre a las nueve.","tr":"The store opens at nine."},
+          {"t":"No como carne.","tr":"I don't eat meat."},
+          {"t":"Escribo correos todo el día.","tr":"I write emails all day."},
+          {"t":"Creo que sí.","tr":"I think so.","note":"{{creer}} “to believe” is the everyday “to think”"}
+        ] },
+        {"tip":"{{En}} is both “in” and “at”: {{Vivo en Puebla}} (in Puebla), {{Como en casa}} (at home), {{Trabajo en un banco}} (at a bank)."}
+      ],
+      "mistakes": [
+        {"wrong":"Nosotros vivemos en Texas.","right":"Nosotros vivimos en Texas.","tr":"We live in Texas.","why":"{{vivir}} is an -ir verb, so “we” is {{vivimos}}."},
+        {"wrong":"Ella come no carne.","right":"Ella no come carne.","tr":"She doesn't eat meat.","why":"{{No}} goes right before the verb."},
+        {"wrong":"Yo vive en Chicago.","right":"Yo vivo en Chicago.","tr":"I live in Chicago.","why":"“I” always ends in -o: {{vivo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi hermano ___ en Canadá.","tr":"My brother lives in Canada.","options":["vive","vivo","viven"],"answer":0,"why":"“He”: {{vive}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Los domingos ___ tacos en casa de mi abuela.","tr":"On Sundays we eat tacos at my grandmother's house.","options":["comemos","comen","como"],"answer":0,"why":"“We”: {{comemos}}."},
+        {"type":"choice","q":"Which one means “We write a lot”?","options":["{{Escribimos mucho.}}","{{Escribemos mucho.}}","{{Escriben mucho.}}"],"answer":0,"why":"{{escribir}} is an -ir verb: “we” ends in -imos."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mi esposa ___ en una escuela.","tr":"My wife works at a school.","options":["trabaja","trabajan","trabajo"],"answer":0,"why":"An -ar verb, and “she”: {{trabaja}}.","from":"say-what-you-do"},
+        {"type":"dialogue","q":"Your new neighbor is curious. Choose your replies.","lines":[{"who":"Neighbor","t":"¿Usted vive solo?","tr":"Do you live alone?"},{"options":["No, vivo con mi esposa.","No, vive con mi esposa."],"answer":0,"why":"About yourself: {{vivo}}."},{"who":"Neighbor","t":"¿Y comen en casa?","tr":"And do you eat at home?"},{"options":["Sí, casi siempre comemos en casa.","Sí, casi siempre comen en casa."],"answer":0,"why":"You and your wife are “we”: {{comemos}}."},{"who":"Neighbor","t":"Ah, qué bueno.","tr":"Oh, good."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We live in a small apartment.","words":["Vivimos","en","un departamento","pequeño."]},
+        {"type":"say","q":"Ask a friend “Where do you live?”","answer":"¿Dónde vives?"},
+        {"type":"free","q":"Your turn: where do you live, and what do you usually eat? Use {{vivo}} and {{como}}.","answers":[{"t":"Vivo en Dallas con mi familia. Como mucha comida mexicana.","tr":"I live in Dallas with my family. I eat a lot of Mexican food."},{"t":"Vivo en un departamento en el centro. No como carne.","tr":"I live in an apartment downtown. I don't eat meat."}]}
+      ]
+    },
+    {
+      "id": "ask-questions",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask questions",
+      "summary": "Ask for information: what, who, where, when, how, how much and why.",
+      "topic": "yes/no questions; {{qué, quién, dónde, cuándo, cómo, cuánto, por qué, cuál}}",
+      "blocks": [
+        {"goal":{"t":"¿Qué estudias y por qué?","tr":"What are you studying, and why?"}},
+        {"dialog":[{"who":"Marco","t":"¿Qué estudias?","tr":"What are you studying?"},{"who":"Julia","t":"Estudio medicina.","tr":"I'm studying medicine."},{"who":"Marco","t":"¿Por qué medicina?","tr":"Why medicine?"},{"who":"Julia","t":"Porque mi mamá es doctora.","tr":"Because my mom is a doctor."},{"who":"Marco","t":"¿Y cuándo terminas?","tr":"And when do you finish?"},{"who":"Julia","t":"En dos años. ¿Y tú? ¿Qué estudias?","tr":"In two years. And you? What are you studying?"}]},
+        {"p":"**Yes or no.** The simplest question is an ordinary sentence with your voice going up at the end: {{Hablas inglés.}} “You speak English.” → {{¿Hablas inglés?}} “Do you speak English?” Spanish needs no “do”. In writing, a question opens with ¿ and closes with ?."},
+        {"p":"**Question words** come first, and they always carry an accent mark:"},
+        { "table": [
+          ["Spanish","English","Example"],
+          ["{{¿qué?}}","what?","{{¿Qué quieres?}}"],
+          ["{{¿quién?}}, {{¿quiénes?}}","who?","{{¿Quién es él?}}"],
+          ["{{¿dónde?}}","where?","{{¿Dónde vives?}}"],
+          ["{{¿cuándo?}}","when?","{{¿Cuándo llegas?}}"],
+          ["{{¿cómo?}}","how? what … like?","{{¿Cómo estás?}}"],
+          ["{{¿cuánto?}}, {{¿cuántos?}}","how much? how many?","{{¿Cuánto cuesta?}}"],
+          ["{{¿por qué?}}","why?","{{¿Por qué estudias español?}}"],
+          ["{{¿cuál?}}, {{¿cuáles?}}","which? what?","{{¿Cuál es tu número?}}"]
+        ] },
+        {"p":"**Why and because.** {{¿Por qué?}}, two words with an accent, asks “why?”; {{porque}}, one word with no accent, answers “because”: {{¿Por qué estudias español? — Porque vivo en México.}}"},
+        {"p":"**After the question word** comes the verb, and then the person, if you name one: {{¿Dónde trabaja tu hermano?}} “Where does your brother work?”, word for word “where works your brother?”."},
+        {"p":"**Little words go first.** A word like {{de}} “from” or {{con}} “with” goes before the question word, never at the end as in English: {{¿De dónde eres?}} “Where are you from?” {{¿Con quién vives?}} “Who do you live with?”"},
+        { "ex": [
+          {"t":"¿Cuántas personas viven aquí?","tr":"How many people live here?","note":"{{cuánto}} matches its noun: {{cuántas personas}}"},
+          {"t":"¿Quién habla inglés?","tr":"Who speaks English?"},
+          {"t":"¿Cuándo es tu cumpleaños?","tr":"When is your birthday?"},
+          {"t":"¿Cómo se dice “thank you” en español?","tr":"How do you say “thank you” in Spanish?"},
+          {"t":"¿Qué comes en el desayuno?","tr":"What do you eat for breakfast?"},
+          {"t":"¿Por qué no comes carne?","tr":"Why don't you eat meat?"},
+          {"t":"¿Cuál es tu correo?","tr":"What's your email?","note":"“What is your…?” asking for a name, a number or an address: {{cuál}}"}
+        ] },
+        {"tip":"When you don't catch what someone said, Mexicans say {{¿Mande?}} “Pardon?”: polite, and very Mexican. {{¿Cómo?}} also works; {{¿Qué?}} on its own can sound rude."}
+      ],
+      "mistakes": [
+        {"wrong":"¿Dónde eres de?","right":"¿De dónde eres?","tr":"Where are you from?","why":"The little word {{de}} goes before the question word, never at the end."},
+        {"wrong":"¿Por qué estudias español? — Por qué vivo en México.","right":"¿Por qué estudias español? — Porque vivo en México.","tr":"Why are you studying Spanish? — Because I live in Mexico.","why":"The answer “because” is one word with no accent: {{porque}}."},
+        {"wrong":"¿Qué es tu nombre?","right":"¿Cuál es tu nombre?","tr":"What's your name?","why":"Asking for a piece of information (a name, a number), Spanish says {{¿Cuál es…?}}; {{¿Qué es…?}} asks for a definition. (Most people simply ask {{¿Cómo te llamas?}})"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ vives? — En Monterrey.","tr":"Where do you live? — In Monterrey.","options":["Dónde","Cuándo","Quién"],"answer":0,"why":"“Where”: {{dónde}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ cuesta el boleto?","tr":"How much is the ticket?","options":["Cuánto","Cómo","Qué"],"answer":0,"why":"“How much”: {{cuánto}}."},
+        {"type":"choice","q":"Your friend asks {{¿Por qué estudias español?}} Which answer is right?","options":["{{Porque mi novia es mexicana.}}","{{Por qué mi novia es mexicana.}}"],"answer":0,"why":"“Because” is one word with no accent: {{porque}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Who do you live with?","words":["¿Con","quién","vives?"]},
+        {"type":"dialogue","q":"You meet a new neighbor. Choose your questions.","lines":[{"who":"Pedro","t":"Hola, soy Pedro. Vivo en el número cinco.","tr":"Hi, I'm Pedro. I live at number five."},{"options":["Mucho gusto. ¿De dónde eres?","Mucho gusto. ¿Dónde eres de?"],"answer":0,"why":"{{de}} goes before the question word."},{"who":"Pedro","t":"Soy de Veracruz, pero vivo aquí con mi familia.","tr":"I'm from Veracruz, but I live here with my family."},{"options":["¿Cuántas personas viven en tu casa?","¿Cuánto personas viven en tu casa?"],"answer":0,"why":"{{personas}} is feminine and plural: {{cuántas}}."},{"who":"Pedro","t":"Cinco: mi esposa, mis tres hijos y yo.","tr":"Five: my wife, my three kids and me."}],"from":"say-where-you-live"},
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ es tu número de teléfono?","tr":"What's your phone number?","options":["Cuál","Qué","Quién"],"answer":0,"why":"Asking for a piece of information: {{¿Cuál es…?}}"},
+        {"type":"say","q":"You didn't catch what someone said. Ask politely, the Mexican way.","answer":"¿Mande?"},
+        {"type":"free","q":"Your turn: you're meeting someone new. Ask them three questions.","answers":[{"t":"¿Cómo te llamas? ¿De dónde eres? ¿Dónde trabajas?","tr":"What's your name? Where are you from? Where do you work?"},{"t":"¿Dónde vives? ¿Qué estudias? ¿Por qué estudias español?","tr":"Where do you live? What are you studying? Why are you studying Spanish?"}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about your family and your age",
+      "summary": "Say who's in your family, how old people are, and whose things are whose: {{tengo}}, {{mi}}, {{tu}}, {{su}}.",
+      "topic": "{{tener}} ({{tengo, tienes, tiene…}}); {{mi, tu, su, nuestro}}; {{tener … años}} for age",
+      "blocks": [
+        {"goal":{"t":"Tengo un hermano y una hermana. Mi hermana tiene veinte años.","tr":"I have a brother and a sister. My sister is twenty."}},
+        {"dialog":[{"who":"Ana","t":"¿Quién es él?","tr":"Who's he?"},{"who":"Max","t":"Es mi hermano Leo. Tiene treinta años.","tr":"That's my brother Leo. He's thirty."},{"who":"Ana","t":"¿Y tiene hijos?","tr":"And does he have kids?"},{"who":"Max","t":"Sí, tiene dos hijas. Son mis sobrinas.","tr":"Yes, he has two daughters. They're my nieces."},{"who":"Ana","t":"¡Qué bonitas! ¿Y tú? ¿Tienes hijos?","tr":"How cute! What about you? Do you have kids?"},{"who":"Max","t":"No, pero tengo un perro.","tr":"No, but I have a dog."}]},
+        {"p":"**{{tener}} “to have”** is one of the most used verbs in Spanish, and it's irregular: learn it by heart."},
+        { "table": [
+          ["","{{tener}} “to have”"],
+          ["I have","{{tengo}}"],
+          ["you have (friendly)","{{tienes}}"],
+          ["he has, she has, you have (polite)","{{tiene}}"],
+          ["we have","{{tenemos}}"],
+          ["you (all) have, they have","{{tienen}}"]
+        ] },
+        {"p":"**Age is something you have.** Spanish says how many years you **have**: {{Tengo treinta años.}} “I'm thirty”, word for word “I have thirty years”. Ask with {{¿Cuántos años tienes?}} “How old are you?”"},
+        {"term":"possessive","means":"a word that says whose something is: my, your, his, our."},
+        {"p":"**my, your, his…** go before the noun. They match the number of the things owned (one or more), not the owner; {{nuestro}} “our” also matches their gender:"},
+        { "table": [
+          ["","one thing","more than one"],
+          ["my","{{mi hermano}}","{{mis hermanos}}"],
+          ["your (friendly)","{{tu casa}}","{{tus casas}}"],
+          ["his, her, its, their, your (polite)","{{su hijo}}","{{sus hijos}}"],
+          ["our","{{nuestro perro}}, {{nuestra casa}}","{{nuestros amigos}}, {{nuestras hijas}}"]
+        ] },
+        {"p":"{{su}} can be his, her, their or polite “your”: the situation makes it clear. When it doesn't, use {{de}} and the person: {{la casa de Ana}} “Ana's house”. Spanish has no 's: it says “the house of Ana”."},
+        {"p":"**Family words**: {{papá}}, {{mamá}}, {{papás}} (parents), {{hermano}} / {{hermana}}, {{hijo}} / {{hija}}, {{esposo}} / {{esposa}}, {{abuelo}} / {{abuela}}, {{tío}} / {{tía}}, {{primo}} / {{prima}} (cousin), {{sobrino}} / {{sobrina}} (nephew, niece). A masculine plural covers a mixed group: {{mis hermanos}} can be brothers and sisters, {{mis hijos}} sons and daughters."},
+        { "ex": [
+          {"t":"Tengo tres hijos.","tr":"I have three children."},
+          {"t":"Mi mamá tiene sesenta años.","tr":"My mom is sixty."},
+          {"t":"¿Cuántos años tiene tu hijo?","tr":"How old is your son?"},
+          {"t":"Nuestra casa es pequeña.","tr":"Our house is small."},
+          {"t":"Ella es la esposa de mi hermano.","tr":"She's my brother's wife."},
+          {"t":"Sus papás viven en Tijuana.","tr":"His parents live in Tijuana."},
+          {"t":"¿Tienen hijos?","tr":"Do you have kids?","note":"to a couple: {{ustedes}}"}
+        ] },
+        {"tip":"Numbers for ages: {{veinte}} (20), {{treinta}} (30), {{cuarenta}} (40), {{cincuenta}} (50), {{sesenta}} (60), {{setenta}} (70), {{ochenta}} (80). In between, with {{y}}: {{treinta y cinco}} (35). From 16 to 29 they are one word: {{dieciocho}} (18), {{veinticinco}} (25)."}
+      ],
+      "mistakes": [
+        {"wrong":"Soy treinta años.","right":"Tengo treinta años.","tr":"I'm thirty.","why":"In Spanish you have your age: {{tener}}."},
+        {"wrong":"Mis hermano es doctor.","right":"Mi hermano es doctor.","tr":"My brother is a doctor.","why":"One brother: {{mi}}. {{mis}} is for more than one."},
+        {"wrong":"Es el Juan's carro.","right":"Es el carro de Juan.","tr":"It's Juan's car.","why":"Spanish has no 's: “the car of Juan”, {{el carro de Juan}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi abuela ___ ochenta años.","tr":"My grandmother is eighty.","options":["tiene","es","está"],"answer":0,"why":"Age: {{tener}}, {{tiene}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Dónde viven ___ papás?","tr":"Where do your parents live?","options":["tus","tu","su"],"answer":0,"why":"To a friend, and more than one: {{tus}}."},
+        {"type":"choice","q":"How do you say “Ana's house”?","options":["{{la casa de Ana}}","{{la Ana casa}}","{{Ana's casa}}"],"answer":0,"why":"Spanish has no 's: {{la casa de Ana}}, “the house of Ana”."},
+        {"type":"dialogue","q":"A coworker asks about your family. Choose your replies.","lines":[{"who":"Coworker","t":"¿Tienes hijos?","tr":"Do you have kids?"},{"options":["Sí, tengo una hija.","Sí, tienes una hija."],"answer":0,"why":"About yourself: {{tengo}}."},{"who":"Coworker","t":"¿Cuántos años tiene?","tr":"How old is she?"},{"options":["Tiene seis años.","Es seis años."],"answer":0,"why":"Age: {{tiene}}."},{"who":"Coworker","t":"¡Qué bonito! Mis hijos tienen ocho y diez.","tr":"How nice! My kids are eight and ten."}],"from":"ask-questions"},
+        {"type":"order","q":"Put the words in order.","tr":"Our house is small.","words":["Nuestra","casa","es","pequeña."]},
+        {"type":"say","q":"Ask a friend “How old are you?”","answer":"¿Cuántos años tienes?"},
+        {"type":"free","q":"Your turn: tell someone about your family. Who's in it, and how old are they?","answers":[{"t":"Tengo dos hermanas. Mi hermana Emily tiene veinticinco años.","tr":"I have two sisters. My sister Emily is twenty-five."},{"t":"Mi esposo se llama John. Tenemos un hijo de tres años.","tr":"My husband's name is John. We have a three-year-old son."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like and don't like, and ask others: “I really like tacos, but I don't like very spicy food.”",
+      "topic": "{{me gusta}} and {{me gustan}}; {{te, le, nos, les}}; {{a mí también}}, {{a mí tampoco}}",
+      "blocks": [
+        {"goal":{"t":"Me gustan mucho los tacos, pero no me gusta la comida muy picante.","tr":"I really like tacos, but I don't like very spicy food."}},
+        {"dialog":[{"who":"Paco","t":"¿Te gusta la música mexicana?","tr":"Do you like Mexican music?"},{"who":"Emma","t":"Sí, me gusta mucho. Me gustan los mariachis.","tr":"Yes, I like it a lot. I like mariachi bands."},{"who":"Paco","t":"¿Y te gusta bailar?","tr":"And do you like to dance?"},{"who":"Emma","t":"No mucho. ¿Y a ti?","tr":"Not really. How about you?"},{"who":"Paco","t":"¡A mí sí, mucho!","tr":"I do, a lot!"}]},
+        {"term":"subject","means":"who or what does the verb: in “Ana works”, it's Ana. In Spanish the verb's ending matches its subject."},
+        {"p":"**Back to front.** Spanish doesn't say “I like coffee”. It says {{Me gusta el café}}: “coffee pleases me”. The thing you like is the subject, the verb {{gusta}} goes with it, and {{me}} “to me” says who likes it."},
+        {"p":"**One thing or more?** The verb matches the thing you like: {{gusta}} for one thing, or for doing something; {{gustan}} for more than one thing:"},
+        { "table": [
+          ["","Spanish","English"],
+          ["one thing","{{Me gusta el café.}}","I like coffee."],
+          ["more than one","{{Me gustan los tacos.}}","I like tacos."],
+          ["doing something","{{Me gusta bailar.}}","I like to dance."]
+        ] },
+        {"p":"**Who likes it?** Change the little word in front:"},
+        { "table": [
+          ["","Spanish"],
+          ["I like","{{me gusta}}"],
+          ["you like (friendly)","{{te gusta}}"],
+          ["he likes, she likes, you like (polite)","{{le gusta}}"],
+          ["we like","{{nos gusta}}"],
+          ["you (all) like, they like","{{les gusta}}"]
+        ] },
+        {"p":"Spanish keeps “the” even for things in general: {{Me gusta el café}}, {{Me gustan los perros}} “I like dogs”."},
+        {"p":"**Me too, me neither.** Answer with {{a}} and the person: {{A mí también.}} “Me too.” {{A mí tampoco.}} “Me neither” (after a “not”). {{A mí sí.}} / {{A mí no.}} when you feel differently. {{¿Y a ti?}} turns it back: “And you?”. The same {{a}} names who: {{A mi papá le gusta el fútbol.}} “My dad likes soccer.”"},
+        { "ex": [
+          {"t":"¿Te gusta el fútbol?","tr":"Do you like soccer?"},
+          {"t":"No me gustan las películas de terror.","tr":"I don't like horror movies.","note":"{{no}} goes before {{me}}"},
+          {"t":"A mis hijos les gusta mucho nadar.","tr":"My kids really like swimming."},
+          {"t":"Nos gusta caminar en el parque.","tr":"We like to walk in the park."},
+          {"t":"¿Le gusta el café, señora?","tr":"Do you like coffee, ma'am?"},
+          {"t":"Me gusta tu playera.","tr":"I like your T-shirt.","note":"{{playera}}: a T-shirt, in Mexico"}
+        ] },
+        {"tip":"{{Mucho}} goes after {{gusta}}: {{Me gusta mucho.}} “I like it a lot.” And {{¿Te gusta?}} with nothing after it means “Do you like it?”: no word for “it” is needed."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo gusto el café.","right":"Me gusta el café.","tr":"I like coffee.","why":"{{gustar}} works back to front: “coffee pleases me”, {{me gusta}}."},
+        {"wrong":"Me gusta los tacos.","right":"Me gustan los tacos.","tr":"I like tacos.","why":"More than one thing: {{gustan}}."},
+        {"wrong":"Me gusta café.","right":"Me gusta el café.","tr":"I like coffee.","why":"Spanish keeps the article when you talk about something in general."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Me ___ los perros.","tr":"I like dogs.","options":["gustan","gusta","gusto"],"answer":0,"why":"More than one thing: {{gustan}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Te ___ cocinar?","tr":"Do you like to cook?","options":["gusta","gustan"],"answer":0,"why":"Doing something: {{gusta}}."},
+        {"type":"choice","q":"Your friend says {{No me gusta el café.}} You don't like it either. You say…","options":["{{A mí tampoco.}}","{{A mí también.}}","{{Yo también.}}"],"answer":0,"why":"Agreeing with a “not”: {{a mí tampoco}}. With {{gustar}} it's {{a mí}}, not {{yo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A mi esposa ___ gusta el té.","tr":"My wife likes tea.","options":["le","me","les"],"answer":0,"why":"My wife: “to her”, {{le}}."},
+        {"type":"dialogue","q":"At a friend's house: choose your replies.","lines":[{"who":"Friend","t":"¿Te gusta la casa?","tr":"Do you like the house?"},{"options":["¡Sí, me gusta mucho! Es muy bonita.","¡Sí, me gusta mucho! Es muy bonito."],"answer":0,"why":"{{la casa}} is feminine: {{bonita}}."},{"who":"Friend","t":"¿Y te gustan los tacos de mi mamá?","tr":"And do you like my mom's tacos?"},{"options":["¡Sí, me gustan mucho! Están muy ricos.","¡Sí, me gusta mucho! Están muy ricos."],"answer":0,"why":"{{los tacos}}, more than one: {{gustan}}."},{"who":"Friend","t":"¡Qué bueno!","tr":"Great!"}],"from":"describe-people-and-things"},
+        {"type":"order","q":"Put the words in order.","tr":"We like to walk in the park.","words":["Nos","gusta","caminar","en el parque."]},
+        {"type":"say","q":"Say “I don't like horror movies.”","answer":"No me gustan las películas de terror."},
+        {"type":"free","q":"Your turn: say two things you like and one you don't. Use {{me gusta}}, {{me gustan}} and {{no me gusta}}.","answers":[{"t":"Me gusta el café y me gustan los perros, pero no me gusta el frío.","tr":"I like coffee and I like dogs, but I don't like the cold."},{"t":"Me gusta mucho cocinar. No me gustan las películas de terror.","tr":"I really like cooking. I don't like horror movies."}]}
+      ]
+    },
+    {
+      "id": "go-shopping",
+      "unit": 2,
+      "level": "A1",
+      "title": "Shop: this one, that one, how much?",
+      "summary": "Point to what you want in a shop or at a market, and ask the price: “How much is this T-shirt?”",
+      "topic": "{{este, ese}} (and {{aquel}}); {{esto, eso}}; {{¿Cuánto cuesta?}} and {{¿Cuánto cuestan?}}; numbers to a thousand",
+      "blocks": [
+        {"goal":{"t":"¿Cuánto cuesta esta playera? — Doscientos pesos.","tr":"How much is this T-shirt? — Two hundred pesos."}},
+        {"dialog":[{"who":"You","t":"Buenas tardes. ¿Cuánto cuesta este sombrero?","tr":"Good afternoon. How much is this hat?"},{"who":"Vendor","t":"Ese cuesta trescientos pesos.","tr":"That one is three hundred pesos."},{"who":"You","t":"¿Y esos?","tr":"And those?"},{"who":"Vendor","t":"Esos cuestan doscientos cincuenta.","tr":"Those are two hundred fifty."},{"who":"You","t":"Mmm… ¿Me lo deja en doscientos?","tr":"Hmm… Would you let me have it for two hundred?"},{"who":"Vendor","t":"Ándele, pues. Doscientos.","tr":"Okay then. Two hundred."}]},
+        {"term":"demonstrative","means":"a word that points: this, that, these, those."},
+        {"p":"**This and that.** {{este}} is “this” (near me), {{ese}} is “that” (near you, or a little way off). Like adjectives, they match the noun:"},
+        { "table": [
+          ["","masculine","feminine"],
+          ["this","{{este sombrero}}","{{esta playera}}"],
+          ["these","{{estos sombreros}}","{{estas playeras}}"],
+          ["that","{{ese carro}}","{{esa casa}}"],
+          ["those","{{esos carros}}","{{esas casas}}"]
+        ] },
+        {"p":"They also stand alone for “this one”, “that one”: {{Quiero ese.}} “I want that one.” For something you can't name, or an idea, use {{esto}} and {{eso}}, which never change: {{¿Qué es esto?}} {{Eso es.}} “That's it.” For something far from both of you there's {{aquel}} “that … over there” ({{aquella casa}}), but in everyday Mexican Spanish {{ese}} usually does the job."},
+        {"p":"**How much?** The verb {{costar}} “to cost” matches the thing: {{¿Cuánto cuesta?}} for one, {{¿Cuánto cuestan?}} for more than one. The answer: {{Cuesta cien pesos.}} {{Cuestan cincuenta.}}"},
+        { "table": [
+          ["number","Spanish"],
+          ["10, 20, 30, 40, 50","{{diez, veinte, treinta, cuarenta, cincuenta}}"],
+          ["60, 70, 80, 90","{{sesenta, setenta, ochenta, noventa}}"],
+          ["100, 101, 120","{{cien, ciento uno, ciento veinte}}"],
+          ["200, 300, 400, 500","{{doscientos, trescientos, cuatrocientos, quinientos}}"],
+          ["600, 700, 800, 900","{{seiscientos, setecientos, ochocientos, novecientos}}"],
+          ["1,000","{{mil}}"]
+        ] },
+        {"p":"Build bigger numbers piece by piece, with {{y}} only between the tens and the ones: {{treinta y cinco}} (35), {{ciento treinta y cinco}} (135), {{mil doscientos}} (1,200). {{cien}} is exactly 100; above it, {{ciento}}."},
+        { "ex": [
+          {"t":"¿Cuánto cuestan estos aguacates?","tr":"How much are these avocados?"},
+          {"t":"Esta bolsa es muy bonita.","tr":"This bag is very pretty."},
+          {"t":"Quiero esa, la roja.","tr":"I want that one, the red one."},
+          {"t":"¿Me da un kilo de esas naranjas?","tr":"Can I have a kilo of those oranges?"},
+          {"t":"Son quinientos cuarenta pesos.","tr":"That's five hundred forty pesos."},
+          {"t":"¿Aceptan tarjeta?","tr":"Do you take cards?"}
+        ] },
+        {"tip":"At markets, prices are often said without {{pesos}}: {{Son ochenta.}} “That's eighty.” {{¿Me hace un descuento?}} “Can you give me a discount?” is worth knowing too."}
+      ],
+      "mistakes": [
+        {"wrong":"¿Cuánto cuesta los tomates?","right":"¿Cuánto cuestan los tomates?","tr":"How much are the tomatoes?","why":"More than one thing: {{cuestan}}."},
+        {"wrong":"Quiero este playera.","right":"Quiero esta playera.","tr":"I want this T-shirt.","why":"{{playera}} is feminine: {{esta}}."},
+        {"wrong":"Cuesta cien y cincuenta pesos.","right":"Cuesta ciento cincuenta pesos.","tr":"It costs a hundred fifty pesos.","why":"Above 100 it's {{ciento}}, and {{y}} goes only between the tens and the ones."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿Cuánto cuestan ___ zapatos?","tr":"How much are these shoes?","options":["estos","este","estas"],"answer":0,"why":"{{zapatos}} is masculine and plural: {{estos}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Cuánto ___ esta mochila?","tr":"How much is this backpack?","options":["cuesta","cuestan"],"answer":0,"why":"One thing: {{cuesta}}."},
+        {"type":"choice","q":"How do you say 250?","options":["{{doscientos cincuenta}}","{{dos cientos y cincuenta}}","{{doscientos y cincuenta}}"],"answer":0,"why":"The hundreds are one word, and {{y}} goes only between tens and ones."},
+        {"type":"dialogue","q":"At the fruit stand: choose your replies.","lines":[{"who":"Vendor","t":"¿Qué va a llevar?","tr":"What would you like?"},{"options":["¿Me da un kilo de esos mangos?","¿Me da un kilo de esas mangos?"],"answer":0,"why":"{{mangos}} is masculine: {{esos}}."},{"who":"Vendor","t":"Claro. ¿Algo más?","tr":"Sure. Anything else?"},{"options":["No, gracias. ¿Cuánto es?","No, gracias. ¿Cuántos es?"],"answer":0,"why":"For the total: {{¿Cuánto es?}} “How much is it?”"},{"who":"Vendor","t":"Son cuarenta pesos.","tr":"That's forty pesos."}],"from":"order-food-and-drinks"},
+        {"type":"order","q":"Put the words in order.","tr":"I want that one, the red one.","words":["Quiero","esa,","la","roja."]},
+        {"type":"say","q":"Ask “How much are these avocados?”","answer":"¿Cuánto cuestan estos aguacates?"},
+        {"type":"free","q":"Your turn: you're at a market. Say you like something and ask its price.","answers":[{"t":"Me gusta esa bolsa. ¿Cuánto cuesta?","tr":"I like that bag. How much is it?"},{"t":"Me gustan estos aretes. ¿Cuánto cuestan?","tr":"I like these earrings. How much are they?"}],"from":"say-what-you-like"}
+      ]
     }
   ]
 }
