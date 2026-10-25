@@ -74,7 +74,8 @@ const NO_ACCENT = new Set(("tambien despues adios aqui alli ahi cafe telefono mu
 const VOSOTROS = new Set(["vosotros", "vosotras", "vuestro", "vuestra", "vuestros", "vuestras", "os", "sois", "habéis"]);
 const NOT_MEXICAN = new Set(["coger", "cogí", "coge", "cogió", "cojo", "coges", "ordenador", "ordenadores", "zumo", "zumos",
   "patata", "patatas", "gafas", "guay", "móvil", "coche", "coches", "conducir", "conduzco", "conduces", "conduce",
-  "aparcar", "nevera", "melocotón", "judías", "chaval", "mola", "ostras", "vale"]);
+  "aparcar", "nevera", "melocotón", "judías", "chaval", "mola", "ostras"]);
+const VALE = /(^|[¡¿.,;:]\s*)vale\s*[,.!?]/i; // Spain's “OK!” (but “Más vale que…” is Mexican too)
 const QUESTION_WORD = /¿\s*(?:(?:y|e|a|de|en|con|para|por|desde|hasta|o)\s+)*(que|quien|quienes|donde|adonde|cuando|como|cuanto|cuanta|cuantos|cuantas|cual|cuales)(?![\p{L}])/iu;
 
 function spanishProblems(t) {
@@ -85,6 +86,7 @@ function spanishProblems(t) {
   const qw = s.match(QUESTION_WORD);
   if (qw) bad.push(`“${qw[1]}” in a question needs its accent`);
   if (/¿\s*porque\b/i.test(s)) bad.push("“¿por qué?” is two words in a question");
+  if (VALE.test(s)) bad.push("“¡Vale!” isn't what Mexicans say (“Va”, “Sale”, “Órale”)");
   for (const w of words(s)) {
     if (NO_ACCENT.has(w)) bad.push(`“${w}”: a missing or old accent (or ñ)`);
     if (/(áis|éis)$/.test(w) || VOSOTROS.has(w)) bad.push(`“${w}” is vosotros: Mexico says ustedes`);

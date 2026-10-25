@@ -2029,6 +2029,316 @@
         {"type":"say","q":"Tell a friend “Don't be late!”","answer":"¡No llegues tarde!"},
         {"type":"free","q":"Your turn: a friend is coming to your city. Tell them two things to do and two not to do.","answers":[{"t":"Ve al mercado, pero no compres en las tiendas para turistas. Y no tomes agua de la llave.","tr":"Go to the market, but don't buy in the tourist shops. And don't drink tap water."},{"t":"Visita el centro y prueba los tacos. No manejes en la noche y no olvides tu chamarra.","tr":"Visit downtown and try the tacos. Don't drive at night, and don't forget your jacket."}]}
       ]
+    },
+    {
+      "id": "predict-and-promise",
+      "unit": 8,
+      "level": "B1",
+      "title": "Predict, promise and guess",
+      "summary": "Make predictions and promises, and guess about the present: “It'll rain tomorrow.” “I'll call you, I promise.” “Where can Juan be?”",
+      "topic": "the simple future ({{hablaré, comerás, vivirá}}; {{tendré, haré, podré, diré, saldré, vendré}}); the future of guessing",
+      "blocks": [
+        {"goal":{"t":"No te preocupes, te llamaré mañana.","tr":"Don't worry, I'll call you tomorrow."}},
+        {"dialog":[{"who":"Fortune teller","t":"Veo tu futuro… Conocerás a una persona muy especial.","tr":"I see your future… You will meet a very special person."},{"who":"You","t":"¿Y cuándo será?","tr":"And when will that be?"},{"who":"Fortune teller","t":"Pronto. Viajarás a un lugar con playa y tendrás mucha suerte.","tr":"Soon. You'll travel somewhere with a beach, and you'll be very lucky."},{"who":"You","t":"¿Y seré rico?","tr":"And will I be rich?"},{"who":"Fortune teller","t":"Eso… no lo puedo ver. Son doscientos pesos.","tr":"That… I can't see. That'll be two hundred pesos."}]},
+        {"p":"**Two futures.** You already have {{ir a}} + infinitive, the everyday way to talk about plans: {{Voy a viajar en diciembre.}} Spanish also has a one-word future. Mexicans use it less in conversation, but it's everywhere for **predictions**, **promises**, the news and the weather forecast, and for **guessing**."},
+        {"term":"future","means":"the tense for what will happen: {{hablaré}} “I'll speak”, {{lloverá}} “it will rain”."},
+        {"p":"**Easy to make.** Take the whole infinitive and add the endings, the same for -ar, -er and -ir verbs. All but “we” carry an accent mark:"},
+        { "table": [
+          ["","{{hablar}}","{{comer}}","{{vivir}}"],
+          ["I","{{hablaré}}","{{comeré}}","{{viviré}}"],
+          ["you (friendly)","{{hablarás}}","{{comerás}}","{{vivirás}}"],
+          ["he, she, you (polite)","{{hablará}}","{{comerá}}","{{vivirá}}"],
+          ["we","{{hablaremos}}","{{comeremos}}","{{viviremos}}"],
+          ["you (all), they","{{hablarán}}","{{comerán}}","{{vivirán}}"]
+        ] },
+        {"p":"**A short list of irregular stems**, with the same endings:"},
+        { "table": [
+          ["infinitive","stem","I"],
+          ["{{tener}}","{{tendr-}}","{{tendré}}"],
+          ["{{poder}}","{{podr-}}","{{podré}}"],
+          ["{{hacer}}","{{har-}}","{{haré}}"],
+          ["{{decir}}","{{dir-}}","{{diré}}"],
+          ["{{salir}}","{{saldr-}}","{{saldré}}"],
+          ["{{venir}}","{{vendr-}}","{{vendré}}"],
+          ["{{poner}}","{{pondr-}}","{{pondré}}"],
+          ["{{saber}}","{{sabr-}}","{{sabré}}"],
+          ["{{querer}}","{{querr-}}","{{querré}}"]
+        ] },
+        {"p":"And {{hay}} becomes {{habrá}} “there will be”."},
+        {"p":"**Guessing.** The future also says what is probably true **right now**: {{¿Dónde estará Juan?}} “Where can Juan be?”, {{Estará en el tráfico.}} “He's probably stuck in traffic.” {{¿Qué hora será?}} “I wonder what time it is.” Mexicans use this a lot."},
+        { "ex": [
+          {"t":"Mañana lloverá en el norte del país.","tr":"Tomorrow it will rain in the north of the country.","note":"the weather forecast"},
+          {"t":"Te lo prometo: no lo haré otra vez.","tr":"I promise you: I won't do it again."},
+          {"t":"¿Vendrás a mi boda?","tr":"Will you come to my wedding?"},
+          {"t":"Algún día viviremos en la playa.","tr":"Someday we'll live by the beach."},
+          {"t":"No sé si podré ir.","tr":"I don't know if I'll be able to go."},
+          {"t":"¿Quién será a esta hora?","tr":"Who could that be at this hour?","note":"when the doorbell rings late"},
+          {"t":"Tendrá unos cuarenta años.","tr":"She must be about forty."}
+        ] },
+        {"tip":"For plans, keep using {{ir a}}: {{El sábado voy a ver a mis papás.}} The one-word future can sound formal, or very sure; for guessing, it's the natural choice."}
+      ],
+      "mistakes": [
+        {"wrong":"Mañana teneré tiempo.","right":"Mañana tendré tiempo.","tr":"I'll have time tomorrow.","why":"{{tener}} has an irregular stem: {{tendr-}}."},
+        {"wrong":"Mañana llovera.","right":"Mañana lloverá.","tr":"It'll rain tomorrow.","why":"The future endings carry accent marks, except for “we”: {{lloverá}}, {{hablaré}}, {{vivirán}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"El próximo año ___ a México.","tr":"Next year we'll travel to Mexico.","options":["viajaremos","viajamos","viajarán"],"answer":0,"why":"“We”, in the future: {{viajaremos}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"No te preocupes, yo lo ___ mañana.","tr":"Don't worry, I'll do it tomorrow.","options":["haré","haceré","hice"],"answer":0,"why":"{{hacer}} → {{haré}}."},
+        {"type":"choice","q":"The doorbell rings at midnight. You wonder aloud “Who could that be?”","options":["{{¿Quién será?}}","{{¿Quién es será?}}","{{¿Quién fue?}}"],"answer":0,"why":"Guessing about now: the future, {{será}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿___ tiempo para ayudarme el sábado?","tr":"Will you have time to help me on Saturday?","options":["Tendrás","Tenerás","Tendré"],"answer":0,"why":"{{tener}} → {{tendr-}}, and “you”: {{tendrás}}."},
+        {"type":"dialogue","q":"Your friend is worried about a trip. Choose your replies.","lines":[{"who":"Friend","t":"¿Y si perdemos el avión?","tr":"What if we miss the plane?"},{"options":["No te preocupes. Llegaremos a tiempo.","No te preocupas. Llegaremos a tiempo."],"answer":0,"why":"“Don't worry”: {{no te preocupes}}; “we'll get there”: {{llegaremos}}."},{"who":"Friend","t":"¿Y el hotel? ¿Será bonito?","tr":"And the hotel? Do you think it'll be nice?"},{"options":["Sí, será muy bonito. Te lo prometo.","Sí, serás muy bonito. Te lo prometo."],"answer":0,"why":"{{el hotel}}, “it”: {{será}}."},{"who":"Friend","t":"Bueno, confío en ti.","tr":"Okay, I trust you."}],"from":"say-dont"},
+        {"type":"order","q":"Put the words in order.","tr":"Someday we'll live by the beach.","words":["Algún día","viviremos","en la playa."]},
+        {"type":"say","q":"Promise a friend “I'll call you tomorrow.”","answer":"Te llamaré mañana."},
+        {"type":"free","q":"Your turn: make three predictions about your life in ten years, with the future.","answers":[{"t":"En diez años hablaré muy bien español, viviré en una casa con jardín y tendré un perro.","tr":"In ten years I'll speak Spanish very well, live in a house with a yard and have a dog."},{"t":"Trabajaré menos, viajaré más y mis hijos estarán en la universidad.","tr":"I'll work less, travel more, and my kids will be in college."}]}
+      ]
+    },
+    {
+      "id": "say-what-happens-if",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what happens if…",
+      "summary": "Talk about real possibilities and what follows: “If it rains, we'll stay home.” “If you have time, call me.”",
+      "topic": "{{si}} + present, then the present, {{ir a}}, the future or a command",
+      "blocks": [
+        {"goal":{"t":"Si llueve mañana, nos quedamos en casa.","tr":"If it rains tomorrow, we'll stay home."}},
+        {"dialog":[{"who":"Ana","t":"¿Vamos al parque el domingo?","tr":"Shall we go to the park on Sunday?"},{"who":"Raúl","t":"Sí, pero si llueve, no vamos.","tr":"Yes, but if it rains, we're not going."},{"who":"Ana","t":"Bueno. Si hace sol, llevo unos sándwiches.","tr":"Okay. If it's sunny, I'll bring some sandwiches."},{"who":"Raúl","t":"Y si tienes tiempo, haz tu famoso guacamole.","tr":"And if you have time, make your famous guacamole."},{"who":"Ana","t":"¡Si me ayudas, lo hago!","tr":"If you help me, I'll make it!"}]},
+        {"p":"**Real possibilities.** {{si}} “if” + the **present**, then the result. Like English, Spanish uses the present after “if” even for the future: {{Si llueve}} “if it rains”, never the future. ({{si}} has no accent; {{sí}} with an accent is “yes”.)"},
+        { "table": [
+          ["{{si}} + present","the result","English"],
+          ["{{Si llueve,}}","{{nos quedamos en casa.}}","If it rains, we'll stay home."],
+          ["{{Si tienes tiempo,}}","{{llámame.}}","If you have time, call me."],
+          ["{{Si estudias,}}","{{vas a pasar el examen.}}","If you study, you'll pass the exam."],
+          ["{{Si no te gusta,}}","{{no lo compres.}}","If you don't like it, don't buy it."],
+          ["{{Si comes mucho chile,}}","{{te va a doler el estómago.}}","If you eat a lot of chile, your stomach will hurt."]
+        ] },
+        {"p":"**The result** can be the present (very common in Mexico: {{nos quedamos}}), {{ir a}} ({{nos vamos a quedar}}), the future ({{nos quedaremos}}) or a command ({{llámame}}). The two halves can swap places: {{Llámame si tienes tiempo.}}"},
+        {"p":"**Habits and general truths** have the present in both halves: {{Si ceno tarde, no duermo bien.}} “If I eat dinner late, I don't sleep well.”"},
+        { "ex": [
+          {"t":"Si quieres, te llevo al aeropuerto.","tr":"If you want, I'll take you to the airport."},
+          {"t":"Si no hay tráfico, llegamos en veinte minutos.","tr":"If there's no traffic, we'll get there in twenty minutes."},
+          {"t":"¿Qué haces si se va la luz?","tr":"What do you do if the power goes out?"},
+          {"t":"Si necesitas algo, dime.","tr":"If you need anything, let me know."},
+          {"t":"Si sales tarde del trabajo, avísame.","tr":"If you leave work late, let me know."},
+          {"t":"Si tomas, no manejes.","tr":"If you drink, don't drive.","note":"a classic road-safety slogan in Mexico"}
+        ] },
+        {"tip":"{{si}} “if” has no accent; {{sí}} “yes” does: {{Si puedes, sí voy.}} “If you can, then yes, I'll go.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Si lloverá, no vamos.","right":"Si llueve, no vamos.","tr":"If it rains, we're not going.","why":"After {{si}}, the present, never the future."},
+        {"wrong":"Sí tienes tiempo, llámame.","right":"Si tienes tiempo, llámame.","tr":"If you have time, call me.","why":"“If” is {{si}}, without the accent; {{sí}} is “yes”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Si ___ tiempo, te ayudo.","tr":"If I have time, I'll help you.","options":["tengo","tendré","tuve"],"answer":0,"why":"After {{si}}: the present, {{tengo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Si no te gusta la sopa, no la ___.","tr":"If you don't like the soup, don't eat it.","options":["comas","comes","come"],"answer":0,"why":"A negative command to {{tú}}: {{no la comas}}.","from":"say-dont"},
+        {"type":"choice","q":"“If there's no traffic, we'll get there at eight.” Which one?","options":["{{Si no hay tráfico, llegamos a las ocho.}}","{{Si no habrá tráfico, llegamos a las ocho.}}","{{Sí no hay tráfico, llegamos a las ocho.}}"],"answer":0,"why":"{{si}} without an accent, and the present after it."},
+        {"type":"fill","q":"Choose the missing word.","t":"Si ___ al súper, compra tortillas.","tr":"If you go to the supermarket, buy tortillas.","options":["vas","vayas","irás"],"answer":0,"why":"After {{si}}: the present, {{vas}}.","from":"say-where-you-are-going"},
+        {"type":"dialogue","q":"Planning a beach trip. Choose your replies.","lines":[{"who":"Friend","t":"¿Qué hacemos si hace mal tiempo?","tr":"What do we do if the weather's bad?"},{"options":["Si llueve, vamos a un museo.","Si lloverá, vamos a un museo."],"answer":0,"why":"After {{si}}: the present."},{"who":"Friend","t":"¿Y si el hotel no es bonito?","tr":"And what if the hotel isn't nice?"},{"options":["Será bonito, ¡te lo prometo!","Serás bonito, ¡te lo prometo!"],"answer":0,"why":"A promise about the future, for {{el hotel}}: {{será}}."},{"who":"Friend","t":"Ja, ja. Bueno.","tr":"Ha ha. Okay."}],"from":"predict-and-promise"},
+        {"type":"order","q":"Put the words in order.","tr":"If you need anything, let me know.","words":["Si","necesitas","algo,","dime."]},
+        {"type":"say","q":"Say “If you want, I'll take you to the airport.”","answer":"Si quieres, te llevo al aeropuerto."},
+        {"type":"free","q":"Your turn: what will you do this weekend if the weather's nice, and what if it rains? Use {{si}} twice.","answers":[{"t":"Si hace buen tiempo, voy a ir a la playa. Si llueve, me quedo en casa y veo películas.","tr":"If the weather's nice, I'm going to go to the beach. If it rains, I'll stay home and watch movies."},{"t":"Si hace sol, salgo en bici con mis hijos. Si llueve, vamos al cine.","tr":"If it's sunny, I'll go for a bike ride with my kids. If it rains, we'll go to the movies."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you want others to do",
+      "summary": "Say what you want, need or ask someone else to do: “I want you to come to my party.”",
+      "topic": "{{quiero que}}, {{necesito que}}, {{te pido que}} + the present subjunctive",
+      "blocks": [
+        {"goal":{"t":"Quiero que vengas a mi fiesta.","tr":"I want you to come to my party."}},
+        {"dialog":[{"who":"Boss","t":"Lupita, necesito que me mandes el informe hoy.","tr":"Lupita, I need you to send me the report today."},{"who":"Lupita","t":"Claro. ¿Quiere que lo imprima también?","tr":"Of course. Do you want me to print it too?"},{"who":"Boss","t":"Sí, por favor. Y quiero que Martín lo revise antes.","tr":"Yes, please. And I want Martín to check it first."},{"who":"Lupita","t":"Ahorita le pido que lo revise.","tr":"I'll ask him to check it right away."},{"who":"Boss","t":"Perfecto, gracias.","tr":"Perfect, thanks."}]},
+        {"p":"**One person wants, another does.** When you want to do something **yourself**, use the infinitive: {{Quiero ir.}} “I want to go.” When you want **someone else** to do it, Spanish says “I want that you go”: {{quiero que}} + the other person's verb in the **subjunctive**: {{Quiero que vayas.}} “I want you to go.”"},
+        {"term":"subjunctive","means":"a set of verb forms Spanish uses after words of wanting, wishing, advising and feeling, for what isn't (yet) a fact: {{quiero que vengas}} “I want you to come”."},
+        { "table": [
+          ["the same person: infinitive","someone else: {{que}} + subjunctive"],
+          ["{{Quiero comer.}} I want to eat.","{{Quiero que comas.}} I want you to eat."],
+          ["{{Necesito descansar.}} I need to rest.","{{Necesito que descanses.}} I need you to rest."],
+          ["{{Prefiero manejar.}} I'd rather drive.","{{Prefiero que manejes tú.}} I'd rather you drove."]
+        ] },
+        {"p":"**You already know the forms.** The present subjunctive is the “opposite vowel” of the {{usted}} commands (lesson 39), with an ending for every person. -ar verbs take **e**, -er and -ir verbs take **a**, starting from the “I” form of the present:"},
+        { "table": [
+          ["","{{hablar}}","{{comer}}","{{venir}} ({{vengo}})"],
+          ["I","{{hable}}","{{coma}}","{{venga}}"],
+          ["you (friendly)","{{hables}}","{{comas}}","{{vengas}}"],
+          ["he, she, you (polite)","{{hable}}","{{coma}}","{{venga}}"],
+          ["we","{{hablemos}}","{{comamos}}","{{vengamos}}"],
+          ["you (all), they","{{hablen}}","{{coman}}","{{vengan}}"]
+        ] },
+        {"p":"The irregulars are the ones from the commands: {{ir}} → {{vaya}}, {{ser}} → {{sea}}, {{estar}} → {{esté}}, {{saber}} → {{sepa}}, {{dar}} → {{dé}}, and {{haber}} → {{haya}}. Stem changes stay, except for “we”: {{quiera}}, {{pueda}}, {{duerma}}; -ir stem-changers change “we” too: {{durmamos}}, {{pidamos}}."},
+        {"p":"**The same pattern** follows {{necesito que}} (I need you to), {{te pido que}} (I'm asking you to), {{prefiero que}} (I'd rather you) and {{¿quieres que…?}} (do you want me to…?)."},
+        { "ex": [
+          {"t":"¿Quieres que te ayude?","tr":"Do you want me to help you?"},
+          {"t":"Mi mamá quiere que estudie medicina.","tr":"My mom wants me to study medicine."},
+          {"t":"Necesito que me hagas un favor.","tr":"I need you to do me a favor."},
+          {"t":"Te pido que no le digas a nadie.","tr":"I'm asking you not to tell anyone."},
+          {"t":"Prefiero que nos veamos en el café.","tr":"I'd rather we met at the café."},
+          {"t":"Los niños quieren que vayamos al parque.","tr":"The kids want us to go to the park."},
+          {"t":"¿Qué quieres que haga?","tr":"What do you want me to do?"}
+        ] },
+        {"tip":"{{¿Quieres que…?}} is the natural way to offer help: {{¿Quieres que te lleve?}} “Do you want me to give you a ride?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Quiero que tú vienes.","right":"Quiero que vengas.","tr":"I want you to come.","why":"After {{quiero que}}, the subjunctive: {{vengas}}."},
+        {"wrong":"Quiero tú venir a mi fiesta.","right":"Quiero que vengas a mi fiesta.","tr":"I want you to come to my party.","why":"Spanish says “I want that you come”: {{quiero que}} + subjunctive."},
+        {"wrong":"Quiero que yo vaya.","right":"Quiero ir.","tr":"I want to go.","why":"When it's the same person, just the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quiero que ___ a cenar el sábado.","tr":"I want you to come to dinner on Saturday.","options":["vengas","vienes","venir"],"answer":0,"why":"Someone else: {{que}} + subjunctive, {{vengas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Necesito que me ___ tu carro.","tr":"I need you to lend me your car.","options":["prestes","prestas","prestar"],"answer":0,"why":"An -ar verb takes the opposite vowel: {{prestes}}.","from":"say-who-for"},
+        {"type":"choice","q":"“My boss wants me to work on Saturday.” Which one?","options":["{{Mi jefe quiere que trabaje el sábado.}}","{{Mi jefe quiere que trabajo el sábado.}}","{{Mi jefe quiere yo trabajar el sábado.}}"],"answer":0,"why":"{{quiere que}} + subjunctive: {{trabaje}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Quieres que ___ la cena?","tr":"Do you want me to make dinner?","options":["haga","hago","hacer"],"answer":0,"why":"{{hacer}} → {{hago}} → {{haga}}.","from":"talk-about-your-free-time"},
+        {"type":"dialogue","q":"Your elderly neighbor needs help. Choose your replies.","lines":[{"who":"Neighbor","t":"¿Me puede ayudar con las bolsas?","tr":"Can you help me with the bags?"},{"options":["Claro. ¿Quiere que las suba al segundo piso?","Claro. ¿Quiere que las subo al segundo piso?"],"answer":0,"why":"{{quiere que}} + subjunctive: {{suba}}."},{"who":"Neighbor","t":"Sí, por favor. Pase.","tr":"Yes, please. Come in."},{"options":["¿Dónde quiere que las ponga?","¿Dónde quiere que las pongo?"],"answer":0,"why":"{{poner}} → {{pongo}} → {{ponga}}."},{"who":"Neighbor","t":"En la mesa. ¡Muchas gracias, joven!","tr":"On the table. Thank you so much, young man!"}],"from":"give-directions"},
+        {"type":"order","q":"Put the words in order.","tr":"I need you to do me a favor.","words":["Necesito","que","me hagas","un favor."]},
+        {"type":"say","q":"Offer help: “Do you want me to help you?”","answer":"¿Quieres que te ayude?"},
+        {"type":"free","q":"Your turn: what do you want the people in your life to do? Make two sentences with {{quiero que}}.","answers":[{"t":"Quiero que mi hijo estudie más y que mi esposo cocine los domingos.","tr":"I want my son to study more and my husband to cook on Sundays."},{"t":"Quiero que mis amigos vengan a visitarme y que mi jefe me dé vacaciones.","tr":"I want my friends to come visit me and my boss to give me a vacation."}]}
+      ]
+    },
+    {
+      "id": "wish-people-well",
+      "unit": 8,
+      "level": "B1",
+      "title": "Wish people well",
+      "summary": "Wish someone a good day, a good trip or a quick recovery, and say what you hope: “Have a good trip!” “I hope it doesn't rain.”",
+      "topic": "{{¡Que…!}} + subjunctive ({{¡Que te vaya bien!}}); {{ojalá (que)}}; {{espero que}}",
+      "blocks": [
+        {"goal":{"t":"¡Que te vaya muy bien en tu viaje!","tr":"Have a great trip!"}},
+        {"dialog":[{"who":"Mom","t":"¡Que tengas buen viaje, mi amor!","tr":"Have a good trip, sweetheart!"},{"who":"Daughter","t":"Gracias, mamá. Ojalá que no haga mucho frío en Chicago.","tr":"Thanks, Mom. I hope it isn't too cold in Chicago."},{"who":"Mom","t":"Espero que te guste el trabajo nuevo.","tr":"I hope you like the new job."},{"who":"Daughter","t":"Yo también. Te llamo cuando llegue.","tr":"Me too. I'll call you when I get there."},{"who":"Mom","t":"Sí, por favor. ¡Que Dios te bendiga!","tr":"Yes, please. God bless you!"}]},
+        {"p":"**{{¡Que…!}} + subjunctive** is how Mexicans wish things to people. It's short for “I want that…”, and you'll hear it every day, at every goodbye:"},
+        { "table": [
+          ["Spanish","when","English"],
+          ["{{¡Que te vaya bien!}}","someone is leaving","Take care! Have a good day!"],
+          ["{{¡Que tengas buen viaje!}}","a trip","Have a good trip!"],
+          ["{{¡Que descanses!}}","at night, or someone tired","Sleep well! Get some rest!"],
+          ["{{¡Que te mejores!}}","someone is sick","Get well soon!"],
+          ["{{¡Que lo disfrutes!}}","a meal, a present, a vacation","Enjoy it!"],
+          ["{{¡Que cumplas muchos más!}}","a birthday","Many happy returns!"]
+        ] },
+        {"p":"To {{usted}}: {{¡Que le vaya bien!}}, {{¡Que tenga buen día!}}, {{¡Que se mejore!}} To a group: {{¡Que les vaya bien!}}"},
+        {"p":"**{{ojalá}} “I hope, if only”** (from Arabic, “if God wills”) is always followed by the subjunctive, with or without {{que}}: {{Ojalá (que) no llueva.}} “I hope it doesn't rain.” On its own, {{¡Ojalá!}} is “I hope so!”."},
+        {"p":"**{{espero que}} “I hope that”** works like {{quiero que}}: {{Espero que te guste.}} “I hope you like it.” For your own hopes, the infinitive: {{Espero verte pronto.}} “I hope to see you soon.”"},
+        { "ex": [
+          {"t":"¡Que tengas un buen fin de semana!","tr":"Have a good weekend!"},
+          {"t":"Ojalá que gane mi equipo.","tr":"I hope my team wins."},
+          {"t":"Espero que estés bien.","tr":"I hope you're well.","note":"a common way to start a message"},
+          {"t":"Ojalá pueda ir a tu boda.","tr":"I hope I can go to your wedding."},
+          {"t":"Que les vaya bien, muchachos.","tr":"Take care, guys."},
+          {"t":"Espero que les guste la comida.","tr":"I hope you all like the food."},
+          {"t":"¡Que te diviertas!","tr":"Have fun!"}
+        ] },
+        {"tip":"{{¡Provecho!}} “Enjoy your meal!” is said to people who are eating, even strangers in a restaurant as you walk past. The answer: {{Gracias}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ojalá que no llueve.","right":"Ojalá que no llueva.","tr":"I hope it doesn't rain.","why":"{{ojalá}} always takes the subjunctive: {{llueva}}."},
+        {"wrong":"¡Que te va bien!","right":"¡Que te vaya bien!","tr":"Take care!","why":"A wish: {{que}} + subjunctive, {{vaya}}."},
+        {"wrong":"Espero que verte pronto.","right":"Espero verte pronto.","tr":"I hope to see you soon.","why":"Your own hope: just the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¡Que ___ buen viaje!","tr":"Have a good trip!","options":["tengas","tienes","tener"],"answer":0,"why":"A wish: {{que}} + subjunctive, {{tengas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ojalá que mañana ___ sol.","tr":"I hope it's sunny tomorrow.","options":["haga","hace","hará"],"answer":0,"why":"{{ojalá}} + subjunctive: {{haga}}.","from":"talk-about-the-weather"},
+        {"type":"choice","q":"Your coworker is home sick. You text…","options":["{{¡Que te mejores!}}","{{¡Que te vaya bien!}}","{{¡Que lo disfrutes!}}"],"answer":0,"why":"To someone who's sick: {{¡Que te mejores!}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"Espero que te ___ el regalo.","tr":"I hope you like the present.","options":["guste","gusta","gustes"],"answer":0,"why":"{{espero que}} + subjunctive; the present is what pleases: {{guste}}.","from":"say-what-you-like"},
+        {"type":"dialogue","q":"Your friend has a test tomorrow. Choose your replies.","lines":[{"who":"Friend","t":"Mañana tengo el examen de manejo.","tr":"Tomorrow I have my driving test."},{"options":["¡Ojalá que pases! ¿Ya practicaste?","¡Ojalá que pasas! ¿Ya practicaste?"],"answer":0,"why":"{{ojalá}} + subjunctive: {{pases}}."},{"who":"Friend","t":"Sí, practiqué toda la semana.","tr":"Yes, I practiced all week."},{"options":["¡Qué bien! Que te vaya muy bien.","¡Qué bien! Que te va muy bien."],"answer":0,"why":"The wish: {{que te vaya bien}}."},{"who":"Friend","t":"¡Gracias!","tr":"Thanks!"}],"from":"say-what-you-did"},
+        {"type":"order","q":"Put the words in order.","tr":"I hope you're well.","words":["Espero","que","estés","bien."]},
+        {"type":"say","q":"Say goodbye to your elderly neighbor: “Have a good day!” (to {{usted}})","answer":"¡Que tenga buen día!"},
+        {"type":"free","q":"Your turn: write a short message to a friend who starts a new job tomorrow. Wish them well and say what you hope.","answers":[{"t":"¡Que te vaya muy bien mañana! Espero que te guste el trabajo.","tr":"Good luck tomorrow! I hope you like the job."},{"t":"Ojalá que todo salga bien. ¡Que tengas un gran primer día!","tr":"I hope everything goes well. Have a great first day!"}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give advice and recommendations",
+      "summary": "Recommend, advise and say what's important: “I recommend you try the mole.” “It's important that you drink water.”",
+      "topic": "{{te recomiendo que}}, {{te aconsejo que}}, {{es mejor que}}, {{es importante que}} + subjunctive; the infinitive for general advice",
+      "blocks": [
+        {"goal":{"t":"Te recomiendo que pruebes el mole poblano.","tr":"I recommend you try the mole poblano."}},
+        {"dialog":[{"who":"Erika","t":"Voy a ir a la Ciudad de México. ¿Qué me recomiendas?","tr":"I'm going to Mexico City. What do you recommend?"},{"who":"You","t":"Te recomiendo que vayas a Coyoacán y que visites el Museo Frida Kahlo.","tr":"I recommend you go to Coyoacán and visit the Frida Kahlo Museum."},{"who":"Erika","t":"¿Es mejor que tome el metro o un taxi?","tr":"Is it better for me to take the subway or a taxi?"},{"who":"You","t":"El metro es rápido, pero es mejor que no lo tomes en la hora pico.","tr":"The subway is fast, but it's better not to take it at rush hour."},{"who":"Erika","t":"¿Algo más?","tr":"Anything else?"},{"who":"You","t":"Sí: es importante que compres los boletos del museo antes. Siempre hay mucha gente.","tr":"Yes: it's important that you buy the museum tickets ahead of time. There are always lots of people."}]},
+        {"p":"**Advice for someone** follows the {{quiero que}} pattern: a verb of advising + {{que}} + the subjunctive: {{Te recomiendo que vayas.}} “I recommend that you go.” {{Le aconsejo que descanse.}} “I advise you to rest.”"},
+        {"p":"**“It's … that”.** These phrases take the subjunctive too, because they're about what should happen, not what is:"},
+        { "table": [
+          ["Spanish","English"],
+          ["{{Es mejor que…}}","It's better if…"],
+          ["{{Es importante que…}}","It's important that…"],
+          ["{{Es necesario que…}}","It's necessary that…, … need(s) to…"],
+          ["{{Es bueno que…}}","It's good that…"],
+          ["{{Más vale que…}}","… had better…"]
+        ] },
+        {"p":"**With no one in particular** (general advice), use the infinitive: {{Es importante tomar agua.}} “It's important to drink water.” For a person: {{Es importante que tomes agua.}} “It's important that you drink water.”"},
+        {"p":"**Other ways:** {{Deberías}} + infinitive “you should” ({{Deberías descansar}}), and {{Yo que tú…}} “If I were you…” (lesson 48)."},
+        { "ex": [
+          {"t":"Te recomiendo que lleves una chamarra.","tr":"I recommend you bring a jacket."},
+          {"t":"El doctor me aconseja que camine todos los días.","tr":"The doctor advises me to walk every day."},
+          {"t":"Es mejor que salgamos temprano.","tr":"It's better if we leave early."},
+          {"t":"Es importante que los niños duerman bien.","tr":"It's important for kids to sleep well."},
+          {"t":"Es necesario que traigas tu pasaporte.","tr":"You need to bring your passport."},
+          {"t":"Más vale que no llegues tarde.","tr":"You'd better not be late."},
+          {"t":"Es importante tomar mucha agua.","tr":"It's important to drink lots of water."}
+        ] },
+        {"tip":"{{¿Qué me recomienda?}} “What do you recommend?” is the perfect question for waiters, taxi drivers and new friends: Mexicans love recommending their favorite places."}
+      ],
+      "mistakes": [
+        {"wrong":"Te recomiendo que pruebas el mole.","right":"Te recomiendo que pruebes el mole.","tr":"I recommend you try the mole.","why":"After a verb of advising + {{que}}: the subjunctive, {{pruebes}}."},
+        {"wrong":"Es importante que tomar agua.","right":"Es importante tomar agua.","tr":"It's important to drink water.","why":"With no particular person: the infinitive, with no {{que}}."},
+        {"wrong":"Es mejor que vamos en metro.","right":"Es mejor que vayamos en metro.","tr":"It's better if we go by subway.","why":"{{es mejor que}} + subjunctive: {{ir}} → {{vayamos}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Te recomiendo que ___ temprano.","tr":"I recommend you leave early.","options":["salgas","sales","salir"],"answer":0,"why":"{{salir}} → {{salgo}} → {{salgas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Es importante que ___ tu pasaporte.","tr":"It's important that you bring your passport.","options":["traigas","traes","traer"],"answer":0,"why":"{{traer}} → {{traigo}} → {{traigas}}."},
+        {"type":"choice","q":"General advice, for everyone: “It's important to sleep eight hours.” Which one?","options":["{{Es importante dormir ocho horas.}}","{{Es importante que dormir ocho horas.}}","{{Es importante que duermes ocho horas.}}"],"answer":0,"why":"No particular person: the infinitive, without {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"El doctor quiere que ___ menos azúcar.","tr":"The doctor wants me to eat less sugar.","options":["coma","como","comer"],"answer":0,"why":"Someone else wants it: {{que}} + subjunctive, {{coma}}.","from":"say-what-you-want-others-to-do"},
+        {"type":"dialogue","q":"A friend has a bad back. Give advice. Choose your replies.","lines":[{"who":"Friend","t":"Me duele mucho la espalda.","tr":"My back really hurts."},{"options":["Te recomiendo que vayas al doctor.","Te recomiendo que vas al doctor."],"answer":0,"why":"{{te recomiendo que}} + subjunctive: {{vayas}}."},{"who":"Friend","t":"¿Y mientras tanto?","tr":"And in the meantime?"},{"options":["Es mejor que descanses y no cargues cosas pesadas.","Es mejor que descansas y no cargas cosas pesadas."],"answer":0,"why":"{{es mejor que}} + subjunctive: {{descanses}}, {{cargues}}."},{"who":"Friend","t":"Gracias, lo voy a hacer.","tr":"Thanks, I'll do that."}],"from":"say-what-hurts"},
+        {"type":"order","q":"Put the words in order.","tr":"It's better if we leave early.","words":["Es mejor","que","salgamos","temprano."]},
+        {"type":"say","q":"Ask a waiter “What do you recommend?” (to {{usted}})","answer":"¿Qué me recomienda?"},
+        {"type":"free","q":"Your turn: a friend is coming to your city. Give them three recommendations with {{te recomiendo que}}, {{es mejor que}} or {{es importante que}}.","answers":[{"t":"Te recomiendo que vayas al centro en metro. Es mejor que no manejes, y es importante que pruebes la comida local.","tr":"I recommend you take the subway downtown. It's better not to drive, and it's important that you try the local food."},{"t":"Te recomiendo que visites el mercado. Es importante que traigas una chamarra, porque en la noche hace frío.","tr":"I recommend you visit the market. It's important to bring a jacket, because it gets cold at night."}]}
+      ]
+    },
+    {
+      "id": "say-when-it-will-happen",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say when something will happen",
+      "summary": "Talk about the future with “when”, “as soon as” and “until”: “When you get home, send me a message.” “I'll wait until you come out.”",
+      "topic": "{{cuando}} + subjunctive for the future, + the normal forms for habits and the past; {{en cuanto}}, {{hasta que}}, {{antes de que}}",
+      "blocks": [
+        {"goal":{"t":"Cuando llegues a tu casa, mándame un mensaje.","tr":"When you get home, send me a message."}},
+        {"dialog":[{"who":"Pao","t":"Ya me voy. Es tarde.","tr":"I'm heading out. It's late."},{"who":"You","t":"Bueno. Cuando llegues, avísame.","tr":"Okay. Let me know when you get there."},{"who":"Pao","t":"Sí. En cuanto llegue, te mando un mensaje.","tr":"Sure. As soon as I get there, I'll send you a message."},{"who":"You","t":"¿Y cuándo nos vemos otra vez?","tr":"And when will we see each other again?"},{"who":"Pao","t":"Cuando regrese de mi viaje. ¡Antes de que te des cuenta!","tr":"When I get back from my trip. Before you know it!"}]},
+        {"p":"**{{cuando}} has two lives.** For something that **hasn't happened yet**, {{cuando}} takes the **subjunctive**: {{Cuando llegues, llámame.}} “When you get there, call me.” For **habits** and the **past**, which are facts, the normal forms: {{Cuando llego, siempre te llamo}} (a habit), {{Cuando llegué, te llamé}} (the past)."},
+        { "table": [
+          ["","Spanish","English"],
+          ["the future: subjunctive","{{Cuando tenga dinero, voy a viajar.}}","When I have money, I'm going to travel."],
+          ["a habit: present","{{Cuando tengo dinero, viajo.}}","Whenever I have money, I travel."],
+          ["the past: preterite or imperfect","{{Cuando tuve dinero, viajé.}}","When I had money, I traveled."]
+        ] },
+        {"p":"English uses the present after “when” for the future (“when I **have** money”); Spanish uses the present **subjunctive**. Never the future: not {{cuando tendré}}."},
+        {"p":"**The same goes for** {{en cuanto}} (as soon as), {{hasta que}} (until) and {{después de que}} (after): {{Te espero hasta que salgas.}} “I'll wait until you come out.” And {{antes de que}} (before) always takes the subjunctive: {{Vámonos antes de que llueva.}} “Let's go before it rains.”"},
+        {"p":"**{{¿Cuándo?}}**, with its accent, asks a question and takes the normal forms: {{¿Cuándo vienes?}} The subjunctive comes only with {{cuando}} joining two ideas."},
+        { "ex": [
+          {"t":"Cuando sea grande, quiero ser astronauta.","tr":"When I grow up, I want to be an astronaut.","note":"what kids say: {{cuando sea grande}}"},
+          {"t":"Te llamo en cuanto sepa algo.","tr":"I'll call you as soon as I know anything."},
+          {"t":"No me voy hasta que termines.","tr":"I'm not leaving until you finish."},
+          {"t":"Cuando vengas a México, te llevo a Teotihuacán.","tr":"When you come to Mexico, I'll take you to Teotihuacán."},
+          {"t":"Cuando era niño, me encantaba la lluvia.","tr":"When I was a kid, I loved the rain.","note":"the past: no subjunctive"},
+          {"t":"Lava los platos antes de que lleguen tus papás.","tr":"Wash the dishes before your parents get here."},
+          {"t":"Después de que comamos, vamos al parque.","tr":"After we eat, we'll go to the park."}
+        ] },
+        {"tip":"When it's the same person, {{antes de}} and {{después de}} take the infinitive instead: {{Antes de salir, cierra la puerta.}} “Before you leave, close the door.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Cuando llegarás, llámame.","right":"Cuando llegues, llámame.","tr":"When you get there, call me.","why":"{{cuando}} about the future: the subjunctive, never the future."},
+        {"wrong":"Cuando llegas mañana, llámame.","right":"Cuando llegues mañana, llámame.","tr":"When you get here tomorrow, call me.","why":"Tomorrow hasn't happened yet: subjunctive, {{llegues}}."},
+        {"wrong":"Vámonos antes de que llueve.","right":"Vámonos antes de que llueva.","tr":"Let's go before it rains.","why":"{{antes de que}} always takes the subjunctive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Cuando ___ a casa, mándame un mensaje.","tr":"When you get home, send me a message.","options":["llegues","llegas","llegarás"],"answer":0,"why":"The future, after {{cuando}}: the subjunctive, {{llegues}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Cuando ___ niña, vivía en Monterrey.","tr":"When I was a girl, I lived in Monterrey.","options":["era","sea","seré"],"answer":0,"why":"The past is a fact: the imperfect, {{era}}.","from":"say-how-things-used-to-be"},
+        {"type":"fill","q":"Choose the missing word.","t":"Te espero hasta que ___.","tr":"I'll wait for you until you come out.","options":["salgas","sales","saldrás"],"answer":0,"why":"{{hasta que}}, about the future: the subjunctive, {{salgas}}."},
+        {"type":"choice","q":"“Every day, when I get home, I take a shower.” Which one?","options":["{{Todos los días, cuando llego a casa, me baño.}}","{{Todos los días, cuando llegue a casa, me baño.}}","{{Todos los días, cuando llegaré a casa, me baño.}}"],"answer":0,"why":"A habit is a fact: the present, {{llego}}.","from":"describe-your-routine"},
+        {"type":"dialogue","q":"Your sister is leaving on a trip. Choose your replies.","lines":[{"who":"Sister","t":"Ya me voy al aeropuerto.","tr":"I'm off to the airport."},{"options":["¡Que te vaya bien! Llámame cuando llegues.","¡Que te va bien! Llámame cuando llegas."],"answer":0,"why":"The wish: {{vaya}}; and {{cuando}} about the future: {{llegues}}."},{"who":"Sister","t":"Sí. ¿Me recoges cuando regrese?","tr":"Sure. Will you pick me up when I get back?"},{"options":["Claro, en cuanto me digas la hora.","Claro, en cuanto me dirás la hora."],"answer":0,"why":"{{en cuanto}}, about the future: the subjunctive, {{digas}}."},{"who":"Sister","t":"¡Gracias!","tr":"Thanks!"}],"from":"wish-people-well"},
+        {"type":"order","q":"Put the words in order.","tr":"I'll call you as soon as I know anything.","words":["Te llamo","en cuanto","sepa","algo."]},
+        {"type":"say","q":"Say “Let's go before it rains.”","answer":"Vámonos antes de que llueva."},
+        {"type":"free","q":"Your turn: what will you do when you speak Spanish well? Start with {{Cuando hable bien español…}}","answers":[{"t":"Cuando hable bien español, voy a viajar por todo México.","tr":"When I speak Spanish well, I'm going to travel all over Mexico."},{"t":"Cuando hable bien español, voy a ver películas sin subtítulos y a platicar con mis vecinos.","tr":"When I speak Spanish well, I'm going to watch movies without subtitles and chat with my neighbors."}]}
+      ]
     }
   ]
 }

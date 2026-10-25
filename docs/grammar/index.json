@@ -22,13 +22,14 @@
    "title": "Spanish grammar",
    "variety": "Mexican Spanish",
    "units": 9,
-   "lessons": 40,
+   "lessons": 46,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 235346,
-   "sha256": "3b09daa6abcc94199b259d7b7bcba492858cc1496a33ba077c43345d9a7f68a6"
+   "bytes": 272461,
+   "sha256": "c55f21a5c6c20493d4435b6701e8f8d0d851a922b716c9665daa73861eca30b6"
   }
  }
 }
