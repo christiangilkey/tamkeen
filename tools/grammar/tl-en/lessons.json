@@ -311,6 +311,306 @@
         {"type":"say","q":"Itanong ang tungkol sa mga bagay na malayo sa iyo: “Ano ang mga iyon?”","answer":"What are those?"},
         {"type":"free","q":"Ikaw naman: pangalanan ang tatlong bagay sa paligid mo: isang malapit, isang malayo, at isang grupo.","answers":[{"t":"This is my phone. That's a window. These are my books.","tr":"Cellphone ko ito. Bintana iyan. Mga libro ko ang mga ito."},{"t":"This is a cup of coffee. That's my bag. Those are my shoes.","tr":"Isang tasa ng kape ito. Bag ko iyan. Sapatos ko ang mga iyon."}]}
       ]
+    },
+    {
+      "id": "talk-about-more-than-one",
+      "unit": 2,
+      "level": "A1",
+      "title": "Pag-usapan ang higit sa isa",
+      "summary": "Gamitin ang {{-s}} ng maramihan (kahit may numero na), ang {{we}} at {{they}}, at ang ilang di-regular na maramihan: {{two kids}}, {{three people}}.",
+      "topic": "Maramihan: {{-s}}, {{-es}}, {{-ies}}; {{children}}, {{people}}; {{-s}} kahit may numero; {{we}} at {{they}} + {{are}}",
+      "blocks": [
+        {"goal":{"t":"These are my two kids. They're students.","tr":"Ito ang dalawa kong anak. Mga estudyante sila."}},
+        {"dialog":[{"who":"Sarah","t":"Are these your kids?","tr":"Mga anak mo ba sila?"},{"who":"Ana","t":"Yes! These are my two boys, and that's my daughter.","tr":"Oo! Ito ang dalawa kong anak na lalaki, at iyan ang anak kong babae."},{"who":"Sarah","t":"They're so cute! Are they students?","tr":"Ang cute nila! Mga estudyante ba sila?"},{"who":"Ana","t":"Yes, they are. We're all from Manila.","tr":"Oo. Taga-Maynila kaming lahat."}]},
+        {"p":"Sa Tagalog, kapag may numero na, hindi na kailangan ang “mga”: “dalawang libro”. Sa Ingles, **laging** may {{-s}} ang maramihan, kahit may numero o salitang tulad ng {{many}}: {{two books}}, {{three dogs}}, {{many friends}}."},
+        {"term":"pangngalan (noun)","means":"salita para sa tao, hayop, bagay o lugar: {{book}}, {{teacher}}, {{dog}}, {{Manila}}."},
+        {"term":"maramihan (plural)","means":"anyo ng pangngalan para sa higit sa isa: {{books}}, {{dogs}}, {{children}}."},
+        {"p":"**Paano ito gawin.** Kadalasan, {{-s}} lang: {{book}} → {{books}}. {{-es}} pagkatapos ng s, sh, ch at x: {{class}} → {{classes}}. Kapag katinig + {{y}}, nagiging {{-ies}}: {{city}} → {{cities}}. At may ilang di-regular na dapat kabisaduhin."},
+        { "table": [
+          ["isa","marami","tuntunin"],
+          ["{{book}}","{{books}}","{{-s}}"],
+          ["{{class}}","{{classes}}","{{-es}} pagkatapos ng s, sh, ch, x"],
+          ["{{city}}","{{cities}}","katinig + {{y}} → {{-ies}}"],
+          ["{{child}}","{{children}}","di-regular"],
+          ["{{person}}","{{people}}","di-regular"],
+          ["{{man}}, {{woman}}","{{men}}, {{women}}","di-regular"]
+        ] },
+        {"p":"**{{we}} at {{they}}.** Iisa ang {{we}} para sa “tayo” at “kami”: walang pagkakaiba sa Ingles. Ang {{they}} ay “sila”, tao man o bagay. Pareho silang may {{are}}: {{We're Filipino.}}, {{They're cute.}}"},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["tayo, kami","{{we}} ({{we are}}, {{we're}})"],
+          ["kayo","{{you}} ({{you are}}, {{you're}})"],
+          ["sila","{{they}} ({{they are}}, {{they're}})"]
+        ] },
+        {"p":"**Walang {{-s}} ang pang-uri.** {{They're nice.}}, {{two big houses}}: ang pangngalan lang ang nagbabago."},
+        { "ex": [
+          {"t":"I have two kids.","tr":"Dalawa ang anak ko."},
+          {"t":"My parents are teachers.","tr":"Mga guro ang mga magulang ko."},
+          {"t":"They're from Cebu.","tr":"Taga-Cebu sila."},
+          {"t":"We're all Filipino.","tr":"Pilipino kaming lahat."},
+          {"t":"These cities are big.","tr":"Malalaki ang mga lungsod na ito."},
+          {"t":"Those men are my uncles.","tr":"Mga tito ko ang mga lalaking iyon."}
+        ] },
+        {"tip":"Maramihan na ang {{people}}: {{people are}}, hindi {{peoples}}. Ang isahan ay {{person}}: {{one person}}, {{two people}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I have two kid.","right":"I have two kids.","tr":"Dalawa ang anak ko.","why":"Laging may {{-s}} ang maramihan, kahit may numero."},
+        {"wrong":"Many peoples are here.","right":"Many people are here.","tr":"Maraming tao dito.","why":"Maramihan na ang {{people}}."},
+        {"wrong":"They're nices.","right":"They're nice.","tr":"Mababait sila.","why":"Hindi nagiging maramihan ang pang-uri."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I have three ___.","tr":"Tatlo ang anak ko.","options":["kids","kid","kides"],"answer":0,"why":"May numero, kaya maramihan: {{kids}}."},
+        {"type":"choice","q":"Ang maramihan ng {{city}}:","options":["{{cities}}","{{citys}}","{{cityes}}"],"answer":0,"why":"Katinig + {{y}} → {{-ies}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"My parents ___ teachers.","tr":"Mga guro ang mga magulang ko.","options":["are","is","am"],"answer":0,"why":"Marami ({{they}}): {{are}}.","from":"ask-and-answer-with-be"},
+        {"type":"choice","q":"Ang “tayo” sa Ingles ay…","options":["{{we}}, gaya ng “kami”","{{us}} lang","{{they}}"],"answer":0,"why":"Iisa ang {{we}} para sa “tayo” at “kami”."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Mga tito ko ang mga lalaking iyon.","words":["Those","men","are","my uncles."],"from":"point-and-name-things"},
+        {"type":"dialogue","q":"Ipinapakilala mo ang mga kaibigan mo. Piliin ang mga sagot mo.","lines":[{"who":"Sarah","t":"Who are they?","tr":"Sino sila?"},{"options":["They're my friends from work.","They're my friend from work."],"answer":0,"why":"Marami sila: {{friends}}."},{"who":"Sarah","t":"Are they Filipino too?","tr":"Pilipino rin ba sila?"},{"options":["Yes, they are. We're all from Manila.","Yes, they is. We're all from Manila."],"answer":0,"why":"Sa {{they}}: {{are}}."}]},
+        {"type":"free","q":"Ikaw naman: ilarawan ang pamilya mo: sino-sino sila, at ano sila?","answers":[{"t":"I have two brothers and one sister. My brothers are engineers. My sister is a student.","tr":"Dalawa ang kuya ko at isa ang ate ko. Mga inhinyero ang mga kuya ko. Estudyante ang ate ko."},{"t":"My family is big. I have three sisters. They're nurses.","tr":"Malaki ang pamilya ko. Tatlo ang kapatid kong babae. Mga nars sila."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sabihin kung ano ang mayroon ka",
+      "summary": "Sabihin ang mga bagay at taong mayroon ka: {{I have a car.}} {{She has two kids.}} {{I don't have a cat.}}",
+      "topic": "{{have}} at {{has}}; {{I don't have}} at {{Do you have…?}} bilang buong parirala; {{any}}",
+      "blocks": [
+        {"goal":{"t":"I have two kids, and my sister has three.","tr":"Dalawa ang anak ko, at tatlo naman ang sa ate ko."}},
+        {"dialog":[{"who":"Sarah","t":"Do you have any brothers or sisters?","tr":"May kapatid ka ba?"},{"who":"Ana","t":"Yes, I have one brother. He has two kids.","tr":"Oo, may isa akong kuya. May dalawa siyang anak."},{"who":"Sarah","t":"Do you have kids?","tr":"May anak ka ba?"},{"who":"Ana","t":"No, I don't. But I have a dog!","tr":"Wala. Pero may aso ako!"}]},
+        {"p":"**{{have}} = mayroon.** {{I have a car.}} “May kotse ako.” Pansinin ang ayos: simuno muna ({{I}}), saka ang {{have}}, saka ang bagay."},
+        {"p":"**{{has}} para sa {{he}}, {{she}} at {{it}}.** Nagiging {{has}} ang {{have}} kapag ang simuno ay isang tao o bagay na hindi ikaw o ako: {{She has two kids.}}, {{My house has three bedrooms.}}"},
+        { "table": [
+          ["simuno","mayroon"],
+          ["{{I}}, {{you}}, {{we}}, {{they}}","{{have}}"],
+          ["{{he}}, {{she}}, {{it}}, {{my mom}}, {{the house}}","{{has}}"]
+        ] },
+        {"p":"**Wala, at pagtatanong.** {{I don't have…}} “Wala akong…”, {{She doesn't have…}} “Wala siyang…”. {{Do you have…?}} “Mayroon ka bang…?”. Ipapaliwanag ang {{do}} sa aralin 15; sa ngayon, gamitin ang mga ito nang buo."},
+        {"p":"**{{any}}** ay para sa “kahit isa”, sa tanong at sa wala: {{Do you have any kids?}}, {{I don't have any money.}}"},
+        { "ex": [
+          {"t":"I have a car.","tr":"May kotse ako."},
+          {"t":"She has two kids.","tr":"May dalawa siyang anak."},
+          {"t":"We have a big family.","tr":"Malaki ang pamilya namin."},
+          {"t":"My house has three bedrooms.","tr":"May tatlong kuwarto ang bahay ko."},
+          {"t":"I don't have any money.","tr":"Wala akong pera."},
+          {"t":"Do you have a pen?","tr":"May bolpen ka ba?"},
+          {"t":"He doesn't have a car.","tr":"Wala siyang kotse."}
+        ] },
+        {"tip":"Sa kaswal na usapan, maririnig mo rin sa mga Amerikano ang {{I've got}}: {{I've got two kids.}} Pareho ang ibig sabihin nito at ng {{I have}}."}
+      ],
+      "mistakes": [
+        {"wrong":"She have two kids.","right":"She has two kids.","tr":"May dalawa siyang anak.","why":"Sa {{she}}: {{has}}."},
+        {"wrong":"I no have money.","right":"I don't have any money.","tr":"Wala akong pera.","why":"Ang “wala” ay {{don't have}}, hindi {{no have}}."},
+        {"wrong":"Have you a pen?","right":"Do you have a pen?","tr":"May bolpen ka ba?","why":"Sa Ingles ng Amerika, ang tanong ay {{Do you have…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She ___ two kids.","tr":"May dalawa siyang anak.","options":["has","have","is"],"answer":0,"why":"Sa {{she}}: {{has}}.","from":"talk-about-him-and-her"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I ___ have any money.","tr":"Wala akong pera.","options":["don't","no","not"],"answer":0,"why":"Ang “wala” ay {{don't have}}."},
+        {"type":"choice","q":"“May bolpen ka ba?”","options":["{{Do you have a pen?}}","{{You have pen?}}","{{Have you pen?}}"],"answer":0,"why":"{{Do you have…?}}, at {{a}} bago ang {{pen}}."},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"May tatlong kuwarto ang bahay ko.","words":["My house","has","three","bedrooms."],"from":"talk-about-more-than-one"},
+        {"type":"dialogue","q":"Nag-uusap kayo ng katrabaho mo. Piliin ang mga sagot mo.","lines":[{"who":"Katrabaho","t":"Do you have a car?","tr":"May kotse ka ba?"},{"options":["No, I don't. I take the bus.","No, I not. I take the bus."],"answer":0,"why":"Maikling sagot: {{No, I don't.}}"},{"who":"Katrabaho","t":"Does your husband have a car?","tr":"May kotse ba ang asawa mo?"},{"options":["Yes, he has a small car.","Yes, he have a small car."],"answer":0,"why":"Sa {{he}}: {{has}}."}]},
+        {"type":"say","q":"Paano mo sasabihin ang “Wala siyang kotse” (tungkol sa isang lalaki)?","answer":"He doesn't have a car."},
+        {"type":"free","q":"Ikaw naman: sabihin ang dalawang bagay o taong mayroon ka, isang mayroon ang isang kakilala mo, at isang wala ka.","answers":[{"t":"I have a sister and a cat. My sister has a new car. I don't have a car.","tr":"May ate ako at may pusa. May bagong kotse ang ate ko. Wala akong kotse."},{"t":"I have two kids. My best friend has a big house. I don't have a garden.","tr":"Dalawa ang anak ko. May malaking bahay ang matalik kong kaibigan. Wala akong hardin."}]}
+      ]
+    },
+    {
+      "id": "say-there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sabihin kung ano ang mayroon sa isang lugar",
+      "summary": "Sabihin ang {{There's a store near here}}, magtanong ng {{Is there…?}}, at huwag ipagkamali ang “may” sa {{have}}.",
+      "topic": "{{there is}} at {{there are}}; {{Is there…?}} {{Are there…?}}; {{there isn't any}}, {{there's no}}",
+      "blocks": [
+        {"goal":{"t":"Is there a 7-Eleven near here?","tr":"May 7-Eleven ba malapit dito?"}},
+        {"dialog":[{"who":"Ana","t":"Excuse me, is there a pharmacy near here?","tr":"Mawalang-galang na po, may botika po ba malapit dito?"},{"who":"Lalaki","t":"Yes, there's one on Main Street.","tr":"Oo, may isa sa Main Street."},{"who":"Ana","t":"Are there any restaurants too?","tr":"May mga restawran din po ba?"},{"who":"Lalaki","t":"There are two, but there isn't a Filipino one.","tr":"May dalawa, pero walang Pilipinong restawran."},{"who":"Ana","t":"Too bad! Thank you!","tr":"Sayang! Salamat po!"}]},
+        {"p":"Dalawa ang trabaho ng “may” sa Tagalog: pag-aari (“May kotse ako”) at pagkakaroon sa isang lugar (“May tindahan dito”). Sa Ingles, magkaiba ang mga ito: {{I have a car}}, pero {{There's a store here}}."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["May kotse ako.","{{I have a car.}}"],
+          ["May tindahan dito.","{{There's a store here.}}"],
+          ["May tao ba?","{{Is there anyone here?}}"],
+          ["Walang tubig.","{{There isn't any water.}}"]
+        ] },
+        {"p":"**{{there is}} at {{there are}}.** {{There is}} (pinaikli, {{there's}}) para sa isa: {{There's a bank on the corner.}} {{There are}} para sa marami: {{There are two parks.}}"},
+        {"p":"**Pagtatanong**: ilipat ang {{is}} o {{are}} sa unahan: {{Is there a bank?}}, {{Are there any parks?}}. Mga sagot: {{Yes, there is.}} / {{No, there isn't.}}"},
+        {"p":"**Wala**: {{There isn't a…}} (isa), {{There aren't any…}} (marami), o mas maikli, {{There's no…}}: {{There's no water.}} “Walang tubig.”"},
+        { "ex": [
+          {"t":"There's a bank on the corner.","tr":"May bangko sa kanto."},
+          {"t":"There are two parks near my house.","tr":"May dalawang parke malapit sa bahay ko."},
+          {"t":"Is there a bathroom here?","tr":"May banyo ba dito?"},
+          {"t":"There isn't any milk.","tr":"Walang gatas."},
+          {"t":"There's no one at home.","tr":"Walang tao sa bahay."},
+          {"t":"Are there any questions?","tr":"May tanong ba?"},
+          {"t":"There are five people in my family.","tr":"Lima kami sa pamilya.","note":"hindi {{We are five}}"}
+        ] },
+        {"tip":"Para sa “Lima kami”, sabihin ang {{There are five of us}} o {{There are five people in my family}}. Naiintindihan ang {{We are five}}, pero hindi ito sinasabi ng mga Amerikano."}
+      ],
+      "mistakes": [
+        {"wrong":"Have a store near here.","right":"There's a store near here.","tr":"May tindahan malapit dito.","why":"Ang “may” sa isang lugar ay {{there is}}. Ang {{have}} ay para lang sa pag-aari."},
+        {"wrong":"There is two parks.","right":"There are two parks.","tr":"May dalawang parke.","why":"Marami: {{there are}}."},
+        {"wrong":"We are five in the family.","right":"There are five of us in my family.","tr":"Lima kami sa pamilya.","why":"Ganito sinasabi sa Ingles kung ilan kayo."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"___ a bank on the corner.","tr":"May bangko sa kanto.","options":["There's","It has","Have"],"answer":0,"why":"“May” sa isang lugar: {{there's}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"There ___ two parks near here.","tr":"May dalawang parke malapit dito.","options":["are","is","have"],"answer":0,"why":"Marami: {{there are}}.","from":"talk-about-more-than-one"},
+        {"type":"choice","q":"“May aso ako.”","options":["{{I have a dog.}}","{{There's a dog me.}}","{{Have a dog.}}"],"answer":0,"why":"Pag-aari: {{have}}.","from":"say-what-you-have"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"May banyo ba dito?","words":["Is","there","a bathroom","here?"]},
+        {"type":"dialogue","q":"Bago kang lipat sa isang apartment. Kinakausap mo ang kapitbahay. Piliin ang mga sagot mo.","lines":[{"who":"Kapitbahay","t":"Welcome! Do you need anything?","tr":"Welcome! May kailangan ka ba?"},{"options":["Thanks! Is there a supermarket near here?","Thanks! Have a supermarket near here?"],"answer":0,"why":"May tindahan sa isang lugar: {{Is there…?}}"},{"who":"Kapitbahay","t":"Yes, there's one on Oak Street. And there are two good cafés.","tr":"Oo, may isa sa Oak Street. At may dalawang magandang café."},{"options":["Great! Are there any Asian stores?","Great! Is there any Asian stores?"],"answer":0,"why":"Marami: {{Are there any…?}}"}]},
+        {"type":"say","q":"Paano mo sasabihin ang “Walang gatas”?","answer":"There isn't any milk."},
+        {"type":"free","q":"Ikaw naman: ilarawan ang lugar mo: dalawang bagay na mayroon dito, at isang wala.","answers":[{"t":"There's a big mall near my house. There are three schools. There isn't a beach.","tr":"May malaking mall malapit sa bahay ko. May tatlong paaralan. Walang beach."},{"t":"In my town, there's a church and there are many restaurants. There's no airport.","tr":"Sa bayan namin, may simbahan at maraming restawran. Walang paliparan."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sabihin kung kanino ang isang bagay",
+      "summary": "Gamitin ang {{my}}, {{your}}, {{his}}, {{her}}, ang {{'s}} at ang {{mine}}: {{Is this your phone?}} {{No, it's Liza's.}}",
+      "topic": "{{my}}, {{your}}, {{his}}, {{her}}, {{its}}, {{our}}, {{their}}; {{Ana's}}; {{mine}}, {{yours}}, {{hers}}; {{Whose…?}}",
+      "blocks": [
+        {"goal":{"t":"This is my sister's car.","tr":"Kotse ito ng ate ko."}},
+        {"dialog":[{"who":"Mike","t":"Is this your phone?","tr":"Iyo ba itong cellphone?"},{"who":"Ana","t":"No, it isn't mine. It's Liza's.","tr":"Hindi, hindi akin. Kay Liza iyan."},{"who":"Mike","t":"Whose bag is this?","tr":"Kanino itong bag?"},{"who":"Ana","t":"That's her bag too!","tr":"Kanya rin ang bag na iyan!"}]},
+        {"p":"Iisa ang “niya” sa Tagalog; dalawa sa Ingles, gaya ng {{he}} at {{she}}: {{his}} para sa lalaki, {{her}} para sa babae. {{His car}} ay kotse niya (ng lalaki); {{her car}}, kotse niya (ng babae)."},
+        { "table": [
+          ["Tagalog","bago ang bagay","mag-isa"],
+          ["ko, akin","{{my}}","{{mine}}"],
+          ["mo, iyo","{{your}}","{{yours}}"],
+          ["niya (lalaki)","{{his}}","{{his}}"],
+          ["niya (babae)","{{her}}","{{hers}}"],
+          ["nito (bagay)","{{its}}","—"],
+          ["namin, natin","{{our}}","{{ours}}"],
+          ["ninyo","{{your}}","{{yours}}"],
+          ["nila","{{their}}","{{theirs}}"]
+        ] },
+        {"p":"**Laging nauuna sa bagay.** Sa Tagalog, nasa hulihan ang “ko”: “bahay ko”. Sa Ingles, nauuna: {{my house}}."},
+        {"p":"**Ang {{'s}}.** Para sa pag-aari ng isang tao, idagdag ang {{'s}} sa pangalan: {{Ana's house}} “bahay ni Ana”, {{my mom's car}} “kotse ng nanay ko”. Hindi karaniwang sinasabi ang {{the house of Ana}}."},
+        {"p":"**Kanino?** {{Whose…?}}: {{Whose bag is this?}} Mga sagot: {{It's mine.}}, {{It's Liza's.}}"},
+        { "ex": [
+          {"t":"This is my sister's car.","tr":"Kotse ito ng ate ko."},
+          {"t":"What's your name?","tr":"Ano ang pangalan mo?"},
+          {"t":"His name is Paolo.","tr":"Paolo ang pangalan niya."},
+          {"t":"Her kids are in school.","tr":"Nasa eskuwela ang mga anak niya."},
+          {"t":"Is this yours?","tr":"Iyo ba ito?"},
+          {"t":"Whose jacket is this?","tr":"Kanino itong jacket?"},
+          {"t":"Our house is small, but their house is big.","tr":"Maliit ang bahay namin, pero malaki ang bahay nila."}
+        ] },
+        {"tip":"Ang {{its}} (walang kudlit) ay “nito”: {{The dog wants its food.}} Ang {{it's}} (may kudlit) ay {{it is}}. Kahit mga Amerikano ay nagkakamali dito."}
+      ],
+      "mistakes": [
+        {"wrong":"This is my sister and his husband.","right":"This is my sister and her husband.","tr":"Ito ang ate ko at ang asawa niya.","why":"Babae ang ate mo: {{her}}. Iisa ang “niya” sa Tagalog, pero dalawa sa Ingles."},
+        {"wrong":"the car of my mom","right":"my mom's car","tr":"ang kotse ng nanay ko","why":"Para sa tao, gamitin ang {{'s}}."},
+        {"wrong":"It's my.","right":"It's mine.","tr":"Akin iyan.","why":"Kapag walang kasunod na bagay: {{mine}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"This is my brother and ___ wife.","tr":"Ito ang kuya ko at ang asawa niya.","options":["his","her","he"],"answer":0,"why":"Lalaki ang kuya mo: {{his}}.","from":"talk-about-him-and-her"},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"That's my mom and ___ car.","tr":"Iyan ang nanay ko at ang kotse niya.","options":["her","his","she"],"answer":0,"why":"Babae ang nanay mo: {{her}}."},
+        {"type":"choice","q":"“Bahay ni Ana”","options":["{{Ana's house}}","{{the house Ana}}","{{house of Ana's}}"],"answer":0,"why":"Pangalan + {{'s}}, saka ang bagay."},
+        {"type":"choice","q":"{{Whose bag is this?}} Iyo ang bag. Sagot:","options":["{{It's mine.}}","{{It's my.}}","{{It's me.}}"],"answer":0,"why":"Mag-isa: {{mine}}. ({{It's me}} ay “Ako ito”!)"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Maliit ang bahay namin.","words":["Our","house","is","small."]},
+        {"type":"dialogue","q":"Pagkatapos ng party, may mga naiwang gamit. Piliin ang mga sagot mo.","lines":[{"who":"Host","t":"Whose jacket is this?","tr":"Kanino itong jacket?"},{"options":["It's Mike's.","It's of Mike."],"answer":0,"why":"Pangalan + {{'s}}."},{"who":"Host","t":"And this phone? Is it yours?","tr":"E itong cellphone? Iyo ba?"},{"options":["No, it's not mine. It's Sarah's. That's her phone case.","No, it's not my. It's Sarah's. That's his phone case."],"answer":0,"why":"{{mine}} kapag mag-isa; babae si Sarah: {{her}}."}],"from":"point-and-name-things"},
+        {"type":"free","q":"Ikaw naman: ilarawan ang tatlong tao sa buhay mo gamit ang {{my}}, {{his}}, {{her}} o {{'s}}.","answers":[{"t":"My brother's name is Ben. His wife is a teacher. Her name is Joy.","tr":"Ben ang pangalan ng kuya ko. Guro ang asawa niya. Joy ang pangalan niya."},{"t":"My best friend is Carla. Her house is near my house. Her husband's car is red.","tr":"Si Carla ang matalik kong kaibigan. Malapit sa bahay ko ang bahay niya. Pula ang kotse ng asawa niya."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sabihin kung nasaan ang mga tao at bagay",
+      "summary": "Iisa ang “sa” sa Tagalog, pero marami itong katumbas sa Ingles: {{in}}, {{on}}, {{at}}, {{under}}, {{next to}}…",
+      "topic": "{{Where is…?}}; {{in}}, {{on}}, {{at}}; {{under}}, {{next to}}, {{between}}, {{in front of}}, {{behind}}",
+      "blocks": [
+        {"goal":{"t":"My keys are on the table, next to my phone.","tr":"Nasa mesa ang mga susi ko, katabi ng cellphone ko."}},
+        {"dialog":[{"who":"Mike","t":"Where's my wallet?","tr":"Nasaan ang wallet ko?"},{"who":"Ana","t":"Is it in your bag?","tr":"Nasa bag mo ba?"},{"who":"Mike","t":"No, it isn't.","tr":"Wala."},{"who":"Ana","t":"Look! It's on the floor, under the chair.","tr":"Tingnan mo! Nasa sahig, sa ilalim ng upuan."},{"who":"Mike","t":"Oh, thanks!","tr":"Ay, salamat!"}]},
+        {"p":"Isang salita lang ang “sa” (at “nasa”) sa Tagalog. Sa Ingles, nakadepende ito sa lugar: nasa loob ba, nakapatong, o nasa isang punto? Ang mga salitang ito ay tinatawag na pang-ukol."},
+        {"term":"pang-ukol (preposition)","means":"maikling salitang nagsasabi ng lugar, oras o direksiyon: {{in}}, {{on}}, {{at}}, {{under}}."},
+        { "table": [
+          ["Ingles","kahulugan","halimbawa"],
+          ["{{in}}","sa loob","{{in the bag}}, {{in Manila}}"],
+          ["{{on}}","nakapatong, nakadikit","{{on the table}}, {{on the wall}}"],
+          ["{{at}}","sa isang lugar o punto","{{at home}}, {{at work}}, {{at the door}}"],
+          ["{{under}}","sa ilalim","{{under the chair}}"],
+          ["{{next to}}","sa tabi, katabi","{{next to the bank}}"],
+          ["{{between}}","sa pagitan","{{between the bank and the school}}"],
+          ["{{in front of}}","sa harap","{{in front of the church}}"],
+          ["{{behind}}","sa likod","{{behind the house}}"]
+        ] },
+        {"p":"**{{in}}, {{on}}, {{at}}: ang mahirap na tatlo.** {{in}} kapag napapaligiran: sa loob ng kahon, kuwarto, lungsod o bansa. {{on}} kapag nakapatong o nakadikit: sa mesa, sa pader, sa sahig. {{at}} para sa lugar bilang isang punto o gawain: {{at home}}, {{at work}}, {{at school}}, {{at the bus stop}}."},
+        {"p":"**Pagtatanong**: {{Where is…?}} (pinaikli, {{where's}}): {{Where's the bank?}} Sagot: {{It's next to the school.}} Kapag marami: {{Where are my keys?}} → {{They're on the table.}}"},
+        {"p":"**Kasama ang {{the}}**: kadalasan ay may {{the}} ang lugar ({{on the table}}, {{in the kitchen}}), pero walang {{the}} sa ilang nakasanayang parirala: {{at home}}, {{at work}}, {{at school}}, {{in bed}}."},
+        { "ex": [
+          {"t":"My keys are on the table.","tr":"Nasa mesa ang mga susi ko."},
+          {"t":"She's in the kitchen.","tr":"Nasa kusina siya."},
+          {"t":"I'm at work.","tr":"Nasa trabaho ako."},
+          {"t":"The cat is under the bed.","tr":"Nasa ilalim ng kama ang pusa."},
+          {"t":"The bank is next to the school.","tr":"Katabi ng paaralan ang bangko."},
+          {"t":"Where are my glasses?","tr":"Nasaan ang salamin ko?"},
+          {"t":"There's a park behind my house.","tr":"May parke sa likod ng bahay ko."}
+        ] },
+        {"tip":"Sa sasakyan: {{in the car}}, {{in a taxi}} (maliit, nakaupo ka lang), pero {{on the bus}}, {{on the train}}, {{on the plane}} (malaki, pwede kang tumayo at maglakad)."}
+      ],
+      "mistakes": [
+        {"wrong":"My keys are in the table.","right":"My keys are on the table.","tr":"Nasa mesa ang mga susi ko.","why":"Nakapatong sa ibabaw: {{on}}."},
+        {"wrong":"I'm in home.","right":"I'm at home.","tr":"Nasa bahay ako.","why":"Ang “nasa bahay” ay {{at home}}, walang {{the}}."},
+        {"wrong":"She's on the kitchen.","right":"She's in the kitchen.","tr":"Nasa kusina siya.","why":"Sa loob ng isang kuwarto: {{in}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"The cat is ___ the bed.","tr":"Nasa ilalim ng kama ang pusa.","options":["under","on","at"],"answer":0,"why":"Sa ilalim: {{under}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"My phone is ___ my bag.","tr":"Nasa bag ko ang cellphone ko.","options":["in","on","at"],"answer":0,"why":"Sa loob: {{in}}."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"I'm ___ work right now.","tr":"Nasa trabaho ako ngayon.","options":["at","in","on"],"answer":0,"why":"Lugar bilang gawain: {{at work}}."},
+        {"type":"choice","q":"“Nasaan ang mga susi ko?”","options":["{{Where are my keys?}}","{{Where is my keys?}}","{{Where my keys?}}"],"answer":0,"why":"Marami ang susi: {{are}}.","from":"talk-about-more-than-one"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Katabi ng paaralan ang bangko.","words":["The bank","is","next to","the school."]},
+        {"type":"dialogue","q":"Hinahanap ng anak mo ang mga gamit niya. Piliin ang mga sagot mo.","lines":[{"who":"Anak","t":"Mom, where's my backpack?","tr":"Ma, nasaan ang bag ko?"},{"options":["It's on your bed.","It's in your bed."],"answer":0,"why":"Nakapatong sa kama: {{on}}. ({{in your bed}} ay nasa loob ng kumot!)"},{"who":"Anak","t":"And where are my shoes?","tr":"E nasaan ang sapatos ko?"},{"options":["They're under the table, next to the door.","It's under the table, next to the door."],"answer":0,"why":"Marami ang sapatos ({{shoes}}): {{they're}}."}],"from":"say-whose-it-is"},
+        {"type":"free","q":"Ikaw naman: sabihin kung nasaan ang tatlong bagay o tao sa bahay mo ngayon.","answers":[{"t":"My phone is on the table. My son is in his room. The car is in front of the house.","tr":"Nasa mesa ang cellphone ko. Nasa kuwarto niya ang anak ko. Nasa harap ng bahay ang kotse."},{"t":"My husband is at work. The cat is under the sofa. My books are on the shelf.","tr":"Nasa trabaho ang asawa ko. Nasa ilalim ng sofa ang pusa. Nasa istante ang mga libro ko."}]}
+      ]
+    },
+    {
+      "id": "describe-people-and-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ilarawan ang mga tao at bagay",
+      "summary": "Ilagay ang pang-uri sa tamang lugar ({{a big house}}), palakasin ito ({{very}}, {{really}}, {{so}}), at sumang-ayon: {{Me too!}}",
+      "topic": "Pang-uri bago ang pangngalan, walang {{-s}}; {{very}}, {{really}}, {{so}}; {{What a…!}}; {{Me too}}, {{Me neither}}",
+      "blocks": [
+        {"goal":{"t":"It's a beautiful city, and the food is so good!","tr":"Napakagandang lungsod nito, at ang sarap ng pagkain!"}},
+        {"dialog":[{"who":"Mike","t":"How's Manila?","tr":"Kumusta ang Maynila?"},{"who":"Ana","t":"It's a big, busy city. It's really hot!","tr":"Malaki at abalang lungsod ito. Sobrang init!"},{"who":"Mike","t":"And the food?","tr":"E ang pagkain?"},{"who":"Ana","t":"The food is so good! I love Filipino food.","tr":"Ang sarap ng pagkain! Gustong-gusto ko ang pagkaing Pilipino."},{"who":"Mike","t":"Me too!","tr":"Ako rin!"}]},
+        {"p":"**Laging bago ang pangngalan.** Sa Tagalog, puwedeng “malaking bahay” o “bahay na malaki”. Sa Ingles, isa lang ang ayos: pang-uri muna, saka ang pangngalan, at walang pang-ugnay sa pagitan: {{a big house}}, {{a kind teacher}}."},
+        {"p":"**Walang {{-s}} ang pang-uri**, kahit marami ang bagay: {{big houses}}, {{two new cars}}."},
+        {"p":"**Pagkatapos ng {{be}}**: gaya ng natutunan mo, {{The house is big.}} “Malaki ang bahay.” Dito, hindi kailangan ang {{a}}."},
+        { "table": [
+          ["Tagalog","Ingles"],
+          ["malaking bahay, bahay na malaki","{{a big house}}"],
+          ["Malaki ang bahay.","{{The house is big.}}"],
+          ["mga bagong kotse","{{new cars}}"],
+          ["napakaganda","{{very beautiful}}, {{really beautiful}}"],
+          ["Ang ganda!","{{It's so beautiful!}} / {{How beautiful!}}"]
+        ] },
+        {"p":"**Napaka-, sobra.** {{very}} “napaka-”, {{really}} (mas kaswal), {{so}} (may damdamin, pagkatapos ng {{be}}): {{It's so hot!}} Para sa “Ang ganda!” ng Tagalog: {{It's so beautiful!}}, o {{What a beautiful house!}} ({{what a}} + pang-uri + pangngalan)."},
+        {"p":"**Ako rin.** Para sumang-ayon: {{Me too!}} Sa negatibo, {{Me neither.}}: {{I don't like it.}} → {{Me neither.}} “Ako rin, ayaw ko rin.”"},
+        { "ex": [
+          {"t":"It's a big house.","tr":"Malaking bahay ito."},
+          {"t":"She has two little kids.","tr":"May dalawa siyang maliliit na anak."},
+          {"t":"The food is so good!","tr":"Ang sarap ng pagkain!"},
+          {"t":"What a beautiful beach!","tr":"Ang ganda ng beach!"},
+          {"t":"My boss is really nice.","tr":"Sobrang bait ng boss ko."},
+          {"t":"It's very expensive.","tr":"Napakamahal nito."},
+          {"t":"Me too!","tr":"Ako rin!"}
+        ] },
+        {"tip":"Kapag dalawa ang pang-uri, kadalasan ay laki muna bago kulay: {{a big red car}}, {{a small white dog}}."}
+      ],
+      "mistakes": [
+        {"wrong":"a house big","right":"a big house","tr":"malaking bahay","why":"Sa Ingles, laging nauuna ang pang-uri."},
+        {"wrong":"two news cars","right":"two new cars","tr":"dalawang bagong kotse","why":"Walang {{-s}} ang pang-uri."},
+        {"wrong":"Same with me.","right":"Me too.","tr":"Ako rin.","why":"Pilipinong Ingles ang {{Same with me}}; ang sinasabi ng mga Amerikano ay {{Me too}} (o {{Same here}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Malaking bahay ito.”","options":["{{It's a big house.}}","{{It's a house big.}}","{{It's big a house.}}"],"answer":0,"why":"{{a}} + pang-uri + pangngalan."},
+        {"type":"fill","q":"Piliin ang nawawalang salita.","t":"She has two ___ kids.","tr":"May dalawa siyang maliliit na anak.","options":["little","littles","a little"],"answer":0,"why":"Walang {{-s}} ang pang-uri; ang {{kids}} lang ang maramihan.","from":"talk-about-more-than-one"},
+        {"type":"choice","q":"Sabi ng kaibigan mo, {{I'm hungry!}} Gutom ka rin. Sasabihin mo…","options":["{{Me too!}}","{{Same with me!}}","{{Me also hungry!}}"],"answer":0,"why":"Ang natural na “ako rin”: {{Me too!}}"},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Ang ganda ng beach!","words":["What","a","beautiful","beach!"]},
+        {"type":"order","q":"Ayusin ang mga salita.","tr":"Sobrang bait ng boss ko.","words":["My boss","is","really","nice."],"from":"say-whose-it-is"},
+        {"type":"dialogue","q":"Bumibisita sa Pilipinas ang kaibigan mong Amerikano. Piliin ang mga sagot mo.","lines":[{"who":"Kaibigan","t":"Wow, this place is amazing!","tr":"Wow, ang ganda dito!"},{"options":["I know! It's a really beautiful island.","I know! It's an island really beautiful."],"answer":0,"why":"Pang-uri bago ang pangngalan: {{a really beautiful island}}."},{"who":"Kaibigan","t":"And it's so hot!","tr":"At ang init!"},{"options":["Yes, it's very hot in April.","Yes, it's very hots in April."],"answer":0,"why":"Walang {{-s}} ang pang-uri."}]},
+        {"type":"free","q":"Ikaw naman: ilarawan ang lungsod o bayan mo gamit ang tatlong pang-uri, at gumamit ng {{so}} o {{really}}.","answers":[{"t":"My city is big and busy. The people are really friendly. The traffic is so bad!","tr":"Malaki at abala ang lungsod ko. Sobrang palakaibigan ng mga tao. Ang sama ng traffic!"},{"t":"My town is a small, quiet place. The beach is really beautiful. The food is so cheap!","tr":"Maliit at tahimik na lugar ang bayan ko. Sobrang ganda ng beach. Ang mura ng pagkain!"}]}
+      ]
     }
   ]
 }
