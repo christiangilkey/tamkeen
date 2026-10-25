@@ -819,6 +819,292 @@
         {"type":"say","q":"Ask: “What time is it?”","answer":"Кото́рый час?","r":"Kotóryy chas?"},
         {"type":"free","q":"Your turn: say what you do on two days of the week, and at what time. Use {{в|v}} with a day and {{в|v}} with a time.","answers":[{"t":"В понеде́льник я рабо́таю, а в семь часо́в ве́чера у меня́ йо́га.","r":"V ponedél'nik ya rabótayu, a v sem' chasóv véchera u menyá yóga.","tr":"On Monday I work, and at seven in the evening I have yoga."},{"t":"В суббо́ту у́тром я гуля́ю в па́рке, а в воскресе́нье отдыха́ю до́ма.","r":"V subbótu útrom ya gulyáyu v párke, a v voskresén'ye otdykháyu dóma.","tr":"On Saturday morning I go for a walk in the park, and on Sunday I relax at home."}]}
       ]
+    },
+    {
+      "id": "say-where-youre-going",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say where you're going",
+      "summary": "Say where you're going right now, on foot or by transport, and ask “Where to?”: “I'm going to the store, then to work.”",
+      "topic": "{{идти́|idtí}} and {{е́хать|yékhat'}}; {{в|v}} and {{на|na}} with the accusative ({{куда́?|kudá?}}) or the prepositional ({{где?|gde?}}); {{домо́й|domóy}}",
+      "blocks": [
+        {"goal":{"t":"Я иду́ в магази́н, а пото́м на рабо́ту.","r":"Ya idú v magazín, a potóm na rabótu.","tr":"I'm going to the store, and then to work."}},
+        {"dialog":[{"who":"Sveta","t":"Приве́т! Куда́ ты идёшь?","r":"Privét! Kudá ty idyósh'?","tr":"Hi! Where are you going?"},{"who":"Max","t":"В апте́ку. А ты?","r":"V aptéku. A ty?","tr":"To the pharmacy. And you?"},{"who":"Sveta","t":"А я иду́ на по́чту, пото́м в банк.","r":"A ya idú na póchtu, potóm v bank.","tr":"I'm going to the post office, then to the bank."},{"who":"Max","t":"А ве́чером?","r":"A vécherom?","tr":"And this evening?"},{"who":"Sveta","t":"Ве́чером мы е́дем на да́чу.","r":"Vécherom my yédem na dáchu.","tr":"This evening we're going to the dacha."},{"who":"Max","t":"Здо́рово! Ну, пока́!","r":"Zdórovo! Nu, poká!","tr":"Great! Well, bye!"}]},
+        {"p":"**Two verbs for “go”.** Russian has no single verb for “go”. {{идти́|idtí}} is to go on foot; {{е́хать|yékhat'}} is to go by car, bus, train, anything with wheels. Both mean going somewhere right now, in one direction. (How to say you go somewhere often comes in a later lesson.)"},
+        { "table": [
+          ["","{{идти́|idtí}}: on foot","{{е́хать|yékhat'}}: by transport"],
+          ["{{я|ya}}","{{иду́|idú}}","{{е́ду|yédu}}"],
+          ["{{ты|ty}}","{{идёшь|idyósh'}}","{{е́дешь|yédesh'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{идёт|idyót}}","{{е́дет|yédet}}"],
+          ["{{мы|my}}","{{идём|idyóm}}","{{е́дем|yédem}}"],
+          ["{{вы|vy}}","{{идёте|idyóte}}","{{е́дете|yédete}}"],
+          ["{{они́|oní}}","{{иду́т|idút}}","{{е́дут|yédut}}"]
+        ] },
+        {"p":"**Where to?** In lesson 9, {{в|v}} and {{на|na}} with the prepositional said where something is ({{где?|gde?}}). When you're going there ({{куда́?|kudá?}} “where to?”), the same {{в|v}} and {{на|na}} take the **accusative**, just as in lesson 10: masculine and neuter places don't change, and {{-а|-a}} becomes {{-у|-u}}. A place that takes {{на|na}} for “where” takes it for “where to” too."},
+        { "table": [
+          ["","where? ({{где?|gde?}})","where to? ({{куда́?|kudá?}})"],
+          ["school","{{в шко́ле|v shkóle}}","{{в шко́лу|v shkólu}}"],
+          ["the store","{{в магази́не|v magazíne}}","{{в магази́н|v magazín}}"],
+          ["work","{{на рабо́те|na rabóte}}","{{на рабо́ту|na rabótu}}"],
+          ["Moscow","{{в Москве́|v Moskvé}}","{{в Москву́|v Moskvú}}"],
+          ["home","{{до́ма|dóma}}","{{домо́й|domóy}}"]
+        ] },
+        { "ex": [
+          {"t":"Куда́ вы е́дете? — В аэропо́рт.","r":"Kudá vy yédete? — V aeropórt.","tr":"Where are you going? — To the airport."},
+          {"t":"Мы идём в кино́.","r":"My idyóm v kinó.","tr":"We're going to the movies."},
+          {"t":"Он е́дет в Москву́.","r":"On yédet v Moskvú.","tr":"He's going to Moscow."},
+          {"t":"Я иду́ домо́й.","r":"Ya idú domóy.","tr":"I'm going home."},
+          {"t":"Куда́ ты? — На рабо́ту.","r":"Kudá ty? — Na rabótu.","tr":"Where are you off to? — To work.","note":"in quick speech the verb is often left out"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я иду́ в магази́не.","right":"Я иду́ в магази́н.","tr":"I'm going to the store.","why":"Going somewhere: {{в|v}} and the accusative. {{в магази́не|v magazíne}} is where you are."},
+        {"wrong":"Я иду́ в Бо́стон.","right":"Я е́ду в Бо́стон.","tr":"I'm going to Boston.","why":"Another city is too far to walk: by transport, {{е́хать|yékhat'}}."},
+        {"wrong":"Я иду́ в дом.","right":"Я иду́ домо́й.","tr":"I'm going home.","why":"“Home” is {{домо́й|domóy}} when you're going there, {{до́ма|dóma}} when you're there."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Куда́ ты ___?","tr":"Where are you going? (on foot)","options":["идёшь","е́дешь","иду́"],"answer":0,"why":"On foot, to {{ты|ty}}: {{идёшь|idyósh'}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мы е́дем в ___.","tr":"We're going to Moscow.","options":["Москву́","Москве́","Москва́"],"answer":0,"why":"Where to: the accusative, {{-а|-a}} → {{-у|-u}}."},
+        {"type":"choice","q":"You live in New York and you're going to Boston for the weekend. You say…","options":["{{Я е́ду в Бо́стон.|Ya yédu v Bóston.}}","{{Я иду́ в Бо́стон.|Ya idú v Bóston.}}"],"answer":0,"why":"Too far to walk: {{е́хать|yékhat'}}."},
+        {"type":"dialogue","q":"A neighbor stops you on the street. Choose your replies.","from":"say-where-you-live","lines":[{"who":"Neighbor","t":"Куда́ вы идёте?","r":"Kudá vy idyóte?","tr":"Where are you going?"},{"options":["На по́чту.","На по́чте."],"answer":0,"why":"Where to: the accusative, {{на по́чту|na póchtu}}."},{"who":"Neighbor","t":"А где по́чта? Я не зна́ю.","r":"A gde póchta? Ya ne znáyu.","tr":"Where's the post office? I don't know."},{"options":["На пло́щади, в це́нтре.","На пло́щадь, в центр."],"answer":0,"why":"Where something is: the prepositional, {{на пло́щади|na plóshchadi}}, {{в це́нтре|v tséntre}}."},{"who":"Neighbor","t":"А, спаси́бо!","r":"A, spasíbo!","tr":"Oh, thanks!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"In the evening we're going home.","words":["Ве́чером","мы","идём","домо́й."]},
+        {"type":"say","q":"Ask a friend: “Where are you going?”","answer":"Куда́ ты идёшь?","r":"Kudá ty idyósh'?"},
+        {"type":"free","q":"Your turn: where are you going today or tomorrow, and how? Use {{Я иду́…|Ya idú…}} or {{Я е́ду…|Ya yédu…}} with {{в|v}} or {{на|na}}.","answers":[{"t":"Сего́дня я иду́ в спортза́л, а за́втра е́ду на рабо́ту.","r":"Sevódnya ya idú v sportzál, a závtra yédu na rabótu.","tr":"Today I'm going to the gym, and tomorrow I'm going to work."},{"t":"Ве́чером я иду́ в кино́.","r":"Vécherom ya idú v kinó.","tr":"This evening I'm going to the movies."}]}
+      ]
+    },
+    {
+      "id": "can-and-must",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you can, may and must do",
+      "summary": "Say what you can and can't do, ask permission, and say what you have to do: “Could you repeat that? I have to go.”",
+      "topic": "{{мочь|moch'}} and {{уме́ть|umét'}}; {{мо́жно|mózhno}} and {{нельзя́|nel'zyá}}; {{мне на́до|mne nádo}}, {{мне ну́жно|mne núzhno}} + infinitive",
+      "blocks": [
+        {"goal":{"t":"Извини́те, я не могу́. Мне на́до рабо́тать.","r":"Izviníte, ya ne mogú. Mne nádo rabótat'.","tr":"Sorry, I can't. I have to work."}},
+        {"dialog":[{"who":"Dasha","t":"Пойдём в кино́ сего́дня?","r":"Poydyóm v kinó sevódnya?","tr":"Shall we go to the movies tonight?"},{"who":"Kirill","t":"Сего́дня не могу́. Мне на́до рабо́тать.","r":"Sevódnya ne mogú. Mne nádo rabótat'.","tr":"I can't tonight. I have to work."},{"who":"Dasha","t":"А за́втра?","r":"A závtra?","tr":"And tomorrow?"},{"who":"Kirill","t":"За́втра могу́. Во ско́лько?","r":"Závtra mogú. Vo skól'ko?","tr":"Tomorrow I can. What time?"},{"who":"Dasha","t":"В семь. Ты мо́жешь купи́ть биле́ты?","r":"V sem'. Ty mózhesh' kupít' biléty?","tr":"At seven. Can you buy the tickets?"},{"who":"Kirill","t":"Коне́чно, могу́.","r":"Konéshno, mogú.","tr":"Sure, I can."}]},
+        {"p":"**Can.** {{мочь|moch'}} “to be able to, can” is followed by a verb in the infinitive: {{Я могу́ помо́чь.|Ya mogú pomóch'.}} “I can help.” Its forms are irregular:"},
+        { "table": [
+          ["","{{мочь|moch'}} “can”"],
+          ["{{я|ya}}","{{могу́|mogú}}"],
+          ["{{ты|ty}}","{{мо́жешь|mózhesh'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{мо́жет|mózhet}}"],
+          ["{{мы|my}}","{{мо́жем|mózhem}}"],
+          ["{{вы|vy}}","{{мо́жете|mózhete}}"],
+          ["{{они́|oní}}","{{мо́гут|mógut}}"]
+        ] },
+        {"p":"**Know how to.** For a skill you've learned, Russian uses {{уме́ть|umét'}} (like {{рабо́тать|rabótat'}}: {{уме́ю|uméyu}}, {{уме́ешь|uméyesh'}}): {{Я уме́ю пла́вать.|Ya uméyu plávat'.}} “I can swim, I know how.” {{Я не могу́ пла́вать|Ya ne mogú plávat'}} says you aren't able to right now: maybe the water's too cold."},
+        {"p":"**May I? You can't.** {{мо́жно|mózhno}} “it's allowed, one may” and {{нельзя́|nel'zyá}} “it isn't allowed, one can't” need no person: {{Здесь мо́жно кури́ть?|Zdes' mózhno kurít'?}} “Can you smoke here?” — {{Нет, нельзя́.|Net, nel'zyá.}} {{Мо́жно?|Mózhno?}} on its own, at a door, means “May I come in?”."},
+        {"p":"**Have to.** {{на́до|nádo}} and {{ну́жно|núzhno}} (the same meaning) and an infinitive say what has to be done. Add who has to do it with the forms you know from saying your age: {{мне на́до|mne nádo}} “I have to”, {{тебе́ на́до|tebé nádo}} “you have to”, {{ему́ ну́жно|yemú núzhno}} “he needs to”…"},
+        { "ex": [
+          {"t":"Вы мо́жете повтори́ть, пожа́луйста?","r":"Vy mózhete povtorít', pozháluysta?","tr":"Could you repeat that, please?"},
+          {"t":"Я уме́ю гото́вить, но не уме́ю пла́вать.","r":"Ya uméyu gotóvit', no ne uméyu plávat'.","tr":"I can cook, but I can't swim."},
+          {"t":"Здесь нельзя́ фотографи́ровать.","r":"Zdes' nel'zyá fotografírovat'.","tr":"You can't take photos here."},
+          {"t":"Мо́жно ваш па́спорт?","r":"Mózhno vash pásport?","tr":"May I see your passport?"},
+          {"t":"Мне ну́жно идти́.","r":"Mne núzhno idtí.","tr":"I have to go.","note":"a polite way to leave"},
+          {"t":"Им на́до рабо́тать в суббо́ту.","r":"Im nádo rabótat' v subbótu.","tr":"They have to work on Saturday."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я могу́ говорю́ по-ру́сски.","right":"Я могу́ говори́ть по-ру́сски.","tr":"I can speak Russian.","why":"After {{могу́|mogú}}: the infinitive."},
+        {"wrong":"Я на́до рабо́тать.","right":"Мне на́до рабо́тать.","tr":"I have to work.","why":"Who has to: {{мне|mne}}, “to me”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Вы ___ повтори́ть, пожа́луйста?","tr":"Could you repeat that, please?","options":["мо́жете","мо́жешь","мо́гут"],"answer":0,"why":"With {{вы|vy}}: {{мо́жете|mózhete}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ на́до рабо́тать.","tr":"I have to work.","options":["Мне","Я","Меня́"],"answer":0,"why":"Who has to: {{мне|mne}}."},
+        {"type":"choice","q":"A sign in a museum says {{Нельзя́ фотографи́ровать|Nel'zyá fotografírovat'}}. It means…","options":["No photos","Photos allowed","Photos for sale"],"answer":0,"why":"{{нельзя́|nel'zyá}}: it isn't allowed."},
+        {"type":"choice","q":"“I can swim” (I know how) is…","options":["{{Я уме́ю пла́вать.|Ya uméyu plávat'.}}","{{Мне на́до пла́вать.|Mne nádo plávat'.}}"],"answer":0,"why":"A skill: {{уме́ть|umét'}}. {{Мне на́до пла́вать|Mne nádo plávat'}} is “I have to swim”."},
+        {"type":"dialogue","q":"A friend wants to meet. Choose your replies.","from":"tell-the-time","lines":[{"who":"Friend","t":"Ты мо́жешь в суббо́ту?","r":"Ty mózhesh' v subbótu?","tr":"Are you free on Saturday?"},{"options":["Нет, в суббо́ту не могу́. Мне на́до рабо́тать.","Нет, в суббо́ту не мо́жет. Я на́до рабо́тать."],"answer":0,"why":"“I can't”: {{не могу́|ne mogú}}; “I have to”: {{мне на́до|mne nádo}}."},{"who":"Friend","t":"А в воскресе́нье?","r":"A v voskresén'ye?","tr":"And on Sunday?"},{"options":["В воскресе́нье могу́. Во ско́лько?","В воскресе́нье мо́жно. Ско́лько?"],"answer":0,"why":"“I can”: {{могу́|mogú}}; “at what time?”: {{Во ско́лько?|Vo skól'ko?}}"},{"who":"Friend","t":"В два часа́.","r":"V dva chasá.","tr":"At two."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Can you wait for me?","words":["Ты","мо́жешь","меня́","подожда́ть?"],"from":"people-you-know"},
+        {"type":"free","q":"Your turn: say one thing you know how to do, and one thing you have to do this week.","answers":[{"t":"Я уме́ю игра́ть на гита́ре. В суббо́ту мне на́до рабо́тать.","r":"Ya uméyu igrát' na gitáre. V subbótu mne nádo rabótat'.","tr":"I can play the guitar. On Saturday I have to work."},{"t":"Я немно́го уме́ю гото́вить. Сего́дня мне ну́жно купи́ть хлеб.","r":"Ya nemnógo uméyu gotóvit'. Sevódnya mne núzhno kupít' khleb.","tr":"I can cook a little. Today I need to buy bread."}]}
+      ]
+    },
+    {
+      "id": "say-what-youll-do",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you're going to do",
+      "summary": "Talk about tomorrow, the weekend and the future: “Tomorrow I'll be working; on Sunday I'll relax.”",
+      "topic": "The future with {{бу́ду|búdu}} + infinitive; {{бу́дет|búdet}} “there will be”",
+      "blocks": [
+        {"goal":{"t":"За́втра я бу́ду рабо́тать, а в воскресе́нье бу́ду отдыха́ть.","r":"Závtra ya búdu rabótat', a v voskresén'ye búdu otdykhát'.","tr":"Tomorrow I'll be working, and on Sunday I'll relax."}},
+        {"dialog":[{"who":"Lena","t":"Что ты бу́дешь де́лать в выходны́е?","r":"Shto ty búdesh' délat' v vykhodnýye?","tr":"What are you going to do on the weekend?"},{"who":"Pete","t":"В суббо́ту я бу́ду убира́ть кварти́ру.","r":"V subbótu ya búdu ubirát' kvartíru.","tr":"On Saturday I'll be cleaning the apartment."},{"who":"Lena","t":"А в воскресе́нье?","r":"A v voskresén'ye?","tr":"And on Sunday?"},{"who":"Pete","t":"В воскресе́нье мы бу́дем гуля́ть в па́рке.","r":"V voskresén'ye my búdem gulyát' v párke.","tr":"On Sunday we'll go for a walk in the park."},{"who":"Lena","t":"А пого́да бу́дет хоро́шая?","r":"A pogóda búdet khoróshaya?","tr":"Will the weather be good?"},{"who":"Pete","t":"Говоря́т, бу́дет со́лнце.","r":"Govoryát, búdet sóntse.","tr":"They say it'll be sunny."}]},
+        {"p":"The simplest future in Russian is a future form of {{быть|byt'}} “to be” and the infinitive: {{я бу́ду рабо́тать|ya búdu rabótat'}} “I'll work, I'll be working”, {{мы бу́дем отдыха́ть|my búdem otdykhát'}} “we'll relax”. Only {{бу́ду|búdu}} changes; the second verb stays as it is."},
+        { "table": [
+          ["","the future of {{быть|byt'}}","for example"],
+          ["{{я|ya}}","{{бу́ду|búdu}}","{{я бу́ду чита́ть|ya búdu chitát'}}"],
+          ["{{ты|ty}}","{{бу́дешь|búdesh'}}","{{ты бу́дешь чита́ть|ty búdesh' chitát'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{бу́дет|búdet}}","{{она́ бу́дет чита́ть|oná búdet chitát'}}"],
+          ["{{мы|my}}","{{бу́дем|búdem}}","{{мы бу́дем чита́ть|my búdem chitát'}}"],
+          ["{{вы|vy}}","{{бу́дете|búdete}}","{{вы бу́дете чита́ть|vy búdete chitát'}}"],
+          ["{{они́|oní}}","{{бу́дут|búdut}}","{{они́ бу́дут чита́ть|oní búdut chitát'}}"]
+        ] },
+        {"p":"**Will be.** On its own, {{бу́ду|búdu}} means “I will be”: {{За́втра я бу́ду до́ма.|Závtra ya búdu dóma.}} “Tomorrow I'll be home.” {{бу́дет|búdet}} also means “there will be”: {{За́втра бу́дет дождь.|Závtra búdet dozhd'.}} “It's going to rain tomorrow.” And with {{у меня́|u menyá}}: {{У меня́ бу́дет вре́мя.|U menyá búdet vrémya.}} “I'll have time.”"},
+        {"p":"**With which verbs?** All the verbs you know so far go with {{бу́ду|búdu}}: they're about activities that go on for a while or happen again and again (working, reading, waiting, relaxing). For one thing you'll get done (“I'll buy it”, “I'll call you”), Russian has another future, coming soon."},
+        { "ex": [
+          {"t":"Что ты бу́дешь пить? — Чай, пожа́луйста.","r":"Shto ty búdesh' pit'? — Chay, pozháluysta.","tr":"What will you have to drink? — Tea, please."},
+          {"t":"За́втра я бу́ду до́ма весь день.","r":"Závtra ya búdu dóma ves' den'.","tr":"Tomorrow I'll be home all day."},
+          {"t":"Ле́том мы бу́дем жить на да́че.","r":"Létom my búdem zhit' na dáche.","tr":"In summer we'll be living at the dacha."},
+          {"t":"За́втра бу́дет хо́лодно.","r":"Závtra búdet khólodno.","tr":"It'll be cold tomorrow."},
+          {"t":"Я бу́ду ждать тебя́ в кафе́.","r":"Ya búdu zhdat' tebyá v kafé.","tr":"I'll wait for you at the café."},
+          {"t":"В понеде́льник у меня́ бу́дет экза́мен.","r":"V ponedél'nik u menyá búdet ekzámen.","tr":"On Monday I'll have an exam."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"За́втра я бу́ду рабо́таю.","right":"За́втра я бу́ду рабо́тать.","tr":"Tomorrow I'll be working.","why":"After {{бу́ду|búdu}}: the infinitive."},
+        {"wrong":"За́втра я бу́ду быть до́ма.","right":"За́втра я бу́ду до́ма.","tr":"Tomorrow I'll be home.","why":"{{бу́ду|búdu}} already means “will be”."},
+        {"wrong":"Ты бу́ду чита́ть?","right":"Ты бу́дешь чита́ть?","tr":"Are you going to read?","why":"{{бу́ду|búdu}} changes for the person: {{ты бу́дешь|ty búdesh'}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Что вы ___ де́лать за́втра?","tr":"What are you going to do tomorrow?","options":["бу́дете","бу́дем","бу́дут"],"answer":0,"why":"With {{вы|vy}}: {{бу́дете|búdete}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я бу́ду ___ тебя́ до́ма.","tr":"I'll be waiting for you at home.","options":["ждать","жду","ждал"],"answer":0,"why":"After {{бу́ду|búdu}}: the infinitive {{ждать|zhdat'}}."},
+        {"type":"choice","q":"{{За́втра бу́дет дождь|Závtra búdet dozhd'}} means…","options":["It'll rain tomorrow.","It rained yesterday.","It's raining today."],"answer":0,"why":"{{бу́дет|búdet}}: “there will be”."},
+        {"type":"dialogue","q":"You're a guest at a Russian home. Choose your replies.","lines":[{"who":"Host","t":"Что вы бу́дете пить?","r":"Shto vy búdete pit'?","tr":"What will you have to drink?"},{"options":["Чай, пожа́луйста.","Я бу́ду пью чай."],"answer":0,"why":"A short answer is enough. (After {{бу́ду|búdu}} would come the infinitive {{пить|pit'}}.)"},{"who":"Host","t":"А что вы бу́дете де́лать за́втра?","r":"A shto vy búdete délat' závtra?","tr":"And what are you doing tomorrow?"},{"options":["За́втра я бу́ду отдыха́ть.","За́втра я бу́ду отдыха́ю."],"answer":0,"why":"{{бу́ду|búdu}} and the infinitive."},{"who":"Host","t":"Пра́вильно!","r":"Právil'no!","tr":"Good idea!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"On Saturday I'll be home.","words":["В","суббо́ту","я","бу́ду","до́ма."],"from":"tell-the-time"},
+        {"type":"say","q":"Say: “I'll have time tomorrow.”","answer":"За́втра у меня́ бу́дет вре́мя.","r":"Závtra u menyá búdet vrémya.","from":"say-what-you-have"},
+        {"type":"free","q":"Your turn: what are you going to do on the weekend? Two things, with {{бу́ду|búdu}} and a verb.","answers":[{"t":"В суббо́ту я бу́ду убира́ть кварти́ру, а в воскресе́нье бу́ду смотре́ть фи́льмы.","r":"V subbótu ya búdu ubirát' kvartíru, a v voskresén'ye búdu smotrét' fíl'my.","tr":"On Saturday I'll be cleaning the apartment, and on Sunday I'll be watching movies."},{"t":"В выходны́е мы бу́дем отдыха́ть на да́че.","r":"V vykhodnýye my búdem otdykhát' na dáche.","tr":"On the weekend we'll be relaxing at the dacha."}]}
+      ]
+    },
+    {
+      "id": "say-what-youve-done",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you've done and finished",
+      "summary": "Say that something is done, read, bought or written, and not just that you were doing it: Russian's two kinds of verb.",
+      "topic": "Aspect: imperfective and perfective verbs in the past ({{чита́л|chitál}} / {{прочита́л|prochitál}})",
+      "blocks": [
+        {"goal":{"t":"Я уже́ прочита́л э́ту кни́гу.","r":"Ya uzhé prochitál étu knígu.","tr":"I've already read this book.","note":"a man; a woman says {{прочита́ла|prochitála}}"}},
+        {"dialog":[{"who":"Mom","t":"Ты сде́лал уро́ки?","r":"Ty sdélal uróki?","tr":"Have you done your homework?"},{"who":"Son","t":"Я их де́лал весь ве́чер!","r":"Ya ikh délal ves' vécher!","tr":"I was doing it all evening!"},{"who":"Mom","t":"Де́лал и́ли сде́лал?","r":"Délal íli sdélal?","tr":"Were doing it, or got it done?"},{"who":"Son","t":"Ну… почти́ сде́лал.","r":"Nu… pochtí sdélal.","tr":"Well… almost done."},{"who":"Mom","t":"А кни́гу прочита́л?","r":"A knígu prochitál?","tr":"And did you finish the book?"},{"who":"Son","t":"Чита́л! Два часа́ чита́л.","r":"Chitál! Dva chasá chitál.","tr":"I read it! I read for two hours."}]},
+        {"term":"aspect","means":"the way a verb looks at an action: as a process or a habit, or as one complete event with a result. Most Russian verbs come in pairs, one for each aspect."},
+        {"term":"imperfective","means":"the aspect of process and habit: {{чита́ть|chitát'}} “to read, to be reading”. All the verbs so far, except a few in fixed phrases, have been imperfective."},
+        {"term":"perfective","means":"the aspect of one complete event with a result: {{прочита́ть|prochitát'}} “to read through, to finish reading”."},
+        {"p":"This is the heart of Russian verbs. English shows the difference with tenses (“I was reading”, “I've read it”); Russian uses two different verbs. The imperfective {{де́лал|délal}} says you were doing it, or did it, as an activity. The perfective {{сде́лал|sdélal}} says it got done: there's a result."},
+        { "table": [
+          ["","imperfective: the activity","perfective: done, with a result"],
+          ["do","{{де́лать|délat'}}","{{сде́лать|sdélat'}}"],
+          ["read","{{чита́ть|chitát'}}","{{прочита́ть|prochitát'}}"],
+          ["write","{{писа́ть|pisát'}}","{{написа́ть|napisát'}}"],
+          ["watch","{{смотре́ть|smotrét'}}","{{посмотре́ть|posmotrét'}}"],
+          ["buy","{{покупа́ть|pokupát'}}","{{купи́ть|kupít'}}"],
+          ["say, tell","{{говори́ть|govorít'}}","{{сказа́ть|skazát'}}"],
+          ["decide","{{реша́ть|reshát'}}","{{реши́ть|reshít'}}"]
+        ] },
+        {"p":"**How the pairs are made.** Often the perfective adds a prefix ({{с-|s-}}, {{про-|pro-}}, {{на-|na-}}, {{по-|po-}}): {{де́лать|délat'}} → {{сде́лать|sdélat'}}. Sometimes the middle of the verb changes ({{реша́ть|reshát'}} → {{реши́ть|reshít'}}), and a few pairs are different words ({{говори́ть|govorít'}} → {{сказа́ть|skazát'}}). Dictionaries give both."},
+        {"p":"**Which one?** Ask yourself: is this about the result, or about the activity? {{Я написа́л письмо́.|Ya napisál pis'mó.}} “I wrote the letter (it's written).” {{Я писа́л письмо́ весь ве́чер.|Ya pisál pis'mó ves' vécher.}} “I was writing the letter all evening.” Words like {{весь день|ves' den'}}, {{два часа́|dva chasá}}, {{ча́сто|chásto}} and {{всегда́|vsegdá}} go with the imperfective; {{уже́|uzhé}} “already” and {{наконе́ц|nakonéts}} “finally” usually with the perfective."},
+        { "ex": [
+          {"t":"Вчера́ мы посмотре́ли но́вый фильм.","r":"Vcherá my posmotréli nóvyy fil'm.","tr":"Yesterday we watched the new movie.","note":"the whole movie"},
+          {"t":"Я купи́ла хлеб и молоко́.","r":"Ya kupíla khleb i molokó.","tr":"I bought bread and milk.","note":"a woman"},
+          {"t":"Что он сказа́л? — Ничего́.","r":"Shto on skazál? — Nichevó.","tr":"What did he say? — Nothing."},
+          {"t":"Ты уже́ реши́л? — Да, реши́л.","r":"Ty uzhé reshíl? — Da, reshíl.","tr":"Have you decided yet? — Yes, I have."},
+          {"t":"В де́тстве я ча́сто смотре́л мультфи́льмы.","r":"V détstve ya chásto smotrél mul'tfíl'my.","tr":"As a kid I often watched cartoons.","note":"often: imperfective"},
+          {"t":"Вчера́ я весь день писа́л отчёт и наконе́ц его́ написа́л.","r":"Vcherá ya ves' den' pisál otchót i nakonéts yevó napisál.","tr":"Yesterday I spent all day writing the report, and finally finished it."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я сде́лал уро́ки весь ве́чер.","right":"Я де́лал уро́ки весь ве́чер.","tr":"I did homework all evening.","why":"“All evening” is about the activity: the imperfective {{де́лал|délal}}."},
+        {"wrong":"Наконе́ц я чита́л э́ту кни́гу.","right":"Наконе́ц я прочита́л э́ту кни́гу.","tr":"I've finally read this book.","why":"“Finally” means it got done: the perfective."},
+        {"wrong":"Я купи́л хлеб ка́ждый день.","right":"Я покупа́л хлеб ка́ждый день.","tr":"I bought bread every day.","why":"“Every day” is a habit: the imperfective."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Вчера́ я ___ письмо́ и отпра́вил его́.","tr":"Yesterday I wrote the letter and sent it.","options":["написа́л","писа́л"],"answer":0,"why":"It got written (and then sent): the perfective."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ телеви́зор весь ве́чер.","tr":"I watched TV all evening.","options":["смотре́л","посмотре́л"],"answer":0,"why":"“All evening”: the imperfective."},
+        {"type":"choice","q":"{{Я чита́л э́ту кни́гу|Ya chitál étu knígu}} tells you…","options":["you spent time reading it (maybe not to the end)","you definitely finished it"],"answer":0,"why":"The imperfective is about the activity, not the result."},
+        {"type":"dialogue","q":"You're a man, at work. Choose your replies.","lines":[{"who":"Boss","t":"Вы написа́ли отчёт?","r":"Vy napisáli otchót?","tr":"Have you written the report?"},{"options":["Ещё нет. Я писа́л его́ весь день, но не написа́л.","Ещё нет. Я написа́л его́ весь день."],"answer":0,"why":"All day: the activity, {{писа́л|pisál}}; not finished: {{не написа́л|ne napisál}}."},{"who":"Boss","t":"А письмо́ клие́нту? Вы его́ отпра́вили?","r":"A pis'mó kliyéntu? Vy yevó otprávili?","tr":"And the letter to the client? Did you send it?"},{"options":["Да, отпра́вил у́тром.","Да, отправля́л у́тром."],"answer":0,"why":"Sent, done: the perfective {{отпра́вил|otprávil}}."},{"who":"Boss","t":"Отли́чно, спаси́бо!","r":"Otlíchno, spasíbo!","tr":"Great, thank you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Yesterday we bought a new car.","words":["Вчера́","мы","купи́ли","но́вую","маши́ну."],"from":"say-what-you-did"},
+        {"type":"say","q":"Say, as a woman: “I've already watched this movie.”","answer":"Я уже́ посмотре́ла э́тот фильм.","r":"Ya uzhé posmotréla étot fil'm.","from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: say one thing you spent time doing yesterday (imperfective) and one thing you got done (perfective).","answers":[{"t":"Вчера́ я весь день рабо́тал, а ве́чером наконе́ц прочита́л кни́гу.","r":"Vcherá ya ves' den' rabótal, a vécherom nakonéts prochitál knígu.","tr":"Yesterday I worked all day, and in the evening I finally finished my book."},{"t":"Вчера́ я до́лго убира́ла кварти́ру, а пото́м купи́ла цветы́.","r":"Vcherá ya dólgo ubirála kvartíru, a potóm kupíla tsvetý.","tr":"Yesterday I spent a long time cleaning the apartment, and then I bought flowers."}]}
+      ]
+    },
+    {
+      "id": "promise-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Promise and offer to do things",
+      "summary": "Promise, offer and say what you'll get done: “I'll call you tomorrow.” “I'll buy the bread.”",
+      "topic": "The perfective future ({{позвоню́|pozvonyú}}, {{куплю́|kuplyú}}, {{сде́лаю|sdélayu}}) and {{бу́ду|búdu}} + imperfective",
+      "blocks": [
+        {"goal":{"t":"Я тебе́ за́втра позвоню́.","r":"Ya tebé závtra pozvonyú.","tr":"I'll call you tomorrow."}},
+        {"dialog":[{"who":"Alla","t":"У нас нет хле́ба.","r":"U nas net khléba.","tr":"We're out of bread."},{"who":"Tim","t":"Я куплю́. Я всё равно́ иду́ в магази́н.","r":"Ya kuplyú. Ya vsyo ravnó idú v magazín.","tr":"I'll buy some. I'm going to the store anyway."},{"who":"Alla","t":"Спаси́бо! А у́жин ты пригото́вишь?","r":"Spasíbo! A úzhin ty prigotóvish'?","tr":"Thanks! And will you make dinner?"},{"who":"Tim","t":"Нет, у́жин пригото́вишь ты. А я помо́ю посу́ду.","r":"Net, úzhin prigotóvish' ty. A ya pomóyu posúdu.","tr":"No, you'll make dinner. And I'll wash the dishes."},{"who":"Alla","t":"Договори́лись!","r":"Dogovorílis'!","tr":"Deal!"}]},
+        {"p":"Here's a surprise: perfective verbs have no present tense. When you put a perfective verb into the present forms, it means the **future**: {{я сде́лаю|ya sdélayu}} “I'll do it, I'll get it done”, {{я куплю́|ya kuplyú}} “I'll buy it”. It promises a result."},
+        { "table": [
+          ["","{{бу́ду|búdu}} + imperfective: the activity","perfective: the result"],
+          ["{{я|ya}}","{{бу́ду де́лать|búdu délat'}}","{{сде́лаю|sdélayu}}"],
+          ["{{ты|ty}}","{{бу́дешь де́лать|búdesh' délat'}}","{{сде́лаешь|sdélayesh'}}"],
+          ["{{он|on}}, {{она́|oná}}","{{бу́дет де́лать|búdet délat'}}","{{сде́лает|sdélayet}}"],
+          ["{{мы|my}}","{{бу́дем де́лать|búdem délat'}}","{{сде́лаем|sdélayem}}"],
+          ["{{вы|vy}}","{{бу́дете де́лать|búdete délat'}}","{{сде́лаете|sdélayete}}"],
+          ["{{они́|oní}}","{{бу́дут де́лать|búdut délat'}}","{{сде́лают|sdélayut}}"]
+        ] },
+        {"p":"So there are two futures, chosen just as in the past: {{За́втра я бу́ду писа́ть отчёт.|Závtra ya búdu pisát' otchót.}} “Tomorrow I'll be working on the report.” {{За́втра я напишу́ отчёт.|Závtra ya napishú otchót.}} “Tomorrow I'll write the report (it'll be done).” Never put {{бу́ду|búdu}} before a perfective verb."},
+        {"p":"**Useful ones.** {{позвони́ть|pozvonít'}}: {{позвоню́|pozvonyú}}, {{позвони́шь|pozvonísh'}} “call”; {{купи́ть|kupít'}}: {{куплю́|kuplyú}}, {{ку́пишь|kúpish'}} “buy”; {{помо́чь|pomóch'}}: {{помогу́|pomogú}}, {{помо́жешь|pomózhesh'}} “help”; {{сказа́ть|skazát'}}: {{скажу́|skazhú}}, {{ска́жешь|skázhesh'}} “say, tell”; {{написа́ть|napisát'}}: {{напишу́|napishú}}, {{напи́шешь|napíshesh'}} “write”; {{прийти́|priytí}}: {{приду́|pridú}}, {{придёшь|pridyósh'}} “come”. Promises and offers are almost always made with verbs like these."},
+        { "ex": [
+          {"t":"Я помогу́!","r":"Ya pomogú!","tr":"I'll help!"},
+          {"t":"Я напишу́ тебе́ ве́чером.","r":"Ya napishú tebé vécherom.","tr":"I'll text you this evening."},
+          {"t":"Мы ку́пим биле́ты за́втра.","r":"My kúpim biléty závtra.","tr":"We'll buy the tickets tomorrow."},
+          {"t":"Не волну́йся, я всё сде́лаю.","r":"Ne volnúysya, ya vsyo sdélayu.","tr":"Don't worry, I'll get it all done."},
+          {"t":"Ты придёшь в суббо́ту?","r":"Ty pridyósh' v subbótu?","tr":"Will you come on Saturday?"},
+          {"t":"Я тебе́ скажу́ за́втра.","r":"Ya tebé skazhú závtra.","tr":"I'll tell you tomorrow."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я бу́ду позвони́ть тебе́ за́втра.","right":"Я позвоню́ тебе́ за́втра.","tr":"I'll call you tomorrow.","why":"{{позвони́ть|pozvonít'}} is perfective: its own forms are the future. {{бу́ду|búdu}} only goes with imperfective verbs."},
+        {"wrong":"Я куплю́ хлеб ка́ждый день.","right":"Я бу́ду покупа́ть хлеб ка́ждый день.","tr":"I'll buy bread every day.","why":"“Every day” is a habit: the imperfective, {{бу́ду покупа́ть|búdu pokupát'}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Не волну́йся, я тебе́ ___.","tr":"Don't worry, I'll call you.","options":["позвоню́","бу́ду позвони́ть","звони́л"],"answer":0,"why":"A promise: the perfective future {{позвоню́|pozvonyú}}."},
+        {"type":"choice","q":"{{Я куплю́ хлеб|Ya kuplyú khleb}} means…","options":["I'll buy bread.","I'm buying bread.","I bought bread."],"answer":0,"why":"A perfective verb in the present forms is the future."},
+        {"type":"fill","q":"Choose the missing word.","t":"За́втра я весь день ___ рабо́тать.","tr":"Tomorrow I'll be working all day.","options":["бу́ду","сде́лаю"],"answer":0,"why":"All day, an activity: {{бу́ду|búdu}} + the imperfective."},
+        {"type":"dialogue","q":"A classmate asks for help. Choose your replies.","from":"can-and-must","lines":[{"who":"Classmate","t":"Я не понима́ю зада́ние. Ты мо́жешь помо́чь?","r":"Ya ne ponimáyu zadániye. Ty mózhesh' pomóch'?","tr":"I don't understand the assignment. Can you help?"},{"options":["Коне́чно, я помогу́!","Коне́чно, я бу́ду помо́чь!"],"answer":0,"why":"A promise: {{помогу́|pomogú}}."},{"who":"Classmate","t":"Спаси́бо! А когда́?","r":"Spasíbo! A kogdá?","tr":"Thanks! When?"},{"options":["Я позвоню́ тебе́ ве́чером.","Я звоню́ тебе́ вчера́."],"answer":0,"why":"Later today: the perfective future {{позвоню́|pozvonyú}}."},{"who":"Classmate","t":"Отли́чно, жду!","r":"Otlíchno, zhdu!","tr":"Great, I'll be waiting!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'll write to you tomorrow.","words":["Я","напишу́","тебе́","за́втра."]},
+        {"type":"say","q":"Say: “On Saturday I'll relax, and on Sunday I'll buy a bike.”","answer":"В суббо́ту я бу́ду отдыха́ть, а в воскресе́нье куплю́ велосипе́д.","r":"V subbótu ya búdu otdykhát', a v voskresén'ye kuplyú velosipéd.","from":"say-what-youll-do"},
+        {"type":"free","q":"Your turn: promise a friend two things you'll do for them. Use perfective verbs: {{Я куплю́…|Ya kuplyú…}}, {{Я позвоню́…|Ya pozvonyú…}}, {{Я помогу́…|Ya pomogú…}}","answers":[{"t":"Я куплю́ торт и позвоню́ тебе́ ве́чером.","r":"Ya kuplyú tort i pozvonyú tebé vécherom.","tr":"I'll buy a cake and call you this evening."},{"t":"Я помогу́ тебе́ в суббо́ту и всё сде́лаю.","r":"Ya pomogú tebé v subbótu i vsyo sdélayu.","tr":"I'll help you on Saturday and get it all done."}]}
+      ]
+    },
+    {
+      "id": "ask-someone-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask someone to do something",
+      "summary": "Ask, tell and invite: “Please speak more slowly.” “Come in, sit down!” “Let's go!”",
+      "topic": "The imperative ({{-й|-y}}, {{-и|-i}}, {{-ь|-'}}, and {{-те|-te}} for {{вы|vy}}); aspect in requests; {{дава́й|daváy}}",
+      "blocks": [
+        {"goal":{"t":"Говори́те, пожа́луйста, ме́дленнее.","r":"Govoríte, pozháluysta, médlenneye.","tr":"Please speak more slowly."}},
+        {"dialog":[{"who":"Host","t":"Здра́вствуйте! Проходи́те, сади́тесь!","r":"Zdrástvuyte! Prokhodíte, sadítes'!","tr":"Hello! Come in, sit down!"},{"who":"Guest","t":"Спаси́бо. Вот, возьми́те, э́то вам.","r":"Spasíbo. Vot, voz'míte, éto vam.","tr":"Thank you. Here, this is for you."},{"who":"Host","t":"Ой, спаси́бо! Чай и́ли ко́фе?","r":"Oy, spasíbo! Chay íli kófe?","tr":"Oh, thank you! Tea or coffee?"},{"who":"Guest","t":"Чай, пожа́луйста.","r":"Chay, pozháluysta.","tr":"Tea, please."},{"who":"Host","t":"Попро́буйте пиро́г!","r":"Popróbuyte piróg!","tr":"Try the pie!"},{"who":"Guest","t":"О́чень вку́сно! Да́йте, пожа́луйста, реце́пт!","r":"Óchen' vkúsno! Dáyte, pozháluysta, retsépt!","tr":"Delicious! Please give me the recipe!"}]},
+        {"term":"imperative","means":"the form of a verb for asking or telling someone to do something: Come in! Sit down!"},
+        {"p":"**How to make it.** Take the {{они́|oní}} form, drop its ending, and add {{-й|-y}} after a vowel, {{-и|-i}} after a consonant (or {{-ь|-'}}, when the stress isn't on the ending). That's the form for {{ты|ty}}; for {{вы|vy}}, add {{-те|-te}}."},
+        { "table": [
+          ["infinitive","{{они́|oní}} form","to {{ты|ty}}","to {{вы|vy}}"],
+          ["{{чита́ть|chitát'}}","{{чита́ют|chitáyut}}","{{чита́й|chitáy}}","{{чита́йте|chitáyte}}"],
+          ["{{говори́ть|govorít'}}","{{говоря́т|govoryát}}","{{говори́|govorí}}","{{говори́те|govoríte}}"],
+          ["{{сказа́ть|skazát'}}","{{ска́жут|skázhut}}","{{скажи́|skazhí}}","{{скажи́те|skazhíte}}"],
+          ["{{помо́чь|pomóch'}}","{{помо́гут|pomógut}}","{{помоги́|pomogí}}","{{помоги́те|pomogíte}}"],
+          ["{{встать|vstat'}}","{{вста́нут|vstánut}}","{{встань|vstan'}}","{{вста́ньте|vstán'te}}"]
+        ] },
+        {"p":"A few everyday ones are irregular: {{дать|dat'}} “give” → {{дай|day}}, {{да́йте|dáyte}}; {{есть|yest'}} “eat” → {{ешь|yesh'}}, {{е́шьте|yésh'te}}. And {{извини́те|izviníte}} “excuse me” is an imperative too: “excuse (me)”."},
+        {"p":"**Which aspect?** For one specific thing, the perfective: {{Скажи́те, пожа́луйста, где метро́?|Skazhíte, pozháluysta, gde metró?}} “Could you tell me where the subway is?”, {{Позвони́ мне!|Pozvoní mne!}} “Call me!”. The imperfective is for invitations and “go ahead”, and sounds warm, not pushy: {{Проходи́те!|Prokhodíte!}} “Come in!”, {{Сади́тесь!|Sadítes'!}} “Sit down!”, {{Бери́те!|Beríte!}} “Help yourself!”. With {{не|ne}}, use the imperfective: {{Не волну́йся!|Ne volnúysya!}} “Don't worry!”"},
+        {"p":"**Let's.** {{Дава́й|Daváy}} (to a friend) or {{Дава́йте|Daváyte}} with the {{мы|my}} form of a perfective verb: {{Дава́й встре́тимся в суббо́ту.|Daváy vstrétimsya v subbótu.}} “Let's meet on Saturday.” Or with an imperfective infinitive: {{Дава́йте говори́ть по-ру́сски!|Daváyte govorít' po-rússki!}} “Let's speak Russian!”"},
+        { "ex": [
+          {"t":"Скажи́те, пожа́луйста, где здесь апте́ка?","r":"Skazhíte, pozháluysta, gde zdes' aptéka?","tr":"Excuse me, where's the pharmacy around here?"},
+          {"t":"Помоги́те!","r":"Pomogíte!","tr":"Help!"},
+          {"t":"Подожди́ мину́тку!","r":"Podozhdí minútku!","tr":"Wait a minute!"},
+          {"t":"Да́йте, пожа́луйста, меню́.","r":"Dáyte, pozháluysta, menyú.","tr":"The menu, please."},
+          {"t":"Не забу́дь ключи́!","r":"Ne zabúd' klyuchí!","tr":"Don't forget your keys!","note":"a warning about something that could happen by accident takes the perfective"},
+          {"t":"Дава́й встре́тимся в суббо́ту.","r":"Daváy vstrétimsya v subbótu.","tr":"Let's meet on Saturday."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Говори́ ме́дленнее, пожа́луйста.","right":"Говори́те ме́дленнее, пожа́луйста.","tr":"Please speak more slowly. (to a stranger)","why":"To someone you call {{вы|vy}}, add {{-те|-te}}."},
+        {"wrong":"Не скажи́ ма́ме!","right":"Не говори́ ма́ме!","tr":"Don't tell Mom!","why":"“Don't…”: with {{не|ne}}, use the imperfective."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___, пожа́луйста, где вокза́л?","tr":"Could you tell me where the train station is?","options":["Скажи́те","Говори́те","Сказа́ть"],"answer":0,"why":"One request for information: the perfective {{скажи́те|skazhíte}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Проходи́те, ___!","tr":"Come in, sit down!","options":["сади́тесь","сиди́те","сесть"],"answer":0,"why":"An invitation to sit down: {{сади́тесь|sadítes'}}. ({{сиди́те|sidíte}} is “stay seated”.)"},
+        {"type":"choice","q":"You tell a friend: “Don't tell Mom!”","options":["{{Не говори́ ма́ме!|Ne govorí máme!}}","{{Не скажи́ ма́ме!|Ne skazhí máme!}}"],"answer":0,"why":"With {{не|ne}}: the imperfective."},
+        {"type":"dialogue","q":"You visit a Russian family. Choose your replies.","from":"say-what-youll-do","lines":[{"who":"Host","t":"Здра́вствуйте! Проходи́те!","r":"Zdrástvuyte! Prokhodíte!","tr":"Hello! Come in!"},{"options":["Спаси́бо! Вот, возьми́те, э́то вам.","Спаси́бо! Вот, берёте, э́то вам."],"answer":0,"why":"Handing a gift: {{возьми́те|voz'míte}} “take”."},{"who":"Host","t":"Спаси́бо! Сади́тесь, пожа́луйста. Чай бу́дете?","r":"Spasíbo! Sadítes', pozháluysta. Chay búdete?","tr":"Thank you! Please sit down. Will you have some tea?"},{"options":["Да, с удово́льствием.","Да, я бу́ду пью."],"answer":0,"why":"“Gladly”: {{с удово́льствием|s udovól'stviyem}}. ({{бу́ду|búdu}} would need an infinitive.)"},{"who":"Host","t":"Бери́те пиро́г!","r":"Beríte piróg!","tr":"Help yourself to the pie!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Let's speak Russian!","words":["Дава́йте","говори́ть","по-ру́сски!"]},
+        {"type":"say","q":"Ask a stranger: “Please speak more slowly.”","answer":"Говори́те, пожа́луйста, ме́дленнее.","r":"Govoríte, pozháluysta, médlenneye."},
+        {"type":"say","q":"Tell a friend: “Call me tomorrow!”","answer":"Позвони́ мне за́втра!","r":"Pozvoní mne závtra!","from":"promise-to-do"},
+        {"type":"free","q":"Your turn: a Russian-speaking guest comes to your home. Welcome them in, offer them something, and ask them for one thing. Use the {{вы|vy}} imperative.","answers":[{"t":"Проходи́те, сади́тесь! Бери́те ко́фе. Расскажи́те, как вы живёте!","r":"Prokhodíte, sadítes'! Beríte kófe. Rasskazhíte, kak vy zhivyóte!","tr":"Come in, sit down! Have some coffee. Tell me how you're doing!"},{"t":"Здра́вствуйте! Проходи́те, пожа́луйста. Попро́буйте торт!","r":"Zdrástvuyte! Prokhodíte, pozháluysta. Popróbuyte tort!","tr":"Hello! Come in, please. Try the cake!"}]}
+      ]
     }
   ]
 }
