@@ -1778,6 +1778,257 @@
         {"type":"say","q":"Ask “Have you ever been to Mexico City?”","answer":"¿Alguna vez has estado en la Ciudad de México?"},
         {"type":"free","q":"Your turn: say two things you've done in your life and one you've never done. Use {{he}} + participle and {{nunca he}}.","answers":[{"t":"He viajado a Europa y he corrido un maratón, pero nunca he visto el mar Caribe.","tr":"I've traveled to Europe and run a marathon, but I've never seen the Caribbean."},{"t":"He vivido en tres ciudades. Nunca he comido chapulines.","tr":"I've lived in three cities. I've never eaten chapulines."}]}
       ]
+    },
+    {
+      "id": "say-why-and-what-for",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say why, what for and who for",
+      "summary": "Say why you did something, what it's for and who it's for, with the two Spanish “for”s: {{por}} and {{para}}.",
+      "topic": "{{por}} or {{para}}; {{¿para qué?}} and {{¿por qué?}}; {{por eso}}",
+      "blocks": [
+        {"goal":{"t":"Este regalo es para ti. Gracias por todo.","tr":"This present is for you. Thanks for everything."}},
+        {"dialog":[{"who":"Lili","t":"¿Para quién es el pastel?","tr":"Who's the cake for?"},{"who":"Óscar","t":"Es para mi mamá. Hoy es su cumpleaños.","tr":"It's for my mom. Today is her birthday."},{"who":"Lili","t":"¡Qué bonito! ¿Cuánto pagaste por él?","tr":"How lovely! How much did you pay for it?"},{"who":"Óscar","t":"Quinientos pesos. Lo pedí por internet, para no perder tiempo.","tr":"Five hundred pesos. I ordered it online, so I wouldn't waste time."},{"who":"Lili","t":"¡Muy bien! Y gracias por invitarme a la fiesta.","tr":"Great! And thanks for inviting me to the party."}]},
+        {"p":"**Two words for “for”.** Spanish splits English “for” into {{para}} and {{por}}. A picture that helps: {{para}} looks **ahead**, to a goal, a person who'll receive something, a deadline. {{por}} looks **back** at the cause, or goes **through**: the reason, the exchange, the way."},
+        { "table": [
+          ["{{para}}: where it's heading","{{por}}: the cause, the exchange, the way"],
+          ["for someone: {{Es para ti.}} It's for you.","because of, thanks for: {{Gracias por la ayuda.}} Thanks for the help."],
+          ["in order to: {{Estudio para aprender.}} I study to learn.","in exchange for: {{Pagué cien pesos por esto.}} I paid 100 pesos for this."],
+          ["a deadline: {{Es para el lunes.}} It's due Monday.","through, around: {{Caminamos por el parque.}} We walked through the park."],
+          ["toward a place: {{Voy para la casa.}} I'm heading home.","by phone, by mail, online: {{por teléfono}}, {{por internet}}"],
+          ["what it's for: {{una taza para café}} a coffee cup","a stretch of time: {{por dos semanas}} for two weeks"]
+        ] },
+        {"p":"**{{para}} + infinitive** = “(in order) to”: {{Ahorro para comprar una casa.}} “I'm saving to buy a house.” **{{por}} + infinitive** = “for doing”, the reason: {{Gracias por venir.}} “Thanks for coming.”"},
+        {"p":"**Two questions.** {{¿Para qué?}} “What for?” asks about the goal; {{¿Por qué?}} “Why?” asks about the cause. And {{por eso}} “that's why” links a reason to what came of it."},
+        { "ex": [
+          {"t":"¿Para qué estudias español? — Para viajar por Latinoamérica.","tr":"What are you studying Spanish for? — To travel around Latin America."},
+          {"t":"Gracias por todo.","tr":"Thanks for everything."},
+          {"t":"Te llamo por teléfono más tarde.","tr":"I'll call you later."},
+          {"t":"La tarea es para mañana.","tr":"The homework is due tomorrow."},
+          {"t":"Cambié mi carro por uno más chico.","tr":"I traded my car for a smaller one."},
+          {"t":"Estuve enfermo, por eso no fui.","tr":"I was sick, that's why I didn't go."},
+          {"t":"Para mí, la comida de Puebla es la mejor.","tr":"For me, Puebla's food is the best.","note":"{{para mí}}: in my opinion"}
+        ] },
+        {"tip":"Fixed phrases with {{por}}: {{por favor}} (please), {{por fin}} (at last), {{por ejemplo}} (for example), {{por supuesto}} (of course), {{por cierto}} (by the way), {{por ahora}} (for now)."}
+      ],
+      "mistakes": [
+        {"wrong":"Gracias para la comida.","right":"Gracias por la comida.","tr":"Thanks for the food.","why":"Thanking for something looks back at the cause: {{por}}."},
+        {"wrong":"Estudio por ser doctora.","right":"Estudio para ser doctora.","tr":"I'm studying to become a doctor.","why":"In order to, a goal ahead: {{para}}."},
+        {"wrong":"Este regalo es por ti.","right":"Este regalo es para ti.","tr":"This present is for you.","why":"The person who'll receive it: {{para}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Este café es ___ mi esposa.","tr":"This coffee is for my wife.","options":["para","por"],"answer":0,"why":"The person who'll receive it: {{para}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Muchas gracias ___ tu ayuda.","tr":"Thank you very much for your help.","options":["por","para"],"answer":0,"why":"Thanking for something: {{por}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ahorro dinero ___ comprar un carro.","tr":"I'm saving money to buy a car.","options":["para","por"],"answer":0,"why":"In order to: {{para}} + infinitive."},
+        {"type":"choice","q":"“I paid 200 pesos for these shoes.” Which one?","options":["{{Pagué doscientos pesos por estos zapatos.}}","{{Pagué doscientos pesos para estos zapatos.}}","{{Pago doscientos pesos para estos zapatos.}}"],"answer":0,"why":"In exchange for: {{por}}; and a finished payment: {{pagué}}.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Tell your teacher why you missed class. Choose your replies.","lines":[{"who":"Teacher","t":"¿Por qué no viniste ayer?","tr":"Why didn't you come yesterday?"},{"options":["Porque estaba enferma. Por eso no vine.","Porque estuve enferma. Para eso no vine."],"answer":0,"why":"How you were: {{estaba}}; and “that's why”: {{por eso}}."},{"who":"Teacher","t":"Bueno. La tarea es para el viernes.","tr":"Okay. The homework is due Friday."},{"options":["Perfecto. Gracias por avisarme.","Perfecto. Gracias para avisarme."],"answer":0,"why":"Thanks for doing something: {{por}} + infinitive."},{"who":"Teacher","t":"De nada. ¡Que te mejores!","tr":"You're welcome. Get well soon!"}],"from":"tell-a-story"},
+        {"type":"order","q":"Put the words in order.","tr":"Thanks for coming.","words":["Gracias","por","venir."]},
+        {"type":"say","q":"Ask “What are you studying Spanish for?”","answer":"¿Para qué estudias español?"},
+        {"type":"free","q":"Your turn: why are you learning Spanish? Answer with {{para}} + infinitive, and add a reason with {{porque}}.","answers":[{"t":"Estudio español para hablar con mis vecinos, porque muchos son de México.","tr":"I'm learning Spanish to talk to my neighbors, because many of them are from Mexico."},{"t":"Aprendo español para viajar por México y para entender las películas.","tr":"I'm learning Spanish to travel around Mexico and to understand movies."}]}
+      ]
+    },
+    {
+      "id": "describe-in-more-detail",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say which one: the person who…, the place where…",
+      "summary": "Describe people, places and things in more detail: “The friend who lives in Puebla is coming tomorrow.” “That's what I want.”",
+      "topic": "{{que}} (who, which, that), {{donde}} (where), {{lo que}} (what); {{el que}}, {{la que}} (the one who)",
+      "blocks": [
+        {"goal":{"t":"La amiga que vive en Puebla viene mañana.","tr":"The friend who lives in Puebla is coming tomorrow."}},
+        {"dialog":[{"who":"Ceci","t":"¿Quién es el señor que está al lado de tu papá?","tr":"Who's the man next to your dad?"},{"who":"You","t":"Es mi tío, el que vive en Tijuana.","tr":"That's my uncle, the one who lives in Tijuana."},{"who":"Ceci","t":"¿Y dónde es esto?","tr":"And where is this?"},{"who":"You","t":"Es el restaurante donde celebramos el cumpleaños de mi abuela.","tr":"It's the restaurant where we celebrated my grandmother's birthday."},{"who":"Ceci","t":"¡Qué bonito! Lo que más me gusta es el pastel.","tr":"How lovely! What I like best is the cake."}]},
+        {"term":"clause","means":"a part of a sentence with its own verb: in “the man who lives here”, the clause is “who lives here”."},
+        {"p":"**Joining two ideas.** {{Mi amiga vive en Puebla. Mi amiga viene mañana.}} becomes one sentence with {{que}}: {{La amiga que vive en Puebla viene mañana.}} Spanish uses {{que}} for people **and** things, where English says who, which or that."},
+        { "table": [
+          ["Spanish","English"],
+          ["{{el señor que vende tacos}}","the man who sells tacos"],
+          ["{{el libro que me prestaste}}","the book (that) you lent me"],
+          ["{{la ciudad donde nací}}","the city where I was born"],
+          ["{{lo que quiero}}","what I want"]
+        ] },
+        {"p":"**Never leave {{que}} out.** English can drop “that”: “the book you lent me”. Spanish can't: {{el libro que me prestaste}}."},
+        {"p":"**{{donde}}** “where” joins a place: {{el pueblo donde viven mis abuelos}}. In a question it has an accent ({{¿Dónde?}}); joining two ideas, it doesn't."},
+        {"p":"**{{lo que}}** is “what” in the middle of a sentence, meaning “the thing that”: {{No entiendo lo que dices.}} “I don't understand what you're saying.” {{Lo que necesito es dormir.}} “What I need is sleep.”"},
+        {"p":"**{{el que}}, {{la que}}, {{los que}}, {{las que}}** = “the one(s) who, the one(s) that”, matching the noun you mean: {{¿Cuál quieres? — El que está en la ventana.}} “Which one do you want? — The one in the window.”"},
+        { "ex": [
+          {"t":"El señor que vende tamales llega a las siete.","tr":"The man who sells tamales comes at seven."},
+          {"t":"¿Te gustó la película que vimos?","tr":"Did you like the movie we saw?"},
+          {"t":"Esta es la casa donde crecí.","tr":"This is the house where I grew up."},
+          {"t":"No sé lo que quiero.","tr":"I don't know what I want."},
+          {"t":"Mis amigos que viven en Texas vienen en diciembre.","tr":"My friends who live in Texas are coming in December."},
+          {"t":"La chamarra que compré me queda grande.","tr":"The jacket I bought is too big for me."},
+          {"t":"Lo que pasa es que no tengo tiempo.","tr":"The thing is, I don't have time."}
+        ] },
+        {"tip":"{{Lo que pasa es que…}} “The thing is…” is the classic Mexican way to start an explanation, or an excuse."}
+      ],
+      "mistakes": [
+        {"wrong":"El libro me prestaste es muy bueno.","right":"El libro que me prestaste es muy bueno.","tr":"The book you lent me is very good.","why":"Spanish never leaves out {{que}}."},
+        {"wrong":"No entiendo que dices.","right":"No entiendo lo que dices.","tr":"I don't understand what you're saying.","why":"“What” meaning “the thing that”: {{lo que}}."},
+        {"wrong":"La señora quien vive aquí es doctora.","right":"La señora que vive aquí es doctora.","tr":"The woman who lives here is a doctor.","why":"Right after the person, everyday Spanish says {{que}} for “who”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"El restaurante ___ comimos ayer está en el centro.","tr":"The restaurant where we ate yesterday is downtown.","options":["donde","que","lo que"],"answer":0,"why":"A place: {{donde}}."},
+        {"type":"fill","q":"Choose the missing words.","t":"No entiendo ___ dice el doctor.","tr":"I don't understand what the doctor is saying.","options":["lo que","que","qué"],"answer":0,"why":"“What”, the thing that: {{lo que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Tengo una amiga ___ habla cinco idiomas.","tr":"I have a friend who speaks five languages.","options":["que","quien","donde"],"answer":0,"why":"For people and things: {{que}}."},
+        {"type":"choice","q":"“The jacket I bought yesterday is too small for me.” Which one?","options":["{{La chamarra que compré ayer me queda chica.}}","{{La chamarra compré ayer me queda chica.}}","{{La chamarra que compré ayer me queda chico.}}"],"answer":0,"why":"Never leave out {{que}}; and {{chamarra}} is feminine: {{chica}}.","from":"say-what-hurts"},
+        {"type":"dialogue","q":"At a bakery: choose your replies.","lines":[{"who":"Baker","t":"¿Cuál pastel quiere?","tr":"Which cake would you like?"},{"options":["El que tiene fresas, por favor.","Lo que tiene fresas, por favor."],"answer":0,"why":"“The one that”, for {{el pastel}}: {{el que}}."},{"who":"Baker","t":"¿Ese o el de chocolate?","tr":"That one or the chocolate one?"},{"options":["Ese. Es más bonito que el de chocolate.","Ese. Es más bonito de el de chocolate."],"answer":0,"why":"“Than”: {{que}}."},{"who":"Baker","t":"Muy bien. Ahorita se lo envuelvo.","tr":"Very good. I'll wrap it up for you."}],"from":"compare-things"},
+        {"type":"order","q":"Put the words in order.","tr":"What I need is sleep.","words":["Lo que","necesito","es","dormir."]},
+        {"type":"say","q":"Say “This is the house where I grew up.”","answer":"Esta es la casa donde crecí."},
+        {"type":"free","q":"Your turn: describe a person or a place that matters to you, with {{que}} or {{donde}}.","answers":[{"t":"Mi abuela es la persona que más quiero. Vive en el pueblo donde nació mi mamá.","tr":"My grandmother is the person I love most. She lives in the town where my mom was born."},{"t":"El parque que está cerca de mi casa es mi lugar favorito.","tr":"The park near my house is my favorite place."}]}
+      ]
+    },
+    {
+      "id": "tell-a-friend-what-to-do",
+      "unit": 7,
+      "level": "A2",
+      "title": "Tell a friend what to do",
+      "summary": "Give instructions, invitations and advice to someone you call {{tú}}: “Come here! Sit down and tell me what happened.”",
+      "topic": "{{tú}} commands ({{habla, come, escribe}}); {{ven, ve, haz, pon, di, sal, ten, sé}}; pronouns on the end",
+      "blocks": [
+        {"goal":{"t":"¡Ven acá! Siéntate y dime qué pasó.","tr":"Come here! Sit down and tell me what happened."}},
+        {"dialog":[{"who":"Sandra","t":"Ayúdame con la salsa, ¿sí?","tr":"Help me with the salsa, will you?"},{"who":"You","t":"Claro. ¿Qué hago?","tr":"Sure. What do I do?"},{"who":"Sandra","t":"Corta los tomates y pon la cebolla en la licuadora.","tr":"Cut the tomatoes and put the onion in the blender."},{"who":"You","t":"¿Y luego?","tr":"And then?"},{"who":"Sandra","t":"Agrega un chile y sal. Y pruébala: dime si está bien.","tr":"Add a chile and some salt. And taste it: tell me if it's okay."}]},
+        {"term":"command","means":"a form of a verb that tells someone to do something: Come! Sit down!"},
+        {"p":"**The friendly command** looks like the “he, she” form of the present: {{habla}} “talk!”, {{come}} “eat!”, {{escribe}} “write!”. Stem changes stay: {{cierra}} (close), {{vuelve}} (come back), {{pide}} (order)."},
+        { "table": [
+          ["infinitive","“he, she” form","command to {{tú}}"],
+          ["{{hablar}}","{{habla}}","{{¡Habla más fuerte!}} Speak up!"],
+          ["{{comer}}","{{come}}","{{¡Come algo!}} Eat something!"],
+          ["{{abrir}}","{{abre}}","{{Abre la ventana.}} Open the window."],
+          ["{{cerrar}}","{{cierra}}","{{Cierra la puerta.}} Close the door."]
+        ] },
+        {"p":"**Eight short ones.** These very common verbs have their own short command:"},
+        { "table": [
+          ["infinitive","command","infinitive","command"],
+          ["{{venir}}","{{ven}}","{{poner}}","{{pon}}"],
+          ["{{ir}}","{{ve}}","{{salir}}","{{sal}}"],
+          ["{{hacer}}","{{haz}}","{{tener}}","{{ten}}"],
+          ["{{decir}}","{{di}}","{{ser}}","{{sé}}"]
+        ] },
+        {"p":"**Pronouns go on the end**, joined into one word: {{dime}} (tell me), {{ayúdame}} (help me), {{siéntate}} (sit down), {{llámala}} (call her). When that moves the stress back, an accent mark keeps the sound: {{ayuda}} → {{ayúdame}}, {{sienta}} → {{siéntate}}. Short ones don't need it: {{dime}}, {{ponlo}}, {{hazlo}}."},
+        {"p":"**Softer.** A command isn't rude in Spanish, but you can soften it with {{por favor}}, with {{¿sí?}} at the end, or by asking with the present: {{¿Me ayudas?}} “Will you help me?”"},
+        { "ex": [
+          {"t":"¡Ven a comer!","tr":"Come and eat!"},
+          {"t":"Pásame la sal, por favor.","tr":"Pass me the salt, please."},
+          {"t":"Llámame mañana.","tr":"Call me tomorrow."},
+          {"t":"Haz la tarea y luego sal a jugar.","tr":"Do your homework and then go out and play."},
+          {"t":"Ten cuidado.","tr":"Be careful.","note":"word for word “have care”"},
+          {"t":"Dime la verdad.","tr":"Tell me the truth."},
+          {"t":"Ponte la chamarra, hace frío.","tr":"Put your jacket on, it's cold.","note":"{{ponerse}} “to put on (clothes)”: {{ponte}}"}
+        ] },
+        {"tip":"Mexicans soften commands with {{-le}} on the end: {{¡Ándale!}} (come on!, go on!), {{¡Pásale!}} (come in!), {{¡Córrele!}} (hurry!). You'll hear it everywhere."}
+      ],
+      "mistakes": [
+        {"wrong":"¡Viene acá!","right":"¡Ven acá!","tr":"Come here!","why":"{{venir}} has a short command: {{ven}}."},
+        {"wrong":"¡Me dime!","right":"¡Dime!","tr":"Tell me!","why":"In a command, the pronoun goes on the end: {{dime}}."},
+        {"wrong":"Ayudame.","right":"Ayúdame.","tr":"Help me.","why":"Adding {{me}} moves the stress back, so it needs an accent mark: {{ayúdame}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ la puerta, por favor.","tr":"Close the door, please.","options":["Cierra","Cerra","Cierras"],"answer":0,"why":"The command keeps the stem change: {{cierra}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ acá, quiero enseñarte algo.","tr":"Come here, I want to show you something.","options":["Ven","Viene","Vienes"],"answer":0,"why":"To a friend: {{venir}} → {{ven}}."},
+        {"type":"choice","q":"How do you tell a friend “Sit down”?","options":["{{Siéntate.}}","{{Te sienta.}}","{{Sientate.}}"],"answer":0,"why":"The pronoun on the end, and an accent mark to keep the stress: {{siéntate}}.","from":"describe-your-routine"},
+        {"type":"fill","q":"Choose the missing word.","t":"Por favor, ___ la tarea antes de ver la tele.","tr":"Please do your homework before you watch TV.","options":["haz","hace","haces"],"answer":0,"why":"{{hacer}} → {{haz}}."},
+        {"type":"dialogue","q":"Your roommate is in the kitchen. Ask for things. Choose your requests.","lines":[{"who":"Roommate","t":"¿Necesitas algo?","tr":"Do you need anything?"},{"options":["Sí, pásame el agua, por favor.","Sí, pasa me el agua, por favor."],"answer":0,"why":"The pronoun joins the end: {{pásame}}."},{"who":"Roommate","t":"Aquí está. ¿Algo más?","tr":"Here you go. Anything else?"},{"options":["Sí, dile a Pablo que ya llegué.","Sí, di a Pablo que ya llegué."],"answer":0,"why":"The person you tell: {{le}}, joined to {{di}}: {{dile}}."},{"who":"Roommate","t":"¡Pablo! ¡Ya llegó!","tr":"Pablo! She's here!"}],"from":"say-who-for"},
+        {"type":"order","q":"Put the words in order.","tr":"Tell me the truth.","words":["Dime","la","verdad."]},
+        {"type":"say","q":"Tell a friend “Be careful!”","answer":"¡Ten cuidado!"},
+        {"type":"free","q":"Your turn: a friend is visiting your city for the first time. Give them three tips with {{tú}} commands.","answers":[{"t":"Ve al centro, come tacos al pastor y visita el museo.","tr":"Go downtown, eat tacos al pastor and visit the museum."},{"t":"Toma el metro, prueba el mole y sal en la noche.","tr":"Take the subway, try the mole and go out at night."}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give directions and instructions",
+      "summary": "Give directions and polite instructions to people you call {{usted}}, and to groups: “Go straight for two blocks and turn left.”",
+      "topic": "{{usted}} and {{ustedes}} commands ({{siga}}, {{dé vuelta}}, {{pase}}, {{tome}}): the “opposite vowel”",
+      "blocks": [
+        {"goal":{"t":"Siga derecho dos cuadras y dé vuelta a la izquierda.","tr":"Go straight for two blocks and turn left."}},
+        {"dialog":[{"who":"You","t":"Disculpe, ¿cómo llego al Zócalo?","tr":"Excuse me, how do I get to the Zócalo?"},{"who":"Police officer","t":"Mire, siga derecho por esta calle tres cuadras.","tr":"Look, go straight down this street for three blocks."},{"who":"You","t":"¿Y luego?","tr":"And then?"},{"who":"Police officer","t":"Dé vuelta a la derecha en el semáforo y camine hasta la catedral. Ahí está.","tr":"Turn right at the light and walk as far as the cathedral. It's right there."},{"who":"You","t":"Muchas gracias.","tr":"Thank you very much."},{"who":"Police officer","t":"Para servirle.","tr":"At your service."}]},
+        {"p":"**The opposite vowel.** For {{usted}}, the command swaps the vowel of the ending: -ar verbs take **e**, -er and -ir verbs take **a**. Start from the “I” form of the present, drop the -o, and add it:"},
+        { "table": [
+          ["infinitive","I (present)","to {{usted}}","to {{ustedes}}"],
+          ["{{hablar}}","{{hablo}}","{{hable}}","{{hablen}}"],
+          ["{{comer}}","{{como}}","{{coma}}","{{coman}}"],
+          ["{{subir}}","{{subo}}","{{suba}}","{{suban}}"],
+          ["{{tener}}","{{tengo}}","{{tenga}}","{{tengan}}"],
+          ["{{seguir}}","{{sigo}}","{{siga}}","{{sigan}}"],
+          ["{{hacer}}","{{hago}}","{{haga}}","{{hagan}}"]
+        ] },
+        {"p":"Because it starts from “I”, the -go verbs and the stem changes come along: {{venga}} (come), {{diga}} (tell), {{ponga}}, {{salga}}, {{cierre}}, {{vuelva}}, {{pida}}. Spelling keeps the sound: {{buscar}} → {{busque}}, {{llegar}} → {{llegue}}, {{cruzar}} → {{cruce}}."},
+        {"p":"**Five irregulars:** {{ir}} → {{vaya}}, {{ser}} → {{sea}}, {{estar}} → {{esté}}, {{saber}} → {{sepa}}, {{dar}} → {{dé}} (with an accent, to tell it from {{de}} “of”). For a group, add -n: {{vayan}}, {{sean}}, {{den}}. In Mexico, {{ustedes}} commands are for any group, friends included."},
+        {"p":"**Pronouns go on the end**, as with {{tú}}: {{siéntese}} (sit down), {{dígame}} (tell me; also “How can I help you?”), {{pásenle}} (come in, all of you)."},
+        {"p":"**Directions.** {{siga derecho}} (go straight), {{dé vuelta a la derecha}}, {{dé vuelta a la izquierda}} (turn right, turn left), {{cruce la calle}} (cross the street), {{en la esquina}} (on the corner), {{en el semáforo}} (at the light), {{a dos cuadras}} (two blocks away), {{hasta}} (as far as)."},
+        { "ex": [
+          {"t":"Pase, por favor. Siéntese.","tr":"Come in, please. Have a seat."},
+          {"t":"Tome la línea dos del metro y bájese en Bellas Artes.","tr":"Take subway line two and get off at Bellas Artes."},
+          {"t":"Espere aquí, por favor.","tr":"Please wait here."},
+          {"t":"Llene este formulario y fírmelo.","tr":"Fill out this form and sign it."},
+          {"t":"Niños, hagan la tarea y vengan a cenar.","tr":"Kids, do your homework and come have dinner."},
+          {"t":"Vaya al final del pasillo y suba al segundo piso.","tr":"Go to the end of the hall and up to the second floor."},
+          {"t":"Dígame, ¿en qué le puedo ayudar?","tr":"Yes, how can I help you?"}
+        ] },
+        {"tip":"These forms will come back: they're the **subjunctive**, which the next unit uses for wishes, advice and plans (lesson 43). Learning them here gets you halfway there."}
+      ],
+      "mistakes": [
+        {"wrong":"Señor, sigue derecho dos cuadras.","right":"Señor, siga derecho dos cuadras.","tr":"Sir, go straight for two blocks.","why":"To someone you call {{usted}}, the opposite vowel: {{siga}}. {{Sigue}} is for {{tú}}."},
+        {"wrong":"Vaye a la esquina.","right":"Vaya a la esquina.","tr":"Go to the corner.","why":"{{ir}} is irregular: {{vaya}}."},
+        {"wrong":"Por favor, siente se.","right":"Por favor, siéntese.","tr":"Please have a seat.","why":"The pronoun joins the end, with an accent mark: {{siéntese}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ vuelta a la derecha en el semáforo.","tr":"Turn right at the light.","options":["Dé","Da","De"],"answer":0,"why":"{{dar}} → {{dé}}, with an accent."},
+        {"type":"fill","q":"Choose the polite ({{usted}}) form.","t":"Por favor, ___ aquí.","tr":"Please wait here.","options":["espere","espera","esperar"],"answer":0,"why":"To {{usted}}, -ar verbs take e: {{espere}}."},
+        {"type":"fill","q":"Choose the form for a group.","t":"Niños, ___ la tarea antes de cenar.","tr":"Kids, do your homework before dinner.","options":["hagan","hacen","haga"],"answer":0,"why":"To a group ({{ustedes}}): {{hagan}}."},
+        {"type":"choice","q":"A waiter tells a couple “Come in and sit down.” Which one?","options":["{{Pasen y siéntense.}}","{{Pasan y se sientan.}}","{{Pase y siéntese.}}"],"answer":0,"why":"To a group: {{pasen}}, {{siéntense}}."},
+        {"type":"dialogue","q":"A tourist asks you the way. Choose your replies.","lines":[{"who":"Tourist","t":"Disculpe, ¿hay una farmacia por aquí?","tr":"Excuse me, is there a pharmacy around here?"},{"options":["Sí, hay una cerca. Siga derecho una cuadra.","Sí, está una cerca. Sigue derecho una cuadra."],"answer":0,"why":"Is there one: {{hay}}; and to a stranger: {{siga}}."},{"who":"Tourist","t":"¿Y luego?","tr":"And then?"},{"options":["Dé vuelta a la izquierda. Está al lado del banco.","Da vuelta a la izquierda. Está al lado de el banco."],"answer":0,"why":"{{dé}} for {{usted}}; and {{de}} + {{el}} = {{del}}."},{"who":"Tourist","t":"Muchas gracias.","tr":"Thank you very much."}],"from":"find-places"},
+        {"type":"order","q":"Put the words in order.","tr":"Take line two and get off at Bellas Artes.","words":["Tome","la línea dos","y bájese","en Bellas Artes."]},
+        {"type":"say","q":"Tell a visitor politely “Come in, please. Have a seat.”","answer":"Pase, por favor. Siéntese."},
+        {"type":"free","q":"Your turn: give a stranger directions from your home to the nearest store, with {{usted}} commands.","answers":[{"t":"Siga derecho dos cuadras, dé vuelta a la derecha y la tienda está en la esquina.","tr":"Go straight for two blocks, turn right, and the store is on the corner."},{"t":"Cruce la calle y camine hasta el semáforo. Ahí está el súper.","tr":"Cross the street and walk to the light. The supermarket is right there."}]}
+      ]
+    },
+    {
+      "id": "say-dont",
+      "unit": 7,
+      "level": "A2",
+      "title": "Tell someone not to do something",
+      "summary": "Warn, advise and reassure: “Don't worry!” “Don't touch that!” “Don't be late!”",
+      "topic": "negative commands ({{no hables}}, {{no se preocupe}}, {{no lo toques}}); pronouns before the verb",
+      "blocks": [
+        {"goal":{"t":"¡No te preocupes! Y no llegues tarde.","tr":"Don't worry! And don't be late."}},
+        {"dialog":[{"who":"Mom","t":"Puedes ir a la fiesta, pero no llegues tarde.","tr":"You can go to the party, but don't be late."},{"who":"Leo","t":"Ya sé, mamá. No te preocupes.","tr":"I know, Mom. Don't worry."},{"who":"Mom","t":"Y no manejes rápido, ¿eh?","tr":"And don't drive fast, okay?"},{"who":"Leo","t":"No voy a manejar: voy con Diego.","tr":"I'm not driving: I'm going with Diego."},{"who":"Mom","t":"Bueno. No olvides tu celular, y llámame.","tr":"Okay. Don't forget your phone, and call me."}]},
+        {"p":"**“Don't” uses the opposite vowel.** A negative command, even to {{tú}}, takes the form you learned for {{usted}}, with the {{tú}} ending **-s**: {{no hables}}, {{no comas}}, {{no vengas}}. For {{usted}} and {{ustedes}}, just put {{no}} first: {{no hable}}, {{no hablen}}."},
+        { "table": [
+          ["","do it","don't do it"],
+          ["to {{tú}}","{{habla}}, {{come}}, {{ven}}","{{no hables}}, {{no comas}}, {{no vengas}}"],
+          ["to {{usted}}","{{hable}}, {{coma}}, {{venga}}","{{no hable}}, {{no coma}}, {{no venga}}"],
+          ["to {{ustedes}}","{{hablen}}, {{coman}}, {{vengan}}","{{no hablen}}, {{no coman}}, {{no vengan}}"]
+        ] },
+        {"p":"The irregulars come along: {{no vayas}} (don't go), {{no seas}} (don't be), {{no hagas}}, {{no digas}}, {{no pongas}}, {{no salgas}}, {{no estés}}. And the spellings: {{no toques}} ({{tocar}}), {{no llegues}} ({{llegar}}), {{no empieces}} ({{empezar}})."},
+        {"p":"**Pronouns move to the front.** In “do it”, they go on the end; in “don't do it”, between {{no}} and the verb: {{Tócalo}} → {{No lo toques}}; {{Siéntate}} → {{No te sientes}}; {{Dime}} → {{No me digas}}."},
+        { "ex": [
+          {"t":"No te preocupes, todo va a estar bien.","tr":"Don't worry, everything's going to be fine."},
+          {"t":"¡No toques eso! Está caliente.","tr":"Don't touch that! It's hot."},
+          {"t":"No se preocupe, señora.","tr":"Don't worry, ma'am."},
+          {"t":"No hagas ruido, el bebé está durmiendo.","tr":"Don't make any noise, the baby is sleeping."},
+          {"t":"No le digas a nadie.","tr":"Don't tell anyone.","note":"the double negative again: {{no}} … {{nadie}}"},
+          {"t":"No coman en el salón, por favor.","tr":"Please don't eat in the classroom."},
+          {"t":"¡No me digas!","tr":"No way! You don't say!","note":"a very common reaction to news"}
+        ] },
+        {"tip":"{{¡No manches!}} is the everyday Mexican “No way!” among friends (word for word “don't stain”). Fine with friends, not with your boss."}
+      ],
+      "mistakes": [
+        {"wrong":"¡No habla!","right":"¡No hables!","tr":"Don't talk!","why":"“Don't” to {{tú}}: the opposite vowel, and -s: {{no hables}}."},
+        {"wrong":"No tócalo.","right":"No lo toques.","tr":"Don't touch it.","why":"In a negative command, the pronoun goes before the verb, and the verb takes the opposite vowel."},
+        {"wrong":"¡No ve!","right":"¡No vayas!","tr":"Don't go!","why":"{{ir}} → {{no vayas}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¡No ___ eso! Está sucio.","tr":"Don't eat that! It's dirty.","options":["comas","come","comes"],"answer":0,"why":"“Don't” to {{tú}}: the opposite vowel and -s, {{no comas}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"No ___ preocupe, señor.","tr":"Don't worry, sir.","options":["se","te","lo"],"answer":0,"why":"To {{usted}}: {{se}}, before the verb."},
+        {"type":"choice","q":"“Don't tell my mom.” Which one?","options":["{{No le digas a mi mamá.}}","{{No dile a mi mamá.}}","{{No le dices a mi mamá.}}"],"answer":0,"why":"The pronoun before the verb, and the opposite vowel: {{no le digas}}.","from":"say-who-for"},
+        {"type":"fill","q":"Choose the missing word.","t":"Niños, no ___ en la calle.","tr":"Kids, don't play in the street.","options":["jueguen","juegan","jugan"],"answer":0,"why":"To a group: {{no jueguen}} (the u keeps the hard g)."},
+        {"type":"dialogue","q":"Your friend is nervous before a job interview. Choose your replies.","lines":[{"who":"Friend","t":"¡Tengo mucho miedo!","tr":"I'm so scared!"},{"options":["No te preocupes. Ten confianza.","No te preocupas. Tienes confianza."],"answer":0,"why":"“Don't worry”: {{no te preocupes}}; and “be confident”: {{ten confianza}}."},{"who":"Friend","t":"¿Y si no sé qué decir?","tr":"And what if I don't know what to say?"},{"options":["Respira, sonríe y di la verdad.","Respiras, sonríes y dices la verdad."],"answer":0,"why":"Telling a friend what to do: {{respira}}, {{sonríe}}, {{di}}."},{"who":"Friend","t":"Gracias. ¡Deséame suerte!","tr":"Thanks. Wish me luck!"}],"from":"tell-a-friend-what-to-do"},
+        {"type":"order","q":"Put the words in order.","tr":"Don't touch it, it's hot.","words":["No","lo","toques,","está caliente."]},
+        {"type":"say","q":"Tell a friend “Don't be late!”","answer":"¡No llegues tarde!"},
+        {"type":"free","q":"Your turn: a friend is coming to your city. Tell them two things to do and two not to do.","answers":[{"t":"Ve al mercado, pero no compres en las tiendas para turistas. Y no tomes agua de la llave.","tr":"Go to the market, but don't buy in the tourist shops. And don't drink tap water."},{"t":"Visita el centro y prueba los tacos. No manejes en la noche y no olvides tu chamarra.","tr":"Visit downtown and try the tacos. Don't drive at night, and don't forget your jacket."}]}
+      ]
     }
   ]
 }
