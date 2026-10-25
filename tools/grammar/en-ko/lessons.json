@@ -306,6 +306,7 @@
         {"goal":{"t":"저는 매일 아침 커피를 마셔요.","tr":"I drink coffee every morning.","r":"jeoneun maeil achim keopireul masyeoyo."}},
         {"dialog":[{"who":"Jieun","t":"소피 씨는 아침에 뭐 먹어요?","tr":"What do you eat in the morning, Sophie?","r":"sopi ssineun achime mwo meogeoyo?"},{"who":"Sophie","t":"저는 빵을 먹어요. 그리고 커피를 마셔요.","tr":"I eat bread. And I drink coffee.","r":"jeoneun ppangeul meogeoyo. geurigo keopireul masyeoyo."},{"who":"Jieun","t":"저는 밥을 먹어요.","tr":"I eat rice.","r":"jeoneun babeul meogeoyo."},{"who":"Sophie","t":"아, 그래요? 저녁에는 뭐 해요?","tr":"Oh, really? And what do you do in the evening?","r":"a, geuraeyo? jeonyeogeneun mwo haeyo?"},{"who":"Jieun","t":"저녁에는 운동해요. 그리고 드라마를 봐요.","tr":"In the evening I work out. And I watch dramas.","r":"jeonyeogeneun undonghaeyo. geurigo deuramareul bwayo."}]},
         {"p":"**The polite present.** In lesson 6 you added {{-고 싶어요|-go sipeoyo}} to a stem. Now the main ending: the present tense, for what you do in general or right now. It has three shapes, and the stem's **last vowel** chooses."},
+        {"term":"tense","means":"the form of a verb that says when something happens: the present (I eat), the past (I ate), the future (I will eat)."},
         {"term":"vowel harmony","means":"choosing an ending by the vowel before it. In Korean, a stem whose last vowel is {{ㅏ}} or {{ㅗ}} takes {{-아|-a}}; any other vowel takes {{-어|-eo}}."},
         { "table": [
           ["the stem's last vowel is…","add","examples"],
@@ -814,6 +815,202 @@
         {"type":"dialogue","q":"In a taxi: choose your replies.","from":"ask-for-things","lines":[{"who":"Driver","t":"어디로 가세요?","tr":"Where to?","r":"eodiro gaseyo?"},{"options":["서울역으로 가 주세요.","서울역으로 가지 마세요."],"answer":0,"why":"A request: {{가 주세요|ga juseyo}} “please go (take me)”."},{"who":"Driver","t":"다 왔어요. 만 이천 원이에요.","tr":"Here we are. That's 12,000 won.","r":"da wasseoyo. man icheon wonieyo."},{"options":["여기요. 영수증 주세요.","여기요. 영수증 하세요."],"answer":0,"why":"Asking for a thing: {{주세요|juseyo}}."}]},
         {"type":"say","q":"Ask someone: “Could you take a picture of us, please?”","answer":"사진 좀 찍어 주세요.","r":"sajin jom jjigeo juseyo."},
         {"type":"free","q":"Your turn: your Korean teacher speaks fast. Ask them two things, like speaking slowly, saying it again or writing it down ({{써 주세요|sseo juseyo}}).","answers":[{"t":"천천히 말해 주세요.","tr":"Please speak slowly.","r":"cheoncheonhi malhae juseyo."},{"t":"다시 한번 말해 주세요.","tr":"Could you say that again, please?","r":"dasi hanbeon malhae juseyo."},{"t":"여기에 써 주세요.","tr":"Please write it here.","r":"yeogie sseo juseyo."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say what you did",
+      "summary": "Tell someone what you did yesterday or last weekend: “I met a friend, and we watched a movie.”",
+      "topic": "the past tense {{-았어요|-asseoyo}} / {{-었어요|-eosseoyo}} / {{했어요|haesseoyo}}; {{어제|eoje}}, {{지난주|jinanju}}; {{안|an}} with the past",
+      "blocks": [
+        {"goal":{"t":"어제 친구를 만났어요.","tr":"I met a friend yesterday.","r":"eoje chingureul mannasseoyo."}},
+        {"dialog":[{"who":"Jieun","t":"주말에 뭐 했어요?","tr":"What did you do at the weekend?","r":"jumare mwo haesseoyo?"},{"who":"You","t":"토요일에 친구를 만났어요. 같이 영화를 봤어요.","tr":"I met a friend on Saturday. We watched a movie together.","r":"toyoire chingureul mannasseoyo. gachi yeonghwareul bwasseoyo."},{"who":"Jieun","t":"무슨 영화를 봤어요?","tr":"What movie did you see?","r":"museun yeonghwareul bwasseoyo?"},{"who":"You","t":"한국 영화를 봤어요. 일요일에는 집에서 쉬었어요. 지은 씨는요?","tr":"A Korean movie. On Sunday I rested at home. And you, Jieun?","r":"hanguk yeonghwareul bwasseoyo. iryoireneun jibeseo swieosseoyo. jieun ssineunyo?"},{"who":"Jieun","t":"저는 아무것도 안 했어요. 잠만 잤어요!","tr":"I didn't do anything. I just slept!","r":"jeoneun amugeotdo an haesseoyo. jamman jasseoyo!"}]},
+        {"p":"**The past comes from the present.** Take the present form without {{요|yo}}, tuck {{ㅆ}} under its last syllable, and add {{어요|eoyo}}: {{가(요)|ga(yo)}} → {{갔어요|gasseoyo}} “I went”, {{먹어(요)|meogeo(yo)}} → {{먹었어요|meogeosseoyo}} “I ate”, {{해(요)|hae(yo)}} → {{했어요|haesseoyo}} “I did”. So the past follows the same vowel harmony as the present: {{-았어요|-asseoyo}} after {{ㅏ}} and {{ㅗ}}, {{-었어요|-eosseoyo}} after other vowels, {{했어요|haesseoyo}} for {{하다|hada}}."},
+        { "table": [
+          ["dictionary form","present","past"],
+          ["{{가다|gada}} to go","{{가요|gayo}}","{{갔어요|gasseoyo}}"],
+          ["{{보다|boda}} to watch","{{봐요|bwayo}}","{{봤어요|bwasseoyo}}"],
+          ["{{먹다|meokda}} to eat","{{먹어요|meogeoyo}}","{{먹었어요|meogeosseoyo}}"],
+          ["{{마시다|masida}} to drink","{{마셔요|masyeoyo}}","{{마셨어요|masyeosseoyo}}"],
+          ["{{만나다|mannada}} to meet","{{만나요|mannayo}}","{{만났어요|mannasseoyo}}"],
+          ["{{하다|hada}} to do","{{해요|haeyo}}","{{했어요|haesseoyo}}"]
+        ] },
+        {"p":"**One past for many.** Korean's everyday past covers several English tenses: {{먹었어요|meogeosseoyo}} is “I ate” and “I've eaten”. As in the present, the same form works for “I”, “you” and “she”: {{뭐 했어요?|mwo haesseoyo?}} “What did you do?”."},
+        {"p":"**Not: {{안|an}} + the past.** {{안 갔어요|an gasseoyo}} “I didn't go”, {{공부 안 했어요|gongbu an haesseoyo}} “I didn't study”. {{아무것도 안 했어요|amugeotdo an haesseoyo}} is “I didn't do anything”. Words for the past: {{어제|eoje}} “yesterday”, {{지난주|jinanju}} “last week”, {{지난 주말|jinan jumal}} “last weekend”, {{작년|jangnyeon}} “last year”, {{아까|akka}} “a moment ago”."},
+        { "ex": [
+          {"t":"어제 뭐 했어요?","tr":"What did you do yesterday?","r":"eoje mwo haesseoyo?"},
+          {"t":"지난주에 부산에 갔어요.","tr":"I went to Busan last week.","r":"jinanjue busane gasseoyo."},
+          {"t":"커피를 두 잔 마셨어요.","tr":"I drank two cups of coffee.","r":"keopireul du jan masyeosseoyo."},
+          {"t":"작년에 한국어를 배웠어요.","tr":"I learned Korean last year.","r":"jangnyeone hangugeoreul baewosseoyo."},
+          {"t":"어제는 운동 안 했어요.","tr":"I didn't work out yesterday.","r":"eojeneun undong an haesseoyo."},
+          {"t":"음악을 들었어요.","tr":"I listened to music.","note":"{{듣다|deutda}} → {{들었어요|deureosseoyo}}: see the tip","r":"eumageul deureosseoyo."},
+          {"t":"몰랐어요!","tr":"I didn't know!","note":"{{모르다|moreuda}} → {{몰랐어요|mollasseoyo}}","r":"mollasseoyo!"}
+        ] },
+        {"tip":"Two common verbs change shape before a vowel. {{듣다|deutda}} “to listen” turns its {{ㄷ}} into {{ㄹ}}: {{들어요|deureoyo}}, {{들었어요|deureosseoyo}} (so does {{걷다|geotda}} “to walk”: {{걸어요|georeoyo}}). {{모르다|moreuda}} “not to know” doubles its {{ㄹ}}: {{몰라요|mollayo}}, {{몰랐어요|mollasseoyo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"어제 친구를 만나었어요.","right":"어제 친구를 만났어요.","tr":"I met a friend yesterday.","why":"{{만나|manna}} + {{았|at}} melts into {{만났|mannat}}, just as {{만나요|mannayo}} did in the present."},
+        {"wrong":"어제 안 공부했어요.","right":"어제 공부 안 했어요.","tr":"I didn't study yesterday.","why":"With a noun + {{하다|hada}} verb, {{안|an}} goes just before {{했어요|haesseoyo}}."},
+        {"wrong":"음악을 듣었어요.","right":"음악을 들었어요.","tr":"I listened to music.","why":"{{듣다|deutda}} turns its {{ㄷ}} into {{ㄹ}} before a vowel: {{들었어요|deureosseoyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I drank” is…","options":["{{마셨어요|masyeosseoyo}}","{{마셔요|masyeoyo}}","{{마시고 싶어요|masigo sipeoyo}}"],"answer":0,"why":"{{마셔요|masyeoyo}} → {{마셨어요|masyeosseoyo}}. ({{마셔요|masyeoyo}} is the present, {{마시고 싶어요|masigo sipeoyo}} “I want to drink”.)"},
+        {"type":"fill","q":"Choose the right form.","t":"어제 친구를 ___.","tr":"I met a friend yesterday.","options":["만났어요","만나요","만나었어요"],"answer":0,"why":"Yesterday: the past, {{만났어요|mannasseoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"주말에 아무것도 안 ___.","tr":"I didn't do anything at the weekend.","options":["했어요","해요"],"answer":0,"why":"The past of {{해요|haeyo}}: {{했어요|haesseoyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I went to Busan last week.","words":["지난주에","부산에","갔어요."]},
+        {"type":"dialogue","q":"Monday morning at work. Choose your replies.","from":"say-where-you-go","lines":[{"who":"Coworker","t":"주말에 뭐 했어요?","tr":"What did you do at the weekend?","r":"jumare mwo haesseoyo?"},{"options":["친구하고 공원에 갔어요.","친구하고 공원에서 갔어요."],"answer":0,"why":"Going to a place: {{에|e}}, in the past too."},{"who":"Coworker","t":"공원에서 뭐 했어요?","tr":"What did you do in the park?","r":"gongwoneseo mwo haesseoyo?"},{"options":["자전거를 탔어요.","자전거를 타요."],"answer":0,"why":"It happened at the weekend: the past, {{탔어요|tasseoyo}}."}]},
+        {"type":"say","q":"Say: “I didn't know!”","answer":"몰랐어요!","r":"mollasseoyo!"},
+        {"type":"free","q":"Your turn: what did you do yesterday? Say three things.","answers":[{"t":"어제 회사에 갔어요. 저녁에 친구를 만났어요. 같이 삼겹살을 먹었어요.","tr":"Yesterday I went to work. In the evening I met a friend. We had samgyeopsal together.","r":"eoje hoesae gasseoyo. jeonyeoge chingureul mannasseoyo. gachi samgyeopsareul meogeosseoyo."},{"t":"어제 집에서 쉬었어요. 드라마를 봤어요. 일찍 잤어요.","tr":"Yesterday I rested at home. I watched a drama. I went to bed early.","r":"eoje jibeseo swieosseoyo. deuramareul bwasseoyo. iljjik jasseoyo."}]}
+      ]
+    },
+    {
+      "id": "say-how-it-was",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say how it was",
+      "summary": "Say how your weekend, the food or your trip was, and what someone used to be: “The trip was really fun.”",
+      "topic": "the past of descriptive verbs ({{좋았어요|joasseoyo}}, {{추웠어요|chuwosseoyo}}, {{바빴어요|bappasseoyo}}); {{이었어요|ieosseoyo}} / {{였어요|yeosseoyo}}; {{어땠어요?|eottaesseoyo?}}",
+      "blocks": [
+        {"goal":{"t":"여행은 정말 재미있었어요.","tr":"The trip was really fun.","r":"yeohaengeun jeongmal jaemiisseosseoyo."}},
+        {"dialog":[{"who":"Friend","t":"제주도 여행 어땠어요?","tr":"How was your trip to Jeju?","r":"jejudo yeohaeng eottaesseoyo?"},{"who":"You","t":"정말 좋았어요! 바다가 너무 예뻤어요.","tr":"It was great! The sea was so beautiful.","r":"jeongmal joasseoyo! badaga neomu yeppeosseoyo."},{"who":"Friend","t":"날씨는요?","tr":"And the weather?","r":"nalssineunyo?"},{"who":"You","t":"좀 추웠어요. 그래도 재미있었어요.","tr":"It was a bit cold. But it was still fun.","r":"jom chuwosseoyo. geuraedo jaemiisseosseoyo."},{"who":"Friend","t":"음식은 어땠어요?","tr":"How was the food?","r":"eumsigeun eottaesseoyo?"},{"who":"You","t":"흑돼지가 진짜 맛있었어요.","tr":"The black pork was really delicious.","r":"heukdwaejiga jinjja masisseosseoyo."}]},
+        {"p":"**Describing in the past.** Descriptive verbs take the same past ending as action verbs: {{좋아요|joayo}} → {{좋았어요|joasseoyo}} “it was good”, {{재미있어요|jaemiisseoyo}} → {{재미있었어요|jaemiisseosseoyo}} “it was fun”. The families that change shape (lesson 12) keep their present shape: {{추워요|chuwoyo}} → {{추웠어요|chuwosseoyo}}, {{바빠요|bappayo}} → {{바빴어요|bappasseoyo}}, {{예뻐요|yeppeoyo}} → {{예뻤어요|yeppeosseoyo}}."},
+        { "table": [
+          ["","present","past"],
+          ["good","{{좋아요|joayo}}","{{좋았어요|joasseoyo}}"],
+          ["fun","{{재미있어요|jaemiisseoyo}}","{{재미있었어요|jaemiisseosseoyo}}"],
+          ["busy","{{바빠요|bappayo}}","{{바빴어요|bappasseoyo}}"],
+          ["cold","{{추워요|chuwoyo}}","{{추웠어요|chuwosseoyo}}"],
+          ["pretty","{{예뻐요|yeppeoyo}}","{{예뻤어요|yeppeosseoyo}}"],
+          ["not expensive","{{안 비싸요|an bissayo}}","{{안 비쌌어요|an bissasseoyo}}"]
+        ] },
+        {"p":"**Was a…: {{이었어요|ieosseoyo}}/{{였어요|yeosseoyo}}.** The past of {{이에요|ieyo}}/{{예요|yeyo}} is {{이었어요|ieosseoyo}} after a consonant and {{였어요|yeosseoyo}} after a vowel: {{학생이었어요|haksaengieosseoyo}} “I was a student”, {{의사였어요|uisayeosseoyo}} “she was a doctor”. And {{아니에요|anieyo}} becomes {{아니었어요|anieosseoyo}} “it wasn't”."},
+        { "table": [
+          ["","present","past"],
+          ["after a consonant","{{학생이에요|haksaengieyo}}","{{학생이었어요|haksaengieosseoyo}}"],
+          ["after a vowel","{{의사예요|uisayeyo}}","{{의사였어요|uisayeosseoyo}}"],
+          ["it isn't","{{학생이 아니에요|haksaengi anieyo}}","{{학생이 아니었어요|haksaengi anieosseoyo}}"]
+        ] },
+        {"p":"**How was it?** {{어땠어요?|eottaesseoyo?}}, the past of {{어때요?|eottaeyo?}} “how is it?”, asks for a description: {{영화 어땠어요?|yeonghwa eottaesseoyo?}} “How was the movie?”. In questions like this, the topic often drops its particle."},
+        { "ex": [
+          {"t":"주말 어땠어요?","tr":"How was your weekend?","r":"jumal eottaesseoyo?"},
+          {"t":"어제 너무 바빴어요.","tr":"I was so busy yesterday.","r":"eoje neomu bappasseoyo."},
+          {"t":"시험이 쉬웠어요.","tr":"The test was easy.","r":"siheomi swiwosseoyo."},
+          {"t":"그 식당은 별로였어요.","tr":"That restaurant was nothing special.","note":"{{별로예요|byeolloyeyo}} “it's not great”","r":"geu sikdangeun byeolloyeosseoyo."},
+          {"t":"저는 작년에 학생이었어요.","tr":"I was a student last year.","r":"jeoneun jangnyeone haksaengieosseoyo."},
+          {"t":"우리 할아버지는 선생님이었어요.","tr":"My grandfather was a teacher.","r":"uri harabeojineun seonsaengnimieosseoyo."},
+          {"t":"그 사람은 한국 사람이 아니었어요.","tr":"That person wasn't Korean.","r":"geu sarameun hanguk sarami anieosseoyo."}
+        ] },
+        {"tip":"{{그래도|geuraedo}} “still, even so” is handy after something negative: {{좀 추웠어요. 그래도 재미있었어요.|jom chuwosseoyo. geuraedo jaemiisseosseoyo.}} “It was a bit cold. But it was still fun.”"}
+      ],
+      "mistakes": [
+        {"wrong":"날씨가 춥었어요.","right":"날씨가 추웠어요.","tr":"The weather was cold.","why":"{{춥다|chupda}} keeps its {{우|u}} in the past: {{추웠어요|chuwosseoyo}}."},
+        {"wrong":"저는 학생였어요.","right":"저는 학생이었어요.","tr":"I was a student.","why":"{{학생|haksaeng}} ends in a consonant: {{이었어요|ieosseoyo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Your friend went to a concert yesterday. You ask…","options":["{{콘서트 어땠어요?|konseoteu eottaesseoyo?}}","{{콘서트 어때요?|konseoteu eottaeyo?}}","{{콘서트 뭐예요?|konseoteu mwoyeyo?}}"],"answer":0,"why":"About something past: {{어땠어요?|eottaesseoyo?}}"},
+        {"type":"fill","q":"Choose the right form.","t":"어제 정말 ___.","tr":"I was really busy yesterday.","options":["바빴어요","바빠요","바쁘었어요"],"answer":0,"why":"{{바빠요|bappayo}} → {{바빴어요|bappasseoyo}}."},
+        {"type":"fill","q":"Choose the right form.","t":"저는 작년에 학생___.","tr":"I was a student last year.","options":["이었어요","였어요"],"answer":0,"why":"{{학생|haksaeng}} ends in a consonant: {{이었어요|ieosseoyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The sea was so beautiful.","words":["바다가","너무","예뻤어요."]},
+        {"type":"dialogue","q":"A friend asks about your day out. Choose your replies.","from":"say-what-you-did","lines":[{"who":"Friend","t":"어제 뭐 했어요?","tr":"What did you do yesterday?","r":"eoje mwo haesseoyo?"},{"options":["친구하고 홍대에 갔어요.","친구하고 홍대에 가요."],"answer":0,"why":"Yesterday: the past, {{갔어요|gasseoyo}}."},{"who":"Friend","t":"홍대 어땠어요?","tr":"How was Hongdae?","r":"hongdae eottaesseoyo?"},{"options":["사람이 정말 많았어요.","사람이 정말 많이였어요."],"answer":0,"why":"{{많다|manta}} is a descriptive verb: its past is {{많았어요|manasseoyo}}."}]},
+        {"type":"say","q":"Ask a coworker: “How was your weekend?”","answer":"주말 어땠어요?","r":"jumal eottaesseoyo?"},
+        {"type":"free","q":"Your turn: tell someone about a trip or a day out. Where did you go, and how was it?","answers":[{"t":"지난달에 부산에 갔어요. 바다가 정말 예뻤어요. 음식도 맛있었어요.","tr":"Last month I went to Busan. The sea was really beautiful. The food was good too.","r":"jinandare busane gasseoyo. badaga jeongmal yeppeosseoyo. eumsikdo masisseosseoyo."},{"t":"어제 영화를 봤어요. 좀 지루했어요.","tr":"I watched a movie yesterday. It was a bit boring.","r":"eoje yeonghwareul bwasseoyo. jom jiruhaesseoyo."}]}
+      ]
+    },
+    {
+      "id": "one-thing-then-another",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say one thing, then another",
+      "summary": "Join two actions or two descriptions into one sentence: “I had breakfast and went to work”, “It's cheap and good.”",
+      "topic": "stem + {{-고|-go}} “and, and then”; the tense on the last verb; {{그리고|geurigo}}",
+      "blocks": [
+        {"goal":{"t":"아침을 먹고 회사에 갔어요.","tr":"I had breakfast and went to work.","r":"achimeul meokgo hoesae gasseoyo."}},
+        {"dialog":[{"who":"Friend","t":"어제 저녁에 뭐 했어요?","tr":"What did you do yesterday evening?","r":"eoje jeonyeoge mwo haesseoyo?"},{"who":"You","t":"퇴근하고 친구를 만났어요.","tr":"I left work and met a friend.","r":"toegeunhago chingureul mannasseoyo."},{"who":"Friend","t":"어디에서 만났어요?","tr":"Where did you meet?","r":"eodieseo mannasseoyo?"},{"who":"You","t":"이태원에서 만났어요. 저녁을 먹고 노래방에 갔어요.","tr":"In Itaewon. We had dinner and went to karaoke.","r":"itaewoneseo mannasseoyo. jeonyeogeul meokgo noraebange gasseoyo."},{"who":"Friend","t":"그 식당 어땠어요?","tr":"How was the restaurant?","r":"geu sikdang eottaesseoyo?"},{"who":"You","t":"싸고 맛있었어요!","tr":"It was cheap and good!","r":"ssago masisseosseoyo!"}]},
+        {"p":"**And, and then: {{-고|-go}}.** Stem + {{-고|-go}} joins two sentences into one: {{아침을 먹어요. 회사에 가요.|achimeul meogeoyo. hoesae gayo.}} → {{아침을 먹고 회사에 가요.|achimeul meokgo hoesae gayo.}} “I have breakfast and go to work.” You know this {{-고|-go}} from {{-고 싶어요|-go sipeoyo}}: it goes straight onto the stem and never changes shape."},
+        {"p":"**The last verb says when.** In a chain of actions, the {{-고|-go}} verb usually has no past ending: the last verb says when everything happened. {{아침을 먹고 회사에 갔어요|achimeul meokgo hoesae gasseoyo}} is “I had breakfast and went to work”."},
+        { "table": [
+          ["","Korean","meaning"],
+          ["every day","{{밥을 먹고 커피를 마셔요.|babeul meokgo keopireul masyeoyo.}}","I eat and then drink coffee."],
+          ["yesterday","{{밥을 먹고 커피를 마셨어요.|babeul meokgo keopireul masyeosseoyo.}}","I ate and then drank coffee."],
+          ["two descriptions","{{싸고 맛있어요.|ssago masisseoyo.}}","It's cheap and good."],
+          ["two descriptions, past","{{싸고 맛있었어요.|ssago masisseosseoyo.}}","It was cheap and good."]
+        ] },
+        {"p":"**Two descriptions** join the same way: {{이 방은 넓고 깨끗해요|i bangeun neolgo kkaekkeutaeyo}} “This room is big and clean.” With {{이에요|ieyo}}, it's {{이고|igo}}: {{동생은 학생이고 저는 회사원이에요|dongsaengeun haksaengigo jeoneun hoesawonieyo}} “My younger sibling is a student, and I'm an office worker.” Between two separate sentences, {{그리고|geurigo}} “and, and also” does the same job: {{밥을 먹었어요. 그리고 커피를 마셨어요.|babeul meogeosseoyo. geurigo keopireul masyeosseoyo.}}"},
+        { "ex": [
+          {"t":"샤워하고 아침을 먹어요.","tr":"I shower and then have breakfast.","r":"syawohago achimeul meogeoyo."},
+          {"t":"저는 퇴근하고 운동해요.","tr":"I work out after work.","note":"{{퇴근하다|toegeunhada}} “to leave work”","r":"jeoneun toegeunhago undonghaeyo."},
+          {"t":"숙제를 하고 잤어요.","tr":"I did my homework and went to bed.","r":"sukjereul hago jasseoyo."},
+          {"t":"이 식당은 싸고 맛있어요.","tr":"This restaurant is cheap and good.","r":"i sikdangeun ssago masisseoyo."},
+          {"t":"제 동생은 키가 크고 재미있어요.","tr":"My younger sibling is tall and funny.","note":"{{키가 크다|kiga keuda}} “to be tall”: height is big","r":"je dongsaengeun kiga keugo jaemiisseoyo."},
+          {"t":"서울은 크고 복잡해요.","tr":"Seoul is big and crowded.","r":"seoureun keugo bokjapaeyo."}
+        ] },
+        {"tip":"Korean likes long chains: {{일어나고, 샤워하고, 아침을 먹고, 회사에 가요.|ireonago, syawohago, achimeul meokgo, hoesae gayo.}} Only the last verb has the full ending."}
+      ],
+      "mistakes": [
+        {"wrong":"아침을 먹어고 회사에 가요.","right":"아침을 먹고 회사에 가요.","tr":"I have breakfast and go to work.","why":"{{-고|-go}} goes straight onto the stem: {{먹고|meokgo}}."},
+        {"wrong":"저는 학생고 동생은 회사원이에요.","right":"저는 학생이고 동생은 회사원이에요.","tr":"I'm a student, and my younger sibling is an office worker.","why":"After a consonant, {{이에요|ieyo}} joins as {{이고|igo}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Join them into one sentence: {{싸요|ssayo}} + {{맛있어요|masisseoyo}}","options":["{{싸고 맛있어요.|ssago masisseoyo.}}","{{싸요고 맛있어요.|ssayogo masisseoyo.}}","{{싸 맛있어요.|ssa masisseoyo.}}"],"answer":0,"why":"The stem {{싸|ssa}} + {{-고|-go}}, then the second verb."},
+        {"type":"fill","q":"Choose the right form.","t":"숙제를 ___ 잤어요.","tr":"I did my homework and went to bed.","options":["하고","해고","하다고"],"answer":0,"why":"{{-고|-go}} on the stem: {{하고|hago}}."},
+        {"type":"fill","q":"Choose the ending.","t":"이 방은 넓___ 깨끗해요.","tr":"This room is big and clean.","options":["고","어고","아고"],"answer":0,"why":"{{넓|neol}} + {{-고|-go}}: {{넓고|neolgo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I had breakfast and went to work.","words":["아침을","먹고","회사에","갔어요."]},
+        {"type":"dialogue","q":"A friend asks about yesterday. Choose your replies.","from":"say-how-it-was","lines":[{"who":"Friend","t":"어제 뭐 했어요?","tr":"What did you do yesterday?","r":"eoje mwo haesseoyo?"},{"options":["영화를 보고 저녁을 먹었어요.","영화를 봐고 저녁을 먹었어요."],"answer":0,"why":"{{-고|-go}} on the stem: {{보고|bogo}}."},{"who":"Friend","t":"영화는 어땠어요?","tr":"How was the movie?","r":"yeonghwaneun eottaesseoyo?"},{"options":["재미있고 좀 슬펐어요.","재미있었어요고 슬펐어요."],"answer":0,"why":"Two descriptions: {{재미있고|jaemiitgo}}, with the past only at the end."}]},
+        {"type":"say","q":"Say: “I shower and then have breakfast.” ({{샤워하다|syawohada}})","answer":"샤워하고 아침을 먹어요.","r":"syawohago achimeul meogeoyo."},
+        {"type":"free","q":"Your turn: describe your evening yesterday, joining what you did with {{-고|-go}}.","answers":[{"t":"퇴근하고 마트에 갔어요. 집에서 요리하고 드라마를 봤어요.","tr":"I left work and went to the supermarket. At home I cooked and watched a drama.","r":"toegeunhago mateue gasseoyo. jibeseo yorihago deuramareul bwasseoyo."},{"t":"저녁을 먹고 산책했어요. 그리고 일찍 잤어요.","tr":"I had dinner and took a walk. And I went to bed early.","r":"jeonyeogeul meokgo sanchaekaesseoyo. geurigo iljjik jasseoyo."}]}
+      ]
+    },
+    {
+      "id": "say-who-with-and-how",
+      "unit": 4,
+      "level": "A1",
+      "title": "Say who you were with and how you went",
+      "summary": "Say who you did things with, and how you got there: by bus, by subway, on foot.",
+      "topic": "{{하고|hago}}, {{(이)랑|(i)rang}}, {{와|wa}}/{{과|gwa}} “with, and”; {{같이|gachi}}, {{혼자|honja}}; {{(으)로|(eu)ro}} “by, with, in”",
+      "blocks": [
+        {"goal":{"t":"친구하고 지하철로 갔어요.","tr":"I went by subway with a friend.","r":"chinguhago jihacheollo gasseoyo."}},
+        {"dialog":[{"who":"Coworker","t":"어제 누구하고 저녁을 먹었어요?","tr":"Who did you have dinner with yesterday?","r":"eoje nuguhago jeonyeogeul meogeosseoyo?"},{"who":"You","t":"대학교 친구랑 먹었어요.","tr":"With a friend from college.","r":"daehakgyo chingurang meogeosseoyo."},{"who":"Coworker","t":"어디에서요?","tr":"Where?","r":"eodieseoyo?"},{"who":"You","t":"신촌에서요. 버스로 갔어요.","tr":"In Sinchon. I went by bus.","r":"sinchoneseoyo. beoseuro gasseoyo."},{"who":"Coworker","t":"저는 혼자 먹었어요. 다음에는 같이 가요!","tr":"I ate alone. Next time, let's go together!","r":"jeoneun honja meogeosseoyo. daeumeneun gachi gayo!"}]},
+        {"p":"**With someone: {{하고|hago}}.** The {{하고|hago}} that joins nouns ({{커피하고 물|keopihago mul}}, lesson 13) also means “with”: {{친구하고 먹었어요|chinguhago meogeosseoyo}} “I ate with a friend”. {{같이|gachi}} “together” often follows: {{친구하고 같이 갔어요|chinguhago gachi gasseoyo}}. And {{혼자|honja}} is “alone”, with no particle."},
+        {"p":"**Three words for “and, with”.** They mean the same and differ in style. {{이랑|irang}} and {{과|gwa}} come after a consonant, {{랑|rang}} and {{와|wa}} after a vowel."},
+        { "table": [
+          ["particle","style","example"],
+          ["{{하고|hago}}","everyday, for anything","{{동생하고 갔어요|dongsaenghago gasseoyo}}"],
+          ["{{이랑|irang}} / {{랑|rang}}","casual, friendly","{{동생이랑 갔어요|dongsaengirang gasseoyo}}, {{친구랑 갔어요|chingurang gasseoyo}}"],
+          ["{{과|gwa}} / {{와|wa}}","writing, speeches, the news","{{동생과 갔어요|dongsaenggwa gasseoyo}}, {{친구와 갔어요|chinguwa gasseoyo}}"]
+        ] },
+        {"p":"**By, with, in: {{(으)로|(eu)ro}}.** After a means of transport, a tool or a language, {{(으)로|(eu)ro}} says how: {{버스로|beoseuro}} “by bus”, {{손으로|soneuro}} “by hand”, {{한국어로|hangugeoro}} “in Korean”. It's {{으로|euro}} after a consonant and {{로|ro}} after a vowel, but also {{로|ro}} after {{ㄹ}}: {{지하철로|jihacheollo}}, not {{지하철으로|jihacheoreuro}}. On foot is {{걸어서|georeoseo}} “walking”: {{걸어서 가요|georeoseo gayo}} “I walk there”."},
+        { "table": [
+          ["after…","add","example"],
+          ["a vowel","{{로|ro}}","{{버스로|beoseuro}} by bus, {{택시로|taeksiro}} by taxi"],
+          ["{{ㄹ}}","{{로|ro}}","{{지하철로|jihacheollo}} by subway"],
+          ["another consonant","{{으로|euro}}","{{손으로|soneuro}} by hand, {{젓가락으로|jeotgarageuro}} with chopsticks"]
+        ] },
+        { "ex": [
+          {"t":"친구하고 같이 쇼핑했어요.","tr":"I went shopping with a friend.","r":"chinguhago gachi syopinghaesseoyo."},
+          {"t":"저는 매일 지하철로 회사에 가요.","tr":"I go to work by subway every day.","r":"jeoneun maeil jihacheollo hoesae gayo."},
+          {"t":"주말에 가족이랑 바다에 갔어요.","tr":"I went to the beach with my family at the weekend.","r":"jumare gajogirang badae gasseoyo."},
+          {"t":"혼자 여행했어요.","tr":"I traveled alone.","r":"honja yeohaenghaesseoyo."},
+          {"t":"한국에서는 숟가락으로 밥을 먹어요.","tr":"In Korea, people eat rice with a spoon.","note":"chopsticks are for the side dishes","r":"hangugeseoneun sutgarageuro babeul meogeoyo."},
+          {"t":"한국어로 말해 주세요.","tr":"Please say it in Korean.","r":"hangugeoro malhae juseyo."},
+          {"t":"학교에 걸어서 가요.","tr":"I walk to school.","r":"hakgyoe georeoseo gayo."}
+        ] },
+        {"tip":"{{(이)랑|(i)rang}} is what you'll hear most among friends; {{와|wa}}/{{과|gwa}} is what you'll read. When unsure, {{하고|hago}} always fits."}
+      ],
+      "mistakes": [
+        {"wrong":"지하철으로 가요.","right":"지하철로 가요.","tr":"I go by subway.","why":"After {{ㄹ}}, just {{로|ro}}."},
+        {"wrong":"버스에서 가요.","right":"버스로 가요.","tr":"I go by bus.","why":"How you go: {{(으)로|(eu)ro}}. ({{버스에서|beoseueseo}} is “on the bus”, where something happens.)"},
+        {"wrong":"저는 친구를 같이 갔어요.","right":"저는 친구하고 같이 갔어요.","tr":"I went with a friend.","why":"“With someone” is {{하고|hago}} (or {{랑|rang}}, {{와|wa}}/{{과|gwa}}), not the object particle."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“By subway” is…","options":["{{지하철로|jihacheollo}}","{{지하철으로|jihacheoreuro}}","{{지하철에서|jihacheoreseo}}"],"answer":0,"why":"{{지하철|jihacheol}} ends in {{ㄹ}}: just {{로|ro}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"가족___ 여행했어요.","tr":"I traveled with my family.","options":["하고","을","에"],"answer":0,"why":"“With”: {{하고|hago}}."},
+        {"type":"fill","q":"Choose the missing particle.","t":"택시___ 왔어요.","tr":"I came by taxi.","options":["로","으로","에"],"answer":0,"why":"{{택시|taeksi}} ends in a vowel: {{로|ro}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I went by subway with a friend.","words":["친구하고","지하철로","갔어요."],"also":[["지하철로","친구하고","갔어요."]]},
+        {"type":"dialogue","q":"A coworker asks about yesterday evening. Choose your replies.","from":"one-thing-then-another","lines":[{"who":"Coworker","t":"어제 누구하고 저녁 먹었어요?","tr":"Who did you have dinner with yesterday?","r":"eoje nuguhago jeonyeok meogeosseoyo?"},{"options":["혼자 먹었어요.","혼자를 먹었어요."],"answer":0,"why":"{{혼자|honja}} “alone” takes no particle."},{"who":"Coworker","t":"그리고 뭐 했어요?","tr":"And then what did you do?","r":"geurigo mwo haesseoyo?"},{"options":["밥을 먹고 걸어서 집에 갔어요.","밥을 먹어고 걸어서 집에 갔어요."],"answer":0,"why":"{{-고|-go}} goes on the stem: {{먹고|meokgo}}."}]},
+        {"type":"say","q":"Ask someone: “Please say it in English.”","answer":"영어로 말해 주세요.","from":"ask-someone-to-do-something","r":"yeongeoro malhae juseyo."},
+        {"type":"free","q":"Your turn: how do you usually get to work or school, and who did you spend last weekend with?","answers":[{"t":"저는 버스로 회사에 가요. 지난 주말에는 친구랑 놀았어요.","tr":"I go to work by bus. Last weekend I hung out with a friend.","r":"jeoneun beoseuro hoesae gayo. jinan jumareneun chingurang norasseoyo."},{"t":"저는 걸어서 학교에 가요. 주말에 가족하고 같이 밥을 먹었어요.","tr":"I walk to school. At the weekend I had a meal with my family.","r":"jeoneun georeoseo hakgyoe gayo. jumare gajokago gachi babeul meogeosseoyo."}]}
       ]
     }
   ]
