@@ -33,6 +33,22 @@
    },
    "built": "2026-10-24"
   },
+  "ceb": {
+   "file": "ceb/course.json",
+   "title": "Bisaya basics",
+   "variety": "Bisaya (Cebuano) as spoken in Cebu",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 340134,
+   "audio_bytes": 11523014,
+   "sha256": "f47aeaf209b8a2eeb802b800ff173106ca21007913a63654c484707284b11d5c",
+   "voice": {
+    "engine": "azure",
+    "name": "Blessica (Azure, Philippines; reading Bisaya)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
   "de": {
    "file": "de/course.json",
    "title": "German basics",
