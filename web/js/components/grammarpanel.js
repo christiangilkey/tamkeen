@@ -18,7 +18,7 @@ import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
 import { DefinerError, PROVIDERS } from "../definer.js";
 import { askAi, definerConfig, noAi } from "../define-service.js";
 import { checkPrompt, cleanProgress, costCents, courseFor, finished, grammarUrl, listVersion, makeLesson, makeList, orderIsRight,
-         plainText, progressOf, reviewQuestions, richHtml, shuffled } from "../grammardata.js";
+         optionOrder, plainText, progressOf, reviewQuestions, richHtml, shuffled } from "../grammardata.js";
 import { courseKey, keep, kept, lessonKey, listKey } from "../grammarstore.js";
 import { sayText, stopSaying } from "../saytext.js";
 
@@ -533,13 +533,14 @@ export function grammarPanel(box, lang, choice) {
 
   function choiceQ(li, q, done) {
     const opts = h(`<div class="gq-options"></div>`);
-    q.options.forEach((o, k) => {
-      const b = h(`<button type="button" class="gq-opt" translate="no">${rich(o)}</button>`);
+    for (const k of optionOrder(q.options)) {
+      const b = h(`<button type="button" class="gq-opt" translate="no" data-k="${k}">${rich(q.options[k])}</button>`);
       b.onclick = () => {
         if (li.classList.contains("answered")) return;
         li.classList.add("answered");
         const ok = k === q.answer;
-        for (const [j, x] of [...opts.children].entries()) {
+        for (const x of opts.children) {
+          const j = Number(x.dataset.k);
           x.disabled = true;
           if (j === q.answer) x.classList.add("right");
           else if (j === k) x.classList.add("wrong");
@@ -548,7 +549,7 @@ export function grammarPanel(box, lang, choice) {
         done(ok);
       };
       opts.append(b);
-    });
+    }
     li.append(opts);
   }
 
@@ -564,8 +565,9 @@ export function grammarPanel(box, lang, choice) {
     if (reading) { reading.textContent = String(q.r).replace("___", "…"); li.append(reading); }
     li.append(h(`<div class="gq-tr" translate="no">“${rich(q.tr)}”</div>`));
     const opts = h(`<div class="gq-words" ${attrs}></div>`);
-    q.options.forEach((o, k) => {
-      const b = tile(o, q.rs?.[k]);
+    for (const k of optionOrder(q.options)) {
+      const b = tile(q.options[k], q.rs?.[k]);
+      b.dataset.k = k;
       b.onclick = () => {
         if (li.classList.contains("answered")) return;
         li.classList.add("answered");
@@ -573,7 +575,8 @@ export function grammarPanel(box, lang, choice) {
         gap.textContent = q.options[q.answer];
         gap.classList.add(ok ? "right" : "wrong");
         if (reading && q.rs) reading.textContent = String(q.r).replace("___", q.rs[q.answer]);
-        for (const [j, x] of [...opts.children].entries()) {
+        for (const x of opts.children) {
+          const j = Number(x.dataset.k);
           x.disabled = true;
           if (j === q.answer) x.classList.add("right");
           else if (j === k) x.classList.add("wrong");
@@ -583,7 +586,7 @@ export function grammarPanel(box, lang, choice) {
         done(ok);
       };
       opts.append(b);
-    });
+    }
     li.append(opts);
   }
 
@@ -641,9 +644,9 @@ export function grammarPanel(box, lang, choice) {
       }
       const line = q.lines[i];
       const opts = h(`<div class="gq-replies"></div>`);
-      line.options.forEach((o, k) => {
+      for (const k of optionOrder(line.options)) {
         const b = h(`<button type="button" class="gq-opt gq-reply" ${attrs} translate="no"><span class="gq-reply-t"></span></button>`);
-        b.firstChild.textContent = o;
+        b.firstChild.textContent = line.options[k];
         if (line.rs?.[k]) { const r = h(`<span class="gx-r" dir="ltr" translate="no"></span>`); r.textContent = line.rs[k]; b.append(r); }
         b.onclick = () => {
           const ok = k === line.answer;
@@ -658,7 +661,7 @@ export function grammarPanel(box, lang, choice) {
           setTimeout(next, 350);
         };
         opts.append(b);
-      });
+      }
       chat.append(opts);
     };
     next();

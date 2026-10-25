@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   GRAMMAR_BASE, checkCourse, cleanProgress, costCents, courseFor, explanationTexts, finished, grammarUrl, groups,
-  checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
+  checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, optionOrder, orderIsRight, parseRich, plainText, progressOf,
   richHtml, shuffled, taughtTexts, targetsOf, translationPrompt, unvowelled, withListTexts, withTexts,
 } from "../../web/js/grammardata.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
@@ -164,6 +164,18 @@ test("order questions: shuffled the same way every time, never already right, wi
   assert.ok(!orderIsRight(q, s.map((x) => x.word)));
   assert.ok(orderIsRight(q, q.words));
   assert.ok(orderIsRight({ words: ["a", "b"], also: [["b", "a"]] }, ["b", "a"]));
+});
+
+test("options are shown mixed, the same way every time, so the right one isn't always first", () => {
+  const course = JSON.parse(readFileSync(new URL("../../tools/grammar/en-ar/lessons.json", import.meta.url), "utf8"));
+  const sets = course.lessons.flatMap((l) => l.practice.flatMap((q) => (q.type === "dialogue" ? q.lines.filter((x) => x.options) : q.options ? [q] : [])));
+  for (const s of sets) {
+    const order = optionOrder(s.options);
+    assert.deepEqual([...order].sort(), s.options.map((_, i) => i), "every option shown once");
+    assert.deepEqual(optionOrder(s.options), order, "the same order every time");
+  }
+  const first = sets.filter((s) => optionOrder(s.options)[0] === s.answer).length;
+  assert.ok(first < sets.length * 0.6, `the right answer is first in ${first} of ${sets.length}`);
 });
 
 test("a lesson's version changes with its content, and only with it", () => {

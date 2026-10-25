@@ -462,6 +462,18 @@ export function shuffled(q) {
   return idx.map((i) => ({ i, word: words[i] }));
 }
 
+/** The order to show a question's options in (indexes into `options`): mixed, so the right one isn't
+ * always in the place the lesson wrote it, and the same every time for the same options. */
+export function optionOrder(options) {
+  const list = (options || []).map(String);
+  let seed = 7;
+  for (const ch of list.join("\u0000")) seed = (Math.imul(seed, 31) + ch.codePointAt(0)) >>> 0;
+  const rand = () => { seed = (Math.imul(seed, 1103515245) + 12345) >>> 0; return seed / 2 ** 32; };
+  const idx = list.map((_, i) => i);
+  for (let i = idx.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+  return idx;
+}
+
 /** Is `picked` (the words in the order the learner put them) a right answer to an "order" question? */
 export function orderIsRight(q, picked) {
   const same = (a) => a.length === picked.length && a.every((w, i) => w === picked[i]);
