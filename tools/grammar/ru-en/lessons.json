@@ -2037,6 +2037,192 @@
         {"type":"order","q":"Соберите предложение.","tr":"Не думаю, что он прав.","words":["I","don't","think","he's","right."]},
         {"type":"free","q":"Ваша очередь: что вы думаете о работе из дома (или о соцсетях, или о больших городах)? Выскажите мнение и вежливо возразите воображаемому собеседнику.","answers":[{"t":"In my opinion, working from home is great. But I don't think it's for everyone. Some people need an office.","tr":"На мой взгляд, работать из дома отлично. Но не думаю, что это всем подходит. Некоторым нужен офис."},{"t":"I think social media is useful, but I don't agree that it makes people happier.","tr":"По-моему, соцсети полезны, но я не согласна, что они делают людей счастливее."}]}
       ]
+    },
+    {
+      "id": "lately",
+      "unit": 8,
+      "level": "B1",
+      "title": "Рассказать, чем вы заняты в последнее время",
+      "summary": "Скажите, сколько уже длится то, что вы делаете, и чем вы заняты последнее время: «I've been waiting for an hour! I've been learning English since May».",
+      "topic": "Present Perfect Continuous: {{have been}} + {{-ing}}; {{How long have you been…?}}; {{lately}}",
+      "blocks": [
+        {"goal":{"t":"I've been learning English for two years.","tr":"Я учу английский уже два года."}},
+        {"dialog":[{"who":"Сэм","t":"You look tired. What have you been doing?","tr":"Ты выглядишь уставшей. Чем ты занималась?"},{"who":"Вера","t":"I've been working on a big project all week.","tr":"Всю неделю работала над большим проектом."},{"who":"Сэм","t":"How long have you been working on it?","tr":"И давно ты над ним работаешь?"},{"who":"Вера","t":"Since March! And I've been sleeping badly lately.","tr":"С марта! И последнее время плохо сплю."},{"who":"Сэм","t":"You should take a break.","tr":"Тебе нужно отдохнуть."}]},
+        {"term":"Present Perfect Continuous","means":"«совершённое продолженное» время: действие, которое началось в прошлом и всё ещё идёт (или только что закончилось): {{I've been waiting for an hour}} «я жду уже час»."},
+        {"p":"В 28-м уроке вы узнали: «Я живу здесь пять лет» — {{I've lived here for five years}}. Когда речь о **процессе**, который начался в прошлом и идёт до сих пор, англичане часто подчёркивают, что он длится: {{have been}} + {{-ing}}. {{I've been waiting for an hour!}} «Я жду уже час!» По-русски здесь опять настоящее время."},
+        { "table": [
+          ["по-русски","по-английски"],
+          ["Я жду уже час.","{{I've been waiting for an hour.}}"],
+          ["Как давно ты учишь английский?","{{How long have you been learning English?}}"],
+          ["Последнее время я много работаю.","{{I've been working a lot lately.}}"],
+          ["С утра идёт дождь.","{{It's been raining since morning.}}"]
+        ] },
+        {"p":"**Форма:** {{have}}/{{has}} + {{been}} + глагол с {{-ing}}: {{I've been working}}, {{she's been working}}. Вопросы: {{How long have you been…?}}, {{What have you been doing?}} «Чем ты занимался (всё это время)?»"},
+        {"p":"**Видны следы.** То же время объясняет то, что видно сейчас: {{Your eyes are red. Have you been crying?}} «Глаза красные. Ты плакал?», {{I'm tired because I've been running}} «Я устал, потому что бегал»."},
+        {"p":"**Без {{-ing}}.** Глаголы, которые вообще не любят {{-ing}} ({{know}}, {{like}}, {{have}} в значении «иметь»), остаются в простом Present Perfect: {{I've known him for years}}, а не {{I've been knowing}}."},
+        { "ex": [
+          {"t":"We've been living here since 2019.","tr":"Мы живём здесь с 2019 года."},
+          {"t":"It's been raining all day.","tr":"Весь день идёт дождь."},
+          {"t":"What have you been doing lately?","tr":"Чем ты занимался последнее время?"},
+          {"t":"She's been working at the bank for ten years.","tr":"Она работает в банке десять лет."},
+          {"t":"Sorry I'm late! Have you been waiting long?","tr":"Прости, что опоздал! Давно ждёшь?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I wait for you for an hour!","right":"I've been waiting for you for an hour!","tr":"Я жду тебя уже час!","why":"Процесс от прошлого до сейчас — {{have been}} + {{-ing}}."},
+        {"wrong":"How long are you learning English?","right":"How long have you been learning English?","tr":"Как давно ты учишь английский?","why":"«Как давно» о том, что продолжается, — {{How long have you been…?}}"},
+        {"wrong":"I've been knowing him for years.","right":"I've known him for years.","tr":"Я знаю его много лет.","why":"{{know}} не бывает с {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I've been ___ for you for twenty minutes!","tr":"Я жду тебя уже двадцать минут!","options":["waiting","wait","waited"],"answer":0,"why":"{{have been}} + {{-ing}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"How long have you ___ learning English?","tr":"Как давно ты учишь английский?","options":["been","be","being"],"answer":0,"why":"{{have been}} + {{-ing}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It ___ snowing since yesterday.","tr":"Снег идёт со вчерашнего дня.","options":["has been","is","was"],"answer":0,"why":"С прошлого до сейчас: {{has been snowing}}."},
+        {"type":"choice","q":"Как сказать «Мы знакомы десять лет»?","options":["{{We've known each other for ten years.}}","{{We've been knowing each other for ten years.}}","{{We know each other for ten years.}}"],"answer":0,"why":"{{know}} без {{-ing}}, но в Present Perfect."},
+        {"type":"dialogue","q":"Вы встретили старого друга. Выберите ответы.","from":"for-and-since","lines":[{"who":"Друг","t":"Hi! Long time no see! What have you been doing?","tr":"Привет! Сто лет не виделись! Чем занимался?"},{"options":["I've been working a lot. And I've been learning to play the guitar!","I work a lot. And I learn to play the guitar since May!"],"answer":0,"why":"Что длится до сих пор — {{I've been…}}"},{"who":"Друг","t":"Cool! How long have you been playing?","tr":"Круто! И давно играешь?"},{"options":["For about six months.","Since about six months."],"answer":0,"why":"Сколько времени — {{for}}."},{"who":"Друг","t":"Play something for me!","tr":"Сыграй мне что-нибудь!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Весь день идёт дождь.","words":["It's","been","raining","all","day."]},
+        {"type":"free","q":"Ваша очередь: чем вы заняты последнее время и как давно? Используйте {{I've been…}} с {{for}} или {{since}}.","answers":[{"t":"I've been learning English for a year, and I've been running every morning since January.","tr":"Я учу английский год, а с января каждое утро бегаю."},{"t":"Lately I've been working from home. I've been reading a lot too.","tr":"Последнее время я работаю из дома. И ещё много читаю."}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Рассказать историю",
+      "summary": "Расскажите историю по порядку — что происходило, что случилось и что было ещё раньше: «When I got to the station, the train had already left».",
+      "topic": "Времена рассказа: Past Simple, Past Continuous, Past Perfect ({{had}} + третья форма); {{first}}, {{then}}, {{suddenly}}, {{in the end}}",
+      "blocks": [
+        {"goal":{"t":"When I got to the station, the train had already left.","tr":"Когда я добрался до вокзала, поезд уже ушёл."}},
+        {"dialog":[{"who":"Кейт","t":"So, how was your trip?","tr":"Ну, как поездка?"},{"who":"Дима","t":"A disaster! When we got to the airport, our flight had been canceled.","tr":"Катастрофа! Когда мы приехали в аэропорт, наш рейс уже отменили."},{"who":"Кейт","t":"Oh no! What did you do?","tr":"Ой! И что вы сделали?"},{"who":"Дима","t":"We were waiting in line for new tickets when I realized I had left my passport at home!","tr":"Мы стояли в очереди за новыми билетами, и тут я понял, что оставил паспорт дома!"},{"who":"Кейт","t":"You're kidding!","tr":"Шутишь!"},{"who":"Дима","t":"In the end, my wife went home and brought it. We flew the next day.","tr":"В итоге жена съездила домой и привезла его. Улетели на следующий день."}]},
+        {"term":"Past Perfect","means":"«предпрошедшее» время: что случилось раньше другого события в прошлом: {{The train had left}} «поезд уже ушёл (к тому моменту)»."},
+        {"p":"Хороший рассказ использует три прошедших времени, и у каждого своя работа. **Past Simple** двигает события вперёд: {{We got to the airport. We went to the desk.}} **Past Continuous** рисует фон: {{It was raining. We were waiting in line.}} **Past Perfect** — {{had}} + третья форма — отступает назад, к тому, что случилось ещё раньше: {{The flight had already left.}}"},
+        { "table": [
+          ["время","для чего","пример"],
+          ["Past Simple","события по порядку","{{I got up, took a shower and left.}}"],
+          ["Past Continuous","фон: что происходило","{{It was snowing, and the roads were icy.}}"],
+          ["Past Perfect","что было ещё раньше","{{I realized I had forgotten my keys.}}"]
+        ] },
+        {"p":"**Past Perfect — только когда нужно.** По-русски «Я понял, что забыл ключи» — оба глагола в прошедшем, а порядок понятен из смысла. В английском, когда вы «отступаете» назад от главной линии рассказа, нужен {{had}} + третья форма: {{I realized I had forgotten my keys}}. А если события идут по порядку, хватает Past Simple: {{I forgot my keys and went back.}}"},
+        {"p":"**Слова рассказа.** {{First}} «сначала», {{then}} и {{after that}} «потом», {{suddenly}} «вдруг», {{while}} «пока», {{by the time}} «к тому времени, как», {{in the end}} «в итоге», {{finally}} «наконец». А слушателю пригодятся {{What happened next?}} «А дальше?» и {{You're kidding!}} «Шутишь!»"},
+        { "ex": [
+          {"t":"When I got home, everyone had gone to bed.","tr":"Когда я пришёл домой, все уже легли спать."},
+          {"t":"I was walking to work when I saw a famous actor.","tr":"Я шёл на работу и вдруг увидел знаменитого актёра."},
+          {"t":"She had never seen the ocean before that trip.","tr":"До той поездки она ни разу не видела океан."},
+          {"t":"First we had lunch, then we went to the museum.","tr":"Сначала мы пообедали, потом пошли в музей."},
+          {"t":"By the time the police came, the thief had run away.","tr":"К тому времени, как приехала полиция, вор уже убежал."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"When I arrived, the movie already started.","right":"When I arrived, the movie had already started.","tr":"Когда я пришёл, фильм уже начался.","why":"Фильм начался раньше вашего прихода: Past Perfect."},
+        {"wrong":"I was knowing the answer.","right":"I knew the answer.","tr":"Я знал ответ.","why":"{{know}} не бывает с {{-ing}}."},
+        {"wrong":"We had went to the beach.","right":"We had gone to the beach.","tr":"Мы (уже) сходили на пляж.","why":"После {{had}} — третья форма: {{gone}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"When we arrived, the party ___ already ended.","tr":"Когда мы пришли, вечеринка уже закончилась.","options":["had","has","was"],"answer":0,"why":"Раньше нашего прихода: {{had ended}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ dinner when the phone rang.","tr":"Я готовил ужин, когда зазвонил телефон.","options":["was cooking","had cooked","cook"],"answer":0,"why":"Фон — Past Continuous."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She told me she had ___ that movie before.","tr":"Она сказала, что уже видела этот фильм.","options":["seen","saw","see"],"answer":0,"why":"После {{had}} — третья форма."},
+        {"type":"choice","q":"{{When I got to the bank, it had closed.}} Что случилось раньше?","options":["Банк закрылся.","Я пришёл в банк."],"answer":0,"why":"{{had closed}} — Past Perfect: это было раньше."},
+        {"type":"dialogue","q":"Друг спрашивает, почему вы опоздали. Выберите ответы.","from":"past-continuous","lines":[{"who":"Друг","t":"Why were you late yesterday?","tr":"Почему ты вчера опоздал?"},{"options":["I was driving to work when my car broke down.","I drove to work when my car was breaking down."],"answer":0,"why":"Фон — {{was driving}}, событие — {{broke down}}."},{"who":"Друг","t":"Oh no! What did you do?","tr":"Ой! И что ты сделал?"},{"options":["I called a tow truck. By the time it came, I had waited for two hours!","I was calling a tow truck. By the time it came, I waited two hours before!"],"answer":0,"why":"События — Past Simple; что было до приезда — {{had waited}}."},{"who":"Друг","t":"What a day!","tr":"Ну и денёк!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Когда я пришёл, все уже ушли.","words":["When","I","arrived,","everyone","had","left."]},
+        {"type":"free","q":"Ваша очередь: расскажите короткую историю о дне, когда всё пошло не так. Используйте все три времени.","answers":[{"t":"Last winter I was driving to the airport when it started to snow. When I got there, my flight had been canceled. In the end, I spent the night at the airport!","tr":"Прошлой зимой я ехал в аэропорт, и тут пошёл снег. Когда я добрался, мой рейс уже отменили. В итоге я ночевал в аэропорту!"},{"t":"I was cooking dinner for my friends when I realized I had forgotten to buy cheese. So we ordered pizza!","tr":"Я готовила ужин для друзей и вдруг поняла, что забыла купить сыр. В итоге мы заказали пиццу!"}]}
+      ]
+    },
+    {
+      "id": "phrasal-verbs",
+      "unit": 8,
+      "level": "B1",
+      "title": "Говорить как носители: фразовые глаголы",
+      "summary": "Встаньте, выключите свет, найдите и не сдавайтесь — с самыми частыми фразовыми глаголами: {{get up}}, {{turn off}}, {{find out}}, {{give up}}.",
+      "topic": "Фразовые глаголы: глагол + {{up}}, {{off}}, {{out}}…; {{turn it off}} — местоимение в середине",
+      "blocks": [
+        {"goal":{"t":"I get up at seven, turn off the alarm and put on my running shoes.","tr":"Я встаю в семь, выключаю будильник и надеваю кроссовки."}},
+        {"dialog":[{"who":"Мама","t":"Wake up! It's eight o'clock!","tr":"Просыпайся! Уже восемь!"},{"who":"Сын","t":"Five more minutes…","tr":"Ещё пять минуточек…"},{"who":"Мама","t":"Get up! And turn off your music.","tr":"Вставай! И выключи музыку."},{"who":"Сын","t":"OK, OK. Where are my jeans? I can't find them.","tr":"Ладно, ладно. Где мои джинсы? Не могу найти."},{"who":"Мама","t":"Look for them under the bed. And pick up your clothes from the floor!","tr":"Поищи под кроватью. И подбери одежду с пола!"}]},
+        {"term":"фразовый глагол","means":"глагол со словечком вроде {{up}}, {{off}}, {{out}}, которое вместе с ним даёт новое значение: {{give}} «давать», {{give up}} «сдаваться, бросать»."},
+        {"p":"В русском значение глагола меняют приставки: «ходить» — «выходить», «уходить», «заходить». В английском ту же работу делают словечки **после** глагола: {{go}} «идти» — {{go out}} «выходить, гулять», {{go back}} «возвращаться», {{go on}} «продолжать». Носители говорят ими постоянно, и в разговоре они звучат естественнее «книжных» синонимов."},
+        { "table": [
+          ["фразовый глагол","значение","пример"],
+          ["{{get up}}","вставать","{{I get up at seven.}}"],
+          ["{{wake up}}","просыпаться","{{Wake up!}}"],
+          ["{{turn on}}, {{turn off}}","включить, выключить","{{Turn off the TV.}}"],
+          ["{{put on}}, {{take off}}","надеть, снять","{{Put on your coat.}}"],
+          ["{{look for}}","искать","{{I'm looking for my keys.}}"],
+          ["{{find out}}","узнать","{{I found out the truth.}}"],
+          ["{{give up}}","бросить, сдаться","{{Don't give up!}}"],
+          ["{{pick up}}","подобрать; заехать за кем-то","{{I'll pick you up at six.}}"]
+        ] },
+        {"p":"**Куда поставить «его», «её».** У многих фразовых глаголов предмет может стоять после всего глагола или в середине: {{Turn off the light}} = {{Turn the light off}}. Но если это местоимение ({{it}}, {{them}}, {{me}}), то **только в середину**: {{Turn it off}}, не {{Turn off it}}; {{Pick me up}}, не {{Pick up me}}."},
+        {"p":"**Учите их целиком**, с примером: значение часто не складывается из частей. {{get up}} — не «получить вверх», а «встать»; {{find out}} — не «найти наружу», а «узнать»."},
+        { "ex": [
+          {"t":"Can you turn it down? It's too loud.","tr":"Можешь сделать потише? Слишком громко."},
+          {"t":"We ran out of milk.","tr":"У нас закончилось молоко."},
+          {"t":"I'll pick you up at the airport.","tr":"Я заберу тебя из аэропорта."},
+          {"t":"Please fill out this form.","tr":"Пожалуйста, заполните этот бланк.","note":"по-американски {{fill out}}"},
+          {"t":"She gave up smoking last year.","tr":"В прошлом году она бросила курить."},
+          {"t":"Let's eat out tonight.","tr":"Давай сегодня поужинаем в ресторане."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Turn off it, please.","right":"Turn it off, please.","tr":"Выключи его, пожалуйста.","why":"Местоимение — в середину фразового глагола."},
+        {"wrong":"I'm searching my keys.","right":"I'm looking for my keys.","tr":"Я ищу ключи.","why":"«Искать» в быту — {{look for}}."},
+        {"wrong":"Wake up me at seven.","right":"Wake me up at seven.","tr":"Разбуди меня в семь.","why":"И здесь местоимение в середине: {{wake me up}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"What time do you usually ___ up?","tr":"Во сколько ты обычно встаёшь?","options":["get","take","put"],"answer":0,"why":"«Вставать» — {{get up}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It's cold. Put ___ your jacket.","tr":"Холодно. Надень куртку.","options":["on","off","up"],"answer":0,"why":"«Надеть» — {{put on}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"The TV is too loud. Can you turn ___ down?","tr":"Телевизор слишком громкий. Можешь сделать потише?","options":["it","it's","them"],"answer":0,"why":"Местоимение {{it}} — в середине."},
+        {"type":"choice","q":"Как сказать «Не сдавайся!»?","options":["{{Don't give up!}}","{{Don't give out!}}","{{Don't give off!}}"],"answer":0,"why":"«Сдаваться, бросать» — {{give up}}."},
+        {"type":"dialogue","q":"Друг прилетает к вам в гости. Выберите ответы.","from":"will","lines":[{"who":"Друг","t":"My flight lands at eight.","tr":"Мой самолёт садится в восемь."},{"options":["Great, I'll pick you up at the airport.","Great, I'll pick up you at the airport."],"answer":0,"why":"Местоимение в середине: {{pick you up}}."},{"who":"Друг","t":"Thanks! Can you find out which terminal it is?","tr":"Спасибо! Можешь узнать, какой терминал?"},{"options":["Sure, I'll look it up online.","Sure, I'll look up it online."],"answer":0,"why":"{{look it up}} «посмотреть (в интернете, в справочнике)», местоимение в середине."},{"who":"Друг","t":"You're a lifesaver!","tr":"Ты меня спасаешь!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Выключи, пожалуйста, свет.","words":["Please","turn","the","light","off"],"also":[["Please","turn","off","the","light"]]},
+        {"type":"free","q":"Ваша очередь: опишите своё утро фразовыми глаголами — {{wake up}}, {{get up}}, {{turn on}}, {{put on}}…","answers":[{"t":"I wake up at six thirty, but I get up at seven. I turn on the coffee machine, put on my clothes and pick up my son's friend on the way to school.","tr":"Я просыпаюсь в полседьмого, но встаю в семь. Включаю кофеварку, одеваюсь и по дороге в школу забираю друга сына."},{"t":"My alarm goes off at seven. I turn it off and go back to sleep!","tr":"Будильник звонит в семь. Я его выключаю и снова засыпаю!"}]}
+      ]
+    },
+    {
+      "id": "keep-talking",
+      "unit": 8,
+      "level": "B1",
+      "title": "Поддержать разговор",
+      "summary": "Поддакните, переспросите и правильно ответьте на отрицательный вопрос: «It's cold, isn't it? — So do I. — No, I don't».",
+      "topic": "Разделительные вопросы ({{isn't it?}}, {{don't you?}}); {{So do I}}, {{Neither do I}}; ответ на отрицательный вопрос",
+      "blocks": [
+        {"goal":{"t":"It's a beautiful day, isn't it? — Yes, it is!","tr":"Чудесный день, правда? — Да!"}},
+        {"dialog":[{"who":"Сосед","t":"Nice weather today, isn't it?","tr":"Хорошая сегодня погода, правда?"},{"who":"Лена","t":"Yes, it is. Finally some sun!","tr":"Да. Наконец-то солнце!"},{"who":"Сосед","t":"I love spring.","tr":"Люблю весну."},{"who":"Лена","t":"So do I. You don't have a dog, do you? I saw one in your yard.","tr":"Я тоже. У вас ведь нет собаки? Я видела одну у вас во дворе."},{"who":"Сосед","t":"No, I don't. That's my daughter's. She's visiting.","tr":"Нет. Это дочкина. Она у нас в гостях."},{"who":"Лена","t":"Oh, it's so cute!","tr":"Ой, какая милая!"}]},
+        {"p":"**Хвостик «правда?», «да?».** В конце фразы англичане часто добавляют короткий вопрос-хвостик: к утверждению — отрицательный, к отрицанию — утвердительный. Хвостик повторяет вспомогательный глагол: {{It's cold, isn't it?}}, {{You like coffee, don't you?}}, {{She can swim, can't she?}}, {{You didn't call, did you?}}"},
+        { "table": [
+          ["фраза","хвостик"],
+          ["{{It's late,}}","{{isn't it?}}"],
+          ["{{You live here,}}","{{don't you?}}"],
+          ["{{She can drive,}}","{{can't she?}}"],
+          ["{{He isn't coming,}}","{{is he?}}"],
+          ["{{You didn't forget,}}","{{did you?}}"]
+        ] },
+        {"p":"**Я тоже, я тоже нет.** «Я тоже» — {{So do I}} или просто {{Me too}}; «я тоже нет» — {{Neither do I}} или {{Me neither}}. После {{So}} и {{Neither}} — тот же вспомогательный глагол, что в реплике собеседника: {{I'm tired. — So am I.}} {{I can't swim. — Neither can I.}}"},
+        {"p":"**Ответ на отрицательный вопрос — главная ловушка.** По-русски: «Ты не голоден? — Да, не голоден»: «да» здесь соглашается с собеседником. В английском {{yes}} и {{no}} говорят о **самом факте**: если вы не голодны — {{No}}, если голодны — {{Yes}}. {{Aren't you hungry? — No, I'm not.}} «Ты не голоден? — Да нет, не голоден». {{— Yes, I am!}} «Ещё как голоден!»"},
+        { "table": [
+          ["вопрос","не голоден, не курю","голоден, курю"],
+          ["{{Aren't you hungry?}}","{{No, I'm not.}}","{{Yes, I am.}}"],
+          ["{{You don't smoke, do you?}}","{{No, I don't.}}","{{Yes, I do.}}"]
+        ] },
+        { "ex": [
+          {"t":"You're from Russia, aren't you?","tr":"Вы ведь из России?"},
+          {"t":"It was a great concert, wasn't it?","tr":"Отличный был концерт, да?"},
+          {"t":"I love this song. — So do I!","tr":"Обожаю эту песню. — Я тоже!"},
+          {"t":"I don't eat meat. — Neither do I.","tr":"Я не ем мясо. — Я тоже."},
+          {"t":"Don't you like it? — No, I don't, sorry.","tr":"Тебе не нравится? — Нет, извини."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Don't you want coffee? — Yes, I don't.","right":"Don't you want coffee? — No, I don't.","tr":"Не хочешь кофе? — Нет, не хочу.","why":"Не хотите — значит {{No}}: {{yes}} и {{no}} говорят о факте, а не о согласии с вопросом."},
+        {"wrong":"It's cold, is it?","right":"It's cold, isn't it?","tr":"Холодно, правда?","why":"К утверждению — отрицательный хвостик."},
+        {"wrong":"I like jazz. — So I do.","right":"I like jazz. — So do I.","tr":"Я люблю джаз. — Я тоже.","why":"«Я тоже» — {{So do I}}, с обратным порядком."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"You live in Boston, ___?","tr":"Вы ведь живёте в Бостоне?","options":["don't you","do you","aren't you"],"answer":0,"why":"Утверждение с {{live}} — хвостик {{don't you?}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"She isn't married, ___?","tr":"Она ведь не замужем?","options":["is she","isn't she","does she"],"answer":0,"why":"Отрицание — утвердительный хвостик: {{is she?}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'm so tired. — So ___ I.","tr":"Я так устал. — Я тоже.","options":["am","do","have"],"answer":0,"why":"В реплике {{I'm}} — значит {{So am I}}."},
+        {"type":"choice","q":"Вас спрашивают {{Aren't you coming?}}, а вы не придёте. Что ответить?","options":["{{No, I'm not.}}","{{Yes, I'm not.}}","{{Yes, I am.}}"],"answer":0,"why":"Не придёте — значит {{No}}."},
+        {"type":"dialogue","q":"Коллега обсуждает с вами собрание. Выберите ответы.","from":"opinions","lines":[{"who":"Коллега","t":"The meeting was too long, wasn't it?","tr":"Собрание было слишком длинным, правда?"},{"options":["Yes, it was. I don't think we needed two hours.","Yes, it wasn't. I think we didn't need two hours."],"answer":0,"why":"Согласны, что длинное — {{Yes, it was}}; и {{I don't think…}}"},{"who":"Коллега","t":"I didn't understand the new plan.","tr":"Я не понял новый план."},{"options":["Neither did I!","So did I!"],"answer":0,"why":"«Я тоже не понял» — {{Neither did I}}."},{"who":"Коллега","t":"Let's ask the boss.","tr":"Давай спросим у начальника."}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Ты ведь не забыл, правда?","words":["You","didn't","forget,","did","you?"]},
+        {"type":"free","q":"Ваша очередь: начните разговор с соседом или коллегой — скажите что-нибудь о погоде с хвостиком ({{isn't it?}}) и ответьте на его фразу с {{So do I}} или {{Neither do I}}.","answers":[{"t":"It's really hot today, isn't it? — Yes! I love summer. — So do I!","tr":"Сегодня жарко, правда? — Да! Обожаю лето. — Я тоже!"},{"t":"This coffee is terrible, isn't it? I don't usually drink it. — Neither do I.","tr":"Ужасный кофе, правда? Я его вообще-то не пью. — Я тоже."}]}
+      ]
     }
   ]
 }
