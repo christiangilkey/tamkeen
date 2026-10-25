@@ -1856,6 +1856,376 @@
         {"type":"say","q":"Say: “I don't know where he went.”","answer":"نمی‌دانم کجا رفت.","r":"nemi-dânam kojâ raft."},
         {"type":"free","q":"Your turn: pass on something someone told you recently, and something they asked you.","answers":[{"t":"دوستم گفت که یک کار جدید پیدا کرده است. پرسید که آیا جمعه وقت دارم.","r":"dustam goft ke yek kâr-e jadid peydâ karde ast. porsid ke âyâ jom'e vaght dâram.","tr":"My friend said he'd found a new job. He asked whether I was free on Friday."},{"t":"مادرم به من گفت که بیشتر استراحت کنم.","r":"mâdaram be man goft ke bishtar esterâhat konam.","tr":"My mother told me to rest more."}]}
       ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what happens if…",
+      "summary": "Talk about real possibilities: “If it rains, we'll stay at home”, “If you see Ali, say hello”.",
+      "topic": "{{اگر}} + subjunctive (or simple past) for a possible condition; the present or the imperative in the result; {{مگر اینکه}}",
+      "blocks": [
+        {"goal":{"t":"اگر فردا باران بیاید، در خانه می‌مانیم.","r":"agar fardâ bârân biyâyad, dar khâne mi-mânim.","tr":"If it rains tomorrow, we'll stay at home."}},
+        {"dialog":[{"who":"Neda","t":"جمعه به کوه برویم؟","r":"jom'e be kuh beravim?","tr":"Shall we go to the mountains on Friday?"},{"who":"Ali","t":"اگر هوا خوب باشد، حتماً!","r":"agar havâ khub bâshad, hatman!","tr":"If the weather's good, definitely!"},{"who":"Neda","t":"اگر باران بیاید چه؟","r":"agar bârân biyâyad che?","tr":"What if it rains?"},{"who":"Ali","t":"اگر باران آمد، به موزه می‌رویم.","r":"agar bârân âmad, be muze mi-ravim.","tr":"If it rains, we'll go to the museum."},{"who":"Neda","t":"باشد. اگر سارا را دیدی، به او هم بگو.","r":"bâshad. agar sârâ râ didi, be u ham bogu.","tr":"OK. If you see Sara, tell her too."}]},
+        {"term":"condition","means":"the “if” part of a sentence: “if it rains” in “If it rains, we'll stay at home”."},
+        {"p":"**If.** {{اگر|agar}} “if” starts the condition; the result follows, after a comma. For something that may well happen, the condition is in the **subjunctive**: {{اگر باران بیاید|agar bârân biyâyad}} “if it rains”. The result is in the present (for the future) or the imperative: {{… در خانه می‌مانیم.}} “we'll stay at home”, {{… به من زنگ بزن.}} “call me”. For what is true now, the condition can simply be in the present: {{اگر خسته‌ای، بخواب.|agar khaste-i, bekhâb.}} “If you're tired, sleep.”"},
+        {"p":"**Or the simple past.** Persian often puts a one-off condition in the simple past, even about the future: {{اگر باران آمد، به موزه می‌رویم.|agar bârân âmad, be muze mi-ravim.}} “If it rains, we'll go to the museum.” {{اگر علی را دیدی، سلام برسان.|agar ali râ didi, salâm beresân.}} “If you see Ali, say hello.” English says “if it rains” here, never “if it rained”."},
+        {"p":"**Be and have** in the subjunctive: {{باشم|bâsham}}, {{باشی}}, {{باشد}}… for “be”, and {{داشته باشم|dâshte bâsham}}, {{داشته باشی}}… for “have”: {{اگر پول داشته باشم، …|agar pul dâshte bâsham, …}} “if I have the money, …”."},
+        {"p":"**If not, unless.** {{اگر}} with a negative verb: {{اگر نیایی، ناراحت می‌شوم.|agar nayâyi, nârâhat mi-shavam.}} “If you don't come, I'll be upset.” And {{مگر اینکه|magar inke}} + subjunctive is “unless”."},
+        { "table": [
+          ["if…","then…","meaning"],
+          ["{{اگر باران بیاید،|agar bârân biyâyad,}}","{{در خانه می‌مانیم.|dar khâne mi-mânim.}}","If it rains, we'll stay home."],
+          ["{{اگر وقت داشته باشم،|agar vaght dâshte bâsham,}}","{{می‌آیم.|mi-âyam.}}","If I have time, I'll come."],
+          ["{{اگر خسته‌ای،|agar khaste-i,}}","{{بخواب.|bekhâb.}}","If you're tired, sleep."],
+          ["{{اگر او را دیدی،|agar u râ didi,}}","{{سلام برسان.|salâm beresân.}}","If you see him, say hello."]
+        ] },
+        { "ex": [
+          {"t":"اگر وقت داشته باشم، فردا به تو سر می‌زنم.","r":"agar vaght dâshte bâsham, fardâ be to sar mi-zanam.","tr":"If I have time, I'll drop in on you tomorrow.","note":"{{سر زدن}} “to drop in”"},
+          {"t":"اگر گرسنه‌ای، در یخچال غذا هست.","r":"agar gorosne-i, dar yakhchâl ghazâ hast.","tr":"If you're hungry, there's food in the fridge."},
+          {"t":"اگر زود برسیم، می‌توانیم قهوه بخوریم.","r":"agar zud beresim, mi-tavânim ghahve bokhorim.","tr":"If we arrive early, we can have a coffee."},
+          {"t":"اگر کمک خواستی، به من زنگ بزن.","r":"agar komak khâsti, be man zang bezan.","tr":"If you need help, call me."},
+          {"t":"اگر نیایی، خیلی ناراحت می‌شوم.","r":"agar nayâyi, kheyli nârâhat mi-shavam.","tr":"If you don't come, I'll be really upset."},
+          {"t":"فردا می‌رویم، مگر اینکه باران بیاید.","r":"fardâ mi-ravim, magar inke bârân biyâyad.","tr":"We'll go tomorrow, unless it rains."}
+        ] },
+        {"tip":"{{ان‌شاءالله|in-shâllâh}} “God willing” follows almost any plan: {{فردا می‌آیم، ان‌شاءالله.}} It's a way of saying “I hope so”, not “maybe not”."}
+      ],
+      "mistakes": [
+        {"wrong":"اگر فردا باران می‌آید، در خانه می‌مانیم.","right":"اگر فردا باران بیاید، در خانه می‌مانیم.","tr":"If it rains tomorrow, we'll stay at home.","why":"For a possible future, the subjunctive after {{اگر}}: {{بیاید}}."},
+        {"wrong":"اگر وقت دارم باشم، می‌آیم.","right":"اگر وقت داشته باشم، می‌آیم.","tr":"If I have time, I'll come.","why":"The subjunctive of {{داشتن}} is {{داشته باشم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"اگر فردا هوا خوب ___، به کوه می‌رویم.","tr":"If the weather's good tomorrow, we'll go to the mountains.","options":["باشد","است","بود"],"answer":0,"why":"A possible future: the subjunctive of “be”, {{باشد}}."},
+        {"type":"fill","q":"Choose the missing words.","t":"اگر وقت ___، به من زنگ بزن.","tr":"If you have time, call me.","options":["داشته باشی","داری باشی","بداری"],"answer":0,"why":"The subjunctive of {{داشتن}}: {{داشته باشی}}."},
+        {"type":"choice","q":"{{اگر علی را دیدی، سلام برسان.}} is about…","options":["the future: if you see Ali","the past: when you saw Ali"],"answer":0,"why":"After {{اگر}}, the simple past can stand for one event in the future."},
+        {"type":"dialogue","q":"Making weekend plans. Choose your replies.","from":"suggest-and-invite","lines":[{"who":"Neda","t":"جمعه به کوه برویم؟","r":"jom'e be kuh beravim?","tr":"Shall we go to the mountains on Friday?"},{"options":["اگر هوا خوب باشد، حتماً!","اگر هوا خوب است باشد، حتماً!"],"answer":0,"why":"{{اگر}} + the subjunctive: {{خوب باشد}}."},{"who":"Neda","t":"اگر باران بیاید چه؟","r":"agar bârân biyâyad che?","tr":"What if it rains?"},{"options":["اگر باران آمد، به سینما می‌رویم.","اگر باران آمد، به سینما رفتیم."],"answer":0,"why":"The result is still to come: the present, {{می‌رویم}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If it rains tomorrow, we'll stay at home.","words":["اگر","فردا","باران","بیاید،","در","خانه","می‌مانیم."]},
+        {"type":"say","q":"Say: “If you need help, call me.”","answer":"اگر کمک خواستی، به من زنگ بزن.","r":"agar komak khâsti, be man zang bezan.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Your turn: finish these sentences: {{اگر فردا هوا خوب باشد، …}} and {{اگر پول داشته باشم، …}}","answers":[{"t":"اگر فردا هوا خوب باشد، با دوستانم به پارک می‌روم.","r":"agar fardâ havâ khub bâshad, bâ dustânam be pârk mi-ravam.","tr":"If the weather's good tomorrow, I'll go to the park with my friends."},{"t":"اگر پول داشته باشم، تابستان به ایران سفر می‌کنم.","r":"agar pul dâshte bâsham, tâbestân be irân safar mi-konam.","tr":"If I have the money, I'll travel to Iran in the summer."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 8,
+      "level": "B1",
+      "title": "Imagine: if I were…",
+      "summary": "Imagine and look back: “If I had money, I'd travel the world”, “If I were you, I'd go”, “If I'd known, I would have come”.",
+      "topic": "imagined conditions: {{اگر}} + past, {{می}} + past in the result ({{اگر پول داشتم، سفر می‌کردم}}); {{اگر جای تو بودم}}; the past that didn't happen",
+      "blocks": [
+        {"goal":{"t":"اگر پول داشتم، دور دنیا سفر می‌کردم.","r":"agar pul dâshtam, dowr-e donyâ safar mi-kardam.","tr":"If I had money, I'd travel around the world."}},
+        {"dialog":[{"who":"Sara","t":"اگر یک میلیون دلار داشتی، چه کار می‌کردی؟","r":"agar yek milyun dolâr dâshti, che kâr mi-kardi?","tr":"If you had a million dollars, what would you do?"},{"who":"Reza","t":"اول یک خانه در شمال می‌خریدم. بعد دیگر کار نمی‌کردم!","r":"avval yek khâne dar shomâl mi-kharidam. ba'd digar kâr nemi-kardam!","tr":"First I'd buy a house up north. Then I wouldn't work anymore!"},{"who":"Sara","t":"من اگر جای تو بودم، اول به مادرم کمک می‌کردم.","r":"man agar jâ-ye to budam, avval be mâdaram komak mi-kardam.","tr":"If I were you, I'd help my mother first."},{"who":"Reza","t":"راست می‌گویی. ولی حیف که یک میلیون دلار ندارم!","r":"râst mi-guyi. vali heyf ke yek milyun dolâr nadâram!","tr":"You're right. But it's a pity I don't have a million dollars!"}]},
+        {"p":"**Not real, just imagined.** For a situation that isn't true, or isn't likely, Persian takes a step into the past, as English does: the condition in the **past** ({{اگر پول داشتم|agar pul dâshtam}} “if I had money”) and the result in the **imperfect**, {{می}} + past ({{سفر می‌کردم|safar mi-kardam}} “I would travel”). So {{می‌کردم}} is both “I used to do” and “I would do”: the sentence tells you which."},
+        { "table": [
+          ["","if…","then…"],
+          ["possible (lesson 41)","{{اگر پول داشته باشم،|agar pul dâshte bâsham,}}","{{سفر می‌کنم.|safar mi-konam.}} If I have money, I'll travel."],
+          ["imagined","{{اگر پول داشتم،|agar pul dâshtam,}}","{{سفر می‌کردم.|safar mi-kardam.}} If I had money, I'd travel."],
+          ["too late now","{{اگر می‌دانستم،|agar mi-dânestam,}}","{{می‌آمدم.|mi-âmadam.}} If I'd known, I'd have come."]
+        ] },
+        {"p":"**If I were you.** {{اگر جای تو بودم|agar jâ-ye to budam}}, word for word “if I were in your place”: {{اگر جای تو بودم، می‌رفتم.|agar jâ-ye to budam, mi-raftam.}} “If I were you, I'd go.” With “be” the condition is just {{بودم}}, {{بودی}}…: Persian has no special “were”."},
+        {"p":"**Too late now.** For a past that didn't happen, everyday Persian uses the imperfect on **both** sides: {{اگر می‌دانستم، می‌آمدم.}} “If I'd known, I would have come.” Careful writing also uses the past perfect, the participle + {{بودم}}: {{اگر زود‌تر آمده بودی، او را می‌دیدی.|agar zud-tar âmade budi, u râ mi-didi.}} “If you had come earlier, you'd have seen her.”"},
+        { "ex": [
+          {"t":"اگر وقت داشتم، بیشتر ورزش می‌کردم.","r":"agar vaght dâshtam, bishtar varzesh mi-kardam.","tr":"If I had time, I'd exercise more."},
+          {"t":"اگر جای تو بودم، این کار را نمی‌کردم.","r":"agar jâ-ye to budam, in kâr râ nemi-kardam.","tr":"If I were you, I wouldn't do that."},
+          {"t":"اگر ماشین داشتیم، به شمال می‌رفتیم.","r":"agar mâshin dâshtim, be shomâl mi-raftim.","tr":"If we had a car, we'd go up north."},
+          {"t":"اگر می‌دانستم مریضی، به دیدنت می‌آمدم.","r":"agar mi-dânestam marizi, be didanat mi-âmadam.","tr":"If I'd known you were ill, I'd have come to see you."},
+          {"t":"اگر زود‌تر آمده بودی، او را می‌دیدی.","r":"agar zud-tar âmade budi, u râ mi-didi.","tr":"If you'd come earlier, you'd have seen her."},
+          {"t":"اگر فارسی بلد نبودم، این را نمی‌فهمیدم!","r":"agar fârsi balad nabudam, in râ nemi-fahmidam!","tr":"If I didn't know Persian, I wouldn't understand this!"}
+        ] },
+        {"tip":"The imperfect also makes a polite or dreamy “would”: {{خیلی خوب می‌شد اگر …|kheyli khub mi-shod agar …}} “it would be great if…”."}
+      ],
+      "mistakes": [
+        {"wrong":"اگر پول داشتم، سفر می‌کنم.","right":"اگر پول داشتم، سفر می‌کردم.","tr":"If I had money, I'd travel.","why":"An imagined result is in the imperfect: {{می‌کردم}}, “I would…”."},
+        {"wrong":"اگر من تو بودم، می‌رفتم.","right":"اگر جای تو بودم، می‌رفتم.","tr":"If I were you, I'd go.","why":"Persian says “if I were in your place”: {{اگر جای تو بودم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"اگر پول داشتم، یک خانهٔ بزرگ ___.","tr":"If I had money, I'd buy a big house.","options":["می‌خریدم","می‌خرم","بخرم"],"answer":0,"why":"Imagined: {{اگر}} + past, and {{می}} + past in the result, {{می‌خریدم}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"اگر جای تو ___، به او زنگ می‌زدم.","tr":"If I were you, I'd call him.","options":["بودم","باشم","هستم"],"answer":0,"why":"“If I were in your place”: {{اگر جای تو بودم}}."},
+        {"type":"choice","q":"{{اگر می‌دانستم، می‌آمدم.}} means…","options":["If I'd known, I'd have come.","If I know, I'll come.","When I knew, I came."],"answer":0,"why":"The imperfect on both sides: a past that didn't happen."},
+        {"type":"dialogue","q":"Daydreaming with a friend. Choose your replies.","from":"say-what-you-want-to-do","lines":[{"who":"Sara","t":"اگر می‌توانستی هر جایی زندگی کنی، کجا را انتخاب می‌کردی؟","r":"agar mi-tavânesti har jâyi zendegi koni, kojâ râ entekhâb mi-kardi?","tr":"If you could live anywhere, where would you choose?"},{"options":["شیراز را انتخاب می‌کردم، چون هوایش عالی است.","شیراز را انتخاب می‌کنم، چون هوایش عالی بود."],"answer":0,"why":"An imagined answer: {{می‌کردم}} “I would choose”. The weather really is great: {{است}}."},{"who":"Sara","t":"و آنجا چه کار می‌کردی؟","r":"va ânjâ che kâr mi-kardi?","tr":"And what would you do there?"},{"options":["یک کافه باز می‌کردم!","یک کافه باز کنم می‌کردم!"],"answer":0,"why":"“I would open”: {{باز می‌کردم}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If I were you, I wouldn't do that.","words":["اگر","جای","تو","بودم،","این","کار","را","نمی‌کردم."]},
+        {"type":"say","q":"Say: “If I had time, I'd exercise more.”","answer":"اگر وقت داشتم، بیشتر ورزش می‌کردم.","r":"agar vaght dâshtam, bishtar varzesh mi-kardam."},
+        {"type":"free","q":"Your turn: what would you do with a free year? Start with {{اگر یک سال وقت آزاد داشتم، …}}","answers":[{"t":"اگر یک سال وقت آزاد داشتم، به ایران می‌رفتم و هر روز فارسی صحبت می‌کردم.","r":"agar yek sâl vaght-e âzâd dâshtam, be irân mi-raftam va har ruz fârsi sohbat mi-kardam.","tr":"If I had a free year, I'd go to Iran and speak Persian every day."},{"t":"اگر یک سال وقت آزاد داشتم، یک کتاب می‌نوشتم.","r":"agar yek sâl vaght-e âzâd dâshtam, yek ketâb mi-neveshtam.","tr":"If I had a free year, I'd write a book."}]}
+      ]
+    },
+    {
+      "id": "hope-and-wish",
+      "unit": 8,
+      "level": "B1",
+      "title": "Hope and wish",
+      "summary": "Say “I hope you get better soon”, “I wish you could stay” and “If only you were here”, and the warm wishes Iranians say every day.",
+      "topic": "{{امیدوارم (که)}} + subjunctive; {{کاش}} + past or imperfect ({{کاش اینجا بودی}}); everyday wishes ({{خسته نباشید}}, {{سفر به خیر}})",
+      "blocks": [
+        {"goal":{"t":"امیدوارم زود‌تر خوب شوی.","r":"omidvâram zud-tar khub shavi.","tr":"I hope you get better soon."}},
+        {"dialog":[{"who":"Leyla","t":"کاش می‌توانستی بیشتر بمانی!","r":"kâsh mi-tavânesti bishtar bemâni!","tr":"I wish you could stay longer!"},{"who":"Tom","t":"من هم. امیدوارم سال دیگر دوباره بیایم.","r":"man ham. omidvâram sâl-e digar dobâre biyâyam.","tr":"Me too. I hope I'll come again next year."},{"who":"Leyla","t":"ان‌شاءالله. به خانواده‌ات سلام برسان.","r":"in-shâllâh. be khânevâde-at salâm beresân.","tr":"God willing. Say hello to your family."},{"who":"Tom","t":"حتماً. کاش تو هم با من می‌آمدی!","r":"hatman. kâsh to ham bâ man mi-âmadi!","tr":"Of course. I wish you were coming with me!"},{"who":"Leyla","t":"سفر به خیر! امیدوارم خوش بگذرد.","r":"safar be kheyr! omidvâram khosh begozarad.","tr":"Have a good trip! I hope you have a great time."}]},
+        {"p":"**I hope.** {{امیدوارم|omidvâram}} “I'm hopeful” (the short “am” again), then the subjunctive, with or without {{که}}: {{امیدوارم که بیایی.|omidvâram ke biyâyi.}} “I hope you'll come.” {{امیدوارم حالت خوب باشد.|omidvâram hâlat khub bâshad.}} “I hope you're well.” “We hope” is {{امیدواریم|omidvârim}}."},
+        {"p":"**I wish, if only.** {{کاش|kâsh}} (or {{ای کاش|ey kâsh}}) + the past is a wish about now that isn't true: {{کاش اینجا بودی.|kâsh injâ budi.}} “I wish you were here.” {{کاش ماشین داشتم.|kâsh mâshin dâshtam.}} “I wish I had a car.” Other verbs take the imperfect: {{کاش می‌توانستم بمانم.|kâsh mi-tavânestam bemânam.}} “I wish I could stay.” For a past you'd change, the past perfect: {{کاش زود‌تر آمده بودم.|kâsh zud-tar âmade budam.}} “I wish I'd come earlier.”"},
+        {"p":"**About the future**, {{کاش}} takes the subjunctive, like {{امیدوارم}}: {{کاش فردا هوا خوب باشد.|kâsh fardâ havâ khub bâshad.}} “I do hope the weather's good tomorrow.”"},
+        { "table": [
+          ["","Persian","meaning"],
+          ["hope","{{امیدوارم که بیایی.|omidvâram ke biyâyi.}}","I hope you'll come."],
+          ["wish (now)","{{کاش اینجا بودی.|kâsh injâ budi.}}","I wish you were here."],
+          ["wish (now)","{{کاش می‌توانستم بمانم.|kâsh mi-tavânestam bemânam.}}","I wish I could stay."],
+          ["wish (the past)","{{کاش آمده بودم.|kâsh âmade budam.}}","I wish I'd come."],
+          ["wish (the future)","{{کاش فردا باران نیاید.|kâsh fardâ bârân nayâyad.}}","I do hope it doesn't rain tomorrow."]
+        ] },
+        {"p":"**Everyday wishes.** Persian is full of little wishes, mostly subjunctives with “may…” understood: {{خسته نباشید!|khaste nabâshid!}} “may you not be tired” (to anyone who has been working), {{سفر به خیر!|safar be kheyr!}} “have a good trip!”, {{نوش جان!|nush-e jân!}} “enjoy your food!”, {{تولدت مبارک!|tavallodat mobârak!}} “happy birthday!”."},
+        { "ex": [
+          {"t":"امیدوارم امتحانت را خوب بدهی.","r":"omidvâram emtehânat râ khub bedahi.","tr":"I hope your exam goes well.","note":"{{امتحان دادن}} “to take an exam”"},
+          {"t":"کاش بیشتر وقت داشتیم.","r":"kâsh bishtar vaght dâshtim.","tr":"I wish we had more time."},
+          {"t":"ای کاش فارسی را زود‌تر شروع کرده بودم!","r":"ey kâsh fârsi râ zud-tar shoru' karde budam!","tr":"I wish I'd started Persian sooner!"},
+          {"t":"امیدواریم دوباره همدیگر را ببینیم.","r":"omidvârim dobâre hamdigar râ bebinim.","tr":"We hope we'll see each other again."},
+          {"t":"خسته نباشید!","r":"khaste nabâshid!","tr":"Thank you for your hard work!","note":"to a shopkeeper, a teacher, a taxi driver, a colleague at the end of the day"},
+          {"t":"کاش او هم اینجا بود.","r":"kâsh u ham injâ bud.","tr":"I wish he were here too."}
+        ] },
+        {"tip":"{{خسته نباشید}} is one of the most useful things you can learn: say it to a taxi driver as you pay, to a shop assistant, to your teacher. The answer is {{سلامت باشید|salâmat bâshid}} “may you be well”."}
+      ],
+      "mistakes": [
+        {"wrong":"امیدوارم که می‌آیی.","right":"امیدوارم که بیایی.","tr":"I hope you'll come.","why":"{{امیدوارم}} takes the subjunctive: {{بیایی}}."},
+        {"wrong":"کاش اینجا هستی.","right":"کاش اینجا بودی.","tr":"I wish you were here.","why":"A wish about now that isn't true takes the past: {{بودی}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"امیدوارم زود‌تر خوب ___.","tr":"I hope you get better soon.","options":["شوی","می‌شوی","شدی"],"answer":0,"why":"{{امیدوارم}} + the subjunctive: {{خوب شوی}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"کاش اینجا ___.","tr":"I wish you were here.","options":["بودی","هستی","باشی"],"answer":0,"why":"A wish about now: {{کاش}} + the past, {{بودی}}."},
+        {"type":"choice","q":"What do you say to a taxi driver as you pay?","options":["{{خسته نباشید!}}","{{نوش جان!}}","{{تولدت مبارک!}}"],"answer":0,"why":"{{خسته نباشید}}, “may you not be tired”, thanks anyone for their work."},
+        {"type":"dialogue","q":"Saying goodbye to a friend who's leaving. Choose your replies.","from":"talk-about-the-future","lines":[{"who":"Leyla","t":"فردا ساعت شش پرواز دارم.","r":"fardâ sâ'at-e shesh parvâz dâram.","tr":"My flight's at six tomorrow."},{"options":["کاش می‌توانستی بیشتر بمانی!","کاش می‌توانی بیشتر بمانی!"],"answer":0,"why":"A wish that won't come true: {{کاش}} + the imperfect, {{می‌توانستی}}."},{"who":"Leyla","t":"من هم! ولی سال دیگر دوباره می‌آیم.","r":"man ham! vali sâl-e digar dobâre mi-âyam.","tr":"Me too! But I'll come again next year."},{"options":["امیدوارم! سفر به خیر!","امیدوارم آمدی! سفر به خیر!"],"answer":0,"why":"{{امیدوارم}} alone is “I hope so!”; with a verb it takes the subjunctive."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I wish we had more time.","words":["کاش","بیشتر","وقت","داشتیم."]},
+        {"type":"say","q":"To a friend before an exam: “I hope your exam goes well.”","answer":"امیدوارم امتحانت را خوب بدهی.","r":"omidvâram emtehânat râ khub bedahi."},
+        {"type":"free","q":"Your turn: say one hope for next year and one wish about now ({{امیدوارم …}}, {{کاش …}}).","answers":[{"t":"امیدوارم سال دیگر به ایران بروم. کاش الان آنجا بودم!","r":"omidvâram sâl-e digar be irân beravam. kâsh al'ân ânjâ budam!","tr":"I hope I'll go to Iran next year. I wish I were there now!"},{"t":"امیدوارم فارسی‌ام بهتر شود. کاش بیشتر وقت داشتم.","r":"omidvâram fârsi-am behtar shavad. kâsh bishtar vaght dâshtam.","tr":"I hope my Persian gets better. I wish I had more time."}]}
+      ]
+    },
+    {
+      "id": "say-how-sure-you-are",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say how sure you are",
+      "summary": "Guess and suppose: “He must be tired”, “She may have left”, “It's possible that…”, “Maybe they've forgotten.”",
+      "topic": "{{شاید}} and {{ممکن است}} + subjunctive; {{باید}} “must be”; the perfect subjunctive ({{رفته باشد}}) for the past; {{حتماً}}, {{احتمالاً}}",
+      "blocks": [
+        {"goal":{"t":"تلفنش را جواب نمی‌دهد. شاید خوابیده باشد.","r":"telefonash râ javâb nemi-dahad. shâyad khâbide bâshad.","tr":"He's not answering his phone. Maybe he's fallen asleep."}},
+        {"dialog":[{"who":"Mina","t":"ساعت نه است و رضا هنوز نیامده.","r":"sâ'at noh ast va rezâ hanuz nayâmade.","tr":"It's nine and Reza still hasn't come."},{"who":"Ali","t":"شاید در ترافیک مانده باشد.","r":"shâyad dar terâfik mânde bâshad.","tr":"Maybe he's stuck in traffic."},{"who":"Mina","t":"ممکن است. یا شاید فراموش کرده باشد!","r":"momken ast. yâ shâyad farâmush karde bâshad!","tr":"Possibly. Or maybe he's forgotten!"},{"who":"Ali","t":"نه، حتماً یادش هست. دیروز با هم صحبت کردیم.","r":"na, hatman yâdash hast. diruz bâ ham sohbat kardim.","tr":"No, he'll remember. We talked yesterday."},{"who":"Mina","t":"پس باید خیلی خسته باشد. تمام هفته کار کرده.","r":"pas bâyad kheyli khaste bâshad. tamâm-e hafte kâr karde.","tr":"Then he must be very tired. He's worked all week."}]},
+        {"p":"**Maybe, possibly.** {{شاید|shâyad}} “maybe” and {{ممکن است|momken ast}} “it's possible (that)” take the subjunctive: {{شاید بیاید.|shâyad biyâyad.}} “He might come.” {{ممکن است دیر برسیم.|momken ast dir beresim.}} “We may be late.”"},
+        {"p":"**Must be.** {{باید}} also means “must be”, for a confident guess: {{باید خسته باشد.|bâyad khaste bâshad.}} “She must be tired.” {{باید ایرانی باشد.|bâyad irâni bâshad.}} “He must be Iranian.”"},
+        {"term":"perfect subjunctive","means":"the subjunctive of the perfect, for what may (or must) have happened: {{رفته باشد|rafte bâshad}} “(that) he has gone”."},
+        {"p":"**Guessing about the past.** Use the participle + the subjunctive of “be” ({{باشم}}, {{باشی}}, {{باشد}}…): {{شاید رفته باشد.|shâyad rafte bâshad.}} “Maybe he's gone, he may have gone.” {{باید فراموش کرده باشد.|bâyad farâmush karde bâshad.}} “She must have forgotten.”"},
+        { "table": [
+          ["","now, later","already, in the past"],
+          ["maybe","{{شاید بیاید.|shâyad biyâyad.}} He may come.","{{شاید آمده باشد.|shâyad âmade bâshad.}} He may have come."],
+          ["it's possible","{{ممکن است بداند.|momken ast bedânad.}} She may know.","{{ممکن است شنیده باشد.|momken ast shenide bâshad.}} She may have heard."],
+          ["must","{{باید خانه باشد.|bâyad khâne bâshad.}} He must be home.","{{باید رفته باشد.|bâyad rafte bâshad.}} He must have left."]
+        ] },
+        {"p":"**Sure and probable.** {{حتماً|hatman}} “surely, definitely”, {{احتمالاً|ehtemâlan}} “probably” and {{مطمئناً|motma'ennan}} “certainly” go with ordinary verbs: {{احتمالاً فردا می‌آید.|ehtemâlan fardâ mi-âyad.}} “He'll probably come tomorrow.”"},
+        { "ex": [
+          {"t":"ممکن است امشب برف بیاید.","r":"momken ast emshab barf biyâyad.","tr":"It might snow tonight."},
+          {"t":"باید خیلی گرسنه باشی!","r":"bâyad kheyli gorosne bâshi!","tr":"You must be very hungry!"},
+          {"t":"کلیدم را پیدا نمی‌کنم. شاید در ماشین جا گذاشته باشم.","r":"kelidam râ peydâ nemi-konam. shâyad dar mâshin jâ gozâshte bâsham.","tr":"I can't find my key. Maybe I left it in the car."},
+          {"t":"او باید تا حالا رسیده باشد.","r":"u bâyad tâ hâlâ reside bâshad.","tr":"She must have arrived by now."},
+          {"t":"احتمالاً فردا به تو زنگ می‌زنم.","r":"ehtemâlan fardâ be to zang mi-zanam.","tr":"I'll probably call you tomorrow."},
+          {"t":"حتماً اشتباهی شده است.","r":"hatman eshtebâhi shode ast.","tr":"There must be some mistake.","note":"word for word “surely a mistake has happened”"}
+        ] },
+        {"tip":"{{باید}} has two jobs: “have to” ({{باید بروم}} “I have to go”) and “must be” ({{باید خسته باشد}} “she must be tired”). The situation tells you which."}
+      ],
+      "mistakes": [
+        {"wrong":"شاید او رفت.","right":"شاید او رفته باشد.","tr":"Maybe he's gone.","why":"A guess about the past takes the perfect subjunctive: {{رفته باشد}}."},
+        {"wrong":"ممکن است دیر می‌رسیم.","right":"ممکن است دیر برسیم.","tr":"We may be late.","why":"{{ممکن است}} takes the subjunctive: {{برسیم}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"شاید فردا ___.","tr":"He might come tomorrow.","options":["بیاید","می‌آید","آمد"],"answer":0,"why":"{{شاید}} + the subjunctive: {{بیاید}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"تلفنش خاموش است. شاید ___ باشد.","tr":"His phone is off. Maybe he's fallen asleep.","options":["خوابیده","بخوابد","می‌خوابد"],"answer":0,"why":"A guess about what has happened: the participle {{خوابیده}} + {{باشد}}."},
+        {"type":"choice","q":"{{باید خسته باشد.}} means…","options":["She must be tired.","She has to be tired.","She was tired."],"answer":0,"why":"Here {{باید}} is a confident guess: “must be”."},
+        {"type":"dialogue","q":"Waiting for a friend who's late. Choose your replies.","from":"tell-a-story-in-order","lines":[{"who":"Mina","t":"ساعت نه است و رضا هنوز نیامده.","r":"sâ'at noh ast va rezâ hanuz nayâmade.","tr":"It's nine and Reza still hasn't come."},{"options":["شاید در ترافیک مانده باشد.","شاید در ترافیک می‌ماند."],"answer":0,"why":"A guess about the past: the perfect subjunctive, {{مانده باشد}}."},{"who":"Mina","t":"به او زنگ زدم، ولی جواب نداد.","r":"be u zang zadam, vali javâb nadâd.","tr":"I called him, but he didn't answer."},{"options":["پس حتماً در راه است.","پس حتماً در راه باشد بود."],"answer":0,"why":"{{حتماً}} “surely” goes with an ordinary verb: {{در راه است}} “he's on his way”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"It might snow tonight.","words":["ممکن","است","امشب","برف","بیاید."]},
+        {"type":"say","q":"To a friend who's just arrived after a long trip: “You must be very tired!”","answer":"باید خیلی خسته باشی!","r":"bâyad kheyli khaste bâshi!","from":"say-how-you-feel"},
+        {"type":"free","q":"Your turn: a friend hasn't answered your messages all day. Make two guesses why, with {{شاید}} and {{باید}}.","answers":[{"t":"شاید گوشی‌اش را گم کرده باشد. یا باید خیلی سرش شلوغ باشد.","r":"shâyad gushi-ash râ gom karde bâshad. yâ bâyad kheyli sarash sholugh bâshad.","tr":"Maybe she's lost her phone. Or she must be really busy."},{"t":"ممکن است خوابیده باشد. احتمالاً فردا زنگ می‌زند.","r":"momken ast khâbide bâshad. ehtemâlan fardâ zang mi-zanad.","tr":"She may be asleep. She'll probably call tomorrow."}]}
+      ]
+    },
+    {
+      "id": "be-polite-the-persian-way",
+      "unit": 8,
+      "level": "B1",
+      "title": "Be polite the Persian way",
+      "summary": "Offer, accept and refuse like an Iranian: ta'ârof, the respectful plural, and the special polite verbs.",
+      "topic": "ta'ârof phrases ({{بفرمایید}}, {{خواهش می‌کنم}}, {{قابلی ندارد}}); {{شما}} and {{ایشان}} with a plural verb; polite verbs ({{تشریف آوردن}}, {{میل کردن}}, {{فرمودن}})",
+      "blocks": [
+        {"goal":{"t":"خیلی خوش آمدید، بفرمایید بنشینید.","r":"kheyli khosh âmadid, befarmâyid beneshinid.","tr":"You're very welcome, please have a seat."}},
+        {"dialog":[{"who":"You","t":"ببخشید آقا، چقدر می‌شود؟","r":"bebakhshid âghâ, cheghadr mi-shavad?","tr":"Excuse me, how much is it?"},{"who":"Driver","t":"قابلی ندارد.","r":"ghâbeli nadârad.","tr":"It's nothing, be my guest."},{"who":"You","t":"خواهش می‌کنم، بفرمایید چقدر شد؟","r":"khâhesh mi-konam, befarmâyid cheghadr shod?","tr":"Please, tell me how much it was."},{"who":"Driver","t":"صد هزار تومان.","r":"sad hezâr tomân.","tr":"A hundred thousand tomans."},{"who":"You","t":"بفرمایید. خسته نباشید!","r":"befarmâyid. khaste nabâshid!","tr":"Here you are. Thank you!"},{"who":"Driver","t":"سلامت باشید. خدا نگهدار!","r":"salâmat bâshid. khodâ negahdâr!","tr":"Thank you. Goodbye!"}]},
+        {"p":"**Ta'ârof.** Iranian politeness is a small ritual called {{تعارف|ta'ârof}}: offering again and again, refusing at first, and lowering yourself while raising the other person. A taxi driver or a shopkeeper may say {{قابلی ندارد|ghâbeli nadârad}}, “it's not worthy (of you)”, as if you needn't pay. It's courtesy: insist kindly, and pay."},
+        {"p":"**Offers.** The host offers ({{بفرمایید|befarmâyid}}); the guest refuses politely ({{ممنون، میل ندارم|mamnun, meyl nadâram}} “thank you, I don't feel like it”, {{زحمت نکشید|zahmat nakeshid}} “don't go to any trouble”); the host insists ({{تعارف نکنید!|ta'ârof nakonid!}} “don't stand on ceremony!”); and then the guest accepts. If you really mean no, say it more than once."},
+        {"p":"**Respect: the plural.** {{شما|shomâ}} takes a plural verb even for one person. For a respected “he” or “she” (a teacher, someone older), Persian uses {{ایشان|ishân}}, also with a plural verb: {{ایشان استاد من هستند.|ishân ostâd-e man hastand.}} “She is my professor.”"},
+        {"p":"**Polite verbs.** Some verbs have a special polite form, for the other person, never for yourself: {{تشریف آوردن|tashrif âvardan}} “to come” ({{کی تشریف آوردید؟|key tashrif âvardid?}} “when did you arrive?”), {{تشریف بردن|tashrif bordan}} “to go”, {{میل کردن|meyl kardan}} “to eat, to drink” ({{چه میل دارید؟}}), {{فرمودن|farmudan}} “to say” ({{چه فرمودید؟|che farmudid?}} “what did you say?”). About yourself, humble words: {{عرض کردم|arz kardam}} “I said”."},
+        { "table": [
+          ["","ordinary","polite, for the other person"],
+          ["come","{{آمدید|âmadid}}","{{تشریف آوردید|tashrif âvardid}}"],
+          ["go","{{می‌روید|mi-ravid}}","{{تشریف می‌برید|tashrif mi-barid}}"],
+          ["eat, drink","{{می‌خورید|mi-khorid}}","{{میل می‌کنید|meyl mi-konid}}"],
+          ["say","{{گفتید|goftid}}","{{فرمودید|farmudid}}"],
+          ["be (at home, here)","{{هستند|hastand}}","{{تشریف دارند|tashrif dârand}}"]
+        ] },
+        { "ex": [
+          {"t":"بفرمایید تو!","r":"befarmâyid tu!","tr":"Please come in!"},
+          {"t":"زحمت نکشید، ممنون.","r":"zahmat nakeshid, mamnun.","tr":"Please don't go to any trouble, thank you."},
+          {"t":"تعارف نکنید، بفرمایید!","r":"ta'ârof nakonid, befarmâyid!","tr":"Don't be shy, help yourself!"},
+          {"t":"ببخشید، چه فرمودید؟","r":"bebakhshid, che farmudid?","tr":"Sorry, what did you say?"},
+          {"t":"خیلی لطف دارید.","r":"kheyli lotf dârid.","tr":"You're very kind."},
+          {"t":"پدرتان تشریف دارند؟","r":"pedaretân tashrif dârand?","tr":"Is your father in?","note":"on the phone or at the door"}
+        ] },
+        {"tip":"Two answers you'll use a hundred times: to thanks, {{خواهش می‌کنم|khâhesh mi-konam}} “you're welcome” (word for word “I beg you”); to a compliment, {{لطف دارید|lotf dârid}} or {{نظر لطف شماست|nazar-e lotf-e shomâst}} “that's your kindness”."}
+      ],
+      "mistakes": [
+        {"wrong":"من تشریف آوردم.","right":"من آمدم.","tr":"I came.","why":"Polite verbs are for the other person, never for yourself: about yourself, {{آمدم}}."},
+        {"wrong":"استادم آمد.","right":"استادم آمدند.","tr":"My professor came.","why":"For someone you respect, the plural verb: {{آمدند}} (politer still, {{تشریف آوردند}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The driver says {{قابلی ندارد}} when you ask the fare. What does it mean?","options":["It's politeness: you should still pay.","It's free, you don't have to pay.","The meter is broken."],"answer":0,"why":"{{قابلی ندارد}} “it's not worthy of you” is ta'ârof: insist kindly, and pay."},
+        {"type":"fill","q":"Choose the missing word.","t":"ببخشید، چه ___؟","tr":"Sorry, what did you say? (politely)","options":["فرمودید","گفتم","عرض کردید"],"answer":0,"why":"Politely, for the other person: {{فرمودید}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"ایشان استاد من ___.","tr":"She is my professor.","options":["هستند","است","هستم"],"answer":0,"why":"{{ایشان}}, for someone you respect, takes the plural verb: {{هستند}}.","from":"say-who-you-are"},
+        {"type":"dialogue","q":"You're a guest in an Iranian home. Choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Host","t":"بفرمایید، یک چای دیگر میل کنید.","r":"befarmâyid, yek chây-e digar meyl konid.","tr":"Please, have another tea."},{"options":["ممنون، زحمت نکشید.","بله، یک چای دیگر بیاورید!"],"answer":0,"why":"The polite first answer is a soft refusal: {{زحمت نکشید}} “don't go to any trouble”."},{"who":"Host","t":"تعارف نکنید! خواهش می‌کنم.","r":"ta'ârof nakonid! khâhesh mi-konam.","tr":"Don't stand on ceremony! Please."},{"options":["چشم، خیلی لطف دارید.","نه، گفتم که نمی‌خواهم."],"answer":0,"why":"When the host insists, accept warmly: {{خیلی لطف دارید}} “you're very kind”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"You're very welcome, please have a seat.","words":["خیلی","خوش","آمدید،","بفرمایید","بنشینید."]},
+        {"type":"say","q":"Answer someone who thanks you: “You're welcome.”","answer":"خواهش می‌کنم.","r":"khâhesh mi-konam."},
+        {"type":"free","q":"Your turn: welcome a guest, offer them something, and answer when they refuse the first time.","answers":[{"t":"خیلی خوش آمدید! بفرمایید بنشینید. چای میل دارید؟ تعارف نکنید!","r":"kheyli khosh âmadid! befarmâyid beneshinid. chây meyl dârid? ta'ârof nakonid!","tr":"You're very welcome! Please sit down. Would you like some tea? Don't be shy!"},{"t":"خوش آمدید. بفرمایید، این شیرینی را خودم درست کرده‌ام.","r":"khosh âmadid. befarmâyid, in shirini râ khodam dorost karde-am.","tr":"Welcome. Please help yourself: I made this pastry myself."}]}
+      ]
+    },
+    {
+      "id": "read-the-news",
+      "unit": 8,
+      "level": "B1",
+      "title": "Read the news: things that are done",
+      "summary": "Understand the passive: “The mosque was built 400 years ago”, “It is said that…”, “The match was cancelled.”",
+      "topic": "the passive: participle + {{شدن}} ({{ساخته شد}}, {{گفته می‌شود}}); {{توسط}} “by”; in speech, “they” ({{می‌گویند}})",
+      "blocks": [
+        {"goal":{"t":"این مسجد چهارصد سال پیش ساخته شد.","r":"in masjed chahârsad sâl pish sâkhte shod.","tr":"This mosque was built four hundred years ago."}},
+        {"dialog":[{"who":"Guide","t":"این میدان در زمان شاه عباس ساخته شد.","r":"in meydân dar zamân-e shâh abbâs sâkhte shod.","tr":"This square was built in the time of Shah Abbas."},{"who":"Tourist","t":"این کاشی‌ها با دست درست شده‌اند؟","r":"in kâshi-hâ bâ dast dorost shode-and?","tr":"Were these tiles made by hand?"},{"who":"Guide","t":"بله، همه با دست ساخته شده‌اند. گفته می‌شود که ساختن این مسجد هجده سال طول کشید.","r":"bale, hame bâ dast sâkhte shode-and. gofte mi-shavad ke sâkhtan-e in masjed hejdah sâl tul keshid.","tr":"Yes, they were all made by hand. It's said that building this mosque took eighteen years."},{"who":"Tourist","t":"عکس گرفتن اینجا مجاز است؟","r":"aks gereftan injâ mojâz ast?","tr":"Is taking photos allowed here?"},{"who":"Guide","t":"بله، ولی استفاده از فلاش ممنوع است.","r":"bale, vali estefâde az flâsh mamnu' ast.","tr":"Yes, but using flash is not allowed."}]},
+        {"term":"passive","means":"a sentence that puts the thing done first and leaves out the doer, or brings it in later: “The mosque was built.”"},
+        {"p":"**Things that are done.** When what matters is what happened, not who did it, Persian uses the **passive**: the participle + {{شدن}}. {{ساخته شد|sâkhte shod}} “it was built” (from {{ساختن}} “to build”), {{گفته می‌شود|gofte mi-shavad}} “it is said”, {{نوشته شده است|neveshte shode ast}} “it has been written”. Only {{شدن}} changes tense."},
+        { "table": [
+          ["","Persian","meaning"],
+          ["is done","{{ساخته می‌شود|sâkhte mi-shavad}}","is (being) built"],
+          ["was done","{{ساخته شد|sâkhte shod}}","was built"],
+          ["has been done","{{ساخته شده است|sâkhte shode ast}}","has been built"],
+          ["will be done (formal)","{{ساخته خواهد شد|sâkhte khâhad shod}}","will be built"],
+          ["must be done","{{باید ساخته شود|bâyad sâkhte shavad}}","must be built"]
+        ] },
+        {"p":"**By whom.** In writing, {{توسط|tavassot-e}} “by”: {{این نامه توسط مدیر نوشته شد.|in nâme tavassot-e modir neveshte shod.}} “This letter was written by the manager.”"},
+        {"p":"**Compound verbs** with {{کردن}} make their passive by swapping in {{شدن}} (lesson 31): {{درست کرد}} “he made (it)” → {{درست شد}} “it was made”; {{ترجمه کردند}} “they translated” → {{ترجمه شد}} “it was translated”."},
+        {"p":"**In speech**, Persian prefers “they”: {{می‌گویند|mi-guyand}} “they say” rather than {{گفته می‌شود}}; {{اینجا انگلیسی صحبت می‌کنند.|injâ engelisi sohbat mi-konand.}} “English is spoken here” (“they speak English here”)."},
+        { "ex": [
+          {"t":"این کتاب به فارسی ترجمه شده است.","r":"in ketâb be fârsi tarjome shode ast.","tr":"This book has been translated into Persian."},
+          {"t":"جلسه به فردا موکول شد.","r":"jalase be fardâ mowkul shod.","tr":"The meeting was put off until tomorrow.","note":"office and news language"},
+          {"t":"گفته می‌شود که قیمت بنزین بالا می‌رود.","r":"gofte mi-shavad ke gheymat-e benzin bâlâ mi-ravad.","tr":"It's said that the price of petrol is going up."},
+          {"t":"در این رستوران فقط غذای سنتی سرو می‌شود.","r":"dar in resturân faghat ghazâ-ye sonnati serv mi-shavad.","tr":"Only traditional food is served in this restaurant."},
+          {"t":"مسابقه به خاطر باران لغو شد.","r":"mosâbeghe be khâter-e bârân laghv shod.","tr":"The match was cancelled because of the rain."},
+          {"t":"این فرش در تبریز بافته شده است.","r":"in farsh dar tabriz bâfte shode ast.","tr":"This carpet was woven in Tabriz.","note":"{{بافتن|bâftan}} “to weave”"}
+        ] },
+        {"tip":"News headlines love the passive, often without {{است}}: {{… دستگیر شد|… dastgir shod}} “… was arrested”, {{… افتتاح شد|… eftetâh shod}} “… was opened”. Once you know the participle + {{شدن}}, you can follow most of them."}
+      ],
+      "mistakes": [
+        {"wrong":"این مسجد ساخت شد.","right":"این مسجد ساخته شد.","tr":"This mosque was built.","why":"The passive uses the participle, with -e: {{ساخته}}."},
+        {"wrong":"مسابقه لغو کرد.","right":"مسابقه لغو شد.","tr":"The match was cancelled.","why":"The match didn't cancel anything; it was cancelled: {{لغو شد}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"این مسجد چهارصد سال پیش ساخته ___.","tr":"This mosque was built four hundred years ago.","options":["شد","کرد","است"],"answer":0,"why":"The passive: the participle + {{شدن}}, here in the past, {{شد}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"این کتاب به فارسی ___ شده است.","tr":"This book has been translated into Persian.","options":["ترجمه","ترجمه کرده","ترجمه کند"],"answer":0,"why":"A {{کردن}} verb makes its passive with {{شدن}}: {{ترجمه شده است}}.","from":"say-what-happened-to-you"},
+        {"type":"choice","q":"{{گفته می‌شود که …}} means…","options":["It's said that…","He said that…","Say that…"],"answer":0,"why":"The participle {{گفته}} + {{می‌شود}}: “it is said”."},
+        {"type":"dialogue","q":"A guide shows you around Isfahan. Choose your questions.","from":"ask-about-the-past","lines":[{"who":"Guide","t":"این پل خیلی قدیمی است.","r":"in pol kheyli ghadimi ast.","tr":"This bridge is very old."},{"options":["کی ساخته شد؟","کی ساخت شد؟"],"answer":0,"why":"“When was it built?”: the participle {{ساخته}} + {{شد}}."},{"who":"Guide","t":"حدود چهارصد سال پیش. هنوز هم از آن استفاده می‌شود.","r":"hodud-e chahârsad sâl pish. hanuz ham az ân estefâde mi-shavad.","tr":"About four hundred years ago. It's still used."},{"options":["عالی است! می‌توانم عکس بگیرم؟","عالی است! عکس گرفته می‌شوم؟"],"answer":0,"why":"Asking permission: {{می‌توانم … بگیرم؟}} ({{عکس گرفته می‌شوم}} would be “am I photographed?”)."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The match was cancelled because of the rain.","words":["مسابقه","به","خاطر","باران","لغو","شد."]},
+        {"type":"say","q":"Say: “This carpet was woven in Tabriz.”","answer":"این فرش در تبریز بافته شده است.","r":"in farsh dar tabriz bâfte shode ast."},
+        {"type":"free","q":"Your turn: describe a famous building, book or thing from your country in two passive sentences ({{… ساخته شد}}, {{… نوشته شد}}…).","answers":[{"t":"برج ایفل بیش از صد سال پیش ساخته شد. هر سال توسط میلیون‌ها نفر دیده می‌شود.","r":"borj-e eyfel bish az sad sâl pish sâkhte shod. har sâl tavassot-e milyun-hâ nafar dide mi-shavad.","tr":"The Eiffel Tower was built more than a hundred years ago. It's seen by millions of people every year."},{"t":"«شاهنامه» حدود هزار سال پیش توسط فردوسی نوشته شد.","r":"“shâhnâme” hodud-e hezâr sâl pish tavassot-e ferdowsi neveshte shod.","tr":"The Shahnameh was written by Ferdowsi about a thousand years ago."}]}
+      ]
+    },
+    {
+      "id": "follow-everyday-speech",
+      "unit": 8,
+      "level": "B1",
+      "title": "Follow everyday spoken Persian",
+      "summary": "Recognise how Iranians really talk: the same grammar, in shorter sounds ({{می‌رم}} for {{می‌روم}}, {{خونه}} for {{خانه}}, {{خوبه}} for {{خوب است}}).",
+      "topic": "the spoken forms of the written standard: shorter verbs ({{می‌رم}}, {{می‌خوام}}), â before n said u ({{خونه}}), {{است}} → -e, {{را}} → -o, endings on verbs",
+      "blocks": [
+        {"goal":{"t":"نمی‌توانم بیایم، کار دارم.","r":"nemi-tavânam biyâyam, kâr dâram.","tr":"I can't come, I'm busy.","note":"said: {{نمی‌تونم بیام، کار دارم.|nemitunam biyâm, kâr dâram.}}"}},
+        {"p":"**Same grammar, shorter sounds.** Everything in this course is the standard Persian of writing, the news and careful speech. In everyday conversation (in Tehran, and on Iranian TV and film) people say many words in shorter forms, a bit like English “gonna” and “wanna”. There is no new grammar here: this lesson is for recognising them."},
+        {"p":"**â before n is said u.** {{خانه}} khâne is said khune, {{نان}} nân nun, {{آن}} ân un, {{تهران}} tehrân tehrun, {{می‌دانم}} mi-dânam midunam, {{می‌توانم}} mi-tavânam mitunam."},
+        {"p":"**Verbs get shorter.** {{می‌روم}} → miram, {{می‌گویم}} → migam, {{می‌خواهم}} → mikhâm, {{می‌آیم}} → miyâm, {{بروم}} → beram. {{است}} becomes -e after a consonant ({{خوب است}} → khube) and disappears after a vowel. “They” loses its d: {{می‌روند}} → miran."},
+        { "table": [
+          ["written","said","meaning"],
+          ["{{می‌روم|mi-ravam}}","{{می‌رم|miram}}","I go"],
+          ["{{می‌گویم|mi-guyam}}","{{می‌گم|migam}}","I say"],
+          ["{{می‌خواهم|mi-khâham}}","{{می‌خوام|mikhâm}}","I want"],
+          ["{{می‌توانم|mi-tavânam}}","{{می‌تونم|mitunam}}","I can"],
+          ["{{می‌دانم|mi-dânam}}","{{می‌دونم|midunam}}","I know"],
+          ["{{خانه|khâne}}","{{خونه|khune}}","home"],
+          ["{{خوب است|khub ast}}","{{خوبه|khube}}","it's good"],
+          ["{{کتاب را|ketâb râ}}","{{کتابو|ketâbo}}","the book (object)"],
+          ["{{آن|ân}}","{{اون|un}}","that"],
+          ["{{به او|be u}}","{{بهش|behesh}}","to him, to her"]
+        ] },
+        {"p":"**Endings everywhere.** Speech hangs the pronoun endings on verbs and prepositions (lesson 35): {{دیدمش|didamesh}} “I saw him”, {{بهش گفتم|behesh goftam}} “I told him”, {{ازت ممنونم|azat mamnunam}} “thank you” (“I'm grateful to you”). And {{هم}} “too” shrinks to -am: {{منم|manam}} “me too”."},
+        { "ex": [
+          {"t":"نمی‌دانم کجاست.","r":"nemi-dânam kojâst.","tr":"I don't know where it is.","note":"said: {{نمی‌دونم کجاست.|nemidunam kojâst.}}"},
+          {"t":"این خیلی خوب است!","r":"in kheyli khub ast!","tr":"This is really good!","note":"said: {{این خیلی خوبه!|in kheyli khube!}}"},
+          {"t":"می‌خواهم به خانه بروم.","r":"mi-khâham be khâne beravam.","tr":"I want to go home.","note":"said: {{می‌خوام برم خونه.|mikhâm beram khune.}}"},
+          {"t":"آن کتاب را به او دادم.","r":"ân ketâb râ be u dâdam.","tr":"I gave him that book.","note":"said: {{اون کتابو بهش دادم.|un ketâbo behesh dâdam.}}"},
+          {"t":"چه می‌گویی؟","r":"che mi-guyi?","tr":"What are you saying?","note":"said: {{چی می‌گی؟|chi migi?}}"},
+          {"t":"نان خریدی؟","r":"nân kharidi?","tr":"Did you buy bread?","note":"said: {{نون خریدی؟|nun kharidi?}}"}
+        ] },
+        {"tip":"When you speak, the standard forms are always understood and always polite: use the spoken ones as you start to hear them. Don't write them, except in chats with friends."}
+      ],
+      "mistakes": [
+        {"wrong":"می‌خوام برم خونه.","right":"می‌خواهم به خانه بروم.","tr":"I want to go home.","why":"In writing (an email, a form, a letter), use the standard forms; the spoken ones are for talk and friendly chat."},
+        {"wrong":"کتابو خوندم.","right":"کتاب را خواندم.","tr":"I read the book.","why":"Written, {{را}} is always {{را}}, and {{خواندم}} keeps its {{ا}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"A friend says {{نمی‌دونم!|nemidunam!}} What is it in the standard?","options":["{{نمی‌دانم!}}","{{نمی‌دهم!}}","{{نمی‌مانم!}}"],"answer":0,"why":"Spoken -u- before n is written -â-: {{نمی‌دونم}} is {{نمی‌دانم}} “I don't know”."},
+        {"type":"choice","q":"{{خوبه}} means…","options":["it's good","be good!","goodness"],"answer":0,"why":"{{خوب است}}, with {{است}} shrunk to -e."},
+        {"type":"choice","q":"You hear {{می‌رم خونه.|miram khune.}} It means…","options":["{{به خانه می‌روم.}} I'm going home.","{{خانه را می‌بینم.}} I can see the house.","{{از خانه می‌آیم.}} I'm coming from home."],"answer":0,"why":"{{می‌رم}} is {{می‌روم}}, {{خونه}} is {{خانه}}."},
+        {"type":"fill","q":"Write it in the standard: choose the missing word.","t":"آن کتاب ___ به او دادم.","tr":"I gave him that book.","options":["را","رو","و"],"answer":0,"why":"In writing the object marker is always {{را}} (said ro or -o).","from":"say-which-one-you-mean"},
+        {"type":"order","q":"Put the words in order (in the standard).","tr":"I can't come, I'm busy.","words":["نمی‌توانم","بیایم،","کار","دارم."]},
+        {"type":"say","q":"Say the standard form of {{می‌خوام برم.|mikhâm beram.}}","answer":"می‌خواهم بروم.","r":"mi-khâham beravam.","from":"say-what-you-want-to-do"},
+        {"type":"free","q":"Your turn: write in standard Persian what your friend said: {{فردا نمی‌تونم بیام، باید برم خونهٔ مادرم.|fardâ nemitunam biyâm, bâyad beram khune-ye mâdaram.}}","answers":[{"t":"فردا نمی‌توانم بیایم، باید به خانهٔ مادرم بروم.","r":"fardâ nemi-tavânam biyâyam, bâyad be khâne-ye mâdaram beravam.","tr":"I can't come tomorrow, I have to go to my mother's."},{"t":"گفت که فردا نمی‌تواند بیاید، چون باید به خانهٔ مادرش برود.","r":"goft ke fardâ nemi-tavânad biyâyad, chon bâyad be khâne-ye mâdarash beravad.","tr":"She said she couldn't come tomorrow, because she had to go to her mother's."}]}
+      ]
+    },
+    {
+      "id": "tell-your-story",
+      "unit": 8,
+      "level": "B1",
+      "title": "Tell your story: past, present and future",
+      "summary": "Put it all together: who you are, where you've been, what you're doing now and what you hope for.",
+      "topic": "every tense together: the past, the imperfect, the perfect, the present, the subjunctive and conditions",
+      "blocks": [
+        {"goal":{"t":"سه سال پیش فارسی را شروع کردم، الان می‌توانم با دوستانم صحبت کنم و امیدوارم یک روز به ایران بروم.","r":"se sâl pish fârsi râ shoru' kardam, al'ân mi-tavânam bâ dustânam sohbat konam va omidvâram yek ruz be irân beravam.","tr":"I started Persian three years ago, now I can talk with my friends, and I hope to go to Iran one day."}},
+        {"dialog":[{"who":"Interviewer","t":"کمی از خودتان بگویید.","r":"kami az khodetân beguyid.","tr":"Tell me a little about yourself."},{"who":"Sam","t":"من اهل کانادا هستم. پنج سال است که در تهران زندگی می‌کنم.","r":"man ahl-e kânâdâ hastam. panj sâl ast ke dar tehrân zendegi mi-konam.","tr":"I'm from Canada. I've lived in Tehran for five years."},{"who":"Interviewer","t":"قبلاً کجا کار می‌کردید؟","r":"ghablan kojâ kâr mi-kardid?","tr":"Where did you work before?"},{"who":"Sam","t":"در یک مدرسهٔ زبان درس می‌دادم. آنجا خیلی چیز‌ها یاد گرفتم.","r":"dar yek madrese-ye zabân dars mi-dâdam. ânjâ kheyli chiz-hâ yâd gereftam.","tr":"I taught at a language school. I learned a lot there."},{"who":"Interviewer","t":"چرا می‌خواهید اینجا کار کنید؟","r":"cherâ mi-khâhid injâ kâr konid?","tr":"Why do you want to work here?"},{"who":"Sam","t":"چون شرکت شما را می‌شناسم و فکر می‌کنم که می‌توانم کمک کنم. اگر این کار را بگیرم، خیلی خوشحال می‌شوم.","r":"chon sherkat-e shomâ râ mi-shenâsam va fekr mi-konam ke mi-tavânam komak konam. agar in kâr râ begiram, kheyli khoshhâl mi-shavam.","tr":"Because I know your company and I think I can help. If I get this job, I'll be very happy."}]},
+        {"p":"**Everything you've learned, in one story.** Telling your story uses every tense in the course: who you are (“be”), what happened (the past), what you used to do (the imperfect), what you've done (the perfect), what you do now and for how long (the present), and what you want, hope and would do (the subjunctive and conditions)."},
+        { "table": [
+          ["to say…","use…","for example"],
+          ["who you are","“be”","{{اهل کانادا هستم.|ahl-e kânâdâ hastam.}}"],
+          ["what happened","the past","{{سه سال پیش به ایران آمدم.|se sâl pish be irân âmadam.}}"],
+          ["what you used to do","the imperfect","{{در یک مدرسه درس می‌دادم.|dar yek madrese dars mi-dâdam.}}"],
+          ["your experience","the perfect","{{به خیلی از شهر‌ها سفر کرده‌ام.|be kheyli az shahr-hâ safar karde-am.}}"],
+          ["now, and since when","the present","{{پنج سال است که اینجا زندگی می‌کنم.|panj sâl ast ke injâ zendegi mi-konam.}}"],
+          ["plans and hopes","the subjunctive","{{امیدوارم این کار را بگیرم.|omidvâram in kâr râ begiram.}}"],
+          ["dreams","conditions","{{اگر وقت داشتم، کتاب می‌نوشتم.|agar vaght dâshtam, ketâb mi-neveshtam.}}"]
+        ] },
+        {"p":"**Link it.** The joining words of unit 7 make it flow: {{اول}}, {{بعد}}, {{وقتی}}, {{چون}}, {{برای اینکه}}, {{ولی}}, {{به همین دلیل}}. And a story sounds natural when its scenes have a background (the imperfect) and events (the past)."},
+        { "ex": [
+          {"t":"در یک شهر کوچک به دنیا آمدم و بچه که بودم، هر تابستان به خانهٔ مادربزرگم می‌رفتم.","r":"dar yek shahr-e kuchak be donyâ âmadam va bachche ke budam, har tâbestân be khâne-ye mâdarbozorgam mi-raftam.","tr":"I was born in a small town, and as a child I used to go to my grandmother's every summer."},
+          {"t":"بعد از دانشگاه، دو سال در آلمان کار کردم.","r":"ba'd az dâneshgâh, do sâl dar âlmân kâr kardam.","tr":"After university, I worked in Germany for two years."},
+          {"t":"تا حالا به ده کشور سفر کرده‌ام، ولی هنوز به ایران نرفته‌ام.","r":"tâ hâlâ be dah keshvar safar karde-am, vali hanuz be irân narafte-am.","tr":"I've been to ten countries so far, but I haven't been to Iran yet."},
+          {"t":"الان معلم هستم و سه سال است که فارسی یاد می‌گیرم.","r":"al'ân mo'allem hastam va se sâl ast ke fârsi yâd mi-giram.","tr":"Now I'm a teacher, and I've been learning Persian for three years."},
+          {"t":"می‌خواهم سال دیگر به اصفهان بروم، چون می‌خواهم میدان نقش جهان را ببینم.","r":"mi-khâham sâl-e digar be esfahân beravam, chon mi-khâham meydân-e naghsh-e jahân râ bebinam.","tr":"I want to go to Isfahan next year, because I want to see Naqsh-e Jahan Square."},
+          {"t":"اگر پول داشتم، یک خانهٔ کوچک در شمال می‌خریدم.","r":"agar pul dâshtam, yek khâne-ye kuchak dar shomâl mi-kharidam.","tr":"If I had the money, I'd buy a little house up north."}
+        ] },
+        {"tip":"{{کمی از خودتان بگویید|kami az khodetân beguyid}} “tell me a little about yourself” is the question you'll hear at an interview, at a party, at a dinner. Now you can answer it, in every tense."}
+      ],
+      "mistakes": [
+        {"wrong":"پنج سال است که اینجا زندگی کردم.","right":"پنج سال است که اینجا زندگی می‌کنم.","tr":"I've lived here for five years.","why":"Still true now: {{… است که}} + the present (lesson 34)."},
+        {"wrong":"بچه که بودم، هر تابستان به شمال رفتم.","right":"بچه که بودم، هر تابستان به شمال می‌رفتم.","tr":"As a child, I used to go up north every summer.","why":"A habit in the past: the imperfect (lesson 29)."},
+        {"wrong":"امیدوارم که این کار را می‌گیرم.","right":"امیدوارم که این کار را بگیرم.","tr":"I hope I get this job.","why":"{{امیدوارم}} takes the subjunctive (lesson 43)."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"دو سال پیش به تهران ___.","tr":"I came to Tehran two years ago.","options":["آمدم","می‌آمدم","آمده‌ام"],"answer":0,"why":"One finished event with a time ({{دو سال پیش}}): the simple past.","from":"ask-about-the-past"},
+        {"type":"fill","q":"Choose the missing word.","t":"تا حالا سه بار به شیراز ___.","tr":"I've been to Shiraz three times so far.","options":["رفته‌ام","رفتم","می‌روم"],"answer":0,"why":"Experience “so far”: the perfect, {{رفته‌ام}}.","from":"say-what-you-have-done"},
+        {"type":"fill","q":"Choose the missing word.","t":"اگر وقت داشتم، هر روز ورزش ___.","tr":"If I had time, I'd exercise every day.","options":["می‌کردم","می‌کنم","کنم"],"answer":0,"why":"Imagined: the imperfect in the result, {{می‌کردم}}.","from":"imagine"},
+        {"type":"dialogue","q":"A job interview. Choose your replies.","from":"say-how-long","lines":[{"who":"Interviewer","t":"چند وقت است که فارسی یاد می‌گیرید؟","r":"chand vaght ast ke fârsi yâd mi-girid?","tr":"How long have you been learning Persian?"},{"options":["سه سال است که فارسی یاد می‌گیرم.","سه سال است که فارسی یاد گرفتم."],"answer":0,"why":"Still going on: {{… است که}} + the present."},{"who":"Interviewer","t":"چرا می‌خواهید اینجا کار کنید؟","r":"cherâ mi-khâhid injâ kâr konid?","tr":"Why do you want to work here?"},{"options":["چون فکر می‌کنم که می‌توانم چیز‌های زیادی یاد بگیرم.","چون فکر می‌کنم که می‌توانم چیز‌های زیادی یاد می‌گیرم."],"answer":0,"why":"After {{می‌توانم}}, the subjunctive: {{یاد بگیرم}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"After university, I worked in Germany for two years.","words":["بعد","از","دانشگاه،","دو","سال","در","آلمان","کار","کردم."]},
+        {"type":"say","q":"Say: “I'm from Canada and I've lived in Tehran for five years.”","answer":"اهل کانادا هستم و پنج سال است که در تهران زندگی می‌کنم.","r":"ahl-e kânâdâ hastam va panj sâl ast ke dar tehrân zendegi mi-konam."},
+        {"type":"free","q":"Your turn: tell your story in four or five sentences: where you're from, something you used to do, something you've done, what you do now, and what you hope for.","answers":[{"t":"من اهل لندن هستم. بچه که بودم، فوتبال بازی می‌کردم. تا حالا به هفت کشور سفر کرده‌ام. الان دو سال است که فارسی یاد می‌گیرم و امیدوارم سال دیگر به ایران بروم.","r":"man ahl-e landan hastam. bachche ke budam, futbâl bâzi mi-kardam. tâ hâlâ be haft keshvar safar karde-am. al'ân do sâl ast ke fârsi yâd mi-giram va omidvâram sâl-e digar be irân beravam.","tr":"I'm from London. As a child I used to play football. I've been to seven countries so far. I've been learning Persian for two years now, and I hope to go to Iran next year."},{"t":"در یک روستا به دنیا آمدم، ولی الان در یک شهر بزرگ زندگی می‌کنم. اگر می‌توانستم، دوباره به روستا برمی‌گشتم!","r":"dar yek rustâ be donyâ âmadam, vali al'ân dar yek shahr-e bozorg zendegi mi-konam. agar mi-tavânestam, dobâre be rustâ barmi-gashtam!","tr":"I was born in a village, but now I live in a big city. If I could, I'd go back to the village!"}]}
+      ]
     }
   ]
 }
