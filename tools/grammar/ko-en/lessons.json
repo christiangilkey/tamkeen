@@ -1191,6 +1191,232 @@
         {"type":"say","q":"“밤 10시에 뭐 하고 있었어요?”","answer":"What were you doing at 10 p.m.?"},
         {"type":"free","q":"여러분 차례예요: 어제 있었던 일을 {{First}}, {{Then}}, {{After that}}으로 순서대로 말하고, {{when}} 문장도 하나 넣어 보세요.","answers":[{"t":"First, I went to work. Then I met my friend. When I was walking home, I saw a famous actor!","tr":"먼저 회사에 갔어요. 그다음에 친구를 만났어요. 집에 걸어가고 있을 때 유명한 배우를 봤어요!"},{"t":"First, I cleaned my room. After that, I cooked dinner. I was eating when my mom called.","tr":"먼저 방을 청소했어요. 그 후에 저녁을 만들었어요. 밥을 먹고 있을 때 엄마가 전화하셨어요."}]}
       ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "계획 말하기",
+      "summary": "주말 계획, 올해 계획을 말해요. 이미 마음먹은 계획은 {{be going to}}로 말해요.",
+      "topic": "{{be going to}} + 동사 (계획, 눈에 보이는 예측); {{this weekend}}, {{next year}}; {{gonna}}",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"이번 주말에 부모님 댁에 갈 거예요."}},
+        {"dialog":[{"who":"올리비아","t":"What are you going to do this weekend?","tr":"이번 주말에 뭐 할 거예요?"},{"who":"준서","t":"I'm going to visit my parents in Daegu.","tr":"대구에 계신 부모님 댁에 갈 거예요."},{"who":"올리비아","t":"Nice! Are you going to take the KTX?","tr":"좋네요! KTX 탈 거예요?"},{"who":"준서","t":"Yes. What about you?","tr":"네. 올리비아는요?"},{"who":"올리비아","t":"I'm going to clean my apartment. It's a mess!","tr":"집 청소할 거예요. 엉망이거든요!"},{"who":"준서","t":"Look at those clouds. It's going to rain.","tr":"저 구름 좀 봐요. 비가 오겠어요."}]},
+        {"p":"**계획: {{be going to}} + 동사.** 이미 정해 둔 계획은 {{am}}/{{is}}/{{are}} + {{going to}} + 동사 기본 모양으로 말해요: {{I'm going to study tonight.}} “오늘 밤에 공부할 거예요.” 한국어 “-(으)ㄹ 거예요”와 비슷해요."},
+        { "table": [
+          ["","예","뜻"],
+          ["긍정","{{I'm going to travel.}}","여행 갈 거예요."],
+          ["3인칭","{{She's going to move.}}","그녀는 이사할 거예요."],
+          ["부정","{{We're not going to go.}}","우리는 안 갈 거예요."],
+          ["질문","{{Are you going to come?}}","올 거예요?"],
+          ["의문사","{{What are you going to do?}}","뭐 할 거예요?"]
+        ] },
+        {"p":"**눈에 보이는 예측.** 지금 보이는 것을 보고 곧 일어날 일을 예측할 때도 써요: {{Look at those clouds. It's going to rain.}} “저 구름 좀 봐요. 비가 오겠어요.”"},
+        {"p":"**말할 때는 {{gonna}}.** 미국 사람들은 빨리 말할 때 {{going to}}를 {{gonna}}처럼 발음해요: {{I'm gonna call you.}} 듣고 이해할 수 있으면 돼요. 글로 쓸 때는 {{going to}}로 쓰세요."},
+        { "ex": [
+          {"t":"We're going to buy a new car.","tr":"우리는 새 차를 살 거예요."},
+          {"t":"She's going to start a new job next month.","tr":"그녀는 다음 달에 새 일을 시작할 거예요."},
+          {"t":"I'm not going to drink tonight.","tr":"오늘 밤엔 술 안 마실 거예요."},
+          {"t":"Are you going to take the KTX?","tr":"KTX 탈 거예요?"},
+          {"t":"It's going to be a hot day.","tr":"더운 하루가 되겠어요."},
+          {"t":"What are you going to wear to the party?","tr":"파티에 뭐 입고 갈 거예요?"}
+        ] },
+        {"tip":"{{going to}}의 {{go}}는 “가다”라는 뜻이 아니에요. {{I'm going to go to Busan.}}처럼 {{go}}가 두 번 나와도 괜찮아요: “부산에 갈 거예요.”"}
+      ],
+      "mistakes": [
+        {"wrong":"I going to study.","right":"I'm going to study.","tr":"공부할 거예요.","why":"be동사 {{am}}이 필요해요."},
+        {"wrong":"I'm going to studying.","right":"I'm going to study.","tr":"공부할 거예요.","why":"{{going to}} 다음에는 동사 기본 모양이에요."},
+        {"wrong":"She are going to come.","right":"She's going to come.","tr":"그녀는 올 거예요.","why":"{{she}}: {{is}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“이번 주말에 뭐 할 거예요?”","options":["{{What are you going to do this weekend?}}","{{What you going to do this weekend?}}","{{What are you going to doing this weekend?}}"],"answer":0,"why":"의문사 + {{are you going to}} + 동사 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We're going to ___ a new car.","tr":"우리는 새 차를 살 거예요.","options":["buy","buying","bought"],"answer":0,"why":"{{going to}} + 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Look at the sky. It's going ___ snow.","tr":"하늘 좀 봐요. 눈이 오겠어요.","options":["to","for","at"],"answer":0,"why":"{{going to}} + 동사."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"그녀는 다음 달에 새 일을 시작할 거예요.","words":["She's","going","to","start","a","new","job","next","month."]},
+        {"type":"dialogue","q":"퇴근 전에 동료와 이야기해요. 알맞은 대답을 고르세요.","from":"tell-it-in-order","lines":[{"who":"동료","t":"What are you going to do after work?","tr":"퇴근하고 뭐 할 거예요?"},{"options":["I'm going to meet my sister.","I going to meet my sister."],"answer":0,"why":"be동사 + {{going to}}."},{"who":"동료","t":"Nice. What did you do last night?","tr":"좋네요. 어젯밤엔 뭐 했어요?"},{"options":["I watched a movie.","I'm going to watch a movie."],"answer":0,"why":"어젯밤은 지난 일: 과거형."}]},
+        {"type":"say","q":"“오늘 밤엔 술 안 마실 거예요.”","answer":"I'm not going to drink tonight."},
+        {"type":"free","q":"여러분 차례예요: 이번 주말 계획 두 가지와 올해 계획 하나를 말해 보세요.","answers":[{"t":"This weekend I'm going to see a movie and clean my room. This year I'm going to learn to swim.","tr":"이번 주말에는 영화를 보고 방을 청소할 거예요. 올해는 수영을 배울 거예요."},{"t":"I'm going to visit my grandma on Saturday. I'm going to travel to Vietnam this year.","tr":"토요일에 할머니 댁에 갈 거예요. 올해는 베트남에 여행 갈 거예요."}]}
+      ]
+    },
+    {
+      "id": "make-promises-and-offers",
+      "unit": 6,
+      "level": "A2",
+      "title": "약속하고 제안하기",
+      "summary": "“제가 할게요”, “내일 전화할게요”처럼 그 자리에서 결정하고 약속해요. 한국어 “-(으)ㄹ게요”가 영어로 {{I'll}}이에요.",
+      "topic": "{{will}} / {{I'll}}: 그 자리에서 한 결정, 제안, 약속; {{won't}}; {{will}}과 {{be going to}}의 차이; {{Shall I…?}}",
+      "blocks": [
+        {"goal":{"t":"I'll call you tonight.","tr":"오늘 밤에 전화할게요."}},
+        {"dialog":[{"who":"애나","t":"This box is so heavy.","tr":"이 상자 너무 무거워요."},{"who":"지호","t":"I'll help you.","tr":"제가 도와줄게요."},{"who":"애나","t":"Thanks! Oh, the phone's ringing.","tr":"고마워요! 아, 전화 울리네요."},{"who":"지호","t":"Don't worry. I'll get it.","tr":"걱정 마세요. 제가 받을게요."},{"who":"애나","t":"You're the best! I'll buy you coffee later.","tr":"최고예요! 이따가 커피 살게요."},{"who":"지호","t":"OK, but I won't forget!","tr":"좋아요, 안 잊을 거예요!"}]},
+        {"p":"**그 자리에서 결정: {{I'll}}.** 말하는 순간 정한 일, 도와주겠다는 제안, 약속은 {{will}} + 동사 기본 모양으로 말해요. 거의 항상 줄여서 {{I'll}}이라고 해요: {{I'll help you.}} “도와줄게요.” 한국어 “-(으)ㄹ게요”와 아주 비슷해요."},
+        {"p":"**{{won't}}.** {{will not}}의 줄임말이에요: {{I won't be late.}} “안 늦을게요.”, {{I won't tell anyone.}} “아무한테도 말 안 할게요.”"},
+        {"p":"**{{will}}이냐 {{going to}}냐.** 미리 정한 계획은 {{going to}}(26과, “-(으)ㄹ 거예요”), 지금 막 정한 것은 {{will}}(“-(으)ㄹ게요”)이에요. 날씨나 미래에 대한 일반적인 예측에는 둘 다 써요: {{It will be cold tomorrow.}}"},
+        { "table": [
+          ["","예","한국어"],
+          ["미리 정한 계획","{{I'm going to call her tonight.}}","오늘 밤에 그녀에게 전화할 거예요."],
+          ["지금 정함, 약속","{{OK, I'll call her tonight.}}","알겠어요, 오늘 밤에 전화할게요."],
+          ["제안","{{I'll carry that for you.}}","그거 제가 들어 드릴게요."],
+          ["예측","{{It will be cold tomorrow.}}","내일은 추울 거예요."]
+        ] },
+        {"p":"**묻기: {{Will you…?}}, {{Shall I…?}}** {{Will you marry me?}} “저랑 결혼해 줄래요?” 내가 해 줄까 제안할 때는 {{Shall I…?}} “~할까요?”: {{Shall I open the window?}} 미국에서는 {{Should I…?}}도 많이 써요."},
+        { "ex": [
+          {"t":"I'll have the chicken, please.","tr":"저는 치킨으로 할게요.","note":"주문할 때도 {{I'll have…}}"},
+          {"t":"Don't worry. I'll fix it.","tr":"걱정 마세요. 제가 고칠게요."},
+          {"t":"I'll text you when I get home.","tr":"집에 도착하면 문자할게요."},
+          {"t":"I won't be late. I promise.","tr":"안 늦을게요. 약속해요."},
+          {"t":"It'll be sunny tomorrow.","tr":"내일은 맑을 거예요."},
+          {"t":"Shall I get you some water?","tr":"물 좀 갖다 드릴까요?"}
+        ] },
+        {"tip":"{{I'll}}의 발음은 “아일”에 가까워요. 말할 때 {{I will}}이라고 또박또박 말하면 “꼭 할 거예요!”처럼 강하게 들려요."}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"전화할게요.","why":"{{will}} 다음에는 {{to}} 없이 동사가 와요."},
+        {"wrong":"The phone is ringing. — I'm going to get it.","right":"The phone is ringing. — I'll get it.","tr":"전화 울려요. — 제가 받을게요.","why":"지금 막 정한 일은 {{I'll}}이에요."},
+        {"wrong":"I don't will forget.","right":"I won't forget.","tr":"안 잊을게요.","why":"{{will}}의 부정은 {{won't}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"전화가 울려요. “제가 받을게요!”","options":["{{I'll get it!}}","{{I'm going to get it!}}","{{I get it!}}"],"answer":0,"why":"그 자리에서 정한 일: {{I'll}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ be late. I promise!","tr":"안 늦을게요. 약속해요!","options":["won't","don't","will"],"answer":0,"why":"약속의 부정: {{won't}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'll ___ you tomorrow.","tr":"내일 전화할게요.","options":["call","to call","calling"],"answer":0,"why":"{{will}} + 동사 기본 모양."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"집에 도착하면 문자할게요.","words":["I'll","text","you","when","I","get","home."]},
+        {"type":"dialogue","q":"친구가 이사한대요. 알맞은 대답을 고르세요.","from":"talk-about-plans","lines":[{"who":"친구","t":"I'm moving next Saturday.","tr":"다음 주 토요일에 이사해요."},{"options":["Really? I'll help you!","Really? I'm help you!"],"answer":0,"why":"그 자리에서 하는 제안: {{I'll help you.}}"},{"who":"친구","t":"Thanks! Are you free in the morning?","tr":"고마워요! 아침에 시간 돼요?"},{"options":["Yes. I'll come at nine.","Yes. I'll to come at nine."],"answer":0,"why":"{{will}} 다음에는 {{to}} 없이."}]},
+        {"type":"say","q":"식당에서 주문: “저는 파스타로 할게요.”","answer":"I'll have the pasta, please."},
+        {"type":"free","q":"여러분 차례예요: 친구가 오늘 아파요. 도와주겠다는 말을 {{I'll}}로 두 가지 해 보세요.","answers":[{"t":"I'll buy you some medicine. I'll call you later.","tr":"약 사다 줄게요. 이따가 전화할게요."},{"t":"Don't worry. I'll make you some soup.","tr":"걱정 마요. 수프 끓여 줄게요."}]}
+      ]
+    },
+    {
+      "id": "make-plans-together",
+      "unit": 6,
+      "level": "A2",
+      "title": "함께 약속 정하기",
+      "summary": "친구와 언제, 어디서 만날지 정해요: “금요일에 시간 있어요? 저녁 같이 먹어요.”",
+      "topic": "잡힌 약속은 현재진행형 ({{I'm meeting…}}); {{Let's…}}, {{How about…?}}, {{Why don't we…?}}; {{Are you free…?}}",
+      "blocks": [
+        {"goal":{"t":"Are you free on Friday? Let's have dinner.","tr":"금요일에 시간 있어요? 저녁 같이 먹어요."}},
+        {"dialog":[{"who":"그레이스","t":"Are you free on Friday?","tr":"금요일에 시간 있어요?"},{"who":"민재","t":"Hmm, I'm meeting a client on Friday. How about Saturday?","tr":"음, 금요일에는 고객을 만나기로 했어요. 토요일은 어때요?"},{"who":"그레이스","t":"Saturday works! Let's try that new Thai restaurant.","tr":"토요일 좋아요! 새로 생긴 태국 식당에 가 봐요."},{"who":"민재","t":"Great idea. Why don't we meet at six?","tr":"좋은 생각이에요. 여섯 시에 만나는 게 어때요?"},{"who":"그레이스","t":"Perfect. See you then!","tr":"딱 좋아요. 그때 봐요!"}]},
+        {"p":"**이미 잡힌 약속: 현재진행형.** 날짜와 시간이 정해진 약속은 현재진행형으로 말하는 게 가장 자연스러워요: {{I'm meeting Jake tomorrow.}} “내일 제이크를 만나기로 했어요.”, {{We're flying to Bali on Monday.}} “월요일에 발리로 떠나요.” 20과의 “지금 하는 중”과 모양은 같지만, 미래의 시간을 나타내는 말과 함께 써요."},
+        {"p":"**제안하기.** 같이 하자고 할 때 쓰는 표현들이에요."},
+        { "table": [
+          ["표현","예","뜻"],
+          ["{{Let's}} + 동사","{{Let's have lunch.}}","점심 먹어요."],
+          ["{{How about}} + 명사 / {{-ing}}?","{{How about Saturday?}} / {{How about meeting at six?}}","토요일은 어때요? / 여섯 시에 만나는 건 어때요?"],
+          ["{{Why don't we}} + 동사?","{{Why don't we take a taxi?}}","택시 타는 게 어때요?"],
+          ["{{Do you want to}} + 동사?","{{Do you want to see a movie?}}","영화 볼래요?"]
+        ] },
+        {"p":"**{{Why don't we…?}}는 “왜”가 아니에요.** 이유를 묻는 게 아니라 “우리 ~하는 게 어때요?”라는 제안이에요. 대답할 때 좋으면 {{Sounds good!}} “좋아요!”, {{Sure!}}, {{Saturday works.}} “토요일 괜찮아요.” 거절할 때는 {{Sorry, I can't. I'm busy on Friday.}}처럼 이유를 짧게 덧붙이는 게 예의예요."},
+        { "ex": [
+          {"t":"I'm having lunch with my boss tomorrow.","tr":"내일 상사와 점심을 먹기로 했어요."},
+          {"t":"What are you doing this weekend?","tr":"이번 주말에 뭐 해요?","note":"예정을 묻는 가장 흔한 말"},
+          {"t":"Let's meet in front of the station.","tr":"역 앞에서 만나요."},
+          {"t":"How about seven o'clock?","tr":"일곱 시는 어때요?"},
+          {"t":"Why don't we order pizza?","tr":"피자 시키는 게 어때요?"},
+          {"t":"Sounds good!","tr":"좋아요!"}
+        ] },
+        {"tip":"{{Let's}}의 부정은 {{Let's not…}}: {{Let's not go there.}} “거기는 가지 말아요.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Let's to go.","right":"Let's go.","tr":"가요.","why":"{{Let's}} 다음에는 동사 기본 모양이에요."},
+        {"wrong":"How about meet at six?","right":"How about meeting at six?","tr":"여섯 시에 만나는 건 어때요?","why":"{{How about}} 다음에 동사가 오면 {{-ing}}예요."},
+        {"wrong":"Why you don't come with us?","right":"Why don't you come with us?","tr":"우리랑 같이 가는 게 어때요?","why":"제안은 {{Why don't you/we}} + 동사 순서예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"친구에게 토요일을 제안해요.","options":["{{How about Saturday?}}","{{How Saturday?}}","{{Why Saturday?}}"],"answer":0,"why":"제안: {{How about…?}} ({{Why Saturday?}}는 “왜 토요일이에요?”예요.)"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Let's ___ a movie tonight.","tr":"오늘 밤에 영화 봐요.","options":["watch","to watch","watching"],"answer":0,"why":"{{Let's}} + 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'm ___ my parents tomorrow.","tr":"내일 부모님을 만나기로 했어요.","options":["meeting","meet","met"],"answer":0,"why":"잡힌 약속: 현재진행형."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"피자 시키는 게 어때요?","words":["Why","don't","we","order","pizza?"]},
+        {"type":"dialogue","q":"친구가 저녁을 먹자고 해요. 알맞은 대답을 고르세요.","from":"make-promises-and-offers","lines":[{"who":"친구","t":"Do you want to have dinner on Friday?","tr":"금요일에 저녁 먹을래요?"},{"options":["Sorry, I can't. I'm working late on Friday.","Sorry, I can't. I'm work late on Friday."],"answer":0,"why":"잡힌 일정: {{I'm working}}."},{"who":"친구","t":"No problem. How about Saturday?","tr":"괜찮아요. 토요일은 어때요?"},{"options":["Sounds good! I'll book a table.","Sounds good! I booking a table."],"answer":0,"why":"지금 정한 일: {{I'll}}."}]},
+        {"type":"say","q":"“역 앞에서 만나요.”","answer":"Let's meet in front of the station."},
+        {"type":"free","q":"여러분 차례예요: 친구에게 이번 주말에 무언가를 같이 하자고 제안하고, 시간과 장소를 정해 보세요.","answers":[{"t":"Are you free on Sunday? Let's go hiking. How about meeting at nine at the station?","tr":"일요일에 시간 있어요? 등산 가요. 아홉 시에 역에서 만나는 건 어때요?"},{"t":"Do you want to see a movie on Saturday? Why don't we meet at the mall at six?","tr":"토요일에 영화 볼래요? 여섯 시에 쇼핑몰에서 만나는 게 어때요?"}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 6,
+      "level": "A2",
+      "title": "조언하기, 해야 할 일 말하기",
+      "summary": "“병원에 가 보는 게 좋겠어요”처럼 조언하고, 꼭 해야 하는 일과 안 해도 되는 일을 말해요.",
+      "topic": "{{should}} (조언); {{have to}} (꼭 해야 함); {{must}}; {{don't have to}} (안 해도 됨) vs {{can't}} / {{mustn't}} (하면 안 됨)",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor.","tr":"병원에 가 보는 게 좋겠어요."}},
+        {"dialog":[{"who":"레오","t":"I have a terrible headache.","tr":"머리가 너무 아파요."},{"who":"유리","t":"You should take some medicine. And you shouldn't look at your phone.","tr":"약을 좀 먹는 게 좋겠어요. 그리고 휴대폰은 보지 마세요."},{"who":"레오","t":"But I have to finish this report today.","tr":"하지만 오늘 이 보고서를 끝내야 해요."},{"who":"유리","t":"You don't have to finish it today. The deadline is Friday!","tr":"오늘 안 끝내도 돼요. 마감은 금요일이에요!"},{"who":"레오","t":"Really? Then I should go home and rest.","tr":"정말요? 그럼 집에 가서 쉬어야겠어요."}]},
+        {"p":"**조언: {{should}}.** {{should}} + 동사 기본 모양은 “~하는 게 좋겠어요”, 부드러운 조언이에요: {{You should rest.}} 부정은 {{shouldn't}}: {{You shouldn't drink so much coffee.}} 조언을 구할 때는 {{What should I do?}} “어떻게 해야 할까요?”라고 해요."},
+        {"p":"**꼭 해야 해요: {{have to}}.** 규칙이나 상황 때문에 꼭 해야 하는 일이에요: {{I have to work tomorrow.}} 3인칭은 {{has to}}: {{She has to leave early.}} 과거는 {{had to}}. {{must}}도 “반드시 ~해야 한다”지만 규칙, 안내문, 강한 의견에 주로 쓰고, 일상 대화에서는 {{have to}}가 훨씬 흔해요."},
+        {"p":"**주의! “안 해도 된다”와 “하면 안 된다”.** {{You don't have to come.}}은 “안 와도 돼요”(선택)예요. “하면 안 돼요”(금지)는 {{You mustn't…}}이지만, 미국 사람들은 대화에서 보통 {{can't}}를 써요: {{You can't park here.}} “여기 주차하면 안 돼요.”"},
+        { "table": [
+          ["표현","뜻","예"],
+          ["{{should}}","~하는 게 좋아요 (조언)","{{You should sleep more.}}"],
+          ["{{have to}}","~해야 해요 (필요)","{{I have to go now.}}"],
+          ["{{don't have to}}","안 해도 돼요","{{You don't have to pay.}}"],
+          ["{{can't}} / {{mustn't}}","~하면 안 돼요 (금지)","{{You can't park here.}}"]
+        ] },
+        { "ex": [
+          {"t":"You should try the kimchi stew.","tr":"김치찌개 꼭 드셔 보세요.","note":"추천할 때도 {{should}}를 써요"},
+          {"t":"I have to get up early tomorrow.","tr":"내일 일찍 일어나야 해요."},
+          {"t":"She has to work this weekend.","tr":"그녀는 이번 주말에 일해야 해요."},
+          {"t":"You don't have to bring anything.","tr":"아무것도 안 가져와도 돼요."},
+          {"t":"You can't take pictures in the museum.","tr":"박물관에서는 사진을 찍으면 안 돼요."},
+          {"t":"What should I wear to the interview?","tr":"면접에 뭘 입고 가야 할까요?"}
+        ] },
+        {"tip":"{{have to}}는 말할 때 “해브 투”가 아니라 “해프터”처럼 들려요. {{has to}}는 “해스터”예요."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"쉬는 게 좋겠어요.","why":"{{should}} 다음에는 {{to}} 없이 동사예요."},
+        {"wrong":"She have to go.","right":"She has to go.","tr":"그녀는 가야 해요.","why":"{{she}}: {{has to}}."},
+        {"wrong":"You mustn't come tomorrow.","right":"You don't have to come tomorrow.","tr":"내일 안 와도 돼요.","why":"“안 해도 된다”는 {{don't have to}}예요. {{mustn't}}는 “오면 안 된다”는 금지예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"친구가 감기에 걸렸어요. 조언은?","options":["{{You should go to bed early.}}","{{You should going to bed early.}}","{{You don't have to go to bed.}}"],"answer":0,"why":"조언: {{should}} + 동사 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ to work on Saturday.","tr":"토요일에 일해야 해요.","options":["have","should","must"],"answer":0,"why":"{{have to}} + 동사."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"It's free. You don't ___ to pay.","tr":"무료예요. 돈 안 내도 돼요.","options":["have","must","should"],"answer":0,"why":"안 해도 된다: {{don't have to}}."},
+        {"type":"choice","q":"주차 금지 표지판이 있어요. 친구에게 말해요.","options":["{{You can't park here.}}","{{You don't have to park here.}}"],"answer":0,"why":"금지: {{can't}}. ({{don't have to}}는 “안 해도 된다”예요.)"},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"면접에 뭘 입고 가야 할까요?","words":["What","should","I","wear","to","the","interview?"]},
+        {"type":"dialogue","q":"친구가 고민을 말해요. 알맞은 조언을 고르세요.","from":"say-what-you-can-do","lines":[{"who":"친구","t":"I can't sleep at night.","tr":"밤에 잠을 못 자요."},{"options":["You shouldn't drink coffee after lunch.","You don't should drink coffee after lunch."],"answer":0,"why":"{{should}}의 부정: {{shouldn't}}."},{"who":"친구","t":"But I have to stay awake at work!","tr":"그래도 회사에서는 깨어 있어야 해요!"},{"options":["Then you should take a short walk.","Then you should to take a short walk."],"answer":0,"why":"{{should}} 다음에는 {{to}} 없이."}]},
+        {"type":"free","q":"여러분 차례예요: 한국에 처음 오는 외국인 친구에게 조언 두 가지와 안 해도 되는 일 한 가지를 말해 보세요.","answers":[{"t":"You should try Korean barbecue. You have to take your shoes off at home. You don't have to tip in restaurants.","tr":"한국식 고기구이를 꼭 먹어 봐요. 집에서는 신발을 벗어야 해요. 식당에서 팁은 안 줘도 돼요."},{"t":"You should get a T-money card. You don't have to bring a lot of cash.","tr":"티머니 카드를 사는 게 좋아요. 현금을 많이 안 가져와도 돼요."}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 6,
+      "level": "A2",
+      "title": "이유 말하기",
+      "summary": "“아파서 집에 있었어요”처럼 이유와 결과를 말해요: {{because}}, {{so}}, {{but}}.",
+      "topic": "{{because}} + 문장; {{because of}} + 명사; {{so}}; {{but}}; {{Why?}} — {{Because…}}",
+      "blocks": [
+        {"goal":{"t":"I stayed home because I was sick.","tr":"아파서 집에 있었어요."}},
+        {"dialog":[{"who":"선생님","t":"Why were you absent yesterday?","tr":"어제 왜 결석했어요?"},{"who":"현우","t":"I was sick, so I stayed home.","tr":"아파서 집에 있었어요."},{"who":"선생님","t":"Oh, I'm sorry. Are you OK now?","tr":"아, 저런. 지금은 괜찮아요?"},{"who":"현우","t":"Yes, because I slept a lot. But I didn't do my homework.","tr":"네, 많이 잤거든요. 하지만 숙제는 못 했어요."},{"who":"선생님","t":"That's OK. You can do it tonight.","tr":"괜찮아요. 오늘 밤에 해도 돼요."}]},
+        {"p":"**이유: {{because}}.** {{because}} 뒤에는 주어와 동사가 있는 완전한 문장이 와요: {{I stayed home because I was sick.}} 한국어는 이유가 먼저 오지만(“아파서 집에 있었어요”), 영어는 결과를 먼저 말하고 {{because}}로 이유를 붙이는 경우가 많아요."},
+        {"p":"**결과: {{so}}.** 이유를 먼저 말하고 싶으면 {{so}} “그래서”를 써요: {{I was sick, so I stayed home.}} 한국어 순서와 같아요. 생각과 다른 결과는 {{but}} “하지만”이에요."},
+        { "table": [
+          ["","예","순서"],
+          ["{{because}}","{{I stayed home because I was sick.}}","결과 + {{because}} + 이유"],
+          ["{{so}}","{{I was sick, so I stayed home.}}","이유 + {{so}} + 결과"],
+          ["{{but}}","{{I was sick, but I went to work.}}","생각과 다른 결과"]
+        ] },
+        {"p":"**{{Because…}}만 따로 쓰지 않아요.** {{Why?}}에 대답할 때는 {{Because I was tired.}}라고 해도 되지만, 글에서 {{Because I was tired.}}만 따로 쓰면 미완성 문장이에요. 앞 문장과 이어 써요. 그리고 이유가 명사 하나일 때는 {{because of}}: {{because of the rain}} “비 때문에”."},
+        { "ex": [
+          {"t":"I'm learning English because I want to travel.","tr":"여행하고 싶어서 영어를 배워요."},
+          {"t":"It was raining, so we took a taxi.","tr":"비가 와서 택시를 탔어요."},
+          {"t":"The food was cheap, but it was delicious.","tr":"음식은 쌌지만 맛있었어요."},
+          {"t":"Why are you so happy? Because it's Friday!","tr":"왜 그렇게 기분이 좋아요? 금요일이니까요!"},
+          {"t":"I can't come because I have to work.","tr":"일해야 해서 못 가요."},
+          {"t":"The flight was late because of the snow.","tr":"눈 때문에 비행기가 늦었어요."}
+        ] },
+        {"tip":"한국어 “-아서/어서”, “-(으)니까”를 영어로 옮길 때, 한국어 순서대로 말하고 싶으면 {{so}}, 결과부터 말하고 싶으면 {{because}}를 고르세요."}
+      ],
+      "mistakes": [
+        {"wrong":"Because I was sick, so I stayed home.","right":"Because I was sick, I stayed home.","tr":"아파서 집에 있었어요.","why":"{{because}}와 {{so}}를 한 문장에 같이 쓰지 않아요. 둘 중 하나만 써요."},
+        {"wrong":"I stayed home because sick.","right":"I stayed home because I was sick.","tr":"아파서 집에 있었어요.","why":"{{because}} 뒤에는 주어와 동사가 있는 문장이 와요."},
+        {"wrong":"The flight was late because the snow.","right":"The flight was late because of the snow.","tr":"눈 때문에 비행기가 늦었어요.","why":"명사만 올 때는 {{because of}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“피곤해서 일찍 잤어요.”","options":["{{I was tired, so I went to bed early.}}","{{Because I was tired, so I went to bed early.}}","{{I was tired because I went to bed early.}}"],"answer":0,"why":"이유 + {{so}} + 결과. 세 번째는 “일찍 자서 피곤했다”는 뜻이 돼요!"},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'm learning English ___ I want to work abroad.","tr":"해외에서 일하고 싶어서 영어를 배워요.","options":["because","so","but"],"answer":0,"why":"결과 + {{because}} + 이유."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"It was expensive, ___ I didn't buy it.","tr":"비싸서 안 샀어요.","options":["so","because","but"],"answer":0,"why":"이유 + {{so}} + 결과."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"The game was canceled because ___ the rain.","tr":"비 때문에 경기가 취소됐어요.","options":["of","to","for"],"answer":0,"why":"명사 앞: {{because of}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"비가 와서 우리는 택시를 탔어요.","words":["It","was","raining,","so","we","took","a","taxi."]},
+        {"type":"dialogue","q":"친구가 걱정해요. 알맞은 대답을 고르세요.","from":"give-advice","lines":[{"who":"친구","t":"Why are you so tired?","tr":"왜 그렇게 피곤해요?"},{"options":["Because I worked until midnight.","Because worked until midnight."],"answer":0,"why":"{{because}} 뒤에는 주어 {{I}}가 필요해요."},{"who":"친구","t":"You should go home early today.","tr":"오늘은 일찍 퇴근하는 게 좋겠어요."},{"options":["I can't, but I'll try.","I can't, so I'll try."],"answer":0,"why":"생각과 다른 내용을 이을 때는 {{but}}."}]},
+        {"type":"free","q":"여러분 차례예요: 영어를 왜 배우는지 {{because}}로 말하고, 요즘 있었던 일을 {{so}}로 말해 보세요.","answers":[{"t":"I'm learning English because I want to make friends from other countries. I was busy last week, so I didn't study.","tr":"다른 나라 친구를 사귀고 싶어서 영어를 배워요. 지난주에는 바빠서 공부를 못 했어요."},{"t":"I study English because I need it for my job. It was sunny yesterday, so I went to the park.","tr":"일 때문에 필요해서 영어를 공부해요. 어제는 날씨가 맑아서 공원에 갔어요."}]}
+      ]
     }
   ]
 }

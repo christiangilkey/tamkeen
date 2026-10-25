@@ -38,13 +38,13 @@
    "title": "영어 문법",
    "variety": "미국 영어",
    "units": 9,
-   "lessons": 25,
+   "lessons": 30,
    "levels": [
     "A1",
     "A2"
    ],
-   "bytes": 140102,
-   "sha256": "81d521c9d38de6270bcd0a31612d70284b8ac31db1dddaa726dd476c70e412e7"
+   "bytes": 168906,
+   "sha256": "f15fa88d65f67e093ec97e68faa9fa12d52d2524462a677f6dedaa47c6990e03"
   }
  }
 }
