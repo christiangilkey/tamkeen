@@ -245,6 +245,334 @@
         {"type":"say","q":"英語で言ってみましょう：「今日はいい天気ですね。」","answer":"The weather is nice today."},
         {"type":"free","q":"あなたの番です。自分の町か部屋を、形容詞を2つ以上使って説明しましょう。","answers":[{"t":"My town is small and quiet. It's a nice town.","tr":"私の町は小さくて静かです。いい町です。"},{"t":"My room is very small, but it's bright.","tr":"私の部屋はとても小さいですが、明るいです。"}]}
       ]
+    },
+    {
+      "id": "say-what-you-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "ふだんすることを言う",
+      "summary": "毎日の習慣や仕事について話します：「毎朝コーヒーを飲みます。」",
+      "topic": "現在形; 語順「主語 → 動詞 → 目的語」",
+      "blocks": [
+        {"goal":{"t":"I drink coffee every morning.","tr":"毎朝コーヒーを飲みます。"}},
+        {"dialog":[{"who":"ケン","t":"I get up at six every day.","tr":"ぼくは毎日6時に起きるんだ。"},{"who":"サラ","t":"Wow, early! I get up at eight.","tr":"わあ、早い！私は8時に起きる。"},{"who":"ケン","t":"I run in the park, and I eat breakfast at home.","tr":"公園を走って、家で朝ごはんを食べるよ。"},{"who":"サラ","t":"I drink coffee and go to work.","tr":"私はコーヒーを飲んで仕事に行く。"},{"who":"ケン","t":"I take the train to work.","tr":"ぼくは電車で会社に行くよ。"},{"who":"サラ","t":"Me too. I read on the train.","tr":"私も。電車では本を読むの。"}]},
+        {"term":"動詞","means":"「飲む」「住む」「働く」など、動作や状態を表す言葉。英語では主語のすぐあとに来ます。"},
+        {"term":"目的語","means":"動作の相手になるもの。{{I drink coffee.}} の {{coffee}}（何を飲む？）。"},
+        {"p":"**語順：主語 → 動詞 → 目的語。** 日本語は「私は コーヒーを 飲みます」と動詞が最後ですが、英語は主語のすぐあとに動詞、そのあとに目的語です：{{I drink coffee.}}（私は 飲む コーヒーを）。英語には「は」「を」のような助詞がないので、この語順が意味を決めます。順番は変えられません。"},
+        { "table": [
+          ["","1番目","2番目","3番目"],
+          ["日本語","私は","コーヒーを","飲みます"],
+          ["英語","{{I}}","{{drink}}","{{coffee}}"]
+        ] },
+        {"term":"現在形","means":"動詞のもとの形。ふだんの習慣や、いつも本当のことを表します：{{I live in Kyoto.}}（京都に住んでいます）。"},
+        {"p":"**現在形：ふだんのこと。** 動詞をそのままの形で使うと、毎日の習慣やいつものことを表します：{{I work in Tokyo.}}（東京で働いています）、{{I play tennis.}}（テニスをします）。今この瞬間のことではなく、「ふだん」のことです。"},
+        {"p":"**時を表す言葉は文の最後に。** {{every day}}（毎日）、{{every morning}}（毎朝）、{{on weekends}}（週末に）は、ふつう文の最後に置きます：{{I drink coffee every morning.}}"},
+        { "ex": [
+          {"t":"I get up at six.","tr":"6時に起きます。"},
+          {"t":"I work at a bank.","tr":"銀行で働いています。"},
+          {"t":"I take the train to work.","tr":"電車で通勤しています。"},
+          {"t":"I study English every night.","tr":"毎晩英語を勉強しています。"},
+          {"t":"We eat dinner at seven.","tr":"私たちは7時に夕食を食べます。"},
+          {"t":"They live in Osaka.","tr":"彼らは大阪に住んでいます。"}
+        ] },
+        {"tip":"「住んでいます」「働いています」は日本語では「〜ている」ですが、英語ではふつうの現在形で言います：{{I live in Kyoto.}}、{{I work at a bank.}}。"}
+      ],
+      "mistakes": [
+        {"wrong":"I coffee drink.","right":"I drink coffee.","tr":"コーヒーを飲みます。","why":"英語は「主語 → 動詞 → 目的語」の順。動詞は主語のすぐあとです。"},
+        {"wrong":"I am live in Kyoto.","right":"I live in Kyoto.","tr":"京都に住んでいます。","why":"ふつうの動詞に {{am}} はつけません。"}
+      ],
+      "practice": [
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"毎晩英語を勉強しています。","words":["I","study","English","every","night."],"why":"主語 → 動詞 → 目的語 → 時：{{I study English every night.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ at a hospital.","tr":"病院で働いています。","options":["work","am work","working"],"answer":0,"why":"ふつうの動詞は現在形のまま：{{I work}}。"},
+        {"type":"choice","q":"「京都に住んでいます」は英語で？","options":["{{I live in Kyoto.}}","{{I'm live in Kyoto.}}","{{I Kyoto live.}}"],"answer":0,"why":"主語 → 動詞の順。{{am}} はいりません。"},
+        {"type":"dialogue","q":"同僚と朝の習慣について話します。返事を選んでください。","lines":[{"who":"サラ","t":"I get up at seven.","tr":"私は7時に起きるの。"},{"options":["I get up at six.","I six get up."],"answer":0,"why":"動詞は主語のすぐあと：{{I get up}}。"},{"who":"サラ","t":"Early! I drink coffee every morning.","tr":"早い！私は毎朝コーヒーを飲むよ。"},{"options":["I drink tea every morning.","I tea drink every morning."],"answer":0,"why":"目的語は動詞のあと：{{drink tea}}。"}]},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I live in a ___ apartment.","tr":"小さなアパートに住んでいます。","options":["small","smalls"],"answer":0,"why":"形容詞は複数形になりません。","from":"describe-things"},
+        {"type":"say","q":"英語で言ってみましょう：「毎朝6時に起きます。」","answer":"I get up at six every morning."},
+        {"type":"free","q":"あなたの番です。ふだんの朝にすることを3つ言いましょう。","answers":[{"t":"I get up at seven. I eat breakfast. I take the bus to work.","tr":"7時に起きます。朝ごはんを食べます。バスで通勤します。"},{"t":"I drink coffee, I read the news, and I walk to the station.","tr":"コーヒーを飲んで、ニュースを読んで、駅まで歩きます。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-someone",
+      "unit": 2,
+      "level": "A1",
+      "title": "ほかの人のことを話す",
+      "summary": "家族や友だちの習慣を話します。{{he}}・{{she}} のとき、動詞には {{-s}}：「姉は毎朝走っています。」",
+      "topic": "三人称単数の {{-s}}; {{his}} / {{her}} / {{their}} / {{'s}}; 自分の体や物には {{my}}",
+      "blocks": [
+        {"goal":{"t":"My sister runs every morning.","tr":"姉は毎朝走っています。"}},
+        {"dialog":[{"who":"エマ","t":"Tell me about your family.","tr":"家族のこと教えて。"},{"who":"ケン","t":"My father works at a bank. My mother teaches English.","tr":"父は銀行で働いていて、母は英語を教えてる。"},{"who":"エマ","t":"And your brother?","tr":"お兄さんは？"},{"who":"ケン","t":"He lives in Tokyo. He plays the guitar in a band.","tr":"東京に住んでる。バンドでギターを弾いてるよ。"},{"who":"エマ","t":"Cool! My brother plays the guitar too.","tr":"かっこいい！私の兄もギターを弾くよ。"}]},
+        {"term":"三人称単数","means":"「私」でも「あなた」でもない、1人または1つのもの：{{he}}、{{she}}、{{it}}、{{my father}}、{{Tokyo}} など。"},
+        {"p":"**{{he}}・{{she}}・{{it}} のとき、動詞に {{-s}}。** 主語が「私」でも「あなた」でもない1人・1つ（三人称単数）のとき、現在形の動詞に {{-s}} をつけます：{{I work}} → {{he works}}、{{she lives}}、{{it rains}}。日本語話者がいちばん忘れやすい決まりの一つです。"},
+        { "table": [
+          ["主語","{{work}}（働く）","{{have}}（持つ）"],
+          ["{{I}} / {{you}} / {{we}} / {{they}}","{{work}}","{{have}}"],
+          ["{{he}} / {{she}} / {{it}}","{{works}}","{{has}}"]
+        ] },
+        {"p":"**{{-s}} のつけ方。** ふつうは {{-s}}（{{plays}}）。{{s}}・{{sh}}・{{ch}}・{{o}} で終わる動詞は {{-es}}（{{watches}}、{{goes}}）。子音 + {{y}} で終わる動詞は {{-ies}}（{{study}} → {{studies}}）。{{have}} だけは特別で {{has}} になります。"},
+        {"p":"**「彼の」「彼女の」。** {{his}}（彼の）、{{her}}（彼女の）、{{their}}（彼らの）、{{our}}（私たちの）。名前には {{'s}} をつけます：{{Ken's car}}（ケンの車）。"},
+        {"p":"**自分の体や持ち物にも {{my}}。** 日本語では「手を洗う」と言いますが、英語では「だれの」をはっきり言います：{{I wash my hands.}}（手を洗います）、{{She brushes her hair.}}（彼女は髪をとかします）。"},
+        { "ex": [
+          {"t":"My father works at a bank.","tr":"父は銀行で働いています。"},
+          {"t":"She lives in Tokyo.","tr":"彼女は東京に住んでいます。"},
+          {"t":"He watches TV every night.","tr":"彼は毎晩テレビを見ます。"},
+          {"t":"My sister studies French.","tr":"姉はフランス語を勉強しています。"},
+          {"t":"Ken has two cats.","tr":"ケンは猫を2匹飼っています。"},
+          {"t":"I brush my teeth after breakfast.","tr":"朝食のあと歯をみがきます。"}
+        ] },
+        {"tip":"{{his}} と {{her}} は、持ち主が男性か女性かで決まります。ケンのお母さんは {{his mother}}、エマのお父さんは {{her father}} です。"}
+      ],
+      "mistakes": [
+        {"wrong":"My mother work at a hospital.","right":"My mother works at a hospital.","tr":"母は病院で働いています。","why":"主語が1人（{{my mother}}）なので、動詞に {{-s}}。"},
+        {"wrong":"He haves a car.","right":"He has a car.","tr":"彼は車を持っています。","why":"{{have}} は特別な形：{{has}}。"},
+        {"wrong":"I wash hands before dinner.","right":"I wash my hands before dinner.","tr":"夕食の前に手を洗います。","why":"英語では体や持ち物に「だれの」をつけます：{{my hands}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My brother ___ in Osaka.","tr":"兄は大阪に住んでいます。","options":["lives","live","living"],"answer":0,"why":"三人称単数なので {{-s}}：{{lives}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"She ___ two children.","tr":"彼女には子どもが2人います。","options":["has","have","haves"],"answer":0,"why":"{{she}} のときは {{has}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"This is Ken. ___ mother is a teacher.","tr":"こちらはケンです。彼のお母さんは先生です。","options":["His","Her","He"],"answer":0,"why":"持ち主はケン（男性）なので {{his}}。"},
+        {"type":"dialogue","q":"友だちに家族のことを聞かれました。返事を選んでください。","lines":[{"who":"エマ","t":"Tell me about your sister.","tr":"お姉さんのことを教えて。"},{"options":["She works at a hotel.","She work at a hotel."],"answer":0,"why":"{{she}} なので {{works}}。"},{"who":"エマ","t":"Nice! Is her job hard?","tr":"いいね！仕事は大変？"},{"options":["Yes, it is. She gets up at five.","Yes, it is. She get up at five."],"answer":0,"why":"{{she}} なので {{gets}}。"}],"from":"ask-yes-no-questions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"朝食のあと歯をみがきます。","words":["I","brush","my","teeth","after","breakfast."],"why":"{{my teeth}} の {{my}} を忘れずに。"},
+        {"type":"say","q":"英語で言ってみましょう：「父は毎晩テレビを見ます。」","answer":"My father watches TV every night."},
+        {"type":"free","q":"あなたの番です。家族か友だち1人の習慣を2つ言いましょう。動詞の {{-s}} を忘れずに。","answers":[{"t":"My mother gets up at five. She walks her dog every morning.","tr":"母は5時に起きます。毎朝犬の散歩をします。"},{"t":"My friend Yuto plays soccer. He practices on Sundays.","tr":"友だちの悠斗はサッカーをします。日曜日に練習します。"}]}
+      ]
+    },
+    {
+      "id": "ask-with-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "do を使って聞く・打ち消す",
+      "summary": "ふつうの動詞で質問や否定の文を作ります：「コーヒーを飲みますか？」「いいえ、飲みません。」",
+      "topic": "{{Do you …?}} と {{Does she …?}}; {{don't}} と {{doesn't}}; 短い答え {{Yes, I do.}}",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat, but I eat fish.","tr":"肉は食べませんが、魚は食べます。"}},
+        {"dialog":[{"who":"マイク","t":"Do you drink coffee?","tr":"コーヒー飲む？"},{"who":"ユキ","t":"No, I don't. I drink tea.","tr":"ううん、飲まない。紅茶を飲むよ。"},{"who":"マイク","t":"Does your husband drink coffee?","tr":"だんなさんは飲む？"},{"who":"ユキ","t":"Yes, he does. He drinks three cups a day!","tr":"うん、飲むよ。1日に3杯も飲むの！"},{"who":"マイク","t":"Wow. My wife doesn't drink coffee. She doesn't like it.","tr":"へえ。うちの妻はコーヒーを飲まないんだ。好きじゃないんだって。"}]},
+        {"p":"**ふつうの動詞の質問には {{do}}。** be動詞の文は be動詞を前に出しましたが、{{drink}} や {{live}} のようなふつうの動詞は前に出せません。代わりに {{Do}} を文の頭に置きます：{{You drink coffee.}} → {{Do you drink coffee?}}（コーヒーを飲みますか？）"},
+        {"p":"**三人称単数には {{Does}}。** そのとき、動詞の {{-s}} は {{does}} に移るので、動詞はもとの形に戻ります：{{She lives here.}} → {{Does she live here?}}（{{Does she lives}} ではありません）。"},
+        { "table": [
+          ["主語","疑問文","否定文"],
+          ["{{I}} / {{you}} / {{we}} / {{they}}","{{Do you work here?}}","{{I don't work here.}}"],
+          ["{{he}} / {{she}} / {{it}}","{{Does he work here?}}","{{He doesn't work here.}}"]
+        ] },
+        {"p":"**否定は {{don't}} と {{doesn't}}。** 動詞の前に {{don't}}（{{do not}}）、三人称単数なら {{doesn't}}（{{does not}}）を置きます。ここでも動詞はもとの形です：{{He doesn't like it.}}（彼はそれが好きではありません）。"},
+        {"p":"**短い答えも {{do}} で。** {{Yes, I do.}} / {{No, I don't.}}、{{Yes, she does.}} / {{No, she doesn't.}}。動詞をくり返す必要はありません。"},
+        { "ex": [
+          {"t":"Do you live near here?","tr":"この近くに住んでいますか？"},
+          {"t":"Yes, I do.","tr":"はい、そうです。"},
+          {"t":"Does she speak Japanese?","tr":"彼女は日本語を話しますか？"},
+          {"t":"No, she doesn't.","tr":"いいえ、話しません。"},
+          {"t":"I don't eat meat.","tr":"肉は食べません。"},
+          {"t":"My son doesn't like vegetables.","tr":"息子は野菜が好きではありません。"}
+        ] },
+        {"tip":"be動詞と {{do}} はいっしょに使いません。{{Do you are …?}} や {{I'm not like …}} はまちがいです。形容詞や名詞の文なら be動詞、ふつうの動詞なら {{do}}、と分けて考えましょう。"}
+      ],
+      "mistakes": [
+        {"wrong":"Does she lives in Tokyo?","right":"Does she live in Tokyo?","tr":"彼女は東京に住んでいますか？","why":"{{does}} にもう {{-s}} があるので、動詞はもとの形に戻します。"},
+        {"wrong":"I'm not like coffee.","right":"I don't like coffee.","tr":"コーヒーは好きではありません。","why":"{{like}} はふつうの動詞なので、否定は {{don't}}。"},
+        {"wrong":"He don't work on Sundays.","right":"He doesn't work on Sundays.","tr":"彼は日曜日は働きません。","why":"主語が {{he}} なので {{doesn't}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ you play tennis?","tr":"テニスをしますか？","options":["Do","Are","Does"],"answer":0,"why":"ふつうの動詞の質問、主語 {{you}}：{{Do}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My husband ___ cook.","tr":"夫は料理をしません。","options":["doesn't","don't","isn't"],"answer":0,"why":"三人称単数のふつうの動詞：{{doesn't}}。"},
+        {"type":"choice","q":"{{Does your sister work?}} と聞かれました。はい、働いています。答えは？","options":["{{Yes, she does.}}","{{Yes, she is.}}","{{Yes, she works does.}}"],"answer":0,"why":"{{Does}} で聞かれたら {{does}} で答えます。"},
+        {"type":"dialogue","q":"友だちと飲み物の話をします。返事を選んでください。","lines":[{"who":"マイク","t":"Do you drink coffee?","tr":"コーヒー飲む？"},{"options":["No, I don't. I drink tea.","No, I'm not. I drink tea."],"answer":0,"why":"{{Do}} の質問には {{don't}} で答えます。"},{"who":"マイク","t":"Does your brother drink coffee?","tr":"お兄さんは？"},{"options":["Yes, he does. He drinks it every day.","Yes, he do. He drink it every day."],"answer":0,"why":"三人称単数：{{does}}、そして {{drinks}}。"}],"from":"talk-about-someone"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"彼女は日本語を話しますか？","words":["Does","she","speak","Japanese?"],"why":"{{Does}} + 主語 + 動詞のもとの形。"},
+        {"type":"say","q":"英語で言ってみましょう：「肉は食べませんが、魚は食べます。」","answer":"I don't eat meat, but I eat fish."},
+        {"type":"free","q":"あなたの番です。自分がしないことを1つ、家族の1人がしないことを1つ言いましょう。","answers":[{"t":"I don't drink alcohol. My father doesn't eat fish.","tr":"私はお酒を飲みません。父は魚を食べません。"},{"t":"I don't watch TV. My sister doesn't like sports.","tr":"私はテレビを見ません。妹はスポーツが好きではありません。"}]}
+      ]
+    },
+    {
+      "id": "ask-for-information",
+      "unit": 2,
+      "level": "A1",
+      "title": "「何・どこ・いつ」をたずねる",
+      "summary": "疑問詞を使って情報を聞きます：「どこに住んでいますか？」「何時に起きますか？」",
+      "topic": "{{what}} / {{where}} / {{when}} / {{what time}} / {{who}} / {{how}} + {{do}} または be動詞",
+      "blocks": [
+        {"goal":{"t":"Where do you live?","tr":"どこに住んでいますか？"}},
+        {"dialog":[{"who":"アレックス","t":"So, where do you live?","tr":"で、どこに住んでるの？"},{"who":"ハルカ","t":"I live in Yokohama.","tr":"横浜に住んでるよ。"},{"who":"アレックス","t":"What do you do?","tr":"お仕事は？"},{"who":"ハルカ","t":"I'm a designer. What about you?","tr":"デザイナーだよ。あなたは？"},{"who":"アレックス","t":"I teach English. When do you study English?","tr":"英語を教えてる。英語はいつ勉強してるの？"},{"who":"ハルカ","t":"On the train. How do you say \"densha\" in English?","tr":"電車の中で。「電車」って英語で何て言うの？"},{"who":"アレックス","t":"\"Train.\"","tr":"train だよ。"}]},
+        {"term":"疑問詞","means":"{{what}}（何）、{{where}}（どこ）、{{when}}（いつ）、{{who}}（だれ）、{{how}}（どう）など、情報をたずねる言葉。"},
+        {"p":"**疑問詞は文の頭に。** 日本語では「どこに住んでいますか」と疑問詞が文の途中にありますが、英語では疑問詞を必ず文の最初に置き、そのあとはふつうの疑問文の語順にします：{{Where}} + {{do you live}}?"},
+        { "table": [
+          ["疑問詞","例","意味"],
+          ["{{What}}","{{What do you eat for breakfast?}}","朝食に何を食べますか？"],
+          ["{{Where}}","{{Where does she work?}}","彼女はどこで働いていますか？"],
+          ["{{When}}","{{When do you study?}}","いつ勉強しますか？"],
+          ["{{What time}}","{{What time do you get up?}}","何時に起きますか？"],
+          ["{{Who}}","{{Who is that?}}","あれはだれですか？"],
+          ["{{How}}","{{How do you go to work?}}","どうやって通勤していますか？"]
+        ] },
+        {"p":"**be動詞の文なら be動詞、ふつうの動詞なら {{do}}。** {{Where is the station?}}（駅はどこですか）、{{Where do you live?}}（どこに住んでいますか）。"},
+        {"p":"**便利な決まり文句。** {{What do you do?}} は「お仕事は何ですか？」。{{What about you?}} や {{How about you?}} で、同じ質問を相手に返せます。"},
+        { "ex": [
+          {"t":"What time is it?","tr":"今何時ですか？"},
+          {"t":"Where's the bathroom?","tr":"お手洗いはどこですか？"},
+          {"t":"What do you do?","tr":"お仕事は何ですか？"},
+          {"t":"When does the store open?","tr":"お店はいつ開きますか？"},
+          {"t":"Who is your favorite singer?","tr":"好きな歌手はだれですか？"},
+          {"t":"How do you say \"kawaii\" in English?","tr":"「かわいい」は英語で何と言いますか？"}
+        ] },
+        {"tip":"疑問詞の質問は、ふつう文の終わりで声を下げます。{{Do you …?}} のような「はい・いいえ」の質問は、文の終わりで声を上げます。"}
+      ],
+      "mistakes": [
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"どこに住んでいますか？","why":"疑問詞のあとは疑問文の語順：{{do you live}}。"},
+        {"wrong":"What time you get up?","right":"What time do you get up?","tr":"何時に起きますか？","why":"ふつうの動詞なので {{do}} が必要です。"},
+        {"wrong":"Where does she works?","right":"Where does she work?","tr":"彼女はどこで働いていますか？","why":"{{does}} のあとは動詞のもとの形。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ do you live?","tr":"どこに住んでいますか？","options":["Where","What","Who"],"answer":0,"why":"場所は {{Where}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"What time ___ the movie start?","tr":"映画は何時に始まりますか？","options":["does","do","is"],"answer":0,"why":"{{the movie}} は三人称単数、ふつうの動詞なので {{does}}。"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"どうやって通勤していますか？","words":["How","do","you","go","to","work?"],"why":"{{How do you go to work?}}"},
+        {"type":"dialogue","q":"英会話カフェで。返事を選んでください。","lines":[{"who":"アレックス","t":"What do you do?","tr":"お仕事は？"},{"options":["I'm a nurse. What about you?","I do nurse. What about you?"],"answer":0,"why":"仕事は {{I'm a …}} で答えます。"},{"who":"アレックス","t":"I'm a teacher. Where do you work?","tr":"教師だよ。どこで働いてるの？"},{"options":["I work at a hospital in Kobe.","I'm work at a hospital in Kobe."],"answer":0,"why":"ふつうの動詞に {{am}} はつけません。"}],"from":"say-what-you-do"},
+        {"type":"choice","q":"「お店はいつ開きますか？」は英語で？","options":["{{When does the store open?}}","{{When the store opens?}}","{{When is the store open does?}}"],"answer":0,"why":"疑問詞 + {{does}} + 主語 + 動詞のもとの形。","from":"ask-with-do"},
+        {"type":"say","q":"英語で言ってみましょう：「お手洗いはどこですか？」","answer":"Where's the bathroom?"},
+        {"type":"free","q":"あなたの番です。はじめて会った人に、疑問詞を使って3つ質問しましょう。","answers":[{"t":"Where are you from? What do you do? Where do you live?","tr":"どちらの出身ですか？お仕事は？どこに住んでいますか？"},{"t":"What's your name? When do you get up? What do you eat for breakfast?","tr":"お名前は？何時に起きますか？朝ごはんに何を食べますか？"}]}
+      ]
+    },
+    {
+      "id": "talk-about-likes",
+      "unit": 2,
+      "level": "A1",
+      "title": "好きなものを言う",
+      "summary": "好きなもの・嫌いなものを言います。「〜が好き」と一般的に言うときの名詞の形がポイントです：「犬は好きですが、猫は好きではありません。」",
+      "topic": "{{I like dogs}}（一般的な名詞は複数形）; 数えられない名詞; {{like}} + {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"I like dogs, but I don't like cats.","tr":"犬は好きですが、猫は好きではありません。"}},
+        {"dialog":[{"who":"ルーシー","t":"What kind of music do you like?","tr":"どんな音楽が好き？"},{"who":"ソウタ","t":"I like jazz. And I love movies.","tr":"ジャズが好き。それと映画が大好き。"},{"who":"ルーシー","t":"Me too! Do you like horror movies?","tr":"私も！ホラー映画は好き？"},{"who":"ソウタ","t":"No, I don't. I like comedies.","tr":"ううん。コメディが好きなんだ。"},{"who":"ルーシー","t":"I like cooking. Do you cook?","tr":"私は料理するのが好き。料理する？"},{"who":"ソウタ","t":"Yes, I do. I like making pasta.","tr":"うん。パスタを作るのが好き。"}]},
+        {"p":"**「〜が好き」：{{like}} + 名詞。** {{like}} はふつうの動詞なので、好きなものは目的語として動詞のあとに来ます：{{I like jazz.}}（ジャズが好きです）。強く言うなら {{love}}（大好き）、好きでないなら {{don't like}}、もっと強く {{hate}}（大嫌い）。"},
+        {"p":"**「犬が好き」は {{dogs}}。** 数えられるものを「〜というもの全般」として好きと言うときは、{{a}} も {{the}} もつけずに複数形にします：{{I like dogs.}}（犬が好き）。{{I like a dog.}} だと「ある1匹の犬が好き」、{{I like dog.}} だと食べ物の「犬肉が好き」に聞こえかねません。"},
+        {"term":"数えられない名詞","means":"1つ、2つと数えない名詞。液体・材料・まとまったものなど：{{coffee}}、{{water}}、{{music}}、{{money}}。{{a}} も複数形の {{-s}} もつきません。"},
+        {"p":"**数えられない名詞はそのまま。** {{coffee}}（コーヒー）、{{music}}（音楽）、{{rice}}（ご飯）は数えないので、そのままの形で使います：{{I like coffee.}}、{{I love music.}}"},
+        { "table": [
+          ["","英語","意味"],
+          ["数えられるもの全般","{{I like cats.}}","猫が好き。"],
+          ["数えられないもの","{{I like coffee.}}","コーヒーが好き。"],
+          ["すること","{{I like swimming.}}","泳ぐのが好き。"]
+        ] },
+        {"p":"**「〜するのが好き」：{{like}} + {{-ing}}。** 動詞に {{-ing}} をつけると「〜すること」になります：{{I like cooking.}}（料理するのが好き）、{{She loves reading.}}（彼女は読書が大好き）。"},
+        { "ex": [
+          {"t":"I love movies.","tr":"映画が大好きです。"},
+          {"t":"My son likes trains.","tr":"息子は電車が好きです。"},
+          {"t":"I don't like spicy food.","tr":"辛い食べ物は好きではありません。"},
+          {"t":"Do you like coffee?","tr":"コーヒーは好きですか？"},
+          {"t":"She hates spiders.","tr":"彼女はクモが大嫌いです。"},
+          {"t":"I like taking pictures.","tr":"写真を撮るのが好きです。"}
+        ] },
+        {"tip":"{{What kind of …?}}（どんな〜？）は好みを聞く便利な形です：{{What kind of food do you like?}}（どんな食べ物が好き？）"}
+      ],
+      "mistakes": [
+        {"wrong":"I like dog.","right":"I like dogs.","tr":"犬が好きです。","why":"数えられるものを「〜全般」として言うときは複数形：{{dogs}}。"},
+        {"wrong":"I like a coffee.","right":"I like coffee.","tr":"コーヒーが好きです。","why":"{{coffee}} は数えない名詞なので {{a}} はつけません（1杯を注文するときは別です）。"},
+        {"wrong":"I like cook.","right":"I like cooking.","tr":"料理するのが好きです。","why":"「〜するのが好き」は {{like}} + {{-ing}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I like ___.","tr":"猫が好きです。","options":["cats","cat","a cat"],"answer":0,"why":"「猫というもの」は複数形：{{cats}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"She likes ___ books.","tr":"彼女は本を読むのが好きです。","options":["reading","read","reads"],"answer":0,"why":"{{like}} + {{-ing}}：{{reading}}。"},
+        {"type":"choice","q":"「音楽が大好きです」は英語で？","options":["{{I love music.}}","{{I love musics.}}","{{I love a music.}}"],"answer":0,"why":"{{music}} は数えない名詞なのでそのまま。"},
+        {"type":"dialogue","q":"好きなものについて話します。返事を選んでください。","lines":[{"who":"ルーシー","t":"What kind of food do you like?","tr":"どんな食べ物が好き？"},{"options":["I like Italian food. I love pizza.","I like Italian food. I love a pizza."],"answer":0,"why":"「ピザというもの」には {{a}} をつけません。"},{"who":"ルーシー","t":"Do you like cooking?","tr":"料理するのは好き？"},{"options":["No, I don't. But I like eating!","No, I'm not. But I like eat!"],"answer":0,"why":"{{Do}} の質問には {{don't}}、そして {{like}} + {{-ing}}。"}],"from":"ask-with-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"どんな音楽が好きですか？","words":["What","kind","of","music","do","you","like?"],"why":"{{What kind of music do you like?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「息子は電車が好きです。」","answer":"My son likes trains.","from":"talk-about-someone"},
+        {"type":"free","q":"あなたの番です。好きなものを2つ、好きではないものを1つ言いましょう。","answers":[{"t":"I love sushi and I like playing tennis. I don't like horror movies.","tr":"お寿司が大好きで、テニスをするのが好きです。ホラー映画は好きではありません。"},{"t":"I like coffee and books. I don't like rainy days.","tr":"コーヒーと本が好きです。雨の日は好きではありません。"}]}
+      ]
+    },
+    {
+      "id": "time-and-weather",
+      "unit": 2,
+      "level": "A1",
+      "title": "時間・曜日・天気を言う",
+      "summary": "時間や天気、曜日を言います。英語では「雨が降っている」も主語 {{it}} で始めます：「今日は本当に暑いですね。」",
+      "topic": "主語の {{it}}（{{It's raining.}}）; 時の前置詞 {{at}} / {{on}} / {{in}}",
+      "blocks": [
+        {"goal":{"t":"It's really hot today.","tr":"今日は本当に暑いですね。"}},
+        {"dialog":[{"who":"同僚","t":"Good morning! It's cold today.","tr":"おはよう！今日は寒いね。"},{"who":"あなた","t":"Yes, it is. Is it Wednesday today?","tr":"ほんとに。今日って水曜日？"},{"who":"同僚","t":"No, it's Thursday. The meeting is at ten.","tr":"ううん、木曜日。会議は10時からだよ。"},{"who":"あなた","t":"What time is it now?","tr":"今何時？"},{"who":"同僚","t":"It's nine thirty.","tr":"9時半。"},{"who":"あなた","t":"OK. Oh, it's raining!","tr":"わかった。あ、雨が降ってる！"}]},
+        {"p":"**中身のない主語 {{it}}。** 日本語の「暑いですね」「9時です」「雨が降っている」には主語がありません。でも英語の文には必ず主語がいるので、天気・時間・曜日・距離のときは、意味のない {{it}} を主語にします：{{It's hot.}}（暑い）、{{It's nine o'clock.}}（9時です）、{{It's raining.}}（雨が降っている）。この {{it}} は「それ」と訳しません。"},
+        { "table": [
+          ["","英語","意味"],
+          ["天気","{{It's sunny.}}","晴れています。"],
+          ["時間","{{It's three thirty.}}","3時半です。"],
+          ["曜日","{{It's Friday.}}","金曜日です。"],
+          ["距離","{{It's ten minutes from here.}}","ここから10分です。"]
+        ] },
+        {"term":"前置詞","means":"名詞の前に置いて、時や場所などを表す言葉：{{at}}、{{on}}、{{in}}。日本語の「に」「で」にあたりますが、名詞の前に来ます。"},
+        {"p":"**時の前置詞：{{at}} / {{on}} / {{in}}。** 日本語ではどれも「に」ですが、英語は3つを使い分けます。{{at}} は時刻（ピンポイント）、{{on}} は曜日・日付（1日）、{{in}} は月・季節・年（長い期間）と「朝・午後・夕方」です。"},
+        { "table": [
+          ["前置詞","使うとき","例"],
+          ["{{at}}","時刻","{{at 7:00}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","曜日・日付","{{on Monday}}, {{on May 5}}"],
+          ["{{in}}","月・季節・年・朝や午後","{{in July}}, {{in summer}}, {{in the morning}}"]
+        ] },
+        {"p":"{{today}}（今日）、{{tomorrow}}（明日）、{{every day}}（毎日）、{{next week}}（来週）には前置詞をつけません。"},
+        { "ex": [
+          {"t":"It's raining.","tr":"雨が降っています。"},
+          {"t":"It's cold in the morning.","tr":"朝は寒いです。"},
+          {"t":"What time is it?","tr":"何時ですか？"},
+          {"t":"The store opens at ten.","tr":"店は10時に開きます。"},
+          {"t":"I have a meeting on Friday.","tr":"金曜日に会議があります。"},
+          {"t":"My birthday is in April.","tr":"誕生日は4月です。"}
+        ] },
+        {"tip":"時刻は数字を2つ並べるのがいちばん簡単です：{{nine thirty}}（9時30分）、{{seven fifteen}}（7時15分）。"}
+      ],
+      "mistakes": [
+        {"wrong":"Is raining.","right":"It's raining.","tr":"雨が降っています。","why":"天気の文にも主語 {{it}} が必要です。"},
+        {"wrong":"I go to the gym in Mondays.","right":"I go to the gym on Mondays.","tr":"毎週月曜日にジムに行きます。","why":"曜日には {{on}}。毎週のことなら {{Mondays}} と複数形にします。"},
+        {"wrong":"See you at tomorrow.","right":"See you tomorrow.","tr":"また明日。","why":"{{tomorrow}} や {{today}} には前置詞をつけません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ very hot today.","tr":"今日はとても暑いです。","options":["It's","Is","Today"],"answer":0,"why":"天気の主語は {{it}}：{{It's}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"The party is ___ Saturday.","tr":"パーティーは土曜日です。","options":["on","at","in"],"answer":0,"why":"曜日には {{on}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I get up ___ six.","tr":"6時に起きます。","options":["at","on","in"],"answer":0,"why":"時刻には {{at}}。"},
+        {"type":"choice","q":"「誕生日は8月です」は英語で？","options":["{{My birthday is in August.}}","{{My birthday is on August.}}","{{My birthday is at August.}}"],"answer":0,"why":"月には {{in}}。"},
+        {"type":"dialogue","q":"朝、会社で。返事を選んでください。","lines":[{"who":"同僚","t":"Good morning! It's cold today.","tr":"おはよう！今日は寒いね。"},{"options":["Yes, it is. And it's windy.","Yes, is. And is windy."],"answer":0,"why":"天気の文にも主語 {{it}}。"},{"who":"同僚","t":"What time is the meeting?","tr":"会議は何時？"},{"options":["It's at ten.","It's on ten."],"answer":0,"why":"時刻には {{at}}。"}],"from":"ask-for-information"},
+        {"type":"say","q":"英語で言ってみましょう：「今何時ですか？」「9時半です。」","answer":"What time is it? It's nine thirty."},
+        {"type":"free","q":"あなたの番です。今日の天気と、今週の予定を1つ言いましょう（{{at}} や {{on}} を使って）。","answers":[{"t":"It's sunny today. I have a dentist appointment at four.","tr":"今日は晴れです。4時に歯医者の予約があります。"},{"t":"It's cloudy and cold. I play tennis on Saturday.","tr":"曇りで寒いです。土曜日にテニスをします。"}]}
+      ]
+    },
+    {
+      "id": "say-how-often",
+      "unit": 2,
+      "level": "A1",
+      "title": "どのくらいするかを言う",
+      "summary": "どのくらいの頻度でするかを言います：「たいてい歩いて通勤しています。」「週に2回ジムに行きます。」",
+      "topic": "{{always}} / {{usually}} / {{often}} / {{sometimes}} / {{never}} の位置; {{once a week}} など",
+      "blocks": [
+        {"goal":{"t":"I usually walk to work.","tr":"たいてい歩いて通勤しています。"}},
+        {"dialog":[{"who":"トム","t":"How often do you exercise?","tr":"どのくらい運動してる？"},{"who":"ナオミ","t":"I go to the gym twice a week.","tr":"週に2回ジムに行くよ。"},{"who":"トム","t":"Nice. I never go to the gym. I'm always busy.","tr":"いいね。ぼくはジムには全然行かない。いつも忙しくて。"},{"who":"ナオミ","t":"Do you walk?","tr":"歩いてる？"},{"who":"トム","t":"Yes, I usually walk to the station. And I sometimes ride my bike.","tr":"うん、駅まではたいてい歩く。それに、ときどき自転車に乗るよ。"}]},
+        {"term":"副詞","means":"動詞や形容詞などをくわしく説明する言葉：{{always}}（いつも）、{{very}}（とても）、{{slowly}}（ゆっくり）。"},
+        {"p":"**頻度を表す副詞。** {{always}}（いつも）、{{usually}}（たいてい）、{{often}}（よく）、{{sometimes}}（ときどき）、{{never}}（一度も〜ない）。"},
+        {"p":"**位置：ふつうの動詞の前、be動詞のあと。** {{I usually walk.}}（たいてい歩く）、{{She never eats breakfast.}}（彼女は朝食を食べない）。be動詞の文では be動詞のあとに置きます：{{I'm always busy.}}（いつも忙しい）、{{He's often late.}}（彼はよく遅れる）。"},
+        { "table": [
+          ["どのくらい","英語","例"],
+          ["およそ100%","{{always}}","{{I always get up at six.}}"],
+          ["およそ90%","{{usually}}","{{I usually take the bus.}}"],
+          ["およそ70%","{{often}}","{{We often eat out.}}"],
+          ["およそ50%","{{sometimes}}","{{I sometimes cook.}}"],
+          ["0%（一度もない）","{{never}}","{{He never drinks.}}"]
+        ] },
+        {"p":"**{{never}} は否定。** {{never}} だけで「〜しない」の意味なので、{{don't}} や {{not}} はいっしょに使いません：{{I never drink.}}（{{I don't never drink}} はまちがい）。"},
+        {"p":"**回数。** {{once a week}}（週に1回）、{{twice a month}}（月に2回）、{{three times a year}}（年に3回）。文の最後に置きます。聞くときは {{How often …?}}（どのくらい〜？）。"},
+        { "ex": [
+          {"t":"I always drink coffee in the morning.","tr":"朝はいつもコーヒーを飲みます。"},
+          {"t":"She's usually at home on Sundays.","tr":"彼女は日曜日はたいてい家にいます。"},
+          {"t":"We often go to the beach in summer.","tr":"夏にはよく海に行きます。"},
+          {"t":"I sometimes forget his name.","tr":"ときどき彼の名前を忘れます。"},
+          {"t":"My father never cooks.","tr":"父は料理を全くしません。"},
+          {"t":"I go to the dentist twice a year.","tr":"年に2回歯医者に行きます。"}
+        ] },
+        {"tip":"{{How often do you …?}} と聞かれたら、{{every day}}（毎日）、{{once a week}}（週1回）、{{not very often}}（あまりしない）などで短く答えられます。"}
+      ],
+      "mistakes": [
+        {"wrong":"I go always to work by bus.","right":"I always go to work by bus.","tr":"いつもバスで通勤しています。","why":"頻度の副詞はふつうの動詞の前。"},
+        {"wrong":"I'm not never late.","right":"I'm never late.","tr":"私は遅刻しません。","why":"{{never}} だけで否定なので {{not}} はいりません。"},
+        {"wrong":"She always is busy.","right":"She's always busy.","tr":"彼女はいつも忙しいです。","why":"be動詞の文では、頻度の副詞は be動詞のあと。"}
+      ],
+      "practice": [
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"たいてい歩いて通勤しています。","words":["I","usually","walk","to","work."],"why":"副詞は動詞の前：{{I usually walk to work.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"She ___ breakfast.","tr":"彼女は朝食を全く食べません。","options":["never eats","doesn't never eat","eats never"],"answer":0,"why":"{{never}} だけで否定。位置は動詞の前。"},
+        {"type":"choice","q":"「週に1回」は英語で？","options":["{{once a week}}","{{one time week}}","{{a week once}}"],"answer":0,"why":"{{once a week}}、{{twice a week}}…"},
+        {"type":"dialogue","q":"料理について話します。返事を選んでください。","lines":[{"who":"トム","t":"How often do you cook?","tr":"どのくらい料理する？"},{"options":["I usually cook on weekends.","I cook usually on weekends."],"answer":0,"why":"副詞はふつうの動詞の前。"},{"who":"トム","t":"Does your husband cook?","tr":"だんなさんは料理する？"},{"options":["No, he doesn't. He never cooks!","No, he doesn't. He doesn't never cook!"],"answer":0,"why":"{{never}} と {{doesn't}} はいっしょに使いません。"}],"from":"ask-with-do"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I go to the gym ___ Mondays.","tr":"毎週月曜日にジムに行きます。","options":["on","at","in"],"answer":0,"why":"曜日には {{on}}。","from":"time-and-weather"},
+        {"type":"say","q":"英語で言ってみましょう：「私はいつも忙しいです。」","answer":"I'm always busy."},
+        {"type":"free","q":"あなたの番です。いつもすること、ときどきすること、全くしないことを1つずつ言いましょう。","answers":[{"t":"I always eat breakfast. I sometimes go to the movies. I never smoke.","tr":"いつも朝食を食べます。ときどき映画に行きます。たばこは吸いません。"},{"t":"I usually get up at seven. I often read on the train. I never drink coffee at night.","tr":"たいてい7時に起きます。よく電車で本を読みます。夜はコーヒーを飲みません。"}]}
+      ]
     }
   ]
 }
