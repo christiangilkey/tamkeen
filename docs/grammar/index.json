@@ -38,12 +38,13 @@
    "title": "Грамматика английского языка",
    "variety": "американский английский",
    "units": 8,
-   "lessons": 19,
+   "lessons": 25,
    "levels": [
-    "A1"
+    "A1",
+    "A2"
    ],
-   "bytes": 122091,
-   "sha256": "d658ee9728df2705d658ff8bd5f82f6b84979028c8b94ba7fa931ca0c412633b"
+   "bytes": 161955,
+   "sha256": "afb15cca3f854bcee93076dd708b9b3e051b75e063d9aff1e0280ae86d7dda6a"
   }
  }
 }

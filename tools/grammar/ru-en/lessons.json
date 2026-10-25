@@ -859,6 +859,274 @@
         {"type":"order","q":"Соберите предложение.","tr":"Я родилась в Казани.","words":["I","was","born","in","Kazan."]},
         {"type":"free","q":"Ваша очередь: где вы были вчера или в прошлые выходные, и как было?","answers":[{"t":"Last weekend I was at my parents' house. It was cold, but we were happy.","tr":"В прошлые выходные я был у родителей. Было холодно, но мы были счастливы."},{"t":"Yesterday I was at work all day. I was very tired in the evening.","tr":"Вчера я весь день была на работе. Вечером я очень устала."}]}
       ]
+    },
+    {
+      "id": "past-regular",
+      "unit": 4,
+      "level": "A2",
+      "title": "Рассказать, что вы делали",
+      "summary": "Расскажите, что вы делали вчера: «I worked, I cooked, I watched a movie».",
+      "topic": "Past Simple правильных глаголов: {{-ed}} и три способа его произносить",
+      "blocks": [
+        {"goal":{"t":"Yesterday I worked late, then I cooked dinner and watched a movie.","tr":"Вчера я допоздна работал, потом приготовил ужин и посмотрел фильм."}},
+        {"dialog":[{"who":"Друг","t":"What did you do last weekend?","tr":"Что ты делал в выходные?"},{"who":"Павел","t":"I stayed home. I cleaned the apartment and cooked a big dinner.","tr":"Сидел дома. Убрался в квартире и приготовил большой ужин."},{"who":"Друг","t":"Boring!","tr":"Скучно!"},{"who":"Павел","t":"Not really. My friends visited me, and we played board games.","tr":"Не очень. Ко мне пришли друзья, и мы играли в настольные игры."},{"who":"Друг","t":"That sounds fun!","tr":"Звучит весело!"}]},
+        {"term":"Past Simple","means":"«простое прошедшее» время: законченное действие в прошлом, обычно с указанием, когда: {{I worked yesterday}}."},
+        {"p":"В русском прошедшее время одно, зато у глагола есть вид: «работал» и «поработал», «готовил» и «приготовил». В английском вида нет, но есть несколько прошедших времён. Самое частое — **Past Simple**: что случилось и закончилось в прошлом. {{I cooked dinner}} — и «готовил», и «приготовил»."},
+        {"p":"**Форма:** у правильных глаголов + {{-ed}}, одинаково для всех лиц: {{I worked}}, {{she worked}}, {{they worked}}. Никакого {{-s}} и никаких родов."},
+        { "table": [
+          ["правило","пример"],
+          ["+ {{-ed}}","{{work}} → {{worked}}"],
+          ["немое {{e}}: + {{-d}}","{{live}} → {{lived}}"],
+          ["согласная + {{y}} → {{-ied}}","{{study}} → {{studied}}"],
+          ["короткое слово: согласная удваивается","{{stop}} → {{stopped}}"]
+        ] },
+        {"p":"**Три способа произнести {{-ed}}.** После глухих звуков — [т]: {{worked}} «воркт», {{watched}}. После звонких и гласных — [д]: {{lived}} «ливд», {{played}}. После {{t}} и {{d}} — [ид]: {{wanted}} «вонтид», {{needed}}. Только не «воркед»!"},
+        {"p":"**Слова-подсказки:** {{yesterday}} «вчера», {{last night}} «вчера вечером», {{last week}} «на прошлой неделе», {{two days ago}} «два дня назад», {{in 2015}} «в 2015 году»."},
+        { "ex": [
+          {"t":"I called my mom yesterday.","tr":"Вчера я позвонил маме."},
+          {"t":"We moved to Boston two years ago.","tr":"Мы переехали в Бостон два года назад."},
+          {"t":"She studied in London.","tr":"Она училась в Лондоне."},
+          {"t":"The movie started at eight.","tr":"Фильм начался в восемь."},
+          {"t":"I waited for an hour!","tr":"Я ждал целый час!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"Вчера я допоздна работал.","why":"Вчера — значит прошлое: {{-ed}}."},
+        {"wrong":"She studyed English.","right":"She studied English.","tr":"Она учила английский.","why":"Согласная + {{y}} → {{-ied}}."},
+        {"wrong":"I visit Moscow two years ago.","right":"I visited Moscow two years ago.","tr":"Я был в Москве два года назад.","why":"{{ago}} говорит о прошлом: {{visited}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ TV last night.","tr":"Вчера вечером мы смотрели телевизор.","options":["watched","watch","watching"],"answer":0,"why":"{{last night}} — прошлое: {{watched}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ in Moscow for ten years.","tr":"Я десять лет жил в Москве.","options":["lived","live","liveed"],"answer":0,"why":"Немое {{e}}: просто {{-d}}."},
+        {"type":"choice","q":"Как звучит {{-ed}} в {{wanted}}?","options":["[ид]: «вонтид»","[т]: «вонт»","[д]: «вонд»"],"answer":0,"why":"После {{t}} и {{d}} — [ид]."},
+        {"type":"dialogue","q":"Друг спрашивает о выходных. Выберите ответы.","from":"was-and-were","lines":[{"who":"Друг","t":"How was your weekend?","tr":"Как прошли выходные?"},{"options":["It was nice. I visited my parents.","It was nice. I visit my parents."],"answer":0,"why":"Прошлое: {{visited}}."},{"who":"Друг","t":"What did you do there?","tr":"А что вы там делали?"},{"options":["We cooked, talked and played cards.","We cook, talk and play cards."],"answer":0,"why":"Всё в прошлом: {{-ed}}."},{"who":"Друг","t":"Sounds great!","tr":"Здорово!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Мы переехали сюда два года назад.","words":["We","moved","here","two","years","ago."]},
+        {"type":"say","q":"Скажите: «Вчера я позвонила подруге».","answer":"Yesterday I called my friend."},
+        {"type":"free","q":"Ваша очередь: расскажите о трёх вещах, которые вы делали вчера. Используйте правильные глаголы: {{worked}}, {{cooked}}, {{watched}}, {{played}}…","answers":[{"t":"Yesterday I worked from home, cooked pasta and watched a TV show.","tr":"Вчера я работал из дома, приготовил пасту и смотрел сериал."},{"t":"Last night I called my sister and we talked for an hour. Then I cleaned the kitchen.","tr":"Вчера вечером я позвонила сестре, и мы проговорили час. Потом я убрала кухню."}]}
+      ]
+    },
+    {
+      "id": "past-irregular",
+      "unit": 4,
+      "level": "A2",
+      "title": "Рассказать о поездке",
+      "summary": "Расскажите, куда ездили, что видели и купили, и расспросите других: «Did you go to Paris? We saw the Eiffel Tower!»",
+      "topic": "Неправильные глаголы ({{went}}, {{saw}}, {{had}}); {{did}} в вопросах и отрицаниях: {{Did you go?}}, {{I didn't go}}",
+      "blocks": [
+        {"goal":{"t":"Last summer we went to Italy. We saw Rome and ate a lot of pizza!","tr":"Прошлым летом мы ездили в Италию. Видели Рим и съели кучу пиццы!"}},
+        {"dialog":[{"who":"Коллега","t":"Did you have a good vacation?","tr":"Хорошо отдохнул?"},{"who":"Саша","t":"Yes! We went to Mexico.","tr":"Да! Мы ездили в Мексику."},{"who":"Коллега","t":"Did you see the pyramids?","tr":"Пирамиды видели?"},{"who":"Саша","t":"Yes, we did. And we swam in the ocean every day.","tr":"Да. А ещё каждый день купались в океане."},{"who":"Коллега","t":"Did you buy anything?","tr":"Купили что-нибудь?"},{"who":"Саша","t":"No, we didn't. We spent all our money on food!","tr":"Нет. Все деньги ушли на еду!"}]},
+        {"p":"Самые частые глаголы — неправильные: их прошедшее время надо просто запомнить. Хорошая новость: форма одна для всех лиц."},
+        { "table": [
+          ["глагол","прошедшее","глагол","прошедшее"],
+          ["{{go}} идти, ехать","{{went}}","{{see}} видеть","{{saw}}"],
+          ["{{have}} иметь","{{had}}","{{eat}} есть","{{ate}}"],
+          ["{{do}} делать","{{did}}","{{buy}} покупать","{{bought}}"],
+          ["{{get}} получать","{{got}}","{{come}} приходить","{{came}}"],
+          ["{{make}} делать","{{made}}","{{take}} брать","{{took}}"],
+          ["{{say}} сказать","{{said}}","{{tell}} рассказать","{{told}}"]
+        ] },
+        {"p":"**Вопросы и отрицания — с {{did}}.** Как {{do}} и {{does}} в настоящем, в прошедшем помощник — {{did}}, для всех лиц. И главное: прошедшее время «переходит» в {{did}}, а основной глагол возвращается в словарную форму: {{Did you go?}} (не {{went}}), {{I didn't see}} (не {{saw}}). Так со всеми глаголами, правильными и неправильными."},
+        { "table": [
+          ["","пример"],
+          ["утверждение","{{We went to Paris.}}"],
+          ["вопрос","{{Did you go to Paris?}}"],
+          ["отрицание","{{We didn't go to Paris.}}"],
+          ["краткий ответ","{{Yes, we did.}} / {{No, we didn't.}}"]
+        ] },
+        {"p":"**Но не с {{was}} и {{were}}.** {{be}} и в прошедшем строит вопросы сам: {{Were you there?}}, {{It wasn't expensive}}. {{did}} рядом с {{was}} не бывает."},
+        { "ex": [
+          {"t":"I had a great time.","tr":"Я отлично провёл время."},
+          {"t":"What did you buy? — I bought a hat.","tr":"Что ты купил? — Шляпу."},
+          {"t":"We didn't take any photos.","tr":"Мы не сделали ни одной фотографии."},
+          {"t":"Where did you go last weekend?","tr":"Куда ты ездил в выходные?"},
+          {"t":"She came home late.","tr":"Она поздно пришла домой."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to Paris?","right":"Did you go to Paris?","tr":"Вы ездили в Париж?","why":"После {{did}} — словарная форма: {{go}}."},
+        {"wrong":"I didn't saw him.","right":"I didn't see him.","tr":"Я его не видел.","why":"Прошедшее уже в {{didn't}}: {{see}}."},
+        {"wrong":"Yesterday I goed to the bank.","right":"Yesterday I went to the bank.","tr":"Вчера я ходил в банк.","why":"{{go}} — неправильный глагол: {{went}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"We ___ a lot of pizza in Italy.","tr":"В Италии мы съели много пиццы.","options":["ate","eated","eat"],"answer":0,"why":"{{eat}} — неправильный: {{ate}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Did you ___ the museum?","tr":"Вы видели музей?","options":["see","saw","seen"],"answer":0,"why":"После {{did}} — словарная форма."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ buy anything.","tr":"Я ничего не купил.","options":["didn't","don't","wasn't"],"answer":0,"why":"Отрицание в прошлом: {{didn't}}."},
+        {"type":"choice","q":"Как спросить «Куда вы ездили?»","options":["{{Where did you go?}}","{{Where did you went?}}","{{Where you went?}}"],"answer":0,"why":"Вопросительное слово — {{did}} — подлежащее — словарная форма."},
+        {"type":"dialogue","q":"Подруга спрашивает о выходных. Выберите ответы.","from":"past-regular","lines":[{"who":"Подруга","t":"Did you have a good weekend?","tr":"Хорошо провела выходные?"},{"options":["Yes, I did. I went to a concert.","Yes, I had. I go to a concert."],"answer":0,"why":"Краткий ответ {{Yes, I did}}; {{go}} → {{went}}."},{"who":"Подруга","t":"Did you like it?","tr":"Понравилось?"},{"options":["Yes! They played all my favorite songs.","Yes! They play all my favorite songs."],"answer":0,"why":"Прошлое: {{played}}."},{"who":"Подруга","t":"Lucky you!","tr":"Везёт!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Что ты купил?","words":["What","did","you","buy?"]},
+        {"type":"free","q":"Ваша очередь: расскажите о поездке — куда ездили, что видели, что ели — и спросите друга о его поездке.","answers":[{"t":"Last year I went to Spain. I saw Barcelona and ate a lot of seafood. Where did you go last summer?","tr":"В прошлом году я ездил в Испанию. Видел Барселону и ел много морепродуктов. А ты куда ездил летом?"},{"t":"We went to the mountains in March. We didn't ski, but we took a lot of photos. Did you go anywhere?","tr":"В марте мы ездили в горы. На лыжах не катались, но много фотографировали. А ты куда-нибудь ездила?"}]}
+      ]
+    },
+    {
+      "id": "past-continuous",
+      "unit": 4,
+      "level": "A2",
+      "title": "Описать, что происходило",
+      "summary": "Опишите фон событий — что вы делали, когда что-то случилось: «I was cooking when the lights went out».",
+      "topic": "Past Continuous: {{was}}/{{were}} + {{-ing}}; {{when}} и {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was cooking dinner when the lights went out.","tr":"Я готовила ужин, когда погас свет."}},
+        {"dialog":[{"who":"Макс","t":"Did you hear the noise last night?","tr":"Слышала вчера ночью шум?"},{"who":"Лиза","t":"No. What time?","tr":"Нет. Во сколько?"},{"who":"Макс","t":"Around eleven. I was reading in bed when somebody started shouting outside.","tr":"Около одиннадцати. Я читал в кровати, когда на улице кто-то начал кричать."},{"who":"Лиза","t":"At eleven I was sleeping.","tr":"В одиннадцать я уже спала."},{"who":"Макс","t":"Lucky you!","tr":"Везёт!"}]},
+        {"term":"Past Continuous","means":"«продолженное прошедшее»: действие, которое шло в какой-то момент в прошлом, фон для других событий: {{I was reading}} «я читал (в тот момент)»."},
+        {"p":"Русский несовершенный вид может рисовать фон: «Я читал, когда позвонили». В английском для фона есть отдельное время — Past Continuous: {{was}}/{{were}} + {{-ing}}. А событие, которое «врывается» в этот фон, — в Past Simple: {{I was reading when the phone rang.}}"},
+        { "table": [
+          ["фон: что шло (Past Continuous)","событие (Past Simple)"],
+          ["{{I was cooking dinner…}}","{{…when the lights went out.}}"],
+          ["{{We were walking home…}}","{{…when it started to rain.}}"],
+          ["{{While she was sleeping…}}","{{…the baby woke up.}}"]
+        ] },
+        {"p":"**{{when}} и {{while}}.** {{when}} «когда» обычно ставят перед коротким событием: {{when the phone rang}}. {{while}} «пока, в то время как» — перед длительным фоном: {{while I was cooking}}. Два длительных действия одновременно — оба в Past Continuous: {{I was cooking while he was watching TV.}}"},
+        {"p":"**Не путайте с Past Simple.** {{I read a book yesterday}} — «вчера я читал (прочитал) книгу», просто факт. {{At nine I was reading}} — «в девять я как раз читал»: картинка в определённый момент."},
+        { "ex": [
+          {"t":"What were you doing at eight last night?","tr":"Что ты делал вчера в восемь вечера?"},
+          {"t":"It was raining when we left.","tr":"Когда мы вышли, шёл дождь."},
+          {"t":"I met my wife while I was living in Prague.","tr":"Я познакомился с женой, когда жил в Праге."},
+          {"t":"The kids were playing, and I was working.","tr":"Дети играли, а я работал."},
+          {"t":"Sorry, I wasn't listening.","tr":"Прости, я не слушал."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I cooked when the phone rang.","right":"I was cooking when the phone rang.","tr":"Я готовил, когда зазвонил телефон.","why":"Фон, прерванный событием, — Past Continuous."},
+        {"wrong":"When I was coming home, I was seeing an accident.","right":"When I was coming home, I saw an accident.","tr":"Когда я шёл домой, я увидел аварию.","why":"Короткое событие — Past Simple; к тому же {{see}} не любит {{-ing}}."},
+        {"wrong":"They was waiting for us.","right":"They were waiting for us.","tr":"Они нас ждали.","why":"С {{they}} — {{were}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I ___ a shower when you called.","tr":"Я был в душе, когда ты позвонил.","options":["was taking","took","am taking"],"answer":0,"why":"Фон в момент звонка: {{was taking}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It was snowing ___ we arrived.","tr":"Когда мы приехали, шёл снег.","options":["when","while"],"answer":0,"why":"Перед коротким событием — {{when}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"What ___ you doing at ten?","tr":"Что ты делал в десять?","options":["were","did","was"],"answer":0,"why":"Past Continuous: {{were you doing}}."},
+        {"type":"choice","q":"Что значит {{At nine I was having breakfast}}?","options":["В девять я как раз завтракал.","В девять я позавтракал.","В девять я буду завтракать."],"answer":0,"why":"Past Continuous — картинка в определённый момент."},
+        {"type":"dialogue","q":"Друг не мог до вас дозвониться. Выберите ответы.","from":"past-irregular","lines":[{"who":"Друг","t":"Why didn't you answer my call?","tr":"Почему ты не ответил на звонок?"},{"options":["Sorry, I was driving.","Sorry, I drove."],"answer":0,"why":"Что шло в момент звонка: {{I was driving}}."},{"who":"Друг","t":"Did you get my message?","tr":"Получил моё сообщение?"},{"options":["Yes, I did. I read it at the gas station.","Yes, I got. I was reading it at the gas station."],"answer":0,"why":"{{Yes, I did}}; прочитал — просто факт, Past Simple."},{"who":"Друг","t":"OK, call me back!","tr":"Ладно, перезвони!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я познакомилась с ним, когда жила в Москве.","words":["I","met","him","while","living","in","Moscow."]},
+        {"type":"free","q":"Ваша очередь: вспомните момент, когда что-то случилось. Что вы делали (фон) и что произошло?","answers":[{"t":"I was walking in the park when I saw an old friend.","tr":"Я гулял в парке, когда увидел старого друга."},{"t":"We were having dinner when my brother called with great news.","tr":"Мы ужинали, когда позвонил брат с отличной новостью."}]}
+      ]
+    },
+    {
+      "id": "going-to",
+      "unit": 4,
+      "level": "A2",
+      "title": "Рассказать о планах",
+      "summary": "Расскажите, что вы собираетесь сделать и о чём уже договорились: «I'm going to learn to drive. I'm meeting Tom tomorrow».",
+      "topic": "{{be going to}} для планов и намерений; Present Continuous для договорённостей",
+      "blocks": [
+        {"goal":{"t":"This summer I'm going to learn to swim.","tr":"Этим летом я собираюсь научиться плавать."}},
+        {"dialog":[{"who":"Нина","t":"What are you going to do this weekend?","tr":"Что собираешься делать в выходные?"},{"who":"Тим","t":"I'm going to paint my kitchen.","tr":"Собираюсь покрасить кухню."},{"who":"Нина","t":"By yourself?","tr":"Сам?"},{"who":"Тим","t":"No, my brother is coming on Saturday. We're starting at nine.","tr":"Нет, в субботу приезжает брат. Начинаем в девять."},{"who":"Нина","t":"Good luck! I'm going to sleep all weekend.","tr":"Удачи! А я собираюсь все выходные спать."}]},
+        {"p":"**Собираюсь.** {{be going to}} + глагол — «собираюсь, намерен»: план уже есть в голове. {{I'm going to buy a car}} «Я собираюсь купить машину». {{be}} меняется по лицам: {{she's going to}}, {{we're going to}}. Вопрос: {{Are you going to…?}}, отрицание: {{I'm not going to…}}"},
+        {"p":"**Сейчас случится.** {{going to}} говорят и о том, что вот-вот произойдёт, потому что это уже видно: {{Look at those clouds! It's going to rain.}} «Смотри, какие тучи! Сейчас пойдёт дождь»."},
+        {"p":"**Договорились.** Для того, о чём уже договорились (время, место, другие люди), часто используют Present Continuous с указанием времени: {{I'm meeting Anna at six}} «В шесть я встречаюсь с Анной», {{We're flying to Rome on Friday}}. В русском так же: «В пятницу мы летим в Рим» — настоящим временем о будущем."},
+        { "table": [
+          ["","пример","оттенок"],
+          ["{{going to}}","{{I'm going to call him.}}","намерение: собираюсь позвонить"],
+          ["Present Continuous","{{I'm calling him at five.}}","договорённость: в пять созваниваемся"]
+        ] },
+        { "ex": [
+          {"t":"We're going to have a baby!","tr":"У нас будет ребёнок!"},
+          {"t":"What are you going to do after college?","tr":"Что ты собираешься делать после колледжа?"},
+          {"t":"I'm not going to tell anyone.","tr":"Я никому не собираюсь говорить."},
+          {"t":"Be careful! You're going to fall!","tr":"Осторожно! Сейчас упадёшь!"},
+          {"t":"We're having a party on Saturday.","tr":"В субботу у нас вечеринка."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I going to buy a car.","right":"I'm going to buy a car.","tr":"Я собираюсь купить машину.","why":"Без {{be}} нельзя: {{I'm going to}}."},
+        {"wrong":"She's going to buys a dress.","right":"She's going to buy a dress.","tr":"Она собирается купить платье.","why":"После {{to}} — словарная форма."},
+        {"wrong":"Tomorrow I meet Anna at six.","right":"Tomorrow I'm meeting Anna at six.","tr":"Завтра в шесть я встречаюсь с Анной.","why":"О договорённости — Present Continuous."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I'm ___ to learn Spanish.","tr":"Я собираюсь выучить испанский.","options":["going","go","goes"],"answer":0,"why":"{{be going to}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ you going to call her?","tr":"Ты собираешься ей позвонить?","options":["Are","Do","Will"],"answer":0,"why":"В вопросе {{be}} встаёт вперёд: {{Are you going to…?}}"},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Look at the sky! It's going to ___.","tr":"Посмотри на небо! Сейчас пойдёт снег.","options":["snow","snowing","snows"],"answer":0,"why":"После {{going to}} — словарная форма."},
+        {"type":"choice","q":"Договорённость: «В субботу мы ужинаем у Смитов».","options":["{{We're having dinner with the Smiths on Saturday.}}","{{We have dinner with the Smiths on Saturday.}}"],"answer":0,"why":"О договорённости — Present Continuous."},
+        {"type":"dialogue","q":"Друг хочет встретиться. Выберите ответы.","from":"right-now","lines":[{"who":"Друг","t":"Are you busy tonight?","tr":"Ты сегодня вечером занят?"},{"options":["Yes, I'm meeting my sister at seven.","Yes, I meet my sister at seven."],"answer":0,"why":"Договорённость: {{I'm meeting}}."},{"who":"Друг","t":"And tomorrow?","tr":"А завтра?"},{"options":["Tomorrow I'm going to stay home and relax.","Tomorrow I going to stay home and relax."],"answer":0,"why":"Намерение: {{I'm going to}}."},{"who":"Друг","t":"Good plan!","tr":"Хороший план!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я никому не собираюсь говорить.","words":["I'm","not","going","to","tell","anyone."]},
+        {"type":"free","q":"Ваша очередь: какие у вас планы на этот год, и о чём вы уже договорились на этой неделе?","answers":[{"t":"This year I'm going to learn English and run a marathon. On Friday I'm meeting my old friends.","tr":"В этом году я собираюсь выучить английский и пробежать марафон. В пятницу встречаюсь со старыми друзьями."},{"t":"I'm going to find a new job. Tomorrow I'm having an interview!","tr":"Я собираюсь найти новую работу. Завтра у меня собеседование!"}]}
+      ]
+    },
+    {
+      "id": "will",
+      "unit": 4,
+      "level": "A2",
+      "title": "Пообещать, предложить, предсказать",
+      "summary": "Пообещайте, предложите помощь, решите что-то на ходу или предскажите: «I'll call you. I'll help! It will be fine».",
+      "topic": "{{will}}, {{I'll}}, {{won't}}: решение на ходу, обещание, предложение, прогноз; {{Should I…?}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll help you.","tr":"Не волнуйся, я тебе помогу."}},
+        {"dialog":[{"who":"Энн","t":"Oh no, I forgot my wallet!","tr":"Ой, я забыла кошелёк!"},{"who":"Дима","t":"No problem, I'll pay.","tr":"Не проблема, я заплачу."},{"who":"Энн","t":"Thanks! I'll give you the money tomorrow.","tr":"Спасибо! Завтра отдам."},{"who":"Дима","t":"OK. Should I call a taxi?","tr":"Хорошо. Вызвать такси?"},{"who":"Энн","t":"No, it's a nice evening. We'll walk.","tr":"Нет, вечер хороший. Пройдёмся."}]},
+        {"p":"**{{will}} — для решений на ходу.** {{will}} + словарная форма глагола (часто сокращённо {{'ll}}), одинаково для всех лиц. Главное его применение — решение, принятое прямо в момент разговора: {{The phone's ringing. — I'll get it!}} «Телефон звонит. — Я возьму!» Сравните: {{I'm going to…}} — план был заранее."},
+        { "table": [
+          ["","пример","по-русски"],
+          ["решение на ходу","{{I'll have the soup.}}","Мне суп (решил, глядя в меню)."],
+          ["обещание","{{I'll call you tomorrow.}}","Позвоню завтра."],
+          ["предложение","{{I'll help you.}}","Давай помогу."],
+          ["прогноз, мнение","{{It'll be fine.}}","Всё будет хорошо."]
+        ] },
+        {"p":"**Отрицание:** {{won't}} ({{will not}}): {{I won't tell anyone}} «Никому не скажу». Ещё {{won't}} значит «никак не хочет»: {{The car won't start}} «Машина не заводится»."},
+        {"p":"**Предложить помощь.** {{Should I…?}} «Мне…? Может, я…?»: {{Should I open the window?}} «Открыть окно?» Так же {{Do you want me to…?}} В британских учебниках вы встретите {{Shall I…?}}, но в Америке так говорят редко."},
+        { "ex": [
+          {"t":"I'll text you when I get home.","tr":"Напишу, когда доберусь домой.","note":"после {{when}} — настоящее время, об этом урок 37"},
+          {"t":"I think it will rain tomorrow.","tr":"Думаю, завтра будет дождь."},
+          {"t":"I won't be late, I promise.","tr":"Я не опоздаю, обещаю."},
+          {"t":"Will you marry me?","tr":"Ты выйдешь за меня?"},
+          {"t":"Should I bring anything? — No, just come!","tr":"Принести что-нибудь? — Нет, просто приходи!"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Я тебе позвоню.","why":"После {{will}} — без {{to}}."},
+        {"wrong":"Wait, I help you!","right":"Wait, I'll help you!","tr":"Подожди, я помогу!","why":"Русское «помогу» — будущее; решили помочь прямо сейчас: {{I'll}}."},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"Она придёт.","why":"{{will}} не меняется по лицам."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"It's cold. ___ close the window.","tr":"Холодно. Я закрою окно.","options":["I'll","I'm","I"],"answer":0,"why":"Решение на ходу: {{I'll}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Don't worry, I ___ tell anyone.","tr":"Не волнуйся, я никому не скажу.","options":["won't","don't","am not"],"answer":0,"why":"Обещание: {{won't}}."},
+        {"type":"choice","q":"Вы в ресторане, смотрите в меню и решаете. Что сказать?","options":["{{I'll have the chicken, please.}}","{{I have the chicken.}}","{{I'm having chicken now.}}"],"answer":0,"why":"Решение на ходу: {{I'll have…}}"},
+        {"type":"choice","q":"Что значит {{The car won't start}}?","options":["Машина не заводится.","Машина не поедет завтра.","Машина не начнёт гонку."],"answer":0,"why":"{{won't}} — «никак не хочет»."},
+        {"type":"dialogue","q":"Друг переезжает. Выберите ответы.","from":"going-to","lines":[{"who":"Друг","t":"I'm moving on Saturday!","tr":"В субботу переезжаю!"},{"options":["Really? I'll help you!","Really? I help you!"],"answer":0,"why":"Предложение помощи на ходу: {{I'll}}."},{"who":"Друг","t":"Thanks! Are you going to bring your car?","tr":"Спасибо! Ты приедешь на машине?"},{"options":["Sure. I'll be there at ten.","Sure. I'm be there at ten."],"answer":0,"why":"Обещание: {{I'll be there}}."},{"who":"Друг","t":"You're the best!","tr":"Ты лучший!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Я позвоню тебе завтра.","words":["I'll","call","you","tomorrow."]},
+        {"type":"free","q":"Ваша очередь: друг рассказал вам о проблеме. Предложите помощь и что-нибудь пообещайте. Используйте {{I'll}} и {{won't}}.","answers":[{"t":"I'll come over tonight and I'll bring some food. And I won't tell anyone, I promise.","tr":"Я приеду вечером и привезу еды. И никому не скажу, обещаю."},{"t":"Don't worry! I'll call the doctor and I'll drive you there.","tr":"Не волнуйся! Я позвоню врачу и отвезу тебя."}]}
+      ]
+    },
+    {
+      "id": "general-or-specific",
+      "unit": 4,
+      "level": "A2",
+      "title": "Говорить о вещах вообще и о конкретных",
+      "summary": "Скажите «люблю собак» и «соседская собака лает» — и поймите, когда артикль не нужен вовсе.",
+      "topic": "Артикли, вторая встреча: без артикля — вообще; {{the}} — конкретное, единственное, некоторые названия",
+      "blocks": [
+        {"goal":{"t":"I love dogs, but the dog next door barks all night.","tr":"Я люблю собак, но соседская собака лает всю ночь."}},
+        {"dialog":[{"who":"Рита","t":"Do you like big cities?","tr":"Тебе нравятся большие города?"},{"who":"Бен","t":"I love New York, but the traffic there is terrible.","tr":"Я люблю Нью-Йорк, но пробки там ужасные."},{"who":"Рита","t":"And the people?","tr":"А люди?"},{"who":"Бен","t":"People are friendly. And the food is amazing!","tr":"Люди дружелюбные. А еда потрясающая!"},{"who":"Рита","t":"I prefer nature. Mountains, rivers, fresh air…","tr":"А я больше люблю природу. Горы, реки, свежий воздух…"}]},
+        {"p":"В третьем уроке мы познакомились с {{a}} и {{the}}. Теперь главный вопрос для русскоговорящих: когда артикль **не нужен**. Правило простое: когда вы говорите о чём-то **вообще** — обо всех таких предметах или о веществе как таковом, — артикля нет."},
+        { "table": [
+          ["вообще: без артикля","конкретно: {{the}}"],
+          ["{{I like dogs.}} Люблю собак.","{{The dogs next door are noisy.}} Соседские собаки шумные."],
+          ["{{Coffee is bad for you.}} Кофе вреден.","{{The coffee here is great.}} Здешний кофе отличный."],
+          ["{{Life is beautiful.}} Жизнь прекрасна.","{{the life of a doctor}} жизнь врача"],
+          ["{{Money isn't everything.}} Не в деньгах счастье.","{{Where's the money I gave you?}} Где деньги, которые я тебе дал?"]
+        ] },
+        {"p":"**Когда всегда {{the}}.** Если предмет единственный в мире или в ситуации: {{the sun}}, {{the moon}}, {{the internet}}, {{the government}}. С порядковыми числами и превосходной степенью: {{the first}}, {{the best}}. И когда после существительного идёт уточнение: {{the man in the red hat}}."},
+        {"p":"**Названия.** Большинство городов, стран, улиц и людей — без артикля: {{Moscow}}, {{Russia}}, {{Fifth Avenue}}. Но с {{the}}: страны с «составными» или «множественными» названиями ({{the United States}}, {{the Netherlands}}), реки, моря и океаны ({{the Volga}}, {{the Pacific}}), горные цепи ({{the Alps}}), отели и театры ({{the Hilton}}, {{the Bolshoi}})."},
+        { "ex": [
+          {"t":"Cats are independent.","tr":"Кошки независимые."},
+          {"t":"The cat is on the roof again!","tr":"Кот опять на крыше!"},
+          {"t":"I don't eat sugar.","tr":"Я не ем сахар."},
+          {"t":"Can you pass the sugar?","tr":"Передай, пожалуйста, сахар.","note":"тот, что на столе"},
+          {"t":"We took a boat trip down the Volga.","tr":"Мы плавали по Волге."},
+          {"t":"He lives in the United States.","tr":"Он живёт в США."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"The life is beautiful.","right":"Life is beautiful.","tr":"Жизнь прекрасна.","why":"Жизнь вообще — без артикля."},
+        {"wrong":"I like the music.","right":"I like music.","tr":"Я люблю музыку.","why":"Музыка вообще — без {{the}}. {{the music}} — какая-то конкретная, например та, что сейчас играет."},
+        {"wrong":"She lives in United States.","right":"She lives in the United States.","tr":"Она живёт в США.","why":"{{the United States}} — с артиклем: это «соединённые штаты»."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"___ is very important to me.","tr":"Семья для меня очень важна.","options":["Family","The family","A family"],"answer":0,"why":"Семья вообще — без артикля."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"Can you close ___ door, please?","tr":"Закрой, пожалуйста, дверь.","options":["the","a"],"answer":0,"why":"Ясно, какую дверь: {{the}}."},
+        {"type":"fill","q":"Выберите пропущенное слово.","t":"I love ___.","tr":"Я люблю цветы.","options":["flowers","the flowers","a flowers"],"answer":0,"why":"Цветы вообще — без артикля."},
+        {"type":"choice","q":"Какое предложение — о книгах вообще?","options":["{{Books are expensive.}}","{{The books are expensive.}}"],"answer":0,"why":"Без артикля — вообще; {{the books}} — какие-то конкретные книги."},
+        {"type":"dialogue","q":"Друг выбирает ресторан. Выберите ответы.","from":"like-and-want","lines":[{"who":"Друг","t":"Do you like Italian food?","tr":"Любишь итальянскую кухню?"},{"options":["Yes, I love pasta and pizza.","Yes, I love the pasta and the pizza."],"answer":0,"why":"Вообще — без артикля."},{"who":"Друг","t":"What about this restaurant?","tr":"А в этом ресторане?"},{"options":["The pasta is great, but the pizza isn't very good.","Pasta is great, but pizza isn't very good."],"answer":0,"why":"Конкретные блюда этого ресторана: {{the}}."},{"who":"Друг","t":"Let's order pasta then!","tr":"Тогда закажем пасту!"}]},
+        {"type":"order","q":"Соберите предложение.","tr":"Сегодня солнце очень жаркое.","words":["The","sun","is","very","hot","today."]},
+        {"type":"free","q":"Ваша очередь: скажите, что вы любите вообще (без артикля), и что вам нравится или не нравится в каком-то конкретном месте ({{the}}).","answers":[{"t":"I love music and books. But the music in my office is terrible!","tr":"Я люблю музыку и книги. Но музыка у меня в офисе ужасная!"},{"t":"I like coffee, but the coffee at my work is too weak.","tr":"Я люблю кофе, но кофе у меня на работе слишком слабый."}]}
+      ]
     }
   ]
 }

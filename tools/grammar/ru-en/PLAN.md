@@ -62,7 +62,7 @@ B1). The examples are American English (apartment, mom, movie, vacation, subway,
 | 21 | past-irregular | Рассказать о поездке (tell about a trip) | irregular pasts; did in questions and negatives (Did you see…? I didn't go) | A2 |
 | 22 | past-continuous | Описать, что происходило (describe what was going on) | was / were + -ing; when and while | A2 |
 | 23 | going-to | Рассказать о планах (talk about your plans) | be going to; present continuous for arrangements | A2 |
-| 24 | will | Пообещать, предложить, предсказать (promise, offer, predict) | will / I'll / won't; Shall I…? | A2 |
+| 24 | will | Пообещать, предложить, предсказать (promise, offer, predict) | will / I'll / won't; Should I…? | A2 |
 | 25 | general-or-specific | Говорить о вещах вообще и о конкретных (talk about things in general or in particular) | articles 2: no article for things in general; the for things we both know, unique things, some place names | A2 |
 | **5** | | **Опыт, сравнения и количества** (experience, comparing and amounts) | | |
 | 26 | have-you-ever | Рассказать о своём опыте (talk about your experiences) | present perfect: ever, never, been to | A2 |
