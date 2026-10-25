@@ -5469,3 +5469,15 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
   ~410,000 (+~29,000 if Bisaya uses Azure); free tier ~500,000/month, so the allowance may run out near the end.
   Owner wants to be told at once if Azure refuses, with step-by-step for upgrading (Speech resource → Pricing
   tier → Standard S0; key and region stay the same). Sample results: side-session notes `basics-samples.md`.
+- **2026-10-25: all 17 basics courses finished** (1000 words each, written, tested, voiced, checked). Each language is on
+  its own branch, NOT merged into basics-course (the main Tamkeen chat merges after the owner approves; `docs/course/
+  index.json` merges by language: keep every entry). Last commits: es d1823176, fr 47e18673, ja f98b5abd, zh 448577bc,
+  ru 6ff2e032, it c343256c, tl 312d40f6, pt 9da11b87, ca 575c3d24, th 1a6b2a3a, de fe2b0890, fa 102c545f, hi 953c4ae2,
+  ko 8f37dd91, en b5fa330f, ceb 214a9526 (worktrees `tamkeen-basics-<lang>`). Voices: the app's Azure card voices;
+  Bisaya = Azure fil-PH Blessica reading Bisaya (owner's choice over MMS; 05366da7). Full Whisper checks (Typhoon for
+  Thai, BuzzASR for Bisaya): 0.98-1.00 letter by letter for every language; word-level lows are Whisper's spelling
+  (digits, homophones, Persian/Hindi letters for one sound, Korean/Tagalog spacing). Worth a native listen: es 657/871/
+  886/895, fa 408/194/309/57, hi 753, en 281, ca 581 (details: side-session notes `basics-samples.md`). `say` used by
+  zh (31), ja (79), en (16 heteronyms), ko (particles), pt (o/e), fr (y), tl (ng), fa (short vowels in the word).
+  Azure characters for all 17 courses ≈ 470,000 (+ samples and remakes); Azure never refused. Not done: publishing
+  (a release; ask the owner).
