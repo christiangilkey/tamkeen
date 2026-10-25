@@ -1081,6 +1081,380 @@
         {"type":"dialogue","q":"Ein Freund fragt, warum du zu spät kommst.","from":"ask-about-the-past","lines":[{"who":"Friend","t":"Why are you so late?","tr":"Warum kommst du so spät?"},{"options":["Sorry! I was driving here when my car broke down.","Sorry! I drove here when my car was breaking down."],"answer":0,"why":"Die Fahrt lief gerade (Past Continuous), die Panne passierte (Simple Past)."},{"who":"Friend","t":"Oh no! What did you do?","tr":"Oh nein! Was hast du gemacht?"},{"options":["First I called a mechanic, then I took a taxi.","First I called a mechanic, then took I a taxi."],"answer":0,"why":"Nach {{then}}: das Subjekt vor dem Verb."}]},
         {"type":"free","q":"Jetzt du: Erzähl eine kleine Geschichte: Was hast du gerade gemacht, als etwas Überraschendes passierte?","answers":[{"t":"I was reading on the sofa when my cat jumped on the table and broke a glass.","tr":"Ich habe auf dem Sofa gelesen, als meine Katze auf den Tisch sprang und ein Glas zerbrach."},{"t":"Last year I was walking in Central Park when I saw a famous actor. First I didn't believe it, then I took a photo.","tr":"Letztes Jahr bin ich im Central Park spazieren gegangen, als ich einen berühmten Schauspieler gesehen habe. Erst habe ich es nicht geglaubt, dann habe ich ein Foto gemacht."}]}
       ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sprich über deine Pläne",
+      "summary": "Sag, was du vorhast und was schon ausgemacht ist: „I'm going to learn to surf.“ „I'm meeting Tom tomorrow.“",
+      "topic": "{{going to}} + Grundform; das Present Continuous für feste Verabredungen",
+      "blocks": [
+        {"goal":{"t":"This summer I'm going to learn to surf!","tr":"Diesen Sommer lerne ich surfen!"}},
+        {"dialog":[{"who":"Amy","t":"What are you doing this weekend?","tr":"Was machst du dieses Wochenende?"},{"who":"Felix","t":"On Saturday I'm helping my brother move. And you?","tr":"Am Samstag helfe ich meinem Bruder beim Umzug. Und du?"},{"who":"Amy","t":"I'm going to clean my apartment. It's a mess!","tr":"Ich will meine Wohnung putzen. Da herrscht Chaos!"},{"who":"Felix","t":"Are you going to do anything fun?","tr":"Hast du auch was Lustiges vor?"},{"who":"Amy","t":"Yes! On Sunday I'm meeting my sister for brunch.","tr":"Ja! Am Sonntag treffe ich meine Schwester zum Brunch."}]},
+        {"p":"**Die Zukunft im Deutschen und im Englischen.** Für Pläne nimmt Deutsch meist einfach das Präsens: „Morgen fahre ich nach Boston.“ Englisch nicht: {{Tomorrow I drive to Boston}} klingt wie ein Fahrplan. Für Pläne gibt es zwei Formen."},
+        {"p":"**going to: was du vorhast.** {{am / is / are going to}} + Grundform, für Absichten und Pläne: {{I'm going to learn Spanish.}} „Ich habe vor, Spanisch zu lernen.“, {{We're going to buy a house.}} Auch für Vorhersagen, die man schon kommen sieht: {{Look at those clouds. It's going to rain.}}"},
+        {"p":"**Present Continuous: was schon ausgemacht ist.** Für feste Termine und Verabredungen, meist mit Zeit oder Ort, nimmt Englisch die Verlaufsform: {{I'm meeting Tom at eight.}} „Ich treffe Tom um acht.“, {{We're flying to Miami on Friday.}}"},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["Absicht","{{I'm going to call her.}}","Ich rufe sie an. / Ich will sie anrufen."],
+          ["Vorhersage","{{It's going to be hot.}}","Es wird heiß."],
+          ["Termin","{{I'm seeing the doctor tomorrow.}}","Ich gehe morgen zum Arzt."],
+          ["Frage","{{What are you doing tonight?}}","Was machst du heute Abend?"]
+        ] },
+        {"p":"Im Gespräch wird {{going to}} oft zu „gonna“: {{I'm gonna call her.}} Erkennen solltest du es, schreiben besser nicht."},
+        { "ex": [
+          {"t":"I'm going to start a new job in May.","tr":"Im Mai fange ich einen neuen Job an."},
+          {"t":"Are you going to watch the game?","tr":"Schaust du dir das Spiel an?"},
+          {"t":"We're having a party on Saturday.","tr":"Am Samstag machen wir eine Party."},
+          {"t":"She's going to have a baby.","tr":"Sie bekommt ein Baby."},
+          {"t":"I'm not going to tell him.","tr":"Ich werde es ihm nicht sagen."},
+          {"t":"What are you doing for Thanksgiving?","tr":"Was machst du an Thanksgiving?"}
+        ] },
+        {"tip":"{{What are you doing tonight?}} heißt fast immer „Was hast du heute Abend vor?“, nicht „Was machst du gerade?“: Die Zeitangabe macht den Unterschied."}
+      ],
+      "mistakes": [
+        {"wrong":"Tomorrow I visit my parents.","right":"Tomorrow I'm visiting my parents.","tr":"Morgen besuche ich meine Eltern.","why":"Ein Plan: Englisch braucht {{I'm visiting}} oder {{I'm going to visit}}, nicht das Simple Present."},
+        {"wrong":"I go to learn surfing this summer.","right":"I'm going to learn to surf this summer.","tr":"Diesen Sommer lerne ich surfen.","why":"Eine Absicht: {{am going to}} + Grundform."},
+        {"wrong":"She going to call you.","right":"She's going to call you.","tr":"Sie ruft dich an.","why":"{{be}} gehört dazu: {{she's going to}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Am Freitag fliegen wir nach Miami.“ (Die Tickets sind gebucht.)","options":["{{We're flying to Miami on Friday.}}","{{We fly to Miami on Friday.}}","{{We flying to Miami on Friday.}}"],"answer":0,"why":"Ein fester Termin: das Present Continuous, mit {{are}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I'm ___ to learn Italian next year.","tr":"Nächstes Jahr will ich Italienisch lernen.","options":["going","go","goes"],"answer":0,"why":"Eine Absicht: {{I'm going to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Look at the sky! It's going to ___.","tr":"Schau dir den Himmel an! Gleich regnet es.","options":["rain","rains","raining"],"answer":0,"why":"Nach {{going to}}: die Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"What ___ you doing tonight?","tr":"Was machst du heute Abend?","options":["are","do","is"],"answer":0,"why":"Die Verlaufsform: {{are you doing}}.","from":"say-what-is-happening-now"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich treffe Tom um acht vor dem Kino.","words":["I'm","meeting","Tom","in front of","the theater","at eight."],"from":"say-where-things-are"},
+        {"type":"dialogue","q":"Eine Kollegin fragt nach deinen Plänen.","lines":[{"who":"Colleague","t":"Any plans for the weekend?","tr":"Schon Pläne fürs Wochenende?"},{"options":["Yes, I'm going to visit my grandparents.","Yes, I visit my grandparents."],"answer":0,"why":"Ein Plan: {{I'm going to}}."},{"who":"Colleague","t":"Nice! Are you driving?","tr":"Schön! Fahrt ihr mit dem Auto?"},{"options":["No, we're taking the train.","No, we take the train."],"answer":0,"why":"Schon ausgemacht: das Present Continuous."}]},
+        {"type":"free","q":"Jetzt du: Was hast du dieses Jahr vor, und was ist für nächste Woche schon ausgemacht?","answers":[{"t":"This year I'm going to run a marathon. Next Tuesday I'm meeting my new boss.","tr":"Dieses Jahr laufe ich einen Marathon. Nächsten Dienstag treffe ich meine neue Chefin."},{"t":"I'm going to learn to cook Indian food. On Saturday we're having dinner with friends.","tr":"Ich will indisch kochen lernen. Am Samstag essen wir mit Freunden."}]}
+      ]
+    },
+    {
+      "id": "promise-and-predict",
+      "unit": 6,
+      "level": "A2",
+      "title": "Versprich, biete an und sag voraus",
+      "summary": "Entscheide spontan, biete Hilfe an, versprich etwas und sag die Zukunft voraus: „I'll help you!“ Und vor allem: will heißt nicht „wollen“.",
+      "topic": "{{will}} / {{'ll}} + Grundform; {{won't}}; {{will}} ist nicht „wollen“",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll help you. I promise!","tr":"Keine Sorge, ich helfe dir. Versprochen!"}},
+        {"dialog":[{"who":"Anna","t":"Ugh, these boxes are so heavy.","tr":"Uff, diese Kisten sind so schwer."},{"who":"Ben","t":"I'll carry them for you!","tr":"Ich trag sie dir!"},{"who":"Anna","t":"Thanks! I'll buy you a pizza later.","tr":"Danke! Ich lad dich später auf eine Pizza ein."},{"who":"Ben","t":"Deal. Will your roommate help too?","tr":"Abgemacht. Hilft deine Mitbewohnerin auch?"},{"who":"Anna","t":"No, she won't be home until ten.","tr":"Nein, sie ist erst um zehn zu Hause."},{"who":"Ben","t":"OK. Don't worry, we'll be done in an hour.","tr":"Okay. Keine Sorge, in einer Stunde sind wir fertig."}]},
+        {"p":"**Falscher Freund Nummer eins: will ist nicht „wollen“.** {{I will go}} heißt „Ich werde gehen“, nicht „Ich will gehen“! „Ich will“ ist {{I want to}}. Die Verwechslung kann richtig peinlich werden: {{I will marry you}} ist ein Versprechen, kein Wunsch."},
+        { "table": [
+          ["Englisch","Deutsch"],
+          ["{{I will help.}} / {{I'll help.}}","Ich werde helfen. / Ich helfe."],
+          ["{{I want to help.}}","Ich will helfen."],
+          ["{{I won't tell anyone.}}","Ich werde es niemandem sagen."],
+          ["{{I don't want to tell anyone.}}","Ich will es niemandem sagen."]
+        ] },
+        {"p":"**Wann will?** Für spontane Entscheidungen im Moment des Sprechens ({{The phone's ringing. – I'll get it!}} „Ich geh ran!“), für Angebote und Versprechen ({{I'll call you tomorrow.}}) und für Vorhersagen und Vermutungen ({{It will be cold tomorrow.}}, {{I think she'll love it.}})."},
+        {"p":"**Die Form:** {{will}} + Grundform, gleich für alle Personen, im Gespräch fast immer kurz: {{I'll}}, {{you'll}}, {{she'll}}, {{we'll}}. Verneint: {{won't}} ({{will not}}). Kein {{to}}, kein {{-s}}: {{She'll come}}, nicht {{She wills come}}."},
+        {"p":"**will oder going to?** {{going to}} für Pläne, die schon feststehen; {{will}} für das, was du gerade jetzt entscheidest oder versprichst: {{I'm going to paint the kitchen.}} (geplant) / {{I'll help you!}} (spontan)."},
+        { "ex": [
+          {"t":"I'll have the chicken, please.","tr":"Ich nehme das Hähnchen, bitte.","note":"eine spontane Entscheidung beim Bestellen"},
+          {"t":"I'll call you when I get home.","tr":"Ich ruf dich an, wenn ich zu Hause bin."},
+          {"t":"Don't worry, it won't hurt.","tr":"Keine Sorge, es tut nicht weh."},
+          {"t":"Will you marry me?","tr":"Willst du mich heiraten?","note":"die berühmte Ausnahme: Hier passt auf Deutsch „willst du“"},
+          {"t":"I think it'll rain later.","tr":"Ich glaube, es regnet später."},
+          {"t":"We'll see.","tr":"Mal sehen."}
+        ] },
+        {"tip":"{{We'll see.}} „Mal sehen.“ und {{I'll be right back.}} „Bin gleich zurück.“ sind feste Wendungen, die du jeden Tag hören wirst."}
+      ],
+      "mistakes": [
+        {"wrong":"I will a coffee.","right":"I want a coffee.","tr":"Ich will einen Kaffee.","why":"„Ich will“ ist {{I want}}; {{will}} heißt „werden“ und braucht ein Verb."},
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Ich ruf dich an.","why":"Nach {{will}} kein {{to}}."},
+        {"wrong":"She wills be late.","right":"She'll be late.","tr":"Sie kommt zu spät.","why":"{{will}} hat kein {{-s}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich will nach Hause.“","options":["{{I want to go home.}}","{{I will go home.}}"],"answer":0,"why":"„Wollen“ ist {{want}}; {{will}} heißt „werden“."},
+        {"type":"choice","q":"Es klingelt an der Tür. Du entscheidest spontan:","options":["{{I'll get it!}}","{{I'm going to get it!}}","{{I get it!}}"],"answer":0,"why":"Spontan entschieden: {{I'll}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Don't worry, I ___ tell anyone.","tr":"Keine Sorge, ich verrate es niemandem.","options":["won't","don't will","willn't"],"answer":0,"why":"Verneint: {{won't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We're ___ to buy a new car next year.","tr":"Nächstes Jahr wollen wir ein neues Auto kaufen.","options":["going","will","want"],"answer":0,"why":"Ein feststehender Plan: {{going to}}.","from":"talk-about-plans"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich ruf dich morgen an.","words":["I'll","call","you","tomorrow."]},
+        {"type":"dialogue","q":"Im Restaurant.","from":"order-in-a-cafe","lines":[{"who":"Waiter","t":"Are you ready to order?","tr":"Möchten Sie bestellen?"},{"options":["Yes, I'll have the soup, please.","Yes, I will the soup, please."],"answer":0,"why":"{{will}} braucht ein Verb: {{I'll have}}."},{"who":"Waiter","t":"And to drink?","tr":"Und zu trinken?"},{"options":["I'll have a lemonade.","I want have a lemonade."],"answer":0,"why":"Spontan entschieden: {{I'll have}}."}]},
+        {"type":"free","q":"Jetzt du: Ein Freund zieht um und ist gestresst. Biete zwei Dinge an und versprich etwas, mit {{I'll}}.","answers":[{"t":"I'll help you on Saturday. I'll bring some boxes, and I'll order pizza!","tr":"Ich helfe dir am Samstag. Ich bring ein paar Kisten mit und bestelle Pizza!"},{"t":"Don't worry, I'll drive the van. I'll be there at nine, I promise.","tr":"Keine Sorge, ich fahre den Transporter. Ich bin um neun da, versprochen."}]}
+      ]
+    },
+    {
+      "id": "make-suggestions",
+      "unit": 6,
+      "level": "A2",
+      "title": "Mach Vorschläge",
+      "summary": "Schlag etwas vor, nimm Vorschläge an oder lehne freundlich ab: „Why don't we go to the beach?“ „Good idea!“",
+      "topic": "{{Let's…}}, {{Shall we…?}}, {{Why don't we…?}}, {{How about…}} + {{-ing}}; zusagen und absagen",
+      "blocks": [
+        {"goal":{"t":"Why don't we go to the beach on Sunday?","tr":"Wie wär's, wenn wir am Sonntag an den Strand fahren?"}},
+        {"dialog":[{"who":"Kim","t":"I'm bored. Let's do something!","tr":"Mir ist langweilig. Lass uns was machen!"},{"who":"Tom","t":"How about going to the movies?","tr":"Wie wär's mit Kino?"},{"who":"Kim","t":"Hmm, I'm not sure. The weather's so nice.","tr":"Hm, ich weiß nicht. Das Wetter ist so schön."},{"who":"Tom","t":"Why don't we have a picnic in the park, then?","tr":"Warum machen wir dann nicht ein Picknick im Park?"},{"who":"Kim","t":"That's a great idea! Shall I make sandwiches?","tr":"Super Idee! Soll ich Sandwiches machen?"},{"who":"Tom","t":"Sure. I'll bring drinks.","tr":"Klar. Ich bring Getränke mit."}]},
+        {"p":"**Vier Arten, etwas vorzuschlagen.** Alle bedeuten ungefähr „Lass uns…, Wie wär's…?“, aber danach kommen verschiedene Formen:"},
+        { "table": [
+          ["Vorschlag","danach","Beispiel"],
+          ["{{Let's…}}","Grundform","{{Let's go swimming.}}"],
+          ["{{Shall we…?}}","Grundform","{{Shall we order pizza?}}"],
+          ["{{Why don't we…?}}","Grundform","{{Why don't we take a taxi?}}"],
+          ["{{How about…?}}","{{-ing}} oder ein Nomen","{{How about eating out?}} / {{How about Friday?}}"]
+        ] },
+        {"p":"**Why don't we…?** sieht aus wie eine Warum-Frage, ist aber ein freundlicher Vorschlag: {{Why don't you call her?}} „Ruf sie doch an!“ Und {{Shall I…?}} bietet etwas an: {{Shall I open the window?}} „Soll ich das Fenster aufmachen?“ ({{shall}} ist im amerikanischen Englisch fast nur noch in solchen Fragen üblich.)"},
+        {"p":"**Antworten.** Zusagen: {{Good idea!}}, {{Sounds great!}}, {{Sure, why not?}}, {{I'd love to.}} Absagen, freundlich und mit Grund: {{I'd love to, but I have to work.}}, {{Maybe another time?}}, {{I'm not really in the mood.}}"},
+        { "ex": [
+          {"t":"Let's meet at seven.","tr":"Treffen wir uns um sieben."},
+          {"t":"Shall we go?","tr":"Wollen wir gehen?"},
+          {"t":"How about a coffee?","tr":"Wie wär's mit einem Kaffee?"},
+          {"t":"Why don't you ask your boss?","tr":"Frag doch deinen Chef."},
+          {"t":"How about trying that new Thai place?","tr":"Wie wär's, wenn wir das neue Thai-Restaurant ausprobieren?"},
+          {"t":"I'd love to, but I'm busy tonight.","tr":"Würde ich gern, aber heute Abend habe ich keine Zeit."}
+        ] },
+        {"tip":"Ein direktes {{No}} auf einen Vorschlag wirkt im Englischen hart. Fast immer kommt erst etwas Positives ({{I'd love to…}}, {{That sounds fun…}}) und dann {{but}}."}
+      ],
+      "mistakes": [
+        {"wrong":"How about to go to the movies?","right":"How about going to the movies?","tr":"Wie wär's mit Kino?","why":"Nach {{How about}}: {{-ing}}."},
+        {"wrong":"Let's going home.","right":"Let's go home.","tr":"Lass uns nach Hause gehen.","why":"Nach {{Let's}}: die Grundform."},
+        {"wrong":"No. I don't want.","right":"I'd love to, but I can't today.","tr":"Würde ich gern, aber heute kann ich nicht.","why":"Absagen klingt auf Englisch freundlicher mit {{I'd love to, but…}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Wie wär's, wenn wir Pizza bestellen?“","options":["{{How about ordering pizza?}}","{{How about order pizza?}}","{{How about to order pizza?}}"],"answer":0,"why":"Nach {{How about}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Why don't we ___ a taxi?","tr":"Nehmen wir doch ein Taxi.","options":["take","taking","to take"],"answer":0,"why":"Nach {{Why don't we}}: die Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Shall I ___ the window?","tr":"Soll ich das Fenster aufmachen?","options":["open","opening","to open"],"answer":0,"why":"Nach {{Shall I}}: die Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I'd love ___, but I have to work.","tr":"Würde ich gern, aber ich muss arbeiten.","options":["to","it","that"],"answer":0,"why":"Der feste Ausdruck heißt {{I'd love to}}.","from":"say-what-you-like"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Treffen wir uns um sieben vor dem Café.","words":["Let's","meet","in front of","the café","at seven."],"from":"say-where-things-are"},
+        {"type":"dialogue","q":"Ein Freund hat eine Idee.","from":"ask-with-do","lines":[{"who":"Friend","t":"Let's go hiking on Saturday!","tr":"Lass uns am Samstag wandern gehen!"},{"options":["Sounds great! Shall we leave early?","Sounds great! Shall we leaving early?"],"answer":0,"why":"Nach {{Shall we}}: die Grundform."},{"who":"Friend","t":"Sure. How about seven?","tr":"Klar. Wie wär's mit sieben?"},{"options":["Seven? Why don't we leave at eight?","Seven? Why we don't leave at eight?"],"answer":0,"why":"Der feste Ausdruck heißt {{Why don't we…?}}"}]},
+        {"type":"free","q":"Jetzt du: Schlag einem Freund zwei Dinge fürs Wochenende vor, mit zwei verschiedenen Ausdrücken.","answers":[{"t":"Let's go to the farmers market on Saturday. How about having a barbecue on Sunday?","tr":"Lass uns am Samstag auf den Bauernmarkt gehen. Wie wär's mit Grillen am Sonntag?"},{"t":"Why don't we see a movie tonight? Or shall we go bowling?","tr":"Gehen wir doch heute Abend ins Kino. Oder wollen wir bowlen gehen?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-must",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sag, was du musst und was nicht",
+      "summary": "Sag, was nötig, verboten oder ratsam ist, und tappe nicht in die Falle: „must not“ heißt nicht „muss nicht“.",
+      "topic": "{{have to}}, {{must}}, {{don't have to}}, {{must not}} / {{can't}}, {{should}}",
+      "blocks": [
+        {"goal":{"t":"I have to work tomorrow, but I don't have to get up early.","tr":"Morgen muss ich arbeiten, aber ich muss nicht früh aufstehen."}},
+        {"dialog":[{"who":"Manager","t":"So, you have to be here at nine every day.","tr":"Also, Sie müssen jeden Tag um neun hier sein."},{"who":"Lena","t":"OK. Do I have to wear a suit?","tr":"Okay. Muss ich einen Anzug tragen?"},{"who":"Manager","t":"No, you don't have to. Jeans are fine.","tr":"Nein, das müssen Sie nicht. Jeans sind okay."},{"who":"Lena","t":"Great. Can I eat at my desk?","tr":"Super. Darf ich am Schreibtisch essen?"},{"who":"Manager","t":"No, you can't. And you must not share your password with anyone.","tr":"Nein, das dürfen Sie nicht. Und Ihr Passwort dürfen Sie niemandem verraten."},{"who":"Lena","t":"Got it.","tr":"Verstanden."}]},
+        {"p":"**müssen = have to.** Im amerikanischen Alltag sagt man für „müssen“ meist {{have to}}: {{I have to work.}} „Ich muss arbeiten.“, {{She has to leave.}} Fragen und Verneinung mit {{do}}: {{Do you have to go?}} {{must}} gibt es auch, klingt aber formell oder streng: auf Schildern, in Regeln, bei sehr Wichtigem."},
+        {"p":"**Die große Falle: must not ist nicht „muss nicht“.** „Du musst nicht kommen“ (es ist nicht nötig) heißt {{You don't have to come.}} Aber {{You must not come}} heißt „Du darfst nicht kommen“ (es ist verboten)! Im Alltag sagt man für „darf nicht“ meist {{can't}}: {{You can't park here.}}"},
+        { "table": [
+          ["Deutsch","Englisch","Bedeutung"],
+          ["Ich muss gehen.","{{I have to go.}}","es ist nötig"],
+          ["Ich muss nicht gehen.","{{I don't have to go.}}","es ist nicht nötig"],
+          ["Du darfst nicht rauchen.","{{You can't smoke.}} / {{You must not smoke.}}","es ist verboten"],
+          ["Du solltest gehen.","{{You should go.}}","ein Rat"]
+        ] },
+        {"p":"**should = sollte.** Für Ratschläge: {{You should see a doctor.}} „Du solltest zum Arzt gehen.“, {{You shouldn't eat so much sugar.}} Wie bei {{can}}: kein {{to}}, kein {{-s}}."},
+        {"p":"**Vergangenheit:** {{had to}} „musste“: {{I had to work late.}} ({{must}} hat keine Vergangenheit.)"},
+        { "ex": [
+          {"t":"I have to go now.","tr":"Ich muss jetzt los."},
+          {"t":"Do we have to pay for parking?","tr":"Müssen wir fürs Parken bezahlen?"},
+          {"t":"You don't have to bring anything.","tr":"Du musst nichts mitbringen."},
+          {"t":"Passengers must wear seat belts.","tr":"Fahrgäste müssen sich anschnallen.","note":"eine Regel, ein Schild: {{must}}"},
+          {"t":"You can't smoke in here.","tr":"Hier drin darfst du nicht rauchen."},
+          {"t":"You should try the cheesecake!","tr":"Du solltest den Käsekuchen probieren!"}
+        ] },
+        {"tip":"{{have to}} spricht man meist „häf-tu“ aus, {{has to}} „häs-tu“. Und {{have got to}} („gotta“) bedeutet dasselbe: {{I've gotta go!}} „Ich muss los!“"}
+      ],
+      "mistakes": [
+        {"wrong":"You mustn't bring anything. We have enough food.","right":"You don't have to bring anything. We have enough food.","tr":"Du musst nichts mitbringen. Wir haben genug zu essen.","why":"„Nicht müssen“ (nicht nötig) ist {{don't have to}}. {{mustn't}} hieße „Du darfst nichts mitbringen“!"},
+        {"wrong":"I must to work.","right":"I have to work.","tr":"Ich muss arbeiten.","why":"Nach {{must}} kein {{to}}; im Alltag klingt {{have to}} natürlicher."},
+        {"wrong":"She have to leave.","right":"She has to leave.","tr":"Sie muss gehen.","why":"Nach {{she}}: {{has to}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Du musst nicht mitkommen.“ (Es ist nicht nötig.)","options":["{{You don't have to come.}}","{{You must not come.}}"],"answer":0,"why":"{{must not}} hieße „Du darfst nicht kommen“."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Sorry, I ___ to go. My bus is leaving.","tr":"Sorry, ich muss los. Mein Bus fährt.","options":["have","must","should"],"answer":0,"why":"„Müssen“ im Alltag: {{have to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"You ___ park here. It's a fire lane.","tr":"Hier darfst du nicht parken. Das ist eine Feuerwehrzufahrt.","options":["can't","don't have to","shouldn't to"],"answer":0,"why":"„Nicht dürfen“: {{can't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Yesterday I ___ to work until nine.","tr":"Gestern musste ich bis neun arbeiten.","options":["had","have","must"],"answer":0,"why":"„Musste“: {{had to}}.","from":"say-what-you-did"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Du solltest den Käsekuchen probieren!","words":["You","should","try","the cheesecake!"]},
+        {"type":"dialogue","q":"Dein erster Tag im Büro.","from":"say-what-you-can-do","lines":[{"who":"Colleague","t":"Welcome! Do you have any questions?","tr":"Willkommen! Hast du Fragen?"},{"options":["Yes. Do I have to work on Saturdays?","Yes. Must I to work on Saturdays?"],"answer":0,"why":"„Muss ich…?“: {{Do I have to…?}}"},{"who":"Colleague","t":"No, you don't have to. But you should check your email on Monday mornings.","tr":"Nein, das musst du nicht. Aber du solltest montags früh deine E-Mails lesen."},{"options":["OK, thanks. Can I work from home sometimes?","OK, thanks. Do I can work from home sometimes?"],"answer":0,"why":"{{can}} braucht kein {{do}}."}]},
+        {"type":"free","q":"Jetzt du: Was musst du diese Woche machen, und was musst du nicht machen?","answers":[{"t":"I have to finish a big project this week, but I don't have to work on Friday.","tr":"Diese Woche muss ich ein großes Projekt fertig machen, aber am Freitag muss ich nicht arbeiten."},{"t":"I have to go to the dentist on Tuesday. I don't have to cook, because my husband is cooking.","tr":"Am Dienstag muss ich zum Zahnarzt. Ich muss nicht kochen, weil mein Mann kocht."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "Erzähl von deinen Erfahrungen",
+      "summary": "Frag „Warst du schon mal…?“ und erzähl, was du (noch nie) gemacht hast: „Have you ever been to New York?“",
+      "topic": "Das Present Perfect: {{have / has}} + Partizip; {{ever}}, {{never}}; {{been}} oder {{gone}}",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? – No, never, but I've been to Chicago.","tr":"Warst du schon mal in New York? – Nein, noch nie, aber in Chicago war ich schon."}},
+        {"dialog":[{"who":"Sam","t":"Have you ever eaten alligator?","tr":"Hast du schon mal Alligator gegessen?"},{"who":"Paula","t":"No, I haven't! Have you?","tr":"Nein! Du?"},{"who":"Sam","t":"Yes, I have. I tried it in Louisiana.","tr":"Ja. Ich hab's in Louisiana probiert."},{"who":"Paula","t":"And? What did it taste like?","tr":"Und? Wie hat es geschmeckt?"},{"who":"Sam","t":"Like chicken, of course!","tr":"Wie Hähnchen, natürlich!"},{"who":"Paula","t":"I've never been to the South. It's on my list!","tr":"Ich war noch nie im Süden. Das steht auf meiner Liste!"}]},
+        {"term":"Partizip","means":"die Form des Verbs, die man mit „haben“ oder „sein“ für die Vergangenheit braucht: gemacht, gesehen. Auf Englisch: {{worked}}, {{seen}}, {{been}}."},
+        {"term":"Present Perfect","means":"{{have / has}} + Partizip: {{I have seen}}. Es sieht aus wie das deutsche Perfekt, wird aber anders benutzt: für Erfahrungen, Neuigkeiten und alles, was bis jetzt andauert."},
+        {"p":"**Lebenserfahrung: Present Perfect.** Wenn es darum geht, *ob* du etwas schon einmal gemacht hast (irgendwann in deinem Leben, ohne genaue Zeit), nimmt Englisch das Present Perfect: {{Have you ever been to Japan?}} „Warst du schon mal in Japan?“, {{I've never tried sushi.}} „Ich habe noch nie Sushi probiert.“"},
+        {"p":"**Die Form:** {{have}} (bei {{he, she, it}}: {{has}}) + Partizip. Kurz: {{I've}}, {{she's}}, {{haven't}}, {{hasn't}}. Bei regelmäßigen Verben ist das Partizip die {{-ed}}-Form ({{worked}}, {{tried}}); die unregelmäßigen lernst du einzeln:"},
+        { "table": [
+          ["Grundform","Simple Past","Partizip"],
+          ["{{be}}","{{was / were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{meet}}","{{met}}","{{met}}"],
+          ["{{fly}}","{{flew}}","{{flown}}"],
+          ["{{write}}","{{wrote}}","{{written}}"]
+        ] },
+        {"p":"**Immer mit have.** Im Deutschen heißt es „ich bin gefahren, ich bin gewesen“. Englisch bildet das Present Perfect immer mit {{have}}, nie mit {{be}}: {{I have been}}, {{she has gone}}."},
+        {"p":"**been oder gone?** {{She's been to Paris}} heißt „Sie war schon mal in Paris“ (und ist wieder zurück). {{She's gone to Paris}} heißt „Sie ist nach Paris gefahren“ (und ist jetzt dort)."},
+        {"p":"**ever und never.** {{ever}} „jemals, schon mal“ steht in Fragen ({{Have you ever…?}}), {{never}} „noch nie“ in Aussagen ({{I've never…}}). Kurzantworten: {{Yes, I have. / No, I haven't.}}"},
+        { "ex": [
+          {"t":"Have you ever seen snow?","tr":"Hast du schon mal Schnee gesehen?"},
+          {"t":"I've never flown in a helicopter.","tr":"Ich bin noch nie mit einem Hubschrauber geflogen."},
+          {"t":"She's been to Mexico three times.","tr":"Sie war schon dreimal in Mexiko."},
+          {"t":"We've met before.","tr":"Wir haben uns schon mal getroffen."},
+          {"t":"Has he ever done yoga? – No, he hasn't.","tr":"Hat er schon mal Yoga gemacht? – Nein."},
+          {"t":"Tom isn't here. He's gone to the store.","tr":"Tom ist nicht da. Er ist zum Laden gegangen."}
+        ] },
+        {"tip":"Kommt nach {{Have you ever…? – Yes, I have.}} eine Nachfrage mit Zeitpunkt, wechselt Englisch ins Simple Past: {{When did you go?}} – {{I went last year.}} Darum geht es in der nächsten Lektion."}
+      ],
+      "mistakes": [
+        {"wrong":"I am never been to Boston.","right":"I've never been to Boston.","tr":"Ich war noch nie in Boston.","why":"Das Present Perfect bildet man immer mit {{have}}, nie mit {{be}}."},
+        {"wrong":"Have you ever saw a bear?","right":"Have you ever seen a bear?","tr":"Hast du schon mal einen Bären gesehen?","why":"Nach {{have}}: das Partizip ({{seen}}), nicht das Simple Past ({{saw}})."},
+        {"wrong":"Were you ever in Japan?","right":"Have you ever been to Japan?","tr":"Warst du schon mal in Japan?","why":"Nach Lebenserfahrung fragt man mit dem Present Perfect: {{Have you ever been…?}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Warst du schon mal in Kanada?“","options":["{{Have you ever been to Canada?}}","{{Were you ever in Canada?}}","{{Are you ever been in Canada?}}"],"answer":0,"why":"Lebenserfahrung: {{Have you ever been…?}}"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I've never ___ sushi.","tr":"Ich habe noch nie Sushi gegessen.","options":["eaten","ate","eat"],"answer":0,"why":"Nach {{have}}: das Partizip {{eaten}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ been to Europe twice.","tr":"Sie war schon zweimal in Europa.","options":["has","have","is"],"answer":0,"why":"Nach {{she}}: {{has}}.","from":"say-what-you-have"},
+        {"type":"choice","q":"Deine Kollegin ist gerade auf Hawaii im Urlaub. Du sagst:","options":["{{She's gone to Hawaii.}}","{{She's been to Hawaii.}}"],"answer":0,"why":"Sie ist jetzt dort: {{gone}}. {{been}} hieße, sie war schon mal da."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Bist du schon mal auf einem Pferd geritten?","words":["Have","you","ever","ridden","a horse?"]},
+        {"type":"dialogue","q":"Partyspiel: „Have you ever…?“","from":"talk-about-last-weekend","lines":[{"who":"Friend","t":"Have you ever met a famous person?","tr":"Hast du schon mal einen Promi getroffen?"},{"options":["Yes, I have! I met a movie star in an elevator.","Yes, I am! I met a movie star in an elevator."],"answer":0,"why":"Kurzantwort mit {{have}}; die Geschichte dazu im Simple Past."},{"who":"Friend","t":"No way! Have you ever been on TV?","tr":"Echt jetzt? Warst du schon mal im Fernsehen?"},{"options":["No, I've never been on TV.","No, I've never was on TV."],"answer":0,"why":"Nach {{have}}: das Partizip {{been}}."}]},
+        {"type":"free","q":"Jetzt du: Erzähl von zwei Dingen, die du schon gemacht hast, und einem, das du noch nie gemacht hast.","answers":[{"t":"I've been to Italy, and I've tried scuba diving. I've never seen the ocean in winter.","tr":"Ich war schon in Italien und habe Tauchen ausprobiert. Ich habe noch nie das Meer im Winter gesehen."},{"t":"I've run a half marathon, and I've met the president of my company. I've never flown business class.","tr":"Ich bin schon einen Halbmarathon gelaufen und habe den Chef meiner Firma getroffen. Ich bin noch nie Business Class geflogen."}]}
+      ]
+    },
+    {
+      "id": "perfect-or-past",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sag, wann es passiert ist",
+      "summary": "Present Perfect oder Simple Past? Sobald du sagst, wann, nimmt Englisch das Simple Past: „I saw him yesterday“, nie „I have seen him yesterday“.",
+      "topic": "Present Perfect (ohne Zeitpunkt, bis jetzt) oder Simple Past (abgeschlossene Zeit)",
+      "blocks": [
+        {"goal":{"t":"I've lost my keys! I had them this morning.","tr":"Ich habe meine Schlüssel verloren! Heute Morgen hatte ich sie noch."}},
+        {"dialog":[{"who":"Mike","t":"Have you seen that new movie about the moon landing?","tr":"Hast du den neuen Film über die Mondlandung gesehen?"},{"who":"Sara","t":"Yes, I have. I saw it on Saturday.","tr":"Ja. Ich habe ihn am Samstag gesehen."},{"who":"Mike","t":"Did you like it?","tr":"Hat er dir gefallen?"},{"who":"Sara","t":"I loved it! Have you read the book?","tr":"Ich fand ihn toll! Hast du das Buch gelesen?"},{"who":"Mike","t":"Yes, I read it last year. It was even better.","tr":"Ja, letztes Jahr. Es war noch besser."}]},
+        {"p":"**Die wichtigste Regel.** Das deutsche Perfekt passt zu jeder Zeitangabe: „Ich habe ihn gestern gesehen.“ Das englische Present Perfect nicht. Sobald eine abgeschlossene Zeit dabei ist ({{yesterday}}, {{last week}}, {{in 2010}}, {{two days ago}}, {{when I was a child}}), steht das Simple Past."},
+        { "table": [
+          ["Present Perfect: ohne Zeitpunkt, bis jetzt","Simple Past: mit abgeschlossener Zeit"],
+          ["{{I've been to Rome.}}","{{I went to Rome in 2019.}}"],
+          ["{{She's lost her phone.}}","{{She lost her phone yesterday.}}"],
+          ["{{Have you eaten?}}","{{What did you eat for lunch?}}"],
+          ["{{We've met before.}}","{{We met at Tom's party.}}"]
+        ] },
+        {"p":"**Present Perfect: Das Ergebnis zählt jetzt.** Es verbindet die Vergangenheit mit der Gegenwart: {{I've lost my keys}} (und jetzt habe ich sie nicht), {{She's broken her leg}} (sie hat jetzt einen Gips). Und für Zeiträume, die noch laufen ({{today}}, {{this week}}, {{this year}}): {{I've had three coffees today.}}"},
+        {"p":"**Das typische Gespräch:** erst die allgemeine Frage im Present Perfect, dann die Einzelheiten im Simple Past: {{Have you ever been to Spain? – Yes, I have. – When did you go? – I went last summer.}}"},
+        {"p":"Im amerikanischen Alltag hört man für gerade Passiertes auch oft das Simple Past: {{Did you eat yet?}} statt {{Have you eaten yet?}} Beides ist richtig. Falsch ist nur das Present Perfect zusammen mit einer abgeschlossenen Zeitangabe."},
+        { "ex": [
+          {"t":"I saw Tom yesterday.","tr":"Ich habe Tom gestern gesehen."},
+          {"t":"I've seen this movie before.","tr":"Den Film habe ich schon mal gesehen."},
+          {"t":"We moved here in 2018.","tr":"Wir sind 2018 hierher gezogen."},
+          {"t":"Oh no, I've forgotten my wallet!","tr":"Oh nein, ich habe meinen Geldbeutel vergessen!"},
+          {"t":"Did you call your mom last night?","tr":"Hast du gestern Abend deine Mutter angerufen?"},
+          {"t":"She's had a lot of work this week.","tr":"Sie hatte diese Woche viel Arbeit."}
+        ] },
+        {"tip":"Ein schneller Test: Kannst du fragen „Wann genau?“, und die Antwort liegt in der Vergangenheit? Dann Simple Past."}
+      ],
+      "mistakes": [
+        {"wrong":"I have seen him yesterday.","right":"I saw him yesterday.","tr":"Ich habe ihn gestern gesehen.","why":"{{yesterday}} ist eine abgeschlossene Zeit: Simple Past."},
+        {"wrong":"When have you arrived?","right":"When did you arrive?","tr":"Wann bist du angekommen?","why":"{{When}} fragt nach einem Zeitpunkt: Simple Past."},
+        {"wrong":"We have moved to Ohio in 2015.","right":"We moved to Ohio in 2015.","tr":"Wir sind 2015 nach Ohio gezogen.","why":"Mit einer Jahreszahl: Simple Past."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich habe ihn letzte Woche getroffen.“","options":["{{I met him last week.}}","{{I have met him last week.}}"],"answer":0,"why":"{{last week}}: Simple Past."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"When ___ you get home last night?","tr":"Wann bist du gestern Abend nach Hause gekommen?","options":["did","have","were"],"answer":0,"why":"Ein Zeitpunkt in der Vergangenheit: {{did}}.","from":"ask-about-the-past"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I have never ___ to Asia.","tr":"Ich war noch nie in Asien.","options":["been","was","went"],"answer":0,"why":"Nach {{have}}: das Partizip {{been}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ to Asia in 2019.","tr":"Sie ist 2019 nach Asien gereist.","options":["went","has gone","has been"],"answer":0,"why":"Mit {{in 2019}}: Simple Past."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wir sind 2018 hierher gezogen.","words":["We","moved","here","in 2018."]},
+        {"type":"dialogue","q":"Ein Freund fragt nach Kalifornien.","from":"talk-about-experiences","lines":[{"who":"Friend","t":"Have you ever been to California?","tr":"Warst du schon mal in Kalifornien?"},{"options":["Yes, I have. I went there two years ago.","Yes, I have. I've been there two years ago."],"answer":0,"why":"Mit {{two years ago}}: Simple Past."},{"who":"Friend","t":"Cool! Did you visit San Francisco?","tr":"Cool! Warst du in San Francisco?"},{"options":["Yes, I did. We saw the Golden Gate Bridge.","Yes, I have. We have seen the Golden Gate Bridge."],"answer":0,"why":"Es geht um diese eine Reise: {{I did}}, {{we saw}}."}]},
+        {"type":"free","q":"Jetzt du: Nenn ein Land, in dem du schon warst (Present Perfect), und sag, wann du dort warst und was du gemacht hast (Simple Past).","answers":[{"t":"I've been to Greece. I went there in 2021 and swam every day.","tr":"Ich war schon in Griechenland. Ich war 2021 dort und bin jeden Tag geschwommen."},{"t":"I've been to the US twice. Last year I visited my cousin in Texas.","tr":"Ich war schon zweimal in den USA. Letztes Jahr habe ich meinen Cousin in Texas besucht."}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sag, wie lange schon",
+      "summary": "Sag, seit wann und wie lange du etwas machst: „I've lived here for five years.“ Englisch sagt hier nie „I live here since…“.",
+      "topic": "Present Perfect + {{for}} (Zeitraum) und {{since}} (Zeitpunkt); {{How long have you…?}}",
+      "blocks": [
+        {"goal":{"t":"I've lived in Boston for three years.","tr":"Ich wohne seit drei Jahren in Boston."}},
+        {"dialog":[{"who":"Jen","t":"How long have you lived in the US?","tr":"Wie lange lebst du schon in den USA?"},{"who":"Moritz","t":"I've lived here for two years. Since 2023.","tr":"Seit zwei Jahren. Seit 2023."},{"who":"Jen","t":"And how long have you known Dave?","tr":"Und wie lange kennst du Dave schon?"},{"who":"Moritz","t":"Since college. We've been friends for ten years!","tr":"Seit dem Studium. Wir sind seit zehn Jahren befreundet!"},{"who":"Jen","t":"Wow. And how long have you been married?","tr":"Wow. Und wie lange bist du schon verheiratet?"},{"who":"Moritz","t":"Only for a few months!","tr":"Erst seit ein paar Monaten!"}]},
+        {"p":"**seit = Present Perfect, nicht Präsens.** Im Deutschen steht bei „seit“ das Präsens: „Ich wohne seit drei Jahren hier.“ Wörtlich übersetzt wäre das falsch. Englisch sieht: Es hat in der Vergangenheit angefangen und dauert bis jetzt, also Present Perfect: {{I've lived here for three years.}}"},
+        {"p":"**for oder since?** Das deutsche „seit“ hat zwei englische Übersetzungen: {{for}} vor einem **Zeitraum** (wie lange?), {{since}} vor einem **Zeitpunkt** (seit wann?)."},
+        { "table": [
+          ["{{for}}: ein Zeitraum","{{since}}: ein Zeitpunkt"],
+          ["{{for three years}}","{{since 2022}}"],
+          ["{{for two weeks}}","{{since Monday}}"],
+          ["{{for a long time}}","{{since I was a child}}"],
+          ["{{for ten minutes}}","{{since this morning}}"]
+        ] },
+        {"p":"**Die Frage:** {{How long have you…?}} „Wie lange … schon?“: {{How long have you worked here?}} „Wie lange arbeitest du schon hier?“"},
+        {"p":"**Falscher Freund since.** {{since}} heißt „seit“ nur bei einem Zeitpunkt. „Seit drei Jahren“ ist {{for three years}}; ein {{since three years}} gibt es nicht."},
+        { "ex": [
+          {"t":"I've known her since high school.","tr":"Ich kenne sie seit der Highschool."},
+          {"t":"We've been married for 20 years.","tr":"Wir sind seit 20 Jahren verheiratet."},
+          {"t":"She's worked at the bank since 2019.","tr":"Sie arbeitet seit 2019 bei der Bank."},
+          {"t":"How long have you had this car?","tr":"Wie lange hast du das Auto schon?"},
+          {"t":"I haven't seen him for months.","tr":"Ich habe ihn seit Monaten nicht gesehen."},
+          {"t":"It's been cold since Monday.","tr":"Seit Montag ist es kalt."}
+        ] },
+        {"tip":"Und wenn es vorbei ist: {{I lived in Berlin for three years}} (Simple Past) heißt „Ich habe drei Jahre in Berlin gewohnt“: früher, jetzt nicht mehr."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here since three years.","right":"I've lived here for three years.","tr":"Ich wohne seit drei Jahren hier.","why":"„Seit“ bis jetzt: Present Perfect. Und vor einem Zeitraum: {{for}}."},
+        {"wrong":"I know him since 2010.","right":"I've known him since 2010.","tr":"Ich kenne ihn seit 2010.","why":"Bis jetzt: Present Perfect ({{have known}})."},
+        {"wrong":"How long do you work here?","right":"How long have you worked here?","tr":"Wie lange arbeitest du schon hier?","why":"„Wie lange schon“: {{How long have you…?}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich lerne seit zwei Jahren Englisch.“","options":["{{I've studied English for two years.}}","{{I study English since two years.}}","{{I've studied English since two years.}}"],"answer":0,"why":"Present Perfect, und vor einem Zeitraum {{for}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She's lived in Denver ___ 2020.","tr":"Sie wohnt seit 2020 in Denver.","options":["since","for","from"],"answer":0,"why":"Ein Zeitpunkt: {{since}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We've been friends ___ ten years.","tr":"Wir sind seit zehn Jahren befreundet.","options":["for","since","ago"],"answer":0,"why":"Ein Zeitraum: {{for}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ in Hamburg for two years, then I moved to Munich.","tr":"Ich habe zwei Jahre in Hamburg gewohnt, dann bin ich nach München gezogen.","options":["lived","have lived","live"],"answer":0,"why":"Es ist vorbei: Simple Past.","from":"perfect-or-past"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wie lange arbeitest du schon hier?","words":["How long","have","you","worked","here?"],"from":"talk-about-experiences"},
+        {"type":"dialogue","q":"Small Talk mit einer neuen Nachbarin.","lines":[{"who":"Neighbor","t":"How long have you lived here?","tr":"Wie lange wohnst du schon hier?"},{"options":["For about six months.","Since six months."],"answer":0,"why":"Ein Zeitraum: {{for}}."},{"who":"Neighbor","t":"And where did you live before?","tr":"Und wo hast du vorher gewohnt?"},{"options":["In Germany. I lived in Frankfurt for five years.","In Germany. I have lived in Frankfurt for five years."],"answer":0,"why":"Das ist vorbei: Simple Past."}]},
+        {"type":"free","q":"Jetzt du: Sag, seit wann du dort wohnst, wo du wohnst, und wie lange du deinen besten Freund oder deine beste Freundin kennst.","answers":[{"t":"I've lived in Leipzig since 2017. I've known my best friend for twenty years.","tr":"Ich wohne seit 2017 in Leipzig. Meinen besten Freund kenne ich seit zwanzig Jahren."},{"t":"I've lived in this apartment for three years, and I've known Anna since kindergarten.","tr":"Ich wohne seit drei Jahren in dieser Wohnung, und Anna kenne ich seit dem Kindergarten."}]}
+      ]
+    },
+    {
+      "id": "give-news",
+      "unit": 6,
+      "level": "A2",
+      "title": "Erzähl Neuigkeiten",
+      "summary": "Erzähl, was gerade passiert ist, was schon erledigt ist und was noch nicht: „I've just gotten engaged!“ „Have you finished yet?“",
+      "topic": "Present Perfect mit {{just}}, {{already}}, {{yet}}",
+      "blocks": [
+        {"goal":{"t":"Guess what? I've just gotten a new job!","tr":"Stell dir vor: Ich habe gerade einen neuen Job bekommen!"}},
+        {"dialog":[{"who":"Lisa","t":"Guess what? I've just gotten engaged!","tr":"Rate mal! Ich habe mich gerade verlobt!"},{"who":"Jake","t":"Congratulations! Have you set a date yet?","tr":"Glückwunsch! Habt ihr schon ein Datum?"},{"who":"Lisa","t":"Not yet. But we've already found a place for the party!","tr":"Noch nicht. Aber einen Ort für die Feier haben wir schon gefunden!"},{"who":"Jake","t":"That was fast! Have you told your parents?","tr":"Das ging schnell! Hast du es deinen Eltern schon erzählt?"},{"who":"Lisa","t":"Yes, I've just called them. My mom cried!","tr":"Ja, ich habe sie gerade angerufen. Meine Mutter hat geweint!"}]},
+        {"p":"**Neuigkeiten: Present Perfect.** Was gerade erst passiert ist und jetzt wichtig ist, erzählt man im Present Perfect, oft mit drei kleinen Wörtern:"},
+        { "table": [
+          ["Wort","Bedeutung","Beispiel"],
+          ["{{just}}","gerade (eben)","{{I've just eaten.}} Ich habe gerade gegessen."],
+          ["{{already}}","schon","{{She's already left.}} Sie ist schon gegangen."],
+          ["{{yet}} (Frage)","schon","{{Have you finished yet?}} Bist du schon fertig?"],
+          ["{{yet}} (Verneinung)","noch nicht","{{I haven't decided yet.}} Ich habe mich noch nicht entschieden."]
+        ] },
+        {"p":"**Wo sie stehen:** {{just}} und {{already}} zwischen {{have}} und dem Partizip; {{yet}} am Satzende, nur in Fragen und Verneinungen."},
+        {"p":"**„Schon“ hat zwei Übersetzungen.** In Aussagen {{already}}, in Fragen meist {{yet}}: {{Have you eaten yet?}} „Hast du schon gegessen?“ ({{already}} in einer Frage klingt überrascht: {{You've finished already?}} „Du bist schon fertig?!“)"},
+        {"p":"**get – got – gotten.** Im amerikanischen Englisch ist das Partizip von {{get}} meist {{gotten}}: {{I've gotten a new job.}} Und für Neuigkeiten hört man in den USA oft auch einfach das Simple Past: {{I just got a new job!}}, {{Did you eat yet?}} Beides ist richtig."},
+        { "ex": [
+          {"t":"I've just arrived.","tr":"Ich bin gerade angekommen."},
+          {"t":"Have you done your homework yet?","tr":"Hast du deine Hausaufgaben schon gemacht?"},
+          {"t":"We've already seen this episode.","tr":"Diese Folge haben wir schon gesehen."},
+          {"t":"The movie hasn't started yet.","tr":"Der Film hat noch nicht angefangen."},
+          {"t":"Has Tom called yet? – No, not yet.","tr":"Hat Tom schon angerufen? – Nein, noch nicht."},
+          {"t":"Look! It's just started snowing.","tr":"Schau! Es hat gerade angefangen zu schneien."}
+        ] },
+        {"tip":"{{Not yet.}} „Noch nicht.“ ist allein schon eine komplette Antwort, und eine sehr häufige."}
+      ],
+      "mistakes": [
+        {"wrong":"I haven't decided still.","right":"I haven't decided yet.","tr":"Ich habe mich noch nicht entschieden.","why":"„Noch nicht“ ist {{not … yet}}, mit {{yet}} am Ende."},
+        {"wrong":"I have yet eaten.","right":"I've already eaten.","tr":"Ich habe schon gegessen.","why":"In einer Aussage ist „schon“ {{already}}; {{yet}} nur in Fragen und Verneinungen."},
+        {"wrong":"She just has left.","right":"She's just left.","tr":"Sie ist gerade gegangen.","why":"{{just}} steht zwischen {{has}} und dem Partizip."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Hast du schon gegessen?“","options":["{{Have you eaten yet?}}","{{Have you yet eaten?}}","{{Have you eaten still?}}"],"answer":0,"why":"In der Frage: {{yet}} am Ende."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I haven't finished ___.","tr":"Ich bin noch nicht fertig.","options":["yet","already","still"],"answer":0,"why":"„Noch nicht“: {{not … yet}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We've ___ booked the hotel.","tr":"Wir haben das Hotel schon gebucht.","options":["already","yet","since"],"answer":0,"why":"„Schon“ in einer Aussage: {{already}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She's just ___ home.","tr":"Sie ist gerade nach Hause gekommen.","options":["come","came","comes"],"answer":0,"why":"Nach {{has}}: das Partizip, {{come}}.","from":"talk-about-experiences"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich bin gerade angekommen.","words":["I've","just","arrived."]},
+        {"type":"dialogue","q":"Deine Mitbewohnerin fragt, was erledigt ist.","from":"promise-and-predict","lines":[{"who":"Roommate","t":"Have you bought milk yet?","tr":"Hast du schon Milch gekauft?"},{"options":["Yes, I've already bought it.","Yes, I've yet bought it."],"answer":0,"why":"„Schon“ in einer Aussage: {{already}}."},{"who":"Roommate","t":"Great! And have you called the landlord?","tr":"Super! Und hast du den Vermieter angerufen?"},{"options":["No, not yet. I'll call him tomorrow.","No, still not. I call him tomorrow."],"answer":0,"why":"„Noch nicht“: {{not yet}}; ein spontanes Versprechen: {{I'll}}."}]},
+        {"type":"free","q":"Jetzt du: Erzähl zwei Neuigkeiten mit {{just}} oder {{already}} und eine Sache, die du noch nicht gemacht hast ({{yet}}).","answers":[{"t":"I've just started a new English course, and I've already learned a lot. I haven't booked my summer vacation yet.","tr":"Ich habe gerade einen neuen Englischkurs angefangen und schon viel gelernt. Meinen Sommerurlaub habe ich noch nicht gebucht."},{"t":"My sister has just had a baby! I haven't seen him yet.","tr":"Meine Schwester hat gerade ein Baby bekommen! Ich habe ihn noch nicht gesehen."}]}
+      ]
     }
   ]
 }
