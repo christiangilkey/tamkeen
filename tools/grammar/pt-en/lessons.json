@@ -1950,6 +1950,147 @@
         {"type":"say","q":"Diga a um convidado: “Você não precisa trazer nada!”","answer":"You don't have to bring anything!"},
         {"type":"free","q":"Sua vez: diga duas coisas que você tem que fazer esta semana e uma que você não precisa fazer.","answers":[{"t":"I have to go to the dentist and I have to buy a present. I don't have to work on Friday!","tr":"Tenho que ir ao dentista e tenho que comprar um presente. Não preciso trabalhar na sexta!"},{"t":"This week I have to study a lot, but I don't have to cook: my mom is coming!","tr":"Esta semana tenho que estudar muito, mas não preciso cozinhar: minha mãe vem aí!"}]}
       ]
+    },
+    {
+      "id": "talk-about-possibilities",
+      "unit": 7,
+      "level": "B1",
+      "title": "Fale do que pode acontecer",
+      "summary": "Diga o que pode acontecer e o que talvez seja verdade: “It might rain.”, “She may be at home.”",
+      "topic": "{{might}}, {{may}}, {{could}} + verbo para possibilidades; {{might not}}; {{maybe}} ou {{may be}}",
+      "blocks": [
+        {"goal":{"t":"Take an umbrella. It might rain later.","tr":"Leve um guarda-chuva. Pode chover mais tarde."}},
+        {"dialog":[{"who":"Dan","t":"Are you coming to the barbecue on Sunday?","tr":"Você vem no churrasco de domingo?"},{"who":"Você","t":"I might. I have to work on Saturday, so I may be tired.","tr":"Talvez. Tenho que trabalhar no sábado, então pode ser que eu esteja cansado."},{"who":"Dan","t":"Come on! It could be a lot of fun.","tr":"Ah, vem! Pode ser muito divertido."},{"who":"Você","t":"Maybe. Is Jess coming?","tr":"Talvez. A Jess vai?"},{"who":"Dan","t":"She might not. She's sick.","tr":"Pode ser que não. Ela está doente."},{"who":"Você","t":"OK, I'll try to go.","tr":"Tá, vou tentar ir."}]},
+        {"p":"**“Pode ser que”, “talvez”: {{might}}, {{may}}, {{could}}.** O português diz “pode chover”, “talvez ela esteja em casa”, “pode ser que eu vá”. O inglês usa {{might}}, {{may}} ou {{could}} + verbo, sem {{to}} e sem {{-s}}, como {{can}} e {{should}}."},
+        { "table": [
+          ["","inglês","português"],
+          ["possível","{{It might rain.}}","Pode chover."],
+          ["possível","{{She may be at home.}}","Talvez ela esteja em casa."],
+          ["possível","{{It could be dangerous.}}","Pode ser perigoso."],
+          ["talvez não","{{I might not go.}}","Talvez eu não vá."]
+        ] },
+        {"p":"As três são quase iguais. {{might}} é a mais comum na conversa; {{may}} soa um pouco mais formal; {{could}} é “poderia, pode ser”. Na negativa, use {{might not}} ou {{may not}}; {{couldn't}} é outra coisa (“não conseguiu, não poderia”)."},
+        {"p":"**{{maybe}} ou {{may be}}?** {{maybe}}, uma palavra, é “talvez” e vai no começo da frase: {{Maybe she's at home}}. {{may be}}, duas palavras, é o verbo: {{She may be at home}}. O sentido é o mesmo; a frase é que muda."},
+        {"p":"**O verbo não muda.** Em português, depois de “talvez” vem o subjuntivo (“talvez eu vá”, “talvez ela esteja”). Em inglês, nada muda no verbo: {{Maybe she's at home}}, {{Maybe I'll go}}."},
+        {"p":"**Respostas curtas.** {{I might.}} “Talvez.”, {{Maybe.}}, {{It's possible.}}, {{Probably.}} “Provavelmente.”, {{Probably not.}}"},
+        { "ex": [
+          {"t":"I might go to the beach this weekend.","tr":"Talvez eu vá à praia neste fim de semana."},
+          {"t":"Call her. She may be awake.","tr":"Liga para ela. Talvez ela esteja acordada."},
+          {"t":"Be careful, it could be dangerous.","tr":"Cuidado, pode ser perigoso."},
+          {"t":"We might not have enough time.","tr":"Pode ser que a gente não tenha tempo suficiente."},
+          {"t":"Maybe he's stuck in traffic.","tr":"Talvez ele esteja preso no trânsito."},
+          {"t":"Are you coming? — I might.","tr":"Você vem? — Talvez."}
+        ] },
+        {"tip":"Para adivinhar com mais certeza, use o {{must}} da lição 39: {{He must be home}} “Ele deve estar em casa” (tenho quase certeza). Com {{might}}: “talvez esteja”."}
+      ],
+      "mistakes": [
+        {"wrong":"It might to rain.","right":"It might rain.","tr":"Pode chover.","why":"Depois de {{might}}, sem {{to}}."},
+        {"wrong":"May be she's at home.","right":"Maybe she's at home.","tr":"Talvez ela esteja em casa.","why":"No começo da frase, “talvez” é uma palavra só: {{maybe}}."},
+        {"wrong":"Maybe I go tomorrow.","right":"Maybe I'll go tomorrow.","tr":"Talvez eu vá amanhã.","why":"Para o futuro, depois de {{maybe}}: {{I'll}} (ou {{I might go}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"Take a jacket. It ___ get cold.","tr":"Leve um casaco. Pode esfriar.","options":["might to","mights","might"],"answer":2,"why":"{{might}} + verbo, sem {{to}} e sem {{-s}}."},
+        {"type":"choice","q":"Qual está certa?","options":["{{She maybe tired.}}","{{Maybe she's tired.}}","{{May be she's tired.}}"],"answer":1,"why":"No começo da frase: {{maybe}}, uma palavra."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"I might ___ go to the party.","tr":"Talvez eu não vá à festa.","options":["don't","no","not"],"answer":2,"why":"A negativa: {{might not}}."},
+        {"type":"dialogue","q":"Um convite para o fim de semana: escolha suas respostas.","from":"say-what-you-have-to-do","lines":[{"who":"Dan","t":"Are you coming to the barbecue on Sunday?","tr":"Você vem no churrasco de domingo?"},{"options":["I might to. I have work on Saturday.","I might. I have to work on Saturday."],"answer":1,"why":"Resposta curta: {{I might}}; e {{have to}} + verbo."},{"who":"Dan","t":"Is Jess coming too?","tr":"A Jess vem também?"},{"options":["She couldn't. She's sick.","She might not. She's sick."],"answer":1,"why":"Possibilidade negativa: {{might not}}."},{"who":"Dan","t":"That's too bad.","tr":"Que pena."}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Talvez ela esteja em casa.","words":["She","may","be","at","home."]},
+        {"type":"say","q":"Como se diz “Pode ser perigoso”?","answer":"It could be dangerous."},
+        {"type":"free","q":"Sua vez: diga duas coisas que talvez você faça neste fim de semana, e uma que talvez não faça.","answers":[{"t":"I might go to the movies, and I may visit my parents. I might not go to the gym!","tr":"Talvez eu vá ao cinema, e talvez eu visite meus pais. Talvez eu não vá à academia!"},{"t":"Maybe I'll cook something special. I might call some friends.","tr":"Talvez eu cozinhe algo especial. Pode ser que eu ligue para uns amigos."}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 7,
+      "level": "B1",
+      "title": "Diga o que vai acontecer se…",
+      "summary": "Fale do futuro com “se” e “quando”: “If it rains, I'll stay home.”, “When I get home, I'll call you.”",
+      "topic": "{{if}}, {{when}}, {{as soon as}} + presente, e {{will}} na outra parte (nunca {{when I will…}}); o nosso futuro do subjuntivo",
+      "blocks": [
+        {"goal":{"t":"When I get home, I'll text you.","tr":"Quando eu chegar em casa, te mando mensagem."}},
+        {"dialog":[{"who":"Mãe","t":"Call me as soon as you arrive, OK?","tr":"Me liga assim que você chegar, tá?"},{"who":"Você","t":"Don't worry. If I have time, I'll call you tonight too.","tr":"Pode deixar. Se eu tiver tempo, te ligo hoje à noite também."},{"who":"Mãe","t":"And if you need anything?","tr":"E se você precisar de alguma coisa?"},{"who":"Você","t":"If I need anything, I'll tell you.","tr":"Se eu precisar, eu te falo."},{"who":"Mãe","t":"And when you come back, we'll have a big lunch.","tr":"E quando você voltar, a gente faz um almoção."},{"who":"Você","t":"Deal!","tr":"Combinado!"}]},
+        {"p":"**O português usa um tempo especial; o inglês, o presente.** Em português dizemos “Se eu **tiver** tempo”, “Quando eu **chegar**”: o futuro do subjuntivo. Em inglês, depois de {{if}}, {{when}}, {{as soon as}}, {{before}} e {{after}}, vai o presente simples, mesmo falando do futuro. O {{will}} fica só na outra parte da frase."},
+        { "table": [
+          ["português","inglês"],
+          ["Se eu tiver tempo, eu vou.","{{If I have time, I'll go.}}"],
+          ["Quando eu chegar, te ligo.","{{When I get there, I'll call you.}}"],
+          ["Assim que eu souber, te aviso.","{{As soon as I know, I'll let you know.}}"],
+          ["Se chover, a gente fica em casa.","{{If it rains, we'll stay home.}}"]
+        ] },
+        {"p":"Por isso o brasileiro tende a dizer {{When I will arrive…}}, traduzindo o “chegar” como futuro. Nunca use {{will}} depois de {{if}} ou {{when}}: {{When I arrive}}, {{If it rains}}."},
+        {"p":"**A ordem pode trocar.** {{I'll call you when I get there}} é o mesmo que {{When I get there, I'll call you}}. Com o {{if}} ou o {{when}} no começo, vai uma vírgula."},
+        {"p":"**Com imperativo também.** {{If you need help, call me}} “Se você precisar de ajuda, me liga”, {{If you see him, tell him to call me}}."},
+        { "ex": [
+          {"t":"If you want, I'll pick you up at the airport.","tr":"Se você quiser, eu te busco no aeroporto."},
+          {"t":"When I go to the US, I want to visit New York.","tr":"Quando eu for aos Estados Unidos, quero conhecer Nova York."},
+          {"t":"Text me as soon as you arrive.","tr":"Me manda mensagem assim que chegar."},
+          {"t":"If I have time tomorrow, I'll go to the beach.","tr":"Se eu tiver tempo amanhã, vou à praia."},
+          {"t":"I'll make dinner before you get home.","tr":"Vou fazer o jantar antes de você chegar em casa."},
+          {"t":"If it doesn't rain, we'll have a barbecue.","tr":"Se não chover, a gente faz um churrasco."}
+        ] },
+        {"tip":"{{if}} e {{when}} não são iguais: {{If I see her…}} “Se eu vir ela” (talvez); {{When I see her…}} “Quando eu vir ela” (vou ver, com certeza)."}
+      ],
+      "mistakes": [
+        {"wrong":"When I will arrive, I'll call you.","right":"When I arrive, I'll call you.","tr":"Quando eu chegar, te ligo.","why":"Depois de {{when}}, o presente, mesmo falando do futuro."},
+        {"wrong":"If it will rain, we stay home.","right":"If it rains, we'll stay home.","tr":"Se chover, a gente fica em casa.","why":"O presente vai depois de {{if}}; o {{will}}, na outra parte."},
+        {"wrong":"If I will have time, I'll go.","right":"If I have time, I'll go.","tr":"Se eu tiver tempo, eu vou.","why":"Nunca {{will}} depois de {{if}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"When I ___ home, I'll call you.","tr":"Quando eu chegar em casa, te ligo.","options":["will get","got","get"],"answer":2,"why":"Depois de {{when}}: o presente, {{get}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"If it rains, ___ stay home.","tr":"Se chover, a gente fica em casa.","options":["we'll","we're","we will to"],"answer":0,"why":"Na outra parte da frase: {{will}} + verbo."},
+        {"type":"choice","q":"Como se diz “Assim que eu souber, te aviso”?","options":["{{As soon as I know, I'll let you know.}}","{{As soon as I will know, I let you know.}}","{{As soon as I knew, I'll let you know.}}"],"answer":0,"why":"Depois de {{as soon as}}, o presente; o {{will}}, na outra parte."},
+        {"type":"dialogue","q":"A sua mãe se despede antes da viagem. Escolha suas respostas.","from":"offer-and-promise","lines":[{"who":"Mãe","t":"Call me as soon as you arrive, OK?","tr":"Me liga assim que você chegar, tá?"},{"options":["Don't worry. I'll call you when I get there.","Don't worry. I call you when I will get there."],"answer":0,"why":"{{I'll}} na promessa; depois de {{when}}, o presente."},{"who":"Mãe","t":"And if you need anything?","tr":"E se você precisar de alguma coisa?"},{"options":["If I need anything, I'll tell you.","If I will need anything, I tell you."],"answer":0,"why":"Depois de {{if}}, o presente; o {{will}} na outra parte."},{"who":"Mãe","t":"Have a good trip!","tr":"Boa viagem!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Se você quiser, eu te busco no aeroporto.","words":["If","you want,","I'll","pick you up","at the airport."]},
+        {"type":"say","q":"Como se diz “Se não chover, a gente faz um churrasco”?","answer":"If it doesn't rain, we'll have a barbecue.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Sua vez: o que você vai fazer quando tiver férias? E se ganhar um dinheiro extra? Use {{when}} e {{if}}.","answers":[{"t":"When I have vacation, I'll travel to the Northeast. If I have extra money, I'll buy a new laptop.","tr":"Quando eu tiver férias, vou viajar para o Nordeste. Se eu tiver um dinheiro extra, vou comprar um notebook novo."},{"t":"If I go to the US, I'll visit my cousin in Florida.","tr":"Se eu for aos Estados Unidos, vou visitar meu primo na Flórida."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "Imagine e diga o que você faria",
+      "summary": "Imagine e sonhe em voz alta: “If I won the lottery, I'd travel the world.”, “If I were you…”",
+      "topic": "{{if}} + passado e {{would}} na outra parte (o nosso “se eu tivesse… faria”); {{If I were you}}; {{could}}; {{I wish}}",
+      "blocks": [
+        {"goal":{"t":"If I won the lottery, I would travel around the world.","tr":"Se eu ganhasse na loteria, viajaria pelo mundo."}},
+        {"dialog":[{"who":"Ryan","t":"What would you do if you had a million dollars?","tr":"O que você faria se tivesse um milhão de dólares?"},{"who":"Você","t":"I'd buy a house on the beach and stop working!","tr":"Compraria uma casa na praia e pararia de trabalhar!"},{"who":"Ryan","t":"Really? I wouldn't stop. But I'd travel a lot.","tr":"Sério? Eu não pararia. Mas viajaria muito."},{"who":"Você","t":"And if you could live anywhere?","tr":"E se você pudesse morar em qualquer lugar?"},{"who":"Ryan","t":"I'd live in Florianópolis, for sure.","tr":"Moraria em Florianópolis, com certeza."},{"who":"Você","t":"If I were you, I'd choose Lisbon!","tr":"Se eu fosse você, escolheria Lisboa!"}]},
+        {"term":"condicional","means":"a forma do verbo para o que aconteceria numa situação imaginada: eu faria, ela iria. Em inglês: {{would}} + verbo."},
+        {"p":"**Imaginar: {{if}} + passado, {{would}} + verbo.** Para o que não é verdade, ou provavelmente não vai ser, o português usa “se eu tivesse… eu faria”. O inglês usa o passado simples depois de {{if}} e {{would}} (na fala, {{'d}}) na outra parte."},
+        { "table": [
+          ["português","inglês"],
+          ["Se eu tivesse dinheiro, viajaria.","{{If I had money, I'd travel.}}"],
+          ["Se eu morasse perto, iria sempre.","{{If I lived nearby, I'd go all the time.}}"],
+          ["O que você faria?","{{What would you do?}}"],
+          ["Eu não faria isso.","{{I wouldn't do that.}}"]
+        ] },
+        {"p":"Repare: {{If I had…}} usa o passado, mas fala de agora ou do futuro imaginado, não do passado. É o mesmo truque do nosso “se eu tivesse”."},
+        {"p":"**{{If I were you}}.** Nessa frase, o {{be}} é {{were}} para todos: {{If I were you, I'd accept}} “Se eu fosse você, aceitaria”. Na conversa também se ouve {{If I was…}}, mas {{If I were you}} é fixo."},
+        {"p":"**{{could}}: poderia, conseguiria.** {{If I had more time, I could learn the guitar}} “Se eu tivesse mais tempo, poderia aprender violão”."},
+        {"p":"**Desejos: {{I wish}}.** {{I wish I had more time}} “Queria ter mais tempo”, {{I wish you were here}} “Queria que você estivesse aqui”. Depois de {{I wish}}, o mesmo passado do {{if}}."},
+        { "ex": [
+          {"t":"If I spoke English better, I'd live in Canada.","tr":"Se eu falasse inglês melhor, moraria no Canadá."},
+          {"t":"What would you do in my place?","tr":"O que você faria no meu lugar?"},
+          {"t":"If I were you, I wouldn't go.","tr":"Se eu fosse você, não iria."},
+          {"t":"It would be great if you could come.","tr":"Seria ótimo se você pudesse vir."},
+          {"t":"I wish I could stay longer.","tr":"Queria poder ficar mais."},
+          {"t":"If it were cheaper, I'd buy it.","tr":"Se fosse mais barato, eu comprava."}
+        ] },
+        {"tip":"Compare com a lição 41: {{If I have time, I'll go}} (é possível, é real) e {{If I had time, I'd go}} (não tenho tempo: estou imaginando)."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"Se eu tivesse dinheiro, viajaria.","why":"Depois de {{if}}, o passado; o {{would}} fica só na outra parte."},
+        {"wrong":"If I am you, I would go.","right":"If I were you, I would go.","tr":"Se eu fosse você, iria.","why":"Imaginando: {{If I were you}}."},
+        {"wrong":"I would to buy a house.","right":"I would buy a house.","tr":"Eu compraria uma casa.","why":"Depois de {{would}}, sem {{to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"If I ___ more time, I'd learn Spanish.","tr":"Se eu tivesse mais tempo, aprenderia espanhol.","options":["would have","had","have"],"answer":1,"why":"Imaginando: {{if}} + passado, {{had}}."},
+        {"type":"fill","q":"Escolha a palavra que falta.","t":"If I were you, I ___ accept the job.","tr":"Se eu fosse você, aceitaria o emprego.","options":["would","will","am"],"answer":0,"why":"Na outra parte: {{would}}."},
+        {"type":"choice","q":"Qual frase fala de algo imaginado, que provavelmente não vai acontecer?","options":["{{If I win, I'll call you.}}","{{When I win, I'll call you.}}","{{If I won the lottery, I'd quit my job.}}"],"answer":2,"why":"{{if}} + passado e {{would}}: imaginação. As outras são possibilidades reais.","from":"say-what-will-happen-if"},
+        {"type":"dialogue","q":"Sonhando com um amigo: escolha suas respostas.","from":"offer-and-promise","lines":[{"who":"Ryan","t":"What would you do if you had a million dollars?","tr":"O que você faria se tivesse um milhão de dólares?"},{"options":["I'll buy a house on the beach!","I'd buy a house on the beach!"],"answer":1,"why":"Imaginando: {{would}}, {{I'd}}."},{"who":"Ryan","t":"And if you could live anywhere?","tr":"E se você pudesse morar em qualquer lugar?"},{"options":["I'd live in Lisbon.","I would to live in Lisbon."],"answer":0,"why":"Depois de {{would}}, sem {{to}}."},{"who":"Ryan","t":"Good choice!","tr":"Boa escolha!"}]},
+        {"type":"order","q":"Coloque as palavras na ordem.","tr":"Seria ótimo se você pudesse vir.","words":["It","would be","great","if","you could","come."]},
+        {"type":"say","q":"Como se diz “Se eu fosse você, não iria”?","answer":"If I were you, I wouldn't go."},
+        {"type":"free","q":"Sua vez: o que você faria se pudesse morar um ano em outro país? Responda com {{If I…, I'd…}}","answers":[{"t":"If I could live in another country, I'd live in Canada and I'd learn to ski.","tr":"Se eu pudesse morar em outro país, moraria no Canadá e aprenderia a esquiar."},{"t":"If I had a year abroad, I'd travel around Europe by train.","tr":"Se eu tivesse um ano fora, viajaria pela Europa de trem."}]}
+      ]
     }
   ]
 }
