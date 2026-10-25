@@ -644,6 +644,285 @@
         {"type":"say","q":"You're a woman. Ask a taxi driver whether he'll go to the airport.","answer":"ไปสนามบินไหมคะ","r":"bpai sà-nǎam-bin mǎi ká"},
         {"type":"free","q":"Your turn: tell a taxi driver where you're going, and how to get there.","answers":[{"t":"ไปสยามครับ ตรงไปแล้วเลี้ยวขวาที่ไฟแดงครับ","r":"bpai sà-yǎam kráp, dtrong bpai lɛ́ɛo líao kwǎa tîi fai-dɛɛng kráp","tr":"To Siam, please. Go straight, then turn right at the lights."},{"t":"ไปโรงแรมค่ะ อยู่ตรงข้ามตลาด จอดตรงนี้เลยค่ะ","r":"bpai roong-rɛɛm kâ, yùu dtrong-kâam dtà-làat, jɔ̀ɔt dtrong-níi ləəi kâ","tr":"To the hotel, please. It's across from the market. Stop right here, please."}]}
       ]
+    },
+    {
+      "id": "want-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you want and would like to do",
+      "summary": "Say what you'd like to do and what you'd like to have: “I want to go to Chiang Mai.”",
+      "topic": "{{อยาก|yàak}} + a verb; {{อยากได้|yàak dâai}} + a thing; {{ไม่อยาก|mâi yàak}}; {{ต้องการ|dtɔ̂ng-gaan}} (formal)",
+      "blocks": [
+        {"goal":{"t":"ฉันอยากไปเชียงใหม่ค่ะ","r":"chǎn yàak bpai chiiang-mài kâ","tr":"I want to go to Chiang Mai."}},
+        {"dialog":[{"who":"Nok","t":"เสาร์อาทิตย์นี้อยากทำอะไรคะ","r":"sǎo aa-tít níi yàak tam à-rai ká","tr":"What do you want to do this weekend?"},{"who":"Tom","t":"ผมอยากไปทะเลครับ","r":"pǒm yàak bpai tá-lee kráp","tr":"I want to go to the beach."},{"who":"Nok","t":"หัวหินไหมคะ","r":"hǔua-hǐn mǎi ká","tr":"How about Hua Hin?"},{"who":"Tom","t":"ดีครับ ผมอยากกินอาหารทะเลด้วย","r":"dii kráp, pǒm yàak gin aa-hǎan tá-lee dûai","tr":"Great. I want to eat seafood too."},{"who":"Nok","t":"แต่ฉันไม่อยากขับรถนะคะ","r":"dtɛ̀ɛ chǎn mâi yàak kàp rót ná ká","tr":"But I don't want to drive."}]},
+        {"p":"**อยาก + a verb.** {{อยาก|yàak}} “want (to)” goes straight before the verb, with nothing in between: {{อยากไป|yàak bpai}} “want to go”, {{อยากกิน|yàak gin}} “want to eat”. There's no word for “to”."},
+        {"p":"**อยากได้ + a thing.** For a *thing* you'd like to have, say {{อยากได้|yàak dâai}} “want to get”: {{ฉันอยากได้โทรศัพท์ใหม่|chǎn yàak dâai too-rá-sàp mài}} “I'd like a new phone”. {{อยาก|yàak}} on its own needs a verb after it."},
+        {"p":"**Not, and asking.** {{ไม่อยาก|mâi yàak}} is “don't want to”. {{อยาก…ไหม|yàak … mǎi}} asks “do you want to…?”, and the question words work as always: {{อยากทำอะไร|yàak tam à-rai}} “what do you want to do?”, {{อยากไปไหน|yàak bpai nǎi}} “where do you want to go?”."},
+        {"p":"**ต้องการ.** {{ต้องการ|dtɔ̂ng-gaan}} “want, need” is formal: it's what you read on forms and hear in offices ({{ต้องการความช่วยเหลือไหม|dtɔ̂ng-gaan kwaam chûai lʉ̌ʉa mǎi}} “do you need help?”). In conversation, use {{อยาก|yàak}}."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["want to + a verb","{{อยากนอน|yàak nɔɔn}}","want to sleep"],
+          ["want + a thing","{{อยากได้รถ|yàak dâai rót}}","want a car"],
+          ["don't want to","{{ไม่อยากไป|mâi yàak bpai}}","don't want to go"],
+          ["formal: want, need","{{ต้องการห้องเดี่ยว|dtɔ̂ng-gaan hɔ̂ng dìao}}","would like a single room"]
+        ] },
+        { "ex": [
+          {"t":"ผมอยากเรียนภาษาไทยครับ","r":"pǒm yàak riian paa-sǎa tai kráp","tr":"I want to learn Thai."},
+          {"t":"คุณอยากกินอะไรคะ","r":"kun yàak gin à-rai ká","tr":"What do you want to eat?"},
+          {"t":"ฉันอยากได้กระเป๋าใบนั้นค่ะ","r":"chǎn yàak dâai grà-bpǎo bai nán kâ","tr":"I'd like that bag."},
+          {"t":"วันนี้ผมไม่อยากออกไปไหนครับ","r":"wan-níi pǒm mâi yàak ɔ̀ɔk bpai nǎi kráp","tr":"I don't want to go out anywhere today.","note":"{{ไหน|nǎi}} after a “not”: “anywhere”"},
+          {"t":"อยากไปด้วยไหมคะ","r":"yàak bpai dûai mǎi ká","tr":"Do you want to come along?"},
+          {"t":"ฉันอยากนอนค่ะ ง่วงมาก","r":"chǎn yàak nɔɔn kâ, ngûuang mâak","tr":"I want to sleep. I'm so sleepy."}
+        ] },
+        {"tip":"{{อยาก|yàak}} works with any verb, “be” too: {{อยากเป็นหมอ|yàak bpen mɔ̌ɔ}} “want to be a doctor”."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันอยากกระเป๋าใบนั้นค่ะ","right":"ฉันอยากได้กระเป๋าใบนั้นค่ะ","tr":"I'd like that bag.","why":"{{อยาก|yàak}} needs a verb after it. For a thing, say {{อยากได้|yàak dâai}} “want to get”."},
+        {"wrong":"ผมไปอยากทะเลครับ","right":"ผมอยากไปทะเลครับ","tr":"I want to go to the beach.","why":"{{อยาก|yàak}} comes before the verb: want, go, beach."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{อยากได้|yàak dâai}} “want (a thing)” or {{อยาก|yàak}} “want to (do)”.","t":"ผม___รถใหม่ครับ","tr":"I'd like a new car.","options":["อยากได้","อยาก"],"answer":0,"why":"A car is a thing: {{อยากได้|yàak dâai}}."},
+        {"type":"choice","q":"How do you say “I don't want to go”?","options":["{{ไม่อยากไป|mâi yàak bpai}}","{{อยากไม่ไป|yàak mâi bpai}}","{{อยากไปไม่|yàak bpai mâi}}"],"answer":0,"why":"{{ไม่|mâi}} goes before the word it denies, here {{อยาก|yàak}}."},
+        {"type":"order","q":"Put the words in order.","tr":"What do you want to eat? (a woman asking)","words":["คุณ","อยาก","กิน","อะไร","คะ"]},
+        {"type":"dialogue","q":"A friend has a plan. Choose your replies (you're a man).","from":"get-around","lines":[{"who":"Nok","t":"อยากไปตลาดน้ำไหมคะ","r":"yàak bpai dtà-làat náam mǎi ká","tr":"Do you want to go to the floating market?"},{"options":["อยากครับ อยากไปมาก","ใช่ครับ ไปมาก"],"answer":0,"why":"Answer with the verb of the question: {{อยาก|yàak}}."},{"who":"Nok","t":"ไปยังไงดีคะ","r":"bpai yang-ngai dii ká","tr":"How should we get there?"},{"options":["นั่งเรือไปครับ","เรือนั่งไปครับ"],"answer":0,"why":"“Sit boat go”: the verb first, {{นั่งเรือไป|nâng rʉʉa bpai}}."}]},
+        {"type":"fill","q":"Choose the classifier for books: {{เล่ม|lêm}}, {{ตัว|dtuua}} or {{คน|kon}}.","t":"ฉันอยากได้หนังสือสอง___ค่ะ","tr":"I'd like two books.","options":["เล่ม","ตัว","คน"],"answer":0,"why":"Books: {{เล่ม|lêm}}.","from":"count-things"},
+        {"type":"say","q":"You're a man. Say “I want to learn Thai.”","answer":"ผมอยากเรียนภาษาไทยครับ","r":"pǒm yàak riian paa-sǎa tai kráp"},
+        {"type":"free","q":"Your turn: say something you want to do this year, and something you'd like to have.","answers":[{"t":"ปีนี้ฉันอยากไปญี่ปุ่นค่ะ แล้วก็อยากได้กล้องใหม่ค่ะ","r":"bpii níi chǎn yàak bpai yîi-bpùn kâ, lɛ́ɛo-gɔ̂ yàak dâai glɔ̂ng mài kâ","tr":"This year I want to go to Japan, and I'd like a new camera."},{"t":"ผมอยากเรียนทำอาหารไทยครับ แล้วก็อยากพูดภาษาไทยเก่งๆ","r":"pǒm yàak riian tam aa-hǎan tai kráp, lɛ́ɛo-gɔ̂ yàak pûut paa-sǎa tai gèng-gèng","tr":"I want to learn to cook Thai food, and I want to speak Thai really well."}]}
+      ]
+    },
+    {
+      "id": "your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your daily routine. Thai verbs never change: the time words tell you when.",
+      "topic": "Verbs never change, for any person or time; time words ({{ทุกวัน|túk wan}}, {{ตอนเช้า|dtɔɔn cháao}}) at the start or the end; {{บ่อย|bɔ̀i}}, {{บางที|baang-tii}}, {{ไม่ค่อย|mâi kɔ̂i}}, {{ปกติ|bpòk-gà-dtì}}",
+      "blocks": [
+        {"goal":{"t":"ฉันดื่มกาแฟทุกเช้าค่ะ","r":"chǎn dʉ̀ʉm gaa-fɛɛ túk cháao kâ","tr":"I drink coffee every morning."}},
+        {"dialog":[{"who":"Fon","t":"ทุกวันคุณทำอะไรบ้างคะ","r":"túk wan kun tam à-rai bâng ká","tr":"What do you do every day?"},{"who":"Tom","t":"ตอนเช้าผมไปทำงานครับ ตอนเย็นผมไปวิ่งที่สวน","r":"dtɔɔn cháao pǒm bpai tam-ngaan kráp, dtɔɔn yen pǒm bpai wîng tîi sǔuan","tr":"In the morning I go to work. In the evening I go running in the park."},{"who":"Fon","t":"ทุกวันเลยเหรอคะ","r":"túk wan ləəi rə̌ə ká","tr":"Every single day?"},{"who":"Tom","t":"ไม่ทุกวันครับ บางทีผมก็ดูทีวีที่บ้าน","r":"mâi túk wan kráp, baang-tii pǒm gɔ̂ duu tii-wii tîi bâan","tr":"Not every day. Sometimes I just watch TV at home."}]},
+        {"term":"tense","means":"the form of a verb that shows when something happens: English “eat, ate”. Thai verbs have no tenses."},
+        {"p":"**Verbs never change.** A Thai verb has one form, whoever does it and whenever: {{ผมกิน|pǒm gin}} “I eat”, {{เขากิน|kǎo gin}} “she eats”, {{เมื่อวานเรากิน|mʉ̂ʉa-waan rao gin}} “yesterday we ate”. No endings to learn: {{กิน|gin}} is always {{กิน|gin}}."},
+        {"p":"**Time words tell when.** Words like {{ทุกวัน|túk wan}} “every day” or {{ตอนเช้า|dtɔɔn cháao}} “in the morning” go at the start or at the end of the sentence, not in the middle: {{ทุกวันผมกินข้าวเช้า|túk wan pǒm gin kâao cháao}} or {{ผมกินข้าวเช้าทุกวัน|pǒm gin kâao cháao túk wan}}, both “I have breakfast every day”."},
+        { "table": [
+          ["Thai","meaning"],
+          ["{{ทุกวัน|túk wan}}","every day"],
+          ["{{ทุกเช้า|túk cháao}}","every morning"],
+          ["{{ตอนเช้า|dtɔɔn cháao}}","in the morning"],
+          ["{{ตอนกลางวัน|dtɔɔn glaang-wan}}","in the daytime, at midday"],
+          ["{{ตอนเย็น|dtɔɔn yen}}","in the evening"],
+          ["{{ตอนกลางคืน|dtɔɔn glaang-kʉʉn}}","at night"],
+          ["{{วันเสาร์|wan sǎo}}","on Saturday, on Saturdays"]
+        ] },
+        {"p":"**How often.** {{ปกติ|bpòk-gà-dtì}} “usually” and {{บางที|baang-tii}} “sometimes” start the sentence. {{บ่อย|bɔ̀i}} “often” goes at the end: {{ผมไปตลาดบ่อย|pǒm bpai dtà-làat bɔ̀i}} “I go to the market often”. {{ไม่ค่อย|mâi kɔ̂i}} “not much, hardly” goes before the verb: {{ฉันไม่ค่อยดูทีวี|chǎn mâi kɔ̂i duu tii-wii}} “I don't watch TV much”."},
+        {"p":"**ก็.** In {{บางทีผมก็ดูทีวี|baang-tii pǒm gɔ̂ duu tii-wii}}, the little {{ก็|gɔ̂}} links the time word to the rest, a bit like “then”. Thais use it all the time, and you'll see it again."},
+        { "ex": [
+          {"t":"ผมตื่นเช้าทุกวันครับ","r":"pǒm dtʉ̀ʉn cháao túk wan kráp","tr":"I get up early every day."},
+          {"t":"ตอนเช้าฉันดื่มกาแฟค่ะ","r":"dtɔɔn cháao chǎn dʉ̀ʉm gaa-fɛɛ kâ","tr":"In the morning I drink coffee."},
+          {"t":"เขาไปทำงานทุกวันครับ","r":"kǎo bpai tam-ngaan túk wan kráp","tr":"He goes to work every day.","note":"“go”, “goes” and “went” are all {{ไป|bpai}}"},
+          {"t":"วันเสาร์เราไปตลาดค่ะ","r":"wan sǎo rao bpai dtà-làat kâ","tr":"On Saturdays we go to the market."},
+          {"t":"ปกติผมกลับบ้านตอนเย็นครับ","r":"bpòk-gà-dtì pǒm glàp bâan dtɔɔn yen kráp","tr":"I usually go home in the evening."},
+          {"t":"ฉันไม่ค่อยทำอาหารค่ะ","r":"chǎn mâi kɔ̂i tam aa-hǎan kâ","tr":"I don't cook much."},
+          {"t":"บางทีเขาก็ทำงานที่บ้านครับ","r":"baang-tii kǎo gɔ̂ tam-ngaan tîi bâan kráp","tr":"Sometimes she works from home."}
+        ] },
+        {"tip":"{{ข้าว|kâao}} “rice” also means “a meal”: {{กินข้าว|gin kâao}} “eat, have a meal”, {{ข้าวเช้า|kâao cháao}} “breakfast”, {{ข้าวเย็น|kâao yen}} “dinner”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมทุกวันไปทำงานครับ","right":"ผมไปทำงานทุกวันครับ","tr":"I go to work every day.","why":"A time word goes at the start or the end of the sentence, not between the person and the verb."},
+        {"wrong":"ฉันไม่บ่อยดูทีวีค่ะ","right":"ฉันไม่ค่อยดูทีวีค่ะ","tr":"I don't watch TV much.","why":"“Not often” is {{ไม่ค่อย|mâi kɔ̂i}}, before the verb."}
+      ],
+      "practice": [
+        {"type":"choice","q":"In Thai, “I go”, “she goes” and “we went” all use…","options":["the same word, {{ไป|bpai}}","three forms of {{ไป|bpai}}","{{ไป|bpai}} with different endings"],"answer":0,"why":"Thai verbs never change: {{ไป|bpai}} for everyone, at any time."},
+        {"type":"fill","q":"Choose: {{ไม่ค่อย|mâi kɔ̂i}} “not much” or {{ทุกวัน|túk wan}} “every day”.","t":"ผม___กินเผ็ดครับ","tr":"I don't eat spicy food much.","options":["ไม่ค่อย","ทุกวัน"],"answer":0,"why":"{{ไม่ค่อย|mâi kɔ̂i}} goes before the verb; {{ทุกวัน|túk wan}} would go at the end."},
+        {"type":"order","q":"Put the words in order.","tr":"On Saturdays we go to the market. (a woman speaking)","words":["วันเสาร์","เรา","ไป","ตลาด","ค่ะ"],"also":[["เรา","ไป","ตลาด","วันเสาร์","ค่ะ"]]},
+        {"type":"dialogue","q":"Ploy asks about your day. Choose your replies (you're a man).","from":"say-where-it-is","lines":[{"who":"Ploy","t":"คุณทำงานที่ไหนคะ","r":"kun tam-ngaan tîi-nǎi ká","tr":"Where do you work?"},{"options":["ผมทำงานที่โรงพยาบาลครับ","ผมเป็นทำงานโรงพยาบาลครับ"],"answer":0,"why":"{{ทำงาน|tam-ngaan}} is already a verb: no {{เป็น|bpen}}."},{"who":"Ploy","t":"โรงพยาบาลอยู่ไกลไหมคะ","r":"roong-pá-yaa-baan yùu glai mǎi ká","tr":"Is the hospital far?"},{"options":["ไม่ไกลครับ อยู่ใกล้บ้านผม","ไม่ไกลครับ เป็นใกล้บ้านผม"],"answer":0,"why":"Where something is: {{อยู่|yùu}}."},{"who":"Ploy","t":"ไปทำงานยังไงคะ","r":"bpai tam-ngaan yang-ngai ká","tr":"How do you get to work?"},{"options":["ปกติผมเดินไปครับ","ผมไปปกติเดินครับ"],"answer":0,"why":"{{ปกติ|bpòk-gà-dtì}} “usually” starts the sentence."}]},
+        {"type":"say","q":"You're a woman. Say “I drink coffee every morning.”","answer":"ฉันดื่มกาแฟทุกเช้าค่ะ","r":"chǎn dʉ̀ʉm gaa-fɛɛ túk cháao kâ"},
+        {"type":"free","q":"Your turn: say two or three things you do on an ordinary day, with time words.","answers":[{"t":"ตอนเช้าผมไปทำงานครับ ตอนเย็นผมไปออกกำลังกาย","r":"dtɔɔn cháao pǒm bpai tam-ngaan kráp, dtɔɔn yen pǒm bpai ɔ̀ɔk-gam-lang-gaai","tr":"In the morning I go to work. In the evening I go and exercise."},{"t":"ปกติฉันตื่นเช้าค่ะ แต่ไม่ค่อยกินข้าวเช้า","r":"bpòk-gà-dtì chǎn dtʉ̀ʉn cháao kâ, dtɛ̀ɛ mâi kɔ̂i gin kâao cháao","tr":"I usually get up early, but I hardly ever eat breakfast."}]}
+      ]
+    },
+    {
+      "id": "verbs-in-a-row",
+      "unit": 3,
+      "level": "A1",
+      "title": "Do two things in one sentence: go and buy, come and eat",
+      "summary": "Put verbs one after another, the Thai way: “go buy coffee”, “walk to work”, “bring it here”.",
+      "topic": "Verbs in a row ({{ไปซื้อ|bpai sʉ́ʉ}}, {{มากิน|maa gin}}, {{เดินไป|dəən bpai}}); {{ไป|bpai}} / {{มา|maa}} for direction; {{เอา…มา|ao … maa}} “bring”, {{เอา…ไป|ao … bpai}} “take”",
+      "blocks": [
+        {"goal":{"t":"วันเสาร์ผมไปเล่นฟุตบอลกับเพื่อนครับ","r":"wan sǎo pǒm bpai lên fút-bɔn gàp pʉ̂ʉan kráp","tr":"On Saturdays I go and play soccer with friends."}},
+        {"dialog":[{"who":"Nok","t":"ทอม มากินข้าวที่บ้านไหมคะ","r":"tɔm, maa gin kâao tîi bâan mǎi ká","tr":"Tom, would you like to come and eat at my place?"},{"who":"Tom","t":"ได้ครับ เดี๋ยวผมเอาขนมไปครับ","r":"dâai kráp, dǐao pǒm ao kà-nǒm bpai kráp","tr":"Sure! I'll bring some dessert."},{"who":"Nok","t":"ขอบคุณค่ะ เดินมาก็ได้นะคะ บ้านอยู่ใกล้","r":"kɔ̀ɔp-kun kâ, dəən maa gɔ̂ɔ-dâai ná ká, bâan yùu glâi","tr":"Thanks! You can walk over: the house is close."},{"who":"Tom","t":"โอเคครับ ผมแวะไปซื้อน้ำแข็งก่อนนะครับ","r":"oo-kee kráp, pǒm wɛ́ bpai sʉ́ʉ nám-kɛ̌ng gɔ̀ɔn ná kráp","tr":"OK. I'll stop off and buy some ice first."}]},
+        {"term":"verbs in a row","means":"two or more verbs side by side for one person's actions, with no “and” or “to” between them: Thai {{ไปซื้อ|bpai sʉ́ʉ}} “go buy”."},
+        {"p":"**One verb after another.** Thai often puts two or three verbs side by side, with no “and” and no “to”: {{ไปซื้อกาแฟ|bpai sʉ́ʉ gaa-fɛɛ}} “go buy coffee”, {{มากินข้าว|maa gin kâao}} “come eat”. They come in the order things happen: first you go, then you buy."},
+        { "table": [
+          ["Thai","word for word","meaning"],
+          ["{{ไปซื้อของ|bpai sʉ́ʉ kɔ̌ɔng}}","go buy things","go shopping"],
+          ["{{มาเที่ยว|maa tîao}}","come travel","come on a trip, visit"],
+          ["{{เดินไปโรงเรียน|dəən bpai roong-riian}}","walk go school","walk to school"],
+          ["{{นั่งรถเมล์ไป|nâng rót-mee bpai}}","sit bus go","go by bus"],
+          ["{{กลับบ้านไปนอน|glàp bâan bpai nɔɔn}}","return home go sleep","go home to sleep"]
+        ] },
+        {"p":"**ไป and มา show the direction.** After a verb of moving, {{ไป|bpai}} means away from the speaker and {{มา|maa}} toward the speaker: {{เดินไป|dəən bpai}} “walk (there)”, {{เดินมา|dəən maa}} “walk (here)”; {{วิ่งออกไป|wîng ɔ̀ɔk bpai}} “run out”, {{เข้ามา|kâo maa}} “come in”."},
+        {"p":"**Bring and take.** {{เอา|ao}} “take hold of”, the thing, then {{มา|maa}} or {{ไป|bpai}}: {{เอาน้ำมา|ao náam maa}} “bring the water (here)”, {{เอาร่มไป|ao rôm bpai}} “take an umbrella (with you)”."},
+        { "ex": [
+          {"t":"ฉันไปซื้อของที่ตลาดค่ะ","r":"chǎn bpai sʉ́ʉ kɔ̌ɔng tîi dtà-làat kâ","tr":"I'm going shopping at the market."},
+          {"t":"มากินข้าวด้วยกันไหมครับ","r":"maa gin kâao dûai-gan mǎi kráp","tr":"Would you like to come and eat with us?"},
+          {"t":"ผมเดินไปทำงานครับ","r":"pǒm dəən bpai tam-ngaan kráp","tr":"I walk to work."},
+          {"t":"เขาวิ่งออกไปข้างนอกค่ะ","r":"kǎo wîng ɔ̀ɔk bpai kâang-nɔ̂ɔk kâ","tr":"He ran outside."},
+          {"t":"เอาร่มไปด้วยนะครับ","r":"ao rôm bpai dûai ná kráp","tr":"Take an umbrella with you."},
+          {"t":"ช่วยเอาน้ำมาให้หน่อยค่ะ","r":"chûai ao náam maa hâi nɔ̀i kâ","tr":"Could you bring me some water?","note":"{{ให้|hâi}} “for (me)”: a later lesson"}
+        ] },
+        {"tip":"A trip for fun is {{เที่ยว|tîao}}: {{มาเที่ยวเมืองไทย|maa tîao mʉʉang tai}} “come (on a trip) to Thailand”. Thais will often ask you {{มาเที่ยวเหรอ|maa tîao rə̌ə}} “here on vacation?”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมไปและซื้อกาแฟครับ","right":"ผมไปซื้อกาแฟครับ","tr":"I'm going to buy coffee.","why":"Verbs in a row need no “and” ({{และ|lɛ́}}): just put them side by side."},
+        {"wrong":"ไปเดินโรงเรียน","right":"เดินไปโรงเรียน","tr":"walk to school","why":"How you move comes first ({{เดิน|dəən}} “walk”), then the direction ({{ไป|bpai}}), then the place."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the direction: {{มา|maa}} “here” or {{ไป|bpai}} “there”.","t":"ช่วยเอาน้ำ___ให้หน่อยครับ","tr":"Could you bring me some water?","options":["มา","ไป"],"answer":0,"why":"Toward you: {{เอา…มา|ao … maa}} “bring”."},
+        {"type":"choice","q":"“I go to school by bus” is…","options":["{{ผมนั่งรถเมล์ไปโรงเรียน|pǒm nâng rót-mee bpai roong-riian}}","{{ผมไปโรงเรียนและนั่งรถเมล์|pǒm bpai roong-riian lɛ́ nâng rót-mee}}","{{ผมรถเมล์ไปโรงเรียน|pǒm rót-mee bpai roong-riian}}"],"answer":0,"why":"“Sit bus go school”: the verbs in the order things happen, no “and”."},
+        {"type":"order","q":"Put the words in order.","tr":"I walk to work. (a man speaking)","words":["ผม","เดิน","ไป","ทำงาน","ครับ"]},
+        {"type":"dialogue","q":"Deciding where to eat. Choose your replies (you're a man).","from":"want-to-do","lines":[{"who":"Friend","t":"อยากไปกินอะไรคะ","r":"yàak bpai gin à-rai ká","tr":"What do you want to go and eat?"},{"options":["อยากไปกินส้มตำครับ","อยากส้มตำไปกินครับ"],"answer":0,"why":"{{อยาก|yàak}}, then the verbs in a row, then what you eat."},{"who":"Friend","t":"ไปยังไงดีคะ","r":"bpai yang-ngai dii ká","tr":"How shall we go?"},{"options":["เดินไปครับ ไม่ไกล","ไปเดินครับ ไม่ไกล"],"answer":0,"why":"How you move first, then {{ไป|bpai}}: {{เดินไป|dəən bpai}}."}]},
+        {"type":"say","q":"You're a woman. Tell a friend “Take an umbrella with you.”","answer":"เอาร่มไปด้วยนะคะ","r":"ao rôm bpai dûai ná ká"},
+        {"type":"free","q":"Your turn: say two things you go and do on weekends, with verbs in a row.","answers":[{"t":"วันเสาร์ผมไปว่ายน้ำครับ วันอาทิตย์ไปเที่ยวกับเพื่อน","r":"wan sǎo pǒm bpai wâai-náam kráp, wan aa-tít bpai tîao gàp pʉ̂ʉan","tr":"On Saturdays I go swimming. On Sundays I go out with friends."},{"t":"วันหยุดฉันไปซื้อของที่ตลาดค่ะ แล้วก็กลับบ้านไปทำอาหาร","r":"wan-yùt chǎn bpai sʉ́ʉ kɔ̌ɔng tîi dtà-làat kâ, lɛ́ɛo-gɔ̂ glàp bâan bpai tam aa-hǎan","tr":"On my days off I go shopping at the market, then go home and cook."}]}
+      ]
+    },
+    {
+      "id": "like-and-dislike",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like and don't like",
+      "summary": "Say what you love, like, don't really like or can't stand, and what you prefer.",
+      "topic": "{{ชอบ|chɔ̂ɔp}} + a thing or a verb; {{ชอบ…มาก|chɔ̂ɔp … mâak}}; {{ไม่ค่อยชอบ|mâi kɔ̂i chɔ̂ɔp}}; {{ไม่ชอบ…เลย|mâi chɔ̂ɔp … ləəi}}; {{ชอบ…มากกว่า|chɔ̂ɔp … mâak gwàa}}",
+      "blocks": [
+        {"goal":{"t":"ฉันชอบกินอาหารเผ็ดค่ะ","r":"chǎn chɔ̂ɔp gin aa-hǎan pèt kâ","tr":"I like spicy food."}},
+        {"dialog":[{"who":"Ton","t":"คุณชอบทำอะไรตอนว่างครับ","r":"kun chɔ̂ɔp tam à-rai dtɔɔn wâang kráp","tr":"What do you like doing in your free time?"},{"who":"Sarah","t":"ฉันชอบอ่านหนังสือค่ะ แล้วก็ชอบดูหนัง","r":"chǎn chɔ̂ɔp àan nǎng-sʉ̌ʉ kâ, lɛ́ɛo-gɔ̂ chɔ̂ɔp duu nǎng","tr":"I like reading. And I like watching movies."},{"who":"Ton","t":"ชอบหนังผีไหมครับ","r":"chɔ̂ɔp nǎng pǐi mǎi kráp","tr":"Do you like horror movies?"},{"who":"Sarah","t":"ไม่ชอบเลยค่ะ กลัว ฉันชอบหนังตลกมากกว่า","r":"mâi chɔ̂ɔp ləəi kâ, gluua, chǎn chɔ̂ɔp nǎng dtà-lòk mâak gwàa","tr":"Not at all! They scare me. I prefer comedies."}]},
+        {"p":"**ชอบ + a thing, or a verb.** {{ชอบ|chɔ̂ɔp}} “like” takes a thing ({{ชอบกาแฟ|chɔ̂ɔp gaa-fɛɛ}} “like coffee”) or a verb straight after it ({{ชอบอ่านหนังสือ|chɔ̂ɔp àan nǎng-sʉ̌ʉ}} “like reading”). As with {{อยาก|yàak}}, there's nothing for “to” or “-ing”."},
+        {"p":"**How much.** {{มาก|mâak}} goes at the end: {{ชอบทะเลมาก|chɔ̂ɔp tá-lee mâak}} “I love the sea”. For less, {{ไม่ค่อยชอบ|mâi kɔ̂i chɔ̂ɔp}} “don't really like”; for none at all, {{ไม่ชอบ…เลย|mâi chɔ̂ɔp … ləəi}}: {{เลย|ləəi}} at the end of a negative means “at all”."},
+        { "table": [
+          ["","Thai","meaning"],
+          ["a lot","{{ชอบมาก|chɔ̂ɔp mâak}}","I love it."],
+          ["yes","{{ชอบ|chɔ̂ɔp}}","I like it."],
+          ["not really","{{ไม่ค่อยชอบ|mâi kɔ̂i chɔ̂ɔp}}","I don't really like it."],
+          ["no","{{ไม่ชอบ|mâi chɔ̂ɔp}}","I don't like it."],
+          ["not at all","{{ไม่ชอบเลย|mâi chɔ̂ɔp ləəi}}","I can't stand it."]
+        ] },
+        {"p":"**Prefer.** {{ชอบ…มากกว่า|chɔ̂ɔp … mâak gwàa}} “like … more (than)”: {{ฉันชอบชามากกว่ากาแฟ|chǎn chɔ̂ɔp chaa mâak-gwàa gaa-fɛɛ}} “I prefer tea to coffee”. {{กว่า|gwàa}} “than” comes back in the lesson on comparing."},
+        {"p":"**Asking.** {{ชอบ…ไหม|chɔ̂ɔp … mǎi}} “do you like…?”, {{ชอบอะไร|chɔ̂ɔp à-rai}} “what do you like?”, {{ชอบทำอะไร|chɔ̂ɔp tam à-rai}} “what do you like doing?”. After a noun, {{อะไร|à-rai}} means “which, what kind of”: {{ชอบกีฬาอะไร|chɔ̂ɔp gii-laa à-rai}} “what sports do you like?”."},
+        { "ex": [
+          {"t":"ผมชอบฟังเพลงครับ","r":"pǒm chɔ̂ɔp fang pleeng kráp","tr":"I like listening to music."},
+          {"t":"ฉันชอบแมวมากค่ะ","r":"chǎn chɔ̂ɔp mɛɛo mâak kâ","tr":"I love cats."},
+          {"t":"เขาไม่ค่อยชอบกินผักครับ","r":"kǎo mâi kɔ̂i chɔ̂ɔp gin pàk kráp","tr":"He doesn't really like vegetables."},
+          {"t":"ฉันไม่ชอบอากาศร้อนเลยค่ะ","r":"chǎn mâi chɔ̂ɔp aa-gàat rɔ́ɔn ləəi kâ","tr":"I can't stand hot weather."},
+          {"t":"คุณชอบกีฬาอะไรคะ","r":"kun chɔ̂ɔp gii-laa à-rai ká","tr":"What sports do you like?"},
+          {"t":"ผมชอบทะเลมากกว่าภูเขาครับ","r":"pǒm chɔ̂ɔp tá-lee mâak gwàa puu-kǎo kráp","tr":"I prefer the sea to the mountains."}
+        ] },
+        {"tip":"{{ชอบ|chɔ̂ɔp}} is also how you tell someone you like them: {{ผมชอบคุณ|pǒm chɔ̂ɔp kun}} “I like you”. “Love” is {{รัก|rák}}."}
+      ],
+      "mistakes": [
+        {"wrong":"ฉันชอบมากแมวค่ะ","right":"ฉันชอบแมวมากค่ะ","tr":"I love cats.","why":"{{มาก|mâak}} goes at the end, after what you like."},
+        {"wrong":"ผมเลยไม่ชอบครับ","right":"ผมไม่ชอบเลยครับ","tr":"I don't like it at all.","why":"{{เลย|ləəi}} “at all” goes at the end of the negative sentence."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{ไม่ค่อย|mâi kɔ̂i}} “not really” or {{มาก|mâak}} “a lot”.","t":"ผม___ชอบกาแฟครับ","tr":"I don't really like coffee.","options":["ไม่ค่อย","มาก"],"answer":0,"why":"Before the verb: {{ไม่ค่อยชอบ|mâi kɔ̂i chɔ̂ɔp}}. {{มาก|mâak}} would go at the end."},
+        {"type":"choice","q":"Your friend hates spicy food. She says…","options":["{{ไม่ชอบเผ็ดเลยค่ะ|mâi chɔ̂ɔp pèt ləəi kâ}}","{{ชอบเผ็ดมากค่ะ|chɔ̂ɔp pèt mâak kâ}}","{{ไม่ค่อยเผ็ดค่ะ|mâi kɔ̂i pèt kâ}}"],"answer":0,"why":"Not at all: {{ไม่ชอบ…เลย|mâi chɔ̂ɔp … ləəi}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I prefer tea to coffee. (a woman speaking)","words":["ฉัน","ชอบ","ชา","มากกว่า","กาแฟ","ค่ะ"]},
+        {"type":"dialogue","q":"Mai asks what you think of Thai food. Choose your replies (you're a man).","from":"ask-yes-no","lines":[{"who":"Mai","t":"ชอบอาหารไทยไหมคะ","r":"chɔ̂ɔp aa-hǎan tai mǎi ká","tr":"Do you like Thai food?"},{"options":["ชอบมากครับ","ใช่มากครับ"],"answer":0,"why":"Answer with the verb: {{ชอบ|chɔ̂ɔp}}."},{"who":"Mai","t":"ชอบกินทุเรียนไหมคะ","r":"chɔ̂ɔp gin tú-riian mǎi ká","tr":"Do you like durian?"},{"options":["ไม่ค่อยชอบครับ","ชอบไม่ค่อยครับ"],"answer":0,"why":"{{ไม่ค่อย|mâi kɔ̂i}} goes before {{ชอบ|chɔ̂ɔp}}."},{"who":"Mai","t":"ฉันก็ไม่ชอบค่ะ","r":"chǎn gɔ̂ mâi chɔ̂ɔp kâ","tr":"I don't either."}]},
+        {"type":"fill","q":"Choose: {{ทุกวัน|túk wan}} “every day” or {{เลย|ləəi}} “at all”.","t":"เขาไปวิ่ง___ครับ","tr":"He goes running every day.","options":["ทุกวัน","เลย"],"answer":0,"why":"A time word at the end: {{ทุกวัน|túk wan}}. {{เลย|ləəi}} “at all” goes with a negative.","from":"your-day"},
+        {"type":"say","q":"You're a man. Say “I like listening to music.”","answer":"ผมชอบฟังเพลงครับ","r":"pǒm chɔ̂ɔp fang pleeng kráp"},
+        {"type":"free","q":"Your turn: say something you love, something you don't really like, and something you prefer.","answers":[{"t":"ผมชอบทะเลมากครับ ไม่ค่อยชอบภูเขา","r":"pǒm chɔ̂ɔp tá-lee mâak kráp, mâi kɔ̂i chɔ̂ɔp puu-kǎo","tr":"I love the sea. I don't really like the mountains."},{"t":"ฉันชอบดูหนังค่ะ แต่ชอบอ่านหนังสือมากกว่า","r":"chǎn chɔ̂ɔp duu nǎng kâ, dtɛ̀ɛ chɔ̂ɔp àan nǎng-sʉ̌ʉ mâak gwàa","tr":"I like watching movies, but I prefer reading."}]}
+      ]
+    },
+    {
+      "id": "ask-who-what-where",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask who, what, where, when and why",
+      "summary": "Ask for information with all the question words, and know where each one goes.",
+      "topic": "The question word stays where the answer goes: {{อะไร|à-rai}}, {{ใคร|krai}}, {{ที่ไหน|tîi-nǎi}}, {{เมื่อไหร่|mʉ̂ʉa-rài}}, {{ทำไม|tam-mai}}, {{ยังไง|yang-ngai}}",
+      "blocks": [
+        {"goal":{"t":"คุณทำงานที่ไหนคะ","r":"kun tam-ngaan tîi-nǎi ká","tr":"Where do you work?"}},
+        {"dialog":[{"who":"Fon","t":"คุณมาเมืองไทยเมื่อไหร่คะ","r":"kun maa mʉʉang tai mʉ̂ʉa-rài ká","tr":"When did you come to Thailand?"},{"who":"Tom","t":"เดือนที่แล้วครับ","r":"dʉʉan tîi-lɛ́ɛo kráp","tr":"Last month."},{"who":"Fon","t":"ทำไมมาเมืองไทยคะ","r":"tam-mai maa mʉʉang tai ká","tr":"Why did you come to Thailand?"},{"who":"Tom","t":"มาทำงานครับ ผมสอนภาษาอังกฤษ","r":"maa tam-ngaan kráp, pǒm sɔ̌ɔn paa-sǎa ang-grìt","tr":"For work. I teach English."},{"who":"Fon","t":"สอนที่ไหนคะ","r":"sɔ̌ɔn tîi-nǎi ká","tr":"Where do you teach?"},{"who":"Tom","t":"ที่โรงเรียนใกล้ๆ นี้ครับ","r":"tîi roong-riian glâi-glâi níi kráp","tr":"At a school near here."},{"who":"Fon","t":"แล้วใครสอนภาษาไทยให้คุณคะ","r":"lɛ́ɛo krai sɔ̌ɔn paa-sǎa tai hâi kun ká","tr":"And who teaches you Thai?"},{"who":"Tom","t":"แฟนผมครับ","r":"fɛɛn pǒm kráp","tr":"My girlfriend."}]},
+        {"p":"**Where the answer goes.** In English the question word jumps to the front (“*Where* do you work?”). In Thai it stays where the answer will be: {{คุณทำงานที่ไหน|kun tam-ngaan tîi-nǎi}} “you work where?” → {{ผมทำงานที่ธนาคาร|pǒm tam-ngaan tîi tá-naa-kaan}} “I work at the bank”. Swap the question word for the answer, and you have your reply."},
+        { "table": [
+          ["question word","meaning","example"],
+          ["{{อะไร|à-rai}}","what","{{คุณกินอะไร|kun gin à-rai}} What are you eating?"],
+          ["{{ใคร|krai}}","who","{{เขาเป็นใคร|kǎo bpen krai}} Who is he?"],
+          ["{{ที่ไหน|tîi-nǎi}}","where","{{คุณพักที่ไหน|kun pák tîi-nǎi}} Where are you staying?"],
+          ["{{เมื่อไหร่|mʉ̂ʉa-rài}}","when","{{คุณกลับเมื่อไหร่|kun glàp mʉ̂ʉa-rài}} When are you going back?"],
+          ["{{ทำไม|tam-mai}}","why","{{ทำไมไม่กิน|tam-mai mâi gin}} Why aren't you eating?"],
+          ["{{ยังไง|yang-ngai}}","how","{{ไปยังไง|bpai yang-ngai}} How do you get there?"],
+          ["{{เท่าไหร่|tâo-rài}}","how much","{{ค่าห้องเท่าไหร่|kâa hɔ̂ng tâo-rài}} How much is the room?"]
+        ] },
+        {"p":"**Who did it?** When “who” is the one *doing* the action, {{ใคร|krai}} comes first, because that's where the answer goes: {{ใครสอนคุณ|krai sɔ̌ɔn kun}} “who teaches you?” → {{แฟนผมสอน|fɛɛn pǒm sɔ̌ɔn}} “my girlfriend teaches (me)”. Compare {{คุณสอนใคร|kun sɔ̌ɔn krai}} “who do you teach?”."},
+        {"p":"**Why.** {{ทำไม|tam-mai}} usually goes at the start: {{ทำไมมาสาย|tam-mai maa sǎai}} “why are you late?”. At the end ({{มาสายทำไม|maa sǎai tam-mai}}) it sounds annoyed, so keep it at the front."},
+        {"p":"**When.** {{เมื่อไหร่|mʉ̂ʉa-rài}} “when” goes at the end, and the answer is a time word: {{พรุ่งนี้|prûng-níi}} “tomorrow”, {{เดือนหน้า|dʉʉan nâa}} “next month”, {{เดือนที่แล้ว|dʉʉan tîi-lɛ́ɛo}} “last month”."},
+        { "ex": [
+          {"t":"คุณพักที่ไหนครับ","r":"kun pák tîi-nǎi kráp","tr":"Where are you staying?"},
+          {"t":"ใครมาคะ","r":"krai maa ká","tr":"Who's coming? / Who came?"},
+          {"t":"คุณกลับบ้านเมื่อไหร่ครับ","r":"kun glàp bâan mʉ̂ʉa-rài kráp","tr":"When are you going home?"},
+          {"t":"ทำไมคุณเรียนภาษาไทยคะ","r":"tam-mai kun riian paa-sǎa tai ká","tr":"Why are you learning Thai?"},
+          {"t":"เขาพูดว่าอะไรครับ","r":"kǎo pûut wâa à-rai kráp","tr":"What did she say?"},
+          {"t":"ร้านนี้เปิดกี่โมงคะ","r":"ráan níi bpə̀ət gìi moong ká","tr":"What time does this shop open?","note":"{{กี่โมง|gìi moong}} “what time”: a later lesson"}
+        ] },
+        {"tip":"All these question words also make “some-” and “any-” words: {{ไม่มีใคร|mâi mii krai}} “there's nobody”, {{ไม่อยากกินอะไร|mâi yàak gin à-rai}} “I don't want to eat anything”."}
+      ],
+      "mistakes": [
+        {"wrong":"ที่ไหนคุณพักครับ","right":"คุณพักที่ไหนครับ","tr":"Where are you staying?","why":"The question word stays where the answer goes: “you stay where?”."},
+        {"wrong":"สอนคุณใครคะ","right":"ใครสอนคุณคะ","tr":"Who teaches you?","why":"The one doing the teaching comes first, and that's the person you're asking about: {{ใคร|krai}} first."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the question word: {{เมื่อไหร่|mʉ̂ʉa-rài}} “when”, {{ใคร|krai}} “who” or {{ทำไม|tam-mai}} “why”.","t":"คุณกลับอเมริกา___คะ","tr":"When are you going back to America?","options":["เมื่อไหร่","ใคร","ทำไม"],"answer":0,"why":"“When” is {{เมื่อไหร่|mʉ̂ʉa-rài}}, at the end."},
+        {"type":"choice","q":"Which one asks “Who's coming?”","options":["{{ใครมา|krai maa}}","{{มาใคร|maa krai}}","{{มาไหน|maa nǎi}}"],"answer":0,"why":"The unknown person is the one coming, so {{ใคร|krai}} goes first."},
+        {"type":"order","q":"Put the words in order.","tr":"Why are you learning Thai? (a woman asking)","words":["ทำไม","คุณ","เรียน","ภาษาไทย","คะ"]},
+        {"type":"dialogue","q":"Meeting Ploy at a hostel. Choose your replies (you're a man).","from":"say-your-name","lines":[{"who":"Ploy","t":"คุณมาจากไหนคะ","r":"kun maa jàak nǎi ká","tr":"Where are you from?"},{"options":["ผมมาจากอังกฤษครับ","ผมมาจากไหนครับ"],"answer":0,"why":"Put your answer where {{ไหน|nǎi}} was."},{"who":"Ploy","t":"มาทำอะไรที่เมืองไทยคะ","r":"maa tam à-rai tîi mʉʉang tai ká","tr":"What brings you to Thailand?"},{"options":["มาเที่ยวครับ","อะไรเที่ยวครับ"],"answer":0,"why":"The answer takes the place of {{ทำอะไร|tam à-rai}}: {{มาเที่ยว|maa tîao}} “(I came) on a trip”."},{"who":"Ploy","t":"จะกลับเมื่อไหร่คะ","r":"jà glàp mʉ̂ʉa-rài ká","tr":"When are you going back?"},{"options":["อาทิตย์หน้าครับ","เมื่อไหร่อาทิตย์หน้าครับ"],"answer":0,"why":"Just the time word: {{อาทิตย์หน้า|aa-tít nâa}} “next week”."}]},
+        {"type":"say","q":"You're a man. Ask “Where are you staying?”","answer":"คุณพักที่ไหนครับ","r":"kun pák tîi-nǎi kráp"},
+        {"type":"free","q":"Your turn: ask a new Thai friend two or three questions with different question words.","answers":[{"t":"คุณชื่ออะไรครับ ทำงานที่ไหนครับ","r":"kun chʉ̂ʉ à-rai kráp, tam-ngaan tîi-nǎi kráp","tr":"What's your name? Where do you work?"},{"t":"คุณมาจากไหนคะ ทำไมเรียนภาษาอังกฤษคะ","r":"kun maa jàak nǎi ká, tam-mai riian paa-sǎa ang-grìt ká","tr":"Where are you from? Why are you learning English?"}]}
+      ]
+    },
+    {
+      "id": "family-and-yours",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your family and what's yours",
+      "summary": "Talk about your family, say whose things are, and ask someone's age.",
+      "topic": "{{ของ|kɔ̌ɔng}} “of” (often left out: {{แม่ผม|mɛ̂ɛ pǒm}}); family words by age ({{พี่|pîi}} / {{น้อง|nɔ́ɔng}} + {{ชาย|chaai}} / {{สาว|sǎao}}); {{ของใคร|kɔ̌ɔng krai}}; {{อายุ|aa-yú}}",
+      "blocks": [
+        {"goal":{"t":"พี่สาวของผมเป็นพยาบาลครับ","r":"pîi-sǎao kɔ̌ɔng pǒm bpen pá-yaa-baan kráp","tr":"My older sister is a nurse."}},
+        {"dialog":[{"who":"Nok","t":"นี่ใครคะ","r":"nîi krai ká","tr":"Who's this?"},{"who":"Tom","t":"นี่พ่อกับแม่ผมครับ แล้วนี่พี่สาวผม","r":"nîi pɔ̂ɔ gàp mɛ̂ɛ pǒm kráp, lɛ́ɛo nîi pîi-sǎao pǒm","tr":"These are my dad and mom. And this is my older sister."},{"who":"Nok","t":"พี่สาวคุณอายุเท่าไหร่คะ","r":"pîi-sǎao kun aa-yú tâo-rài ká","tr":"How old is your sister?"},{"who":"Tom","t":"สามสิบห้าครับ เขามีลูกสองคน","r":"sǎam-sìp-hâa kráp, kǎo mii lûuk sɔ̌ɔng kon","tr":"Thirty-five. She has two kids."},{"who":"Nok","t":"แล้วหมาตัวนี้ของใครคะ","r":"lɛ́ɛo mǎa dtuua níi kɔ̌ɔng krai ká","tr":"And whose dog is this?"},{"who":"Tom","t":"ของผมเองครับ","r":"kɔ̌ɔng pǒm eeng kráp","tr":"He's mine!"}]},
+        {"p":"**Whose: ของ.** {{ของ|kɔ̌ɔng}} means “of, belonging to”, and it comes *after* the thing: {{บ้านของฉัน|bâan kɔ̌ɔng chǎn}} “house of me” = my house. With family and close things it's usually left out: {{แม่ผม|mɛ̂ɛ pǒm}} “my mom”, {{เพื่อนฉัน|pʉ̂ʉan chǎn}} “my friend”."},
+        {"p":"**Mine, yours, whose?** {{ของ|kɔ̌ɔng}} + a person, on its own, is “mine, yours…”: {{ของผม|kɔ̌ɔng pǒm}} “mine”, {{ของคุณ|kɔ̌ɔng kun}} “yours”. “Whose?” is {{ของใคร|kɔ̌ɔng krai}}: {{นี่ของใคร|nîi kɔ̌ɔng krai}} “whose is this?”."},
+        {"p":"**Family words go by age.** Thai has no word for just “brother” or “sister”: it says whether they're older ({{พี่|pîi}}) or younger ({{น้อง|nɔ́ɔng}}). Add {{ชาย|chaai}} “male” or {{สาว|sǎao}} “female” only when you need to: {{พี่ชาย|pîi-chaai}} “older brother”, {{น้องสาว|nɔ́ɔng-sǎao}} “younger sister”. {{พี่น้อง|pîi-nɔ́ɔng}} is “brothers and sisters”."},
+        { "table": [
+          ["","Thai","","Thai"],
+          ["father","{{พ่อ|pɔ̂ɔ}}","mother","{{แม่|mɛ̂ɛ}}"],
+          ["older brother","{{พี่ชาย|pîi-chaai}}","older sister","{{พี่สาว|pîi-sǎao}}"],
+          ["younger brother","{{น้องชาย|nɔ́ɔng-chaai}}","younger sister","{{น้องสาว|nɔ́ɔng-sǎao}}"],
+          ["husband","{{สามี|sǎa-mii}}","wife","{{ภรรยา|pan-yaa}}"],
+          ["son, daughter, child","{{ลูก|lûuk}}","boyfriend, girlfriend","{{แฟน|fɛɛn}}"]
+        ] },
+        {"p":"**Age.** {{อายุ|aa-yú}} “age”, the number, then {{ปี|bpii}} “years”: {{ผมอายุสามสิบปี|pǒm aa-yú sǎam-sìp bpii}} “I'm thirty”. “How old?” is {{อายุเท่าไหร่|aa-yú tâo-rài}}. For a young child, years are {{ขวบ|kùuap}}: {{ห้าขวบ|hâa kùuap}} “five years old”."},
+        { "ex": [
+          {"t":"นี่คือบ้านของเราค่ะ","r":"nîi kʉʉ bâan kɔ̌ɔng rao kâ","tr":"This is our house."},
+          {"t":"แม่ผมเป็นครูครับ","r":"mɛ̂ɛ pǒm bpen kruu kráp","tr":"My mom is a teacher."},
+          {"t":"ฉันมีน้องชายหนึ่งคนค่ะ","r":"chǎn mii nɔ́ɔng-chaai nʉ̀ng kon kâ","tr":"I have one younger brother."},
+          {"t":"กระเป๋าใบนี้ของใครครับ","r":"grà-bpǎo bai níi kɔ̌ɔng krai kráp","tr":"Whose bag is this?"},
+          {"t":"ของฉันค่ะ","r":"kɔ̌ɔng chǎn kâ","tr":"It's mine."},
+          {"t":"คุณอายุเท่าไหร่คะ","r":"kun aa-yú tâo-rài ká","tr":"How old are you?"},
+          {"t":"ลูกสาวผมอายุห้าขวบครับ","r":"lûuk-sǎao pǒm aa-yú hâa kùuap kráp","tr":"My daughter is five."}
+        ] },
+        {"tip":"Asking someone's age isn't rude in Thailand: it tells people whether to call each other {{พี่|pîi}} or {{น้อง|nɔ́ɔng}}. And {{ของ|kɔ̌ɔng}} also means “thing, stuff”: {{ซื้อของ|sʉ́ʉ kɔ̌ɔng}} “buy things, go shopping”."}
+      ],
+      "mistakes": [
+        {"wrong":"ผมแม่เป็นครูครับ","right":"แม่ผมเป็นครูครับ","tr":"My mom is a teacher.","why":"The owner comes **after**: “mother (of) me”, {{แม่ผม|mɛ̂ɛ pǒm}}."},
+        {"wrong":"ผมเป็นสามสิบปีครับ","right":"ผมอายุสามสิบปีครับ","tr":"I'm thirty.","why":"Age is said with {{อายุ|aa-yú}} “age”: “I age thirty years”. No {{เป็น|bpen}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“My younger sister” is…","options":["{{น้องสาวฉัน|nɔ́ɔng-sǎao chǎn}}","{{ฉันน้องสาว|chǎn nɔ́ɔng-sǎao}}","{{พี่สาวฉัน|pîi-sǎao chǎn}}"],"answer":0,"why":"Younger: {{น้อง|nɔ́ɔng}}; and the owner comes after: {{น้องสาวฉัน|nɔ́ɔng-sǎao chǎn}}."},
+        {"type":"fill","q":"Choose: {{ของใคร|kɔ̌ɔng krai}} “whose” or {{ที่ไหน|tîi-nǎi}} “where”.","t":"โทรศัพท์เครื่องนี้___คะ","tr":"Whose phone is this?","options":["ของใคร","ที่ไหน"],"answer":0,"why":"“Whose” is {{ของใคร|kɔ̌ɔng krai}}. ({{เครื่อง|krʉ̂ʉang}} is the classifier for phones and machines.)"},
+        {"type":"order","q":"Put the words in order.","tr":"How old are you? (a man asking)","words":["คุณ","อายุ","เท่าไหร่","ครับ"]},
+        {"type":"dialogue","q":"Lek asks about your family. Choose your replies (you're a man).","from":"say-what-there-is","lines":[{"who":"Lek","t":"คุณมีพี่น้องไหมคะ","r":"kun mii pîi-nɔ́ɔng mǎi ká","tr":"Do you have any brothers or sisters?"},{"options":["มีครับ มีน้องสาวหนึ่งคน","ใช่ครับ มีหนึ่งน้องสาว"],"answer":0,"why":"Answer with {{มี|mii}}, then noun, number, classifier."},{"who":"Lek","t":"น้องสาวอายุเท่าไหร่คะ","r":"nɔ́ɔng-sǎao aa-yú tâo-rài ká","tr":"How old is she?"},{"options":["ยี่สิบห้าปีครับ","เป็นยี่สิบห้าปีครับ"],"answer":0,"why":"Just the age: no {{เป็น|bpen}}."}]},
+        {"type":"choice","q":"Your friend's brother is about forty; you're twenty-five. You call him…","options":["{{พี่|pîi}}","{{น้อง|nɔ́ɔng}}"],"answer":0,"why":"Someone older than you is {{พี่|pîi}}.","from":"talk-about-others"},
+        {"type":"say","q":"You're a woman. Say “This is my older brother.”","answer":"นี่คือพี่ชายของฉันค่ะ","r":"nîi kʉʉ pîi-chaai kɔ̌ɔng chǎn kâ"},
+        {"type":"free","q":"Your turn: talk about someone in your family: who they are, how old, what they do.","answers":[{"t":"ผมมีพี่ชายหนึ่งคนครับ เขาอายุสามสิบสองปี เขาเป็นวิศวกร","r":"pǒm mii pîi-chaai nʉ̀ng kon kráp, kǎo aa-yú sǎam-sìp-sɔ̌ɔng bpii, kǎo bpen wít-sà-wá-gɔɔn","tr":"I have one older brother. He's thirty-two. He's an engineer."},{"t":"แม่ฉันอายุหกสิบปีค่ะ เขาเป็นครูค่ะ","r":"mɛ̂ɛ chǎn aa-yú hòk-sìp bpii kâ, kǎo bpen kruu kâ","tr":"My mom is sixty. She's a teacher."}]}
+      ]
     }
   ]
 }
