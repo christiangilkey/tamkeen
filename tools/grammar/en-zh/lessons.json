@@ -928,6 +928,220 @@
         {"type":"say","q":"Ask a friend with an A-not-A question: “Are you coming tomorrow?”","answer":"你明天来不来？","r":"Nǐ míngtiān lái bu lái?","from":"say-when"},
         {"type":"free","q":"Your turn: you didn't catch what someone said. Ask them politely to say it again, more slowly.","answers":[{"t":"不好意思，请你再说一遍，好吗？","r":"Bù hǎoyìsi, qǐng nǐ zài shuō yí biàn, hǎo ma?","tr":"Sorry, could you say that again, please?"},{"t":"请慢一点儿说，可以吗？","r":"Qǐng màn yìdiǎnr shuō, kěyǐ ma?","tr":"Could you speak a little more slowly, please?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you did",
+      "summary": "“I bought three books”, “Have you eaten?”, “I didn't go”: talk about things that happened, with {{了|le}} and {{没|méi}}.",
+      "topic": "Verb + {{了|le}} for something done; {{没|méi}} + verb for “didn't” (with no {{了|le}}); {{…了吗？|…le ma?}}",
+      "blocks": [
+        {"goal":{"t":"我昨天买了三本书。","r":"Wǒ zuótiān mǎi le sān běn shū.","tr":"I bought three books yesterday."}},
+        {"dialog":[{"who":"Xiao Liu","t":"周末你做什么了？","r":"Zhōumò nǐ zuò shénme le?","tr":"What did you do at the weekend?"},{"who":"Anna","t":"我去了长城。","r":"Wǒ qù le Chángchéng.","tr":"I went to the Great Wall."},{"who":"Xiao Liu","t":"真的？你拍照了吗？","r":"Zhēn de? Nǐ pāizhào le ma?","tr":"Really? Did you take photos?"},{"who":"Anna","t":"拍了很多！你呢？","r":"Pāi le hěn duō! Nǐ ne?","tr":"Loads! And you?"},{"who":"Xiao Liu","t":"我没出去，我在家看了两部电影。","r":"Wǒ méi chūqù, wǒ zài jiā kàn le liǎng bù diànyǐng.","tr":"I didn't go out, I watched two films at home."}]},
+        {"p":"**Done: verb + {{了|le}}.** Chinese verbs have no past tense, but {{了|le}} right after a verb shows that the action is done, finished: {{我买了一本书。|Wǒ mǎi le yì běn shū.}} “I bought a book.” Time words say when: {{昨天|zuótiān}}, {{上个星期|shàng ge xīngqī}} “last week”."},
+        {"term":"aspect","means":"how a language shows whether an action is done, going on, or something you've done before, rather than when it happens. Chinese shows aspect with small words such as {{了|le}}, {{在|zài}} and {{过|guo}}."},
+        {"p":"{{了|le}} isn't a past tense: it marks a finished event, especially one with a number or a detail (“bought *three* books”, “watched *two* films”). What was simply true in the past, or happened regularly, takes no {{了|le}}: {{我以前在北京工作。|Wǒ yǐqián zài Běijīng gōngzuò.}} “I used to work in Beijing.”"},
+        {"p":"**Didn't: {{没|méi}} before the verb, and no {{了|le}}.** {{我没去。|Wǒ méi qù.}} “I didn't go.” {{不|bù}} is for now, the future and habits (“I don't go, I won't go”); {{没|méi}} (or {{没有|méiyǒu}}) is for what didn't happen."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["done","{{我吃了。|Wǒ chī le.}}","I've eaten. / I ate."],
+          ["not done","{{我没吃。|Wǒ méi chī.}}","I didn't eat. / I haven't eaten."],
+          ["asking","{{你吃了吗？|Nǐ chī le ma?}}","Have you eaten?"],
+          ["asking, A-not-A","{{你吃了没有？|Nǐ chī le méiyǒu?}}","Have you eaten or not?"]
+        ] },
+        { "ex": [
+          {"t":"我昨天买了三本书。","r":"Wǒ zuótiān mǎi le sān běn shū.","tr":"I bought three books yesterday."},
+          {"t":"他去了上海。","r":"Tā qù le Shànghǎi.","tr":"He went to Shanghai."},
+          {"t":"我们吃了很多饺子。","r":"Wǒmen chī le hěn duō jiǎozi.","tr":"We ate lots of dumplings."},
+          {"t":"你吃饭了吗？","r":"Nǐ chīfàn le ma?","tr":"Have you eaten?"},
+          {"t":"我昨天没上班。","r":"Wǒ zuótiān méi shàngbān.","tr":"I didn't go to work yesterday."},
+          {"t":"他还没来。","r":"Tā hái méi lái.","tr":"He hasn't come yet.","note":"{{还没|hái méi}} “not yet”"}
+        ] },
+        {"tip":"Around lunch or dinner time, {{你吃饭了吗？|Nǐ chīfàn le ma?}} is often just a friendly “Hi!” Answer {{吃了，你呢？|Chī le, nǐ ne?}}, even if you're starving!"}
+      ],
+      "mistakes": [
+        {"wrong":"我没去了。","right":"我没去。","tr":"I didn't go.","why":"{{没|méi}} and {{了|le}} don't go together: {{我没去。|Wǒ méi qù.}}"},
+        {"wrong":"我昨天不去上班。","right":"我昨天没去上班。","tr":"I didn't go to work yesterday.","why":"Something that didn't happen takes {{没|méi}}, not {{不|bù}}: {{我昨天没去上班。|Wǒ zuótiān méi qù shàngbān.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我昨天___去超市。","r":"Wǒ zuótiān ___ qù chāoshì.","tr":"I didn't go to the supermarket yesterday.","options":["没","不","了"],"rs":["méi","bù","le"],"answer":0,"why":"What didn't happen: {{没|méi}}."},
+        {"type":"choice","q":"“I bought two tickets” is…","options":["{{我买了两张票。|Wǒ mǎi le liǎng zhāng piào.}}","{{我了买两张票。|Wǒ le mǎi liǎng zhāng piào.}}","{{我没买了两张票。|Wǒ méi mǎi le liǎng zhāng piào.}}"],"answer":0,"why":"{{了|le}} goes right after the verb."},
+        {"type":"order","q":"Put the words in order.","tr":"We ate lots of dumplings.","words":["我们","吃了","很多","饺子。"],"rs":["wǒmen","chī le","hěn duō","jiǎozi."]},
+        {"type":"dialogue","q":"Monday morning at work. Choose your replies.","lines":[{"who":"Colleague","t":"周末你做什么了？","r":"Zhōumò nǐ zuò shénme le?","tr":"What did you do at the weekend?"},{"options":["我去了公园。","我没去了公园。"],"rs":["Wǒ qù le gōngyuán.","Wǒ méi qù le gōngyuán."],"answer":0,"why":"Done: {{去了|qù le}}."},{"who":"Colleague","t":"你去爬山了吗？","r":"Nǐ qù pá shān le ma?","tr":"Did you go hiking?"},{"options":["没去，太累了。","不去，太累了。"],"rs":["Méi qù, tài lèi le.","Bú qù, tài lèi le."],"answer":0,"why":"It didn't happen: {{没去|méi qù}}. ({{不去|bú qù}} would be “I'm not going”.)"},{"who":"Colleague","t":"我也没去。","r":"Wǒ yě méi qù.","tr":"I didn't go either."}],"from":"say-how-you-are"},
+        {"type":"say","q":"Ask a friend: “Have you eaten?”","answer":"你吃饭了吗？","r":"Nǐ chīfàn le ma?","from":"ask-yes-or-no"},
+        {"type":"free","q":"Your turn: say what you did yesterday, and one thing you didn't do.","answers":[{"t":"我昨天去超市买了很多菜，然后做了晚饭。我没看电视。","r":"Wǒ zuótiān qù chāoshì mǎi le hěn duō cài, ránhòu zuò le wǎnfàn. Wǒ méi kàn diànshì.","tr":"Yesterday I went to the supermarket and bought lots of food, then made dinner. I didn't watch TV."},{"t":"上个周末我见了几个朋友，我们吃了火锅。我没工作！","r":"Shàng ge zhōumò wǒ jiàn le jǐ ge péngyou, wǒmen chī le huǒguō. Wǒ méi gōngzuò!","tr":"Last weekend I saw a few friends and we had hotpot. I didn't work!"}]}
+      ]
+    },
+    {
+      "id": "say-what-has-changed",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what has changed",
+      "summary": "“It's started raining!”, “I'm hungry now”, “I don't smoke any more”: put {{了|le}} at the end of a sentence for something new.",
+      "topic": "{{了|le}} at the end: a new situation ({{下雨了|xiàyǔ le}}, {{我饿了|wǒ è le}}); {{不…了|bù… le}} “not any more”",
+      "blocks": [
+        {"goal":{"t":"下雨了！","r":"Xiàyǔ le!","tr":"It's started raining!"}},
+        {"dialog":[{"who":"Mum","t":"下雨了！你带伞了吗？","r":"Xiàyǔ le! Nǐ dài sǎn le ma?","tr":"It's raining! Did you take an umbrella?"},{"who":"Son","t":"带了。妈，我饿了，有什么吃的？","r":"Dài le. Mā, wǒ è le, yǒu shénme chī de?","tr":"Yes. Mum, I'm hungry, is there anything to eat?"},{"who":"Mum","t":"饭好了，来吃吧！","r":"Fàn hǎo le, lái chī ba!","tr":"Dinner's ready, come and eat!"},{"who":"Son","t":"太好了！","r":"Tài hǎo le!","tr":"Great!"}]},
+        {"p":"**{{了|le}} at the end: something new.** After a whole sentence, {{了|le}} says the situation has changed: it wasn't so before. {{下雨了。|Xiàyǔ le.}} “It's raining (now).” {{我饿了。|Wǒ è le.}} “I'm hungry (now).” {{他二十岁了。|Tā èrshí suì le.}} “He's twenty now.” English often needs “now”, “has got” or “has started” to say the same."},
+        {"p":"**Not any more: {{不…了|bù… le}}.** {{我不抽烟了。|Wǒ bù chōuyān le.}} “I don't smoke any more.” {{我不去了。|Wǒ bú qù le.}} “I'm not going after all.” It's also how you change your mind."},
+        { "table": [
+          ["Without {{了|le}}","With {{了|le}}"],
+          ["{{我很饿。|Wǒ hěn è.}} I'm hungry.","{{我饿了。|Wǒ è le.}} I've got hungry, I'm hungry now."],
+          ["{{我不喝酒。|Wǒ bù hē jiǔ.}} I don't drink.","{{我不喝酒了。|Wǒ bù hē jiǔ le.}} I don't drink any more."],
+          ["{{天很黑。|Tiān hěn hēi.}} It's dark.","{{天黑了。|Tiān hēi le.}} It's got dark."]
+        ] },
+        {"p":"This {{了|le}} and the {{了|le}} after a verb look the same but do different jobs: after the verb, “done”; at the end, “new”. Often one {{了|le}} at the end does both: {{我吃饭了。|Wǒ chīfàn le.}} “I've eaten.” An adjective with {{了|le}} needs no {{很|hěn}}: {{我累了。|Wǒ lèi le.}}"},
+        { "ex": [
+          {"t":"下雨了！","r":"Xiàyǔ le!","tr":"It's started raining!"},
+          {"t":"我饿了。","r":"Wǒ è le.","tr":"I'm hungry."},
+          {"t":"你女儿多大了？","r":"Nǐ nǚ'ér duō dà le?","tr":"How old is your daughter now?"},
+          {"t":"我不去了，太累了。","r":"Wǒ bú qù le, tài lèi le.","tr":"I'm not going after all, I'm too tired."},
+          {"t":"秋天了，天气冷了。","r":"Qiūtiān le, tiānqì lěng le.","tr":"It's autumn now, it's got cold."},
+          {"t":"我会说中文了！","r":"Wǒ huì shuō Zhōngwén le!","tr":"I can speak Chinese now!"}
+        ] },
+        {"tip":"{{好了|hǎo le}} means “it's ready, it's done”: {{饭好了！|Fàn hǎo le!}} “Dinner's ready!” And {{你怎么了？|Nǐ zěnme le?}} “What's happened to you?” is how you ask what's wrong."}
+      ],
+      "mistakes": [
+        {"wrong":"我没抽烟了。","right":"我不抽烟了。","tr":"I don't smoke any more.","why":"A habit you've stopped is {{不|bù}}…{{了|le}}: {{我不抽烟了。|Wǒ bù chōuyān le.}} {{没|méi}} is for what didn't happen."},
+        {"wrong":"他是二十岁了。","right":"他二十岁了。","tr":"He's twenty now.","why":"Ages still need no {{是|shì}}: {{他二十岁了。|Tā èrshí suì le.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"外面下雨___。","r":"Wàimiàn xiàyǔ ___.","tr":"It's started raining outside.","options":["了","吗","是"],"rs":["le","ma","shì"],"answer":0,"why":"Something new: {{了|le}} at the end."},
+        {"type":"choice","q":"{{我不喝咖啡了。|Wǒ bù hē kāfēi le.}} means…","options":["I don't drink coffee any more.","I didn't drink the coffee.","I've drunk my coffee."],"answer":0,"why":"{{不|bù}}…{{了|le}}: something you've stopped doing."},
+        {"type":"choice","q":"Your friend has just turned thirty. “You're thirty now!” is…","options":["{{你三十岁了！|Nǐ sānshí suì le!}}","{{你是三十岁！|Nǐ shì sānshí suì!}}","{{你三十了岁！|Nǐ sānshí le suì!}}"],"answer":0,"why":"Something new: {{了|le}} at the end, and no {{是|shì}} with an age.","from":"talk-about-your-family"},
+        {"type":"dialogue","q":"You'd planned to go out with a friend, but you feel ill. Choose your replies.","lines":[{"who":"Friend","t":"我们几点去？","r":"Wǒmen jǐ diǎn qù?","tr":"What time are we going?"},{"options":["对不起，我不去了。","对不起，我没去。"],"rs":["Duìbuqǐ, wǒ bú qù le.","Duìbuqǐ, wǒ méi qù."],"answer":0,"why":"Changing your plan: {{不去了|bú qù le}} “not going after all”."},{"who":"Friend","t":"你怎么了？","r":"Nǐ zěnme le?","tr":"What's the matter?"},{"options":["我感冒了。","我感冒。"],"rs":["Wǒ gǎnmào le.","Wǒ gǎnmào."],"answer":0,"why":"A new situation: {{我感冒了|wǒ gǎnmào le}} “I've caught a cold”."},{"who":"Friend","t":"那你在家休息吧！","r":"Nà nǐ zài jiā xiūxi ba!","tr":"Then rest at home!"}],"from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"It's autumn now, it's got cold.","words":["秋天了，","天气","冷了。"],"rs":["qiūtiān le,","tiānqì","lěng le."]},
+        {"type":"say","q":"Say “I can speak Chinese now!”","answer":"我会说中文了！","r":"Wǒ huì shuō Zhōngwén le!","from":"say-what-you-can-do"},
+        {"type":"free","q":"Your turn: say two things that have changed in your life this year.","answers":[{"t":"我不抽烟了。我会做饭了！","r":"Wǒ bù chōuyān le. Wǒ huì zuò fàn le!","tr":"I don't smoke any more. I can cook now!"},{"t":"我有男朋友了。我不住在北京了。","r":"Wǒ yǒu nánpéngyou le. Wǒ bú zhù zài Běijīng le.","tr":"I've got a boyfriend now. I don't live in Beijing any more."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-happening-now",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say what you're doing right now",
+      "summary": "“I'm cooking”, “What are you up to?”, “She's on the phone”: talk about what's going on at this moment.",
+      "topic": "{{在|zài}} or {{正在|zhèngzài}} + a verb (+ {{呢|ne}}); {{没在|méi zài}}; {{…呢？|…ne?}} “where's…?”",
+      "blocks": [
+        {"goal":{"t":"我在做饭呢。","r":"Wǒ zài zuò fàn ne.","tr":"I'm cooking."}},
+        {"dialog":[{"who":"Xiao Wang","t":"喂，你在干什么呢？","r":"Wéi, nǐ zài gàn shénme ne?","tr":"Hi, what are you up to?"},{"who":"Anna","t":"我在做饭呢。你呢？","r":"Wǒ zài zuò fàn ne. Nǐ ne?","tr":"I'm cooking. You?"},{"who":"Xiao Wang","t":"我在看足球比赛。你男朋友呢？","r":"Wǒ zài kàn zúqiú bǐsài. Nǐ nánpéngyou ne?","tr":"I'm watching a football match. Where's your boyfriend?"},{"who":"Anna","t":"他在洗澡。","r":"Tā zài xǐzǎo.","tr":"He's in the shower."},{"who":"Xiao Wang","t":"好，我不打扰你们了！","r":"Hǎo, wǒ bù dǎrǎo nǐmen le!","tr":"OK, I'll leave you to it!"}]},
+        {"p":"**Going on now: {{在|zài}} + verb.** The same {{在|zài}} you know from places, before a verb, means “in the middle of”: {{我在做饭。|Wǒ zài zuò fàn.}} “I'm cooking.” {{正在|zhèngzài}} “right now” makes it stronger, and {{呢|ne}} at the end makes it sound natural and chatty: {{我正在吃饭呢。|Wǒ zhèngzài chīfàn ne.}}"},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["doing","{{他在睡觉。|Tā zài shuìjiào.}}","He's asleep."],
+          ["right now","{{他正在开会。|Tā zhèngzài kāihuì.}}","He's in a meeting right now."],
+          ["chatty","{{我在吃饭呢。|Wǒ zài chīfàn ne.}}","I'm eating."],
+          ["not","{{他没在工作。|Tā méi zài gōngzuò.}}","He isn't working."]
+        ] },
+        {"p":"**What are you doing?** {{你在干什么？|Nǐ zài gàn shénme?}} or {{你在做什么？|Nǐ zài zuò shénme?}}: {{干|gàn}} “do” is the everyday spoken word. **Not doing it** is {{没在|méi zài}}: {{我没在睡觉。|Wǒ méi zài shuìjiào.}} “I'm not asleep.”"},
+        {"p":"It works for the past too, with a time: {{昨天晚上八点我在看电视。|Zuótiān wǎnshang bā diǎn wǒ zài kàn diànshì.}} “At eight last night I was watching TV.” And **{{呢|ne}} after a noun** asks where it is: {{我的钥匙呢？|Wǒ de yàoshi ne?}} “Where are my keys?”"},
+        { "ex": [
+          {"t":"我在做饭呢。","r":"Wǒ zài zuò fàn ne.","tr":"I'm cooking."},
+          {"t":"你在干什么？","r":"Nǐ zài gàn shénme?","tr":"What are you doing?"},
+          {"t":"她在打电话。","r":"Tā zài dǎ diànhuà.","tr":"She's on the phone."},
+          {"t":"孩子们在玩儿。","r":"Háizimen zài wánr.","tr":"The children are playing."},
+          {"t":"外面正在下雨。","r":"Wàimiàn zhèngzài xiàyǔ.","tr":"It's raining outside right now."},
+          {"t":"我的手机呢？","r":"Wǒ de shǒujī ne?","tr":"Where's my phone?"}
+        ] },
+        {"tip":"To say where you're doing it, one {{在|zài}} is enough: {{我在家看书呢。|Wǒ zài jiā kàn shū ne.}} “I'm at home, reading.”"}
+      ],
+      "mistakes": [
+        {"wrong":"我吃饭在。","right":"我在吃饭。","tr":"I'm eating.","why":"{{在|zài}} goes before the verb: {{我在吃饭。|Wǒ zài chīfàn.}}"},
+        {"wrong":"我不在睡觉。","right":"我没在睡觉。","tr":"I'm not asleep.","why":"“Not in the middle of doing it” is {{没在|méi zài}}: {{我没在睡觉。|Wǒ méi zài shuìjiào.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"她___打电话。","r":"Tā ___ dǎ diànhuà.","tr":"She's on the phone.","options":["在","了","是"],"rs":["zài","le","shì"],"answer":0,"why":"Going on now: {{在|zài}} before the verb."},
+        {"type":"choice","q":"“What are you doing?” is…","options":["{{你在干什么？|Nǐ zài gàn shénme?}}","{{你干什么在？|Nǐ gàn shénme zài?}}","{{你在干什么吗？|Nǐ zài gàn shénme ma?}}"],"answer":0,"why":"{{在|zài}} before the verb, and no {{吗|ma}} with a question word.","from":"ask-who-what-where"},
+        {"type":"dialogue","q":"A friend calls you at home. Choose your replies.","lines":[{"who":"Friend","t":"喂，你在干什么呢？","r":"Wéi, nǐ zài gàn shénme ne?","tr":"Hi, what are you doing?"},{"options":["我在看电视呢。","我看电视在呢。"],"rs":["Wǒ zài kàn diànshì ne.","Wǒ kàn diànshì zài ne."],"answer":0,"why":"{{在|zài}} + the verb (+ {{呢|ne}})."},{"who":"Friend","t":"你妹妹在家吗？","r":"Nǐ mèimei zài jiā ma?","tr":"Is your sister at home?"},{"options":["在，她在洗澡。","在，她洗澡在。"],"rs":["Zài, tā zài xǐzǎo.","Zài, tā xǐzǎo zài."],"answer":0,"why":"{{在|zài}} “is (at home)”, then {{在洗澡|zài xǐzǎo}} “is in the shower”."},{"who":"Friend","t":"好，我晚上再打。","r":"Hǎo, wǒ wǎnshang zài dǎ.","tr":"OK, I'll call again this evening."}],"from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"It's raining outside right now.","words":["外面","正在","下雨。"],"rs":["wàimiàn","zhèngzài","xiàyǔ."]},
+        {"type":"say","q":"You can't find your keys. Ask “Where are my keys?” with {{呢|ne}}.","answer":"我的钥匙呢？","r":"Wǒ de yàoshi ne?","from":"say-whose-it-is"},
+        {"type":"free","q":"Your turn: what are you doing right now? And the people around you?","answers":[{"t":"我在学中文呢。我妈妈在做饭。","r":"Wǒ zài xué Zhōngwén ne. Wǒ māma zài zuò fàn.","tr":"I'm studying Chinese. My mum is cooking."},{"t":"我在坐地铁。旁边的人都在看手机。","r":"Wǒ zài zuò dìtiě. Pángbiān de rén dōu zài kàn shǒujī.","tr":"I'm on the subway. The people around me are all looking at their phones."}]}
+      ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 5,
+      "level": "A2",
+      "title": "Talk about things you've done before",
+      "summary": "“Have you ever been to China?”, “I've seen it twice”, “I've never had Peking duck”: talk about your experiences with {{过|guo}}.",
+      "topic": "Verb + {{过|guo}} “have ever done”; {{没…过|méi… guo}} “have never”; {{一次|yí cì}}, {{两次|liǎng cì}}",
+      "blocks": [
+        {"goal":{"t":"你去过中国吗？","r":"Nǐ qù guo Zhōngguó ma?","tr":"Have you ever been to China?"}},
+        {"dialog":[{"who":"Xiao Li","t":"你去过中国吗？","r":"Nǐ qù guo Zhōngguó ma?","tr":"Have you ever been to China?"},{"who":"Mark","t":"去过一次。我去过北京和上海。","r":"Qù guo yí cì. Wǒ qù guo Běijīng hé Shànghǎi.","tr":"Once. I've been to Beijing and Shanghai."},{"who":"Xiao Li","t":"你吃过北京烤鸭吗？","r":"Nǐ chī guo Běijīng kǎoyā ma?","tr":"Have you ever had Peking duck?"},{"who":"Mark","t":"没吃过。好吃吗？","r":"Méi chī guo. Hǎochī ma?","tr":"No, never. Is it good?"},{"who":"Xiao Li","t":"非常好吃！我们这个周末去吃吧！","r":"Fēicháng hǎochī! Wǒmen zhège zhōumò qù chī ba!","tr":"It's delicious! Let's go and have some this weekend!"}]},
+        {"p":"**Ever: verb + {{过|guo}}.** {{过|guo}} after a verb says you've had the experience, at some time in your life: {{我去过中国。|Wǒ qù guo Zhōngguó.}} “I've been to China.” Ask with {{吗|ma}}: {{你吃过饺子吗？|Nǐ chī guo jiǎozi ma?}} “Have you ever had dumplings?” Answer with the verb and {{过|guo}}: {{吃过。|Chī guo.}}"},
+        {"p":"**Never: {{没|méi}} + verb + {{过|guo}}.** Unlike {{了|le}}, {{过|guo}} stays after {{没|méi}}: {{我没去过中国。|Wǒ méi qù guo Zhōngguó.}} “I've never been to China.” Add {{从来|cónglái}} for “never ever”: {{我从来没吃过。|Wǒ cónglái méi chī guo.}}"},
+        {"p":"**How many times?** {{次|cì}} “time” goes after the verb and {{过|guo}}: {{我去过两次。|Wǒ qù guo liǎng cì.}} “I've been twice.” {{几次？|Jǐ cì?}} is “How many times?”"},
+        { "table": [
+          ["","{{了|le}}","{{过|guo}}"],
+          ["says","it happened (that time)","you've done it at least once in your life"],
+          ["example","{{我去了北京。|Wǒ qù le Běijīng.}} I went to Beijing.","{{我去过北京。|Wǒ qù guo Běijīng.}} I've been to Beijing."],
+          ["not","{{我没去北京。|Wǒ méi qù Běijīng.}} I didn't go.","{{我没去过北京。|Wǒ méi qù guo Běijīng.}} I've never been."]
+        ] },
+        { "ex": [
+          {"t":"你去过中国吗？","r":"Nǐ qù guo Zhōngguó ma?","tr":"Have you ever been to China?"},
+          {"t":"我看过这部电影。","r":"Wǒ kàn guo zhè bù diànyǐng.","tr":"I've seen this film."},
+          {"t":"我没坐过飞机。","r":"Wǒ méi zuò guo fēijī.","tr":"I've never been on a plane."},
+          {"t":"他学过中文。","r":"Tā xué guo Zhōngwén.","tr":"He's studied Chinese before."},
+          {"t":"我去过三次长城。","r":"Wǒ qù guo sān cì Chángchéng.","tr":"I've been to the Great Wall three times.","note":"with a place, {{次|cì}} can also go before it"},
+          {"t":"你见过熊猫吗？","r":"Nǐ jiàn guo xióngmāo ma?","tr":"Have you ever seen a panda?"}
+        ] },
+        {"tip":"{{过|guo}} is perfect for small talk: {{你吃过…吗？|Nǐ chī guo… ma?}}, {{你去过…吗？|Nǐ qù guo… ma?}} People love asking foreigners {{你吃过臭豆腐吗？|Nǐ chī guo chòudòufu ma?}} “Have you ever tried stinky tofu?”"}
+      ],
+      "mistakes": [
+        {"wrong":"我没去过了中国。","right":"我没去过中国。","tr":"I've never been to China.","why":"{{没|méi}} never takes {{了|le}}; {{过|guo}} is enough: {{我没去过中国。|Wǒ méi qù guo Zhōngguó.}}"},
+        {"wrong":"我不吃过烤鸭。","right":"我没吃过烤鸭。","tr":"I've never had roast duck.","why":"Never done is {{没|méi}}… {{过|guo}}, not {{不|bù}}: {{我没吃过烤鸭。|Wǒ méi chī guo kǎoyā.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我没坐___飞机。","r":"Wǒ méi zuò ___ fēijī.","tr":"I've never been on a plane.","options":["过","了","在"],"rs":["guo","le","zài"],"answer":0,"why":"Never done: {{没|méi}} + verb + {{过|guo}}."},
+        {"type":"choice","q":"{{我去过上海。|Wǒ qù guo Shànghǎi.}} means…","options":["I've been to Shanghai.","I'm going to Shanghai.","I'm in Shanghai."],"answer":0,"why":"{{过|guo}}: an experience you've had."},
+        {"type":"choice","q":"“Have you seen this film?” “Yes, twice.” Which answer?","options":["{{看过两次。|Kàn guo liǎng cì.}}","{{两次看过。|Liǎng cì kàn guo.}}","{{看两次了过。|Kàn liǎng cì le guo.}}"],"answer":0,"why":"The verb, {{过|guo}}, then how many times.","from":"count-things"},
+        {"type":"dialogue","q":"Small talk with a new friend. Choose your replies.","lines":[{"who":"Friend","t":"你来过中国吗？","r":"Nǐ lái guo Zhōngguó ma?","tr":"Have you been to China before?"},{"options":["没来过，这是第一次。","没来了，这是第一次。"],"rs":["Méi lái guo, zhè shì dì yī cì.","Méi lái le, zhè shì dì yī cì."],"answer":0,"why":"Never: {{没来过|méi lái guo}}. {{第一次|dì yī cì}} is “the first time”."},{"who":"Friend","t":"你吃过火锅吗？","r":"Nǐ chī guo huǒguō ma?","tr":"Have you ever had hotpot?"},{"options":["吃过！我很喜欢。","吃了过！我很喜欢。"],"rs":["Chī guo! Wǒ hěn xǐhuan.","Chī le guo! Wǒ hěn xǐhuan."],"answer":0,"why":"“Yes, I have”: {{吃过|chī guo}}."},{"who":"Friend","t":"那我们今天晚上去吃火锅吧！","r":"Nà wǒmen jīntiān wǎnshang qù chī huǒguō ba!","tr":"Then let's go for hotpot tonight!"}],"from":"make-plans"},
+        {"type":"order","q":"Put the words in order.","tr":"Have you ever seen a panda?","words":["你","见过","熊猫","吗？"],"rs":["nǐ","jiàn guo","xióngmāo","ma?"]},
+        {"type":"say","q":"Say “I've never been on a plane.”","answer":"我没坐过飞机。","r":"Wǒ méi zuò guo fēijī.","from":"say-what-you-did"},
+        {"type":"free","q":"Your turn: say a place you've been to, and a food you've never tried.","answers":[{"t":"我去过日本，没去过中国。我没吃过烤鸭。","r":"Wǒ qù guo Rìběn, méi qù guo Zhōngguó. Wǒ méi chī guo kǎoyā.","tr":"I've been to Japan, but never to China. I've never had roast duck."},{"t":"我去过两次北京。我从来没吃过臭豆腐！","r":"Wǒ qù guo liǎng cì Běijīng. Wǒ cónglái méi chī guo chòudòufu!","tr":"I've been to Beijing twice. I've never ever tried stinky tofu!"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 5,
+      "level": "A2",
+      "title": "Say how long",
+      "summary": "“I've been learning Chinese for two years”, “I slept eight hours”, “How long did you wait?”: say how long things last.",
+      "topic": "A length of time goes after the verb ({{学了两年|xué le liǎng nián}}); {{…了两年了|…le liǎng nián le}} (still going); {{多长时间|duō cháng shíjiān}}; {{从…到…|cóng… dào…}}",
+      "blocks": [
+        {"goal":{"t":"我学中文学了两年了。","r":"Wǒ xué Zhōngwén xué le liǎng nián le.","tr":"I've been learning Chinese for two years."}},
+        {"dialog":[{"who":"Xiao Zhang","t":"你的中文很好！你学了多长时间了？","r":"Nǐ de Zhōngwén hěn hǎo! Nǐ xué le duō cháng shíjiān le?","tr":"Your Chinese is very good! How long have you been learning?"},{"who":"Anna","t":"哪里哪里！我学了两年了。","r":"Nǎlǐ nǎlǐ! Wǒ xué le liǎng nián le.","tr":"Oh, not really! I've been learning for two years."},{"who":"Xiao Zhang","t":"你每天学几个小时？","r":"Nǐ měitiān xué jǐ ge xiǎoshí?","tr":"How many hours a day do you study?"},{"who":"Anna","t":"一个小时。我从八点学到九点。","r":"Yí ge xiǎoshí. Wǒ cóng bā diǎn xué dào jiǔ diǎn.","tr":"One hour. I study from eight to nine."}]},
+        {"p":"**How long goes after the verb.** A length of time comes after the verb: the opposite of a point in time, which goes before it. {{我睡了八个小时。|Wǒ shuì le bā ge xiǎoshí.}} “I slept for eight hours.” {{我等了二十分钟。|Wǒ děng le èrshí fēnzhōng.}} “I waited twenty minutes.”"},
+        { "table": [
+          ["A point in time: before the verb","A length of time: after the verb"],
+          ["{{我八点睡觉。|Wǒ bā diǎn shuìjiào.}} I go to bed at eight.","{{我睡了八个小时。|Wǒ shuì le bā ge xiǎoshí.}} I slept for eight hours."],
+          ["{{我明天学习。|Wǒ míngtiān xuéxí.}} I'll study tomorrow.","{{我学习了两个小时。|Wǒ xuéxí le liǎng ge xiǎoshí.}} I studied for two hours."]
+        ] },
+        {"p":"**With an object, say the verb twice**, or put the time before the object: {{我学中文学了两年。|Wǒ xué Zhōngwén xué le liǎng nián.}} = {{我学了两年中文。|Wǒ xué le liǎng nián Zhōngwén.}} “I studied Chinese for two years.”"},
+        {"p":"**Still going: a second {{了|le}} at the end.** {{我学了两年。|Wǒ xué le liǎng nián.}} “I studied for two years” (maybe I've stopped). {{我学了两年了。|Wǒ xué le liǎng nián le.}} “I've been studying for two years” (and I still am): it's the {{了|le}} of something new. **How long?** {{多长时间？|Duō cháng shíjiān?}} or {{多久？|Duō jiǔ?}}"},
+        { "ex": [
+          {"t":"我学中文学了两年了。","r":"Wǒ xué Zhōngwén xué le liǎng nián le.","tr":"I've been learning Chinese for two years."},
+          {"t":"我睡了八个小时。","r":"Wǒ shuì le bā ge xiǎoshí.","tr":"I slept for eight hours."},
+          {"t":"你等了多长时间？","r":"Nǐ děng le duō cháng shíjiān?","tr":"How long did you wait?"},
+          {"t":"我在北京住了三年。","r":"Wǒ zài Běijīng zhù le sān nián.","tr":"I lived in Beijing for three years."},
+          {"t":"我们认识十年了。","r":"Wǒmen rènshi shí nián le.","tr":"We've known each other for ten years."},
+          {"t":"我从早上九点工作到晚上六点。","r":"Wǒ cóng zǎoshang jiǔ diǎn gōngzuò dào wǎnshang liù diǎn.","tr":"I work from nine in the morning to six in the evening."}
+        ] },
+        {"tip":"Lengths of time: {{五分钟|wǔ fēnzhōng}} five minutes, {{两个小时|liǎng ge xiǎoshí}} two hours, {{三天|sān tiān}} three days, {{一个星期|yí ge xīngqī}} a week, {{六个月|liù ge yuè}} six months, {{两年|liǎng nián}} two years. Hours, weeks and months take {{个|ge}}; minutes, days and years don't."}
+      ],
+      "mistakes": [
+        {"wrong":"我两个小时等了。","right":"我等了两个小时。","tr":"I waited for two hours.","why":"A length of time goes after the verb: {{我等了两个小时。|Wǒ děng le liǎng ge xiǎoshí.}}"},
+        {"wrong":"我学了中文两年。","right":"我学了两年中文。","tr":"I studied Chinese for two years.","why":"The time can't follow the object: put it before ({{学了两年中文|xué le liǎng nián Zhōngwén}}), or say the verb twice ({{学中文学了两年|xué Zhōngwén xué le liǎng nián}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我睡了八___小时。","r":"Wǒ shuì le bā ___ xiǎoshí.","tr":"I slept for eight hours.","options":["个","次","点"],"rs":["ge","cì","diǎn"],"answer":0,"why":"Hours take {{个|ge}}: {{八个小时|bā ge xiǎoshí}}. ({{八点|bā diǎn}} is eight o'clock.)"},
+        {"type":"choice","q":"“I've been living here for three years (and still do)” is…","options":["{{我在这儿住了三年了。|Wǒ zài zhèr zhù le sān nián le.}}","{{我在这儿住了三年。|Wǒ zài zhèr zhù le sān nián.}}","{{我三年在这儿住。|Wǒ sān nián zài zhèr zhù.}}"],"answer":0,"why":"Still going: a second {{了|le}} at the end.","from":"say-what-has-changed"},
+        {"type":"order","q":"Put the words in order.","tr":"How long did you wait?","words":["你","等了","多长","时间？"],"rs":["nǐ","děng le","duō cháng","shíjiān?"],"from":"say-what-you-did"},
+        {"type":"dialogue","q":"Your teacher asks about your Chinese. Choose your replies.","lines":[{"who":"Teacher","t":"你学中文多长时间了？","r":"Nǐ xué Zhōngwén duō cháng shíjiān le?","tr":"How long have you been learning Chinese?"},{"options":["我学了六个月了。","我六个月学了。"],"rs":["Wǒ xué le liù ge yuè le.","Wǒ liù ge yuè xué le."],"answer":0,"why":"The length after the verb, and {{了|le}} at the end: you're still learning."},{"who":"Teacher","t":"你每天学多久？","r":"Nǐ měitiān xué duō jiǔ?","tr":"How long do you study each day?"},{"options":["我每天学一个小时。","我每天一个小时学。"],"rs":["Wǒ měitiān xué yí ge xiǎoshí.","Wǒ měitiān yí ge xiǎoshí xué."],"answer":0,"why":"{{每天|měitiān}} (when) before the verb, {{一个小时|yí ge xiǎoshí}} (how long) after it."},{"who":"Teacher","t":"很好！","r":"Hěn hǎo!","tr":"Very good!"}]},
+        {"type":"say","q":"Say “I work from nine to five.”","answer":"我从九点工作到五点。","r":"Wǒ cóng jiǔ diǎn gōngzuò dào wǔ diǎn.","from":"say-when"},
+        {"type":"free","q":"Your turn: how long have you been learning Chinese, and how long did you sleep last night?","answers":[{"t":"我学中文学了三个月了。我昨天晚上睡了七个小时。","r":"Wǒ xué Zhōngwén xué le sān ge yuè le. Wǒ zuótiān wǎnshang shuì le qī ge xiǎoshí.","tr":"I've been learning Chinese for three months. Last night I slept seven hours."},{"t":"我学了一年中文了。昨天我只睡了五个小时！","r":"Wǒ xué le yì nián Zhōngwén le. Zuótiān wǒ zhǐ shuì le wǔ ge xiǎoshí!","tr":"I've been learning Chinese for a year. Yesterday I only slept five hours!"}]}
+      ]
     }
   ]
 }
