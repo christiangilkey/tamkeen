@@ -4,7 +4,7 @@
 // docs/lexicon/hi-lemmas.json.gz), ranked by how common each dictionary word is in all its forms together.
 //
 //   node tools/course/hi/rank.mjs   ->  tools/course/build/hi-ranked.json
-//     [{rank, lemma, reading, freq, gloss, forms: [[form, freq], ...]}, ...]  (the top 2000)
+//     [{rank, lemma, reading, freq, gloss, forms: [[form, freq], ...]}, ...]  (the top 3000)
 //
 // The course's words (tools/course/hi/words.json) are chosen from this list by hand.
 import { readFileSync, writeFileSync } from "node:fs";
@@ -38,7 +38,7 @@ for (const [form, freq] of forms) {
   e.freq += freq;
   e.forms.push([form, freq]);
 }
-const ranked = [...byKey.values()].sort((x, y) => y.freq - x.freq).slice(0, 2000)
+const ranked = [...byKey.values()].sort((x, y) => y.freq - x.freq).slice(0, 3000)
   .map((e, i) => ({
     rank: i + 1, lemma: e.lemma, reading: readings.word(e.lemma), freq: Number(e.freq.toPrecision(4)), gloss: gloss(e.lemma),
     forms: e.forms.slice(0, 6).map(([f, n]) => [f, Number(n.toPrecision(3))]),
