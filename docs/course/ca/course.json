@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "ca",
+ "title": "Catalan basics",
+ "variety": "Central Catalan (Barcelona), in the current spelling (2017 rules: soc, dona)",
+ "about": "The most common words of written Catalan (wordfreq counts, grouped by dictionary word with tools/course/ca/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence in central Catalan that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Joana (Azure, Catalonia)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "el",
+   "pos": "art",
+   "meaning": "the (el, la, l', els, les)",
+   "sentence": "El pa és molt bo.",
+   "translation": "⟦The⟧ bread is very good.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.375,
+    "sent_start": 1.275,
+    "sent_end": 2.705
+   }
+  },
+  {
+   "n": 2,
+   "word": "de",
+   "pos": "prep",
+   "meaning": "of; from",
+   "sentence": "Soc de Barcelona.",
+   "translation": "I'm ⟦from⟧ Barcelona.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.414,
+    "sent_start": 1.314,
+    "sent_end": 2.795
+   }
+  },
+  {
+   "n": 3,
+   "word": "a",
+   "pos": "prep",
+   "meaning": "to; at; in",
+   "sentence": "Vaig a l'escola cada dia.",
+   "translation": "I go ⟦to⟧ school every day.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.325,
+    "sent_start": 1.225,
+    "sent_end": 3.538
+   }
+  },
+  {
+   "n": 4,
+   "word": "i",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Vull pa i formatge.",
+   "translation": "I want bread ⟦and⟧ cheese.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.315,
+    "sent_start": 1.215,
+    "sent_end": 2.964
+   }
+  },
+  {
+   "n": 5,
+   "word": "que",
+   "pos": "conj",
+   "meaning": "that; than",
+   "sentence": "Diu que vindrà demà.",
+   "translation": "He says ⟦that⟧ he'll come tomorrow.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.337,
+    "sent_start": 1.237,
+    "sent_end": 2.77
+   }
+  },
+  {
+   "n": 6,
+   "word": "un",
+   "pos": "art",
+   "meaning": "a, an; one (un, una)",
+   "sentence": "Tinc un germà.",
+   "translation": "I have ⟦a⟧ brother.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.401,
+    "sent_start": 1.301,
+    "sent_end": 2.556
+   }
+  },
+  {
+   "n": 7,
+   "word": "ser",
+   "pos": "verb",
+   "meaning": "to be (és: is)",
+   "sentence": "La meva casa és petita.",
+   "translation": "My house ⟦is⟧ small.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.417,
+    "sent_start": 1.317,
+    "sent_end": 3.453
+   }
+  },
+  {
+   "n": 8,
+   "word": "per",
+   "pos": "prep",
+   "meaning": "for; through; by",
+   "sentence": "Gràcies per tot.",
+   "translation": "Thanks ⟦for⟧ everything.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.359,
+    "sent_start": 1.259,
+    "sent_end": 2.71
+   }
+  },
+  {
+   "n": 9,
+   "word": "en",
+   "pos": "prep",
+   "meaning": "in; on; by (en cotxe: by car)",
+   "sentence": "Visc en un pis petit.",
+   "translation": "I live ⟦in⟧ a small flat.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.384,
+    "sent_start": 1.284,
+    "sent_end": 3.207
+   }
+  },
+  {
+   "n": 10,
+   "word": "haver",
+   "pos": "verb",
+   "meaning": "to have (before a past participle: he menjat, I have eaten)",
+   "sentence": "Ja he menjat.",
+   "translation": "I ⟦have⟧ already eaten.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.453,
+    "sent_start": 1.353,
+    "sent_end": 2.661
+   }
+  },
+  {
+   "n": 11,
+   "word": "es",
+   "pos": "pron",
+   "meaning": "himself, herself, itself, themselves (es, s', se)",
+   "sentence": "Es mira al mirall.",
+   "translation": "She looks at ⟦herself⟧ in the mirror.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.475,
+    "sent_start": 1.375,
+    "sent_end": 2.854
+   }
+  },
+  {
+   "n": 12,
+   "word": "va",
+   "pos": "aux",
+   "meaning": "did (past tense: vaig, vas, va, vam, vau, van + verb)",
+   "sentence": "Ahir va ploure tot el dia.",
+   "translation": "It ⟦rained⟧ all day yesterday.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.414,
+    "sent_start": 1.314,
+    "sent_end": 3.497
+   }
+  },
+  {
+   "n": 13,
+   "word": "no",
+   "pos": "adv",
+   "meaning": "no; not",
+   "sentence": "No ho sé.",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.413,
+    "sent_start": 1.313,
+    "sent_end": 2.175
+   }
+  },
+  {
+   "n": 14,
+   "word": "amb",
+   "pos": "prep",
+   "meaning": "with",
+   "sentence": "Visc amb la meva família.",
+   "translation": "I live ⟦with⟧ my family.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.391,
+    "sent_start": 1.291,
+    "sent_end": 3.256
+   }
+  },
+  {
+   "n": 15,
+   "word": "fer",
+   "pos": "verb",
+   "meaning": "to do; to make",
+   "sentence": "Què fas avui?",
+   "translation": "What are you ⟦doing⟧ today?",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.405,
+    "sent_start": 1.305,
+    "sent_end": 2.341
+   }
+  },
+  {
+   "n": 16,
+   "word": "seu",
+   "pos": "pron",
+   "meaning": "his, her, its, their; your (formal) (seu, seva, seus, seves)",
+   "sentence": "El seu germà és metge.",
+   "translation": "⟦Her⟧ brother is a doctor.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.494,
+    "sent_start": 1.394,
+    "sent_end": 3.425
+   }
+  },
+  {
+   "n": 17,
+   "word": "aquest",
+   "pos": "pron",
+   "meaning": "this (aquest, aquesta, aquests, aquestes)",
+   "sentence": "Aquest llibre és molt interessant.",
+   "translation": "⟦This⟧ book is very interesting.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.645,
+    "sent_start": 1.545,
+    "sent_end": 4.03
+   }
+  },
+  {
+   "n": 18,
+   "word": "com",
+   "pos": "adv",
+   "meaning": "how; like, as",
+   "sentence": "Com estàs?",
+   "translation": "⟦How⟧ are you?",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.424,
+    "sent_start": 1.324,
+    "sent_end": 2.333
+   }
+  },
+  {
+   "n": 19,
+   "word": "més",
+   "pos": "adv",
+   "meaning": "more; most",
+   "sentence": "Vols més cafè?",
+   "translation": "Do you want ⟦more⟧ coffee?",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.616,
+    "sent_start": 1.516,
+    "sent_end": 2.872
+   }
+  },
+  {
+   "n": 20,
+   "word": "tot",
+   "pos": "pron",
+   "meaning": "all; everything (tot, tota, tots, totes)",
+   "sentence": "Tot va bé.",
+   "translation": "⟦Everything⟧ is fine.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.46,
+    "sent_start": 1.36,
+    "sent_end": 2.15
+   }
+  }
+ ]
+}

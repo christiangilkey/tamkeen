@@ -1,0 +1,191 @@
+{
+  "lang": "ca",
+  "title": "Catalan basics",
+  "variety": "Central Catalan (Barcelona), in the current spelling (2017 rules: soc, dona)",
+  "about": "The most common words of written Catalan (wordfreq counts, grouped by dictionary word with tools/course/ca/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has one short everyday sentence in central Catalan that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "el",
+      "pos": "art",
+      "meaning": "the (el, la, l', els, les)",
+      "sentence": "El pa és molt bo.",
+      "translation": "⟦The⟧ bread is very good."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "de",
+      "pos": "prep",
+      "meaning": "of; from",
+      "sentence": "Soc de Barcelona.",
+      "translation": "I'm ⟦from⟧ Barcelona."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "a",
+      "pos": "prep",
+      "meaning": "to; at; in",
+      "sentence": "Vaig a l'escola cada dia.",
+      "translation": "I go ⟦to⟧ school every day."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "i",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Vull pa i formatge.",
+      "translation": "I want bread ⟦and⟧ cheese."
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "que",
+      "pos": "conj",
+      "meaning": "that; than",
+      "sentence": "Diu que vindrà demà.",
+      "translation": "He says ⟦that⟧ he'll come tomorrow."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "un",
+      "pos": "art",
+      "meaning": "a, an; one (un, una)",
+      "sentence": "Tinc un germà.",
+      "translation": "I have ⟦a⟧ brother."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "ser",
+      "pos": "verb",
+      "meaning": "to be (és: is)",
+      "sentence": "La meva casa és petita.",
+      "translation": "My house ⟦is⟧ small.",
+      "form": "és"
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "per",
+      "pos": "prep",
+      "meaning": "for; through; by",
+      "sentence": "Gràcies per tot.",
+      "translation": "Thanks ⟦for⟧ everything."
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "en",
+      "pos": "prep",
+      "meaning": "in; on; by (en cotxe: by car)",
+      "sentence": "Visc en un pis petit.",
+      "translation": "I live ⟦in⟧ a small flat."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "haver",
+      "pos": "verb",
+      "meaning": "to have (before a past participle: he menjat, I have eaten)",
+      "sentence": "Ja he menjat.",
+      "translation": "I ⟦have⟧ already eaten.",
+      "form": "he"
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "es",
+      "pos": "pron",
+      "meaning": "himself, herself, itself, themselves (es, s', se)",
+      "sentence": "Es mira al mirall.",
+      "translation": "She looks at ⟦herself⟧ in the mirror."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "va",
+      "pos": "aux",
+      "meaning": "did (past tense: vaig, vas, va, vam, vau, van + verb)",
+      "sentence": "Ahir va ploure tot el dia.",
+      "translation": "It ⟦rained⟧ all day yesterday."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "no",
+      "pos": "adv",
+      "meaning": "no; not",
+      "sentence": "No ho sé.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "amb",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Visc amb la meva família.",
+      "translation": "I live ⟦with⟧ my family."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "fer",
+      "pos": "verb",
+      "meaning": "to do; to make",
+      "sentence": "Què fas avui?",
+      "translation": "What are you ⟦doing⟧ today?",
+      "form": "fas"
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "seu",
+      "pos": "pron",
+      "meaning": "his, her, its, their; your (formal) (seu, seva, seus, seves)",
+      "sentence": "El seu germà és metge.",
+      "translation": "⟦Her⟧ brother is a doctor."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "aquest",
+      "pos": "pron",
+      "meaning": "this (aquest, aquesta, aquests, aquestes)",
+      "sentence": "Aquest llibre és molt interessant.",
+      "translation": "⟦This⟧ book is very interesting."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "com",
+      "pos": "adv",
+      "meaning": "how; like, as",
+      "sentence": "Com estàs?",
+      "translation": "⟦How⟧ are you?"
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "més",
+      "pos": "adv",
+      "meaning": "more; most",
+      "sentence": "Vols més cafè?",
+      "translation": "Do you want ⟦more⟧ coffee?"
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "tot",
+      "pos": "pron",
+      "meaning": "all; everything (tot, tota, tots, totes)",
+      "sentence": "Tot va bé.",
+      "translation": "⟦Everything⟧ is fine."
+    }
+  ]
+}
