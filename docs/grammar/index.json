@@ -30,6 +30,20 @@
    ],
    "bytes": 413527,
    "sha256": "2c550d3f6b5578fbd7085ebd9f3109a0644fce64d2ae3826c0f857889e2cb770"
+  },
+  "th-en": {
+   "file": "th-en/course.json",
+   "from": "th",
+   "to": "en",
+   "title": "ไวยากรณ์ภาษาอังกฤษ",
+   "variety": "ภาษาอังกฤษแบบอเมริกัน",
+   "units": 8,
+   "lessons": 7,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 50062,
+   "sha256": "7c58f47b1e140622f1490119290960d3a49cae588d8dd5039f23e307d2b3a509"
   }
  }
 }
