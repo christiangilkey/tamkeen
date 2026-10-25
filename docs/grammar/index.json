@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-de": {
+   "file": "en-de/course.json",
+   "from": "en",
+   "to": "de",
+   "title": "German grammar",
+   "variety": "Standard German (Germany)",
+   "units": 9,
+   "lessons": 4,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 21543,
+   "sha256": "18f6632355f7bcdb3f0ab4a2f6454c20a7cb85f7f6d167901744c69f5908abe4"
   }
  }
 }
