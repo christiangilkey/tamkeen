@@ -2703,6 +2703,906 @@
       "meaning": "(ká) (polite word at the end of a question, said by women)",
       "sentence": "ไปไหนมาคะ",
       "translation": "Where have you been ⟦(polite)⟧?"
+    },
+    {
+      "n": 301,
+      "rank": 305,
+      "word": "วิธี",
+      "pos": "noun",
+      "meaning": "(wí-tii) way, method, how (to)",
+      "sentence": "สอนวิธีทำหน่อยได้ไหม",
+      "translation": "Can you teach me ⟦how⟧ to do it?"
+    },
+    {
+      "n": 302,
+      "rank": 306,
+      "word": "ตำแหน่ง",
+      "pos": "noun",
+      "meaning": "(dtam-nɛ̀ng) position, post; location",
+      "sentence": "เขาได้ตำแหน่งผู้จัดการ",
+      "translation": "He got the ⟦position⟧ of manager."
+    },
+    {
+      "n": 303,
+      "rank": 307,
+      "word": "ทำไม",
+      "pos": "pron",
+      "meaning": "(tam-mai) why",
+      "sentence": "ทำไมคุณมาสาย",
+      "translation": "⟦Why⟧ are you late?"
+    },
+    {
+      "n": 304,
+      "rank": 308,
+      "word": "ประจำ",
+      "pos": "adj",
+      "meaning": "(bprà-jam) regular, usual; every (day, month)",
+      "sentence": "ฉันเป็นลูกค้าประจำร้านนี้",
+      "translation": "I'm a ⟦regular⟧ customer at this shop."
+    },
+    {
+      "n": 305,
+      "rank": 309,
+      "word": "พยายาม",
+      "pos": "verb",
+      "meaning": "(pá-yaa-yaam) to try",
+      "sentence": "ฉันจะพยายามมาให้ทัน",
+      "translation": "I'll ⟦try⟧ to make it in time."
+    },
+    {
+      "n": 306,
+      "rank": 310,
+      "word": "เนื่องจาก",
+      "pos": "conj",
+      "meaning": "(nʉ̂ʉang-jàak) because of, due to (formal)",
+      "sentence": "เนื่องจากฝนตก งานจึงเลื่อน",
+      "translation": "⟦Because of⟧ the rain, the event was put off."
+    },
+    {
+      "n": 307,
+      "rank": 311,
+      "word": "โอกาส",
+      "pos": "noun",
+      "meaning": "(oo-gàat) chance, opportunity",
+      "sentence": "ขอบคุณที่ให้โอกาสฉัน",
+      "translation": "Thank you for giving me a ⟦chance⟧."
+    },
+    {
+      "n": 308,
+      "rank": 312,
+      "word": "แม้",
+      "pos": "conj",
+      "meaning": "(mɛ́ɛ) even though, although; even",
+      "sentence": "แม้จะเหนื่อย เขาก็ยังทำงาน",
+      "translation": "⟦Even though⟧ he's tired, he keeps working."
+    },
+    {
+      "n": 309,
+      "rank": 313,
+      "word": "สมัย",
+      "pos": "noun",
+      "meaning": "(sà-mǎi) era, period, time",
+      "sentence": "สมัยก่อนไม่มีมือถือ",
+      "translation": "In the old ⟦days⟧ there were no mobile phones."
+    },
+    {
+      "n": 310,
+      "rank": 314,
+      "word": "อย่า",
+      "pos": "adv",
+      "meaning": "(yàa) don't",
+      "sentence": "อย่าเสียงดังในห้องสมุด",
+      "translation": "⟦Don't⟧ make noise in the library."
+    },
+    {
+      "n": 311,
+      "rank": 315,
+      "word": "สัมพันธ์",
+      "pos": "verb",
+      "meaning": "(sǎm-pan) to be related, to be connected; relation",
+      "sentence": "สองเรื่องนี้สัมพันธ์กัน",
+      "translation": "These two things are ⟦related⟧."
+    },
+    {
+      "n": 312,
+      "rank": 316,
+      "word": "ประเภท",
+      "pos": "noun",
+      "meaning": "(bprà-pêet) type, kind, category",
+      "sentence": "คุณชอบหนังประเภทไหน",
+      "translation": "What ⟦kind⟧ of films do you like?"
+    },
+    {
+      "n": 313,
+      "rank": 317,
+      "word": "เหตุ",
+      "pos": "noun",
+      "meaning": "(hèet) incident; cause, reason",
+      "sentence": "ตำรวจมาถึงที่เกิดเหตุ",
+      "translation": "The police got to where the ⟦incident⟧ happened."
+    },
+    {
+      "n": 314,
+      "rank": 318,
+      "word": "ตอบ",
+      "pos": "verb",
+      "meaning": "(dtɔ̀ɔp) to answer, to reply",
+      "sentence": "เขายังไม่ตอบข้อความฉัน",
+      "translation": "He still hasn't ⟦answered⟧ my message."
+    },
+    {
+      "n": 315,
+      "rank": 319,
+      "word": "วัฒนธรรม",
+      "pos": "noun",
+      "meaning": "(wát-tá-ná-tam) culture",
+      "sentence": "ฉันสนใจวัฒนธรรมไทย",
+      "translation": "I'm interested in Thai ⟦culture⟧."
+    },
+    {
+      "n": 316,
+      "rank": 320,
+      "word": "ตนเอง",
+      "pos": "pron",
+      "meaning": "(dton-eeng) oneself (formal: myself, yourself…)",
+      "sentence": "เราต้องเชื่อมั่นในตนเอง",
+      "translation": "We must believe in ⟦ourselves⟧."
+    },
+    {
+      "n": 317,
+      "rank": 321,
+      "word": "นั่น",
+      "pos": "pron",
+      "meaning": "(nân) that (on its own: that one, there)",
+      "sentence": "นั่นบ้านของฉัน",
+      "translation": "⟦That⟧'s my house."
+    },
+    {
+      "n": 318,
+      "rank": 322,
+      "word": "สัก",
+      "pos": "adv",
+      "meaning": "(sàk) just, about (a small amount); at least one",
+      "sentence": "รอสักครู่นะคะ",
+      "translation": "Wait ⟦just⟧ a moment, please."
+    },
+    {
+      "n": 319,
+      "rank": 323,
+      "word": "สินค้า",
+      "pos": "noun",
+      "meaning": "(sǐn-káa) goods, products",
+      "sentence": "ร้านนี้มีสินค้าเยอะมาก",
+      "translation": "This shop has lots of ⟦products⟧."
+    },
+    {
+      "n": 320,
+      "rank": 324,
+      "word": "เดิม",
+      "pos": "adj",
+      "meaning": "(dəəm) original, former; the same (as before)",
+      "sentence": "เขายังอยู่ที่เดิม",
+      "translation": "He still lives in the ⟦same⟧ place."
+    },
+    {
+      "n": 321,
+      "rank": 325,
+      "word": "จำเป็น",
+      "pos": "adj",
+      "meaning": "(jam-bpen) necessary; to need to",
+      "sentence": "ไม่จำเป็นต้องจองล่วงหน้า",
+      "translation": "It isn't ⟦necessary⟧ to book in advance."
+    },
+    {
+      "n": 322,
+      "rank": 326,
+      "word": "เปลี่ยนแปลง",
+      "pos": "verb",
+      "meaning": "(bplìian-bplɛɛng) to change (over time)",
+      "sentence": "เมืองนี้เปลี่ยนแปลงไปมาก",
+      "translation": "This town has ⟦changed⟧ a lot."
+    },
+    {
+      "n": 323,
+      "rank": 327,
+      "word": "ถือ",
+      "pos": "verb",
+      "meaning": "(tʉ̌ʉ) to hold, to carry (in the hand)",
+      "sentence": "ช่วยถือกระเป๋าให้หน่อย",
+      "translation": "Could you ⟦hold⟧ my bag for me?"
+    },
+    {
+      "n": 324,
+      "rank": 328,
+      "word": "เล่า",
+      "pos": "verb",
+      "meaning": "(lâo) to tell (a story, what happened)",
+      "sentence": "เล่าให้ฟังหน่อยสิ",
+      "translation": "⟦Tell⟧ me about it!"
+    },
+    {
+      "n": 325,
+      "rank": 329,
+      "word": "ประกอบ",
+      "pos": "verb",
+      "meaning": "(bprà-gɔ̀ɔp) to assemble, to put together; to make up",
+      "sentence": "พ่อประกอบโต๊ะเองได้",
+      "translation": "Dad can ⟦assemble⟧ the table himself."
+    },
+    {
+      "n": 326,
+      "rank": 330,
+      "word": "ชนิด",
+      "pos": "noun",
+      "meaning": "(chá-nít) kind, type, species",
+      "sentence": "ผลไม้ชนิดนี้หวานมาก",
+      "translation": "This ⟦kind⟧ of fruit is very sweet."
+    },
+    {
+      "n": 327,
+      "rank": 331,
+      "word": "กระทรวง",
+      "pos": "noun",
+      "meaning": "(grà-suuang) ministry",
+      "sentence": "พ่อทำงานที่กระทรวงศึกษาธิการ",
+      "translation": "Dad works at the ⟦Ministry⟧ of Education."
+    },
+    {
+      "n": 328,
+      "rank": 332,
+      "word": "ปรากฏ",
+      "pos": "verb",
+      "meaning": "(bpraa-gòt) to appear",
+      "sentence": "ชื่อของเขาปรากฏในข่าว",
+      "translation": "His name ⟦appeared⟧ in the news."
+    },
+    {
+      "n": 329,
+      "rank": 334,
+      "word": "ชาย",
+      "pos": "noun",
+      "meaning": "(chaai) man, male; edge, hem",
+      "sentence": "ห้องน้ำชายอยู่ทางขวา",
+      "translation": "The ⟦men's⟧ toilet is on the right."
+    },
+    {
+      "n": 330,
+      "rank": 335,
+      "word": "ดำเนินการ",
+      "pos": "verb",
+      "meaning": "(dam-nəən-gaan) to take action, to carry out (formal)",
+      "sentence": "เราจะดำเนินการทันที",
+      "translation": "We'll ⟦take action⟧ right away."
+    },
+    {
+      "n": 331,
+      "rank": 336,
+      "word": "รอบ",
+      "pos": "noun",
+      "meaning": "(rɔ̂ɔp) round; around; showing (of a film), lap",
+      "sentence": "หนังรอบต่อไปกี่โมง",
+      "translation": "What time is the next ⟦showing⟧ of the film?"
+    },
+    {
+      "n": 332,
+      "rank": 337,
+      "word": "บริษัท",
+      "pos": "noun",
+      "meaning": "(bɔɔ-rí-sàt) company",
+      "sentence": "ฉันทำงานบริษัทญี่ปุ่น",
+      "translation": "I work for a Japanese ⟦company⟧."
+    },
+    {
+      "n": 333,
+      "rank": 338,
+      "word": "จังหวัด",
+      "pos": "noun",
+      "meaning": "(jang-wàt) province",
+      "sentence": "คุณมาจากจังหวัดอะไร",
+      "translation": "Which ⟦province⟧ are you from?"
+    },
+    {
+      "n": 334,
+      "rank": 339,
+      "word": "ใบ",
+      "pos": "noun",
+      "meaning": "(bai) leaf; (classifier for bags, cups, tickets and other flat things)",
+      "sentence": "ใบไม้เปลี่ยนสี",
+      "translation": "The ⟦leaves⟧ are changing colour."
+    },
+    {
+      "n": 335,
+      "rank": 340,
+      "word": "นอน",
+      "pos": "verb",
+      "meaning": "(nɔɔn) to sleep; to lie down",
+      "sentence": "เมื่อคืนนอนไม่หลับ",
+      "translation": "I couldn't ⟦sleep⟧ last night."
+    },
+    {
+      "n": 336,
+      "rank": 341,
+      "word": "ทั้งหมด",
+      "pos": "pron",
+      "meaning": "(táng-mòt) all, everything; in total",
+      "sentence": "ทั้งหมดเท่าไรคะ",
+      "translation": "How much is it ⟦altogether⟧?"
+    },
+    {
+      "n": 337,
+      "rank": 342,
+      "word": "เกิน",
+      "pos": "verb",
+      "meaning": "(gəən) to be over, to exceed; too (much)",
+      "sentence": "กระเป๋าหนักเกินยี่สิบกิโล",
+      "translation": "The bag weighs ⟦over⟧ twenty kilos."
+    },
+    {
+      "n": 338,
+      "rank": 343,
+      "word": "สุข",
+      "pos": "noun",
+      "meaning": "(sùk) happiness; happy",
+      "sentence": "ขอให้อยู่ดีมีสุขนะ",
+      "translation": "May you be well and ⟦happy⟧."
+    },
+    {
+      "n": 339,
+      "rank": 344,
+      "word": "รู้จัก",
+      "pos": "verb",
+      "meaning": "(rúu-jàk) to know (a person, a place), to be familiar with",
+      "sentence": "คุณรู้จักเขาไหม",
+      "translation": "Do you ⟦know⟧ him?"
+    },
+    {
+      "n": 340,
+      "rank": 345,
+      "word": "ครู",
+      "pos": "noun",
+      "meaning": "(kruu) teacher",
+      "sentence": "ครูของฉันใจดีมาก",
+      "translation": "My ⟦teacher⟧ is really kind."
+    },
+    {
+      "n": 341,
+      "rank": 346,
+      "word": "โดยเฉพาะ",
+      "pos": "adv",
+      "meaning": "(dooi-chà-pɔ́) especially, in particular",
+      "sentence": "ฉันชอบผลไม้ โดยเฉพาะทุเรียน",
+      "translation": "I like fruit, ⟦especially⟧ durian."
+    },
+    {
+      "n": 342,
+      "rank": 347,
+      "word": "ดังนั้น",
+      "pos": "conj",
+      "meaning": "(dang-nán) so, therefore",
+      "sentence": "เขาป่วย ดังนั้นจึงไม่มาทำงาน",
+      "translation": "He's ill, ⟦so⟧ he didn't come to work."
+    },
+    {
+      "n": 343,
+      "rank": 348,
+      "word": "ร้าน",
+      "pos": "noun",
+      "meaning": "(ráan) shop, restaurant",
+      "sentence": "ร้านนี้เปิดกี่โมง",
+      "translation": "What time does this ⟦shop⟧ open?"
+    },
+    {
+      "n": 344,
+      "rank": 349,
+      "word": "บริการ",
+      "pos": "noun",
+      "meaning": "(bɔɔ-rí-gaan) service; to serve",
+      "sentence": "บริการที่นี่ดีมาก",
+      "translation": "The ⟦service⟧ here is very good."
+    },
+    {
+      "n": 345,
+      "rank": 350,
+      "word": "ทราบ",
+      "pos": "verb",
+      "meaning": "(sâap) to know (polite, formal)",
+      "sentence": "ไม่ทราบว่าคุณชื่ออะไรคะ",
+      "translation": "May I ⟦know⟧ your name?"
+    },
+    {
+      "n": 346,
+      "rank": 351,
+      "word": "ประมาณ",
+      "pos": "adv",
+      "meaning": "(bprà-maan) about, around, roughly",
+      "sentence": "ใช้เวลาประมาณสิบนาที",
+      "translation": "It takes ⟦about⟧ ten minutes."
+    },
+    {
+      "n": 347,
+      "rank": 352,
+      "word": "จุด",
+      "pos": "noun",
+      "meaning": "(jùt) point, spot, dot; to light (a fire, a candle)",
+      "sentence": "จุดนี้วิวสวยที่สุด",
+      "translation": "This ⟦spot⟧ has the best view."
+    },
+    {
+      "n": 348,
+      "rank": 353,
+      "word": "ง่าย",
+      "pos": "adj",
+      "meaning": "(ngâai) easy",
+      "sentence": "ข้อสอบวันนี้ง่ายมาก",
+      "translation": "Today's exam was really ⟦easy⟧."
+    },
+    {
+      "n": 349,
+      "rank": 354,
+      "word": "โครงการ",
+      "pos": "noun",
+      "meaning": "(kroong-gaan) project, scheme",
+      "sentence": "โครงการนี้ใช้เวลาสองปี",
+      "translation": "This ⟦project⟧ takes two years."
+    },
+    {
+      "n": 350,
+      "rank": 355,
+      "word": "ตัวอย่าง",
+      "pos": "noun",
+      "meaning": "(dtuua-yàang) example; sample",
+      "sentence": "ช่วยยกตัวอย่างหน่อย",
+      "translation": "Could you give an ⟦example⟧?"
+    },
+    {
+      "n": 351,
+      "rank": 356,
+      "word": "ข้าง",
+      "pos": "noun",
+      "meaning": "(kâang) side; beside, next to",
+      "sentence": "ร้านกาแฟอยู่ข้างธนาคาร",
+      "translation": "The coffee shop is ⟦next to⟧ the bank."
+    },
+    {
+      "n": 352,
+      "rank": 357,
+      "word": "ภาค",
+      "pos": "noun",
+      "meaning": "(pâak) region; part; (school) term",
+      "sentence": "ภาคเหนือมีอากาศเย็น",
+      "translation": "The northern ⟦region⟧ has cool weather."
+    },
+    {
+      "n": 353,
+      "rank": 359,
+      "word": "คืน",
+      "pos": "noun",
+      "meaning": "(kʉʉn) night; to give back, to return",
+      "sentence": "ฉันนอนที่โรงแรมสองคืน",
+      "translation": "I stayed at the hotel for two ⟦nights⟧."
+    },
+    {
+      "n": 354,
+      "rank": 360,
+      "word": "หรอก",
+      "pos": "part",
+      "meaning": "(rɔ̀k) (softens a \"no\": really, honestly)",
+      "sentence": "ไม่แพงหรอก",
+      "translation": "It isn't expensive⟦, honestly⟧."
+    },
+    {
+      "n": 355,
+      "rank": 361,
+      "word": "โรค",
+      "pos": "noun",
+      "meaning": "(rôok) disease, illness",
+      "sentence": "โรคนี้ติดต่อได้",
+      "translation": "This ⟦disease⟧ is contagious."
+    },
+    {
+      "n": 356,
+      "rank": 362,
+      "word": "อาการ",
+      "pos": "noun",
+      "meaning": "(aa-gaan) symptom; condition",
+      "sentence": "มีอาการอะไรบ้างคะ",
+      "translation": "What ⟦symptoms⟧ do you have?"
+    },
+    {
+      "n": 357,
+      "rank": 363,
+      "word": "อายุ",
+      "pos": "noun",
+      "meaning": "(aa-yú) age",
+      "sentence": "คุณอายุเท่าไร",
+      "translation": "How ⟦old⟧ are you?"
+    },
+    {
+      "n": 358,
+      "rank": 364,
+      "word": "เหล่านี้",
+      "pos": "pron",
+      "meaning": "(lào-níi) these (formal)",
+      "sentence": "ปัญหาเหล่านี้แก้ได้",
+      "translation": "⟦These⟧ problems can be solved."
+    },
+    {
+      "n": 359,
+      "rank": 365,
+      "word": "พา",
+      "pos": "verb",
+      "meaning": "(paa) to take, to bring (someone somewhere)",
+      "sentence": "พ่อพาฉันไปเที่ยวทะเล",
+      "translation": "Dad ⟦took⟧ me to the beach."
+    },
+    {
+      "n": 360,
+      "rank": 366,
+      "word": "แก",
+      "pos": "pron",
+      "meaning": "(gɛɛ) you (very informal, between close friends); he, she (an older person)",
+      "sentence": "แกจะไปไหน",
+      "translation": "Where are ⟦you⟧ off to?"
+    },
+    {
+      "n": 361,
+      "rank": 367,
+      "word": "แตกต่าง",
+      "pos": "verb",
+      "meaning": "(dtɛ̀ɛk-dtàang) to be different, to differ",
+      "sentence": "สองภาษานี้แตกต่างกันมาก",
+      "translation": "These two languages are very ⟦different⟧."
+    },
+    {
+      "n": 362,
+      "rank": 368,
+      "word": "วิธีการ",
+      "pos": "noun",
+      "meaning": "(wí-tii-gaan) method, way",
+      "sentence": "วิธีการสอนของครูดีมาก",
+      "translation": "The teacher's teaching ⟦method⟧ is very good."
+    },
+    {
+      "n": 363,
+      "rank": 369,
+      "word": "น้อง",
+      "pos": "noun",
+      "meaning": "(nɔ́ɔng) younger brother or sister; (friendly word for someone younger)",
+      "sentence": "น้องชายฉันชอบเล่นเกม",
+      "translation": "My ⟦younger⟧ brother likes playing games."
+    },
+    {
+      "n": 364,
+      "rank": 370,
+      "word": "หมอ",
+      "pos": "noun",
+      "meaning": "(mɔ̌ɔ) doctor",
+      "sentence": "คุณควรไปหาหมอ",
+      "translation": "You should go and see a ⟦doctor⟧."
+    },
+    {
+      "n": 365,
+      "rank": 371,
+      "word": "ความรู้สึก",
+      "pos": "noun",
+      "meaning": "(kwaam-rúu-sʉ̀k) feeling",
+      "sentence": "อย่าทำร้ายความรู้สึกเขา",
+      "translation": "Don't hurt his ⟦feelings⟧."
+    },
+    {
+      "n": 366,
+      "rank": 372,
+      "word": "แทน",
+      "pos": "adv",
+      "meaning": "(tɛɛn) instead (of); to replace, to stand in for",
+      "sentence": "ฉันดื่มชาแทนกาแฟ",
+      "translation": "I drink tea ⟦instead of⟧ coffee."
+    },
+    {
+      "n": 367,
+      "rank": 373,
+      "word": "ที่อยู่",
+      "pos": "noun",
+      "meaning": "(tîi-yùu) address",
+      "sentence": "ขอที่อยู่ของคุณได้ไหม",
+      "translation": "Could I have your ⟦address⟧?"
+    },
+    {
+      "n": 368,
+      "rank": 374,
+      "word": "เชื่อ",
+      "pos": "verb",
+      "meaning": "(chʉ̂ʉa) to believe",
+      "sentence": "ฉันไม่เชื่อเขา",
+      "translation": "I don't ⟦believe⟧ him."
+    },
+    {
+      "n": 369,
+      "rank": 375,
+      "word": "ล้าน",
+      "pos": "num",
+      "meaning": "(láan) million",
+      "sentence": "บ้านหลังนี้ราคาสามล้านบาท",
+      "translation": "This house costs three ⟦million⟧ baht."
+    },
+    {
+      "n": 370,
+      "rank": 376,
+      "word": "ยาว",
+      "pos": "adj",
+      "meaning": "(yaao) long",
+      "sentence": "ผมของเธอยาวมาก",
+      "translation": "Her hair is really ⟦long⟧."
+    },
+    {
+      "n": 371,
+      "rank": 377,
+      "word": "ราชการ",
+      "pos": "noun",
+      "meaning": "(râat-chá-gaan) government service, the civil service",
+      "sentence": "พ่อของฉันรับราชการ",
+      "translation": "My dad works in the ⟦civil service⟧."
+    },
+    {
+      "n": 372,
+      "rank": 378,
+      "word": "ครอบครัว",
+      "pos": "noun",
+      "meaning": "(krɔ̂ɔp-kruua) family",
+      "sentence": "ครอบครัวฉันมีห้าคน",
+      "translation": "There are five people in my ⟦family⟧."
+    },
+    {
+      "n": 373,
+      "rank": 379,
+      "word": "ไหม",
+      "pos": "part",
+      "meaning": "(mǎi) (at the end: makes a yes/no question)",
+      "sentence": "คุณชอบอาหารเผ็ดไหม",
+      "translation": "⟦Do⟧ you like spicy food?"
+    },
+    {
+      "n": 374,
+      "rank": 380,
+      "word": "เดินทาง",
+      "pos": "verb",
+      "meaning": "(dəən-taang) to travel, to make a journey",
+      "sentence": "ขอให้เดินทางปลอดภัย",
+      "translation": "Have a safe ⟦journey⟧."
+    },
+    {
+      "n": 375,
+      "rank": 381,
+      "word": "นา",
+      "pos": "noun",
+      "meaning": "(naa) rice field, paddy",
+      "sentence": "ชาวนากำลังปลูกข้าวในนา",
+      "translation": "The farmers are planting rice in the ⟦paddy fields⟧."
+    },
+    {
+      "n": 376,
+      "rank": 382,
+      "word": "โรงเรียน",
+      "pos": "noun",
+      "meaning": "(roong-riian) school",
+      "sentence": "ลูกไปโรงเรียนกี่โมง",
+      "translation": "What time does your child go to ⟦school⟧?"
+    },
+    {
+      "n": 377,
+      "rank": 383,
+      "word": "คณะ",
+      "pos": "noun",
+      "meaning": "(ká-ná) faculty (of a university); group, party",
+      "sentence": "เธอเรียนคณะอะไร",
+      "translation": "Which ⟦faculty⟧ are you studying in?"
+    },
+    {
+      "n": 378,
+      "rank": 384,
+      "word": "สภา",
+      "pos": "noun",
+      "meaning": "(sà-paa) council, parliament",
+      "sentence": "สภาผ่านกฎหมายใหม่",
+      "translation": "⟦Parliament⟧ passed a new law."
+    },
+    {
+      "n": 379,
+      "rank": 385,
+      "word": "สภาพ",
+      "pos": "noun",
+      "meaning": "(sà-pâap) condition, state",
+      "sentence": "รถคันนี้สภาพยังดีอยู่",
+      "translation": "This car is still in good ⟦condition⟧."
+    },
+    {
+      "n": 380,
+      "rank": 386,
+      "word": "ที",
+      "pos": "noun",
+      "meaning": "(tii) time, turn; (ทีละ) one at a time",
+      "sentence": "เข้ามาทีละคนนะ",
+      "translation": "Come in one ⟦at a time⟧, please."
+    },
+    {
+      "n": 381,
+      "rank": 387,
+      "word": "พรรค",
+      "pos": "noun",
+      "meaning": "(pák) (political) party",
+      "sentence": "พรรคนี้ชนะการเลือกตั้ง",
+      "translation": "This ⟦party⟧ won the election."
+    },
+    {
+      "n": 382,
+      "rank": 388,
+      "word": "วัด",
+      "pos": "noun",
+      "meaning": "(wát) temple; to measure",
+      "sentence": "พรุ่งนี้เราจะไปทำบุญที่วัด",
+      "translation": "Tomorrow we're going to make merit at the ⟦temple⟧."
+    },
+    {
+      "n": 383,
+      "rank": 389,
+      "word": "ประกาศ",
+      "pos": "verb",
+      "meaning": "(bprà-gàat) to announce; an announcement",
+      "sentence": "โรงเรียนประกาศปิดสามวัน",
+      "translation": "The school ⟦announced⟧ it would close for three days."
+    },
+    {
+      "n": 384,
+      "rank": 390,
+      "word": "นาง",
+      "pos": "noun",
+      "meaning": "(naang) Mrs (before a woman's name); woman (in stories)",
+      "sentence": "นางสมศรีเป็นแม่ค้า",
+      "translation": "⟦Mrs⟧ Somsri is a market trader."
+    },
+    {
+      "n": 385,
+      "rank": 391,
+      "word": "หัว",
+      "pos": "noun",
+      "meaning": "(hǔua) head",
+      "sentence": "ฉันปวดหัวมาก",
+      "translation": "My ⟦head⟧ really hurts."
+    },
+    {
+      "n": 386,
+      "rank": 392,
+      "word": "กลาง",
+      "pos": "noun",
+      "meaning": "(glaang) middle, centre",
+      "sentence": "ร้านอยู่กลางเมือง",
+      "translation": "The shop is in the ⟦middle⟧ of town."
+    },
+    {
+      "n": 387,
+      "rank": 393,
+      "word": "แรง",
+      "pos": "adj",
+      "meaning": "(rɛɛng) strong; strength, force",
+      "sentence": "ลมแรงมากวันนี้",
+      "translation": "The wind is really ⟦strong⟧ today."
+    },
+    {
+      "n": 388,
+      "rank": 394,
+      "word": "คู่",
+      "pos": "noun",
+      "meaning": "(kûu) pair, couple",
+      "sentence": "รองเท้าคู่นี้ราคาเท่าไร",
+      "translation": "How much is this ⟦pair⟧ of shoes?"
+    },
+    {
+      "n": 389,
+      "rank": 395,
+      "word": "ตลาด",
+      "pos": "noun",
+      "meaning": "(dtà-làat) market",
+      "sentence": "แม่ไปตลาดทุกเช้า",
+      "translation": "Mum goes to the ⟦market⟧ every morning."
+    },
+    {
+      "n": 390,
+      "rank": 396,
+      "word": "กลายเป็น",
+      "pos": "verb",
+      "meaning": "(glaai-bpen) to become, to turn into",
+      "sentence": "น้ำกลายเป็นน้ำแข็ง",
+      "translation": "The water ⟦turned into⟧ ice."
+    },
+    {
+      "n": 391,
+      "rank": 397,
+      "word": "จับ",
+      "pos": "verb",
+      "meaning": "(jàp) to catch, to grab, to hold",
+      "sentence": "ตำรวจจับขโมยได้แล้ว",
+      "translation": "The police have ⟦caught⟧ the thief."
+    },
+    {
+      "n": 392,
+      "rank": 398,
+      "word": "วิจัย",
+      "pos": "noun",
+      "meaning": "(wí-jai) research; to research",
+      "sentence": "เขากำลังทำวิจัยเรื่องข้าว",
+      "translation": "He's doing ⟦research⟧ on rice."
+    },
+    {
+      "n": 393,
+      "rank": 399,
+      "word": "แนว",
+      "pos": "noun",
+      "meaning": "(nɛɛo) style, kind, genre; line, row",
+      "sentence": "ฉันชอบเพลงแนวนี้",
+      "translation": "I like this ⟦kind⟧ of music."
+    },
+    {
+      "n": 394,
+      "rank": 400,
+      "word": "ข้าว",
+      "pos": "noun",
+      "meaning": "(kâao) rice; meal, food",
+      "sentence": "ฉันกินข้าวเหนียวกับไก่ย่าง",
+      "translation": "I'm having sticky ⟦rice⟧ with grilled chicken."
+    },
+    {
+      "n": 395,
+      "rank": 401,
+      "word": "หัน",
+      "pos": "verb",
+      "meaning": "(hǎn) to turn (to face)",
+      "sentence": "หันมาทางนี้หน่อย",
+      "translation": "⟦Turn⟧ this way a bit."
+    },
+    {
+      "n": 396,
+      "rank": 402,
+      "word": "ไม่ว่า",
+      "pos": "conj",
+      "meaning": "(mâi-wâa) no matter (what, who, whether)",
+      "sentence": "ไม่ว่าฝนจะตก ฉันก็จะไป",
+      "translation": "⟦No matter⟧ if it rains, I'm still going."
+    },
+    {
+      "n": 397,
+      "rank": 403,
+      "word": "เฉพาะ",
+      "pos": "adj",
+      "meaning": "(chà-pɔ́) only, just (for); specific, particular",
+      "sentence": "ที่จอดรถนี้เฉพาะพนักงาน",
+      "translation": "This car park is for staff ⟦only⟧."
+    },
+    {
+      "n": 398,
+      "rank": 404,
+      "word": "ยก",
+      "pos": "verb",
+      "meaning": "(yók) to lift, to raise",
+      "sentence": "ช่วยยกกล่องนี้หน่อย",
+      "translation": "Can you help me ⟦lift⟧ this box?"
+    },
+    {
+      "n": 399,
+      "rank": 405,
+      "word": "อาศัย",
+      "pos": "verb",
+      "meaning": "(aa-sǎi) to live (somewhere); to rely on",
+      "sentence": "ช้างอาศัยอยู่ในป่า",
+      "translation": "Elephants ⟦live⟧ in the forest."
+    },
+    {
+      "n": 400,
+      "rank": 406,
+      "word": "ย่อม",
+      "pos": "adv",
+      "meaning": "(yɔ̂m) naturally, surely, bound to",
+      "sentence": "คนทำดีย่อมได้ดี",
+      "translation": "Those who do good will ⟦surely⟧ be rewarded."
     }
   ]
 }
