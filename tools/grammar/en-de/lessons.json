@@ -208,6 +208,193 @@
         {"type":"say","q":"Ask two friends: “Are you from Spain?”","answer":"Kommt ihr aus Spanien?","from":"talk-about-other-people"},
         {"type":"free","q":"Your turn: someone asks you {{Wohnst du hier?}} Answer, then ask them a yes-or-no question back.","answers":[{"t":"Nein, ich wohne nicht hier. Wohnst du hier?","tr":"No, I don't live here. Do you live here?"},{"t":"Ja, ich wohne hier. Und du, kommst du aus Berlin?","tr":"Yes, I live here. And you, are you from Berlin?"}]}
       ]
+    },
+    {
+      "id": "name-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Name things around you",
+      "summary": "Point at things and name them: “The station is over there.” Every German noun is der, die or das.",
+      "topic": "Nouns and their capital letter; {{der, die, das}} “the”; {{er, sie, es}} for “it”",
+      "blocks": [
+        {"goal":{"t":"Der Bahnhof ist da drüben.","tr":"The station is over there."}},
+        {"dialog":[{"who":"Tourist","t":"Entschuldigung, wo ist der Bahnhof?","tr":"Excuse me, where's the station?"},{"who":"Woman","t":"Der Bahnhof? Er ist da drüben.","tr":"The station? It's over there."},{"who":"Tourist","t":"Und die Post?","tr":"And the post office?"},{"who":"Woman","t":"Die Post ist hier gleich links.","tr":"The post office is right here on the left."},{"who":"Tourist","t":"Danke! Ist das Hotel Adler weit?","tr":"Thanks! Is the Hotel Adler far?"},{"who":"Woman","t":"Nein, es ist nicht weit.","tr":"No, it's not far."}]},
+        {"term":"noun","means":"a word for a person, an animal, a thing or an idea: man, dog, station, love."},
+        {"p":"**Capital letters.** In German, every noun starts with a capital letter, wherever it is in the sentence: {{der Bahnhof}}, {{die Post}}, {{das Hotel}}. That makes them easy to spot."},
+        {"term":"article","means":"a little word in front of a noun, like “the” or “a”."},
+        {"term":"gender","means":"the group a noun belongs to. German nouns are masculine, feminine or neuter, and the group decides which “the” they take."},
+        {"p":"**der, die, das.** English has one “the”; German has three, one for each gender: {{der}} (masculine), {{die}} (feminine) and {{das}} (neuter). The gender belongs to the word, not to the thing: a table is masculine, a lamp feminine, a book neuter. For people, it usually matches: {{der Mann}} “the man”, {{die Frau}} “the woman”."},
+        { "table": [
+          ["gender","the","examples"],
+          ["masculine","{{der}}","{{der Mann}}, {{der Tisch}}, {{der Bahnhof}}"],
+          ["feminine","{{die}}","{{die Frau}}, {{die Lampe}}, {{die Straße}}"],
+          ["neuter","{{das}}","{{das Kind}}, {{das Buch}}, {{das Hotel}}"]
+        ] },
+        {"p":"**So learn every noun with its der, die or das**, as one word: not just {{Tisch}}, but {{der Tisch}}. A few hints help: nouns ending in {{-e}} are mostly {{die}} ({{die Lampe}}, {{die Straße}}); nouns ending in {{-ung}}, {{-heit}} or {{-keit}} are always {{die}}; nouns ending in {{-chen}} are always {{das}} ({{das Mädchen}} “the girl”)."},
+        {"p":"**“It” is er, sie or es.** For “it”, German uses the pronoun that matches the noun's gender: {{der Bahnhof}} → {{er}}, {{die Post}} → {{sie}}, {{das Hotel}} → {{es}}. So {{Er ist da drüben.}} can mean “It's over there” (the station)."},
+        { "ex": [
+          {"t":"Die Straße ist sehr lang.","tr":"The street is very long."},
+          {"t":"Das Wasser ist kalt.","tr":"The water is cold."},
+          {"t":"Wo ist der Schlüssel? – Er ist hier.","tr":"Where's the key? – It's here."},
+          {"t":"Die Tür ist offen.","tr":"The door is open."},
+          {"t":"Das Mädchen heißt Emma.","tr":"The girl's name is Emma."},
+          {"t":"Wie ist die Pizza? – Sie ist super!","tr":"How's the pizza? – It's great!"}
+        ] },
+        {"tip":"The basics course shows every noun with its {{der}}, {{die}} or {{das}}. Learn them together from the start, and say them aloud together: {{der Tisch, die Tür, das Buch}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Der Tisch ist neu. Es ist schön.","right":"Der Tisch ist neu. Er ist schön.","tr":"The table is new. It's nice.","why":"{{der Tisch}} is masculine, so “it” is {{er}}."},
+        {"wrong":"Wo ist der bahnhof?","right":"Wo ist der Bahnhof?","tr":"Where's the station?","why":"Nouns always start with a capital letter."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{die Lampe}}, {{die Straße}}, {{die Tasche}}: nouns ending in {{-e}} are mostly…","options":["feminine ({{die}})","masculine ({{der}})","neuter ({{das}})"],"answer":0,"why":"Most nouns ending in {{-e}} are feminine (a few, like {{der Name}}, aren't)."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ Buch ist gut.","tr":"The book is good.","options":["Das","Der","Die"],"answer":0,"why":"{{das Buch}}: neuter."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wo ist der Bahnhof? – ___ ist da drüben.","tr":"Where's the station? – It's over there.","options":["Er","Sie","Es"],"answer":0,"why":"{{der Bahnhof}} is masculine, so “it” is {{er}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Is the hotel far?","words":["Ist","das Hotel","weit?"],"from":"ask-yes-no-questions"},
+        {"type":"dialogue","q":"At a hotel: talk to the receptionist.","lines":[{"who":"Receptionist","t":"Das Zimmer ist oben.","tr":"The room is upstairs."},{"options":["Danke! Ist es ruhig?","Danke! Ist er ruhig?"],"answer":0,"why":"{{das Zimmer}} is neuter, so “it” is {{es}}."},{"who":"Receptionist","t":"Ja, es ist sehr ruhig.","tr":"Yes, it's very quiet."}]},
+        {"type":"say","q":"Say: “The door is open.”","answer":"Die Tür ist offen."},
+        {"type":"free","q":"Your turn: look around you. Name three things and say something about each, with {{der}}, {{die}} or {{das}}.","answers":[{"t":"Der Tisch ist groß. Die Lampe ist neu. Das Fenster ist offen.","tr":"The table is big. The lamp is new. The window is open."},{"t":"Das Handy ist hier. Die Tasche ist da. Der Kaffee ist heiß.","tr":"The phone is here. The bag is there. The coffee is hot."}]}
+      ]
+    },
+    {
+      "id": "say-what-something-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask what something is",
+      "summary": "Ask “What's that?” and answer “That's a…” or “That's not a…, it's a…”.",
+      "topic": "{{ein, eine}} “a”; {{kein, keine}} “not a, no”; {{Was ist das?}}",
+      "blocks": [
+        {"goal":{"t":"Was ist das? – Das ist kein Hotel, das ist ein Krankenhaus.","tr":"What's that? – That's not a hotel, it's a hospital."}},
+        {"dialog":[{"who":"Tim","t":"Was ist das?","tr":"What's that?"},{"who":"Sara","t":"Das ist eine Brezel.","tr":"That's a pretzel."},{"who":"Tim","t":"Und das? Ist das ein Brötchen?","tr":"And that? Is that a roll?"},{"who":"Sara","t":"Nein, das ist kein Brötchen. Das ist ein Berliner.","tr":"No, that's not a roll. That's a Berliner, a jelly doughnut."},{"who":"Tim","t":"Lecker!","tr":"Yummy!"}]},
+        {"p":"**a: ein or eine.** “A” follows gender too, but it has only two forms here: {{ein}} for masculine and neuter nouns, {{eine}} for feminine ones."},
+        { "table": [
+          ["","the","a","not a, no"],
+          ["masculine","{{der Tisch}}","{{ein Tisch}}","{{kein Tisch}}"],
+          ["feminine","{{die Lampe}}","{{eine Lampe}}","{{keine Lampe}}"],
+          ["neuter","{{das Buch}}","{{ein Buch}}","{{kein Buch}}"]
+        ] },
+        {"p":"**kein** is {{k}} + {{ein}}: “not a” or “no”. German never says {{nicht ein}}: {{Das ist kein Hotel.}} “That's not a hotel.” {{kein}} also says “no, not any” in front of nouns that have no article at all: {{Ich habe keine Zeit.}} “I have no time.”"},
+        {"p":"**nicht or kein?** Use {{kein}} to say no to a noun that would have “a” or nothing in front of it ({{ein Auto}} → {{kein Auto}}; {{Zeit}} → {{keine Zeit}}). Use {{nicht}} for everything else: verbs, describing words, and nouns with “the” ({{Das ist nicht der Bus.}})."},
+        {"p":"**Das ist…** works for everything. This {{das}} means “this” or “that”, and it never changes with the gender: {{Das ist ein Tisch.}} {{Das ist eine Lampe.}}"},
+        { "ex": [
+          {"t":"Was ist das? – Das ist ein Kühlschrank.","tr":"What's that? – That's a fridge."},
+          {"t":"Ist das eine Apotheke?","tr":"Is that a pharmacy?"},
+          {"t":"Das ist kein Problem.","tr":"That's no problem."},
+          {"t":"Ich habe keine Zeit.","tr":"I don't have time."},
+          {"t":"Das ist nicht der Bus nach Köln.","tr":"That isn't the bus to Cologne."},
+          {"t":"Wer ist das? – Das ist Frau Lange, eine Kollegin.","tr":"Who's that? – That's Ms. Lange, a colleague."}
+        ] },
+        {"tip":"{{Kein Problem!}} “No problem!” is one of the most useful things you can say in German, and it's built just like the lesson."}
+      ],
+      "mistakes": [
+        {"wrong":"Das ist nicht ein Hotel.","right":"Das ist kein Hotel.","tr":"That's not a hotel.","why":"“Not a” is {{kein}}, never {{nicht ein}}."},
+        {"wrong":"Das ist ein Lampe.","right":"Das ist eine Lampe.","tr":"That's a lamp.","why":"{{die Lampe}} is feminine, so “a” is {{eine}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{die Tasche}} is “the bag”. “A bag” is…","options":["{{eine Tasche}}","{{ein Tasche}}","{{der Tasche}}"],"answer":0,"why":"Feminine: {{eine}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist ___ Problem.","tr":"That's no problem.","options":["kein","nicht","keine"],"answer":0,"why":"{{das Problem}} is neuter: {{kein}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist ___ der Bus nach Köln.","tr":"That isn't the bus to Cologne.","options":["nicht","kein","keine"],"answer":0,"why":"With {{der}}, it's {{nicht}}: {{kein}} only replaces “a” or no article."},
+        {"type":"dialogue","q":"At the bakery: point and ask.","lines":[{"who":"Baker","t":"Bitte schön?","tr":"What can I get you?"},{"options":["Was ist das?","Wer ist das?"],"answer":0,"why":"For a thing: {{was}}. {{wer}} asks about people."},{"who":"Baker","t":"Das ist ein Mohnbrötchen.","tr":"That's a poppy-seed roll."},{"options":["Und das? Ist das eine Brezel?","Und das? Ist eine Brezel das?"],"answer":0,"why":"A yes/no question: the verb first, then {{das}}, then the rest."},{"who":"Baker","t":"Ja, genau!","tr":"Yes, exactly!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Is that a pharmacy?","words":["Ist","das","eine","Apotheke?"],"from":"ask-yes-no-questions"},
+        {"type":"say","q":"Say: “Where's the key? – It's here.”","answer":"Wo ist der Schlüssel? – Er ist hier.","from":"name-things"},
+        {"type":"free","q":"Your turn: someone points and asks {{Ist das ein Hotel?}} Say no, and say what it really is.","answers":[{"t":"Nein, das ist kein Hotel. Das ist eine Schule.","tr":"No, that's not a hotel. It's a school."},{"t":"Nein, das ist kein Hotel, das ist ein Krankenhaus.","tr":"No, that's not a hotel, it's a hospital."}]}
+      ]
+    },
+    {
+      "id": "count-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Count things and ask the price",
+      "summary": "Count to a hundred, say “two coffees” or “three children”, and ask what things cost.",
+      "topic": "Plurals (and {{die}} for all of them); numbers; {{Was kostet…?}} and {{Was kosten…?}}",
+      "blocks": [
+        {"goal":{"t":"Was kosten die Äpfel? – Zwei Euro das Kilo.","tr":"How much are the apples? – Two euros a kilo."}},
+        {"dialog":[{"who":"Customer","t":"Guten Tag! Was kosten die Tomaten?","tr":"Hello! How much are the tomatoes?"},{"who":"Seller","t":"Drei Euro das Kilo.","tr":"Three euros a kilo."},{"who":"Customer","t":"Und was kostet die Melone?","tr":"And how much is the melon?"},{"who":"Seller","t":"Zwei Euro fünfzig.","tr":"Two fifty."},{"who":"Customer","t":"Gut, ein Kilo Tomaten und zwei Melonen, bitte.","tr":"OK, a kilo of tomatoes and two melons, please."},{"who":"Seller","t":"Das macht acht Euro.","tr":"That's eight euros."}]},
+        {"term":"plural","means":"the form of a noun for more than one: house → houses."},
+        {"p":"**Plurals.** English mostly adds -s. German has a few endings, and some nouns also put two dots on a vowel ({{a}} → {{ä}}, {{o}} → {{ö}}, {{u}} → {{ü}}). The good news: in the plural, “the” is always {{die}}, whatever the gender."},
+        { "table": [
+          ["plural ending","one","more than one"],
+          ["{{-n}} or {{-en}} (most feminine nouns)","{{die Tomate}}, {{die Frau}}","{{die Tomaten}}, {{die Frauen}}"],
+          ["{{-e}}","{{der Tag}}, {{der Freund}}","{{die Tage}}, {{die Freunde}}"],
+          ["{{-er}}, often with {{ä, ö, ü}}","{{das Kind}}, {{das Buch}}","{{die Kinder}}, {{die Bücher}}"],
+          ["nothing, sometimes {{ä, ö, ü}}","{{der Lehrer}}, {{der Apfel}}","{{die Lehrer}}, {{die Äpfel}}"],
+          ["{{-s}} (many foreign words)","{{das Auto}}, {{das Hotel}}","{{die Autos}}, {{die Hotels}}"]
+        ] },
+        {"p":"So learn each noun with its plural, as dictionaries give it: {{der Tag, die Tage}}. Feminine nouns are the easiest: almost all of them add {{-n}} or {{-en}}."},
+        {"p":"**Numbers.** {{eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn}}, then {{elf}} 11 and {{zwölf}} 12, then {{-zehn}}: {{dreizehn}} 13 … {{neunzehn}} 19. The tens end in {{-zig}}: {{zwanzig}} 20, {{dreißig}} 30, {{vierzig}} 40, {{fünfzig}} 50 … {{hundert}} 100. From 21 on, German says the ones first, like the old English “four-and-twenty”: {{einundzwanzig}} 21, {{fünfundvierzig}} 45."},
+        {"p":"**How much?** {{Was kostet…?}} for one thing, {{Was kosten…?}} for several: the verb follows the noun, like “is” and “are”: {{Was kostet das Brot?}} “How much is the bread?”, {{Was kosten die Brötchen?}} “How much are the rolls?”"},
+        { "ex": [
+          {"t":"Ich habe zwei Kinder.","tr":"I have two children."},
+          {"t":"Zwei Kaffee, bitte.","tr":"Two coffees, please.","note":"drinks you order, and measures after a number, stay singular: {{zwei Kaffee}}, {{zwei Kilo}}, {{fünf Euro}}"},
+          {"t":"Was kostet das? – Fünfzehn Euro.","tr":"How much is that? – Fifteen euros."},
+          {"t":"Die Brötchen sind frisch.","tr":"The rolls are fresh.","note":"plural: {{die}}, and the verb {{sind}}"},
+          {"t":"Wie viele Leute kommen? – Ungefähr zwanzig.","tr":"How many people are coming? – About twenty."},
+          {"t":"Das macht vierunddreißig Euro neunzig.","tr":"That's €34.90."}
+        ] },
+        {"tip":"{{sechzehn}} 16 and {{sechzig}} 60 drop the {{s}} of {{sechs}}; {{siebzehn}} 17 and {{siebzig}} 70 drop the {{en}} of {{sieben}}. And Germans write prices with a comma: {{2,50 €}}, said {{zwei Euro fünfzig}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Die Kinder ist müde.","right":"Die Kinder sind müde.","tr":"The children are tired.","why":"More than one: the verb is plural too, {{sind}}."},
+        {"wrong":"Was kostet die Äpfel?","right":"Was kosten die Äpfel?","tr":"How much are the apples?","why":"{{die Äpfel}} is plural, so the verb is {{kosten}}."},
+        {"wrong":"Das macht fünfzigvier Euro.","right":"Das macht vierundfünfzig Euro.","tr":"That's fifty-four euros.","why":"The ones come first, then {{und}}, then the tens: {{vier-und-fünfzig}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"In the plural, “the” is…","options":["always {{die}}","{{der}}, {{die}} or {{das}}, as in the singular"],"answer":0,"why":"One “the” for every plural: {{die Tage}}, {{die Frauen}}, {{die Kinder}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Was ___ die Tomaten?","tr":"How much are the tomatoes?","options":["kosten","kostet","kostest"],"answer":0,"why":"{{die Tomaten}} is plural: {{kosten}}."},
+        {"type":"choice","q":"How do you say 47?","options":["{{siebenundvierzig}}","{{vierzigsieben}}","{{vierundsiebzig}}"],"answer":0,"why":"The ones first: {{sieben-und-vierzig}}. {{vierundsiebzig}} is 74."},
+        {"type":"dialogue","q":"At the market: buy some bananas.","lines":[{"who":"Seller","t":"Guten Tag! Was darf's sein?","tr":"Hello! What can I get you?"},{"options":["Was kosten die Bananen?","Was kostet die Bananen?"],"answer":0,"why":"{{die Bananen}} is plural: {{kosten}}."},{"who":"Seller","t":"Ein Euro neunzig das Kilo.","tr":"€1.90 a kilo."},{"options":["Gut, zwei Kilo, bitte.","Gut, zwei Kilos, bitte."],"answer":0,"why":"Measures stay singular after a number: {{zwei Kilo}}."},{"who":"Seller","t":"Das macht drei Euro achtzig.","tr":"That's €3.80."}]},
+        {"type":"order","q":"Put the words in order.","tr":"How much are the apples?","words":["Was","kosten","die Äpfel?"]},
+        {"type":"say","q":"Ask: “Are the rolls fresh?”","answer":"Sind die Brötchen frisch?","from":"ask-yes-no-questions"},
+        {"type":"free","q":"Your turn: what's in your fridge right now? Use numbers and plurals: {{Im Kühlschrank sind…}}","answers":[{"t":"Im Kühlschrank sind drei Äpfel, zwei Tomaten und vier Eier.","tr":"In the fridge there are three apples, two tomatoes and four eggs."},{"t":"Im Kühlschrank sind sechs Flaschen Wasser und zwei Joghurts.","tr":"In the fridge there are six bottles of water and two yogurts."}]}
+      ]
+    },
+    {
+      "id": "describe-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Describe people and things",
+      "summary": "Say what people and things are like: “The apartment is small, but very nice.”",
+      "topic": "Adjectives after {{sein}} (no ending); {{sehr, ziemlich, zu}}; {{und, aber, oder}}",
+      "blocks": [
+        {"goal":{"t":"Die Wohnung ist klein, aber sehr schön.","tr":"The apartment is small, but very nice."}},
+        {"dialog":[{"who":"Mom","t":"Und, wie ist die Wohnung?","tr":"So, how's the apartment?"},{"who":"Lisa","t":"Sie ist klein, aber sehr schön.","tr":"It's small, but very nice."},{"who":"Mom","t":"Ist sie teuer?","tr":"Is it expensive?"},{"who":"Lisa","t":"Nein, nicht so teuer. Und die Nachbarn sind total nett.","tr":"No, not that expensive. And the neighbors are really nice."},{"who":"Mom","t":"Und die Küche?","tr":"And the kitchen?"},{"who":"Lisa","t":"Die Küche ist ziemlich alt, aber okay.","tr":"The kitchen is pretty old, but OK."}]},
+        {"term":"adjective","means":"a word that describes a person or a thing: big, old, nice, expensive."},
+        {"p":"**After sein, adjectives have no ending.** When an adjective comes after {{sein}} “to be”, it never changes, whatever the gender or number: {{Der Tisch ist neu.}} {{Die Lampe ist neu.}} {{Die Bücher sind neu.}} (In front of a noun it does change, as in {{ein neuer Tisch}}: that's for a later lesson.)"},
+        { "table": [
+          ["English","German","the opposite"],
+          ["big / small","{{groß}}","{{klein}}"],
+          ["old / new","{{alt}}","{{neu}}"],
+          ["old / young","{{alt}}","{{jung}}"],
+          ["good / bad","{{gut}}","{{schlecht}}"],
+          ["expensive / cheap","{{teuer}}","{{billig}}"],
+          ["warm / cold","{{warm}}","{{kalt}}"],
+          ["easy / hard","{{leicht}}","{{schwer}}"]
+        ] },
+        {"p":"**How much?** {{sehr}} “very”, {{ziemlich}} “quite, pretty”, {{zu}} “too”, {{total}} “really” (casual) and {{nicht so}} “not that”: {{sehr gut}}, {{ziemlich alt}}, {{zu teuer}}, {{nicht so teuer}}. And for “not” with an adjective, it's {{nicht}}: {{Das ist nicht teuer.}}"},
+        {"p":"**und, aber, oder.** {{und}} “and”, {{aber}} “but” and {{oder}} “or” join two sentences without changing either: the verb stays second in both. {{Die Wohnung ist klein, aber sie ist schön.}} Put a comma before {{aber}}."},
+        { "ex": [
+          {"t":"Das Wetter ist heute schön.","tr":"The weather is nice today."},
+          {"t":"Der Kaffee ist zu heiß.","tr":"The coffee is too hot."},
+          {"t":"Mein Deutsch ist nicht so gut.","tr":"My German isn't that good."},
+          {"t":"Berlin ist groß und ziemlich laut.","tr":"Berlin is big and pretty loud."},
+          {"t":"Ist das teuer oder billig?","tr":"Is that expensive or cheap?"},
+          {"t":"Die Kinder sind sehr müde.","tr":"The children are very tired."}
+        ] },
+        {"tip":"{{schön}} means “beautiful”, but very often just “nice”: {{Schönes Wochenende!}} “Have a nice weekend!” For people, “nice, kind” is {{nett}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Die Wohnung ist kleine.","right":"Die Wohnung ist klein.","tr":"The apartment is small.","why":"After {{sein}}, an adjective has no ending."},
+        {"wrong":"Das ist kein teuer.","right":"Das ist nicht teuer.","tr":"That isn't expensive.","why":"{{kein}} goes with nouns. With an adjective, “not” is {{nicht}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which one is right?","options":["{{Die Bücher sind neu.}}","{{Die Bücher sind neue.}}"],"answer":0,"why":"After {{sein}}, no ending, even in the plural."},
+        {"type":"fill","q":"Choose the missing word.","t":"Der Kaffee ist ___ heiß!","tr":"The coffee is too hot!","options":["zu","sehr","ziemlich"],"answer":0,"why":"“Too” is {{zu}}. {{sehr}} is “very”, {{ziemlich}} “pretty”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie ist die Wohnung? – ___ ist sehr schön.","tr":"How's the apartment? – It's very nice.","options":["Sie","Er","Es"],"answer":0,"why":"{{die Wohnung}} is feminine, so “it” is {{sie}}.","from":"name-things"},
+        {"type":"fill","q":"Choose the missing word.","t":"Das ist ___ teuer.","tr":"That isn't expensive.","options":["nicht","kein","keine"],"answer":0,"why":"With an adjective: {{nicht}}.","from":"say-what-something-is"},
+        {"type":"order","q":"Put the words in order.","tr":"The apartment is small, but very nice.","words":["Die Wohnung","ist klein,","aber","sehr","schön."]},
+        {"type":"dialogue","q":"A friend asks about your new job.","lines":[{"who":"Friend","t":"Und, wie ist der neue Job?","tr":"So, how's the new job?"},{"options":["Gut! Die Kollegen sind sehr nett.","Gut! Die Kollegen ist sehr nett."],"answer":0,"why":"{{die Kollegen}} is plural, so the verb is {{sind}}."},{"who":"Friend","t":"Und der Chef?","tr":"And the boss?"},{"options":["Er ist nett, aber ziemlich streng.","Er ist nett, aber ziemlich strenge."],"answer":0,"why":"After {{sein}}, adjectives have no ending."}]},
+        {"type":"free","q":"Your turn: describe your home or your town in one or two sentences. Use {{und}} or {{aber}}.","answers":[{"t":"Meine Stadt ist klein und ziemlich ruhig.","tr":"My town is small and pretty quiet."},{"t":"Das Haus ist alt, aber sehr schön.","tr":"The house is old, but very nice."}]}
+      ]
     }
   ]
 }
