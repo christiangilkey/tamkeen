@@ -572,6 +572,374 @@
         {"type":"choice","q":"Which one is right?","options":["{{Dili ko gusto mokaon.}}","{{Dili gusto ko mokaon.}}"],"answer":0,"why":"The short word goes right after {{dili}}.","from":"say-no"},
         {"type":"free","q":"Your turn: say two things you want to do this year, and one you don't.","answers":[{"t":"Gusto ko moadto sa Siargao. Gusto ko mokat-on og Bisaya.","tr":"I want to go to Siargao. I want to learn Bisaya."},{"t":"Gusto ko molangoy sa dagat. Dili ko gusto mosakay og eroplano.","tr":"I want to swim in the sea. I don't want to take a plane."},{"t":"Gusto ko mopalit og bag-ong awto. Dili ko gusto motrabaho matag Sabado.","tr":"I want to buy a new car. I don't want to work every Saturday."}]}
       ]
+    },
+    {
+      "id": "say-what-youll-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you're going to do",
+      "summary": "Talk about tomorrow, tonight and next week: “I'm going to the market tomorrow.”",
+      "topic": "{{mo-}} for what is still to come; {{ugma}}, {{unya}}, {{karong gabii}}; {{dili}} + {{mo-}} “won't”",
+      "blocks": [
+        {"goal":{"t":"Moadto ko sa merkado ugma.","tr":"I'm going to the market tomorrow."}},
+        {"dialog":[{"who":"Lito","t":"Asa ka moadto ugma?","tr":"Where are you going tomorrow?"},{"who":"Emma","t":"Moadto ko sa merkado sa buntag.","tr":"I'm going to the market in the morning."},{"who":"Lito","t":"Ug sa hapon?","tr":"And in the afternoon?"},{"who":"Emma","t":"Mobisita ko sa akong higala sa Mandaue.","tr":"I'm visiting my friend in Mandaue."},{"who":"Lito","t":"Mouban ko nimo sa merkado!","tr":"I'll come with you to the market!"},{"who":"Emma","t":"Sige! Mobiya ta alas otso.","tr":"Okay! We'll leave at eight."}]},
+        {"p":"You met {{mo-}} after {{gusto}}. On its own, at the start of a sentence, it says the action is **still to come**: {{Moadto ko.}} “I'll go, I'm going (to go).” English chooses between “will” and “going to”; Bisaya {{mo-}} covers both."},
+        {"p":"**The order**: the verb first, then the short word, then the rest. {{Moadto ko sa merkado ugma.}} is “will-go I to the market tomorrow”."},
+        {"term":"prefix","means":"a piece added to the front of a word to change its meaning: {{mo-}} in {{moadto}}."},
+        { "table": [
+          ["root","with {{mo-}}","meaning"],
+          ["{{adto}}","{{moadto}}","will go"],
+          ["{{uli}}","{{mouli}}","will go home"],
+          ["{{balik}}","{{mobalik}}","will come back"],
+          ["{{abot}}","{{moabot}}","will arrive"],
+          ["{{palit}}","{{mopalit}}","will buy"],
+          ["{{biya}}","{{mobiya}}","will leave"]
+        ] },
+        {"p":"**When.** {{ugma}} tomorrow, {{unya}} later, {{karong gabii}} tonight, {{karong hapon}} this afternoon, {{sunod semana}} next week, {{sa Lunes}} on Monday."},
+        {"p":"**Won't.** {{dili}} + the {{mo-}} verb, with the short word after {{dili}}: {{Dili ko moadto.}} “I won't go, I'm not going.”"},
+        { "ex": [
+          {"t":"Mouli ko unya.","tr":"I'll go home later."},
+          {"t":"Mobalik ko ugma.","tr":"I'll come back tomorrow."},
+          {"t":"Moabot siya karong gabii.","tr":"She's arriving tonight."},
+          {"t":"Mopalit ko og tinapay.","tr":"I'll buy some bread."},
+          {"t":"Dili ko moadto.","tr":"I'm not going."},
+          {"t":"Moulan ugma.","tr":"It's going to rain tomorrow.","note":"no word for “it”"}
+        ] },
+        {"tip":"{{Mouban ko!}} “I'll come along!” is a handy one: {{uban}} is “with, together”."}
+      ],
+      "mistakes": [
+        {"wrong":"Ko moadto ugma.","right":"Moadto ko ugma.","tr":"I'll go tomorrow.","why":"The verb first; {{ko}} right after it."},
+        {"wrong":"Dili moadto ko.","right":"Dili ko moadto.","tr":"I won't go.","why":"With {{dili}} first, {{ko}} follows {{dili}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mobalik ko ___.","tr":"I'll come back tomorrow.","options":["ugma","gahapon","karon"],"answer":0,"why":"{{ugma}} is tomorrow ({{gahapon}} is yesterday)."},
+        {"type":"fill","q":"Choose the missing word.","t":"Dili ___ moadto.","tr":"I'm not going.","options":["ko","ang","sa"],"answer":0,"why":"“I”, right after {{dili}}: {{ko}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I'll go home later.","words":["Mouli","ko","unya."]},
+        {"type":"dialogue","q":"Making plans: choose your replies.","lines":[{"who":"Joy","t":"Asa ka moadto karong hapon?","tr":"Where are you going this afternoon?"},{"options":["Moadto ko sa mall.","Ko moadto sa mall."],"answer":0,"why":"The verb first, then {{ko}}."},{"who":"Joy","t":"Mouban ko!","tr":"I'll come along!"},{"options":["Sige! Mobiya ta alas tres.","Sige! Ta mobiya alas tres."],"answer":0,"why":"{{ta}} “we” is a short word too: after the verb."}]},
+        {"type":"choice","q":"{{Gusto ko moadto.}} and {{Moadto ko.}} mean…","options":["“I want to go” and “I'll go”","“I'll go” and “I want to go”","the same thing"],"answer":0,"why":"Both use {{moadto}}; {{gusto}} adds “want”.","from":"say-what-you-want-to-do"},
+        {"type":"say","q":"Ask: “Will you come back tomorrow?”","answer":"Mobalik ka ugma?","from":"ask-questions"},
+        {"type":"free","q":"Your turn: say two or three things you'll do tomorrow, and one you won't.","answers":[{"t":"Moadto ko sa trabaho. Mokaon ko sa gawas. Dili ko mouli og sayo.","tr":"I'll go to work. I'll eat out. I won't go home early."},{"t":"Mobisita ko sa akong lola ugma. Dili ko motrabaho.","tr":"I'm visiting my grandma tomorrow. I won't work."}]}
+      ]
+    },
+    {
+      "id": "describe-your-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Describe your day",
+      "summary": "Say what you do every day and when: “I get up at six every morning.”",
+      "topic": "{{mo-}} for habits; telling the time with {{alas}}; {{matag}}, {{kanunay}}, {{usahay}}; the time first, then the short word",
+      "blocks": [
+        {"goal":{"t":"Alas sais ko mobangon matag buntag.","tr":"I get up at six every morning."}},
+        {"dialog":[{"who":"Ana","t":"Unsang orasa ka mobangon?","tr":"What time do you get up?"},{"who":"Ben","t":"Alas sais ko mobangon. Dayon moinom ko og kape.","tr":"I get up at six. Then I drink coffee."},{"who":"Ana","t":"Kanunay?","tr":"Always?"},{"who":"Ben","t":"Oo, matag adlaw! Ikaw?","tr":"Yes, every day! And you?"},{"who":"Ana","t":"Alas nuwebe. Dili ko moinom og kape, tsaa lang.","tr":"Nine. I don't drink coffee, just tea."},{"who":"Ben","t":"Alas nuwebe? Swerte ka!","tr":"Nine? Lucky you!"}]},
+        {"p":"**{{mo-}} for habits.** The {{mo-}} of the last lesson also says what you do **regularly**: {{Mobangon ko alas sais.}} “I get up at six.” {{mo-}} means “not one finished event”: something still to come, or something that keeps coming back. Words like {{matag adlaw}} “every day” make it clear."},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{matag adlaw}}","every day"],
+          ["{{matag buntag}}","every morning"],
+          ["{{matag Domingo}}","every Sunday"],
+          ["{{kanunay}}","always"],
+          ["{{usahay}}","sometimes"],
+          ["{{dayon}}","then, next"]
+        ] },
+        {"p":"**The time.** {{alas}} + a Spanish number: {{alas sais}} “six o'clock”, {{alas dose}} “twelve”, {{alas siyete y medya}} “half past seven”. {{Unsang orasa?}} is “What time?” (word for word “what-hour”, with -ng joining {{unsa}} to {{orasa}}). Parts of the day: {{sa buntag}} in the morning, {{sa udto}} at noon, {{sa hapon}} in the afternoon, {{sa gabii}} in the evening."},
+        {"p":"**The time can come first**, and then, as always, the short word follows the first word: {{Alas sais ko mobangon.}} “At six I get up.” You can also say {{Mobangon ko alas sais.}}: both are natural."},
+        { "ex": [
+          {"t":"Moinom ko og kape matag buntag.","tr":"I drink coffee every morning."},
+          {"t":"Moadto ko didto matag Domingo.","tr":"I go there every Sunday."},
+          {"t":"Usahay mokaon mi sa gawas.","tr":"Sometimes we eat out."},
+          {"t":"Alas siyete ko mosulod sa trabaho.","tr":"I start work at seven."},
+          {"t":"Dili ko mokaon og karne.","tr":"I don't eat meat."},
+          {"t":"Kanunay siyang ulahi.","tr":"He's always late.","note":"after {{kanunay}}, {{siya}} takes the linker: {{siyang}}"}
+        ] },
+        {"tip":"Days of the week, from Spanish: {{Lunes}}, {{Martes}}, {{Miyerkules}}, {{Huwebes}}, {{Biyernes}}, {{Sabado}}, {{Domingo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Alas sais mobangon ko.","right":"Alas sais ko mobangon.","tr":"I get up at six.","why":"When the time comes first, {{ko}} goes right after it. (Or start with the verb: {{Mobangon ko alas sais.}})"},
+        {"wrong":"Unsa orasa ka mobangon?","right":"Unsang orasa ka mobangon?","tr":"What time do you get up?","why":"{{unsa}} joins {{orasa}} with -ng: {{unsang orasa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Alas sais ___ mobangon.","tr":"I get up at six.","options":["ko","ang","sa"],"answer":0,"why":"After the first word ({{alas sais}}): {{ko}}."},
+        {"type":"choice","q":"{{Alas siyete y medya}} is…","options":["7:00","7:30","6:30"],"answer":1,"why":"{{y medya}} is “and a half”."},
+        {"type":"order","q":"Put the words in order.","tr":"I drink coffee every morning.","words":["Moinom","ko","og","kape","matag","buntag."]},
+        {"type":"dialogue","q":"A new coworker asks about your day. Choose your replies.","lines":[{"who":"Coworker","t":"Unsang orasa ka mobangon?","tr":"What time do you get up?"},{"options":["Alas singko ko mobangon.","Alas singko mobangon ko."],"answer":0,"why":"The time first, then {{ko}}."},{"who":"Coworker","t":"Sayo kaayo! Moinom ka og kape?","tr":"That's really early! Do you drink coffee?"},{"options":["Oo, kanunay.","Oo, gahapon."],"answer":0,"why":"A habit: {{kanunay}}, always."}]},
+        {"type":"choice","q":"{{Moadto ko sa simbahan matag Domingo.}} is about…","options":["a habit","one plan","something already done"],"answer":0,"why":"{{matag Domingo}} “every Sunday” makes {{mo-}} a habit.","from":"say-what-youll-do"},
+        {"type":"say","q":"Say “I don't eat meat.”","answer":"Dili ko mokaon og karne.","from":"say-no"},
+        {"type":"free","q":"Your turn: describe your morning: when you get up and what you do.","answers":[{"t":"Alas siyete ko mobangon. Moinom ko og kape, dayon moadto ko sa trabaho.","tr":"I get up at seven. I drink coffee, then I go to work."},{"t":"Alas singko ko mobangon matag adlaw. Usahay modagan ko sa parke.","tr":"I get up at five every day. Sometimes I run in the park."}]}
+      ]
+    },
+    {
+      "id": "say-what-youre-doing",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you're doing, and where you live and work",
+      "summary": "Say what you're doing right now, and where you live and work: “I work at a hotel, and I'm studying Bisaya.”",
+      "topic": "{{nag-}} for an action going on; {{Nag-unsa ka?}} “What are you doing?”; {{ga-}} in Cebu speech",
+      "blocks": [
+        {"goal":{"t":"Nagtrabaho ko sa usa ka hotel, ug nagtuon ko og Bisaya.","tr":"I work at a hotel, and I'm studying Bisaya."}},
+        {"dialog":[{"who":"Lito","t":"Asa ka nagpuyo, Ben?","tr":"Where do you live, Ben?"},{"who":"Ben","t":"Nagpuyo ko sa Lahug. Ikaw?","tr":"I live in Lahug. And you?"},{"who":"Lito","t":"Sa Mandaue. Asa ka nagtrabaho?","tr":"In Mandaue. Where do you work?"},{"who":"Ben","t":"Nagtrabaho ko sa usa ka hotel. Ug nagtuon ko og Bisaya!","tr":"I work at a hotel. And I'm studying Bisaya!"},{"who":"Lito","t":"Maayo! Kumusta man?","tr":"Great! How's it going?"},{"who":"Ben","t":"Lisud, pero nalingaw ko.","tr":"It's hard, but I'm enjoying it."}]},
+        {"p":"**{{nag-}}: going on.** {{nag-}} on the front of a verb says the action **is going on**: right now ({{Nagluto ko.}} “I'm cooking.”) or for a stretch of time, like a job or a home ({{Nagtrabaho ko sa hotel.}} “I work at a hotel.” {{Nagpuyo ko sa Lahug.}} “I live in Lahug.”)."},
+        { "table": [
+          ["root","with {{nag-}}","meaning"],
+          ["{{luto}}","{{nagluto}}","cooking"],
+          ["{{trabaho}}","{{nagtrabaho}}","working"],
+          ["{{puyo}}","{{nagpuyo}}","living (somewhere)"],
+          ["{{tuon}}","{{nagtuon}}","studying"],
+          ["{{tan-aw}}","{{nagtan-aw}}","watching"],
+          ["{{hulat}}","{{naghulat}}","waiting"]
+        ] },
+        {"p":"**Now or then?** Bisaya doesn't say. {{Nagluto ko}} can also be “I was cooking” or “I cooked”; words like {{karon}} “now” or {{gahapon}} “yesterday” tell you when. What {{nag-}} says is that the action went on for a while."},
+        {"p":"**“What are you doing?”** is {{Nag-unsa ka?}}, word for word “doing-what you?”: {{nag-}} works even on {{unsa}} “what”. It's one of the commonest questions in Cebu, on the phone and in the street."},
+        { "ex": [
+          {"t":"Nagluto si Mama.","tr":"Mom is cooking."},
+          {"t":"Nagtrabaho ko sa bangko.","tr":"I work at a bank."},
+          {"t":"Nagpuyo mi sa Talisay.","tr":"We live in Talisay."},
+          {"t":"Nagtan-aw sila og sine.","tr":"They're watching a movie."},
+          {"t":"Naghulat ko nimo.","tr":"I'm waiting for you."},
+          {"t":"Nagdula ang mga bata sa gawas.","tr":"The kids are playing outside."},
+          {"t":"Nag-ulan.","tr":"It's raining."}
+        ] },
+        {"tip":"In Cebu City you'll hear **ga-** for things happening right now: {{Gaunsa ka?}} “What are you doing?”, {{Gakaon ko.}} “I'm eating.” It means the same as {{nag-}} here; this course writes {{nag-}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Nag-unsa ikaw?","right":"Nag-unsa ka?","tr":"What are you doing?","why":"After the first word, use the short {{ka}}."},
+        {"wrong":"Nagtrabaho ko bangko.","right":"Nagtrabaho ko sa bangko.","tr":"I work at a bank.","why":"A place needs {{sa}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Nagluto ko}} can mean…","options":["only “I'm cooking”","only “I was cooking”","either: the situation tells you"],"answer":2,"why":"{{nag-}} says the action went on, not when."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko sa usa ka hotel.","tr":"I work at a hotel.","options":["Nagtrabaho","Motrabaho","Trabaho"],"answer":0,"why":"A job that's going on: {{nag-}}. ({{Motrabaho}} would be “I'll work”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Asa ka ___?","tr":"Where do you live?","options":["nagpuyo","mopuyo","puyo"],"answer":0,"why":"Where you live, for now: {{nagpuyo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"We live in Talisay.","words":["Nagpuyo","mi","sa","Talisay."]},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","lines":[{"who":"Joy","t":"Hello! Nag-unsa ka?","tr":"Hi! What are you doing?"},{"options":["Nagtan-aw ko og TV.","Motan-aw ko og TV."],"answer":0,"why":"Right now: {{nag-}}. ({{Motan-aw}} would be “I'll watch”.)"},{"who":"Joy","t":"Asa si Ben?","tr":"Where's Ben?"},{"options":["Naa sa kusina. Nagluto siya.","Naa sa kusina. Nagluto ko."],"answer":0,"why":"Ben is cooking: {{siya}}."}]},
+        {"type":"choice","q":"Which one is a daily habit?","options":["{{Mobangon ko alas sais.}}","{{Nagluto ko karon.}}"],"answer":0,"why":"{{mo-}} for what you do regularly; {{nag-}} + {{karon}} for right now.","from":"describe-your-day"},
+        {"type":"say","q":"Say “Mom is at home. She's cooking.”","answer":"Naa sa balay si Mama. Nagluto siya.","from":"say-where-things-are"},
+        {"type":"free","q":"Your turn: where do you live and work, and what are you doing right now?","answers":[{"t":"Nagpuyo ko sa Seattle. Nagtrabaho ko sa usa ka opisina. Karon, nagtuon ko og Bisaya!","tr":"I live in Seattle. I work in an office. Right now, I'm studying Bisaya!"},{"t":"Nagpuyo ko sa Cebu City. Estudyante ko. Karon, naghulat ko sa akong higala.","tr":"I live in Cebu City. I'm a student. Right now, I'm waiting for my friend."}]}
+      ]
+    },
+    {
+      "id": "tell-what-you-did",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell what you did",
+      "summary": "Say what you did yesterday and answer Cebu's favorite question, “Have you eaten?”",
+      "topic": "{{mi-}} (in speech also {{ni-}}) for a finished action; {{gahapon}}, {{ganiha}}; {{na}} “already”",
+      "blocks": [
+        {"goal":{"t":"Miadto ko sa baybayon gahapon.","tr":"I went to the beach yesterday."}},
+        {"dialog":[{"who":"Joy","t":"Nikaon ka na?","tr":"Have you eaten?"},{"who":"Ben","t":"Oo, mikaon na ko. Ikaw?","tr":"Yes, I've eaten. You?"},{"who":"Joy","t":"Nikaon na sad ko. Unsay imong gibuhat gahapon?","tr":"I've eaten too. What did you do yesterday?"},{"who":"Ben","t":"Miadto ko sa baybayon. Milangoy ko, ug mikaon mi og sugba.","tr":"I went to the beach. I swam, and we ate grilled fish."},{"who":"Joy","t":"Kinsa imong kauban?","tr":"Who were you with?"},{"who":"Ben","t":"Akong mga higala. Miuli mi alas siyete sa gabii.","tr":"My friends. We came home at seven in the evening."}]},
+        {"p":"**{{mi-}}: done.** {{mo-}} is for what's still to come; {{mi-}} is for what **happened**: {{Moadto ko.}} “I'll go.” → {{Miadto ko.}} “I went.” One letter changes, and the rest of the sentence stays the same."},
+        { "table": [
+          ["root","still to come","done"],
+          ["{{adto}} go","{{moadto}}","{{miadto}}"],
+          ["{{kaon}} eat","{{mokaon}}","{{mikaon}}"],
+          ["{{palit}} buy","{{mopalit}}","{{mipalit}}"],
+          ["{{uli}} go home","{{mouli}}","{{miuli}}"],
+          ["{{abot}} arrive","{{moabot}}","{{miabot}}"]
+        ] },
+        {"p":"**{{ni-}} is the same as {{mi-}}.** In Cebu conversation you'll hear {{ni-}} all the time ({{Nikaon ka na?}} {{Niadto ko.}}). Both are right; this course writes {{mi-}}, as the Basics course does, and lets people in the conversations say {{ni-}}."},
+        {"p":"**{{na}} “already, now”.** {{Mikaon na ko.}} is “I've already eaten.” So {{Nikaon ka na?}}, word for word “ate you already?”, is “Have you eaten?”: in Cebu it's also a friendly “How are you?”. English chooses between “I ate” and “I've eaten”; Bisaya uses {{mi-}} for both."},
+        {"p":"**When**: {{gahapon}} yesterday, {{ganiha}} earlier today, {{niadtong Lunes}} last Monday, {{sa miaging semana}} last week."},
+        { "ex": [
+          {"t":"Miabot na siya.","tr":"She's arrived."},
+          {"t":"Mikaon ko og lechon gahapon.","tr":"I ate lechon yesterday."},
+          {"t":"Mipalit ko og bag-ong sapatos.","tr":"I bought new shoes."},
+          {"t":"Miuli siya ganiha.","tr":"He went home earlier."},
+          {"t":"Nitawag ko nimo ganiha.","tr":"I called you earlier."},
+          {"t":"Kinsa ang nidaog?","tr":"Who won?"}
+        ] },
+        {"tip":"{{Unsay imong gibuhat?}} “What did you do?” uses a different kind of verb ({{gi-}}), coming in unit 4. You can already use it as a whole phrase."}
+      ],
+      "mistakes": [
+        {"wrong":"Moadto ko sa baybayon gahapon.","right":"Miadto ko sa baybayon gahapon.","tr":"I went to the beach yesterday.","why":"Yesterday is done: {{mi-}}. {{mo-}} is for what's still to come."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko sa baybayon gahapon.","tr":"I went to the beach yesterday.","options":["Miadto","Moadto","Adto"],"answer":0,"why":"Done: {{mi-}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko og sapatos gahapon.","tr":"I bought shoes yesterday.","options":["Mipalit","Mopalit","Palit"],"answer":0,"why":"Yesterday: {{mipalit}}."},
+        {"type":"choice","q":"{{Nikaon ka na?}} means…","options":["Have you eaten?","Will you eat?","Are you eating?"],"answer":0,"why":"{{ni-}} is the same as {{mi-}}: done; {{na}} is “already”."},
+        {"type":"order","q":"Put the words in order.","tr":"He went home earlier.","words":["Miuli","siya","ganiha."]},
+        {"type":"dialogue","q":"Monday morning at work: choose your replies.","lines":[{"who":"Coworker","t":"Nikaon ka na?","tr":"Have you eaten?"},{"options":["Oo, mikaon na ko.","Oo, mokaon na ko."],"answer":0,"why":"You've eaten: done, {{mi-}}."},{"who":"Coworker","t":"Asa ka gahapon?","tr":"Where were you yesterday?"},{"options":["Miadto ko sa Oslob.","Moadto ko sa Oslob."],"answer":0,"why":"Yesterday: {{miadto}}."}]},
+        {"type":"choice","q":"Which one goes with {{gahapon}} “yesterday”?","options":["{{miadto}}","{{moadto}}"],"answer":0,"why":"{{mo-}} is for what's still to come; yesterday is done.","from":"say-what-youll-do"},
+        {"type":"free","q":"Your turn: say three things you did yesterday.","answers":[{"t":"Miadto ko sa trabaho. Mikaon ko sa gawas. Miuli ko alas siyete.","tr":"I went to work. I ate out. I went home at seven."},{"t":"Milangoy ko sa dagat ug mipalit ko og sugba.","tr":"I swam in the sea and I bought some grilled fish."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-didnt-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you didn't do, and what you haven't done yet",
+      "summary": "Say “I didn't go”, “I haven't eaten yet” and “not anymore”.",
+      "topic": "{{wala}} + {{mo-}} “didn't”; {{wala pa}} “not yet”; {{na}} and {{pa}}",
+      "blocks": [
+        {"goal":{"t":"Wala pa ko mokaon. Ikaw, nikaon ka na?","tr":"I haven't eaten yet. And you, have you eaten?"}},
+        {"dialog":[{"who":"Mom","t":"Ben, mikaon ka na?","tr":"Ben, have you eaten?"},{"who":"Ben","t":"Wala pa, Ma.","tr":"Not yet, Mom."},{"who":"Mom","t":"Mitawag ka na sa imong lola?","tr":"Have you called your grandma?"},{"who":"Ben","t":"Wala pa ko motawag. Ugma na lang.","tr":"I haven't called yet. I'll do it tomorrow."},{"who":"Mom","t":"Ug ganiha, nganong wala ka moadto sa eskwelahan?","tr":"And earlier, why didn't you go to school?"},{"who":"Ben","t":"Miadto ko, Ma! Wala lang ko mosulod sa klase…","tr":"I did go, Mom! I just didn't go into class…"}]},
+        {"p":"**Didn't.** For something that didn't happen, use {{wala}}, and the verb goes **back to {{mo-}}**: {{Miadto ko.}} “I went.” → {{Wala ko moadto.}} “I didn't go.” It looks odd at first, but it's simple: after {{wala}}, always {{mo-}}."},
+        {"p":"**Not yet.** {{wala pa}} + {{mo-}}: {{Wala pa ko mokaon.}} “I haven't eaten yet.” The short answer is just {{Wala pa.}} “Not yet.”"},
+        {"p":"**{{na}} and {{pa}}** are a pair. {{na}} is “already, now, anymore”; {{pa}} is “still, yet”. {{Naa pa siya.}} “He's still here.” {{Wala na siya.}} “He's gone, he's not here anymore.”"},
+        { "table": [
+          ["","yes","no"],
+          ["done","{{Miadto ko.}} I went.","{{Wala ko moadto.}} I didn't go."],
+          ["still to come","{{Moadto ko.}} I'll go.","{{Dili ko moadto.}} I won't go."],
+          ["already / yet","{{Mikaon na ko.}} I've eaten.","{{Wala pa ko mokaon.}} I haven't eaten yet."]
+        ] },
+        { "ex": [
+          {"t":"Wala ko moadto kay nag-ulan.","tr":"I didn't go because it was raining."},
+          {"t":"Wala pa siya moabot.","tr":"She hasn't arrived yet."},
+          {"t":"Wala ko mokaon og pamahaw.","tr":"I didn't eat breakfast."},
+          {"t":"Wala na siya dinhi.","tr":"He's not here anymore."},
+          {"t":"Naa pa ko sa trabaho.","tr":"I'm still at work."},
+          {"t":"Wala pa.","tr":"Not yet."}
+        ] },
+        {"tip":"In fast speech you'll also hear {{wala}} with {{mi-}} or {{ni-}} ({{Wala siya mitubag.}} “She didn't answer.”). People understand both; {{wala}} + {{mo-}} is the standard you can always use."}
+      ],
+      "mistakes": [
+        {"wrong":"Dili ko moadto gahapon.","right":"Wala ko moadto gahapon.","tr":"I didn't go yesterday.","why":"“Didn't” is {{wala}}. {{Dili ko moadto}} is “I won't go”."},
+        {"wrong":"Wala na ko mokaon.","right":"Wala pa ko mokaon.","tr":"I haven't eaten yet.","why":"“Not yet” is {{wala pa}}; {{wala na}} is “not anymore”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ko moadto gahapon.","tr":"I didn't go yesterday.","options":["Wala","Dili","Naa"],"answer":0,"why":"“Didn't”: {{wala}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wala ___ ko mokaon.","tr":"I haven't eaten yet.","options":["pa","na","ba"],"answer":0,"why":"“Not yet”: {{wala pa}}."},
+        {"type":"choice","q":"{{Wala na siya dinhi.}} means…","options":["He's not here anymore.","He's not here yet.","He's here now."],"answer":0,"why":"{{na}} with {{wala}}: not anymore."},
+        {"type":"dialogue","q":"Your friend checks on you. Choose your replies.","lines":[{"who":"Joy","t":"Nikaon ka na?","tr":"Have you eaten?"},{"options":["Wala pa.","Dili pa."],"answer":0,"why":"“Not yet” is {{wala pa}}."},{"who":"Joy","t":"Ha? Alas tres na! Nganong wala ka mokaon?","tr":"What? It's three o'clock! Why haven't you eaten?"},{"options":["Busy kaayo ko. Wala koy oras.","Busy kaayo ko. Dili koy oras."],"answer":0,"why":"No time: {{wala koy oras}}, like “I have no money”."}]},
+        {"type":"order","q":"Put the words in order.","tr":"She hasn't arrived yet.","words":["Wala","pa","siya","moabot."]},
+        {"type":"say","q":"Answer: {{Miadto ka sa baybayon?}} “No, I didn't go.”","answer":"Wala, wala ko moadto.","from":"tell-what-you-did"},
+        {"type":"choice","q":"{{Dili ko moadto.}} means…","options":["I won't go.","I didn't go."],"answer":0,"why":"{{dili}} + {{mo-}}: won't. “Didn't” is {{wala}}.","from":"say-what-youll-do"},
+        {"type":"free","q":"Your turn: say one thing you've already done today and one you haven't done yet.","answers":[{"t":"Mikaon na ko, pero wala pa ko moinom og kape.","tr":"I've eaten, but I haven't had coffee yet."},{"t":"Miadto ko sa trabaho. Wala pa ko motawag sa akong mama.","tr":"I went to work. I haven't called my mom yet."}]}
+      ]
+    },
+    {
+      "id": "ask-about-someones-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask about someone's day",
+      "summary": "Ask when, why, what time and who: “When did you arrive? Why didn't you call?”",
+      "topic": "Question word + short word + verb; {{kanus-a}}, {{nganong}}, {{unsang orasa}}, {{kinsa ang}}",
+      "blocks": [
+        {"goal":{"t":"Kanus-a ka miabot? Nganong wala ka motawag?","tr":"When did you arrive? Why didn't you call?"}},
+        {"dialog":[{"who":"Joy","t":"Ben! Kanus-a ka miabot?","tr":"Ben! When did you arrive?"},{"who":"Ben","t":"Gahapon pa.","tr":"Yesterday already."},{"who":"Joy","t":"Gahapon pa? Nganong wala ka motawag?","tr":"Yesterday? Why didn't you call?"},{"who":"Ben","t":"Gikapoy kaayo ko. Natulog ko dayon.","tr":"I was really tired. I went straight to sleep."},{"who":"Joy","t":"Asa ka nagpuyo karon?","tr":"Where are you staying now?"},{"who":"Ben","t":"Sa usa ka hotel duol sa Colon.","tr":"At a hotel near Colon Street."},{"who":"Joy","t":"Unsang orasa ka mahuman sa trabaho? Kaon ta!","tr":"What time do you finish work? Let's eat!"}]},
+        {"p":"You know the pattern from the first unit: **the question word first, the short word right after it**. Now a verb follows: {{Asa ka moadto?}} “Where are you going?”, {{Kanus-a ka miabot?}} “When did you arrive?”"},
+        {"p":"**The verb keeps its own form**: {{mo-}} for what's still to come ({{Kanus-a ka mobalik?}} “When will you come back?”), {{mi-}} for what happened ({{Kanus-a ka miabot?}}), {{nag-}} for what's going on ({{Asa ka nagtrabaho?}} “Where do you work?”), and {{wala}} + {{mo-}} for what didn't."},
+        { "table": [
+          ["question word","meaning","example"],
+          ["{{kanus-a}}","when","{{Kanus-a ka mobalik?}} When will you come back?"],
+          ["{{ngano}}","why","{{Nganong wala ka moabot?}} Why didn't you come?"],
+          ["{{unsang orasa}}","what time","{{Unsang orasa ka mobiya?}} What time are you leaving?"],
+          ["{{pila ka}}","how many","{{Pila ka tawo ang miadto?}} How many people went?"],
+          ["{{kinsa ang}}","who (did it)","{{Kinsa ang nitawag?}} Who called?"]
+        ] },
+        {"p":"**Two details.** {{ngano}} “why” usually joins the rest with -ng: {{Nganong…?}} (alone: {{Ngano man?}} “Why?”). And to ask **who did** something, put {{ang}} after {{kinsa}}: {{Kinsa ang nitawag?}}, often said {{Kinsay nitawag?}}"},
+        { "ex": [
+          {"t":"Asa ka paingon?","tr":"Where are you headed?"},
+          {"t":"Kanus-a ka mobalik?","tr":"When will you come back?"},
+          {"t":"Unsang orasa ka mobiya?","tr":"What time are you leaving?"},
+          {"t":"Nganong wala ka moabot?","tr":"Why didn't you come?"},
+          {"t":"Kinsa ang nitawag?","tr":"Who called?"},
+          {"t":"Pila ka tawo ang miadto?","tr":"How many people went?"}
+        ] },
+        {"tip":"{{Asa ka paingon?}} “Where are you headed?” is how people greet each other in the street. A vague answer is fine: {{Diha lang.}} “Just over there.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Kanus-a miabot ka?","right":"Kanus-a ka miabot?","tr":"When did you arrive?","why":"{{ka}} comes right after the question word, before the verb."},
+        {"wrong":"Asa moadto ka?","right":"Asa ka moadto?","tr":"Where are you going?","why":"Same rule: the short word follows the first word."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ ka miabot?","tr":"When did you arrive?","options":["Kanus-a","Asa","Kinsa"],"answer":0,"why":"When: {{kanus-a}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kanus-a ka ___?","tr":"When will you come back?","options":["mobalik","mibalik","nagbalik"],"answer":0,"why":"Still to come: {{mo-}}."},
+        {"type":"order","q":"Put the words in order.","tr":"What time are you leaving?","words":["Unsang","orasa","ka","mobiya?"]},
+        {"type":"dialogue","q":"Your friend is back from a trip. Ask about it.","lines":[{"who":"Mark","t":"Hi! Miabot na ko!","tr":"Hi! I'm back!"},{"options":["Kanus-a ka miabot?","Kanus-a miabot ka?"],"answer":0,"why":"{{ka}} right after {{kanus-a}}."},{"who":"Mark","t":"Ganiha lang. Gikan ko sa Siargao.","tr":"Just earlier. I've come from Siargao."},{"options":["Kinsa imong kauban?","Kinsa kauban imong?"],"answer":0,"why":"{{imong}} goes before the noun: {{imong kauban}}."},{"who":"Mark","t":"Akong igsoon.","tr":"My brother."}]},
+        {"type":"choice","q":"{{Kanus-a ka ___? — Gahapon.}}","options":["{{miabot}}","{{moabot}}"],"answer":0,"why":"Yesterday: done, {{mi-}}.","from":"tell-what-you-did"},
+        {"type":"say","q":"Ask: “Why didn't you call?”","answer":"Nganong wala ka motawag?","from":"say-what-you-didnt-do"},
+        {"type":"free","q":"Your turn: ask a friend three questions about their day.","answers":[{"t":"Unsang orasa ka mibangon? Asa ka miadto? Kinsa imong kauban?","tr":"What time did you get up? Where did you go? Who were you with?"},{"t":"Kanus-a ka miuli? Nikaon ka na?","tr":"When did you get home? Have you eaten?"}]}
+      ]
+    },
+    {
+      "id": "tell-people-what-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell people what to do, nicely",
+      "summary": "Invite a guest to sit and eat, say “Let's go!”, and “Don't worry.”",
+      "topic": "The root as a command; {{palihug}} and {{sa}}; {{ta}} “let's”; {{ayaw}} “don't”",
+      "blocks": [
+        {"goal":{"t":"Lingkod, palihug. Kaon na ta!","tr":"Have a seat, please. Let's eat!"}},
+        {"dialog":[{"who":"Lola","t":"Dayon, dayon! Lingkod, palihug.","tr":"Come in, come in! Have a seat, please."},{"who":"Ben","t":"Salamat, Lola.","tr":"Thank you, Lola."},{"who":"Lola","t":"Kaon na ta! Kuha og kan-on.","tr":"Let's eat! Take some rice."},{"who":"Ben","t":"Lami kaayo ni, Lola!","tr":"This is really delicious, Lola!"},{"who":"Lola","t":"Kaon pa! Daghan pa.","tr":"Eat some more! There's plenty."},{"who":"Ben","t":"Busog na kaayo ko, Lola. Salamat kaayo!","tr":"I'm really full, Lola. Thank you so much!"},{"who":"Lola","t":"Hulat sa, naa pay dessert!","tr":"Wait, there's still dessert!"}]},
+        {"p":"**The bare root is a command.** No {{mo-}}, no ending: {{Lingkod!}} “Sit down!”, {{Kaon!}} “Eat!”, {{Hulat!}} “Wait!”, {{Dali!}} “Hurry!”. With a thing, add {{og}}: {{Kuha og kan-on.}} “Take some rice.”"},
+        {"p":"**Make it gentle.** Add {{palihug}} “please”, before or after: {{Lingkod, palihug.}} And {{sa}} after the command means “first, for a moment”: {{Hulat sa.}} “Wait a moment.” (It's not the place marker {{sa}}: same sound, different job.)"},
+        {"p":"**Let's.** The root + {{ta}}, the short “we (you and I)”: {{Kaon ta!}} “Let's eat!”, {{Adto ta!}} “Let's go!”, {{Kaon na ta!}} “Let's eat now!”"},
+        {"p":"**Don't.** {{ayaw}}, usually with {{og}}: {{Ayaw og saba!}} “Don't be noisy!” Some phrases have their own shape, like {{Ayaw kabalaka.}} “Don't worry.” That makes three words for “no”: {{dili}} (is not, won't), {{wala}} (there isn't, didn't), {{ayaw}} (don't!)."},
+        { "table": [
+          ["","Bisaya","English"],
+          ["do it","{{Lingkod.}}","Sit down."],
+          ["gently","{{Lingkod sa, palihug.}}","Please, have a seat."],
+          ["let's","{{Lingkod ta.}}","Let's sit down."],
+          ["don't","{{Ayaw og lingkod diha.}}","Don't sit there."]
+        ] },
+        { "ex": [
+          {"t":"Hulat sa!","tr":"Wait a moment!"},
+          {"t":"Dali, ulahi na ta!","tr":"Hurry, we're late!"},
+          {"t":"Adto ta!","tr":"Let's go!"},
+          {"t":"Kuha og tubig, palihug.","tr":"Get some water, please."},
+          {"t":"Ayaw og saba!","tr":"Don't be noisy!"},
+          {"t":"Ayaw kabalaka.","tr":"Don't worry."}
+        ] },
+        {"tip":"Unit 4 adds a second kind of command, for one particular thing: {{Kuhaa ang tubig!}} “Get the water!” For now, the bare root does almost everything."}
+      ],
+      "mistakes": [
+        {"wrong":"Dili og saba!","right":"Ayaw og saba!","tr":"Don't be noisy!","why":"Telling someone not to do something: {{ayaw}}."},
+        {"wrong":"Ta kaon!","right":"Kaon ta!","tr":"Let's eat!","why":"{{ta}} is a short word: after the verb."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ og saba!","tr":"Don't be noisy!","options":["Ayaw","Dili","Wala"],"answer":0,"why":"“Don't!”: {{ayaw}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kaon ___!","tr":"Let's eat!","options":["ta","ko","ka"],"answer":0,"why":"Let's: the root + {{ta}}."},
+        {"type":"choice","q":"How do you invite a guest to sit down?","options":["{{Lingkod, palihug.}}","{{Molingkod ko, palihug.}}","{{Ayaw og lingkod.}}"],"answer":0,"why":"The root as a command, with {{palihug}}. ({{Molingkod ko}} is “I'll sit”.)"},
+        {"type":"dialogue","q":"Lunch at a friend's house: choose your replies.","lines":[{"who":"Joy","t":"Dayon! Lingkod sa.","tr":"Come in! Have a seat."},{"options":["Salamat!","Ayaw!"],"answer":0,"why":"Thank them: {{Salamat!}}"},{"who":"Joy","t":"Kaon pa! Ayaw kaulaw.","tr":"Eat some more! Don't be shy."},{"options":["Busog na ko. Salamat kaayo!","Busog pa ko. Salamat kaayo!"],"answer":0,"why":"{{Busog na ko}} “I'm full now”: {{na}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Hurry, we're late!","words":["Dali,","ulahi","na","ta!"]},
+        {"type":"choice","q":"Three words for “no”. Which one goes in {{___ ko moadto gahapon}} “I didn't go yesterday”?","options":["{{wala}}","{{dili}}","{{ayaw}}"],"answer":0,"why":"Didn't: {{wala}} + {{mo-}}.","from":"say-what-you-didnt-do"},
+        {"type":"free","q":"Your turn: invite a friend to do something with you, and tell them not to worry.","answers":[{"t":"Adto ta sa baybayon ugma! Ayaw kabalaka, duol ra.","tr":"Let's go to the beach tomorrow! Don't worry, it's close."},{"t":"Kaon ta sa gawas karong gabii! Ayaw kabalaka sa kwarta.","tr":"Let's eat out tonight! Don't worry about the money."}]}
+      ]
+    },
+    {
+      "id": "ask-the-way",
+      "unit": 3,
+      "level": "A2",
+      "title": "Ask the way and give directions",
+      "summary": "Ask how to get somewhere, follow the answer, and tell a jeepney driver where to stop.",
+      "topic": "{{Unsaon pag-adto sa…?}}; directions as commands: {{diretso}}, {{liko}}, {{sakay}}, {{naog}}; {{sa tuo}}, {{sa wala}}",
+      "blocks": [
+        {"goal":{"t":"Unsaon pag-adto sa Basilica? — Diretso lang, dayon liko sa wala.","tr":"How do I get to the Basilica? — Just go straight, then turn left."}},
+        {"dialog":[{"who":"You","t":"Nong, palihug, unsaon pag-adto sa Basilica?","tr":"Excuse me, sir, how do I get to the Basilica?"},{"who":"Man","t":"Diretso lang, dayon liko sa wala sa ikaduhang kanto.","tr":"Just go straight, then turn left at the second corner."},{"who":"You","t":"Layo pa ba?","tr":"Is it still far?"},{"who":"Man","t":"Dili, duol ra. Mga lima ka minuto.","tr":"No, it's close. About five minutes."},{"who":"You","t":"Salamat kaayo, Nong!","tr":"Thank you very much, sir!"},{"who":"Man","t":"Walay sapayan. Amping!","tr":"You're welcome. Take care!"}]},
+        {"p":"**How do I get to…?** {{Unsaon pag-adto sa…?}}, word for word “how-to going to…?”. {{pag-}} turns a verb into an “-ing” word: {{pag-adto}} “going”. It works for any “how do you…”: {{Unsaon pagluto niini?}} “How do you cook this?”"},
+        {"p":"**Directions are commands**, with the bare root from the last lesson: {{Diretso lang.}} “Just go straight.” {{Liko sa tuo.}} “Turn right.” {{Sakay og jeep.}} “Take a jeepney.” {{Naog sa simbahan.}} “Get off at the church.” And to link the steps: {{dayon}} “then”, {{human ana}} “after that”."},
+        { "table": [
+          ["Bisaya","English"],
+          ["{{diretso}}","go straight"],
+          ["{{liko sa tuo}} / {{liko sa wala}}","turn right / turn left"],
+          ["{{lakaw}}","walk"],
+          ["{{sakay og jeep}}","take a jeepney"],
+          ["{{naog}}","get off"],
+          ["{{sa unang kanto}} / {{sa ikaduhang kanto}}","at the first / second corner"],
+          ["{{sa suga}}","at the traffic light"]
+        ] },
+        {"p":"**First, second, third**: {{una}} (first), then {{ika-}} + the number: {{ikaduha}} second, {{ikatulo}} third. They join their noun with -ng like any describing word: {{ikaduhang kanto}} “the second corner”."},
+        { "ex": [
+          {"t":"Unsaon pag-adto sa Ayala?","tr":"How do I get to Ayala?"},
+          {"t":"Diretso lang.","tr":"Just go straight."},
+          {"t":"Liko sa tuo sa suga.","tr":"Turn right at the traffic light."},
+          {"t":"Sakay og jeep paingon sa Colon.","tr":"Take a jeepney to Colon."},
+          {"t":"Naog sa atubangan sa simbahan.","tr":"Get off in front of the church."},
+          {"t":"Lugar lang, Nong!","tr":"Stop here, please!","note":"to a jeepney or taxi driver"}
+        ] },
+        {"tip":"On a jeepney, pass your fare forward with {{Palihug, plete.}} “Fare, please.” When you want to get off, call out {{Lugar lang!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Unsaon adto sa Basilica?","right":"Unsaon pag-adto sa Basilica?","tr":"How do I get to the Basilica?","why":"After {{unsaon}}, the verb takes {{pag-}}."},
+        {"wrong":"Liko tuo.","right":"Liko sa tuo.","tr":"Turn right.","why":"{{tuo}} and {{wala}} are places: they need {{sa}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Unsaon ___ sa Basilica?","tr":"How do I get to the Basilica?","options":["pag-adto","moadto","miadto"],"answer":0,"why":"{{unsaon}} + {{pag-}}."},
+        {"type":"choice","q":"{{Liko sa wala.}} means…","options":["Turn left.","Don't turn.","Turn right."],"answer":0,"why":"{{sa wala}}: on the left.","from":"say-where-things-are"},
+        {"type":"dialogue","q":"You're lost in Cebu City. Choose your replies.","lines":[{"options":["Nang, unsaon pag-adto sa Fort San Pedro?","Nang, asa pag-adto Fort San Pedro?"],"answer":0,"why":"{{Unsaon pag-adto sa…?}} “How do I get to…?”"},{"who":"Woman","t":"Sakay og jeep, dayon naog sa Plaza Independencia.","tr":"Take a jeepney, then get off at Plaza Independencia."},{"options":["Layo pa ba?","Layo ba pa?"],"answer":0,"why":"{{pa}} first, then {{ba}}: {{Layo pa ba?}}"},{"who":"Woman","t":"Dili kaayo. Mga napulo ka minuto.","tr":"Not very. About ten minutes."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Just go straight, then turn left.","words":["Diretso","lang,","dayon","liko","sa","wala."]},
+        {"type":"say","q":"Say “Let's take a jeepney!”","answer":"Sakay ta og jeep!","from":"tell-people-what-to-do"},
+        {"type":"say","q":"Ask the driver: “How much is the fare?”","answer":"Pila ang plete?","from":"ask-the-price"},
+        {"type":"free","q":"Your turn: tell someone how to get from your home to a shop nearby.","answers":[{"t":"Diretso lang, dayon liko sa tuo. Naa sa tupad sa simbahan ang tindahan.","tr":"Just go straight, then turn right. The store is next to the church."},{"t":"Liko sa wala sa ikaduhang kanto. Duol ra, mga tulo ka minuto.","tr":"Turn left at the second corner. It's close, about three minutes."}]}
+      ]
     }
   ]
 }
