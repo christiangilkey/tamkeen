@@ -880,6 +880,147 @@
         {"type":"say","q":"Dites à un ami : « Je suis en route ! »","answer":"I'm on my way!"},
         {"type":"free","q":"À vous : dites ce que vous faites en ce moment, ce que font deux personnes autour de vous, et quel temps il fait.","answers":[{"t":"I'm learning English. My husband is watching TV and my son is playing video games. It's raining.","tr":"J'apprends l'anglais. Mon mari regarde la télé et mon fils joue aux jeux vidéo. Il pleut."},{"t":"Right now, I'm sitting in a café. A man is reading the newspaper. It's sunny and warm.","tr":"En ce moment, je suis assise dans un café. Un homme lit le journal. Il fait beau et chaud."}]}
       ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire ce que vous savez et pouvez faire",
+      "summary": "Dire que vous savez nager mais pas conduire, demander « Je peux entrer ? » : {{can}} et {{can't}}, le verbe le plus simple de l'anglais.",
+      "topic": "{{can}} / {{can't}} (capacité, permission, demande) ; pas de {{to}}, pas de {{-s}}, pas de {{do}} ; {{Could I…?}}, {{Could you…?}} ; la prononciation",
+      "blocks": [
+        {"goal":{"t":"I can swim, but I can't drive.","tr":"Je sais nager, mais je ne sais pas conduire."}},
+        {"dialog":[{"who":"The manager","t":"Can you speak Spanish?","tr":"Vous parlez espagnol ?"},{"who":"You","t":"No, I can't, but I can speak French and English.","tr":"Non, mais je parle français et anglais."},{"who":"The manager","t":"Great. Can you work on weekends?","tr":"Très bien. Vous pouvez travailler le week-end ?"},{"who":"You","t":"Yes, I can. Can I ask a question?","tr":"Oui. Je peux poser une question ?"},{"who":"The manager","t":"Of course.","tr":"Bien sûr."},{"who":"You","t":"Can I start next month?","tr":"Je peux commencer le mois prochain ?"}]},
+        {"term":"verbe modal","means":"un petit verbe qui ajoute une idée (pouvoir, devoir, falloir…) au verbe qui le suit : {{can}}, {{must}}, {{should}}, {{will}}. Il ne change jamais et se construit sans {{to}}."},
+        {"p":"**Can : pouvoir et savoir.** {{can}} couvre « pouvoir » et « savoir faire » : {{I can swim.}} « Je sais nager. » {{I can come tomorrow.}} « Je peux venir demain. » C'est le modèle de tous les verbes modaux."},
+        {"p":"**Le verbe le plus simple de l'anglais.** {{can}} ne prend jamais de {{-s}} ({{she can}}), est suivi du verbe sans {{to}} ({{I can swim}}), et n'a jamais besoin de {{do}} : on inverse pour la question ({{Can you swim?}}) et on ajoute {{not}} pour le négatif ({{can't}}, ou {{cannot}} en un seul mot)."},
+        { "table": [
+          ["français","anglais"],
+          ["je sais nager","{{I can swim.}}"],
+          ["elle ne peut pas venir","{{She can't come.}}"],
+          ["tu sais conduire ?","{{Can you drive?}}"],
+          ["oui, non","{{Yes, I can.}} {{No, I can't.}}"]
+        ] },
+        {"p":"**Demander la permission, demander un service.** {{Can I…?}} « Je peux… ? » : {{Can I sit here?}} {{Can you…?}} « Tu peux… ? » : {{Can you help me?}} Plus poli : {{Could I…?}}, {{Could you…?}} {{Could you repeat that, please?}} « Vous pourriez répéter, s'il vous plaît ? »"},
+        {"p":"**Can ou can't ? Écoutez bien.** Dans la phrase, {{can}} se dit vite, presque « kn » : {{I can swim}}. {{can't}} est long et accentué, avec un « a » bien ouvert en américain, « kènt ». Le {{t}} final s'entend à peine : c'est la longueur du son qui fait la différence."},
+        { "ex": [
+          {"t":"Can you help me, please?","tr":"Vous pouvez m'aider, s'il vous plaît ?"},
+          {"t":"I can't find my keys.","tr":"Je ne trouve pas mes clés.","note":"l'anglais aime {{can't}} ici : « je ne peux pas trouver »"},
+          {"t":"She can speak four languages.","tr":"Elle parle quatre langues."},
+          {"t":"Can I pay by card?","tr":"Je peux payer par carte ?"},
+          {"t":"We can't come tonight, sorry.","tr":"Nous ne pouvons pas venir ce soir, désolés."},
+          {"t":"Could you speak more slowly, please?","tr":"Vous pourriez parler plus lentement, s'il vous plaît ?"}
+        ] },
+        {"tip":"Avec les sens : {{I can see the ocean!}} « Je vois l'océan ! », {{I can't hear you.}} « Je ne t'entends pas. » L'anglais ajoute {{can}} là où le français n'en a pas besoin."}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Je sais nager.","why":"Après {{can}}, le verbe sans {{to}}."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"Elle sait conduire.","why":"{{can}} ne prend jamais de {{-s}}."},
+        {"wrong":"Do you can help me?","right":"Can you help me?","tr":"Vous pouvez m'aider ?","why":"{{can}} n'a jamais besoin de {{do}} : on inverse."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My daughter ___ read. She's only three.","tr":"Ma fille ne sait pas lire. Elle n'a que trois ans.","options":["can't","doesn't","isn't"],"answer":0,"why":"Ne pas savoir faire : {{can't}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ I sit here?","tr":"Je peux m'asseoir ici ?","options":["Can","Do","Am"],"answer":0,"why":"Demander la permission : {{Can I…?}}"},
+        {"type":"choice","q":"Le plus poli :","options":["{{Could you close the window, please?}}","{{Close the window.}}","{{You can close the window?}}"],"answer":0,"why":"{{Could you…?}} + {{please}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"He ___ three languages.","tr":"Il parle trois langues.","options":["speaks","can speaks","speak"],"answer":0,"why":"Avec {{he}}, au présent simple : {{speaks}}. (Avec {{can}}, ce serait {{he can speak}}, sans {{-s}}.)","from":"say-what-you-do-every-day"},
+        {"type":"dialogue","q":"Dans un magasin. Choisissez vos répliques.","from":"ask-for-things","lines":[{"who":"The clerk","t":"Can I help you?","tr":"Je peux vous aider ?"},{"options":["Yes, can I try this on?","Yes, do I can try this on?"],"answer":0,"why":"{{can}} sans {{do}} : on inverse."},{"who":"The clerk","t":"Sure. The fitting rooms are over there.","tr":"Bien sûr. Les cabines d'essayage sont là-bas."},{"options":["Thanks. Can I pay by card?","Thanks. Can I to pay by card?"],"answer":0,"why":"Après {{can}}, pas de {{to}}."},{"who":"The clerk","t":"Yes, of course.","tr":"Oui, bien sûr."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Tu peux m'aider, s'il te plaît ?","words":["Can","you","help me,","please?"]},
+        {"type":"free","q":"À vous : dites deux choses que vous savez faire, une que vous ne savez pas faire, et posez une question avec {{Can you…?}}","answers":[{"t":"I can cook and I can play the guitar, but I can't swim. Can you swim?","tr":"Je sais cuisiner et je sais jouer de la guitare, mais je ne sais pas nager. Tu sais nager ?"},{"t":"I can speak French and a little English. I can't drive. Can you help me with my English?","tr":"Je parle français et un peu anglais. Je ne sais pas conduire. Tu peux m'aider avec mon anglais ?"}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 3,
+      "level": "A1",
+      "title": "Indiquer le chemin et donner des consignes",
+      "summary": "Expliquer la route, donner une recette, dire « Entrez » ou « Ne vous inquiétez pas » : l'impératif anglais, et {{Let's}} pour « allons-y ».",
+      "topic": "l'impératif : le verbe seul ({{Turn left.}}) ; {{Don't}} + verbe ; {{Let's}} + verbe ; les directions",
+      "blocks": [
+        {"goal":{"t":"Go straight, then take the second street on the left.","tr":"Allez tout droit, puis prenez la deuxième rue à gauche."}},
+        {"dialog":[{"who":"A tourist","t":"Excuse me, how do I get to the museum?","tr":"Excusez-moi, comment je vais au musée ?"},{"who":"A woman","t":"Go straight and turn right at the light.","tr":"Allez tout droit et tournez à droite au feu."},{"who":"A tourist","t":"At the light, OK.","tr":"Au feu, d'accord."},{"who":"A woman","t":"Then take the second left. The museum is across from the church.","tr":"Ensuite, prenez la deuxième à gauche. Le musée est en face de l'église."},{"who":"A tourist","t":"Thank you so much!","tr":"Merci beaucoup !"},{"who":"A woman","t":"You're welcome. And don't take the bus, it's really close!","tr":"De rien. Et ne prenez pas le bus, c'est tout près !"}]},
+        {"term":"impératif","means":"la forme du verbe qui sert à dire de faire quelque chose : « Viens ! », « Tournez à gauche. »"},
+        {"p":"**L'impératif : le verbe tout seul.** Rien de plus simple : on prend le verbe à la forme de base, sans sujet : {{Turn left.}} « Tournez à gauche. » {{Come here!}} « Viens ici ! » Il n'y a qu'une forme, pour « tu » comme pour « vous »."},
+        {"p":"**Ne… pas : Don't.** {{Don't}} + le verbe : {{Don't worry.}} « Ne t'inquiète pas. » {{Don't touch!}} « Ne touche pas ! » Même avec {{be}} : {{Don't be late!}} « Ne sois pas en retard ! »"},
+        {"p":"**Allons… : Let's.** Pour proposer de faire quelque chose ensemble, {{Let's}} + le verbe : {{Let's go!}} « Allons-y ! » {{Let's eat.}} « Mangeons. » Au négatif : {{Let's not…}}"},
+        { "table": [
+          ["français","anglais"],
+          ["tournez, tourne","{{Turn.}}"],
+          ["ne tournez pas","{{Don't turn.}}"],
+          ["soyez prudent","{{Be careful.}}"],
+          ["tournons ; allons-y","{{Let's turn.}} ; {{Let's go.}}"]
+        ] },
+        {"p":"**Les directions.** {{Go straight}} (allez tout droit), {{turn left}}, {{turn right}} (tournez à gauche, à droite), {{the first street on the left}} (la première à gauche), {{at the light}} (au feu), {{at the corner}} (au coin), {{go past}} (passez devant), {{It's on your right.}} (C'est sur votre droite.)"},
+        { "ex": [
+          {"t":"Turn right after the bank.","tr":"Tournez à droite après la banque."},
+          {"t":"Come in, please.","tr":"Entrez, je vous en prie."},
+          {"t":"Don't forget your umbrella!","tr":"N'oublie pas ton parapluie !"},
+          {"t":"Let's go to the beach!","tr":"Allons à la plage !"},
+          {"t":"Please sit down.","tr":"Asseyez-vous, je vous prie."},
+          {"t":"Cut the tomatoes and add some salt.","tr":"Coupez les tomates et ajoutez du sel."}
+        ] },
+        {"tip":"Un impératif tout seul peut sembler sec. Adoucissez-le avec {{please}}, ou posez une question : {{Could you close the door?}} (leçon 18)."}
+      ],
+      "mistakes": [
+        {"wrong":"Not touch!","right":"Don't touch!","tr":"Ne touche pas !","why":"Le négatif de l'impératif : {{Don't}} + le verbe."},
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Allons-y !","why":"Après {{Let's}}, le verbe sans {{to}}."},
+        {"wrong":"Don't be worry.","right":"Don't worry.","tr":"Ne t'inquiète pas.","why":"{{worry}} est déjà un verbe : pas de {{be}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ the second street on the left.","tr":"Prenez la deuxième rue à gauche.","options":["Take","Takes","To take"],"answer":0,"why":"L'impératif : la forme de base, sans sujet."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ worry, it's not a problem.","tr":"Ne t'inquiète pas, ce n'est pas grave.","options":["Don't","Not","No"],"answer":0,"why":"Le négatif : {{Don't}} + le verbe."},
+        {"type":"choice","q":"Comment dire « Allons au cinéma ! » ?","options":["{{Let's go to the movies!}}","{{Let's to go to the movies!}}","{{We go to the movies!}}"],"answer":0,"why":"{{Let's}} + le verbe, sans {{to}}."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ne sois pas en retard ce soir !","words":["Don't","be","late","tonight!"]},
+        {"type":"dialogue","q":"Un touriste vous demande le chemin de la gare. Choisissez vos réponses.","from":"say-where-things-are","lines":[{"who":"A tourist","t":"Excuse me, is the train station far?","tr":"Excusez-moi, la gare, c'est loin ?"},{"options":["No! Go straight and turn left at the light.","No! You going straight and turning left at the light."],"answer":0,"why":"Des consignes : l'impératif, le verbe seul."},{"who":"A tourist","t":"And then?","tr":"Et ensuite ?"},{"options":["The station is across from the park.","The station is across of the park."],"answer":0,"why":"« En face de » : {{across from}}."},{"who":"A tourist","t":"Thanks a lot!","tr":"Merci beaucoup !"}]},
+        {"type":"say","q":"Dites à un ami : « Ne t'inquiète pas ! »","answer":"Don't worry!"},
+        {"type":"free","q":"À vous : expliquez à un ami comment aller de chez vous à un café ou un magasin du quartier.","answers":[{"t":"Go out and turn right. Go straight for two minutes. The café is next to the bank.","tr":"Sors et tourne à droite. Va tout droit pendant deux minutes. Le café est à côté de la banque."},{"t":"Take the first street on the left, then go past the church. The bakery is on your right.","tr":"Prends la première rue à gauche, puis passe devant l'église. La boulangerie est sur ta droite."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-plans",
+      "unit": 3,
+      "level": "A1",
+      "title": "Parler de vos projets",
+      "summary": "Dire ce que vous allez faire ce soir, ce week-end ou l'an prochain : {{be going to}} + verbe, l'équivalent exact de « aller » + infinitif.",
+      "topic": "{{be going to}} + verbe ; questions et négatif ; {{tonight, tomorrow, next week}} ; {{gonna}} à l'oral",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"Je vais rendre visite à mes parents ce week-end."}},
+        {"dialog":[{"who":"Sarah","t":"What are you going to do this summer?","tr":"Qu'est-ce que tu vas faire cet été ?"},{"who":"Hugo","t":"I'm going to travel in California. We're going to rent a car!","tr":"Je vais voyager en Californie. On va louer une voiture !"},{"who":"Sarah","t":"Awesome! How long are you going to stay?","tr":"Génial ! Tu vas rester combien de temps ?"},{"who":"Hugo","t":"Three weeks. And you?","tr":"Trois semaines. Et toi ?"},{"who":"Sarah","t":"I'm not going to travel. I'm going to work…","tr":"Je ne vais pas voyager. Je vais travailler…"}]},
+        {"p":"**Aller faire : be going to.** C'est l'équivalent exact de « je vais + infinitif » : {{be}} (leçon 2), puis {{going to}}, puis le verbe à la forme de base. {{I'm going to call my mother.}} « Je vais appeler ma mère. »"},
+        { "table": [
+          ["français","anglais"],
+          ["je vais manger","{{I'm going to eat.}}"],
+          ["il va pleuvoir","{{It's going to rain.}}"],
+          ["nous allons partir","{{We're going to leave.}}"],
+          ["tu vas venir ?","{{Are you going to come?}}"],
+          ["elle ne va pas venir","{{She isn't going to come.}}"]
+        ] },
+        {"p":"Comme pour {{be}}, la question inverse ({{Are you going to…?}}) et le négatif ajoute {{not}} ({{I'm not going to…}}), sans {{do}}."},
+        {"p":"**Pour quoi faire ?** Pour un projet déjà décidé ({{I'm going to buy a car.}}) et pour ce qu'on voit venir ({{Look at the sky! It's going to rain.}}). La leçon 29 présente {{will}}, l'autre futur."},
+        {"p":"**Quand.** {{tonight}} (ce soir), {{tomorrow}} (demain), {{this weekend}} (ce week-end), {{next week}} (la semaine prochaine), {{next year}} (l'an prochain), {{soon}} (bientôt). Pas de {{the}} devant {{next}} : {{next week}}, et non « the next week »."},
+        { "ex": [
+          {"t":"What are you going to do tonight?","tr":"Qu'est-ce que tu vas faire ce soir ?"},
+          {"t":"We're going to have a baby!","tr":"Nous allons avoir un bébé !"},
+          {"t":"It's going to be a great day.","tr":"Ça va être une super journée."},
+          {"t":"I'm not going to work tomorrow.","tr":"Je ne vais pas travailler demain."},
+          {"t":"Are they going to come to the party?","tr":"Ils vont venir à la fête ?"},
+          {"t":"She's going to study medicine next year.","tr":"Elle va faire médecine l'an prochain."}
+        ] },
+        {"tip":"À l'oral, les Américains disent souvent {{gonna}} : {{I'm gonna call you.}} C'est {{going to}} prononcé vite. Ne l'écrivez pas, mais reconnaissez-le (leçon 48)."}
+      ],
+      "mistakes": [
+        {"wrong":"I going to call you.","right":"I'm going to call you.","tr":"Je vais t'appeler.","why":"N'oubliez pas {{be}} : {{I'm going to}}."},
+        {"wrong":"I'm going to calling you.","right":"I'm going to call you.","tr":"Je vais t'appeler.","why":"Après {{going to}}, la forme de base."},
+        {"wrong":"We're going to visit Paris the next week.","right":"We're going to visit Paris next week.","tr":"Nous allons visiter Paris la semaine prochaine.","why":"Pas de {{the}} devant {{next week}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"We're ___ to visit the museum tomorrow.","tr":"Nous allons visiter le musée demain.","options":["going","go","goes"],"answer":0,"why":"{{be going to}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Look at those clouds! It's going to ___.","tr":"Regarde ces nuages ! Il va pleuvoir.","options":["rain","rains","raining"],"answer":0,"why":"Après {{going to}} : la forme de base."},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je ne vais pas sortir ce soir.","words":["I'm","not","going to","go out","tonight."]},
+        {"type":"choice","q":"« Tu vas venir ? »","options":["{{Are you going to come?}}","{{Do you going to come?}}","{{You are going to come?}}"],"answer":0,"why":"Avec {{be}}, la question inverse, sans {{do}}.","from":"ask-with-be"},
+        {"type":"dialogue","q":"Un ami vous demande vos projets. Choisissez vos réponses.","from":"say-when-and-how-often","lines":[{"who":"Your friend","t":"What are you going to do this weekend?","tr":"Qu'est-ce que tu vas faire ce week-end ?"},{"options":["I'm going to play tennis on Saturday.","I'm going to play tennis in Saturday."],"answer":0,"why":"Un jour : {{on}}."},{"who":"Your friend","t":"And on Sunday?","tr":"Et dimanche ?"},{"options":["I'm going to stay home and relax.","I go to stay home and relax."],"answer":0,"why":"Un projet : {{I'm going to}}."},{"who":"Your friend","t":"Sounds great!","tr":"Ça a l'air super !"}]},
+        {"type":"say","q":"Dites : « Je vais t'appeler demain. »","answer":"I'm going to call you tomorrow."},
+        {"type":"free","q":"À vous : dites trois choses que vous allez faire cette semaine ou cette année, et une chose que vous n'allez pas faire.","answers":[{"t":"This weekend, I'm going to see my friends and I'm going to read a book. I'm not going to work!","tr":"Ce week-end, je vais voir mes amis et je vais lire un livre. Je ne vais pas travailler !"},{"t":"This year, I'm going to learn English and I'm going to visit New York. I'm not going to buy a car.","tr":"Cette année, je vais apprendre l'anglais et je vais visiter New York. Je ne vais pas acheter de voiture."}]}
+      ]
     }
   ]
 }
