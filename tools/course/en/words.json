@@ -184,6 +184,2730 @@
       "meaning": "in or near a place; at a time (at six)",
       "sentence": "My dad is at work.",
       "translation": "My dad is ⟦at⟧ work."
+    },
+    {
+      "n": 21,
+      "rank": 21,
+      "word": "not",
+      "pos": "part",
+      "meaning": "used to make a word or sentence negative (n't: don't, isn't)",
+      "sentence": "I'm not hungry.",
+      "translation": "I'm ⟦not⟧ hungry."
+    },
+    {
+      "n": 22,
+      "rank": 22,
+      "word": "by",
+      "pos": "prep",
+      "meaning": "next to; using (by bus); made or done by someone; not later than (by Friday)",
+      "sentence": "I go to work by bus.",
+      "translation": "I go to work ⟦by⟧ bus."
+    },
+    {
+      "n": 23,
+      "rank": 23,
+      "word": "but",
+      "pos": "conj",
+      "meaning": "used to add something different or surprising",
+      "sentence": "I'm tired, but I'm happy.",
+      "translation": "I'm tired, ⟦but⟧ I'm happy."
+    },
+    {
+      "n": 24,
+      "rank": 24,
+      "word": "from",
+      "pos": "prep",
+      "meaning": "showing where someone or something starts or comes from",
+      "sentence": "Where are you from?",
+      "translation": "Where are you ⟦from⟧?"
+    },
+    {
+      "n": 25,
+      "rank": 25,
+      "word": "we",
+      "pos": "pron",
+      "meaning": "the speaker and one or more other people (us, our)",
+      "sentence": "We live in a small town.",
+      "translation": "⟦We⟧ live in a small town."
+    },
+    {
+      "n": 26,
+      "rank": 26,
+      "word": "my",
+      "pos": "det",
+      "meaning": "belonging to me",
+      "sentence": "This is my sister.",
+      "translation": "This is ⟦my⟧ sister."
+    },
+    {
+      "n": 27,
+      "rank": 27,
+      "word": "they",
+      "pos": "pron",
+      "meaning": "the people or things already mentioned (them, their)",
+      "sentence": "They live next door.",
+      "translation": "⟦They⟧ live next door."
+    },
+    {
+      "n": 28,
+      "rank": 28,
+      "word": "can",
+      "pos": "verb",
+      "meaning": "to be able to; to be allowed to (can't, could)",
+      "sentence": "She can speak three languages.",
+      "translation": "She ⟦can⟧ speak three languages."
+    },
+    {
+      "n": 29,
+      "rank": 29,
+      "word": "or",
+      "pos": "conj",
+      "meaning": "used between two or more choices",
+      "sentence": "Do you want tea or coffee?",
+      "translation": "Do you want tea ⟦or⟧ coffee?"
+    },
+    {
+      "n": 30,
+      "rank": 30,
+      "word": "your",
+      "pos": "det",
+      "meaning": "belonging to you",
+      "sentence": "What's your name?",
+      "translation": "What's ⟦your⟧ name?"
+    },
+    {
+      "n": 31,
+      "rank": 31,
+      "word": "all",
+      "pos": "det",
+      "meaning": "every one of; the whole of",
+      "sentence": "All my friends were there.",
+      "translation": "⟦All⟧ my friends were there."
+    },
+    {
+      "n": 32,
+      "rank": 32,
+      "word": "so",
+      "pos": "adv",
+      "meaning": "very; also used to mean 'and because of this'",
+      "sentence": "I'm so happy for you!",
+      "translation": "I'm ⟦so⟧ happy for you!"
+    },
+    {
+      "n": 33,
+      "rank": 33,
+      "word": "get",
+      "pos": "verb",
+      "meaning": "to receive or buy; to become (get tired); to arrive (get home) (got)",
+      "sentence": "I got a new phone.",
+      "translation": "I ⟦got⟧ a new phone.",
+      "form": "got"
+    },
+    {
+      "n": 34,
+      "rank": 34,
+      "word": "his",
+      "pos": "det",
+      "meaning": "belonging to him",
+      "sentence": "His car is red.",
+      "translation": "⟦His⟧ car is red."
+    },
+    {
+      "n": 35,
+      "rank": 35,
+      "word": "will",
+      "pos": "verb",
+      "meaning": "used to talk about the future ('ll; won't = will not)",
+      "sentence": "I will call you tomorrow.",
+      "translation": "I ⟦will⟧ call you tomorrow."
+    },
+    {
+      "n": 36,
+      "rank": 36,
+      "word": "one",
+      "pos": "num",
+      "meaning": "the number 1; a single person or thing",
+      "sentence": "I have one brother.",
+      "translation": "I have ⟦one⟧ brother."
+    },
+    {
+      "n": 37,
+      "rank": 37,
+      "word": "me",
+      "pos": "pron",
+      "meaning": "the person speaking (after a verb or a word like 'to' or 'with')",
+      "sentence": "Give me a minute.",
+      "translation": "Give ⟦me⟧ a minute."
+    },
+    {
+      "n": 38,
+      "rank": 38,
+      "word": "if",
+      "pos": "conj",
+      "meaning": "used to say what might happen or be true",
+      "sentence": "Call me if you need help.",
+      "translation": "Call me ⟦if⟧ you need help."
+    },
+    {
+      "n": 39,
+      "rank": 39,
+      "word": "like",
+      "pos": "verb",
+      "meaning": "to enjoy; to think something is nice (also: similar to, as in 'like this')",
+      "sentence": "I like your shoes.",
+      "translation": "I ⟦like⟧ your shoes."
+    },
+    {
+      "n": 40,
+      "rank": 40,
+      "word": "just",
+      "pos": "adv",
+      "meaning": "only; a very short time ago; exactly",
+      "sentence": "I just got home.",
+      "translation": "I ⟦just⟧ got home."
+    },
+    {
+      "n": 41,
+      "rank": 41,
+      "word": "make",
+      "pos": "verb",
+      "meaning": "to create, build or cook something; to cause (made)",
+      "sentence": "Let me make some coffee.",
+      "translation": "Let me ⟦make⟧ some coffee."
+    },
+    {
+      "n": 42,
+      "rank": 42,
+      "word": "go",
+      "pos": "verb",
+      "meaning": "to move or travel to a place (went, gone)",
+      "sentence": "Let's go home.",
+      "translation": "Let's ⟦go⟧ home."
+    },
+    {
+      "n": 43,
+      "rank": 43,
+      "word": "what",
+      "pos": "pron",
+      "meaning": "used to ask about a thing or for information",
+      "sentence": "What time is it?",
+      "translation": "⟦What⟧ time is it?"
+    },
+    {
+      "n": 44,
+      "rank": 44,
+      "word": "about",
+      "pos": "prep",
+      "meaning": "on the subject of; around, more or less (about ten)",
+      "sentence": "What is the book about?",
+      "translation": "What is the book ⟦about⟧?"
+    },
+    {
+      "n": 45,
+      "rank": 45,
+      "word": "up",
+      "pos": "adv",
+      "meaning": "toward a higher place; out of bed (get up)",
+      "sentence": "I get up at seven.",
+      "translation": "I get ⟦up⟧ at seven."
+    },
+    {
+      "n": 46,
+      "rank": 46,
+      "word": "out",
+      "pos": "adv",
+      "meaning": "away from the inside; not at home",
+      "sentence": "Let's go out tonight.",
+      "translation": "Let's go ⟦out⟧ tonight."
+    },
+    {
+      "n": 47,
+      "rank": 47,
+      "word": "there",
+      "pos": "adv",
+      "meaning": "in or to that place; also used in 'there is' and 'there are'",
+      "sentence": "There is a bank near here.",
+      "translation": "⟦There⟧ is a bank near here."
+    },
+    {
+      "n": 48,
+      "rank": 48,
+      "word": "when",
+      "pos": "adv",
+      "meaning": "at what time; at the time that",
+      "sentence": "When is your birthday?",
+      "translation": "⟦When⟧ is your birthday?"
+    },
+    {
+      "n": 49,
+      "rank": 49,
+      "word": "say",
+      "pos": "verb",
+      "meaning": "to speak words (said)",
+      "sentence": "What did you say?",
+      "translation": "What did you ⟦say⟧?"
+    },
+    {
+      "n": 50,
+      "rank": 50,
+      "word": "time",
+      "pos": "noun",
+      "meaning": "minutes, hours and days; a moment (What time is it?); an occasion (three times)",
+      "sentence": "Do you have time for coffee?",
+      "translation": "Do you have ⟦time⟧ for coffee?"
+    },
+    {
+      "n": 51,
+      "rank": 51,
+      "word": "more",
+      "pos": "det",
+      "meaning": "a bigger amount or number",
+      "sentence": "Would you like more tea?",
+      "translation": "Would you like ⟦more⟧ tea?"
+    },
+    {
+      "n": 52,
+      "rank": 52,
+      "word": "who",
+      "pos": "pron",
+      "meaning": "what person or which person",
+      "sentence": "Who is your teacher?",
+      "translation": "⟦Who⟧ is your teacher?"
+    },
+    {
+      "n": 53,
+      "rank": 53,
+      "word": "no",
+      "pos": "interj",
+      "meaning": "used to answer that something is not true or to refuse; also: not any (no money)",
+      "sentence": "No, thank you.",
+      "translation": "⟦No⟧, thank you."
+    },
+    {
+      "n": 54,
+      "rank": 54,
+      "word": "their",
+      "pos": "det",
+      "meaning": "belonging to them",
+      "sentence": "Their house is very big.",
+      "translation": "⟦Their⟧ house is very big."
+    },
+    {
+      "n": 55,
+      "rank": 55,
+      "word": "would",
+      "pos": "verb",
+      "meaning": "used to ask or offer politely (Would you like…?) and to talk about imagined things",
+      "sentence": "Would you like some water?",
+      "translation": "⟦Would⟧ you like some water?"
+    },
+    {
+      "n": 56,
+      "rank": 56,
+      "word": "she",
+      "pos": "pron",
+      "meaning": "a woman or girl who has already been mentioned (her)",
+      "sentence": "She speaks French very well.",
+      "translation": "⟦She⟧ speaks French very well."
+    },
+    {
+      "n": 57,
+      "rank": 57,
+      "word": "her",
+      "pos": "pron",
+      "meaning": "that woman or girl (after a verb or a word like 'to'); belonging to her",
+      "sentence": "Do you know her?",
+      "translation": "Do you know ⟦her⟧?"
+    },
+    {
+      "n": 58,
+      "rank": 58,
+      "word": "which",
+      "pos": "pron",
+      "meaning": "what one (or ones) of a group",
+      "sentence": "Which one do you want?",
+      "translation": "⟦Which⟧ one do you want?"
+    },
+    {
+      "n": 59,
+      "rank": 59,
+      "word": "see",
+      "pos": "verb",
+      "meaning": "to notice with your eyes; to meet or visit someone (saw, seen)",
+      "sentence": "See you tomorrow!",
+      "translation": "⟦See⟧ you tomorrow!"
+    },
+    {
+      "n": 60,
+      "rank": 60,
+      "word": "year",
+      "pos": "noun",
+      "meaning": "a period of twelve months, 365 days",
+      "sentence": "We moved here last year.",
+      "translation": "We moved here last ⟦year⟧."
+    },
+    {
+      "n": 61,
+      "rank": 61,
+      "word": "people",
+      "pos": "noun",
+      "meaning": "men, women and children; more than one person",
+      "sentence": "There were many people at the party.",
+      "translation": "There were many ⟦people⟧ at the party."
+    },
+    {
+      "n": 62,
+      "rank": 62,
+      "word": "know",
+      "pos": "verb",
+      "meaning": "to have information in your mind; to be familiar with someone (knew, known)",
+      "sentence": "Do you know his name?",
+      "translation": "Do you ⟦know⟧ his name?"
+    },
+    {
+      "n": 63,
+      "rank": 63,
+      "word": "think",
+      "pos": "verb",
+      "meaning": "to have an idea or opinion; to use your mind (thought)",
+      "sentence": "I think it's a good idea.",
+      "translation": "I ⟦think⟧ it's a good idea."
+    },
+    {
+      "n": 64,
+      "rank": 64,
+      "word": "new",
+      "pos": "adj",
+      "meaning": "recently made or bought; not old; not used before",
+      "sentence": "I need new shoes.",
+      "translation": "I need ⟦new⟧ shoes."
+    },
+    {
+      "n": 65,
+      "rank": 65,
+      "word": "take",
+      "pos": "verb",
+      "meaning": "to carry or bring something; to use a bus or train (took, taken)",
+      "sentence": "I take the bus to work.",
+      "translation": "I ⟦take⟧ the bus to work."
+    },
+    {
+      "n": 66,
+      "rank": 66,
+      "word": "how",
+      "pos": "adv",
+      "meaning": "in what way; used to ask about health or feelings (How are you?)",
+      "sentence": "How are you?",
+      "translation": "⟦How⟧ are you?"
+    },
+    {
+      "n": 67,
+      "rank": 67,
+      "word": "other",
+      "pos": "adj",
+      "meaning": "different; the second of two; more of the same kind",
+      "sentence": "Where is my other shoe?",
+      "translation": "Where is my ⟦other⟧ shoe?"
+    },
+    {
+      "n": 68,
+      "rank": 68,
+      "word": "use",
+      "pos": "verb",
+      "meaning": "to do something with a tool, machine or thing (used)",
+      "sentence": "Can I use your phone?",
+      "translation": "Can I ⟦use⟧ your phone?"
+    },
+    {
+      "n": 69,
+      "rank": 69,
+      "word": "some",
+      "pos": "det",
+      "meaning": "an amount or number of something, without saying exactly how much",
+      "sentence": "I need some help.",
+      "translation": "I need ⟦some⟧ help."
+    },
+    {
+      "n": 70,
+      "rank": 70,
+      "word": "also",
+      "pos": "adv",
+      "meaning": "too; as well",
+      "sentence": "She also speaks Spanish.",
+      "translation": "She ⟦also⟧ speaks Spanish."
+    },
+    {
+      "n": 71,
+      "rank": 71,
+      "word": "them",
+      "pos": "pron",
+      "meaning": "those people or things (after a verb or a word like 'to' or 'with')",
+      "sentence": "I see them every week.",
+      "translation": "I see ⟦them⟧ every week."
+    },
+    {
+      "n": 72,
+      "rank": 72,
+      "word": "work",
+      "pos": "verb",
+      "meaning": "to do a job; to function correctly (My phone doesn't work.)",
+      "sentence": "My mom works at a hospital.",
+      "translation": "My mom ⟦works⟧ at a hospital.",
+      "form": "works"
+    },
+    {
+      "n": 73,
+      "rank": 73,
+      "word": "want",
+      "pos": "verb",
+      "meaning": "to wish to have or do something",
+      "sentence": "I want a glass of water.",
+      "translation": "I ⟦want⟧ a glass of water."
+    },
+    {
+      "n": 74,
+      "rank": 74,
+      "word": "now",
+      "pos": "adv",
+      "meaning": "at this moment; at the present time",
+      "sentence": "I have to go now.",
+      "translation": "I have to go ⟦now⟧."
+    },
+    {
+      "n": 75,
+      "rank": 75,
+      "word": "come",
+      "pos": "verb",
+      "meaning": "to move toward the speaker; to arrive (came)",
+      "sentence": "Can you come to my party?",
+      "translation": "Can you ⟦come⟧ to my party?"
+    },
+    {
+      "n": 76,
+      "rank": 76,
+      "word": "its",
+      "pos": "det",
+      "meaning": "belonging to it",
+      "sentence": "The dog is eating its food.",
+      "translation": "The dog is eating ⟦its⟧ food."
+    },
+    {
+      "n": 77,
+      "rank": 77,
+      "word": "our",
+      "pos": "det",
+      "meaning": "belonging to us",
+      "sentence": "Our house is near the park.",
+      "translation": "⟦Our⟧ house is near the park."
+    },
+    {
+      "n": 78,
+      "rank": 78,
+      "word": "look",
+      "pos": "verb",
+      "meaning": "to turn your eyes toward something; to seem (You look tired.)",
+      "sentence": "Look at that bird!",
+      "translation": "⟦Look⟧ at that bird!"
+    },
+    {
+      "n": 79,
+      "rank": 79,
+      "word": "good",
+      "pos": "adj",
+      "meaning": "nice, pleasant; of high quality; able to do something well (better, best)",
+      "sentence": "Have a good day!",
+      "translation": "Have a ⟦good⟧ day!"
+    },
+    {
+      "n": 80,
+      "rank": 80,
+      "word": "than",
+      "pos": "conj",
+      "meaning": "used to compare two things (bigger than)",
+      "sentence": "My brother is taller than me.",
+      "translation": "My brother is taller ⟦than⟧ me."
+    },
+    {
+      "n": 81,
+      "rank": 81,
+      "word": "need",
+      "pos": "verb",
+      "meaning": "to have to have something; to have to do something",
+      "sentence": "Do you need help?",
+      "translation": "Do you ⟦need⟧ help?"
+    },
+    {
+      "n": 82,
+      "rank": 82,
+      "word": "only",
+      "pos": "adv",
+      "meaning": "no more than; just",
+      "sentence": "I only have five dollars.",
+      "translation": "I ⟦only⟧ have five dollars."
+    },
+    {
+      "n": 83,
+      "rank": 83,
+      "word": "day",
+      "pos": "noun",
+      "meaning": "24 hours; the time when it is light outside",
+      "sentence": "I work five days a week.",
+      "translation": "I work five ⟦days⟧ a week.",
+      "form": "days"
+    },
+    {
+      "n": 84,
+      "rank": 84,
+      "word": "after",
+      "pos": "prep",
+      "meaning": "later than; following",
+      "sentence": "Let's meet after work.",
+      "translation": "Let's meet ⟦after⟧ work."
+    },
+    {
+      "n": 85,
+      "rank": 85,
+      "word": "first",
+      "pos": "adj",
+      "meaning": "coming before all the others; number one in order",
+      "sentence": "Is this your first time here?",
+      "translation": "Is this your ⟦first⟧ time here?"
+    },
+    {
+      "n": 86,
+      "rank": 86,
+      "word": "him",
+      "pos": "pron",
+      "meaning": "that man or boy (after a verb or a word like 'to' or 'with')",
+      "sentence": "Have you seen him today?",
+      "translation": "Have you seen ⟦him⟧ today?"
+    },
+    {
+      "n": 87,
+      "rank": 87,
+      "word": "into",
+      "pos": "prep",
+      "meaning": "to the inside of",
+      "sentence": "She walked into the room.",
+      "translation": "She walked ⟦into⟧ the room."
+    },
+    {
+      "n": 88,
+      "rank": 88,
+      "word": "could",
+      "pos": "verb",
+      "meaning": "was able to; used to ask politely (Could you…?)",
+      "sentence": "Could you open the window?",
+      "translation": "⟦Could⟧ you open the window?"
+    },
+    {
+      "n": 89,
+      "rank": 89,
+      "word": "two",
+      "pos": "num",
+      "meaning": "the number 2",
+      "sentence": "We waited for two hours.",
+      "translation": "We waited for ⟦two⟧ hours."
+    },
+    {
+      "n": 90,
+      "rank": 90,
+      "word": "over",
+      "pos": "prep",
+      "meaning": "above or across something; more than; finished (The game is over.)",
+      "sentence": "He jumped over the fence.",
+      "translation": "He jumped ⟦over⟧ the fence."
+    },
+    {
+      "n": 91,
+      "rank": 91,
+      "word": "give",
+      "pos": "verb",
+      "meaning": "to hand something to someone (gave, given)",
+      "sentence": "Can you give me a pen?",
+      "translation": "Can you ⟦give⟧ me a pen?"
+    },
+    {
+      "n": 92,
+      "rank": 92,
+      "word": "any",
+      "pos": "det",
+      "meaning": "some (in questions and negatives); it doesn't matter which",
+      "sentence": "Do you have any money?",
+      "translation": "Do you have ⟦any⟧ money?"
+    },
+    {
+      "n": 93,
+      "rank": 93,
+      "word": "then",
+      "pos": "adv",
+      "meaning": "next, after that; at that time",
+      "sentence": "We had dinner and then went home.",
+      "translation": "We had dinner and ⟦then⟧ went home."
+    },
+    {
+      "n": 94,
+      "rank": 94,
+      "word": "find",
+      "pos": "verb",
+      "meaning": "to discover something you were looking for (found)",
+      "sentence": "I can't find my keys.",
+      "translation": "I can't ⟦find⟧ my keys."
+    },
+    {
+      "n": 95,
+      "rank": 95,
+      "word": "back",
+      "pos": "adv",
+      "meaning": "to the place where you were before; behind",
+      "sentence": "I'll be back in ten minutes.",
+      "translation": "I'll be ⟦back⟧ in ten minutes."
+    },
+    {
+      "n": 96,
+      "rank": 96,
+      "word": "way",
+      "pos": "noun",
+      "meaning": "a road or direction to a place; how to do something",
+      "sentence": "Is this the way to the station?",
+      "translation": "Is this the ⟦way⟧ to the station?"
+    },
+    {
+      "n": 97,
+      "rank": 97,
+      "word": "us",
+      "pos": "pron",
+      "meaning": "the speaker and other people (after a verb or a word like 'to' or 'with')",
+      "sentence": "Come with us!",
+      "translation": "Come with ⟦us⟧!"
+    },
+    {
+      "n": 98,
+      "rank": 98,
+      "word": "well",
+      "pos": "adv",
+      "meaning": "in a good way; healthy",
+      "sentence": "She sings very well.",
+      "translation": "She sings very ⟦well⟧."
+    },
+    {
+      "n": 99,
+      "rank": 99,
+      "word": "thing",
+      "pos": "noun",
+      "meaning": "an object, idea or fact that you don't name exactly",
+      "sentence": "I have so many things to do.",
+      "translation": "I have so many ⟦things⟧ to do.",
+      "form": "things"
+    },
+    {
+      "n": 100,
+      "rank": 100,
+      "word": "because",
+      "pos": "conj",
+      "meaning": "for the reason that",
+      "sentence": "I'm late because I missed the bus.",
+      "translation": "I'm late ⟦because⟧ I missed the bus."
+    },
+    {
+      "n": 101,
+      "rank": 101,
+      "word": "right",
+      "pos": "adj",
+      "meaning": "correct; on the side of your right hand; also 'exactly' (right now)",
+      "sentence": "Is this the right answer?",
+      "translation": "Is this the ⟦right⟧ answer?"
+    },
+    {
+      "n": 102,
+      "rank": 102,
+      "word": "should",
+      "pos": "verb",
+      "meaning": "used to give advice or to say what is the best thing to do",
+      "sentence": "You should see a doctor.",
+      "translation": "You ⟦should⟧ see a doctor."
+    },
+    {
+      "n": 103,
+      "rank": 103,
+      "word": "man",
+      "pos": "noun",
+      "meaning": "an adult male person (plural: men)",
+      "sentence": "That man is my uncle.",
+      "translation": "That ⟦man⟧ is my uncle."
+    },
+    {
+      "n": 104,
+      "rank": 104,
+      "word": "here",
+      "pos": "adv",
+      "meaning": "in or to this place",
+      "sentence": "Come here, please.",
+      "translation": "Come ⟦here⟧, please."
+    },
+    {
+      "n": 105,
+      "rank": 105,
+      "word": "state",
+      "pos": "noun",
+      "meaning": "one of the parts of a country like the US; a condition",
+      "sentence": "Which state are you from?",
+      "translation": "Which ⟦state⟧ are you from?"
+    },
+    {
+      "n": 106,
+      "rank": 106,
+      "word": "where",
+      "pos": "adv",
+      "meaning": "in or to what place",
+      "sentence": "Where is the bathroom?",
+      "translation": "⟦Where⟧ is the bathroom?"
+    },
+    {
+      "n": 107,
+      "rank": 107,
+      "word": "most",
+      "pos": "det",
+      "meaning": "the biggest amount or number; almost all",
+      "sentence": "Most people like music.",
+      "translation": "⟦Most⟧ people like music."
+    },
+    {
+      "n": 108,
+      "rank": 108,
+      "word": "much",
+      "pos": "det",
+      "meaning": "a lot (of something you can't count); used to ask 'How much?'",
+      "sentence": "How much is this?",
+      "translation": "How ⟦much⟧ is this?"
+    },
+    {
+      "n": 109,
+      "rank": 109,
+      "word": "very",
+      "pos": "adv",
+      "meaning": "really; to a high degree",
+      "sentence": "It's very hot today.",
+      "translation": "It's ⟦very⟧ hot today."
+    },
+    {
+      "n": 110,
+      "rank": 110,
+      "word": "even",
+      "pos": "adv",
+      "meaning": "used to say that something is surprising",
+      "sentence": "He works even on Sundays.",
+      "translation": "He works ⟦even⟧ on Sundays."
+    },
+    {
+      "n": 111,
+      "rank": 111,
+      "word": "may",
+      "pos": "verb",
+      "meaning": "used to say something is possible; used to ask politely (May I…?)",
+      "sentence": "May I come in?",
+      "translation": "⟦May⟧ I come in?"
+    },
+    {
+      "n": 112,
+      "rank": 112,
+      "word": "really",
+      "pos": "adv",
+      "meaning": "very; truly",
+      "sentence": "I really like this song.",
+      "translation": "I ⟦really⟧ like this song."
+    },
+    {
+      "n": 113,
+      "rank": 113,
+      "word": "life",
+      "pos": "noun",
+      "meaning": "being alive; the way someone lives (plural: lives)",
+      "sentence": "Life is short.",
+      "translation": "⟦Life⟧ is short."
+    },
+    {
+      "n": 114,
+      "rank": 114,
+      "word": "great",
+      "pos": "adj",
+      "meaning": "very good; very big or important",
+      "sentence": "That's a great idea!",
+      "translation": "That's a ⟦great⟧ idea!"
+    },
+    {
+      "n": 115,
+      "rank": 115,
+      "word": "too",
+      "pos": "adv",
+      "meaning": "more than is good or needed (too hot); also",
+      "sentence": "This coffee is too hot.",
+      "translation": "This coffee is ⟦too⟧ hot."
+    },
+    {
+      "n": 116,
+      "rank": 116,
+      "word": "call",
+      "pos": "verb",
+      "meaning": "to phone someone; to give a name to someone or something (called)",
+      "sentence": "I'll call you tonight.",
+      "translation": "I'll ⟦call⟧ you tonight."
+    },
+    {
+      "n": 117,
+      "rank": 117,
+      "word": "show",
+      "pos": "verb",
+      "meaning": "to let someone see something; to explain how (showed, shown)",
+      "sentence": "Can you show me the way?",
+      "translation": "Can you ⟦show⟧ me the way?"
+    },
+    {
+      "n": 118,
+      "rank": 118,
+      "word": "play",
+      "pos": "verb",
+      "meaning": "to have fun with games or toys; to do a sport; to make music",
+      "sentence": "The kids are playing outside.",
+      "translation": "The kids are ⟦playing⟧ outside.",
+      "form": "playing"
+    },
+    {
+      "n": 119,
+      "rank": 119,
+      "word": "before",
+      "pos": "prep",
+      "meaning": "earlier than",
+      "sentence": "Wash your hands before dinner.",
+      "translation": "Wash your hands ⟦before⟧ dinner."
+    },
+    {
+      "n": 120,
+      "rank": 120,
+      "word": "off",
+      "pos": "adv",
+      "meaning": "away from a place; not on, not working (turn off)",
+      "sentence": "Turn off the lights, please.",
+      "translation": "Turn ⟦off⟧ the lights, please."
+    },
+    {
+      "n": 121,
+      "rank": 121,
+      "word": "why",
+      "pos": "adv",
+      "meaning": "for what reason",
+      "sentence": "Why are you so sad?",
+      "translation": "⟦Why⟧ are you so sad?"
+    },
+    {
+      "n": 122,
+      "rank": 122,
+      "word": "love",
+      "pos": "verb",
+      "meaning": "to like someone or something very much; to care deeply about someone",
+      "sentence": "I love my family.",
+      "translation": "I ⟦love⟧ my family."
+    },
+    {
+      "n": 123,
+      "rank": 123,
+      "word": "world",
+      "pos": "noun",
+      "meaning": "the earth with all its countries and people",
+      "sentence": "I want to travel around the world.",
+      "translation": "I want to travel around the ⟦world⟧."
+    },
+    {
+      "n": 124,
+      "rank": 124,
+      "word": "still",
+      "pos": "adv",
+      "meaning": "continuing until now",
+      "sentence": "Are you still at work?",
+      "translation": "Are you ⟦still⟧ at work?"
+    },
+    {
+      "n": 125,
+      "rank": 125,
+      "word": "tell",
+      "pos": "verb",
+      "meaning": "to give information to someone by speaking (told)",
+      "sentence": "Tell me about your day.",
+      "translation": "⟦Tell⟧ me about your day."
+    },
+    {
+      "n": 126,
+      "rank": 126,
+      "word": "many",
+      "pos": "det",
+      "meaning": "a large number of",
+      "sentence": "How many people are coming?",
+      "translation": "How ⟦many⟧ people are coming?"
+    },
+    {
+      "n": 127,
+      "rank": 127,
+      "word": "never",
+      "pos": "adv",
+      "meaning": "not at any time; not ever",
+      "sentence": "I never drink coffee at night.",
+      "translation": "I ⟦never⟧ drink coffee at night."
+    },
+    {
+      "n": 128,
+      "rank": 128,
+      "word": "game",
+      "pos": "noun",
+      "meaning": "an activity or a sport with rules that people play",
+      "sentence": "Did you watch the game last night?",
+      "translation": "Did you watch the ⟦game⟧ last night?"
+    },
+    {
+      "n": 129,
+      "rank": 129,
+      "word": "long",
+      "pos": "adj",
+      "meaning": "measuring a lot from one end to the other; lasting a lot of time",
+      "sentence": "It was a long day.",
+      "translation": "It was a ⟦long⟧ day."
+    },
+    {
+      "n": 130,
+      "rank": 130,
+      "word": "start",
+      "pos": "verb",
+      "meaning": "to begin",
+      "sentence": "The movie starts at eight.",
+      "translation": "The movie ⟦starts⟧ at eight.",
+      "form": "starts"
+    },
+    {
+      "n": 131,
+      "rank": 131,
+      "word": "try",
+      "pos": "verb",
+      "meaning": "to make an effort to do something; to test something (tried)",
+      "sentence": "Can I try this on?",
+      "translation": "Can I ⟦try⟧ this on?"
+    },
+    {
+      "n": 132,
+      "rank": 132,
+      "word": "high",
+      "pos": "adj",
+      "meaning": "far above the ground; more than usual (high prices)",
+      "sentence": "The prices here are very high.",
+      "translation": "The prices here are very ⟦high⟧."
+    },
+    {
+      "n": 133,
+      "rank": 133,
+      "word": "mean",
+      "pos": "verb",
+      "meaning": "to have as a meaning; to want to say (meant)",
+      "sentence": "What does this word mean?",
+      "translation": "What does this word ⟦mean⟧?"
+    },
+    {
+      "n": 134,
+      "rank": 134,
+      "word": "down",
+      "pos": "adv",
+      "meaning": "toward a lower place",
+      "sentence": "Please sit down.",
+      "translation": "Please sit ⟦down⟧."
+    },
+    {
+      "n": 135,
+      "rank": 135,
+      "word": "last",
+      "pos": "adj",
+      "meaning": "the one before this one; coming at the end",
+      "sentence": "I saw him last week.",
+      "translation": "I saw him ⟦last⟧ week."
+    },
+    {
+      "n": 136,
+      "rank": 136,
+      "word": "help",
+      "pos": "verb",
+      "meaning": "to make it easier for someone to do something",
+      "sentence": "Can I help you?",
+      "translation": "Can I ⟦help⟧ you?"
+    },
+    {
+      "n": 137,
+      "rank": 137,
+      "word": "through",
+      "pos": "prep",
+      "meaning": "in at one side and out at the other; from the start to the end",
+      "sentence": "We walked through the park.",
+      "translation": "We walked ⟦through⟧ the park."
+    },
+    {
+      "n": 138,
+      "rank": 138,
+      "word": "part",
+      "pos": "noun",
+      "meaning": "a piece of something; some but not all of it",
+      "sentence": "This is the best part of the movie.",
+      "translation": "This is the best ⟦part⟧ of the movie."
+    },
+    {
+      "n": 139,
+      "rank": 139,
+      "word": "while",
+      "pos": "conj",
+      "meaning": "during the time that",
+      "sentence": "I listen to music while I cook.",
+      "translation": "I listen to music ⟦while⟧ I cook."
+    },
+    {
+      "n": 140,
+      "rank": 140,
+      "word": "place",
+      "pos": "noun",
+      "meaning": "a particular area, building or position",
+      "sentence": "Do you know a good place to eat?",
+      "translation": "Do you know a good ⟦place⟧ to eat?"
+    },
+    {
+      "n": 141,
+      "rank": 141,
+      "word": "home",
+      "pos": "noun",
+      "meaning": "the place where you live",
+      "sentence": "I work from home.",
+      "translation": "I work from ⟦home⟧."
+    },
+    {
+      "n": 142,
+      "rank": 142,
+      "word": "best",
+      "pos": "adj",
+      "meaning": "better than all the others (good, better, best)",
+      "sentence": "This is the best pizza in town.",
+      "translation": "This is the ⟦best⟧ pizza in town."
+    },
+    {
+      "n": 143,
+      "rank": 143,
+      "word": "such",
+      "pos": "det",
+      "meaning": "so (before a noun); of this kind",
+      "sentence": "It was such a nice day.",
+      "translation": "It was ⟦such⟧ a nice day."
+    },
+    {
+      "n": 144,
+      "rank": 144,
+      "word": "old",
+      "pos": "adj",
+      "meaning": "having lived or existed for a long time; not new; used for age (How old are you?)",
+      "sentence": "How old are you?",
+      "translation": "How ⟦old⟧ are you?"
+    },
+    {
+      "n": 145,
+      "rank": 145,
+      "word": "feel",
+      "pos": "verb",
+      "meaning": "to have an emotion, or a feeling in your body (felt)",
+      "sentence": "I feel sick today.",
+      "translation": "I ⟦feel⟧ sick today."
+    },
+    {
+      "n": 146,
+      "rank": 146,
+      "word": "keep",
+      "pos": "verb",
+      "meaning": "to have something and not give it back; to continue (keep going) (kept)",
+      "sentence": "You can keep the change.",
+      "translation": "You can ⟦keep⟧ the change."
+    },
+    {
+      "n": 147,
+      "rank": 147,
+      "word": "end",
+      "pos": "noun",
+      "meaning": "the last part of something",
+      "sentence": "Wait until the end of the movie.",
+      "translation": "Wait until the ⟦end⟧ of the movie."
+    },
+    {
+      "n": 148,
+      "rank": 148,
+      "word": "woman",
+      "pos": "noun",
+      "meaning": "an adult female person (plural: women)",
+      "sentence": "Who is that woman?",
+      "translation": "Who is that ⟦woman⟧?"
+    },
+    {
+      "n": 149,
+      "rank": 149,
+      "word": "change",
+      "pos": "verb",
+      "meaning": "to make or become different; to replace one thing with another",
+      "sentence": "You haven't changed at all!",
+      "translation": "You haven't ⟦changed⟧ at all!",
+      "form": "changed"
+    },
+    {
+      "n": 150,
+      "rank": 150,
+      "word": "something",
+      "pos": "pron",
+      "meaning": "a thing that you don't name exactly",
+      "sentence": "Do you want something to drink?",
+      "translation": "Do you want ⟦something⟧ to drink?"
+    },
+    {
+      "n": 151,
+      "rank": 151,
+      "word": "live",
+      "pos": "verb",
+      "meaning": "to have your home in a place; to be alive",
+      "sentence": "Where do you live?",
+      "translation": "Where do you ⟦live⟧?"
+    },
+    {
+      "n": 152,
+      "rank": 152,
+      "word": "school",
+      "pos": "noun",
+      "meaning": "a place where children go to learn",
+      "sentence": "What time does school start?",
+      "translation": "What time does ⟦school⟧ start?"
+    },
+    {
+      "n": 153,
+      "rank": 153,
+      "word": "same",
+      "pos": "adj",
+      "meaning": "not different; exactly like another one",
+      "sentence": "We have the same shoes!",
+      "translation": "We have the ⟦same⟧ shoes!"
+    },
+    {
+      "n": 154,
+      "rank": 154,
+      "word": "own",
+      "pos": "adj",
+      "meaning": "belonging to you and no one else",
+      "sentence": "I want my own room.",
+      "translation": "I want my ⟦own⟧ room."
+    },
+    {
+      "n": 155,
+      "rank": 155,
+      "word": "house",
+      "pos": "noun",
+      "meaning": "a building where people live",
+      "sentence": "They bought a new house.",
+      "translation": "They bought a new ⟦house⟧."
+    },
+    {
+      "n": 156,
+      "rank": 156,
+      "word": "run",
+      "pos": "verb",
+      "meaning": "to move very fast on your feet (ran)",
+      "sentence": "I run every morning.",
+      "translation": "I ⟦run⟧ every morning."
+    },
+    {
+      "n": 157,
+      "rank": 157,
+      "word": "both",
+      "pos": "det",
+      "meaning": "the two together",
+      "sentence": "Both my parents are teachers.",
+      "translation": "⟦Both⟧ my parents are teachers."
+    },
+    {
+      "n": 158,
+      "rank": 158,
+      "word": "every",
+      "pos": "det",
+      "meaning": "each one of a group; all",
+      "sentence": "I drink coffee every morning.",
+      "translation": "I drink coffee ⟦every⟧ morning."
+    },
+    {
+      "n": 159,
+      "rank": 159,
+      "word": "let",
+      "pos": "verb",
+      "meaning": "to allow; let's = let us (used to suggest something)",
+      "sentence": "Let me help you.",
+      "translation": "⟦Let⟧ me help you."
+    },
+    {
+      "n": 160,
+      "rank": 160,
+      "word": "big",
+      "pos": "adj",
+      "meaning": "large in size",
+      "sentence": "That's a big dog!",
+      "translation": "That's a ⟦big⟧ dog!"
+    },
+    {
+      "n": 161,
+      "rank": 161,
+      "word": "three",
+      "pos": "num",
+      "meaning": "the number 3",
+      "sentence": "The store is three blocks away.",
+      "translation": "The store is ⟦three⟧ blocks away."
+    },
+    {
+      "n": 162,
+      "rank": 162,
+      "word": "follow",
+      "pos": "verb",
+      "meaning": "to come or go after someone; to do what someone says",
+      "sentence": "Follow me, please.",
+      "translation": "⟦Follow⟧ me, please."
+    },
+    {
+      "n": 163,
+      "rank": 163,
+      "word": "around",
+      "pos": "prep",
+      "meaning": "in a circle; in many parts of; about, more or less (around six)",
+      "sentence": "Let's meet around six.",
+      "translation": "Let's meet ⟦around⟧ six."
+    },
+    {
+      "n": 164,
+      "rank": 164,
+      "word": "between",
+      "pos": "prep",
+      "meaning": "in the space in the middle of two things or people",
+      "sentence": "The bakery is between the bank and the school.",
+      "translation": "The bakery is ⟦between⟧ the bank and the school."
+    },
+    {
+      "n": 165,
+      "rank": 165,
+      "word": "name",
+      "pos": "noun",
+      "meaning": "what someone or something is called",
+      "sentence": "What's your dog's name?",
+      "translation": "What's your dog's ⟦name⟧?"
+    },
+    {
+      "n": 166,
+      "rank": 166,
+      "word": "team",
+      "pos": "noun",
+      "meaning": "a group of people who play a sport or work together",
+      "sentence": "He plays on the school team.",
+      "translation": "He plays on the school ⟦team⟧."
+    },
+    {
+      "n": 167,
+      "rank": 167,
+      "word": "thank",
+      "pos": "verb",
+      "meaning": "to tell someone you are grateful (thank you, thanks)",
+      "sentence": "Thank you for everything.",
+      "translation": "⟦Thank⟧ you for everything."
+    },
+    {
+      "n": 168,
+      "rank": 168,
+      "word": "always",
+      "pos": "adv",
+      "meaning": "at all times; every time",
+      "sentence": "He is always late.",
+      "translation": "He is ⟦always⟧ late."
+    },
+    {
+      "n": 169,
+      "rank": 169,
+      "word": "better",
+      "pos": "adj",
+      "meaning": "more good; less ill (good, better, best)",
+      "sentence": "I feel much better today.",
+      "translation": "I feel much ⟦better⟧ today."
+    },
+    {
+      "n": 170,
+      "rank": 170,
+      "word": "company",
+      "pos": "noun",
+      "meaning": "a business that makes or sells things or offers a service",
+      "sentence": "She works for a big company.",
+      "translation": "She works for a big ⟦company⟧."
+    },
+    {
+      "n": 171,
+      "rank": 171,
+      "word": "put",
+      "pos": "verb",
+      "meaning": "to move something to a place (put, put)",
+      "sentence": "Put your bag on the chair.",
+      "translation": "⟦Put⟧ your bag on the chair."
+    },
+    {
+      "n": 172,
+      "rank": 172,
+      "word": "little",
+      "pos": "adj",
+      "meaning": "small; 'a little' = some, but not much",
+      "sentence": "I speak a little English.",
+      "translation": "I speak a ⟦little⟧ English."
+    },
+    {
+      "n": 173,
+      "rank": 173,
+      "word": "since",
+      "pos": "prep",
+      "meaning": "from a time in the past until now",
+      "sentence": "I haven't seen him since Monday.",
+      "translation": "I haven't seen him ⟦since⟧ Monday."
+    },
+    {
+      "n": 174,
+      "rank": 174,
+      "word": "point",
+      "pos": "noun",
+      "meaning": "an idea, or the main idea; a mark in a game; a sharp end",
+      "sentence": "That's a good point.",
+      "translation": "That's a good ⟦point⟧."
+    },
+    {
+      "n": 175,
+      "rank": 175,
+      "word": "family",
+      "pos": "noun",
+      "meaning": "parents, children and other relatives",
+      "sentence": "I have a big family.",
+      "translation": "I have a big ⟦family⟧."
+    },
+    {
+      "n": 176,
+      "rank": 176,
+      "word": "another",
+      "pos": "det",
+      "meaning": "one more; a different one",
+      "sentence": "Can I have another cookie?",
+      "translation": "Can I have ⟦another⟧ cookie?"
+    },
+    {
+      "n": 177,
+      "rank": 177,
+      "word": "yes",
+      "pos": "interj",
+      "meaning": "used to agree or to say that something is true (yeah)",
+      "sentence": "Yes, I'd love to!",
+      "translation": "⟦Yes⟧, I'd love to!"
+    },
+    {
+      "n": 178,
+      "rank": 178,
+      "word": "win",
+      "pos": "verb",
+      "meaning": "to be the best in a game or competition (won)",
+      "sentence": "Who won the game?",
+      "translation": "Who ⟦won⟧ the game?",
+      "form": "won"
+    },
+    {
+      "n": 179,
+      "rank": 179,
+      "word": "talk",
+      "pos": "verb",
+      "meaning": "to speak with someone",
+      "sentence": "We need to talk.",
+      "translation": "We need to ⟦talk⟧."
+    },
+    {
+      "n": 180,
+      "rank": 180,
+      "word": "ask",
+      "pos": "verb",
+      "meaning": "to say a question to someone; to request something",
+      "sentence": "Can I ask you a question?",
+      "translation": "Can I ⟦ask⟧ you a question?"
+    },
+    {
+      "n": 181,
+      "rank": 181,
+      "word": "under",
+      "pos": "prep",
+      "meaning": "below; lower than; less than",
+      "sentence": "The cat is under the bed.",
+      "translation": "The cat is ⟦under⟧ the bed."
+    },
+    {
+      "n": 182,
+      "rank": 182,
+      "word": "child",
+      "pos": "noun",
+      "meaning": "a young boy or girl; a son or daughter (plural: children)",
+      "sentence": "They have two children.",
+      "translation": "They have two ⟦children⟧.",
+      "form": "children"
+    },
+    {
+      "n": 183,
+      "rank": 183,
+      "word": "week",
+      "pos": "noun",
+      "meaning": "seven days",
+      "sentence": "See you next week!",
+      "translation": "See you next ⟦week⟧!"
+    },
+    {
+      "n": 184,
+      "rank": 184,
+      "word": "during",
+      "pos": "prep",
+      "meaning": "all through a period of time; at some time in",
+      "sentence": "I fell asleep during the movie.",
+      "translation": "I fell asleep ⟦during⟧ the movie."
+    },
+    {
+      "n": 185,
+      "rank": 185,
+      "word": "become",
+      "pos": "verb",
+      "meaning": "to start to be (became)",
+      "sentence": "She wants to become a doctor.",
+      "translation": "She wants to ⟦become⟧ a doctor."
+    },
+    {
+      "n": 186,
+      "rank": 186,
+      "word": "number",
+      "pos": "noun",
+      "meaning": "a word or sign like 1, 2 or 3; a phone number",
+      "sentence": "What's your phone number?",
+      "translation": "What's your phone ⟦number⟧?"
+    },
+    {
+      "n": 187,
+      "rank": 187,
+      "word": "group",
+      "pos": "noun",
+      "meaning": "a number of people or things together",
+      "sentence": "I went out with a group of friends.",
+      "translation": "I went out with a ⟦group⟧ of friends."
+    },
+    {
+      "n": 188,
+      "rank": 188,
+      "word": "service",
+      "pos": "noun",
+      "meaning": "the help that people give to customers in a store, restaurant or hotel",
+      "sentence": "The service here is great.",
+      "translation": "The ⟦service⟧ here is great."
+    },
+    {
+      "n": 189,
+      "rank": 189,
+      "word": "guy",
+      "pos": "noun",
+      "meaning": "a man (informal); 'you guys' = all of you",
+      "sentence": "He's a really nice guy.",
+      "translation": "He's a really nice ⟦guy⟧."
+    },
+    {
+      "n": 190,
+      "rank": 190,
+      "word": "friend",
+      "pos": "noun",
+      "meaning": "a person you know well and like",
+      "sentence": "I'm meeting a friend for lunch.",
+      "translation": "I'm meeting a ⟦friend⟧ for lunch."
+    },
+    {
+      "n": 191,
+      "rank": 192,
+      "word": "read",
+      "pos": "verb",
+      "meaning": "to look at words and understand them (read, read)",
+      "sentence": "I like to read before bed.",
+      "translation": "I like to ⟦read⟧ before bed."
+    },
+    {
+      "n": 192,
+      "rank": 193,
+      "word": "again",
+      "pos": "adv",
+      "meaning": "one more time",
+      "sentence": "Can you say that again?",
+      "translation": "Can you say that ⟦again⟧?"
+    },
+    {
+      "n": 193,
+      "rank": 194,
+      "word": "next",
+      "pos": "adj",
+      "meaning": "coming right after this one; nearest",
+      "sentence": "Get off at the next stop.",
+      "translation": "Get off at the ⟦next⟧ stop."
+    },
+    {
+      "n": 194,
+      "rank": 195,
+      "word": "second",
+      "pos": "adj",
+      "meaning": "coming after the first; also a very short time (Wait a second.)",
+      "sentence": "This is my second cup of coffee.",
+      "translation": "This is my ⟦second⟧ cup of coffee."
+    },
+    {
+      "n": 195,
+      "rank": 196,
+      "word": "set",
+      "pos": "verb",
+      "meaning": "to put something in a place; to make a clock or alarm ready (set, set)",
+      "sentence": "I set my alarm for six.",
+      "translation": "I ⟦set⟧ my alarm for six."
+    },
+    {
+      "n": 196,
+      "rank": 197,
+      "word": "city",
+      "pos": "noun",
+      "meaning": "a big and important town",
+      "sentence": "I love living in the city.",
+      "translation": "I love living in the ⟦city⟧."
+    },
+    {
+      "n": 197,
+      "rank": 198,
+      "word": "please",
+      "pos": "interj",
+      "meaning": "used to ask for something politely",
+      "sentence": "Two coffees, please.",
+      "translation": "Two coffees, ⟦please⟧."
+    },
+    {
+      "n": 198,
+      "rank": 199,
+      "word": "each",
+      "pos": "det",
+      "meaning": "every one, thought of separately",
+      "sentence": "Each room has a TV.",
+      "translation": "⟦Each⟧ room has a TV."
+    },
+    {
+      "n": 199,
+      "rank": 201,
+      "word": "without",
+      "pos": "prep",
+      "meaning": "not having; not with",
+      "sentence": "I can't live without coffee.",
+      "translation": "I can't live ⟦without⟧ coffee."
+    },
+    {
+      "n": 200,
+      "rank": 202,
+      "word": "open",
+      "pos": "verb",
+      "meaning": "to move something so it is not closed; to start business for the day",
+      "sentence": "The store opens at nine.",
+      "translation": "The store ⟦opens⟧ at nine.",
+      "form": "opens"
+    },
+    {
+      "n": 201,
+      "rank": 203,
+      "word": "lot",
+      "pos": "noun",
+      "meaning": "a lot (of) = a large amount or number",
+      "sentence": "Thanks a lot!",
+      "translation": "Thanks a ⟦lot⟧!"
+    },
+    {
+      "n": 202,
+      "rank": 204,
+      "word": "system",
+      "pos": "noun",
+      "meaning": "a set of parts or rules that work together",
+      "sentence": "The new system is easy to use.",
+      "translation": "The new ⟦system⟧ is easy to use."
+    },
+    {
+      "n": 203,
+      "rank": 205,
+      "word": "must",
+      "pos": "verb",
+      "meaning": "to have to; also used to say that something is surely true",
+      "sentence": "You must be tired.",
+      "translation": "You ⟦must⟧ be tired."
+    },
+    {
+      "n": 204,
+      "rank": 206,
+      "word": "write",
+      "pos": "verb",
+      "meaning": "to make words on paper or on a screen (wrote, written)",
+      "sentence": "Please write your name here.",
+      "translation": "Please ⟦write⟧ your name here."
+    },
+    {
+      "n": 205,
+      "rank": 207,
+      "word": "against",
+      "pos": "prep",
+      "meaning": "on the other side in a game or fight; touching (against the wall)",
+      "sentence": "We played against a very good team.",
+      "translation": "We played ⟦against⟧ a very good team."
+    },
+    {
+      "n": 206,
+      "rank": 208,
+      "word": "move",
+      "pos": "verb",
+      "meaning": "to go or put somewhere else; to go to live in a new home",
+      "sentence": "Can you move your car, please?",
+      "translation": "Can you ⟦move⟧ your car, please?"
+    },
+    {
+      "n": 207,
+      "rank": 209,
+      "word": "sure",
+      "pos": "adj",
+      "meaning": "certain; also used to say yes (Sure!)",
+      "sentence": "Are you sure?",
+      "translation": "Are you ⟦sure⟧?"
+    },
+    {
+      "n": 208,
+      "rank": 210,
+      "word": "happen",
+      "pos": "verb",
+      "meaning": "to take place, often by chance",
+      "sentence": "What happened to your arm?",
+      "translation": "What ⟦happened⟧ to your arm?",
+      "form": "happened"
+    },
+    {
+      "n": 209,
+      "rank": 211,
+      "word": "case",
+      "pos": "noun",
+      "meaning": "a situation (in that case); a box or cover (a phone case)",
+      "sentence": "In that case, let's stay home.",
+      "translation": "In that ⟦case⟧, let's stay home."
+    },
+    {
+      "n": 210,
+      "rank": 212,
+      "word": "support",
+      "pos": "noun",
+      "meaning": "help and kindness",
+      "sentence": "Thank you for your support.",
+      "translation": "Thank you for your ⟦support⟧."
+    },
+    {
+      "n": 211,
+      "rank": 213,
+      "word": "pay",
+      "pos": "verb",
+      "meaning": "to give money for something (paid)",
+      "sentence": "Can I pay by card?",
+      "translation": "Can I ⟦pay⟧ by card?"
+    },
+    {
+      "n": 212,
+      "rank": 214,
+      "word": "ever",
+      "pos": "adv",
+      "meaning": "at any time",
+      "sentence": "Have you ever been to Mexico?",
+      "translation": "Have you ⟦ever⟧ been to Mexico?"
+    },
+    {
+      "n": 213,
+      "rank": 215,
+      "word": "might",
+      "pos": "verb",
+      "meaning": "used to say that something is possible",
+      "sentence": "It might rain later.",
+      "translation": "It ⟦might⟧ rain later."
+    },
+    {
+      "n": 214,
+      "rank": 216,
+      "word": "country",
+      "pos": "noun",
+      "meaning": "a nation with its own government; land away from towns",
+      "sentence": "I'd love to visit your country.",
+      "translation": "I'd love to visit your ⟦country⟧."
+    },
+    {
+      "n": 215,
+      "rank": 217,
+      "word": "base",
+      "pos": "verb",
+      "meaning": "to use something as the starting point for something else (based on)",
+      "sentence": "The movie is based on a true story.",
+      "translation": "The movie is ⟦based⟧ on a true story.",
+      "form": "based"
+    },
+    {
+      "n": 216,
+      "rank": 218,
+      "word": "lose",
+      "pos": "verb",
+      "meaning": "to not be able to find something; to not win (lost)",
+      "sentence": "I lost my wallet.",
+      "translation": "I ⟦lost⟧ my wallet.",
+      "form": "lost"
+    },
+    {
+      "n": 217,
+      "rank": 219,
+      "word": "someone",
+      "pos": "pron",
+      "meaning": "a person, without saying who",
+      "sentence": "Someone is at the door.",
+      "translation": "⟦Someone⟧ is at the door."
+    },
+    {
+      "n": 218,
+      "rank": 220,
+      "word": "hold",
+      "pos": "verb",
+      "meaning": "to have something in your hands or arms (held)",
+      "sentence": "Can you hold my bag?",
+      "translation": "Can you ⟦hold⟧ my bag?"
+    },
+    {
+      "n": 219,
+      "rank": 221,
+      "word": "stop",
+      "pos": "verb",
+      "meaning": "to not continue doing something; to stop moving",
+      "sentence": "Stop talking and listen.",
+      "translation": "⟦Stop⟧ talking and listen."
+    },
+    {
+      "n": 220,
+      "rank": 222,
+      "word": "night",
+      "pos": "noun",
+      "meaning": "the time when it is dark and people sleep",
+      "sentence": "I worked late last night.",
+      "translation": "I worked late last ⟦night⟧."
+    },
+    {
+      "n": 221,
+      "rank": 223,
+      "word": "turn",
+      "pos": "verb",
+      "meaning": "to move around or change direction; to switch on or off (turn on the light)",
+      "sentence": "Turn left at the corner.",
+      "translation": "⟦Turn⟧ left at the corner."
+    },
+    {
+      "n": 222,
+      "rank": 224,
+      "word": "money",
+      "pos": "noun",
+      "meaning": "coins and bills that you use to buy things",
+      "sentence": "I don't have any money.",
+      "translation": "I don't have any ⟦money⟧."
+    },
+    {
+      "n": 223,
+      "rank": 225,
+      "word": "free",
+      "pos": "adj",
+      "meaning": "costing nothing; not busy; able to do what you want",
+      "sentence": "Are you free tonight?",
+      "translation": "Are you ⟦free⟧ tonight?"
+    },
+    {
+      "n": 224,
+      "rank": 226,
+      "word": "head",
+      "pos": "noun",
+      "meaning": "the top part of your body, with your eyes, ears and mouth",
+      "sentence": "My head hurts.",
+      "translation": "My ⟦head⟧ hurts."
+    },
+    {
+      "n": 225,
+      "rank": 227,
+      "word": "hand",
+      "pos": "noun",
+      "meaning": "the part at the end of your arm, with five fingers",
+      "sentence": "Raise your hand if you know.",
+      "translation": "Raise your ⟦hand⟧ if you know."
+    },
+    {
+      "n": 226,
+      "rank": 228,
+      "word": "lead",
+      "pos": "verb",
+      "meaning": "to go first and show the way; to be in charge of a group (led)",
+      "sentence": "She leads a team of ten people.",
+      "translation": "She ⟦leads⟧ a team of ten people.",
+      "form": "leads"
+    },
+    {
+      "n": 227,
+      "rank": 229,
+      "word": "post",
+      "pos": "noun",
+      "meaning": "a message or photo that you put on the internet",
+      "sentence": "I liked your post.",
+      "translation": "I liked your ⟦post⟧."
+    },
+    {
+      "n": 228,
+      "rank": 230,
+      "word": "area",
+      "pos": "noun",
+      "meaning": "a part of a town, country or place",
+      "sentence": "Do you live in this area?",
+      "translation": "Do you live in this ⟦area⟧?"
+    },
+    {
+      "n": 229,
+      "rank": 231,
+      "word": "book",
+      "pos": "noun",
+      "meaning": "pages with writing, held together inside a cover",
+      "sentence": "I'm reading a good book.",
+      "translation": "I'm reading a good ⟦book⟧."
+    },
+    {
+      "n": 230,
+      "rank": 232,
+      "word": "order",
+      "pos": "verb",
+      "meaning": "to ask for food or drinks in a restaurant; to ask a company to send you something",
+      "sentence": "Are you ready to order?",
+      "translation": "Are you ready to ⟦order⟧?"
+    },
+    {
+      "n": 231,
+      "rank": 233,
+      "word": "hear",
+      "pos": "verb",
+      "meaning": "to notice sounds with your ears (heard)",
+      "sentence": "Can you hear me?",
+      "translation": "Can you ⟦hear⟧ me?"
+    },
+    {
+      "n": 232,
+      "rank": 234,
+      "word": "plan",
+      "pos": "noun",
+      "meaning": "an idea of what you are going to do",
+      "sentence": "Do you have any plans for the weekend?",
+      "translation": "Do you have any ⟦plans⟧ for the weekend?",
+      "form": "plans"
+    },
+    {
+      "n": 233,
+      "rank": 235,
+      "word": "report",
+      "pos": "noun",
+      "meaning": "a written or spoken account of something",
+      "sentence": "I have to finish this report today.",
+      "translation": "I have to finish this ⟦report⟧ today."
+    },
+    {
+      "n": 234,
+      "rank": 236,
+      "word": "bring",
+      "pos": "verb",
+      "meaning": "to take someone or something with you to a place (brought)",
+      "sentence": "Can I bring a friend?",
+      "translation": "Can I ⟦bring⟧ a friend?"
+    },
+    {
+      "n": 235,
+      "rank": 237,
+      "word": "believe",
+      "pos": "verb",
+      "meaning": "to think that something is true",
+      "sentence": "I can't believe it!",
+      "translation": "I can't ⟦believe⟧ it!"
+    },
+    {
+      "n": 236,
+      "rank": 238,
+      "word": "God",
+      "pos": "noun",
+      "meaning": "the being that many people believe made the world",
+      "sentence": "Thank God you're here!",
+      "translation": "Thank ⟦God⟧ you're here!"
+    },
+    {
+      "n": 237,
+      "rank": 239,
+      "word": "few",
+      "pos": "det",
+      "meaning": "not many; 'a few' = a small number",
+      "sentence": "I'll be there in a few minutes.",
+      "translation": "I'll be there in a ⟦few⟧ minutes."
+    },
+    {
+      "n": 238,
+      "rank": 240,
+      "word": "line",
+      "pos": "noun",
+      "meaning": "a long thin mark; people waiting one behind another",
+      "sentence": "The line at the bank is very long.",
+      "translation": "The ⟦line⟧ at the bank is very long."
+    },
+    {
+      "n": 239,
+      "rank": 241,
+      "word": "away",
+      "pos": "adv",
+      "meaning": "to or at a distance from a place; not here",
+      "sentence": "Go away!",
+      "translation": "Go ⟦away⟧!"
+    },
+    {
+      "n": 240,
+      "rank": 242,
+      "word": "left",
+      "pos": "adv",
+      "meaning": "on or to the side of your left hand (the opposite of right)",
+      "sentence": "The bathroom is on the left.",
+      "translation": "The bathroom is on the ⟦left⟧."
+    },
+    {
+      "n": 241,
+      "rank": 243,
+      "word": "care",
+      "pos": "verb",
+      "meaning": "to think something is important; care about = to love and worry about",
+      "sentence": "I really care about you.",
+      "translation": "I really ⟦care⟧ about you."
+    },
+    {
+      "n": 242,
+      "rank": 244,
+      "word": "close",
+      "pos": "verb",
+      "meaning": "to shut something; to stop business for the day",
+      "sentence": "What time does the store close?",
+      "translation": "What time does the store ⟦close⟧?"
+    },
+    {
+      "n": 243,
+      "rank": 245,
+      "word": "job",
+      "pos": "noun",
+      "meaning": "the work that you do to earn money",
+      "sentence": "I love my new job.",
+      "translation": "I love my new ⟦job⟧."
+    },
+    {
+      "n": 244,
+      "rank": 246,
+      "word": "government",
+      "pos": "noun",
+      "meaning": "the group of people who rule a country or state",
+      "sentence": "The government wants to build a new road.",
+      "translation": "The ⟦government⟧ wants to build a new road."
+    },
+    {
+      "n": 245,
+      "rank": 247,
+      "word": "business",
+      "pos": "noun",
+      "meaning": "buying and selling things; a company",
+      "sentence": "My father has his own business.",
+      "translation": "My father has his own ⟦business⟧."
+    },
+    {
+      "n": 246,
+      "rank": 248,
+      "word": "until",
+      "pos": "prep",
+      "meaning": "up to the time of",
+      "sentence": "The store is open until ten.",
+      "translation": "The store is open ⟦until⟧ ten."
+    },
+    {
+      "n": 247,
+      "rank": 249,
+      "word": "problem",
+      "pos": "noun",
+      "meaning": "something that is difficult and needs to be fixed",
+      "sentence": "No problem!",
+      "translation": "No ⟦problem⟧!"
+    },
+    {
+      "n": 248,
+      "rank": 250,
+      "word": "month",
+      "pos": "noun",
+      "meaning": "one of the twelve parts of a year, like January",
+      "sentence": "I'll see you next month.",
+      "translation": "I'll see you next ⟦month⟧."
+    },
+    {
+      "n": 249,
+      "rank": 251,
+      "word": "hour",
+      "pos": "noun",
+      "meaning": "sixty minutes",
+      "sentence": "The trip takes about an hour.",
+      "translation": "The trip takes about an ⟦hour⟧."
+    },
+    {
+      "n": 250,
+      "rank": 252,
+      "word": "power",
+      "pos": "noun",
+      "meaning": "electricity; strength or control",
+      "sentence": "The power went out last night.",
+      "translation": "The ⟦power⟧ went out last night."
+    },
+    {
+      "n": 251,
+      "rank": 253,
+      "word": "party",
+      "pos": "noun",
+      "meaning": "a time when people meet to eat, drink and have fun; a political group",
+      "sentence": "Are you coming to the party?",
+      "translation": "Are you coming to the ⟦party⟧?"
+    },
+    {
+      "n": 252,
+      "rank": 254,
+      "word": "real",
+      "pos": "adj",
+      "meaning": "true, not imagined; not fake",
+      "sentence": "Is that your real name?",
+      "translation": "Is that your ⟦real⟧ name?"
+    },
+    {
+      "n": 253,
+      "rank": 255,
+      "word": "small",
+      "pos": "adj",
+      "meaning": "little in size",
+      "sentence": "Can I have a small coffee?",
+      "translation": "Can I have a ⟦small⟧ coffee?"
+    },
+    {
+      "n": 254,
+      "rank": 256,
+      "word": "girl",
+      "pos": "noun",
+      "meaning": "a female child; a young woman",
+      "sentence": "The little girl is reading a book.",
+      "translation": "The little ⟦girl⟧ is reading a book."
+    },
+    {
+      "n": 255,
+      "rank": 257,
+      "word": "top",
+      "pos": "adj",
+      "meaning": "highest; at the top (the highest part)",
+      "sentence": "The book is on the top shelf.",
+      "translation": "The book is on the ⟦top⟧ shelf."
+    },
+    {
+      "n": 256,
+      "rank": 258,
+      "word": "person",
+      "pos": "noun",
+      "meaning": "a man, woman or child (plural: people)",
+      "sentence": "She's a very kind person.",
+      "translation": "She's a very kind ⟦person⟧."
+    },
+    {
+      "n": 257,
+      "rank": 259,
+      "word": "large",
+      "pos": "adj",
+      "meaning": "big",
+      "sentence": "I'd like a large pizza, please.",
+      "translation": "I'd like a ⟦large⟧ pizza, please."
+    },
+    {
+      "n": 258,
+      "rank": 260,
+      "word": "watch",
+      "pos": "verb",
+      "meaning": "to look at something for some time (watch TV)",
+      "sentence": "Let's watch a movie tonight.",
+      "translation": "Let's ⟦watch⟧ a movie tonight."
+    },
+    {
+      "n": 259,
+      "rank": 261,
+      "word": "different",
+      "pos": "adj",
+      "meaning": "not the same",
+      "sentence": "My sister and I are very different.",
+      "translation": "My sister and I are very ⟦different⟧."
+    },
+    {
+      "n": 260,
+      "rank": 262,
+      "word": "today",
+      "pos": "adv",
+      "meaning": "on this day",
+      "sentence": "What day is it today?",
+      "translation": "What day is it ⟦today⟧?"
+    },
+    {
+      "n": 261,
+      "rank": 263,
+      "word": "hard",
+      "pos": "adj",
+      "meaning": "difficult; not soft",
+      "sentence": "This test is really hard.",
+      "translation": "This test is really ⟦hard⟧."
+    },
+    {
+      "n": 262,
+      "rank": 264,
+      "word": "kill",
+      "pos": "verb",
+      "meaning": "to make someone or something die; (informal) to hurt a lot",
+      "sentence": "My feet are killing me.",
+      "translation": "My feet are ⟦killing⟧ me.",
+      "form": "killing"
+    },
+    {
+      "n": 263,
+      "rank": 265,
+      "word": "question",
+      "pos": "noun",
+      "meaning": "something you ask to get an answer",
+      "sentence": "That's a good question.",
+      "translation": "That's a good ⟦question⟧."
+    },
+    {
+      "n": 264,
+      "rank": 266,
+      "word": "issue",
+      "pos": "noun",
+      "meaning": "a problem; a subject people talk about",
+      "sentence": "Is there an issue with my order?",
+      "translation": "Is there an ⟦issue⟧ with my order?"
+    },
+    {
+      "n": 265,
+      "rank": 267,
+      "word": "face",
+      "pos": "noun",
+      "meaning": "the front of your head, with your eyes, nose and mouth",
+      "sentence": "Go wash your face.",
+      "translation": "Go wash your ⟦face⟧."
+    },
+    {
+      "n": 266,
+      "rank": 268,
+      "word": "side",
+      "pos": "noun",
+      "meaning": "the left or right part of something; one of two edges",
+      "sentence": "We drive on the right side of the road.",
+      "translation": "We drive on the right ⟦side⟧ of the road."
+    },
+    {
+      "n": 267,
+      "rank": 269,
+      "word": "break",
+      "pos": "verb",
+      "meaning": "to make something come apart or stop working (broke, broken)",
+      "sentence": "I broke my phone again.",
+      "translation": "I ⟦broke⟧ my phone again.",
+      "form": "broke"
+    },
+    {
+      "n": 268,
+      "rank": 270,
+      "word": "however",
+      "pos": "adv",
+      "meaning": "but; even so",
+      "sentence": "It was cold. However, we had fun.",
+      "translation": "It was cold. ⟦However⟧, we had fun."
+    },
+    {
+      "n": 269,
+      "rank": 271,
+      "word": "early",
+      "pos": "adv",
+      "meaning": "before the usual or expected time; near the beginning",
+      "sentence": "We got there early.",
+      "translation": "We got there ⟦early⟧."
+    },
+    {
+      "n": 270,
+      "rank": 273,
+      "word": "cause",
+      "pos": "verb",
+      "meaning": "to make something happen",
+      "sentence": "What caused the accident?",
+      "translation": "What ⟦caused⟧ the accident?",
+      "form": "caused"
+    },
+    {
+      "n": 271,
+      "rank": 274,
+      "word": "leave",
+      "pos": "verb",
+      "meaning": "to go away from a place; to let something stay where it is (left)",
+      "sentence": "What time do you leave for work?",
+      "translation": "What time do you ⟦leave⟧ for work?"
+    },
+    {
+      "n": 272,
+      "rank": 275,
+      "word": "member",
+      "pos": "noun",
+      "meaning": "a person who belongs to a group or club",
+      "sentence": "Are you a member of this gym?",
+      "translation": "Are you a ⟦member⟧ of this gym?"
+    },
+    {
+      "n": 273,
+      "rank": 276,
+      "word": "result",
+      "pos": "noun",
+      "meaning": "what happens because of something; the score or answer at the end",
+      "sentence": "We're still waiting for the results.",
+      "translation": "We're still waiting for the ⟦results⟧.",
+      "form": "results"
+    },
+    {
+      "n": 274,
+      "rank": 277,
+      "word": "public",
+      "pos": "adj",
+      "meaning": "for everyone to use; not private",
+      "sentence": "Is there a public restroom near here?",
+      "translation": "Is there a ⟦public⟧ restroom near here?"
+    },
+    {
+      "n": 275,
+      "rank": 278,
+      "word": "low",
+      "pos": "adj",
+      "meaning": "not high; near the ground; small in amount",
+      "sentence": "My phone battery is low.",
+      "translation": "My phone battery is ⟦low⟧."
+    },
+    {
+      "n": 276,
+      "rank": 279,
+      "word": "story",
+      "pos": "noun",
+      "meaning": "words that tell about something that happened, real or invented",
+      "sentence": "It's a long story.",
+      "translation": "It's a long ⟦story⟧."
+    },
+    {
+      "n": 277,
+      "rank": 280,
+      "word": "hope",
+      "pos": "verb",
+      "meaning": "to want something to happen and think that it might",
+      "sentence": "I hope you feel better soon.",
+      "translation": "I ⟦hope⟧ you feel better soon."
+    },
+    {
+      "n": 278,
+      "rank": 281,
+      "word": "law",
+      "pos": "noun",
+      "meaning": "a rule made by the government that everyone must follow",
+      "sentence": "It's against the law.",
+      "translation": "It's against the ⟦law⟧."
+    },
+    {
+      "n": 279,
+      "rank": 282,
+      "word": "water",
+      "pos": "noun",
+      "meaning": "the clear liquid in rain, rivers and the sea that we drink",
+      "sentence": "Can I have some water, please?",
+      "translation": "Can I have some ⟦water⟧, please?"
+    },
+    {
+      "n": 280,
+      "rank": 283,
+      "word": "word",
+      "pos": "noun",
+      "meaning": "a unit of language that has a meaning",
+      "sentence": "I don't know that word.",
+      "translation": "I don't know that ⟦word⟧."
+    },
+    {
+      "n": 281,
+      "rank": 284,
+      "word": "seem",
+      "pos": "verb",
+      "meaning": "to appear to be",
+      "sentence": "You seem tired.",
+      "translation": "You ⟦seem⟧ tired."
+    },
+    {
+      "n": 282,
+      "rank": 285,
+      "word": "car",
+      "pos": "noun",
+      "meaning": "a road vehicle with four wheels and an engine",
+      "sentence": "Where did you park your car?",
+      "translation": "Where did you park your ⟦car⟧?"
+    },
+    {
+      "n": 283,
+      "rank": 286,
+      "word": "wait",
+      "pos": "verb",
+      "meaning": "to stay somewhere until something happens or someone comes",
+      "sentence": "Wait for me!",
+      "translation": "⟦Wait⟧ for me!"
+    },
+    {
+      "n": 284,
+      "rank": 287,
+      "word": "provide",
+      "pos": "verb",
+      "meaning": "to give something that is needed",
+      "sentence": "The hotel provides free breakfast.",
+      "translation": "The hotel ⟦provides⟧ free breakfast.",
+      "form": "provides"
+    },
+    {
+      "n": 285,
+      "rank": 288,
+      "word": "include",
+      "pos": "verb",
+      "meaning": "to have something as one of its parts",
+      "sentence": "Does the price include breakfast?",
+      "translation": "Does the price ⟦include⟧ breakfast?"
+    },
+    {
+      "n": 286,
+      "rank": 289,
+      "word": "player",
+      "pos": "noun",
+      "meaning": "a person who plays a game or a sport",
+      "sentence": "He's the best player on the team.",
+      "translation": "He's the best ⟦player⟧ on the team."
+    },
+    {
+      "n": 287,
+      "rank": 290,
+      "word": "nothing",
+      "pos": "pron",
+      "meaning": "not anything",
+      "sentence": "There's nothing in the fridge.",
+      "translation": "There's ⟦nothing⟧ in the fridge."
+    },
+    {
+      "n": 288,
+      "rank": 291,
+      "word": "full",
+      "pos": "adj",
+      "meaning": "with no more space inside; having eaten enough",
+      "sentence": "I'm full, thank you.",
+      "translation": "I'm ⟦full⟧, thank you."
+    },
+    {
+      "n": 289,
+      "rank": 292,
+      "word": "buy",
+      "pos": "verb",
+      "meaning": "to get something by paying money for it (bought)",
+      "sentence": "I need to buy some milk.",
+      "translation": "I need to ⟦buy⟧ some milk."
+    },
+    {
+      "n": 290,
+      "rank": 293,
+      "word": "already",
+      "pos": "adv",
+      "meaning": "before now; sooner than expected",
+      "sentence": "I already ate, thanks.",
+      "translation": "I ⟦already⟧ ate, thanks."
+    },
+    {
+      "n": 291,
+      "rank": 294,
+      "word": "anything",
+      "pos": "pron",
+      "meaning": "a thing of any kind (in questions and negatives)",
+      "sentence": "Do you need anything?",
+      "translation": "Do you need ⟦anything⟧?"
+    },
+    {
+      "n": 292,
+      "rank": 295,
+      "word": "miss",
+      "pos": "verb",
+      "meaning": "to feel sad because someone is not with you; to be too late for (miss the bus)",
+      "sentence": "I miss my family.",
+      "translation": "I ⟦miss⟧ my family."
+    },
+    {
+      "n": 293,
+      "rank": 296,
+      "word": "understand",
+      "pos": "verb",
+      "meaning": "to know what something means (understood)",
+      "sentence": "Sorry, I don't understand.",
+      "translation": "Sorry, I don't ⟦understand⟧."
+    },
+    {
+      "n": 294,
+      "rank": 297,
+      "word": "begin",
+      "pos": "verb",
+      "meaning": "to start (began, begun)",
+      "sentence": "The class begins at nine.",
+      "translation": "The class ⟦begins⟧ at nine.",
+      "form": "begins"
+    },
+    {
+      "n": 295,
+      "rank": 298,
+      "word": "everything",
+      "pos": "pron",
+      "meaning": "all things",
+      "sentence": "Is everything okay?",
+      "translation": "Is ⟦everything⟧ okay?"
+    },
+    {
+      "n": 296,
+      "rank": 299,
+      "word": "level",
+      "pos": "noun",
+      "meaning": "how high something is; how good someone is at something",
+      "sentence": "What's your English level?",
+      "translation": "What's your English ⟦level⟧?"
+    },
+    {
+      "n": 297,
+      "rank": 300,
+      "word": "force",
+      "pos": "verb",
+      "meaning": "to make someone do something they don't want to do",
+      "sentence": "Nobody is forcing you to go.",
+      "translation": "Nobody is ⟦forcing⟧ you to go.",
+      "form": "forcing"
+    },
+    {
+      "n": 298,
+      "rank": 301,
+      "word": "die",
+      "pos": "verb",
+      "meaning": "to stop living",
+      "sentence": "My plants died while I was away.",
+      "translation": "My plants ⟦died⟧ while I was away.",
+      "form": "died"
+    },
+    {
+      "n": 299,
+      "rank": 302,
+      "word": "enough",
+      "pos": "det",
+      "meaning": "as much or as many as you need",
+      "sentence": "Do we have enough time?",
+      "translation": "Do we have ⟦enough⟧ time?"
+    },
+    {
+      "n": 300,
+      "rank": 303,
+      "word": "yet",
+      "pos": "adv",
+      "meaning": "until now (in questions and negatives)",
+      "sentence": "I haven't eaten yet.",
+      "translation": "I haven't eaten ⟦yet⟧."
+    },
+    {
+      "n": 301,
+      "rank": 304,
+      "word": "program",
+      "pos": "noun",
+      "meaning": "a set of classes or activities; a show on TV; software for a computer",
+      "sentence": "The school has a great music program.",
+      "translation": "The school has a great music ⟦program⟧."
+    },
+    {
+      "n": 302,
+      "rank": 305,
+      "word": "season",
+      "pos": "noun",
+      "meaning": "one of the four parts of the year: spring, summer, fall, winter",
+      "sentence": "Summer is my favorite season.",
+      "translation": "Summer is my favorite ⟦season⟧."
+    },
+    {
+      "n": 303,
+      "rank": 306,
+      "word": "bad",
+      "pos": "adj",
+      "meaning": "not good; unpleasant (worse, worst)",
+      "sentence": "I have some bad news.",
+      "translation": "I have some ⟦bad⟧ news."
+    },
+    {
+      "n": 304,
+      "rank": 307,
+      "word": "four",
+      "pos": "num",
+      "meaning": "the number 4",
+      "sentence": "It's four o'clock.",
+      "translation": "It's ⟦four⟧ o'clock."
+    },
+    {
+      "n": 305,
+      "rank": 308,
+      "word": "once",
+      "pos": "adv",
+      "meaning": "one time; in the past (once upon a time)",
+      "sentence": "I go to the gym once a week.",
+      "translation": "I go to the gym ⟦once⟧ a week."
+    },
+    {
+      "n": 306,
+      "rank": 309,
+      "word": "add",
+      "pos": "verb",
+      "meaning": "to put something with something else; to put numbers together",
+      "sentence": "Add a little salt.",
+      "translation": "⟦Add⟧ a little salt."
+    },
+    {
+      "n": 307,
+      "rank": 310,
+      "word": "white",
+      "pos": "adj",
+      "meaning": "the color of snow or milk",
+      "sentence": "She has a white cat.",
+      "translation": "She has a ⟦white⟧ cat."
+    },
+    {
+      "n": 308,
+      "rank": 311,
+      "word": "study",
+      "pos": "verb",
+      "meaning": "to spend time learning a subject",
+      "sentence": "I study English every day.",
+      "translation": "I ⟦study⟧ English every day."
+    },
+    {
+      "n": 309,
+      "rank": 312,
+      "word": "national",
+      "pos": "adj",
+      "meaning": "of or for a whole country",
+      "sentence": "Today is a national holiday.",
+      "translation": "Today is a ⟦national⟧ holiday."
+    },
+    {
+      "n": 310,
+      "rank": 313,
+      "word": "meet",
+      "pos": "verb",
+      "meaning": "to come together with someone; to see someone for the first time (met)",
+      "sentence": "Nice to meet you!",
+      "translation": "Nice to ⟦meet⟧ you!"
+    },
+    {
+      "n": 311,
+      "rank": 315,
+      "word": "music",
+      "pos": "noun",
+      "meaning": "sounds made by singing or playing instruments",
+      "sentence": "I love listening to music.",
+      "translation": "I love listening to ⟦music⟧."
+    },
+    {
+      "n": 312,
+      "rank": 316,
+      "word": "video",
+      "pos": "noun",
+      "meaning": "a recording of moving pictures",
+      "sentence": "I watched a funny video.",
+      "translation": "I watched a funny ⟦video⟧."
+    },
+    {
+      "n": 313,
+      "rank": 317,
+      "word": "control",
+      "pos": "verb",
+      "meaning": "to make someone or something do what you want; to be in charge of",
+      "sentence": "The teacher can't control the class.",
+      "translation": "The teacher can't ⟦control⟧ the class."
+    },
+    {
+      "n": 314,
+      "rank": 318,
+      "word": "young",
+      "pos": "adj",
+      "meaning": "not old; in the early part of life",
+      "sentence": "She looks very young.",
+      "translation": "She looks very ⟦young⟧."
+    },
+    {
+      "n": 315,
+      "rank": 319,
+      "word": "act",
+      "pos": "verb",
+      "meaning": "to behave in a certain way; to play a part in a movie or play",
+      "sentence": "Stop acting like a baby.",
+      "translation": "Stop ⟦acting⟧ like a baby.",
+      "form": "acting"
+    },
+    {
+      "n": 316,
+      "rank": 320,
+      "word": "send",
+      "pos": "verb",
+      "meaning": "to make something go to someone, by mail or online (sent)",
+      "sentence": "Send me a message.",
+      "translation": "⟦Send⟧ me a message."
+    },
+    {
+      "n": 317,
+      "rank": 321,
+      "word": "war",
+      "pos": "noun",
+      "meaning": "fighting between countries or groups with armies",
+      "sentence": "My grandfather fought in the war.",
+      "translation": "My grandfather fought in the ⟦war⟧."
+    },
+    {
+      "n": 318,
+      "rank": 322,
+      "word": "far",
+      "pos": "adv",
+      "meaning": "a long way away",
+      "sentence": "How far is the airport?",
+      "translation": "How ⟦far⟧ is the airport?"
+    },
+    {
+      "n": 319,
+      "rank": 323,
+      "word": "form",
+      "pos": "noun",
+      "meaning": "a paper with spaces where you write information; a type or shape",
+      "sentence": "Please fill out this form.",
+      "translation": "Please fill out this ⟦form⟧."
+    },
+    {
+      "n": 320,
+      "rank": 324,
+      "word": "record",
+      "pos": "noun",
+      "meaning": "the best result ever; written information kept for later",
+      "sentence": "He broke the world record.",
+      "translation": "He broke the world ⟦record⟧."
     }
   ]
 }
