@@ -210,6 +210,194 @@
         {"type":"dialogue","q":"Im Fundbüro.","lines":[{"who":"Clerk","t":"Is this your umbrella?","tr":"Ist das Ihr Regenschirm?"},{"options":["No, it isn't. Mine is red.","No, he isn't. Mine is red."],"answer":0,"why":"Ein Ding: {{it}}."},{"who":"Clerk","t":"And these gloves?","tr":"Und diese Handschuhe?"},{"options":["Yes! Those are my gloves.","Yes! That is my gloves."],"answer":0,"why":"Mehrere: {{those}} mit {{are}}."}]},
         {"type":"free","q":"Jetzt du: Zeig auf drei Dinge um dich herum und sag, was sie sind. Benutze {{this}}, {{that}} oder {{these}}.","answers":[{"t":"This is my laptop. That's my coffee. These are my books.","tr":"Das ist mein Laptop. Das da ist mein Kaffee. Das sind meine Bücher."},{"t":"This is a pen, and those are my keys.","tr":"Das ist ein Stift, und das da sind meine Schlüssel."}]}
       ]
+    },
+    {
+      "id": "talk-about-your-life",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sag, wo du wohnst und was du machst",
+      "summary": "Erzähl von deinem Leben (wo du wohnst, wo du arbeitest) und von anderen: „She works in a bank.“",
+      "topic": "Das Simple Present; das {{-s}} nach {{he, she, it}}",
+      "blocks": [
+        {"goal":{"t":"I live in Hamburg, and I work in an office.","tr":"Ich wohne in Hamburg und arbeite in einem Büro."}},
+        {"dialog":[{"who":"Kate","t":"Tell me about your family!","tr":"Erzähl mal von deiner Familie!"},{"who":"Jan","t":"Well, my wife is a teacher. She works at a high school.","tr":"Also, meine Frau ist Lehrerin. Sie arbeitet an einer Highschool."},{"who":"Kate","t":"Nice! And your kids?","tr":"Schön! Und deine Kinder?"},{"who":"Jan","t":"My son studies in Berlin, and my daughter lives with us.","tr":"Mein Sohn studiert in Berlin, und meine Tochter wohnt bei uns."},{"who":"Kate","t":"And you work in IT, right?","tr":"Und du arbeitest in der IT, oder?"},{"who":"Jan","t":"Yes. I work from home a lot.","tr":"Ja. Ich arbeite viel von zu Hause aus."}]},
+        {"term":"Simple Present","means":"die einfache Gegenwart: {{I work}}, {{she works}}. Für alles, was immer oder regelmäßig so ist."},
+        {"p":"**Fast keine Endungen.** Im Deutschen ändert sich das Verb ständig: ich wohne, du wohnst, sie wohnt. Englisch ist viel einfacher: {{I live}}, {{you live}}, {{we live}}, {{they live}}. Nur eine Form bekommt eine Endung: Nach {{he}}, {{she}} und {{it}} (und nach einem Namen oder einem Nomen in der Einzahl) kommt ein {{-s}}."},
+        { "table": [
+          ["","{{live}} wohnen","{{work}} arbeiten"],
+          ["{{I}}","{{live}}","{{work}}"],
+          ["{{you}}","{{live}}","{{work}}"],
+          ["{{he / she / it}}","{{lives}}","{{works}}"],
+          ["{{we}}","{{live}}","{{work}}"],
+          ["{{they}}","{{live}}","{{work}}"]
+        ] },
+        {"p":"**Das -s nicht vergessen!** Es ist der häufigste Fehler deutscher Muttersprachler, auch nach Jahren: {{she works}}, {{my brother lives}}, {{it costs}}. Kleine Schreibregeln: Nach {{s, sh, ch, x, o}} wird es {{-es}} ({{she watches}}, {{he goes}}); aus Konsonant + {{y}} wird {{-ies}} ({{study}} → {{she studies}}). Und {{have}} wird zu {{has}}."},
+        {"p":"**Wofür?** Das Simple Present ist für das, was immer oder regelmäßig so ist: dein Wohnort, dein Job, deine Gewohnheiten. Was *gerade jetzt* passiert, hat im Englischen eine eigene Form: Dazu kommt eine spätere Lektion."},
+        { "ex": [
+          {"t":"She works in a bank.","tr":"Sie arbeitet in einer Bank."},
+          {"t":"My parents live in Munich.","tr":"Meine Eltern wohnen in München."},
+          {"t":"He speaks three languages.","tr":"Er spricht drei Sprachen."},
+          {"t":"I drink coffee every morning.","tr":"Ich trinke jeden Morgen Kaffee."},
+          {"t":"The store opens at nine.","tr":"Der Laden macht um neun auf."},
+          {"t":"My sister studies medicine.","tr":"Meine Schwester studiert Medizin."}
+        ] },
+        {"tip":"Aussprache: Das {{w}} in {{work}}, {{want}} oder {{we}} ist kein deutsches w. Runde die Lippen wie für ein „u“ und gleite in den Vokal: ungefähr „u-örk“. Das deutsche w ist im Englischen ein {{v}}: {{very}}, {{live}}."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Sie arbeitet in einer Bank.","why":"Nach {{she}}: {{-s}}."},
+        {"wrong":"My brother live in Berlin.","right":"My brother lives in Berlin.","tr":"Mein Bruder wohnt in Berlin.","why":"{{my brother}} ist {{he}}: also {{lives}}."},
+        {"wrong":"I works from home.","right":"I work from home.","tr":"Ich arbeite von zu Hause aus.","why":"Das {{-s}} gibt es nur bei {{he, she, it}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Welcher Satz stimmt?","options":["{{He speaks German.}}","{{He speak German.}}","{{He speakes German.}}"],"answer":0,"why":"Nach {{he}}: {{speaks}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My mother ___ in a hospital.","tr":"Meine Mutter arbeitet in einem Krankenhaus.","options":["works","work","working"],"answer":0,"why":"{{my mother}} ist {{she}}: {{works}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We ___ in a small apartment.","tr":"Wir wohnen in einer kleinen Wohnung.","options":["live","lives","living"],"answer":0,"why":"Mit {{we}}: ohne {{-s}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ English at college.","tr":"Sie studiert Englisch am College.","options":["studies","studys","study"],"answer":0,"why":"Konsonant + {{y}}: {{-ies}}."},
+        {"type":"say","q":"Sag: „Sie ist Ärztin und arbeitet in Berlin.“","answer":"She's a doctor, and she works in Berlin.","from":"say-who-you-are"},
+        {"type":"dialogue","q":"Erzähl einer neuen Kollegin von deiner Familie.","lines":[{"who":"Colleague","t":"So, what does your husband do?","tr":"Und was macht dein Mann beruflich?"},{"options":["He's a cook. He works in a restaurant.","He's cook. He work in a restaurant."],"answer":0,"why":"Der Beruf mit {{a}}, und {{-s}} nach {{he}}."},{"who":"Colleague","t":"And your kids?","tr":"Und deine Kinder?"},{"options":["My daughter goes to school, and my son studies in Boston.","My daughter go to school, and my son study in Boston."],"answer":0,"why":"{{my daughter}} = {{she}}, {{my son}} = {{he}}: beide mit {{-s}}."}]},
+        {"type":"free","q":"Jetzt du: Sag, wo du wohnst und was du machst, und dann dasselbe über jemanden aus deiner Familie (mit {{-s}}!).","answers":[{"t":"I live in Stuttgart, and I work in a bank. My sister lives in Berlin. She works in a hotel.","tr":"Ich wohne in Stuttgart und arbeite in einer Bank. Meine Schwester wohnt in Berlin. Sie arbeitet in einem Hotel."},{"t":"I live in Vienna. I'm a student. My father lives in Graz and teaches math.","tr":"Ich wohne in Wien. Ich bin Student. Mein Vater wohnt in Graz und unterrichtet Mathe."}]}
+      ]
+    },
+    {
+      "id": "ask-with-do",
+      "unit": 2,
+      "level": "A1",
+      "title": "Frag nach dem Leben anderer",
+      "summary": "Stell Fragen wie „Wo wohnst du?“ und „Arbeitet sie hier?“: Auf Englisch geht das nur mit do.",
+      "topic": "Fragen mit {{do}} und {{does}}: {{Where do you live?}}, {{Does she work here?}}",
+      "blocks": [
+        {"goal":{"t":"Where do you live, and what do you do?","tr":"Wo wohnst du, und was machst du beruflich?"}},
+        {"dialog":[{"who":"Emma","t":"Do you live here in Boston?","tr":"Wohnst du hier in Boston?"},{"who":"Lukas","t":"Yes, I do. I'm here for work.","tr":"Ja. Ich bin beruflich hier."},{"who":"Emma","t":"What do you do?","tr":"Was machst du beruflich?"},{"who":"Lukas","t":"I'm a software developer. And you? Do you work here too?","tr":"Ich bin Softwareentwickler. Und du? Arbeitest du auch hier?"},{"who":"Emma","t":"No, I don't. I'm a student. Does your company have an office here?","tr":"Nein. Ich bin Studentin. Hat deine Firma hier ein Büro?"},{"who":"Lukas","t":"Yes, it does. It's downtown.","tr":"Ja. In der Innenstadt."}]},
+        {"p":"**Der große Unterschied zum Deutschen.** Im Deutschen stellst du für eine Frage einfach das Verb nach vorn: „Wohnst du hier?“ Englisch macht das nur mit {{be}} (und mit {{can}} und ein paar anderen kleinen Verben). Alle anderen Verben brauchen ein Hilfswort: {{do}}. {{You live here.}} → {{Do you live here?}}"},
+        {"term":"Hilfsverb","means":"ein Verb, das einem anderen Verb hilft, eine Frage, eine Verneinung oder eine Zeitform zu bilden: {{do}}, {{have}}, {{will}}."},
+        {"p":"**Der Bauplan:** (Fragewort) + {{do}} + Person + Verb in der Grundform: {{Where do you live?}}, {{What do you do?}} „Was machst du beruflich?“ (Das zweite {{do}} ist hier das normale Verb „machen“.)"},
+        {"p":"**Bei he, she, it: does.** Das {{-s}} wandert zum Hilfswort, und das Verb bleibt ohne {{-s}}: {{She lives here.}} → {{Does she live here?}}, nie {{Does she lives…?}}"},
+        { "table": [
+          ["Aussage","Frage"],
+          ["{{You work here.}}","{{Do you work here?}}"],
+          ["{{They live in Ohio.}}","{{Where do they live?}}"],
+          ["{{She speaks French.}}","{{Does she speak French?}}"],
+          ["{{He likes jazz.}}","{{What music does he like?}}"]
+        ] },
+        {"p":"**Kurzantworten** wieder mit dem Hilfswort: {{Do you live here? – Yes, I do. / No, I don't.}}, {{Does she work here? – Yes, she does. / No, she doesn't.}}"},
+        { "ex": [
+          {"t":"Do you speak English?","tr":"Sprichst du Englisch?"},
+          {"t":"Where does your sister work?","tr":"Wo arbeitet deine Schwester?"},
+          {"t":"What time does the store close?","tr":"Wann macht der Laden zu?"},
+          {"t":"Do you like coffee? – Yes, I do.","tr":"Magst du Kaffee? – Ja."},
+          {"t":"How often do you go to the gym?","tr":"Wie oft gehst du ins Fitnessstudio?"},
+          {"t":"What does this word mean?","tr":"Was bedeutet dieses Wort?"}
+        ] },
+        {"tip":"Mit {{be}} gibt es kein {{do}}: {{Are you tired?}}, nie {{Do you be tired?}} Merke: {{be}} schafft es allein, die anderen Verben brauchen {{do}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Live you in Berlin?","right":"Do you live in Berlin?","tr":"Wohnst du in Berlin?","why":"Englisch stellt das Verb nicht einfach nach vorn: Es braucht {{do}}."},
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"Wo arbeitest du?","why":"Auch nach einem Fragewort braucht es {{do}}."},
+        {"wrong":"Does she lives here?","right":"Does she live here?","tr":"Wohnt sie hier?","why":"Das {{-s}} steckt schon in {{does}}: Das Verb bleibt ohne {{-s}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Arbeitest du hier?“","options":["{{Do you work here?}}","{{Work you here?}}","{{Are you work here?}}"],"answer":0,"why":"Ein normales Verb braucht für die Frage {{do}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ your brother live in Chicago?","tr":"Wohnt dein Bruder in Chicago?","options":["Does","Do","Is"],"answer":0,"why":"{{your brother}} ist {{he}}: {{does}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Where does she ___?","tr":"Wo arbeitet sie?","options":["work","works","working"],"answer":0,"why":"Nach {{does}}: die Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Do you like jazz? – Yes, I ___.","tr":"Magst du Jazz? – Ja.","options":["do","am","like"],"answer":0,"why":"Die Kurzantwort nimmt das Hilfswort der Frage: {{do}}.","from":"answer-yes-or-no"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Was bedeutet dieses Wort?","words":["What","does","this word","mean?"]},
+        {"type":"dialogue","q":"Im Flugzeug: Dein Sitznachbar ist neugierig.","from":"say-who-you-are","lines":[{"who":"Man","t":"Do you live in New York?","tr":"Wohnen Sie in New York?"},{"options":["No, I don't. I live in Frankfurt.","No, I not. I live in Frankfurt."],"answer":0,"why":"Kurzantwort: {{No, I don't.}}"},{"who":"Man","t":"Oh! What do you do there?","tr":"Oh! Was machen Sie dort beruflich?"},{"options":["I'm an architect. And where do you live?","I'm architect. And where you live?"],"answer":0,"why":"Der Beruf mit {{an}}; die Frage mit {{do}}."}]},
+        {"type":"free","q":"Jetzt du: Stell einer neuen Bekanntschaft drei Fragen mit {{do}} oder {{does}}.","answers":[{"t":"Where do you live? What do you do? Do you have kids?","tr":"Wo wohnst du? Was machst du beruflich? Hast du Kinder?"},{"t":"Do you like sports? Where does your family live? What music do you like?","tr":"Magst du Sport? Wo wohnt deine Familie? Welche Musik magst du?"}]}
+      ]
+    },
+    {
+      "id": "say-no-with-dont",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sag, was du nicht machst",
+      "summary": "Verneine wie ein Muttersprachler: „I don't eat meat.“ „She doesn't drive.“",
+      "topic": "{{don't}} und {{doesn't}} + Grundform",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat, and my husband doesn't drink coffee.","tr":"Ich esse kein Fleisch, und mein Mann trinkt keinen Kaffee."}},
+        {"dialog":[{"who":"Sarah","t":"Do you eat fish?","tr":"Isst du Fisch?"},{"who":"Ben","t":"Sorry, I don't eat fish. I'm a vegetarian.","tr":"Tut mir leid, ich esse keinen Fisch. Ich bin Vegetarier."},{"who":"Sarah","t":"No problem! And your girlfriend?","tr":"Kein Problem! Und deine Freundin?"},{"who":"Ben","t":"She eats everything. But she doesn't like mushrooms.","tr":"Sie isst alles. Aber sie mag keine Pilze."},{"who":"Sarah","t":"OK, pasta with tomato sauce, then!","tr":"Okay, dann Nudeln mit Tomatensoße!"}]},
+        {"p":"**nicht, kein: don't.** Im Deutschen sagst du „Ich esse nicht“ oder „Ich esse kein Fleisch“. Englisch verneint ein normales Verb wieder mit {{do}}: {{do not}}, kurz {{don't}}, vor dem Verb: {{I don't eat meat.}}"},
+        {"p":"**Bei he, she, it: doesn't.** Wie bei der Frage wandert das {{-s}} zum Hilfswort: {{She doesn't drive.}}, nie {{She doesn't drives.}}"},
+        { "table": [
+          ["","ja","nein"],
+          ["{{I / you / we / they}}","{{I like it.}}","{{I don't like it.}}"],
+          ["{{he / she / it}}","{{She likes it.}}","{{She doesn't like it.}}"]
+        ] },
+        {"p":"**„kein“ gibt es nicht als eigenes Wort.** {{I don't have a car.}} „Ich habe kein Auto.“, {{He doesn't eat meat.}} „Er isst kein Fleisch.“ Englisch verneint das Verb, nicht das Nomen. ({{no}} vor einem Nomen gibt es auch, {{I have no time}}, aber im Gespräch ist {{don't}} viel häufiger.)"},
+        {"p":"Mit {{be}} bleibt es wie gelernt, ohne {{do}}: {{I'm not hungry.}}, {{It isn't expensive.}}"},
+        { "ex": [
+          {"t":"I don't understand.","tr":"Ich verstehe das nicht."},
+          {"t":"He doesn't work on Fridays.","tr":"Er arbeitet freitags nicht."},
+          {"t":"We don't have a TV.","tr":"Wir haben keinen Fernseher."},
+          {"t":"My kids don't like vegetables.","tr":"Meine Kinder mögen kein Gemüse."},
+          {"t":"It doesn't matter.","tr":"Das macht nichts."},
+          {"t":"I don't know.","tr":"Ich weiß nicht."}
+        ] },
+        {"tip":"{{I don't know}} wird oft fast zu „I dunno“ verschluckt, und {{It doesn't matter}} („Macht nichts“, „Egal“) ist eine der nützlichsten Wendungen überhaupt."}
+      ],
+      "mistakes": [
+        {"wrong":"I eat not meat.","right":"I don't eat meat.","tr":"Ich esse kein Fleisch.","why":"Englisch setzt {{not}} nicht hinter ein normales Verb: Es braucht {{don't}} davor."},
+        {"wrong":"She don't like fish.","right":"She doesn't like fish.","tr":"Sie mag keinen Fisch.","why":"Nach {{she}}: {{doesn't}}."},
+        {"wrong":"He doesn't works here.","right":"He doesn't work here.","tr":"Er arbeitet nicht hier.","why":"Nach {{doesn't}}: das Verb ohne {{-s}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich weiß nicht.“","options":["{{I don't know.}}","{{I know not.}}","{{I not know.}}"],"answer":0,"why":"Verneinung mit {{don't}} vor dem Verb."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My father ___ drive.","tr":"Mein Vater fährt nicht Auto.","options":["doesn't","don't","isn't"],"answer":0,"why":"{{my father}} = {{he}}: {{doesn't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We ___ have a car.","tr":"Wir haben kein Auto.","options":["don't","doesn't","aren't"],"answer":0,"why":"Mit {{we}}: {{don't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ hungry, thanks.","tr":"Ich habe keinen Hunger, danke.","options":["am not","don't","doesn't"],"answer":0,"why":"Mit {{be}} kein {{do}}: {{I'm not hungry}}.","from":"answer-yes-or-no"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Sie arbeitet freitags nicht.","words":["She","doesn't","work","on Fridays."]},
+        {"type":"dialogue","q":"Eine Freundin lädt dich zum Essen ein.","from":"ask-with-do","lines":[{"who":"Friend","t":"Do you eat meat?","tr":"Isst du Fleisch?"},{"options":["No, I don't. I'm a vegetarian.","No, I eat not meat. I'm a vegetarian."],"answer":0,"why":"Kurzantwort mit {{don't}}."},{"who":"Friend","t":"Does your boyfriend eat meat?","tr":"Isst dein Freund Fleisch?"},{"options":["Yes, he does. But he doesn't like pork.","Yes, he does. But he don't like pork."],"answer":0,"why":"Nach {{he}}: {{doesn't}}."}]},
+        {"type":"free","q":"Jetzt du: Sag zwei Dinge, die du nicht machst, und eins, das jemand anderes nicht macht.","answers":[{"t":"I don't smoke, and I don't drink coffee. My brother doesn't eat fish.","tr":"Ich rauche nicht und trinke keinen Kaffee. Mein Bruder isst keinen Fisch."},{"t":"I don't have a car. I don't watch TV. My wife doesn't like cats.","tr":"Ich habe kein Auto. Ich schaue nicht fern. Meine Frau mag keine Katzen."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "Sprich über deine Familie und was du hast",
+      "summary": "Sag, was du hast und wer zu deiner Familie gehört: „I have two brothers. My sister's name is Anna.“",
+      "topic": "{{have}} und {{has}}, {{Do you have…?}}; {{my, your, his, her, our, their}}; {{Anna's}}",
+      "blocks": [
+        {"goal":{"t":"I have two brothers, and my sister's name is Anna.","tr":"Ich habe zwei Brüder, und meine Schwester heißt Anna."}},
+        {"dialog":[{"who":"Chris","t":"Do you have any brothers or sisters?","tr":"Hast du Geschwister?"},{"who":"Nina","t":"Yes, I have a brother. His name is Felix.","tr":"Ja, ich habe einen Bruder. Er heißt Felix."},{"who":"Chris","t":"Does he have kids?","tr":"Hat er Kinder?"},{"who":"Nina","t":"Yes, he has two daughters. Their names are Mia and Emma.","tr":"Ja, er hat zwei Töchter. Sie heißen Mia und Emma."},{"who":"Chris","t":"And is that your dog in the photo?","tr":"Und ist das dein Hund auf dem Foto?"},{"who":"Nina","t":"No, that's my neighbor's dog!","tr":"Nein, das ist der Hund meiner Nachbarin!"}]},
+        {"p":"**have, has.** „Haben“ ist {{have}}, nach {{he, she, it}} {{has}}: {{I have a car.}}, {{She has a dog.}} Fragen und Verneinung wie bei jedem normalen Verb, mit {{do}}: {{Do you have kids?}}, {{I don't have time.}}"},
+        {"p":"Im britischen Englisch, manchmal auch in den USA, hörst du {{have got}}: {{I've got a car.}} Das bedeutet dasselbe. Im amerikanischen Alltag ist {{I have}} mit {{do}} die übliche Form."},
+        {"p":"**my, your, his…** Die besitzanzeigenden Wörter ändern sich nie: keine Endungen wie bei „mein, meine, meinen“."},
+        { "table": [
+          ["Deutsch","Englisch"],
+          ["mein, meine","{{my}}"],
+          ["dein, Ihr, euer","{{your}}"],
+          ["sein (bei einem Mann)","{{his}}"],
+          ["ihr (bei einer Frau)","{{her}}"],
+          ["sein, ihr (bei einer Sache)","{{its}}"],
+          ["unser","{{our}}"],
+          ["ihr (bei mehreren)","{{their}}"]
+        ] },
+        {"p":"**his oder her** richtet sich wie im Deutschen nach dem Besitzer: Pauls Schwester ist {{his sister}}, Annas Bruder ist {{her brother}}."},
+        {"p":"**Annas = Anna's.** Englisch setzt einen Apostroph vor das {{s}}: {{Anna's phone}}, {{my neighbor's dog}}. Bei einem Plural auf {{-s}} kommt der Apostroph dahinter: {{my parents' house}} „das Haus meiner Eltern“."},
+        { "ex": [
+          {"t":"We have a small house.","tr":"Wir haben ein kleines Haus."},
+          {"t":"She has blue eyes.","tr":"Sie hat blaue Augen."},
+          {"t":"Do you have a pen?","tr":"Hast du einen Stift?"},
+          {"t":"Their kids are very cute.","tr":"Ihre Kinder sind sehr süß."},
+          {"t":"That's Tom's car.","tr":"Das ist Toms Auto."},
+          {"t":"I don't have any money.","tr":"Ich habe kein Geld."}
+        ] },
+        {"tip":"{{its}} (ohne Apostroph) heißt „sein, ihr“ bei Dingen; {{it's}} (mit Apostroph) ist {{it is}}. Das verwechseln sogar Muttersprachler."}
+      ],
+      "mistakes": [
+        {"wrong":"She have a dog.","right":"She has a dog.","tr":"Sie hat einen Hund.","why":"Nach {{she}}: {{has}}."},
+        {"wrong":"Have you a car?","right":"Do you have a car?","tr":"Hast du ein Auto?","why":"Im amerikanischen Englisch fragt man auch bei {{have}} mit {{do}}."},
+        {"wrong":"Paul lives with her sister.","right":"Paul lives with his sister.","tr":"Paul wohnt bei seiner Schwester.","why":"Der Besitzer ist Paul, ein Mann: {{his}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Annas Bruder ist…","options":["{{her brother}}","{{his brother}}","{{she brother}}"],"answer":0,"why":"Die Besitzerin ist Anna, eine Frau: {{her}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My brother ___ three kids.","tr":"Mein Bruder hat drei Kinder.","options":["has","have","haves"],"answer":0,"why":"{{my brother}} = {{he}}: {{has}}.","from":"talk-about-your-life"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ you have a pen?","tr":"Hast du einen Stift?","options":["Do","Have","Are"],"answer":0,"why":"Auch bei {{have}}: die Frage mit {{do}}.","from":"ask-with-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"This is my ___ car.","tr":"Das ist das Auto meiner Eltern.","options":["parents'","parent's","parents"],"answer":0,"why":"Ein Plural auf {{-s}}: Der Apostroph kommt dahinter."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Das ist Toms Handy.","words":["That's","Tom's","phone."]},
+        {"type":"dialogue","q":"Du zeigst einem Freund Familienfotos.","lines":[{"who":"Friend","t":"Who's that?","tr":"Wer ist das?"},{"options":["That's my sister. Her name is Lisa.","That's my sister. His name is Lisa."],"answer":0,"why":"Deine Schwester ist eine Frau: {{her}}."},{"who":"Friend","t":"Does she have kids?","tr":"Hat sie Kinder?"},{"options":["Yes, she has a son.","Yes, she have a son."],"answer":0,"why":"Nach {{she}}: {{has}}."}]},
+        {"type":"free","q":"Jetzt du: Erzähl von deiner Familie: wen du hast und wie sie heißen.","answers":[{"t":"I have a brother and a sister. My brother's name is Max, and my sister's name is Julia.","tr":"Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Max, und meine Schwester heißt Julia."},{"t":"I don't have any brothers or sisters, but I have two cats. Their names are Leo and Luna.","tr":"Ich habe keine Geschwister, aber zwei Katzen. Sie heißen Leo und Luna."}]}
+      ]
     }
   ]
 }
