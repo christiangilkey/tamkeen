@@ -1268,6 +1268,333 @@
         {"type":"say","q":"{{Don't you like it?}} と聞かれました。「いいえ、好きですよ！」と答えましょう。","answer":"Yes, I do!"},
         {"type":"free","q":"あなたの番です。友だちに付加疑問で確かめる文を2つ作りましょう。","answers":[{"t":"It's cold today, isn't it? You're coming to the party, aren't you?","tr":"今日は寒いですね。パーティーに来るよね？"},{"t":"You don't drink coffee, do you? This is your bag, isn't it?","tr":"コーヒーは飲まないんだよね？これ、あなたのかばんだよね？"}]}
       ]
+    },
+    {
+      "id": "talk-about-plans",
+      "unit": 6,
+      "level": "A2",
+      "title": "予定を言う",
+      "summary": "{{be going to}} と現在進行形で、これからの予定を言います：「来月、京都に行くつもりです。」「明日はケンに会います。」",
+      "topic": "{{be going to}} + 動詞; 決まった予定の現在進行形",
+      "blocks": [
+        {"goal":{"t":"I'm going to visit Kyoto next month.","tr":"来月、京都に行くつもりです。"}},
+        {"dialog":[{"who":"リサ","t":"What are you going to do this weekend?","tr":"今週末は何をするの？"},{"who":"ダイキ","t":"I'm going to clean my apartment. And on Sunday, I'm meeting my parents for lunch.","tr":"アパートを掃除するつもり。それと日曜日は両親とランチをするんだ。"},{"who":"リサ","t":"Nice. Are you going to take them somewhere special?","tr":"いいね。どこか特別なところに連れて行くの？"},{"who":"ダイキ","t":"Yes. We're going to try a new Italian place.","tr":"うん。新しいイタリアンに行ってみるつもり。"},{"who":"リサ","t":"Sounds great!","tr":"いいね！"},{"who":"ダイキ","t":"What about you?","tr":"君は？"},{"who":"リサ","t":"I'm not going to do anything. I'm going to relax!","tr":"何もしないつもり。のんびりするの！"}]},
+        {"p":"**これからの予定：{{be going to}} + 動詞。** もう決めている予定や、するつもりのことを言います：{{I'm going to visit Kyoto.}}（京都に行くつもりだ）。be動詞は主語に合わせて変わり、そのあとの動詞はもとの形です。"},
+        { "table": [
+          ["","英語","意味"],
+          ["肯定","{{I'm going to study tonight.}}","今夜は勉強するつもりだ。"],
+          ["否定","{{I'm not going to go out.}}","出かけないつもりだ。"],
+          ["疑問","{{Are you going to watch the game?}}","試合を見るつもり？"],
+          ["疑問詞","{{What are you going to do?}}","何をするつもり？"]
+        ] },
+        {"p":"**日時の決まった約束には現在進行形も。** 人と会う、予約してあるなど、日時まで決まった予定には現在進行形もよく使います：{{I'm meeting Ken tomorrow.}}（明日ケンに会う）、{{We're leaving at six.}}（6時に出発する）。"},
+        {"p":"**今の様子から「〜しそう」。** {{be going to}} は、目の前の様子から未来を予想するときにも使います：{{Look at those clouds. It's going to rain.}}（あの雲を見て。雨が降りそうだ）。"},
+        {"p":"**未来の時を表す言葉。** {{tomorrow}}（明日）、{{tonight}}（今夜）、{{this weekend}}（今週末）、{{next week}}（来週）、{{in two days}}（2日後に）。"},
+        { "ex": [
+          {"t":"We're going to have a party on Saturday.","tr":"土曜日にパーティーをするつもりです。"},
+          {"t":"Are you going to buy that?","tr":"それ、買うの？"},
+          {"t":"I'm not going to tell him.","tr":"彼には言わないつもりです。"},
+          {"t":"I'm meeting my friend at six.","tr":"6時に友だちと会います。"},
+          {"t":"She's going to study in Canada next year.","tr":"彼女は来年カナダに留学する予定です。"},
+          {"t":"It's going to rain.","tr":"雨が降りそうです。"}
+        ] },
+        {"tip":"会話では {{going to}} が「ゴナ」（{{gonna}}）と聞こえることがよくあります：{{I'm gonna call you.}}。書くときは {{going to}} と書きましょう。"}
+      ],
+      "mistakes": [
+        {"wrong":"I going to visit Kyoto.","right":"I'm going to visit Kyoto.","tr":"京都に行くつもりです。","why":"be動詞（{{am}}）を忘れずに。"},
+        {"wrong":"I'm going to visiting Kyoto.","right":"I'm going to visit Kyoto.","tr":"京都に行くつもりです。","why":"{{going to}} のあとは動詞のもとの形。"},
+        {"wrong":"I meet Ken tomorrow.","right":"I'm meeting Ken tomorrow.","tr":"明日ケンに会います。","why":"人との約束のように決まった予定には、現在進行形か {{be going to}} を使います。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I'm going to ___ my parents this weekend.","tr":"今週末は両親に会いに行くつもりです。","options":["visit","visiting","visited"],"answer":0,"why":"{{going to}} + もとの形。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"What ___ you going to do tonight?","tr":"今夜は何をするつもり？","options":["are","do","will"],"answer":0,"why":"{{be going to}} の疑問文：{{are you going to}}。"},
+        {"type":"choice","q":"「明日、歯医者に行きます（予約してある）」は英語で？","options":["{{I'm seeing the dentist tomorrow.}}","{{I see the dentist tomorrow.}}","{{I saw the dentist tomorrow.}}"],"answer":0,"why":"決まった予定は現在進行形。"},
+        {"type":"dialogue","q":"週末の予定を聞かれました。返事を選んでください。","lines":[{"who":"リサ","t":"What are you going to do this weekend?","tr":"今週末は何をするの？"},{"options":["I'm going to clean my room.","I going to clean my room."],"answer":0,"why":"be動詞を忘れずに：{{I'm going to}}。"},{"who":"リサ","t":"Are you going to go out?","tr":"出かけるの？"},{"options":["Yes. I'm meeting my sister on Sunday.","Yes. I meet my sister on Sunday."],"answer":0,"why":"人と会う約束は現在進行形。"}],"from":"say-whats-happening"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"それ、買うの？","words":["Are","you","going","to","buy","that?"],"why":"{{Are you going to buy that?}}"},
+        {"type":"say","q":"空を見て、英語で言ってみましょう：「雨が降りそう。」","answer":"It's going to rain.","from":"time-and-weather"},
+        {"type":"free","q":"あなたの番です。今週末か来月の予定を2つ言いましょう。","answers":[{"t":"I'm going to see a movie on Saturday. On Sunday, I'm having lunch with my friends.","tr":"土曜日は映画を見るつもりです。日曜日は友だちとランチをします。"},{"t":"Next month, I'm going to visit my grandparents. I'm not going to work for a week!","tr":"来月は祖父母のところに行くつもりです。1週間仕事をしません！"}]}
+      ]
+    },
+    {
+      "id": "decide-and-promise",
+      "unit": 6,
+      "level": "A2",
+      "title": "その場で決める・約束する",
+      "summary": "{{will}} で、その場で決めたこと、申し出、約束、予想を言います：「パスタにします。」「今夜電話するね。」",
+      "topic": "{{will}}（{{'ll}}）：決定・申し出・約束・予想; {{will}} と {{going to}} の違い",
+      "blocks": [
+        {"goal":{"t":"I'll call you tonight.","tr":"今夜電話するね。"}},
+        {"dialog":[{"who":"店員","t":"Are you ready to order?","tr":"ご注文はお決まりですか？"},{"who":"あなた","t":"Yes. I'll have the pasta, please.","tr":"はい。パスタにします。"},{"who":"友だち","t":"Me too. Oh no, I forgot my wallet!","tr":"私も。あ、財布忘れた！"},{"who":"あなた","t":"Don't worry. I'll pay.","tr":"心配しないで。私が払うよ。"},{"who":"友だち","t":"Thank you! I'll pay you back tomorrow. I promise.","tr":"ありがとう！明日返すね。約束する。"},{"who":"あなた","t":"OK. I think it'll rain later. Let's eat quickly!","tr":"うん。あとで雨が降ると思うから、早く食べよう！"}]},
+        {"p":"**その場で決めたこと：{{will}}。** 話しているその場で決めたことは、{{will}}（短い形 {{'ll}}）+ 動詞のもとの形で言います：{{I'll have the pasta.}}（パスタにします）、{{It's cold. I'll close the window.}}（寒いね。窓を閉めるよ）。"},
+        {"p":"**申し出と約束。** {{I'll help you.}}（手伝うよ）、{{I'll call you tomorrow.}}（明日電話するね）。否定は {{won't}}（{{will not}}）：{{I won't tell anyone.}}（だれにも言わないよ）。"},
+        {"p":"**予想。** {{I think it'll be sunny tomorrow.}}（明日は晴れると思う）、{{You'll love it!}}（きっと気に入るよ）。{{I think …}} とよくいっしょに使います。"},
+        { "table": [
+          ["使い方","英語","意味"],
+          ["その場の決定","{{I'll take this one.}}","これにします。"],
+          ["申し出","{{I'll carry your bag.}}","かばんを持つよ。"],
+          ["約束","{{I won't be late.}}","遅れないよ。"],
+          ["予想","{{It'll be fine.}}","大丈夫だよ。"]
+        ] },
+        {"p":"**{{will}} と {{going to}} の違い。** 前から決めていた予定は {{going to}}、今この場で決めたことは {{will}}：{{I'm going to buy a car.}}（車を買うつもりだ：前から考えていた）／{{Oh, this one is nice. I'll buy it!}}（あ、これいいね。これ買う！）。"},
+        { "ex": [
+          {"t":"I'll have a coffee, please.","tr":"コーヒーをください。"},
+          {"t":"Don't worry. I'll help you.","tr":"心配しないで。手伝うよ。"},
+          {"t":"I won't forget.","tr":"忘れないよ。"},
+          {"t":"I think you'll like this movie.","tr":"この映画、きっと気に入ると思うよ。"},
+          {"t":"Will you be home tonight?","tr":"今夜は家にいる？"},
+          {"t":"It's late. I'll take a taxi.","tr":"遅いから、タクシーで帰るよ。"}
+        ] },
+        {"tip":"{{Will you …?}} はお願いにもなります：{{Will you open the door?}}（ドアを開けてくれる？）。ただし、{{Could you …?}} のほうがていねいです。"}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"電話するね。","why":"{{will}} のあとに {{to}} はいりません。"},
+        {"wrong":"I'll not go.","right":"I won't go.","tr":"行かないよ。","why":"{{will}} の否定は {{won't}}（{{will not}}）。{{I'll not}} とはふつう言いません。"},
+        {"wrong":"She wills come.","right":"She will come.","tr":"彼女は来るよ。","why":"{{will}} は主語が何でも形が変わりません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It's cold in here. ___ close the window.","tr":"ここ寒いね。窓を閉めるよ。","options":["I'll","I'm","I will to"],"answer":0,"why":"その場で決めたこと：{{I'll}}。"},
+        {"type":"choice","q":"レストランで「ハンバーガーにします」と言うには？","options":["{{I'll have the burger.}}","{{I had the burger.}}","{{I will to have the burger.}}"],"answer":0,"why":"その場の決定：{{I'll have …}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Don't worry. I ___ tell anyone.","tr":"心配しないで。だれにも言わないよ。","options":["won't","willn't","don't will"],"answer":0,"why":"{{will}} の否定は {{won't}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I'm ___ to visit my aunt next week.","tr":"来週、おばを訪ねるつもりです（前から決めていた）。","options":["going","will","go"],"answer":0,"why":"前から決めていた予定は {{be going to}}。","from":"talk-about-plans"},
+        {"type":"dialogue","q":"雨が降ってきました。返事を選んでください。","lines":[{"who":"友だち","t":"Oh no, I forgot my umbrella!","tr":"しまった、傘を忘れた！"},{"options":["Don't worry. I'll lend you mine.","Don't worry. I will lending you mine."],"answer":0,"why":"その場の申し出：{{I'll}} + 動詞のもとの形。"},{"who":"友だち","t":"Thanks! I'll give it back tomorrow.","tr":"ありがとう！明日返すね。"},{"options":["No problem. I think it'll stop raining soon.","No problem. I think it will stops raining soon."],"answer":0,"why":"{{will}} のあとは動詞のもとの形。"}]},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"この映画、きっと気に入ると思うよ。","words":["I","think","you'll","like","this","movie."],"why":"{{I think you'll like this movie.}}"},
+        {"type":"free","q":"あなたの番です。友だちに約束を1つ、申し出を1つしましょう（{{I'll …}} や {{I won't …}}）。","answers":[{"t":"I'll help you with your homework. I won't be late tomorrow.","tr":"宿題を手伝うよ。明日は遅れないよ。"},{"t":"I'll make dinner tonight. I'll call you after work.","tr":"今夜は私が夕食を作るね。仕事のあとで電話するよ。"}]}
+      ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "比べる",
+      "summary": "2つを比べたり、いちばんを言ったりします：「東京は大阪より大きい。」「富士山は日本でいちばん高い山です。」",
+      "topic": "{{-er than}} と {{more … than}}; {{the -est}} と {{the most}}; {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"Tokyo is bigger than Osaka.","tr":"東京は大阪より大きいです。"}},
+        {"dialog":[{"who":"エミリー","t":"Which jacket do you like?","tr":"どっちのジャケットがいい？"},{"who":"マコト","t":"The black one is cheaper than the blue one.","tr":"黒いほうが青いのより安いね。"},{"who":"エミリー","t":"But the blue one is more comfortable.","tr":"でも青いほうが着心地がいいの。"},{"who":"マコト","t":"Hmm. And it's warmer. Buy the blue one!","tr":"うーん。それに暖かいね。青いのを買いなよ！"},{"who":"エミリー","t":"OK! This is the best store in town.","tr":"そうする！ここ、町でいちばんいいお店だね。"}]},
+        {"term":"比較級","means":"2つを比べて「より〜」を表す形：{{bigger}}（より大きい）、{{more expensive}}（より高い）。"},
+        {"term":"最上級","means":"3つ以上の中で「いちばん〜」を表す形：{{the biggest}}、{{the most expensive}}。"},
+        {"p":"**「AはBより〜」：比較級 + {{than}}。** 短い形容詞には {{-er}}：{{big}} → {{bigger}}、{{cheap}} → {{cheaper}}。長い形容詞には {{more}}：{{more expensive}}、{{more comfortable}}。そのあとに {{than}}（〜より）：{{Tokyo is bigger than Osaka.}}"},
+        {"p":"**「いちばん〜」：{{the}} + 最上級。** 短い形容詞は {{the -est}}、長い形容詞は {{the most}}：{{the biggest city}}（いちばん大きい町）、{{the most beautiful place}}（いちばん美しい場所）。範囲は {{in}}（場所・グループ）：{{the tallest in my family}}（家族でいちばん背が高い）。"},
+        { "table": [
+          ["","比較級","最上級"],
+          ["短い：{{cheap}}","{{cheaper than}}","{{the cheapest}}"],
+          ["{{y}} で終わる：{{easy}}","{{easier than}}","{{the easiest}}"],
+          ["長い：{{expensive}}","{{more expensive than}}","{{the most expensive}}"],
+          ["不規則：{{good}}","{{better than}}","{{the best}}"],
+          ["不規則：{{bad}}","{{worse than}}","{{the worst}}"]
+        ] },
+        {"p":"**同じくらい：{{as … as}}。** {{My bag is as big as yours.}}（私のかばんはあなたのと同じくらい大きい）。否定は「〜ほど…ではない」：{{It's not as cold as yesterday.}}（昨日ほど寒くない）。"},
+        {"p":"**「〜のほう」：{{the one}}。** 2つのうちのどちらかを言うとき、名詞をくり返さずに {{one}} を使います：{{the black one}}（黒いほう）。"},
+        { "ex": [
+          {"t":"This phone is more expensive than that one.","tr":"このスマホはあれより高いです。"},
+          {"t":"My English is better than last year.","tr":"私の英語は去年より上手になりました。"},
+          {"t":"Mt. Fuji is the highest mountain in Japan.","tr":"富士山は日本でいちばん高い山です。"},
+          {"t":"This is the best ramen in town.","tr":"これは町でいちばんおいしいラーメンです。"},
+          {"t":"Today isn't as hot as yesterday.","tr":"今日は昨日ほど暑くありません。"},
+          {"t":"Which is better, the train or the bus?","tr":"電車とバス、どちらがいいですか？"}
+        ] },
+        {"tip":"{{Which is better, A or B?}}（AとB、どちらがいい？）は、とても便利な質問の形です。"}
+      ],
+      "mistakes": [
+        {"wrong":"This is more cheap.","right":"This is cheaper.","tr":"こっちのほうが安いです。","why":"短い形容詞は {{-er}}：{{cheaper}}。"},
+        {"wrong":"He is taller from me.","right":"He is taller than me.","tr":"彼は私より背が高いです。","why":"「〜より」は {{than}}。"},
+        {"wrong":"It's the most good restaurant.","right":"It's the best restaurant.","tr":"いちばんいいレストランです。","why":"{{good}} の最上級は不規則で {{the best}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"This bag is ___ than that one.","tr":"このかばんはあれより安いです。","options":["cheaper","more cheap","cheapest"],"answer":0,"why":"短い形容詞の比較級：{{cheaper}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It's the ___ expensive hotel in the city.","tr":"町でいちばん高いホテルです。","options":["most","more","much"],"answer":0,"why":"長い形容詞の最上級：{{the most}}。"},
+        {"type":"choice","q":"「今日は昨日ほど寒くない」は英語で？","options":["{{Today isn't as cold as yesterday.}}","{{Today isn't cold than yesterday.}}","{{Today is coldest than yesterday.}}"],"answer":0,"why":"「〜ほど…ない」は {{not as … as}}。"},
+        {"type":"dialogue","q":"買い物でジャケットを選んでいます。返事を選んでください。","lines":[{"who":"エミリー","t":"Which jacket is better, the black one or the blue one?","tr":"黒と青、どっちのジャケットがいいと思う？"},{"options":["The blue one. It's warmer.","The blue one. It's more warm."],"answer":0,"why":"{{warm}} は短いので {{warmer}}。"},{"who":"エミリー","t":"But it's more expensive, isn't it?","tr":"でも高いよね？"},{"options":["Yes, it is. But it's the best one in the store.","Yes, it is. But it's the goodest one in the store."],"answer":0,"why":"{{good}} の最上級は {{the best}}。"}],"from":"answer-negative-questions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"富士山は日本でいちばん高い山です。","words":["Mt. Fuji","is","the","highest","mountain","in","Japan."],"why":"{{Mt. Fuji is the highest mountain in Japan.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「東京は大阪より大きいです。」","answer":"Tokyo is bigger than Osaka.","from":"describe-things"},
+        {"type":"free","q":"あなたの番です。2つの町や2つの食べ物を比べて、いちばん好きなものも言いましょう。","answers":[{"t":"Kyoto is smaller than Tokyo, but it's more beautiful. It's my favorite city.","tr":"京都は東京より小さいですが、もっと美しいです。いちばん好きな町です。"},{"t":"Ramen is cheaper than sushi. But I think sushi is the best Japanese food.","tr":"ラーメンはお寿司より安いです。でも、お寿司がいちばんおいしい日本の料理だと思います。"}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 6,
+      "level": "A2",
+      "title": "意見と理由を言う",
+      "summary": "{{I think …}} で意見を言い、{{because}} や {{so}} で理由をつなげます：「日本の電車はすばらしいと思います。いつも時間通りだからです。」",
+      "topic": "{{I think (that) …}}; {{I don't think …}}; {{because}} と {{so}}",
+      "blocks": [
+        {"goal":{"t":"I think Japanese trains are great because they're always on time.","tr":"日本の電車はすばらしいと思います。いつも時間通りだからです。"}},
+        {"dialog":[{"who":"マット","t":"What do you think of Tokyo?","tr":"東京ってどう思う？"},{"who":"ユミ","t":"I think it's exciting, but it's too crowded.","tr":"わくわくするけど、混みすぎだと思う。"},{"who":"マット","t":"I don't think it's too crowded. I love it!","tr":"混みすぎだとは思わないな。大好きだよ！"},{"who":"ユミ","t":"Really? Why?","tr":"本当？どうして？"},{"who":"マット","t":"Because there's always something new. And the food is amazing, so I eat out every day!","tr":"いつも何か新しいことがあるから。それに食べ物が最高だから、毎日外食してるよ！"}]},
+        {"p":"**意見：{{I think (that)}} + 文。** {{I think}} のあとに、ふつうの文（主語 + 動詞）を続けます：{{I think it's a good idea.}}（いい考えだと思う）。{{that}} は省いてもかまいません。相手の意見を聞くときは {{What do you think of …?}}（〜をどう思う？）。"},
+        {"p":"**「〜ではないと思う」：{{I don't think …}}。** 日本語では「〜ではないと思う」と中の文を否定しますが、英語ではふつう {{think}} のほうを否定します：{{I don't think it's expensive.}}（高くないと思う）。{{I think it's not expensive.}} もまちがいではありませんが、英語としては不自然に聞こえます。"},
+        { "table": [
+          ["日本語","自然な英語"],
+          ["いい考えだと思う。","{{I think it's a good idea.}}"],
+          ["高くないと思う。","{{I don't think it's expensive.}}"],
+          ["彼は来ないと思う。","{{I don't think he'll come.}}"]
+        ] },
+        {"p":"**理由：{{because}}（〜だから）。** 結論を先に言い、そのあとに {{because}} + 理由：{{I stayed home because it was raining.}}（雨が降っていたので家にいた）。日本語の「〜だから…」とは順番が逆です。"},
+        {"p":"**結果：{{so}}（だから）。** 理由を先に言い、{{so}} + 結果：{{It was raining, so I stayed home.}}（雨が降っていた。だから家にいた）。{{so}} を使うと、日本語と同じ順番で話せます。"},
+        { "table": [
+          ["つなぎ方","英語"],
+          ["{{because}}：結論 → 理由","{{I'm tired because I worked late.}}"],
+          ["{{so}}：理由 → 結論","{{I worked late, so I'm tired.}}"]
+        ] },
+        { "ex": [
+          {"t":"I think it's a good idea.","tr":"いい考えだと思います。"},
+          {"t":"I don't think he's at home.","tr":"彼は家にいないと思います。"},
+          {"t":"What do you think of this dress?","tr":"このドレス、どう思う？"},
+          {"t":"I'm learning English because I want to travel.","tr":"旅行したいので英語を学んでいます。"},
+          {"t":"The store was closed, so I went home.","tr":"店が閉まっていたので、家に帰りました。"},
+          {"t":"I don't think so.","tr":"そうは思いません。"}
+        ] },
+        {"tip":"{{I think so.}}（そう思う）と {{I don't think so.}}（そうは思わない）は、質問への短い答えとして便利です。"}
+      ],
+      "mistakes": [
+        {"wrong":"I think it's not a good idea.","right":"I don't think it's a good idea.","tr":"いい考えではないと思います。","why":"英語では「思わない」のほうを否定するのが自然です。"},
+        {"wrong":"Because it was raining. I stayed home.","right":"I stayed home because it was raining.","tr":"雨が降っていたので家にいました。","why":"{{because}} の部分だけを一つの文にせず、結論の文につなげます。（質問に短く答えるときは別です。）"},
+        {"wrong":"I think so it's good.","right":"I think it's good.","tr":"いいと思います。","why":"{{so}} は「そう」の代わりです。あとに文が続くなら {{so}} はいりません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I ___ think it's expensive.","tr":"高くないと思います。","options":["don't","not","no"],"answer":0,"why":"{{think}} のほうを否定：{{I don't think …}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It was cold, ___ I wore a coat.","tr":"寒かったので、コートを着ました。","options":["so","because","but"],"answer":0,"why":"理由 → 結論なので {{so}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I'm happy ___ my friend is coming.","tr":"友だちが来るので、うれしいです。","options":["because","so","and"],"answer":0,"why":"結論 → 理由なので {{because}}。"},
+        {"type":"dialogue","q":"レストランの感想を聞かれました。返事を選んでください。","lines":[{"who":"マット","t":"What do you think of this restaurant?","tr":"このレストランどう思う？"},{"options":["I think it's great. The food is delicious.","I think it great. The food is delicious."],"answer":0,"why":"{{I think}} のあとはふつうの文：{{it's great}}。"},{"who":"マット","t":"Is it expensive?","tr":"高い？"},{"options":["I don't think so.","I think not so."],"answer":0,"why":"「そうは思わない」は {{I don't think so.}}"}],"from":"describe-things"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"旅行したいので英語を勉強しています。","words":["I'm","studying","English","because","I","want","to","travel."],"why":"結論 → {{because}} → 理由。"},
+        {"type":"say","q":"英語で言ってみましょう：「東京は大阪よりわくわくすると思います。」","answer":"I think Tokyo is more exciting than Osaka.","from":"compare"},
+        {"type":"free","q":"あなたの番です。あなたの町についての意見を1つ、理由といっしょに言いましょう（{{because}} か {{so}} を使って）。","answers":[{"t":"I think my town is a great place to live because it's quiet and safe.","tr":"静かで安全なので、私の町は住むのにいいところだと思います。"},{"t":"There aren't many shops in my town, so I don't think it's very convenient.","tr":"私の町にはお店があまりないので、あまり便利だとは思いません。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-hobbies",
+      "unit": 6,
+      "level": "A2",
+      "title": "趣味や好みをくわしく言う",
+      "summary": "趣味やしたいこと、得意なことをくわしく話します：「料理をするのが好きで、フランス料理を習いたいんです。」",
+      "topic": "{{enjoy}} + {{-ing}}; {{want to}} + 動詞; {{good at}} + {{-ing}}; {{interested in}}",
+      "blocks": [
+        {"goal":{"t":"I enjoy cooking, and I want to learn French cooking.","tr":"料理をするのが好きで、フランス料理を習いたいと思っています。"}},
+        {"dialog":[{"who":"ローラ","t":"What do you do in your free time?","tr":"暇なときは何してるの？"},{"who":"ケンタ","t":"I enjoy hiking. I'm also interested in photography.","tr":"ハイキングが好き。写真にも興味があるんだ。"},{"who":"ローラ","t":"Cool! Are you good at taking pictures?","tr":"すごい！写真撮るの上手？"},{"who":"ケンタ","t":"Not really, but I want to get better. I'm thinking about taking a class.","tr":"そうでもないけど、上手になりたい。教室に通おうかと考えてるんだ。"},{"who":"ローラ","t":"I'm good at painting. Let's go out together sometime!","tr":"私は絵を描くのが得意なの。今度いっしょに出かけよう！"}]},
+        {"p":"**あとに続く形が決まっている言葉。** 「〜すること」を表すのに、英語には {{-ing}}（{{swimming}}）と {{to}} + 動詞（{{to swim}}）の2つの形があります。前の言葉によって、どちらを使うかが決まっています。"},
+        { "table": [
+          ["前の言葉","あとの形","例"],
+          ["{{enjoy}}（楽しむ）","{{-ing}}","{{I enjoy reading.}}"],
+          ["{{finish}}（終える）","{{-ing}}","{{I finished cleaning.}}"],
+          ["{{want}}（〜したい）","{{to}} + 動詞","{{I want to travel.}}"],
+          ["{{need}}（〜する必要がある）","{{to}} + 動詞","{{I need to go.}}"],
+          ["{{like}} / {{love}}","どちらでも","{{I like swimming.}} / {{I like to swim.}}"]
+        ] },
+        {"p":"**「〜したい」：{{want to}}。** {{I want to go to Hawaii.}}（ハワイに行きたい）。三人称単数は {{wants}}：{{She wants to be a doctor.}}（彼女は医者になりたい）。ていねいに言うなら {{I'd like to}}：{{I'd like to try it.}}（試してみたいです）。"},
+        {"p":"**前置詞のあとは {{-ing}}。** {{good at}}（〜が得意）、{{interested in}}（〜に興味がある）のように、前置詞のあとに動詞を続けるときは必ず {{-ing}} です：{{I'm good at cooking.}}（料理が得意）、{{I'm interested in learning Spanish.}}（スペイン語を学ぶことに興味がある）。"},
+        { "ex": [
+          {"t":"I want to learn the guitar.","tr":"ギターを習いたいです。"},
+          {"t":"She's good at drawing.","tr":"彼女は絵を描くのが得意です。"},
+          {"t":"I'm interested in Japanese history.","tr":"日本の歴史に興味があります。"},
+          {"t":"I finished reading the book.","tr":"その本を読み終えました。"},
+          {"t":"Do you want to go for a walk?","tr":"散歩に行かない？"},
+          {"t":"My son enjoys playing video games.","tr":"息子はテレビゲームをするのが好きです。"}
+        ] },
+        {"tip":"{{I'm interesting.}} は「私はおもしろい人です」という意味になってしまいます。「興味がある」は {{I'm interested.}}。{{-ed}} は人の気持ち、{{-ing}} は物の性質：{{The book is interesting.}}（その本はおもしろい）。"}
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"料理をするのが好きです。","why":"{{enjoy}} のあとは {{-ing}}。"},
+        {"wrong":"I want go to Hawaii.","right":"I want to go to Hawaii.","tr":"ハワイに行きたいです。","why":"{{want}} のあとは {{to}} + 動詞。"},
+        {"wrong":"I'm interesting in music.","right":"I'm interested in music.","tr":"音楽に興味があります。","why":"「興味がある」は {{interested}}。{{interesting}} は「おもしろい」。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I enjoy ___ in the mountains.","tr":"山を歩くのが好きです。","options":["walking","to walk","walk"],"answer":0,"why":"{{enjoy}} + {{-ing}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"She wants ___ a nurse.","tr":"彼女は看護師になりたいと思っています。","options":["to be","being","be"],"answer":0,"why":"{{want}} + {{to}} + 動詞。"},
+        {"type":"choice","q":"「私は料理が得意です」は英語で？","options":["{{I'm good at cooking.}}","{{I'm good at cook.}}","{{I good at cooking.}}"],"answer":0,"why":"前置詞 {{at}} のあとは {{-ing}}、そして be動詞も必要です。"},
+        {"type":"dialogue","q":"趣味の話をします。返事を選んでください。","lines":[{"who":"ローラ","t":"What do you do in your free time?","tr":"暇なときは何してるの？"},{"options":["I enjoy playing tennis.","I enjoy to play tennis."],"answer":0,"why":"{{enjoy}} + {{-ing}}。"},{"who":"ローラ","t":"Are you interested in art?","tr":"美術に興味ある？"},{"options":["Yes! I want to visit the new museum.","Yes! I want visiting the new museum."],"answer":0,"why":"{{want}} + {{to}} + 動詞。"}],"from":"talk-about-likes"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"日本の歴史に興味があります。","words":["I'm","interested","in","Japanese","history."],"why":"{{I'm interested in Japanese history.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「泳げますが、泳ぐのは得意ではありません。」","answer":"I can swim, but I'm not good at swimming.","from":"say-what-you-can-do"},
+        {"type":"free","q":"あなたの番です。楽しんでいること、得意なこと、これからしたいことを1つずつ言いましょう。","answers":[{"t":"I enjoy watching movies. I'm good at cooking. I want to learn Korean.","tr":"映画を見るのが好きです。料理が得意です。韓国語を習いたいです。"},{"t":"I enjoy running in the morning. I'm not good at singing, but I want to try karaoke!","tr":"朝走るのが好きです。歌は得意ではないけれど、カラオケに挑戦してみたいです！"}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 6,
+      "level": "A2",
+      "title": "アドバイスする",
+      "summary": "{{should}} でアドバイスをします：「医者に診てもらったほうがいいよ。」{{had better}} は日本語の「〜したほうがいい」よりずっと強いので注意。",
+      "topic": "{{should}} と {{shouldn't}}; {{Why don't you …?}}; {{had better}}（強い）",
+      "blocks": [
+        {"goal":{"t":"You should see a doctor.","tr":"医者に診てもらったほうがいいよ。"}},
+        {"dialog":[{"who":"同僚","t":"I have a terrible headache.","tr":"ひどい頭痛がするんだ。"},{"who":"あなた","t":"Oh no. You should go home and rest.","tr":"大変。家に帰って休んだほうがいいよ。"},{"who":"同僚","t":"But I have a lot of work.","tr":"でも仕事がたくさんあって。"},{"who":"あなた","t":"You shouldn't work when you're sick. Why don't you ask Kate for help?","tr":"具合が悪いときは働かないほうがいいよ。ケイトに手伝ってもらったら？"},{"who":"同僚","t":"That's a good idea. Thanks.","tr":"いい考えだね。ありがとう。"}]},
+        {"p":"**アドバイス：{{should}} + 動詞のもとの形。** 「〜したほうがいい」は {{should}}：{{You should see a doctor.}}（医者に行ったほうがいい）。否定は {{shouldn't}}（〜しないほうがいい）：{{You shouldn't drink too much.}}。助動詞なので、三人称単数でも {{-s}} はつきません。"},
+        {"p":"**やわらかい提案：{{Why don't you …?}}** 「〜したらどう？」：{{Why don't you take a break?}}（休憩したら？）。理由を聞いているのではなく、提案です。"},
+        {"p":"**注意：{{had better}} は強い。** 学校で「〜したほうがいい」= {{had better}} と習うことが多いのですが、実際の英語では「〜しないと大変なことになるよ」という警告に近い言葉です。目上の人や、ふつうのアドバイスに使うと、失礼に聞こえることがあります。ふだんのアドバイスは {{should}} を使いましょう。"},
+        { "table": [
+          ["","英語","響き"],
+          ["ふつうのアドバイス","{{You should take a taxi.}}","タクシーに乗ったほうがいいよ。"],
+          ["やわらかい提案","{{Why don't you take a taxi?}}","タクシーに乗ったら？"],
+          ["強い警告","{{You'd better take a taxi.}}","タクシーに乗らないとまずいよ。"]
+        ] },
+        {"p":"**アドバイスを求める。** {{What should I do?}}（どうしたらいい？）、{{Should I …?}}（〜したほうがいい？）。"},
+        { "ex": [
+          {"t":"You shouldn't stay up late.","tr":"夜ふかししないほうがいいよ。"},
+          {"t":"Should I bring anything?","tr":"何か持っていったほうがいい？"},
+          {"t":"What should I do?","tr":"どうしたらいいかな？"},
+          {"t":"Why don't you try this one?","tr":"こっちを試してみたら？"},
+          {"t":"I think you should talk to your boss.","tr":"上司に話したほうがいいと思うよ。"},
+          {"t":"You'd better hurry. The train leaves in two minutes.","tr":"急がないとまずいよ。電車はあと2分で出るよ。"}
+        ] },
+        {"tip":"アドバイスの前に {{I think}} をつけると、さらにやわらかくなります：{{I think you should rest.}}（休んだほうがいいと思うよ）。"}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"休んだほうがいいよ。","why":"{{should}} のあとに {{to}} はいりません。"},
+        {"wrong":"She shoulds study more.","right":"She should study more.","tr":"彼女はもっと勉強したほうがいい。","why":"助動詞 {{should}} に {{-s}} はつきません。"},
+        {"wrong":"You had better check this, boss.","right":"I think you should check this.","tr":"これを確認されたほうがいいと思います。","why":"{{had better}} は強い警告に聞こえます。目上の人には {{should}} を {{I think}} でやわらかくして。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"You ___ go to bed early.","tr":"早く寝たほうがいいよ。","options":["should","should to","shoulds"],"answer":0,"why":"{{should}} + 動詞のもとの形。"},
+        {"type":"choice","q":"友だちが「眠れない」と言います。やわらかいアドバイスは？","options":["{{Why don't you drink some warm milk?}}","{{You'd better drink warm milk!}}","{{Why you don't drink warm milk?}}"],"answer":0,"why":"やわらかい提案は {{Why don't you …?}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"You ___ eat so much chocolate.","tr":"チョコレートをそんなに食べないほうがいいよ。","options":["shouldn't","don't should","not should"],"answer":0,"why":"否定は {{shouldn't}}。"},
+        {"type":"dialogue","q":"風邪をひいた同僚にアドバイスします。返事を選んでください。","lines":[{"who":"同僚","t":"I have a terrible cold.","tr":"ひどい風邪をひいちゃった。"},{"options":["You should go home and rest.","You should going home and rest."],"answer":0,"why":"{{should}} + 動詞のもとの形。"},{"who":"同僚","t":"Should I see a doctor?","tr":"医者に行ったほうがいいかな？"},{"options":["Yes, I think so.","Yes, I think it."],"answer":0,"why":"「そう思う」は {{I think so.}}"}],"from":"give-your-opinion"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"何か持っていったほうがいい？","words":["Should","I","bring","anything?"],"why":"{{Should I bring anything?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「頭が痛いんです。どうしたらいいですか？」","answer":"I have a headache. What should I do?","from":"say-what-you-have"},
+        {"type":"free","q":"あなたの番です。日本に来る外国人の友だちに、アドバイスを2つしましょう（{{should}} と {{shouldn't}}）。","answers":[{"t":"You should try the ramen in Fukuoka. You shouldn't take a taxi in Tokyo because it's very expensive.","tr":"福岡のラーメンは食べたほうがいいよ。東京ではタクシーに乗らないほうがいいよ、すごく高いから。"},{"t":"You should buy a train pass. You shouldn't visit Kyoto in August because it's too hot.","tr":"電車のパスを買ったほうがいいよ。8月の京都は暑すぎるから行かないほうがいいよ。"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-must",
+      "unit": 6,
+      "level": "A2",
+      "title": "しなければならないことを言う",
+      "summary": "{{have to}} と {{must}} で義務を言います。{{don't have to}}（しなくていい）と {{mustn't}}（してはいけない）の違いが大切です。",
+      "topic": "{{have to}} と {{must}}; {{don't have to}} と {{mustn't}} の違い",
+      "blocks": [
+        {"goal":{"t":"I have to work on Saturday.","tr":"土曜日は働かなければなりません。"}},
+        {"dialog":[{"who":"上司","t":"You have to wear this ID card at all times.","tr":"このIDカードはいつもつけていなければいけません。"},{"who":"あなた","t":"OK. Do I have to wear a suit?","tr":"わかりました。スーツを着なければいけませんか？"},{"who":"上司","t":"No, you don't have to wear a suit. Casual clothes are fine.","tr":"いいえ、スーツを着る必要はありません。私服で大丈夫です。"},{"who":"あなた","t":"Great.","tr":"よかった。"},{"who":"上司","t":"But you mustn't use your phone in the factory. It's dangerous.","tr":"でも、工場の中でスマホを使ってはいけません。危険ですから。"},{"who":"あなた","t":"I understand.","tr":"わかりました。"}]},
+        {"p":"**しなければならない：{{have to}} + 動詞。** {{I have to work on Saturday.}}（土曜日は働かなければならない）。三人称単数は {{has to}}：{{She has to get up early.}}。疑問文と否定文には {{do}} を使います：{{Do I have to …?}}（〜しなければいけませんか？）。"},
+        {"p":"**{{must}}。** 意味は {{have to}} とほぼ同じですが、規則や、自分で強く思うことに使い、少しかたい響きです：{{You must wear a seatbelt.}}（シートベルトを着用しなければならない）。会話では {{have to}} のほうがよく使われます。"},
+        {"p":"**大切な違い：{{don't have to}} と {{mustn't}}。** 肯定の文では似ていますが、否定にすると意味がまったく変わります。{{don't have to}} は「しなくてもいい（必要がない）」、{{mustn't}} は「してはいけない（禁止）」です。"},
+        { "table": [
+          ["","英語","意味"],
+          ["義務","{{You have to pay.}}","払わなければならない。"],
+          ["必要がない","{{You don't have to pay.}}","払わなくてもいい（無料です）。"],
+          ["禁止","{{You mustn't smoke here.}}","ここでたばこを吸ってはいけない。"]
+        ] },
+        {"p":"{{mustn't}} は会話では少しかたいので、{{You can't smoke here.}} のように {{can't}} もよく使います。過去は {{had to}}：{{I had to work late yesterday.}}（昨日は遅くまで働かなければならなかった）。"},
+        { "ex": [
+          {"t":"She has to take her medicine every day.","tr":"彼女は毎日薬を飲まなければなりません。"},
+          {"t":"Do I have to make a reservation?","tr":"予約しなければいけませんか？"},
+          {"t":"You don't have to bring anything.","tr":"何も持ってこなくていいですよ。"},
+          {"t":"You mustn't touch the paintings.","tr":"絵にさわってはいけません。"},
+          {"t":"I had to wait for an hour.","tr":"1時間待たなければなりませんでした。"},
+          {"t":"You must be careful.","tr":"気をつけなければいけませんよ。"}
+        ] },
+        {"tip":"{{have to}} は「ハフタ」、{{has to}} は「ハスタ」のように発音されることが多いです。"}
+      ],
+      "mistakes": [
+        {"wrong":"You mustn't pay. It's free.","right":"You don't have to pay. It's free.","tr":"払わなくていいですよ。無料です。","why":"「払わなくていい」は {{don't have to}}。{{mustn't}} だと「払ってはいけない」になります。"},
+        {"wrong":"She have to work.","right":"She has to work.","tr":"彼女は働かなければなりません。","why":"三人称単数は {{has to}}。"},
+        {"wrong":"I must to go now.","right":"I must go now.","tr":"もう行かなければなりません。","why":"{{must}} のあとに {{to}} はいりません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"It's free. You ___ pay.","tr":"無料です。払わなくていいですよ。","options":["don't have to","mustn't","have to"],"answer":0,"why":"「しなくていい」は {{don't have to}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"You ___ use your phone during the exam.","tr":"試験中にスマホを使ってはいけません。","options":["mustn't","don't have to","have to"],"answer":0,"why":"「してはいけない」は {{mustn't}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My brother ___ to get up at five.","tr":"兄は5時に起きなければなりません。","options":["has","have","must"],"answer":0,"why":"三人称単数なので {{has to}}。"},
+        {"type":"dialogue","q":"新しい職場で、上司に質問します。返事を選んでください。","lines":[{"options":["Do I have to wear a suit?","Do I must wear a suit?"],"answer":0,"why":"{{have to}} の疑問文は {{Do I have to …?}}"},{"who":"上司","t":"No, you don't have to. Casual clothes are fine.","tr":"いいえ、その必要はありません。私服で大丈夫です。"},{"options":["Great. Do I have to bring my lunch?","Great. Have I to bring my lunch?"],"answer":0,"why":"疑問文には {{do}} を使います。"}],"from":"ask-with-do"},
+        {"type":"choice","q":"{{You don't have to come.}} の意味は？","options":["来なくてもいいですよ。","来てはいけません。","来なければなりません。"],"answer":0,"why":"{{don't have to}} は「必要がない」。"},
+        {"type":"say","q":"英語で言ってみましょう：「昨日は遅くまで働かなければなりませんでした。」","answer":"I had to work late yesterday.","from":"use-irregular-verbs"},
+        {"type":"free","q":"あなたの番です。今週しなければならないことを1つ、しなくていいことを1つ言いましょう。","answers":[{"t":"I have to finish a report by Friday. I don't have to work on Sunday.","tr":"金曜日までにレポートを終わらせなければなりません。日曜日は働かなくていいです。"},{"t":"I have to go to the dentist. I don't have to cook this week because my mother is visiting.","tr":"歯医者に行かなければなりません。今週は母が来ているので、料理をしなくていいです。"}]}
+      ]
     }
   ]
 }
