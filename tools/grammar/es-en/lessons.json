@@ -1239,6 +1239,304 @@
         {"type":"say","q":"Di “Antes trabajaba en un restaurante.”","answer":"I used to work at a restaurant."},
         {"type":"free","q":"Te toca: ¿cómo era tu vida hace diez años? Di dos cosas que hacías antes y ya no.","answers":[{"t":"Ten years ago I used to live with my parents, and I used to go out every weekend.","tr":"Hace diez años vivía con mis papás y salía todos los fines de semana."},{"t":"I used to work at night, and I didn't use to cook. Now I cook every day!","tr":"Antes trabajaba de noche y no cocinaba. ¡Ahora cocino todos los días!"}]}
       ]
+    },
+    {
+      "id": "predict-and-promise",
+      "unit": 5,
+      "level": "A2",
+      "title": "Ofrece, promete y predice",
+      "summary": "Ofrece ayuda, haz promesas y di lo que crees que va a pasar: {{Don't worry, I'll call you tomorrow.}}",
+      "topic": "{{will}} y {{won't}} ({{I'll}}); ¿{{will}} o {{going to}}?",
+      "blocks": [
+        {"goal":{"t":"Don't worry, I'll call you tomorrow.","tr":"No te preocupes, mañana te llamo."}},
+        {"dialog":[{"who":"Ana","t":"The phone is ringing!","tr":"¡Está sonando el teléfono!"},{"who":"Tú","t":"I'll get it!","tr":"¡Yo contesto!"},{"who":"Ana","t":"Who was it?","tr":"¿Quién era?"},{"who":"Tú","t":"My mom. She says it'll rain tomorrow, so the picnic is off.","tr":"Mi mamá. Dice que mañana va a llover, así que se cancela el día de campo."},{"who":"Ana","t":"Oh no. Will you tell the kids?","tr":"Ay, no. ¿Tú les dices a los niños?"},{"who":"Tú","t":"Sure. I'll tell them after dinner.","tr":"Claro. Les digo después de la cena."}]},
+        {"p":"**{{will}}: el futuro de las decisiones y las promesas.** {{will}} + la forma base, casi siempre en corto: {{I'll}}, {{you'll}}, {{she'll}}, {{it'll}}, {{we'll}}, {{they'll}}. El negativo es {{won't}} ({{will not}}). Es un verbo modal, como {{can}}: no cambia, no lleva -s y no usa {{do}}."},
+        { "table": [
+          ["","{{will}}"],
+          ["afirmación","{{I'll help you.}}"],
+          ["negación","{{I won't tell anyone.}}"],
+          ["pregunta","{{Will you come?}}"],
+          ["respuesta corta","{{Yes, I will.}} / {{No, I won't.}}"]
+        ] },
+        {"p":"**¿Para qué sirve?** Para decidir en el momento ({{I'll have the chicken}} “voy a querer el pollo”, {{I'll get it!}} “¡yo contesto!”), para ofrecer ({{I'll help you}}), para prometer ({{I'll call you}}, {{I won't be late}}) y para predecir lo que crees que va a pasar ({{It'll be fine}}, {{You'll love it}})."},
+        {"p":"**¿{{will}} o {{going to}}?** {{going to}} es para los planes que ya tenías (lección 18): {{I'm going to visit my parents on Sunday.}} {{will}} es para lo que decides ahorita, lo que ofreces y lo que prometes. En español muchas veces decimos las dos cosas con el presente: “ahorita te ayudo”, “mañana te llamo”."},
+        { "table": [
+          ["un plan que ya tenías: {{going to}}","decisión de ahorita, oferta, promesa: {{will}}"],
+          ["{{I'm going to buy a new phone this weekend.}}","{{Your phone is broken? I'll lend you mine.}}"],
+          ["{{We're going to paint the house.}}","{{I'll help you, I promise.}}"]
+        ] },
+        {"p":"**Para predecir:** {{I think}} + {{will}}: {{I think it'll rain}} “creo que va a llover”; y {{I don't think}} + {{will}}: {{I don't think he'll come}} “no creo que venga”."},
+        { "ex": [
+          {"t":"I'll have a coffee, please.","tr":"Me da un café, por favor.","note":"para pedir en el momento: {{I'll have…}}"},
+          {"t":"Don't worry, I won't tell anyone.","tr":"No te preocupes, no le voy a decir a nadie."},
+          {"t":"It's cold. I'll close the window.","tr":"Hace frío. Voy a cerrar la ventana."},
+          {"t":"Will you marry me?","tr":"¿Te quieres casar conmigo?"},
+          {"t":"I think you'll like this movie.","tr":"Creo que te va a gustar esta película."},
+          {"t":"We'll see.","tr":"Ya veremos."},
+          {"t":"Call me when you get there. — Okay, I will.","tr":"Llámame cuando llegues. — Sí, va."}
+        ] },
+        {"tip":"{{I'll be right back}} “ahorita regreso” y {{I'll be there in five minutes}} “llego en cinco minutos” son frases de todos los días."}
+      ],
+      "mistakes": [
+        {"wrong":"I will to call you.","right":"I'll call you.","tr":"Te llamo.","why":"{{will}} es modal: sin {{to}}."},
+        {"wrong":"She wills come.","right":"She'll come.","tr":"Va a venir.","why":"{{will}} nunca lleva -s."},
+        {"wrong":"Don't worry, I don't tell anyone.","right":"Don't worry, I won't tell anyone.","tr":"No te preocupes, no le voy a decir a nadie.","why":"Una promesa: {{won't}}. ({{I don't tell}} sería una costumbre: “nunca le digo a nadie”.)"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"It's late. ___ take a taxi.","tr":"Ya es tarde. Voy a tomar un taxi.","options":["I'll","I","I will to"],"answer":0,"why":"Una decisión en el momento: {{I'll}} + la forma base."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Don't worry. I ___ be late.","tr":"No te preocupes. No voy a llegar tarde.","options":["won't","don't","willn't"],"answer":0,"why":"Una promesa en negativo: {{won't}}."},
+        {"type":"choice","q":"El mesero espera tu orden. ¿Qué dices?","options":["{{I'll have the soup, please.}}","{{I have the soup, please.}}","{{I'll to have the soup, please.}}"],"answer":0,"why":"Para decidir en el momento: {{I'll have…}}","from":"order-food"},
+        {"type":"choice","q":"Ya compraste los boletos para ir a Cancún en diciembre. ¿Cómo lo dices?","options":["{{We're going to travel to Cancún in December.}}","{{We'll travel to Cancún in December, I think.}}"],"answer":0,"why":"Un plan que ya tenías: {{going to}}.","from":"make-plans"},
+        {"type":"dialogue","q":"Tu amiga se cambia de casa. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"I'm moving on Saturday, and I don't have a truck.","tr":"Me cambio el sábado y no tengo camioneta."},{"options":["No problem. I'll help you. My brother has a truck.","No problem. I help you. My brother have a truck."],"answer":0,"why":"Una oferta: {{I'll help}}; y con {{my brother}}, {{has}}."},{"who":"Amiga","t":"Really? Thank you! Will you be there at nine?","tr":"¿De veras? ¡Gracias! ¿Vas a estar ahí a las nueve?"},{"options":["Yes, I will. I promise.","Yes, I'll. I promise."],"answer":0,"why":"La respuesta corta va sin contracción: {{Yes, I will}}."},{"who":"Amiga","t":"You're the best!","tr":"¡Eres lo máximo!"}]},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Creo que te va a gustar esta película.","words":["I think","you'll","like","this movie."]},
+        {"type":"say","q":"Promete “Mañana te llamo.”","answer":"I'll call you tomorrow."},
+        {"type":"free","q":"Te toca: haz dos promesas para este año, y una predicción sobre tu futuro.","answers":[{"t":"This year I'll exercise more and I won't eat so much sugar. I think I'll speak English very well!","tr":"Este año voy a hacer más ejercicio y no voy a comer tanta azúcar. ¡Creo que voy a hablar inglés muy bien!"},{"t":"I'll call my grandma every week and I'll save money. I think we'll buy a house next year.","tr":"Le voy a llamar a mi abuela cada semana y voy a ahorrar. Creo que el próximo año vamos a comprar una casa."}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 5,
+      "level": "A2",
+      "title": "Compara cosas",
+      "summary": "Di qué es más grande, más barato o mejor: {{Monterrey is hotter than Mexico City.}}",
+      "topic": "{{-er than}} y {{more … than}}; {{better}}, {{worse}}, {{farther}}; {{as … as}}",
+      "blocks": [
+        {"goal":{"t":"Monterrey is hotter than Mexico City.","tr":"En Monterrey hace más calor que en la Ciudad de México."}},
+        {"dialog":[{"who":"Tú","t":"Which one is better?","tr":"¿Cuál es mejor?"},{"who":"Vendedor","t":"This one is newer and faster, but it's more expensive.","tr":"Este es más nuevo y más rápido, pero es más caro."},{"who":"Tú","t":"Is the camera better?","tr":"¿La cámara es mejor?"},{"who":"Vendedor","t":"It's about the same. The other one is cheaper, and it's just as good.","tr":"Es casi igual. El otro es más barato, y es igual de bueno."},{"who":"Tú","t":"Then I'll take the cheaper one.","tr":"Entonces me llevo el más barato."}]},
+        {"p":"**Dos maneras de decir “más”.** A los adjetivos cortos (de una sílaba, y los de dos que terminan en y) se les agrega **-er**: {{cheap}} → {{cheaper}} “más barato”. Con los largos, se pone {{more}} antes: {{expensive}} → {{more expensive}}. Y “que” es {{than}}."},
+        { "table": [
+          ["adjetivo","comparativo","regla"],
+          ["{{tall}}, {{cheap}}","{{taller}}, {{cheaper}}","corto: -er"],
+          ["{{nice}}, {{large}}","{{nicer}}, {{larger}}","termina en e: -r"],
+          ["{{big}}, {{hot}}","{{bigger}}, {{hotter}}","vocal + consonante: se duplica"],
+          ["{{easy}}, {{happy}}","{{easier}}, {{happier}}","termina en y: -ier"],
+          ["{{expensive}}, {{beautiful}}","{{more expensive}}, {{more beautiful}}","largo: {{more}}"]
+        ] },
+        {"p":"**Irregulares:** {{good}} → {{better}} (mejor), {{bad}} → {{worse}} (peor), {{far}} → {{farther}} (más lejos). Nunca {{more good}} ni {{gooder}}."},
+        {"p":"**Igual de… que:** {{as}} + adjetivo + {{as}}: {{She's as tall as her mom.}} “Es igual de alta que su mamá.” En negativo, {{not as … as}} “no tan … como”: {{It's not as cold as yesterday.}}"},
+        {"p":"**Menos:** {{less}} + adjetivo + {{than}} existe ({{less expensive}}), pero se usa poco: lo normal es decir lo contrario, {{cheaper}} en vez de {{less expensive}}."},
+        { "ex": [
+          {"t":"My brother is taller than me.","tr":"Mi hermano es más alto que yo.","note":"en la plática, {{than me}}; más formal, {{than I am}}"},
+          {"t":"The subway is faster than the bus.","tr":"El metro es más rápido que el camión."},
+          {"t":"This restaurant is more expensive than the other one.","tr":"Este restaurante es más caro que el otro."},
+          {"t":"I feel better today.","tr":"Hoy me siento mejor."},
+          {"t":"The traffic is worse in the morning.","tr":"En la mañana el tráfico está peor."},
+          {"t":"For me, Spanish is easier than English.","tr":"Para mí, el español es más fácil que el inglés."},
+          {"t":"My new apartment is bigger, but it's farther from work.","tr":"Mi departamento nuevo es más grande, pero está más lejos del trabajo."}
+        ] },
+        {"tip":"{{the cheaper one}} “el más barato (de los dos)”, {{the bigger one}} “el más grande”: con {{one}} no repites la cosa."}
+      ],
+      "mistakes": [
+        {"wrong":"It's more big than my house.","right":"It's bigger than my house.","tr":"Es más grande que mi casa.","why":"Con los adjetivos cortos: -er, no {{more}}."},
+        {"wrong":"She's taller that me.","right":"She's taller than me.","tr":"Es más alta que yo.","why":"“Que” al comparar es {{than}}, no {{that}}."},
+        {"wrong":"This one is more better.","right":"This one is better.","tr":"Este es mejor.","why":"{{better}} ya quiere decir “más bueno”: sin {{more}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"The subway is ___ than the bus.","tr":"El metro es más rápido que el camión.","options":["faster","more fast","fastest"],"answer":0,"why":"Adjetivo corto: {{fast}} → {{faster}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"This hotel is ___ expensive than the other one.","tr":"Este hotel es más caro que el otro.","options":["more","most","very"],"answer":0,"why":"Adjetivo largo: {{more expensive}}."},
+        {"type":"choice","q":"“Hoy me siento mejor.” ¿Cuál está bien?","options":["{{I feel better today.}}","{{I feel more good today.}}","{{I feel gooder today.}}"],"answer":0,"why":"{{good}} → {{better}}, irregular."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My sister is ___ tall as my mom.","tr":"Mi hermana es igual de alta que mi mamá.","options":["as","so","more"],"answer":0,"why":"{{as}} … {{as}}: “igual de … que”."},
+        {"type":"dialogue","q":"Comparas dos lugares con una amiga. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Which is better for a vacation, Cancún or Puerto Vallarta?","tr":"¿Qué es mejor para unas vacaciones, Cancún o Puerto Vallarta?"},{"options":["Puerto Vallarta is quieter, and it's cheaper.","Puerto Vallarta is more quiet, and it's more cheap."],"answer":0,"why":"Adjetivos cortos: {{quieter}}, {{cheaper}}."},{"who":"Amiga","t":"And the weather?","tr":"¿Y el clima?"},{"options":["It's hot in both places, but it's not as humid in Vallarta.","Is hot in both places, but is not as humid in Vallarta."],"answer":0,"why":"El sujeto siempre va: {{It's}}."},{"who":"Amiga","t":"Okay, Vallarta, then!","tr":"¡Bueno, Vallarta, entonces!"}],"from":"talk-about-the-weather"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Mi hermano es más alto que yo.","words":["My brother","is","taller","than me."]},
+        {"type":"say","q":"Di “En la mañana el tráfico está peor.”","answer":"The traffic is worse in the morning."},
+        {"type":"free","q":"Te toca: compara dos lugares que conozcas, o a dos personas de tu familia. Usa {{-er than}} o {{more … than}}.","answers":[{"t":"Guadalajara is bigger than Morelia, but Morelia is quieter.","tr":"Guadalajara es más grande que Morelia, pero Morelia es más tranquila."},{"t":"My sister is younger than me, but she's taller and more organized.","tr":"Mi hermana es más chica que yo, pero es más alta y más organizada."}]}
+      ]
+    },
+    {
+      "id": "talk-about-the-best",
+      "unit": 5,
+      "level": "A2",
+      "title": "Habla de lo mejor y lo peor",
+      "summary": "Di cuál es el más grande, el mejor o el peor: {{This is the best taco place in town.}}",
+      "topic": "{{the -est}} y {{the most}}; {{the best}}, {{the worst}}; “de la ciudad” es {{in the city}}",
+      "blocks": [
+        {"goal":{"t":"This is the best taco place in town.","tr":"Esta es la mejor taquería de la ciudad."}},
+        {"dialog":[{"who":"Guía","t":"This is the oldest building in the city.","tr":"Este es el edificio más antiguo de la ciudad."},{"who":"Tú","t":"Wow! How old is it?","tr":"¡Guau! ¿Qué tan antiguo es?"},{"who":"Guía","t":"It's from 1680. And that's the tallest tower in the state.","tr":"Es de 1680. Y esa es la torre más alta del estado."},{"who":"Tú","t":"What's the most famous restaurant around here?","tr":"¿Cuál es el restaurante más famoso por aquí?"},{"who":"Guía","t":"La Fonda. It's the best and the most expensive!","tr":"La Fonda. ¡Es el mejor y el más caro!"}]},
+        {"p":"**“El más…”** Igual que al comparar: con los adjetivos cortos, {{the}} + **-est**: {{the tallest}} “el más alto”, {{the cheapest}} “el más barato”. Con los largos, {{the most}}: {{the most expensive}}, {{the most beautiful}}. Siempre con {{the}}."},
+        { "table": [
+          ["adjetivo","comparativo","superlativo"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{beautiful}}","{{more beautiful}}","{{the most beautiful}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"],
+          ["{{far}}","{{farther}}","{{the farthest}}"]
+        ] },
+        {"p":"**“De” es {{in}}.** En español decimos “el más alto **de** la ciudad”, “el mejor **del** mundo”. En inglés, con lugares y grupos se usa {{in}}: {{the tallest building in the city}}, {{the best food in the world}}, {{the youngest in my family}}. {{of}} va solo con un número o un periodo: {{the best of the three}}, {{the best day of my life}}."},
+        {"p":"**Con {{ever}}** y el present perfect (lección 32) sale una de las frases favoritas del inglés: {{It's the best movie I've ever seen!}} “¡Es la mejor película que he visto!”"},
+        { "ex": [
+          {"t":"She's the smartest person I know.","tr":"Es la persona más inteligente que conozco."},
+          {"t":"August is the hottest month here.","tr":"Agosto es el mes más caluroso aquí."},
+          {"t":"What's the best way to get downtown?","tr":"¿Cuál es la mejor manera de llegar al centro?"},
+          {"t":"That was the worst day of my life.","tr":"Ese fue el peor día de mi vida.","note":"“de mi vida”: {{of}}"},
+          {"t":"I'm the youngest in my family.","tr":"Soy la más chica de mi familia."},
+          {"t":"It's the most popular song in Mexico right now.","tr":"Es la canción más popular de México ahorita."}
+        ] },
+        {"tip":"{{the best}} y {{the worst}} también van solos: {{You're the best!}} “¡Eres lo máximo!”"}
+      ],
+      "mistakes": [
+        {"wrong":"It's the most big city in Mexico.","right":"It's the biggest city in Mexico.","tr":"Es la ciudad más grande de México.","why":"Adjetivo corto: {{the biggest}}."},
+        {"wrong":"It's the best restaurant of the city.","right":"It's the best restaurant in the city.","tr":"Es el mejor restaurante de la ciudad.","why":"Con lugares, “de” es {{in}}."},
+        {"wrong":"She's tallest in the class.","right":"She's the tallest in the class.","tr":"Es la más alta del salón.","why":"El superlativo lleva {{the}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"It's the ___ building in the city.","tr":"Es el edificio más alto de la ciudad.","options":["tallest","most tall","taller"],"answer":0,"why":"Adjetivo corto: {{the tallest}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"This is the best pizza ___ town.","tr":"Esta es la mejor pizza de la ciudad.","options":["in","of","from"],"answer":0,"why":"Con lugares: {{in}}."},
+        {"type":"choice","q":"“Es la película más interesante del año.” ¿Cuál está bien?","options":["{{It's the most interesting movie of the year.}}","{{It's the interestingest movie of the year.}}","{{It's the more interesting movie in the year.}}"],"answer":0,"why":"Adjetivo largo: {{the most}}; y con “del año”, {{of}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My brother is ___ than me, but I'm the oldest.","tr":"Mi hermano es más alto que yo, pero yo soy el mayor.","options":["taller","tallest","more tall"],"answer":0,"why":"Entre dos: el comparativo, {{taller}}.","from":"compare-things"},
+        {"type":"dialogue","q":"Le recomiendas lugares a una amiga. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"What's the best restaurant in your city?","tr":"¿Cuál es el mejor restaurante de tu ciudad?"},{"options":["El Cardenal. It has the best breakfast in town.","El Cardenal. It has the better breakfast of the town."],"answer":0,"why":"{{the best}}; y con lugares, {{in}}."},{"who":"Amiga","t":"Did you go there recently?","tr":"¿Fuiste hace poco?"},{"options":["Yes, I went last Sunday with my family.","Yes, I go last Sunday with my family."],"answer":0,"why":"Ya pasó: {{went}}."},{"who":"Amiga","t":"I'll try it!","tr":"¡Lo voy a probar!"}],"from":"tell-about-your-weekend"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Ese fue el peor día de mi vida.","words":["That was","the worst","day","of my life."]},
+        {"type":"say","q":"Pregunta “¿Cuál es la mejor manera de llegar al centro?”","answer":"What's the best way to get downtown?"},
+        {"type":"free","q":"Te toca: ¿cuál es el mejor lugar de tu ciudad, y la mejor comida que conoces? Usa {{the best}} y otro superlativo.","answers":[{"t":"The best place in my city is the old downtown. The best food is my grandma's mole!","tr":"El mejor lugar de mi ciudad es el centro histórico. ¡La mejor comida es el mole de mi abuela!"},{"t":"The most beautiful place in my town is the lake. The cheapest and best tacos are next to the church.","tr":"El lugar más bonito de mi pueblo es el lago. Los tacos más baratos y los mejores están junto a la iglesia."}]}
+      ]
+    },
+    {
+      "id": "say-how-much-and-how-many",
+      "unit": 5,
+      "level": "A2",
+      "title": "Di cuánto y cuántos",
+      "summary": "Habla de cantidades, de lo que se cuenta y de lo que no: {{How much money do you need? — Not much, just a few dollars.}}",
+      "topic": "contables e incontables; {{much}}, {{many}}, {{a lot of}}, {{a few}}, {{a little}}; {{information}}, {{advice}}, {{news}} sin plural",
+      "blocks": [
+        {"goal":{"t":"How much money do you need? — Not much, just a few dollars.","tr":"¿Cuánto dinero necesitas? — No mucho, nomás unos cuantos dólares."}},
+        {"dialog":[{"who":"Pareja","t":"How many eggs do we have?","tr":"¿Cuántos huevos tenemos?"},{"who":"Tú","t":"Just a few. And there isn't much milk.","tr":"Nomás unos cuantos. Y no hay mucha leche."},{"who":"Pareja","t":"Okay. Do we need any bread?","tr":"Bueno. ¿Necesitamos pan?"},{"who":"Tú","t":"Yes, and a lot of fruit. The kids eat a lot of bananas.","tr":"Sí, y mucha fruta. Los niños comen muchísimos plátanos."},{"who":"Pareja","t":"I'll go to the store.","tr":"Yo voy a la tienda."}]},
+        {"p":"**Se cuenta o no se cuenta.** Algunas cosas se cuentan ({{an apple}}, {{two apples}}) y otras no, porque son una masa o una idea: {{water}}, {{money}}, {{milk}}, {{time}}, {{bread}}, {{music}}. Las que no se cuentan no llevan {{a}} ni plural: {{some water}}, no {{a water}} ni {{two waters}} (salvo al pedir en un restaurante: {{Two waters, please}})."},
+        {"term":"sustantivo contable","means":"un sustantivo que se puede contar (uno, dos, tres): una manzana, dos libros. Los que no se cuentan, como el agua o el dinero, son incontables."},
+        { "table": [
+          ["","se cuentan","no se cuentan"],
+          ["¿cuántos?, ¿cuánto?","{{How many apples?}}","{{How much water?}}"],
+          ["muchos, mucho (en negación y pregunta)","{{many friends}}","{{much time}}"],
+          ["muchos, mucho (en afirmación)","{{a lot of friends}}","{{a lot of time}}"],
+          ["unos cuantos, un poco","{{a few friends}}","{{a little time}}"]
+        ] },
+        {"p":"**{{a lot of}} es la más fácil:** sirve con todo y en cualquier oración: {{a lot of people}}, {{a lot of money}}. {{much}} se usa sobre todo en negaciones y preguntas: {{I don't have much time.}} {{How much is it?}}"},
+        {"p":"**¡Ojo! En inglés no se cuentan** algunas palabras que en español sí: {{information}} (nunca con -s), {{advice}} (consejos), {{news}} (noticias), {{furniture}} (muebles), {{homework}} (tareas), {{luggage}} (maletas). Para contarlas: {{a piece of advice}} (un consejo), {{a piece of furniture}} (un mueble)."},
+        { "ex": [
+          {"t":"How many kids do you have?","tr":"¿Cuántos hijos tienes?"},
+          {"t":"I don't have much time.","tr":"No tengo mucho tiempo."},
+          {"t":"There are a lot of people here.","tr":"Aquí hay mucha gente."},
+          {"t":"Can I give you some advice?","tr":"¿Te puedo dar un consejo?","note":"{{advice}} no lleva {{an}} ni -s"},
+          {"t":"I need some information about the course.","tr":"Necesito información sobre el curso."},
+          {"t":"We have a few minutes.","tr":"Tenemos unos minutos."},
+          {"t":"Add a little salt.","tr":"Ponle un poco de sal."}
+        ] },
+        {"tip":"Cuidado con {{a few}} y {{few}}: {{a few friends}} es “unos cuantos amigos” (bien), pero {{few friends}} es “pocos amigos” (casi nadie). Igual {{a little}} (un poco) y {{little}} (poco)."}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"Necesito información.","why":"{{information}} no se cuenta en inglés: nunca lleva -s."},
+        {"wrong":"How much people are there?","right":"How many people are there?","tr":"¿Cuánta gente hay?","why":"{{people}} se cuenta (es plural): {{how many}}."},
+        {"wrong":"She gave me a good advice.","right":"She gave me some good advice.","tr":"Me dio un buen consejo.","why":"{{advice}} no lleva {{a}}: {{some advice}} o {{a piece of advice}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"How ___ money do you have?","tr":"¿Cuánto dinero tienes?","options":["much","many"],"answer":0,"why":"{{money}} no se cuenta: {{how much}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"How ___ brothers and sisters do you have?","tr":"¿Cuántos hermanos tienes?","options":["many","much"],"answer":0,"why":"Se cuentan: {{how many}}."},
+        {"type":"choice","q":"“Te voy a dar un consejo.” ¿Cuál está bien?","options":["{{I'll give you some advice.}}","{{I'll give you an advice.}}","{{I'll give you some advices.}}"],"answer":0,"why":"{{advice}} no se cuenta: {{some advice}}.","from":"predict-and-promise"},
+        {"type":"fill","q":"Escoge las palabras que faltan.","t":"There's ___ milk in the fridge, but not much.","tr":"Hay un poco de leche en el refri, pero no mucha.","options":["a little","a few","many"],"answer":0,"why":"{{milk}} no se cuenta: {{a little}}."},
+        {"type":"dialogue","q":"En la recepción de un hotel. Escoge tus respuestas.","lines":[{"who":"Recepcionista","t":"Hi! How can I help you?","tr":"¡Hola! ¿En qué le puedo ayudar?"},{"options":["Hi. I need some information about tours.","Hi. I need some informations about tours."],"answer":0,"why":"{{information}}, sin -s."},{"who":"Recepcionista","t":"Sure. How many people are in your group?","tr":"Claro. ¿Cuántas personas son en su grupo?"},{"options":["Four. Are there any tours tomorrow?","Four. Are there some tours tomorrow?"],"answer":0,"why":"En preguntas: {{any}}."},{"who":"Recepcionista","t":"Yes, there are a few. Here's a brochure.","tr":"Sí, hay algunos. Aquí tiene un folleto."}],"from":"say-what-there-is"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"No tengo mucho tiempo.","words":["I","don't have","much","time."]},
+        {"type":"say","q":"Pregunta “¿Cuánta gente hay?”","answer":"How many people are there?"},
+        {"type":"free","q":"Te toca: ¿qué hay en tu refri ahorita? Usa {{a lot of}}, {{a few}}, {{a little}} o {{not much}}.","answers":[{"t":"There's a lot of fruit, a little cheese and a few eggs. There isn't much milk.","tr":"Hay mucha fruta, un poco de queso y unos cuantos huevos. No hay mucha leche."},{"t":"There are a lot of vegetables and a few tortillas. There isn't any meat.","tr":"Hay muchas verduras y unas cuantas tortillas. No hay carne."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 5,
+      "level": "A2",
+      "title": "Da consejos",
+      "summary": "Aconseja a alguien qué hacer y qué no: {{You look tired. You should go to bed early.}}",
+      "topic": "{{should}} y {{shouldn't}} + la forma base; {{Why don't you…?}}; {{I think you should…}}",
+      "blocks": [
+        {"goal":{"t":"You look tired. You should go to bed early.","tr":"Te ves cansado. Deberías acostarte temprano."}},
+        {"dialog":[{"who":"Dani","t":"I feel terrible. I have a cold.","tr":"Me siento fatal. Tengo gripa."},{"who":"Tú","t":"You should stay home and rest.","tr":"Deberías quedarte en tu casa a descansar."},{"who":"Dani","t":"But I have a lot of work.","tr":"Pero tengo mucho trabajo."},{"who":"Tú","t":"You shouldn't go to work sick. Why don't you call your boss?","tr":"No deberías ir a trabajar enfermo. ¿Por qué no le llamas a tu jefe?"},{"who":"Dani","t":"You're right. I'll call him.","tr":"Tienes razón. Le voy a llamar."}]},
+        {"p":"**{{should}}: “deberías”.** {{should}} + la forma base da un consejo: {{You should rest.}} “Deberías descansar.” Es modal, como {{can}} y {{will}}: igual para todos (sin -s), sin {{to}} y sin {{do}}. El negativo es {{shouldn't}}."},
+        { "table": [
+          ["","{{should}}"],
+          ["afirmación","{{You should see a doctor.}}"],
+          ["negación","{{You shouldn't drive.}}"],
+          ["pregunta","{{Should I call her?}}"]
+        ] },
+        {"p":"**Pedir consejo:** {{Should I…?}}: {{Should I bring something?}} “¿Llevo algo?” {{What should I do?}} “¿Qué hago?”"},
+        {"p":"**Más suave:** {{I think you should…}} (creo que deberías) y {{Why don't you…?}} (¿por qué no…?): {{Why don't you take a break?}} “¿Por qué no te tomas un descanso?” Más fuerte: {{You'd better…}} (más te vale)."},
+        { "ex": [
+          {"t":"You should try the tacos here.","tr":"Tienes que probar los tacos de aquí.","note":"una recomendación entusiasta"},
+          {"t":"You shouldn't eat so much sugar.","tr":"No deberías comer tanta azúcar."},
+          {"t":"Should I wear a jacket? — Yes, it's cold.","tr":"¿Me pongo chamarra? — Sí, hace frío."},
+          {"t":"I think you should talk to her.","tr":"Creo que deberías hablar con ella."},
+          {"t":"Why don't you ask your teacher?","tr":"¿Por qué no le preguntas a tu maestro?"},
+          {"t":"We should leave now, or we'll be late.","tr":"Deberíamos irnos ya, o vamos a llegar tarde."}
+        ] },
+        {"tip":"En inglés, un consejo directo con {{should}} es normal y amable entre amigos. Con alguien que no conoces bien, suavízalo con {{Maybe you should…}} (a lo mejor deberías…)."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to rest.","right":"You should rest.","tr":"Deberías descansar.","why":"{{should}} es modal: sin {{to}}."},
+        {"wrong":"She shoulds study more.","right":"She should study more.","tr":"Debería estudiar más.","why":"{{should}} no lleva -s."},
+        {"wrong":"Do I should call him?","right":"Should I call him?","tr":"¿Le llamo?","why":"{{should}} no usa {{do}}: va primero en la pregunta."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"You ___ see a doctor.","tr":"Deberías ir al doctor.","options":["should","should to","shoulds"],"answer":0,"why":"{{should}} + la forma base."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"You shouldn't ___ so late.","tr":"No deberías trabajar tan tarde.","options":["work","to work","works"],"answer":0,"why":"Después de {{shouldn't}}, la forma base."},
+        {"type":"choice","q":"Vas a una cena en casa de tu jefe. Preguntas “¿Llevo algo?”","options":["{{Should I bring something?}}","{{Do I should bring something?}}","{{I should bring something?}}"],"answer":0,"why":"{{should}} va primero en la pregunta, sin {{do}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"___ don't you take a taxi?","tr":"¿Por qué no tomas un taxi?","options":["Why","What","How"],"answer":0,"why":"Para sugerir: {{Why don't you…?}}","from":"ask-questions-with-do"},
+        {"type":"dialogue","q":"Tu amigo anda muy estresado. Escoge tus respuestas.","lines":[{"who":"Amigo","t":"I have too much work and I don't sleep much.","tr":"Tengo demasiado trabajo y no duermo mucho."},{"options":["You should take a few days off.","You should to take a few days off."],"answer":0,"why":"{{should}}, sin {{to}}; y los días se cuentan: {{a few days}}."},{"who":"Amigo","t":"Maybe. But I don't have much time.","tr":"A lo mejor. Pero no tengo mucho tiempo."},{"options":["Why don't you talk to your boss?","Why you don't talk to your boss?"],"answer":0,"why":"{{Why don't you…?}}, con {{don't}} antes de {{you}}."},{"who":"Amigo","t":"Okay, I'll try.","tr":"Bueno, lo voy a intentar."}],"from":"say-how-much-and-how-many"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Creo que deberías hablar con ella.","words":["I think","you","should","talk to her."]},
+        {"type":"say","q":"Pregunta “¿Qué hago?”","answer":"What should I do?"},
+        {"type":"free","q":"Te toca: un amigo va a empezar a aprender español. Dale tres consejos con {{should}}, {{shouldn't}} o {{Why don't you…?}}","answers":[{"t":"You should practice every day. You shouldn't be afraid of mistakes. Why don't you watch movies in Spanish?","tr":"Deberías practicar todos los días. No deberías tenerles miedo a los errores. ¿Por qué no ves películas en español?"},{"t":"You should talk to Mexican people and listen to music in Spanish. You shouldn't translate everything.","tr":"Deberías platicar con mexicanos y escuchar música en español. No deberías traducir todo."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 5,
+      "level": "A2",
+      "title": "Di lo que tienes que hacer",
+      "summary": "Di lo que tienes que hacer, lo que no hace falta y lo que no se puede: {{I have to work on Saturday, but I don't have to work on Sunday.}}",
+      "topic": "{{have to}}, {{has to}}, {{don't have to}}; {{must}}; {{can't}} para prohibir; {{had to}}",
+      "blocks": [
+        {"goal":{"t":"I have to work on Saturday, but I don't have to work on Sunday.","tr":"Tengo que trabajar el sábado, pero el domingo no."}},
+        {"dialog":[{"who":"Gerente","t":"You have to be here at eight.","tr":"Tienes que estar aquí a las ocho."},{"who":"Tú","t":"Do I have to wear a uniform?","tr":"¿Tengo que usar uniforme?"},{"who":"Gerente","t":"Yes, you do. But you don't have to buy it. We give it to you.","tr":"Sí. Pero no tienes que comprarlo. Nosotros te lo damos."},{"who":"Tú","t":"And can I use my phone?","tr":"¿Y puedo usar mi celular?"},{"who":"Gerente","t":"Not with customers. You can't use your phone on the sales floor.","tr":"Con los clientes, no. En el piso de ventas no puedes usar el celular."}]},
+        {"p":"**Tener que: {{have to}}.** {{have to}} + la forma base es casi igual al español: {{I have to work}} “tengo que trabajar”. Con {{he}}, {{she}} e {{it}}: {{has to}}. Como el {{have}} de siempre, se pregunta y se niega con {{do}}: {{Do I have to…?}}, {{She doesn't have to…}}"},
+        { "table": [
+          ["","{{have to}}"],
+          ["afirmación","{{I have to go.}} / {{She has to go.}}"],
+          ["negación","{{I don't have to go.}} / {{She doesn't have to go.}}"],
+          ["pregunta","{{Do you have to go?}} / {{Does she have to go?}}"],
+          ["pasado","{{I had to go.}} (igual para todos)"]
+        ] },
+        {"p":"**¡Cuidado! {{don't have to}} no es “no debes”.** {{You don't have to come}} quiere decir “no tienes que venir”, “no hace falta” (si quieres, ven). Para prohibir se dice {{You can't…}} o, en letreros y reglamentos, {{You must not…}}: {{You can't park here.}} “Aquí no te puedes estacionar.”"},
+        { "table": [
+          ["en inglés","quiere decir"],
+          ["{{You have to pay.}}","Tienes que pagar. Es obligatorio."],
+          ["{{You don't have to pay.}}","No tienes que pagar. Es gratis, no hace falta."],
+          ["{{You can't smoke here.}}","Aquí no puedes fumar. Está prohibido."]
+        ] },
+        {"p":"**{{must}}** también es “deber”, “tener que”, pero suena formal o escrito: reglas, letreros, instrucciones: {{Passengers must wear a seatbelt.}} En la plática diaria, los estadounidenses dicen {{have to}}, y muchas veces {{have got to}}, que suena “gotta”: {{I gotta go!}} “¡Me tengo que ir!”"},
+        {"p":"**En pasado:** {{had to}}, para todos: {{I had to work late yesterday.}} “Ayer tuve que trabajar hasta tarde.” {{must}} no tiene pasado."},
+        { "ex": [
+          {"t":"I have to go. See you tomorrow!","tr":"Me tengo que ir. ¡Nos vemos mañana!"},
+          {"t":"My son has to study for an exam.","tr":"Mi hijo tiene que estudiar para un examen."},
+          {"t":"You don't have to bring anything.","tr":"No tienes que traer nada."},
+          {"t":"Do we have to make a reservation?","tr":"¿Tenemos que reservar?"},
+          {"t":"You can't use your phone during the exam.","tr":"Durante el examen no puedes usar el celular."},
+          {"t":"Visitors must sign in at the front desk.","tr":"Los visitantes deben registrarse en la recepción.","note":"un letrero: {{must}}"},
+          {"t":"We had to wait an hour at the doctor's office.","tr":"Tuvimos que esperar una hora en el consultorio."}
+        ] },
+        {"tip":"{{I have to}} suena “hafta”, y {{she has to}}, “hasta”. Cuando escuches, esa es la pista."}
+      ],
+      "mistakes": [
+        {"wrong":"She have to work.","right":"She has to work.","tr":"Tiene que trabajar.","why":"Con {{she}}: {{has to}}."},
+        {"wrong":"You don't have to smoke here.","right":"You can't smoke here.","tr":"Aquí no puedes fumar.","why":"{{don't have to}} es “no hace falta”. Para prohibir: {{can't}}."},
+        {"wrong":"Yesterday I must work late.","right":"Yesterday I had to work late.","tr":"Ayer tuve que trabajar hasta tarde.","why":"{{must}} no tiene pasado: {{had to}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"My wife ___ to work on Saturdays.","tr":"Mi esposa tiene que trabajar los sábados.","options":["has","have","must"],"answer":0,"why":"Con {{she}}: {{has to}}."},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"You ___ have to pay. It's free.","tr":"No tienes que pagar. Es gratis.","options":["don't","can't","mustn't"],"answer":0,"why":"No hace falta: {{don't have to}}."},
+        {"type":"choice","q":"Un letrero en la alberca dice “Prohibido correr”. ¿Cómo se dice?","options":["{{You can't run here.}}","{{You don't have to run here.}}","{{You have not to run here.}}"],"answer":0,"why":"Prohibido: {{can't}}. ({{don't have to}} sería “no hace falta”.)"},
+        {"type":"fill","q":"Escoge la palabra que falta.","t":"Yesterday we ___ to wait two hours.","tr":"Ayer tuvimos que esperar dos horas.","options":["had","have","must"],"answer":0,"why":"En pasado: {{had to}}.","from":"say-what-you-did"},
+        {"type":"dialogue","q":"Planeas un viaje con tu amiga. Escoge tus respuestas.","lines":[{"who":"Amiga","t":"Do we have to get a visa for Canada?","tr":"¿Tenemos que sacar visa para Canadá?"},{"options":["I think we have to check online.","I think we must to check online."],"answer":0,"why":"{{have to}} + la forma base; {{must}} nunca lleva {{to}}."},{"who":"Amiga","t":"Okay. Should I buy the plane tickets now?","tr":"Bueno. ¿Compro ya los boletos de avión?"},{"options":["Yes, you should. They're cheaper now.","Yes, you should to. They're cheaper now."],"answer":0,"why":"La respuesta corta: {{Yes, you should}}."},{"who":"Amiga","t":"Great!","tr":"¡Perfecto!"}],"from":"give-advice"},
+        {"type":"order","q":"Pon las palabras en orden.","tr":"Me tengo que ir.","words":["I","have","to","go."]},
+        {"type":"say","q":"Di “No tienes que traer nada.”","answer":"You don't have to bring anything."},
+        {"type":"free","q":"Te toca: ¿qué tienes que hacer esta semana, y qué no tienes que hacer? ¿Y qué tuviste que hacer ayer?","answers":[{"t":"This week I have to go to the dentist and finish a report. I don't have to work on Friday. Yesterday I had to clean the house.","tr":"Esta semana tengo que ir al dentista y terminar un reporte. El viernes no tengo que trabajar. Ayer tuve que limpiar la casa."},{"t":"I have to take my kids to school every day, but I don't have to cook tonight. Yesterday I had to work late.","tr":"Tengo que llevar a mis hijos a la escuela todos los días, pero hoy en la noche no tengo que cocinar. Ayer tuve que trabajar hasta tarde."}]}
+      ]
     }
   ]
 }

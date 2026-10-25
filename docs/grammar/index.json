@@ -38,13 +38,13 @@
    "title": "Gramática del inglés",
    "variety": "inglés de Estados Unidos",
    "units": 8,
-   "lessons": 25,
+   "lessons": 31,
    "levels": [
     "A1",
     "A2"
    ],
-   "bytes": 141431,
-   "sha256": "ea805044121c358394f0902e1482b220d82a8123977157d432d7482d265fa06c"
+   "bytes": 177873,
+   "sha256": "d08a02ec960d31f60a3707c7ed79d47be887f965e94f204ac04c1147768bfaf9"
   }
  }
 }
