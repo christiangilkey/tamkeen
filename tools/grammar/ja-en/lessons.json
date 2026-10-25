@@ -1746,7 +1746,7 @@
       "blocks": [
         {"goal":{"t":"I used to swim in the river when I was a kid.","tr":"子どものころ、よく川で泳いだものです。"}},
         {"dialog":[{"who":"孫","t":"Is this you, Grandpa? You had long hair!","tr":"これおじいちゃん？髪が長い！"},{"who":"祖父","t":"Yes! I used to have long hair. And I used to play in a band.","tr":"そうだよ！昔は髪が長かったんだ。それにバンドで演奏していたんだよ。"},{"who":"孫","t":"Really? Did you use to play the guitar?","tr":"本当？ギター弾いてたの？"},{"who":"祖父","t":"No, I didn't. I played the drums.","tr":"いや。ドラムを叩いていたよ。"},{"who":"孫","t":"Cool! Do you still play?","tr":"かっこいい！今も叩いてる？"},{"who":"祖父","t":"No, I don't play anymore. But I used to practice every day!","tr":"いや、もう叩いてない。でも昔は毎日練習していたんだ！"}]},
-        {"p":"**昔はよく〜した：{{used to}} + 動詞。** 昔の習慣や状態で、今はもう違うことを言います：{{I used to play tennis.}}（昔はテニスをしていた＝今はしていない）、{{There used to be a cinema here.}}（昔ここに映画館があった）。主語が何でも {{used to}} の形は変わりません。"},
+        {"p":"**昔はよく〜した：{{used to}} + 動詞。** 昔の習慣や状態で、今はもう違うことを言います：{{I used to play tennis.}}（昔はテニスをしていた＝今はしていない）、{{There used to be a movie theater here.}}（昔ここに映画館があった）。主語が何でも {{used to}} の形は変わりません。"},
         {"p":"**否定と疑問は {{did}}。** {{did}} のあとは {{use to}} と、{{d}} がなくなります：{{I didn't use to like vegetables.}}（昔は野菜が好きじゃなかった）、{{Did you use to live here?}}（昔ここに住んでいたの？）。"},
         { "table": [
           ["","英語","意味"],

@@ -28,8 +28,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 361159,
-   "sha256": "576491f40747a6e01f91937ae63200f5983c98d19da97256d7913cc5da0a8d24"
+   "bytes": 361220,
+   "sha256": "2dc4c5239cd563231235e612163bb5da899e69c52f29cd2576a5c69d9b27cae4"
   },
   "ja-en": {
    "file": "ja-en/course.json",
@@ -44,8 +44,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 279617,
-   "sha256": "ab62cdcc4409d4a54d31fa94e5639066272f431e8a4349489e081a5cd366c443"
+   "bytes": 279623,
+   "sha256": "7d9ee53e9948fa23b72c2feae904f0a7cec853ea23237ca68e962cb3a129dcff"
   }
  }
 }
