@@ -805,6 +805,236 @@
         {"type":"order","q":"単語を正しい順番に並べてください。","tr":"電車で通勤しています。","words":["I","go","to","work","by","train."],"why":"冠詞をつけない決まった言い方：{{go to work}}、{{by train}}。"},
         {"type":"free","q":"あなたの番です。近所のお店を {{a}} で紹介して、次の文で {{the}} を使ってそのお店のことを言いましょう。","answers":[{"t":"There's a bakery near my house. The bread is really good.","tr":"家の近くにパン屋があります。そこのパンがすごくおいしいです。"},{"t":"There's a small bookstore by the station. The owner is very kind.","tr":"駅のそばに小さな本屋があります。店主がとても親切です。"}]}
       ]
+    },
+    {
+      "id": "say-whats-happening",
+      "unit": 4,
+      "level": "A1",
+      "title": "今していることを言う",
+      "summary": "今まさにしていることを言います：「今、夕食を作っているところです。」ふだんのことを言う現在形との違いがポイントです。",
+      "topic": "現在進行形（be動詞 + {{-ing}}）; 現在形との違い; {{know}} や {{like}} は {{-ing}} にしない",
+      "blocks": [
+        {"goal":{"t":"I'm making dinner right now.","tr":"今、夕食を作っているところです。"}},
+        {"dialog":[{"who":"マーク","t":"Hi, Yuki! What are you doing?","tr":"やあ、ユキ！何してる？"},{"who":"ユキ","t":"I'm cooking dinner. My kids are watching TV.","tr":"夕食を作ってるところ。子どもたちはテレビを見てる。"},{"who":"マーク","t":"Oh, sorry. Are you busy?","tr":"あ、ごめん。忙しい？"},{"who":"ユキ","t":"It's OK. What's up?","tr":"大丈夫。どうしたの？"},{"who":"マーク","t":"I'm standing in front of your house. I have a cake for you!","tr":"今、君の家の前に立ってるんだ。ケーキを持ってきたよ！"}]},
+        {"term":"現在進行形","means":"「今〜している」を表す形：be動詞 + 動詞の {{-ing}}。{{I'm eating.}}（今食べている）。"},
+        {"p":"**今していること：be動詞 + {{-ing}}。** {{I'm making dinner.}}（今、夕食を作っている）、{{She's sleeping.}}（彼女は寝ている）。be動詞は主語に合わせて {{am}} / {{are}} / {{is}}。疑問文は be動詞を前に出します：{{What are you doing?}}（何してるの？）"},
+        {"p":"**現在形との違い。** 現在形は「ふだんのこと」、進行形は「今のこと」です：{{I work at a bank.}}（銀行で働いている＝職業）／{{I'm working now.}}（今、仕事中だ）。日本語の「〜している」はどちらにも使うので、気をつけましょう。"},
+        { "table": [
+          ["","現在形（ふだん）","現在進行形（今）"],
+          ["英語","{{I drink coffee every day.}}","{{I'm drinking coffee now.}}"],
+          ["意味","毎日コーヒーを飲む。","今コーヒーを飲んでいる。"]
+        ] },
+        {"p":"**{{-ing}} にしない動詞。** 「知っている」「好きだ」「ほしい」のような、動作ではなく状態を表す動詞は、ふつう進行形にしません：{{I know him.}}（彼を知っている）、{{I like it.}}（気に入っている）、{{I want water.}}（水がほしい）。日本語で「知っている」でも、英語は {{I know}} です。"},
+        {"p":"**{{-ing}} のつけ方。** ふつうは {{-ing}}（{{eating}}）。{{e}} で終わる動詞は {{e}} をとって {{-ing}}（{{make}} → {{making}}）。「短い母音 + 子音」で終わる短い動詞は、子音を重ねます（{{run}} → {{running}}、{{sit}} → {{sitting}}）。"},
+        { "ex": [
+          {"t":"What are you doing?","tr":"何してるの？"},
+          {"t":"It's raining outside.","tr":"外は雨が降っています。"},
+          {"t":"The kids are playing in the park.","tr":"子どもたちは公園で遊んでいます。"},
+          {"t":"I'm not watching TV.","tr":"テレビは見ていません。"},
+          {"t":"Is she sleeping?","tr":"彼女は寝ているの？"},
+          {"t":"I know that song!","tr":"その歌、知ってる！"}
+        ] },
+        {"tip":"{{now}} / {{right now}}（今）、{{at the moment}}（今のところ）は、進行形といっしょによく使います。"}
+      ],
+      "mistakes": [
+        {"wrong":"I making dinner.","right":"I'm making dinner.","tr":"夕食を作っています。","why":"進行形には be動詞が必要です：{{I'm}} + {{-ing}}。"},
+        {"wrong":"I'm knowing him.","right":"I know him.","tr":"彼を知っています。","why":"{{know}} は状態を表す動詞なので、進行形にしません。"},
+        {"wrong":"I'm working at a bank.","right":"I work at a bank.","tr":"銀行で働いています（職業として）。","why":"職業のような「ふだんのこと」は現在形。{{I'm working at a bank}} は、一時的にそこで働いているように聞こえます。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Shh! The baby ___.","tr":"しーっ！赤ちゃんが寝ているよ。","options":["is sleeping","sleeps","sleeping"],"answer":0,"why":"今のことなので進行形：{{is sleeping}}。"},
+        {"type":"choice","q":"「彼女を知っています」は英語で？","options":["{{I know her.}}","{{I'm knowing her.}}","{{I'm know her.}}"],"answer":0,"why":"{{know}} は進行形にしません。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"What ___ you doing?","tr":"何をしているの？","options":["are","do","is"],"answer":0,"why":"進行形の疑問文：{{are you doing}}。"},
+        {"type":"dialogue","q":"友だちから電話がかかってきました。返事を選んでください。","lines":[{"who":"マーク","t":"Hi! What are you doing?","tr":"やあ！何してる？"},{"options":["I'm studying English.","I study English now."],"answer":0,"why":"今していることは進行形。"},{"who":"マーク","t":"Do you study every day?","tr":"毎日勉強してるの？"},{"options":["Yes, I do. I study for an hour every night.","Yes, I am. I'm studying for an hour every night."],"answer":0,"why":"毎日の習慣は現在形。{{Do}} で聞かれたら {{do}} で答えます。"}],"from":"ask-with-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"子どもたちは公園で遊んでいます。","words":["The","kids","are","playing","in","the","park."],"why":"{{The kids are playing in the park.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「外は雨が降っています。」","answer":"It's raining outside.","from":"time-and-weather"},
+        {"type":"free","q":"あなたの番です。今あなたがしていることと、家族や近くの人が今していることを言いましょう。","answers":[{"t":"I'm studying English. My husband is cooking dinner.","tr":"私は英語を勉強しています。夫は夕食を作っています。"},{"t":"I'm sitting in a café. The people next to me are talking.","tr":"カフェに座っています。隣の人たちはおしゃべりしています。"}]}
+      ]
+    },
+    {
+      "id": "ask-politely",
+      "unit": 4,
+      "level": "A1",
+      "title": "ていねいに頼む・注文する",
+      "summary": "お店やレストランで、ていねいに頼んだり注文したりします：「もう一度言っていただけますか？」",
+      "topic": "{{Could you …?}}; {{Can I have …?}}; {{I'd like …}}; {{please}}",
+      "blocks": [
+        {"goal":{"t":"Could you say that again, please?","tr":"もう一度言っていただけますか？"}},
+        {"dialog":[{"who":"店員","t":"Hi! What can I get you?","tr":"いらっしゃいませ！ご注文は？"},{"who":"あなた","t":"I'd like a large latte, please.","tr":"ラテのLサイズをお願いします。"},{"who":"店員","t":"Sure. Anything else?","tr":"かしこまりました。ほかには？"},{"who":"あなた","t":"Can I have a blueberry muffin too?","tr":"ブルーベリーマフィンもいただけますか？"},{"who":"店員","t":"Of course. For here or to go?","tr":"はい。店内ですか、お持ち帰りですか？"},{"who":"あなた","t":"Sorry, could you say that again?","tr":"すみません、もう一度言っていただけますか？"},{"who":"店員","t":"Are you eating here, or taking it with you?","tr":"ここで召し上がりますか、それともお持ち帰りですか？"},{"who":"あなた","t":"Oh, to go, please.","tr":"あ、持ち帰りでお願いします。"}]},
+        {"p":"**英語のていねいさは「言い方」で。** 日本語には敬語がありますが、英語には敬語はありません。その代わりに、命令ではなく質問の形にしたり、{{could}} や {{would}} を使ったりして、ていねいさを表します。"},
+        { "table": [
+          ["ていねいさ","英語","意味"],
+          ["ふつう（友だちに）","{{Can you help me?}}","手伝ってくれる？"],
+          ["ていねい","{{Could you help me?}}","手伝っていただけますか？"],
+          ["とてもていねい","{{Would you mind helping me?}}","手伝っていただけないでしょうか？"]
+        ] },
+        {"p":"**頼む：{{Could you …?}}** {{Could you}} + 動詞のもとの形：{{Could you speak more slowly?}}（もう少しゆっくり話していただけますか？）。{{Can you …?}} より少していねいです。"},
+        {"p":"**注文する：{{I'd like …}} と {{Can I have …?}}** {{I'd like}}（{{I would like}}）は「〜をお願いします」というていねいな言い方です：{{I'd like a coffee, please.}}。{{Can I have …?}}（〜をいただけますか？）もよく使います。{{I want …}} は子どもっぽく、少しぶしつけに聞こえます。"},
+        {"p":"**{{please}} を添える。** 文の最後か、文の頭に：{{Two tickets, please.}}、{{Please sit down.}}。ただし、{{please}} をつけても命令の形のままなので、{{Could you …?}} のほうがやわらかく響きます。"},
+        { "ex": [
+          {"t":"I'd like a table for two, please.","tr":"2人用の席をお願いします。"},
+          {"t":"Can I have the check, please?","tr":"お会計をお願いします。"},
+          {"t":"Could you take a picture of us?","tr":"写真を撮っていただけますか？"},
+          {"t":"I'd like to try this on.","tr":"これを試着したいのですが。"},
+          {"t":"Could you speak more slowly, please?","tr":"もう少しゆっくり話していただけますか？"},
+          {"t":"Thank you so much.","tr":"どうもありがとうございます。"}
+        ] },
+        {"tip":"お礼は {{Thank you.}} / {{Thanks.}}、答えは {{You're welcome.}}（どういたしまして）。アメリカでは店員さんにも {{Thank you!}} と言うのがふつうです。"}
+      ],
+      "mistakes": [
+        {"wrong":"I want a coffee.","right":"I'd like a coffee, please.","tr":"コーヒーをお願いします。","why":"注文で {{I want}} は直接的すぎます。{{I'd like …}} や {{Can I have …?}} を使いましょう。"},
+        {"wrong":"Could you speaking slowly?","right":"Could you speak slowly?","tr":"ゆっくり話していただけますか？","why":"{{could}} のあとは動詞のもとの形。"},
+        {"wrong":"I'd like have a salad.","right":"I'd like a salad.","tr":"サラダをお願いします。","why":"{{I'd like}} + 名詞。動詞を続けるなら {{I'd like to}} + 動詞です。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ like a cheeseburger, please.","tr":"チーズバーガーをお願いします。","options":["I'd","I","I'm"],"answer":0,"why":"注文は {{I'd like …}}"},
+        {"type":"choice","q":"店員さんの話が速すぎました。何と言いますか？","options":["{{Could you speak more slowly, please?}}","{{Speak slowly!}}","{{You speak slowly.}}"],"answer":0,"why":"ていねいに頼むなら {{Could you …?}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"Can I ___ the check, please?","tr":"お会計をお願いします。","options":["have","has","having"],"answer":0,"why":"{{Can I have …?}}：{{can}} のあとは動詞のもとの形。"},
+        {"type":"dialogue","q":"カフェで注文します。返事を選んでください。","lines":[{"who":"店員","t":"Hi! What can I get you?","tr":"いらっしゃいませ！ご注文は？"},{"options":["I'd like a small coffee, please.","I want coffee small."],"answer":0,"why":"注文は {{I'd like …, please.}}"},{"who":"店員","t":"For here or to go?","tr":"店内ですか、お持ち帰りですか？"},{"options":["Sorry, could you say that again?","Sorry, could you saying that again?"],"answer":0,"why":"{{could}} のあとは動詞のもとの形。"}],"from":"say-what-you-can-do"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"写真を撮っていただけますか？","words":["Could","you","take","a","picture","of","us?"],"why":"{{Could you take a picture of us?}}"},
+        {"type":"say","q":"英語で言ってみましょう：「2人用の席をお願いします。」","answer":"I'd like a table for two, please."},
+        {"type":"free","q":"あなたの番です。レストランで、飲み物と食べ物を1つずつ、ていねいに注文しましょう。","answers":[{"t":"I'd like an iced tea, please. And can I have the chicken salad?","tr":"アイスティーをお願いします。それと、チキンサラダをいただけますか？"},{"t":"Can I have a glass of water, please? I'd like the pasta.","tr":"お水を1杯いただけますか？パスタをお願いします。"}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 4,
+      "level": "A2",
+      "title": "道案内をする・指示を出す",
+      "summary": "道を教えたり、指示を出したりします：「まっすぐ行って、2つ目の角を右に曲がってください。」「行こう！」",
+      "topic": "命令文（{{Turn left.}}, {{Don't …}}）; {{Let's …}}; {{past}} / {{across}} / {{along}}",
+      "blocks": [
+        {"goal":{"t":"Go straight and turn right at the second corner.","tr":"まっすぐ行って、2つ目の角を右に曲がってください。"}},
+        {"dialog":[{"who":"観光客","t":"Excuse me, how do I get to the museum?","tr":"すみません、美術館へはどう行けばいいですか？"},{"who":"あなた","t":"Go straight down this street. Turn left at the traffic light.","tr":"この道をまっすぐ行って、信号を左に曲がってください。"},{"who":"観光客","t":"Turn left at the light… OK.","tr":"信号を左ですね…はい。"},{"who":"あなた","t":"Then walk past the post office. The museum is across from the park.","tr":"それから郵便局を通り過ぎてください。美術館は公園の向かいです。"},{"who":"観光客","t":"Thank you so much!","tr":"どうもありがとうございます！"},{"who":"あなた","t":"You're welcome. Don't take the bus. It's very slow!","tr":"どういたしまして。バスには乗らないでくださいね。すごく遅いので！"}]},
+        {"term":"命令文","means":"主語を言わずに、動詞のもとの形で始める文。指示や頼みごとに使います：{{Sit down.}}（座って）。"},
+        {"p":"**指示は動詞で始める。** 道案内や説明では、主語なしで動詞のもとの形から始めます（命令文）：{{Go straight.}}（まっすぐ行って）、{{Turn right.}}（右に曲がって）。「命令」と言っても、道案内ではごくふつうの言い方で、失礼ではありません。"},
+        {"p":"**「〜しないで」：{{Don't}} + 動詞。** {{Don't touch.}}（さわらないで）、{{Don't worry.}}（心配しないで）。"},
+        {"p":"**「〜しよう」：{{Let's}} + 動詞。** {{Let's go!}}（行こう！）、{{Let's take a break.}}（休憩しよう）。"},
+        { "table": [
+          ["","英語","意味"],
+          ["まっすぐ","{{Go straight.}}","まっすぐ行って。"],
+          ["曲がる","{{Turn left at the corner.}}","角を左に曲がって。"],
+          ["通り過ぎる","{{Walk past the bank.}}","銀行を通り過ぎて。"],
+          ["渡る","{{Go across the bridge.}}","橋を渡って。"],
+          ["〜に沿って","{{Walk along the river.}}","川沿いに歩いて。"],
+          ["向かい側","{{It's across from the park.}}","公園の向かいです。"]
+        ] },
+        {"p":"**道を聞く：{{How do I get to …?}}**（〜へはどう行けばいいですか？）、{{Is it far?}}（遠いですか？）。"},
+        { "ex": [
+          {"t":"Turn left at the traffic light.","tr":"信号を左に曲がってください。"},
+          {"t":"Walk along the river for five minutes.","tr":"川沿いに5分歩いてください。"},
+          {"t":"Don't forget your umbrella.","tr":"傘を忘れないでね。"},
+          {"t":"Let's take a taxi.","tr":"タクシーに乗ろう。"},
+          {"t":"The hotel is across from the station.","tr":"ホテルは駅の向かいです。"},
+          {"t":"How do I get to the airport?","tr":"空港へはどう行けばいいですか？"}
+        ] },
+        {"tip":"道を教えるとき {{please}} をつけると、よりていねいになります：{{Please turn left at the bank.}}。でも、なくても失礼ではありません。"}
+      ],
+      "mistakes": [
+        {"wrong":"Not touch.","right":"Don't touch.","tr":"さわらないで。","why":"「〜しないで」は {{Don't}} + 動詞。"},
+        {"wrong":"Let's going!","right":"Let's go!","tr":"行こう！","why":"{{Let's}} のあとは動詞のもとの形。"},
+        {"wrong":"Turn left the traffic light.","right":"Turn left at the traffic light.","tr":"信号を左に曲がって。","why":"「信号で」と場所を言うので {{at}} が必要です。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ right at the next corner.","tr":"次の角を右に曲がってください。","options":["Turn","Turning","You turning"],"answer":0,"why":"指示は動詞のもとの形で始めます。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"___ worry. It's OK.","tr":"心配しないで。大丈夫。","options":["Don't","Not","No"],"answer":0,"why":"「〜しないで」は {{Don't}}。"},
+        {"type":"choice","q":"「タクシーに乗ろう」は英語で？","options":["{{Let's take a taxi.}}","{{Let's taking a taxi.}}","{{Let's to take a taxi.}}"],"answer":0,"why":"{{Let's}} + 動詞のもとの形。"},
+        {"type":"dialogue","q":"道を聞かれました。返事を選んでください。","lines":[{"who":"観光客","t":"Excuse me, how do I get to the station?","tr":"すみません、駅へはどう行けばいいですか？"},{"options":["Go straight and turn left at the bank.","You going straight and turning left at the bank."],"answer":0,"why":"指示は命令文で。"},{"who":"観光客","t":"Is it far?","tr":"遠いですか？"},{"options":["No, it isn't. It's about five minutes.","No, it not. It's about five minutes."],"answer":0,"why":"否定は {{isn't}}。"}],"from":"ask-yes-no-questions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"ホテルは駅の向かいです。","words":["The","hotel","is","across","from","the","station."],"why":"{{The hotel is across from the station.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「美術館へはどう行けばいいですか？」","answer":"How do I get to the museum?","from":"ask-for-information"},
+        {"type":"free","q":"あなたの番です。駅からあなたの家（または好きなお店）までの道を説明しましょう。","answers":[{"t":"Go out of the station and turn right. Walk past the bank. My house is next to the park.","tr":"駅を出て右に曲がってください。銀行を通り過ぎてください。私の家は公園の隣です。"},{"t":"Walk along the main street for five minutes. The café is across from the post office.","tr":"大通り沿いに5分歩いてください。カフェは郵便局の向かいです。"}]}
+      ]
+    },
+    {
+      "id": "talk-about-amounts",
+      "unit": 4,
+      "level": "A2",
+      "title": "量や数について話す",
+      "summary": "「たくさん」「少し」など、量や数を言います。数えられる名詞か数えられない名詞かで言葉が変わります：「今日はあまり時間がありません。」",
+      "topic": "{{much}} と {{many}}; {{a lot of}}; {{a few}} と {{a little}}; {{How much}} / {{How many}}",
+      "blocks": [
+        {"goal":{"t":"I don't have much time today.","tr":"今日はあまり時間がありません。"}},
+        {"dialog":[{"who":"夫","t":"How much milk do we have?","tr":"牛乳ってどのくらいある？"},{"who":"妻","t":"Not much. Just a little.","tr":"あまりない。少しだけ。"},{"who":"夫","t":"And eggs? How many eggs are there?","tr":"卵は？何個ある？"},{"who":"妻","t":"Only a few. Maybe three.","tr":"少しだけ。3個くらいかな。"},{"who":"夫","t":"OK. I'm going to the store. Do we need anything else?","tr":"わかった。お店に行ってくるよ。ほかに何かいる？"},{"who":"妻","t":"Yes, a lot of things! Here's the list.","tr":"うん、いろいろ！はい、リスト。"}]},
+        {"p":"**数えられる名詞と数えられない名詞。** 英語の名詞は、1つ・2つと数えられるもの（{{egg}}、{{book}}、{{friend}}）と、数えないもの（{{milk}}、{{money}}、{{time}}、{{water}}）に分かれます。日本語では区別しないので、量を言うときに特に注意しましょう。"},
+        { "table": [
+          ["","数えられる（複数形）","数えられない"],
+          ["たくさん","{{a lot of eggs}} / {{many eggs}}","{{a lot of milk}} / {{much milk}}"],
+          ["少し（ある）","{{a few eggs}}","{{a little milk}}"],
+          ["いくつ？どのくらい？","{{How many eggs?}}","{{How much milk?}}"]
+        ] },
+        {"p":"**{{a lot of}} はどちらにも使える。** ふつうの文では {{a lot of}} がいちばん自然です：{{a lot of people}}、{{a lot of money}}。{{many}} と {{much}} は、主に疑問文と否定文で使います：{{I don't have much time.}}（あまり時間がない）、{{Are there many people?}}（人は多い？）。"},
+        {"p":"**少し（ある）：{{a few}} と {{a little}}。** 数えられるものは {{a few}}、数えないものは {{a little}}：{{a few friends}}（友だち数人）、{{a little sugar}}（砂糖を少し）。"},
+        {"p":"**まちがえやすい「数えない名詞」。** {{information}}（情報）、{{advice}}（アドバイス）、{{homework}}（宿題）、{{furniture}}（家具）、{{luggage}}（荷物）。日本語の感覚では数えられそうですが、英語では {{-s}} も {{a}} もつきません：{{some information}}、{{a lot of homework}}。"},
+        { "ex": [
+          {"t":"There are a lot of people at the station.","tr":"駅に人がたくさんいます。"},
+          {"t":"How many brothers and sisters do you have?","tr":"兄弟は何人いますか？"},
+          {"t":"How much is this?","tr":"これはいくらですか？"},
+          {"t":"I have a few questions.","tr":"いくつか質問があります。"},
+          {"t":"Can I have a little more coffee?","tr":"コーヒーをもう少しいただけますか？"},
+          {"t":"I have a lot of homework tonight.","tr":"今夜は宿題がたくさんあります。"}
+        ] },
+        {"tip":"{{How much is it?}}（いくらですか？）は、お金（{{money}}：数えない名詞）の量を聞く形です。"}
+      ],
+      "mistakes": [
+        {"wrong":"I have many homeworks.","right":"I have a lot of homework.","tr":"宿題がたくさんあります。","why":"{{homework}} は数えない名詞：{{-s}} はつかず、{{a lot of}} を使います。"},
+        {"wrong":"How much people are there?","right":"How many people are there?","tr":"何人いますか？","why":"{{people}} は数えられる（複数）なので {{How many}}。"},
+        {"wrong":"Can you give me an advice?","right":"Can you give me some advice?","tr":"アドバイスをもらえますか？","why":"{{advice}} は数えない名詞なので {{an}} はつきません。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"How ___ eggs do we need?","tr":"卵は何個いる？","options":["many","much"],"answer":0,"why":"卵は数えられるので {{many}}。"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I need a ___ sugar.","tr":"砂糖が少しいります。","options":["little","few"],"answer":0,"why":"砂糖は数えないので {{a little}}。"},
+        {"type":"choice","q":"「情報がたくさんあります」は英語で？","options":["{{There's a lot of information.}}","{{There are many informations.}}","{{There's many information.}}"],"answer":0,"why":"{{information}} は数えない名詞。"},
+        {"type":"dialogue","q":"買い物の前に、家にあるものを確かめます。返事を選んでください。","lines":[{"who":"妻","t":"Do we have any milk?","tr":"牛乳ある？"},{"options":["Yes, but not much.","Yes, but not many."],"answer":0,"why":"牛乳は数えないので {{much}}。"},{"who":"妻","t":"How many apples are there?","tr":"リンゴは何個ある？"},{"options":["Only a few.","Only a little."],"answer":0,"why":"リンゴは数えられるので {{a few}}。"}],"from":"there-is-are"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"いくつか質問があります。","words":["I","have","a","few","questions."],"why":"{{I have a few questions.}}"},
+        {"type":"say","q":"英語で言ってみましょう：「コーヒーをもう少しいただけますか？」","answer":"Can I have a little more coffee?","from":"ask-politely"},
+        {"type":"free","q":"あなたの番です。冷蔵庫の中に何がたくさんあって、何が少ししかないかを言いましょう。","answers":[{"t":"There are a lot of eggs, but there isn't much milk.","tr":"卵はたくさんありますが、牛乳はあまりありません。"},{"t":"We have a lot of vegetables and a little cheese. There are only a few apples.","tr":"野菜はたくさん、チーズは少しあります。リンゴは数個だけです。"}]}
+      ]
+    },
+    {
+      "id": "agree-with-someone",
+      "unit": 4,
+      "level": "A2",
+      "title": "「私も」と言う",
+      "summary": "相手に同意します。日本語の「も」は、英語では肯定と否定で言い方が変わります：「私も！」「私もしない。」",
+      "topic": "{{too}} と {{either}}; {{Me too.}} と {{Me neither.}}; {{So do I.}} と {{Neither do I.}}",
+      "blocks": [
+        {"goal":{"t":"Me neither! I don't like horror movies either.","tr":"私も！私もホラー映画は好きじゃない。"}},
+        {"dialog":[{"who":"リサ","t":"I love this song!","tr":"この歌大好き！"},{"who":"ナオ","t":"Me too! I listen to it every day.","tr":"私も！毎日聴いてる。"},{"who":"リサ","t":"I can't sing it, though. It's too fast.","tr":"でも歌えないの。速すぎて。"},{"who":"ナオ","t":"I can't either!","tr":"私も歌えない！"},{"who":"リサ","t":"I'm hungry.","tr":"お腹すいた。"},{"who":"ナオ","t":"So am I. Let's get some pizza.","tr":"私も。ピザを食べに行こう。"}]},
+        {"p":"**日本語の「も」は、英語で2つに分かれる。** 肯定の文の「〜も」は {{too}}、否定の文の「〜も（〜ない）」は {{either}} です：{{I like it too.}}（私も好き）、{{I don't like it either.}}（私も好きじゃない）。"},
+        { "table": [
+          ["相手の文","短い返事","長い返事"],
+          ["{{I love pizza.}}","{{Me too.}}","{{So do I.}} / {{I love it too.}}"],
+          ["{{I don't like coffee.}}","{{Me neither.}}","{{Neither do I.}} / {{I don't like it either.}}"],
+          ["{{I'm tired.}}","{{Me too.}}","{{So am I.}}"],
+          ["{{I can't swim.}}","{{Me neither.}}","{{Neither can I.}}"]
+        ] },
+        {"p":"**いちばん簡単なのは {{Me too.}} と {{Me neither.}}。** 会話ではこれで十分です。肯定には {{Me too.}}、否定には {{Me neither.}}。"},
+        {"p":"**{{So do I.}} / {{Neither do I.}}** 少しきちんとした言い方です。相手の文に合わせて形を変えます：be動詞なら {{So am I.}}、ふつうの動詞なら {{So do I.}}（三人称なら {{So does she.}}）、{{can}} なら {{So can I.}}。否定なら {{So}} の代わりに {{Neither}} で始めます。"},
+        {"p":"**同意しないとき。** {{Really? I do.}}（本当？私は好き）、{{Oh, I don't.}}（あ、私は違う）のように、自分の場合を短く言います。"},
+        { "ex": [
+          {"t":"I'm a big baseball fan.","tr":"野球の大ファンなんです。"},
+          {"t":"Me too!","tr":"私もです！"},
+          {"t":"I don't eat meat.","tr":"肉は食べません。"},
+          {"t":"Me neither.","tr":"私も食べません。"},
+          {"t":"I can't drive. — Neither can I.","tr":"運転できないんです。—私もできません。"},
+          {"t":"My sister likes cats too.","tr":"妹も猫が好きです。"}
+        ] },
+        {"tip":"「〜も」は {{also}} でも言えます：{{I also like cats.}}。{{also}} は動詞の前、{{too}} は文の最後に置きます。"}
+      ],
+      "mistakes": [
+        {"wrong":"I don't like it too.","right":"I don't like it either.","tr":"私もそれは好きではありません。","why":"否定の文の「〜も」は {{either}}。"},
+        {"wrong":"I don't like coffee. — Me too.","right":"I don't like coffee. — Me neither.","tr":"コーヒーは好きじゃない。—私も。","why":"否定の文への「私も」は {{Me neither.}}"},
+        {"wrong":"I like jazz. — So am I.","right":"I like jazz. — So do I.","tr":"ジャズが好き。—私も。","why":"{{like}} はふつうの動詞なので {{do}} で受けます。"}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{I don't like spicy food.}} と言われました。あなたも好きではありません。","options":["{{Me neither.}}","{{Me too.}}","{{So do I.}}"],"answer":0,"why":"否定の文への「私も」は {{Me neither.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"I can't swim. — Neither ___ I.","tr":"泳げないんだ。—私も泳げない。","options":["can","do","am"],"answer":0,"why":"相手の文が {{can't}} なので {{Neither can I.}}"},
+        {"type":"fill","q":"空所に入る言葉を選んでください。","t":"My brother doesn't drink coffee ___.","tr":"兄もコーヒーを飲みません。","options":["either","too","also"],"answer":0,"why":"否定の文の「〜も」は {{either}}。"},
+        {"type":"dialogue","q":"友だちと話しています。返事を選んでください。","lines":[{"who":"リサ","t":"I'm so tired today.","tr":"今日はすごく疲れた。"},{"options":["So am I.","So do I."],"answer":0,"why":"be動詞の文なので {{So am I.}}"},{"who":"リサ","t":"I don't want to cook tonight.","tr":"今夜は料理したくないな。"},{"options":["Me neither. Let's order pizza.","Me too. Let's order pizza."],"answer":0,"why":"否定の文への「私も」は {{Me neither.}}"}],"from":"give-directions"},
+        {"type":"order","q":"単語を正しい順番に並べてください。","tr":"私もその映画が好きです。","words":["I","like","that","movie","too."],"why":"{{too}} は文の最後。"},
+        {"type":"say","q":"相手が {{I don't eat meat.}} と言いました。「私も食べません」と長く答えましょう。","answer":"I don't eat meat either.","from":"ask-with-do"},
+        {"type":"free","q":"あなたの番です。好きなことと好きではないことについて、「私も」を使って答える文を作りましょう。","answers":[{"t":"I love sushi too. And I don't like natto either.","tr":"私もお寿司が大好きです。そして、私も納豆は好きではありません。"},{"t":"So do I! I play tennis every weekend too.","tr":"私も！私も毎週末テニスをします。"}]}
+      ]
     }
   ]
 }
