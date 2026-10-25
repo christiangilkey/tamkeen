@@ -75,6 +75,11 @@ AZURE = {
     "hi": {"voice": "hi-IN-SwaraNeural", "locale": "hi-IN", "name": "Swara (Azure, India)"},
     "ko": {"voice": "ko-KR-SunHiNeural", "locale": "ko-KR", "name": "SunHi (Azure, South Korea)"},
     "en": {"voice": "en-US-JennyNeural", "locale": "en-US", "name": "Jenny (Azure, United States)"},
+    # Azure has no Bisaya voice. Its Filipino voice reading the Bisaya text was far clearer than Meta's MMS
+    # Cebuano voice (2026-10-24, the 20-word sample heard back with the Bisaya listening model: sentences 0.81
+    # against 0.62, words alone 18 of 20 against 3), and its audio may be used commercially; the owner chose it.
+    # The accent is Tagalog.
+    "ceb": {"voice": "fil-PH-BlessicaNeural", "locale": "fil-PH", "name": "Blessica (Azure, Philippines; reading Bisaya)"},
 }
 SENTENCE_RATE = "-10%"
 PIPER = {"ar": "ar_JO-kareem-medium"}
@@ -337,7 +342,7 @@ def main() -> None:
     if engine == "azure" and lang not in AZURE:
         raise SystemExit(f"No Azure voice chosen for {lang} yet (AZURE in this file).")
     if engine == "mms" and lang not in MMS:
-        raise SystemExit(f"{lang} has an Azure voice: use --voice azure (MMS is only for languages Azure lacks).")
+        raise SystemExit(f"No MMS voice chosen for {lang} (MMS in this file).")
 
     data = load_words(lang)
     words = data["words"]

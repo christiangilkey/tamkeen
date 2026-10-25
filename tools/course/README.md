@@ -45,7 +45,7 @@ only when it is played or added.
 ## Other languages
 
 Every language the app teaches has its voice in `build_course.py` (`AZURE`, the same voices as the app's
-card voices; Bisaya, which Azure has no voice for, uses Meta's MMS voice made on this computer, `--voice mms`).
+card voices; Bisaya, which Azure has no voice for, is read by Azure's Filipino voice, which was far clearer than Meta's MMS voice (`--voice mms`, still there for comparison)).
 Each language is made on a branch of its own off `basics-course` (`basics-<lang>`), touching only its own
 files: `tools/course/<lang>/` (its words, and any ranking script it needs), `docs/course/<lang>/`, and its
 entry in `docs/course/index.json` (which merges by language: keep every language's entry). The full brief
