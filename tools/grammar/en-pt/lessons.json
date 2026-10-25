@@ -1521,6 +1521,361 @@
         {"type":"say","q":"Greet an old friend: “Long time no see!”","answer":"Há quanto tempo!"},
         {"type":"free","q":"Your turn: how long have you lived where you live, and how long have you studied Portuguese? When did you start?","answers":[{"t":"Moro em Toronto há dez anos. Estudo português há três meses: comecei em agosto.","tr":"I've lived in Toronto for ten years. I've been studying Portuguese for three months: I started in August."},{"t":"Faz cinco anos que moro aqui. Comecei a estudar português há um ano.","tr":"I've lived here for five years. I started studying Portuguese a year ago."}]}
       ]
+    },
+    {
+      "id": "compare",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say what's bigger, better, cheaper or the best: compare cities, prices, food and people.",
+      "topic": "{{mais}} / {{menos}} … {{(do) que}}; {{tão}} … {{quanto}}; {{melhor, pior, maior, menor}}; {{o mais…}}; {{-íssimo}}",
+      "blocks": [
+        {"goal":{"t":"São Paulo é maior que o Rio, mas o Rio é mais bonito.","tr":"São Paulo is bigger than Rio, but Rio is prettier."}},
+        {"dialog":[{"who":"Laura","t":"Qual é melhor, o apartamento da Rua Augusta ou o da Vila Mariana?","tr":"Which is better, the apartment on Rua Augusta or the one in Vila Mariana?"},{"who":"Agent","t":"O da Vila Mariana é maior e mais tranquilo.","tr":"The one in Vila Mariana is bigger and quieter."},{"who":"Laura","t":"E é mais caro?","tr":"And is it more expensive?"},{"who":"Agent","t":"É um pouco mais caro, mas é muito mais perto do metrô.","tr":"It's a bit more expensive, but it's much closer to the subway."},{"who":"Laura","t":"Hmm, e o da Augusta?","tr":"Hmm, and the Augusta one?"},{"who":"Agent","t":"É tão bom quanto, mas é o mais barulhento do bairro!","tr":"It's just as good, but it's the noisiest one in the neighborhood!"}]},
+        {"p":"**More, less.** Put {{mais}} “more” or {{menos}} “less” before the adjective, and {{(do) que}} “than” after: {{O Rio é mais bonito (do) que São Paulo.}} With or without {{do}}, both are right."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["more","{{mais caro (do) que}}","more expensive than"],
+          ["less","{{menos caro (do) que}}","less expensive than"],
+          ["as… as","{{tão caro quanto}}","as expensive as"],
+          ["the most","{{o mais caro}}","the most expensive"]
+        ] },
+        {"p":"English adds “-er” to short words (bigger, cheaper); Portuguese always uses {{mais}}: {{mais barato}} “cheaper”, {{mais rápido}} “faster”."},
+        {"p":"**Four special ones.** Like “better” and “worse” in English, these don't take {{mais}}:"},
+        { "table": [
+          ["","Portuguese","more…"],
+          ["good","{{bom}}","{{melhor}} better"],
+          ["bad","{{ruim}}","{{pior}} worse"],
+          ["big","{{grande}}","{{maior}} bigger"],
+          ["small","{{pequeno}}","{{menor}} smaller"]
+        ] },
+        {"p":"**The most.** {{o mais}}, {{a mais}} + adjective, and {{de}} for “in”: {{o restaurante mais caro da cidade}} “the most expensive restaurant in the city”. And {{o melhor}}, {{o pior}}, {{o maior}}, {{o menor}}."},
+        {"p":"**Very, very.** {{-íssimo}} adds a lot: {{caro}} → {{caríssimo}} “super expensive”, {{lindo}} → {{lindíssimo}}; and {{muito mais}} is “much more”: {{muito mais barato}} “much cheaper”."},
+        { "ex": [
+          {"t":"Meu irmão é mais alto que eu.","tr":"My brother is taller than me."},
+          {"t":"Esse celular é melhor e mais barato.","tr":"This phone is better and cheaper."},
+          {"t":"Hoje está menos quente que ontem.","tr":"Today is not as hot as yesterday."},
+          {"t":"Ela é tão inteligente quanto a irmã.","tr":"She's as smart as her sister."},
+          {"t":"É o melhor pão de queijo do mundo!","tr":"It's the best cheese bread in the world!"},
+          {"t":"O ingresso é caríssimo.","tr":"The ticket is super expensive."}
+        ] },
+        {"tip":"{{Mais ou menos}} (“more or less”) is also “so-so”: {{Gostou? — Mais ou menos.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Esse é mais bom.","right":"Esse é melhor.","tr":"This one is better.","why":"“Better” is {{melhor}}, never {{mais bom}}."},
+        {"wrong":"O Brasil é mais grande que a Argentina.","right":"O Brasil é maior que a Argentina.","tr":"Brazil is bigger than Argentina.","why":"“Bigger” is {{maior}}."},
+        {"wrong":"É o restaurante mais caro em a cidade.","right":"É o restaurante mais caro da cidade.","tr":"It's the most expensive restaurant in the city.","why":"After “the most”, “in” is {{de}}: {{da cidade}}, {{do mundo}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"O metrô é ___ rápido que o ônibus.","tr":"The subway is faster than the bus.","options":["mais","muito","tão"],"answer":0,"why":"“-er than”: {{mais}} … {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Esse restaurante é ___ que aquele.","tr":"This restaurant is better than that one.","options":["melhor","maior","bom"],"answer":0,"why":"“Better” is {{melhor}}."},
+        {"type":"choice","q":"{{Ela é tão alta quanto eu}} means…","options":["She's as tall as me.","She's taller than me.","She's so tall!"],"answer":0,"why":"{{tão… quanto}}: “as… as”."},
+        {"type":"dialogue","q":"Comparing two cities: choose your replies.","from":"describe-people-and-things","lines":[{"who":"Friend","t":"Qual cidade você prefere, Salvador ou Recife?","tr":"Which city do you prefer, Salvador or Recife?"},{"options":["Salvador. É mais animada.","Salvador. É mais animado."],"answer":0,"why":"{{Cidade}} is feminine: {{animada}}."},{"who":"Friend","t":"E as praias?","tr":"And the beaches?"},{"options":["As de Recife são tão bonitas quanto.","As de Recife são tão bonitas que."],"answer":0,"why":"“As… as”: {{tão… quanto}}."},{"who":"Friend","t":"Concordo!","tr":"I agree!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"It's the best café in the city.","words":["É","o melhor","café","da","cidade."]},
+        {"type":"say","q":"How do you say “My brother is taller than me”?","answer":"Meu irmão é mais alto que eu."},
+        {"type":"free","q":"Your turn: compare two places you know: two cities, two restaurants or two countries.","answers":[{"t":"Nova York é maior e mais cara que Boston, mas Boston é mais tranquila.","tr":"New York is bigger and more expensive than Boston, but Boston is quieter."},{"t":"A comida brasileira é melhor que a inglesa, e o café é muito mais barato!","tr":"Brazilian food is better than English food, and coffee is much cheaper!"}]}
+      ]
+    },
+    {
+      "id": "make-it-small-and-friendly",
+      "unit": 6,
+      "level": "A2",
+      "title": "Sound friendly with little words",
+      "summary": "Use the little endings Brazilians put everywhere: “um cafezinho”, “rapidinho”, “um minutinho”.",
+      "topic": "Diminutives {{-inho}}, {{-zinho}}; augmentative {{-ão}}",
+      "blocks": [
+        {"goal":{"t":"Espera um minutinho, já volto!","tr":"Wait just a minute, I'll be right back!"}},
+        {"dialog":[{"who":"Server","t":"Bom dia, querida! O que vai ser hoje?","tr":"Good morning, dear! What'll it be today?"},{"who":"Customer","t":"Bom dia! Um cafezinho e dois pãezinhos, por favor.","tr":"Good morning! A coffee and two bread rolls, please."},{"who":"Server","t":"Quer um pedacinho de bolo também? Está fresquinho!","tr":"Would you like a little piece of cake too? It's nice and fresh!"},{"who":"Customer","t":"Ai, que tentação… só um pedaço pequenininho!","tr":"Oh, how tempting… just a teeny tiny piece!"},{"who":"Server","t":"Pode deixar!","tr":"You got it!"}]},
+        {"term":"diminutive","means":"a form of a word that makes it smaller, or sound cuter or friendlier: doggie, sweetie."},
+        {"p":"**{{-inho}}, {{-inha}}.** Add it to a noun or an adjective and the thing becomes small, cute, or just friendlier. Words ending in {{-o}} or {{-a}} drop that vowel; words ending in a stressed vowel, a consonant or {{-ão}} add {{-zinho}}:"},
+        { "table": [
+          ["","word","diminutive"],
+          ["drop {{-o}}, {{-a}}: {{-inho}}","{{gato}} cat","{{gatinho}} kitten"],
+          ["","{{casa}} house","{{casinha}} little house"],
+          ["","{{pouco}} a little","{{pouquinho}} a little bit"],
+          ["add {{-zinho}}","{{café}} coffee","{{cafezinho}} a coffee"],
+          ["","{{pão}} bread roll","{{pãozinho}} a little roll"],
+          ["","{{flor}} flower","{{florzinha}} little flower"]
+        ] },
+        {"p":"Spelling keeps the sound: {{-co}}, {{-ca}} become {{-qu-}} ({{pouco}} → {{pouquinho}}, {{fresco}} → {{fresquinho}}), {{-go}} becomes {{-gu-}} ({{amigo}} → {{amiguinho}}), and {{-ço}} becomes {{-c-}} ({{pedaço}} → {{pedacinho}})."},
+        {"p":"**Not always small.** Brazilians use the diminutive all day, mostly for warmth: {{um cafezinho}} is just “a coffee”, offered kindly; {{Espera um minutinho}} “Just a minute”; {{rapidinho}} “real quick”; {{devagarinho}} “nice and slow”. On adjectives and adverbs it often means “nicely” or “really”: {{fresquinho}} “nice and fresh”, {{pertinho}} “really close”, {{cedinho}} “nice and early”."},
+        {"p":"**The opposite: {{-ão}}.** {{-ão}} makes things big: {{casa}} → {{casarão}} “mansion”, {{carro}} → {{carrão}} “big car”, {{amigo}} → {{amigão}} “buddy”. {{Obrigadão!}} is a hearty “thanks a lot!”."},
+        { "ex": [
+          {"t":"Vamos tomar um cafezinho?","tr":"Shall we have a coffee?"},
+          {"t":"Fala mais devagarinho, por favor.","tr":"Speak a little more slowly, please."},
+          {"t":"A padaria fica pertinho daqui.","tr":"The bakery is really close to here."},
+          {"t":"Que cachorrinho lindo!","tr":"What a cute little dog!"},
+          {"t":"Volto rapidinho.","tr":"I'll be back real quick."},
+          {"t":"Comprei um carrão!","tr":"I bought a big car!"}
+        ] },
+        {"tip":"Diminutives are friendly, but they can be ironic too: {{um probleminha}} “a little problem” can be a big one, said gently."}
+      ],
+      "mistakes": [
+        {"wrong":"um caféinho","right":"um cafezinho","tr":"a coffee","why":"Words ending in a stressed vowel take {{-zinho}}: {{cafezinho}}."},
+        {"wrong":"um poucinho","right":"um pouquinho","tr":"a little bit","why":"{{-co}} becomes {{-qu-}} to keep its sound: {{pouquinho}}."},
+        {"wrong":"Ela é muito bonitinho.","right":"Ela é muito bonitinha.","tr":"She's really cute.","why":"A diminutive keeps the gender: {{bonita}} → {{bonitinha}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Espera um ___, por favor.","tr":"Wait just a minute, please.","options":["minutinho","minutozinho","minutinha"],"answer":0,"why":"{{Minuto}} drops its {{-o}}: {{minutinho}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A farmácia fica ___ daqui.","tr":"The pharmacy is really close to here.","options":["pertinho","pertozinho","pertão"],"answer":0,"why":"{{Perto}} → {{pertinho}} “really close”.","from":"say-where-things-are"},
+        {"type":"choice","q":"A Brazilian friend offers you {{um cafezinho}}. It's…","options":["just a coffee, offered warmly","a tiny cup for children","a coffee without sugar"],"answer":0,"why":"The diminutive here is warmth, not size."},
+        {"type":"dialogue","q":"At the bakery: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Server","t":"Bom dia! O que vai ser?","tr":"Good morning! What'll it be?"},{"options":["Bom dia! Um cafezinho e um pão de queijo, por favor.","Bom dia! Um caféinho e um pão de queijo, por favor."],"answer":0,"why":"{{Café}} ends in a stressed vowel: {{cafezinho}}."},{"who":"Server","t":"Quer um pedacinho de bolo? Está fresquinho!","tr":"Would you like a little piece of cake? It's nice and fresh!"},{"options":["Só um pedacinho, então!","Só um pedaçinho, então!"],"answer":0,"why":"{{Pedaço}} → {{pedacinho}}: no {{ç}} before {{i}}."},{"who":"Server","t":"Pode deixar!","tr":"You got it!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Speak a little more slowly, please.","words":["Fala","mais","devagarinho,","por favor."]},
+        {"type":"say","q":"How do you say “What a cute little cat!”?","answer":"Que gatinho lindo!"},
+        {"type":"free","q":"Your turn: invite a Brazilian friend for a coffee and say the café is really close. Use two diminutives.","answers":[{"t":"Vamos tomar um cafezinho? Tem um café pertinho daqui.","tr":"Shall we grab a coffee? There's a café really close to here."},{"t":"Você tem um minutinho? Vamos tomar um cafezinho rapidinho?","tr":"Do you have a minute? Shall we grab a quick coffee?"}]}
+      ]
+    },
+    {
+      "id": "give-reasons",
+      "unit": 6,
+      "level": "A2",
+      "title": "Give reasons and connect ideas",
+      "summary": "Say why, give reasons and results, and join your ideas: because, so, but, if, while.",
+      "topic": "{{por que}}, {{porque}}, {{por quê}}; {{mas}}, {{então}}, {{por isso}}, {{se}}, {{enquanto}}",
+      "blocks": [
+        {"goal":{"t":"Não fui à festa porque estava muito cansado.","tr":"I didn't go to the party because I was really tired."}},
+        {"dialog":[{"who":"Bia","t":"Por que você não veio ontem?","tr":"Why didn't you come yesterday?"},{"who":"Nick","t":"Porque tive que trabalhar até tarde. Desculpa!","tr":"Because I had to work late. Sorry!"},{"who":"Bia","t":"Tudo bem. Mas você vem no sábado, né?","tr":"That's OK. But you're coming on Saturday, right?"},{"who":"Nick","t":"Vou, sim! Por isso pedi folga.","tr":"Yes, I am! That's why I asked for the day off."},{"who":"Bia","t":"Que bom! Então até sábado.","tr":"Great! See you Saturday, then."}]},
+        {"p":"**Why? Because.** Four spellings, all said the same way, that you tell apart in writing:"},
+        { "table": [
+          ["","when","example"],
+          ["{{por que}}","asking “why”","{{Por que você não veio?}}"],
+          ["{{porque}}","“because”","{{Porque estava doente.}}"],
+          ["{{por quê}}","“why” at the very end","{{Você não veio. Por quê?}}"],
+          ["{{o porquê}}","“the reason”","{{Não sei o porquê.}}"]
+        ] },
+        {"p":"**Linking words.** These join two ideas into one sentence:"},
+        { "table": [
+          ["","Portuguese","example"],
+          ["and","{{e}}","{{Comi e dormi.}}"],
+          ["but","{{mas}}","{{É caro, mas é bom.}}"],
+          ["or","{{ou}}","{{Café ou chá?}}"],
+          ["so, that's why","{{então}}, {{por isso}}","{{Choveu, então fiquei em casa.}}"],
+          ["because","{{porque}}","{{Fiquei em casa porque choveu.}}"],
+          ["when","{{quando}}","{{Quando chego, tomo banho.}}"],
+          ["if","{{se}}","{{Se você quer, eu te ajudo.}}"],
+          ["while","{{enquanto}}","{{Ele cozinha enquanto eu lavo a louça.}}"]
+        ] },
+        {"p":"**{{então}} or {{por isso}}?** Both mean “so, that's why”. {{Por isso}} (literally “for that”) points more clearly at the reason: {{Estava cansado, por isso fui embora}} “I was tired; that's why I left”. {{Então}} is also a filler in speech, like English “so…”."},
+        {"p":"**{{se}} “if”** with the present, for real situations: {{Se você está com fome, tem pão na cozinha}} “If you're hungry, there's bread in the kitchen”. For the future and for imagining, Portuguese has special forms: lessons 40 and 41."},
+        { "ex": [
+          {"t":"Por que você está rindo?","tr":"Why are you laughing?"},
+          {"t":"Estou aprendendo português porque minha namorada é brasileira.","tr":"I'm learning Portuguese because my girlfriend is Brazilian."},
+          {"t":"Estava chovendo, por isso a gente ficou em casa.","tr":"It was raining, so we stayed home."},
+          {"t":"É longe, mas dá pra ir a pé.","tr":"It's far, but you can walk there."},
+          {"t":"Se você precisa de ajuda, me liga.","tr":"If you need help, call me."},
+          {"t":"Você não gostou? Por quê?","tr":"You didn't like it? Why?"}
+        ] },
+        {"tip":"{{Porque sim!}} “Because!” and {{Porque não!}} “Because I said no!” are what Brazilian parents say when they won't explain."}
+      ],
+      "mistakes": [
+        {"wrong":"Porque você está triste?","right":"Por que você está triste?","tr":"Why are you sad?","why":"A question with “why”: two words, {{por que}}."},
+        {"wrong":"Fiquei em casa por que choveu.","right":"Fiquei em casa porque choveu.","tr":"I stayed home because it rained.","why":"“Because” is one word: {{porque}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ você não veio?","tr":"Why didn't you come?","options":["Por que","Porque","Por quê"],"answer":0,"why":"A question starting with “why”: {{por que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Não fui ___ estava doente.","tr":"I didn't go because I was sick.","options":["porque","por que","por isso"],"answer":0,"why":"“Because”: {{porque}}, one word."},
+        {"type":"choice","q":"{{Estava cansado, por isso fui embora}} means…","options":["I was tired, so I left.","I was tired because I left.","I left, but I wasn't tired."],"answer":0,"why":"{{Por isso}}: “that's why, so”."},
+        {"type":"dialogue","q":"A friend asks why you missed her party. Choose your replies.","from":"tell-about-your-weekend","lines":[{"who":"Bia","t":"Por que você não veio ontem?","tr":"Why didn't you come yesterday?"},{"options":["Porque tive que trabalhar. Desculpa!","Por que tive que trabalhar. Desculpa!"],"answer":0,"why":"“Because”: one word, {{porque}}. And {{tive que}} is the past of {{tenho que}}."},{"who":"Bia","t":"Tudo bem. E sábado, você vem?","tr":"That's fine. And Saturday, are you coming?"},{"options":["Vou, sim! Por isso pedi folga.","Vou, sim! Por que pedi folga."],"answer":0,"why":"“That's why”: {{por isso}}."},{"who":"Bia","t":"Oba!","tr":"Yay!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"It's expensive, but it's really good.","words":["É","caro,","mas","é","muito bom."]},
+        {"type":"say","q":"How do you say “If you need help, call me”?","answer":"Se você precisa de ajuda, me liga.","from":"tell-people-what-to-do"},
+        {"type":"free","q":"Your turn: why are you learning Portuguese? Give two reasons, with {{porque}} and {{por isso}} or {{mas}}.","answers":[{"t":"Estou aprendendo português porque quero morar no Brasil. Por isso estudo todo dia.","tr":"I'm learning Portuguese because I want to live in Brazil. That's why I study every day."},{"t":"Porque minha família é brasileira, mas eu nunca aprendi quando era criança.","tr":"Because my family is Brazilian, but I never learned when I was a kid."}]}
+      ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say whose things are",
+      "summary": "Ask whose something is, and say “Ana's car”, “his”, “hers” and “a friend of mine”.",
+      "topic": "{{De quem é…?}}; {{o carro da Ana}}; {{dele, dela, deles}} for “his, her, their”; {{o meu}}; {{um amigo meu}}",
+      "blocks": [
+        {"goal":{"t":"Esse carro é seu? — Não, é dela.","tr":"Is this car yours? — No, it's hers."}},
+        {"dialog":[{"who":"Paula","t":"De quem é esse casaco?","tr":"Whose coat is this?"},{"who":"Gui","t":"Não é meu. Acho que é da Júlia.","tr":"It's not mine. I think it's Júlia's."},{"who":"Paula","t":"E essas chaves? São suas?","tr":"And these keys? Are they yours?"},{"who":"Gui","t":"São! Obrigado. E aquele guarda-chuva é do Marcos.","tr":"They are! Thanks. And that umbrella is Marcos's."},{"who":"Paula","t":"O dele é preto. Esse é da minha mãe!","tr":"His is black. That one's my mother's!"}]},
+        {"p":"**Whose?: {{De quem…?}}** {{De quem é esse livro?}} “Whose book is this?” Answer: {{É meu}} “It's mine”, {{É da Ana}} “It's Ana's”."},
+        {"p":"**{{de}} + the owner.** Portuguese has no “'s”: it says “the car of Ana”, {{o carro da Ana}}; {{a casa do meu pai}} “my father's house”; {{o quarto das crianças}} “the children's room”."},
+        {"p":"**His, her, their: {{dele}}, {{dela}}, {{deles}}, {{delas}}.** {{Seu}} and {{sua}} can mean “your”, “his”, “her” and “their”, which gets confusing. So Brazilians keep {{seu}} for “your”, and for the others say “of him”, “of her” after the noun:"},
+        { "table": [
+          ["","Portuguese","English"],
+          ["your","{{o seu carro}}","your car"],
+          ["his","{{o carro dele}}","his car"],
+          ["her","{{o carro dela}}","her car"],
+          ["their","{{o carro deles}}, {{o carro delas}}","their car"]
+        ] },
+        {"p":"Notice the difference from {{meu}} and {{seu}}: {{dele}} and {{dela}} match the **owner** (a man, a woman), not the thing. {{A casa dele}} is “his house”; {{o carro dela}} “her car”."},
+        {"p":"**Mine, yours.** The same words, often with “the”: {{Esse é o meu}} “This one is mine”, {{A minha é azul}} “Mine is blue”. Right after {{é}}, no “the”: {{É meu}}, {{É dela}}. And “a friend of mine” is {{um amigo meu}}, “a cousin of hers” {{uma prima dela}}."},
+        { "ex": [
+          {"t":"De quem é essa mochila?","tr":"Whose backpack is this?"},
+          {"t":"É a casa da minha avó.","tr":"It's my grandmother's house."},
+          {"t":"A Carla e o marido dela moram em Recife.","tr":"Carla and her husband live in Recife."},
+          {"t":"O Pedro esqueceu o celular dele aqui.","tr":"Pedro left his phone here."},
+          {"t":"Esse lugar é seu?","tr":"Is this seat yours?"},
+          {"t":"Um amigo meu trabalha lá.","tr":"A friend of mine works there."}
+        ] },
+        {"tip":"{{Nossa!}} (“ours!”) is also Brazil's favorite word of surprise: {{Nossa, que lindo!}} “Wow, how beautiful!” It comes from {{Nossa Senhora}} “Our Lady”."}
+      ],
+      "mistakes": [
+        {"wrong":"Esse é o dela carro.","right":"Esse é o carro dela.","tr":"That's her car.","why":"{{Dele}} and {{dela}} go after the noun."},
+        {"wrong":"O Pedro esqueceu a mochila dela.","right":"O Pedro esqueceu a mochila dele.","tr":"Pedro forgot his backpack.","why":"{{Dele}} and {{dela}} match the owner, not the thing: Pedro is a man, so {{dele}}, even with a feminine {{mochila}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"De ___ é esse casaco?","tr":"Whose coat is this?","options":["quem","que","qual"],"answer":0,"why":"“Whose”: {{de quem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"A Júlia esqueceu a bolsa ___.","tr":"Júlia forgot her bag.","options":["dela","dele","delas"],"answer":0,"why":"The owner is one woman: {{dela}}."},
+        {"type":"choice","q":"{{O carro dele}} is…","options":["his car","her car","your car"],"answer":0,"why":"{{Dele}}: “of him”, his."},
+        {"type":"dialogue","q":"After a party: choose your replies.","from":"name-things","lines":[{"who":"Paula","t":"De quem é esse guarda-chuva?","tr":"Whose umbrella is this?"},{"options":["É meu! Obrigado.","É de mim! Obrigado."],"answer":0,"why":"“It's mine”: {{É meu}}."},{"who":"Paula","t":"E essas chaves?","tr":"And these keys?"},{"options":["Essas são do Marcos.","Essas são de o Marcos."],"answer":0,"why":"{{De}} + {{o}} join: {{do Marcos}}."},{"who":"Paula","t":"Vou entregar pra ele.","tr":"I'll give them to him."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Carla and her husband live in Recife.","words":["A Carla","e","o marido","dela","moram","em Recife."]},
+        {"type":"say","q":"How do you say “A friend of mine works there”?","answer":"Um amigo meu trabalha lá."},
+        {"type":"free","q":"Your turn: describe two people you know and something of theirs, with {{dele}} or {{dela}}.","answers":[{"t":"Meu irmão tem um cachorro. O cachorro dele se chama Max.","tr":"My brother has a dog. His dog is called Max."},{"t":"Minha vizinha é muito simpática. A casa dela é a azul, do lado da minha.","tr":"My neighbor is really nice. Her house is the blue one, next to mine."}]}
+      ]
+    },
+    {
+      "id": "describe-with-que",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say which one you mean",
+      "summary": "Describe people, things and places with a whole sentence: “the friend who lives in Lisbon”, “the city where I was born”.",
+      "topic": "{{que}} “who, which, that”, never left out; {{onde}} “where”; {{o que}} “what”; {{com quem}}, {{de que}}",
+      "blocks": [
+        {"goal":{"t":"Conheci uma pessoa que fala cinco línguas!","tr":"I met someone who speaks five languages!"}},
+        {"dialog":[{"who":"Ana","t":"Quem é aquela menina que está falando com o Léo?","tr":"Who's that girl who's talking to Léo?"},{"who":"Davi","t":"É a Clara, a amiga que mora em Lisboa.","tr":"That's Clara, the friend who lives in Lisbon."},{"who":"Ana","t":"Ah, a que trabalha com cinema?","tr":"Oh, the one who works in film?"},{"who":"Davi","t":"Essa mesma. E aquele é o cara que fez o bolo.","tr":"That's her. And that's the guy who made the cake."},{"who":"Ana","t":"O bolo que eu comi três vezes? Preciso conhecer ele!","tr":"The cake I had three times? I need to meet him!"}]},
+        {"p":"**{{que}}: who, which, that.** One word joins a description to a noun, for people and for things: {{a amiga que mora em Lisboa}} “the friend who lives in Lisbon”, {{o bolo que eu comi}} “the cake (that) I ate”."},
+        {"p":"Unlike English, Portuguese never leaves it out: “the cake I ate” must be {{o bolo que eu comi}}."},
+        {"p":"**{{onde}}: where.** For places: {{a cidade onde eu nasci}} “the city where I was born”, {{o bar onde a gente se conheceu}} “the bar where we met”."},
+        {"p":"**{{o que}}: what (“the thing that”).** {{Não entendi o que você disse}} “I didn't understand what you said”, {{Isso é o que eu quero}} “That's what I want”."},
+        {"p":"**With a preposition.** When the verb needs one ({{falar com}}, {{precisar de}}), it goes before {{que}}, or before {{quem}} for people: {{a pessoa com quem eu falei}} “the person I talked to”, {{o livro de que eu preciso}} “the book I need”. In relaxed speech many Brazilians drop it ({{o livro que eu preciso}}); you'll hear both."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["a person","{{a mulher que mora aqui}}","the woman who lives here"],
+          ["a thing","{{o filme que eu vi}}","the movie (that) I saw"],
+          ["a place","{{o hotel onde a gente ficou}}","the hotel where we stayed"],
+          ["the thing that","{{o que eu quero}}","what I want"],
+          ["with a preposition","{{a pessoa com quem eu falei}}","the person I talked to"]
+        ] },
+        {"p":"**The one who.** {{a que trabalha com cinema}} “the one (a woman) who works in film”, {{os que chegaram cedo}} “the ones who arrived early”."},
+        { "ex": [
+          {"t":"Conheci uma pessoa que fala cinco línguas!","tr":"I met someone who speaks five languages!","note":"{{conheci}}: “I met” (for the first time)"},
+          {"t":"O filme que a gente viu ontem foi ótimo.","tr":"The movie we saw yesterday was great."},
+          {"t":"Essa é a rua onde eu morava.","tr":"This is the street where I used to live."},
+          {"t":"Não entendi o que ele disse.","tr":"I didn't understand what he said."},
+          {"t":"O moço com quem eu falei foi muito simpático.","tr":"The guy I talked to was very nice."},
+          {"t":"Tudo que eu quero é dormir.","tr":"All I want is to sleep."}
+        ] },
+        {"tip":"{{Conhecer}} in the past, {{conheci}}, is how you say “I met” someone: {{Conheci minha esposa em 2015}} “I met my wife in 2015”."}
+      ],
+      "mistakes": [
+        {"wrong":"O bolo eu comi estava ótimo.","right":"O bolo que eu comi estava ótimo.","tr":"The cake I ate was great.","why":"Portuguese never drops {{que}}: “the cake that I ate”."},
+        {"wrong":"Não entendi que ele disse.","right":"Não entendi o que ele disse.","tr":"I didn't understand what he said.","why":"“What”, meaning “the thing that”, is {{o que}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"A menina ___ mora aqui é minha prima.","tr":"The girl who lives here is my cousin.","options":["que","quem","onde"],"answer":0,"why":"“Who”, joining a description: {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Essa é a cidade ___ eu nasci.","tr":"This is the city where I was born.","options":["onde","que","quando"],"answer":0,"why":"A place: {{onde}}."},
+        {"type":"choice","q":"How do you say “the movie I saw”?","options":["{{o filme que eu vi}}","{{o filme eu vi}}","{{o filme quem eu vi}}"],"answer":0,"why":"{{Que}} is never left out; {{quem}} is only for people, after a preposition."},
+        {"type":"dialogue","q":"Ana spots someone at a party. Choose your replies.","from":"describe-the-past","lines":[{"who":"Ana","t":"Quem é aquele moço?","tr":"Who's that guy?"},{"options":["É o professor que eu tinha na escola!","É o professor eu tinha na escola!"],"answer":0,"why":"Never drop {{que}}. ({{Tinha}}: a description of the past.)"},{"who":"Ana","t":"Sério? Ele era bom?","tr":"Really? Was he good?"},{"options":["Era o melhor professor que eu já tive.","Era o melhor professor eu já tive."],"answer":0,"why":"{{Que}} again: never left out."},{"who":"Ana","t":"Que legal!","tr":"How cool!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"This is the street where I used to live.","words":["Essa","é","a rua","onde","eu","morava."]},
+        {"type":"say","q":"How do you say “I didn't understand what he said”?","answer":"Não entendi o que ele disse.","from":"tell-about-your-weekend"},
+        {"type":"free","q":"Your turn: describe a place or a person that's special to you, using {{que}} or {{onde}}.","answers":[{"t":"Tenho uma amiga que mora em São Paulo e que sempre me ajuda com o português.","tr":"I have a friend who lives in São Paulo and who always helps me with my Portuguese."},{"t":"A praia onde eu passava as férias quando era criança é o meu lugar favorito.","tr":"The beach where I spent my vacations as a kid is my favorite place."}]}
+      ]
+    },
+    {
+      "id": "say-how-you-feel",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how something made you feel",
+      "summary": "Say you got happy, nervous or scared, that you stayed home, or that something looks good on someone: the many jobs of {{ficar}}.",
+      "topic": "{{ficar}}: become ({{fiquei feliz}}), stay ({{fiquei em casa}}), be located, keep, suit; {{Fica tranquilo!}}",
+      "blocks": [
+        {"goal":{"t":"Fiquei muito feliz com a notícia!","tr":"I was really happy about the news!"}},
+        {"dialog":[{"who":"Mom","t":"Você soube? A Lu passou no vestibular!","tr":"Did you hear? Lu passed the university entrance exam!"},{"who":"Son","t":"Sério? Que demais! Ela deve estar muito feliz.","tr":"Really? That's awesome! She must be very happy."},{"who":"Mom","t":"Ficou! Ela chorou de alegria.","tr":"She was! She cried with joy."},{"who":"Son","t":"E você, ficou nervosa esperando o resultado?","tr":"And you, did you get nervous waiting for the result?"},{"who":"Mom","t":"Fiquei! Mas agora vou fazer um bolo pra comemorar.","tr":"I did! But now I'm going to make a cake to celebrate."}]},
+        {"p":"**{{ficar}}: one verb, many jobs.** You know it for where places are ({{Onde fica o banco?}}). Here are its other everyday meanings:"},
+        { "table": [
+          ["meaning","example","English"],
+          ["become, get (a feeling, a state)","{{Fiquei feliz.}}","I got happy, I was happy (about it)."],
+          ["stay","{{Fiquei em casa.}}","I stayed home."],
+          ["be located","{{O hotel fica no centro.}}","The hotel is downtown."],
+          ["keep (a thing)","{{Pode ficar com o troco.}}","Keep the change."],
+          ["suit, look (on someone)","{{Essa camisa fica bem em você.}}","This shirt looks good on you."]
+        ] },
+        {"p":"**Become: {{ficar}} + adjective.** English says “get angry”, “be happy about something”. Portuguese uses {{ficar}} for a feeling that starts because something happens: {{Fiquei triste quando ele foi embora}} “I got sad when he left”. Compare: {{Estou feliz}} “I'm happy (now)”; {{Fiquei feliz}} “I became happy (when it happened)”."},
+        {"p":"Common ones: {{ficar nervoso}} get nervous, {{ficar bravo}} get angry, {{ficar com medo}} get scared, {{ficar doente}} get sick, {{ficar pronto}} get ready, {{ficar sabendo}} find out."},
+        {"p":"**As a command.** {{Fica tranquilo!}} “Don't worry!”, {{Fica à vontade}} “Make yourself at home”, {{Fica pra jantar!}} “Stay for dinner!”."},
+        { "ex": [
+          {"t":"Ele ficou bravo comigo.","tr":"He got angry with me."},
+          {"t":"Fiquei com medo do cachorro.","tr":"I got scared of the dog."},
+          {"t":"A gente ficou no hotel do lado da praia.","tr":"We stayed at the hotel next to the beach."},
+          {"t":"Quando fica pronto?","tr":"When will it be ready?"},
+          {"t":"Essa cor fica ótima em você!","tr":"That color looks great on you!"},
+          {"t":"Fica à vontade!","tr":"Make yourself at home!"}
+        ] },
+        {"tip":"In Brazilian slang, {{ficar}} with a person means to kiss or make out without dating: {{Eles ficaram na festa}}. So be careful how you say {{Fiquei com ela}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"Eu fui feliz quando ganhei.","right":"Eu fiquei feliz quando ganhei.","tr":"I was happy when I won.","why":"A feeling that starts because something happens: {{ficar}}."},
+        {"wrong":"Fiquei bravo de você.","right":"Fiquei bravo com você.","tr":"I got angry with you.","why":"Angry “with” someone: {{com}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ela ___ muito nervosa antes da prova.","tr":"She got really nervous before the test.","options":["ficou","foi","fica"],"answer":0,"why":"“Got nervous”, in the past: {{ficou}}."},
+        {"type":"choice","q":"A friend is worried about being late. You say “Don't worry!”:","options":["{{Fica tranquilo!}}","{{Está tranquilo!}}","{{É tranquilo!}}"],"answer":0,"why":"{{Fica tranquilo!}} is the everyday “Don't worry!”."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ontem eu ___ em casa o dia todo.","tr":"Yesterday I stayed home all day.","options":["fiquei","fui","estou"],"answer":0,"why":"“Stayed”: {{fiquei}}."},
+        {"type":"dialogue","q":"A friend comforts you. Choose your replies.","from":"give-reasons","lines":[{"who":"Friend","t":"Você ficou triste com a notícia?","tr":"Were you sad about the news?"},{"options":["Fiquei, porque eu gostava muito dele.","Fiquei, por que eu gostava muito dele."],"answer":0,"why":"“Because”: one word, {{porque}}."},{"who":"Friend","t":"Entendo. Quer ficar aqui hoje?","tr":"I understand. Do you want to stay here tonight?"},{"options":["Obrigada, vou ficar um pouco mais.","Obrigada, vou estar um pouco mais."],"answer":0,"why":"“Stay”: {{ficar}}."},{"who":"Friend","t":"Fica à vontade.","tr":"Make yourself at home."}]},
+        {"type":"order","q":"Put the words in order.","tr":"This shirt looks good on you.","words":["Essa","camisa","fica","bem","em você."]},
+        {"type":"say","q":"How do you say “I got scared of the dog”?","answer":"Fiquei com medo do cachorro."},
+        {"type":"free","q":"Your turn: tell about a moment when you got very happy, nervous or angry. What happened?","answers":[{"t":"Fiquei muito feliz quando meu filho nasceu.","tr":"I was so happy when my son was born."},{"t":"Fiquei nervoso na minha primeira entrevista de emprego, mas deu tudo certo.","tr":"I got nervous at my first job interview, but it all worked out."}]}
+      ]
+    },
+    {
+      "id": "be-polite",
+      "unit": 6,
+      "level": "A2",
+      "title": "Ask politely",
+      "summary": "Make polite requests at a hotel, a restaurant or on the phone: “I'd like…”, “Could you…?”, “Would it be possible…?”.",
+      "topic": "The conditional ({{gostaria, poderia, seria}}); {{queria}} and {{ia}} for “would” in speech; three levels of polite",
+      "blocks": [
+        {"goal":{"t":"Eu gostaria de reservar uma mesa para quatro, por favor.","tr":"I'd like to reserve a table for four, please."}},
+        {"dialog":[{"who":"Restaurant","t":"Restaurante Sabor da Terra, boa noite.","tr":"Sabor da Terra restaurant, good evening."},{"who":"You","t":"Boa noite! Eu gostaria de reservar uma mesa para sábado.","tr":"Good evening! I'd like to reserve a table for Saturday."},{"who":"Restaurant","t":"Pois não. Para quantas pessoas?","tr":"Certainly. For how many people?"},{"who":"You","t":"Quatro. Seria possível às oito?","tr":"Four. Would eight o'clock be possible?"},{"who":"Restaurant","t":"Às oito está cheio. Poderia ser às nove?","tr":"We're full at eight. Could it be at nine?"},{"who":"You","t":"Pode ser, sim. Obrigado!","tr":"That works, yes. Thanks!"}]},
+        {"term":"conditional","means":"the form of a verb for what would happen, and for being polite: I would like, could you…?"},
+        {"p":"**Softer requests.** Portuguese makes “would” with the infinitive plus {{-ia}}. It sounds polite and a little formal: it's what you use on the phone, at a hotel, with a stranger."},
+        { "table": [
+          ["","conditional","English"],
+          ["{{gostar}}","{{eu gostaria de…}}","I would like to…"],
+          ["{{poder}}","{{você poderia…?}}","could you…?"],
+          ["{{ser}}","{{seria possível…?}}","would it be possible…?"],
+          ["{{dever}}","{{você deveria…}}","you should…"],
+          ["{{fazer}}","{{eu faria}}","I would do"],
+          ["{{dizer}}","{{eu diria}}","I would say"]
+        ] },
+        {"p":"The endings are the same for every verb: {{eu gostaria}}, {{você gostaria}}, {{nós gostaríamos}}, {{eles gostariam}}. Only three are irregular: {{fazer}} → {{faria}}, {{dizer}} → {{diria}}, {{trazer}} → {{traria}}."},
+        {"p":"**Three levels of polite.** From plain to formal:"},
+        { "table": [
+          ["","Portuguese"],
+          ["plain","{{Quero um quarto.}}"],
+          ["polite, everyday","{{Queria um quarto.}}"],
+          ["polite, formal","{{Gostaria de um quarto.}}"]
+        ] },
+        {"p":"{{Queria}}, from lesson 4, is a past form used as a soft “I'd like”. In speech, Brazilians often use this kind of past for “would” in general: {{Eu ia adorar}} “I'd love it”, instead of {{Eu adoraria}}."},
+        {"p":"**Asking politely.** {{Você poderia…?}} “Could you…?”, {{Seria possível…?}} “Would it be possible…?”, {{Você se importa de…?}} “Do you mind…?”, {{Por gentileza}} “Kindly” (very polite)."},
+        { "ex": [
+          {"t":"Você poderia me ajudar com as malas?","tr":"Could you help me with the suitcases?"},
+          {"t":"Seria possível trocar de quarto?","tr":"Would it be possible to change rooms?"},
+          {"t":"Gostaria de falar com o gerente.","tr":"I'd like to speak with the manager."},
+          {"t":"Por gentileza, onde fica o banheiro?","tr":"Excuse me, could you tell me where the restroom is?"},
+          {"t":"Eu faria isso com prazer.","tr":"I'd do that with pleasure."},
+          {"t":"Eu ia adorar ir com vocês!","tr":"I'd love to go with you!","note":"everyday speech: {{ia}} for “would”"}
+        ] },
+        {"tip":"{{Pode ser}} (“it can be”) is the easy way to accept a suggestion: {{Às nove? — Pode ser!}} “At nine? — Sure, that works!”"}
+      ],
+      "mistakes": [
+        {"wrong":"Gostaria um café.","right":"Gostaria de um café.","tr":"I'd like a coffee.","why":"{{Gostar}} always takes {{de}}, in the conditional too."},
+        {"wrong":"Você poderia de me ajudar?","right":"Você poderia me ajudar?","tr":"Could you help me?","why":"{{Poder}} takes the infinitive directly."},
+        {"wrong":"Eu fazeria isso.","right":"Eu faria isso.","tr":"I would do that.","why":"{{Fazer}} is irregular: {{faria}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu ___ de reservar um quarto.","tr":"I'd like to book a room.","options":["gostaria","gosto","gostava"],"answer":0,"why":"“I would like”: {{gostaria}}. ({{Gostava}} is “I used to like”.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Você ___ falar mais devagar?","tr":"Could you speak more slowly?","options":["poderia","poderá","pôde"],"answer":0,"why":"“Could you…?”: {{poderia}}."},
+        {"type":"choice","q":"Which is the most formal way to ask for a room?","options":["{{Gostaria de um quarto, por favor.}}","{{Queria um quarto.}}","{{Quero um quarto.}}"],"answer":0,"why":"{{Gostaria de}} is the most formal; {{queria}} is polite and everyday.","from":"ask-for-what-you-want"},
+        {"type":"dialogue","q":"At a hotel: choose your replies.","from":"say-what-is-happening-now","lines":[{"who":"Receptionist","t":"Boa tarde! Em que posso ajudar?","tr":"Good afternoon! How can I help?"},{"options":["Boa tarde! Seria possível trocar de quarto?","Boa tarde! Seria possível de trocar de quarto?"],"answer":0,"why":"{{Seria possível}} + infinitive, with nothing in between."},{"who":"Receptionist","t":"Claro. Qual é o problema?","tr":"Of course. What's the problem?"},{"options":["O ar-condicionado não está funcionando.","O ar-condicionado não é funcionando."],"answer":0,"why":"What's happening now: {{estar}} + {{-ndo}}."},{"who":"Receptionist","t":"Sinto muito! Vou resolver agora.","tr":"I'm so sorry! I'll sort it out right away."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Could you help me with the suitcases?","words":["Você","poderia","me","ajudar","com as malas?"]},
+        {"type":"say","q":"How do you say “I'd like to speak with the manager”?","answer":"Gostaria de falar com o gerente."},
+        {"type":"free","q":"Your turn: you're calling a hotel. Ask politely for something you need.","answers":[{"t":"Boa noite! Gostaria de reservar um quarto para duas pessoas. Seria possível com vista para o mar?","tr":"Good evening! I'd like to book a room for two. Would it be possible with a sea view?"},{"t":"Oi, você poderia me dizer que horas é o café da manhã?","tr":"Hi, could you tell me what time breakfast is?"}]}
+      ]
     }
   ]
 }
