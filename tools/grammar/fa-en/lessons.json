@@ -1571,6 +1571,246 @@
         {"type":"say","q":"بگویید: «قبلاً سر این نبش یک نانوایی بود.»","answer":"There used to be a bakery on this corner.","from":"say-what-there-is"},
         {"type":"free","q":"نوبت شماست: دو کار بگویید که در کودکی می‌کردید و حالا نمی‌کنید، و یک کار که آن موقع نمی‌کردید.","answers":[{"t":"I used to play in the street with my cousins, and I used to eat a lot of candy. I didn't use to like reading.","tr":"با بچه‌های فامیل توی کوچه بازی می‌کردم و کلی آب‌نبات می‌خوردم. آن موقع کتاب خواندن دوست نداشتم."},{"t":"When I was young, I used to go to the mountains every Friday.","tr":"جوان که بودم، هر جمعه کوه می‌رفتم."}]}
       ]
+    },
+    {
+      "id": "talk-about-experiences",
+      "unit": 6,
+      "level": "A2",
+      "title": "از تجربه‌هایتان بگویید",
+      "summary": "بپرسید {{Have you ever been to New York?}} و بگویید {{I've never tried sushi}}: حال کامل برای تجربه‌ها.",
+      "topic": "حال کامل: {{have}} یا {{has}} + اسم مفعول ({{been}}، {{seen}}، {{eaten}})؛ {{ever}} و {{never}}؛ {{been to}}؛ در برابر گذشتهٔ ساده",
+      "blocks": [
+        {"goal":{"t":"Have you ever been to New York? No, I've never been there.","tr":"تا حالا نیویورک رفته‌ای؟ نه، هیچ‌وقت نرفته‌ام."}},
+        {"dialog":[{"who":"امیلی","t":"Have you ever tried American barbecue?","tr":"تا حالا باربیکیوی آمریکایی امتحان کرده‌ای؟"},{"who":"رضا","t":"No, I haven't. Is it good?","tr":"نه. خوب است؟"},{"who":"امیلی","t":"It's amazing! Have you ever been to Texas?","tr":"فوق‌العاده است! تا حالا تگزاس رفته‌ای؟"},{"who":"رضا","t":"Yes, I have. I went there in 2022, but I didn't eat barbecue!","tr":"آره. سال ۲۰۲۲ رفتم، ولی باربیکیو نخوردم!"},{"who":"امیلی","t":"Then we have to go to a barbecue place this weekend!","tr":"پس این آخر هفته باید برویم یک رستوران باربیکیو!"}]},
+        {"p":"**تجربه‌ها: حال کامل.** برای چیزهایی که تا امروز در زندگی‌تان پیش آمده، بدون گفتن زمانش، انگلیسی {{have}} + اسم مفعول می‌گوید: {{I've seen that movie.}} «آن فیلم را دیده‌ام». این خیلی شبیه «دیده‌ام» فارسی است: خبر خوب!"},
+        {"term":"اسم مفعول","means":"شکل سوم فعل که در زمان‌های کامل می‌آید، مثل «رفته» و «دیده» در فارسی: {{gone}}، {{seen}}، {{worked}}."},
+        {"p":"**ساختنش.** {{have}} (و با «او»، {{has}}) + اسم مفعول. فعل‌های باقاعده همان شکل {{-ed}} را دارند: {{work}} → {{worked}}. فعل‌های بی‌قاعده شکل سوم خودشان را دارند: {{see}} → {{seen}}، {{eat}} → {{eaten}}، {{go}} → {{gone}}، {{be}} → {{been}}."},
+        { "table": [
+          ["فعل","گذشته","اسم مفعول"],
+          ["{{be}}","{{was}}، {{were}}","{{been}}"],
+          ["{{go}}","{{went}}","{{gone}}"],
+          ["{{see}}","{{saw}}","{{seen}}"],
+          ["{{eat}}","{{ate}}","{{eaten}}"],
+          ["{{do}}","{{did}}","{{done}}"],
+          ["{{try}}","{{tried}}","{{tried}}"],
+          ["{{meet}}","{{met}}","{{met}}"]
+        ] },
+        {"p":"**{{ever}} و {{never}}.** {{Have you ever…?}} یعنی «تا حالا … ؟»: {{Have you ever been to Iran?}}، و جواب: {{Yes, I have.}} یا {{No, I haven't.}} {{never}} «هیچ‌وقت» با فعل مثبت می‌آید، چون یک منفی کافی است: {{I've never been to Iran.}}"},
+        {"p":"**{{been to}} یعنی «رفته‌ام».** «تا حالا پاریس رفته‌ای؟» در انگلیسی {{Have you been to Paris?}} است. ({{He has gone to Paris}} یعنی «رفته و هنوز آنجاست».)"},
+        {"p":"**زمان را گفتید؟ گذشتهٔ ساده.** وقتی زمان را می‌گویید ({{in 2022}}، {{last year}}، {{yesterday}})، حال کامل نمی‌آید: {{I went to Texas in 2022.}}، نه {{I have been to Texas in 2022.}}"},
+        { "ex": [
+          {"t":"I've seen this movie three times.","tr":"این فیلم را سه بار دیده‌ام."},
+          {"t":"Have you ever eaten sushi?","tr":"تا حالا سوشی خورده‌ای؟"},
+          {"t":"She has never been on a plane.","tr":"هیچ‌وقت سوار هواپیما نشده است."},
+          {"t":"We've lived in three different countries.","tr":"در سه کشور مختلف زندگی کرده‌ایم."},
+          {"t":"I've met him before.","tr":"قبلاً با او آشنا شده‌ام."},
+          {"t":"I visited Rome last year.","tr":"پارسال به رم رفتم.","note":"زمان گفته شده، پس گذشتهٔ ساده"}
+        ] },
+        {"tip":"شکل‌های کوتاه رایج‌اند: {{I've}}، {{you've}}، {{she's}} ({{she has}})، {{haven't}}، {{hasn't}}. {{she's}} می‌تواند {{she is}} یا {{she has}} باشد: {{She's been}} یعنی {{She has been}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I have been to Texas last year.","right":"I went to Texas last year.","tr":"پارسال تگزاس رفتم.","why":"با یک زمان معین در گذشته ({{last year}})، گذشتهٔ ساده."},
+        {"wrong":"Have you ever ate sushi?","right":"Have you ever eaten sushi?","tr":"تا حالا سوشی خورده‌ای؟","why":"بعد از {{have}}، اسم مفعول: {{eaten}}."},
+        {"wrong":"I haven't never been there.","right":"I've never been there.","tr":"هیچ‌وقت آنجا نرفته‌ام.","why":"{{never}} خودش منفی است؛ منفی دوم لازم نیست."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Have you ever ___ to Canada?","tr":"تا حالا کانادا رفته‌ای؟","options":["been","went","go"],"answer":0,"why":"«رفته‌ای» در حال کامل: {{been to}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I've never ___ this dish.","tr":"هیچ‌وقت این غذا را امتحان نکرده‌ام.","options":["tried","try","tryed"],"answer":0,"why":"اسم مفعول {{try}}: {{tried}}."},
+        {"type":"choice","q":"کدام درست است؟","options":["{{I saw that movie last week.}}","{{I have seen that movie last week.}}","{{I have saw that movie.}}"],"answer":0,"why":"با {{last week}}، گذشتهٔ ساده."},
+        {"type":"dialogue","q":"یک دوست آمریکایی دربارهٔ تجربه‌هایتان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"tell-what-happened","lines":[{"who":"امیلی","t":"Have you been to the US before?","tr":"قبلاً آمریکا آمده‌ای؟"},{"options":["Yes, I have. I came here in 2019.","Yes, I have. I have come here in 2019."],"answer":0,"why":"{{Yes, I have}}؛ اما با {{in 2019}}، گذشتهٔ ساده."},{"who":"امیلی","t":"Have you ever seen snow in New York?","tr":"تا حالا برف نیویورک را دیده‌ای؟"},{"options":["No, I've never seen it.","No, I've never saw it."],"answer":0,"why":"بعد از {{have}}: {{seen}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"تا حالا سوشی خورده‌ای؟","words":["Have","you","ever","eaten","sushi?"]},
+        {"type":"say","q":"بگویید: «هیچ‌وقت آنجا نرفته‌ام.»","answer":"I've never been there."},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که در زندگی کرده‌اید و یک کار که هیچ‌وقت نکرده‌اید، و از کسی بپرسید {{Have you ever…?}}","answers":[{"t":"I've been to Turkey and I've climbed Damavand, but I've never been on a boat. Have you ever been to Iran?","tr":"ترکیه رفته‌ام و از دماوند بالا رفته‌ام، ولی هیچ‌وقت سوار قایق نشده‌ام. تو تا حالا ایران رفته‌ای؟"},{"t":"I've met a lot of interesting people. I've never tried skiing. Have you ever tried it?","tr":"با آدم‌های جالب زیادی آشنا شده‌ام. هیچ‌وقت اسکی نکرده‌ام. تو تا حالا امتحانش کرده‌ای؟"}]}
+      ]
+    },
+    {
+      "id": "say-how-long",
+      "unit": 6,
+      "level": "A2",
+      "title": "بگویید چند وقت است",
+      "summary": "بگویید {{I've lived here for two years}} و {{since 2020}}، و بپرسید {{How long have you been learning English?}}",
+      "topic": "حال کامل با {{for}} و {{since}} (نه حال ساده)؛ {{How long have you…?}}؛ حال کامل استمراری ({{I've been learning}})",
+      "blocks": [
+        {"goal":{"t":"I've lived in Toronto for three years.","tr":"سه سال است که در تورنتو زندگی می‌کنم."}},
+        {"dialog":[{"who":"لیزا","t":"Your English is really good! How long have you been learning it?","tr":"انگلیسی‌ات خیلی خوب است! چند وقت است که یادش می‌گیری؟"},{"who":"علی","t":"Thanks! I've been learning it for four years.","tr":"ممنون! چهار سال است."},{"who":"لیزا","t":"And how long have you lived in Boston?","tr":"چند وقت است که در بوستون زندگی می‌کنی؟"},{"who":"علی","t":"Since 2022. I came here for my job.","tr":"از سال ۲۰۲۲. برای کارم آمدم."},{"who":"لیزا","t":"Do you like it?","tr":"دوستش داری؟"},{"who":"علی","t":"Yes, but I've missed Persian food since the day I arrived!","tr":"آره، ولی از روزی که رسیدم دلم برای غذای ایرانی تنگ شده!"}]},
+        {"p":"**«دو سال است که…»: حال کامل.** فارسی برای کاری که از گذشته شروع شده و هنوز ادامه دارد حال ساده را می‌آورد: «دو سال است که اینجا **زندگی می‌کنم**». انگلیسی حال کامل می‌گوید: {{I've lived here for two years.}} {{I live here for two years}} از رایج‌ترین اشتباه‌های فارسی‌زبان‌هاست."},
+        {"p":"**{{for}} یا {{since}}؟** {{for}} + مدت: {{for two years}}، {{for a long time}}. {{since}} + نقطهٔ شروع: {{since 2020}}، {{since Monday}}، {{since I was a child}}. فارسی برای هر دو «… است که» یا «از» دارد."},
+        { "table": [
+          ["فارسی","انگلیسی"],
+          ["دو سال است که اینجا هستم.","{{I've been here for two years.}}"],
+          ["از سال ۲۰۲۰ اینجا هستم.","{{I've been here since 2020.}}"],
+          ["چند وقت است که اینجایی؟","{{How long have you been here?}}"],
+          ["از وقتی که بچه بودم","{{since I was a child}}"]
+        ] },
+        {"p":"**«از مدتی پیش دارم … می‌کنم»: حال کامل استمراری.** برای کاری که از گذشته شروع شده و همین الان هم در جریان است: {{have been}} + {{-ing}}: {{I've been waiting for an hour!}} «یک ساعت است منتظرم!»، {{She's been studying since nine.}} «از ساعت نه دارد درس می‌خواند». با فعل‌های حالت ({{know}}، {{be}}، {{have}}) همان حال کامل ساده کافی است: {{I've known him for years.}}"},
+        {"p":"**تمام شده؟ گذشتهٔ ساده.** اگر آن دوره تمام شده است: {{I lived in Shiraz for two years.}} «دو سال در شیراز زندگی کردم» (و حالا آنجا نیستم)."},
+        { "ex": [
+          {"t":"I've known her for ten years.","tr":"ده سال است که او را می‌شناسم."},
+          {"t":"We've been married since 2015.","tr":"از سال ۲۰۱۵ ازدواج کرده‌ایم."},
+          {"t":"How long have you worked here?","tr":"چند وقت است که اینجا کار می‌کنی؟"},
+          {"t":"I've been waiting for you for an hour!","tr":"یک ساعت است که منتظرت هستم!"},
+          {"t":"It's been raining since this morning.","tr":"از صبح باران می‌آید."},
+          {"t":"I haven't seen him for a long time.","tr":"خیلی وقت است او را ندیده‌ام."}
+        ] },
+        {"tip":"{{It's been a long time!}} «چه عجب! خیلی وقت است همدیگر را ندیده‌ایم!» جملهٔ معروف دیدن یک دوست قدیمی است."}
+      ],
+      "mistakes": [
+        {"wrong":"I live here for two years.","right":"I've lived here for two years.","tr":"دو سال است که اینجا زندگی می‌کنم.","why":"کاری که از گذشته تا حالا ادامه دارد: حال کامل."},
+        {"wrong":"I've been here since two years.","right":"I've been here for two years.","tr":"دو سال است که اینجا هستم.","why":"با مدت: {{for}}؛ {{since}} برای نقطهٔ شروع است."},
+        {"wrong":"How long are you here?","right":"How long have you been here?","tr":"چند وقت است اینجایی؟","why":"«چند وقت است» با حال کامل: {{How long have you been…?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I've lived in this city ___ 2018.","tr":"از سال ۲۰۱۸ در این شهر زندگی می‌کنم.","options":["since","for","from"],"answer":0,"why":"نقطهٔ شروع: {{since}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"She's worked here ___ five years.","tr":"پنج سال است که اینجا کار می‌کند.","options":["for","since","ago"],"answer":0,"why":"مدت: {{for}}."},
+        {"type":"choice","q":"«سه ماه است که انگلیسی یاد می‌گیرم»:","options":["{{I've been learning English for three months.}}","{{I learn English since three months.}}","{{I'm learning English three months ago.}}"],"answer":0,"why":"از گذشته تا حالا، و هنوز ادامه دارد: {{have been}} + {{-ing}}، با {{for}}."},
+        {"type":"dialogue","q":"در یک مهمانی کسی از شما سؤال می‌کند. جواب‌هایتان را انتخاب کنید.","from":"talk-about-experiences","lines":[{"who":"لیزا","t":"How long have you been in the US?","tr":"چند وقت است که در آمریکا هستی؟"},{"options":["I've been here for six months.","I'm here since six months."],"answer":0,"why":"حال کامل، با {{for}}."},{"who":"لیزا","t":"Have you made a lot of friends?","tr":"دوست زیادی پیدا کرده‌ای؟"},{"options":["Yes, I have. I've met some great people.","Yes, I did. I've meet some great people."],"answer":0,"why":"{{Yes, I have}}، و اسم مفعول {{met}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"ده سال است که او را می‌شناسم.","words":["I've","known","her","for","ten","years."]},
+        {"type":"say","q":"بپرسید: «چند وقت است اینجا کار می‌کنید؟»","answer":"How long have you worked here?","from":"ask-about-someones-life"},
+        {"type":"free","q":"نوبت شماست: بگویید چند وقت است که کارهایی را انجام می‌دهید: جایی که زندگی می‌کنید، کارتان، یک سرگرمی. با {{for}} و {{since}}.","answers":[{"t":"I've lived in Tehran since 2010. I've been a teacher for eight years, and I've been learning English for two years.","tr":"از سال ۲۰۱۰ در تهران زندگی می‌کنم. هشت سال است که معلمم و دو سال است که انگلیسی یاد می‌گیرم."},{"t":"I've played the guitar since I was a child.","tr":"از بچگی گیتار می‌زنم."}]}
+      ]
+    },
+    {
+      "id": "say-what-youve-just-done",
+      "unit": 6,
+      "level": "A2",
+      "title": "بگویید تازه چه کرده‌اید و چه نکرده‌اید",
+      "summary": "بگویید {{I've just arrived}} و {{I've already eaten}}، و بپرسید {{Have you finished yet?}}",
+      "topic": "حال کامل با {{just}}، {{already}} و {{yet}}؛ جای این کلمه‌ها در جمله",
+      "blocks": [
+        {"goal":{"t":"I've just arrived at the airport, but my bag hasn't come out yet.","tr":"تازه به فرودگاه رسیده‌ام، ولی چمدانم هنوز بیرون نیامده."}},
+        {"dialog":[{"who":"مینا","t":"Are you hungry? Dinner's ready.","tr":"گرسنه‌ای؟ شام حاضر است."},{"who":"تام","t":"No, thanks. I've already eaten.","tr":"نه، ممنون. شام خورده‌ام."},{"who":"مینا","t":"Oh! Have you finished your report yet?","tr":"آه! گزارشت را تمام کرده‌ای؟"},{"who":"تام","t":"Not yet. I've just started it!","tr":"هنوز نه. تازه شروعش کرده‌ام!"},{"who":"مینا","t":"It's due tomorrow!","tr":"فردا باید تحویلش بدهی!"},{"who":"تام","t":"I know, I know…","tr":"می‌دانم، می‌دانم…"}]},
+        {"p":"**{{just}}: «تازه، همین الان».** بین {{have}} و اسم مفعول می‌آید: {{I've just arrived.}} «تازه رسیده‌ام». {{She's just left.}} «همین الان رفت»."},
+        {"p":"**{{already}}: «دیگر، قبلاً».** برای کاری که زودتر از انتظار انجام شده: {{I've already eaten.}} «غذا خورده‌ام دیگر». جایش هم بین {{have}} و اسم مفعول است."},
+        {"p":"**{{yet}}: «هنوز» در منفی و «تا حالا» در سؤال.** {{yet}} آخر جمله می‌آید: {{I haven't finished yet.}} «هنوز تمام نکرده‌ام»، {{Have you finished yet?}} «تمام کرده‌ای؟». فارسی «هنوز» را اول یا وسط جمله می‌گذارد؛ انگلیسی {{yet}} را آخر."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["تازه","{{I've just eaten.}}","تازه غذا خورده‌ام."],
+          ["دیگر، قبلاً","{{I've already eaten.}}","غذا خورده‌ام دیگر."],
+          ["هنوز نه","{{I haven't eaten yet.}}","هنوز غذا نخورده‌ام."],
+          ["تا حالا؟","{{Have you eaten yet?}}","غذا خورده‌ای؟"],
+          ["جواب کوتاه","{{Not yet.}}","هنوز نه."]
+        ] },
+        {"p":"**در آمریکا** با {{just}}، {{already}} و {{yet}} گذشتهٔ ساده هم خیلی رایج است: {{I just ate.}}، {{Did you eat yet?}} هر دو را می‌شنوید؛ حال کامل همیشه درست است."},
+        { "ex": [
+          {"t":"The movie has just started.","tr":"فیلم تازه شروع شده."},
+          {"t":"I've already paid.","tr":"پولش را داده‌ام."},
+          {"t":"Has the doctor called yet?","tr":"دکتر زنگ زده؟"},
+          {"t":"We haven't decided yet.","tr":"هنوز تصمیم نگرفته‌ایم."},
+          {"t":"Have you done your homework yet? Not yet!","tr":"تکلیفت را انجام داده‌ای؟ هنوز نه!"},
+          {"t":"She's just had a baby!","tr":"تازه بچه‌دار شده!"}
+        ] },
+        {"tip":"{{Not yet.}} «هنوز نه» جواب کوتاه و خیلی پرکاربردی است."}
+      ],
+      "mistakes": [
+        {"wrong":"I yet haven't finished.","right":"I haven't finished yet.","tr":"هنوز تمام نکرده‌ام.","why":"{{yet}} آخر جمله می‌آید."},
+        {"wrong":"I have already ate.","right":"I have already eaten.","tr":"غذا خورده‌ام.","why":"بعد از {{have}}، اسم مفعول: {{eaten}}."},
+        {"wrong":"Still I haven't seen it.","right":"I haven't seen it yet.","tr":"هنوز آن را ندیده‌ام.","why":"«هنوز» در جملهٔ منفی معمولاً {{yet}} است، آخر جمله."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I haven't finished my report ___.","tr":"هنوز گزارشم را تمام نکرده‌ام.","options":["yet","already","just"],"answer":0,"why":"منفی: {{yet}}، آخر جمله."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Don't worry, I've ___ called him.","tr":"نگران نباش، به او زنگ زده‌ام.","options":["already","yet","since"],"answer":0,"why":"زودتر از انتظار انجام شده: {{already}}."},
+        {"type":"choice","q":"دوستتان همین الان رسیده و می‌گوید:","options":["{{I've just arrived.}}","{{I've arrived just.}}","{{I just have arrived yet.}}"],"answer":0,"why":"{{just}} بین {{have}} و اسم مفعول."},
+        {"type":"dialogue","q":"همکارتان دربارهٔ کارها می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-how-long","lines":[{"who":"لیزا","t":"Have you sent the email to the client yet?","tr":"ایمیل را برای مشتری فرستاده‌ای؟"},{"options":["Yes, I've already sent it.","Yes, I've sent it yet."],"answer":0,"why":"در جملهٔ مثبت: {{already}}."},{"who":"لیزا","t":"Great. And has he answered?","tr":"عالی. جواب داده؟"},{"options":["Not yet. I've just sent it!","Not already. I just have sent it!"],"answer":0,"why":"«هنوز نه»: {{Not yet}}؛ «تازه»: {{I've just…}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"هنوز تصمیم نگرفته‌ایم.","words":["We","haven't","decided","yet."]},
+        {"type":"say","q":"بپرسید: «غذا خورده‌ای؟» (با {{yet}})","answer":"Have you eaten yet?","from":"talk-about-experiences"},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که امروز کرده‌اید ({{already}} یا {{just}}) و یک کار که هنوز نکرده‌اید ({{yet}}).","answers":[{"t":"I've already been to the gym and I've just had lunch, but I haven't called my mother yet.","tr":"باشگاه رفته‌ام و تازه ناهار خورده‌ام، ولی هنوز به مادرم زنگ نزده‌ام."},{"t":"I've just finished work. I haven't cooked dinner yet!","tr":"تازه کارم تمام شده. هنوز شام درست نکرده‌ام!"}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "چیزها را با هم مقایسه کنید",
+      "summary": "بگویید {{Tehran is bigger than Shiraz}}، {{the best restaurant in town}} و {{as tall as his brother}}.",
+      "topic": "{{-er than}} و {{more … than}}؛ {{the -est}} و {{the most}}؛ {{better}} و {{best}}؛ {{as … as}}؛ {{than}}، نه {{from}}",
+      "blocks": [
+        {"goal":{"t":"New York is bigger than Boston, but Boston is quieter.","tr":"نیویورک از بوستون بزرگ‌تر است، ولی بوستون آرام‌تر است."}},
+        {"dialog":[{"who":"فروشنده","t":"This phone is lighter than that one.","tr":"این گوشی از آن یکی سبک‌تر است."},{"who":"شما","t":"But it's more expensive, right?","tr":"ولی گران‌تر است، نه؟"},{"who":"فروشنده","t":"Yes, a little. But the camera is much better.","tr":"بله، کمی. ولی دوربینش خیلی بهتر است."},{"who":"شما","t":"What's your cheapest phone?","tr":"ارزان‌ترین گوشی‌تان کدام است؟"},{"who":"فروشنده","t":"This one. But that one is the best phone in the store!","tr":"این یکی. ولی آن یکی بهترین گوشی فروشگاه است!"}]},
+        {"p":"**«ـتر از»: {{-er than}}.** صفت‌های کوتاه {{-er}} می‌گیرند: {{big}} → {{bigger}}، {{cheap}} → {{cheaper}}. «از» در مقایسه {{than}} است، **نه {{from}}**: {{Tehran is bigger than Shiraz.}} «تهران از شیراز بزرگ‌تر است». ترتیب هم فرق دارد: فارسی «از شیراز» را قبل از صفت می‌گذارد، انگلیسی {{than Shiraz}} را بعد از آن."},
+        {"term":"صفت تفضیلی","means":"شکلی از صفت که دو چیز را با هم مقایسه می‌کند: بزرگ‌تر، گران‌تر؛ {{bigger}}، {{more expensive}}."},
+        {"p":"**صفت‌های بلند: {{more}}.** بیشتر صفت‌های دو یا چند هجایی {{-er}} نمی‌گیرند و {{more}} قبلشان می‌آید: {{expensive}} → {{more expensive}}، {{beautiful}} → {{more beautiful}}. هیچ‌وقت هر دو را با هم نیاورید: {{more bigger}} غلط است."},
+        {"p":"**«ـترین»: {{the -est}} و {{the most}}.** {{the biggest city}} «بزرگ‌ترین شهر»، {{the most expensive hotel}} «گران‌ترین هتل». {{the}} لازم است، و «در» بعدش معمولاً {{in}} است: {{the best restaurant in town}} «بهترین رستوران شهر»."},
+        { "table": [
+          ["صفت","ـتر","ـترین"],
+          ["{{big}}","{{bigger}}","{{the biggest}}"],
+          ["{{cheap}}","{{cheaper}}","{{the cheapest}}"],
+          ["{{easy}}","{{easier}}","{{the easiest}}"],
+          ["{{expensive}}","{{more expensive}}","{{the most expensive}}"],
+          ["{{good}}","{{better}}","{{the best}}"],
+          ["{{bad}}","{{worse}}","{{the worst}}"]
+        ] },
+        {"p":"**«به اندازهٔ»: {{as … as}}.** {{He's as tall as his brother.}} «به اندازهٔ برادرش قدبلند است». منفی: {{not as … as}}: {{It's not as hot as yesterday.}} «به گرمی دیروز نیست»."},
+        { "ex": [
+          {"t":"This book is more interesting than that one.","tr":"این کتاب از آن یکی جالب‌تر است."},
+          {"t":"It's colder today than yesterday.","tr":"امروز هوا از دیروز سردتر است."},
+          {"t":"Where's the best pizza in town?","tr":"بهترین پیتزای شهر کجاست؟"},
+          {"t":"My sister is two years older than me.","tr":"خواهرم دو سال از من بزرگ‌تر است.","note":"بعد از {{than}}، در حرف زدن {{me}}"},
+          {"t":"This is the most beautiful place I've ever seen.","tr":"این زیباترین جایی است که تا حالا دیده‌ام."},
+          {"t":"The train is not as fast as the plane.","tr":"قطار به سرعت هواپیما نیست."}
+        ] },
+        {"tip":"«خیلی» قبل از صفت تفضیلی {{much}} است: {{much bigger}} «خیلی بزرگ‌تر»، نه {{very bigger}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Tehran is bigger from Shiraz.","right":"Tehran is bigger than Shiraz.","tr":"تهران از شیراز بزرگ‌تر است.","why":"«از» در مقایسه {{than}} است، نه {{from}}."},
+        {"wrong":"This phone is more better.","right":"This phone is better.","tr":"این گوشی بهتر است.","why":"{{better}} خودش «بهتر» است؛ {{more}} لازم نیست."},
+        {"wrong":"It's very cheaper.","right":"It's much cheaper.","tr":"خیلی ارزان‌تر است.","why":"قبل از صفت تفضیلی، «خیلی» یعنی {{much}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"My brother is taller ___ me.","tr":"برادرم از من قدبلندتر است.","options":["than","from","as"],"answer":0,"why":"«از» در مقایسه: {{than}}."},
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"This is the ___ restaurant in town.","tr":"این بهترین رستوران شهر است.","options":["best","better","most good"],"answer":0,"why":"«بهترین»: {{the best}}."},
+        {"type":"choice","q":"«گران‌تر» برای {{expensive}}:","options":["{{more expensive}}","{{expensiver}}","{{more expensiver}}"],"answer":0,"why":"صفت بلند: {{more}} + صفت."},
+        {"type":"dialogue","q":"با یک دوست هتل انتخاب می‌کنید. جواب‌هایتان را انتخاب کنید.","from":"say-what-there-is","lines":[{"who":"دوست","t":"This hotel or that one?","tr":"این هتل یا آن یکی؟"},{"options":["This one is cheaper, but that one is closer to the beach.","This one is more cheap, but that one is more close from the beach."],"answer":0,"why":"صفت کوتاه: {{-er}}؛ و {{closer to}}."},{"who":"دوست","t":"Is there a pool?","tr":"استخر دارد؟"},{"options":["Yes, and it has the best breakfast in the city!","Yes, and it has the better breakfast of the city!"],"answer":0,"why":"«بهترین … شهر»: {{the best … in the city}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"امروز هوا از دیروز سردتر است.","words":["It's","colder","today","than","yesterday."]},
+        {"type":"say","q":"بگویید: «تهران از شیراز بزرگ‌تر است.»","answer":"Tehran is bigger than Shiraz."},
+        {"type":"free","q":"نوبت شماست: دو شهر یا دو نفر را که می‌شناسید مقایسه کنید، با {{-er than}} یا {{more … than}}، و یک {{the -est}} هم بگویید.","answers":[{"t":"Isfahan is older than Tehran, and it's more beautiful. Tehran is the biggest city in Iran.","tr":"اصفهان از تهران قدیمی‌تر و زیباتر است. تهران بزرگ‌ترین شهر ایران است."},{"t":"My brother is taller than me, but I'm older. He's the funniest person in our family.","tr":"برادرم از من قدبلندتر است، ولی من بزرگ‌ترم. او بامزه‌ترین آدم خانوادهٔ ماست."}]}
+      ]
+    },
+    {
+      "id": "talk-about-amounts",
+      "unit": 6,
+      "level": "A2",
+      "title": "از مقدارها حرف بزنید",
+      "summary": "بگویید {{some water}}، {{a lot of friends}} و {{not much time}}، و بپرسید {{How much…?}}: اسم‌های شمردنی و ناشمردنی.",
+      "topic": "اسم شمردنی و ناشمردنی؛ {{some}} و {{any}}؛ {{much}}، {{many}} و {{a lot of}}؛ {{a few}} و {{a little}}؛ {{information}} و {{advice}}",
+      "blocks": [
+        {"goal":{"t":"I need some information, but I don't have much time.","tr":"کمی اطلاعات لازم دارم، ولی وقت زیادی ندارم."}},
+        {"dialog":[{"who":"مینا","t":"Do we have any eggs?","tr":"تخم‌مرغ داریم؟"},{"who":"تام","t":"Yes, a few. And we have some milk.","tr":"آره، چند تا. شیر هم داریم."},{"who":"مینا","t":"How much flour do we have?","tr":"چقدر آرد داریم؟"},{"who":"تام","t":"Not much. Just a little.","tr":"زیاد نه. فقط کمی."},{"who":"مینا","t":"OK, we need to buy flour and a lot of sugar. I'm making a big cake!","tr":"باشد، باید آرد و کلی شکر بخریم. می‌خواهم یک کیک بزرگ درست کنم!"}]},
+        {"p":"**شمردنی و ناشمردنی.** بعضی اسم‌ها شمرده می‌شوند ({{one egg}}، {{two eggs}}) و بعضی نه: {{water}}، {{milk}}، {{money}}، {{time}}، {{bread}}. اسم ناشمردنی جمع نمی‌شود و {{a}} نمی‌گیرد: {{some water}}، نه {{a water}} یا {{waters}}."},
+        {"term":"اسم ناشمردنی","means":"اسمی که شمرده نمی‌شود و جمع ندارد: {{water}}، {{money}}، {{information}}."},
+        {"p":"**تله‌ها: {{information}}، {{advice}}، {{furniture}}، {{news}}.** «اطلاعات» در فارسی جمع است، اما {{information}} در انگلیسی ناشمردنی است: {{some information}}، نه {{informations}}. همین‌طور {{advice}} «توصیه، نصیحت»، {{furniture}} «اثاث»، {{homework}} «تکلیف»، و {{news}} «خبر»، که فعلش مفرد است: {{The news is good.}} برای یکی: {{a piece of advice}}."},
+        {"p":"**{{some}} و {{any}}.** {{some}} «کمی، چند تا» در جملهٔ مثبت؛ {{any}} در سؤال و منفی: {{Do we have any milk?}} «شیر داریم؟»، {{We don't have any milk.}} «هیچ شیری نداریم». در پیشنهاد و خواهش، {{some}}: {{Would you like some tea?}}"},
+        {"p":"**زیاد و کم.** با شمردنی‌ها {{many}} «زیاد» و {{a few}} «چند تا»؛ با ناشمردنی‌ها {{much}} «زیاد» و {{a little}} «کمی». {{a lot of}} «کلی، خیلی» برای هر دو است و در جملهٔ مثبت از همه رایج‌تر: {{a lot of friends}}، {{a lot of money}}. {{much}} بیشتر در منفی و سؤال می‌آید: {{I don't have much time.}}"},
+        { "table": [
+          ["","شمردنی ({{friends}})","ناشمردنی ({{time}})"],
+          ["چند تا؟ چقدر؟","{{How many friends?}}","{{How much time?}}"],
+          ["زیاد","{{a lot of friends}}، {{many friends}}","{{a lot of time}}، {{much time}}"],
+          ["چند تا، کمی","{{a few friends}}","{{a little time}}"],
+          ["هیچ","{{not any friends}}","{{not any time}}"]
+        ] },
+        { "ex": [
+          {"t":"Can I have some water, please?","tr":"کمی آب می‌دهید، لطفاً؟"},
+          {"t":"There isn't any sugar in my coffee.","tr":"قهوه‌ام هیچ شکر ندارد."},
+          {"t":"How many people came?","tr":"چند نفر آمدند؟"},
+          {"t":"I don't have much money right now.","tr":"الان پول زیادی ندارم."},
+          {"t":"She gave me some good advice.","tr":"چند توصیهٔ خوب به من کرد."},
+          {"t":"We have a few questions.","tr":"چند تا سؤال داریم."}
+        ] },
+        {"tip":"{{a few}} و {{a little}} مثبت‌اند: «چند تا، کمی». بدون {{a}} منفی‌اند: {{few people}} «آدم‌های کمی، تقریباً هیچ‌کس»."}
+      ],
+      "mistakes": [
+        {"wrong":"I need some informations.","right":"I need some information.","tr":"کمی اطلاعات لازم دارم.","why":"{{information}} ناشمردنی است و جمع نمی‌شود."},
+        {"wrong":"How much people were there?","right":"How many people were there?","tr":"چند نفر آنجا بودند؟","why":"{{people}} شمردنی است: {{how many}}."},
+        {"wrong":"Can you give me an advice?","right":"Can you give me some advice?","tr":"می‌توانی راهنمایی‌ام کنی؟","why":"{{advice}} ناشمردنی است: {{some advice}} یا {{a piece of advice}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"How ___ money do you need?","tr":"چقدر پول لازم داری؟","options":["much","many","few"],"answer":0,"why":"{{money}} ناشمردنی است: {{much}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Do we have ___ eggs?","tr":"تخم‌مرغ داریم؟","options":["any","much","little"],"answer":0,"why":"در سؤال: {{any}}."},
+        {"type":"choice","q":"کدام درست است؟","options":["{{The news is very good.}}","{{The news are very good.}}","{{The newses are good.}}"],"answer":0,"why":"{{news}} ناشمردنی است و فعلش مفرد: {{is}}."},
+        {"type":"dialogue","q":"در آشپزخانه با هم‌خانه‌تان. جواب‌هایتان را انتخاب کنید.","from":"count-things","lines":[{"who":"مینا","t":"How much milk do we have?","tr":"چقدر شیر داریم؟"},{"options":["Not much. Just a little.","Not many. Just a few."],"answer":0,"why":"{{milk}} ناشمردنی است: {{much}} و {{a little}}."},{"who":"مینا","t":"And eggs?","tr":"تخم‌مرغ چطور؟"},{"options":["We have a few, but we need a lot of eggs for the cake.","We have a little, but we need much eggs for the cake."],"answer":0,"why":"{{eggs}} شمردنی است: {{a few}}؛ و در جملهٔ مثبت {{a lot of}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"الان پول زیادی ندارم.","words":["I","don't","have","much","money","right","now."]},
+        {"type":"say","q":"در هتل بخواهید: «کمی اطلاعات دربارهٔ تورها لازم دارم.»","answer":"I need some information about the tours.","from":"ask-for-what-you-want"},
+        {"type":"free","q":"نوبت شماست: بگویید در آشپزخانه یا کیفتان از چه چیزهایی زیاد، کم یا هیچ دارید، با {{a lot of}}، {{a few}}، {{a little}} و {{any}}.","answers":[{"t":"I have a lot of rice and a little sugar, but I don't have any eggs.","tr":"کلی برنج و کمی شکر دارم، ولی هیچ تخم‌مرغی ندارم."},{"t":"In my bag there are a few pens and some money, but there isn't any water.","tr":"توی کیفم چند تا خودکار و مقداری پول هست، ولی هیچ آبی نیست."}]}
+      ]
     }
   ]
 }
