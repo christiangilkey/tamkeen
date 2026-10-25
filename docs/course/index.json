@@ -23,9 +23,9 @@
    "variety": "French (France)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 335918,
-   "audio_bytes": 11652873,
-   "sha256": "21e22afaf46873d23d8ea86a7d5c538c6db564ba7f98ef0881993376d69bcf26",
+   "bytes": 335919,
+   "audio_bytes": 11651328,
+   "sha256": "0a78bc059e8acbd6323be1d6e38c72b31e27ece44571922e7b466e999462afb1",
    "voice": {
     "engine": "azure",
     "name": "Denise (Azure, France)",
