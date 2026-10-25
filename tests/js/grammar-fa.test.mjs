@@ -16,7 +16,7 @@ const PERSIAN = /[؀-ۿ]/;
 const ZWNJ = "\u200c";
 // Words that start with می / نمی and are not the present prefix (so they are written joined).
 const MI_WORDS = new Set(["میز", "میوه", "میان", "میانه", "میل", "میلیون", "میدان", "میراث", "میخ", "میزان", "میهن",
-  "میش", "میگو", "مینا", "میترا", "میلاد", "میهمان", "میکروب", "مینی"]);
+  "میش", "میگو", "مینا", "میترا", "میلاد", "میهمان", "میکروب", "مینی", "میزبان"]);
 /** Is `w` one of MI_WORDS, alone or with a plural or possessive ending (میزها, میزم)? */
 const miWord = (w) => {
   const base = w.split(ZWNJ)[0];

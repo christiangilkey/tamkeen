@@ -632,6 +632,335 @@
         {"type":"say","q":"به دوستتان بگویید: «نگران نباش!»","answer":"Don't worry!"},
         {"type":"free","q":"نوبت شماست: به کسی بگویید از خانهٔ شما تا نزدیک‌ترین مغازه یا ایستگاه چطور برود، در دو یا سه قدم.","answers":[{"t":"Go out of the building and turn left. Go straight for two blocks. The store is on the right.","tr":"از ساختمان بیرون بروید و به چپ بپیچید. دو بلوک مستقیم بروید. مغازه سمت راست است."},{"t":"Take the number 5 bus and get off at the park.","tr":"اتوبوس شمارهٔ ۵ را سوار شوید و کنار پارک پیاده شوید."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do-every-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "بگویید هر روز چه کار می‌کنید",
+      "summary": "از روزتان بگویید: {{I get up at seven}}، {{She works in a bank}}: زمان حال ساده، و {{-s}} برای «او».",
+      "topic": "حال ساده: {{I work}}، {{she works}}؛ {{-s}} و {{-es}} برای {{he}}، {{she}} و {{it}}؛ فعل بعد از فاعل، زمان آخر جمله",
+      "blocks": [
+        {"goal":{"t":"I get up at seven and go to work by bus.","tr":"ساعت هفت بیدار می‌شوم و با اتوبوس سر کار می‌روم."}},
+        {"dialog":[{"who":"لیلا","t":"What do you do in the morning?","tr":"صبح‌ها چه کار می‌کنی؟"},{"who":"سام","t":"I get up at seven, I have breakfast, and I take the bus to work.","tr":"ساعت هفت بیدار می‌شوم، صبحانه می‌خورم و با اتوبوس سر کار می‌روم."},{"who":"لیلا","t":"My husband takes the bus too. He works downtown.","tr":"شوهرم هم با اتوبوس می‌رود. مرکز شهر کار می‌کند."},{"who":"سام","t":"And you?","tr":"تو چطور؟"},{"who":"لیلا","t":"I work at home. I start at nine and finish at five.","tr":"من در خانه کار می‌کنم. ساعت نه شروع می‌کنم و پنج تمام می‌کنم."}]},
+        {"p":"**حال ساده: کارهای همیشگی.** برای کارهایی که همیشه یا مرتب انجام می‌دهید، انگلیسی شکل سادهٔ فعل را می‌آورد: {{I work}} «کار می‌کنم»، {{we eat}} «می‌خوریم». نه «می» دارد و نه شناسه، جز در یک مورد."},
+        {"term":"زمان حال ساده","means":"زمانی از فعل برای کارهای همیشگی، عادت‌ها و چیزهایی که همیشه درست‌اند: {{I work in a bank.}} «در بانک کار می‌کنم»."},
+        {"p":"**{{-s}} برای «او».** با {{he}}، {{she}}، {{it}} یا هر یک نفر ({{my sister}})، فعل یک {{-s}} می‌گیرد: {{I work}}، اما {{she works}}. این کوچک‌ترین و فراموش‌شدنی‌ترین حرف انگلیسی است! {{He work}} را آمریکایی‌ها می‌فهمند، اما فوراً متوجه اشتباه می‌شوند."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["من","{{I work}}","کار می‌کنم"],
+          ["تو، شما","{{you work}}","کار می‌کنی، کار می‌کنید"],
+          ["او، آن","{{he works}}، {{she works}}، {{it works}}","کار می‌کند"],
+          ["ما","{{we work}}","کار می‌کنیم"],
+          ["آن‌ها","{{they work}}","کار می‌کنند"]
+        ] },
+        {"p":"**{{-s}} یا {{-es}}؟** بعد از {{s}}، {{sh}}، {{ch}}، {{x}} و {{o}}، {{-es}}: {{she watches}}، {{he goes}}، {{it finishes}}. بعد از صامت + {{y}}، {{-ies}}: {{study}} → {{he studies}}. و {{have}} می‌شود {{has}}."},
+        {"p":"**ترتیب: فاعل، فعل، بقیه.** فعل درست بعد از فاعل است، و زمان و مکان معمولاً **آخر جمله** می‌آیند: {{I take the bus to work every day.}}، کلمه به کلمه «من سوار می‌شوم اتوبوس به کار هر روز». در فارسی: «من هر روز با اتوبوس سر کار می‌روم»."},
+        { "ex": [
+          {"t":"She works in a hospital.","tr":"او در بیمارستان کار می‌کند."},
+          {"t":"I drink tea in the morning.","tr":"صبح‌ها چای می‌خورم."},
+          {"t":"My father watches the news every night.","tr":"پدرم هر شب اخبار می‌بیند."},
+          {"t":"The store opens at nine.","tr":"مغازه ساعت نه باز می‌شود.","note":"{{the store}} یعنی {{it}}، پس {{-s}}"},
+          {"t":"We live in a small apartment.","tr":"ما در یک آپارتمان کوچک زندگی می‌کنیم."},
+          {"t":"He goes to the gym on Mondays.","tr":"او دوشنبه‌ها باشگاه می‌رود."}
+        ] },
+        {"tip":"{{-s}} سه جور خوانده می‌شود: «س» ({{works}})، «ز» ({{goes}}، {{lives}}) و «ایز» ({{watches}}). اگر مطمئن نیستید، فقط بگوییدش: گفتنش از درست گفتنش مهم‌تر است."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"او در بانک کار می‌کند.","why":"با {{she}}، فعل {{-s}} می‌گیرد: {{works}}."},
+        {"wrong":"I every day go to work by bus.","right":"I go to work by bus every day.","tr":"هر روز با اتوبوس سر کار می‌روم.","why":"فعل درست بعد از فاعل می‌آید، و زمان ({{every day}}) معمولاً آخر جمله."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"My sister ___ in Shiraz.","tr":"خواهرم در شیراز زندگی می‌کند.","options":["lives","live","living"],"answer":0,"why":"یک نفر ({{my sister}}): {{-s}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ coffee every morning.","tr":"هر صبح قهوه می‌خورم.","options":["drink","drinks","am drink"],"answer":0,"why":"با {{I}}، شکل ساده و بدون {{-s}}."},
+        {"type":"choice","q":"«او (آقا) هر روز تلویزیون تماشا می‌کند» کدام است؟","options":["{{He watches TV every day.}}","{{He watch TV every day.}}","{{He every day watches TV.}}"],"answer":0,"why":"{{-es}} برای «او»، و زمان آخر جمله."},
+        {"type":"dialogue","q":"یک همکار تازه از روزتان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-have","lines":[{"who":"همکار","t":"Do you live near here?","tr":"این نزدیکی زندگی می‌کنی؟"},{"options":["No, I live in Karaj. I take the train every day.","No, I lives in Karaj. I every day take the train."],"answer":0,"why":"با {{I}} بدون {{-s}}، و {{every day}} آخر جمله."},{"who":"همکار","t":"And your wife?","tr":"همسرت چطور؟"},{"options":["She works from home. She has a small company.","She work from home. She have a small company."],"answer":0,"why":"با {{she}}: {{works}} و {{has}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"هر روز با اتوبوس سر کار می‌روم.","words":["I","go","to","work","by","bus","every","day."]},
+        {"type":"say","q":"بگویید: «او (یک خانم) در بیمارستان کار می‌کند.»","answer":"She works in a hospital.","from":"talk-about-other-people"},
+        {"type":"free","q":"نوبت شماست: یک روز معمولی‌تان را در دو سه جمله بگویید، و یک جمله دربارهٔ کس دیگری، با {{-s}}.","answers":[{"t":"I get up at seven. I have breakfast and I go to work. My brother works at night.","tr":"ساعت هفت بیدار می‌شوم. صبحانه می‌خورم و سر کار می‌روم. برادرم شب‌ها کار می‌کند."},{"t":"I study at the university in the morning. My mother cooks dinner every night.","tr":"صبح‌ها در دانشگاه درس می‌خوانم. مادرم هر شب شام درست می‌کند."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-dont-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "بگویید چه کار نمی‌کنید و هر چند وقت",
+      "summary": "بگویید {{I don't eat meat}}، {{He doesn't smoke}} و {{I never drink coffee}}.",
+      "topic": "{{don't}} و {{doesn't}} + شکل سادهٔ فعل؛ قیدهای تکرار ({{always}}، {{usually}}، {{sometimes}}، {{never}}) قبل از فعل؛ فقط یک منفی",
+      "blocks": [
+        {"goal":{"t":"I don't eat meat, and I never drink coffee.","tr":"گوشت نمی‌خورم و هیچ‌وقت قهوه نمی‌خورم."}},
+        {"dialog":[{"who":"میزبان","t":"Do you eat meat?","tr":"گوشت می‌خورید؟"},{"who":"شما","t":"No, I don't. I'm a vegetarian.","tr":"نه، نمی‌خورم. گیاه‌خوارم."},{"who":"میزبان","t":"Oh! Does your husband eat meat?","tr":"آه! همسرتان گوشت می‌خورد؟"},{"who":"شما","t":"Yes, he does, but he doesn't eat fish.","tr":"بله، ولی ماهی نمی‌خورد."},{"who":"میزبان","t":"No problem. I always make a big salad!","tr":"مشکلی نیست. من همیشه یک سالاد بزرگ درست می‌کنم!"}]},
+        {"p":"**منفی با {{don't}}.** در فارسی «نـ» به فعل می‌چسبد: «نمی‌خورم». در انگلیسی یک کلمهٔ کمکی، {{don't}} ({{do not}})، قبل از فعل می‌آید: {{I don't eat meat.}} «گوشت نمی‌خورم». خود فعل ساده می‌ماند."},
+        {"p":"**{{doesn't}} برای «او».** با {{he}}، {{she}} و {{it}}، {{doesn't}} ({{does not}}) می‌آید، و آن وقت **فعل اصلی {{-s}} نمی‌گیرد**، چون {{-s}} حالا روی {{does}} است: {{He doesn't smoke.}}، نه {{He doesn't smokes.}}"},
+        { "table": [
+          ["","مثبت","منفی"],
+          ["من، تو، ما، آن‌ها","{{I work}}","{{I don't work}}"],
+          ["او، آن","{{she works}}","{{she doesn't work}}"],
+          ["داشتن","{{he has}}","{{he doesn't have}}"]
+        ] },
+        {"term":"قید","means":"کلمه‌ای که می‌گوید کاری چطور، کی یا هر چند وقت انجام می‌شود: همیشه، زود، تند؛ {{always}}، {{fast}}."},
+        {"p":"**هر چند وقت؟** {{always}} «همیشه»، {{usually}} «معمولاً»، {{often}} «اغلب»، {{sometimes}} «گاهی»، {{never}} «هیچ‌وقت». این‌ها **قبل از فعل اصلی** می‌آیند ({{I always drink tea.}})، اما **بعد از {{be}}**: {{She's always late.}} «همیشه دیر می‌کند»."},
+        {"p":"**یک منفی کافی است.** در فارسی «هیچ‌وقت» با فعل منفی می‌آید: «هیچ‌وقت قهوه **نمی**‌خورم». در انگلیسی {{never}} خودش منفی است و فعل مثبت می‌ماند: {{I never drink coffee.}}، نه {{I don't never drink coffee.}}"},
+        { "ex": [
+          {"t":"I don't smoke.","tr":"سیگار نمی‌کشم."},
+          {"t":"She doesn't work on Fridays.","tr":"او جمعه‌ها کار نمی‌کند."},
+          {"t":"We usually walk to school.","tr":"ما معمولاً پیاده به مدرسه می‌رویم."},
+          {"t":"He's never late.","tr":"هیچ‌وقت دیر نمی‌کند.","note":"{{never}} بعد از {{is}}"},
+          {"t":"I sometimes play soccer with my friends.","tr":"گاهی با دوستانم فوتبال بازی می‌کنم.","note":"در آمریکا فوتبال {{soccer}} است؛ {{football}} فوتبال آمریکایی است"},
+          {"t":"My parents don't have a car.","tr":"پدر و مادرم ماشین ندارند."}
+        ] },
+        {"tip":"{{I don't know.}} «نمی‌دانم» از مفیدترین جمله‌های انگلیسی است. در حرف زدن تند، چیزی شبیه «آی دونو» شنیده می‌شود."}
+      ],
+      "mistakes": [
+        {"wrong":"He doesn't smokes.","right":"He doesn't smoke.","tr":"سیگار نمی‌کشد.","why":"بعد از {{doesn't}} فعل ساده می‌آید؛ {{-s}} روی {{does}} است."},
+        {"wrong":"I don't never eat meat.","right":"I never eat meat.","tr":"هیچ‌وقت گوشت نمی‌خورم.","why":"{{never}} خودش منفی است؛ منفی دوم لازم نیست."},
+        {"wrong":"I go always to the park.","right":"I always go to the park.","tr":"همیشه به پارک می‌روم.","why":"{{always}} قبل از فعل اصلی می‌آید."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"She ___ like coffee.","tr":"او قهوه دوست ندارد.","options":["doesn't","don't","not"],"answer":0,"why":"با {{she}}: {{doesn't}}."},
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"I ___ eat breakfast.","tr":"هیچ‌وقت صبحانه نمی‌خورم.","options":["never","don't never","never don't"],"answer":0,"why":"{{never}} به‌تنهایی، با فعل مثبت."},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"ما معمولاً پیاده به مدرسه می‌رویم.","words":["We","usually","walk","to","school."]},
+        {"type":"dialogue","q":"در یک مهمانی شام. جواب‌هایتان را انتخاب کنید.","from":"ask-for-what-you-want","lines":[{"who":"میزبان","t":"Would you like some wine?","tr":"کمی شراب می‌خواهید؟"},{"options":["No, thank you. I don't drink alcohol.","No, thank you. I no drink alcohol."],"answer":0,"why":"منفی با {{don't}}."},{"who":"میزبان","t":"Does your wife drink coffee?","tr":"همسرتان قهوه می‌خورد؟"},{"options":["No, she never drinks coffee. Tea, please.","No, she never doesn't drink coffee. Tea, please."],"answer":0,"why":"{{never}} یک منفی کافی است، و {{-s}} برای {{she}}."}]},
+        {"type":"choice","q":"{{She's always late.}} یعنی:","options":["همیشه دیر می‌کند.","هیچ‌وقت دیر نمی‌کند.","امروز دیر کرده است."],"answer":0,"why":"{{always}} «همیشه»، بعد از {{is}}."},
+        {"type":"say","q":"بگویید: «نمی‌دانم.»","answer":"I don't know."},
+        {"type":"free","q":"نوبت شماست: دو کار بگویید که هیچ‌وقت نمی‌کنید و یک کار که گاهی می‌کنید.","answers":[{"t":"I never smoke and I never watch horror movies. I sometimes go to the gym.","tr":"هیچ‌وقت سیگار نمی‌کشم و هیچ‌وقت فیلم ترسناک نمی‌بینم. گاهی باشگاه می‌روم."},{"t":"I don't drink coffee at night. I usually go to bed at eleven.","tr":"شب‌ها قهوه نمی‌خورم. معمولاً ساعت یازده می‌خوابم."}]}
+      ]
+    },
+    {
+      "id": "ask-about-someones-life",
+      "unit": 3,
+      "level": "A1",
+      "title": "دربارهٔ زندگی کسی بپرسید",
+      "summary": "بپرسید {{Do you like your job?}}، {{Where do you live?}} و {{What does she do?}}، و کوتاه جواب بدهید.",
+      "topic": "سؤال با {{Do}} و {{Does}}؛ کلمهٔ پرسشی + {{do}} یا {{does}} ({{Where do you live?}})؛ جواب کوتاه ({{Yes, I do.}})",
+      "blocks": [
+        {"goal":{"t":"Where do you live, and what do you do?","tr":"کجا زندگی می‌کنی و چه کاره‌ای؟"}},
+        {"dialog":[{"who":"امیلی","t":"Where do you live?","tr":"کجا زندگی می‌کنی؟"},{"who":"رضا","t":"I live in Tehran, in the north of the city.","tr":"در تهران، شمال شهر."},{"who":"امیلی","t":"What do you do?","tr":"چه کاره‌ای؟"},{"who":"رضا","t":"I'm an architect. Do you work?","tr":"معمارم. تو کار می‌کنی؟"},{"who":"امیلی","t":"Yes, I do. I teach English.","tr":"بله. انگلیسی درس می‌دهم."},{"who":"رضا","t":"Do you like your job?","tr":"کارت را دوست داری؟"},{"who":"امیلی","t":"Yes, I love it!","tr":"آره، عاشقش هستم!"}]},
+        {"p":"**سؤال با {{do}}.** با فعل‌های معمولی (همه به جز {{be}})، انگلیسی نمی‌تواند خود فعل را جلو بیاورد. کلمهٔ کمکی {{do}} اول می‌آید: {{You live in Tehran.}} → {{Do you live in Tehran?}} «در تهران زندگی می‌کنی؟». فعل اصلی ساده می‌ماند. فارسی چنین کلمه‌ای ندارد، فقط لحن؛ برای همین این از سخت‌ترین چیزهای انگلیسی برای فارسی‌زبان‌هاست."},
+        {"p":"**{{Does}} برای «او».** {{Does she work?}} «او کار می‌کند؟»، و باز فعل اصلی {{-s}} نمی‌گیرد: {{Does he live here?}}، نه {{Does he lives here?}}"},
+        {"p":"**با کلمهٔ پرسشی.** کلمهٔ پرسشی، {{do}} یا {{does}}، فاعل، فعل: {{Where do you live?}} «کجا زندگی می‌کنی؟»، {{What does she do?}} «او چه کاره است؟»، {{When does the class start?}} «کلاس کی شروع می‌شود؟»."},
+        { "table": [
+          ["","سؤال","جواب کوتاه"],
+          ["من، تو، ما، آن‌ها","{{Do you work?}}","{{Yes, I do.}}، {{No, I don't.}}"],
+          ["او، آن","{{Does she work?}}","{{Yes, she does.}}، {{No, she doesn't.}}"],
+          ["با کلمهٔ پرسشی","{{Where do you work?}}","{{In a bank.}}"],
+          ["با {{be}}، بدون {{do}}","{{Are you a teacher?}}","{{Yes, I am.}}"]
+        ] },
+        {"p":"**{{be}} یا {{do}}؟** اگر فعل جمله {{am}}، {{is}} یا {{are}} است، {{do}} لازم نیست: {{Are you tired?}} برای بقیهٔ فعل‌ها، {{do}}: {{Do you speak English?}}"},
+        { "ex": [
+          {"t":"Do you speak English?","tr":"انگلیسی صحبت می‌کنید؟"},
+          {"t":"Does your brother live with you?","tr":"برادرت با تو زندگی می‌کند؟"},
+          {"t":"What do you do?","tr":"چه کاره‌اید؟","note":"سؤال معمول دربارهٔ شغل"},
+          {"t":"Where does she work?","tr":"او کجا کار می‌کند؟"},
+          {"t":"How do you say this in English?","tr":"این را به انگلیسی چطور می‌گویند؟"},
+          {"t":"Do you have any brothers or sisters?","tr":"خواهر و برادر داری؟"}
+        ] },
+        {"tip":"{{How do you say … in English?}} «… را به انگلیسی چطور می‌گویند؟» و {{What does … mean?}} «… یعنی چه؟» دو سؤالی‌اند که در هر گفت‌وگویی به کارتان می‌آیند."}
+      ],
+      "mistakes": [
+        {"wrong":"You live in Tehran?","right":"Do you live in Tehran?","tr":"در تهران زندگی می‌کنی؟","why":"سؤال با فعل معمولی: {{do}} اول جمله."},
+        {"wrong":"Where you work?","right":"Where do you work?","tr":"کجا کار می‌کنی؟","why":"بعد از کلمهٔ پرسشی، {{do}} لازم است."},
+        {"wrong":"Does she likes it?","right":"Does she like it?","tr":"او خوشش می‌آید؟","why":"بعد از {{does}}، فعل ساده: {{like}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"___ you speak Persian?","tr":"فارسی صحبت می‌کنی؟","options":["Do","Are","Does"],"answer":0,"why":"فعل معمولی ({{speak}}) با {{you}}: {{Do}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Where ___ your sister live?","tr":"خواهرت کجا زندگی می‌کند؟","options":["does","do","is"],"answer":0,"why":"یک نفر ({{your sister}}): {{does}}."},
+        {"type":"choice","q":"کسی می‌پرسد {{Do you like coffee?}} و دوست دارید. جواب کوتاه:","options":["{{Yes, I do.}}","{{Yes, I like.}}","{{Yes, I am.}}"],"answer":0,"why":"جواب کوتاه با همان {{do}}: {{Yes, I do.}}"},
+        {"type":"dialogue","q":"در یک مهمانی با کسی آشنا می‌شوید. جمله‌هایتان را انتخاب کنید.","from":"say-what-you-do-every-day","lines":[{"who":"مارک","t":"Hi, I'm Mark. I'm a nurse.","tr":"سلام، من مارکم. پرستارم."},{"options":["Nice to meet you. Where do you work?","Nice to meet you. Where you work?"],"answer":0,"why":"کلمهٔ پرسشی، {{do}}، فاعل، فعل."},{"who":"مارک","t":"At the children's hospital. And you? What do you do?","tr":"در بیمارستان کودکان. شما چطور؟ چه کاره‌اید؟"},{"options":["I'm a student. I study engineering.","I student. I studying engineering."],"answer":0,"why":"{{I'm a student}}، و حال ساده: {{I study}}."},{"who":"مارک","t":"Do you like it?","tr":"دوستش دارید؟"},{"options":["Yes, I do!","Yes, I like!"],"answer":0,"why":"جواب کوتاه: {{Yes, I do.}}"}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"این را به انگلیسی چطور می‌گویند؟","words":["How","do","you","say","this","in","English?"]},
+        {"type":"say","q":"بپرسید: «او (یک آقا) کجا کار می‌کند؟»","answer":"Where does he work?","from":"talk-about-other-people"},
+        {"type":"free","q":"نوبت شماست: از یک آشنای تازه چند سؤال بپرسید، با {{Do you…?}} و {{Where do you…?}} یا {{What do you…?}}","answers":[{"t":"Where do you live? Do you like your job? What do you do on weekends?","tr":"کجا زندگی می‌کنی؟ کارت را دوست داری؟ آخر هفته‌ها چه کار می‌کنی؟"},{"t":"Do you have children? Does your wife work?","tr":"بچه داری؟ همسرت کار می‌کند؟"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "بگویید چه چیزهایی دوست دارید",
+      "summary": "بگویید {{I love Persian food}}، {{I like swimming}} و {{I don't like cats}}، و یاد بگیرید که برای چیزها به‌طور کلی {{the}} نمی‌آید.",
+      "topic": "{{like}}، {{love}}، {{hate}} + اسم یا {{-ing}}؛ اسم کلی بدون {{the}} ({{I like coffee}}، {{I love cats}})؛ {{Do you like…?}}",
+      "blocks": [
+        {"goal":{"t":"I love Persian food, but I don't like spicy food.","tr":"عاشق غذای ایرانی‌ام، ولی غذای تند دوست ندارم."}},
+        {"dialog":[{"who":"نیک","t":"Do you like American movies?","tr":"فیلم‌های آمریکایی را دوست داری؟"},{"who":"سارا","t":"Yes, I love them! I like comedies.","tr":"آره، عاشقشانم! فیلم کمدی دوست دارم."},{"who":"نیک","t":"Me too. Do you like sports?","tr":"من هم. ورزش دوست داری؟"},{"who":"سارا","t":"I like swimming, but I hate running.","tr":"شنا دوست دارم، ولی از دویدن متنفرم."},{"who":"نیک","t":"Really? I love running!","tr":"واقعاً؟ من عاشق دویدنم!"}]},
+        {"p":"**دوست داشتن: {{like}} و {{love}}.** {{I like tea.}} «چای دوست دارم»، {{I love tea.}} «خیلی چای دوست دارم، عاشق چایم»، {{I don't like tea.}} «چای دوست ندارم»، {{I hate tea.}} «از چای متنفرم». ترتیب مثل همیشه است: فاعل، فعل، بعد آن چیز."},
+        {"p":"**بدون {{the}} برای چیزها به‌طور کلی.** در فارسی می‌گوییم «قهوه را دوست دارم»، با «را»، و شاید فکر کنید در انگلیسی {{the}} لازم است. اما برای یک نوع چیز به‌طور کلی، انگلیسی {{the}} نمی‌گذارد: {{I like coffee.}}، {{I love cats.}} (جمع، بدون {{the}})، {{I like music.}} {{the}} یعنی یک چیز معین: {{I like the coffee here.}} «قهوهٔ اینجا را دوست دارم»."},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["چیز کلی، ناشمردنی","{{I like coffee.}}","قهوه دوست دارم."],
+          ["چیز کلی، شمردنی","{{I like cats.}}","گربه دوست دارم."],
+          ["یک چیز معین","{{I like the coffee here.}}","قهوهٔ اینجا را دوست دارم."],
+          ["یک کار","{{I like swimming.}}","شنا دوست دارم."]
+        ] },
+        {"p":"**دوست داشتن یک کار: {{-ing}}.** بعد از {{like}}، {{love}} و {{hate}}، فعل با {{-ing}} می‌آید: {{I like reading.}} «کتاب خواندن دوست دارم»، {{She loves cooking.}} «عاشق آشپزی است». {{I like to read}} هم درست است."},
+        {"p":"**یادتان باشد:** با «او» {{-s}}: {{She likes music.}}؛ و در سؤال {{do}}: {{Do you like it?}}"},
+        { "ex": [
+          {"t":"I like green tea.","tr":"چای سبز دوست دارم."},
+          {"t":"Do you like dogs?","tr":"سگ دوست داری؟","note":"جمع، بدون {{the}}"},
+          {"t":"My father loves watching soccer.","tr":"پدرم عاشق تماشای فوتبال است."},
+          {"t":"She doesn't like getting up early.","tr":"دوست ندارد صبح زود بیدار شود."},
+          {"t":"I hate cold weather.","tr":"از هوای سرد متنفرم."},
+          {"t":"We love the food at this restaurant.","tr":"غذای این رستوران را خیلی دوست داریم.","note":"غذای معین: {{the}}"}
+        ] },
+        {"tip":"{{I'd like}} «می‌خواهم (الان)» با {{I like}} «دوست دارم (همیشه)» فرق دارد (درس ۱۲): {{I'd like a coffee.}} و {{I like coffee.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I like the coffee.","right":"I like coffee.","tr":"قهوه دوست دارم.","why":"برای قهوه به‌طور کلی، {{the}} نمی‌آید."},
+        {"wrong":"I like swim.","right":"I like swimming.","tr":"شنا دوست دارم.","why":"بعد از {{like}}، کار با {{-ing}} (یا {{to swim}})."},
+        {"wrong":"She like music.","right":"She likes music.","tr":"او موسیقی دوست دارد.","why":"با {{she}}: {{-s}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمه‌های جاافتاده را انتخاب کنید.","t":"I love ___.","tr":"گربه خیلی دوست دارم.","options":["cats","the cats","cat"],"answer":0,"why":"چیز کلی و شمردنی: جمع، بدون {{the}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"He likes ___ in the morning.","tr":"دوست دارد صبح‌ها بدود.","options":["running","run","runs"],"answer":0,"why":"بعد از {{like}}: {{-ing}}."},
+        {"type":"choice","q":"در یک کافهٔ خوب: «قهوهٔ اینجا را دوست دارم»:","options":["{{I like the coffee here.}}","{{I like coffee here the.}}","{{I like a coffee here.}}"],"answer":0,"why":"قهوهٔ معین (همین‌جا): {{the coffee}}."},
+        {"type":"dialogue","q":"دوستتان دربارهٔ سلیقه‌تان می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"ask-about-someones-life","lines":[{"who":"نیک","t":"Do you like sports?","tr":"ورزش دوست داری؟"},{"options":["Yes, I do. I love swimming.","Yes, I like. I love swim."],"answer":0,"why":"جواب کوتاه {{Yes, I do.}}، و بعد از {{love}}، {{-ing}}."},{"who":"نیک","t":"Does your sister like sports?","tr":"خواهرت ورزش دوست دارد؟"},{"options":["No, she doesn't. She likes music.","No, she don't. She like music."],"answer":0,"why":"با {{she}}: {{doesn't}} و {{likes}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"عاشق غذای ایرانی‌ام.","words":["I","love","Persian","food."]},
+        {"type":"say","q":"بپرسید: «سگ دوست داری؟»","answer":"Do you like dogs?","from":"ask-about-someones-life"},
+        {"type":"free","q":"نوبت شماست: دو چیز و یک کار بگویید که دوست دارید، و یک چیز که دوست ندارید.","answers":[{"t":"I love Persian music and I like cooking, but I don't like coffee.","tr":"عاشق موسیقی ایرانی‌ام و آشپزی دوست دارم، ولی قهوه دوست ندارم."},{"t":"I like books and movies. I hate getting up early!","tr":"کتاب و فیلم دوست دارم. از صبح زود بیدار شدن متنفرم!"}]}
+      ]
+    },
+    {
+      "id": "say-when",
+      "unit": 3,
+      "level": "A1",
+      "title": "بگویید کی: ساعت، روز و ماه",
+      "summary": "بگویید {{at seven}}، {{on Monday}} و {{in July}}، و بپرسید {{What time is it?}}",
+      "topic": "{{at}} برای ساعت، {{on}} برای روز، {{in}} برای ماه، سال و بخش‌های روز؛ {{What time…?}}؛ {{on the weekend}}؛ زمان آخر جمله",
+      "blocks": [
+        {"goal":{"t":"My class is on Mondays at six.","tr":"کلاسم دوشنبه‌ها ساعت شش است."}},
+        {"dialog":[{"who":"رضا","t":"Excuse me, what time is it?","tr":"ببخشید، ساعت چند است؟"},{"who":"زن","t":"It's five thirty.","tr":"پنج و نیم است."},{"who":"رضا","t":"Oh no! My class starts at six.","tr":"وای! کلاسم ساعت شش شروع می‌شود."},{"who":"زن","t":"What day is your class?","tr":"کلاست چه روزی است؟"},{"who":"رضا","t":"On Mondays and Wednesdays.","tr":"دوشنبه‌ها و چهارشنبه‌ها."}]},
+        {"p":"**ساعت چند است؟** {{What time is it?}} و جواب با {{it}}: {{It's seven.}} «ساعت هفت است». {{It's seven thirty.}} «هفت و نیم»، {{It's a quarter past seven.}} «هفت و ربع»، {{It's a quarter to eight.}} «یک ربع به هشت». آمریکایی‌ها بیشتر عددی می‌گویند: {{seven fifteen}}، {{seven forty-five}}."},
+        {"p":"**{{at}}، {{on}}، {{in}}.** فارسی برای زمان اغلب حرف اضافه ندارد («ساعت هشت»، «دوشنبه») یا «در» می‌گوید. انگلیسی سه تا دارد: {{at}} برای ساعت ({{at eight}})؛ {{on}} برای روز و تاریخ ({{on Monday}}، {{on May 5}})؛ {{in}} برای ماه، سال، فصل و بخش‌های روز ({{in July}}، {{in 2020}}، {{in the morning}})."},
+        { "table": [
+          ["","انگلیسی","مثال"],
+          ["ساعت","{{at}}","{{at seven}}، {{at noon}}، {{at night}}"],
+          ["روز، تاریخ","{{on}}","{{on Friday}}، {{on my birthday}}"],
+          ["ماه، سال، فصل","{{in}}","{{in March}}، {{in 2024}}، {{in the summer}}"],
+          ["بخش‌های روز","{{in}}","{{in the morning}}، {{in the evening}}"],
+          ["آخر هفته (آمریکایی)","{{on}}","{{on the weekend}}"]
+        ] },
+        {"p":"**بدون حرف اضافه:** با {{every}}، {{next}}، {{last}}، {{this}} و با {{today}}، {{tomorrow}}، {{tonight}}: {{every day}}، {{next week}}، {{tomorrow morning}}. همهٔ این‌ها معمولاً **آخر جمله** می‌آیند: {{I have a meeting at ten tomorrow.}}"},
+        {"p":"**روزهای هفته** در انگلیسی با حرف بزرگ نوشته می‌شوند، و هفته از یکشنبه شروع می‌شود: {{Sunday}}، {{Monday}}، {{Tuesday}}، {{Wednesday}}، {{Thursday}}، {{Friday}}، {{Saturday}}. با {{-s}} یعنی «هر»: {{on Mondays}} «دوشنبه‌ها»."},
+        { "ex": [
+          {"t":"The movie starts at eight.","tr":"فیلم ساعت هشت شروع می‌شود."},
+          {"t":"I don't work on Saturdays.","tr":"شنبه‌ها کار نمی‌کنم."},
+          {"t":"My birthday is in April.","tr":"تولدم در ماه آوریل است."},
+          {"t":"We usually go to the beach in the summer.","tr":"تابستان‌ها معمولاً به ساحل می‌رویم."},
+          {"t":"What time does the bank open?","tr":"بانک ساعت چند باز می‌شود؟"},
+          {"t":"See you on the weekend!","tr":"آخر هفته می‌بینمت!"}
+        ] },
+        {"tip":"در آمریکا آخر هفته شنبه و یکشنبه است. {{a.m.}} یعنی صبح و {{p.m.}} یعنی بعدازظهر و شب: {{7 a.m.}} «هفت صبح»، {{7 p.m.}} «هفت شب»."}
+      ],
+      "mistakes": [
+        {"wrong":"The class is in Monday.","right":"The class is on Monday.","tr":"کلاس دوشنبه است.","why":"برای روزها: {{on}}."},
+        {"wrong":"I get up in seven.","right":"I get up at seven.","tr":"ساعت هفت بیدار می‌شوم.","why":"برای ساعت: {{at}}."},
+        {"wrong":"See you on next Monday.","right":"See you next Monday.","tr":"دوشنبهٔ بعد می‌بینمت.","why":"با {{next}}، {{last}} و {{every}} حرف اضافه نمی‌آید."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"The store opens ___ nine.","tr":"مغازه ساعت نه باز می‌شود.","options":["at","on","in"],"answer":0,"why":"ساعت: {{at}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I go to the gym ___ Tuesdays.","tr":"سه‌شنبه‌ها باشگاه می‌روم.","options":["on","at","in"],"answer":0,"why":"روز: {{on}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"It's very hot here ___ July.","tr":"اینجا در ماه ژوئیه خیلی گرم است.","options":["in","on","at"],"answer":0,"why":"ماه: {{in}}."},
+        {"type":"dialogue","q":"با یک دوست قرار می‌گذارید. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-like","lines":[{"who":"لیزا","t":"Do you like jazz? There's a concert on Friday.","tr":"جاز دوست داری؟ جمعه یک کنسرت هست."},{"options":["I love jazz! What time is it?","I love the jazz! What time it is?"],"answer":0,"why":"جاز به‌طور کلی، بدون {{the}}؛ و در سؤال، فعل قبل از فاعل: {{is it}}."},{"who":"لیزا","t":"It's at eight p.m.","tr":"ساعت هشت شب."},{"options":["Great. See you on Friday at seven thirty!","Great. See you in Friday in seven thirty!"],"answer":0,"why":"روز با {{on}}، ساعت با {{at}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"فیلم ساعت هشت شروع می‌شود.","words":["The","movie","starts","at","eight."]},
+        {"type":"say","q":"از یک غریبه بپرسید: «ببخشید، ساعت چند است؟»","answer":"Excuse me, what time is it?","from":"ask-where-what-who"},
+        {"type":"free","q":"نوبت شماست: هفته‌تان را بگویید: دو کار در روزها و ساعت‌های مختلف، با {{on}} و {{at}}.","answers":[{"t":"I work on Mondays and Tuesdays. I go to the gym on Thursday at six.","tr":"دوشنبه‌ها و سه‌شنبه‌ها کار می‌کنم. پنج‌شنبه ساعت شش باشگاه می‌روم."},{"t":"On the weekend I get up at ten and I call my parents in the afternoon.","tr":"آخر هفته ساعت ده بیدار می‌شوم و بعدازظهر به پدر و مادرم زنگ می‌زنم."}]}
+      ]
+    },
+    {
+      "id": "say-whats-happening-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "بگویید الان چه خبر است",
+      "summary": "بگویید {{I'm cooking}} و {{It's raining}}، و بپرسید {{What are you doing?}}: کاری که همین الان در جریان است.",
+      "topic": "حال استمراری: {{am}}، {{is}}، {{are}} + {{-ing}}؛ در برابر حال ساده؛ {{It's raining.}}",
+      "blocks": [
+        {"goal":{"t":"What are you doing? I'm cooking dinner.","tr":"چه کار می‌کنی؟ دارم شام درست می‌کنم."}},
+        {"dialog":[{"who":"مادر","t":"Hi, honey! What are you doing?","tr":"سلام عزیزم! داری چه کار می‌کنی؟"},{"who":"سارا","t":"I'm studying. I have an exam tomorrow.","tr":"دارم درس می‌خوانم. فردا امتحان دارم."},{"who":"مادر","t":"Is your brother there?","tr":"برادرت آنجاست؟"},{"who":"سارا","t":"Yes, but he's sleeping!","tr":"آره، ولی خواب است!"},{"who":"مادر","t":"And how's the weather? Is it raining?","tr":"هوا چطور است؟ باران می‌آید؟"},{"who":"سارا","t":"Yes, it's raining a lot.","tr":"آره، خیلی باران می‌آید."}]},
+        {"p":"**«دارم … می‌کنم».** برای کاری که **همین الان** در جریان است، انگلیسی {{am}}، {{is}} یا {{are}} + فعل با {{-ing}} می‌گوید: {{I'm cooking.}} «دارم آشپزی می‌کنم»، {{She's sleeping.}} «خواب است». این همان «دارم می‌روم» فارسی است."},
+        {"term":"حال استمراری","means":"زمانی برای کاری که الان، یا این روزها، در جریان است: {{I'm working.}} «دارم کار می‌کنم»."},
+        {"p":"**حال ساده یا استمراری؟** «کار می‌کنم» در فارسی هر دو معنا را دارد، اما در انگلیسی این دو فرق دارند. حال ساده برای همیشه و عادت: {{I work in a bank.}} «در بانک کار می‌کنم». حال استمراری برای الان: {{I'm working now.}} «الان دارم کار می‌کنم». {{What do you do?}} «شغلت چیست؟» با {{What are you doing?}} «داری چه کار می‌کنی؟» خیلی فرق دارد."},
+        { "table": [
+          ["","حال ساده (همیشه)","حال استمراری (الان)"],
+          ["کار","{{I work every day.}}","{{I'm working now.}}"],
+          ["سؤال","{{What do you do?}}","{{What are you doing?}}"],
+          ["منفی","{{He doesn't cook.}}","{{He isn't cooking.}}"],
+          ["هوا","{{It rains a lot here.}}","{{It's raining.}}"]
+        ] },
+        {"p":"**ساختن {{-ing}}.** معمولاً فقط {{-ing}}: {{read}} → {{reading}}. {{e}} آخر می‌افتد: {{make}} → {{making}}. بعضی صامت‌های آخر دوتا می‌شوند: {{run}} → {{running}}، {{sit}} → {{sitting}}."},
+        {"p":"**هوا با {{it}}.** فارسی می‌گوید «باران می‌آید»، بدون فاعل؛ انگلیسی {{it}} لازم دارد: {{It's raining.}} «باران می‌آید»، {{It's snowing.}} «برف می‌آید». سؤال و منفی هم مثل {{be}} است: {{Are you working?}}، {{I'm not working.}}"},
+        { "ex": [
+          {"t":"I'm watching TV.","tr":"دارم تلویزیون نگاه می‌کنم."},
+          {"t":"She's talking on the phone.","tr":"دارد با تلفن حرف می‌زند."},
+          {"t":"Are you listening to me?","tr":"داری به من گوش می‌دهی؟"},
+          {"t":"It's snowing in Tehran today.","tr":"امروز در تهران برف می‌آید."},
+          {"t":"The kids aren't sleeping. They're playing!","tr":"بچه‌ها خواب نیستند. دارند بازی می‌کنند!"},
+          {"t":"I'm learning English this year.","tr":"امسال دارم انگلیسی یاد می‌گیرم.","note":"برای «این روزها» هم به کار می‌رود"}
+        ] },
+        {"tip":"چند فعل معمولاً استمراری نمی‌شوند، چون کار نیستند و حالت‌اند: {{like}}، {{love}}، {{know}}، {{want}}، و {{have}} به معنای «داشتن». {{I know}}، نه {{I'm knowing}}؛ {{I want a coffee}}، نه {{I'm wanting}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I cook now.","right":"I'm cooking now.","tr":"الان دارم آشپزی می‌کنم.","why":"برای کاری که همین الان در جریان است: {{am}} + {{-ing}}."},
+        {"wrong":"Is raining.","right":"It's raining.","tr":"باران می‌آید.","why":"هوا با {{it}}: {{It's raining.}}"},
+        {"wrong":"I'm knowing the answer.","right":"I know the answer.","tr":"جواب را می‌دانم.","why":"{{know}} حالت است، نه کار: استمراری نمی‌شود."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Shh! The baby ___ sleeping.","tr":"هیس! بچه خواب است.","options":["is","are","does"],"answer":0,"why":"یک نفر: {{is}} + {{-ing}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Look! It's ___.","tr":"ببین! برف می‌آید.","options":["snowing","snow","snows"],"answer":0,"why":"در جریان است: {{-ing}}."},
+        {"type":"choice","q":"دوستتان زنگ می‌زند و می‌خواهد بداند الان مشغول چه کاری هستید. می‌پرسد:","options":["{{What are you doing?}}","{{What do you do?}}"],"answer":0,"why":"برای الان: {{What are you doing?}} ({{What do you do?}} یعنی «شغلت چیست؟».)"},
+        {"type":"dialogue","q":"دوستتان تلفن می‌کند. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-do-every-day","lines":[{"who":"علی","t":"Hey! What are you doing?","tr":"سلام! داری چه کار می‌کنی؟"},{"options":["I'm cooking dinner.","I cook dinner."],"answer":0,"why":"الان در جریان است: {{I'm cooking}}."},{"who":"علی","t":"Is your wife there?","tr":"همسرت آنجاست؟"},{"options":["Yes, but she's working. She works at night on Tuesdays.","Yes, but she works. She's working at night on Tuesdays."],"answer":0,"why":"الان: {{she's working}}؛ عادت سه‌شنبه‌ها: {{she works}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"داری به من گوش می‌دهی؟","words":["Are","you","listening","to","me?"]},
+        {"type":"say","q":"بگویید: «باران می‌آید.»","answer":"It's raining.","from":"talk-about-other-people"},
+        {"type":"free","q":"نوبت شماست: بگویید شما و آدم‌های دور و برتان همین الان چه کار می‌کنید، و یکی از کارهای همیشگی‌تان را هم بگویید.","answers":[{"t":"I'm learning English on my phone. My husband is reading the newspaper. We usually have tea at this time.","tr":"دارم با گوشی انگلیسی یاد می‌گیرم. شوهرم دارد روزنامه می‌خواند. معمولاً این موقع چای می‌خوریم."},{"t":"I'm sitting in a café. It's raining outside.","tr":"در یک کافه نشسته‌ام. بیرون باران می‌آید."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people",
+      "unit": 3,
+      "level": "A2",
+      "title": "دربارهٔ آدم‌ها حرف بزنید، بی‌آنکه اسمشان را تکرار کنید",
+      "summary": "بگویید {{I love her}}، {{Call me}} و {{I see them every day}}: ضمیرهای مفعولی.",
+      "topic": "{{me}}، {{you}}، {{him}}، {{her}}، {{it}}، {{us}}، {{them}} بعد از فعل و بعد از حرف اضافه ({{with me}}، {{for her}})",
+      "blocks": [
+        {"goal":{"t":"I miss my parents. I call them every Sunday.","tr":"دلم برای پدر و مادرم تنگ است. هر یکشنبه به آن‌ها زنگ می‌زنم."}},
+        {"dialog":[{"who":"مینا","t":"Do you know Sara?","tr":"سارا را می‌شناسی؟"},{"who":"تام","t":"Yes, I know her. She's in my class.","tr":"آره، می‌شناسمش. هم‌کلاسی‌ام است."},{"who":"مینا","t":"Please give her this book. It's for her birthday.","tr":"لطفاً این کتاب را به او بده. برای تولدش است."},{"who":"تام","t":"Sure. Does she know about it?","tr":"حتماً. خودش خبر دارد؟"},{"who":"مینا","t":"No! Don't tell her. It's a surprise.","tr":"نه! به او نگو. سورپرایز است."}]},
+        {"term":"مفعول","means":"کسی یا چیزی که کار روی آن انجام می‌شود: «کتاب» در «کتاب را خواندم»؛ {{her}} در {{I know her}}."},
+        {"p":"**«او را»، «به او»: ضمیر مفعولی.** فارسی برای مفعول «را» می‌گذارد یا ضمیر را به فعل می‌چسباند: «او را می‌شناسم»، «می‌شناسمش». انگلیسی برای ضمیرها شکل جدایی دارد که **بعد از فعل** می‌آید: {{I know her.}} «او را می‌شناسم»."},
+        { "table": [
+          ["فاعل","مفعول","مثال"],
+          ["{{I}}","{{me}}","{{Call me.}} به من زنگ بزن."],
+          ["{{you}}","{{you}}","{{I love you.}} دوستت دارم."],
+          ["{{he}}","{{him}}","{{I know him.}} او را می‌شناسم."],
+          ["{{she}}","{{her}}","{{I see her.}} او را می‌بینم."],
+          ["{{it}}","{{it}}","{{I like it.}} دوستش دارم."],
+          ["{{we}}","{{us}}","{{Help us!}} کمکمان کنید!"],
+          ["{{they}}","{{them}}","{{I call them.}} به آن‌ها زنگ می‌زنم."]
+        ] },
+        {"p":"**بعد از حرف اضافه هم.** {{with me}} «با من»، {{for her}} «برای او»، {{to them}} «به آن‌ها»؛ نه {{with I}} یا {{for she}}."},
+        {"p":"**{{him}} یا {{her}}؟** باز هم مثل {{he}} و {{she}}: برای مرد {{him}}، برای زن {{her}}. «دوستش دارم» دربارهٔ یک خانم: {{I love her.}}"},
+        {"p":"**{{it}} را بگویید.** فارسی مفعول را اغلب می‌اندازد: «دوست دارم». انگلیسی معمولاً آن را می‌خواهد: {{I like it.}}، {{Take it.}}، {{Do you want it?}}"},
+        { "ex": [
+          {"t":"I love him.","tr":"دوستش دارم.","note":"دربارهٔ یک آقا"},
+          {"t":"Please help me.","tr":"لطفاً کمکم کنید."},
+          {"t":"This gift is for you.","tr":"این هدیه برای توست."},
+          {"t":"We often visit them.","tr":"اغلب به دیدنشان می‌رویم."},
+          {"t":"Do you know her name?","tr":"اسمش را می‌دانی؟","note":"اینجا {{her}} ملکی است، درس ۵"},
+          {"t":"Come with us!","tr":"با ما بیا!"}
+        ] },
+        {"tip":"{{her}} دو کار دارد: «او را» ({{I see her}}) و «ـَش» ({{her car}}). اما برای مرد دو کلمه است: {{I see him}}، {{his car}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I know she.","right":"I know her.","tr":"او را می‌شناسم.","why":"بعد از فعل، شکل مفعولی: {{her}}."},
+        {"wrong":"Come with I!","right":"Come with me!","tr":"با من بیا!","why":"بعد از حرف اضافه، شکل مفعولی: {{me}}."},
+        {"wrong":"I like.","right":"I like it.","tr":"دوستش دارم.","why":"انگلیسی مفعول را نمی‌اندازد: {{it}} را بگویید."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"My grandparents live in Mashhad. I visit ___ every summer.","tr":"پدربزرگ و مادربزرگم در مشهد زندگی می‌کنند. هر تابستان به دیدنشان می‌روم.","options":["them","they","their"],"answer":0,"why":"مفعول جمع: {{them}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"This is for ___.","tr":"این برای توست.","options":["you","your","yours"],"answer":0,"why":"بعد از {{for}}: {{you}}."},
+        {"type":"choice","q":"دربارهٔ برادرتان: «خیلی دوستش دارم»:","options":["{{I love him a lot.}}","{{I love he a lot.}}","{{I love her a lot.}}"],"answer":0,"why":"مرد، مفعول: {{him}}."},
+        {"type":"dialogue","q":"دوستتان دربارهٔ یک هم‌کلاسی می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-whose-it-is","lines":[{"who":"مینا","t":"Do you know Sara?","tr":"سارا را می‌شناسی؟"},{"options":["Yes, I know her. She's in my class.","Yes, I know she. She's in my class."],"answer":0,"why":"مفعول: {{her}}."},{"who":"مینا","t":"This is her book. Please give it to her.","tr":"این کتاب اوست. لطفاً به او بده."},{"options":["OK, I see her every day.","OK, I see she every day."],"answer":0,"why":"بعد از فعل: {{her}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"با ما بیا!","words":["Come","with","us!"]},
+        {"type":"say","q":"بگویید: «لطفاً کمکم کنید.»","answer":"Please help me.","from":"ask-the-way"},
+        {"type":"free","q":"نوبت شماست: دربارهٔ دو نفر که دوستشان دارید بگویید: کی‌اند و چه کاری برایشان یا با آن‌ها می‌کنید. از {{him}}، {{her}} یا {{them}} استفاده کنید.","answers":[{"t":"My grandmother is very kind. I call her every week and I visit her on Fridays.","tr":"مادربزرگم خیلی مهربان است. هر هفته به او زنگ می‌زنم و جمعه‌ها به دیدنش می‌روم."},{"t":"I have two nephews. I love them! I play soccer with them.","tr":"دو برادرزاده دارم. عاشقشانم! با آن‌ها فوتبال بازی می‌کنم."}]}
+      ]
     }
   ]
 }
