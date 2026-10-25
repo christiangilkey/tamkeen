@@ -16,6 +16,22 @@
     "synthetic": true
    },
    "built": "2026-10-24"
+  },
+  "hi": {
+   "file": "hi/course.json",
+   "title": "Hindi basics",
+   "variety": "Everyday Hindi (India), in Devanagari",
+   "words": 20,
+   "planned": 1000,
+   "bytes": 9443,
+   "audio_bytes": 224553,
+   "sha256": "06fdc78e1e0ffbafe34abef3fb45ce3840056e3e2aabd7cf8f788c91b579aa88",
+   "voice": {
+    "engine": "azure",
+    "name": "Swara (Azure, India)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
   }
  }
 }

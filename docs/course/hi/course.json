@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "hi",
+ "title": "Hindi basics",
+ "variety": "Everyday Hindi (India), in Devanagari",
+ "about": "The most common words of written and spoken Hindi (wordfreq counts, grouped by dictionary word with tools/course/hi/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has its romanisation, one short everyday sentence that uses it the way native speakers do, and its English translation; ⟦ ⟧ marks the part that translates the word. Verbs are given in their dictionary form (-ना). The voice is a woman's, so sentences with मैं (I) use the forms a woman says (मैं जाती हूँ; a man says मैं जाता हूँ).",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Swara (Azure, India)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "का",
+   "pos": "postp",
+   "meaning": "[kā] 's; of (के or की, to match what follows)",
+   "sentence": "यह मेरे दोस्त का घर है।",
+   "translation": "This is my friend⟦'s⟧ house.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.376,
+    "sent_start": 1.276,
+    "sent_end": 3.163
+   }
+  },
+  {
+   "n": 2,
+   "word": "होना",
+   "pos": "verb",
+   "meaning": "[honā] to be; to happen",
+   "sentence": "आज मौसम बहुत अच्छा है।",
+   "translation": "The weather ⟦is⟧ very nice today.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.512,
+    "sent_start": 1.412,
+    "sent_end": 3.447
+   }
+  },
+  {
+   "n": 3,
+   "word": "में",
+   "pos": "postp",
+   "meaning": "[mẽ] in",
+   "sentence": "चाबी मेरे बैग में है।",
+   "translation": "The key is ⟦in⟧ my bag.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.329,
+    "sent_start": 1.229,
+    "sent_end": 2.782
+   }
+  },
+  {
+   "n": 4,
+   "word": "करना",
+   "pos": "verb",
+   "meaning": "[karnā] to do",
+   "sentence": "तुम क्या कर रहे हो?",
+   "translation": "What are you ⟦doing⟧?",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.459,
+    "sent_start": 1.359,
+    "sent_end": 2.601
+   }
+  },
+  {
+   "n": 5,
+   "word": "से",
+   "pos": "postp",
+   "meaning": "[se] from; with; since",
+   "sentence": "मैं मुंबई से हूँ।",
+   "translation": "I'm ⟦from⟧ Mumbai.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.527,
+    "sent_start": 1.427,
+    "sent_end": 2.818
+   }
+  },
+  {
+   "n": 6,
+   "word": "और",
+   "pos": "conj",
+   "meaning": "[aur] and; more",
+   "sentence": "मुझे चाय और समोसा चाहिए।",
+   "translation": "I'd like tea ⟦and⟧ a samosa.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.481,
+    "sent_start": 1.381,
+    "sent_end": 3.733
+   }
+  },
+  {
+   "n": 7,
+   "word": "को",
+   "pos": "postp",
+   "meaning": "[ko] to (a person); (marks a definite object)",
+   "sentence": "यह किताब अपने भाई को दे दो।",
+   "translation": "Give this book ⟦to⟧ your brother.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.4,
+    "sent_start": 1.3,
+    "sent_end": 3.669
+   }
+  },
+  {
+   "n": 8,
+   "word": "जाना",
+   "pos": "verb",
+   "meaning": "[jānā] to go",
+   "sentence": "हम कल बाज़ार जा रहे हैं।",
+   "translation": "We're ⟦going⟧ to the market tomorrow.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.614,
+    "sent_start": 1.514,
+    "sent_end": 3.399
+   }
+  },
+  {
+   "n": 9,
+   "word": "यह",
+   "pos": "pron",
+   "meaning": "[yah] this; he, she, it (near)",
+   "sentence": "यह मेरी किताब है।",
+   "translation": "⟦This⟧ is my book.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.435,
+    "sent_start": 1.335,
+    "sent_end": 2.836
+   }
+  },
+  {
+   "n": 10,
+   "word": "वह",
+   "pos": "pron",
+   "meaning": "[vah] that; he, she, it (far)",
+   "sentence": "वह मेरा भाई है।",
+   "translation": "⟦He⟧ is my brother.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.408,
+    "sent_start": 1.308,
+    "sent_end": 2.653
+   }
+  },
+  {
+   "n": 11,
+   "word": "पर",
+   "pos": "postp",
+   "meaning": "[par] on; at",
+   "sentence": "किताब मेज़ पर है।",
+   "translation": "The book is ⟦on⟧ the table.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.284,
+    "sent_start": 1.184,
+    "sent_end": 2.398
+   }
+  },
+  {
+   "n": 12,
+   "word": "रहना",
+   "pos": "verb",
+   "meaning": "[rahnā] to live; to stay",
+   "sentence": "आप कहाँ रहते हैं?",
+   "translation": "Where do you ⟦live⟧?",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.549,
+    "sent_start": 1.449,
+    "sent_end": 2.681
+   }
+  },
+  {
+   "n": 13,
+   "word": "भी",
+   "pos": "part",
+   "meaning": "[bhī] also; too; even",
+   "sentence": "मुझे भी चाय चाहिए।",
+   "translation": "I'd like tea ⟦too⟧.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.537,
+    "sent_start": 1.437,
+    "sent_end": 3.087
+   }
+  },
+  {
+   "n": 14,
+   "word": "नहीं",
+   "pos": "part",
+   "meaning": "[nahī̃] no; not",
+   "sentence": "मुझे नहीं पता।",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.592,
+    "sent_start": 1.492,
+    "sent_end": 2.566
+   }
+  },
+  {
+   "n": 15,
+   "word": "एक",
+   "pos": "num",
+   "meaning": "[ek] one; a",
+   "sentence": "एक मिनट रुकिए।",
+   "translation": "Wait ⟦a⟧ minute, please.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.469,
+    "sent_start": 1.369,
+    "sent_end": 2.582
+   }
+  },
+  {
+   "n": 16,
+   "word": "देना",
+   "pos": "verb",
+   "meaning": "[denā] to give",
+   "sentence": "मुझे थोड़ा पानी दीजिए।",
+   "translation": "Please ⟦give⟧ me a little water.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.576,
+    "sent_start": 1.476,
+    "sent_end": 3.34
+   }
+  },
+  {
+   "n": 17,
+   "word": "तो",
+   "pos": "part",
+   "meaning": "[to] then; so; well",
+   "sentence": "अगर बारिश हुई तो हम घर पर रहेंगे।",
+   "translation": "If it rains, ⟦then⟧ we'll stay at home.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.407,
+    "sent_start": 1.307,
+    "sent_end": 3.977
+   }
+  },
+  {
+   "n": 18,
+   "word": "ने",
+   "pos": "postp",
+   "meaning": "[ne] (marks who did it, with a past verb)",
+   "sentence": "माँ ने खाना बनाया।",
+   "translation": "⟦Mum⟧ cooked dinner.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.439,
+    "sent_start": 1.339,
+    "sent_end": 2.786
+   }
+  },
+  {
+   "n": 19,
+   "word": "जो",
+   "pos": "pron",
+   "meaning": "[jo] who; which; what (relative)",
+   "sentence": "जो चाहिए, ले लो।",
+   "translation": "Take ⟦whatever⟧ you need.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.539,
+    "sent_start": 1.439,
+    "sent_end": 3.216
+   }
+  },
+  {
+   "n": 20,
+   "word": "लिए",
+   "pos": "postp",
+   "meaning": "[lie] for (के लिए)",
+   "sentence": "यह तोहफ़ा आपके लिए है।",
+   "translation": "This gift is ⟦for⟧ you.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.482,
+    "sent_start": 1.382,
+    "sent_end": 3.273
+   }
+  }
+ ]
+}

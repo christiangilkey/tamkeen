@@ -1,0 +1,193 @@
+{
+  "lang": "hi",
+  "title": "Hindi basics",
+  "variety": "Everyday Hindi (India), in Devanagari",
+  "about": "The most common words of written and spoken Hindi (wordfreq counts, grouped by dictionary word with tools/course/hi/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Each word has its romanisation, one short everyday sentence that uses it the way native speakers do, and its English translation; ⟦ ⟧ marks the part that translates the word. Verbs are given in their dictionary form (-ना). The voice is a woman's, so sentences with मैं (I) use the forms a woman says (मैं जाती हूँ; a man says मैं जाता हूँ).",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "का",
+      "pos": "postp",
+      "meaning": "[kā] 's; of (के or की, to match what follows)",
+      "sentence": "यह मेरे दोस्त का घर है।",
+      "translation": "This is my friend⟦'s⟧ house."
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "होना",
+      "pos": "verb",
+      "meaning": "[honā] to be; to happen",
+      "sentence": "आज मौसम बहुत अच्छा है।",
+      "translation": "The weather ⟦is⟧ very nice today.",
+      "form": "है"
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "में",
+      "pos": "postp",
+      "meaning": "[mẽ] in",
+      "sentence": "चाबी मेरे बैग में है।",
+      "translation": "The key is ⟦in⟧ my bag."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "करना",
+      "pos": "verb",
+      "meaning": "[karnā] to do",
+      "sentence": "तुम क्या कर रहे हो?",
+      "translation": "What are you ⟦doing⟧?",
+      "form": "कर"
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "से",
+      "pos": "postp",
+      "meaning": "[se] from; with; since",
+      "sentence": "मैं मुंबई से हूँ।",
+      "translation": "I'm ⟦from⟧ Mumbai."
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "और",
+      "pos": "conj",
+      "meaning": "[aur] and; more",
+      "sentence": "मुझे चाय और समोसा चाहिए।",
+      "translation": "I'd like tea ⟦and⟧ a samosa."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "को",
+      "pos": "postp",
+      "meaning": "[ko] to (a person); (marks a definite object)",
+      "sentence": "यह किताब अपने भाई को दे दो।",
+      "translation": "Give this book ⟦to⟧ your brother."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "जाना",
+      "pos": "verb",
+      "meaning": "[jānā] to go",
+      "sentence": "हम कल बाज़ार जा रहे हैं।",
+      "translation": "We're ⟦going⟧ to the market tomorrow.",
+      "form": "जा"
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "यह",
+      "pos": "pron",
+      "meaning": "[yah] this; he, she, it (near)",
+      "sentence": "यह मेरी किताब है।",
+      "translation": "⟦This⟧ is my book."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "वह",
+      "pos": "pron",
+      "meaning": "[vah] that; he, she, it (far)",
+      "sentence": "वह मेरा भाई है।",
+      "translation": "⟦He⟧ is my brother."
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "पर",
+      "pos": "postp",
+      "meaning": "[par] on; at",
+      "sentence": "किताब मेज़ पर है।",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "रहना",
+      "pos": "verb",
+      "meaning": "[rahnā] to live; to stay",
+      "sentence": "आप कहाँ रहते हैं?",
+      "translation": "Where do you ⟦live⟧?",
+      "form": "रहते"
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "भी",
+      "pos": "part",
+      "meaning": "[bhī] also; too; even",
+      "sentence": "मुझे भी चाय चाहिए।",
+      "translation": "I'd like tea ⟦too⟧."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "नहीं",
+      "pos": "part",
+      "meaning": "[nahī̃] no; not",
+      "sentence": "मुझे नहीं पता।",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "एक",
+      "pos": "num",
+      "meaning": "[ek] one; a",
+      "sentence": "एक मिनट रुकिए।",
+      "translation": "Wait ⟦a⟧ minute, please."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "देना",
+      "pos": "verb",
+      "meaning": "[denā] to give",
+      "sentence": "मुझे थोड़ा पानी दीजिए।",
+      "translation": "Please ⟦give⟧ me a little water.",
+      "form": "दीजिए"
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "तो",
+      "pos": "part",
+      "meaning": "[to] then; so; well",
+      "sentence": "अगर बारिश हुई तो हम घर पर रहेंगे।",
+      "translation": "If it rains, ⟦then⟧ we'll stay at home."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "ने",
+      "pos": "postp",
+      "meaning": "[ne] (marks who did it, with a past verb)",
+      "sentence": "माँ ने खाना बनाया।",
+      "translation": "⟦Mum⟧ cooked dinner."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "जो",
+      "pos": "pron",
+      "meaning": "[jo] who; which; what (relative)",
+      "sentence": "जो चाहिए, ले लो।",
+      "translation": "Take ⟦whatever⟧ you need."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "लिए",
+      "pos": "postp",
+      "meaning": "[lie] for (के लिए)",
+      "sentence": "यह तोहफ़ा आपके लिए है।",
+      "translation": "This gift is ⟦for⟧ you."
+    }
+  ]
+}
