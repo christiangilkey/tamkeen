@@ -974,6 +974,259 @@
         {"type":"say","q":"How do you say “It's going to rain tomorrow”?","answer":"Vai chover amanhã."},
         {"type":"free","q":"Your turn: what are you going to do this weekend? Say two or three plans with {{Vou…}}","answers":[{"t":"No sábado vou dormir até tarde e depois vou almoçar com meus pais.","tr":"On Saturday I'm going to sleep in, and then I'm going to have lunch with my parents."},{"t":"Vou estudar português e no domingo a gente vai fazer um churrasco.","tr":"I'm going to study Portuguese, and on Sunday we're going to have a barbecue."}]}
       ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you can and can't do",
+      "summary": "Ask for permission and favors, say what you know how to do, and what you can't manage: four kinds of “can”.",
+      "topic": "{{poder}} (allowed, favors), {{saber}} (know how), {{conseguir}} (manage), {{dá pra}} (it's possible)",
+      "blocks": [
+        {"goal":{"t":"Você pode me ajudar? Não consigo abrir a porta.","tr":"Can you help me? I can't open the door."}},
+        {"dialog":[{"who":"You","t":"Com licença, você pode me ajudar?","tr":"Excuse me, can you help me?"},{"who":"Receptionist","t":"Claro! Pois não?","tr":"Of course! What can I do for you?"},{"who":"You","t":"Não consigo abrir a porta do quarto.","tr":"I can't open the door to my room."},{"who":"Receptionist","t":"Ah, o cartão às vezes não funciona. Posso ver?","tr":"Ah, the card sometimes doesn't work. Can I see?"},{"who":"You","t":"Pode. Aqui está.","tr":"Sure. Here it is."},{"who":"Receptionist","t":"Pronto, agora dá pra abrir.","tr":"There you go, now it'll open."}]},
+        {"p":"English has one “can”. Portuguese has four common ways to say it, each with its own job:"},
+        { "table": [
+          ["","what it means","example"],
+          ["{{poder}}","be allowed; asking favors; be free to","{{Posso entrar?}} Can I come in?"],
+          ["{{saber}}","know how (a skill you learned)","{{Sei nadar.}} I can swim."],
+          ["{{conseguir}}","manage (when it's hard)","{{Não consigo dormir.}} I can't sleep."],
+          ["{{dá pra}}","it's possible (very common in speech)","{{Dá pra ir a pé?}} Can you walk there?"]
+        ] },
+        {"p":"**{{poder}}** is irregular in the “I” form: {{posso}}, {{pode}}, {{podemos}}, {{podem}}. It asks and gives permission ({{Posso sentar aqui?}} — {{Pode!}}) and asks favors ({{Você pode fechar a janela?}})."},
+        {"p":"**{{saber}}** is for skills: {{Você sabe dirigir?}} “Can you drive?” With {{poder}}, that question would mean “Are you allowed to drive?”."},
+        {"p":"**{{conseguir}}** “manage” is for things that don't work right now: {{Não consigo ouvir}} “I can't hear”. Forms: {{consigo}}, {{consegue}}, {{conseguimos}}, {{conseguem}}."},
+        {"p":"**{{dá pra}}** (from {{dar para}}, literally “it gives for”) is how Brazilians say “it's possible”: {{Dá pra pagar com cartão?}} “Can I pay by card?” The answer: {{Dá!}} or {{Não dá.}} And {{Não vai dar}} is the classic, polite “I can't make it”."},
+        {"p":"All four take an infinitive straight after: {{posso ir}}, {{sei cozinhar}}, {{consigo ver}}, {{dá pra ver}}. A pronoun goes before that second verb: {{Você pode me ajudar?}}"},
+        { "ex": [
+          {"t":"Posso sentar aqui? — Pode, claro.","tr":"Can I sit here? — Sure, of course."},
+          {"t":"Você sabe falar espanhol?","tr":"Can you speak Spanish?","note":"a skill: {{saber}}"},
+          {"t":"Não consigo dormir com esse barulho.","tr":"I can't sleep with this noise."},
+          {"t":"Dá pra pagar com cartão?","tr":"Can I pay by card?"},
+          {"t":"Vocês podem falar mais devagar?","tr":"Can you speak more slowly?"},
+          {"t":"Hoje não vai dar, desculpa.","tr":"I can't make it today, sorry."}
+        ] },
+        {"tip":"{{Pode deixar!}} means “Leave it to me!”: a friendly way to say you'll take care of something."}
+      ],
+      "mistakes": [
+        {"wrong":"Posso nadar muito bem.","right":"Sei nadar muito bem.","tr":"I can swim very well.","why":"A skill you've learned is {{saber}}."},
+        {"wrong":"Não posso abrir a garrafa.","right":"Não consigo abrir a garrafa.","tr":"I can't open the bottle.","why":"Trying and failing is {{conseguir}}. {{Não posso}} would mean you're not allowed to."}
+      ],
+      "practice": [
+        {"type":"choice","q":"You want to say you know how to drive. You say…","options":["{{Sei dirigir.}}","{{Posso dirigir.}}","{{Consigo dirigir.}}"],"answer":0,"why":"A skill: {{saber}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Eu não ___ dormir.","tr":"I can't sleep.","options":["consigo","sei","dá"],"answer":0,"why":"Trying, but it doesn't work: {{conseguir}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ pra ir a pé?","tr":"Can you get there on foot?","options":["Dá","Pode","Sabe"],"answer":0,"why":"Is it possible?: {{dá pra}}."},
+        {"type":"dialogue","q":"Paying at a restaurant: choose your replies.","from":"ask-for-what-you-want","lines":[{"who":"Waiter","t":"Mais alguma coisa?","tr":"Anything else?"},{"options":["Não, obrigado. Dá pra pagar com cartão?","Não, obrigado. Sabe pagar com cartão?"],"answer":0,"why":"Is it possible?: {{dá pra}}."},{"who":"Waiter","t":"Dá, sim. Débito ou crédito?","tr":"Yes. Debit or credit?"},{"options":["Crédito. Posso pagar aqui na mesa?","Crédito. Sei pagar aqui na mesa?"],"answer":0,"why":"Asking permission: {{posso}}."},{"who":"Waiter","t":"Pode, eu trago a maquininha.","tr":"Yes, I'll bring the card machine."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Can you speak more slowly?","words":["Você","pode","falar","mais","devagar?"]},
+        {"type":"say","q":"A friend invites you, but you can't make it. Say “I can't today, sorry.”","answer":"Hoje não vai dar, desculpa."},
+        {"type":"free","q":"Your turn: say one thing you know how to do, one thing you can't manage, and ask someone a favor.","answers":[{"t":"Sei cozinhar muito bem, mas não consigo acordar cedo. Você pode me ligar às sete?","tr":"I can cook really well, but I can't manage to wake up early. Can you call me at seven?"},{"t":"Sei tocar violão. Não consigo entender quando as pessoas falam rápido. Você pode repetir?","tr":"I can play the guitar. I can't understand when people talk fast. Can you say that again?"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-need-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you need and have to do",
+      "summary": "Say what you have to do, what you need, and what someone ought to do: “I have to go!”",
+      "topic": "{{ter que}} + infinitive; {{precisar}} + verb, {{precisar de}} + noun; {{dever}}, {{devia}}",
+      "blocks": [
+        {"goal":{"t":"Preciso ir. Tenho que acordar cedo amanhã.","tr":"I need to go. I have to get up early tomorrow."}},
+        {"dialog":[{"who":"Ana","t":"Já vai? Ainda é cedo!","tr":"Leaving already? It's still early!"},{"who":"You","t":"Pois é, tenho que trabalhar amanhã às sete.","tr":"I know, I have to work tomorrow at seven."},{"who":"Ana","t":"Você precisa de carona?","tr":"Do you need a ride?"},{"who":"You","t":"Não precisa, obrigado. Vou pegar um Uber.","tr":"No need, thanks. I'll get an Uber."},{"who":"Ana","t":"Então tá. Você deve estar cansado, né?","tr":"OK then. You must be tired, right?"},{"who":"You","t":"Muito! A gente se vê!","tr":"Very! See you!"}]},
+        {"p":"**Have to: {{ter que}}.** The everyday way to say you must do something: {{ter}} + {{que}} + infinitive. {{Tenho que ir}} “I have to go”. (In writing you'll also see {{ter de}}, with the same meaning.)"},
+        {"p":"**Need: {{precisar}}.** Before a verb, nothing in between: {{Preciso ir}} “I need to go”. Before a noun, {{precisar de}}: {{Preciso de ajuda}} “I need help”."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["+ a verb","{{Preciso estudar.}}","I need to study."],
+          ["+ a noun","{{Preciso de um táxi.}}","I need a taxi."],
+          ["+ “the”","{{Preciso do seu telefone.}}","I need your phone number."],
+          ["no need","{{Não precisa.}}","There's no need."]
+        ] },
+        {"p":"**Should: {{dever}}.** {{Você deve descansar}} “You should rest”. Brazilians soften advice with {{devia}} (“ought to”): {{Você devia ir ao médico}}. And {{deve}} + {{estar}} is a guess: {{Você deve estar cansado}} “You must be tired”."},
+        { "table": [
+          ["","{{ter que}}","{{precisar}}","{{dever}}"],
+          ["I","{{tenho que}}","{{preciso}}","{{devo}}"],
+          ["you, he, she","{{tem que}}","{{precisa}}","{{deve}}"],
+          ["we","{{temos que}}","{{precisamos}}","{{devemos}}"],
+          ["you all, they","{{têm que}}","{{precisam}}","{{devem}}"]
+        ] },
+        {"p":"**Not having to.** {{Não tenho que}} or {{Não preciso}}: {{Não precisa trazer nada}} “You don't need to bring anything”."},
+        { "ex": [
+          {"t":"Tenho que trabalhar no sábado.","tr":"I have to work on Saturday."},
+          {"t":"Você precisa de ajuda?","tr":"Do you need help?"},
+          {"t":"A gente tem que comprar pão.","tr":"We have to buy bread."},
+          {"t":"Não precisa trazer nada!","tr":"You don't need to bring anything!"},
+          {"t":"Você devia dormir mais.","tr":"You ought to sleep more."},
+          {"t":"Ela deve estar em casa.","tr":"She must be at home.","note":"a guess"}
+        ] },
+        {"tip":"{{Tem que}} also says how things must be done, for anyone: {{Tem que apertar o botão}} “You have to press the button”."}
+      ],
+      "mistakes": [
+        {"wrong":"Tenho trabalhar amanhã.","right":"Tenho que trabalhar amanhã.","tr":"I have to work tomorrow.","why":"“Have to” needs {{que}}: {{ter que}} + infinitive."},
+        {"wrong":"Preciso um táxi.","right":"Preciso de um táxi.","tr":"I need a taxi.","why":"Before a noun, {{precisar}} takes {{de}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Eu tenho ___ ir agora.","tr":"I have to go now.","options":["que","para","a"],"answer":0,"why":"“Have to”: {{ter que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Você precisa ___ alguma coisa?","tr":"Do you need anything?","options":["de","que","para"],"answer":0,"why":"Before a noun: {{precisar de}}."},
+        {"type":"choice","q":"Your friend has a bad cough. Gentle advice:","options":["{{Você devia ir ao médico.}}","{{Você tem que vai ao médico.}}","{{Você deve vai ao médico.}}"],"answer":0,"why":"{{Devia}} + infinitive is soft advice. After {{tem que}} and {{deve}}, the verb would be an infinitive too: {{ir}}."},
+        {"type":"dialogue","q":"Leaving a party: choose your replies.","from":"make-plans","lines":[{"who":"Ana","t":"Já vai? Ainda é cedo!","tr":"Leaving already? It's still early!"},{"options":["Pois é, tenho que acordar cedo amanhã.","Pois é, tenho acordar cedo amanhã."],"answer":0,"why":"{{Tenho que}} + infinitive."},{"who":"Ana","t":"Você precisa de carona?","tr":"Do you need a ride?"},{"options":["Não precisa, obrigado. Vou pegar um táxi.","Não preciso de, obrigado. Vou pegar um táxi."],"answer":0,"why":"{{Não precisa}} “no need” is the natural answer; and {{vou pegar}} is a plan: {{ir}} + infinitive."},{"who":"Ana","t":"Então tá. Beijo!","tr":"OK then. Bye!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We have to buy bread.","words":["A gente","tem que","comprar","pão."]},
+        {"type":"say","q":"How do you say “I need help”?","answer":"Preciso de ajuda."},
+        {"type":"free","q":"Your turn: say two things you have to do this week and one thing you don't need to do.","answers":[{"t":"Tenho que ir ao dentista e preciso comprar um presente. Não preciso trabalhar na sexta!","tr":"I have to go to the dentist and I need to buy a present. I don't need to work on Friday!"},{"t":"Essa semana tenho que estudar muito, mas não preciso cozinhar: minha mãe vem aqui.","tr":"This week I have to study a lot, but I don't need to cook: my mother is coming over."}]}
+      ]
+    },
+    {
+      "id": "invite-and-suggest",
+      "unit": 4,
+      "level": "A2",
+      "title": "Invite someone and make suggestions",
+      "summary": "Invite a friend, suggest a plan, and say yes or no politely, the Brazilian way.",
+      "topic": "{{Vamos…?}}, {{Que tal…?}}, {{Você quer…?}}, {{A gente pode…}}; {{comigo}}; soft ways to say no",
+      "blocks": [
+        {"goal":{"t":"Que tal um cinema hoje à noite?","tr":"How about a movie tonight?"}},
+        {"dialog":[{"who":"Bruno","t":"E aí, vamos fazer alguma coisa no sábado?","tr":"Hey, shall we do something on Saturday?"},{"who":"You","t":"Vamos! Que tal ir à praia?","tr":"Yes! How about going to the beach?"},{"who":"Bruno","t":"Boa! A gente pode chamar a Lu também.","tr":"Great idea! We could invite Lu too."},{"who":"You","t":"Claro! Você quer almoçar lá?","tr":"Sure! Do you want to have lunch there?"},{"who":"Bruno","t":"Quero. Combinado, então: sábado às dez!","tr":"Yes. It's a plan, then: Saturday at ten!"},{"who":"You","t":"Fechado!","tr":"Deal!"}]},
+        {"p":"**Let's: {{vamos}} + infinitive.** {{Vamos comer?}} “Shall we eat?”; {{Vamos!}} “Let's!” With a place, it's the {{ir}} you know: {{Vamos à praia?}}"},
+        {"p":"**How about…?: {{Que tal…?}}** With a noun or a verb: {{Que tal um café?}} “How about a coffee?”, {{Que tal sair mais cedo?}} “How about leaving earlier?”."},
+        {"p":"**Do you want to…?: {{Você quer…?}}** {{Você quer jantar comigo?}} “Do you want to have dinner with me?” ({{comigo}} is “with me”, one word.)"},
+        {"p":"**We could…: {{A gente pode…}}**, the {{poder}} of lesson 20: {{A gente pode ver um filme}} “We could watch a movie”."},
+        { "table": [
+          ["","Portuguese","English"],
+          ["let's","{{Vamos almoçar?}}","Shall we have lunch?"],
+          ["how about","{{Que tal uma pizza?}}","How about a pizza?"],
+          ["do you want to","{{Você quer ir junto?}}","Do you want to come along?"],
+          ["we could","{{A gente pode sair amanhã.}}","We could go out tomorrow."]
+        ] },
+        {"p":"**Saying yes.** {{Vamos!}}, {{Boa!}} “Good idea!”, {{Claro!}}, {{Adoraria!}} “I'd love to!”, {{Combinado!}} or {{Fechado!}} “Deal!”."},
+        {"p":"**Saying no, politely.** Brazilians rarely give a flat {{não}}: they soften it and give a reason. {{Ah, hoje não vai dar}} “Oh, today won't work”, {{Que pena, tenho que trabalhar}} “What a pity, I have to work”, {{Fica pra próxima}} “Let's leave it for next time”."},
+        { "ex": [
+          {"t":"Vamos tomar um café?","tr":"Shall we get a coffee?"},
+          {"t":"Que tal sábado?","tr":"How about Saturday?"},
+          {"t":"Você quer vir aqui em casa?","tr":"Do you want to come over to my place?","note":"{{vir}}: toward where the speaker is"},
+          {"t":"A gente pode pedir uma pizza.","tr":"We could order a pizza."},
+          {"t":"Adoraria, mas não posso. Fica pra próxima!","tr":"I'd love to, but I can't. Next time!"},
+          {"t":"Combinado: às oito na frente do cinema.","tr":"It's a plan: at eight in front of the movie theater."}
+        ] },
+        {"tip":"{{Bora!}} (from {{embora}}) is very casual and very common among friends: {{Bora tomar uma cerveja?}} “Shall we grab a beer?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Que tal de ir à praia?","right":"Que tal ir à praia?","tr":"How about going to the beach?","why":"{{Que tal}} takes the noun or the infinitive directly, with no {{de}}."},
+        {"wrong":"Vamos a comer!","right":"Vamos comer!","tr":"Let's eat!","why":"{{Vamos}} + infinitive, with nothing in between, as with {{vou}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ tal um sorvete?","tr":"How about an ice cream?","options":["Que","Qual","Como"],"answer":0,"why":"“How about…?”: {{Que tal…?}}"},
+        {"type":"choice","q":"A friend invites you, but you have to work. The most Brazilian answer:","options":["{{Ah, hoje não vai dar. Fica pra próxima!}}","{{Não.}}","{{Não quero.}}"],"answer":0,"why":"Soften the no and leave the door open: {{não vai dar}}, {{fica pra próxima}}.","from":"say-what-you-can-do"},
+        {"type":"dialogue","q":"A friend suggests a movie. Choose your replies.","from":"talk-about-time","lines":[{"who":"Lu","t":"Vamos ao cinema amanhã?","tr":"Shall we go to the movies tomorrow?"},{"options":["Vamos! Que horas?","Vamos! Quantas horas?"],"answer":0,"why":"“What time”: {{que horas}}."},{"who":"Lu","t":"Que tal às sete?","tr":"How about seven?"},{"options":["Às sete eu não posso. Que tal às oito?","Às sete eu não sei. Que tal às oito?"],"answer":0,"why":"Not free: {{não posso}}. ({{Não sei}} is “I don't know”.)"},{"who":"Lu","t":"Fechado, às oito!","tr":"Deal, at eight!"}]},
+        {"type":"fill","q":"Choose the missing word.","t":"Você quer jantar ___?","tr":"Do you want to have dinner with me?","options":["comigo","com eu","com me"],"answer":0,"why":"“With me” is one word: {{comigo}}."},
+        {"type":"order","q":"Put the words in order.","tr":"We could order a pizza.","words":["A gente","pode","pedir","uma","pizza."]},
+        {"type":"say","q":"How do you say “Shall we get a coffee?”","answer":"Vamos tomar um café?"},
+        {"type":"free","q":"Your turn: invite a friend to do something this weekend, and suggest a time.","answers":[{"t":"Vamos ao parque no domingo? Que tal às dez?","tr":"Shall we go to the park on Sunday? How about ten?"},{"t":"Você quer jantar comigo na sexta? A gente pode experimentar aquele restaurante japonês.","tr":"Do you want to have dinner with me on Friday? We could try that Japanese restaurant."}]}
+      ]
+    },
+    {
+      "id": "tell-people-what-to-do",
+      "unit": 4,
+      "level": "A2",
+      "title": "Ask and tell people to do things",
+      "summary": "Give directions, ask for things at the table, and read signs and instructions: the two kinds of commands.",
+      "topic": "Commands: the spoken form ({{fala}}, {{vira}}, {{me passa}}) and the written, polite form ({{fale}}, {{vire}}, {{faça}}); {{não}} + command",
+      "blocks": [
+        {"goal":{"t":"Me passa o sal, por favor?","tr":"Could you pass me the salt, please?"}},
+        {"dialog":[{"who":"You","t":"Com licença, como chego ao museu?","tr":"Excuse me, how do I get to the museum?"},{"who":"Man","t":"É fácil. Segue reto até o semáforo e vira à direita.","tr":"It's easy. Go straight to the traffic light and turn right."},{"who":"You","t":"Viro à direita no semáforo…","tr":"I turn right at the traffic light…"},{"who":"Man","t":"Isso. Depois pega a segunda rua à esquerda. O museu fica ali.","tr":"That's it. Then take the second street on the left. The museum is there."},{"who":"You","t":"Muito obrigada!","tr":"Thank you so much!"},{"who":"Man","t":"De nada. Ah, e cuidado com o trânsito!","tr":"You're welcome. Oh, and watch out for the traffic!"}]},
+        {"term":"imperative","means":"the form of a verb for telling or asking someone to do something: Come here! Turn left."},
+        {"p":"**In conversation: the {{você}} form.** When Brazilians tell a friend, or a stranger asking the way, to do something, they mostly use the same form as {{você fala}}, {{ele faz}}: {{Fala mais alto!}} “Speak up!”, {{Vira à direita}} “Turn right”, {{Olha!}} “Look!”. A pronoun comes first: {{Me liga!}} “Call me!”, {{Me passa o sal}} “Pass me the salt”."},
+        {"p":"**In writing and polite speech: a different ending.** Signs, instructions, ads and polite service talk use another form: {{-ar}} verbs end in {{-e}}, and {{-er}} and {{-ir}} verbs in {{-a}}. It's built on the “I” form of the present, so irregular verbs keep their surprise: {{faço}} → {{faça}}, {{venho}} → {{venha}}."},
+        { "table": [
+          ["","everyday","written, polite"],
+          ["{{falar}} speak","{{fala}}","{{fale}}"],
+          ["{{virar}} turn","{{vira}}","{{vire}}"],
+          ["{{esperar}} wait","{{espera}}","{{espere}}"],
+          ["{{abrir}} open","{{abre}}","{{abra}}"],
+          ["{{fazer}} do","{{faz}}","{{faça}}"],
+          ["{{vir}} come","{{vem}}","{{venha}}"],
+          ["{{ir}} go","{{vai}}","{{vá}}"]
+        ] },
+        {"p":"You'll see the second form on every sign: {{Empurre}} “Push”, {{Puxe}} “Pull”, {{Aperte o botão}} “Press the button”, {{Fale conosco}} “Contact us”. A shop assistant may say {{Espere um momento}} “One moment, please”. (This form has a name, the subjunctive; lesson 38 shows its other jobs.)"},
+        {"p":"**Don't.** Put {{não}} in front. In relaxed speech: {{Não esquece!}} “Don't forget!”; in writing and polite speech: {{Não esqueça}}, {{Não fume}} “No smoking”."},
+        {"p":"**Softening.** A bare command can sound bossy. Add {{por favor}}, or make it a question with a rising voice: {{Me passa o sal?}}, {{Você pode fechar a porta?}}"},
+        { "ex": [
+          {"t":"Espera um pouquinho!","tr":"Wait a moment!","note":"{{pouquinho}}: “a little bit”"},
+          {"t":"Vem cá!","tr":"Come here!"},
+          {"t":"Me manda uma mensagem.","tr":"Send me a message."},
+          {"t":"Segue reto e vira à esquerda.","tr":"Go straight and turn left."},
+          {"t":"Não fala isso!","tr":"Don't say that!"},
+          {"t":"Aperte o botão vermelho.","tr":"Press the red button.","note":"written instructions"},
+          {"t":"Fale com o gerente, por favor.","tr":"Please speak to the manager.","note":"polite, in a shop"}
+        ] },
+        {"tip":"On doors in Brazil, {{Empurre}} means “push” and {{Puxe}} means “pull”. Yes: {{puxe}} looks like “push”, and it's the opposite!"}
+      ],
+      "mistakes": [
+        {"wrong":"Liga me amanhã!","right":"Me liga amanhã!","tr":"Call me tomorrow!","why":"In Brazilian speech the pronoun goes before the verb, even in a command."},
+        {"wrong":"Fazi o seu pedido aqui.","right":"Faça o seu pedido aqui.","tr":"Order here.","why":"The written command comes from the “I” form: {{faço}} → {{faça}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"A sign on a door says {{Puxe}}. You…","options":["pull","push","knock"],"answer":0,"why":"{{Puxe}} is “pull”; “push” is {{empurre}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ o sal, por favor?","tr":"Could you pass me the salt, please?","options":["Me passa","Passa me","Me passo"],"answer":0,"why":"The pronoun first, then the {{você}} form: {{me passa}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Segue reto e ___ à direita.","tr":"Go straight and turn right.","options":["vira","virar","viro"],"answer":0,"why":"A spoken command: the {{você}} form, {{vira}}."},
+        {"type":"dialogue","q":"Lost in the city: choose your replies.","from":"say-where-things-are","lines":[{"who":"Woman","t":"Precisa de ajuda?","tr":"Do you need help?"},{"options":["Preciso. Como chego ao museu?","Preciso. Quem chego ao museu?"],"answer":0,"why":"“How”: {{como}}."},{"who":"Woman","t":"Segue reto e vira na segunda à esquerda.","tr":"Go straight and take the second left."},{"options":["Fica longe daqui?","Fica longe de aqui?"],"answer":0,"why":"{{De}} + {{aqui}} = {{daqui}}."},{"who":"Woman","t":"Não, uns cinco minutos.","tr":"No, about five minutes."}]},
+        {"type":"choice","q":"Which one would you read on an instruction leaflet?","options":["{{Abra a embalagem aqui.}}","{{Abre a embalagem aqui.}}"],"answer":0,"why":"Written instructions: {{-er}} and {{-ir}} verbs end in {{-a}}, {{abra}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Don't forget the keys!","words":["Não","esquece","as","chaves!"]},
+        {"type":"say","q":"Tell a friend: “Call me tomorrow!”","answer":"Me liga amanhã!"},
+        {"type":"free","q":"Your turn: give a friend directions from your home to a café or a shop nearby.","answers":[{"t":"Sai do prédio, vira à esquerda e segue reto. O café fica na esquina.","tr":"Leave the building, turn left and go straight. The café is on the corner."},{"t":"Pega o ônibus 22, desce no terceiro ponto e atravessa a rua.","tr":"Take bus 22, get off at the third stop and cross the street."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people-and-things",
+      "unit": 4,
+      "level": "A2",
+      "title": "Talk about people and things without repeating them",
+      "summary": "Say “me”, “you”, “him”, “it” and “us” as Brazilians do in conversation, and recognise the forms of careful writing.",
+      "topic": "Object pronouns {{me}}, {{te}}, {{nos}}, {{lhe}} before the verb; “him, her, it” in speech ({{ele}}, {{ela}}, or nothing) and in writing ({{o}}, {{a}}); {{comigo}}, {{pra mim}}",
+      "blocks": [
+        {"goal":{"t":"Eu te ligo amanhã. Você me espera?","tr":"I'll call you tomorrow. Will you wait for me?"}},
+        {"dialog":[{"who":"Marcos","t":"Você conhece o Rafa?","tr":"Do you know Rafa?"},{"who":"You","t":"Conheço! Ele sempre me ajuda com o português.","tr":"I do! He always helps me with my Portuguese."},{"who":"Marcos","t":"Ele vai dar uma festa no sábado. Quer o telefone dele?","tr":"He's having a party on Saturday. Do you want his number?"},{"who":"You","t":"Quero! Você me passa?","tr":"Yes! Can you send it to me?"},{"who":"Marcos","t":"Passo. E eu te encontro lá!","tr":"Sure. And I'll meet you there!"}]},
+        {"term":"object","means":"the person or thing that receives the action of the verb: I see **you**, she calls **me**, we buy **bread**."},
+        {"p":"**Me, you, us.** These short pronouns go **before** the verb in Brazilian Portuguese:"},
+        { "table": [
+          ["","Portuguese","example"],
+          ["me","{{me}}","{{Ele me ajuda.}} He helps me."],
+          ["you","{{te}}","{{Eu te amo.}} I love you."],
+          ["us","{{nos}}","{{Ela nos convida.}} She invites us."],
+          ["(to) you, him, her: formal","{{lhe}}","{{Posso lhe perguntar uma coisa?}} May I ask you something?"]
+        ] },
+        {"p":"Yes, {{te}} goes with {{você}}: Brazilians mix the two all the time, and {{Eu te amo}}, {{Te ligo amanhã}} are what everyone says. With two verbs, the pronoun goes before the second one: {{Vou te ligar}}, {{Você pode me ajudar?}}"},
+        {"p":"**Him, her, it, them.** Here everyday speech and careful writing really differ:"},
+        { "table": [
+          ["","in conversation","in careful writing"],
+          ["I see her every day.","{{Vejo ela todo dia.}}","{{Eu a vejo todo dia.}}"],
+          ["I know them.","{{Conheço eles.}}","{{Eu os conheço.}}"],
+          ["(the book) I'm going to buy it.","{{Vou comprar.}}","{{Vou comprá-lo.}}"]
+        ] },
+        {"p":"In conversation Brazilians say {{ele}}, {{ela}}, {{eles}}, {{elas}} after the verb, or, very often, nothing at all: {{Você quer o bolo? — Quero!}} The thing is clear, so it isn't said again. Teachers call {{vejo ela}} wrong in writing, where the forms are {{o, a, os, as}} before the verb, or {{-lo, -la}} after an infinitive (whose {{-r}} drops). Use the spoken forms when you talk, and recognise the written ones when you read."},
+        {"p":"**With me, for me.** After {{com}}: {{comigo}} “with me”, {{com você}} “with you”, {{com a gente}} or {{conosco}} “with us”. After other prepositions, “me” is {{mim}}: {{pra mim}} “for me”, {{de mim}} “of me”."},
+        { "ex": [
+          {"t":"Eu te amo.","tr":"I love you."},
+          {"t":"Você me ajuda com essa mala?","tr":"Will you help me with this suitcase?"},
+          {"t":"Vou te mandar o endereço.","tr":"I'm going to send you the address."},
+          {"t":"A Carla? Conheço ela, sim.","tr":"Carla? Yes, I know her.","note":"conversation"},
+          {"t":"Você conhece esse livro? — Conheço. Adoro!","tr":"Do you know this book? — I do. I love it!","note":"no word for “it”: the thing is clear"},
+          {"t":"Isso é pra mim?","tr":"Is this for me?"},
+          {"t":"Quer ir comigo?","tr":"Do you want to come with me?"}
+        ] },
+        {"tip":"{{Cadê…?}} is the everyday Brazilian “Where's…?” for something you can't find: {{Cadê as chaves?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Eu amo te.","right":"Eu te amo.","tr":"I love you.","why":"In Brazil the short pronoun goes before the verb."},
+        {"wrong":"Ele ajuda eu.","right":"Ele me ajuda.","tr":"He helps me.","why":"“Me” as an object is {{me}}, before the verb; {{eu}} is only for the subject."},
+        {"wrong":"Isso é pra eu.","right":"Isso é pra mim.","tr":"This is for me.","why":"After a preposition, “me” is {{mim}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ele sempre ___ ajuda.","tr":"He always helps me.","options":["me","eu","mim"],"answer":0,"why":"“Me” as an object, before the verb: {{me}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Esse presente é pra ___.","tr":"This present is for me.","options":["mim","me","eu"],"answer":0,"why":"After {{pra}}: {{mim}}."},
+        {"type":"choice","q":"In a book you read {{Ela o conhece bem.}} It means…","options":["She knows him well.","He knows her well.","She knows it's good."],"answer":0,"why":"In writing, {{o}} before the verb is “him” (or “it”); the subject is {{ela}}."},
+        {"type":"dialogue","q":"Planning to meet: choose your replies.","from":"make-plans","lines":[{"who":"Friend","t":"Vou te mandar o endereço da festa.","tr":"I'm going to send you the party's address."},{"options":["Ótimo! Você me manda agora?","Ótimo! Você manda me agora?"],"answer":0,"why":"The pronoun goes before the verb: {{me manda}}."},{"who":"Friend","t":"Mando. E a gente se encontra lá às nove?","tr":"Sure. And we meet there at nine?"},{"options":["Combinado! Te vejo lá.","Combinado! Vejo te lá."],"answer":0,"why":"{{Te vejo}}: the pronoun first."},{"who":"Friend","t":"Até mais!","tr":"See you later!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm going to call you tomorrow.","words":["Vou","te","ligar","amanhã."]},
+        {"type":"say","q":"How do you say “Do you want to come with me?”","answer":"Quer ir comigo?","from":"invite-and-suggest"},
+        {"type":"free","q":"Your turn: talk about someone important to you. How do you help each other? Use {{me}}, {{te}} or {{nos}}.","answers":[{"t":"Minha irmã sempre me ajuda. Eu ligo pra ela todo domingo.","tr":"My sister always helps me. I call her every Sunday."},{"t":"Meus pais nos visitam no Natal e a gente leva eles pra passear.","tr":"My parents visit us at Christmas and we take them out and about."}]}
+      ]
     }
   ]
 }
