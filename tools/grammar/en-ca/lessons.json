@@ -1381,6 +1381,194 @@
         {"type":"say","q":"Say “We met ten years ago in London.”","answer":"Ens vam conèixer fa deu anys a Londres.","from":"say-when-and-how-long"},
         {"type":"free","q":"Your turn: tell what you did last Saturday, in order. Use {{primer}}, {{després}} and {{al final}}.","answers":[{"t":"Primer em vaig llevar tard, després vaig fer la compra i al final vaig sopar amb uns amics.","tr":"First I got up late, then I did the grocery shopping, and in the end I had dinner with some friends."},{"t":"Primer vam anar a la platja, després vam dinar allà i al final vam tornar a casa en tren.","tr":"First we went to the beach, then we had lunch there, and in the end we went home by train."}]}
       ]
+    },
+    {
+      "id": "say-whats-happening-now",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what's happening right now",
+      "summary": "Say what you're in the middle of doing: “I can't talk now, I'm driving.”",
+      "topic": "{{estar}} + gerund: {{estic treballant}}; gerunds in {{-ant, -ent, -int}}",
+      "blocks": [
+        {"goal":{"t":"Ara no puc parlar, estic conduint.","tr":"I can't talk now, I'm driving."}},
+        {"dialog":[{"who":"Mom","t":"Hola, fill! Què fas?","tr":"Hi, son! What are you doing?"},{"who":"Sam","t":"Hola, mama. Estic cuinant: tinc convidats.","tr":"Hi, Mom. I'm cooking: I have guests."},{"who":"Mom","t":"Ah, i què estàs fent?","tr":"Oh, and what are you making?"},{"who":"Sam","t":"Una truita de patates. Però ara no puc parlar gaire…","tr":"A potato omelet. But I can't really talk right now…"},{"who":"Mom","t":"D'acord, fins demà!","tr":"OK, talk to you tomorrow!"}]},
+        {"p":"**In the middle of it.** {{estar}} (lesson 9) + a gerund says what is going on at this very moment: {{Estic cuinant.}} “I'm cooking (right now).” You need it less often than English “-ing”, because the plain present already means “I'm doing” (lesson 12). Use it to stress that you're in the middle of it."},
+        {"term":"gerund","means":"the “-ing” form of a verb: cooking, reading. In Catalan it ends in {{-ant}}, {{-ent}} or {{-int}}."},
+        { "table": [
+          ["verb","gerund"],
+          ["{{parlar}}, {{menjar}}","{{parlant}}, {{menjant}}"],
+          ["{{perdre}}, {{beure}}","{{perdent}}, {{bevent}}"],
+          ["{{dormir}}, {{llegir}}","{{dormint}}, {{llegint}}"],
+          ["{{fer}}, {{dir}}","{{fent}}, {{dient}}"],
+          ["{{escriure}}, {{viure}}","{{escrivint}}, {{vivint}}"],
+          ["{{veure}}","{{veient}}"]
+        ] },
+        {"p":"**Pronouns.** A weak pronoun goes before {{estar}} or on the end of the gerund, never between them: {{L'estic llegint.}} = {{Estic llegint-lo.}} “I'm reading it.” {{M'estic dutxant.}} = {{Estic dutxant-me.}} “I'm taking a shower.”"},
+        { "ex": [
+          {"t":"Què estàs fent?","tr":"What are you doing (right now)?"},
+          {"t":"Estem mirant una pel·lícula.","tr":"We're watching a movie."},
+          {"t":"Els nens estan dormint.","tr":"The kids are sleeping."},
+          {"t":"Està plovent molt.","tr":"It's raining hard."},
+          {"t":"Ara mateix t'estic escrivint un missatge.","tr":"I'm writing you a message right now."},
+          {"t":"Estic buscant feina.","tr":"I'm looking for work.","note":"these days: still going on"}
+        ] },
+        {"tip":"{{ara mateix}} “right now” and {{en aquest moment}} “at the moment” often go with it. When you're busy: {{Ara no et puc atendre.}} “I can't deal with you right now.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Estic cuinar.","right":"Estic cuinant.","tr":"I'm cooking.","why":"After {{estar}}, the gerund in {{-ant}}: {{cuinant}}."},
+        {"wrong":"Estic fant els deures.","right":"Estic fent els deures.","tr":"I'm doing my homework.","why":"The gerund of {{fer}} is {{fent}}."},
+        {"wrong":"Soc treballant.","right":"Estic treballant.","tr":"I'm working.","why":"A gerund goes with {{estar}}, never with {{ser}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"No puc venir, ___ treballant.","tr":"I can't come, I'm working.","options":["estic","soc","tinc"],"answer":0,"why":"{{estar}} + gerund: {{estic treballant}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Què estàs ___?","tr":"What are you doing?","options":["fent","fet","fer"],"answer":0,"why":"The gerund of {{fer}} is {{fent}}; {{fet}} is the participle, for {{he fet}}.","from":"say-what-you-did-today"},
+        {"type":"choice","q":"{{Estic llegint-lo.}} means the same as…","options":["{{L'estic llegint.}}","{{Estic el llegint.}}"],"answer":0,"why":"The pronoun goes before {{estar}} or on the end of the gerund, never between them."},
+        {"type":"dialogue","q":"A friend calls at a bad moment. Choose your replies.","lines":[{"who":"Friend","t":"Ei! Tens un moment?","tr":"Hey! Got a minute?"},{"options":["Ara no, estic conduint. Et truco després?","Ara no, estic conduir. Et truco després?"],"answer":0,"why":"After {{estic}}, the gerund: {{conduint}}."},{"who":"Friend","t":"Cap problema! On vas, per cert?","tr":"No problem! Where are you going, by the way?"},{"options":["A casa dels meus pares.","A casa de els meus pares."],"answer":0,"why":"{{de}} + {{els}} = {{dels}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"We're watching a movie at home.","words":["Estem","mirant","una pel·lícula","a casa."]},
+        {"type":"say","q":"Say “It's raining hard.”","answer":"Està plovent molt."},
+        {"type":"free","q":"Your turn: what are you doing right now? And someone you live with?","answers":[{"t":"Ara mateix estic estudiant català i la meva parella està cuinant.","tr":"Right now I'm studying Catalan, and my partner is cooking."},{"t":"Estic esperant l'autobús. I està plovent!","tr":"I'm waiting for the bus. And it's raining!"}]}
+      ]
+    },
+    {
+      "id": "say-how-things-were",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what things were like and what you used to do",
+      "summary": "Describe the past and your habits back then: “When I was little, I lived in a village and walked to school.”",
+      "topic": "The imperfect: {{parlava}}, {{vivia}}; {{era}}, {{feia}}, {{tenia}}, {{hi havia}}",
+      "blocks": [
+        {"goal":{"t":"Quan era petita, vivia en un poble i anava a l'escola a peu.","tr":"When I was little, I lived in a village and walked to school.","note":"said by a woman; a man says {{petit}}"}},
+        {"dialog":[{"who":"Grandson","t":"Àvia, com era el barri quan eres jove?","tr":"Grandma, what was the neighborhood like when you were young?"},{"who":"Grandma","t":"Era molt diferent! No hi havia tants cotxes i tothom es coneixia.","tr":"It was very different! There weren't so many cars, and everybody knew each other."},{"who":"Grandson","t":"I què feies els diumenges?","tr":"And what did you do on Sundays?"},{"who":"Grandma","t":"Anàvem a missa i després ballàvem sardanes a la plaça.","tr":"We went to Mass, and then we danced sardanes in the square."},{"who":"Grandson","t":"I tenies televisió?","tr":"And did you have a TV?"},{"who":"Grandma","t":"No! Escoltàvem la ràdio.","tr":"No! We listened to the radio."}]},
+        {"term":"imperfect","means":"a past tense for how things were and what used to happen, the background of a story: “it was sunny”, “we used to live there”."},
+        {"p":"**What it's for.** The imperfect describes the past as it was going on: what things were like ({{Era molt diferent.}} “It was very different.”) and what happened again and again ({{Els diumenges anàvem a la platja.}} “On Sundays we used to go to the beach.”). English often says “used to” or “would”; Catalan simply uses the imperfect."},
+        { "table": [
+          ["","{{parlar}}","{{viure}}","{{dormir}}"],
+          ["I","{{parlava}}","{{vivia}}","{{dormia}}"],
+          ["you","{{parlaves}}","{{vivies}}","{{dormies}}"],
+          ["he, she","{{parlava}}","{{vivia}}","{{dormia}}"],
+          ["we","{{parlàvem}}","{{vivíem}}","{{dormíem}}"],
+          ["you (more than one)","{{parlàveu}}","{{vivíeu}}","{{dormíeu}}"],
+          ["they","{{parlaven}}","{{vivien}}","{{dormien}}"]
+        ] },
+        {"p":"{{-ar}} verbs take {{-ava}}; all the others take {{-ia}}. “I” and “he, she” are the same, so the context (or a pronoun) makes it clear: {{Jo vivia a Vic i ell vivia a Girona.}}"},
+        {"p":"**A few to learn by heart.** {{ser}}: {{era}}, {{eres}}, {{era}}, {{érem}}, {{éreu}}, {{eren}}. {{fer}}: {{feia}}, {{feies}}, {{feia}}… In the same way {{dir}} gives {{deia}}, {{veure}} {{veia}}, {{beure}} {{bevia}}, {{escriure}} {{escrivia}}. And {{hi ha}} becomes {{hi havia}} “there was, there were”."},
+        { "ex": [
+          {"t":"Quan era petit, jugava a futbol cada dia.","tr":"When I was little, I played soccer every day."},
+          {"t":"Abans vivíem a Sabadell.","tr":"We used to live in Sabadell."},
+          {"t":"A l'escola hi havia un professor molt estricte.","tr":"At school there was a very strict teacher."},
+          {"t":"Feia molta calor i no tenia aigua.","tr":"It was very hot, and I didn't have any water."},
+          {"t":"El meu avi sempre deia que el temps és or.","tr":"My grandfather always used to say that time is gold."},
+          {"t":"Què volies ser de gran?","tr":"What did you want to be when you grew up?","note":"{{de gran}} “as a grown-up”"}
+        ] },
+        {"tip":"{{abans}} “before, in the old days” and {{quan era petit}} “when I was little” are the classic ways to start talking about how things were."}
+      ],
+      "mistakes": [
+        {"wrong":"Quan vaig ser petit, vaig viure a Vic.","right":"Quan era petit, vivia a Vic.","tr":"When I was little, I lived in Vic.","why":"How things were, over a long time: the imperfect."},
+        {"wrong":"Abans vivíam a Sabadell.","right":"Abans vivíem a Sabadell.","tr":"We used to live in Sabadell.","why":"Verbs not in {{-ar}} take {{-ia}}, and “we” is {{-íem}}: {{vivíem}}."},
+        {"wrong":"Hi havien molts cotxes.","right":"Hi havia molts cotxes.","tr":"There were lots of cars.","why":"Like {{hi ha}}, {{hi havia}} doesn't change for the plural."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Quan era petita, ___ a Vic.","tr":"When I was little, I lived in Vic.","options":["vivia","vaig viure","visc"],"answer":0,"why":"How things were over a long time: the imperfect, {{vivia}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Abans ___ molts bars en aquest carrer.","tr":"There used to be lots of bars on this street.","options":["hi havia","hi havien","hi ha"],"answer":0,"why":"{{hi havia}}, the same for one or many.","from":"say-what-there-is"},
+        {"type":"choice","q":"{{Els estius anàvem a Cadaqués.}} means…","options":["In the summers we used to go to Cadaqués.","This summer we're going to Cadaqués.","One summer we went to Cadaqués."],"answer":0,"why":"The imperfect: a habit in the past."},
+        {"type":"dialogue","q":"An older neighbor tells you about the neighborhood. Choose your replies.","lines":[{"who":"Neighbor","t":"Abans aquí hi havia un cinema.","tr":"There used to be a movie theater here."},{"options":["De debò? I com era el barri?","De debò? I com va ser el barri?"],"answer":0,"why":"Asking what something was like: the imperfect, {{era}}."},{"who":"Neighbor","t":"Molt tranquil. Tothom es coneixia.","tr":"Very quiet. Everybody knew each other."},{"options":["Ara és molt diferent!","Ara era molt diferent!"],"answer":0,"why":"Now: the present, {{és}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"When I was little, I played soccer every day.","words":["Quan","era petit,","jugava","a futbol","cada dia."]},
+        {"type":"say","q":"Ask a friend: “What did you want to be when you grew up?”","answer":"Què volies ser de gran?"},
+        {"type":"free","q":"Your turn: what was your life like when you were a child? Where did you live, and what did you do?","answers":[{"t":"Quan era petit, vivia a Boston i jugava a bàsquet cada tarda.","tr":"When I was little, I lived in Boston and played basketball every afternoon."},{"t":"Quan era petita, tenia un gos i anava a l'escola en bici.","tr":"When I was little, I had a dog and rode my bike to school."}]}
+      ]
+    },
+    {
+      "id": "set-the-scene",
+      "unit": 6,
+      "level": "A2",
+      "title": "Tell a story with its background",
+      "summary": "Set the scene, then say what happened: “It was very sunny when we got to the beach.”",
+      "topic": "The imperfect for the background, the past with {{anar}} for the events; {{estava}} + gerund; {{mentre}}",
+      "blocks": [
+        {"goal":{"t":"Feia molt de sol quan vam arribar a la platja.","tr":"It was very sunny when we got to the beach."}},
+        {"dialog":[{"who":"Laura","t":"Què et va passar ahir? Vas arribar tard!","tr":"What happened to you yesterday? You were late!"},{"who":"Ben","t":"Uf! Estava esperant l'autobús i va començar a ploure.","tr":"Ugh! I was waiting for the bus, and it started to rain."},{"who":"Laura","t":"I no tenies paraigua?","tr":"And you didn't have an umbrella?"},{"who":"Ben","t":"No! I quan va arribar l'autobús, estava ple.","tr":"No! And when the bus came, it was full."},{"who":"Laura","t":"Quina mala sort!","tr":"What bad luck!"},{"who":"Ben","t":"Al final vaig agafar un taxi.","tr":"In the end I took a taxi."}]},
+        {"p":"**Two pasts, two jobs.** In a story, the imperfect paints the background: the weather, the time, what things were like, what was going on ({{feia sol}}, {{eren les deu}}, {{estava cansat}}). The past with {{anar}} moves the story on: what happened, one event after another ({{vaig arribar}}, {{va començar a ploure}})."},
+        { "table": [
+          ["background (imperfect)","event (the past with {{anar}})"],
+          ["{{Feia sol…}} It was sunny…","{{…quan vam arribar.}} …when we arrived."],
+          ["{{Eren les dues de la nit…}} It was two in the morning…","{{…i va sonar el telèfon.}} …and the phone rang."],
+          ["{{Estava molt cansada…}} I was very tired…","{{…i em vaig adormir al sofà.}} …and I fell asleep on the couch."]
+        ] },
+        {"p":"**Was doing.** {{estava}} + a gerund (lesson 29) is for what was going on when something happened: {{Estava dormint quan va trucar.}} “I was sleeping when he called.” {{mentre}} “while” joins two things going on at the same time: {{Mentre cuinava, escoltava la ràdio.}} “While I was cooking, I was listening to the radio.”"},
+        {"p":"Ask yourself: is it the scene, or the next thing that happened? The scene: the imperfect. The next thing: {{vaig}} + a verb."},
+        { "ex": [
+          {"t":"Plovia quan vaig sortir de casa.","tr":"It was raining when I left home."},
+          {"t":"Estàvem sopant quan va arribar en Pere.","tr":"We were having dinner when Pere arrived."},
+          {"t":"Era tard i no hi havia ningú al carrer.","tr":"It was late, and there was nobody in the street."},
+          {"t":"Mentre jo treballava, ell dormia.","tr":"While I was working, he was sleeping."},
+          {"t":"Com que tenia gana, vaig comprar un entrepà.","tr":"Since I was hungry, I bought a sandwich.","note":"{{com que}} “since, as” (lesson 38)"},
+          {"t":"La vaig conèixer quan vivia a Londres.","tr":"I met her when I was living in London."}
+        ] },
+        {"tip":"{{Què et va passar?}} “What happened to you?”, {{Quina sort!}} “How lucky!” and {{Quina mala sort!}} “What bad luck!” keep a story going."}
+      ],
+      "mistakes": [
+        {"wrong":"Vaig estar dormint quan va trucar.","right":"Estava dormint quan va trucar.","tr":"I was sleeping when he called.","why":"What was going on when something happened: the imperfect, {{estava}}."},
+        {"wrong":"Feia sol i de sobte plovia.","right":"Feia sol i de sobte va començar a ploure.","tr":"It was sunny, and suddenly it started to rain.","why":"{{de sobte}} “suddenly” marks an event: the past with {{anar}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ molt de fred quan vam sortir.","tr":"It was very cold when we went out.","options":["Feia","Va fer","Fa"],"answer":0,"why":"The weather is the background: the imperfect, {{feia}}.","from":"talk-about-weather"},
+        {"type":"fill","q":"Choose the missing word.","t":"Estava llegint quan ___ el telèfon.","tr":"I was reading when the phone rang.","options":["va sonar","sonava","sona"],"answer":0,"why":"The phone ringing is the event: {{va sonar}}."},
+        {"type":"choice","q":"In {{Mentre cuinava, escoltava la ràdio.}}, the two actions…","options":["were going on at the same time","happened one after the other"],"answer":0,"why":"{{mentre}} + two imperfects: at the same time."},
+        {"type":"dialogue","q":"A friend asks why you were late. Choose your replies.","lines":[{"who":"Friend","t":"Per què vas arribar tard?","tr":"Why were you late?"},{"options":["Estava esperant el metro i es va espatllar.","Vaig esperar el metro i s'espatllava."],"answer":0,"why":"The waiting was going on (imperfect); the breakdown is the event: {{es va espatllar}}."},{"who":"Friend","t":"Quina mala sort! I què vas fer?","tr":"What bad luck! So what did you do?"},{"options":["Vaig agafar un taxi.","Agafava un taxi."],"answer":0,"why":"The next event: {{vaig agafar}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"It was raining when I left home.","words":["Plovia","quan","vaig sortir","de casa."]},
+        {"type":"say","q":"Say “I met her when I was living in London.”","answer":"La vaig conèixer quan vivia a Londres."},
+        {"type":"free","q":"Your turn: tell a short story about something that happened to you. Set the scene first (the weather, the time, where you were), then say what happened.","answers":[{"t":"Era diumenge i feia sol. Estava passejant pel parc i de sobte vaig veure un amic de l'escola.","tr":"It was Sunday, and it was sunny. I was walking in the park, and suddenly I saw a friend from school."},{"t":"Eren les onze de la nit i estava molt cansat. Quan vaig arribar a casa, no tenia les claus!","tr":"It was eleven at night, and I was very tired. When I got home, I didn't have my keys!"}]}
+      ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 6,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say what's bigger, cheaper or better, and what's the best of all: “Barcelona is bigger than Girona, but Girona is quieter.”",
+      "topic": "{{més… que}}, {{menys… que}}, {{tan… com}}; {{millor}}, {{pitjor}}; {{el més…}}; {{-íssim}}",
+      "blocks": [
+        {"goal":{"t":"Barcelona és més gran que Girona, però Girona és més tranquil·la.","tr":"Barcelona is bigger than Girona, but Girona is quieter."}},
+        {"dialog":[{"who":"Júlia","t":"Quin pis t'agrada més?","tr":"Which apartment do you like better?"},{"who":"Dan","t":"El de Gràcia és més bonic, però el de Sants és més barat.","tr":"The one in Gràcia is nicer, but the one in Sants is cheaper."},{"who":"Júlia","t":"I quin és més gran?","tr":"And which one is bigger?"},{"who":"Dan","t":"Són igual de grans. Però el de Gràcia té més llum.","tr":"They're just as big. But the one in Gràcia gets more light."},{"who":"Júlia","t":"Doncs per a mi, el de Gràcia és el millor.","tr":"Then for me, the Gràcia one is the best."}]},
+        {"p":"**More and less.** {{més}} + adjective + {{que}} is “-er than, more… than”, and {{menys}} + adjective + {{que}} is “less… than”: {{El metro és més ràpid que l'autobús.}} “The subway is faster than the bus.” {{És menys car que l'altre.}} “It's less expensive than the other one.” Catalan has no “-er” ending: every adjective works with {{més}}."},
+        {"p":"**As… as.** {{tan}} + adjective + {{com}}: {{La Marta és tan alta com el seu germà.}} “Marta is as tall as her brother.” With a noun it's {{tant… com}}, which agrees: {{No tinc tants amics com tu.}} “I don't have as many friends as you.” And {{igual de}} + adjective is “just as”: {{Són igual de cars.}} “They're just as expensive.”"},
+        {"p":"**Better and worse.** {{bo}} “good” → {{millor}} “better”; {{dolent}} “bad” → {{pitjor}} “worse”. They're the same for women: {{una idea millor}}; plural {{millors}}, {{pitjors}}."},
+        {"p":"**The most.** Put the article in front: {{el més car}} “the most expensive”, {{la més gran}} “the biggest”, {{el millor}} “the best”. “In” after it is {{de}}: {{el millor restaurant de la ciutat}} “the best restaurant in town”."},
+        {"p":"**Really, really.** {{-íssim}} on an adjective means “extremely”: {{car}} → {{caríssim}} “super expensive”, {{bo}} → {{boníssim}} “delicious”. It agrees like any adjective: {{caríssima}}, {{caríssims}}."},
+        { "table": [
+          ["","Catalan","English"],
+          ["more","{{més gran que}}","bigger than"],
+          ["less","{{menys car que}}","less expensive than"],
+          ["as","{{tan alt com}}","as tall as"],
+          ["the most","{{el més ràpid}}","the fastest"],
+          ["good, better, the best","{{bo}}, {{millor}}, {{el millor}}","good, better, the best"],
+          ["bad, worse, the worst","{{dolent}}, {{pitjor}}, {{el pitjor}}","bad, worse, the worst"],
+          ["extremely","{{caríssim}}","really expensive"]
+        ] },
+        { "ex": [
+          {"t":"El tren és més ràpid que el cotxe.","tr":"The train is faster than the car."},
+          {"t":"Aquest hotel és menys car que l'altre.","tr":"This hotel is less expensive than the other one."},
+          {"t":"La meva germana és tan alta com jo.","tr":"My sister is as tall as I am."},
+          {"t":"És el millor restaurant de la ciutat.","tr":"It's the best restaurant in town."},
+          {"t":"Avui fa més calor que ahir.","tr":"It's hotter today than yesterday."},
+          {"t":"Aquestes sabates són caríssimes!","tr":"These shoes are really expensive!"}
+        ] },
+        {"tip":"{{tranquil·la}} has Catalan's “flying dot”, {{l·l}}: a long {{l}}, as in {{pel·lícula}} “movie”, {{col·legi}} “school”, {{il·lusió}} “excitement”."}
+      ],
+      "mistakes": [
+        {"wrong":"És més gran de Girona.","right":"És més gran que Girona.","tr":"It's bigger than Girona.","why":"“Than” is {{que}}."},
+        {"wrong":"És més millor.","right":"És millor.","tr":"It's better.","why":"{{millor}} already means “better”: no {{més}}."},
+        {"wrong":"És tan alta que jo.","right":"És tan alta com jo.","tr":"She's as tall as I am.","why":"After {{tan}}, “as” is {{com}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"El metro és més ràpid ___ l'autobús.","tr":"The subway is faster than the bus.","options":["que","com","de"],"answer":0,"why":"{{més}} … {{que}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"La meva germana és tan alta ___ jo.","tr":"My sister is as tall as I am.","options":["com","que","de"],"answer":0,"why":"{{tan}} … {{com}}."},
+        {"type":"choice","q":"“It's the best hotel in Sitges” is…","options":["{{És el millor hotel de Sitges.}}","{{És el més millor hotel a Sitges.}}","{{És l'hotel més bo que Sitges.}}"],"answer":0,"why":"{{el millor}}, and “in” after “the best” is {{de}}."},
+        {"type":"dialogue","q":"In a shop, choosing between two phones. Choose your replies.","lines":[{"who":"Assistant","t":"Quin prefereixes, el negre o el blanc?","tr":"Which one do you prefer, the black one or the white one?"},{"options":["El negre. És més petit que el blanc.","El negre. És més petit de el blanc."],"answer":0,"why":"“Than” is {{que}}."},{"who":"Assistant","t":"I també és més barat!","tr":"And it's cheaper too!"},{"options":["Perfecte, el compro!","Perfecte, la compro!"],"answer":0,"why":"{{el mòbil}} “the phone” is masculine: {{el compro}}."}],"from":"it-and-them"},
+        {"type":"order","q":"Put the words in order.","tr":"It's hotter today than yesterday.","words":["Avui","fa","més calor","que ahir."]},
+        {"type":"say","q":"Say “These shoes are really expensive!”","answer":"Aquestes sabates són caríssimes!"},
+        {"type":"free","q":"Your turn: compare two cities or two places you know. Which is bigger, cheaper, more beautiful?","answers":[{"t":"Nova York és més gran que Boston, però Boston és més tranquil·la.","tr":"New York is bigger than Boston, but Boston is quieter."},{"t":"Londres és més cara que Barcelona, i a Barcelona fa millor temps.","tr":"London is more expensive than Barcelona, and Barcelona has better weather."}]}
+      ]
     }
   ]
 }
