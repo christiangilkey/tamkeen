@@ -81,6 +81,22 @@
    },
    "built": "2026-10-24"
   },
+  "pt": {
+   "file": "pt/course.json",
+   "title": "Portuguese basics",
+   "variety": "Brazilian Portuguese",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 345363,
+   "audio_bytes": 12372076,
+   "sha256": "3b16ef1a9d5eb65835dd1ff2abe8c1b5aa8f8592665d011e49ea873aed2b7324",
+   "voice": {
+    "engine": "azure",
+    "name": "Francisca (Azure, Brazil)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "ru": {
    "file": "ru/course.json",
    "title": "Russian basics",
