@@ -476,6 +476,202 @@
         {"type":"say","q":"Dites : « Il y a un problème avec ma chambre. »","answer":"There's a problem with my room."},
         {"type":"free","q":"À vous : décrivez votre rue ou votre chambre : ce qu'il y a, et où.","answers":[{"t":"On my street, there's a bakery and a café. The bakery is next to the café.","tr":"Dans ma rue, il y a une boulangerie et un café. La boulangerie est à côté du café."},{"t":"In my room, there's a bed and a desk. My computer is on the desk.","tr":"Dans ma chambre, il y a un lit et un bureau. Mon ordinateur est sur le bureau."}]}
       ]
+    },
+    {
+      "id": "say-what-you-do-every-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire ce que vous faites tous les jours",
+      "summary": "Dire où vous habitez, où vous travaillez, ce que vous faites d'habitude : le présent simple, et son {{-s}} avec {{he}}, {{she}}, {{it}}.",
+      "topic": "le présent simple : {{I work}}, {{she works}} ; le {{-s}} de la 3e personne ({{-s}}, {{-es}}, {{-ies}}) ; sa prononciation",
+      "blocks": [
+        {"goal":{"t":"I live in Lyon and I work in a bank. My wife works at a school.","tr":"J'habite à Lyon et je travaille dans une banque. Ma femme travaille dans une école."}},
+        {"dialog":[{"who":"Sam","t":"I'm Sam. I live in Denver and I teach math.","tr":"Moi, c'est Sam. J'habite à Denver et j'enseigne les maths."},{"who":"Claire","t":"I'm Claire. I live in Paris. I work for a tech company.","tr":"Moi, c'est Claire. J'habite à Paris. Je travaille pour une entreprise de tech."},{"who":"Sam","t":"My sister lives in Paris too! She works at a hotel.","tr":"Ma sœur habite à Paris aussi ! Elle travaille dans un hôtel."},{"who":"Claire","t":"It's a small world!","tr":"Le monde est petit !"}]},
+        {"term":"présent simple","means":"le temps des habitudes, des vérités générales et des situations qui durent : {{I work in a bank}} « je travaille dans une banque »."},
+        {"p":"**Le présent simple.** C'est le verbe dans sa forme de base, l'infinitif sans {{to}} : {{to work}} « travailler » → {{I work}}. Bonne nouvelle : cette forme ne change presque pas. Une seule exception, mais elle est capitale."},
+        { "table": [
+          ["","{{work}} « travailler »","{{live}} « habiter »"],
+          ["{{I}}","{{I work}}","{{I live}}"],
+          ["{{you}}","{{you work}}","{{you live}}"],
+          ["{{he}}, {{she}}, {{it}}","{{he works}}","{{she lives}}"],
+          ["{{we}}","{{we work}}","{{we live}}"],
+          ["{{they}}","{{they work}}","{{they live}}"]
+        ] },
+        {"p":"**Le -s de he, she, it.** Avec {{he}}, {{she}}, {{it}}, et avec tout ce qu'ils remplacent ({{my sister}}, {{Paul}}, {{the train}}), le verbe prend un {{-s}} : {{she works}}, {{Paul lives}}, {{the train leaves}}. C'est la faute la plus fréquente des francophones : pensez-y à chaque fois !"},
+        {"p":"**L'orthographe.** Après {{s, sh, ch, x, o}} : {{-es}} ({{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}). Consonne + {{y}} : {{-ies}} ({{study}} → {{studies}}). Un seul verbe irrégulier : {{have}} → {{has}}."},
+        {"p":"**La prononciation.** Ce {{-s}} se prononce, comme au pluriel des noms (leçon 6) : « s » dans {{works}}, « z » dans {{lives}}, « iz » dans {{watches}}."},
+        {"p":"**Quand l'employer ?** Pour ce qui est habituel ou toujours vrai : {{I work in a bank.}} {{The store opens at nine.}} Pour ce qui se passe en ce moment, l'anglais a une autre forme (leçon 17)."},
+        { "ex": [
+          {"t":"I speak English and French.","tr":"Je parle anglais et français."},
+          {"t":"She lives in Chicago.","tr":"Elle habite à Chicago."},
+          {"t":"My father works in a hospital.","tr":"Mon père travaille dans un hôpital."},
+          {"t":"We eat dinner at seven.","tr":"Nous dînons à sept heures."},
+          {"t":"He watches TV every evening.","tr":"Il regarde la télé tous les soirs."},
+          {"t":"The store opens at nine.","tr":"Le magasin ouvre à neuf heures."},
+          {"t":"My son studies in Boston.","tr":"Mon fils fait ses études à Boston."}
+        ] },
+        {"tip":"Le {{-s}} va sur le verbe, pas sur le sujet : {{my sister works}} « ma sœur travaille ». {{my sisters work}} voudrait dire « mes sœurs travaillent »."}
+      ],
+      "mistakes": [
+        {"wrong":"She work in a bank.","right":"She works in a bank.","tr":"Elle travaille dans une banque.","why":"Avec {{he}}, {{she}}, {{it}}, le verbe prend un {{-s}}."},
+        {"wrong":"He haves a car.","right":"He has a car.","tr":"Il a une voiture.","why":"{{have}} est irrégulier : {{he has}}."},
+        {"wrong":"I am work in a bank.","right":"I work in a bank.","tr":"Je travaille dans une banque.","why":"Pas de {{am}} devant un verbe au présent simple."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My brother ___ in New York.","tr":"Mon frère habite à New York.","options":["lives","live","living"],"answer":0,"why":"{{my brother}} = {{he}} : {{lives}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"They ___ English very well.","tr":"Ils parlent très bien anglais.","options":["speak","speaks","are speak"],"answer":0,"why":"Avec {{they}}, pas de {{-s}}."},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{She watches TV every day.}}","{{She watch TV every day.}}","{{She watchs TV every day.}}"],"answer":0,"why":"Après {{ch}} : {{-es}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"Julie and her husband ___ in Boston.","tr":"Julie et son mari habitent à Boston.","options":["live","lives","is live"],"answer":0,"why":"Deux personnes, c'est {{they}} : pas de {{-s}}.","from":"say-whose-it-is"},
+        {"type":"dialogue","q":"À une conférence. Choisissez vos répliques.","from":"talk-about-people","lines":[{"who":"Dave","t":"Hi, I'm Dave. I'm from Texas.","tr":"Bonjour, je suis Dave. Je viens du Texas."},{"options":["Hi, Dave. I'm Marie. I live in Lyon.","Hi, Dave. I'm Marie. I lives in Lyon."],"answer":0,"why":"Avec {{I}}, pas de {{-s}}."},{"who":"Dave","t":"Nice! My daughter studies in France!","tr":"Sympa ! Ma fille fait ses études en France !"},{"options":["Really? My son works in Texas!","Really? My son work in Texas!"],"answer":0,"why":"{{my son}} = {{he}} : {{works}}."},{"who":"Dave","t":"It's a small world!","tr":"Le monde est petit !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Mon père travaille dans un hôpital.","words":["My father","works","in","a hospital."]},
+        {"type":"free","q":"À vous : dites où vous habitez, ce que vous faites, et ce que fait quelqu'un de votre famille.","answers":[{"t":"I live in Nantes and I work in an office. My wife teaches English.","tr":"J'habite à Nantes et je travaille dans un bureau. Ma femme enseigne l'anglais."},{"t":"I live in Paris. I'm a student. My mother works in a hospital and my father has a restaurant.","tr":"J'habite à Paris. Je suis étudiante. Ma mère travaille dans un hôpital et mon père a un restaurant."}]}
+      ]
+    },
+    {
+      "id": "ask-and-say-no-with-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Poser des questions et dire non avec do",
+      "summary": "Demander « Tu parles anglais ? », « Elle habite ici ? » et répondre « Non, je ne travaille pas le lundi » : le petit mot {{do}}, qui n'existe pas en français.",
+      "topic": "{{do}} / {{does}} dans les questions ; {{don't}} / {{doesn't}} au négatif ; les réponses courtes ({{Yes, I do}}) ; le verbe reste à la forme de base",
+      "blocks": [
+        {"goal":{"t":"Do you speak English? — Yes, I do, but I don't speak it very well.","tr":"Vous parlez anglais ? — Oui, mais je ne le parle pas très bien."}},
+        {"dialog":[{"who":"Kevin","t":"Do you live in New York?","tr":"Tu habites à New York ?"},{"who":"Léa","t":"No, I don't. I live in Paris. I'm here on vacation.","tr":"Non. J'habite à Paris. Je suis ici en vacances."},{"who":"Kevin","t":"Cool! Do you like the city?","tr":"Super ! Tu aimes la ville ?"},{"who":"Léa","t":"Yes, I do! But my husband doesn't like the subway.","tr":"Oui ! Mais mon mari n'aime pas le métro."},{"who":"Kevin","t":"Does he speak English?","tr":"Il parle anglais ?"},{"who":"Léa","t":"A little.","tr":"Un peu."}]},
+        {"term":"auxiliaire","means":"un verbe « outil » qui aide un autre verbe à former une question, un négatif ou un temps. En anglais : {{do}}, {{be}}, {{have}}, {{will}}…"},
+        {"p":"**Do, un outil pour poser des questions.** Avec {{be}}, on inverse (leçon 4). Avec tous les autres verbes, c'est impossible : on ajoute {{do}} devant le sujet. {{You speak English.}} → {{Do you speak English?}} Ce {{do}} ne se traduit pas : c'est juste le signal « question »."},
+        {"p":"**Do ou does.** Avec {{he}}, {{she}}, {{it}}, c'est {{does}}, et le {{-s}} passe sur {{does}} : le verbe principal revient à sa forme de base. {{She works.}} → {{Does she work?}} Jamais « Does she works »."},
+        { "table": [
+          ["affirmation","question","négatif"],
+          ["{{I work.}}","{{Do I work?}}","{{I don't work.}}"],
+          ["{{You speak French.}}","{{Do you speak French?}}","{{You don't speak French.}}"],
+          ["{{She lives here.}}","{{Does she live here?}}","{{She doesn't live here.}}"],
+          ["{{They like coffee.}}","{{Do they like coffee?}}","{{They don't like coffee.}}"]
+        ] },
+        {"p":"**Le négatif : don't, doesn't.** Pour dire non, on met {{do not}} ({{don't}}) ou {{does not}} ({{doesn't}}) devant le verbe, qui reste à la forme de base : {{I don't understand.}} « Je ne comprends pas. » {{He doesn't eat meat.}} « Il ne mange pas de viande. »"},
+        {"p":"**Les réponses courtes** reprennent {{do}} ou {{does}} : {{Do you like jazz? — Yes, I do.}} / {{No, I don't.}} {{Does she work here? — Yes, she does.}}"},
+        {"p":"Attention : {{be}} n'a jamais besoin de {{do}}. {{Are you French?}}, et jamais « Do you are French »."},
+        { "ex": [
+          {"t":"Do you have a pen?","tr":"Vous avez un stylo ?"},
+          {"t":"Does this bus go downtown?","tr":"Ce bus va au centre-ville ?"},
+          {"t":"I don't understand.","tr":"Je ne comprends pas."},
+          {"t":"My son doesn't like vegetables.","tr":"Mon fils n'aime pas les légumes."},
+          {"t":"Do they live near here? — No, they don't.","tr":"Ils habitent près d'ici ? — Non."},
+          {"t":"Sorry, I don't know.","tr":"Désolé, je ne sais pas."}
+        ] },
+        {"tip":"{{do}} est aussi un vrai verbe, « faire » : {{I do my homework.}} « Je fais mes devoirs. » Dans {{What do you do?}} « Qu'est-ce que vous faites dans la vie ? », le premier {{do}} est l'outil, le second le verbe."}
+      ],
+      "mistakes": [
+        {"wrong":"You speak English?","right":"Do you speak English?","tr":"Vous parlez anglais ?","why":"La question se construit avec {{do}}. Sans lui, elle ne passe qu'à l'oral, avec un ton de surprise."},
+        {"wrong":"Does she works here?","right":"Does she work here?","tr":"Elle travaille ici ?","why":"Le {{-s}} est déjà sur {{does}} : le verbe reste à la forme de base."},
+        {"wrong":"I not understand.","right":"I don't understand.","tr":"Je ne comprends pas.","why":"Le négatif demande {{don't}} devant le verbe."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ you like coffee?","tr":"Tu aimes le café ?","options":["Do","Are","Does"],"answer":0,"why":"Une question avec {{you}} : {{do}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"She ___ eat meat.","tr":"Elle ne mange pas de viande.","options":["doesn't","don't","isn't"],"answer":0,"why":"Avec {{she}} : {{doesn't}}."},
+        {"type":"choice","q":"Laquelle est juste ?","options":["{{Does he live here?}}","{{Does he lives here?}}","{{Do he live here?}}"],"answer":0,"why":"{{does}} porte le {{-s}} ; le verbe reste {{live}}.","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"Faut-il {{do}} ? « Vous êtes fatigué ? »","options":["{{Are you tired?}}","{{Do you are tired?}}","{{Do you tired?}}"],"answer":0,"why":"Avec {{be}}, jamais de {{do}} : on inverse.","from":"ask-with-be"},
+        {"type":"dialogue","q":"Un collègue américain vous pose des questions. Choisissez vos réponses.","from":"talk-about-people","lines":[{"who":"Your colleague","t":"Do you live in Paris?","tr":"Vous habitez à Paris ?"},{"options":["No, I don't. I live in Lille.","No, I not. I live in Lille."],"answer":0,"why":"Réponse courte : {{No, I don't}}."},{"who":"Your colleague","t":"Does your wife work?","tr":"Votre femme travaille ?"},{"options":["Yes, she does. She's a doctor.","Yes, she works. She's doctor."],"answer":0,"why":"Réponse courte avec {{does}}, et un métier avec {{a}}."},{"who":"Your colleague","t":"Oh, nice!","tr":"Ah, très bien !"}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Je ne comprends pas la question.","words":["I","don't","understand","the question."]},
+        {"type":"free","q":"À vous : posez trois questions avec {{do}} ou {{does}} à un collègue, puis dites deux choses que vous ne faites pas.","answers":[{"t":"Do you live near here? Do you like your job? Does your wife speak French? I don't drink coffee and I don't work on Fridays.","tr":"Tu habites près d'ici ? Tu aimes ton travail ? Ta femme parle français ? Moi, je ne bois pas de café et je ne travaille pas le vendredi."},{"t":"Do you have kids? Does your son play sports? Do you like New York? I don't eat meat. I don't watch TV.","tr":"Tu as des enfants ? Ton fils fait du sport ? Tu aimes New York ? Moi, je ne mange pas de viande. Je ne regarde pas la télé."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire ce que vous avez",
+      "summary": "Parler de votre famille, de vos affaires, de ce que vous n'avez pas : {{have}} et {{has}}, {{Do you have…?}}, et {{have}} dans {{have breakfast}}.",
+      "topic": "{{have}} / {{has}} ; {{Do you have…?}}, {{I don't have…}} ; {{have got}} (à reconnaître) ; {{have breakfast, have a shower, have fun}}",
+      "blocks": [
+        {"goal":{"t":"I have two brothers. Do you have a big family?","tr":"J'ai deux frères. Vous avez une grande famille ?"}},
+        {"dialog":[{"who":"You","t":"Excuse me, do you have this shirt in blue?","tr":"Excusez-moi, vous avez cette chemise en bleu ?"},{"who":"The clerk","t":"Let me check… No, sorry, we don't have it in blue. We have it in black.","tr":"Je regarde… Non, désolé, nous ne l'avons pas en bleu. Nous l'avons en noir."},{"who":"You","t":"Does the other store have it?","tr":"L'autre magasin l'a ?"},{"who":"The clerk","t":"Maybe. They have a lot of colors.","tr":"Peut-être. Ils ont beaucoup de couleurs."},{"who":"You","t":"OK, thanks!","tr":"D'accord, merci !"}]},
+        {"p":"**Have, has.** « Avoir » se dit {{have}}, et {{has}} avec {{he}}, {{she}}, {{it}} (leçon 10) : {{I have a car.}} {{She has two kids.}}"},
+        {"p":"**Questions et négatif : avec do.** {{have}} est un verbe comme les autres : il prend {{do}} (leçon 11). « As-tu un stylo ? » se dit {{Do you have a pen?}}, pas « Have you a pen », qui sonne très vieillot. Au négatif : {{I don't have a car.}} {{He doesn't have time.}}"},
+        { "table": [
+          ["français","anglais"],
+          ["j'ai","{{I have}}"],
+          ["il a, elle a","{{he has}}, {{she has}}"],
+          ["tu as… ?","{{Do you have…?}}"],
+          ["il a… ?","{{Does he have…?}}"],
+          ["je n'ai pas","{{I don't have}}"],
+          ["elle n'a pas","{{she doesn't have}}"]
+        ] },
+        {"p":"**Have got, à reconnaître.** Vous entendrez aussi {{I've got}} « j'ai » et {{Have you got…?}} : même sens. C'est surtout britannique, mais les Américains disent souvent {{I've got}} à l'oral. Pour vous, {{have}} suffit."},
+        {"p":"**Have pour faire des choses.** {{have}} s'emploie aussi là où le français dit « prendre » ou « faire » : {{have breakfast}} « prendre le petit-déjeuner », {{have lunch}}, {{have dinner}}, {{have a shower}} « prendre une douche », {{have fun}} « s'amuser », {{have a good time}} « passer un bon moment »."},
+        {"p":"**Rappel :** pour l'âge, la faim ou le froid, pas de {{have}} mais {{be}} (leçon 3) : {{I'm hungry}}, et non « I have hungry »."},
+        { "ex": [
+          {"t":"We have a small apartment.","tr":"Nous avons un petit appartement."},
+          {"t":"She has blue eyes.","tr":"Elle a les yeux bleus."},
+          {"t":"Do you have a minute?","tr":"Tu as une minute ?"},
+          {"t":"I don't have time today.","tr":"Je n'ai pas le temps aujourd'hui."},
+          {"t":"Does he have a car? — No, he doesn't.","tr":"Il a une voiture ? — Non."},
+          {"t":"We have breakfast at eight.","tr":"Nous prenons le petit-déjeuner à huit heures."},
+          {"t":"Have fun!","tr":"Amusez-vous bien !"}
+        ] },
+        {"tip":"{{Have a nice day!}} « Bonne journée ! » : vous l'entendrez partout aux États-Unis, à la caisse, au téléphone, au café. Répondez {{Thanks, you too!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Have you a pen?","right":"Do you have a pen?","tr":"Vous avez un stylo ?","why":"La question avec {{have}} se fait avec {{do}}."},
+        {"wrong":"She have two kids.","right":"She has two kids.","tr":"Elle a deux enfants.","why":"Avec {{she}} : {{has}}."},
+        {"wrong":"He doesn't has time.","right":"He doesn't have time.","tr":"Il n'a pas le temps.","why":"Après {{doesn't}}, la forme de base : {{have}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My sister ___ three children.","tr":"Ma sœur a trois enfants.","options":["has","have","is"],"answer":0,"why":"Avec {{she}} : {{has}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"___ you have a room for tonight?","tr":"Vous avez une chambre pour ce soir ?","options":["Do","Are","Have"],"answer":0,"why":"Une question avec {{have}} : {{do}}.","from":"ask-and-say-no-with-do"},
+        {"type":"choice","q":"« Je n'ai pas de voiture. »","options":["{{I don't have a car.}}","{{I haven't car.}}","{{I not have a car.}}"],"answer":0,"why":"Le négatif avec {{don't}}."},
+        {"type":"choice","q":"« J'ai froid. »","options":["{{I'm cold.}}","{{I have cold.}}","{{I have a cold.}}"],"answer":0,"why":"Le froid se dit avec {{be}}. ({{I have a cold}} : « j'ai un rhume ».)","from":"say-your-age-and-how-you-feel"},
+        {"type":"dialogue","q":"Dans un magasin. Choisissez vos répliques.","from":"ask-and-say-no-with-do","lines":[{"who":"The clerk","t":"Hi! Can I help you?","tr":"Bonjour ! Je peux vous aider ?"},{"options":["Yes, do you have this jacket in a medium?","Yes, have you this jacket in a medium?"],"answer":0,"why":"La question avec {{have}} : {{do you have}}."},{"who":"The clerk","t":"Sorry, we don't have it in medium.","tr":"Désolé, nous ne l'avons pas en M."},{"options":["Does your other store have it?","Do your other store has it?"],"answer":0,"why":"{{your other store}} = {{it}} : {{does}}, puis {{have}}."},{"who":"The clerk","t":"Let me call them.","tr":"Je vais les appeler."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Nous prenons le petit-déjeuner à huit heures.","words":["We","have","breakfast","at","eight."]},
+        {"type":"free","q":"À vous : dites ce que vous avez (famille, animaux, objets), et une chose que vous n'avez pas.","answers":[{"t":"I have a husband and two kids. We have a cat. I don't have a car.","tr":"J'ai un mari et deux enfants. Nous avons un chat. Je n'ai pas de voiture."},{"t":"I have a big family: I have three sisters. I don't have a dog, but I have a cat.","tr":"J'ai une grande famille : j'ai trois sœurs. Je n'ai pas de chien, mais j'ai un chat."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Dire ce que vous aimez",
+      "summary": "Parler de vos goûts : « J'adore le chocolat, je n'aime pas les araignées, j'aime nager ». En anglais, pas de {{the}} pour parler des choses en général.",
+      "topic": "{{like, love, hate, prefer}} + nom sans article pour une généralité ({{I like cats}}) ; + {{-ing}} ({{I like swimming}}) ; {{like}} ou {{would like}}",
+      "blocks": [
+        {"goal":{"t":"I love chocolate, but I hate coffee.","tr":"J'adore le chocolat, mais je déteste le café."}},
+        {"dialog":[{"who":"Ryan","t":"Do you like movies?","tr":"Tu aimes le cinéma ?"},{"who":"Inès","t":"Yes, I love French movies. And you?","tr":"Oui, j'adore les films français. Et toi ?"},{"who":"Ryan","t":"I like them, but I prefer music. I love jazz.","tr":"Je les aime bien, mais je préfère la musique. J'adore le jazz."},{"who":"Inès","t":"Really? I don't like jazz very much…","tr":"Ah bon ? Je n'aime pas trop le jazz…"},{"who":"Ryan","t":"Do you like dancing?","tr":"Tu aimes danser ?"},{"who":"Inès","t":"Yes, I love dancing!","tr":"Oui, j'adore danser !"}]},
+        {"p":"**En général : pas de the.** C'est l'inverse du français. « J'aime le café », « j'adore les chats » : en français, l'article est obligatoire. En anglais, quand on parle d'une chose en général, on n'en met pas : {{I like coffee.}} {{I love cats.}} {{I hate spiders.}}"},
+        { "table": [
+          ["français","anglais"],
+          ["J'aime le café.","{{I like coffee.}}"],
+          ["J'adore les chats.","{{I love cats.}}"],
+          ["Je préfère le thé.","{{I prefer tea.}}"],
+          ["Je n'aime pas le sport.","{{I don't like sports.}}"],
+          ["Je déteste les araignées.","{{I hate spiders.}}"]
+        ] },
+        {"p":"**The : une chose précise.** {{the}} désigne quelque chose de précis, que l'on connaît : {{I like the coffee here.}} « J'aime le café d'ici. » {{I love the cats}} voudrait dire « j'adore les chats (ceux dont on parle) »."},
+        {"p":"**Au pluriel, les choses qu'on compte.** Pour une généralité, on met au pluriel ce qui se compte : {{I like dogs}}, {{I love movies}}. Le reste reste au singulier : {{coffee}}, {{music}}, {{chocolate}}."},
+        {"p":"**Aimer faire : like + -ing.** Pour une activité, on ajoute {{-ing}} au verbe : {{I like swimming.}} « J'aime nager. » {{She loves reading.}} On entend aussi {{I like to swim}}, avec le même sens."},
+        {"p":"**Like ou would like ?** {{I like coffee}} « j'aime le café » (en général) ; {{I'd like a coffee}} « je voudrais un café » (maintenant, leçon 5). Ne les confondez pas au comptoir !"},
+        { "ex": [
+          {"t":"I really like Italian food.","tr":"J'aime beaucoup la cuisine italienne."},
+          {"t":"Do you like dogs?","tr":"Tu aimes les chiens ?"},
+          {"t":"My son hates vegetables.","tr":"Mon fils déteste les légumes."},
+          {"t":"We love traveling.","tr":"Nous adorons voyager."},
+          {"t":"She doesn't like getting up early.","tr":"Elle n'aime pas se lever tôt."},
+          {"t":"I prefer tea to coffee.","tr":"Je préfère le thé au café."}
+        ] },
+        {"tip":"Pour dire « moi aussi » : {{Me too.}} Pour « moi non plus » : {{Me neither.}} La leçon 47 montre d'autres façons de réagir."}
+      ],
+      "mistakes": [
+        {"wrong":"I like the coffee.","right":"I like coffee.","tr":"J'aime le café.","why":"Pour parler du café en général : pas de {{the}}."},
+        {"wrong":"I love the cats.","right":"I love cats.","tr":"J'adore les chats.","why":"Les chats en général : pas d'article, et le pluriel."},
+        {"wrong":"I like swim.","right":"I like swimming.","tr":"J'aime nager.","why":"Après {{like}}, une activité prend {{-ing}} (ou {{to}} : {{I like to swim}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"« J'adore la musique. » (en général)","options":["{{I love music.}}","{{I love the music.}}","{{I love a music.}}"],"answer":0,"why":"Une généralité : pas d'article."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"My daughter loves ___.","tr":"Ma fille adore les chevaux.","options":["horses","the horses","horse"],"answer":0,"why":"Les chevaux en général : pluriel, sans {{the}}."},
+        {"type":"fill","q":"Choisissez le mot qui manque.","t":"I don't like ___ in the rain.","tr":"Je n'aime pas conduire sous la pluie.","options":["driving","drive","the drive"],"answer":0,"why":"Après {{like}}, une activité en {{-ing}}."},
+        {"type":"choice","q":"Au café, vous voulez un thé. Vous dites…","options":["{{I'd like a tea, please.}}","{{I like tea, please.}}","{{I like the tea.}}"],"answer":0,"why":"Pour demander : {{I'd like}}. ({{I like tea}} : « j'aime le thé ».)","from":"ask-for-things"},
+        {"type":"dialogue","q":"Un nouvel ami vous parle de vos goûts. Choisissez vos réponses.","from":"ask-and-say-no-with-do","lines":[{"who":"Your friend","t":"Do you like sports?","tr":"Tu aimes le sport ?"},{"options":["Yes, I do! I love soccer.","Yes, I like! I love the soccer."],"answer":0,"why":"Réponse courte {{Yes, I do}}, et pas de {{the}} pour une généralité."},{"who":"Your friend","t":"Me too. Do you like running?","tr":"Moi aussi. Tu aimes courir ?"},{"options":["No, I don't. I hate running!","No, I don't. I hate run!"],"answer":0,"why":"Une activité : {{running}}."},{"who":"Your friend","t":"Ha! Me too.","tr":"Ha ! Moi aussi."}]},
+        {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"Ma sœur n'aime pas les chats.","words":["My sister","doesn't","like","cats."]},
+        {"type":"free","q":"À vous : dites deux choses que vous adorez, une que vous n'aimez pas, et une activité que vous aimez.","answers":[{"t":"I love chocolate and cats. I don't like cold weather. I like reading.","tr":"J'adore le chocolat et les chats. Je n'aime pas le froid. J'aime lire."},{"t":"I really like music and movies, but I hate sports. I love traveling.","tr":"J'aime beaucoup la musique et le cinéma, mais je déteste le sport. J'adore voyager."}]}
+      ]
     }
   ]
 }

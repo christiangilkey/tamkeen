@@ -38,12 +38,12 @@
    "title": "Grammaire anglaise",
    "variety": "anglais américain",
    "units": 8,
-   "lessons": 9,
+   "lessons": 13,
    "levels": [
     "A1"
    ],
-   "bytes": 50867,
-   "sha256": "50d12b1b65b0f90fe30c91a894ad8de8cbcd41620fbdfde56992506a5deb2f8e"
+   "bytes": 75040,
+   "sha256": "d79600ec0ee5a54c0e22ee5b671fd46e714ef706cd189bb52d6c90acc5c5d54e"
   }
  }
 }
