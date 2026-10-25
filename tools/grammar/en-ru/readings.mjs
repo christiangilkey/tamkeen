@@ -27,7 +27,7 @@ export const WORD = /[А-Яа-яЁё́]+(?:-[А-Яа-яЁё́]+)*/g;
 const plain = (p) => p.replace(/́/g, "").toLowerCase();
 /** Words in -ого / -его whose г is said g (every other one is said v: его́ "yevó", но́вого "nóvovo"). */
 /** Prepositions of two syllables that lean on the next word and have no stress of their own. */
-const UNSTRESSED = new Set(["обо", "ото", "изо", "подо", "передо"]);
+const UNSTRESSED = new Set(["обо", "ото", "изо", "подо", "передо", "из-за", "из-под"]);
 const G_WORDS = new Set(["много", "немного", "дорого", "недорого", "строго", "нестрого", "убого", "полого", "отлого", "ого"]);
 
 /** The word as it is said, still in Cyrillic (stress marks kept). */

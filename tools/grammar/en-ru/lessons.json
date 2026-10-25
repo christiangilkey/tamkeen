@@ -1625,6 +1625,316 @@
         {"type":"say","q":"Ask: “What's the date today?”","answer":"Како́е сего́дня число́?","r":"Kakóye sevódnya chisló?"},
         {"type":"free","q":"Your turn: when is your birthday, and where were you a year ago? Use dates like {{пя́того ма́я|pyátovo máya}} and {{наза́д|nazád}}.","answers":[{"t":"Мой день рожде́ния двена́дцатого октября́. Год наза́д я жил в Чика́го.","r":"Moy den' rozhdéniya dvenádtsatovo oktyabryá. God nazád ya zhil v Chikágo.","tr":"My birthday is October twelfth. A year ago I lived in Chicago."},{"t":"У меня́ день рожде́ния тре́тьего ма́рта. Год наза́д я была́ в Пари́же.","r":"U menyá den' rozhdéniya trét'yevo márta. God nazád ya bylá v Parízhe.","tr":"My birthday is on March third. A year ago I was in Paris."}]}
       ]
+    },
+    {
+      "id": "compare-things",
+      "unit": 7,
+      "level": "A2",
+      "title": "Compare things",
+      "summary": "Say what's bigger, cheaper or better, and what's the best: “The subway is faster than the bus.”",
+      "topic": "Comparatives ({{-ее|-eye}}, {{лу́чше|lúchshe}}, {{бо́льше|ból'she}}…), {{чем|chem}}, {{гора́здо|gorázdo}}; {{са́мый|sámyy}}",
+      "blocks": [
+        {"goal":{"t":"Метро́ быстре́е, чем авто́бус.","r":"Metró bystréye, chem avtóbus.","tr":"The subway is faster than the bus."}},
+        {"dialog":[{"who":"Ksenia","t":"Кака́я кварти́ра тебе́ бо́льше нра́вится?","r":"Kakáya kvartíra tebé ból'she nrávitsa?","tr":"Which apartment do you like more?"},{"who":"Dan","t":"Пе́рвая. Она́ бо́льше и светле́е.","r":"Pérvaya. Oná ból'she i svetléye.","tr":"The first one. It's bigger and brighter."},{"who":"Ksenia","t":"Но втора́я деше́вле. И она́ бли́же к метро́.","r":"No vtoráya deshévle. I oná blízhe k metró.","tr":"But the second one is cheaper. And it's closer to the subway."},{"who":"Dan","t":"Да, но пе́рвая гора́здо краси́вее.","r":"Da, no pérvaya gorázdo krasíveye.","tr":"Yes, but the first one is much nicer."},{"who":"Ksenia","t":"Ла́дно, дава́й посмо́трим тре́тью. Говоря́т, она́ са́мая удо́бная!","r":"Ládno, daváy posmótrim trét'yu. Govoryát, oná sámaya udóbnaya!","tr":"OK, let's see the third one. They say it's the most convenient!"}]},
+        {"p":"**-er.** To compare, most adjectives drop their ending and add {{-ее|-eye}}: {{бы́стрый|býstryy}} → {{быстре́е|bystréye}} “faster”, {{интере́сный|interésnyy}} → {{интере́снее|interésneye}}, {{тёплый|tyóplyy}} → {{тепле́е|tepléye}}. This form doesn't change for gender or number ({{Э́тот дом краси́вее. Э́та кварти́ра краси́вее.|Étot dom krasíveye. Éta kvartíra krasíveye.}}), and it's also the adverb: {{Говори́те ме́дленнее.|Govoríte médlenneye.}} “Speak more slowly.”"},
+        {"p":"**Than.** Two ways. {{чем|chem}}, with a comma before it: {{Метро́ быстре́е, чем авто́бус.|Metró bystréye, chem avtóbus.}} Or, shorter, the second thing in the genitive with no {{чем|chem}}: {{Метро́ быстре́е авто́буса.|Metró bystréye avtóbusa.}} {{Он ста́рше меня́.|On stárshe menyá.}} “He's older than me.”"},
+        {"p":"**Irregular ones.** Many everyday adjectives have their own short comparative, often with a change of consonant:"},
+        { "table": [
+          ["","adjective","comparative"],
+          ["good, better","{{хоро́ший|khoróshiy}}","{{лу́чше|lúchshe}}"],
+          ["bad, worse","{{плохо́й|plokhóy}}","{{ху́же|khúzhe}}"],
+          ["big, bigger, more","{{большо́й|bol'shóy}}","{{бо́льше|ból'she}}"],
+          ["small, smaller, less","{{ма́ленький|málen'kiy}}","{{ме́ньше|mén'she}}"],
+          ["tall, taller","{{высо́кий|vysókiy}}","{{вы́ше|výshe}}"],
+          ["expensive","{{дорого́й|dorogóy}}","{{доро́же|dorózhe}}"],
+          ["cheap","{{дешёвый|deshóvyy}}","{{деше́вле|deshévle}}"],
+          ["old (people), older","{{ста́рый|stáryy}}","{{ста́рше|stárshe}}"],
+          ["young, younger","{{молодо́й|molodóy}}","{{моло́же|molózhe}}, {{мла́дше|mládshe}}"],
+          ["near, nearer","{{бли́зкий|blízkiy}}","{{бли́же|blízhe}}"]
+        ] },
+        {"p":"**Much, a bit.** {{гора́здо|gorázdo}} or {{намно́го|namnóvo}} “much”: {{гора́здо лу́чше|gorázdo lúchshe}} “much better”; {{немно́го|nemnógo}} “a bit”: {{немно́го деше́вле|nemnógo deshévle}}. And {{бо́льше|ból'she}} and {{ме́ньше|mén'she}} also mean “more” and “less”: {{Я люблю́ чай бо́льше, чем ко́фе.|Ya lyublyú chay ból'she, chem kófe.}}"},
+        {"p":"**The most.** {{са́мый|sámyy}} and the adjective, both agreeing with the noun: {{са́мый большо́й го́род|sámyy bol'shóy górod}} “the biggest city”, {{са́мая краси́вая у́лица|sámaya krasívaya úlitsa}} “the most beautiful street”. “Best” and “worst” also have their own words: {{лу́чший|lúchshiy}}, {{ху́дший|khúdshiy}}."},
+        { "ex": [
+          {"t":"Москва́ — са́мый большо́й го́род в Росси́и.","r":"Moskvá — sámyy bol'shóy górod v Rossíi.","tr":"Moscow is the biggest city in Russia."},
+          {"t":"Сего́дня тепле́е, чем вчера́.","r":"Sevódnya tepléye, chem vcherá.","tr":"It's warmer today than yesterday."},
+          {"t":"Мой брат ста́рше меня́ на три го́да.","r":"Moy brat stárshe menyá na tri góda.","tr":"My brother is three years older than me.","note":"{{на|na}} + the difference"},
+          {"t":"Э́тот телефо́н гора́здо доро́же.","r":"Étot telefón gorázdo dorózhe.","tr":"This phone is much more expensive."},
+          {"t":"Э́то лу́чший рестора́н в го́роде.","r":"Éto lúchshiy restorán v górode.","tr":"This is the best restaurant in town."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Э́тот дом бо́лее большо́й.","right":"Э́тот дом бо́льше.","tr":"This house is bigger.","why":"{{большо́й|bol'shóy}} has its own comparative: {{бо́льше|ból'she}}."},
+        {"wrong":"Он ста́рше, чем меня́.","right":"Он ста́рше меня́.","tr":"He's older than me.","why":"Either {{чем я|chem ya}}, or the genitive {{меня́|menyá}} with no {{чем|chem}}."},
+        {"wrong":"Э́то са́мый лу́чше фильм.","right":"Э́то лу́чший фильм.","tr":"This is the best movie.","why":"“The best” is {{лу́чший|lúchshiy}}, an adjective that agrees. {{лу́чше|lúchshe}} is “better”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Сего́дня ___, чем вчера́.","r":"Sevódnya ___, chem vcherá.","tr":"It's colder today than yesterday.","options":["холодне́е","холо́дный","са́мый холо́дный"],"rs":["kholodnéye","kholódnyy","sámyy kholódnyy"],"answer":0,"why":"Comparing: {{-ее|-eye}}, {{холодне́е|kholodnéye}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ма́ша ста́рше ___.","r":"Másha stárshe ___.","tr":"Masha is older than me.","options":["меня́","я","мне"],"rs":["menyá","ya","mne"],"answer":0,"why":"Without {{чем|chem}}: the genitive {{меня́|menyá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Э́то ___ высо́кое зда́ние в го́роде.","r":"Éto ___ vysókoye zdániye v górode.","tr":"This is the tallest building in town.","options":["са́мое","са́мый","бо́льше"],"rs":["sámoye","sámyy","ból'she"],"answer":0,"why":"{{са́мый|sámyy}} agrees with {{зда́ние|zdániye}}, a neuter noun: {{са́мое|sámoye}}."},
+        {"type":"choice","q":"{{гора́здо лу́чше|gorázdo lúchshe}} means…","options":["much better","a bit better","the best"],"answer":0,"why":"{{гора́здо|gorázdo}}: “much”."},
+        {"type":"dialogue","q":"In a clothes store: choose your replies.","from":"likes-and-needs","lines":[{"who":"Seller","t":"Вам нра́вится э́та ку́ртка?","r":"Vam nrávitsa éta kúrtka?","tr":"Do you like this jacket?"},{"options":["Да, но мне нужна́ поме́ньше.","Да, но мне ну́жен поме́ньше."],"rs":["Da, no mne nuzhná pomén'she.","Da, no mne núzhen pomén'she."],"answer":0,"why":"{{ку́ртка|kúrtka}} is feminine: {{нужна́|nuzhná}}. ({{поме́ньше|pomén'she}}: “a bit smaller”.)"},{"who":"Seller","t":"Вот э́та. Она́ ме́ньше, но доро́же.","r":"Vot éta. Oná mén'she, no dorózhe.","tr":"This one. It's smaller, but more expensive."},{"options":["А есть что́-нибудь деше́вле?","А есть что́-нибудь дешёвый?"],"rs":["A yest' shtó-nibud' deshévle?","A yest' shtó-nibud' deshóvyy?"],"answer":0,"why":"“Cheaper”: {{деше́вле|deshévle}}."},{"who":"Seller","t":"Сейча́с посмотрю́.","r":"Seychás posmotryú.","tr":"Let me have a look."}]},
+        {"type":"order","q":"Put the words in order.","tr":"This is the most beautiful street in Moscow.","words":["Э́то","са́мая","краси́вая","у́лица","в","Москве́."],"rs":["Éto","sámaya","krasívaya","úlitsa","v","Moskvé."]},
+        {"type":"say","q":"Say: “My sister is taller than me.”","answer":"Моя́ сестра́ вы́ше меня́.","r":"Moyá sestrá výshe menyá."},
+        {"type":"free","q":"Your turn: compare two cities, two seasons or two foods. Use a comparative with {{чем|chem}} or the genitive, and {{гора́здо|gorázdo}} if you like.","answers":[{"t":"Ле́то лу́чше зимы́: оно́ гора́здо тепле́е.","r":"Léto lúchshe zimý: onó gorázdo tepléye.","tr":"Summer is better than winter: it's much warmer."},{"t":"Москва́ бо́льше, чем Петербу́рг, но Петербу́рг краси́вее.","r":"Moskvá ból'she, chem Peterbúrg, no Peterbúrg krasíveye.","tr":"Moscow is bigger than St. Petersburg, but St. Petersburg is more beautiful."}]}
+      ]
+    },
+    {
+      "id": "describe-people",
+      "unit": 7,
+      "level": "A2",
+      "title": "Describe people",
+      "summary": "Say what people look like, what they're like, and how they are today: “She has long hair.” “He's busy.” “I'm glad.”",
+      "topic": "{{у неё дли́нные во́лосы|u neyó dlínnyye vólosy}}; {{Како́й он?|Kakóy on?}}; short adjectives: {{рад|rad}}, {{за́нят|zányat}}, {{гото́в|gotóv}}, {{бо́лен|bólen}}, {{похо́ж на|pokhózh na}}",
+      "blocks": [
+        {"goal":{"t":"Она́ высо́кая, у неё дли́нные во́лосы и голубы́е глаза́.","r":"Oná vysókaya, u neyó dlínnyye vólosy i golubýye glazá.","tr":"She's tall, with long hair and blue eyes."}},
+        {"dialog":[{"who":"Lera","t":"Ты встре́тишь моего́ бра́та в аэропорту́?","r":"Ty vstrétish' moyevó bráta v aeroportú?","tr":"Will you meet my brother at the airport?"},{"who":"Mike","t":"Коне́чно. Как он вы́глядит?","r":"Konéshno. Kak on výglyadit?","tr":"Sure. What does he look like?"},{"who":"Lera","t":"Он высо́кий, худо́й, у него́ коро́ткие тёмные во́лосы и борода́.","r":"On vysókiy, khudóy, u nevó korótkiye tyómnyye vólosy i borodá.","tr":"He's tall and thin, with short dark hair and a beard."},{"who":"Mike","t":"А како́й он? Разгово́рчивый?","r":"A kakóy on? Razgovórchivyy?","tr":"And what's he like? Is he chatty?"},{"who":"Lera","t":"Нет, он немно́го стесни́тельный, но о́чень до́брый. Он похо́ж на меня́!","r":"Net, on nemnógo stesnítel'nyy, no óchen' dóbryy. On pokhózh na menyá!","tr":"No, he's a bit shy, but very kind. He looks like me!"},{"who":"Mike","t":"Тогда́ я его́ то́чно узна́ю.","r":"Togdá ya yevó tóchno uznáyu.","tr":"Then I'll definitely recognize him."}]},
+        {"p":"**What someone looks like.** {{Как он вы́глядит?|Kak on výglyadit?}} “What does he look like?”. Features go with {{у|u}} and the person, like {{у меня́ есть|u menyá yest'}}: {{У неё дли́нные во́лосы.|U neyó dlínnyye vólosy.}} “She has long hair.” ({{во́лосы|vólosy}} is plural in Russian.) The person's build is an adjective: {{Он высо́кий.|On vysókiy.}} “He's tall.”"},
+        {"p":"**What someone is like.** {{Како́й он?|Kakóy on?}} “What's he like?” asks about character: {{до́брый|dóbryy}} “kind”, {{весёлый|vesyólyy}} “fun, cheerful”, {{у́мный|úmnyy}} “smart”, {{серьёзный|ser'yóznyy}} “serious”, {{стесни́тельный|stesnítel'nyy}} “shy”, {{разгово́рчивый|razgovórchivyy}} “chatty”."},
+        {"term":"short adjective","means":"a short form of some adjectives, used after the noun to say how someone or something is (often just now): {{Он за́нят.|On zányat.}} “He's busy.”"},
+        {"p":"**How someone is right now.** A few common words are nearly always short, after the noun, with endings like the past tense: nothing for a man, {{-а|-a}} for a woman, {{-ы|-y}} for several people and for polite {{вы|vy}}."},
+        { "table": [
+          ["","a man","a woman","several, {{вы|vy}}"],
+          ["glad","{{рад|rad}}","{{ра́да|ráda}}","{{ра́ды|rády}}"],
+          ["busy","{{за́нят|zányat}}","{{занята́|zanyatá}}","{{за́няты|zányaty}}"],
+          ["ready","{{гото́в|gotóv}}","{{гото́ва|gotóva}}","{{гото́вы|gotóvy}}"],
+          ["ill","{{бо́лен|bólen}}","{{больна́|bol'ná}}","{{больны́|bol'ný}}"],
+          ["right","{{прав|prav}}","{{права́|pravá}}","{{пра́вы|právy}}"]
+        ] },
+        {"p":"**Looks like.** {{похо́ж на|pokhózh na}} + the accusative: {{Он похо́ж на ма́му.|On pokhózh na mámu.}} “He looks like his mom.” ({{похо́жа|pokhózha}} for a woman, {{похо́жи|pokhózhi}} for several.)"},
+        { "ex": [
+          {"t":"Я о́чень рад тебя́ ви́деть!","r":"Ya óchen' rad tebyá vídet'!","tr":"I'm so glad to see you!","note":"a man; a woman says {{ра́да|ráda}}"},
+          {"t":"Извини́, я сейча́с занята́.","r":"Izviní, ya seychás zanyatá.","tr":"Sorry, I'm busy right now.","note":"a woman"},
+          {"t":"У него́ ка́рие глаза́ и све́тлые во́лосы.","r":"U nevó káriye glazá i svétlyye vólosy.","tr":"He has brown eyes and fair hair."},
+          {"t":"Ты гото́в? — Да, идём!","r":"Ty gotóv? — Da, idyóm!","tr":"Are you ready? — Yes, let's go!"},
+          {"t":"Ты прав.","r":"Ty prav.","tr":"You're right.","note":"to a man"},
+          {"t":"Де́ти о́чень похо́жи на отца́.","r":"Déti óchen' pokhózhi na ottsá.","tr":"The children look a lot like their father."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Она́ име́ет дли́нные во́лосы.","right":"У неё дли́нные во́лосы.","tr":"She has long hair.","why":"Features: {{у|u}} and the person, as with {{у меня́ есть|u menyá yest'}}."},
+        {"wrong":"Я рад тебя́ ви́деть!","right":"Я ра́да тебя́ ви́деть!","tr":"I'm glad to see you! (a woman speaking)","why":"A woman says {{ра́да|ráda}}: short adjectives follow the gender."},
+        {"wrong":"Он похо́ж ма́му.","right":"Он похо́ж на ма́му.","tr":"He looks like his mom.","why":"{{похо́ж на|pokhózh na}} + the accusative."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ле́на сего́дня ___.","r":"Léna sevódnya ___.","tr":"Lena is busy today.","options":["занята́","за́нят","за́няты"],"rs":["zanyatá","zányat","zányaty"],"answer":0,"why":"Lena is a woman: {{занята́|zanyatá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"У него́ ___ глаза́.","r":"U nevó ___ glazá.","tr":"He has blue eyes.","options":["голубы́е","голубо́й","голуба́я"],"rs":["golubýye","golubóy","golubáya"],"answer":0,"why":"{{глаза́|glazá}} is plural: {{голубы́е|golubýye}}."},
+        {"type":"choice","q":"{{Како́й он?|Kakóy on?}} asks…","options":["what he's like","where he is","how old he is"],"answer":0,"why":"{{како́й|kakóy}}: “what kind of”."},
+        {"type":"dialogue","q":"You're a man. A friend asks about the new neighbor. Choose your replies.","from":"with-whom","lines":[{"who":"Friend","t":"Ты зна́ешь но́вую сосе́дку?","r":"Ty znáyesh' nóvuyu sosédku?","tr":"Do you know the new neighbor?"},{"options":["Да, я её ви́дел. Она́ невысо́кая, у неё коро́ткие во́лосы.","Да, я её ви́дел. Она́ име́ет коро́ткие во́лосы."],"rs":["Da, ya yeyó vídel. Oná nevysókaya, u neyó korótkiye vólosy.","Da, ya yeyó vídel. Oná iméyet korótkiye vólosy."],"answer":0,"why":"Features: {{у неё…|u neyó…}}."},{"who":"Friend","t":"А кака́я она́?","r":"A kakáya oná?","tr":"And what's she like?"},{"options":["О́чень весёлая. Мы с ней до́лго говори́ли.","О́чень весёлая. Мы с она́ до́лго говори́ли."],"rs":["Óchen' vesyólaya. My s ney dólgo govoríli.","Óchen' vesyólaya. My s oná dólgo govoríli."],"answer":0,"why":"“She and I”: {{мы с ней|my s ney}}."},{"who":"Friend","t":"Здо́рово!","r":"Zdórovo!","tr":"Great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My sister is taller than me.","words":["Моя́","сестра́","вы́ше","меня́."],"rs":["Moyá","sestrá","výshe","menyá."],"from":"compare-things"},
+        {"type":"say","q":"Say, as a man: “I'm so glad to see you!”","answer":"Я о́чень рад тебя́ ви́деть!","r":"Ya óchen' rad tebyá vídet'!"},
+        {"type":"free","q":"Your turn: describe someone you know: what they look like and what they're like. Use {{у него́ / у неё…|u nevó / u neyó…}}, adjectives, and {{похо́ж(а) на|pokhózh(a) na}} if you like.","answers":[{"t":"Мой брат высо́кий, у него́ тёмные во́лосы. Он о́чень до́брый и похо́ж на па́пу.","r":"Moy brat vysókiy, u nevó tyómnyye vólosy. On óchen' dóbryy i pokhózh na pápu.","tr":"My brother is tall, with dark hair. He's very kind and looks like Dad."},{"t":"Моя́ подру́га невысо́кая, у неё голубы́е глаза́. Она́ весёлая и разгово́рчивая.","r":"Moyá podrúga nevysókaya, u neyó golubýye glazá. Oná vesyólaya i razgovórchivaya.","tr":"My friend is short, with blue eyes. She's fun and chatty."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 7,
+      "level": "A2",
+      "title": "Give advice and say what must be done",
+      "summary": "Tell someone what they should, must and mustn't do: “You should get some rest.” “You can't park here.”",
+      "topic": "{{до́лжен|dólzhen}}, {{должна́|dolzhná}}, {{должны́|dolzhný}}; {{сто́ит|stóit}} and {{лу́чше|lúchshe}} + infinitive; {{не на́до|ne nádo}} and {{нельзя́|nel'zyá}} with the right aspect",
+      "blocks": [
+        {"goal":{"t":"Тебе́ сто́ит отдохну́ть. Ты до́лжен бо́льше спать.","r":"Tebé stóit otdokhnút'. Ty dólzhen ból'she spat'.","tr":"You should get some rest. You need to sleep more.","note":"to a man; to a woman, {{ты должна́|ty dolzhná}}"}},
+        {"dialog":[{"who":"Doctor","t":"Что с ва́ми?","r":"Shto s vámi?","tr":"What's the matter?"},{"who":"Patient","t":"У меня́ боли́т голова́, и я пло́хо сплю.","r":"U menyá bolít golová, i ya plókho splyu.","tr":"I have a headache, and I'm sleeping badly."},{"who":"Doctor","t":"Вы мно́го рабо́таете?","r":"Vy mnógo rabótayete?","tr":"Do you work a lot?"},{"who":"Patient","t":"Да, по двена́дцать часо́в в день.","r":"Da, po dvenádtsat' chasóv v den'.","tr":"Yes, twelve hours a day."},{"who":"Doctor","t":"Вам на́до отдыха́ть. Вы должны́ спать во́семь часо́в и бо́льше гуля́ть.","r":"Vam nádo otdykhát'. Vy dolzhný spat' vósem' chasóv i ból'she gulyát'.","tr":"You need to rest. You must sleep eight hours and walk more."},{"who":"Patient","t":"А ко́фе мо́жно?","r":"A kófe mózhno?","tr":"And can I have coffee?"},{"who":"Doctor","t":"Мо́жно, но ве́чером лу́чше не пить.","r":"Mózhno, no vécherom lúchshe ne pit'.","tr":"You can, but better not drink it in the evening."}]},
+        {"p":"**Must.** {{до́лжен|dólzhen}} “must, have to, be supposed to” is a short adjective, like {{рад|rad}} and {{за́нят|zányat}}, so it agrees with the person: {{я до́лжен|ya dólzhen}} (a man), {{я должна́|ya dolzhná}} (a woman), {{мы должны́|my dolzhný}}. Then comes the infinitive: {{Ты должна́ позвони́ть ма́ме.|Ty dolzhná pozvonít' máme.}} “You must call Mom.” It's firmer than {{на́до|nádo}}: a duty, an obligation."},
+        { "table": [
+          ["","must"],
+          ["a man: {{я|ya}}, {{ты|ty}}, {{он|on}}","{{до́лжен|dólzhen}}"],
+          ["a woman: {{я|ya}}, {{ты|ty}}, {{она́|oná}}","{{должна́|dolzhná}}"],
+          ["{{оно́|onó}}","{{должно́|dolzhnó}}"],
+          ["{{мы|my}}, {{вы|vy}}, {{они́|oní}}","{{должны́|dolzhný}}"]
+        ] },
+        {"p":"**Advice.** {{Тебе́ сто́ит…|Tebé stóit…}} “You should…, it's worth…” and {{Лу́чше…|Lúchshe…}} “Better…” take an infinitive, with the person in the dative: {{Вам сто́ит посмотре́ть э́тот фильм.|Vam stóit posmotrét' étot fil'm.}} {{Лу́чше е́хать на метро́.|Lúchshe yékhat' na metró.}} “Better take the subway.”"},
+        {"p":"**Don't and mustn't: watch the aspect.** {{не на́до|ne nádo}} + the imperfective is “no need to, don't”: {{Не на́до покупа́ть хлеб.|Ne nádo pokupát' khleb.}} “Don't buy bread (we have some).” {{нельзя́|nel'zyá}} + the imperfective is “it's not allowed”: {{Здесь нельзя́ кури́ть.|Zdes' nel'zyá kurít'.}} But {{нельзя́|nel'zyá}} + the perfective is “it's impossible”: {{Окно́ нельзя́ откры́ть.|Oknó nel'zyá otkrýt'.}} “The window won't open.”"},
+        { "ex": [
+          {"t":"Я до́лжен идти́, извини́.","r":"Ya dólzhen idtí, izviní.","tr":"I have to go, sorry.","note":"a man"},
+          {"t":"Тебе́ сто́ит попро́бовать борщ.","r":"Tebé stóit popróbovat' borshch.","tr":"You should try borscht."},
+          {"t":"Лу́чше позвони́ ему́ за́втра.","r":"Lúchshe pozvoní yemú závtra.","tr":"Better call him tomorrow."},
+          {"t":"Не на́до волнова́ться.","r":"Ne nádo volnovátsa.","tr":"There's no need to worry."},
+          {"t":"Здесь нельзя́ паркова́ться.","r":"Zdes' nel'zyá parkovátsa.","tr":"You can't park here."},
+          {"t":"Мы должны́ зако́нчить к пя́тнице.","r":"My dolzhný zakónchit' k pyátnitse.","tr":"We have to finish by Friday."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Она́ до́лжен рабо́тать.","right":"Она́ должна́ рабо́тать.","tr":"She has to work.","why":"{{до́лжен|dólzhen}} agrees: {{должна́|dolzhná}} for a woman."},
+        {"wrong":"Тебе́ до́лжен отдохну́ть.","right":"Ты до́лжен отдохну́ть.","tr":"You must rest.","why":"{{до́лжен|dólzhen}} goes with the subject {{ты|ty}}; the dative {{тебе́|tebé}} goes with {{на́до|nádo}} and {{сто́ит|stóit}}."},
+        {"wrong":"Не на́до купи́ть хлеб.","right":"Не на́до покупа́ть хлеб.","tr":"Don't buy bread.","why":"After {{не на́до|ne nádo}}: the imperfective."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Мы ___ зако́нчить сего́дня.","r":"My ___ zakónchit' sevódnya.","tr":"We have to finish today.","options":["должны́","до́лжен","должна́"],"rs":["dolzhný","dólzhen","dolzhná"],"answer":0,"why":"With {{мы|my}}: {{должны́|dolzhný}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Вам ___ посмотре́ть э́тот фильм.","r":"Vam ___ posmotrét' étot fil'm.","tr":"You should see this movie.","options":["сто́ит","до́лжен","сто́ят"],"rs":["stóit","dólzhen","stóyat"],"answer":0,"why":"Advice with the dative {{вам|vam}}: {{сто́ит|stóit}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Не на́до ___ такси́, я тебя́ отвезу́.","r":"Ne nádo ___ taksí, ya tebyá otvezú.","tr":"No need to call a taxi, I'll drive you.","options":["вызыва́ть","вы́звать"],"rs":["vyzyvát'","výzvat'"],"answer":0,"why":"After {{не на́до|ne nádo}}: the imperfective."},
+        {"type":"choice","q":"{{Окно́ нельзя́ откры́ть|Oknó nel'zyá otkrýt'}} means…","options":["The window won't open.","You're not allowed to open the window."],"answer":0,"why":"{{нельзя́|nel'zyá}} + the perfective: impossible. “Not allowed” is {{нельзя́ открыва́ть|nel'zyá otkryvát'}}."},
+        {"type":"dialogue","q":"A friend feels sick. Choose your replies.","from":"get-around-town","lines":[{"who":"Friend","t":"Мне пло́хо. Я, наве́рное, бо́лен.","r":"Mne plókho. Ya, navérnoye, bólen.","tr":"I feel awful. I think I'm sick."},{"options":["Тебе́ на́до к врачу́! И лу́чше лечь.","Тебе́ на́до к врач! И лу́чше лёг."],"rs":["Tebé nádo k vrachú! I lúchshe lech'.","Tebé nádo k vrach! I lúchshe lyog."],"answer":0,"why":"To a person: {{к врачу́|k vrachú}}. After {{лу́чше|lúchshe}}: the infinitive {{лечь|lech'}}."},{"who":"Friend","t":"А на рабо́ту мо́жно?","r":"A na rabótu mózhno?","tr":"And can I go to work?"},{"options":["Нет, не на́до идти́ на рабо́ту.","Нет, не на́до пойти́ на рабо́ту."],"rs":["Net, ne nádo idtí na rabótu.","Net, ne nádo poytí na rabótu."],"answer":0,"why":"After {{не на́до|ne nádo}}: the imperfective."},{"who":"Friend","t":"Хорошо́, спаси́бо.","r":"Khoroshó, spasíbo.","tr":"OK, thanks."}]},
+        {"type":"order","q":"Put the words in order.","tr":"You can't smoke here.","words":["Здесь","нельзя́","кури́ть."],"rs":["Zdes'","nel'zyá","kurít'."],"from":"can-and-must"},
+        {"type":"free","q":"Your turn: a friend is tired and stressed. Give them three pieces of advice with {{тебе́ сто́ит|tebé stóit}}, {{ты до́лжен / должна́|ty dólzhen / dolzhná}} and {{не на́до|ne nádo}}.","answers":[{"t":"Тебе́ сто́ит отдохну́ть. Ты до́лжен бо́льше спать. Не на́до так мно́го рабо́тать!","r":"Tebé stóit otdokhnút'. Ty dólzhen ból'she spat'. Ne nádo tak mnógo rabótat'!","tr":"You should get some rest. You need to sleep more. Don't work so much!"},{"t":"Тебе́ сто́ит пое́хать на мо́ре. Ты должна́ ду́мать о себе́. И не на́до пить сто́лько ко́фе!","r":"Tebé stóit poyékhat' na móre. Ty dolzhná dúmat' o sebé. I ne nádo pit' stól'ko kófe!","tr":"You should go to the seaside. You need to think about yourself. And don't drink so much coffee!"}]}
+      ]
+    },
+    {
+      "id": "say-why",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say why",
+      "summary": "Give reasons and results: “I stayed home because it was raining, so I watched a movie.”",
+      "topic": "{{Почему́?|Pochemú?}} {{Потому́ что…|Potomú shto…}}; {{поэ́тому|poétomu}}; {{так как|tak kak}}; {{из-за|iz-za}} + genitive, {{благодаря́|blagodaryá}} + dative",
+      "blocks": [
+        {"goal":{"t":"Я не пришёл, потому́ что был бо́лен.","r":"Ya ne prishól, potomú shto byl bólen.","tr":"I didn't come because I was sick.","note":"a man; a woman says {{не пришла́|ne prishlá}}, {{была́ больна́|bylá bol'ná}}"}},
+        {"dialog":[{"who":"Boss","t":"Почему́ вы опозда́ли?","r":"Pochemú vy opozdáli?","tr":"Why are you late?"},{"who":"Employee","t":"Извини́те, мой авто́бус слома́лся.","r":"Izviníte, moy avtóbus slomálsya.","tr":"Sorry, my bus broke down."},{"who":"Boss","t":"Опя́ть?","r":"Opyát'?","tr":"Again?"},{"who":"Employee","t":"Да, из-за сне́га все авто́бусы опа́здывают. Поэ́тому за́втра я пое́ду на метро́.","r":"Da, iz-za snéga vse avtóbusy opázdyvayut. Poétomu závtra ya poyédu na metró.","tr":"Yes, all the buses are late because of the snow. So tomorrow I'll take the subway."},{"who":"Boss","t":"Хоро́шая иде́я.","r":"Khoróshaya idéya.","tr":"Good idea."}]},
+        {"p":"**Because.** {{Почему́?|Pochemú?}} “Why?” — {{Потому́ что…|Potomú shto…}} “Because…”. In writing there's a comma before it: {{Я до́ма, потому́ что идёт дождь.|Ya dóma, potomú shto idyót dozhd'.}} “I'm home because it's raining.” {{так как|tak kak}} “since, as” means the same, sounds a little more formal, and can start the sentence: {{Так как бы́ло по́здно, мы взя́ли такси́.|Tak kak býlo pózno, my vzyáli taksí.}}"},
+        {"p":"**So.** {{поэ́тому|poétomu}} “so, that's why” introduces the result: {{Идёт дождь, поэ́тому я до́ма.|Idyót dozhd', poétomu ya dóma.}} The two are easy to mix up: the reason comes after {{потому́ что|potomú shto}}, the result after {{поэ́тому|poétomu}}."},
+        { "table": [
+          ["the reason first","the result first"],
+          ["{{Шёл дождь, поэ́тому мы оста́лись до́ма.|Shol dozhd', poétomu my ostális' dóma.}}","{{Мы оста́лись до́ма, потому́ что шёл дождь.|My ostális' dóma, potomú shto shol dozhd'.}}"]
+        ] },
+        {"p":"**Because of + a noun.** {{из-за|iz-za}} + the genitive for a cause that is bad or neutral: {{из-за сне́га|iz-za snéga}} “because of the snow”, {{из-за тебя́|iz-za tebyá}} “because of you” (it's your fault!). {{благодаря́|blagodaryá}} + the dative for a good one: {{благодаря́ тебе́|blagodaryá tebé}} “thanks to you”."},
+        {"p":"**What for?** {{Заче́м?|Zachém?}} asks about the purpose, {{почему́?|pochemú?}} about the cause: {{Заче́м ты у́чишь ру́сский?|Zachém ty úchish' rússkiy?}} “What are you learning Russian for?”. A later lesson shows how to answer it with {{что́бы|shtóby}} “in order to”."},
+        { "ex": [
+          {"t":"Почему́ ты не спишь? — Потому́ что за́втра экза́мен.","r":"Pochemú ty ne spish'? — Potomú shto závtra ekzámen.","tr":"Why aren't you asleep? — Because there's an exam tomorrow."},
+          {"t":"Я уста́л, поэ́тому ра́но лёг спать.","r":"Ya ustál, poétomu ráno lyog spat'.","tr":"I was tired, so I went to bed early."},
+          {"t":"Из-за рабо́ты я не могу́ прийти́.","r":"Iz-za rabóty ya ne mogú priytí.","tr":"I can't come because of work."},
+          {"t":"Благодаря́ тебе́ я сдал экза́мен.","r":"Blagodaryá tebé ya sdal ekzámen.","tr":"Thanks to you I passed the exam."},
+          {"t":"Так как у нас ма́ло вре́мени, начнём.","r":"Tak kak u nas málo vrémeni, nachnyóm.","tr":"Since we don't have much time, let's begin."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я до́ма, поэ́тому идёт дождь.","right":"Я до́ма, потому́ что идёт дождь.","tr":"I'm home because it's raining.","why":"The rain is the reason: {{потому́ что|potomú shto}}. {{поэ́тому|poétomu}} introduces the result."},
+        {"wrong":"Из-за тебя́ я сдал экза́мен!","right":"Благодаря́ тебе́ я сдал экза́мен!","tr":"Thanks to you I passed the exam!","why":"A good cause: {{благодаря́|blagodaryá}} + the dative. {{из-за|iz-za}} sounds like blame."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я не позвони́л, ___ телефо́н сел.","r":"Ya ne pozvoníl, ___ telefón sel.","tr":"I didn't call because my phone died.","options":["потому́ что","поэ́тому"],"rs":["potomú shto","poétomu"],"answer":0,"why":"The reason: {{потому́ что|potomú shto}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Бы́ло хо́лодно, ___ мы не пошли́ гуля́ть.","r":"Býlo khólodno, ___ my ne poshlí gulyát'.","tr":"It was cold, so we didn't go for a walk.","options":["поэ́тому","потому́ что"],"rs":["poétomu","potomú shto"],"answer":0,"why":"The result: {{поэ́тому|poétomu}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Мы опозда́ли из-за ___.","r":"My opozdáli iz-za ___.","tr":"We were late because of the traffic.","options":["про́бки","про́бка","про́бку"],"rs":["próbki","próbka","próbku"],"answer":0,"why":"{{из-за|iz-za}} + the genitive: {{про́бки|próbki}}."},
+        {"type":"choice","q":"A friend helped you get a job. You say…","options":["{{Благодаря́ тебе́!|Blagodaryá tebé!}}","{{Из-за тебя́!|Iz-za tebyá!}}"],"answer":0,"why":"Something good: {{благодаря́|blagodaryá}}."},
+        {"type":"dialogue","q":"You're a woman. A friend asks why you didn't come. Choose your replies.","from":"describe-people","lines":[{"who":"Friend","t":"Почему́ ты вчера́ не пришла́?","r":"Pochemú ty vcherá ne prishlá?","tr":"Why didn't you come yesterday?"},{"options":["Потому́ что я была́ больна́.","Поэ́тому я была́ больна́."],"rs":["Potomú shto ya bylá bol'ná.","Poétomu ya bylá bol'ná."],"answer":0,"why":"The reason: {{потому́ что|potomú shto}}; and a woman is {{больна́|bol'ná}}."},{"who":"Friend","t":"Ой! А сейча́с как?","r":"Oy! A seychás kak?","tr":"Oh no! How are you now?"},{"options":["Уже́ лу́чше, спаси́бо.","Уже́ хоро́ший, спаси́бо."],"rs":["Uzhé lúchshe, spasíbo.","Uzhé khoróshiy, spasíbo."],"answer":0,"why":"“Better”: {{лу́чше|lúchshe}}."},{"who":"Friend","t":"Береги́ себя́!","r":"Beregí sebyá!","tr":"Take care of yourself!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"That's why I'm learning Russian.","words":["Поэ́тому","я","учу́","ру́сский","язы́к."],"rs":["Poétomu","ya","uchú","rússkiy","yazýk."],"from":"speak-languages"},
+        {"type":"free","q":"Your turn: why are you learning Russian? Give a reason with {{потому́ что|potomú shto}} and a result with {{поэ́тому|poétomu}}.","answers":[{"t":"Я учу́ ру́сский, потому́ что моя́ жена́ ру́сская. Поэ́тому я хочу́ говори́ть с её ма́мой.","r":"Ya uchú rússkiy, potomú shto moyá zhená rússkaya. Poétomu ya khochú govorít' s yeyó mámoy.","tr":"I'm learning Russian because my wife is Russian. That's why I want to talk to her mom."},{"t":"Мне нра́вится ру́сская литерату́ра, поэ́тому я хочу́ чита́ть Толсто́го по-ру́сски.","r":"Mne nrávitsa rússkaya literatúra, poétomu ya khochú chitát' Tolstóvo po-rússki.","tr":"I love Russian literature, so I want to read Tolstoy in Russian."}]}
+      ]
+    },
+    {
+      "id": "if-and-when",
+      "unit": 7,
+      "level": "A2",
+      "title": "Say what will happen if…",
+      "summary": "Make plans that depend on something: “If it rains, we'll stay home.” “When I get there, I'll call you.”",
+      "topic": "{{е́сли|yésli}} and {{когда́|kogdá}} + the future, where English uses the present",
+      "blocks": [
+        {"goal":{"t":"Е́сли за́втра бу́дет хоро́шая пого́да, мы пое́дем на пляж.","r":"Yésli závtra búdet khoróshaya pogóda, my poyédem na plyazh.","tr":"If the weather's nice tomorrow, we'll go to the beach."}},
+        {"dialog":[{"who":"Anya","t":"Что вы бу́дете де́лать в суббо́ту?","r":"Shto vy búdete délat' v subbótu?","tr":"What are you doing on Saturday?"},{"who":"Ben","t":"Е́сли бу́дет со́лнце, пое́дем на да́чу. А е́сли бу́дет дождь, пойдём в музе́й.","r":"Yésli búdet sóntse, poyédem na dáchu. A yésli búdet dozhd', poydyóm v muzéy.","tr":"If it's sunny, we'll go to the dacha. And if it rains, we'll go to a museum."},{"who":"Anya","t":"А когда́ вы вернётесь?","r":"A kogdá vy vernyótes'?","tr":"And when will you be back?"},{"who":"Ben","t":"Когда́ вернёмся, я тебе́ позвоню́.","r":"Kogdá vernyómsya, ya tebé pozvonyú.","tr":"When we get back, I'll call you."},{"who":"Anya","t":"Договори́лись!","r":"Dogovorílis'!","tr":"Deal!"}]},
+        {"p":"**English and Russian disagree here.** English says “If it rains, we'll stay home”, with the present after “if”. Russian is logical: the rain is in the future, so the verb is too: {{Е́сли бу́дет дождь, мы оста́немся до́ма.|Yésli búdet dozhd', my ostánemsya dóma.}} The same after {{когда́|kogdá}} “when” about the future: {{Когда́ я прие́ду, я позвоню́.|Kogdá ya priyédu, ya pozvonyú.}} “When I arrive, I'll call.”"},
+        { "table": [
+          ["English","Russian"],
+          ["If it **rains**, we'll stay home.","{{Е́сли бу́дет дождь, мы оста́немся до́ма.|Yésli búdet dozhd', my ostánemsya dóma.}}"],
+          ["When I **get** home, I'll call you.","{{Когда́ я приду́ домо́й, я тебе́ позвоню́.|Kogdá ya pridú domóy, ya tebé pozvonyú.}}"],
+          ["If you **have** time, call me.","{{Е́сли у тебя́ бу́дет вре́мя, позвони́ мне.|Yésli u tebyá búdet vrémya, pozvoní mne.}}"]
+        ] },
+        {"p":"**Which future?** The aspect rules you know: one event with a result is perfective ({{Е́сли ты придёшь…|Yésli ty pridyósh'…}} “If you come…”); something going on is {{бу́ду|búdu}} + the imperfective ({{Е́сли ты бу́дешь рабо́тать ве́чером…|Yésli ty búdesh' rabótat' vécherom…}} “If you're working tonight…”); and a state is {{бу́дет|búdet}} ({{е́сли бу́дет вре́мя|yésli búdet vrémya}} “if there's time”)."},
+        {"p":"**Always true, or true now.** For things that are always true, or true right now, both languages use the present: {{Е́сли я пью ко́фе ве́чером, я пло́хо сплю.|Yésli ya p'yu kófe vécherom, ya plókho splyu.}} “If I drink coffee in the evening, I sleep badly.” {{Е́сли ты хо́чешь, я помогу́.|Yésli ty khóchesh', ya pomogú.}} “If you want, I'll help.”"},
+        { "ex": [
+          {"t":"Когда́ я зако́нчу рабо́ту, я тебе́ напишу́.","r":"Kogdá ya zakónchu rabótu, ya tebé napishú.","tr":"When I finish work, I'll text you."},
+          {"t":"Е́сли бу́дет хо́лодно, наде́нь ша́пку.","r":"Yésli búdet khólodno, nadén' shápku.","tr":"If it's cold, put on a hat."},
+          {"t":"Е́сли ты опозда́ешь, мы уйдём без тебя́.","r":"Yésli ty opozdáyesh', my uydyóm bez tebyá.","tr":"If you're late, we'll leave without you."},
+          {"t":"Позвони́, когда́ бу́дешь до́ма.","r":"Pozvoní, kogdá búdesh' dóma.","tr":"Call when you're home."},
+          {"t":"Е́сли ты хо́чешь, я тебе́ помогу́.","r":"Yésli ty khóchesh', ya tebé pomogú.","tr":"If you want, I'll help you.","note":"you want it now: the present"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Е́сли за́втра идёт дождь, мы оста́немся до́ма.","right":"Е́сли за́втра бу́дет дождь, мы оста́немся до́ма.","tr":"If it rains tomorrow, we'll stay home.","why":"Tomorrow's rain is in the future: {{бу́дет дождь|búdet dozhd'}}."},
+        {"wrong":"Когда́ я прихожу́ домо́й, я позвоню́.","right":"Когда́ я приду́ домо́й, я позвоню́.","tr":"When I get home, I'll call.","why":"A future arrival: the perfective future {{приду́|pridú}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Е́сли за́втра ___ хоро́шая пого́да, мы пойдём гуля́ть.","r":"Yésli závtra ___ khoróshaya pogóda, my poydyóm gulyát'.","tr":"If the weather's nice tomorrow, we'll go for a walk.","options":["бу́дет","есть","была́"],"rs":["búdet","yest'","bylá"],"answer":0,"why":"Tomorrow is the future: {{бу́дет|búdet}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Когда́ я ___ в Москву́, я тебе́ позвоню́.","r":"Kogdá ya ___ v Moskvú, ya tebé pozvonyú.","tr":"When I get to Moscow, I'll call you.","options":["прие́ду","приезжа́ю","прие́хал"],"rs":["priyédu","priyezzháyu","priyékhal"],"answer":0,"why":"A future arrival: the perfective future {{прие́ду|priyédu}}."},
+        {"type":"choice","q":"“When I get home, I'll call.” In Russian:","options":["{{Когда́ я приду́ домо́й, я позвоню́.|Kogdá ya pridú domóy, ya pozvonyú.}}","{{Когда́ я прихожу́ домо́й, я позвоню́.|Kogdá ya prikhozhú domóy, ya pozvonyú.}}"],"answer":0,"why":"After {{когда́|kogdá}}, a future event takes the future."},
+        {"type":"dialogue","q":"A friend invites you to a party. Choose your replies.","from":"promise-to-do","lines":[{"who":"Friend","t":"Ты придёшь на вечери́нку?","r":"Ty pridyósh' na vecherínku?","tr":"Are you coming to the party?"},{"options":["Е́сли успе́ю, приду́.","Е́сли успева́ю, приду́."],"rs":["Yésli uspéyu, pridú.","Yésli uspeváyu, pridú."],"answer":0,"why":"A future event: the perfective {{успе́ю|uspéyu}} “I make it in time”."},{"who":"Friend","t":"А е́сли не успе́ешь?","r":"A yésli ne uspéyesh'?","tr":"And if you don't make it?"},{"options":["Тогда́ я тебе́ позвоню́.","Тогда́ я тебе́ звоню́."],"rs":["Togdá ya tebé pozvonyú.","Togdá ya tebé zvonyú."],"answer":0,"why":"A promise: {{позвоню́|pozvonyú}}."},{"who":"Friend","t":"Хорошо́, жду!","r":"Khoroshó, zhdu!","tr":"OK, I'll be waiting!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Call me when you're home.","words":["Позвони́","мне,","когда́","бу́дешь","до́ма."],"rs":["Pozvoní","mne,","kogdá","búdesh'","dóma."],"from":"ask-someone-to-do"},
+        {"type":"say","q":"Say: “If it rains, we'll stay home.”","answer":"Е́сли бу́дет дождь, мы оста́немся до́ма.","r":"Yésli búdet dozhd', my ostánemsya dóma."},
+        {"type":"free","q":"Your turn: what will you do this weekend if the weather is good, and if it's bad? Use {{е́сли|yésli}} with the future.","answers":[{"t":"Е́сли бу́дет хоро́шая пого́да, я пое́ду в парк на велосипе́де. А е́сли бу́дет дождь, бу́ду чита́ть до́ма.","r":"Yésli búdet khoróshaya pogóda, ya poyédu v park na velosipéde. A yésli búdet dozhd', búdu chitát' dóma.","tr":"If the weather's good, I'll ride my bike to the park. And if it rains, I'll read at home."},{"t":"Е́сли бу́дет тепло́, мы пойдём на пляж. Е́сли бу́дет хо́лодно, оста́немся до́ма.","r":"Yésli búdet tepló, my poydyóm na plyazh. Yésli búdet khólodno, ostánemsya dóma.","tr":"If it's warm, we'll go to the beach. If it's cold, we'll stay home."}]}
+      ]
+    },
+    {
+      "id": "never-and-nobody",
+      "unit": 7,
+      "level": "A2",
+      "title": "Talk about experiences: ever and never",
+      "summary": "Ask “Have you ever…?” and answer with “never”, “nobody” and “nothing”: Russian's double negatives.",
+      "topic": "{{никогда́ не|nikogdá ne}}, {{никто́ не|niktó ne}}, {{ничего́ не|nichevó ne}}: two negatives in one sentence; {{когда́-нибудь|kogdá-nibud'}}",
+      "blocks": [
+        {"goal":{"t":"Я никогда́ не был в Росси́и.","r":"Ya nikogdá ne byl v Rossíi.","tr":"I've never been to Russia.","note":"a man; a woman says {{не была́|ne bylá}}"}},
+        {"dialog":[{"who":"Ilya","t":"Ты когда́-нибудь был в Росси́и?","r":"Ty kogdá-nibud' byl v Rossíi?","tr":"Have you ever been to Russia?"},{"who":"Tom","t":"Нет, никогда́ не был. А ты был в Аме́рике?","r":"Net, nikogdá ne byl. A ty byl v Amérike?","tr":"No, never. And have you been to America?"},{"who":"Ilya","t":"Был, оди́н раз. Но я там никого́ не знал и ничего́ не понима́л!","r":"Byl, odín raz. No ya tam nikovó ne znal i nichevó ne ponimál!","tr":"Once. But I didn't know anybody there and didn't understand anything!"},{"who":"Tom","t":"А сейча́с ты хорошо́ говори́шь по-англи́йски.","r":"A seychás ty khoroshó govorísh' po-anglíyski.","tr":"But now you speak English well."},{"who":"Ilya","t":"Спаси́бо! Но я никогда́ не говорю́ без оши́бок.","r":"Spasíbo! No ya nikogdá ne govoryú bez oshíbok.","tr":"Thanks! But I never speak without mistakes."}]},
+        {"p":"**Two negatives make a negative.** English says “I never saw anyone”, with one negative word. Russian puts {{не|ne}} before the verb **as well as** a “no-” word, and the sentence is still negative, only stronger: {{Я никогда́ не был в Росси́и.|Ya nikogdá ne byl v Rossíi.}} “I've never been to Russia.” {{Никто́ не зна́ет.|Niktó ne znáyet.}} “Nobody knows.” {{Я ничего́ не ви́жу.|Ya nichevó ne vízhu.}} “I can't see anything.” You can even stack them: {{Никто́ никогда́ ничего́ не говори́т.|Niktó nikogdá nichevó ne govorít.}} “Nobody ever says anything.”"},
+        { "table": [
+          ["","the “no-” word","for example"],
+          ["never","{{никогда́|nikogdá}}","{{Я никогда́ не опа́здываю.|Ya nikogdá ne opázdyvayu.}}"],
+          ["nobody","{{никто́|niktó}}","{{Никто́ не пришёл.|Niktó ne prishól.}}"],
+          ["nothing","{{ничего́|nichevó}}","{{Я ничего́ не зна́ю.|Ya nichevó ne znáyu.}}"],
+          ["nowhere","{{нигде́|nigdé}}","{{Я нигде́ не мог найти́ ключи́.|Ya nigdé ne mog naytí klyuchí.}}"],
+          ["(to) nowhere","{{никуда́|nikudá}}","{{Сего́дня я никуда́ не иду́.|Sevódnya ya nikudá ne idú.}}"]
+        ] },
+        {"p":"**They change like {{кто|kto}} and {{что|shto}}.** {{никто́|niktó}} has the cases of {{кто|kto}}: {{никого́|nikovó}} (accusative and genitive), {{никому́|nikomú}} (dative). “Nothing” is usually {{ничего́|nichevó}}. With a preposition, it goes in the middle: {{ни с кем|ni s kem}} “with nobody”, {{ни о чём|ni o chom}} “about nothing”."},
+        {"p":"**Ever.** In a question, “ever” is {{когда́-нибудь|kogdá-nibud'}}: {{Ты когда́-нибудь был в Росси́и?|Ty kogdá-nibud' byl v Rossíi?}} The same {{-нибудь|-nibud'}} makes “any-” words: {{кто́-нибудь|któ-nibud'}} “anybody”, {{что́-нибудь|shtó-nibud'}} “anything”, {{где́-нибудь|gdé-nibud'}} “anywhere”. In a “no” answer they become “no-” words: {{Ты что́-нибудь зна́ешь? — Нет, я ничего́ не зна́ю.|Ty shtó-nibud' znáyesh'? — Net, ya nichevó ne znáyu.}}"},
+        { "ex": [
+          {"t":"Ты когда́-нибудь ел борщ? — Нет, никогда́.","r":"Ty kogdá-nibud' yel borshch? — Net, nikogdá.","tr":"Have you ever had borscht? — No, never."},
+          {"t":"Никто́ не зна́ет, где он.","r":"Niktó ne znáyet, gde on.","tr":"Nobody knows where he is."},
+          {"t":"Я никому́ не скажу́.","r":"Ya nikomú ne skazhú.","tr":"I won't tell anyone."},
+          {"t":"Мне ничего́ не ну́жно, спаси́бо.","r":"Mne nichevó ne núzhno, spasíbo.","tr":"I don't need anything, thanks."},
+          {"t":"Она́ ни с кем не говори́т.","r":"Oná ni s kem ne govorít.","tr":"She isn't talking to anyone."},
+          {"t":"Кто́-нибудь хо́чет ко́фе?","r":"Któ-nibud' khóchet kófe?","tr":"Does anyone want coffee?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я никогда́ был в Москве́.","right":"Я никогда́ не был в Москве́.","tr":"I've never been to Moscow.","why":"With {{никогда́|nikogdá}}, {{никто́|niktó}}, {{ничего́|nichevó}}, the verb still needs {{не|ne}}."},
+        {"wrong":"Я не зна́ю что́-нибудь.","right":"Я ничего́ не зна́ю.","tr":"I don't know anything.","why":"In a negative sentence, “anything” is {{ничего́|nichevó}}."},
+        {"wrong":"Никто́ не зна́ют.","right":"Никто́ не зна́ет.","tr":"Nobody knows.","why":"{{никто́|niktó}} takes a singular verb, like {{кто|kto}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ не был в Росси́и.","r":"Ya ___ ne byl v Rossíi.","tr":"I've never been to Russia.","options":["никогда́","когда́-нибудь","всегда́"],"rs":["nikogdá","kogdá-nibud'","vsegdá"],"answer":0,"why":"“Never”: {{никогда́|nikogdá}}, with {{не|ne}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Здесь ___ нет.","r":"Zdes' ___ net.","tr":"There's nobody here.","options":["никого́","никто́","кто́-нибудь"],"rs":["nikovó","niktó","któ-nibud'"],"answer":0,"why":"After {{нет|net}}: the genitive, {{никого́|nikovó}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ты ___ ви́дел мои́ очки́?","r":"Ty ___ vídel moí ochkí?","tr":"Have you seen my glasses anywhere?","options":["где́-нибудь","нигде́"],"rs":["gdé-nibud'","nigdé"],"answer":0,"why":"A question: {{где́-нибудь|gdé-nibud'}} “anywhere”."},
+        {"type":"choice","q":"{{Я ничего́ не понима́ю|Ya nichevó ne ponimáyu}} means…","options":["I don't understand anything.","I understand everything.","I understand that it's nothing."],"answer":0,"why":"Two negatives: still negative."},
+        {"type":"dialogue","q":"You're a man. Monday morning: choose your replies.","from":"go-and-come-back","lines":[{"who":"Friend","t":"Что ты де́лал в выходны́е?","r":"Shto ty délal v vykhodnýye?","tr":"What did you do on the weekend?"},{"options":["Ничего́ не де́лал. Отдыха́л!","Ничего́ де́лал. Отдыха́л!"],"rs":["Nichevó ne délal. Otdykhál!","Nichevó délal. Otdykhál!"],"answer":0,"why":"{{ничего́|nichevó}} needs {{не|ne}} too."},{"who":"Friend","t":"И никуда́ не ходи́л?","r":"I nikudá ne khodíl?","tr":"And you didn't go anywhere?"},{"options":["Нет, никуда́. Я был до́ма.","Нет, куда́-нибудь. Я был до́ма."],"rs":["Net, nikudá. Ya byl dóma.","Net, kudá-nibud'. Ya byl dóma."],"answer":0,"why":"“Nowhere”: {{никуда́|nikudá}}."},{"who":"Friend","t":"Везёт!","r":"Vezyót!","tr":"Lucky you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Nobody called me.","words":["Мне","никто́","не","звони́л."],"rs":["Mne","niktó","ne","zvoníl."],"from":"give-and-tell"},
+        {"type":"free","q":"Your turn: say something you've never done, and ask a friend if they've ever done something. Use {{никогда́ не|nikogdá ne}} and {{когда́-нибудь|kogdá-nibud'}}.","answers":[{"t":"Я никогда́ не был в Москве́ и никогда́ не ел икру́. А ты когда́-нибудь пры́гал с парашю́том?","r":"Ya nikogdá ne byl v Moskvé i nikogdá ne yel ikrú. A ty kogdá-nibud' prýgal s parashyútom?","tr":"I've never been to Moscow and never eaten caviar. Have you ever gone skydiving?"},{"t":"Я никогда́ не ви́дела сне́га. А ты когда́-нибудь ката́лся на лы́жах?","r":"Ya nikogdá ne vídela snéga. A ty kogdá-nibud' katálsya na lýzhakh?","tr":"I've never seen snow. Have you ever been skiing?"}]}
+      ]
+    },
+    {
+      "id": "tell-what-happened",
+      "unit": 7,
+      "level": "A2",
+      "title": "Tell what happened, in order",
+      "summary": "Tell a short story: what was going on, what happened next and how it ended. Aspect in a story.",
+      "topic": "Aspect in a story: perfective for the events, imperfective for the background; {{снача́ла|snachála}}, {{пото́м|potóm}}, {{вдруг|vdrug}}, {{когда́|kogdá}}",
+      "blocks": [
+        {"goal":{"t":"Я шёл домо́й, когда́ вдруг уви́дел ста́рого дру́га.","r":"Ya shol domóy, kogdá vdrug uvídel stárovo drúga.","tr":"I was walking home when suddenly I saw an old friend."}},
+        {"dialog":[{"who":"Lena","t":"Ну, расска́зывай! Что случи́лось?","r":"Nu, rasskázyvay! Shto sluchílos'?","tr":"Come on, tell me! What happened?"},{"who":"Kirill","t":"Вчера́ я е́хал в метро́ и чита́л кни́гу.","r":"Vcherá ya yékhal v metró i chitál knígu.","tr":"Yesterday I was riding the subway, reading a book."},{"who":"Kirill","t":"Вдруг ко мне подошла́ де́вушка и спроси́ла, что я чита́ю.","r":"Vdrug ko mne podoshlá dévushka i sprosíla, shto ya chitáyu.","tr":"Suddenly a girl came up to me and asked what I was reading."},{"who":"Lena","t":"И что ты сказа́л?","r":"I shto ty skazál?","tr":"And what did you say?"},{"who":"Kirill","t":"Я показа́л ей кни́гу. Мы разговори́лись, и тепе́рь у меня́ есть её но́мер!","r":"Ya pokazál yey knígu. My razgovorílis', i tepér' u menyá yest' yeyó nómer!","tr":"I showed her the book. We got talking, and now I have her number!"},{"who":"Lena","t":"Вот э́то да!","r":"Vot éto da!","tr":"Wow!"}]},
+        {"p":"A story uses both aspects, each for its own job. The **perfective** moves the story forward: one finished event after another, {{пришёл|prishól}}, {{сел|sel}}, {{откры́л|otkrýl}}. The **imperfective** paints the background, what was going on when the events happened: {{шёл дождь|shol dozhd'}} “it was raining”, {{я чита́л|ya chitál}} “I was reading”."},
+        { "table": [
+          ["the background (imperfective)","the event (perfective)"],
+          ["{{Я е́хал в метро́…|Ya yékhal v metró…}}","{{Вдруг ко мне подошла́ де́вушка.|Vdrug ko mne podoshlá dévushka.}}"],
+          ["{{Шёл дождь…|Shol dozhd'…}}","{{Я откры́л зо́нтик.|Ya otkrýl zóntik.}}"],
+          ["{{Мы у́жинали,|My úzhinali,}}","{{когда́ позвони́л телефо́н.|kogdá pozvoníl telefón.}}"]
+        ] },
+        {"p":"**Two events in a row** are two perfectives: {{Он пришёл, сел и откры́л ноутбу́к.|On prishól, sel i otkrýl noutbúk.}} “He came in, sat down and opened his laptop.” **Two things at the same time** are two imperfectives: {{Я гото́вил у́жин и слу́шал му́зыку.|Ya gotóvil úzhin i slúshal múzyku.}} “I was cooking dinner and listening to music.” And **an event during a background** is one of each: {{Когда́ я гуля́л в па́рке, я уви́дел ста́рого дру́га.|Kogdá ya gulyál v párke, ya uvídel stárovo drúga.}}"},
+        {"p":"**Linking words.** {{снача́ла|snachála}} “first”, {{пото́м|potóm}} and {{зате́м|zatém}} “then”, {{по́сле э́того|pósle étovo}} “after that”, {{вдруг|vdrug}} “suddenly”, {{в конце́ концо́в|v kontsé kontsóv}} “in the end”, {{наконе́ц|nakonéts}} “at last”. And for the listener: {{Что случи́лось?|Shto sluchílos'?}} “What happened?”."},
+        { "ex": [
+          {"t":"Снача́ла мы погуля́ли, пото́м пошли́ в кафе́.","r":"Snachála my pogulyáli, potóm poshlí v kafé.","tr":"First we went for a walk, then we went to a café."},
+          {"t":"Когда́ я пришёл домо́й, де́ти уже́ спа́ли.","r":"Kogdá ya prishól domóy, déti uzhé spáli.","tr":"When I got home, the kids were already asleep."},
+          {"t":"Мы сиде́ли в кафе́, когда́ начался́ дождь.","r":"My sidéli v kafé, kogdá nachalsyá dozhd'.","tr":"We were sitting in the café when it started to rain."},
+          {"t":"Вдруг пога́с свет.","r":"Vdrug pogás svet.","tr":"Suddenly the lights went out."},
+          {"t":"В конце́ концо́в мы нашли́ гости́ницу.","r":"V kontsé kontsóv my nashlí gostínitsu.","tr":"In the end we found a hotel."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я пришёл домо́й, сади́лся и открыва́л ноутбу́к.","right":"Я пришёл домо́й, сел и откры́л ноутбу́к.","tr":"I came home, sat down and opened my laptop.","why":"A chain of events, one after another: all perfective."},
+        {"wrong":"Когда́ я посмотре́л телеви́зор, позвони́л брат.","right":"Когда́ я смотре́л телеви́зор, позвони́л брат.","tr":"While I was watching TV, my brother called.","why":"The background, “while I was watching”: the imperfective. {{посмотре́л|posmotrél}} would mean you'd finished watching."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Когда́ я ___ домо́й, я встре́тил сосе́да.","r":"Kogdá ya ___ domóy, ya vstrétil soséda.","tr":"When I was walking home, I ran into my neighbor.","options":["шёл","пошёл"],"rs":["shol","poshól"],"answer":0,"why":"The background, on the way: {{шёл|shol}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Он вошёл, ___ и на́чал говори́ть.","r":"On voshól, ___ i náchal govorít'.","tr":"He came in, sat down and started talking.","options":["сел","сади́лся"],"rs":["sel","sadílsya"],"answer":0,"why":"Events one after another: perfective {{сел|sel}}."},
+        {"type":"choice","q":"{{Мы у́жинали, когда́ позвони́ла ма́ма.|My úzhinali, kogdá pozvoníla máma.}} Which part is the background?","options":["having dinner","Mom's call"],"answer":0,"why":"{{у́жинали|úzhinali}} is imperfective: what was going on. {{позвони́ла|pozvoníla}} is the event."},
+        {"type":"dialogue","q":"You're a man, and you're late. Choose your replies.","from":"say-what-youve-done","lines":[{"who":"Friend","t":"Почему́ ты опозда́л?","r":"Pochemú ty opozdál?","tr":"Why are you late?"},{"options":["Я е́хал на рабо́ту, и вдруг слома́лась маши́на.","Я пое́хал на рабо́ту, и вдруг лома́лась маши́на."],"rs":["Ya yékhal na rabótu, i vdrug slomálas' mashína.","Ya poyékhal na rabótu, i vdrug lomálas' mashína."],"answer":0,"why":"The background {{е́хал|yékhal}}, then the event {{слома́лась|slomálas'}}."},{"who":"Friend","t":"И что ты сде́лал?","r":"I shto ty sdélal?","tr":"And what did you do?"},{"options":["Я позвони́л в серви́с и взял такси́.","Я звони́л в серви́с и брал такси́."],"rs":["Ya pozvoníl v servís i vzyal taksí.","Ya zvoníl v servís i bral taksí."],"answer":0,"why":"Events in order: perfective."},{"who":"Friend","t":"Бе́дный!","r":"Bédnyy!","tr":"Poor you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"First we went for a walk, then we had dinner.","words":["Снача́ла","мы","погуля́ли,","пото́м","поу́жинали."],"rs":["Snachála","my","pogulyáli,","potóm","poúzhinali."]},
+        {"type":"say","q":"Say: “Nobody understood anything.”","answer":"Никто́ ничего́ не по́нял.","r":"Niktó nichevó ne pónyal.","from":"never-and-nobody"},
+        {"type":"free","q":"Your turn: tell a short story about something that happened to you. Use the imperfective for what was going on and the perfective for what happened.","answers":[{"t":"Вчера́ я сиде́ла в кафе́ и пила́ ко́фе. Вдруг ко мне подошёл мужчи́на и сказа́л, что мы вме́сте учи́лись в шко́ле!","r":"Vcherá ya sidéla v kafé i pilá kófe. Vdrug ko mne podoshól mushchína i skazál, shto my vméste uchílis' v shkóle!","tr":"Yesterday I was sitting in a café, drinking coffee. Suddenly a man came up to me and said we'd been at school together!"},{"t":"Мы гуля́ли в па́рке, когда́ начался́ дождь. Мы побежа́ли в кафе́ и там встре́тили друзе́й.","r":"My gulyáli v párke, kogdá nachalsyá dozhd'. My pobezháli v kafé i tam vstrétili druzéy.","tr":"We were walking in the park when it started to rain. We ran to a café and ran into some friends there."}]}
+      ]
     }
   ]
 }
