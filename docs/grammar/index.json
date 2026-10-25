@@ -22,12 +22,12 @@
    "title": "German grammar",
    "variety": "Standard German (Germany)",
    "units": 9,
-   "lessons": 8,
+   "lessons": 15,
    "levels": [
     "A1"
    ],
-   "bytes": 42475,
-   "sha256": "971814aba5223823ca49036fd3efa35a6e1076574a741b547be8443328783889"
+   "bytes": 79096,
+   "sha256": "c22d8aa3865c97915551fcc4a91dfe07109848f009d562d029b75144f8b8c834"
   }
  }
 }

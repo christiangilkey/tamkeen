@@ -395,6 +395,361 @@
         {"type":"dialogue","q":"A friend asks about your new job.","lines":[{"who":"Friend","t":"Und, wie ist der neue Job?","tr":"So, how's the new job?"},{"options":["Gut! Die Kollegen sind sehr nett.","Gut! Die Kollegen ist sehr nett."],"answer":0,"why":"{{die Kollegen}} is plural, so the verb is {{sind}}."},{"who":"Friend","t":"Und der Chef?","tr":"And the boss?"},{"options":["Er ist nett, aber ziemlich streng.","Er ist nett, aber ziemlich strenge."],"answer":0,"why":"After {{sein}}, adjectives have no ending."}]},
         {"type":"free","q":"Your turn: describe your home or your town in one or two sentences. Use {{und}} or {{aber}}.","answers":[{"t":"Meine Stadt ist klein und ziemlich ruhig.","tr":"My town is small and pretty quiet."},{"t":"Das Haus ist alt, aber sehr schön.","tr":"The house is old, but very nice."}]}
       ]
+    },
+    {
+      "id": "say-what-you-have",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you have",
+      "summary": "Say what you have and don't have (a brother, a dog, time) and meet the accusative: the form for what you have, want, buy and see.",
+      "topic": "{{haben}}; the accusative: {{den}}, {{einen}}, {{keinen}} (only masculine nouns change)",
+      "blocks": [
+        {"goal":{"t":"Ich habe einen Bruder und eine Schwester.","tr":"I have a brother and a sister."}},
+        {"dialog":[{"who":"Jana","t":"Hast du Geschwister?","tr":"Do you have brothers and sisters?"},{"who":"Max","t":"Ja, ich habe einen Bruder. Und du?","tr":"Yes, I have a brother. And you?"},{"who":"Jana","t":"Ich habe keine Geschwister, aber ich habe einen Hund!","tr":"I don't have any brothers or sisters, but I have a dog!"},{"who":"Max","t":"Oh, wie heißt er?","tr":"Oh, what's his name?"},{"who":"Jana","t":"Bello. Hast du auch ein Haustier?","tr":"Bello. Do you have a pet too?"},{"who":"Max","t":"Nein, ich habe kein Haustier.","tr":"No, I don't have a pet."}]},
+        { "table": [
+          ["","{{haben}} have"],
+          ["{{ich}}","{{habe}}"],
+          ["{{du}}","{{hast}}"],
+          ["{{er / sie / es}}","{{hat}}"],
+          ["{{wir / sie / Sie}}","{{haben}}"],
+          ["{{ihr}}","{{habt}}"]
+        ] },
+        {"term":"subject","means":"the person or thing that does the action, or that is something: **I** have a dog; **the bus** is late."},
+        {"term":"object","means":"the person or thing the action is done to: I have **a dog**; I see **the bus**."},
+        {"term":"accusative","means":"the form German uses for the object of most verbs: what you have, want, buy, see, eat or need."},
+        {"p":"**Subject and object.** In {{Ich habe einen Hund.}}, {{ich}} is the subject and {{einen Hund}} the object. German shows the object by changing the article in front of it, and you'll need that all the time: for what you have, want, buy, see, need, eat and drink."},
+        {"p":"**Only masculine nouns change**, so it's less work than it sounds: {{der}} → {{den}}, {{ein}} → {{einen}}, {{kein}} → {{keinen}}. Feminine, neuter and plural nouns stay exactly as they are."},
+        { "table": [
+          ["","subject","object (accusative)"],
+          ["masculine","{{der / ein / kein Hund}}","{{den / einen / keinen Hund}}"],
+          ["feminine","{{die / eine / keine Katze}}","{{die / eine / keine Katze}}"],
+          ["neuter","{{das / ein / kein Auto}}","{{das / ein / kein Auto}}"],
+          ["plural","{{die / keine Kinder}}","{{die / keine Kinder}}"]
+        ] },
+        { "ex": [
+          {"t":"Hast du einen Stift?","tr":"Do you have a pen?"},
+          {"t":"Wir haben ein Auto, aber keinen Garten.","tr":"We have a car, but no yard."},
+          {"t":"Sie hat zwei Kinder.","tr":"She has two children."},
+          {"t":"Er hat eine Frage.","tr":"He has a question."},
+          {"t":"Habt ihr heute Zeit?","tr":"Do you have time today?","note":"to two or more friends"},
+          {"t":"Ich habe keinen Hunger.","tr":"I'm not hungry.","note":"word for word “I have no hunger”"}
+        ] },
+        {"tip":"Germans “have” some feelings that English speakers “are”: {{Ich habe Hunger.}} “I'm hungry.”, {{Ich habe Durst.}} “I'm thirsty.”, {{Ich habe Angst.}} “I'm scared.” And “not” is {{kein}}: {{Ich habe keine Angst.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich habe ein Bruder.","right":"Ich habe einen Bruder.","tr":"I have a brother.","why":"{{der Bruder}} is masculine, and it's the object (what you have): {{einen}}."},
+        {"wrong":"Er habt eine Frage.","right":"Er hat eine Frage.","tr":"He has a question.","why":"{{haben}} is a little irregular: {{du hast}}, {{er hat}}."},
+        {"wrong":"Ich habe nicht ein Auto.","right":"Ich habe kein Auto.","tr":"I don't have a car.","why":"“Not a” is always {{kein}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which nouns change in the accusative?","options":["only masculine ones","all of them","only plural ones"],"answer":0,"why":"{{der}} → {{den}}, {{ein}} → {{einen}}; feminine, neuter and plural stay the same."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich habe ___ Bruder.","tr":"I have a brother.","options":["einen","ein","eine"],"answer":0,"why":"{{der Bruder}}: a masculine object, so {{einen}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir haben ___ Auto.","tr":"We don't have a car.","options":["kein","keinen","nicht"],"answer":0,"why":"{{das Auto}} is neuter, so it doesn't change: {{kein}}.","from":"say-what-something-is"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ du heute Zeit?","tr":"Do you have time today?","options":["Hast","Hat","Habt"],"answer":0,"why":"A yes/no question: the verb first, in the {{du}} form, {{hast}}.","from":"ask-yes-no-questions"},
+        {"type":"dialogue","q":"A new friend asks about your family.","lines":[{"who":"Friend","t":"Hast du Geschwister?","tr":"Do you have brothers and sisters?"},{"options":["Ja, ich habe einen Bruder und eine Schwester.","Ja, ich habe ein Bruder und eine Schwester."],"answer":0,"why":"{{der Bruder}}: {{einen}}. {{die Schwester}} doesn't change."},{"who":"Friend","t":"Und hast du Kinder?","tr":"And do you have children?"},{"options":["Nein, ich habe keine Kinder.","Nein, ich habe nicht Kinder."],"answer":0,"why":"No article in front of {{Kinder}}, so “not any” is {{keine}}."}]},
+        {"type":"say","q":"Say “I'm hungry” the German way.","answer":"Ich habe Hunger."},
+        {"type":"free","q":"Your turn: say what you have and don't have: family, pets, a car, a bike… Remember {{einen}} with masculine nouns.","answers":[{"t":"Ich habe einen Hund, aber kein Auto.","tr":"I have a dog, but no car."},{"t":"Ich habe zwei Schwestern und einen Bruder. Ich habe keine Kinder.","tr":"I have two sisters and a brother. I don't have any children."}]}
+      ]
+    },
+    {
+      "id": "order-food-and-drinks",
+      "unit": 3,
+      "level": "A1",
+      "title": "Order food and drinks",
+      "summary": "Order in a café or a restaurant, ask for the check and pay: “I'd like a coffee and a piece of cake, please.”",
+      "topic": "{{Ich möchte}}, {{ich hätte gern}}, {{ich nehme}} + the accusative; paying",
+      "blocks": [
+        {"goal":{"t":"Ich möchte einen Kaffee und ein Stück Kuchen, bitte.","tr":"I'd like a coffee and a piece of cake, please."}},
+        {"dialog":[{"who":"Waitress","t":"Guten Tag! Was möchten Sie?","tr":"Hello! What would you like?"},{"who":"Guest","t":"Ich hätte gern einen Cappuccino.","tr":"I'd like a cappuccino."},{"who":"Waitress","t":"Gern. Und zu essen?","tr":"Sure. And to eat?"},{"who":"Guest","t":"Ich nehme den Apfelkuchen.","tr":"I'll have the apple cake."},{"who":"Waitress","t":"Mit Sahne?","tr":"With whipped cream?"},{"who":"Guest","t":"Ja, bitte. … Zahlen, bitte!","tr":"Yes, please. … The check, please!"},{"who":"Waitress","t":"Das macht sieben Euro achtzig.","tr":"That's €7.80."},{"who":"Guest","t":"Neun Euro, bitte. Stimmt so.","tr":"Make it nine. Keep the change."}]},
+        {"p":"**Three ways to order**, all polite: {{Ich möchte…}} “I'd like…”, {{Ich hätte gern…}} “I'd like…” (very common, a touch more polite), and {{Ich nehme…}} “I'll have…” (when you pick from the menu). Then comes what you want, in the accusative, because it's the object: {{einen Kaffee}}, {{eine Cola}}, {{ein Wasser}}."},
+        { "table": [
+          ["on the menu","you order","because"],
+          ["{{der Tee}}","{{einen Tee}}","masculine: {{einen}}"],
+          ["{{die Suppe}}","{{eine Suppe}}","feminine: no change"],
+          ["{{das Bier}}","{{ein Bier}}","neuter: no change"],
+          ["{{der Salat}}","{{den Salat}}","“the salad” on the menu: {{den}}"]
+        ] },
+        {"p":"{{möchte}} has no {{-t}} with {{er}} or {{sie}}: {{ich möchte}}, {{du möchtest}}, {{er/sie möchte}}, {{wir/sie/Sie möchten}}, {{ihr möchtet}}."},
+        {"p":"**Paying.** Say {{Zahlen, bitte!}} or {{Die Rechnung, bitte!}} “The check, please!” The server may ask {{Zusammen oder getrennt?}} “Together or separately?” In Germany you usually pay at the table, and you tip by saying the total you want to pay ({{Neun Euro, bitte.}}) or, when you hand over the exact amount you want to give, just {{Stimmt so.}} “Keep the change.”"},
+        { "ex": [
+          {"t":"Ich hätte gern ein Glas Wasser.","tr":"I'd like a glass of water."},
+          {"t":"Ich nehme die Suppe und einen Salat.","tr":"I'll have the soup and a salad."},
+          {"t":"Was möchtest du trinken?","tr":"What would you like to drink?","note":"to a friend"},
+          {"t":"Für mich einen Orangensaft, bitte.","tr":"An orange juice for me, please."},
+          {"t":"Haben Sie auch Tee?","tr":"Do you have tea too?"},
+          {"t":"Zusammen oder getrennt? – Getrennt, bitte.","tr":"Together or separately? – Separately, please."}
+        ] },
+        {"tip":"{{Gern}} from a server means “Sure, with pleasure”. And when the food comes, they'll often say {{Guten Appetit!}}: you can answer {{Danke!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich möchte ein Kaffee.","right":"Ich möchte einen Kaffee.","tr":"I'd like a coffee.","why":"{{der Kaffee}} is masculine and it's the object (what you want): {{einen}}."},
+        {"wrong":"Er möchtet einen Tee.","right":"Er möchte einen Tee.","tr":"He'd like a tea.","why":"{{möchte}} has no ending with {{er}} or {{sie}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{der Saft}} is “the juice”. You order…","options":["{{einen Saft}}","{{ein Saft}}","{{der Saft}}"],"answer":0,"why":"A masculine object: {{einen}}.","from":"say-what-you-have"},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich hätte gern ___ Wasser.","tr":"I'd like a water.","options":["ein","einen","eine"],"answer":0,"why":"{{das Wasser}} is neuter: no change, {{ein}}."},
+        {"type":"dialogue","q":"At a café: order and pay.","lines":[{"who":"Waiter","t":"Hallo! Was möchten Sie?","tr":"Hi! What would you like?"},{"options":["Ich hätte gern einen Tee, bitte.","Ich hätte gern ein Tee, bitte."],"answer":0,"why":"{{der Tee}}: {{einen}}."},{"who":"Waiter","t":"Gern. Sonst noch etwas?","tr":"Sure. Anything else?"},{"options":["Nein, danke. Zahlen, bitte!","Nein, danke. Zahlen Sie, bitte!"],"answer":0,"why":"{{Zahlen, bitte!}} asks for the check; {{Zahlen Sie!}} would tell the waiter to pay!"},{"who":"Waiter","t":"Das macht drei Euro zwanzig.","tr":"That's €3.20."},{"options":["Vier Euro, bitte.","Drei Euro, bitte. Stimmt so."],"answer":0,"why":"You tip by saying a higher total. {{Drei Euro}} would be less than the bill!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'll have the soup and a salad.","words":["Ich","nehme","die Suppe","und","einen Salat."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Was ___ du trinken?","tr":"What would you like to drink?","options":["möchtest","möchte","möchten"],"answer":0,"why":"With {{du}}: {{möchtest}}."},
+        {"type":"say","q":"Order: “Two coffees, please.”","answer":"Zwei Kaffee, bitte.","from":"count-things"},
+        {"type":"free","q":"Your turn: you're in a German café. Order something to drink and something to eat.","answers":[{"t":"Ich hätte gern einen Cappuccino und ein Stück Apfelkuchen, bitte.","tr":"I'd like a cappuccino and a piece of apple cake, please."},{"t":"Ich nehme einen Orangensaft und die Suppe, bitte.","tr":"I'll have an orange juice and the soup, please."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say what you like doing, and which things and people you like: “I like drinking coffee, but I don't like tea.”",
+      "topic": "{{gern}} after the verb; {{mögen}}; {{mich, dich, ihn, sie, es}}",
+      "blocks": [
+        {"goal":{"t":"Ich trinke gern Kaffee, aber ich mag keinen Tee.","tr":"I like drinking coffee, but I don't like tea."}},
+        {"dialog":[{"who":"Leon","t":"Was machst du gern?","tr":"What do you like to do?"},{"who":"Emma","t":"Ich lese gern und ich koche gern. Und du?","tr":"I like reading and cooking. And you?"},{"who":"Leon","t":"Ich spiele gern Fußball. Magst du Fußball?","tr":"I like playing soccer. Do you like soccer?"},{"who":"Emma","t":"Nein, nicht so. Aber ich mag Tennis.","tr":"No, not really. But I like tennis."},{"who":"Leon","t":"Kennst du Jonas? Er spielt auch Tennis.","tr":"Do you know Jonas? He plays tennis too."},{"who":"Emma","t":"Ja, ich kenne ihn. Ich mag ihn sehr!","tr":"Yes, I know him. I like him a lot!"}]},
+        {"p":"**gern: liking what you do.** To say you like *doing* something, say that you do it and add {{gern}} after the verb: {{Ich koche.}} “I cook.” → {{Ich koche gern.}} “I like cooking.” For “don't like”: {{nicht gern}}: {{Ich koche nicht gern.}}"},
+        {"p":"**mögen: liking things and people.** For a thing or a person, use {{mögen}}, with the accusative (what you like is the object): {{Ich mag Pizza.}} {{Ich mag den Film.}} {{Ich mag keinen Tee.}}"},
+        { "table": [
+          ["","{{mögen}} like"],
+          ["{{ich}}","{{mag}}"],
+          ["{{du}}","{{magst}}"],
+          ["{{er / sie / es}}","{{mag}}"],
+          ["{{wir / sie / Sie}}","{{mögen}}"],
+          ["{{ihr}}","{{mögt}}"]
+        ] },
+        {"p":"**me, you, him, her.** People and things you like or know are objects, so pronouns take the accusative too. Of “he, she, it”, only {{er}} changes ({{ihn}}); “me”, “you” and “us” have their own forms:"},
+        { "table": [
+          ["subject","object","English"],
+          ["{{ich}}","{{mich}}","me"],
+          ["{{du}}","{{dich}}","you"],
+          ["{{er}}","{{ihn}}","him, it"],
+          ["{{sie}}","{{sie}}","her, it"],
+          ["{{es}}","{{es}}","it"],
+          ["{{wir}}","{{uns}}","us"],
+          ["{{ihr}}","{{euch}}","you (friends)"],
+          ["{{sie / Sie}}","{{sie / Sie}}","them / you (polite)"]
+        ] },
+        { "ex": [
+          {"t":"Ich schwimme gern.","tr":"I like swimming."},
+          {"t":"Spielst du gern Gitarre?","tr":"Do you like playing the guitar?"},
+          {"t":"Wir reisen sehr gern.","tr":"We love traveling.","note":"{{sehr gern}}: “a lot”"},
+          {"t":"Magst du Katzen?","tr":"Do you like cats?"},
+          {"t":"Der Film? Ich mag ihn nicht.","tr":"The movie? I don't like it.","note":"{{der Film}} → {{ihn}}"},
+          {"t":"Ich liebe dich.","tr":"I love you."}
+        ] },
+        {"tip":"{{Gern!}} or {{Gerne!}} on its own is a friendly answer: “Sure, I'd love to!”, and also “You're welcome” after someone says {{Danke}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich gern koche.","right":"Ich koche gern.","tr":"I like cooking.","why":"{{gern}} comes after the verb: the verb stays second."},
+        {"wrong":"Ich mag er.","right":"Ich mag ihn.","tr":"I like him.","why":"He's the object here, so {{er}} becomes {{ihn}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“I like reading” is…","options":["{{Ich lese gern.}}","{{Ich gern lese.}}","{{Ich mag gern lesen.}}"],"answer":0,"why":"The verb in second place, then {{gern}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Der Kuchen ist super. Ich mag ___!","tr":"The cake is great. I like it!","options":["ihn","er","es"],"answer":0,"why":"{{der Kuchen}} is masculine, and here it's the object: {{ihn}}.","from":"name-things"},
+        {"type":"fill","q":"Choose the missing word.","t":"___ du Hunde?","tr":"Do you like dogs?","options":["Magst","Mag","Mögt"],"answer":0,"why":"With {{du}}: {{magst}}, first in a yes/no question."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich mag ___ Kaffee.","tr":"I don't like coffee.","options":["keinen","nicht","kein"],"answer":0,"why":"{{der Kaffee}} with no article, as an object: “not any” is {{keinen}}.","from":"say-what-you-have"},
+        {"type":"order","q":"Put the words in order.","tr":"Do you like playing soccer?","words":["Spielst","du","gern","Fußball?"]},
+        {"type":"dialogue","q":"Chat with a friend.","lines":[{"who":"Friend","t":"Magst du Pizza?","tr":"Do you like pizza?"},{"options":["Ja, ich mag Pizza sehr.","Ja, ich Pizza mag sehr."],"answer":0,"why":"The verb comes second, right after {{ich}}."},{"who":"Friend","t":"Und kennst du Lisa?","tr":"And do you know Lisa?"},{"options":["Ja, ich kenne sie. Sie ist sehr nett.","Ja, ich kenne ihr. Sie ist sehr nett."],"answer":0,"why":"“Her” as an object is {{sie}}, the same as “she”."}]},
+        {"type":"free","q":"Your turn: say two things you like doing (with {{gern}}) and one thing you don't like (with {{mögen}}).","answers":[{"t":"Ich lese gern und ich wandere gern. Ich mag keinen Fisch.","tr":"I like reading and hiking. I don't like fish."},{"t":"Ich koche gern und ich tanze sehr gern. Ich mag keine Spinnen.","tr":"I like cooking and I love dancing. I don't like spiders."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your family",
+      "summary": "Say who's in your family, what their names are and what they do: “My sister's name is Julia.”",
+      "topic": "{{mein, dein, sein, ihr, unser, euer, Ihr}} (and {{meinen}} for the object); {{Annas}} “Anna's”",
+      "blocks": [
+        {"goal":{"t":"Meine Schwester heißt Julia und wohnt in München.","tr":"My sister's name is Julia and she lives in Munich."}},
+        {"dialog":[{"who":"Ali","t":"Wer ist das?","tr":"Who's that?"},{"who":"Sophie","t":"Das ist meine Mutter, und das ist mein Vater.","tr":"That's my mother, and that's my father."},{"who":"Ali","t":"Und wer ist der Junge?","tr":"And who's the boy?"},{"who":"Sophie","t":"Das ist mein Bruder Paul. Und das ist seine Freundin.","tr":"That's my brother Paul. And that's his girlfriend."},{"who":"Ali","t":"Wie heißt sie?","tr":"What's her name?"},{"who":"Sophie","t":"Keine Ahnung! Er hat jeden Monat eine neue.","tr":"No idea! He has a new one every month."}]},
+        {"p":"**my, your, his…** These words go in front of a noun and take the same endings as {{ein}}: no ending for masculine and neuter nouns, {{-e}} for feminine and plural ones."},
+        { "table": [
+          ["","masculine, neuter","feminine, plural"],
+          ["my","{{mein Vater}}","{{meine Mutter}}"],
+          ["your (a friend)","{{dein Bruder}}","{{deine Schwester}}"],
+          ["his","{{sein Sohn}}","{{seine Tochter}}"],
+          ["her","{{ihr Mann}}","{{ihre Eltern}}"],
+          ["our","{{unser Kind}}","{{unsere Kinder}}"],
+          ["your (friends)","{{euer Haus}}","{{eure Familie}}"],
+          ["their","{{ihr Hund}}","{{ihre Katze}}"],
+          ["your (polite)","{{Ihr Name}}","{{Ihre Adresse}}"]
+        ] },
+        {"p":"**His or her?** That depends on the owner, not on the thing: {{sein}} when the owner is a man, {{ihr}} when it's a woman (or several people). Then the ending follows the thing owned: Paul's girlfriend is {{seine Freundin}}; Julia's husband is {{ihr Mann}}."},
+        {"p":"**As objects**, they change just like {{ein}}: a masculine noun adds {{-en}}. {{Ich besuche meinen Vater.}} “I'm visiting my father.” {{Kennst du meinen Bruder?}} “Do you know my brother?”"},
+        {"p":"**Anna's.** With names, German adds {{-s}}, with no apostrophe: {{Annas Bruder}} “Anna's brother”, {{Pauls Auto}} “Paul's car”. In speech you'll also hear {{der Bruder von Anna}}."},
+        { "ex": [
+          {"t":"Mein Vater ist Ingenieur.","tr":"My father is an engineer."},
+          {"t":"Wie heißt deine Mutter?","tr":"What's your mother's name?"},
+          {"t":"Unsere Kinder sind sieben und neun.","tr":"Our children are seven and nine."},
+          {"t":"Ich besuche am Sonntag meinen Opa.","tr":"I'm visiting my grandpa on Sunday."},
+          {"t":"Das ist Saras Handy.","tr":"That's Sara's phone."},
+          {"t":"Wie ist Ihr Name, bitte?","tr":"What's your name, please?","note":"polite, at a reception desk, for example"}
+        ] },
+        {"tip":"Family words come in useful groups: {{die Eltern}} “parents”, {{die Geschwister}} “brothers and sisters”, {{die Großeltern}} “grandparents”, whom most people call {{Oma}} and {{Opa}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Mein Mutter heißt Maria.","right":"Meine Mutter heißt Maria.","tr":"My mother's name is Maria.","why":"{{die Mutter}} is feminine: {{meine}}."},
+        {"wrong":"Julia und sein Mann wohnen in Köln.","right":"Julia und ihr Mann wohnen in Köln.","tr":"Julia and her husband live in Cologne.","why":"The owner is Julia, a woman: {{ihr}}."},
+        {"wrong":"Ich besuche mein Vater.","right":"Ich besuche meinen Vater.","tr":"I'm visiting my father.","why":"{{der Vater}} is a masculine object here: {{meinen}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Paul's sister is…","options":["{{seine Schwester}}","{{ihre Schwester}}","{{sein Schwester}}"],"answer":0,"why":"Paul is the owner: {{sein-}}; {{die Schwester}} is feminine: {{-e}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie heißt ___ Bruder?","tr":"What's your brother's name?","options":["dein","deine","deinen"],"answer":0,"why":"{{der Bruder}} is the subject here: {{dein}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich besuche ___ Eltern.","tr":"I'm visiting my parents.","options":["meine","mein","meinen"],"answer":0,"why":"Plural: {{meine}}, as subject or object."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kennst du ___ Mann?","tr":"Do you know her husband?","options":["ihren","ihr","seinen"],"answer":0,"why":"“Her”: {{ihr-}}; {{der Mann}} is a masculine object: {{-en}}.","from":"say-what-you-have"},
+        {"type":"order","q":"Put the words in order.","tr":"That's Anna's brother.","words":["Das","ist","Annas","Bruder."]},
+        {"type":"dialogue","q":"Show a friend a photo of your family.","from":"say-who-you-are","lines":[{"who":"Friend","t":"Wer ist das?","tr":"Who's that?"},{"options":["Das ist meine Schwester.","Das ist mein Schwester."],"answer":0,"why":"{{die Schwester}} is feminine: {{meine}}."},{"who":"Friend","t":"Und was macht sie beruflich?","tr":"And what does she do for a living?"},{"options":["Sie ist Lehrerin.","Sie ist eine Lehrerin."],"answer":0,"why":"No “a” with jobs."}]},
+        {"type":"free","q":"Your turn: tell someone about two people in your family: their names, and what they do or where they live.","answers":[{"t":"Meine Mutter heißt Karen und wohnt in Chicago. Mein Bruder heißt Mike und ist Arzt.","tr":"My mother's name is Karen and she lives in Chicago. My brother's name is Mike and he's a doctor."},{"t":"Mein Mann heißt Daniel. Unsere Tochter heißt Lily und ist fünf.","tr":"My husband's name is Daniel. Our daughter's name is Lily and she's five."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you want to do",
+      "summary": "Say what you'd like to do and what you want to do: “I'd like to go to the movies tonight.” Your first verb bracket.",
+      "topic": "{{möchten}} and {{wollen}} + an infinitive at the end (the verb bracket)",
+      "blocks": [
+        {"goal":{"t":"Ich möchte heute Abend ins Kino gehen.","tr":"I'd like to go to the movies tonight."}},
+        {"dialog":[{"who":"Nina","t":"Was möchtest du am Wochenende machen?","tr":"What would you like to do on the weekend?"},{"who":"Felix","t":"Ich möchte lange schlafen!","tr":"I'd like to sleep late!"},{"who":"Nina","t":"Und dann? Wir wollen wandern. Willst du auch kommen?","tr":"And then? We want to go hiking. Do you want to come too?"},{"who":"Felix","t":"Wo wollt ihr wandern?","tr":"Where do you want to hike?"},{"who":"Nina","t":"Im Harz.","tr":"In the Harz mountains."},{"who":"Felix","t":"Super, ich komme!","tr":"Great, I'm in!"}]},
+        {"term":"modal verb","means":"a helping verb that says how you stand toward an action: want to, would like to, can, must, may."},
+        {"p":"**Two verbs, two places.** {{möchten}} “would like” and {{wollen}} “want” take the usual verb place, second, and change for the person. The verb that says what you want *to do* goes to the **very end**, as an infinitive: {{Ich möchte heute Abend ins Kino gehen.}}, word for word “I would like tonight to the cinema go.”"},
+        {"term":"verb bracket","means":"the two parts of a German verb that frame a sentence: one in second place, the other at the very end."},
+        { "table": [
+          ["first","second: the modal","the middle","the end: the infinitive"],
+          ["{{Ich}}","{{möchte}}","{{heute Abend ins Kino}}","{{gehen.}}"],
+          ["{{Wir}}","{{wollen}}","{{am Samstag}}","{{wandern.}}"],
+          ["{{Was}}","{{willst}}","{{du}}","{{machen?}}"]
+        ] },
+        { "table": [
+          ["","{{möchten}} would like","{{wollen}} want"],
+          ["{{ich}}","{{möchte}}","{{will}}"],
+          ["{{du}}","{{möchtest}}","{{willst}}"],
+          ["{{er / sie / es}}","{{möchte}}","{{will}}"],
+          ["{{wir / sie / Sie}}","{{möchten}}","{{wollen}}"],
+          ["{{ihr}}","{{möchtet}}","{{wollt}}"]
+        ] },
+        {"p":"**möchten or wollen?** {{möchten}} is “would like”: soft and polite, right for asking and offering. {{wollen}} is “want”: direct, fine among friends and for firm plans, but a bit blunt in a shop. And careful: {{ich will}} means “I want”, never “I will”."},
+        { "ex": [
+          {"t":"Ich möchte Deutsch lernen.","tr":"I'd like to learn German."},
+          {"t":"Willst du einen Kaffee trinken?","tr":"Do you want to have a coffee?"},
+          {"t":"Wir wollen im Sommer nach Italien fahren.","tr":"We want to go to Italy in the summer."},
+          {"t":"Was möchten Sie bestellen?","tr":"What would you like to order?"},
+          {"t":"Er will nicht arbeiten.","tr":"He doesn't want to work."},
+          {"t":"Möchtest du mit uns essen?","tr":"Would you like to eat with us?"}
+        ] },
+        {"tip":"Where's the “to”? German doesn't need one here: {{Ich möchte schlafen.}} is “I'd like to sleep.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich möchte gehen ins Kino.","right":"Ich möchte ins Kino gehen.","tr":"I'd like to go to the movies.","why":"The second verb goes to the very end."},
+        {"wrong":"Ich möchte zu lernen Deutsch.","right":"Ich möchte Deutsch lernen.","tr":"I'd like to learn German.","why":"No {{zu}} after {{möchten}} or {{wollen}}, and the infinitive goes last."},
+        {"wrong":"Es will morgen regnen.","right":"Es regnet morgen.","tr":"It'll rain tomorrow.","why":"{{will}} means “want”, not “will”. For the future, German usually just uses the present with a time word."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Ich will einen Kaffee.}} means…","options":["I want a coffee.","I will have a coffee."],"answer":0,"why":"{{wollen}} is “want”: {{ich will}} = I want."},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like to go to the movies tonight.","words":["Ich","möchte","heute Abend","ins Kino","gehen."]},
+        {"type":"fill","q":"Choose the missing word.","t":"Was ___ du am Wochenende machen?","tr":"What do you want to do on the weekend?","options":["willst","will","wollt"],"answer":0,"why":"With {{du}}: {{willst}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir möchten im Sommer nach Spanien ___.","tr":"We'd like to go to Spain in the summer.","options":["fahren","fahrt","fahre"],"answer":0,"why":"At the end: the infinitive, {{fahren}}."},
+        {"type":"dialogue","q":"A friend makes plans with you.","from":"say-what-you-like","lines":[{"who":"Friend","t":"Möchtest du heute Abend essen gehen?","tr":"Would you like to go out to eat tonight?"},{"options":["Ja, gern! Ich möchte Pizza essen.","Ja, gern! Ich möchte essen Pizza."],"answer":0,"why":"The infinitive {{essen}} goes to the end."},{"who":"Friend","t":"Willst du auch Lukas einladen?","tr":"Do you want to invite Lukas too?"},{"options":["Nein, ich mag ihn nicht so.","Nein, ich mag er nicht so."],"answer":0,"why":"Lukas is the object: {{ihn}}."}]},
+        {"type":"say","q":"Ask a friend: “Do you want to have a coffee?”","answer":"Willst du einen Kaffee trinken?"},
+        {"type":"free","q":"Your turn: what would you like to do this weekend, and what do you want to do this year? Use {{möchte}} or {{will}}, with the second verb at the end.","answers":[{"t":"Ich möchte am Wochenende lange schlafen.","tr":"I'd like to sleep late this weekend."},{"t":"Ich will dieses Jahr nach Berlin fahren und Deutsch lernen.","tr":"This year I want to go to Berlin and learn German."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you can do and ask if you may",
+      "summary": "Say what you can do, ask for help and ask for permission: “Can I pay by card?”",
+      "topic": "{{können}} “can” and {{dürfen}} “may, be allowed to”",
+      "blocks": [
+        {"goal":{"t":"Kann ich mit Karte zahlen?","tr":"Can I pay by card?"}},
+        {"dialog":[{"who":"Customer","t":"Entschuldigung, können Sie mir helfen?","tr":"Excuse me, can you help me?"},{"who":"Saleswoman","t":"Ja, natürlich.","tr":"Yes, of course."},{"who":"Customer","t":"Ich suche eine Jacke. Darf ich diese hier anprobieren?","tr":"I'm looking for a jacket. May I try this one on?"},{"who":"Saleswoman","t":"Ja, klar. Die Kabine ist dort hinten.","tr":"Yes, sure. The fitting room is back there."},{"who":"Customer","t":"Ich nehme sie. Kann ich mit Karte zahlen?","tr":"I'll take it. Can I pay by card?"},{"who":"Saleswoman","t":"Ja, das geht.","tr":"Yes, that's fine."}]},
+        {"p":"**können** is “can”: what you're able to do ({{Ich kann schwimmen.}} “I can swim.”) and what's possible ({{Kann ich mit Karte zahlen?}}). **dürfen** is “may, be allowed to”: permission ({{Darf ich hier sitzen?}} “May I sit here?”). Both are modal verbs like {{möchten}}: the modal second, the infinitive at the end."},
+        { "table": [
+          ["","{{können}} can","{{dürfen}} may"],
+          ["{{ich}}","{{kann}}","{{darf}}"],
+          ["{{du}}","{{kannst}}","{{darfst}}"],
+          ["{{er / sie / es}}","{{kann}}","{{darf}}"],
+          ["{{wir / sie / Sie}}","{{können}}","{{dürfen}}"],
+          ["{{ihr}}","{{könnt}}","{{dürft}}"]
+        ] },
+        {"p":"**Asking for help** is a yes/no question, so the modal comes first: {{Können Sie mir helfen?}} “Can you help me?”, {{Kannst du das bitte wiederholen?}} “Can you repeat that, please?”"},
+        {"p":"**Not allowed.** {{nicht dürfen}} is “mustn't, not be allowed to”: {{Hier darf man nicht parken.}} “You can't park here.” {{man}} means “one, you, people in general”, and takes the {{er}} form of the verb."},
+        { "ex": [
+          {"t":"Ich kann ein bisschen Deutsch sprechen.","tr":"I can speak a little German."},
+          {"t":"Kannst du mir helfen?","tr":"Can you help me?"},
+          {"t":"Darf ich hier sitzen?","tr":"May I sit here?"},
+          {"t":"Kann man hier mit Karte zahlen?","tr":"Can you pay by card here?"},
+          {"t":"Wir können morgen nicht kommen.","tr":"We can't come tomorrow."},
+          {"t":"Hier darf man nicht rauchen.","tr":"Smoking isn't allowed here."}
+        ] },
+        {"tip":"{{Ich kann Deutsch.}} on its own means “I speak German”: with a language, {{sprechen}} is understood."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich kann schwimmen gut.","right":"Ich kann gut schwimmen.","tr":"I can swim well.","why":"The infinitive goes to the very end; everything else comes before it."},
+        {"wrong":"Kannst du mir zu helfen?","right":"Kannst du mir helfen?","tr":"Can you help me?","why":"No {{zu}} after a modal verb."},
+        {"wrong":"Ich darf nicht schwimmen.","right":"Ich kann nicht schwimmen.","tr":"I can't swim.","why":"Not knowing how is {{nicht können}}. {{nicht dürfen}} means you're not allowed."}
+      ],
+      "practice": [
+        {"type":"choice","q":"At a pool, a sign says {{Hier darf man nicht springen.}} It means…","options":["You're not allowed to jump here.","You're not able to jump here."],"answer":0,"why":"{{dürfen}} is about permission."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ Sie mir helfen?","tr":"Can you help me?","options":["Können","Kann","Könnt"],"answer":0,"why":"With {{Sie}}: {{können}}, first in a yes/no question."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ich hier sitzen?","tr":"May I sit here?","options":["Darf","Darfst","Dürfen"],"answer":0,"why":"With {{ich}}: {{darf}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I can speak a little German.","words":["Ich","kann","ein bisschen","Deutsch","sprechen."]},
+        {"type":"dialogue","q":"In a shop: you want to pay.","from":"say-what-something-is","lines":[{"who":"Cashier","t":"Das macht zwanzig Euro.","tr":"That's twenty euros."},{"options":["Kann ich mit Karte zahlen?","Kann ich zahlen mit Karte?"],"answer":0,"why":"The infinitive {{zahlen}} goes to the end."},{"who":"Cashier","t":"Leider nicht. Nur bar.","tr":"Sorry, no. Cash only."},{"options":["Kein Problem. Ich habe zwanzig Euro.","Nicht Problem. Ich habe zwanzig Euro."],"answer":0,"why":"“No problem” is {{kein Problem}}."}]},
+        {"type":"say","q":"Ask a friend: “Can you repeat that, please?”","answer":"Kannst du das bitte wiederholen?"},
+        {"type":"free","q":"Your turn: say two things you can do and one thing you can't. Use {{kann}} and {{kann nicht}}.","answers":[{"t":"Ich kann gut kochen und Gitarre spielen, aber ich kann nicht schwimmen.","tr":"I can cook well and play the guitar, but I can't swim."},{"t":"Ich kann ein bisschen Deutsch sprechen. Ich kann nicht tanzen!","tr":"I can speak a little German. I can't dance!"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-have-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you have to do",
+      "summary": "Say what you have to do, what you don't have to do, and what you're supposed to do: “I can't come today. I have to work.”",
+      "topic": "{{müssen}} “must, have to” and {{sollen}} “should”; {{nicht müssen}} = “don't have to”",
+      "blocks": [
+        {"goal":{"t":"Ich kann heute nicht kommen. Ich muss arbeiten.","tr":"I can't come today. I have to work."}},
+        {"dialog":[{"who":"Tom","t":"Kommst du heute Abend zur Party?","tr":"Are you coming to the party tonight?"},{"who":"Lea","t":"Leider nicht. Ich muss für die Prüfung lernen.","tr":"Unfortunately not. I have to study for the exam."},{"who":"Tom","t":"Schade! Und morgen?","tr":"Too bad! And tomorrow?"},{"who":"Lea","t":"Ich muss morgen nicht lernen. Wir können ins Kino gehen!","tr":"I don't have to study tomorrow. We can go to the movies!"},{"who":"Tom","t":"Gute Idee! Aber ich soll um zehn zu Hause sein.","tr":"Good idea! But I'm supposed to be home at ten."}]},
+        { "table": [
+          ["","{{müssen}} must, have to","{{sollen}} should"],
+          ["{{ich}}","{{muss}}","{{soll}}"],
+          ["{{du}}","{{musst}}","{{sollst}}"],
+          ["{{er / sie / es}}","{{muss}}","{{soll}}"],
+          ["{{wir / sie / Sie}}","{{müssen}}","{{sollen}}"],
+          ["{{ihr}}","{{müsst}}","{{sollt}}"]
+        ] },
+        {"p":"**müssen** is “must, have to”: {{Ich muss arbeiten.}} It builds the same bracket as the other modal verbs: {{muss}} second, the infinitive at the end."},
+        {"p":"**Watch out: nicht müssen means “don't have to”**, not “mustn't”. {{Du musst nicht kommen.}} means “You don't have to come” (it's up to you). For “mustn't”, German uses {{nicht dürfen}}:"},
+        { "table": [
+          ["German","English"],
+          ["{{Du musst kommen.}}","You have to come."],
+          ["{{Du musst nicht kommen.}}","You don't have to come."],
+          ["{{Du darfst nicht kommen.}}","You mustn't come. You're not allowed to come."]
+        ] },
+        {"p":"**sollen** is “should, be supposed to”: what someone else wants you to do. {{Der Arzt sagt, ich soll mehr schlafen.}} “The doctor says I should sleep more.” And {{Soll ich…?}} offers help: {{Soll ich das Fenster aufmachen?}} “Shall I open the window?”"},
+        { "ex": [
+          {"t":"Ich muss jetzt gehen.","tr":"I have to go now."},
+          {"t":"Musst du morgen arbeiten?","tr":"Do you have to work tomorrow?"},
+          {"t":"Wir müssen um acht am Bahnhof sein.","tr":"We have to be at the station at eight."},
+          {"t":"Sie müssen hier nicht warten.","tr":"You don't have to wait here."},
+          {"t":"Soll ich dir helfen?","tr":"Shall I help you?"},
+          {"t":"Ihr sollt leise sein!","tr":"You're supposed to be quiet!"}
+        ] },
+        {"tip":"{{Ich muss mal.}} on its own, said with a meaningful look, means “I need to go to the bathroom.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich muss arbeiten heute.","right":"Ich muss heute arbeiten.","tr":"I have to work today.","why":"The infinitive goes last."},
+        {"wrong":"Du musst hier nicht rauchen.","right":"Du darfst hier nicht rauchen.","tr":"You mustn't smoke here.","why":"{{nicht müssen}} is “don't have to”. For “mustn't”, use {{nicht dürfen}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Du musst nicht kommen.}} means…","options":["You don't have to come.","You mustn't come."],"answer":0,"why":"{{nicht müssen}} = “don't have to”. “Mustn't” is {{nicht dürfen}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich ___ morgen früh arbeiten.","tr":"I have to work early tomorrow.","options":["muss","musst","müssen"],"answer":0,"why":"With {{ich}}: {{muss}}, with no ending."},
+        {"type":"fill","q":"Choose the missing word.","t":"Hier ___ man nicht parken.","tr":"You mustn't park here.","options":["darf","muss","soll"],"answer":0,"why":"“Mustn't, not allowed” is {{nicht dürfen}}.","from":"say-what-you-can-do"},
+        {"type":"order","q":"Put the words in order.","tr":"Do you have to work tomorrow?","words":["Musst","du","morgen","arbeiten?"]},
+        {"type":"dialogue","q":"A friend invites you, but you're busy.","from":"say-what-you-want-to-do","lines":[{"who":"Friend","t":"Willst du heute Abend ins Kino gehen?","tr":"Do you want to go to the movies tonight?"},{"options":["Ich kann leider nicht. Ich muss lernen.","Ich kann leider nicht. Ich lernen muss."],"answer":0,"why":"{{muss}} goes second, the infinitive at the end."},{"who":"Friend","t":"Schade! Und am Samstag?","tr":"Too bad! And on Saturday?"},{"options":["Ja, ich muss am Samstag nicht lernen.","Ja, ich darf am Samstag nicht lernen."],"answer":0,"why":"“Don't have to” is {{nicht müssen}}. {{nicht dürfen}} would mean you're not allowed to study!"}]},
+        {"type":"say","q":"Offer: “Shall I help you?”","answer":"Soll ich dir helfen?"},
+        {"type":"free","q":"Your turn: what do you have to do this week, and what don't you have to do? Use {{muss}} and {{muss nicht}}.","answers":[{"t":"Ich muss diese Woche viel arbeiten, aber ich muss nicht kochen.","tr":"I have to work a lot this week, but I don't have to cook."},{"t":"Ich muss am Montag zum Arzt gehen. Ich muss am Freitag nicht arbeiten.","tr":"I have to go to the doctor on Monday. I don't have to work on Friday."}]}
+      ]
     }
   ]
 }
