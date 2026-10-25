@@ -1255,6 +1255,286 @@
         {"type":"say","q":"ชวนเพื่อนอย่างสุภาพว่า “วันเสาร์ไปกินข้าวเย็นกับพวกเราไหม”","answer":"Would you like to have dinner with us on Saturday?"},
         {"type":"free","q":"ถึงตาคุณ: ชวนเพื่อนทำอะไรสักอย่าง เสนอเวลาหรือสถานที่ และขอให้เขาช่วยหนึ่งอย่าง","answers":[{"t":"Would you like to see a movie on Friday? How about the seven o'clock show? Could you buy the tickets?","tr":"วันศุกร์ไปดูหนังไหม รอบหนึ่งทุ่มดีไหม ช่วยซื้อตั๋วได้ไหม"},{"t":"Let's have lunch tomorrow. Why don't we meet at noon? Could you book a table?","tr":"พรุ่งนี้กินข้าวกลางวันกันเถอะ เจอกันเที่ยงดีไหม ช่วยจองโต๊ะหน่อยได้ไหม"}]}
       ]
+    },
+    {
+      "id": "was-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "บอกว่าเมื่อวานอยู่ที่ไหน เป็นอย่างไร: was / were",
+      "summary": "บอกว่าเมื่อวานคุณอยู่ที่ไหน รู้สึกอย่างไร: {{am}} / {{is}} / {{are}} ในอดีตคือ {{was}} / {{were}}",
+      "topic": "{{was}} / {{were}}; {{wasn't}} / {{weren't}}; {{Where were you?}}; {{was born}}; {{yesterday}}, {{last night}}, {{ago}}",
+      "blocks": [
+        {"goal":{"t":"I was at home yesterday.","tr":"เมื่อวานฉันอยู่บ้าน"}},
+        {"dialog":[{"who":"หัวหน้า","t":"Where were you yesterday?","tr":"เมื่อวานคุณอยู่ไหน"},{"who":"นก","t":"I was sick. I was at home all day.","tr":"ฉันไม่สบายค่ะ อยู่บ้านทั้งวัน"},{"who":"หัวหน้า","t":"Oh, I'm sorry. Are you OK now?","tr":"แย่จัง ตอนนี้โอเคไหม"},{"who":"นก","t":"Yes, I'm fine now, thanks.","tr":"โอเคแล้วค่ะ ขอบคุณค่ะ"},{"who":"หัวหน้า","t":"The meeting was very long. You were lucky!","tr":"เมื่อวานประชุมนานมาก คุณโชคดีนะ"}]},
+        {"term":"past simple (อดีตกาลธรรมดา)","means":"รูปคำกริยาสำหรับเรื่องที่เกิดขึ้นและจบไปแล้วในอดีต เช่น {{I was}}, {{I worked}}, {{I went}}"},
+        {"p":"**อดีตของ be** ภาษาไทยใช้ “เป็น” “อยู่” แบบเดิม แล้วเติมคำว่า “เมื่อวาน” แต่ภาษาอังกฤษเปลี่ยนคำกริยาด้วย: {{am}} และ {{is}} เปลี่ยนเป็น {{was}} ส่วน {{are}} เปลี่ยนเป็น {{were}}: {{I was tired.}} {{They were at work.}}"},
+        { "table": [
+          ["ปัจจุบัน","อดีต","ตัวอย่าง"],
+          ["{{I am}}","{{I was}}","{{I was tired.}} ฉันเหนื่อย (ตอนนั้น)"],
+          ["{{he}} / {{she}} / {{it is}}","{{was}}","{{It was hot.}} (ตอนนั้น) อากาศร้อน"],
+          ["{{you}} / {{we}} / {{they are}}","{{were}}","{{We were late.}} เราไปสาย"]
+        ] },
+        {"p":"**ไม่ และคำถาม** “ไม่” ใช้ {{wasn't}} ({{was not}}) และ {{weren't}} ({{were not}}) คำถามสลับที่เหมือนเดิม: {{Were you at home?}} {{Was it good?}} ตอบสั้นๆ ว่า {{Yes, I was.}} หรือ {{No, it wasn't.}}"},
+        {"p":"**คำบอกเวลาในอดีต** {{yesterday}} เมื่อวาน, {{last night}} เมื่อคืน, {{last week}} สัปดาห์ที่แล้ว, {{two days ago}} สองวันก่อน ({{ago}} วางหลังช่วงเวลา) คำเหล่านี้ไม่ต้องมี {{in}} หรือ {{on}}"},
+        { "ex": [
+          {"t":"It was really hot yesterday.","tr":"เมื่อวานร้อนมาก"},
+          {"t":"We were in Chiang Mai last week.","tr":"สัปดาห์ที่แล้วเราอยู่เชียงใหม่"},
+          {"t":"The movie was great.","tr":"หนังสนุกมาก"},
+          {"t":"Where were you last night?","tr":"เมื่อคืนคุณอยู่ไหน"},
+          {"t":"I wasn't hungry.","tr":"(ตอนนั้น) ฉันไม่หิว"},
+          {"t":"Was the hotel nice?","tr":"โรงแรมดีไหม"},
+          {"t":"I was born in Bangkok.","tr":"ฉันเกิดที่กรุงเทพฯ"}
+        ] },
+        {"tip":"“เกิด” ภาษาอังกฤษใช้ {{was born}} เสมอ: {{I was born in 1995.}} “ฉันเกิดปี 1995” ต้องมี {{was}} ทุกครั้ง"}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I am at home.","right":"Yesterday I was at home.","tr":"เมื่อวานฉันอยู่บ้าน","why":"เรื่องในอดีต {{am}} ต้องเปลี่ยนเป็น {{was}}: มีแค่คำว่า {{yesterday}} ไม่พอ"},
+        {"wrong":"They was late.","right":"They were late.","tr":"พวกเขามาสาย","why":"{{they}} ใช้ {{were}}"},
+        {"wrong":"I born in Bangkok.","right":"I was born in Bangkok.","tr":"ฉันเกิดที่กรุงเทพฯ","why":"“เกิด” ใช้ {{was born}}: ต้องมี {{was}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"We ___ in Phuket last week.","tr":"สัปดาห์ที่แล้วเราอยู่ภูเก็ต","options":["were","was","are"],"answer":0,"why":"{{we}} ในอดีต: {{were}}"},
+        {"type":"choice","q":"“เมื่อคืนคุณอยู่ไหน”","options":["{{Where were you last night?}}","{{Where you were last night?}}","{{Where are you last night?}}"],"answer":0,"why":"อดีต: {{were}} และสลับไปไว้หน้า {{you}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ฉันเกิดที่เชียงใหม่","words":["I","was","born","in","Chiang Mai."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องเที่ยว เลือกคำตอบ","from":"its-good","lines":[{"who":"เพื่อน","t":"How was your trip?","tr":"เที่ยวเป็นยังไงบ้าง"},{"options":["It was great! The food was delicious.","It great! The food delicious."],"answer":0,"why":"ต้องมี {{was}} ทั้งสองประโยค"},{"who":"เพื่อน","t":"Was it hot?","tr":"ร้อนไหม"},{"options":["Yes, it was. It was really hot.","Yes, it is. It's really hot."],"answer":0,"why":"เรื่องที่ผ่านไปแล้ว: {{was}}"}]},
+        {"type":"say","q":"พูดว่า “เมื่อวานร้อนมาก”","answer":"It was really hot yesterday."},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าเมื่อวานหรือเมื่อคืนคุณอยู่ที่ไหน และเป็นอย่างไร","answers":[{"t":"Yesterday I was at work all day. I was very tired.","tr":"เมื่อวานฉันอยู่ที่ทำงานทั้งวัน เหนื่อยมาก"},{"t":"Last night I was at a friend's house. It was fun.","tr":"เมื่อคืนผมอยู่บ้านเพื่อน สนุกดี"}]}
+      ]
+    },
+    {
+      "id": "past-ed",
+      "unit": 5,
+      "level": "A2",
+      "title": "เล่าว่าทำอะไรไปแล้ว: รูปอดีตแบบเติม -ed",
+      "summary": "เล่าว่าเมื่อวานทำอะไร: ภาษาอังกฤษเปลี่ยนคำกริยาเป็นรูปอดีต ส่วนใหญ่เติม {{-ed}}",
+      "topic": "past simple เติม {{-ed}} ({{worked}}, {{watched}}, {{stayed}}); การสะกด; การออกเสียง -ed สามแบบ; คำบอกเวลาอย่างเดียวไม่พอ",
+      "blocks": [
+        {"goal":{"t":"Yesterday I cooked dinner for my family.","tr":"เมื่อวานฉันทำอาหารเย็นให้ครอบครัว"}},
+        {"dialog":[{"who":"เจค","t":"What did you do last weekend?","tr":"สุดสัปดาห์ที่แล้วทำอะไรบ้าง"},{"who":"นก","t":"I stayed home. I cleaned my apartment and watched a movie.","tr":"อยู่บ้าน ทำความสะอาดห้อง แล้วก็ดูหนัง"},{"who":"เจค","t":"Sounds relaxing.","tr":"ฟังดูสบายๆ ดี"},{"who":"นก","t":"And on Sunday I visited my parents. My mom cooked green curry!","tr":"วันอาทิตย์ไปเยี่ยมพ่อแม่ แม่ทำแกงเขียวหวานให้กิน"},{"who":"เจค","t":"Lucky you!","tr":"โชคดีจัง"}]},
+        {"p":"**คำบอกเวลาอย่างเดียวไม่พอ** ภาษาไทยพูดว่า “เมื่อวานฉันทำงาน” โดยคำว่า “ทำงาน” ไม่เปลี่ยน แต่ภาษาอังกฤษต้องเปลี่ยนคำกริยาเป็นรูปอดีตด้วย แม้จะมี {{yesterday}} แล้ว: {{Yesterday I worked.}} ไม่ใช่ {{Yesterday I work.}}"},
+        {"p":"**ส่วนใหญ่เติม -ed** คำกริยาส่วนใหญ่ทำรูปอดีตโดยเติม {{-ed}}: {{work}} → {{worked}}, {{watch}} → {{watched}} และใช้รูปเดียวกันกับทุกประธาน: {{I worked}}, {{she worked}}, {{they worked}} (ไม่มี s)"},
+        { "table": [
+          ["กฎการสะกด","ตัวอย่าง"],
+          ["ส่วนใหญ่: เติม -ed","{{play}} → {{played}}, {{clean}} → {{cleaned}}"],
+          ["ลงท้ายด้วย e: เติม -d","{{live}} → {{lived}}, {{dance}} → {{danced}}"],
+          ["พยัญชนะ + y: เปลี่ยนเป็น -ied","{{study}} → {{studied}}, {{try}} → {{tried}}"],
+          ["คำสั้น สระเดี่ยว + พยัญชนะ: ซ้ำตัวท้าย","{{stop}} → {{stopped}}, {{plan}} → {{planned}}"]
+        ] },
+        {"p":"**ออกเสียง -ed สามแบบ** หลังเสียง t หรือ d ออกเสียงเป็นพยางค์ใหม่ “อิด”: {{wanted}}, {{needed}} หลังเสียง p, k, s, sh, ch ออกเสียงเป็น “ท” สั้นๆ: {{worked}}, {{watched}} นอกนั้นออกเสียงเป็น “ด”: {{played}}, {{cleaned}} คนไทยมักกลืนเสียงท้ายนี้ ทำให้ฟังเหมือนปัจจุบัน ลองออกเสียงให้ได้ยิน"},
+        { "ex": [
+          {"t":"I watched a movie last night.","tr":"เมื่อคืนฉันดูหนัง"},
+          {"t":"We visited our grandparents.","tr":"เราไปเยี่ยมปู่ย่า"},
+          {"t":"She lived in Japan for two years.","tr":"เขาเคยอยู่ญี่ปุ่นสองปี"},
+          {"t":"It rained all day.","tr":"ฝนตกทั้งวัน"},
+          {"t":"I studied English in school.","tr":"ฉันเรียนภาษาอังกฤษตอนอยู่โรงเรียน"},
+          {"t":"The train stopped suddenly.","tr":"รถไฟหยุดกะทันหัน"},
+          {"t":"They played soccer on Sunday.","tr":"วันอาทิตย์พวกเขาเล่นฟุตบอล"}
+        ] },
+        {"tip":"คำบอกเวลาในอดีต เช่น {{yesterday}}, {{last week}}, {{in 2020}} เป็นสัญญาณว่าต้องใช้รูปอดีต เห็นคำเหล่านี้เมื่อไร ให้เช็กคำกริยาทุกครั้ง"}
+      ],
+      "mistakes": [
+        {"wrong":"Yesterday I work late.","right":"Yesterday I worked late.","tr":"เมื่อวานฉันทำงานดึก","why":"เรื่องในอดีตต้องเปลี่ยนคำกริยาเป็นรูปอดีต: {{worked}}"},
+        {"wrong":"She studyed English.","right":"She studied English.","tr":"เขาเรียนภาษาอังกฤษ","why":"พยัญชนะ + y เปลี่ยนเป็น {{-ied}}"},
+        {"wrong":"I was watched a movie.","right":"I watched a movie.","tr":"ฉันดูหนัง","why":"รูปอดีตไม่ต้องมี {{was}} ข้างหน้า: {{watched}} ก็เป็นอดีตแล้ว"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"Last night it ___ a lot.","tr":"เมื่อคืนฝนตกหนัก","options":["rained","rains","rain"],"answer":0,"why":"เมื่อคืน: รูปอดีต {{rained}}"},
+        {"type":"choice","q":"รูปอดีตของ {{study}} คือ","options":["{{studied}}","{{studyed}}","{{studed}}"],"answer":0,"why":"พยัญชนะ + y: เปลี่ยนเป็น {{-ied}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เมื่อคืนฉันดูหนัง","words":["I","watched","a movie","last","night."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องสุดสัปดาห์ เลือกคำตอบ","from":"was-were","lines":[{"who":"เจค","t":"How was your weekend?","tr":"สุดสัปดาห์เป็นยังไงบ้าง"},{"options":["It was nice. I visited my parents.","It was nice. I visit my parents."],"answer":0,"why":"เรื่องที่ผ่านไปแล้ว: {{visited}}"},{"who":"เจค","t":"What did you do there?","tr":"ไปทำอะไรที่นั่น"},{"options":["We cooked and talked all day.","We cook and talk all day."],"answer":0,"why":"รูปอดีต: เติม {{-ed}}"}]},
+        {"type":"say","q":"พูดว่า “เมื่อวานฉันทำอาหารเย็นให้ครอบครัว”","answer":"Yesterday I cooked dinner for my family."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าสามอย่างที่คุณทำเมื่อวาน ด้วยคำกริยาเติม -ed","answers":[{"t":"Yesterday I worked until six. Then I cooked dinner and watched TV.","tr":"เมื่อวานฉันทำงานถึงหกโมงเย็น แล้วก็ทำกับข้าว ดูทีวี"},{"t":"Last weekend I visited my friend. We played games and talked a lot.","tr":"สุดสัปดาห์ที่แล้วผมไปหาเพื่อน เราเล่นเกมและคุยกันเยอะมาก"}]}
+      ]
+    },
+    {
+      "id": "past-irregular",
+      "unit": 5,
+      "level": "A2",
+      "title": "กริยาไม่ปกติที่ใช้บ่อย: went, ate, saw…",
+      "summary": "เล่าว่าไปไหน กินอะไร เห็นอะไร: คำกริยาที่ใช้บ่อยที่สุดหลายคำไม่เติม -ed ต้องจำรูปอดีต",
+      "topic": "รูปอดีตแบบไม่ปกติ: {{went}}, {{ate}}, {{saw}}, {{bought}}, {{had}}, {{got}}, {{took}}, {{made}}, {{came}}, {{met}}, {{said}}, {{did}}",
+      "blocks": [
+        {"goal":{"t":"Last weekend I went to Chiang Mai.","tr":"สุดสัปดาห์ที่แล้วฉันไปเชียงใหม่"}},
+        {"dialog":[{"who":"เจค","t":"You look happy!","tr":"ดูมีความสุขจัง"},{"who":"นก","t":"I went to Chiang Mai last weekend.","tr":"สุดสัปดาห์ที่แล้วไปเชียงใหม่มา"},{"who":"เจค","t":"Cool! What did you do?","tr":"เจ๋ง ไปทำอะไรมาบ้าง"},{"who":"นก","t":"I saw the temples, ate khao soi, and bought some souvenirs.","tr":"ไปดูวัด กินข้าวซอย แล้วก็ซื้อของฝาก"},{"who":"เจค","t":"How did you get there?","tr":"ไปยังไง"},{"who":"นก","t":"We took the night train. It was fun!","tr":"นั่งรถไฟกลางคืนไป สนุกมาก"}]},
+        {"term":"กริยาไม่ปกติ (irregular verb)","means":"คำกริยาที่ไม่ได้ทำรูปอดีตด้วยการเติม -ed แต่เปลี่ยนรูปเอง เช่น {{go}} → {{went}}, {{see}} → {{saw}}"},
+        {"p":"**คำที่ต้องจำ** คำกริยาที่ใช้บ่อยที่สุดหลายคำไม่เติม {{-ed}} แต่เปลี่ยนรูปไปเลย: {{go}} → {{went}}, {{eat}} → {{ate}} ไม่มีกฎ ต้องจำ แต่ข่าวดีคือใช้รูปเดียวกันกับทุกประธาน: {{I went}}, {{she went}}, {{they went}}"},
+        { "table": [
+          ["ปัจจุบัน","อดีต","ความหมาย"],
+          ["{{go}}","{{went}}","ไป"],
+          ["{{eat}}","{{ate}}","กิน"],
+          ["{{see}}","{{saw}}","เห็น"],
+          ["{{buy}}","{{bought}}","ซื้อ"],
+          ["{{have}}","{{had}}","มี, กิน (มื้ออาหาร)"],
+          ["{{get}}","{{got}}","ได้, ถึง"],
+          ["{{take}}","{{took}}","เอา, นั่ง (รถ), ถ่าย (รูป)"],
+          ["{{make}}","{{made}}","ทำ, สร้าง"],
+          ["{{come}}","{{came}}","มา"],
+          ["{{meet}}","{{met}}","เจอ, พบ"],
+          ["{{say}}","{{said}}","พูด, บอก"],
+          ["{{do}}","{{did}}","ทำ"]
+        ] },
+        {"p":"**have ในอดีต** {{had}} ใช้ได้ทั้ง “มี” และ “กิน (มื้ออาหาร)”: {{I had a dog.}} “ฉันเคยมีหมา” {{We had lunch at noon.}} “เรากินข้าวกลางวันตอนเที่ยง” และ {{We had a great time.}} “เราสนุกมาก”"},
+        {"p":"**วิธีจำ** เรียนทีละไม่กี่คำ แล้วเอามาแต่งประโยคเรื่องตัวเอง: {{I went…}}, {{I ate…}}, {{I saw…}} คำเหล่านี้จะกลับมาในทุกบทที่เล่าเรื่องในอดีต"},
+        { "ex": [
+          {"t":"We ate seafood by the beach.","tr":"เรากินอาหารทะเลริมหาด"},
+          {"t":"I saw a great movie yesterday.","tr":"เมื่อวานได้ดูหนังดีมากเรื่องหนึ่ง"},
+          {"t":"She bought a new dress.","tr":"เขาซื้อชุดใหม่"},
+          {"t":"We had a great time.","tr":"เราสนุกมาก"},
+          {"t":"I met my wife in college.","tr":"ผมเจอภรรยาตอนเรียนมหาวิทยาลัย"},
+          {"t":"He came home late.","tr":"เขากลับบ้านดึก"},
+          {"t":"I took a lot of photos.","tr":"ฉันถ่ายรูปเยอะมาก"}
+        ] },
+        {"tip":"{{read}} รูปอดีตเขียนเหมือนเดิม แต่ออกเสียงต่าง: ปัจจุบันออกเสียง “รีด” อดีตออกเสียง “เรด” เหมือน {{red}} ที่แปลว่าสีแดง"}
+      ],
+      "mistakes": [
+        {"wrong":"I goed to the beach.","right":"I went to the beach.","tr":"ฉันไปทะเล","why":"{{go}} เป็นกริยาไม่ปกติ: รูปอดีตคือ {{went}}"},
+        {"wrong":"Yesterday I eat pad thai.","right":"Yesterday I ate pad thai.","tr":"เมื่อวานฉันกินผัดไทย","why":"เรื่องเมื่อวานต้องใช้รูปอดีต: {{ate}}"},
+        {"wrong":"I buyed a bag.","right":"I bought a bag.","tr":"ฉันซื้อกระเป๋า","why":"{{buy}} รูปอดีตคือ {{bought}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"We ___ a lot of photos in Japan.","tr":"เราถ่ายรูปเยอะมากที่ญี่ปุ่น","options":["took","taked","take"],"answer":0,"why":"{{take}} รูปอดีตคือ {{took}}"},
+        {"type":"choice","q":"“เมื่อวานฉันเจอเพื่อนเก่า”","options":["{{I met an old friend yesterday.}}","{{I meeted an old friend yesterday.}}","{{I meet an old friend yesterday.}}"],"answer":0,"why":"{{meet}} รูปอดีตคือ {{met}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"สุดสัปดาห์ที่แล้วฉันไปเชียงใหม่","words":["Last","weekend","I","went","to","Chiang Mai."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องเมื่อวาน เลือกคำตอบ","from":"past-ed","lines":[{"who":"เจค","t":"What did you do yesterday?","tr":"เมื่อวานทำอะไร"},{"options":["I went shopping and bought some shoes.","I go shopping and buy some shoes."],"answer":0,"why":"เรื่องเมื่อวาน: {{went}}, {{bought}}"},{"who":"เจค","t":"Did you eat anything good?","tr":"ได้กินอะไรอร่อยๆ ไหม"},{"options":["Yes! We had sushi and watched a movie.","Yes! We have sushi and watch a movie."],"answer":0,"why":"รูปอดีต: {{had}}, {{watched}}"}]},
+        {"type":"say","q":"พูดว่า “เราสนุกมาก”","answer":"We had a great time."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าเรื่องเที่ยวครั้งล่าสุด: ไปไหน กินอะไร เห็นอะไร","answers":[{"t":"I went to Hua Hin last month. I ate a lot of seafood and saw the night market.","tr":"เดือนที่แล้วฉันไปหัวหิน กินอาหารทะเลเยอะมาก แล้วก็ไปดูตลาดกลางคืน"},{"t":"Last year we went to Japan. We saw Mount Fuji and bought a lot of snacks.","tr":"ปีที่แล้วเราไปญี่ปุ่น ได้เห็นภูเขาไฟฟูจิ และซื้อขนมมาเยอะมาก"}]}
+      ]
+    },
+    {
+      "id": "did-didnt",
+      "unit": 5,
+      "level": "A2",
+      "title": "ถามและปฏิเสธเรื่องในอดีต: did / didn't",
+      "summary": "ถามว่า “เมื่อวานไปไหม” และบอกว่า “ไม่ได้ไป”: ภาษาอังกฤษใช้ {{did}} / {{didn't}} กับคำกริยารูปเดิม",
+      "topic": "{{Did you…?}} + คำกริยารูปเดิม; {{didn't}} + คำกริยารูปเดิม; “ไม่ได้ไป” = {{didn't go}} ไม่ใช่ {{can't go}}; {{Where did you…?}}",
+      "blocks": [
+        {"goal":{"t":"I didn't go to work yesterday because I was sick.","tr":"เมื่อวานฉันไม่ได้ไปทำงาน เพราะไม่สบาย"}},
+        {"dialog":[{"who":"เจค","t":"Did you go to the party last night?","tr":"เมื่อคืนไปปาร์ตี้ไหม"},{"who":"นก","t":"No, I didn't. I was too tired.","tr":"ไม่ได้ไป เหนื่อยเกินไป"},{"who":"เจค","t":"Did you see my message?","tr":"เห็นข้อความผมไหม"},{"who":"นก","t":"Sorry, I didn't see it. My phone died.","tr":"ขอโทษ ไม่เห็นเลย แบตหมด"},{"who":"เจค","t":"No problem. Did you eat dinner?","tr":"ไม่เป็นไร กินข้าวเย็นหรือยัง"},{"who":"นก","t":"Yes, I did.","tr":"กินแล้ว"}]},
+        {"p":"**ถาม: Did + ประธาน + คำกริยารูปเดิม** เหมือน {{do}} ในบทที่ 17 แต่ในอดีตใช้ {{did}} กับทุกประธาน และคำกริยาหลัก**กลับเป็นรูปเดิม**: {{Did you go?}} ไม่ใช่ {{Did you went?}} เพราะความเป็นอดีตอยู่ที่ {{did}} แล้ว"},
+        {"p":"**ไม่ได้…: didn't** “ไม่ได้ (ทำ)” ในอดีตคือ {{didn't}} ({{did not}}) + คำกริยารูปเดิม: {{I didn't go.}} {{She didn't eat.}} คนไทยมักแปล “ไม่ได้ไป” เป็น {{can't go}} แต่ {{can't}} แปลว่า “ไปไม่ได้” (ไม่สามารถ) ส่วน “ไม่ได้ไป” (คือไม่ได้ไปจริงๆ) ต้องเป็น {{didn't go}}"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["(เมื่อวาน) ไปไหม","{{Did you go?}}"],
+          ["ไป / ไม่ได้ไป","{{Yes, I did.}} / {{No, I didn't.}}"],
+          ["ฉันไม่ได้ไป","{{I didn't go.}}"],
+          ["ฉันไปไม่ได้","{{I couldn't go.}} / {{I can't go.}}"],
+          ["ไปไหนมา","{{Where did you go?}}"]
+        ] },
+        {"p":"**คำถาม Wh- ในอดีต** คำถาม + {{did}} + ประธาน + คำกริยารูปเดิม: {{Where did you go?}} {{What did you eat?}} {{When did she arrive?}}"},
+        {"p":"**be ไม่ใช้ did** ประโยคที่มีแค่ {{was}} / {{were}} ใช้ {{wasn't}} / {{weren't}} และสลับที่ (บทที่ 28): {{Were you tired?}} ไม่ใช่ {{Did you tired?}}"},
+        { "ex": [
+          {"t":"Did you have fun?","tr":"สนุกไหม"},
+          {"t":"Yes, I did.","tr":"สนุก"},
+          {"t":"I didn't see him.","tr":"ฉันไม่เห็นเขา"},
+          {"t":"We didn't have time.","tr":"(ตอนนั้น) เราไม่มีเวลา"},
+          {"t":"Where did you buy that?","tr":"ซื้อมาจากไหน"},
+          {"t":"What did you say?","tr":"เมื่อกี้พูดว่าอะไรนะ"},
+          {"t":"She didn't come to class yesterday.","tr":"เมื่อวานเขาไม่ได้มาเรียน"}
+        ] },
+        {"tip":"“กินข้าวหรือยัง” ภาษาอังกฤษถามได้ว่า {{Did you eat?}} หรือ {{Have you eaten?}} (บทที่ 42) แต่คนอเมริกันไม่ได้ใช้เป็นคำทักทายแบบคนไทย"}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went to the party?","right":"Did you go to the party?","tr":"คุณไปปาร์ตี้ไหม","why":"หลัง {{did}} ใช้คำกริยารูปเดิม"},
+        {"wrong":"I can't go to work yesterday.","right":"I didn't go to work yesterday.","tr":"เมื่อวานฉันไม่ได้ไปทำงาน","why":"“ไม่ได้ไป” คือ {{didn't go}}; {{can't}} แปลว่า “ไม่สามารถ” และไม่ใช่อดีต"},
+        {"wrong":"I didn't went.","right":"I didn't go.","tr":"ฉันไม่ได้ไป","why":"หลัง {{didn't}} ใช้คำกริยารูปเดิม"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"___ you see the game last night?","tr":"เมื่อคืนดูบอลไหม","options":["Did","Do","Were"],"answer":0,"why":"คำถามในอดีตที่มีคำกริยาหลัก: {{Did}}"},
+        {"type":"choice","q":"“เมื่อวานเขาไม่ได้มาเรียน”","options":["{{She didn't come to class yesterday.}}","{{She can't come to class yesterday.}}","{{She didn't came to class yesterday.}}"],"answer":0,"why":"“ไม่ได้มา” คือ {{didn't come}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"คุณซื้อมาจากไหน","words":["Where","did","you","buy","that?"]},
+        {"type":"dialogue","q":"หัวหน้าถามเรื่องงาน เลือกคำตอบ","from":"past-irregular","lines":[{"who":"หัวหน้า","t":"Did you finish the report?","tr":"ทำรายงานเสร็จไหม"},{"options":["No, I didn't. I'm sorry. I had meetings all day.","No, I didn't finished. I'm sorry. I have meetings all day."],"answer":0,"why":"{{didn't}} + รูปเดิม และ “มี (ตอนนั้น)” คือ {{had}}"},{"who":"หัวหน้า","t":"OK. When did you get back to the office?","tr":"โอเค แล้วกลับเข้าออฟฟิศตอนไหน"},{"options":["I got back at six.","I get back at six yesterday."],"answer":0,"why":"เรื่องในอดีต: {{got}}"}]},
+        {"type":"say","q":"พูดว่า “เมื่อวานฉันไม่ได้ไปทำงาน เพราะไม่สบาย”","answer":"I didn't go to work yesterday because I was sick."},
+        {"type":"free","q":"ถึงตาคุณ: ถามเพื่อนเรื่องเมื่อวานหนึ่งคำถาม และบอกสิ่งที่คุณไม่ได้ทำเมื่อวาน","answers":[{"t":"What did you do yesterday? I didn't go to the gym because it rained.","tr":"เมื่อวานทำอะไร ฉันไม่ได้ไปยิมเพราะฝนตก"},{"t":"Did you watch the game? I didn't watch it. I was at work.","tr":"ดูบอลไหม ผมไม่ได้ดู อยู่ที่ทำงาน"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 5,
+      "level": "A2",
+      "title": "เล่าเรื่องเป็นลำดับ",
+      "summary": "เล่าเรื่องที่เกิดขึ้นทีละขั้น: first, then, after that และบอกว่าตอนนั้นกำลังทำอะไรอยู่",
+      "topic": "{{first}}, {{then}}, {{after that}}, {{finally}}; past continuous {{was}} / {{were}} + {{-ing}} สำหรับฉากหลัง; {{when}} / {{while}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"ฉันกำลังเดินกลับบ้าน แล้วฝนก็เริ่มตก"}},
+        {"dialog":[{"who":"นก","t":"You won't believe what happened yesterday!","tr":"ไม่เชื่อแน่ว่าเมื่อวานเกิดอะไรขึ้น"},{"who":"เจค","t":"What happened?","tr":"เกิดอะไรขึ้น"},{"who":"นก","t":"I was walking home when it started to rain.","tr":"ฉันกำลังเดินกลับบ้าน แล้วฝนก็เริ่มตก"},{"who":"นก","t":"First, I ran into a coffee shop. Then I saw my old teacher there!","tr":"ตอนแรกฉันวิ่งเข้าร้านกาแฟ แล้วก็เจอครูเก่าที่นั่น"},{"who":"เจค","t":"No way!","tr":"ไม่จริงน่า"},{"who":"นก","t":"After that, we talked for two hours. Finally, the rain stopped.","tr":"หลังจากนั้นเราคุยกันสองชั่วโมง สุดท้ายฝนก็หยุด"}]},
+        {"p":"**เรียงเหตุการณ์** คำเชื่อมช่วยให้เรื่องเดินไปข้างหน้า: {{First,…}} ตอนแรก, {{Then…}} แล้วก็, {{After that,…}} หลังจากนั้น, {{Finally,…}} สุดท้าย และคำกริยาทุกตัวในเรื่องเป็นรูปอดีต"},
+        {"term":"past continuous (อดีตกาลต่อเนื่อง)","means":"{{was}} / {{were}} + {{-ing}} บอกว่ากำลังทำอะไรอยู่ ณ เวลาหนึ่งในอดีต เช่น {{I was sleeping.}} “ตอนนั้นฉันกำลังนอนอยู่”"},
+        {"p":"**ฉากหลัง: was + -ing** สิ่งที่กำลังเกิดอยู่ตอนที่อีกเรื่องแทรกเข้ามา ใช้ {{was}} / {{were}} + {{-ing}} ส่วนเรื่องที่แทรกเข้ามาใช้ past simple: {{I was walking home when it started to rain.}} “(ฉากหลัง) กำลังเดิน (เหตุการณ์) ฝนเริ่มตก” เหมือน “กำลัง…อยู่” ในภาษาไทย แต่เปลี่ยน {{am}} / {{is}} เป็น {{was}}"},
+        { "table": [
+          ["ฉากหลัง (was + -ing)","เหตุการณ์ (past simple)"],
+          ["{{I was cooking}} ฉันกำลังทำกับข้าว","{{when the phone rang.}} ตอนที่โทรศัพท์ดัง"],
+          ["{{We were watching TV}} เรากำลังดูทีวี","{{when the lights went out.}} ตอนที่ไฟดับ"],
+          ["{{While she was sleeping,}} ระหว่างที่เขากำลังนอน","{{someone knocked.}} มีคนมาเคาะประตู"]
+        ] },
+        {"p":"**when และ while** {{when}} “ตอนที่” มักนำเหตุการณ์สั้นๆ ที่แทรกเข้ามา {{while}} “ระหว่างที่” มักนำฉากหลังที่ยาวกว่า: {{While I was waiting, I read a book.}} “ระหว่างที่รอ ฉันอ่านหนังสือ”"},
+        { "ex": [
+          {"t":"First, we went to the market.","tr":"ตอนแรกเราไปตลาด"},
+          {"t":"Then we had lunch by the river.","tr":"แล้วก็กินข้าวกลางวันริมแม่น้ำ"},
+          {"t":"After that, we took a boat.","tr":"หลังจากนั้นก็นั่งเรือ"},
+          {"t":"Finally, we got home at ten.","tr":"สุดท้ายถึงบ้านสี่ทุ่ม"},
+          {"t":"I was cooking when the phone rang.","tr":"ฉันกำลังทำกับข้าวตอนที่โทรศัพท์ดัง"},
+          {"t":"What were you doing at 9 p.m.?","tr":"ตอนสามทุ่มคุณกำลังทำอะไรอยู่"},
+          {"t":"While I was waiting, I read a book.","tr":"ระหว่างที่รอ ฉันอ่านหนังสือ"}
+        ] },
+        {"tip":"คนอเมริกันชอบเริ่มเล่าเรื่องว่า {{You won't believe what happened!}} “ไม่เชื่อแน่ว่าเกิดอะไรขึ้น” และคนฟังจะตอบว่า {{What happened?}} หรือ {{No way!}} “ไม่จริงน่า”"}
+      ],
+      "mistakes": [
+        {"wrong":"I walking home when it started to rain.","right":"I was walking home when it started to rain.","tr":"ฉันกำลังเดินกลับบ้านตอนที่ฝนเริ่มตก","why":"ฉากหลังในอดีตต้องมี {{was}} หน้าคำกริยา {{-ing}}"},
+        {"wrong":"I was cooking when the phone was ringing.","right":"I was cooking when the phone rang.","tr":"ฉันกำลังทำกับข้าวตอนที่โทรศัพท์ดัง","why":"เหตุการณ์สั้นๆ ที่แทรกเข้ามาใช้ past simple: {{rang}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I ___ sleeping when you called.","tr":"ตอนคุณโทรมา ฉันกำลังนอนอยู่","options":["was","am","were"],"answer":0,"why":"ฉากหลังในอดีต: {{was}} + {{-ing}}"},
+        {"type":"choice","q":"คำไหนใช้ขึ้นต้นเหตุการณ์สุดท้ายของเรื่อง","options":["{{Finally}}","{{First}}","{{Then}}"],"answer":0,"why":"สุดท้าย: {{Finally}}"},
+        {"type":"order","q":"เรียงคำให้เป็นคำถาม","tr":"ตอนสามทุ่มคุณกำลังทำอะไรอยู่","words":["What","were","you","doing","at","9 p.m.?"]},
+        {"type":"dialogue","q":"เพื่อนถามว่าทำไมไม่รับสาย เลือกคำตอบ","from":"did-didnt","lines":[{"who":"เจค","t":"Why didn't you answer my call?","tr":"ทำไมไม่รับโทรศัพท์"},{"options":["Sorry, I was driving.","Sorry, I driving."],"answer":0,"why":"ฉากหลังในอดีต: {{was}} + {{-ing}}"},{"who":"เจค","t":"What happened after that?","tr":"แล้วหลังจากนั้นล่ะ"},{"options":["I got home, and then I fell asleep.","I get home, and then I fall asleep."],"answer":0,"why":"เรื่องในอดีต: {{got}}, {{fell}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันกำลังทำกับข้าวตอนที่โทรศัพท์ดัง”","answer":"I was cooking when the phone rang."},
+        {"type":"free","q":"ถึงตาคุณ: เล่าเรื่องที่เกิดขึ้นในวันหนึ่ง: ตอนแรก แล้วก็ สุดท้าย และสิ่งที่กำลังทำอยู่ตอนที่มีเรื่องเกิดขึ้น","answers":[{"t":"First, I went to the airport. I was waiting for my flight when I saw a famous singer! Finally, I got on the plane.","tr":"ตอนแรกฉันไปสนามบิน ระหว่างที่รอเครื่องบินก็เห็นนักร้องดัง สุดท้ายก็ขึ้นเครื่อง"},{"t":"I was walking in the park when I found a wallet. Then I took it to the police. Finally, the owner called me.","tr":"ผมกำลังเดินในสวนแล้วเจอกระเป๋าสตางค์ เลยเอาไปให้ตำรวจ สุดท้ายเจ้าของก็โทรมาหา"}]}
+      ]
+    },
+    {
+      "id": "used-to",
+      "unit": 5,
+      "level": "A2",
+      "title": "เล่าว่าเมื่อก่อนเป็นอย่างไร: used to",
+      "summary": "เล่าสิ่งที่เคยทำเป็นประจำเมื่อก่อน แต่ตอนนี้ไม่ทำแล้ว: “เคย” แบบนี้ภาษาอังกฤษใช้ {{used to}}",
+      "topic": "{{used to}} + คำกริยารูปเดิม; {{didn't use to}}; {{Did you use to…?}}; {{anymore}}; “เคย” สองแบบ",
+      "blocks": [
+        {"goal":{"t":"I used to live in Bangkok.","tr":"เมื่อก่อนฉันเคยอยู่กรุงเทพฯ"}},
+        {"dialog":[{"who":"เจค","t":"Do you play the piano?","tr":"เล่นเปียโนเป็นไหม"},{"who":"นก","t":"I used to play when I was a kid, but I don't play anymore.","tr":"ตอนเด็กเคยเล่น แต่ตอนนี้ไม่เล่นแล้ว"},{"who":"เจค","t":"Me too! I used to hate practicing.","tr":"ผมด้วย เมื่อก่อนผมเกลียดการซ้อมมาก"},{"who":"นก","t":"Did you use to live in New York?","tr":"เมื่อก่อนคุณอยู่นิวยอร์กใช่ไหม"},{"who":"เจค","t":"Yes. And I didn't use to like spicy food, but now I love it!","tr":"ใช่ แล้วเมื่อก่อนผมไม่ชอบเผ็ดเลย แต่ตอนนี้ชอบมาก"}]},
+        {"p":"**เคยทำเป็นประจำ แต่ตอนนี้ไม่แล้ว** {{used to}} + คำกริยารูปเดิม บอกนิสัยหรือสภาพในอดีตที่จบไปแล้ว: {{I used to smoke.}} “เมื่อก่อนฉันสูบบุหรี่ (ตอนนี้เลิกแล้ว)” {{She used to live here.}} “เมื่อก่อนเขาอยู่ที่นี่”"},
+        {"p":"**“เคย” สองแบบ** คำว่า “เคย” ในภาษาไทยแปลเป็นภาษาอังกฤษได้สองแบบ: “เคยทำเป็นประจำ (เมื่อก่อน)” ใช้ {{used to}} ส่วน “เคยมีประสบการณ์” ใช้ {{have ever}} (บทที่ 40): {{I used to go there every week.}} “เมื่อก่อนไปที่นั่นทุกสัปดาห์” ต่างจาก {{I've been there.}} “เคยไปที่นั่นมาแล้ว”"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["เมื่อก่อนฉันเคยสูบบุหรี่","{{I used to smoke.}}"],
+          ["เมื่อก่อนเขาไม่ชอบผัก","{{He didn't use to like vegetables.}}"],
+          ["เมื่อก่อนคุณเคยอยู่ที่นี่ไหม","{{Did you use to live here?}}"],
+          ["ฉันเคยไปญี่ปุ่น (ประสบการณ์)","{{I've been to Japan.}}"]
+        ] },
+        {"p":"**ปฏิเสธและคำถาม** ใช้ {{did}} และ {{use to}} (ไม่มี d): {{I didn't use to like it.}} {{Did you use to play soccer?}}"},
+        {"p":"**not anymore** มักพูดคู่กับ {{anymore}} “แล้ว อีกต่อไป”: {{I don't smoke anymore.}} “ฉันไม่สูบแล้ว”"},
+        { "ex": [
+          {"t":"I used to play soccer every day.","tr":"เมื่อก่อนฉันเล่นฟุตบอลทุกวัน"},
+          {"t":"There used to be a movie theater here.","tr":"เมื่อก่อนตรงนี้เคยมีโรงหนัง"},
+          {"t":"My dad used to work in a bank.","tr":"เมื่อก่อนพ่อทำงานที่ธนาคาร"},
+          {"t":"I didn't use to drink coffee.","tr":"เมื่อก่อนฉันไม่ดื่มกาแฟ"},
+          {"t":"Did you use to have long hair?","tr":"เมื่อก่อนคุณผมยาวหรือเปล่า"},
+          {"t":"We don't live there anymore.","tr":"เราไม่ได้อยู่ที่นั่นแล้ว"}
+        ] },
+        {"tip":"{{used to}} ออกเสียงว่า “ยูสทะ” (เสียง s ไม่ใช่ z) ต่างจาก {{use}} ที่แปลว่า “ใช้”"}
+      ],
+      "mistakes": [
+        {"wrong":"I ever lived in Bangkok.","right":"I used to live in Bangkok.","tr":"เมื่อก่อนฉันเคยอยู่กรุงเทพฯ","why":"“เคย” ที่หมายถึงเมื่อก่อนเป็นแบบนั้น ใช้ {{used to}}: ภาษาอังกฤษไม่ใช้ {{ever}} แบบนี้"},
+        {"wrong":"I use to play the piano.","right":"I used to play the piano.","tr":"เมื่อก่อนฉันเคยเล่นเปียโน","why":"ประโยคบอกเล่าใช้ {{used to}} (มี d)"},
+        {"wrong":"I used to playing soccer.","right":"I used to play soccer.","tr":"เมื่อก่อนฉันเล่นฟุตบอล","why":"หลัง {{used to}} ใช้คำกริยารูปเดิม"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"My mom ___ to work in a hotel.","tr":"เมื่อก่อนแม่ทำงานที่โรงแรม","options":["used","use","uses"],"answer":0,"why":"ประโยคบอกเล่า: {{used to}}"},
+        {"type":"choice","q":"“เมื่อก่อนตรงนี้เคยมีตลาด”","options":["{{There used to be a market here.}}","{{There use to be a market here.}}","{{Here used to have a market.}}"],"answer":0,"why":"{{there is}} ในรูป “เมื่อก่อน” คือ {{there used to be}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เราไม่ได้อยู่ที่นั่นแล้ว","words":["We","don't","live","there","anymore."]},
+        {"type":"dialogue","q":"เพื่อนถามเรื่องตอนเด็ก เลือกคำตอบ","from":"tell-a-story","lines":[{"who":"เจค","t":"What were you like as a kid?","tr":"ตอนเด็กคุณเป็นยังไง"},{"options":["I used to be very shy.","I use to be very shy."],"answer":0,"why":"ประโยคบอกเล่า: {{used to}}"},{"who":"เจค","t":"Really? What did you use to do after school?","tr":"จริงเหรอ เมื่อก่อนเลิกเรียนแล้วทำอะไร"},{"options":["I used to read comics at home.","I used to reading comics at home."],"answer":0,"why":"หลัง {{used to}} ใช้คำกริยารูปเดิม"}]},
+        {"type":"say","q":"พูดว่า “เมื่อก่อนฉันเคยอยู่กรุงเทพฯ”","answer":"I used to live in Bangkok."},
+        {"type":"free","q":"ถึงตาคุณ: บอกสองอย่างที่คุณเคยทำตอนเด็ก แต่ตอนนี้ไม่ทำแล้ว","answers":[{"t":"I used to play outside every day. I used to hate vegetables, but now I love them.","tr":"เมื่อก่อนฉันเล่นข้างนอกทุกวัน และเคยเกลียดผัก แต่ตอนนี้ชอบมาก"},{"t":"When I was a kid, I used to watch cartoons every morning. I don't watch TV anymore.","tr":"ตอนเด็กผมดูการ์ตูนทุกเช้า ตอนนี้ไม่ดูทีวีแล้ว"}]}
+      ]
     }
   ]
 }
