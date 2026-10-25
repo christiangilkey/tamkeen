@@ -1963,6 +1963,387 @@
         {"type":"say","q":"Ask a stranger: “Excuse me, can you tell me how to get to the station?”","answer":"Scusi, mi sa dire come arrivare alla stazione?","from":"ask-where-things-are"},
         {"type":"free","q":"Your turn: a tourist stops you outside your home. Tell them politely how to get to the nearest café or station.","answers":[{"t":"Vada dritto fino al semaforo, poi giri a sinistra: il bar è lì, vicino alla farmacia.","tr":"Go straight ahead to the traffic light, then turn left: the café is there, next to the pharmacy."},{"t":"Prenda l'autobus numero cinque e scenda alla terza fermata. La stazione è proprio lì.","tr":"Take the number five bus and get off at the third stop. The station is right there."}]}
       ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion",
+      "summary": "Say what you think about a movie, a restaurant or an idea, and agree or disagree: “I think it's a good idea.”",
+      "topic": "The congiuntivo presente after {{penso che, credo che, mi sembra che}}; {{secondo me}}; {{sono d'accordo}}",
+      "blocks": [
+        {"goal":{"t":"Penso che sia una buona idea.","tr":"I think it's a good idea."}},
+        {"dialog":[{"who":"Marco","t":"Che ne pensi del nuovo film di Sorrentino?","tr":"What do you think of Sorrentino's new movie?"},{"who":"You","t":"Credo che sia il suo film migliore.","tr":"I think it's his best movie."},{"who":"Marco","t":"Davvero? A me sembra che sia un po' lungo.","tr":"Really? It seems a bit long to me."},{"who":"You","t":"È vero, ma penso che gli attori siano bravissimi.","tr":"That's true, but I think the actors are excellent."},{"who":"Marco","t":"Su questo sono d'accordo. E secondo me la musica è stupenda.","tr":"I agree with you there. And in my opinion the music is wonderful."}]},
+        {"term":"subjunctive","means":"a form of the verb (in Italian, the {{congiuntivo}}) used after words of thinking, wanting, hoping and feeling, for what is opinion or wish rather than plain fact."},
+        {"p":"**Opinions take a special form.** After {{penso che}} “I think that”, {{credo che}} “I believe that”, {{mi sembra che}} “it seems to me that” and {{non sono sicuro che}} “I'm not sure that”, Italian puts the verb in the {{congiuntivo}}: {{Penso che sia vero}} “I think it's true”. It marks what follows as an opinion, not a fact."},
+        { "table": [
+          ["","{{essere}}","{{avere}}","{{parlare}}","{{prendere}}, {{partire}}"],
+          ["I","{{sia}}","{{abbia}}","{{parli}}","{{prenda}}, {{parta}}"],
+          ["you ({{tu}})","{{sia}}","{{abbia}}","{{parli}}","{{prenda}}, {{parta}}"],
+          ["he, she, you ({{Lei}})","{{sia}}","{{abbia}}","{{parli}}","{{prenda}}, {{parta}}"],
+          ["we","{{siamo}}","{{abbiamo}}","{{parliamo}}","{{prendiamo}}, {{partiamo}}"],
+          ["you (two or more)","{{siate}}","{{abbiate}}","{{parliate}}","{{prendiate}}, {{partiate}}"],
+          ["they","{{siano}}","{{abbiano}}","{{parlino}}","{{prendano}}, {{partano}}"]
+        ] },
+        {"p":"Look at the singular: it's the polite {{Lei}} command from the last unit ({{parli}}, {{prenda}}, {{vada}}), and it's the same for I, you and he or she. Because those three look alike, Italians often add the person: {{Penso che tu abbia ragione}} “I think you're right”."},
+        {"p":"**When it's your own plan**, use {{penso di}} + the infinitive: {{Penso di partire domani}} “I think I'll leave tomorrow”."},
+        {"p":"**Facts take the ordinary form**: {{So che è vero}} “I know it's true”, {{Sono sicuro che…}}, {{È vero che…}}; and {{secondo me}} “in my opinion” is followed by the ordinary verb: {{Secondo me è vero}}. In casual speech you'll also hear {{penso che è…}}; the congiuntivo is the standard, and it always sounds right."},
+        { "ex": [
+          {"t":"Credo che Marco abbia ragione.","tr":"I think Marco is right."},
+          {"t":"Mi sembra che sia tardi.","tr":"It looks like it's late."},
+          {"t":"Penso che il museo apra alle nove.","tr":"I think the museum opens at nine."},
+          {"t":"Non penso che venga.","tr":"I don't think he's coming."},
+          {"t":"Pensi che sia una buona idea?","tr":"Do you think it's a good idea?"},
+          {"t":"Secondo me, è troppo caro.","tr":"In my opinion, it's too expensive.","note":"{{secondo me}}: the ordinary verb"},
+          {"t":"So che parli bene l'inglese.","tr":"I know you speak English well.","note":"a fact: the ordinary verb"}
+        ] },
+        {"tip":"To ask for an opinion: {{Che ne pensi?}} “What do you think (of it)?”, or {{Cosa ne pensa?}} to {{Lei}}. To agree: {{Sono d'accordo}} “I agree”; to disagree: {{Non sono d'accordo}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Penso che è una buona idea.","right":"Penso che sia una buona idea.","tr":"I think it's a good idea.","why":"After {{penso che}}, the standard form is the congiuntivo: {{sia}}. ({{è}} is heard in casual speech, but {{sia}} is always right.)"},
+        {"wrong":"Penso che io vada a casa.","right":"Penso di andare a casa.","tr":"I think I'll go home.","why":"When it's your own plan: {{penso di}} + the infinitive."},
+        {"wrong":"Secondo me sia vero.","right":"Secondo me è vero.","tr":"In my opinion it's true.","why":"{{secondo me}} takes the ordinary verb; the congiuntivo comes after {{che}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Penso che Roma ___ la città più bella del mondo.","tr":"I think Rome is the most beautiful city in the world.","options":["sia","è","essere"],"answer":0,"why":"After {{penso che}}: the congiuntivo, {{sia}}.","from":"say-what-is-best"},
+        {"type":"fill","q":"Choose the missing word.","t":"Credo che loro ___ ragione.","tr":"I think they're right.","options":["abbiano","hanno","abbia"],"answer":0,"why":"“They”: {{abbiano}}, the congiuntivo of {{avere}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{So che è vero.}}","{{So che sia vero.}}"],"answer":0,"why":"{{so che}} “I know that” introduces a fact: the ordinary verb."},
+        {"type":"dialogue","q":"Out to dinner with Chiara: choose your replies.","lines":[{"who":"Chiara","t":"Che ne pensi di questo ristorante?","tr":"What do you think of this restaurant?"},{"options":["Penso che sia un po' caro.","Penso che è un po' caro."],"answer":0,"why":"After {{penso che}}: {{sia}}."},{"who":"Chiara","t":"Sì, ma il cibo è ottimo.","tr":"Yes, but the food is excellent."},{"options":["Sono d'accordo: secondo me è il migliore della zona.","Sono d'accordo: secondo me sia il migliore della zona."],"answer":0,"why":"{{secondo me}} takes the ordinary verb: {{è}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't think the store is open.","words":["Non penso","che","il negozio","sia aperto."]},
+        {"type":"say","q":"Tell a friend: “I think you're right.”","answer":"Penso che tu abbia ragione."},
+        {"type":"free","q":"Your turn: give your opinion about your city, a movie or Italian food. Use {{penso che}} or {{credo che}} once, and {{secondo me}} once.","answers":[{"t":"Penso che la cucina italiana sia la migliore del mondo. Secondo me la pizza napoletana è perfetta.","tr":"I think Italian food is the best in the world. In my opinion Neapolitan pizza is perfect."},{"t":"Credo che la mia città sia troppo cara, ma secondo me è molto bella.","tr":"I think my city is too expensive, but in my opinion it's very beautiful."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want-others-to-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what you want others to do",
+      "summary": "“I want you to come”, “I hope you're well”, “Do you want me to help?”: wishes for other people.",
+      "topic": "{{voglio che, spero che, è meglio che, bisogna che}} + the congiuntivo; {{venga, faccia, vada, possa, stia}}",
+      "blocks": [
+        {"goal":{"t":"Voglio che tu venga con me.","tr":"I want you to come with me."}},
+        {"dialog":[{"who":"Mom","t":"Domani parti presto? Spero che tu non perda il treno!","tr":"Are you leaving early tomorrow? I hope you don't miss the train!"},{"who":"You","t":"Tranquilla, mamma. È meglio che vada a letto presto.","tr":"Don't worry, Mom. I'd better go to bed early."},{"who":"Mom","t":"Voglio che mi chiami appena arrivi.","tr":"I want you to call me as soon as you arrive."},{"who":"You","t":"Va bene. Vuoi che ti porti qualcosa da Roma?","tr":"OK. Do you want me to bring you something from Rome?"},{"who":"Mom","t":"No, basta che tu stia bene!","tr":"No, as long as you're well!"}]},
+        {"p":"**Wanting someone else to do something.** English says “I want you to come”; Italian says “I want that you come”, with {{che}} and the congiuntivo: {{Voglio che tu venga}}. The same after hoping, needing, preferring, and many feelings:"},
+        { "table": [
+          ["English","Italian"],
+          ["I want you to…","{{Voglio che tu…}}"],
+          ["I'd like you to…","{{Vorrei che tu…}}"],
+          ["I hope (that)…","{{Spero che…}}"],
+          ["It's better if…, … had better…","{{È meglio che…}}"],
+          ["… need to…","{{Bisogna che…}}, {{È necessario che…}}"],
+          ["I'm glad (that)…","{{Sono contento che…}}"],
+          ["I'm afraid (that)…","{{Ho paura che…}}"]
+        ] },
+        {"p":"**The irregular ones you need most** (the singular, for I, you, he or she): {{essere → sia}}, {{avere → abbia}}, {{andare → vada}}, {{fare → faccia}}, {{venire → venga}}, {{potere → possa}}, {{volere → voglia}}, {{dire → dica}}, {{stare → stia}}, {{uscire → esca}}, {{dare → dia}}, {{sapere → sappia}}. For “they”, add {{-no}}: {{vadano}}, {{facciano}}, {{vengano}}."},
+        {"p":"**The same person: no {{che}}.** When it's you who wants and you who does it, use the infinitive: {{Voglio venire}} “I want to come”, but {{Voglio che tu venga}} “I want you to come”. {{Spero di vederti presto}} “I hope to see you soon”."},
+        { "ex": [
+          {"t":"Spero che tu stia meglio.","tr":"I hope you're feeling better."},
+          {"t":"Vuoi che ti aiuti?","tr":"Do you want me to help you?"},
+          {"t":"È meglio che partiamo subito.","tr":"We'd better leave right away."},
+          {"t":"Bisogna che tu dica la verità.","tr":"You need to tell the truth."},
+          {"t":"Sono contenta che tu sia qui.","tr":"I'm glad you're here.","note":"said by a woman"},
+          {"t":"I miei genitori vogliono che io faccia il medico.","tr":"My parents want me to be a doctor."},
+          {"t":"Ho paura che piova domani.","tr":"I'm afraid it'll rain tomorrow.","note":"the congiuntivo can look ahead, too"}
+        ] },
+        {"tip":"{{Vuoi che…?}} is the friendly way to offer: {{Vuoi che ti accompagni?}} “Do you want me to come with you?”"}
+      ],
+      "mistakes": [
+        {"wrong":"Voglio tu vieni con me.","right":"Voglio che tu venga con me.","tr":"I want you to come with me.","why":"Wanting someone else to do something: {{voglio che}} + the congiuntivo."},
+        {"wrong":"Spero che vieni domani.","right":"Spero che tu venga domani.","tr":"I hope you'll come tomorrow.","why":"After {{spero che}}: the congiuntivo, {{venga}}."},
+        {"wrong":"Voglio che io vada.","right":"Voglio andare.","tr":"I want to go.","why":"The same person wants and does: just the infinitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Vuoi che ___ io la cena?","tr":"Do you want me to make dinner?","options":["faccia","faccio","fare"],"answer":0,"why":"{{vuoi che}} + the congiuntivo of {{fare}}: {{faccia}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Spero che tu ___ bene.","tr":"I hope you're well.","options":["stia","stai","sta"],"answer":0,"why":"After {{spero che}}: the congiuntivo of {{stare}}, {{stia}}.","from":"greet-people"},
+        {"type":"choice","q":"“I want to go” and “I want you to go” are…","options":["{{Voglio andare.}} / {{Voglio che tu vada.}}","{{Voglio che vada.}} / {{Voglio tu andare.}}","{{Voglio andare.}} / {{Voglio che tu vai.}}"],"answer":0,"why":"The same person: the infinitive. Someone else: {{che}} + the congiuntivo."},
+        {"type":"dialogue","q":"Paolo is leaving for London: choose your replies.","lines":[{"who":"Paolo","t":"Domani parto per Londra.","tr":"I'm leaving for London tomorrow."},{"options":["Spero che tu faccia buon viaggio!","Spero che tu fai buon viaggio!"],"answer":0,"why":"After {{spero che}}: {{faccia}}."},{"who":"Paolo","t":"Grazie! Vuoi che ti porti qualcosa?","tr":"Thanks! Do you want me to bring you something?"},{"options":["Sì, del tè inglese! E voglio che tu mi scriva.","Sì, del tè inglese! E voglio che tu mi scrivi."],"answer":0,"why":"After {{voglio che}}: the congiuntivo, {{scriva}}."}],"from":"say-who-its-for"},
+        {"type":"order","q":"Put the words in order.","tr":"My parents want me to study medicine.","words":["I miei genitori","vogliono","che io","studi","medicina."]},
+        {"type":"say","q":"Offer: “Do you want me to come with you?”","answer":"Vuoi che ti accompagni?"},
+        {"type":"free","q":"Your turn: say what you want or hope for the people around you: one wish for a friend, one for your family.","answers":[{"t":"Spero che mia sorella trovi un bel lavoro e voglio che i miei genitori vengano a trovarmi.","tr":"I hope my sister finds a good job, and I want my parents to come and visit me."},{"t":"Spero che tu stia bene e che possa venire in Italia con me!","tr":"I hope you're well and that you can come to Italy with me!"}]}
+      ]
+    },
+    {
+      "id": "describe-people-and-things-precisely",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say exactly which person or thing",
+      "summary": "“The girl I met in Italy”, “the friend I told you about”, “what I like”: join a description to a noun.",
+      "topic": "Relative pronouns: {{che}}; {{cui}} after a preposition ({{con cui, di cui, in cui}}); {{quello che}}",
+      "blocks": [
+        {"goal":{"t":"È la ragazza che ho conosciuto in Italia.","tr":"She's the girl I met in Italy."}},
+        {"dialog":[{"who":"Sara","t":"Chi è il ragazzo che parla con Giulia?","tr":"Who's the guy talking to Giulia?"},{"who":"You","t":"È Marco, il collega di cui ti ho parlato.","tr":"It's Marco, the colleague I told you about."},{"who":"Sara","t":"Quello che lavora a Milano?","tr":"The one who works in Milan?"},{"who":"You","t":"Sì! E la donna con cui sta parlando adesso è sua moglie.","tr":"Yes! And the woman he's talking to now is his wife."},{"who":"Sara","t":"Ah, quella che ha portato il tiramisù! Era buonissimo.","tr":"Oh, the one who brought the tiramisu! It was delicious."},{"who":"You","t":"Quello che mi piace di lei è che cucina benissimo!","tr":"What I like about her is that she's a wonderful cook!"}]},
+        {"term":"relative pronoun","means":"a word like who, which or that, which joins a description to a noun: the man who lives here."},
+        {"p":"**{{che}}: who, which, that.** One word joins two sentences about the same person or thing: {{Ho un'amica. L'amica abita a Roma.}} → {{Ho un'amica che abita a Roma}} “I have a friend who lives in Rome”. {{che}} works for people and things, and it can never be left out, as “that” often is in English: {{il libro che leggo}} “the book (that) I'm reading”."},
+        { "table": [
+          ["English","Italian"],
+          ["the friend who lives in Rome","{{l'amica che abita a Roma}}"],
+          ["the book (that) I'm reading","{{il libro che leggo}}"],
+          ["the person I'm talking about","{{la persona di cui parlo}}"],
+          ["the friend I'm going with","{{l'amico con cui vado}}"],
+          ["the city where I live","{{la città in cui abito}}, {{la città dove abito}}"],
+          ["what I want","{{quello che voglio}}"]
+        ] },
+        {"p":"**After a preposition: {{cui}}.** When the joining word comes after {{di}}, {{con}}, {{a}}, {{in}}, {{per}} or {{da}}, use {{cui}}: {{la ragazza con cui esco}} “the girl I go out with”. The preposition always goes before {{cui}}; it never stays at the end, as it does in English."},
+        {"p":"**“What”, “the one who”**: {{quello che}} (or {{ciò che}}) means “what, the thing that”: {{Quello che dici è vero}} “What you're saying is true”. {{quello che}} and {{quella che}} are also “the one who, the one that”: {{Quale borsa? Quella che hai comprato ieri.}}"},
+        { "ex": [
+          {"t":"Ho un amico che parla cinque lingue.","tr":"I have a friend who speaks five languages."},
+          {"t":"Il treno che prendo parte alle otto.","tr":"The train I take leaves at eight."},
+          {"t":"È un film che mi piace moltissimo.","tr":"It's a movie I really love."},
+          {"t":"Questa è la casa in cui sono nato.","tr":"This is the house I was born in."},
+          {"t":"Non trovo la penna con cui scrivo sempre.","tr":"I can't find the pen I always write with."},
+          {"t":"Il motivo per cui studio italiano è mia moglie.","tr":"The reason I'm studying Italian is my wife."},
+          {"t":"Fai quello che vuoi!","tr":"Do what you want!"}
+        ] },
+        {"tip":"{{chi}} at the start of a sentence means “whoever, people who”: {{Chi dorme non piglia pesci}}, word for word “Whoever sleeps doesn't catch fish”: the early bird catches the worm."}
+      ],
+      "mistakes": [
+        {"wrong":"Il libro leggo è bello.","right":"Il libro che leggo è bello.","tr":"The book I'm reading is good.","why":"Italian never leaves out {{che}}, where English drops “that”."},
+        {"wrong":"La ragazza che esco con è simpatica.","right":"La ragazza con cui esco è simpatica.","tr":"The girl I go out with is nice.","why":"After a preposition, use {{cui}}, with the preposition before it."},
+        {"wrong":"Che dici è vero.","right":"Quello che dici è vero.","tr":"What you're saying is true.","why":"“What”, meaning “the thing that”, is {{quello che}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ho un collega ___ abita vicino a me.","tr":"I have a colleague who lives near me.","options":["che","cui","chi"],"answer":0,"why":"Joining a description to a noun: {{che}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"È la città in ___ ho studiato.","tr":"It's the city where I studied.","options":["cui","che","dove"],"answer":0,"why":"After a preposition ({{in}}): {{cui}}."},
+        {"type":"choice","q":"“The friend I'm going on vacation with” is…","options":["{{l'amico con cui vado in vacanza}}","{{l'amico che vado in vacanza con}}","{{l'amico vado in vacanza con}}"],"answer":0,"why":"The preposition goes before {{cui}}, never at the end."},
+        {"type":"dialogue","q":"At a party: choose your replies.","lines":[{"who":"Sara","t":"Chi è quella signora?","tr":"Who's that lady?"},{"options":["È la professoressa di cui ti ho parlato.","È la professoressa che ti ho parlato."],"answer":0,"why":"{{parlare di}} “to talk about”: after {{di}}, {{cui}}."},{"who":"Sara","t":"Quella che insegna storia?","tr":"The one who teaches history?"},{"options":["Sì, e il libro che ha scritto è bellissimo.","Sì, e il libro ha scritto è bellissimo."],"answer":0,"why":"{{che}} can't be left out."}],"from":"tell-about-your-weekend"},
+        {"type":"order","q":"Put the words in order.","tr":"What I like most is the food.","words":["Quello che","mi piace","di più","è il cibo."]},
+        {"type":"say","q":"Say: “The reason I'm here is my job.”","answer":"Il motivo per cui sono qui è il mio lavoro."},
+        {"type":"free","q":"Your turn: describe a person you know and a place you love, with {{che}} and {{cui}}.","answers":[{"t":"Mia sorella è una persona che ama viaggiare. La città in cui abita è piccola ma bellissima.","tr":"My sister is someone who loves to travel. The town she lives in is small but beautiful."},{"t":"Ho un amico che cucina benissimo. Il ristorante in cui andiamo sempre è vicino al mare.","tr":"I have a friend who's a great cook. The restaurant we always go to is near the sea."}]}
+      ]
+    },
+    {
+      "id": "say-how-things-are-done",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say how things are done here",
+      "summary": "“How do you say…?”, “In Italy people eat late”, “Rooms for rent”: talk about what people in general do.",
+      "topic": "The impersonal {{si}}: {{si mangia, si dice}}; {{si vendono}} (with a plural); {{ci si alza}}",
+      "blocks": [
+        {"goal":{"t":"In Italia si cena tardi e si parla molto a tavola.","tr":"In Italy people have dinner late and talk a lot at the table."}},
+        {"dialog":[{"who":"Tom","t":"Come si dice “check, please” in italiano?","tr":"How do you say “check, please” in Italian?"},{"who":"Giulia","t":"Si dice “il conto, per favore”.","tr":"You say “il conto, per favore”."},{"who":"Tom","t":"E la mancia? Si lascia sempre?","tr":"And the tip? Do you always leave one?"},{"who":"Giulia","t":"No, non sempre. Il servizio spesso è già incluso.","tr":"No, not always. Service is often already included."},{"who":"Tom","t":"E il cappuccino dopo cena?","tr":"And a cappuccino after dinner?"},{"who":"Giulia","t":"Quello non si fa! Dopo cena si prende un caffè.","tr":"That's not done! After dinner you have an espresso."}]},
+        {"p":"**People in general: {{si}}.** Where English says “you”, “people” or “one” about everybody, Italian uses {{si}} + the verb in the “he, she” form: {{Si mangia bene qui}} “You eat well here, the food is good here”; {{Come si dice…?}} “How do you say…?”"},
+        { "table": [
+          ["English","Italian"],
+          ["How do you say “table”?","{{Come si dice “table”?}}"],
+          ["You can't smoke here.","{{Qui non si può fumare.}}"],
+          ["Italian is spoken here.","{{Qui si parla italiano.}}"],
+          ["Tickets sold here.","{{Si vendono biglietti.}}"],
+          ["How do you get to the station?","{{Come si arriva alla stazione?}}"]
+        ] },
+        {"p":"**With a plural thing, the verb is plural**: {{Si vende casa}} “House for sale”, but {{Si vendono biglietti}} “Tickets sold here”; {{In Italia si mangiano molti spaghetti}}. This {{si}} works like the English passive: “are sold, are eaten”."},
+        {"p":"**Two small rules.** With an adjective, use the plural: {{Quando si è stanchi, si dorme bene}} “When you're tired, you sleep well”. With a reflexive verb, {{si si}} becomes {{ci si}}: {{In campagna ci si alza presto}} “In the country people get up early”."},
+        { "ex": [
+          {"t":"Si mangia benissimo in questa trattoria.","tr":"The food is great in this trattoria."},
+          {"t":"Come si scrive il tuo nome?","tr":"How do you spell your name?"},
+          {"t":"In Italia si guida a destra.","tr":"In Italy people drive on the right."},
+          {"t":"Qui si parla inglese?","tr":"Does anyone speak English here?"},
+          {"t":"Non si sa mai!","tr":"You never know!"},
+          {"t":"Si affittano camere.","tr":"Rooms for rent."},
+          {"t":"In vacanza ci si diverte sempre.","tr":"On vacation you always have fun."}
+        ] },
+        {"tip":"Signs you'll see: {{Vietato fumare}} “No smoking”, {{Si prega di non toccare}} “Please do not touch”, {{Affittasi}} “For rent”, {{Vendesi}} “For sale” (old style, with {{si}} on the end)."}
+      ],
+      "mistakes": [
+        {"wrong":"Qui si vende biglietti.","right":"Qui si vendono biglietti.","tr":"Tickets are sold here.","why":"{{biglietti}} is plural: {{si vendono}}."},
+        {"wrong":"Quando si è stanco, si dorme bene.","right":"Quando si è stanchi, si dorme bene.","tr":"When you're tired, you sleep well.","why":"With {{si}}, an adjective goes in the plural."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Come ___ dice “fork” in italiano?","tr":"How do you say “fork” in Italian?","options":["si","ci","ne"],"answer":0,"why":"People in general: {{si dice}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"In questo negozio si ___ prodotti tipici.","tr":"This store sells local products.","options":["vendono","vende","vendiamo"],"answer":0,"why":"{{prodotti}} is plural: {{si vendono}}."},
+        {"type":"choice","q":"{{Non si può parcheggiare qui}} means…","options":["You can't park here.","He can't park here.","I can't park here."],"answer":0,"why":"{{si}} + the verb: anyone, people in general.","from":"say-what-you-can-and-must"},
+        {"type":"dialogue","q":"Tom asks you about Italian habits: choose your replies.","lines":[{"who":"Tom","t":"A che ora si cena in Italia?","tr":"What time do people have dinner in Italy?"},{"options":["Si cena verso le otto, o anche più tardi.","Si cenano verso le otto, o anche più tardi."],"answer":0,"why":"No plural thing here: {{si cena}}."},{"who":"Tom","t":"E il cappuccino dopo cena?","tr":"And a cappuccino after dinner?"},{"options":["Di solito non si prende: si prende un caffè.","Di solito non si prendono: si prende un caffè."],"answer":0,"why":"One thing ({{il cappuccino}}): {{si prende}}."}],"from":"tell-the-time"},
+        {"type":"order","q":"Put the words in order.","tr":"You eat really well in Bologna.","words":["A Bologna","si mangia","benissimo."]},
+        {"type":"say","q":"Ask a friend: “How do you spell your name?”","answer":"Come si scrive il tuo nome?"},
+        {"type":"free","q":"Your turn: tell an Italian how things are done in your country: meals, tipping, greetings. Use {{si}}.","answers":[{"t":"Negli Stati Uniti si cena presto, verso le sei, e si lascia sempre la mancia.","tr":"In the United States people have dinner early, around six, and you always leave a tip."},{"t":"In Inghilterra si beve molto tè e quando si entra in un negozio si dice “hello”.","tr":"In England people drink a lot of tea, and when you go into a store you say “hello”."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Report what someone said",
+      "summary": "Pass on messages: “He said he was sick”, “She asked if you were free”, “He told me to wait.”",
+      "topic": "{{dire che}}, {{chiedere se}}, {{dire di}} + infinitive; the tense moving back ({{è → era}})",
+      "blocks": [
+        {"goal":{"t":"Marco ha detto che arriva domani.","tr":"Marco said he's arriving tomorrow."}},
+        {"dialog":[{"who":"Sara","t":"Hai parlato con Luca?","tr":"Did you talk to Luca?"},{"who":"You","t":"Sì, mi ha detto che era malato e che non poteva venire.","tr":"Yes, he told me he was sick and couldn't come."},{"who":"Sara","t":"Peccato! E Giulia cosa dice?","tr":"Too bad! And what does Giulia say?"},{"who":"You","t":"Dice che viene, ma che arriva tardi.","tr":"She says she's coming, but she'll be late."},{"who":"Sara","t":"Mi ha scritto che le dispiaceva per l'altra volta.","tr":"She wrote to me that she was sorry about last time."},{"who":"You","t":"Sì, e mi ha chiesto se eri ancora arrabbiata.","tr":"Yes, and she asked me if you were still angry."}]},
+        {"p":"**Passing it on.** To report what someone says, use {{dire che}} “to say that”. If they're saying it now ({{dice che}}), nothing changes but the person: {{“Sono stanco.”}} → {{Dice che è stanco}} “He says he's tired”."},
+        {"p":"**In the past** ({{ha detto che}}), the verb usually moves one step back, as in English: the present becomes the imperfetto, and the passato prossimo becomes the trapassato (two lessons from now). If what they said is still true, Italians often keep the present: {{Ha detto che arriva domani}}."},
+        { "table": [
+          ["what they said","reported later"],
+          ["{{“Sono stanca.”}}","{{Ha detto che era stanca.}} “She said she was tired.”"],
+          ["{{“Non posso venire.”}}","{{Ha detto che non poteva venire.}} “He said he couldn't come.”"],
+          ["{{“Ho perso il treno.”}}","{{Ha detto che aveva perso il treno.}} “He said he'd missed the train.”"],
+          ["{{“Aspetta!”}}","{{Mi ha detto di aspettare.}} “He told me to wait.”"],
+          ["{{“Sei libero?”}}","{{Mi ha chiesto se ero libero.}} “She asked me if I was free.”"]
+        ] },
+        {"p":"**Questions** are reported with {{chiedere se}} “to ask if”, or with their question word: {{Mi ha chiesto dove abitavo}} “She asked me where I lived”. **Orders** with {{dire di}} + the infinitive: {{Mi ha detto di aspettare}}. And the people change, as in English: “I” becomes “he”, “my” becomes “his”: {{“La mia macchina è rotta.”}} → {{Ha detto che la sua macchina era rotta}}."},
+        { "ex": [
+          {"t":"Dice che ha fame.","tr":"He says he's hungry."},
+          {"t":"Mi ha detto che non stava bene.","tr":"She told me she wasn't feeling well."},
+          {"t":"Hanno detto che il treno era in ritardo.","tr":"They said the train was late."},
+          {"t":"Ti ho detto di non toccarlo!","tr":"I told you not to touch it!"},
+          {"t":"Mi ha chiesto se avevo tempo.","tr":"He asked me if I had time."},
+          {"t":"Il medico ha detto di riposare.","tr":"The doctor said to rest."}
+        ] },
+        {"tip":"In everyday speech, a promise is often reported with the imperfetto: {{Ha detto che veniva}} “He said he'd come”. Careful Italian uses the past conditional: {{Ha detto che sarebbe venuto}}. Both are understood everywhere."}
+      ],
+      "mistakes": [
+        {"wrong":"Mi ha detto che aspetto.","right":"Mi ha detto di aspettare.","tr":"He told me to wait.","why":"Reporting an order: {{dire di}} + the infinitive."},
+        {"wrong":"Mi ha chiesto che ero libero.","right":"Mi ha chiesto se ero libero.","tr":"He asked me if I was free.","why":"A yes-or-no question is reported with {{se}} “if”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"“Sono a casa.” Report it: Giulia said she was at home.","t":"Giulia ha detto che ___ a casa.","tr":"Giulia said she was at home.","options":["era","è stata","sarà"],"answer":0,"why":"Reported in the past: the present moves back to the imperfetto, {{era}}.","from":"describe-the-past"},
+        {"type":"fill","q":"Choose the missing word.","t":"Il professore ci ha detto ___ studiare.","tr":"The teacher told us to study.","options":["di","che","se"],"answer":0,"why":"An order: {{dire di}} + the infinitive."},
+        {"type":"choice","q":"{{Mi ha chiesto se volevo un caffè}} means…","options":["He asked me if I wanted a coffee.","He told me he wanted a coffee.","He asked me for a coffee."],"answer":0,"why":"{{chiedere se}}: “to ask if”."},
+        {"type":"dialogue","q":"Passing on a phone message: choose your replies.","lines":[{"who":"Sara","t":"Ha chiamato qualcuno?","tr":"Did anyone call?"},{"options":["Sì, Luca. Ha detto che arrivava tardi.","Sì, Luca. Ha detto di arrivava tardi."],"answer":0,"why":"Reporting a statement: {{dire che}}."},{"who":"Sara","t":"E ha detto altro?","tr":"Did he say anything else?"},{"options":["Sì, ha chiesto se puoi richiamarlo.","Sì, ha chiesto che puoi richiamarlo."],"answer":0,"why":"A yes-or-no question: {{chiedere se}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"She told me she had found a new job.","words":["Mi ha detto","che","aveva trovato","un nuovo lavoro."]},
+        {"type":"say","q":"The doctor said: “Rest for three days.” Report it: “The doctor told me to rest for three days.”","answer":"Il medico mi ha detto di riposare per tre giorni.","from":"give-instructions"},
+        {"type":"free","q":"Your turn: pass on a message. A friend called and said three things: where they were, what they wanted, and one question. Report them.","answers":[{"t":"Ha chiamato Marta. Ha detto che era in centro, che voleva cenare con noi e ha chiesto se eravamo liberi.","tr":"Marta called. She said she was downtown, that she wanted to have dinner with us, and she asked if we were free."},{"t":"Mio fratello mi ha scritto che è arrivato a Roma e mi ha chiesto di chiamarlo stasera.","tr":"My brother texted me that he's arrived in Rome, and he asked me to call him tonight."}]}
+      ]
+    },
+    {
+      "id": "pass-things-on",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass things on: “I'll give it to you”",
+      "summary": "Lend, give, send and tell, with two short pronouns together: “I'll lend it to you”, “Give it to me!”",
+      "topic": "Pronouns together: {{me lo, te la, glielo, ce ne}}…",
+      "blocks": [
+        {"goal":{"t":"Ti piace il libro? Te lo presto!","tr":"Do you like the book? I'll lend it to you!"}},
+        {"dialog":[{"who":"Giulia","t":"Che bella sciarpa! Dove l'hai comprata?","tr":"What a beautiful scarf! Where did you buy it?"},{"who":"You","t":"Non l'ho comprata: me l'ha regalata mia sorella.","tr":"I didn't buy it: my sister gave it to me."},{"who":"Giulia","t":"Me la presti per sabato?","tr":"Will you lend it to me for Saturday?"},{"who":"You","t":"Certo, te la porto domani.","tr":"Sure, I'll bring it to you tomorrow."},{"who":"Giulia","t":"Grazie! E le foto della festa? Me le mandi?","tr":"Thanks! And the photos from the party? Will you send them to me?"},{"who":"You","t":"Te le ho già mandate ieri sera!","tr":"I already sent them to you last night!"}]},
+        {"p":"**Two pronouns together.** When a sentence has both a “to whom” ({{mi, ti, gli, le}}) and a “what” ({{lo, la, li, le, ne}}), they join, “to whom” first. {{mi, ti, ci, vi}} change their {{i}} to {{e}}: {{Me lo dai?}} “Will you give it to me?”"},
+        { "table": [
+          ["","+ {{lo}}","+ {{la}}","+ {{li}}","+ {{le}}","+ {{ne}}"],
+          ["{{mi}}","{{me lo}}","{{me la}}","{{me li}}","{{me le}}","{{me ne}}"],
+          ["{{ti}}","{{te lo}}","{{te la}}","{{te li}}","{{te le}}","{{te ne}}"],
+          ["{{gli, le, Le}}","{{glielo}}","{{gliela}}","{{glieli}}","{{gliele}}","{{gliene}}"],
+          ["{{ci}}","{{ce lo}}","{{ce la}}","{{ce li}}","{{ce le}}","{{ce ne}}"],
+          ["{{vi}}","{{ve lo}}","{{ve la}}","{{ve li}}","{{ve le}}","{{ve ne}}"]
+        ] },
+        {"p":"**“To him”, “to her” and “to you ({{Lei}})” all become {{glie-}}**, written as one word with what follows: {{glielo}} “it to him, it to her, it to you”. The conversation makes it clear."},
+        {"p":"**Where they go**: like single pronouns, before the verb ({{Te lo do}}), or joined to the end of an infinitive or a {{tu}} command ({{Posso dartelo?}} “Can I give it to you?”, {{Dammelo!}} “Give it to me!”). In the past, the participle agrees with {{lo, la, li, le}}: {{Me l'ha regalata}} (the scarf)."},
+        { "ex": [
+          {"t":"Me lo dici?","tr":"Will you tell me?"},
+          {"t":"Te lo prometto.","tr":"I promise you."},
+          {"t":"Il conto? Glielo porto subito.","tr":"The check? I'll bring it to you right away.","note":"a waiter to a customer: {{glielo}} for {{Lei}}"},
+          {"t":"Ce l'hai una penna? Sì, ce l'ho.","tr":"Have you got a pen? Yes, I have.","note":"{{avercela}}: everyday Italian for “to have (got) it”"},
+          {"t":"Gliel'ho detto ieri.","tr":"I told him yesterday."},
+          {"t":"Me ne vado!","tr":"I'm off!","note":"{{andarsene}} “to leave, to go away”"},
+          {"t":"Dammelo, per favore.","tr":"Give it to me, please."}
+        ] },
+        {"tip":"{{Ce la faccio!}} “I can do it! I'll make it!” and {{Non ce la faccio più!}} “I can't take it anymore!” are everyday expressions built from these pronouns."}
+      ],
+      "mistakes": [
+        {"wrong":"Mi lo dai?","right":"Me lo dai?","tr":"Will you give it to me?","why":"Before {{lo}}, {{mi}} becomes {{me}}."},
+        {"wrong":"Gli lo do domani.","right":"Glielo do domani.","tr":"I'll give it to him tomorrow.","why":"{{gli}} + {{lo}} = {{glielo}}, one word."},
+        {"wrong":"Lo te do.","right":"Te lo do.","tr":"I'll give it to you.","why":"The “to whom” pronoun comes first."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing words.","t":"Il libro? ___ presto io!","tr":"The book? I'll lend it to you!","options":["Te lo","Ti lo","Lo ti"],"answer":0,"why":"{{ti}} + {{lo}} = {{te lo}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Le chiavi? ___ ho date ieri, signora.","tr":"The keys? I gave them to you yesterday, madam.","options":["Gliele","Le le","Gli le"],"answer":0,"why":"To {{Lei}} + {{le}}: {{gliele}}, one word."},
+        {"type":"choice","q":"{{Glielo dico domani}} means…","options":["I'll tell him (or her) tomorrow.","Tell me tomorrow.","I'll tell you (a friend) tomorrow."],"answer":0,"why":"{{glie-}} is “to him” or “to her” (and “to you”, to {{Lei}}); {{lo}} is “it”.","from":"say-who-its-for"},
+        {"type":"dialogue","q":"Giulia wants to borrow your things: choose your replies.","lines":[{"who":"Giulia","t":"Che bella giacca! Me la presti?","tr":"What a lovely jacket! Will you lend it to me?"},{"options":["Certo, te la presto!","Certo, ti la presto!"],"answer":0,"why":"{{ti}} + {{la}} = {{te la}}."},{"who":"Giulia","t":"E le foto? Me le mandi?","tr":"And the photos? Will you send them to me?"},{"options":["Te le ho già mandate!","Te le ho già mandato!"],"answer":0,"why":"The participle agrees with {{le}}, the photos: {{mandate}}."}],"from":"avoid-repeating-yourself"},
+        {"type":"order","q":"Put the words in order.","tr":"Can you give it to me? (the book)","words":["Me lo","puoi","dare?"]},
+        {"type":"say","q":"You're a waiter. About the menu: “I'll bring it to you right away.”","answer":"Glielo porto subito."},
+        {"type":"free","q":"Your turn: a friend asks to borrow three things: a book, your bike and some photos. Answer each one with two pronouns.","answers":[{"t":"Il libro? Te lo presto domani. La bici? Te la do volentieri. Le foto? Te le mando stasera.","tr":"The book? I'll lend it to you tomorrow. The bike? I'll gladly give it to you. The photos? I'll send them to you tonight."},{"t":"Certo, il libro te lo porto io! E le foto te le ho già mandate.","tr":"Sure, I'll bring you the book! And I've already sent you the photos."}]}
+      ]
+    },
+    {
+      "id": "tell-what-had-happened",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what had already happened",
+      "summary": "Go one step further back in a story: “When I got to the station, the train had already left.”",
+      "topic": "The trapassato prossimo: {{avevo visto, ero partito}}; the passato remoto to recognize",
+      "blocks": [
+        {"goal":{"t":"Quando sono arrivato alla stazione, il treno era già partito.","tr":"When I got to the station, the train had already left."}},
+        {"dialog":[{"who":"Luca","t":"Com'è andato il concerto?","tr":"How did the concert go?"},{"who":"You","t":"Male! Quando siamo arrivati, avevano già venduto tutti i biglietti.","tr":"Badly! When we got there, they'd already sold all the tickets."},{"who":"Luca","t":"Non li avevate comprati prima?","tr":"Hadn't you bought them in advance?"},{"who":"You","t":"No, Marta aveva detto che non serviva!","tr":"No, Marta had said there was no need!"},{"who":"Luca","t":"E poi cosa avete fatto?","tr":"And then what did you do?"},{"who":"You","t":"Siamo andati in una pizzeria che avevo visto su Internet. Almeno abbiamo mangiato bene!","tr":"We went to a pizzeria I'd seen online. At least we ate well!"}]},
+        {"p":"**One step further back.** In a story told in the past, to say that something had happened before, Italian uses the {{trapassato prossimo}}: the imperfetto of {{avere}} or {{essere}} + the participle. {{avevo mangiato}} “I had eaten”, {{ero partito}} “I had left”."},
+        { "table": [
+          ["","with {{avere}}","with {{essere}}"],
+          ["I","{{avevo visto}}","{{ero partito, partita}}"],
+          ["you ({{tu}})","{{avevi visto}}","{{eri partito, partita}}"],
+          ["he, she, you ({{Lei}})","{{aveva visto}}","{{era partito, partita}}"],
+          ["we","{{avevamo visto}}","{{eravamo partiti, partite}}"],
+          ["you (two or more)","{{avevate visto}}","{{eravate partiti, partite}}"],
+          ["they","{{avevano visto}}","{{erano partiti, partite}}"]
+        ] },
+        {"p":"Everything you know about the passato prossimo carries over: the same helper ({{avere}} or {{essere}}), the same participles, the same agreement. Only the helper moves into the imperfetto."},
+        {"p":"**Use it** when you're already in the past and you look back further: {{Ero stanco perché non avevo dormito}} “I was tired because I hadn't slept”. With {{già}} “already” and {{mai}} “ever, never”: {{Non ero mai stato a Roma}} “I had never been to Rome”."},
+        {"p":"**In books**: stories and novels use one more past, the {{passato remoto}} ({{andò}} “he went”, {{fu}} “it was”, {{disse}} “he said”). In most of Italy people rarely say it, so it's enough to recognize it when you read."},
+        { "ex": [
+          {"t":"Il film era già cominciato.","tr":"The movie had already started."},
+          {"t":"Non avevo mai mangiato un piatto così buono.","tr":"I had never eaten such a good dish."},
+          {"t":"Mi ha detto che aveva perso il lavoro.","tr":"He told me he had lost his job."},
+          {"t":"Quando l'ho chiamata, era già uscita.","tr":"When I called her, she had already gone out."},
+          {"t":"Eravamo stanchi perché avevamo camminato tutto il giorno.","tr":"We were tired because we had walked all day."},
+          {"t":"Avevo appena finito di cucinare quando sono arrivati.","tr":"I had just finished cooking when they arrived."}
+        ] },
+        {"tip":"{{Te l'avevo detto!}} “I told you so!”, word for word “I had told you!”, is the trapassato's most satisfying use."}
+      ],
+      "mistakes": [
+        {"wrong":"Quando sono arrivato, il treno è già partito.","right":"Quando sono arrivato, il treno era già partito.","tr":"When I arrived, the train had already left.","why":"It left before you arrived: one step further back, the trapassato."},
+        {"wrong":"Non avevo mai stato a Roma.","right":"Non ero mai stato a Roma.","tr":"I had never been to Rome.","why":"{{essere}} and {{stare}} keep {{essere}} as their helper: {{ero stato}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ero stanca perché non ___ dormito.","tr":"I was tired because I hadn't slept.","options":["avevo","ho","ero"],"answer":0,"why":"Further back in the past: {{avevo}} + the participle."},
+        {"type":"fill","q":"Choose the missing word.","t":"Quando siamo arrivati, la festa era già ___.","tr":"When we arrived, the party had already ended.","options":["finita","finito","finire"],"answer":0,"why":"{{finire}} “to end” uses {{essere}} here, agreeing with {{la festa}}: {{finita}}.","from":"say-where-you-went"},
+        {"type":"choice","q":"{{Non ero mai stato in Italia prima}} means…","options":["I had never been to Italy before.","I have never been to Italy.","I wasn't in Italy before."],"answer":0,"why":"{{ero stato}} is the trapassato: “had been”."},
+        {"type":"dialogue","q":"Luca asks why you're late: choose your replies.","lines":[{"who":"Luca","t":"Perché sei arrivato così tardi?","tr":"Why did you get here so late?"},{"options":["Perché avevo dimenticato le chiavi e sono tornato a casa.","Perché ho dimenticato le chiavi e ero tornato a casa."],"answer":0,"why":"Forgetting came first: trapassato. Going back home was the next event: passato prossimo."},{"who":"Luca","t":"E le hai trovate?","tr":"And did you find them?"},{"options":["Sì, le avevo lasciate sul tavolo!","Sì, le avevo lasciato sul tavolo!"],"answer":0,"why":"With {{le}} before it, the participle agrees: {{lasciate}}."}],"from":"tell-a-story"},
+        {"type":"order","q":"Put the words in order.","tr":"I told you so!","words":["Te","l'avevo","detto!"]},
+        {"type":"say","q":"Say: “When I called her, she had already gone out.”","answer":"Quando l'ho chiamata, era già uscita.","from":"avoid-repeating-yourself"},
+        {"type":"free","q":"Your turn: tell about a day when something went wrong because of something that had happened before.","answers":[{"t":"Ieri sono arrivato in ufficio tardi perché la sveglia non aveva suonato.","tr":"Yesterday I got to the office late because my alarm hadn't gone off."},{"t":"Quando siamo arrivati al ristorante, la cucina era già chiusa. Non avevamo prenotato!","tr":"When we got to the restaurant, the kitchen had already closed. We hadn't booked!"}]}
+      ]
+    },
+    {
+      "id": "imagine-what-you-would-do",
+      "unit": 8,
+      "level": "B1",
+      "title": "Imagine: “If I had more time…”",
+      "summary": "Dream out loud: what you'd do if you won the lottery, if you lived in Italy, if you were someone else.",
+      "topic": "{{se}} + the congiuntivo imperfetto ({{avessi, fossi, potessi}}) + the condizionale; {{se fossi in te}}, {{magari!}}",
+      "blocks": [
+        {"goal":{"t":"Se avessi più tempo, imparerei a suonare il pianoforte.","tr":"If I had more time, I'd learn to play the piano."}},
+        {"dialog":[{"who":"Chiara","t":"Cosa faresti se vincessi la lotteria?","tr":"What would you do if you won the lottery?"},{"who":"You","t":"Se vincessi, comprerei una casa in Toscana!","tr":"If I won, I'd buy a house in Tuscany!"},{"who":"Chiara","t":"E lasceresti il lavoro?","tr":"And would you quit your job?"},{"who":"You","t":"Sì, se fossi ricco non lavorerei più. Viaggerei tutto l'anno.","tr":"Yes, if I were rich I wouldn't work anymore. I'd travel all year round."},{"who":"Chiara","t":"Io invece, se potessi, aprirei un ristorante.","tr":"If I could, I'd open a restaurant."},{"who":"You","t":"Se lo aprissi, verrei a mangiare tutti i giorni!","tr":"If you opened one, I'd come and eat there every day!"}]},
+        {"p":"**Imagining.** For something unreal or unlikely, Italian puts the “if” half in the {{congiuntivo imperfetto}} (the imperfect subjunctive) and the result in the condizionale: {{Se avessi tempo, viaggerei}} “If I had time, I'd travel”. Compare a real possibility: {{Se ho tempo, viaggio}} “If I have time, I travel”."},
+        { "table": [
+          ["","{{parlare}}","{{prendere}}","{{partire}}"],
+          ["I","{{parlassi}}","{{prendessi}}","{{partissi}}"],
+          ["you ({{tu}})","{{parlassi}}","{{prendessi}}","{{partissi}}"],
+          ["he, she, you ({{Lei}})","{{parlasse}}","{{prendesse}}","{{partisse}}"],
+          ["we","{{parlassimo}}","{{prendessimo}}","{{partissimo}}"],
+          ["you (two or more)","{{parlaste}}","{{prendeste}}","{{partiste}}"],
+          ["they","{{parlassero}}","{{prendessero}}","{{partissero}}"]
+        ] },
+        {"p":"It's very regular: take off the {{-re}} of the infinitive and add {{-ssi, -ssi, -sse, -ssimo, -ste, -ssero}}. The ones to learn: {{essere → fossi}} ({{fossi, fossi, fosse, fossimo, foste, fossero}}), {{avere → avessi}}, {{fare → facessi}}, {{dire → dicessi}}, {{bere → bevessi}}, {{dare → dessi}}, {{stare → stessi}}."},
+        {"p":"**Never the condizionale after {{se}}.** {{Se avrei}} is a famous mistake (some Italians make it too): after {{se}}, it's {{avessi}}, {{fossi}}, {{potessi}}. The condizionale goes in the other half."},
+        {"p":"**Advice and wishes.** {{Se fossi in te…}} “If I were you…”: {{Se fossi in te, accetterei}} “If I were you, I'd accept”. And for wishes, {{magari!}} “if only!” or {{vorrei che}} + this same form: {{Magari fosse vero!}} “If only it were true!”, {{Vorrei che tu fossi qui}} “I wish you were here”."},
+        { "ex": [
+          {"t":"Se fossi ricco, comprerei una barca.","tr":"If I were rich, I'd buy a boat."},
+          {"t":"Se potessi, partirei domani.","tr":"If I could, I'd leave tomorrow."},
+          {"t":"Cosa faresti se fossi in me?","tr":"What would you do if you were me?"},
+          {"t":"Se abitassimo in Italia, mangeremmo meglio.","tr":"If we lived in Italy, we'd eat better."},
+          {"t":"Se lo sapessi, te lo direi.","tr":"If I knew, I'd tell you."},
+          {"t":"Magari avessi il tuo coraggio!","tr":"I wish I had your courage!"},
+          {"t":"Vorrei che fosse sempre estate.","tr":"I wish it were always summer."}
+        ] },
+        {"tip":"{{Se fossi in te}} and {{al posto tuo}}, from the lesson on advice, mean the same thing: “if I were you”."}
+      ],
+      "mistakes": [
+        {"wrong":"Se avrei più soldi, viaggerei.","right":"Se avessi più soldi, viaggerei.","tr":"If I had more money, I'd travel.","why":"After {{se}}, the imperfect subjunctive ({{avessi}}), never the condizionale."},
+        {"wrong":"Se fossi ricco, compro una casa.","right":"Se fossi ricco, comprerei una casa.","tr":"If I were rich, I'd buy a house.","why":"The imagined result takes the condizionale: {{comprerei}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Se ___ più tempo, leggerei di più.","tr":"If I had more time, I'd read more.","options":["avessi","avrei","ho avuto"],"answer":0,"why":"After {{se}}, imagining: {{avessi}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Se fossi in te, ___ quel lavoro.","tr":"If I were you, I'd take that job.","options":["accetterei","accettassi","accetto"],"answer":0,"why":"The result: the condizionale, {{accetterei}}.","from":"ask-politely-and-give-advice"},
+        {"type":"choice","q":"Which sentence imagines something unlikely?","options":["{{Se vincessi la lotteria, smetterei di lavorare.}}","{{Se vinco la lotteria, smetto di lavorare.}}"],"answer":0,"why":"Unreal or unlikely: {{se}} + {{vincessi}}, then the condizionale. The other is a real possibility.","from":"say-what-happens-if"},
+        {"type":"dialogue","q":"Chiara wants to dream with you: choose your replies.","lines":[{"who":"Chiara","t":"Cosa faresti se vincessi un milione di euro?","tr":"What would you do if you won a million euros?"},{"options":["Comprerei una casa al mare.","Compro una casa al mare."],"answer":0,"why":"An imagined result: the condizionale."},{"who":"Chiara","t":"E se potessi vivere ovunque?","tr":"And if you could live anywhere?"},{"options":["Se potessi, vivrei a Roma.","Se potrei, vivrei a Roma."],"answer":0,"why":"After {{se}}: {{potessi}}, never {{potrei}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"If I knew, I'd tell you.","words":["Se","lo sapessi,","te lo","direi."]},
+        {"type":"say","q":"Tell a friend: “I wish you were here!”","answer":"Vorrei che tu fossi qui!"},
+        {"type":"free","q":"Your turn: imagine. What would you do if you lived in Italy for a year? And if you could speak any language perfectly?","answers":[{"t":"Se vivessi in Italia per un anno, abiterei a Bologna e farei un corso di cucina.","tr":"If I lived in Italy for a year, I'd live in Bologna and take a cooking class."},{"t":"Se parlassi perfettamente il giapponese, andrei a lavorare a Tokyo.","tr":"If I spoke Japanese perfectly, I'd go and work in Tokyo."}]}
+      ]
     }
   ]
 }
