@@ -65,6 +65,22 @@
    },
    "built": "2026-10-24"
   },
+  "fa": {
+   "file": "fa/course.json",
+   "title": "Persian basics",
+   "variety": "Iranian Persian (standard written)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 373278,
+   "audio_bytes": 11947234,
+   "sha256": "fcc589c602647e21c048ceaa4266be9392848c8bff26b9b7a873fb67d627c147",
+   "voice": {
+    "engine": "azure",
+    "name": "Dilara (Azure, Iran)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
   "fr": {
    "file": "fr/course.json",
    "title": "French basics",
