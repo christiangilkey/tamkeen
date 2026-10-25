@@ -439,6 +439,189 @@
         {"type":"say","q":"Ask: “How much are these two tickets?”","answer":"这两张票多少钱？","r":"Zhè liǎng zhāng piào duōshao qián?","from":"count-things"},
         {"type":"free","q":"Your turn: ask the price of something you'd like to buy, then answer as the seller.","answers":[{"t":"这件衣服多少钱？两百块。","r":"Zhè jiàn yīfu duōshao qián? Liǎngbǎi kuài.","tr":"How much is this top? Two hundred yuan."},{"t":"这杯茶多少钱？十五块。","r":"Zhè bēi chá duōshao qián? Shíwǔ kuài.","tr":"How much is this tea? Fifteen yuan."}]}
       ]
+    },
+    {
+      "id": "say-whose-it-is",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say whose it is",
+      "summary": "“My phone”, “the teacher's book”, “Whose is this?”: say who things belong to.",
+      "topic": "{{的|de}}: {{我的|wǒ de}}, {{老师的|lǎoshī de}}, {{谁的|shéi de}}; {{我妈妈|wǒ māma}} without {{的|de}}",
+      "blocks": [
+        {"goal":{"t":"这是我的手机。","r":"Zhè shì wǒ de shǒujī.","tr":"This is my phone."}},
+        {"dialog":[{"who":"Mr Li","t":"这是谁的书？","r":"Zhè shì shéi de shū?","tr":"Whose book is this?"},{"who":"Mark","t":"不是我的。是安娜的吗？","r":"Bú shì wǒ de. Shì Ānnà de ma?","tr":"It's not mine. Is it Anna's?"},{"who":"Anna","t":"对，是我的！谢谢老师！","r":"Duì, shì wǒ de! Xièxie lǎoshī!","tr":"Yes, it's mine! Thank you!","note":"students call their teacher {{老师|lǎoshī}} “teacher”"},{"who":"Mr Li","t":"这个手机呢？","r":"Zhège shǒujī ne?","tr":"And this phone?"},{"who":"Mark","t":"那是我的。","r":"Nà shì wǒ de.","tr":"That's mine."}]},
+        {"p":"**{{的|de}} is like 's.** Put {{的|de}} after the owner, then the thing: {{老师的书|lǎoshī de shū}} “the teacher's book”, {{我的手机|wǒ de shǒujī}} “my phone” (“I's phone”). The owner always comes first, as with 's in English."},
+        { "table": [
+          ["English","Chinese"],
+          ["my","{{我的|wǒ de}}"],
+          ["your","{{你的|nǐ de}}"],
+          ["his / her","{{他的|tā de}} / {{她的|tā de}}"],
+          ["our","{{我们的|wǒmen de}}"],
+          ["their","{{他们的|tāmen de}}"],
+          ["Anna's","{{安娜的|Ānnà de}}"],
+          ["whose?","{{谁的|shéi de}}"]
+        ] },
+        {"p":"**Mine, yours.** Leave the thing out, and {{我的|wǒ de}} means “mine”: {{这是我的。|Zhè shì wǒ de.}} “This is mine.” **Whose?** is {{谁的|shéi de}}, in the owner's place: {{这是谁的书？|Zhè shì shéi de shū?}} “Whose book is this?”"},
+        {"p":"**Close people: no {{的|de}}.** With family, friends, and places you belong to (your home, school or company), {{的|de}} is usually left out: {{我妈妈|wǒ māma}} “my mum”, {{我朋友|wǒ péngyou}} “my friend”, {{我们公司|wǒmen gōngsī}} “our company”. With things, keep it: {{我的书|wǒ de shū}}."},
+        { "ex": [
+          {"t":"这是我的手机。","r":"Zhè shì wǒ de shǒujī.","tr":"This is my phone."},
+          {"t":"那是我妈妈。","r":"Nà shì wǒ māma.","tr":"That's my mum."},
+          {"t":"这是谁的包？","r":"Zhè shì shéi de bāo?","tr":"Whose bag is this?"},
+          {"t":"我的中文老师很好。","r":"Wǒ de Zhōngwén lǎoshī hěn hǎo.","tr":"My Chinese teacher is great.","note":"with a longer phrase, {{的|de}} stays"},
+          {"t":"他是我们老师。","r":"Tā shì wǒmen lǎoshī.","tr":"He's our teacher."},
+          {"t":"这杯咖啡是你的吗？","r":"Zhè bēi kāfēi shì nǐ de ma?","tr":"Is this coffee yours?"}
+        ] },
+        {"tip":"{{的|de}} is the commonest character in Chinese. Owners are its first job; later lessons show it joining descriptions to nouns too."}
+      ],
+      "mistakes": [
+        {"wrong":"我书","right":"我的书","tr":"my book","why":"Things take {{的|de}}: {{我的书|wǒ de shū}}. Only close people and places leave it out ({{我妈妈|wǒ māma}})."},
+        {"wrong":"书的老师","right":"老师的书","tr":"the teacher's book","why":"The owner first, then {{的|de}}, then the thing: {{老师的书|lǎoshī de shū}}. {{书的老师|shū de lǎoshī}} would be “the book's teacher”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"这是___的书？","r":"Zhè shì ___ de shū?","tr":"Whose book is this?","options":["谁","什么","哪"],"rs":["shéi","shénme","nǎ"],"answer":0,"why":"“Whose” is {{谁的|shéi de}}, in the owner's place."},
+        {"type":"choice","q":"“My mum” is usually…","options":["{{我妈妈|wǒ māma}}","{{妈妈的我|māma de wǒ}}","{{我是妈妈|wǒ shì māma}}"],"answer":0,"why":"Close family: no {{的|de}} needed."},
+        {"type":"choice","q":"{{这是我的。|Zhè shì wǒ de.}} means…","options":["This is me.","This is mine.","This is my."],"answer":1,"why":"{{我的|wǒ de}} with nothing after it: “mine”."},
+        {"type":"dialogue","q":"After class, your teacher finds some things. Choose your replies.","lines":[{"who":"Teacher","t":"这是谁的包？","r":"Zhè shì shéi de bāo?","tr":"Whose bag is this?"},{"options":["是我的！","是我！"],"rs":["Shì wǒ de!","Shì wǒ!"],"answer":0,"why":"“Mine” is {{我的|wǒ de}}. ({{是我|shì wǒ}} is “It's me!”)"},{"who":"Teacher","t":"这本书也是你的吗？","r":"Zhè běn shū yě shì nǐ de ma?","tr":"Is this book yours too?"},{"options":["不是，是我朋友的。","不是，是我朋友。"],"rs":["Bú shì, shì wǒ péngyou de.","Bú shì, shì wǒ péngyou."],"answer":0,"why":"It belongs to your friend: {{我朋友的|wǒ péngyou de}}. Without {{的|de}}, it says the book is your friend!"}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"Put the words in order.","tr":"My Chinese teacher is great.","words":["我的","中文","老师","很好。"],"rs":["wǒ de","Zhōngwén","lǎoshī","hěn hǎo."],"from":"say-how-you-are"},
+        {"type":"say","q":"Say “That's my friend's coffee.”","answer":"那是我朋友的咖啡。","r":"Nà shì wǒ péngyou de kāfēi.","from":"point-and-choose"},
+        {"type":"free","q":"Your turn: point at things around you and say whose they are.","answers":[{"t":"这是我的手机。那是我妈妈的车。","r":"Zhè shì wǒ de shǒujī. Nà shì wǒ māma de chē.","tr":"This is my phone. That's my mum's car."},{"t":"这本书是我朋友的。这杯茶是我的。","r":"Zhè běn shū shì wǒ péngyou de. Zhè bēi chá shì wǒ de.","tr":"This book is my friend's. This tea is mine."}]}
+      ]
+    },
+    {
+      "id": "talk-about-your-family",
+      "unit": 3,
+      "level": "A1",
+      "title": "Talk about your family",
+      "summary": "Say who's in your family and how old they are, and what you have and don't have: “I have an older brother and a younger sister.”",
+      "topic": "{{有|yǒu}} “have” and {{没有|méiyǒu}} (never {{不有|bù yǒu}}); {{几口人|jǐ kǒu rén}}; ages without {{是|shì}}; {{都|dōu}} “all”",
+      "blocks": [
+        {"goal":{"t":"我有一个哥哥和一个妹妹。","r":"Wǒ yǒu yí ge gēge hé yí ge mèimei.","tr":"I have an older brother and a younger sister."}},
+        {"dialog":[{"who":"Xiao Li","t":"你家有几口人？","r":"Nǐ jiā yǒu jǐ kǒu rén?","tr":"How many people are there in your family?"},{"who":"Tom","t":"四口人：爸爸、妈妈、姐姐和我。","r":"Sì kǒu rén: bàba, māma, jiějie hé wǒ.","tr":"Four: my dad, my mum, my older sister and me."},{"who":"Xiao Li","t":"你姐姐多大？","r":"Nǐ jiějie duō dà?","tr":"How old is your sister?"},{"who":"Tom","t":"她二十六岁。你有兄弟姐妹吗？","r":"Tā èrshíliù suì. Nǐ yǒu xiōngdì jiěmèi ma?","tr":"She's twenty-six. Do you have any brothers or sisters?"},{"who":"Xiao Li","t":"没有，我是独生子。","r":"Méiyǒu, wǒ shì dúshēngzǐ.","tr":"No, I'm an only child."}]},
+        {"p":"**{{有|yǒu}} “have”.** {{我有一个哥哥。|Wǒ yǒu yí ge gēge.}} “I have an older brother.” Like every verb, it never changes: {{他有|tā yǒu}} “he has”. Ask with {{吗|ma}}: {{你有孩子吗？|Nǐ yǒu háizi ma?}} “Do you have children?”"},
+        {"p":"**Not have: {{没有|méiyǒu}}.** {{有|yǒu}} is the one verb that never takes {{不|bù}}: “don't have” is always {{没有|méiyǒu}}, or just {{没|méi}}: {{我没有车。|Wǒ méiyǒu chē.}} “I don't have a car.” The short answer “no” to {{你有…吗？|Nǐ yǒu… ma?}} is {{没有。|Méiyǒu.}}"},
+        { "table": [
+          ["English","Chinese"],
+          ["dad","{{爸爸|bàba}}"],
+          ["mum","{{妈妈|māma}}"],
+          ["older brother","{{哥哥|gēge}}"],
+          ["older sister","{{姐姐|jiějie}}"],
+          ["younger brother","{{弟弟|dìdi}}"],
+          ["younger sister","{{妹妹|mèimei}}"],
+          ["son / daughter","{{儿子|érzi}} / {{女儿|nǚ'ér}}"]
+        ] },
+        {"p":"Chinese has no plain word for “brother” or “sister”: you always say whether they're older or younger. **How many in your family?** {{你家有几口人？|Nǐ jiā yǒu jǐ kǒu rén?}}: {{口|kǒu}} “mouth” is the measure word for the people in a family."},
+        {"p":"**Ages without {{是|shì}}.** Like a price, an age goes straight after the person, with {{岁|suì}} “years old”: {{我三十岁。|Wǒ sānshí suì.}} “I'm thirty.” Ask an adult {{你多大？|Nǐ duō dà?}} “How old are you?” and a child {{你几岁？|Nǐ jǐ suì?}}"},
+        {"p":"**All, both** is {{都|dōu}}, and it goes before the verb, like {{也|yě}}: {{我们都是学生。|Wǒmen dōu shì xuésheng.}} “We're all students.”"},
+        { "ex": [
+          {"t":"我有两个孩子。","r":"Wǒ yǒu liǎng ge háizi.","tr":"I have two children."},
+          {"t":"我没有兄弟姐妹。","r":"Wǒ méiyǒu xiōngdì jiěmèi.","tr":"I don't have any brothers or sisters."},
+          {"t":"我妹妹十八岁。","r":"Wǒ mèimei shíbā suì.","tr":"My younger sister is eighteen."},
+          {"t":"你有男朋友吗？","r":"Nǐ yǒu nánpéngyou ma?","tr":"Do you have a boyfriend?"},
+          {"t":"我爸爸妈妈都是老师。","r":"Wǒ bàba māma dōu shì lǎoshī.","tr":"My mum and dad are both teachers."},
+          {"t":"你家有几口人？","r":"Nǐ jiā yǒu jǐ kǒu rén?","tr":"How many people are there in your family?"}
+        ] },
+        {"tip":"To ask an older person's age, say {{您多大年纪了？|Nín duō dà niánjì le?}} “May I ask your age?” Many young people in China are only children, so {{独生子|dúshēngzǐ}} “only son” and {{独生女|dúshēngnǚ}} “only daughter” are everyday words."}
+      ],
+      "mistakes": [
+        {"wrong":"我不有车。","right":"我没有车。","tr":"I don't have a car.","why":"{{有|yǒu}} never takes {{不|bù}}: {{我没有车。|Wǒ méiyǒu chē.}}"},
+        {"wrong":"我是二十岁。","right":"我二十岁。","tr":"I'm twenty.","why":"An age needs no {{是|shì}}: {{我二十岁。|Wǒ èrshí suì.}}"},
+        {"wrong":"我们是都学生。","right":"我们都是学生。","tr":"We're all students.","why":"{{都|dōu}} goes before the verb: {{我们都是学生。|Wǒmen dōu shì xuésheng.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我___有车。","r":"Wǒ ___ yǒu chē.","tr":"I don't have a car.","options":["没","不","也"],"rs":["méi","bù","yě"],"answer":0,"why":"“Don't have” is {{没有|méiyǒu}}, never {{不有|bù yǒu}}."},
+        {"type":"choice","q":"Your friend asks {{你有哥哥吗？|Nǐ yǒu gēge ma?}} You don't have one. You say…","options":["{{不有。|Bù yǒu.}}","{{没有。|Méiyǒu.}}","{{不是。|Bú shì.}}"],"answer":1,"why":"Answer with the verb, and {{有|yǒu}} takes {{没|méi}}: {{没有|méiyǒu}}."},
+        {"type":"choice","q":"“My brother is twenty-five” is…","options":["{{我哥哥二十五岁。|Wǒ gēge èrshíwǔ suì.}}","{{我哥哥岁二十五。|Wǒ gēge suì èrshíwǔ.}}","{{我哥哥是岁二十五。|Wǒ gēge shì suì èrshíwǔ.}}"],"answer":0,"why":"The person, then the number and {{岁|suì}}: no verb needed."},
+        {"type":"dialogue","q":"A friend is looking at your photos. Choose your replies.","lines":[{"who":"Xiao Wang","t":"这是你的家人吗？","r":"Zhè shì nǐ de jiārén ma?","tr":"Is this your family?"},{"options":["对，这是我爸爸和我妈妈。","对，这是爸爸我和妈妈我。"],"rs":["Duì, zhè shì wǒ bàba hé wǒ māma.","Duì, zhè shì bàba wǒ hé māma wǒ."],"answer":0,"why":"The owner first: {{我爸爸|wǒ bàba}}, and no {{的|de}} with close family."},{"who":"Xiao Wang","t":"你有兄弟姐妹吗？","r":"Nǐ yǒu xiōngdì jiěmèi ma?","tr":"Do you have any brothers or sisters?"},{"options":["有，我有一个弟弟。","是，我是一个弟弟。"],"rs":["Yǒu, wǒ yǒu yí ge dìdi.","Shì, wǒ shì yí ge dìdi."],"answer":0,"why":"Answer with the verb of the question: {{有|yǒu}}."},{"who":"Xiao Wang","t":"他多大？","r":"Tā duō dà?","tr":"How old is he?"},{"options":["他十五岁。","他是十五。"],"rs":["Tā shíwǔ suì.","Tā shì shíwǔ."],"answer":0,"why":"An age: the number and {{岁|suì}}, no {{是|shì}}."}],"from":"say-whose-it-is"},
+        {"type":"order","q":"Put the words in order.","tr":"How many people are there in your family?","words":["你家","有","几口","人？"],"rs":["nǐ jiā","yǒu","jǐ kǒu","rén?"],"from":"count-things"},
+        {"type":"say","q":"Say “My mum and dad are both teachers.”","answer":"我爸爸妈妈都是老师。","r":"Wǒ bàba māma dōu shì lǎoshī."},
+        {"type":"free","q":"Your turn: tell someone about your family: how many of you, who, and how old.","answers":[{"t":"我家有三口人：爸爸、妈妈和我。我二十二岁。","r":"Wǒ jiā yǒu sān kǒu rén: bàba, māma hé wǒ. Wǒ èrshí'èr suì.","tr":"There are three of us: my dad, my mum and me. I'm twenty-two."},{"t":"我有一个姐姐和一个弟弟。我姐姐三十岁。","r":"Wǒ yǒu yí ge jiějie hé yí ge dìdi. Wǒ jiějie sānshí suì.","tr":"I have an older sister and a younger brother. My sister is thirty."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where things are",
+      "summary": "“Where's my phone?” “On the table.” Say where people and things are, and ask where they are.",
+      "topic": "{{在|zài}} + a place; {{上|shang}}, {{里|li}}, {{下面|xiàmiàn}}, {{旁边|pángbiān}}, {{前面|qiánmiàn}}, {{后面|hòumiàn}} after the noun",
+      "blocks": [
+        {"goal":{"t":"我的手机在哪儿？","r":"Wǒ de shǒujī zài nǎr?","tr":"Where's my phone?"}},
+        {"dialog":[{"who":"Anna","t":"妈，我的手机在哪儿？","r":"Mā, wǒ de shǒujī zài nǎr?","tr":"Mum, where's my phone?"},{"who":"Mum","t":"在桌子上。","r":"Zài zhuōzi shang.","tr":"On the table."},{"who":"Anna","t":"不在。","r":"Bú zài.","tr":"It's not there."},{"who":"Mum","t":"在你的包里吗？","r":"Zài nǐ de bāo li ma?","tr":"Is it in your bag?"},{"who":"Anna","t":"对，在这儿！谢谢妈！","r":"Duì, zài zhèr! Xièxie mā!","tr":"Yes, here it is! Thanks, Mum!"}]},
+        {"p":"**{{在|zài}}: to be in a place.** The person or thing, then {{在|zài}}, then the place: {{我在家。|Wǒ zài jiā.}} “I'm at home.” {{老师在学校。|Lǎoshī zài xuéxiào.}} “The teacher is at school.” Here {{在|zài}} is the verb, so “not” is {{不在|bú zài}}: {{他不在。|Tā bú zài.}} “He isn't here.”"},
+        {"p":"**On, in, under: after the noun.** English says “on the table”; Chinese says “table on”: {{桌子上|zhuōzi shang}}. The place word always comes after the thing:"},
+        { "table": [
+          ["English","Chinese"],
+          ["on the table","{{桌子上|zhuōzi shang}}"],
+          ["in the bag","{{包里|bāo li}}"],
+          ["under the chair","{{椅子下面|yǐzi xiàmiàn}}"],
+          ["next to the bank","{{银行旁边|yínháng pángbiān}}"],
+          ["in front of the school","{{学校前面|xuéxiào qiánmiàn}}"],
+          ["behind the house","{{房子后面|fángzi hòumiàn}}"]
+        ] },
+        {"p":"**Where?** is {{哪儿|nǎr}}, in the place of the answer as always: {{你在哪儿？|Nǐ zài nǎr?}} “Where are you?” **Here** is {{这儿|zhèr}} and **there** is {{那儿|nàr}}; in the south, {{这里|zhèlǐ}} and {{那里|nàlǐ}}."},
+        { "ex": [
+          {"t":"我在家。","r":"Wǒ zài jiā.","tr":"I'm at home."},
+          {"t":"你在哪儿？","r":"Nǐ zài nǎr?","tr":"Where are you?","note":"how many phone calls start"},
+          {"t":"钥匙在桌子上。","r":"Yàoshi zài zhuōzi shang.","tr":"The keys are on the table."},
+          {"t":"猫在椅子下面。","r":"Māo zài yǐzi xiàmiàn.","tr":"The cat is under the chair."},
+          {"t":"银行在超市旁边。","r":"Yínháng zài chāoshì pángbiān.","tr":"The bank is next to the supermarket."},
+          {"t":"王老师不在。","r":"Wáng lǎoshī bú zài.","tr":"Mr Wang isn't in."}
+        ] },
+        {"tip":"Cities and countries need no place word: {{我在北京。|Wǒ zài Běijīng.}} “I'm in Beijing.” Things you can be in, on or under do: {{在房间里|zài fángjiān li}} “in the room”."}
+      ],
+      "mistakes": [
+        {"wrong":"手机在上桌子。","right":"手机在桌子上。","tr":"The phone is on the table.","why":"The place word goes after the noun: {{桌子上|zhuōzi shang}}, “table on”."},
+        {"wrong":"我是在家。","right":"我在家。","tr":"I'm at home.","why":"{{在|zài}} is already the verb “to be (somewhere)”: no {{是|shì}} needed. {{我在家。|Wǒ zài jiā.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"钥匙在包___。","r":"Yàoshi zài bāo ___.","tr":"The keys are in the bag.","options":["里","上","在"],"rs":["li","shang","zài"],"answer":0,"why":"“In” is {{里|li}}, after the noun: {{包里|bāo li}}."},
+        {"type":"choice","q":"“Under the chair” is…","options":["{{椅子下面|yǐzi xiàmiàn}}","{{下面椅子|xiàmiàn yǐzi}}","{{在下椅子|zài xià yǐzi}}"],"answer":0,"why":"The thing first, then the place word."},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","lines":[{"who":"Friend","t":"喂，你在哪儿？","r":"Wéi, nǐ zài nǎr?","tr":"Hello, where are you?"},{"options":["我在超市。","我是超市。"],"rs":["Wǒ zài chāoshì.","Wǒ shì chāoshì."],"answer":0,"why":"Being somewhere: {{在|zài}}. ({{我是超市|wǒ shì chāoshì}} is “I am a supermarket”.)"},{"who":"Friend","t":"超市在哪儿？","r":"Chāoshì zài nǎr?","tr":"Where's the supermarket?"},{"options":["在银行旁边。","在旁边银行。"],"rs":["Zài yínháng pángbiān.","Zài pángbiān yínháng."],"answer":0,"why":"{{银行旁边|yínháng pángbiān}}: “bank next-to”."},{"who":"Friend","t":"好，我马上来！","r":"Hǎo, wǒ mǎshàng lái!","tr":"OK, I'm coming right now!"}],"from":"ask-who-what-where"},
+        {"type":"order","q":"Put the words in order.","tr":"The bank is next to the supermarket.","words":["银行","在","超市","旁边。"],"rs":["yínháng","zài","chāoshì","pángbiān."]},
+        {"type":"say","q":"Ask: “Where's my book?”","answer":"我的书在哪儿？","r":"Wǒ de shū zài nǎr?","from":"say-whose-it-is"},
+        {"type":"free","q":"Your turn: say where three things in your room are.","answers":[{"t":"我的手机在桌子上。我的包在椅子下面。","r":"Wǒ de shǒujī zài zhuōzi shang. Wǒ de bāo zài yǐzi xiàmiàn.","tr":"My phone is on the table. My bag is under the chair."},{"t":"猫在床上。书在包里。","r":"Māo zài chuáng shang. Shū zài bāo li.","tr":"The cat is on the bed. The book is in the bag."}]}
+      ]
+    },
+    {
+      "id": "say-what-is-there",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what there is",
+      "summary": "“There's a café near here”, “Is there a bank nearby?”, “There's no one in the room”: say what there is in a place.",
+      "topic": "The place + {{有|yǒu}} + the thing; {{没有|méiyǒu}}; {{有|yǒu}} for something new, {{在|zài}} for something known",
+      "blocks": [
+        {"goal":{"t":"附近有咖啡馆吗？","r":"Fùjìn yǒu kāfēiguǎn ma?","tr":"Is there a café nearby?"}},
+        {"dialog":[{"who":"You","t":"请问，附近有银行吗？","r":"Qǐngwèn, fùjìn yǒu yínháng ma?","tr":"Excuse me, is there a bank near here?"},{"who":"Passer-by","t":"有。前面有一个中国银行。","r":"Yǒu. Qiánmiàn yǒu yí ge Zhōngguó Yínháng.","tr":"Yes. There's a Bank of China up ahead."},{"who":"You","t":"附近有地铁站吗？","r":"Fùjìn yǒu dìtiězhàn ma?","tr":"Is there a subway station nearby?"},{"who":"Passer-by","t":"没有，地铁站很远。","r":"Méiyǒu, dìtiězhàn hěn yuǎn.","tr":"No, the subway station is far."},{"who":"You","t":"好，谢谢！","r":"Hǎo, xièxie!","tr":"OK, thanks!"}]},
+        {"p":"**There is: the place, then {{有|yǒu}}.** Chinese uses the same {{有|yǒu}} as “have”: the place “has” the thing. So the place comes first: {{附近有一个银行。|Fùjìn yǒu yí ge yínháng.}} “There's a bank nearby” (“nearby has a bank”). {{房间里有两张床。|Fángjiān li yǒu liǎng zhāng chuáng.}} “There are two beds in the room.”"},
+        {"p":"**There isn't** is {{没有|méiyǒu}}: {{冰箱里没有牛奶。|Bīngxiāng li méiyǒu niúnǎi.}} “There's no milk in the fridge.” Ask with {{吗|ma}}, and answer {{有|yǒu}} or {{没有|méiyǒu}}."},
+        {"p":"**{{有|yǒu}} or {{在|zài}}?** Both are about places, but they start from different ends. {{有|yǒu}} brings in something new: “There's a bank up ahead.” {{在|zài}} says where something already known is: “The bank is up ahead.”"},
+        { "table": [
+          ["","Starts with","Chinese","Meaning"],
+          ["{{有|yǒu}}","the place","{{前面有一个银行。|Qiánmiàn yǒu yí ge yínháng.}}","There's a bank up ahead."],
+          ["{{在|zài}}","the thing","{{银行在前面。|Yínháng zài qiánmiàn.}}","The bank is up ahead."]
+        ] },
+        { "ex": [
+          {"t":"附近有超市吗？","r":"Fùjìn yǒu chāoshì ma?","tr":"Is there a supermarket nearby?"},
+          {"t":"桌子上有一本书。","r":"Zhuōzi shang yǒu yì běn shū.","tr":"There's a book on the table."},
+          {"t":"教室里没有人。","r":"Jiàoshì li méiyǒu rén.","tr":"There's no one in the classroom."},
+          {"t":"我家旁边有一个公园。","r":"Wǒ jiā pángbiān yǒu yí ge gōngyuán.","tr":"There's a park next to my home."},
+          {"t":"冰箱里有什么？","r":"Bīngxiāng li yǒu shénme?","tr":"What's in the fridge?"},
+          {"t":"北京有很多好吃的。","r":"Běijīng yǒu hěn duō hǎochī de.","tr":"There's lots of good food in Beijing.","note":"{{好吃的|hǎochī de}}: “good-to-eat things”"}
+        ] },
+        {"tip":"{{请问|qǐngwèn}} “may I ask” is the polite way to start a question to a stranger, like “Excuse me”: {{请问，洗手间在哪儿？|Qǐngwèn, xǐshǒujiān zài nǎr?}} “Excuse me, where's the restroom?”"}
+      ],
+      "mistakes": [
+        {"wrong":"有一个银行在附近。","right":"附近有一个银行。","tr":"There's a bank nearby.","why":"Start with the place, then {{有|yǒu}}: {{附近有一个银行。|Fùjìn yǒu yí ge yínháng.}}"},
+        {"wrong":"房间里不有人。","right":"房间里没有人。","tr":"There's no one in the room.","why":"Never {{不有|bù yǒu}}: “there isn't” is {{没有|méiyǒu}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"附近___地铁站吗？","r":"Fùjìn ___ dìtiězhàn ma?","tr":"Is there a subway station nearby?","options":["有","在","是"],"rs":["yǒu","zài","shì"],"answer":0,"why":"The place first, then {{有|yǒu}}: “nearby has…”."},
+        {"type":"choice","q":"“The bank is next to the park” is…","options":["{{银行在公园旁边。|Yínháng zài gōngyuán pángbiān.}}","{{公园旁边在银行。|Gōngyuán pángbiān zài yínháng.}}","{{银行有公园旁边。|Yínháng yǒu gōngyuán pángbiān.}}"],"answer":0,"why":"A known thing and where it is: the thing, {{在|zài}}, the place."},
+        {"type":"choice","q":"“There's a cat under the table” is…","options":["{{桌子下面有一只猫。|Zhuōzi xiàmiàn yǒu yì zhī māo.}}","{{一只猫有桌子下面。|Yì zhī māo yǒu zhuōzi xiàmiàn.}}"],"answer":0,"why":"Something new: the place, {{有|yǒu}}, the thing.","from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"There's no milk in the fridge.","words":["冰箱里","没有","牛奶。"],"rs":["bīngxiāng li","méiyǒu","niúnǎi."],"from":"talk-about-your-family"},
+        {"type":"say","q":"Ask a stranger politely: “Excuse me, is there a bank nearby?”","answer":"请问，附近有银行吗？","r":"Qǐngwèn, fùjìn yǒu yínháng ma?"},
+        {"type":"free","q":"Your turn: describe your street or neighbourhood. What is there, and what isn't there?","answers":[{"t":"我家附近有一个超市和一个公园，没有地铁站。","r":"Wǒ jiā fùjìn yǒu yí ge chāoshì hé yí ge gōngyuán, méiyǒu dìtiězhàn.","tr":"Near my home there's a supermarket and a park, but no subway station."},{"t":"我们街上有很多咖啡馆，没有银行。","r":"Wǒmen jiē shang yǒu hěn duō kāfēiguǎn, méiyǒu yínháng.","tr":"There are lots of cafés on our street, but no bank."}]}
+      ]
     }
   ]
 }
