@@ -904,6 +904,907 @@
       "meaning": "to help; help",
       "sentence": "Tabangi ko, palihug.",
       "translation": "Please ⟦help⟧ me."
+    },
+    {
+      "n": 101,
+      "rank": 101,
+      "word": "gawas",
+      "pos": "noun",
+      "meaning": "outside; except (gawas sa); to go out (mogawas)",
+      "sentence": "Naa siya sa gawas.",
+      "translation": "He's ⟦outside⟧."
+    },
+    {
+      "n": 102,
+      "rank": 102,
+      "word": "kaniya",
+      "pos": "pron",
+      "meaning": "to him; to her; him; her (after a word like sa)",
+      "sentence": "Ihatag kini kaniya.",
+      "translation": "Give this to ⟦her⟧."
+    },
+    {
+      "n": 103,
+      "rank": 103,
+      "word": "kang",
+      "pos": "prep",
+      "meaning": "to; of (before a person's name or a title)",
+      "sentence": "Ihatag ni kang Mama.",
+      "translation": "Give this ⟦to⟧ Mom."
+    },
+    {
+      "n": 104,
+      "rank": 104,
+      "word": "nila",
+      "pos": "pron",
+      "meaning": "them; their; by them (after a noun or a verb)",
+      "sentence": "Gitabangan ko nila.",
+      "translation": "⟦They⟧ helped me."
+    },
+    {
+      "n": 105,
+      "rank": 105,
+      "word": "dapit",
+      "pos": "noun",
+      "meaning": "place; area; near (sa dapit)",
+      "sentence": "Nindot kaayo kini nga dapit.",
+      "translation": "This ⟦place⟧ is really nice."
+    },
+    {
+      "n": 106,
+      "rank": 106,
+      "word": "kana",
+      "pos": "pron",
+      "meaning": "that (near you)",
+      "sentence": "Unsa kana?",
+      "translation": "What's ⟦that⟧?"
+    },
+    {
+      "n": 107,
+      "rank": 107,
+      "word": "pili",
+      "pos": "verb",
+      "meaning": "to choose; to pick",
+      "sentence": "Pilia ang imong gusto.",
+      "translation": "⟦Pick⟧ the one you like."
+    },
+    {
+      "n": 108,
+      "rank": 108,
+      "word": "dali",
+      "pos": "adj",
+      "meaning": "quick; easy; hurry!",
+      "sentence": "Dali, ulahi na ta!",
+      "translation": "⟦Hurry⟧, we're late!"
+    },
+    {
+      "n": 109,
+      "rank": 109,
+      "word": "hinungdan",
+      "pos": "noun",
+      "meaning": "reason; cause",
+      "sentence": "Unsa ang hinungdan?",
+      "translation": "What's the ⟦reason⟧?"
+    },
+    {
+      "n": 110,
+      "rank": 110,
+      "word": "sugod",
+      "pos": "verb",
+      "meaning": "to start; to begin",
+      "sentence": "Magsugod na ta.",
+      "translation": "Let's ⟦start⟧."
+    },
+    {
+      "n": 111,
+      "rank": 111,
+      "word": "sulti",
+      "pos": "verb",
+      "meaning": "to tell; to say; to speak",
+      "sentence": "Isulti nako kaniya.",
+      "translation": "I'll ⟦tell⟧ her."
+    },
+    {
+      "n": 112,
+      "rank": 112,
+      "word": "matag",
+      "pos": "adj",
+      "meaning": "every; each",
+      "sentence": "Moadto ko didto matag Domingo.",
+      "translation": "I go there ⟦every⟧ Sunday."
+    },
+    {
+      "n": 113,
+      "rank": 113,
+      "word": "padayon",
+      "pos": "verb",
+      "meaning": "to continue; to keep on",
+      "sentence": "Padayon ta sa pagbasa.",
+      "translation": "Let's ⟦keep⟧ reading."
+    },
+    {
+      "n": 114,
+      "rank": 114,
+      "word": "kanila",
+      "pos": "pron",
+      "meaning": "to them; them (after a word like sa)",
+      "sentence": "Isulti kini kanila.",
+      "translation": "Tell ⟦them⟧ this."
+    },
+    {
+      "n": 115,
+      "rank": 115,
+      "word": "kinabuhi",
+      "pos": "noun",
+      "meaning": "life",
+      "sentence": "Lisud ang kinabuhi.",
+      "translation": "⟦Life⟧ is hard."
+    },
+    {
+      "n": 116,
+      "rank": 116,
+      "word": "sabot",
+      "pos": "verb",
+      "meaning": "to understand (nakasabot: understood); agreement",
+      "sentence": "Nakasabot ka?",
+      "translation": "Do you ⟦understand⟧?"
+    },
+    {
+      "n": 117,
+      "rank": 117,
+      "word": "tinuod",
+      "pos": "adj",
+      "meaning": "true; real",
+      "sentence": "Tinuod ba?",
+      "translation": "Is it ⟦true⟧?"
+    },
+    {
+      "n": 118,
+      "rank": 118,
+      "word": "kaon",
+      "pos": "verb",
+      "meaning": "to eat",
+      "sentence": "Nikaon na ka?",
+      "translation": "Have you ⟦eaten⟧?"
+    },
+    {
+      "n": 119,
+      "rank": 119,
+      "word": "didto",
+      "pos": "adv",
+      "meaning": "there (far away)",
+      "sentence": "Didto siya nagtrabaho kaniadto.",
+      "translation": "He used to work ⟦there⟧."
+    },
+    {
+      "n": 120,
+      "rank": 120,
+      "word": "produkto",
+      "pos": "noun",
+      "meaning": "product",
+      "sentence": "Maayo kaayo kini nga produkto.",
+      "translation": "This is a really good ⟦product⟧."
+    },
+    {
+      "n": 121,
+      "rank": 121,
+      "word": "kalibutan",
+      "pos": "noun",
+      "meaning": "world",
+      "sentence": "Gamay ra ang kalibutan!",
+      "translation": "It's a small ⟦world⟧!"
+    },
+    {
+      "n": 122,
+      "rank": 122,
+      "word": "tapos",
+      "pos": "adj",
+      "meaning": "finished; done (katapusan: end; last)",
+      "sentence": "Tapos na ko.",
+      "translation": "I'm ⟦done⟧."
+    },
+    {
+      "n": 123,
+      "rank": 123,
+      "word": "babaye",
+      "pos": "noun",
+      "meaning": "woman; girl; female",
+      "sentence": "Kinsa kanang babaye?",
+      "translation": "Who's that ⟦woman⟧?"
+    },
+    {
+      "n": 124,
+      "rank": 124,
+      "word": "bata",
+      "pos": "noun",
+      "meaning": "child; kid; young",
+      "sentence": "Nagdula ang mga bata sa gawas.",
+      "translation": "The ⟦kids⟧ are playing outside."
+    },
+    {
+      "n": 125,
+      "rank": 125,
+      "word": "trabaho",
+      "pos": "noun",
+      "meaning": "work; job; to work",
+      "sentence": "Asa ka nagtrabaho?",
+      "translation": "Where do you ⟦work⟧?"
+    },
+    {
+      "n": 126,
+      "rank": 126,
+      "word": "unya",
+      "pos": "adv",
+      "meaning": "later; then; and then",
+      "sentence": "Magkita ta unya.",
+      "translation": "See you ⟦later⟧."
+    },
+    {
+      "n": 127,
+      "rank": 127,
+      "word": "inyong",
+      "pos": "pron",
+      "meaning": "your (more than one; before a noun)",
+      "sentence": "Asa ang inyong balay?",
+      "translation": "Where's ⟦your⟧ house?"
+    },
+    {
+      "n": 128,
+      "rank": 128,
+      "word": "balay",
+      "pos": "noun",
+      "meaning": "house; home",
+      "sentence": "Ania na ko sa balay.",
+      "translation": "I'm ⟦home⟧ now."
+    },
+    {
+      "n": 129,
+      "rank": 129,
+      "word": "yuta",
+      "pos": "noun",
+      "meaning": "ground; land; earth",
+      "sentence": "Nahulog sa yuta ang akong selpon.",
+      "translation": "My phone fell on the ⟦ground⟧."
+    },
+    {
+      "n": 130,
+      "rank": 130,
+      "word": "nato",
+      "pos": "pron",
+      "meaning": "us; our; by us (you and I; after a noun or a verb)",
+      "sentence": "Asa nato ibutang?",
+      "translation": "Where shall ⟦we⟧ put it?"
+    },
+    {
+      "n": 131,
+      "rank": 131,
+      "word": "hangtod",
+      "pos": "prep",
+      "meaning": "until; up to; as far as",
+      "sentence": "Naghulat ko hangtod alas siyete.",
+      "translation": "I waited ⟦until⟧ seven."
+    },
+    {
+      "n": 132,
+      "rank": 132,
+      "word": "diin",
+      "pos": "pron",
+      "meaning": "where (which place); taga-diin: from where",
+      "sentence": "Taga-diin ka?",
+      "translation": "⟦Where⟧ are you from?"
+    },
+    {
+      "n": 133,
+      "rank": 133,
+      "word": "lain",
+      "pos": "adj",
+      "meaning": "other; else; different; another",
+      "sentence": "Naa pa bay lain?",
+      "translation": "Is there anything ⟦else⟧?"
+    },
+    {
+      "n": 134,
+      "rank": 134,
+      "word": "kinsa",
+      "pos": "pron",
+      "meaning": "who",
+      "sentence": "Kinsa ka?",
+      "translation": "⟦Who⟧ are you?"
+    },
+    {
+      "n": 135,
+      "rank": 135,
+      "word": "adto",
+      "pos": "verb",
+      "meaning": "to go (there)",
+      "sentence": "Moadto ko sa merkado.",
+      "translation": "I'm ⟦going⟧ to the market."
+    },
+    {
+      "n": 136,
+      "rank": 136,
+      "word": "pipila",
+      "pos": "adj",
+      "meaning": "a few; some",
+      "sentence": "Pipila ra ka minuto.",
+      "translation": "Just ⟦a few⟧ minutes."
+    },
+    {
+      "n": 137,
+      "rank": 137,
+      "word": "hunahuna",
+      "pos": "verb",
+      "meaning": "to think; thought; mind",
+      "sentence": "Unsa imong hunahuna?",
+      "translation": "What do you ⟦think⟧?"
+    },
+    {
+      "n": 138,
+      "rank": 138,
+      "word": "pakita",
+      "pos": "verb",
+      "meaning": "to show",
+      "sentence": "Ipakita nako nimo.",
+      "translation": "I'll ⟦show⟧ you."
+    },
+    {
+      "n": 139,
+      "rank": 139,
+      "word": "tibuok",
+      "pos": "adj",
+      "meaning": "whole; entire",
+      "sentence": "Natulog ko sa tibuok adlaw.",
+      "translation": "I slept the ⟦whole⟧ day."
+    },
+    {
+      "n": 140,
+      "rank": 140,
+      "word": "busa",
+      "pos": "conj",
+      "meaning": "so; therefore",
+      "sentence": "Nag-ulan, busa wala mi mogawas.",
+      "translation": "It rained, ⟦so⟧ we didn't go out."
+    },
+    {
+      "n": 141,
+      "rank": 141,
+      "word": "ayaw",
+      "pos": "part",
+      "meaning": "don't",
+      "sentence": "Ayaw kabalaka.",
+      "translation": "⟦Don't⟧ worry."
+    },
+    {
+      "n": 142,
+      "rank": 142,
+      "word": "samtang",
+      "pos": "conj",
+      "meaning": "while",
+      "sentence": "Nagkanta siya samtang nagluto.",
+      "translation": "She sang ⟦while⟧ she cooked."
+    },
+    {
+      "n": 143,
+      "rank": 143,
+      "word": "lipay",
+      "pos": "adj",
+      "meaning": "glad; happy (nalipay: was glad; malipayon: cheerful; kalipay: joy)",
+      "sentence": "Nalipay ko nga nakita ka.",
+      "translation": "I'm ⟦glad⟧ to see you."
+    },
+    {
+      "n": 144,
+      "rank": 144,
+      "word": "lalaki",
+      "pos": "noun",
+      "meaning": "man; boy; male",
+      "sentence": "Gwapo kaayo kanang lalaki.",
+      "translation": "That ⟦guy⟧ is really handsome."
+    },
+    {
+      "n": 145,
+      "rank": 145,
+      "word": "lamang",
+      "pos": "part",
+      "meaning": "only; just (a bit formal; in speech lang)",
+      "sentence": "Gusto ko lamang nga mopahulay.",
+      "translation": "I ⟦just⟧ want to rest."
+    },
+    {
+      "n": 146,
+      "rank": 146,
+      "word": "ngalan",
+      "pos": "noun",
+      "meaning": "name",
+      "sentence": "Unsa ang ngalan sa imong iro?",
+      "translation": "What's your dog's ⟦name⟧?"
+    },
+    {
+      "n": 147,
+      "rank": 147,
+      "word": "diay",
+      "pos": "part",
+      "meaning": "so; oh, really (on finding something out)",
+      "sentence": "Ikaw diay ang bag-ong maestra!",
+      "translation": "⟦So⟧ you're the new teacher!"
+    },
+    {
+      "n": 148,
+      "rank": 148,
+      "word": "tawag",
+      "pos": "verb",
+      "meaning": "to call; to phone",
+      "sentence": "Tawagi ko ugma.",
+      "translation": "⟦Call⟧ me tomorrow."
+    },
+    {
+      "n": 149,
+      "rank": 149,
+      "word": "balik",
+      "pos": "verb",
+      "meaning": "to come back; to return; again",
+      "sentence": "Mobalik ko ugma.",
+      "translation": "I'll ⟦come back⟧ tomorrow."
+    },
+    {
+      "n": 150,
+      "rank": 150,
+      "word": "namo",
+      "pos": "pron",
+      "meaning": "us; our; by us (not you; after a noun or a verb)",
+      "sentence": "Bisitaha mi sa balay namo.",
+      "translation": "Come visit us at ⟦our⟧ house."
+    },
+    {
+      "n": 151,
+      "rank": 151,
+      "word": "palit",
+      "pos": "verb",
+      "meaning": "to buy",
+      "sentence": "Asa nimo gipalit kana?",
+      "translation": "Where did you ⟦buy⟧ that?"
+    },
+    {
+      "n": 152,
+      "rank": 152,
+      "word": "kanunay",
+      "pos": "adv",
+      "meaning": "always; often",
+      "sentence": "Kanunay siyang ulahi.",
+      "translation": "He's ⟦always⟧ late."
+    },
+    {
+      "n": 153,
+      "rank": 153,
+      "word": "pero",
+      "pos": "conj",
+      "meaning": "but",
+      "sentence": "Gamay ra, pero lami kaayo.",
+      "translation": "It's small, ⟦but⟧ really tasty."
+    },
+    {
+      "n": 154,
+      "rank": 154,
+      "word": "kanako",
+      "pos": "pron",
+      "meaning": "to me; me (after a word like sa)",
+      "sentence": "Salig lang kanako.",
+      "translation": "Just trust ⟦me⟧."
+    },
+    {
+      "n": 155,
+      "rank": 155,
+      "word": "ngano",
+      "pos": "adv",
+      "meaning": "why",
+      "sentence": "Nganong wala ka moabot?",
+      "translation": "⟦Why⟧ didn't you come?"
+    },
+    {
+      "n": 156,
+      "rank": 156,
+      "word": "ta",
+      "pos": "pron",
+      "meaning": "we; us; let's (short for kita)",
+      "sentence": "Adto ta!",
+      "translation": "⟦Let's⟧ go!"
+    },
+    {
+      "n": 157,
+      "rank": 157,
+      "word": "gihapon",
+      "pos": "adv",
+      "meaning": "still; anyway; as always",
+      "sentence": "Nag-ulan gihapon.",
+      "translation": "It's ⟦still⟧ raining."
+    },
+    {
+      "n": 158,
+      "rank": 158,
+      "word": "nasud",
+      "pos": "noun",
+      "meaning": "country; nation (also nasod)",
+      "sentence": "Nindot kaayo ang inyong nasud.",
+      "translation": "Your ⟦country⟧ is really beautiful."
+    },
+    {
+      "n": 159,
+      "rank": 159,
+      "word": "oras",
+      "pos": "noun",
+      "meaning": "hour; time",
+      "sentence": "Unsa nang orasa?",
+      "translation": "What ⟦time⟧ is it?"
+    },
+    {
+      "n": 160,
+      "rank": 160,
+      "word": "patay",
+      "pos": "adj",
+      "meaning": "dead; to die (namatay); to turn off (patya)",
+      "sentence": "Patay na ang akong selpon.",
+      "translation": "My phone is ⟦dead⟧."
+    },
+    {
+      "n": 161,
+      "rank": 161,
+      "word": "hitabo",
+      "pos": "verb",
+      "meaning": "to happen (nahitabo: happened)",
+      "sentence": "Unsay nahitabo?",
+      "translation": "What ⟦happened⟧?"
+    },
+    {
+      "n": 162,
+      "rank": 162,
+      "word": "baligya",
+      "pos": "verb",
+      "meaning": "to sell; goods for sale",
+      "sentence": "Unsa imong gibaligya?",
+      "translation": "What are you ⟦selling⟧?"
+    },
+    {
+      "n": 163,
+      "rank": 163,
+      "word": "dula",
+      "pos": "verb",
+      "meaning": "to play; game",
+      "sentence": "Magdula ta!",
+      "translation": "Let's ⟦play⟧!"
+    },
+    {
+      "n": 164,
+      "rank": 165,
+      "word": "gamay",
+      "pos": "adj",
+      "meaning": "small; little",
+      "sentence": "Gamay ra kaayo kini.",
+      "translation": "This is too ⟦small⟧."
+    },
+    {
+      "n": 165,
+      "rank": 166,
+      "word": "para",
+      "pos": "prep",
+      "meaning": "for (para sa)",
+      "sentence": "Para asa ni?",
+      "translation": "What's this ⟦for⟧?"
+    },
+    {
+      "n": 166,
+      "rank": 167,
+      "word": "sakit",
+      "pos": "adj",
+      "meaning": "sick; painful; illness; pain",
+      "sentence": "Sakit ang akong ulo.",
+      "translation": "My head ⟦hurts⟧."
+    },
+    {
+      "n": 167,
+      "rank": 168,
+      "word": "dawat",
+      "pos": "verb",
+      "meaning": "to receive; to get; to accept",
+      "sentence": "Nakadawat ka sa akong text?",
+      "translation": "Did you ⟦get⟧ my text?"
+    },
+    {
+      "n": 168,
+      "rank": 169,
+      "word": "basa",
+      "pos": "verb",
+      "meaning": "to read",
+      "sentence": "Ganahan ko mobasa og libro.",
+      "translation": "I like to ⟦read⟧ books."
+    },
+    {
+      "n": 169,
+      "rank": 170,
+      "word": "dayon",
+      "pos": "adv",
+      "meaning": "then; right away; come in! (dayon)",
+      "sentence": "Dayon lang sa sulod.",
+      "translation": "⟦Come⟧ on in."
+    },
+    {
+      "n": 170,
+      "rank": 171,
+      "word": "pangita",
+      "pos": "verb",
+      "meaning": "to look for; to search",
+      "sentence": "Unsa imong gipangita?",
+      "translation": "What are you ⟦looking for⟧?"
+    },
+    {
+      "n": 171,
+      "rank": 172,
+      "word": "higayon",
+      "pos": "noun",
+      "meaning": "chance; opportunity; occasion",
+      "sentence": "Kini ang imong higayon.",
+      "translation": "This is your ⟦chance⟧."
+    },
+    {
+      "n": 172,
+      "rank": 173,
+      "word": "ani",
+      "pos": "pron",
+      "meaning": "this; of this (in speech, for niini)",
+      "sentence": "Buhata ingon ani.",
+      "translation": "Do it like ⟦this⟧."
+    },
+    {
+      "n": 173,
+      "rank": 174,
+      "word": "sulat",
+      "pos": "verb",
+      "meaning": "to write; letter",
+      "sentence": "Isulat ang imong ngalan dinhi.",
+      "translation": "⟦Write⟧ your name here."
+    },
+    {
+      "n": 174,
+      "rank": 175,
+      "word": "dinhi",
+      "pos": "adv",
+      "meaning": "here",
+      "sentence": "Dinhi ra ko maghulat.",
+      "translation": "I'll wait right ⟦here⟧."
+    },
+    {
+      "n": 175,
+      "rank": 176,
+      "word": "ubos",
+      "pos": "adv",
+      "meaning": "below; downstairs; under; low",
+      "sentence": "Naa siya sa ubos.",
+      "translation": "He's ⟦downstairs⟧."
+    },
+    {
+      "n": 176,
+      "rank": 177,
+      "word": "ginoo",
+      "pos": "noun",
+      "meaning": "Lord; gentleman",
+      "sentence": "Ginoo, tabangi ko.",
+      "translation": "⟦Lord⟧, help me."
+    },
+    {
+      "n": 177,
+      "rank": 178,
+      "word": "daot",
+      "pos": "adj",
+      "meaning": "bad; evil; damaged (daotan)",
+      "sentence": "Daotan siya nga tawo.",
+      "translation": "He's a ⟦bad⟧ person."
+    },
+    {
+      "n": 178,
+      "rank": 179,
+      "word": "pulong",
+      "pos": "noun",
+      "meaning": "word; to speak (mamulong)",
+      "sentence": "Unsa ang buot ipasabot niini nga pulong?",
+      "translation": "What does this ⟦word⟧ mean?"
+    },
+    {
+      "n": 179,
+      "rank": 180,
+      "word": "luwas",
+      "pos": "adj",
+      "meaning": "safe; to save, to rescue",
+      "sentence": "Luwas ka diri.",
+      "translation": "You're ⟦safe⟧ here."
+    },
+    {
+      "n": 180,
+      "rank": 181,
+      "word": "tubag",
+      "pos": "verb",
+      "meaning": "to answer; answer",
+      "sentence": "Wala siya mitubag.",
+      "translation": "She didn't ⟦answer⟧."
+    },
+    {
+      "n": 181,
+      "rank": 182,
+      "word": "pangutana",
+      "pos": "noun",
+      "meaning": "question; to ask (mangutana)",
+      "sentence": "Pwede ko mangutana?",
+      "translation": "Can I ⟦ask⟧ something?",
+      "form": "mangutana"
+    },
+    {
+      "n": 182,
+      "rank": 183,
+      "word": "tubig",
+      "pos": "noun",
+      "meaning": "water",
+      "sentence": "Pwede ko mangayo og tubig?",
+      "translation": "Could I have some ⟦water⟧?"
+    },
+    {
+      "n": 183,
+      "rank": 184,
+      "word": "angay",
+      "pos": "adj",
+      "meaning": "should; right, fitting",
+      "sentence": "Angay ka mopahulay.",
+      "translation": "You ⟦should⟧ rest."
+    },
+    {
+      "n": 184,
+      "rank": 185,
+      "word": "kaninyo",
+      "pos": "pron",
+      "meaning": "to you; you (more than one; after a word like sa)",
+      "sentence": "Salamat kaninyong tanan.",
+      "translation": "Thank ⟦you⟧ all."
+    },
+    {
+      "n": 185,
+      "rank": 186,
+      "word": "giunsa",
+      "pos": "adv",
+      "meaning": "how (did...); giunsa pag-...: how to",
+      "sentence": "Giunsa nimo pagluto kini?",
+      "translation": "⟦How⟧ did you cook this?"
+    },
+    {
+      "n": 186,
+      "rank": 187,
+      "word": "ana",
+      "pos": "pron",
+      "meaning": "that; of that (in speech, for niana)",
+      "sentence": "Ayaw ana!",
+      "translation": "Don't do ⟦that⟧!"
+    },
+    {
+      "n": 187,
+      "rank": 188,
+      "word": "lugar",
+      "pos": "noun",
+      "meaning": "place; town; area",
+      "sentence": "Nindot ang inyong lugar.",
+      "translation": "Your ⟦town⟧ is lovely."
+    },
+    {
+      "n": 188,
+      "rank": 189,
+      "word": "kusog",
+      "pos": "adj",
+      "meaning": "strong; loud; fast; heavy (rain)",
+      "sentence": "Kusog kaayo ang ulan.",
+      "translation": "The rain is really ⟦heavy⟧."
+    },
+    {
+      "n": 189,
+      "rank": 190,
+      "word": "serbisyo",
+      "pos": "noun",
+      "meaning": "service",
+      "sentence": "Maayo ang serbisyo dinhi.",
+      "translation": "The ⟦service⟧ here is good."
+    },
+    {
+      "n": 190,
+      "rank": 191,
+      "word": "asa",
+      "pos": "pron",
+      "meaning": "where",
+      "sentence": "Asa ang CR?",
+      "translation": "⟦Where⟧ is the restroom?"
+    },
+    {
+      "n": 191,
+      "rank": 192,
+      "word": "lakip",
+      "pos": "prep",
+      "meaning": "including; included; to include",
+      "sentence": "Lakip na ang pagkaon.",
+      "translation": "Food is ⟦included⟧."
+    },
+    {
+      "n": 192,
+      "rank": 193,
+      "word": "sulay",
+      "pos": "verb",
+      "meaning": "to try; to test",
+      "sentence": "Sulayi kini.",
+      "translation": "⟦Try⟧ this."
+    },
+    {
+      "n": 193,
+      "rank": 194,
+      "word": "salig",
+      "pos": "verb",
+      "meaning": "to trust; to rely on",
+      "sentence": "Nagsalig ko nimo.",
+      "translation": "I ⟦trust⟧ you."
+    },
+    {
+      "n": 194,
+      "rank": 195,
+      "word": "buhi",
+      "pos": "adj",
+      "meaning": "alive; living; to raise (animals)",
+      "sentence": "Buhi pa ang akong lola.",
+      "translation": "My grandma is still ⟦alive⟧."
+    },
+    {
+      "n": 195,
+      "rank": 196,
+      "word": "salamat",
+      "pos": "interj",
+      "meaning": "thank you; thanks",
+      "sentence": "Salamat sa pagkaon.",
+      "translation": "⟦Thanks⟧ for the food."
+    },
+    {
+      "n": 196,
+      "rank": 197,
+      "word": "niadto",
+      "pos": "adv",
+      "meaning": "last (niadtong Lunes: last Monday); then, that time",
+      "sentence": "Nagkita mi niadtong Lunes.",
+      "translation": "We met ⟦last⟧ Monday."
+    },
+    {
+      "n": 197,
+      "rank": 200,
+      "word": "panid",
+      "pos": "noun",
+      "meaning": "page",
+      "sentence": "Ablihi ang libro sa panid diyes.",
+      "translation": "Open the book to ⟦page⟧ ten."
+    },
+    {
+      "n": 198,
+      "rank": 201,
+      "word": "bati",
+      "pos": "verb",
+      "meaning": "to feel (gibati); ugly (bati)",
+      "sentence": "Unsa imong gibati karon?",
+      "translation": "How do you ⟦feel⟧ now?"
+    },
+    {
+      "n": 199,
+      "rank": 202,
+      "word": "niana",
+      "pos": "pron",
+      "meaning": "that; of that (after a verb or sa)",
+      "sentence": "Ganahan ko niana.",
+      "translation": "I like ⟦that⟧."
+    },
+    {
+      "n": 200,
+      "rank": 203,
+      "word": "kaniadto",
+      "pos": "adv",
+      "meaning": "before; in the past; back then",
+      "sentence": "Mas barato kaniadto.",
+      "translation": "It was cheaper ⟦before⟧."
     }
   ]
 }
