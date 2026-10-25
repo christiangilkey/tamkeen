@@ -1,0 +1,59 @@
+28cba55d Escanear
+8736c3f2 También puedes soltar una imagen aquí o pegarla (Ctrl+V).
+90c9157a Editar como texto
+0e944cb6 La lee tu IA ({0}). La foto solo se envía a {0}, para leerla, y no se guarda.
+7a306558 Leerla en este dispositivo
+6d311c94 Se lee en este dispositivo: lee el texto impreso mucho mejor que la letra a mano.
+cb7d64aa Leerla con {0} (también lee la letra a mano)
+629506d7 No tienes conexión, así que tu IA no puede leerla ahora.
+7f24ba53 Tu IA no puede leer imágenes.
+317a4d5c La IA lee las dos:
+4b7498b8 configura la IA
+2183d7a8 La IA lee las dos, pero está desactivada en Ajustes.
+dc75ff73 Las marcas vocálicas a menudo se pierden: revísalas.
+a580792c El texto escrito de arriba abajo no se lee.
+4eb8f703 Para leer {0} en este dispositivo hace falta una descarga única de {1} MB.
+074b0ca6 Este dispositivo no puede leer fotos por sí mismo y la IA no está configurada:
+e7c6795e Haz una foto de una lista de palabras, de una página de tu libro o de una sola palabra.
+78781426 Elige una imagen de una lista de palabras, de una página de un libro o de una sola palabra.
+2298471c Hacer una foto
+90bd2810 Elegir una foto
+d2a4ac8c Elegir una imagen
+c6600b3c Abriendo la foto…
+4c2e3cb9 {0} está leyendo la foto…
+4b302c55 {0} no pudo leer la foto, así que se leyó en este dispositivo.
+90549f09 Este dispositivo no puede leer fotos por sí mismo. Configura la IA en Ajustes para leerlas.
+f2d2865b Para leerla en este dispositivo hace falta una descarga única de {0} MB.
+7790a9ef Descargar y leerla
+defaf485 Leyendo la foto…
+6154849b Mirando la foto otra vez… {0} %
+5aab84e9 Leyendo la foto… {0} %
+8d9261f9 Leerla en este dispositivo
+2b0efe0f No se pudo leer ninguna palabra en esta foto.
+16794cc5 Buena luz, sin sombras ni reflejos.
+d67897cf La página plana y la foto hecha de frente.
+cb1511e5 Lo bastante cerca para que las palabras llenen casi toda la foto.
+40e16b3e Leer la siguiente con {0} (también lee la letra a mano)
+92ce39c1 Se leyó una palabra de la foto: está en la tarjeta.
+284a25bf Ver la foto {0}
+a38a96de Otra página
+8ce61d1d Foto {0}
+31f04a66 Ya está en tus palabras
+d70f8708 Revísala
+2fd6a925 Difícil de leer: compárala con la foto o corrígela con Editar como texto.
+904fef0d 1 palabra encontrada
+92907f9b {0} palabras encontradas
+faa7e5b9 {0} sin marcar: ya están en tus palabras o repetidas
+d3336fe8 Usar estas ({0})
+ade94960 La lectura de texto aún no está descargada en este dispositivo.
+fa4ae56b Este idioma no se puede leer en este dispositivo.
+4d3aff1d La lectura de texto no pudo iniciarse en este dispositivo.
+aba093a0 En cualquier transcripción, haz clic derecho (o mantén pulsada) una palabra o una frase seleccionada y elige «Guardar en vocabulario». O añade las tuyas con Añadir palabras, arriba: una a una, una lista entera o la foto de una lista.
+62a03440 Escribe, pega o escanea palabras nuevas: Tamkeen puede rellenar sus significados, frases de ejemplo y audio
+8591e078 Escanear palabras
+cbbd4e35 Escribe o pega palabras nuevas, una o muchas a la vez, o escanea la foto de una lista. Tamkeen puede rellenar sus significados, frases de ejemplo y audio, o puedes hacerlo tú.
+4ad83e22 Añade palabras, escanea palabras de una foto, exporta tus palabras para Anki o como hoja de cálculo, y los ajustes de Anki.
+3da76359 Eso no es una imagen. Elige una foto (JPEG o PNG).
+2fbc84ce Esta imagen no se puede abrir aquí (puede estar en un formato que este dispositivo no lee, como HEIC). Hazla o elígela como JPEG o PNG.
+fe5b5324 Esta imagen está vacía.
+d8256049 No se pudo preparar la foto.

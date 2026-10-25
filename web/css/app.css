@@ -1670,7 +1670,7 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-box .modal-head h2 { text-align: center; padding-inline-start: 36px; }
 .cb-box .modal-body { flex: 1; min-height: 0; padding-top: 12px; }
 .cb { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.cb-modes { max-width: 380px; width: 100%; margin: 0 auto; }
+.cb-modes { max-width: 460px; width: 100%; margin: 0 auto; }
 .cb-modes .seg-btn.on, .cb-modes .seg-btn.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
 
 /* the cards */
@@ -1742,6 +1742,53 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-paste-go { display: flex; justify-content: center; }
 .cb-paste-go button { min-height: 44px; min-width: 180px; border-radius: 12px; font-weight: 650; }
 
+/* scanning a photo (components/wordscan.js): one plain box to start, then the photos, the list and its buttons */
+.cb-scan-wrap[hidden], .cb-scan [hidden] { display: none; }
+.cb-scan { display: flex; flex-direction: column; gap: 12px; }
+.cb-scan-pick { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 26px 18px 22px; border-radius: 16px; background: var(--surface-2); text-align: center; }
+.cb-scan-ico { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); color: var(--accent); }
+.cb-scan-lead { margin: 0; max-width: 430px; font-size: 16.5px; line-height: 1.45; }
+.cb-scan-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%; }
+.cb-scan-buttons button { min-height: 50px; min-width: 200px; padding: 8px 18px; border-radius: 14px; font-size: 16px; font-weight: 650;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.cb-scan-paste { margin: 0; }
+.cb-back .modal-box.cb-box.cb-dropping { outline: 3px solid var(--accent); outline-offset: -3px; }
+.cb-scan-found { display: flex; flex-direction: column; gap: 10px; }
+.cb-scan-pics { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+.cb-scan-pic { position: relative; height: 96px; min-height: 0; padding: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--surface-2); }
+.cb-scan-pics.one .cb-scan-pic { height: 170px; }  /* (one photo: big enough to compare with the list) */
+.cb-scan-pic img { display: block; height: 100%; width: auto; max-width: 128px; object-fit: cover; object-position: top; }
+.cb-scan-pics.one .cb-scan-pic img { max-width: min(56vw, 420px); object-fit: contain; }
+.cb-scan-pic.is-reading img { opacity: .45; }
+.cb-scan-pic-n { position: absolute; left: 5px; bottom: 5px; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px; background: var(--surface); color: var(--text);
+  font-size: 12px; font-weight: 700; line-height: 20px; text-align: center; }
+.cb-scan-more { height: 96px; min-width: 96px; padding: 6px 10px; border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; font-size: 13px; font-weight: 650; color: var(--accent); }
+.cb-scan-more:hover:not(:disabled) { color: var(--accent); }
+.cb-scan-list { max-height: 340px; }
+.cb-scan-list li { padding: 0; }
+.cb-scan-list li::before { content: none; }
+.cb-scan-item { display: flex; align-items: baseline; gap: 10px; flex: 1; min-width: 0; padding: 8px 12px; cursor: pointer; }
+.cb-scan-item input { flex: none; align-self: center; width: 19px; height: 19px; margin: 0; accent-color: var(--accent); }
+.cb-scan-list li.is-off .cb-pv-word, .cb-scan-list li.is-off .cb-pv-rest { opacity: .45; }
+.cb-scan-go { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.cb-scan-go button { min-height: 46px; min-width: 170px; padding: 6px 18px; border-radius: 12px; font-weight: 650; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.cb-scan-status { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 16px; border-radius: 14px; background: var(--surface-2); text-align: center; }
+.cb-scan-msg { margin: 0; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; line-height: 1.4; }
+.cb-scan-status.is-error .cb-scan-msg { color: var(--danger); }
+.cb-scan-status.is-note { padding: 0; background: none; }
+.cb-scan-status.is-note .cb-scan-msg { color: var(--muted); font-weight: 500; font-size: 13.5px; }
+.cb-scan-tips { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; color: var(--muted); font-size: 14.5px; }
+.cb-scan-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.cb-scan-acts button { min-height: 42px; padding: 6px 16px; border-radius: 12px; font-weight: 650; }
+.cb-scan-reader { margin: 0; text-align: center; line-height: 1.5; }
+.cb-scan-reader button.link { display: inline; min-height: 0; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 650; white-space: normal; }
+.cb-scan-reader button.link:hover:not(:disabled) { background: none; text-decoration: underline; }
+.cb-scan-reader a { font-weight: 650; }
+.cb-scan-reader .cb-spin, .cb-scan-msg .cb-spin { display: inline-block; vertical-align: -2px; }
+.cb-photo-back .modal-box { width: min(920px, 100%); }
+.cb-photo-big { display: block; max-width: 100%; max-height: 76vh; margin: 0 auto; border-radius: 12px; }
+
 /* for these cards */
 .cb-for { padding: 14px 16px; border-radius: 16px; background: var(--surface-2); }
 .cb-for h3 { margin: 0 0 10px; text-align: center; font-size: 15px; }
@@ -1796,6 +1843,10 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
   .cb-label { padding-top: 0; }
   .cb-note { grid-column: 1; }
   .cb-for { padding: 12px; }
+  .cb-modes .seg-btn { padding: 0 6px; font-size: 14px; }
+  .cb-scan-pick { padding: 20px 14px 18px; }
+  .cb-scan-buttons button { flex: 1 1 0; min-width: 0; padding: 8px 10px; }
+  .cb-scan-go button { flex: 1 1 0; min-width: 0; }
 }
 
 /* ---------- drop-down menus on touch screens (components/selectsheet.js) ----------

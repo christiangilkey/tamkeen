@@ -1,0 +1,59 @@
+28cba55d Scansiona
+8736c3f2 Puoi anche trascinare qui un'immagine o incollarla (Ctrl+V).
+90c9157a Modifica come testo
+0e944cb6 La legge la tua IA ({0}). La foto va solo a {0}, per essere letta, e non viene conservata.
+7a306558 Leggila invece su questo dispositivo
+6d311c94 Letta su questo dispositivo: legge il testo stampato molto meglio della scrittura a mano.
+cb7d64aa Leggila invece con {0} (legge anche la scrittura a mano)
+629506d7 Sei offline, quindi la tua IA ora non può leggerla.
+7f24ba53 La tua IA non sa leggere le immagini.
+317a4d5c L'IA legge entrambi:
+4b7498b8 configura l'IA
+2183d7a8 L'IA legge entrambi, ma è disattivata nelle Impostazioni.
+dc75ff73 I segni vocalici spesso sfuggono: controllali.
+a580792c Il testo scritto dall'alto in basso non viene letto.
+4eb8f703 Per leggere {0} su questo dispositivo serve un download unico di {1} MB.
+074b0ca6 Questo dispositivo non può leggere le foto da solo e l'IA non è configurata:
+e7c6795e Fai una foto a un elenco di parole, a una pagina del tuo libro o a una sola parola.
+78781426 Scegli l'immagine di un elenco di parole, di una pagina di un libro o di una sola parola.
+2298471c Scatta una foto
+90bd2810 Scegli una foto
+d2a4ac8c Scegli un'immagine
+c6600b3c Apro la foto…
+4c2e3cb9 {0} sta leggendo la foto…
+4b302c55 {0} non ha potuto leggere la foto, quindi è stata letta su questo dispositivo.
+90549f09 Questo dispositivo non può leggere le foto da solo. Configura l'IA nelle Impostazioni per leggerle.
+f2d2865b Per leggerla su questo dispositivo serve un download unico di {0} MB.
+7790a9ef Scarica e leggila
+defaf485 Leggo la foto…
+6154849b Riguardo la foto… {0}%
+5aab84e9 Leggo la foto… {0}%
+8d9261f9 Leggila su questo dispositivo
+2b0efe0f In questa foto non si è potuta leggere nessuna parola.
+16794cc5 Buona luce, senza ombre né riflessi.
+d67897cf La pagina piatta, e la foto scattata di fronte.
+cb1511e5 Abbastanza vicino perché le parole riempiano quasi tutta la foto.
+40e16b3e Leggi la prossima con {0} (legge anche la scrittura a mano)
+92ce39c1 Una parola letta dalla foto: è nella scheda.
+284a25bf Mostra la foto {0}
+a38a96de Un'altra pagina
+8ce61d1d Foto {0}
+31f04a66 Già tra le tue parole
+d70f8708 Da controllare
+2fd6a925 Difficile da leggere: confrontala con la foto o correggila con Modifica come testo.
+904fef0d 1 parola trovata
+92907f9b {0} parole trovate
+faa7e5b9 {0} lasciate fuori: già tra le tue parole o ripetute
+d3336fe8 Usa queste ({0})
+ade94960 La lettura del testo non è ancora scaricata su questo dispositivo.
+fa4ae56b Questa lingua non può essere letta su questo dispositivo.
+4d3aff1d Non è stato possibile avviare la lettura del testo su questo dispositivo.
+aba093a0 In qualsiasi trascrizione, fai clic destro (o tieni premuto) su una parola o una frase selezionata e scegli «Salva nel vocabolario». Oppure aggiungi le tue con Aggiungi parole, qui sopra: una alla volta, un intero elenco o la foto di un elenco.
+62a03440 Scrivi, incolla o scansiona nuove parole: Tamkeen può compilare significati, frasi d'esempio e audio
+8591e078 Scansiona parole
+cbbd4e35 Scrivi o incolla nuove parole, una o molte alla volta, oppure scansiona la foto di un elenco. Tamkeen può compilare significati, frasi d'esempio e audio, oppure puoi farlo tu.
+4ad83e22 Aggiungi parole, scansiona parole da una foto, esporta le parole per Anki o come foglio di calcolo, e le impostazioni di Anki.
+3da76359 Questa non è un'immagine. Scegli una foto (JPEG o PNG).
+2fbc84ce Questa immagine non si può aprire qui (forse è in un formato che questo dispositivo non legge, come HEIC). Scattala o sceglila in JPEG o PNG.
+fe5b5324 Questa immagine è vuota.
+d8256049 Non è stato possibile preparare la foto.

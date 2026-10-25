@@ -1,0 +1,59 @@
+28cba55d Escaneja
+8736c3f2 També pots deixar anar una imatge aquí, o enganxar-la (Ctrl+V).
+90c9157a Edita com a text
+0e944cb6 La llegeix la teva IA ({0}). La foto només s'envia a {0}, per llegir-la, i no es desa.
+7a306558 Llegeix-la en aquest dispositiu
+6d311c94 Es llegeix en aquest dispositiu: llegeix el text imprès molt millor que la lletra a mà.
+cb7d64aa Llegeix-la amb {0} (també llegeix la lletra a mà)
+629506d7 No tens connexió, així que la teva IA no la pot llegir ara.
+7f24ba53 La teva IA no sap llegir imatges.
+317a4d5c La IA llegeix totes dues:
+4b7498b8 configura la IA
+2183d7a8 La IA llegeix totes dues, però està desactivada a la Configuració.
+dc75ff73 Sovint es perden els signes vocàlics: revisa'ls.
+a580792c El text escrit de dalt a baix no es llegeix.
+4eb8f703 Per llegir {0} en aquest dispositiu cal una baixada única de {1} MB.
+074b0ca6 Aquest dispositiu no pot llegir fotos tot sol, i la IA no està configurada:
+e7c6795e Fes una foto d'una llista de paraules, d'una pàgina del teu llibre o d'una sola paraula.
+78781426 Tria una imatge d'una llista de paraules, d'una pàgina d'un llibre o d'una sola paraula.
+2298471c Fes una foto
+90bd2810 Tria una foto
+d2a4ac8c Tria una imatge
+c6600b3c Obrint la foto…
+4c2e3cb9 {0} està llegint la foto…
+4b302c55 {0} no ha pogut llegir la foto, així que s'ha llegit en aquest dispositiu.
+90549f09 Aquest dispositiu no pot llegir fotos tot sol. Configura la IA a la Configuració per llegir-les.
+f2d2865b Per llegir-la en aquest dispositiu cal una baixada única de {0} MB.
+7790a9ef Baixa-la i llegeix-la
+defaf485 Llegint la foto…
+6154849b Tornant a mirar la foto… {0} %
+5aab84e9 Llegint la foto… {0} %
+8d9261f9 Llegeix-la en aquest dispositiu
+2b0efe0f No s'ha pogut llegir cap paraula en aquesta foto.
+16794cc5 Bona llum, sense ombres ni reflexos.
+d67897cf La pàgina plana, i la foto feta de cara.
+cb1511e5 Prou a prop perquè les paraules omplin gairebé tota la foto.
+40e16b3e Llegeix la següent amb {0} (també llegeix la lletra a mà)
+92ce39c1 S'ha llegit una paraula de la foto: és a la targeta.
+284a25bf Mostra la foto {0}
+a38a96de Una altra pàgina
+8ce61d1d Foto {0}
+31f04a66 Ja és a les teves paraules
+d70f8708 Revisa-la
+2fd6a925 Difícil de llegir: compara-la amb la foto, o corregeix-la amb Edita com a text.
+904fef0d 1 paraula trobada
+92907f9b {0} paraules trobades
+faa7e5b9 {0} deixades de banda: ja són a les teves paraules, o repetides
+d3336fe8 Fes servir aquestes ({0})
+ade94960 La lectura de text encara no s'ha baixat en aquest dispositiu.
+fa4ae56b Aquesta llengua no es pot llegir en aquest dispositiu.
+4d3aff1d No s'ha pogut iniciar la lectura de text en aquest dispositiu.
+aba093a0 En qualsevol transcripció, fes clic amb el botó dret (o mantén premuda) una paraula o una frase seleccionada i tria «Desa al vocabulari». O afegeix les teves amb Afegeix paraules, a dalt: una per una, una llista sencera o la foto d'una llista.
+62a03440 Escriu, enganxa o escaneja paraules noves: Tamkeen pot omplir-ne els significats, frases d'exemple i àudio
+8591e078 Escaneja paraules
+cbbd4e35 Escriu o enganxa paraules noves, una o moltes alhora, o escaneja la foto d'una llista. Tamkeen pot omplir-ne els significats, frases d'exemple i àudio, o ho pots fer tu.
+4ad83e22 Afegeix paraules, escaneja paraules d'una foto, exporta les paraules per a Anki o com a full de càlcul, i la configuració d'Anki.
+3da76359 Això no és una imatge. Tria una foto (JPEG o PNG).
+2fbc84ce Aquesta imatge no es pot obrir aquí (potser és en un format que aquest dispositiu no llegeix, com HEIC). Fes-la o tria-la en JPEG o PNG.
+fe5b5324 Aquesta imatge és buida.
+d8256049 No s'ha pogut preparar la foto.

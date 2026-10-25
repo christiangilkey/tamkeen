@@ -340,6 +340,166 @@
    "stems": 37300,
    "lexemes": 38571
   },
+  "ocr-ara": {
+   "file": "ocr-ara.traineddata.gz",
+   "bytes": 1661906,
+   "sha256": "f4746c44b02342dd5b3d4f0198000f47d7c49f1a229e63e0f436c0592dcd9639",
+   "title": "Text reading: Arabic",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/ara 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-cat": {
+   "file": "ocr-cat.traineddata.gz",
+   "bytes": 639438,
+   "sha256": "1003ea7490d8c88b9308ed5dead936910a662fc9a4222cd536b92a17178e41eb",
+   "title": "Text reading: Catalan",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/cat 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-ceb": {
+   "file": "ocr-ceb.traineddata.gz",
+   "bytes": 487818,
+   "sha256": "331aeeb921acc5d2e6b14f099c59bc1d7fe7fb3355f34ac0c730606319c5cca3",
+   "title": "Text reading: Bisaya (Cebuano)",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/ceb 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-chi_sim": {
+   "file": "ocr-chi_sim.traineddata.gz",
+   "bytes": 1718768,
+   "sha256": "b8a23f10c7de500891eb458a8adc9cc58ab7f242f08b7d149f5e9aea4ad5db7c",
+   "title": "Text reading: Chinese (simplified)",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/chi_sim 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-chi_tra": {
+   "file": "ocr-chi_tra.traineddata.gz",
+   "bytes": 1656239,
+   "sha256": "11fe2610dab05d8a880d02f193ce70203f4c4bbe061b987d5529a2c038a22743",
+   "title": "Text reading: Chinese (traditional)",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/chi_tra 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-core": {
+   "file": "ocr-core-simd-lstm.wasm.js.gz",
+   "bytes": 1454316,
+   "sha256": "900d047ec5b40f14d55331fe0d00618b82a9cdb6868776276428e51f1a317a06",
+   "title": "Text reading (Tesseract)",
+   "db": "tesseract.js-core 7.0.0",
+   "license": "Apache-2.0"
+  },
+  "ocr-core-plain": {
+   "file": "ocr-core-lstm.wasm.js.gz",
+   "bytes": 1453570,
+   "sha256": "0dcabd0ab864babe6b595607e076fa2b49970e78e0375b0112523f855ce879f5",
+   "title": "Text reading (Tesseract, for older devices)",
+   "db": "tesseract.js-core 7.0.0",
+   "license": "Apache-2.0"
+  },
+  "ocr-deu": {
+   "file": "ocr-deu.traineddata.gz",
+   "bytes": 1333102,
+   "sha256": "306c4280d0cbed46fbff727486bd43b92730181bae80f56941a091f363bdf28b",
+   "title": "Text reading: German",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/deu 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-eng": {
+   "file": "ocr-eng.traineddata.gz",
+   "bytes": 2952873,
+   "sha256": "45b4cb346724ac1774f1c36f42f182b887bcdb28ebe63e6fff90ac41f3fcff91",
+   "title": "Text reading: English",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/eng 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-fas": {
+   "file": "ocr-fas.traineddata.gz",
+   "bytes": 424507,
+   "sha256": "b5847360e25f646c55449f1fe93eee57d53e406a265ead2374e7320bf0b82025",
+   "title": "Text reading: Persian",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/fas 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-fra": {
+   "file": "ocr-fra.traineddata.gz",
+   "bytes": 707406,
+   "sha256": "d611139672b3752c7097e671e4a1d9209dfd37f2aeb081ef6487fba3351e9255",
+   "title": "Text reading: French",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/fra 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-hin": {
+   "file": "ocr-hin.traineddata.gz",
+   "bytes": 1389692,
+   "sha256": "f3b6a0d320df38d886178cdd727b90dbf9df3db053adb32bd9cf73f0463cda07",
+   "title": "Text reading: Hindi",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/hin 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-ita": {
+   "file": "ocr-ita.traineddata.gz",
+   "bytes": 1660998,
+   "sha256": "f702fcfad297ce028ede3626d1467b67939f23ff23595f9badd54681cf25a4d3",
+   "title": "Text reading: Italian",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/ita 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-jpn": {
+   "file": "ocr-jpn.traineddata.gz",
+   "bytes": 2030256,
+   "sha256": "2b63ebfbf1484de4a08ce53b29ef98a1c17658a93cbd38acb665d7d316d0be88",
+   "title": "Text reading: Japanese",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/jpn 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-kor": {
+   "file": "ocr-kor.traineddata.gz",
+   "bytes": 1572336,
+   "sha256": "78c21276ab14c9bb734d83be1055d9fe5469a4e7e977c51ad385be5737e61126",
+   "title": "Text reading: Korean",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/kor 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-por": {
+   "file": "ocr-por.traineddata.gz",
+   "bytes": 1392239,
+   "sha256": "dacebc1386ddaaf8389f81094236cca0d690897cde693d48cbdaa881c86e2b4c",
+   "title": "Text reading: Portuguese",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/por 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-rus": {
+   "file": "ocr-rus.traineddata.gz",
+   "bytes": 2679598,
+   "sha256": "f51f5edc992249ff9b70a227b22f242dfa47b2b1bbc7ae0ea74908640c101f6a",
+   "title": "Text reading: Russian",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/rus 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-spa": {
+   "file": "ocr-spa.traineddata.gz",
+   "bytes": 2100190,
+   "sha256": "40be52f97b5d4eb7460073dc1f94cd546b27150333c0bf854ed7e7132db6bceb",
+   "title": "Text reading: Spanish",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/spa 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-tgl": {
+   "file": "ocr-tgl.traineddata.gz",
+   "bytes": 3296556,
+   "sha256": "b4a6cb3f629f8226c919b37474a867b098f97241fa1c15aabc414f8ac4758802",
+   "title": "Text reading: Tagalog",
+   "db": "tessdata 4.0.0 (@tesseract.js-data/tgl 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-tha": {
+   "file": "ocr-tha.traineddata.gz",
+   "bytes": 896631,
+   "sha256": "4550a5505184d1b79cf10416d5b19e643001d95411d5e717954dd26feef3ae74",
+   "title": "Text reading: Thai",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/tha 1.0.0)",
+   "license": "Apache-2.0"
+  },
   "pt": {
    "file": "pt-lemmas.json.gz",
    "bytes": 1108043,

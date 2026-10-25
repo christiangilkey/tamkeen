@@ -4,6 +4,7 @@
 
 import { kv } from "./store.js";
 import { gunzipJson } from "./drive.js";
+import { OCR_BYTES, OCR_CORES, ocrNames } from "./scanwords.js";
 
 const BASE_URL = "https://christiangilkey.github.io/tamkeen/lexicon/";
 // Standard Arabic first: it is the one tried first. Spanish, French and Italian have one table each;
@@ -16,6 +17,9 @@ const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it
 const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [`mean-${l}`]])), ar: ["mean-ar", "mean-arc"],
   ceb: ["mean-ceb", "mean-cebw"] };
 const KINDS = { words: LANGUAGES, meanings: MEANINGS };
+// Reading the text in a photo ("Add words" → Scan, web/js/ocr.js): Tesseract and each language's trained
+// data, for the study language and the learner's own ("es+en"), as app/lexicon.py names_for.
+const namesFor = (lang, kind) => (OCR_CORES[kind] ? ocrNames(lang, kind) : (KINDS[kind] || LANGUAGES)[lang] || []);
 const MEANING_ESTIMATE = { ar: 3000000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 950000, ja: 3300000, zh: 6000000,
   pt: 4900000, ca: 2000000, ceb: 3600000, th: 650000, fa: 560000, hi: 1400000, ko: 1400000 };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
@@ -40,13 +44,13 @@ async function sha256(buf) {
 }
 
 export async function lexiconStatus(lang = "ar", kind = "words") {
-  const names = (KINDS[kind] || LANGUAGES)[lang] || [];
+  const names = namesFor(lang, kind);
   const index = (await kv.get("lexicon:index")) || { files: {} };
   const have = new Set((await kv.get("lexicon:installed")) || []);
   const files = {};
   for (const name of names) {
     const meta = index.files[name] || {};
-    files[name] = { title: meta.title || name, bytes: meta.bytes || 0, license: meta.license || "", installed: have.has(name) };
+    files[name] = { title: meta.title || name, bytes: meta.bytes || OCR_BYTES[name] || 0, license: meta.license || "", installed: have.has(name) };
   }
   const bytes = names.reduce((n, name) => n + files[name].bytes, 0) || (kind === "meanings" ? MEANING_ESTIMATE : ESTIMATE)[lang] || 0;
   return { lang, kind, needed: names.length > 0, names, installed: names.length > 0 && names.every((n) => have.has(n)), bytes, files };
@@ -56,7 +60,7 @@ export async function lexiconDownload(lang = "ar", kind = "words") {
   const index = JSON.parse(new TextDecoder().decode(await fetchBytes("index.json")));
   await kv.set("lexicon:index", index);
   const have = new Set((await kv.get("lexicon:installed")) || []);
-  for (const name of (KINDS[kind] || LANGUAGES)[lang] || []) {
+  for (const name of namesFor(lang, kind)) {
     if (have.has(name)) continue;
     const meta = index.files[name];
     if (!meta) throw new Error(`The ${name} dictionary isn't published yet.`);
@@ -71,7 +75,7 @@ export async function lexiconDownload(lang = "ar", kind = "words") {
 
 export async function lexiconRemove(lang = "ar", kind = "words") {
   const have = new Set((await kv.get("lexicon:installed")) || []);
-  for (const name of (KINDS[kind] || LANGUAGES)[lang] || []) {
+  for (const name of namesFor(lang, kind)) {
     have.delete(name);
     await kv.set(`lexicon:${name}`, null);
   }
@@ -80,10 +84,10 @@ export async function lexiconRemove(lang = "ar", kind = "words") {
 }
 
 /** A downloaded dictionary, unpacked and ready for web/js/lexicon/ (arabic.js, romance.js, ...).
- * The Japanese one is binary (kuromoji.js): an ArrayBuffer. */
+ * The Japanese one is binary (kuromoji.js): an ArrayBuffer; so are text reading's files (web/js/ocr.js). */
 export async function lexiconData(name) {
   const blob = await kv.get(`lexicon:${name}`);
   if (!blob) return null;
-  if (name === "ja") return new Response(new Blob([blob]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+  if (name === "ja" || name.startsWith("ocr-")) return new Response(new Blob([blob]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
   return gunzipJson(blob);
 }

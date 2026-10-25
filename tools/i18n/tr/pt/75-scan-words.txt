@@ -1,0 +1,59 @@
+28cba55d Escanear
+8736c3f2 Você também pode soltar uma imagem aqui, ou colá-la (Ctrl+V).
+90c9157a Editar como texto
+0e944cb6 Lida pela sua IA ({0}). A foto vai só para {0}, para ser lida, e não é guardada.
+7a306558 Ler neste aparelho
+6d311c94 Lida neste aparelho: ele lê texto impresso muito melhor que letra de mão.
+cb7d64aa Ler com {0} (também lê letra de mão)
+629506d7 Você está offline, então sua IA não pode lê-la agora.
+7f24ba53 Sua IA não consegue ler imagens.
+317a4d5c A IA lê os dois:
+4b7498b8 configure a IA
+2183d7a8 A IA lê os dois, mas está desativada nas Configurações.
+dc75ff73 Os sinais de vogais muitas vezes se perdem: confira.
+a580792c Texto escrito de cima para baixo não é lido.
+4eb8f703 Para ler {0} neste aparelho é preciso um download único de {1} MB.
+074b0ca6 Este aparelho não consegue ler fotos sozinho, e a IA não está configurada:
+e7c6795e Tire uma foto de uma lista de palavras, de uma página do seu livro ou de uma única palavra.
+78781426 Escolha uma imagem de uma lista de palavras, de uma página de livro ou de uma única palavra.
+2298471c Tirar uma foto
+90bd2810 Escolher uma foto
+d2a4ac8c Escolher uma imagem
+c6600b3c Abrindo a foto…
+4c2e3cb9 {0} está lendo a foto…
+4b302c55 {0} não conseguiu ler a foto, então ela foi lida neste aparelho.
+90549f09 Este aparelho não consegue ler fotos sozinho. Configure a IA nas Configurações para lê-las.
+f2d2865b Para lê-la neste aparelho é preciso um download único de {0} MB.
+7790a9ef Baixar e ler
+defaf485 Lendo a foto…
+6154849b Olhando a foto de novo… {0}%
+5aab84e9 Lendo a foto… {0}%
+8d9261f9 Ler neste aparelho
+2b0efe0f Nenhuma palavra pôde ser lida nesta foto.
+16794cc5 Boa luz, sem sombras nem reflexos.
+d67897cf A página plana, e a foto tirada de frente.
+cb1511e5 Perto o bastante para as palavras ocuparem quase toda a foto.
+40e16b3e Ler a próxima com {0} (também lê letra de mão)
+92ce39c1 Uma palavra lida da foto: ela está no cartão.
+284a25bf Mostrar a foto {0}
+a38a96de Outra página
+8ce61d1d Foto {0}
+31f04a66 Já está nas suas palavras
+d70f8708 Confira
+2fd6a925 Difícil de ler: compare com a foto ou corrija com Editar como texto.
+904fef0d 1 palavra encontrada
+92907f9b {0} palavras encontradas
+faa7e5b9 {0} deixadas de fora: já estão nas suas palavras, ou repetidas
+d3336fe8 Usar estas ({0})
+ade94960 A leitura de texto ainda não foi baixada neste aparelho.
+fa4ae56b Este idioma não pode ser lido neste aparelho.
+4d3aff1d Não foi possível iniciar a leitura de texto neste aparelho.
+aba093a0 Em qualquer transcrição, clique com o botão direito (ou toque e segure) em uma palavra ou numa expressão selecionada e escolha “Salvar no vocabulário”. Ou adicione as suas com Adicionar palavras, acima: uma por vez, uma lista inteira ou a foto de uma lista.
+62a03440 Digite, cole ou escaneie palavras novas: o Tamkeen pode preencher os significados, frases de exemplo e áudio
+8591e078 Escanear palavras
+cbbd4e35 Digite ou cole palavras novas, uma ou várias de uma vez, ou escaneie a foto de uma lista. O Tamkeen pode preencher os significados, frases de exemplo e áudio, ou você mesmo pode.
+4ad83e22 Adicione palavras, escaneie palavras de uma foto, exporte suas palavras para o Anki ou como planilha, e as configurações do Anki.
+3da76359 Isso não é uma imagem. Escolha uma foto (JPEG ou PNG).
+2fbc84ce Esta imagem não pode ser aberta aqui (talvez esteja num formato que este aparelho não lê, como HEIC). Tire ou escolha a foto em JPEG ou PNG.
+fe5b5324 Esta imagem está vazia.
+d8256049 Não foi possível preparar a foto.

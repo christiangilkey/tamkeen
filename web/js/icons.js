@@ -154,6 +154,12 @@ const PATHS = {
     <path d="M10 3.5l1.6 4.6 4.6 1.6-4.6 1.6L10 15.9l-1.6-4.6-4.6-1.6 4.6-1.6z"/><path d="M17.5 14.5v5.5M14.75 17.25h5.5"/>`,
   list: `<path d="M9.5 7h10M9.5 12h10M9.5 17h10"/><circle class="solid" cx="5" cy="7" r="1.25"/><circle class="solid" cx="5" cy="12" r="1.25"/>
     <circle class="solid" cx="5" cy="17" r="1.25"/>`,
+  // "Add words" → Scan: take a photo of a list, or choose a picture of one.
+  camera: `<rect class="fill" x="3" y="7" width="18" height="12.5" rx="2.6"/>
+    <path d="M8.6 7l1.3-2.2a1.3 1.3 0 0 1 1.1-.6h2a1.3 1.3 0 0 1 1.1.6L15.4 7"/><rect x="3" y="7" width="18" height="12.5" rx="2.6"/>
+    <circle cx="12" cy="13.2" r="3.3"/>`,
+  image: `<rect class="fill" x="3.5" y="4.5" width="17" height="15" rx="2.6"/><rect x="3.5" y="4.5" width="17" height="15" rx="2.6"/>
+    <circle cx="9" cy="9.6" r="1.6"/><path d="M4 17.4l4.6-4.6 3.3 3.3 2.5-2.5 5.6 5.6"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

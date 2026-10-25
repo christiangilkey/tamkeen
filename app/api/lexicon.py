@@ -120,7 +120,8 @@ def lexicon_data(name: str) -> Response:
     path = lexicon.file_path(name)
     if path is None:
         raise HTTPException(404, "That dictionary hasn't been downloaded.")
-    # The file is gzipped JSON (the Japanese one gzipped binary); sent as is, the browser unpacks it.
-    media = "application/octet-stream" if path.name.endswith(".bin.gz") else "application/json"
+    # The file is gzipped JSON (the Japanese one gzipped binary, and so are text reading's files: Tesseract
+    # and its trained data, read as bytes by web/js/ocr.js); sent as is, the browser unpacks it.
+    media = "application/octet-stream" if path.name.endswith(".bin.gz") or name.startswith("ocr-") else "application/json"
     return Response(path.read_bytes(), media_type=media,
                     headers={"Content-Encoding": "gzip", "Cache-Control": "private, max-age=86400"})
