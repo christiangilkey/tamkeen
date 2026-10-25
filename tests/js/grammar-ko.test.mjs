@@ -26,7 +26,9 @@ function readings(l) {
   for (const q of l.practice || []) {
     (q.lines || []).forEach(sent);
     (q.answers || []).forEach(sent);
-    if (q.type === "say") sent(q);
+    if (q.type === "say" || q.type === "fill") sent(q);
+    out.push(...(q.rs || []));
+    for (const x of q.lines || []) out.push(...(x.rs || []));
   }
   return out;
 }
@@ -37,7 +39,20 @@ test("en-ko: the Korean is in Hangul, the readings in Latin letters", { skip: !e
     for (const t of taughtTexts(l)) assert.match(t, HANGUL, `${l.id}: Korean without Hangul: “${t}”`);
     for (const r of readings(l)) {
       assert.doesNotMatch(r, HANGUL, `${l.id}: a reading with Hangul in it: “${r}”`);
-      assert.match(r, /^[a-z0-9 .,!?'’“”…\-()/~:;]+$/i, `${l.id}: a reading with unexpected characters: “${r}”`);
+      assert.match(r, /^[a-z0-9 .,!?'’“”…\-()/~:;_]+$/i, `${l.id}: a reading with unexpected characters: “${r}”`);
+    }
+  }
+});
+
+test("en-ko: the choices a learner taps have their readings (a beginner can't pick a word they can't read)", { skip: !enko }, () => {
+  for (const l of enko.lessons) {
+    for (const q of l.practice) {
+      if (q.type === "fill") {
+        assert.ok(String(q.r || "").includes("___"), `${l.id}: a fill question without the reading of its sentence`);
+        assert.equal((q.rs || []).length, q.options.length, `${l.id}: a fill question without a reading for each option`);
+      }
+      if (q.type === "order") assert.equal((q.rs || []).length, q.words.length, `${l.id}: an order question without a reading for each word`);
+      for (const x of q.lines || []) if (x.options) assert.equal((x.rs || []).length, x.options.length, `${l.id}: a dialogue reply without a reading for each option`);
     }
   }
 });
