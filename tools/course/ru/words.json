@@ -246,7 +246,7 @@
       "rank": 27,
       "word": "у",
       "pos": "prep",
-      "meaning": "at; by; (у меня) I have",
+      "meaning": "at; by; у меня́: I have",
       "sentence": "У меня есть собака.",
       "translation": "I ⟦have⟧ a dog."
     },
@@ -540,7 +540,7 @@
       "rank": 60,
       "word": "есть",
       "pos": "part",
-      "meaning": "there is; there are (у меня есть: I have)",
+      "meaning": "there is; there are; у меня́ есть: I have",
       "sentence": "Здесь есть кафе?",
       "translation": "⟦Is there⟧ a café here?"
     },
@@ -1275,7 +1275,7 @@
       "rank": 145,
       "word": "потому",
       "pos": "adv",
-      "meaning": "because (in потому что) (потому́)",
+      "meaning": "because, in потому́ что (потому́)",
       "sentence": "Я не пришёл, потому что болел.",
       "translation": "I didn't come ⟦because⟧ I was ill."
     },
@@ -2517,7 +2517,7 @@
       "rank": 282,
       "word": "давать",
       "pos": "verb",
-      "meaning": "to give; давай: let's (дава́ть)",
+      "meaning": "to give; дава́й: let's (дава́ть)",
       "sentence": "Давай поговорим.",
       "translation": "⟦Let's⟧ talk.",
       "form": "Давай"
@@ -2762,7 +2762,7 @@
       "rank": 310,
       "word": "либо",
       "pos": "conj",
-      "meaning": "or; либо... либо: either... or (ли́бо)",
+      "meaning": "or; ли́бо... ли́бо: either... or (ли́бо)",
       "sentence": "Либо сегодня, либо завтра.",
       "translation": "⟦Either⟧ today or tomorrow."
     },
