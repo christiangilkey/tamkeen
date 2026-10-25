@@ -1005,6 +1005,192 @@
         {"type":"say","q":"식당에서: “계산서 좀 주시겠어요?”","answer":"Could I have the check, please?"},
         {"type":"free","q":"여러분 차례예요: 호텔 직원에게 공손하게 두 가지를 부탁해 보세요.","answers":[{"t":"Could you call a taxi for me, please?","tr":"택시 좀 불러 주시겠어요?"},{"t":"Could I have an extra towel, please?","tr":"수건 하나 더 주시겠어요?"},{"t":"May I check out late?","tr":"늦게 체크아웃해도 될까요?"}]}
       ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 5,
+      "level": "A2",
+      "title": "어디 있었는지, 어땠는지 말하기",
+      "summary": "어제 어디에 있었는지, 주말이나 영화가 어땠는지 말하고 물어봐요.",
+      "topic": "be동사의 과거 {{was}} / {{were}}; {{wasn't}} / {{weren't}}; {{How was…?}}",
+      "blocks": [
+        {"goal":{"t":"I was at home last night.","tr":"어젯밤에는 집에 있었어요."}},
+        {"dialog":[{"who":"마크","t":"How was your weekend?","tr":"주말 어땠어요?"},{"who":"예진","t":"It was great! I was in Gangneung.","tr":"정말 좋았어요! 강릉에 있었어요."},{"who":"마크","t":"Cool! Was the weather nice?","tr":"멋지네요! 날씨는 좋았어요?"},{"who":"예진","t":"Yes, it was. The beach was beautiful. How about you?","tr":"네, 좋았어요. 바다가 정말 예뻤어요. 마크는요?"},{"who":"마크","t":"I was at home. I was sick.","tr":"저는 집에 있었어요. 아팠거든요."},{"who":"예진","t":"Oh no! Are you OK now?","tr":"저런! 지금은 괜찮아요?"}]},
+        {"p":"**be동사의 과거.** {{am}}과 {{is}}의 과거는 {{was}}, {{are}}의 과거는 {{were}}예요: {{I was tired.}} “피곤했어요.”, {{They were at home.}} “그들은 집에 있었어요.” 현재처럼 “~이었어요”, “~했어요(형용사)”, “~에 있었어요”를 모두 be동사 하나로 말해요."},
+        {"term":"과거형","means":"이미 지나간 일을 말하는 동사 모양이에요: {{was}}, {{went}}, {{played}}."},
+        { "table": [
+          ["주어","현재","과거"],
+          ["{{I}}","{{am}}","{{was}}"],
+          ["{{he}}, {{she}}, {{it}}","{{is}}","{{was}}"],
+          ["{{you}}, {{we}}, {{they}}","{{are}}","{{were}}"]
+        ] },
+        {"p":"**부정과 질문.** 부정은 {{wasn't}}, {{weren't}}: {{It wasn't expensive.}} 질문은 {{was}}/{{were}}를 주어 앞으로: {{Were you at work?}} → {{Yes, I was.}} / {{No, I wasn't.}}"},
+        {"p":"**어땠어요? {{How was…?}}** {{How was your weekend?}} “주말 어땠어요?”, {{How was the movie?}} “영화 어땠어요?” 대답은 {{It was great.}}, {{It was OK.}}, {{It was boring.}} 과거를 나타내는 말: {{yesterday}} “어제”, {{last night}} “어젯밤”, {{last week}} “지난주”, {{two days ago}} “이틀 전”."},
+        { "ex": [
+          {"t":"I was at work yesterday.","tr":"어제는 회사에 있었어요."},
+          {"t":"The food was delicious.","tr":"음식이 맛있었어요."},
+          {"t":"We were so tired.","tr":"우리는 너무 피곤했어요."},
+          {"t":"It wasn't expensive.","tr":"비싸지 않았어요."},
+          {"t":"Were you at the party?","tr":"파티에 있었어요?"},
+          {"t":"It was cold last night.","tr":"어젯밤에 추웠어요."}
+        ] },
+        {"tip":"{{How was…?}}는 미국 사람들이 월요일 아침마다 하는 인사예요: {{How was your weekend?}} 짧게라도 무엇을 했는지 덧붙이면 대화가 이어져요."}
+      ],
+      "mistakes": [
+        {"wrong":"I were at home.","right":"I was at home.","tr":"집에 있었어요.","why":"{{I}}의 과거는 {{was}}예요."},
+        {"wrong":"Yesterday I tired.","right":"I was tired yesterday.","tr":"어제 피곤했어요.","why":"과거에도 형용사 앞에 be동사가 필요해요: {{was}}."},
+        {"wrong":"They was late.","right":"They were late.","tr":"그들은 늦었어요.","why":"{{they}}의 과거는 {{were}}예요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“주말 어땠어요?”","options":["{{How was your weekend?}}","{{How is your weekend?}}","{{How were your weekend?}}"],"answer":0,"why":"지나간 주말: {{was}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We ___ at the beach yesterday.","tr":"우리는 어제 해변에 있었어요.","options":["were","was","are"],"answer":0,"why":"{{we}}의 과거: {{were}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"The movie ___ boring.","tr":"영화는 지루하지 않았어요.","options":["wasn't","weren't","didn't"],"answer":0,"why":"{{the movie}}는 하나: {{wasn't}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"어젯밤에는 집에 있었어요.","words":["I","was","at","home","last","night."]},
+        {"type":"dialogue","q":"월요일 아침, 동료가 물어요. 알맞은 대답을 고르세요.","from":"say-how-you-feel","lines":[{"who":"동료","t":"How was your weekend?","tr":"주말 어땠어요?"},{"options":["It was great. I was in Busan.","It great. I in Busan."],"answer":0,"why":"과거에도 be동사가 필요해요: {{It was}}, {{I was}}."},{"who":"동료","t":"Nice! Were you tired after the trip?","tr":"좋네요! 여행 끝나고 피곤했어요?"},{"options":["Yes, I was. I'm still tired!","Yes, I were. I still tired!"],"answer":0,"why":"{{I}}: {{was}}. 그리고 지금은 {{I'm}} (3과)."}]},
+        {"type":"say","q":"동료에게: “파티 어땠어요?”","answer":"How was the party?"},
+        {"type":"free","q":"여러분 차례예요: 지난 주말에 어디에 있었고, 어땠는지 말해 보세요.","answers":[{"t":"I was at my parents' house. It was relaxing.","tr":"부모님 댁에 있었어요. 편안했어요."},{"t":"I was in Jeju with my friends. The weather was perfect.","tr":"친구들이랑 제주도에 있었어요. 날씨가 완벽했어요."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-did",
+      "unit": 5,
+      "level": "A2",
+      "title": "지난 일 말하기",
+      "summary": "어제 한 일, 지난여름에 간 곳을 말해요. 규칙 동사는 {{-ed}}를 붙이고, 자주 쓰는 동사는 모양이 바뀌어요.",
+      "topic": "과거형: 규칙 동사 {{-ed}}와 그 발음; 불규칙 동사 {{went}}, {{ate}}, {{saw}}, {{had}}, {{got}}…",
+      "blocks": [
+        {"goal":{"t":"I went to Jeju last summer.","tr":"작년 여름에 제주도에 갔어요."}},
+        {"dialog":[{"who":"톰","t":"I had a busy day yesterday.","tr":"저는 어제 정말 바빴어요."},{"who":"수진","t":"Oh, really?","tr":"아, 그래요?"},{"who":"톰","t":"Yes. I worked until nine, and then I went to the gym.","tr":"네. 아홉 시까지 일하고, 그다음에 헬스장에 갔어요."},{"who":"수진","t":"I stayed home. I watched a movie and ate pizza.","tr":"저는 집에 있었어요. 영화 보고 피자 먹었어요."},{"who":"톰","t":"That sounds nice!","tr":"좋았겠네요!"}]},
+        {"p":"**규칙 동사: {{-ed}}.** 대부분의 동사는 끝에 {{-ed}}를 붙이면 과거가 돼요: {{work}} → {{worked}}, {{play}} → {{played}}. {{e}}로 끝나면 {{-d}}만: {{like}} → {{liked}}. 자음 + {{y}}는 {{-ied}}: {{study}} → {{studied}}. 주어가 무엇이든 모양이 같아요: {{I worked}}, {{she worked}}."},
+        {"p":"**{{-ed}} 발음.** 세 가지예요. {{t}}나 {{d}}로 끝나는 동사는 “이드”가 붙어요: {{wanted}}, {{visited}}. 나머지는 짧게 “트”나 “드”예요: {{worked}} “웍트”, {{played}} “플레이드”. “워크드”처럼 음절을 하나 더 만들지 마세요."},
+        {"p":"**불규칙 동사.** 가장 자주 쓰는 동사들은 모양이 바뀌어요. 이 동사들은 외워야 해요."},
+        {"term":"불규칙 동사","means":"과거형이 {{-ed}}로 끝나지 않고 모양이 바뀌는 동사예요: {{go}} → {{went}}."},
+        { "table": [
+          ["현재","과거","뜻"],
+          ["{{go}}","{{went}}","갔다"],
+          ["{{eat}}","{{ate}}","먹었다"],
+          ["{{have}}","{{had}}","가졌다, 먹었다"],
+          ["{{see}}","{{saw}}","봤다"],
+          ["{{get}}","{{got}}","받았다, 도착했다"],
+          ["{{make}}","{{made}}","만들었다"],
+          ["{{buy}}","{{bought}}","샀다"],
+          ["{{take}}","{{took}}","탔다, 가져갔다"],
+          ["{{meet}}","{{met}}","만났다"]
+        ] },
+        { "ex": [
+          {"t":"I studied English last night.","tr":"어젯밤에 영어를 공부했어요."},
+          {"t":"We watched a movie on Saturday.","tr":"우리는 토요일에 영화를 봤어요."},
+          {"t":"She bought a new phone.","tr":"그녀는 새 휴대폰을 샀어요."},
+          {"t":"I met my friend at a café.","tr":"카페에서 친구를 만났어요."},
+          {"t":"We had dinner at seven.","tr":"우리는 일곱 시에 저녁을 먹었어요."},
+          {"t":"I got up late this morning.","tr":"오늘 아침에 늦게 일어났어요."}
+        ] },
+        {"tip":"한국어는 “-았/었-” 하나로 과거를 만들지만, 영어의 불규칙 동사는 하나씩 외워야 해요. 많이 쓰는 것부터 매일 몇 개씩 소리 내어 말해 보세요: {{go, went}}, {{eat, ate}}, {{see, saw}}."}
+      ],
+      "mistakes": [
+        {"wrong":"I go to Busan last week.","right":"I went to Busan last week.","tr":"지난주에 부산에 갔어요.","why":"지난 일은 과거형: {{go}} → {{went}}."},
+        {"wrong":"I goed to the park.","right":"I went to the park.","tr":"공원에 갔어요.","why":"{{go}}는 불규칙 동사예요: {{went}}."},
+        {"wrong":"She studyed hard.","right":"She studied hard.","tr":"그녀는 열심히 공부했어요.","why":"자음 + {{y}}: {{-ied}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“어제 친구를 만났어요.”","options":["{{I met my friend yesterday.}}","{{I meet my friend yesterday.}}","{{I meeted my friend yesterday.}}"],"answer":0,"why":"{{meet}}의 과거: {{met}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We ___ pizza last night.","tr":"우리는 어젯밤에 피자를 먹었어요.","options":["ate","eated","eat"],"answer":0,"why":"{{eat}}의 과거: {{ate}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ my homework yesterday.","tr":"어제 숙제를 끝냈어요.","options":["finished","finish","finishing"],"answer":0,"why":"규칙 동사의 과거: {{-ed}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"작년 여름에 제주도에 갔어요.","words":["I","went","to","Jeju","last","summer."]},
+        {"type":"dialogue","q":"친구가 토요일에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-where-you-were","lines":[{"who":"친구","t":"How was your Saturday?","tr":"토요일 어땠어요?"},{"options":["It was fun. I went to a concert.","It was fun. I go to a concert."],"answer":0,"why":"지난 일: {{went}}."},{"who":"친구","t":"Cool! Who did you go with?","tr":"멋지네요! 누구랑 갔어요?"},{"options":["I went with my sister.","I goed with my sister."],"answer":0,"why":"{{go}}의 과거는 {{went}}."}]},
+        {"type":"say","q":"“오늘 아침에 늦게 일어났어요.”","answer":"I got up late this morning."},
+        {"type":"free","q":"여러분 차례예요: 어제 한 일 세 가지를 말해 보세요. 규칙 동사와 불규칙 동사를 섞어 보세요.","answers":[{"t":"I worked until six. Then I met a friend, and we ate Korean barbecue.","tr":"여섯 시까지 일했어요. 그다음에 친구를 만나서 고기를 먹었어요."},{"t":"I got up at eight. I studied English and watched a drama.","tr":"여덟 시에 일어났어요. 영어를 공부하고 드라마를 봤어요."}]}
+      ]
+    },
+    {
+      "id": "ask-about-the-past",
+      "unit": 5,
+      "level": "A2",
+      "title": "지난 일 묻기",
+      "summary": "“어제 뭐 했어요?”, “경기 봤어요?”처럼 과거에 대해 묻고, “안 했어요”라고 말해요.",
+      "topic": "{{Did you…?}}; {{didn't}} + 동사; {{What}} / {{Where}} / {{When did…?}}",
+      "blocks": [
+        {"goal":{"t":"What did you do yesterday?","tr":"어제 뭐 했어요?"}},
+        {"dialog":[{"who":"한나","t":"Did you see the game last night?","tr":"어젯밤 경기 봤어요?"},{"who":"우진","t":"No, I didn't. I worked late. Did Korea win?","tr":"아니요, 못 봤어요. 늦게까지 일했어요. 한국이 이겼어요?"},{"who":"한나","t":"Yes! They won two to one.","tr":"네! 2 대 1로 이겼어요."},{"who":"우진","t":"Wow! Where did you watch it?","tr":"와! 어디서 봤어요?"},{"who":"한나","t":"At a sports bar with my friends. Didn't you watch it at all?","tr":"친구들이랑 스포츠 바에서요. 전혀 안 봤어요?"},{"who":"우진","t":"No, I didn't. Not even the highlights!","tr":"네, 안 봤어요. 하이라이트도요!"}]},
+        {"p":"**과거 질문: {{Did}}.** 현재 질문의 {{do}}/{{does}}가 과거에는 {{did}}가 돼요. 그리고 동사는 **기본 모양**으로 돌아가요: {{You saw it.}} → {{Did you see it?}} 과거라는 표시는 {{did}}가 다 가져가요. {{Did you saw…?}}라고 하지 않아요."},
+        {"p":"**안 했어요: {{didn't}} + 동사.** {{I didn't go.}}, {{She didn't call me.}} 여기서도 동사는 기본 모양이에요. 주어가 무엇이든 {{did}}, {{didn't}}예요."},
+        { "table": [
+          ["","현재","과거"],
+          ["질문","{{Do you like it?}}","{{Did you like it?}}"],
+          ["부정","{{I don't know.}}","{{I didn't know.}}"],
+          ["의문사","{{Where do you go?}}","{{Where did you go?}}"],
+          ["대답","{{Yes, I do.}}","{{Yes, I did.}} / {{No, I didn't.}}"]
+        ] },
+        {"p":"**be동사는 따로.** be동사의 과거는 {{did}} 없이 {{Were you…?}}, {{wasn't}}로 말해요(22과): {{Were you tired?}} ({{Did you tired?}}라고 하지 않아요.) 그리고 대화 끝의 {{Didn't you watch it?}} “안 봤어요?”에도 14과의 규칙이 그대로예요: 안 봤으면 {{No}}."},
+        { "ex": [
+          {"t":"Did you have lunch?","tr":"점심 먹었어요?"},
+          {"t":"I didn't sleep well last night.","tr":"어젯밤에 잠을 잘 못 잤어요."},
+          {"t":"Where did you go on vacation?","tr":"휴가 때 어디 갔어요?"},
+          {"t":"When did you arrive?","tr":"언제 도착했어요?"},
+          {"t":"She didn't come to class today.","tr":"그녀는 오늘 수업에 안 왔어요."},
+          {"t":"Did you like the movie? Yes, I did!","tr":"영화 좋았어요? 네, 좋았어요!"}
+        ] },
+        {"tip":"{{What did you do last weekend?}}는 미국에서 아주 흔한 질문이에요. {{I didn't do much.}} “별거 안 했어요”도 자연스러운 대답이에요."}
+      ],
+      "mistakes": [
+        {"wrong":"Did you went there?","right":"Did you go there?","tr":"거기 갔어요?","why":"{{did}} 다음에는 동사의 기본 모양이에요."},
+        {"wrong":"I didn't saw it.","right":"I didn't see it.","tr":"그거 안 봤어요.","why":"{{didn't}} 다음에도 기본 모양: {{see}}."},
+        {"wrong":"Where you went?","right":"Where did you go?","tr":"어디 갔어요?","why":"의문사 다음에 {{did}}가 필요해요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“점심 먹었어요?”","options":["{{Did you have lunch?}}","{{Did you had lunch?}}","{{Do you had lunch?}}"],"answer":0,"why":"{{Did}} + 주어 + 동사 기본 모양."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I ___ go to work yesterday.","tr":"어제 회사에 안 갔어요.","options":["didn't","don't","wasn't"],"answer":0,"why":"과거의 부정: {{didn't}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Where did you ___ that bag?","tr":"그 가방 어디서 샀어요?","options":["buy","bought","buying"],"answer":0,"why":"{{did}} 다음에는 기본 모양: {{buy}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"휴가 때 어디 갔어요?","words":["Where","did","you","go","on","vacation?"]},
+        {"type":"dialogue","q":"친구가 메시지에 대해 물어요. 알맞은 대답을 고르세요.","from":"say-no-and-answer-no","lines":[{"who":"친구","t":"Did you see my message?","tr":"제 메시지 봤어요?"},{"options":["Sorry, I didn't. My phone was off.","Sorry, I didn't saw. My phone was off."],"answer":0,"why":"{{didn't}} 다음은 기본 모양이고, 여기서는 짧게 {{I didn't}}로 끝내도 돼요."},{"who":"친구","t":"You didn't read it at all?","tr":"아예 안 읽었어요?"},{"options":["No, I didn't. Sorry!","Yes, I didn't. Sorry!"],"answer":0,"why":"안 읽었으면 {{No}}예요."}]},
+        {"type":"say","q":"친구에게: “어제 뭐 했어요?”","answer":"What did you do yesterday?"},
+        {"type":"free","q":"여러분 차례예요: 친구에게 지난 주말에 대해 질문 두 개를 하고, 내가 안 한 일 하나를 말해 보세요.","answers":[{"t":"Where did you go last weekend? Did you have fun? I didn't go out.","tr":"지난 주말에 어디 갔어요? 재미있었어요? 저는 밖에 안 나갔어요."},{"t":"What did you eat? Did you meet anyone? I didn't do anything special.","tr":"뭐 먹었어요? 누구 만났어요? 저는 별거 안 했어요."}]}
+      ]
+    },
+    {
+      "id": "tell-it-in-order",
+      "unit": 5,
+      "level": "A2",
+      "title": "순서대로 이야기하기",
+      "summary": "일어난 일을 순서대로 말하고, “전화 왔을 때 샤워하고 있었어요”처럼 배경과 사건을 함께 말해요.",
+      "topic": "{{first}}, {{then}}, {{after that}}, {{finally}}; {{when}}; 과거진행형 {{was}} / {{were}} + {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"I was taking a shower when you called.","tr":"전화했을 때 샤워하고 있었어요."}},
+        {"dialog":[{"who":"벤","t":"Why were you late this morning?","tr":"오늘 아침에 왜 늦었어요?"},{"who":"소라","t":"First, my alarm didn't go off. Then I missed the bus.","tr":"먼저 알람이 안 울렸어요. 그다음에 버스를 놓쳤어요."},{"who":"벤","t":"Oh no!","tr":"저런!"},{"who":"소라","t":"After that, I took a taxi. But it was raining, and the traffic was terrible.","tr":"그래서 택시를 탔어요. 그런데 비가 오고 있었고, 길이 엄청 막혔어요."},{"who":"벤","t":"And then?","tr":"그다음엔요?"},{"who":"소라","t":"When I was walking into the office, I dropped my coffee!","tr":"사무실에 들어가고 있을 때 커피를 떨어뜨렸어요!"}]},
+        {"p":"**순서 말하기.** {{First}} “먼저”, {{Then}} “그다음에”, {{After that}} “그 후에”, {{Finally}} / {{In the end}} “마지막에, 결국”. 문장 맨 앞에 붙여요: {{First, I had breakfast. Then I went to work.}}"},
+        {"p":"**배경과 사건: 과거진행형.** 어떤 일이 **진행 중이었을 때** 다른 일이 **일어났다**고 할 때, 진행 중이던 일은 {{was}}/{{were}} + {{-ing}}, 갑자기 일어난 일은 과거형으로 말해요: {{I was cooking when you called.}} “당신이 전화했을 때 요리하고 있었어요.”"},
+        {"term":"과거진행형","means":"과거의 어느 순간에 하고 있던 일이에요: {{was}}/{{were}} + 동사{{-ing}}. {{I was sleeping.}}"},
+        { "table": [
+          ["","예","뜻"],
+          ["진행 중이던 일 (배경)","{{I was walking home…}}","집에 걸어가고 있었는데…"],
+          ["갑자기 일어난 일","{{…when it started to rain.}}","…그때 비가 오기 시작했어요."],
+          ["순서를 바꿔서","{{When you called, I was sleeping.}}","전화했을 때 자고 있었어요."]
+        ] },
+        {"p":"**{{when}}.** {{when}} “~할 때”가 이끄는 부분은 문장 앞이나 뒤에 올 수 있어요. 앞에 오면 쉼표를 찍어요: {{When I got home, my mom was cooking.}}"},
+        { "ex": [
+          {"t":"First, I made coffee. Then I checked my email.","tr":"먼저 커피를 내렸어요. 그다음에 이메일을 확인했어요."},
+          {"t":"After that, we went to a restaurant.","tr":"그 후에 우리는 식당에 갔어요."},
+          {"t":"I was sleeping when the phone rang.","tr":"전화가 울렸을 때 자고 있었어요."},
+          {"t":"What were you doing at 10 p.m.?","tr":"밤 10시에 뭐 하고 있었어요?"},
+          {"t":"When I arrived, everyone was dancing.","tr":"제가 도착했을 때 다들 춤추고 있었어요."},
+          {"t":"Finally, we got home at midnight.","tr":"결국 자정에 집에 도착했어요."}
+        ] },
+        {"tip":"이야기를 할 때는 처음부터 끝까지 과거형으로 말해요. 한국어로 생각하다 보면 중간에 현재형으로 돌아가기 쉬우니 조심하세요."}
+      ],
+      "mistakes": [
+        {"wrong":"I was cook when you called.","right":"I was cooking when you called.","tr":"전화했을 때 요리하고 있었어요.","why":"과거진행형은 {{was}} + 동사{{-ing}}예요."},
+        {"wrong":"I sleeping when you called.","right":"I was sleeping when you called.","tr":"전화했을 때 자고 있었어요.","why":"{{was}}를 빼면 안 돼요."},
+        {"wrong":"Then I go home.","right":"Then I went home.","tr":"그다음에 집에 갔어요.","why":"지난 일은 끝까지 과거형으로 말해요."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“전화 왔을 때 운전하고 있었어요.”","options":["{{I was driving when you called.}}","{{I drove when you were calling.}}","{{I driving when you called.}}"],"answer":0,"why":"진행 중이던 일은 {{was driving}}, 갑자기 일어난 일은 {{called}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We ___ watching TV when the lights went out.","tr":"불이 나갔을 때 우리는 TV를 보고 있었어요.","options":["were","was","are"],"answer":0,"why":"{{we}}: {{were}} + {{-ing}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"First, I took a shower. ___ I had breakfast.","tr":"먼저 샤워를 했어요. 그다음에 아침을 먹었어요.","options":["Then","When","First"],"answer":0,"why":"그다음에: {{Then}}."},
+        {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"제가 도착했을 때 다들 춤추고 있었어요.","words":["When","I","arrived,","everyone","was","dancing."]},
+        {"type":"dialogue","q":"친구가 전화를 안 받은 이유를 물어요. 알맞은 대답을 고르세요.","from":"ask-about-the-past","lines":[{"who":"친구","t":"Why didn't you answer my call?","tr":"왜 전화 안 받았어요?"},{"options":["Sorry! I was taking a shower.","Sorry! I take a shower now."],"answer":0,"why":"그때 진행 중이던 일: {{was taking}}."},{"who":"친구","t":"Oh, OK. What did you do after that?","tr":"아, 그렇군요. 그 후에는 뭐 했어요?"},{"options":["I had dinner. Then I went to bed.","I have dinner. Then I go to bed."],"answer":0,"why":"지난 일: 과거형."}]},
+        {"type":"say","q":"“밤 10시에 뭐 하고 있었어요?”","answer":"What were you doing at 10 p.m.?"},
+        {"type":"free","q":"여러분 차례예요: 어제 있었던 일을 {{First}}, {{Then}}, {{After that}}으로 순서대로 말하고, {{when}} 문장도 하나 넣어 보세요.","answers":[{"t":"First, I went to work. Then I met my friend. When I was walking home, I saw a famous actor!","tr":"먼저 회사에 갔어요. 그다음에 친구를 만났어요. 집에 걸어가고 있을 때 유명한 배우를 봤어요!"},{"t":"First, I cleaned my room. After that, I cooked dinner. I was eating when my mom called.","tr":"먼저 방을 청소했어요. 그 후에 저녁을 만들었어요. 밥을 먹고 있을 때 엄마가 전화하셨어요."}]}
+      ]
     }
   ]
 }
