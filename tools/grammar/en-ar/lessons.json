@@ -3,620 +3,103 @@
   "to": "ar",
   "title": "Arabic grammar",
   "variety": "Modern Standard Arabic",
-  "about": "From your very first sentence to everyday conversation, one short lesson at a time. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is Modern Standard Arabic, fully vowelled, with a reading in Latin letters.",
+  "about": "From your very first conversation to everyday fluency, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is Modern Standard Arabic, fully vowelled, with a reading in Latin letters.",
   "reading": "transliteration",
   "units": [
-    {"n":1,"title":"First steps"},
-    {"n":2,"title":"Where, whose, and what you have"},
-    {"n":3,"title":"Doing things: the present"},
-    {"n":4,"title":"Wanting, liking, being able"},
-    {"n":5,"title":"Yesterday: the past"},
-    {"n":6,"title":"More than one: plurals and numbers"},
-    {"n":7,"title":"Tomorrow, commands, and joining ideas"},
-    {"n":8,"title":"Towards fluent conversation"}
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Out and about"},
+    {"n":3,"title":"Everyday life"},
+    {"n":4,"title":"Plans, wishes and abilities"},
+    {"n":5,"title":"Telling what happened"},
+    {"n":6,"title":"Numbers, time and more than one"},
+    {"n":7,"title":"Connecting your ideas"},
+    {"n":8,"title":"Opinions, stories and imagination"}
   ],
   "lessons": [
     {
-      "id": "vowel-marks",
+      "id": "say-who-you-are",
       "unit": 1,
       "level": "A1",
-      "title": "Reading the examples: the vowel marks",
-      "summary": "How Arabic is written, and the small marks that show its vowels, so you can read every example in this course.",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first Arabic conversation.",
+      "topic": "Sentences without “am, is, are”; {{أَنَا}} “I” and {{أَنْتَ}} / {{أَنْتِ}} “you”",
       "blocks": [
-        {"p":"Arabic is written from right to left, and most letters join the letter after them. The letters mostly write **consonants**. The short vowels a, i and u are small marks above or below the letters."},
-        {"term":"vowel","means":"a sound like a, i or u, made with the mouth open. The other sounds of speech, like b, k or s, are **consonants**."},
-        {"p":"Newspapers and street signs usually leave the vowel marks out: readers know the words. Every example in this course has them, because they show exactly how a word is said, and some of them, as you will see, are grammar."},
-        { "table": [
-          ["Mark","Name","Sound","Example"],
-          ["{{بَ}}","fatḥa: a small line above","a","{{كَتَبَ|kataba}} he wrote"],
-          ["{{بِ}}","kasra: a small line below","i","{{مِنْ|min}} from"],
-          ["{{بُ}}","ḍamma: a small curl above","u","{{هُوَ|huwa}} he"],
-          ["{{بْ}}","sukūn: a small circle","no vowel after the letter","{{مِنْ|min}} from"],
-          ["{{بّ}}","shadda: a small w shape","the letter said twice (held longer)","{{مُدَرِّسٌ|mudarrisun}} a teacher"]
-        ] },
-        {"p":"**Long vowels** are written with letters: {{ا}} for ā, {{و}} for ū and {{ي}} for ī, as in {{بَابٌ|bābun}} “a door”, {{نُورٌ|nūrun}} “light” and {{كَبِيرٌ|kabīrun}} “big”. In the readings of this course, a line over a vowel (ā, ī, ū) means it is long: hold it about twice as long."},
-        {"p":"**Doubled marks at the end** of a word ({{ـٌ}}, {{ـً}}, {{ـٍ}}) add an n: {{كِتَابٌ|kitābun}}, {{كِتَابًا|kitāban}}, {{كِتَابٍ|kitābin}}. They mean “a”, as in “a book”. Which of the three a word has depends on its job in the sentence, which later lessons explain."},
-        {"p":"Two more signs: {{ء}} (hamza) is a short catch in the throat, like the break in the middle of “uh-oh”; it often sits on an alif, as in {{أَنَا|anā}} “I”. And {{ة}}, a round t, ends many words; you will meet it in the lesson on masculine and feminine. In the readings, ʾ is a hamza, ʿ is the letter {{ع}} (a sound made deep in the throat), and a dot under a letter (ḥ, ṣ, ḍ, ṭ, ẓ) marks a heavier sound than the plain one."},
-        { "ex": [
-          {"t":"كِتَابٌ","r":"kitābun","tr":"a book"},
-          {"t":"بَابٌ كَبِيرٌ","r":"bābun kabīrun","tr":"a big door"},
-          {"t":"هُوَ مُدَرِّسٌ.","r":"huwa mudarrisun.","tr":"He is a teacher."},
-          {"t":"مَرْحَبًا.","r":"marḥaban.","tr":"Hello."},
-          {"t":"شُكْرًا.","r":"shukran.","tr":"Thank you."}
-        ] },
-        {"tip":"The reading under each example is there to help you, not to replace the Arabic: read the Arabic first, then check. Tap an example to hear it."}
-      ],
-      "mistakes": [
-        {"wrong":"كِتَابُنْ","right":"كِتَابٌ","why":"The n of -un is never written as a letter: the doubled mark ({{ـٌ}}) already says it."},
-        {"wrong":"كَبِرٌ","right":"كَبِيرٌ","why":"“Big” has a long ī, written with {{ي}}: kabīrun. Short and long vowels make different words, so hold the long ones."}
-      ],
-      "practice": [
-        {"type":"choice","q":"Which mark is the vowel i?","options":["{{بَ}}","{{بِ}}","{{بُ}}"],"answer":1,"why":"The kasra, a small line **below** the letter, is i."},
-        {"type":"choice","q":"What does the doubled mark at the end of {{كِتَابٌ}} add?","options":["the sound -un, meaning “a” (a book)","the sound -a","nothing: it is silent"],"answer":0,"why":"{{ـٌ}} is said -un, and it means “a”: kitābun, a book."},
-        {"type":"choice","q":"Which word has a long ā?","options":["{{بَابٌ}}","{{مِنْ}}","{{هُوَ}}"],"answer":0,"why":"The {{ا}} after the first letter makes a long ā: bābun."},
-        {"type":"say","q":"Read this word aloud, then check: {{مُدَرِّسٌ}}","answer":"مُدَرِّسٌ","r":"mudarrisun","why":"The shadda on {{ر}} says it twice: mu-dar-ri-sun."}
-      ]
-    },
-    {
-      "id": "nouns-the",
-      "unit": 1,
-      "level": "A1",
-      "title": "Nouns, and the word for “the”",
-      "summary": "Say “a house” and “the house”: Arabic's word for “the”, and how it joins the word after it.",
-      "blocks": [
-        {"term":"noun","means":"a word for a person, an animal, a place, a thing or an idea: teacher, cat, Cairo, book, love."},
-        {"p":"Arabic's word for “the” is {{الْـ|al-}}. It is written joined to the front of the noun: {{بَيْتٌ|baytun}} is “a house”, {{الْبَيْتُ|al-baytu}} is “the house”."},
-        {"p":"There is no separate word for “a”. A noun ending in a doubled mark (-un) already means “a”. With {{الْـ}}, the doubled mark goes, and a single mark is left: “the house” is {{الْبَيْتُ|al-baytu}}, never {{الْبَيْتٌ}}."},
-        { "ex": [
-          {"t":"بَيْتٌ","r":"baytun","tr":"a house"},
-          {"t":"الْبَيْتُ","r":"al-baytu","tr":"the house"},
-          {"t":"وَلَدٌ","r":"waladun","tr":"a boy"},
-          {"t":"الْوَلَدُ","r":"al-waladu","tr":"the boy"},
-          {"t":"الْقَمَرُ","r":"al-qamaru","tr":"the moon"},
-          {"t":"الشَّمْسُ","r":"ash-shamsu","tr":"the sun"}
-        ] },
-        {"p":"**Sun letters.** Before 14 of the letters, the l of {{الْـ}} isn't said: the next letter is doubled instead, and gets a shadda. The l is still written. So {{الشَّمْسُ}} “the sun” is said ash-shamsu, not al-shamsu. These letters are called sun letters, after {{شَمْسٌ|shamsun}} “sun”. The others are moon letters, after {{قَمَرٌ|qamarun}} “moon”: with them the l is said, {{الْقَمَرُ|al-qamaru}}."},
-        { "table": [
-          ["Sun letters: the l is not said","Moon letters: the l is said"],
-          ["{{ت ث د ذ ر ز س ش ص ض ط ظ ل ن}}","{{ء ب ج ح خ ع غ ف ق ك م ه و ي}}"],
-          ["{{السَّيَّارَةُ|as-sayyāratu}} the car","{{الْكِتَابُ|al-kitābu}} the book"],
-          ["{{النُّورُ|an-nūru}} the light","{{الْبَابُ|al-bābu}} the door"]
-        ] },
-        {"p":"**After a vowel**, the a of {{الْـ}} isn't said either: “in the house” is {{فِي الْبَيْتِ|fī l-bayti}}. The readings in this course write it the way you hear it."},
-        {"tip":"Say every new noun once with {{الْـ}} and once without. Your ear will soon tell the sun letters from the moon letters by itself."}
-      ],
-      "mistakes": [
-        {"wrong":"الْبَيْتٌ","right":"الْبَيْتُ","why":"A word with {{الْـ}} never has the doubled mark: that mark means “a”, and a word can't be “a” and “the” at once."},
-        {"wrong":"الْشَّمْسُ","right":"الشَّمْسُ","why":"Before a sun letter the l is silent and has no mark of its own: say ash-shamsu."}
-      ],
-      "practice": [
-        {"type":"choice","q":"How do you say “the book”?","options":["{{كِتَابٌ}}","{{الْكِتَابُ}}","{{الْكِتَابٌ}}"],"answer":1,"why":"{{الْـ}} plus the noun, with a single mark at the end: al-kitābu."},
-        {"type":"choice","q":"In which word is the l of {{الْـ}} **not** said?","options":["{{الْقَمَرُ}}","{{الْبَابُ}}","{{الشَّمْسُ}}"],"answer":2,"why":"{{ش}} is a sun letter: ash-shamsu."},
-        {"type":"choice","q":"{{وَلَدٌ}} means…","options":["the boy","a boy","boys"],"answer":1,"why":"The doubled mark -un means “a”: waladun, a boy."},
-        {"type":"say","q":"How do you say “the car”?","answer":"السَّيَّارَةُ","r":"as-sayyāratu","why":"{{س}} is a sun letter, so the l is silent and the s is doubled."}
-      ]
-    },
-    {
-      "id": "gender",
-      "unit": 1,
-      "level": "A1",
-      "title": "Masculine and feminine",
-      "summary": "Every Arabic noun is masculine or feminine. Learn the sign that marks most feminine words.",
-      "blocks": [
-        {"term":"gender","means":"whether a word is **masculine** (like “he”) or **feminine** (like “she”). In Arabic every noun has one, even the words for things: a door is masculine, a car is feminine."},
-        {"p":"Most feminine nouns end in {{ة}}, a round t called tāʾ marbūṭa. At the end of a sentence it sounds -a; with an ending after it, -at-: {{سَيَّارَةٌ|sayyāratun}} “a car”."},
-        {"p":"Many words for people come in pairs: add {{ة}} to the masculine word and you have the feminine one."},
-        { "table": [
-          ["","Masculine","Feminine"],
-          ["student","{{طَالِبٌ|ṭālibun}}","{{طَالِبَةٌ|ṭālibatun}}"],
-          ["teacher","{{مُعَلِّمٌ|muʿallimun}}","{{مُعَلِّمَةٌ|muʿallimatun}}"],
-          ["doctor","{{طَبِيبٌ|ṭabībun}}","{{طَبِيبَةٌ|ṭabībatun}}"],
-          ["friend","{{صَدِيقٌ|ṣadīqun}}","{{صَدِيقَةٌ|ṣadīqatun}}"]
-        ] },
-        { "ex": [
-          {"t":"مَدْرَسَةٌ","r":"madrasatun","tr":"a school","note":"feminine: it ends in ة"},
-          {"t":"الْمَدِينَةُ","r":"al-madīnatu","tr":"the city","note":"feminine"},
-          {"t":"بَابٌ","r":"bābun","tr":"a door","note":"masculine"},
-          {"t":"الْغُرْفَةُ","r":"al-ghurfatu","tr":"the room","note":"feminine"},
-          {"t":"صَدِيقَةٌ","r":"ṣadīqatun","tr":"a (female) friend","note":"feminine"}
-        ] },
-        {"p":"A few common feminine nouns have no {{ة}}; learn them as you meet them: {{أُمٌّ|ummun}} “mother”, {{بِنْتٌ|bintun}} “girl, daughter”, {{شَمْسٌ|shamsun}} “sun”, {{أَرْضٌ|arḍun}} “earth, ground”, {{يَدٌ|yadun}} “hand”, {{عَيْنٌ|ʿaynun}} “eye”, {{حَرْبٌ|ḥarbun}} “war”, and the names of most countries and cities, like {{مِصْرُ|miṣru}} “Egypt”."},
-        {"tip":"Why it matters: words that describe a noun, and verbs, change to match its gender. The next lessons show how."}
-      ],
-      "mistakes": [
-        {"wrong":"هِيَ طَالِبٌ.","right":"هِيَ طَالِبَةٌ.","tr":"She is a student.","why":"A woman or a girl is a {{طَالِبَةٌ}}, with {{ة}}."}
-      ],
-      "practice": [
-        {"type":"choice","q":"Which word is feminine?","options":["{{بَابٌ}}","{{كِتَابٌ}}","{{مَدِينَةٌ}}"],"answer":2,"why":"{{مَدِينَةٌ}} ends in {{ة}}."},
-        {"type":"choice","q":"{{أُمٌّ}} “mother” is…","options":["masculine","feminine"],"answer":1,"why":"It has no {{ة}}, but a mother is a woman: it's one of the feminine words to learn by heart."},
-        {"type":"choice","q":"A female teacher is…","options":["{{مُعَلِّمٌ}}","{{مُعَلِّمَةٌ}}"],"answer":1,"why":"Add {{ة}} to the masculine word."},
-        {"type":"say","q":"How do you say “the school”?","answer":"الْمَدْرَسَةُ","r":"al-madrasatu"}
-      ]
-    },
-    {
-      "id": "roots",
-      "unit": 1,
-      "level": "A1",
-      "title": "Roots: families of words",
-      "summary": "Most Arabic words are built on three consonants that carry a meaning. Knowing them helps you guess new words.",
-      "blocks": [
-        {"term":"root","means":"the three consonants (sometimes four) that a family of Arabic words share and that carry its basic meaning. The vowels and extra letters around them make the different words."},
-        {"p":"The letters {{ك ت ب}} (k-t-b) carry the idea of writing. Put vowels and a few extra letters around them, always keeping them in the same order, and you get a whole family of words:"},
-        { "table": [
-          ["Word","Shape","Meaning"],
-          ["{{كَتَبَ|kataba}}","the root with a-a-a","he wrote"],
-          ["{{كِتَابٌ|kitābun}}","i-ā","a book"],
-          ["{{كَاتِبٌ|kātibun}}","ā-i: the one who does it","a writer"],
-          ["{{مَكْتَبٌ|maktabun}}","ma-: the place where it's done","an office, a desk"],
-          ["{{مَكْتَبَةٌ|maktabatun}}","ma-…-a: also a place","a library, a bookshop"],
-          ["{{مَكْتُوبٌ|maktūbun}}","ma-…-ū: what it is done to","written; a letter"]
-        ] },
-        {"term":"pattern","means":"a shape of vowels and extra letters that is put around a root. The same pattern gives the same kind of meaning with every root: ā-i makes the one who does it, like {{كَاتِبٌ}} “writer”."},
-        {"p":"So the same shapes work with other roots. {{د ر س}} (d-r-s) is about studying: {{دَرَسَ|darasa}} “he studied”, {{دَرْسٌ|darsun}} “a lesson”, {{مَدْرَسَةٌ|madrasatun}} “a school”, {{مُدَرِّسٌ|mudarrisun}} “a teacher”. {{ع ل م}} (ʿ-l-m) is about knowing: {{عِلْمٌ|ʿilmun}} “knowledge, science”, {{عَالِمٌ|ʿālimun}} “a scientist”, {{مُعَلِّمٌ|muʿallimun}} “a teacher”."},
-        { "ex": [
-          {"t":"كَتَبَ الْكَاتِبُ كِتَابًا.","r":"kataba l-kātibu kitāban.","tr":"The writer wrote a book."},
-          {"t":"الْمَكْتَبَةُ قَرِيبَةٌ.","r":"al-maktabatu qarībatun.","tr":"The library is near."},
-          {"t":"الدَّرْسُ سَهْلٌ.","r":"ad-darsu sahlun.","tr":"The lesson is easy."},
-          {"t":"الْمُدَرِّسُ فِي الْمَدْرَسَةِ.","r":"al-mudarrisu fī l-madrasati.","tr":"The teacher is at school."}
-        ] },
-        {"tip":"Many dictionaries list words by their root: to find {{مَكْتَبَةٌ}}, look under {{ك ت ب}}. When you meet a new word, look for three letters you already know."}
-      ],
-      "mistakes": [
-        {"wrong":"مَكْبَتَةٌ","right":"مَكْتَبَةٌ","why":"A root's letters always keep their order: k-t-b, so ma-k-t-a-b-a."}
-      ],
-      "practice": [
-        {"type":"choice","q":"Which word belongs to the same family as {{كِتَابٌ}}?","options":["{{كَاتِبٌ}}","{{بَابٌ}}","{{قَلَمٌ}}"],"answer":0,"why":"{{كَاتِبٌ}} “writer” has the same root, {{ك ت ب}}."},
-        {"type":"choice","q":"{{د ر س}} is about studying. What does {{مَدْرَسَةٌ}} probably mean?","options":["a place for studying: a school","a person who studies","he studied"],"answer":0,"why":"ma-…-a is a pattern for places."},
-        {"type":"choice","q":"What is the root of {{مُعَلِّمٌ}} “teacher”?","options":["{{م ع ل}}","{{ع ل م}}","{{م ل م}}"],"answer":1,"why":"mu- is an extra part of the pattern; the root is ʿ-l-m, knowing."},
-        {"type":"order","q":"Put the root letters of {{كَاتِبٌ}} “writer” in order.","tr":"k-t-b: the idea of writing","words":["ك","ت","ب"]}
-      ]
-    },
-    {
-      "id": "this-is",
-      "unit": 1,
-      "level": "A1",
-      "title": "“This is…”: sentences without “is”",
-      "summary": "Make your first sentences, like “This is a book” and “The house is big”, with no word for “is”.",
-      "blocks": [
-        {"term":"sentence","means":"a group of words that says something complete: The house is big."},
-        {"term":"subject","means":"the person or thing a sentence is about. In “The house is big”, the subject is “the house”."},
-        {"p":"In English, “is”, “am” and “are” link the subject to what you say about it. In the present, Arabic leaves them out: you just put the two side by side. {{الْبَيْتُ|al-baytu}} “the house” + {{كَبِيرٌ|kabīrun}} “big” gives {{الْبَيْتُ كَبِيرٌ.|al-baytu kabīrun.}} “The house is big.”"},
-        {"p":"The subject usually has {{الْـ}} “the”, and what you say about it usually doesn't. Both end in -u: one u on {{الْبَيْتُ}}, and -un on {{كَبِيرٌ}}."},
-        {"p":"“This is” works the same way: {{هَذَا|hādhā}} “this” for a masculine noun, {{هَذِهِ|hādhihi}} for a feminine one, then the noun: {{هَذَا كِتَابٌ.|hādhā kitābun.}} “This is a book.”"},
-        { "ex": [
-          {"t":"هَذَا كِتَابٌ.","r":"hādhā kitābun.","tr":"This is a book."},
-          {"t":"هَذِهِ سَيَّارَةٌ.","r":"hādhihi sayyāratun.","tr":"This is a car."},
-          {"t":"الْبَيْتُ كَبِيرٌ.","r":"al-baytu kabīrun.","tr":"The house is big."},
-          {"t":"الْغُرْفَةُ صَغِيرَةٌ.","r":"al-ghurfatu ṣaghīratun.","tr":"The room is small."},
-          {"t":"الْجَوُّ جَمِيلٌ.","r":"al-jawwu jamīlun.","tr":"The weather is nice."},
-          {"t":"الْمَطْعَمُ مَفْتُوحٌ.","r":"al-maṭʿamu maftūḥun.","tr":"The restaurant is open."}
-        ] },
-        {"tip":"What you say about a feminine subject is feminine too: {{الْغُرْفَةُ صَغِيرَةٌ}}, with {{ة}} on both words."}
-      ],
-      "mistakes": [
-        {"wrong":"هَذَا سَيَّارَةٌ.","right":"هَذِهِ سَيَّارَةٌ.","tr":"This is a car.","why":"{{سَيَّارَةٌ}} is feminine, so “this” is {{هَذِهِ}}."},
-        {"wrong":"الْبَيْتُ الْكَبِيرُ.","right":"الْبَيْتُ كَبِيرٌ.","tr":"The house is big.","why":"With {{الْـ}} on both words it means “the big house”, a phrase, not a sentence. To say “the house is big”, leave {{الْـ}} off the second word."}
-      ],
-      "practice": [
-        {"type":"choice","q":"How do you say “The room is small”?","options":["{{الْغُرْفَةُ صَغِيرَةٌ.}}","{{الْغُرْفَةُ الصَّغِيرَةُ.}}","{{هَذَا غُرْفَةٌ صَغِيرٌ.}}"],"answer":0,"why":"Subject with {{الْـ}}, then what you say about it without {{الْـ}}, both feminine."},
-        {"type":"choice","q":"Which word completes “This is a city”: ___ {{مَدِينَةٌ}}?","options":["{{هَذَا}}","{{هَذِهِ}}"],"answer":1,"why":"{{مَدِينَةٌ}} ends in {{ة}}: it's feminine."},
-        {"type":"order","q":"Put the words in order.","tr":"The restaurant is open.","words":["الْمَطْعَمُ","مَفْتُوحٌ."]},
-        {"type":"say","q":"How do you say “This is a book”?","answer":"هَذَا كِتَابٌ.","r":"hādhā kitābun."}
-      ]
-    },
-    {
-      "id": "pronouns",
-      "unit": 1,
-      "level": "A1",
-      "title": "I, you, he, she: pronouns",
-      "summary": "The words for I, you, he, she, we and they, and Arabic's different words for “you”.",
-      "blocks": [
-        {"term":"pronoun","means":"a short word that stands for a noun: I, you, she, they."},
-        {"p":"Arabic has a different “you” for a man, for a woman and for a group. And as you saw in the last lesson, “am”, “is” and “are” aren't said: {{أَنَا طَالِبٌ.|anā ṭālibun.}} is “I am a student.”"},
+        {"goal":{"t":"مَرْحَبًا، أَنَا سَارَةُ. أَنَا مِنْ كَنَدَا.","r":"marḥaban, anā sāratu. anā min kanadā.","tr":"Hello, I'm Sarah. I'm from Canada."}},
+        {"dialog":[{"who":"Karim","t":"مَرْحَبًا! أَنَا كَرِيمٌ.","r":"marḥaban! anā karīmun.","tr":"Hello! I'm Karim."},{"who":"Sarah","t":"أَهْلًا، أَنَا سَارَةُ.","r":"ahlan, anā sāratu.","tr":"Hi, I'm Sarah."},{"who":"Karim","t":"مِنْ أَيْنَ أَنْتِ؟","r":"min ayna anti?","tr":"Where are you from?"},{"who":"Sarah","t":"أَنَا مِنْ كَنَدَا. وَأَنْتَ؟","r":"anā min kanadā. wa-anta?","tr":"I'm from Canada. And you?"},{"who":"Karim","t":"أَنَا مِنْ مِصْرَ.","r":"anā min miṣra.","tr":"I'm from Egypt."},{"who":"Sarah","t":"تَشَرَّفْنَا!","r":"tasharrafnā!","tr":"Nice to meet you!"}]},
+        {"p":"Look at what is missing in this conversation: Arabic has no word for “am”, “is” or “are” in the present. {{أَنَا سَارَةُ}} is, word for word, “I Sarah”. You simply put the two side by side."},
+        {"term":"sentence","means":"a group of words that says something complete: I'm from Egypt."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she."},
+        {"p":"**I and you.** {{أَنَا|anā}} is “I”, for a man or a woman. “You” depends on who you're talking to: {{أَنْتَ|anta}} to a man, {{أَنْتِ|anti}} to a woman. Karim says {{مِنْ أَيْنَ أَنْتِ؟}} to Sarah, and she answers {{وَأَنْتَ؟}} “and you?”."},
         { "table": [
           ["","Arabic","Who"],
           ["I","{{أَنَا|anā}}","a man or a woman"],
-          ["you","{{أَنْتَ|anta}}","one man"],
-          ["you","{{أَنْتِ|anti}}","one woman"],
-          ["he, it","{{هُوَ|huwa}}","a man, or a masculine thing"],
-          ["she, it","{{هِيَ|hiya}}","a woman, or a feminine thing"],
-          ["we","{{نَحْنُ|naḥnu}}","any group with me in it"],
-          ["you","{{أَنْتُمْ|antum}}","a group of men, or of men and women"],
-          ["they","{{هُمْ|hum}}","a group of men, or of men and women"]
+          ["you","{{أَنْتَ|anta}}","talking to a man"],
+          ["you","{{أَنْتِ|anti}}","talking to a woman"]
         ] },
-        {"p":"“It” is {{هُوَ}} or {{هِيَ}}, depending on the noun's gender: the book is “he”, the car is “she”."},
+        {"p":"**Asking.** The question word comes first: {{مِنْ أَيْنَ أَنْتَ؟|min ayna anta?}} “Where are you from?”, word for word “from where you?”. And {{وَأَنْتِ؟|wa-anti?}} “and you?” turns any question back to the other person."},
         { "ex": [
-          {"t":"أَنَا طَالِبٌ.","r":"anā ṭālibun.","tr":"I am a student.","note":"said by a man"},
-          {"t":"أَنَا طَالِبَةٌ.","r":"anā ṭālibatun.","tr":"I am a student.","note":"said by a woman"},
-          {"t":"هُوَ مُهَنْدِسٌ.","r":"huwa muhandisun.","tr":"He is an engineer."},
-          {"t":"هِيَ طَبِيبَةٌ.","r":"hiya ṭabībatun.","tr":"She is a doctor."},
-          {"t":"أَنْتِ لَطِيفَةٌ.","r":"anti laṭīfatun.","tr":"You are kind.","note":"to a woman"},
-          {"t":"نَحْنُ أَصْدِقَاءُ.","r":"naḥnu aṣdiqāʾu.","tr":"We are friends."},
-          {"t":"هُمْ مَشْغُولُونَ.","r":"hum mashghūlūna.","tr":"They are busy."}
+          {"t":"أَنَا طَالِبٌ.","r":"anā ṭālibun.","tr":"I'm a student.","note":"said by a man"},
+          {"t":"أَنَا طَالِبَةٌ.","r":"anā ṭālibatun.","tr":"I'm a student.","note":"said by a woman: the ending {{ة}} makes words feminine (a later lesson)"},
+          {"t":"اسْمِي كَرِيمٌ.","r":"ismī karīmun.","tr":"My name is Karim."},
+          {"t":"أَنَا مِنْ هُنَا.","r":"anā min hunā.","tr":"I'm from here."},
+          {"t":"أَنْتَ مِنْ مِصْرَ؟","r":"anta min miṣra?","tr":"Are you from Egypt?","note":"a question just by raising your voice"}
         ] },
-        {"p":"There are also words for a group of women only ({{أَنْتُنَّ|antunna}} “you”, {{هُنَّ|hunna}} “they”) and for exactly two people ({{أَنْتُمَا|antumā}} “you two”, {{هُمَا|humā}} “they two”). You will hear them less; a later lesson comes back to the two."},
-        {"tip":"Once you learn verbs, you'll see that Arabic often leaves the pronoun out: the verb already shows who it is."}
+        {"tip":"The small marks above and below the letters are the vowels (a, i, u): the next lesson shows how to read them. Until then, the reading in Latin letters tells you how to say each example, and tapping an example lets you hear it."}
       ],
       "mistakes": [
-        {"wrong":"أَنْتَ طَالِبَةٌ.","right":"أَنْتِ طَالِبَةٌ.","tr":"You are a student. (to a woman)","why":"Talking to a woman, “you” is {{أَنْتِ}}, anti, with i."},
-        {"wrong":"أَنَا هُوَ طَالِبٌ.","right":"أَنَا طَالِبٌ.","tr":"I am a student.","why":"There is no word for “am”: put {{أَنَا}} and the noun side by side."}
+        {"wrong":"أَنَا أَكُونُ طَالِبٌ.","right":"أَنَا طَالِبٌ.","tr":"I'm a student.","why":"There is no “am” in the present: put {{أَنَا}} and the word side by side."},
+        {"wrong":"وَأَنْتَ يَا سَارَةُ؟","right":"وَأَنْتِ يَا سَارَةُ؟","tr":"And you, Sarah?","why":"Sarah is a woman, so “you” is {{أَنْتِ}}, anti."}
       ],
       "practice": [
-        {"type":"choice","q":"You are talking to a woman. “You” is…","options":["{{أَنْتَ}}","{{أَنْتِ}}","{{أَنْتُمْ}}"],"answer":1,"why":"{{أَنْتِ}}, anti, is for one woman."},
-        {"type":"choice","q":"{{هِيَ}} means…","options":["he","she","they"],"answer":1,"why":"{{هِيَ}}, hiya, is “she” (or “it” for a feminine thing)."},
-        {"type":"choice","q":"“The car? ___ is new.” Which word is “it”? {{السَّيَّارَةُ؟ ___ جَدِيدَةٌ.}}","options":["{{هُوَ}}","{{هِيَ}}"],"answer":1,"why":"{{سَيَّارَةٌ}} is feminine, so “it” is {{هِيَ}}."},
-        {"type":"say","q":"How does a woman say “I am a doctor”?","answer":"أَنَا طَبِيبَةٌ.","r":"anā ṭabībatun."}
+        {"type":"choice","q":"You're talking to a woman. “You” is…","options":["{{أَنْتَ}}","{{أَنْتِ}}","{{أَنَا}}"],"answer":1,"why":"{{أَنْتِ}}, anti, is for a woman; {{أَنْتَ}}, anta, for a man."},
+        {"type":"fill","q":"Choose the missing word.","t":"مِنْ ___ أَنْتَ؟","tr":"Where are you from?","options":["أَيْنَ","أَنَا","هُنَا"],"answer":0,"why":"{{أَيْنَ}} is “where”: min ayna anta?"},
+        {"type":"dialogue","q":"You're Sami, from Jordan. Choose your replies.","lines":[{"who":"Layla","t":"مَرْحَبًا! أَنَا لَيْلَى.","r":"marḥaban! anā laylā.","tr":"Hello! I'm Layla."},{"options":["أَهْلًا، أَنَا سَامِي.","أَهْلًا، أَنْتِ سَامِي."],"answer":0,"why":"Say who you are with {{أَنَا}}."},{"who":"Layla","t":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?","tr":"Where are you from?"},{"options":["أَنَا مِنَ الْأُرْدُنِّ.","أَنْتَ مِنَ الْأُرْدُنِّ."],"answer":0,"why":"About yourself: {{أَنَا}}. (Jordan is “the Jordan” in Arabic: {{الْأُرْدُنُّ}}.)"},{"who":"Layla","t":"تَشَرَّفْنَا!","r":"tasharrafnā!","tr":"Nice to meet you!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"I'm from Egypt.","words":["أَنَا","مِنْ","مِصْرَ."]},
+        {"type":"say","q":"Ask a man: “Where are you from?”","answer":"مِنْ أَيْنَ أَنْتَ؟","r":"min ayna anta?"},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{مَرْحَبًا، أَنَا…}}","answers":[{"t":"مَرْحَبًا، أَنَا جُون. أَنَا مِنْ أَمْرِيكَا.","r":"marḥaban, anā jūn. anā min amrīkā.","tr":"Hello, I'm John. I'm from America."},{"t":"أَهْلًا، أَنَا مَارِيَا. أَنَا مِنْ إِسْبَانِيَا.","r":"ahlan, anā māriyā. anā min isbāniyā.","tr":"Hi, I'm Maria. I'm from Spain."}]}
       ]
     },
     {
-      "id": "adjectives",
+      "id": "say-what-you-want",
       "unit": 1,
       "level": "A1",
-      "title": "Describing things: adjectives",
-      "summary": "Say “a big house” and “the big house”: the adjective comes after the noun and matches it.",
+      "title": "Say what you want",
+      "summary": "Ask for things, and say what you want to do: “I want to learn Arabic.”",
+      "topic": "{{أُرِيدُ}} with a noun; {{أَنْ}} and the -a form of a verb (the subjunctive)",
       "blocks": [
-        {"term":"adjective","means":"a word that describes a noun: big, new, happy."},
-        {"p":"In Arabic the adjective comes **after** the noun: {{بَيْتٌ كَبِيرٌ|baytun kabīrun}} “a big house”, word for word “house big”."},
-        {"p":"It matches the noun in three ways: in gender ({{ة}} for a feminine noun), in “a” or “the”, and in its ending. So “the big house” has {{الْـ}} twice: {{الْبَيْتُ الْكَبِيرُ|al-baytu l-kabīru}}."},
+        {"goal":{"t":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","r":"urīdu an ataʿallama l-ʿarabiyyata.","tr":"I want to learn Arabic."}},
+        {"dialog":[{"who":"Waiter","t":"أَهْلًا! مَاذَا تُرِيدُ؟","r":"ahlan! mādhā turīdu?","tr":"Hello! What would you like?"},{"who":"You","t":"أُرِيدُ قَهْوَةً، مِنْ فَضْلِكَ.","r":"urīdu qahwatan, min faḍlika.","tr":"I'd like a coffee, please."},{"who":"Waiter","t":"بِحَلِيبٍ؟","r":"bi-ḥalībin?","tr":"With milk?"},{"who":"You","t":"لَا، شُكْرًا. وَأُرِيدُ أَنْ أَدْفَعَ الْآنَ.","r":"lā, shukran. wa-urīdu an adfaʿa l-āna.","tr":"No, thanks. And I'd like to pay now."}]},
+        {"p":"**Wanting a thing.** {{أُرِيدُ|urīdu}} “I want”, then what you want: {{أُرِيدُ قَهْوَةً.}} “I want a coffee.” The thing you want ends in -an here ({{قَهْوَةً|qahwatan}}, {{مَاءً|māʾan}} “water”, {{شَايًا|shāyan}} “tea”); a later lesson explains that ending, so for now just copy it."},
+        {"term":"verb","means":"a word for an action or a state: write, go, learn, want."},
+        {"p":"**Wanting to do something.** Put {{أَنْ|an}} “to” between {{أُرِيدُ}} and the second verb. Compare:"},
         { "table": [
-          ["","a …","the …"],
-          ["big house","{{بَيْتٌ كَبِيرٌ|baytun kabīrun}}","{{الْبَيْتُ الْكَبِيرُ|al-baytu l-kabīru}}"],
-          ["new car","{{سَيَّارَةٌ جَدِيدَةٌ|sayyāratun jadīdatun}}","{{السَّيَّارَةُ الْجَدِيدَةُ|as-sayyāratu l-jadīdatu}}"]
+          ["","Arabic","Meaning"],
+          ["the verb alone","{{أَتَعَلَّمُ الْعَرَبِيَّةَ.|ataʿallamu l-ʿarabiyyata.}}","I learn Arabic."],
+          ["after {{أَنْ}}","{{أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.|urīdu an ataʿallama l-ʿarabiyyata.}}","I want to learn Arabic."]
         ] },
-        {"p":"Compare this with the last lessons. {{الْبَيْتُ الْكَبِيرُ}}, with “the” twice, is only a phrase: “the big house”. {{الْبَيْتُ كَبِيرٌ}}, with “the” on the noun alone, is a sentence: “The house is big.” That one {{الْـ}} makes all the difference."},
+        {"p":"Two things change. {{أَنْ}} comes in, and the verb's last vowel turns from -u into -a: {{أَتَعَلَّمُ}} becomes {{أَنْ أَتَعَلَّمَ}}. And both verbs say who: {{أُرِيدُ أَنْ أَذْهَبَ}} is, word for word, “I want that I go”."},
+        {"term":"subjunctive","means":"a form of a verb used after certain little words, such as {{أَنْ}} “to”. In Arabic, the verb then ends in -a instead of -u."},
         { "ex": [
-          {"t":"هَذَا بَيْتٌ كَبِيرٌ.","r":"hādhā baytun kabīrun.","tr":"This is a big house."},
-          {"t":"الْبَيْتُ الْكَبِيرُ جَمِيلٌ.","r":"al-baytu l-kabīru jamīlun.","tr":"The big house is beautiful."},
-          {"t":"هِيَ طَالِبَةٌ ذَكِيَّةٌ.","r":"hiya ṭālibatun dhakiyyatun.","tr":"She is a clever student."},
-          {"t":"الْمَدِينَةُ الْقَدِيمَةُ جَمِيلَةٌ جِدًّا.","r":"al-madīnatu l-qadīmatu jamīlatun jiddan.","tr":"The old city is very beautiful."},
-          {"t":"الْقَهْوَةُ الْعَرَبِيَّةُ لَذِيذَةٌ.","r":"al-qahwatu l-ʿarabiyyatu ladhīdhatun.","tr":"Arabic coffee is delicious."},
-          {"t":"هَذَا طَعَامٌ لَذِيذٌ.","r":"hādhā ṭaʿāmun ladhīdhun.","tr":"This is delicious food."}
+          {"t":"أُرِيدُ أَنْ أَفْهَمَ.","r":"urīdu an afhama.","tr":"I want to understand."},
+          {"t":"أُرِيدُ أَنْ أَكْتُبَ.","r":"urīdu an aktuba.","tr":"I want to write."},
+          {"t":"أُرِيدُ أَنْ أَتَكَلَّمَ بِطَلَاقَةٍ.","r":"urīdu an atakallama bi-ṭalāqatin.","tr":"I want to speak fluently."},
+          {"t":"أُرِيدُ غُرْفَةً لِلَيْلَةٍ وَاحِدَةٍ.","r":"urīdu ghurfatan li-laylatin wāḥidatin.","tr":"I'd like a room for one night."},
+          {"t":"مَاذَا تُرِيدُ أَنْ تَأْكُلَ؟","r":"mādhā turīdu an taʾkula?","tr":"What do you want to eat?","note":"to a man: {{تُرِيدُ}} “you want”, {{تَأْكُلَ}} “you eat”"},
+          {"t":"لَا أُرِيدُ.","r":"lā urīdu.","tr":"I don't want it.","note":"{{لَا}} before a verb: “not”"}
         ] },
-        {"p":"Two adjectives? Add them one after the other, each matching the noun: {{سَيَّارَةٌ صَغِيرَةٌ جَدِيدَةٌ|sayyāratun ṣaghīratun jadīdatun}} “a small new car”."},
-        {"tip":"Arabic also uses {{الْـ}} for things in general, where English uses no word: “coffee is delicious” is {{الْقَهْوَةُ لَذِيذَةٌ}}, “the coffee is delicious”."}
+        {"tip":"{{أُرِيدُ}} is polite enough in a shop or a café. Add {{مِنْ فَضْلِكَ|min faḍlika}} “please” (to a woman: {{مِنْ فَضْلِكِ|min faḍliki}})."}
       ],
       "mistakes": [
-        {"wrong":"كَبِيرٌ بَيْتٌ","right":"بَيْتٌ كَبِيرٌ","tr":"a big house","why":"The adjective comes after the noun."},
-        {"wrong":"السَّيَّارَةُ الْجَدِيدُ","right":"السَّيَّارَةُ الْجَدِيدَةُ","tr":"the new car","why":"{{سَيَّارَةٌ}} is feminine, so the adjective takes {{ة}} too."}
+        {"wrong":"أُرِيدُ أَتَعَلَّمُ الْعَرَبِيَّةَ.","right":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","tr":"I want to learn Arabic.","why":"Two verbs need {{أَنْ}} between them, and the second one ends in -a."},
+        {"wrong":"أُرِيدُ أَنْ أَذْهَبُ.","right":"أُرِيدُ أَنْ أَذْهَبَ.","tr":"I want to go.","why":"After {{أَنْ}}, the verb ends in -a, not -u."}
       ],
       "practice": [
-        {"type":"choice","q":"“The new car” is…","options":["{{السَّيَّارَةُ جَدِيدَةٌ}}","{{السَّيَّارَةُ الْجَدِيدَةُ}}","{{سَيَّارَةٌ الْجَدِيدَةُ}}"],"answer":1,"why":"“The” on both words, and {{ة}} on both."},
-        {"type":"choice","q":"{{الْمَطْعَمُ جَدِيدٌ.}} means…","options":["the new restaurant","The restaurant is new.","a new restaurant"],"answer":1,"why":"{{الْـ}} on the noun only: it's a sentence."},
-        {"type":"order","q":"Put the words in order.","tr":"This is a big house.","words":["هَذَا","بَيْتٌ","كَبِيرٌ."]},
-        {"type":"say","q":"How do you say “a beautiful city”?","answer":"مَدِينَةٌ جَمِيلَةٌ","r":"madīnatun jamīlatun"}
-      ]
-    },
-    {
-      "id": "questions",
-      "unit": 1,
-      "level": "A1",
-      "title": "Asking questions",
-      "summary": "Ask yes-or-no questions, and ask who, what, where, when, how, how many and why.",
-      "blocks": [
-        {"p":"To turn a sentence into a yes-or-no question, put {{هَلْ|hal}} in front of it. Nothing else changes: {{أَنْتَ مَشْغُولٌ.|anta mashghūlun.}} “You are busy.” becomes {{هَلْ أَنْتَ مَشْغُولٌ؟|hal anta mashghūlun?}} “Are you busy?”"},
-        {"p":"Arabic's question mark faces the other way: {{؟}}. In speech you can also just raise your voice at the end, without {{هَلْ}}. The answers are {{نَعَمْ|naʿam}} “yes” and {{لَا|lā}} “no”."},
-        { "table": [
-          ["Question word","Arabic","Example"],
-          ["what? (before a noun)","{{مَا|mā}}","{{مَا اسْمُكَ؟|mā smuka?}} What is your name?"],
-          ["what? (before a verb)","{{مَاذَا|mādhā}}","{{مَاذَا تُرِيدُ؟|mādhā turīdu?}} What do you want?"],
-          ["who?","{{مَنْ|man}}","{{مَنْ هَذَا؟|man hādhā?}} Who is this?"],
-          ["where?","{{أَيْنَ|ayna}}","{{أَيْنَ الْفُنْدُقُ؟|ayna l-funduqu?}} Where is the hotel?"],
-          ["when?","{{مَتَى|matā}}","{{مَتَى الْحَفْلَةُ؟|matā l-ḥaflatu?}} When is the party?"],
-          ["how?","{{كَيْفَ|kayfa}}","{{كَيْفَ حَالُكَ؟|kayfa ḥāluka?}} How are you?"],
-          ["how many?","{{كَمْ|kam}}","{{كَمْ عُمْرُكَ؟|kam ʿumruka?}} How old are you?"],
-          ["how much (does it cost)?","{{بِكَمْ|bikam}}","{{بِكَمْ هَذَا؟|bikam hādhā?}} How much is this?"],
-          ["why?","{{لِمَاذَا|limādhā}}","{{لِمَاذَا أَنْتَ هُنَا؟|limādhā anta hunā?}} Why are you here?"],
-          ["which?","{{أَيُّ|ayyu}}","{{أَيُّ يَوْمٍ؟|ayyu yawmin?}} Which day?"]
-        ] },
-        { "ex": [
-          {"t":"هَلِ الْمَطْعَمُ مَفْتُوحٌ؟","r":"hali l-maṭʿamu maftūḥun?","tr":"Is the restaurant open?","note":"before {{الْـ}}, {{هَلْ}} takes an i to join on: hali"},
-          {"t":"أَيْنَ الْحَمَّامُ؟","r":"ayna l-ḥammāmu?","tr":"Where is the bathroom?"},
-          {"t":"مَنْ أَنْتَ؟","r":"man anta?","tr":"Who are you?"},
-          {"t":"كَيْفَ حَالُكِ؟","r":"kayfa ḥāluki?","tr":"How are you?","note":"to a woman: ḥāluki; to a man: ḥāluka"},
-          {"t":"مَتَى الدَّرْسُ؟","r":"matā d-darsu?","tr":"When is the lesson?"},
-          {"t":"بِكَمْ هَذَا الْكِتَابُ؟","r":"bikam hādhā l-kitābu?","tr":"How much is this book?"}
-        ] },
-        {"tip":"The question word comes first and the rest stays as it was: {{أَيْنَ}} + {{الْفُنْدُقُ}} is “Where is the hotel?”"}
-      ],
-      "mistakes": [
-        {"wrong":"هَلْ أَيْنَ الْفُنْدُقُ؟","right":"أَيْنَ الْفُنْدُقُ؟","tr":"Where is the hotel?","why":"{{هَلْ}} is only for yes-or-no questions; a question with a question word doesn't need it."},
-        {"wrong":"هَلْ الْمَطْعَمُ مَفْتُوحٌ؟","right":"هَلِ الْمَطْعَمُ مَفْتُوحٌ؟","tr":"Is the restaurant open?","why":"Before {{الْـ}}, {{هَلْ}} becomes {{هَلِ}}: hali l-maṭʿamu."}
-      ],
-      "practice": [
-        {"type":"choice","q":"Which word asks “where?”","options":["{{مَتَى}}","{{أَيْنَ}}","{{كَيْفَ}}"],"answer":1,"why":"{{أَيْنَ}}, ayna, is “where”. {{مَتَى}} is “when”, {{كَيْفَ}} “how”."},
-        {"type":"choice","q":"How do you ask “Is the hotel near?”","options":["{{هَلِ الْفُنْدُقُ قَرِيبٌ؟}}","{{أَيْنَ الْفُنْدُقُ قَرِيبٌ؟}}","{{مَا الْفُنْدُقُ قَرِيبٌ؟}}"],"answer":0,"why":"A yes-or-no question: {{هَلْ}} in front of the sentence."},
-        {"type":"order","q":"Put the words in order.","tr":"How much is this book?","words":["بِكَمْ","هَذَا","الْكِتَابُ؟"]},
-        {"type":"say","q":"Ask a man: “How are you?”","answer":"كَيْفَ حَالُكَ؟","r":"kayfa ḥāluka?"}
-      ]
-    },
-    {
-      "id": "this-that",
-      "unit": 1,
-      "level": "A1",
-      "title": "This, that, these: pointing words",
-      "summary": "Point at things near and far, and tell “this book” from “this is a book”.",
-      "blocks": [
-        {"p":"You have met {{هَذَا}} and {{هَذِهِ}}. Here is the whole family:"},
-        { "table": [
-          ["","Masculine","Feminine"],
-          ["this","{{هَذَا|hādhā}}","{{هَذِهِ|hādhihi}}"],
-          ["that","{{ذَلِكَ|dhālika}}","{{تِلْكَ|tilka}}"],
-          ["these (people)","{{هَؤُلَاءِ|hāʾulāʾi}}","{{هَؤُلَاءِ|hāʾulāʾi}}"],
-          ["those (people)","{{أُولَئِكَ|ulāʾika}}","{{أُولَئِكَ|ulāʾika}}"]
-        ] },
-        {"tip":"The long ā in {{هَذَا}} (hādhā), {{هَذِهِ}} (hādhihi) and {{ذَلِكَ}} (dhālika) isn't written as a letter, but it is said all the same."},
-        {"p":"**“This book” or “This is a book”?** A pointing word before a noun **with** {{الْـ}} makes a phrase: {{هَذَا الْكِتَابُ|hādhā l-kitābu}} “this book”. Before a noun **without** {{الْـ}}, it makes a sentence: {{هَذَا كِتَابٌ.|hādhā kitābun.}} “This is a book.”"},
-        {"p":"To say “This is **the** book”, put {{هُوَ}} or {{هِيَ}} in the middle: {{هَذَا هُوَ الْكِتَابُ.|hādhā huwa l-kitābu.}}"},
-        { "ex": [
-          {"t":"هَذَا الْكِتَابُ جَدِيدٌ.","r":"hādhā l-kitābu jadīdun.","tr":"This book is new."},
-          {"t":"تِلْكَ السَّيَّارَةُ سَرِيعَةٌ.","r":"tilka s-sayyāratu sarīʿatun.","tr":"That car is fast."},
-          {"t":"ذَلِكَ الرَّجُلُ طَبِيبٌ.","r":"dhālika r-rajulu ṭabībun.","tr":"That man is a doctor."},
-          {"t":"هَؤُلَاءِ طُلَّابٌ.","r":"hāʾulāʾi ṭullābun.","tr":"These are students."},
-          {"t":"هَذِهِ هِيَ الْمُشْكِلَةُ.","r":"hādhihi hiya l-mushkilatu.","tr":"This is the problem."},
-          {"t":"مَا هَذَا؟","r":"mā hādhā?","tr":"What is this?"}
-        ] },
-        {"p":"For things (not people) in the plural, Arabic says {{هَذِهِ}} and {{تِلْكَ}}: {{هَذِهِ الْكُتُبُ|hādhihi l-kutubu}} “these books”. A later lesson explains why."}
-      ],
-      "mistakes": [
-        {"wrong":"هَذَا كِتَابٌ جَدِيدٌ.","right":"هَذَا الْكِتَابُ جَدِيدٌ.","tr":"This book is new.","why":"To say “this book is new”, the book needs {{الْـ}}. Without it, the sentence means “This is a new book.”"},
-        {"wrong":"هَذِهِ الرَّجُلُ","right":"هَذَا الرَّجُلُ","tr":"this man","why":"{{رَجُلٌ}} “man” is masculine."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“That car” is…","options":["{{ذَلِكَ السَّيَّارَةُ}}","{{تِلْكَ السَّيَّارَةُ}}","{{تِلْكَ سَيَّارَةٌ}}"],"answer":1,"why":"Feminine, and a phrase: {{الْـ}} on the noun."},
-        {"type":"choice","q":"{{هَذَا كِتَابٌ.}} means…","options":["this book","This is a book.","that book"],"answer":1,"why":"No {{الْـ}} on the noun: it's a sentence."},
-        {"type":"order","q":"Put the words in order.","tr":"This city is beautiful.","words":["هَذِهِ","الْمَدِينَةُ","جَمِيلَةٌ."]},
-        {"type":"say","q":"How do you ask “What is this?”","answer":"مَا هَذَا؟","r":"mā hādhā?"}
-      ]
-    },
-    {
-      "id": "prepositions",
-      "unit": 2,
-      "level": "A1",
-      "title": "In, on, from: little words for place and time",
-      "summary": "Say where things are and where you're going, and meet the -i ending that follows these words.",
-      "blocks": [
-        {"term":"preposition","means":"a small word that links a noun to the rest of the sentence, often to say where or when: in, on, from, to, with."},
-        {"p":"Arabic's most common prepositions:"},
-        { "table": [
-          ["","Arabic","Example"],
-          ["in","{{فِي|fī}}","{{فِي الْبَيْتِ|fī l-bayti}} in the house"],
-          ["on","{{عَلَى|ʿalā}}","{{عَلَى الطَّاوِلَةِ|ʿalā ṭ-ṭāwilati}} on the table"],
-          ["from","{{مِنْ|min}}","{{مِنَ الْمَدْرَسَةِ|mina l-madrasati}} from the school"],
-          ["to","{{إِلَى|ilā}}","{{إِلَى السُّوقِ|ilā s-sūqi}} to the market"],
-          ["with","{{مَعَ|maʿa}}","{{مَعَ صَدِيقٍ|maʿa ṣadīqin}} with a friend"],
-          ["about","{{عَنْ|ʿan}}","{{عَنِ الْعَمَلِ|ʿani l-ʿamali}} about work"],
-          ["at, by","{{عِنْدَ|ʿinda}}","{{عِنْدَ الْبَابِ|ʿinda l-bābi}} at the door"],
-          ["under","{{تَحْتَ|taḥta}}","{{تَحْتَ السَّرِيرِ|taḥta s-sarīri}} under the bed"],
-          ["in front of","{{أَمَامَ|amāma}}","{{أَمَامَ الْفُنْدُقِ|amāma l-funduqi}} in front of the hotel"],
-          ["near","{{قُرْبَ|qurba}}","{{قُرْبَ الْمَحَطَّةِ|qurba l-maḥaṭṭati}} near the station"],
-          ["after","{{بَعْدَ|baʿda}}","{{بَعْدَ الدَّرْسِ|baʿda d-darsi}} after the lesson"],
-          ["before","{{قَبْلَ|qabla}}","{{قَبْلَ الْعَشَاءِ|qabla l-ʿashāʾi}} before dinner"]
-        ] },
-        {"p":"**The -i ending.** Look at the end of each noun: after a preposition it ends in -i. {{الْبَيْتُ|al-baytu}} becomes {{فِي الْبَيْتِ|fī l-bayti}}. Without “the”, -un becomes -in: {{صَدِيقٌ|ṣadīqun}}, but {{مَعَ صَدِيقٍ|maʿa ṣadīqin}}."},
-        {"term":"case ending","means":"the vowel at the end of an Arabic noun, which changes with the noun's job in the sentence: -u, -a or -i (-un, -an or -in when it means “a”). After a preposition it is always -i."},
-        {"p":"Before {{الْـ}}, {{مِنْ}} becomes {{مِنَ|mina}} and {{عَنْ}} becomes {{عَنِ|ʿani}}, just as {{هَلْ}} became {{هَلِ}}: two consonants can't meet."},
-        {"p":"Three prepositions are so short that they are written joined to the next word: {{بِـ|bi-}} “with, by”, {{لِـ|li-}} “for, to” and {{كَـ|ka-}} “like”: {{بِالسَّيَّارَةِ|bi-s-sayyārati}} “by car”. With {{الْـ}}, {{لِـ}} drops the alif: {{لِلْبَيْتِ|lil-bayti}} “for the house”."},
-        { "ex": [
-          {"t":"الْكِتَابُ عَلَى الطَّاوِلَةِ.","r":"al-kitābu ʿalā ṭ-ṭāwilati.","tr":"The book is on the table."},
-          {"t":"هُوَ فِي الْعَمَلِ.","r":"huwa fī l-ʿamali.","tr":"He's at work."},
-          {"t":"أَنَا مِنَ الْأُرْدُنِّ.","r":"anā mina l-urdunni.","tr":"I'm from Jordan."},
-          {"t":"الطَّرِيقُ إِلَى الْمَطَارِ طَوِيلٌ.","r":"aṭ-ṭarīqu ilā l-maṭāri ṭawīlun.","tr":"The road to the airport is long."},
-          {"t":"الْمَطْعَمُ أَمَامَ الْفُنْدُقِ.","r":"al-maṭʿamu amāma l-funduqi.","tr":"The restaurant is in front of the hotel."},
-          {"t":"الْقَهْوَةُ بِالْحَلِيبِ لَذِيذَةٌ.","r":"al-qahwatu bi-l-ḥalībi ladhīdhatun.","tr":"Coffee with milk is delicious."},
-          {"t":"هَذِهِ الْهَدِيَّةُ لِلْمُعَلِّمِ.","r":"hādhihi l-hadiyyatu lil-muʿallimi.","tr":"This present is for the teacher."}
-        ] },
-        {"p":"Names of most countries and cities don't take -un or -in: after a preposition they end in -a. {{مِصْرُ|miṣru}} “Egypt”, {{أَنَا مِنْ مِصْرَ.|anā min miṣra.}} “I'm from Egypt.”"},
-        {"tip":"Sentences like {{الْكِتَابُ عَلَى الطَّاوِلَةِ}} need no “is” either: “the book, on the table” already says “The book is on the table.”"}
-      ],
-      "mistakes": [
-        {"wrong":"فِي الْبَيْتُ","right":"فِي الْبَيْتِ","tr":"in the house","why":"After a preposition, the noun ends in -i."},
-        {"wrong":"مِنْ الْمَدْرَسَةِ","right":"مِنَ الْمَدْرَسَةِ","tr":"from the school","why":"Before {{الْـ}}, {{مِنْ}} becomes {{مِنَ}}: mina l-madrasati."},
-        {"wrong":"لِالْبَيْتِ","right":"لِلْبَيْتِ","tr":"for the house","why":"{{لِـ}} with {{الْـ}} is written {{لِلْـ}}: the alif drops."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“In the city” is…","options":["{{فِي الْمَدِينَةُ}}","{{فِي الْمَدِينَةِ}}","{{فِي مَدِينَةُ}}"],"answer":1,"why":"After {{فِي}}, the noun ends in -i."},
-        {"type":"choice","q":"Which preposition means “to”?","options":["{{مِنْ}}","{{إِلَى}}","{{عَلَى}}"],"answer":1,"why":"{{إِلَى}}, ilā, is “to”; {{مِنْ}} is “from”, {{عَلَى}} “on”."},
-        {"type":"choice","q":"“With a friend” is…","options":["{{مَعَ صَدِيقٍ}}","{{مَعَ صَدِيقٌ}}","{{مَعَ الصَّدِيقٌ}}"],"answer":0,"why":"Without “the”, -un becomes -in after a preposition."},
-        {"type":"order","q":"Put the words in order.","tr":"The book is on the table.","words":["الْكِتَابُ","عَلَى","الطَّاوِلَةِ."]},
-        {"type":"say","q":"How do you say “I'm from Egypt”?","answer":"أَنَا مِنْ مِصْرَ.","r":"anā min miṣra.","why":"Country names end in -a after a preposition: {{مِصْرَ}}."}
-      ]
-    },
-    {
-      "id": "my-your",
-      "unit": 2,
-      "level": "A1",
-      "title": "My, your, his: endings on nouns",
-      "summary": "Say “my book”, “your house”, “her name”: Arabic adds a short ending to the noun.",
-      "blocks": [
-        {"p":"Arabic has no separate words for “my”, “your”, “his” and so on. A short ending is joined to the noun instead. The noun then drops {{الْـ}} and its doubled mark: the ending already says whose it is."},
-        {"term":"possessive ending","means":"a short ending joined to a noun to say whose it is, like “my” or “your” in English: {{كِتَابِي}} “my book”."},
-        { "table": [
-          ["","Ending","Example"],
-          ["my","{{ـِي|-ī}}","{{كِتَابِي|kitābī}} my book"],
-          ["your (to a man)","{{ـكَ|-ka}}","{{كِتَابُكَ|kitābuka}} your book"],
-          ["your (to a woman)","{{ـكِ|-ki}}","{{كِتَابُكِ|kitābuki}} your book"],
-          ["his, its","{{ـهُ|-hu}}","{{كِتَابُهُ|kitābuhu}} his book"],
-          ["her, its","{{ـهَا|-hā}}","{{كِتَابُهَا|kitābuhā}} her book"],
-          ["our","{{ـنَا|-nā}}","{{كِتَابُنَا|kitābunā}} our book"],
-          ["your (to a group)","{{ـكُمْ|-kum}}","{{كِتَابُكُمْ|kitābukum}} your book"],
-          ["their","{{ـهُمْ|-hum}}","{{كِتَابُهُمْ|kitābuhum}} their book"]
-        ] },
-        {"p":"**The round t opens up.** A word ending in {{ة}} writes it as an ordinary {{ت}} before an ending, and the t is said: {{سَيَّارَةٌ|sayyāratun}} “a car”, {{سَيَّارَتِي|sayyāratī}} “my car”, {{سَيَّارَتُهَا|sayyāratuhā}} “her car”."},
-        {"p":"The case ending stays between the noun and the ending: {{بَيْتُهُ|baytuhu}} “his house”, but {{فِي بَيْتِهِ|fī baytihi}} “in his house” (-i after {{فِي}}; and -hu becomes -hi after an i). Only “my” swallows the case ending: {{بَيْتِي|baytī}}, wherever it stands."},
-        {"p":"A noun with an ending counts as “the”, so an adjective after it takes {{الْـ}}: {{سَيَّارَتِي الْجَدِيدَةُ|sayyāratī l-jadīdatu}} “my new car”. And without {{الْـ}}, it is a sentence: {{سَيَّارَتِي جَدِيدَةٌ.|sayyāratī jadīdatun.}} “My car is new.”"},
-        { "ex": [
-          {"t":"مَا اسْمُكَ؟","r":"mā smuka?","tr":"What's your name?","note":"to a man; to a woman: {{مَا اسْمُكِ؟|mā smuki?}}"},
-          {"t":"اسْمِي سَارَةُ.","r":"ismī sāratu.","tr":"My name is Sarah."},
-          {"t":"هَذَا بَيْتُنَا.","r":"hādhā baytunā.","tr":"This is our house."},
-          {"t":"سَيَّارَتُهُ جَدِيدَةٌ.","r":"sayyāratuhu jadīdatun.","tr":"His car is new."},
-          {"t":"أَيْنَ هَاتِفِي؟","r":"ayna hātifī?","tr":"Where's my phone?"},
-          {"t":"أُمُّهَا طَبِيبَةٌ.","r":"ummuhā ṭabībatun.","tr":"Her mother is a doctor."},
-          {"t":"بَيْتُهُمْ كَبِيرٌ.","r":"baytuhum kabīrun.","tr":"Their house is big."}
-        ] },
-        {"tip":"{{اسْمٌ}} “name” starts with a vowel that is only said at the start of a sentence: {{اسْمِي سَارَةُ|ismī sāratu}}, but {{مَا اسْمُكَ؟|mā smuka?}}."}
-      ],
-      "mistakes": [
-        {"wrong":"الْكِتَابِي","right":"كِتَابِي","tr":"my book","why":"A noun with an ending never has {{الْـ}} too."},
-        {"wrong":"سَيَّارَةِي","right":"سَيَّارَتِي","tr":"my car","why":"{{ة}} becomes {{ت}} before an ending."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“My house” is…","options":["{{بَيْتِي}}","{{الْبَيْتِي}}","{{بَيْتُكَ}}"],"answer":0,"why":"The ending -ī, and no {{الْـ}}."},
-        {"type":"choice","q":"{{اسْمُهَا}} means…","options":["his name","her name","your name"],"answer":1,"why":"-hā is “her”."},
-        {"type":"choice","q":"“Our car” is…","options":["{{سَيَّارَةُنَا}}","{{سَيَّارَتُنَا}}","{{سَيَّارَتُهُمْ}}"],"answer":1,"why":"{{ة}} becomes {{ت}}, then -unā."},
-        {"type":"order","q":"Put the words in order.","tr":"Our house is big.","words":["بَيْتُنَا","كَبِيرٌ."]},
-        {"type":"say","q":"Ask a woman: “What's your name?”","answer":"مَا اسْمُكِ؟","r":"mā smuki?"}
-      ]
-    },
-    {
-      "id": "have",
-      "unit": 2,
-      "level": "A1",
-      "title": "“I have”: at me, for me, with me",
-      "summary": "Arabic has no verb “to have”: it says “at me”, “for me” or “with me”.",
-      "blocks": [
-        {"p":"To say “I have”, Arabic says “at me (there is)…”: {{عِنْدِي|ʿindī}}, made of {{عِنْدَ}} “at” and the ending “my”, then what you have: {{عِنْدِي سَيَّارَةٌ.|ʿindī sayyāratun.}} “I have a car.” The thing you have keeps -un: in Arabic it is the subject of the sentence."},
-        { "table": [
-          ["","Arabic"],
-          ["I have","{{عِنْدِي|ʿindī}}"],
-          ["you have (man)","{{عِنْدَكَ|ʿindaka}}"],
-          ["you have (woman)","{{عِنْدَكِ|ʿindaki}}"],
-          ["he has","{{عِنْدَهُ|ʿindahu}}"],
-          ["she has","{{عِنْدَهَا|ʿindahā}}"],
-          ["we have","{{عِنْدَنَا|ʿindanā}}"],
-          ["you have (group)","{{عِنْدَكُمْ|ʿindakum}}"],
-          ["they have","{{عِنْدَهُمْ|ʿindahum}}"]
-        ] },
-        {"p":"Two other little words do the same job. {{لِـ}} “for” is used for family and for things that last: {{لِي أَخٌ.|lī akhun.}} “I have a brother.” With the other endings it becomes {{لَـ}}: {{لَكَ}}, {{لَهُ}}, {{لَهَا}}, {{لَنَا}}. And {{مَعَ}} “with” means you have it on you, now: {{مَعِي مَالٌ.|maʿī mālun.}} “I have money on me.”"},
-        {"p":"**Asking:** {{هَلْ عِنْدَكَ قَلَمٌ؟|hal ʿindaka qalamun?}} “Do you have a pen?” **Not having:** put {{لَيْسَ|laysa}} in front: {{لَيْسَ عِنْدِي وَقْتٌ.|laysa ʿindī waqtun.}} “I don't have time.” (A later lesson explains {{لَيْسَ}}.)"},
-        {"p":"The same endings go on every preposition: {{مِنْهُ|minhu}} “from him”, {{مَعَهَا|maʿahā}} “with her”, {{إِلَيْكَ|ilayka}} “to you”, {{عَنْهُمْ|ʿanhum}} “about them”. After i, ī or ay, -hu becomes -hi: {{فِيهِ|fīhi}} “in it”, {{عَلَيْهِ|ʿalayhi}} “on it”."},
-        { "ex": [
-          {"t":"عِنْدِي سُؤَالٌ.","r":"ʿindī suʾālun.","tr":"I have a question."},
-          {"t":"هَلْ عِنْدَكِ وَقْتٌ؟","r":"hal ʿindaki waqtun?","tr":"Do you have time?","note":"to a woman"},
-          {"t":"عِنْدَنَا اجْتِمَاعٌ غَدًا.","r":"ʿindanā jtimāʿun ghadan.","tr":"We have a meeting tomorrow."},
-          {"t":"لَهُ ابْنٌ وَبِنْتٌ.","r":"lahu bnun wa-bintun.","tr":"He has a son and a daughter."},
-          {"t":"مَعَكَ قَلَمٌ؟","r":"maʿaka qalamun?","tr":"Have you got a pen on you?","note":"to a man; a question just by the voice"},
-          {"t":"لَيْسَ عِنْدَهُمْ سَيَّارَةٌ.","r":"laysa ʿindahum sayyāratun.","tr":"They don't have a car."}
-        ] },
-        {"tip":"{{عِنْدِي}} is the everyday word: when in doubt, use it."}
-      ],
-      "mistakes": [
-        {"wrong":"عِنْدِي سَيَّارَةً.","right":"عِنْدِي سَيَّارَةٌ.","tr":"I have a car.","why":"The thing you have is the subject, so it keeps -un (in English it would be an object, but not in Arabic)."},
-        {"wrong":"لِهُ أَخٌ.","right":"لَهُ أَخٌ.","tr":"He has a brother.","why":"With an ending, {{لِـ}} becomes {{لَـ}}: lahu. Only “my” is {{لِي}}."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“She has a car” is…","options":["{{عِنْدَهُ سَيَّارَةٌ.}}","{{عِنْدَهَا سَيَّارَةٌ.}}","{{عِنْدَهَا سَيَّارَةً.}}"],"answer":1,"why":"-hā is “her”, and the car keeps -un."},
-        {"type":"choice","q":"{{لَيْسَ عِنْدِي وَقْتٌ.}} means…","options":["I have time.","I don't have time.","Do you have time?"],"answer":1,"why":"{{لَيْسَ}} makes it negative."},
-        {"type":"choice","q":"Which fits best for “I've got money on me (right now)”?","options":["{{مَعِي مَالٌ.}}","{{لِي مَالٌ.}}"],"answer":0,"why":"{{مَعَ}} “with” is for what you have on you."},
-        {"type":"order","q":"Put the words in order.","tr":"We have a meeting tomorrow.","words":["عِنْدَنَا","اجْتِمَاعٌ","غَدًا."]},
-        {"type":"say","q":"Ask a man: “Do you have a pen?”","answer":"هَلْ عِنْدَكَ قَلَمٌ؟","r":"hal ʿindaka qalamun?"}
-      ]
-    },
-    {
-      "id": "there-is",
-      "unit": 2,
-      "level": "A1",
-      "title": "“There is” and “there are”",
-      "summary": "Say what there is in a place: “There's a café near the hotel.”",
-      "blocks": [
-        {"p":"To say that something is in a place, start with the place, then the thing, without “the”: {{فِي الْغُرْفَةِ سَرِيرٌ.|fī l-ghurfati sarīrun.}} “There's a bed in the room.” (word for word: in the room, a bed)."},
-        {"p":"Why the place first? An Arabic sentence doesn't start with a noun that means “a…” ({{سَرِيرٌ}}), so the place comes to the front."},
-        {"p":"You can also start with {{هُنَاكَ|hunāka}} “there”: {{هُنَاكَ مُشْكِلَةٌ.|hunāka mushkilatun.}} “There's a problem.” Written Arabic often uses {{يُوجَدُ|yūjadu}} “there is” (word for word: is found): {{يُوجَدُ مَطْعَمٌ قَرِيبٌ.|yūjadu maṭʿamun qarībun.}} “There's a restaurant nearby.”"},
-        {"p":"**There isn't:** {{لَا يُوجَدُ|lā yūjadu}} or {{لَيْسَ هُنَاكَ|laysa hunāka}}: {{لَا يُوجَدُ وَقْتٌ.|lā yūjadu waqtun.}} “There's no time.” **Is there…?:** {{هَلْ هُنَاكَ…؟}} or {{هَلْ يُوجَدُ…؟}}"},
-        { "ex": [
-          {"t":"فِي الثَّلَّاجَةِ حَلِيبٌ.","r":"fī th-thallājati ḥalībun.","tr":"There's milk in the fridge."},
-          {"t":"هُنَاكَ مَقْهًى قُرْبَ الْفُنْدُقِ.","r":"hunāka maqhan qurba l-funduqi.","tr":"There's a café near the hotel."},
-          {"t":"هَلْ يُوجَدُ مَطْعَمٌ هُنَا؟","r":"hal yūjadu maṭʿamun hunā?","tr":"Is there a restaurant here?"},
-          {"t":"لَا يُوجَدُ وَقْتٌ.","r":"lā yūjadu waqtun.","tr":"There's no time."},
-          {"t":"هُنَاكَ مُشْكِلَةٌ صَغِيرَةٌ.","r":"hunāka mushkilatun ṣaghīratun.","tr":"There's a small problem."},
-          {"t":"عَلَى الطَّاوِلَةِ كِتَابٌ.","r":"ʿalā ṭ-ṭāwilati kitābun.","tr":"There's a book on the table."}
-        ] },
-        {"tip":"Compare {{الْكِتَابُ عَلَى الطَّاوِلَةِ.}} “The book is on the table.” (a book you both know) with {{عَلَى الطَّاوِلَةِ كِتَابٌ.}} “There's a book on the table.” (some book)."}
-      ],
-      "mistakes": [
-        {"wrong":"كِتَابٌ عَلَى الطَّاوِلَةِ.","right":"عَلَى الطَّاوِلَةِ كِتَابٌ.","tr":"There's a book on the table.","why":"A sentence doesn't start with a noun meaning “a…”: put the place first."},
-        {"wrong":"هُنَاكَ الْمُشْكِلَةُ.","right":"هُنَاكَ مُشْكِلَةٌ.","tr":"There's a problem.","why":"“There is” brings in something new: no {{الْـ}}."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“There's a café near the hotel” is…","options":["{{مَقْهًى قُرْبَ الْفُنْدُقِ.}}","{{هُنَاكَ مَقْهًى قُرْبَ الْفُنْدُقِ.}}","{{هُنَاكَ الْمَقْهَى قُرْبَ الْفُنْدُقِ.}}"],"answer":1,"why":"Start with {{هُنَاكَ}}, and the café without “the”."},
-        {"type":"choice","q":"{{لَا يُوجَدُ مَاءٌ.}} means…","options":["The water is here.","There's no water.","Is there water?"],"answer":1,"why":"{{لَا يُوجَدُ}} is “there isn't”."},
-        {"type":"order","q":"Put the words in order.","tr":"There's milk in the fridge.","words":["فِي","الثَّلَّاجَةِ","حَلِيبٌ."]},
-        {"type":"say","q":"Ask: “Is there a restaurant here?”","answer":"هَلْ يُوجَدُ مَطْعَمٌ هُنَا؟","r":"hal yūjadu maṭʿamun hunā?"}
-      ]
-    },
-    {
-      "id": "possession",
-      "unit": 2,
-      "level": "A1",
-      "title": "“The teacher's book”: two nouns together",
-      "summary": "Put two nouns side by side to say whose something is, or what kind it is: “the door of the house”, “a cup of coffee”.",
-      "blocks": [
-        {"p":"To say “the teacher's book” or “the door of the house”, Arabic puts the two nouns side by side: first the thing, then whose it is. {{كِتَابُ الْمُعَلِّمِ|kitābu l-muʿallimi}} “the teacher's book”, word for word “book the-teacher”."},
-        {"term":"iḍāfa","means":"two (or more) nouns side by side, the second saying whose the first is or what kind it is: {{بَابُ الْبَيْتِ}} “the door of the house”. The word means “adding”."},
-        {"p":"**Three rules.** 1) The first noun never has {{الْـ}} or the doubled mark, even though it means “the”: {{بَابُ|bābu}}, not {{الْبَابُ}} or {{بَابٌ}}. 2) The second noun ends in -i (or -in), as after a preposition: {{الْبَيْتِ|al-bayti}}. 3) A {{ة}} on the first noun is said with its t: {{سَيَّارَةُ أَبِي|sayyāratu abī}} “my father's car”."},
-        {"p":"If the second noun has “the” (or an ending like “my”), the pair means “the…”: {{بَابُ الْبَيْتِ}} “the door of the house”. If not, it means “a…”: {{فِنْجَانُ قَهْوَةٍ|finjānu qahwatin}} “a cup of coffee”. The pair also says what kind: {{مَدْرَسَةُ اللُّغَاتِ|madrasatu l-lughāti}} “the language school”."},
-        {"p":"An adjective comes after the whole pair, matching the noun it describes: {{سَيَّارَةُ أَبِي الْجَدِيدَةُ|sayyāratu abī l-jadīdatu}} “my father's new car”."},
-        { "ex": [
-          {"t":"هَذَا كِتَابُ الْمُعَلِّمِ.","r":"hādhā kitābu l-muʿallimi.","tr":"This is the teacher's book."},
-          {"t":"بَابُ الْبَيْتِ مَفْتُوحٌ.","r":"bābu l-bayti maftūḥun.","tr":"The door of the house is open."},
-          {"t":"فِنْجَانُ قَهْوَةٍ، مِنْ فَضْلِكَ.","r":"finjānu qahwatin, min faḍlika.","tr":"A cup of coffee, please."},
-          {"t":"سَيَّارَةُ أَبِي قَدِيمَةٌ.","r":"sayyāratu abī qadīmatun.","tr":"My father's car is old."},
-          {"t":"أَيْنَ مَحَطَّةُ الْقِطَارِ؟","r":"ayna maḥaṭṭatu l-qiṭāri?","tr":"Where's the train station?"},
-          {"t":"اسْمُ الْمَطْعَمِ جَمِيلٌ.","r":"ismu l-maṭʿami jamīlun.","tr":"The restaurant's name is nice."}
-        ] },
-        {"tip":"Chains work too: {{بَابُ بَيْتِ الْمُدِيرِ|bābu bayti l-mudīri}} “the door of the manager's house”. Only the last noun can have {{الْـ}}."}
-      ],
-      "mistakes": [
-        {"wrong":"الْكِتَابُ الْمُعَلِّمِ","right":"كِتَابُ الْمُعَلِّمِ","tr":"the teacher's book","why":"The first noun never takes {{الْـ}} (or the doubled mark)."},
-        {"wrong":"بَابُ الْبَيْتُ","right":"بَابُ الْبَيْتِ","tr":"the door of the house","why":"The second noun ends in -i."}
-      ],
-      "practice": [
-        {"type":"choice","q":"“The door of the house” is…","options":["{{الْبَابُ الْبَيْتِ}}","{{بَابُ الْبَيْتِ}}","{{بَابٌ الْبَيْتُ}}"],"answer":1,"why":"First noun bare, second with {{الْـ}} and -i."},
-        {"type":"choice","q":"{{فِنْجَانُ قَهْوَةٍ}} means…","options":["the coffee cup is…","a cup of coffee","the cups of coffee"],"answer":1,"why":"The second noun has no “the”, so the pair means “a…”."},
-        {"type":"choice","q":"“My father's new car” is…","options":["{{سَيَّارَةُ أَبِي الْجَدِيدَةُ}}","{{السَّيَّارَةُ الْجَدِيدَةُ أَبِي}}","{{سَيَّارَةُ الْجَدِيدَةُ أَبِي}}"],"answer":0,"why":"The adjective comes after the whole pair."},
-        {"type":"order","q":"Put the words in order.","tr":"Where's the train station?","words":["أَيْنَ","مَحَطَّةُ","الْقِطَارِ؟"]},
-        {"type":"say","q":"How do you say “the teacher's book”?","answer":"كِتَابُ الْمُعَلِّمِ","r":"kitābu l-muʿallimi"}
-      ]
-    },
-    {
-      "id": "laysa",
-      "unit": 2,
-      "level": "A1",
-      "title": "“Is not”: لَيْسَ",
-      "summary": "Say “I'm not tired”, “The shop isn't open”: Arabic's “is not” changes with the person.",
-      "blocks": [
-        {"p":"Sentences without a verb (“The house is big”) are made negative with {{لَيْسَ|laysa}} “is not”. Unlike “is”, which isn't said, “is not” is a real word, and it changes with the person:"},
-        { "table": [
-          ["","is not"],
-          ["I am not","{{لَسْتُ|lastu}}"],
-          ["you are not (man)","{{لَسْتَ|lasta}}"],
-          ["you are not (woman)","{{لَسْتِ|lasti}}"],
-          ["he is not","{{لَيْسَ|laysa}}"],
-          ["she is not","{{لَيْسَتْ|laysat}}"],
-          ["we are not","{{لَسْنَا|lasnā}}"],
-          ["you are not (group)","{{لَسْتُمْ|lastum}}"],
-          ["they are not","{{لَيْسُوا|laysū}}"]
-        ] },
-        {"p":"**The -a ending.** What you say about the subject now ends in -a, or -an without “the”: {{أَنَا مُتْعَبٌ.|anā mutʿabun.}} “I'm tired.” becomes {{لَسْتُ مُتْعَبًا.|lastu mutʿaban.}} “I'm not tired.” The -an is written with an extra alif: {{ـًا}}."},
-        {"p":"{{لَيْسَ}} can come after the subject or before it: {{الْمَحَلُّ لَيْسَ مَفْتُوحًا.|al-maḥallu laysa maftūḥan.}} or {{لَيْسَ الْمَحَلُّ مَفْتُوحًا.}} “The shop isn't open.”"},
-        { "ex": [
-          {"t":"لَسْتُ مُتْعَبًا.","r":"lastu mutʿaban.","tr":"I'm not tired.","note":"a man speaking; a woman says {{لَسْتُ مُتْعَبَةً|lastu mutʿabatan}}"},
-          {"t":"الْمَحَلُّ لَيْسَ مَفْتُوحًا.","r":"al-maḥallu laysa maftūḥan.","tr":"The shop isn't open."},
-          {"t":"هِيَ لَيْسَتْ هُنَا.","r":"hiya laysat hunā.","tr":"She isn't here."},
-          {"t":"لَسْنَا مِنْ هُنَا.","r":"lasnā min hunā.","tr":"We're not from here."},
-          {"t":"هَذَا لَيْسَ صَحِيحًا.","r":"hādhā laysa ṣaḥīḥan.","tr":"That's not right."},
-          {"t":"لَيْسَ عِنْدِي فِكْرَةٌ.","r":"laysa ʿindī fikratun.","tr":"I have no idea."}
-        ] },
-        {"tip":"Only a noun or an adjective after {{لَيْسَ}} takes -a. A place doesn't change: {{هِيَ لَيْسَتْ فِي الْبَيْتِ.}} “She isn't at home.” And with {{عِنْدِي}} the thing keeps -un: {{لَيْسَ عِنْدِي فِكْرَةٌ.}}"}
-      ],
-      "mistakes": [
-        {"wrong":"أَنَا لَا مُتْعَبٌ.","right":"لَسْتُ مُتْعَبًا.","tr":"I'm not tired.","why":"{{لَا}} is for verbs; a sentence without a verb takes {{لَيْسَ}}."},
-        {"wrong":"الْمَحَلُّ لَيْسَ مَفْتُوحٌ.","right":"الْمَحَلُّ لَيْسَ مَفْتُوحًا.","tr":"The shop isn't open.","why":"After {{لَيْسَ}}, the adjective ends in -an."}
-      ],
-      "practice": [
-        {"type":"choice","q":"A man says “I'm not hungry”:","options":["{{لَسْتُ جَائِعًا.}}","{{لَيْسَ جَائِعٌ.}}","{{أَنَا لَا جَائِعٌ.}}"],"answer":0,"why":"{{لَسْتُ}} for “I am not”, and -an on the adjective."},
-        {"type":"choice","q":"“She isn't busy” is…","options":["{{هِيَ لَيْسَ مَشْغُولَةً.}}","{{هِيَ لَيْسَتْ مَشْغُولَةً.}}","{{هِيَ لَيْسَتْ مَشْغُولَةٌ.}}"],"answer":1,"why":"{{لَيْسَتْ}} for “she”, and -an."},
-        {"type":"order","q":"Put the words in order.","tr":"That's not right.","words":["هَذَا","لَيْسَ","صَحِيحًا."]},
-        {"type":"say","q":"How do you say “We're not from here”?","answer":"لَسْنَا مِنْ هُنَا.","r":"lasnā min hunā."}
+        {"type":"fill","q":"Choose the missing word.","t":"أُرِيدُ ___ أَذْهَبَ.","tr":"I want to go.","options":["أَنْ","أَنَا","مِنْ"],"answer":0,"why":"Two verbs: {{أَنْ}} between them."},
+        {"type":"choice","q":"Which one means “I want to understand”?","options":["{{أُرِيدُ أَنْ أَفْهَمَ.}}","{{أُرِيدُ أَنْ أَفْهَمُ.}}","{{أُرِيدُ أَفْهَمُ.}}"],"answer":0,"why":"{{أَنْ}}, and the verb after it ends in -a."},
+        {"type":"dialogue","q":"At the café: choose your replies.","lines":[{"who":"Waiter","t":"مَاذَا تُرِيدُ؟","r":"mādhā turīdu?","tr":"What would you like?"},{"options":["أُرِيدُ شَايًا، مِنْ فَضْلِكَ.","أَنَا شَايٌ، مِنْ فَضْلِكَ."],"answer":0,"why":"{{أُرِيدُ}} and what you want. ({{أَنَا شَايٌ}} would be “I am tea”!)"},{"who":"Waiter","t":"بِسُكَّرٍ؟","r":"bi-sukkarin?","tr":"With sugar?"},{"options":["لَا، شُكْرًا.","لَا أَنْتَ."],"answer":0,"why":"“No, thanks”: {{لَا، شُكْرًا}}."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I want to speak fluently.","words":["أُرِيدُ","أَنْ","أَتَكَلَّمَ","بِطَلَاقَةٍ."]},
+        {"type":"say","q":"How do you say “I want to learn Arabic”?","answer":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","r":"urīdu an ataʿallama l-ʿarabiyyata."},
+        {"type":"free","q":"Your turn: what do you want to learn, and where do you want to go this year? Answer with {{أُرِيدُ أَنْ…}}","answers":[{"t":"أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.","r":"urīdu an ataʿallama l-ʿarabiyyata.","tr":"I want to learn Arabic."},{"t":"أُرِيدُ أَنْ أَذْهَبَ إِلَى الْمَغْرِبِ.","r":"urīdu an adhhaba ilā l-maghribi.","tr":"I want to go to Morocco."},{"t":"أُرِيدُ أَنْ أَتَكَلَّمَ مَعَ أَصْدِقَائِي بِالْعَرَبِيَّةِ.","r":"urīdu an atakallama maʿa aṣdiqāʾī bi-l-ʿarabiyyati.","tr":"I want to talk to my friends in Arabic."}]}
       ]
     }
   ]

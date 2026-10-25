@@ -11,7 +11,8 @@
 export const GRAMMAR_BASE = "https://christiangilkey.github.io/tamkeen/grammar/";
 const SITE_HOST = "christiangilkey.github.io";
 export const LEVELS = ["A1", "A2", "B1"];
-export const PRACTICE_TYPES = ["choice", "order", "say"];
+export const PRACTICE_TYPES = ["choice", "fill", "order", "dialogue", "say", "free"];
+export const BLOCKS = ["goal", "p", "term", "ex", "dialog", "table", "tip"];
 
 /** Where grammar file `name` ("index.json", "en-ar/course.json") is fetched from: the computer asks
  * its own server (app/grammar.py), the web app (on the same website) its own path, the phones the site. */
@@ -110,22 +111,29 @@ export function explanationTexts(lesson) {
     if (!ownWords(text)) return; // only pieces of the language taught
     out.push({ path, kind, text });
   };
-  add(["title"], "lesson title", lesson.title);
+  add(["title"], "lesson title (what the learner can do)", lesson.title);
   add(["summary"], "lesson summary", lesson.summary);
+  add(["topic"], "the grammar the lesson teaches", lesson.topic);
   (lesson.blocks || []).forEach((b, i) => {
     const at = (...p) => ["blocks", i, ...p];
     if ("p" in b) add(at("p"), "paragraph", b.p);
     if ("tip" in b) add(at("tip"), "tip", b.tip);
     if ("term" in b) { add(at("term"), "grammar term", b.term); add(at("means"), "what the term means", b.means); }
+    if ("goal" in b && b.goal) { add(at("goal", "tr"), "translation of the lesson's goal sentence", b.goal.tr); add(at("goal", "note"), "note on the goal sentence", b.goal.note); }
     if ("ex" in b) (b.ex || []).forEach((e, k) => { add(at("ex", k, "tr"), "translation of an example", e.tr); add(at("ex", k, "note"), "note on an example", e.note); });
+    if ("dialog" in b) (b.dialog || []).forEach((d, k) => { add(at("dialog", k, "who"), "name of a speaker in a dialogue", d.who); add(at("dialog", k, "tr"), "translation of a line of dialogue", d.tr); });
     if ("table" in b) (b.table || []).forEach((row, r) => (row || []).forEach((cell, c) => add(at("table", r, c), r ? "table cell" : "table heading", cell)));
   });
   (lesson.mistakes || []).forEach((m, i) => { add(["mistakes", i, "why"], "why it is a mistake", m.why); add(["mistakes", i, "tr"], "translation of the right sentence", m.tr); });
   (lesson.practice || []).forEach((q, i) => {
-    add(["practice", i, "q"], "practice question", q.q);
-    add(["practice", i, "why"], "explanation of the answer", q.why);
-    add(["practice", i, "tr"], "meaning of the sentence to build", q.tr);
-    (q.options || []).forEach((o, k) => add(["practice", i, "options", k], "answer option", o));
+    const at = (...p) => ["practice", i, ...p];
+    add(at("q"), "practice question", q.q);
+    add(at("why"), "explanation of the answer", q.why);
+    add(at("tr"), "meaning of the sentence", q.tr);
+    // (only a "choice" question's options are explanation text; the others' are the language taught)
+    if (q.type === "choice") (q.options || []).forEach((o, k) => add(at("options", k), "answer option", o));
+    (q.lines || []).forEach((l, k) => { add(at("lines", k, "tr"), "translation of a line of dialogue", l.tr); add(at("lines", k, "why"), "explanation of a reply", l.why); });
+    (q.answers || []).forEach((a, k) => add(at("answers", k, "tr"), "translation of a model answer", a.tr));
   });
   return out;
 }
@@ -136,12 +144,20 @@ export function taughtTexts(lesson) {
   const add = (t) => { if (typeof t === "string" && t.trim()) out.push(t); };
   const inside = (t) => targetsOf(t).forEach((x) => add(x.split("|")[0]));
   for (const { text } of explanationTexts(lesson)) inside(text);
-  for (const b of lesson.blocks || []) for (const e of b.ex || []) add(e.t);
+  for (const b of lesson.blocks || []) {
+    for (const e of b.ex || []) add(e.t);
+    for (const d of b.dialog || []) add(d.t);
+    if (b.goal) add(b.goal.t);
+  }
   for (const m of lesson.mistakes || []) { add(m.wrong); add(m.right); }
   for (const q of lesson.practice || []) {
     (q.words || []).forEach(add);
     add(q.answer && typeof q.answer === "string" ? q.answer : "");
-    for (const o of q.options || []) if (!explanationTexts({ practice: [{ options: [o] }] }).length) inside(o);
+    if (q.type === "choice") { for (const o of q.options || []) if (!ownWords(o)) inside(o); }
+    else (q.options || []).forEach(add);
+    if (q.type === "fill") add(String(q.t || "").replace("___", ""));
+    for (const l of q.lines || []) { add(l.t); (l.options || []).forEach(add); }
+    for (const a of q.answers || []) add(a.t);
   }
   return out;
 }
@@ -361,6 +377,71 @@ export function progressOf(course, id, progress) {
   return { done, count: done.size, total: lessons.length, next: lessons.find((l) => !done.has(l.id)) || null, units };
 }
 
+// ---------------------------------------------------------------- mixed review (spaced retrieval)
+
+/**
+ * Questions for a mixed review of lessons already done: [{lesson, q}], up to `count`. Lessons finished
+ * longest ago, and those with more wrong answers, come up most; never two questions from the same
+ * lesson in a row; the same pick all day (`now` in ms: the day is the seed), so leaving and coming back
+ * shows the same review. "Your turn" questions are left out (they need the lesson's context).
+ */
+export function reviewQuestions(course, id, progress, { now = Date.now(), count = 8 } = {}) {
+  const p = cleanProgress(progress);
+  const day = Math.floor(now / 86400000);
+  let seed = (day * 2654435761) >>> 0;
+  const rand = () => { seed = (Math.imul(seed, 1103515245) + 12345) >>> 0; return seed / 2 ** 32; };
+  const done = (course.lessons || []).filter((l) => p[`${id}/${l.id}`]);
+  if (!done.length) return [];
+  const weight = (l) => {
+    const rec = p[`${id}/${l.id}`];
+    const days = Math.max(0, now / 1000 - rec.at) / 86400;
+    const missed = rec.of ? 1 - rec.right / rec.of : 0;
+    return 1 + Math.min(days, 30) / 3 + missed * 4;
+  };
+  const pool = done.map((l) => ({ l, w: weight(l), qs: (l.practice || []).filter((q) => q.type !== "free") }))
+    .filter((x) => x.qs.length);
+  const out = [];
+  let last = null;
+  for (let guard = 0; out.length < count && guard < count * 20 && pool.length; guard++) {
+    const choices = pool.filter((x) => x.l !== last || pool.length === 1);
+    const total = choices.reduce((s, x) => s + x.w, 0);
+    let r = rand() * total, pick = choices[0];
+    for (const x of choices) { r -= x.w; if (r <= 0) { pick = x; break; } }
+    const q = pick.qs.splice(Math.floor(rand() * pick.qs.length), 1)[0];
+    out.push({ lesson: pick.l.id, q });
+    last = pick.l;
+    pick.w /= 2;
+    if (!pick.qs.length) pool.splice(pool.indexOf(pick), 1);
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------- "your turn": the AI's look at the learner's sentence
+
+export const CHECK_SCHEMA = {
+  type: "object",
+  properties: {
+    ok: { type: "boolean", description: "true if the sentence is correct and natural for what was asked" },
+    corrected: { type: "string", description: "the learner's sentence corrected (the same sentence when it is already right)" },
+    note: { type: "string", description: "one or two short, friendly sentences explaining what was wrong, or praising what was right" },
+  },
+  required: ["ok", "corrected", "note"],
+  additionalProperties: false,
+};
+
+/** The request asking the learner's AI whether their own sentence for a "your turn" question is right.
+ * `names`: {explain: the language to explain in, taught}. */
+export function checkPrompt(names, { topic, question, models, answer, variety = "" }) {
+  const system = [
+    `You are a patient ${names.taught} teacher. A beginner has just learned: ${topic}.`,
+    `They answered a practice question with their own ${names.taught} sentence. Check it${variety ? ` (${variety})` : ""}: is it correct and natural for what the question asks?`,
+    `Be encouraging. Small spelling slips count as mistakes only if they change the word. Don't demand vowel marks or accents that are often left out in writing.`,
+    `In "corrected", give the learner's sentence corrected, changing as little as possible (or the same sentence if it is right). In "note", explain in ${names.explain}, in one or two short sentences.`,
+  ].join("\n");
+  const user = `Question: ${plainText(question)}\nModel answers: ${models.join(" / ")}\nThe learner's answer: ${answer}`;
+  return { system, user, schema: CHECK_SCHEMA };
+}
+
 // ---------------------------------------------------------------- practice
 
 /** The words of an "order" question in a shuffled order that isn't already a right answer (the same
@@ -436,19 +517,26 @@ export function checkCourse(course, { languages = null } = {}) {
     if (level < 0) say(where, `level must be one of ${LEVELS.join(", ")}`);
     if (level < lastLevel) say(where, "its level is lower than the lesson before");
     lastLevel = Math.max(lastLevel, level);
-    for (const k of ["title", "summary"]) if (!String(l[k] || "").trim()) say(where, `no ${k}`);
+    for (const k of ["title", "summary", "topic"]) if (!String(l[k] || "").trim()) say(where, `no ${k}`);
 
     const texts = explanationTexts(l);
     for (const t of texts) { const p = markProblem(t.text); if (p) say(where, `${p} in ${t.kind} “${t.text.slice(0, 40)}”`); }
-    for (const k of ["title", "summary"]) { const p = markProblem(l[k]); if (p && !texts.some((t) => t.path[0] === k)) say(where, `${p} in its ${k}`); }
+    const sentence = (x, what) => {
+      if (!x || !String(x.t || "").trim() || !String(x.tr || "").trim()) { say(where, `${what} without its text or translation (“${(x && (x.t || x.tr)) || ""}”)`); return; }
+      if (readings && !String(x.r || "").trim()) say(where, `${what} “${x.t}” has no reading`);
+      if (/\{\{|\*\*/.test(x.t)) say(where, `marks inside ${what} “${x.t}”`);
+    };
 
+    // PURPOSE first: the lesson opens with the sentence the learner will be able to say.
     const blocks = l.blocks || [];
-    if (!blocks.length) say(where, "no explanation");
+    if (!blocks.length || !blocks[0].goal) say(where, "the first block must be its goal sentence ({\"goal\": {t, r, tr}})");
+    if (blocks.filter((b) => b.goal).length > 1) say(where, "more than one goal sentence");
     if (!blocks.some((b) => "p" in b)) say(where, "no paragraph");
     let examples = 0;
     blocks.forEach((b, bi) => {
-      const kinds = ["p", "tip", "term", "ex", "table"].filter((k) => k in b);
-      if (kinds.length !== 1) { say(where, `block ${bi + 1} must be one of p, tip, term, ex, table`); return; }
+      const kinds = BLOCKS.filter((k) => k in b);
+      if (kinds.length !== 1) { say(where, `block ${bi + 1} must be one of ${BLOCKS.join(", ")}`); return; }
+      if (b.goal !== undefined) sentence(b.goal, "the goal sentence");
       if (b.term !== undefined) {
         if (!String(b.term).trim() || !String(b.means || "").trim()) say(where, `block ${bi + 1}: a term needs its meaning`);
         const key = plainText(b.term).trim().toLowerCase();
@@ -457,11 +545,13 @@ export function checkCourse(course, { languages = null } = {}) {
       }
       if (b.ex !== undefined) {
         if (!Array.isArray(b.ex) || !b.ex.length) say(where, `block ${bi + 1}: no examples`);
-        for (const e of b.ex || []) {
-          examples++;
-          if (!String(e.t || "").trim() || !String(e.tr || "").trim()) say(where, `an example without its text or translation (“${e.t || e.tr}”)`);
-          if (readings && !String(e.r || "").trim()) say(where, `the example “${e.t}” has no reading`);
-          if (/\{\{|\*\*/.test(e.t || "")) say(where, `marks inside the example “${e.t}”`);
+        for (const e of b.ex || []) { examples++; sentence(e, "an example"); }
+      }
+      if (b.dialog !== undefined) {
+        if (!Array.isArray(b.dialog) || b.dialog.length < 2) say(where, `block ${bi + 1}: a dialogue needs at least two lines`);
+        for (const d of b.dialog || []) {
+          if (!String(d.who || "").trim()) say(where, "a line of dialogue without its speaker (who)");
+          sentence(d, "a line of dialogue");
         }
       }
       if (b.table !== undefined) {
@@ -472,24 +562,39 @@ export function checkCourse(course, { languages = null } = {}) {
     });
     if (examples < 3) say(where, `only ${examples} examples (at least 3)`);
 
+    // CONTRAST: the mistakes to watch for.
     for (const m of l.mistakes || []) {
       if (!String(m.wrong || "").trim() || !String(m.right || "").trim() || !String(m.why || "").trim()) say(where, "a mistake needs wrong, right and why");
       if (m.wrong === m.right) say(where, `a mistake whose wrong and right are the same (“${m.wrong}”)`);
     }
     if (!(l.mistakes || []).length) say(where, "no common mistakes");
 
+    // APPLICATION: practice that ends with the learner's own sentence, and brings old grammar back.
     const practice = l.practice || [];
-    if (practice.length < 3 || practice.length > 6) say(where, `${practice.length} practice questions (3 to 6)`);
-    if (!practice.some((q) => q.type === "order" || q.type === "say")) say(where, "no practice question where the learner builds or says something (order or say)");
+    if (practice.length < 4 || practice.length > 8) say(where, `${practice.length} practice questions (4 to 8)`);
+    if (!practice.some((q) => q.type === "fill" || q.type === "order" || q.type === "dialogue")) say(where, "no practice where the learner builds a sentence (fill, order or dialogue)");
+    if (!practice.some((q) => q.type === "free")) say(where, "no “your turn” question (free), where the learner says something of their own");
+    if (li >= 3 && !practice.some((q) => q.from)) say(where, "no question that brings back an earlier lesson's grammar (\"from\": an earlier lesson's id)");
     practice.forEach((q, qi) => {
       const at = `${where}, practice ${qi + 1}`;
       if (!PRACTICE_TYPES.includes(q.type)) { say(at, `type must be one of ${PRACTICE_TYPES.join(", ")}`); return; }
       if (!String(q.q || "").trim()) say(at, "no question");
+      if (q.from !== undefined && !lessons.slice(0, li).some((x) => x.id === q.from)) say(at, `"from": “${q.from}” isn't an earlier lesson`);
+      const options = (n, min = 2) => {
+        const list = q.options || [];
+        if (list.length < min || list.length > 4) say(at, `${list.length} options (${min} to 4)`);
+        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= list.length) say(at, "the answer isn't one of the options");
+        if (new Set(list).size !== list.length) say(at, "two options are the same");
+      };
       if (q.type === "choice") {
-        const n = (q.options || []).length;
-        if (n < 2 || n > 4) say(at, `${n} options (2 to 4)`);
-        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= n) say(at, "the answer isn't one of the options");
-        if (new Set(q.options || []).size !== n) say(at, "two options are the same");
+        options();
+        if (!String(q.why || "").trim()) say(at, "no why");
+      }
+      if (q.type === "fill") {
+        if ((String(q.t || "").match(/___/g) || []).length !== 1) say(at, "the sentence (t) must have exactly one gap: ___");
+        if (!String(q.tr || "").trim()) say(at, "no translation (tr) of the sentence");
+        options();
+        if ((q.options || []).some((o) => /\{\{|\*\*/.test(o))) say(at, "a fill option is the language taught itself: no {{ }} marks");
         if (!String(q.why || "").trim()) say(at, "no why");
       }
       if (q.type === "order") {
@@ -504,6 +609,26 @@ export function checkCourse(course, { languages = null } = {}) {
       if (q.type === "say") {
         if (!String(q.answer || "").trim()) say(at, "no answer");
         if (readings && !String(q.r || "").trim()) say(at, "the answer has no reading");
+      }
+      if (q.type === "dialogue") {
+        const lines = q.lines || [];
+        if (lines.length < 3) say(at, "a dialogue needs at least three lines");
+        if (!lines.some((x) => x.options)) say(at, "no line where the learner chooses their reply (options)");
+        for (const x of lines) {
+          if (x.options) {
+            if (x.options.length < 2 || x.options.length > 4 || new Set(x.options).size !== x.options.length) say(at, "a reply needs 2 to 4 different options");
+            if (!Number.isInteger(x.answer) || x.answer < 0 || x.answer >= x.options.length) say(at, "a reply's answer isn't one of its options");
+            if (!String(x.why || "").trim()) say(at, "a reply without its why");
+          } else {
+            if (!String(x.who || "").trim()) say(at, "a line without its speaker (who)");
+            sentence(x, "a line of the dialogue");
+          }
+        }
+      }
+      if (q.type === "free") {
+        const answers = q.answers || [];
+        if (!answers.length) say(at, "no model answers");
+        for (const a of answers) sentence(a, "a model answer");
       }
     });
 

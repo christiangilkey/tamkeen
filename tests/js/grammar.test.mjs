@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   GRAMMAR_BASE, checkCourse, cleanProgress, costCents, courseFor, explanationTexts, finished, grammarUrl, groups,
-  keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
+  checkPrompt, keepsMarks, lessonVersion, listTexts, makeLesson, markProblem, reviewQuestions, mergeProgress, orderIsRight, parseRich, plainText, progressOf,
   richHtml, shuffled, taughtTexts, targetsOf, translationPrompt, unvowelled, withListTexts, withTexts,
 } from "../../web/js/grammardata.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
@@ -192,6 +192,47 @@ test("the checks find a broken lesson", () => {
   assert.match(problems, /the same id as another lesson/);
   assert.match(problems, /the term “noun” was already explained in demo/);
   assert.match(problems, /only 1 examples/);
+});
+
+test("the new kinds of practice keep their languages apart: fill and dialogue options are the language taught", () => {
+  const lesson = {
+    title: "Say what you want", summary: "S", topic: "{{أُرِيدُ}} and {{أَنْ}}",
+    blocks: [{ goal: { t: "أُرِيدُ قَهْوَةً.", r: "urīdu qahwatan.", tr: "I want a coffee." } },
+      { dialog: [{ who: "Waiter", t: "مَاذَا تُرِيدُ؟", r: "x", tr: "What would you like?" }] }],
+    practice: [
+      { type: "fill", q: "Choose the missing word.", t: "أُرِيدُ ___ أَذْهَبَ.", tr: "I want to go.", options: ["أَنْ", "أَنَا"], answer: 0, why: "Why." },
+      { type: "dialogue", q: "Reply.", lines: [{ who: "Waiter", t: "بِسُكَّرٍ؟", tr: "With sugar?" }, { options: ["لَا، شُكْرًا."], answer: 0, why: "No thanks." }] },
+      { type: "free", q: "Your turn.", answers: [{ t: "أُرِيدُ شَايًا.", r: "x", tr: "I want tea." }] },
+    ],
+  };
+  const texts = explanationTexts(lesson).map((t) => t.text);
+  for (const t of ["I want a coffee.", "Waiter", "What would you like?", "I want to go.", "With sugar?", "No thanks.", "I want tea.", "Your turn."]) assert.ok(texts.includes(t), t);
+  for (const t of ["أَنْ", "أَنَا", "لَا، شُكْرًا."]) assert.ok(!texts.includes(t), `${t} is never sent to be translated`);
+  const taught = taughtTexts(lesson);
+  for (const t of ["أُرِيدُ قَهْوَةً.", "مَاذَا تُرِيدُ؟", "أَنْ", "أُرِيدُ  أَذْهَبَ.", "لَا، شُكْرًا.", "بِسُكَّرٍ؟", "أُرِيدُ شَايًا."]) assert.ok(taught.includes(t), t);
+});
+
+test("the mixed review brings back done lessons, the oldest and weakest most, never one lesson twice in a row", () => {
+  const q = (n) => ({ type: "choice", q: `q${n}`, options: ["a", "b"], answer: 0, why: "w" });
+  const course = { lessons: ["one", "two", "three"].map((id) => ({ id, practice: [q(1), q(2), q(3), { type: "free", q: "mine", answers: [] }] })) };
+  const now = 100 * 86400000;
+  const progress = { "en-ar/one": { at: now / 1000 - 20 * 86400, right: 1, of: 4 }, "en-ar/two": { at: now / 1000 - 3600, right: 4, of: 4 } };
+  const picks = reviewQuestions(course, "en-ar", progress, { now, count: 6 });
+  assert.equal(picks.length, 6);
+  assert.ok(picks.every((p) => p.lesson !== "three"), "only lessons done");
+  assert.ok(picks.every((p) => p.q.type !== "free"), "no “your turn” questions");
+  assert.ok(picks.filter((p) => p.lesson === "one").length >= picks.filter((p) => p.lesson === "two").length, "the old, weak one more");
+  for (let i = 1; i < picks.length; i++) if (picks[i].lesson === picks[i - 1].lesson) assert.ok(picks.slice(i).every((p) => p.lesson === picks[i].lesson), "repeats only when one lesson is left");
+  assert.deepEqual(reviewQuestions(course, "en-ar", progress, { now, count: 6 }), picks, "the same all day");
+  assert.deepEqual(reviewQuestions(course, "en-ar", {}, { now }), []);
+});
+
+test("the AI's look at a “your turn” sentence names the grammar, the models and the learner's answer", () => {
+  const p = checkPrompt({ explain: "Spanish", taught: "Arabic" }, { topic: "{{أَنْ}} + -a", question: "Your turn: {{أُرِيدُ أَنْ…}}", models: ["أُرِيدُ أَنْ أَنَامَ."], answer: "أريد أن أنام" });
+  assert.match(p.system, /Arabic teacher/);
+  assert.match(p.system, /explain in Spanish/);
+  assert.match(p.user, /أريد أن أنام/);
+  assert.deepEqual(p.schema.required, ["ok", "corrected", "note"]);
 });
 
 // ----- every course written so far -----

@@ -285,3 +285,18 @@ test("study habits earn tags; levelling up pays coins", () => {
   assert.ok(r.levelUp);
   assert.equal(s.coins, coins + 1 + 5);
 });
+
+test("a grammar lesson finished pays once a day, more the first time and for more right answers", () => {
+  const s = newState(5);
+  const now = at("2026-10-24T10:00:00");
+  const first = earn(s, { type: "grammar", key: "en-ar/say-what-you-want", right: 4, of: 4, first: true }, { now });
+  assert.equal(first.xp, 80);
+  assert.equal(earn(s, { type: "grammar", key: "en-ar/say-what-you-want", right: 4, of: 4 }, { now }), null, "the same lesson again today: nothing");
+  const again = earn(s, { type: "grammar", key: "en-ar/say-who-you-are", right: 2, of: 4 }, { now });
+  assert.equal(again.xp, 23, "a lesson done before, half right: 15 + 8");
+  assert.equal(s.stats.grammar, 2);
+  assert.ok(earn(s, { type: "grammar", key: "en-ar/say-what-you-want", right: 4, of: 4 }, { now: at("2026-10-25T10:00:00") }), "it pays again tomorrow");
+  assert.equal(earn(s, { type: "grammar", key: "", right: 1, of: 1 }, { now }), null);
+  const old = normalize({ ...newState(6), day: { key: "2026-10-24", seconds: 0 } });
+  assert.ok(earn(old, { type: "grammar", key: "review:20385", right: 6, of: 8 }, { now }), "a save from before grammar lessons");
+});

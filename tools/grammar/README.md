@@ -57,28 +57,71 @@ while the app is open), "My computer" on the computer, or else the device's own 
 
 ## The lessons
 
+### The principle: grammar as a tool for doing things
+
+The owner's design (2026-10-24, from research on task-based teaching, explicit grammar instruction,
+spaced retrieval and learner motivation): **teach grammar as a tool for accomplishing things with the
+language, not as a body of knowledge to master before speaking.** A learner says something meaningful in
+the very first lesson, then gains, lesson by lesson, the ability to say more complex things, follow
+natural conversation and answer without translating in their head. Three things go together that grammar
+books usually keep apart:
+
+- **Immediate usability**: every lesson ends with the learner able to say something useful they couldn't
+  before ("Say what you want", "Tell someone what happened yesterday").
+- **Systematic mastery**: the explanation is explicit and accurate, so the learner builds a true picture
+  of how the language works.
+- **Fluency**: patterns come back again and again, in new situations, until they come out fast.
+
+So a lesson is named after a **capability**, and its grammar is the tool for it ("Tell someone what
+happened yesterday", topic: the past tense). Every lesson answers five questions, in this order:
+
+1. **Purpose**: what can I do with this? The lesson opens with its goal sentence, something the learner
+   can say right away (`goal` block), and `title` and `summary` say the capability.
+2. **Meaning**: what does it mean, and when is it used? Contrast it with forms that look similar.
+3. **Form**: how is it built? The pattern, the endings, the word order, the agreement (`p`, `term`,
+   `table`, `ex`, `dialog`).
+4. **Contrast**: which mistake to watch for, and why it is wrong (`mistakes`).
+5. **Application**: can I use it for my own thought? Practice that builds sentences (`fill`, `order`,
+   `dialogue`), and always a **"your turn"** question (`free`) where the learner says or writes something
+   of their own (they see model answers, and the learner's AI key can check their sentence).
+
+**A spiral, not a list.** Every major structure comes back several times, each time for a harder job:
+the past first to say what happened, later to tell a story in order, later still to report what someone
+said; questions first to ask for information, later to interview someone, later to ask follow-ups.
+Practice questions carry `"from": "<earlier lesson id>"` when they reuse an earlier lesson's grammar in
+the new situation; from the fourth lesson on, every lesson has at least one. The app's **mixed review**
+(Grammar tab) brings back questions from lessons already done, the oldest and the weakest first.
+
+**Fun comes from having something to say.** Scenes and missions (`dialog` blocks: a real exchange at a
+café, a hotel, a doctor's, a phone call), choices in conversation (`dialogue` questions: pick your reply),
+small challenges, humour in the examples. Rotate the kinds of practice while the goal stays the same.
+Mistakes are a normal part of trying. Finishing a lesson earns **XP** in the app's creature game (more the
+first time, and for more right answers); a mixed review earns XP too.
+
 ### The path, per language
 
-Each course has its own order, because each language is hard in its own places. Arabic needs the vowel
-marks, roots and gender at once; Japanese its particles and polite endings; Russian its cases one at a
-time; Chinese its measure words, aspect (了, 过) and word order of time and place. But every course
-follows the same rules:
+Each course has its own order, because each language is hard in its own places, and each learner's own
+language makes different things easy or hard. `tools/grammar/LANGUAGES.md` gives each language's starting
+points. Rules for every course:
 
-- **One idea per lesson**, 5 to 10 minutes: a short explanation, examples, common mistakes, practice.
+- **Capabilities in the order a beginner needs them**: greet and say who you are, point and name, ask,
+  say what you want and have, where things are, what you do every day, what happened, what you will do,
+  why, compare, suggest, tell a story, give your opinion, imagine… The grammar of each language decides
+  how each of those is done and what has to come first.
+- **One capability per lesson**, 5 to 10 minutes.
 - **Grammar words are explained the first time they are needed**, in plain words, with a `term` block
-  ("A **verb** is a word for doing or being: *eat*, *go*, *is*."), and never assumed before. A course
-  defines each term once; later lessons may use it.
-- **The commonest first.** What a beginner says on the first day (I am…, this is…, I want…, where is…?)
-  comes before what is rare or only written. The words in the examples come mostly from the language's
-  basics course (its 1000 commonest words), so a learner doing both meets them twice.
-- **Useful, natural examples**, the kind of sentences someone really says or reads. In the variety the
-  basics course uses (`tools/course/LANGUAGES.md`: Modern Standard Arabic fully vowelled, Mexican Spanish,
-  Brazilian Portuguese…).
-- **Levels**: about the first 40% of lessons A1, the next 40% A2, the rest B1. Each lesson says its level.
-- **Size**: about 40 to 55 lessons, grouped in 6 to 9 units with a name each ("First steps", "The past").
+  ("A **verb** is a word for doing or being: eat, go, is."), and never assumed before. A course defines
+  each term once; later lessons may use it.
+- **Useful, natural examples**, sentences someone really says, in the variety the basics course uses
+  (`tools/course/LANGUAGES.md`). The words come mostly from the language's basics course (its 1000
+  commonest words), so a learner doing both meets them twice.
+- **Levels**: about the first 40% of lessons A1, the next 40% A2, the rest B1 (each lesson says its level;
+  the level never goes down). Target: everyday conversation, about A2, touching B1.
+- **Size**: about 40 to 55 lessons in 6 to 9 units, each unit named for what it lets the learner do
+  ("First conversations", "Out and about", "Telling what happened").
 - The English courses (`<lang>-en`) are written for a speaker of that language: their order, comparisons
   and mistakes are about what is hard for that speaker (a Japanese speaker needs "a" and "the" early and
-  long; a Spanish speaker doesn't need gender explained).
+  often; a Spanish speaker doesn't need gender explained, but does need "do" in questions).
 
 ### The format
 
@@ -86,56 +129,77 @@ The source is `tools/grammar/<from>-<to>/lessons.json`, written by hand; `node t
 checks it and publishes `docs/grammar/<from>-<to>/course.json` and `docs/grammar/index.json` (beside
 `docs/course`). `tests/js/grammar.test.mjs` checks every course (and that the published copy is up to
 date). The rules the checks enforce are in `web/js/grammardata.js` (`checkCourse`), shared by the build,
-the test and the app.
+the test and the app. `node tools/grammar/format.mjs <from>-<to> [more.json]` tidies the file (and adds
+the lessons of another file to it). `tools/grammar/en-ar/lessons.json` is the model.
 
 ```jsonc
 {
   "from": "en", "to": "ar",
   "title": "Arabic grammar",                 // in the explanation language
   "variety": "Modern Standard Arabic",
-  "about": "From the very start to everyday conversation…",
+  "about": "From your very first sentence to everyday conversation…",
   "reading": "transliteration",              // what an example's `r` is, if the course has readings
-  "units": [{ "n": 1, "title": "First steps" }, …],
+  "units": [{ "n": 1, "title": "First conversations" }, …],
   "lessons": [
     {
-      "id": "nouns-the",                     // never changes once published (progress is kept by it)
+      "id": "say-what-you-want",             // never changes once published (progress is kept by it)
       "unit": 1, "level": "A1",
-      "title": "Nouns, and the word for “the”",
-      "summary": "One line: what the learner will be able to do.",
-      "blocks": [                            // the explanation, in order
+      "title": "Say what you want",          // the capability
+      "summary": "Ask for things, and say what you want to do: “I want to learn Arabic.”",
+      "topic": "{{أُرِيدُ}} with a noun, and {{أَنْ}} + the -a form of a verb",   // the grammar, as a tag
+      "blocks": [
+        { "goal": { "t": "أُرِيدُ أَنْ أَتَعَلَّمَ الْعَرَبِيَّةَ.", "r": "urīdu an ataʿallama l-ʿarabiyya.", "tr": "I want to learn Arabic." } },
         { "p": "A paragraph. **bold**, and {{الْبَيْتُ|al-baytu}} for a piece of Arabic (with its reading)." },
-        { "term": "noun", "means": "a word for a person, an animal, a place, a thing or an idea." },
-        { "ex": [ { "t": "الْبَيْتُ كَبِيرٌ.", "r": "al-baytu kabīrun.", "tr": "The house is big.", "note": "optional" } ] },
-        { "table": [["", "Masculine", "Feminine"], ["big", "{{كَبِيرٌ|kabīrun}}", "{{كَبِيرَةٌ|kabīratun}}"]] },
+        { "term": "verb", "means": "a word for an action or a state: write, go, live, want." },
+        { "ex": [ { "t": "…", "r": "…", "tr": "…", "note": "optional" } ] },
+        { "dialog": [ { "who": "Waiter", "t": "…", "r": "…", "tr": "…" }, { "who": "You", "t": "…", "r": "…", "tr": "…" } ] },
+        { "table": [["", "present", "after {{أَنْ}}"], ["I", "{{أَتَعَلَّمُ}}", "{{أَنْ أَتَعَلَّمَ}}"]] },
         { "tip": "A short note worth remembering." }
       ],
-      "mistakes": [ { "wrong": "الْبَيْتُ هُوَ كَبِيرٌ.", "right": "الْبَيْتُ كَبِيرٌ.", "why": "Arabic has no word for “is” here." } ],
+      "mistakes": [ { "wrong": "أُرِيدُ أَتَعَلَّمُ.", "right": "أُرِيدُ أَنْ أَتَعَلَّمَ.", "tr": "I want to learn.", "why": "…" } ],
       "practice": [
-        { "type": "choice", "q": "Which means “the house is big”?", "options": ["{{…}}", "{{…}}"], "answer": 0, "why": "…" },
-        { "type": "order", "q": "Put the words in order.", "tr": "The big house.", "words": ["الْبَيْتُ", "الْكَبِيرُ"], "also": [] },
-        { "type": "say", "q": "How do you say “I am a student” (to a man)?", "answer": "أَنَا طَالِبٌ.", "r": "anā ṭālibun." }
+        { "type": "choice", "q": "…", "options": ["{{…}}", "…"], "answer": 0, "why": "…" },
+        { "type": "fill", "q": "Choose the missing word.", "t": "أُرِيدُ ___ أَذْهَبَ.", "tr": "I want to go.", "options": ["أَنْ", "أَنَّ"], "answer": 0, "why": "…" },
+        { "type": "order", "q": "Put the words in order.", "tr": "…", "words": ["…", "…"], "also": [] },
+        { "type": "dialogue", "q": "At the café: choose your replies.", "lines": [
+            { "who": "Waiter", "t": "…", "r": "…", "tr": "…" },
+            { "options": ["…", "…"], "answer": 0, "why": "…" } ] },
+        { "type": "say", "q": "How do you say “…”?", "answer": "…", "r": "…", "from": "an-earlier-lesson-id" },
+        { "type": "free", "q": "Your turn: what do you want to do this year? Start with {{أُرِيدُ أَنْ}}…",
+          "answers": [ { "t": "…", "r": "…", "tr": "…" }, { "t": "…", "r": "…", "tr": "…" } ] }
       ]
     }
   ]
 }
 ```
 
-- **Which language is which.** Fields in the language learned: an example's `t` and `r`, a mistake's
-  `wrong` and `right`, an `order` question's `words` and `also`, a `say` question's `answer` and `r`, and
-  whatever is inside `{{ }}`. Everything else is in the explanation language. (This is what lets the app
-  translate a course safely: it sends only the second kind.)
+- **Which language is which.** In the language learned: the `t` and `r` of a goal, an example, a line of
+  dialogue or a model answer; a mistake's `wrong` and `right`; the `t` and `options` of a `fill` question;
+  an `order` question's `words` and `also`; a `dialogue` reply's `options`; a `say` question's `answer`
+  and `r`; and whatever is inside `{{ }}`. Everything else (a `choice` question's options included) is in
+  the explanation language. This is what lets the app translate a course safely: it sends only the second
+  kind.
 - **Marks inside explanation text**: `**bold**`; `{{text}}` or `{{text|reading}}` for a piece of the
   language learned (shown in its own script and direction, tappable to hear). Nothing else: no HTML.
-- **A table** is rows of cells; the first row is its heading. Cells are explanation text with `{{ }}`.
-- **Practice**: 3 to 6 questions per lesson, and at least one per lesson asks the learner to produce
-  something (`order` or `say`).
-  - `choice`: 2 to 4 `options` (explanation text with `{{ }}`), `answer` = the right one's index, `why`
-    says why (shown after answering).
+- **Blocks**: the first is always the `goal` sentence. Then `p` (paragraph), `term` (a grammar word, once
+  per course), `ex` (examples, at least 3 per lesson), `dialog` (a short scene: lines with `who`), `table`
+  (rows of cells, the first row is its heading), `tip`.
+- **Practice**: 4 to 8 questions. At least one builds a sentence (`fill`, `order` or `dialogue`), at least
+  one is "your turn" (`free`), and from the fourth lesson on at least one has `from` (an earlier lesson's
+  grammar, used again).
+  - `choice`: 2 to 4 `options`, `answer` = the right one's index, `why` (shown after answering).
+  - `fill` (select the word): a sentence `t` with one gap `___`, 2 to 4 `options` (words of the language
+    learned, no marks), `answer`, `tr`, `why`.
   - `order`: the sentence's words in the right order (the app shuffles them); `also` lists other orders
     that are also right; `tr` is what it means.
-  - `say`: the learner says or thinks the answer, then shows it and hears it, and says whether they got it.
+  - `dialogue`: `lines` of a conversation; a line with `who`, `t`, `tr` (and `r`) is said by someone else,
+    a line with `options`, `answer` and `why` is the learner's reply to choose.
+  - `say`: the learner says the answer, then sees and hears it, and says whether they got it.
+  - `free`: a question the learner answers with their own sentence (typed or said); `answers` are model
+    answers. With an AI key, the app can check what they wrote.
 - **Examples**: every `t` is a whole, natural sentence or phrase with its translation `tr`; a course with
   readings (`reading`) gives every example its `r`. Arabic: fully vowelled, case endings included.
+
 
 ## Progress
 
