@@ -1,0 +1,439 @@
+{
+ "format": 1,
+ "lang": "de",
+ "title": "German basics",
+ "variety": "Standard German (Germany)",
+ "about": "The most common words of written and spoken German (wordfreq counts, grouped by dictionary word with tools/course/de/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Nouns are shown with their article (der, die, das) and their plural in the meaning. Each word has one short everyday sentence that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 1000,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Katja (Azure, Germany)",
+  "synthetic": true
+ },
+ "built": "2026-10-24",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": false
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": false
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": false
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": false
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": false
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": false
+  },
+  {
+   "n": 7,
+   "from": 301,
+   "to": 350,
+   "ready": false
+  },
+  {
+   "n": 8,
+   "from": 351,
+   "to": 400,
+   "ready": false
+  },
+  {
+   "n": 9,
+   "from": 401,
+   "to": 450,
+   "ready": false
+  },
+  {
+   "n": 10,
+   "from": 451,
+   "to": 500,
+   "ready": false
+  },
+  {
+   "n": 11,
+   "from": 501,
+   "to": 550,
+   "ready": false
+  },
+  {
+   "n": 12,
+   "from": 551,
+   "to": 600,
+   "ready": false
+  },
+  {
+   "n": 13,
+   "from": 601,
+   "to": 650,
+   "ready": false
+  },
+  {
+   "n": 14,
+   "from": 651,
+   "to": 700,
+   "ready": false
+  },
+  {
+   "n": 15,
+   "from": 701,
+   "to": 750,
+   "ready": false
+  },
+  {
+   "n": 16,
+   "from": 751,
+   "to": 800,
+   "ready": false
+  },
+  {
+   "n": 17,
+   "from": 801,
+   "to": 850,
+   "ready": false
+  },
+  {
+   "n": 18,
+   "from": 851,
+   "to": 900,
+   "ready": false
+  },
+  {
+   "n": 19,
+   "from": 901,
+   "to": 950,
+   "ready": false
+  },
+  {
+   "n": 20,
+   "from": 951,
+   "to": 1000,
+   "ready": false
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "der, die, das",
+   "pos": "det",
+   "meaning": "the (masculine der, feminine die, neuter das; plural die)",
+   "sentence": "Der Kaffee ist noch heiß.",
+   "translation": "⟦The⟧ coffee is still hot.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 1.637,
+    "sent_start": 2.537,
+    "sent_end": 4.184
+   }
+  },
+  {
+   "n": 2,
+   "word": "und",
+   "pos": "conj",
+   "meaning": "and",
+   "sentence": "Ich habe einen Bruder und eine Schwester.",
+   "translation": "I have a brother ⟦and⟧ a sister.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.406,
+    "sent_start": 1.306,
+    "sent_end": 3.643
+   }
+  },
+  {
+   "n": 3,
+   "word": "in",
+   "pos": "prep",
+   "meaning": "in; into",
+   "sentence": "Ich wohne in einer kleinen Wohnung.",
+   "translation": "I live ⟦in⟧ a small apartment.",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.416,
+    "sent_start": 1.316,
+    "sent_end": 3.359
+   }
+  },
+  {
+   "n": 4,
+   "word": "sein",
+   "pos": "verb",
+   "meaning": "to be",
+   "sentence": "Das Wetter ist heute schön.",
+   "translation": "The weather ⟦is⟧ nice today.",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.519,
+    "sent_start": 1.419,
+    "sent_end": 3.118
+   }
+  },
+  {
+   "n": 5,
+   "word": "ein",
+   "pos": "det",
+   "meaning": "a, an (feminine eine)",
+   "sentence": "Ich habe eine Frage.",
+   "translation": "I have ⟦a⟧ question.",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.421,
+    "sent_start": 1.321,
+    "sent_end": 2.601
+   }
+  },
+  {
+   "n": 6,
+   "word": "ich",
+   "pos": "pron",
+   "meaning": "I",
+   "sentence": "Ich bin heute sehr müde.",
+   "translation": "⟦I⟧'m very tired today.",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.332,
+    "sent_start": 1.232,
+    "sent_end": 2.675
+   }
+  },
+  {
+   "n": 7,
+   "word": "zu",
+   "pos": "prep",
+   "meaning": "to; too",
+   "sentence": "Ich fahre morgen zu meiner Oma.",
+   "translation": "Tomorrow I'm going ⟦to⟧ my grandma's.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.409,
+    "sent_start": 1.309,
+    "sent_end": 3.14
+   }
+  },
+  {
+   "n": 8,
+   "word": "haben",
+   "pos": "verb",
+   "meaning": "to have",
+   "sentence": "Ich habe zwei Kinder.",
+   "translation": "I ⟦have⟧ two children.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.551,
+    "sent_start": 1.451,
+    "sent_end": 2.865
+   }
+  },
+  {
+   "n": 9,
+   "word": "von",
+   "pos": "prep",
+   "meaning": "from; of; by",
+   "sentence": "Ich komme gerade von der Arbeit.",
+   "translation": "I'm just coming ⟦from⟧ work.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.475,
+    "sent_start": 1.375,
+    "sent_end": 3.546
+   }
+  },
+  {
+   "n": 10,
+   "word": "werden",
+   "pos": "verb",
+   "meaning": "to become, to get; will (future)",
+   "sentence": "Es wird schon dunkel.",
+   "translation": "It's already ⟦getting⟧ dark.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.537,
+    "sent_start": 1.437,
+    "sent_end": 2.667
+   }
+  },
+  {
+   "n": 11,
+   "word": "nicht",
+   "pos": "part",
+   "meaning": "not",
+   "sentence": "Ich weiß es nicht.",
+   "translation": "I ⟦don't⟧ know.",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.477,
+    "sent_start": 1.377,
+    "sent_end": 2.461
+   }
+  },
+  {
+   "n": 12,
+   "word": "mit",
+   "pos": "prep",
+   "meaning": "with",
+   "sentence": "Ich trinke Kaffee mit Milch.",
+   "translation": "I drink coffee ⟦with⟧ milk.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.408,
+    "sent_start": 1.308,
+    "sent_end": 2.984
+   }
+  },
+  {
+   "n": 13,
+   "word": "es",
+   "pos": "pron",
+   "meaning": "it",
+   "sentence": "Es regnet schon wieder.",
+   "translation": "⟦It⟧'s raining again.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.388,
+    "sent_start": 1.288,
+    "sent_end": 2.642
+   }
+  },
+  {
+   "n": 14,
+   "word": "auf",
+   "pos": "prep",
+   "meaning": "on; onto",
+   "sentence": "Das Buch liegt auf dem Tisch.",
+   "translation": "The book is ⟦on⟧ the table.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.393,
+    "sent_start": 1.293,
+    "sent_end": 2.992
+   }
+  },
+  {
+   "n": 15,
+   "word": "an",
+   "pos": "prep",
+   "meaning": "at; on (a wall, a door)",
+   "sentence": "Das Bild hängt an der Wand.",
+   "translation": "The picture is hanging ⟦on⟧ the wall.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.396,
+    "sent_start": 1.296,
+    "sent_end": 3.022
+   }
+  },
+  {
+   "n": 16,
+   "word": "für",
+   "pos": "prep",
+   "meaning": "for",
+   "sentence": "Das Geschenk ist für dich.",
+   "translation": "The present is ⟦for⟧ you.",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.461,
+    "sent_start": 1.361,
+    "sent_end": 2.867
+   }
+  },
+  {
+   "n": 17,
+   "word": "sie",
+   "pos": "pron",
+   "meaning": "she; they; (Sie) you, polite",
+   "sentence": "Sie ist meine beste Freundin.",
+   "translation": "⟦She⟧'s my best friend.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.361,
+    "sent_start": 1.261,
+    "sent_end": 3.147
+   }
+  },
+  {
+   "n": 18,
+   "word": "er",
+   "pos": "pron",
+   "meaning": "he; it",
+   "sentence": "Er arbeitet in einer Bank.",
+   "translation": "⟦He⟧ works in a bank.",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.367,
+    "sent_start": 1.267,
+    "sent_end": 3.062
+   }
+  },
+  {
+   "n": 19,
+   "word": "sich",
+   "pos": "pron",
+   "meaning": "oneself (himself, herself, themselves)",
+   "sentence": "Er hat sich beim Fußball verletzt.",
+   "translation": "He hurt ⟦himself⟧ playing soccer.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.459,
+    "sent_start": 1.359,
+    "sent_end": 3.447
+   }
+  },
+  {
+   "n": 20,
+   "word": "auch",
+   "pos": "adv",
+   "meaning": "also, too",
+   "sentence": "Ich habe auch Hunger.",
+   "translation": "I'm hungry ⟦too⟧.",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.429,
+    "sent_start": 1.329,
+    "sent_end": 2.451
+   }
+  }
+ ]
+}

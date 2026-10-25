@@ -1,0 +1,193 @@
+{
+  "lang": "de",
+  "title": "German basics",
+  "variety": "Standard German (Germany)",
+  "about": "The most common words of written and spoken German (wordfreq counts, grouped by dictionary word with tools/course/de/rank.mjs), most common first, 50 to a unit. Names of people and places are left out. Nouns are shown with their article (der, die, das) and their plural in the meaning. Each word has one short everyday sentence that uses it the way native speakers do, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+  "words": [
+    {
+      "n": 1,
+      "rank": 1,
+      "word": "der, die, das",
+      "pos": "det",
+      "meaning": "the (masculine der, feminine die, neuter das; plural die)",
+      "sentence": "Der Kaffee ist noch heiß.",
+      "translation": "⟦The⟧ coffee is still hot.",
+      "form": "der"
+    },
+    {
+      "n": 2,
+      "rank": 2,
+      "word": "und",
+      "pos": "conj",
+      "meaning": "and",
+      "sentence": "Ich habe einen Bruder und eine Schwester.",
+      "translation": "I have a brother ⟦and⟧ a sister."
+    },
+    {
+      "n": 3,
+      "rank": 3,
+      "word": "in",
+      "pos": "prep",
+      "meaning": "in; into",
+      "sentence": "Ich wohne in einer kleinen Wohnung.",
+      "translation": "I live ⟦in⟧ a small apartment."
+    },
+    {
+      "n": 4,
+      "rank": 4,
+      "word": "sein",
+      "pos": "verb",
+      "meaning": "to be",
+      "sentence": "Das Wetter ist heute schön.",
+      "translation": "The weather ⟦is⟧ nice today.",
+      "form": "ist"
+    },
+    {
+      "n": 5,
+      "rank": 5,
+      "word": "ein",
+      "pos": "det",
+      "meaning": "a, an (feminine eine)",
+      "sentence": "Ich habe eine Frage.",
+      "translation": "I have ⟦a⟧ question.",
+      "form": "eine"
+    },
+    {
+      "n": 6,
+      "rank": 6,
+      "word": "ich",
+      "pos": "pron",
+      "meaning": "I",
+      "sentence": "Ich bin heute sehr müde.",
+      "translation": "⟦I⟧'m very tired today."
+    },
+    {
+      "n": 7,
+      "rank": 7,
+      "word": "zu",
+      "pos": "prep",
+      "meaning": "to; too",
+      "sentence": "Ich fahre morgen zu meiner Oma.",
+      "translation": "Tomorrow I'm going ⟦to⟧ my grandma's."
+    },
+    {
+      "n": 8,
+      "rank": 8,
+      "word": "haben",
+      "pos": "verb",
+      "meaning": "to have",
+      "sentence": "Ich habe zwei Kinder.",
+      "translation": "I ⟦have⟧ two children.",
+      "form": "habe"
+    },
+    {
+      "n": 9,
+      "rank": 9,
+      "word": "von",
+      "pos": "prep",
+      "meaning": "from; of; by",
+      "sentence": "Ich komme gerade von der Arbeit.",
+      "translation": "I'm just coming ⟦from⟧ work."
+    },
+    {
+      "n": 10,
+      "rank": 10,
+      "word": "werden",
+      "pos": "verb",
+      "meaning": "to become, to get; will (future)",
+      "sentence": "Es wird schon dunkel.",
+      "translation": "It's already ⟦getting⟧ dark.",
+      "form": "wird"
+    },
+    {
+      "n": 11,
+      "rank": 11,
+      "word": "nicht",
+      "pos": "part",
+      "meaning": "not",
+      "sentence": "Ich weiß es nicht.",
+      "translation": "I ⟦don't⟧ know."
+    },
+    {
+      "n": 12,
+      "rank": 12,
+      "word": "mit",
+      "pos": "prep",
+      "meaning": "with",
+      "sentence": "Ich trinke Kaffee mit Milch.",
+      "translation": "I drink coffee ⟦with⟧ milk."
+    },
+    {
+      "n": 13,
+      "rank": 13,
+      "word": "es",
+      "pos": "pron",
+      "meaning": "it",
+      "sentence": "Es regnet schon wieder.",
+      "translation": "⟦It⟧'s raining again."
+    },
+    {
+      "n": 14,
+      "rank": 14,
+      "word": "auf",
+      "pos": "prep",
+      "meaning": "on; onto",
+      "sentence": "Das Buch liegt auf dem Tisch.",
+      "translation": "The book is ⟦on⟧ the table."
+    },
+    {
+      "n": 15,
+      "rank": 15,
+      "word": "an",
+      "pos": "prep",
+      "meaning": "at; on (a wall, a door)",
+      "sentence": "Das Bild hängt an der Wand.",
+      "translation": "The picture is hanging ⟦on⟧ the wall."
+    },
+    {
+      "n": 16,
+      "rank": 16,
+      "word": "für",
+      "pos": "prep",
+      "meaning": "for",
+      "sentence": "Das Geschenk ist für dich.",
+      "translation": "The present is ⟦for⟧ you."
+    },
+    {
+      "n": 17,
+      "rank": 17,
+      "word": "sie",
+      "pos": "pron",
+      "meaning": "she; they; (Sie) you, polite",
+      "sentence": "Sie ist meine beste Freundin.",
+      "translation": "⟦She⟧'s my best friend."
+    },
+    {
+      "n": 18,
+      "rank": 18,
+      "word": "er",
+      "pos": "pron",
+      "meaning": "he; it",
+      "sentence": "Er arbeitet in einer Bank.",
+      "translation": "⟦He⟧ works in a bank."
+    },
+    {
+      "n": 19,
+      "rank": 19,
+      "word": "sich",
+      "pos": "pron",
+      "meaning": "oneself (himself, herself, themselves)",
+      "sentence": "Er hat sich beim Fußball verletzt.",
+      "translation": "He hurt ⟦himself⟧ playing soccer."
+    },
+    {
+      "n": 20,
+      "rank": 20,
+      "word": "auch",
+      "pos": "adv",
+      "meaning": "also, too",
+      "sentence": "Ich habe auch Hunger.",
+      "translation": "I'm hungry ⟦too⟧."
+    }
+  ]
+}
