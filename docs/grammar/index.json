@@ -38,13 +38,14 @@
    "title": "دستور زبان انگلیسی",
    "variety": "انگلیسی آمریکایی",
    "units": 8,
-   "lessons": 38,
+   "lessons": 43,
    "levels": [
     "A1",
-    "A2"
+    "A2",
+    "B1"
    ],
-   "bytes": 251185,
-   "sha256": "910ba3641df9e4fea95e1fce8b7c1275942122fa2993c2955db40121d1537837"
+   "bytes": 287949,
+   "sha256": "3cfcacddbed11dca1e70caa1814b61790dea20fcf5acfb7e179633acd9e5d8f2"
   }
  }
 }

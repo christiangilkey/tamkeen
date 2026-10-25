@@ -1811,6 +1811,246 @@
         {"type":"say","q":"در هتل بخواهید: «کمی اطلاعات دربارهٔ تورها لازم دارم.»","answer":"I need some information about the tours.","from":"ask-for-what-you-want"},
         {"type":"free","q":"نوبت شماست: بگویید در آشپزخانه یا کیفتان از چه چیزهایی زیاد، کم یا هیچ دارید، با {{a lot of}}، {{a few}}، {{a little}} و {{any}}.","answers":[{"t":"I have a lot of rice and a little sugar, but I don't have any eggs.","tr":"کلی برنج و کمی شکر دارم، ولی هیچ تخم‌مرغی ندارم."},{"t":"In my bag there are a few pens and some money, but there isn't any water.","tr":"توی کیفم چند تا خودکار و مقداری پول هست، ولی هیچ آبی نیست."}]}
       ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 7,
+      "level": "B1",
+      "title": "نظرتان را بگویید",
+      "summary": "بگویید {{I think it's a great idea}}، {{I don't think so}} و {{I agree with you}}، و نه {{I am agree}}.",
+      "topic": "{{I think (that)…}}؛ {{I don't think…}}؛ {{In my opinion}}؛ {{I agree}} و {{I disagree}}، که فعل‌اند نه صفت؛ {{I'm sure}}",
+      "blocks": [
+        {"goal":{"t":"I think Isfahan is the most beautiful city in Iran. Do you agree?","tr":"به نظرم اصفهان زیباترین شهر ایران است. موافقی؟"}},
+        {"dialog":[{"who":"نیک","t":"What do you think of the new mayor?","tr":"نظرت دربارهٔ شهردار تازه چیست؟"},{"who":"سارا","t":"I think he's doing a good job.","tr":"به نظرم کارش را خوب انجام می‌دهد."},{"who":"نیک","t":"Really? I don't agree. In my opinion, the traffic is worse now.","tr":"واقعاً؟ من موافق نیستم. به نظر من ترافیک الان بدتر شده."},{"who":"سارا","t":"Maybe you're right, but the parks are much nicer.","tr":"شاید حق با تو باشد، ولی پارک‌ها خیلی بهتر شده‌اند."},{"who":"نیک","t":"OK, I agree with you about the parks!","tr":"باشد، دربارهٔ پارک‌ها با تو موافقم!"}]},
+        {"p":"**«فکر می‌کنم»، «به نظرم».** {{I think (that)…}} رایج‌ترین راه گفتن نظر است: {{I think it's a good idea.}} «به نظرم فکر خوبی است». {{that}} را معمولاً نمی‌گویند. رسمی‌تر: {{In my opinion,…}} «به نظر من،…». برای پرسیدن: {{What do you think?}} «نظرت چیست؟» و {{What do you think of…?}}"},
+        {"p":"**{{I don't think…}}.** انگلیسی منفی را روی {{think}} می‌گذارد، نه روی فعل دوم: {{I don't think he's coming.}} «فکر نکنم بیاید»، که از {{I think he isn't coming.}} طبیعی‌تر است. جواب کوتاه: {{I think so.}} «فکر کنم» و {{I don't think so.}} «فکر نکنم»."},
+        {"p":"**{{I agree}}: فعل است، نه صفت.** «موافقم» در فارسی با «ـَم» ساخته می‌شود، مثل «خسته‌ام»، برای همین خیلی‌ها می‌گویند {{I am agree}}. اما {{agree}} در انگلیسی فعل است: {{I agree.}} «موافقم»، {{I don't agree.}} یا {{I disagree.}} «موافق نیستم». با کسی: {{I agree with you.}}"},
+        { "table": [
+          ["فارسی","انگلیسی"],
+          ["به نظرم…","{{I think…}}"],
+          ["فکر نکنم…","{{I don't think…}}"],
+          ["به نظر من،…","{{In my opinion,…}}"],
+          ["نظرت چیست؟","{{What do you think?}}"],
+          ["موافقم.","{{I agree.}}"],
+          ["موافق نیستم.","{{I don't agree.}}، {{I disagree.}}"],
+          ["حق با توست.","{{You're right.}}"],
+          ["مطمئنم که…","{{I'm sure (that)…}}"]
+        ] },
+        {"p":"**نرم مخالفت کنید.** آمریکایی‌ها مخالفت را معمولاً نرم بیان می‌کنند: {{I see your point, but…}} «منظورت را می‌فهمم، ولی…»، {{Maybe, but…}}، {{I'm not sure about that.}} «در این مورد مطمئن نیستم»."},
+        { "ex": [
+          {"t":"I think you're right.","tr":"فکر می‌کنم حق با توست."},
+          {"t":"I don't think it's a good idea.","tr":"فکر نمی‌کنم فکر خوبی باشد."},
+          {"t":"What do you think of my new haircut?","tr":"مدل موی تازه‌ام چطور است؟"},
+          {"t":"I completely agree with you.","tr":"کاملاً با تو موافقم."},
+          {"t":"In my opinion, the book is better than the movie.","tr":"به نظر من کتاب از فیلم بهتر است."},
+          {"t":"I'm sure she'll love it.","tr":"مطمئنم خیلی خوشش می‌آید."}
+        ] },
+        {"tip":"{{You're right.}} «حق با توست» و {{That's true.}} «درست است» در هر بحثی حال همه را خوب می‌کنند!"}
+      ],
+      "mistakes": [
+        {"wrong":"I am agree with you.","right":"I agree with you.","tr":"با تو موافقم.","why":"{{agree}} فعل است: {{I agree}}، بدون {{am}}."},
+        {"wrong":"I think he doesn't come.","right":"I don't think he's coming.","tr":"فکر نکنم بیاید.","why":"انگلیسی منفی را روی {{think}} می‌گذارد."},
+        {"wrong":"In my idea, it's expensive.","right":"In my opinion, it's expensive.","tr":"به نظر من گران است.","why":"«به نظر من» یعنی {{In my opinion}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ with you.","tr":"با تو موافقم.","options":["agree","am agree","agreeing"],"answer":0,"why":"{{agree}} فعل است: {{I agree}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I ___ think it's true.","tr":"فکر نکنم درست باشد.","options":["don't","am not","not"],"answer":0,"why":"منفی روی {{think}}: {{I don't think}}."},
+        {"type":"choice","q":"دوستتان می‌گوید {{This is the best pizza in town!}} و شما مخالفید. مؤدبانه:","options":["{{I see your point, but I don't agree.}}","{{No. You are wrong.}}","{{I am not agree.}}"],"answer":0,"why":"مخالفت نرم، و {{agree}} بدون {{am}}."},
+        {"type":"dialogue","q":"با دوستتان دربارهٔ یک فیلم بحث می‌کنید. جواب‌هایتان را انتخاب کنید.","from":"compare-things","lines":[{"who":"نیک","t":"What did you think of the movie?","tr":"نظرت دربارهٔ فیلم چه بود؟"},{"options":["I think the book was better than the movie.","I think the book was more better from the movie."],"answer":0,"why":"{{better than}}، نه {{more better from}}."},{"who":"نیک","t":"Really? I thought the movie was great.","tr":"واقعاً؟ به نظر من فیلم عالی بود."},{"options":["Maybe you're right. The actors were very good.","Maybe you are right. I am agree the actors."],"answer":0,"why":"{{You're right}}؛ و {{agree}} فعل است."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"کاملاً با تو موافقم.","words":["I","completely","agree","with","you."]},
+        {"type":"say","q":"بپرسید: «نظرت چیست؟»","answer":"What do you think?"},
+        {"type":"free","q":"نوبت شماست: دربارهٔ این جمله نظرتان را بگویید و دلیلی بیاورید: {{Persian food is the best food in the world.}}","answers":[{"t":"I agree! In my opinion, nothing is better than ghormeh sabzi.","tr":"موافقم! به نظر من هیچ چیز از قورمه‌سبزی بهتر نیست."},{"t":"I don't think so. Persian food is great, but I think Italian food is better.","tr":"فکر نکنم. غذای ایرانی عالی است، ولی به نظرم غذای ایتالیایی بهتر است."}]}
+      ]
+    },
+    {
+      "id": "say-which-one-you-mean",
+      "unit": 7,
+      "level": "B1",
+      "title": "بگویید منظورتان کدام آدم یا چیز است",
+      "summary": "بگویید {{the man who lives next door}}، {{the book that I bought}} و {{the city where I was born}}، بدون ضمیر اضافه.",
+      "topic": "{{who}} برای آدم‌ها، {{which}} برای چیزها، {{that}} برای هر دو؛ {{where}}؛ بدون ضمیر اضافه (نه {{the man that I saw him}})",
+      "blocks": [
+        {"goal":{"t":"The woman who lives next door is a doctor.","tr":"خانمی که همسایهٔ بغلی ماست دکتر است."}},
+        {"dialog":[{"who":"سارا","t":"Who's the man who's talking to your sister?","tr":"مردی که دارد با خواهرت حرف می‌زند کیست؟"},{"who":"نیک","t":"That's Mark, the guy who lives upstairs.","tr":"مارک است، همانی که طبقهٔ بالا زندگی می‌کند."},{"who":"سارا","t":"Is he the one who plays the piano?","tr":"همانی است که پیانو می‌زند؟"},{"who":"نیک","t":"Yes! And the woman he's dancing with is his wife.","tr":"آره! و خانمی که با او می‌رقصد همسرش است."},{"who":"سارا","t":"And the cake that's on the table? Who made it?","tr":"کیکی که روی میز است چطور؟ کی درستش کرده؟"},{"who":"نیک","t":"I did!","tr":"من!"}]},
+        {"p":"**کدام یکی؟** فارسی با «ـی» و «که» می‌گوید: «مردی **که** آنجاست». انگلیسی بعد از اسم {{who}} (برای آدم)، {{which}} (برای چیز) یا {{that}} (برای هر دو) می‌گذارد: {{the man who is there}}، {{the book that I bought}}."},
+        {"term":"جملهٔ موصولی","means":"بخشی از جمله که بعد از اسم می‌آید و می‌گوید کدام را می‌گوییم: «که طبقهٔ بالا زندگی می‌کند» در «مردی که طبقهٔ بالا زندگی می‌کند»."},
+        {"p":"**بدون ضمیر اضافه!** فارسی در جملهٔ موصولی ضمیر را نگه می‌دارد: «مردی که **او را** دیدم»، «شهری که **در آن** زندگی می‌کنم». انگلیسی این ضمیر را **نمی‌گذارد**، چون {{who}} و {{that}} خودشان جایش را گرفته‌اند: {{the man that I saw}}، نه {{the man that I saw him}}؛ و {{the city that I live in}}. این از مهم‌ترین اشتباه‌های فارسی‌زبان‌هاست."},
+        { "table": [
+          ["فارسی","انگلیسی","نکته"],
+          ["مردی که آنجاست","{{the man who is there}}","آدم: {{who}}"],
+          ["کتابی که خریدم","{{the book that I bought}}","چیز: {{that}}، {{which}}"],
+          ["مردی که او را دیدم","{{the man I saw}}","بدون ضمیر اضافه"],
+          ["شهری که در آن به دنیا آمدم","{{the city where I was born}}","جا: {{where}}"]
+        ] },
+        {"p":"**{{that}} را می‌شود انداخت**، وقتی بعدش فاعل دیگری می‌آید: {{the book (that) I bought}}، {{the woman (who) he's dancing with}}. اما وقتی خود {{who}} فاعل است، لازم است: {{the man who lives upstairs}}."},
+        {"p":"**برای جا: {{where}}.** {{the city where I was born}} «شهری که در آن به دنیا آمدم»، {{the restaurant where we met}} «رستورانی که آنجا آشنا شدیم»."},
+        { "ex": [
+          {"t":"I have a friend who lives in Chicago.","tr":"دوستی دارم که در شیکاگو زندگی می‌کند."},
+          {"t":"The movie that we saw last night was great.","tr":"فیلمی که دیشب دیدیم عالی بود."},
+          {"t":"Is there anyone here who speaks Persian?","tr":"کسی اینجا هست که فارسی صحبت کند؟"},
+          {"t":"This is the restaurant where we had our first date.","tr":"این همان رستورانی است که اولین قرارمان را آنجا گذاشتیم."},
+          {"t":"The person I talked to was very helpful.","tr":"کسی که با او صحبت کردم خیلی کمک کرد.","note":"بدون {{who}} و بدون ضمیر اضافه"},
+          {"t":"I lost the keys that you gave me.","tr":"کلیدهایی را که به من دادی گم کردم."}
+        ] },
+        {"tip":"{{the one}} «همانی که» خیلی به کار می‌آید: {{Which bag? The one that's on the chair.}} «کدام کیف؟ همانی که روی صندلی است»."}
+      ],
+      "mistakes": [
+        {"wrong":"The man that I saw him is my teacher.","right":"The man that I saw is my teacher.","tr":"مردی که دیدم معلم من است.","why":"در انگلیسی ضمیر اضافه ({{him}}) نمی‌آید."},
+        {"wrong":"The city that I live in it is big.","right":"The city that I live in is big.","tr":"شهری که در آن زندگی می‌کنم بزرگ است.","why":"{{it}} اضافه است؛ {{that}} خودش جای آن را گرفته."},
+        {"wrong":"The book who I bought is good.","right":"The book that I bought is good.","tr":"کتابی که خریدم خوب است.","why":"برای چیزها {{that}} یا {{which}}؛ {{who}} فقط برای آدم‌هاست."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"The woman ___ lives next door is a doctor.","tr":"خانمی که همسایهٔ ماست دکتر است.","options":["who","which","where"],"answer":0,"why":"آدم: {{who}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"This is the house ___ I was born.","tr":"این خانه‌ای است که در آن به دنیا آمدم.","options":["where","who","which"],"answer":0,"why":"جا: {{where}}."},
+        {"type":"choice","q":"«مردی که دیروز دیدم» کدام است؟","options":["{{the man I saw yesterday}}","{{the man that I saw him yesterday}}","{{the man which I saw yesterday}}"],"answer":0,"why":"بدون ضمیر اضافه، و برای آدم نه {{which}}."},
+        {"type":"dialogue","q":"در مهمانی دوستتان دربارهٔ آدم‌ها می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"describe-things","lines":[{"who":"سارا","t":"Who's that woman?","tr":"آن خانم کیست؟"},{"options":["Which one? The woman who's wearing a red dress?","Which one? The woman which wearing a red dress?"],"answer":0,"why":"آدم: {{who}}، و {{is wearing}}."},{"who":"سارا","t":"Yes. She made the cake!","tr":"آره. او کیک را درست کرده!"},{"options":["The cake that she made is delicious!","The cake that she made it is delicious!"],"answer":0,"why":"بدون ضمیر اضافه: {{the cake that she made}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"دوستی دارم که در شیکاگو زندگی می‌کند.","words":["I","have","a","friend","who","lives","in","Chicago."]},
+        {"type":"say","q":"در یک فروشگاه بپرسید: «کسی اینجا هست که فارسی صحبت کند؟»","answer":"Is there anyone here who speaks Persian?","from":"say-what-there-is"},
+        {"type":"free","q":"نوبت شماست: دو آدم یا دو چیز را با یک جملهٔ موصولی توصیف کنید ({{who}}، {{that}} یا {{where}}).","answers":[{"t":"My best friend is someone who always makes me laugh. Shiraz is the city where I was born.","tr":"بهترین دوستم کسی است که همیشه مرا می‌خنداند. شیراز شهری است که در آن به دنیا آمدم."},{"t":"The best movie I've ever seen is A Separation.","tr":"بهترین فیلمی که تا حالا دیده‌ام «جدایی» است."}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 7,
+      "level": "B1",
+      "title": "بگویید اگر … چه می‌شود",
+      "summary": "بگویید {{If it rains, we'll stay home}} و {{When I get there, I'll call you}}: بعد از {{if}} و {{when}} زمان حال می‌آید، نه {{will}}.",
+      "topic": "شرطی نوع اول: {{if}} + حال ساده، و {{will}} در نتیجه؛ {{when}}، {{as soon as}}، {{before}} + حال برای آینده؛ {{unless}}",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"اگر فردا باران بیاید، خانه می‌مانیم."}},
+        {"dialog":[{"who":"نیک","t":"Do you want to go hiking on Saturday?","tr":"شنبه می‌خواهی برویم کوه‌پیمایی؟"},{"who":"مینا","t":"Sure, if the weather is nice.","tr":"حتماً، اگر هوا خوب باشد."},{"who":"نیک","t":"And if it rains?","tr":"و اگر باران بیاید؟"},{"who":"مینا","t":"If it rains, we'll go to a museum.","tr":"اگر باران بیاید، می‌رویم موزه."},{"who":"نیک","t":"Great. I'll text you when I leave the house.","tr":"عالی. وقتی از خانه بیرون آمدم پیام می‌دهم."}]},
+        {"term":"جملهٔ شرطی","means":"جمله‌ای با «اگر» که می‌گوید چیزی به شرط چیز دیگری پیش می‌آید: «اگر باران بیاید، خانه می‌مانیم»."},
+        {"p":"**اگر + حال، و {{will}} در نتیجه.** برای چیزی که واقعاً ممکن است پیش بیاید: {{If it rains, we'll stay home.}} «اگر باران بیاید، خانه می‌مانیم». فارسی بعد از «اگر» التزامی می‌آورد («بیاید»)؛ انگلیسی **حال ساده**: {{if it rains}}، نه {{if it will rain}}."},
+        {"p":"**{{when}} و بقیه هم.** همین قاعده برای {{when}} «وقتی»، {{as soon as}} «همین که»، {{before}} «قبل از اینکه» و {{after}} «بعد از اینکه» هم درست است، وقتی دربارهٔ آینده‌اند: {{When I get there, I'll call you.}} «وقتی رسیدم زنگ می‌زنم». فارسی این‌جا گاهی گذشته می‌آورد («رسیدم»)؛ انگلیسی حال ساده."},
+        { "table": [
+          ["فارسی","انگلیسی"],
+          ["اگر باران بیاید، …","{{If it rains, …}}"],
+          ["وقتی رسیدم، زنگ می‌زنم.","{{When I arrive, I'll call.}}"],
+          ["همین که تمام شد، …","{{As soon as it's finished, …}}"],
+          ["قبل از اینکه بروی، …","{{Before you go, …}}"],
+          ["مگر اینکه دیر شود","{{unless it's late}}"]
+        ] },
+        {"p":"**در نتیجه، امر یا {{can}} هم ممکن است:** {{If you're tired, go to bed.}} «اگر خسته‌ای، برو بخواب». {{If you have time, you can help me.}} «اگر وقت داری، می‌توانی کمکم کنی»."},
+        {"p":"**{{unless}} «مگر اینکه».** یعنی {{if … not}}: {{I'll come unless it rains.}} «می‌آیم، مگر اینکه باران بیاید»."},
+        { "ex": [
+          {"t":"If you need help, call me.","tr":"اگر کمک لازم داشتی، به من زنگ بزن."},
+          {"t":"If we leave now, we'll catch the train.","tr":"اگر الان راه بیفتیم، به قطار می‌رسیم."},
+          {"t":"I'll tell her when I see her.","tr":"وقتی دیدمش، به او می‌گویم."},
+          {"t":"What will you do if you don't get the job?","tr":"اگر آن کار را نگیری، چه کار می‌کنی؟"},
+          {"t":"Call me as soon as you get home.","tr":"همین که رسیدی خانه، به من زنگ بزن."},
+          {"t":"We'll go to the beach unless it's too cold.","tr":"می‌رویم ساحل، مگر اینکه خیلی سرد باشد."}
+        ] },
+        {"tip":"ترتیب دو بخش را می‌شود عوض کرد: {{We'll stay home if it rains.}} وقتی {{if}} اول است، بعد از آن بخش ویرگول بگذارید."}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"اگر باران بیاید، خانه می‌مانیم.","why":"بعد از {{if}}، حال ساده: {{it rains}}."},
+        {"wrong":"When I will arrive, I'll call you.","right":"When I arrive, I'll call you.","tr":"وقتی رسیدم، زنگ می‌زنم.","why":"بعد از {{when}}، برای آینده هم، حال ساده."},
+        {"wrong":"When I arrived, I'll call you.","right":"When I arrive, I'll call you.","tr":"وقتی رسیدم، زنگ می‌زنم.","why":"«رسیدم» در فارسی این‌جا دربارهٔ آینده است؛ در انگلیسی حال ساده: {{arrive}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"If it ___ tomorrow, we'll stay home.","tr":"اگر فردا باران بیاید، خانه می‌مانیم.","options":["rains","will rain","rained"],"answer":0,"why":"بعد از {{if}}: حال ساده."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I'll call you when I ___ home.","tr":"وقتی رسیدم خانه، زنگ می‌زنم.","options":["get","will get","got"],"answer":0,"why":"بعد از {{when}} برای آینده: حال ساده."},
+        {"type":"choice","q":"{{I'll come unless I'm busy.}} یعنی:","options":["می‌آیم، مگر اینکه کار داشته باشم.","اگر کار داشته باشم، می‌آیم.","کار دارم، پس نمی‌آیم."],"answer":0,"why":"{{unless}} یعنی «مگر اینکه»."},
+        {"type":"dialogue","q":"برای آخر هفته برنامه می‌ریزید. جواب‌هایتان را انتخاب کنید.","from":"suggest-and-invite","lines":[{"who":"نیک","t":"Let's go hiking on Saturday!","tr":"بیا شنبه برویم کوه‌پیمایی!"},{"options":["Sure, if the weather is nice.","Sure, if the weather will be nice."],"answer":0,"why":"بعد از {{if}}: حال ساده."},{"who":"نیک","t":"And if it rains?","tr":"و اگر باران بیاید؟"},{"options":["If it rains, we'll go to the movies.","If it rains, we went to the movies."],"answer":0,"why":"نتیجه با {{will}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"اگر کمک لازم داشتی، به من زنگ بزن.","words":["If","you","need","help,","call","me."]},
+        {"type":"say","q":"بگویید: «همین که رسیدی خانه، به من زنگ بزن.»","answer":"Call me as soon as you get home.","from":"ask-the-way"},
+        {"type":"free","q":"نوبت شماست: این دو جمله را تمام کنید: {{If I have time this weekend, …}} و {{When I finish this course, …}}","answers":[{"t":"If I have time this weekend, I'll visit my grandmother. When I finish this course, I'll start a new one!","tr":"اگر آخر هفته وقت داشته باشم، به دیدن مادربزرگم می‌روم. وقتی این دوره را تمام کردم، یکی دیگر شروع می‌کنم!"},{"t":"If I have time this weekend, I'll clean my apartment. When I finish this course, I'll watch movies in English.","tr":"اگر آخر هفته وقت داشته باشم، آپارتمانم را تمیز می‌کنم. وقتی این دوره را تمام کردم، فیلم‌ها را به انگلیسی می‌بینم."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 7,
+      "level": "B1",
+      "title": "تصور کنید: اگر…",
+      "summary": "بگویید {{If I had more money, I would travel}}، {{If I were you, I'd go}} و {{I wish I could stay}}.",
+      "topic": "شرطی نوع دوم: {{if}} + گذشته، و {{would}} + فعل؛ {{If I were you}}؛ {{I wish}} + گذشته؛ {{could}}",
+      "blocks": [
+        {"goal":{"t":"If I had more time, I would learn to play the piano.","tr":"اگر وقت بیشتری داشتم، پیانو یاد می‌گرفتم."}},
+        {"dialog":[{"who":"سارا","t":"What would you do if you won a million dollars?","tr":"اگر یک میلیون دلار می‌بردی، چه کار می‌کردی؟"},{"who":"علی","t":"First, I'd buy a house for my parents.","tr":"اول برای پدر و مادرم یک خانه می‌خریدم."},{"who":"سارا","t":"That's nice! And then?","tr":"چه خوب! بعد؟"},{"who":"علی","t":"Then I'd travel around the world. What about you?","tr":"بعد دور دنیا سفر می‌کردم. تو چطور؟"},{"who":"سارا","t":"If I were rich, I wouldn't work anymore!","tr":"اگر پولدار بودم، دیگر کار نمی‌کردم!"},{"who":"علی","t":"I wish I could stop working too!","tr":"کاش من هم می‌توانستم کار را کنار بگذارم!"}]},
+        {"p":"**خیال، نه واقعیت.** برای چیزی که واقعی نیست یا احتمالش کم است، انگلیسی یک قدم به گذشته می‌رود: {{if}} + **گذشته**، و در نتیجه {{would}} + فعل ساده: {{If I had money, I would travel.}} «اگر پول داشتم، سفر می‌کردم». فارسی هم همین کار را می‌کند («داشتم»، «می‌کردم»)، پس این آشناست!"},
+        { "table": [
+          ["","انگلیسی","یعنی"],
+          ["ممکن (درس قبل)","{{If I have time, I'll come.}}","اگر وقت داشته باشم، می‌آیم."],
+          ["خیالی","{{If I had time, I'd come.}}","اگر وقت داشتم، می‌آمدم."],
+          ["جای تو بودم","{{If I were you, I'd go.}}","اگر جای تو بودم، می‌رفتم."],
+          ["آرزو","{{I wish I had a car.}}","کاش ماشین داشتم."],
+          ["آرزو (توانستن)","{{I wish I could stay.}}","کاش می‌توانستم بمانم."]
+        ] },
+        {"p":"**{{would}} و {{'d}}.** {{would}} برای همه یکی است و فعل بعدش ساده: {{I'd buy}}، {{she'd go}}، {{we wouldn't stay}}. سؤال: {{What would you do?}} «چه کار می‌کردی؟»."},
+        {"p":"**{{If I were you}}.** با {{be}} در شرط خیالی، برای همه {{were}} می‌آید: {{If I were you, I'd take the job.}} «اگر جای تو بودم، آن کار را قبول می‌کردم». (در حرف زدن {{If I was…}} هم شنیده می‌شود.)"},
+        {"p":"**آرزو: {{I wish}}.** «کاش» برای الان، با گذشته: {{I wish I spoke French.}} «کاش فرانسه بلد بودم»، {{I wish you were here.}} «کاش اینجا بودی»، {{I wish I could…}} «کاش می‌توانستم…». برای آینده، و آرزویی که شدنی است: {{I hope…}} «امیدوارم…»: {{I hope you feel better.}}"},
+        { "ex": [
+          {"t":"If I lived near the beach, I'd swim every day.","tr":"اگر نزدیک ساحل زندگی می‌کردم، هر روز شنا می‌کردم."},
+          {"t":"What would you do if you lost your passport?","tr":"اگر پاسپورتت را گم می‌کردی، چه کار می‌کردی؟"},
+          {"t":"If I were you, I'd talk to her.","tr":"اگر جای تو بودم، با او حرف می‌زدم."},
+          {"t":"I wish I had more free time.","tr":"کاش وقت آزاد بیشتری داشتم."},
+          {"t":"I wish I could speak English like you.","tr":"کاش می‌توانستم مثل تو انگلیسی حرف بزنم."},
+          {"t":"I hope you have a great trip!","tr":"امیدوارم سفر خوبی داشته باشی!"}
+        ] },
+        {"tip":"{{I'd love to}} و {{Would you…?}} (درس‌های ۲۲ و ۲۶) همین {{would}} هستند: مؤدبانه‌اند، چون کمی «خیالی»‌اند."}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have money, I would travel.","right":"If I had money, I would travel.","tr":"اگر پول داشتم، سفر می‌کردم.","why":"بعد از {{if}}، گذشته؛ {{would}} فقط در نتیجه می‌آید."},
+        {"wrong":"I wish I can stay.","right":"I wish I could stay.","tr":"کاش می‌توانستم بمانم.","why":"بعد از {{I wish}}، یک قدم به گذشته: {{could}}."},
+        {"wrong":"If I am you, I will go.","right":"If I were you, I would go.","tr":"اگر جای تو بودم، می‌رفتم.","why":"این خیالی است: {{were}} و {{would}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"If I ___ more money, I'd buy a car.","tr":"اگر پول بیشتری داشتم، ماشین می‌خریدم.","options":["had","have","would have"],"answer":0,"why":"شرط خیالی: {{if}} + گذشته."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"If I were you, I ___ take the job.","tr":"اگر جای تو بودم، آن کار را قبول می‌کردم.","options":["would","will","am"],"answer":0,"why":"نتیجهٔ خیالی: {{would}}."},
+        {"type":"choice","q":"«کاش اینجا بودی» در انگلیسی:","options":["{{I wish you were here.}}","{{I wish you are here.}}","{{I hope you were here.}}"],"answer":0,"why":"آرزو برای الان: {{I wish}} + گذشته."},
+        {"type":"dialogue","q":"دوستتان یک سؤال خیالی می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-want-to-do","lines":[{"who":"سارا","t":"If you could live anywhere, where would you live?","tr":"اگر می‌توانستی هر جایی زندگی کنی، کجا زندگی می‌کردی؟"},{"options":["I'd live by the sea, in a small town.","I will live by the sea, in a small town."],"answer":0,"why":"جواب خیالی: {{I'd}} ({{I would}})."},{"who":"سارا","t":"Why?","tr":"چرا؟"},{"options":["Because I'd go swimming every day! I wish I could do that now.","Because I go swimming every day! I wish I can do that now."],"answer":0,"why":"خیالی: {{I'd go}}؛ آرزو: {{I wish I could}}."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"اگر جای تو بودم، با او حرف می‌زدم.","words":["If","I","were","you,","I'd","talk","to","her."]},
+        {"type":"say","q":"بگویید: «کاش می‌توانستم بمانم.»","answer":"I wish I could stay.","from":"say-what-you-can-do"},
+        {"type":"free","q":"نوبت شماست: بگویید اگر یک سال وقت آزاد داشتید چه کار می‌کردید، و یک آرزو با {{I wish}} بگویید.","answers":[{"t":"If I had a year off, I'd travel to South America and learn Spanish. I wish I had more time now!","tr":"اگر یک سال مرخصی داشتم، به آمریکای جنوبی سفر می‌کردم و اسپانیایی یاد می‌گرفتم. کاش الان وقت بیشتری داشتم!"},{"t":"If I were rich, I'd open a Persian restaurant in New York. I wish my family lived closer.","tr":"اگر پولدار بودم، در نیویورک یک رستوران ایرانی باز می‌کردم. کاش خانواده‌ام نزدیک‌تر زندگی می‌کردند."}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 7,
+      "level": "B1",
+      "title": "بگویید کسی چه گفت",
+      "summary": "پیغام برسانید: {{She said she was tired}}، {{He told me to wait}}، {{They asked if we were ready}}: زمان یک قدم به عقب می‌رود.",
+      "topic": "نقل قول غیرمستقیم: {{said (that)}} + یک قدم به گذشته ({{is}} → {{was}}، {{will}} → {{would}})؛ {{say}} یا {{tell}}؛ {{told me to…}}؛ {{asked if…}}",
+      "blocks": [
+        {"goal":{"t":"Ali called. He said he was sick and couldn't come.","tr":"علی زنگ زد. گفت مریض است و نمی‌تواند بیاید."}},
+        {"dialog":[{"who":"سارا","t":"Did Mina call?","tr":"مینا زنگ زد؟"},{"who":"رضا","t":"Yes. She said she would be late tonight.","tr":"آره. گفت امشب دیر می‌آید."},{"who":"سارا","t":"Did she say why?","tr":"گفت چرا؟"},{"who":"رضا","t":"She said she had a meeting. She asked if you could pick up the kids.","tr":"گفت جلسه دارد. پرسید که آیا می‌توانی بچه‌ها را بیاوری."},{"who":"سارا","t":"OK. Anything else?","tr":"باشد. چیز دیگری؟"},{"who":"رضا","t":"Yes, she told me to buy bread!","tr":"آره، به من گفت نان بخرم!"}]},
+        {"p":"**فارسی زمان را نگه می‌دارد؛ انگلیسی یک قدم عقب می‌برد.** فارسی می‌گوید «گفت خسته **است**»، با همان زمانی که آن آدم گفته بود. انگلیسی معمولاً زمان را یک قدم به گذشته می‌برد: علی گفت {{I'm tired}} → {{He said he was tired.}} «گفت خسته است». {{He said he is tired}} در بیشتر جاها عجیب به نظر می‌رسد."},
+        {"term":"نقل قول غیرمستقیم","means":"بازگو کردن حرف کسی با کلمه‌های خودمان: «گفت که خسته است»، در برابر نقل قول مستقیم: «گفت: خسته‌ام»."},
+        { "table": [
+          ["حرف او","بازگو کردن","یعنی"],
+          ["{{I'm tired.}}","{{He said he was tired.}}","گفت خسته است."],
+          ["{{I work here.}}","{{She said she worked there.}}","گفت آنجا کار می‌کند."],
+          ["{{I'll call you.}}","{{He said he would call me.}}","گفت به من زنگ می‌زند."],
+          ["{{I can't come.}}","{{She said she couldn't come.}}","گفت نمی‌تواند بیاید."],
+          ["{{I saw it.}}","{{He said he had seen it.}}","گفت آن را دیده است."]
+        ] },
+        {"p":"**{{say}} یا {{tell}}؟** هر دو «گفتن»‌اند. بعد از {{tell}} همیشه می‌آید به چه کسی: {{She told me (that)…}}؛ {{say}} بدون شخص می‌آید: {{She said (that)…}} ({{said to me}} هم درست است، ولی کمتر). {{She said me}} غلط است."},
+        {"p":"**خواهش و دستور: {{told me to}}.** فارسی می‌گوید «گفت که بروم»؛ انگلیسی {{tell}} + شخص + {{to}} + فعل: {{He told me to wait.}} «گفت صبر کنم»، {{She asked me to help her.}} «از من خواست کمکش کنم»؛ منفی: {{He told me not to worry.}} «گفت نگران نباشم»."},
+        {"p":"**سؤال‌ها: {{asked if}}.** برای سؤال بله‌ونه، {{asked if}} «پرسید که آیا»؛ برای سؤال با کلمهٔ پرسشی، همان کلمه، اما با ترتیب جملهٔ معمولی (نه ترتیب سؤال): {{She asked where I lived.}} «پرسید کجا زندگی می‌کنم»، نه {{where did I live}}."},
+        { "ex": [
+          {"t":"She said she didn't feel well.","tr":"گفت حالش خوب نیست."},
+          {"t":"They told me the meeting was at ten.","tr":"به من گفتند جلسه ساعت ده است."},
+          {"t":"He asked if I spoke Persian.","tr":"پرسید که آیا فارسی بلدم."},
+          {"t":"The doctor told me to rest.","tr":"دکتر گفت استراحت کنم."},
+          {"t":"My mom asked me to buy bread.","tr":"مامانم از من خواست نان بخرم."},
+          {"t":"She asked where the station was.","tr":"پرسید ایستگاه کجاست."}
+        ] },
+        {"tip":"اگر آن حرف هنوز درست است، آمریکایی‌ها گاهی زمان را عقب نمی‌برند: {{He said he lives in Boston.}} (هنوز آنجا زندگی می‌کند). اما عقب بردن همیشه درست است."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"به من گفت خسته است.","why":"با شخص: {{told me}}؛ {{said}} بدون شخص می‌آید."},
+        {"wrong":"He told me that I go.","right":"He told me to go.","tr":"به من گفت بروم.","why":"برای خواهش و دستور: {{told}} + شخص + {{to}}."},
+        {"wrong":"She asked where did I live.","right":"She asked where I lived.","tr":"پرسید کجا زندگی می‌کنم.","why":"در نقل قول، ترتیب جملهٔ معمولی: {{where I lived}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Ali said he ___ sick.","tr":"علی گفت مریض است.","options":["was","is","were"],"answer":0,"why":"یک قدم به گذشته: {{is}} → {{was}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"She ___ me to wait outside.","tr":"به من گفت بیرون صبر کنم.","options":["told","said","asked that"],"answer":0,"why":"خواهش یا دستور، با شخص: {{told me to}}."},
+        {"type":"choice","q":"دوستتان گفت {{I'll call you tomorrow.}} چطور بازگویش می‌کنید؟","options":["{{He said he would call me the next day.}}","{{He said he will call me tomorrow.}}","{{He said me he would call.}}"],"answer":0,"why":"{{will}} → {{would}}؛ و {{said}} بدون {{me}}."},
+        {"type":"dialogue","q":"پیغامی را به هم‌خانه‌تان می‌رسانید. جواب‌هایتان را انتخاب کنید.","from":"say-what-you-have-to-do","lines":[{"who":"سارا","t":"Did anyone call?","tr":"کسی زنگ زد؟"},{"options":["Yes, Mina called. She said she would be late.","Yes, Mina called. She said me she will be late."],"answer":0,"why":"{{said}} بدون شخص، و {{will}} → {{would}}."},{"who":"سارا","t":"Did she say anything else?","tr":"چیز دیگری هم گفت؟"},{"options":["She asked if you could pick up the kids.","She asked can you pick up the kids."],"answer":0,"why":"سؤال بله‌ونه: {{asked if}}، با ترتیب معمولی."}]},
+        {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"دکتر گفت استراحت کنم.","words":["The","doctor","told","me","to","rest."]},
+        {"type":"say","q":"بگویید: «گفت نگران نباشم.» (دربارهٔ یک آقا)","answer":"He told me not to worry."},
+        {"type":"free","q":"نوبت شماست: حرفی را که کسی اخیراً به شما زد بازگو کنید، و سؤالی را که از شما پرسید.","answers":[{"t":"My friend said she had a new job. She asked if I was free on Friday.","tr":"دوستم گفت کار تازه‌ای پیدا کرده. پرسید که آیا جمعه وقتم آزاد است."},{"t":"My mother told me to rest more. She said I worked too much!","tr":"مادرم گفت بیشتر استراحت کنم. گفت زیادی کار می‌کنم!"}]}
+      ]
     }
   ]
 }
