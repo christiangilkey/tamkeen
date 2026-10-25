@@ -127,7 +127,13 @@ About 40% A1 (lessons 1–20), 40% A2 (21–39), 20% B1 (40–50).
 From lesson 4 on, every lesson has at least one practice question marked `from` an earlier lesson.
 
 ## Grammar words (in Portuguese), each explained once
-frase, pronome, verbo, sujeito (1); artigo (2); adjetivo (3 or 7); substantivo, plural (4); preposição
-(9); possessivo (10); presente simples (13); verbo auxiliar (14); infinitivo (20); objeto (25); passado
-simples (26); verbo irregular (27); particípio (32); present perfect (32); comparativo (35); contável /
-incontável (37); condicional (42); oração relativa (43); phrasal verb (45); voz passiva (49).
+frase, pronome, verbo, sujeito (1); artigo (2); adjetivo (3); substantivo, plural (4); palavra
+interrogativa (6); preposição (9); possessivo (10); presente simples (13); verbo auxiliar (14); gerúndio
+(19); infinitivo (20); imperativo (24); objeto (25); passado simples (26); verbo irregular (27); particípio,
+present perfect (32); comparativo (35); contável e incontável (37); condicional (42); oração relativa (43);
+phrasal verb (45); falso amigo (47); voz passiva (49).
+
+## As written
+50 lessons: 20 A1 (1–20), 19 A2 (21–39), 11 B1 (40–50). Every piece of English inside the Portuguese
+explanations (summaries, questions, tips, table labels) is marked `{{ }}`, so the app shows and speaks it
+as English. The right option of every choice, fill and dialogue reply sits at a varied place.

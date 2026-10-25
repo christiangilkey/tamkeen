@@ -123,6 +123,10 @@ From lesson 4 on, every lesson has at least one practice question marked `from` 
 
 ## Grammar words, each explained once
 sentence, pronoun, verb (1); adjective (2); subject (3); noun, gender, article (4); plural (5); question
-word (6); preposition, contraction (7); infinitive (13); reflexive verb (17); gerund (18); imperative (23);
-object (24); tense (25); diminutive (32); conditional (37); subjunctive (38); past participle (44);
-passive (46).
+word (6); preposition, contraction (7); possessive (11); infinitive (13); reflexive verb (17); gerund (18);
+imperative (23); object (24); tense (25); diminutive (32); conditional (37); subjunctive (38); past
+participle (44); passive (46).
+
+## As written
+48 lessons: 19 A1 (1–19), 18 A2 (20–37), 11 B1 (38–48). The right option of every choice, fill and
+dialogue reply sits at a varied place (the app shows options in the order written).
