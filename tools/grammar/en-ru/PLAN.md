@@ -27,7 +27,8 @@ two or more syllables; ё is always stressed, so it carries no mark) and a readi
 - `t` in Cyrillic, with ё always written and the stress marked with U+0301 on every word of two or more
   syllables. One-syllable words carry no mark (except не́ in не́ был, не́ было, where the stress moves to
   не).
-- `r` (and the reading of every `{{…}}` piece) is made from `t` by `tools/grammar/en-ru/readings.mjs`
+- `r` (and the reading of every `{{…}}` piece, and the readings of the choices a learner taps: `r` and
+  `rs` on `fill`, `rs` on `order` and on dialogue replies) is made from `t` by `tools/grammar/en-ru/readings.mjs`
   (`node tools/grammar/en-ru/readings.mjs` fills them all in): a simple Latin transliteration (ж zh, х kh,
   ц ts, ч ch, ш sh, щ shch, ы y, й y, ь ', е → ye at the start of a word and after a vowel), with the
   stress marked, and the few words that aren't said as they're spelled said as they are: что "shto",

@@ -1,6 +1,7 @@
 // The readings of the English → Russian grammar course (tools/grammar/en-ru/PLAN.md), made from the
 // Cyrillic so they are always the same for the same text, and the stress-mark check.
-//   node tools/grammar/en-ru/readings.mjs     fills in every `r` of tools/grammar/en-ru/lessons.json and
+//   node tools/grammar/en-ru/readings.mjs     fills in every `r` of tools/grammar/en-ru/lessons.json (and `rs`,
+//                                             the readings of the choices a learner taps), and
 //                                             the reading of every {{…}} piece, then lists words with a
 //                                             missing or misplaced stress mark
 // A reading is a plain Latin transliteration (ж zh, х kh, ц ts, ч ch, ш sh, щ shch, ы y, й y, ь ', е ye at
@@ -152,6 +153,18 @@ const withPieces = (s) => s.replace(PIECE, (m, t) => (/[А-Яа-яЁё]/.test(t)
 const deep = (v) => (typeof v === "string" ? withPieces(v) : Array.isArray(v) ? v.map(deep)
   : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, deep(x)])) : v);
 
+/** The object with `key` set to `value`, placed right after `prev` (or kept where it was). */
+function after(obj, prev, key, value) {
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (k === key) continue;
+    out[k] = v;
+    if (k === prev) out[key] = value;
+  }
+  if (!(key in out)) out[key] = value;
+  return out;
+}
+
 /** The lesson with every reading made afresh. */
 export function withReadings(lesson) {
   const l = deep(lesson);
@@ -166,8 +179,11 @@ export function withReadings(lesson) {
       const { type, q: text, answer, r, ...rest } = q;
       return { type, q: text, answer, r: reading(answer), ...rest };
     }
-    const out = { ...q };
-    if (q.lines) out.lines = q.lines.map((x) => (x.options ? x : withReading(x)));
+    let out = { ...q };
+    // the choices a learner taps get their readings too (README, "Readings of the choices")
+    if (q.type === "fill") out = after(after(out, "t", "r", reading(q.t)), "options", "rs", (q.options || []).map(reading));
+    if (q.type === "order") out = after(out, "words", "rs", (q.words || []).map(reading));
+    if (q.lines) out.lines = q.lines.map((x) => (x.options ? after(x, "options", "rs", x.options.map(reading)) : withReading(x)));
     if (q.answers) out.answers = q.answers.map(withReading);
     return out;
   });
