@@ -1235,6 +1235,252 @@
         {"type":"dialogue","q":"A friend asks why you weren't at the party.","lines":[{"who":"Friend","t":"Wo warst du am Samstag?","tr":"Where were you on Saturday?"},{"options":["Ich war krank. Ich hatte Fieber.","Ich habe krank gewesen. Ich hatte Fieber."],"answer":0,"why":"{{sein}} never takes {{haben}}, and in conversation people just say {{war}}."},{"who":"Friend","t":"Oh nein! Die Party war super.","tr":"Oh no! The party was great."},{"options":["Schade! Ich wollte wirklich kommen.","Schade! Ich wollte wirklich gekommen."],"answer":0,"why":"After a modal: the infinitive, {{kommen}}."}]},
         {"type":"free","q":"Your turn: how was your last weekend or vacation? Say how it was, and one thing you had to do or couldn't do.","answers":[{"t":"Mein Wochenende war schön, aber ich musste am Sonntag arbeiten.","tr":"My weekend was nice, but I had to work on Sunday."},{"t":"Der Urlaub war toll! Leider hatten wir nur fünf Tage und konnten nicht nach Berlin fahren.","tr":"The vacation was great! Unfortunately we only had five days and couldn't go to Berlin."}]}
       ]
+    },
+    {
+      "id": "travel-around",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say how and where you travel",
+      "summary": "Say how you get around and where you're going: “I take the bus to work.” Meet the dative, the form after mit, zu and bei.",
+      "topic": "The dative after {{mit, zu, bei, nach, aus, von, seit}}: {{dem, der, den…-n}}; {{zum}}, {{zur}}, {{beim}}",
+      "blocks": [
+        {"goal":{"t":"Ich fahre mit dem Bus zur Arbeit.","tr":"I take the bus to work."}},
+        {"dialog":[{"who":"Colleague","t":"Wie kommst du zur Arbeit?","tr":"How do you get to work?"},{"who":"Ben","t":"Mit dem Fahrrad. Und du?","tr":"By bike. And you?"},{"who":"Colleague","t":"Mit der U-Bahn. Aber heute fahre ich nach der Arbeit zu meiner Schwester.","tr":"By subway. But today after work I'm going to my sister's."},{"who":"Ben","t":"Wohnt sie weit weg?","tr":"Does she live far away?"},{"who":"Colleague","t":"Nein, nur zehn Minuten von hier.","tr":"No, just ten minutes from here."}]},
+        {"term":"preposition","means":"a little word that says where, when or how: in, on, with, to, from."},
+        {"term":"dative","means":"the form German uses after certain prepositions, like {{mit}} “with” and {{zu}} “to”, and for the person who receives something."},
+        {"p":"**After mit, zu and friends: the dative.** Some prepositions are always followed by the dative. The seven you need most: {{mit}} “with, by”, {{zu}} “to (a person or a place)”, {{bei}} “at (someone's place, a company)”, {{nach}} “to (a city, a country), after”, {{aus}} “from, out of”, {{von}} “from, of”, {{seit}} “since, for”."},
+        {"p":"**The dative changes every article:** {{der}} and {{das}} become {{dem}}, {{die}} becomes {{der}}, and the plural {{die}} becomes {{den}}, with an {{-n}} on the noun too. {{ein}}, {{kein}} and {{mein}} follow: {{einem}}, {{einer}}, {{meinem}}, {{meiner}}, {{meinen}}."},
+        { "table": [
+          ["","subject","after {{mit}}"],
+          ["masculine","{{der / ein Bus}}","{{mit dem / einem Bus}}"],
+          ["feminine","{{die / eine U-Bahn}}","{{mit der / einer U-Bahn}}"],
+          ["neuter","{{das / ein Auto}}","{{mit dem / einem Auto}}"],
+          ["plural","{{die Kinder}}","{{mit den Kindern}}"]
+        ] },
+        {"p":"**Short forms.** Spoken and written German joins some of them: {{zu dem}} → {{zum}}, {{zu der}} → {{zur}}, {{bei dem}} → {{beim}}, {{von dem}} → {{vom}}: {{zum Bahnhof}}, {{zur Arbeit}}, {{beim Arzt}} “at the doctor's”."},
+        {"p":"**Going to a place:** {{nach}} for cities and countries ({{nach Berlin}}, {{nach Spanien}}) and for going home ({{nach Hause}}); {{zu}} for people, buildings and events ({{zu meiner Mutter}}, {{zum Supermarkt}}, {{zur Party}}). And being somewhere: {{zu Hause}} “at home”, {{bei meiner Mutter}} “at my mother's”."},
+        { "ex": [
+          {"t":"Wir fahren mit dem Zug nach München.","tr":"We're taking the train to Munich."},
+          {"t":"Ich gehe zum Arzt.","tr":"I'm going to the doctor."},
+          {"t":"Heute Abend bin ich bei meinen Eltern.","tr":"Tonight I'm at my parents'."},
+          {"t":"Sie arbeitet bei Siemens.","tr":"She works for Siemens."},
+          {"t":"Ich komme gerade aus dem Büro.","tr":"I'm just coming from the office."},
+          {"t":"Ich wohne seit einem Jahr in Hamburg.","tr":"I've lived in Hamburg for a year.","note":"{{seit}} with the present: “have … for, since”"}
+        ] },
+        {"tip":"{{zu Fuß}} “on foot” is the one way of getting around without {{mit}}: {{Ich gehe zu Fuß.}} “I'm walking.”"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich fahre mit der Bus.","right":"Ich fahre mit dem Bus.","tr":"I'm taking the bus.","why":"{{der Bus}} after {{mit}} (dative): {{dem}}."},
+        {"wrong":"Ich fahre zu Berlin.","right":"Ich fahre nach Berlin.","tr":"I'm going to Berlin.","why":"Cities and countries take {{nach}}."},
+        {"wrong":"Ich fahre mit die Kinder.","right":"Ich fahre mit den Kindern.","tr":"I'm going with the children.","why":"Dative plural: {{den}}, and {{-n}} on the noun."}
+      ],
+      "practice": [
+        {"type":"choice","q":"After {{mit}}, {{der Zug}} becomes…","options":["{{dem Zug}}","{{den Zug}}","{{der Zug}}"],"answer":0,"why":"{{mit}} takes the dative: {{der}} → {{dem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich fahre mit ___ U-Bahn.","tr":"I'm taking the subway.","options":["der","die","dem"],"answer":0,"why":"{{die U-Bahn}} is feminine; in the dative, {{die}} → {{der}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir fahren im Sommer ___ Spanien.","tr":"We're going to Spain in the summer.","options":["nach","zu","bei"],"answer":0,"why":"Countries and cities take {{nach}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich muss heute ___ Arzt.","tr":"I have to go to the doctor today.","options":["zum","zur","nach"],"answer":0,"why":"{{der Arzt}}: {{zu dem}} → {{zum}}. (After {{muss}}, {{gehen}} is understood.)","from":"say-what-you-have-to-do"},
+        {"type":"order","q":"Put the words in order.","tr":"I take the bus to work.","words":["Ich","fahre","mit dem Bus","zur Arbeit."]},
+        {"type":"dialogue","q":"A new colleague asks how you get to work.","from":"say-how-it-was","lines":[{"who":"Colleague","t":"Wie kommst du zur Arbeit?","tr":"How do you get to work?"},{"options":["Mit dem Fahrrad. Und du?","Mit das Fahrrad. Und du?"],"answer":0,"why":"{{das Fahrrad}} after {{mit}}: {{dem}}."},{"who":"Colleague","t":"Mit dem Auto. Wo warst du eigentlich gestern?","tr":"By car. Where were you yesterday, by the way?"},{"options":["Ich war beim Zahnarzt.","Ich war bei der Zahnarzt."],"answer":0,"why":"{{der Zahnarzt}}: {{bei dem}} → {{beim}}."}]},
+        {"type":"free","q":"Your turn: how do you get to work, school or the store? And where are you going this weekend? Use {{mit}}, {{zu}} or {{nach}}.","answers":[{"t":"Ich fahre mit der U-Bahn zur Arbeit. Am Samstag fahre ich zu meinen Eltern.","tr":"I take the subway to work. On Saturday I'm going to my parents'."},{"t":"Ich gehe zu Fuß zur Schule. Am Wochenende fahren wir mit dem Auto nach Köln.","tr":"I walk to school. On the weekend we're driving to Cologne."}]}
+      ]
+    },
+    {
+      "id": "give-things-to-people",
+      "unit": 6,
+      "level": "A2",
+      "title": "Give and send things to people",
+      "summary": "Say who you give, send or show things to: “I'm giving my mother flowers for her birthday.”",
+      "topic": "The dative for the person who receives: {{dem, der, den}}; {{mir, dir, ihm, ihr, uns, euch, Ihnen}}",
+      "blocks": [
+        {"goal":{"t":"Ich schenke meiner Mutter Blumen zum Geburtstag.","tr":"I'm giving my mother flowers for her birthday."}},
+        {"dialog":[{"who":"Paul","t":"Was schenkst du deinem Vater zum Geburtstag?","tr":"What are you giving your dad for his birthday?"},{"who":"Anna","t":"Ich weiß nicht. Vielleicht ein Buch. Hast du eine Idee?","tr":"I don't know. Maybe a book. Any ideas?"},{"who":"Paul","t":"Schenk ihm doch Konzertkarten!","tr":"Why don't you give him concert tickets!"},{"who":"Anna","t":"Gute Idee! Kannst du mir den Link schicken?","tr":"Good idea! Can you send me the link?"},{"who":"Paul","t":"Klar, ich schicke ihn dir gleich.","tr":"Sure, I'll send it to you right away."}]},
+        {"p":"**Two objects.** Verbs like {{geben}} “give”, {{schenken}} “give as a present”, {{schicken}} “send”, {{zeigen}} “show”, {{erklären}} “explain” and {{bringen}} “bring” have two objects: the thing (accusative) and the person who gets it (dative). {{Ich gebe dem Kellner das Geld.}} “I give the waiter the money.” The person usually comes first, just like English “give *the waiter* the money”."},
+        { "table": [
+          ["","accusative","dative","English"],
+          ["{{ich}}","{{mich}}","{{mir}}","me, to me"],
+          ["{{du}}","{{dich}}","{{dir}}","you, to you"],
+          ["{{er}}","{{ihn}}","{{ihm}}","him, to him"],
+          ["{{sie}}","{{sie}}","{{ihr}}","her, to her"],
+          ["{{es}}","{{es}}","{{ihm}}","it, to it"],
+          ["{{wir}}","{{uns}}","{{uns}}","us, to us"],
+          ["{{ihr}}","{{euch}}","{{euch}}","you, to you"],
+          ["{{sie / Sie}}","{{sie / Sie}}","{{ihnen / Ihnen}}","them / you"]
+        ] },
+        {"p":"**When the thing is a pronoun too, it goes first:** {{Ich gebe es dir.}} “I'll give it to you.”, {{Kannst du ihn mir zeigen?}} “Can you show it to me?”"},
+        {"p":"These dative pronouns are also what you use after {{mit}}, {{zu}} and {{bei}}: {{mit mir}} “with me”, {{zu dir}} “to your place”, {{bei uns}} “at our place”."},
+        { "ex": [
+          {"t":"Kannst du mir das Salz geben?","tr":"Can you pass me the salt?"},
+          {"t":"Ich zeige dir die Stadt.","tr":"I'll show you the city."},
+          {"t":"Wir schicken unseren Freunden eine Postkarte.","tr":"We're sending our friends a postcard.","note":"dative plural: {{unseren Freunden}}"},
+          {"t":"Er erklärt den Kindern das Spiel.","tr":"He's explaining the game to the children."},
+          {"t":"Bringen Sie mir bitte die Rechnung.","tr":"Please bring me the check."},
+          {"t":"Komm doch zu uns!","tr":"Come over to our place!"}
+        ] },
+        {"tip":"{{Wie geht es dir?}} “How are you?” literally asks “How goes it to you?”: {{dir}} is dative. To a stranger: {{Wie geht es Ihnen?}} And the answer: {{Mir geht es gut, danke.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich gebe dich das Buch.","right":"Ich gebe dir das Buch.","tr":"I'm giving you the book.","why":"The person who receives is in the dative: {{dir}}, not {{dich}}."},
+        {"wrong":"Ich schenke meine Mutter Blumen.","right":"Ich schenke meiner Mutter Blumen.","tr":"I'm giving my mother flowers.","why":"Your mother receives the flowers: dative, {{meiner}}."},
+        {"wrong":"Ich gebe dir es.","right":"Ich gebe es dir.","tr":"I'll give it to you.","why":"When the thing is a pronoun, it comes first."}
+      ],
+      "practice": [
+        {"type":"choice","q":"In {{Ich gebe dem Kind einen Apfel.}}, who receives something?","options":["the child","the apple","I"],"answer":0,"why":"{{dem Kind}} is the dative: the one who receives."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kannst du ___ das Foto zeigen?","tr":"Can you show me the photo?","options":["mir","mich","ich"],"answer":0,"why":"You receive the showing: dative, {{mir}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich schenke ___ Vater eine Uhr.","tr":"I'm giving my father a watch.","options":["meinem","meinen","mein"],"answer":0,"why":"Your father receives it: dative, {{meinem}}. ({{meinen}} would make him the present!)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Komm doch heute Abend zu ___!","tr":"Come over to our place tonight!","options":["uns","wir","unser"],"answer":0,"why":"After {{zu}}: the dative, {{uns}}.","from":"travel-around"},
+        {"type":"order","q":"Put the words in order.","tr":"Please bring me the check.","words":["Bringen","Sie","mir","bitte","die Rechnung."],"from":"find-your-way"},
+        {"type":"dialogue","q":"Your friend's birthday is coming up.","from":"say-what-you-did","lines":[{"who":"Friend","t":"Was schenkst du Lisa zum Geburtstag?","tr":"What are you giving Lisa for her birthday?"},{"options":["Ich schenke ihr ein Buch.","Ich schenke sie ein Buch."],"answer":0,"why":"Lisa receives it: dative, {{ihr}}."},{"who":"Friend","t":"Gute Idee! Hast du es schon gekauft?","tr":"Good idea! Have you bought it yet?"},{"options":["Ja, ich zeige es dir!","Ja, ich zeige dir es!"],"answer":0,"why":"When the thing is a pronoun, it comes first: {{es dir}}."}]},
+        {"type":"free","q":"Your turn: what are you giving someone for their next birthday, or what did someone give you? Put the person in the dative.","answers":[{"t":"Ich schenke meiner Schwester eine Tasche.","tr":"I'm giving my sister a bag."},{"t":"Mein Freund hat mir ein Fahrrad geschenkt!","tr":"My boyfriend gave me a bike!"}]}
+      ]
+    },
+    {
+      "id": "say-what-suits-you",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say what you like and how you feel",
+      "summary": "Say that something pleases you, tastes good or fits, and say how you feel: “I like the jacket, but it doesn't fit me.”",
+      "topic": "Verbs with the dative: {{gefallen, schmecken, passen, gehören, helfen}}; {{Mir ist kalt.}}",
+      "blocks": [
+        {"goal":{"t":"Die Jacke gefällt mir, aber sie passt mir nicht.","tr":"I like the jacket, but it doesn't fit me."}},
+        {"dialog":[{"who":"Salesman","t":"Und? Wie gefällt Ihnen die Jacke?","tr":"So? How do you like the jacket?"},{"who":"Customer","t":"Die Farbe gefällt mir sehr. Aber sie ist mir zu groß.","tr":"I really like the color. But it's too big for me."},{"who":"Salesman","t":"Moment, hier ist sie in S.","tr":"Just a moment, here it is in a small."},{"who":"Customer","t":"Ja, die passt mir!","tr":"Yes, this one fits me!"},{"who":"Salesman","t":"Sie steht Ihnen super.","tr":"It looks great on you."},{"who":"Customer","t":"Danke! Ich nehme sie.","tr":"Thanks! I'll take it."}]},
+        {"p":"**Back to front.** With {{gefallen}}, the thing you like is the subject, and *you* are in the dative: {{Die Jacke gefällt mir.}}, word for word “The jacket pleases me.” So the verb agrees with the thing: {{Die Schuhe gefallen mir.}} “I like the shoes.”"},
+        {"p":"Other everyday verbs work the same way, with the person in the dative:"},
+        { "table": [
+          ["verb","example","English"],
+          ["{{gefallen}}","{{Berlin gefällt mir.}}","I like Berlin."],
+          ["{{schmecken}}","{{Die Suppe schmeckt mir.}}","I like the soup (it tastes good to me)."],
+          ["{{passen}}","{{Die Hose passt mir nicht.}}","The pants don't fit me."],
+          ["{{stehen}}","{{Das Kleid steht dir!}}","The dress looks good on you!"],
+          ["{{gehören}}","{{Das Handy gehört mir.}}","The phone is mine."],
+          ["{{helfen}}","{{Kannst du mir helfen?}}","Can you help me?"],
+          ["{{danken}}","{{Ich danke Ihnen.}}","Thank you."]
+        ] },
+        {"p":"**How you feel: Mir ist…** For feeling cold, hot or sick, German says “to me it is cold”: {{Mir ist kalt.}} “I'm cold.”, {{Mir ist schlecht.}} “I feel sick.”, {{Mir ist langweilig.}} “I'm bored.” And {{Wie geht es dir? – Mir geht es gut.}} “How are you? – I'm fine.”"},
+        {"p":"**Three kinds of liking.** {{gern}} for what you like doing ({{Ich koche gern.}}), {{mögen}} for things and people in general ({{Ich mag Hunde.}}), {{gefallen}} for something you see, hear or try and like ({{Das Lied gefällt mir.}} “I like this song.”)."},
+        { "ex": [
+          {"t":"Wie gefällt dir Berlin?","tr":"How do you like Berlin?"},
+          {"t":"Das Essen schmeckt mir sehr gut.","tr":"The food is really good."},
+          {"t":"Schmeckt's?","tr":"Is it good?","note":"what a host asks at the table"},
+          {"t":"Wem gehört der Schlüssel?","tr":"Whose key is this?","note":"{{wem}} “to whom”: the dative of {{wer}}"},
+          {"t":"Mir ist so heiß!","tr":"I'm so hot!"},
+          {"t":"Die Schuhe passen ihm nicht mehr.","tr":"The shoes don't fit him anymore."}
+        ] },
+        {"tip":"Careful: {{Ich bin kalt.}} would describe your personality! Feeling cold is {{Mir ist kalt.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Ich gefalle die Jacke.","right":"Die Jacke gefällt mir.","tr":"I like the jacket.","why":"The thing you like is the subject, and you're in the dative, {{mir}}. ({{Ich gefalle…}} would mean “I please…”!)"},
+        {"wrong":"Ich bin kalt.","right":"Mir ist kalt.","tr":"I'm cold.","why":"Feeling cold: {{Mir ist kalt.}}"},
+        {"wrong":"Kannst du mich helfen?","right":"Kannst du mir helfen?","tr":"Can you help me?","why":"{{helfen}} takes the dative: {{mir}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{Die Schuhe gefallen mir.}} means…","options":["I like the shoes.","The shoes like me.","I please the shoes."],"answer":0,"why":"The shoes please me: I like them."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wie ___ dir die Stadt?","tr":"How do you like the city?","options":["gefällt","gefallen","gefällst"],"answer":0,"why":"The subject is {{die Stadt}}, one thing: {{gefällt}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Kannst du ___ bitte helfen?","tr":"Can you help me, please?","options":["mir","mich","ich"],"answer":0,"why":"{{helfen}} takes the dative: {{mir}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ist kalt. Machst du bitte das Fenster zu?","tr":"I'm cold. Could you close the window, please?","options":["Mir","Ich","Mich"],"answer":0,"why":"Feeling cold: {{Mir ist kalt.}}","from":"describe-your-day"},
+        {"type":"dialogue","q":"Dinner at a friend's.","lines":[{"who":"Host","t":"Schmeckt's?","tr":"Is it good?"},{"options":["Ja, es schmeckt mir sehr gut!","Ja, ich schmecke es sehr gut!"],"answer":0,"why":"The food tastes good to you: {{es schmeckt mir}}."},{"who":"Host","t":"Möchtest du noch etwas?","tr":"Would you like some more?"},{"options":["Nein danke, ich bin satt.","Nein danke, mir ist satt."],"answer":0,"why":"“I'm full” is {{ich bin satt}}; {{mir ist}} is for feelings like cold, hot or sick."}]},
+        {"type":"say","q":"Ask a friend: “How do you like Berlin?”","answer":"Wie gefällt dir Berlin?","from":"give-things-to-people"},
+        {"type":"free","q":"Your turn: say something you like in your town or home with {{gefällt mir}}, and how you feel right now with {{Mir ist…}} or {{Mir geht es…}}","answers":[{"t":"Der Park gefällt mir sehr. Mir geht es heute gut.","tr":"I really like the park. I'm doing well today."},{"t":"Meine neue Wohnung gefällt mir. Aber mir ist ein bisschen kalt!","tr":"I like my new apartment. But I'm a bit cold!"}]}
+      ]
+    },
+    {
+      "id": "say-where-things-are",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say where things are",
+      "summary": "Say where something is: on the table, under the bed, next to the door: “Your phone is on the table in the kitchen.”",
+      "topic": "{{in, an, auf, unter, über, neben, vor, hinter, zwischen}} + the dative for “where?”; {{liegen, stehen, hängen}}",
+      "blocks": [
+        {"goal":{"t":"Dein Handy liegt auf dem Tisch in der Küche.","tr":"Your phone is on the table in the kitchen."}},
+        {"dialog":[{"who":"Max","t":"Wo ist mein Schlüssel?","tr":"Where's my key?"},{"who":"Lea","t":"Liegt er nicht auf dem Regal?","tr":"Isn't it on the shelf?"},{"who":"Max","t":"Nein. Und wo ist meine Jacke?","tr":"No. And where's my jacket?"},{"who":"Lea","t":"Sie hängt hinter der Tür.","tr":"It's hanging behind the door."},{"who":"Max","t":"Ah, hier ist er! In der Jackentasche!","tr":"Ah, here it is! In the jacket pocket!"}]},
+        {"p":"**Where? Nine prepositions with the dative.** To say where something is, use one of these nine words, followed by the dative:"},
+        { "table": [
+          ["German","English","example"],
+          ["{{in}}","in","{{in der Küche}} in the kitchen"],
+          ["{{an}}","on (a wall), at","{{an der Wand}} on the wall"],
+          ["{{auf}}","on (top of)","{{auf dem Tisch}} on the table"],
+          ["{{unter}}","under","{{unter dem Bett}} under the bed"],
+          ["{{über}}","above","{{über dem Sofa}} above the sofa"],
+          ["{{neben}}","next to","{{neben der Tür}} next to the door"],
+          ["{{vor}}","in front of","{{vor dem Haus}} in front of the house"],
+          ["{{hinter}}","behind","{{hinter dem Haus}} behind the house"],
+          ["{{zwischen}}","between","{{zwischen den Fenstern}} between the windows"]
+        ] },
+        {"p":"**Short forms:** {{in dem}} → {{im}}, {{an dem}} → {{am}}: {{im Kühlschrank}} “in the fridge”, {{am Fenster}} “at the window”."},
+        {"p":"**liegen, stehen, hängen.** Where English just says “is”, German often says how a thing is placed: {{liegen}} “lie” for things lying flat ({{Das Buch liegt auf dem Tisch.}}), {{stehen}} “stand” for upright things ({{Die Flasche steht im Kühlschrank.}}), {{hängen}} “hang” ({{Das Bild hängt an der Wand.}}). {{sein}} is always fine too, but these sound natural."},
+        { "ex": [
+          {"t":"Die Kinder sind im Garten.","tr":"The kids are in the yard."},
+          {"t":"Die Milch steht im Kühlschrank.","tr":"The milk is in the fridge."},
+          {"t":"Wir treffen uns vor dem Kino.","tr":"We're meeting in front of the movie theater."},
+          {"t":"Die Apotheke ist neben der Bank.","tr":"The pharmacy is next to the bank."},
+          {"t":"Ich sitze am Fenster.","tr":"I'm sitting by the window."},
+          {"t":"Die Katze schläft unter dem Bett.","tr":"The cat is sleeping under the bed."}
+        ] },
+        {"tip":"{{auf}} or {{an}}? {{auf}} is on top of something flat, {{an}} is on something upright or at an edge: {{auf dem Tisch}}, but {{an der Wand}}, {{am Fenster}}, {{am Meer}} “at the seaside”."}
+      ],
+      "mistakes": [
+        {"wrong":"Das Buch liegt auf der Tisch.","right":"Das Buch liegt auf dem Tisch.","tr":"The book is on the table.","why":"Where? Dative: {{der Tisch}} → {{dem Tisch}}."},
+        {"wrong":"Das Bild hängt auf der Wand.","right":"Das Bild hängt an der Wand.","tr":"The picture is on the wall.","why":"On a wall (something upright): {{an}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"The clock is on the wall:","options":["{{an der Wand}}","{{auf der Wand}}"],"answer":0,"why":"On something upright: {{an}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Die Schlüssel liegen auf ___ Tisch.","tr":"The keys are on the table.","options":["dem","den","der"],"answer":0,"why":"Where? Dative: {{der Tisch}} → {{dem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Die Katze schläft unter ___ Bett.","tr":"The cat is sleeping under the bed.","options":["dem","das","den"],"answer":0,"why":"Where? Dative: {{das Bett}} → {{dem}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Gibt es hier eine Bank? – Ja, neben ___ Supermarkt.","tr":"Is there a bank here? – Yes, next to the supermarket.","options":["dem","den","der"],"answer":0,"why":"Where? Dative: {{der Supermarkt}} → {{dem}}.","from":"find-your-way"},
+        {"type":"order","q":"Put the words in order.","tr":"The milk is in the fridge.","words":["Die Milch","steht","im","Kühlschrank."]},
+        {"type":"dialogue","q":"Your roommate can't find things.","from":"talk-about-an-evening-out","lines":[{"who":"Roommate","t":"Wo ist meine Brille?","tr":"Where are my glasses?"},{"options":["Sie liegt auf dem Sofa.","Sie liegt auf das Sofa."],"answer":0,"why":"Where? Dative: {{dem Sofa}}."},{"who":"Roommate","t":"Und hast du mein Handy gesehen?","tr":"And have you seen my phone?"},{"options":["Ja, es liegt in der Küche.","Ja, es liegt in die Küche."],"answer":0,"why":"Where? Dative: {{in der Küche}}."}]},
+        {"type":"free","q":"Your turn: describe where three things are in your room or your kitchen.","answers":[{"t":"Mein Laptop liegt auf dem Schreibtisch. Die Lampe steht neben dem Bett. Ein Bild hängt an der Wand.","tr":"My laptop is on the desk. The lamp is next to the bed. A picture is hanging on the wall."},{"t":"Der Kaffee steht im Schrank, die Milch im Kühlschrank, und die Katze sitzt am Fenster.","tr":"The coffee is in the cupboard, the milk is in the fridge, and the cat is sitting by the window."}]}
+      ]
+    },
+    {
+      "id": "say-where-things-go",
+      "unit": 6,
+      "level": "A2",
+      "title": "Say where things go",
+      "summary": "Say where you put things and where you're going: “Please put the milk in the fridge!” The same nine words, now with the accusative.",
+      "topic": "{{wo?}} + dative vs {{wohin?}} + accusative; {{legen, stellen, hängen}}; {{in die Stadt}}, {{ins Kino}}",
+      "blocks": [
+        {"goal":{"t":"Stell die Milch bitte in den Kühlschrank!","tr":"Please put the milk in the fridge!"}},
+        {"dialog":[{"who":"Sara","t":"Wohin stellen wir das Sofa?","tr":"Where shall we put the sofa?"},{"who":"Tim","t":"Vor das Fenster. Und den Tisch neben das Sofa.","tr":"In front of the window. And the table next to the sofa."},{"who":"Sara","t":"Und das Bild?","tr":"And the picture?"},{"who":"Tim","t":"Häng es an die Wand über dem Sofa!","tr":"Hang it on the wall above the sofa!"},{"who":"Sara","t":"Okay. Und dann gehen wir ins Restaurant. Ich habe Hunger!","tr":"OK. And then we're going to a restaurant. I'm hungry!"}]},
+        {"p":"**Where? or where to?** The nine prepositions from the last lesson take the dative for *where something is* ({{wo?}}), but the accusative for *where something is going* ({{wohin?}}): {{Das Handy liegt auf dem Tisch.}} (where it is), {{Ich lege das Handy auf den Tisch.}} (where it goes)."},
+        { "table": [
+          ["","where? (dative)","where to? (accusative)"],
+          ["masculine","{{auf dem Tisch}}","{{auf den Tisch}}"],
+          ["feminine","{{in der Küche}}","{{in die Küche}}"],
+          ["neuter","{{im Kino}}","{{ins Kino}}"],
+          ["plural","{{in den Bergen}}","{{in die Berge}}"]
+        ] },
+        {"p":"**Short forms:** {{in das}} → {{ins}} ({{ins Kino}}, {{ins Bett}}), {{an das}} → {{ans}} ({{ans Meer}})."},
+        {"p":"**Putting things somewhere: legen, stellen, hängen.** They go with the accusative, and their partners from the last lesson with the dative: you {{legen}} something (put it down flat) and then it {{liegt}}; you {{stellen}} it (stand it up) and then it {{steht}}; you {{hängen}} it and then it {{hängt}}."},
+        { "table": [
+          ["you put it: where to? (accusative)","it's there: where? (dative)"],
+          ["{{Ich lege das Buch auf den Tisch.}}","{{Das Buch liegt auf dem Tisch.}}"],
+          ["{{Ich stelle die Flasche in den Kühlschrank.}}","{{Die Flasche steht im Kühlschrank.}}"],
+          ["{{Ich hänge das Bild an die Wand.}}","{{Das Bild hängt an der Wand.}}"]
+        ] },
+        {"p":"**Going places** works the same way: {{Ich gehe ins Kino.}} “I'm going to the movies.” (where to?), {{Ich bin im Kino.}} “I'm at the movies.” (where?)."},
+        { "ex": [
+          {"t":"Wir gehen heute Abend ins Theater.","tr":"We're going to the theater tonight."},
+          {"t":"Ich fahre am Wochenende in die Berge.","tr":"I'm going to the mountains on the weekend."},
+          {"t":"Leg die Schlüssel auf den Tisch.","tr":"Put the keys on the table."},
+          {"t":"Die Kinder gehen um acht ins Bett.","tr":"The kids go to bed at eight."},
+          {"t":"Wohin fährst du im Sommer? – Ans Meer!","tr":"Where are you going in the summer? – To the beach!"},
+          {"t":"Ich gehe in die Küche und koche.","tr":"I'm going into the kitchen to cook."}
+        ] },
+        {"tip":"Ask yourself: is it moving to a new place ({{wohin?}}, accusative) or staying where it is ({{wo?}}, dative)? {{Ich gehe in die Küche}} (I go there), but {{Ich koche in der Küche}} (I'm there)."}
+      ],
+      "mistakes": [
+        {"wrong":"Ich lege das Buch auf dem Tisch.","right":"Ich lege das Buch auf den Tisch.","tr":"I'm putting the book on the table.","why":"The book is going onto the table: where to? → accusative."},
+        {"wrong":"Ich gehe im Kino.","right":"Ich gehe ins Kino.","tr":"I'm going to the movies.","why":"Going there: accusative, and {{in das}} → {{ins}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which question goes with the accusative?","options":["{{Wohin?}} where to?","{{Wo?}} where?"],"answer":0,"why":"Movement to a place: {{wohin?}} and the accusative."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ich lege die Zeitung auf ___ Tisch.","tr":"I'm putting the newspaper on the table.","options":["den","dem","der"],"answer":0,"why":"Where to? Accusative: {{der Tisch}} → {{den}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Wir gehen heute ___ Kino.","tr":"We're going to the movies today.","options":["ins","im","in"],"answer":0,"why":"Where to? {{in das}} → {{ins}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Die Zeitung liegt auf ___ Tisch.","tr":"The newspaper is on the table.","options":["dem","den","der"],"answer":0,"why":"Where it is: dative, {{dem}}.","from":"say-where-things-are"},
+        {"type":"order","q":"Put the words in order.","tr":"Please put the milk in the fridge!","words":["Stell","die Milch","bitte","in den","Kühlschrank!"],"from":"tell-someone-what-to-do"},
+        {"type":"dialogue","q":"Talk about your weekend plans.","lines":[{"who":"Friend","t":"Was machst du am Wochenende?","tr":"What are you doing on the weekend?"},{"options":["Ich fahre in die Berge.","Ich fahre in den Bergen."],"answer":0,"why":"Going there: where to? → accusative, {{in die Berge}}."},{"who":"Friend","t":"Toll! Und wo schläfst du?","tr":"Great! And where are you sleeping?"},{"options":["In einem Hotel.","In ein Hotel."],"answer":0,"why":"Where you sleep: where? → dative, {{in einem Hotel}}."}]},
+        {"type":"free","q":"Your turn: you're helping a friend move in. Tell them where to put three things.","answers":[{"t":"Stell das Sofa vor das Fenster, leg den Teppich vor das Sofa und häng die Lampe über den Tisch.","tr":"Put the sofa in front of the window, put the rug in front of the sofa and hang the lamp over the table."},{"t":"Stell die Bücher ins Regal und häng das Bild an die Wand!","tr":"Put the books on the shelf and hang the picture on the wall!"}]}
+      ]
     }
   ]
 }
