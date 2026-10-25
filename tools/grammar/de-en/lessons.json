@@ -398,6 +398,202 @@
         {"type":"dialogue","q":"Du zeigst einem Freund Familienfotos.","lines":[{"who":"Friend","t":"Who's that?","tr":"Wer ist das?"},{"options":["That's my sister. Her name is Lisa.","That's my sister. His name is Lisa."],"answer":0,"why":"Deine Schwester ist eine Frau: {{her}}."},{"who":"Friend","t":"Does she have kids?","tr":"Hat sie Kinder?"},{"options":["Yes, she has a son.","Yes, she have a son."],"answer":0,"why":"Nach {{she}}: {{has}}."}]},
         {"type":"free","q":"Jetzt du: Erzähl von deiner Familie: wen du hast und wie sie heißen.","answers":[{"t":"I have a brother and a sister. My brother's name is Max, and my sister's name is Julia.","tr":"Ich habe einen Bruder und eine Schwester. Mein Bruder heißt Max, und meine Schwester heißt Julia."},{"t":"I don't have any brothers or sisters, but I have two cats. Their names are Leo and Luna.","tr":"Ich habe keine Geschwister, aber zwei Katzen. Sie heißen Leo und Luna."}]}
       ]
+    },
+    {
+      "id": "order-in-a-cafe",
+      "unit": 3,
+      "level": "A1",
+      "title": "Bestell im Café und im Laden",
+      "summary": "Bestell höflich, frag nach dem Preis und bezahl: „Can I get a coffee, please?“",
+      "topic": "{{I'd like…}}, {{Can I have…?}}, {{Can I get…?}}; {{some}} und {{any}}; {{How much is…?}}",
+      "blocks": [
+        {"goal":{"t":"Hi, can I get a coffee and a bagel, please?","tr":"Hallo, kann ich einen Kaffee und einen Bagel haben, bitte?"}},
+        {"dialog":[{"who":"Barista","t":"Hi there! What can I get you?","tr":"Hallo! Was darf's sein?"},{"who":"Lena","t":"Hi! I'd like a large coffee, please.","tr":"Hallo! Ich hätte gern einen großen Kaffee, bitte."},{"who":"Barista","t":"Sure. Anything else?","tr":"Gern. Sonst noch etwas?"},{"who":"Lena","t":"Can I have a blueberry muffin too?","tr":"Kann ich auch einen Blaubeermuffin haben?"},{"who":"Barista","t":"Of course. For here or to go?","tr":"Natürlich. Zum Hieressen oder zum Mitnehmen?"},{"who":"Lena","t":"To go, please. How much is that?","tr":"Zum Mitnehmen, bitte. Was macht das?"},{"who":"Barista","t":"That's six fifty.","tr":"Das macht 6,50 Dollar."}]},
+        {"p":"**Höflich bestellen.** {{I'd like…}} „Ich hätte gern…“ ({{I'd}} = {{I would}}), {{Can I have…?}} „Kann ich … haben?“, {{Can I get…?}} (in den USA sehr üblich) und noch höflicher {{Could I have…?}} Dazu immer {{please}}. Ein bloßes {{I want a coffee}} klingt fordernd, wie „Ich will einen Kaffee“."},
+        {"p":"**some und any: etwas, ein paar.** Vor Nomen ohne „ein“ (Wasser, Brot, Pommes) steht oft {{some}}: {{Can I have some water?}} „Kann ich etwas Wasser haben?“ In Fragen und nach {{not}} meist {{any}}: {{Do you have any milk?}}, {{We don't have any bread.}} (Bei einer Bitte oder einem Angebot bleibt {{some}}: {{Would you like some coffee?}})"},
+        { "table": [
+          ["","Beispiel","Deutsch"],
+          ["{{some}}: Aussage, Bitte, Angebot","{{I'd like some fries.}}","Ich hätte gern Pommes."],
+          ["{{any}}: Frage","{{Do you have any tea?}}","Haben Sie Tee?"],
+          ["{{any}}: nach {{not}}","{{We don't have any sugar.}}","Wir haben keinen Zucker."]
+        ] },
+        {"p":"**Bezahlen.** {{How much is it?}} „Was kostet das?“, {{Can I have the check, please?}} „Die Rechnung, bitte.“ In amerikanischen Restaurants ist ein Trinkgeld ({{tip}}) von 15 bis 20 % üblich. Und {{For here or to go?}} heißt „Hier essen oder mitnehmen?“."},
+        { "ex": [
+          {"t":"I'd like a glass of water, please.","tr":"Ich hätte gern ein Glas Wasser, bitte."},
+          {"t":"Can I get a cheeseburger, please?","tr":"Kann ich einen Cheeseburger haben, bitte?"},
+          {"t":"Could we have the check, please?","tr":"Könnten wir bitte die Rechnung haben?"},
+          {"t":"Do you have any vegetarian dishes?","tr":"Haben Sie vegetarische Gerichte?"},
+          {"t":"How much are these shoes?","tr":"Was kosten diese Schuhe?"},
+          {"t":"Would you like some more coffee? – Yes, please.","tr":"Möchten Sie noch Kaffee? – Ja, gern."}
+        ] },
+        {"tip":"{{Would you like…?}} „Möchten Sie…?“ fragen Kellner ständig. Antwort: {{Yes, please.}} oder {{No, thank you.}} Und auf {{Thank you}} antwortet man nicht mit {{please}}, sondern mit {{You're welcome.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I become a coffee.","right":"Can I get a coffee?","tr":"Ich bekomme einen Kaffee.","why":"{{become}} heißt „werden“, nicht „bekommen“! Bestellen: {{I'd like…}} oder {{Can I get…?}}"},
+        {"wrong":"Thank you! – Please!","right":"Thank you! – You're welcome!","tr":"Danke! – Bitte!","why":"Auf {{thank you}} antwortet man {{You're welcome}}; {{please}} sagt man nur, wenn man um etwas bittet."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Du möchtest einen Tee bestellen. Was ist höflich?","options":["{{I'd like a tea, please.}}","{{I become a tea.}}","{{Give me a tea.}}"],"answer":0,"why":"{{I become a tea}} hieße „Ich werde ein Tee“!"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Do you have ___ milk?","tr":"Haben Sie Milch?","options":["any","a","an"],"answer":0,"why":"In einer Frage: {{any}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Can I have ___ water, please?","tr":"Kann ich etwas Wasser haben, bitte?","options":["some","any","a"],"answer":0,"why":"Bei einer Bitte: {{some}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"How much ___ these apples?","tr":"Was kosten diese Äpfel?","options":["are","is","does"],"answer":0,"why":"{{these apples}} sind mehrere: {{are}}.","from":"talk-about-things"},
+        {"type":"dialogue","q":"Im Coffeeshop.","lines":[{"who":"Barista","t":"What can I get you?","tr":"Was darf's sein?"},{"options":["Can I get a latte, please?","I become a latte, please."],"answer":0,"why":"{{become}} heißt „werden“."},{"who":"Barista","t":"For here or to go?","tr":"Zum Hieressen oder zum Mitnehmen?"},{"options":["To go, please.","For go, please."],"answer":0,"why":"„Zum Mitnehmen“ ist {{to go}}."},{"who":"Barista","t":"That's four fifty.","tr":"Das macht 4,50."}]},
+        {"type":"say","q":"Sag im Restaurant: „Könnten wir bitte die Rechnung haben?“","answer":"Could we have the check, please?"},
+        {"type":"free","q":"Jetzt du: Du bist in einem amerikanischen Diner. Bestell ein Getränk und etwas zu essen.","answers":[{"t":"Hi, can I get an orange juice and pancakes, please?","tr":"Hallo, kann ich einen Orangensaft und Pancakes haben, bitte?"},{"t":"I'd like a coffee and a cheese sandwich, please.","tr":"Ich hätte gern einen Kaffee und ein Käsesandwich, bitte."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sag, was du magst",
+      "summary": "Sag, was du gern machst und was nicht: „I love cooking, but I hate cleaning.“ Und lern den Unterschied zwischen „mögen“ und „möchten“.",
+      "topic": "{{like}}, {{love}}, {{hate}} + {{-ing}}; {{me, him, her, us, them}}; {{like}} oder {{would like}}",
+      "blocks": [
+        {"goal":{"t":"I love cooking, but I don't like cleaning.","tr":"Ich koche total gern, aber ich putze nicht gern."}},
+        {"dialog":[{"who":"Sophie","t":"What do you do in your free time?","tr":"Was machst du in deiner Freizeit?"},{"who":"Ryan","t":"I love hiking. And I like playing the guitar.","tr":"Ich wandere total gern. Und ich spiele gern Gitarre."},{"who":"Sophie","t":"Cool! Do you like dancing?","tr":"Cool! Tanzt du gern?"},{"who":"Ryan","t":"Not really. But my girlfriend loves it.","tr":"Eigentlich nicht. Aber meine Freundin liebt es."},{"who":"Sophie","t":"Would you like to come to a salsa class with us?","tr":"Hättest du Lust, mit uns zu einem Salsakurs zu kommen?"},{"who":"Ryan","t":"Hmm… OK, I'd like that. But don't laugh at me!","tr":"Hm… Okay, gern. Aber lacht nicht über mich!"}]},
+        {"p":"**Gern machen: like + -ing.** Für „etwas gern tun“ hat Englisch kein Wort wie „gern“. Man sagt {{like}} „mögen“ + das Verb mit {{-ing}}: {{I like reading.}} „Ich lese gern.“ Stärker: {{love}} „total gern, lieben“; das Gegenteil: {{don't like}}, {{hate}} „hassen“."},
+        {"p":"**like oder would like?** Ein wichtiger Unterschied, genau wie „mögen“ und „möchten“: {{I like coffee.}} „Ich mag Kaffee.“ (allgemein) / {{I'd like a coffee.}} „Ich möchte einen Kaffee.“ (jetzt). Und {{Would you like to…?}} ist die höfliche Einladung: „Möchtest du…?, Hast du Lust…?“."},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["allgemein","{{I like dancing.}}","Ich tanze gern."],
+          ["allgemein","{{I like pizza.}}","Ich mag Pizza."],
+          ["jetzt, ein Wunsch","{{I'd like a pizza.}}","Ich möchte eine Pizza."],
+          ["Einladung","{{Would you like to dance?}}","Möchtest du tanzen?"]
+        ] },
+        {"term":"Subjekt","means":"die Person oder Sache, die etwas tut oder ist: **Ich** mag Kaffee. **Der Bus** kommt."},
+        {"term":"Objekt","means":"die Person oder Sache, mit der etwas gemacht wird: Ich mag **dich**. Ich sehe **den Bus**."},
+        {"p":"**me, him, her…** Wen man mag, ist ein Objekt, und dafür haben die Pronomen eigene Formen, wie „ich – mich“:"},
+        { "table": [
+          ["Subjekt","Objekt","Deutsch"],
+          ["{{I}}","{{me}}","mich, mir"],
+          ["{{you}}","{{you}}","dich, dir, Sie, euch"],
+          ["{{he}}","{{him}}","ihn, ihm"],
+          ["{{she}}","{{her}}","sie, ihr"],
+          ["{{it}}","{{it}}","es (Dinge)"],
+          ["{{we}}","{{us}}","uns"],
+          ["{{they}}","{{them}}","sie, ihnen"]
+        ] },
+        { "ex": [
+          {"t":"I like swimming.","tr":"Ich schwimme gern."},
+          {"t":"She loves traveling.","tr":"Sie reist total gern."},
+          {"t":"We hate getting up early.","tr":"Wir hassen es, früh aufzustehen."},
+          {"t":"Do you like him?","tr":"Magst du ihn?"},
+          {"t":"I don't like them.","tr":"Ich mag sie nicht."},
+          {"t":"Would you like to go for a walk?","tr":"Möchtest du spazieren gehen?"}
+        ] },
+        {"tip":"{{Call me!}} „Ruf mich an!“, {{Tell him.}} „Sag es ihm.“, {{Help us!}} „Hilf uns!“: Englisch unterscheidet nicht zwischen „mich“ und „mir“ oder „ihn“ und „ihm“. Ein Fall für alles."}
+      ],
+      "mistakes": [
+        {"wrong":"I swim gladly.","right":"I like swimming.","tr":"Ich schwimme gern.","why":"„Gern“ gibt es nicht als eigenes Wort: {{like}} + {{-ing}}."},
+        {"wrong":"I like a coffee, please.","right":"I'd like a coffee, please.","tr":"Ich möchte einen Kaffee, bitte.","why":"Ein Wunsch jetzt: {{I'd like}} („möchte“). {{I like}} heißt „mag“."},
+        {"wrong":"I love she.","right":"I love her.","tr":"Ich liebe sie.","why":"Als Objekt: {{her}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich tanze gern.“","options":["{{I like dancing.}}","{{I dance gladly.}}","{{I'd like dancing.}}"],"answer":0,"why":"„Gern tun“: {{like}} + {{-ing}}."},
+        {"type":"choice","q":"Im Restaurant: „Ich möchte eine Suppe.“","options":["{{I'd like a soup.}}","{{I like a soup.}}"],"answer":0,"why":"Ein Wunsch jetzt: {{I'd like}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My kids love ___ video games.","tr":"Meine Kinder spielen total gern Videospiele.","options":["playing","play","plays"],"answer":0,"why":"Nach {{love}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Where's Tom? I can't find ___.","tr":"Wo ist Tom? Ich finde ihn nicht.","options":["him","he","his"],"answer":0,"why":"Als Objekt: {{him}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Magst du Jazz?","words":["Do","you","like","jazz?"],"from":"ask-with-do"},
+        {"type":"dialogue","q":"Ein Freund schlägt etwas vor.","from":"say-no-with-dont","lines":[{"who":"Friend","t":"Would you like to go to the movies tonight?","tr":"Möchtest du heute Abend ins Kino?"},{"options":["Sure, I'd love to!","Sure, I love to!"],"answer":0,"why":"Auf eine Einladung: {{I'd love to}} „sehr gern“."},{"who":"Friend","t":"Do you like horror movies?","tr":"Magst du Horrorfilme?"},{"options":["No, I don't. I hate them!","No, I don't. I hate they!"],"answer":0,"why":"Als Objekt: {{them}}."}]},
+        {"type":"free","q":"Jetzt du: Sag zwei Dinge, die du gern machst, und eins, das du nicht gern machst.","answers":[{"t":"I love reading, and I like cooking. I don't like running.","tr":"Ich lese total gern und koche gern. Ich laufe nicht gern."},{"t":"I like playing tennis and watching movies, but I hate shopping.","tr":"Ich spiele gern Tennis und schaue gern Filme, aber Einkaufen hasse ich."}]}
+      ]
+    },
+    {
+      "id": "say-what-you-can-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sag, was du kannst",
+      "summary": "Sag, was du kannst und was nicht, und bitte um Hilfe: „Can you help me? I can't find my hotel.“",
+      "topic": "{{can}}, {{can't}}, {{could}}; kein {{to}} und kein {{-s}} nach {{can}}",
+      "blocks": [
+        {"goal":{"t":"Can you help me? I can't find my hotel.","tr":"Können Sie mir helfen? Ich finde mein Hotel nicht."}},
+        {"dialog":[{"who":"Felix","t":"Excuse me, can you help me?","tr":"Entschuldigung, können Sie mir helfen?"},{"who":"Woman","t":"Sure. What's the problem?","tr":"Klar. Was ist das Problem?"},{"who":"Felix","t":"I can't find my hotel. It's the Park Inn.","tr":"Ich finde mein Hotel nicht. Das Park Inn."},{"who":"Woman","t":"Oh, you can walk there. It's five minutes from here.","tr":"Ach, da können Sie zu Fuß hin. Es ist fünf Minuten von hier."},{"who":"Felix","t":"Great! Can I take a picture of your map?","tr":"Super! Darf ich ein Foto von Ihrer Karte machen?"},{"who":"Woman","t":"Of course you can.","tr":"Natürlich."}]},
+        {"term":"Modalverb","means":"ein Hilfsverb, das sagt, wie man zu einer Handlung steht: können, müssen, dürfen, wollen. Auf Englisch: {{can}}, {{must}}, {{should}}…"},
+        {"p":"**can = können.** {{I can swim.}} „Ich kann schwimmen.“ Verneint: {{can't}} ({{cannot}}): {{I can't swim.}} Wie die deutschen Modalverben ist {{can}} ein Hilfsverb: Für die Frage stellt es sich selbst nach vorn, ohne {{do}}: {{Can you help me?}}"},
+        {"p":"**Kein -s, kein to.** {{can}} hat nie ein {{-s}} ({{she can}}, nicht {{she cans}}), und das Verb danach steht ohne {{to}}: {{I can help}}, nicht {{I can to help}}."},
+        {"p":"**Und es steht nicht am Ende.** Im Deutschen wandert das zweite Verb ans Satzende: „Ich kann gut Englisch **sprechen**.“ Im Englischen folgt es direkt auf {{can}}: {{I can speak English well.}}"},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["können","{{I can cook.}}","Ich kann kochen."],
+          ["nicht können","{{He can't come.}}","Er kann nicht kommen."],
+          ["Frage","{{Can you see it?}}","Siehst du es?"],
+          ["Erlaubnis","{{Can I sit here?}}","Darf ich mich hier hinsetzen?"],
+          ["Vergangenheit","{{I couldn't sleep.}}","Ich konnte nicht schlafen."]
+        ] },
+        {"p":"**Erlaubnis und Bitten.** {{Can I…?}} fragt auch „Darf ich…?“: {{Can I open the window?}} Höflicher bittest du mit {{Could you…?}} „Könnten Sie…?“ ({{could}} ist außerdem die Vergangenheit: {{I couldn't sleep}} „Ich konnte nicht schlafen“.)"},
+        {"p":"**Sinne mit can.** {{I can't find my keys.}} „Ich finde meine Schlüssel nicht.“, {{I can hear you.}} „Ich höre dich.“ Beim Sehen, Hören und Finden sagt Englisch oft {{can}}, wo Deutsch es weglässt."},
+        { "ex": [
+          {"t":"Can you speak German?","tr":"Kannst du Deutsch?"},
+          {"t":"She can play the piano.","tr":"Sie kann Klavier spielen."},
+          {"t":"I can't come tomorrow.","tr":"Ich kann morgen nicht kommen."},
+          {"t":"Could you repeat that, please?","tr":"Könnten Sie das bitte wiederholen?"},
+          {"t":"Can I pay by card?","tr":"Kann ich mit Karte zahlen?"},
+          {"t":"I can't hear you!","tr":"Ich höre dich nicht!"}
+        ] },
+        {"tip":"{{can}} und {{can't}} klingen in schneller Rede ähnlich. Im amerikanischen Englisch ist {{can}} meist unbetont und kurz („k'n“), {{can't}} dagegen betont, mit einem hellen „ä“: {{I CAN'T go.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I can to swim.","right":"I can swim.","tr":"Ich kann schwimmen.","why":"Nach {{can}} kein {{to}}."},
+        {"wrong":"She cans drive.","right":"She can drive.","tr":"Sie kann Auto fahren.","why":"{{can}} bekommt nie ein {{-s}}."},
+        {"wrong":"I can English speak.","right":"I can speak English.","tr":"Ich kann Englisch sprechen.","why":"Das Verb kommt direkt nach {{can}}, nicht ans Ende."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Kannst du mir helfen?“","options":["{{Can you help me?}}","{{Do you can help me?}}","{{Can you to help me?}}"],"answer":0,"why":"{{can}} kommt selbst nach vorn, und danach kein {{to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My son ___ swim yet.","tr":"Mein Sohn kann noch nicht schwimmen.","options":["can't","doesn't","isn't"],"answer":0,"why":"„Nicht können“: {{can't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I ___ find my keys!","tr":"Ich finde meine Schlüssel nicht!","options":["can't","don't","am not"],"answer":0,"why":"Beim Finden, Sehen und Hören sagt Englisch gern {{can}}: {{I can't find…}}","from":"say-no-with-dont"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich kann sehr gut Englisch sprechen.","words":["I","can","speak","English","very well."]},
+        {"type":"dialogue","q":"Auf der Straße in Chicago.","lines":[{"who":"Man","t":"Hi! Can I help you?","tr":"Hallo! Kann ich dir helfen?"},{"options":["Yes, please. I can't find the station.","Yes, please. I don't find the station."],"answer":0,"why":"„Ich finde … nicht“: {{I can't find…}}"},{"who":"Man","t":"It's right over there.","tr":"Er ist gleich da drüben."},{"options":["Thank you! Can I walk there?","Thank you! Can I to walk there?"],"answer":0,"why":"Nach {{can}} kein {{to}}."}]},
+        {"type":"say","q":"Bitte höflich: „Könnten Sie das bitte wiederholen?“","answer":"Could you repeat that, please?"},
+        {"type":"free","q":"Jetzt du: Sag zwei Dinge, die du kannst, und eins, das du nicht kannst.","answers":[{"t":"I can cook and I can play the guitar, but I can't swim.","tr":"Ich kann kochen und Gitarre spielen, aber ich kann nicht schwimmen."},{"t":"I can speak German and a little English. I can't drive.","tr":"Ich kann Deutsch und ein bisschen Englisch. Ich kann nicht Auto fahren."}]}
+      ]
+    },
+    {
+      "id": "tell-someone-what-to-do",
+      "unit": 3,
+      "level": "A1",
+      "title": "Sag jemandem, was er tun soll",
+      "summary": "Gib Anweisungen und Tipps und schlag etwas vor: „Take the train. Don't worry! Let's go!“",
+      "topic": "Der Imperativ: {{Go!}}, {{Don't go!}}; {{Let's…}}; {{please}}",
+      "blocks": [
+        {"goal":{"t":"Don't worry, just take a taxi. Let's meet at the hotel!","tr":"Mach dir keine Sorgen, nimm einfach ein Taxi. Treffen wir uns im Hotel!"}},
+        {"dialog":[{"who":"Jess","t":"Hi! Are you at the airport?","tr":"Hi! Bist du am Flughafen?"},{"who":"Tim","t":"Yes, but my phone is almost dead!","tr":"Ja, aber mein Akku ist fast leer!"},{"who":"Jess","t":"OK, listen. Take the train to Union Station.","tr":"Okay, hör zu. Nimm den Zug bis Union Station."},{"who":"Tim","t":"And then?","tr":"Und dann?"},{"who":"Jess","t":"Call me from there. Don't take a taxi, it's too expensive.","tr":"Ruf mich von dort an. Nimm kein Taxi, das ist zu teuer."},{"who":"Tim","t":"Got it. Thanks!","tr":"Alles klar. Danke!"},{"who":"Jess","t":"And let's have dinner together tonight!","tr":"Und lass uns heute Abend zusammen essen!"}]},
+        {"term":"Imperativ","means":"die Form des Verbs, mit der man jemandem sagt, was er tun soll: Komm! Geh nach links!"},
+        {"p":"**Ganz einfach: nur das Verb.** Der englische Imperativ ist die Grundform, ohne {{you}}: {{Come in!}} „Komm rein! / Kommen Sie herein!“, {{Turn left.}} „Biegen Sie links ab.“ Er ist derselbe für einen Freund, für mehrere Leute und für Fremde."},
+        {"p":"**Verbieten: Don't.** {{Don't}} + Verb: {{Don't worry!}} „Keine Sorge!“, {{Don't touch that!}} „Fass das nicht an!“ Auch bei {{be}}: {{Don't be late!}}"},
+        {"p":"**Höflich machen.** Ein bloßer Imperativ klingt schnell schroff. Mit {{please}} wird er freundlich ({{Please sit down.}}); noch höflicher ist eine Frage: {{Could you close the door?}} statt {{Close the door.}}"},
+        {"p":"**Vorschlagen: Let's.** {{Let's}} + Verb heißt „Lass uns…, Wollen wir…“: {{Let's go!}} „Gehen wir!“, {{Let's not wait.}} „Lass uns nicht warten.“"},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["Anweisung","{{Turn right at the light.}}","An der Ampel rechts."],
+          ["Verbot","{{Don't park here.}}","Hier nicht parken."],
+          ["höflich","{{Please wait here.}}","Bitte warten Sie hier."],
+          ["Vorschlag","{{Let's take a break.}}","Machen wir eine Pause."]
+        ] },
+        { "ex": [
+          {"t":"Have a seat.","tr":"Setz dich. / Nehmen Sie Platz."},
+          {"t":"Don't forget your umbrella!","tr":"Vergiss deinen Regenschirm nicht!"},
+          {"t":"Go straight and turn left at the bank.","tr":"Geh geradeaus und an der Bank links."},
+          {"t":"Please be quiet.","tr":"Bitte sei leise."},
+          {"t":"Let's eat!","tr":"Lasst uns essen!"},
+          {"t":"Have a nice day!","tr":"Schönen Tag noch!"}
+        ] },
+        {"tip":"{{Have a good one!}} „Mach's gut!“ und {{Take care!}} „Pass auf dich auf!“ hörst du in den USA zum Abschied überall: Imperative als Wünsche."}
+      ],
+      "mistakes": [
+        {"wrong":"Not worry!","right":"Don't worry!","tr":"Keine Sorge!","why":"Ein Verbot: {{Don't}} + Verb."},
+        {"wrong":"Let's to go!","right":"Let's go!","tr":"Gehen wir!","why":"Nach {{let's}} kein {{to}}."},
+        {"wrong":"Be not late!","right":"Don't be late!","tr":"Komm nicht zu spät!","why":"Auch bei {{be}}: {{Don't be…}}"}
+      ],
+      "practice": [
+        {"type":"choice","q":"Dein Freund ist nervös. „Keine Sorge!“:","options":["{{Don't worry!}}","{{Not worry!}}","{{No worry!}}"],"answer":0,"why":"Ein Verbot: {{Don't}} + Verb."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ be late!","tr":"Komm nicht zu spät!","options":["Don't","Not","No"],"answer":0,"why":"Auch bei {{be}}: {{Don't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Let's ___ a break.","tr":"Machen wir eine Pause.","options":["take","to take","taking"],"answer":0,"why":"Nach {{let's}}: die Grundform."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Biegen Sie an der Ampel rechts ab.","words":["Turn","right","at","the light."]},
+        {"type":"dialogue","q":"Ein Gast kommt zu Besuch.","lines":[{"who":"Guest","t":"Hi! Sorry, I'm a little late.","tr":"Hallo! Entschuldige, ich bin ein bisschen spät dran."},{"options":["No problem! Come in and have a seat.","No problem! Comes in and has a seat."],"answer":0,"why":"Der Imperativ ist die Grundform, ohne {{-s}}."},{"who":"Guest","t":"Thanks! Should I take off my shoes?","tr":"Danke! Soll ich die Schuhe ausziehen?"},{"options":["No, don't worry about it.","No, not worry about it."],"answer":0,"why":"Ein Verbot: {{don't}}."}]},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"___ you close the window, please?","tr":"Könntest du bitte das Fenster zumachen?","options":["Could","Do","Are"],"answer":0,"why":"Eine höfliche Bitte: {{Could you…?}}","from":"say-what-you-can-do"},
+        {"type":"free","q":"Jetzt du: Ein Freund kommt zum ersten Mal in deine Stadt. Gib ihm zwei Tipps und mach einen Vorschlag mit {{Let's}}.","answers":[{"t":"Take the subway, it's fast. Don't eat at the station. Let's meet at the museum!","tr":"Nimm die U-Bahn, die ist schnell. Iss nicht am Bahnhof. Treffen wir uns am Museum!"},{"t":"Visit the old town and try the beer! Let's have dinner on Saturday.","tr":"Besuch die Altstadt und probier das Bier! Lass uns am Samstag zusammen essen."}]}
+      ]
     }
   ]
 }
