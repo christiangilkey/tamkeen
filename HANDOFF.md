@@ -5481,3 +5481,20 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
   zh (31), ja (79), en (16 heteronyms), ko (particles), pt (o/e), fr (y), tl (ng), fa (short vowels in the word).
   Azure characters for all 17 courses ≈ 470,000 (+ samples and remakes); Azure never refused. Not done: publishing
   (a release; ask the owner).
+
+## Courses in the Library (2026-10-25; branch `courses-library`, worktree `tamkeen-courses`, NOT merged, NOT pushed)
+Owner: "add all the grammar courses and the basic courses to tamkeens library tab, under a new bubble in the topbar named
+Courses, this should be the first bubble now on the far left, It should also be preselected when a user first opens the
+app"; asked, he chose Library only (the Vocab page loses its Basics/Grammar tabs).
+- **Branch**: `courses-library` = basics-course + the 16 `basics-<lang>` branches + `grammar-course` (docs/course/index.json
+  rebuilt from every course.json at each merge; grammar merged cleanly), then 25a4f853.
+- **library.js**: KINDS starts with `courses` (href `#/library`, the default kind when no `show`/feed); Podcasts is
+  `#/library?show=podcasts` (All episodes, status filters, removed feed, back links in books/discover/reels/websites
+  go to their own kinds). Courses: `.courses-kind` hides the episode tools; Basics | Grammar tabs (coursePanel,
+  grammarPanel), last tab in localStorage `courseTab`. vocab.js: tabs removed. CSS: grammar rows wrap (global button
+  nowrap) and `.gu-list/.gu-lessons` columns `minmax(0,1fr)` (they grew wider than the page).
+- i18n: `tools/i18n/tr/<code>/74-courses-library.txt` (4 strings × 16). Test: tests/js/library-courses.test.mjs.
+- **Checked**: 1035 JS, 538 pytest, i18n --check; desktop preview (throwaway data) and phone build at 375 px (course
+  requests pointed at the local docs/ in the preview, since the phones load published courses): Courses first and
+  selected, Basics and Grammar tabs, Podcasts and Vocab unchanged otherwise. Not checked: a real phone, the web app on
+  GitHub Pages (courses not published yet), right-to-left UI languages.
