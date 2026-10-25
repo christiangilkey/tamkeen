@@ -38,12 +38,12 @@
    "title": "अंग्रेज़ी व्याकरण",
    "variety": "अमेरिकी अंग्रेज़ी (American English)",
    "units": 8,
-   "lessons": 13,
+   "lessons": 20,
    "levels": [
     "A1"
    ],
-   "bytes": 92995,
-   "sha256": "addfb170825884b1932bae19e6f5c69ac400aec866d8c42e4a953b5438a4c829"
+   "bytes": 142890,
+   "sha256": "d8d39aad91f85843789436748486cc228309f0fd2ce3b0e5ef261fbd69da188d"
   }
  }
 }

@@ -614,6 +614,316 @@
         {"type":"say","q":"पूछिए: “टिकट कितने के हैं?”","answer":"How much are the tickets?"},
         {"type":"free","q":"आपकी बारी: एक दुकान में किसी चीज़ का दाम पूछिए, और दूसरे रंग वाली के बारे में भी।","answers":[{"t":"How much is this bag? And the black one?","tr":"यह बैग कितने का है? और काला वाला?"},{"t":"Excuse me, how much are these jeans? Do you have them in blue?","tr":"माफ़ कीजिए, यह जींस कितने की है? क्या नीले रंग में है?"}]}
       ]
+    },
+    {
+      "id": "every-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "रोज़ क्या करते हैं: present simple",
+      "summary": "अपनी दिनचर्या बताइए: “I get up at six. My wife works in a bank.”",
+      "topic": "{{present simple}}: {{I work}}, {{she works}}; {{he / she / it}} के साथ {{-s}}; {{always, usually, sometimes, never}}",
+      "blocks": [
+        {"goal":{"t":"I get up at six and go for a walk.","tr":"मैं छह बजे उठता हूँ और टहलने जाता हूँ।"}},
+        {"dialog":[{"who":"रवि","t":"I get up at six every day.","tr":"मैं रोज़ छह बजे उठता हूँ।"},{"who":"सारा","t":"Wow, early! I get up at eight.","tr":"वाह, जल्दी! मैं आठ बजे उठती हूँ।"},{"who":"रवि","t":"My wife gets up at five. She goes to the gym.","tr":"मेरी पत्नी पाँच बजे उठती हैं। वे जिम जाती हैं।"},{"who":"सारा","t":"And your son?","tr":"और आपका बेटा?"},{"who":"रवि","t":"He sleeps until ten on weekends!","tr":"वह छुट्टी के दिन दस बजे तक सोता है!"}]},
+        {"term":"काल","means":"क्रिया का वह रूप जो बताता है कि बात कब की है: अभी, रोज़, पहले या बाद में।"},
+        {"p":"**रोज़ की बातें: {{present simple}}.** आदतें, रोज़ के काम और हमेशा सच बातें क्रिया के मूल रूप में: {{I work}}, {{we eat}}, {{they live}}। हिंदी की तरह “-ता हूँ / -ती हूँ” वाला फ़र्क़ नहीं: आदमी और औरत दोनों {{I work}} कहते हैं।"},
+        {"p":"**he, she, it के साथ -s.** बस एक बदलाव है: {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ क्रिया में {{-s}} लगता है: {{she works}}, {{Ravi lives}}, {{it rains}}। हिंदी बोलने वाले इसे सबसे ज़्यादा भूलते हैं, इसलिए ध्यान से सुनिए।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["{{I, you, we, they}}","{{I work.}}","मैं काम करता / करती हूँ।"],
+          ["{{he, she, it}}","{{She works.}}","वह काम करती है।"],
+          ["{{s, sh, ch, o}} के बाद {{-es}}","{{He watches.}} {{She goes.}}","वह देखता है। वह जाती है।"],
+          ["{{have}}","{{He has.}}","उसके पास है।"]
+        ] },
+        {"p":"**कितनी बार.** {{always}} “हमेशा”, {{usually}} “आम तौर पर”, {{often}} “अक्सर”, {{sometimes}} “कभी-कभी”, {{never}} “कभी नहीं”। ये क्रिया से **पहले** आते हैं ({{I usually walk to work.}}), लेकिन {{am / is / are}} के **बाद** ({{She is always late.}})।"},
+        { "ex": [
+          {"t":"I work in a bank.","tr":"मैं बैंक में काम करता हूँ।"},
+          {"t":"My wife teaches English.","tr":"मेरी पत्नी अंग्रेज़ी पढ़ाती हैं।"},
+          {"t":"He drinks tea every morning.","tr":"वह रोज़ सुबह चाय पीता है।"},
+          {"t":"We always eat dinner at eight.","tr":"हम हमेशा आठ बजे खाना खाते हैं।"},
+          {"t":"She never drinks coffee.","tr":"वह कभी कॉफ़ी नहीं पीती।","note":"{{never}} में ही “नहीं” है: {{not}} नहीं लगता।"},
+          {"t":"It rains a lot in July.","tr":"जुलाई में बहुत बारिश होती है।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"She work in a hospital.","right":"She works in a hospital.","tr":"वह अस्पताल में काम करती है।","why":"{{she}} के साथ {{-s}}: {{works}}।"},
+        {"wrong":"I am working in a bank.","right":"I work in a bank.","tr":"मैं बैंक में काम करता हूँ।","why":"पक्की नौकरी, आदत: {{present simple}}। {{I am working}} का मतलब है “अभी, या कुछ समय के लिए” (पाठ 17)।"},
+        {"wrong":"I go always to the gym.","right":"I always go to the gym.","tr":"मैं हमेशा जिम जाता हूँ।","why":"{{always}} क्रिया से पहले।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My brother ___ in Dubai.","tr":"मेरा भाई दुबई में रहता है।","options":["lives","live","living"],"answer":0,"why":"भाई ({{he}}): {{-s}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ dinner at eight.","tr":"हम आठ बजे खाना खाते हैं।","options":["eat","eats","eating"],"answer":0,"why":"{{we}}: बिना {{-s}}।"},
+        {"type":"choice","q":"“वह हमेशा देर से आती है।”","options":["{{She is always late.}}","{{She always is late.}}","{{Always she late.}}"],"answer":0,"why":"{{always}} {{is}} के बाद।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं आम तौर पर पैदल काम पर जाता हूँ।","words":["I","usually","walk","to","work."]},
+        {"type":"dialogue","q":"एक नया साथी आपके बारे में पूछता है।","from":"whose-is-it","lines":[{"who":"साथी","t":"Tell me about your family.","tr":"अपने परिवार के बारे में बताइए।"},{"options":["My wife is a doctor. She works at a hospital.","My wife is a doctor. He work at a hospital."],"answer":0,"why":"पत्नी: {{she}}, और {{works}}।"},{"who":"साथी","t":"And your kids?","tr":"और आपके बच्चे?"},{"options":["They go to school near our house.","They goes to school near our house."],"answer":0,"why":"{{they}}: बिना {{-s}}।"}]},
+        {"type":"say","q":"एक आदमी के बारे में कहिए: “वह रोज़ सुबह चाय पीता है।”","answer":"He drinks tea every morning."},
+        {"type":"free","q":"आपकी बारी: अपने दिन की तीन बातें बताइए, और परिवार के किसी एक की भी (उसमें {{-s}} याद रखिए)।","answers":[{"t":"I get up at seven and drink coffee. Then I take the bus to work. My husband works from home.","tr":"मैं सात बजे उठती हूँ और कॉफ़ी पीती हूँ। फिर बस से काम पर जाती हूँ। मेरे पति घर से काम करते हैं।"},{"t":"I usually cook dinner. My son plays cricket every evening.","tr":"आम तौर पर मैं खाना बनाता हूँ। मेरा बेटा हर शाम क्रिकेट खेलता है।"}]}
+      ]
+    },
+    {
+      "id": "do-questions",
+      "unit": 3,
+      "level": "A1",
+      "title": "सवाल पूछिए: do, does",
+      "summary": "“Do you like tea?”, “Where does she work?”, “I don't eat meat.”",
+      "topic": "{{do}} / {{does}} सवाल में; {{don't}} / {{doesn't}}; सवाल वाले शब्द + {{do}}",
+      "blocks": [
+        {"goal":{"t":"Where do you live? — I live in Pune.","tr":"आप कहाँ रहते हैं? — मैं पुणे में रहता हूँ।"}},
+        {"dialog":[{"who":"माइक","t":"Where do you work?","tr":"आप कहाँ काम करती हैं?"},{"who":"नेहा","t":"I work at a software company.","tr":"मैं एक सॉफ़्टवेयर कंपनी में काम करती हूँ।"},{"who":"माइक","t":"Do you like it?","tr":"क्या आपको वह अच्छा लगता है?"},{"who":"नेहा","t":"Yes, I do. And you? Where do you work?","tr":"हाँ। और आप? आप कहाँ काम करते हैं?"},{"who":"माइक","t":"I don't work. I'm a student.","tr":"मैं काम नहीं करता। मैं स्टूडेंट हूँ।"},{"who":"नेहा","t":"Oh! What do you study?","tr":"अच्छा! आप क्या पढ़ते हैं?"}]},
+        {"term":"सहायक क्रिया","means":"मुख्य क्रिया की मदद करने वाली छोटी क्रिया, जैसे {{do}}, {{is}}, {{have}}। सवाल और “नहीं” बनाने में काम आती है।"},
+        {"p":"**सवाल के लिए do.** {{am / is / are}} वाले वाक्यों में क्रिया आगे चली जाती है (पाठ 3)। बाक़ी क्रियाओं ({{live}}, {{work}}, {{like}}) के साथ ऐसा नहीं होता: उनके आगे {{do}} लगता है। {{You live in Pune.}} → {{Do you live in Pune?}} यह हिंदी के “क्या” जैसा लगता है, लेकिन यह क्रिया है, और बदलती है:"},
+        { "table": [
+          ["","सवाल","नहीं"],
+          ["{{I, you, we, they}}","{{Do you work?}}","{{I don't work.}}"],
+          ["{{he, she, it}}","{{Does she work?}}","{{She doesn't work.}}"]
+        ] },
+        {"p":"**-s एक ही बार.** {{does}} और {{doesn't}} में {{-s}} पहले से है, इसलिए मुख्य क्रिया अपने मूल रूप में रहती है: {{Does she work?}} (न कि {{Does she works?}}), {{He doesn't eat meat.}}"},
+        {"p":"**सवाल वाले शब्द + do.** {{where}}, {{what}}, {{when}}, {{why}}, {{how}} पहले, फिर {{do / does}}, फिर कर्ता: {{Where do you live?}}, {{What does he do?}} “वह क्या करता है?” (यानी उसका काम क्या है)। भारत की बोलचाल में {{Where you live?}} बहुत सुनाई देता है: अमेरिका में {{do}} ज़रूरी है। छोटे जवाब: {{Yes, I do.}}, {{No, she doesn't.}}"},
+        { "ex": [
+          {"t":"Do you speak English?","tr":"क्या आप अंग्रेज़ी बोलते हैं?"},
+          {"t":"Does your husband cook?","tr":"क्या आपके पति खाना बनाते हैं?"},
+          {"t":"I don't eat meat.","tr":"मैं मांस नहीं खाता।"},
+          {"t":"She doesn't drink coffee.","tr":"वह कॉफ़ी नहीं पीती।"},
+          {"t":"What time do you get up?","tr":"आप कितने बजे उठते हैं?"},
+          {"t":"Where does he work?","tr":"वह कहाँ काम करता है?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Where you live?","right":"Where do you live?","tr":"आप कहाँ रहते हैं?","why":"सवाल में {{do}} चाहिए।"},
+        {"wrong":"Does she works here?","right":"Does she work here?","tr":"क्या वह यहाँ काम करती है?","why":"{{-s}} {{does}} में है, मुख्य क्रिया में नहीं।"},
+        {"wrong":"I not like coffee.","right":"I don't like coffee.","tr":"मुझे कॉफ़ी पसंद नहीं।","why":"“नहीं”: {{don't}} + क्रिया।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"___ you speak Hindi?","tr":"क्या आप हिंदी बोलते हैं?","options":["Do","Are","Does"],"answer":0,"why":"{{you}} के साथ {{Do}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Where ___ your sister work?","tr":"आपकी बहन कहाँ काम करती है?","options":["does","do","is"],"answer":0,"why":"बहन ({{she}}): {{does}}।"},
+        {"type":"choice","q":"“वह (आदमी) मांस नहीं खाता।”","options":["{{He doesn't eat meat.}}","{{He don't eat meat.}}","{{He doesn't eats meat.}}"],"answer":0,"why":"{{he}}: {{doesn't}} + मूल रूप।","from":"every-day"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"आप कितने बजे उठते हैं?","words":["What","time","do","you","get","up?"]},
+        {"type":"dialogue","q":"एक पार्टी में बातचीत।","from":"every-day","lines":[{"who":"माइक","t":"What do you do?","tr":"आप क्या करते हैं?"},{"options":["I'm a nurse. I work at a hospital.","I'm a nurse. I working at a hospital."],"answer":0,"why":"रोज़ का काम: {{I work}} (पाठ 14)।"},{"who":"माइक","t":"Do you like your job?","tr":"क्या आपको अपनी नौकरी पसंद है?"},{"options":["Yes, I do.","Yes, I like."],"answer":0,"why":"छोटा जवाब: {{Yes, I do.}}"}]},
+        {"type":"say","q":"पूछिए: “वह (औरत) कहाँ काम करती है?”","answer":"Where does she work?"},
+        {"type":"free","q":"आपकी बारी: किसी नए दोस्त से {{do}} या {{does}} के साथ तीन सवाल पूछिए।","answers":[{"t":"Where do you live? What do you do? Do you have kids?","tr":"आप कहाँ रहते हैं? आप क्या करते हैं? क्या आपके बच्चे हैं?"},{"t":"Do you like Indian food? Where does your family live?","tr":"क्या आपको भारतीय खाना पसंद है? आपका परिवार कहाँ रहता है?"}]}
+      ]
+    },
+    {
+      "id": "what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "पसंद-नापसंद: like, love, hate",
+      "summary": "“I like cricket”, “She loves dancing”, “I don't like spicy food”: “मुझे पसंद है” को उलटिए।",
+      "topic": "{{like}}, {{love}}, {{hate}}: व्यक्ति कर्ता; {{like + -ing}}; {{I like}} और {{I'd like}} का फ़र्क़",
+      "blocks": [
+        {"goal":{"t":"I love Indian food, but I don't like very spicy food.","tr":"मुझे भारतीय खाना बहुत पसंद है, लेकिन बहुत तीखा खाना पसंद नहीं।"}},
+        {"dialog":[{"who":"सारा","t":"Do you like cricket?","tr":"क्या आपको क्रिकेट पसंद है?"},{"who":"अमित","t":"I love cricket! Do you?","tr":"मुझे क्रिकेट बहुत पसंद है! और आपको?"},{"who":"सारा","t":"Not really. I like tennis.","tr":"ख़ास नहीं। मुझे टेनिस पसंद है।"},{"who":"अमित","t":"My wife likes tennis too. She plays every Sunday.","tr":"मेरी पत्नी को भी टेनिस पसंद है। वे हर रविवार खेलती हैं।"},{"who":"सारा","t":"And what do you like to do on weekends?","tr":"और छुट्टी के दिन आपको क्या करना पसंद है?"},{"who":"अमित","t":"I like cooking. And I love watching movies.","tr":"मुझे खाना बनाना पसंद है। और फ़िल्में देखना बहुत पसंद है।"}]},
+        {"p":"**“मुझे पसंद है” → I like.** हिंदी में व्यक्ति “मुझे” बनता है और चीज़ कर्ता: “मुझे क्रिकेट पसंद है”। अंग्रेज़ी में व्यक्ति कर्ता है और {{like}} क्रिया: {{I like cricket}}, शब्दशः “मैं पसंद करता हूँ क्रिकेट”। ({{To me cricket is liked}} नहीं!)"},
+        {"p":"**ताक़त के हिसाब से:** {{love}} “बहुत पसंद है”, {{like}} “पसंद है”, {{don't like}} “पसंद नहीं”, {{hate}} “बिल्कुल पसंद नहीं”। ये आम क्रियाएँ हैं: {{she likes}} में {{-s}} (पाठ 14), और सवाल {{Do you like…?}} (पाठ 15)।"},
+        { "table": [
+          ["हिंदी","अंग्रेज़ी"],
+          ["मुझे चाय पसंद है।","{{I like tea.}}"],
+          ["उसे नाचना बहुत पसंद है।","{{She loves dancing.}}"],
+          ["हमें यहाँ रहना अच्छा लगता है।","{{We like living here.}}"],
+          ["क्या आपको मछली पसंद है?","{{Do you like fish?}}"],
+          ["मुझे बारिश पसंद नहीं।","{{I don't like the rain.}}"]
+        ] },
+        {"p":"**कोई काम पसंद हो:** {{like}} + {{-ing}}: {{I like cooking}} “मुझे खाना बनाना पसंद है”। ({{I like to cook}} भी सही है।)"},
+        {"p":"**I like या I'd like?** {{I like coffee}} = मुझे कॉफ़ी पसंद है (आम तौर पर)। {{I'd like a coffee}} = मुझे अभी एक कॉफ़ी चाहिए (पाठ 5)।"},
+        { "ex": [
+          {"t":"I like music.","tr":"मुझे संगीत पसंद है।"},
+          {"t":"My son loves pizza.","tr":"मेरे बेटे को पिज़्ज़ा बहुत पसंद है।"},
+          {"t":"She doesn't like cold weather.","tr":"उसे ठंडा मौसम पसंद नहीं।"},
+          {"t":"Do you like your new job?","tr":"क्या आपको अपनी नई नौकरी पसंद है?"},
+          {"t":"They love watching cricket.","tr":"उन्हें क्रिकेट देखना बहुत पसंद है।"},
+          {"t":"I hate getting up early.","tr":"मुझे जल्दी उठना बिल्कुल पसंद नहीं।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Me like tea.","right":"I like tea.","tr":"मुझे चाय पसंद है।","why":"“मुझे” → {{I}}, कर्ता।"},
+        {"wrong":"She like dancing.","right":"She likes dancing.","tr":"उसे नाचना पसंद है।","why":"{{she}}: {{likes}}।"},
+        {"wrong":"I like very much tea.","right":"I like tea very much.","tr":"मुझे चाय बहुत पसंद है।","why":"{{very much}} वाक्य के आख़िर में आता है।"}
+      ],
+      "practice": [
+        {"type":"choice","q":"“मुझे क्रिकेट पसंद है।”","options":["{{I like cricket.}}","{{Me like cricket.}}","{{Cricket is liking me.}}"],"answer":0,"why":"व्यक्ति कर्ता: {{I like}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My daughter ___ chocolate.","tr":"मेरी बेटी को चॉकलेट बहुत पसंद है।","options":["loves","love","is loving"],"answer":0,"why":"बेटी ({{she}}): {{loves}}।","from":"every-day"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I like ___ in the morning.","tr":"मुझे सुबह दौड़ना पसंद है।","options":["running","run","runs"],"answer":0,"why":"पसंद का काम: {{-ing}}।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मुझे चाय बहुत पसंद है।","words":["I","like","tea","very","much."]},
+        {"type":"dialogue","q":"एक नई दोस्त से बात।","from":"do-questions","lines":[{"who":"लीसा","t":"Do you like American food?","tr":"क्या आपको अमेरिकी खाना पसंद है?"},{"options":["Yes, I do. I love burgers!","Yes, I like. I love burgers!"],"answer":0,"why":"छोटा जवाब: {{Yes, I do.}}"},{"who":"लीसा","t":"What about spicy food?","tr":"और तीखा खाना?"},{"options":["I love it! My wife doesn't like it.","I love it! My wife don't like it."],"answer":0,"why":"पत्नी ({{she}}): {{doesn't}}।"}]},
+        {"type":"say","q":"कहिए: “मुझे जल्दी उठना बिल्कुल पसंद नहीं।”","answer":"I hate getting up early."},
+        {"type":"free","q":"आपकी बारी: दो चीज़ें बताइए जो आपको पसंद हैं, और एक जो नहीं।","answers":[{"t":"I love music and I like reading. I don't like crowded places.","tr":"मुझे संगीत बहुत पसंद है और पढ़ना पसंद है। मुझे भीड़ वाली जगहें पसंद नहीं।"},{"t":"I like cooking and watching movies, but I hate cold weather.","tr":"मुझे खाना बनाना और फ़िल्में देखना पसंद है, लेकिन ठंडा मौसम बिल्कुल पसंद नहीं।"}]}
+      ]
+    },
+    {
+      "id": "right-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "अभी क्या हो रहा है: present continuous",
+      "summary": "“I'm cooking”, “It's raining”, “What are you doing?”, और कब {{-ing}} नहीं लगता।",
+      "topic": "{{am / is / are + -ing}}; अभी या रोज़; {{know, like, want, have}} के साथ {{-ing}} नहीं",
+      "blocks": [
+        {"goal":{"t":"I'm cooking dinner right now. Can I call you back?","tr":"मैं अभी खाना बना रहा हूँ। क्या मैं बाद में फ़ोन करूँ?"}},
+        {"dialog":[{"who":"माँ","t":"Hi, Arjun! What are you doing?","tr":"हाय अर्जुन! क्या कर रहे हो?"},{"who":"अर्जुन","t":"I'm studying, Mom. I have an exam tomorrow.","tr":"पढ़ रहा हूँ, माँ। कल मेरी परीक्षा है।"},{"who":"माँ","t":"Is your roommate there?","tr":"क्या तुम्हारा रूममेट वहाँ है?"},{"who":"अर्जुन","t":"Yes, he's watching TV.","tr":"हाँ, वह टीवी देख रहा है।"},{"who":"माँ","t":"Is it raining there?","tr":"क्या वहाँ बारिश हो रही है?"},{"who":"अर्जुन","t":"Yes, it's raining a lot.","tr":"हाँ, बहुत बारिश हो रही है।"}]},
+        {"p":"**अभी, इस पल: am/is/are + -ing.** हिंदी के “रहा हूँ / रही है” की तरह: {{I'm studying}} “मैं पढ़ रहा हूँ”, {{It's raining}} “बारिश हो रही है”। दोनों हिस्से ज़रूरी हैं: {{am / is / are}} और क्रिया + {{-ing}}।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["{{I}}","{{I'm working.}}","मैं काम कर रहा / रही हूँ।"],
+          ["{{he, she, it}}","{{She's sleeping.}}","वह सो रही है।"],
+          ["{{you, we, they}}","{{They're playing.}}","वे खेल रहे हैं।"],
+          ["सवाल","{{What are you doing?}}","तुम क्या कर रहे हो?"]
+        ] },
+        {"p":"**अभी या रोज़?** {{I drink tea}} = मैं चाय पीता हूँ (आदत, पाठ 14); {{I'm drinking tea}} = मैं (अभी) चाय पी रहा हूँ। तय मुलाक़ातों के लिए भी यही रूप: {{I'm meeting Ravi tomorrow}} “मैं कल रवि से मिल रहा हूँ” (पाठ 27)।"},
+        {"p":"**कुछ क्रियाओं के साथ -ing नहीं.** जो क्रियाएँ किसी काम की नहीं, हालत की बात करती हैं, उनके साथ अंग्रेज़ी में {{-ing}} नहीं लगता: {{know}}, {{understand}}, {{like}}, {{want}}, {{need}}, {{have}} (किसी के पास होना)। {{I know}} (न कि {{I am knowing}}), {{I have a car}} (न कि {{I am having a car}})। भारत की अंग्रेज़ी में {{I am knowing}} आम है, लेकिन अमेरिका में यह ग़लत लगता है।"},
+        { "ex": [
+          {"t":"What are you doing?","tr":"क्या कर रहे हो?"},
+          {"t":"I'm waiting for the bus.","tr":"मैं बस का इंतज़ार कर रहा हूँ।"},
+          {"t":"She's talking on the phone.","tr":"वह फ़ोन पर बात कर रही है।"},
+          {"t":"The kids are playing outside.","tr":"बच्चे बाहर खेल रहे हैं।"},
+          {"t":"It's raining again.","tr":"फिर से बारिश हो रही है।"},
+          {"t":"I know him.","tr":"मैं उसे जानता हूँ।","note":"{{know}} के साथ {{-ing}} नहीं।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I am knowing the answer.","right":"I know the answer.","tr":"मुझे जवाब पता है।","why":"{{know}} के साथ {{-ing}} नहीं लगता।"},
+        {"wrong":"She cooking now.","right":"She's cooking now.","tr":"वह अभी खाना बना रही है।","why":"{{is}} ज़रूरी है: {{she's cooking}}।"},
+        {"wrong":"I am having two kids.","right":"I have two kids.","tr":"मेरे दो बच्चे हैं।","why":"किसी का होना: {{have}}, बिना {{-ing}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Look! It ___ raining.","tr":"देखो! बारिश हो रही है।","options":["is","are","does"],"answer":0,"why":"{{it}}: {{is}} + {{-ing}}।"},
+        {"type":"choice","q":"“मुझे जवाब पता है।”","options":["{{I know the answer.}}","{{I am knowing the answer.}}","{{I knowing the answer.}}"],"answer":0,"why":"{{know}}: {{-ing}} नहीं।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"The kids ___ playing outside.","tr":"बच्चे बाहर खेल रहे हैं।","options":["are","is","am"],"answer":0,"why":"कई बच्चे: {{are}}।"},
+        {"type":"choice","q":"“वह (औरत) बैंक में काम करती है” (उसकी पक्की नौकरी)।","options":["{{She works in a bank.}}","{{She is working in a bank.}}"],"answer":0,"why":"पक्की नौकरी: {{present simple}} (पाठ 14)।","from":"every-day"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं बस का इंतज़ार कर रहा हूँ।","words":["I'm","waiting","for","the","bus."]},
+        {"type":"dialogue","q":"आपका दोस्त फ़ोन करता है।","lines":[{"who":"दोस्त","t":"Hey! What are you doing?","tr":"हाय! क्या कर रहे हो?"},{"options":["I'm watching a movie with my sister.","I watch a movie with my sister."],"answer":0,"why":"अभी: {{I'm watching}}।"},{"who":"दोस्त","t":"Do you want to come for dinner?","tr":"खाने पर आओगे?"},{"options":["Sorry, I'm busy tonight.","Sorry, I'm wanting to stay home."],"answer":0,"why":"{{want}} के साथ {{-ing}} नहीं; और {{I'm busy}} सबसे सीधा जवाब है।"}]},
+        {"type":"free","q":"आपकी बारी: कोई पूछता है {{What are you doing?}} बताइए आप और आपके घर का कोई और अभी क्या कर रहे हैं।","answers":[{"t":"I'm learning English, and my husband is cooking dinner.","tr":"मैं अंग्रेज़ी सीख रही हूँ, और मेरे पति खाना बना रहे हैं।"},{"t":"I'm drinking tea. My kids are doing their homework.","tr":"मैं चाय पी रहा हूँ। मेरे बच्चे होमवर्क कर रहे हैं।"}]}
+      ]
+    },
+    {
+      "id": "time-and-days",
+      "unit": 3,
+      "level": "A1",
+      "title": "कब: at, on, in",
+      "summary": "समय पूछिए और बताइए: “at seven”, “on Monday”, “in the morning”, “in May”।",
+      "topic": "{{What time is it?}}; {{at}} (घड़ी), {{on}} (दिन, तारीख़), {{in}} (महीना, साल, दिन का हिस्सा); {{every, next, last}} बिना पूर्वसर्ग",
+      "blocks": [
+        {"goal":{"t":"The meeting is on Monday at ten in the morning.","tr":"मीटिंग सोमवार को सुबह दस बजे है।"}},
+        {"dialog":[{"who":"टॉम","t":"What time is it?","tr":"कितने बजे हैं?"},{"who":"प्रिया","t":"It's a quarter to nine.","tr":"पौने नौ बजे हैं।"},{"who":"टॉम","t":"Oh no! My class is at nine.","tr":"अरे! मेरी क्लास नौ बजे है।"},{"who":"प्रिया","t":"Is it every day?","tr":"क्या रोज़ होती है?"},{"who":"टॉम","t":"No, on Mondays and Wednesdays.","tr":"नहीं, सोमवार और बुधवार को।"},{"who":"प्रिया","t":"Good luck!","tr":"शुभकामनाएँ!"}]},
+        {"p":"**हिंदी का एक “को”, अंग्रेज़ी के तीन शब्द.** हिंदी में “सोमवार को”, “शाम को”, “सात बजे”। अंग्रेज़ी में:"},
+        { "table": [
+          ["","किसके साथ","उदाहरण"],
+          ["{{at}}","घड़ी का समय","{{at seven}}, {{at 9:30}}, {{at noon}}, {{at night}}"],
+          ["{{on}}","दिन और तारीख़","{{on Monday}}, {{on May 5th}}, {{on the weekend}}"],
+          ["{{in}}","दिन का हिस्सा, महीना, साल","{{in the morning}}, {{in May}}, {{in 2025}}"]
+        ] },
+        {"p":"**समय बताना.** {{What time is it?}} — {{It's seven.}} / {{It's seven o'clock.}} / {{It's 7:30}} ({{seven thirty}})। पुराने ढंग से {{a quarter past seven}} “सवा सात”, {{half past seven}} “साढ़े सात”, {{a quarter to eight}} “पौने आठ”; लेकिन अमेरिका में ज़्यादातर लोग अंक ही बोलते हैं: {{seven fifteen}}, {{seven forty-five}}।"},
+        {"p":"**बिना पूर्वसर्ग:** {{every}}, {{last}}, {{next}}, {{this}}, {{today}}, {{tomorrow}} के साथ कुछ नहीं लगता: {{every day}}, {{next week}}, {{last night}}, {{this morning}}।"},
+        { "ex": [
+          {"t":"I get up at six.","tr":"मैं छह बजे उठता हूँ।"},
+          {"t":"The store opens at nine.","tr":"दुकान नौ बजे खुलती है।"},
+          {"t":"We don't work on Sundays.","tr":"हम रविवार को काम नहीं करते।"},
+          {"t":"My birthday is in March.","tr":"मेरा जन्मदिन मार्च में है।"},
+          {"t":"I go for a walk in the evening.","tr":"मैं शाम को टहलने जाता हूँ।"},
+          {"t":"See you next week!","tr":"अगले हफ़्ते मिलते हैं!"}
+        ] },
+        {"tip":"दिनों और महीनों के नाम अंग्रेज़ी में हमेशा बड़े अक्षर (capital) से लिखे जाते हैं: {{Monday}}, {{May}}। हिंदी में बड़े-छोटे अक्षर नहीं होते; अंग्रेज़ी में वाक्य की शुरुआत, नाम, दिन, महीने और {{I}} हमेशा बड़े अक्षर से।"}
+      ],
+      "mistakes": [
+        {"wrong":"See you on next Monday.","right":"See you next Monday.","tr":"अगले सोमवार को मिलते हैं।","why":"{{next}} के साथ पूर्वसर्ग नहीं लगता।"},
+        {"wrong":"The class is in Monday.","right":"The class is on Monday.","tr":"क्लास सोमवार को है।","why":"दिन: {{on}}।"},
+        {"wrong":"I wake up at morning.","right":"I wake up in the morning.","tr":"मैं सुबह उठता हूँ।","why":"दिन का हिस्सा: {{in the morning}} (लेकिन {{at night}})।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My class is ___ nine.","tr":"मेरी क्लास नौ बजे है।","options":["at","on","in"],"answer":0,"why":"घड़ी का समय: {{at}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We don't work ___ Sundays.","tr":"हम रविवार को काम नहीं करते।","options":["on","at","in"],"answer":0,"why":"दिन: {{on}}।","from":"do-questions"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"My birthday is ___ March.","tr":"मेरा जन्मदिन मार्च में है।","options":["in","on","at"],"answer":0,"why":"महीना: {{in}}।"},
+        {"type":"choice","q":"“अगले हफ़्ते मिलते हैं!”","options":["{{See you next week!}}","{{See you on next week!}}","{{See you in next week!}}"],"answer":0,"why":"{{next}} के साथ कुछ नहीं।"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैं शाम को टहलने जाता हूँ।","words":["I","go","for a walk","in","the","evening."]},
+        {"type":"dialogue","q":"डॉक्टर के क्लिनिक में अपॉइंटमेंट।","from":"ask-for-things","lines":[{"who":"रिसेप्शनिस्ट","t":"When would you like to come?","tr":"आप कब आना चाहेंगे?"},{"options":["Can I come on Tuesday?","Can I come in Tuesday?"],"answer":0,"why":"दिन: {{on}}।"},{"who":"रिसेप्शनिस्ट","t":"Sure. Is ten o'clock OK?","tr":"ज़रूर। दस बजे ठीक है?"},{"options":["Yes, ten in the morning is fine.","Yes, ten at morning is fine."],"answer":0,"why":"{{in the morning}}।"}]},
+        {"type":"free","q":"आपकी बारी: बताइए आप कितने बजे उठते हैं, किस दिन आपकी छुट्टी होती है, और आपका जन्मदिन किस महीने में है।","answers":[{"t":"I get up at six thirty. I don't work on Saturdays. My birthday is in October.","tr":"मैं साढ़े छह बजे उठता हूँ। शनिवार को मैं काम नहीं करता। मेरा जन्मदिन अक्टूबर में है।"},{"t":"I usually wake up at seven. On Sundays I sleep late. My birthday is on June 12th.","tr":"आम तौर पर मैं सात बजे उठती हूँ। रविवार को देर तक सोती हूँ। मेरा जन्मदिन 12 जून को है।"}]}
+      ]
+    },
+    {
+      "id": "was-were",
+      "unit": 3,
+      "level": "A1",
+      "title": "कल आप कहाँ थे: was, were",
+      "summary": "पहली बार बीती बात: “I was at home yesterday”, “The food was great.”",
+      "topic": "{{was}} / {{were}}; {{wasn't}} / {{weren't}}; {{Was it…? Were you…?}}; {{there was / there were}}",
+      "blocks": [
+        {"goal":{"t":"I was in Agra last weekend. The Taj Mahal was beautiful.","tr":"पिछले वीकेंड मैं आगरा में था। ताजमहल बहुत सुंदर था।"}},
+        {"dialog":[{"who":"माइक","t":"Where were you yesterday?","tr":"कल आप कहाँ थे?"},{"who":"रवि","t":"I was at home. I was sick.","tr":"मैं घर पर था। मैं बीमार था।"},{"who":"माइक","t":"Oh no! Are you OK now?","tr":"अरे! अब ठीक हो?"},{"who":"रवि","t":"Yes, I'm fine. Were you at the party?","tr":"हाँ, मैं ठीक हूँ। क्या आप पार्टी में थे?"},{"who":"माइक","t":"Yes, I was. It was great! There were a lot of people.","tr":"हाँ। बहुत बढ़िया थी! बहुत लोग थे।"}]},
+        {"p":"**am/is → was, are → were.** हिंदी का “था / थी / थे” लिंग से बदलता है; अंग्रेज़ी का {{was}} / {{were}} सिर्फ़ व्यक्ति से: {{I}}, {{he}}, {{she}}, {{it}} के साथ {{was}}; {{you}}, {{we}}, {{they}} के साथ {{were}}। आदमी हो या औरत: {{I was}}।"},
+        { "table": [
+          ["","अभी","बीता","नहीं"],
+          ["{{I, he, she, it}}","{{am / is}}","{{was}}","{{wasn't}}"],
+          ["{{you, we, they}}","{{are}}","{{were}}","{{weren't}}"]
+        ] },
+        {"p":"**सवाल:** पाठ 3 की तरह क्रिया आगे: {{Were you at home?}}, {{Was it good?}} — {{Yes, it was.}}, {{No, I wasn't.}} और {{there was / there were}} “था / थे” (पाठ 10): {{There were a lot of people.}}"},
+        {"p":"**बीते समय के शब्द:** {{yesterday}} “कल (बीता)”, {{last night}} “कल रात”, {{last week}} “पिछले हफ़्ते”, {{two days ago}} “दो दिन पहले”। हिंदी का “कल” दोनों तरफ़ चलता है; अंग्रेज़ी में {{yesterday}} और {{tomorrow}} अलग-अलग हैं।"},
+        { "ex": [
+          {"t":"I was tired yesterday.","tr":"कल मैं थका हुआ था।"},
+          {"t":"The movie was really good.","tr":"फ़िल्म बहुत अच्छी थी।"},
+          {"t":"Were you at work today?","tr":"क्या आज आप काम पर थे?"},
+          {"t":"We were in Goa last week.","tr":"पिछले हफ़्ते हम गोवा में थे।"},
+          {"t":"It wasn't my fault.","tr":"मेरी ग़लती नहीं थी।"},
+          {"t":"There were three people in the car.","tr":"गाड़ी में तीन लोग थे।"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"I were at home.","right":"I was at home.","tr":"मैं घर पर था।","why":"{{I}} के साथ {{was}}।"},
+        {"wrong":"Yesterday I am sick.","right":"Yesterday I was sick.","tr":"कल मैं बीमार था।","why":"{{yesterday}}: बीती बात, {{was}}।"},
+        {"wrong":"They was here.","right":"They were here.","tr":"वे यहाँ थे।","why":"{{they}}: {{were}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ in Goa last week.","tr":"पिछले हफ़्ते हम गोवा में थे।","options":["were","was","are"],"answer":0,"why":"{{we}}: {{were}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"The food ___ really good.","tr":"खाना बहुत अच्छा था।","options":["was","were","is"],"answer":0,"why":"एक चीज़, बीती बात: {{was}}।"},
+        {"type":"choice","q":"“क्या कल आप घर पर थे?”","options":["{{Were you at home yesterday?}}","{{Was you at home yesterday?}}","{{You were at home tomorrow?}}"],"answer":0,"why":"{{you}}: {{were}}; सवाल में क्रिया आगे; {{yesterday}}।","from":"ask-and-say-no"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"गाड़ी में तीन लोग थे।","words":["There","were","three","people","in","the","car."],"from":"there-is"},
+        {"type":"dialogue","q":"सोमवार सुबह, दफ़्तर में।","lines":[{"who":"साथी","t":"How was your weekend?","tr":"आपका वीकेंड कैसा रहा?"},{"options":["It was great! I was in Jaipur.","It is great! I am in Jaipur."],"answer":0,"why":"बीती बात: {{was}}।"},{"who":"साथी","t":"Was the weather nice?","tr":"क्या मौसम अच्छा था?"},{"options":["Yes, it was. But it was very hot.","Yes, it were. But it were very hot."],"answer":0,"why":"{{it}}: {{was}}।"}]},
+        {"type":"say","q":"पूछिए: “कल रात आप कहाँ थे?”","answer":"Where were you last night?"},
+        {"type":"free","q":"आपकी बारी: बताइए पिछले वीकेंड आप कहाँ थे और वहाँ कैसा था।","answers":[{"t":"I was at my parents' house. It was nice and quiet.","tr":"मैं अपने माता-पिता के घर पर था। अच्छा और शांत था।"},{"t":"Last weekend I was in Mumbai. The weather was hot, but the food was amazing.","tr":"पिछले वीकेंड मैं मुंबई में थी। मौसम गरम था, लेकिन खाना बहुत बढ़िया था।"}]}
+      ]
+    },
+    {
+      "id": "want-to",
+      "unit": 3,
+      "level": "A1",
+      "title": "क्या करना चाहते हैं: want to, would like to, need to",
+      "summary": "“I want to learn English”, “I'd like to go”, “I need to call my mom.”",
+      "topic": "{{want to}} / {{would like to}} / {{need to}} + क्रिया; {{to}} ज़रूरी; {{I want you to…}}",
+      "blocks": [
+        {"goal":{"t":"I want to learn English this year.","tr":"मैं इस साल अंग्रेज़ी सीखना चाहता हूँ।"}},
+        {"dialog":[{"who":"सारा","t":"What do you want to do this weekend?","tr":"इस वीकेंड तुम क्या करना चाहती हो?"},{"who":"नेहा","t":"I want to go to the beach. And you?","tr":"मैं समुद्र किनारे जाना चाहती हूँ। और तुम?"},{"who":"सारा","t":"I need to clean my apartment.","tr":"मुझे अपना फ़्लैट साफ़ करना है।"},{"who":"नेहा","t":"Boring! Would you like to come with me?","tr":"बोरिंग! मेरे साथ चलोगी?"},{"who":"सारा","t":"I'd love to!","tr":"ज़रूर, मुझे बहुत अच्छा लगेगा!"}]},
+        {"p":"**want to + क्रिया.** हिंदी “मैं सीखना चाहता हूँ” में “सीखना” पहले आता है; अंग्रेज़ी में {{want}} पहले, फिर {{to}} + क्रिया: {{I want to learn}}। {{to}} छोड़ना नहीं है: {{I want go}} ग़लत है।"},
+        { "table": [
+          ["","अंग्रेज़ी","हिंदी"],
+          ["चाहना","{{I want to sleep.}}","मैं सोना चाहता हूँ।"],
+          ["विनम्र","{{I'd like to see the menu.}}","मैं मेन्यू देखना चाहूँगा।"],
+          ["ज़रूरत","{{I need to go.}}","मुझे जाना है।"],
+          ["चीज़","{{I want a new phone.}}","मुझे नया फ़ोन चाहिए।"]
+        ] },
+        {"p":"**“मुझे जाना है” → I need to go.** हिंदी में फिर “मुझे”, अंग्रेज़ी में फिर {{I}}: {{I need to call my mom}} “मुझे माँ को फ़ोन करना है”। ({{have to}} और {{should}}: पाठ 31।)"},
+        {"p":"**“मैं चाहता हूँ कि तुम आओ”** → {{I want you to come}}: {{want}} + व्यक्ति + {{to}} + क्रिया। {{I want that you come}} अंग्रेज़ी में नहीं कहते।"},
+        {"p":"**he, she के साथ:** {{He wants to}}, {{She needs to}} ({{-s}}, पाठ 14)। बुलाने का विनम्र सवाल: {{Would you like to…?}} और ख़ुशी से हाँ: {{I'd love to!}}"},
+        { "ex": [
+          {"t":"I want to visit my family.","tr":"मैं अपने परिवार से मिलने जाना चाहता हूँ।"},
+          {"t":"She wants to be a doctor.","tr":"वह डॉक्टर बनना चाहती है।"},
+          {"t":"I need to buy some milk.","tr":"मुझे थोड़ा दूध ख़रीदना है।"},
+          {"t":"Would you like to have dinner with us?","tr":"क्या आप हमारे साथ खाना खाना चाहेंगे?"},
+          {"t":"I don't want to go to work today.","tr":"आज मेरा काम पर जाने का मन नहीं है।"},
+          {"t":"We'd like to book a room.","tr":"हम एक कमरा बुक करना चाहते हैं।"}
+        ] },
+        {"tip":"अमेरिकी शब्द: फ़्लैट को अमेरिका में {{apartment}} कहते हैं, मोबाइल को {{cell phone}}, और छुट्टियों को {{vacation}}।"}
+      ],
+      "mistakes": [
+        {"wrong":"I want go home.","right":"I want to go home.","tr":"मैं घर जाना चाहता हूँ।","why":"{{want}} के बाद {{to}} + क्रिया।"},
+        {"wrong":"I want that you come.","right":"I want you to come.","tr":"मैं चाहता हूँ कि तुम आओ।","why":"हिंदी का “चाहता हूँ कि…” अंग्रेज़ी में {{want}} + व्यक्ति + {{to}}।"},
+        {"wrong":"She want to study.","right":"She wants to study.","tr":"वह पढ़ना चाहती है।","why":"{{she}}: {{wants}}।"}
+      ],
+      "practice": [
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"I want ___ learn English.","tr":"मैं अंग्रेज़ी सीखना चाहता हूँ।","options":["to","for"],"answer":0,"why":"{{want to}} + क्रिया।"},
+        {"type":"choice","q":"“मैं चाहती हूँ कि तुम भी आओ।”","options":["{{I want you to come too.}}","{{I want that you come too.}}","{{I want you come too.}}"],"answer":0,"why":"{{want}} + व्यक्ति + {{to}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"She ___ to be a doctor.","tr":"वह डॉक्टर बनना चाहती है।","options":["wants","want","is wanting"],"answer":0,"why":"{{she}}: {{-s}}; और {{want}} के साथ {{-ing}} नहीं (पाठ 17)।","from":"right-now"},
+        {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मुझे थोड़ा दूध ख़रीदना है।","words":["I","need","to","buy","some","milk."]},
+        {"type":"dialogue","q":"एक दोस्त आपको बुलाता है।","from":"do-questions","lines":[{"who":"दोस्त","t":"Would you like to come to my party on Saturday?","tr":"शनिवार को मेरी पार्टी में आना चाहोगे?"},{"options":["I'd love to! What time?","I'd love! What time?"],"answer":0,"why":"{{I'd love to}}: {{to}} रहता है।"},{"who":"दोस्त","t":"At seven. Do you want to bring your sister?","tr":"सात बजे। अपनी बहन को भी लाना चाहोगे?"},{"options":["Yes, she wants to meet you.","Yes, she want meet you."],"answer":0,"why":"{{she wants to}}।"}]},
+        {"type":"say","q":"होटल में कहिए: “हम एक कमरा बुक करना चाहते हैं।”","answer":"We'd like to book a room."},
+        {"type":"free","q":"आपकी बारी: बताइए इस साल आप क्या करना चाहते हैं, और इस हफ़्ते आपको क्या करना है।","answers":[{"t":"This year I want to learn English and travel to Canada. This week I need to finish a report.","tr":"इस साल मैं अंग्रेज़ी सीखना और कनाडा घूमना चाहता हूँ। इस हफ़्ते मुझे एक रिपोर्ट पूरी करनी है।"},{"t":"I want to buy a new car. Today I need to call my bank.","tr":"मैं नई गाड़ी ख़रीदना चाहती हूँ। आज मुझे अपने बैंक को फ़ोन करना है।"}]}
+      ]
     }
   ]
 }
