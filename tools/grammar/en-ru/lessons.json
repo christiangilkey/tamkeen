@@ -1935,6 +1935,232 @@
         {"type":"say","q":"Say: “Nobody understood anything.”","answer":"Никто́ ничего́ не по́нял.","r":"Niktó nichevó ne pónyal.","from":"never-and-nobody"},
         {"type":"free","q":"Your turn: tell a short story about something that happened to you. Use the imperfective for what was going on and the perfective for what happened.","answers":[{"t":"Вчера́ я сиде́ла в кафе́ и пила́ ко́фе. Вдруг ко мне подошёл мужчи́на и сказа́л, что мы вме́сте учи́лись в шко́ле!","r":"Vcherá ya sidéla v kafé i pilá kófe. Vdrug ko mne podoshól mushchína i skazál, shto my vméste uchílis' v shkóle!","tr":"Yesterday I was sitting in a café, drinking coffee. Suddenly a man came up to me and said we'd been at school together!"},{"t":"Мы гуля́ли в па́рке, когда́ начался́ дождь. Мы побежа́ли в кафе́ и там встре́тили друзе́й.","r":"My gulyáli v párke, kogdá nachalsyá dozhd'. My pobezháli v kafé i tam vstrétili druzéy.","tr":"We were walking in the park when it started to rain. We ran to a café and ran into some friends there."}]}
       ]
+    },
+    {
+      "id": "come-and-leave",
+      "unit": 8,
+      "level": "B1",
+      "title": "Arrive, leave, go in and out",
+      "summary": "Say when someone will arrive or has left, and where people go in, out and across: “He's already left. She'll come at six.”",
+      "topic": "Prefixed verbs of motion: {{при-|pri-}}, {{у-|u-}}, {{в-|v-}}, {{вы-|vy-}}, {{пере-|pere-}}, {{за-|za-}}, {{до-|do-}} with {{-йти|-yti}} and {{-е́хать|-ékhat'}}, and their pairs",
+      "blocks": [
+        {"goal":{"t":"Ива́н уже́ ушёл, но А́нна придёт в шесть.","r":"Iván uzhé ushól, no Ánna pridyót v shest'.","tr":"Ivan has already left, but Anna will come at six."}},
+        {"dialog":[{"who":"Visitor","t":"Здра́вствуйте! Мо́жно Ива́на Серге́евича?","r":"Zdrástvuyte! Mózhno Ivána Sergéyevicha?","tr":"Hello! May I see Ivan Sergeyevich?"},{"who":"Secretary","t":"Он уже́ ушёл. Он ухо́дит в пять.","r":"On uzhé ushól. On ukhódit v pyat'.","tr":"He's already left. He leaves at five."},{"who":"Visitor","t":"А за́втра когда́ он прихо́дит?","r":"A závtra kogdá on prikhódit?","tr":"And what time does he come in tomorrow?"},{"who":"Secretary","t":"Обы́чно он прихо́дит в де́вять, но за́втра прие́дет то́лько в оди́ннадцать.","r":"Obýchno on prikhódit v dévyat', no závtra priyédet tól'ko v odínnadtsat'.","tr":"He usually comes in at nine, but tomorrow he won't be here until eleven."},{"who":"Visitor","t":"Хорошо́, я зайду́ за́втра.","r":"Khoroshó, ya zaydú závtra.","tr":"OK, I'll drop by tomorrow."},{"who":"Secretary","t":"До свида́ния! Вы́ход нале́во.","r":"Do svidániya! Výkhod nalévo.","tr":"Goodbye! The exit is on the left."}]},
+        {"p":"Add a prefix to {{идти́|idtí}} or {{е́хать|yékhat'}} and the direction becomes precise: {{прийти́|priytí}} “to arrive, to come”, {{уйти́|uytí}} “to leave”, {{войти́|voytí}} “to go in”, {{вы́йти|výyti}} “to go out”. With a prefix, {{идти́|idtí}} becomes {{-йти|-yti}}."},
+        { "table": [
+          ["prefix","meaning","on foot","by transport"],
+          ["{{при-|pri-}}","arrive, come","{{прийти́|priytí}}","{{прие́хать|priyékhat'}}"],
+          ["{{у-|u-}}","leave, go away","{{уйти́|uytí}}","{{уе́хать|uyékhat'}}"],
+          ["{{в-|v-}}","go in","{{войти́|voytí}}","{{въе́хать|vyékhat'}}"],
+          ["{{вы-|vy-}}","go out","{{вы́йти|výyti}}","{{вы́ехать|výyekhat'}}"],
+          ["{{пере-|pere-}}","cross; move house","{{перейти́|pereytí}}","{{перее́хать|pereyékhat'}}"],
+          ["{{за-|za-}}","drop in, stop by","{{зайти́|zaytí}}","{{зае́хать|zayékhat'}}"],
+          ["{{до-|do-}}","get as far as, reach","{{дойти́|doytí}}","{{дое́хать|doyékhat'}}"]
+        ] },
+        {"p":"**These are perfective.** {{прийти́|priytí}} is one arrival: {{Я приду́ в шесть.|Ya pridú v shest'.}} “I'll come at six.” {{Он пришёл.|On prishól.}} “He's come, he's here.” Their imperfective partners are made with {{-ходи́ть|-khodít'}} and {{-езжа́ть|-ezzhát'}}: {{приходи́ть|prikhodít'}}, {{уходи́ть|ukhodít'}}, {{приезжа́ть|priyezzhát'}}, {{уезжа́ть|uyezzhát'}}. Use those for habits and for what's going on: {{Он прихо́дит в де́вять.|On prikhódit v dévyat'.}} “He comes in at nine (every day).”"},
+        {"p":"**The forms.** {{прийти́|priytí}}: {{приду́|pridú}}, {{придёшь|pridyósh'}}; past {{пришёл|prishól}}, {{пришла́|prishlá}}, {{пришли́|prishlí}}. {{уйти́|uytí}}: {{уйду́|uydú}}; past {{ушёл|ushól}}, {{ушла́|ushlá}}. {{вы́йти|výyti}}: {{вы́йду|výydu}}; past {{вы́шел|výshel}}, {{вы́шла|výshla}}. {{прие́хать|priyékhat'}} works like {{е́хать|yékhat'}}: {{прие́ду|priyédu}}, {{прие́дешь|priyédesh'}}."},
+        {"p":"**The prepositions match the prefixes.** {{в|v}} with {{в-|v-}} and {{из|iz}} with {{вы-|vy-}}: {{войти́ в ко́мнату|voytí v kómnatu}}, {{вы́йти из ко́мнаты|výyti iz kómnaty}}. {{к|k}} with {{при-|pri-}} for people: {{прийти́ к дру́гу|priytí k drúgu}}. {{от|ot}} with {{у-|u-}}: {{уйти́ от него́|uytí ot nevó}}. {{до|do}} with {{до-|do-}}: {{дойти́ до метро́|doytí do metró}} “get as far as the subway”."},
+        { "ex": [
+          {"t":"Когда́ ты прие́дешь? — В пя́тницу.","r":"Kogdá ty priyédesh'? — V pyátnitsu.","tr":"When will you get here? — On Friday."},
+          {"t":"Он вы́шел из до́ма в семь.","r":"On výshel iz dóma v sem'.","tr":"He left the house at seven."},
+          {"t":"Мы перее́хали в но́вую кварти́ру.","r":"My pereyékhali v nóvuyu kvartíru.","tr":"We moved into a new apartment."},
+          {"t":"Зайди́ ко мне по́сле рабо́ты!","r":"Zaydí ko mne pósle rabóty!","tr":"Drop by my place after work!"},
+          {"t":"Как дойти́ до вокза́ла?","r":"Kak doytí do vokzála?","tr":"How do I get to the train station?"},
+          {"t":"По́езд прихо́дит в де́сять три́дцать.","r":"Póyezd prikhódit v désyat' trídtsat'.","tr":"The train gets in at ten thirty."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Его́ нет, он уже́ уходи́л.","right":"Его́ нет, он уже́ ушёл.","tr":"He isn't here, he's already left.","why":"He has left and isn't here: one finished event, the perfective {{ушёл|ushól}}."},
+        {"wrong":"Я бу́ду прийти́ в шесть.","right":"Я приду́ в шесть.","tr":"I'll come at six.","why":"{{прийти́|priytí}} is perfective: its own forms are the future."},
+        {"wrong":"Он вы́шел до́ма.","right":"Он вы́шел из до́ма.","tr":"He left the house.","why":"{{вы́йти|výyti}} goes with {{из|iz}} + the genitive."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Ма́ма уже́ ___ с рабо́ты?","r":"Máma uzhé ___ s rabóty?","tr":"Is Mom home from work yet?","options":["пришла́","приходи́ла","шла"],"rs":["prishlá","prikhodíla","shla"],"answer":0,"why":"She has arrived and is here: the perfective {{пришла́|prishlá}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Я ___ к тебе́ в семь.","r":"Ya ___ k tebé v sem'.","tr":"I'll come to your place at seven.","options":["приду́","пришёл","бу́ду прийти́"],"rs":["pridú","prishól","búdu priytí"],"answer":0,"why":"One future arrival: {{приду́|pridú}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Они́ ___ в но́вую кварти́ру.","r":"Oní ___ v nóvuyu kvartíru.","tr":"They moved to a new apartment.","options":["перее́хали","прие́хали","вы́ехали"],"rs":["pereyékhali","priyékhali","výyekhali"],"answer":0,"why":"Moving house: {{перее́хать|pereyékhat'}}."},
+        {"type":"choice","q":"{{Он ушёл|On ushól}} means…","options":["He's left.","He's arrived.","He went in."],"answer":0,"why":"{{у-|u-}}: away."},
+        {"type":"dialogue","q":"You're a tourist in Moscow. Choose your replies.","from":"get-around-town","lines":[{"who":"Passer-by","t":"Вам помо́чь?","r":"Vam pomóch'?","tr":"Can I help you?"},{"options":["Да, как дойти́ до Кра́сной пло́щади?","Да, как дойти́ в Кра́сную пло́щадь?"],"rs":["Da, kak doytí do Krásnoy plóshchadi?","Da, kak doytí v Krásnuyu plóshchad'?"],"answer":0,"why":"{{дойти́ до|doytí do}} + the genitive: “get as far as”."},{"who":"Passer-by","t":"Иди́те пря́мо, пото́м перейди́те у́лицу и поверни́те нале́во.","r":"Idíte pryámo, potóm pereydíte úlitsu i poverníte nalévo.","tr":"Go straight, then cross the street and turn left."},{"options":["Спаси́бо! А на метро́ мо́жно дое́хать?","Спаси́бо! А на метро́ мо́жно дойти́?"],"rs":["Spasíbo! A na metró mózhno doyékhat'?","Spasíbo! A na metró mózhno doytí?"],"answer":0,"why":"By transport: {{дое́хать|doyékhat'}}."},{"who":"Passer-by","t":"Мо́жно, одна́ остано́вка.","r":"Mózhno, odná ostanóvka.","tr":"You can, it's one stop."}]},
+        {"type":"order","q":"Put the words in order.","tr":"The train gets in at ten thirty.","words":["По́езд","прихо́дит","в","де́сять","три́дцать."],"rs":["Póyezd","prikhódit","v","désyat'","trídtsat'."],"from":"tell-the-time"},
+        {"type":"free","q":"Your turn: when do you usually leave home and get back? And who's coming to visit you soon, and when? Use {{выходи́ть|vykhodít'}}, {{приходи́ть|prikhodít'}}, {{прийти́|priytí}} or {{прие́хать|priyékhat'}}.","answers":[{"t":"Обы́чно я выхожу́ из до́ма в во́семь и прихожу́ домо́й в шесть. В суббо́ту ко мне прие́дет сестра́.","r":"Obýchno ya vykhozhú iz dóma v vósem' i prikhozhú domóy v shest'. V subbótu ko mne priyédet sestrá.","tr":"I usually leave home at eight and get back at six. My sister is coming to visit on Saturday."},{"t":"Я ухожу́ на рабо́ту в семь. За́втра к нам приду́т друзья́.","r":"Ya ukhozhú na rabótu v sem'. Závtra k nam pridút druz'yá.","tr":"I leave for work at seven. Tomorrow some friends are coming over."}]}
+      ]
+    },
+    {
+      "id": "which-who",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say which one you mean",
+      "summary": "Add details about people and things: “the friend who lives in Moscow”, “the book I'm reading”, “the guy she's talking to”.",
+      "topic": "{{кото́рый|kotóryy}}: gender and number from the noun, case from its own part of the sentence",
+      "blocks": [
+        {"goal":{"t":"Как зову́т де́вушку, с кото́рой ты говори́л?","r":"Kak zovút dévushku, s kotóroy ty govoríl?","tr":"What's the name of the girl you were talking to?"}},
+        {"dialog":[{"who":"Vadim","t":"Кто э́то? Де́вушка, кото́рая стои́т у окна́.","r":"Kto éto? Dévushka, kotóraya stoít u okná.","tr":"Who's that? The girl standing by the window."},{"who":"Rita","t":"Э́то Ка́тя. Она́ рабо́тает в фи́рме, кото́рая де́лает и́гры.","r":"Éto Kátya. Oná rabótayet v fírme, kotóraya délayet ígry.","tr":"That's Katya. She works at a company that makes games."},{"who":"Vadim","t":"А па́рень, с кото́рым она́ говори́т?","r":"A páren', s kotórym oná govorít?","tr":"And the guy she's talking to?"},{"who":"Rita","t":"Э́то её брат. Тот, кото́рого ты ви́дел у меня́ на дне рожде́ния.","r":"Éto yeyó brat. Tot, kotórovo ty vídel u menyá na dne rozhdéniya.","tr":"That's her brother. The one you saw at my birthday party."},{"who":"Vadim","t":"А, по́мню!","r":"A, pómnyu!","tr":"Oh, I remember!"}]},
+        {"p":"{{кото́рый|kotóryy}} “who, which, that” joins a second part to a sentence to say which person or thing you mean. It's an adjective with two masters: its **gender and number** come from the noun it's about, and its **case** comes from its job in its own part of the sentence."},
+        { "table": [
+          ["its job in its part","case","for example"],
+          ["the subject","nominative","{{друг, кото́рый живёт в Москве́|drug, kotóryy zhivyót v Moskvé}}"],
+          ["the object","accusative","{{кни́га, кото́рую я чита́ю|kníga, kotóruyu ya chitáyu}}"],
+          ["“with”","instrumental","{{челове́к, с кото́рым я рабо́таю|chelovék, s kotórym ya rabótayu}}"],
+          ["“about”","prepositional","{{фильм, о кото́ром я говори́л|fil'm, o kotórom ya govoríl}}"],
+          ["“to”","dative","{{подру́га, кото́рой я звоню́|podrúga, kotóroy ya zvonyú}}"],
+          ["“at someone's”","genitive","{{друг, у кото́рого есть маши́на|drug, u kotórovo yest' mashína}}"]
+        ] },
+        {"p":"Take {{кни́га, кото́рую я чита́ю|kníga, kotóruyu ya chitáyu}}: {{кни́га|kníga}} is feminine, so {{кото́рая|kotóraya}}; and in its own part it's what I'm reading, the object, so the accusative {{кото́рую|kotóruyu}}. The endings are those of {{но́вый|nóvyy}}. A comma always comes before it. And where English can leave “that” out (“the book I'm reading”), Russian never drops {{кото́рый|kotóryy}}."},
+        { "ex": [
+          {"t":"Э́то мой друг, кото́рый живёт в Москве́.","r":"Éto moy drug, kotóryy zhivyót v Moskvé.","tr":"This is my friend who lives in Moscow."},
+          {"t":"Где кни́га, кото́рую я тебе́ дал?","r":"Gde kníga, kotóruyu ya tebé dal?","tr":"Where's the book I gave you?"},
+          {"t":"Челове́к, с кото́рым я рабо́таю, — америка́нец.","r":"Chelovék, s kotórym ya rabótayu, — amerikánets.","tr":"The man I work with is American."},
+          {"t":"Я по́мню фильм, о кото́ром ты говори́шь.","r":"Ya pómnyu fil'm, o kotórom ty govorísh'.","tr":"I remember the movie you're talking about."},
+          {"t":"У меня́ есть подру́га, кото́рая отли́чно гото́вит.","r":"U menyá yest' podrúga, kotóraya otlíchno gotóvit.","tr":"I have a friend who's a great cook."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Кни́га, кото́рая я чита́ю, интере́сная.","right":"Кни́га, кото́рую я чита́ю, интере́сная.","tr":"The book I'm reading is interesting.","why":"In its own part, the book is what I'm reading: the accusative {{кото́рую|kotóruyu}}."},
+        {"wrong":"Э́то кни́га я чита́ю.","right":"Э́то кни́га, кото́рую я чита́ю.","tr":"This is the book I'm reading.","why":"Russian can't leave out {{кото́рый|kotóryy}} the way English leaves out “that”."},
+        {"wrong":"Э́то де́вушка, кото́рый живёт ря́дом.","right":"Э́то де́вушка, кото́рая живёт ря́дом.","tr":"This is the girl who lives next door.","why":"Gender from the noun: {{де́вушка|dévushka}}, so {{кото́рая|kotóraya}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Э́то фильм, ___ я тебе́ говори́л.","r":"Éto fil'm, ___ ya tebé govoríl.","tr":"This is the movie I told you about.","options":["о кото́ром","кото́рый","кото́рого"],"rs":["o kotórom","kotóryy","kotórovo"],"answer":0,"why":"“About”: {{о|o}} + the prepositional, {{о кото́ром|o kotórom}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Где пи́сьма, ___ пришли́ вчера́?","r":"Gde pís'ma, ___ prishlí vcherá?","tr":"Where are the letters that came yesterday?","options":["кото́рые","кото́рая","кото́рых"],"rs":["kotóryye","kotóraya","kotórykh"],"answer":0,"why":"Plural, and the subject of {{пришли́|prishlí}}: {{кото́рые|kotóryye}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Э́то де́вушка, ___ я люблю́.","r":"Éto dévushka, ___ ya lyublyú.","tr":"This is the girl I love.","options":["кото́рую","кото́рая","кото́рой"],"rs":["kotóruyu","kotóraya","kotóroy"],"answer":0,"why":"Feminine, and the object of {{люблю́|lyublyú}}: {{кото́рую|kotóruyu}}."},
+        {"type":"choice","q":"In {{друг, у кото́рого есть маши́на|drug, u kotórovo yest' mashína}}, why {{кото́рого|kotórovo}}?","options":["After {{у|u}}: the genitive.","{{друг|drug}} is masculine, and that's all.","It's the subject."],"answer":0,"why":"Its own job: “at whom” is {{у|u}} + the genitive."},
+        {"type":"dialogue","q":"A friend is telling you news. Choose your replies.","from":"describe-people","lines":[{"who":"Friend","t":"Ты ви́дел Ма́шу? Ту, кото́рая рабо́тает в ба́нке?","r":"Ty vídel Máshu? Tu, kotóraya rabótayet v bánke?","tr":"Have you seen Masha? The one who works at the bank?"},{"options":["Высо́кую, у кото́рой дли́нные во́лосы?","Высо́кая, у кото́рая дли́нные во́лосы?"],"rs":["Vysókuyu, u kotóroy dlínnyye vólosy?","Vysókaya, u kotóraya dlínnyye vólosy?"],"answer":0,"why":"She's what you saw (accusative {{высо́кую|vysókuyu}}); after {{у|u}}: {{кото́рой|kotóroy}}."},{"who":"Friend","t":"Да! А па́рень, с кото́рым она́ живёт, — мой брат!","r":"Da! A páren', s kotórym oná zhivyót, — moy brat!","tr":"Yes! And the guy she lives with is my brother!"},{"options":["Пра́вда? Тот, кото́рый игра́ет на гита́ре?","Пра́вда? Тот, кото́рого игра́ет на гита́ре?"],"rs":["Právda? Tot, kotóryy igráyet na gitáre?","Právda? Tot, kotórovo igráyet na gitáre?"],"answer":0,"why":"He's the subject of {{игра́ет|igráyet}}: {{кото́рый|kotóryy}}."},{"who":"Friend","t":"Да, он!","r":"Da, on!","tr":"Yes, that's him!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"This is the friend I told you about.","words":["Э́то","друг,","о","кото́ром","я","тебе́","расска́зывал."],"rs":["Éto","drug,","o","kotórom","ya","tebé","rasskázyval."],"from":"talk-about-things"},
+        {"type":"free","q":"Your turn: describe two people, places or things with {{кото́рый|kotóryy}}: a friend who…, a book that…, a city where ({{в кото́ром|v kotórom}})…","answers":[{"t":"У меня́ есть друг, кото́рый хорошо́ поёт. А кни́га, кото́рую я сейча́с чита́ю, о́чень смешна́я.","r":"U menyá yest' drug, kotóryy khoroshó poyót. A kníga, kotóruyu ya seychás chitáyu, óchen' smeshnáya.","tr":"I have a friend who sings well. And the book I'm reading now is really funny."},{"t":"Бо́стон — го́род, в кото́ром я роди́лся. Там живу́т лю́ди, кото́рых я о́чень люблю́.","r":"Bóston — górod, v kotórom ya rodílsya. Tam zhivút lyúdi, kotórykh ya óchen' lyublyú.","tr":"Boston is the city where I was born. People I love very much live there."}]}
+      ]
+    },
+    {
+      "id": "report-what-was-said",
+      "unit": 8,
+      "level": "B1",
+      "title": "Pass on what someone said or asked",
+      "summary": "Tell someone what another person said, asked or wants: “She said she'd be late. He asked if you're free.”",
+      "topic": "{{сказа́л, что…|skazál, shto…}}; {{спроси́л, где…|sprosíl, gde…}}; {{спроси́л, + ли|sprosíl, + li}}; the tense doesn't change; {{спроси́ть|sprosít'}} and {{попроси́ть|poprosít'}}",
+      "blocks": [
+        {"goal":{"t":"Ма́ша сказа́ла, что опозда́ет, и спроси́ла, придёшь ли ты.","r":"Másha skazála, shto opozdáyet, i sprosíla, pridyósh' li ty.","tr":"Masha said she'd be late, and asked whether you're coming."}},
+        {"dialog":[{"who":"Dima","t":"Тебе́ звони́ла Ма́ша.","r":"Tebé zvoníla Másha.","tr":"Masha called you."},{"who":"Olya","t":"Что она́ сказа́ла?","r":"Shto oná skazála?","tr":"What did she say?"},{"who":"Dima","t":"Она́ сказа́ла, что сего́дня не мо́жет прийти́.","r":"Oná skazála, shto sevódnya ne mózhet priytí.","tr":"She said she can't come today."},{"who":"Olya","t":"А почему́?","r":"A pochemú?","tr":"Why not?"},{"who":"Dima","t":"Не зна́ю. Она́ спроси́ла, свобо́дна ли ты в суббо́ту.","r":"Ne znáyu. Oná sprosíla, svobódna li ty v subbótu.","tr":"I don't know. She asked if you're free on Saturday."},{"who":"Olya","t":"А ещё?","r":"A yeshchó?","tr":"Anything else?"},{"who":"Dima","t":"И попроси́ла тебя́ перезвони́ть.","r":"I poprosíla tebyá perezvonít'.","tr":"And she asked you to call her back."}]},
+        {"p":"**Said that.** After {{сказа́ть|skazát'}}, {{ду́мать|dúmat'}}, {{писа́ть|pisát'}} and the like, put {{что|shto}} “that”, then the words as they were said, with only the people changed: {{«Я опозда́ю».|«Ya opozdáyu».}} → {{Ма́ша сказа́ла, что опозда́ет.|Másha skazála, shto opozdáyet.}} Russian doesn't move the tense back as English does (“said she **would** be late”): what was future stays future, what was present stays present. {{что|shto}} can't be left out, and a comma always comes before it."},
+        { "table": [
+          ["what was said","passed on"],
+          ["{{«Я опозда́ю».|«Ya opozdáyu».}}","{{Она́ сказа́ла, что опозда́ет.|Oná skazála, shto opozdáyet.}}"],
+          ["{{«Я бо́лен».|«Ya bólen».}}","{{Он сказа́л, что бо́лен.|On skazál, shto bólen.}}"],
+          ["{{«Мы бы́ли в Москве́».|«My býli v Moskvé».}}","{{Они́ сказа́ли, что бы́ли в Москве́.|Oní skazáli, shto býli v Moskvé.}}"]
+        ] },
+        {"p":"**Asked where, when, what.** A question with a question word keeps it: {{«Где ты живёшь?»|«Gde ty zhivyósh'?»}} → {{Он спроси́л, где я живу́.|On sprosíl, gde ya zhivú.}}"},
+        {"p":"**Asked if.** A yes-or-no question takes {{ли|li}} “whether”, right after the word the question is about, which moves to the front: {{«Ты придёшь?»|«Ty pridyósh'?»}} → {{Она́ спроси́ла, придёшь ли ты.|Oná sprosíla, pridyósh' li ty.}} {{«Ты свобо́дна?»|«Ty svobódna?»}} → {{Он спроси́л, свобо́дна ли ты.|On sprosíl, svobódna li ty.}} Never {{е́сли|yésli}} here: {{е́сли|yésli}} is only for conditions."},
+        {"p":"**Asked to.** {{спроси́ть|sprosít'}} is to ask a question; {{попроси́ть|poprosít'}} is to ask someone to do something: {{Она́ попроси́ла меня́ позвони́ть.|Oná poprosíla menyá pozvonít'.}} “She asked me to call.”"},
+        { "ex": [
+          {"t":"Он сказа́л, что ему́ нра́вится Москва́.","r":"On skazál, shto yemú nrávitsa Moskvá.","tr":"He said he likes Moscow."},
+          {"t":"Я спроси́л, ско́лько сто́ит биле́т.","r":"Ya sprosíl, skól'ko stóit bilét.","tr":"I asked how much the ticket costs."},
+          {"t":"Она́ спроси́ла, говорю́ ли я по-ру́сски.","r":"Oná sprosíla, govoryú li ya po-rússki.","tr":"She asked if I speak Russian."},
+          {"t":"Ма́ма попроси́ла меня́ купи́ть хлеб.","r":"Máma poprosíla menyá kupít' khleb.","tr":"Mom asked me to buy bread."},
+          {"t":"Не зна́ю, придёт ли он.","r":"Ne znáyu, pridyót li on.","tr":"I don't know whether he'll come."},
+          {"t":"Пётр написа́л, что прие́дет в ма́е.","r":"Pyotr napisál, shto priyédet v máye.","tr":"Pyotr wrote that he'd come in May."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Он спроси́л, е́сли я свобо́ден.","right":"Он спроси́л, свобо́ден ли я.","tr":"He asked if I'm free.","why":"“Asked if, whether” is {{ли|li}} after the key word, never {{е́сли|yésli}}."},
+        {"wrong":"Она́ сказа́ла, она́ опозда́ет.","right":"Она́ сказа́ла, что опозда́ет.","tr":"She said she'd be late.","why":"Keep {{что|shto}}: Russian doesn't drop it."},
+        {"wrong":"Я спроси́л его́ позвони́ть мне.","right":"Я попроси́л его́ позвони́ть мне.","tr":"I asked him to call me.","why":"Asking someone to do something is {{попроси́ть|poprosít'}}; {{спроси́ть|sprosít'}} is for questions."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Она́ спроси́ла, ___ я живу́.","r":"Oná sprosíla, ___ ya zhivú.","tr":"She asked where I live.","options":["где","ли","что"],"rs":["gde","li","shto"],"answer":0,"why":"The question word stays: {{где|gde}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Он спроси́л, свобо́дна ___ я за́втра.","r":"On sprosíl, svobódna ___ ya závtra.","tr":"He asked if I'm free tomorrow.","options":["ли","е́сли","что"],"rs":["li","yésli","shto"],"answer":0,"why":"A yes-or-no question passed on: {{ли|li}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Ма́ма ___ меня́ позвони́ть ба́бушке.","r":"Máma ___ menyá pozvonít' bábushke.","tr":"Mom asked me to call Grandma.","options":["попроси́ла","спроси́ла"],"rs":["poprosíla","sprosíla"],"answer":0,"why":"Asking someone to do something: {{попроси́ть|poprosít'}}."},
+        {"type":"choice","q":"Anton said {{«Я прие́ду в пя́тницу».|«Ya priyédu v pyátnitsu».}} You pass it on:","options":["{{Анто́н сказа́л, что прие́дет в пя́тницу.|Antón skazál, shto priyédet v pyátnitsu.}}","{{Анто́н сказа́л, что прие́хал в пя́тницу.|Antón skazál, shto priyékhal v pyátnitsu.}}"],"answer":0,"why":"The tense doesn't change: future stays future."},
+        {"type":"dialogue","q":"Your roommate took a call for you. Choose your replies.","from":"can-and-must","lines":[{"who":"Roommate","t":"Тебе́ звони́л Макс.","r":"Tebé zvoníl Maks.","tr":"Max called you."},{"options":["Что он сказа́л?","Что он спроси́л ли?"],"rs":["Shto on skazál?","Shto on sprosíl li?"],"answer":0,"why":"“What did he say?”: {{Что он сказа́л?|Shto on skazál?}}"},{"who":"Roommate","t":"Он спроси́л, мо́жешь ли ты помо́чь ему́ в суббо́ту.","r":"On sprosíl, mózhesh' li ty pomóch' yemú v subbótu.","tr":"He asked if you can help him on Saturday."},{"options":["Скажи́ ему́, что я не могу́: мне на́до рабо́тать.","Скажи́ ему́, я не мо́жет: я на́до рабо́тать."],"rs":["Skazhí yemú, shto ya ne mogú: mne nádo rabótat'.","Skazhí yemú, ya ne mózhet: ya nádo rabótat'."],"answer":0,"why":"{{что я не могу́|shto ya ne mogú}}, and “I have to”: {{мне на́до|mne nádo}}."},{"who":"Roommate","t":"Ла́дно, скажу́.","r":"Ládno, skazhú.","tr":"OK, I'll tell him."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I don't know whether he'll come.","words":["Я","не","зна́ю,","придёт","ли","он."],"rs":["Ya","ne","znáyu,","pridyót","li","on."]},
+        {"type":"free","q":"Your turn: someone called you today. Pass on what they said ({{сказа́л(а), что…|skazál(a), shto…}}) and what they asked ({{спроси́л(а)…|sprosíl(a)…}}).","answers":[{"t":"Мой брат сказа́л, что прие́дет в суббо́ту, и спроси́л, бу́дем ли мы до́ма.","r":"Moy brat skazál, shto priyédet v subbótu, i sprosíl, búdem li my dóma.","tr":"My brother said he's coming on Saturday, and asked whether we'll be home."},{"t":"Подру́га сказа́ла, что у неё но́вая рабо́та, и спроси́ла, где мы встре́тимся.","r":"Podrúga skazála, shto u neyó nóvaya rabóta, i sprosíla, gde my vstrétimsya.","tr":"My friend said she has a new job, and asked where we're meeting."}]}
+      ]
+    },
+    {
+      "id": "so-that",
+      "unit": 8,
+      "level": "B1",
+      "title": "Say what for, and what you want others to do",
+      "summary": "Explain your purpose, and say what you want other people to do: “I'm learning Russian to read Tolstoy.” “I want you to come.”",
+      "topic": "{{что́бы|shtóby}} + infinitive (the same person) and {{что́бы|shtóby}} + past (another person): {{Я хочу́, что́бы ты пришёл.|Ya khochú, shtóby ty prishól.}}",
+      "blocks": [
+        {"goal":{"t":"Я учу́ ру́сский, что́бы чита́ть Толсто́го в оригина́ле.","r":"Ya uchú rússkiy, shtóby chitát' Tolstóvo v originále.","tr":"I'm learning Russian to read Tolstoy in the original."}},
+        {"dialog":[{"who":"Mom","t":"Заче́м ты встаёшь так ра́но?","r":"Zachém ty vstayósh' tak ráno?","tr":"Why are you getting up so early?"},{"who":"Son","t":"Что́бы успе́ть в спортза́л пе́ред рабо́той.","r":"Shtóby uspét' v sportzál péred rabótoy.","tr":"To make it to the gym before work."},{"who":"Mom","t":"Молоде́ц. А я хочу́, что́бы ты ча́ще звони́л ба́бушке.","r":"Molodéts. A ya khochú, shtóby ty cháshche zvoníl bábushke.","tr":"Good for you. And I want you to call Grandma more often."},{"who":"Son","t":"Хорошо́, я позвоню́ ей сего́дня.","r":"Khoroshó, ya pozvonyú yey sevódnya.","tr":"OK, I'll call her today."},{"who":"Mom","t":"И скажи́ ей, что́бы она́ не волнова́лась.","r":"I skazhí yey, shtóby oná ne volnoválas'.","tr":"And tell her not to worry."}]},
+        {"p":"**In order to.** {{что́бы|shtóby}} + an infinitive says what for, when it's the same person: {{Я учу́ ру́сский, что́бы чита́ть Толсто́го.|Ya uchú rússkiy, shtóby chitát' Tolstóvo.}} “I'm learning Russian to read Tolstoy.” It's the answer to {{Заче́м?|Zachém?}} “What for?” from lesson 38."},
+        {"p":"**I want you to…** When someone else is to do it, Russian can't say “I want you to come” word for word. It says “I want that you came”: {{что́бы|shtóby}} + the **past** tense, whatever the time: {{Я хочу́, что́бы ты пришёл.|Ya khochú, shtóby ty prishól.}} “I want you to come.” This past doesn't mean the past: it's simply the form {{что́бы|shtóby}} takes."},
+        { "table": [
+          ["","the same person","another person"],
+          ["wanting","{{Я хочу́ прийти́.|Ya khochú priytí.}} I want to come.","{{Я хочу́, что́бы ты пришёл.|Ya khochú, shtóby ty prishól.}} I want you to come."],
+          ["purpose","{{Я рабо́таю, что́бы жить.|Ya rabótayu, shtóby zhit'.}} I work to live.","{{Я рабо́таю, что́бы де́ти учи́лись.|Ya rabótayu, shtóby déti uchílis'.}} I work so my kids can study."],
+          ["asking, telling","","{{Скажи́ ему́, что́бы он позвони́л.|Skazhí yemú, shtóby on pozvoníl.}} Tell him to call."]
+        ] },
+        {"p":"**Telling and asking.** After {{сказа́ть|skazát'}} and {{попроси́ть|poprosít'}}, {{что́бы|shtóby}} + the past passes on a request: {{Он сказа́л, что́бы ты подожда́л.|On skazál, shtóby ty podozhdál.}} “He said for you to wait.” Compare {{Он сказа́л, что ты подожда́л.|On skazál, shto ty podozhdál.}} “He said that you waited.” One little {{-бы|-by}} changes everything."},
+        { "ex": [
+          {"t":"Я пришёл, что́бы помо́чь.","r":"Ya prishól, shtóby pomóch'.","tr":"I came to help."},
+          {"t":"Мы откры́ли окно́, что́бы бы́ло не так жа́рко.","r":"My otkrýli oknó, shtóby býlo ne tak zhárko.","tr":"We opened the window so it wouldn't be so hot."},
+          {"t":"Я хочу́, что́бы ты был сча́стлив.","r":"Ya khochú, shtóby ty byl shchástliv.","tr":"I want you to be happy."},
+          {"t":"Ма́ма хо́чет, что́бы я стал врачо́м.","r":"Máma khóchet, shtóby ya stal vrachóm.","tr":"Mom wants me to become a doctor."},
+          {"t":"Попроси́ его́, что́бы он говори́л ме́дленнее.","r":"Poprosí yevó, shtóby on govoríl médlenneye.","tr":"Ask him to speak more slowly."},
+          {"t":"Что ну́жно, что́бы получи́ть ви́зу?","r":"Shto núzhno, shtóby poluchít' vízu?","tr":"What do you need to get a visa?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я хочу́ тебя́ прийти́.","right":"Я хочу́, что́бы ты пришёл.","tr":"I want you to come.","why":"“I want you to…” is {{хочу́, что́бы|khochú, shtóby}} + the past."},
+        {"wrong":"Я хочу́, что́бы ты придёшь.","right":"Я хочу́, что́бы ты пришёл.","tr":"I want you to come.","why":"After {{что́бы|shtóby}} with another person: the past form."},
+        {"wrong":"Я учу́ ру́сский для чита́ть кни́ги.","right":"Я учу́ ру́сский, что́бы чита́ть кни́ги.","tr":"I'm learning Russian to read books.","why":"“To, in order to” before a verb is {{что́бы|shtóby}}; {{для|dlya}} goes before a noun."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я хочу́, что́бы ты ___ ко мне.","r":"Ya khochú, shtóby ty ___ ko mne.","tr":"I want you to come to my place.","options":["пришёл","придёшь","прийти́"],"rs":["prishól","pridyósh'","priytí"],"answer":0,"why":"Another person: {{что́бы|shtóby}} + the past."},
+        {"type":"fill","q":"Choose the missing word.","t":"Он рабо́тает, ___ купи́ть дом.","r":"On rabótayet, ___ kupít' dom.","tr":"He works to buy a house.","options":["что́бы","что","для"],"rs":["shtóby","shto","dlya"],"answer":0,"why":"Purpose with a verb: {{что́бы|shtóby}}."},
+        {"type":"choice","q":"{{Скажи́ ему́, что́бы он позвони́л|Skazhí yemú, shtóby on pozvoníl}} means…","options":["Tell him to call.","Tell him that he called."],"answer":0,"why":"{{что́бы|shtóby}} + the past passes on a request. “That he called” would be {{что он позвони́л|shto on pozvoníl}}."},
+        {"type":"dialogue","q":"A friend asks why you're learning Russian. Choose your replies.","from":"say-why","lines":[{"who":"Friend","t":"Заче́м ты у́чишь ру́сский?","r":"Zachém ty úchish' rússkiy?","tr":"What are you learning Russian for?"},{"options":["Что́бы говори́ть с ру́сскими друзья́ми.","Потому́ что говори́ть с ру́сскими друзья́ми."],"rs":["Shtóby govorít' s rússkimi druz'yámi.","Potomú shto govorít' s rússkimi druz'yámi."],"answer":0,"why":"“What for?”: {{что́бы|shtóby}} + an infinitive."},{"who":"Friend","t":"А что ты хо́чешь, что́бы я сде́лал?","r":"A shto ty khóchesh', shtóby ya sdélal?","tr":"And what do you want me to do?"},{"options":["Я хочу́, что́бы ты говори́л со мной то́лько по-ру́сски!","Я хочу́, что́бы ты говори́шь со мной то́лько по-ру́сски!"],"rs":["Ya khochú, shtóby ty govoríl so mnoy tól'ko po-rússki!","Ya khochú, shtóby ty govorísh' so mnoy tól'ko po-rússki!"],"answer":0,"why":"Another person: {{что́бы|shtóby}} + the past {{говори́л|govoríl}}."},{"who":"Friend","t":"Договори́лись!","r":"Dogovorílis'!","tr":"Deal!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"Ask him to speak more slowly.","words":["Попроси́","его́,","что́бы","он","говори́л","ме́дленнее."],"rs":["Poprosí","yevó,","shtóby","on","govoríl","médlenneye."],"from":"ask-someone-to-do"},
+        {"type":"say","q":"Say: “I want you to be happy.”","answer":"Я хочу́, что́бы ты был сча́стлив.","r":"Ya khochú, shtóby ty byl shchástliv."},
+        {"type":"free","q":"Your turn: why are you learning Russian ({{что́бы|shtóby}} + infinitive), and what do you want someone else to do ({{хочу́, что́бы|khochú, shtóby}} + past)?","answers":[{"t":"Я учу́ ру́сский, что́бы понима́ть ру́сские фи́льмы. И я хочу́, что́бы мой брат то́же его́ учи́л.","r":"Ya uchú rússkiy, shtóby ponimát' rússkiye fíl'my. I ya khochú, shtóby moy brat tózhe yevó uchíl.","tr":"I'm learning Russian to understand Russian movies. And I want my brother to learn it too."},{"t":"Я учу́ ру́сский, что́бы рабо́тать в Москве́. Я хочу́, что́бы моя́ семья́ прие́хала ко мне.","r":"Ya uchú rússkiy, shtóby rabótat' v Moskvé. Ya khochú, shtóby moyá sem'yá priyékhala ko mne.","tr":"I'm learning Russian to work in Moscow. I want my family to come and join me."}]}
+      ]
+    },
+    {
+      "id": "give-your-opinion",
+      "unit": 8,
+      "level": "B1",
+      "title": "Give your opinion, agree and disagree",
+      "summary": "Say what you think, agree, or politely disagree: “In my opinion, it's a great idea.” “I agree with you.” “I'm not sure.”",
+      "topic": "{{по-мо́ему|po-móyemu}}, {{мне ка́жется|mne kázhetsa}}, {{я счита́ю|ya shchitáyu}}, {{я ду́маю, что…|ya dúmayu, shto…}}; {{я согла́сен|ya soglásen}} / {{согла́сна с|soglásna s}} + instrumental",
+      "blocks": [
+        {"goal":{"t":"По-мо́ему, э́то отли́чная иде́я. Я с тобо́й согла́сен.","r":"Po-móyemu, éto otlíchnaya idéya. Ya s tobóy soglásen.","tr":"I think it's a great idea. I agree with you.","note":"a man; a woman says {{согла́сна|soglásna}}"}},
+        {"dialog":[{"who":"Lisa","t":"Как ты счита́ешь, где лу́чше жить: в го́роде и́ли в дере́вне?","r":"Kak ty shchitáyesh', gde lúchshe zhit': v górode íli v derévne?","tr":"What do you think: is it better to live in the city or in the country?"},{"who":"Sergei","t":"Мне ка́жется, в го́роде. Там бо́льше рабо́ты, и интере́снее.","r":"Mne kázhetsa, v górode. Tam ból'she rabóty, i interésneye.","tr":"I think in the city. There's more work there, and it's more interesting."},{"who":"Lisa","t":"Я не согла́сна. В дере́вне споко́йнее, и во́здух чи́ще.","r":"Ya ne soglásna. V derévne spokóyneye, i vózdukh chíshche.","tr":"I disagree. It's calmer in the country, and the air is cleaner."},{"who":"Sergei","t":"Мо́жет быть, ты права́. Но там ску́чно!","r":"Mózhet byt', ty pravá. No tam skúshno!","tr":"Maybe you're right. But it's boring there!"},{"who":"Lisa","t":"Ну, э́то де́ло вку́са.","r":"Nu, éto délo vkúsa.","tr":"Well, it's a matter of taste."}]},
+        {"p":"**Saying what you think.** {{По-мо́ему…|Po-móyemu…}} “In my opinion…” (and {{по-тво́ему|po-tvóyemu}}, {{по-ва́шему|po-váshemu}} “in your opinion”). {{Мне ка́жется, (что)…|Mne kázhetsa, (shto)…}} “It seems to me…”: soft, and very common. {{Я ду́маю, что…|Ya dúmayu, shto…}} “I think that…”. {{Я счита́ю, что…|Ya shchitáyu, shto…}} “I believe, I'm convinced that…”: firmer. To ask: {{Как ты ду́маешь?|Kak ty dúmayesh'?}}, {{Как ты счита́ешь?|Kak ty shchitáyesh'?}}, {{Что ты ду́маешь о…?|Shto ty dúmayesh' o…?}}"},
+        {"p":"**Agreeing.** {{согла́сен|soglásen}} “in agreement” is a short adjective like {{рад|rad}}: {{я согла́сен|ya soglásen}} (a man), {{я согла́сна|ya soglásna}} (a woman), {{мы согла́сны|my soglásny}}. With whom: {{с|s}} + the instrumental, {{Я с тобо́й согла́сна.|Ya s tobóy soglásna.}} “I agree with you.” And from lesson 36: {{Ты прав|Ty prav}}, {{Ты права́|Ty pravá}} “You're right”."},
+        { "table": [
+          ["","Russian"],
+          ["I agree.","{{Я согла́сен.|Ya soglásen.}} / {{Я согла́сна.|Ya soglásna.}}"],
+          ["I don't agree.","{{Я не согла́сен.|Ya ne soglásen.}} / {{Я не согла́сна.|Ya ne soglásna.}}"],
+          ["You're right.","{{Ты прав.|Ty prav.}} / {{Ты права́.|Ty pravá.}}"],
+          ["Absolutely!","{{Абсолю́тно!|Absolyútno!}}"],
+          ["Maybe.","{{Мо́жет быть.|Mózhet byt'.}}"],
+          ["I'm not sure.","{{Я не уве́рен.|Ya ne uvéren.}} / {{Я не уве́рена.|Ya ne uvérena.}}"],
+          ["It depends.","{{Как когда́.|Kak kogdá.}} / {{Смотря́ как.|Smotryá kak.}}"]
+        ] },
+        {"p":"**Softening.** {{наве́рное|navérnoye}} “probably”, {{мо́жет быть|mózhet byt'}} “maybe”, {{коне́чно|konéshno}} “of course”, {{че́стно говоря́|chéstno govoryá}} “to be honest”. To disagree politely, start by agreeing: {{Да, но…|Da, no…}}, or weigh both sides: {{С одно́й стороны́…, с друго́й стороны́…|S odnóy storoný…, s drugóy storoný…}} “On the one hand…, on the other…”."},
+        { "ex": [
+          {"t":"Мне ка́жется, он прав.","r":"Mne kázhetsa, on prav.","tr":"I think he's right."},
+          {"t":"Как ты ду́маешь, она́ придёт?","r":"Kak ty dúmayesh', oná pridyót?","tr":"Do you think she'll come?"},
+          {"t":"Я счита́ю, что э́то непра́вильно.","r":"Ya shchitáyu, shto éto neprávil'no.","tr":"I believe that's wrong."},
+          {"t":"Че́стно говоря́, мне не понра́вился фильм.","r":"Chéstno govoryá, mne ne ponrávilsya fil'm.","tr":"To be honest, I didn't like the movie."},
+          {"t":"С одно́й стороны́, э́то до́рого, с друго́й — о́чень удо́бно.","r":"S odnóy storoný, éto dórogo, s drugóy — óchen' udóbno.","tr":"On the one hand it's expensive, on the other it's very convenient."},
+          {"t":"Я по́лностью с ва́ми согла́сен.","r":"Ya pólnost'yu s vámi soglásen.","tr":"I completely agree with you."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"Я согла́сен тебе́.","right":"Я согла́сен с тобо́й.","tr":"I agree with you.","why":"Agree with someone: {{с|s}} + the instrumental."},
+        {"wrong":"Как ты ду́маешь об э́том фи́льме?","right":"Что ты ду́маешь об э́том фи́льме?","tr":"What do you think of this movie?","why":"“What do you think of…?” is {{Что ты ду́маешь о…?|Shto ty dúmayesh' o…?}}. {{Как|Kak}} goes alone: {{Как ты ду́маешь?|Kak ty dúmayesh'?}}"},
+        {"wrong":"Я согла́сен!","right":"Я согла́сна!","tr":"I agree! (a woman speaking)","why":"A woman says {{согла́сна|soglásna}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Я с тобо́й ___.","r":"Ya s tobóy ___.","tr":"I agree with you. (a woman speaking)","options":["согла́сна","согла́сен","согла́сны"],"rs":["soglásna","soglásen","soglásny"],"answer":0,"why":"A woman: {{согла́сна|soglásna}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ ты ду́маешь об э́той кни́ге?","r":"___ ty dúmayesh' ob étoy kníge?","tr":"What do you think of this book?","options":["Что","Как","Где"],"rs":["Shto","Kak","Gde"],"answer":0,"why":"{{Что ты ду́маешь о…?|Shto ty dúmayesh' o…?}}"},
+        {"type":"fill","q":"Choose the missing word.","t":"Мне ___, что он прав.","r":"Mne ___, shto on prav.","tr":"I think he's right.","options":["ка́жется","счита́ю","ду́маю"],"rs":["kázhetsa","shchitáyu","dúmayu"],"answer":0,"why":"With {{мне|mne}}: {{ка́жется|kázhetsa}}, “it seems”. {{счита́ю|shchitáyu}} and {{ду́маю|dúmayu}} go with {{я|ya}}."},
+        {"type":"choice","q":"Which sounds softest?","options":["{{Мне ка́жется, э́то не о́чень хоро́шая иде́я.|Mne kázhetsa, éto ne óchen' khoróshaya idéya.}}","{{Э́то плоха́я иде́я.|Éto plokháya idéya.}}","{{Я счита́ю, что э́то плоха́я иде́я.|Ya shchitáyu, shto éto plokháya idéya.}}"],"answer":0,"why":"{{Мне ка́жется|Mne kázhetsa}} and {{не о́чень хоро́шая|ne óchen' khoróshaya}} both soften it."},
+        {"type":"dialogue","q":"A colleague asks your opinion. Choose your replies.","from":"compare-things","lines":[{"who":"Colleague","t":"Как вы счита́ете, где лу́чше рабо́тать: до́ма и́ли в о́фисе?","r":"Kak vy shchitáyete, gde lúchshe rabótat': dóma íli v ófise?","tr":"What do you think: is it better to work from home or at the office?"},{"options":["По-мо́ему, до́ма лу́чше: споко́йнее, и не на́до е́хать на рабо́ту.","По-мо́ему, до́ма бо́лее хоро́ший: споко́йный, и не на́до е́хать на рабо́ту."],"rs":["Po-móyemu, dóma lúchshe: spokóyneye, i ne nádo yékhat' na rabótu.","Po-móyemu, dóma bóleye khoróshiy: spokóynyy, i ne nádo yékhat' na rabótu."],"answer":0,"why":"“Better” is {{лу́чше|lúchshe}}, “calmer” {{споко́йнее|spokóyneye}}."},{"who":"Colleague","t":"А я не согла́сен. В о́фисе веселе́е!","r":"A ya ne soglásen. V ófise veseléye!","tr":"I disagree. It's more fun at the office!"},{"options":["Мо́жет быть, вы пра́вы.","Мо́жет быть, вы прав."],"rs":["Mózhet byt', vy právy.","Mózhet byt', vy prav."],"answer":0,"why":"With {{вы|vy}}, short adjectives are plural: {{пра́вы|právy}}."},{"who":"Colleague","t":"Ну, э́то де́ло вку́са.","r":"Nu, éto délo vkúsa.","tr":"Well, it's a matter of taste."}]},
+        {"type":"order","q":"Put the words in order.","tr":"I completely agree with you.","words":["Я","по́лностью","с","ва́ми","согла́сен."],"rs":["Ya","pólnost'yu","s","vámi","soglásen."],"from":"with-whom"},
+        {"type":"free","q":"Your turn: which is better, the city or the country, summer or winter? Give your opinion with {{по-мо́ему|po-móyemu}} or {{мне ка́жется|mne kázhetsa}}, and a reason.","answers":[{"t":"По-мо́ему, лу́чше жить в го́роде, потому́ что там бо́льше возмо́жностей.","r":"Po-móyemu, lúchshe zhit' v górode, potomú shto tam ból'she vozmózhnostey.","tr":"I think it's better to live in the city, because there are more opportunities there."},{"t":"Мне ка́жется, зима́ лу́чше ле́та. Я люблю́ снег и лы́жи!","r":"Mne kázhetsa, zimá lúchshe léta. Ya lyublyú sneg i lýzhi!","tr":"I think winter is better than summer. I love snow and skiing!"}]}
+      ]
     }
   ]
 }
