@@ -21,17 +21,17 @@
    "file": "ceb/course.json",
    "title": "Bisaya basics",
    "variety": "Bisaya (Cebuano) as spoken in Cebu",
-   "words": 20,
+   "words": 1000,
    "planned": 1000,
-   "bytes": 8541,
-   "audio_bytes": 212061,
-   "sha256": "011821e3e7184f7617a925830e712cbe1a2f1a8ba0d1498d3634b36b89775dd7",
+   "bytes": 324996,
+   "audio_bytes": 11523014,
+   "sha256": "9b45f0917acccc0a7230ec29bbcc4216d6eab284c5a835c9641fc7b7a39bf58e",
    "voice": {
-    "engine": "mms",
-    "name": "Meta MMS (ceb, CC BY-NC 4.0)",
+    "engine": "azure",
+    "name": "Blessica (Azure, Philippines; reading Bisaya)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   }
  }
 }
