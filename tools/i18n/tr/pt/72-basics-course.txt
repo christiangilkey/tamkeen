@@ -1,0 +1,25 @@
+b5ffacdb Carregando o curso…
+e5cfdce4 Um curso básico de {0:lower} está a caminho. Até lá, adicione palavras com “Adicionar palavras” na aba Minhas palavras.
+3284ffc7 Não foi possível carregar o curso. Verifique sua conexão e tente de novo.
+353a0114 Continuar: unidade {0}
+5fa8930e As {0} palavras mais comuns, 50 de cada vez
+593fcfbb {0} de {1} palavras nos seus cartões
+e4115be2 Em breve
+da1dc06f {0} Todas nos seus cartões
+2375cfe0 Palavras {0}–{1}
+920a5ea0 voz sintética
+598fe0cb O áudio é uma voz de computador ({0}). Os significados e as traduções estão em inglês por enquanto.
+be6dabee Todas as unidades
+e4688281 Unidade {0}
+56459cba Palavras {0}–{1} · {2} de {3} nos seus cartões
+9b5def44 Adicionar todas as {0} aos meus cartões
+9ebfbf8f Adicionar as outras {0}
+75236a51 {0} Nos meus cartões
+15d8968c {0} Adicionar
+c16713e5 Adicionada aos seus cartões, com o áudio.
+b0b1fc6c {0} palavras adicionadas aos seus cartões, com o áudio.
+2d491802 {0} dos novos cartões não conseguiram o áudio agora; a voz dos cartões os lê.
+c37636be Não foi possível carregar o áudio desta palavra.
+5f2b15f8 Não foi possível tocar o áudio desta palavra.
+5fcebeef Básico
+39b187b0 Minhas palavras

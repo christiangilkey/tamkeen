@@ -10,6 +10,11 @@ b7f28005  # You are an expert {0} teacher. A learner tapped one word (or a short
 38caff3d  # Target phrase: {0}
 24b7ec37  # The learner selected these words together, so explain them as ONE unit
 1feaccd7  # Bearer {0}
+2a3e9423  # HTTP {0} (coursepanel.js: an internal error, never shown)
+4d144e5c  # {0} · word {1} (coursedata.js: a course card's source, kept with the card as data)
+9d8af931  # There is no such course file. (app/course.py: a 404 the page never shows)
+c18340b6  # That part of the course hasn't been made yet. (app/course.py: a 404 the page never shows)
+f4e6c37a  # Couldn't download the course ({0})... (app/course.py: a 404 the page never shows)
 71e7c09d  # You help language learners remember words with the keyword method (mnemonic.js, to the AI)
 990ba541  # and are as close to its meaning as possible (mnemonic.js, to the AI)
 1ddb0cfa  # Give {0} keywords: real {1} words or phrases that sound like it{2} (mnemonic.js, to the AI)
@@ -370,3 +375,10 @@ e9369867  # fill in: {0}
 32a9ff53  # The photo: read the {0} vocabulary on it.
 # The folder Android's camera app leaves photos in (mobile/src/js/app.js forgetPhotos), not shown.
 935edbe9  # Pictures
+# The grammar courses: internal errors and 404s the page never shows (grammarstore.js, saytext.js, app/grammar.py).
+252c1fa5  # no IndexedDB (grammarstore.js: caught, nothing is kept)
+56a9cab7  # This computer's voice couldn't say it. (saytext.js: caught, the device's voice says it instead)
+448c1d15  # There is no such grammar file. (app/grammar.py: a 404 the page never shows)
+c084abda  # That grammar course hasn't been made yet. (app/grammar.py: a 404 the page never shows)
+56bbfd55  # Couldn't download the grammar course ({0})... (app/grammar.py: a 404 the page never shows)
+18ed69a4  # <{0} class="gx" data-say="{1}" ...  (grammarpanel.js example: a tag, not words)

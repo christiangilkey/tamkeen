@@ -1,0 +1,25 @@
+b5ffacdb Carregant el curs…
+e5cfdce4 Un curs bàsic de {0:lower} és en camí. Mentrestant, afegeix paraules amb «Afegeix paraules» a la pestanya Les meves paraules.
+3284ffc7 No s'ha pogut carregar el curs. Comprova la connexió i torna-ho a provar.
+353a0114 Continua: unitat {0}
+5fa8930e Les {0} paraules més comunes, de 50 en 50
+593fcfbb {0} de {1} paraules a les teves targetes
+e4115be2 Aviat
+da1dc06f {0} Totes a les teves targetes
+2375cfe0 Paraules {0}–{1}
+920a5ea0 veu sintètica
+598fe0cb L'àudio és una veu d'ordinador ({0}). Els significats i les traduccions són en anglès, de moment.
+be6dabee Totes les unitats
+e4688281 Unitat {0}
+56459cba Paraules {0}–{1} · {2} de {3} a les teves targetes
+9b5def44 Afegeix-les totes ({0}) a les meves targetes
+9ebfbf8f Afegeix les altres {0}
+75236a51 {0} A les meves targetes
+15d8968c {0} Afegeix
+c16713e5 Afegida a les teves targetes, amb el seu àudio.
+b0b1fc6c {0} paraules afegides a les teves targetes, amb el seu àudio.
+2d491802 {0} de les targetes noves no han pogut tenir el seu àudio ara; les llegeix la veu de les targetes.
+c37636be No s'ha pogut carregar l'àudio d'aquesta paraula.
+5f2b15f8 No s'ha pogut reproduir l'àudio d'aquesta paraula.
+5fcebeef Bàsic
+39b187b0 Les meves paraules

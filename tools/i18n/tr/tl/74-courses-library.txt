@@ -1,0 +1,4 @@
+a16536d7 Mga kurso
+92d695b2 Wala pang mga kurso para sa wikang ito.
+b97964cd Magpalipat-lipat sa iyong mga kurso, mga podcast, video sa YouTube, webpage, libro, reels at sarili mong mga video.
+6dd47c9e Paparating na ang batayang kurso sa {0}. Habang wala pa, magdagdag ng mga salita gamit ang “Magdagdag ng mga salita” sa pahinang Vocab.

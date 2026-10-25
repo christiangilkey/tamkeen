@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, db, events, languages, learning, pages, paths, reels, tashkeel, videos, youtube
+from .. import aikeys, arabic, audio, db, events, grammar, languages, learning, pages, paths, reels, tashkeel, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -132,6 +132,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "game": db.get_setting("game_state"),
             "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
             "sites": pages.clean_sites(db.get_setting("browser_sites")),
+            "grammar": grammar.clean_progress(db.get_setting("grammar_progress")),
             "ig_collections": reels.synced_collections(),
             "keys": aikeys.from_settings(db.get_settings()),
             "learning": learning.payload(db.get_settings())}
@@ -152,6 +153,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["reviews"] = lib.get("reviews") or {}  # nor does one from before the reviewer
     content["channels"] = lib.get("channels") or []  # nor one from before channels could be followed
     content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
+    content["grammar"] = grammar.clean_progress(lib.get("grammar"))  # nor one from before the grammar courses
     content["ig_collections"] = reels.clean_synced_collections(lib.get("ig_collections"))  # nor one from before collections were shared
     content["keys"] = aikeys.clean(lib.get("keys"))  # nor one from before AI keys were shared
     content["learning"] = learning.clean_payload(lib.get("learning"))  # nor one from before the languages being learned were
@@ -364,6 +366,21 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(merged, ensure_ascii=False),))
                 result.merged["sites"] = len(merged)
+
+        # Grammar lessons finished (app/grammar.py): for each lesson, the finish made last wins.
+        lessons = remote.get("grammar")
+        if isinstance(lessons, dict) and lessons:
+            row = conn.execute("SELECT value FROM settings WHERE key = 'grammar_progress'").fetchone()
+            try:
+                mine = grammar.clean_progress(json.loads(row["value"]) if row else {})
+            except json.JSONDecodeError:
+                mine = {}
+            merged = grammar.merge_progress(mine, lessons)
+            if merged != mine:
+                conn.execute("INSERT INTO settings(key, value) VALUES('grammar_progress', ?) "
+                             "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                             (json.dumps(merged, ensure_ascii=False),))
+                result.merged["grammar"] = len(merged)
 
     # Saved Instagram collections: the list found last, and the collection chosen last.
     if isinstance(remote.get("ig_collections"), dict) and reels.take_synced_collections(remote["ig_collections"]):

@@ -1,0 +1,4 @@
+a16536d7 Kurse
+92d695b2 Für diese Sprache gibt es noch keine Kurse.
+b97964cd Wechsle zwischen deinen Kursen, Podcasts, YouTube-Videos, Webseiten, Büchern, Reels und deinen eigenen Videos.
+6dd47c9e Ein Grundkurs für {0} ist unterwegs. Bis dahin füge Wörter mit „Wörter hinzufügen“ auf der Seite Vokabeln hinzu.

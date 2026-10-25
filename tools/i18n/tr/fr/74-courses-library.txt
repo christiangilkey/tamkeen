@@ -1,0 +1,4 @@
+a16536d7 Cours
+92d695b2 Il n'y a pas encore de cours pour cette langue.
+b97964cd Passez de vos cours aux podcasts, vidéos YouTube, pages web, livres, reels et à vos propres vidéos.
+6dd47c9e Un cours de base en {0:lower} arrive bientôt. En attendant, ajoutez des mots avec « Ajouter des mots » sur la page Vocabulaire.

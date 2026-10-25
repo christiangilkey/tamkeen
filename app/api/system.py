@@ -89,6 +89,12 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         from .. import pages
 
         clean["browser_sites"] = pages.clean_sites(clean["browser_sites"])
+    if "grammar_progress" in clean:
+        from .. import grammar
+
+        # (merged with what is kept, so a page that read the setting before the sync brought another
+        # device's lessons can't drop them)
+        clean["grammar_progress"] = grammar.merge_progress(db.get_settings().get("grammar_progress"), clean["grammar_progress"])
     # The languages being learned: when each was ticked or unticked, by this computer's clock
     # (app/learning.py), so the newer change wins on the user's other devices.
     clean.pop("learning_times", None)
@@ -99,8 +105,8 @@ def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     result = db.set_settings(clean)
     if aikeys.TIMES in clean:
         sync.request(5)  # the key reaches the user's other devices
-    if "youtube_follows" in clean or "browser_sites" in clean:
-        sync.request(30)  # followed channels and saved sites reach the user's other devices
+    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean:
+        sync.request(30)  # followed channels, saved sites and grammar lessons done reach the user's other devices
     if "learning_languages" in clean and sorted(clean["learning_languages"]) != sorted(learning_before):
         sync.request(30)  # a language ticked or unticked reaches the user's other devices
     if "game_state" in clean:

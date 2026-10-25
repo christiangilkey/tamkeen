@@ -1,0 +1,261 @@
+{
+ "format": 1,
+ "courses": {
+  "en-ar": {
+   "file": "en-ar/course.json",
+   "from": "en",
+   "to": "ar",
+   "title": "Arabic grammar",
+   "variety": "Modern Standard Arabic",
+   "units": 8,
+   "lessons": 54,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 301021,
+   "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
+  },
+  "en-ca": {
+   "file": "en-ca/course.json",
+   "from": "en",
+   "to": "ca",
+   "title": "Catalan grammar",
+   "variety": "Central Catalan",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 268049,
+   "sha256": "baca78ff36a2e39bfb43d146d4d4233d0b00582c2ffa95ddcf53304073faabdb"
+  },
+  "en-ceb": {
+   "file": "en-ceb/course.json",
+   "from": "en",
+   "to": "ceb",
+   "title": "Bisaya grammar",
+   "variety": "Bisaya (Cebuano) as spoken in Cebu",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 244703,
+   "sha256": "ebaf3f0d992a729f615b49fb78208efacb257de153e8031251488494b9c95136"
+  },
+  "en-de": {
+   "file": "en-de/course.json",
+   "from": "en",
+   "to": "de",
+   "title": "German grammar",
+   "variety": "Standard German (Germany)",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 272808,
+   "sha256": "80e408be53d7425d625b93284fec4ebc1f433da8a3801a6dbc1bcfe58c465dd0"
+  },
+  "en-es": {
+   "file": "en-es/course.json",
+   "from": "en",
+   "to": "es",
+   "title": "Spanish grammar",
+   "variety": "Mexican Spanish",
+   "units": 9,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 298930,
+   "sha256": "1856b8e76727c7e8bd213b3f5084f1defeb0b43d231e3e5aa2a188165ea940d0"
+  },
+  "en-fa": {
+   "file": "en-fa/course.json",
+   "from": "en",
+   "to": "fa",
+   "title": "Persian grammar",
+   "variety": "Iranian Persian (standard written)",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 365644,
+   "sha256": "52f8043aa272c0a1494a6d63a1eeae88f280192de34b05813020d34a7d0dc615"
+  },
+  "en-fr": {
+   "file": "en-fr/course.json",
+   "from": "en",
+   "to": "fr",
+   "title": "French grammar",
+   "variety": "French (France)",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 290815,
+   "sha256": "cab526994a2222711ee66db6003c7a21472e7c37975169787610c968f5199e02"
+  },
+  "en-hi": {
+   "file": "en-hi/course.json",
+   "from": "en",
+   "to": "hi",
+   "title": "Hindi grammar",
+   "variety": "Everyday Hindi (India), in Devanagari",
+   "units": 8,
+   "lessons": 51,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 441499,
+   "sha256": "e8b20873a6f06f43db6ad74a62fe9f6951732b0100410c2b872776c702310ebf"
+  },
+  "en-it": {
+   "file": "en-it/course.json",
+   "from": "en",
+   "to": "it",
+   "title": "Italian grammar",
+   "variety": "Italian (Italy)",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 264342,
+   "sha256": "9d3b241ff33babb3610737c494767a90406ac3e8753ae6e6af702283739ba0c5"
+  },
+  "en-ja": {
+   "file": "en-ja/course.json",
+   "from": "en",
+   "to": "ja",
+   "title": "Japanese grammar",
+   "variety": "Standard Japanese",
+   "units": 8,
+   "lessons": 47,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 361261,
+   "sha256": "2922785ceb2f277998a181cbce0096feaccf0d7894a344d3e7e7781a0e64c2e6"
+  },
+  "en-ko": {
+   "file": "en-ko/course.json",
+   "from": "en",
+   "to": "ko",
+   "title": "Korean grammar",
+   "variety": "Standard Korean (Seoul), polite 해요 style",
+   "units": 9,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 381549,
+   "sha256": "b3fa1fc548dba1182092316cfe7c957540e34bc7861b791bd95df1fe382e7613"
+  },
+  "en-pt": {
+   "file": "en-pt/course.json",
+   "from": "en",
+   "to": "pt",
+   "title": "Portuguese grammar",
+   "variety": "Brazilian Portuguese (você)",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 271907,
+   "sha256": "859b5fa75faae5037ce96b6b4da14a581eb002018db25f18d3665fad179602f9"
+  },
+  "en-ru": {
+   "file": "en-ru/course.json",
+   "from": "en",
+   "to": "ru",
+   "title": "Russian grammar",
+   "variety": "Standard Russian",
+   "units": 9,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 423725,
+   "sha256": "720886b8f5ff9f23acae806cfd33384e6f0d2b78e684494d951885c447b6e20f"
+  },
+  "en-th": {
+   "file": "en-th/course.json",
+   "from": "en",
+   "to": "th",
+   "title": "Thai grammar",
+   "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+   "units": 9,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 428935,
+   "sha256": "75c10d4c56496bc1f7df95a10c818d5d0bb1d8132b2b641be30a0df9e9b034c5"
+  },
+  "en-tl": {
+   "file": "en-tl/course.json",
+   "from": "en",
+   "to": "tl",
+   "title": "Tagalog grammar",
+   "variety": "Tagalog (Filipino) as spoken in Manila",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 262704,
+   "sha256": "b52bde41ef70f0a88f7ae94a262b8d88436d353aafc153a11cddc33dbfe8a461"
+  },
+  "en-zh": {
+   "file": "en-zh/course.json",
+   "from": "en",
+   "to": "zh",
+   "title": "Chinese grammar",
+   "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+   "units": 9,
+   "lessons": 49,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 322378,
+   "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  }
+ }
+}

@@ -1,0 +1,4 @@
+a16536d7 Cursos
+92d695b2 Encara no hi ha cursos per a aquesta llengua.
+b97964cd Canvia entre els teus cursos, pòdcasts, vídeos de YouTube, pàgines web, llibres, reels i els teus vídeos.
+6dd47c9e Un curs bàsic de {0:lower} és en camí. Mentrestant, afegeix paraules amb «Afegeix paraules» a la pàgina Vocabulari.

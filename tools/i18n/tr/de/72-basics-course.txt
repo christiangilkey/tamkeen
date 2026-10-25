@@ -1,0 +1,25 @@
+b5ffacdb Kurs wird geladen…
+e5cfdce4 Ein Grundkurs für {0} ist unterwegs. Bis dahin füge Wörter mit „Wörter hinzufügen“ im Tab Meine Wörter hinzu.
+3284ffc7 Der Kurs konnte nicht geladen werden. Prüfe deine Verbindung und versuche es noch einmal.
+353a0114 Weiter: Lektion {0}
+5fa8930e Die {0} häufigsten Wörter, 50 auf einmal
+593fcfbb {0} von {1} Wörtern in deinen Karten
+e4115be2 Bald verfügbar
+da1dc06f {0} Alle in deinen Karten
+2375cfe0 Wörter {0}–{1}
+920a5ea0 Sprachausgabe
+598fe0cb Das Audio ist eine Computerstimme ({0}). Bedeutungen und Übersetzungen sind vorerst auf Englisch.
+be6dabee Alle Lektionen
+e4688281 Lektion {0}
+56459cba Wörter {0}–{1} · {2} von {3} in deinen Karten
+9b5def44 Alle {0} zu meinen Karten hinzufügen
+9ebfbf8f Die anderen {0} hinzufügen
+75236a51 {0} In meinen Karten
+15d8968c {0} Hinzufügen
+c16713e5 Zu deinen Karten hinzugefügt, mit Audio.
+b0b1fc6c {0} Wörter zu deinen Karten hinzugefügt, mit Audio.
+2d491802 {0} der neuen Karten konnten ihr Audio gerade nicht bekommen; die Kartenstimme liest sie vor.
+c37636be Das Audio dieses Worts konnte nicht geladen werden.
+5f2b15f8 Das Audio dieses Worts konnte nicht abgespielt werden.
+5fcebeef Grundlagen
+39b187b0 Meine Wörter

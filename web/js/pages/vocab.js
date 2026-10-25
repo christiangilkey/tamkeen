@@ -159,6 +159,7 @@ export async function render(view) {
         <button type="button" class="ghost va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
       </div>
     </section>
+    <div id="mywords">
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
     <div class="folder-bar" id="folders"></div>
     <div class="row vocab-filters">
@@ -182,6 +183,7 @@ export async function render(view) {
       <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
     </div>
     <div class="vocab-list" id="list"></div>
+    </div>
   </div>`));
   const $ = (s) => view.querySelector(s);
   const list = $("#list");
@@ -762,6 +764,7 @@ export async function render(view) {
     ]);
   };
   await load();
+
   firstVisitTour("vocab", view.querySelector(".vocab-page"), [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },

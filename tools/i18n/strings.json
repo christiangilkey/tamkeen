@@ -2905,6 +2905,136 @@
   "f": "web/js/components/changelog.js"
  },
  {
+  "id": "b5ffacdb",
+  "k": "Loading the course…",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "6dd47c9e",
+  "k": "A basics course for {0} is on its way. Until then, add words with “Add words” on the Vocab page.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "3284ffc7",
+  "k": "The course couldn't be loaded. Check your connection and try again.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "353a0114",
+  "k": "Continue: unit {0}",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "5fa8930e",
+  "k": "The {0} most common words, 50 at a time",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "593fcfbb",
+  "k": "{0} of {1} words in your cards",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "e4115be2",
+  "k": "Coming soon",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "da1dc06f",
+  "k": "{0} All in your cards",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "7388d667",
+  "k": "{0} of {1}",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "2375cfe0",
+  "k": "Words {0}–{1}",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "920a5ea0",
+  "k": "text to speech",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "598fe0cb",
+  "k": "The audio is a computer voice ({0}). Meanings and translations are in English for now.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "be6dabee",
+  "k": "All units",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "e4688281",
+  "k": "Unit {0}",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "56459cba",
+  "k": "Words {0}–{1} · {2} of {3} in your cards",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "9b5def44",
+  "k": "Add all {0} to my cards",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "9ebfbf8f",
+  "k": "Add the other {0}",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "44363ccb",
+  "k": "Word",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "1bb1f30e",
+  "k": "Sentence",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "75236a51",
+  "k": "{0} In my cards",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "15d8968c",
+  "k": "{0} Add",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "c16713e5",
+  "k": "Added to your cards, with its audio.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "b0b1fc6c",
+  "k": "{0} words added to your cards, with their audio.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "2d491802",
+  "k": "{0} of the new cards couldn't get their audio now; the card voice reads them.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "c37636be",
+  "k": "This word's audio couldn't be loaded.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "5f2b15f8",
+  "k": "This word's audio couldn't be played.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "5896cb72",
   "k": "Game features",
   "f": "web/js/components/gameswitch.js"
@@ -2918,6 +3048,346 @@
   "id": "afed91e0",
   "k": "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.",
   "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "4f79e08b",
+  "k": "Add an AI key in Settings → Word definitions first.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "a3cec11b",
+  "k": "The grammar course couldn't be loaded. Check your connection and try again.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f9a6c9a2",
+  "k": "Continue: lesson {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f15568dc",
+  "k": "Start: lesson {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "149bf640",
+  "k": "Explained in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "4bbb7f2f",
+  "k": "{0} of {1} lessons done",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "fc1d3462",
+  "k": "Mixed review",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "629ee920",
+  "k": "{0} questions from the lessons you've done, so they stick",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "49e2081b",
+  "k": "Tap an example to hear it, in your card voice (Settings → Card voices).",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c93acba6",
+  "k": "Make these lessons in {0} with my AI key",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d97c9f98",
+  "k": "Lessons in {0}, made with your AI key the first time you open them, and kept on this device.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "7099bd88",
+  "k": "Show in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f36237ec",
+  "k": "These lessons are written in {0}. With AI turned on (Settings → Word definitions), Tamkeen could put them into {1} for you.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "a3eb7ec1",
+  "k": "These lessons are written in {0}. Tamkeen can put them into {1} for you with your own AI key: add one in Settings → Word definitions.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "379c494a",
+  "k": "Add an AI key",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ec2877bb",
+  "k": "It costs less than 1 US cent for the whole course.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "6281eb38",
+  "k": "It costs about {0} US cents for the whole course.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "dab5e7bc",
+  "k": "These lessons are written in {0}. Tamkeen can put them into {1} for you with your AI key ({2}): only the explanations are translated, the {3} stays exactly as checked. Each lesson is made once and kept on this device.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "bcc738d9",
+  "k": "Make them in {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "df2f1e44",
+  "k": "Keep {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d19e938b",
+  "k": "Making the list of lessons…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "1b852e35",
+  "k": "Make the other {0} now",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "9bbcb594",
+  "k": "So they are all here, also without a connection",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "8ac06f2f",
+  "k": "Making lesson {0} of {1}…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "9e253470",
+  "k": "Stop",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f4110c4c",
+  "k": "{0} lessons made in {1}.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c61a07c1",
+  "k": "Making lesson {0} in {1}…",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c1cbd097",
+  "k": "Hide readings",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "deb9b5e4",
+  "k": "Show readings",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ebba3665",
+  "k": "In {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "dd17342c",
+  "k": "Grammar",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3c9b567e",
+  "k": "Done: {0} of {1} right",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "bd425e9e",
+  "k": "All lessons",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "6a371244",
+  "k": "Lesson {0} of {1} · {2}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "dae12711",
+  "k": "This lesson couldn't be made in {0} now, so it's shown in {1}.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "a87476c8",
+  "k": "By the end of this lesson, you can say",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "2a20c750",
+  "k": "Conversation",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62a063a2",
+  "k": "Listen to it all",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "d19ceca5",
+  "k": "Tip",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "85c69987",
+  "k": "Grammar word",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62264fc1",
+  "k": "Common mistakes",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "346a2f5c",
+  "k": "Wrong",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "954daa8b",
+  "k": "Right",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "76b0e210",
+  "k": "From lesson {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3e15ac78",
+  "k": "Practice",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "45e6a5e8",
+  "k": "{0} of {1} right.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "12532d83",
+  "k": "Well done!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5b0859f5",
+  "k": "Lesson done: look again at the ones you missed.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5ed1c2fe",
+  "k": "Next lesson",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "640ece3b",
+  "k": "This lesson couldn't be marked as done: {0}",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "879fee0d",
+  "k": "Right!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "651b1933",
+  "k": "Not quite.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "62cdce39",
+  "k": "The right order:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f5206956",
+  "k": "Say it, then show the answer",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3a13b69b",
+  "k": "Did you get it?",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5397e058",
+  "k": "Yes",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "756c7660",
+  "k": "Not quite",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "ba203e07",
+  "k": "Write your answer here, or just say it aloud",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "3ae5ff6e",
+  "k": "Your answer",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "c63ce1c1",
+  "k": "Check with AI",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "faed9e0c",
+  "k": "Show example answers",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "f02acd47",
+  "k": "Looks right!",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5d51c1f2",
+  "k": "A suggestion:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "059c3e8c",
+  "k": "For example:",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "5d3ba53e",
+  "k": "Could you say something like this?",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "61dda140",
+  "k": "Questions from the lessons you've done, the ones longest ago and the ones you found hardest first. Getting them back out of your memory is what makes them stick.",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "471492a9",
+  "k": "← Previous",
+  "f": "web/js/components/grammarpanel.js"
+ },
+ {
+  "id": "2f04eb15",
+  "k": "Next →",
+  "f": "web/js/components/grammarpanel.js"
  },
  {
   "id": "7fab27b4",
@@ -3295,11 +3765,6 @@
   "f": "web/js/components/models.js"
  },
  {
-  "id": "7388d667",
-  "k": "{0} of {1}",
-  "f": "web/js/components/models.js"
- },
- {
   "id": "781961bc",
   "k": "Pause",
   "f": "web/js/components/models.js"
@@ -3407,11 +3872,6 @@
  {
   "id": "defca688",
   "k": "Step {0} of 4",
-  "f": "web/js/components/onboarding.js"
- },
- {
-  "id": "2f04eb15",
-  "k": "Next →",
   "f": "web/js/components/onboarding.js"
  },
  {
@@ -4660,11 +5120,6 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "9e253470",
-  "k": "Stop",
-  "f": "web/js/components/voicesetup.js"
- },
- {
   "id": "f05831f2",
   "k": "Making voices: {0} of {1}…",
   "f": "web/js/components/voicesetup.js"
@@ -4970,18 +5425,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "44363ccb",
-  "k": "Word",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "d331076e",
   "k": "Play the whole sentence",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "1bb1f30e",
-  "k": "Sentence",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -11095,6 +11540,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "a16536d7",
+  "k": "Courses",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "fd52b45d",
   "k": "Podcasts",
   "f": "web/js/pages/library.js"
@@ -11212,6 +11662,11 @@
  {
   "id": "18915bbf",
   "k": "Watch these reels",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "5fcebeef",
+  "k": "Basics",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11435,6 +11890,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "92d695b2",
+  "k": "There are no courses for this language yet.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "96141178",
   "k": "Refreshing…",
   "f": "web/js/pages/library.js"
@@ -11515,8 +11975,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "356d37c4",
-  "k": "Switch between podcasts, YouTube videos, webpages, books, reels and your own videos.",
+  "id": "b97964cd",
+  "k": "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -14643,6 +15103,11 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "0336262a",
+  "k": "This device has no voice for this language.",
+  "f": "web/js/saytext.js"
  },
  {
   "id": "3da76359",

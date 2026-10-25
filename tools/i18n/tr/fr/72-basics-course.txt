@@ -1,0 +1,25 @@
+b5ffacdb Chargement du cours…
+e5cfdce4 Un cours de base en {0:lower} arrive bientôt. En attendant, ajoutez des mots avec « Ajouter des mots » dans l'onglet Mes mots.
+3284ffc7 Le cours n'a pas pu être chargé. Vérifiez votre connexion et réessayez.
+353a0114 Continuer : unité {0}
+5fa8930e Les {0} mots les plus courants, 50 à la fois
+593fcfbb {0} mots sur {1} dans vos cartes
+e4115be2 Bientôt
+da1dc06f {0} Tous dans vos cartes
+2375cfe0 Mots {0}–{1}
+920a5ea0 synthèse vocale
+598fe0cb L'audio est une voix de synthèse ({0}). Les sens et les traductions sont en anglais pour l'instant.
+be6dabee Toutes les unités
+e4688281 Unité {0}
+56459cba Mots {0}–{1} · {2} sur {3} dans vos cartes
+9b5def44 Ajouter les {0} à mes cartes
+9ebfbf8f Ajouter les {0} autres
+75236a51 {0} Dans mes cartes
+15d8968c {0} Ajouter
+c16713e5 Ajouté à vos cartes, avec son audio.
+b0b1fc6c {0} mots ajoutés à vos cartes, avec leur audio.
+2d491802 {0} des nouvelles cartes n'ont pas pu recevoir leur audio pour l'instant ; la voix des cartes les lit.
+c37636be L'audio de ce mot n'a pas pu être chargé.
+5f2b15f8 L'audio de ce mot n'a pas pu être lu.
+5fcebeef Bases
+39b187b0 Mes mots

@@ -41,7 +41,7 @@ export async function render(view) {
   view.append(h(`
     <div class="page books-page">
       <div class="disc-head">
-        <a class="btn ghost" href="#/library" title="Back to the library">←</a>
+        <a class="btn ghost" href="#/library?show=books" title="Back to the library">←</a>
         <div class="meta">
           <h1>${icon("book", 26)} Books in ${esc(name)}</h1>
           <div class="small muted">Famous books, free because they are in the public domain. Add one and read it a page at a time,

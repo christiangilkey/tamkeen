@@ -5363,3 +5363,112 @@ treated in the same way that we are currently treating cards with no audio."
   answers, and whether grok-4.3 takes pictures: xAI's docs show only grok-4.7 with images), drag-and-drop inside the pywebview
   window itself (tested in the browser pane), real photos of real pages (only rendered pictures), the web app build itself
   (same bundle as the phone build tested), devices without WebAssembly SIMD (the plain build was not run).
+## Basics courses: the 1000 most common words per language, on a redesigned Vocab page (2026-10-23; branch `basics-course`, NOT merged, NOT pushed)
+Owner: "a basics course for each language that helps the user learn the top 1000 most common words, all words
+should be put in basic elementary style sentences, used in a way that native speakers would actually use them, and
+also contain audio from the most accurate text to speech option we have available for each language. These audios
+may need to be made locally on my PC and then sent to users based on what languages they chose to learn … an example
+batch with Arabic first. This system will also be placed on a redesigned vocab page." How-to: `tools/course/README.md`.
+- **Word list** (Arabic): `tools/course/forms.py` (wordfreq 3.1.1, top 20,000 forms; run with a Python that has
+  wordfreq, e.g. a scratch venv) → `tools/course/rank.mjs` groups forms by lexeme with `web/js/lexicon/arabic.js` +
+  `docs/lexicon/ar-msa.json.gz` and ranks by summed frequency (6,682 lexemes; build output is git-ignored). Then a
+  hand pass: the analyzer's mistakes fixed (كل→أكل, يرى→nonsense, قبل→"to accept", أيضا, أفضل), names left out
+  (محمد, السعودية, بن), feminine/plural forms of a word already in (أخرى) skipped.
+- **Content** `tools/course/ar/words.json`: words 1-100 written (units 1-2: the example batch). Modern Standard
+  Arabic, everything fully vowelled with case endings; one short everyday sentence per word (2-10 words), English
+  translation with ⟦ ⟧. `rank` keeps each word's frequency rank. tests/js/course.test.mjs checks the file.
+- **Audio** `tools/course/build_course.py <lang> --voice azure|piper`: word, 0.9 s gap, sentence (Azure at -10% rate)
+  joined as PCM and encoded Ogg Opus (`app/audio.encode_pcm_opus`), times `{start, end, sent_start, sent_end}` (the
+  card-voice shape) → `docs/course/<lang>/course.json` + `audio/NNNN.ogg` + `docs/course/index.json`; keeps audio
+  whose text/voice didn't change (`audio/made.json`). Azure: `ar-SA-ZariyahNeural` (raw-24khz PCM); key from env
+  `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` or Tamkeen's settings DB (`tts_key_azure`, read only). **Azure audio for words 1-100 made 2026-10-24** with the owner's key (region eastus; 200 requests, 1.2 MB), in
+  `docs/course/ar/`; Whisper check: sentences 0.97 average, 9 under 0.85 (mostly case endings heard as other letters:
+  حقٌّ as حقه; worth a listen: 72 مشغول, 82 أكلنا). The builder spaces requests out after Azure's first 429. Piper (`ar_JO-kareem-medium`, downloaded
+  into `tools/course/build/data` via app/voices.py) only for previews → `tools/course/build/preview/` (refused for
+  docs/course: its licence isn't stated). `tools/course/check_audio.py` re-hears each file with Whisper large-v3 from
+  the owner's Tamkeen models (decoding with app.audio: faster-whisper's own reader breaks on this PyAV) and scores
+  the sentence part separately from the word. Piper preview: sentences 0.93 average match, 20/100 under 0.85
+  (real mispronunciations, e.g. صغير heard as صرير): the reason the published audio must be Azure.
+- **App**: `app/course.py` + `GET /api/course/{index.json|<lang>/course.json|<lang>/audio/NNNN.ogg}` (desktop: the
+  repo's docs/course when running from source, or `APS_COURSE_DIR`; else the published site, kept in
+  `<data>/course/`; audio cached for good, JSON asked afresh, kept copy used offline). Phones fetch
+  `https://christiangilkey.github.io/tamkeen/course/…`, the web app `/tamkeen/course/…` (`coursedata.courseUrl`).
+  `web/js/coursedata.js` (pure: urls, `wordKey`/`vowelledKey`, `progress`, `cardOf`, `markedHtml`) and
+  `web/js/components/coursepanel.js` (UI). **Vocab page**: under Review, tabs **Basics | My words** (`#vtabs`, shown
+  only when the study language has a course; last tab kept in localStorage `vocabTab`, Basics by default); My words
+  = the old search/folders/filters/list (`#mywords`). Basics: gradient header (title, variety, "The 1000 most common
+  words, 50 at a time", gold progress bar, "N of 1000 words in your cards", Continue: unit N), 20 unit tiles (ready /
+  started / done / "Coming soon"); a unit: ← back, "Add all 50 to my cards" / "Add the other N", rows with number,
+  word, meaning, sentence (word highlighted), translation (⟦⟧ bold), Word / Sentence (plays the segment), Add / ✓ In
+  my cards. Adding: folder named after the course ("Arabic basics", made once), `POST /vocab/batch` with the new
+  `source` field (→ `episode_title`, desktop and phone backend.js: the card back shows "Arabic basics · word 2"),
+  then `saveVoice(id, blob, times)` per card (4 at a time). In-cards matching: vowelled cards by their vowels (so
+  عَمَل and عَمِلَ stay apart), unvowelled cards without.
+- Translations: `tools/i18n/tr/<code>/72-basics-course.txt` (25 strings × 16); 5 internal strings in ignore.txt.
+- **Checked**: 832 JS (tests/js/course.test.mjs, 9), 530 pytest (tests/test_course.py, 5); preview (`tamkeen-basics`
+  launch config, Piper preview course, throwaway library): tabs, header, tiles, unit 1 rows, Sentence played, Add one
+  (card with voice, source, folder), Add all 49 (50 cards, all with voice), header 50/1000, unit 1 "All in your
+  cards", Continue moved to unit 2, Review "20 new". **Not checked**: Azure audio (no key), the phones, the web app
+  build, units 3-20 (not written).
+- **2026-10-24 progress**: owner approved units 1-2 ("They sound good to me, go ahead and proceed with the rest").
+  All **1000 Arabic words written** (ranks 1-1516 of ar-ranked.json; batches in tools/course/build/batch-ar-*.json,
+  added with `tools/course/add_batch.py`); Azure audio built in batches as they were written. Words skipped by hand:
+  names, places, nationalities, months, abbreviations, dialect forms (اللي, مش), religious-only terms, and near
+  repeats of a word already in (أمل noun after أَمَلَ, نقل after نَقَلَ…).
+- **Other languages (prepared, not started)**: `build_course.py` has every app language's Azure voice (same as
+  cardvoice.js AZURE_VOICES) and a machine-wide "one Azure build at a time" lock file (temp dir), UTF-8 logs, a clear
+  message when Azure refuses (allowance used up). `add_batch.py` rows may carry a 7th item `form`.
+  `tests/js/course-content.test.mjs` checks every non-Arabic `tools/course/<lang>/words.json`. Plan (brief in the
+  side-session notes, `basics-course-languages.md`): one session and branch `basics-<lang>` per language, a 20-word
+  audio sample per language checked by listening back (Thai with Typhoon, Bisaya with its own model) before the rest.
+  Starting the sessions needs a message typed in the desktop app (refused over Remote Control). **Azure allowance**:
+  about 50,000 characters per language, ~850,000 for all 17; the free tier gives ~500,000 a month.
+- **Bisaya voice**: Azure has none. Meta MMS `facebook/mms-tts-ceb` runs locally from
+  `~/Documents/arabic-tts/local-tts` (its own venv: Python 3.12, CPU torch, transformers; `mms_say.py`, `--batch`);
+  `build_course.py ceb --voice mms`. **Licence CC BY-NC 4.0 (non-commercial)**: the owner decides whether its audio
+  may be published. Not in the app's "This computer" card voices (would need PyTorch in the app).
+- **Next**: `check_audio.py ar` on all 1000 → listen to the flagged ones → other languages → publish with a release
+  (ask first). Meanings/translations are English only.
+
+- **2026-10-24 evening (basics-course session)**: Arabic diacritics read word by word: 9 fixes (5c0bd0c; عَضِضْتُ,
+  دُبَيَّ/تِكْسَاسَ without tanween, وَسَط, كُلَّمَا + past, لِيَ before ال, headword بَاقٍ), audio remade (7676355). Shared
+  tools: `tools/course/LANGUAGES.md` (per-language brief, variety per voice), check_audio.py for zh/ja/th (letters) and
+  Thai/Bisaya models (Typhoon from `%TEMP%\tasr\models\typhoon-turbo-app`, BuzzASR), `--out`; optional `say` per
+  word (75f3093: text or Azure `<phoneme>` sapi/ipa) for words misread when said alone (pt o/e, ja は, ko 은/는).
+  **16 language sessions** on branches `basics-<lang>` in worktrees `tamkeen-basics-<lang>` (all from basics-course;
+  the app couldn't give them worktrees, they made them per LANGUAGES.md). 20-word samples checked: all 15 Azure
+  voices fine (sentences 0.88-1.00; low ones are Whisper's spelling). Bisaya: MMS unclear (0.62, words 3/20);
+  Azure fil-PH Blessica reading the Bisaya text 0.81, words 18/20, and commercially usable: owner to choose.
+  **Azure characters voiced this month** ~60,000 (ar ~37k incl. remakes, es half, samples); still to voice
+  ~410,000 (+~29,000 if Bisaya uses Azure); free tier ~500,000/month, so the allowance may run out near the end.
+  Owner wants to be told at once if Azure refuses, with step-by-step for upgrading (Speech resource → Pricing
+  tier → Standard S0; key and region stay the same). Sample results: side-session notes `basics-samples.md`.
+- **2026-10-25: all 17 basics courses finished** (1000 words each, written, tested, voiced, checked). Each language is on
+  its own branch, NOT merged into basics-course (the main Tamkeen chat merges after the owner approves; `docs/course/
+  index.json` merges by language: keep every entry). Last commits: es d1823176, fr 47e18673, ja f98b5abd, zh 448577bc,
+  ru 6ff2e032, it c343256c, tl 312d40f6, pt 9da11b87, ca 575c3d24, th 1a6b2a3a, de fe2b0890, fa 102c545f, hi 953c4ae2,
+  ko 8f37dd91, en b5fa330f, ceb 214a9526 (worktrees `tamkeen-basics-<lang>`). Voices: the app's Azure card voices;
+  Bisaya = Azure fil-PH Blessica reading Bisaya (owner's choice over MMS; 05366da7). Full Whisper checks (Typhoon for
+  Thai, BuzzASR for Bisaya): 0.98-1.00 letter by letter for every language; word-level lows are Whisper's spelling
+  (digits, homophones, Persian/Hindi letters for one sound, Korean/Tagalog spacing). Worth a native listen: es 657/871/
+  886/895, fa 408/194/309/57, hi 753, en 281, ca 581 (details: side-session notes `basics-samples.md`). `say` used by
+  zh (31), ja (79), en (16 heteronyms), ko (particles), pt (o/e), fr (y), tl (ng), fa (short vowels in the word).
+  Azure characters for all 17 courses ≈ 470,000 (+ samples and remakes); Azure never refused. Not done: publishing
+  (a release; ask the owner).
+
+## Courses in the Library (2026-10-25; branch `courses-library`, worktree `tamkeen-courses`, NOT merged, NOT pushed)
+Owner: "add all the grammar courses and the basic courses to tamkeens library tab, under a new bubble in the topbar named
+Courses, this should be the first bubble now on the far left, It should also be preselected when a user first opens the
+app"; asked, he chose Library only (the Vocab page loses its Basics/Grammar tabs).
+- **Branch**: `courses-library` = basics-course + the 16 `basics-<lang>` branches + `grammar-course` (docs/course/index.json
+  rebuilt from every course.json at each merge; grammar merged cleanly), then 25a4f853.
+- **library.js**: KINDS starts with `courses` (href `#/library`, the default kind when no `show`/feed); Podcasts is
+  `#/library?show=podcasts` (All episodes, status filters, removed feed, back links in books/discover/reels/websites
+  go to their own kinds). Courses: `.courses-kind` hides the episode tools; Basics | Grammar tabs (coursePanel,
+  grammarPanel), last tab in localStorage `courseTab`. vocab.js: tabs removed. CSS: grammar rows wrap (global button
+  nowrap) and `.gu-list/.gu-lessons` columns `minmax(0,1fr)` (they grew wider than the page).
+- i18n: `tools/i18n/tr/<code>/74-courses-library.txt` (4 strings × 16). Test: tests/js/library-courses.test.mjs.
+- **Checked**: 1035 JS, 538 pytest, i18n --check; desktop preview (throwaway data) and phone build at 375 px (course
+  requests pointed at the local docs/ in the preview, since the phones load published courses): Courses first and
+  selected, Basics and Grammar tabs, Podcasts and Vocab unchanged otherwise. Not checked: a real phone, the web app on
+  GitHub Pages (courses not published yet), right-to-left UI languages.

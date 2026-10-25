@@ -1,0 +1,277 @@
+{
+ "format": 1,
+ "courses": {
+  "ar": {
+   "file": "ar/course.json",
+   "title": "Arabic basics",
+   "variety": "Modern Standard Arabic",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 381973,
+   "audio_bytes": 12856940,
+   "sha256": "d5de06c41e9d24926a2133b7fa22349499a14639266d6d1c29aac79d23e80953",
+   "voice": {
+    "engine": "azure",
+    "name": "Zariyah (Azure, Saudi Arabia)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "ca": {
+   "file": "ca/course.json",
+   "title": "Catalan basics",
+   "variety": "Central Catalan (Barcelona), in the current spelling (2017 rules: soc, dona)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 346425,
+   "audio_bytes": 13667054,
+   "sha256": "506f9334ac8a255ab6053e6e96ffd86770934434ba257c774c6caa87f228ac2b",
+   "voice": {
+    "engine": "azure",
+    "name": "Joana (Azure, Catalonia)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "ceb": {
+   "file": "ceb/course.json",
+   "title": "Bisaya basics",
+   "variety": "Bisaya (Cebuano) as spoken in Cebu",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 340134,
+   "audio_bytes": 11523014,
+   "sha256": "f47aeaf209b8a2eeb802b800ff173106ca21007913a63654c484707284b11d5c",
+   "voice": {
+    "engine": "azure",
+    "name": "Blessica (Azure, Philippines; reading Bisaya)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
+  "de": {
+   "file": "de/course.json",
+   "title": "German basics",
+   "variety": "Standard German (Germany)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 352033,
+   "audio_bytes": 12871131,
+   "sha256": "d166a2036303ab7d52e6a5835fcae47ef5a553c8bdd678fb3533048b1f139b81",
+   "voice": {
+    "engine": "azure",
+    "name": "Katja (Azure, Germany)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
+  "en": {
+   "file": "en/course.json",
+   "title": "English basics",
+   "variety": "American English",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 368794,
+   "audio_bytes": 10924244,
+   "sha256": "4babd2e88211dc18257e10c7bf68084d1639a79570aa2904b0ab9a3f89d2496c",
+   "voice": {
+    "engine": "azure",
+    "name": "Jenny (Azure, United States)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "es": {
+   "file": "es/course.json",
+   "title": "Spanish basics",
+   "variety": "Latin American Spanish (Mexico)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 345467,
+   "audio_bytes": 12315147,
+   "sha256": "796991ca90b5bc76e54a42bf28ae73a11f5c78e10e46c080a5105d5da505aa76",
+   "voice": {
+    "engine": "azure",
+    "name": "Dalia (Azure, Mexico)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "fa": {
+   "file": "fa/course.json",
+   "title": "Persian basics",
+   "variety": "Iranian Persian (standard written)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 373278,
+   "audio_bytes": 11947234,
+   "sha256": "fcc589c602647e21c048ceaa4266be9392848c8bff26b9b7a873fb67d627c147",
+   "voice": {
+    "engine": "azure",
+    "name": "Dilara (Azure, Iran)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "fr": {
+   "file": "fr/course.json",
+   "title": "French basics",
+   "variety": "French (France)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 351057,
+   "audio_bytes": 11651328,
+   "sha256": "b9649fd330ad3aae4a6838fbae491d1c39c579cc7b2e2cad201c77ceb19afd70",
+   "voice": {
+    "engine": "azure",
+    "name": "Denise (Azure, France)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "hi": {
+   "file": "hi/course.json",
+   "title": "Hindi basics",
+   "variety": "Everyday Hindi (India), in Devanagari",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 405522,
+   "audio_bytes": 13278609,
+   "sha256": "2e55928c0d2b350ad67bcf0b8cdfca92daefe6a8fcb0d9e69427dc3b5e67ac07",
+   "voice": {
+    "engine": "azure",
+    "name": "Swara (Azure, India)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "it": {
+   "file": "it/course.json",
+   "title": "Italian basics",
+   "variety": "Standard Italian (Italy)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 343270,
+   "audio_bytes": 12722232,
+   "sha256": "e3db2daf78e8d832584f2fb7463f1adb0075586dd61b2f837030af8ba738e3c8",
+   "voice": {
+    "engine": "azure",
+    "name": "Elsa (Azure, Italy)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "ja": {
+   "file": "ja/course.json",
+   "title": "Japanese basics",
+   "variety": "Standard Japanese, polite です/ます style",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 362884,
+   "audio_bytes": 13199435,
+   "sha256": "eccf92a00d2d9fe3ba96fbc30248b5157259dbd98ab32d451f00c5e19659ddd2",
+   "voice": {
+    "engine": "azure",
+    "name": "Nanami (Azure, Japan)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "ko": {
+   "file": "ko/course.json",
+   "title": "Korean basics",
+   "variety": "Standard Korean (Seoul), polite 요 style",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 350335,
+   "audio_bytes": 12153393,
+   "sha256": "02d7d6d40ab33f3d82548be1d9854635636e48ba8852a003e4c2f57138983b06",
+   "voice": {
+    "engine": "azure",
+    "name": "SunHi (Azure, South Korea)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "pt": {
+   "file": "pt/course.json",
+   "title": "Portuguese basics",
+   "variety": "Brazilian Portuguese",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 345363,
+   "audio_bytes": 12372076,
+   "sha256": "3b16ef1a9d5eb65835dd1ff2abe8c1b5aa8f8592665d011e49ea873aed2b7324",
+   "voice": {
+    "engine": "azure",
+    "name": "Francisca (Azure, Brazil)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "ru": {
+   "file": "ru/course.json",
+   "title": "Russian basics",
+   "variety": "Standard Russian",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 380216,
+   "audio_bytes": 12843463,
+   "sha256": "a10e9cb307714d09039aa9d41f6926ed569e51148310fa48318ec696b590872c",
+   "voice": {
+    "engine": "azure",
+    "name": "Svetlana (Azure, Russia)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
+  "th": {
+   "file": "th/course.json",
+   "title": "Thai basics",
+   "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 405008,
+   "audio_bytes": 11719538,
+   "sha256": "686a0d214e52cf43b8037cd51d83745c0eb61da29bbb939a3c4caa94b5c3528d",
+   "voice": {
+    "engine": "azure",
+    "name": "Premwadee (Azure, Thailand)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  },
+  "tl": {
+   "file": "tl/course.json",
+   "title": "Tagalog basics",
+   "variety": "Tagalog (Filipino) as spoken in Manila",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 342395,
+   "audio_bytes": 11631363,
+   "sha256": "10e9f80de0777fb7e5280c5b8008b6db237513e78631338fe469d0318e0de49a",
+   "voice": {
+    "engine": "azure",
+    "name": "Blessica (Azure, Philippines)",
+    "synthetic": true
+   },
+   "built": "2026-10-25"
+  },
+  "zh": {
+   "file": "zh/course.json",
+   "title": "Chinese basics",
+   "variety": "Mandarin Chinese (mainland standard, simplified characters)",
+   "words": 1000,
+   "planned": 1000,
+   "bytes": 356358,
+   "audio_bytes": 11234060,
+   "sha256": "0cb675838e26d51e0acfd521ce94885c64930109e79199f0b16c6a43b6b93809",
+   "voice": {
+    "engine": "azure",
+    "name": "Xiaoxiao (Azure, mainland China)",
+    "synthetic": true
+   },
+   "built": "2026-10-24"
+  }
+ }
+}
