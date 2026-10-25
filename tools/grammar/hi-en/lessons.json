@@ -396,7 +396,7 @@
       "summary": "“{{I have a car}}”, “{{She has two brothers}}”, “{{Do you have a pen?}}”: “मेरे पास” को अंग्रेज़ी में उलटकर।",
       "topic": "{{have}} / {{has}}; {{Do you have…?}}, {{I don't have…}}; परिवार, चीज़ें, बीमारी: सबके लिए {{have}}",
       "blocks": [
-        {"goal":{"t":"I have two brothers and a sister.","tr":"मेरे दो भाई और एक बहन है।"}},
+        {"goal":{"t":"I have two brothers and a sister.","tr":"मेरे दो भाई और एक बहन हैं।"}},
         {"dialog":[{"who":"माइक","t":"Do you have a car?","tr":"क्या आपके पास गाड़ी है?"},{"who":"रवि","t":"No, I don't. But I have a bike.","tr":"नहीं। लेकिन मेरे पास साइकिल है।"},{"who":"माइक","t":"Do you have any brothers or sisters?","tr":"क्या आपके कोई भाई-बहन हैं?"},{"who":"रवि","t":"Yes, I have two sisters. They're in Chennai.","tr":"हाँ, मेरी दो बहनें हैं। वे चेन्नई में हैं।"},{"who":"माइक","t":"I have a brother. He has three kids!","tr":"मेरा एक भाई है। उसके तीन बच्चे हैं!"}]},
         {"p":"**“मेरे पास” → {{I have}}.** हिंदी के “मेरे पास गाड़ी है” में व्यक्ति “पास” के साथ आता है। अंग्रेज़ी में व्यक्ति कर्ता है और {{have}} क्रिया: {{I have a car}}, शब्दशः “मैं रखता हूँ एक गाड़ी”। परिवार के लिए भी यही: “मेरे दो भाई हैं” → {{I have two brothers}}।"},
         {"p":"**{{have}} या {{has}}?** {{he}}, {{she}}, {{it}} (और एक व्यक्ति के नाम) के साथ {{has}}; बाक़ी सबके साथ {{have}}: {{She has a dog.}}, {{They have two kids.}}"},
@@ -468,7 +468,7 @@
       "practice": [
         {"type":"fill","q":"सही शब्द चुनिए।","t":"There ___ two hotels on this street.","tr":"इस गली में दो होटल हैं।","options":["are","is","have"],"answer":0,"why":"दो होटल: {{are}}।"},
         {"type":"choice","q":"“क्या यहाँ पास में कोई एटीएम है?”","options":["{{Is there an ATM near here?}}","{{Here is ATM near?}}","{{There is an ATM near here is?}}"],"answer":0,"why":"सवाल: {{is}} पहले, {{Is there…?}} (पाठ 3)।","from":"ask-and-say-no"},
-        {"type":"fill","q":"सही शब्द चुनिए।","t":"Are there ___ good restaurants here?","tr":"क्या यहाँ कोई अच्छे रेस्टोरेंट हैं?","options":["any","some","a"],"answer":0,"why":"सवाल में {{any}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Are there ___ good restaurants here?","tr":"क्या यहाँ कोई अच्छे रेस्टोरेंट हैं?","options":["any","much","a"],"answer":0,"why":"सवाल में {{any}}।"},
         {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"कमरे में दो बिस्तर हैं।","words":["There","are","two","beds","in","the","room."],"from":"more-than-one"},
         {"type":"dialogue","q":"आप एक नए शहर के होटल में हैं। अपने सवाल चुनिए।","lines":[{"who":"रिसेप्शनिस्ट","t":"Welcome to the hotel!","tr":"होटल में आपका स्वागत है!"},{"options":["Thanks. Is there a gym here?","Thanks. Here is a gym?"],"answer":0,"why":"किसी जगह कुछ है या नहीं: {{Is there…?}}"},{"who":"रिसेप्शनिस्ट","t":"Yes, there's one on the second floor.","tr":"हाँ, दूसरी मंज़िल पर है।"},{"options":["Great. Are there any restaurants near here?","Great. Is there any restaurants near here?"],"answer":0,"why":"कई रेस्टोरेंट: {{Are there any…?}}"}]},
         {"type":"say","q":"कहिए: “यहाँ बहुत लोग हैं।”","answer":"There are a lot of people here."},
@@ -978,7 +978,7 @@
       "topic": "अनियमित बीते रूप: {{go → went}}, {{see → saw}}, {{eat → ate}}, {{have → had}}…",
       "blocks": [
         {"goal":{"t":"Last summer we went to Shimla and saw the snow.","tr":"पिछली गर्मियों में हम शिमला गए और बर्फ़ देखी।"}},
-        {"dialog":[{"who":"माइक","t":"You look tired!","tr":"आप थकी हुई लग रही हैं!"},{"who":"प्रिया","t":"I am! I went to a wedding last night.","tr":"हूँ! कल रात मैं एक शादी में गई थी।"},{"who":"माइक","t":"Fun! Was it big?","tr":"मज़ेदार! बड़ी शादी थी?"},{"who":"प्रिया","t":"Huge! I ate too much and I slept at three.","tr":"बहुत बड़ी! मैंने बहुत ज़्यादा खा लिया और तीन बजे सोई।"},{"who":"माइक","t":"Ha! I'm sure you danced a lot.","tr":"हा! आपने ख़ूब डांस किया होगा।"},{"who":"प्रिया","t":"Of course. Everyone danced!","tr":"बिल्कुल। सबने डांस किया!"}]},
+        {"dialog":[{"who":"माइक","t":"You look tired!","tr":"आप थकी हुई लग रही हैं!"},{"who":"प्रिया","t":"I am! I went to a wedding last night.","tr":"हूँ! कल रात मैं एक शादी में गई थी।"},{"who":"माइक","t":"Fun! Was it big?","tr":"मज़ेदार! बड़ी शादी थी?"},{"who":"प्रिया","t":"Huge! I ate too much and went to bed at three.","tr":"बहुत बड़ी! मैंने बहुत ज़्यादा खा लिया और तीन बजे सोई।"},{"who":"माइक","t":"Ha! I'm sure you danced a lot.","tr":"हा! आपने ख़ूब डांस किया होगा।"},{"who":"प्रिया","t":"Of course. Everyone danced!","tr":"बिल्कुल। सबने डांस किया!"}]},
         {"p":"**सबसे आम क्रियाएँ अनियमित हैं.** {{-ed}} वाला नियम ज़्यादातर क्रियाओं पर चलता है, लेकिन सबसे ज़्यादा बोली जाने वाली क्रियाओं का बीता रूप अपना होता है। अच्छी बात: ये भी सबके लिए एक हैं: {{I went}}, {{she went}}, {{they went}}।"},
         { "table": [
           ["क्रिया","बीता रूप","हिंदी"],
@@ -1076,7 +1076,7 @@
       "topic": "बीता काल फिर से; {{first, then, after that, finally}}; {{ago}}; {{was / were}} + विशेषण",
       "blocks": [
         {"goal":{"t":"Two weeks ago we went to Goa. First we went to the beach, then we had seafood.","tr":"दो हफ़्ते पहले हम गोवा गए। पहले हम समुद्र किनारे गए, फिर सीफ़ूड खाया।"}},
-        {"dialog":[{"who":"सारा","t":"How was your trip?","tr":"आपका सफ़र कैसा रहा?"},{"who":"अमित","t":"It was wonderful! We flew to Jaipur on Friday.","tr":"बहुत बढ़िया! हम शुक्रवार को हवाई जहाज़ से जयपुर गए।"},{"who":"सारा","t":"What did you do there?","tr":"वहाँ क्या किया?"},{"who":"अमित","t":"First we visited the fort. Then we went shopping. After that we had dinner on a roof.","tr":"पहले हम क़िला देखने गए। फिर ख़रीदारी की। उसके बाद एक छत पर खाना खाया।"},{"who":"सारा","t":"Sounds great! When did you get back?","tr":"बहुत अच्छा लगता है! वापस कब आए?"},{"who":"अमित","t":"We got back two days ago.","tr":"दो दिन पहले वापस आए।"}]},
+        {"dialog":[{"who":"सारा","t":"How was your trip?","tr":"आपका सफ़र कैसा रहा?"},{"who":"अमित","t":"It was wonderful! We flew to Jaipur on Friday.","tr":"बहुत बढ़िया! हम शुक्रवार को हवाई जहाज़ से जयपुर गए।"},{"who":"सारा","t":"What did you do there?","tr":"वहाँ क्या किया?"},{"who":"अमित","t":"First we visited the fort. Then we went shopping. After that we had dinner on a rooftop.","tr":"पहले हम क़िला देखने गए। फिर ख़रीदारी की। उसके बाद एक छत पर खाना खाया।"},{"who":"सारा","t":"Sounds great! When did you get back?","tr":"बहुत अच्छा लगता है! वापस कब आए?"},{"who":"अमित","t":"We got back two days ago.","tr":"दो दिन पहले वापस आए।"}]},
         {"p":"**कहानी जोड़ने वाले शब्द:** {{first}} “पहले”, {{then}} “फिर”, {{after that}} “उसके बाद”, {{finally}} “आख़िर में”। वाक्य छोटे रखिए; ये शब्द उन्हें जोड़ देंगे।"},
         {"p":"**{{ago}}: “पहले”.** {{two days ago}} “दो दिन पहले”: {{ago}} समय के **बाद** आता है (हिंदी की तरह), और सिर्फ़ बीती बात के साथ: {{I came here three years ago.}}"},
         {"p":"**कैसा था?** {{How was it?}} — {{It was great / fun / boring / tiring.}} लोगों के बारे में: {{The people were very friendly.}} और सफ़र की कुछ और अनियमित क्रियाएँ:"},
@@ -1554,7 +1554,7 @@
       ],
       "practice": [
         {"type":"choice","q":"“मैंने उसे कल देखा।”","options":["{{I saw him yesterday.}}","{{I have seen him yesterday.}}","{{I have saw him yesterday.}}"],"answer":0,"why":"{{yesterday}}: सीधा बीता रूप।"},
-        {"type":"fill","q":"सही शब्द चुनिए।","t":"Have you finished ___?","tr":"क्या तुमने ख़त्म कर लिया?","options":["yet","already","ago"],"answer":0,"why":"सवाल के आख़िर में {{yet}}।"},
+        {"type":"fill","q":"सही शब्द चुनिए।","t":"Have you finished ___?","tr":"क्या तुमने ख़त्म कर लिया?","options":["yet","ago","still"],"answer":0,"why":"सवाल के आख़िर में {{yet}}।"},
         {"type":"fill","q":"सही शब्द चुनिए।","t":"We ___ here in 2018.","tr":"हम 2018 में यहाँ आए।","options":["moved","have moved","have move"],"answer":0,"why":"साल बताया: सीधा बीता रूप।","from":"past-regular"},
         {"type":"order","q":"शब्दों को सही क्रम में लगाइए।","tr":"मैंने अभी तक उसे फ़ोन नहीं किया।","words":["I","haven't","called","him","yet."]},
         {"type":"dialogue","q":"आपकी बॉस काम के बारे में पूछती हैं।","from":"have-you-ever","lines":[{"who":"बॉस","t":"Have you sent the email yet?","tr":"ईमेल भेज दिया?"},{"options":["Yes, I sent it an hour ago.","Yes, I have sent it an hour ago."],"answer":0,"why":"{{an hour ago}}: सीधा बीता रूप।"},{"who":"बॉस","t":"And the report?","tr":"और रिपोर्ट?"},{"options":["I haven't finished it yet.","I didn't finish it yet."],"answer":0,"why":"{{yet}}: {{haven't finished}}।"}]},
@@ -1932,7 +1932,7 @@
       "topic": "{{who}} (लोग), {{which}} / {{that}} (चीज़ें); संज्ञा के ठीक बाद; “वह” दोबारा नहीं",
       "blocks": [
         {"goal":{"t":"The woman who lives next door is a nurse.","tr":"जो औरत बगल में रहती है, वह नर्स है।"}},
-        {"dialog":[{"who":"लीसा","t":"Who's the man who's talking to your boss?","tr":"वह आदमी कौन है जो तुम्हारे बॉस से बात कर रहा है?"},{"who":"रवि","t":"That's Mr. Chen. He's the client who called yesterday.","tr":"वे मिस्टर चेन हैं। वही क्लाइंट जिन्होंने कल फ़ोन किया था।"},{"who":"लीसा","t":"And what's the project that he wants?","tr":"और वे कौन-सा प्रोजेक्ट चाहते हैं?"},{"who":"रवि","t":"It's the app that we built last year.","tr":"वही ऐप जो हमने पिछले साल बनाया था।"},{"who":"लीसा","t":"The one that won the award?","tr":"वही जिसे अवॉर्ड मिला था?"},{"who":"रवि","t":"Exactly.","tr":"बिल्कुल।"}]},
+        {"dialog":[{"who":"लीसा","t":"Who's the man who's talking to your boss?","tr":"वह आदमी कौन है जो तुम्हारे बॉस से बात कर रहा है?"},{"who":"रवि","t":"That's Mr. Chen. He's the client who called yesterday.","tr":"वे मिस्टर चेन हैं। वही क्लाइंट जिन्होंने कल फ़ोन किया था।"},{"who":"लीसा","t":"And what does he want?","tr":"और उन्हें क्या चाहिए?"},{"who":"रवि","t":"He wants the app that we built last year.","tr":"वे वह ऐप चाहते हैं, जो हमने पिछले साल बनाया था।"},{"who":"लीसा","t":"The one that won the award?","tr":"वही जिसे अवॉर्ड मिला था?"},{"who":"रवि","t":"Exactly.","tr":"बिल्कुल।"}]},
         {"term":"संबंधवाचक वाक्यांश","means":"वाक्य का वह हिस्सा जो बताता है कि किस व्यक्ति या चीज़ की बात हो रही है: {{the man who lives next door}} में {{who lives next door}}।"},
         {"p":"**हिंदी का “जो … वह”, अंग्रेज़ी में एक ही हिस्सा.** हिंदी: “जो औरत बगल में रहती है, वह नर्स है”। अंग्रेज़ी में {{who}} वाला हिस्सा सीधे संज्ञा के **बाद** आता है, और “वह” दोबारा नहीं लगता: {{The woman who lives next door is a nurse.}}"},
         { "table": [
