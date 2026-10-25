@@ -251,6 +251,194 @@
         {"type":"say","q":"Ask someone new: “Where are you from? Are you a student?”","answer":"你是哪国人？你是学生吗？","r":"Nǐ shì nǎ guó rén? Nǐ shì xuésheng ma?","from":"ask-yes-or-no"},
         {"type":"free","q":"Your turn: you've just met someone. Ask their name and where they're from, and ask who their friend is.","answers":[{"t":"你叫什么名字？你是哪国人？","r":"Nǐ jiào shénme míngzi? Nǐ shì nǎ guó rén?","tr":"What's your name? What country are you from?"},{"t":"你是哪儿人？他是谁？","r":"Nǐ shì nǎr rén? Tā shì shéi?","tr":"Where are you from? Who's he?"}]}
       ]
+    },
+    {
+      "id": "count-things",
+      "unit": 2,
+      "level": "A1",
+      "title": "Count people and things",
+      "summary": "Count from one to ninety-nine, and count people and things the Chinese way, with a measure word: “three (of) friends”.",
+      "topic": "Numbers; measure words and {{个|gè}}; {{两|liǎng}} for “two”; {{几|jǐ}} “how many?”",
+      "blocks": [
+        {"goal":{"t":"我们三个人。","r":"Wǒmen sān ge rén.","tr":"There are three of us."}},
+        {"dialog":[{"who":"Waiter","t":"欢迎光临！几位？","r":"Huānyíng guānglín! Jǐ wèi?","tr":"Welcome! How many?"},{"who":"Tom","t":"我们三个人。","r":"Wǒmen sān ge rén.","tr":"There are three of us."},{"who":"Waiter","t":"好，三位，这边请。","r":"Hǎo, sān wèi, zhèbiān qǐng.","tr":"OK, three, this way please."}]},
+        { "table": [
+          ["","Chinese","","Chinese"],
+          ["1","{{一|yī}}","6","{{六|liù}}"],
+          ["2","{{二|èr}}","7","{{七|qī}}"],
+          ["3","{{三|sān}}","8","{{八|bā}}"],
+          ["4","{{四|sì}}","9","{{九|jiǔ}}"],
+          ["5","{{五|wǔ}}","10","{{十|shí}}"]
+        ] },
+        {"p":"**Bigger numbers are built like sums.** {{十一|shíyī}} 11 is “ten one”, {{二十|èrshí}} 20 is “two ten”, {{二十五|èrshíwǔ}} 25 is “two ten five”, and so on up to {{九十九|jiǔshíjiǔ}} 99. Once you know one to ten, you know them all."},
+        {"term":"noun","means":"a word for a person, a thing or an idea: friend, apple, city."},
+        {"term":"measure word","means":"a small word that goes between a number (or “this”, “that”) and a noun, like “cup” in “two cups of tea”. Chinese needs one every time it counts."},
+        {"p":"**A measure word between the number and the noun.** English says “three friends”; Chinese says “three *ge* friends”: {{三个朋友|sān ge péngyou}}. A number can't go straight before a noun. {{个|gè}} is the commonest measure word, for people and many things, and it's usually said lightly: ge."},
+        {"p":"**Two** is {{两|liǎng}} before a measure word: {{两个人|liǎng ge rén}} “two people”. {{二|èr}} is for counting (“one, two, three”) and inside longer numbers: {{十二|shí'èr}} 12, {{二十|èrshí}} 20."},
+        {"p":"**How many?** {{几|jǐ}} + measure word asks about a small number, up to about ten: {{几个人？|Jǐ ge rén?}} “How many people?” The answer goes where {{几|jǐ}} was, as with every question word."},
+        { "ex": [
+          {"t":"一个人","r":"yí ge rén","tr":"one person"},
+          {"t":"三个朋友","r":"sān ge péngyou","tr":"three friends"},
+          {"t":"两个孩子","r":"liǎng ge háizi","tr":"two children"},
+          {"t":"十个苹果","r":"shí ge píngguǒ","tr":"ten apples"},
+          {"t":"你们几个人？","r":"Nǐmen jǐ ge rén?","tr":"How many of you are there?"},
+          {"t":"我们五个人。","r":"Wǒmen wǔ ge rén.","tr":"There are five of us."}
+        ] },
+        {"tip":"In a restaurant you'll hear {{几位？|Jǐ wèi?}}: {{位|wèi}} is a polite measure word for people. Answer with the number: {{三个人|sān ge rén}}, or just {{三个|sān ge}}."}
+      ],
+      "mistakes": [
+        {"wrong":"三朋友","right":"三个朋友","tr":"three friends","why":"A number needs a measure word before the noun: {{三个朋友|sān ge péngyou}}."},
+        {"wrong":"二个人","right":"两个人","tr":"two people","why":"Before a measure word, “two” is {{两|liǎng}}: {{两个人|liǎng ge rén}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我们___个人。","r":"Wǒmen ___ ge rén.","tr":"There are two of us.","options":["两","二","几"],"rs":["liǎng","èr","jǐ"],"answer":0,"why":"“Two” before a measure word: {{两|liǎng}}."},
+        {"type":"choice","q":"{{二十五|èrshíwǔ}} is…","options":["25","52","205"],"answer":0,"why":"“Two ten five”: 2 × 10 + 5."},
+        {"type":"choice","q":"“Five apples” is…","options":["{{五苹果|wǔ píngguǒ}}","{{五个苹果|wǔ ge píngguǒ}}","{{个五苹果|ge wǔ píngguǒ}}"],"answer":1,"why":"Number, measure word, noun."},
+        {"type":"dialogue","q":"At the door of a restaurant, with three friends. Choose your replies.","lines":[{"who":"Waiter","t":"欢迎光临！几位？","r":"Huānyíng guānglín! Jǐ wèi?","tr":"Welcome! How many?"},{"options":["我们四个人。","我们四人个。","我们几个人。"],"rs":["Wǒmen sì ge rén.","Wǒmen sì rén ge.","Wǒmen jǐ ge rén."],"answer":0,"why":"Number + {{个|ge}} + {{人|rén}}: {{四个人|sì ge rén}}."},{"who":"Waiter","t":"四位，这边请。","r":"Sì wèi, zhèbiān qǐng.","tr":"Four, this way please."},{"options":["谢谢！","不客气！"],"rs":["Xièxie!","Bú kèqi!"],"answer":0,"why":"Thank the waiter: {{谢谢|xièxie}}. ({{不客气|bú kèqi}} answers someone else's thanks.)"}],"from":"read-pinyin"},
+        {"type":"order","q":"Put the words in order.","tr":"How many of you are there?","words":["你们","几个","人？"],"rs":["nǐmen","jǐ ge","rén?"],"from":"ask-who-what-where"},
+        {"type":"say","q":"Say “two friends and three children”.","answer":"两个朋友和三个孩子","r":"liǎng ge péngyou hé sān ge háizi"},
+        {"type":"free","q":"Your turn: you arrive at a restaurant with friends, and the waiter asks {{几位？|Jǐ wèi?}} Answer.","answers":[{"t":"我们六个人。","r":"Wǒmen liù ge rén.","tr":"There are six of us."},{"t":"我们两个人，谢谢。","r":"Wǒmen liǎng ge rén, xièxie.","tr":"Two of us, thanks."}]}
+      ]
+    },
+    {
+      "id": "point-and-choose",
+      "unit": 2,
+      "level": "A1",
+      "title": "Point and choose: this one, that one",
+      "summary": "“This book”, “that cup”, “Which one?”: point at things in a shop and pick the one you want.",
+      "topic": "{{这|zhè}}, {{那|nà}}, {{哪|nǎ}} + measure word; {{本|běn}}, {{杯|bēi}}, {{张|zhāng}}, {{件|jiàn}}, {{只|zhī}}",
+      "blocks": [
+        {"goal":{"t":"这本书很有意思。","r":"Zhè běn shū hěn yǒu yìsi.","tr":"This book is really interesting."}},
+        {"dialog":[{"who":"Anna","t":"那是什么？","r":"Nà shì shénme?","tr":"What's that?"},{"who":"Shop assistant","t":"那是茶杯。","r":"Nà shì chábēi.","tr":"Those are teacups."},{"who":"Anna","t":"哪个？","r":"Nǎge?","tr":"Which one?"},{"who":"Shop assistant","t":"这个？","r":"Zhège?","tr":"This one?"},{"who":"Anna","t":"不是，那个。很漂亮！","r":"Bú shì, nàge. Hěn piàoliang!","tr":"No, that one. It's beautiful!"}]},
+        {"p":"**This and that.** {{这|zhè}} is “this”, {{那|nà}} is “that”. On their own, before {{是|shì}}: {{这是茶。|Zhè shì chá.}} “This is tea.” But before a noun they need a measure word, just like a number: {{这个人|zhège rén}} “this person”, {{那个城市|nàge chéngshì}} “that city”."},
+        { "table": [
+          ["","+ measure word","+ measure word + noun"],
+          ["this","{{这个|zhège}} this one","{{这个苹果|zhège píngguǒ}} this apple"],
+          ["that","{{那个|nàge}} that one","{{那个人|nàge rén}} that person"],
+          ["which?","{{哪个|nǎge}} which one?","{{哪个菜|nǎge cài}} which dish?"]
+        ] },
+        {"p":"**Measure words for kinds of things.** {{个|gè}} goes with many nouns, but some have a measure word of their own, chosen by the shape or kind of thing. Learn each noun together with its measure word, as one piece:"},
+        { "table": [
+          ["Measure word","For…","Example"],
+          ["{{本|běn}}","books, magazines","{{一本书|yì běn shū}} a book"],
+          ["{{杯|bēi}}","a cup or a glass of","{{一杯茶|yì bēi chá}} a cup of tea"],
+          ["{{张|zhāng}}","flat things: tickets, photos, tables","{{一张票|yì zhāng piào}} a ticket"],
+          ["{{件|jiàn}}","clothes for the top half","{{一件衣服|yí jiàn yīfu}} a top"],
+          ["{{只|zhī}}","most animals","{{一只猫|yì zhī māo}} a cat"]
+        ] },
+        {"p":"**Just “this one”.** Once everyone knows what you're talking about, drop the noun: {{这个很好。|Zhège hěn hǎo.}} “This one's good.” A number fits between too: {{这两张票|zhè liǎng zhāng piào}} “these two tickets”."},
+        { "ex": [
+          {"t":"这本书很有意思。","r":"Zhè běn shū hěn yǒu yìsi.","tr":"This book is really interesting."},
+          {"t":"那个人是谁？","r":"Nàge rén shì shéi?","tr":"Who's that person?"},
+          {"t":"这杯茶很热。","r":"Zhè bēi chá hěn rè.","tr":"This tea is hot.","note":"“this cup (of) tea”"},
+          {"t":"哪个好？","r":"Nǎge hǎo?","tr":"Which one is good?"},
+          {"t":"这两张票","r":"zhè liǎng zhāng piào","tr":"these two tickets","note":"this or that, then the number, then the measure word"},
+          {"t":"那只猫很大。","r":"Nà zhī māo hěn dà.","tr":"That cat is big."}
+        ] },
+        {"tip":"Not sure of the measure word? Use {{个|gè}}: it isn't always right, but people will understand you. And in fast speech {{这个|zhège}} and {{那个|nàge}} are often said “zhèige” and “nèige”."}
+      ],
+      "mistakes": [
+        {"wrong":"这两书","right":"这两本书","tr":"these two books","why":"A number needs its measure word before the noun, even after {{这|zhè}}: {{这两本书|zhè liǎng běn shū}}."},
+        {"wrong":"一个书","right":"一本书","tr":"a book","why":"Books have a measure word of their own: {{一本书|yì běn shū}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"这___书很有意思。","r":"Zhè ___ shū hěn yǒu yìsi.","tr":"This book is really interesting.","options":["本","杯","只"],"rs":["běn","bēi","zhī"],"answer":0,"why":"Books: {{本|běn}}."},
+        {"type":"choice","q":"“That cat” is…","options":["{{那只猫|nà zhī māo}}","{{那猫只|nà māo zhī}}","{{只那猫|zhī nà māo}}"],"answer":0,"why":"{{那|nà}}, then the measure word, then the noun."},
+        {"type":"choice","q":"A cup of coffee: which measure word?","options":["{{张|zhāng}}","{{杯|bēi}}","{{本|běn}}"],"answer":1,"why":"{{一杯咖啡|yì bēi kāfēi}}: {{杯|bēi}} is “cup”."},
+        {"type":"dialogue","q":"At a market stall. Choose your replies.","lines":[{"who":"Seller","t":"你好！这个很漂亮。","r":"Nǐ hǎo! Zhège hěn piàoliang.","tr":"Hello! This one's lovely."},{"options":["哪个？","哪？"],"rs":["Nǎge?","Nǎ?"],"answer":0,"why":"{{哪|nǎ}} needs its measure word too: {{哪个|nǎge}} “which one?”."},{"who":"Seller","t":"这个。那个也很好。","r":"Zhège. Nàge yě hěn hǎo.","tr":"This one. That one's good too."},{"options":["那个很大！","那很大个！"],"rs":["Nàge hěn dà!","Nà hěn dà ge!"],"answer":0,"why":"{{那个|nàge}} “that one”, then {{很|hěn}} and the adjective."}],"from":"say-how-you-are"},
+        {"type":"order","q":"Put the words in order.","tr":"Who's that person?","words":["那个","人","是","谁？"],"rs":["nàge","rén","shì","shéi?"],"from":"ask-who-what-where"},
+        {"type":"say","q":"Say “these two tickets”.","answer":"这两张票","r":"zhè liǎng zhāng piào","from":"count-things"},
+        {"type":"free","q":"Your turn: point at two things near you and say what they're like. Use {{这|zhè}} or {{那|nà}} with a measure word.","answers":[{"t":"这本书很大。那杯咖啡很热。","r":"Zhè běn shū hěn dà. Nà bēi kāfēi hěn rè.","tr":"This book is big. That coffee is hot."},{"t":"这个手机很好。那只猫很漂亮！","r":"Zhège shǒujī hěn hǎo. Nà zhī māo hěn piàoliang!","tr":"This phone is good. That cat is beautiful!"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-want",
+      "unit": 2,
+      "level": "A1",
+      "title": "Order food and drink",
+      "summary": "Ask for what you want in a café or a restaurant, and say what you'd like to do: “I'll have a coffee”, “I feel like dumplings”.",
+      "topic": "{{要|yào}} and {{想要|xiǎng yào}} + a thing; {{想|xiǎng}} + a verb; {{和|hé}} “and”; {{来|lái}} for ordering",
+      "blocks": [
+        {"goal":{"t":"我要一杯咖啡。","r":"Wǒ yào yì bēi kāfēi.","tr":"I'll have a coffee."}},
+        {"dialog":[{"who":"Waiter","t":"你好！要什么？","r":"Nǐ hǎo! Yào shénme?","tr":"Hi! What would you like?"},{"who":"You","t":"我要一杯咖啡和一块蛋糕。","r":"Wǒ yào yì bēi kāfēi hé yí kuài dàngāo.","tr":"I'll have a coffee and a piece of cake."},{"who":"Waiter","t":"要大杯吗？","r":"Yào dà bēi ma?","tr":"A large one?"},{"who":"You","t":"不要，小杯，谢谢。","r":"Bú yào, xiǎo bēi, xièxie.","tr":"No, a small one, thanks."},{"who":"Waiter","t":"好的。还要别的吗？","r":"Hǎo de. Hái yào bié de ma?","tr":"OK. Anything else?"},{"who":"You","t":"不要了，谢谢。","r":"Bú yào le, xièxie.","tr":"That's all, thanks."}]},
+        {"p":"**{{要|yào}}: I want, I'll have.** {{要|yào}} + the thing is how you order and ask for things in a shop, a café or a taxi. It sounds normal and polite, not pushy, especially with {{谢谢|xièxie}}: {{我要这个，谢谢。|Wǒ yào zhège, xièxie.}} “I'll have this one, thanks.”"},
+        {"p":"**{{想|xiǎng}} + a verb: I'd like to.** {{想|xiǎng}} “would like to, feel like” goes before what you'd like to do: {{我想喝茶。|Wǒ xiǎng hē chá.}} “I'd like some tea” (“I'd like to drink tea”). {{想要|xiǎng yào}} + a thing is a softer “I'd like”."},
+        { "table": [
+          ["","Chinese","Meaning"],
+          ["a thing","{{我要一杯茶。|Wǒ yào yì bēi chá.}}","I'll have a tea."],
+          ["softer","{{我想要一杯茶。|Wǒ xiǎng yào yì bēi chá.}}","I'd like a tea."],
+          ["to do something","{{我想喝茶。|Wǒ xiǎng hē chá.}}","I'd like some tea."],
+          ["not","{{我不要茶。|Wǒ bú yào chá.}}","I don't want tea."]
+        ] },
+        {"p":"**And** between two things is {{和|hé}}: {{一杯咖啡和一块蛋糕|yì bēi kāfēi hé yí kuài dàngāo}}. It joins nouns only; a later lesson shows how to join two sentences. **Ordering like a local**: {{来|lái}} “come” + the dish: {{来一碗面！|Lái yì wǎn miàn!}} “A bowl of noodles!”"},
+        { "ex": [
+          {"t":"我要两杯茶。","r":"Wǒ yào liǎng bēi chá.","tr":"Two teas, please."},
+          {"t":"你要什么？","r":"Nǐ yào shénme?","tr":"What would you like?"},
+          {"t":"我想吃饺子。","r":"Wǒ xiǎng chī jiǎozi.","tr":"I feel like dumplings.","note":"“I'd like to eat dumplings”"},
+          {"t":"我不要糖。","r":"Wǒ bú yào táng.","tr":"No sugar for me."},
+          {"t":"来一碗米饭。","r":"Lái yì wǎn mǐfàn.","tr":"A bowl of rice, please."},
+          {"t":"你想喝什么？","r":"Nǐ xiǎng hē shénme?","tr":"What would you like to drink?"}
+        ] },
+        {"tip":"Waiters often ask {{还要别的吗？|Hái yào bié de ma?}} “Anything else?”; {{不要了，谢谢。|Bú yào le, xièxie.}} means “That's all, thanks.” To call a waiter, say {{服务员！|Fúwùyuán!}}"}
+      ],
+      "mistakes": [
+        {"wrong":"我想茶。","right":"我想喝茶。","tr":"I'd like some tea.","why":"{{想|xiǎng}} on its own goes with a verb: {{我想喝茶。|Wǒ xiǎng hē chá.}} With a thing, {{想|xiǎng}} means “miss”: {{我想茶|wǒ xiǎng chá}} sounds like “I miss tea”."},
+        {"wrong":"我要一咖啡。","right":"我要一杯咖啡。","tr":"I'll have a coffee.","why":"A number needs a measure word: {{一杯咖啡|yì bēi kāfēi}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"我想___茶。","r":"Wǒ xiǎng ___ chá.","tr":"I'd like some tea.","options":["喝","是","吃"],"rs":["hē","shì","chī"],"answer":0,"why":"{{想|xiǎng}} + a verb: {{喝|hē}} “drink”. ({{吃|chī}} is “eat”.)"},
+        {"type":"choice","q":"In a café, “I'll have a coffee” is…","options":["{{我要一杯咖啡。|Wǒ yào yì bēi kāfēi.}}","{{我是一杯咖啡。|Wǒ shì yì bēi kāfēi.}}","{{我想一杯咖啡。|Wǒ xiǎng yì bēi kāfēi.}}"],"answer":0,"why":"{{要|yào}} + the thing. ({{我是一杯咖啡|wǒ shì yì bēi kāfēi}} is “I am a coffee”!)"},
+        {"type":"dialogue","q":"In a noodle restaurant, with a friend. Choose your replies.","lines":[{"who":"Waiter","t":"你们要什么？","r":"Nǐmen yào shénme?","tr":"What would you like?"},{"options":["我们要两碗面。","我们要两面碗。","我们要两面。"],"rs":["Wǒmen yào liǎng wǎn miàn.","Wǒmen yào liǎng miàn wǎn.","Wǒmen yào liǎng miàn."],"answer":0,"why":"Number, measure word ({{碗|wǎn}} “bowl”), noun."},{"who":"Waiter","t":"喝什么？","r":"Hē shénme?","tr":"Anything to drink?"},{"options":["一杯茶和一杯水。","一杯茶和喝一杯水。"],"rs":["Yì bēi chá hé yì bēi shuǐ.","Yì bēi chá hé hē yì bēi shuǐ."],"answer":0,"why":"{{和|hé}} joins two things."},{"who":"Waiter","t":"还要别的吗？","r":"Hái yào bié de ma?","tr":"Anything else?"},{"options":["不要了，谢谢。","不是了，谢谢。"],"rs":["Bú yào le, xièxie.","Bú shì le, xièxie."],"answer":0,"why":"“No more, thanks”: {{不要了|bú yào le}}."}],"from":"count-things"},
+        {"type":"order","q":"Put the words in order.","tr":"What would you like to eat?","words":["你","想","吃","什么？"],"rs":["nǐ","xiǎng","chī","shénme?"],"from":"ask-who-what-where"},
+        {"type":"say","q":"Order: “A bowl of rice and a cup of tea, please.”","answer":"我要一碗米饭和一杯茶。","r":"Wǒ yào yì wǎn mǐfàn hé yì bēi chá.","from":"point-and-choose"},
+        {"type":"free","q":"Your turn: you're in a café. Order something to drink and something to eat.","answers":[{"t":"我要一杯咖啡和一块蛋糕，谢谢。","r":"Wǒ yào yì bēi kāfēi hé yí kuài dàngāo, xièxie.","tr":"I'll have a coffee and a piece of cake, thanks."},{"t":"我想喝茶。我要两个包子。","r":"Wǒ xiǎng hē chá. Wǒ yào liǎng ge bāozi.","tr":"I'd like some tea. And two steamed buns."}]}
+      ]
+    },
+    {
+      "id": "ask-how-much",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask how much it costs",
+      "summary": "Ask the price, understand the answer, and haggle a little: “How much is this?” “Thirty-five yuan.” “Too expensive!”",
+      "topic": "{{多少钱？|duōshao qián?}}; money: {{块|kuài}} and {{毛|máo}}; hundreds and thousands; a price needs no {{是|shì}}",
+      "blocks": [
+        {"goal":{"t":"这个多少钱？","r":"Zhège duōshao qián?","tr":"How much is this?"}},
+        {"dialog":[{"who":"You","t":"这个多少钱？","r":"Zhège duōshao qián?","tr":"How much is this?"},{"who":"Seller","t":"三十五块。","r":"Sānshíwǔ kuài.","tr":"Thirty-five yuan."},{"who":"You","t":"太贵了！二十块，好吗？","r":"Tài guì le! Èrshí kuài, hǎo ma?","tr":"Too expensive! Twenty, OK?"},{"who":"Seller","t":"三十块吧。","r":"Sānshí kuài ba.","tr":"Let's say thirty."},{"who":"You","t":"好，我要两个。","r":"Hǎo, wǒ yào liǎng ge.","tr":"OK, I'll take two."},{"who":"Seller","t":"两个六十块。","r":"Liǎng ge liùshí kuài.","tr":"Two, that's sixty."}]},
+        {"p":"**Asking the price.** {{多少钱？|Duōshao qián?}} is “how much money?”, and it goes after the thing: {{这个多少钱？|Zhège duōshao qián?}}, {{这本书多少钱？|Zhè běn shū duōshao qián?}} {{多少|duōshao}} “how much, how many” is for any number, big or small; {{几|jǐ}} is only for small ones."},
+        {"p":"**No “is” before a price.** The answer is just the thing and the price, side by side: {{这个三十块。|Zhège sānshí kuài.}} “This one is thirty yuan.” As with adjectives, there's no {{是|shì}}."},
+        {"p":"**The money.** China's money is the yuan: {{元|yuán}} on price tags, {{块|kuài}} when people speak. A tenth of a yuan is {{毛|máo}}: {{五块五|wǔ kuài wǔ}} is 5.50, “five kuai five”. People often add {{钱|qián}} “money”: {{十块钱|shí kuài qián}} “ten yuan”."},
+        { "table": [
+          ["Number","Chinese","Word for word"],
+          ["100","{{一百|yìbǎi}}","one hundred"],
+          ["150","{{一百五十|yìbǎi wǔshí}}","one hundred five ten"],
+          ["208","{{二百零八|èrbǎi líng bā}}","two hundred zero eight: {{零|líng}} fills a gap"],
+          ["1,000","{{一千|yìqiān}}","one thousand"],
+          ["3,500","{{三千五百|sānqiān wǔbǎi}}","three thousand five hundred"]
+        ] },
+        {"p":"Before {{百|bǎi}} and {{千|qiān}}, “two” is often {{两|liǎng}} too: {{两百|liǎngbǎi}} 200, {{两千|liǎngqiān}} 2,000."},
+        { "ex": [
+          {"t":"这件衣服多少钱？","r":"Zhè jiàn yīfu duōshao qián?","tr":"How much is this top?"},
+          {"t":"一杯咖啡二十八块。","r":"Yì bēi kāfēi èrshíbā kuài.","tr":"A coffee is twenty-eight yuan."},
+          {"t":"苹果多少钱一斤？","r":"Píngguǒ duōshao qián yì jīn?","tr":"How much are the apples per jin?","note":"a {{斤|jīn}} is half a kilo, the usual weight at markets"},
+          {"t":"太贵了！便宜一点儿吧。","r":"Tài guì le! Piányi yìdiǎnr ba.","tr":"Too expensive! Make it a bit cheaper."},
+          {"t":"一共一百二十块。","r":"Yígòng yìbǎi èrshí kuài.","tr":"That's a hundred and twenty altogether."},
+          {"t":"两张票三百块。","r":"Liǎng zhāng piào sānbǎi kuài.","tr":"Two tickets are three hundred yuan."}
+        ] },
+        {"tip":"Haggling is normal at markets, not in shops or supermarkets. {{便宜一点儿吧！|Piányi yìdiǎnr ba!}} “A bit cheaper!” is all you need."}
+      ],
+      "mistakes": [
+        {"wrong":"多少钱这个？","right":"这个多少钱？","tr":"How much is this?","why":"The thing comes first, then {{多少钱|duōshao qián}} in the place of the price: {{这个多少钱？|Zhège duōshao qián?}}"},
+        {"wrong":"一百八块","right":"一百零八块","tr":"108 yuan","why":"{{一百八|yìbǎi bā}} means 180 (short for “a hundred and eighty”). For 108, fill the gap with {{零|líng}}: {{一百零八|yìbǎi líng bā}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"这本书___钱？","r":"Zhè běn shū ___ qián?","tr":"How much is this book?","options":["多少","几","什么"],"rs":["duōshao","jǐ","shénme"],"answer":0,"why":"Money: {{多少钱|duōshao qián}}. ({{几|jǐ}} is only for small numbers.)"},
+        {"type":"choice","q":"{{五块五|wǔ kuài wǔ}} is…","options":["5.05 yuan","5.50 yuan","55 yuan"],"answer":1,"why":"Five {{块|kuài}} and five {{毛|máo}}: 5.50."},
+        {"type":"choice","q":"180 is…","options":["{{一百八|yìbǎi bā}}","{{一百零八|yìbǎi líng bā}}","{{一八十|yī bāshí}}"],"answer":0,"why":"{{一百八|yìbǎi bā}} (short for {{一百八十|yìbǎi bāshí}}) is 180; {{一百零八|yìbǎi líng bā}} is 108."},
+        {"type":"dialogue","q":"At a market. Choose your replies.","lines":[{"who":"Seller","t":"你好，要什么？","r":"Nǐ hǎo, yào shénme?","tr":"Hello, what would you like?"},{"options":["这个多少钱？","多少钱这个？"],"rs":["Zhège duōshao qián?","Duōshao qián zhège?"],"answer":0,"why":"The thing first, then {{多少钱|duōshao qián}}."},{"who":"Seller","t":"五十块。","r":"Wǔshí kuài.","tr":"Fifty yuan."},{"options":["太贵了！","太贵！"],"rs":["Tài guì le!","Tài guì!"],"answer":0,"why":"“Too…!” is {{太|tài}} … {{了|le}}."},{"who":"Seller","t":"好，四十块。","r":"Hǎo, sìshí kuài.","tr":"OK, forty."},{"options":["好，我要两个。","好，我要二个。"],"rs":["Hǎo, wǒ yào liǎng ge.","Hǎo, wǒ yào èr ge."],"answer":0,"why":"Two of something: {{两个|liǎng ge}}."}],"from":"say-how-you-are"},
+        {"type":"order","q":"Put the words in order.","tr":"A coffee is twenty-eight yuan.","words":["一杯","咖啡","二十八","块。"],"rs":["yì bēi","kāfēi","èrshíbā","kuài."],"from":"point-and-choose"},
+        {"type":"say","q":"Ask: “How much are these two tickets?”","answer":"这两张票多少钱？","r":"Zhè liǎng zhāng piào duōshao qián?","from":"count-things"},
+        {"type":"free","q":"Your turn: ask the price of something you'd like to buy, then answer as the seller.","answers":[{"t":"这件衣服多少钱？两百块。","r":"Zhè jiàn yīfu duōshao qián? Liǎngbǎi kuài.","tr":"How much is this top? Two hundred yuan."},{"t":"这杯茶多少钱？十五块。","r":"Zhè bēi chá duōshao qián? Shíwǔ kuài.","tr":"How much is this tea? Fifteen yuan."}]}
+      ]
     }
   ]
 }

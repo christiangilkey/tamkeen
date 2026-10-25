@@ -21,7 +21,7 @@ const isHan = (ch) => HAN.test(ch);
 const ALSO = {
   得: ["de0", "dei3", "de2"], 着: ["zhe0", "zhao2"], 了: ["le0", "liao3"], 还: ["hai2", "huan2"], 只: ["zhi3", "zhi1"],
   长: ["chang2", "zhang3"], 都: ["dou1", "du1"], 行: ["xing2", "hang2"], 觉: ["jue2", "jiao4"], 重: ["zhong4", "chong2"],
-  好: ["hao3", "hao4"], 为: ["wei4", "wei2"], 地: ["di4", "de0"], 的: ["de0"], 少: ["shao3", "shao4"], 要: ["yao4", "yao1"],
+  好: ["hao3", "hao4"], 为: ["wei4", "wei2"], 地: ["di4", "de0"], 的: ["de0"], 少: ["shao3", "shao4", "shao0"], 要: ["yao4", "yao1"],
   教: ["jiao1", "jiao4"], 种: ["zhong3", "zhong4"], 数: ["shu4", "shu3"], 差: ["cha4", "cha1"], 空: ["kong1", "kong4"],
   干: ["gan4", "gan1"], 假: ["jia4", "jia3"], 发: ["fa1", "fa4"], 相: ["xiang1", "xiang4"], 调: ["diao4", "tiao2"],
   乐: ["le4", "yue4"], 和: ["he2", "huo0"], 场: ["chang3", "chang2"], 会: ["hui4"], 应: ["ying1", "ying4"], 分: ["fen1", "fen4"],
@@ -29,7 +29,7 @@ const ALSO = {
   看: ["kan4", "kan1"], 难: ["nan2", "nan4"], 背: ["bei4", "bei1"], 倒: ["dao3", "dao4"], 系: ["xi4", "ji4"], 待: ["dai4", "dai1"],
   兴: ["xing4", "xing1"], 当: ["dang1", "dang4"], 正: ["zheng4", "zheng1"], 中: ["zhong1", "zhong4"], 一: ["yi1"], 不: ["bu4"],
   上: ["shang4"], 下: ["xia4"], 里: ["li3"], 头: ["tou2"], 过: ["guo4"], 么: ["me0"], 们: ["men0"], 子: ["zi3"], 个: ["ge4"],
-  儿: ["er2", "r0"], 喝: ["he1"], 汤: ["tang1"], 累: ["lei4"],
+  儿: ["er2", "r0"], 喝: ["he1"], 汤: ["tang1"], 累: ["lei4"], 几: ["ji3"],
 };
 // Characters that are often said with a neutral tone in a phrase (个 after a number, 上 after a noun,
 // a direction after a verb, 不 inside 看不懂…), so pinyin without a mark is fine for them.
