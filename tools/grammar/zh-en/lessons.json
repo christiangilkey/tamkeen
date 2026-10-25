@@ -1745,6 +1745,444 @@
         {"type":"order","q":"把单词排成正确的顺序。","tr":"你什么都不用带。","words":["You","don't","have","to","bring","anything."]},
         {"type":"free","q":"轮到你了：说说这个星期你必须做的两件事，和一件你不用做的事。","answers":[{"t":"I have to finish a report. I have to take my son to the doctor. I don't have to work on Friday.","tr":"我得写完一份报告，还得带儿子去看医生。星期五我不用上班。"},{"t":"I have to clean my apartment and buy groceries. I don't have to cook tonight.","tr":"我得打扫公寓、买菜。今晚我不用做饭。"}]}
       ]
+    },
+    {
+      "id": "say-why-and-but",
+      "unit": 9,
+      "level": "B1",
+      "title": "说原因和转折：because、so、although、but",
+      "summary": "“因为下雨，所以我们没去”：中文喜欢成对用连词，英语只用一个！",
+      "topic": "{{because}} 或 {{so}}（不能一起用）；{{although}} 或 {{but}}（不能一起用）；{{because of}} + 名词",
+      "blocks": [
+        {"goal":{"t":"I didn't go because it was raining.","tr":"因为下雨，所以我没去。"}},
+        {"dialog":[{"who":"Kate","t":"Why didn't you come to the party?","tr":"你怎么没来聚会？"},{"who":"王芳","t":"Because I had to work late. Sorry!","tr":"因为我得加班。抱歉！"},{"who":"Kate","t":"That's OK. It was a little boring, so we left early.","tr":"没关系。有点儿无聊，所以我们早早就走了。"},{"who":"王芳","t":"But I saw your photos. It looked fun!","tr":"可是我看了你们的照片，看起来挺好玩的！"},{"who":"Kate","t":"Although the food was good, the music was terrible!","tr":"虽然吃的不错，但音乐太难听了！"}]},
+        {"p":"**中文成对，英语单个。** 中文说“因为……所以……”“虽然……但是……”，前后两个词一起用。英语只用其中一个：{{Because it rained, we stayed home.}} 或者 {{It rained, so we stayed home.}}，绝不能说 {{Because it rained, so we stayed home.}}"},
+        { "table": [
+          ["中文","英语（两个选一个）"],
+          ["因为下雨，所以我们没去。","{{We didn't go because it rained.}} / {{It rained, so we didn't go.}}"],
+          ["虽然很贵，但是很好。","{{Although it's expensive, it's good.}} / {{It's expensive, but it's good.}}"]
+        ] },
+        {"p":"**{{because}} 说原因**，可以放在后半句，也可以放在开头（放开头时，两个半句之间加逗号）：{{I'm tired because I worked late.}} **{{so}} 说结果**，放在后半句：{{I worked late, so I'm tired.}} 回答 {{Why?}} 的时候，可以只说 {{Because…}}"},
+        {"p":"**{{although}}、{{but}} 说转折。** {{although}}（虽然）放在前半句的开头，{{but}}（但是）放在后半句的开头，两个只能选一个。口语里 {{but}} 最常用，{{although}} 正式一点儿；还有 {{though}}，放在句末表示“不过”：{{It's expensive. It's good, though.}}"},
+        {"p":"**{{because of}} + 名词**：{{We stayed home because of the rain.}}（因为下雨，我们待在家里。）{{because}} 后面是一个句子，{{because of}} 后面是名词。"},
+        { "ex": [
+          {"t":"I didn't go because it was raining.","tr":"因为下雨，所以我没去。"},
+          {"t":"It was late, so I took a taxi.","tr":"太晚了，所以我打了车。"},
+          {"t":"Although he's young, he's very smart.","tr":"他虽然年轻，但很聪明。"},
+          {"t":"The hotel was small but clean.","tr":"酒店不大，但很干净。"},
+          {"t":"The flight was late because of the snow.","tr":"因为下雪，航班晚点了。"},
+          {"t":"I like my job. It's hard, though.","tr":"我喜欢我的工作，不过挺累的。"}
+        ] },
+        {"tip":"写作时，{{because}} 放在句首，就要把两个半句都写完整：{{Because I was sick, I stayed home.}} 单独一句 {{Because I was sick.}} 只能用来回答问题。"}
+      ],
+      "mistakes": [
+        {"wrong":"Because it rained, so we stayed home.","right":"Because it rained, we stayed home.","tr":"因为下雨，所以我们待在家里。","why":"英语里 {{because}} 和 {{so}} 只用一个。"},
+        {"wrong":"Although it's expensive, but it's good.","right":"Although it's expensive, it's good.","tr":"虽然很贵，但是很好。","why":"{{although}} 和 {{but}} 只用一个。"},
+        {"wrong":"We stayed home because the rain.","right":"We stayed home because of the rain.","tr":"因为下雨，我们待在家里。","why":"后面是名词，要用 {{because of}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I was hungry, ___ I made a sandwich.","tr":"我饿了，所以做了个三明治。","options":["so","because","although"],"answer":0,"why":"说结果：{{so}}。"},
+        {"type":"choice","q":"“虽然很累，但是我很开心。”","options":["{{Although I'm tired, I'm happy.}}","{{Although I'm tired, but I'm happy.}}","{{But I'm tired, although I'm happy.}}"],"answer":0,"why":"只用一个：{{although}}。"},
+        {"type":"choice","q":"“因为堵车，我迟到了。”","options":["{{I was late because of the traffic.}}","{{I was late because the traffic.}}","{{Because the traffic, so I was late.}}"],"answer":0,"why":"名词 {{the traffic}} 前面用 {{because of}}。","from":"say-where-you-were"},
+        {"type":"dialogue","q":"老板问你为什么迟到。选出你的回答。","lines":[{"who":"Boss","t":"Why are you late?","tr":"你怎么迟到了？"},{"options":["Because the subway was delayed.","Because the subway was delayed, so I'm late."],"answer":0,"why":"回答 {{Why?}}，只说 {{Because…}} 就够了。"},{"who":"Boss","t":"OK. Did you finish the report?","tr":"好吧。报告写完了吗？"},{"options":["Yes, but I need to check it again.","Yes, although but I need to check it again."],"answer":0,"why":"转折只用一个 {{but}}。"},{"who":"Boss","t":"Fine. Send it to me by noon.","tr":"行，中午之前发给我。"}],"from":"ask-about-the-past"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"太晚了，所以我打了车。","words":["It","was","late,","so","I","took","a","taxi."]},
+        {"type":"free","q":"轮到你了：你为什么学英语？再说说学英语的一个难处和一个好处，用 {{because}}、{{so}} 或 {{but}}。","answers":[{"t":"I study English because I want to work abroad. It's hard, but it's fun.","tr":"我学英语是因为想出国工作。英语很难，但很有意思。"},{"t":"My kids live in Canada, so I'm learning English. Although grammar is difficult, I practice every day.","tr":"我的孩子住在加拿大，所以我在学英语。虽然语法很难，我还是每天练习。"}]}
+      ]
+    },
+    {
+      "id": "say-what-will-happen-if",
+      "unit": 9,
+      "level": "B1",
+      "title": "说“如果……就……”：if + 现在时，will",
+      "summary": "“如果明天下雨，我们就待在家里”：说有可能发生的事和它的结果。注意：{{if}} 后面不用 {{will}}！",
+      "topic": "第一条件句：{{If}} + 一般现在时，{{will}} + 动词原形；{{when}}、{{as soon as}} + 现在时",
+      "blocks": [
+        {"goal":{"t":"If it rains tomorrow, we'll stay home.","tr":"如果明天下雨，我们就待在家里。"}},
+        {"dialog":[{"who":"Mike","t":"Are we still going hiking on Saturday?","tr":"我们星期六还去徒步吗？"},{"who":"李明","t":"If the weather is good, we'll go.","tr":"如果天气好，我们就去。"},{"who":"Mike","t":"And if it rains?","tr":"要是下雨呢？"},{"who":"李明","t":"If it rains, we'll go to a museum.","tr":"要是下雨，我们就去博物馆。"},{"who":"Mike","t":"OK. I'll call you when I wake up.","tr":"好。我醒了就给你打电话。"}]},
+        {"p":"**如果……就……：{{if}} + 现在时，{{will}} + 动词。** 说将来可能发生的事，{{if}} 那半句用一般现在时，结果那半句用 {{will}}：{{If it rains, we'll stay home.}}（如果下雨，我们就待在家里。）中文的“就”，英语不用翻译出来。"},
+        {"term":"条件句","means":"带 {{if}}（如果）的句子：一半说条件，一半说结果。"},
+        {"p":"**{{if}} 后面不用 {{will}}。** 虽然说的是将来，{{if}} 后面也用现在时：{{If I see him, I'll tell him.}}（如果我见到他，我就告诉他。）不能说 {{If I will see him}}。{{when}}（等……的时候）、{{as soon as}}（一……就……）也一样：{{I'll call you when I get home.}}（我到家就给你打电话。）"},
+        { "table": [
+          ["条件（现在时）","结果（{{will}}）","中文"],
+          ["{{If you're hungry,}}","{{I'll make some noodles.}}","如果你饿了，我就煮点儿面。"],
+          ["{{If she doesn't come,}}","{{we'll start without her.}}","如果她不来，我们就先开始。"],
+          ["{{When I get home,}}","{{I'll call you.}}","我到家就给你打电话。"]
+        ] },
+        {"p":"**两个半句的顺序可以换。** {{if}} 在前，中间加逗号：{{If it rains, we'll stay home.}} {{if}} 在后，不加逗号：{{We'll stay home if it rains.}}"},
+        { "ex": [
+          {"t":"If it rains tomorrow, we'll stay home.","tr":"如果明天下雨，我们就待在家里。"},
+          {"t":"If you need help, I'll be here.","tr":"如果你需要帮忙，我就在这儿。"},
+          {"t":"I'll call you when I get home.","tr":"我到家就给你打电话。"},
+          {"t":"If you don't hurry, you'll miss the bus.","tr":"你要是不快点儿，就赶不上公交车了。"},
+          {"t":"What will you do if you lose your job?","tr":"如果你丢了工作，你会怎么办？"},
+          {"t":"As soon as I finish, I'll help you.","tr":"我一做完就来帮你。"}
+        ] },
+        {"tip":"{{unless}} = {{if… not}}（除非）：{{I won't go unless you come.}}（除非你去，否则我不去。）"}
+      ],
+      "mistakes": [
+        {"wrong":"If it will rain, we'll stay home.","right":"If it rains, we'll stay home.","tr":"如果下雨，我们就待在家里。","why":"{{if}} 后面用一般现在时，不用 {{will}}。"},
+        {"wrong":"I'll call you when I will get home.","right":"I'll call you when I get home.","tr":"我到家就给你打电话。","why":"{{when}} 后面也用现在时：{{when I get home}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"If you ___ hungry, I'll make dinner.","tr":"如果你饿了，我就做晚饭。","options":["are","will be","were"],"answer":0,"why":"{{if}} 后面用一般现在时：{{you are}}。"},
+        {"type":"choice","q":"“我一到机场就给你发短信。”","options":["{{I'll text you as soon as I get to the airport.}}","{{I'll text you as soon as I'll get to the airport.}}","{{I text you as soon as I will get to the airport.}}"],"answer":0,"why":"{{as soon as}} 后面用现在时，结果用 {{will}}。","from":"make-predictions-and-offers"},
+        {"type":"choice","q":"“你要是不快点儿，就会迟到。”","options":["{{If you don't hurry, you'll be late.}}","{{If you won't hurry, you'll be late.}}","{{If you don't hurry, you late.}}"],"answer":0,"why":"条件用现在时（{{don't hurry}}），结果用 {{will}}。"},
+        {"type":"dialogue","q":"和朋友商量周末计划。选出你的回答。","lines":[{"who":"Friend","t":"What will we do if it's sunny?","tr":"如果天晴，我们干什么？"},{"options":["If it's sunny, we'll go to the beach.","If it will be sunny, we go to the beach."],"answer":0,"why":"{{if}} + 现在时，结果 + {{will}}。"},{"who":"Friend","t":"And if it's cold?","tr":"要是冷呢？"},{"options":["We'll watch a movie at home if it's cold.","We watch a movie at home if it will be cold."],"answer":0,"why":"结果用 {{will}}，{{if}} 后面用现在时。"},{"who":"Friend","t":"Sounds like a plan.","tr":"就这么定了。"}],"from":"talk-about-your-plans"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"如果你需要帮忙，我就在这儿。","words":["If","you","need","help,","I'll","be","here."]},
+        {"type":"free","q":"轮到你了：说说这个周末天气好你会做什么，天气不好又会做什么。","answers":[{"t":"If the weather is nice, I'll go for a bike ride. If it rains, I'll stay home and read.","tr":"如果天气好，我就去骑车；如果下雨，我就在家看书。"},{"t":"If it's sunny, we'll have a picnic. If it's cold, we'll go to the mall.","tr":"如果天晴，我们就去野餐；如果冷，我们就去商场。"}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "想象：If I had…, I would…",
+      "summary": "“如果我有一百万，我就……”“如果我是你，我就……”：想象不真实的情况，给别人出主意，或者说你希望怎样。",
+      "topic": "第二条件句：{{If}} + 过去式，{{would}} + 动词原形；{{If I were you…}}；{{I wish…}}",
+      "blocks": [
+        {"goal":{"t":"If I had a million dollars, I would travel the world.","tr":"如果我有一百万美元，我就去环游世界。"}},
+        {"dialog":[{"who":"Kate","t":"What would you do if you won the lottery?","tr":"如果你中了彩票，你会做什么？"},{"who":"王芳","t":"I'd buy a house for my parents. And you?","tr":"我会给我爸妈买套房子。你呢？"},{"who":"Kate","t":"I'd quit my job and travel!","tr":"我会辞职去旅行！"},{"who":"王芳","t":"Really? If I were you, I'd keep my job. You love it!","tr":"真的？如果我是你，我会留着这份工作。你那么喜欢它！"},{"who":"Kate","t":"True. I wish I had more vacation days, though.","tr":"也对。不过我真希望假期能多几天。"}]},
+        {"p":"**想象不真实的事：{{if}} + 过去式，{{would}} + 动词。** 中文说“如果我有钱，我就……”，可能是真的，也可能只是想象；英语分得很清楚。现在不是这样、只是想象的时候，{{if}} 后面用过去式，结果用 {{would}}（口语 {{'d}}）：{{If I had more time, I would learn the piano.}}（要是我有更多时间，我就学钢琴。）其实我现在没时间。"},
+        {"p":"**这里的过去式不是“过去”。** {{If I had…}} 说的是现在，过去式只是表示“这不是真的”。比较一下：{{If I have time, I'll come.}}（我如果有空就来，有可能。）{{If I had time, I'd come.}}（我要是有空就来了，可惜没空。）"},
+        { "table": [
+          ["","条件","结果"],
+          ["有可能（上一课）","{{If it rains,}}","{{we'll stay home.}}"],
+          ["只是想象","{{If I won the lottery,}}","{{I'd buy a house.}}"],
+          ["给建议","{{If I were you,}}","{{I'd call her.}}"]
+        ] },
+        {"p":"**{{If I were you}}：给建议。** 这种句子里，{{I}}、{{he}}、{{she}} 后面也常用 {{were}}：{{If I were you, I'd take the job.}}（如果我是你，我就接受这份工作。）口语里也常听到 {{If I was you}}。"},
+        {"p":"**{{I wish}}：希望现在不一样。** {{I wish}} + 过去式，表示对现在的遗憾：{{I wish I had a car.}}（真希望我有辆车。可惜没有。）{{I wish I could speak English well.}}（真希望我英语说得好。）"},
+        { "ex": [
+          {"t":"If I had a million dollars, I would travel the world.","tr":"如果我有一百万美元，我就去环游世界。"},
+          {"t":"What would you do if you were me?","tr":"如果你是我，你会怎么做？"},
+          {"t":"If I were you, I'd see a doctor.","tr":"如果我是你，我会去看医生。"},
+          {"t":"If I lived near the beach, I'd swim every day.","tr":"如果我住在海边，我就每天游泳。"},
+          {"t":"I wish I had more time.","tr":"真希望我有更多时间。"},
+          {"t":"I wish I could cook like my mom.","tr":"真希望我能像我妈妈那样会做饭。"}
+        ] },
+        {"tip":"{{would}} 后面也用动词原形，对谁都不变。{{I'd}} 可能是 {{I would}}，也可能是 {{I had}}，看后面的词就知道了。"}
+      ],
+      "mistakes": [
+        {"wrong":"If I have a million dollars, I would buy a house.","right":"If I had a million dollars, I would buy a house.","tr":"如果我有一百万美元，我就买套房子。","why":"想象的事，{{if}} 后面用过去式：{{had}}。"},
+        {"wrong":"If I would be you, I would go.","right":"If I were you, I would go.","tr":"如果我是你，我就去。","why":"{{if}} 后面不用 {{would}}：{{If I were you}}。"},
+        {"wrong":"I wish I have a car.","right":"I wish I had a car.","tr":"真希望我有辆车。","why":"{{I wish}} 后面用过去式。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"If I ___ more money, I'd buy a new car.","tr":"要是我钱多一点儿，我就买辆新车。","options":["had","have","will have"],"answer":0,"why":"想象：{{if}} + 过去式。"},
+        {"type":"choice","q":"朋友拿不定主意要不要接受一份新工作。你觉得应该接受。你说……","options":["{{If I were you, I'd take it.}}","{{If I am you, I take it.}}","{{If I would be you, I'd take it.}}"],"answer":0,"why":"给建议：{{If I were you, I'd…}}","from":"give-advice"},
+        {"type":"choice","q":"{{If I had time, I'd come.}} 的意思是……","options":["我现在没时间，所以来不了。","我以前有时间的时候常来。","我有时间，所以会来。"],"answer":0,"why":"过去式表示“不是真的”：其实没有时间。"},
+        {"type":"dialogue","q":"和朋友聊梦想。选出你的回答。","lines":[{"who":"Friend","t":"What would you do if you didn't have to work?","tr":"如果你不用工作，你会做什么？"},{"options":["I'd travel around the world.","I'll travel around the world."],"answer":0,"why":"想象的事：{{would}}，也就是 {{I'd}}。"},{"who":"Friend","t":"Where would you go first?","tr":"你会先去哪儿？"},{"options":["I'd go to Italy. I wish I could speak Italian!","I go to Italy. I wish I can speak Italian!"],"answer":0,"why":"{{would}} + 原形；{{I wish}} 后面用 {{could}}。"},{"who":"Friend","t":"Me too!","tr":"我也是！"}],"from":"say-what-will-happen-if"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"如果我是你，我就去。","words":["If","I","were","you,","I'd","go."]},
+        {"type":"free","q":"轮到你了：如果你中了一大笔钱，你会做什么？再说一件你希望现在不一样的事（{{I wish…}}）。","answers":[{"t":"If I won a lot of money, I'd buy a house by the sea. I wish I had more free time.","tr":"如果我中了一大笔钱，我会在海边买套房子。真希望我有更多空闲时间。"},{"t":"I'd help my family and travel to Africa. I wish I lived closer to my parents.","tr":"我会帮助家人，还会去非洲旅行。真希望我住得离父母近一点儿。"}]}
+      ]
+    },
+    {
+      "id": "say-which-one-you-mean",
+      "unit": 9,
+      "level": "B1",
+      "title": "说清楚是哪一个：who、which、that",
+      "summary": "“住在隔壁的那个人”“我昨天买的那本书”：中文把描述放在名词前面，英语放在后面！",
+      "topic": "定语从句：名词 + {{who}}（人）/ {{which}}（东西）/ {{that}}（都行）+ 句子；{{that}} 有时可以省；{{where}}",
+      "blocks": [
+        {"goal":{"t":"The man who lives next door is a doctor.","tr":"住在隔壁的那个男的是医生。"}},
+        {"dialog":[{"who":"Kate","t":"Who's that woman over there?","tr":"那边那个女的是谁？"},{"who":"王芳","t":"Which one?","tr":"哪个？"},{"who":"Kate","t":"The woman who's wearing the red dress.","tr":"穿红裙子的那个。"},{"who":"王芳","t":"Oh, that's Jenny. She's the friend I told you about.","tr":"哦，那是珍妮，就是我跟你说过的那个朋友。"},{"who":"Kate","t":"The one who works at the hospital?","tr":"在医院工作的那个？"},{"who":"王芳","t":"Yes! Let's go say hi.","tr":"对！我们去打个招呼吧。"}]},
+        {"p":"**描述放在名词后面。** 中文的描述放在名词前面，用“的”连起来：“我昨天买的书”“住在隔壁的人”。英语正好相反：先说名词，再用 {{who}}、{{which}} 或 {{that}} 接上描述：{{the book that I bought yesterday}}、{{the man who lives next door}}。"},
+        {"term":"定语从句","means":"放在名词后面、说明是哪个人或哪个东西的一小句话，用 {{who}}、{{which}}、{{that}} 开头。它就像中文的“……的”，只是位置在后面。"},
+        { "table": [
+          ["中文（描述在前）","英语（描述在后）"],
+          ["住在隔壁的男人","{{the man who lives next door}}"],
+          ["我昨天买的书","{{the book (that) I bought yesterday}}"],
+          ["很辣的菜","{{a dish that is very spicy}}"],
+          ["我们认识的地方","{{the place where we met}}"]
+        ] },
+        {"p":"**{{who}}、{{which}}、{{that}} 怎么选？** 说人用 {{who}}，说东西用 {{which}}；{{that}} 人和东西都能用，口语里最常用。说地点用 {{where}}：{{the city where I was born}}（我出生的城市）。"},
+        {"p":"**{{that}} 有时可以省略。** 后面的描述里已经有自己的主语（{{I}}、{{she}}……）的时候，{{that}} 可以不说：{{the book (that) I bought}}、{{the friend (that) I told you about}}。这样就和中文很像了：“我买的书”。"},
+        { "ex": [
+          {"t":"The man who lives next door is a doctor.","tr":"住在隔壁的那个男的是医生。"},
+          {"t":"This is the book I bought yesterday.","tr":"这是我昨天买的书。"},
+          {"t":"I have a friend who speaks five languages.","tr":"我有个朋友会说五种语言。"},
+          {"t":"The movie that we saw was really scary.","tr":"我们看的那部电影特别吓人。"},
+          {"t":"That's the restaurant where we met.","tr":"那就是我们认识的那家餐厅。"},
+          {"t":"Do you know anyone who can fix my computer?","tr":"你认识会修电脑的人吗？"}
+        ] },
+        {"tip":"长句子不要怕，先抓住名词：{{The woman (who's wearing the red dress) is Jenny.}} 去掉括号里的部分，句子就是 {{The woman is Jenny.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"I bought yesterday book is good.","right":"The book I bought yesterday is good.","tr":"我昨天买的书很好看。","why":"英语的描述放在名词后面：{{the book I bought yesterday}}。"},
+        {"wrong":"The man which lives next door is nice.","right":"The man who lives next door is nice.","tr":"住在隔壁的男人人很好。","why":"说人用 {{who}}（或 {{that}}），不用 {{which}}。"},
+        {"wrong":"This is the book that I bought it.","right":"This is the book that I bought.","tr":"这是我买的书。","why":"{{that}} 已经代替了那本书，后面不再加 {{it}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I have a friend ___ lives in Seattle.","tr":"我有个朋友住在西雅图。","options":["who","which","where"],"answer":0,"why":"说人：{{who}}。"},
+        {"type":"choice","q":"“这是我昨天买的手机。”","options":["{{This is the phone I bought yesterday.}}","{{This is I bought yesterday the phone.}}","{{This is the phone I bought it yesterday.}}"],"answer":0,"why":"名词在前，描述在后，不要多余的 {{it}}。"},
+        {"type":"choice","q":"“那就是我出生的城市。”","options":["{{That's the city where I was born.}}","{{That's the city who I was born.}}","{{That's where I was born the city.}}"],"answer":0,"why":"说地点：{{where}}。"},
+        {"type":"dialogue","q":"在聚会上找人。选出你的回答。","lines":[{"who":"Friend","t":"Who are you looking for?","tr":"你在找谁？"},{"options":["The man who works with my sister.","The man which works with my sister."],"answer":0,"why":"说人：{{who}}。"},{"who":"Friend","t":"Which one is he?","tr":"哪个是他？"},{"options":["He's the one who's wearing glasses.","He's the wearing glasses one."],"answer":0,"why":"描述放在名词后面：{{the one who's wearing glasses}}。"},{"who":"Friend","t":"Oh, he's in the kitchen.","tr":"哦，他在厨房。"}],"from":"say-what-is-happening-now"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我们看的那部电影特别吓人。","words":["The","movie","we","saw","was","really","scary."]},
+        {"type":"free","q":"轮到你了：介绍一个对你很重要的人或地方，用 {{who}}、{{that}} 或 {{where}} 说清楚。","answers":[{"t":"My aunt is a woman who always helps people. She lives in the town where I grew up.","tr":"我姑姑是个总是帮助别人的人。她住在我长大的那个小镇。"},{"t":"The best gift I ever got is a watch that my grandpa gave me.","tr":"我收到过的最好的礼物，是我爷爷给我的一块手表。"}]}
+      ]
+    },
+    {
+      "id": "tell-a-story",
+      "unit": 9,
+      "level": "B1",
+      "title": "讲故事：was doing / when",
+      "summary": "“我正走在回家的路上，突然下起了雨”：用过去进行时描述背景，用一般过去时讲突然发生的事。",
+      "topic": "过去进行时 {{was}} / {{were}} + {{-ing}}；{{when}}、{{while}}；{{first}}、{{then}}、{{after that}}、{{finally}}",
+      "blocks": [
+        {"goal":{"t":"I was walking home when it started to rain.","tr":"我正走着回家，突然下起了雨。"}},
+        {"dialog":[{"who":"李明","t":"You won't believe what happened yesterday.","tr":"你肯定猜不到我昨天遇到了什么事。"},{"who":"Mike","t":"What happened?","tr":"怎么了？"},{"who":"李明","t":"I was waiting for the bus when a man ran up to me.","tr":"我正在等公交车，一个男的朝我跑过来。"},{"who":"Mike","t":"Whoa. What did he want?","tr":"哇，他想干什么？"},{"who":"李明","t":"He was holding my wallet! I dropped it while I was getting off the train.","tr":"他手里拿着我的钱包！原来我下火车的时候把它弄掉了。"},{"who":"Mike","t":"That's so nice! You were lucky.","tr":"人真好！你运气不错。"}]},
+        {"p":"**故事的背景：过去进行时。** 讲故事时，先描述当时正在发生的事，用 {{was}} / {{were}} + {{-ing}}：{{I was walking home.}}（我当时正走着回家。）{{The sun was shining.}}（那时阳光灿烂。）就像中文的“当时正在……”。"},
+        {"p":"**突然发生的事：一般过去时。** 在这个背景里突然插进来的事，用一般过去时，常用 {{when}} 连接：{{I was walking home when it started to rain.}}（我正走着回家，突然下起了雨。）{{while}}（在……的时候）后面常接进行时：{{While I was cooking, the phone rang.}}（我做饭的时候，电话响了。）"},
+        { "table": [
+          ["背景（{{was}} + {{-ing}}）","突然发生的事（一般过去时）"],
+          ["{{I was sleeping}}","{{when the phone rang.}}"],
+          ["{{We were having dinner}}","{{when the lights went out.}}"],
+          ["{{While she was driving,}}","{{she saw an accident.}}"]
+        ] },
+        {"p":"**把故事串起来。** 讲先后顺序：{{first}}（首先）、{{then}}（然后）、{{after that}}（在那之后）、{{finally}}（最后）。中文的“了”在英语里都要变成过去式：{{First we went to the beach. Then we had lunch. Finally we went home.}}"},
+        { "ex": [
+          {"t":"I was walking home when it started to rain.","tr":"我正走着回家，突然下起了雨。"},
+          {"t":"While I was cooking, the phone rang.","tr":"我做饭的时候，电话响了。"},
+          {"t":"What were you doing at eight last night?","tr":"昨晚八点你在干什么？"},
+          {"t":"We were watching TV when the lights went out.","tr":"我们正在看电视，突然停电了。"},
+          {"t":"First we checked in. Then we went to the beach.","tr":"我们先办了入住，然后去了海边。"},
+          {"t":"Finally, we got home at midnight.","tr":"最后，我们半夜才到家。"}
+        ] },
+        {"tip":"听别人讲故事时，可以这样回应：{{Really?}}（真的？）{{What happened next?}}（后来呢？）{{Oh no!}}（哎呀！）{{You're kidding!}}（开玩笑吧！）"}
+      ],
+      "mistakes": [
+        {"wrong":"I was walk home when it started to rain.","right":"I was walking home when it started to rain.","tr":"我正走着回家，突然下起了雨。","why":"过去进行时：{{was}} + {{-ing}}。"},
+        {"wrong":"While I cooked, the phone was ringing.","right":"While I was cooking, the phone rang.","tr":"我做饭的时候，电话响了。","why":"背景用进行时（{{was cooking}}），突然发生的事用一般过去时（{{rang}}）。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"We were having dinner when the doorbell ___.","tr":"我们正吃着晚饭，门铃响了。","options":["rang","was ringing","rings"],"answer":0,"why":"突然发生的事：一般过去时 {{rang}}。"},
+        {"type":"choice","q":"“昨晚十点你在干什么？”","options":["{{What were you doing at ten last night?}}","{{What did you doing at ten last night?}}","{{What you were doing at ten last night?}}"],"answer":0,"why":"问当时正在做什么：{{What were you doing…?}}","from":"say-what-is-happening-now"},
+        {"type":"choice","q":"哪一句的顺序词用对了？","options":["{{First we bought tickets. Then we went inside.}}","{{Finally we bought tickets. First we went inside.}}"],"answer":0,"why":"{{first}} 在先，{{then}} 在后。"},
+        {"type":"dialogue","q":"朋友让你讲讲机场的事。选出你的话。","lines":[{"who":"Friend","t":"So what happened at the airport?","tr":"那在机场发生什么了？"},{"options":["I was waiting in line when I saw my old teacher.","I waited in line when I was seeing my old teacher."],"answer":0,"why":"背景：{{was waiting}}；突然发生的事：{{saw}}。"},{"who":"Friend","t":"No way! What did you do?","tr":"不会吧！那你怎么做的？"},{"options":["I said hello, and then we had coffee together.","I was saying hello, and then we were having coffee together."],"answer":0,"why":"一件接一件发生的事，用一般过去时。"},{"who":"Friend","t":"What a small world!","tr":"世界真小！"}],"from":"tell-what-happened"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我做饭的时候，电话响了。","words":["While","I","was","cooking,","the","phone","rang."]},
+        {"type":"free","q":"轮到你了：讲一个小故事：当时你正在做什么，突然发生了什么，后来怎么样了。","answers":[{"t":"I was shopping last week when I met an old friend. We went to a café and talked for two hours.","tr":"上周我正在逛街，碰到了一个老朋友。我们去了咖啡店，聊了两个小时。"},{"t":"I was sleeping when my phone rang at three in the morning. It was my brother. He was in Australia and he forgot the time difference!","tr":"凌晨三点我正睡着，电话响了。是我哥哥，他在澳大利亚，忘了时差！"}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 9,
+      "level": "B1",
+      "title": "转述别人的话",
+      "summary": "“她说她会晚点儿到”“他问我是不是学生”：把别人的话告诉第三个人。英语转述时，时态常常往后退一步。",
+      "topic": "{{He said (that)…}}、{{She told me (that)…}}；{{said}} 和 {{told}}；时态后退（{{is}} → {{was}}，{{will}} → {{would}}）；{{He asked if…}}",
+      "blocks": [
+        {"goal":{"t":"She said she was tired.","tr":"她说她累了。"}},
+        {"dialog":[{"who":"Mike","t":"Did Lisa call?","tr":"丽莎打电话了吗？"},{"who":"李明","t":"Yes. She said she would be late.","tr":"打了，她说她会晚点儿到。"},{"who":"Mike","t":"Did she say why?","tr":"她说为什么了吗？"},{"who":"李明","t":"She told me her car wasn't working.","tr":"她告诉我她的车坏了。"},{"who":"Mike","t":"Oh no. Did she ask about the meeting?","tr":"哎呀。她问会议的事了吗？"},{"who":"李明","t":"Yes, she asked if we could wait for her.","tr":"问了，她问我们能不能等等她。"}]},
+        {"p":"**转述：{{said}} 和 {{told}}。** {{say}} 后面直接跟说的内容：{{He said (that) he was busy.}}（他说他很忙。）{{tell}} 后面要先说告诉谁：{{He told me (that) he was busy.}}（他告诉我他很忙。）不能说 {{He said me…}}。{{that}} 可以省略。"},
+        {"p":"**时态往后退一步。** 中文转述时动词不变；英语用 {{said}} 转述时，原话的时态常常往过去退一步：{{“I'm tired.”}} → {{She said she was tired.}} {{“I will call you.”}} → {{He said he would call me.}} {{“I can come.”}} → {{She said she could come.}} 人称也要换成转述人的角度（{{I}} → {{she}}）。"},
+        { "table": [
+          ["原话","转述","中文"],
+          ["{{“I'm busy.”}}","{{He said he was busy.}}","他说他很忙。"],
+          ["{{“I'll be late.”}}","{{She said she would be late.}}","她说她会晚到。"],
+          ["{{“I can help.”}}","{{He said he could help.}}","他说他可以帮忙。"],
+          ["{{“I love it.”}}","{{She told me she loved it.}}","她告诉我她很喜欢。"]
+        ] },
+        {"p":"**转述问题：{{asked}} + {{if}} 或疑问词，用陈述句的语序。** {{“Are you a student?”}} → {{She asked if I was a student.}}（她问我是不是学生。）{{“Where do you live?”}} → {{He asked where I lived.}}（他问我住在哪儿。）注意：转述的问题不再倒装，也不用 {{do}}。"},
+        { "ex": [
+          {"t":"She said she was tired.","tr":"她说她累了。"},
+          {"t":"He told me he would call later.","tr":"他告诉我他晚点儿会打电话。"},
+          {"t":"My boss said I could leave early.","tr":"老板说我可以早点儿走。"},
+          {"t":"She asked if I was a student.","tr":"她问我是不是学生。"},
+          {"t":"He asked me where I lived.","tr":"他问我住在哪儿。"},
+          {"t":"Tom says he's sorry.","tr":"汤姆说他很抱歉。","note":"用 {{says}}（现在时）转述，时态不用变"}
+        ] },
+        {"tip":"转述刚说过、现在还成立的话，时态也可以不变：{{She said she's coming.}}（她说她要来。）口语里两种说法都常听到。"}
+      ],
+      "mistakes": [
+        {"wrong":"He said me he was busy.","right":"He told me he was busy.","tr":"他告诉我他很忙。","why":"后面有“告诉谁”，用 {{told}}；{{said}} 后面不直接跟人。"},
+        {"wrong":"She asked me where do I live.","right":"She asked me where I lived.","tr":"她问我住在哪儿。","why":"转述的问题用陈述句语序，不用 {{do}}。"},
+        {"wrong":"He asked me am I tired.","right":"He asked me if I was tired.","tr":"他问我累不累。","why":"转述是非问题用 {{if}}，语序用陈述句。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"She ___ me she was moving to Boston.","tr":"她告诉我她要搬到波士顿。","options":["told","said","asked"],"answer":0,"why":"后面有 {{me}}（告诉谁）：{{told}}。"},
+        {"type":"choice","q":"朋友说 {{“I'll be there at seven.”}} 你转述给别人：","options":["{{He said he would be there at seven.}}","{{He told he would be there at seven.}}","{{He said me he would be there at seven.}}"],"answer":0,"why":"{{said}} 后面不直接跟人，{{told}} 后面一定要有人；{{will}} 往后退一步变成 {{would}}。","from":"make-predictions-and-offers"},
+        {"type":"choice","q":"医生问你 {{“Do you smoke?”}} 你告诉家人：","options":["{{The doctor asked if I smoked.}}","{{The doctor asked do I smoke.}}","{{The doctor asked if did I smoke.}}"],"answer":0,"why":"是非问题：{{asked if}} + 陈述句语序，时态往后退。","from":"ask-about-habits"},
+        {"type":"dialogue","q":"同事打来电话，你转告老板。选出你的话。","lines":[{"who":"Boss","t":"Who was that on the phone?","tr":"刚才谁打电话？"},{"options":["It was Mark. He said he was sick today.","It was Mark. He said me he was sick today."],"answer":0,"why":"{{said}} 后面直接跟内容。"},{"who":"Boss","t":"Did he say anything else?","tr":"他还说别的了吗？"},{"options":["He asked if he could work from home tomorrow.","He asked can he work from home tomorrow."],"answer":0,"why":"转述问题：{{asked if}} + 陈述句语序。"},{"who":"Boss","t":"Sure, that's fine.","tr":"可以，没问题。"}]},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"她问我是不是学生。","words":["She","asked","if","I","was","a","student."]},
+        {"type":"free","q":"轮到你了：转述一件最近有人告诉你的事，和一个有人问你的问题。","answers":[{"t":"My friend told me she was getting married. She asked if I could come to the wedding.","tr":"我朋友告诉我她要结婚了。她问我能不能去参加婚礼。"},{"t":"My mom said she was proud of me. She asked when I would visit.","tr":"我妈妈说她为我骄傲。她问我什么时候回去看她。"}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 9,
+      "level": "B1",
+      "title": "常用短语动词",
+      "summary": "“起床”“开灯”“找钥匙”“别放弃”：美国人每天都在用的“动词 + 小词”，意思常常猜不出来。",
+      "topic": "短语动词：{{get up}}、{{turn on}} / {{off}}、{{put on}} / {{take off}}、{{look for}}、{{find out}}、{{pick up}}、{{give up}}；{{turn it on}}（代词放中间）",
+      "blocks": [
+        {"goal":{"t":"Can you turn on the light?","tr":"你能开一下灯吗？"}},
+        {"dialog":[{"who":"妈妈","t":"Wake up! It's seven o'clock.","tr":"醒醒！七点了。"},{"who":"小杰","t":"OK, I'm getting up.","tr":"好，我起来了。"},{"who":"妈妈","t":"Put on your coat. It's cold outside.","tr":"穿上外套，外面冷。"},{"who":"小杰","t":"Where is it? I'm looking for it.","tr":"在哪儿？我正在找。"},{"who":"妈妈","t":"It's on the chair. And turn off the TV, please.","tr":"在椅子上。还有，请把电视关了。"},{"who":"小杰","t":"OK, I'll turn it off.","tr":"好，我这就关。"}]},
+        {"p":"**动词 + 小词 = 新意思。** 英语里很多常用的说法，是一个动词加一个小词（{{up}}、{{on}}、{{off}}、{{out}}……），合起来的意思常常和原来的动词不太一样：{{get up}}（起床）、{{give up}}（放弃）、{{find out}}（查明、发现）。最好的办法是把它们当成一个整体来记。"},
+        {"term":"短语动词","means":"动词加上 {{up}}、{{on}}、{{off}} 等小词组成的说法，意思常常是一个整体，比如 {{turn on}}（打开）。"},
+        { "table": [
+          ["短语动词","意思","例句"],
+          ["{{get up}}","起床","{{I get up at seven.}}"],
+          ["{{turn on}} / {{turn off}}","打开 / 关掉（电器）","{{Turn off the TV.}}"],
+          ["{{put on}} / {{take off}}","穿上 / 脱下","{{Put on your shoes.}}"],
+          ["{{look for}}","找","{{I'm looking for my keys.}}"],
+          ["{{find out}}","查明、发现","{{I found out the truth.}}"],
+          ["{{pick up}}","接（人）、捡起","{{Can you pick me up at six?}}"],
+          ["{{give up}}","放弃","{{Don't give up!}}"]
+        ] },
+        {"p":"**“开灯”不是 {{open the light}}。** 中文说“开灯”“关电视”；英语的 {{open}} / {{close}} 只用于门、窗、盒子这些能打开的东西，电器要用 {{turn on}} / {{turn off}}：{{Turn on the light.}}（开灯。）{{Turn off the air conditioner.}}（关空调。）"},
+        {"p":"**代词放在中间。** 宾语是名词时，放中间或后面都行：{{Turn off the TV.}} = {{Turn the TV off.}} 但宾语是 {{it}}、{{them}} 这类代词时，一定要放在中间：{{Turn it off.}}，不能说 {{Turn off it.}}（{{look for}} 这样的例外：{{I'm looking for it.}}）"},
+        { "ex": [
+          {"t":"Can you turn on the light?","tr":"你能开一下灯吗？"},
+          {"t":"I usually get up at six thirty.","tr":"我一般六点半起床。"},
+          {"t":"Put on your jacket. It's cold.","tr":"穿上夹克，天冷。"},
+          {"t":"I'm looking for my phone.","tr":"我在找我的手机。"},
+          {"t":"Can you pick me up at the airport?","tr":"你能到机场接我吗？"},
+          {"t":"Learning English is hard, but don't give up!","tr":"学英语不容易，但别放弃！"}
+        ] },
+        {"tip":"在家里边做边说：{{wake up}}（醒来）、{{get up}}（起床）、{{put on}}（穿上）、{{turn on}}（打开）、{{take off}}（脱下）、{{turn off}}（关掉）。每天说一遍，很快就记住了。"}
+      ],
+      "mistakes": [
+        {"wrong":"Open the light, please.","right":"Turn on the light, please.","tr":"请开灯。","why":"电器用 {{turn on}}，不用 {{open}}。"},
+        {"wrong":"Turn off it.","right":"Turn it off.","tr":"把它关掉。","why":"代词 {{it}} 要放在中间：{{turn it off}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Please ___ off your phone.","tr":"请把手机关掉。","options":["turn","close","open"],"answer":0,"why":"电器：{{turn off}}。"},
+        {"type":"choice","q":"“你能来火车站接我吗？”","options":["{{Can you pick me up at the train station?}}","{{Can you pick up me at the train station?}}","{{Can you take me at the train station?}}"],"answer":0,"why":"代词 {{me}} 放在中间：{{pick me up}}。","from":"make-suggestions-and-requests"},
+        {"type":"choice","q":"“别放弃！”","options":["{{Don't give up!}}","{{Don't give out!}}","{{Don't put up!}}"],"answer":0,"why":"放弃：{{give up}}。"},
+        {"type":"dialogue","q":"早上，你在找东西。选出你的回答。","lines":[{"who":"Roommate","t":"What are you doing?","tr":"你在干什么？"},{"options":["I'm looking for my glasses.","I'm looking my glasses."],"answer":0,"why":"“找”是 {{look for}}，{{for}} 不能少。"},{"who":"Roommate","t":"Turn on the light. It's dark in here.","tr":"开灯吧，这儿太黑了。"},{"options":["Good idea. I'll turn it on.","Good idea. I'll turn on it."],"answer":0,"why":"代词放中间：{{turn it on}}。"},{"who":"Roommate","t":"There they are! On the table.","tr":"在那儿！桌子上。"}],"from":"say-what-is-happening-now"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我一般六点半起床。","words":["I","usually","get","up","at","six","thirty."]},
+        {"type":"free","q":"轮到你了：用三个短语动词说说你早上做的事。","answers":[{"t":"I wake up at six. I get up and turn on the coffee machine. Then I put on my clothes.","tr":"我六点醒，起床后打开咖啡机，然后穿衣服。"},{"t":"I get up at seven and turn on the radio. Then I pick up my friend and we drive to work.","tr":"我七点起床，打开收音机。然后我去接朋友，我们一起开车上班。"}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 9,
+      "level": "B1",
+      "title": "看懂被动句",
+      "summary": "“这是中国制造的”“我的自行车被偷了”“这里说英语”：英语的被动句比中文的“被”用得多得多。",
+      "topic": "被动语态：{{be}} + 过去分词（{{It was made in China.}}）；{{by}} + 做的人；不只用于坏事",
+      "blocks": [
+        {"goal":{"t":"This phone was made in China.","tr":"这部手机是中国制造的。"}},
+        {"dialog":[{"who":"Guide","t":"This building was built in 1890.","tr":"这栋楼建于一八九〇年。"},{"who":"王芳","t":"Wow! Who designed it?","tr":"哇！是谁设计的？"},{"who":"Guide","t":"It was designed by a famous architect. And these paintings were made by local artists.","tr":"是一位著名建筑师设计的。这些画是本地画家画的。"},{"who":"王芳","t":"Can we take photos?","tr":"可以拍照吗？"},{"who":"Guide","t":"Sorry, photos aren't allowed inside.","tr":"抱歉，里面不允许拍照。"}]},
+        {"p":"**被动句：{{be}} + 过去分词。** 不说谁做的，只说东西怎么样了，就用被动句：{{The house was built in 1990.}}（这房子是一九九〇年建的。）{{English is spoken here.}}（这里说英语。）{{be}} 要跟着时态变：{{is made}}（现在）、{{was made}}（过去）、{{will be made}}（将来）。"},
+        {"term":"被动语态","means":"让“被做的东西”当主语的句子：{{be}} + 过去分词，比如 {{It was made in China.}}（它是在中国制造的。）"},
+        {"p":"**英语的被动比中文的“被”常用得多。** 中文的“被”多用于不好的事：“我的钱包被偷了”。英语的被动句什么事都能说，新闻、说明书、标志里到处都是：{{Breakfast is served at seven.}}（早餐七点供应。）{{The store is closed on Sundays.}}（商店周日不营业。）这些句子中文往往不用“被”。"},
+        { "table": [
+          ["主动（谁做的）","被动（东西怎么了）","中文"],
+          ["{{Someone stole my bike.}}","{{My bike was stolen.}}","我的自行车被偷了。"],
+          ["{{They make these phones in China.}}","{{These phones are made in China.}}","这些手机是中国制造的。"],
+          ["{{People speak English here.}}","{{English is spoken here.}}","这里说英语。"],
+          ["{{They will finish it tomorrow.}}","{{It will be finished tomorrow.}}","明天就能完成。"]
+        ] },
+        {"p":"**想说是谁做的，用 {{by}}**：{{The book was written by a young doctor.}}（这本书是一位年轻医生写的。）不过大多数被动句都不说 {{by}}：谁做的不重要，或者不知道。"},
+        { "ex": [
+          {"t":"This phone was made in China.","tr":"这部手机是中国制造的。"},
+          {"t":"My bike was stolen last night.","tr":"我的自行车昨晚被偷了。"},
+          {"t":"The store is closed on Sundays.","tr":"这家店周日不营业。"},
+          {"t":"Breakfast is served from seven to ten.","tr":"早餐七点到十点供应。"},
+          {"t":"The song was written by my favorite singer.","tr":"这首歌是我最喜欢的歌手写的。"},
+          {"t":"Smoking isn't allowed here.","tr":"这里不准吸烟。"}
+        ] },
+        {"tip":"你不一定要经常自己说被动句，但要能一眼看懂：看到 {{be}} + 过去分词，就想到“东西被怎么样了”。标志、通知、说明书上特别多。"}
+      ],
+      "mistakes": [
+        {"wrong":"This phone made in China.","right":"This phone was made in China.","tr":"这部手机是中国制造的。","why":"被动句一定要有 {{be}}：{{was made}}。"},
+        {"wrong":"My wallet was steal.","right":"My wallet was stolen.","tr":"我的钱包被偷了。","why":"{{be}} 后面用过去分词：{{steal}} → {{stolen}}。"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"English is ___ in many countries.","tr":"很多国家都说英语。","options":["spoken","speak","spoke"],"answer":0,"why":"被动：{{is}} + 过去分词 {{spoken}}。"},
+        {"type":"choice","q":"{{The museum is closed on Mondays.}} 的意思是……","options":["博物馆周一不开门。","博物馆周一被锁起来了。","人们周一把博物馆关掉了。"],"answer":0,"why":"说规定，英语常用被动句，中文直接说“不开门”。"},
+        {"type":"choice","q":"“这座桥是一九九五年建的。”","options":["{{The bridge was built in 1995.}}","{{The bridge built in 1995.}}","{{The bridge is build in 1995.}}"],"answer":0,"why":"过去的被动：{{was}} + 过去分词 {{built}}。","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"在酒店前台。选出你的问题。","lines":[{"who":"Receptionist","t":"Welcome! Here's your key.","tr":"欢迎！这是您的钥匙。"},{"options":["Thanks. What time is breakfast served?","Thanks. What time is breakfast serve?"],"answer":0,"why":"被动：{{is served}}，过去分词要有 {{-d}}。"},{"who":"Receptionist","t":"From seven to ten, in the restaurant.","tr":"七点到十点，在餐厅。"},{"options":["Are pets allowed in the room?","Are pets allow in the room?"],"answer":0,"why":"被动：{{are allowed}}。"},{"who":"Receptionist","t":"Sorry, they aren't.","tr":"抱歉，不允许。"}],"from":"ask-yes-or-no"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"我的自行车昨晚被偷了。","words":["My","bike","was","stolen","last","night."]},
+        {"type":"free","q":"轮到你了：看看你身边的东西：它们是在哪儿制造的？是谁给你的？用被动句说两句。","answers":[{"t":"My phone was made in China. My watch was given to me by my dad.","tr":"我的手机是中国制造的。我的手表是我爸爸送给我的。"},{"t":"This table was made in Vietnam. These photos were taken in Japan.","tr":"这张桌子是越南制造的。这些照片是在日本拍的。"}]}
+      ]
+    },
+    {
+      "id": "answer-negative-questions",
+      "unit": 9,
+      "level": "B1",
+      "title": "回答否定问句",
+      "summary": "“你不喜欢吗？——对，我不喜欢。”：中文和英语回答否定问句的方式正好相反，很容易说错。",
+      "topic": "{{Don't you…?}}、{{Aren't you…?}}；英语按事实回答：{{Yes, I do.}} / {{No, I don't.}}；附加问句 {{…, isn't it?}}、{{…, right?}}",
+      "blocks": [
+        {"goal":{"t":"Don't you like coffee? — No, I don't.","tr":"你不喜欢咖啡吗？——对，我不喜欢。"}},
+        {"dialog":[{"who":"Mike","t":"Aren't you hungry?","tr":"你不饿吗？"},{"who":"李明","t":"No, I'm not. I had a big lunch.","tr":"不饿，我午饭吃得很多。"},{"who":"Mike","t":"Don't you want any cake?","tr":"你一点儿蛋糕都不想吃吗？"},{"who":"李明","t":"Yes, I do! I always want cake.","tr":"想吃！蛋糕我随时都想吃。"},{"who":"Mike","t":"Ha! It's delicious, isn't it?","tr":"哈！很好吃，是吧？"},{"who":"李明","t":"Yes, it is.","tr":"是啊。"}]},
+        {"p":"**中文按对方的话回答，英语按事实回答。** 中文里，别人问“你不喜欢吗？”，你不喜欢，就说“对，我不喜欢”，是在同意对方的说法。英语不看问题怎么问，只看事实：不喜欢，就说 {{No}}；喜欢，就说 {{Yes}}。{{Yes}} 后面一定是肯定，{{No}} 后面一定是否定。"},
+        { "table": [
+          ["问题","事实：不喜欢","事实：喜欢"],
+          ["{{Do you like it?}}","{{No, I don't.}}","{{Yes, I do.}}"],
+          ["{{Don't you like it?}}","{{No, I don't.}}（对，不喜欢）","{{Yes, I do.}}（不，我喜欢）"],
+          ["{{Aren't you tired?}}","{{No, I'm not.}}（对，不累）","{{Yes, I am.}}（不，我累）"]
+        ] },
+        {"p":"**最保险的办法：别只说 {{yes}} 或 {{no}}。** 后面加上完整的简短回答，甚至再加一句，对方就不会误会：{{No, I don't like it.}} {{Yes, I am tired.}}"},
+        {"p":"**附加问句：“……，是吧？”** 想让对方确认，就在句子后面加一个小问句：肯定句后面用否定，否定句后面用肯定：{{It's cold, isn't it?}}（挺冷的，是吧？）{{You don't eat meat, do you?}}（你不吃肉，对吧？）口语里简单地加一个 {{right?}} 也行：{{You're from Beijing, right?}}"},
+        { "ex": [
+          {"t":"Aren't you cold? — No, I'm fine.","tr":"你不冷吗？——不冷，我挺好的。"},
+          {"t":"Didn't you see the email? — Yes, I did.","tr":"你没看到那封邮件吗？——看到了。"},
+          {"t":"Isn't she coming? — No, she's sick.","tr":"她不来了吗？——对，她病了。"},
+          {"t":"It's a beautiful day, isn't it?","tr":"今天天气真好，是吧？"},
+          {"t":"You're a teacher, right?","tr":"你是老师，对吧？"},
+          {"t":"You don't eat meat, do you?","tr":"你不吃肉，对吧？"}
+        ] },
+        {"tip":"别人用否定问句问你，常常说明他们有点儿惊讶：{{Don't you know him?}} 的意思是“你居然不认识他？”"}
+      ],
+      "mistakes": [
+        {"wrong":"— Aren't you hungry? — Yes, I'm not hungry.","right":"— Aren't you hungry? — No, I'm not hungry.","tr":"——你不饿吗？——对，我不饿。","why":"英语按事实回答：不饿，就用 {{No}}。{{Yes}} 后面不能跟否定。"},
+        {"wrong":"It's cold, is it?","right":"It's cold, isn't it?","tr":"挺冷的，是吧？","why":"肯定句后面加否定的附加问句：{{isn't it?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"Don't you have a car? — ___, I don't.","tr":"你没有车吗？——对，我没有。","options":["No","Yes"],"answer":0,"why":"事实是“没有”：{{No, I don't.}}"},
+        {"type":"choice","q":"朋友问 {{Aren't you coming to the party?}}，你要去。你说……","options":["{{Yes, I am!}}","{{No, I'm coming!}}","{{Yes, I'm not.}}"],"answer":0,"why":"事实是“去”：{{Yes, I am.}}","from":"ask-yes-or-no"},
+        {"type":"choice","q":"“你不吃肉，对吧？”","options":["{{You don't eat meat, do you?}}","{{You don't eat meat, don't you?}}","{{You don't eat meat, is it?}}"],"answer":0,"why":"否定句后面加肯定的附加问句：{{do you?}}","from":"say-what-you-dont-do"},
+        {"type":"dialogue","q":"午饭时间，同事问你。选出你的回答。","lines":[{"who":"Colleague","t":"Didn't you bring lunch today?","tr":"你今天没带午饭吗？"},{"options":["No, I didn't. I forgot.","Yes, I didn't. I forgot."],"answer":0,"why":"没带：{{No, I didn't.}}"},{"who":"Colleague","t":"Aren't you hungry?","tr":"你不饿吗？"},{"options":["Yes, I am. Let's go get some food!","No, I am. Let's go get some food!"],"answer":0,"why":"饿：{{Yes, I am.}}"},{"who":"Colleague","t":"Sure! Tacos sound good, don't they?","tr":"好啊！墨西哥卷饼听起来不错，是吧？"}]},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"今天天气真好，是吧？","words":["It's","a","beautiful","day,","isn't","it?"]},
+        {"type":"free","q":"轮到你了：朋友问你 {{Don't you like spicy food?}} 和 {{Aren't you tired?}} 按你的真实情况回答。","answers":[{"t":"Yes, I do! I love spicy food. And no, I'm not tired at all.","tr":"喜欢！我特别爱吃辣。我也一点儿都不累。"},{"t":"No, I don't. It's too hot for me. And yes, I am. I didn't sleep well.","tr":"对，不喜欢，对我来说太辣了。我是挺累的，没睡好。"}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 9,
+      "level": "B1",
+      "title": "让对话继续下去",
+      "summary": "“我也是！”“我也不！”“你呢？”“后来呢？”：用简短的回应和追问，让聊天自然地进行下去。",
+      "topic": "{{So do I}} / {{Me too}}；{{Neither do I}} / {{Me neither}}；{{What about you?}}；追问 {{How was it?}}、{{What happened next?}}",
+      "blocks": [
+        {"goal":{"t":"I love traveling. — So do I!","tr":"我喜欢旅行。——我也是！"}},
+        {"dialog":[{"who":"Emily","t":"I'm from Seattle. I love the rain!","tr":"我是西雅图人，我喜欢下雨！"},{"who":"李明","t":"Really? I don't like rain at all.","tr":"真的？我一点儿也不喜欢下雨。"},{"who":"Emily","t":"Ha, a lot of people don't. What about you? Where are you from?","tr":"哈，很多人都不喜欢。你呢？你是哪里人？"},{"who":"李明","t":"I'm from Kunming. It's sunny almost every day.","tr":"我是昆明人，那儿几乎每天都是晴天。"},{"who":"Emily","t":"That sounds nice! I've never been to China.","tr":"听起来真不错！我从来没去过中国。"},{"who":"李明","t":"Neither has my wife! She's American too.","tr":"我太太也没去过！她也是美国人。"},{"who":"Emily","t":"No way! How did you two meet?","tr":"不会吧！你们俩是怎么认识的？"}]},
+        {"p":"**“我也是”：{{Me too.}} / {{So do I.}}** 同意别人的肯定句，口语里最简单的是 {{Me too!}}。稍微正式一点儿，用 {{So}} + 助动词 + {{I}}，助动词要和对方的句子对上：{{I love pizza. — So do I.}}（{{do}}）{{I'm tired. — So am I.}}（{{am}}）{{I went there. — So did I.}}（{{did}}）"},
+        {"p":"**“我也不”：{{Me neither.}} / {{Neither do I.}}** 同意别人的否定句，不能说 {{Me too}}，要说 {{Me neither}}，或者 {{Neither}} + 助动词 + {{I}}：{{I don't eat meat. — Neither do I.}}（我也不吃肉。）{{I can't swim. — Neither can I.}}（我也不会游泳。）"},
+        { "table": [
+          ["对方说","同意","中文"],
+          ["{{I like jazz.}}","{{So do I.}} / {{Me too.}}","我也是。"],
+          ["{{I'm hungry.}}","{{So am I.}} / {{Me too.}}","我也饿了。"],
+          ["{{I don't drink.}}","{{Neither do I.}} / {{Me neither.}}","我也不喝。"],
+          ["{{I can't cook.}}","{{Neither can I.}} / {{Me neither.}}","我也不会。"],
+          ["{{I've never been there.}}","{{Neither have I.}} / {{Me neither.}}","我也没去过。"]
+        ] },
+        {"p":"**把话题接下去。** 美国人聊天时，很喜欢把问题还给对方，或者追问细节：{{What about you?}}（你呢？）{{How was it?}}（怎么样？）{{What happened next?}}（后来呢？）{{How did you…?}}（你是怎么……的？）只回答“是”或“不是”，对话很快就停了；多问一句，对方会觉得你感兴趣。"},
+        { "ex": [
+          {"t":"I'm really tired today. — So am I.","tr":"我今天特别累。——我也是。"},
+          {"t":"I don't like horror movies. — Me neither.","tr":"我不喜欢恐怖片。——我也不喜欢。"},
+          {"t":"I can't speak Spanish. — Neither can I.","tr":"我不会说西班牙语。——我也不会。"},
+          {"t":"I went to Hawaii last year. — Really? How was it?","tr":"我去年去了夏威夷。——真的？怎么样？"},
+          {"t":"That's interesting. What happened next?","tr":"真有意思。后来呢？"},
+          {"t":"I'm a nurse. What about you?","tr":"我是护士。你呢？"}
+        ] },
+        {"tip":"聊天时的小回应很重要：{{Really?}}（真的？）{{That's great!}}（太好了！）{{Oh no!}}（哎呀！）{{I see.}}（我明白了。）{{No way!}}（不会吧！）边听边说，对方会讲得更起劲。"}
+      ],
+      "mistakes": [
+        {"wrong":"— I don't like coffee. — Me too.","right":"— I don't like coffee. — Me neither.","tr":"——我不喜欢咖啡。——我也不喜欢。","why":"同意否定句，用 {{Me neither}}，不用 {{Me too}}。"},
+        {"wrong":"— I'm hungry. — So do I.","right":"— I'm hungry. — So am I.","tr":"——我饿了。——我也是。","why":"对方用的是 {{am}}，回答也要用 {{am}}：{{So am I.}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"选出正确的词。","t":"I can't swim. — Neither ___ I.","tr":"我不会游泳。——我也不会。","options":["can","do","am"],"answer":0,"why":"对方用的是 {{can't}}，回答用 {{can}}：{{Neither can I.}}"},
+        {"type":"choice","q":"朋友说 {{I went to the concert last night.}} 你也去了。你说……","options":["{{So did I!}}","{{So do I!}}","{{Neither did I!}}"],"answer":0,"why":"过去的事、肯定句：{{So did I.}}","from":"ask-about-the-past"},
+        {"type":"choice","q":"朋友说 {{I've never tried sushi.}} 你也没吃过。你说……","options":["{{Neither have I.}}","{{So have I.}}","{{Me too have.}}"],"answer":0,"why":"否定句（{{never}}），助动词是 {{have}}：{{Neither have I.}}","from":"talk-about-experiences"},
+        {"type":"dialogue","q":"在聚会上和刚认识的人聊天。选出你的回答。","lines":[{"who":"New friend","t":"I just moved here from Chicago.","tr":"我刚从芝加哥搬过来。"},{"options":["Really? How do you like it here?","Me neither."],"answer":0,"why":"追问一句，让对话继续下去。"},{"who":"New friend","t":"I love it! But I don't know many people yet.","tr":"很喜欢！不过还不认识几个人。"},{"options":["Neither do I. I moved here last month. What do you do?","So do I. I moved here last month."],"answer":0,"why":"同意否定句：{{Neither do I.}} 再问对方一个问题。"},{"who":"New friend","t":"I'm a nurse. And you?","tr":"我是护士。你呢？"}],"from":"ask-about-habits"},
+        {"type":"order","q":"把单词排成正确的顺序。","tr":"真的？怎么样？","words":["Really?","How","was","it?"]},
+        {"type":"free","q":"轮到你了：朋友说 {{I love weekends, but I don't like Mondays.}} 回应他（我也是、我也不），再问他一个问题。","answers":[{"t":"So do I! And me neither. What do you usually do on weekends?","tr":"我也是！我也不喜欢星期一。你周末一般做什么？"},{"t":"Me too! And neither do I. Do you have any plans this weekend?","tr":"我也是！我也不喜欢。你这个周末有什么计划吗？"}]}
+      ]
     }
   ]
 }
