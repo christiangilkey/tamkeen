@@ -1504,7 +1504,7 @@
       "word": "وِلَايَة",
       "pos": "noun",
       "meaning": "state (of a country)",
-      "sentence": "يَعِيشُ أَخِي فِي وِلَايَةِ تِكْسَاس.",
+      "sentence": "يَعِيشُ أَخِي فِي وِلَايَةِ تِكْسَاسَ.",
       "translation": "My brother lives in the ⟦state⟧ of Texas."
     },
     {
@@ -2386,7 +2386,7 @@
       "word": "حَالِيًّا",
       "pos": "adv",
       "meaning": "currently; at the moment",
-      "sentence": "أَعِيشُ حَالِيًّا فِي دُبَيٍّ.",
+      "sentence": "أَعِيشُ حَالِيًّا فِي دُبَيَّ.",
       "translation": "I ⟦currently⟧ live in Dubai."
     },
     {
@@ -3634,10 +3634,10 @@
     {
       "n": 404,
       "rank": 435,
-      "word": "وَسْط",
+      "word": "وَسَط",
       "pos": "noun",
       "meaning": "middle; centre",
-      "sentence": "يَقَعُ الْفُنْدُقُ فِي وَسْطِ الْمَدِينَةِ.",
+      "sentence": "يَقَعُ الْفُنْدُقُ فِي وَسَطِ الْمَدِينَةِ.",
       "translation": "The hotel is in the ⟦centre⟧ of the city."
     },
     {
@@ -4636,7 +4636,7 @@
       "word": "مُؤْتَمَر",
       "pos": "noun",
       "meaning": "conference",
-      "sentence": "سَأَحْضُرُ مُؤْتَمَرًا فِي دُبَيٍّ.",
+      "sentence": "سَأَحْضُرُ مُؤْتَمَرًا فِي دُبَيَّ.",
       "translation": "I'll attend a ⟦conference⟧ in Dubai."
     },
     {
@@ -6220,7 +6220,7 @@
       "word": "تَفَاصِيل",
       "pos": "noun",
       "meaning": "details (singular تَفْصِيل)",
-      "sentence": "أَرْسِلْ لِي التَّفَاصِيلَ.",
+      "sentence": "أَرْسِلْ لِيَ التَّفَاصِيلَ.",
       "translation": "Send me the ⟦details⟧."
     },
     {
@@ -6469,7 +6469,7 @@
     {
       "n": 719,
       "rank": 879,
-      "word": "بَاقِي",
+      "word": "بَاقٍ",
       "pos": "noun",
       "meaning": "the rest; remaining (الْبَاقِي: the change)",
       "sentence": "احْتَفِظْ بِالْبَاقِي.",
@@ -7391,7 +7391,7 @@
       "word": "لِسَان",
       "pos": "noun",
       "meaning": "tongue",
-      "sentence": "عَضَضْتُ لِسَانِي.",
+      "sentence": "عَضِضْتُ لِسَانِي.",
       "translation": "I bit my ⟦tongue⟧."
     },
     {
@@ -7670,7 +7670,7 @@
       "word": "رَابِط",
       "pos": "noun",
       "meaning": "link",
-      "sentence": "أَرْسِلْ لِي الرَّابِطَ.",
+      "sentence": "أَرْسِلْ لِيَ الرَّابِطَ.",
       "translation": "Send me the ⟦link⟧."
     },
     {
@@ -7796,7 +7796,7 @@
       "word": "كُلَّمَا",
       "pos": "conj",
       "meaning": "whenever; every time",
-      "sentence": "كُلَّمَا أَرَاهُ، يَبْتَسِمُ.",
+      "sentence": "كُلَّمَا رَأَيْتُهُ ابْتَسَمَ.",
       "translation": "⟦Whenever⟧ I see him, he smiles."
     },
     {
