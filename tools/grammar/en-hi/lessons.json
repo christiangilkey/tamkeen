@@ -631,6 +631,293 @@
         {"type":"say","q":"Ask: “How much is this?”","answer":"यह कितने का है?","r":"yah kitne kā hai?"},
         {"type":"free","q":"Your turn: you're buying a shirt. Ask the price, say it's too expensive, and ask about another one.","answers":[{"t":"यह शर्ट कितने की है? बहुत महँगी है! और वह नीली वाली?","r":"yah sharṭ kitne kī hai? bahut mahãgī hai! aur vah nīlī vālī?","tr":"How much is this shirt? It's very expensive! And the blue one?"},{"t":"वह बड़ा वाला कितने का है?","r":"vah baṛā vālā kitne kā hai?","tr":"How much is that big one?"}]}
       ]
+    },
+    {
+      "id": "say-what-you-do-every-day",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Talk about your routine: “I get up at seven and drink tea.”",
+      "topic": "The {{-ना|-nā}} form and the stem; the present: {{-ता / -ती / -ते|-tā / -tī / -te}} + {{हूँ / है / हैं|hū̃ / hai / haĩ}}",
+      "blocks": [
+        {"goal":{"t":"मैं हर सुबह चाय पीता हूँ।","r":"maĩ har subah chāy pītā hū̃.","tr":"I drink tea every morning.","note":"said by a man; a woman says {{मैं हर सुबह चाय पीती हूँ|maĩ har subah chāy pītī hū̃}}"}},
+        {"dialog":[{"who":"Priya","t":"मैं छह बजे उठती हूँ और योग करती हूँ।","r":"maĩ chhah baje uṭhtī hū̃ aur yog kartī hū̃.","tr":"I get up at six and do yoga."},{"who":"Tom","t":"मैं सात बजे उठता हूँ और कॉफ़ी पीता हूँ।","r":"maĩ sāt baje uṭhtā hū̃ aur kôfī pītā hū̃.","tr":"I get up at seven and drink coffee."},{"who":"Priya","t":"मेरे पति भी कॉफ़ी पीते हैं।","r":"mere pati bhī kôfī pīte haĩ.","tr":"My husband drinks coffee too."},{"who":"Tom","t":"और आपके बच्चे?","r":"aur āpke bachche?","tr":"And your children?"},{"who":"Priya","t":"बच्चे दूध पीते हैं और स्कूल जाते हैं।","r":"bachche dūdh pīte haĩ aur skūl jāte haĩ.","tr":"The children drink milk and go to school."}]},
+        {"p":"Priya says {{उठती हूँ|uṭhtī hū̃}}, Tom says {{उठता हूँ|uṭhtā hū̃}}: the same verb, “get up”, with a different ending, because one is a woman and the other a man."},
+        {"term":"infinitive","means":"the dictionary form of a verb, “to …”. In Hindi it ends in {{-ना|-nā}}: {{पीना|pīnā}} “to drink”, {{उठना|uṭhnā}} “to get up”."},
+        {"term":"tense","means":"the form of a verb that shows when something happens: now, usually, before, later."},
+        {"p":"**The present, for what you usually do.** Take the stem ({{पीना|pīnā}} → {{पी|pī}}, lesson 12), add {{-ता|-tā}}, {{-ती|-tī}} or {{-ते|-te}}, and end with {{हूँ|hū̃}}, {{है|hai}}, {{हैं|haĩ}} or {{हो|ho}}. The {{-ता|-tā}} ending changes like an adjective in {{-आ|-ā}}: it shows whether the person is masculine or feminine, one or more."},
+        { "table": [
+          ["","a man (masculine)","a woman (feminine)"],
+          ["I drink","{{मैं पीता हूँ|maĩ pītā hū̃}}","{{मैं पीती हूँ|maĩ pītī hū̃}}"],
+          ["you drink ({{आप|āp}})","{{आप पीते हैं|āp pīte haĩ}}","{{आप पीती हैं|āp pītī haĩ}}"],
+          ["you drink ({{तुम|tum}})","{{तुम पीते हो|tum pīte ho}}","{{तुम पीती हो|tum pītī ho}}"],
+          ["he, she drinks","{{वह पीता है|vah pītā hai}}","{{वह पीती है|vah pītī hai}}"],
+          ["we drink","{{हम पीते हैं|ham pīte haĩ}}","{{हम पीती हैं|ham pītī haĩ}}"],
+          ["they drink","{{वे पीते हैं|ve pīte haĩ}}","{{वे पीती हैं|ve pītī haĩ}}"]
+        ] },
+        {"p":"{{आप|āp}}, {{तुम|tum}} and {{हम|ham}} always take {{-ते|-te}} (or {{-ती|-tī}} for women), even for one person: they count as plural. A group of women takes {{-ती हैं|-tī haĩ}}."},
+        {"p":"**Usually, not right now.** {{मैं चाय पीता हूँ|maĩ chāy pītā hū̃}} means “I drink tea” as a habit, not “I'm drinking tea right now” (that's lesson 17). Time words like {{हर दिन|har din}} “every day”, {{रोज़|roz}} “daily” and {{सुबह|subah}} “in the morning” usually come early in the sentence; the verb stays last."},
+        { "ex": [
+          {"t":"मैं दिल्ली में रहता हूँ।","r":"maĩ dillī mẽ rahtā hū̃.","tr":"I live in Delhi.","note":"a man; a woman: {{रहती हूँ|rahtī hū̃}}"},
+          {"t":"मेरी बहन बैंक में काम करती है।","r":"merī bahan baiṅk mẽ kām kartī hai.","tr":"My sister works in a bank."},
+          {"t":"हम रोज़ हिंदी सीखते हैं।","r":"ham roz hindī sīkhte haĩ.","tr":"We learn Hindi every day."},
+          {"t":"बच्चे स्कूल जाते हैं।","r":"bachche skūl jāte haĩ.","tr":"The children go to school."},
+          {"t":"वह बहुत अच्छा खाना बनाती है।","r":"vah bahut achchhā khānā banātī hai.","tr":"She cooks really good food."},
+          {"t":"आप कहाँ रहते हैं?","r":"āp kahā̃ rahte haĩ?","tr":"Where do you live?"}
+        ] },
+        {"tip":"Listen for the ending: {{-ता|-tā}}, {{-ती|-tī}} or {{-ते|-te}} often tells you who is being talked about, even when you missed the first word."}
+      ],
+      "mistakes": [
+        {"wrong":"मैं चाय पीता।","right":"मैं चाय पीता हूँ।","tr":"I drink tea.","why":"The present needs both parts: {{पीता|pītā}} and {{हूँ|hū̃}}."},
+        {"wrong":"मैं दिल्ली में रहता हूँ।","right":"मैं दिल्ली में रहती हूँ।","tr":"I live in Delhi.","why":"A woman is speaking. A woman says {{रहती|rahtī}}: the ending follows the speaker."},
+        {"wrong":"आप कहाँ रहता है?","right":"आप कहाँ रहते हैं?","tr":"Where do you live?","why":"{{आप|āp}} counts as plural: {{-ते हैं|-te haĩ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"A woman is speaking. Choose the right form.","t":"मैं हर सुबह योग ___ हूँ।","tr":"I do yoga every morning.","options":["करती","करता","करते"],"answer":0,"why":"A woman: {{करती|kartī}}."},
+        {"type":"fill","q":"Choose the right form.","t":"बच्चे स्कूल ___ हैं।","tr":"The children go to school.","options":["जाते","जाता","जाती"],"answer":0,"why":"{{बच्चे|bachche}} is masculine plural: {{-ते|-te}}.","from":"more-than-one"},
+        {"type":"choice","q":"{{मेरा भाई बैंक में काम करता है।|merā bhāī baiṅk mẽ kām kartā hai.}} means…","options":["My brother works in a bank.","My brother is working at the bank right now.","My brother worked in a bank."],"answer":0,"why":"{{-ता है|-tā hai}} is what someone usually does."},
+        {"type":"order","q":"Put the words in order.","tr":"My sister works in a bank.","words":["मेरी","बहन","बैंक","में","काम","करती","है।"],"from":"say-whose-it-is"},
+        {"type":"dialogue","q":"A new colleague asks about you. Choose your replies (you're a man).","from":"say-where-things-are","lines":[{"who":"Colleague","t":"आप कहाँ रहते हैं?","r":"āp kahā̃ rahte haĩ?","tr":"Where do you live?"},{"options":["मैं स्टेशन के पास रहता हूँ।","मैं स्टेशन के पास रहती हूँ।"],"answer":0,"why":"A man: {{रहता|rahtā}}."},{"who":"Colleague","t":"और आप सुबह क्या पीते हैं, चाय या कॉफ़ी?","r":"aur āp subah kyā pīte haĩ, chāy yā kôfī?","tr":"And what do you drink in the morning, tea or coffee?"},{"options":["मैं कॉफ़ी पीता हूँ।","मैं कॉफ़ी पीते हैं।"],"answer":0,"why":"{{मैं|maĩ}}: {{-ता हूँ|-tā hū̃}}."}]},
+        {"type":"say","q":"Say: “We learn Hindi every day.”","answer":"हम रोज़ हिंदी सीखते हैं।","r":"ham roz hindī sīkhte haĩ."},
+        {"type":"free","q":"Your turn: say three things you do every day. Watch the ending: {{-ता|-tā}} if you're a man, {{-ती|-tī}} if you're a woman.","answers":[{"t":"मैं सात बजे उठता हूँ, कॉफ़ी पीता हूँ और काम पर जाता हूँ।","r":"maĩ sāt baje uṭhtā hū̃, kôfī pītā hū̃ aur kām par jātā hū̃.","tr":"I get up at seven, drink coffee and go to work. (a man)"},{"t":"मैं हर सुबह दौड़ती हूँ और फिर नाश्ता करती हूँ।","r":"maĩ har subah dauṛtī hū̃ aur phir nāshtā kartī hū̃.","tr":"Every morning I go for a run and then have breakfast. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "ask-about-routines",
+      "unit": 3,
+      "level": "A1",
+      "title": "Ask about someone's day, and say what you don't do",
+      "summary": "Ask “When do you get up?”, “Where do you work?”, and say “I don't eat meat”, “I never…”.",
+      "topic": "Question words with the present ({{कब|kab}}, {{कहाँ|kahā̃}}, {{कैसे|kaise}}, {{क्यों|kyõ}}); {{नहीं|nahī̃}}, and the {{है|hai}} left out; {{हमेशा|hameshā}}, {{अक्सर|aksar}}, {{कभी-कभी|kabhī-kabhī}}, {{कभी नहीं|kabhī nahī̃}}",
+      "blocks": [
+        {"goal":{"t":"मैं मांस नहीं खाता, लेकिन कभी-कभी मछली खाता हूँ।","r":"maĩ māns nahī̃ khātā, lekin kabhī-kabhī machhlī khātā hū̃.","tr":"I don't eat meat, but I sometimes eat fish.","note":"said by a man; a woman says {{खाती|khātī}}"}},
+        {"dialog":[{"who":"Neha","t":"आप कहाँ काम करते हैं?","r":"āp kahā̃ kām karte haĩ?","tr":"Where do you work?"},{"who":"Ben","t":"मैं एक स्कूल में पढ़ाता हूँ।","r":"maĩ ek skūl mẽ paṛhātā hū̃.","tr":"I teach at a school."},{"who":"Neha","t":"आप स्कूल कैसे जाते हैं?","r":"āp skūl kaise jāte haĩ?","tr":"How do you get to school?"},{"who":"Ben","t":"मैं अक्सर बस से जाता हूँ। मेरे पास गाड़ी नहीं है।","r":"maĩ aksar bas se jātā hū̃. mere pās gāṛī nahī̃ hai.","tr":"I usually go by bus. I don't have a car."},{"who":"Neha","t":"और आप खाना कहाँ खाते हैं?","r":"aur āp khānā kahā̃ khāte haĩ?","tr":"And where do you eat?"},{"who":"Ben","t":"स्कूल में। मैं घर पर खाना नहीं बनाता!","r":"skūl mẽ. maĩ ghar par khānā nahī̃ banātā!","tr":"At school. I don't cook at home!"}]},
+        {"p":"**Questions.** A question word goes where the answer would be (lesson 3): {{आप कहाँ काम करते हैं?|āp kahā̃ kām karte haĩ?}} “Where do you work?” → {{मैं बैंक में काम करता हूँ।|maĩ baiṅk mẽ kām kartā hū̃.}} For a yes-or-no question, {{क्या|kyā}} at the start: {{क्या आप हिंदी बोलते हैं?|kyā āp hindī bolte haĩ?}} “Do you speak Hindi?” Hindi has no “do” in questions: the verb is just the same as in the answer."},
+        { "table": [
+          ["","Hindi","example"],
+          ["when","{{कब|kab}}","{{आप कब उठते हैं?|āp kab uṭhte haĩ?}} When do you get up?"],
+          ["where","{{कहाँ|kahā̃}}","{{तुम कहाँ रहते हो?|tum kahā̃ rahte ho?}} Where do you live?"],
+          ["what","{{क्या|kyā}}","{{आप क्या करते हैं?|āp kyā karte haĩ?}} What do you do?"],
+          ["how","{{कैसे|kaise}}","{{आप काम पर कैसे जाते हैं?|āp kām par kaise jāte haĩ?}} How do you get to work?"],
+          ["why","{{क्यों|kyõ}}","{{तुम चाय क्यों नहीं पीते?|tum chāy kyõ nahī̃ pīte?}} Why don't you drink tea?"]
+        ] },
+        {"p":"**Not.** {{नहीं|nahī̃}} goes before the verb, and in the present the {{हूँ / है / हैं|hū̃ / hai / haĩ}} at the end is usually left out: {{मैं मांस नहीं खाता|maĩ māns nahī̃ khātā}} “I don't eat meat”. (Keeping it, {{मैं मांस नहीं खाता हूँ|maĩ māns nahī̃ khātā hū̃}}, sounds more insistent.) The {{-ता / -ती / -ते|-tā / -tī / -te}} ending still shows who."},
+        {"p":"**How often.** {{हमेशा|hameshā}} “always”, {{अक्सर|aksar}} “often, usually”, {{कभी-कभी|kabhī-kabhī}} “sometimes”, and {{कभी … नहीं|kabhī … nahī̃}} “never”, with the {{नहीं|nahī̃}} before the verb: {{मैं कभी देर से नहीं उठता|maĩ kabhī der se nahī̃ uṭhtā}} “I never get up late.”"},
+        { "ex": [
+          {"t":"क्या आप हिंदी बोलते हैं?","r":"kyā āp hindī bolte haĩ?","tr":"Do you speak Hindi?"},
+          {"t":"वह मांस नहीं खाती।","r":"vah māns nahī̃ khātī.","tr":"She doesn't eat meat."},
+          {"t":"मैं कभी-कभी सिनेमा जाता हूँ।","r":"maĩ kabhī-kabhī sinemā jātā hū̃.","tr":"I sometimes go to the movies."},
+          {"t":"तुम सुबह कब उठते हो?","r":"tum subah kab uṭhte ho?","tr":"When do you get up in the morning?"},
+          {"t":"हम रविवार को काम नहीं करते।","r":"ham ravivār ko kām nahī̃ karte.","tr":"We don't work on Sundays."},
+          {"t":"मैं कभी चाय नहीं पीती।","r":"maĩ kabhī chāy nahī̃ pītī.","tr":"I never drink tea.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं नहीं मांस खाता।","right":"मैं मांस नहीं खाता।","tr":"I don't eat meat.","why":"{{नहीं|nahī̃}} goes just before the verb."},
+        {"wrong":"मैं कभी चाय पीता हूँ।","right":"मैं कभी चाय नहीं पीता।","tr":"I never drink tea.","why":"“Never” is {{कभी|kabhī}} with {{नहीं|nahī̃}}. {{कभी|kabhī}} alone means “ever” or “at some time”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the question word.","t":"आप ___ उठते हैं?","tr":"When do you get up?","options":["कब","कहाँ","कौन"],"answer":0,"why":"“When” is {{कब|kab}}."},
+        {"type":"choice","q":"Which one means “I don't drink coffee”?","options":["{{मैं कॉफ़ी नहीं पीता।|maĩ kôfī nahī̃ pītā.}}","{{मैं नहीं कॉफ़ी पीता।|maĩ nahī̃ kôfī pītā.}}","{{नहीं मैं कॉफ़ी पीता।|nahī̃ maĩ kôfī pītā.}}"],"answer":0,"why":"{{नहीं|nahī̃}} just before the verb; the {{हूँ|hū̃}} can go."},
+        {"type":"order","q":"Put the words in order.","tr":"We don't work on Sundays.","words":["हम","रविवार","को","काम","नहीं","करते।"]},
+        {"type":"fill","q":"Choose the word for “not”.","t":"वह मांस ___ खाती।","tr":"She doesn't eat meat.","options":["नहीं","मत"],"answer":0,"why":"In a statement: {{नहीं|nahī̃}}. ({{मत|mat}} is only for commands: lesson 12.)","from":"ask-people-to-do-things"},
+        {"type":"dialogue","q":"Meeting someone at a party. Choose your lines (you're a man).","from":"ask-and-say-no","lines":[{"who":"Ravi","t":"मैं अस्पताल में काम करता हूँ।","r":"maĩ aspatāl mẽ kām kartā hū̃.","tr":"I work at a hospital."},{"options":["अच्छा! क्या आप डॉक्टर हैं?","अच्छा! आप डॉक्टर करते हैं?"],"answer":0,"why":"Asking what someone is: {{क्या आप … हैं?|kyā āp … haĩ?}}"},{"who":"Ravi","t":"हाँ। और आप क्या करते हैं?","r":"hā̃. aur āp kyā karte haĩ?","tr":"Yes. And what do you do?"},{"options":["मैं एक कंपनी में काम करता हूँ।","मैं एक कंपनी में काम करता हैं।"],"answer":0,"why":"{{मैं|maĩ}}: {{हूँ|hū̃}}."}]},
+        {"type":"say","q":"Ask your friend Raj: “Why don't you drink tea?”","answer":"तुम चाय क्यों नहीं पीते?","r":"tum chāy kyõ nahī̃ pīte?"},
+        {"type":"free","q":"Your turn: say one thing you always do, one you sometimes do, and one you never do.","answers":[{"t":"मैं हमेशा सुबह कॉफ़ी पीता हूँ। मैं कभी-कभी दौड़ता हूँ। मैं कभी मांस नहीं खाता।","r":"maĩ hameshā subah kôfī pītā hū̃. maĩ kabhī-kabhī dauṛtā hū̃. maĩ kabhī māns nahī̃ khātā.","tr":"I always drink coffee in the morning. I sometimes go running. I never eat meat. (a man)"},{"t":"मैं अक्सर दोस्तों के साथ खाना खाती हूँ, लेकिन मैं कभी टीवी नहीं देखती।","r":"maĩ aksar dostõ ke sāth khānā khātī hū̃, lekin maĩ kabhī ṭīvī nahī̃ dekhtī.","tr":"I often eat with friends, but I never watch TV. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-what-you-like",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what you like",
+      "summary": "Say “I like Hindi films”, “Do you like dancing?”, “She doesn't like coffee.”",
+      "topic": "{{मुझे / आपको / उसे … पसंद है|mujhe / āpko / use … pasand hai}}; {{अच्छा लगता है|achchhā lagtā hai}}; the {{-ना|-nā}} form for activities ({{मुझे नाचना पसंद है|mujhe nāchnā pasand hai}})",
+      "blocks": [
+        {"goal":{"t":"मुझे हिंदी फ़िल्में बहुत पसंद हैं।","r":"mujhe hindī filmẽ bahut pasand haĩ.","tr":"I really like Hindi films."}},
+        {"dialog":[{"who":"Asha","t":"तुम्हें क्या पसंद है, चाय या कॉफ़ी?","r":"tumhẽ kyā pasand hai, chāy yā kôfī?","tr":"What do you like, tea or coffee?"},{"who":"Mark","t":"मुझे चाय पसंद है। और तुम्हें?","r":"mujhe chāy pasand hai. aur tumhẽ?","tr":"I like tea. And you?"},{"who":"Asha","t":"मुझे भी। क्या तुम्हें नाचना पसंद है?","r":"mujhe bhī. kyā tumhẽ nāchnā pasand hai?","tr":"Me too. Do you like dancing?"},{"who":"Mark","t":"नहीं, मुझे नाचना पसंद नहीं है, लेकिन मुझे गाना अच्छा लगता है।","r":"nahī̃, mujhe nāchnā pasand nahī̃ hai, lekin mujhe gānā achchhā lagtā hai.","tr":"No, I don't like dancing, but I like singing."},{"who":"Asha","t":"अरे वाह!","r":"are vāh!","tr":"Oh, wow!"}]},
+        {"p":"**Liking works like needing.** Remember {{मुझे … चाहिए|mujhe … chāhie}} (lesson 4)? “I like” is built the same way: {{मुझे चाय पसंद है|mujhe chāy pasand hai}}, word for word “to me tea is liked”. The thing you like is what the sentence is about, so the verb agrees with it: {{मुझे हिंदी फ़िल्में पसंद हैं|mujhe hindī filmẽ pasand haĩ}}, with {{हैं|haĩ}} for the films."},
+        {"term":"“to” form","means":"the form of a person word that means “to …”: {{मुझे|mujhe}} “to me”, {{आपको|āpko}} “to you”, {{राहुल को|rāhul ko}} “to Rahul”. Hindi uses it for the person who needs, likes, feels or has to do something."},
+        { "table": [
+          ["","“to” form","example"],
+          ["I","{{मुझे|mujhe}}","{{मुझे चाय पसंद है।|mujhe chāy pasand hai.}}"],
+          ["you ({{आप|āp}})","{{आपको|āpko}}","{{क्या आपको चाय पसंद है?|kyā āpko chāy pasand hai?}}"],
+          ["you ({{तुम|tum}})","{{तुम्हें|tumhẽ}}","{{तुम्हें क्या पसंद है?|tumhẽ kyā pasand hai?}}"],
+          ["he, she","{{उसे|use}}","{{उसे कॉफ़ी पसंद नहीं है।|use kôfī pasand nahī̃ hai.}}"],
+          ["we","{{हमें|hamẽ}}","{{हमें यह शहर पसंद है।|hamẽ yah shahar pasand hai.}}"],
+          ["they","{{उन्हें|unhẽ}}","{{उन्हें क्रिकेट पसंद है।|unhẽ krikeṭ pasand hai.}}"],
+          ["Rahul","{{राहुल को|rāhul ko}}","{{राहुल को संगीत पसंद है।|rāhul ko saṅgīt pasand hai.}}"]
+        ] },
+        {"p":"**Liking to do something.** Use the {{-ना|-nā}} form of the verb as the thing you like: {{मुझे नाचना पसंद है|mujhe nāchnā pasand hai}} “I like dancing”, {{उसे खाना बनाना पसंद है|use khānā banānā pasand hai}} “She likes cooking”."},
+        {"p":"**{{अच्छा लगना|achchhā lagnā}}.** Another way, a little warmer, is {{… अच्छा लगता है|… achchhā lagtā hai}}, “… seems good to me”: {{मुझे यह गाना अच्छा लगता है|mujhe yah gānā achchhā lagtā hai}} “I like this song”. Here {{अच्छा|achchhā}} and {{लगता|lagtā}} agree with the thing: {{मुझे चाय अच्छी लगती है|mujhe chāy achchhī lagtī hai}}."},
+        { "ex": [
+          {"t":"क्या आपको दाल पसंद है?","r":"kyā āpko dāl pasand hai?","tr":"Do you like dal?"},
+          {"t":"मेरी बेटी को चॉकलेट बहुत पसंद है।","r":"merī beṭī ko chôkleṭ bahut pasand hai.","tr":"My daughter loves chocolate.","note":"{{को|ko}} is a postposition, so a masculine word before it changes: {{मेरे बेटे को|mere beṭe ko}} “to my son” (lesson 9)"},
+          {"t":"उसे सुबह जल्दी उठना पसंद नहीं है।","r":"use subah jaldī uṭhnā pasand nahī̃ hai.","tr":"He doesn't like getting up early."},
+          {"t":"हमें यहाँ रहना अच्छा लगता है।","r":"hamẽ yahā̃ rahnā achchhā lagtā hai.","tr":"We like living here."},
+          {"t":"मुझे गर्मी अच्छी नहीं लगती।","r":"mujhe garmī achchhī nahī̃ lagtī.","tr":"I don't like the heat."},
+          {"t":"उन्हें क्रिकेट देखना बहुत पसंद है।","r":"unhẽ krikeṭ dekhnā bahut pasand hai.","tr":"They love watching cricket."}
+        ] },
+        {"tip":"To say you love something, add {{बहुत|bahut}}: {{मुझे यह बहुत पसंद है|mujhe yah bahut pasand hai}} “I love it”. (Love for a person is {{प्यार|pyār}}, a different word.)"}
+      ],
+      "mistakes": [
+        {"wrong":"मैं चाय पसंद है।","right":"मुझे चाय पसंद है।","tr":"I like tea.","why":"With {{पसंद है|pasand hai}}, the person is in the “to” form: {{मुझे|mujhe}}."},
+        {"wrong":"मुझे हिंदी फ़िल्में पसंद है।","right":"मुझे हिंदी फ़िल्में पसंद हैं।","tr":"I like Hindi films.","why":"The verb agrees with what you like: films, {{हैं|haĩ}}."},
+        {"wrong":"मुझे चाय अच्छा लगता है।","right":"मुझे चाय अच्छी लगती है।","tr":"I like tea.","why":"{{चाय|chāy}} is feminine: {{अच्छी लगती|achchhī lagtī}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the “to” form.","t":"___ कॉफ़ी पसंद नहीं है।","tr":"She doesn't like coffee.","options":["उसे","वह","उसका"],"answer":0,"why":"With {{पसंद|pasand}}: {{उसे|use}} “to her”."},
+        {"type":"fill","q":"Choose: {{हैं|haĩ}}, {{है|hai}} or {{हूँ|hū̃}}?","t":"मुझे ये गाने बहुत पसंद ___।","tr":"I really like these songs.","options":["हैं","है","हूँ"],"answer":0,"why":"The songs are what the sentence is about: {{हैं|haĩ}}.","from":"more-than-one"},
+        {"type":"choice","q":"How do you say “I like swimming”?","options":["{{मुझे तैरना पसंद है।|mujhe tairnā pasand hai.}}","{{मुझे तैरता पसंद है।|mujhe tairtā pasand hai.}}","{{मैं तैरना पसंद हूँ।|maĩ tairnā pasand hū̃.}}"],"answer":0,"why":"Liking an activity: the {{-ना|-nā}} form, and {{मुझे|mujhe}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Do you like dal?","words":["क्या","आपको","दाल","पसंद","है?"]},
+        {"type":"dialogue","q":"A friend invites you to a cricket match. Choose your replies.","lines":[{"who":"Raj","t":"क्या तुम्हें क्रिकेट पसंद है?","r":"kyā tumhẽ krikeṭ pasand hai?","tr":"Do you like cricket?"},{"options":["हाँ, मुझे क्रिकेट बहुत पसंद है!","हाँ, मैं क्रिकेट बहुत पसंद है!"],"answer":0,"why":"{{मुझे|mujhe}} … {{पसंद है|pasand hai}}."},{"who":"Raj","t":"और तुम्हारी बहन?","r":"aur tumhārī bahan?","tr":"And your sister?"},{"options":["उसे क्रिकेट पसंद नहीं है।","वह क्रिकेट पसंद नहीं है।"],"answer":0,"why":"{{उसे|use}} “to her”."}]},
+        {"type":"fill","q":"Choose the right form.","t":"मेरी माँ बहुत अच्छा खाना ___ हैं।","tr":"My mother cooks really good food.","options":["बनाती","बनाता","बनाते"],"answer":0,"why":"A woman: {{-ती|-tī}}; and {{हैं|haĩ}} for respect.","from":"say-what-you-do-every-day"},
+        {"type":"free","q":"Your turn: say two things you like, and one thing you don't like doing.","answers":[{"t":"मुझे पढ़ना और संगीत सुनना पसंद है, लेकिन मुझे खाना बनाना पसंद नहीं है।","r":"mujhe paṛhnā aur saṅgīt sunnā pasand hai, lekin mujhe khānā banānā pasand nahī̃ hai.","tr":"I like reading and listening to music, but I don't like cooking."},{"t":"मुझे चाय बहुत अच्छी लगती है। मुझे सुबह जल्दी उठना पसंद नहीं है।","r":"mujhe chāy bahut achchhī lagtī hai. mujhe subah jaldī uṭhnā pasand nahī̃ hai.","tr":"I love tea. I don't like getting up early."}]}
+      ]
+    },
+    {
+      "id": "say-whats-happening-now",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say what's happening right now",
+      "summary": "Say what you're doing at this moment: “I'm cooking”, “It's raining”, “What are you doing?”",
+      "topic": "{{रहा / रही / रहे|rahā / rahī / rahe}} + {{हूँ / है / हैं|hū̃ / hai / haĩ}}: the present continuous",
+      "blocks": [
+        {"goal":{"t":"मैं अभी खाना बना रहा हूँ।","r":"maĩ abhī khānā banā rahā hū̃.","tr":"I'm cooking right now.","note":"said by a man; a woman says {{बना रही हूँ|banā rahī hū̃}}"}},
+        {"dialog":[{"who":"Mom","t":"हैलो! तुम क्या कर रहे हो?","r":"hailo! tum kyā kar rahe ho?","tr":"Hello! What are you doing?"},{"who":"Arjun","t":"मैं पढ़ रहा हूँ, माँ। कल परीक्षा है।","r":"maĩ paṛh rahā hū̃, mā̃. kal parīkshā hai.","tr":"I'm studying, Mom. There's an exam tomorrow."},{"who":"Mom","t":"और तुम्हारी बहन?","r":"aur tumhārī bahan?","tr":"And your sister?"},{"who":"Arjun","t":"वह टीवी देख रही है।","r":"vah ṭīvī dekh rahī hai.","tr":"She's watching TV."},{"who":"Mom","t":"वहाँ बारिश हो रही है?","r":"vahā̃ bārish ho rahī hai?","tr":"Is it raining there?"},{"who":"Arjun","t":"हाँ, बहुत बारिश हो रही है।","r":"hā̃, bahut bārish ho rahī hai.","tr":"Yes, it's raining a lot."}]},
+        {"p":"**Right now.** For what is happening at this moment, Hindi uses the stem, then {{रहा|rahā}}, then {{हूँ / है / हैं / हो|hū̃ / hai / haĩ / ho}}: {{मैं पढ़ रहा हूँ|maĩ paṛh rahā hū̃}} “I'm studying”. {{रहा|rahā}} changes like an adjective in {{-आ|-ā}}: {{रहा|rahā}} for a man, {{रही|rahī}} for a woman, {{रहे|rahe}} for plurals and for {{आप|āp}}, {{तुम|tum}}, {{हम|ham}}."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["I","{{मैं जा रहा हूँ|maĩ jā rahā hū̃}}","{{मैं जा रही हूँ|maĩ jā rahī hū̃}}"],
+          ["you ({{आप|āp}})","{{आप जा रहे हैं|āp jā rahe haĩ}}","{{आप जा रही हैं|āp jā rahī haĩ}}"],
+          ["you ({{तुम|tum}})","{{तुम जा रहे हो|tum jā rahe ho}}","{{तुम जा रही हो|tum jā rahī ho}}"],
+          ["he, she","{{वह जा रहा है|vah jā rahā hai}}","{{वह जा रही है|vah jā rahī hai}}"],
+          ["we, they","{{हम / वे जा रहे हैं|ham / ve jā rahe haĩ}}","{{हम / वे जा रही हैं|ham / ve jā rahī haĩ}}"]
+        ] },
+        {"p":"**Now, or usually?** Compare {{मैं चाय पीता हूँ|maĩ chāy pītā hū̃}} “I drink tea” (as a habit, lesson 14) with {{मैं चाय पी रहा हूँ|maĩ chāy pī rahā hū̃}} “I'm drinking tea” (now). Like English, Hindi also uses this form for plans that are already fixed: {{हम कल दिल्ली जा रहे हैं|ham kal dillī jā rahe haĩ}} “We're going to Delhi tomorrow.”"},
+        {"p":"**The weather.** “It's raining” is {{बारिश हो रही है|bārish ho rahī hai}}, word for word “rain is happening”. {{बारिश|bārish}} is feminine, so {{रही|rahī}}."},
+        { "ex": [
+          {"t":"देखो, बारिश हो रही है।","r":"dekho, bārish ho rahī hai.","tr":"Look, it's raining."},
+          {"t":"आप क्या कर रहे हैं?","r":"āp kyā kar rahe haĩ?","tr":"What are you doing?"},
+          {"t":"बच्चे पार्क में खेल रहे हैं।","r":"bachche pārk mẽ khel rahe haĩ.","tr":"The children are playing in the park."},
+          {"t":"मैं आ रहा हूँ!","r":"maĩ ā rahā hū̃!","tr":"I'm coming!"},
+          {"t":"वह फ़ोन पर बात कर रही है।","r":"vah fon par bāt kar rahī hai.","tr":"She's talking on the phone."},
+          {"t":"तुम कहाँ जा रहे हो?","r":"tum kahā̃ jā rahe ho?","tr":"Where are you going?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं खा रहा।","right":"मैं खा रहा हूँ।","tr":"I'm eating.","why":"Don't forget the {{हूँ|hū̃}} at the end."},
+        {"wrong":"मैं पढ़ रहा हूँ।","right":"मैं पढ़ रही हूँ।","tr":"I'm studying.","why":"A woman is speaking. A woman says {{रही|rahī}}."},
+        {"wrong":"बारिश हो रहा है।","right":"बारिश हो रही है।","tr":"It's raining.","why":"{{बारिश|bārish}} is feminine."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Your friend Meena is speaking. Choose the right form.","t":"मैं टीवी देख ___ हूँ।","tr":"I'm watching TV.","options":["रही","रहा","रहे"],"answer":0,"why":"A woman: {{रही|rahī}}."},
+        {"type":"choice","q":"Which one means “I'm drinking tea (right now)”?","options":["{{मैं चाय पी रहा हूँ।|maĩ chāy pī rahā hū̃.}}","{{मैं चाय पीता हूँ।|maĩ chāy pītā hū̃.}}"],"answer":0,"why":"Right now: the stem + {{रहा हूँ|rahā hū̃}}. {{पीता हूँ|pītā hū̃}} is a habit.","from":"say-what-you-do-every-day"},
+        {"type":"fill","q":"Choose the right form.","t":"बच्चे पार्क में खेल ___ हैं।","tr":"The children are playing in the park.","options":["रहे","रहा","रही"],"answer":0,"why":"{{बच्चे|bachche}}: plural, {{रहे|rahe}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Where are you going?","words":["तुम","कहाँ","जा","रहे","हो?"]},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies (you're a man).","from":"say-what-you-like","lines":[{"who":"Sam","t":"हाय! क्या कर रहे हो?","r":"hāy! kyā kar rahe ho?","tr":"Hi! What are you doing?"},{"options":["मैं खाना बना रहा हूँ।","मैं खाना बनाता हूँ।"],"answer":0,"why":"Right now: {{बना रहा हूँ|banā rahā hū̃}}."},{"who":"Sam","t":"अच्छा! क्या तुम्हें खाना बनाना पसंद है?","r":"achchhā! kyā tumhẽ khānā banānā pasand hai?","tr":"Oh! Do you like cooking?"},{"options":["हाँ, मुझे खाना बनाना बहुत पसंद है।","हाँ, मैं खाना बनाना बहुत पसंद हूँ।"],"answer":0,"why":"{{मुझे|mujhe}} … {{पसंद है|pasand hai}} (lesson 16)."}]},
+        {"type":"say","q":"Say: “Look, it's raining.”","answer":"देखो, बारिश हो रही है।","r":"dekho, bārish ho rahī hai."},
+        {"type":"free","q":"Your turn: someone calls and asks {{क्या कर रहे हो?|kyā kar rahe ho?}} Say what you and someone near you are doing.","answers":[{"t":"मैं हिंदी सीख रहा हूँ, और मेरी पत्नी किताब पढ़ रही है।","r":"maĩ hindī sīkh rahā hū̃, aur merī patnī kitāb paṛh rahī hai.","tr":"I'm learning Hindi, and my wife is reading a book."},{"t":"मैं कॉफ़ी पी रही हूँ, और बच्चे सो रहे हैं।","r":"maĩ kôfī pī rahī hū̃, aur bachche so rahe haĩ.","tr":"I'm having a coffee, and the children are sleeping."}]}
+      ]
+    },
+    {
+      "id": "tell-the-time",
+      "unit": 3,
+      "level": "A1",
+      "title": "Tell the time and say when",
+      "summary": "Ask and tell the time, and say when things happen: “at half past six”, “on Monday”, “in the evening”.",
+      "topic": "{{बजे|baje}} “o'clock, at … o'clock”; {{सवा|savā}}, {{साढ़े|sāṛhe}}, {{पौने|paune}}, {{डेढ़|ḍeṛh}}, {{ढाई|ḍhāī}}; {{को|ko}} with days and parts of the day",
+      "blocks": [
+        {"goal":{"t":"फ़िल्म साढ़े छह बजे शुरू होती है।","r":"film sāṛhe chhah baje shurū hotī hai.","tr":"The movie starts at half past six."}},
+        {"dialog":[{"who":"Tom","t":"माफ़ कीजिए, कितने बजे हैं?","r":"māf kījie, kitne baje haĩ?","tr":"Excuse me, what time is it?"},{"who":"Man","t":"पाँच बजे हैं।","r":"pā̃ch baje haĩ.","tr":"It's five o'clock."},{"who":"Tom","t":"बैंक कब बंद होता है?","r":"baiṅk kab band hotā hai?","tr":"When does the bank close?"},{"who":"Man","t":"साढ़े पाँच बजे। और शनिवार को दो बजे।","r":"sāṛhe pā̃ch baje. aur shanivār ko do baje.","tr":"At half past five. And on Saturdays at two."},{"who":"Tom","t":"और रविवार को?","r":"aur ravivār ko?","tr":"And on Sundays?"},{"who":"Man","t":"रविवार को बंद रहता है।","r":"ravivār ko band rahtā hai.","tr":"It's closed on Sundays."}]},
+        {"p":"**What time is it?** {{कितने बजे हैं?|kitne baje haĩ?}} (people also say {{टाइम क्या हुआ है?|ṭāim kyā huā hai?}}). The answer is the number + {{बजे हैं|baje haĩ}}: {{तीन बजे हैं|tīn baje haĩ}} “It's three o'clock”. For one o'clock, {{एक बजा है|ek bajā hai}}."},
+        {"p":"**At what time?** “At” needs no word of its own: {{सात बजे|sāt baje}} is “at seven”. {{मैं सात बजे उठता हूँ|maĩ sāt baje uṭhtā hū̃}} “I get up at seven”."},
+        {"p":"**Quarters and halves.** Hindi has its own words: {{सवा|savā}} “a quarter past”, {{साढ़े|sāṛhe}} “half past”, {{पौने|paune}} “a quarter to”. And two special words: {{डेढ़|ḍeṛh}} is half past one and {{ढाई|ḍhāī}} half past two."},
+        { "table": [
+          ["time","Hindi"],
+          ["4:00","{{चार बजे|chār baje}}"],
+          ["4:15","{{सवा चार बजे|savā chār baje}}"],
+          ["4:30","{{साढ़े चार बजे|sāṛhe chār baje}}"],
+          ["3:45","{{पौने चार बजे|paune chār baje}}"],
+          ["1:30","{{डेढ़ बजे|ḍeṛh baje}}"],
+          ["2:30","{{ढाई बजे|ḍhāī baje}}"]
+        ] },
+        {"p":"**Days, and parts of the day,** take {{को|ko}} for “on” or “in”: {{सोमवार को|somvār ko}} “on Monday”, {{शाम को|shām ko}} “in the evening”, {{रात को|rāt ko}} “at night”. {{सुबह|subah}} “in the morning” usually goes without it."},
+        { "table": [
+          ["","Hindi"],
+          ["Monday","{{सोमवार|somvār}}"],
+          ["Tuesday","{{मंगलवार|maṅgalvār}}"],
+          ["Wednesday","{{बुधवार|budhvār}}"],
+          ["Thursday","{{गुरुवार|guruvār}}"],
+          ["Friday","{{शुक्रवार|shukravār}}"],
+          ["Saturday","{{शनिवार|shanivār}}"],
+          ["Sunday","{{रविवार|ravivār}}"]
+        ] },
+        { "ex": [
+          {"t":"मैं हर दिन सात बजे उठती हूँ।","r":"maĩ har din sāt baje uṭhtī hū̃.","tr":"I get up at seven every day.","note":"a woman speaking"},
+          {"t":"दुकान रात दस बजे तक खुली है।","r":"dukān rāt das baje tak khulī hai.","tr":"The shop is open until ten at night.","note":"{{तक|tak}} “until”"},
+          {"t":"हम शनिवार को बाज़ार जाते हैं।","r":"ham shanivār ko bāzār jāte haĩ.","tr":"We go to the market on Saturdays."},
+          {"t":"ट्रेन पौने नौ बजे आती है।","r":"ṭren paune nau baje ātī hai.","tr":"The train comes at a quarter to nine."},
+          {"t":"वह शाम को योग करती है।","r":"vah shām ko yog kartī hai.","tr":"She does yoga in the evening."},
+          {"t":"अभी ढाई बजे हैं।","r":"abhī ḍhāī baje haĩ.","tr":"It's half past two now."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"मैं साढ़े एक बजे खाना खाता हूँ।","right":"मैं डेढ़ बजे खाना खाता हूँ।","tr":"I have lunch at half past one.","why":"Half past one is {{डेढ़|ḍeṛh}}, never {{साढ़े एक|sāṛhe ek}}."},
+        {"wrong":"मैं सात बजे पर उठता हूँ।","right":"मैं सात बजे उठता हूँ।","tr":"I get up at seven.","why":"“At seven” is just {{सात बजे|sāt baje}}: no {{पर|par}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"What time is {{साढ़े तीन बजे|sāṛhe tīn baje}}?","options":["3:30","3:15","2:30"],"answer":0,"why":"{{साढ़े|sāṛhe}} is “half past”."},
+        {"type":"choice","q":"How do you say 2:30?","options":["{{ढाई बजे|ḍhāī baje}}","{{साढ़े दो बजे|sāṛhe do baje}}","{{डेढ़ बजे|ḍeṛh baje}}"],"answer":0,"why":"Half past two has its own word: {{ढाई|ḍhāī}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"हम शनिवार ___ बाज़ार जाते हैं।","tr":"We go to the market on Saturdays.","options":["को","में","पर"],"answer":0,"why":"Days take {{को|ko}}."},
+        {"type":"order","q":"Put the words in order.","tr":"The train comes at a quarter to nine.","words":["ट्रेन","पौने","नौ","बजे","आती","है।"],"from":"say-what-you-do-every-day"},
+        {"type":"dialogue","q":"Making a plan on the phone. Choose your replies.","from":"say-where-things-are","lines":[{"who":"Friend","t":"फ़िल्म कितने बजे है?","r":"film kitne baje hai?","tr":"What time is the movie?"},{"options":["सवा सात बजे।","सात बजे पर।"],"answer":0,"why":"No word for “at”: just the time and {{बजे|baje}}."},{"who":"Friend","t":"ठीक है। हम कहाँ मिल रहे हैं?","r":"ṭhīk hai. ham kahā̃ mil rahe haĩ?","tr":"OK. Where are we meeting?"},{"options":["सिनेमा के सामने, सात बजे।","सामने सिनेमा के, सात बजे।"],"answer":0,"why":"The postposition comes after the noun."}]},
+        {"type":"say","q":"Ask someone: “What time is it?”","answer":"कितने बजे हैं?","r":"kitne baje haĩ?"},
+        {"type":"free","q":"Your turn: say what time you get up, and what you do on Saturdays.","answers":[{"t":"मैं साढ़े छह बजे उठता हूँ। शनिवार को मैं दोस्तों के साथ क्रिकेट खेलता हूँ।","r":"maĩ sāṛhe chhah baje uṭhtā hū̃. shanivār ko maĩ dostõ ke sāth krikeṭ kheltā hū̃.","tr":"I get up at half past six. On Saturdays I play cricket with friends. (a man)"},{"t":"मैं सात बजे उठती हूँ, और शनिवार को मैं बाज़ार जाती हूँ।","r":"maĩ sāt baje uṭhtī hū̃, aur shanivār ko maĩ bāzār jātī hū̃.","tr":"I get up at seven, and on Saturdays I go to the market. (a woman)"}]}
+      ]
+    },
+    {
+      "id": "say-where-you-were",
+      "unit": 3,
+      "level": "A1",
+      "title": "Say where you were and what it was like",
+      "summary": "Talk about the past for the first time: “I was at home yesterday”, “The food was really good.”",
+      "topic": "{{था / थी / थे / थीं|thā / thī / the / thī̃}} “was, were”",
+      "blocks": [
+        {"goal":{"t":"कल मैं घर पर था। मौसम बहुत ख़राब था।","r":"kal maĩ ghar par thā. mausam bahut kharāb thā.","tr":"Yesterday I was at home. The weather was really bad.","note":"said by a man; a woman says {{मैं घर पर थी|maĩ ghar par thī}}"}},
+        {"dialog":[{"who":"Ritu","t":"कल तुम कहाँ थे?","r":"kal tum kahā̃ the?","tr":"Where were you yesterday?"},{"who":"Sam","t":"मैं आगरा में था, दोस्तों के साथ।","r":"maĩ āgrā mẽ thā, dostõ ke sāth.","tr":"I was in Agra, with friends."},{"who":"Ritu","t":"ताजमहल कैसा था?","r":"tājmahal kaisā thā?","tr":"How was the Taj Mahal?"},{"who":"Sam","t":"बहुत सुंदर! लेकिन वहाँ बहुत भीड़ थी।","r":"bahut sundar! lekin vahā̃ bahut bhīṛ thī.","tr":"Really beautiful! But it was very crowded."},{"who":"Ritu","t":"और खाना?","r":"aur khānā?","tr":"And the food?"},{"who":"Sam","t":"खाना भी बहुत अच्छा था।","r":"khānā bhī bahut achchhā thā.","tr":"The food was really good too."}]},
+        {"p":"**Was and were.** The past of {{है|hai}} is {{था|thā}}, and it changes like an adjective in {{-आ|-ā}}: for masculine or feminine, one or more. It does *not* change for “I”, “you” or “he”, as {{हूँ, है, हो|hū̃, hai, ho}} do."},
+        { "table": [
+          ["","masculine","feminine"],
+          ["one","{{था|thā}}","{{थी|thī}}"],
+          ["more than one, or {{आप, तुम, हम|āp, tum, ham}}","{{थे|the}}","{{थीं|thī̃}}"]
+        ] },
+        {"p":"{{मैं घर पर था|maĩ ghar par thā}} “I was at home” (a man), {{मैं घर पर थी|maĩ ghar par thī}} (a woman); {{आप कहाँ थे?|āp kahā̃ the?}} “Where were you?”; {{वे लोग बहुत अच्छे थे|ve log bahut achchhe the}} “Those people were very nice”; {{दुकानें बंद थीं|dukānẽ band thī̃}} “The shops were closed”."},
+        {"p":"**Time words for the past**: {{कल|kal}} “yesterday” (it also means “tomorrow”: the verb tells you which!), {{पिछले हफ़्ते|pichhle hafte}} “last week”, {{पहले|pahle}} “before, in the past”. Like all time words, they come early in the sentence."},
+        {"p":"**There was, I had.** Everything you built with {{है|hai}} works with {{था|thā}}: {{वहाँ बहुत भीड़ थी|vahā̃ bahut bhīṛ thī}} “There was a big crowd there”, {{मेरे पास समय नहीं था|mere pās samay nahī̃ thā}} “I didn't have time”."},
+        { "ex": [
+          {"t":"कल बहुत गर्मी थी।","r":"kal bahut garmī thī.","tr":"It was very hot yesterday."},
+          {"t":"खाना बहुत अच्छा था।","r":"khānā bahut achchhā thā.","tr":"The food was very good."},
+          {"t":"तुम कल कहाँ थे?","r":"tum kal kahā̃ the?","tr":"Where were you yesterday?"},
+          {"t":"मेरे दादा डॉक्टर थे।","r":"mere dādā ḍôkṭar the.","tr":"My grandfather was a doctor.","note":"{{थे|the}}: respect"},
+          {"t":"पार्टी में बहुत लोग थे।","r":"pārṭī mẽ bahut log the.","tr":"There were a lot of people at the party."},
+          {"t":"मैं कल बीमार थी।","r":"maĩ kal bīmār thī.","tr":"I was sick yesterday.","note":"a woman speaking"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"कल मैं घर पर हूँ।","right":"कल मैं घर पर था।","tr":"Yesterday I was at home.","why":"For the past, {{था|thā}} takes the place of {{हूँ|hū̃}}."},
+        {"wrong":"मैं कल बीमार था।","right":"मैं कल बीमार थी।","tr":"I was sick yesterday.","why":"A woman is speaking. A woman says {{थी|thī}}."},
+        {"wrong":"दुकानें बंद था।","right":"दुकानें बंद थीं।","tr":"The shops were closed.","why":"Feminine plural: {{थीं|thī̃}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose: {{थे|the}}, {{था|thā}} or {{थी|thī}}?","t":"पार्टी में बहुत लोग ___।","tr":"There were a lot of people at the party.","options":["थे","था","थी"],"answer":0,"why":"{{लोग|log}} is masculine plural."},
+        {"type":"fill","q":"Choose: {{थी|thī}}, {{था|thā}} or {{थे|the}}?","t":"कल बहुत गर्मी ___।","tr":"It was very hot yesterday.","options":["थी","था","थे"],"answer":0,"why":"{{गर्मी|garmī}} “heat” is feminine.","from":"describe-things"},
+        {"type":"choice","q":"{{कल|kal}} means…","options":["yesterday or tomorrow: the verb tells you which","only yesterday","only today"],"answer":0,"why":"{{कल मैं घर पर था|kal maĩ ghar par thā}}: yesterday. With a verb about the future (lesson 21), tomorrow."},
+        {"type":"order","q":"Put the words in order.","tr":"My grandfather was a doctor.","words":["मेरे","दादा","डॉक्टर","थे।"],"from":"say-whose-it-is"},
+        {"type":"dialogue","q":"A colleague asks about your weekend. Choose your replies (you're a woman).","lines":[{"who":"Colleague","t":"शनिवार को आप कहाँ थीं?","r":"shanivār ko āp kahā̃ thī̃?","tr":"Where were you on Saturday?"},{"options":["मैं जयपुर में थी।","मैं जयपुर में था।"],"answer":0,"why":"A woman: {{थी|thī}}."},{"who":"Colleague","t":"वाह! मौसम कैसा था?","r":"vāh! mausam kaisā thā?","tr":"Wow! How was the weather?"},{"options":["मौसम बहुत अच्छा था।","मौसम बहुत अच्छी थी।"],"answer":0,"why":"{{मौसम|mausam}} “weather” is masculine."}]},
+        {"type":"say","q":"Ask your friend Raj: “Where were you yesterday?”","answer":"तुम कल कहाँ थे?","r":"tum kal kahā̃ the?"},
+        {"type":"free","q":"Your turn: say where you were last weekend, and what it was like.","answers":[{"t":"पिछले हफ़्ते मैं मुंबई में था। मौसम बहुत गरम था, लेकिन खाना बहुत अच्छा था।","r":"pichhle hafte maĩ mumbaī mẽ thā. mausam bahut garam thā, lekin khānā bahut achchhā thā.","tr":"Last week I was in Mumbai. The weather was very hot, but the food was great."},{"t":"शनिवार को मैं एक शादी में थी। बहुत लोग थे और खाना बहुत अच्छा था।","r":"shanivār ko maĩ ek shādī mẽ thī. bahut log the aur khānā bahut achchhā thā.","tr":"On Saturday I was at a wedding. There were lots of people and the food was great."}]}
+      ]
     }
   ]
 }
