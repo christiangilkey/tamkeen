@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-th": {
+   "file": "en-th/course.json",
+   "from": "en",
+   "to": "th",
+   "title": "Thai grammar",
+   "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
+   "units": 9,
+   "lessons": 7,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 49280,
+   "sha256": "2fe7c36919de89bd48bdd86757c351ff20458e906adcc5f8d8df6da2a432c68a"
   }
  }
 }
