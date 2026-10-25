@@ -1,0 +1,312 @@
+{
+  "from": "en",
+  "to": "es",
+  "title": "Spanish grammar",
+  "variety": "Mexican Spanish",
+  "about": "From your very first conversation to everyday Spanish, one short lesson at a time. Each lesson gives you something you can say straight away, then the grammar that makes it work. You don't need to know any grammar: each grammar word is explained when you first need it. Every example is everyday Mexican Spanish (with ustedes for “you all”, as all of Latin America says it).",
+  "reading": "",
+  "units": [
+    {"n":1,"title":"First conversations"},
+    {"n":2,"title":"Everyday life"},
+    {"n":3,"title":"Out and about"},
+    {"n":4,"title":"Your day, your week"},
+    {"n":5,"title":"People and things"},
+    {"n":6,"title":"Telling what happened"},
+    {"n":7,"title":"Getting things done"},
+    {"n":8,"title":"Plans, wishes and advice"},
+    {"n":9,"title":"Opinions and imagination"}
+  ],
+  "lessons": [
+    {
+      "id": "say-who-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say hello and who you are",
+      "summary": "Greet someone, say your name and where you're from, and ask them the same: your first Spanish conversation.",
+      "topic": "{{soy}}, {{eres}}, {{es}} (the verb {{ser}}) and {{me llamo}}; {{tú}} and {{usted}}",
+      "blocks": [
+        {"goal":{"t":"Hola, soy Ana. Soy de Chicago.","tr":"Hi, I'm Ana. I'm from Chicago."}},
+        {"dialog":[{"who":"Diego","t":"¡Hola! Me llamo Diego. ¿Cómo te llamas?","tr":"Hi! My name is Diego. What's your name?"},{"who":"Ana","t":"Hola, Diego. Soy Ana.","tr":"Hi, Diego. I'm Ana."},{"who":"Diego","t":"Mucho gusto, Ana.","tr":"Nice to meet you, Ana."},{"who":"Ana","t":"Igualmente.","tr":"Likewise."},{"who":"Diego","t":"¿De dónde eres?","tr":"Where are you from?"},{"who":"Ana","t":"Soy de Chicago. ¿Y tú?","tr":"I'm from Chicago. And you?"},{"who":"Diego","t":"Soy de aquí, de Guadalajara.","tr":"I'm from here, from Guadalajara."}]},
+        {"p":"**Saying who you are.** {{Soy}} means “I am”: {{Soy Ana.}} “I'm Ana.” With {{de}} “from”, it says where you're from: {{Soy de Chicago.}} You can also give your name with {{Me llamo…}}, word for word “I call myself…”: {{Me llamo Ana.}} Both are everyday Spanish."},
+        {"term":"verb","means":"a word for an action or a state: eat, go, live, be. {{Soy}} “I am” is a verb."},
+        {"term":"pronoun","means":"a short word that stands for a person or a thing: I, you, he, she, it."},
+        {"p":"**Spanish usually leaves out “I”.** The pronoun for “I” is {{yo}}, but {{soy}} already means “I am”, so Spanish normally leaves {{yo}} out: {{Soy de Chicago.}} Add {{yo}} only to stress it: {{Yo soy de Chicago, ¿y tú?}} “**I**'m from Chicago, and you?”"},
+        {"p":"**Two words for “you”.** Spanish has a friendly “you”, {{tú}}, for friends, family, children and people your age in relaxed places, and a polite one, {{usted}}, for people you don't know, older people, and at work. The verb changes with them:"},
+        { "table": [
+          ["","friendly: {{tú}}","polite: {{usted}}"],
+          ["Where are you from?","{{¿De dónde eres?}}","{{¿De dónde es usted?}}"],
+          ["What's your name?","{{¿Cómo te llamas?}}","{{¿Cómo se llama usted?}}"],
+          ["And you?","{{¿Y tú?}}","{{¿Y usted?}}"]
+        ] },
+        {"p":"**Asking.** A question is written between ¿ and ?: the upside-down mark warns you a question is coming. The question word comes first: {{¿De dónde eres?}} is, word for word, “from where are you?”."},
+        { "ex": [
+          {"t":"Me llamo Carlos.","tr":"My name is Carlos."},
+          {"t":"Soy de Estados Unidos.","tr":"I'm from the United States.","note":"in Mexico, usually without “the”"},
+          {"t":"Soy Laura, mucho gusto.","tr":"I'm Laura, nice to meet you."},
+          {"t":"¿Usted es el señor García?","tr":"Are you Mr. García?","note":"a question just by raising your voice at the end"},
+          {"t":"Buenos días, ¿cómo se llama usted?","tr":"Good morning, what's your name?","note":"polite: to someone you don't know"}
+        ] },
+        {"tip":"Hello and goodbye: {{Hola}} (hi), {{Buenos días}} (good morning), {{Buenas tardes}} (good afternoon, from about noon), {{Buenas noches}} (good evening, good night), {{Adiós}} or {{Hasta luego}} (bye). The little mark on a vowel (á, é, í, ó, ú) shows the loudest part of the word ({{adiós}}: a-DIÓS) and sometimes tells two words apart: {{tú}} “you”, {{tu}} “your”."}
+      ],
+      "mistakes": [
+        {"wrong":"Yo llamo Ana.","right":"Me llamo Ana.","tr":"My name is Ana.","why":"Without {{me}}, {{llamo}} means “I call”: {{Yo llamo Ana}} sounds like “I call Ana”. Your name is {{Me llamo…}}, “I call myself…”."},
+        {"wrong":"¿De dónde eres, señor?","right":"¿De dónde es usted, señor?","tr":"Where are you from, sir?","why":"To an older man you don't know, use the polite {{usted}}, and the verb goes with it: {{es usted}}, not {{eres}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ de Texas.","tr":"I'm from Texas.","options":["Soy","Eres","Es"],"answer":0,"why":"{{Soy}} is “I am”; {{eres}} is “you are”."},
+        {"type":"choice","q":"You're meeting your new boss. How do you ask where she's from?","options":["{{¿De dónde eres?}}","{{¿De dónde es usted?}}"],"answer":1,"why":"At work, with someone you don't know well, use the polite {{usted}}: {{¿De dónde es usted?}}"},
+        {"type":"dialogue","q":"You're Mike, from Seattle. Choose your replies.","lines":[{"who":"Lucía","t":"¡Hola! Me llamo Lucía. ¿Cómo te llamas?","tr":"Hi! My name is Lucía. What's your name?"},{"options":["Me llamo Mike.","Te llamas Mike."],"answer":0,"why":"About yourself: {{me llamo}}. {{Te llamas}} is “your name is”."},{"who":"Lucía","t":"Mucho gusto, Mike. ¿De dónde eres?","tr":"Nice to meet you, Mike. Where are you from?"},{"options":["Soy de Seattle. ¿Y tú?","Eres de Seattle. ¿Y tú?"],"answer":0,"why":"{{Soy}} for “I am”, and {{¿Y tú?}} turns the question back to her."},{"who":"Lucía","t":"Soy de Puebla.","tr":"I'm from Puebla."}]},
+        {"type":"order","q":"Put the words in order.","tr":"Where are you from?","words":["¿De","dónde","eres?"]},
+        {"type":"say","q":"Greet an older man politely and ask his name: “Good morning, what's your name?”","answer":"Buenos días, ¿cómo se llama usted?"},
+        {"type":"free","q":"Your turn: say hello, your name and where you're from. Start with {{Hola, soy…}}","answers":[{"t":"Hola, soy Mike. Soy de Seattle.","tr":"Hi, I'm Mike. I'm from Seattle."},{"t":"Hola, me llamo Jennifer. Soy de Canadá.","tr":"Hi, my name is Jennifer. I'm from Canada."}]}
+      ]
+    },
+    {
+      "id": "talk-about-people",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say who people are and what they do",
+      "summary": "Introduce a friend and say what people do and where they're from: “She's a doctor. We're from Texas.”",
+      "topic": "{{ser}} for everyone ({{soy, eres, es, somos, son}}); jobs without {{un}} or {{una}}; -o for men, -a for women",
+      "blocks": [
+        {"goal":{"t":"Ella es Laura. Es doctora y es de Monterrey.","tr":"This is Laura. She's a doctor and she's from Monterrey."}},
+        {"dialog":[{"who":"You","t":"Diego, ella es mi amiga Laura.","tr":"Diego, this is my friend Laura."},{"who":"Diego","t":"Mucho gusto, Laura. ¿Eres de aquí?","tr":"Nice to meet you, Laura. Are you from here?"},{"who":"Laura","t":"No, soy de Monterrey.","tr":"No, I'm from Monterrey."},{"who":"Diego","t":"¿Y a qué te dedicas?","tr":"And what do you do?"},{"who":"Laura","t":"Soy doctora. ¿Y tú?","tr":"I'm a doctor. And you?"},{"who":"Diego","t":"Soy maestro. Mi esposa y yo somos maestros.","tr":"I'm a teacher. My wife and I are teachers."}]},
+        {"p":"**The verb {{ser}}.** {{Soy}} “I am” and {{eres}} “you are” are forms of one verb, {{ser}} “to be”. Here it is for everyone:"},
+        { "table": [
+          ["","{{ser}} “to be”","Example"],
+          ["I am","{{(yo) soy}}","{{Soy maestro.}}"],
+          ["you are (friendly)","{{(tú) eres}}","{{¿Eres de aquí?}}"],
+          ["he is, she is, you are (polite)","{{(él, ella, usted) es}}","{{Ella es doctora.}}"],
+          ["we are","{{(nosotros) somos}}","{{Somos de Texas.}}"],
+          ["you are (all of you)","{{(ustedes) son}}","{{¿Ustedes son hermanos?}}"],
+          ["they are","{{(ellos, ellas) son}}","{{Son mis amigos.}}"]
+        ] },
+        {"p":"{{Usted}} uses the same form as “he” and “she”: {{usted es}}. For more than one “you”, Mexico uses {{ustedes}} for everyone, friends and strangers alike: {{ustedes son}}. ({{Nosotras}} “we” and {{ellas}} “they” are for groups of women only.)"},
+        {"term":"gender","means":"whether a word is masculine or feminine. In Spanish every word for a person or a thing has one, and the words around it change to match."},
+        {"p":"**Men and women.** Words for jobs and nationalities change with the person: usually **-o** for a man and **-a** for a woman: {{Él es mexicano. Ella es mexicana.}} A word ending in a consonant adds **-a** for a woman: {{doctor}} → {{doctora}}, {{profesor}} → {{profesora}}, {{inglés}} → {{inglesa}} (the accent mark goes). Words ending in **-e** or **-ista** stay the same: {{estudiante}}, {{dentista}}, {{estadounidense}} (American)."},
+        {"p":"**No “a” before a job.** English says “She's **a** doctor”; Spanish says just {{Es doctora.}} The {{una}} comes back only when you describe the person: {{Es una doctora muy buena.}} “She's a very good doctor.”"},
+        { "ex": [
+          {"t":"Mi papá es ingeniero.","tr":"My dad is an engineer."},
+          {"t":"Somos estudiantes.","tr":"We're students."},
+          {"t":"Ellos son de Canadá.","tr":"They're from Canada."},
+          {"t":"¿Usted es la señora Martínez?","tr":"Are you Mrs. Martínez?"},
+          {"t":"Ella es enfermera y él es mesero.","tr":"She's a nurse and he's a waiter."},
+          {"t":"Mis papás son mexicanos.","tr":"My parents are Mexican.","note":"{{papás}}: dad and mom together. {{Mi}} “my”, {{mis}} for more than one (lesson 10)."}
+        ] },
+        {"tip":"Nationalities and languages have no capital letter in Spanish: {{Soy estadounidense}}, {{Ella es mexicana}}, {{el español}}. Countries and cities do: {{México}}, {{Canadá}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Ella es una doctora.","right":"Ella es doctora.","tr":"She's a doctor.","why":"To say what someone does, just the job, without {{una}}."},
+        {"wrong":"Laura es mexicano.","right":"Laura es mexicana.","tr":"Laura is Mexican.","why":"Laura is a woman: {{mexicana}}, with -a."},
+        {"wrong":"Nosotros es de Texas.","right":"Nosotros somos de Texas.","tr":"We're from Texas.","why":"“We are” is {{somos}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi esposa y yo ___ maestros.","tr":"My wife and I are teachers.","options":["somos","son","es"],"answer":0,"why":"“My wife and I” is “we”: {{somos}}."},
+        {"type":"choice","q":"Your friend Carmen is a nurse. Which one is right?","options":["{{Carmen es enfermera.}}","{{Carmen es una enfermero.}}","{{Carmen es enfermero.}}"],"answer":0,"why":"A woman: {{enfermera}}, with -a; and no {{una}} before a job."},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Ustedes ___ de aquí?","tr":"Are you (all) from here?","options":["son","somos","eres"],"answer":0,"why":"{{Ustedes}} goes with {{son}}."},
+        {"type":"dialogue","q":"At a party, you introduce your friend Tom. Choose your replies.","lines":[{"who":"Sofía","t":"Hola. ¿Quién es él?","tr":"Hi. Who's he?"},{"options":["Él es mi amigo Tom. Es de Boston.","Él soy mi amigo Tom. Soy de Boston."],"answer":0,"why":"About him: {{es}}. {{Soy}} is only for “I am”."},{"who":"Sofía","t":"¿Y es estudiante?","tr":"And is he a student?"},{"options":["No, es mesero.","No, es una mesera."],"answer":0,"why":"Tom is a man: {{mesero}}; and just the job, without {{un}}."},{"who":"Sofía","t":"¡Mucho gusto, Tom!","tr":"Nice to meet you, Tom!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"My dad is an engineer.","words":["Mi","papá","es","ingeniero."]},
+        {"type":"say","q":"Say “We're from Texas.”","answer":"Somos de Texas."},
+        {"type":"free","q":"Your turn: introduce someone you know. Who are they, what do they do, where are they from? Start with {{Él es…}} or {{Ella es…}}","answers":[{"t":"Ella es mi hermana Kate. Es dentista y es de Ohio.","tr":"This is my sister Kate. She's a dentist and she's from Ohio."},{"t":"Él es mi amigo Ben. Es estudiante y es de California.","tr":"This is my friend Ben. He's a student and he's from California."}]}
+      ]
+    },
+    {
+      "id": "say-how-and-where-you-are",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say how you are and where you are",
+      "summary": "Ask “How are you?” and answer, and say where you are right now: the other “to be”, {{estar}}.",
+      "topic": "{{estar}} ({{estoy, estás, está, estamos, están}}); {{ser}} or {{estar}}?",
+      "blocks": [
+        {"goal":{"t":"Estoy bien, gracias. Estoy en la oficina.","tr":"I'm fine, thanks. I'm at the office."}},
+        {"dialog":[{"who":"Mom","t":"¡Hola, hijo! ¿Cómo estás?","tr":"Hi, son! How are you?"},{"who":"Pablo","t":"Bien, mamá, pero un poco cansado.","tr":"Fine, Mom, but a little tired."},{"who":"Mom","t":"¿Dónde estás?","tr":"Where are you?"},{"who":"Pablo","t":"Estoy en el trabajo. ¿Y tú, cómo estás?","tr":"I'm at work. And how are you?"},{"who":"Mom","t":"Muy bien. Tu papá y yo estamos en casa.","tr":"Very well. Your dad and I are at home."}]},
+        {"p":"**A second “to be”.** Spanish has two verbs for “to be”. You've met {{ser}}: who or what someone is ({{Soy Pablo}}, {{Soy maestro}}, {{Soy de Texas}}). The other one, {{estar}}, says **how** someone is right now and **where** someone or something is:"},
+        { "table": [
+          ["","{{estar}} “to be”","Example"],
+          ["I am","{{estoy}}","{{Estoy bien.}}"],
+          ["you are (friendly)","{{estás}}","{{¿Cómo estás?}}"],
+          ["he is, she is, you are (polite)","{{está}}","{{¿Cómo está usted?}}"],
+          ["we are","{{estamos}}","{{Estamos en casa.}}"],
+          ["you are (all of you), they are","{{están}}","{{¿Dónde están?}}"]
+        ] },
+        {"p":"Mind the accent marks: {{estás}}, {{está}}, {{están}} are said es-TÁS, es-TÁ, es-TÁN, loudest at the end."},
+        {"p":"**{{ser}} or {{estar}}?** A first rule that works most of the time: **{{ser}} for what someone or something is** (name, job, where they're from), **{{estar}} for how they are and where they are**."},
+        { "table": [
+          ["{{ser}}: who or what","{{estar}}: how or where"],
+          ["{{Soy Pablo.}} I'm Pablo.","{{Estoy cansado.}} I'm tired."],
+          ["{{Es maestra.}} She's a teacher.","{{Está en la escuela.}} She's at school."],
+          ["{{Somos de Puebla.}} We're from Puebla.","{{Estamos en Puebla.}} We're in Puebla."]
+        ] },
+        { "ex": [
+          {"t":"¿Cómo está usted, señora?","tr":"How are you, ma'am?","note":"polite"},
+          {"t":"Estoy muy contenta.","tr":"I'm very happy.","note":"said by a woman; a man says {{contento}}"},
+          {"t":"Mi hermano está enfermo.","tr":"My brother is sick."},
+          {"t":"¿Dónde están mis llaves?","tr":"Where are my keys?"},
+          {"t":"Estamos en el centro.","tr":"We're downtown."},
+          {"t":"El baño está a la derecha.","tr":"The bathroom is on the right."}
+        ] },
+        {"p":"Words for how you feel change for men and women, like jobs: {{cansado}} / {{cansada}} (tired), {{contento}} / {{contenta}} (happy), {{enfermo}} / {{enferma}} (sick), {{ocupado}} / {{ocupada}} (busy). {{Bien}} (well, fine) and {{mal}} (bad, not well) never change."},
+        {"tip":"{{¿Cómo estás?}} asks how you are; {{¿Cómo eres?}}, with {{ser}}, asks what you're like as a person. Answer {{¿Cómo estás?}} with {{Bien, gracias}}, {{Más o menos}} (so-so) or {{Muy bien, ¿y tú?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Soy cansado.","right":"Estoy cansado.","tr":"I'm tired.","why":"Tired is how you are right now: {{estar}}."},
+        {"wrong":"Soy en la oficina.","right":"Estoy en la oficina.","tr":"I'm at the office.","why":"Where someone is: {{estar}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Which verb says where you are?","options":["{{ser}}","{{estar}}"],"answer":1,"why":"Where someone or something is: {{estar}} ({{Estoy en casa}})."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mi hermana ___ en el hospital. Es enfermera.","tr":"My sister is at the hospital. She's a nurse.","options":["está","es","estoy"],"answer":0,"why":"Where she is: {{está}}. (Her job: {{es}}.)"},
+        {"type":"fill","q":"Choose the missing word.","t":"Mis papás ___ de Oaxaca.","tr":"My parents are from Oaxaca.","options":["son","están"],"answer":0,"why":"Where someone is from is part of who they are: {{ser}}, {{son}}.","from":"talk-about-people"},
+        {"type":"dialogue","q":"Your friend calls. Choose your replies.","lines":[{"who":"Andrea","t":"¡Hola! ¿Cómo estás?","tr":"Hi! How are you?"},{"options":["Bien, gracias. ¿Y tú?","Soy bien, gracias. ¿Y tú?"],"answer":0,"why":"{{Bien}} on its own, or {{Estoy bien}}: never {{soy bien}}."},{"who":"Andrea","t":"Muy bien. ¿Dónde estás?","tr":"Very well. Where are you?"},{"options":["Estoy en el súper.","Soy en el súper."],"answer":0,"why":"Where you are: {{estoy}}. ({{El súper}} is the supermarket.)"},{"who":"Andrea","t":"Ah, ¡qué bien!","tr":"Oh, great!"}]},
+        {"type":"order","q":"Put the words in order.","tr":"We're very happy.","words":["Estamos","muy","contentos."]},
+        {"type":"say","q":"Ask a friend “Where are you?”","answer":"¿Dónde estás?"},
+        {"type":"free","q":"Your turn: how are you today, and where are you right now? Answer with {{Estoy…}}","answers":[{"t":"Estoy bien, pero un poco cansado. Estoy en casa.","tr":"I'm fine, but a little tired. I'm at home."},{"t":"Estoy muy contenta. Estoy en el trabajo.","tr":"I'm very happy. I'm at work."}]}
+      ]
+    },
+    {
+      "id": "name-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Name things: a, the and more than one",
+      "summary": "Ask “What's this?” and name things, one or many: {{el libro}}, {{la mesa}}, {{unos tacos}}.",
+      "topic": "nouns and their gender; {{el, la, los, las}} and {{un, una, unos, unas}}; plurals",
+      "blocks": [
+        {"goal":{"t":"¿Qué es esto? — Es un tamal.","tr":"What's this? — It's a tamal."}},
+        {"dialog":[{"who":"You","t":"Disculpe, ¿qué es esto?","tr":"Excuse me, what's this?"},{"who":"Vendor","t":"Es un tamal de rajas.","tr":"It's a tamal with poblano peppers."},{"who":"You","t":"¿Y eso?","tr":"And that?"},{"who":"Vendor","t":"Es una gordita. Y aquí están los tamales de pollo.","tr":"It's a gordita. And here are the chicken tamales."},{"who":"You","t":"Un tamal de pollo, por favor.","tr":"A chicken tamal, please."}]},
+        {"term":"noun","means":"a word for a person, a place or a thing: friend, city, book, coffee."},
+        {"p":"**Every noun has a gender.** In Spanish not only people but things are masculine or feminine. There's no meaning to look for ({{libro}} “book” is masculine, {{mesa}} “table” is feminine), but the ending usually tells you: most nouns in **-o** are masculine, most in **-a** are feminine."},
+        {"term":"article","means":"a little word before a noun: “the”, “a”."},
+        {"p":"**“The” and “a”** change with the gender, and with the number:"},
+        { "table": [
+          ["","masculine","feminine"],
+          ["the (one)","{{el libro}}","{{la mesa}}"],
+          ["the (more than one)","{{los libros}}","{{las mesas}}"],
+          ["a","{{un libro}}","{{una mesa}}"],
+          ["some","{{unos libros}}","{{unas mesas}}"]
+        ] },
+        {"p":"**More than one.** A noun ending in a vowel adds **-s**: {{taco}} → {{tacos}}. One ending in a consonant adds **-es**: {{ciudad}} → {{ciudades}} (city), {{flor}} → {{flores}} (flower). A final **-z** becomes **-ces**: {{lápiz}} → {{lápices}} (pencil)."},
+        {"p":"**Learn each noun with its article.** A few break the -o/-a rule: {{el día}} (the day), {{el mapa}}, {{el problema}}, but {{la mano}} (the hand), {{la foto}}. Nouns ending in **-ción** and **-dad** are feminine: {{la canción}} (the song), {{la ciudad}}. Others you simply learn: {{el café}}, {{la calle}} (the street), {{el hotel}}, {{la noche}} (the night)."},
+        { "ex": [
+          {"t":"¿Qué es eso? — Es una pluma.","tr":"What's that? — It's a pen.","note":"in Mexico a pen is a {{pluma}}"},
+          {"t":"Los tacos son de pastor.","tr":"The tacos are al pastor."},
+          {"t":"Las llaves están en la mesa.","tr":"The keys are on the table."},
+          {"t":"El hotel está en el centro.","tr":"The hotel is downtown."},
+          {"t":"Un café y dos tamales, por favor.","tr":"A coffee and two tamales, please."},
+          {"t":"¿Dónde está el baño?","tr":"Where's the bathroom?"}
+        ] },
+        {"tip":"{{esto}} “this” and {{eso}} “that” ask about something whose name you don't know: {{¿Qué es esto?}} They have no article and never change. The answer uses {{un}} or {{una}}: {{Es un tamal.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"La problema es el dinero.","right":"El problema es el dinero.","tr":"The problem is the money.","why":"{{problema}} ends in -a, but it's masculine, like {{el día}} and {{el mapa}}."},
+        {"wrong":"Es un mesa.","right":"Es una mesa.","tr":"It's a table.","why":"{{mesa}} is feminine: {{una}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"¿Dónde está ___ baño?","tr":"Where's the bathroom?","options":["el","la","los"],"answer":0,"why":"{{baño}} is masculine and singular: {{el baño}}."},
+        {"type":"choice","q":"Which one is right?","options":["{{el día}}","{{la día}}"],"answer":0,"why":"{{día}} ends in -a, but it's masculine: {{el día}}. Learn each noun with its article."},
+        {"type":"choice","q":"How do you say “the cities”?","options":["{{las ciudades}}","{{los ciudades}}","{{las ciudads}}"],"answer":0,"why":"Nouns in -dad are feminine, and one ending in a consonant adds -es: {{las ciudades}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Es ___ canción muy bonita.","tr":"It's a very pretty song.","options":["una","un"],"answer":0,"why":"Nouns in -ción are feminine: {{una canción}}."},
+        {"type":"dialogue","q":"At the market: choose your replies.","lines":[{"who":"Vendor","t":"¡Pásele, pásele! ¿Qué le damos?","tr":"Come on in! What can I get you?"},{"options":["Un tamal y dos tacos, por favor.","Una tamal y dos tacos, por favor."],"answer":0,"why":"{{tamal}} is masculine: {{un tamal}}."},{"who":"Vendor","t":"Muy bien. ¿Algo más?","tr":"Very good. Anything else?"},{"options":["Sí, ¿qué es eso?","Sí, ¿qué es un eso?"],"answer":0,"why":"{{eso}} “that” stands alone, without an article."},{"who":"Vendor","t":"Es un champurrado, una bebida de chocolate.","tr":"It's champurrado, a thick chocolate drink."}]},
+        {"type":"say","q":"Ask “Where are the keys?”","answer":"¿Dónde están las llaves?","from":"say-how-and-where-you-are"},
+        {"type":"free","q":"Your turn: what's on your table right now? Name three things, with {{un}}, {{una}}, {{unos}} or {{unas}}.","answers":[{"t":"Un café, un celular y unas llaves.","tr":"A coffee, a cell phone and some keys."},{"t":"Una computadora, un libro y una pluma.","tr":"A computer, a book and a pen."}]}
+      ]
+    },
+    {
+      "id": "describe-people-and-things",
+      "unit": 1,
+      "level": "A1",
+      "title": "Describe people and things",
+      "summary": "Say what people and things are like, and how they are today: “a big city”, “the soup is cold”.",
+      "topic": "adjectives after the noun, matching it; {{muy}}; {{es}} or {{está}} with an adjective",
+      "blocks": [
+        {"goal":{"t":"Mi ciudad es grande y muy bonita.","tr":"My city is big and very pretty."}},
+        {"dialog":[{"who":"Marta","t":"¿Qué tal los tacos?","tr":"How are the tacos?"},{"who":"Luis","t":"¡Están muy ricos! ¿Y tu sopa?","tr":"They're really good! And your soup?"},{"who":"Marta","t":"Está un poco fría.","tr":"It's a little cold."},{"who":"Luis","t":"Es un restaurante muy bueno, pero el mesero está muy ocupado.","tr":"It's a very good restaurant, but the waiter is very busy."}]},
+        {"term":"adjective","means":"a word that describes a person or a thing: big, red, tired, Mexican."},
+        {"p":"**After the noun.** In Spanish the adjective usually comes after the noun, the other way round from English: {{una ciudad grande}} “a big city”, {{un carro rojo}} “a red car”, {{el vino blanco}} “the white wine”."},
+        {"term":"agree","means":"to change so as to match another word. A Spanish adjective agrees with its noun: it takes the noun's gender and number."},
+        {"p":"**It agrees with its noun**, in gender and in number:"},
+        { "table": [
+          ["","masculine","feminine"],
+          ["one","{{un carro rojo}}","{{una casa roja}}"],
+          ["more than one","{{dos carros rojos}}","{{dos casas rojas}}"]
+        ] },
+        {"p":"Adjectives ending in **-e** or in a consonant have no feminine form, only a plural: {{un parque grande}}, {{una ciudad grande}}, {{dos ciudades grandes}}; {{un examen difícil}}, {{dos exámenes difíciles}}. {{Muy}} “very” goes before the adjective and never changes: {{muy bonita}}, {{muy grandes}}."},
+        {"p":"**{{es}} or {{está}}?** With adjectives, {{ser}} says what someone or something is like, {{estar}} how they are now, or how they seem to you right now:"},
+        { "table": [
+          ["{{ser}}: what it's like","{{estar}}: how it is now"],
+          ["{{La sopa de aquí es muy buena.}} The soup here is very good.","{{La sopa está fría.}} The soup is cold."],
+          ["{{Juan es alto.}} Juan is tall.","{{Juan está cansado.}} Juan is tired."],
+          ["{{Mi hermana es muy seria.}} My sister is a serious person.","{{Mi hermana está muy seria hoy.}} My sister is very serious today."]
+        ] },
+        { "ex": [
+          {"t":"Es un hotel muy bonito.","tr":"It's a very nice hotel."},
+          {"t":"Las calles son muy tranquilas.","tr":"The streets are very quiet."},
+          {"t":"El café está muy caliente.","tr":"The coffee is very hot."},
+          {"t":"Mi abuela es muy simpática.","tr":"My grandmother is really nice.","note":"{{simpático}} means nice, friendly (not “sympathetic”)"},
+          {"t":"¡Los tacos están riquísimos!","tr":"The tacos are delicious!","note":"{{rico}} “tasty”; {{-ísimo}} adds “really”: {{riquísimo}}"},
+          {"t":"La pregunta es difícil.","tr":"The question is difficult."}
+        ] },
+        {"tip":"A few common adjectives can go before the noun, and then get shorter: {{bueno}} → {{un buen restaurante}} (a good restaurant), {{malo}} → {{un mal día}} (a bad day), {{grande}} → {{una gran ciudad}} (before the noun it means “great”, not “big”)."}
+      ],
+      "mistakes": [
+        {"wrong":"Es una roja casa.","right":"Es una casa roja.","tr":"It's a red house.","why":"The adjective goes after the noun."},
+        {"wrong":"Las casas son bonito.","right":"Las casas son bonitas.","tr":"The houses are pretty.","why":"The adjective agrees: {{casas}} is feminine and plural, so {{bonitas}}."},
+        {"wrong":"La sopa es fría.","right":"La sopa está fría.","tr":"The soup is cold.","why":"The soup is cold now, not cold by nature: {{está}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Es una ciudad muy ___.","tr":"It's a very pretty city.","options":["bonita","bonito","bonitas"],"answer":0,"why":"{{ciudad}} is feminine and singular: {{bonita}}."},
+        {"type":"order","q":"Put the words in order.","tr":"It's a red car.","words":["Es","un","carro","rojo."]},
+        {"type":"choice","q":"Ana has just run a marathon. “Ana is tired” is…","options":["{{Ana está cansada.}}","{{Ana es cansada.}}","{{Ana está cansado.}}"],"answer":0,"why":"How she is now: {{está}}; and Ana is a woman: {{cansada}}.","from":"say-how-and-where-you-are"},
+        {"type":"fill","q":"Choose the missing word.","t":"¡Mmm! Los tacos ___ muy ricos.","tr":"Mmm! The tacos are really good.","options":["están","son"],"answer":0,"why":"How the food tastes as you eat it: {{están}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"Mi hermana ___ muy alta.","tr":"My sister is very tall.","options":["es","está"],"answer":0,"why":"Being tall is what she's like: {{es}}.","from":"talk-about-people"},
+        {"type":"dialogue","q":"At a restaurant: choose your replies.","lines":[{"who":"Waiter","t":"¿Qué tal la comida?","tr":"How's the food?"},{"options":["¡Está muy rica, gracias!","¡Es muy rico, gracias!"],"answer":0,"why":"How the food is as you eat it: {{está}}; and {{rica}} for {{la comida}}."},{"who":"Waiter","t":"¿Y el café?","tr":"And the coffee?"},{"options":["Está un poco frío.","Está un poco fría."],"answer":0,"why":"{{el café}} is masculine: {{frío}}."},{"who":"Waiter","t":"¡Ay, perdón! Ahorita le traigo otro.","tr":"Oh, sorry! I'll bring you another one right away."}]},
+        {"type":"free","q":"Your turn: describe your city or town. What's it like? Use {{Mi ciudad es…}} and two adjectives.","answers":[{"t":"Mi ciudad es pequeña y muy tranquila.","tr":"My city is small and very quiet."},{"t":"Mi ciudad es grande y un poco fea, pero la comida es muy buena.","tr":"My city is big and a little ugly, but the food is very good."}]}
+      ]
+    },
+    {
+      "id": "order-food-and-drinks",
+      "unit": 1,
+      "level": "A1",
+      "title": "Order food and drinks",
+      "summary": "Order at a café or a taco stand, and say what you want to do: “I'd like two tacos and a coffee, please.”",
+      "topic": "{{quiero}} + a noun; {{quiero}} + an infinitive; {{¿Me da…?}} and {{¿Me trae…?}}",
+      "blocks": [
+        {"goal":{"t":"Quiero dos tacos y un café, por favor.","tr":"I'd like two tacos and a coffee, please."}},
+        {"dialog":[{"who":"Server","t":"Buenas tardes. ¿Qué les traigo?","tr":"Good afternoon. What can I get you?"},{"who":"You","t":"Para mí, un café con leche, por favor.","tr":"A coffee with milk for me, please."},{"who":"Your friend","t":"Yo quiero un jugo de naranja.","tr":"I'd like an orange juice."},{"who":"Server","t":"¿Algo de comer?","tr":"Anything to eat?"},{"who":"You","t":"Sí, queremos dos molletes.","tr":"Yes, we'd like two molletes (bean and cheese rolls)."},{"who":"Server","t":"Muy bien. Ahorita se los traigo.","tr":"Very good. I'll bring them right away."}]},
+        {"p":"**Wanting a thing.** {{Quiero}} “I want”, then the thing: {{Quiero un café.}} With {{por favor}} it isn't rude at all: it's the normal way to order. In shops and at stands, Mexicans very often ask {{¿Me da…?}} “Will you give me…?”: {{¿Me da un refresco, por favor?}} And {{Para mí, …}} is “For me, …”: {{Para mí, una limonada.}}"},
+        { "table": [
+          ["","{{querer}} “to want”"],
+          ["I want","{{quiero}}"],
+          ["you want (friendly)","{{quieres}}"],
+          ["he wants, she wants, you want (polite)","{{quiere}}"],
+          ["we want","{{queremos}}"],
+          ["you (all) want, they want","{{quieren}}"]
+        ] },
+        {"p":"Look at the forms: {{quiero}}, {{quieres}}, {{quiere}}, {{quieren}} have **ie**, but {{queremos}} keeps the **e** of {{querer}}. Lesson 19 shows that many verbs do this."},
+        {"term":"infinitive","means":"the basic form of a verb, the one in the dictionary: to eat, to go. Spanish infinitives end in -ar, -er or -ir: {{hablar}}, {{comer}}, {{vivir}}."},
+        {"p":"**Wanting to do something.** After {{quiero}}, the second verb is an infinitive, like English “to …”: {{Quiero comer.}} “I want to eat.” {{Quiero pagar.}} “I want to pay.” There's no word for “to”: the -ar, -er, -ir ending already says it."},
+        { "ex": [
+          {"t":"Quiero una mesa para dos, por favor.","tr":"I'd like a table for two, please."},
+          {"t":"¿Qué quieres tomar?","tr":"What do you want to drink?","note":"{{tomar}} “to take” is also the everyday word for “to drink”"},
+          {"t":"Queremos pedir, por favor.","tr":"We'd like to order, please."},
+          {"t":"¿Me da un kilo de tortillas?","tr":"Can I have a kilo of tortillas?","note":"word for word “Do you give me…?”: the usual way to ask in a shop"},
+          {"t":"¿Me trae la cuenta, por favor?","tr":"Can I have the check, please?","note":"{{¿Me trae…?}} “Will you bring me…?”, at a table"},
+          {"t":"No quiero café, gracias.","tr":"I don't want coffee, thanks.","note":"{{no}} before the verb: “not”"},
+          {"t":"Mi hijo quiere unas quesadillas.","tr":"My son wants some quesadillas."}
+        ] },
+        {"tip":"{{Con}} is “with” and {{sin}} “without”: {{un café sin azúcar}}, {{tacos sin cebolla}}, {{un té con limón}}."}
+      ],
+      "mistakes": [
+        {"wrong":"Quiero a comer.","right":"Quiero comer.","tr":"I want to eat.","why":"No word for “to”: the infinitive comes right after {{quiero}}."},
+        {"wrong":"Yo quiere un café.","right":"Yo quiero un café.","tr":"I'd like a coffee.","why":"“I want” is {{quiero}}, with -o. {{Quiere}} is “he wants”, “she wants”."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"Mi esposa ___ un té.","tr":"My wife wants a tea.","options":["quiere","quiero","queremos"],"answer":0,"why":"“She wants”: {{quiere}}."},
+        {"type":"choice","q":"How do you say “We want to pay”?","options":["{{Queremos pagar.}}","{{Queremos a pagar.}}","{{Quieremos pagar.}}"],"answer":0,"why":"The infinitive comes right after the verb, and {{queremos}} keeps the e."},
+        {"type":"dialogue","q":"At a taco stand: choose your replies.","lines":[{"who":"Taco vendor","t":"¿Qué le damos, joven?","tr":"What can I get you, young man?"},{"options":["Quiero tres tacos de pastor, por favor.","Quiero a tres tacos de pastor, por favor."],"answer":0,"why":"{{Quiero}}, then the thing, with nothing in between."},{"who":"Taco vendor","t":"¿Y de tomar?","tr":"And to drink?"},{"options":["Una limonada, por favor.","Un limonada, por favor."],"answer":0,"why":"{{limonada}} ends in -a and is feminine: {{una}}."},{"who":"Taco vendor","t":"Ahorita se la traigo.","tr":"I'll bring it right away."}],"from":"name-things"},
+        {"type":"order","q":"Put the words in order.","tr":"I'd like a table for two, please.","words":["Quiero","una mesa","para dos,","por favor."]},
+        {"type":"fill","q":"Choose the missing word.","t":"¿Me ___ un kilo de tortillas, por favor?","tr":"Can I have a kilo of tortillas, please?","options":["da","doy","quiero"],"answer":0,"why":"{{¿Me da…?}} “Do you give me…?”: the usual way to ask in a shop."},
+        {"type":"say","q":"Order a coffee without sugar for yourself: “For me, a coffee without sugar, please.”","answer":"Para mí, un café sin azúcar, por favor."},
+        {"type":"free","q":"Your turn: you're at a café in Mexico City. Order something to eat and something to drink.","answers":[{"t":"Quiero unos chilaquiles y un café, por favor.","tr":"I'd like some chilaquiles and a coffee, please."},{"t":"¿Me da un pan dulce y un chocolate caliente, por favor?","tr":"Can I have a sweet roll and a hot chocolate, please?"}]}
+      ]
+    }
+  ]
+}

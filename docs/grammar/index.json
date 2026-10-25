@@ -14,6 +14,20 @@
    ],
    "bytes": 12646,
    "sha256": "a334c3093ffa5c6158d731c01c789946c65b33f9636888eb598ace5d2377b8d4"
+  },
+  "en-es": {
+   "file": "en-es/course.json",
+   "from": "en",
+   "to": "es",
+   "title": "Spanish grammar",
+   "variety": "Mexican Spanish",
+   "units": 9,
+   "lessons": 6,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 33557,
+   "sha256": "cf748d11b0019af0a4bcff5f999394e4311908fb7a027807b0fde2780317fe35"
   }
  }
 }
