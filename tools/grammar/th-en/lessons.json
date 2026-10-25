@@ -337,6 +337,282 @@
         {"type":"say","q":"พูดว่า “ขอกาแฟสองแก้ว”","answer":"Two coffees, please."},
         {"type":"free","q":"ถึงตาคุณ: ชี้ของหลายชิ้นรอบตัวแล้วพูดถึงมัน ด้วย {{these}} หรือ {{those}}","answers":[{"t":"These are my books.","tr":"นี่คือหนังสือของฉัน"},{"t":"Those flowers are beautiful.","tr":"ดอกไม้พวกนั้นสวย"}]}
       ]
+    },
+    {
+      "id": "can-i-have",
+      "unit": 2,
+      "level": "A1",
+      "title": "ขอสิ่งที่ต้องการอย่างสุภาพ",
+      "summary": "สั่งกาแฟ ขอเมนู ขอเช็กบิล: ภาษาอังกฤษสุภาพด้วยคำอย่าง {{please}} และ {{Can I…?}} แทนครับ/ค่ะ",
+      "topic": "{{Can I have…, please?}}, {{I'd like…}}; {{a}} / {{some}}; {{please}}, {{thank you}}",
+      "blocks": [
+        {"goal":{"t":"Can I have an iced coffee, please?","tr":"ขอกาแฟเย็นแก้วหนึ่งค่ะ"}},
+        {"dialog":[{"who":"พนักงาน","t":"Hi! What can I get you?","tr":"สวัสดีค่ะ รับอะไรดีคะ"},{"who":"นก","t":"Can I have an iced coffee, please?","tr":"ขอกาแฟเย็นแก้วหนึ่งค่ะ"},{"who":"พนักงาน","t":"Sure. Anything else?","tr":"ได้ค่ะ รับอะไรเพิ่มไหมคะ"},{"who":"นก","t":"I'd like a croissant, too.","tr":"ขอครัวซองต์ด้วยค่ะ"},{"who":"พนักงาน","t":"For here or to go?","tr":"ทานที่นี่หรือกลับบ้านคะ"},{"who":"นก","t":"To go, please. Thank you!","tr":"กลับบ้านค่ะ ขอบคุณค่ะ"}]},
+        {"p":"**“ขอ…” = Can I have…?** คนไทยพูด “ขอ…” สั้นๆ ก็สุภาพแล้ว แต่ถ้าแปลตรงตัวเป็น {{Give me…}} จะฟังห้วนและไม่สุภาพในภาษาอังกฤษ ให้ใช้ {{Can I have…?}} หรือ {{Could I have…?}} (สุภาพกว่าอีกนิด) แล้วเติม {{please}} ท้ายประโยค"},
+        {"p":"**I'd like…** อีกแบบที่สุภาพคือ {{I'd like…}} “ขอ… / อยากได้…” ({{I'd}} ย่อมาจาก {{I would}}) เหมาะกับการสั่งอาหารในร้าน: {{I'd like the chicken, please.}}"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["ขอน้ำเปล่าหน่อย","{{Can I have some water, please?}}"],
+          ["ขอดูเมนูหน่อย","{{Can I see the menu, please?}}"],
+          ["เอาอันนี้","{{I'll have this one.}}"],
+          ["เก็บเงินด้วย","{{Can I get the check, please?}}"]
+        ] },
+        {"p":"**a หรือ some** ของที่นับเป็นชิ้นได้ ใช้ {{a}}: {{a coffee}} {{a sandwich}} ส่วนของที่ไม่ได้นับเป็นชิ้น เช่น น้ำ ข้าว น้ำตาล ใช้ {{some}} “บ้าง นิดหน่อย”: {{some water}} {{some rice}} (เรื่องนับได้และนับไม่ได้จะกลับมาอีกในบทหลัง)"},
+        {"p":"**please และ thank you** สองคำนี้ทำหน้าที่แทนครับ/ค่ะ: ขออะไรให้มี {{please}} ได้รับอะไรให้พูด {{Thank you.}} หรือ {{Thanks.}} คนอเมริกันพูดคำเหล่านี้บ่อยมาก แม้กับพนักงานร้าน"},
+        { "ex": [
+          {"t":"Can I see the menu, please?","tr":"ขอดูเมนูหน่อยได้ไหม"},
+          {"t":"I'd like a hot tea, please.","tr":"ขอชาร้อนหนึ่งแก้ว"},
+          {"t":"Could I have some water?","tr":"ขอน้ำหน่อยได้ไหม"},
+          {"t":"No ice, please.","tr":"ไม่ใส่น้ำแข็งนะ"},
+          {"t":"Can I get the check, please?","tr":"เก็บเงินด้วย","note":"{{check}} คือบิลค่าอาหาร (แบบอเมริกัน)"},
+          {"t":"Can I pay by card?","tr":"จ่ายด้วยบัตรได้ไหม"}
+        ] },
+        {"tip":"เวลาสั่งเครื่องดื่ม พนักงานมักถาม {{For here or to go?}} “ทานที่นี่หรือกลับบ้าน” และ {{What size?}} “ขนาดไหน”: ตอบว่า {{Small, please.}} {{Medium, please.}} หรือ {{Large, please.}}"}
+      ],
+      "mistakes": [
+        {"wrong":"Give me a coffee.","right":"Can I have a coffee, please?","tr":"ขอกาแฟแก้วหนึ่ง","why":"{{Give me…}} ฟังเหมือนออกคำสั่ง ไม่สุภาพ: ใช้ {{Can I have…, please?}}"},
+        {"wrong":"I want a coffee.","right":"I'd like a coffee, please.","tr":"ขอกาแฟแก้วหนึ่ง","why":"เวลาสั่งในร้าน {{I want…}} ฟังตรงเกินไป: {{I'd like…, please.}} สุภาพกว่า"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"Can I ___ a coffee, please?","tr":"ขอกาแฟแก้วหนึ่งได้ไหม","options":["have","give"],"answer":0,"why":"ขอของให้ตัวเอง: {{Can I have…?}}"},
+        {"type":"choice","q":"พนักงานยื่นกาแฟให้ คุณพูดว่า","options":["{{Thank you!}}","{{Please!}}","{{Sorry!}}"],"answer":0,"why":"ได้รับของ: {{Thank you!}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ขอชาร้อนหนึ่งแก้ว","words":["I'd","like","a","hot","tea,","please."]},
+        {"type":"dialogue","q":"สั่งกาแฟให้ตัวเองกับเพื่อน เลือกคำพูด","from":"more-than-one","lines":[{"who":"พนักงาน","t":"What can I get you?","tr":"รับอะไรดีคะ"},{"options":["Two iced coffees, please.","Two iced coffee, please."],"answer":0,"why":"สองแก้วต้องเติม s: {{coffees}}"},{"who":"พนักงาน","t":"For here or to go?","tr":"ทานที่นี่หรือกลับบ้านคะ"},{"options":["For here, please.","For here, ka."],"answer":0,"why":"ภาษาอังกฤษใช้ {{please}} แทนคำลงท้ายแบบ “ค่ะ”"}]},
+        {"type":"say","q":"ขอเช็กบิลในร้านอาหาร","answer":"Can I get the check, please?"},
+        {"type":"free","q":"ถึงตาคุณ: คุณอยู่ที่ร้านกาแฟ สั่งเครื่องดื่มหนึ่งอย่าง และขออีกหนึ่งอย่าง","answers":[{"t":"Can I have an iced latte, please? No sugar, please.","tr":"ขอลาเต้เย็นแก้วหนึ่งค่ะ ไม่ใส่น้ำตาลนะคะ"},{"t":"I'd like a hot chocolate and some water, please.","tr":"ขอโกโก้ร้อนแก้วหนึ่ง แล้วก็น้ำเปล่าหน่อยครับ"}]}
+      ]
+    },
+    {
+      "id": "want-to",
+      "unit": 2,
+      "level": "A1",
+      "title": "บอกว่าอยากได้อะไรและอยากทำอะไร",
+      "summary": "บอกว่าอยากไปไหน อยากทำอะไร: ภาษาอังกฤษต้องมี {{to}} ระหว่าง {{want}} กับคำกริยาตัวที่สอง",
+      "topic": "{{want}} + สิ่งของ; {{want to}} + คำกริยา; {{would like to}}; {{don't want to}}",
+      "blocks": [
+        {"goal":{"t":"I want to go to the beach.","tr":"ฉันอยากไปทะเล"}},
+        {"dialog":[{"who":"เจค","t":"What do you want to do this weekend?","tr":"สุดสัปดาห์นี้อยากทำอะไร"},{"who":"นก","t":"I want to go to the beach.","tr":"ฉันอยากไปทะเล"},{"who":"เจค","t":"Me too! I want to try the seafood.","tr":"ผมด้วย ผมอยากลองอาหารทะเล"},{"who":"นก","t":"Do you want to come with us?","tr":"ไปกับพวกเราไหม"},{"who":"เจค","t":"Yes, I'd love to!","tr":"ไปสิ อยากไปมากเลย"}]},
+        {"p":"**want + สิ่งของ** “อยากได้” ของ ใช้ {{want}} แล้วตามด้วยสิ่งนั้นเลย: {{I want a new phone.}} “ฉันอยากได้โทรศัพท์ใหม่”"},
+        {"p":"**want to + คำกริยา** “อยากทำ” ต้องมี {{to}} คั่นระหว่าง {{want}} กับคำกริยา: {{I want to go.}} {{I want to eat.}} ภาษาไทยพูด “อยากไป” ติดกันได้เลย คนไทยจึงมักลืม {{to}}"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["อยากได้กาแฟ","{{I want a coffee.}}"],
+          ["อยากกินข้าว","{{I want to eat.}}"],
+          ["อยากเรียนภาษาอังกฤษ","{{I want to learn English.}}"],
+          ["ไม่อยากไป","{{I don't want to go.}}"]
+        ] },
+        {"p":"**would like to: สุภาพกว่า** {{I'd like to…}} ความหมายเดียวกับ {{I want to…}} แต่สุภาพกว่า ใช้ในร้าน ในที่ทำงาน หรือกับคนที่ไม่สนิท: {{I'd like to book a table.}} “อยากจองโต๊ะ”"},
+        {"p":"**ไม่อยาก** “ไม่อยาก” คือ {{don't want to}}: {{I don't want to go.}} (เรื่อง {{don't}} อธิบายละเอียดในบทที่ 16 ตอนนี้จำเป็นวลีไปก่อน)"},
+        { "ex": [
+          {"t":"I want to learn English.","tr":"ฉันอยากเรียนภาษาอังกฤษ"},
+          {"t":"She wants to be a doctor.","tr":"เขาอยากเป็นหมอ","note":"{{she wants}} มี s ด้วย: บทที่ 15"},
+          {"t":"I'd like to book a room.","tr":"อยากจองห้องพัก"},
+          {"t":"We want to see the temple.","tr":"เราอยากไปดูวัด"},
+          {"t":"I don't want to go home.","tr":"ฉันไม่อยากกลับบ้าน"},
+          {"t":"I want a big house.","tr":"ฉันอยากได้บ้านหลังใหญ่"}
+        ] },
+        {"tip":"ตอบรับคำชวนแบบดีใจสุดๆ ใช้ {{I'd love to!}} “อยากไปมาก ยินดีเลย”"}
+      ],
+      "mistakes": [
+        {"wrong":"I want go to the beach.","right":"I want to go to the beach.","tr":"ฉันอยากไปทะเล","why":"ระหว่าง {{want}} กับคำกริยาตัวที่สองต้องมี {{to}}"},
+        {"wrong":"I want to a new phone.","right":"I want a new phone.","tr":"ฉันอยากได้โทรศัพท์ใหม่","why":"ถ้าตามด้วยสิ่งของ ไม่ต้องมี {{to}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"I want ___ eat now.","tr":"ฉันอยากกินตอนนี้เลย","options":["to","a"],"answer":0,"why":"ตามด้วยคำกริยา {{eat}}: ต้องมี {{to}}"},
+        {"type":"choice","q":"โทรไปจองร้านอาหาร ประโยคไหนสุภาพที่สุด","options":["{{I'd like to book a table.}}","{{I want book a table.}}","{{Book a table.}}"],"answer":0,"why":"{{I'd like to…}} สุภาพ และมี {{to}} ครบ"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"เราอยากไปดูวัด","words":["We","want","to","see","the","temple."]},
+        {"type":"dialogue","q":"คุณเดินเข้าโรงแรม เลือกคำพูด","from":"can-i-have","lines":[{"who":"พนักงานโรงแรม","t":"Good evening. How can I help you?","tr":"สวัสดีครับ มีอะไรให้ช่วยครับ"},{"options":["I'd like to book a room, please.","I'd like book a room, please."],"answer":0,"why":"{{I'd like to}} + คำกริยา"},{"who":"พนักงานโรงแรม","t":"For how many nights?","tr":"กี่คืนครับ"},{"options":["Two nights, please.","Two night, please."],"answer":0,"why":"สองคืนต้องเติม s: {{nights}}"}]},
+        {"type":"say","q":"พูดว่า “ฉันอยากเรียนภาษาอังกฤษ”","answer":"I want to learn English."},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าปีนี้คุณอยากไปที่ไหน และอยากทำอะไร","answers":[{"t":"I want to go to Japan. I want to see Mount Fuji.","tr":"ฉันอยากไปญี่ปุ่น อยากไปดูภูเขาไฟฟูจิ"},{"t":"I want to learn to cook. I'd like to visit my aunt in Canada.","tr":"ผมอยากเรียนทำอาหาร และอยากไปเยี่ยมป้าที่แคนาดา"}]}
+      ]
+    },
+    {
+      "id": "there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "บอกว่าที่ไหนมีอะไร: there is / there are",
+      "summary": "ถามว่าแถวนี้มีร้านขายยาไหม บอกว่าในห้องมีอะไร: “มี” แบบนี้ภาษาอังกฤษใช้ {{there is}} ไม่ใช่ {{have}}",
+      "topic": "{{there is}} / {{there are}}; {{Is there…?}} / {{Are there any…?}}; {{There isn't…}} / {{There aren't any…}}",
+      "blocks": [
+        {"goal":{"t":"Is there a pharmacy near here?","tr":"แถวนี้มีร้านขายยาไหม"}},
+        {"dialog":[{"who":"นก","t":"Excuse me. Is there a pharmacy near here?","tr":"ขอโทษค่ะ แถวนี้มีร้านขายยาไหมคะ"},{"who":"ผู้ชาย","t":"Yes, there is. There's one on Main Street.","tr":"มีครับ มีร้านหนึ่งอยู่ถนนเมน"},{"who":"นก","t":"Is there an ATM, too?","tr":"มีตู้เอทีเอ็มด้วยไหมคะ"},{"who":"ผู้ชาย","t":"Yes, there are two ATMs in the mall.","tr":"มีครับ ในห้างมีสองตู้"},{"who":"นก","t":"Great, thank you!","tr":"ดีเลยค่ะ ขอบคุณค่ะ"}]},
+        {"p":"**“มี” สองความหมาย** ภาษาไทยใช้ “มี” ทั้งแบบ “ฉันมีรถ” (เป็นเจ้าของ) และแบบ “ในห้องมีแอร์” (มีอยู่ตรงนั้น) แต่ภาษาอังกฤษแยกกัน: เป็นเจ้าของใช้ {{have}} (บทที่ 18) ส่วนบอกว่ามีอะไรอยู่ที่ไหน ใช้ {{there is}} / {{there are}}: {{There's a bank near here.}} “แถวนี้มีธนาคาร”"},
+        {"p":"**is หรือ are** ของหนึ่งชิ้นใช้ {{there is}} (ย่อ {{there's}}) หลายชิ้นใช้ {{there are}}: {{There's a TV in the room.}} “ในห้องมีทีวี” {{There are two beds.}} “มีเตียงสองเตียง” ส่วนสถานที่วางไว้ท้ายประโยค ไม่ใช่ต้นประโยคแบบภาษาไทย"},
+        { "table": [
+          ["","หนึ่งชิ้น","หลายชิ้น"],
+          ["มี","{{There's a bank.}}","{{There are two banks.}}"],
+          ["ไม่มี","{{There isn't a bank.}}","{{There aren't any banks.}}"],
+          ["มีไหม","{{Is there a bank?}}","{{Are there any banks?}}"]
+        ] },
+        {"p":"**ถามและปฏิเสธ** คำถามสลับที่เหมือนบทที่ 5: {{Is there…?}} {{Are there…?}} ตอบว่า {{Yes, there is.}} หรือ {{No, there isn't.}} กับพหูพจน์ ในคำถามและประโยคปฏิเสธมักมี {{any}}: {{Are there any restaurants?}} {{There aren't any taxis.}}"},
+        { "ex": [
+          {"t":"There's a 7-Eleven on the corner.","tr":"ตรงหัวมุมมีเซเว่น"},
+          {"t":"There are three bedrooms in my house.","tr":"บ้านฉันมีห้องนอนสามห้อง"},
+          {"t":"Is there Wi-Fi here?","tr":"ที่นี่มีไวไฟไหม"},
+          {"t":"There isn't any hot water.","tr":"ไม่มีน้ำร้อน"},
+          {"t":"Are there any vegetarian dishes?","tr":"มีอาหารมังสวิรัติไหม"},
+          {"t":"There are a lot of people today.","tr":"วันนี้คนเยอะ"}
+        ] },
+        {"tip":"ใน {{There is…}} คำว่า {{there}} ไม่ได้แปลว่า “ที่นั่น” เป็นแค่ประธานตัวแทน ถ้าจะบอกว่า “ที่นั่น” จริงๆ ให้ใส่ท้ายประโยค: {{There's a coffee shop there.}} “ที่นั่นมีร้านกาแฟ”"}
+      ],
+      "mistakes": [
+        {"wrong":"In my room have a TV.","right":"There's a TV in my room.","tr":"ในห้องฉันมีทีวี","why":"แปลตรงตัวจากภาษาไทยไม่ได้: ขึ้นต้นด้วย {{There's…}} แล้วบอกสถานที่ไว้ท้ายประโยค"},
+        {"wrong":"Have a pharmacy near here?","right":"Is there a pharmacy near here?","tr":"แถวนี้มีร้านขายยาไหม","why":"“มี” ที่แปลว่ามีอยู่ตรงนั้น ใช้ {{there is}} ไม่ใช่ {{have}}"},
+        {"wrong":"There is two beds.","right":"There are two beds.","tr":"มีเตียงสองเตียง","why":"หลายชิ้นใช้ {{there are}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"There ___ two hotels near the beach.","tr":"ใกล้ชายหาดมีโรงแรมสองแห่ง","options":["are","is","have"],"answer":0,"why":"สองแห่ง (พหูพจน์): {{there are}}"},
+        {"type":"choice","q":"“ที่นี่มีไวไฟไหม”","options":["{{Is there Wi-Fi here?}}","{{Have Wi-Fi here?}}","{{Here has Wi-Fi?}}"],"answer":0,"why":"“มี…ไหม” แบบนี้ใช้ {{Is there…?}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ในห้องฉันมีทีวี","words":["There's","a","TV","in","my","room."]},
+        {"type":"dialogue","q":"คุณเช็กอินที่โรงแรม เลือกคำพูด","from":"are-you","lines":[{"who":"พนักงานโรงแรม","t":"Your room is on the fifth floor.","tr":"ห้องของคุณอยู่ชั้นห้าครับ"},{"options":["Is there an elevator?","Have an elevator?"],"answer":0,"why":"“มี…ไหม” ใช้ {{Is there…?}} ({{elevator}} คือลิฟต์แบบอเมริกัน)"},{"who":"พนักงานโรงแรม","t":"Yes, there is. It's over there.","tr":"มีครับ อยู่ตรงนั้น"},{"options":["Are there any restaurants near here?","Is there any restaurants near here?"],"answer":0,"why":"หลายร้านใช้ {{are}}"}]},
+        {"type":"say","q":"ถามว่า “แถวนี้มีร้านขายยาไหม”","answer":"Is there a pharmacy near here?"},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าบ้านหรือห้องของคุณมีอะไรบ้าง และแถวบ้านมีอะไร","answers":[{"t":"There are two bedrooms in my apartment. There's a market near my house.","tr":"อพาร์ตเมนต์ของฉันมีห้องนอนสองห้อง แถวบ้านมีตลาด"},{"t":"There's a big window in my room. There aren't any coffee shops near my house.","tr":"ห้องของผมมีหน้าต่างบานใหญ่ แถวบ้านไม่มีร้านกาแฟเลย"}]}
+      ]
+    },
+    {
+      "id": "where-is-it",
+      "unit": 2,
+      "level": "A1",
+      "title": "บอกว่าของอยู่ที่ไหน: in, on, under, next to",
+      "summary": "ถามว่าห้องน้ำอยู่ที่ไหน บอกว่ากุญแจอยู่บนโต๊ะ: คำว่า “อยู่” ในภาษาอังกฤษก็คือ {{is}} / {{are}}",
+      "topic": "{{be}} + คำบุพบท: {{in}}, {{on}}, {{under}}, {{next to}}, {{between}}, {{across from}}, {{in front of}}, {{behind}}, {{near}}; {{Where's…?}}",
+      "blocks": [
+        {"goal":{"t":"Excuse me, where's the restroom?","tr":"ขอโทษนะคะ ห้องน้ำอยู่ที่ไหนคะ"}},
+        {"dialog":[{"who":"นก","t":"Excuse me, where's the restroom?","tr":"ขอโทษค่ะ ห้องน้ำอยู่ที่ไหนคะ"},{"who":"พนักงาน","t":"It's on the second floor, next to the elevator.","tr":"อยู่ชั้นสองครับ ข้างลิฟต์"},{"who":"นก","t":"And where's the bank?","tr":"แล้วธนาคารอยู่ที่ไหนคะ"},{"who":"พนักงาน","t":"It's across from the pharmacy, on this floor.","tr":"อยู่ตรงข้ามร้านขายยาครับ ชั้นนี้เลย"},{"who":"นก","t":"Thanks a lot!","tr":"ขอบคุณมากค่ะ"}]},
+        {"p":"**“อยู่” = is / are** ภาษาไทยใช้ “อยู่” บอกตำแหน่ง ภาษาอังกฤษใช้ {{be}} คำเดิม: {{The bank is next to the hotel.}} “ธนาคารอยู่ข้างโรงแรม” ถามว่าอยู่ที่ไหน ใช้ {{Where is…?}} (ย่อ {{Where's…?}}) หลายชิ้นใช้ {{Where are…?}}"},
+        {"term":"คำบุพบท (preposition)","means":"คำเล็กๆ ที่บอกตำแหน่งหรือความสัมพันธ์ วางหน้าคำนาม เช่น {{in}} ใน, {{on}} บน, {{under}} ใต้"},
+        { "table": [
+          ["ภาษาอังกฤษ","ความหมาย","ตัวอย่าง"],
+          ["{{in}}","ใน","{{in the bag}} ในกระเป๋า"],
+          ["{{on}}","บน","{{on the table}} บนโต๊ะ"],
+          ["{{under}}","ใต้","{{under the bed}} ใต้เตียง"],
+          ["{{next to}}","ข้าง ติดกับ","{{next to the bank}} ข้างธนาคาร"],
+          ["{{between}}","ระหว่าง","{{between the bank and the hotel}} ระหว่างธนาคารกับโรงแรม"],
+          ["{{across from}}","ตรงข้าม","{{across from the park}} ตรงข้ามสวน"],
+          ["{{in front of}}","ข้างหน้า","{{in front of the school}} หน้าโรงเรียน"],
+          ["{{behind}}","ข้างหลัง","{{behind the door}} หลังประตู"],
+          ["{{near}}","ใกล้","{{near here}} แถวนี้"]
+        ] },
+        {"p":"**อย่าลืม the** สถานที่หรือของที่ทั้งเราและคนฟังรู้ว่าหมายถึงอันไหน ใช้ {{the}} (“อันนั้น ที่รู้ๆ กันอยู่”): {{the restroom}} {{the bank}} {{the table}} เรื่อง {{a}} กับ {{the}} จะกลับมาอีกในบทที่ 35"},
+        {"p":"**ชั้นของตึก** แบบอเมริกัน ชั้นล่างสุดคือ {{the first floor}} ชั้นถัดขึ้นไปคือ {{the second floor}} และใช้ {{on}}: {{on the second floor}} “อยู่ชั้นสอง”"},
+        { "ex": [
+          {"t":"Where's my phone?","tr":"โทรศัพท์ฉันอยู่ไหน"},
+          {"t":"It's on the table.","tr":"อยู่บนโต๊ะ"},
+          {"t":"The keys are in my bag.","tr":"กุญแจอยู่ในกระเป๋าฉัน"},
+          {"t":"The cat is under the bed.","tr":"แมวอยู่ใต้เตียง"},
+          {"t":"The hotel is across from the station.","tr":"โรงแรมอยู่ตรงข้ามสถานี"},
+          {"t":"My office is on the tenth floor.","tr":"ออฟฟิศฉันอยู่ชั้นสิบ"},
+          {"t":"Where are you?","tr":"คุณอยู่ไหน"}
+        ] },
+        {"tip":"ในห้างหรือร้านอาหาร คนอเมริกันเรียกห้องน้ำว่า {{restroom}} หรือ {{bathroom}} ส่วนคำว่า {{toilet}} หมายถึงตัวโถส้วม ฟังตรงเกินไป"}
+      ],
+      "mistakes": [
+        {"wrong":"Where the restroom?","right":"Where's the restroom?","tr":"ห้องน้ำอยู่ที่ไหน","why":"ต้องมี {{is}} ({{where's}}): คำว่า “อยู่” ในภาษาอังกฤษคือ {{is}}"},
+        {"wrong":"The keys are on my bag.","right":"The keys are in my bag.","tr":"กุญแจอยู่ในกระเป๋าฉัน","why":"ข้างในใช้ {{in}}; {{on}} คือวางอยู่ข้างบน"},
+        {"wrong":"It's next the bank.","right":"It's next to the bank.","tr":"อยู่ข้างธนาคาร","why":"“ข้าง” คือ {{next to}}: ต้องมี {{to}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"The cat is ___ the bed.","tr":"แมวอยู่ใต้เตียง","options":["under","on","in"],"answer":0,"why":"ใต้: {{under}}"},
+        {"type":"choice","q":"“โรงแรมอยู่ตรงข้ามสถานี”","options":["{{The hotel is across from the station.}}","{{The hotel across the station.}}","{{The hotel is front the station.}}"],"answer":0,"why":"ต้องมี {{is}} และ “ตรงข้าม” คือ {{across from}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ร้านขายยาอยู่ข้างธนาคาร","words":["The","pharmacy","is","next to","the bank."]},
+        {"type":"dialogue","q":"นักท่องเที่ยวถามทางคุณแถวบ้าน เลือกคำตอบ","from":"there-is","lines":[{"who":"นักท่องเที่ยว","t":"Excuse me, is there an ATM near here?","tr":"ขอโทษครับ แถวนี้มีตู้เอทีเอ็มไหม"},{"options":["Yes, there is. It's next to the 7-Eleven.","Yes, it has. It's next the 7-Eleven."],"answer":0,"why":"ตอบ {{Yes, there is.}} และ “ข้าง” คือ {{next to}}"},{"who":"นักท่องเที่ยว","t":"And where's the bus stop?","tr":"แล้วป้ายรถเมล์อยู่ไหน"},{"options":["It's across from the school.","It across from the school."],"answer":0,"why":"ต้องมี {{is}}: {{It's…}}"}]},
+        {"type":"say","q":"ถามว่า “ขอโทษนะ ห้องน้ำอยู่ที่ไหน”","answer":"Excuse me, where's the restroom?"},
+        {"type":"free","q":"ถึงตาคุณ: บอกว่าตอนนี้คุณอยู่ที่ไหน และของสองอย่างรอบตัวอยู่ตรงไหน","answers":[{"t":"I'm at home. My phone is on the table, and my bag is under the chair.","tr":"ฉันอยู่บ้าน โทรศัพท์อยู่บนโต๊ะ กระเป๋าอยู่ใต้เก้าอี้"},{"t":"I'm in a coffee shop. It's next to my office.","tr":"ผมอยู่ที่ร้านกาแฟ อยู่ข้างออฟฟิศผม"}]}
+      ]
+    },
+    {
+      "id": "how-much-many",
+      "unit": 2,
+      "level": "A1",
+      "title": "ซื้อของ: ราคาเท่าไหร่ กี่ชิ้น",
+      "summary": "ถามราคา บอกจำนวน และนับของแบบที่ภาษาอังกฤษไม่มีลักษณนาม",
+      "topic": "{{How much is…?}} / {{How much are…?}}; {{How many}} + พหูพจน์; {{a cup of}}, {{a bottle of}}, {{a piece of}}; ราคา",
+      "blocks": [
+        {"goal":{"t":"How much are these mangoes?","tr":"มะม่วงพวกนี้ราคาเท่าไหร่"}},
+        {"dialog":[{"who":"นก","t":"Excuse me, how much are these apples?","tr":"ขอโทษค่ะ แอปเปิลพวกนี้ราคาเท่าไหร่คะ"},{"who":"คนขาย","t":"They're fifty cents each.","tr":"ลูกละห้าสิบเซนต์ครับ"},{"who":"นก","t":"OK, I'd like six, please. And how much is this bread?","tr":"ขอหกลูกค่ะ แล้วขนมปังนี่ราคาเท่าไหร่คะ"},{"who":"คนขาย","t":"It's four dollars.","tr":"สี่ดอลลาร์ครับ"},{"who":"คนขาย","t":"That's seven dollars, please.","tr":"ทั้งหมดเจ็ดดอลลาร์ครับ"}]},
+        {"p":"**ถามราคา** ภาษาไทยพูด “…เท่าไหร่” ไว้ท้าย แต่ภาษาอังกฤษขึ้นต้นด้วย {{How much…}} เสมอ: ของชิ้นเดียว {{How much is this?}} หลายชิ้น {{How much are these?}} ตอบด้วย {{It's…}} หรือ {{They're…}} แล้วตามด้วยราคา"},
+        {"p":"**ถามจำนวน: How many** “กี่…” คือ {{How many}} + คำนามพหูพจน์: {{How many people?}} “กี่คน” {{How many bags?}} “กี่ใบ” ไม่มีลักษณนาม มีแค่คำนามที่เติม s"},
+        { "table": [
+          ["ภาษาไทย","ภาษาอังกฤษ"],
+          ["อันนี้เท่าไหร่","{{How much is this?}}"],
+          ["พวกนี้เท่าไหร่","{{How much are these?}}"],
+          ["กี่คน","{{How many people?}}"],
+          ["กี่ขวด","{{How many bottles?}}"],
+          ["ทั้งหมดเท่าไหร่","{{How much is it altogether?}}"]
+        ] },
+        {"p":"**แทนลักษณนาม** ของบางอย่างนับตรงๆ ไม่ได้ (น้ำ กาแฟ ข้าว ขนมปัง) ภาษาอังกฤษจึงใช้ภาชนะหรือหน่วยมาช่วย คล้ายลักษณนามของไทย: {{a cup of coffee}} “กาแฟหนึ่งถ้วย” {{two bottles of water}} “น้ำสองขวด” {{a piece of cake}} “เค้กหนึ่งชิ้น” (แต่ในร้านกาแฟ พูดสั้นๆ ว่า {{two coffees}} ก็ได้)"},
+        {"p":"**เงิน** ดอลลาร์คือ {{dollars}} (มี s เมื่อมากกว่าหนึ่ง) เซนต์คือ {{cents}} ราคา $4.50 พูดว่า {{four fifty}} หรือ {{four dollars and fifty cents}}"},
+        { "ex": [
+          {"t":"How much is this shirt?","tr":"เสื้อตัวนี้เท่าไหร่"},
+          {"t":"It's twenty dollars.","tr":"ยี่สิบดอลลาร์"},
+          {"t":"How much are the tickets?","tr":"ตั๋วราคาเท่าไหร่"},
+          {"t":"How many people are in your family?","tr":"ครอบครัวคุณมีกี่คน"},
+          {"t":"Can I have a bottle of water, please?","tr":"ขอน้ำหนึ่งขวด"},
+          {"t":"I'd like two pieces of cake.","tr":"ขอเค้กสองชิ้น"},
+          {"t":"That's too expensive.","tr":"แพงไป"}
+        ] },
+        {"tip":"ในร้านค้าอเมริกาไม่ค่อยต่อราคากัน แต่ที่ตลาดนัดลองถามได้ว่า {{Can you give me a discount?}} “ลดให้ได้ไหม”"}
+      ],
+      "mistakes": [
+        {"wrong":"This shirt how much?","right":"How much is this shirt?","tr":"เสื้อตัวนี้เท่าไหร่","why":"คำถามภาษาอังกฤษขึ้นต้นด้วย {{How much}} และต้องมี {{is}}"},
+        {"wrong":"two bottle of water","right":"two bottles of water","tr":"น้ำสองขวด","why":"ภาชนะก็นับได้ ต้องเติม s: {{bottles}}"},
+        {"wrong":"How many water?","right":"How much water?","tr":"น้ำเท่าไหร่ (ปริมาณ)","why":"ของที่นับเป็นชิ้นไม่ได้ เช่น น้ำ ใช้ {{How much}}; {{How many}} ใช้กับของที่นับได้: {{How many bottles?}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"How much ___ these shoes?","tr":"รองเท้าคู่นี้ราคาเท่าไหร่","options":["are","is"],"answer":0,"why":"{{shoes}} เป็นพหูพจน์ ใช้ {{are}}"},
+        {"type":"choice","q":"“กี่คน”","options":["{{How many people?}}","{{How much people?}}","{{How many person?}}"],"answer":0,"why":"นับได้: {{How many}} + พหูพจน์ ({{people}})"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ขอน้ำหนึ่งขวดได้ไหม","words":["Can","I","have","a bottle","of water,","please?"]},
+        {"type":"dialogue","q":"สั่งของที่ร้านกาแฟ เลือกคำพูด","from":"can-i-have","lines":[{"who":"พนักงาน","t":"What would you like?","tr":"รับอะไรดีครับ"},{"options":["A cup of tea and two pieces of cake, please.","A cup of tea and two piece of cake, please."],"answer":0,"why":"สองชิ้นต้องเติม s: {{pieces}}"},{"who":"พนักงาน","t":"Here you go.","tr":"นี่ครับ"},{"options":["Thanks. How much is it?","Thanks. It is how much?"],"answer":0,"why":"คำถามขึ้นต้นด้วย {{How much}}"}]},
+        {"type":"say","q":"ถามว่า “เสื้อตัวนี้ราคาเท่าไหร่”","answer":"How much is this shirt?"},
+        {"type":"free","q":"ถึงตาคุณ: คุณอยู่ที่ตลาด ถามราคาของสองอย่าง และบอกว่าจะเอากี่ชิ้น","answers":[{"t":"How much are these oranges? I'd like five, please.","tr":"ส้มพวกนี้ราคาเท่าไหร่ ขอห้าลูก"},{"t":"How much is this bag? And how much are those sunglasses?","tr":"กระเป๋าใบนี้ราคาเท่าไหร่ แล้วแว่นกันแดดพวกนั้นล่ะ"}]}
+      ]
+    },
+    {
+      "id": "give-directions",
+      "unit": 2,
+      "level": "A1",
+      "title": "บอกทางและทำตามคำบอกทาง",
+      "summary": "บอกทางคนที่หลง และเข้าใจเวลามีคนบอกทางคุณ: ภาษาอังกฤษขึ้นต้นประโยคคำสั่งด้วยคำกริยาเลย",
+      "topic": "ประโยคคำสั่ง: {{Go straight.}}, {{Turn left.}}, {{Take…}}; {{Don't…}}; {{How do I get to…?}}",
+      "blocks": [
+        {"goal":{"t":"Go straight and turn left at the light.","tr":"ตรงไปแล้วเลี้ยวซ้ายที่ไฟแดง"}},
+        {"dialog":[{"who":"นักท่องเที่ยว","t":"Excuse me. How do I get to the train station?","tr":"ขอโทษค่ะ ไปสถานีรถไฟยังไงคะ"},{"who":"ต้น","t":"Go straight for two blocks. Then turn right.","tr":"ตรงไปสองช่วงตึก แล้วเลี้ยวขวาครับ"},{"who":"นักท่องเที่ยว","t":"Turn right at the bank?","tr":"เลี้ยวขวาตรงธนาคารเหรอคะ"},{"who":"ต้น","t":"Yes. The station is on your left. You can't miss it.","tr":"ใช่ครับ สถานีอยู่ทางซ้ายมือ หาไม่ยากเลย"},{"who":"นักท่องเที่ยว","t":"Is it far?","tr":"ไกลไหมคะ"},{"who":"ต้น","t":"No, it's about five minutes on foot.","tr":"ไม่ไกลครับ เดินประมาณห้านาที"}]},
+        {"p":"**ประโยคคำสั่ง: ขึ้นต้นด้วยคำกริยา** เวลาบอกให้ใครทำอะไร ภาษาอังกฤษไม่ต้องมีประธาน ขึ้นต้นด้วยคำกริยาเลย: {{Go straight.}} “ตรงไป” {{Turn left.}} “เลี้ยวซ้าย” {{Take the bus.}} “นั่งรถเมล์” เหมือนภาษาไทยที่พูด “ตรงไป” ได้เลย"},
+        {"p":"**อย่า: Don't** “อย่า…” ใช้ {{Don't}} + คำกริยา: {{Don't turn here.}} “อย่าเลี้ยวตรงนี้” และเติม {{please}} ให้สุภาพ: {{Please wait here.}} “กรุณารอตรงนี้”"},
+        { "table": [
+          ["ภาษาอังกฤษ","ความหมาย"],
+          ["{{Go straight.}}","ตรงไป"],
+          ["{{Turn left.}} / {{Turn right.}}","เลี้ยวซ้าย / เลี้ยวขวา"],
+          ["{{at the light}}","ที่ไฟแดง"],
+          ["{{at the corner}}","ที่หัวมุม"],
+          ["{{Go past the bank.}}","ผ่านธนาคารไป"],
+          ["{{It's on your left.}}","อยู่ทางซ้ายมือ"],
+          ["{{for two blocks}}","สองช่วงตึก"]
+        ] },
+        {"p":"**ถามทาง** ใช้ {{How do I get to…?}} “ไป…ยังไง” หรือ {{Where's…?}} “…อยู่ที่ไหน” และเริ่มด้วย {{Excuse me}} เสมอ เป็นการเรียกความสนใจอย่างสุภาพ"},
+        { "ex": [
+          {"t":"Go straight.","tr":"ตรงไป"},
+          {"t":"Turn left at the corner.","tr":"เลี้ยวซ้ายที่หัวมุม"},
+          {"t":"Take the second right.","tr":"เลี้ยวขวาที่แยกที่สอง"},
+          {"t":"Go past the hospital.","tr":"ผ่านโรงพยาบาลไป"},
+          {"t":"It's on your right.","tr":"อยู่ทางขวามือ"},
+          {"t":"Don't take a taxi. It's very close.","tr":"ไม่ต้องนั่งแท็กซี่ ใกล้มาก"},
+          {"t":"How do I get to the airport?","tr":"ไปสนามบินยังไง"}
+        ] },
+        {"tip":"ในเมืองอเมริกัน คนบอกระยะเป็น {{blocks}} “ช่วงตึก” คือระยะจากสี่แยกหนึ่งถึงสี่แยกถัดไป: {{Walk three blocks.}} “เดินไปสามช่วงตึก”"}
+      ],
+      "mistakes": [
+        {"wrong":"Not turn here.","right":"Don't turn here.","tr":"อย่าเลี้ยวตรงนี้","why":"“อย่า” คือ {{Don't}} + คำกริยา"},
+        {"wrong":"Turn left in the light.","right":"Turn left at the light.","tr":"เลี้ยวซ้ายที่ไฟแดง","why":"จุดที่เลี้ยว (ไฟแดง หัวมุม) ใช้ {{at}}"}
+      ],
+      "practice": [
+        {"type":"fill","q":"เลือกคำที่หายไป","t":"___ left at the corner.","tr":"เลี้ยวซ้ายที่หัวมุม","options":["Turn","Turns"],"answer":0,"why":"ประโยคคำสั่งใช้คำกริยารูปเดิม: {{Turn}}"},
+        {"type":"choice","q":"“อย่ากินอันนั้นนะ”","options":["{{Don't eat that.}}","{{Not eat that.}}","{{No eat that.}}"],"answer":0,"why":"“อย่า” คือ {{Don't}}"},
+        {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"ไปสนามบินยังไง","words":["How","do","I","get","to","the airport?"]},
+        {"type":"dialogue","q":"นักท่องเที่ยวถามทางคุณ เลือกคำตอบ","from":"where-is-it","lines":[{"who":"นักท่องเที่ยว","t":"Excuse me, where's the museum?","tr":"ขอโทษครับ พิพิธภัณฑ์อยู่ที่ไหน"},{"options":["Go straight and turn right at the light.","Going straight and turn right in the light."],"answer":0,"why":"ขึ้นต้นด้วยคำกริยารูปเดิม และ “ที่ไฟแดง” คือ {{at the light}}"},{"who":"นักท่องเที่ยว","t":"Is it near the park?","tr":"อยู่ใกล้สวนไหม"},{"options":["Yes, it's across from the park.","Yes, it across from the park."],"answer":0,"why":"ต้องมี {{is}}: {{it's}}"}]},
+        {"type":"say","q":"บอกทางว่า “ตรงไปสองช่วงตึก แล้วเลี้ยวซ้าย”","answer":"Go straight for two blocks, then turn left."},
+        {"type":"free","q":"ถึงตาคุณ: บอกทางจากบ้านคุณไปร้านกาแฟหรือร้านสะดวกซื้อที่ใกล้ที่สุด","answers":[{"t":"Go out of my house and turn right. Go straight for two blocks. The coffee shop is on your left.","tr":"ออกจากบ้านแล้วเลี้ยวขวา ตรงไปสองช่วงตึก ร้านกาแฟอยู่ทางซ้ายมือ"},{"t":"Turn left at the corner and go past the school. The 7-Eleven is next to the bank.","tr":"เลี้ยวซ้ายที่หัวมุม ผ่านโรงเรียนไป เซเว่นอยู่ข้างธนาคาร"}]}
+      ]
     }
   ]
 }
