@@ -1884,6 +1884,435 @@
         {"type":"dialogue","q":"Am Flughafen.","lines":[{"who":"Staff","t":"Can I help you?","tr":"Kann ich Ihnen helfen?"},{"options":["Yes, could you tell me where gate 12 is?","Yes, could you tell me where is gate 12?"],"answer":0,"why":"Eingepackt: das Subjekt vor dem Verb."},{"who":"Staff","t":"It's down there on the left.","tr":"Da hinten links."},{"options":["Thanks. Do you know if the flight is on time?","Thanks. Do you know is the flight on time?"],"answer":0,"why":"„Ob“: {{if}}, dann Subjekt und Verb."}]},
         {"type":"free","q":"Jetzt du: Du bist neu in einer amerikanischen Stadt. Stell einem Fremden zwei höfliche, eingepackte Fragen.","answers":[{"t":"Excuse me, could you tell me where the nearest supermarket is? Do you know if it's open on Sundays?","tr":"Entschuldigung, könnten Sie mir sagen, wo der nächste Supermarkt ist? Wissen Sie, ob er sonntags offen hat?"},{"t":"Do you know how I can get to the airport? Could you tell me how much a taxi costs?","tr":"Wissen Sie, wie ich zum Flughafen komme? Könnten Sie mir sagen, was ein Taxi kostet?"}]}
       ]
+    },
+    {
+      "id": "talk-about-the-old-days",
+      "unit": 9,
+      "level": "B1",
+      "title": "Erzähl, wie es früher war",
+      "summary": "Sprich über Gewohnheiten von früher: „I used to live in Berlin.“ „We used to play outside all day.“",
+      "topic": "{{used to}} + Grundform; {{didn't use to}}; {{Did you use to…?}}",
+      "blocks": [
+        {"goal":{"t":"When I was a kid, I used to spend every summer on my grandparents' farm.","tr":"Als Kind habe ich jeden Sommer auf dem Bauernhof meiner Großeltern verbracht."}},
+        {"dialog":[{"who":"Grandson","t":"Grandpa, is that you?","tr":"Opa, bist das du?"},{"who":"Grandpa","t":"Yes! I used to have a lot of hair.","tr":"Ja! Früher hatte ich viele Haare."},{"who":"Grandson","t":"Did you use to play soccer?","tr":"Hast du früher Fußball gespielt?"},{"who":"Grandpa","t":"Every day! We didn't use to have video games, so we played outside.","tr":"Jeden Tag! Wir hatten damals keine Videospiele, also haben wir draußen gespielt."},{"who":"Grandson","t":"That sounds boring.","tr":"Klingt langweilig."},{"who":"Grandpa","t":"Boring? We used to have the best time!","tr":"Langweilig? Wir hatten die beste Zeit!"}]},
+        {"p":"**früher = used to.** Für Gewohnheiten und Zustände, die es früher gab und heute nicht mehr gibt, hat Englisch eine eigene Form: {{used to}} + Grundform. {{I used to smoke.}} „Früher habe ich geraucht.“ (heute nicht mehr). Das deutsche „früher“ steckt schon drin."},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["Gewohnheit","{{I used to go running every day.}}","Früher bin ich jeden Tag laufen gegangen."],
+          ["Zustand","{{She used to live in Ohio.}}","Sie hat früher in Ohio gewohnt."],
+          ["Verneinung","{{We didn't use to have a car.}}","Früher hatten wir kein Auto."],
+          ["Frage","{{Did you use to play an instrument?}}","Hast du früher ein Instrument gespielt?"]
+        ] },
+        {"p":"**Die Form:** {{used to}} für alle Personen. Nach {{didn't}} und {{did}} schreibt man {{use to}}, ohne {{d}}; gesprochen klingt beides gleich, ungefähr „juus-tu“."},
+        {"p":"**Nicht verwechseln:** {{I used to work}} „früher habe ich gearbeitet“ ist etwas anderes als {{I'm used to working}} „ich bin es gewohnt zu arbeiten“. Für Erzählungen von früher brauchst du das erste."},
+        {"p":"Für einzelne Ereignisse bleibt es beim Simple Past: {{I went to Paris in 2010}} (einmal), aber {{I used to go to Paris every summer}} (regelmäßig)."},
+        { "ex": [
+          {"t":"I used to be shy.","tr":"Früher war ich schüchtern."},
+          {"t":"My dad used to work in a factory.","tr":"Mein Vater hat früher in einer Fabrik gearbeitet."},
+          {"t":"There used to be a movie theater here.","tr":"Hier war früher ein Kino."},
+          {"t":"Did you use to have long hair?","tr":"Hattest du früher lange Haare?"},
+          {"t":"We didn't use to eat out much.","tr":"Früher sind wir nicht oft essen gegangen."},
+          {"t":"This street used to be really quiet.","tr":"Diese Straße war früher richtig ruhig."}
+        ] },
+        {"tip":"{{There used to be…}} „Früher gab es hier…“ ist perfekt, um über Veränderungen in deiner Stadt zu reden."}
+      ],
+      "mistakes": [
+        {"wrong":"I use to live in Berlin.","right":"I used to live in Berlin.","tr":"Früher habe ich in Berlin gewohnt.","why":"In der Aussage: {{used to}}, mit {{d}}."},
+        {"wrong":"Did you used to play tennis?","right":"Did you use to play tennis?","tr":"Hast du früher Tennis gespielt?","why":"Nach {{did}}: {{use to}}, ohne {{d}}."},
+        {"wrong":"Earlier I smoked a lot.","right":"I used to smoke a lot.","tr":"Früher habe ich viel geraucht.","why":"„Früher“ (heute nicht mehr) ist {{used to}}; {{earlier}} heißt „vorhin, früher am Tag“."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Früher hatte ich einen Hund.“","options":["{{I used to have a dog.}}","{{I use to have a dog.}}","{{Earlier I had a dog.}}"],"answer":0,"why":"„Früher“, heute nicht mehr: {{used to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Did you ___ to live in New York?","tr":"Hast du früher in New York gewohnt?","options":["use","used","using"],"answer":0,"why":"Nach {{did}}: {{use to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"There used ___ a bakery on this corner.","tr":"An dieser Ecke war früher eine Bäckerei.","options":["to be","be","to being"],"answer":0,"why":"{{There used to be…}}: „Früher gab es…“","from":"say-where-things-are"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I used to go to Italy every summer, but last year I ___ to Spain.","tr":"Früher bin ich jeden Sommer nach Italien gefahren, aber letztes Jahr nach Spanien.","options":["went","used to go","have gone"],"answer":0,"why":"Ein einzelnes Ereignis: Simple Past.","from":"talk-about-last-weekend"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Früher war ich sehr schüchtern.","words":["I","used to","be","very","shy."]},
+        {"type":"dialogue","q":"Klassentreffen nach 20 Jahren.","from":"now-or-usually","lines":[{"who":"Old friend","t":"You look different! Didn't you use to wear glasses?","tr":"Du siehst anders aus! Hattest du früher nicht eine Brille?"},{"options":["Yes, I did! And I used to be really skinny.","Yes, I used! And I use to be really skinny."],"answer":0,"why":"Kurzantwort mit {{did}}; in der Aussage {{used to}}."},{"who":"Old friend","t":"Do you still play the guitar?","tr":"Spielst du noch Gitarre?"},{"options":["No, I don't. I used to play every day, but now I don't have time.","No, I don't. I was used to play every day, but now I don't have time."],"answer":0,"why":"„Früher“: {{used to}} + Grundform."}]},
+        {"type":"free","q":"Jetzt du: Erzähl drei Dinge, die du als Kind oder Teenager gemacht hast und heute nicht mehr machst.","answers":[{"t":"When I was a kid, I used to collect stamps. I used to hate vegetables, and I didn't use to like reading.","tr":"Als Kind habe ich Briefmarken gesammelt. Ich habe Gemüse gehasst und nicht gern gelesen."},{"t":"As a teenager, I used to play in a band, and I used to stay up very late.","tr":"Als Teenager habe ich in einer Band gespielt und bin immer sehr lange aufgeblieben."}]}
+      ]
+    },
+    {
+      "id": "imagine",
+      "unit": 9,
+      "level": "B1",
+      "title": "Stell dir vor und wünsch dir etwas",
+      "summary": "Sprich über Träume und Unwirkliches: „If I won the lottery, I would travel the world.“ „I wish I could sing.“",
+      "topic": "Der zweite Konditional: {{if}} + Simple Past, dann {{would}}; {{If I were…}}; {{I wish…}}",
+      "blocks": [
+        {"goal":{"t":"If I won the lottery, I would quit my job and travel the world.","tr":"Wenn ich im Lotto gewinnen würde, würde ich kündigen und um die Welt reisen."}},
+        {"dialog":[{"who":"Mia","t":"What would you do if you didn't have to work?","tr":"Was würdest du machen, wenn du nicht arbeiten müsstest?"},{"who":"Jake","t":"I'd move to Hawaii and learn to surf.","tr":"Ich würde nach Hawaii ziehen und surfen lernen."},{"who":"Mia","t":"Really? I'd buy a big house and have ten dogs.","tr":"Echt? Ich würde ein großes Haus kaufen und zehn Hunde haben."},{"who":"Jake","t":"Ten? If I were you, I'd start with one!","tr":"Zehn? An deiner Stelle würde ich mit einem anfangen!"},{"who":"Mia","t":"I wish I had a dog now.","tr":"Ich wünschte, ich hätte jetzt einen Hund."}]},
+        {"p":"**Unwirkliches: if + Vergangenheit, would.** Für Dinge, die nicht so sind oder kaum passieren werden, steht im Wenn-Teil das Simple Past und in der Folge {{would}} + Grundform: {{If I had more money, I would buy a house.}} „Wenn ich mehr Geld hätte, würde ich ein Haus kaufen.“"},
+        { "table": [
+          ["","Englisch","Deutsch"],
+          ["möglich (erster Konditional)","{{If I have time, I'll help you.}}","Wenn ich Zeit habe, helfe ich dir."],
+          ["unwirklich (zweiter Konditional)","{{If I had time, I'd help you.}}","Wenn ich Zeit hätte, würde ich dir helfen."],
+          ["möglich","{{If it's sunny, we'll go out.}}","Wenn die Sonne scheint, gehen wir raus."],
+          ["unwirklich","{{If it were sunny, we'd go out.}}","Wenn die Sonne scheinen würde, würden wir rausgehen."]
+        ] },
+        {"p":"**Kein would im if-Teil!** Im Deutschen geht beides: „Wenn ich Zeit hätte“ oder „Wenn ich Zeit haben würde“. Im Englischen steht {{would}} nie direkt im {{if}}-Teil: {{If I had…}}, nicht {{If I would have…}}"},
+        {"p":"**If I were…** Bei {{be}} nimmt man im zweiten Konditional gern {{were}} für alle Personen: {{If I were rich…}}, {{If she were here…}} (im Alltag hört man auch {{was}}). Und {{If I were you, …}} „An deiner Stelle…“ ist ein fester Ausdruck."},
+        {"p":"**I wish…** „Ich wünschte…“ + Simple Past: {{I wish I had more time.}} „Ich wünschte, ich hätte mehr Zeit.“, {{I wish I could sing.}} „Ich wünschte, ich könnte singen.“ {{would}} wird im Gespräch meist zu {{'d}}: {{I'd}}, {{she'd}}, {{we'd}}; verneint: {{wouldn't}}."},
+        { "ex": [
+          {"t":"If I lived closer, I'd visit you more often.","tr":"Wenn ich näher wohnen würde, würde ich dich öfter besuchen."},
+          {"t":"What would you do if you were the president?","tr":"Was würdest du tun, wenn du Präsident wärst?"},
+          {"t":"I wouldn't do that if I were you.","tr":"An deiner Stelle würde ich das nicht tun."},
+          {"t":"If I could fly, I'd go to Australia for lunch.","tr":"Wenn ich fliegen könnte, würde ich zum Mittagessen nach Australien fliegen."},
+          {"t":"I wish it were Friday.","tr":"Ich wünschte, es wäre Freitag."},
+          {"t":"I wish I spoke Spanish.","tr":"Ich wünschte, ich könnte Spanisch."}
+        ] },
+        {"tip":"Der zweite Konditional ist auch höflich: {{Would you mind if I opened the window?}} „Hätten Sie etwas dagegen, wenn ich das Fenster aufmache?“"}
+      ],
+      "mistakes": [
+        {"wrong":"If I would have more time, I would learn Japanese.","right":"If I had more time, I would learn Japanese.","tr":"Wenn ich mehr Zeit hätte, würde ich Japanisch lernen.","why":"Im {{if}}-Teil kein {{would}}, sondern das Simple Past."},
+        {"wrong":"If I am you, I would call her.","right":"If I were you, I would call her.","tr":"An deiner Stelle würde ich sie anrufen.","why":"Unwirklich: {{If I were you}}."},
+        {"wrong":"I wish I have a car.","right":"I wish I had a car.","tr":"Ich wünschte, ich hätte ein Auto.","why":"Nach {{I wish}}: das Simple Past."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Wenn ich reich wäre, würde ich ein Boot kaufen.“","options":["{{If I were rich, I would buy a boat.}}","{{If I would be rich, I would buy a boat.}}","{{If I am rich, I would buy a boat.}}"],"answer":0,"why":"Unwirklich: {{If I were…}}, dann {{would}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"If I ___ more money, I'd buy a new car.","tr":"Wenn ich mehr Geld hätte, würde ich ein neues Auto kaufen.","options":["had","would have","have"],"answer":0,"why":"Im {{if}}-Teil: das Simple Past."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I wish I ___ play the piano.","tr":"Ich wünschte, ich könnte Klavier spielen.","options":["could","can","would"],"answer":0,"why":"Nach {{I wish}}: die Vergangenheit von {{can}}, {{could}}.","from":"say-what-you-can-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"If it ___ tomorrow, we'll stay home.","tr":"Wenn es morgen regnet, bleiben wir zu Hause.","options":["rains","rained","would rain"],"answer":0,"why":"Gut möglich: der erste Konditional, mit dem Present.","from":"say-what-happens-if"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Was würdest du tun, wenn du eine Million Dollar hättest?","words":["What","would you do","if","you had","a million dollars?"]},
+        {"type":"dialogue","q":"Ein Gedankenspiel mit einer Freundin.","lines":[{"who":"Friend","t":"If you could live anywhere, where would you live?","tr":"Wenn du überall leben könntest, wo würdest du leben?"},{"options":["I'd live in Italy, by the sea.","I'll live in Italy, by the sea."],"answer":0,"why":"Unwirklich: {{would}}."},{"who":"Friend","t":"Why?","tr":"Warum?"},{"options":["Because if I lived there, I would eat pasta every day!","Because if I would live there, I would eat pasta every day!"],"answer":0,"why":"Im {{if}}-Teil kein {{would}}."}]},
+        {"type":"free","q":"Jetzt du: Was würdest du machen, wenn du ein Jahr frei hättest? Und was wünschst du dir?","answers":[{"t":"If I had a year off, I would travel around South America. I wish I spoke Spanish!","tr":"Wenn ich ein Jahr frei hätte, würde ich durch Südamerika reisen. Ich wünschte, ich könnte Spanisch!"},{"t":"If I didn't have to work, I'd write a book. I wish I had more time for my family.","tr":"Wenn ich nicht arbeiten müsste, würde ich ein Buch schreiben. Ich wünschte, ich hätte mehr Zeit für meine Familie."}]}
+      ]
+    },
+    {
+      "id": "give-advice",
+      "unit": 9,
+      "level": "B1",
+      "title": "Gib Ratschläge",
+      "summary": "Rate jemandem freundlich oder dringend: „You should see a doctor.“ „If I were you, I'd talk to her.“ „You'd better hurry!“",
+      "topic": "{{should}}, {{shouldn't}}; {{If I were you, I'd…}}; {{You'd better…}}; {{Why don't you…?}}",
+      "blocks": [
+        {"goal":{"t":"You should get some rest. If I were you, I'd stay home tomorrow.","tr":"Du solltest dich ausruhen. An deiner Stelle würde ich morgen zu Hause bleiben."}},
+        {"dialog":[{"who":"Tim","t":"I've had a headache for three days.","tr":"Ich habe seit drei Tagen Kopfschmerzen."},{"who":"Sara","t":"Three days? You should see a doctor.","tr":"Drei Tage? Du solltest zum Arzt gehen."},{"who":"Tim","t":"I don't have time. I have a big presentation on Friday.","tr":"Ich habe keine Zeit. Am Freitag habe ich eine große Präsentation."},{"who":"Sara","t":"If I were you, I'd call the doctor today. And you shouldn't drink so much coffee.","tr":"An deiner Stelle würde ich heute beim Arzt anrufen. Und du solltest nicht so viel Kaffee trinken."},{"who":"Tim","t":"OK, OK. Anything else?","tr":"Okay, okay. Sonst noch was?"},{"who":"Sara","t":"You'd better go to bed early tonight!","tr":"Geh heute Abend lieber früh ins Bett!"}]},
+        {"p":"**should: der normale Rat.** {{You should…}} „Du solltest…“, {{You shouldn't…}} „Du solltest nicht…“. Wie bei {{can}}: kein {{to}}, kein {{-s}}, und Fragen ohne {{do}}: {{What should I do?}} „Was soll ich tun?“"},
+        {"p":"**Persönlicher: If I were you, I'd…** „An deiner Stelle würde ich…“ ist ein Rat aus deiner Sicht, wie im Deutschen."},
+        {"p":"**Dringend: You'd better…** {{had better}}, kurz {{'d better}}, + Grundform ist ein starker Rat mit einer Warnung: {{You'd better hurry, or you'll miss the train.}} „Beeil dich lieber, sonst verpasst du den Zug.“ Trotz {{had}} geht es um jetzt oder bald."},
+        {"p":"**Sanft: Why don't you…? / Maybe you could…** {{Why don't you ask your boss?}} „Frag doch mal deinen Chef.“, {{Maybe you could try yoga.}} „Vielleicht könntest du Yoga probieren.“"},
+        { "table": [
+          ["von stark nach sanft","Beispiel"],
+          ["{{You'd better…}}","{{You'd better call her now.}}"],
+          ["{{You should…}}","{{You should call her.}}"],
+          ["{{If I were you, I'd…}}","{{If I were you, I'd call her.}}"],
+          ["{{Why don't you…?}}","{{Why don't you call her?}}"],
+          ["{{Maybe you could…}}","{{Maybe you could call her.}}"]
+        ] },
+        { "ex": [
+          {"t":"You should try the pancakes here.","tr":"Du solltest hier die Pancakes probieren."},
+          {"t":"You shouldn't work so hard.","tr":"Du solltest nicht so viel arbeiten."},
+          {"t":"What should I wear to the interview?","tr":"Was soll ich zum Vorstellungsgespräch anziehen?"},
+          {"t":"You'd better take an umbrella.","tr":"Nimm lieber einen Schirm mit."},
+          {"t":"If I were you, I wouldn't buy that car.","tr":"An deiner Stelle würde ich das Auto nicht kaufen."},
+          {"t":"Why don't you take a break?","tr":"Mach doch mal eine Pause."}
+        ] },
+        {"tip":"{{Should I…?}} bietet auch etwas an: {{Should I open the window?}} „Soll ich das Fenster aufmachen?“ Aber {{You should…}} ist immer ein Rat, nie ein Befehl."}
+      ],
+      "mistakes": [
+        {"wrong":"You should to see a doctor.","right":"You should see a doctor.","tr":"Du solltest zum Arzt gehen.","why":"Nach {{should}} kein {{to}}."},
+        {"wrong":"You'd better to hurry.","right":"You'd better hurry.","tr":"Beeil dich lieber.","why":"Nach {{'d better}}: die Grundform, ohne {{to}}."},
+        {"wrong":"Do I should call him?","right":"Should I call him?","tr":"Soll ich ihn anrufen?","why":"{{should}} braucht kein {{do}}: Es kommt selbst nach vorn."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Dein Freund hat Zahnschmerzen. Ein normaler Rat:","options":["{{You should see a dentist.}}","{{You should to see a dentist.}}","{{You'd better to see a dentist.}}"],"answer":0,"why":"Nach {{should}} kein {{to}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"You ___ eat so much sugar.","tr":"Du solltest nicht so viel Zucker essen.","options":["shouldn't","don't should","mustn't to"],"answer":0,"why":"„Solltest nicht“: {{shouldn't}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"If I ___ you, I'd take the job.","tr":"An deiner Stelle würde ich den Job annehmen.","options":["were","am","would be"],"answer":0,"why":"Fester Ausdruck: {{If I were you}}.","from":"imagine"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"It's going to rain. You'd better ___ an umbrella.","tr":"Es wird regnen. Nimm lieber einen Schirm mit.","options":["take","to take","taking"],"answer":0,"why":"Nach {{'d better}}: die Grundform.","from":"talk-about-plans"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Was soll ich zum Vorstellungsgespräch anziehen?","words":["What","should","I wear","to the interview?"]},
+        {"type":"dialogue","q":"Eine Freundin bittet um Rat.","from":"make-suggestions","lines":[{"who":"Friend","t":"I can't sleep at night. What should I do?","tr":"Ich kann nachts nicht schlafen. Was soll ich tun?"},{"options":["You shouldn't drink coffee in the evening.","You don't should drink coffee in the evening."],"answer":0,"why":"„Solltest nicht“: {{shouldn't}}, ohne {{do}}."},{"who":"Friend","t":"I don't. Anything else?","tr":"Mach ich nicht. Sonst noch was?"},{"options":["Why don't you try reading before bed?","Why you don't try reading before bed?"],"answer":0,"why":"Der feste Ausdruck heißt {{Why don't you…?}}"}]},
+        {"type":"free","q":"Jetzt du: Ein Freund will Englisch lernen. Gib ihm zwei Ratschläge mit verschiedenen Ausdrücken.","answers":[{"t":"You should watch American TV shows with subtitles. If I were you, I'd practice a little every day.","tr":"Du solltest amerikanische Serien mit Untertiteln schauen. An deiner Stelle würde ich jeden Tag ein bisschen üben."},{"t":"Why don't you find a language partner? And you'd better learn the irregular verbs!","tr":"Such dir doch einen Tandempartner. Und lern lieber die unregelmäßigen Verben!"}]}
+      ]
+    },
+    {
+      "id": "report-what-someone-said",
+      "unit": 9,
+      "level": "B1",
+      "title": "Gib wieder, was jemand gesagt hat",
+      "summary": "Erzähl, was andere gesagt oder gefragt haben: „She said she was tired.“ „He asked me where I lived.“ Und: say oder tell?",
+      "topic": "Indirekte Rede: {{said (that)…}}, {{told me…}}, {{asked if / where…}}; die Zeit rückt zurück; {{say}} oder {{tell}}",
+      "blocks": [
+        {"goal":{"t":"My boss said she was happy with my work!","tr":"Meine Chefin hat gesagt, sie ist mit meiner Arbeit zufrieden!"}},
+        {"dialog":[{"who":"Ben","t":"Did you talk to Lisa?","tr":"Hast du mit Lisa gesprochen?"},{"who":"Amy","t":"Yes. She said she couldn't come to the party.","tr":"Ja. Sie hat gesagt, sie kann nicht zur Party kommen."},{"who":"Ben","t":"Why not?","tr":"Warum nicht?"},{"who":"Amy","t":"She told me she had to work. And she asked if we could meet on Sunday instead.","tr":"Sie hat mir gesagt, sie muss arbeiten. Und sie hat gefragt, ob wir uns stattdessen am Sonntag treffen können."},{"who":"Ben","t":"Sunday is fine. Did she say what time?","tr":"Sonntag passt. Hat sie gesagt, wann?"},{"who":"Amy","t":"She said she'd call you tomorrow.","tr":"Sie hat gesagt, sie ruft dich morgen an."}]},
+        {"p":"**Die Zeit rückt einen Schritt zurück.** Wenn du mit {{said}} oder {{told}} (Vergangenheit) wiedergibst, was jemand gesagt hat, rückt das Gesagte meist eine Zeit zurück: Lisa sagt {{I'm tired.}} → {{She said she was tired.}} Im Deutschen bleibt die Zeit oft gleich („Sie hat gesagt, sie ist müde“) oder es kommt der Konjunktiv („sie sei müde“); Englisch rückt stattdessen zurück."},
+        { "table": [
+          ["gesagt","wiedergegeben"],
+          ["{{I'm tired.}}","{{She said she was tired.}}"],
+          ["{{I work in Boston.}}","{{He said he worked in Boston.}}"],
+          ["{{I'm leaving.}}","{{She said she was leaving.}}"],
+          ["{{I'll call you.}}","{{He said he would call me.}}"],
+          ["{{I can't come.}}","{{She said she couldn't come.}}"],
+          ["{{I've finished.}}","{{He said he had finished.}}"]
+        ] },
+        {"p":"Ist das Gesagte noch wahr, darf die Zeit im Alltag auch bleiben: {{She said she's from Texas.}} Das {{that}} „dass“ lässt man meistens weg."},
+        {"p":"**say oder tell?** Beides heißt „sagen“. {{tell}} braucht direkt dahinter eine Person: {{She told me…}}, {{He told us…}} {{say}} nicht: {{She said…}}, oder mit {{to}}: {{She said to me…}} Also nie {{She said me}}."},
+        {"p":"**Fragen wiedergeben** mit {{asked}} und der Wortstellung einer Aussage, wie bei den eingepackten Fragen: {{Where do you live?}} → {{He asked me where I lived.}} Ja-Nein-Fragen mit {{if}}: {{Are you OK?}} → {{She asked if I was OK.}}"},
+        {"p":"**Bitten wiedergeben:** {{told}} oder {{asked}} + Person + {{to}}: {{Call me!}} → {{She told me to call her.}}, {{Please wait.}} → {{He asked us to wait.}}"},
+        { "ex": [
+          {"t":"He said he was from Chicago.","tr":"Er hat gesagt, er kommt aus Chicago."},
+          {"t":"She told me she had a new job.","tr":"Sie hat mir erzählt, dass sie einen neuen Job hat."},
+          {"t":"They said they would be late.","tr":"Sie haben gesagt, sie kommen später."},
+          {"t":"My mom asked if I was hungry.","tr":"Meine Mutter hat gefragt, ob ich Hunger habe."},
+          {"t":"The doctor told me to rest.","tr":"Der Arzt hat mir gesagt, ich soll mich ausruhen."},
+          {"t":"He asked me what I did for a living.","tr":"Er hat mich gefragt, was ich beruflich mache."}
+        ] },
+        {"tip":"{{tell}} sagt man auch in festen Verbindungen ohne Person: {{tell a story}} „eine Geschichte erzählen“, {{tell the truth}} „die Wahrheit sagen“, {{tell a joke}} „einen Witz erzählen“."}
+      ],
+      "mistakes": [
+        {"wrong":"She said me she was tired.","right":"She told me she was tired.","tr":"Sie hat mir gesagt, sie ist müde.","why":"Mit einer Person direkt danach: {{told}}."},
+        {"wrong":"He asked me where did I live.","right":"He asked me where I lived.","tr":"Er hat mich gefragt, wo ich wohne.","why":"Wiedergegebene Fragen: die Wortstellung einer Aussage, kein {{did}}."},
+        {"wrong":"She told me call her.","right":"She told me to call her.","tr":"Sie hat mir gesagt, ich soll sie anrufen.","why":"Eine Bitte: {{told}} + Person + {{to}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"Tom sagt: {{I'm hungry.}} Du erzählst es weiter:","options":["{{Tom said he was hungry.}}","{{Tom said I was hungry.}}","{{Tom said me he was hungry.}}"],"answer":0,"why":"Toms {{I}} wird zu {{he}}, und die Zeit rückt zurück."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She ___ me she was moving to Denver.","tr":"Sie hat mir erzählt, dass sie nach Denver zieht.","options":["told","said","asked"],"answer":0,"why":"Mit einer Person direkt danach: {{told}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"He said he ___ call me later.","tr":"Er hat gesagt, er ruft mich später an.","options":["would","will be","wills"],"answer":0,"why":"{{will}} rückt zurück zu {{would}}.","from":"promise-and-predict"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She asked me ___ I was OK.","tr":"Sie hat mich gefragt, ob alles okay ist.","options":["if","that","what"],"answer":0,"why":"Eine Ja-Nein-Frage wiedergeben: {{if}}.","from":"ask-politely"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Der Arzt hat mir gesagt, ich soll mich ausruhen.","words":["The doctor","told","me","to","rest."]},
+        {"type":"dialogue","q":"Du gibst eine Nachricht weiter.","lines":[{"who":"Roommate","t":"Did anyone call?","tr":"Hat jemand angerufen?"},{"options":["Yes, your mom. She said she was coming on Sunday.","Yes, your mom. She said me she is coming on Sunday."],"answer":0,"why":"{{said}} ohne Person dahinter."},{"who":"Roommate","t":"Did she say anything else?","tr":"Hat sie sonst noch was gesagt?"},{"options":["She asked if you could pick her up at the station.","She asked could you pick her up at the station."],"answer":0,"why":"„Ob“: {{if}}, dann Subjekt und Verb."}]},
+        {"type":"free","q":"Jetzt du: Erzähl, was dir jemand in letzter Zeit gesagt oder gefragt hat.","answers":[{"t":"My sister told me she was getting married! She asked if I could be her maid of honor.","tr":"Meine Schwester hat mir erzählt, dass sie heiratet! Sie hat gefragt, ob ich ihre Trauzeugin sein kann."},{"t":"My boss said I was doing a great job. He asked me to lead the new project.","tr":"Mein Chef hat gesagt, ich mache meine Arbeit super. Er hat mich gebeten, das neue Projekt zu leiten."}]}
+      ]
+    },
+    {
+      "id": "understand-the-passive",
+      "unit": 9,
+      "level": "B1",
+      "title": "Versteh Nachrichten und Anleitungen",
+      "summary": "Versteh Sätze, in denen es nicht darum geht, wer etwas tut: „The bridge was built in 1937.“ „English is spoken here.“ Und: „wird“ ist nicht will.",
+      "topic": "Das Passiv: {{be}} + Partizip ({{is made}}, {{was built}}, {{has been sold}})",
+      "blocks": [
+        {"goal":{"t":"The Golden Gate Bridge was built in 1937.","tr":"Die Golden Gate Bridge wurde 1937 gebaut."}},
+        {"dialog":[{"who":"Guide","t":"This building was designed by a famous architect in 1910.","tr":"Dieses Gebäude wurde 1910 von einem berühmten Architekten entworfen."},{"who":"Tourist","t":"Wow. Is it still used today?","tr":"Wow. Wird es heute noch genutzt?"},{"who":"Guide","t":"Yes, it's used as a hotel now. And over there, the cable cars are repaired.","tr":"Ja, heute ist es ein Hotel. Und dort drüben werden die Cable Cars repariert."},{"who":"Tourist","t":"Are they still pulled by cables?","tr":"Werden sie immer noch von Seilen gezogen?"},{"who":"Guide","t":"Yes, they are! The system was invented in 1873.","tr":"Ja! Das System wurde 1873 erfunden."}]},
+        {"term":"Passiv","means":"eine Satzform, bei der die Sache, mit der etwas gemacht wird, zum Subjekt wird: Die Brücke **wurde 1937 gebaut**."},
+        {"p":"**Wenn es nicht darum geht, wer.** Im Passiv steht die Sache im Mittelpunkt, nicht der Handelnde: {{The bridge was built in 1937.}} „Die Brücke wurde 1937 gebaut.“ Wer sie gebaut hat, ist hier egal. Das Passiv findest du in Nachrichten, auf Schildern, in Anleitungen und in Texten über Geschichte."},
+        {"p":"**Die Form: be + Partizip.** Englisch bildet das Passiv mit {{be}}, nicht mit „werden“: {{is made}} „wird gemacht“, {{was built}} „wurde gebaut“, {{has been sold}} „ist verkauft worden“, {{will be delivered}} „wird geliefert“."},
+        { "table": [
+          ["Zeit","Englisch","Deutsch"],
+          ["Present","{{English is spoken here.}}","Hier wird Englisch gesprochen."],
+          ["Simple Past","{{The house was built in 1900.}}","Das Haus wurde 1900 gebaut."],
+          ["Present Perfect","{{The tickets have been sold.}}","Die Tickets sind verkauft worden."],
+          ["Zukunft","{{It will be finished tomorrow.}}","Es wird morgen fertig."],
+          ["mit Modalverb","{{Phones must be turned off.}}","Handys müssen ausgeschaltet werden."]
+        ] },
+        {"p":"**Falscher Freund: „wird“ ist nicht will.** „Hier wird Englisch gesprochen“ heißt {{English is spoken here}}, nicht {{English will spoken here}}! Das deutsche „wird“ im Passiv ist im Englischen {{is}}, „wurde“ ist {{was}}."},
+        {"p":"**Wer hat's gemacht? by.** Wenn es doch wichtig ist, mit {{by}} „von“: {{The book was written by a twelve-year-old girl.}} „Das Buch wurde von einem zwölfjährigen Mädchen geschrieben.“"},
+        { "ex": [
+          {"t":"Breakfast is served from 7 to 10.","tr":"Frühstück gibt es von 7 bis 10 Uhr.","note":"wörtlich „wird serviert“"},
+          {"t":"My car was stolen last night.","tr":"Mein Auto ist letzte Nacht gestohlen worden."},
+          {"t":"This cheese is made in Wisconsin.","tr":"Dieser Käse wird in Wisconsin hergestellt."},
+          {"t":"The meeting has been canceled.","tr":"Das Meeting ist abgesagt worden."},
+          {"t":"Your package will be delivered on Monday.","tr":"Ihr Paket wird am Montag geliefert."},
+          {"t":"Smoking is not allowed here.","tr":"Rauchen ist hier nicht erlaubt."}
+        ] },
+        {"tip":"Auf amerikanischen Schildern steht das Passiv oft in Kurzform, ohne {{are}}: {{Credit cards accepted}} „Kreditkarten werden akzeptiert“, {{Reservations required}} „Reservierung erforderlich“."}
+      ],
+      "mistakes": [
+        {"wrong":"Here will English spoken.","right":"English is spoken here.","tr":"Hier wird Englisch gesprochen.","why":"Das Passiv bildet man mit {{be}}: „wird gesprochen“ = {{is spoken}}. {{will}} ist die Zukunft."},
+        {"wrong":"The bridge was build in 1937.","right":"The bridge was built in 1937.","tr":"Die Brücke wurde 1937 gebaut.","why":"Nach {{was}}: das Partizip, {{built}}."},
+        {"wrong":"The book was written from a child.","right":"The book was written by a child.","tr":"Das Buch wurde von einem Kind geschrieben.","why":"„Von“ im Passiv: {{by}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Hier wird Spanisch gesprochen.“","options":["{{Spanish is spoken here.}}","{{Spanish will spoken here.}}","{{Here becomes Spanish spoken.}}"],"answer":0,"why":"Passiv: {{be}} + Partizip."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"My bike ___ stolen yesterday.","tr":"Mein Fahrrad ist gestern gestohlen worden.","options":["was","is","has"],"answer":0,"why":"Mit {{yesterday}}: Simple Past, {{was}} + Partizip.","from":"perfect-or-past"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"The museum was ___ in 1890.","tr":"Das Museum wurde 1890 eröffnet.","options":["opened","open","opening"],"answer":0,"why":"Nach {{was}}: das Partizip."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"The song was written ___ a teenager.","tr":"Das Lied wurde von einem Teenager geschrieben.","options":["by","from","of"],"answer":0,"why":"„Von“ im Passiv: {{by}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ihr Paket wird am Montag geliefert.","words":["Your package","will be","delivered","on Monday."],"from":"say-when"},
+        {"type":"dialogue","q":"Bei einer Stadtführung.","from":"ask-with-do","lines":[{"who":"Guide","t":"This church is over 200 years old.","tr":"Diese Kirche ist über 200 Jahre alt."},{"options":["When was it built?","When did it built?"],"answer":0,"why":"Passiv in der Vergangenheit: {{was built}}."},{"who":"Guide","t":"In 1802. It was destroyed in a fire and rebuilt in 1850.","tr":"1802. Sie ist bei einem Brand zerstört und 1850 wieder aufgebaut worden."},{"options":["Is it still used for services?","Does it still used for services?"],"answer":0,"why":"Passiv im Present: {{is used}}, kein {{does}}."}]},
+        {"type":"free","q":"Jetzt du: Erzähl einem Besucher etwas über deine Stadt oder dein Land, mit dem Passiv (ein Gebäude, ein Produkt, ein Fest).","answers":[{"t":"The Cologne Cathedral was finished in 1880. Beer is brewed in almost every town.","tr":"Der Kölner Dom wurde 1880 fertiggestellt. In fast jeder Stadt wird Bier gebraut."},{"t":"In Germany, a lot of cars are made. The Berlin Wall was built in 1961.","tr":"In Deutschland werden viele Autos gebaut. Die Berliner Mauer wurde 1961 gebaut."}]}
+      ]
+    },
+    {
+      "id": "use-phrasal-verbs",
+      "unit": 9,
+      "level": "B1",
+      "title": "Benutz Phrasal Verbs",
+      "summary": "Die Verben, die Amerikaner ständig benutzen: „get up, turn on, look for, find out, give up“. Sie funktionieren ähnlich wie deutsche trennbare Verben.",
+      "topic": "Phrasal Verbs: Verb + {{up, out, on, off…}}; {{turn it on}}, nicht {{turn on it}}",
+      "blocks": [
+        {"goal":{"t":"I get up at six, turn on the coffee maker and look for my keys.","tr":"Ich stehe um sechs auf, mache die Kaffeemaschine an und suche meine Schlüssel."}},
+        {"dialog":[{"who":"Mom","t":"Wake up! It's seven thirty!","tr":"Wach auf! Es ist halb acht!"},{"who":"Leo","t":"Five more minutes…","tr":"Noch fünf Minuten…"},{"who":"Mom","t":"No! Get up and get dressed. And turn off your alarm. It's still ringing.","tr":"Nein! Steh auf und zieh dich an. Und mach deinen Wecker aus. Der klingelt noch."},{"who":"Leo","t":"OK, I'm up. Have you seen my phone? I'm looking for it.","tr":"Okay, ich bin wach. Hast du mein Handy gesehen? Ich suche es."},{"who":"Mom","t":"It's on the kitchen table. Now hurry up!","tr":"Es liegt auf dem Küchentisch. Jetzt beeil dich!"}]},
+        {"term":"Phrasal Verb","means":"ein englisches Verb mit einem kleinen Zusatzwort, das die Bedeutung ändert: {{get}} „bekommen“, {{get up}} „aufstehen“."},
+        {"p":"**Wie trennbare Verben, nur umgekehrt.** Im Deutschen sagt man „aufstehen“, aber „Ich stehe auf“. Englisch hat ähnliche Verben mit einem kleinen Wort hinten dran: {{get up}} „aufstehen“, {{turn on}} „anmachen“, {{give up}} „aufgeben“. Oft passen sie sogar wörtlich: {{come back}} „zurückkommen“, {{sit down}} „sich hinsetzen“."},
+        { "table": [
+          ["Phrasal Verb","Deutsch","Beispiel"],
+          ["{{get up}}","aufstehen","{{I get up at seven.}}"],
+          ["{{turn on}} / {{turn off}}","anmachen / ausmachen","{{Turn off the lights.}}"],
+          ["{{look for}}","suchen","{{I'm looking for my keys.}}"],
+          ["{{find out}}","herausfinden","{{I found out the truth.}}"],
+          ["{{give up}}","aufgeben","{{Don't give up!}}"],
+          ["{{pick up}}","abholen, aufheben","{{Can you pick me up?}}"],
+          ["{{put on}}","anziehen (Kleidung)","{{Put on your coat.}}"],
+          ["{{take off}}","ausziehen; abheben","{{The plane took off.}}"]
+        ] },
+        {"p":"**Wohin mit dem Objekt?** Bei den meisten Phrasal Verbs darf ein Nomen vor oder nach dem kleinen Wort stehen: {{Turn on the TV.}} = {{Turn the TV on.}} Ein Pronomen ({{it}}, {{them}}, {{me}}) muss aber in die Mitte: {{Turn it on.}}, nie {{Turn on it.}}"},
+        {"p":"Bei manchen geht das nicht, weil das kleine Wort zum Objekt gehört: {{look for}}, {{look after}} „aufpassen auf“, {{get on}} „einsteigen“: {{I'm looking for it.}} Wörterbücher zeigen, welche trennbar sind."},
+        { "ex": [
+          {"t":"What time do you usually get up?","tr":"Wann stehst du normalerweise auf?"},
+          {"t":"Can you turn the music down, please?","tr":"Kannst du die Musik bitte leiser machen?"},
+          {"t":"I'm looking for a new apartment.","tr":"Ich suche eine neue Wohnung."},
+          {"t":"Let's find out when the store opens.","tr":"Finden wir heraus, wann der Laden aufmacht."},
+          {"t":"It's cold. Put your jacket on!","tr":"Es ist kalt. Zieh deine Jacke an!"},
+          {"t":"I'll pick you up at eight.","tr":"Ich hol dich um acht ab."}
+        ] },
+        {"tip":"Im Gespräch klingen Phrasal Verbs viel natürlicher als die langen lateinischen Wörter: {{find out}} statt {{discover}}, {{give up}} statt {{abandon}}, {{put off}} statt {{postpone}} „verschieben“."}
+      ],
+      "mistakes": [
+        {"wrong":"Turn on it, please.","right":"Turn it on, please.","tr":"Mach es bitte an.","why":"Ein Pronomen steht zwischen Verb und kleinem Wort."},
+        {"wrong":"I'm searching my keys.","right":"I'm looking for my keys.","tr":"Ich suche meine Schlüssel.","why":"„Suchen“ im Alltag: {{look for}}. {{search}} braucht {{for}} und heißt eher „durchsuchen“."},
+        {"wrong":"I stand up at seven every day.","right":"I get up at seven every day.","tr":"Ich stehe jeden Tag um sieben auf.","why":"Morgens aufstehen: {{get up}}. {{stand up}} heißt „sich hinstellen“ (vom Stuhl)."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Mach den Fernseher aus!“ – „Okay, ich mach ihn aus.“","options":["{{OK, I'll turn it off.}}","{{OK, I'll turn off it.}}"],"answer":0,"why":"Ein Pronomen in die Mitte: {{turn it off}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I'm looking ___ my glasses. Have you seen them?","tr":"Ich suche meine Brille. Hast du sie gesehen?","options":["for","after","at"],"answer":0,"why":"„Suchen“: {{look for}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Don't give ___! You can do it!","tr":"Gib nicht auf! Du schaffst das!","options":["up","out","off"],"answer":0,"why":"„Aufgeben“: {{give up}}.","from":"tell-someone-what-to-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"What time do you usually ___ up?","tr":"Wann stehst du normalerweise auf?","options":["get","stand","make"],"answer":0,"why":"Morgens aufstehen: {{get up}}.","from":"say-how-often"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Ich hol dich um acht ab.","words":["I'll","pick","you","up","at eight."]},
+        {"type":"dialogue","q":"Deine Freundin landet am Flughafen.","from":"promise-and-predict","lines":[{"who":"Friend","t":"Hi! I just landed!","tr":"Hi! Ich bin gerade gelandet!"},{"options":["Great! I'll pick you up in twenty minutes.","Great! I'll pick up you in twenty minutes."],"answer":0,"why":"Ein Pronomen in die Mitte: {{pick you up}}."},{"who":"Friend","t":"Thanks! Which exit should I go to?","tr":"Danke! Zu welchem Ausgang soll ich gehen?"},{"options":["I don't know yet. I'll find out and text you.","I don't know yet. I'll find it out and text you it."],"answer":0,"why":"Ohne Objekt: einfach {{find out}}."}]},
+        {"type":"free","q":"Jetzt du: Beschreib deinen Morgen mit mindestens drei Phrasal Verbs.","answers":[{"t":"I wake up at six thirty, but I get up at seven. I put on my clothes, turn on the radio and pick up a coffee on the way to work.","tr":"Ich wache um halb sieben auf, stehe aber erst um sieben auf. Ich ziehe mich an, mache das Radio an und hole mir auf dem Weg zur Arbeit einen Kaffee."},{"t":"I get up early, turn off my alarm and look for my keys every single morning!","tr":"Ich stehe früh auf, mache meinen Wecker aus und suche jeden einzelnen Morgen meine Schlüssel!"}]}
+      ]
+    },
+    {
+      "id": "doing-or-to-do",
+      "unit": 9,
+      "level": "B1",
+      "title": "Sag, was du gern machst, willst und vorhast",
+      "summary": "Manche Verben brauchen -ing, andere to: „I enjoy cooking“, aber „I want to cook“. Und stop doing ist etwas anderes als stop to do.",
+      "topic": "Verb + {{-ing}} ({{enjoy, finish, mind, stop}}) oder {{to}} + Grundform ({{want, decide, hope, plan}}); {{look forward to}} + {{-ing}}",
+      "blocks": [
+        {"goal":{"t":"I enjoy traveling, and next year I want to visit Japan.","tr":"Ich reise gern, und nächstes Jahr will ich Japan besuchen."}},
+        {"dialog":[{"who":"Lena","t":"Have you decided to take the job in Seattle?","tr":"Hast du dich entschieden, den Job in Seattle anzunehmen?"},{"who":"Max","t":"Yes! I'm looking forward to starting in May.","tr":"Ja! Ich freue mich darauf, im Mai anzufangen."},{"who":"Lena","t":"That's great! Don't you mind moving so far away?","tr":"Toll! Macht es dir nichts aus, so weit wegzuziehen?"},{"who":"Max","t":"Not really. I enjoy living in new places. But I need to find an apartment.","tr":"Eigentlich nicht. Ich wohne gern an neuen Orten. Aber ich muss eine Wohnung finden."},{"who":"Lena","t":"Promise to send me photos!","tr":"Versprich mir, Fotos zu schicken!"}]},
+        {"p":"**Zwei Gruppen von Verben.** Folgt auf ein Verb ein zweites, steht dieses im Englischen entweder mit {{-ing}} oder mit {{to}}, je nach dem ersten Verb. Eine feste Regel gibt es nicht ganz, aber eine Tendenz: {{to}} schaut oft nach vorn (Wünsche, Pläne, Entscheidungen), {{-ing}} beschreibt die Tätigkeit selbst."},
+        { "table": [
+          ["+ {{-ing}}","+ {{to}} + Grundform"],
+          ["{{enjoy}} gern tun","{{want}} wollen"],
+          ["{{finish}} fertig werden mit","{{decide}} sich entscheiden"],
+          ["{{mind}} etwas dagegen haben","{{hope}} hoffen"],
+          ["{{stop}} aufhören mit","{{plan}} vorhaben"],
+          ["{{keep}} weitermachen mit","{{need}} müssen, brauchen"],
+          ["{{avoid}} vermeiden","{{promise}} versprechen"],
+          ["{{suggest}} vorschlagen","{{try}} versuchen"]
+        ] },
+        {"p":"**Mit beidem: like, love, hate, start.** {{I like swimming}} = {{I like to swim}}; {{It started raining}} = {{It started to rain}}. Aber {{would like}} immer mit {{to}}: {{I'd like to go.}}"},
+        {"p":"**stop: zwei Bedeutungen.** {{I stopped smoking.}} „Ich habe mit dem Rauchen aufgehört.“ / {{I stopped to smoke.}} „Ich habe angehalten, um zu rauchen.“ Das {{to}} heißt hier „um zu“."},
+        {"p":"**Nach Präpositionen immer -ing**, auch nach dem {{to}} in {{look forward to}} „sich freuen auf“: {{I'm looking forward to seeing you.}} (nicht {{to see}}), {{I'm good at cooking.}}, {{Thanks for helping!}}"},
+        { "ex": [
+          {"t":"I enjoy cooking for friends.","tr":"Ich koche gern für Freunde."},
+          {"t":"We decided to stay home.","tr":"Wir haben beschlossen, zu Hause zu bleiben."},
+          {"t":"Do you mind waiting a minute?","tr":"Macht es dir etwas aus, kurz zu warten?"},
+          {"t":"I hope to see you soon.","tr":"Ich hoffe, dich bald zu sehen."},
+          {"t":"She finished writing her book.","tr":"Sie ist mit ihrem Buch fertig geworden."},
+          {"t":"I'm looking forward to meeting you.","tr":"Ich freue mich darauf, Sie kennenzulernen."}
+        ] },
+        {"tip":"{{I look forward to hearing from you.}} „Ich freue mich auf Ihre Antwort.“ ist der klassische Schluss jeder englischen E-Mail, mit {{-ing}}!"}
+      ],
+      "mistakes": [
+        {"wrong":"I enjoy to cook.","right":"I enjoy cooking.","tr":"Ich koche gern.","why":"Nach {{enjoy}}: {{-ing}}."},
+        {"wrong":"We decided staying home.","right":"We decided to stay home.","tr":"Wir haben beschlossen, zu Hause zu bleiben.","why":"Nach {{decide}}: {{to}} + Grundform."},
+        {"wrong":"I'm looking forward to see you.","right":"I'm looking forward to seeing you.","tr":"Ich freue mich darauf, dich zu sehen.","why":"Das {{to}} in {{look forward to}} ist eine Präposition: danach {{-ing}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Ich habe mit dem Rauchen aufgehört.“","options":["{{I stopped smoking.}}","{{I stopped to smoke.}}"],"answer":0,"why":"{{stopped to smoke}} hieße „Ich habe angehalten, um zu rauchen“."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"Do you mind ___ the window?","tr":"Würdest du bitte das Fenster aufmachen?","options":["opening","to open","open"],"answer":0,"why":"Nach {{mind}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I want ___ more about American history.","tr":"Ich will mehr über amerikanische Geschichte lernen.","options":["to learn","learning","learn"],"answer":0,"why":"Nach {{want}}: {{to}} + Grundform."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I'm looking forward to ___ you next week.","tr":"Ich freue mich darauf, dich nächste Woche zu sehen.","options":["seeing","see","to see"],"answer":0,"why":"Nach {{look forward to}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"We're planning ___ to Canada this summer.","tr":"Wir haben vor, diesen Sommer nach Kanada zu fahren.","options":["to go","going","go"],"answer":0,"why":"Nach {{plan}}: {{to}} + Grundform.","from":"talk-about-plans"},
+        {"type":"dialogue","q":"Ein Kollege fragt nach deiner Freizeit.","from":"say-what-you-like","lines":[{"who":"Colleague","t":"What do you do on weekends?","tr":"Was machst du am Wochenende?"},{"options":["I enjoy hiking and taking photos.","I enjoy to hike and to take photos."],"answer":0,"why":"Nach {{enjoy}}: {{-ing}}."},{"who":"Colleague","t":"Nice! Any plans for your vacation?","tr":"Schön! Schon Pläne für den Urlaub?"},{"options":["Yes, I've decided to visit Iceland.","Yes, I've decided visiting Iceland."],"answer":0,"why":"Nach {{decide}}: {{to}} + Grundform."}]},
+        {"type":"free","q":"Jetzt du: Was machst du gern ({{enjoy}}), was hast du vor ({{want to}}, {{plan to}}), und worauf freust du dich ({{look forward to}})?","answers":[{"t":"I enjoy reading on the train. I want to learn to play the guitar, and I'm looking forward to visiting my sister in June.","tr":"Ich lese gern im Zug. Ich will Gitarre spielen lernen, und ich freue mich darauf, im Juni meine Schwester zu besuchen."},{"t":"I enjoy cooking Italian food. I plan to run a marathon next year, and I'm looking forward to seeing my friends this weekend.","tr":"Ich koche gern italienisch. Nächstes Jahr will ich einen Marathon laufen, und ich freue mich darauf, am Wochenende meine Freunde zu sehen."}]}
+      ]
+    },
+    {
+      "id": "keep-the-conversation-going",
+      "unit": 9,
+      "level": "B1",
+      "title": "Halt das Gespräch am Laufen",
+      "summary": "Reagier wie ein Muttersprachler: „It's cold, isn't it?“ „So do I!“ „Really? Did you?“",
+      "topic": "Frageanhängsel ({{isn't it?}}, {{don't you?}}); {{So do I}}, {{Neither do I}}, {{Me too}}; Rückfragen wie {{Did you?}}",
+      "blocks": [
+        {"goal":{"t":"It's a beautiful day, isn't it? – Yes, it is!","tr":"Schöner Tag heute, oder? – Ja, wirklich!"}},
+        {"dialog":[{"who":"Kate","t":"This coffee is terrible, isn't it?","tr":"Der Kaffee ist furchtbar, oder?"},{"who":"Jonas","t":"It is! I'm Jonas, by the way. You work with Sarah, don't you?","tr":"Allerdings! Ich bin übrigens Jonas. Du arbeitest mit Sarah zusammen, oder?"},{"who":"Kate","t":"Yes, I do. I'm Kate. I love these conferences.","tr":"Ja. Ich bin Kate. Ich liebe diese Konferenzen."},{"who":"Jonas","t":"So do I! I went to the one in Austin last year.","tr":"Ich auch! Ich war letztes Jahr bei der in Austin."},{"who":"Kate","t":"Did you? So did I! I didn't like the hotel, though.","tr":"Echt? Ich auch! Das Hotel fand ich aber nicht gut."},{"who":"Jonas","t":"Neither did I!","tr":"Ich auch nicht!"}]},
+        {"p":"**Frageanhängsel: das englische „oder?“.** Englisch hängt an eine Aussage gern eine kleine Frage, um Zustimmung zu bekommen oder ein Gespräch zu beginnen. Sie wiederholt das Hilfsverb des Satzes, mit umgekehrtem Vorzeichen: Ist die Aussage positiv, ist das Anhängsel negativ, und umgekehrt."},
+        { "table": [
+          ["Aussage","Anhängsel"],
+          ["{{It's cold,}}","{{isn't it?}}"],
+          ["{{You live here,}}","{{don't you?}}"],
+          ["{{She can swim,}}","{{can't she?}}"],
+          ["{{They went home,}}","{{didn't they?}}"],
+          ["{{You aren't tired,}}","{{are you?}}"],
+          ["{{He doesn't eat meat,}}","{{does he?}}"]
+        ] },
+        {"p":"**Ich auch, ich auch nicht.** Kurz zustimmen kannst du mit {{Me too.}} „Ich auch.“ und {{Me neither.}} „Ich auch nicht.“ Etwas eleganter: {{So}} + Hilfsverb + {{I}} und {{Neither}} + Hilfsverb + {{I}}, mit dem Hilfsverb aus dem Satz des anderen: {{I love pizza. – So do I!}}, {{I'm tired. – So am I.}}, {{I can't swim. – Neither can I.}}, {{I didn't go. – Neither did I.}}"},
+        {"p":"**Interesse zeigen: kurze Rückfragen.** Auf eine Neuigkeit reagiert man oft mit Hilfsverb + Pronomen: {{I went to Hawaii last month. – Did you? How was it?}} „Ach ja? Wie war's?“, {{I'm getting married! – Are you? Congratulations!}} Das wirkt interessiert und freundlich."},
+        { "ex": [
+          {"t":"You're from Germany, aren't you?","tr":"Du kommst aus Deutschland, oder?"},
+          {"t":"We met last year, didn't we?","tr":"Wir haben uns letztes Jahr kennengelernt, oder?"},
+          {"t":"I don't like horror movies. – Me neither.","tr":"Ich mag keine Horrorfilme. – Ich auch nicht."},
+          {"t":"I've been to Chicago. – So have I!","tr":"Ich war schon mal in Chicago. – Ich auch!"},
+          {"t":"I can't wait for the weekend. – Neither can I!","tr":"Ich kann das Wochenende kaum erwarten. – Ich auch nicht!"},
+          {"t":"My brother lives in Texas. – Does he? Where?","tr":"Mein Bruder wohnt in Texas. – Ach ja? Wo denn?"}
+        ] },
+        {"tip":"Wenn du dir beim Anhängsel unsicher bist: {{right?}} funktioniert im amerikanischen Alltag fast immer: {{You're from Germany, right?}}"}
+      ],
+      "mistakes": [
+        {"wrong":"You live in Boston, isn't it?","right":"You live in Boston, don't you?","tr":"Du wohnst in Boston, oder?","why":"Das Anhängsel wiederholt das Hilfsverb des Satzes: Bei {{live}} ist das {{do}}, also {{don't you?}}"},
+        {"wrong":"I like jazz. – So I do.","right":"I like jazz. – So do I.","tr":"Ich mag Jazz. – Ich auch.","why":"Erst das Hilfsverb, dann {{I}}: {{So do I}}."},
+        {"wrong":"I'm not hungry. – Me too.","right":"I'm not hungry. – Me neither.","tr":"Ich habe keinen Hunger. – Ich auch nicht.","why":"Bei einer Verneinung: {{Me neither}} oder {{Neither am I}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"{{It's hot today, …?}}","options":["{{isn't it?}}","{{is it?}}","{{doesn't it?}}"],"answer":0,"why":"Positive Aussage mit {{is}}: das Anhängsel {{isn't it?}}"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"You speak German, ___ you?","tr":"Du sprichst Deutsch, oder?","options":["don't","aren't","doesn't"],"answer":0,"why":"Bei {{speak}} ist das Hilfsverb {{do}}: {{don't you?}}","from":"ask-with-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I can't swim. – Neither ___ I.","tr":"Ich kann nicht schwimmen. – Ich auch nicht.","options":["can","do","am"],"answer":0,"why":"Das Hilfsverb aus dem Satz: {{can}}.","from":"say-what-you-can-do"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I went to the concert last night. – So ___ I!","tr":"Ich war gestern Abend auf dem Konzert. – Ich auch!","options":["did","was","went"],"answer":0,"why":"Bei {{went}} ist das Hilfsverb {{did}}."},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wir haben uns letztes Jahr kennengelernt, oder?","words":["We","met","last year,","didn't","we?"]},
+        {"type":"dialogue","q":"Small Talk an der Bushaltestelle.","lines":[{"who":"Woman","t":"The bus is late again, isn't it?","tr":"Der Bus hat schon wieder Verspätung, oder?"},{"options":["Yes, it is. I'm going to be late for work.","Yes, it isn't. I'm going to be late for work."],"answer":0,"why":"Zustimmen: {{Yes, it is.}}"},{"who":"Woman","t":"Me too! I hate Mondays.","tr":"Ich auch! Ich hasse Montage."},{"options":["So do I!","So am I!"],"answer":0,"why":"Bei {{I hate}} ist das Hilfsverb {{do}}: {{So do I}}."}]},
+        {"type":"free","q":"Jetzt du: Beginn ein Gespräch mit einem Frageanhängsel und reagier auf die Antwort mit {{So do I}}, {{Neither do I}} oder einer kurzen Rückfrage.","answers":[{"t":"It's a great party, isn't it? – Yes! I love the music. – So do I!","tr":"Tolle Party, oder? – Ja! Ich liebe die Musik. – Ich auch!"},{"t":"You work with Tom, don't you? – Yes, I do. – Do you? I went to college with him!","tr":"Du arbeitest mit Tom zusammen, oder? – Ja. – Echt? Ich war mit ihm an der Uni!"}]}
+      ]
+    },
+    {
+      "id": "say-how-long-youve-been-doing",
+      "unit": 9,
+      "level": "B1",
+      "title": "Sag, wie lange du schon etwas machst",
+      "summary": "Sprich über Dinge, die seit einer Weile laufen: „We've been waiting for forty minutes!“ „How long have you been learning English?“",
+      "topic": "Das Present Perfect Continuous: {{have been}} + {{-ing}}, mit {{for}} und {{since}}",
+      "blocks": [
+        {"goal":{"t":"I've been learning English for two years, and I've been living in Boston since March.","tr":"Ich lerne seit zwei Jahren Englisch, und seit März wohne ich in Boston."}},
+        {"dialog":[{"who":"Customer","t":"Excuse me, we've been waiting for forty minutes!","tr":"Entschuldigung, wir warten schon seit vierzig Minuten!"},{"who":"Waiter","t":"I'm so sorry. The kitchen has been working on a big order.","tr":"Das tut mir sehr leid. Die Küche arbeitet gerade an einer großen Bestellung."},{"who":"Customer","t":"We've been sitting here since seven.","tr":"Wir sitzen hier seit sieben."},{"who":"Waiter","t":"Your food is coming right now. And dessert is on us.","tr":"Ihr Essen kommt sofort. Und der Nachtisch geht aufs Haus."},{"who":"Customer","t":"Oh, that's very kind. Thank you!","tr":"Oh, das ist sehr nett. Danke!"}]},
+        {"term":"Present Perfect Continuous","means":"{{have / has been}} + Verb mit {{-ing}}: für eine Tätigkeit, die in der Vergangenheit angefangen hat und bis jetzt andauert: {{I've been waiting}} „ich warte schon (seit…)“."},
+        {"p":"**Wie lange schon? Bei Tätigkeiten: die Verlaufsform.** Du kennst schon {{I've lived here for three years.}} Für Tätigkeiten, die gerade laufen und schon eine Weile dauern, nimmt Englisch gern die Verlaufsform davon: {{I've been waiting for an hour.}} „Ich warte seit einer Stunde.“ Deutsch sagt wieder einfach Präsens mit „seit“ oder „schon“."},
+        {"p":"**Die Form:** {{have / has}} + {{been}} + {{-ing}}: {{I've been working}}, {{she's been sleeping}}. Die Frage: {{How long have you been waiting?}} „Wie lange wartest du schon?“"},
+        { "table": [
+          ["Deutsch","Englisch"],
+          ["Ich warte seit zwanzig Minuten.","{{I've been waiting for twenty minutes.}}"],
+          ["Es regnet seit heute Morgen.","{{It's been raining since this morning.}}"],
+          ["Wie lange lernst du schon Englisch?","{{How long have you been learning English?}}"],
+          ["Sie arbeitet seit Jahren hier.","{{She's been working here for years.}}"]
+        ] },
+        {"p":"**Mit oder ohne -ing?** Bei Tätigkeiten ({{wait}}, {{work}}, {{learn}}, {{rain}}) passt die Verlaufsform; bei Zuständen ({{know}}, {{be}}, {{have}}, {{like}}) nie: {{I've known him for years}}, nicht {{I've been knowing}}. Bei {{live}} und {{work}} geht beides."},
+        {"p":"**Auch ohne Zeitangabe:** für eine Tätigkeit, deren Spuren man jetzt sieht: {{You're all wet! – I've been running.}} „Du bist ja ganz nass! – Ich war laufen.“"},
+        { "ex": [
+          {"t":"How long have you been waiting?","tr":"Wie lange wartest du schon?"},
+          {"t":"I've been working here since 2020.","tr":"Ich arbeite seit 2020 hier."},
+          {"t":"It's been snowing all day.","tr":"Es schneit schon den ganzen Tag."},
+          {"t":"She's been studying for hours.","tr":"Sie lernt schon seit Stunden."},
+          {"t":"We've been trying to call you!","tr":"Wir versuchen schon die ganze Zeit, dich anzurufen!"},
+          {"t":"Your eyes are red. Have you been crying?","tr":"Deine Augen sind rot. Hast du geweint?"}
+        ] },
+        {"tip":"Das ist die Form für Beschwerden und Ausreden: {{I've been trying to reach you all day!}}, {{Sorry, I've been working a lot lately.}} „Sorry, ich habe in letzter Zeit viel gearbeitet.“"}
+      ],
+      "mistakes": [
+        {"wrong":"I wait here since an hour.","right":"I've been waiting here for an hour.","tr":"Ich warte hier seit einer Stunde.","why":"„Seit“ bis jetzt: Present Perfect (Continuous); vor einem Zeitraum: {{for}}."},
+        {"wrong":"How long are you learning English?","right":"How long have you been learning English?","tr":"Wie lange lernst du schon Englisch?","why":"„Wie lange schon“: {{How long have you been…?}}"},
+        {"wrong":"I've been knowing her since college.","right":"I've known her since college.","tr":"Ich kenne sie seit dem Studium.","why":"{{know}} ist ein Zustand: keine Verlaufsform."}
+      ],
+      "practice": [
+        {"type":"choice","q":"„Es regnet seit heute Morgen.“","options":["{{It's been raining since this morning.}}","{{It rains since this morning.}}","{{It's raining since this morning.}}"],"answer":0,"why":"Seit einem Zeitpunkt bis jetzt: {{has been raining}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"How long have you been ___ for me?","tr":"Wie lange wartest du schon auf mich?","options":["waiting","wait","waited"],"answer":0,"why":"Nach {{been}}: {{-ing}}."},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"She's been working here ___ ten years.","tr":"Sie arbeitet seit zehn Jahren hier.","options":["for","since","ago"],"answer":0,"why":"Ein Zeitraum: {{for}}.","from":"say-how-long"},
+        {"type":"fill","q":"Wähl das fehlende Wort.","t":"I've ___ him since high school.","tr":"Ich kenne ihn seit der Highschool.","options":["known","been knowing","know"],"answer":0,"why":"{{know}} ist ein Zustand: {{have known}}, ohne {{-ing}}.","from":"now-or-usually"},
+        {"type":"order","q":"Bring die Wörter in die richtige Reihenfolge.","tr":"Wie lange lernst du schon Englisch?","words":["How long","have you","been","learning","English?"]},
+        {"type":"dialogue","q":"Du triffst eine Freundin, die sehr müde aussieht.","from":"give-advice","lines":[{"who":"Friend","t":"Hi! Sorry I look so tired.","tr":"Hi! Sorry, dass ich so müde aussehe."},{"options":["Are you OK? Have you been working a lot?","Are you OK? Do you work a lot since weeks?"],"answer":0,"why":"Seit einer Weile bis jetzt: {{Have you been working…?}}"},{"who":"Friend","t":"Yes. I've been working overtime for two weeks.","tr":"Ja. Ich mache seit zwei Wochen Überstunden."},{"options":["Oh no! You should take a day off.","Oh no! You should to take a day off."],"answer":0,"why":"Nach {{should}} kein {{to}}."}]},
+        {"type":"free","q":"Jetzt du: Sag, wie lange du schon Englisch lernst, und eine andere Sache, die du seit einer Weile machst.","answers":[{"t":"I've been learning English for three years. I've been playing tennis since I was ten.","tr":"Ich lerne seit drei Jahren Englisch. Ich spiele Tennis, seit ich zehn bin."},{"t":"I've been learning English since January, and I've been working at my company for five years.","tr":"Ich lerne seit Januar Englisch, und ich arbeite seit fünf Jahren bei meiner Firma."}]}
+      ]
     }
   ]
 }
