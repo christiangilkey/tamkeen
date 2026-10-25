@@ -30,6 +30,20 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "zh-en": {
+   "file": "zh-en/course.json",
+   "from": "zh",
+   "to": "en",
+   "title": "英语语法",
+   "variety": "美式英语",
+   "units": 9,
+   "lessons": 5,
+   "levels": [
+    "A1"
+   ],
+   "bytes": 22984,
+   "sha256": "a295402dbcb9ea6733984c0507884be10cfdd1799664d3276e019c10faada55a"
   }
  }
 }
