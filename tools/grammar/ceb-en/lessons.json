@@ -94,7 +94,7 @@
           {"t":"They're tired.","tr":"Gikapoy sila."},
           {"t":"It's delicious!","tr":"Lami kaayo!"}
         ] },
-        {"tip":"Usa ka paagi sa paghinumdom: {{she}} naay {{s}} sama sa “siya nga babaye”; {{he}} walay. Ug kung dili ka sigurado, gamita ang ngalan: {{Lisa is a singer.}}"}
+        {"tip":"Sa matag “siya”, pangutan-a ang imong kaugalingon: lalaki ba o babaye? Kung nagdali ka ug nalibog, gamita na lang ang ngalan: {{Lisa is a singer.}} Ang {{his}} ug {{her}} mosunod sa parehas nga pagpili (leksyon 6)."}
       ],
       "mistakes": [
         {"wrong":"Lisa is my friend. He's a singer.","right":"Lisa is my friend. She's a singer.","tr":"Akong higala si Lisa. Mag-aawit siya.","why":"Babaye si Lisa: {{she}}. Ang {{he}} para lang sa lalaki."},
@@ -319,7 +319,7 @@
         ] },
         {"p":"**{{is}} o {{are}}?** Usa: {{there is}} (mubo {{there's}}). Daghan: {{there are}}. Sa pangutana, ibalhin ang {{is}} o {{are}} sa unahan, sama sa leksyon 3: {{Is there a pharmacy?}} {{Are there any taxis?}}"},
         {"term":"article","means":"ang gagmay nga pulong {{a}}, {{an}} ug {{the}} sa unahan sa nombre."},
-        {"p":"**{{a}} una, {{the}} human.** Sa unang higayon nga imong hisgotan ang usa ka butang: {{a}} ({{There's a pharmacy on Main Street.}}). Human niana, kabalo na ang tanan kung asa: {{the}} ({{The pharmacy closes at nine.}}). Ang {{the}} duol sa “ang” sa Bisaya, pero gamay ra og gamit (leksyon 17)."},
+        {"p":"**{{a}} una, {{the}} human.** Sa unang higayon nga imong hisgotan ang usa ka butang: {{a}} ({{There's a pharmacy on Main Street.}}). Human niana, kabalo na ang tanan kung asa: {{the}} ({{The pharmacy closes at nine.}}). Ang {{the}} duol sa “ang” sa Bisaya, pero dili kini gamiton sa matag higayon nga mogamit ta og “ang” (leksyon 17)."},
         { "ex": [
           {"t":"There's a dog outside.","tr":"Naay iro sa gawas."},
           {"t":"There are two ATMs here.","tr":"Naay duha ka ATM dinhi."},
@@ -357,7 +357,7 @@
       "blocks": [
         {"goal":{"t":"Your keys are on the table, next to your phone.","tr":"Naa sa lamesa ang imong yawe, tupad sa imong selpon."}},
         {"dialog":[{"who":"Ben","t":"Mom, where are my keys?","tr":"Ma, asa man akong yawe?"},{"who":"Mama","t":"They're on the table, next to your phone.","tr":"Naa sa lamesa, tupad sa imong selpon."},{"who":"Ben","t":"And my wallet?","tr":"Ug akong pitaka?"},{"who":"Mama","t":"It's in your bag, under your jacket.","tr":"Naa sa imong bag, ilalum sa imong jacket."},{"who":"Ben","t":"Thanks, Mom! I'm at the door. Bye!","tr":"Salamat, Ma! Naa na ko sa pultahan. Bye!"},{"who":"Mama","t":"Wait! Your lunch is in the kitchen!","tr":"Hulat! Naa sa kusina ang imong paniudto!"}]},
-        {"p":"Sa Bisaya, usa ra ka pulong ang tanan: “sa”. Sa Iningles, **lahi-lahi depende sa lugar**: {{in}} kung sa sulod ({{in the bag}}, {{in Cebu}}), {{on}} kung sa ibabaw sa nawong ({{on the table}}, {{on the wall}}), ug {{at}} kung sa usa ka punto o lugar nga imong giadtoan ({{at home}}, {{at work}}, {{at the door}})."},
+        {"p":"Sa Bisaya, usa ra ka pulong ang tanan: “sa”. Sa Iningles, **lahi-lahi depende sa lugar**: {{in}} kung sa sulod ({{in the bag}}, {{in Cebu}}), {{on}} kung sa ibabaw sa nawong ({{on the table}}, {{on the wall}}), ug {{at}} para sa usa ka dapit o punto, sama sa balay, trabaho o pultahan ({{at home}}, {{at work}}, {{at the door}})."},
         {"term":"preposition","means":"gamay nga pulong nga nagsulti kung asa o kanus-a: sa Iningles {{in}}, {{on}}, {{at}}, {{under}}. Sa Bisaya kasagaran “sa” ra."},
         { "table": [
           ["Bisaya","Iningles"],
@@ -407,7 +407,7 @@
       "blocks": [
         {"goal":{"t":"Can I have a coffee and two donuts, please?","tr":"Usa ka kape ug duha ka donut, palihug."}},
         {"dialog":[{"who":"Barista","t":"Hi! What can I get you?","tr":"Hi! Unsa imong gusto?"},{"who":"Ikaw","t":"Hi! I'd like a coffee, please.","tr":"Hi! Gusto ko og kape, palihug."},{"who":"Barista","t":"Hot or iced?","tr":"Init o bugnaw?"},{"who":"Ikaw","t":"Iced, please. And can I have a donut?","tr":"Bugnaw, palihug. Ug pwede ko mangayo og donut?"},{"who":"Barista","t":"Sure. For here or to go?","tr":"Sige. Diri ra o take out?"},{"who":"Ikaw","t":"To go, please.","tr":"Take out, palihug."}]},
-        {"p":"Sa Bisaya, “Usa ka kape, palihug” igo na. Sa Iningles, mas matinahuron kung imong sugdan og {{I'd like…}} (“gusto unta ko og…”) o {{Can I have…?}} / {{Could I have…?}} (“pwede ko mangayo og…?”), ug tapuson og {{please}}. Ang {{I want a coffee}} lagmit bastos pamation sa Amerika."},
+        {"p":"Sa Bisaya, “Usa ka kape, palihug” igo na. Sa Iningles, mas matinahuron kung imong sugdan og {{I'd like…}} (“gusto unta ko og…”) o {{Can I have…?}} / {{Could I have…?}} (“pwede ko mangayo og…?”), ug tapuson og {{please}}. Sa mga café sa Amerika, madungog usab nimo kanunay ang {{Can I get…?}} Ang {{I want a coffee}} morag direkta kaayo pamation."},
         { "table": [
           ["Bisaya","Iningles (matinahuron)"],
           ["Gusto ko og kape.","{{I'd like a coffee, please.}}"],
@@ -428,7 +428,7 @@
         {"tip":"Ang {{I'd}} kay mubo sa {{I would}}. {{I'd like}} = “ganahan unta ko”: mas humok kaysa {{I want}}. Gamita kini bisan asa: sa tindahan, sa hotel, sa telepono."}
       ],
       "mistakes": [
-        {"wrong":"Give me coffee.","right":"Can I have a coffee, please?","tr":"Usa ka kape, palihug.","why":"Ang {{Give me…}} lagmit bastos pamation. Mangayo: {{Can I have…, please?}}"},
+        {"wrong":"Give me coffee.","right":"Can I have a coffee, please?","tr":"Usa ka kape, palihug.","why":"Ang {{Give me…}} morag sugo pamation, dili pangayo. Mangayo: {{Can I have…, please?}}"},
         {"wrong":"Can I have two coffee?","right":"Can I have two coffees?","tr":"Pwede ko mangayo og duha ka kape?","why":"Kapin sa usa: {{-s}}."}
       ],
       "practice": [
@@ -880,9 +880,9 @@
         {"goal":{"t":"Please sit down. Let's eat!","tr":"Lingkod, palihug. Kaon ta!"}},
         {"dialog":[{"who":"Ikaw","t":"Come in! Please sit down.","tr":"Dayon! Lingkod, palihug."},{"who":"Bisita","t":"Thank you. It's hot in here!","tr":"Salamat. Init diri sa sulod!"},{"who":"Ikaw","t":"Oh, sorry! Let me turn on the fan. And let's turn off the TV.","tr":"Ay, sorry! Ablihan nako ang bentilador. Ug palungon nato ang TV."},{"who":"Bisita","t":"That's better!","tr":"Mas maayo na!"},{"who":"Ikaw","t":"Let's eat! Don't be shy. Have some more rice!","tr":"Kaon ta! Ayaw kaulaw. Kuha pa og kan-on!"},{"who":"Bisita","t":"Thanks! It's delicious!","tr":"Salamat! Lami kaayo!"}]},
         {"p":"**Ang sugo**: ang berbo lang, walay {{you}}: {{Sit down.}} {{Come in.}} {{Wait.}} Sama sa Bisaya nga “Lingkod!”, “Dayon!”. Para matinahuron, idugang ang {{please}}: {{Please sit down.}} o {{Sit down, please.}}"},
-        {"p":"**Ayaw: {{Don't}}** + berbo: {{Don't worry.}} “Ayaw kabalaka.” Uban sa adjective, {{Don't be}}: {{Don't be shy.}} “Ayaw kaulaw.” {{Don't be late.}} “Ayaw ulahi.”"},
+        {"p":"**Ayaw: {{Don't}}** + berbo: {{Don't worry.}} “Ayaw kabalaka.” Uban sa adjective, {{Don't be}}: {{Don't be shy.}} “Ayaw kaulaw.” {{Don't be late.}} “Ayaw pagpaulahi.”"},
         {"p":"**“…ta!”: {{Let's}}** + berbo: {{Let's eat!}} “Kaon ta!”, {{Let's go!}} “Adto ta!”. Ang dili: {{Let's not…}}: {{Let's not go.}}"},
-        {"p":"**Ang lit-ag sa Philippine English**: sa Bisaya, “ablihi ang suga”, “sirad-i ang TV”. Sa Iningles, ang mga makina ug suga dili {{open}} o {{close}}: {{turn on}} ug {{turn off}}. Ang {{open}} ug {{close}} para lang sa pultahan, bintana, kahon, tindahan."},
+        {"p":"**Ang lit-ag sa Philippine English**: tungod kay sa Bisaya “ablihi ang suga”, daghan ang moingon og {{open the light}} o {{close the TV}}. Sa Iningles, ang mga makina ug suga dili {{open}} o {{close}}: {{turn on}} ug {{turn off}}. Ang {{open}} ug {{close}} para lang sa pultahan, bintana, kahon, tindahan."},
         { "table": [
           ["Bisaya","Iningles"],
           ["Ablihi ang suga.","{{Turn on the light.}}"],
@@ -975,7 +975,7 @@
       "blocks": [
         {"goal":{"t":"Yesterday I cooked dinner and watched a movie.","tr":"Gahapon nagluto ko sa panihapon ug nanan-aw og sine."}},
         {"dialog":[{"who":"Amy","t":"What did you do last weekend?","tr":"Unsay imong gibuhat sa miaging weekend?"},{"who":"Ben","t":"I stayed home. I cleaned the house and cooked adobo.","tr":"Nagpabilin ko sa balay. Naglimpyo ko sa balay ug nagluto og adobo."},{"who":"Amy","t":"Nice! Just you?","tr":"Nindot! Ikaw ra?"},{"who":"Ben","t":"No, I invited my neighbors. We talked and laughed all night.","tr":"Dili, gidapit nako ang akong mga silingan. Nag-istorya mi ug nangatawa tibuok gabii."},{"who":"Amy","t":"Sounds fun!","tr":"Lingaw kaayo!"}]},
-        {"p":"Sa Bisaya, ang “mi-”, “nag-” o “gi-” nagsulti nga nahuman na. Sa Iningles, ang kaniadto gisulti pinaagi sa **{{-ed}}** sa katapusan sa berbo: {{cook}} → {{cooked}}, {{watch}} → {{watched}}. Parehas para sa tanan: {{I cooked}}, {{she cooked}}, {{they cooked}}: walay {{-s}} sa kaniadto."},
+        {"p":"Sa Bisaya, ang “mi-” o “gi-” nagsulti nga nahuman na, ug ang “gahapon” nagsulti kanus-a. Sa Iningles, ang kaniadto gisulti pinaagi sa **{{-ed}}** sa katapusan sa berbo: {{cook}} → {{cooked}}, {{watch}} → {{watched}}. Parehas para sa tanan: {{I cooked}}, {{she cooked}}, {{they cooked}}: walay {{-s}} sa kaniadto."},
         {"p":"**Ang pagsulat**: {{-d}} lang kung nagtapos sa e ({{live}} → {{lived}}); y → {{-ied}} ({{study}} → {{studied}}); usahay doble ang katapusang letra ({{stop}} → {{stopped}})."},
         {"p":"**Ang tingog sa {{-ed}}: tulo.** Kasagaran dili kini dugang silaba: {{cooked}} sama sa “kukt”, {{cleaned}} sama sa “klind”. Kung ang berbo nagtapos sa t o d, dugang silaba: {{waited}} “wey-tid”, {{needed}} “nii-did”. Ayaw kalimti nga isulti ang {{-ed}}: kung wala kini, morag karon ang imong giingon."},
         { "table": [
@@ -1419,7 +1419,7 @@
           ["sa imong tuo / wala","{{on your right}} / {{on your left}}"]
         ] },
         {"p":"**Pangutana**: {{How do I get to…?}} “Unsaon pag-adto sa…?”, {{Is it far?}} “Layo ba?”, {{Where's the nearest ATM?}} “Asa ang pinakaduol nga ATM?”"},
-        {"p":"**Sa jeep ug bus**: {{get on}} = sakay, {{get off}} = naog: {{Get off at Ayala.}} Ang “go down” sa Philippine English dili masabtan sa Amerika: {{get off}} ang husto."},
+        {"p":"**Sa jeep ug bus**: {{get on}} = sakay, {{get off}} = naog: {{Get off at Ayala.}} Ang “go down” sa Philippine English dili natural pamation sa Amerika: {{get off}} ang husto."},
         { "ex": [
           {"t":"How do I get to the mall?","tr":"Unsaon pag-adto sa mall?"},
           {"t":"Go straight for two blocks.","tr":"Diretso lang og duha ka block."},
@@ -1812,7 +1812,7 @@
           {"t":"How long have you been here?","tr":"Unsa na ka dugay nga naa ka dinhi?"},
           {"t":"I lived in Davao for two years.","tr":"Duha ka tuig ko nagpuyo sa Davao."}
         ] },
-        {"tip":"{{Long time no see!}} “Dugay na ta wala magkita!” kay panultihon nga dili mosunod sa gramatika, pero gamiton kini sa tanan."}
+        {"tip":"{{Long time no see!}} “Dugay na ta wala magkita!” kay panultihon nga dili mosunod sa gramatika, pero gigamit kini sa tanan."}
       ],
       "mistakes": [
         {"wrong":"I live in Cebu since 2016.","right":"I've lived in Cebu since 2016.","tr":"Nagpuyo ko sa Cebu sukad pa sa 2016.","why":"Nagsugod kaniadto ug nagpadayon karon: present perfect."},
