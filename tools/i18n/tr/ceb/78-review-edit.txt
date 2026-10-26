@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 I-edit ang pulong
+d0f60fa0 I-edit ang kahulogan
+697f207b I-edit ang sentence
+71f0b2ab I-edit ang hubad
+c6084b94 Ayoha ang card samtang nag-review
+7f4dcbb0 I-tap ang bisan unsang teksto aron i-edit kini. Pindota og dugay ang usa ka pulong sa sentence aron i-highlight kini.

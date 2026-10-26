@@ -812,7 +812,7 @@ const routes = [
     if (query) {
       const nq = normalize(query);
       const lq = query.toLowerCase();
-      items = items.filter((v) => normalize(v.text).includes(nq) || normalize(v.sentence).includes(nq)
+      items = items.filter((v) => normalize(v.text).includes(nq) || normalize(String(v.sentence || "").replace(/[⟦⟧]/g, "")).includes(nq)
         || (v.meaning || "").toLowerCase().includes(lq) || (v.notes || "").toLowerCase().includes(lq)
         || (v.memo || "").toLowerCase().includes(lq));
     }
@@ -910,6 +910,8 @@ const routes = [
     for (const k of ["meaning", "notes", "memo"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
     // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
     if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
+    // Put right on the review card (web/js/review/cardedit.js), ⟦ ⟧ round the parts it lights.
+    for (const k of ["sentence", "translation"]) if (typeof body[k] === "string") v[k] = body[k].trim().slice(0, 2000);
     v.updated_at = now();
     changed();
     return vocabOut(v);

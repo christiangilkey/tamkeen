@@ -13,7 +13,7 @@
 
 import { api, h, on, saveSettings, state, toast } from "./app.js";
 import { openModal } from "./components/modal.js";
-import { cardSentence, findWord } from "./cardtext.js";
+import { findWord, unmarked } from "./cardtext.js";
 import { bare, chooseWords } from "./vowelmarks.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -128,28 +128,29 @@ export function paintWords(els, shown, first = 0) {
 const sentences = new Map();
 
 /** A saved word's sentence with vowels (the computer vowels it; the phone takes it from the
- * transcript it was saved from, when that is here), or null. */
+ * transcript it was saved from, when that is here), or null. (Without the ⟦ ⟧ round the parts the
+ * learner lit up on the card: cardtext.js.) */
 export async function vowelledSentence(v) {
-  if (!vowelsShown() || !v || !v.sentence || !/[ء-ي]/.test(v.sentence)) return null;
-  const key = `${v.uid || v.id}|${v.sentence}`;
+  const sentence = unmarked(v && v.sentence);
+  if (!vowelsShown() || !sentence || !/[ء-ي]/.test(sentence)) return null;
+  const key = `${v.uid || v.id}|${sentence}`;
   if (!sentences.has(key)) {
     sentences.set(key, api("/vowels/sentence", { method: "POST", body: {
-      sentence: v.sentence, episode: v.episode_uid || "", start: v.sent_start ?? null, end: v.sent_end ?? null,
+      sentence, episode: v.episode_uid || "", start: v.sent_start ?? null, end: v.sent_end ?? null,
     } }).catch(() => null));
   }
   const r = await sentences.get(key);
-  if (!r || !r.sentence || bare(r.sentence) !== bare(v.sentence)) return null;
+  if (!r || !r.sentence || bare(r.sentence) !== bare(sentence)) return null;
   return r.guess && !settings().vowels_dialect ? null : r.sentence;
 }
 
-/** A review card's answer side: its word and sentence drawn vowelled, once known. `highlight`
- * marks the word in the sentence (as the card itself does). */
-export async function vowelCard(face, v, highlight) {
+/** A review card's answer side: its word and sentence drawn vowelled, once known. `drawSentence`
+ * draws the card's sentence again with the vowelled one shown (lit as the card lights it). */
+export async function vowelCard(face, v, drawSentence) {
   const vs = await vowelledSentence(v);
   const word = face.querySelector(".rv-word");
-  if (!vs || !word || word.textContent !== v.text) return; // (the card has moved on)
-  const sent = face.querySelector(".rv-ans-sentence");
-  if (sent) sent.innerHTML = highlight(cardSentence(vs, v.text), v.text);
+  if (!vs || !word || word.textContent !== v.text) return; // (the card has moved on, or its word is being typed)
+  drawSentence(vs);
   const at = findWord(vs, v.text);
   if (at && bare(v.text) === v.text) word.textContent = vs.slice(at[0], at[1]);
 }

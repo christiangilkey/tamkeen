@@ -61,6 +61,10 @@ class VocabPatch(BaseModel):
     notes: str | None = None
     memo: str | None = None  # the learner's own notes (a mnemonic, say)
     text: str | None = None
+    # Put right on the review card (web/js/review/cardedit.js): typed over, or a word held to light it
+    # up. Both may carry ⟦ ⟧ round the parts the card lights (web/js/cardtext.js).
+    sentence: str | None = None
+    translation: str | None = None
     folders: list[str] | None = None
 
 
@@ -102,7 +106,7 @@ def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, An
     if q:
         nq = arabic.normalize(q)
         lq = q.lower()
-        items = [v for v in items if nq in v["norm"] or nq in arabic.normalize(v["sentence"])
+        items = [v for v in items if nq in v["norm"] or nq in arabic.normalize(exporters.unmarked(v["sentence"]))
                  or lq in v["meaning"].lower() or lq in v["notes"].lower() or lq in (v.get("memo") or "").lower()]
     return items
 
@@ -459,6 +463,10 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
         if body.text is not None and body.text.strip():
             conn.execute("UPDATE vocab SET text = ?, norm = ? WHERE id = ?",
                          (body.text.strip(), arabic.normalize(body.text), vocab_id))
+        if body.sentence is not None:
+            conn.execute("UPDATE vocab SET sentence = ? WHERE id = ?", (body.sentence.strip()[:2000], vocab_id))
+        if body.translation is not None:
+            conn.execute("UPDATE vocab SET translation = ? WHERE id = ?", (body.translation.strip()[:2000], vocab_id))
         if body.folders is not None:
             conn.execute("UPDATE vocab SET folders = ? WHERE id = ?", (json.dumps(sorted(set(body.folders))), vocab_id))
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()

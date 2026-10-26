@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 تعديل الكلمة
+d0f60fa0 تعديل المعنى
+697f207b تعديل الجملة
+71f0b2ab تعديل الترجمة
+c6084b94 صحّح البطاقة أثناء المراجعة
+7f4dcbb0 اضغط على أي نص لتعديله. اضغط مطوّلًا على كلمة في الجملة لتمييزها.

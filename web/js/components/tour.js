@@ -119,9 +119,11 @@ function show(root, list) {
     document.removeEventListener("keydown", keys, true);
     open = null;
   }
+  // (The keys it uses go no further: Esc closes only the guide, not the review card under it.)
   function keys(e) {
-    if (e.key === "Escape") { e.preventDefault(); close(); }
+    if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); close(); }
     else if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.stopPropagation();
       // Forward is right in English and left in Arabic.
       const fwd = (e.key === "ArrowRight") !== (document.documentElement.dir === "rtl");
       if (fwd && at < list.length - 1) go(at + 1);

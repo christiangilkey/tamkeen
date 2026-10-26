@@ -8,7 +8,7 @@ import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
-import { cardSentence, findWord } from "../cardtext.js";
+import { cardSentence, litHtml } from "../cardtext.js";
 import { audioKey, canSay, failedHere, hasOwnAudio, loadError, voiceTimes } from "../cardvoice.js";
 import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../voiceplay.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
@@ -94,10 +94,9 @@ function ankiHelp() {
 }
 
 function highlight(sentence, word) {
-  // Found whatever its vowel marks: a word saved with them sits unvowelled in a web page's text.
-  const at = findWord(sentence, word);
-  if (!at) return esc(sentence);
-  return `${esc(sentence.slice(0, at[0]))}<b>${esc(sentence.slice(at[0], at[1]))}</b>${esc(sentence.slice(at[1]))}`;
+  // The parts the learner lit up on the review card (⟦ ⟧ in the sentence), else the word itself,
+  // found whatever its vowel marks: a word saved with them sits unvowelled in a web page's text.
+  return litHtml(sentence, word, esc);
 }
 
 /** [from, to) in seconds for a date-range choice; null bounds mean open-ended. */

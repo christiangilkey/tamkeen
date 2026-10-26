@@ -400,7 +400,7 @@ function runBattle(b, vocab) {
     const prompt = box.querySelector(".bq-prompt");
     prompt.textContent = q.prompt;
     setLang(prompt, detectLanguage(q.prompt));
-    box.querySelector(".bq-sentence").textContent = q.sentence;
+    box.querySelector(".bq-sentence").textContent = String(q.sentence || "").replace(/[⟦⟧]/g, "");  // (without the review card's lit-part marks)
     const started = performance.now();
     let done = false;
     const buttons = q.options.map((text, i) => {

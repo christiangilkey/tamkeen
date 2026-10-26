@@ -277,7 +277,7 @@ CREATE TRIGGER IF NOT EXISTS vocab_upd AFTER UPDATE ON vocab
 WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.text IS NOT OLD.text OR NEW.meaning IS NOT OLD.meaning
   OR NEW.notes IS NOT OLD.notes OR NEW.deleted IS NOT OLD.deleted OR NEW.folders IS NOT OLD.folders
   OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation OR NEW.memo IS NOT OLD.memo
-  OR NEW.voice IS NOT OLD.voice)
+  OR NEW.voice IS NOT OLD.voice OR NEW.sentence IS NOT OLD.sentence)
 BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 
 CREATE TRIGGER IF NOT EXISTS folders_ins AFTER INSERT ON vocab_folders WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)
