@@ -26,7 +26,7 @@
 .review-banner.idle, .review-banner.idle:hover:not(:disabled) { background: var(--surface); color: var(--text); border-color: var(--border); }
 .review-banner.idle .rb-icon { background: var(--surface-2); color: var(--muted); }
 .review-banner.idle .rb-go { background: var(--surface-2); color: var(--text); }
-/* No words to review yet: the same box, plain, with nothing to press */
+/* No words to review yet: the same box in its usual colour (vocab.js; the owner, 2026-10-25), with nothing to press */
 .review-banner:disabled { opacity: 1; cursor: default; }
 .review-banner .rb-go:empty { display: none; }
 .vocab-item .memo { border-style: dashed; }

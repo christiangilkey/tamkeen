@@ -1,0 +1,12 @@
+2dc0c206 Terminar uma lição de gramática: de 40 a 80 na primeira vez, mais quanto mais respostas certas, e de 15 a 30 quando você a refaz (cada lição rende uma vez por dia).
+b1691d36 Tocar em um exemplo de uma lição de gramática para ouvi-lo: um quarto do que rende consultar uma palavra, uma vez por dia para cada exemplo. Também mantém o seu combo.
+ce32fa95 Adicionar aos seus cartões uma palavra de um curso básico: {0} cada, o mesmo adicionando uma por uma ou todas de uma vez, até {1} palavras por dia.
+4019c5e2 Adicione podcasts com o botão + abaixo.
+d7bc5164 Adicione vídeos do YouTube com o botão + abaixo.
+71554151 Adicione séries e filmes da Netflix com o botão + abaixo.
+1f98e825 Adicione páginas da web com o botão + abaixo.
+9b2f4468 Adicione um livro com o botão + abaixo ou escolha um clássico gratuito.
+ab6cd1c6 Adicione reels com o botão + abaixo.
+a4f4a0c6 Adicione vídeos seus com o botão + abaixo.
+c80a1cbd Adicione áudios seus com o botão + abaixo.
+e892255d Nada aqui ainda

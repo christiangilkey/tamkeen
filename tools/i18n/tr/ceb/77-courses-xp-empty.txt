@@ -1,0 +1,12 @@
+2dc0c206 Humana ang usa ka leksiyon sa grammar: 40 hangtod 80 sa unang higayon, mas daghan kon mas daghan ang sakto nga tubag, ug 15 hangtod 30 kon balikon nimo (ang matag leksiyon mobayad kausa kada adlaw).
+b1691d36 I-tap ang usa ka pananglitan sa leksiyon sa grammar aron madungog kini: ikaupat sa bayad sa pagpangita og pulong, kausa kada adlaw sa matag pananglitan. Magpadayon usab niini ang imong combo.
+ce32fa95 Idugang sa imong mga card ang pulong gikan sa batakang kurso: {0} matag usa, parehas ra usa-usa man o tanan dungan, hangtod {1} ka pulong kada adlaw.
+4019c5e2 Pagdugang og mga podcast gamit ang + nga button sa ubos.
+d7bc5164 Pagdugang og mga YouTube video gamit ang + nga button sa ubos.
+71554151 Pagdugang og mga salida ug pelikula gikan sa Netflix gamit ang + nga button sa ubos.
+1f98e825 Pagdugang og mga webpage gamit ang + nga button sa ubos.
+9b2f4468 Pagdugang og libro gamit ang + nga button sa ubos, o pili og libre nga klasiko.
+ab6cd1c6 Pagdugang og mga reel gamit ang + nga button sa ubos.
+a4f4a0c6 Pagdugang og imong kaugalingong mga video gamit ang + nga button sa ubos.
+c80a1cbd Pagdugang og imong kaugalingong audio gamit ang + nga button sa ubos.
+e892255d Wala pay sulod dinhi

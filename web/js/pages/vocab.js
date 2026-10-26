@@ -577,13 +577,14 @@ export async function render(view) {
   function renderReview() {
     const banner = $("#review");
     banner.hidden = Boolean(st.q);
-    // No words yet (or none in the open folder): the box stays where it always is, with nothing to start.
+    // No words yet (or none in the open folder): the box stays where it always is, in its usual colour
+    // (the owner: "colored as if it did have words"), with nothing to start.
     const none = !reviewWords().length;
     banner.disabled = none;
     if (banner.hidden || none) {
       goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
-      banner.classList.add("idle");
+      banner.classList.remove("idle");
       banner.querySelector("strong").textContent = "Review";
       banner.querySelector(".rb-go").textContent = "";
       banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;
