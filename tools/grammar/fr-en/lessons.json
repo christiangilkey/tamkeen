@@ -5,7 +5,6 @@
   "variety": "anglais américain",
   "about": "De votre première conversation à l'anglais de tous les jours, une petite leçon à la fois. Chaque leçon vous donne quelque chose à dire tout de suite, puis la grammaire qui le fait marcher. Inutile de connaître la grammaire : chaque mot de grammaire est expliqué la première fois qu'on en a besoin. Tous les exemples sont en anglais américain, tel qu'on le parle aujourd'hui.",
   "reading": "",
-  "draft": true,
   "units": [
     {"n":1,"title":"Premières conversations"},
     {"n":2,"title":"Les choses et les gens autour de vous"},
@@ -130,7 +129,7 @@
         {"goal":{"t":"I'm 30 and I'm really hungry!","tr":"J'ai trente ans et j'ai vraiment faim !"}},
         {"dialog":[{"who":"Lucas","t":"Happy birthday, Emma! How old are you today?","tr":"Joyeux anniversaire, Emma ! Tu as quel âge aujourd'hui ?"},{"who":"Emma","t":"I'm 25!","tr":"J'ai 25 ans !"},{"who":"Lucas","t":"Here's your cake!","tr":"Voilà ton gâteau !"},{"who":"Emma","t":"Thank you! I'm so happy… and I'm really hungry!","tr":"Merci ! Je suis tellement contente… et j'ai vraiment faim !"}]},
         {"p":"**L'âge : avec {{be}}.** En français, on « a » 25 ans. En anglais, on « est » 25 ans : {{I'm 25.}} On peut ajouter {{years old}}, mais jamais {{years}} tout seul : {{I'm 25 years old.}} Pour demander : {{How old are you?}} « Quel âge avez-vous ? », mot à mot « comment vieux êtes-vous ? »."},
-        {"p":"**Faim, soif, froid… : avec {{be}}.** Presque tout ce que le français dit avec « avoir », l'anglais le dit avec {{be}} + un adjectif :"},
+        {"p":"**Faim, soif, froid… : avec {{be}}.** Beaucoup d'expressions françaises avec « avoir » se disent avec {{be}} + un adjectif :"},
         { "table": [
           ["français : j'ai…","anglais : {{I'm…}}"],
           ["faim","{{I'm hungry.}}"],
@@ -180,7 +179,7 @@
       "blocks": [
         {"goal":{"t":"Are you American? — No, I'm not. I'm Canadian.","tr":"Vous êtes américain ? — Non. Je suis canadien."}},
         {"dialog":[{"who":"The receptionist","t":"Good evening. Are you Mr. Martin?","tr":"Bonsoir. Vous êtes monsieur Martin ?"},{"who":"Paul","t":"Yes, I am.","tr":"Oui, c'est moi."},{"who":"The receptionist","t":"Is this your first time in New York?","tr":"C'est votre première fois à New York ?"},{"who":"Paul","t":"No, it isn't. I'm here every year for work.","tr":"Non. Je viens chaque année pour le travail."},{"who":"The receptionist","t":"Great! Your room is ready.","tr":"Très bien ! Votre chambre est prête."},{"who":"Paul","t":"Is breakfast included?","tr":"Le petit-déjeuner est compris ?"},{"who":"The receptionist","t":"Yes, it is.","tr":"Oui."}]},
-        {"p":"**Une question avec {{be}} : on inverse.** Avec {{be}}, on met le verbe avant le sujet, comme dans « Êtes-vous… ? » : {{You are French.}} → {{Are you French?}} {{It is far.}} → {{Is it far?}} Contrairement au français parlé, l'intonation seule ne suffit pas : on inverse toujours."},
+        {"p":"**Une question avec {{be}} : on inverse.** Avec {{be}}, on met le verbe avant le sujet, comme dans « Êtes-vous… ? » : {{You are French.}} → {{Are you French?}} {{It is far.}} → {{Is it far?}} Contrairement au français parlé, l'intonation seule ne suffit pas, sauf pour marquer la surprise : on inverse."},
         { "table": [
           ["affirmation","question"],
           ["{{You're tired.}}","{{Are you tired?}}"],
@@ -499,7 +498,7 @@
           ["{{they}}","{{they work}}","{{they live}}"]
         ] },
         {"p":"**Le {{-s}} de {{he}}, {{she}}, {{it}}.** Avec {{he}}, {{she}}, {{it}}, et avec tout ce qu'ils remplacent ({{my sister}}, {{Paul}}, {{the train}}), le verbe prend un {{-s}} : {{she works}}, {{Paul lives}}, {{the train leaves}}. C'est la faute la plus fréquente des francophones : pensez-y à chaque fois !"},
-        {"p":"**L'orthographe.** Après {{s, sh, ch, x, o}} : {{-es}} ({{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}). Consonne + {{y}} : {{-ies}} ({{study}} → {{studies}}). Un seul verbe irrégulier : {{have}} → {{has}}."},
+        {"p":"**L'orthographe.** Après {{s, sh, ch, x, o}} : {{-es}} ({{watch}} → {{watches}}, {{go}} → {{goes}}, {{do}} → {{does}}). Consonne + {{y}} : {{-ies}} ({{study}} → {{studies}}). Un seul irrégulier, à part {{be}} : {{have}} → {{has}}."},
         {"p":"**La prononciation.** Ce {{-s}} se prononce, comme au pluriel des noms (leçon 6) : « s » dans {{works}}, « z » dans {{lives}}, « iz » dans {{watches}}."},
         {"p":"**Quand l'employer ?** Pour ce qui est habituel ou toujours vrai : {{I work in a bank.}} {{The store opens at nine.}} Pour ce qui se passe en ce moment, l'anglais a une autre forme (leçon 17)."},
         { "ex": [
@@ -693,10 +692,10 @@
           ["affirmatif","{{some apples}}","{{some water}}"],
           ["question, négatif","{{any apples}}","{{any water}}"],
           ["combien ?","{{How many apples?}}","{{How much water?}}"],
-          ["beaucoup","{{many apples}}, {{a lot of apples}}","{{much water}}, {{a lot of water}}"]
+          ["beaucoup","{{a lot of apples}}, {{many apples}}","{{a lot of water}}, {{much water}}"]
         ] },
         {"p":"**Indénombrables : jamais de {{-s}}, jamais de {{a}}.** Certains noms qui se comptent en français ne se comptent pas en anglais : {{advice}} (un conseil), {{information}} (une information), {{news}} (une nouvelle), {{furniture}} (un meuble). On dit {{some advice}} ou {{a piece of advice}} « un conseil », jamais « an advice » ni « informations »."},
-        {"p":"**Une quantité : {{a … of}}.** {{a glass of water}}, {{a cup of coffee}}, {{a piece of cake}} « une part de gâteau », {{a bottle of wine}}, {{a slice of pizza}} « une part de pizza »."},
+        {"p":"**Une quantité : {{a … of}}.** {{a glass of water}}, {{a cup of coffee}}, {{a piece of cake}} « une part de gâteau », {{a bottle of wine}}, {{a slice of pizza}} « une part de pizza ». Pour « beaucoup », dites plutôt {{a lot of}} : {{much}} et {{many}} s'emploient surtout dans les questions et au négatif ({{I don't have much time.}})."},
         { "ex": [
           {"t":"Would you like some coffee?","tr":"Vous voulez du café ?"},
           {"t":"We don't have any milk.","tr":"Nous n'avons pas de lait."},
@@ -797,7 +796,7 @@
           ["7 h 15","{{seven fifteen}}, {{a quarter after seven}}"],
           ["7 h 30","{{seven thirty}}, {{half past seven}}"],
           ["7 h 45","{{seven forty-five}}, {{a quarter to eight}}"],
-          ["le matin, l'après-midi","{{7 a.m.}}, {{7 p.m.}}"],
+          ["7 h, 19 h","{{7 a.m.}}, {{7 p.m.}}"],
           ["midi, minuit","{{noon}}, {{midnight}}"]
         ] },
         {"p":"Les Américains n'utilisent pas l'heure sur 24 heures au quotidien : 19 h, c'est {{7 p.m.}} ({{p.m.}} = après midi, {{a.m.}} = avant midi)."},
@@ -981,12 +980,12 @@
       "unit": 3,
       "level": "A1",
       "title": "Parler de vos projets",
-      "summary": "Dire ce que vous allez faire ce soir, ce week-end ou l'an prochain : {{be going to}} + verbe, l'équivalent exact de « aller » + infinitif.",
+      "summary": "Dire ce que vous allez faire ce soir, ce week-end ou l'an prochain : {{be going to}} + verbe, l'équivalent de « aller » + infinitif.",
       "topic": "{{be going to}} + verbe ; questions et négatif ; {{tonight, tomorrow, next week}} ; {{gonna}} à l'oral",
       "blocks": [
         {"goal":{"t":"I'm going to visit my parents this weekend.","tr":"Je vais rendre visite à mes parents ce week-end."}},
         {"dialog":[{"who":"Sarah","t":"What are you going to do this summer?","tr":"Qu'est-ce que tu vas faire cet été ?"},{"who":"Hugo","t":"I'm going to travel in California. We're going to rent a car!","tr":"Je vais voyager en Californie. On va louer une voiture !"},{"who":"Sarah","t":"Awesome! How long are you going to stay?","tr":"Génial ! Tu vas rester combien de temps ?"},{"who":"Hugo","t":"Three weeks. And you?","tr":"Trois semaines. Et toi ?"},{"who":"Sarah","t":"I'm not going to travel. I'm going to work…","tr":"Je ne vais pas voyager. Je vais travailler…"}]},
-        {"p":"**Aller faire : {{be going to}}.** C'est l'équivalent exact de « je vais + infinitif » : {{be}} (leçon 2), puis {{going to}}, puis le verbe à la forme de base. {{I'm going to call my mother.}} « Je vais appeler ma mère. »"},
+        {"p":"**Aller faire : {{be going to}}.** C'est l'équivalent de « je vais + infinitif » : {{be}} (leçon 2), puis {{going to}}, puis le verbe à la forme de base. {{I'm going to call my mother.}} « Je vais appeler ma mère. »"},
         { "table": [
           ["français","anglais"],
           ["je vais manger","{{I'm going to eat.}}"],
@@ -1036,7 +1035,7 @@
         {"term":"prétérit","means":"le temps du passé pour une action terminée, à un moment passé : {{I worked yesterday}} « j'ai travaillé hier ». On l'appelle aussi « past simple »."},
         {"p":"**Le passé de tous les jours.** Pour raconter ce que vous avez fait, l'anglais emploie le prétérit. Pour les verbes réguliers, on ajoute {{-ed}} : {{work}} → {{worked}}. Une seule forme pour toutes les personnes : {{I worked}}, {{she worked}}, {{they worked}}. Pas d'auxiliaire comme « avoir » : {{I worked}}, c'est « j'ai travaillé » en un seul mot."},
         {"p":"**L'orthographe.** Verbe en {{-e}} : juste {{-d}} ({{live}} → {{lived}}). Consonne + {{y}} : {{-ied}} ({{study}} → {{studied}}). Une consonne finale après une voyelle courte double : {{stop}} → {{stopped}}, {{plan}} → {{planned}}."},
-        {"p":"**Trois façons de prononcer {{-ed}}.** Jamais « é » comme en français ! « t » après un son sourd ({{worked}}, {{stopped}}), « d » après un son sonore ({{played}}, {{lived}}), et « id », une syllabe de plus, seulement après {{t}} ou {{d}} ({{wanted}}, {{needed}})."},
+        {"p":"**Trois façons de prononcer {{-ed}}.** Jamais « é » comme en français ! « t » après les sons p, k, f, s, ch ({{worked}}, {{stopped}}, {{watched}}), « d » après les autres sons ({{played}}, {{lived}}), et « id », une syllabe de plus, seulement après {{t}} ou {{d}} ({{wanted}}, {{needed}})."},
         { "table": [
           ["son","exemples"],
           ["« t »","{{worked}}, {{watched}}, {{stopped}}, {{helped}}"],
@@ -1080,7 +1079,7 @@
         {"goal":{"t":"On Saturday, I went to the beach, and on Sunday, I saw a great movie.","tr":"Samedi, je suis allé à la plage, et dimanche, j'ai vu un super film."}},
         {"dialog":[{"who":"Emma","t":"So, how was your weekend?","tr":"Alors, ton week-end ?"},{"who":"Hugo","t":"Awesome! I took the train to Boston and met some friends.","tr":"Génial ! J'ai pris le train pour Boston et j'ai retrouvé des amis."},{"who":"Emma","t":"What did you do?","tr":"Qu'est-ce que vous avez fait ?"},{"who":"Hugo","t":"We ate lobster and went to a baseball game.","tr":"On a mangé du homard et on est allés voir un match de baseball."},{"who":"Emma","t":"Lucky you! I had a cold…","tr":"Veinard ! Moi, j'avais un rhume…"}]},
         {"term":"verbe irrégulier","means":"un verbe qui ne forme pas son passé avec {{-ed}} : {{go}} → {{went}}. Il faut l'apprendre par cœur."},
-        {"p":"**Les verbes les plus courants sont irréguliers.** Une centaine de verbes ont leur propre prétérit. Bonne nouvelle : comme les réguliers, une seule forme pour toutes les personnes ({{I went}}, {{she went}}). Voici ceux qui reviennent tout le temps :"},
+        {"p":"**Les verbes les plus courants sont irréguliers.** Plus d'une centaine de verbes ont leur propre prétérit. Bonne nouvelle : comme les réguliers, une seule forme pour toutes les personnes ({{I went}}, {{she went}}). Voici ceux qui reviennent tout le temps :"},
         { "table": [
           ["verbe","prétérit","exemple"],
           ["{{go}} aller","{{went}}","{{I went to Paris.}}"],
@@ -1389,7 +1388,7 @@
           ["plus … que","{{cheaper than}}","{{more expensive than}}"],
           ["le plus","{{the cheapest}}","{{the most expensive}}"]
         ] },
-        {"p":"**Le plus : {{the -est}}, {{the most}}.** {{the cheapest}} « le moins cher », {{the most beautiful}} « le plus beau ». Le « de » qui suit se dit {{in}} pour un lieu : {{the best restaurant in town}} « le meilleur restaurant de la ville »."},
+        {"p":"**Le plus : {{the -est}}, {{the most}}.** {{the cheapest}} « le moins cher », {{the most beautiful}} « le plus beau ». Le « de » qui suit se dit {{in}} pour un lieu : {{the best restaurant in town}} « le meilleur restaurant de la ville », et {{of}} sinon : {{the best day of my life}} « le plus beau jour de ma vie »."},
         {"p":"**Les irréguliers** : {{good}} → {{better}} → {{the best}} ; {{bad}} → {{worse}} → {{the worst}} ; {{far}} → {{farther}} → {{the farthest}}."},
         {"p":"**Moins, aussi.** {{less}} + adjectif veut dire « moins » ({{less expensive}}), mais on préfère souvent l'inverse : {{cheaper}}. « Aussi … que » se dit {{as … as}} : {{She's as tall as her mother.}} « Elle est aussi grande que sa mère. »"},
         { "ex": [
@@ -1967,7 +1966,7 @@
           {"t":"The bus that goes downtown is the number 5.","tr":"Le bus qui va au centre-ville, c'est le 5."},
           {"t":"She's the woman whose son is a pilot.","tr":"C'est la femme dont le fils est pilote."}
         ] },
-        {"tip":"« Ce que » se dit {{what}} : {{I don't understand what you're saying.}} « Je ne comprends pas ce que tu dis. » {{What I need is a vacation.}} « Ce dont j'ai besoin, ce sont des vacances. »"}
+        {"tip":"« Ce que » (ou « ce dont ») se dit {{what}} : {{I don't understand what you're saying.}} « Je ne comprends pas ce que tu dis. » {{What I need is a vacation.}} « Ce dont j'ai besoin, ce sont des vacances. »"}
       ],
       "mistakes": [
         {"wrong":"The man which lives here is French.","right":"The man who lives here is French.","tr":"L'homme qui habite ici est français.","why":"Pour une personne : {{who}} (ou {{that}}), jamais {{which}}."},
@@ -1979,7 +1978,7 @@
         {"type":"fill","q":"Choisissez le mot qui manque.","t":"This is the café ___ we met.","tr":"C'est le café où nous nous sommes rencontrés.","options":["where","which","who"],"answer":0,"why":"Un lieu : {{where}}."},
         {"type":"choice","q":"La façon la plus naturelle de dire « le film que j'ai vu » :","options":["{{the movie I saw}}","{{the movie what I saw}}","{{the movie I saw it}}"],"answer":0,"why":"Le « que » complément disparaît, et pas de pronom en double."},
         {"type":"fill","q":"Choisissez les mots qui manquent.","t":"Is this the jacket you ___ last week?","tr":"C'est la veste que tu as achetée la semaine dernière ?","options":["bought","have bought","buy"],"answer":0,"why":"{{last week}} : le prétérit.","from":"present-perfect-or-past"},
-        {"type":"dialogue","q":"À une fête, vous parlez des invités. Choisissez vos répliques.","from":"tell-a-story","lines":[{"who":"Your friend","t":"Did you see the guy who came with Sophie?","tr":"Tu as vu le garçon qui est venu avec Sophie ?"},{"options":["Yes! Is he the guy she met on vacation?","Yes! Is he the guy which she met him on vacation?"],"answer":0,"why":"Le « que » disparaît, et pas de {{him}} en double."},{"who":"Your friend","t":"Yes! He works at the hotel where they stayed.","tr":"Oui ! Il travaille à l'hôtel où ils ont logé."},{"options":["That's a story I love!","That's a story who I love!"],"answer":0,"why":"Une chose, complément : rien, ou {{that}}. Jamais {{who}}."},{"who":"Your friend","t":"Me too!","tr":"Moi aussi !"}]},
+        {"type":"dialogue","q":"À une fête, vous parlez des invités. Choisissez vos répliques.","from":"tell-a-story","lines":[{"who":"Your friend","t":"Did you see the guy who came with Sophie?","tr":"Tu as vu le gars qui est venu avec Sophie ?"},{"options":["Yes! Is he the guy she met on vacation?","Yes! Is he the guy which she met him on vacation?"],"answer":0,"why":"Le « que » disparaît, et pas de {{him}} en double."},{"who":"Your friend","t":"Yes! He works at the hotel where they stayed.","tr":"Oui ! Il travaille à l'hôtel où ils ont logé."},{"options":["That's a story I love!","That's a story who I love!"],"answer":0,"why":"Une chose, complément : rien, ou {{that}}. Jamais {{who}}."},{"who":"Your friend","t":"Me too!","tr":"Moi aussi !"}]},
         {"type":"order","q":"Remettez les mots dans l'ordre.","tr":"La femme qui habite à côté est médecin.","words":["The woman","who","lives","next door","is a doctor."]},
         {"type":"free","q":"À vous : décrivez trois choses avec {{who}}, {{that}} ou {{where}} : une personne que vous connaissez, un livre ou un film, et un lieu.","answers":[{"t":"I have a friend who lives in Japan. The last book I read was amazing. The town where I was born is very small.","tr":"J'ai un ami qui habite au Japon. Le dernier livre que j'ai lu était génial. La ville où je suis né est toute petite."},{"t":"My best friend is a woman who loves traveling. My favorite movie is a movie that makes me laugh. The café where I work is near the station.","tr":"Ma meilleure amie est une femme qui adore voyager. Mon film préféré est un film qui me fait rire. Le café où je travaille est près de la gare."}]}
       ]
@@ -2306,7 +2305,7 @@
           {"t":"We loved the movie. — So did we!","tr":"On a adoré le film. — Nous aussi !"},
           {"t":"It's a beautiful day, isn't it?","tr":"Il fait beau, hein ?"},
           {"t":"You're coming tonight, aren't you?","tr":"Tu viens ce soir, n'est-ce pas ?"},
-          {"t":"He doesn't speak French, does he?","tr":"Il ne parle pas français, si ?"}
+          {"t":"He doesn't speak French, does he?","tr":"Il ne parle pas français, c'est ça ?"}
         ] },
         {"tip":"Si le tag monte à la fin, c'est une vraie question ; s'il descend, on attend juste un « oui ». Et {{right?}} « hein ? » marche avec tout, à l'oral : {{You're French, right?}}"}
       ],

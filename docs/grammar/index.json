@@ -256,6 +256,22 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "fr-en": {
+   "file": "fr-en/course.json",
+   "from": "fr",
+   "to": "en",
+   "title": "Grammaire anglaise",
+   "variety": "anglais américain",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 297370,
+   "sha256": "a3a31ab0a3d7cdc3880fabe2362fa5c9bc59ef5654d1e0283779ae3f73eb4464"
   }
  }
 }
