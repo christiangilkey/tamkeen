@@ -1,6 +1,70 @@
 {
  "format": 1,
  "courses": {
+  "ar-en": {
+   "file": "ar-en/course.json",
+   "from": "ar",
+   "to": "en",
+   "title": "قواعد اللغة الإنجليزية",
+   "variety": "الإنجليزية الأمريكية",
+   "units": 9,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 375764,
+   "sha256": "e00b469ed1e1e79607dc3d97b8f613baf4c3185694541deed04838a58af1e3e9"
+  },
+  "ca-en": {
+   "file": "ca-en/course.json",
+   "from": "ca",
+   "to": "en",
+   "title": "Gramàtica anglesa",
+   "variety": "Anglès americà",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 252072,
+   "sha256": "90d149de0d26470103c5802eaad61e4a9a8a55a56d60784a0508f827f1e43b23"
+  },
+  "ceb-en": {
+   "file": "ceb-en/course.json",
+   "from": "ceb",
+   "to": "en",
+   "title": "Gramatika sa Iningles",
+   "variety": "American English",
+   "units": 9,
+   "lessons": 47,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 252538,
+   "sha256": "650a1511c344df159b923c6767582fc0bda31b1ee68bca1b487fff07161e6775"
+  },
+  "de-en": {
+   "file": "de-en/course.json",
+   "from": "de",
+   "to": "en",
+   "title": "Englische Grammatik",
+   "variety": "American English",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 277118,
+   "sha256": "8307e1dded7bec09f53affaa59abbe3c466fd528a7fd5d8a67c5d6c94160e088"
+  },
   "en-ar": {
    "file": "en-ar/course.json",
    "from": "en",
@@ -256,6 +320,198 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "es-en": {
+   "file": "es-en/course.json",
+   "from": "es",
+   "to": "en",
+   "title": "Gramática del inglés",
+   "variety": "inglés de Estados Unidos",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 286913,
+   "sha256": "38a09f78ca9e06aa89b0d304dd0139992bffda0d9b7c88b41c996dbf9eaa4893"
+  },
+  "fa-en": {
+   "file": "fa-en/course.json",
+   "from": "fa",
+   "to": "en",
+   "title": "دستور زبان انگلیسی",
+   "variety": "انگلیسی آمریکایی",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 324405,
+   "sha256": "e42a16b3e1b1c59a268cf1e3aeec44c1abe58f53fb39aa08232913d4cafb5f89"
+  },
+  "fr-en": {
+   "file": "fr-en/course.json",
+   "from": "fr",
+   "to": "en",
+   "title": "Grammaire anglaise",
+   "variety": "anglais américain",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 297071,
+   "sha256": "66681594cac717fdb02d38517e9df8b2850adaa4a0929d31f3306e0303040c55"
+  },
+  "hi-en": {
+   "file": "hi-en/course.json",
+   "from": "hi",
+   "to": "en",
+   "title": "अंग्रेज़ी व्याकरण",
+   "variety": "अमेरिकी अंग्रेज़ी (American English)",
+   "units": 8,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 375500,
+   "sha256": "38aac0402835aa25fdd1455e0209c929da7a3197af136365ffe421f848a5f423"
+  },
+  "it-en": {
+   "file": "it-en/course.json",
+   "from": "it",
+   "to": "en",
+   "title": "Grammatica inglese",
+   "variety": "Inglese americano",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 265079,
+   "sha256": "8f55afc8aeba966b8a79e8f75f983f0bfb068b58f35156df43658ff1e9ff5f26"
+  },
+  "ja-en": {
+   "file": "ja-en/course.json",
+   "from": "ja",
+   "to": "en",
+   "title": "英語の文法",
+   "variety": "アメリカ英語",
+   "units": 8,
+   "lessons": 45,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 279623,
+   "sha256": "7d9ee53e9948fa23b72c2feae904f0a7cec853ea23237ca68e962cb3a129dcff"
+  },
+  "ko-en": {
+   "file": "ko-en/course.json",
+   "from": "ko",
+   "to": "en",
+   "title": "영어 문법",
+   "variety": "미국 영어",
+   "units": 9,
+   "lessons": 46,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 265943,
+   "sha256": "1a2ad51d10d440af7a6cc079a55868183649a8b5683b5cf007bfaa87ede07c1f"
+  },
+  "pt-en": {
+   "file": "pt-en/course.json",
+   "from": "pt",
+   "to": "en",
+   "title": "Gramática do inglês",
+   "variety": "American English",
+   "units": 8,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 277333,
+   "sha256": "69ddb85aa0ecefcd6d874602b244528af8cf641febddb7d7acb1c70b3673369a"
+  },
+  "ru-en": {
+   "file": "ru-en/course.json",
+   "from": "ru",
+   "to": "en",
+   "title": "Грамматика английского языка",
+   "variety": "американский английский",
+   "units": 8,
+   "lessons": 49,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 334237,
+   "sha256": "38f1660f3cb82c05d237ab86afbe5e39e94b6d8b501cc176bde8af01609ec16b"
+  },
+  "th-en": {
+   "file": "th-en/course.json",
+   "from": "th",
+   "to": "en",
+   "title": "ไวยากรณ์ภาษาอังกฤษ",
+   "variety": "ภาษาอังกฤษแบบอเมริกัน",
+   "units": 8,
+   "lessons": 52,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 392047,
+   "sha256": "7280fb05ba6d6194a4841f61f4dc9aebcbe76a91743706b7c220697a732f150c"
+  },
+  "tl-en": {
+   "file": "tl-en/course.json",
+   "from": "tl",
+   "to": "en",
+   "title": "Gramatika ng Ingles",
+   "variety": "Ingles na Amerikano (American English)",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 269014,
+   "sha256": "cb464a401a14cd50968eea72c6e58ae83e7490b010b3a89f55fafb605ad62417"
+  },
+  "zh-en": {
+   "file": "zh-en/course.json",
+   "from": "zh",
+   "to": "en",
+   "title": "英语语法",
+   "variety": "美式英语",
+   "units": 9,
+   "lessons": 49,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 251785,
+   "sha256": "3f274ccd04da0db6cf2d63e8e61d2b4e1995bd7f774cc2ac0fbc20b72448d936"
   }
  }
 }

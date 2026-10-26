@@ -5,7 +5,6 @@
   "variety": "anglais américain",
   "about": "De votre première conversation à l'anglais de tous les jours, une petite leçon à la fois. Chaque leçon vous donne quelque chose à dire tout de suite, puis la grammaire qui le fait marcher. Inutile de connaître la grammaire : chaque mot de grammaire est expliqué la première fois qu'on en a besoin. Tous les exemples sont en anglais américain, tel qu'on le parle aujourd'hui.",
   "reading": "",
-  "draft": true,
   "units": [
     {"n":1,"title":"Premières conversations"},
     {"n":2,"title":"Les choses et les gens autour de vous"},
