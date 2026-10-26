@@ -256,6 +256,22 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "pt-en": {
+   "file": "pt-en/course.json",
+   "from": "pt",
+   "to": "en",
+   "title": "Gramática do inglês",
+   "variety": "American English",
+   "units": 8,
+   "lessons": 50,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 277345,
+   "sha256": "7a8035af19437170f7ff68d93d03a23b3cc5dd8a58a2a17f3775bc7ad2932a75"
   }
  }
 }

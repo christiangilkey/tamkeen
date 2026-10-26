@@ -1,7 +1,6 @@
 {
   "from": "pt",
   "to": "en",
-  "draft": true,
   "title": "Gramática do inglês",
   "variety": "American English",
   "about": "Da sua primeira conversa até o inglês do dia a dia, uma lição curta de cada vez. Cada lição começa com algo que você já pode dizer e depois mostra a gramática que faz isso funcionar. Você não precisa saber gramática: cada termo é explicado na primeira vez que aparece. Os exemplos são do inglês americano, do jeito que as pessoas falam, e as explicações comparam sempre com o português.",
@@ -123,7 +122,7 @@
       "topic": "{{be}} + adjetivo; a negativa com {{not}}; perguntas ({{Are you…?}}) e respostas curtas ({{Yes, I am}}); {{it}} como sujeito ({{It's cold}})",
       "blocks": [
         {"goal":{"t":"I'm fine, thanks. I'm just a little tired.","tr":"Estou bem, obrigado. Só um pouco cansado."}},
-        {"dialog":[{"who":"Kate","t":"Hi, Bruno! How are you?","tr":"Oi, Bruno! Tudo bem?"},{"who":"Bruno","t":"I'm good, thanks. And you?","tr":"Tudo bem, obrigado. E você?"},{"who":"Kate","t":"I'm OK. But I'm tired. It's late!","tr":"Estou bem. Mas estou cansada. É tarde!"},{"who":"Bruno","t":"Are you hungry?","tr":"Você está com fome?"},{"who":"Kate","t":"Yes, I am. Very!","tr":"Estou, sim. Muita!"},{"who":"Bruno","t":"Me too. Is the restaurant open?","tr":"Eu também. O restaurante está aberto?"},{"who":"Kate","t":"No, it isn't. It's closed on Mondays.","tr":"Não, não está. Fecha às segundas."}]},
+        {"dialog":[{"who":"Kate","t":"Hi, Bruno! How are you?","tr":"Oi, Bruno! Tudo bem?"},{"who":"Bruno","t":"I'm good, thanks. And you?","tr":"Tudo bem, obrigado. E você?"},{"who":"Kate","t":"I'm OK. But I'm tired. It's late!","tr":"Estou bem. Mas estou cansada. É tarde!"},{"who":"Bruno","t":"Are you hungry?","tr":"Você está com fome?"},{"who":"Kate","t":"Yes, I am. Very!","tr":"Estou, sim. Morrendo de fome!"},{"who":"Bruno","t":"Me too. Is the restaurant open?","tr":"Eu também. O restaurante está aberto?"},{"who":"Kate","t":"No, it isn't. It's closed on Mondays.","tr":"Não, não está. Fecha às segundas."}]},
         {"p":"**{{How are you?}}** É o “Tudo bem?” dos americanos. As respostas mais comuns: {{I'm good}}, {{I'm fine}}, {{I'm OK}}, {{Not bad}} “Nada mal”. E devolva a pergunta: {{And you?}} ou {{How about you?}}"},
         {"term":"adjetivo","means":"uma palavra que descreve uma pessoa ou uma coisa: cansado, feliz, grande, novo."},
         {"p":"**{{be}} + adjetivo.** Para dizer como você está, use {{be}} e um adjetivo: {{I'm tired}} “Estou cansado, cansada”, {{She's happy}}. O adjetivo em inglês nunca muda: {{tired}} serve para homem, mulher, uma pessoa ou várias."},
