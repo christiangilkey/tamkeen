@@ -37,7 +37,7 @@
           ["{{I}} 나, 저","{{am}}","{{I'm}}"],
           ["{{you}} 너, 당신","{{are}}","{{you're}}"]
         ] },
-        {"p":"**묻기.** “어디에서 왔어요?”는 {{Where are you from?}}이에요. 질문할 때는 {{are}}가 {{you}} 앞으로 와요. {{And you?}} “당신은요?”는 질문을 상대방에게 돌려주는 말이에요. 그리고 영어의 {{you}}는 한국어의 “당신”과 달리 누구에게나 써요. 선생님, 사장님, 처음 만난 사람에게도 {{you}}예요."},
+        {"p":"**묻기.** “어디에서 왔어요?”는 {{Where are you from?}}이에요. 질문할 때는 {{are}}가 {{you}} 앞으로 와요. {{And you?}}는 “민지 씨는요?”처럼 질문을 상대방에게 돌려주는 말이에요. 그리고 영어의 {{you}}는 한국어의 “당신”과 달리 누구에게나 써요. 선생님, 사장님, 처음 만난 사람에게도 {{you}}예요."},
         { "ex": [
           {"t":"I'm a student.","tr":"저는 학생이에요.","note":"직업 앞의 {{a}}는 2과에서 배워요"},
           {"t":"I'm from Seoul.","tr":"저는 서울에서 왔어요."},
@@ -144,7 +144,7 @@
           {"t":"She's busy today.","tr":"그녀는 오늘 바빠요."},
           {"t":"We're not ready.","tr":"우리는 아직 준비가 안 됐어요."},
           {"t":"I'm so happy!","tr":"너무 행복해요!"},
-          {"t":"I'm good, thanks. How are you?","tr":"잘 지내요, 고마워요. 당신은요?"}
+          {"t":"I'm good, thanks. How are you?","tr":"잘 지내요, 고마워요. 잘 지내세요?"}
         ] },
         {"tip":"형용사 앞에 {{so}} “너무, 정말”이나 {{a little}} “조금”을 붙일 수 있어요: {{I'm so tired.}}, {{I'm a little cold.}}"}
       ],
@@ -191,7 +191,7 @@
           {"t":"My sister's name is Yuna.","tr":"제 여동생 이름은 유나예요."},
           {"t":"His wife is a teacher.","tr":"그의 아내는 선생님이에요."},
           {"t":"I love them.","tr":"저는 그들을 사랑해요."},
-          {"t":"Is this your phone?","tr":"이거 당신 휴대폰이에요?"},
+          {"t":"Is this your phone?","tr":"이거 그쪽 휴대폰이에요?"},
           {"t":"That's Jake's car.","tr":"저건 제이크의 차예요."}
         ] },
         {"tip":"영어는 형제자매의 나이를 구별하지 않아요. 언니, 오빠, 누나, 형, 여동생, 남동생을 모두 {{sister}}나 {{brother}}라고 해요. 꼭 필요할 때만 {{older sister}}, {{younger brother}}라고 해요."}
@@ -227,7 +227,7 @@
           ["하나","{{this}} 이것","{{that}} 저것, 그것"],
           ["여러 개","{{these}} 이것들","{{those}} 저것들"]
         ] },
-        {"p":"**복수는 꼭 표시해요.** 한국어에서는 “신발”, “사과 세 개”처럼 “-들”을 안 붙여도 되지만, 영어에서는 둘 이상이면 명사 끝에 {{-s}}를 꼭 붙여요: {{a book}} → {{two books}}. {{s}}, {{sh}}, {{ch}}, {{x}}로 끝나면 {{-es}}: {{boxes}}, {{watches}}. 몇 개는 모양이 완전히 바뀌어요."},
+        {"p":"**복수는 꼭 표시해요.** 한국어에서는 “신발”, “사과 세 개”처럼 “-들”을 안 붙여도 되지만, 영어에서는 둘 이상이면 명사 끝에 {{-s}}를 꼭 붙여요: {{a book}} → {{two books}}. {{s}}, {{sh}}, {{ch}}, {{x}}로 끝나면 {{-es}}: {{boxes}}, {{watches}}. 자음 + {{y}}로 끝나면 {{y}}를 {{i}}로 바꾸고 {{-es}}: {{city}} → {{cities}}. 몇 개는 모양이 완전히 바뀌어요."},
         {"term":"복수","means":"둘 이상이라는 뜻이에요. 영어에서는 명사 끝에 보통 {{-s}}를 붙여요: {{cats}}."},
         { "table": [
           ["하나","여러 개"],
@@ -285,7 +285,7 @@
           ["괜찮아요.","{{It's OK.}}"]
         ] },
         {"p":"**묻기.** {{What time is it?}} “몇 시예요?”, {{How's the weather?}} “날씨 어때요?”, {{Is it far?}} “멀어요?” 대답할 때도 {{It's…}}로 시작해요."},
-        {"p":"**시간 말하기.** {{It's three.}} 또는 {{It's three o'clock.}} “세 시예요.” {{3:30}}은 “three thirty”라고 읽어요. 오전과 오후는 {{a.m.}}과 {{p.m.}}: {{It's 7 a.m.}}"},
+        {"p":"**시간 말하기.** {{It's three.}} 또는 {{It's three o'clock.}} “세 시예요.” {{3:30}}은 {{three thirty}}라고 읽어요. 오전과 오후는 {{a.m.}}과 {{p.m.}}: {{It's 7 a.m.}}"},
         { "ex": [
           {"t":"It's hot today.","tr":"오늘 더워요."},
           {"t":"It's raining.","tr":"비가 와요."},
@@ -804,7 +804,7 @@
           {"t":"Can I have some water?","tr":"물 좀 주실래요?"},
           {"t":"I have a few questions.","tr":"질문이 몇 개 있어요."}
         ] },
-        {"tip":"**가격 읽기.** {{$12.50}}은 “twelve fifty” 또는 “twelve dollars and fifty cents”라고 읽어요. 미국에서는 가격표에 세금이 빠져 있는 경우가 많아서 계산할 때 더 나올 수 있어요."}
+        {"tip":"**가격 읽기.** {{$12.50}}은 {{twelve fifty}} 또는 {{twelve dollars and fifty cents}}라고 읽어요. 미국에서는 가격표에 세금이 빠져 있는 경우가 많아서 계산할 때 더 나올 수 있어요."}
       ],
       "mistakes": [
         {"wrong":"How many money do you have?","right":"How much money do you have?","tr":"돈이 얼마나 있어요?","why":"{{money}}는 셀 수 없어서 {{How much}}예요."},
@@ -839,7 +839,7 @@
           ["{{in}}","월, 연도, 계절, 하루 중 때","{{in July}}, {{in 2025}}, {{in winter}}, {{in the morning}}"]
         ] },
         {"p":"**전치사가 없는 말.** {{today}}, {{tomorrow}}, {{yesterday}}, {{tonight}}, {{every day}}, {{next week}}, {{last year}} 앞에는 전치사를 쓰지 않아요: {{See you tomorrow!}}, {{I'm busy next week.}}"},
-        {"p":"**날짜 읽기.** 날짜는 순서를 나타내는 숫자로 읽어요: {{May 5th}}는 “May fifth”, {{October 3rd}}는 “October third”. {{1st}} first, {{2nd}} second, {{3rd}} third, 나머지는 대부분 {{-th}}예요: {{4th}}, {{20th}}."},
+        {"p":"**날짜 읽기.** 날짜는 순서를 나타내는 숫자로 읽어요: {{May 5th}}는 {{May fifth}}, {{October 3rd}}는 {{October third}}. {{1st}} {{first}}, {{2nd}} {{second}}, {{3rd}} {{third}}, 나머지는 대부분 {{-th}}예요: {{4th}}, {{20th}}."},
         { "ex": [
           {"t":"The class starts at nine.","tr":"수업은 아홉 시에 시작해요."},
           {"t":"I go to the gym on Tuesdays.","tr":"저는 화요일마다 헬스장에 가요.","note":"요일 + {{-s}}: “~요일마다”"},
@@ -920,11 +920,11 @@
       "topic": "현재진행형 {{am}}/{{is}}/{{are}} + {{-ing}}; 현재형과의 차이",
       "blocks": [
         {"goal":{"t":"I'm watching TV right now.","tr":"지금 TV 보고 있어요."}},
-        {"dialog":[{"who":"리암","t":"Hey, Jina! What are you doing?","tr":"안녕, 지나 씨! 뭐 하고 있어요?"},{"who":"지나","t":"I'm cooking dinner.","tr":"저녁 만들고 있어요."},{"who":"리암","t":"Oh, sorry! Are you busy?","tr":"아, 미안해요! 바빠요?"},{"who":"지나","t":"A little. My sister is helping me. We're making pasta.","tr":"조금요. 언니가 도와주고 있어요. 파스타를 만들고 있어요."},{"who":"리암","t":"OK. I'm studying at a café. Call me later!","tr":"알겠어요. 저는 카페에서 공부하고 있어요. 나중에 전화해요!"}]},
+        {"dialog":[{"who":"리암","t":"Hey, Jina! What are you doing?","tr":"지나 씨! 뭐 하고 있어요?"},{"who":"지나","t":"I'm cooking dinner.","tr":"저녁 만들고 있어요."},{"who":"리암","t":"Oh, sorry! Are you busy?","tr":"아, 미안해요! 바빠요?"},{"who":"지나","t":"A little. My sister is helping me. We're making pasta.","tr":"조금요. 언니가 도와주고 있어요. 파스타를 만들고 있어요."},{"who":"리암","t":"OK. I'm studying at a café. Call me later!","tr":"알겠어요. 저는 카페에서 공부하고 있어요. 나중에 전화해요!"}]},
         {"p":"**지금 하는 중: be동사 + {{-ing}}.** 말하는 지금 하고 있는 일은 be동사 + 동사{{-ing}}로 말해요: {{I'm eating.}} “먹고 있어요.”, {{She's sleeping.}} “자고 있어요.” 한국어 “~하고 있어요”와 비슷하지만, be동사를 빼먹기 쉬우니 조심하세요."},
         {"term":"현재진행형","means":"지금 이 순간 하고 있는 일을 말하는 모양이에요: {{am}}/{{is}}/{{are}} + 동사{{-ing}}. {{I'm reading.}}"},
         { "table": [
-          ["주어","be동사","동사-ing"],
+          ["주어","be동사","동사 + {{-ing}}"],
           ["{{I}}","{{am}}","{{working}}"],
           ["{{he}}, {{she}}, {{it}}","{{is}}","{{sleeping}}"],
           ["{{you}}, {{we}}, {{they}}","{{are}}","{{eating}}"]
@@ -958,7 +958,7 @@
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We're ___ for the bus.","tr":"우리는 버스를 기다리고 있어요.","options":["waiting","wait","waits"],"answer":0,"why":"be동사 다음에 {{-ing}}."},
         {"type":"choice","q":"처음 만난 사람의 직업을 물어볼 때 알맞은 질문은?","options":["{{What do you do?}}","{{What are you doing?}}"],"answer":0,"why":"직업, 늘 하는 일: 현재형 {{What do you do?}}"},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"지금 뭐 해요?","words":["What","are","you","doing?"]},
-        {"type":"dialogue","q":"친구가 전화했어요. 알맞은 대답을 고르세요.","from":"say-what-you-can-do","lines":[{"who":"친구","t":"Hi! What are you doing?","tr":"안녕! 뭐 하고 있어요?"},{"options":["I'm studying for a test.","I study for a test now."],"answer":0,"why":"지금 하는 일: 진행형."},{"who":"친구","t":"Can you talk now?","tr":"지금 통화할 수 있어요?"},{"options":["Sorry, I can't. Can I call you later?","Sorry, I don't can. Can I call you later?"],"answer":0,"why":"{{can}}의 부정은 {{can't}}."}]},
+        {"type":"dialogue","q":"친구가 전화했어요. 알맞은 대답을 고르세요.","from":"say-what-you-can-do","lines":[{"who":"친구","t":"Hi! What are you doing?","tr":"안녕하세요! 뭐 하고 있어요?"},{"options":["I'm studying for a test.","I study for a test now."],"answer":0,"why":"지금 하는 일: 진행형."},{"who":"친구","t":"Can you talk now?","tr":"지금 통화할 수 있어요?"},{"options":["Sorry, I can't. Can I call you later?","Sorry, I don't can. Can I call you later?"],"answer":0,"why":"{{can}}의 부정은 {{can't}}."}]},
         {"type":"free","q":"여러분 차례예요: 지금 무엇을 하고 있는지, 주변 사람들은 무엇을 하고 있는지 말해 보세요.","answers":[{"t":"I'm learning English on my phone. My sister is watching TV.","tr":"휴대폰으로 영어를 배우고 있어요. 여동생은 TV를 보고 있어요."},{"t":"I'm sitting at a café. People are drinking coffee and talking.","tr":"카페에 앉아 있어요. 사람들이 커피를 마시면서 이야기하고 있어요."}]}
       ]
     },
@@ -1157,9 +1157,9 @@
       "topic": "{{first}}, {{then}}, {{after that}}, {{finally}}; {{when}}; 과거진행형 {{was}} / {{were}} + {{-ing}}",
       "blocks": [
         {"goal":{"t":"I was taking a shower when you called.","tr":"전화했을 때 샤워하고 있었어요."}},
-        {"dialog":[{"who":"벤","t":"Why were you late this morning?","tr":"오늘 아침에 왜 늦었어요?"},{"who":"소라","t":"First, my alarm didn't go off. Then I missed the bus.","tr":"먼저 알람이 안 울렸어요. 그다음에 버스를 놓쳤어요."},{"who":"벤","t":"Oh no!","tr":"저런!"},{"who":"소라","t":"After that, I took a taxi. But it was raining, and the traffic was terrible.","tr":"그래서 택시를 탔어요. 그런데 비가 오고 있었고, 길이 엄청 막혔어요."},{"who":"벤","t":"And then?","tr":"그다음엔요?"},{"who":"소라","t":"When I was walking into the office, I dropped my coffee!","tr":"사무실에 들어가고 있을 때 커피를 떨어뜨렸어요!"}]},
+        {"dialog":[{"who":"벤","t":"Why were you late this morning?","tr":"오늘 아침에 왜 늦었어요?"},{"who":"소라","t":"First, my alarm didn't go off. Then I missed the bus.","tr":"먼저 알람이 안 울렸어요. 그다음에 버스를 놓쳤어요."},{"who":"벤","t":"Oh no!","tr":"저런!"},{"who":"소라","t":"After that, I took a taxi. But it was raining, and the traffic was terrible.","tr":"그 후에 택시를 탔어요. 그런데 비가 오고 있었고, 길이 엄청 막혔어요."},{"who":"벤","t":"And then?","tr":"그다음엔요?"},{"who":"소라","t":"When I was walking into the office, I dropped my coffee!","tr":"사무실에 들어가고 있을 때 커피를 떨어뜨렸어요!"}]},
         {"p":"**순서 말하기.** {{First}} “먼저”, {{Then}} “그다음에”, {{After that}} “그 후에”, {{Finally}} / {{In the end}} “마지막에, 결국”. 문장 맨 앞에 붙여요: {{First, I had breakfast. Then I went to work.}}"},
-        {"p":"**배경과 사건: 과거진행형.** 어떤 일이 **진행 중이었을 때** 다른 일이 **일어났다**고 할 때, 진행 중이던 일은 {{was}}/{{were}} + {{-ing}}, 갑자기 일어난 일은 과거형으로 말해요: {{I was cooking when you called.}} “당신이 전화했을 때 요리하고 있었어요.”"},
+        {"p":"**배경과 사건: 과거진행형.** 어떤 일이 **진행 중이었을 때** 다른 일이 **일어났다**고 할 때, 진행 중이던 일은 {{was}}/{{were}} + {{-ing}}, 갑자기 일어난 일은 과거형으로 말해요: {{I was cooking when you called.}} “전화 왔을 때 요리하고 있었어요.”"},
         {"term":"과거진행형","means":"과거의 어느 순간에 하고 있던 일이에요: {{was}}/{{were}} + 동사{{-ing}}. {{I was sleeping.}}"},
         { "table": [
           ["","예","뜻"],
@@ -1429,7 +1429,7 @@
       "blocks": [
         {"goal":{"t":"Seoul is bigger than Busan.","tr":"서울이 부산보다 커요."}},
         {"dialog":[{"who":"점원","t":"Can I help you?","tr":"도와드릴까요?"},{"who":"나리","t":"Yes. Which phone is better, this one or that one?","tr":"네. 이거랑 저거 중에 어느 휴대폰이 더 좋아요?"},{"who":"점원","t":"This one is newer, and the camera is better.","tr":"이게 더 최신이고, 카메라도 더 좋아요."},{"who":"나리","t":"Is it more expensive?","tr":"더 비싸요?"},{"who":"점원","t":"Yes, a little. But it's lighter and faster.","tr":"네, 조금요. 하지만 더 가볍고 빨라요."},{"who":"나리","t":"Hmm, the old one is cheaper. It's not as fast, but it's fine.","tr":"음, 예전 모델이 더 싸네요. 그만큼 빠르진 않지만 괜찮아요."}]},
-        {"p":"**짧은 형용사: {{-er}}.** 한 음절 형용사(그리고 {{-y}}로 끝나는 두 음절 형용사)는 끝에 {{-er}}을 붙여요: {{big}} → {{bigger}}, {{cheap}} → {{cheaper}}, {{easy}} → {{easier}}. 비교하는 대상 앞에는 {{than}} “~보다”를 써요: {{Seoul is bigger than Busan.}} 한국어와 순서가 달라요: “서울이 / 더 크다 / 부산보다”."},
+        {"p":"**짧은 형용사: {{-er}}.** 한 음절 형용사(그리고 {{-y}}로 끝나는 두 음절 형용사)는 끝에 {{-er}}을 붙여요: {{big}} → {{bigger}}, {{cheap}} → {{cheaper}}, {{easy}} → {{easier}}. 비교하는 대상 앞에는 {{than}} “~보다”를 써요: {{Seoul is bigger than Busan.}} 순서가 한국어와 달라요. 영어 순서대로 옮기면 “서울이 / 더 커요 / 부산보다”예요."},
         {"term":"비교급","means":"두 가지를 비교해서 “더 ~하다”라고 말하는 형용사 모양이에요: {{bigger}}, {{more expensive}}."},
         {"p":"**긴 형용사: {{more}}.** 두 음절 이상인 형용사는 앞에 {{more}}를 붙여요: {{more expensive}}, {{more interesting}}. 반대는 {{less}} “덜”: {{less expensive}}."},
         { "table": [
@@ -1449,7 +1449,7 @@
           {"t":"This movie is more interesting than the book.","tr":"이 영화가 책보다 더 재미있어요."},
           {"t":"I feel better today.","tr":"오늘은 몸이 좀 나아졌어요."},
           {"t":"Is English easier than Korean?","tr":"영어가 한국어보다 쉬워요?"},
-          {"t":"My room isn't as big as yours.","tr":"제 방은 당신 방만큼 크지 않아요."}
+          {"t":"My room isn't as big as Jisu's.","tr":"제 방은 지수 방만큼 크지 않아요."}
         ] },
         {"tip":"비교하는 대상이 이미 분명하면 {{than}} 이하는 빼도 돼요: {{This one is cheaper.}} “이게 더 싸요.” 그리고 {{one}}은 같은 명사를 반복하지 않으려고 써요: {{this one}}, {{that one}}, {{the old one}}."}
       ],
@@ -1525,12 +1525,12 @@
       "blocks": [
         {"goal":{"t":"He's tall and has short black hair.","tr":"그는 키가 크고 짧은 검은 머리예요."}},
         {"dialog":[{"who":"제시카","t":"Can you pick up my brother at the airport?","tr":"공항에 우리 오빠 좀 데리러 가 줄래요?"},{"who":"태양","t":"Sure. What does he look like?","tr":"그럼요. 어떻게 생겼어요?"},{"who":"제시카","t":"He's tall and thin. He has curly brown hair, and he wears glasses.","tr":"키가 크고 말랐어요. 갈색 곱슬머리이고, 안경을 써요."},{"who":"태양","t":"OK. Does he look like you?","tr":"알겠어요. 제시카 씨랑 닮았어요?"},{"who":"제시카","t":"A little. People say we have the same eyes.","tr":"조금요. 사람들이 우리 눈이 똑같대요."},{"who":"태양","t":"Got it. He looks friendly in this photo!","tr":"알겠어요. 이 사진에서 친절해 보이네요!"}]},
-        {"p":"**be냐 have냐.** 한국어 “그녀는 머리가 길어요”를 영어로 하려면 두 가지 방법이 있어요. 사람 전체를 말할 때는 be동사: {{He's tall.}}, {{She's young.}} 몸의 한 부분을 말할 때는 보통 {{have}}: {{She has long hair.}}, {{He has blue eyes.}} {{Her hair is long.}}도 맞지만, {{She has long hair.}}가 더 자연스러워요."},
+        {"p":"**{{be}}냐 {{have}}냐.** 한국어 “그녀는 머리가 길어요”를 영어로 하려면 두 가지 방법이 있어요. 사람 전체를 말할 때는 be동사: {{He's tall.}}, {{She's young.}} 몸의 한 부분을 말할 때는 보통 {{have}}: {{She has long hair.}}, {{He has blue eyes.}} {{Her hair is long.}}도 맞지만, {{She has long hair.}}가 더 자연스러워요."},
         { "table": [
           ["","예","한국어"],
-          ["be + 형용사","{{He's tall.}} / {{She's thin.}}","그는 키가 커요. / 그녀는 말랐어요."],
-          ["have + 형용사 + 명사","{{She has long hair.}} / {{He has a beard.}}","그녀는 머리가 길어요. / 그는 수염이 있어요."],
-          ["wear","{{He wears glasses.}}","그는 안경을 써요."]
+          ["{{be}} + 형용사","{{He's tall.}} / {{She's thin.}}","그는 키가 커요. / 그녀는 말랐어요."],
+          ["{{have}} + 형용사 + 명사","{{She has long hair.}} / {{He has a beard.}}","그녀는 머리가 길어요. / 그는 수염이 있어요."],
+          ["{{wear}}","{{He wears glasses.}}","그는 안경을 써요."]
         ] },
         {"p":"**형용사는 명사 앞에.** 형용사 여러 개를 쓸 때는 보통 “길이/크기 → 모양 → 색깔” 순서예요: {{long black hair}}, {{short curly hair}}. 한국어처럼 명사 앞에 와요."},
         {"p":"**~해 보여요: {{look}} + 형용사.** {{You look tired.}} “피곤해 보여요.”, {{She looks happy.}} “행복해 보여요.” 닮았다는 {{look like}} + 명사: {{You look like your mom.}} “엄마를 닮았네요.” 생김새를 물을 때는 {{What does he look like?}} “그는 어떻게 생겼어요?”"},
@@ -1636,7 +1636,7 @@
           {"t":"I've never been to Europe.","tr":"유럽에 한 번도 안 가 봤어요."},
           {"t":"She's tried bungee jumping.","tr":"그녀는 번지점프를 해 본 적이 있어요."},
           {"t":"Have you met my boyfriend?","tr":"제 남자 친구 만나 본 적 있어요?"},
-          {"t":"He's gone to Busan for the weekend.","tr":"그는 주말 동안 부산에 갔어요.","note":"지금 여기 없어요"}
+          {"t":"He's gone to Busan for the weekend.","tr":"그는 주말 동안 부산에 가 있어요.","note":"지금 여기 없어요"}
         ] },
         {"tip":"{{I've}}는 {{I have}}, {{She's}}는 {{She has}}의 줄임말이에요. {{She's}}는 {{She is}}일 수도 있어요: 뒤에 과거분사가 오면 {{has}}예요."}
       ],
@@ -1664,7 +1664,7 @@
       "topic": "현재완료 + {{for}} (기간) / {{since}} (시작점); {{How long have you…?}}",
       "blocks": [
         {"goal":{"t":"I've lived in Seoul for ten years.","tr":"서울에 산 지 10년 됐어요."}},
-        {"dialog":[{"who":"면접관","t":"How long have you lived in the U.S.?","tr":"미국에 사신 지 얼마나 됐어요?"},{"who":"선희","t":"I've lived here for three years.","tr":"3년 됐어요."},{"who":"면접관","t":"And how long have you worked at your company?","tr":"지금 회사에서는 얼마나 일하셨어요?"},{"who":"선희","t":"Since 2022. So, about two years.","tr":"2022년부터요. 그러니까 2년쯤이요."},{"who":"면접관","t":"Have you studied English for a long time?","tr":"영어는 오래 공부하셨어요?"},{"who":"선희","t":"Yes. I've studied English since middle school!","tr":"네. 중학교 때부터 영어를 공부했어요!"}]},
+        {"dialog":[{"who":"면접관","t":"How long have you lived in the U.S.?","tr":"미국에 사신 지 얼마나 됐어요?"},{"who":"선희","t":"I've lived here for three years.","tr":"3년 됐어요."},{"who":"면접관","t":"And how long have you worked at your company?","tr":"지금 회사에서는 얼마나 일하셨어요?"},{"who":"선희","t":"Since I graduated. So, about two years.","tr":"졸업하고 나서부터요. 그러니까 2년쯤이요."},{"who":"면접관","t":"Have you studied English for a long time?","tr":"영어는 오래 공부하셨어요?"},{"who":"선희","t":"Yes. I've studied English since middle school!","tr":"네. 중학교 때부터 영어를 공부해 왔어요!"}]},
         {"p":"**지금까지 계속: 현재완료.** 과거에 시작해서 **지금도** 계속되는 일은 현재완료로 말해요: {{I've lived in Seoul for ten years.}} 한국어는 “10년째 살고 있어요”처럼 현재형으로 말하니까, 한국 사람들은 {{I live in Seoul for ten years}}라고 하기 쉬워요. 하지만 영어에서는 틀린 문장이에요."},
         { "table": [
           ["한국어","틀린 영어","맞는 영어"],
@@ -1680,12 +1680,12 @@
         ] },
         {"p":"**얼마나 오래? {{How long have you…?}}** {{How long have you known her?}} “그녀를 안 지 얼마나 됐어요?” be동사는 {{been}}을 써요: {{How long have you been in Korea?}} “한국에 온 지 얼마나 됐어요?” → {{I've been here for six months.}}"},
         { "ex": [
-          {"t":"I've known Jisu since college.","tr":"지수는 대학 때부터 알았어요."},
+          {"t":"I've known Jisu since college.","tr":"지수는 대학 때부터 알고 지냈어요."},
           {"t":"We've been married for five years.","tr":"우리는 결혼한 지 5년 됐어요."},
           {"t":"How long have you been in Korea?","tr":"한국에 온 지 얼마나 됐어요?"},
-          {"t":"She's worked here since March.","tr":"그녀는 3월부터 여기서 일했어요."},
+          {"t":"She's worked here since March.","tr":"그녀는 3월부터 여기서 일하고 있어요."},
           {"t":"I haven't seen him for a long time.","tr":"그를 오랫동안 못 봤어요."},
-          {"t":"It's been raining since this morning.","tr":"아침부터 계속 비가 와요.","note":"{{have been}} + {{-ing}}: 지금까지 계속 진행 중인 일 (알아 두기)"}
+          {"t":"It's been raining since this morning.","tr":"아침부터 계속 비가 와요.","note":"알아 두기: {{have been}} + {{-ing}}는 지금까지 계속 진행 중인 일이에요"}
         ] },
         {"tip":"{{How long are you here?}}는 “여기 얼마나 있을 거예요?”(앞으로)라는 뜻에 가까워요. 지금까지를 물을 때는 {{How long have you been here?}}예요."}
       ],
@@ -1696,12 +1696,12 @@
       ],
       "practice": [
         {"type":"choice","q":"“서울에 산 지 5년 됐어요.”","options":["{{I've lived in Seoul for five years.}}","{{I live in Seoul for five years.}}","{{I'm living in Seoul since five years.}}"],"answer":0,"why":"지금까지 계속: 현재완료 + {{for}}."},
-        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I've known her ___ 2015.","tr":"2015년부터 그녀를 알았어요.","options":["since","for","from"],"answer":0,"why":"시작점: {{since}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I've known her ___ 2015.","tr":"2015년부터 그녀를 알고 지냈어요.","options":["since","for","from"],"answer":0,"why":"시작점: {{since}}."},
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"We've been married ___ ten years.","tr":"결혼한 지 10년 됐어요.","options":["for","since","during"],"answer":0,"why":"기간: {{for}}."},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"한국에 온 지 얼마나 됐어요?","words":["How","long","have","you","been","in","Korea?"]},
         {"type":"dialogue","q":"새 동료와 이야기해요. 알맞은 대답을 고르세요.","from":"talk-about-experiences","lines":[{"who":"동료","t":"How long have you worked here?","tr":"여기서 일한 지 얼마나 됐어요?"},{"options":["I've worked here for three years.","I work here for three years."],"answer":0,"why":"지금까지 계속: 현재완료."},{"who":"동료","t":"Have you ever worked abroad?","tr":"해외에서 일해 본 적 있어요?"},{"options":["No, I haven't. But I'd like to.","No, I didn't have. But I'd like to."],"answer":0,"why":"{{Have you…?}}에는 {{I haven't}}로 대답해요."}]},
         {"type":"say","q":"“그를 오랫동안 못 봤어요.”","answer":"I haven't seen him for a long time."},
-        {"type":"free","q":"여러분 차례예요: 지금 사는 곳에 얼마나 살았는지, 영어를 언제부터 공부했는지 말해 보세요.","answers":[{"t":"I've lived in Incheon for seven years. I've studied English since elementary school.","tr":"인천에 산 지 7년 됐어요. 초등학교 때부터 영어를 공부했어요."},{"t":"I've lived in this apartment since 2021. I've known my best friend for twenty years.","tr":"2021년부터 이 아파트에 살았어요. 제일 친한 친구와는 안 지 20년 됐어요."}]}
+        {"type":"free","q":"여러분 차례예요: 지금 사는 곳에 얼마나 살았는지, 영어를 언제부터 공부했는지 말해 보세요.","answers":[{"t":"I've lived in Incheon for seven years. I've studied English since elementary school.","tr":"인천에 산 지 7년 됐어요. 초등학교 때부터 영어를 공부해 왔어요."},{"t":"I've lived in this apartment since 2021. I've known my best friend for twenty years.","tr":"2021년부터 이 아파트에 살고 있어요. 제일 친한 친구와는 안 지 20년 됐어요."}]}
       ]
     },
     {
@@ -1820,7 +1820,7 @@
           {"t":"Call me as soon as you arrive.","tr":"도착하자마자 전화해요."},
           {"t":"If it's sunny tomorrow, let's go to the beach.","tr":"내일 맑으면 해변에 가요."}
         ] },
-        {"tip":"{{unless}}는 “~하지 않으면”이에요: {{I'll go unless it rains.}} “비가 안 오면 갈 거예요.” 알아 두면 뉴스나 안내문에서 자주 보여요."}
+        {"tip":"{{unless}}는 “~하지 않으면”이에요: {{I'll go unless it rains.}} “비가 안 오면 갈 거예요.” 안내문이나 뉴스에서 자주 보이니까 알아 두세요."}
       ],
       "mistakes": [
         {"wrong":"If it will rain, I'll stay home.","right":"If it rains, I'll stay home.","tr":"비가 오면 집에 있을 거예요.","why":"{{if}} 뒤에는 미래라도 현재형이에요."},
@@ -1833,7 +1833,7 @@
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I'll call you when I ___ home.","tr":"집에 도착하면 전화할게요.","options":["get","will get","got"],"answer":0,"why":"{{when}} 뒤도 현재형."},
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"If we don't hurry, we ___ miss the bus.","tr":"서두르지 않으면 버스를 놓칠 거예요.","options":["will","are","do"],"answer":0,"why":"결과: {{will}} + 동사."},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"늦으면 택시를 탈 거예요.","words":["If","I'm","late,","I'll","take","a","taxi."]},
-        {"type":"dialogue","q":"친구와 소풍 계획을 세워요. 알맞은 말을 고르세요.","from":"make-plans-together","lines":[{"who":"친구","t":"Let's have a picnic on Saturday.","tr":"토요일에 소풍 가요."},{"options":["Sounds good! But if it rains, let's go to a café.","Sounds good! But if it will rain, let's go to a café."],"answer":0,"why":"{{if}} 뒤는 현재형."},{"who":"친구","t":"OK. I'll bring sandwiches if you bring drinks.","tr":"좋아요. 음료를 가져오면 제가 샌드위치를 가져갈게요."},{"options":["Deal! I'll text you when I leave home.","Deal! I'll text you when I will leave home."],"answer":0,"why":"{{when}} 뒤도 현재형."}]},
+        {"type":"dialogue","q":"친구와 소풍 계획을 세워요. 알맞은 말을 고르세요.","from":"make-plans-together","lines":[{"who":"친구","t":"Let's have a picnic on Saturday.","tr":"토요일에 소풍 가요."},{"options":["Sounds good! But if it rains, let's go to a café.","Sounds good! But if it will rain, let's go to a café."],"answer":0,"why":"{{if}} 뒤는 현재형."},{"who":"친구","t":"OK. I'll bring sandwiches if you bring drinks.","tr":"좋아요. 음료를 가져와 주면 제가 샌드위치를 가져갈게요."},{"options":["Deal! I'll text you when I leave home.","Deal! I'll text you when I will leave home."],"answer":0,"why":"{{when}} 뒤도 현재형."}]},
         {"type":"free","q":"여러분 차례예요: 이번 주말 날씨에 따라 무엇을 할지 {{If…, I'll…}}로 두 가지 말해 보세요.","answers":[{"t":"If it's sunny, I'll go cycling by the river. If it rains, I'll stay home and watch movies.","tr":"날씨가 맑으면 강가에서 자전거를 탈 거예요. 비가 오면 집에서 영화를 볼 거예요."},{"t":"If the weather is nice, I'll have a picnic with my friends. If it's cold, I'll go to a café.","tr":"날씨가 좋으면 친구들과 소풍을 갈 거예요. 추우면 카페에 갈 거예요."}]}
       ]
     },
@@ -1924,8 +1924,8 @@
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"Did you ___ to play the piano?","tr":"예전에 피아노 쳤어요?","options":["use","used","using"],"answer":0,"why":"{{did}} 다음: {{use to}}."},
         {"type":"choice","q":"“매운 음식에 익숙해요.”","options":["{{I'm used to spicy food.}}","{{I used to spicy food.}}"],"answer":0,"why":"익숙하다: be동사 + {{used to}} + 명사."},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"예전엔 매일 축구를 했어요.","words":["I","used","to","play","soccer","every","day."]},
-        {"type":"dialogue","q":"친구가 고향에 대해 물어요. 알맞은 대답을 고르세요.","from":"choose-past-or-perfect","lines":[{"who":"친구","t":"Have you always lived in Seoul?","tr":"항상 서울에 살았어요?"},{"options":["No. I used to live in Gwangju.","No. I'm used to live in Gwangju."],"answer":0,"why":"예전에 살았던 곳: {{used to}}."},{"who":"친구","t":"When did you move?","tr":"언제 이사했어요?"},{"options":["I moved here five years ago.","I've moved here five years ago."],"answer":0,"why":"{{ago}}: 끝난 때라서 과거형."}]},
-        {"type":"free","q":"여러분 차례예요: 어렸을 때 하던 일 두 가지와, 예전엔 안 했지만 지금은 하는 일 하나를 말해 보세요.","answers":[{"t":"I used to play outside every day. I used to collect stickers. I didn't use to like reading, but now I read every night.","tr":"예전엔 매일 밖에서 놀았어요. 스티커를 모았어요. 예전엔 책 읽는 걸 안 좋아했는데, 지금은 매일 밤 읽어요."},{"t":"I used to watch cartoons every morning. I didn't use to drink coffee, but now I love it.","tr":"예전엔 매일 아침 만화를 봤어요. 예전엔 커피를 안 마셨는데, 지금은 정말 좋아해요."}]}
+        {"type":"dialogue","q":"친구가 고향에 대해 물어요. 알맞은 대답을 고르세요.","from":"choose-past-or-perfect","lines":[{"who":"친구","t":"Have you always lived in Seoul?","tr":"계속 서울에 살았어요?"},{"options":["No. I used to live in Gwangju.","No. I'm used to live in Gwangju."],"answer":0,"why":"예전에 살았던 곳: {{used to}}."},{"who":"친구","t":"When did you move?","tr":"언제 이사했어요?"},{"options":["I moved here five years ago.","I've moved here five years ago."],"answer":0,"why":"{{ago}}: 끝난 때라서 과거형."}]},
+        {"type":"free","q":"여러분 차례예요: 어렸을 때 하던 일 두 가지와, 예전엔 안 했지만 지금은 하는 일 하나를 말해 보세요.","answers":[{"t":"I used to play outside every day. I used to collect stickers. I didn't use to like reading, but now I read every night.","tr":"예전엔 매일 밖에서 놀았어요. 스티커도 모았어요. 예전엔 책 읽는 걸 안 좋아했는데, 지금은 매일 밤 읽어요."},{"t":"I used to watch cartoons every morning. I didn't use to drink coffee, but now I love it.","tr":"예전엔 매일 아침 만화를 봤어요. 예전엔 커피를 안 마셨는데, 지금은 정말 좋아해요."}]}
       ]
     },
     {
@@ -1937,7 +1937,7 @@
       "topic": "구동사 (동사 + {{up}}, {{off}}, {{on}}, {{out}}, {{for}}…); 목적어의 위치 ({{turn it off}})",
       "blocks": [
         {"goal":{"t":"Can you turn off the lights?","tr":"불 좀 꺼 줄래요?"}},
-        {"dialog":[{"who":"메건","t":"Wake up! It's 7:30!","tr":"일어나요! 7시 반이에요!"},{"who":"혜진","t":"Ugh. I'm getting up. Can you turn on the light?","tr":"으. 일어나고 있어요. 불 좀 켜 줄래요?"},{"who":"메건","t":"Sure. What are you looking for?","tr":"그래요. 뭐 찾아요?"},{"who":"혜진","t":"My phone. Oh, here it is. Can you pick me up after work?","tr":"휴대폰이요. 아, 여기 있네요. 퇴근하고 저 좀 데리러 와 줄래요?"},{"who":"메건","t":"OK. Don't forget to turn off the heater!","tr":"좋아요. 히터 끄는 거 잊지 마요!"},{"who":"혜진","t":"I'll turn it off now.","tr":"지금 끌게요."}]},
+        {"dialog":[{"who":"메건","t":"Wake up! It's 7:30!","tr":"일어나요! 7시 반이에요!"},{"who":"혜진","t":"Ugh. I'm getting up. Can you turn on the light?","tr":"으. 지금 일어나요. 불 좀 켜 줄래요?"},{"who":"메건","t":"Sure. What are you looking for?","tr":"그래요. 뭐 찾아요?"},{"who":"혜진","t":"My phone. Oh, here it is. Can you pick me up after work?","tr":"휴대폰이요. 아, 여기 있네요. 퇴근하고 저 좀 데리러 와 줄래요?"},{"who":"메건","t":"OK. Don't forget to turn off the heater!","tr":"좋아요. 히터 끄는 거 잊지 마요!"},{"who":"혜진","t":"I'll turn it off now.","tr":"지금 끌게요."}]},
         {"p":"**동사 + 짧은 말 = 새로운 뜻.** 영어에는 동사에 {{up}}, {{off}}, {{on}}, {{out}}, {{for}} 같은 짧은 말이 붙어서 새로운 뜻이 되는 표현이 아주 많아요. 이것을 **구동사**라고 해요. 원어민은 어려운 단어 대신 구동사를 훨씬 많이 써요: {{continue}}보다 {{go on}}, {{discover}}보다 {{find out}}."},
         {"term":"구동사","means":"동사와 {{up}}, {{off}}, {{on}}, {{out}} 같은 짧은 말이 합쳐져 하나의 뜻이 된 표현이에요: {{get up}} “일어나다”, {{turn off}} “끄다”."},
         { "table": [
@@ -1986,7 +1986,7 @@
       "topic": "{{enjoy}}, {{finish}}, {{stop}}, {{mind}}, {{keep}} + {{-ing}}; {{want}}, {{decide}}, {{plan}}, {{hope}}, {{need}} + {{to}}; {{like}}, {{love}}, {{start}}은 둘 다",
       "blocks": [
         {"goal":{"t":"I enjoy cooking, but I hate doing the dishes.","tr":"요리하는 건 즐기지만, 설거지하는 건 싫어요."}},
-        {"dialog":[{"who":"브라이언","t":"What do you enjoy doing on weekends?","tr":"주말에 뭐 하는 걸 좋아해요?"},{"who":"소희","t":"I enjoy hiking. I've decided to climb Hallasan this year!","tr":"등산을 즐겨요. 올해 한라산에 오르기로 했어요!"},{"who":"브라이언","t":"Wow. I want to try hiking too, but I hate getting up early.","tr":"와. 저도 등산해 보고 싶은데, 일찍 일어나는 게 싫어요."},{"who":"소희","t":"You should start going with me. It's fun!","tr":"저랑 같이 다니기 시작해요. 재밌어요!"},{"who":"브라이언","t":"OK, I'll think about it. Do you mind waiting for me if I'm slow?","tr":"좋아요, 생각해 볼게요. 제가 느려도 기다려 줄 수 있어요?"},{"who":"소희","t":"Not at all!","tr":"그럼요!"}]},
+        {"dialog":[{"who":"브라이언","t":"What do you enjoy doing on weekends?","tr":"주말에 뭐 하는 걸 좋아해요?"},{"who":"소희","t":"I enjoy hiking. I've decided to climb Hallasan this year!","tr":"등산을 즐겨요. 올해 한라산에 오르기로 했어요!"},{"who":"브라이언","t":"Wow. I want to try hiking too, but I hate getting up early.","tr":"와. 저도 등산해 보고 싶은데, 일찍 일어나는 게 싫어요."},{"who":"소희","t":"You should start going with me. It's fun!","tr":"저랑 같이 다녀 봐요. 재밌어요!"},{"who":"브라이언","t":"OK, I'll think about it. Do you mind waiting for me if I'm slow?","tr":"좋아요, 생각해 볼게요. 제가 느려도 기다려 줄 수 있어요?"},{"who":"소희","t":"Not at all!","tr":"그럼요!"}]},
         {"p":"**동사 뒤의 동사.** “~하는 것을 즐기다”, “~하기로 결정하다”처럼 동사 뒤에 또 동사가 올 때, 영어는 두 번째 동사를 {{-ing}}나 {{to}} + 동사 중 하나로 써요. 어느 쪽인지는 앞에 오는 동사가 정해요."},
         {"term":"동명사","means":"동사에 {{-ing}}를 붙여 “~하는 것”이라는 명사처럼 쓰는 모양이에요: {{swimming}} “수영하는 것”."},
         { "table": [
@@ -2021,7 +2021,7 @@
         {"type":"choice","q":"{{Do you mind closing the door?}}에 “네, 닫아 드릴게요”라고 대답하려면?","options":["{{No, not at all.}}","{{Yes, I do.}}"],"answer":0,"why":"{{mind}}는 “꺼리다”라서, 괜찮으면 {{No}}예요. {{Yes, I do}}는 “네, 싫어요”가 돼요!"},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"정크푸드 먹는 걸 그만두고 싶어요.","words":["I","want","to","stop","eating","junk","food."]},
         {"type":"dialogue","q":"친구가 기타에 대해 물어요. 알맞은 대답을 고르세요.","from":"talk-about-old-habits","lines":[{"who":"친구","t":"Do you still play the guitar?","tr":"아직도 기타 쳐요?"},{"options":["No, I stopped playing last year.","No, I stopped to play last year."],"answer":0,"why":"그만둔 일: {{stop}} + {{-ing}}. ({{stopped to play}}는 “치려고 멈췄다”예요.)"},{"who":"친구","t":"That's too bad. You used to be so good!","tr":"아쉽네요. 예전에 정말 잘 쳤잖아요!"},{"options":["I know. I want to start again soon.","I know. I want starting again soon."],"answer":0,"why":"{{want}} + {{to}} + 동사."}]},
-        {"type":"free","q":"여러분 차례예요: 즐겨 하는 일 하나, 그만두고 싶은 일 하나, 올해 하기로 한 일 하나를 말해 보세요.","answers":[{"t":"I enjoy watching documentaries. I want to stop staying up late. I've decided to run a marathon this year.","tr":"다큐멘터리 보는 걸 즐겨요. 늦게까지 안 자는 걸 그만두고 싶어요. 올해 마라톤을 뛰기로 했어요."},{"t":"I enjoy baking bread. I want to stop checking my phone so often. I've decided to learn Spanish.","tr":"빵 굽는 걸 즐겨요. 휴대폰을 너무 자주 보는 걸 그만두고 싶어요. 스페인어를 배우기로 했어요."}]}
+        {"type":"free","q":"여러분 차례예요: 즐겨 하는 일 하나, 그만두고 싶은 일 하나, 올해 하기로 한 일 하나를 말해 보세요.","answers":[{"t":"I enjoy watching documentaries. I want to stop staying up late. I've decided to run a marathon this year.","tr":"다큐멘터리 보는 걸 즐겨요. 늦게 자는 걸 그만두고 싶어요. 올해 마라톤을 뛰기로 했어요."},{"t":"I enjoy baking bread. I want to stop checking my phone so often. I've decided to learn Spanish.","tr":"빵 굽는 걸 즐겨요. 휴대폰을 너무 자주 보는 걸 그만두고 싶어요. 스페인어를 배우기로 했어요."}]}
       ]
     },
     {
@@ -2033,7 +2033,7 @@
       "topic": "가정법 {{If}} + 과거형, {{would}} + 동사; {{If I were you…}}; {{I wish}} + 과거형",
       "blocks": [
         {"goal":{"t":"If I had more time, I would travel the world.","tr":"시간이 더 있다면 세계 여행을 할 텐데요."}},
-        {"dialog":[{"who":"리암","t":"What would you do if you won the lottery?","tr":"복권에 당첨되면 뭐 할 거예요?"},{"who":"예린","t":"I'd quit my job and travel around the world! What about you?","tr":"회사를 그만두고 세계 여행을 할 거예요! 리암은요?"},{"who":"리암","t":"I'd buy a house for my parents.","tr":"저는 부모님께 집을 사 드릴 거예요."},{"who":"예린","t":"That's so sweet. I wish I had that much money!","tr":"정말 착하네요. 저도 그렇게 돈이 많으면 좋겠어요!"},{"who":"리암","t":"Me too. If I were you, I'd buy a ticket today!","tr":"저도요. 제가 예린 씨라면 오늘 복권을 살 거예요!"}]},
+        {"dialog":[{"who":"리암","t":"What would you do if you won the lottery?","tr":"복권에 당첨된다면 뭐 할 거예요?"},{"who":"예린","t":"I'd quit my job and travel around the world! What about you?","tr":"회사를 그만두고 세계 여행을 할 거예요! 리암은요?"},{"who":"리암","t":"I'd buy a house for my parents.","tr":"저는 부모님께 집을 사 드릴 거예요."},{"who":"예린","t":"That's so sweet. I wish I had that much money!","tr":"정말 착하네요. 저도 그렇게 돈이 많으면 좋겠어요!"},{"who":"리암","t":"Me too. If I were you, I'd buy a ticket today!","tr":"저도요. 제가 예린 씨라면 오늘 복권을 살 거예요!"}]},
         {"p":"**지금 사실이 아닌 상상.** 39과의 {{If it rains…}}는 실제로 일어날 수 있는 일이에요. 지금 사실이 아니거나 일어날 가능성이 낮은 일을 상상할 때는 {{if}} + **과거형**, 그리고 {{would}} + 동사를 써요: {{If I had a car, I would drive to work.}} “차가 있다면 차로 출근할 텐데요” (실제로는 차가 없어요). 모양은 과거형이지만 뜻은 **지금**이에요."},
         {"term":"가정법","means":"지금 사실이 아닌 일을 상상해서 말하는 방법이에요: {{If I were rich, I'd buy a house.}} “내가 부자라면 집을 살 텐데.”"},
         { "table": [
@@ -2041,13 +2041,13 @@
           ["일어날 수 있는 일 (39과)","{{If I have time,}}","{{I'll call you.}}","시간이 있으면 전화할게요."],
           ["상상","{{If I had time,}}","{{I'd call you.}}","시간이 있다면 전화할 텐데요 (지금은 없어요)."]
         ] },
-        {"p":"**{{If I were you…}}** 상상할 때 be동사는 주어가 무엇이든 {{were}}를 써요: {{If I were rich…}} 특히 {{If I were you, I'd…}} “제가 당신이라면 ~할 거예요”는 조언할 때 아주 많이 써요. ({{If I was…}}도 대화에서는 흔히 들려요.)"},
+        {"p":"**{{If I were you…}}** 상상할 때 be동사는 주어가 무엇이든 {{were}}를 써요: {{If I were rich…}} 특히 {{If I were you, I'd…}} “저라면 ~할 거예요”는 조언할 때 아주 많이 써요. ({{If I was…}}도 대화에서는 흔히 들려요.)"},
         {"p":"**바람: {{I wish}} + 과거형.** 지금과 다르기를 바랄 때 써요: {{I wish I had a dog.}} “개가 있으면 좋겠어요” (지금은 없어요). {{I wish I could speak French.}} “프랑스어를 할 수 있으면 좋겠어요.” {{would}}는 줄여서 {{I'd}}, 부정은 {{wouldn't}}예요."},
         { "ex": [
           {"t":"If I were rich, I'd buy an island.","tr":"제가 부자라면 섬을 살 텐데요."},
-          {"t":"If you lived closer, we could meet more often.","tr":"당신이 더 가까이 산다면 더 자주 만날 수 있을 텐데요."},
-          {"t":"What would you do if you were me?","tr":"당신이 저라면 어떻게 하겠어요?"},
-          {"t":"If I were you, I'd talk to her.","tr":"제가 당신이라면 그녀와 이야기해 볼 거예요."},
+          {"t":"If you lived closer, we could meet more often.","tr":"더 가까이 산다면 더 자주 만날 수 있을 텐데요."},
+          {"t":"What would you do if you were me?","tr":"제 입장이라면 어떻게 하겠어요?"},
+          {"t":"If I were you, I'd talk to her.","tr":"저라면 그녀와 이야기해 볼 거예요."},
           {"t":"I wish I could fly.","tr":"날 수 있으면 좋겠어요."},
           {"t":"I wish it were Friday.","tr":"금요일이면 좋겠어요."}
         ] },
@@ -2059,13 +2059,13 @@
         {"wrong":"I wish I have a car.","right":"I wish I had a car.","tr":"차가 있으면 좋겠어요.","why":"{{I wish}} 뒤에는 과거형이에요."}
       ],
       "practice": [
-        {"type":"choice","q":"“제가 당신이라면 병원에 가겠어요.”","options":["{{If I were you, I'd see a doctor.}}","{{If I am you, I'll see a doctor.}}","{{If I would be you, I see a doctor.}}"],"answer":0,"why":"상상: {{If I were you, I'd…}}"},
+        {"type":"choice","q":"“저라면 병원에 가 보겠어요.”","options":["{{If I were you, I'd see a doctor.}}","{{If I am you, I'll see a doctor.}}","{{If I would be you, I see a doctor.}}"],"answer":0,"why":"상상: {{If I were you, I'd…}}"},
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"If I ___ more money, I'd buy a new car.","tr":"돈이 더 있다면 새 차를 살 텐데요.","options":["had","have","would have"],"answer":0,"why":"상상: {{if}} + 과거형."},
         {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"I wish I ___ speak Chinese.","tr":"중국어를 할 수 있으면 좋겠어요.","options":["could","can","will"],"answer":0,"why":"{{I wish}} + 과거형: {{could}}."},
-        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"What ___ you do if you won the lottery?","tr":"복권에 당첨되면 뭐 할 거예요?","options":["would","will","did"],"answer":0,"why":"상상의 결과: {{would}}."},
+        {"type":"fill","q":"빈칸에 알맞은 말을 고르세요.","t":"What ___ you do if you won the lottery?","tr":"복권에 당첨된다면 뭐 할 거예요?","options":["would","will","did"],"answer":0,"why":"상상의 결과: {{would}}."},
         {"type":"order","q":"단어를 순서대로 놓으세요.","tr":"제가 부자라면 섬을 살 텐데요.","words":["If","I","were","rich,","I'd","buy","an","island."]},
         {"type":"dialogue","q":"친구가 고민을 털어놓아요. 알맞은 말을 고르세요.","from":"say-what-will-happen-if","lines":[{"who":"친구","t":"I'm so stressed. My boss gives me too much work.","tr":"스트레스가 너무 많아요. 상사가 일을 너무 많이 줘요."},{"options":["If I were you, I'd talk to him.","If I am you, I talk to him."],"answer":0,"why":"조언: {{If I were you, I'd…}}"},{"who":"친구","t":"Maybe. But if I talk to him, he'll get angry.","tr":"그럴까요. 하지만 이야기하면 화낼 거예요."},{"options":["I wish I could help you.","I wish I can help you."],"answer":0,"why":"{{I wish}} 뒤는 과거형: {{could}}."}]},
-        {"type":"free","q":"여러분 차례예요: 복권에 당첨된다면 무엇을 할지, 그리고 지금 바라는 것 하나를 {{I wish}}로 말해 보세요.","answers":[{"t":"If I won the lottery, I'd buy a house by the sea. I wish I had more free time.","tr":"복권에 당첨되면 바닷가에 집을 살 거예요. 자유 시간이 더 있으면 좋겠어요."},{"t":"If I were rich, I'd help my parents. I wish I could play the piano.","tr":"제가 부자라면 부모님을 도와 드릴 거예요. 피아노를 칠 수 있으면 좋겠어요."}]}
+        {"type":"free","q":"여러분 차례예요: 복권에 당첨된다면 무엇을 할지, 그리고 지금 바라는 것 하나를 {{I wish}}로 말해 보세요.","answers":[{"t":"If I won the lottery, I'd buy a house by the sea. I wish I had more free time.","tr":"복권에 당첨된다면 바닷가에 집을 살 거예요. 자유 시간이 더 있으면 좋겠어요."},{"t":"If I were rich, I'd help my parents. I wish I could play the piano.","tr":"제가 부자라면 부모님을 도와 드릴 거예요. 피아노를 칠 수 있으면 좋겠어요."}]}
       ]
     },
     {
@@ -2077,7 +2077,7 @@
       "topic": "{{said (that)}}, {{told me (that)}}; 시제를 한 단계 뒤로 ({{is}} → {{was}}); {{asked if}}; {{told me to}}",
       "blocks": [
         {"goal":{"t":"Minsu said he couldn't come tomorrow.","tr":"민수가 내일 못 온다고 했어요."}},
-        {"dialog":[{"who":"케빈","t":"What did the manager say?","tr":"매니저가 뭐라고 했어요?"},{"who":"은지","t":"She said the meeting was moved to Friday.","tr":"회의가 금요일로 바뀌었다고 했어요."},{"who":"케빈","t":"Oh. Did she say anything else?","tr":"아. 다른 말은 없었어요?"},{"who":"은지","t":"She told us to finish the report by Thursday.","tr":"목요일까지 보고서를 끝내라고 했어요."},{"who":"케빈","t":"OK. And Jason asked if you were free for lunch.","tr":"알겠어요. 그리고 제이슨이 점심 같이 할 수 있냐고 물어봤어요."},{"who":"은지","t":"Tell him I'll meet him at noon.","tr":"정오에 만나자고 전해 줘요."}]},
+        {"dialog":[{"who":"케빈","t":"What did the manager say?","tr":"매니저가 뭐라고 했어요?"},{"who":"은지","t":"She said the meeting was on Friday.","tr":"회의가 금요일이라고 했어요."},{"who":"케빈","t":"Oh. Did she say anything else?","tr":"아. 다른 말은 없었어요?"},{"who":"은지","t":"She told us to finish the report by Thursday.","tr":"목요일까지 보고서를 끝내라고 했어요."},{"who":"케빈","t":"OK. And Jason asked if you were free for lunch.","tr":"알겠어요. 그리고 제이슨이 점심 같이 할 수 있냐고 물어봤어요."},{"who":"은지","t":"Tell him I'll meet him at noon.","tr":"정오에 만나자고 전해 줘요."}]},
         {"p":"**들은 말 전하기.** 다른 사람의 말을 전할 때는 {{said}} “말했다”나 {{told}} + 사람 “~에게 말했다”를 써요: {{He said (that) he was tired.}}, {{She told me (that) she was busy.}} {{that}}은 생략해도 돼요. {{say}}는 사람 없이, {{tell}}은 꼭 사람과 함께 써요: {{She told me…}} ({{She said me…}}라고 하지 않아요.)"},
         {"term":"간접화법","means":"다른 사람의 말을 그대로 옮기지 않고 내 말로 바꿔 전하는 방법이에요: {{She said she was busy.}} “그녀가 바쁘다고 했어요.”"},
         {"p":"**시제를 한 단계 뒤로.** {{said}}가 과거니까, 전하는 말도 보통 한 단계 과거로 옮겨요. 한국어 “-다고 했어요”는 시제가 그대로지만, 영어는 달라요."},
