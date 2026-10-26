@@ -1,6 +1,22 @@
 {
  "format": 1,
  "courses": {
+  "de-en": {
+   "file": "de-en/course.json",
+   "from": "de",
+   "to": "en",
+   "title": "Englische Grammatik",
+   "variety": "American English",
+   "units": 9,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 277118,
+   "sha256": "8307e1dded7bec09f53affaa59abbe3c466fd528a7fd5d8a67c5d6c94160e088"
+  },
   "en-ar": {
    "file": "en-ar/course.json",
    "from": "en",
