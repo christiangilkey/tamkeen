@@ -71,15 +71,15 @@
    "variety": "American English",
    "words": 1000,
    "planned": 1000,
-   "bytes": 368794,
+   "bytes": 359686,
    "audio_bytes": 10924244,
-   "sha256": "4babd2e88211dc18257e10c7bf68084d1639a79570aa2904b0ab9a3f89d2496c",
+   "sha256": "ee3fbe620e6d74b1af6dd9622890a11cddd4b3aab52782273bf6d3d79fba2f4b",
    "voice": {
     "engine": "azure",
     "name": "Jenny (Azure, United States)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "es": {
    "file": "es/course.json",
