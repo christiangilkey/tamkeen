@@ -16,6 +16,7 @@ import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
+import { offerFix } from "../components/fixit.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -382,11 +383,11 @@ export async function render(view) {
     let st;
     try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
     if (!st || !st.me.username) {
-      toast("Connect and choose a username first.", { action: { label: "Settings", run: () => (location.hash = "#/settings?s=account&show=friends") } });
+      offerFix("friends");  // (the fix popup: Settings → Friends & sharing)
       return;
     }
     if (!st.friends.length) {
-      toast("Add a friend first.", { action: { label: "Friends", run: () => (location.hash = "#/friends") } });
+      offerFix("nofriends");  // (the fix popup: the Friends page)
       return;
     }
     const what = folderName ? `the folder “${folderName}” (${words.length} words)` : `${words.length} word${words.length === 1 ? "" : "s"}`;

@@ -1,0 +1,49 @@
+8f857a22 No s'ha trobat cap micròfon. Connecta'n un i torna-ho a provar.
+73c4ad14 Ara el micròfon està permès. Torna-ho a provar.
+52c732e3 El micròfon continua bloquejat.
+174bac74 Això necessita la teva pròpia clau d'IA: afegeix-ne una a Configuració → Definicions de paraules.
+730531ca Afegeix una clau
+4ba8cd34 La teva clau d'IA no funciona
+1ebab0b0 El teu proveïdor d'IA ha rebutjat la clau, segurament perquè ha caducat: enganxa'n una de nova a Configuració → Definicions de paraules.
+89a0c3d4 Arregla la clau
+6cde8409 La IA està desactivada
+71affd5d Això necessita les explicacions amb IA, que estan desactivades: activa-les a Configuració → Definicions de paraules.
+bdeb03f5 Activa la IA
+d8f66732 No es reconeix el model d'IA
+46e978fb El teu proveïdor d'IA no coneix el model triat: tria el recomanat a Configuració → Definicions de paraules.
+8dad5424 La teva clau d'Azure no funciona
+55c9af95 Azure no ha acceptat la teva clau o la seva regió: torna a copiar la clau 1 i la seva regió a Configuració → Veus de les targetes.
+69410da6 No hi ha cap veu per a aquesta llengua
+8eb520cc Tria una veu per a les targetes
+42cd08f4 La teva clau de transcripció no funciona
+d9ba9a50 El servei de transcripció ha rebutjat la clau, segurament perquè ha caducat: enganxa'n una de nova a Configuració → Escolta i transcripcions.
+555339ef La transcripció al núvol està desactivada
+828223e8 Això necessita la transcripció al núvol: activa-la a Configuració → Escolta i transcripcions.
+cc4d3c36 Activa-la
+3c04b9a1 Inicia la sessió a Google Drive
+047cca15 Això necessita que iniciïs la sessió amb Google: torna a iniciar-la a Configuració → Compte i sincronització.
+75dce38d Inicia la sessió per sincronitzar
+b80f7cd2 Google dona a l'app web una hora cada vegada: torna a connectar per continuar sincronitzant.
+dea7d75f Connecta't a Amics
+6787d096 Per compartir cal un compte d'Amics: connecta't amb Google i tria un nom d'usuari a Configuració → Compte i sincronització.
+b65463cb Connecta
+b0c493dd Primer afegeix un amic
+1a66b0e7 Encara no hi ha ningú a qui enviar-ho: afegeix un amic a la pàgina Amics.
+2fd354c9 Busca amics
+18fae3d6 Tria una llengua per aprendre
+ece01668 Tamkeen ha de saber quina llengua aprens: tria-la a Configuració → Llengües.
+456a836f Tria una llengua
+c7f10c79 Això necessita l'app Tamkeen
+23af15e5 Tamkeen necessita el micròfon per sentir-te: prem Permet i després accepta quan t'ho preguntin.
+b3b6b85a Tamkeen no ha pogut fer servir el micròfon: prem Torna-ho a provar i accepta si t'ho pregunten.
+c95a149c El micròfon està desactivat per a Tamkeen: obre'n la configuració, després Permisos → Micròfon, i tria Permet.
+b09e425f El micròfon està desactivat per a Tamkeen: obre Configuració i activa Micròfon.
+5c568d1d El navegador ha bloquejat el micròfon per a Tamkeen: fes clic a la icona del cadenat o de configuració al costat de l'adreça web, permet el micròfon i prem Torna-ho a provar.
+34373ee4 Windows no deixa que Tamkeen faci servir el micròfon: a la configuració de Windows, activa l'accés al micròfon per a les aplicacions d'escriptori i torna-ho a provar.
+c1e7e74d macOS no deixa que Tamkeen faci servir el micròfon: a Configuració del Sistema → Privadesa i seguretat → Micròfon, activa Tamkeen i torna-ho a provar.
+945d20e6 Permet el micròfon
+d5a9015c Obre la configuració de Windows
+4e135625 Obre Configuració del Sistema
+dc0d9626 Obre la configuració de Tamkeen
+31f9f942 Obre la configuració de veu
+2bb0f2f1 Primer inicia la sessió amb Google (Configuració → Compte i sincronització).

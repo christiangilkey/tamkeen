@@ -1,0 +1,49 @@
+8f857a22 Aucun micro n'a été trouvé. Branchez-en un, puis réessayez.
+73c4ad14 Le micro est autorisé maintenant. Réessayez.
+52c732e3 Le micro est toujours bloqué.
+174bac74 Il faut pour cela votre propre clé d'IA : ajoutez-en une dans Réglages → Définitions des mots.
+730531ca Ajouter une clé
+4ba8cd34 Votre clé d'IA ne fonctionne pas
+1ebab0b0 Votre fournisseur d'IA a refusé la clé, très probablement parce qu'elle a expiré : collez-en une nouvelle dans Réglages → Définitions des mots.
+89a0c3d4 Réparer la clé
+6cde8409 L'IA est désactivée
+71affd5d Il faut pour cela les explications par IA, qui sont désactivées : activez-les dans Réglages → Définitions des mots.
+bdeb03f5 Activer l'IA
+d8f66732 Le modèle d'IA n'est pas reconnu
+46e978fb Votre fournisseur d'IA ne connaît pas le modèle choisi : choisissez le modèle recommandé dans Réglages → Définitions des mots.
+8dad5424 Votre clé Azure ne fonctionne pas
+55c9af95 Azure n'a pas accepté votre clé ou sa région : recopiez la clé 1 et sa région dans Réglages → Voix des cartes.
+69410da6 Aucune voix pour cette langue
+8eb520cc Choisir une voix pour les cartes
+42cd08f4 Votre clé de transcription ne fonctionne pas
+d9ba9a50 Le service de transcription a refusé la clé, très probablement parce qu'elle a expiré : collez-en une nouvelle dans Réglages → Écoute et transcriptions.
+555339ef La transcription dans le cloud est désactivée
+828223e8 Il faut pour cela la transcription dans le cloud : activez-la dans Réglages → Écoute et transcriptions.
+cc4d3c36 L'activer
+3c04b9a1 Connectez-vous à Google Drive
+047cca15 Il faut pour cela votre connexion Google : reconnectez-vous dans Réglages → Compte et synchronisation.
+75dce38d Connectez-vous pour synchroniser
+b80f7cd2 Google donne à l'application web une heure à la fois : reconnectez-vous pour continuer à synchroniser.
+dea7d75f Se connecter à Amis
+6787d096 Pour partager, il faut un compte Amis : connectez-vous avec Google et choisissez un nom d'utilisateur dans Réglages → Compte et synchronisation.
+b65463cb Se connecter
+b0c493dd Ajoutez d'abord un ami
+1a66b0e7 Il n'y a encore personne à qui l'envoyer : ajoutez un ami sur la page Amis.
+2fd354c9 Trouver des amis
+18fae3d6 Choisissez une langue à apprendre
+ece01668 Tamkeen doit savoir quelle langue vous apprenez : choisissez-la dans Réglages → Langues.
+456a836f Choisir une langue
+c7f10c79 Il faut pour cela l'application Tamkeen
+23af15e5 Tamkeen a besoin du micro pour vous entendre : appuyez sur Autoriser, puis acceptez quand on vous le demande.
+b3b6b85a Tamkeen n'a pas pu utiliser le micro : appuyez sur Réessayer, et acceptez si on vous le demande.
+c95a149c Le micro est désactivé pour Tamkeen : ouvrez ses réglages, puis Autorisations → Micro, et choisissez Autoriser.
+b09e425f Le micro est désactivé pour Tamkeen : ouvrez Réglages et activez Micro.
+5c568d1d Votre navigateur a bloqué le micro pour Tamkeen : cliquez sur l'icône du cadenas ou des réglages à côté de l'adresse web, autorisez le micro, puis appuyez sur Réessayer.
+34373ee4 Windows empêche Tamkeen d'utiliser le micro : dans les paramètres de Windows, autorisez les applications de bureau à accéder au micro, puis réessayez.
+c1e7e74d macOS empêche Tamkeen d'utiliser le micro : dans Réglages Système → Confidentialité et sécurité → Micro, activez Tamkeen, puis réessayez.
+945d20e6 Autoriser le micro
+d5a9015c Ouvrir les paramètres de Windows
+4e135625 Ouvrir Réglages Système
+dc0d9626 Ouvrir les réglages de Tamkeen
+31f9f942 Ouvrir les réglages de voix
+2bb0f2f1 Connectez-vous d'abord avec Google (Réglages → Compte et synchronisation).

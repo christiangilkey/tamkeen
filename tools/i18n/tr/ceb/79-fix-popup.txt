@@ -1,0 +1,49 @@
+8f857a22 Walay nakit-ang mikropono. Ikabit ang usa, dayon sulayi pag-usab.
+73c4ad14 Gitugotan na ang mikropono. Sulayi pag-usab.
+52c732e3 Naka-block gihapon ang mikropono.
+174bac74 Kinahanglan dinhi ang imong kaugalingong AI key: pagdugang og usa sa Settings → Kahulogan sa pulong.
+730531ca Pagdugang og key
+4ba8cd34 Dili mogana ang imong AI key
+1ebab0b0 Gibalibaran sa imong AI provider ang key, lagmit kay na-expire na kini: i-paste ang bag-o sa Settings → Kahulogan sa pulong.
+89a0c3d4 Ayoha ang key
+6cde8409 Naka-off ang AI
+71affd5d Kinahanglan dinhi ang mga pagpatin-aw sa AI, nga naka-off: i-on kini sa Settings → Kahulogan sa pulong.
+bdeb03f5 I-on ang AI
+d8f66732 Wala mailhi ang AI model
+46e978fb Wala mailhi sa imong AI provider ang napiling model: pilia ang girekomenda sa Settings → Kahulogan sa pulong.
+8dad5424 Dili mogana ang imong Azure key
+55c9af95 Wala dawata sa Azure ang imong key o ang region niini: kopyaha pag-usab ang Key 1 ug ang region niini ngadto sa Settings → Mga tingog sa card.
+69410da6 Walay tingog para niining pinulongana
+8eb520cc Pili og tingog para sa card
+42cd08f4 Dili mogana ang imong transcription key
+d9ba9a50 Gibalibaran sa transcription service ang key, lagmit kay na-expire na kini: i-paste ang bag-o sa Settings → Pagpaminaw ug mga transcript.
+555339ef Naka-off ang cloud nga transcript
+828223e8 Kinahanglan dinhi ang cloud nga transcript: i-on kini sa Settings → Pagpaminaw ug mga transcript.
+cc4d3c36 I-on kini
+3c04b9a1 Mag-sign in sa Google Drive
+047cca15 Kinahanglan dinhi ang imong pag-sign in sa Google: mag-sign in pag-usab sa Settings → Account ug sync.
+75dce38d Mag-sign in aron mag-sync
+b80f7cd2 Usa ra ka oras matag higayon ang ihatag sa Google sa web app: i-connect pag-usab aron magpadayon ang pag-sync.
+dea7d75f Mag-connect sa Mga higala
+6787d096 Kinahanglan og Friends account aron makapaambit: mag-connect gamit ang Google ug pili og username sa Settings → Account ug sync.
+b65463cb Mag-connect
+b0c493dd Pagdugang una og higala
+1a66b0e7 Wala pa kay mapadad-an niini: pagdugang og higala sa panid sa Mga higala.
+2fd354c9 Pangitag mga higala
+18fae3d6 Pili og pinulongan nga tun-an
+ece01668 Kinahanglang mahibaloan sa Tamkeen kung unsang pinulongan ang imong gitun-an: pilia kini sa Settings → Mga pinulongan.
+456a836f Pili og pinulongan
+c7f10c79 Kinahanglan dinhi ang Tamkeen app
+23af15e5 Kinahanglan sa Tamkeen ang mikropono aron madungog ka: pindota ang Tugoti, dayon mouyon kung pangutan-on ka.
+b3b6b85a Dili magamit sa Tamkeen ang mikropono: pindota ang Sulayi pag-usab, ug mouyon kung pangutan-on ka.
+c95a149c Naka-off ang mikropono para sa Tamkeen: ablihi ang settings niini, dayon Mga Permiso → Mikropono, ug pilia ang Tugoti.
+b09e425f Naka-off ang mikropono para sa Tamkeen: ablihi ang Settings ug i-on ang Microphone.
+5c568d1d Gi-block sa imong browser ang mikropono para sa Tamkeen: i-click ang icon nga kandado o settings tupad sa web address, tugoti ang mikropono, dayon pindota ang Sulayi pag-usab.
+34373ee4 Gipugngan sa Windows ang Tamkeen sa paggamit sa mikropono: sa Windows settings, i-on ang access sa mikropono para sa mga desktop app, dayon sulayi pag-usab.
+c1e7e74d Gipugngan sa macOS ang Tamkeen sa paggamit sa mikropono: sa System Settings → Privacy & Security → Microphone, i-on ang Tamkeen, dayon sulayi pag-usab.
+945d20e6 Tugoti ang mikropono
+d5a9015c Ablihi ang Windows settings
+4e135625 Ablihi ang System Settings
+dc0d9626 Ablihi ang settings sa Tamkeen
+31f9f942 Ablihi ang settings sa tingog
+2bb0f2f1 Mag-sign in una gamit ang Google (Settings → Account ug sync).

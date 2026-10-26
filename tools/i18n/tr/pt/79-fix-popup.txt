@@ -1,0 +1,49 @@
+8f857a22 Nenhum microfone foi encontrado. Conecte um e tente de novo.
+73c4ad14 O microfone já está permitido. Tente de novo.
+52c732e3 O microfone continua bloqueado.
+174bac74 Isso precisa da sua própria chave de IA: adicione uma em Configurações → Definições de palavras.
+730531ca Adicionar uma chave
+4ba8cd34 Sua chave de IA não está funcionando
+1ebab0b0 Seu provedor de IA recusou a chave, provavelmente porque ela expirou: cole uma nova em Configurações → Definições de palavras.
+89a0c3d4 Corrigir a chave
+6cde8409 A IA está desativada
+71affd5d Isso precisa das explicações com IA, que estão desativadas: ative-as em Configurações → Definições de palavras.
+bdeb03f5 Ativar a IA
+d8f66732 O modelo de IA não foi reconhecido
+46e978fb Seu provedor de IA não conhece o modelo escolhido: escolha o recomendado em Configurações → Definições de palavras.
+8dad5424 Sua chave do Azure não está funcionando
+55c9af95 O Azure não aceitou sua chave ou a região dela: copie de novo a chave 1 e a região dela em Configurações → Vozes dos cartões.
+69410da6 Não há voz para este idioma
+8eb520cc Escolher uma voz para os cartões
+42cd08f4 Sua chave de transcrição não está funcionando
+d9ba9a50 O serviço de transcrição recusou a chave, provavelmente porque ela expirou: cole uma nova em Configurações → Escuta e transcrições.
+555339ef A transcrição na nuvem está desativada
+828223e8 Isso precisa da transcrição na nuvem: ative-a em Configurações → Escuta e transcrições.
+cc4d3c36 Ativar
+3c04b9a1 Entre no Google Drive
+047cca15 Isso precisa que você entre com o Google: entre de novo em Configurações → Conta e sincronização.
+75dce38d Entre para sincronizar
+b80f7cd2 O Google dá ao app web uma hora por vez: reconecte para continuar sincronizando.
+dea7d75f Conectar aos Amigos
+6787d096 Para compartilhar é preciso uma conta de Amigos: conecte-se com o Google e escolha um nome de usuário em Configurações → Conta e sincronização.
+b65463cb Conectar
+b0c493dd Adicione um amigo primeiro
+1a66b0e7 Ainda não há ninguém para quem enviar isso: adicione um amigo na página Amigos.
+2fd354c9 Encontrar amigos
+18fae3d6 Escolha um idioma para aprender
+ece01668 O Tamkeen precisa saber qual idioma você está aprendendo: escolha-o em Configurações → Idiomas.
+456a836f Escolher um idioma
+c7f10c79 Isso precisa do app Tamkeen
+23af15e5 O Tamkeen precisa do microfone para ouvir você: toque em Permitir e depois aceite quando perguntarem.
+b3b6b85a O Tamkeen não conseguiu usar o microfone: toque em Tentar de novo e aceite se perguntarem.
+c95a149c O microfone está desativado para o Tamkeen: abra as configurações dele, depois Permissões → Microfone, e escolha Permitir.
+b09e425f O microfone está desativado para o Tamkeen: abra Ajustes e ative Microfone.
+5c568d1d Seu navegador bloqueou o microfone para o Tamkeen: clique no ícone de cadeado ou de ajustes ao lado do endereço do site, permita o microfone e toque em Tentar de novo.
+34373ee4 O Windows está impedindo o Tamkeen de usar o microfone: nas configurações do Windows, ative o acesso ao microfone para aplicativos da área de trabalho e tente de novo.
+c1e7e74d O macOS está impedindo o Tamkeen de usar o microfone: em Ajustes do Sistema → Privacidade e Segurança → Microfone, ative o Tamkeen e tente de novo.
+945d20e6 Permitir o microfone
+d5a9015c Abrir as configurações do Windows
+4e135625 Abrir Ajustes do Sistema
+dc0d9626 Abrir as configurações do Tamkeen
+31f9f942 Abrir as configurações de voz
+2bb0f2f1 Entre com o Google primeiro (Configurações → Conta e sincronização).

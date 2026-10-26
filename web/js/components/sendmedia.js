@@ -27,6 +27,7 @@ import { isLanguage, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { MAX_FILE_BYTES, MAX_INLINE_CHARS, TEXT_KINDS, acceptInto, gunzipText, gzipText, packTranscript, unpackTranscript } from "../sharetext.js";
 import { openItem } from "./studycard.js";
+import { offerFix } from "./fixit.js";
 
 export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page",
                              book: "Book", text: "Transcript of a recording" };
@@ -149,11 +150,11 @@ async function pickAndSend(x, y, media) {
   let st;
   try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
   if (!st || !st.me.username) {
-    toast("Connect and choose a username first.", { action: { label: "Settings", run: () => (location.hash = "#/settings?s=account&show=friends") } });
+    offerFix("friends");  // (the fix popup: Settings → Friends & sharing)
     return;
   }
   if (!st.friends.length) {
-    toast("Add a friend first.", { action: { label: "Friends", run: () => (location.hash = "#/friends") } });
+    offerFix("nofriends");  // (the fix popup: the Friends page)
     return;
   }
   showMenu(x, y, `Send “${item.title.slice(0, 40)}” to…`, st.friends.map((f) => ({

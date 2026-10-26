@@ -17,7 +17,7 @@ export function useTasksToken(token, expiresIn) {
 
 /** A pass for Google Tasks, to send `task`. The first time, Google asks the learner to allow it. */
 async function tasksToken(task) {
-  if (!settings.signed_in) throw new AuthError("Sign in with Google first (Settings → Google account).");
+  if (!settings.signed_in) throw new AuthError("Sign in with Google first (Settings → Account & sync).");
   if (isWeb) {
     if (webTasks && Date.now() < webTasks.until) return webTasks.token;
     const pass = webPassFor(TASKS_SCOPE); // once allowed, the Drive pass covers Google Tasks too

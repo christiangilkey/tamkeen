@@ -228,6 +228,40 @@ def open_data_folder() -> dict[str, Any]:
     return {"ok": True, "path": str(paths.data_dir())}
 
 
+# The system's own page for a permission, for the fix popup's button in the app's window
+# (web/js/components/fixit.js): Windows' microphone privacy page, macOS's Privacy & Security pane.
+PRIVACY_PAGES = {
+    "win32": {"microphone": "ms-settings:privacy-microphone"},
+    "darwin": {"microphone": "x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone"},
+}
+
+
+def privacy_page(what: str, platform: str = "") -> str:
+    """The address of the system's settings page for permission `what` ("" when there is none) on
+    `platform` (this computer's when not given)."""
+    return PRIVACY_PAGES.get(platform or sys.platform, {}).get(what, "")
+
+
+class PrivacyIn(BaseModel):
+    what: str = "microphone"
+
+
+@router.post("/system/open-privacy")
+def open_privacy(body: PrivacyIn) -> dict[str, Any]:
+    """Open the system's settings page for a permission. {opened: false} where there is none (Linux)."""
+    page = privacy_page(body.what)
+    if not page:
+        return {"opened": False}
+    try:
+        if sys.platform == "win32":
+            os.startfile(page)  # type: ignore[attr-defined]  # (Windows opens ms-settings: links itself)
+        else:
+            subprocess.Popen(["open", page])
+    except Exception:
+        return {"opened": False}
+    return {"opened": True}
+
+
 class ExportIn(BaseModel):
     include_audio: bool = False
 

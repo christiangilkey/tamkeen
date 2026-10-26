@@ -20,6 +20,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **New:** More XP for your creature from the courses: tapping an example in a grammar lesson to hear it (a little, once a day for each example, and it keeps your combo going), and adding words from a basics course to your cards (5 XP a word, the same with "Add all", for up to 50 words a day). A finished grammar lesson already counted toward your XP, as before.
 - **Improved:** A Library section with nothing in it yet (YouTube, Netflix, webpages, books, reels, your own videos and audio, podcasts) says "Nothing here yet" and what to add, with an arrow pointing at the + button.
 - **Improved:** On the Vocab page, the Review box keeps its colour when you have no cards yet, with "No cards to study" on it.
+- **Improved:** A problem you can put right yourself no longer shows red messages at the bottom of the screen. One popup in the middle says what is wrong, with a button that takes you straight to the fix and **Dismiss**: the microphone not allowed ("Say it", recording a card, voice notes) opens Tamkeen's page in the phone's settings (or asks again while it still can; the web app says where the browser's switch is), and a missing or refused AI or Azure key, a sign-in, Friends or the language you're learning opens the right place in Settings. It shows once, never piles up, and after Dismiss waits a few minutes before asking again; a review card behind it can't be answered by mistake. Other messages are never shown twice at once.
 
 ## v0.37.0 — 2026-10-25
 

@@ -5531,3 +5531,54 @@ wrong part of the sentence" (Arabic #13 لِـ lit the لـ of الْهَدِي�
   phrases only the course word. Korean/Italian/Spanish/Japanese set `form` to the marked part where needed.
 - **Checked**: 1052 JS, 545 pytest; desktop preview (Arabic #11–14: لَ lit and joined to كَ). Not checked: phones on a
   device, right-to-left UI.
+
+## The fix popup: no red messages for problems the learner can put right (2026-10-25; branch `worktree-agent-a2afec68dbdab66a3`)
+Owner (Android screenshot: four identical red "Tamkeen needs permission to use the microphone…" messages stacked on a
+review card): "Instead of ever having these banners show up, just show the user a popup with a pressable button that
+brings them to the section in settings they can use to fix it"; then "centered screen with a button, … a shadow on the
+background … the user either clicks dismiss or the teal button which brings them to where they need to go".
+- **`web/js/fixes.js`** (pure, tests/js/fixes.test.mjs): CAUSES and where each is fixed (`PLACES`: Settings `s` + FINDS
+  `show` id, or `href`), `fixFor(cause, env)` (title, one sentence, button; the microphone's text/button by device and
+  permission state: `step` "ask" or "system"), `causeOf(error|message)` (the app's own English messages; an error may
+  carry `fixCause`), `settingsHref`, `fixGate` (one at a time, others wait (max 3), same cause skipped while open,
+  QUIET_MS 3 min after Dismiss, AFTER_FIX_MS 30 s after the button).
+- **`web/js/components/fixit.js`** `offerFix(what, {run, goTo, message})`: true when it is a fixable cause (shown,
+  waiting or quiet: say nothing else), false otherwise. openModal (new options `cls`, `cross: false`), class `fix-back`
+  (centred on phones too, z-index 95, no shadow; styles at the end of app.css). Takes every key while on top (window
+  capture: Esc = Dismiss, Tab stays inside, Enter/Space only its buttons), so a review card behind is never answered;
+  closes on hashchange/popstate. A Settings-bound cause is not offered while Settings is on screen (the message shows as
+  before). The microphone: state from `systemAccess.state` (phones, native) or `navigator.permissions`; "ask" =
+  getUserMedia again (Android/iPhone show their question while they still may), then the state is read again (Android
+  after a second refusal → "Open Tamkeen's settings"); "system" = `systemAccess.openSettings`.
+- **Every shell's `toast()`** (web/js/app.js, mobile/src/js/app.js) first calls `offerFix(message)` (not for toasts with
+  an action, or `fix: false`), so any call site whose message is a known cause gets the popup without being edited, and
+  shows the rest through **`web/js/toaster.js` `placeToast`**: the same words (and kind) replace the one on screen, at
+  most 3 at once. The extension's toast uses placeToast too (it doesn't load fixit.js).
+- **`systemAccess`** in both shells: computer `device()` "desktop" in the pywebview window (else "web"),
+  `openSettings` → `POST /api/system/open-privacy {what}` (app/api/system.py `privacy_page`: `ms-settings:privacy-microphone`,
+  macOS Privacy_Microphone; Linux none). Phones: `GoogleDriveAuth.permissionState({name})` → {state} and
+  `openAppSettings()` → {opened}: GoogleDriveAuthPlugin.java (RECORD_AUDIO / POST_NOTIFICATIONS, `shouldShowRequestPermissionRationale`
+  → "prompt", else "denied"; `Settings.ACTION_APPLICATION_DETAILS_SETTINGS`) and .swift (AVAudioApplication on iOS 17+,
+  else AVAudioSession `recordPermission`; notifications; `UIApplication.openSettingsURLString`).
+- **Causes wired**: mic (pronounce.js Say it, now `micProblem(e)` tells "no microphone"/"in use" apart, which stay
+  messages; cardaudio.js recording → wordbuilder.js; chat voice notes), aikey/aikeyrefused/aioff/aimodel (lookups,
+  grammar, Fill in, mnemonic maker: review.js calls offerFix(e) beside its own note), azurerefused and novoice (voiceplay's
+  calm messages; Android's button opens the phone's TTS settings), sttkey/cloudoff (transcription failures), drive
+  (signed out or expired; its own words shown), signin (refresh button: runs the sign-in), reconnect (web app's hour pass),
+  friends / nofriends (vocab.js, sendmedia.js), language, getapp (web app YouTube blocked). googletasks/googlecalendar
+  "Settings → Google account" now says "Account & sync".
+- **Stay messages**: network, rate limits/credit, provider down, Google Tasks/Calendar not allowed, cancelled sign-ins,
+  no microphone / microphone busy, copy/paste refused, file errors. Not toasts today (left as they were): the word
+  popup's no-key/no-dictionary panels and the builder's notes (inline, with their own Settings links), the extension
+  missing (add sheet's store button), AnkiDroid permission (Settings card text), camera (the phone's camera app asks
+  itself), notifications (asked silently, no message).
+- i18n `tools/i18n/tr/<code>/79-fix-popup.txt` (49 × 16). build-www SHARED: js/fixes.js, js/toaster.js,
+  js/components/fixit.js.
+- **Checked**: JS and pytest suites (new tests/js/fixes.test.mjs 14, tests/test_fix_popup.py 3), `build.mjs --check`.
+  Browser pane (desktop server on a fresh scratch data folder, never signed in; phone build served from mobile/www) at
+  375×812 and desktop size: 4× the Say it message → one popup, no toast; Try again with the mic blocked → "still
+  blocked" line; Esc and a tap beside it dismiss, and the same cause stays quiet; AI key popup → Add a key opened
+  Settings → Word definitions with the key row rung; Azure refused waited its turn; drive popup → Settings → Account &
+  sync; during a review, 2 / → / Esc never answered or closed the card; pywebview faked → "Open Windows settings" text.
+  **Not checked**: the real Android/iPhone buttons (permissionState/openAppSettings not compiled here), a real microphone,
+  the real pywebview window (the endpoint is tested with a stand-in for os.startfile).

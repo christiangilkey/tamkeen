@@ -435,16 +435,6 @@
   "f": "web/js/app.js"
  },
  {
-  "id": "c64c401c",
-  "k": "Sign in with Google to keep your library the same on all your devices.",
-  "f": "web/js/app.js"
- },
- {
-  "id": "ada2e9e9",
-  "k": "Sign in",
-  "f": "web/js/app.js"
- },
- {
   "id": "752be6ae",
   "k": "That file is too big (over 200 MB).",
   "f": "web/js/bookfiles.js"
@@ -1667,6 +1657,11 @@
  {
   "id": "0c58fea6",
   "k": "The microphone couldn't be used just now. Close other apps that may be using it, then try again.",
+  "f": "web/js/cardaudio.js"
+ },
+ {
+  "id": "8f857a22",
+  "k": "No microphone was found. Connect one, then try again.",
   "f": "web/js/cardaudio.js"
  },
  {
@@ -3035,6 +3030,21 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "70afe9ef",
+  "k": "Dismiss",
+  "f": "web/js/components/fixit.js"
+ },
+ {
+  "id": "73c4ad14",
+  "k": "The microphone is allowed now. Try again.",
+  "f": "web/js/components/fixit.js"
+ },
+ {
+  "id": "52c732e3",
+  "k": "The microphone is still blocked.",
+  "f": "web/js/components/fixit.js"
+ },
+ {
   "id": "5896cb72",
   "k": "Game features",
   "f": "web/js/components/gameswitch.js"
@@ -4050,26 +4060,6 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "004f3577",
-  "k": "Connect and choose a username first.",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "c7f73bb5",
-  "k": "Settings",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "926fb281",
-  "k": "Add a friend first.",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "c11d5e1d",
-  "k": "Friends",
-  "f": "web/js/components/sendmedia.js"
- },
- {
   "id": "d7485673",
   "k": "Send “{0}” to…",
   "f": "web/js/components/sendmedia.js"
@@ -4377,6 +4367,11 @@
  {
   "id": "8b84a68a",
   "k": "About and open-source licenses",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c7f73bb5",
+  "k": "Settings",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -6428,6 +6423,251 @@
   "id": "f093a8da",
   "k": "Dictionary first",
   "f": "web/js/defsource.js"
+ },
+ {
+  "id": "174bac74",
+  "k": "This needs your own AI key: add one in Settings → Word definitions.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "730531ca",
+  "k": "Add a key",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "4ba8cd34",
+  "k": "Your AI key isn't working",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "1ebab0b0",
+  "k": "Your AI provider refused the key, most likely because it has expired: paste a new one in Settings → Word definitions.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "89a0c3d4",
+  "k": "Fix the key",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "6cde8409",
+  "k": "AI is turned off",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "71affd5d",
+  "k": "This needs AI explanations, which are turned off: switch them on in Settings → Word definitions.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "bdeb03f5",
+  "k": "Turn on AI",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "d8f66732",
+  "k": "The AI model isn't recognised",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "46e978fb",
+  "k": "Your AI provider doesn't know the chosen model: pick the recommended one in Settings → Word definitions.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "fefb3326",
+  "k": "Choose a model",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "8dad5424",
+  "k": "Your Azure key isn't working",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "55c9af95",
+  "k": "Azure didn't accept your key or its region: copy Key 1 and its region again into Settings → Card voices.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "69410da6",
+  "k": "No voice for this language",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "8eb520cc",
+  "k": "Choose a card voice",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "42cd08f4",
+  "k": "Your transcription key isn't working",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "d9ba9a50",
+  "k": "The transcription service refused the key, most likely because it has expired: paste a new one in Settings → Listening & transcripts.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "555339ef",
+  "k": "Cloud transcription is off",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "828223e8",
+  "k": "This needs cloud transcription: switch it on in Settings → Listening & transcripts.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "cc4d3c36",
+  "k": "Turn it on",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "3c04b9a1",
+  "k": "Sign in to Google Drive",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "047cca15",
+  "k": "This needs your Google sign-in: sign in again in Settings → Account & sync.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "ada2e9e9",
+  "k": "Sign in",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "75dce38d",
+  "k": "Sign in to sync",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "c64c401c",
+  "k": "Sign in with Google to keep your library the same on all your devices.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "d3b174d2",
+  "k": "Reconnect Google",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "b80f7cd2",
+  "k": "Google gives the web app an hour at a time: reconnect to keep syncing.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "dea7d75f",
+  "k": "Connect to Friends",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "6787d096",
+  "k": "Sharing needs a Friends account: connect with Google and choose a username in Settings → Account & sync.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "b65463cb",
+  "k": "Connect",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "b0c493dd",
+  "k": "Add a friend first",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "1a66b0e7",
+  "k": "There is no one to send this to yet: add a friend on the Friends page.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "2fd354c9",
+  "k": "Find friends",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "18fae3d6",
+  "k": "Choose a language to learn",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "ece01668",
+  "k": "Tamkeen needs to know which language you're learning: choose it in Settings → Languages.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "456a836f",
+  "k": "Choose a language",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "c7f10c79",
+  "k": "This needs the Tamkeen app",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "23af15e5",
+  "k": "Tamkeen needs the microphone to hear you: press Allow, then say yes when you're asked.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "b3b6b85a",
+  "k": "Tamkeen couldn't use the microphone: press Try again, and say yes if you're asked.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "c95a149c",
+  "k": "The microphone is turned off for Tamkeen: open its settings, then Permissions → Microphone, and choose Allow.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "b09e425f",
+  "k": "The microphone is turned off for Tamkeen: open Settings and switch on Microphone.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "5c568d1d",
+  "k": "Your browser has blocked the microphone for Tamkeen: click the lock or tune icon next to the web address, allow the microphone, then press Try again.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "34373ee4",
+  "k": "Windows is keeping the microphone from Tamkeen: in Windows settings, turn on microphone access for desktop apps, then try again.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "c1e7e74d",
+  "k": "macOS is keeping the microphone from Tamkeen: in System Settings → Privacy & Security → Microphone, switch Tamkeen on, then try again.",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "945d20e6",
+  "k": "Allow the microphone",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "d5a9015c",
+  "k": "Open Windows settings",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "4e135625",
+  "k": "Open System Settings",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "dc0d9626",
+  "k": "Open Tamkeen's settings",
+  "f": "web/js/fixes.js"
+ },
+ {
+  "id": "31f9f942",
+  "k": "Open voice settings",
+  "f": "web/js/fixes.js"
  },
  {
   "id": "2e1adabb",
@@ -9140,6 +9380,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "c11d5e1d",
+  "k": "Friends",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "48f77eb7",
   "k": "Creatures",
   "f": "web/js/game/habitat.js"
@@ -10737,11 +10982,6 @@
  {
   "id": "bb54db51",
   "k": "Accept",
-  "f": "web/js/pages/chat.js"
- },
- {
-  "id": "70afe9ef",
-  "k": "Dismiss",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -14290,11 +14530,6 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "fefb3326",
-  "k": "Choose a model",
-  "f": "web/js/pages/welcome.js"
- },
- {
   "id": "27aa7d41",
   "k": "My computer is too slow for this",
   "f": "web/js/pages/welcome.js"
@@ -17070,18 +17305,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "d3b174d2",
-  "k": "Reconnect Google",
-  "f": "mobile/src/js/app.js"
- },
- {
   "id": "c649a3e6",
   "k": "Google gives the web app an hour at a time: tap to renew it, then syncing carries on",
-  "f": "mobile/src/js/app.js"
- },
- {
-  "id": "fde42b27",
-  "k": "Your Google connection needs renewing.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -17320,8 +17545,8 @@
   "f": "mobile/src/js/drive.js"
  },
  {
-  "id": "2a66b8ea",
-  "k": "Sign in with Google first (Settings → Google account).",
+  "id": "2bb0f2f1",
+  "k": "Sign in with Google first (Settings → Account & sync).",
   "f": "mobile/src/js/googlecalendar.js"
  },
  {
