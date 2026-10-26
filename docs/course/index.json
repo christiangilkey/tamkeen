@@ -55,9 +55,9 @@
    "variety": "Standard German (Germany)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 352033,
+   "bytes": 342949,
    "audio_bytes": 12871131,
-   "sha256": "d166a2036303ab7d52e6a5835fcae47ef5a553c8bdd678fb3533048b1f139b81",
+   "sha256": "3d9435b4133921e74409bf49d0ae23ab1ff890f7de2a8ab324ac03084574b970",
    "voice": {
     "engine": "azure",
     "name": "Katja (Azure, Germany)",
