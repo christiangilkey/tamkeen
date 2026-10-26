@@ -5,7 +5,6 @@
   "variety": "アメリカ英語",
   "about": "はじめての会話から日常会話まで、短いレッスンで一歩ずつ進みます。どのレッスンも、まずすぐに使える英語の文を覚え、それからその文を支える文法を学びます。文法の知識はいりません。文法用語は、はじめて必要になったときに説明します。例文はすべて自然なアメリカ英語です。",
   "reading": "",
-  "draft": true,
   "units": [
     {"n":1,"title":"はじめての会話"},
     {"n":2,"title":"毎日の生活"},
@@ -736,7 +735,7 @@
           ["お願い","{{Can you close the door?}}","ドアを閉めてくれる？"],
           ["許可","{{Can I use your phone?}}","電話を借りてもいい？"]
         ] },
-        {"p":"**発音のポイント。** {{can}} は文の中では弱く短く「クン」のように、{{can't}} は強く「キャーント」と言います。この違いで、できるのかできないのかを聞き分けます。"},
+        {"p":"**発音のポイント。** {{can}} は文の中では弱く短く「クン」のように、{{can't}} は強くはっきり「キャント」と言います。この違いで、できるのかできないのかを聞き分けます。"},
         { "ex": [
           {"t":"My grandmother can use a smartphone.","tr":"祖母はスマホが使えます。"},
           {"t":"Can you speak English?","tr":"英語を話せますか？"},
@@ -779,7 +778,7 @@
           ["{{the}}","どれのことか相手にわかるとき","{{The dog is very old.}}（その犬はとても年をとっている）"],
           ["何もつけない","複数形や数えない名詞で「〜というもの全般」","{{I like dogs.}}（犬が好き）"]
         ] },
-        {"p":"**{{the}} を使うのは、相手が「どれのことか」わかるとき。** ①一度話に出たもの：{{There's a café. The coffee is good.}} ②その場で一つに決まるもの：{{Close the door, please.}}（この部屋のドア）、{{the station}}（いつもの駅） ③世界に一つのもの：{{the sun}}（太陽）、{{the sea}}（海）。"},
+        {"p":"**{{the}} を使うのは、相手が「どれのことか」わかるとき。** ①一度話に出たもの：{{There's a café. The coffee is good.}} ②その場で一つに決まるもの：{{Close the door, please.}}（この部屋のドア）、{{the station}}（いつもの駅） ③世界に一つのもの：{{the sun}}（太陽）、{{the moon}}（月）。"},
         {"p":"**迷ったら自分に聞いてみる：** 「相手は、どれのことかわかる？」わからない → {{a}}。わかる → {{the}}。〜全般 → 何もつけない（複数形・数えない名詞）。"},
         {"p":"**冠詞をつけない決まった言い方もあります：** {{go to work}}（仕事に行く）、{{go to school}}（学校に行く）、{{at home}}（家で）、{{by train}}（電車で）。"},
         { "ex": [
@@ -1200,14 +1199,14 @@
           ["出来事（過去形）","{{… when the phone rang.}}","…とき、電話が鳴った。"],
           ["{{while}} を使って","{{While I was cooking, the phone rang.}}","料理をしている間に電話が鳴った。"]
         ] },
-        {"p":"**順番を表す言葉。** {{First}}（まず）、{{Then}}（それから）、{{After that}}（そのあと）、{{Finally}}（最後に）。文の頭に置いて、話を順番に進めます。"},
+        {"p":"**順番を表す言葉。** {{First}}（まず）、{{Then}}（それから）、{{After that}}（そのあと）、{{Finally}}（最後に・ようやく）。文の頭に置いて、話を順番に進めます。"},
         { "ex": [
           {"t":"What were you doing at ten last night?","tr":"昨夜10時には何をしていましたか？"},
           {"t":"I was watching TV.","tr":"テレビを見ていました。"},
           {"t":"While she was cooking, the baby woke up.","tr":"彼女が料理をしている間に、赤ちゃんが起きました。"},
           {"t":"First, I took a shower. Then I had breakfast.","tr":"まずシャワーを浴びて、それから朝ごはんを食べました。"},
           {"t":"We were talking when the teacher came in.","tr":"先生が入ってきたとき、私たちはおしゃべりをしていました。"},
-          {"t":"Finally, we got home at midnight.","tr":"最後に、夜12時に家に着きました。"}
+          {"t":"Finally, we got home at midnight.","tr":"ようやく夜12時に家に着きました。"}
         ] },
         {"tip":"日本語の「〜していたら、…した」は、英語では {{was …ing when …}} の形がぴったりです。"}
       ],
@@ -1388,7 +1387,7 @@
         {"p":"**「〜のほう」：{{the one}}。** 2つのうちのどちらかを言うとき、名詞をくり返さずに {{one}} を使います：{{the black one}}（黒いほう）。"},
         { "ex": [
           {"t":"This phone is more expensive than that one.","tr":"このスマホはあれより高いです。"},
-          {"t":"My English is better than last year.","tr":"私の英語は去年より上手になりました。"},
+          {"t":"My English is better than it was last year.","tr":"私の英語は去年より上手になりました。"},
           {"t":"Mt. Fuji is the highest mountain in Japan.","tr":"富士山は日本でいちばん高い山です。"},
           {"t":"This is the best ramen in town.","tr":"これは町でいちばんおいしいラーメンです。"},
           {"t":"Today isn't as hot as yesterday.","tr":"今日は昨日ほど暑くありません。"},
@@ -1665,7 +1664,7 @@
           ["{{since}}","始まった時","{{since Monday}}, {{since 2015}}, {{since I was ten}}"]
         ] },
         {"p":"**どのくらい？：{{How long have you …?}}** {{How long have you lived here?}}（ここに住んでどのくらいですか？）。"},
-        {"p":"**動作が続いているときは進行形も。** {{know}}、{{live}}、{{be}} のような状態の動詞は {{have known}}、{{have been}} のまま。{{study}}、{{wait}} のような動作は、続いていることを強調して {{have been}} + {{-ing}} とも言います：{{I've been waiting for an hour!}}（1時間も待っているよ！）。"},
+        {"p":"**動作が続いているときは進行形も。** {{know}}、{{live}}、{{be}} のような状態の動詞は {{have known}}、{{have lived}}、{{have been}} のまま。{{study}}、{{wait}} のような動作は、続いていることを強調して {{have been}} + {{-ing}} とも言います：{{I've been waiting for an hour!}}（1時間も待っているよ！）。"},
         { "ex": [
           {"t":"She's worked at this company since 2018.","tr":"彼女は2018年からこの会社で働いています。"},
           {"t":"How long have you known each other?","tr":"知り合ってどのくらいですか？"},
@@ -1987,7 +1986,7 @@
           ["過去","{{Someone stole my bike.}}","{{My bike was stolen.}}"],
           ["だれが","{{Picasso painted this.}}","{{This was painted by Picasso.}}"]
         ] },
-        {"p":"**だれがしたかは {{by}}。** 言う必要があるときだけ、{{by}} で加えます：{{This book was written by Murakami Haruki.}}（この本は村上春樹が書いた）。だれがしたかわからないときや、重要でないときは言いません。"},
+        {"p":"**だれがしたかは {{by}}。** 言う必要があるときだけ、{{by}} で加えます：{{This book was written by Haruki Murakami.}}（この本は村上春樹が書いた）。だれがしたかわからないときや、重要でないときは言いません。"},
         {"p":"**よく出会う場所。** 受け身は、ニュース、説明、案内、看板でよく使われます：{{Made in Japan}}（日本製）、{{The store is closed on Mondays.}}（月曜定休）、{{Smoking is not allowed.}}（禁煙）。日本語の「〜されている」をそのまま英語にすると不自然になることもあるので、まずは読んで・聞いてわかるようにしましょう。"},
         {"p":"自分の身に起きたことも受け身で言えます：{{I was born in Kobe.}}（神戸で生まれた：実はこれも受け身です！）、{{My wallet was stolen.}}（財布を盗まれた）。"},
         { "ex": [
