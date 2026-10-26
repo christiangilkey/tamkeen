@@ -62,6 +62,10 @@ class VocabPatch(BaseModel):
     memo: str | None = None  # the learner's own notes (a mnemonic, say)
     text: str | None = None
     folders: list[str] | None = None
+    # The card's sentence; with `sentence_if`, only while the sentence is still exactly that (a basics
+    # course word gets its course's ⟦ ⟧ marks, but never over a sentence the learner changed).
+    sentence: str | None = None
+    sentence_if: str | None = None
 
 
 class FolderIn(BaseModel):
@@ -461,6 +465,12 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
                          (body.text.strip(), arabic.normalize(body.text), vocab_id))
         if body.folders is not None:
             conn.execute("UPDATE vocab SET folders = ? WHERE id = ?", (json.dumps(sorted(set(body.folders))), vocab_id))
+        if body.sentence is not None:
+            if body.sentence_if is None:
+                conn.execute("UPDATE vocab SET sentence = ? WHERE id = ?", (body.sentence[:2000], vocab_id))
+            else:
+                conn.execute("UPDATE vocab SET sentence = ? WHERE id = ? AND sentence = ?",
+                             (body.sentence[:2000], vocab_id, body.sentence_if))
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
     if row is None:
         raise HTTPException(404, "Not found.")

@@ -5472,3 +5472,62 @@ app"; asked, he chose Library only (the Vocab page loses its Basics/Grammar tabs
   requests pointed at the local docs/ in the preview, since the phones load published courses): Courses first and
   selected, Basics and Grammar tabs, Podcasts and Vocab unchanged otherwise. Not checked: a real phone, the web app on
   GitHub Pages (courses not published yet), right-to-left UI languages.
+
+## Courses: Grammar first, XP for listening and Basics adds, empty Library kinds, Vocab box colour (2026-10-25; branch `worktree-agent-a008ce2827848c087`, NOT merged, NOT pushed)
+Owner: "make the grammar course the left subtab and the basics list the right sub tab. Have Grammar be preselected";
+"Studying grammar and pressing the words to make them speak should give you xp. Adding words for the basic list should
+also give you xp"; "If user has nothing in a section in library … a message that tells them to add things from the plus
+button at the bottom and point to it with an arrow"; "In a blank vocab page with no words, the review box should still be
+colored as if it did have words."
+- **Courses tabs** (library.js): Grammar | Basics (RTL mirrors them like every flex tab row: Grammar on the right). Which
+  opens: `coursedata.js courseTabChoice({basics, grammar, asked, chosen})`: a link's `?tab=basics|grammar`
+  (`#/library?tab=basics`), else the tab clicked earlier this visit (**sessionStorage** `courseTab`, set on clicks only;
+  the old localStorage `courseTab` is no longer read), else Grammar (Basics when a language has no grammar course).
+- **XP** (game/rules.js `earn`): grammar lessons already paid game XP (`"grammar"`, 40-80 first time scaled by right
+  answers, 15-30 again, once a day per lesson, fading after 6): unchanged, it was never a separate total. New:
+  `{type: "hear", key}` from grammarpanel.js `sayOnTap` (lesson and Mixed review: examples, `.gt` words, dialogue lines,
+  answers; "Listen to it all" = one event for the whole conversation): HEAR_SHARE = a quarter of a lookup's roll (like a
+  review card; surprise roll → plain XP, min 1), carries the session combo (shared chain with lookups: `chain()`),
+  `hearMultiplier` fades on its own count `day.heard` (HEAR_DAY [30, 90]: full, 0.4, 0.1, then nothing), once a day per
+  example (`day.heard` holds `hearKey(text)`, an FNV hash, so the save stays small), trait "listener". `{type: "basics",
+  keys: ["ar:12", …]}` from coursepanel.js after the cards are made (words already in the cards are filtered out before
+  adding): BASICS_XP 5 per word (a quarter of saving a word), same total one by one or "Add all", BASICS_DAY_CAP 50 words
+  a day (`day.basics`), a word once a day, no combo, no coins, trait "collector", tier "lucky" for ≥ 10 words. game.js:
+  the chip and the "12 ×2" working treat "hear" like "word". info.js "How to get XP" has 3 new lines.
+- **Empty Library kinds**: KINDS `empty` = "Add … with the + button below." (all but Courses); `emptyState(k)` (icon,
+  "Nothing here yet", the line; Books keeps Free classics / Add a file) shows for a kind with no feed yet (renderHead) and
+  for a feed of that kind, or All episodes, whose list is empty with no filter/title/channel (loadEpisodes, `list-empty`
+  hides the heading). The arrow is an SVG inside the + button (`.fab-hint`, media.css: absolute, tip level with the
+  button's middle), shown while `.library.lib-is-empty`; `hint-flip` mirrors it if the button is ever on the left half;
+  hidden while a `.modal-back` (the + sheet) or `.tour` is open and while the button rolls in after a swipe. No animation.
+- **Vocab**: with no cards the review box drops `idle` (teal, "No cards to study", not pressable). "All caught up" stays plain.
+- i18n `tools/i18n/tr/<code>/77-courses-xp-empty.txt` (12 strings × 16; the old empty-kind lines are gone from strings.json).
+  Tests `tests/js/courses-xp.test.mjs` (13). Totals: 1039 JS, 542 pytest, i18n --check.
+- **Checked** in the browser pane, scratch data folder (no Google sign-in), desktop server at 1280×800 and the phone build
+  (mobile/www served locally, course fetches pointed at docs/) at 375×812, English, Arabic and Persian UI: tab order and
+  default, empty YouTube/Books/Podcasts/My videos/My webpages with the arrow (also RTL), arrow hidden under the + sheet,
+  Vocab box teal with no cards (light and dark), a grammar example tap (+XP with the combo), Basics Add (+5) and Add the
+  other 49 (+245, cap reached at 50). Not checked: a real phone/iPhone, the web app build (docs/app not rebuilt).
+- Noticed, not changed: on the phone in an RTL interface the kinds strip doesn't scroll the chosen kind into view
+  (library.js renderStrips uses `scrollLeft` as if left-to-right).
+
+## Basics courses: ⟦ ⟧ marks the word in every sentence (2026-10-25; branch `course-marks`, worktree `tamkeen-marks`, NOT merged, NOT pushed)
+Owner's report on v0.37.0: "the part of the sentence that's highlighted is wrong … it seeing a part of the word in the
+wrong part of the sentence" (Arabic #13 لِـ lit the لـ of الْهَدِيَّةُ). No course sentence had marks; the app lit the first match.
+- **App**: web/js/cardtext.js `sentenceMarks`, `markedSentenceHtml` (ZWJ on both sides of a lit edge inside a word of
+  joining letters), `stripMarks`; `findWord` returns the first marked part. Used by coursepanel.js and vocab.js
+  `highlight` (Vocab list and the review card); game/rules.js strips marks. coursedata.js `cardOf` keeps the marked
+  sentence; `markUpdates` + coursepanel `upgradeCards` give earlier course cards their marks (PATCH /vocab/<id>
+  `sentence` + `sentence_if`, only while the stored sentence is still the course's unmarked one; computer and phone).
+  Anki export and CSV (app/exporters.py `sentence_spans`, mobile shared-logic.js `sentenceSpans`): marked parts in
+  [brackets], marks never shown.
+- **Courses**: build_course.py `unmarked()` for what is said and the fingerprint (no audio remade: 0 .ogg changed);
+  the build refuses a sentence without marks; course-content / course tests check them; check_audio strips them.
+  Arabic marked here (tools/course/build/mark_ar.mjs proposed stems from the analyzer's splits; all 1000 read, 11 fixed
+  by hand); the other 16 by their basics-<lang> sessions (brief + checker: side-session notes `marks-brief.md`,
+  `check-marks.mjs`), each read back by hand, merged here and their course.json rebuilt.
+- **Rules used**: the form used (inflected, conjugated); a clitic word marks only itself; attached pronouns, articles and
+  linkers stay outside; split words mark every piece (German separable verbs, ne…pas/né…né, 越…越, phrasal verbs); in set
+  phrases only the course word. Korean/Italian/Spanish/Japanese set `form` to the marked part where needed.
+- **Checked**: 1052 JS, 545 pytest; desktop preview (Arabic #11–14: لَ lit and joined to كَ). Not checked: phones on a
+  device, right-to-left UI.

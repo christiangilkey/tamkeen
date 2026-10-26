@@ -9590,6 +9590,21 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "2dc0c206",
+  "k": "Finish a grammar lesson: 40 to 80 the first time, more for more right answers, and 15 to 30 when you do it again (each lesson pays once a day).",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "b1691d36",
+  "k": "Tap an example in a grammar lesson to hear it: a quarter of what looking up a word pays, once a day for each example. It keeps your combo going too.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "ce32fa95",
+  "k": "Add a word from a basics course to your cards: {0} each, the same whether you add them one by one or all at once, for up to {1} words a day.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "80e25376",
   "k": "Listen or read: a slow trickle while you study, which dries up well past your daily goal.",
   "f": "web/js/game/info.js"
@@ -11790,13 +11805,18 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "1581574d",
-  "k": "No YouTube videos yet. Press + and choose YouTube.",
+  "id": "4019c5e2",
+  "k": "Add podcasts with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "35ae636e",
-  "k": "No Netflix titles yet. On a computer, press + and choose Netflix.",
+  "id": "d7bc5164",
+  "k": "Add YouTube videos with the + button below.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "71554151",
+  "k": "Add Netflix shows and films with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11805,8 +11825,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "f2c11421",
-  "k": "No webpages yet. Press + and choose Web page.",
+  "id": "1f98e825",
+  "k": "Add webpages with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11815,13 +11835,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "71381287",
-  "k": "No books yet. Pick a free classic in the language you're learning, or add a book of your own.",
+  "id": "9b2f4468",
+  "k": "Add a book with the + button below, or pick a free classic.",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "4a3365aa",
-  "k": "No reels yet. Press + and choose Reels.",
+  "id": "ab6cd1c6",
+  "k": "Add reels with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11830,8 +11850,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "bc4aba2d",
-  "k": "No videos of your own yet. Press + and choose Video file.",
+  "id": "a4f4a0c6",
+  "k": "Add videos of your own with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11840,8 +11860,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "34d32c26",
-  "k": "No audio of your own yet. Press + and choose Audio file.",
+  "id": "c80a1cbd",
+  "k": "Add audio of your own with the + button below.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -11937,6 +11957,11 @@
  {
   "id": "3f52d1ce",
   "k": "No podcasts yet. Add one above, or look in Trending.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "e892255d",
+  "k": "Nothing here yet",
   "f": "web/js/pages/library.js"
  },
  {

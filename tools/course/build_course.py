@@ -127,6 +127,10 @@ def load_words(lang: str) -> dict[str, Any]:
                 raise SystemExit(f"words.json: word {i} ({w.get('word')}) has no {key}")
         if w["translation"].count("⟦") != 1 or w["translation"].count("⟧") != 1:
             raise SystemExit(f"words.json: word {i}'s translation needs one ⟦ ⟧ pair: {w['translation']}")
+        # The sentence says where its word is (⟦ ⟧ round each part that carries its meaning there), so the
+        # app lights up that place and not the same letters inside another word.
+        if not re.fullmatch(r"[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+", w["sentence"]):
+            raise SystemExit(f"words.json: word {i}'s sentence needs ⟦ ⟧ round its word: {w['sentence']}")
     return data
 
 
@@ -315,9 +319,15 @@ def make_audio(word: str, sentence: str, lang: str, engine: str, say: Any = None
 
 # ---------------------------------------------------------------- building
 
+def unmarked(text: str) -> str:
+    """A sentence without the ⟦ ⟧ round its word: what is said (the marks only say what the app lights up)."""
+    return str(text).replace("⟦", "").replace("⟧", "")
+
+
 def fingerprint(w: dict[str, Any], engine: str, lang: str) -> str:
-    # `say` only counts when it is there, so words without one keep the audio they have.
-    parts = [w["word"], w["sentence"], engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE]
+    # `say` only counts when it is there, so words without one keep the audio they have; the ⟦ ⟧ marks
+    # never count (marking a sentence doesn't change what is said).
+    parts = [w["word"], unmarked(w["sentence"]), engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE]
     if w.get("say"):
         parts.append(w["say"])
     return hashlib.sha1(json.dumps(parts, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
@@ -356,7 +366,7 @@ def main() -> None:
     if engine == "mms":  # everything still to make, said in one run
         todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine, lang)
                 or not (folder / "audio" / f"{w['n']:04d}.ogg").exists() or not old_times.get(w["n"])]
-        mms_prepare([t for w in todo for t in (spoken(w), w["sentence"])], lang)
+        mms_prepare([t for w in todo for t in (spoken(w), unmarked(w["sentence"]))], lang)
     items = []
     for w in words:
         name = f"{w['n']:04d}.ogg"
@@ -365,7 +375,7 @@ def main() -> None:
         times = old_times.get(w["n"])
         if args.redo or made.get(name) != fp or not path.exists() or not times:
             log(f"{w['n']:4d}  {plain(w['word'])}")
-            ogg, times = make_audio(w["word"], w["sentence"], lang, engine, w.get("say"))
+            ogg, times = make_audio(w["word"], unmarked(w["sentence"]), lang, engine, w.get("say"))
             path.write_bytes(ogg)
             made[name] = fp
             made_list.write_text(json.dumps(made, indent=0), encoding="utf-8")

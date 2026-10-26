@@ -97,7 +97,7 @@ const csvCell = (v) => {
 export function vocabCsv(items) {
   const rows = [["Word/Phrase", "Meaning", "Notes", "Sentence", "Episode", "Start (s)", "End (s)"]];
   for (const v of items) {
-    rows.push([v.text, v.meaning, v.notes, v.sentence, v.episode_title,
+    rows.push([v.text, v.meaning, v.notes, String(v.sentence || "").replace(/[⟦⟧]/g, ""), v.episode_title,
       v.start != null ? v.start.toFixed(2) : "", v.end != null ? v.end.toFixed(2) : ""]);
   }
   return "﻿" + rows.map((r) => r.map(csvCell).join(",")).join("\r\n") + "\r\n";
@@ -122,6 +122,30 @@ export function ankiGrammar(notes) {
   return [[...(kind ? [kind] : []), ...rows].join(" • "), free];
 }
 
+/** {text, spans}: a sentence without its ⟦ ⟧ marks and where its word is in that text: the marked
+ * parts (a basics course word, or one marked in a review card), else where it is found (the same as
+ * sentence_spans in app/exporters.py). */
+export function sentenceSpans(sentence, word) {
+  sentence = String(sentence || "");
+  if (MARKED.test(sentence)) {
+    const spans = [];
+    let text = "";
+    for (const part of sentence.split(/(⟦[^⟦⟧]+⟧)/u)) {
+      if (part.startsWith("⟦")) { spans.push([text.length, text.length + part.length - 2]); text += part.slice(1, -1); } else text += part;
+    }
+    return { text, spans };
+  }
+  const text = sentence.replace(/[⟦⟧]/g, "");
+  return { text, spans: word ? findSpans(text, word) : [] };
+}
+
+/** `text` with each of `spans` wrapped as open…close, the rest escaped (spans in order, not overlapping). */
+const wrapSpans = (text, spans, open, close) => {
+  let out = "", last = 0;
+  for (const [a, b] of spans) { out += escHtml(text.slice(last, a)) + open + escHtml(text.slice(a, b)) + close; last = b; }
+  return out + escHtml(text.slice(last));
+};
+
 /** The prompt side of a word's card: its translated sentence with the word's part in [brackets],
  * or the meaning (or the word itself) when no translation with usable ⟦ ⟧ marks was saved. */
 export function ankiFront(v) {
@@ -134,10 +158,11 @@ export function ankiFront(v) {
   if (meaning) return escHtml(meaning);
   const said = translation.replace(/[⟦⟧]/g, "").trim();
   if (said && !givesAway(said, text)) return escHtml(said);
-  const spans = text ? findSpans(v.sentence || "", text) : [];
-  if (spans.length) {
-    const [a, b] = spans[0];
-    return escHtml(`${v.sentence.slice(0, a)}…${v.sentence.slice(b)}`.trim());
+  const { text: plain, spans } = sentenceSpans(v.sentence, text);
+  if (spans.length) { // the sentence with "…" where the word is, so the front doesn't give it away
+    let out = "", last = 0;
+    for (const [a, b] of spans) { out += plain.slice(last, a) + "…"; last = b; }
+    return escHtml((out + plain.slice(last)).trim());
   }
   return "…";
 }
@@ -201,12 +226,9 @@ export function givesAway(text, word) {
 /** [Front, Back] for one saved word. */
 export function ankiFields(v) {
   const word = escHtml(v.text);
-  let sentence = v.sentence || "";
-  const spans = v.text ? findSpans(sentence, v.text) : [];
-  if (spans.length) {  // found whatever its vowel marks: put the sentence's own spelling in brackets
-    const [a, b] = spans[0];
-    sentence = `${escHtml(sentence.slice(0, a))}[${escHtml(sentence.slice(a, b))}]${escHtml(sentence.slice(b))}`;
-  } else sentence = escHtml(sentence);
+  // The word in [brackets], in the sentence's own spelling: where its ⟦ ⟧ marks say, else where found.
+  const { text: plain, spans } = sentenceSpans(v.sentence, v.text);
+  const sentence = spans.length ? wrapSpans(plain, spans, "[", "]") : escHtml(plain);
   const [grammar, free] = ankiGrammar(v.notes || "");
   const lines = [`<b>${word}</b>`];
   if (sentence) lines.push(sentence);

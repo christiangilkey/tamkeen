@@ -910,6 +910,10 @@ const routes = [
     for (const k of ["meaning", "notes", "memo"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
     // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
     if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
+    // The sentence; with sentence_if, only while it is still exactly that (as on the computer).
+    if (typeof body.sentence === "string" && (typeof body.sentence_if !== "string" || (v.sentence || "") === body.sentence_if)) {
+      v.sentence = body.sentence.slice(0, 2000);
+    }
     v.updated_at = now();
     changed();
     return vocabOut(v);

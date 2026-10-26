@@ -1,0 +1,12 @@
+2dc0c206 Finire una lezione di grammatica: da 40 a 80 la prima volta, di più con più risposte giuste, e da 15 a 30 quando la rifai (ogni lezione paga una volta al giorno).
+b1691d36 Toccare un esempio in una lezione di grammatica per ascoltarlo: un quarto di quanto paga cercare una parola, una volta al giorno per ogni esempio. Tiene viva anche la tua combo.
+ce32fa95 Aggiungere alle tue schede una parola di un corso base: {0} ciascuna, uguale sia che tu le aggiunga una alla volta sia tutte insieme, fino a {1} parole al giorno.
+4019c5e2 Aggiungi podcast con il pulsante + in basso.
+d7bc5164 Aggiungi video di YouTube con il pulsante + in basso.
+71554151 Aggiungi serie e film di Netflix con il pulsante + in basso.
+1f98e825 Aggiungi pagine web con il pulsante + in basso.
+9b2f4468 Aggiungi un libro con il pulsante + in basso, oppure scegli un classico gratuito.
+ab6cd1c6 Aggiungi reel con il pulsante + in basso.
+a4f4a0c6 Aggiungi i tuoi video con il pulsante + in basso.
+c80a1cbd Aggiungi il tuo audio con il pulsante + in basso.
+e892255d Qui non c'è ancora niente

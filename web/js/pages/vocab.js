@@ -8,7 +8,7 @@ import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
-import { cardSentence, findWord } from "../cardtext.js";
+import { cardSentence, markedSentenceHtml } from "../cardtext.js";
 import { audioKey, canSay, failedHere, hasOwnAudio, loadError, voiceTimes } from "../cardvoice.js";
 import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../voiceplay.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
@@ -95,10 +95,9 @@ function ankiHelp() {
 }
 
 function highlight(sentence, word) {
-  // Found whatever its vowel marks: a word saved with them sits unvowelled in a web page's text.
-  const at = findWord(sentence, word);
-  if (!at) return esc(sentence);
-  return `${esc(sentence.slice(0, at[0]))}<b>${esc(sentence.slice(at[0], at[1]))}</b>${esc(sentence.slice(at[1]))}`;
+  // Where its ⟦ ⟧ marks say (a course word, or one marked in a review card), else found whatever its
+  // vowel marks: a word saved with them sits unvowelled in a web page's text.
+  return markedSentenceHtml(sentence, word, esc);
 }
 
 /** [from, to) in seconds for a date-range choice; null bounds mean open-ended. */
@@ -578,13 +577,14 @@ export async function render(view) {
   function renderReview() {
     const banner = $("#review");
     banner.hidden = Boolean(st.q);
-    // No words yet (or none in the open folder): the box stays where it always is, with nothing to start.
+    // No words yet (or none in the open folder): the box stays where it always is, in its usual colour
+    // (the owner: "colored as if it did have words"), with nothing to start.
     const none = !reviewWords().length;
     banner.disabled = none;
     if (banner.hidden || none) {
       goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
-      banner.classList.add("idle");
+      banner.classList.remove("idle");
       banner.querySelector("strong").textContent = "Review";
       banner.querySelector(".rb-go").textContent = "";
       banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;

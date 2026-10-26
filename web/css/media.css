@@ -54,6 +54,30 @@
 /* Messages pop up just above the + button instead of over it. */
 body:has(.add-fab) .toasts { bottom: 100px; }
 
+/* A kind with nothing in it (library.js emptyState): "Nothing here yet", what to add with the + button,
+   and a line-drawn arrow to the button. The button carries the arrow (.fab-hint), so the arrow is beside
+   it wherever it sits (computer, phone above the tab bar, any window size); library.js adds hint-flip
+   when the button is on the left half of the screen, and the arrow then comes from its other side.
+   It is hidden while a box is open over the page (the + sheet itself) or a page guide is showing. */
+.lib-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 440px; margin: 40px auto 24px; padding: 0 16px; text-align: center; }
+.lib-empty .le-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px; background: var(--surface-2); color: var(--muted); }
+.lib-empty .le-title { margin: 0; font-size: 22px; }
+.lib-empty .le-text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--muted); }
+.lib-empty .row { justify-content: center; }
+.lib-main.list-empty #lib-head { display: none; } /* (the empty state below says it all) */
+.fab-hint {
+  position: absolute; right: calc(100% + 6px); bottom: calc(50% - 14px); /* the arrow's tip, 82/96 down it, level with the button's middle */
+  width: 110px; height: 96px; color: var(--accent); pointer-events: none; display: none; transition: opacity .3s;
+}
+.fab-hint svg { display: block; width: 100%; height: 100%; }
+.library.lib-is-empty .fab-hint { display: block; }
+.add-fab.hint-flip .fab-hint { right: auto; left: calc(100% + 6px); transform: scaleX(-1); }
+.add-fab.roll-in .fab-hint, .add-fab.fade-in .fab-hint { opacity: 0; } /* (back once the button has rolled in) */
+body:has(.modal-back) .library .fab-hint, body:has(.tour) .library .fab-hint { display: none; }
+@media (max-width: 640px) { .fab-hint { width: 88px; height: 77px; bottom: calc(50% - 11px); } }
+button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon beside its words) */
+.gx-say.fx-pop { display: inline-grid; }
+
 /* The sheet the + button opens: a plain list of the ways, then each way's own small form. */
 .add-sheet .modal-body { padding-top: 10px; }
 .add-ways { display: flex; flex-direction: column; gap: 8px; }

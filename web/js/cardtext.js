@@ -24,9 +24,63 @@ export function fold(text) {
     .replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim().toLowerCase();
 }
 
-/** [from, to) of `word` inside `text`, compared without vowel marks or letter variants; null if absent. */
+// A sentence can say where its word is: ⟦ ⟧ round the part that carries the word's meaning there (the
+// basics courses mark every sentence; holding a word in a review card marks it too). The marks are
+// never shown or said: they only decide what is lit up. Without them the word is looked for.
+const PAIRED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
+
+/** The text without its ⟦ ⟧ marks. */
+export const stripMarks = (s) => String(s ?? "").replace(/[⟦⟧]/gu, "");
+
+/** {text, spans}: the sentence without its marks, and the [from, to) of each marked part in that text;
+ * spans is null when the sentence has no marks, or marks that don't pair up. */
+export function sentenceMarks(sentence) {
+  sentence = String(sentence ?? "");
+  if (!PAIRED.test(sentence)) return { text: stripMarks(sentence), spans: null };
+  const spans = [];
+  let text = "";
+  for (const part of sentence.split(/(⟦[^⟦⟧]+⟧)/u)) {
+    if (part.startsWith("⟦")) {
+      spans.push([text.length, text.length + part.length - 2]);
+      text += part.slice(1, -1);
+    } else text += part;
+  }
+  return { text, spans };
+}
+
+// Arabic-script letters, which join their neighbours: a <b> inside a word would break the joins.
+const JOINING = /[ؠ-يٮ-ۓەۺ-ۼݐ-ݿࢠ-ࣉ]/u;
+const ZWJ = "‍";
+
+/** The sentence as HTML with its word in <b>: what its ⟦ ⟧ marks say, else where the word is found.
+ * `esc` escapes text. Where a lit part starts or ends inside a word of joining letters (Arabic,
+ * Persian), a zero-width joiner on both sides of the edge keeps the letters joined. */
+export function markedSentenceHtml(sentence, word, esc) {
+  const { text, spans } = sentenceMarks(sentence);
+  let at = spans;
+  if (!at) { const f = findWord(text, word); at = f ? [f] : []; }
+  if (!at.length) return esc(text);
+  // The letter before position i, skipping vowel marks (they sit on the letter before them).
+  const letterBefore = (i) => { while (i > 0 && HARAKAT.test(text[i - 1])) i--; return text[i - 1] || ""; };
+  let out = "";
+  let last = 0;
+  for (const [a, b] of at) {
+    const joinIn = JOINING.test(letterBefore(a)) && JOINING.test(text[a] || "") ? ZWJ : "";
+    const joinOut = JOINING.test(letterBefore(b)) && JOINING.test(text[b] || "") ? ZWJ : "";
+    out += `${esc(text.slice(last, a))}${joinIn}<b>${joinIn}${esc(text.slice(a, b))}${joinOut}</b>${joinOut}`;
+    last = b;
+  }
+  return out + esc(text.slice(last));
+}
+
+/** [from, to) of `word` inside `text`, compared without vowel marks or letter variants; null if absent.
+ * A text with ⟦ ⟧ marks: the first marked part, marks included. */
 export function findWord(text, word) {
   text = String(text || "");
+  if (PAIRED.test(text)) {
+    const open = text.indexOf("⟦");
+    return [open, text.indexOf("⟧", open) + 1];
+  }
   const plain = [];
   const at = []; // at[i] = where plain[i] is in `text`
   for (let i = 0; i < text.length; i++) {
