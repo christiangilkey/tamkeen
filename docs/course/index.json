@@ -23,15 +23,15 @@
    "variety": "Central Catalan (Barcelona), in the current spelling (2017 rules: soc, dona)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 346425,
+   "bytes": 337287,
    "audio_bytes": 13667054,
-   "sha256": "506f9334ac8a255ab6053e6e96ffd86770934434ba257c774c6caa87f228ac2b",
+   "sha256": "10b9e567ed4bcb70f768f5b05cf85e49e6f31b4d94a4ca99de5851233bb4479d",
    "voice": {
     "engine": "azure",
     "name": "Joana (Azure, Catalonia)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "ceb": {
    "file": "ceb/course.json",
@@ -119,15 +119,15 @@
    "variety": "French (France)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 351057,
+   "bytes": 341925,
    "audio_bytes": 11651328,
-   "sha256": "b9649fd330ad3aae4a6838fbae491d1c39c579cc7b2e2cad201c77ceb19afd70",
+   "sha256": "7139365883c5df83fd7ca24136f7b9266607aaafef9860a1a1566b5e3eeed57e",
    "voice": {
     "engine": "azure",
     "name": "Denise (Azure, France)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "hi": {
    "file": "hi/course.json",
@@ -151,15 +151,15 @@
    "variety": "Standard Italian (Italy)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 343270,
+   "bytes": 334138,
    "audio_bytes": 12722232,
-   "sha256": "e3db2daf78e8d832584f2fb7463f1adb0075586dd61b2f837030af8ba738e3c8",
+   "sha256": "48b359f2d3b04c8c3ec18190e07aeea759d060be6375da8f6fd7f1f20ee512d8",
    "voice": {
     "engine": "azure",
     "name": "Elsa (Azure, Italy)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "ja": {
    "file": "ja/course.json",
@@ -167,15 +167,15 @@
    "variety": "Standard Japanese, polite です/ます style",
    "words": 1000,
    "planned": 1000,
-   "bytes": 362884,
+   "bytes": 353752,
    "audio_bytes": 13199435,
-   "sha256": "eccf92a00d2d9fe3ba96fbc30248b5157259dbd98ab32d451f00c5e19659ddd2",
+   "sha256": "26bd9fa8cc2b7fbb452799e713d06d1d59240c259df1756a4ffaef2754adf551",
    "voice": {
     "engine": "azure",
     "name": "Nanami (Azure, Japan)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "ko": {
    "file": "ko/course.json",
@@ -199,15 +199,15 @@
    "variety": "Brazilian Portuguese",
    "words": 1000,
    "planned": 1000,
-   "bytes": 345363,
+   "bytes": 336225,
    "audio_bytes": 12372076,
-   "sha256": "3b16ef1a9d5eb65835dd1ff2abe8c1b5aa8f8592665d011e49ea873aed2b7324",
+   "sha256": "a777bcda48b616506215f374fdd5c99d745523b4a187cc6274dce3fd88838fb4",
    "voice": {
     "engine": "azure",
     "name": "Francisca (Azure, Brazil)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "ru": {
    "file": "ru/course.json",
@@ -215,9 +215,9 @@
    "variety": "Standard Russian",
    "words": 1000,
    "planned": 1000,
-   "bytes": 380216,
+   "bytes": 371084,
    "audio_bytes": 12843463,
-   "sha256": "a10e9cb307714d09039aa9d41f6926ed569e51148310fa48318ec696b590872c",
+   "sha256": "468d008583721914df955871e82467302f9d164082335670e84003eceaa944e9",
    "voice": {
     "engine": "azure",
     "name": "Svetlana (Azure, Russia)",
@@ -231,15 +231,15 @@
    "variety": "Central Thai (standard Thai, as spoken in Bangkok)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 405008,
+   "bytes": 395876,
    "audio_bytes": 11719538,
-   "sha256": "686a0d214e52cf43b8037cd51d83745c0eb61da29bbb939a3c4caa94b5c3528d",
+   "sha256": "04628f630efa6356729d531e113974c08a889afc1a7c9fa77a84a46262bacb12",
    "voice": {
     "engine": "azure",
     "name": "Premwadee (Azure, Thailand)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "tl": {
    "file": "tl/course.json",
@@ -247,9 +247,9 @@
    "variety": "Tagalog (Filipino) as spoken in Manila",
    "words": 1000,
    "planned": 1000,
-   "bytes": 342395,
+   "bytes": 333275,
    "audio_bytes": 11631363,
-   "sha256": "10e9f80de0777fb7e5280c5b8008b6db237513e78631338fe469d0318e0de49a",
+   "sha256": "d6174313c463a49fe884816e1210740f9cdcbbb074e7827fd6b6720622169d26",
    "voice": {
     "engine": "azure",
     "name": "Blessica (Azure, Philippines)",
@@ -263,15 +263,15 @@
    "variety": "Mandarin Chinese (mainland standard, simplified characters)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 356358,
+   "bytes": 347238,
    "audio_bytes": 11234060,
-   "sha256": "0cb675838e26d51e0acfd521ce94885c64930109e79199f0b16c6a43b6b93809",
+   "sha256": "57a7d1ae7ca9ca0296c498e76dc44ad2d18a150dd0d219e11fdbe57aa85c5756",
    "voice": {
     "engine": "azure",
     "name": "Xiaoxiao (Azure, mainland China)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   }
  }
 }
