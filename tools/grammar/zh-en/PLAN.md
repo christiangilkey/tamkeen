@@ -1,7 +1,7 @@
 # Chinese → English (zh-en): the plan
 
-Status: all 49 lessons written and checked, held as a draft (`"draft": true`) by the owner's decision: the
-courses teaching English to its speakers come in a later update.
+Status (2026-10-25): complete, 49 lessons, checked and no longer a draft (the owner said the English courses can
+continue). Every fill, choice and dialogue reply was reread so that exactly one option is right.
 
 American English taught to a speaker of Mandarin Chinese. The explanations are written in natural
 simplified Chinese, the way a good Chinese teacher of English explains to an adult beginner (not
