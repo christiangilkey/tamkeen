@@ -1167,18 +1167,18 @@
       "level": "A2",
       "title": "บอกว่าต้องทำและควรทำ: have to, must, should",
       "summary": "บอกว่าต้องทำอะไร ไม่ต้องทำอะไร ห้ามทำอะไร และควรทำอะไร",
-      "topic": "{{have to}} / {{has to}}; {{don't have to}}; {{must}} / {{mustn't}}; {{should}} / {{shouldn't}}",
+      "topic": "{{have to}} / {{has to}}; {{don't have to}} (ไม่ต้อง) และ {{can't}} (ห้าม); {{must}}; {{should}} / {{shouldn't}}",
       "blocks": [
         {"goal":{"t":"I have to work tomorrow.","tr":"พรุ่งนี้ฉันต้องทำงาน"}},
         {"dialog":[{"who":"เจค","t":"Do you want to go out tonight?","tr":"คืนนี้ออกไปเที่ยวไหม"},{"who":"นก","t":"Sorry, I can't. I have to get up early tomorrow.","tr":"ขอโทษนะ ไปไม่ได้ พรุ่งนี้ต้องตื่นเช้า"},{"who":"เจค","t":"Do you have to work on Saturday?","tr":"วันเสาร์ต้องทำงานเหรอ"},{"who":"นก","t":"Yes. My boss has to finish a big project.","tr":"ใช่ หัวหน้าต้องปิดโปรเจกต์ใหญ่"},{"who":"เจค","t":"You work too much. You should take a vacation!","tr":"คุณทำงานหนักเกินไป ควรไปพักร้อนบ้างนะ"},{"who":"นก","t":"I know. I really should!","tr":"รู้ ควรไปจริงๆ แหละ"}]},
         {"p":"**have to: ต้อง** “ต้อง…” ใช้ {{have to}} + คำกริยารูปเดิม: {{I have to work.}} กับ {{he}} / {{she}} / {{it}} เป็น {{has to}}: {{She has to go.}} คำถามและปฏิเสธใช้ {{do}}: {{Do you have to…?}} {{I don't have to…}}"},
-        {"p":"**“ไม่ต้อง” กับ “ห้าม”** ระวังให้ดี: {{don't have to}} แปลว่า “**ไม่ต้อง** (ไม่จำเป็น)” ส่วน “**ห้าม**” ใช้ {{mustn't}} หรือ {{can't}}: {{You don't have to pay.}} “ไม่ต้องจ่าย (ฟรี)” แต่ {{You mustn't smoke here.}} “ห้ามสูบบุหรี่ที่นี่”"},
+        {"p":"**“ไม่ต้อง” กับ “ห้าม”** ระวังให้ดี: {{don't have to}} แปลว่า “**ไม่ต้อง** (ไม่จำเป็น)” ส่วน “**ห้าม**” เวลาพูดใช้ {{can't}} (ในป้ายและกฎที่เป็นทางการ ใช้ {{must not}}): {{You don't have to pay.}} “ไม่ต้องจ่าย (ฟรี)” แต่ {{You can't smoke here.}} “ห้ามสูบบุหรี่ที่นี่”"},
         { "table": [
           ["ภาษาไทย","ภาษาอังกฤษ"],
           ["ต้อง","{{I have to go.}}"],
           ["ไม่ต้อง (ไม่จำเป็น)","{{You don't have to come.}}"],
           ["ต้อง (กฎ ข้อบังคับ)","{{You must wear a seat belt.}}"],
-          ["ห้าม","{{You mustn't park here.}} / {{You can't park here.}}"],
+          ["ห้าม","{{You can't park here.}} / {{You must not park here.}} (ทางการ)"],
           ["ควร","{{You should rest.}}"],
           ["ไม่ควร","{{You shouldn't drink so much coffee.}}"]
         ] },
@@ -1189,7 +1189,7 @@
           {"t":"She has to study tonight.","tr":"คืนนี้เขาต้องอ่านหนังสือ"},
           {"t":"You don't have to bring anything.","tr":"ไม่ต้องเอาอะไรมานะ"},
           {"t":"Do I have to book in advance?","tr":"ต้องจองล่วงหน้าไหม"},
-          {"t":"You mustn't take photos here.","tr":"ห้ามถ่ายรูปที่นี่"},
+          {"t":"You can't take photos here.","tr":"ห้ามถ่ายรูปที่นี่"},
           {"t":"You should see a doctor.","tr":"คุณควรไปหาหมอ"},
           {"t":"We shouldn't be late.","tr":"เราไม่ควรไปสาย"}
         ] },
@@ -1197,12 +1197,12 @@
       ],
       "mistakes": [
         {"wrong":"I must to go.","right":"I have to go.","tr":"ฉันต้องไปแล้ว","why":"{{must}} ไม่มี {{to}} ({{I must go.}}) และเวลาพูดทั่วไป {{have to}} เป็นธรรมชาติกว่า"},
-        {"wrong":"You don't have to smoke here.","right":"You can't smoke here.","tr":"ห้ามสูบบุหรี่ที่นี่","why":"{{don't have to}} แปลว่า “ไม่จำเป็นต้อง” ไม่ใช่ “ห้าม”: “ห้าม” ใช้ {{can't}} หรือ {{mustn't}}"},
+        {"wrong":"You don't have to smoke here.","right":"You can't smoke here.","tr":"ห้ามสูบบุหรี่ที่นี่","why":"{{don't have to}} แปลว่า “ไม่จำเป็นต้อง” ไม่ใช่ “ห้าม”: “ห้าม” ใช้ {{can't}} (ทางการ: {{must not}})"},
         {"wrong":"She have to work.","right":"She has to work.","tr":"เขาต้องทำงาน","why":"{{she}} ใช้ {{has to}}"}
       ],
       "practice": [
         {"type":"fill","q":"เลือกคำที่หายไป","t":"My brother ___ to work on Saturdays.","tr":"พี่ชายต้องทำงานวันเสาร์","options":["has","have","must"],"answer":0,"why":"{{my brother}} = {{he}}: {{has to}}"},
-        {"type":"choice","q":"พิพิธภัณฑ์เข้าฟรี เจ้าหน้าที่บอกว่า","options":["{{You don't have to pay.}}","{{You mustn't pay.}}","{{You have to pay.}}"],"answer":0,"why":"ไม่จำเป็นต้องจ่าย: {{don't have to}} ({{mustn't}} แปลว่าห้าม)"},
+        {"type":"choice","q":"พิพิธภัณฑ์เข้าฟรี เจ้าหน้าที่บอกว่า","options":["{{You don't have to pay.}}","{{You can't pay.}}","{{You have to pay.}}"],"answer":0,"why":"ไม่จำเป็นต้องจ่าย: {{don't have to}} ({{can't}} ตรงนี้แปลว่าห้าม)"},
         {"type":"order","q":"เรียงคำให้เป็นประโยค","tr":"คุณควรไปหาหมอ","words":["You","should","see","a","doctor."]},
         {"type":"dialogue","q":"เพื่อนไม่สบาย เลือกคำพูด","from":"will","lines":[{"who":"เพื่อน","t":"I have a headache.","tr":"ปวดหัว"},{"options":["You should take some medicine.","You should to take some medicine."],"answer":0,"why":"หลัง {{should}} ไม่มี {{to}}"},{"who":"เพื่อน","t":"I don't have any.","tr":"ไม่มียาเลย"},{"options":["Don't worry. I'll get you some.","Don't worry. I will to get you some."],"answer":0,"why":"เสนอช่วย: {{I'll}} + คำกริยารูปเดิม"}]},
         {"type":"say","q":"พูดว่า “ฉันต้องไปแล้ว”","answer":"I have to go now."},

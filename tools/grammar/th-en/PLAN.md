@@ -75,7 +75,7 @@ Levels: lessons 1–20 A1, 21–41 A2, 42–52 B1.
 | 23 | can-cant | Say what you can and can't do | *can / can't* + verb (ได้, เป็น, สามารถ: all *can*); *Can you…?*; answering *Yes, I can* (not *Can*) |
 | 24 | going-to | Talk about your plans | *be going to* + verb; *this weekend, next week* |
 | 25 | will | Offer, promise and guess: will | *will / won't*; *I'll…*; *will* or *going to* |
-| 26 | have-to-should | Say what you have to and should do | *have to / don't have to*, *must / mustn't*, *should* (ต้อง, ไม่ต้อง, ห้าม, ควร) |
+| 26 | have-to-should | Say what you have to and should do | *have to / don't have to*, *must*, *can't* (ห้าม), *should* (ต้อง, ไม่ต้อง, ห้าม, ควร) |
 | 27 | invite-and-ask | Invite, suggest and ask favors | *Would you like…?*, *Let's…*, *How about…?*, *Could you…?* |
 
 ### Unit 5. เล่าเรื่องที่ผ่านมา (Telling what happened), A2
