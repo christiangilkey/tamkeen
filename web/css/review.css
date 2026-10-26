@@ -391,6 +391,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-ans-sentence b.s, .rv-ans-trans b.s { padding-inline-end: 0; border-start-end-radius: 0; border-end-end-radius: 0; }
 .rv-ans-sentence b.e, .rv-ans-trans b.e { padding-inline-start: 0; border-start-start-radius: 0; border-end-start-radius: 0; }
 .rv-ans-sentence b.m, .rv-ans-trans b.m { padding-inline: 0; border-radius: 0; }
+/* (each piece reaches 1px under the next one, so no hairline shows where two pieces meet) */
+.rv-ans-sentence b.s, .rv-ans-sentence b.m, .rv-ans-trans b.s, .rv-ans-trans b.m { padding-inline-end: 1px; margin-inline-end: -1px; }
 /* Holding a word: it tints while pressed, and a ring shows the word that changed. */
 .rv-tok { border-radius: 6px; outline: 2px solid transparent; outline-offset: 1px; transition: background-color .2s ease .12s; }
 .rv-tok.pressing { background: var(--accent-soft); }

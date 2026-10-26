@@ -5531,3 +5531,60 @@ wrong part of the sentence" (Arabic #13 لِـ lit the لـ of الْهَدِي�
   phrases only the course word. Korean/Italian/Spanish/Japanese set `form` to the marked part where needed.
 - **Checked**: 1052 JS, 545 pytest; desktop preview (Arabic #11–14: لَ lit and joined to كَ). Not checked: phones on a
   device, right-to-left UI.
+
+## Review card: translations on the back; tap a text to edit it; hold a word to light it up (2026-10-25; branch `worktree-agent-a18c4c6f25e040364`, NOT merged, NOT pushed)
+Owner: "include the English translation of the word and the sentence but smaller on the back of the card as well" and
+"Allow cards to be edited as they are being reviewed, tap a word to type in its text box, hold it to highlight and unhighlight it."
+Built on main's ⟦ ⟧ marks (the basics-course section just above): one storage, one renderer.
+- **Back of the card** (`web/js/pages/review.js` `drawAnswer`): `.rv-ans-meaning` (v.meaning) under the word and
+  `.rv-ans-trans` (v.translation, cut round its ⟦ ⟧ like the sentence) under the sentence, small and muted, `translate="no"`,
+  `lang` = the app's language, `dir="auto"`. Hidden when empty (no translation → only the meaning). The details' Meaning box
+  stays and the two are kept the same.
+- **Tap to edit** (back only; `web/js/review/cardedit.js` is the pure part: `EDITABLE` = text, meaning, sentence,
+  translation; `editValue`, `editPayload`, `holdPayload`): a tap (opened on the `click` that follows the pointerup, because
+  a phone moves the focus on that click) replaces the text with `.rv-editbox` (a textarea in the same font and size, one
+  line, grows; study-language fields get `lang`/`dir` from `langAttrs`). Enter or blur saves through the Meaning box's
+  path (`edit()` + `flushEdits()` = `PATCH /vocab/<id>`), Esc puts it back. Keys typed in the box `stopPropagation()`, so
+  Space/1/2/arrows/W/S/P/N/Z/Del/Enter are typing; while a box is open the card's `pointerdown` does nothing (no swipe,
+  no new box: a tap beside it only closes it). IME composition is respected. Answer buttons, Undo, close and the phone's
+  back button save an open box first. Sentence/translation edits keep their lit parts on the same letters
+  (`cardtext.js carryMarks`: the changed stretch between the unchanged start and end; a typo inside a lit word stays lit).
+  The owner's earlier tap-to-copy (2026-10-23) moved to a **Copy** button under the open box (it never takes the focus,
+  and survives the old `execCommand` copy). **Front: no editing** — a tap there turns the card (the main gesture on
+  phones), and its texts (meaning, translation) are on the back now.
+- **Hold to highlight**: a press of `HOLD_MS` 450 on a word of the sentence or translation (`.rv-tok`, drawn by
+  `cardtext.js litTextHtml` with `words` = `languages.js wordRanges`: spaces for spaced languages, the players' splitter
+  for ja/zh/th — the dictionary's once loaded, else Intl.Segmenter + joinThai) toggles it: `toggleWord` → ⟦ ⟧ written into
+  the sentence (the card's own word stays lit until something is chosen; touching or space-separated lit words merge into
+  one stretch; coming back to the automatic choice stores no marks). Putting out every lit word stores `NO_MARKS` (`⟦⟧`
+  in front), read by `sentenceMarks` (spans []), `exporters.sentence_spans` and `shared-logic.sentenceSpans` as "nothing
+  lit". Tint while pressed, `buzz("tick")`, a ring on the word (`.rv-held`); moving 8 px cancels; the press then
+  neither edits nor swipes; `contextmenu` is suppressed on the sentence. The translation's marks show on the front (and,
+  being marked, make it the Anki card's front, as for looked-up words).
+- **One renderer**: `markedSentenceHtml` (Vocab list, Basics list) now calls `litTextHtml`, which the review card also
+  uses with `words` (each word in a `.rv-tok`; a stretch over several words in pieces `<b class="s|m|e">`, CSS in
+  review.css) and `shown` (Arabic vowels: `vowelPlaces` maps letters into the vowelled text). `cardSentence` cuts on the
+  text without marks and puts them back (also keeps `NO_MARKS`). `vowels.js vowelledSentence` asks for the unmarked text;
+  `vowelCard(face, v, drawSentence)`.
+- **Server/phones**: `PATCH /vocab/<id>` also takes `translation` (computer `app/api/vocab.py`, phone/web `backend.js`;
+  `sentence` is main's, with `sentence_if`). **`db.py` vocab_upd trigger now includes `sentence`**: before, a changed
+  sentence (also main's course-mark upgrade) never got a new `updated_at` on the computer and so never synced. Search
+  ignores marks (both servers); `battle-ui.js` and `seen.js` backfill strip them.
+- **Hint**: the first back shown on a device opens a one-step page guide (`components/tour.js firstVisitTour("review")`:
+  "Put a card right as you go" / "Tap any text to edit it. Hold a word in the sentence to highlight it."); Settings →
+  Show the guides again resets it. tour.js now stops Esc/arrows at the guide, and the reviewer ignores keys while a
+  guide is open (Esc used to close the reviewer under it).
+- Translations `tools/i18n/tr/<code>/78-review-edit.txt` (6 × 16).
+- **Checked**: 1077 JS (new tests/js/cardedit.test.mjs, 12), 550 pytest (new tests/test_review_edit.py, 5),
+  `build.mjs --check`. Browser pane (desktop server on a fresh scratch data folder, never signed in; and the phone
+  build from mobile/www with IndexedDB) at 375×812 and 1280×800: Arabic, Spanish and Japanese cards; back with the small
+  meaning/translation (long Arabic news sentence cut with its translation); each of the four texts edited (Enter, tap
+  away, Esc); Space/1/2/z/w/s/arrows/Del typed into the box without answering; a swipe while typing ignored, one after
+  it answered; hold on/off in Arabic (auto part → none → whole word; two words → one stretch, ZWJ kept), Spanish
+  (phrase), Japanese (学校に行き as one stretch), translation (shown on the front); the Vocab list showing the choice; the
+  hint once, with 2 and Esc not reaching the card; 2/Z after closing a box; Copy. Holds were made with synthetic touch
+  pointer events (the pane has no press-and-hold).
+- **NOT checked**: a real phone (long-press feel, vibration, Android's/iPhone's own long-press menu or text selection
+  over the sentence, the on-screen keyboard pushing the card), iPhone typing inside `.rv-back` (user-select is set back
+  to text on its boxes as a precaution), a real sync between two devices, right-to-left app language by eye. A card
+  whose word or sentence is edited keeps the voice it already had (voices are made once; see Card voices).
