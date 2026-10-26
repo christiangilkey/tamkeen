@@ -547,7 +547,7 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
   const answer = Math.floor(rand() * 4);
   const options = others.slice();
   options.splice(answer, 0, right);
-  return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || ""), options, answer, reverse };
+  return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || "").replace(/[⟦⟧]/gu, ""), options, answer, reverse };
 }
 
 /** Record an answer. Returns {xp, graduated, retentionBonus, stage}. */

@@ -12,8 +12,8 @@
 import { api, esc, h, platform, saveVoice, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langAttrs, langInfo } from "../languages.js";
-import { findWord } from "../cardtext.js";
-import { cardOf, courseUrl, markedHtml, progress, unitsOf } from "../coursedata.js";
+import { markedSentenceHtml } from "../cardtext.js";
+import { cardOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -59,9 +59,18 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       return;
     }
     await refreshCards();
+    upgradeCards(); // (in the background: nothing on screen depends on it)
     const open = Number(lsGet(`course:${lang}:unit`)) || 0;
     if (open && unitsOf(course).some((u) => u.n === open && u.ready)) drawUnit(open);
     else drawCourse();
+  }
+
+  /** Cards added from the course before its sentences were marked get the marks, so they light up the
+   * right place too (coursedata.js markUpdates: never a sentence the learner changed). */
+  async function upgradeCards() {
+    for (const u of markUpdates(course, cards)) {
+      try { await api(`/vocab/${u.id}`, { method: "PATCH", body: { sentence: u.sentence, sentence_if: u.sentence_if } }); } catch { /* next time */ }
+    }
   }
 
   async function refreshCards() {
@@ -128,8 +137,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     const list = h(`<ol class="cu-words"></ol>`);
     const rows = new Map();
     for (const w of unit.words) {
-      const at = findWord(w.sentence, w.word);
-      const sentence = at ? `${esc(w.sentence.slice(0, at[0]))}<b>${esc(w.sentence.slice(at[0], at[1]))}</b>${esc(w.sentence.slice(at[1]))}` : esc(w.sentence);
+      const sentence = markedSentenceHtml(w.sentence, w.word, esc); // the word where the sentence's ⟦ ⟧ marks say
       const row = h(`<li class="cw">
         <div class="cw-top"><span class="cw-n">${w.n}</span><span class="cw-word ar" ${attrs} translate="no"></span><span class="cw-meaning" translate="no"></span></div>
         <div class="cw-sent ar" ${attrs} translate="no">${sentence}</div>

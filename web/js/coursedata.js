@@ -84,6 +84,27 @@ export function cardOf(word, course, folder = "") {
   };
 }
 
+/**
+ * Cards added from this course before its sentences said where their word is (⟦ ⟧, v0.38): the sentence
+ * each should now have. A card counts when it came from this course (its source, "Arabic basics · word 13")
+ * and its sentence is still exactly the course's, marks aside; one the learner changed is left alone.
+ * [{id, sentence, sentence_if}] for PATCH /vocab/{id}.
+ */
+export function markUpdates(course, cards) {
+  const byN = new Map(((course && course.words) || []).map((w) => [w.n, w]));
+  const prefix = `${(course && course.title) || ""} · word `;
+  const out = [];
+  for (const c of cards || []) {
+    const src = String(c.episode_title || c.source || "");
+    if (!course || !src.startsWith(prefix) || c.deleted) continue;
+    const w = byN.get(Number(src.slice(prefix.length)));
+    const have = String(c.sentence || "");
+    if (!w || !/[⟦⟧]/u.test(w.sentence) || have === w.sentence || /[⟦⟧]/u.test(have)) continue;
+    if (have.trim() === String(w.sentence).replace(/[⟦⟧]/gu, "").trim()) out.push({ id: c.id, sentence: w.sentence, sentence_if: have });
+  }
+  return out;
+}
+
 /** The translation as HTML: the part that translates the word in bold. `esc` escapes text. */
 export function markedHtml(translation, esc) {
   return esc(String(translation || "")).replace(/⟦([^⟦⟧]*)⟧/g, "<b>$1</b>");

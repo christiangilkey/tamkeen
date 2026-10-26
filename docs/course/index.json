@@ -7,15 +7,15 @@
    "variety": "Modern Standard Arabic",
    "words": 1000,
    "planned": 1000,
-   "bytes": 381973,
+   "bytes": 372835,
    "audio_bytes": 12856940,
-   "sha256": "d5de06c41e9d24926a2133b7fa22349499a14639266d6d1c29aac79d23e80953",
+   "sha256": "77c681008576c064c0815bea7144ac6fff57657d6b2e694a5fb12ad2773f984b",
    "voice": {
     "engine": "azure",
     "name": "Zariyah (Azure, Saudi Arabia)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "ca": {
    "file": "ca/course.json",
