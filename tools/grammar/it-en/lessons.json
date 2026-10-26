@@ -5,7 +5,6 @@
   "variety": "Inglese americano",
   "about": "Dalla prima conversazione all'inglese di tutti i giorni, una lezione breve alla volta. Ogni lezione ti dà subito qualcosa da dire, poi la grammatica che lo fa funzionare. Non serve sapere la grammatica: ogni termine è spiegato la prima volta che ti serve. Gli esempi sono in inglese americano, quello che si parla negli Stati Uniti, con le parole di tutti i giorni.",
   "reading": "",
-  "draft": true,
   "units": [
     {"n":1,"title":"Prime conversazioni"},
     {"n":2,"title":"Persone, cose e luoghi"},
@@ -1780,7 +1779,7 @@
           ["è vietato","{{You can't smoke here.}} {{You mustn't touch it.}}"],
           ["al passato","{{I had to wait an hour.}}"]
         ] },
-        {"p":"**Il tranello di “non devi”.** In italiano “non devi pagare” può voler dire due cose: “non è necessario” o “è vietato”. In inglese sono due frasi diverse: {{You don't have to pay}} “Non serve pagare, è gratis”; {{You can't pay here}} o {{You mustn't pay here}} “Qui è vietato pagare”. Nel parlato, per i divieti, gli americani usano soprattutto {{can't}}."},
+        {"p":"**Il tranello di “non devi”.** In italiano “non devi venire” può voler dire due cose: “non sei obbligato” o “è vietato”. In inglese sono due frasi diverse: {{You don't have to come}} “Non sei obbligato a venire, se non vuoi”; {{You can't come}} o {{You mustn't come}} “Non puoi venire, è vietato”. Nel parlato, per i divieti, gli americani usano soprattutto {{can't}}."},
         {"p":"**Al passato**: “dovevo, ho dovuto” è {{had to}}: {{I had to work late}}. {{must}} non ha passato."},
         { "ex": [
           {"t":"I have to get up at six tomorrow.","tr":"Domani devo alzarmi alle sei."},

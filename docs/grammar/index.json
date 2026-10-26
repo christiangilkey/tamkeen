@@ -256,6 +256,22 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "it-en": {
+   "file": "it-en/course.json",
+   "from": "it",
+   "to": "en",
+   "title": "Grammatica inglese",
+   "variety": "Inglese americano",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 265090,
+   "sha256": "1b6f1b412a1466906f500198afb8672b7c5a0a02a370deba15725a60867deea4"
   }
  }
 }
