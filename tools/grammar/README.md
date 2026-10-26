@@ -205,7 +205,8 @@ the lessons of another file to it). `tools/grammar/en-ar/lessons.json` is the mo
   `order` question's `rs` is one reading per word; a dialogue reply's `rs` is one reading per option. All in
   the same order as what they read. The app shows them under the tiles and buttons when readings are on,
   and fills the gap of `r` with the right option's reading once answered. A `choice` option is explanation
-  text, so it gives its reading inside the marks: `{{word|reading}}`.
+  text, so it gives its reading inside the marks: `{{word|reading}}`. A mistake can give the readings of
+  its `wrong` and `right` as `rw` and `rr`.
 
   ```jsonc
   { "type": "fill", "t": "我___咖啡。", "r": "Wǒ ___ kāfēi.", "options": ["要", "是"], "rs": ["yào", "shì"], … }

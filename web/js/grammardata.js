@@ -10,6 +10,7 @@
 // Readings of the choices a learner taps (optional): a "fill" question's `r` (its sentence's reading, with
 // ___) and `rs` (one reading per option), an "order" question's `rs` (one per word), and a dialogue
 // reply's `rs` (one per option). Shown under the choices when readings are on; never translated.
+// Likewise a mistake's `rw` and `rr`: the readings of its `wrong` and `right`.
 
 export const GRAMMAR_BASE = "https://christiangilkey.github.io/tamkeen/grammar/";
 const SITE_HOST = "christiangilkey.github.io";

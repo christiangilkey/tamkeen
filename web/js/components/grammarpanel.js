@@ -447,10 +447,12 @@ export function grammarPanel(box, lang, choice) {
   function mistakes(list) {
     const sec = h(`<section class="gm-list"><h3>${icon("close", 18)} <span>Common mistakes</span></h3><ul></ul></section>`);
     const ul = sec.querySelector("ul");
+    // A mistake's wrong and right forms, each with its reading under it when the course gives one (rw, rr).
+    const form = (t, r) => `<span class="gm-body"><span class="gm-text" ${attrs} translate="no">${esc(t)}</span>${r ? `<span class="gx-r" dir="ltr" translate="no">${esc(r)}</span>` : ""}</span>`;
     for (const m of list) {
       ul.append(h(`<li class="gm">
-        <div class="gm-wrong"><span class="gm-mark" aria-label="Wrong">${icon("close", 15)}</span><span class="gm-text" ${attrs} translate="no">${esc(m.wrong)}</span></div>
-        <div class="gm-right" data-say="${esc(m.right)}"><span class="gm-mark" aria-label="Right">${icon("check", 15)}</span><span class="gm-text" ${attrs} translate="no">${esc(m.right)}</span><span class="gm-say" aria-hidden="true">${icon("sound", 15)}</span></div>
+        <div class="gm-wrong"><span class="gm-mark" aria-label="Wrong">${icon("close", 15)}</span>${form(m.wrong, m.rw)}</div>
+        <div class="gm-right" data-say="${esc(m.right)}"><span class="gm-mark" aria-label="Right">${icon("check", 15)}</span>${form(m.right, m.rr)}<span class="gm-say" aria-hidden="true">${icon("sound", 15)}</span></div>
         ${m.tr ? `<div class="gm-tr small muted" translate="no">${rich(m.tr)}</div>` : ""}
         <div class="gm-why" translate="no">${rich(m.why)}</div>
       </li>`));
