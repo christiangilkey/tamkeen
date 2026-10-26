@@ -87,15 +87,15 @@
    "variety": "Latin American Spanish (Mexico)",
    "words": 1000,
    "planned": 1000,
-   "bytes": 345467,
+   "bytes": 336329,
    "audio_bytes": 12315147,
-   "sha256": "796991ca90b5bc76e54a42bf28ae73a11f5c78e10e46c080a5105d5da505aa76",
+   "sha256": "727caeb7e0a4b7bcba8e2c30012acb3dec560ac4ac272c0a7f8ce24c4abda64f",
    "voice": {
     "engine": "azure",
     "name": "Dalia (Azure, Mexico)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "fa": {
    "file": "fa/course.json",
