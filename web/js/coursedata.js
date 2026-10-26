@@ -88,3 +88,15 @@ export function cardOf(word, course, folder = "") {
 export function markedHtml(translation, esc) {
   return esc(String(translation || "")).replace(/⟦([^⟦⟧]*)⟧/g, "<b>$1</b>");
 }
+
+/**
+ * Which of the Library's Courses tabs opens ("grammar" or "basics"; "" when the language has neither).
+ * `basics` / `grammar`: whether the language has that course. A link that asks for one (`asked`,
+ * #/library?tab=basics) comes first, then the tab the learner chose earlier in this visit (`chosen`),
+ * then Grammar (the owner's choice), or Basics when there is no grammar course.
+ */
+export function courseTabChoice({ basics = false, grammar = false, asked = "", chosen = "" } = {}) {
+  const can = { basics: !!basics, grammar: !!grammar };
+  for (const tab of [asked, chosen]) if (Object.prototype.hasOwnProperty.call(can, tab) && can[tab]) return tab;
+  return can.grammar ? "grammar" : can.basics ? "basics" : "";
+}
