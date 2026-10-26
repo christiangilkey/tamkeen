@@ -16550,6 +16550,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "ee9fc3ee",
+  "k": "Grammar courses for learning English, explained in your own language",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a11abbbf",
+  "k": "Review cards: the translation on the back, tap any text to fix it, hold a word to highlight it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "182c6cc3",
+  "k": "The basics courses highlight each word in the right place",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a0e09e4a",
+  "k": "XP for hearing grammar examples and adding Basics words",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d45a59cf",
+  "k": "Problems you can fix open one clear popup with a button to the fix",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "43782e22",
+  "k": "Courses open on Grammar first",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "47815188",
   "k": "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
   "f": "web/js/whatsnew.js"

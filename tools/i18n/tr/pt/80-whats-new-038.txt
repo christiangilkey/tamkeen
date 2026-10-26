@@ -1,0 +1,6 @@
+ee9fc3ee Cursos de gramática para aprender inglês, explicados no seu idioma
+a11abbbf Cartões de revisão: a tradução no verso, toque em qualquer texto para corrigir, segure uma palavra para destacá-la
+182c6cc3 Os cursos básicos destacam cada palavra no lugar certo
+a0e09e4a XP por ouvir exemplos de gramática e adicionar palavras do Básico
+d45a59cf Problemas que você pode resolver abrem uma janela clara com um botão para resolver
+43782e22 Os cursos abrem primeiro em Gramática

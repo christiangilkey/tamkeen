@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.38.0 — 2026-10-26
+
 - **Improved:** The back of a review card shows the word's meaning under the word, and the sentence's translation under the sentence, small and in your own language (a card without a translation shows just the meaning).
 - **New:** Put a card right while you review it: on the back, tap the word, its meaning, its sentence or the translation and it becomes a text box right where it is. Press Enter or tap elsewhere to save, or Esc to leave it as it was; the change reaches your other devices like any other. While you type, the card's keys and swipes don't answer it. A tap on the word or sentence used to copy it: the **Copy** button under the open box does that now.
 - **New:** Hold a word in the card's sentence for half a second to highlight it as part of the word you're learning, or to take its highlight away: a verb in two parts, a whole phrase, or a word the card lit up wrongly. It works in the translation too, and that shows on the front of the card. What you choose shows on the card, in the Vocab list and in the Anki export. Japanese, Chinese and Thai are split into words the way the players split them. A short hint says so the first time.
@@ -23,7 +25,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **New:** More XP for your creature from the courses: tapping an example in a grammar lesson to hear it (a little, once a day for each example, and it keeps your combo going), and adding words from a basics course to your cards (5 XP a word, the same with "Add all", for up to 50 words a day). A finished grammar lesson already counted toward your XP, as before.
 - **Improved:** A Library section with nothing in it yet (YouTube, Netflix, webpages, books, reels, your own videos and audio, podcasts) says "Nothing here yet" and what to add, with an arrow pointing at the + button.
 - **Improved:** On the Vocab page, the Review box keeps its colour when you have no cards yet, with "No cards to study" on it.
-- **Improved:** A problem you can put right yourself no longer shows red messages at the bottom of the screen. One popup in the middle says what is wrong, with a button that takes you straight to the fix and **Dismiss**: the microphone not allowed ("Say it", recording a card, voice notes) opens Tamkeen's page in the phone's settings (or asks again while it still can; the web app says where the browser's switch is), and a missing or refused AI or Azure key, a sign-in, Friends or the language you're learning opens the right place in Settings. It shows once, never piles up, and after Dismiss waits a few minutes before asking again; a review card behind it can't be answered by mistake. Other messages are never shown twice at once.
+- **Improved:** A problem you can put right yourself no longer shows red messages at the bottom of the screen. One popup in the middle says what is wrong, with a button that takes you straight to the fix and **Dismiss**: the microphone not allowed ("Say it", recording a card, voice notes) opens Tamkeen's page in the phone's settings (or asks again while it still can; the web app says where the browser's switch is), and a missing or refused AI or Azure key, a sign-in, Friends or the language you're learning opens the right place in Settings. It shows once, never piles up, and after Dismiss waits a little while before asking again; a review card behind it can't be answered by mistake. Other messages are never shown twice at once.
 
 ## v0.37.0 — 2026-10-25
 

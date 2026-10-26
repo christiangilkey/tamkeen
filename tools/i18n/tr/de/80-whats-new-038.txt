@@ -1,0 +1,6 @@
+ee9fc3ee Grammatikkurse zum Englischlernen, erklärt in deiner Sprache
+a11abbbf Lernkarten: die Übersetzung auf der Rückseite, tippe auf einen Text, um ihn zu korrigieren, halte ein Wort gedrückt, um es zu markieren
+182c6cc3 Die Grundkurse markieren jedes Wort an der richtigen Stelle
+a0e09e4a XP fürs Anhören von Grammatikbeispielen und fürs Hinzufügen von Grundwortschatz
+d45a59cf Probleme, die du selbst beheben kannst, öffnen ein klares Fenster mit einer Taste zur Lösung
+43782e22 Kurse öffnen zuerst bei Grammatik

@@ -1,0 +1,6 @@
+ee9fc3ee Des cours de grammaire pour apprendre l'anglais, expliqués dans ta langue
+a11abbbf Cartes de révision : la traduction au verso, touche un texte pour le corriger, appuie longuement sur un mot pour le surligner
+182c6cc3 Les cours de base surlignent chaque mot au bon endroit
+a0e09e4a De l'XP pour écouter les exemples de grammaire et ajouter des mots des Bases
+d45a59cf Les problèmes que tu peux régler ouvrent une fenêtre claire avec un bouton pour les régler
+43782e22 Les cours s'ouvrent d'abord sur Grammaire

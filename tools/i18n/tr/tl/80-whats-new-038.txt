@@ -1,0 +1,6 @@
+ee9fc3ee Mga kurso sa gramatika para matuto ng Ingles, ipinaliliwanag sa sarili mong wika
+a11abbbf Mga review card: ang salin sa likod, i-tap ang anumang teksto para ayusin ito, pindutin nang matagal ang salita para i-highlight
+182c6cc3 Tamang lugar na ang pag-highlight ng bawat salita sa mga basics course
+a0e09e4a XP sa pakikinig sa mga halimbawa sa gramatika at pagdaragdag ng mga salita mula sa Basics
+d45a59cf Ang mga problemang kaya mong ayusin ay nagbubukas ng malinaw na popup na may button para ayusin
+43782e22 Grammar muna ang bukas sa Courses

@@ -1,0 +1,6 @@
+ee9fc3ee Cursos de gramática para aprender inglés, explicados en tu idioma
+a11abbbf Tarjetas de repaso: la traducción en el reverso, toca cualquier texto para corregirlo, mantén pulsada una palabra para resaltarla
+182c6cc3 Los cursos básicos resaltan cada palabra en el lugar correcto
+a0e09e4a XP por escuchar ejemplos de gramática y añadir palabras de Básico
+d45a59cf Los problemas que puedes arreglar abren una ventana clara con un botón para solucionarlo
+43782e22 Los cursos se abren primero en Gramática
