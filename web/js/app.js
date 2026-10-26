@@ -26,6 +26,8 @@ import { installSelectSheets } from "./components/selectsheet.js";
 import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
+import { offerFix } from "./components/fixit.js";
+import { placeToast } from "./toaster.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw, bytes } = {}) {
@@ -102,19 +104,35 @@ function connectEvents() {
 }
 
 // ---------- toasts & notifications ----------
-export function toast(message, { error = false, action, timeout = 5000 } = {}) {
-  const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
-  el.firstChild.textContent = message;
-  if (action) {
-    const b = h(`<button type="button"></button>`);
-    b.textContent = action.label;
-    b.onclick = () => { action.run(); el.remove(); };
-    el.append(b);
-  }
-  document.getElementById("toasts").append(el);
-  setTimeout(() => el.remove(), error ? timeout * 2 : timeout);
-  return el; // so a caller can add to it (the game puts a pixel icon in front)
+/** A short message at the bottom right. A problem the learner can fix (a permission, a key or a sign-in
+ * in Settings: fixes.js) opens the fix popup instead (components/fixit.js); the same words are never
+ * shown twice at once (toaster.js). `fix: false` keeps it a message whatever it says. */
+export function toast(message, { error = false, action, timeout = 5000, fix = true } = {}) {
+  if (fix && !action && offerFix(message)) return h(`<div class="toast"></div>`); // (not on screen)
+  return placeToast(document.getElementById("toasts"), message, {
+    error, ms: error ? timeout * 2 : timeout,
+    build: () => {
+      const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
+      el.firstChild.textContent = message;
+      if (action) {
+        const b = h(`<button type="button"></button>`);
+        b.textContent = action.label;
+        b.onclick = () => { action.run(); el.remove(); };
+        el.append(b);
+      }
+      return el; // so a caller can add to it (the game puts a pixel icon in front)
+    },
+  });
 }
+
+/** The system's permissions, for the fix popup (components/fixit.js): which window this is ("desktop":
+ * the app's own; "web": the server opened in a browser, which has the browser's own permission
+ * questions) and, in the app's window, opening the system's microphone privacy page (Windows: Privacy &
+ * security → Microphone; macOS: Privacy & Security → Microphone). */
+export const systemAccess = {
+  device: () => (window.pywebview ? "desktop" : "web"),
+  openSettings: (what) => api("/system/open-privacy", { method: "POST", body: { what } }).then((r) => !!(r && r.opened), () => false),
+};
 
 export function requestNotifications() {
   try {
@@ -703,8 +721,7 @@ async function refreshNow() {
   const st = await api("/sync/status");
   if (!st.configured) throw new Error("Sync isn't available in this build (no Google sign-in configured).");
   if (!st.signed_in) {
-    toast("Sign in with Google to keep your library the same on all your devices.", { timeout: 8000, action: { label: "Sign in",
-      run: () => api("/sync/login", { method: "POST" }).catch((e) => toast(e.message, { error: true })) } });
+    offerFix("signin", { run: () => api("/sync/login", { method: "POST" }).catch((e) => toast(e.message, { error: true })) });
     return null;
   }
   const r = await api("/sync/now?wait=true", { method: "POST" });

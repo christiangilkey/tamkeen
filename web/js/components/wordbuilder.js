@@ -31,6 +31,7 @@ import { azureReady, voiceChars, voiceMode } from "../cardvoice.js";
 import { voiceMaker } from "../voiceplay.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
 import { scanPanel } from "./wordscan.js";
+import { offerFix } from "./fixit.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
 const settings = () => (state.status && state.status.settings) || {};
@@ -581,6 +582,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       await usePart(row, which, blob);
     } catch (err) {
       if (recording === me) recording = null;
+      if (err && err.kind === "mic") offerFix("mic");  // the popup with the way to allow it
       row.audioNote = err && err.message ? err.message : String(err);
       paintAudio(row);
       paintStatus(row);

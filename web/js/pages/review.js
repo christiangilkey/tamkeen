@@ -26,6 +26,7 @@ import { practise, practiseButton } from "../review/pronounce.js";
 import { soundAlikes } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
+import { offerFix } from "../components/fixit.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
@@ -432,6 +433,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         if (!go.isConnected) return;
         label.textContent = (mnemonics.get(uidOf(v)) || []).length ? "Make 5 more" : "Mnemonic maker";
         say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
+        offerFix(e);  // no key, or a refused one: the popup with the way to Settings
         const fix = troubleshootButton(e);
         if (fix) note.append(" ", fix);
       } finally {

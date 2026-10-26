@@ -1,6 +1,8 @@
+import AVFoundation
 import Capacitor
 import Foundation
 import UIKit
+import UserNotifications
 import WebKit
 
 /// The iPhone side of the "GoogleDriveAuth" plugin: the same calls, with the same names and
@@ -26,7 +28,9 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "reelClose", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "browserSites", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "browserToast", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "setMediaToken", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "setMediaToken", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "permissionState", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "openAppSettings", returnType: CAPPluginReturnPromise)
     ]
 
     override public func load() {
@@ -103,6 +107,58 @@ public class GoogleDriveAuthPlugin: CAPPlugin, CAPBridgedPlugin {
         DispatchQueue.main.async {
             DriveMediaHandler.token = token
             call.resolve()
+        }
+    }
+
+    // MARK: - permissions, for the fix popup (web/js/components/fixit.js)
+
+    /// How a permission stands now, {state}: "granted", "prompt" (never asked: the iPhone shows its
+    /// question when the page asks for it) or "denied" (only Tamkeen's page in Settings can switch it
+    /// back on). {name}: "microphone" (the default) or "notifications".
+    @objc func permissionState(_ call: CAPPluginCall) {
+        let name = call.getString("name", "microphone")
+        if name == "notifications" {
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                let state: String
+                switch settings.authorizationStatus {
+                case .authorized, .provisional, .ephemeral: state = "granted"
+                case .denied: state = "denied"
+                case .notDetermined: state = "prompt"
+                @unknown default: state = "prompt"
+                }
+                call.resolve(["state": state])
+            }
+            return
+        }
+        var state = "prompt"
+        if #available(iOS 17.0, *) {
+            switch AVAudioApplication.shared.recordPermission {
+            case .granted: state = "granted"
+            case .denied: state = "denied"
+            case .undetermined: state = "prompt"
+            @unknown default: state = "prompt"
+            }
+        } else {
+            switch AVAudioSession.sharedInstance().recordPermission {
+            case .granted: state = "granted"
+            case .denied: state = "denied"
+            case .undetermined: state = "prompt"
+            @unknown default: state = "prompt"
+            }
+        }
+        call.resolve(["state": state])
+    }
+
+    /// Opens Tamkeen's own page in the iPhone's Settings (where Microphone is switched on). Resolves {opened}.
+    @objc func openAppSettings(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                call.resolve(["opened": false])
+                return
+            }
+            UIApplication.shared.open(url, options: [:]) { opened in
+                call.resolve(["opened": opened])
+            }
         }
     }
 

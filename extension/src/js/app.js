@@ -5,6 +5,7 @@
 // looked up, and the "seen words" list (not kept here: the web app keeps it).
 import { kv, saveSettingsPatch, settings } from "./store.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
+import { placeToast } from "./toaster.js";
 
 export const platform = "extension";
 export const state = { status: { settings } };
@@ -48,13 +49,15 @@ export function h(html) {
   return t.content.firstElementChild;
 }
 
+/** A short message (the same words are never shown twice at once: toaster.js). */
 export function toast(message, { error = false, timeout = 4000 } = {}) {
   const box = document.getElementById("toasts");
   if (!box) return;
-  const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
-  el.firstChild.textContent = message;
-  box.append(el);
-  setTimeout(() => el.remove(), error ? timeout * 2 : timeout);
+  placeToast(box, message, { error, ms: error ? timeout * 2 : timeout, build: () => {
+    const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
+    el.firstChild.textContent = message;
+    return el;
+  } });
 }
 
 export function buzz() { /* no vibration on a computer */ }

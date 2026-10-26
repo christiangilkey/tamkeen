@@ -1,13 +1,20 @@
 package io.github.christiangilkey.arabicpodcaststudio;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.CancellationSignal;
+import android.provider.Settings;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.credentials.Credential;
 import androidx.credentials.CredentialManager;
@@ -310,6 +317,54 @@ public class GoogleDriveAuthPlugin extends Plugin {
     public void setMediaToken(PluginCall call) {
         DriveMediaWebViewClient.setToken(call.getString("token"));
         call.resolve();
+    }
+
+    // ----- permissions, for the fix popup (web/js/components/fixit.js) -----
+
+    /**
+     * How a permission stands now, {state}: "granted"; "prompt" (refused once, so Android still shows
+     * its question when the web view asks for it again); or "denied" (Android won't ask any more, so
+     * only Tamkeen's page in the system's settings can switch it back on). {name}: "microphone"
+     * (the default) or "notifications". The page asks only after a request was just refused, so
+     * "never asked" (which Android can't tell apart from "denied") doesn't come up here.
+     */
+    @PluginMethod
+    public void permissionState(PluginCall call) {
+        String name = call.getString("name", "microphone");
+        String state;
+        if ("notifications".equals(name) && Build.VERSION.SDK_INT < 33) {
+            // Before Android 13 there is no question: only the switch in the system's settings.
+            state = NotificationManagerCompat.from(getContext()).areNotificationsEnabled() ? "granted" : "denied";
+        } else {
+            String permission = "notifications".equals(name)
+                ? Manifest.permission.POST_NOTIFICATIONS : Manifest.permission.RECORD_AUDIO;
+            if (ContextCompat.checkSelfPermission(getContext(), permission) == PackageManager.PERMISSION_GRANTED) {
+                state = "granted";
+            } else {
+                Activity activity = getActivity();
+                boolean canAsk = activity != null && ActivityCompat.shouldShowRequestPermissionRationale(activity, permission);
+                state = canAsk ? "prompt" : "denied";
+            }
+        }
+        JSObject out = new JSObject();
+        out.put("state", state);
+        call.resolve(out);
+    }
+
+    /** Opens Tamkeen's page in the system's settings (App info, where Permissions are). Resolves {opened}. */
+    @PluginMethod
+    public void openAppSettings(PluginCall call) {
+        JSObject out = new JSObject();
+        try {
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.fromParts("package", getContext().getPackageName(), null));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(intent);
+            out.put("opened", true);
+        } catch (Exception e) {
+            out.put("opened", false);
+        }
+        call.resolve(out);
     }
 
     private void onConsentResult(ActivityResult r) {
