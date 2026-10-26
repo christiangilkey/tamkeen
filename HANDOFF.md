@@ -5510,3 +5510,24 @@ colored as if it did have words."
   other 49 (+245, cap reached at 50). Not checked: a real phone/iPhone, the web app build (docs/app not rebuilt).
 - Noticed, not changed: on the phone in an RTL interface the kinds strip doesn't scroll the chosen kind into view
   (library.js renderStrips uses `scrollLeft` as if left-to-right).
+
+## Basics courses: ⟦ ⟧ marks the word in every sentence (2026-10-25; branch `course-marks`, worktree `tamkeen-marks`, NOT merged, NOT pushed)
+Owner's report on v0.37.0: "the part of the sentence that's highlighted is wrong … it seeing a part of the word in the
+wrong part of the sentence" (Arabic #13 لِـ lit the لـ of الْهَدِيَّةُ). No course sentence had marks; the app lit the first match.
+- **App**: web/js/cardtext.js `sentenceMarks`, `markedSentenceHtml` (ZWJ on both sides of a lit edge inside a word of
+  joining letters), `stripMarks`; `findWord` returns the first marked part. Used by coursepanel.js and vocab.js
+  `highlight` (Vocab list and the review card); game/rules.js strips marks. coursedata.js `cardOf` keeps the marked
+  sentence; `markUpdates` + coursepanel `upgradeCards` give earlier course cards their marks (PATCH /vocab/<id>
+  `sentence` + `sentence_if`, only while the stored sentence is still the course's unmarked one; computer and phone).
+  Anki export and CSV (app/exporters.py `sentence_spans`, mobile shared-logic.js `sentenceSpans`): marked parts in
+  [brackets], marks never shown.
+- **Courses**: build_course.py `unmarked()` for what is said and the fingerprint (no audio remade: 0 .ogg changed);
+  the build refuses a sentence without marks; course-content / course tests check them; check_audio strips them.
+  Arabic marked here (tools/course/build/mark_ar.mjs proposed stems from the analyzer's splits; all 1000 read, 11 fixed
+  by hand); the other 16 by their basics-<lang> sessions (brief + checker: side-session notes `marks-brief.md`,
+  `check-marks.mjs`), each read back by hand, merged here and their course.json rebuilt.
+- **Rules used**: the form used (inflected, conjugated); a clitic word marks only itself; attached pronouns, articles and
+  linkers stay outside; split words mark every piece (German separable verbs, ne…pas/né…né, 越…越, phrasal verbs); in set
+  phrases only the course word. Korean/Italian/Spanish/Japanese set `form` to the marked part where needed.
+- **Checked**: 1052 JS, 545 pytest; desktop preview (Arabic #11–14: لَ lit and joined to كَ). Not checked: phones on a
+  device, right-to-left UI.

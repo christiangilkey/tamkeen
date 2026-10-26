@@ -16,6 +16,16 @@ test("th: each meaning starts with the word's reading in brackets", () => {
 test("th: words and sentences are in Thai letters", () => {
   for (const w of course.words) {
     assert.match(w.word, THAI, `${w.n}: ${w.word}`);
-    for (const part of w.sentence.split(" ")) assert.match(part, THAI, `${w.n}: ${w.sentence}`);
+    for (const part of w.sentence.replace(/[⟦⟧]/g, "").split(" ")) assert.match(part, THAI, `${w.n}: ${w.sentence}`);
+  }
+});
+
+// ⟦ ⟧ in a sentence marks where the word is, for the app to light up: each marked part is the word itself
+// (or the word doubled with ๆ, เด็กๆ), never other letters.
+test("th: each sentence marks the word, and only the word", () => {
+  for (const w of course.words) {
+    const marked = [...w.sentence.matchAll(/⟦([^⟦⟧]+)⟧/g)].map((m) => m[1]);
+    assert.ok(marked.length, `${w.n}: no ⟦ ⟧ in ${w.sentence}`);
+    for (const m of marked) assert.ok(m === w.word || m === `${w.word}ๆ`, `${w.n}: ⟦${m}⟧ isn't ${w.word}`);
   }
 });

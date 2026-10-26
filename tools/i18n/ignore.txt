@@ -382,3 +382,5 @@ e9369867  # fill in: {0}
 c084abda  # That grammar course hasn't been made yet. (app/grammar.py: a 404 the page never shows)
 56bbfd55  # Couldn't download the grammar course ({0})... (app/grammar.py: a 404 the page never shows)
 18ed69a4  # <{0} class="gx" data-say="{1}" ...  (grammarpanel.js example: a tag, not words)
+# A card's source from a course (web/js/coursedata.js): "Arabic basics · word 13". markUpdates finds course cards by it, so it stays as written.
+eb78e84b  # {0} · word
