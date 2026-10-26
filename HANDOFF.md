@@ -5541,7 +5541,7 @@ background … the user either clicks dismiss or the teal button which brings th
   `show` id, or `href`), `fixFor(cause, env)` (title, one sentence, button; the microphone's text/button by device and
   permission state: `step` "ask" or "system"), `causeOf(error|message)` (the app's own English messages; an error may
   carry `fixCause`), `settingsHref`, `fixGate` (one at a time, others wait (max 3), same cause skipped while open,
-  QUIET_MS 3 min after Dismiss, AFTER_FIX_MS 30 s after the button).
+  QUIET_MS 20 s after Dismiss, AFTER_FIX_MS 10 s after the button; shortened by the coordinator from 3 min / 30 s so pressing Say it again soon shows the popup again).
 - **`web/js/components/fixit.js`** `offerFix(what, {run, goTo, message})`: true when it is a fixable cause (shown,
   waiting or quiet: say nothing else), false otherwise. openModal (new options `cls`, `cross: false`), class `fix-back`
   (centred on phones too, z-index 95, no shadow; styles at the end of app.css). Takes every key while on top (window
