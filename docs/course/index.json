@@ -39,9 +39,9 @@
    "variety": "Bisaya (Cebuano) as spoken in Cebu",
    "words": 1000,
    "planned": 1000,
-   "bytes": 340134,
+   "bytes": 330996,
    "audio_bytes": 11523014,
-   "sha256": "f47aeaf209b8a2eeb802b800ff173106ca21007913a63654c484707284b11d5c",
+   "sha256": "a6e67748ca2412c08486d3f4147ef2583486661bfa5cb1bc9fb77a2a44bf0242",
    "voice": {
     "engine": "azure",
     "name": "Blessica (Azure, Philippines; reading Bisaya)",
