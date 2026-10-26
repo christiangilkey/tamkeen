@@ -118,7 +118,7 @@
         {"dialog":[{"who":"Somchai","t":"คุณทำงานอะไรครับ","r":"kun tam-ngaan à-rai kráp","tr":"What do you do?"},{"who":"Sarah","t":"ฉันเป็นครูสอนภาษาอังกฤษค่ะ แล้วคุณล่ะคะ","r":"chǎn bpen kruu sɔ̌ɔn paa-sǎa ang-grìt kâ, lɛ́ɛo kun lâ ká","tr":"I'm an English teacher. And you?"},{"who":"Somchai","t":"ผมเป็นหมอครับ คุณเป็นคนอเมริกันใช่ไหมครับ","r":"pǒm bpen mɔ̌ɔ kráp, kun bpen kon à-mee-rí-gan châi mǎi kráp","tr":"I'm a doctor. You're American, right?"},{"who":"Sarah","t":"ไม่ใช่ค่ะ ฉันเป็นคนอังกฤษค่ะ","r":"mâi châi kâ, chǎn bpen kon ang-grìt kâ","tr":"No, I'm English."}]},
         {"term":"noun","means":"a word for a person, a thing or a place: teacher, coffee, Bangkok."},
         {"term":"verb","means":"a word for an action or a state: go, eat, teach, be."},
-        {"p":"**เป็น, “to be”.** To say what someone *is* (a job, a nationality, a role), put the verb {{เป็น|bpen}} between the person and the noun: {{ผมเป็นหมอ|pǒm bpen mɔ̌ɔ}} “I am doctor”. Thai has no word for “a”: the noun alone is enough."},
+        {"p":"**{{เป็น|bpen}}, “to be”.** To say what someone *is* (a job, a nationality, a role), put the verb {{เป็น|bpen}} between the person and the noun: {{ผมเป็นหมอ|pǒm bpen mɔ̌ɔ}} “I am doctor”. Thai has no word for “a”: the noun alone is enough."},
         {"p":"**Nationalities.** “A Thai” is {{คนไทย|kon tai}}, literally “person Thai”: {{คน|kon}} “person”, then the country. {{คนอังกฤษ|kon ang-grìt}} “English”, {{คนญี่ปุ่น|kon yîi-bpùn}} “Japanese”, {{คนอเมริกัน|kon à-mee-rí-gan}} “American”. A language is {{ภาษา|paa-sǎa}} “language” + the country: {{ภาษาไทย|paa-sǎa tai}}, {{ภาษาอังกฤษ|paa-sǎa ang-grìt}}."},
         {"p":"**Not.** To say what someone is *not*, use {{ไม่ใช่|mâi châi}} in place of {{เป็น|bpen}}: {{ผมไม่ใช่หมอ|pǒm mâi-châi mɔ̌ɔ}} “I'm not a doctor”. {{ไม่ได้เป็น|mâi dâai bpen}} means the same: {{ผมไม่ได้เป็นหมอ|pǒm mâi dâai bpen mɔ̌ɔ}}. On its own, {{ไม่ใช่|mâi châi}} is “no, that's not right”."},
         {"p":"**Asking someone's job.** {{คุณทำงานอะไร|kun tam-ngaan à-rai}} “you work what?”: {{ทำงาน|tam-ngaan}} is “to work”. You can answer with {{เป็น|bpen}} and a job, or say where you work: {{ผมทำงานที่ธนาคาร|pǒm tam-ngaan tîi tá-naa-kaan}} “I work at a bank”."},
@@ -245,8 +245,8 @@
         {"goal":{"t":"นี่คืออะไรคะ","r":"nîi kʉʉ à-rai ká","tr":"What's this?"}},
         {"dialog":[{"who":"Tom","t":"นี่คืออะไรครับ","r":"nîi kʉʉ à-rai kráp","tr":"What's this?"},{"who":"Seller","t":"ทุเรียนค่ะ","r":"tú-riian kâ","tr":"Durian."},{"who":"Tom","t":"แล้วนั่นล่ะครับ","r":"lɛ́ɛo nân lâ kráp","tr":"And that?"},{"who":"Seller","t":"นั่นมังคุดค่ะ อร่อยมากนะคะ","r":"nân mang-kút kâ, à-rɔ̀i mâak ná ká","tr":"That's mangosteen. It's really good!"},{"who":"Tom","t":"โน่นเรียกว่าอะไรครับ","r":"nôon rîiak wâa à-rai kráp","tr":"And what's that over there called?"},{"who":"Seller","t":"เงาะค่ะ","r":"ngɔ́ kâ","tr":"Rambutan."}]},
         {"p":"**This, that, that over there.** On their own, pointing: {{นี่|nîi}} “this (here, near me)”, {{นั่น|nân}} “that (near you)”, {{โน่น|nôon}} “that (over there, far from us both)”. All three have a falling tone."},
-        {"p":"**คือ, “is”.** {{นี่คืออะไร|nîi kʉʉ à-rai}} is “this is what?”, and the answer puts the name in place of {{อะไร|à-rai}}: {{นี่คือทุเรียน|nîi kʉʉ tú-riian}} “this is durian”. In quick speech {{คือ|kʉʉ}} is often left out: {{นั่นอะไร|nân à-rai}}, {{นั่นมังคุด|nân mang-kút}}. Or just say the name: {{ทุเรียนค่ะ|tú-riian kâ}}."},
-        {"p":"**เป็น or คือ?** Both come before a noun. {{เป็น|bpen}} says what group or job someone belongs to: {{ฉันเป็นครู|chǎn bpen kruu}} “I'm a teacher (one of many)”. {{คือ|kʉʉ}} says *which one* something is, or what it means: {{นี่คือบ้านของฉัน|nîi kʉʉ bâan kɔ̌ɔng chǎn}} “this is my house”."},
+        {"p":"**{{คือ|kʉʉ}}, “is”.** {{นี่คืออะไร|nîi kʉʉ à-rai}} is “this is what?”, and the answer puts the name in place of {{อะไร|à-rai}}: {{นี่คือทุเรียน|nîi kʉʉ tú-riian}} “this is durian”. In quick speech {{คือ|kʉʉ}} is often left out: {{นั่นอะไร|nân à-rai}}, {{นั่นมังคุด|nân mang-kút}}. Or just say the name: {{ทุเรียนค่ะ|tú-riian kâ}}."},
+        {"p":"**{{เป็น|bpen}} or {{คือ|kʉʉ}}?** Both come before a noun. {{เป็น|bpen}} says what group or job someone belongs to: {{ฉันเป็นครู|chǎn bpen kruu}} “I'm a teacher (one of many)”. {{คือ|kʉʉ}} says *which one* something is, or what it means: {{นี่คือบ้านของฉัน|nîi kʉʉ bâan kɔ̌ɔng chǎn}} “this is my house”."},
         {"p":"**What's it called?** {{เรียกว่า|rîiak wâa}} means “is called”: {{ภาษาไทยเรียกว่าอะไร|paa-sǎa tai rîiak wâa à-rai}} “in Thai, (it's) called what?”. The answer: {{เรียกว่า…|rîiak wâa …}} and the word."},
         { "ex": [
           {"t":"นี่คืออะไรครับ","r":"nîi kʉʉ à-rai kráp","tr":"What's this?"},
@@ -326,8 +326,8 @@
       "blocks": [
         {"goal":{"t":"ขอกาแฟเย็นหน่อยครับ","r":"kɔ̌ɔ gaa-fɛɛ yen nɔ̀i kráp","tr":"Could I have an iced coffee, please?"}},
         {"dialog":[{"who":"Barista","t":"รับอะไรดีคะ","r":"ráp à-rai dii ká","tr":"What would you like?"},{"who":"Tom","t":"ขอกาแฟเย็นหน่อยครับ หวานน้อยได้ไหมครับ","r":"kɔ̌ɔ gaa-fɛɛ yen nɔ̀i kráp, wǎan nɔ́ɔi dâai mǎi kráp","tr":"An iced coffee, please. Can I have it less sweet?"},{"who":"Barista","t":"ได้ค่ะ ทานที่นี่ไหมคะ","r":"dâai kâ, taan tîi-nîi mǎi ká","tr":"Sure. For here?"},{"who":"Tom","t":"เอากลับบ้านครับ","r":"ao glàp bâan kráp","tr":"To go, please."}]},
-        {"p":"**ขอ, “may I have”.** {{ขอ|kɔ̌ɔ}} and the thing you want is the everyday way to ask for something: {{ขอน้ำ|kɔ̌ɔ náam}} “water, please”. It's polite as it is; {{หน่อย|nɔ̀i}} “a little” at the end makes it softer, a bit like “please”."},
-        {"p":"**เอา, “I'll take”.** When you choose between things, {{เอา|ao}} “take” is the usual word: {{เอากาแฟร้อน|ao gaa-fɛɛ rɔ́ɔn}} “(I'll take) a hot coffee”. Staff ask {{รับอะไรดี|ráp à-rai dii}} “what will you have?”, or {{เอาอะไร|ao à-rai}} in a street stall."},
+        {"p":"**{{ขอ|kɔ̌ɔ}}, “may I have”.** {{ขอ|kɔ̌ɔ}} and the thing you want is the everyday way to ask for something: {{ขอน้ำ|kɔ̌ɔ náam}} “water, please”. It's polite as it is; {{หน่อย|nɔ̀i}} “a little” at the end makes it softer, a bit like “please”."},
+        {"p":"**{{เอา|ao}}, “I'll take”.** When you choose between things, {{เอา|ao}} “take” is the usual word: {{เอากาแฟร้อน|ao gaa-fɛɛ rɔ́ɔn}} “(I'll take) a hot coffee”. Staff ask {{รับอะไรดี|ráp à-rai dii}} “what will you have?”, or {{เอาอะไร|ao à-rai}} in a street stall."},
         {"p":"**Can I…? Could you…?** Put {{ได้ไหม|dâai mǎi}} “is that possible?” after what you'd like: {{ขอเมนูได้ไหม|kɔ̌ɔ mee-nuu dâai mǎi}} “could I have the menu?”, {{จ่ายด้วยบัตรได้ไหม|jàai dûai bàt dâai mǎi}} “can I pay by card?”. The answer is {{ได้|dâai}} “yes, you can” or {{ไม่ได้|mâi dâai}} “no, you can't”."},
         { "table": [
           ["you say","meaning"],
@@ -371,7 +371,7 @@
         {"goal":{"t":"ช่วยพูดช้าๆ หน่อยได้ไหมคะ","r":"chûai pûut cháa-cháa nɔ̀i dâai mǎi ká","tr":"Could you speak slowly, please?"}},
         {"dialog":[{"who":"Shopkeeper","t":"วันนี้มีโปรนะคะ ซื้อสองแถมหนึ่งค่ะ","r":"wan-níi mii bproo ná ká, sʉ́ʉ sɔ̌ɔng tɛ̌ɛm nʉ̀ng kâ","tr":"We have a special offer today: buy two, get one free."},{"who":"Tom","t":"ขอโทษครับ ผมไม่เข้าใจ ช่วยพูดอีกทีได้ไหมครับ","r":"kɔ̌ɔ-tôot kráp, pǒm mâi kâo-jai, chûai pûut ìik tii dâai mǎi kráp","tr":"Sorry, I don't understand. Could you say it again?"},{"who":"Shopkeeper","t":"ซื้อสอง แถมหนึ่งค่ะ","r":"sʉ́ʉ sɔ̌ɔng, tɛ̌ɛm nʉ̀ng kâ","tr":"Buy two… get one free."},{"who":"Tom","t":"แถมแปลว่าอะไรครับ","r":"tɛ̌ɛm bplɛɛ wâa à-rai kráp","tr":"What does “taem” mean?"},{"who":"Shopkeeper","t":"แปลว่าให้ฟรีค่ะ","r":"bplɛɛ wâa hâi frii kâ","tr":"It means you get it free."},{"who":"Tom","t":"อ๋อ เข้าใจแล้วครับ ขอบคุณครับ","r":"ɔ̌ɔ, kâo-jai lɛ́ɛo kráp, kɔ̀ɔp-kun kráp","tr":"Oh, I see now. Thank you."}]},
         {"p":"**Please do…** {{ช่วย|chûai}} means “help”. Put it before a verb and {{หน่อย|nɔ̀i}} after, and you have a polite request: {{ช่วยพูดอีกทีหน่อย|chûai pûut ìik tii nɔ̀i}} “please say it again”. Add {{ได้ไหม|dâai mǎi}} to make it a question, and it's softer still: {{ช่วยพูดช้าๆ หน่อยได้ไหม|chûai pûut cháa-cháa nɔ̀i dâai mǎi}} “could you speak slowly?”."},
-        {"p":"**Doubled words.** Saying an adjective twice makes it gentler, “nice and…”: {{ช้าๆ|cháa-cháa}} “nice and slow”, {{ดีๆ|dii-dii}} “nicely, properly”. In writing, the second one is the little mark ๆ."},
+        {"p":"**Doubled words.** Saying an adjective twice makes it gentler, “nice and…”: {{ช้าๆ|cháa-cháa}} “nice and slow”, {{ดีๆ|dii-dii}} “nicely, properly”. In writing, the second one is a little mark, {{ไม้ยมก|máai yá-mók}}, as in {{ช้าๆ|cháa-cháa}}."},
         {"p":"**Not understanding.** {{เข้าใจ|kâo-jai}} is “understand”: {{ไม่เข้าใจ|mâi kâo-jai}} “I don't understand”, {{เข้าใจแล้ว|kâo-jai lɛ́ɛo}} “I get it now”. To ask what a word means, say the word, then {{แปลว่าอะไร|bplɛɛ wâa à-rai}} “translates as what?”."},
         { "table": [
           ["you say","meaning"],
@@ -559,7 +559,7 @@
       "blocks": [
         {"goal":{"t":"ห้องน้ำอยู่ที่ไหนคะ","r":"hɔ̂ng-náam yùu tîi-nǎi ká","tr":"Where's the restroom?"}},
         {"dialog":[{"who":"Anna","t":"ขอโทษค่ะ ห้องน้ำอยู่ที่ไหนคะ","r":"kɔ̌ɔ-tôot kâ, hɔ̂ng-náam yùu tîi-nǎi ká","tr":"Excuse me, where's the restroom?"},{"who":"Guard","t":"อยู่ชั้นสองครับ ข้างร้านกาแฟ","r":"yùu chán sɔ̌ɔng kráp, kâang ráan gaa-fɛɛ","tr":"It's on the second floor, next to the café."},{"who":"Anna","t":"แล้วธนาคารล่ะคะ","r":"lɛ́ɛo tá-naa-kaan lâ ká","tr":"And the bank?"},{"who":"Guard","t":"อยู่ข้างล่างครับ ตรงข้ามร้านขายยา","r":"yùu kâang-lâang kráp, dtrong-kâam ráan kǎai yaa","tr":"Downstairs, across from the pharmacy."}]},
-        {"p":"**อยู่, “to be (somewhere)”.** For *where* something is, Thai has a third “be”: {{อยู่|yùu}}. {{ห้องน้ำอยู่ชั้นสอง|hɔ̂ng-náam yùu chán sɔ̌ɔng}} “the restroom is (on) floor two”. Not {{เป็น|bpen}}, not {{คือ|kʉʉ}}: those say what a thing is; {{อยู่|yùu}} says where it is."},
+        {"p":"**{{อยู่|yùu}}, “to be (somewhere)”.** For *where* something is, Thai has a third “be”: {{อยู่|yùu}}. {{ห้องน้ำอยู่ชั้นสอง|hɔ̂ng-náam yùu chán sɔ̌ɔng}} “the restroom is (on) floor two”. Not {{เป็น|bpen}}, not {{คือ|kʉʉ}}: those say what a thing is; {{อยู่|yùu}} says where it is."},
         {"p":"**Where?** {{ที่ไหน|tîi-nǎi}} “at which place” (or just {{ไหน|nǎi}}) goes at the end, where the answer will go: {{คุณอยู่ที่ไหน|kun yùu tîi-nǎi}} “where are you?”, {{บ้านคุณอยู่ไหน|bâan kun yùu nǎi}} “where's your house?”."},
         {"term":"preposition","means":"a word that shows where something is, or how two things are linked: in, on, under, next to."},
         { "table": [
@@ -655,10 +655,10 @@
       "blocks": [
         {"goal":{"t":"ฉันอยากไปเชียงใหม่ค่ะ","r":"chǎn yàak bpai chiiang-mài kâ","tr":"I want to go to Chiang Mai."}},
         {"dialog":[{"who":"Nok","t":"เสาร์อาทิตย์นี้อยากทำอะไรคะ","r":"sǎo aa-tít níi yàak tam à-rai ká","tr":"What do you want to do this weekend?"},{"who":"Tom","t":"ผมอยากไปทะเลครับ","r":"pǒm yàak bpai tá-lee kráp","tr":"I want to go to the beach."},{"who":"Nok","t":"หัวหินไหมคะ","r":"hǔua-hǐn mǎi ká","tr":"How about Hua Hin?"},{"who":"Tom","t":"ดีครับ ผมอยากกินอาหารทะเลด้วย","r":"dii kráp, pǒm yàak gin aa-hǎan tá-lee dûai","tr":"Great. I want to eat seafood too."},{"who":"Nok","t":"แต่ฉันไม่อยากขับรถนะคะ","r":"dtɛ̀ɛ chǎn mâi yàak kàp rót ná ká","tr":"But I don't want to drive."}]},
-        {"p":"**อยาก + a verb.** {{อยาก|yàak}} “want (to)” goes straight before the verb, with nothing in between: {{อยากไป|yàak bpai}} “want to go”, {{อยากกิน|yàak gin}} “want to eat”. There's no word for “to”."},
-        {"p":"**อยากได้ + a thing.** For a *thing* you'd like to have, say {{อยากได้|yàak dâai}} “want to get”: {{ฉันอยากได้โทรศัพท์ใหม่|chǎn yàak dâai too-rá-sàp mài}} “I'd like a new phone”. {{อยาก|yàak}} on its own needs a verb after it."},
+        {"p":"**{{อยาก|yàak}} + a verb.** {{อยาก|yàak}} “want (to)” goes straight before the verb, with nothing in between: {{อยากไป|yàak bpai}} “want to go”, {{อยากกิน|yàak gin}} “want to eat”. There's no word for “to”."},
+        {"p":"**{{อยากได้|yàak dâai}} + a thing.** For a *thing* you'd like to have, say {{อยากได้|yàak dâai}} “want to get”: {{ฉันอยากได้โทรศัพท์ใหม่|chǎn yàak dâai too-rá-sàp mài}} “I'd like a new phone”. {{อยาก|yàak}} on its own needs a verb after it."},
         {"p":"**Not, and asking.** {{ไม่อยาก|mâi yàak}} is “don't want to”. {{อยาก…ไหม|yàak … mǎi}} asks “do you want to…?”, and the question words work as always: {{อยากทำอะไร|yàak tam à-rai}} “what do you want to do?”, {{อยากไปไหน|yàak bpai nǎi}} “where do you want to go?”."},
-        {"p":"**ต้องการ.** {{ต้องการ|dtɔ̂ng-gaan}} “want, need” is formal: it's what you read on forms and hear in offices ({{ต้องการความช่วยเหลือไหม|dtɔ̂ng-gaan kwaam chûai lʉ̌ʉa mǎi}} “do you need help?”). In conversation, use {{อยาก|yàak}}."},
+        {"p":"**{{ต้องการ|dtɔ̂ng-gaan}}.** {{ต้องการ|dtɔ̂ng-gaan}} “want, need” is formal: it's what you read on forms and hear in offices ({{ต้องการความช่วยเหลือไหม|dtɔ̂ng-gaan kwaam chûai lʉ̌ʉa mǎi}} “do you need help?”). In conversation, use {{อยาก|yàak}}."},
         { "table": [
           ["","Thai","meaning"],
           ["want to + a verb","{{อยากนอน|yàak nɔɔn}}","want to sleep"],
@@ -714,7 +714,7 @@
           ["{{วันเสาร์|wan sǎo}}","on Saturday, on Saturdays"]
         ] },
         {"p":"**How often.** {{ปกติ|bpòk-gà-dtì}} “usually” and {{บางที|baang-tii}} “sometimes” start the sentence. {{บ่อย|bɔ̀i}} “often” goes at the end: {{ผมไปตลาดบ่อย|pǒm bpai dtà-làat bɔ̀i}} “I go to the market often”. {{ไม่ค่อย|mâi kɔ̂i}} “not much, hardly” goes before the verb: {{ฉันไม่ค่อยดูทีวี|chǎn mâi kɔ̂i duu tii-wii}} “I don't watch TV much”."},
-        {"p":"**ก็.** In {{บางทีผมก็ดูทีวี|baang-tii pǒm gɔ̂ duu tii-wii}}, the little {{ก็|gɔ̂}} links the time word to the rest, a bit like “then”. Thais use it all the time, and you'll see it again."},
+        {"p":"**{{ก็|gɔ̂}}.** In {{บางทีผมก็ดูทีวี|baang-tii pǒm gɔ̂ duu tii-wii}}, the little {{ก็|gɔ̂}} links the time word to the rest, a bit like “then”. Thais use it all the time, and you'll see it again."},
         { "ex": [
           {"t":"ผมตื่นเช้าทุกวันครับ","r":"pǒm dtʉ̀ʉn cháao túk wan kráp","tr":"I get up early every day."},
           {"t":"ตอนเช้าฉันดื่มกาแฟค่ะ","r":"dtɔɔn cháao chǎn dʉ̀ʉm gaa-fɛɛ kâ","tr":"In the morning I drink coffee."},
@@ -759,7 +759,7 @@
           ["{{นั่งรถเมล์ไป|nâng rót-mee bpai}}","sit bus go","go by bus"],
           ["{{กลับบ้านไปนอน|glàp bâan bpai nɔɔn}}","return home go sleep","go home to sleep"]
         ] },
-        {"p":"**ไป and มา show the direction.** After a verb of moving, {{ไป|bpai}} means away from the speaker and {{มา|maa}} toward the speaker: {{เดินไป|dəən bpai}} “walk (there)”, {{เดินมา|dəən maa}} “walk (here)”; {{วิ่งออกไป|wîng ɔ̀ɔk bpai}} “run out”, {{เข้ามา|kâo maa}} “come in”."},
+        {"p":"**{{ไป|bpai}} and {{มา|maa}} show the direction.** After a verb of moving, {{ไป|bpai}} means away from the speaker and {{มา|maa}} toward the speaker: {{เดินไป|dəən bpai}} “walk (there)”, {{เดินมา|dəən maa}} “walk (here)”; {{วิ่งออกไป|wîng ɔ̀ɔk bpai}} “run out”, {{เข้ามา|kâo maa}} “come in”."},
         {"p":"**Bring and take.** {{เอา|ao}} “take hold of”, the thing, then {{มา|maa}} or {{ไป|bpai}}: {{เอาน้ำมา|ao náam maa}} “bring the water (here)”, {{เอาร่มไป|ao rôm bpai}} “take an umbrella (with you)”."},
         { "ex": [
           {"t":"ฉันไปซื้อของที่ตลาดค่ะ","r":"chǎn bpai sʉ́ʉ kɔ̌ɔng tîi dtà-làat kâ","tr":"I'm going shopping at the market."},
@@ -794,7 +794,7 @@
       "blocks": [
         {"goal":{"t":"ฉันชอบกินอาหารเผ็ดค่ะ","r":"chǎn chɔ̂ɔp gin aa-hǎan pèt kâ","tr":"I like spicy food."}},
         {"dialog":[{"who":"Ton","t":"คุณชอบทำอะไรตอนว่างครับ","r":"kun chɔ̂ɔp tam à-rai dtɔɔn wâang kráp","tr":"What do you like doing in your free time?"},{"who":"Sarah","t":"ฉันชอบอ่านหนังสือค่ะ แล้วก็ชอบดูหนัง","r":"chǎn chɔ̂ɔp àan nǎng-sʉ̌ʉ kâ, lɛ́ɛo-gɔ̂ chɔ̂ɔp duu nǎng","tr":"I like reading. And I like watching movies."},{"who":"Ton","t":"ชอบหนังผีไหมครับ","r":"chɔ̂ɔp nǎng pǐi mǎi kráp","tr":"Do you like horror movies?"},{"who":"Sarah","t":"ไม่ชอบเลยค่ะ กลัว ฉันชอบหนังตลกมากกว่า","r":"mâi chɔ̂ɔp ləəi kâ, gluua, chǎn chɔ̂ɔp nǎng dtà-lòk mâak gwàa","tr":"Not at all! They scare me. I prefer comedies."}]},
-        {"p":"**ชอบ + a thing, or a verb.** {{ชอบ|chɔ̂ɔp}} “like” takes a thing ({{ชอบกาแฟ|chɔ̂ɔp gaa-fɛɛ}} “like coffee”) or a verb straight after it ({{ชอบอ่านหนังสือ|chɔ̂ɔp àan nǎng-sʉ̌ʉ}} “like reading”). As with {{อยาก|yàak}}, there's nothing for “to” or “-ing”."},
+        {"p":"**{{ชอบ|chɔ̂ɔp}} + a thing, or a verb.** {{ชอบ|chɔ̂ɔp}} “like” takes a thing ({{ชอบกาแฟ|chɔ̂ɔp gaa-fɛɛ}} “like coffee”) or a verb straight after it ({{ชอบอ่านหนังสือ|chɔ̂ɔp àan nǎng-sʉ̌ʉ}} “like reading”). As with {{อยาก|yàak}}, there's nothing for “to” or “-ing”."},
         {"p":"**How much.** {{มาก|mâak}} goes at the end: {{ชอบทะเลมาก|chɔ̂ɔp tá-lee mâak}} “I love the sea”. For less, {{ไม่ค่อยชอบ|mâi kɔ̂i chɔ̂ɔp}} “don't really like”; for none at all, {{ไม่ชอบ…เลย|mâi chɔ̂ɔp … ləəi}}: {{เลย|ləəi}} at the end of a negative means “at all”."},
         { "table": [
           ["","Thai","meaning"],
@@ -887,7 +887,7 @@
       "blocks": [
         {"goal":{"t":"พี่สาวของผมเป็นพยาบาลครับ","r":"pîi-sǎao kɔ̌ɔng pǒm bpen pá-yaa-baan kráp","tr":"My older sister is a nurse."}},
         {"dialog":[{"who":"Nok","t":"นี่ใครคะ","r":"nîi krai ká","tr":"Who's this?"},{"who":"Tom","t":"นี่พ่อกับแม่ผมครับ แล้วนี่พี่สาวผม","r":"nîi pɔ̂ɔ gàp mɛ̂ɛ pǒm kráp, lɛ́ɛo nîi pîi-sǎao pǒm","tr":"These are my dad and mom. And this is my older sister."},{"who":"Nok","t":"พี่สาวคุณอายุเท่าไหร่คะ","r":"pîi-sǎao kun aa-yú tâo-rài ká","tr":"How old is your sister?"},{"who":"Tom","t":"สามสิบห้าครับ เขามีลูกสองคน","r":"sǎam-sìp-hâa kráp, kǎo mii lûuk sɔ̌ɔng kon","tr":"Thirty-five. She has two kids."},{"who":"Nok","t":"แล้วหมาตัวนี้ของใครคะ","r":"lɛ́ɛo mǎa dtuua níi kɔ̌ɔng krai ká","tr":"And whose dog is this?"},{"who":"Tom","t":"ของผมเองครับ","r":"kɔ̌ɔng pǒm eeng kráp","tr":"He's mine!"}]},
-        {"p":"**Whose: ของ.** {{ของ|kɔ̌ɔng}} means “of, belonging to”, and it comes *after* the thing: {{บ้านของฉัน|bâan kɔ̌ɔng chǎn}} “house of me” = my house. With family and close things it's usually left out: {{แม่ผม|mɛ̂ɛ pǒm}} “my mom”, {{เพื่อนฉัน|pʉ̂ʉan chǎn}} “my friend”."},
+        {"p":"**Whose: {{ของ|kɔ̌ɔng}}.** {{ของ|kɔ̌ɔng}} means “of, belonging to”, and it comes *after* the thing: {{บ้านของฉัน|bâan kɔ̌ɔng chǎn}} “house of me” = my house. With family and close things it's usually left out: {{แม่ผม|mɛ̂ɛ pǒm}} “my mom”, {{เพื่อนฉัน|pʉ̂ʉan chǎn}} “my friend”."},
         {"p":"**Mine, yours, whose?** {{ของ|kɔ̌ɔng}} + a person, on its own, is “mine, yours…”: {{ของผม|kɔ̌ɔng pǒm}} “mine”, {{ของคุณ|kɔ̌ɔng kun}} “yours”. “Whose?” is {{ของใคร|kɔ̌ɔng krai}}: {{นี่ของใคร|nîi kɔ̌ɔng krai}} “whose is this?”."},
         {"p":"**Family words go by age.** Thai has no word for just “brother” or “sister”: it says whether they're older ({{พี่|pîi}}) or younger ({{น้อง|nɔ́ɔng}}). Add {{ชาย|chaai}} “male” or {{สาว|sǎao}} “female” only when you need to: {{พี่ชาย|pîi-chaai}} “older brother”, {{น้องสาว|nɔ́ɔng-sǎao}} “younger sister”. {{พี่น้อง|pîi-nɔ́ɔng}} is “brothers and sisters”."},
         { "table": [
@@ -934,8 +934,8 @@
       "blocks": [
         {"goal":{"t":"ผมกำลังทำอาหารอยู่ครับ","r":"pǒm gam-lang tam aa-hǎan yùu kráp","tr":"I'm cooking right now."}},
         {"dialog":[{"who":"Nok","t":"ฮัลโหล ทอม ทำอะไรอยู่คะ","r":"han-lǒo, tɔm, tam à-rai yùu ká","tr":"Hello, Tom. What are you doing?"},{"who":"Tom","t":"กำลังทำอาหารอยู่ครับ","r":"gam-lang tam aa-hǎan yùu kráp","tr":"I'm cooking."},{"who":"Nok","t":"ทำอะไรกินคะ","r":"tam à-rai gin ká","tr":"What are you making?"},{"who":"Tom","t":"ผัดกะเพราครับ ตอนนี้คุณอยู่ไหนครับ","r":"pàt gà-prao kráp, dtɔɔn-níi kun yùu nǎi kráp","tr":"Stir-fried basil. Where are you now?"},{"who":"Nok","t":"อยู่บนรถเมล์ค่ะ กำลังกลับบ้าน","r":"yùu bon rót-mee kâ, gam-lang glàp bâan","tr":"On the bus. I'm on my way home."},{"who":"Tom","t":"เดี๋ยวผมโทรกลับนะครับ มือไม่ว่าง","r":"dǐao pǒm too glàp ná kráp, mʉʉ mâi wâang","tr":"I'll call you back. My hands are full."}]},
-        {"p":"**Right now: กำลัง.** Put {{กำลัง|gam-lang}} before the verb to say something is going on at this moment: {{ผมกำลังกิน|pǒm gam-lang gin}} “I'm eating”. Thais often add {{อยู่|yùu}} at the end as well: {{กำลังกินอยู่|gam-lang gin yùu}}. One of the two is enough; both together is very common."},
-        {"p":"**อยู่ after a verb.** On its own after a verb (or after what follows the verb), {{อยู่|yùu}} also means “in the middle of, still at it”: {{ทำอะไรอยู่|tam à-rai yùu}} “what are you doing?”, {{เขานอนอยู่|kǎo nɔɔn yùu}} “he's asleep”. It's the same {{อยู่|yùu}} as “to be somewhere”: you *are* in that activity."},
+        {"p":"**Right now: {{กำลัง|gam-lang}}.** Put {{กำลัง|gam-lang}} before the verb to say something is going on at this moment: {{ผมกำลังกิน|pǒm gam-lang gin}} “I'm eating”. Thais often add {{อยู่|yùu}} at the end as well: {{กำลังกินอยู่|gam-lang gin yùu}}. One of the two is enough; both together is very common."},
+        {"p":"**{{อยู่|yùu}} after a verb.** On its own after a verb (or after what follows the verb), {{อยู่|yùu}} also means “in the middle of, still at it”: {{ทำอะไรอยู่|tam à-rai yùu}} “what are you doing?”, {{เขานอนอยู่|kǎo nɔɔn yùu}} “he's asleep”. It's the same {{อยู่|yùu}} as “to be somewhere”: you *are* in that activity."},
         { "table": [
           ["","Thai","meaning"],
           ["{{กำลัง|gam-lang}} + a verb","{{กำลังมา|gam-lang maa}}","on the way, coming"],
@@ -977,7 +977,7 @@
       "blocks": [
         {"goal":{"t":"พรุ่งนี้ฉันจะไปทะเลค่ะ","r":"prûng-níi chǎn jà bpai tá-lee kâ","tr":"Tomorrow I'm going to the beach."}},
         {"dialog":[{"who":"Ton","t":"อาทิตย์หน้าคุณจะทำอะไรครับ","r":"aa-tít nâa kun jà tam à-rai kráp","tr":"What are you doing next week?"},{"who":"Anna","t":"ฉันจะไปเชียงใหม่ค่ะ จะไปเที่ยวดอยสุเทพ","r":"chǎn jà bpai chiiang-mài kâ, jà bpai tîao dɔɔi sù-têep","tr":"I'm going to Chiang Mai. I'm going to visit Doi Suthep."},{"who":"Ton","t":"จะไปกี่วันครับ","r":"jà bpai gìi wan kráp","tr":"How many days are you going for?"},{"who":"Anna","t":"สามวันค่ะ คุณจะไปด้วยไหมคะ","r":"sǎam wan kâ, kun jà bpai dûai mǎi ká","tr":"Three days. Will you come too?"},{"who":"Ton","t":"ไม่ไปหรอกครับ ผมต้องทำงาน","r":"mâi bpai rɔ̀k kráp, pǒm dtɔ̂ng tam-ngaan","tr":"I won't, I have to work."}]},
-        {"p":"**จะ: what's coming.** {{จะ|jà}} goes before the verb to say something is going to happen: {{ผมจะไป|pǒm jà bpai}} “I'll go, I'm going to go”. It covers English “will”, “going to” and “I'm (doing it) tomorrow”."},
+        {"p":"**{{จะ|jà}}: what's coming.** {{จะ|jà}} goes before the verb to say something is going to happen: {{ผมจะไป|pǒm jà bpai}} “I'll go, I'm going to go”. It covers English “will”, “going to” and “I'm (doing it) tomorrow”."},
         {"p":"**With a time word.** {{จะ|jà}} often comes with a time word at the start or the end: {{พรุ่งนี้ผมจะไปตลาด|prûng níi pǒm jà bpai dtà-làat}} “tomorrow I'm going to the market”. Once the time word makes it clear, quick speech may drop {{จะ|jà}}: {{พรุ่งนี้ไปตลาด|prûng níi bpai dtà-làat}}."},
         { "table": [
           ["Thai","meaning"],
@@ -990,7 +990,7 @@
           ["{{เดี๋ยว|dǐao}}","in a moment, soon"]
         ] },
         {"p":"**Won't, and asking.** “Won't” is {{จะไม่|jà mâi}}: {{ฉันจะไม่บอกใคร|chǎn jà mâi bɔ̀ɔk krai}} “I won't tell anyone”. To ask: {{จะ…ไหม|jà … mǎi}} “will you…?”, or a question word: {{จะไปไหน|jà bpai nǎi}} “where are you going?”. And a soft “no”: {{ไม่…หรอก|mâi … rɔ̀k}}; {{หรอก|rɔ̀k}} at the end of a negative takes the edge off it."},
-        {"p":"**หน้า, “front, next”.** After a word for a time, {{หน้า|nâa}} means “next”: {{อาทิตย์หน้า|aa-tít nâa}} “next week”, {{ปีหน้า|bpii nâa}} “next year”."},
+        {"p":"**{{หน้า|nâa}}, “front, next”.** After a word for a time, {{หน้า|nâa}} means “next”: {{อาทิตย์หน้า|aa-tít nâa}} “next week”, {{ปีหน้า|bpii nâa}} “next year”."},
         { "ex": [
           {"t":"พรุ่งนี้ผมจะตื่นเช้าครับ","r":"prûng-níi pǒm jà dtʉ̀ʉn cháao kráp","tr":"I'm going to get up early tomorrow."},
           {"t":"คืนนี้เราจะไปกินข้าวนอกบ้านค่ะ","r":"kʉʉn-níi rao jà bpai gin kâao nɔ̂ɔk bâan kâ","tr":"We're going out to eat tonight."},
@@ -1025,9 +1025,9 @@
       "blocks": [
         {"goal":{"t":"ผมพูดภาษาไทยได้นิดหน่อยครับ","r":"pǒm pûut paa-sǎa tai dâai nít-nɔ̀i kráp","tr":"I can speak a little Thai."}},
         {"dialog":[{"who":"Lek","t":"คุณพูดภาษาไทยได้ไหมคะ","r":"kun pûut paa-sǎa tai dâai mǎi ká","tr":"Can you speak Thai?"},{"who":"Tom","t":"ได้นิดหน่อยครับ แต่อ่านไม่ได้","r":"dâai nít-nɔ̀i kráp, dtɛ̀ɛ àan mâi dâai","tr":"A little. But I can't read it."},{"who":"Lek","t":"ขับรถเป็นไหมคะ","r":"kàp rót bpen mǎi ká","tr":"Do you know how to drive?"},{"who":"Tom","t":"เป็นครับ แต่ที่นี่ผมขับไม่ได้ ไม่มีใบขับขี่","r":"bpen kráp, dtɛ̀ɛ tîi-nîi pǒm kàp mâi dâai, mâi mii bai-kàp-kìi","tr":"Yes. But I can't drive here: I don't have a license."},{"who":"Lek","t":"ว่ายน้ำเป็นไหมคะ","r":"wâai-náam bpen mǎi ká","tr":"Can you swim?"},{"who":"Tom","t":"ไม่เป็นครับ","r":"mâi bpen kráp","tr":"No, I never learned."}]},
-        {"p":"**ได้ after the verb.** “Can” goes at the *end*: the verb, what follows it, then {{ได้|dâai}}: {{พูดภาษาไทยได้|pûut paa-sǎa tai dâai}} “speak Thai can”. It means you're able to, it's possible, or it's allowed. “Can't” is {{ไม่ได้|mâi dâai}}, also at the end: {{อ่านไม่ได้|àan mâi dâai}} “can't read (it)”."},
-        {"p":"**เป็น: know how to.** For a skill you've learned (swimming, driving, cooking, a language), Thais often say the verb + {{เป็น|bpen}}: {{ว่ายน้ำเป็น|wâai náam bpen}} “knows how to swim”, {{ไม่เป็น|mâi bpen}} “never learned how”. Tom's answers show the difference: {{ขับรถเป็น|kàp rót bpen}} “I know how to drive”, but {{ขับไม่ได้|kàp mâi dâai}} “I'm not able to (here)”."},
-        {"p":"**สามารถ: formal.** {{สามารถ|sǎa-mâat}} goes *before* the verb, usually with {{ได้|dâai}} still at the end: {{สามารถจ่ายด้วยบัตรได้|sǎa-mâat jàai dûai bàt dâai}} “(you) can pay by card”. You'll see it on signs and hear it in announcements more than in conversation."},
+        {"p":"**{{ได้|dâai}} after the verb.** “Can” goes at the *end*: the verb, what follows it, then {{ได้|dâai}}: {{พูดภาษาไทยได้|pûut paa-sǎa tai dâai}} “speak Thai can”. It means you're able to, it's possible, or it's allowed. “Can't” is {{ไม่ได้|mâi dâai}}, also at the end: {{อ่านไม่ได้|àan mâi dâai}} “can't read (it)”."},
+        {"p":"**{{เป็น|bpen}}: know how to.** For a skill you've learned (swimming, driving, cooking, a language), Thais often say the verb + {{เป็น|bpen}}: {{ว่ายน้ำเป็น|wâai náam bpen}} “knows how to swim”, {{ไม่เป็น|mâi bpen}} “never learned how”. Tom's answers show the difference: {{ขับรถเป็น|kàp rót bpen}} “I know how to drive”, but {{ขับไม่ได้|kàp mâi dâai}} “I'm not able to (here)”."},
+        {"p":"**{{สามารถ|sǎa-mâat}}: formal.** {{สามารถ|sǎa-mâat}} goes *before* the verb, usually with {{ได้|dâai}} still at the end: {{สามารถจ่ายด้วยบัตรได้|sǎa-mâat jàai dûai bàt dâai}} “(you) can pay by card”. You'll see it on signs and hear it in announcements more than in conversation."},
         { "table": [
           ["","Thai","meaning"],
           ["able, allowed","{{ไปได้|bpai dâai}}","can go"],
@@ -1071,10 +1071,10 @@
       "blocks": [
         {"goal":{"t":"พรุ่งนี้ผมต้องตื่นเช้าครับ","r":"prûng-níi pǒm dtɔ̂ng dtʉ̀ʉn cháao kráp","tr":"I have to get up early tomorrow."}},
         {"dialog":[{"who":"Anna","t":"พรุ่งนี้เราจะไปวัดพระแก้ว ต้องใส่อะไรคะ","r":"prûng-níi rao jà bpai wát prá-gɛ̂ɛo, dtɔ̂ng sài à-rai ká","tr":"Tomorrow we're going to the Temple of the Emerald Buddha. What do we have to wear?"},{"who":"Nok","t":"ต้องใส่กางเกงขายาวค่ะ ห้ามใส่ขาสั้น","r":"dtɔ̂ng sài gaang-geeng kǎa yaao kâ, hâam sài kǎa sân","tr":"You have to wear long pants. Shorts aren't allowed."},{"who":"Anna","t":"ต้องซื้อตั๋วไหมคะ","r":"dtɔ̂ng sʉ́ʉ dtǔua mǎi ká","tr":"Do we have to buy tickets?"},{"who":"Nok","t":"คนต่างชาติต้องซื้อค่ะ คนไทยไม่ต้อง","r":"kon dtàang-châat dtɔ̂ng sʉ́ʉ kâ, kon tai mâi dtɔ̂ng","tr":"Foreigners do. Thais don't."},{"who":"Nok","t":"แล้วควรไปเช้าๆ นะคะ คนไม่เยอะ","r":"lɛ́ɛo kuuan bpai cháao-cháao ná ká, kon mâi yə́","tr":"And you should go early: there aren't many people then."},{"who":"Anna","t":"อย่าลืมเตือนฉันนะคะ","r":"yàa lʉʉm dtʉʉan chǎn ná ká","tr":"Don't forget to remind me!"}]},
-        {"p":"**ต้อง: have to.** {{ต้อง|dtɔ̂ng}} goes before the verb: {{ผมต้องไป|pǒm dtɔ̂ng bpai}} “I have to go”, {{ต้องจ่ายเงินสด|dtɔ̂ng jàai ngən-sòt}} “you have to pay cash”. To ask: {{ต้อง…ไหม|dtɔ̂ng … mǎi}} “do I have to…?”."},
-        {"p":"**ไม่ต้อง: no need.** {{ไม่ต้อง|mâi dtɔ̂ng}} says it isn't necessary: {{ไม่ต้องจ่าย|mâi dtɔ̂ng jàai}} “you don't have to pay”. On its own it's a friendly “no need”, and {{ไม่ต้องห่วง|mâi dtɔ̂ng hùuang}} is “don't worry”."},
-        {"p":"**ควร: should.** {{ควร|kuuan}}, or {{ควรจะ|kuuan jà}}, before the verb gives advice: {{คุณควรพักผ่อน|kun kuuan pák pɔ̀n}} “you should rest”. {{ไม่ควร|mâi kuuan}} is “shouldn't”."},
-        {"p":"**ห้าม and อย่า: don't.** {{ห้าม|hâam}} “it's forbidden to” is for rules and signs: {{ห้ามสูบบุหรี่|hâam sùup bù-rìi}} “no smoking”. {{อย่า|yàa}} “don't” is for telling someone: {{อย่าลืม|yàa lʉʉm}} “don't forget”. {{นะ|ná}} at the end makes it friendly: {{อย่าลืมนะ|yàa lʉʉm ná}}."},
+        {"p":"**{{ต้อง|dtɔ̂ng}}: have to.** {{ต้อง|dtɔ̂ng}} goes before the verb: {{ผมต้องไป|pǒm dtɔ̂ng bpai}} “I have to go”, {{ต้องจ่ายเงินสด|dtɔ̂ng jàai ngən-sòt}} “you have to pay cash”. To ask: {{ต้อง…ไหม|dtɔ̂ng … mǎi}} “do I have to…?”."},
+        {"p":"**{{ไม่ต้อง|mâi dtɔ̂ng}}: no need.** {{ไม่ต้อง|mâi dtɔ̂ng}} says it isn't necessary: {{ไม่ต้องจ่าย|mâi dtɔ̂ng jàai}} “you don't have to pay”. On its own it's a friendly “no need”, and {{ไม่ต้องห่วง|mâi dtɔ̂ng hùuang}} is “don't worry”."},
+        {"p":"**{{ควร|kuuan}}: should.** {{ควร|kuuan}}, or {{ควรจะ|kuuan jà}}, before the verb gives advice: {{คุณควรพักผ่อน|kun kuuan pák pɔ̀n}} “you should rest”. {{ไม่ควร|mâi kuuan}} is “shouldn't”."},
+        {"p":"**{{ห้าม|hâam}} and {{อย่า|yàa}}: don't.** {{ห้าม|hâam}} “it's forbidden to” is for rules and signs: {{ห้ามสูบบุหรี่|hâam sùup bù-rìi}} “no smoking”. {{อย่า|yàa}} “don't” is for telling someone: {{อย่าลืม|yàa lʉʉm}} “don't forget”. {{นะ|ná}} at the end makes it friendly: {{อย่าลืมนะ|yàa lʉʉm ná}}."},
         { "table": [
           ["","Thai","meaning"],
           ["necessary","{{ต้องไป|dtɔ̂ng bpai}}","have to go"],
@@ -1118,9 +1118,9 @@
       "blocks": [
         {"goal":{"t":"คืนนี้ไปกินข้าวกันไหมคะ","r":"kʉʉn-níi bpai gin kâao gan mǎi ká","tr":"Shall we go out to eat tonight?"}},
         {"dialog":[{"who":"Nok","t":"คืนนี้ไปกินข้าวกันไหมคะ","r":"kʉʉn-níi bpai gin kâao gan mǎi ká","tr":"Shall we go out to eat tonight?"},{"who":"Tom","t":"ดีครับ ไปกินที่ไหนดีครับ","r":"dii kráp, bpai gin tîi-nǎi dii kráp","tr":"Great! Where shall we go?"},{"who":"Nok","t":"ร้านส้มตำใกล้ๆ บ้านฉันดีไหมคะ","r":"ráan sôm-dtam glâi-glâi bâan chǎn dii mǎi ká","tr":"How about the papaya salad place near my house?"},{"who":"Tom","t":"ได้ครับ ชวนฝนไปด้วยไหมครับ","r":"dâai kráp, chuuan fǒn bpai dûai mǎi kráp","tr":"Sure. Shall we ask Fon to come too?"},{"who":"Nok","t":"ดีค่ะ งั้นเจอกันหกโมงเย็นนะคะ","r":"dii kâ, ngán jəə gan hòk moong yen ná ká","tr":"Good idea. See you at six, then."}]},
-        {"p":"**กัน: together.** {{กัน|gan}} after a verb means “together, with each other”. Add {{ไหม|mǎi}} and you have an invitation: {{ไปกินข้าวกันไหม|bpai gin kâao gan mǎi}} “shall we go and eat (together)?”."},
+        {"p":"**{{กัน|gan}}: together.** {{กัน|gan}} after a verb means “together, with each other”. Add {{ไหม|mǎi}} and you have an invitation: {{ไปกินข้าวกันไหม|bpai gin kâao gan mǎi}} “shall we go and eat (together)?”."},
         {"p":"**Let's.** {{…กันเถอะ|gan tə̀}} is “let's”: {{ไปกันเถอะ|bpai gan tə̀}} “let's go”. {{เถอะ|tə̀}} on its own gently urges someone: {{นอนเถอะ|nɔɔn tə̀}} “go to sleep (you need it)”."},
-        {"p":"**How about…? ดีไหม.** {{…ดีไหม|dii mǎi}} “is … good?” puts forward an idea: {{ไปทะเลดีไหม|bpai tá-lee dii mǎi}} “how about the beach?”. And {{ดี|dii}} after a question word asks for a choice: {{ไปไหนดี|bpai nǎi dii}} “where shall we go?”, {{กินอะไรดี|gin à-rai dii}} “what shall we eat?”."},
+        {"p":"**How about…? {{ดีไหม|dii mǎi}}.** {{…ดีไหม|dii mǎi}} “is … good?” puts forward an idea: {{ไปทะเลดีไหม|bpai tá-lee dii mǎi}} “how about the beach?”. And {{ดี|dii}} after a question word asks for a choice: {{ไปไหนดี|bpai nǎi dii}} “where shall we go?”, {{กินอะไรดี|gin à-rai dii}} “what shall we eat?”."},
         {"p":"**Asking someone along.** {{ชวน|chuuan}} is “invite, ask (someone) to come”: {{ชวนเพื่อนไปด้วย|chuuan pʉ̂ʉan bpai dûai}} “ask a friend along”."},
         { "table": [
           ["you say","meaning"],
@@ -1174,8 +1174,8 @@
           ["{{ปีที่แล้ว|bpii tîi-lɛ́ɛo}}","last year"],
           ["{{สองวันก่อน|sɔ̌ɔng wan gɔ̀ɔn}}","two days ago"]
         ] },
-        {"p":"**เมื่อ, ที่แล้ว, ก่อน.** {{เมื่อ|mʉ̂ʉa}} before a time word puts it in the past: {{เมื่อวาน|mʉ̂ʉa-waan}} “yesterday”, {{เมื่อคืน|mʉ̂ʉa-kʉʉn}} “last night”. {{ที่แล้ว|tîi-lɛ́ɛo}} after one means “last”: {{เดือนที่แล้ว|dʉʉan tîi-lɛ́ɛo}} “last month”. A length of time + {{ก่อน|gɔ̀ɔn}} is “… ago”: {{สามปีก่อน|sǎam bpii gɔ̀ɔn}} “three years ago”."},
-        {"p":"**ไป…มา: been and come back.** Thais love to finish with {{มา|maa}} after {{ไป|bpai}} and a place: {{ไปตลาดมา|bpai dtà-làat maa}} “went to the market (and I'm back)”. The everyday greeting {{ไปไหนมา|bpai nǎi maa}} “where have you been?” is like “what have you been up to?”. {{มา|maa}} also follows something you brought back: {{ซื้อผลไม้มา|sʉ́ʉ pǒn-lá-máai maa}} “bought (and brought back) some fruit”."},
+        {"p":"**{{เมื่อ|mʉ̂ʉa}}, {{ที่แล้ว|tîi-lɛ́ɛo}}, {{ก่อน|gɔ̀ɔn}}.** {{เมื่อ|mʉ̂ʉa}} before a time word puts it in the past: {{เมื่อวาน|mʉ̂ʉa-waan}} “yesterday”, {{เมื่อคืน|mʉ̂ʉa-kʉʉn}} “last night”. {{ที่แล้ว|tîi-lɛ́ɛo}} after one means “last”: {{เดือนที่แล้ว|dʉʉan tîi-lɛ́ɛo}} “last month”. A length of time + {{ก่อน|gɔ̀ɔn}} is “… ago”: {{สามปีก่อน|sǎam bpii gɔ̀ɔn}} “three years ago”."},
+        {"p":"**{{ไป|bpai}}…{{มา|maa}}: been and come back.** Thais love to finish with {{มา|maa}} after {{ไป|bpai}} and a place: {{ไปตลาดมา|bpai dtà-làat maa}} “went to the market (and I'm back)”. The everyday greeting {{ไปไหนมา|bpai nǎi maa}} “where have you been?” is like “what have you been up to?”. {{มา|maa}} also follows something you brought back: {{ซื้อผลไม้มา|sʉ́ʉ pǒn-lá-máai maa}} “bought (and brought back) some fruit”."},
         { "ex": [
           {"t":"เมื่อวานผมทำงานทั้งวันครับ","r":"mʉ̂ʉa-waan pǒm tam-ngaan táng wan kráp","tr":"Yesterday I worked all day."},
           {"t":"เมื่อคืนฉันนอนไม่หลับค่ะ","r":"mʉ̂ʉa-kʉʉn chǎn nɔɔn mâi làp kâ","tr":"I couldn't sleep last night.","note":"“lie down, not fall asleep”"},
@@ -1210,10 +1210,10 @@
       "blocks": [
         {"goal":{"t":"กินข้าวหรือยังคะ","r":"gin kâao rʉ̌ʉ yang ká","tr":"Have you eaten yet?"}},
         {"dialog":[{"who":"Nok","t":"ทอม กินข้าวหรือยังคะ","r":"tɔm, gin kâao rʉ̌ʉ yang ká","tr":"Tom, have you eaten yet?"},{"who":"Tom","t":"ยังครับ ยังไม่ได้กินเลย หิวมาก","r":"yang kráp, yang mâi dâai gin ləəi, hǐu mâak","tr":"Not yet. I haven't eaten a thing. I'm starving."},{"who":"Nok","t":"ฉันกินแล้วค่ะ ร้านข้างล่างยังเปิดอยู่นะ","r":"chǎn gin lɛ́ɛo kâ, ráan kâang-lâang yang bpə̀ət yùu ná","tr":"I've already eaten. The place downstairs is still open."},{"who":"Tom","t":"ดีครับ แล้วรายงานเสร็จหรือยังครับ","r":"dii kráp, lɛ́ɛo raai-ngaan sèt rʉ̌ʉ yang kráp","tr":"Great. And is the report done yet?"},{"who":"Nok","t":"เสร็จแล้วค่ะ ส่งแล้วด้วย","r":"sèt lɛ́ɛo kâ, sòng lɛ́ɛo dûai","tr":"It's done. I've sent it too."}]},
-        {"p":"**แล้ว: done.** {{แล้ว|lɛ́ɛo}} at the end says something has happened, is over: {{ผมกินแล้ว|pǒm gin lɛ́ɛo}} “I've (already) eaten”, {{ถึงแล้ว|tʉ̌ng lɛ́ɛo}} “we're here (we've arrived)”."},
-        {"p":"**แล้ว: now changed.** After an adjective, {{แล้ว|lɛ́ɛo}} says something has *become* so: {{หิวแล้ว|hǐu lɛ́ɛo}} “I'm hungry now”, {{ดึกแล้ว|dʉ̀k lɛ́ɛo}} “it's late (now)”. After a verb of happening, it says it has started: {{ฝนตกแล้ว|fǒn dtòk lɛ́ɛo}} “it's raining now”."},
-        {"p":"**…yet? หรือยัง.** To ask whether something has happened yet, end with {{หรือยัง|rʉ̌ʉ yang}} “or not yet?”: {{กินข้าวหรือยัง|gin kâao rʉ̌ʉ yang}} “have you eaten yet?”. Thais ask this as a kind of “how are you?”. The answers: {{…แล้ว|… lɛ́ɛo}} “yes, I have”, or {{ยัง|yang}} “not yet”."},
-        {"p":"**ยัง: not yet, still.** {{ยังไม่|yang mâi}} + a verb is “not … yet”; for something you haven't *done* yet, add {{ได้|dâai}}: {{ยังไม่ได้กิน|yang mâi dâai gin}} “I haven't eaten yet”. With {{อยู่|yùu}} at the end, {{ยัง|yang}} means “still”: {{ร้านยังเปิดอยู่|ráan yang bpə̀ət yùu}} “the shop is still open”."},
+        {"p":"**{{แล้ว|lɛ́ɛo}}: done.** {{แล้ว|lɛ́ɛo}} at the end says something has happened, is over: {{ผมกินแล้ว|pǒm gin lɛ́ɛo}} “I've (already) eaten”, {{ถึงแล้ว|tʉ̌ng lɛ́ɛo}} “we're here (we've arrived)”."},
+        {"p":"**{{แล้ว|lɛ́ɛo}}: now changed.** After an adjective, {{แล้ว|lɛ́ɛo}} says something has *become* so: {{หิวแล้ว|hǐu lɛ́ɛo}} “I'm hungry now”, {{ดึกแล้ว|dʉ̀k lɛ́ɛo}} “it's late (now)”. After a verb of happening, it says it has started: {{ฝนตกแล้ว|fǒn dtòk lɛ́ɛo}} “it's raining now”."},
+        {"p":"**…yet? {{หรือยัง|rʉ̌ʉ yang}}.** To ask whether something has happened yet, end with {{หรือยัง|rʉ̌ʉ yang}} “or not yet?”: {{กินข้าวหรือยัง|gin kâao rʉ̌ʉ yang}} “have you eaten yet?”. Thais ask this as a kind of “how are you?”. The answers: {{…แล้ว|… lɛ́ɛo}} “yes, I have”, or {{ยัง|yang}} “not yet”."},
+        {"p":"**{{ยัง|yang}}: not yet, still.** {{ยังไม่|yang mâi}} + a verb is “not … yet”; for something you haven't *done* yet, add {{ได้|dâai}}: {{ยังไม่ได้กิน|yang mâi dâai gin}} “I haven't eaten yet”. With {{อยู่|yùu}} at the end, {{ยัง|yang}} means “still”: {{ร้านยังเปิดอยู่|ráan yang bpə̀ət yùu}} “the shop is still open”."},
         { "table": [
           ["","Thai","meaning"],
           ["done","{{ทำแล้ว|tam lɛ́ɛo}}","(I've) done it"],
@@ -1256,7 +1256,7 @@
       "blocks": [
         {"goal":{"t":"เมื่อวานผมไม่ได้ไปทำงานครับ เพราะไม่สบาย","r":"mʉ̂ʉa-waan pǒm mâi dâai bpai tam-ngaan kráp, prɔ́ mâi sà-baai","tr":"I didn't go to work yesterday, because I was sick."}},
         {"dialog":[{"who":"Boss","t":"เมื่อวานคุณไม่ได้มาทำงาน เป็นอะไรหรือเปล่าครับ","r":"mʉ̂ʉa-waan kun mâi dâai maa tam-ngaan, bpen à-rai rʉ̌ʉ-bplàao kráp","tr":"You didn't come to work yesterday. Is something wrong?"},{"who":"Anna","t":"ไม่สบายค่ะ ไปหาหมอมา","r":"mâi sà-baai kâ, bpai hǎa mɔ̌ɔ maa","tr":"I was sick. I went to the doctor."},{"who":"Boss","t":"ได้อ่านอีเมลผมหรือยังครับ","r":"dâai àan ii-meel pǒm rʉ̌ʉ yang kráp","tr":"Have you read my email yet?"},{"who":"Anna","t":"ยังไม่ได้อ่านเลยค่ะ ขอโทษค่ะ","r":"yang mâi dâai àan ləəi kâ, kɔ̌ɔ-tôot kâ","tr":"I haven't read it yet. Sorry."},{"who":"Boss","t":"ไม่เป็นไรครับ","r":"mâi bpen rai kráp","tr":"That's OK."}]},
-        {"p":"**ไม่ได้ + a verb: didn't.** To say something did *not* happen, put {{ไม่ได้|mâi dâai}} before the verb: {{ผมไม่ได้ไป|pǒm mâi dâai bpai}} “I didn't go”, {{ฉันไม่ได้กินข้าวเช้า|chǎn mâi dâai gin kâao cháao}} “I didn't have breakfast”. Plain {{ไม่|mâi}} before a verb is for habits and decisions: {{ผมไม่ไป|pǒm mâi bpai}} “I'm not going, I won't go”."},
+        {"p":"**{{ไม่ได้|mâi dâai}} + a verb: didn't.** To say something did *not* happen, put {{ไม่ได้|mâi dâai}} before the verb: {{ผมไม่ได้ไป|pǒm mâi dâai bpai}} “I didn't go”, {{ฉันไม่ได้กินข้าวเช้า|chǎn mâi dâai gin kâao cháao}} “I didn't have breakfast”. Plain {{ไม่|mâi}} before a verb is for habits and decisions: {{ผมไม่ไป|pǒm mâi bpai}} “I'm not going, I won't go”."},
         { "table": [
           ["Thai","meaning"],
           ["{{ผมไม่ไป|pǒm mâi bpai}}","I'm not going. / I don't go."],
@@ -1264,7 +1264,7 @@
           ["{{ผมไปไม่ได้|pǒm bpai mâi dâai}}","I can't go. / I couldn't go."],
           ["{{ผมยังไม่ได้ไป|pǒm yang mâi dâai bpai}}","I haven't gone yet."]
         ] },
-        {"p":"**Where ได้ goes.** Watch the order: {{ไม่ได้ไป|mâi dâai bpai}}, before the verb, is “didn't go”; {{ไปไม่ได้|bpai mâi dâai}}, after it, is “can't go”. It's one of the trickiest pairs in Thai, and worth saying out loud a few times."},
+        {"p":"**Where {{ได้|dâai}} goes.** Watch the order: {{ไม่ได้ไป|mâi dâai bpai}}, before the verb, is “didn't go”; {{ไปไม่ได้|bpai mâi dâai}}, after it, is “can't go”. It's one of the trickiest pairs in Thai, and worth saying out loud a few times."},
         {"p":"**“Not really”.** {{ไม่ได้|mâi dâai}} also puts a wrong idea right, even about now: {{ผมไม่ได้โกรธ|pǒm mâi dâai gròot}} “I'm not angry (that's not it)”, {{ฉันไม่ได้พูดแบบนั้น|chǎn mâi dâai pûut bɛ̀ɛp nán}} “I didn't say that”."},
         {"p":"**Because.** {{เพราะ|prɔ́}}, or {{เพราะว่า|prɔ́ wâa}}, gives the reason, after what happened: {{ผมไม่ได้ไป เพราะฝนตก|pǒm mâi dâai bpai prɔ́ fǒn dtòk}} “I didn't go, because it rained”."},
         { "ex": [
@@ -1300,10 +1300,10 @@
       "blocks": [
         {"goal":{"t":"คุณเคยไปภูเก็ตไหมคะ","r":"kun kəəi bpai puu-gèt mǎi ká","tr":"Have you ever been to Phuket?"}},
         {"dialog":[{"who":"Fon","t":"คุณเคยไปภูเก็ตไหมคะ","r":"kun kəəi bpai puu-gèt mǎi ká","tr":"Have you ever been to Phuket?"},{"who":"Tom","t":"เคยครับ ไปมาสองครั้งแล้ว","r":"kəəi kráp, bpai maa sɔ̌ɔng kráng lɛ́ɛo","tr":"Yes, I've been twice."},{"who":"Fon","t":"เคยกินทุเรียนไหมคะ","r":"kəəi gin tú-riian mǎi ká","tr":"Have you ever tried durian?"},{"who":"Tom","t":"ไม่เคยครับ กลิ่นแรงมาก","r":"mâi kəəi kráp, glìn rɛɛng mâak","tr":"Never. It smells so strong."},{"who":"Fon","t":"ลองดูสิคะ อร่อยนะ","r":"lɔɔng duu sì ká, à-rɔ̀i ná","tr":"Give it a try! It's delicious."}]},
-        {"p":"**เคย: ever.** {{เคย|kəəi}} before a verb says you've had that experience at some time: {{ผมเคยไปญี่ปุ่น|pǒm kəəi bpai yîi-bpùn}} “I've been to Japan”. {{ไม่เคย|mâi kəəi}} is “never”: {{ฉันไม่เคยขี่ช้าง|chǎn mâi kəəi kìi cháang}} “I've never ridden an elephant”."},
+        {"p":"**{{เคย|kəəi}}: ever.** {{เคย|kəəi}} before a verb says you've had that experience at some time: {{ผมเคยไปญี่ปุ่น|pǒm kəəi bpai yîi-bpùn}} “I've been to Japan”. {{ไม่เคย|mâi kəəi}} is “never”: {{ฉันไม่เคยขี่ช้าง|chǎn mâi kəəi kìi cháang}} “I've never ridden an elephant”."},
         {"p":"**Asking.** {{เคย…ไหม|kəəi … mǎi}} is “have you ever…?”. Answer {{เคย|kəəi}} or {{ไม่เคย|mâi kəəi}}: as always, the verb word from the question."},
         {"p":"**How many times.** {{ครั้ง|kráng}} “time, occasion” is the classifier: {{สองครั้ง|sɔ̌ɔng kráng}} “twice”, {{หลายครั้ง|lǎai kráng}} “many times”, {{ครั้งแรก|kráng rɛ̂ɛk}} “the first time”. “How many times?” is {{กี่ครั้ง|gìi kráng}}."},
-        {"p":"**เคย: used to.** For a past habit, {{เคย|kəəi}} means “used to”: {{ผมเคยอยู่เชียงใหม่|pǒm kəəi yùu chiiang-mài}} “I used to live in Chiang Mai (I don't now)”. The situation tells you which it is: an experience, or a habit that's over."},
+        {"p":"**{{เคย|kəəi}}: used to.** For a past habit, {{เคย|kəəi}} means “used to”: {{ผมเคยอยู่เชียงใหม่|pǒm kəəi yùu chiiang-mài}} “I used to live in Chiang Mai (I don't now)”. The situation tells you which it is: an experience, or a habit that's over."},
         { "table": [
           ["","Thai","meaning"],
           ["ever","{{เคยไป|kəəi bpai}}","have been"],
@@ -1401,9 +1401,9 @@
           ["{{ตอนนั้น|dtɔɔn nán}}","at that time, then"],
           ["{{สุดท้าย|sùt-táai}}","finally, in the end"]
         ] },
-        {"p":"**When: ตอนที่.** {{ตอนที่|dtɔɔn tîi}} “at the time that” + a sentence sets the scene: {{ตอนที่ฉันกลับถึงบ้าน|dtɔɔn tîi chǎn glàp tʉ̌ng bâan}} “when I got home”. The main event follows, often with {{ก็|gɔ̂}} “then”: {{ตอนที่ฉันกลับถึงบ้าน ทุกคนก็หลับแล้ว|dtɔɔn tîi chǎn glàp tʉ̌ng bâan túk kon gɔ̂ làp lɛ́ɛo}} “when I got home, everyone was already asleep”."},
+        {"p":"**When: {{ตอนที่|dtɔɔn tîi}}.** {{ตอนที่|dtɔɔn tîi}} “at the time that” + a sentence sets the scene: {{ตอนที่ฉันกลับถึงบ้าน|dtɔɔn tîi chǎn glàp tʉ̌ng bâan}} “when I got home”. The main event follows, often with {{ก็|gɔ̂}} “then”: {{ตอนที่ฉันกลับถึงบ้าน ทุกคนก็หลับแล้ว|dtɔɔn tîi chǎn glàp tʉ̌ng bâan túk kon gɔ̂ làp lɛ́ɛo}} “when I got home, everyone was already asleep”."},
         {"p":"**The background.** What was going on at the time takes {{กำลัง…อยู่|gam-lang … yùu}}, as in lesson 21: {{ตอนที่ผมกำลังอาบน้ำอยู่ โทรศัพท์ก็ดัง|dtɔɔn tîi pǒm gam-lang àap náam yùu too-rá-sàp gɔ̂ dang}} “I was in the shower when the phone rang”."},
-        {"p":"**So: ก็เลย.** {{ก็เลย|gɔ̂ ləəi}} “so, and so” gives the result: {{ฝนตก ผมก็เลยไม่ได้ไป|fǒn-dtòk pǒm gɔ̂ ləəi mâi dâai bpai}} “it rained, so I didn't go”. Reasons and results come back in a later lesson."},
+        {"p":"**So: {{ก็เลย|gɔ̂ ləəi}}.** {{ก็เลย|gɔ̂ ləəi}} “so, and so” gives the result: {{ฝนตก ผมก็เลยไม่ได้ไป|fǒn-dtòk pǒm gɔ̂ ləəi mâi dâai bpai}} “it rained, so I didn't go”. Reasons and results come back in a later lesson."},
         { "ex": [
           {"t":"ตอนแรกผมไม่ชอบอาหารเผ็ด แต่ตอนนี้ชอบมากครับ","r":"dtɔɔn rɛ̂ɛk pǒm mâi chɔ̂ɔp aa-hǎan pèt, dtɛ̀ɛ dtɔɔn-níi chɔ̂ɔp mâak kráp","tr":"At first I didn't like spicy food, but now I love it."},
           {"t":"เรากินข้าว แล้วก็ไปดูหนังค่ะ","r":"rao gin kâao, lɛ́ɛo-gɔ̂ bpai duu nǎng kâ","tr":"We ate, and then went to a movie."},
@@ -1502,7 +1502,7 @@
           ["May","{{พฤษภาคม|prʉ́t-sà-paa-kom}}","November","{{พฤศจิกายน|prʉ́t-sà-jì-gaa-yon}}"],
           ["June","{{มิถุนายน|mí-tù-naa-yon}}","December","{{ธันวาคม|tan-waa-kom}}"]
         ] },
-        {"p":"**First, second: ที่ + a number.** {{ที่|tîi}} before a number makes “-th”, after the classifier: {{ครั้งที่สอง|kráng tîi sɔ̌ɔng}} “the second time”, {{คนที่สาม|kon tîi sǎam}} “the third person”. “First” is usually {{แรก|rɛ̂ɛk}}: {{ครั้งแรก|kráng rɛ̂ɛk}} “the first time”, {{วันแรก|wan rɛ̂ɛk}} “the first day”. “Last” is {{สุดท้าย|sùt-táai}}: {{วันสุดท้าย|wan sùt-táai}} “the last day”."},
+        {"p":"**First, second: {{ที่|tîi}} + a number.** {{ที่|tîi}} before a number makes “-th”, after the classifier: {{ครั้งที่สอง|kráng tîi sɔ̌ɔng}} “the second time”, {{คนที่สาม|kon tîi sǎam}} “the third person”. “First” is usually {{แรก|rɛ̂ɛk}}: {{ครั้งแรก|kráng rɛ̂ɛk}} “the first time”, {{วันแรก|wan rɛ̂ɛk}} “the first day”. “Last” is {{สุดท้าย|sùt-táai}}: {{วันสุดท้าย|wan sùt-táai}} “the last day”."},
         {"p":"**Making a date.** {{นัด|nát}} is “to arrange to meet; an appointment”: {{นัดกัน|nát gan}} “arrange to meet”, {{มีนัด|mii nát}} “have an appointment”. {{เจอกัน|jəə gan}} “meet”: {{เจอกันพรุ่งนี้|jəə-gan prûng-níi}} “see you tomorrow”."},
         { "ex": [
           {"t":"วันนี้วันอะไรครับ","r":"wan-níi wan à-rai kráp","tr":"What day is it today?"},
@@ -1538,9 +1538,9 @@
       "blocks": [
         {"goal":{"t":"เชียงใหม่เย็นกว่ากรุงเทพค่ะ","r":"chiiang-mài yen gwàa grung-têep kâ","tr":"Chiang Mai is cooler than Bangkok."}},
         {"dialog":[{"who":"Anna","t":"โรงแรมนี้กับโรงแรมนั้น ที่ไหนดีกว่าคะ","r":"roong-rɛɛm níi gàp roong-rɛɛm nán, tîi-nǎi dii gwàa ká","tr":"This hotel or that one: which is better?"},{"who":"Nok","t":"ที่นี่ถูกกว่าค่ะ แต่ที่นั่นใกล้ทะเลกว่า","r":"tîi-nîi tùuk gwàa kâ, dtɛ̀ɛ tîi-nân glâi tá-lee gwàa","tr":"This one's cheaper, but that one's closer to the beach."},{"who":"Anna","t":"แล้วที่ไหนสะอาดที่สุดคะ","r":"lɛ́ɛo tîi-nǎi sà-àat tîi-sùt ká","tr":"And which is the cleanest?"},{"who":"Nok","t":"ที่นั่นค่ะ ราคาก็ไม่ต่างกันมาก","r":"tîi-nân kâ, raa-kaa gɔ̂ mâi dtàang gan mâak","tr":"That one. And the prices aren't very different."},{"who":"Anna","t":"งั้นเอาที่นั่นดีกว่าค่ะ","r":"ngán ao tîi-nân dii gwàa kâ","tr":"Then I'd better take that one."}]},
-        {"p":"**-er than: กว่า.** Put {{กว่า|gwàa}} after the adjective, then what you're comparing with: {{แพงกว่า|pɛɛng gwàa}} “more expensive”, {{บ้านฉันใหญ่กว่าบ้านคุณ|bâan chǎn yài gwàa bâan kun}} “my house is bigger than yours”. English has two ways (bigger, more expensive); Thai always has one."},
+        {"p":"**-er than: {{กว่า|gwàa}}.** Put {{กว่า|gwàa}} after the adjective, then what you're comparing with: {{แพงกว่า|pɛɛng gwàa}} “more expensive”, {{บ้านฉันใหญ่กว่าบ้านคุณ|bâan chǎn yài gwàa bâan kun}} “my house is bigger than yours”. English has two ways (bigger, more expensive); Thai always has one."},
         {"p":"**More, less, better.** With a verb, use {{มากกว่า|mâak gwàa}} “more” or {{น้อยกว่า|nɔ́ɔi gwàa}} “less”: {{ผมกินมากกว่าคุณ|pǒm gin mâak-gwàa kun}} “I eat more than you”. {{ดีกว่า|dii gwàa}} “better” also means “had better”: {{ไปพรุ่งนี้ดีกว่า|bpai prûng-níi dii-gwàa}} “we'd better go tomorrow”."},
-        {"p":"**The most: ที่สุด.** {{ที่สุด|tîi-sùt}} after the adjective is “the most, the -est”: {{ร้านนี้อร่อยที่สุด|ráan níi à-rɔ̀i tîi-sùt}} “this place is the tastiest”, {{ใครสูงที่สุด|krai sǔung tîi-sùt}} “who's the tallest?”."},
+        {"p":"**The most: {{ที่สุด|tîi-sùt}}.** {{ที่สุด|tîi-sùt}} after the adjective is “the most, the -est”: {{ร้านนี้อร่อยที่สุด|ráan níi à-rɔ̀i tîi-sùt}} “this place is the tastiest”, {{ใครสูงที่สุด|krai sǔung tîi-sùt}} “who's the tallest?”."},
         { "table": [
           ["","Thai","meaning"],
           ["","{{ใหญ่|yài}}","big"],
@@ -1673,8 +1673,8 @@
       "blocks": [
         {"goal":{"t":"ฉันซื้อของขวัญให้แม่ค่ะ","r":"chǎn sʉ́ʉ kɔ̌ɔng-kwǎn hâi mɛ̂ɛ kâ","tr":"I bought a present for my mom."}},
         {"dialog":[{"who":"Nok","t":"สุขสันต์วันเกิดค่ะ นี่ของขวัญ ให้คุณค่ะ","r":"sùk-sǎn wan-gə̀ət kâ, nîi kɔ̌ɔng-kwǎn, hâi kun kâ","tr":"Happy birthday! Here's a present. For you."},{"who":"Tom","t":"ขอบคุณมากครับ ใครเป็นคนเลือกครับ","r":"kɔ̀ɔp-kun mâak kráp, krai bpen kon lʉ̂ʉak kráp","tr":"Thank you so much! Who chose it?"},{"who":"Nok","t":"ฉันเลือกเองค่ะ แม่ฉันทำขนมให้คุณด้วยนะคะ","r":"chǎn lʉ̂ʉak eeng kâ, mɛ̂ɛ chǎn tam kà-nǒm hâi kun dûai ná ká","tr":"I chose it myself. And my mom made you some dessert."},{"who":"Tom","t":"ใจดีจังครับ ฝากขอบคุณคุณแม่ด้วยนะครับ","r":"jai-dii jang kráp, fàak kɔ̀ɔp-kun kun-mɛ̂ɛ dûai ná kráp","tr":"That's so kind! Please thank your mom for me."}]},
-        {"p":"**ให้: give.** On its own, {{ให้|hâi}} is “give”: {{ให้ของขวัญ|hâi kɔ̌ɔng-kwǎn}} “give a present”. The person who gets it comes after the thing: {{พ่อให้เงินผม|pɔ̂ɔ hâi ngən pǒm}} “Dad gave me money” (Dad, give, money, me)."},
-        {"p":"**For someone: verb + ให้ + person.** After another verb, {{ให้|hâi}} + a person means “for (someone)”: {{ซื้อดอกไม้ให้แม่|sʉ́ʉ dɔ̀ɔk-máai hâi mɛ̂ɛ}} “buy flowers for Mom”, {{ทำขนมให้คุณ|tam kà-nǒm hâi kun}} “make you a dessert”. The action comes first, then the thing, then {{ให้|hâi}} and who it's for."},
+        {"p":"**{{ให้|hâi}}: give.** On its own, {{ให้|hâi}} is “give”: {{ให้ของขวัญ|hâi kɔ̌ɔng-kwǎn}} “give a present”. The person who gets it comes after the thing: {{พ่อให้เงินผม|pɔ̂ɔ hâi ngən pǒm}} “Dad gave me money” (Dad, give, money, me)."},
+        {"p":"**For someone: verb + {{ให้|hâi}} + person.** After another verb, {{ให้|hâi}} + a person means “for (someone)”: {{ซื้อดอกไม้ให้แม่|sʉ́ʉ dɔ̀ɔk-máai hâi mɛ̂ɛ}} “buy flowers for Mom”, {{ทำขนมให้คุณ|tam kà-nǒm hâi kun}} “make you a dessert”. The action comes first, then the thing, then {{ให้|hâi}} and who it's for."},
         { "table": [
           ["Thai","word for word","meaning"],
           ["{{ซื้อกาแฟให้เพื่อน|sʉ́ʉ gaa-fɛɛ hâi pʉ̂ʉan}}","buy coffee give friend","buy a friend a coffee"],
@@ -1682,7 +1682,7 @@
           ["{{เล่าเรื่องให้ฉันฟัง|lâo rʉ̂ʉang hâi chǎn fang}}","tell story give me listen","tell me a story"],
           ["{{ส่งรูปให้ดูหน่อย|sòng rûup hâi duu nɔ̀i}}","send photo give look","send me a photo to see"]
         ] },
-        {"p":"**Bring me, take it to: เอา…มาให้.** With the direction words of lesson 17: {{เอาน้ำมาให้หน่อย|ao náam maa hâi nɔ̀i}} “bring me some water”, {{เอาไปให้เขา|ao bpai hâi kǎo}} “take it to her”."},
+        {"p":"**Bring me, take it to: {{เอา|ao}}…{{มาให้|maa hâi}}.** With the direction words of lesson 17: {{เอาน้ำมาให้หน่อย|ao náam maa hâi nɔ̀i}} “bring me some water”, {{เอาไปให้เขา|ao bpai hâi kǎo}} “take it to her”."},
         {"p":"**Do it for me, please.** {{ช่วย|chûai}} + the verb + {{ให้หน่อย|hâi nɔ̀i}} asks a favor: {{ช่วยถ่ายรูปให้หน่อยได้ไหม|chûai tàai-rûup hâi nɔ̀i dâai mǎi}} “could you take a photo for me?”. With nobody after {{ให้|hâi}}, it means “for me”."},
         { "ex": [
           {"t":"พ่อให้เงินผมห้าร้อยบาทครับ","r":"pɔ̂ɔ hâi ngən pǒm hâa rɔ́ɔi bàat kráp","tr":"Dad gave me five hundred baht."},
@@ -1717,7 +1717,7 @@
       "blocks": [
         {"goal":{"t":"ฉันอยากให้คุณมาด้วยค่ะ","r":"chǎn yàak hâi kun maa dûai kâ","tr":"I'd like you to come too."}},
         {"dialog":[{"who":"Tom","t":"แม่ครับ ให้ผมไปเที่ยวกับเพื่อนได้ไหมครับ","r":"mɛ̂ɛ kráp, hâi pǒm bpai tîao gàp pʉ̂ʉan dâai mǎi kráp","tr":"Mom, can I go out with my friends?"},{"who":"Mom","t":"ไปได้ แต่แม่อยากให้ลูกกลับก่อนสี่ทุ่มนะ","r":"bpai dâai, dtɛ̀ɛ mɛ̂ɛ yàak hâi lûuk glàp gɔ̀ɔn sìi tûm ná","tr":"You can, but I want you back before ten."},{"who":"Tom","t":"ครับ พ่อบอกให้ผมเอารถไปด้วยครับ","r":"kráp, pɔ̂ɔ bɔ̀ɔk hâi pǒm ao rót bpai dûai kráp","tr":"OK. Dad told me to take the car."},{"who":"Mom","t":"ขับรถดีๆ นะ ขอให้สนุกนะลูก","r":"kàp rót dii-dii ná, kɔ̌ɔ hâi sà-nùk ná lûuk","tr":"Drive carefully. Have fun, dear."}]},
-        {"p":"**ให้ + a person + a verb.** Put {{ให้|hâi}} before the person who is to do something: {{ให้เขารอ|hâi kǎo rɔɔ}} “have her wait, let her wait”. The verb before {{ให้|hâi}} says what kind of push it is: wanting, telling, asking."},
+        {"p":"**{{ให้|hâi}} + a person + a verb.** Put {{ให้|hâi}} before the person who is to do something: {{ให้เขารอ|hâi kǎo rɔɔ}} “have her wait, let her wait”. The verb before {{ให้|hâi}} says what kind of push it is: wanting, telling, asking."},
         { "table": [
           ["Thai","meaning","example"],
           ["{{อยากให้|yàak hâi}}","want (someone) to","{{อยากให้คุณมา|yàak hâi kun maa}} I want you to come"],
@@ -1726,9 +1726,9 @@
           ["{{ไม่ให้|mâi hâi}}","not let","{{แม่ไม่ให้ไป|mɛ̂ɛ mâi hâi bpai}} Mom won't let me go"],
           ["{{ให้…ได้ไหม|hâi … dâai mǎi}}","let…?","{{ให้ผมช่วยได้ไหม|hâi pǒm chûai dâai mǎi}} can I help?"]
         ] },
-        {"p":"**อยาก or อยากให้?** {{อยากไป|yàak bpai}} is “*I* want to go”; {{อยากให้คุณไป|yàak hâi kun bpai}} is “I want *you* to go”. The person after {{ให้|hâi}} is the one who does it."},
+        {"p":"**{{อยาก|yàak}} or {{อยากให้|yàak hâi}}?** {{อยากไป|yàak bpai}} is “*I* want to go”; {{อยากให้คุณไป|yàak hâi kun bpai}} is “I want *you* to go”. The person after {{ให้|hâi}} is the one who does it."},
         {"p":"**Let me.** {{ให้ผม…ได้ไหม|hâi pǒm … dâai mǎi}} / {{ให้ฉัน…ได้ไหม|hâi chǎn … dâai mǎi}} asks permission: {{ให้ฉันจ่ายได้ไหม|hâi chǎn jàai dâai mǎi}} “will you let me pay?”. Without {{ได้ไหม|dâai mǎi}} it's an offer: {{ให้ผมช่วยนะ|hâi pǒm chûai ná}} “let me help”."},
-        {"p":"**Good wishes: ขอให้.** {{ขอให้|kɔ̌ɔ hâi}} + a wish is how Thais wish someone well: {{ขอให้มีความสุข|kɔ̌ɔ-hâi mii kwaam-sùk}} “I wish you happiness”, {{ขอให้หายเร็วๆ|kɔ̌ɔ-hâi hǎai reo-reo}} “get well soon”."},
+        {"p":"**Good wishes: {{ขอให้|kɔ̌ɔ hâi}}.** {{ขอให้|kɔ̌ɔ hâi}} + a wish is how Thais wish someone well: {{ขอให้มีความสุข|kɔ̌ɔ-hâi mii kwaam-sùk}} “I wish you happiness”, {{ขอให้หายเร็วๆ|kɔ̌ɔ-hâi hǎai reo-reo}} “get well soon”."},
         { "ex": [
           {"t":"หมอบอกให้ผมพักสามวันครับ","r":"mɔ̌ɔ bɔ̀ɔk hâi pǒm pák sǎam wan kráp","tr":"The doctor told me to rest for three days."},
           {"t":"แม่ไม่ให้ฉันกลับดึกค่ะ","r":"mɛ̂ɛ mâi hâi chǎn glàp dʉ̀k kâ","tr":"My mom doesn't let me come home late."},
@@ -1762,16 +1762,16 @@
       "blocks": [
         {"goal":{"t":"ฝนตกหนัก เราก็เลยไม่ได้ไปทะเลค่ะ","r":"fǒn dtòk nàk, rao gɔ̂ ləəi mâi dâai bpai tá-lee kâ","tr":"It rained hard, so we didn't go to the beach."}},
         {"dialog":[{"who":"Ton","t":"ทำไมมาสายล่ะครับ","r":"tam-mai maa sǎai lâ kráp","tr":"Why are you late?"},{"who":"Anna","t":"ขอโทษค่ะ รถติดมาก เพราะฝนตก","r":"kɔ̌ɔ-tôot kâ, rót dtìt mâak, prɔ́ fǒn dtòk","tr":"Sorry. The traffic was terrible because of the rain."},{"who":"Ton","t":"ทำไมไม่นั่งรถไฟฟ้ามาล่ะครับ","r":"tam-mai mâi nâng rót-fai-fáa maa lâ kráp","tr":"Why didn't you take the Skytrain?"},{"who":"Anna","t":"บ้านฉันไม่ใกล้สถานี ก็เลยต้องนั่งแท็กซี่ค่ะ","r":"bâan chǎn mâi glâi sà-tǎa-nii, gɔ̂ ləəi dtɔ̂ng nâng tɛ́k-sîi kâ","tr":"My house isn't near a station, so I had to take a taxi."},{"who":"Ton","t":"เข้าใจครับ ไม่เป็นไร","r":"kâo-jai kráp, mâi bpen rai","tr":"I understand. Never mind."}]},
-        {"p":"**Because: เพราะ.** {{เพราะ|prɔ́}}, or {{เพราะว่า|prɔ́ wâa}}, brings in the reason, after what happened: {{ผมไม่ไป เพราะไม่ว่าง|pǒm mâi bpai prɔ́ mâi-wâang}} “I'm not going because I'm busy”. It can also start the sentence: {{เพราะฝนตก|prɔ́ fǒn dtòk}} “because it rained…”."},
-        {"p":"**So: ก็เลย, เลย.** {{ก็เลย|gɔ̂ ləəi}}, or just {{เลย|ləəi}}, goes before the result, after the person if there is one: {{ฉันหิว ก็เลยกินก่อน|chǎn hǐu gɔ̂ ləəi gin gɔ̀ɔn}} “I was hungry, so I ate first”, {{เขาเลยโกรธ|kǎo ləəi gròot}} “so he got angry”. It's the most natural way to tell cause and effect in speech."},
+        {"p":"**Because: {{เพราะ|prɔ́}}.** {{เพราะ|prɔ́}}, or {{เพราะว่า|prɔ́ wâa}}, brings in the reason, after what happened: {{ผมไม่ไป เพราะไม่ว่าง|pǒm mâi bpai prɔ́ mâi-wâang}} “I'm not going because I'm busy”. It can also start the sentence: {{เพราะฝนตก|prɔ́ fǒn dtòk}} “because it rained…”."},
+        {"p":"**So: {{ก็เลย|gɔ̂ ləəi}}, {{เลย|ləəi}}.** {{ก็เลย|gɔ̂ ləəi}}, or just {{เลย|ləəi}}, goes before the result, after the person if there is one: {{ฉันหิว ก็เลยกินก่อน|chǎn hǐu gɔ̂ ləəi gin gɔ̀ɔn}} “I was hungry, so I ate first”, {{เขาเลยโกรธ|kǎo ləəi gròot}} “so he got angry”. It's the most natural way to tell cause and effect in speech."},
         { "table": [
           ["","Thai","meaning"],
           ["the reason after","{{ไม่ไป เพราะไม่ว่าง|mâi bpai, prɔ́ mâi wâang}}","not going, because I'm busy"],
           ["the result after","{{ไม่ว่าง ก็เลยไม่ไป|mâi wâang, gɔ̂ ləəi mâi bpai}}","busy, so not going"],
           ["both","{{เพราะไม่ว่าง ก็เลยไม่ไป|prɔ́ mâi wâang, gɔ̂ ləəi mâi bpai}}","because I'm busy, I'm not going"]
         ] },
-        {"p":"**Why…? ทำไม…ล่ะ.** {{ทำไม|tam-mai}} at the start asks why. Thais often add {{ล่ะ|lâ}} at the end, which shows you really want to know, like “so why…?”: {{ทำไมไม่บอกล่ะ|tam-mai mâi bɔ̀ɔk lâ}} “why didn't you say?”. The answer starts with {{เพราะ|prɔ́}}."},
-        {"p":"**Formal: เพราะฉะนั้น.** In writing and speeches, “therefore” is {{เพราะฉะนั้น|prɔ́ chà-nán}} or {{ดังนั้น|dang-nán}}. In conversation, {{ก็เลย|gɔ̂ ləəi}}."},
+        {"p":"**Why…? {{ทำไม|tam-mai}}…{{ล่ะ|lâ}}.** {{ทำไม|tam-mai}} at the start asks why. Thais often add {{ล่ะ|lâ}} at the end, which shows you really want to know, like “so why…?”: {{ทำไมไม่บอกล่ะ|tam-mai mâi bɔ̀ɔk lâ}} “why didn't you say?”. The answer starts with {{เพราะ|prɔ́}}."},
+        {"p":"**Formal: {{เพราะฉะนั้น|prɔ́ chà-nán}}.** In writing and speeches, “therefore” is {{เพราะฉะนั้น|prɔ́ chà-nán}} or {{ดังนั้น|dang-nán}}. In conversation, {{ก็เลย|gɔ̂ ləəi}}."},
         { "ex": [
           {"t":"ผมเรียนภาษาไทย เพราะอยากคุยกับคนไทยครับ","r":"pǒm riian paa-sǎa tai, prɔ́ yàak kui gàp kon tai kráp","tr":"I'm learning Thai because I want to talk with Thai people."},
           {"t":"เมื่อคืนนอนดึก วันนี้เลยง่วงมากค่ะ","r":"mʉ̂ʉa-kʉʉn nɔɔn dʉ̀k, wan-níi ləəi ngûuang mâak kâ","tr":"I went to bed late last night, so I'm really sleepy today."},
@@ -1804,8 +1804,8 @@
       "blocks": [
         {"goal":{"t":"ถ้าฝนตก เราก็อยู่บ้านนะคะ","r":"tâa fǒn dtòk, rao gɔ̂ yùu bâan ná ká","tr":"If it rains, we'll stay home."}},
         {"dialog":[{"who":"Nok","t":"พรุ่งนี้ไปเกาะเสม็ดกันไหมคะ","r":"prûng-níi bpai gɔ̀ sà-mèt gan mǎi ká","tr":"Shall we go to Koh Samet tomorrow?"},{"who":"Tom","t":"ถ้าอากาศดีก็ไปครับ","r":"tâa aa-gàat dii gɔ̂ bpai kráp","tr":"If the weather's good, sure."},{"who":"Nok","t":"ถ้าฝนตกล่ะคะ","r":"tâa fǒn dtòk lâ ká","tr":"And if it rains?"},{"who":"Tom","t":"ถ้าฝนตก เราไปดูหนังกันดีกว่าครับ","r":"tâa fǒn dtòk, rao bpai duu nǎng gan dii gwàa kráp","tr":"If it rains, we'd better go to a movie."},{"who":"Nok","t":"ได้ค่ะ ถ้าไม่ตื่นสาย เราจะออกเจ็ดโมงนะคะ","r":"dâai kâ, tâa mâi dtʉ̀ʉn sǎai, rao jà ɔ̀ɔk jèt moong ná ká","tr":"OK. If we don't oversleep, we'll leave at seven."}]},
-        {"p":"**ถ้า … ก็ …** {{ถ้า|tâa}} “if” starts the condition, and the result often begins with {{ก็|gɔ̂}} “then”: {{ถ้าหิว ก็กินก่อนนะ|tâa hǐu gɔ̂ gin gɔ̀ɔn ná}} “if you're hungry, (then) eat first”. When the result starts with a person, {{ก็|gɔ̂}} comes after them: {{ถ้าฝนตก เราก็อยู่บ้าน|tâa fǒn dtòk rao gɔ̂ yùu bâan}}."},
-        {"p":"**With จะ.** For what will happen, add {{จะ|jà}} in the result, often with {{ก็|gɔ̂}}: {{ถ้าคุณไป ฉันก็จะไปด้วย|tâa kun bpai, chǎn gɔ̂ jà bpai dûai}} “if you go, I'll go too”. After {{ถ้า|tâa}} the verb stays as it always is: no special form."},
+        {"p":"**{{ถ้า|tâa}} … {{ก็|gɔ̂}} …** {{ถ้า|tâa}} “if” starts the condition, and the result often begins with {{ก็|gɔ̂}} “then”: {{ถ้าหิว ก็กินก่อนนะ|tâa hǐu gɔ̂ gin gɔ̀ɔn ná}} “if you're hungry, (then) eat first”. When the result starts with a person, {{ก็|gɔ̂}} comes after them: {{ถ้าฝนตก เราก็อยู่บ้าน|tâa fǒn dtòk rao gɔ̂ yùu bâan}}."},
+        {"p":"**With {{จะ|jà}}.** For what will happen, add {{จะ|jà}} in the result, often with {{ก็|gɔ̂}}: {{ถ้าคุณไป ฉันก็จะไปด้วย|tâa kun bpai, chǎn gɔ̂ jà bpai dûai}} “if you go, I'll go too”. After {{ถ้า|tâa}} the verb stays as it always is: no special form."},
         { "table": [
           ["condition","result"],
           ["{{ถ้ามีเวลา|tâa mii wee-laa}} if I have time","{{ผมจะโทรหา|pǒm jà too hǎa}} I'll call you"],
@@ -1847,7 +1847,7 @@
       "blocks": [
         {"goal":{"t":"ผมคิดว่าพรุ่งนี้ฝนจะตกครับ","r":"pǒm kít wâa prûng-níi fǒn jà dtòk kráp","tr":"I think it's going to rain tomorrow."}},
         {"dialog":[{"who":"Nok","t":"คุณรู้ไหมว่าร้านนี้ปิดวันจันทร์","r":"kun rúu mǎi wâa ráan níi bpìt wan jan","tr":"Did you know this place is closed on Mondays?"},{"who":"Tom","t":"ไม่รู้เลยครับ ผมคิดว่าเปิดทุกวัน","r":"mâi rúu ləəi kráp, pǒm kít wâa bpə̀ət túk wan","tr":"I had no idea. I thought it was open every day."},{"who":"Nok","t":"ฉันได้ยินว่าเจ้าของไปต่างประเทศค่ะ","r":"chǎn dâi-yin wâa jâo-kɔ̌ɔng bpai dtàang-bprà-têet kâ","tr":"I heard the owner went abroad."},{"who":"Tom","t":"ไม่รู้ว่าจะกลับมาเมื่อไหร่นะครับ","r":"mâi rúu wâa jà glàp maa mʉ̂ʉa-rài ná kráp","tr":"I wonder when they'll be back."},{"who":"Nok","t":"หวังว่าอาทิตย์หน้าจะเปิดนะคะ","r":"wǎng wâa aa-tít nâa jà bpə̀ət ná ká","tr":"I hope it'll be open next week."}]},
-        {"p":"**ว่า: that.** After verbs of thinking, knowing and saying, {{ว่า|wâa}} “that” brings in what's thought or said: {{ผมคิดว่า…|pǒm kít-wâa …}} “I think (that)…”. English can drop “that”; Thai keeps {{ว่า|wâa}}. What follows is an ordinary sentence, with its own {{จะ|jà}}, {{แล้ว|lɛ́ɛo}} or {{ไม่|mâi}}."},
+        {"p":"**{{ว่า|wâa}}: that.** After verbs of thinking, knowing and saying, {{ว่า|wâa}} “that” brings in what's thought or said: {{ผมคิดว่า…|pǒm kít-wâa …}} “I think (that)…”. English can drop “that”; Thai keeps {{ว่า|wâa}}. What follows is an ordinary sentence, with its own {{จะ|jà}}, {{แล้ว|lɛ́ɛo}} or {{ไม่|mâi}}."},
         { "table": [
           ["Thai","meaning"],
           ["{{คิดว่า|kít wâa}}","think (that)"],
@@ -1859,7 +1859,7 @@
           ["{{ลืมว่า|lʉʉm wâa}}","forget (that)"]
         ] },
         {"p":"**A question inside.** A question word, or {{ไหม|mǎi}}, can sit inside the {{ว่า|wâa}} part: {{ไม่รู้ว่าเขาอยู่ไหน|mâi rúu wâa kǎo yùu nǎi}} “I don't know where he is”, {{ไม่แน่ใจว่าเขาจะมาไหม|mâi nɛ̂ɛ-jai wâa kǎo jà maa mǎi}} “I'm not sure whether she'll come”. The order stays Thai: the question word where the answer would go."},
-        {"p":"**Asking: รู้ไหมว่า.** To ask “do you know (that)…?”, {{ไหม|mǎi}} goes straight after the verb, before {{ว่า|wâa}}: {{รู้ไหมว่าร้านปิด|rúu mǎi wâa ráan bpìt}} “did you know the shop is closed?”. And “what do you think?” is {{คิดว่าไง|kít wâa ngai}}."},
+        {"p":"**Asking: {{รู้ไหมว่า|rúu mǎi wâa}}.** To ask “do you know (that)…?”, {{ไหม|mǎi}} goes straight after the verb, before {{ว่า|wâa}}: {{รู้ไหมว่าร้านปิด|rúu mǎi wâa ráan bpìt}} “did you know the shop is closed?”. And “what do you think?” is {{คิดว่าไง|kít wâa ngai}}."},
         {"p":"**I think so, I don't think so.** {{คิดว่าใช่|kít wâa châi}} “I think so”; {{คิดว่าไม่นะ|kít wâa mâi ná}} “I don't think so”. Less sure: {{ไม่แน่ใจ|mâi nɛ̂ɛ-jai}} “I'm not sure”."},
         { "ex": [
           {"t":"ฉันรู้ว่าเขาชอบคุณค่ะ","r":"chǎn rúu wâa kǎo chɔ̂ɔp kun kâ","tr":"I know she likes you."},
@@ -1894,9 +1894,9 @@
       "blocks": [
         {"goal":{"t":"ถึงแม้ว่าฝนจะตก เราก็ยังไปเที่ยวค่ะ","r":"tʉ̌ng mɛ́ɛ wâa fǒn jà dtòk, rao gɔ̂ yang bpai tîao kâ","tr":"Even though it was raining, we still went out."}},
         {"dialog":[{"who":"Ton","t":"ร้านนี้เป็นยังไงบ้างครับ","r":"ráan níi bpen yang-ngai bâng kráp","tr":"What's this place like?"},{"who":"Anna","t":"อาหารอร่อยค่ะ แต่บริการช้ามาก","r":"aa-hǎan à-rɔ̀i kâ, dtɛ̀ɛ bɔɔ-rí-gaan cháa mâak","tr":"The food's good, but the service is really slow."},{"who":"Ton","t":"คนเยอะไหมครับ","r":"kon yə́ mǎi kráp","tr":"Is it busy?"},{"who":"Anna","t":"เยอะค่ะ ถึงแม้ว่าจะแพง คนก็ยังมากินทุกวัน","r":"yə́ kâ, tʉ̌ng mɛ́ɛ wâa jà pɛɛng, kon gɔ̂ yang maa gin túk wan","tr":"Yes. Even though it's expensive, people still come every day."},{"who":"Ton","t":"ทั้งที่บริการช้าเหรอครับ","r":"táng tîi bɔɔ-rí-gaan cháa rə̌ə kráp","tr":"Even though the service is slow?"},{"who":"Anna","t":"ใช่ค่ะ เพราะอร่อยจริงๆ","r":"châi kâ, prɔ́ à-rɔ̀i jing-jing","tr":"Yes, because it's really that good."}]},
-        {"p":"**แต่: but.** {{แต่|dtɛ̀ɛ}} joins two ideas that pull in different directions: {{ถูกแต่ดี|tùuk dtɛ̀ɛ dii}} “cheap but good”, {{อยากไปแต่ไม่มีเวลา|yàak bpai dtɛ̀ɛ mâi-mii wee-laa}} “I want to go, but I don't have time”."},
-        {"p":"**Although: ถึงแม้ว่า.** {{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}} (shorter: {{ถึงแม้|tʉ̌ng mɛ́ɛ}}, or just {{ถึง|tʉ̌ng}}) starts the “although” part, which usually has {{จะ|jà}} before its verb, whatever the time. The main part then starts with {{แต่|dtɛ̀ɛ}} or has {{ก็|gɔ̂}}: {{ถึงจะแพง แต่ก็คุ้ม|tʉ̌ng jà pɛɛng dtɛ̀ɛ gɔ̂ kúm}} “although it's expensive, it's worth it”. Thai happily says “although…, but…”, where English uses only one of the two."},
-        {"p":"**Still: ก็ยัง…อยู่.** {{ยัง|yang}} “still” (lesson 27) often pairs with {{ก็|gɔ̂}} in the main part: {{เขาก็ยังทำงานอยู่|kǎo gɔ̂ yang tam-ngaan yùu}} “he's still working”, {{ถึงจะเหนื่อย ฉันก็ยังไป|tʉ̌ng jà nʉ̀ai chǎn gɔ̂ yang bpai}} “even though I was tired, I still went”."},
+        {"p":"**{{แต่|dtɛ̀ɛ}}: but.** {{แต่|dtɛ̀ɛ}} joins two ideas that pull in different directions: {{ถูกแต่ดี|tùuk dtɛ̀ɛ dii}} “cheap but good”, {{อยากไปแต่ไม่มีเวลา|yàak bpai dtɛ̀ɛ mâi-mii wee-laa}} “I want to go, but I don't have time”."},
+        {"p":"**Although: {{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}}.** {{ถึงแม้ว่า|tʉ̌ng mɛ́ɛ wâa}} (shorter: {{ถึงแม้|tʉ̌ng mɛ́ɛ}}, or just {{ถึง|tʉ̌ng}}) starts the “although” part, which usually has {{จะ|jà}} before its verb, whatever the time. The main part then starts with {{แต่|dtɛ̀ɛ}} or has {{ก็|gɔ̂}}: {{ถึงจะแพง แต่ก็คุ้ม|tʉ̌ng jà pɛɛng dtɛ̀ɛ gɔ̂ kúm}} “although it's expensive, it's worth it”. Thai happily says “although…, but…”, where English uses only one of the two."},
+        {"p":"**Still: {{ก็ยัง|gɔ̂ yang}}…{{อยู่|yùu}}.** {{ยัง|yang}} “still” (lesson 27) often pairs with {{ก็|gɔ̂}} in the main part: {{เขาก็ยังทำงานอยู่|kǎo gɔ̂ yang tam-ngaan yùu}} “he's still working”, {{ถึงจะเหนื่อย ฉันก็ยังไป|tʉ̌ng jà nʉ̀ai chǎn gɔ̂ yang bpai}} “even though I was tired, I still went”."},
         {"p":"**Even though (and that's surprising).** {{ทั้งที่|táng tîi}} “even though, despite the fact that” adds surprise or complaint: {{เขาไม่มา ทั้งที่สัญญาแล้ว|kǎo mâi maa táng-tîi sǎn-yaa lɛ́ɛo}} “he didn't come, even though he'd promised”."},
         { "table": [
           ["Thai","meaning"],
@@ -1939,9 +1939,9 @@
       "blocks": [
         {"goal":{"t":"เขาบอกว่าจะมาสายนิดหน่อยค่ะ","r":"kǎo bɔ̀ɔk wâa jà maa sǎai nít-nɔ̀i kâ","tr":"He said he'd be a bit late."}},
         {"dialog":[{"who":"Nok","t":"เมื่อกี้ใครโทรมาคะ","r":"mʉ̂ʉa-gîi krai too maa ká","tr":"Who called just now?"},{"who":"Tom","t":"พี่ต้นครับ เขาบอกว่าวันนี้จะกลับดึก","r":"pîi dtôn kráp, kǎo bɔ̀ɔk wâa wan-níi jà glàp dʉ̀k","tr":"Ton. He said he'll be home late today."},{"who":"Nok","t":"แล้วเขาถามอะไรไหมคะ","r":"lɛ́ɛo kǎo tǎam à-rai mǎi ká","tr":"Did he ask anything?"},{"who":"Tom","t":"เขาถามว่าเราจะกินข้าวเย็นด้วยกันไหม แล้วก็บอกให้ผมซื้อน้ำแข็งไว้","r":"kǎo tǎam wâa rao jà gin kâao yen dûai-gan mǎi, lɛ́ɛo-gɔ̂ bɔ̀ɔk hâi pǒm sʉ́ʉ nám-kɛ̌ng wái","tr":"He asked if we'd have dinner together, and told me to get some ice in."},{"who":"Nok","t":"เขาว่าร้านแถวนี้ปิดเร็วนะคะ รีบไปซื้อเถอะ","r":"kǎo wâa ráan tɛ̌o níi bpìt reo ná ká, rîip bpai sʉ́ʉ tə̀","tr":"They say the shops around here close early. Better go and get it now."}]},
-        {"p":"**Said that: บอกว่า.** To pass on what someone said, use {{บอกว่า|bɔ̀ɔk wâa}} “told, said (that)” (or {{พูดว่า|pûut wâa}}), then their words as an ordinary sentence: {{เขาบอกว่าจะมา|kǎo bɔ̀ɔk wâa jà maa}} “he said he'd come”. Thai doesn't shift the time as English does (“will” → “would”): the words stay as they were said. The person told can come straight after {{บอก|bɔ̀ɔk}}: {{เขาบอกผมว่า…|kǎo bɔ̀ɔk pǒm wâa …}} “he told me that…”."},
-        {"p":"**Asked whether: ถามว่า…ไหม.** For a yes/no question, keep {{ไหม|mǎi}} at the end: {{เขาถามว่าคุณจะไปไหม|kǎo tǎam wâa kun jà bpai mǎi}} “she asked whether you're going”. For other questions the question word stays in place: {{เขาถามว่าคุณอยู่ที่ไหน|kǎo tǎam wâa kun yùu tîi-nǎi}} “he asked where you live”."},
-        {"p":"**Told (not) to: บอกให้, บอกไม่ให้.** An instruction takes {{บอกให้|bɔ̀ɔk hâi}} + who + what, as in lesson 38: {{แม่บอกให้ผมกลับบ้าน|mɛ̂ɛ bɔ̀ɔk hâi pǒm glàp-bâan}} “Mom told me to come home”. “Told … not to” is {{บอกไม่ให้|bɔ̀ɔk mâi hâi}}: {{หมอบอกไม่ให้กินเผ็ด|mɔ̌ɔ bɔ̀ɔk mâi hâi gin pèt}} “the doctor told me not to eat spicy food”."},
+        {"p":"**Said that: {{บอกว่า|bɔ̀ɔk wâa}}.** To pass on what someone said, use {{บอกว่า|bɔ̀ɔk wâa}} “told, said (that)” (or {{พูดว่า|pûut wâa}}), then their words as an ordinary sentence: {{เขาบอกว่าจะมา|kǎo bɔ̀ɔk wâa jà maa}} “he said he'd come”. Thai doesn't shift the time as English does (“will” → “would”): the words stay as they were said. The person told can come straight after {{บอก|bɔ̀ɔk}}: {{เขาบอกผมว่า…|kǎo bɔ̀ɔk pǒm wâa …}} “he told me that…”."},
+        {"p":"**Asked whether: {{ถามว่า|tǎam wâa}}…{{ไหม|mǎi}}.** For a yes/no question, keep {{ไหม|mǎi}} at the end: {{เขาถามว่าคุณจะไปไหม|kǎo tǎam wâa kun jà bpai mǎi}} “she asked whether you're going”. For other questions the question word stays in place: {{เขาถามว่าคุณอยู่ที่ไหน|kǎo tǎam wâa kun yùu tîi-nǎi}} “he asked where you live”."},
+        {"p":"**Told (not) to: {{บอกให้|bɔ̀ɔk hâi}}, {{บอกไม่ให้|bɔ̀ɔk mâi hâi}}.** An instruction takes {{บอกให้|bɔ̀ɔk hâi}} + who + what, as in lesson 38: {{แม่บอกให้ผมกลับบ้าน|mɛ̂ɛ bɔ̀ɔk hâi pǒm glàp-bâan}} “Mom told me to come home”. “Told … not to” is {{บอกไม่ให้|bɔ̀ɔk mâi hâi}}: {{หมอบอกไม่ให้กินเผ็ด|mɔ̌ɔ bɔ̀ɔk mâi hâi gin pèt}} “the doctor told me not to eat spicy food”."},
         {"p":"**They say.** {{เขาว่า|kǎo wâa}}, or {{เขาว่ากันว่า|kǎo wâa gan wâa}}, passes on what people say: {{เขาว่าร้านนี้อร่อย|kǎo wâa ráan níi à-rɔ̀i}} “they say this place is good”."},
         { "table": [
           ["what was said","passed on"],
@@ -1982,7 +1982,7 @@
       "blocks": [
         {"goal":{"t":"ร้านที่เราไปเมื่อวานอร่อยมากค่ะ","r":"ráan tîi rao bpai mʉ̂ʉa-waan à-rɔ̀i mâak kâ","tr":"The restaurant we went to yesterday was really good."}},
         {"dialog":[{"who":"Tom","t":"ผู้ชายที่ใส่เสื้อสีแดงคือใครครับ","r":"pûu-chaai tîi sài sʉ̂ʉa sǐi dɛɛng kʉʉ krai kráp","tr":"Who's the man in the red shirt?"},{"who":"Nok","t":"คนที่ยืนอยู่ข้างประตูเหรอคะ","r":"kon tîi yʉʉn yùu kâang bprà-dtuu rə̌ə ká","tr":"The one standing by the door?"},{"who":"Tom","t":"ใช่ครับ","r":"châi kráp","tr":"Yes."},{"who":"Nok","t":"เขาเป็นคนที่ทำอาหารร้านนี้ค่ะ","r":"kǎo bpen kon tîi tam aa-hǎan ráan níi kâ","tr":"He's the one who cooks here."},{"who":"Tom","t":"อาหารที่เขาทำอร่อยที่สุดเลยครับ","r":"aa-hǎan tîi kǎo tam à-rɔ̀i tîi-sùt ləəi kráp","tr":"The food he makes is the best!"}]},
-        {"p":"**ที่ + a sentence.** To describe a noun with a whole sentence, put {{ที่|tîi}} after the noun, then the sentence: {{ร้านที่เราไป|ráan tîi rao bpai}} “the restaurant (that) we went to”, {{คนที่ทำอาหาร|kon tîi tam-aa-hǎan}} “the person who cooks”. {{ที่|tîi}} is “who”, “which” and “that” all in one, and, as in English, it comes after the noun."},
+        {"p":"**{{ที่|tîi}} + a sentence.** To describe a noun with a whole sentence, put {{ที่|tîi}} after the noun, then the sentence: {{ร้านที่เราไป|ráan tîi rao bpai}} “the restaurant (that) we went to”, {{คนที่ทำอาหาร|kon tîi tam-aa-hǎan}} “the person who cooks”. {{ที่|tîi}} is “who”, “which” and “that” all in one, and, as in English, it comes after the noun."},
         {"p":"**Nothing else changes.** The sentence after {{ที่|tîi}} keeps its normal order, and the little words English leaves dangling at the end (“to”, “in”, “with”) just aren't there: {{บ้านที่ฉันอยู่|bâan tîi chǎn yùu}} “the house (that) I live in”."},
         { "table": [
           ["Thai","meaning"],
@@ -1991,8 +1991,8 @@
           ["{{หนังสือที่คุณให้ผม|nǎng-sʉ̌ʉ tîi kun hâi pǒm}}","the book you gave me"],
           ["{{เมืองที่ผมเกิด|mʉʉang tîi pǒm gə̀ət}}","the town where I was born"]
         ] },
-        {"p":"**The one who, the one that: classifier + ที่.** Leave out the noun and use its classifier: {{คนที่ใส่เสื้อแดง|kon tîi sài sʉ̂ʉa-dɛɛng}} “the one (person) in the red shirt”, {{อันที่ถูกกว่า|an tîi tùuk gwàa}} “the cheaper one”, {{ตัวที่ผมชอบ|dtuua tîi pǒm chɔ̂ɔp}} “the one I like” (a shirt). With the noun too, the classifier points it out more sharply: {{เสื้อตัวที่ผมชอบ|sʉ̂ʉa dtuua tîi pǒm chɔ̂ɔp}} “the shirt I like”."},
-        {"p":"**Formal: ซึ่ง.** In writing, {{ซึ่ง|sʉ̂ng}} sometimes replaces {{ที่|tîi}}, especially to add extra information: {{กรุงเทพ ซึ่งเป็นเมืองหลวง…|grung-têep sʉ̂ng bpen mʉʉang-lǔuang …}} “Bangkok, which is the capital…”. In conversation, {{ที่|tîi}}."},
+        {"p":"**The one who, the one that: classifier + {{ที่|tîi}}.** Leave out the noun and use its classifier: {{คนที่ใส่เสื้อแดง|kon tîi sài sʉ̂ʉa-dɛɛng}} “the one (person) in the red shirt”, {{อันที่ถูกกว่า|an tîi tùuk gwàa}} “the cheaper one”, {{ตัวที่ผมชอบ|dtuua tîi pǒm chɔ̂ɔp}} “the one I like” (a shirt). With the noun too, the classifier points it out more sharply: {{เสื้อตัวที่ผมชอบ|sʉ̂ʉa dtuua tîi pǒm chɔ̂ɔp}} “the shirt I like”."},
+        {"p":"**Formal: {{ซึ่ง|sʉ̂ng}}.** In writing, {{ซึ่ง|sʉ̂ng}} sometimes replaces {{ที่|tîi}}, especially to add extra information: {{กรุงเทพ ซึ่งเป็นเมืองหลวง…|grung-têep sʉ̂ng bpen mʉʉang-lǔuang …}} “Bangkok, which is the capital…”. In conversation, {{ที่|tîi}}."},
         { "ex": [
           {"t":"ผู้ชายที่อยู่บ้านข้างๆ เป็นหมอครับ","r":"pûu-chaai tîi yùu bâan kâang-kâang bpen mɔ̌ɔ kráp","tr":"The man who lives next door is a doctor."},
           {"t":"หนังสือที่คุณให้ผมสนุกมากครับ","r":"nǎng-sʉ̌ʉ tîi kun hâi pǒm sà-nùk mâak kráp","tr":"The book you gave me is really good."},
@@ -2029,7 +2029,7 @@
         {"term":"passive","means":"a sentence about what happens to someone or something, rather than what they do: “I got bitten”, “the house was built”."},
         {"p":"**When something happens to you.** To say a bad thing happened *to* someone, Thai puts {{โดน|doon}} or {{ถูก|tùuk}} before the verb: {{ผมโดนกัด|pǒm doon gàt}} “I got bitten”. Who did it goes in between: {{ผมโดนหมากัด|pǒm doon mǎa gàt}} “I got bitten by a dog” (I, suffered, dog, bite)."},
         {"p":"**Mostly bad news.** {{โดน|doon}} and {{ถูก|tùuk}} are for unpleasant things: being bitten, scolded, fined, cheated, robbed. For something good that comes your way, Thai says {{ได้|dâai}} “get”: {{ได้รางวัล|dâai raang-wan}} “win a prize”. For neutral events, Thai just says who did what: {{ตำรวจจับขโมยได้|dtam-rùuat jàp kà-mooi dâai}} “the police caught the thief”."},
-        {"p":"**โดน or ถูก?** {{โดน|doon}} is everyday speech; {{ถูก|tùuk}} is a little more formal, and it's what the news uses: {{ถูกจับ|tùuk jàp}} “was arrested”. (Careful: {{ถูก|tùuk}} also means “cheap” and “right”.)"},
+        {"p":"**{{โดน|doon}} or {{ถูก|tùuk}}?** {{โดน|doon}} is everyday speech; {{ถูก|tùuk}} is a little more formal, and it's what the news uses: {{ถูกจับ|tùuk jàp}} “was arrested”. (Careful: {{ถูก|tùuk}} also means “cheap” and “right”.)"},
         { "table": [
           ["Thai","meaning"],
           ["{{โดนกัด|doon gàt}}","get bitten"],
@@ -2073,7 +2073,7 @@
       "blocks": [
         {"goal":{"t":"ฉันดีใจที่ได้เจอคุณค่ะ","r":"chǎn dii-jai tîi dâai jəə kun kâ","tr":"I'm glad I got to meet you."}},
         {"dialog":[{"who":"Nok","t":"วันนี้ดูเหนื่อยๆ นะคะ เป็นอะไรหรือเปล่า","r":"wan-níi duu nʉ̀ai-nʉ̀ai ná ká, bpen à-rai rʉ̌ʉ-bplàao","tr":"You look tired today. Is something wrong?"},{"who":"Tom","t":"รู้สึกเครียดนิดหน่อยครับ งานเยอะมาก","r":"rúu-sʉ̀k krîiat nít-nɔ̀i kráp, ngaan yə́ mâak","tr":"I feel a bit stressed. I've got so much work."},{"who":"Nok","t":"เสียใจด้วยนะคะ มีอะไรให้ช่วยไหม","r":"sǐia-jai dûai ná ká, mii à-rai hâi chûai mǎi","tr":"I'm sorry to hear that. Can I help with anything?"},{"who":"Tom","t":"ไม่เป็นไรครับ แค่คุยกับคุณก็ทำให้ผมรู้สึกดีขึ้นแล้ว","r":"mâi bpen rai kráp, kɛ̂ɛ kui gàp kun gɔ̂ tam-hâi pǒm rúu-sʉ̀k dii kʉ̂n lɛ́ɛo","tr":"It's OK. Just talking to you makes me feel better."},{"who":"Nok","t":"ดีใจที่ได้ยินแบบนั้นค่ะ","r":"dii-jai tîi dâi-yin bɛ̀ɛp nán kâ","tr":"I'm glad to hear that."}]},
-        {"p":"**รู้สึก: feel.** {{รู้สึก|rúu-sʉ̀k}} + an adjective says how you feel: {{รู้สึกดี|rúu-sʉ̀k dii}} “feel good”, {{รู้สึกเหงา|rúu-sʉ̀k ngǎo}} “feel lonely”. Often the adjective alone is enough: {{เหนื่อย|nʉ̀ai}} “(I'm) tired”. {{ดู|duu}} + an adjective is “look …”: {{ดูเหนื่อย|duu nʉ̀ai}} “you look tired”."},
+        {"p":"**{{รู้สึก|rúu-sʉ̀k}}: feel.** {{รู้สึก|rúu-sʉ̀k}} + an adjective says how you feel: {{รู้สึกดี|rúu-sʉ̀k dii}} “feel good”, {{รู้สึกเหงา|rúu-sʉ̀k ngǎo}} “feel lonely”. Often the adjective alone is enough: {{เหนื่อย|nʉ̀ai}} “(I'm) tired”. {{ดู|duu}} + an adjective is “look …”: {{ดูเหนื่อย|duu nʉ̀ai}} “you look tired”."},
         { "table": [
           ["Thai","meaning","Thai","meaning"],
           ["{{ดีใจ|dii-jai}}","glad (about something)","{{เสียใจ|sǐia-jai}}","sad, sorry"],
@@ -2082,9 +2082,9 @@
           ["{{กลัว|gluua}}","afraid","{{โกรธ|gròot}}","angry"],
           ["{{เบื่อ|bʉ̀a}}","bored, fed up","{{ห่วง|hùuang}}","worried (about someone)"]
         ] },
-        {"p":"**Glad that, sorry that: ที่.** To say what a feeling is about, add {{ที่|tîi}} and a sentence: {{ดีใจที่คุณมา|dii-jai tîi kun maa}} “I'm glad you came”, {{เสียใจที่ไปไม่ได้|sǐia-jai tîi bpai mâi-dâi}} “I'm sorry I can't go”. {{ได้|dâai}} before the verb adds “got the chance to”: {{ดีใจที่ได้เจอคุณ|dii-jai tîi dâai jəə kun}} “glad I got to meet you”."},
-        {"p":"**Made me feel: ทำให้.** {{ทำให้|tam-hâi}} “make, cause”, then a person and a feeling: {{เพลงนี้ทำให้ฉันคิดถึงบ้าน|pleeng níi tam-hâi chǎn kít-tʉ̌ng bâan}} “this song makes me miss home”. The cause comes first, then {{ทำให้|tam-hâi}}, then who feels what. It's {{ให้|hâi}} again, as in lessons 37 and 38."},
-        {"p":"**Feelings and ideas as things: ความ and การ.** {{ความ|kwaam}} before an adjective or a feeling makes a noun: {{สุข|sùk}} “happy” → {{ความสุข|kwaam-sùk}} “happiness”, {{รัก|rák}} “love” → {{ความรัก|kwaam-rák}} “love (the thing)”. {{การ|gaan}} before a verb makes an activity: {{เรียน|riian}} “study” → {{การเรียน|gaan-riian}} “studying, education”. Written Thai is full of them."},
+        {"p":"**Glad that, sorry that: {{ที่|tîi}}.** To say what a feeling is about, add {{ที่|tîi}} and a sentence: {{ดีใจที่คุณมา|dii-jai tîi kun maa}} “I'm glad you came”, {{เสียใจที่ไปไม่ได้|sǐia-jai tîi bpai mâi-dâi}} “I'm sorry I can't go”. {{ได้|dâai}} before the verb adds “got the chance to”: {{ดีใจที่ได้เจอคุณ|dii-jai tîi dâai jəə kun}} “glad I got to meet you”."},
+        {"p":"**Made me feel: {{ทำให้|tam-hâi}}.** {{ทำให้|tam-hâi}} “make, cause”, then a person and a feeling: {{เพลงนี้ทำให้ฉันคิดถึงบ้าน|pleeng níi tam-hâi chǎn kít-tʉ̌ng bâan}} “this song makes me miss home”. The cause comes first, then {{ทำให้|tam-hâi}}, then who feels what. It's {{ให้|hâi}} again, as in lessons 37 and 38."},
+        {"p":"**Feelings and ideas as things: {{ความ|kwaam}} and {{การ|gaan}}.** {{ความ|kwaam}} before an adjective or a feeling makes a noun: {{สุข|sùk}} “happy” → {{ความสุข|kwaam-sùk}} “happiness”, {{รัก|rák}} “love” → {{ความรัก|kwaam-rák}} “love (the thing)”. {{การ|gaan}} before a verb makes an activity: {{เรียน|riian}} “study” → {{การเรียน|gaan-riian}} “studying, education”. Written Thai is full of them."},
         { "ex": [
           {"t":"ผมรู้สึกเหงานิดหน่อยครับ","r":"pǒm rúu-sʉ̀k ngǎo nít-nɔ̀i kráp","tr":"I feel a bit lonely."},
           {"t":"เสียใจที่ไปงานแต่งไม่ได้นะคะ","r":"sǐia-jai tîi bpai ngaan dtɛ̀ng mâi dâai ná ká","tr":"I'm sorry I can't come to the wedding."},
@@ -2119,9 +2119,9 @@
       "blocks": [
         {"goal":{"t":"เขาคงจะติดรถอยู่ค่ะ","r":"kǎo kong jà dtìt rót yùu kâ","tr":"He's probably stuck in traffic."}},
         {"dialog":[{"who":"Tom","t":"ทำไมต้นยังไม่มาครับ","r":"tam-mai dtôn yang mâi maa kráp","tr":"Why isn't Ton here yet?"},{"who":"Nok","t":"คงจะติดรถอยู่ค่ะ ฝนตกหนัก","r":"kong jà dtìt rót yùu kâ, fǒn dtòk nàk","tr":"He's probably stuck in traffic. It's raining hard."},{"who":"Tom","t":"หรืออาจจะลืมก็ได้นะครับ","r":"rʉ̌ʉ àat jà lʉʉm gɔ̂ɔ-dâai ná kráp","tr":"Or maybe he forgot."},{"who":"Nok","t":"ไม่น่าจะลืมนะคะ เมื่อเช้าฉันเพิ่งเตือน","r":"mâi nâa jà lʉʉm ná ká, mʉ̂ʉa-cháao chǎn pə̂ng dtʉʉan","tr":"I doubt he forgot. I reminded him only this morning."},{"who":"Tom","t":"งั้นอีกสิบนาทีน่าจะถึงครับ","r":"ngán ìik sìp naa-tii nâa jà tʉ̌ng kráp","tr":"Then he should be here in ten minutes."}]},
-        {"p":"**Maybe: อาจจะ.** {{อาจจะ|àat jà}} (or {{อาจ|àat}}) before the verb is “may, might, maybe”: {{พรุ่งนี้อาจจะฝนตก|prûng-níi àat-jà fǒn dtòk}} “it might rain tomorrow”. Thais often add {{ก็ได้|gɔ̂ɔ-dâai}} “it's possible” at the end: {{เขาอาจจะลืมก็ได้|kǎo àat-jà lʉʉm gɔ̂ɔ-dâai}} “maybe he forgot”."},
-        {"p":"**Probably, must be: คง.** {{คง|kong}}, or {{คงจะ|kong jà}}, is a confident guess: {{เขาคงเหนื่อย|kǎo kong nʉ̀ai}} “she must be tired”, {{คงไม่มา|kong mâi maa}} “he probably isn't coming”."},
-        {"p":"**Should be, likely: น่าจะ.** {{น่าจะ|nâa jà}} says what's likely, or what ought to be so: {{น่าจะถึงแล้ว|nâa-jà tʉ̌ng lɛ́ɛo}} “they should have arrived by now”. It also gives soft advice: {{คุณน่าจะลองดู|kun nâa-jà lɔɔng duu}} “you should give it a try”. {{ไม่น่าจะ|mâi nâa-jà}} is “unlikely”."},
+        {"p":"**Maybe: {{อาจจะ|àat jà}}.** {{อาจจะ|àat jà}} (or {{อาจ|àat}}) before the verb is “may, might, maybe”: {{พรุ่งนี้อาจจะฝนตก|prûng-níi àat-jà fǒn dtòk}} “it might rain tomorrow”. Thais often add {{ก็ได้|gɔ̂ɔ-dâai}} “it's possible” at the end: {{เขาอาจจะลืมก็ได้|kǎo àat-jà lʉʉm gɔ̂ɔ-dâai}} “maybe he forgot”."},
+        {"p":"**Probably, must be: {{คง|kong}}.** {{คง|kong}}, or {{คงจะ|kong jà}}, is a confident guess: {{เขาคงเหนื่อย|kǎo kong nʉ̀ai}} “she must be tired”, {{คงไม่มา|kong mâi maa}} “he probably isn't coming”."},
+        {"p":"**Should be, likely: {{น่าจะ|nâa jà}}.** {{น่าจะ|nâa jà}} says what's likely, or what ought to be so: {{น่าจะถึงแล้ว|nâa-jà tʉ̌ng lɛ́ɛo}} “they should have arrived by now”. It also gives soft advice: {{คุณน่าจะลองดู|kun nâa-jà lɔɔng duu}} “you should give it a try”. {{ไม่น่าจะ|mâi nâa-jà}} is “unlikely”."},
         { "table": [
           ["how sure","Thai","meaning"],
           ["certain","{{มาแน่ๆ|maa nɛ̂ɛ-nɛ̂ɛ}}","is definitely coming"],
@@ -2130,7 +2130,7 @@
           ["possible","{{อาจจะมา|àat jà maa}}","might come"],
           ["unlikely","{{ไม่น่าจะมา|mâi nâa jà maa}}","probably won't come"]
         ] },
-        {"p":"**In speech: มั้ง.** At the end of a sentence, {{มั้ง|máng}} turns it into a guess, “I guess, I think”: {{เขาไม่อยู่มั้ง|kǎo mâi yùu máng}} “I guess he's not in”. It's casual: use it with friends."},
+        {"p":"**In speech: {{มั้ง|máng}}.** At the end of a sentence, {{มั้ง|máng}} turns it into a guess, “I guess, I think”: {{เขาไม่อยู่มั้ง|kǎo mâi yùu máng}} “I guess he's not in”. It's casual: use it with friends."},
         { "ex": [
           {"t":"พรุ่งนี้อาจจะฝนตกครับ","r":"prûng-níi àat jà fǒn dtòk kráp","tr":"It might rain tomorrow."},
           {"t":"เขาคงเหนื่อยมากค่ะ ทำงานทั้งวัน","r":"kǎo kong nʉ̀ai mâak kâ, tam-ngaan táng wan","tr":"She must be really tired: she worked all day."},
@@ -2165,9 +2165,9 @@
       "blocks": [
         {"goal":{"t":"ถ้าฉันมีเงินเยอะ ฉันคงจะเที่ยวรอบโลกค่ะ","r":"tâa chǎn mii ngən yə́, chǎn kong jà tîao rɔ̂ɔp lôok kâ","tr":"If I had lots of money, I'd travel around the world."}},
         {"dialog":[{"who":"Nok","t":"ถ้าคุณถูกลอตเตอรี่ คุณจะทำอะไรคะ","r":"tâa kun tùuk lɔ́t-dtəə-rîi, kun jà tam à-rai ká","tr":"If you won the lottery, what would you do?"},{"who":"Tom","t":"ผมคงจะซื้อบ้านริมทะเลครับ แล้วก็เลิกทำงาน","r":"pǒm kong jà sʉ́ʉ bâan rim tá-lee kráp, lɛ́ɛo-gɔ̂ lə̂ək tam-ngaan","tr":"I'd buy a house by the sea, and quit work."},{"who":"Nok","t":"ถ้าเป็นฉัน ฉันคงไปเรียนทำอาหารที่อิตาลี","r":"tâa bpen chǎn, chǎn kong bpai riian tam aa-hǎan tîi ì-dtaa-lîi","tr":"If it were me, I'd go and learn to cook in Italy."},{"who":"Tom","t":"ถ้ารู้ว่าคุณชอบทำอาหาร ผมก็คงชวนคุณมาบ้านนานแล้วครับ","r":"tâa rúu wâa kun chɔ̂ɔp tam aa-hǎan, pǒm gɔ̂ kong chuuan kun maa bâan naan lɛ́ɛo kráp","tr":"If I'd known you liked cooking, I'd have invited you over ages ago."},{"who":"Nok","t":"ยังไม่สายเกินไปค่ะ","r":"yang mâi sǎai gəən bpai kâ","tr":"It's not too late!"}]},
-        {"p":"**Imagining: ถ้า … คงจะ …** Thai has no special verb form for things that aren't true. It uses {{ถ้า|tâa}} “if” and, in the result, {{คงจะ|kong jà}} “would (probably)”: {{ถ้าฉันมีเวลา ฉันคงจะไป|tâa chǎn mii wee-laa chǎn kong-jà bpai}} “if I had time, I'd go”. The situation, and {{คง|kong}}, tell you it's imaginary."},
-        {"p":"**If I were you: ถ้าเป็น…** {{ถ้าเป็นฉัน|tâa bpen chǎn}} “if it were me, in my place” gives advice or an opinion: {{ถ้าเป็นผม ผมคงไม่ซื้อ|tâa bpen pǒm pǒm kong mâi sʉ́ʉ}} “if I were you, I wouldn't buy it”."},
-        {"p":"**The past that didn't happen: …ก็คง…แล้ว.** For what could have happened but didn't, put {{แล้ว|lɛ́ɛo}} at the end of the result: {{ถ้ารู้ ผมก็คงไปแล้ว|tâa rúu pǒm gɔ̂ kong bpai lɛ́ɛo}} “if I'd known, I would have gone”. A past time word helps: {{ถ้าเมื่อวานไม่ฝนตก…|tâa mʉ̂ʉa-waan mâi fǒn dtòk …}} “if it hadn't rained yesterday…”."},
+        {"p":"**Imagining: {{ถ้า|tâa}} … {{คงจะ|kong jà}} …** Thai has no special verb form for things that aren't true. It uses {{ถ้า|tâa}} “if” and, in the result, {{คงจะ|kong jà}} “would (probably)”: {{ถ้าฉันมีเวลา ฉันคงจะไป|tâa chǎn mii wee-laa chǎn kong-jà bpai}} “if I had time, I'd go”. The situation, and {{คง|kong}}, tell you it's imaginary."},
+        {"p":"**If I were you: {{ถ้าเป็น|tâa bpen}}…** {{ถ้าเป็นฉัน|tâa bpen chǎn}} “if it were me, in my place” gives advice or an opinion: {{ถ้าเป็นผม ผมคงไม่ซื้อ|tâa bpen pǒm pǒm kong mâi sʉ́ʉ}} “if I were you, I wouldn't buy it”."},
+        {"p":"**The past that didn't happen: …{{ก็คง|gɔ̂ kong}}…{{แล้ว|lɛ́ɛo}}.** For what could have happened but didn't, put {{แล้ว|lɛ́ɛo}} at the end of the result: {{ถ้ารู้ ผมก็คงไปแล้ว|tâa rúu pǒm gɔ̂ kong bpai lɛ́ɛo}} “if I'd known, I would have gone”. A past time word helps: {{ถ้าเมื่อวานไม่ฝนตก…|tâa mʉ̂ʉa-waan mâi fǒn dtòk …}} “if it hadn't rained yesterday…”."},
         { "table": [
           ["","Thai","meaning"],
           ["imagining","{{ถ้ามีเงิน ฉันคงจะซื้อ|tâa mii ngən, chǎn kong jà sʉ́ʉ}}","If I had the money, I'd buy it."],
@@ -2221,7 +2221,7 @@
           ["{{ไม่เห็นด้วยครับ|mâi hěn dûai kráp}}","I disagree."],
           ["{{แล้วแต่คุณค่ะ|lɛ́ɛo-dtɛ̀ɛ kun kâ}}","It's up to you."]
         ] },
-        {"p":"**Worth it: น่า + a verb.** {{น่า|nâa}} before a verb means “worth …ing, …able”: {{น่าอยู่|nâa-yùu}} “nice to live in”, {{น่ากิน|nâa-gin}} “looks delicious”, {{น่าสนใจ|nâa-sǒn-jai}} “interesting”, {{น่ารัก|nâa-rák}} “cute, lovely”. Very handy for opinions."},
+        {"p":"**Worth it: {{น่า|nâa}} + a verb.** {{น่า|nâa}} before a verb means “worth …ing, …able”: {{น่าอยู่|nâa-yùu}} “nice to live in”, {{น่ากิน|nâa-gin}} “looks delicious”, {{น่าสนใจ|nâa-sǒn-jai}} “interesting”, {{น่ารัก|nâa-rák}} “cute, lovely”. Very handy for opinions."},
         { "ex": [
           {"t":"ผมว่าหนังเรื่องนี้น่าสนใจมากครับ","r":"pǒm wâa nǎng rʉ̂ʉang níi nâa-sǒn-jai mâak kráp","tr":"I think this movie is really interesting."},
           {"t":"คุณว่าไงคะ ไปทะเลหรือภูเขาดี","r":"kun wâa ngai ká, bpai tá-lee rʉ̌ʉ puu-kǎo dii","tr":"What do you think: the sea or the mountains?"},
@@ -2255,7 +2255,7 @@
       "blocks": [
         {"goal":{"t":"ลองชิมดูสิคะ อร่อยนะ","r":"lɔɔng chim duu sì ká, à-rɔ̀i ná","tr":"Go on, try it, it's good!"}},
         {"dialog":[{"who":"Nok","t":"ทอม กินนี่สิ อร่อยมากเลย","r":"tɔm, gin nîi sì, à-rɔ̀i mâak ləəi","tr":"Tom, eat this! It's really good."},{"who":"Tom","t":"เผ็ดไหมครับ","r":"pèt mǎi kráp","tr":"Is it spicy?"},{"who":"Nok","t":"ไม่เผ็ดหรอก ลองดูนะ","r":"mâi pèt rɔ̀k, lɔɔng duu ná","tr":"It's not spicy, honestly. Give it a try."},{"who":"Tom","t":"โอ้โห เผ็ดมาก ไม่เผ็ดเหรอครับ","r":"ôo-hǒo, pèt mâak, mâi pèt rə̌ə kráp","tr":"Whoa, that's really spicy! “Not spicy”, huh?"},{"who":"Nok","t":"ขอโทษจ้า สำหรับคนไทยไม่เผ็ดนะ","r":"kɔ̌ɔ-tôot jâa, sǎm-ràp kon tai mâi pèt ná","tr":"Sorry! For a Thai it isn't spicy."},{"who":"Tom","t":"แล้วน้ำอยู่ไหนล่ะครับ","r":"lɛ́ɛo náam yùu nǎi lâ kráp","tr":"So where's the water?!"}]},
-        {"p":"**Beyond ครับ and ค่ะ.** Thai has a set of little words for the end of a sentence that add a feeling: friendliness, urging, softening, surprise. They come before {{ครับ|kráp}} / {{ค่ะ|kâ}} if you use those. With close friends, Thais often drop {{ครับ|kráp}} / {{ค่ะ|kâ}} and keep only these, as Nok does with Tom."},
+        {"p":"**Beyond {{ครับ|kráp}} and {{ค่ะ|kâ}}.** Thai has a set of little words for the end of a sentence that add a feeling: friendliness, urging, softening, surprise. They come before {{ครับ|kráp}} / {{ค่ะ|kâ}} if you use those. With close friends, Thais often drop {{ครับ|kráp}} / {{ค่ะ|kâ}} and keep only these, as Nok does with Tom."},
         { "table": [
           ["word","what it adds","example"],
           ["{{นะ|ná}}","softens, makes it friendly: “OK?”, “you know”","{{รอแป๊บนะ|rɔɔ bpɛ́p ná}} wait a sec, OK?"],
@@ -2266,9 +2266,9 @@
           ["{{เหรอ|rə̌ə}}","checks, with surprise: “really?”","{{จริงเหรอ|jing rə̌ə}} really?"],
           ["{{จ้ะ|jâ}} / {{จ้า|jâa}}","warm and friendly, to friends and children","{{ได้จ้ะ|dâai jâ}} sure, dear"]
         ] },
-        {"p":"**With ครับ and คะ.** The little word comes first: {{นะครับ|ná kráp}}, {{นะคะ|ná ká}}, {{สิคะ|sì ká}}. Notice that after {{นะ|ná}} and {{สิ|sì}} a woman says the high-tone {{คะ|ká}}, even when she isn't asking anything."},
-        {"p":"**สิ and เถอะ.** Both urge. {{ไปสิ|bpai sì}} “go on, go!” is lively, sometimes a little pushy; {{ไปเถอะ|bpai tə̀}} “do go, you'd better” is gentler. With {{ครับ|kráp}} / {{คะ|ká}}, {{สิ|sì}} becomes a warm invitation: {{เชิญนั่งสิคะ|chəən nâng sì ká}} “please, do sit down”."},
-        {"p":"**เหรอ for surprise.** {{เหรอ|rə̌ə}} (in careful writing, {{หรือ|rʉ̌ʉ}}) turns a statement into “really?”: {{คุณเป็นหมอเหรอ|kun bpen mɔ̌ɔ rə̌ə}} “you're a doctor? (I didn't know)”. Answer {{ใช่|châi}} “yes, that's right”."},
+        {"p":"**With {{ครับ|kráp}} and {{คะ|ká}}.** The little word comes first: {{นะครับ|ná kráp}}, {{นะคะ|ná ká}}, {{สิคะ|sì ká}}. Notice that after {{นะ|ná}} and {{สิ|sì}} a woman says the high-tone {{คะ|ká}}, even when she isn't asking anything."},
+        {"p":"**{{สิ|sì}} and {{เถอะ|tə̀}}.** Both urge. {{ไปสิ|bpai sì}} “go on, go!” is lively, sometimes a little pushy; {{ไปเถอะ|bpai tə̀}} “do go, you'd better” is gentler. With {{ครับ|kráp}} / {{คะ|ká}}, {{สิ|sì}} becomes a warm invitation: {{เชิญนั่งสิคะ|chəən nâng sì ká}} “please, do sit down”."},
+        {"p":"**{{เหรอ|rə̌ə}} for surprise.** {{เหรอ|rə̌ə}} (in careful writing, {{หรือ|rʉ̌ʉ}}) turns a statement into “really?”: {{คุณเป็นหมอเหรอ|kun bpen mɔ̌ɔ rə̌ə}} “you're a doctor? (I didn't know)”. Answer {{ใช่|châi}} “yes, that's right”."},
         { "ex": [
           {"t":"รอแป๊บนะครับ","r":"rɔɔ bpɛ́p ná kráp","tr":"Wait a sec, OK?"},
           {"t":"เชิญนั่งสิคะ","r":"chəən nâng sì ká","tr":"Please, do sit down."},
