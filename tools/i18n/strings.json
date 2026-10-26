@@ -13040,6 +13040,26 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "9bce06e6",
+  "k": "Edit the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d0f60fa0",
+  "k": "Edit the meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "697f207b",
+  "k": "Edit the sentence",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "71f0b2ab",
+  "k": "Edit the translation",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "c614ba7c",
   "k": "Auto",
   "f": "web/js/pages/review.js"
@@ -13170,13 +13190,13 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "13289035",
-  "k": "That couldn't be copied here.",
+  "id": "af74f7c5",
+  "k": "Copy",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "af74f7c5",
-  "k": "Copy",
+  "id": "13289035",
+  "k": "That couldn't be copied here.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -13287,6 +13307,16 @@
  {
   "id": "292bb5d7",
   "k": "see it {0}{1}",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c6084b94",
+  "k": "Put a card right as you go",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7f4dcbb0",
+  "k": "Tap any text to edit it. Hold a word in the sentence to highlight it.",
   "f": "web/js/pages/review.js"
  },
  {

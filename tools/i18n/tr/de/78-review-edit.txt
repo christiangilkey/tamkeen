@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 Wort bearbeiten
+d0f60fa0 Bedeutung bearbeiten
+697f207b Satz bearbeiten
+71f0b2ab Übersetzung bearbeiten
+c6084b94 Karten direkt beim Wiederholen korrigieren
+7f4dcbb0 Tippe auf einen Text, um ihn zu bearbeiten. Halte ein Wort im Satz gedrückt, um es hervorzuheben.

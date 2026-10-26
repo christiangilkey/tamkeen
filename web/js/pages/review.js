@@ -11,11 +11,18 @@
 //
 // It opens as a layer over the page, not as a page of its own, so closing it lands on the Vocab
 // list exactly as it was. Every answer is sent to /reviews as it is given.
+//
+// The back can be put right as it is reviewed: under the word its meaning, and under the sentence
+// its translation, small (in the learner's own language); a tap on any of the four turns it into a
+// text box, and holding a word of the sentence (or of the translation) lights it up as part of what
+// is being learned, or puts it out. Both are saved like the Meaning box (review/cardedit.js).
 
 import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toast } from "../app.js";
-import { detectLanguage, langAttrs, langInfo } from "../languages.js";
+import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
-import { cardSentence } from "../cardtext.js";
+import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
+import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
+import { firstVisitTour } from "../components/tour.js";
 import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
@@ -33,6 +40,9 @@ import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSetting
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
+const HOLD_MS = 450;      // pressing a word of the sentence this long lights it up (or puts it out)
+// What a screen reader says for each text box that a tap opens on the back of a card.
+const EDIT_LABELS = { text: "Edit the word", meaning: "Edit the meaning", sentence: "Edit the sentence", translation: "Edit the translation" };
 
 function pref(key, fallback) {
   try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
@@ -150,11 +160,11 @@ async function play(el, frames, options) {
  *   playSnippet  (word, start, end) => Promise, the Vocab page's audio
  *   say          (word, "word" | "sentence") => Promise<{ended}>, the Vocab page's way of saying a
  *                card: its own audio, else the voice chosen for cards without (voiceplay.js)
- *   highlight    (sentence, word) => html, the Vocab page's way of marking the word
  *   onDelete     (word) => void, told when a word is deleted from its card
  *   onClose      called when the reviewer is put away
+ * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
-export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, highlight, onDelete = () => {}, onClose = () => {} }) {
+export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {}, onClose = () => {} }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
@@ -283,6 +293,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   // ----- drawing a card -----
   function front(v) {
+    if (editing) closeEditor(true);
     const p = prompt(v), state = cards.get(uidOf(v));
     const kind = !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
     face.classList.remove("more");
@@ -360,21 +371,167 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     box.focus({ preventScroll: true });
   }
 
-  /** The back of a card: a tap (not a swipe) on the word copies the word, on its sentence the whole
-   * sentence (the owner: "if I tap a word during review on the back card, it should copy it to
-   * clipboard. Same with sentences"). As stored, without the card's ⟦ ⟧ marks or furigana. */
-  async function copyTapped(target) {
-    const el = target instanceof Element ? target.closest(".rv-word, .rv-ans-sentence") : null;
+  // ----- the answer: the word and its meaning, the sentence and its translation -----
+  // The owner: "include the English translation of the word and the sentence but smaller on the back
+  // of the card as well". The meaning sits small under the word and the translation under the
+  // sentence, in the learner's own language. A long sentence (or translation) shows the part round
+  // its lit word, as everywhere (cardtext.js); where that part starts and ends is kept while the card
+  // is on the table, so lighting up a word never makes the line jump.
+  const ownLanguage = () => uiLanguage();
+  // (Its direction is taken from the text itself: a meaning saved while the app spoke another
+  // language reads the right way round too.)
+  const ownDir = () => "auto";
+  const studyOf = (v) => detectLanguage(stripMarks(v.sentence) || v.text);
+  const cuts = new Map();  // "sentence" / "translation" -> {plain, lo, hi, before, after}
+  let vowelled = "";       // the sentence on the table with vowel marks, once they came (Arabic, "Show vowels")
+
+  function drawWord(v) {
+    const word = face.querySelector(".rv-word");
+    if (!word || (editing && editing.field === "text")) return;
+    word.textContent = v.text;
+    word.classList.toggle("long", v.text.length > 14);
+    addReadings(word, studyOf(v));  // Japanese and Chinese: furigana / pinyin over it (when switched on)
+  }
+  function drawMeaning(v) {
+    const line = face.querySelector(".rv-ans-meaning");
+    if (!line || (editing && editing.field === "meaning")) return;
+    line.textContent = v.meaning || "";
+    line.hidden = !String(v.meaning || "").trim();
+  }
+  /** The sentence or its translation, drawn by the Vocab list's renderer (cardtext.js litTextHtml),
+   * lit where its ⟦ ⟧ marks say (else the sentence's word where it is found), with each word in a box
+   * of its own (`.rv-tok`, saying where it is in the text) so it can be held. */
+  function drawLit(v, field) {
+    const sentence = field === "sentence";
+    const line = face.querySelector(editable(field).selector);
+    if (!line || (editing && editing.field === field)) return;
+    const { text, marks } = litParts(v[field] || "", sentence ? v.text : null);
+    line.hidden = !text.trim();
+    if (line.hidden) { line.innerHTML = ""; return; }
+    let cut = cuts.get(field);
+    if (!cut || cut.text !== text) {
+      const focus = marks[0] || [0, 0];
+      cut = { text, ...trimSpan(text, focus[0], focus[1], CARD_SENTENCE_MAX) };
+      cuts.set(field, cut);
+    }
+    const lang = sentence ? studyOf(v) : ownLanguage();
+    const places = sentence && vowelled ? vowelPlaces(text, vowelled) : null;
+    line.innerHTML = (cut.before ? "…" : "") + litTextHtml(text, marks, esc, {
+      words: wordRanges(text, lang), from: cut.lo, to: cut.hi,
+      shown: places ? (a, b) => vowelled.slice(places[a], places[b]) : null,
+    }) + (cut.after ? "…" : "");
+    if (sentence) addReadings(line, lang);
+  }
+  /** Everything in the answer drawn again from the card (after it was put right). */
+  function drawAnswer(v) {
+    drawWord(v);
+    drawMeaning(v);
+    drawLit(v, "sentence");
+    drawLit(v, "translation");
+    // Arabic with "Show vowels" on: the word and its sentence vowelled, once the vowels are known.
+    vowelCard(face, v, (shown) => { if (todo[0] !== v) return; vowelled = shown; drawLit(v, "sentence"); });
+    more();
+  }
+
+  /** Save a change to the card the way the Meaning box does: at once, and so it syncs. */
+  function saveCard(v, change) {
+    for (const [field, value] of Object.entries(change)) edit(v, field, value);
+    flushEdits();
+    const box = face.querySelector(".rv-details .meaning");
+    if (box && "meaning" in change && box.value !== v.meaning) { box.value = v.meaning; fit(box); }
+  }
+
+  // ----- tap a text on the back: it turns into its own text box -----
+  // Enter or a tap elsewhere saves it, Esc puts it back as it was. While it is open the card's keys
+  // and swipes are typing and nothing else; a tap beside the box only closes it. The owner's earlier
+  // "tap a word … to copy it": a Copy button under the open box now (one tap more).
+  let editing = null;  // the open text box: {v, field, line, box}
+
+  function tapEdit(target) {
     const v = todo[0];
-    if (!el || !v) return;
-    const text = String((el.classList.contains("rv-word") ? v.text : v.sentence) || "").replace(/[⟦⟧]/g, "").replace(/\s+/g, " ").trim();
-    if (!text) return;
-    if (!(await copyText(text))) { toast(t("That couldn't be copied here."), { error: true }); return; }
+    const line = target instanceof Element ? target.closest(EDITABLE_SELECTOR) : null;
+    if (!v || !line || !face.contains(line)) return;
+    const field = fieldOf((selector) => line.matches(selector));
+    if (field) openEditor(v, field, line);
+  }
+
+  function openEditor(v, field, line) {
+    const rules = editable(field);
+    if (!rules || line.hidden || editing || busy || !flipped || todo[0] !== v) return;
+    const box = document.createElement("textarea");
+    box.className = "rv-editbox";
+    box.rows = 1;
+    box.value = editValue(v, field);
+    box.autocomplete = "off";
+    box.setAttribute("enterkeyhint", "done");
+    box.setAttribute("aria-label", t(EDIT_LABELS[field]));
+    if (rules.study) setLang(box, studyOf(v));  // the word and its sentence: the language being learned
+    else { box.lang = ownLanguage(); box.dir = ownDir(); }
+    const copy = h(`<button type="button" class="rv-edit-copy">${ICON.copy}<span></span></button>`);
+    copy.lastElementChild.textContent = t("Copy");
+    copy.title = t("Copy");
+    const wrap = document.createElement("div");
+    wrap.className = "rv-editing";
+    wrap.append(box, copy);
+    line.classList.add("editing");
+    line.replaceChildren(wrap);
+    editing = { v, field, line, box };
+    const grow = () => { box.style.height = "auto"; box.style.height = `${box.scrollHeight}px`; };
+    box.addEventListener("input", () => { grow(); more(); });
+    box.addEventListener("keydown", (e) => {
+      e.stopPropagation();  // Space, 1, 2, the arrows, W, S, P, N, Z, Del: typing here, not the card's keys
+      if (e.isComposing || e.keyCode === 229) return;  // (still choosing characters: a Japanese or Chinese keyboard)
+      if (e.key === "Enter") { e.preventDefault(); closeEditor(true); }
+      else if (e.key === "Escape") { e.preventDefault(); closeEditor(false); }
+    });
+    let copying = false;
+    box.addEventListener("blur", (e) => { if (!copying) closeEditor(true, e.relatedTarget); });
+    // The Copy button keeps the box open: it never takes the focus from it (nor does the old way of
+    // copying, where the clipboard can't be written directly: it selects a hidden box for a moment).
+    copy.addEventListener("mousedown", (e) => e.preventDefault());
+    copy.onclick = async () => {
+      const text = box.value.replace(/\s+/g, " ").trim();
+      if (!text) return;
+      copying = true;
+      const done = await copyText(text);
+      copying = false;
+      if (editing && editing.box === box) box.focus({ preventScroll: true });
+      if (!done) { toast(t("That couldn't be copied here."), { error: true }); return; }
+      buzz("tick");
+      toast(t("Copied"), { timeout: 1500 });
+    };
+    grow();
+    box.focus({ preventScroll: true });
+    box.setSelectionRange(box.value.length, box.value.length);
+    box.scrollIntoView({ block: "nearest" });
+    more();
+  }
+
+  /** Put the open text box away: saved (`save`), or as it was. `next` = where the focus is going. */
+  function closeEditor(save, next = null) {
+    if (!editing) return;
+    const { v, field, line, box } = editing;
+    editing = null;
+    line.classList.remove("editing");
+    const change = save ? editPayload(v, field, box.value) : null;
+    if (change) saveCard(v, change);
+    if (todo[0] === v && face.contains(line)) drawAnswer(v);
+    // Keys go back to the card, unless another box (Grammar notes, say) was tapped.
+    if (!(next instanceof Element && next.closest("input, textarea, select, button, a"))) el.focus({ preventScroll: true });
+  }
+
+  // ----- hold a word of the sentence: it lights up as part of the word being learned, or goes out -----
+  function holdWord(v, tok) {
+    const line = tok.closest(".rv-ans-sentence, .rv-ans-trans");
+    if (!line || editing || todo[0] !== v || !flipped) return;
+    const field = line.classList.contains("rv-ans-sentence") ? "sentence" : "translation";
+    const range = [Number(tok.dataset.a), Number(tok.dataset.b)];
+    const change = holdPayload(v, field, range);
     buzz("tick");
-    el.classList.remove("rv-copied");
-    void el.offsetWidth;  // (so the flash plays again on a second tap)
-    el.classList.add("rv-copied");
-    toast(t("Copied"), { timeout: 1500 });
+    if (change) saveCard(v, change);
+    drawLit(v, field);
+    const again = line.querySelector(`.rv-tok[data-a="${range[0]}"]`);
+    if (again) again.classList.add("rv-held");  // a short ring round the word that changed
   }
 
   /** Copy `text`, falling back to the old way where the clipboard can't be written directly. */
@@ -443,11 +600,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
 
   function back(v) {
-    const lang = langAttrs(detectLanguage(v.sentence || v.text));
+    if (editing) closeEditor(true);
+    const lang = langAttrs(studyOf(v));
     face.innerHTML = `<div class="rv-back">
       <div class="rv-answer">
         <div class="rv-word" ${lang}></div>
-        ${v.sentence ? `<div class="rv-ans-sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
+        <div class="rv-ans-meaning" translate="no" hidden></div>
+        <div class="rv-ans-sentence" ${lang} hidden></div>
+        <div class="rv-ans-trans" translate="no" hidden></div>
         <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) || hasSentenceAudio(v) ? practiseButton() : ""}</div>
       </div>
       <div class="rv-details">
@@ -473,21 +633,21 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const memo = face.querySelector(".memo");
     face.querySelector(".rv-paste").onclick = () => pasteInto(memo, v);
     mnemonicMaker(face.querySelector(".rv-mnemo"), v);
+    // The meaning and the translation are in the learner's own language (and never run through the
+    // app's own translations: translate="no").
+    for (const line of face.querySelectorAll(".rv-ans-meaning, .rv-ans-trans")) { line.lang = ownLanguage(); line.dir = ownDir(); }
     face.scrollTop = 0;
-    const word = face.querySelector(".rv-word");
-    word.textContent = v.text;
-    word.classList.toggle("long", v.text.length > 14);
-    // Japanese and Chinese: furigana / pinyin over the answer and its sentence (when switched on).
-    const said = detectLanguage(v.sentence || v.text);
-    for (const el of face.querySelectorAll(".rv-word, .rv-ans-sentence")) addReadings(el, said);
     face.onscroll = more;
+    cuts.clear();
+    vowelled = "";
     for (const field of ["meaning", "notes", "memo"]) {
-      const box = face.querySelector(`.${field}`);
+      const box = face.querySelector(`.rv-details .${field}`);
       box.value = v[field] || "";
-      box.oninput = () => { fit(box); more(); edit(v, field, box.value); };
+      // (the Meaning box and the small meaning under the word are the same text)
+      box.oninput = () => { fit(box); edit(v, field, box.value); if (field === "meaning") drawMeaning(v); more(); };
       fit(box);
     }
-    more();
+    drawAnswer(v);
     const pw = face.querySelector(".play-word"), ps = face.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
@@ -510,7 +670,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <button type="button" class="rv-yes"><span>${ICON.yes} Remembered</span><small>see it ${wait === 1 ? "" : "in "}${waitText(wait)} <kbd>2</kbd></small></button>`;
     actions.querySelector(".rv-no").onclick = () => grade(AGAIN);
     actions.querySelector(".rv-yes").onclick = () => grade(GOOD);
-    vowelCard(face, v, highlight); // Arabic with "Show vowels" on: the word and its sentence vowelled
+  }
+
+  /** The first time a back is shown on this device: a word on what can be done with it (the app's
+   * page guides, components/tour.js: once per device, "Show the guides again" in Settings). */
+  function editHint() {
+    firstVisitTour("review", el, [{ target: ".rv-answer", title: "Put a card right as you go",
+      text: "Tap any text to edit it. Hold a word in the sentence to highlight it." }]);
   }
 
   /** Put todo[0] on the table (its back, when an answer has just been taken back). */
@@ -544,6 +710,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (autoplay && hasWordAudio(v)) sayWord(v, true);
     await play(card, [{ transform: "rotateY(-90deg)" }, { transform: "rotateY(0deg)" }], { duration: 260, easing: "cubic-bezier(.2, 1.4, .4, 1)" });
     busy = false;
+    editHint();
   }
 
   // ----- typing on the back: saved a moment after the last keystroke, and before the card leaves -----
@@ -573,6 +740,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   async function grade(rating, from = "") {
     if (!flipped || busy || !todo.length) return;
+    if (editing) closeEditor(true);  // (an answer button pressed while a text box was open: the text is kept first)
     busy = true;
     flushEdits();
     const word = todo[0], uid = uidOf(word), t = Date.now();
@@ -837,9 +1005,31 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let drag = null;
   const tilt = (rx, ry) => { card.style.setProperty("--rx", `${rx}deg`); card.style.setProperty("--ry", `${ry}deg`); };
   const interactive = (target) => target.closest("input, textarea, button, a, select");
+  // A press on a word of the back's sentence (or translation) that stays put for HOLD_MS holds it.
+  const unhold = (d) => {
+    clearTimeout(d.hold);
+    if (d.tok) d.tok.classList.remove("pressing");
+  };
   card.addEventListener("pointerdown", (e) => {
     if (busy || e.button > 0 || interactive(e.target)) return;
+    if (editing) return;  // a text box is open: a tap beside it only puts it away (it saves as it loses the focus)
     drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, moved: false, at: performance.now(), target: e.target };
+    const tok = flipped && e.target.closest ? e.target.closest(".rv-ans-sentence .rv-tok, .rv-ans-trans .rv-tok") : null;
+    if (tok) {
+      const d = drag;
+      d.tok = tok;
+      tok.classList.add("pressing");
+      d.hold = setTimeout(() => {
+        if (drag !== d || d.moved) return;
+        d.held = d.moved = d.dead = true;  // the rest of this press neither edits nor swipes
+        tok.classList.remove("pressing");
+        holdWord(todo[0], tok);
+      }, HOLD_MS);
+    }
+  });
+  // A long press would open the phone's own menu (or a computer's right-click menu) over the sentence.
+  card.addEventListener("contextmenu", (e) => {
+    if (flipped && e.target.closest && e.target.closest(".rv-ans-sentence, .rv-ans-trans")) e.preventDefault();
   });
   card.addEventListener("pointermove", (e) => {
     if (!drag || e.pointerId !== drag.id) {
@@ -850,9 +1040,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       }
       return;
     }
+    if (drag.held) return;
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
     if (!drag.moved) {
       if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      unhold(drag);  // moved: not a hold
       if (!flipped || Math.abs(dy) > Math.abs(dx)) { drag.moved = true; drag.dead = true; return; }  // not a sideways push
       drag.moved = true;
       card.classList.add("dragging");
@@ -870,10 +1062,12 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (!drag || e.pointerId !== drag.id) return;
     const d = drag;
     drag = null;
+    unhold(d);
+    if (d.held) return;
     if (!d.moved) {
       if (e.type !== "pointerup") return;
       if (!flipped) flip();
-      else copyTapped(d.target);  // the answer side: a tap on the word or its sentence copies it
+      else tapped = { target: d.target, at: performance.now() };  // the answer side: its click opens the text for typing
       return;
     }
     if (d.dead) return;
@@ -891,6 +1085,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   };
   card.addEventListener("pointerup", drop);
   card.addEventListener("pointercancel", drop);
+  // A tap on the back opens its text on the click that follows it, not on the finger's lifting: a
+  // phone moves the focus only then, and would take it straight back from a box opened before.
+  let tapped = null;
+  card.addEventListener("click", () => {
+    const tap = tapped;
+    tapped = null;
+    if (tap && flipped && !editing && performance.now() - tap.at < 1000) tapEdit(tap.target);
+  });
   card.addEventListener("pointerleave", () => { if (!drag) tilt(0, 0); });
 
   // ----- settings -----
@@ -920,6 +1122,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
 
   // ----- keys -----
   const onKey = (e) => {
+    if (document.querySelector(".tour")) return;  // the first-time hint is showing: its buttons take the keys
     if (asking) {  // the "delete this word?" box is open: Esc keeps the word; its buttons take every other key
       if (e.key === "Escape") { e.preventDefault(); asking(); }
       return;
@@ -962,6 +1165,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let closed = false;
   function close(byHistory = false) {
     if (closed) return;
+    if (editing) closeEditor(true);  // (the phone's back button with a text box open: what was typed is kept)
     closed = true;
     flushEdits();
     stopStudy();

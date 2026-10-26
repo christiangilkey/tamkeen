@@ -127,6 +127,8 @@ export function ankiGrammar(notes) {
  * sentence_spans in app/exporters.py). */
 export function sentenceSpans(sentence, word) {
   sentence = String(sentence || "");
+  // An empty pair in front: the learner put out every lit word on the review card (cardtext.js NO_MARKS).
+  if (sentence.startsWith("⟦⟧") && !/[⟦⟧]/u.test(sentence.slice(2))) return { text: sentence.slice(2), spans: [] };
   if (MARKED.test(sentence)) {
     const spans = [];
     let text = "";

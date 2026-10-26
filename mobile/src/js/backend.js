@@ -812,7 +812,7 @@ const routes = [
     if (query) {
       const nq = normalize(query);
       const lq = query.toLowerCase();
-      items = items.filter((v) => normalize(v.text).includes(nq) || normalize(v.sentence).includes(nq)
+      items = items.filter((v) => normalize(v.text).includes(nq) || normalize(String(v.sentence || "").replace(/[⟦⟧]/g, "")).includes(nq)
         || (v.meaning || "").toLowerCase().includes(lq) || (v.notes || "").toLowerCase().includes(lq)
         || (v.memo || "").toLowerCase().includes(lq));
     }
@@ -914,6 +914,8 @@ const routes = [
     if (typeof body.sentence === "string" && (typeof body.sentence_if !== "string" || (v.sentence || "") === body.sentence_if)) {
       v.sentence = body.sentence.slice(0, 2000);
     }
+    // The sentence's translation, put right on the review card (web/js/review/cardedit.js).
+    if (typeof body.translation === "string") v.translation = body.translation.trim().slice(0, 2000);
     v.updated_at = now();
     changed();
     return vocabOut(v);

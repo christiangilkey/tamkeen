@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 単語を編集
+d0f60fa0 意味を編集
+697f207b 文を編集
+71f0b2ab 訳を編集
+c6084b94 復習しながらカードを直せます
+7f4dcbb0 テキストをタップすると編集できます。文の中の単語を長押しするとハイライトできます。

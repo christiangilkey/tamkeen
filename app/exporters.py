@@ -88,6 +88,9 @@ def sentence_spans(sentence: str, word: str) -> tuple[str, list[tuple[int, int]]
     parts (a basics course word, or one marked in a review card), else where it is found (the same as
     sentenceSpans in mobile/src/js/shared-logic.js)."""
     sentence = sentence or ""
+    # An empty pair in front: the learner put out every lit word on the review card (cardtext.js NO_MARKS).
+    if sentence.startswith("⟦⟧") and "⟦" not in sentence[2:] and "⟧" not in sentence[2:]:
+        return sentence[2:], []
     if _MARKED.fullmatch(sentence):
         text, spans = "", []
         for part in re.split(r"(⟦[^⟦⟧]+⟧)", sentence):
