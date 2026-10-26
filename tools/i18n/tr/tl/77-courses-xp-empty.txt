@@ -1,0 +1,12 @@
+2dc0c206 Tapusin ang isang aralin sa grammar: 40 hanggang 80 sa unang beses, mas marami kapag mas maraming tamang sagot, at 15 hanggang 30 kapag inulit mo (bawat aralin ay nagbibigay isang beses kada araw).
+b1691d36 I-tap ang isang halimbawa sa aralin sa grammar para marinig ito: ikaapat na bahagi ng ibinibigay ng paghahanap ng salita, isang beses kada araw sa bawat halimbawa. Pinapanatili rin nito ang combo mo.
+ce32fa95 Magdagdag sa mga card mo ng salita mula sa batayang kurso: {0} bawat isa, pareho isa-isa man o sabay-sabay, hanggang {1} salita kada araw.
+4019c5e2 Magdagdag ng mga podcast gamit ang + na button sa ibaba.
+d7bc5164 Magdagdag ng mga YouTube video gamit ang + na button sa ibaba.
+71554151 Magdagdag ng mga palabas at pelikula mula sa Netflix gamit ang + na button sa ibaba.
+1f98e825 Magdagdag ng mga webpage gamit ang + na button sa ibaba.
+9b2f4468 Magdagdag ng libro gamit ang + na button sa ibaba, o pumili ng libreng klasiko.
+ab6cd1c6 Magdagdag ng mga reel gamit ang + na button sa ibaba.
+a4f4a0c6 Magdagdag ng sarili mong mga video gamit ang + na button sa ibaba.
+c80a1cbd Magdagdag ng sarili mong audio gamit ang + na button sa ibaba.
+e892255d Wala pang laman dito

@@ -7,6 +7,8 @@
 //   - A lesson: its explanation, examples (tap one to hear it with the learner's card voice: saytext.js),
 //     common mistakes, and practice; finishing the practice marks it done (setting grammar_progress,
 //     synced to the learner's other devices).
+//   - XP in the creature game (game/rules.js earn): finishing a lesson's practice ("grammar", more for more
+//     right answers and the first time), and tapping an example to hear it ("hear", once a day each).
 //   - A course explained in English for someone who speaks another language: an offer to make the lessons
 //     in their language with their own AI key (define-service.js askAi). Only the explanations are sent;
 //     every lesson made is kept on this device (grammarstore.js), so it is paid for once.
@@ -371,13 +373,7 @@ export function grammarPanel(box, lang, choice) {
     if ((lesson.mistakes || []).length) body.append(mistakes(lesson.mistakes));
     body.append(practice(src, lesson, key));
     body.append(lessonNav(src));
-    // Tapping a piece of the language taught says it.
-    view.addEventListener("click", (e) => {
-      const el = e.target.closest("[data-say]");
-      if (!el || !view.contains(el) || e.target.closest("button:not([data-say])")) return;
-      el.classList.add("saying");
-      sayText(el.dataset.say, lang).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
-    });
+    sayOnTap(view);
     box.append(view);
     box.scrollIntoView({ block: "start" });
   }
@@ -397,7 +393,8 @@ export function grammarPanel(box, lang, choice) {
         d.append(el);
         return el;
       });
-      d.querySelector(".gb-playall").onclick = async () => {
+      d.querySelector(".gb-playall").onclick = async (e) => {
+        heard(b.dialog.map((line) => line.t).join("\n"), e.currentTarget); // the whole conversation: one listen
         for (const el of lines) {
           if (!el.isConnected) return;
           el.classList.add("saying");
@@ -519,6 +516,23 @@ export function grammarPanel(box, lang, choice) {
       const { reward } = await import("../game/game.js");
       reward(event, anchor);
     } catch { /* no game here */ }
+  }
+
+  /** Tapping a piece of the language taught (an example, a word in the text, a line of a conversation)
+   * says it, and earns a little XP ("hear" in game/rules.js: once a day for each one). */
+  function sayOnTap(view) {
+    view.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-say]");
+      if (!el || !view.contains(el) || e.target.closest("button:not([data-say])")) return;
+      el.classList.add("saying");
+      sayText(el.dataset.say, lang).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
+      heard(el.dataset.say, el);
+    });
+  }
+  /** The XP for hearing `text`, its effects at the speaker icon (or the text itself). */
+  function heard(text, el) {
+    const anchor = (el && el.querySelector(".gx-say, .gm-say")) || el;
+    earnXp({ type: "hear", key: `${lang}:${text}` }, anchor);
   }
 
   function feedback(li, ok, why) {
@@ -791,12 +805,7 @@ export function grammarPanel(box, lang, choice) {
         earnXp({ type: "grammar", key: `review:${id}:${new Date().toDateString()}`, right, of }, doneBox);
       },
     }));
-    view.addEventListener("click", (e) => {
-      const el = e.target.closest("[data-say]");
-      if (!el || !view.contains(el) || e.target.closest("button:not([data-say])")) return;
-      el.classList.add("saying");
-      sayText(el.dataset.say, lang).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
-    });
+    sayOnTap(view);
     box.append(view);
     box.scrollIntoView({ block: "start" });
   }
