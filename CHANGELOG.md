@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Grammar courses for learning English, explained in your own language: one for speakers of each of the 16 languages Tamkeen teaches (Library → Courses → **Grammar**, with the app in your language and English as the language you're learning). 45 to 52 lessons each, from your first sentence to everyday conversation (A1 to B1), in American English, with the same lessons, practice, reviews and XP as the other grammar courses.
+
 ## v0.37.0 — 2026-10-25
 
 - **Removed:** Spotify karaoke in the browser extension (it went against Spotify's terms of use).
