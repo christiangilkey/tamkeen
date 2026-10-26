@@ -1,0 +1,49 @@
+8f857a22 Walang nakitang mikropono. Magkabit ng isa, saka subukan ulit.
+73c4ad14 Pinapayagan na ang mikropono. Subukan ulit.
+52c732e3 Naka-block pa rin ang mikropono.
+174bac74 Kailangan dito ang sarili mong AI key: magdagdag ng isa sa Settings → Kahulugan ng mga salita.
+730531ca Magdagdag ng key
+4ba8cd34 Hindi gumagana ang AI key mo
+1ebab0b0 Tinanggihan ng AI provider mo ang key, malamang dahil expired na ito: mag-paste ng bago sa Settings → Kahulugan ng mga salita.
+89a0c3d4 Ayusin ang key
+6cde8409 Naka-off ang AI
+71affd5d Kailangan dito ang paliwanag ng AI, na naka-off: i-on ito sa Settings → Kahulugan ng mga salita.
+bdeb03f5 I-on ang AI
+d8f66732 Hindi kilala ang AI model
+46e978fb Hindi kilala ng AI provider mo ang napiling model: piliin ang inirerekomenda sa Settings → Kahulugan ng mga salita.
+8dad5424 Hindi gumagana ang Azure key mo
+55c9af95 Hindi tinanggap ng Azure ang key mo o ang region nito: kopyahin ulit ang Key 1 at ang region nito sa Settings → Mga boses ng card.
+69410da6 Walang boses para sa wikang ito
+8eb520cc Pumili ng boses para sa card
+42cd08f4 Hindi gumagana ang transcription key mo
+d9ba9a50 Tinanggihan ng transcription service ang key, malamang dahil expired na ito: mag-paste ng bago sa Settings → Pakikinig at mga transcript.
+555339ef Naka-off ang cloud transcription
+828223e8 Kailangan dito ang cloud transcription: i-on ito sa Settings → Pakikinig at mga transcript.
+cc4d3c36 I-on ito
+3c04b9a1 Mag-sign in sa Google Drive
+047cca15 Kailangan dito ang pag-sign in mo sa Google: mag-sign in ulit sa Settings → Account at sync.
+75dce38d Mag-sign in para mag-sync
+b80f7cd2 Isang oras lang kada beses ang ibinibigay ng Google sa web app: kumonekta ulit para tuloy ang pag-sync.
+dea7d75f Kumonekta sa Mga Kaibigan
+6787d096 Kailangan ng Friends account para makapagbahagi: kumonekta gamit ang Google at pumili ng username sa Settings → Account at sync.
+b65463cb Kumonekta
+b0c493dd Magdagdag muna ng kaibigan
+1a66b0e7 Wala pang mapagpapadalhan nito: magdagdag ng kaibigan sa pahina ng Mga Kaibigan.
+2fd354c9 Maghanap ng kaibigan
+18fae3d6 Pumili ng wikang pag-aaralan
+ece01668 Kailangang malaman ng Tamkeen kung anong wika ang pinag-aaralan mo: piliin ito sa Settings → Mga wika.
+456a836f Pumili ng wika
+c7f10c79 Kailangan dito ang Tamkeen app
+23af15e5 Kailangan ng Tamkeen ang mikropono para marinig ka: pindutin ang Payagan, saka pumayag kapag tinanong ka.
+b3b6b85a Hindi magamit ng Tamkeen ang mikropono: pindutin ang Subukan ulit, at pumayag kung tatanungin ka.
+c95a149c Naka-off ang mikropono para sa Tamkeen: buksan ang settings nito, saka Mga Pahintulot → Mikropono, at piliin ang Payagan.
+b09e425f Naka-off ang mikropono para sa Tamkeen: buksan ang Settings at i-on ang Microphone.
+5c568d1d Na-block ng browser mo ang mikropono para sa Tamkeen: i-click ang icon na kandado o settings sa tabi ng web address, payagan ang mikropono, saka pindutin ang Subukan ulit.
+34373ee4 Pinipigilan ng Windows ang Tamkeen na gamitin ang mikropono: sa Windows settings, i-on ang access sa mikropono para sa mga desktop app, saka subukan ulit.
+c1e7e74d Pinipigilan ng macOS ang Tamkeen na gamitin ang mikropono: sa System Settings → Privacy & Security → Microphone, i-on ang Tamkeen, saka subukan ulit.
+945d20e6 Payagan ang mikropono
+d5a9015c Buksan ang Windows settings
+4e135625 Buksan ang System Settings
+dc0d9626 Buksan ang settings ng Tamkeen
+31f9f942 Buksan ang settings ng boses
+2bb0f2f1 Mag-sign in muna gamit ang Google (Settings → Account at sync).

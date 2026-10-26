@@ -1,0 +1,49 @@
+8f857a22 Es wurde kein Mikrofon gefunden. Schließe eines an und versuche es dann noch einmal.
+73c4ad14 Das Mikrofon ist jetzt erlaubt. Versuche es noch einmal.
+52c732e3 Das Mikrofon ist immer noch blockiert.
+174bac74 Dafür brauchst du einen eigenen KI-Schlüssel: Füge einen unter Einstellungen → Worterklärungen hinzu.
+730531ca Schlüssel hinzufügen
+4ba8cd34 Dein KI-Schlüssel funktioniert nicht
+1ebab0b0 Dein KI-Anbieter hat den Schlüssel abgelehnt, wahrscheinlich ist er abgelaufen: Füge unter Einstellungen → Worterklärungen einen neuen ein.
+89a0c3d4 Schlüssel reparieren
+6cde8409 KI ist ausgeschaltet
+71affd5d Dafür braucht es KI-Erklärungen, die ausgeschaltet sind: Schalte sie unter Einstellungen → Worterklärungen ein.
+bdeb03f5 KI einschalten
+d8f66732 Das KI-Modell wird nicht erkannt
+46e978fb Dein KI-Anbieter kennt das gewählte Modell nicht: Wähle unter Einstellungen → Worterklärungen das empfohlene.
+8dad5424 Dein Azure-Schlüssel funktioniert nicht
+55c9af95 Azure hat deinen Schlüssel oder seine Region nicht akzeptiert: Kopiere Schlüssel 1 und seine Region noch einmal in Einstellungen → Kartenstimmen.
+69410da6 Keine Stimme für diese Sprache
+8eb520cc Eine Kartenstimme wählen
+42cd08f4 Dein Transkriptions-Schlüssel funktioniert nicht
+d9ba9a50 Der Transkriptionsdienst hat den Schlüssel abgelehnt, wahrscheinlich ist er abgelaufen: Füge unter Einstellungen → Hören & Transkripte einen neuen ein.
+555339ef Cloud-Transkription ist ausgeschaltet
+828223e8 Dafür braucht es die Cloud-Transkription: Schalte sie unter Einstellungen → Hören & Transkripte ein.
+cc4d3c36 Einschalten
+3c04b9a1 Bei Google Drive anmelden
+047cca15 Dafür musst du bei Google angemeldet sein: Melde dich unter Einstellungen → Konto & Synchronisierung erneut an.
+75dce38d Zum Synchronisieren anmelden
+b80f7cd2 Google gibt der Web-App jeweils eine Stunde: Verbinde dich neu, damit weiter synchronisiert wird.
+dea7d75f Mit Freunde verbinden
+6787d096 Zum Teilen brauchst du ein Freunde-Konto: Verbinde dich unter Einstellungen → Konto & Synchronisierung mit Google und wähle einen Benutzernamen.
+b65463cb Verbinden
+b0c493dd Füge zuerst einen Freund hinzu
+1a66b0e7 Es gibt noch niemanden, an den du das schicken kannst: Füge auf der Seite Freunde einen Freund hinzu.
+2fd354c9 Freunde finden
+18fae3d6 Wähle eine Sprache zum Lernen
+ece01668 Tamkeen muss wissen, welche Sprache du lernst: Wähle sie unter Einstellungen → Sprachen.
+456a836f Sprache wählen
+c7f10c79 Dafür brauchst du die Tamkeen-App
+23af15e5 Tamkeen braucht das Mikrofon, um dich zu hören: Drücke auf Erlauben und stimme zu, wenn du gefragt wirst.
+b3b6b85a Tamkeen konnte das Mikrofon nicht verwenden: Drücke auf Noch einmal versuchen und stimme zu, falls du gefragt wirst.
+c95a149c Das Mikrofon ist für Tamkeen ausgeschaltet: Öffne seine Einstellungen, dann Berechtigungen → Mikrofon, und wähle Zulassen.
+b09e425f Das Mikrofon ist für Tamkeen ausgeschaltet: Öffne Einstellungen und schalte Mikrofon ein.
+5c568d1d Dein Browser hat das Mikrofon für Tamkeen blockiert: Klicke auf das Schloss- oder Einstellungssymbol neben der Webadresse, erlaube das Mikrofon und drücke dann auf Noch einmal versuchen.
+34373ee4 Windows lässt Tamkeen das Mikrofon nicht verwenden: Schalte in den Windows-Einstellungen den Mikrofonzugriff für Desktop-Apps ein und versuche es dann noch einmal.
+c1e7e74d macOS lässt Tamkeen das Mikrofon nicht verwenden: Schalte unter Systemeinstellungen → Datenschutz & Sicherheit → Mikrofon Tamkeen ein und versuche es dann noch einmal.
+945d20e6 Mikrofon erlauben
+d5a9015c Windows-Einstellungen öffnen
+4e135625 Systemeinstellungen öffnen
+dc0d9626 Tamkeens Einstellungen öffnen
+31f9f942 Spracheinstellungen öffnen
+2bb0f2f1 Melde dich zuerst mit Google an (Einstellungen → Konto & Synchronisierung).

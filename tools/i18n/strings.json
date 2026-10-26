@@ -17545,8 +17545,8 @@
   "f": "mobile/src/js/drive.js"
  },
  {
-  "id": "2a66b8ea",
-  "k": "Sign in with Google first (Settings → Google account).",
+  "id": "2bb0f2f1",
+  "k": "Sign in with Google first (Settings → Account & sync).",
   "f": "mobile/src/js/googlecalendar.js"
  },
  {
