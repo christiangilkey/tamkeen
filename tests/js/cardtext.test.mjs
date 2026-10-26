@@ -69,3 +69,51 @@ test("a mark the cut would leave alone is dropped", () => {
   const half = cardTranslation("A long, long opening clause that goes on for ever and ever, ⟦then⟧ the word and ⟦a split part that runs on past the end of the card⟧.", 70);
   assert.equal((half.match(/⟦/g) || []).length, (half.match(/⟧/g) || []).length, half);
 });
+
+// ----- a sentence that says where its word is: ⟦ ⟧ (the basics courses; a word marked in a review card) -----
+import { markedSentenceHtml, sentenceMarks, stripMarks } from "../../web/js/cardtext.js";
+import { markUpdates } from "../../web/js/coursedata.js";
+const escape = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+test("the owner's example: لِـ is lit up where its marks say, not the لـ inside الْهَدِيَّةُ", () => {
+  const sentence = "هٰذِهِ الْهَدِيَّةُ ⟦لَ⟧كَ.";
+  assert.deepEqual(sentenceMarks(sentence), { text: "هٰذِهِ الْهَدِيَّةُ لَكَ.", spans: [[20, 22]] });
+  const html = markedSentenceHtml(sentence, "لِـ", escape);
+  assert.equal(stripMarks(html).replace(/<\/?b>|‍/g, ""), "هٰذِهِ الْهَدِيَّةُ لَكَ.");
+  assert.match(html, /<b>‍?لَ‍<\/b>/u); // the لَ, joined to its كَ
+  assert.ok(!html.includes("⟦") && !html.includes("⟧"));
+  // Unmarked (as before), the first match wins: why the marks were needed.
+  assert.match(markedSentenceHtml("هٰذِهِ الْهَدِيَّةُ لَكَ.", "لِـ", escape), /<b>‍?لْ/u);
+});
+
+test("several marked parts (a word in two pieces) are each lit up; no joiner between separate words", () => {
+  const html = markedSentenceHtml("Ich ⟦rufe⟧ dich morgen ⟦an⟧.", "anrufen", escape);
+  assert.equal(html, "Ich <b>rufe</b> dich morgen <b>an</b>.");
+  assert.equal(markedSentenceHtml("أُحِبُّ ⟦الْقَهْوَةَ⟧.", "قَهْوَة", escape), "أُحِبُّ <b>الْقَهْوَةَ</b>.");
+});
+
+test("marks that don't pair up are dropped and the word is looked for as before", () => {
+  assert.deepEqual(sentenceMarks("a ⟦b c"), { text: "a b c", spans: null });
+  assert.equal(markedSentenceHtml("I like ⟦tea and coffee.", "coffee", escape), "I like tea and <b>coffee</b>.");
+});
+
+test("a card cut down around a marked word keeps its marks, so it still lights up the right place", () => {
+  const long = `${"Words that go on and on, ".repeat(6)}and here is ⟦the⟧ word, ${"and more words after it, ".repeat(5)}the end.`;
+  const shown = cardSentence(long, "the");
+  assert.ok(shown.includes("⟦the⟧"), shown);
+  assert.deepEqual(findWord("x ⟦y⟧ y", "y"), [2, 5]);
+});
+
+test("cards added from a course before it was marked get the marks, unless the learner changed the sentence", () => {
+  const course = { title: "Arabic basics", words: [
+    { n: 13, word: "لِـ", sentence: "هٰذِهِ الْهَدِيَّةُ ⟦لَ⟧كَ." },
+    { n: 14, word: "مَعَ", sentence: "أَسْكُنُ ⟦مَعَ⟧ عَائِلَتِي." },
+  ] };
+  const cards = [
+    { id: 1, episode_title: "Arabic basics · word 13", sentence: "هٰذِهِ الْهَدِيَّةُ لَكَ." },     // as added: upgraded
+    { id: 2, episode_title: "Arabic basics · word 14", sentence: "أَسْكُنُ مَعَ أُمِّي." },          // changed: left alone
+    { id: 3, episode_title: "Spanish basics · word 13", sentence: "hola" },                         // another course
+    { id: 4, episode_title: "Arabic basics · word 14", sentence: "أَسْكُنُ ⟦مَعَ⟧ عَائِلَتِي." },    // already marked
+  ];
+  assert.deepEqual(markUpdates(course, cards), [{ id: 1, sentence: "هٰذِهِ الْهَدِيَّةُ ⟦لَ⟧كَ.", sentence_if: "هٰذِهِ الْهَدِيَّةُ لَكَ." }]);
+});

@@ -13,7 +13,7 @@
 
 import { api, h, on, saveSettings, state, toast } from "./app.js";
 import { openModal } from "./components/modal.js";
-import { findWord, unmarked } from "./cardtext.js";
+import { findWord, stripMarks } from "./cardtext.js";
 import { bare, chooseWords } from "./vowelmarks.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -131,7 +131,7 @@ const sentences = new Map();
  * transcript it was saved from, when that is here), or null. (Without the ⟦ ⟧ round the parts the
  * learner lit up on the card: cardtext.js.) */
 export async function vowelledSentence(v) {
-  const sentence = unmarked(v && v.sentence);
+  const sentence = stripMarks(v && v.sentence);
   if (!vowelsShown() || !sentence || !/[ء-ي]/.test(sentence)) return null;
   const key = `${v.uid || v.id}|${sentence}`;
   if (!sentences.has(key)) {

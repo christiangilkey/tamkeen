@@ -7,7 +7,7 @@
 // Everything is saved the way the back's Meaning box saves (PATCH /vocab/<id> with the changed
 // field), so it reaches the other devices like any change to a card.
 
-import { carryMarks, toggleWord, unmarked } from "../cardtext.js";
+import { carryMarks, stripMarks, toggleWord } from "../cardtext.js";
 
 /**
  * The texts on a card's back that a tap turns into a text box, in their order on the card.
@@ -41,7 +41,7 @@ export function fieldOf(matches) {
 export function editValue(v, field) {
   const f = editable(field);
   const value = String((v && v[field]) ?? "");
-  return f && f.marked ? unmarked(value) : value;
+  return f && f.marked ? stripMarks(value) : value;
 }
 
 /**

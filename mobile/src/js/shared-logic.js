@@ -97,7 +97,7 @@ const csvCell = (v) => {
 export function vocabCsv(items) {
   const rows = [["Word/Phrase", "Meaning", "Notes", "Sentence", "Episode", "Start (s)", "End (s)"]];
   for (const v of items) {
-    rows.push([v.text, v.meaning, v.notes, String(v.sentence ?? "").replace(/[⟦⟧]/g, ""), v.episode_title,
+    rows.push([v.text, v.meaning, v.notes, String(v.sentence || "").replace(/[⟦⟧]/g, ""), v.episode_title,
       v.start != null ? v.start.toFixed(2) : "", v.end != null ? v.end.toFixed(2) : ""]);
   }
   return "﻿" + rows.map((r) => r.map(csvCell).join(",")).join("\r\n") + "\r\n";
@@ -122,6 +122,32 @@ export function ankiGrammar(notes) {
   return [[...(kind ? [kind] : []), ...rows].join(" • "), free];
 }
 
+/** {text, spans}: a sentence without its ⟦ ⟧ marks and where its word is in that text: the marked
+ * parts (a basics course word, or one marked in a review card), else where it is found (the same as
+ * sentence_spans in app/exporters.py). */
+export function sentenceSpans(sentence, word) {
+  sentence = String(sentence || "");
+  // An empty pair in front: the learner put out every lit word on the review card (cardtext.js NO_MARKS).
+  if (sentence.startsWith("⟦⟧") && !/[⟦⟧]/u.test(sentence.slice(2))) return { text: sentence.slice(2), spans: [] };
+  if (MARKED.test(sentence)) {
+    const spans = [];
+    let text = "";
+    for (const part of sentence.split(/(⟦[^⟦⟧]+⟧)/u)) {
+      if (part.startsWith("⟦")) { spans.push([text.length, text.length + part.length - 2]); text += part.slice(1, -1); } else text += part;
+    }
+    return { text, spans };
+  }
+  const text = sentence.replace(/[⟦⟧]/g, "");
+  return { text, spans: word ? findSpans(text, word) : [] };
+}
+
+/** `text` with each of `spans` wrapped as open…close, the rest escaped (spans in order, not overlapping). */
+const wrapSpans = (text, spans, open, close) => {
+  let out = "", last = 0;
+  for (const [a, b] of spans) { out += escHtml(text.slice(last, a)) + open + escHtml(text.slice(a, b)) + close; last = b; }
+  return out + escHtml(text.slice(last));
+};
+
 /** The prompt side of a word's card: its translated sentence with the word's part in [brackets],
  * or the meaning (or the word itself) when no translation with usable ⟦ ⟧ marks was saved. */
 export function ankiFront(v) {
@@ -134,11 +160,11 @@ export function ankiFront(v) {
   if (meaning) return escHtml(meaning);
   const said = translation.replace(/[⟦⟧]/g, "").trim();
   if (said && !givesAway(said, text)) return escHtml(said);
-  const sentence = String(v.sentence || "").replace(/[⟦⟧]/g, "");
-  const spans = text ? findSpans(sentence, text) : [];
-  if (spans.length) {
-    const [a, b] = spans[0];
-    return escHtml(`${sentence.slice(0, a)}…${sentence.slice(b)}`.trim());
+  const { text: plain, spans } = sentenceSpans(v.sentence, text);
+  if (spans.length) { // the sentence with "…" where the word is, so the front doesn't give it away
+    let out = "", last = 0;
+    for (const [a, b] of spans) { out += plain.slice(last, a) + "…"; last = b; }
+    return escHtml((out + plain.slice(last)).trim());
   }
   return "…";
 }
@@ -200,52 +226,11 @@ export function givesAway(text, word) {
 }
 
 /** [Front, Back] for one saved word. */
-/** A sentence's ⟦ ⟧ marks (the parts the learner lit up on the review card): [plain, [[from, to], ...],
- * none]. The same as sentence_marks in app/exporters.py and readMarks in web/js/cardtext.js. */
-export function sentenceMarks(text) {
-  text = String(text || "");
-  const plain = text.replace(/[⟦⟧]/g, "");
-  if (plain.length === text.length) return [plain, [], false];
-  const marks = [];
-  let start = -1, at = 0, none = false;
-  for (const ch of text) {
-    if (ch === "⟦") {
-      if (start >= 0) return [plain, [], false];
-      start = at;
-    } else if (ch === "⟧") {
-      if (start < 0) return [plain, [], false];
-      if (at > start) marks.push([start, at]); else none = true;
-      start = -1;
-    } else at += ch.length;
-  }
-  if (start >= 0) return [plain, [], false];
-  const lit = [];
-  for (let [a, b] of marks.sort((x, y) => x[0] - y[0] || x[1] - y[1])) {
-    while (a < b && /\s/u.test(plain[a])) a++;
-    while (b > a && /\s/u.test(plain[b - 1])) b--;
-    if (a >= b) continue;
-    const last = lit[lit.length - 1];
-    if (last && a <= last[1]) last[1] = Math.max(last[1], b);
-    else if (last && !/\S/u.test(plain.slice(last[1], a))) last[1] = b;
-    else lit.push([a, b]);
-  }
-  return [plain, lit, none && !lit.length];
-}
-
 export function ankiFields(v) {
   const word = escHtml(v.text);
-  const [plain, marks, none] = sentenceMarks(v.sentence);
-  const spans = none ? [] : marks.length ? marks : (v.text ? findSpans(plain, v.text).slice(0, 1) : []);
-  let sentence;
-  if (spans.length) {
-    // The parts the learner lit up on the card, else the word found whatever its vowel marks: in brackets,
-    // as the card layout lights them (the sentence's own brackets become parentheses then; see app/exporters.py).
-    const own = marks.length ? plain.replace(/\[/g, "(").replace(/\]/g, ")") : plain;
-    let at = 0;
-    sentence = "";
-    for (const [a, b] of spans) { sentence += `${escHtml(own.slice(at, a))}[${escHtml(own.slice(a, b))}]`; at = b; }
-    sentence += escHtml(own.slice(at));
-  } else sentence = escHtml(plain);
+  // The word in [brackets], in the sentence's own spelling: where its ⟦ ⟧ marks say, else where found.
+  const { text: plain, spans } = sentenceSpans(v.sentence, v.text);
+  const sentence = spans.length ? wrapSpans(plain, spans, "[", "]") : escHtml(plain);
   const [grammar, free] = ankiGrammar(v.notes || "");
   const lines = [`<b>${word}</b>`];
   if (sentence) lines.push(sentence);

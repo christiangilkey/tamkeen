@@ -24,9 +24,104 @@ export function fold(text) {
     .replace(/[^\p{L}\p{N}\p{M}]+/gu, " ").trim().toLowerCase();
 }
 
-/** [from, to) of `word` inside `text`, compared without vowel marks or letter variants; null if absent. */
+// A sentence can say where its word is: ⟦ ⟧ round the part that carries the word's meaning there (the
+// basics courses mark every sentence; holding a word in a review card marks it too). The marks are
+// never shown or said: they only decide what is lit up. Without them the word is looked for.
+// A sentence in which the learner put out every lit word on the review card (even the word the card
+// found by itself) starts with an empty pair, ⟦⟧: nothing in it is lit.
+const PAIRED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;
+/** The start of a sentence in which nothing is lit (see above). */
+export const NO_MARKS = "⟦⟧";
+
+/** The text without its ⟦ ⟧ marks. */
+export const stripMarks = (s) => String(s ?? "").replace(/[⟦⟧]/gu, "");
+
+/** {text, spans}: the sentence without its marks, and the [from, to) of each marked part in that text;
+ * spans is null when the sentence has no marks, or marks that don't pair up; [] when it starts with
+ * NO_MARKS (nothing lit). */
+export function sentenceMarks(sentence) {
+  sentence = String(sentence ?? "");
+  if (sentence.startsWith(NO_MARKS) && !/[⟦⟧]/u.test(sentence.slice(NO_MARKS.length))) {
+    return { text: sentence.slice(NO_MARKS.length), spans: [] };
+  }
+  if (!PAIRED.test(sentence)) return { text: stripMarks(sentence), spans: null };
+  const spans = [];
+  let text = "";
+  for (const part of sentence.split(/(⟦[^⟦⟧]+⟧)/u)) {
+    if (part.startsWith("⟦")) {
+      spans.push([text.length, text.length + part.length - 2]);
+      text += part.slice(1, -1);
+    } else text += part;
+  }
+  return { text, spans };
+}
+
+// Arabic-script letters, which join their neighbours: a <b> inside a word would break the joins.
+const JOINING = /[ؠ-يٮ-ۓەۺ-ۼݐ-ݿࢠ-ࣉ]/u;
+const ZWJ = "‍";
+
+/** The sentence as HTML with its word in <b>: what its ⟦ ⟧ marks say, else where the word is found.
+ * `esc` escapes text. Where a lit part starts or ends inside a word of joining letters (Arabic,
+ * Persian), a zero-width joiner on both sides of the edge keeps the letters joined. */
+export function markedSentenceHtml(sentence, word, esc) {
+  const { text, marks } = litParts(sentence, word);
+  return marks.length ? litTextHtml(text, marks, esc) : esc(text);
+}
+
+/**
+ * What a card lights up in `sentence` (as stored): {text, marks, chosen}. `text` is the sentence
+ * without its marks; `marks` the lit parts in it: the marked ones when it has marks (`chosen`), else
+ * the card's `word` wherever it is found. With `word` null (a translation) only marked parts are lit.
+ */
+export function litParts(sentence, word = null) {
+  const { text, spans } = sentenceMarks(sentence);
+  if (spans) return { text, marks: spans, chosen: true };
+  const at = word == null ? null : findWord(text, word);
+  return { text, marks: at ? [at] : [], chosen: false };
+}
+
+/**
+ * `text` (without marks) as HTML with `marks` lit in <b>: the one renderer of a card's sentence (the
+ * Vocab list, the Basics list, the review card). With `words` ([from, to) of each word: the review
+ * card, where a word can be held), each word is in a <span class="rv-tok" data-a data-b> of its own;
+ * a lit stretch over several of them is then drawn in pieces, <b class="s"> (its start), "m" and "e"
+ * (its end), a whole one in a plain <b>. `from`/`to`: only that part of the text (a long sentence's
+ * cut); `shown(a, b)`: what to show for a part (the same letters with vowel marks).
+ */
+export function litTextHtml(text, marks, esc, { words = [], from = 0, to = text.length, shown = null } = {}) {
+  const pieces = litPieces(from, to, words, marks);
+  const lit = (k) => k >= 0 && k < pieces.length && pieces[k].lit;
+  const show = (a, b) => esc(shown ? shown(a, b) : text.slice(a, b));
+  // The letter before position i, skipping vowel marks (they sit on the letter before them).
+  const letterBefore = (i) => { while (i > 0 && HARAKAT.test(text[i - 1])) i--; return text[i - 1] || ""; };
+  const join = (i) => (JOINING.test(letterBefore(i)) && JOINING.test(text[i] || "") ? ZWJ : "");
+  const piece = (k) => {
+    const p = pieces[k];
+    if (!p.lit) return show(p.from, p.to);
+    const first = !lit(k - 1), last = !lit(k + 1);
+    const kind = first && last ? "" : first ? ' class="s"' : last ? ' class="e"' : ' class="m"';
+    const joinIn = first ? join(p.from) : "", joinOut = last ? join(p.to) : "";
+    return `${joinIn}<b${kind}>${joinIn}${show(p.from, p.to)}${joinOut}</b>${joinOut}`;
+  };
+  let html = "";
+  for (let k = 0; k < pieces.length;) {
+    const w = pieces[k].word;
+    if (w < 0) { html += piece(k++); continue; }
+    let inner = "";
+    while (k < pieces.length && pieces[k].word === w) inner += piece(k++);
+    html += `<span class="rv-tok" data-a="${words[w][0]}" data-b="${words[w][1]}">${inner}</span>`;
+  }
+  return html;
+}
+
+/** [from, to) of `word` inside `text`, compared without vowel marks or letter variants; null if absent.
+ * A text with ⟦ ⟧ marks: the first marked part, marks included. */
 export function findWord(text, word) {
   text = String(text || "");
+  if (PAIRED.test(text)) {
+    const open = text.indexOf("⟦");
+    return [open, text.indexOf("⟧", open) + 1];
+  }
   const plain = [];
   const at = []; // at[i] = where plain[i] is in `text`
   for (let i = 0; i < text.length; i++) {
@@ -115,36 +210,29 @@ export function trimSpan(text, from, to, limit = CARD_SENTENCE_MAX) {
 /** The part of a word's sentence its card shows (see the top of this file), with the parts lit up
  * that the learner chose (⟦ ⟧, see below) still marked in it. */
 export function cardSentence(sentence, word, limit = CARD_SENTENCE_MAX) {
-  sentence = String(sentence || "");
-  const { plain, marks, none } = readMarks(sentence);
-  if (!marks.length && !none) {  // nothing chosen: the card lights the word wherever it is
-    if (plain.length <= limit) return plain;
-    const at = findWord(plain, word) || [0, 0];
-    return trimAround(plain, at[0], at[1], limit);
+  const { text, spans } = sentenceMarks(sentence);
+  if (!spans) {  // no marks: the card lights the word wherever it is
+    if (text.length <= limit) return text;
+    const at = findWord(text, word) || [0, 0];
+    return trimAround(text, at[0], at[1], limit);
   }
-  const focus = marks[0] || findWord(plain, word) || [0, 0];
-  const cut = trimSpan(plain, focus[0], focus[1], limit);
-  const inside = marks.map(([a, b]) => [Math.max(a, cut.lo) - cut.lo, Math.min(b, cut.hi) - cut.lo]).filter(([a, b]) => b > a);
-  return (cut.before ? "…" : "") + writeMarks(plain.slice(cut.lo, cut.hi), inside, none) + (cut.after ? "…" : "");
+  // Cut round the first lit part, and the marks put back into what is left.
+  const focus = spans[0] || findWord(text, word) || [0, 0];
+  const cut = trimSpan(text, focus[0], focus[1], limit);
+  const inside = spans.map(([a, b]) => [Math.max(a, cut.lo) - cut.lo, Math.min(b, cut.hi) - cut.lo]).filter(([a, b]) => b > a);
+  return (spans.length ? "" : NO_MARKS) + (cut.before ? "…" : "") + writeMarks(text.slice(cut.lo, cut.hi), inside) + (cut.after ? "…" : "");
 }
 
-// ----- the parts of a sentence lit up as the word being learned -----
-// A card's sentence lights up the word being learned. Unless the learner chose otherwise that is
-// the card's word itself, wherever findWord finds it in the sentence. Holding a word of the sentence
-// on the review card lights it up too, or puts it out (a verb in two parts, a word the card missed,
-// a wrong guess). That choice is kept in the sentence itself, as ⟦ ⟧ round each lit part: the same
-// marks a translation carries round the part that renders the word. A sentence in which the
-// learner put out everything starts with an empty pair, ⟦⟧. So the choice syncs with the sentence,
-// and every place that shows the sentence (the review card, the Vocab list, the Anki export) lights
-// the same parts; everything that says or searches it leaves the marks out.
+// ----- holding a word on the review card: lighting it up, or putting it out -----
+// The review card lights the word being learned in its sentence: what the sentence's ⟦ ⟧ say (above),
+// else the card's word wherever it is found. Holding a word of the sentence lights it up too, or puts
+// it out (a verb in two parts, a word the card missed, a wrong guess); the choice is written into the
+// sentence as ⟦ ⟧ round each lit part (NO_MARKS when none is left), so it syncs with the sentence and
+// everything that draws it (the review card, the Vocab list, the Anki export) lights the same parts.
+// Its translation works the same way, without anything lit by itself.
 
 const OPEN = "⟦";
 const CLOSE = "⟧";
-/** The start of a sentence in which nothing is lit (the learner put out even the card's own word). */
-export const NO_MARKS = "⟦⟧";
-
-/** `text` as it is read and said: without its ⟦ ⟧ marks. */
-export const unmarked = (text) => String(text ?? "").replace(/[⟦⟧]/gu, "");
 
 /** Lit parts as they are kept: in order, inside the text, without spaces at their ends, and one
  * part where two touch or only spaces lie between them ("dar" and "la" lit = "dar la"). */
@@ -164,34 +252,8 @@ function tidyMarks(plain, marks) {
   return out;
 }
 
-/**
- * A text's ⟦ ⟧ marks: {plain, marks, none}. `plain` is the text without them; `marks` the lit
- * parts as [from, to) in `plain`; `none` = the empty pair is there and nothing else is lit. Marks
- * that don't pair up are left out (the text then has no lit parts of its own).
- */
-export function readMarks(text) {
-  text = String(text ?? "");
-  const plain = unmarked(text);
-  if (plain.length === text.length) return { plain, marks: [], none: false };
-  const marks = [];
-  let open = -1, at = 0, none = false;
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    if (ch === OPEN) {
-      if (open >= 0) return { plain, marks: [], none: false };
-      open = at;
-    } else if (ch === CLOSE) {
-      if (open < 0) return { plain, marks: [], none: false };
-      if (at > open) marks.push([open, at]); else none = true;
-      open = -1;
-    } else at++;
-  }
-  if (open >= 0) return { plain, marks: [], none: false };
-  const lit = tidyMarks(plain, marks);
-  return { plain, marks: lit, none: none && !lit.length };
-}
-
-/** `plain` with ⟦ ⟧ round each of `marks` (and the empty pair in front when `none` and nothing is lit). */
+/** `plain` with ⟦ ⟧ round each of `marks` (and NO_MARKS in front when `none` and nothing is lit):
+ * what sentenceMarks reads back. */
 export function writeMarks(plain, marks = [], none = false) {
   plain = String(plain ?? "");
   const list = tidyMarks(plain, marks);
@@ -204,39 +266,16 @@ export function writeMarks(plain, marks = [], none = false) {
   return out + plain.slice(at);
 }
 
-/**
- * What a card lights up in `text` (a sentence as stored): {plain, marks, chosen}. The parts the
- * learner chose when there are any (`chosen`); else the card's `word` wherever findWord finds it.
- * With `word` null (a translation) only the marked parts are lit.
- */
-export function litParts(text, word = null) {
-  const { plain, marks, none } = readMarks(text);
-  if (marks.length || none) return { plain, marks, chosen: true };
-  const at = word == null ? null : findWord(plain, word);
-  return { plain, marks: at ? [at] : [], chosen: false };
-}
-
-/** `text` (as litParts reads it) as HTML, each lit part in <b>. `esc` escapes the rest. */
-export function litHtml(text, word, esc) {
-  const { plain, marks } = litParts(text, word);
-  let out = "", at = 0;
-  for (const [a, b] of marks) {
-    out += `${esc(plain.slice(at, a))}<b>${esc(plain.slice(a, b))}</b>`;
-    at = b;
-  }
-  return out + esc(plain.slice(at));
-}
-
 const same = (x, y) => x.length === y.length && x.every(([a, b], i) => a === y[i][0] && b === y[i][1]);
 
 /**
- * Hold a word: `text` (a sentence or translation as stored) with the word at [from, to) of its
- * plain text lit up, or put out when any of it was lit. `word` = the card's word, for a sentence
- * (whose lit part is the word itself until the learner chooses); null for a translation. Coming back
- * to what the card would light by itself keeps no marks at all.
+ * Hold a word: `stored` (a sentence or translation as stored) with the word at [from, to) of its
+ * text lit up, or put out when any of it was lit. `word` = the card's word, for a sentence (whose lit
+ * part is the word itself until something is marked); null for a translation. Coming back to what the
+ * card would light by itself keeps no marks at all.
  */
-export function toggleWord(text, [from, to], word = null) {
-  const { plain, marks } = litParts(text, word);
+export function toggleWord(stored, [from, to], word = null) {
+  const { text: plain, marks } = litParts(stored, word);
   const auto = litParts(plain, word).marks;
   const lit = marks.some(([a, b]) => a < to && b > from);
   const next = tidyMarks(plain, lit
@@ -253,9 +292,10 @@ export function toggleWord(text, [from, to], word = null) {
  * part of one that the change only touches is put out, and the rest move with the text.
  */
 export function carryMarks(before, plain) {
-  const { plain: old, marks, none } = readMarks(before);
+  const { text: old, spans } = sentenceMarks(before);
+  const marks = spans || [];
   plain = String(plain ?? "");
-  if (!marks.length) return none && plain ? NO_MARKS + plain : plain;
+  if (!marks.length) return spans && plain ? NO_MARKS + plain : plain;  // (nothing lit stays nothing lit)
   let p = 0;
   while (p < old.length && p < plain.length && old[p] === plain[p]) p++;
   let s = 0;

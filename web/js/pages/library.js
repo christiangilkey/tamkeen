@@ -14,6 +14,7 @@ import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
 import { coursePanel, hasCourse } from "../components/coursepanel.js";
 import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
+import { courseTabChoice } from "../coursedata.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -53,26 +54,34 @@ const BOOKS_FEED = "local:books";
 // computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
 // "Courses" comes first and is what the Library opens on: the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
+// `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
+// + button. Courses is never empty.
 const KINDS = [
   { key: "courses", label: "Courses", icon: "learn", href: "#/library" },
-  { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts" },
+  { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
+    empty: "Add podcasts with the + button below." },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
-    empty: "No YouTube videos yet. Press + and choose YouTube." },
+    empty: "Add YouTube videos with the + button below." },
   { key: "netflix", label: "Netflix", icon: "film", feed: NETFLIX_FEED,
-    empty: "No Netflix titles yet. On a computer, press + and choose Netflix." },
+    empty: "Add Netflix shows and films with the + button below." },
   { key: "pages", label: "My webpages", icon: "page", feed: PAGES_FEED,
-    empty: "No webpages yet. Press + and choose Web page." },
+    empty: "Add webpages with the + button below." },
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
-    empty: "No books yet. Pick a free classic in the language you're learning, or add a book of your own." },
+    empty: "Add a book with the + button below, or pick a free classic." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
-    empty: "No reels yet. Press + and choose Reels." },
+    empty: "Add reels with the + button below." },
   { key: "videos", label: "My videos", icon: "videofile", feed: VIDEOS_FEED,
-    empty: "No videos of your own yet. Press + and choose Video file." },
+    empty: "Add videos of your own with the + button below." },
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
-    empty: "No audio of your own yet. Press + and choose Audio file." },
+    empty: "Add audio of your own with the + button below." },
 ];
+// The arrow from an empty kind's message to the + button: one line in the line icons' style, a gentle
+// curve that ends going sideways into the button (the button carries it, so it is beside it wherever
+// the button sits: media.css .fab-hint).
+const FAB_ARROW = `<svg viewBox="0 0 110 96" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M6 6 C 9 50, 44 80, 101 82"/><path d="M88 71 L102 82 L88 93"/></svg>`;
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
 /** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
@@ -137,8 +146,8 @@ export async function render(view, { feedId: routeFeed, query }) {
         ${phone ? `<div class="feed-list sub-list" id="podcast-list" hidden></div>` : ""}
         <div class="lib-courses" id="lib-courses" hidden>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
-            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
           </div>
           <div class="course" id="course" hidden></div>
           <div class="course grammar" id="grammar" hidden></div>
@@ -152,7 +161,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="episodes" id="episodes"></div>
         <div class="row" style="justify-content:center;margin-top:12px"><button type="button" id="more" hidden>Load more</button></div>
       </section>
-      <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}</button>
+      <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_ARROW}</span></button>
       <input type="file" id="video-file" accept="video/*,.mkv" hidden>
       <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
     </div>`));
@@ -256,18 +265,43 @@ export async function render(view, { feedId: routeFeed, query }) {
     renderHead();
   }
 
+  /** A kind with nothing in it: "Nothing here yet", how to add some with the + button, and the arrow
+   * to the button (shown while the page has the `lib-is-empty` class: media.css .fab-hint). */
+  function emptyState(k) {
+    const el = h(`<div class="lib-empty">
+      <span class="le-icon">${icon(k.icon, 34)}</span>
+      <h2 class="le-title">Nothing here yet</h2>
+      <p class="le-text">${k.empty}</p>
+    </div>`);
+    if (k.key === "books") el.append(bookButtons());
+    return el;
+  }
+  /** Show (or stop showing) the empty state's arrow: while the heading says the kind is empty (no list
+   * of it yet) or its list came back empty. It points the other way if the + button is on the left. */
+  const empty = { head: false, list: false };
+  function markEmpty(part, on) {
+    empty[part] = on;
+    root.classList.toggle("lib-is-empty", empty.head || empty.list);
+    if (empty.head || empty.list) aimHint();
+  }
+  const aimHint = () => {
+    const fab = $("#add-fab");
+    const r = fab.getBoundingClientRect();
+    if (r.width) fab.classList.toggle("hint-flip", r.left + r.width / 2 < window.innerWidth / 2);
+  };
+  window.addEventListener("resize", aimHint);
+
   function renderHead() {
     const head = $("#lib-head");
     head.innerHTML = "";
     root.classList.toggle("courses-kind", kind === "courses");
-    if (kind === "courses") { showCourses(); return; }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
     const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" ? KINDS.find((k) => k.key === kind) : null;
+    markEmpty("head", !!emptyKind);
+    if (kind === "courses") { showCourses(); return; }
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
-      head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon(emptyKind.icon, 44)}</div><div class="meta"><h1>${emptyKind.label}</h1>
-        <div class="desc small">${emptyKind.empty}</div></div></div>`));
-      if (emptyKind.key === "books") head.querySelector(".meta").append(bookButtons());
+      head.append(emptyState(emptyKind));
       return;
     }
     if (!feedId) {
@@ -552,6 +586,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       renderTabs({});
       listEl.innerHTML = "";
       $("#more").hidden = true;
+      showListEmpty(false);
       return;
     }
     const params = new URLSearchParams({ limit: PAGE, offset });
@@ -574,14 +609,27 @@ export async function render(view, { feedId: routeFeed, query }) {
     for (const ep of items) listEl.append(epRow(ep));
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;
-    if (!data.total) {
+    // Nothing at all (not just nothing matching a filter): the kind's empty state, which takes the
+    // heading's place. A podcast's own empty feed keeps the plain line.
+    const f = feedId ? feeds.find((x) => x.id === feedId) : null;
+    const emptyKind = data.total || filter || titleQuery || (channel && youtubeShowing()) ? null
+      : f ? KINDS.find((k) => k.feed && k.feed === f.url) : KINDS.find((k) => k.key === "podcasts");
+    if (!append) showListEmpty(!!emptyKind);
+    if (emptyKind) listEl.append(emptyState(emptyKind));
+    else if (!data.total) {
       listEl.append(h(`<div class="empty">${feeds.length ? "No episodes match this filter." : "Press + to add a podcast, a video or a web page."}</div>`));
     }
   }
+  function showListEmpty(on) {
+    $(".lib-main").classList.toggle("list-empty", on);
+    markEmpty("list", on);
+  }
 
-  // ----- courses: Basics | Grammar, for the language being learned -----
-  // A tab shows only when there is that course for the language; the one last chosen is kept on this
-  // device (the basics first, until the learner has chosen). Each panel is built the first time it shows.
+  // ----- courses: Grammar | Basics, for the language being learned -----
+  // A tab shows only when there is that course for the language. Grammar opens first (the owner's
+  // choice), unless a link asks for Basics (#/library?tab=basics) or the learner picked a tab earlier in
+  // this visit (kept for this visit only: sessionStorage). coursedata.js courseTabChoice decides. Each
+  // panel is built the first time it shows.
   let closeCourse = null, closeGrammar = null, grammarChoice = null, coursesAsked = false;
   const courseLang = studyLanguage();
   const showCourseTab = (tab) => {
@@ -594,9 +642,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     $("#grammar").hidden = tab !== "grammar";
     if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang);
     if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), courseLang, grammarChoice);
-    try { localStorage.setItem("courseTab", tab); } catch { /* storage off */ }
   };
-  for (const b of root.querySelectorAll("#course-tabs [data-tab]")) b.onclick = () => showCourseTab(b.dataset.tab);
+  for (const b of root.querySelectorAll("#course-tabs [data-tab]")) {
+    b.onclick = () => {
+      try { sessionStorage.setItem("courseTab", b.dataset.tab); } catch { /* storage off */ }
+      showCourseTab(b.dataset.tab);
+    };
+  }
   function showCourses() {
     $("#lib-courses").hidden = false;
     if (coursesAsked) return;
@@ -613,10 +665,9 @@ export async function render(view, { feedId: routeFeed, query }) {
       root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
       root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !grammar;
       $("#course-tabs").hidden = false;
-      let saved = null;
-      try { saved = localStorage.getItem("courseTab"); } catch { /* storage off */ }
-      const can = { basics, grammar: !!grammar };
-      showCourseTab(can[saved] ? saved : basics ? "basics" : "grammar");
+      let chosen = "";
+      try { chosen = sessionStorage.getItem("courseTab") || ""; } catch { /* storage off */ }
+      showCourseTab(courseTabChoice({ basics, grammar: !!grammar, asked: query.get("tab") || "", chosen }));
     });
   }
 
@@ -768,5 +819,8 @@ export async function render(view, { feedId: routeFeed, query }) {
       text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
   ]);
 
-  return () => { offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); };
+  return () => {
+    offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
+    if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar();
+  };
 }

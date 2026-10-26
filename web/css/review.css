@@ -26,7 +26,7 @@
 .review-banner.idle, .review-banner.idle:hover:not(:disabled) { background: var(--surface); color: var(--text); border-color: var(--border); }
 .review-banner.idle .rb-icon { background: var(--surface-2); color: var(--muted); }
 .review-banner.idle .rb-go { background: var(--surface-2); color: var(--text); }
-/* No words to review yet: the same box, plain, with nothing to press */
+/* No words to review yet: the same box in its usual colour (vocab.js; the owner, 2026-10-25), with nothing to press */
 .review-banner:disabled { opacity: 1; cursor: default; }
 .review-banner .rb-go:empty { display: none; }
 .vocab-item .memo { border-style: dashed; }
@@ -385,13 +385,12 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans {
   cursor: text; border-radius: 12px; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;
 }
-/* A lit stretch: one coloured band from its first piece (.s) to its last (.e), over the words and the spaces between. */
-.rv-ans-sentence b, .rv-ans-trans b { padding: 0; border-radius: 0; }
-.rv-ans-trans b { background: rgba(34, 199, 214, .28); color: inherit; font-weight: 700; }
-.rv-ans-sentence b.s, .rv-ans-trans b.s { padding-inline-start: 5px; border-start-start-radius: 6px; border-end-start-radius: 6px; }
-.rv-ans-sentence b.e, .rv-ans-trans b.e { padding-inline-end: 5px; border-start-end-radius: 6px; border-end-end-radius: 6px; }
-.rv-ans-trans b.s { padding-inline-start: 3px; }
-.rv-ans-trans b.e { padding-inline-end: 3px; }
+/* A lit stretch over several words is drawn in pieces (cardtext.js litTextHtml): its start (.s), middle
+   (.m) and end (.e) make one coloured band, rounded only at its two ends. */
+.rv-ans-trans b { padding: 0 3px; border-radius: 5px; background: rgba(34, 199, 214, .28); color: inherit; font-weight: 700; }
+.rv-ans-sentence b.s, .rv-ans-trans b.s { padding-inline-end: 0; border-start-end-radius: 0; border-end-end-radius: 0; }
+.rv-ans-sentence b.e, .rv-ans-trans b.e { padding-inline-start: 0; border-start-start-radius: 0; border-end-start-radius: 0; }
+.rv-ans-sentence b.m, .rv-ans-trans b.m { padding-inline: 0; border-radius: 0; }
 /* Holding a word: it tints while pressed, and a ring shows the word that changed. */
 .rv-tok { border-radius: 6px; outline: 2px solid transparent; outline-offset: 1px; transition: background-color .2s ease .12s; }
 .rv-tok.pressing { background: var(--accent-soft); }

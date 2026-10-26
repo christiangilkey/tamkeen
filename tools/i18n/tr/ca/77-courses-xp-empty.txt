@@ -1,0 +1,12 @@
+2dc0c206 Acabar una lliçó de gramàtica: de 40 a 80 la primera vegada, més com més respostes encertes, i de 15 a 30 quan la tornes a fer (cada lliçó paga un cop al dia).
+b1691d36 Tocar un exemple d'una lliçó de gramàtica per sentir-lo: una quarta part del que paga buscar una paraula, un cop al dia per cada exemple. També manté el teu combo.
+ce32fa95 Afegir a les teves targetes una paraula d'un curs bàsic: {0} per paraula, igual si les afegeixes una a una com totes alhora, fins a {1} paraules al dia.
+4019c5e2 Afegeix podcasts amb el botó + de baix.
+d7bc5164 Afegeix vídeos de YouTube amb el botó + de baix.
+71554151 Afegeix sèries i pel·lícules de Netflix amb el botó + de baix.
+1f98e825 Afegeix pàgines web amb el botó + de baix.
+9b2f4468 Afegeix un llibre amb el botó + de baix, o tria un clàssic gratuït.
+ab6cd1c6 Afegeix reels amb el botó + de baix.
+a4f4a0c6 Afegeix vídeos teus amb el botó + de baix.
+c80a1cbd Afegeix àudio teu amb el botó + de baix.
+e892255d Encara no hi ha res aquí

@@ -58,7 +58,7 @@ def vocab_to_csv(items: Sequence[dict[str, Any]]) -> str:
     writer = csv.writer(buf)
     writer.writerow(["Word/Phrase", "Meaning", "Notes", "Sentence", "Episode", "Start (s)", "End (s)"])
     for v in items:
-        writer.writerow([v["text"], v["meaning"], v["notes"], unmarked(v["sentence"]), v["episode_title"],
+        writer.writerow([v["text"], v["meaning"], v["notes"], (v["sentence"] or "").replace("⟦", "").replace("⟧", ""), v["episode_title"],
                          f"{v['start']:.2f}" if v["start"] is not None else "",
                          f"{v['end']:.2f}" if v["end"] is not None else ""])
     # BOM so Excel opens UTF-8 Arabic correctly.
@@ -81,6 +81,27 @@ ANKI_TAG = "tamkeen"
 _LABELLED = re.compile(r"^[^:]{1,30}:\s*\S")
 # A saved translation whose ⟦ ⟧ marks pair up around some text (one marked part, or several).
 _MARKED = re.compile(r"[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+")
+
+
+def sentence_spans(sentence: str, word: str) -> tuple[str, list[tuple[int, int]]]:
+    """(text, spans): a sentence without its ⟦ ⟧ marks and where its word is in that text: the marked
+    parts (a basics course word, or one marked in a review card), else where it is found (the same as
+    sentenceSpans in mobile/src/js/shared-logic.js)."""
+    sentence = sentence or ""
+    # An empty pair in front: the learner put out every lit word on the review card (cardtext.js NO_MARKS).
+    if sentence.startswith("⟦⟧") and "⟦" not in sentence[2:] and "⟧" not in sentence[2:]:
+        return sentence[2:], []
+    if _MARKED.fullmatch(sentence):
+        text, spans = "", []
+        for part in re.split(r"(⟦[^⟦⟧]+⟧)", sentence):
+            if part.startswith("⟦"):
+                spans.append((len(text), len(text) + len(part) - 2))
+                text += part[1:-1]
+            else:
+                text += part
+        return text, spans
+    text = sentence.replace("⟦", "").replace("⟧", "")
+    return text, (arabic.find_spans(text, word) if word else [])
 
 
 # ----- keeping the word off the front -----
@@ -203,90 +224,24 @@ def anki_front(v: dict[str, Any]) -> str:
     said = translation.replace("⟦", "").replace("⟧", "").strip()
     if said and not gives_away(said, text):
         return html.escape(said)
-    sentence = unmarked(v.get("sentence"))
-    spans = arabic.find_spans(sentence, text) if text else []
-    if spans:
-        a, b = spans[0]
-        return html.escape(f"{sentence[:a]}…{sentence[b:]}".strip())
+    plain, spans = sentence_spans(v.get("sentence") or "", text)
+    if spans:  # the sentence with "…" where the word is, so the front doesn't give it away
+        out, last = "", 0
+        for a, b in spans:
+            out, last = out + plain[last:a] + "…", b
+        return html.escape((out + plain[last:]).strip())
     return "…"
-
-
-def unmarked(text: str | None) -> str:
-    """``text`` without the ⟦ ⟧ marks round the parts its card lights up (web/js/cardtext.js)."""
-    return (text or "").replace("⟦", "").replace("⟧", "")
-
-
-def _tidy_marks(plain: str, marks: list[tuple[int, int]]) -> list[tuple[int, int]]:
-    """Lit parts in order, without spaces at their ends, joined where they touch or only spaces lie
-    between (tidyMarks in web/js/cardtext.js)."""
-    out: list[list[int]] = []
-    for a, b in sorted(marks):
-        a = max(0, min(a, len(plain)))
-        b = max(a, min(b, len(plain)))
-        while a < b and plain[a].isspace():
-            a += 1
-        while b > a and plain[b - 1].isspace():
-            b -= 1
-        if a >= b:
-            continue
-        if out and a <= out[-1][1]:
-            out[-1][1] = max(out[-1][1], b)
-        elif out and not plain[out[-1][1]:a].strip():
-            out[-1][1] = b
-        else:
-            out.append([a, b])
-    return [(a, b) for a, b in out]
-
-
-def sentence_marks(text: str | None) -> tuple[str, list[tuple[int, int]], bool]:
-    """A sentence's ⟦ ⟧ marks, as readMarks in web/js/cardtext.js reads them: (the sentence without
-    them, the lit parts as (from, to) in it, whether the learner put out everything: an empty pair).
-    The learner chooses them by holding words on the review card. Marks that don't pair up count for
-    nothing."""
-    text = text or ""
-    plain = unmarked(text)
-    if len(plain) == len(text):
-        return plain, [], False
-    marks: list[tuple[int, int]] = []
-    start, at, none = -1, 0, False
-    for ch in text:
-        if ch == "⟦":
-            if start >= 0:
-                return plain, [], False
-            start = at
-        elif ch == "⟧":
-            if start < 0:
-                return plain, [], False
-            if at > start:
-                marks.append((start, at))
-            else:
-                none = True
-            start = -1
-        else:
-            at += 1
-    if start >= 0:
-        return plain, [], False
-    lit = _tidy_marks(plain, marks)
-    return plain, lit, none and not lit
 
 
 def anki_fields(v: dict[str, Any]) -> tuple[str, str]:
     """(Front, Back) for one saved word."""
     word = html.escape(v["text"])
-    sentence, marks, none = sentence_marks(v["sentence"])
-    spans = [] if none else marks or (arabic.find_spans(sentence, v["text"])[:1] if v["text"] else [])
-    if spans:
-        # The parts the learner lit up on the card, else the word found whatever its vowel marks: in
-        # brackets, as the card layout lights them (the sentence's own brackets become parentheses then,
-        # so only those parts light up; a sentence lit by itself is kept as it always was).
-        own = sentence.replace("[", "(").replace("]", ")") if marks else sentence
-        out, at = "", 0
-        for a, b in spans:
-            out += f"{html.escape(own[at:a])}[{html.escape(own[a:b])}]"
-            at = b
-        sentence = out + html.escape(own[at:])
-    else:
-        sentence = html.escape(sentence)
+    # The word in [brackets], in the sentence's own spelling: where its ⟦ ⟧ marks say, else where found.
+    plain, spans = sentence_spans(v["sentence"] or "", v["text"] or "")
+    sentence, last = "", 0
+    for a, b in spans:
+        sentence, last = f"{sentence}{html.escape(plain[last:a])}[{html.escape(plain[a:b])}]", b
+    sentence += html.escape(plain[last:])
     grammar, free = anki_grammar(v["notes"] or "")
     lines = [f"<b>{word}</b>"]
     if sentence:

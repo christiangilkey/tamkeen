@@ -74,15 +74,16 @@ def test_lit_words_are_left_out_of_search(client):
 
 def test_the_anki_card_lights_what_the_learner_lit():
     card = {"uid": "v1", "text": "cartera", "meaning": "wallet", "notes": "", "translation": "",
-            "sentence": "⟦Perdí⟧ mi [nueva] ⟦cartera⟧."}
-    assert exporters.sentence_marks(card["sentence"]) == ("Perdí mi [nueva] cartera.", [(0, 5), (17, 24)], False)
+            "sentence": "⟦Perdí⟧ mi ⟦cartera⟧ nueva."}
+    assert exporters.sentence_spans(card["sentence"], "cartera") == ("Perdí mi cartera nueva.", [(0, 5), (9, 16)])
     # The same cards as the phone makes (tests/js/cardedit.test.mjs).
-    assert exporters.anki_fields(card)[1] == "<b>cartera</b><br>[Perdí] mi (nueva) [cartera]."
+    assert exporters.anki_fields(card)[1] == "<b>cartera</b><br>[Perdí] mi [cartera] nueva."
+    # Every lit word put out on the review card: nothing in brackets, not even the word.
+    assert exporters.sentence_spans("⟦⟧Perdí mi cartera.", "cartera") == ("Perdí mi cartera.", [])
     assert exporters.anki_fields({**card, "sentence": "⟦⟧Perdí mi cartera."})[1] == "<b>cartera</b><br>Perdí mi cartera."
-    assert exporters.anki_fields({**card, "sentence": "Perdí mi [nueva] cartera."})[1] == "<b>cartera</b><br>Perdí mi [nueva] [cartera]."
-    assert exporters.sentence_marks("No me ⟦des⟧ ⟦la⟧ ⟦lata⟧") == ("No me des la lata", [(6, 17)], False)
-    for broken in ("a ⟦b c", "a b⟧ c", "⟦a ⟦b⟧ c⟧"):
-        assert exporters.sentence_marks(broken)[1] == []
+    assert exporters.anki_fields({**card, "sentence": "Perdí mi cartera nueva."})[1] == "<b>cartera</b><br>Perdí mi [cartera] nueva."
+    for broken in ("a ⟦b c", "a b⟧ c", "⟦a ⟦b⟧ c⟧", "⟦⟧a ⟦b c"):
+        assert exporters.sentence_spans(broken, "zz")[1] == []
 
 
 def test_the_list_file_has_the_sentence_without_marks():

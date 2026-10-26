@@ -7,13 +7,15 @@
 //     Sentence to hear them, and "Add" to put it in the learner's cards; "Add all" for the unit.
 // An added word is an ordinary card (POST /vocab/batch, in a folder named after the course, e.g.
 // "Arabic basics") with the course's audio kept as its voice (saveVoice, the road a card voice takes),
-// so it is reviewed, synced, played and put in an Anki export like any other card.
+// so it is reviewed, synced, played and put in an Anki export like any other card. Each word added earns
+// a little XP in the creature game ("basics" in game/rules.js: the same for "Add all" as one by one, up
+// to a daily cap).
 
 import { api, esc, h, platform, saveVoice, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langAttrs, langInfo } from "../languages.js";
-import { findWord } from "../cardtext.js";
-import { cardOf, courseUrl, markedHtml, progress, unitsOf } from "../coursedata.js";
+import { markedSentenceHtml } from "../cardtext.js";
+import { cardOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -59,9 +61,18 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       return;
     }
     await refreshCards();
+    upgradeCards(); // (in the background: nothing on screen depends on it)
     const open = Number(lsGet(`course:${lang}:unit`)) || 0;
     if (open && unitsOf(course).some((u) => u.n === open && u.ready)) drawUnit(open);
     else drawCourse();
+  }
+
+  /** Cards added from the course before its sentences were marked get the marks, so they light up the
+   * right place too (coursedata.js markUpdates: never a sentence the learner changed). */
+  async function upgradeCards() {
+    for (const u of markUpdates(course, cards)) {
+      try { await api(`/vocab/${u.id}`, { method: "PATCH", body: { sentence: u.sentence, sentence_if: u.sentence_if } }); } catch { /* next time */ }
+    }
   }
 
   async function refreshCards() {
@@ -128,8 +139,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     const list = h(`<ol class="cu-words"></ol>`);
     const rows = new Map();
     for (const w of unit.words) {
-      const at = findWord(w.sentence, w.word);
-      const sentence = at ? `${esc(w.sentence.slice(0, at[0]))}<b>${esc(w.sentence.slice(at[0], at[1]))}</b>${esc(w.sentence.slice(at[1]))}` : esc(w.sentence);
+      const sentence = markedSentenceHtml(w.sentence, w.word, esc); // the word where the sentence's ⟦ ⟧ marks say
       const row = h(`<li class="cw">
         <div class="cw-top"><span class="cw-n">${w.n}</span><span class="cw-word ar" ${attrs} translate="no"></span><span class="cw-meaning" translate="no"></span></div>
         <div class="cw-sent ar" ${attrs} translate="no">${sentence}</div>
@@ -144,7 +154,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       row.querySelector(".cw-word").textContent = w.word;
       row.querySelector(".cw-meaning").textContent = w.meaning;
       for (const b of row.querySelectorAll(".cw-play")) b.onclick = () => play(w, b.dataset.part);
-      row.querySelector(".cw-add").onclick = () => add([w]);
+      row.querySelector(".cw-add").onclick = (e) => add([w], e.currentTarget);
       rows.set(w.n, row);
       list.append(row);
     }
@@ -160,17 +170,21 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     };
     paintRows();
     box.append(list);
-    addAll.onclick = () => add(missing());
+    addAll.onclick = () => add(missing(), addAll);
     box.scrollIntoView({ block: "start" });
 
     let adding = false;
-    async function add(words) {
+    async function add(words, anchor) {
       if (adding || !words.length) return;
+      // Only words not in the cards yet are added, and only they earn XP.
+      words = words.filter((w) => !prog.have.has(w.n));
+      if (!words.length) return;
       adding = true;
       addAll.disabled = true;
       for (const w of words) { const b = rows.get(w.n).querySelector(".cw-add"); b.disabled = true; b.textContent = "Adding…"; }
       try {
         const n = await addToCards(words);
+        if (n) earnXp({ type: "basics", keys: words.slice(0, n).map((w) => `${course.lang}:${w.n}`) }, anchor);
         await refreshCards();
         toast(n === 1 ? "Added to your cards, with its audio." : `${n} words added to your cards, with their audio.`);
         onCards();
@@ -184,6 +198,14 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
         paintHead();
       }
     }
+  }
+
+  /** XP in the creature game (game/game.js reward: nothing when the game is switched off). */
+  async function earnXp(event, anchor) {
+    try {
+      const { reward } = await import("../game/game.js");
+      reward(event, anchor);
+    } catch { /* no game here */ }
   }
 
   /** Put `words` in the learner's cards, in the course's folder, each with its audio. Resolves to how many. */

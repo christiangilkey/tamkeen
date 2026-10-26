@@ -20,7 +20,7 @@
 import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
-import { CARD_SENTENCE_MAX, litParts, litPieces, trimSpan, unmarked, vowelPlaces } from "../cardtext.js";
+import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
 import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
 import { firstVisitTour } from "../components/tour.js";
 import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
@@ -161,7 +161,7 @@ async function play(el, frames, options) {
  *                card: its own audio, else the voice chosen for cards without (voiceplay.js)
  *   onDelete     (word) => void, told when a word is deleted from its card
  *   onClose      called when the reviewer is put away
- * (The card lights the word in its sentence itself, the way the Vocab page does: cardtext.js litParts.)
+ * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
 export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {}, onClose = () => {} }) {
   if (document.querySelector(".rv")) return;
@@ -380,7 +380,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // (Its direction is taken from the text itself: a meaning saved while the app spoke another
   // language reads the right way round too.)
   const ownDir = () => "auto";
-  const studyOf = (v) => detectLanguage(unmarked(v.sentence) || v.text);
+  const studyOf = (v) => detectLanguage(stripMarks(v.sentence) || v.text);
   const cuts = new Map();  // "sentence" / "translation" -> {plain, lo, hi, before, after}
   let vowelled = "";       // the sentence on the table with vowel marks, once they came (Arabic, "Show vowels")
 
@@ -397,43 +397,28 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     line.textContent = v.meaning || "";
     line.hidden = !String(v.meaning || "").trim();
   }
-  /** The sentence or its translation, each word in a box of its own (`.rv-tok`, with where it is in the
-   * text) so it can be held, and the lit parts in <b>: `s` / `e` on the first and last piece of a lit
-   * stretch, which draw its rounded ends (one stretch may run over several words and the spaces between). */
+  /** The sentence or its translation, drawn by the Vocab list's renderer (cardtext.js litTextHtml),
+   * lit where its ⟦ ⟧ marks say (else the sentence's word where it is found), with each word in a box
+   * of its own (`.rv-tok`, saying where it is in the text) so it can be held. */
   function drawLit(v, field) {
     const sentence = field === "sentence";
     const line = face.querySelector(editable(field).selector);
     if (!line || (editing && editing.field === field)) return;
-    const { plain, marks } = litParts(v[field] || "", sentence ? v.text : null);
-    line.hidden = !plain.trim();
+    const { text, marks } = litParts(v[field] || "", sentence ? v.text : null);
+    line.hidden = !text.trim();
     if (line.hidden) { line.innerHTML = ""; return; }
     let cut = cuts.get(field);
-    if (!cut || cut.plain !== plain) {
+    if (!cut || cut.text !== text) {
       const focus = marks[0] || [0, 0];
-      cut = { plain, ...trimSpan(plain, focus[0], focus[1], CARD_SENTENCE_MAX) };
+      cut = { text, ...trimSpan(text, focus[0], focus[1], CARD_SENTENCE_MAX) };
       cuts.set(field, cut);
     }
     const lang = sentence ? studyOf(v) : ownLanguage();
-    const words = wordRanges(plain, lang);
-    const places = sentence && vowelled ? vowelPlaces(plain, vowelled) : null;
-    const textOf = places ? (a, b) => vowelled.slice(places[a], places[b]) : (a, b) => plain.slice(a, b);
-    const parts = litPieces(cut.lo, cut.hi, words, marks);
-    const lit = (k) => k >= 0 && k < parts.length && parts[k].lit;
-    const piece = (k) => {
-      const p = parts[k], text = esc(textOf(p.from, p.to));
-      if (!p.lit) return text;
-      const ends = [lit(k - 1) ? "" : "s", lit(k + 1) ? "" : "e"].filter(Boolean).join(" ");
-      return ends ? `<b class="${ends}">${text}</b>` : `<b>${text}</b>`;
-    };
-    let html = cut.before ? "…" : "";
-    for (let k = 0; k < parts.length;) {
-      const w = parts[k].word;
-      if (w < 0) { html += piece(k++); continue; }
-      let inner = "";
-      while (k < parts.length && parts[k].word === w) inner += piece(k++);
-      html += `<span class="rv-tok" data-a="${words[w][0]}" data-b="${words[w][1]}">${inner}</span>`;
-    }
-    line.innerHTML = html + (cut.after ? "…" : "");
+    const places = sentence && vowelled ? vowelPlaces(text, vowelled) : null;
+    line.innerHTML = (cut.before ? "…" : "") + litTextHtml(text, marks, esc, {
+      words: wordRanges(text, lang), from: cut.lo, to: cut.hi,
+      shown: places ? (a, b) => vowelled.slice(places[a], places[b]) : null,
+    }) + (cut.after ? "…" : "");
     if (sentence) addReadings(line, lang);
   }
   /** Everything in the answer drawn again from the card (after it was put right). */
