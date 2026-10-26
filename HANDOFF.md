@@ -5569,7 +5569,7 @@ Built on main's ⟦ ⟧ marks (the basics-course section just above): one storag
 - **Server/phones**: `PATCH /vocab/<id>` also takes `translation` (computer `app/api/vocab.py`, phone/web `backend.js`;
   `sentence` is main's, with `sentence_if`). **`db.py` vocab_upd trigger now includes `sentence`**: before, a changed
   sentence (also main's course-mark upgrade) never got a new `updated_at` on the computer and so never synced. Search
-  ignores marks (both servers); `battle-ui.js` and `seen.js` backfill strip them.
+  ignores marks (both servers); `seen.js` backfill strips them (the game's rules.js already did).
 - **Hint**: the first back shown on a device opens a one-step page guide (`components/tour.js firstVisitTour("review")`:
   "Put a card right as you go" / "Tap any text to edit it. Hold a word in the sentence to highlight it."); Settings →
   Show the guides again resets it. tour.js now stops Esc/arrows at the guide, and the reviewer ignores keys while a
