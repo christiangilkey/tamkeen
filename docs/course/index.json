@@ -183,15 +183,15 @@
    "variety": "Standard Korean (Seoul), polite 요 style",
    "words": 1000,
    "planned": 1000,
-   "bytes": 350335,
+   "bytes": 341203,
    "audio_bytes": 12153393,
-   "sha256": "02d7d6d40ab33f3d82548be1d9854635636e48ba8852a003e4c2f57138983b06",
+   "sha256": "3eb78597cdab484326c2526d4ad98a29ca04f809712c721b3d502f08e8c65fa9",
    "voice": {
     "engine": "azure",
     "name": "SunHi (Azure, South Korea)",
     "synthetic": true
    },
-   "built": "2026-10-24"
+   "built": "2026-10-25"
   },
   "pt": {
    "file": "pt/course.json",
