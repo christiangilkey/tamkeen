@@ -256,6 +256,22 @@
    ],
    "bytes": 322378,
    "sha256": "012c00eaf1f23b014c8c30cddf8dd86ea35b55948f8172c7cb19c7897a20b5e6"
+  },
+  "fa-en": {
+   "file": "fa-en/course.json",
+   "from": "fa",
+   "to": "en",
+   "title": "دستور زبان انگلیسی",
+   "variety": "انگلیسی آمریکایی",
+   "units": 8,
+   "lessons": 48,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 324627,
+   "sha256": "69909362faedb3441ae677899a8da2b941255f8065e4dae42c65e37760c2ea98"
   }
  }
 }
