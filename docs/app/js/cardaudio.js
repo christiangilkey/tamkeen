@@ -15,7 +15,7 @@
 //
 // The pure part (WAV files, joining, trimming) is tested in tests/js/cardaudio.test.mjs.
 
-import { boost, listener, speechBounds } from "./review/pronounce.js";
+import { boost, listener, micProblem, speechBounds } from "./review/pronounce.js";
 import { oggOpusFile, opusHead } from "./oggjoin.js";
 
 /** The longest part kept, in seconds (a longer recording or file is cut there). */
@@ -110,8 +110,10 @@ export const AUDIO_ERRORS = {
   silent: "I couldn't hear anyone speaking in it. Try again, a little closer to the microphone.",
   mic: "Tamkeen needs permission to use the microphone. Allow it, then try again.",
   busy: "The microphone couldn't be used just now. Close other apps that may be using it, then try again.",
+  none: "No microphone was found. Connect one, then try again.",
 };
-const problem = (kind) => Object.assign(new Error(AUDIO_ERRORS[kind]), { kind });
+// (A refused microphone is put right in the system's settings: it says so, for the fix popup, components/fixit.js.)
+const problem = (kind) => Object.assign(new Error(AUDIO_ERRORS[kind]), { kind }, kind === "mic" ? { fixCause: "mic" } : {});
 
 /** Decode a recording or a sound file to one channel at RATE: Float32Array. */
 export async function decodeToMono(blob) {
@@ -216,7 +218,7 @@ export async function startRecording({ which = "word", onLevel = () => {} } = {}
   try {
     stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
   } catch (e) {
-    throw problem(e && (e.name === "NotAllowedError" || e.name === "SecurityError") ? "mic" : "busy");
+    throw problem(e && (e.name === "NotAllowedError" || e.name === "SecurityError") ? "mic" : micProblem(e) === AUDIO_ERRORS.none ? "none" : "busy");
   }
   const release = () => stream.getTracks().forEach((t) => t.stop());
   let recorder, ctx;

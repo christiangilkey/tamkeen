@@ -69,6 +69,15 @@ export function speechBounds(samples, rate) {
 /** How much to turn an attempt up so its loudest moment is about as loud as a prepared clip's. */
 export const boost = (peak) => (peak > 0 ? Math.min(8, Math.max(1, 0.85 / peak)) : 1);
 
+/** What to say when the microphone couldn't be opened for a reason other than a refused permission
+ * (the browser's error `e`): "" for a refused permission (or one that can't be told apart from it). */
+export function micProblem(e) {
+  const name = e && e.name;
+  if (name === "NotFoundError" || name === "OverconstrainedError") return "No microphone was found. Connect one, then try again.";
+  if (name === "NotReadableError" || name === "AbortError") return "The microphone couldn't be used just now. Close other apps that may be using it, then try again.";
+  return "";
+}
+
 /** Can this device listen at all? (The button is left out where it can't.) */
 export function canRecord() {
   return typeof navigator !== "undefined" && !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
@@ -125,8 +134,10 @@ export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, 
       // No echo cancellation: on Android it switches the phone into its phone-call sound mode (quieter,
       // sometimes the earpiece, Bluetooth at call quality), and nothing plays while we listen anyway.
       stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
-    } catch {
-      onError("Tamkeen needs permission to use the microphone to hear you say the word.");
+    } catch (e) {
+      // Only a refused permission is put right in the settings (the page's toast turns that message
+      // into the fix popup, components/fixit.js); no microphone, or one in use, is said as it is.
+      onError(micProblem(e) || "Tamkeen needs permission to use the microphone to hear you say the word.");
       return;
     }
     const release = () => stream.getTracks().forEach((t) => t.stop());

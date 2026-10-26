@@ -8,6 +8,14 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.38.0",
+  "Grammar courses for learning English, explained in your own language",
+  "Review cards: the translation on the back, tap any text to fix it, hold a word to highlight it",
+  "The basics courses highlight each word in the right place",
+  "XP for hearing grammar examples and adding Basics words",
+  "Problems you can fix open one clear popup with a button to the fix",
+  "Courses open on Grammar first");
+
 notes("0.37.0",
   "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
   "A grammar course, explained step by step",

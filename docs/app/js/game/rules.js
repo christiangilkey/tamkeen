@@ -22,6 +22,10 @@ export const DAILY_COMPLETE_XP = 120;
 export const SESSION_GAP_MS = 10 * 60 * 1000;
 export const COMBO_STEPS = [1, 1.2, 1.5, 2];
 export const REVIEW_SHARE = 0.25;           // a card in the vocab reviewer pays this share of a word lookup's roll (see earn)
+export const HEAR_SHARE = 0.25;             // so does tapping a grammar lesson's example to hear it ("hear")
+export const HEAR_DAY = [30, 90];           // ...in full for the day's first 30 different ones, fading to nothing after 90
+export const BASICS_XP = 5;                 // a word from a basics course put in the cards: a quarter of saving a word (20)
+export const BASICS_DAY_CAP = 50;           // ...for at most this many words a day (a unit's worth)
 export const REVIEW_CLEAR_CARDS = 5;        // answering this many cards, with nothing left due, clears the day's cards
 export const BOTH_XP = 30;                  // a day with a finished battle AND the flashcards cleared pays this once...
 export const BOTH_COINS = 3;                // ...and these coins (see payBoth): a nudge to do both, not a second wage
@@ -47,7 +51,8 @@ export const dayNumber = (d = new Date()) => Math.floor((d.getTime() - d.getTime
 export const weekNumber = (d = new Date()) => Math.floor((dayNumber(d) + 3) / 7);
 
 // ---------- saved state ----------
-const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0, cards: 0, cardsCleared: false, both: false, grammar: [] });
+// (heard: grammar examples listened to today, as short keys (hearKey); basics: course words put in the cards today, "ar:12")
+const freshDay = (key = "") => ({ key, seconds: 0, done: false, taps: 0, saves: 0, xp: 0, words: [], reviews: 0, battles: 0, cards: 0, cardsCleared: false, both: false, grammar: [], heard: [], basics: [] });
 
 /** `state.creature` is always the creature out in the habitat (one of `state.roster`). */
 function attach(state) {
@@ -70,7 +75,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
     tags: [],    // earned by how and when the owner studies and fights
     review: {},  // vocab word -> [box, day it is next due, times right, times wrong]
-    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0, cards: 0, grammar: 0 },
+    stats: { lookups: 0, goals: 0, reviews: 0, right: 0, battles: 0, wins: 0, friend_battles: 0, raids: 0, words: 0, cards: 0, grammar: 0, heard: 0, basics: 0 },
     week: { n: 0, right: 0, total: 0, paid: false },
     league: 0,                    // 0 bronze .. 3 diamond: moved by how many days a week the goal is reached
     goalWeek: { n: 0, days: 0 },  // this week's goal days
@@ -182,6 +187,36 @@ const boost = (state, now) => (state.boostUntil && now.getTime() / 1000 < state.
 export function wordMultiplier(state, comboCount, now = new Date()) {
   const step = COMBO_STEPS[Math.max(0, Math.min(comboCount, COMBO_STEPS.length - 1))];
   return step * fade(state.day.taps, 40, 120) * boost(state, now);
+}
+
+/** The same for tapping a grammar example to hear it: the same combo chain, faded by the day's own
+ * count of examples heard (so listening and looking words up never eat into each other). */
+export function hearMultiplier(state, comboCount, now = new Date()) {
+  const step = COMBO_STEPS[Math.max(0, Math.min(comboCount, COMBO_STEPS.length - 1))];
+  const heard = Array.isArray(state.day.heard) ? state.day.heard.length : 0;
+  return step * fade(heard, HEAR_DAY[0], HEAR_DAY[1]) * boost(state, now);
+}
+
+/** A short, steady key for a piece of text (a grammar example can be a whole sentence): kept in the
+ * day's list instead of the text itself, so the saved game stays small. */
+export function hearKey(text) {
+  const s = String(text ?? "").normalize("NFC").replace(/\s+/g, " ").trim();
+  if (!s) return "";
+  let h = 0x811c9dc5; // FNV-1a, 32 bits
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return `${h.toString(36)}${s.length.toString(36)}`;
+}
+
+/** Carry the study session's combo on to one more lookup (or example heard): the same session and the
+ * same day continue the chain, whatever the time between; anything else starts it again. */
+function chain(ctx, now) {
+  const combo = ctx.combo || { count: 0, at: 0, session: 0 };
+  const session = ctx.session ?? 0;
+  const sameDay = combo.at && new Date(combo.at).toDateString() === now.toDateString();
+  combo.count = sameDay && combo.session === session ? combo.count + 1 : 0;
+  combo.at = now.getTime();
+  combo.session = session;
+  return combo.count;
 }
 
 function grant(state, tag) {
@@ -302,6 +337,8 @@ function payBoth(state) {
  *         {type: "review", cleared}      a card was answered in the vocab reviewer (`cleared`: none is left due)
  *         {type: "grammar", key, right, of, first}  a grammar lesson's practice was finished (`first`: never
  *                                        done before), or a mixed review (key "review:<day>")
+ *         {type: "hear", key}            a grammar example was tapped to hear it (key: its language and text)
+ *         {type: "basics", keys}         words of a basics course were put in the cards (keys: "ar:12", …)
  * `ctx` carries {rand, now (Date), session (this study session's number), combo: {count, at, session}}
  * so the outcome is reproducible in tests.
  */
@@ -319,18 +356,13 @@ export function earn(state, event, ctx = {}) {
     day.words.push(key);
     state.stats.lookups++;
     const reward = rollReward(rand);
-    const combo = ctx.combo || { count: 0, at: 0, session: 0 };
-    const session = ctx.session ?? 0;
     // The same session and the same day: the chain goes on, whatever the time between lookups.
-    const sameDay = combo.at && new Date(combo.at).toDateString() === now.toDateString();
-    combo.count = sameDay && combo.session === session ? combo.count + 1 : 0;
-    combo.at = now.getTime();
-    combo.session = session;
-    out.combo = COMBO_STEPS[Math.min(combo.count, COMBO_STEPS.length - 1)];
+    const count = chain(ctx, now);
+    out.combo = COMBO_STEPS[Math.min(count, COMBO_STEPS.length - 1)];
     out.tier = reward.tier;
     out.item = reward.item;
     out.base = reward.xp;                                // what was rolled, before any multiplier
-    out.mult = wordMultiplier(state, combo.count, now);  // base x mult = xp (rounded): what the popup shows
+    out.mult = wordMultiplier(state, count, now);        // base x mult = xp (rounded): what the popup shows
     out.xp = Math.round(out.base * out.mult);
     day.taps++;
     if (out.item) state.items[out.item] = (state.items[out.item] || 0) + 1;
@@ -393,6 +425,45 @@ export function earn(state, event, ctx = {}) {
     state.stats.grammar = (state.stats.grammar || 0) + 1;
     if (!out.xp) return null;
     out.stage = grow(state, out.xp, "reader");
+  } else if (event.type === "hear") {
+    // A grammar lesson's example (a word, a sentence, a line of a conversation) tapped to hear it. Like
+    // a card in the reviewer it pays a quarter of a lookup's roll, without surprise items; like a lookup
+    // it carries the session's combo on and pays once a day for each example, so tapping the same one
+    // again and again earns nothing. Its own count fades it through the day.
+    if (!Array.isArray(day.heard)) day.heard = [];
+    const key = hearKey(event.key);
+    if (!key || day.heard.includes(key)) return null;
+    if (!fade(day.heard.length, HEAR_DAY[0], HEAR_DAY[1])) return null; // the day's listening has paid all it can
+    const roll = rollReward(rand);
+    const count = chain(ctx, now);
+    out.combo = COMBO_STEPS[Math.min(count, COMBO_STEPS.length - 1)];
+    out.tier = roll.tier === "surprise" ? "common" : roll.tier;
+    out.base = Math.max(1, Math.round(roll.xp * HEAR_SHARE));
+    out.mult = hearMultiplier(state, count, now);
+    out.xp = Math.max(1, Math.round(out.base * out.mult));
+    day.heard.push(key);
+    state.stats.heard = (state.stats.heard || 0) + 1;
+    out.stage = grow(state, out.xp, "listener");
+  } else if (event.type === "basics") {
+    // Words of a basics course put in the cards (one "Add", or "Add all"): BASICS_XP each, the same
+    // whether added one by one or all at once, for at most BASICS_DAY_CAP words a day. A word pays once
+    // a day (deleting a card and adding it again pays nothing); words already in the cards are never
+    // sent (the course leaves them out). No combo and no coins: it is one tap from a ready-made list.
+    if (!Array.isArray(day.basics)) day.basics = [];
+    const keys = [...new Set([].concat(event.keys ?? event.key ?? []).map((k) => String(k ?? "").trim()).filter(Boolean))];
+    let paid = 0;
+    for (const k of keys) {
+      if (day.basics.length >= BASICS_DAY_CAP) break;
+      if (day.basics.includes(k)) continue;
+      day.basics.push(k);
+      paid++;
+    }
+    if (!paid) return null;
+    out.words = paid;
+    out.tier = paid >= 10 ? "lucky" : "common"; // (a whole unit gets the bigger fountain)
+    out.xp = Math.round(paid * BASICS_XP * boost(state, now));
+    state.stats.basics = (state.stats.basics || 0) + paid;
+    out.stage = grow(state, out.xp, "collector");
   } else {
     return null;
   }
@@ -547,7 +618,7 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
   const answer = Math.floor(rand() * 4);
   const options = others.slice();
   options.splice(answer, 0, right);
-  return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || ""), options, answer, reverse };
+  return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || "").replace(/[⟦⟧]/gu, ""), options, answer, reverse };
 }
 
 /** Record an answer. Returns {xp, graduated, retentionBonus, stage}. */

@@ -39,6 +39,8 @@ import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, sync
 import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
+import { offerFix } from "./components/fixit.js";
+import { placeToast } from "./toaster.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { voiceTimes } from "./cardvoice.js";
 import { vocabDeck } from "./anki-export.js";
@@ -175,20 +177,38 @@ export function emit(event, data) {
 }
 
 // ---------- toasts ----------
-export function toast(message, { error = false, action, timeout = 4000 } = {}) {
-  const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
-  el.firstChild.textContent = message;
-  if (action) {
-    const b = h(`<button type="button"></button>`);
-    b.textContent = action.label;
-    b.onclick = () => { action.run(); el.remove(); };
-    el.append(b);
-  }
-  document.getElementById("toasts").append(el);
-  setTimeout(() => el.remove(), error ? timeout * 2 : timeout);
-  return el; // (so a message already on screen isn't shown again on top of itself: voiceplay.js)
+/** A short message at the bottom of the screen. A problem the learner can fix (a permission, a key or a
+ * sign-in in Settings: fixes.js) opens the fix popup instead (components/fixit.js); the same words are
+ * never shown twice at once (toaster.js). `fix: false` keeps it a message whatever it says. */
+export function toast(message, { error = false, action, timeout = 4000, fix = true } = {}) {
+  if (fix && !action && offerFix(message)) return h(`<div class="toast"></div>`); // (not on screen)
+  return placeToast(document.getElementById("toasts"), message, {
+    error, ms: error ? timeout * 2 : timeout,
+    build: () => {
+      const el = h(`<div class="toast${error ? " error" : ""}"><span></span></div>`);
+      el.firstChild.textContent = message;
+      if (action) {
+        const b = h(`<button type="button"></button>`);
+        b.textContent = action.label;
+        b.onclick = () => { action.run(); el.remove(); };
+        el.append(b);
+      }
+      return el;
+    },
+  });
 }
 export function requestNotifications() { /* toasts are used on the phone */ }
+
+/** The system's permissions, for the fix popup (components/fixit.js): which device this is, how a
+ * permission stands ("granted", "prompt": it can still be asked for, "denied": only the system's
+ * settings can switch it back on) and opening those settings: Android's App info for Tamkeen, the
+ * iPhone's Tamkeen page in Settings (GoogleDriveAuthPlugin.java / .swift: permissionState,
+ * openAppSettings). The web app has the browser's own ways (fixit.js). */
+export const systemAccess = {
+  device: () => (isIOS ? "ios" : isNative ? "android" : "web"),
+  state: isNative ? async (name) => (await GoogleDriveAuth.permissionState({ name })).state || "" : null,
+  openSettings: isNative ? async () => !!(await GoogleDriveAuth.openAppSettings()).opened : null,
+};
 
 // ---------- audio ----------
 const objectUrls = new Map();
@@ -286,13 +306,13 @@ let refreshing = false; // a sync the refresh button asked for: the page on scre
  *  syncs and says how it went when it comes back: finishWebSignIn). */
 async function refreshNow() {
   if (!settings.signed_in) {
-    toast("Sign in with Google to keep your library the same on all your devices.", { timeout: 8000, action: { label: "Sign in", run: async () => {
+    offerFix("signin", { run: async () => {
       try {
         const email = await signIn(); // (the web app leaves for Google's page here)
         toast(`Signed in as ${email}`);
         syncNow();
       } catch (e) { toast(e.message, { error: true }); }
-    } } });
+    } });
     return null;
   }
   if (isWeb && webPassLeft() < 60 * 1000) {
@@ -1368,8 +1388,8 @@ async function boot() {
         if (went) return;
         chip.hidden = false;
         if (told || !quietFailedLately()) return; // the app will hop by itself soon: nothing to say
-        told = true; // Google wants a tap: say so once per visit
-        toast("Your Google connection needs renewing.", { timeout: 8000, action: { label: "Reconnect Google", run: () => chip.click() } });
+        told = true; // Google wants a tap: say so once per visit, in the fix popup
+        offerFix("reconnect", { run: () => chip.click() });
       });
     });
     window.addEventListener("hashchange", () => { if (!chip.hidden) setTimeout(renewQuietly, 400); });

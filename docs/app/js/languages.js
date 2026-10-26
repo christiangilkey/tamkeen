@@ -419,6 +419,45 @@ function deviceBreaker(code) {
   return code === "th" ? { segment: (text) => joinThai(seg.segment(text)) } : seg;
 }
 
+const WORD_EDGE = /[\p{L}\p{N}\p{M}]/u;
+/** [from, to) of `text`'s part from..to without the punctuation at its ends; null when it has no letters. */
+function wordPart(text, from, to) {
+  while (from < to && !WORD_EDGE.test(text[from])) from++;
+  while (to > from && !WORD_EDGE.test(text[to - 1])) to--;
+  return to > from ? [from, to] : null;
+}
+
+/**
+ * Where the words of `text` (in language `code`) are: [[from, to), ...] in order, without the spaces
+ * and the punctuation round them. Japanese, Chinese and Thai are cut the way the players cut them (a
+ * dictionary's splitter once it is loaded, else the device's word breaker); the other languages at
+ * their spaces, so a word keeps what is written onto it (l'école, الكتاب, 학교에). For holding a word
+ * on a review card.
+ */
+export function wordRanges(text, code) {
+  text = String(text ?? "");
+  const out = [];
+  if (langInfo(code).unspaced) {
+    let parts = null;
+    try {
+      const custom = splitters.get(code);
+      if (custom) parts = custom.split(text);
+      else if (typeof Intl !== "undefined" && Intl.Segmenter) parts = [...deviceBreaker(code).segment(text)];
+    } catch { parts = null; }
+    if (!parts) parts = [...text].map((segment, i, all) => ({ segment, index: all.slice(0, i).join("").length }));  // no word breaker: letter by letter
+    for (const p of parts) {
+      const part = LETTERS.test(p.segment) && wordPart(text, p.index, p.index + p.segment.length);
+      if (part) out.push(part);
+    }
+    return out;
+  }
+  for (const m of text.matchAll(/\S+/gu)) {
+    const part = wordPart(text, m.index, m.index + m[0].length);
+    if (part) out.push(part);
+  }
+  return out;
+}
+
 /**
  * Japanese, Chinese and Thai: turn the pieces a transcript or page was stored as into real words.
  *
