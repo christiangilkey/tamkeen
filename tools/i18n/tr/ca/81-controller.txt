@@ -1,0 +1,82 @@
+5d09aa46	Botó de baix
+950b437d	Botó d'espatlla esquerre
+89c030f3	Creueta amunt
+07a5fffb	Palanca esquerra cap a la dreta
+62a27597	Palanca dreta avall
+b0827a06	Cap comandament connectat
+103788f3	{0} connectat
+a36a5ffa	Comandament
+301e3f5c	Comandament de {0}
+fd281615	Comandaments
+ab28ab13	Com connectar un comandament
+ea7871ca	Connecta el comandament amb un cable USB, o vincula'l per Bluetooth a la configuració del teu dispositiu (a Windows: Configuració → Bluetooth i dispositius; a Android: Configuració → Dispositius connectats; en un Mac: Configuració del Sistema → Bluetooth).
+f85631cb	Amb el Tamkeen obert, prem qualsevol botó del comandament. El Tamkeen només veu un comandament després que se n'hagi premut un botó.
+7346c177	Obre un vídeo o les teves targetes de repàs i fes-lo servir. Els botons de sota diuen què fa cadascun allà.
+5a569af7	Funcionen els comandaments d'Xbox, PlayStation i Nintendo Switch Pro, i la majoria dels altres. Els botons es diuen com estan impresos al comandament connectat.
+4828e783	Aquest navegador no pot llegir comandaments de joc.
+7c052eae	Cap comandament connectat. Connecta'n un i prem qualsevol dels seus botons.
+9571f794	Aquí els seus botons no tenen una disposició estàndard, així que van numerats.
+05157447	Torna als valors per defecte
+c0d7b263	Prem aquí i després un botó del comandament
+15d37ee2	Cap botó per a això
+719ea396	Treu
+bea69211	Torna al botó per defecte
+93039e60	Sense assignar
+990d967b	{0} ja no fa «{1}».
+ade59116	Prem un botó…
+e73a14ad	Últim botó premut: {0}
+d60513ef	Un comandament de joc per als vídeos i les targetes de repàs: tria què fa cada botó.
+cdf6a886	Connectar un comandament de joc
+c6f88705	Botons del comandament per als vídeos
+c9a71c99	Botons del comandament per a les targetes de repàs
+5e2745e8	Mirant vídeos
+4758da15	Pòdcasts, YouTube, Netflix, els teus vídeos i els reels.
+a40a5ef7	Estudiant targetes
+988d30b4	Les targetes de repàs de la pàgina Vocabulari.
+2f2b74b5	A tot arreu
+efeb8793	Moure's per l'app: també a les pantalles de dalt, per als botons que no fan servir.
+decd52e0	Línia anterior
+56b52248	Línia següent
+862bd9b2	Torna a sentir aquesta línia
+0fb3f212	Repeteix aquesta línia (sí / no)
+43c98408	Més a poc a poc (sí / no)
+2b594949	Busca la paraula que s'està dient
+852e0495	Desa la paraula de la finestra
+8bc35ab4	Subtítols sobre el vídeo (sí / no)
+b4c402c6	Tauler de la transcripció (obre / tanca)
+58fd357f	Reprodueix la paraula
+7cf414e1	Reprodueix la frase
+695a32ae	Digues-la (practica com es diu)
+931bac1c	Acaba la sessió
+03889841	Enrere / tanca
+82d366b2	Prem el botó ressaltat
+b4d701e3	Mou el ressaltat amunt
+c9259f28	Mou el ressaltat avall
+923d114c	Mou el ressaltat a l'esquerra
+28ef371c	Mou el ressaltat a la dreta
+4d07e752	Desplaça amunt
+3a2e1ba7	Desplaça avall
+afcc0121	Ves a les pestanyes principals
+68190bf4	Botó de la dreta
+35e429d0	Botó de l'esquerra
+1b5d2ed4	Botó de dalt
+bc6fb2a7	Prémer la palanca esquerra
+da4e3b8d	Prémer la palanca dreta
+84cc9318	Botó d'espatlla dret
+e648a480	Gallet esquerre
+fe5adc09	Gallet dret
+85982229	Select
+0a4c74b7	Creueta avall
+32e2becc	Creueta esquerra
+6e71db01	Creueta dreta
+c0fe7a0e	Palanca esquerra cap a l'esquerra
+342bb24a	Palanca esquerra amunt
+54f08740	Palanca dreta cap a l'esquerra
+bd6b69d2	Palanca dreta amunt
+a5c1a0ff	Botó {0}
+b6e23ef8	Eix {0} {1}
+d6ed4349	Més a poc a poc: {0}×
+087fae4e	Altra vegada a {0}×
+b90b39b7	Botons del comandament a tot arreu
+b44ac93c	Gira la targeta i després Recordada
+6eaf5d7f	No recordada

@@ -1,0 +1,82 @@
+5d09aa46	Ubos nga button
+950b437d	Wala nga bumper
+89c030f3	D-pad pataas
+07a5fffb	Wala nga stick paingon sa tuo
+62a27597	Tuo nga stick paubos
+b0827a06	Walay nakakonektar nga controller
+103788f3	Nakakonektar ang {0}
+a36a5ffa	Controller
+301e3f5c	{0} controller
+fd281615	Mga controller
+ab28ab13	Unsaon pagkonektar og controller
+ea7871ca	Isaksak ang controller gamit ang USB cable, o i-pair kini sa Bluetooth sa settings sa imong device (sa Windows: Settings → Bluetooth & devices; sa Android: Settings → Connected devices; sa Mac: System Settings → Bluetooth).
+f85631cb	Samtang abli ang Tamkeen, pislita ang bisan unsang button sa controller. Makita ra sa Tamkeen ang controller human mapislit ang usa sa mga button niini.
+7346c177	Abliha ang usa ka video o ang imong mga review card ug gamita kini. Ang mga button sa ubos nagsulti kon unsa ang buhaton sa matag usa didto.
+5a569af7	Mogana ang mga controller sa Xbox, PlayStation ug Nintendo Switch Pro, ug kadaghanan sa uban pa. Ang mga button ginganlan sumala sa nakaimprinta sa nakakonektar nga controller.
+4828e783	Dili mabasa niining browser ang mga game controller.
+7c052eae	Walay nakakonektar nga controller. Pagkonektar og usa, dayon pislita ang bisan unsang button niini.
+9571f794	Walay naandan nga han-ay ang mga button niini dinhi, mao nga may numero kini.
+05157447	Ibalik sa default
+c0d7b263	Pislita kini, dayon pislita ang usa ka button sa controller
+15d37ee2	Walay button para niini
+719ea396	Kuhaa
+bea69211	Ibalik sa default nga button
+93039e60	Wala pa gitakda
+990d967b	Dili na buhaton sa {0} ang “{1}”.
+ade59116	Pislit og button…
+e73a14ad	Kataposang gipislit nga button: {0}
+d60513ef	Usa ka game controller para sa mga video ug review card: pilia kon unsa ang buhaton sa matag button.
+cdf6a886	Pagkonektar og game controller
+c6f88705	Mga button sa controller para sa mga video
+c9a71c99	Mga button sa controller para sa mga review card
+5e2745e8	Samtang nagtan-aw og video
+4758da15	Mga podcast, YouTube, Netflix, imong kaugalingong mga video ug mga reel.
+a40a5ef7	Samtang nagtuon sa mga card
+988d30b4	Ang mga review card sa Vocab page.
+2f2b74b5	Bisan asa
+efeb8793	Paglihok sulod sa app: apil sa mga screen sa ibabaw, para sa mga button nga wala nila gamita.
+decd52e0	Miaging linya
+56b52248	Sunod nga linya
+862bd9b2	Paminawa pag-usab kining linyaha
+0fb3f212	Balik-balika kining linyaha (on / off)
+43c98408	Hinayhinaya (on / off)
+2b594949	Pangitaa ang pulong nga gilitok karon
+852e0495	I-save ang pulong sa popup
+8bc35ab4	Captions sa video (on / off)
+b4c402c6	Panel sa transcript (ablihi / sirhi)
+58fd357f	I-play ang pulong
+7cf414e1	I-play ang sentence
+695a32ae	Isulti (pagbansay sa paglitok)
+931bac1c	Tapusa ang session
+03889841	Balik / sirhi
+82d366b2	Pislita ang naka-highlight nga button
+b4d701e3	Ibalhin pataas ang highlight
+c9259f28	Ibalhin paubos ang highlight
+923d114c	Ibalhin pawala ang highlight
+28ef371c	Ibalhin patuo ang highlight
+4d07e752	Pag-scroll pataas
+3a2e1ba7	Pag-scroll paubos
+afcc0121	Adto sa mga nag-unang tab
+68190bf4	Tuo nga button
+35e429d0	Wala nga button
+1b5d2ed4	Ibabaw nga button
+bc6fb2a7	Pislit sa wala nga stick
+da4e3b8d	Pislit sa tuo nga stick
+84cc9318	Tuo nga bumper
+e648a480	Wala nga trigger
+fe5adc09	Tuo nga trigger
+85982229	Select
+0a4c74b7	D-pad paubos
+32e2becc	D-pad pawala
+6e71db01	D-pad patuo
+c0fe7a0e	Wala nga stick pawala
+342bb24a	Wala nga stick pataas
+54f08740	Tuo nga stick pawala
+bd6b69d2	Tuo nga stick pataas
+a5c1a0ff	Button {0}
+b6e23ef8	Axis {0} {1}
+d6ed4349	Gihinayan ngadto sa {0}×
+087fae4e	Balik sa {0}×
+b90b39b7	Mga button sa controller bisan asa
+b44ac93c	Balihon ang card, dayon Nahinumdoman
+6eaf5d7f	Wala mahinumdomi

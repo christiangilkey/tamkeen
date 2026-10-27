@@ -656,6 +656,8 @@ const routes = [
   ["POST", /^\/pages$/, (m, q, body) => savePage(body)],
   // Sites saved for quick access (the Library's Web page screen, pages/websites.js; the browser's
   // star): kept in settings, and they travel by Drive sync. The computer's twin is app/api/media.py.
+  // Every setting, as the computer's GET /settings gives them (shared pages read one or two: gamepad.js, grammarpanel.js).
+  ["GET", /^\/settings$/, () => ({ ...settings })],
   ["GET", /^\/browser\/sites$/, () => ({ sites: savedSites(settings.browser_sites) })],
   ["POST", /^\/browser\/sites$/, async (m, q, body) => {
     const site = typedSite(body.url, body.title);

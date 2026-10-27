@@ -36,6 +36,7 @@ import { isIOS, isNative, isWeb } from "../native.js";
 import { settings } from "../store.js";
 import { syncNow, syncState } from "../sync.js";
 import { resetTours } from "../components/tour.js";
+import { controllerSection, controllerSummary } from "../components/controllerpanel.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
 
 const android = !isIOS && !isWeb; // AnkiDroid is an Android thing
@@ -94,6 +95,7 @@ function home(view) {
         return { text: "Your computer writes the transcripts" };
       },
       voices: async () => voiceSummary(s, { waiting: waitingForComputer(await api("/vocab"), cardLanguage).count }),
+      controller: () => controllerSummary(),
       look: () => [{ text: isWeb ? THEME_LINE.dark : THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: () => {
         if (!s.signed_in) return { text: "Google Drive: not connected" };
@@ -117,7 +119,7 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, voices, look, account, apps, data };
+const BUILD = { languages, words, listening, voices, look, controller: controllerSection, account, apps, data };
 
 function languages(body) {
   const s = settings;

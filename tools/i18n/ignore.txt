@@ -384,3 +384,13 @@ c084abda  # That grammar course hasn't been made yet. (app/grammar.py: a 404 the
 18ed69a4  # <{0} class="gx" data-say="{1}" ...  (grammarpanel.js example: a tag, not words)
 # A card's source from a course (web/js/coursedata.js): "Arabic basics · word 13". markUpdates finds course cards by it, so it stays as written.
 eb78e84b  # {0} · word
+# Game controllers (padmap.js, gamepad.js): what a controller has printed on it, a CSS selector, programmer errors.
+111dd730  # a[href], button, input, select, textarea, summary, [tabindex]… (gamepad.js FOCUSABLE)
+6c909909  # Unknown action {0}/{1}
+79679f69  # Unknown input {0}
+288e674a  # Xbox
+ec84a049  # Nintendo Switch
+57f5f5ef  # Menu (the Xbox button's printed name)
+6bf5da9c  # Options (the PlayStation button's printed name)
+45f63dab  # Xbox button
+315f8eb3  # PS button
