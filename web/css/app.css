@@ -17,6 +17,42 @@
   unicode-range: U+0600-06FF, U+0750-077F, U+200C-200F, U+2010-2011, U+FB50-FDFF, U+FE70-FEFC;
 }
 
+/* The app's own words: Figtree for text, Rubik for page titles and the numbers worth celebrating (streaks, XP,
+   cards to review). Both SIL Open Font License (licenses/figtree.txt, licenses/rubik.txt), Latin letters only:
+   other alphabets keep the fonts after them in --ui-font. Any weight 300-900. */
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-latin-ext.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-latin-ext.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --bg: #f6f4f1;
   --surface: #ffffff;
@@ -36,8 +72,10 @@
   --phrase: #c9e6ea;
   --shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .06);
   --radius: 14px;
+  /* Headings and celebrated numbers (see the @font-face rules above). */
+  --display-font: "Rubik", var(--ui-font);
   --ar-size: 26px;
-  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
+  --ui-font: "Figtree", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
     Roboto, "Helvetica Neue", Arial, sans-serif;
   /* Tamkeen's identity, taken from the logo: plum-to-teal gradient, gold wordmark. */
   --brand-plum: #360032;
@@ -111,6 +149,13 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { display: block; }
 h1, h2, h3 { margin: 0 0 .5em; line-height: 1.25; }
+/* Rubik: page titles and the numbers worth celebrating; a medium weight so it looks confident, not like a toy.
+   Smaller headings and labels stay in Figtree. Numbers keep a fixed width so a changing count doesn't jiggle. */
+h1, h2, .display-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .chip-xp, .review-banner strong,
+.caught-up-title, .caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
+  font-family: var(--display-font); font-variant-numeric: tabular-nums;
+}
+h1, h2 { font-weight: 600; letter-spacing: -.005em; }
 h1 { font-size: 22px; }
 h2 { font-size: 17px; }
 h3 { font-size: 15px; }
@@ -124,12 +169,12 @@ p { margin: 0 0 .75em; }
 :lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
 :lang(fa) { --ar-font: "Vazirmatn", "Segoe UI", "Noto Sans Arabic", "Noto Naskh Arabic", "Geeza Pro", Tahoma, sans-serif; }
 /* The app shown in Persian: its own words in Vazirmatn too (Latin letters keep the usual font). */
-:root:lang(fa) { --ui-font: "Vazirmatn", ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui,
+:root:lang(fa) { --ui-font: "Vazirmatn", "Figtree", "Segoe UI Variable Text", "Segoe UI", system-ui,
   -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
 /* Hindi (Devanagari): Windows, Apple, Android/Linux fonts. With the interface in Hindi, its text uses them too. */
 :lang(hi) { --ar-font: "Nirmala UI", "Kohinoor Devanagari", "Devanagari Sangam MN", "Noto Sans Devanagari", "Mangal", sans-serif; }
 :root:lang(hi) {
-  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
+  --ui-font: "Figtree", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
     "Noto Sans Devanagari", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 :lang(ko) { --ar-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic", sans-serif; }
