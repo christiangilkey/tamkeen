@@ -2,7 +2,7 @@
 // (The Android app provides its own version of this file with native HTTP and local storage.)
 
 import { api, state } from "./app.js";
-import { DefinerError, askJson, definerModeOf, dictionaryFirst, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
+import { DefinerError, askJson, askMnemonicJson, definerModeOf, dictionaryFirst, lookup, rememberAnswer, PROVIDERS } from "./definer.js";
 import { dictionaryDefine, downloadMeanings } from "./meanings.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 
@@ -31,8 +31,9 @@ const relay = async (req) => api("/llm/relay", { method: "POST", body: req });
 
 /** A small JSON answer from the learner's AI (see definer.askJson), through the same relay. */
 export const askAi = (prompt) => (noAi() ? aiOff() : askJson(definerConfig(), prompt, relay));
-/** The same for the review card's Mnemonic maker, with its own model and thinking (Settings). */
-export const askMnemonic = (prompt) => (noAi() ? aiOff() : askJson(mnemonicConfig(definerConfig(), state.status && state.status.settings), prompt, relay));
+/** The same for the review card's Mnemonic maker, with its own model and thinking (Settings), and the
+ * lookups' model when the key can't use the recommended one (definer.askMnemonicJson). */
+export const askMnemonic = (prompt) => (noAi() ? aiOff() : askMnemonicJson(definerConfig(), state.status && state.status.settings, prompt, relay));
 
 /**
  * Definition for ctx (see definer.define), from the cache when possible.

@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	As palavras de som parecido no verso de um cartão de revisão, cada uma com uma imagem para o significado. Usa a mesma chave; pensar menos responde mais rápido.
+887b7f56	{0} (recomendado)
+9bdce1a1	Cada toque custa bem menos de um centavo de dólar.
+67e06558	Cada toque custa cerca de um centavo de dólar.
+a8665558	Cada toque custa cerca de {0} centavos de dólar.
+aaf7b28e	Guardada em Notas pessoais
+0c3e5d90	Guardar em Notas pessoais
+7709c8d3	Esta não: nunca mais sugerir para esta palavra
+febeb00d	Esta não
+20be8cae	Soa parecida com a palavra
+12197aa2	Muito parecida
+8da4f709	Soa como uma parte da palavra, ou mais ou menos como ela
+5d99bc5d	Parecida em parte
+48c1ab45	Combina com o significado
+56732347	Você recusou todas. Toque em Criar mais 5 para ver novas.
+6657e44b	Nenhuma palavra-chave nova soou parecida o bastante com a palavra. Toque em Criar mais 5 para tentar de novo.
+74971885	Palavras do seu idioma com som parecido, cada uma com uma imagem para o significado. O polegar para cima guarda uma em Notas pessoais; o polegar para baixo a descarta de vez.
+0f212aca	Desta vez não foi possível conferir o som delas.
+91eb1b29	Só 1 palavra-chave soou parecida o bastante para ser mostrada.
+b668e8b3	Só {0} palavras-chave soaram parecidas o bastante para serem mostradas.
+2f3a0211	Como soa

@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Le parole dal suono simile sul retro di una scheda di ripasso, ognuna con un'immagine per il significato. Usa la stessa chiave; meno ragionamento risponde prima.
+887b7f56	{0} (consigliato)
+9bdce1a1	Ogni pressione costa molto meno di un centesimo di dollaro.
+67e06558	Ogni pressione costa circa un centesimo di dollaro.
+a8665558	Ogni pressione costa circa {0} centesimi di dollaro.
+aaf7b28e	Salvata in Note personali
+0c3e5d90	Salvala in Note personali
+7709c8d3	Non questa: non suggerirla più per questa parola
+febeb00d	Non questa
+20be8cae	Suona vicina alla parola
+12197aa2	Molto simile
+8da4f709	Suona come una parte della parola, o più o meno come lei
+5d99bc5d	Simile in parte
+48c1ab45	Si adatta al significato
+56732347	Le hai scartate tutte. Premi Creane altre 5 per averne di nuove.
+6657e44b	Nessuna nuova parola chiave suonava abbastanza simile alla parola. Premi Creane altre 5 per riprovare.
+74971885	Parole della tua lingua dal suono simile, ognuna con un'immagine per il significato. Il pollice in su ne salva una in Note personali; il pollice in giù la scarta per sempre.
+0f212aca	Questa volta non è stato possibile verificarne il suono.
+91eb1b29	Solo 1 parola chiave suonava abbastanza simile da mostrarla.
+b668e8b3	Solo {0} parole chiave suonavano abbastanza simili da mostrarle.
+2f3a0211	Come suona

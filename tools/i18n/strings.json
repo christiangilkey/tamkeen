@@ -2320,8 +2320,8 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "fa76400f",
-  "k": "The sound-alike words on the back of a review card. It uses the same key; less thinking answers sooner.",
+  "id": "7a2b85cf",
+  "k": "The sound-alike words on the back of a review card, each with a picture for the meaning. It uses the same key; less thinking answers sooner.",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -2410,8 +2410,8 @@
   "f": "web/js/components/aisetup.js"
  },
  {
-  "id": "c16dec45",
-  "k": "{0} (fastest, recommended)",
+  "id": "887b7f56",
+  "k": "{0} (recommended)",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -2422,6 +2422,21 @@
  {
   "id": "9693b227",
   "k": "This model doesn't take a thinking setting.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "9bdce1a1",
+  "k": "Each press costs well under one US cent.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "67e06558",
+  "k": "Each press costs about one US cent.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "a8665558",
+  "k": "Each press costs about {0} US cents.",
   "f": "web/js/components/aisetup.js"
  },
  {
@@ -13615,13 +13630,83 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "aaf7b28e",
+  "k": "Kept in Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "0c3e5d90",
+  "k": "Keep it in Personal notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7709c8d3",
+  "k": "Not this one: never suggest it for this word again",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "febeb00d",
+  "k": "Not this one",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "20be8cae",
+  "k": "It sounds close to the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "12197aa2",
+  "k": "Close match",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "8da4f709",
+  "k": "It sounds like part of the word, or roughly like it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "5d99bc5d",
+  "k": "Partial match",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "48c1ab45",
+  "k": "Fits the meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "56732347",
+  "k": "You turned them all down. Press Make 5 more for new ones.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "d878e2e3",
   "k": "Make 5 more",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "b624b721",
-  "k": "{0} words that sound like it and hint at its meaning: copy one into Personal notes and picture it with the meaning.",
+  "id": "6657e44b",
+  "k": "No new keywords sounded close enough to the word. Press Make 5 more to try again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "74971885",
+  "k": "{0} words that sound like it, each with a picture for its meaning. Thumbs up keeps one in Personal notes; thumbs down drops it for good.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "0f212aca",
+  "k": "Their sound couldn't be checked this time.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "91eb1b29",
+  "k": "Only 1 keyword sounded close enough to show.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "b668e8b3",
+  "k": "Only {0} keywords sounded close enough to show.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -13687,6 +13772,11 @@
  {
   "id": "887fed4a",
   "k": "A mnemonic, a picture, where you heard it…",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "2f3a0211",
+  "k": "How it sounds",
   "f": "web/js/pages/review.js"
  },
  {

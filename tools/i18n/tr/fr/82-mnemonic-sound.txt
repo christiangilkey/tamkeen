@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Les mots qui sonnent pareil au dos d'une carte de révision, chacun avec une image pour le sens. Il utilise la même clé ; moins de réflexion répond plus vite.
+887b7f56	{0} (recommandé)
+9bdce1a1	Chaque appui coûte bien moins d'un centime de dollar.
+67e06558	Chaque appui coûte environ un centime de dollar.
+a8665558	Chaque appui coûte environ {0} centimes de dollar.
+aaf7b28e	Gardé dans Notes personnelles
+0c3e5d90	Le garder dans Notes personnelles
+7709c8d3	Pas celui-ci : ne plus jamais le proposer pour ce mot
+febeb00d	Pas celui-ci
+20be8cae	Il sonne presque comme le mot
+12197aa2	Très proche
+8da4f709	Il sonne comme une partie du mot, ou à peu près comme lui
+5d99bc5d	Proche en partie
+48c1ab45	Colle au sens
+56732347	Vous les avez tous refusés. Appuyez sur En créer 5 de plus pour en avoir de nouveaux.
+6657e44b	Aucun nouveau mot-clé ne sonnait assez comme le mot. Appuyez sur En créer 5 de plus pour réessayer.
+74971885	Des mots de votre langue qui sonnent comme lui, chacun avec une image pour son sens. Le pouce levé en garde un dans Notes personnelles ; le pouce baissé l'écarte pour de bon.
+0f212aca	Leur son n'a pas pu être vérifié cette fois.
+91eb1b29	Seul 1 mot-clé sonnait assez proche pour être montré.
+b668e8b3	Seuls {0} mots-clés sonnaient assez proches pour être montrés.
+2f3a0211	Comment il se prononce
