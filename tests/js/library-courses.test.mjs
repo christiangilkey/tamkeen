@@ -14,12 +14,14 @@ test("Courses is the Library's first kind", () => {
   const keys = [...kinds.matchAll(/key: "(\w+)"/g)].map((m) => m[1]);
   assert.equal(keys[0], "courses");
   assert.equal(keys[1], "podcasts");
-  assert.match(kinds, /key: "courses"[^}]*href: "#\/library"/);
+  assert.match(kinds, /key: "courses"[^}]*href: "#\/library\?show=courses"/);
   assert.match(kinds, /key: "podcasts"[^}]*href: "#\/library\?show=podcasts"/);
 });
 
-test("the Library opens on Courses; a podcast's own page still counts as Podcasts", () => {
-  assert.match(library, /let kind = [^;]*: feedId \? "podcasts" : "courses";/);
+test("the Library tab opens on the kind chosen last time (Courses at first); a podcast's own page still counts as Podcasts", () => {
+  assert.match(library, /let kind = [^;]*: feedId \? "podcasts"\s*: \[\.\.\.query\.keys\(\)\]\.length \? "courses" : lastKind\(\);/);
+  assert.match(library, /return KINDS\.some\(\(x\) => x\.key === k\) \? k : "courses";/);
+  assert.match(library, /localStorage\.setItem\(LAST_KIND_KEY, kind\)/);
   assert.match(library, /\|\| \{ key: "podcasts" \}\)\.key/);
 });
 

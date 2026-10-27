@@ -14,6 +14,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** The Library tab opens on the kind you were last looking at (Courses, Podcasts, YouTube, Reels…) instead of always on Courses.
+- **Improved:** On a phone, the word popup's buttons in the players and reels are tidier: Word, Sentence, Continue and Add audio show just their icons (the sentence one now has its own icon), and Save keeps its word.
+- **Fixed:** On a phone, the reels page squeezed each reel's name and caption into a column one word wide, in both "Tick the reels you want" and the list of your reels. They now use the whole width, with "Already in your reels" under the caption and Watch / Delete under the title.
+
 ## v0.39.0 — 2026-10-27
 
 - **Improved:** The Mnemonic maker on the back of a review card makes much better sound-alikes. It first works out how the word is really said (from the vowel marks, kana, pinyin or romanization the app already knows, in the Arabic dialect or country you chose) and shows it as syllables with the stressed one in capitals, like NIY-ya. It then asks for three times as many keywords as it shows and checks how each one sounds itself (for English speakers against a pronouncing dictionary), leaving out ones that don't really sound like the word or aren't real words; when fewer than five pass, only those are shown. Each keyword shows the part of the word it sounds like, **Close match** or **Partial match**, **Fits the meaning** when the keyword itself points to the meaning (those come first), and a one-line picture that ties it to the meaning. Long words also get keywords in parts. Thumbs up puts a keyword and its picture in Personal notes; thumbs down drops it, and it is never suggested for that word again. It now uses a stronger model of your AI provider unless you choose another (at most about 2 US cents a press; Settings → Word definitions → Mnemonic maker shows the cost), and your word-definitions model if your key can't use it.

@@ -155,13 +155,14 @@ async function renderList(view) {
     }
     for (const ep of [...reels].reverse()) { // newest at the top of the list
       const row = h(`<div class="ep reel-row">
-        <div class="ph">${icon("video", 22)}</div>
+        ${ep.image ? `<img src="${esc(ep.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph">${icon("video", 22)}</div>`}
         <div class="info"><div class="title" dir="auto"><a href="#/reels/play?at=${ep.id}"></a></div>
           <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${seen.has(String(ep.id)) ? " · watched" : ""}${needsSignIn(ep) ? " · plays when signed in to Instagram" : ""}</div></div>
         <div class="status"><div class="row"><a class="btn primary" href="#/reels/play?at=${ep.id}">Watch</a>
           <button type="button" class="ghost danger">Delete</button></div></div>
       </div>`);
       row.querySelector(".title a").textContent = ep.title;
+      row.querySelector("img")?.addEventListener("error", (e) => { e.target.replaceWith(h(`<div class="ph">${icon("video", 22)}</div>`)); });
       row.querySelector("button").onclick = async () => {
         try { await api(`/episodes/${ep.id}`, { method: "DELETE" }); row.remove(); } catch (e) { toast(e.message, { error: true }); }
       };

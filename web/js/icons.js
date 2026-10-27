@@ -152,6 +152,8 @@ const PATHS = {
     <path d="M6.5 7.5l.85 11.2a1.6 1.6 0 0 0 1.6 1.5h6.1a1.6 1.6 0 0 0 1.6-1.5l.85-11.2"/><path d="M10.3 11v5.5M13.7 11v5.5"/>`,
   sparkle: `<path class="fill" d="M10 3.5l1.6 4.6 4.6 1.6-4.6 1.6L10 15.9l-1.6-4.6-4.6-1.6 4.6-1.6z"/>
     <path d="M10 3.5l1.6 4.6 4.6 1.6-4.6 1.6L10 15.9l-1.6-4.6-4.6-1.6 4.6-1.6z"/><path d="M17.5 14.5v5.5M14.75 17.25h5.5"/>`,
+  // The word popup's "Sentence" button (play the whole sentence): a speaker beside lines of text.
+  sentence: `<path class="solid" d="M3 9.5v5h2.5L9 17.5v-11L5.5 9.5z"/><path d="M12.5 8h8M12.5 12h8M12.5 16h5.5"/>`,
   list: `<path d="M9.5 7h10M9.5 12h10M9.5 17h10"/><circle class="solid" cx="5" cy="7" r="1.25"/><circle class="solid" cx="5" cy="12" r="1.25"/>
     <circle class="solid" cx="5" cy="17" r="1.25"/>`,
   // "Add words" → Scan: take a photo of a list, or choose a picture of one.
