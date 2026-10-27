@@ -2121,6 +2121,9 @@ html.sel-sheets select { pointer-events: none; }
 .gq-tile .gx-r, .gq-reply .gx-r { font-family: var(--ui-font); font-size: 12.5px; line-height: 1.25; }
 .gq .gq-reply { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .gq-fill-r { margin-top: -6px; }
+/* A common mistake's form with its reading under it. */
+.gm-body { display: flex; flex-direction: column; }
+.gm-body .gx-r { font-family: var(--ui-font); font-size: 13px; }
 
 /* ---------- the fix popup (components/fixit.js) ----------
    A problem the learner can put right: centred on every screen (other boxes rise from the bottom on a

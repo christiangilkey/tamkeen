@@ -27,7 +27,7 @@
       "blocks": [
         {"goal":{"t":"Hi, I'm Laura. I'm from Barcelona.","tr":"Hola, soc la Laura. Soc de Barcelona."}},
         {"dialog":[{"who":"Mike","t":"Hi! I'm Mike.","tr":"Hola! Soc en Mike."},{"who":"Laura","t":"Hi, Mike. I'm Laura.","tr":"Hola, Mike. Jo soc la Laura."},{"who":"Mike","t":"Nice to meet you. Where are you from?","tr":"Encantat. D'on ets?"},{"who":"Laura","t":"I'm from Barcelona. And you?","tr":"Soc de Barcelona. I tu?"},{"who":"Mike","t":"I'm from Chicago.","tr":"Jo soc de Chicago."},{"who":"Laura","t":"Nice to meet you too!","tr":"Igualment, encantada!"}]},
-        {"p":"**Soc, ets.** «Soc» en anglès és {{I am}}, que gairebé sempre s'escurça en {{I'm}}: {{I'm Laura.}} «Soc la Laura.» Per dir el nom també es fa servir {{My name is Laura.}} «Em dic Laura», literalment «el meu nom és Laura»."},
+        {"p":"**Soc i em dic.** «Soc» en anglès és {{I am}}, que gairebé sempre s'escurça en {{I'm}}: {{I'm Laura.}} «Soc la Laura.» Per dir el nom també es fa servir {{My name is Laura.}} «Em dic Laura», literalment «el meu nom és Laura»."},
         {"term":"verb","means":"una paraula que diu què es fa o què passa: menjar, anar, ser."},
         {"term":"subjecte","means":"qui fa l'acció o de qui es parla a la frase: a «La Marta treballa», el subjecte és la Marta."},
         {"p":"**El subjecte, sempre.** En català diem «Soc de Barcelona» sense «jo», perquè la terminació del verb ja diu qui és. L'anglès no pot: el verb gairebé no canvia, i per això el subjecte s'ha de dir sempre. {{I'm from Barcelona.}}, mai {{Am from Barcelona.}}"},
@@ -361,7 +361,7 @@
           ["entre","{{between}}"],
           ["a la dreta, a l'esquerra","{{on the right}}, {{on the left}}"]
         ] },
-        {"p":"**Indicacions.** Es donen amb el verb tal com és, sense subjecte (és l'imperatiu, lliçó 20): {{Go straight.}} «Segueix recte.» {{Turn left.}} «Gira a l'esquerra.» {{Take the first right.}} «Agafa el primer carrer a la dreta.» És l'única vegada que l'anglès deixa el verb sense subjecte."},
+        {"p":"**Indicacions.** Es donen amb el verb tal com és, sense subjecte (és l'imperatiu, lliçó 20): {{Go straight.}} «Segueix recte.» {{Turn left.}} «Gira a l'esquerra.» {{Take the first right.}} «Agafa el primer carrer a la dreta.» És un dels pocs casos en què l'anglès deixa el verb sense subjecte."},
         { "ex": [
           {"t":"The keys are in my bag.","tr":"Les claus són a la meva bossa."},
           {"t":"Your phone is on the table.","tr":"El teu mòbil és a la taula."},
@@ -1109,7 +1109,7 @@
           ["{{stop}}","{{stopped}}","em vaig aturar"]
         ] },
         {"p":"**L'ortografia.** Si el verb acaba en {{-e}}, només {{-d}}: {{live}} → {{lived}}. Una {{-y}} darrere de consonant es torna {{-ied}}: {{study}} → {{studied}}. Una consonant final darrere d'una vocal curta es dobla: {{stop}} → {{stopped}}."},
-        {"p":"**Els tres sons de {{-ed}}.** No es pronuncia mai «ed». Darrere de {{t}} o {{d}} sona «id» i afegeix una síl·laba: {{wanted}}, {{needed}}. Darrere de {{p}}, {{k}}, {{s}}, {{sh}}, {{ch}} sona «t»: {{worked}} «uorkt», {{watched}} «uotxt». Darrere de la resta sona «d»: {{played}} «pleid», {{called}} «cold»."},
+        {"p":"**Els tres sons de {{-ed}}.** No es pronuncia mai «ed». Darrere de {{t}} o {{d}} sona «id» i afegeix una síl·laba: {{wanted}}, {{needed}}. Darrere de {{p}}, {{k}}, {{s}}, {{sh}}, {{ch}} sona «t»: {{worked}} «uorkt», {{watched}} «uotxt». Darrere de la resta sona «d»: {{played}} «pleid», {{called}} «kold»."},
         {"p":"**Quan?** {{yesterday}} «ahir», {{last night}} «ahir a la nit», {{last week}}, {{last summer}}; i {{ago}} «fa», que va darrere: {{two days ago}} «fa dos dies», {{a year ago}} «fa un any»."},
         { "ex": [
           {"t":"I called my mom last night.","tr":"Ahir a la nit vaig trucar a la meva mare."},
@@ -1683,7 +1683,7 @@
           {"t":"I'll help you with your bags.","tr":"Ja t'ajudo amb les maletes."},
           {"t":"You'll love this place!","tr":"Aquest lloc t'encantarà!"}
         ] },
-        {"tip":"{{won't}} «no (farà)» sona «uóunt», amb una «o», i {{want}} «voler» sona «uant», amb una «a»: {{I won't go}} / {{I want to go}}. Escolta bé!"}
+        {"tip":"{{won't}}, la negativa de {{will}}, sona «uóunt», amb una «o», i {{want}} «voler» sona «uant», amb una «a»: {{I won't go}} / {{I want to go}}. Escolta bé!"}
       ],
       "mistakes": [
         {"wrong":"I will to call you.","right":"I'll call you.","tr":"Et trucaré.","why":"Darrere de {{will}}, el verb sense {{to}}."},

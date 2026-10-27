@@ -142,7 +142,7 @@
           {"t":"I'm an engineer.","tr":"من مهندس هستم.","note":"قبل از شغل هم {{a}} یا {{an}}"},
           {"t":"The sun is hot today.","tr":"امروز آفتاب داغ است.","note":"فقط یک خورشید هست: {{the}}"}
         ] },
-        {"tip":"{{the}} قبل از صامت «دِ» و قبل از مصوت «دی» خوانده می‌شود. صدای {{th}} را با نوک زبان میان دندان‌ها بگویید، نه «د» یا «ز»."}
+        {"tip":"{{the}} قبل از صامت کوتاه خوانده می‌شود و قبل از مصوت کشیده، با صدای «ی» در آخرش: {{the book}}، {{the apple}}. صدای {{th}} را با نوک زبان میان دندان‌ها بگویید؛ نه «د» است و نه «ز»، هرچند به هر دو نزدیک است."}
       ],
       "mistakes": [
         {"wrong":"I'm engineer.","right":"I'm an engineer.","tr":"من مهندس هستم.","why":"قبل از شغل {{a}} یا {{an}} لازم است؛ {{engineer}} با صدای مصوت شروع می‌شود، پس {{an}}."},
@@ -218,13 +218,13 @@
         {"term":"ضمیر ملکی","means":"کلمه‌ای که می‌گوید چیزی مال کیست: {{my}}، {{your}}، {{his}}… در فارسی بیشتر به صورت «ـَم، ـَت، ـَش» به اسم می‌چسبد."},
         { "table": [
           ["فارسی","انگلیسی","مثال"],
-          ["ـَم، … ِ من","{{my}}","{{my car}}"],
-          ["ـَت، ـِتان، … ِ تو، … ِ شما","{{your}}","{{your car}}"],
-          ["ـَش، … ِ او (مرد)","{{his}}","{{his car}}"],
-          ["ـَش، … ِ او (زن)","{{her}}","{{her car}}"],
+          ["ـَم، ـِ من","{{my}}","{{my car}}"],
+          ["ـَت، ـِتان، ـِ تو، ـِ شما","{{your}}","{{your car}}"],
+          ["ـَش، ـِ او (مرد)","{{his}}","{{his car}}"],
+          ["ـَش، ـِ او (زن)","{{her}}","{{her car}}"],
           ["ـَش (چیز، حیوان)","{{its}}","{{its color}}"],
-          ["ـِمان، … ِ ما","{{our}}","{{our car}}"],
-          ["ـِشان، … ِ آن‌ها","{{their}}","{{their car}}"]
+          ["ـِمان، ـِ ما","{{our}}","{{our car}}"],
+          ["ـِشان، ـِ آن‌ها","{{their}}","{{their car}}"]
         ] },
         {"p":"**{{his}} یا {{her}}؟** «کیفش» در فارسی برای مرد و زن یکی است. در انگلیسی انتخاب به **صاحب** بستگی دارد: اگر صاحب کیف مرد است {{his bag}}، اگر زن است {{her bag}}. ربطی به خود چیز ندارد."},
         {"p":"**{{'s}} برای اسم‌ها.** بعد از اسم صاحب {{'s}} بگذارید: {{Sara's bag}}، {{my brother's car}} «ماشین برادرم»، {{the teacher's name}} «اسم معلم». برای اسم جمعی که به {{s}} تمام می‌شود فقط {{'}} می‌آید: {{my parents' house}} «خانهٔ پدر و مادرم»."},
@@ -572,12 +572,12 @@
       ],
       "mistakes": [
         {"wrong":"I want a coffee.","right":"I'd like a coffee, please.","tr":"یک قهوه می‌خواهم، لطفاً.","why":"با غریبه‌ها {{I want}} تند است؛ {{I'd like…, please}} مؤدبانه است."},
-        {"wrong":"Can I have a water?","right":"Can I have some water?","tr":"کمی آب می‌دهید؟","why":"{{water}} شمرده نمی‌شود: {{some water}} (یا {{a bottle of water}})."}
+        {"wrong":"Can I have a bread?","right":"Can I have some bread?","tr":"کمی نان می‌دهید؟","why":"{{bread}} شمرده نمی‌شود: {{some bread}} (یا {{a piece of bread}})."}
       ],
       "practice": [
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I'd ___ a tea, please.","tr":"یک چای می‌خواهم، لطفاً.","options":["like","want","have"],"answer":0,"why":"{{I'd like}} مؤدبانهٔ «می‌خواهم» است."},
         {"type":"choice","q":"کدام در کافه مؤدبانه‌تر است؟","options":["{{Can I get a coffee, please?}}","{{I want coffee.}}","{{Give me coffee.}}"],"answer":0,"why":"یک سؤال با {{Can I get…?}} و {{please}}."},
-        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Could I have ___ water, please?","tr":"کمی آب لطف می‌کنید؟","options":["some","a","two"],"answer":0,"why":"{{water}} شمرده نمی‌شود: {{some}}."},
+        {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Could I have ___ bread, please?","tr":"کمی نان لطف می‌کنید؟","options":["some","a","two"],"answer":0,"why":"{{bread}} شمرده نمی‌شود: {{some}}."},
         {"type":"dialogue","q":"در کافه. جمله‌هایتان را انتخاب کنید.","from":"count-things","lines":[{"who":"گارسون","t":"Hi! What can I get you?","tr":"سلام! چه میل دارید؟"},{"options":["I'd like two coffees, please.","I want two coffee."],"answer":0,"why":"{{I'd like}} مؤدب است، و بعد از {{two}} جمع: {{coffees}}."},{"who":"گارسون","t":"Sure. Anything else?","tr":"حتماً. چیز دیگری؟"},{"options":["That's it, thanks.","No want, thanks."],"answer":0,"why":"«همین، ممنون»: {{That's it, thanks.}}"},{"who":"گارسون","t":"For here or to go?","tr":"اینجا میل می‌کنید یا می‌برید؟"},{"options":["For here, please.","Here for, please."],"answer":0,"why":"{{for here}} یعنی «برای اینجا»."}]},
         {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"یک میز برای دو نفر می‌خواهم، لطفاً.","words":["I'd","like","a","table","for","two,","please."]},
         {"type":"say","q":"در رستوران بخواهید: «صورت‌حساب را می‌دهید، لطفاً؟»","answer":"Can I have the check, please?"},
@@ -1134,13 +1134,13 @@
       ],
       "mistakes": [
         {"wrong":"I will to help you.","right":"I'll help you.","tr":"کمکت می‌کنم.","why":"بعد از {{will}} فعل ساده می‌آید، بدون {{to}}."},
-        {"wrong":"The phone is ringing. I'm going to answer it!","right":"The phone is ringing. I'll answer it!","tr":"تلفن زنگ می‌زند. من جواب می‌دهم!","why":"تصمیمی که همین لحظه می‌گیرید: {{will}}."}
+        {"wrong":"I call you tomorrow.","right":"I'll call you tomorrow.","tr":"فردا بهت زنگ می‌زنم.","why":"برای قول دادن {{will}} لازم است؛ حال ساده ({{I call}}) برای عادت است، نه برای آینده."}
       ],
       "practice": [
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Wait, I ___ help you.","tr":"صبر کن، کمکت می‌کنم.","options":["will","am","going"],"answer":0,"why":"پیشنهاد کمک: {{will}} (یا {{I'll}})."},
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I promise I ___ be late.","tr":"قول می‌دهم دیر نکنم.","options":["won't","don't","not"],"answer":0,"why":"قول، منفی: {{won't}}."},
         {"type":"choice","q":"در فروشگاه یک کت می‌بینید و همان لحظه تصمیم می‌گیرید بخرید:","options":["{{I'll take it!}}","{{I take it!}}","{{I'm going to take it yesterday.}}"],"answer":0,"why":"تصمیم همان لحظه: {{I'll}}."},
-        {"type":"dialogue","q":"دوستتان گرفتار است. پیشنهاد کمک بدهید.","from":"talk-about-your-plans","lines":[{"who":"مینا","t":"My car won't start, and I have a meeting at ten!","tr":"ماشینم روشن نمی‌شود و ساعت ده جلسه دارم!"},{"options":["Don't worry, I'll drive you.","Don't worry, I drive you yesterday."],"answer":0,"why":"پیشنهاد همان لحظه: {{I'll}}."},{"who":"مینا","t":"Really? Thank you! Are you going to work today?","tr":"واقعاً؟ ممنون! امروز سر کار می‌روی؟"},{"options":["Yes, I'm going to work at eleven. I'll drop you off first.","Yes, I'll going to work at eleven."],"answer":0,"why":"برنامهٔ از قبل: {{going to}}؛ تصمیم همین الان: {{I'll}}."}]},
+        {"type":"dialogue","q":"دوستتان گرفتار است. پیشنهاد کمک بدهید.","from":"talk-about-your-plans","lines":[{"who":"مینا","t":"My car won't start, and I have a meeting at ten!","tr":"ماشینم روشن نمی‌شود و ساعت ده جلسه دارم!"},{"options":["Don't worry, I'll drive you.","Don't worry, I drive you yesterday."],"answer":0,"why":"پیشنهاد همان لحظه: {{I'll}}."},{"who":"مینا","t":"Really? Thank you! What are you going to do after that?","tr":"واقعاً؟ ممنون! بعدش می‌خواهی چه کار کنی؟"},{"options":["I'm going to visit my mother. I'll call you tonight.","I'll going to visit my mother. I call you tonight."],"answer":0,"why":"برنامهٔ از قبل: {{going to}}؛ قول: {{I'll}}."}]},
         {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"امشب بهت زنگ می‌زنم.","words":["I'll","call","you","tonight."]},
         {"type":"say","q":"قول بدهید: «به کسی نمی‌گویم.»","answer":"I won't tell anyone."},
         {"type":"free","q":"نوبت شماست: دوستتان می‌گوید {{I'm moving to a new apartment on Saturday.}} دو پیشنهاد کمک و یک قول بدهید.","answers":[{"t":"I'll help you! I'll bring some boxes, and I won't be late.","tr":"کمکت می‌کنم! چند تا جعبه می‌آورم، و دیر نمی‌کنم."},{"t":"I'll come at nine and I'll bring lunch for everyone.","tr":"ساعت نه می‌آیم و برای همه ناهار می‌آورم."}]}
@@ -1775,7 +1775,7 @@
       "blocks": [
         {"goal":{"t":"I need some information, but I don't have much time.","tr":"کمی اطلاعات لازم دارم، ولی وقت زیادی ندارم."}},
         {"dialog":[{"who":"مینا","t":"Do we have any eggs?","tr":"تخم‌مرغ داریم؟"},{"who":"تام","t":"Yes, a few. And we have some milk.","tr":"آره، چند تا. شیر هم داریم."},{"who":"مینا","t":"How much flour do we have?","tr":"چقدر آرد داریم؟"},{"who":"تام","t":"Not much. Just a little.","tr":"زیاد نه. فقط کمی."},{"who":"مینا","t":"OK, we need to buy flour and a lot of sugar. I'm making a big cake!","tr":"باشد، باید آرد و کلی شکر بخریم. می‌خواهم یک کیک بزرگ درست کنم!"}]},
-        {"p":"**شمردنی و ناشمردنی.** بعضی اسم‌ها شمرده می‌شوند ({{one egg}}، {{two eggs}}) و بعضی نه: {{water}}، {{milk}}، {{money}}، {{time}}، {{bread}}. اسم ناشمردنی جمع نمی‌شود و {{a}} نمی‌گیرد: {{some water}}، نه {{a water}} یا {{waters}}."},
+        {"p":"**شمردنی و ناشمردنی.** بعضی اسم‌ها شمرده می‌شوند ({{one egg}}، {{two eggs}}) و بعضی نه: {{water}}، {{milk}}، {{money}}، {{time}}، {{bread}}. اسم ناشمردنی جمع نمی‌شود و {{a}} نمی‌گیرد: {{some money}}، نه {{a money}} یا {{moneys}}."},
         {"term":"اسم ناشمردنی","means":"اسمی که شمرده نمی‌شود و جمع ندارد: {{water}}، {{money}}، {{information}}."},
         {"p":"**تله‌ها: {{information}}، {{advice}}، {{furniture}}، {{news}}.** «اطلاعات» در فارسی جمع است، اما {{information}} در انگلیسی ناشمردنی است: {{some information}}، نه {{informations}}. همین‌طور {{advice}} «توصیه، نصیحت»، {{furniture}} «اثاث»، {{homework}} «تکلیف»، و {{news}} «خبر»، که فعلش مفرد است: {{The news is good.}} برای یکی: {{a piece of advice}}."},
         {"p":"**{{some}} و {{any}}.** {{some}} «کمی، چند تا» در جملهٔ مثبت؛ {{any}} در سؤال و منفی: {{Do we have any milk?}} «شیر داریم؟»، {{We don't have any milk.}} «هیچ شیری نداریم». در پیشنهاد و خواهش، {{some}}: {{Would you like some tea?}}"},
@@ -2092,13 +2092,13 @@
       "mistakes": [
         {"wrong":"I did a mistake.","right":"I made a mistake.","tr":"اشتباه کردم.","why":"«اشتباه کردن» {{make a mistake}} است."},
         {"wrong":"I got a shower.","right":"I took a shower.","tr":"دوش گرفتم.","why":"«دوش گرفتن» {{take a shower}} است."},
-        {"wrong":"I became tired.","right":"I got tired.","tr":"خسته شدم.","why":"در حرف زدن، «… شدن» معمولاً {{get}} است: {{got tired}}."}
+        {"wrong":"They became married last year.","right":"They got married last year.","tr":"پارسال ازدواج کردند.","why":"«ازدواج کردن» {{get married}} است: {{got married}}، نه {{became married}}."}
       ],
       "practice": [
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Everyone ___ mistakes.","tr":"همه اشتباه می‌کنند.","options":["makes","does","takes"],"answer":0,"why":"{{make a mistake}}."},
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Can you ___ a picture of us?","tr":"می‌شود از ما عکس بگیرید؟","options":["take","make","do"],"answer":0,"why":"{{take a picture}}."},
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"I always ___ tired after work.","tr":"بعد از کار همیشه خسته می‌شوم.","options":["get","make","do"],"answer":0,"why":"«خسته شدن»: {{get tired}}."},
-        {"type":"dialogue","q":"دوستتان دربارهٔ امشب می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"offer-and-promise","lines":[{"who":"مینا","t":"What are you doing tonight?","tr":"امشب چه کار می‌کنی؟"},{"options":["I have to do my homework and do the dishes.","I have to make my homework and make the dishes."],"answer":0,"why":"کارها و وظیفه‌ها: {{do}}."},{"who":"مینا","t":"Do you want me to help?","tr":"می‌خواهی کمکت کنم؟"},{"options":["Thanks! I'll make dinner for us.","Thanks! I'll do dinner for us."],"answer":0,"why":"غذا درست کردن: {{make dinner}}؛ و پیشنهاد با {{I'll}}."}]},
+        {"type":"dialogue","q":"دوستتان دربارهٔ امشب می‌پرسد. جواب‌هایتان را انتخاب کنید.","from":"offer-and-promise","lines":[{"who":"مینا","t":"What are you doing tonight?","tr":"امشب چه کار می‌کنی؟"},{"options":["I have to do my homework and do the dishes.","I have to make my homework and make the dishes."],"answer":0,"why":"کارها و وظیفه‌ها: {{do}}."},{"who":"مینا","t":"Do you want me to help?","tr":"می‌خواهی کمکت کنم؟"},{"options":["Thanks! I'll make some tea for us.","Thanks! I'll do some tea for us."],"answer":0,"why":"چای درست کردن: {{make tea}}؛ و پیشنهاد با {{I'll}}."}]},
         {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"امروز باید تصمیم بگیرم.","words":["I","need","to","make","a","decision","today."]},
         {"type":"say","q":"بگویید: «دیروز در شهر گم شدیم.»","answer":"We got lost in the city yesterday.","from":"tell-what-happened"},
         {"type":"free","q":"نوبت شماست: سه کار بگویید که هر روز یا هر هفته می‌کنید، با {{make}}، {{do}}، {{take}} یا {{get}}.","answers":[{"t":"I take a shower every morning, I make breakfast for my kids, and I do the laundry on Fridays.","tr":"هر صبح دوش می‌گیرم، برای بچه‌هایم صبحانه درست می‌کنم و جمعه‌ها لباس‌ها را می‌شویم."},{"t":"I usually get home at six. I do some exercise and then I make dinner.","tr":"معمولاً ساعت شش می‌رسم خانه. کمی ورزش می‌کنم و بعد شام درست می‌کنم."}]}
@@ -2242,7 +2242,7 @@
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"Would you mind ___ the window?","tr":"اشکالی ندارد پنجره را باز کنید؟","options":["opening","open","to open"],"answer":0,"why":"بعد از {{Would you mind}}: {{-ing}}."},
         {"type":"choice","q":"میزبان آمریکایی می‌پرسد {{Would you like some cake?}} و شما می‌خواهید. بهترین جواب:","options":["{{Yes, please! Thank you.}}","{{No, no, I couldn't.}}، و بعد منتظر اصرار بمانید","{{Give me cake.}}"],"answer":0,"why":"همان بار اول مؤدبانه قبول کنید؛ معمولاً اصرار نمی‌کنند."},
         {"type":"fill","q":"کلمهٔ جاافتاده را انتخاب کنید.","t":"___ you help me with this bag, please?","tr":"ممکن است با این کیف کمکم کنید، لطفاً؟","options":["Could","Do","Are"],"answer":0,"why":"خواهش مؤدب: {{Could you…?}}","from":"say-what-you-can-do"},
-        {"type":"dialogue","q":"در خانهٔ یک دوست آمریکایی. جواب‌هایتان را انتخاب کنید.","from":"suggest-and-invite","lines":[{"who":"میزبان","t":"Would you like something to drink?","tr":"چیزی میل دارید بنوشید؟"},{"options":["Yes, please. Some water would be great.","No, no, thank you. I'm fine."],"answer":0,"why":"اگر تشنه‌اید، همان بار اول بگویید؛ با تعارف ممکن است بی‌آب بمانید!"},{"who":"میزبان","t":"Here you go. I love your scarf, by the way!","tr":"بفرمایید. راستی، شالت خیلی قشنگ است!"},{"options":["Thank you! It's from Isfahan.","Oh no, it's nothing, it's very old and ugly."],"answer":0,"why":"به تعریف ساده {{Thank you!}} بگویید."}]},
+        {"type":"dialogue","q":"در خانهٔ یک دوست آمریکایی هستید و تشنه‌اید. جواب‌هایتان را انتخاب کنید.","from":"suggest-and-invite","lines":[{"who":"میزبان","t":"Would you like something to drink?","tr":"چیزی میل دارید بنوشید؟"},{"options":["Yes, please. Some water would be great.","No, no, thank you. I'm fine."],"answer":0,"why":"اگر تشنه‌اید، همان بار اول بگویید؛ با تعارف ممکن است بی‌آب بمانید!"},{"who":"میزبان","t":"Here you go. I love your scarf, by the way!","tr":"بفرمایید. راستی، شالت خیلی قشنگ است!"},{"options":["Thank you! It's from Isfahan.","Oh no, it's nothing, it's very old and ugly."],"answer":0,"why":"به تعریف ساده {{Thank you!}} بگویید."}]},
         {"type":"order","q":"کلمه‌ها را مرتب کنید.","tr":"اشکالی ندارد پنجره را باز کنم؟","words":["Do","you","mind","if","I","open","the","window?"]},
         {"type":"say","q":"در اتوبوس بپرسید: «ببخشید، این صندلی خالی است؟»","answer":"Excuse me, is this seat taken?","from":"understand-the-passive"},
         {"type":"free","q":"نوبت شماست: در محل کار دو خواهش خیلی مؤدبانه از یک همکار بکنید، و به یک پیشنهاد جواب بدهید.","answers":[{"t":"Could you send me the report, please? And would you mind checking my email? Yes, please, I'd love a coffee!","tr":"ممکن است گزارش را برایم بفرستید، لطفاً؟ و زحمت می‌کشید ایمیلم را نگاه کنید؟ بله، لطفاً، یک قهوه خیلی می‌چسبد!"},{"t":"Would you mind turning down the music? Do you mind if I open the window?","tr":"اشکالی ندارد صدای موسیقی را کم کنید؟ اشکالی ندارد پنجره را باز کنم؟"}]}

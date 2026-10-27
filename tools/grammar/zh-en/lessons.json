@@ -933,7 +933,7 @@
       "practice": [
         {"type":"fill","q":"选出正确的词。","t":"She's ___ on the phone.","tr":"她在打电话。","options":["talking","talk","talks"],"answer":0,"why":"{{be}} 后面用 {{-ing}}：{{talking}}。"},
         {"type":"choice","q":"现在外面正在下雨。你说……","options":["{{It's raining.}}","{{It rains.}}","{{Raining now.}}"],"answer":0,"why":"此时此刻：进行时 {{It's raining.}}"},
-        {"type":"choice","q":"“我每天早上跑步。”","options":["{{I run every morning.}}","{{I'm running every morning.}}"],"answer":0,"why":"每天的习惯用一般现在时：{{I run}}。","from":"say-what-you-do-every-day"},
+        {"type":"choice","q":"这是你多年的习惯：“我每天早上跑步。”","options":["{{I run every morning.}}","{{I'm running every morning.}}"],"answer":0,"why":"多年的习惯用一般现在时：{{I run}}。（{{I'm running every morning}} 听起来像是“最近这段时间”才这样。）","from":"say-what-you-do-every-day"},
         {"type":"dialogue","q":"朋友打来电话。选出你的回答。","lines":[{"who":"Friend","t":"Hi! What are you doing?","tr":"嗨！你在干什么？"},{"options":["I'm watching TV.","I watch TV."],"answer":0,"why":"现在正在做：{{I'm watching}}。"},{"who":"Friend","t":"Is your brother home?","tr":"你哥哥在家吗？"},{"options":["Yes, but he's sleeping.","Yes, but he sleeping."],"answer":0,"why":"{{he's}} = {{he is}}，不能少。"},{"who":"Friend","t":"OK, I'll call later.","tr":"好，我晚点再打。"}],"from":"say-what-people-are-like"},
         {"type":"order","q":"把单词排成正确的顺序。","tr":"孩子们在外面玩。","words":["The","kids","are","playing","outside."]},
         {"type":"free","q":"轮到你了：你现在在做什么？你身边的人呢？","answers":[{"t":"I'm studying English. My husband is cooking dinner.","tr":"我在学英语。我丈夫在做晚饭。"},{"t":"I'm sitting on the subway. Everyone is looking at their phones.","tr":"我坐在地铁上。大家都在看手机。"}]}
@@ -1020,7 +1020,7 @@
       "practice": [
         {"type":"fill","q":"选出正确的词。","t":"Don't worry, I ___ forget.","tr":"别担心，我不会忘的。","options":["won't","don't","not"],"answer":0,"why":"承诺不会做：{{won't}}。"},
         {"type":"choice","q":"朋友的包掉了，东西撒了一地。你马上说……","options":["{{I'll help you.}}","{{I'm going to help you.}}","{{I help you.}}"],"answer":0,"why":"当场决定、主动帮忙：{{I'll…}}"},
-        {"type":"choice","q":"你上个月就决定了今年夏天学游泳。你说……","options":["{{I'm going to learn to swim this summer.}}","{{I'll learn to swim this summer.}}"],"answer":0,"why":"早就想好的计划：{{going to}}。","from":"talk-about-your-plans"},
+        {"type":"choice","q":"你上个月就决定了今年夏天学游泳。你说……","options":["{{I'm going to learn to swim this summer.}}","{{I'll learn to swim this summer.}}"],"answer":0,"why":"早就想好的计划，最自然的说法是 {{going to}}。","from":"talk-about-your-plans"},
         {"type":"dialogue","q":"在餐厅点菜。选出你的回答。","lines":[{"who":"Waiter","t":"Are you ready to order?","tr":"可以点菜了吗？"},{"options":["Yes, I'll have the chicken, please.","Yes, I'll to have the chicken, please."],"answer":0,"why":"{{I'll}} + 动词原形。点餐时也常说 {{I'll have…}}"},{"who":"Waiter","t":"And to drink?","tr":"喝点儿什么？"},{"options":["I'll just have some water.","I'll just have a water some."],"answer":0,"why":"{{water}} 不可数：{{some water}}。"},{"who":"Waiter","t":"Great. It'll be ready in ten minutes.","tr":"好的，十分钟就好。"}],"from":"order-food-and-drinks"},
         {"type":"order","q":"把单词排成正确的顺序。","tr":"我觉得明天会下雨。","words":["I","think","it","will","rain","tomorrow."]},
         {"type":"free","q":"轮到你了：朋友说 {{I'm so hungry and tired!}} 主动帮他做两件事，再做一个预测。","answers":[{"t":"I'll make you a sandwich. I'll get you some water. You'll feel better soon!","tr":"我给你做个三明治，再给你拿点儿水。你很快就会好起来的！"},{"t":"I'll cook dinner tonight. I'll do the dishes too. Tomorrow will be a better day.","tr":"今晚我来做饭，碗也我来洗。明天会更好的。"}]}
@@ -2133,7 +2133,7 @@
       ],
       "practice": [
         {"type":"fill","q":"选出正确的词。","t":"Don't you have a car? — ___, I don't.","tr":"你没有车吗？——对，我没有。","options":["No","Yes"],"answer":0,"why":"事实是“没有”：{{No, I don't.}}"},
-        {"type":"choice","q":"朋友问 {{Aren't you coming to the party?}}，你要去。你说……","options":["{{Yes, I am!}}","{{No, I'm coming!}}","{{Yes, I'm not.}}"],"answer":0,"why":"事实是“去”：{{Yes, I am.}}","from":"ask-yes-or-no"},
+        {"type":"choice","q":"朋友问 {{Aren't you coming to the party?}}，你要去。你说……","options":["{{Yes, I am!}}","{{No, I am.}}","{{Yes, I'm not.}}"],"answer":0,"why":"事实是“去”：{{Yes, I am.}} {{Yes}} 后面跟肯定，{{No}} 后面跟否定，不能混。","from":"ask-yes-or-no"},
         {"type":"choice","q":"“你不吃肉，对吧？”","options":["{{You don't eat meat, do you?}}","{{You don't eat meat, don't you?}}","{{You don't eat meat, is it?}}"],"answer":0,"why":"否定句后面加肯定的附加问句：{{do you?}}","from":"say-what-you-dont-do"},
         {"type":"dialogue","q":"午饭时间，同事问你。选出你的回答。","lines":[{"who":"Colleague","t":"Didn't you bring lunch today?","tr":"你今天没带午饭吗？"},{"options":["No, I didn't. I forgot.","Yes, I didn't. I forgot."],"answer":0,"why":"没带：{{No, I didn't.}}"},{"who":"Colleague","t":"Aren't you hungry?","tr":"你不饿吗？"},{"options":["Yes, I am. Let's go get some food!","No, I am. Let's go get some food!"],"answer":0,"why":"饿：{{Yes, I am.}}"},{"who":"Colleague","t":"Sure! Tacos sound good, don't they?","tr":"好啊！墨西哥卷饼听起来不错，是吧？"}]},
         {"type":"order","q":"把单词排成正确的顺序。","tr":"今天天气真好，是吧？","words":["It's","a","beautiful","day,","isn't","it?"]},

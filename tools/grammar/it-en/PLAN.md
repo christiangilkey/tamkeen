@@ -123,7 +123,5 @@ in 8 units: lessons 1–19 A1, 20–39 A2, 40–48 B1.
 
 ## Status
 
-All 48 lessons are written and pass the checks, but the course is marked `"draft": true` (the owner,
-2026-10-25: the English courses come in the next update). This branch still has the older build, which
-publishes it anyway; grammar-course's newer build takes a draft out of `docs/grammar`, so rerun
-`node tools/grammar/build.mjs` after merging.
+All 48 lessons are written and pass the checks. The course was a draft while the English courses were paused
+(the owner, 2026-10-25); he has since said they can continue, so the draft mark is off and the build publishes it.
