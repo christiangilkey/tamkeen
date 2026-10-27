@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 Modifier le mot
+d0f60fa0 Modifier le sens
+697f207b Modifier la phrase
+71f0b2ab Modifier la traduction
+c6084b94 Corrigez la carte pendant la révision
+7f4dcbb0 Touchez un texte pour le modifier. Maintenez le doigt sur un mot de la phrase pour le surligner.

@@ -95,11 +95,11 @@ def main() -> None:
         # The sentence is what counts: a single word on its own is often misheard even when said well.
         heard_s = hear(cut(t["sent_start"], t["sent_end"]))
         heard_w = hear(cut(t["start"], t["end"]))
-        sc = round(score(heard_s, w["sentence"], lang), 3)
+        sc = round(score(heard_s, w["sentence"].replace("⟦", "").replace("⟧", ""), lang), 3)
         word_ok = (lang not in NO_SPACES and bool(set(norm(w["word"], lang)) & set(norm(heard_w, lang)))) \
             or score(heard_w, w["word"], lang) >= 0.5
         results.append({"n": w["n"], "score": sc, "word_heard": word_ok, "heard": heard_s, "heard_word": heard_w,
-                        "expected": MARKS.sub("", w["sentence"]), "word": MARKS.sub("", w["word"])})
+                        "expected": MARKS.sub("", w["sentence"].replace("⟦", "").replace("⟧", "")), "word": MARKS.sub("", w["word"])})
         if sc < args.under:
             low.append(results[-1])
         print(f"{w['n']:4d} {sc:.2f} {'word ok' if word_ok else 'word?'}", flush=True)

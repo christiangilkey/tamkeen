@@ -2121,3 +2121,19 @@ html.sel-sheets select { pointer-events: none; }
 .gq-tile .gx-r, .gq-reply .gx-r { font-family: var(--ui-font); font-size: 12.5px; line-height: 1.25; }
 .gq .gq-reply { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .gq-fill-r { margin-top: -6px; }
+
+/* ---------- the fix popup (components/fixit.js) ----------
+   A problem the learner can put right: centred on every screen (other boxes rise from the bottom on a
+   phone), over the dimmed page, with no shadow; a line icon on a soft disc, a big title, one sentence,
+   the teal button to the fix and a plain Dismiss under it. */
+.modal-back.fix-back { z-index: 95; place-items: center; padding: 16px; }
+.modal-back.fix-back .modal-box.fix-box { width: min(400px, 100%); max-height: min(90vh, 640px); border-radius: 20px; padding-bottom: 0; box-shadow: none; text-align: center; }
+.fix-box .modal-head { flex-direction: column; gap: 14px; padding: 26px 24px 0; }
+.fix-box .modal-head h2 { flex: none; font-size: 22px; line-height: 1.25; }
+.fix-ico { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); }
+.fix-box .modal-body { padding: 10px 24px 22px; }
+.fix-text { margin: 0; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
+.fix-note { margin: 10px 0 0; font-size: 15px; color: var(--danger); }
+.fix-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+.fix-actions button { width: 100%; min-height: 48px; font-size: 16.5px; font-weight: 600; border-radius: 14px; white-space: normal; }
+.fix-actions .fix-no { background: var(--surface-2); color: var(--text); }

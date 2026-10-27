@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 단어 수정
+d0f60fa0 뜻 수정
+697f207b 문장 수정
+71f0b2ab 번역 수정
+c6084b94 복습하면서 카드를 바로 고치세요
+7f4dcbb0 글자를 누르면 수정할 수 있어요. 문장 속 단어를 길게 누르면 강조할 수 있어요.

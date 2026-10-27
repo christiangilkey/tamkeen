@@ -1,0 +1,6 @@
+ee9fc3ee Corsi di grammatica per imparare l'inglese, spiegati nella tua lingua
+a11abbbf Schede di ripasso: la traduzione sul retro, tocca un testo per correggerlo, tieni premuta una parola per evidenziarla
+182c6cc3 I corsi di base evidenziano ogni parola nel posto giusto
+a0e09e4a XP per ascoltare esempi di grammatica e aggiungere parole delle Basi
+d45a59cf I problemi che puoi risolvere aprono una finestra chiara con un pulsante per risolverli
+43782e22 I corsi si aprono prima su Grammatica

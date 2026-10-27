@@ -366,7 +366,7 @@ async function backfill(lang, dicts) {
   }
   for (const v of vocab || []) {
     if (detectLanguage(v.text, lang) !== lang) continue;
-    const tokens = String(v.sentence || "").split(/\s+/).filter(Boolean);
+    const tokens = String(v.sentence || "").replace(/[⟦⟧]/g, "").split(/\s+/).filter(Boolean);
     take(tokens, findIn(tokens, v.text, lang), v.text);
   }
   await markLexemes(found.filter(Boolean));

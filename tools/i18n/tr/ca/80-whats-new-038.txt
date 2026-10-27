@@ -1,0 +1,6 @@
+ee9fc3ee Cursos de gramàtica per aprendre anglès, explicats en la teva llengua
+a11abbbf Targetes de repàs: la traducció al revers, toca qualsevol text per corregir-lo, mantén premuda una paraula per ressaltar-la
+182c6cc3 Els cursos bàsics ressalten cada paraula al lloc correcte
+a0e09e4a XP per escoltar exemples de gramàtica i afegir paraules de Bàsic
+d45a59cf Els problemes que pots arreglar obren una finestra clara amb un botó per solucionar-los
+43782e22 Els cursos s'obren primer a Gramàtica

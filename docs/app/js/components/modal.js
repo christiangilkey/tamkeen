@@ -7,11 +7,13 @@ import { h } from "../app.js";
  * Open a box. `canClose: false` makes one that must be answered (no ✕, Esc does nothing).
  * `beforeClose` (optional) is asked first when the learner closes it (✕, Esc, a click beside it):
  * it resolves to true to let it close (the "Add words" builder asks first when something typed would
- * be lost). Returns { el, body, close }: fill `body`, call `close()` when done (that never asks).
+ * be lost). `cls` is another class for the dimmed back; `cross: false` leaves out the ✕ of a box that
+ * has its own way out (the fix popup's Dismiss). Returns { el, body, close }: fill `body`, call
+ * `close()` when done (that never asks).
  */
-export function openModal({ title = "", canClose = true, wide = false, onClose, beforeClose } = {}) {
-  const wrap = h(`<div class="modal-back"><div class="modal-box${wide ? " wide" : ""}" role="dialog" aria-modal="true">
-    <div class="modal-head"><h2></h2>${canClose ? `<button type="button" class="ghost icon" data-close title="Close (Esc)" aria-label="Close">✕</button>` : ""}</div>
+export function openModal({ title = "", canClose = true, wide = false, onClose, beforeClose, cls = "", cross = true } = {}) {
+  const wrap = h(`<div class="modal-back${cls ? ` ${cls}` : ""}"><div class="modal-box${wide ? " wide" : ""}" role="dialog" aria-modal="true">
+    <div class="modal-head"><h2></h2>${canClose && cross ? `<button type="button" class="ghost icon" data-close title="Close (Esc)" aria-label="Close">✕</button>` : ""}</div>
     <div class="modal-body"></div>
   </div></div>`);
   const heading = wrap.querySelector("h2");

@@ -5472,3 +5472,225 @@ app"; asked, he chose Library only (the Vocab page loses its Basics/Grammar tabs
   requests pointed at the local docs/ in the preview, since the phones load published courses): Courses first and
   selected, Basics and Grammar tabs, Podcasts and Vocab unchanged otherwise. Not checked: a real phone, the web app on
   GitHub Pages (courses not published yet), right-to-left UI languages.
+
+## Courses: Grammar first, XP for listening and Basics adds, empty Library kinds, Vocab box colour (2026-10-25; branch `worktree-agent-a008ce2827848c087`, NOT merged, NOT pushed)
+Owner: "make the grammar course the left subtab and the basics list the right sub tab. Have Grammar be preselected";
+"Studying grammar and pressing the words to make them speak should give you xp. Adding words for the basic list should
+also give you xp"; "If user has nothing in a section in library … a message that tells them to add things from the plus
+button at the bottom and point to it with an arrow"; "In a blank vocab page with no words, the review box should still be
+colored as if it did have words."
+- **Courses tabs** (library.js): Grammar | Basics (RTL mirrors them like every flex tab row: Grammar on the right). Which
+  opens: `coursedata.js courseTabChoice({basics, grammar, asked, chosen})`: a link's `?tab=basics|grammar`
+  (`#/library?tab=basics`), else the tab clicked earlier this visit (**sessionStorage** `courseTab`, set on clicks only;
+  the old localStorage `courseTab` is no longer read), else Grammar (Basics when a language has no grammar course).
+- **XP** (game/rules.js `earn`): grammar lessons already paid game XP (`"grammar"`, 40-80 first time scaled by right
+  answers, 15-30 again, once a day per lesson, fading after 6): unchanged, it was never a separate total. New:
+  `{type: "hear", key}` from grammarpanel.js `sayOnTap` (lesson and Mixed review: examples, `.gt` words, dialogue lines,
+  answers; "Listen to it all" = one event for the whole conversation): HEAR_SHARE = a quarter of a lookup's roll (like a
+  review card; surprise roll → plain XP, min 1), carries the session combo (shared chain with lookups: `chain()`),
+  `hearMultiplier` fades on its own count `day.heard` (HEAR_DAY [30, 90]: full, 0.4, 0.1, then nothing), once a day per
+  example (`day.heard` holds `hearKey(text)`, an FNV hash, so the save stays small), trait "listener". `{type: "basics",
+  keys: ["ar:12", …]}` from coursepanel.js after the cards are made (words already in the cards are filtered out before
+  adding): BASICS_XP 5 per word (a quarter of saving a word), same total one by one or "Add all", BASICS_DAY_CAP 50 words
+  a day (`day.basics`), a word once a day, no combo, no coins, trait "collector", tier "lucky" for ≥ 10 words. game.js:
+  the chip and the "12 ×2" working treat "hear" like "word". info.js "How to get XP" has 3 new lines.
+- **Empty Library kinds**: KINDS `empty` = "Add … with the + button below." (all but Courses); `emptyState(k)` (icon,
+  "Nothing here yet", the line; Books keeps Free classics / Add a file) shows for a kind with no feed yet (renderHead) and
+  for a feed of that kind, or All episodes, whose list is empty with no filter/title/channel (loadEpisodes, `list-empty`
+  hides the heading). The arrow is an SVG inside the + button (`.fab-hint`, media.css: absolute, tip level with the
+  button's middle), shown while `.library.lib-is-empty`; `hint-flip` mirrors it if the button is ever on the left half;
+  hidden while a `.modal-back` (the + sheet) or `.tour` is open and while the button rolls in after a swipe. No animation.
+- **Vocab**: with no cards the review box drops `idle` (teal, "No cards to study", not pressable). "All caught up" stays plain.
+- i18n `tools/i18n/tr/<code>/77-courses-xp-empty.txt` (12 strings × 16; the old empty-kind lines are gone from strings.json).
+  Tests `tests/js/courses-xp.test.mjs` (13). Totals: 1039 JS, 542 pytest, i18n --check.
+- **Checked** in the browser pane, scratch data folder (no Google sign-in), desktop server at 1280×800 and the phone build
+  (mobile/www served locally, course fetches pointed at docs/) at 375×812, English, Arabic and Persian UI: tab order and
+  default, empty YouTube/Books/Podcasts/My videos/My webpages with the arrow (also RTL), arrow hidden under the + sheet,
+  Vocab box teal with no cards (light and dark), a grammar example tap (+XP with the combo), Basics Add (+5) and Add the
+  other 49 (+245, cap reached at 50). Not checked: a real phone/iPhone, the web app build (docs/app not rebuilt).
+- Noticed, not changed: on the phone in an RTL interface the kinds strip doesn't scroll the chosen kind into view
+  (library.js renderStrips uses `scrollLeft` as if left-to-right).
+
+## Basics courses: ⟦ ⟧ marks the word in every sentence (2026-10-25; branch `course-marks`, worktree `tamkeen-marks`, NOT merged, NOT pushed)
+Owner's report on v0.37.0: "the part of the sentence that's highlighted is wrong … it seeing a part of the word in the
+wrong part of the sentence" (Arabic #13 لِـ lit the لـ of الْهَدِيَّةُ). No course sentence had marks; the app lit the first match.
+- **App**: web/js/cardtext.js `sentenceMarks`, `markedSentenceHtml` (ZWJ on both sides of a lit edge inside a word of
+  joining letters), `stripMarks`; `findWord` returns the first marked part. Used by coursepanel.js and vocab.js
+  `highlight` (Vocab list and the review card); game/rules.js strips marks. coursedata.js `cardOf` keeps the marked
+  sentence; `markUpdates` + coursepanel `upgradeCards` give earlier course cards their marks (PATCH /vocab/<id>
+  `sentence` + `sentence_if`, only while the stored sentence is still the course's unmarked one; computer and phone).
+  Anki export and CSV (app/exporters.py `sentence_spans`, mobile shared-logic.js `sentenceSpans`): marked parts in
+  [brackets], marks never shown.
+- **Courses**: build_course.py `unmarked()` for what is said and the fingerprint (no audio remade: 0 .ogg changed);
+  the build refuses a sentence without marks; course-content / course tests check them; check_audio strips them.
+  Arabic marked here (tools/course/build/mark_ar.mjs proposed stems from the analyzer's splits; all 1000 read, 11 fixed
+  by hand); the other 16 by their basics-<lang> sessions (brief + checker: side-session notes `marks-brief.md`,
+  `check-marks.mjs`), each read back by hand, merged here and their course.json rebuilt.
+- **Rules used**: the form used (inflected, conjugated); a clitic word marks only itself; attached pronouns, articles and
+  linkers stay outside; split words mark every piece (German separable verbs, ne…pas/né…né, 越…越, phrasal verbs); in set
+  phrases only the course word. Korean/Italian/Spanish/Japanese set `form` to the marked part where needed.
+- **Checked**: 1052 JS, 545 pytest; desktop preview (Arabic #11–14: لَ lit and joined to كَ). Not checked: phones on a
+  device, right-to-left UI.
+
+## The fix popup: no red messages for problems the learner can put right (2026-10-25; branch `worktree-agent-a2afec68dbdab66a3`)
+Owner (Android screenshot: four identical red "Tamkeen needs permission to use the microphone…" messages stacked on a
+review card): "Instead of ever having these banners show up, just show the user a popup with a pressable button that
+brings them to the section in settings they can use to fix it"; then "centered screen with a button, … a shadow on the
+background … the user either clicks dismiss or the teal button which brings them to where they need to go".
+- **`web/js/fixes.js`** (pure, tests/js/fixes.test.mjs): CAUSES and where each is fixed (`PLACES`: Settings `s` + FINDS
+  `show` id, or `href`), `fixFor(cause, env)` (title, one sentence, button; the microphone's text/button by device and
+  permission state: `step` "ask" or "system"), `causeOf(error|message)` (the app's own English messages; an error may
+  carry `fixCause`), `settingsHref`, `fixGate` (one at a time, others wait (max 3), same cause skipped while open,
+  QUIET_MS 20 s after Dismiss, AFTER_FIX_MS 10 s after the button; shortened by the coordinator from 3 min / 30 s so pressing Say it again soon shows the popup again).
+- **`web/js/components/fixit.js`** `offerFix(what, {run, goTo, message})`: true when it is a fixable cause (shown,
+  waiting or quiet: say nothing else), false otherwise. openModal (new options `cls`, `cross: false`), class `fix-back`
+  (centred on phones too, z-index 95, no shadow; styles at the end of app.css). Takes every key while on top (window
+  capture: Esc = Dismiss, Tab stays inside, Enter/Space only its buttons), so a review card behind is never answered;
+  closes on hashchange/popstate. A Settings-bound cause is not offered while Settings is on screen (the message shows as
+  before). The microphone: state from `systemAccess.state` (phones, native) or `navigator.permissions`; "ask" =
+  getUserMedia again (Android/iPhone show their question while they still may), then the state is read again (Android
+  after a second refusal → "Open Tamkeen's settings"); "system" = `systemAccess.openSettings`.
+- **Every shell's `toast()`** (web/js/app.js, mobile/src/js/app.js) first calls `offerFix(message)` (not for toasts with
+  an action, or `fix: false`), so any call site whose message is a known cause gets the popup without being edited, and
+  shows the rest through **`web/js/toaster.js` `placeToast`**: the same words (and kind) replace the one on screen, at
+  most 3 at once. The extension's toast uses placeToast too (it doesn't load fixit.js).
+- **`systemAccess`** in both shells: computer `device()` "desktop" in the pywebview window (else "web"),
+  `openSettings` → `POST /api/system/open-privacy {what}` (app/api/system.py `privacy_page`: `ms-settings:privacy-microphone`,
+  macOS Privacy_Microphone; Linux none). Phones: `GoogleDriveAuth.permissionState({name})` → {state} and
+  `openAppSettings()` → {opened}: GoogleDriveAuthPlugin.java (RECORD_AUDIO / POST_NOTIFICATIONS, `shouldShowRequestPermissionRationale`
+  → "prompt", else "denied"; `Settings.ACTION_APPLICATION_DETAILS_SETTINGS`) and .swift (AVAudioApplication on iOS 17+,
+  else AVAudioSession `recordPermission`; notifications; `UIApplication.openSettingsURLString`).
+- **Causes wired**: mic (pronounce.js Say it, now `micProblem(e)` tells "no microphone"/"in use" apart, which stay
+  messages; cardaudio.js recording → wordbuilder.js; chat voice notes), aikey/aikeyrefused/aioff/aimodel (lookups,
+  grammar, Fill in, mnemonic maker: review.js calls offerFix(e) beside its own note), azurerefused and novoice (voiceplay's
+  calm messages; Android's button opens the phone's TTS settings), sttkey/cloudoff (transcription failures), drive
+  (signed out or expired; its own words shown), signin (refresh button: runs the sign-in), reconnect (web app's hour pass),
+  friends / nofriends (vocab.js, sendmedia.js), language, getapp (web app YouTube blocked). googletasks/googlecalendar
+  "Settings → Google account" now says "Account & sync".
+- **Stay messages**: network, rate limits/credit, provider down, Google Tasks/Calendar not allowed, cancelled sign-ins,
+  no microphone / microphone busy, copy/paste refused, file errors. Not toasts today (left as they were): the word
+  popup's no-key/no-dictionary panels and the builder's notes (inline, with their own Settings links), the extension
+  missing (add sheet's store button), AnkiDroid permission (Settings card text), camera (the phone's camera app asks
+  itself), notifications (asked silently, no message).
+- i18n `tools/i18n/tr/<code>/79-fix-popup.txt` (49 × 16). build-www SHARED: js/fixes.js, js/toaster.js,
+  js/components/fixit.js.
+- **Checked**: JS and pytest suites (new tests/js/fixes.test.mjs 14, tests/test_fix_popup.py 3), `build.mjs --check`.
+  Browser pane (desktop server on a fresh scratch data folder, never signed in; phone build served from mobile/www) at
+  375×812 and desktop size: 4× the Say it message → one popup, no toast; Try again with the mic blocked → "still
+  blocked" line; Esc and a tap beside it dismiss, and the same cause stays quiet; AI key popup → Add a key opened
+  Settings → Word definitions with the key row rung; Azure refused waited its turn; drive popup → Settings → Account &
+  sync; during a review, 2 / → / Esc never answered or closed the card; pywebview faked → "Open Windows settings" text.
+  **Not checked**: the real Android/iPhone buttons (permissionState/openAppSettings not compiled here), a real microphone,
+  the real pywebview window (the endpoint is tested with a stand-in for os.startfile).
+## Review card: translations on the back; tap a text to edit it; hold a word to light it up (2026-10-25; branch `worktree-agent-a18c4c6f25e040364`, NOT merged, NOT pushed)
+Owner: "include the English translation of the word and the sentence but smaller on the back of the card as well" and
+"Allow cards to be edited as they are being reviewed, tap a word to type in its text box, hold it to highlight and unhighlight it."
+Built on main's ⟦ ⟧ marks (the basics-course section just above): one storage, one renderer.
+- **Back of the card** (`web/js/pages/review.js` `drawAnswer`): `.rv-ans-meaning` (v.meaning) under the word and
+  `.rv-ans-trans` (v.translation, cut round its ⟦ ⟧ like the sentence) under the sentence, small and muted, `translate="no"`,
+  `lang` = the app's language, `dir="auto"`. Hidden when empty (no translation → only the meaning). The details' Meaning box
+  stays and the two are kept the same.
+- **Tap to edit** (back only; `web/js/review/cardedit.js` is the pure part: `EDITABLE` = text, meaning, sentence,
+  translation; `editValue`, `editPayload`, `holdPayload`): a tap (opened on the `click` that follows the pointerup, because
+  a phone moves the focus on that click) replaces the text with `.rv-editbox` (a textarea in the same font and size, one
+  line, grows; study-language fields get `lang`/`dir` from `langAttrs`). Enter or blur saves through the Meaning box's
+  path (`edit()` + `flushEdits()` = `PATCH /vocab/<id>`), Esc puts it back. Keys typed in the box `stopPropagation()`, so
+  Space/1/2/arrows/W/S/P/N/Z/Del/Enter are typing; while a box is open the card's `pointerdown` does nothing (no swipe,
+  no new box: a tap beside it only closes it). IME composition is respected. Answer buttons, Undo, close and the phone's
+  back button save an open box first. Sentence/translation edits keep their lit parts on the same letters
+  (`cardtext.js carryMarks`: the changed stretch between the unchanged start and end; a typo inside a lit word stays lit).
+  The owner's earlier tap-to-copy (2026-10-23) moved to a **Copy** button under the open box (it never takes the focus,
+  and survives the old `execCommand` copy). **Front: no editing** — a tap there turns the card (the main gesture on
+  phones), and its texts (meaning, translation) are on the back now.
+- **Hold to highlight**: a press of `HOLD_MS` 450 on a word of the sentence or translation (`.rv-tok`, drawn by
+  `cardtext.js litTextHtml` with `words` = `languages.js wordRanges`: spaces for spaced languages, the players' splitter
+  for ja/zh/th — the dictionary's once loaded, else Intl.Segmenter + joinThai) toggles it: `toggleWord` → ⟦ ⟧ written into
+  the sentence (the card's own word stays lit until something is chosen; touching or space-separated lit words merge into
+  one stretch; coming back to the automatic choice stores no marks). Putting out every lit word stores `NO_MARKS` (`⟦⟧`
+  in front), read by `sentenceMarks` (spans []), `exporters.sentence_spans` and `shared-logic.sentenceSpans` as "nothing
+  lit". Tint while pressed, `buzz("tick")`, a ring on the word (`.rv-held`); moving 8 px cancels; the press then
+  neither edits nor swipes; `contextmenu` is suppressed on the sentence. The translation's marks show on the front (and,
+  being marked, make it the Anki card's front, as for looked-up words).
+- **One renderer**: `markedSentenceHtml` (Vocab list, Basics list) now calls `litTextHtml`, which the review card also
+  uses with `words` (each word in a `.rv-tok`; a stretch over several words in pieces `<b class="s|m|e">`, CSS in
+  review.css) and `shown` (Arabic vowels: `vowelPlaces` maps letters into the vowelled text). `cardSentence` cuts on the
+  text without marks and puts them back (also keeps `NO_MARKS`). `vowels.js vowelledSentence` asks for the unmarked text;
+  `vowelCard(face, v, drawSentence)`.
+- **Server/phones**: `PATCH /vocab/<id>` also takes `translation` (computer `app/api/vocab.py`, phone/web `backend.js`;
+  `sentence` is main's, with `sentence_if`). **`db.py` vocab_upd trigger now includes `sentence`**: before, a changed
+  sentence (also main's course-mark upgrade) never got a new `updated_at` on the computer and so never synced. Search
+  ignores marks (both servers); `seen.js` backfill strips them (the game's rules.js already did).
+- **Hint**: the first back shown on a device opens a one-step page guide (`components/tour.js firstVisitTour("review")`:
+  "Put a card right as you go" / "Tap any text to edit it. Hold a word in the sentence to highlight it."); Settings →
+  Show the guides again resets it. tour.js now stops Esc/arrows at the guide, and the reviewer ignores keys while a
+  guide is open (Esc used to close the reviewer under it).
+- Translations `tools/i18n/tr/<code>/78-review-edit.txt` (6 × 16).
+- **Checked**: 1077 JS (new tests/js/cardedit.test.mjs, 12), 550 pytest (new tests/test_review_edit.py, 5),
+  `build.mjs --check`. Browser pane (desktop server on a fresh scratch data folder, never signed in; and the phone
+  build from mobile/www with IndexedDB) at 375×812 and 1280×800: Arabic, Spanish and Japanese cards; back with the small
+  meaning/translation (long Arabic news sentence cut with its translation); each of the four texts edited (Enter, tap
+  away, Esc); Space/1/2/z/w/s/arrows/Del typed into the box without answering; a swipe while typing ignored, one after
+  it answered; hold on/off in Arabic (auto part → none → whole word; two words → one stretch, ZWJ kept), Spanish
+  (phrase), Japanese (学校に行き as one stretch), translation (shown on the front); the Vocab list showing the choice; the
+  hint once, with 2 and Esc not reaching the card; 2/Z after closing a box; Copy. Holds were made with synthetic touch
+  pointer events (the pane has no press-and-hold).
+- **NOT checked**: a real phone (long-press feel, vibration, Android's/iPhone's own long-press menu or text selection
+  over the sentence, the on-screen keyboard pushing the card), iPhone typing inside `.rv-back` (user-select is set back
+  to text on its boxes as a precaution), a real sync between two devices, right-to-left app language by eye. A card
+  whose word or sentence is edited keeps the voice it already had (voices are made once; see Card voices).
+## Game controllers: map any button for videos and review cards (2026-10-26; branch `controller-support`, NOT merged, NOT pushed)
+Owner: "add a mapable controller support with a list of the most useful tamkeen functions that it can map to any
+controller input selected by the user, it specifically should be for watching videos and for studying cards".
+- **How it reads a controller**: the browser Gamepad API, in the shared web code, so the computer's window, the web app
+  and the phones' WebView all use it. Browsers only list a controller after one of its buttons is pressed.
+  `web/js/gamepad.js` (started by `startGamepad()` in both shells' app.js) looks with requestAnimationFrame only while a
+  controller is connected; new presses act once, holds repeat for actions marked `repeat` (HOLD_MS 400, then every
+  110 ms), the right stick scrolls smoothly (strength past the dead zone). Nothing acts while a text box has the focus,
+  except "back", which leaves it. A controller just connected: buttons already down don't count as presses.
+- **`web/js/padmap.js`** (pure; tests/js/padmap.test.mjs 20 tests): AREAS video / review / general; ACTIONS with
+  their default input; inputs are `b<N>` (standard-layout button) or `a<N>+`/`a<N>-` (an axis pushed past 0.5, let go
+  under 0.35; DEAD_ZONE 0.25); `assign` (one input does one thing per area: the action that had it is cleared and
+  named in a toast), `resetAction`, `resetArea`, `fullMap`, `cleanSetting`/`settingWins` (sync), `readInputs`,
+  `pressesFrom`, `firstPressed` (capture: ignores buttons already down and axes resting away from 0, e.g. triggers
+  at −1), `padKind` (xbox/playstation/switch/generic from the id), `inputName` (A/B/X/Y, ✕○□△, a Switch's B/A/Y/X
+  — the bottom button is index 0 on all of them —, LB/L1/L, …; "Button 5" for a non-standard layout), `nearest`
+  (which button the D-pad highlight goes to: the nearest row that way first; left/right stay on the line).
+- **Who does what**: a page calls `controllerArea("video" | "review", handlers)` and takes it back when it closes:
+  player.js (podcasts, YouTube, Netflix, own videos; videos also captions/transcript), reels.js (no speed or loop;
+  previous/next reel), review.js (same guards as its keys: the guide, the delete box, an open text box, KEY_GUARD_MS).
+  The newest area wins; an input the area doesn't map, or whose action the page lacks, falls to "general". While a
+  box is over the page (`.fix-back`, `.tour`, `.modal-back`, `#ctxmenu`, `.sel-sheet-back`) only "general" works,
+  inside that box. General: back (an open box gets an Escape keydown; else the area's `back` (popup, loop, review
+  settings/close); else the word popup's close; else history.back, never from Home), select (clicks the highlighted
+  element; text inputs get the focus, selects showPicker), D-pad highlight (class `.pad-focus`, a teal ring; mouse,
+  touch or a real key put it away; inside `.rv` while reviewing), scroll, menu (highlights the active main tab).
+- **Defaults** (Xbox names): videos A play/pause, D-pad ←/→ 5 s, ↑/↓ previous/next line, X hear the line again,
+  Y look up the word being said, RT save the popup's word, LT slow down (0.75× / back), LS loop the line, View
+  captions, RS transcript panel, LB/RB previous/next reel. Cards: A turn then Remembered, D-pad ← Not remembered,
+  → Remembered, X word, Y sentence, RB Say it, LB undo, View finish. Everywhere: B back, A press, D-pad move,
+  right stick scroll, Menu/Start main tabs.
+- **Settings → Controller** (new section `controller`, icon "game"; `web/js/components/controllerpanel.js`, used by both
+  Settings pages): connected controllers, "Last button pressed", "How to connect a controller", and per area each
+  action with its button (press it, then a controller button; 8 s or Esc cancels), ✕ clear, ↺ default, "Reset these
+  to the defaults". Printed names (A, LB, Options) carry translate="no"; descriptions (D-pad up) are translated.
+- **Stored**: setting `controller_map` = `{at, map: {area: {action: input | ""}}}`, only the changes from the defaults
+  (an action only a newer version knows is kept). Computer: db.py default, PATCH /settings. Phone/web: store.js
+  default; **new `GET /settings` in mobile backend.js** (gamepad.js reads it; it also fixes grammarpanel.js, which
+  asked for it and failed on the phones: "This lesson couldn't be marked as done"). **Synced** as library key
+  `controller`, the one changed last wins: `app/controller.py` (clean, wins) in sync/engine.py snapshot/_content/merge,
+  and mobile sync.js (padmap.js cleanSetting/settingWins). tests/test_controller.py (6).
+- i18n `tools/i18n/tr/<code>/81-controller.txt` (84 × 16); extra.txt has the first name of each of padmap's name
+  lists (the extractor skips a string right after "["); ignore.txt the printed names Xbox/Menu/Options/Xbox button/PS
+  button, a CSS selector and two programmer errors. build-www SHARED: js/padmap.js, js/gamepad.js,
+  js/components/controllerpanel.js. parity.test: "GET /settings" is no longer computer-only.
+- **Checked**: 1111 JS, 559 pytest, i18n complete. Browser pane (desktop server, scratch data folder, a simulated
+  controller: `navigator.getGamepads` stubbed with an Xbox, then a DualSense, then a Switch Pro id; requestAnimationFrame
+  swapped for a timer because the hidden pane pauses it): names per kind; capture (RB onto Play/pause moved it from
+  Next reel, saved); ✕, reset area; D-pad highlight on Settings and Vocab, A opened the review; B closed the fix
+  popup over a card without answering it; turn, Remembered, Not remembered, undo, B closing the review; in a seeded
+  podcast episode: play/pause, ±5 s, next/previous line, slow down and back, loop and B to stop it, Y looked up the
+  word being said, RT saved it. Phone width 375 px. Screenshots in the side-session notes folder (controller-shots).
+- **NOT checked**: a real controller on any device; the Android WebView's Gamepad API (Android also turns a
+  controller's B into its Back key when the app doesn't take it, which could close a screen twice — watch for that
+  first on a real phone), the iPhone, YouTube/Netflix embeds and reels with the real players, a real sync between two
+  devices. Fullscreen has no action (browsers don't count a controller press as a click for it).

@@ -1,0 +1,6 @@
+ee9fc3ee Mga kurso sa gramatika aron makakat-on og Iningles, gipasabot sa imong kaugalingong pinulongan
+a11abbbf Mga review card: ang hubad sa likod, i-tap ang bisan unsang teksto aron ayohon, pinduta og dugay ang pulong aron i-highlight
+182c6cc3 Sakto na ang dapit sa pag-highlight sa matag pulong sa mga basics course
+a0e09e4a XP sa pagpaminaw sa mga pananglitan sa gramatika ug pagdugang og mga pulong gikan sa Basics
+d45a59cf Ang mga problema nga imong maayo mag-abli og klaro nga popup nga adunay button aron ayohon
+43782e22 Grammar una ang abli sa Courses

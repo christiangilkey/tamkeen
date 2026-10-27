@@ -1,0 +1,49 @@
+8f857a22 No se encontró ningún micrófono. Conecta uno y vuelve a intentarlo.
+73c4ad14 El micrófono ya está permitido. Vuelve a intentarlo.
+52c732e3 El micrófono sigue bloqueado.
+174bac74 Esto necesita tu propia clave de IA: añade una en Ajustes → Definiciones de palabras.
+730531ca Añadir una clave
+4ba8cd34 Tu clave de IA no funciona
+1ebab0b0 Tu proveedor de IA rechazó la clave, seguramente porque ha caducado: pega una nueva en Ajustes → Definiciones de palabras.
+89a0c3d4 Arreglar la clave
+6cde8409 La IA está desactivada
+71affd5d Esto necesita las explicaciones con IA, que están desactivadas: actívalas en Ajustes → Definiciones de palabras.
+bdeb03f5 Activar la IA
+d8f66732 No se reconoce el modelo de IA
+46e978fb Tu proveedor de IA no conoce el modelo elegido: elige el recomendado en Ajustes → Definiciones de palabras.
+8dad5424 Tu clave de Azure no funciona
+55c9af95 Azure no aceptó tu clave o su región: vuelve a copiar la clave 1 y su región en Ajustes → Voces de las tarjetas.
+69410da6 No hay voz para este idioma
+8eb520cc Elegir una voz para las tarjetas
+42cd08f4 Tu clave de transcripción no funciona
+d9ba9a50 El servicio de transcripción rechazó la clave, seguramente porque ha caducado: pega una nueva en Ajustes → Escucha y transcripciones.
+555339ef La transcripción en la nube está desactivada
+828223e8 Esto necesita la transcripción en la nube: actívala en Ajustes → Escucha y transcripciones.
+cc4d3c36 Activarla
+3c04b9a1 Inicia sesión en Google Drive
+047cca15 Esto necesita que inicies sesión con Google: vuelve a iniciar sesión en Ajustes → Cuenta y sincronización.
+75dce38d Inicia sesión para sincronizar
+b80f7cd2 Google da a la app web una hora cada vez: vuelve a conectar para seguir sincronizando.
+dea7d75f Conéctate a Amigos
+6787d096 Para compartir hace falta una cuenta de Amigos: conéctate con Google y elige un nombre de usuario en Ajustes → Cuenta y sincronización.
+b65463cb Conectar
+b0c493dd Primero añade un amigo
+1a66b0e7 Todavía no hay nadie a quien enviarlo: añade un amigo en la página Amigos.
+2fd354c9 Buscar amigos
+18fae3d6 Elige un idioma para aprender
+ece01668 Tamkeen necesita saber qué idioma estás aprendiendo: elígelo en Ajustes → Idiomas.
+456a836f Elegir un idioma
+c7f10c79 Esto necesita la app Tamkeen
+23af15e5 Tamkeen necesita el micrófono para oírte: pulsa Permitir y di que sí cuando te lo pregunten.
+b3b6b85a Tamkeen no pudo usar el micrófono: pulsa Intentar de nuevo y di que sí si te lo preguntan.
+c95a149c El micrófono está desactivado para Tamkeen: abre sus ajustes, luego Permisos → Micrófono, y elige Permitir.
+b09e425f El micrófono está desactivado para Tamkeen: abre Ajustes y activa Micrófono.
+5c568d1d Tu navegador ha bloqueado el micrófono para Tamkeen: haz clic en el icono del candado o de ajustes junto a la dirección web, permite el micrófono y pulsa Intentar de nuevo.
+34373ee4 Windows no deja que Tamkeen use el micrófono: en la configuración de Windows, activa el acceso al micrófono para las aplicaciones de escritorio y vuelve a intentarlo.
+c1e7e74d macOS no deja que Tamkeen use el micrófono: en Ajustes del Sistema → Privacidad y seguridad → Micrófono, activa Tamkeen y vuelve a intentarlo.
+945d20e6 Permitir el micrófono
+d5a9015c Abrir la configuración de Windows
+4e135625 Abrir Ajustes del Sistema
+dc0d9626 Abrir los ajustes de Tamkeen
+31f9f942 Abrir los ajustes de voz
+2bb0f2f1 Primero inicia sesión con Google (Ajustes → Cuenta y sincronización).

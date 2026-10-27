@@ -84,11 +84,21 @@ test("each translation marks the word's part exactly once", () => {
   for (const w of ar.words) assert.match(w.translation, /^[^⟦⟧]*⟦[^⟦⟧]+⟧[^⟦⟧]*$/, `${w.n}: ${w.translation}`);
 });
 
+const said = (s) => s.replace(/[⟦⟧]/gu, ""); // a sentence as it is said: without the marks round its word
+
+test("each sentence marks its word with ⟦ ⟧, on whole letters with their vowels", () => {
+  for (const w of ar.words) {
+    assert.match(w.sentence, /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u, `${w.n} ${w.word}: ${w.sentence}`);
+    // A mark never splits a letter from its vowel marks: none starts on a vowel mark, none ends just before one.
+    assert.doesNotMatch(w.sentence, new RegExp(`⟦${MARK.source}|⟧${MARK.source}`, "u"), `${w.n}: ${w.sentence}`);
+  }
+});
+
 test("each sentence is short, ends like a sentence, and is fully vowelled", () => {
   for (const w of ar.words) {
-    const tokens = w.sentence.split(/\s+/);
+    const tokens = said(w.sentence).split(/\s+/);
     assert.ok(tokens.length >= 2 && tokens.length <= 10, `${w.n}: ${tokens.length} words`);
-    assert.match(w.sentence, /[.؟!]$/, `${w.n} ends with . ؟ or !`);
+    assert.match(said(w.sentence), /[.؟!]$/, `${w.n} ends with . ؟ or !`);
     for (const t of tokens) {
       const letters = t.replace(/[^ء-ي]/g, "");
       if (letters.length > 1) assert.match(t, MARK, `${w.n}: “${t}” has no vowel marks`);
@@ -101,11 +111,11 @@ test("each sentence uses its word (some form of it)", () => {
   const strip = (s) => wordKey(s, "ar").replace(/^ال/, "");
   for (const w of ar.words) {
     const word = strip(w.word);
-    const sentence = wordKey(w.sentence, "ar");
+    const sentence = wordKey(said(w.sentence), "ar");
     if (sentence.includes(word)) continue;
     // Not written the same (رَأَى → رَأَيْتُ, شَيْء → شَيْئًا): the same dictionary word, says the analyzer.
     const [want] = analyzeArabic([w.word], [msa]);
-    const keys = analyzeArabic(w.sentence.split(/\s+/), [msa]).filter(Boolean).map((a) => a.key);
+    const keys = analyzeArabic(said(w.sentence).split(/\s+/), [msa]).filter(Boolean).map((a) => a.key);
     assert.ok(want && keys.includes(want.key), `${w.n}: “${w.sentence}” doesn't seem to use ${w.word}`);
   }
 });

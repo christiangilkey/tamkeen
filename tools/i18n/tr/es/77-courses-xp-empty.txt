@@ -1,0 +1,12 @@
+2dc0c206 Terminar una lección de gramática: de 40 a 80 la primera vez, más cuantas más respuestas aciertes, y de 15 a 30 cuando la repites (cada lección paga una vez al día).
+b1691d36 Tocar un ejemplo de una lección de gramática para oírlo: una cuarta parte de lo que paga buscar una palabra, una vez al día por cada ejemplo. También mantiene tu combo.
+ce32fa95 Añadir a tus tarjetas una palabra de un curso básico: {0} por palabra, igual si las añades una a una que todas a la vez, hasta {1} palabras al día.
+4019c5e2 Añade pódcasts con el botón + de abajo.
+d7bc5164 Añade vídeos de YouTube con el botón + de abajo.
+71554151 Añade series y películas de Netflix con el botón + de abajo.
+1f98e825 Añade páginas web con el botón + de abajo.
+9b2f4468 Añade un libro con el botón + de abajo, o elige un clásico gratuito.
+ab6cd1c6 Añade reels con el botón + de abajo.
+a4f4a0c6 Añade tus propios vídeos con el botón + de abajo.
+c80a1cbd Añade tu propio audio con el botón + de abajo.
+e892255d Aquí aún no hay nada

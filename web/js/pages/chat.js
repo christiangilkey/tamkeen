@@ -11,6 +11,7 @@ import { avatar } from "../components/avatar.js";
 import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../components/sendmedia.js";
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
 import { askChatNotifications } from "../chatnotify.js";
+import { micProblem } from "../review/pronounce.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -308,8 +309,9 @@ export async function render(view, { friendId }) {
     }
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch {
-      toast("The app needs permission to use the microphone for voice notes.", { error: true });
+    } catch (e) {
+      // A refused permission opens the fix popup (toast passes this message on to components/fixit.js).
+      toast(micProblem(e) || "The app needs permission to use the microphone for voice notes.", { error: true });
       return;
     }
     const type = ["audio/webm;codecs=opus", "audio/webm", "audio/ogg;codecs=opus", "audio/mp4"].find((t) => MediaRecorder.isTypeSupported(t));

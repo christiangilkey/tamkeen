@@ -19,7 +19,7 @@ export function useCalendarToken(token, expiresIn) {
 
 /** A pass for Google Calendar, to send `task` at `time`. The first time, Google asks the learner to allow it. */
 async function calendarToken(task, time) {
-  if (!settings.signed_in) throw new AuthError("Sign in with Google first (Settings → Google account).");
+  if (!settings.signed_in) throw new AuthError("Sign in with Google first (Settings → Account & sync).");
   if (isWeb) {
     if (webCalendar && Date.now() < webCalendar.until) return webCalendar.token;
     const pass = webPassFor(CALENDAR_SCOPE); // once allowed, the Drive pass covers Google Calendar too

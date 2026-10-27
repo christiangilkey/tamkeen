@@ -1,0 +1,82 @@
+5d09aa46	Botão de baixo
+950b437d	Botão de ombro esquerdo
+89c030f3	Direcional para cima
+07a5fffb	Analógico esquerdo para a direita
+62a27597	Analógico direito para baixo
+b0827a06	Nenhum controle conectado
+103788f3	{0} conectado
+a36a5ffa	Controle
+301e3f5c	Controle {0}
+fd281615	Controles
+ab28ab13	Como conectar um controle
+ea7871ca	Ligue o controle com um cabo USB, ou pareie por Bluetooth nas configurações do seu aparelho (no Windows: Configurações → Bluetooth e dispositivos; no Android: Configurações → Dispositivos conectados; no Mac: Ajustes do Sistema → Bluetooth).
+f85631cb	Com o Tamkeen aberto, aperte qualquer botão do controle. O Tamkeen só vê um controle depois que um dos botões dele é apertado.
+7346c177	Abra um vídeo ou seus cartões de revisão e use o controle. Os botões abaixo dizem o que cada um faz ali.
+5a569af7	Controles de Xbox, PlayStation e Nintendo Switch Pro funcionam, e a maioria dos outros também. Os botões têm o nome impresso no controle conectado.
+4828e783	Este navegador não consegue ler controles de jogo.
+7c052eae	Nenhum controle conectado. Conecte um e aperte qualquer botão dele.
+9571f794	Os botões dele não têm um layout padrão aqui, então são numerados.
+05157447	Voltar ao padrão
+c0d7b263	Aperte aqui e depois um botão do controle
+15d37ee2	Nenhum botão para isto
+719ea396	Tirar
+bea69211	Voltar ao botão padrão
+93039e60	Não definido
+990d967b	{0} não faz mais “{1}”.
+ade59116	Aperte um botão…
+e73a14ad	Último botão apertado: {0}
+d60513ef	Um controle de jogo para os vídeos e os cartões de revisão: escolha o que cada botão faz.
+cdf6a886	Conectar um controle de jogo
+c6f88705	Botões do controle para os vídeos
+c9a71c99	Botões do controle para os cartões de revisão
+5e2745e8	Assistindo vídeos
+4758da15	Podcasts, YouTube, Netflix, seus próprios vídeos e reels.
+a40a5ef7	Estudando cartões
+988d30b4	Os cartões de revisão da página Vocabulário.
+2f2b74b5	Em todo lugar
+efeb8793	Andar pelo app: também nas telas acima, nos botões que elas não usam.
+decd52e0	Linha anterior
+56b52248	Próxima linha
+862bd9b2	Ouvir esta linha de novo
+0fb3f212	Repetir esta linha (liga / desliga)
+43c98408	Mais devagar (liga / desliga)
+2b594949	Buscar a palavra que está sendo dita
+852e0495	Salvar a palavra da janela
+8bc35ab4	Legendas no vídeo (liga / desliga)
+b4c402c6	Painel da transcrição (abrir / fechar)
+58fd357f	Tocar a palavra
+7cf414e1	Tocar a frase
+695a32ae	Diga (pratique como se diz)
+931bac1c	Terminar a sessão
+03889841	Voltar / fechar
+82d366b2	Apertar o botão destacado
+b4d701e3	Mover o destaque para cima
+c9259f28	Mover o destaque para baixo
+923d114c	Mover o destaque para a esquerda
+28ef371c	Mover o destaque para a direita
+4d07e752	Rolar para cima
+3a2e1ba7	Rolar para baixo
+afcc0121	Ir para as abas principais
+68190bf4	Botão da direita
+35e429d0	Botão da esquerda
+1b5d2ed4	Botão de cima
+bc6fb2a7	Apertar o analógico esquerdo
+da4e3b8d	Apertar o analógico direito
+84cc9318	Botão de ombro direito
+e648a480	Gatilho esquerdo
+fe5adc09	Gatilho direito
+85982229	Select
+0a4c74b7	Direcional para baixo
+32e2becc	Direcional para a esquerda
+6e71db01	Direcional para a direita
+c0fe7a0e	Analógico esquerdo para a esquerda
+342bb24a	Analógico esquerdo para cima
+54f08740	Analógico direito para a esquerda
+bd6b69d2	Analógico direito para cima
+a5c1a0ff	Botão {0}
+b6e23ef8	Eixo {0} {1}
+d6ed4349	Mais devagar: {0}×
+087fae4e	De volta a {0}×
+b90b39b7	Botões do controle em todo lugar
+b44ac93c	Virar o cartão, depois Lembrei
+6eaf5d7f	Não lembrei

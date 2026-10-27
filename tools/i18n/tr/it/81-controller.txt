@@ -1,0 +1,82 @@
+5d09aa46	Pulsante in basso
+950b437d	Dorsale sinistro
+89c030f3	Croce direzionale su
+07a5fffb	Levetta sinistra a destra
+62a27597	Levetta destra giù
+b0827a06	Nessun controller collegato
+103788f3	{0} collegato
+a36a5ffa	Controller
+301e3f5c	Controller {0}
+fd281615	Controller
+ab28ab13	Come collegare un controller
+ea7871ca	Collega il controller con un cavo USB, oppure abbinalo via Bluetooth nelle impostazioni del tuo dispositivo (su Windows: Impostazioni → Bluetooth e dispositivi; su Android: Impostazioni → Dispositivi connessi; su un Mac: Impostazioni di Sistema → Bluetooth).
+f85631cb	Con Tamkeen aperto, premi un pulsante qualsiasi del controller. Tamkeen vede un controller solo dopo che è stato premuto uno dei suoi pulsanti.
+7346c177	Apri un video o le tue schede di ripasso e usalo. I pulsanti qui sotto dicono cosa fa ciascuno lì.
+5a569af7	Funzionano i controller Xbox, PlayStation e Nintendo Switch Pro, e la maggior parte degli altri. I pulsanti hanno il nome stampato sul controller collegato.
+4828e783	Questo browser non può leggere i controller di gioco.
+7c052eae	Nessun controller collegato. Collegane uno, poi premi uno dei suoi pulsanti.
+9571f794	Qui i suoi pulsanti non hanno una disposizione standard, quindi sono numerati.
+05157447	Ripristina le impostazioni predefinite
+c0d7b263	Premi qui, poi un pulsante del controller
+15d37ee2	Nessun pulsante per questo
+719ea396	Togli
+bea69211	Torna al pulsante predefinito
+93039e60	Non assegnato
+990d967b	{0} non fa più «{1}».
+ade59116	Premi un pulsante…
+e73a14ad	Ultimo pulsante premuto: {0}
+d60513ef	Un controller di gioco per i video e le schede di ripasso: scegli cosa fa ogni pulsante.
+cdf6a886	Collegare un controller di gioco
+c6f88705	Pulsanti del controller per i video
+c9a71c99	Pulsanti del controller per le schede di ripasso
+5e2745e8	Guardare video
+4758da15	Podcast, YouTube, Netflix, i tuoi video e i reel.
+a40a5ef7	Studiare le schede
+988d30b4	Le schede di ripasso della pagina Vocabolario.
+2f2b74b5	Ovunque
+efeb8793	Muoversi nell'app: anche nelle schermate qui sopra, per i pulsanti che non usano.
+decd52e0	Riga precedente
+56b52248	Riga successiva
+862bd9b2	Riascolta questa riga
+0fb3f212	Ripeti questa riga (sì / no)
+43c98408	Più lento (sì / no)
+2b594949	Cerca la parola che si sta dicendo
+852e0495	Salva la parola della finestra
+8bc35ab4	Sottotitoli sul video (sì / no)
+b4c402c6	Pannello della trascrizione (apri / chiudi)
+58fd357f	Riproduci la parola
+7cf414e1	Riproduci la frase
+695a32ae	Dilla (esercitati a dirla)
+931bac1c	Termina la sessione
+03889841	Indietro / chiudi
+82d366b2	Premi il pulsante evidenziato
+b4d701e3	Sposta l'evidenziazione in su
+c9259f28	Sposta l'evidenziazione in giù
+923d114c	Sposta l'evidenziazione a sinistra
+28ef371c	Sposta l'evidenziazione a destra
+4d07e752	Scorri in su
+3a2e1ba7	Scorri in giù
+afcc0121	Vai alle schede principali
+68190bf4	Pulsante a destra
+35e429d0	Pulsante a sinistra
+1b5d2ed4	Pulsante in alto
+bc6fb2a7	Pressione della levetta sinistra
+da4e3b8d	Pressione della levetta destra
+84cc9318	Dorsale destro
+e648a480	Grilletto sinistro
+fe5adc09	Grilletto destro
+85982229	Select
+0a4c74b7	Croce direzionale giù
+32e2becc	Croce direzionale sinistra
+6e71db01	Croce direzionale destra
+c0fe7a0e	Levetta sinistra a sinistra
+342bb24a	Levetta sinistra su
+54f08740	Levetta destra a sinistra
+bd6b69d2	Levetta destra su
+a5c1a0ff	Pulsante {0}
+b6e23ef8	Asse {0} {1}
+d6ed4349	Rallentato a {0}×
+087fae4e	Di nuovo a {0}×
+b90b39b7	Pulsanti del controller ovunque
+b44ac93c	Gira la scheda, poi Ricordata
+6eaf5d7f	Non ricordata

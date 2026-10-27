@@ -1,0 +1,82 @@
+5d09aa46	Ibabang button
+950b437d	Kaliwang bumper
+89c030f3	D-pad pataas
+07a5fffb	Kaliwang stick pakanan
+62a27597	Kanang stick pababa
+b0827a06	Walang nakakonektang controller
+103788f3	Nakakonekta ang {0}
+a36a5ffa	Controller
+301e3f5c	{0} controller
+fd281615	Mga controller
+ab28ab13	Paano magkonekta ng controller
+ea7871ca	Isaksak ang controller gamit ang USB cable, o i-pair ito sa Bluetooth sa settings ng iyong device (sa Windows: Settings → Bluetooth & devices; sa Android: Settings → Mga nakakonektang device; sa Mac: System Settings → Bluetooth).
+f85631cb	Habang bukas ang Tamkeen, pindutin ang kahit anong button ng controller. Nakikita lang ng Tamkeen ang controller pagkatapos mapindot ang isa sa mga button nito.
+7346c177	Magbukas ng video o ng iyong mga review card at gamitin ito. Sinasabi ng mga button sa ibaba kung ano ang ginagawa ng bawat isa roon.
+5a569af7	Gumagana ang mga controller ng Xbox, PlayStation at Nintendo Switch Pro, at karamihan ng iba pa. Ang mga button ay pinangalanan ayon sa nakalimbag sa nakakonektang controller.
+4828e783	Hindi kayang basahin ng browser na ito ang mga game controller.
+7c052eae	Walang nakakonektang controller. Magkonekta ng isa, saka pindutin ang kahit anong button nito.
+9571f794	Walang karaniwang ayos ang mga button nito rito, kaya may numero ang mga ito.
+05157447	Ibalik sa default
+c0d7b263	Pindutin ito, saka pindutin ang isang button sa controller
+15d37ee2	Walang button para dito
+719ea396	Alisin
+bea69211	Ibalik sa default na button
+93039e60	Hindi nakatakda
+990d967b	Hindi na ginagawa ng {0} ang “{1}”.
+ade59116	Pumindot ng button…
+e73a14ad	Huling pinindot na button: {0}
+d60513ef	Isang game controller para sa mga video at review card: piliin kung ano ang ginagawa ng bawat button.
+cdf6a886	Magkonekta ng game controller
+c6f88705	Mga button ng controller para sa mga video
+c9a71c99	Mga button ng controller para sa mga review card
+5e2745e8	Habang nanonood ng video
+4758da15	Mga podcast, YouTube, Netflix, sarili mong mga video at mga reel.
+a40a5ef7	Habang nag-aaral ng card
+988d30b4	Ang mga review card sa Vocab page.
+2f2b74b5	Saanman
+efeb8793	Paggalaw sa app: pati sa mga screen sa itaas, para sa mga button na hindi nila ginagamit.
+decd52e0	Nakaraang linya
+56b52248	Susunod na linya
+862bd9b2	Pakinggan ulit ang linyang ito
+0fb3f212	Ulit-ulitin ang linyang ito (on / off)
+43c98408	Bagalan (on / off)
+2b594949	Hanapin ang salitang binibigkas
+852e0495	I-save ang salita sa popup
+8bc35ab4	Captions sa video (on / off)
+b4c402c6	Panel ng transcript (buksan / isara)
+58fd357f	I-play ang salita
+7cf414e1	I-play ang pangungusap
+695a32ae	Bigkasin ito (sanayin ang pagbigkas)
+931bac1c	Tapusin ang session
+03889841	Bumalik / isara
+82d366b2	Pindutin ang naka-highlight na button
+b4d701e3	Ilipat pataas ang highlight
+c9259f28	Ilipat pababa ang highlight
+923d114c	Ilipat pakaliwa ang highlight
+28ef371c	Ilipat pakanan ang highlight
+4d07e752	Mag-scroll pataas
+3a2e1ba7	Mag-scroll pababa
+afcc0121	Pumunta sa mga pangunahing tab
+68190bf4	Kanang button
+35e429d0	Kaliwang button
+1b5d2ed4	Itaas na button
+bc6fb2a7	Pindot ng kaliwang stick
+da4e3b8d	Pindot ng kanang stick
+84cc9318	Kanang bumper
+e648a480	Kaliwang trigger
+fe5adc09	Kanang trigger
+85982229	Select
+0a4c74b7	D-pad pababa
+32e2becc	D-pad pakaliwa
+6e71db01	D-pad pakanan
+c0fe7a0e	Kaliwang stick pakaliwa
+342bb24a	Kaliwang stick pataas
+54f08740	Kanang stick pakaliwa
+bd6b69d2	Kanang stick pataas
+a5c1a0ff	Button {0}
+b6e23ef8	Axis {0} {1}
+d6ed4349	Binagalan sa {0}×
+087fae4e	Balik sa {0}×
+b90b39b7	Mga button ng controller saanman
+b44ac93c	Baligtarin ang card, saka Naalala
+6eaf5d7f	Hindi naalala

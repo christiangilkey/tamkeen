@@ -13,6 +13,7 @@ import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanProgress, mergeProgress } from "./grammardata.js";
+import { cleanSetting as cleanController, settingWins as controllerWins } from "./padmap.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 import { keepVoice } from "./cardvoice.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
@@ -161,6 +162,13 @@ export function merge(remote) {
     }
   }
 
+  // The game controller's buttons (padmap.js): the mapping changed last wins.
+  if (remote.controller && typeof remote.controller === "object" && controllerWins(remote.controller, settings.controller_map)) {
+    settings.controller_map = cleanController(remote.controller);
+    kv.set("settings", { ...settings }).catch(console.error);
+    changed++;
+  }
+
   // Saved Instagram collections: the list found last, and the collection chosen last.
   if (remote.ig_collections && typeof remote.ig_collections === "object") {
     const before = cleanCollections(settings.ig_collections);
@@ -216,6 +224,7 @@ export function snapshot() {
     channels: cleanFollows(settings.youtube_follows),
     sites: cleanSites(settings.browser_sites),
     grammar: cleanProgress(settings.grammar_progress),
+    controller: cleanController(settings.controller_map),
     ig_collections: cleanCollections(settings.ig_collections),
     keys: keysFromSettings(settings),
     learning: learningPayload(settings),
@@ -232,6 +241,7 @@ function canonical(value) {
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
                                    channels: l.channels || [], sites: l.sites || [], grammar: cleanProgress(l.grammar),
+                                   controller: cleanController(l.controller),
                                    ig_collections: cleanCollections(l.ig_collections),
                                    keys: cleanKeys(l.keys), learning: cleanPayload(l.learning) });
 

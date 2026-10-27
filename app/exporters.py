@@ -58,7 +58,7 @@ def vocab_to_csv(items: Sequence[dict[str, Any]]) -> str:
     writer = csv.writer(buf)
     writer.writerow(["Word/Phrase", "Meaning", "Notes", "Sentence", "Episode", "Start (s)", "End (s)"])
     for v in items:
-        writer.writerow([v["text"], v["meaning"], v["notes"], v["sentence"], v["episode_title"],
+        writer.writerow([v["text"], v["meaning"], v["notes"], (v["sentence"] or "").replace("⟦", "").replace("⟧", ""), v["episode_title"],
                          f"{v['start']:.2f}" if v["start"] is not None else "",
                          f"{v['end']:.2f}" if v["end"] is not None else ""])
     # BOM so Excel opens UTF-8 Arabic correctly.
@@ -81,6 +81,27 @@ ANKI_TAG = "tamkeen"
 _LABELLED = re.compile(r"^[^:]{1,30}:\s*\S")
 # A saved translation whose ⟦ ⟧ marks pair up around some text (one marked part, or several).
 _MARKED = re.compile(r"[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+")
+
+
+def sentence_spans(sentence: str, word: str) -> tuple[str, list[tuple[int, int]]]:
+    """(text, spans): a sentence without its ⟦ ⟧ marks and where its word is in that text: the marked
+    parts (a basics course word, or one marked in a review card), else where it is found (the same as
+    sentenceSpans in mobile/src/js/shared-logic.js)."""
+    sentence = sentence or ""
+    # An empty pair in front: the learner put out every lit word on the review card (cardtext.js NO_MARKS).
+    if sentence.startswith("⟦⟧") and "⟦" not in sentence[2:] and "⟧" not in sentence[2:]:
+        return sentence[2:], []
+    if _MARKED.fullmatch(sentence):
+        text, spans = "", []
+        for part in re.split(r"(⟦[^⟦⟧]+⟧)", sentence):
+            if part.startswith("⟦"):
+                spans.append((len(text), len(text) + len(part) - 2))
+                text += part[1:-1]
+            else:
+                text += part
+        return text, spans
+    text = sentence.replace("⟦", "").replace("⟧", "")
+    return text, (arabic.find_spans(text, word) if word else [])
 
 
 # ----- keeping the word off the front -----
@@ -203,24 +224,24 @@ def anki_front(v: dict[str, Any]) -> str:
     said = translation.replace("⟦", "").replace("⟧", "").strip()
     if said and not gives_away(said, text):
         return html.escape(said)
-    sentence = v.get("sentence") or ""
-    spans = arabic.find_spans(sentence, text) if text else []
-    if spans:
-        a, b = spans[0]
-        return html.escape(f"{sentence[:a]}…{sentence[b:]}".strip())
+    plain, spans = sentence_spans(v.get("sentence") or "", text)
+    if spans:  # the sentence with "…" where the word is, so the front doesn't give it away
+        out, last = "", 0
+        for a, b in spans:
+            out, last = out + plain[last:a] + "…", b
+        return html.escape((out + plain[last:]).strip())
     return "…"
 
 
 def anki_fields(v: dict[str, Any]) -> tuple[str, str]:
     """(Front, Back) for one saved word."""
     word = html.escape(v["text"])
-    sentence = v["sentence"] or ""
-    spans = arabic.find_spans(sentence, v["text"]) if v["text"] else []
-    if spans:  # found whatever its vowel marks: put the sentence's own spelling in brackets
-        a, b = spans[0]
-        sentence = f"{html.escape(sentence[:a])}[{html.escape(sentence[a:b])}]{html.escape(sentence[b:])}"
-    else:
-        sentence = html.escape(sentence)
+    # The word in [brackets], in the sentence's own spelling: where its ⟦ ⟧ marks say, else where found.
+    plain, spans = sentence_spans(v["sentence"] or "", v["text"] or "")
+    sentence, last = "", 0
+    for a, b in spans:
+        sentence, last = f"{sentence}{html.escape(plain[last:a])}[{html.escape(plain[a:b])}]", b
+    sentence += html.escape(plain[last:])
     grammar, free = anki_grammar(v["notes"] or "")
     lines = [f"<b>{word}</b>"]
     if sentence:

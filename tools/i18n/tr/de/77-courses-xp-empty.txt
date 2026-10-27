@@ -1,0 +1,12 @@
+2dc0c206 Eine Grammatiklektion abschließen: 40 bis 80 beim ersten Mal, mehr für mehr richtige Antworten, und 15 bis 30, wenn du sie wiederholst (jede Lektion zahlt einmal am Tag).
+b1691d36 Auf ein Beispiel in einer Grammatiklektion tippen, um es zu hören: ein Viertel dessen, was das Nachschlagen eines Wortes zahlt, einmal am Tag pro Beispiel. Es hält auch deine Combo am Laufen.
+ce32fa95 Ein Wort aus einem Grundkurs zu deinen Karten hinzufügen: {0} pro Wort, egal ob einzeln oder alle auf einmal, bis zu {1} Wörter am Tag.
+4019c5e2 Füge Podcasts mit dem +-Knopf unten hinzu.
+d7bc5164 Füge YouTube-Videos mit dem +-Knopf unten hinzu.
+71554151 Füge Serien und Filme von Netflix mit dem +-Knopf unten hinzu.
+1f98e825 Füge Webseiten mit dem +-Knopf unten hinzu.
+9b2f4468 Füge ein Buch mit dem +-Knopf unten hinzu, oder wähle einen kostenlosen Klassiker.
+ab6cd1c6 Füge Reels mit dem +-Knopf unten hinzu.
+a4f4a0c6 Füge eigene Videos mit dem +-Knopf unten hinzu.
+c80a1cbd Füge eigenes Audio mit dem +-Knopf unten hinzu.
+e892255d Hier ist noch nichts

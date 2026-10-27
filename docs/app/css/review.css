@@ -26,7 +26,7 @@
 .review-banner.idle, .review-banner.idle:hover:not(:disabled) { background: var(--surface); color: var(--text); border-color: var(--border); }
 .review-banner.idle .rb-icon { background: var(--surface-2); color: var(--muted); }
 .review-banner.idle .rb-go { background: var(--surface-2); color: var(--text); }
-/* No words to review yet: the same box, plain, with nothing to press */
+/* No words to review yet: the same box in its usual colour (vocab.js; the owner, 2026-10-25), with nothing to press */
 .review-banner:disabled { opacity: 1; cursor: default; }
 .review-banner .rb-go:empty { display: none; }
 .vocab-item .memo { border-style: dashed; }
@@ -378,7 +378,41 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .cal-body .confirm-buttons { align-self: stretch; margin-top: 8px; }
 .cal-body .confirm-buttons button { flex: 1 1 0; min-width: 0; white-space: normal; line-height: 1.25; padding-inline: 10px; } /* the same width, side by side */
 
-/* The back of a card: a tap on the word or its sentence copies it (review.js copyTapped), with a short flash. */
-.rv-back .rv-word, .rv-back .rv-ans-sentence { cursor: copy; -webkit-tap-highlight-color: transparent; border-radius: 12px; }
-.rv-copied { animation: rv-copied .6s ease-out; }
-@keyframes rv-copied { 0% { background: var(--accent-soft); } 100% { background: transparent; } }
+/* ----- the back: the meaning and the translation small under the answer; tap to edit, hold to light up -----
+   (review.js drawAnswer / openEditor / holdWord) */
+.rv-ans-meaning { margin-top: -4px; font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: 1.35; color: var(--muted); max-width: 26em; overflow-wrap: anywhere; }
+.rv-ans-trans { margin-top: -2px; font-size: clamp(14px, 3.8vw, 16px); line-height: 1.5; color: var(--muted); opacity: .85; max-width: 30em; overflow-wrap: anywhere; }
+.rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans {
+  cursor: text; border-radius: 12px; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;
+}
+/* A lit stretch over several words is drawn in pieces (cardtext.js litTextHtml): its start (.s), middle
+   (.m) and end (.e) make one coloured band, rounded only at its two ends. */
+.rv-ans-trans b { padding: 0 3px; border-radius: 5px; background: rgba(34, 199, 214, .28); color: inherit; font-weight: 700; }
+.rv-ans-sentence b.s, .rv-ans-trans b.s { padding-inline-end: 0; border-start-end-radius: 0; border-end-end-radius: 0; }
+.rv-ans-sentence b.e, .rv-ans-trans b.e { padding-inline-start: 0; border-start-start-radius: 0; border-end-start-radius: 0; }
+.rv-ans-sentence b.m, .rv-ans-trans b.m { padding-inline: 0; border-radius: 0; }
+/* (each piece reaches 1px under the next one, so no hairline shows where two pieces meet) */
+.rv-ans-sentence b.s, .rv-ans-sentence b.m, .rv-ans-trans b.s, .rv-ans-trans b.m { padding-inline-end: 1px; margin-inline-end: -1px; }
+/* Holding a word: it tints while pressed, and a ring shows the word that changed. */
+.rv-tok { border-radius: 6px; outline: 2px solid transparent; outline-offset: 1px; transition: background-color .2s ease .12s; }
+.rv-tok.pressing { background: var(--accent-soft); }
+.rv-tok.rv-held { animation: rv-held .7s ease-out; }
+@keyframes rv-held { 0%, 35% { outline-color: var(--accent); } 100% { outline-color: transparent; } }
+/* A text turned into its own box, in its own size and letters. */
+.rv-answer > .editing { align-self: stretch; max-width: none; margin-top: 0; opacity: 1; cursor: auto; }
+.rv-editing { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.rv-editbox {
+  display: block; width: 100%; box-sizing: border-box; min-height: 0; margin: 0; padding: 2px 10px;
+  font: inherit; line-height: inherit; color: var(--text); text-align: center;
+  background: var(--surface-2); border: 1.5px solid var(--accent); border-radius: 12px;
+  resize: none; overflow: hidden; -webkit-user-select: text; user-select: text;
+}
+.rv-editbox:focus-visible { outline: none; }
+.rv-edit-copy {
+  min-height: 30px; padding: 0 12px; gap: 5px; border: 0; border-radius: 99px; background: var(--accent-soft); color: var(--accent);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 12.5px; font-weight: 600; line-height: 1;
+}
+.rv-edit-copy:hover:not(:disabled) { background: var(--accent-soft); filter: brightness(1.12); }
+/* (iPhone: a box inside a part that can't be selected can't be typed in either, unless it says it can) */
+.rv-back textarea, .rv-back input { -webkit-user-select: text; user-select: text; }
+@media (prefers-reduced-motion: reduce) { .rv-tok.rv-held { animation: none; } .rv-tok { transition: none; } }

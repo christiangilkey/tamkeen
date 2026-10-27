@@ -6,7 +6,7 @@ import { esc, h } from "../app.js";
 import { BRANCHES, CATALOG, FOODS, MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
 import { describe, leadingBranch, readyToEvolve, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, HABIT_XP, REVIEW_CLEAR_CARDS, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
+import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, HABIT_XP, REVIEW_CLEAR_CARDS, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -56,6 +56,9 @@ const EARNED = {
       get: [
         "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and each word you look up in the same study session builds a combo of up to double, with no hurry: the session ends only when you've been away from the app for 10 minutes, or at midnight.",
         "Save a word to your vocab: 20.",
+        "Finish a grammar lesson: 40 to 80 the first time, more for more right answers, and 15 to 30 when you do it again (each lesson pays once a day).",
+        "Tap an example in a grammar lesson to hear it: a quarter of what looking up a word pays, once a day for each example. It keeps your combo going too.",
+        `Add a word from a basics course to your cards: ${BASICS_XP} each, the same whether you add them one by one or all at once, for up to ${BASICS_DAY_CAP} words a day.`,
         "Listen or read: a slow trickle while you study, which dries up well past your daily goal.",
         `Reach your daily goal: ${DAILY_COMPLETE_XP}. This is the big one, and it pays the same whether your goal is 5 minutes or 20.`,
         "Battles: 3 for each right answer, 15 more when a word becomes well known, 40 for a win and 15 for a loss (in full for the day's first three battles).",

@@ -1,0 +1,12 @@
+2dc0c206 Terminer une leçon de grammaire : 40 à 80 la première fois, plus pour plus de bonnes réponses, et 15 à 30 quand vous la refaites (chaque leçon rapporte une fois par jour).
+b1691d36 Toucher un exemple d'une leçon de grammaire pour l'écouter : un quart de ce que rapporte la recherche d'un mot, une fois par jour pour chaque exemple. Cela entretient aussi votre combo.
+ce32fa95 Ajouter à vos cartes un mot d'un cours de base : {0} par mot, que vous les ajoutiez un par un ou tous d'un coup, jusqu'à {1} mots par jour.
+4019c5e2 Ajoutez des podcasts avec le bouton + en bas.
+d7bc5164 Ajoutez des vidéos YouTube avec le bouton + en bas.
+71554151 Ajoutez des séries et des films Netflix avec le bouton + en bas.
+1f98e825 Ajoutez des pages web avec le bouton + en bas.
+9b2f4468 Ajoutez un livre avec le bouton + en bas, ou choisissez un classique gratuit.
+ab6cd1c6 Ajoutez des reels avec le bouton + en bas.
+a4f4a0c6 Ajoutez vos propres vidéos avec le bouton + en bas.
+c80a1cbd Ajoutez votre propre audio avec le bouton + en bas.
+e892255d Rien ici pour l'instant

@@ -1,0 +1,82 @@
+5d09aa46	Bouton du bas
+950b437d	Bouton de tranche gauche
+89c030f3	Croix directionnelle haut
+07a5fffb	Joystick gauche vers la droite
+62a27597	Joystick droit vers le bas
+b0827a06	Aucune manette connectée
+103788f3	{0} connectée
+a36a5ffa	Manette
+301e3f5c	Manette {0}
+fd281615	Manettes
+ab28ab13	Comment connecter une manette
+ea7871ca	Branchez la manette avec un câble USB, ou associez-la en Bluetooth dans les réglages de votre appareil (sous Windows : Paramètres → Bluetooth et appareils ; sous Android : Paramètres → Appareils connectés ; sur un Mac : Réglages Système → Bluetooth).
+f85631cb	Tamkeen ouvert, appuyez sur n'importe quel bouton de la manette. Tamkeen ne voit une manette qu'après l'appui sur l'un de ses boutons.
+7346c177	Ouvrez une vidéo ou vos cartes de révision et servez-vous-en. Les boutons ci-dessous indiquent ce que fait chacun à cet endroit.
+5a569af7	Les manettes Xbox, PlayStation et Nintendo Switch Pro fonctionnent, ainsi que la plupart des autres. Les boutons portent le nom imprimé sur la manette connectée.
+4828e783	Ce navigateur ne peut pas lire les manettes de jeu.
+7c052eae	Aucune manette connectée. Connectez-en une, puis appuyez sur l'un de ses boutons.
+9571f794	Ses boutons n'ont pas ici de disposition standard ; ils sont donc numérotés.
+05157447	Rétablir les réglages par défaut
+c0d7b263	Appuyez ici, puis sur un bouton de la manette
+15d37ee2	Aucun bouton pour ceci
+719ea396	Effacer
+bea69211	Revenir au bouton par défaut
+93039e60	Non attribué
+990d967b	{0} ne fait plus « {1} ».
+ade59116	Appuyez sur un bouton…
+e73a14ad	Dernier bouton appuyé : {0}
+d60513ef	Une manette de jeu pour les vidéos et les cartes de révision : choisissez ce que fait chaque bouton.
+cdf6a886	Connecter une manette de jeu
+c6f88705	Boutons de la manette pour les vidéos
+c9a71c99	Boutons de la manette pour les cartes de révision
+5e2745e8	Regarder des vidéos
+4758da15	Podcasts, YouTube, Netflix, vos propres vidéos et les reels.
+a40a5ef7	Étudier les cartes
+988d30b4	Les cartes de révision de la page Vocabulaire.
+2f2b74b5	Partout
+efeb8793	Se déplacer dans l'application : aussi sur les écrans ci-dessus, pour les boutons qu'ils n'utilisent pas.
+decd52e0	Ligne précédente
+56b52248	Ligne suivante
+862bd9b2	Réécouter cette ligne
+0fb3f212	Répéter cette ligne en boucle (oui / non)
+43c98408	Ralentir (oui / non)
+2b594949	Chercher le mot qui est prononcé
+852e0495	Enregistrer le mot de la fenêtre
+8bc35ab4	Sous-titres sur la vidéo (oui / non)
+b4c402c6	Panneau de la transcription (ouvrir / fermer)
+58fd357f	Écouter le mot
+7cf414e1	Écouter la phrase
+695a32ae	Dites-le (pour s'entraîner à le dire)
+931bac1c	Terminer la séance
+03889841	Retour / fermer
+82d366b2	Appuyer sur le bouton en surbrillance
+b4d701e3	Déplacer la surbrillance vers le haut
+c9259f28	Déplacer la surbrillance vers le bas
+923d114c	Déplacer la surbrillance vers la gauche
+28ef371c	Déplacer la surbrillance vers la droite
+4d07e752	Faire défiler vers le haut
+3a2e1ba7	Faire défiler vers le bas
+afcc0121	Aller aux onglets principaux
+68190bf4	Bouton de droite
+35e429d0	Bouton de gauche
+1b5d2ed4	Bouton du haut
+bc6fb2a7	Clic du joystick gauche
+da4e3b8d	Clic du joystick droit
+84cc9318	Bouton de tranche droit
+e648a480	Gâchette gauche
+fe5adc09	Gâchette droite
+85982229	Select
+0a4c74b7	Croix directionnelle bas
+32e2becc	Croix directionnelle gauche
+6e71db01	Croix directionnelle droite
+c0fe7a0e	Joystick gauche vers la gauche
+342bb24a	Joystick gauche vers le haut
+54f08740	Joystick droit vers la gauche
+bd6b69d2	Joystick droit vers le haut
+a5c1a0ff	Bouton {0}
+b6e23ef8	Axe {0} {1}
+d6ed4349	Ralenti à {0}×
+087fae4e	Retour à {0}×
+b90b39b7	Boutons de la manette partout
+b44ac93c	Retourner la carte, puis Je m'en souviens
+6eaf5d7f	Oublié

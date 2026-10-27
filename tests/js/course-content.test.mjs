@@ -43,8 +43,8 @@ for (const lang of langs) {
 
   test(`${lang}: each sentence is short and ends like a sentence`, () => {
     for (const w of course.words) {
-      const s = w.sentence.trim();
-      assert.equal(s, w.sentence, `${w.n}: no spaces round the sentence`);
+      const s = w.sentence.replace(/[⟦⟧]/gu, "").trim();
+      assert.equal(s, w.sentence.replace(/[⟦⟧]/gu, ""), `${w.n}: no spaces round the sentence`);
       if (UNSPACED.has(lang)) {
         const chars = [...s.replace(/[\s\p{P}]/gu, "")].length;
         assert.ok(chars >= 2 && chars <= 30, `${w.n}: ${chars} characters`);
@@ -56,11 +56,17 @@ for (const lang of langs) {
     }
   });
 
+  // Where the word is: ⟦ ⟧ round each part that carries its meaning there, so the app lights up that
+  // place (not the same letters inside another word: the owner's report after v0.37.0).
+  test(`${lang}: each sentence marks its word with ⟦ ⟧`, () => {
+    for (const w of course.words) assert.match(w.sentence, /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u, `${w.n} ${w.word}: ${w.sentence}`);
+  });
+
   // The word as the sentence has it ("went" for "go", "fue" for "ir"): `form`, when it isn't written the same.
   test(`${lang}: each sentence uses its word`, () => {
     for (const w of course.words) {
       const forms = [w.word, ...[].concat(w.form || [])].map(fold);
-      const sentence = fold(w.sentence);
+      const sentence = fold(w.sentence.replace(/[⟦⟧]/gu, ""));
       assert.ok(forms.some((f) => sentence.includes(f)), `${w.n}: “${w.sentence}” doesn't contain ${forms.join(" / ")} (add its form)`);
     }
   });

@@ -3,7 +3,7 @@
 
 import { api, on, saveSettings, state as app } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
-import { COMBO_STEPS, SESSION_GAP_MS, earn, earnAnki, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { COMBO_STEPS, SESSION_GAP_MS, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
 
@@ -157,8 +157,10 @@ function layer() {
 
 /** A multiplier as shown on screen: "×2", "×1.2", "×0.8". */
 export const times = (m) => `×${Math.round(m * 100) / 100}`;
+/** Rewards that carry the study session's combo: a word looked up, a grammar example heard. */
+const chained = (type) => type === "word" || type === "hear";
 /** How a multiplied word reward was worked out, e.g. "12 ×2" for +24 XP; "" when nothing multiplied it. */
-export const sumText = (result) => (result.type === "word" && result.base && result.mult && result.mult !== 1 ? `${result.base} ${times(result.mult)}` : "");
+export const sumText = (result) => (chained(result.type) && result.base && result.mult && result.mult !== 1 ? `${result.base} ${times(result.mult)}` : "");
 
 /** Shoot a small fountain of particles up from a point on screen, with the XP amount. */
 export function fountain(x, y, result) {
@@ -242,12 +244,12 @@ function showChip(g, result) {
     document.body.append(chip);
   }
   rollNumber(chip.querySelector("b"), g.xp, (n) => n.toLocaleString());
-  const hot = result.type === "word" && comboAlive();
-  // What the next lookup will really be multiplied by (combo, boost and the day's fade together),
-  // the same sum the popup beside the word shows.
-  const next = times(wordMultiplier(g, combo.count + 1));
+  const hot = chained(result.type) && comboAlive();
+  // What the next lookup (or, after a grammar example, the next example) will really be multiplied by
+  // (combo, boost and the day's fade together), the same sum the popup beside the word shows.
+  const next = times((result.type === "hear" ? hearMultiplier : wordMultiplier)(g, combo.count + 1));
   const label = chip.querySelector(".chip-combo");
-  label.hidden = result.type !== "word";
+  label.hidden = !chained(result.type);
   label.textContent = hot ? `${times(result.mult)} · next ${next}` : `next ${next}`; // while hot, app.css puts the combo flame in front
   chip.classList.toggle("hot", hot);
   chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);

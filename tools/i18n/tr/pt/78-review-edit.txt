@@ -1,0 +1,7 @@
+# Review card: tap a text to edit it, hold a word of the sentence to highlight it (2026-10-25)
+9bce06e6 Editar a palavra
+d0f60fa0 Editar o significado
+697f207b Editar a frase
+71f0b2ab Editar a tradução
+c6084b94 Corrija o cartão enquanto revisa
+7f4dcbb0 Toque em qualquer texto para editá-lo. Mantenha pressionada uma palavra da frase para destacá-la.

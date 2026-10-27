@@ -1,0 +1,82 @@
+5d09aa46	Unterer Knopf
+950b437d	Linke Schultertaste
+89c030f3	Steuerkreuz oben
+07a5fffb	Linker Stick nach rechts
+62a27597	Rechter Stick nach unten
+b0827a06	Kein Controller verbunden
+103788f3	{0} verbunden
+a36a5ffa	Controller
+301e3f5c	{0}-Controller
+fd281615	Controller
+ab28ab13	So verbindest du einen Controller
+ea7871ca	Schließ den Controller mit einem USB-Kabel an oder kopple ihn per Bluetooth in den Einstellungen deines Geräts (unter Windows: Einstellungen → Bluetooth und Geräte; unter Android: Einstellungen → Verbundene Geräte; auf einem Mac: Systemeinstellungen → Bluetooth).
+f85631cb	Drück bei geöffnetem Tamkeen einen beliebigen Knopf am Controller. Tamkeen sieht einen Controller erst, nachdem einer seiner Knöpfe gedrückt wurde.
+7346c177	Öffne ein Video oder deine Lernkarten und leg los. Die Knöpfe unten sagen, was jeder dort tut.
+5a569af7	Controller von Xbox, PlayStation und der Nintendo Switch Pro Controller funktionieren, und die meisten anderen auch. Die Knöpfe heißen so, wie sie auf dem verbundenen Controller aufgedruckt sind.
+4828e783	Dieser Browser kann keine Gamecontroller lesen.
+7c052eae	Kein Controller verbunden. Verbinde einen und drück dann einen seiner Knöpfe.
+9571f794	Seine Knöpfe haben hier keine Standardbelegung, darum sind sie nummeriert.
+05157447	Auf die Standardwerte zurücksetzen
+c0d7b263	Hier drücken, dann einen Knopf am Controller
+15d37ee2	Kein Knopf dafür
+719ea396	Entfernen
+bea69211	Zurück zum Standardknopf
+93039e60	Nicht belegt
+990d967b	{0} macht nicht mehr „{1}“.
+ade59116	Drück einen Knopf …
+e73a14ad	Zuletzt gedrückter Knopf: {0}
+d60513ef	Ein Gamecontroller für Videos und Lernkarten: Wähle, was jeder Knopf tut.
+cdf6a886	Einen Gamecontroller verbinden
+c6f88705	Controller-Knöpfe für Videos
+c9a71c99	Controller-Knöpfe für Lernkarten
+5e2745e8	Videos ansehen
+4758da15	Podcasts, YouTube, Netflix, deine eigenen Videos und Reels.
+a40a5ef7	Karten lernen
+988d30b4	Die Lernkarten auf der Vokabeln-Seite.
+2f2b74b5	Überall
+efeb8793	In der App herumgehen: auch auf den Seiten oben, für Knöpfe, die sie nicht verwenden.
+decd52e0	Vorherige Zeile
+56b52248	Nächste Zeile
+862bd9b2	Diese Zeile noch einmal hören
+0fb3f212	Diese Zeile wiederholen (an / aus)
+43c98408	Langsamer (an / aus)
+2b594949	Das gesprochene Wort nachschlagen
+852e0495	Das Wort im Fenster speichern
+8bc35ab4	Untertitel im Video (an / aus)
+b4c402c6	Transkript-Leiste (öffnen / schließen)
+58fd357f	Das Wort abspielen
+7cf414e1	Den Satz abspielen
+695a32ae	Aussprechen (das Sagen üben)
+931bac1c	Die Sitzung beenden
+03889841	Zurück / schließen
+82d366b2	Den markierten Knopf drücken
+b4d701e3	Markierung nach oben
+c9259f28	Markierung nach unten
+923d114c	Markierung nach links
+28ef371c	Markierung nach rechts
+4d07e752	Nach oben scrollen
+3a2e1ba7	Nach unten scrollen
+afcc0121	Zu den Hauptreitern
+68190bf4	Rechter Knopf
+35e429d0	Linker Knopf
+1b5d2ed4	Oberer Knopf
+bc6fb2a7	Linken Stick drücken
+da4e3b8d	Rechten Stick drücken
+84cc9318	Rechte Schultertaste
+e648a480	Linker Trigger
+fe5adc09	Rechter Trigger
+85982229	Select
+0a4c74b7	Steuerkreuz unten
+32e2becc	Steuerkreuz links
+6e71db01	Steuerkreuz rechts
+c0fe7a0e	Linker Stick nach links
+342bb24a	Linker Stick nach oben
+54f08740	Rechter Stick nach links
+bd6b69d2	Rechter Stick nach oben
+a5c1a0ff	Knopf {0}
+b6e23ef8	Achse {0} {1}
+d6ed4349	Langsamer: {0}×
+087fae4e	Wieder {0}×
+b90b39b7	Controller-Knöpfe überall
+b44ac93c	Karte umdrehen, dann Gewusst
+6eaf5d7f	Nicht gewusst
