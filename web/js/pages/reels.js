@@ -715,11 +715,15 @@ async function renderPlayer(view, { query }) {
     if (idx < 0) return;
     const el = cur.els[idx];
     el.classList.add("cur");
-    // Keep the tapped word in view while its popup is open (unless the choice is to keep playing:
-    // then the words carry on following the reel), and leave the words alone for a moment after a
-    // finger has slid them.
-    if (bubble.open && pauseAfterWord()) return;
+    // Keep the tapped word in view while its popup is open and the reel is paused (once it plays
+    // again, or when the choice is to keep playing, the words follow the reel), and leave the words
+    // alone for a moment after a finger has slid them.
+    if (bubble.open && pauseAfterWord() && !playing) return;
     if (Date.now() - slidAt < 3000) return;
+    keepInView(el);
+  }
+  /** Scroll the words so `el` (a word) is in view. */
+  function keepInView(el) {
     const box = wordsEl.getBoundingClientRect();
     const r = el.getBoundingClientRect();
     if (surface) { // the phone: one line, the current word kept in the middle
@@ -818,8 +822,12 @@ async function renderPlayer(view, { query }) {
     // Instagram may answer a signed-out visit to a reel's ordinary page with its sign-in page, whose address no longer names the reel.
     const signInPage = !!s && /^\/accounts\//.test(String(s.page || "")) && reelAddress(ep) !== embedUrl(ep);
     if (!s || !(signInPage || String(s.page || "").includes(ep.guid))) return; // the page for the previous reel is still showing
+    const resumed = !playing && !s.paused;
     playing = !s.paused;
     paintControls(s);
+    // Playing again brings the words back to the one being said, also after sliding them away while
+    // paused (the owner: "bring the view to the currently highlighted word once audio is unpaused").
+    if (resumed && cur && curIdx >= 0 && cur.els[curIdx]) { slidAt = 0; keepInView(cur.els[curIdx]); }
     if (s.ready) failsInRow = 0;
     if (s.nav && s.nav !== seenNav) {
       seenNav = s.nav;

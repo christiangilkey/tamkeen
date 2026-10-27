@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Pressing play brings the transcript (and the line of words under a reel) back to the word being said, also after you scrolled away from it while paused.
+- **Fixed:** On a phone, the word popup's "Explain words with" menu was squashed down to its first choice, hiding the built-in dictionary (Wiktionary) and "Dictionary first". It now shows every choice.
 - **Improved:** Getting the reels you ticked from your Instagram saves is much more reliable. The phone downloads just each reel's sound, a fraction of the video's size, so far fewer reels are "too large to send from the phone" or take too long. A download that breaks off is tried three times, and the reels that still didn't work get a second round once the rest are done. A reel that failed for a reason that may pass (a dropped connection, an Instagram server that didn't answer) can be ticked again afterwards, and says so. *(the phones)*
 - **Improved:** The Library tab opens on the kind you were last looking at (Courses, Podcasts, YouTube, Reels…) instead of always on Courses.
 - **Improved:** On a phone, the word popup's buttons in the players and reels are tidier: Word, Sentence, Continue and Add audio show just their icons (the sentence one now has its own icon), and Save keeps its word.

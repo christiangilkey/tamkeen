@@ -447,7 +447,17 @@ export async function render(view, { id, query }) {
   };
   audio.addEventListener("timeupdate", update);
 
-  audio.addEventListener("play", () => { if (!disposed) { $("#play").textContent = "❚❚"; kick(); } });
+  // Playing again brings the transcript back to the word being said, also after scrolling away from
+  // it while paused (the owner: "bring the view to the currently highlighted word once audio is unpaused").
+  audio.addEventListener("play", () => {
+    if (disposed) return;
+    $("#play").textContent = "❚❚";
+    const was = follow;
+    follow = true;
+    $("#back").hidden = true;
+    if (curIdx >= 0) ensureVisible(wordEls[curIdx], !was);
+    kick();
+  });
   audio.addEventListener("pause", () => {
     clipEnd = null; // any pause ends a word/sentence clip, so the next play continues normally
     if (!disposed) { $("#play").textContent = "▶"; lsSet(posKey, audio.currentTime); remember(); kick(); }
