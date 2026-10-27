@@ -17,6 +17,42 @@
   unicode-range: U+0600-06FF, U+0750-077F, U+200C-200F, U+2010-2011, U+FB50-FDFF, U+FE70-FEFC;
 }
 
+/* The app's own words: Figtree for text, Rubik for page titles and the numbers worth celebrating (streaks, XP,
+   cards to review). Both SIL Open Font License (licenses/figtree.txt, licenses/rubik.txt), Latin letters only:
+   other alphabets keep the fonts after them in --ui-font. Any weight 300-900. */
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-latin-ext.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-latin-ext.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --bg: #f6f4f1;
   --surface: #ffffff;
@@ -36,8 +72,10 @@
   --phrase: #c9e6ea;
   --shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .06);
   --radius: 14px;
+  /* Headings and celebrated numbers (see the @font-face rules above). */
+  --display-font: "Rubik", var(--ui-font);
   --ar-size: 26px;
-  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
+  --ui-font: "Figtree", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
     Roboto, "Helvetica Neue", Arial, sans-serif;
   /* Tamkeen's identity, taken from the logo: plum-to-teal gradient, gold wordmark. */
   --brand-plum: #360032;
@@ -111,6 +149,13 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { display: block; }
 h1, h2, h3 { margin: 0 0 .5em; line-height: 1.25; }
+/* Rubik: page titles and the numbers worth celebrating; a medium weight so it looks confident, not like a toy.
+   Smaller headings and labels stay in Figtree. Numbers keep a fixed width so a changing count doesn't jiggle. */
+h1, h2, .display-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .chip-xp, .review-banner strong,
+.caught-up-title, .caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
+  font-family: var(--display-font); font-variant-numeric: tabular-nums;
+}
+h1, h2 { font-weight: 600; letter-spacing: -.005em; }
 h1 { font-size: 22px; }
 h2 { font-size: 17px; }
 h3 { font-size: 15px; }
@@ -124,12 +169,12 @@ p { margin: 0 0 .75em; }
 :lang(th) { --ar-font: "Leelawadee UI", "Thonburi", "Noto Sans Thai", "Noto Sans Thai UI", "Tahoma", sans-serif; }
 :lang(fa) { --ar-font: "Vazirmatn", "Segoe UI", "Noto Sans Arabic", "Noto Naskh Arabic", "Geeza Pro", Tahoma, sans-serif; }
 /* The app shown in Persian: its own words in Vazirmatn too (Latin letters keep the usual font). */
-:root:lang(fa) { --ui-font: "Vazirmatn", ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", system-ui,
+:root:lang(fa) { --ui-font: "Vazirmatn", "Figtree", "Segoe UI Variable Text", "Segoe UI", system-ui,
   -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
 /* Hindi (Devanagari): Windows, Apple, Android/Linux fonts. With the interface in Hindi, its text uses them too. */
 :lang(hi) { --ar-font: "Nirmala UI", "Kohinoor Devanagari", "Devanagari Sangam MN", "Noto Sans Devanagari", "Mangal", sans-serif; }
 :root:lang(hi) {
-  --ui-font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
+  --ui-font: "Figtree", "Segoe UI Variable Text", "Segoe UI", "Nirmala UI", "Kohinoor Devanagari",
     "Noto Sans Devanagari", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 :lang(ko) { --ar-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", "Nanum Gothic", sans-serif; }
@@ -503,6 +548,10 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-head { display: flex; align-items: flex-start; gap: 8px; }
 .wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
 .wb-word.wb-phrase { font-size: 24px; min-width: 0; overflow-wrap: anywhere; } /* several words looked up together */
+/* A long run of words shows at most three lines and scrolls by itself, so the explanation under it always
+   has room (the owner: a long selection "will cover the entire screen"). */
+.wb-word.wb-phrase { font-size: 21px; line-height: 1.35; max-height: calc(3 * 1.35em + 4px); overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-width: thin; }
 .wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
 /* With a mouse, the close button sits at the end of the bottom row (the owner: easier to reach
@@ -1654,6 +1703,73 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .tour-title { margin: 0 0 4px; font-size: 17px; line-height: 1.3; }
 .tour-text { margin: 0 0 12px; line-height: 1.45; }
 .tour-buttons { display: flex; align-items: center; gap: 6px; }
+/* A picture step: no button outlined, the whole screen dimmed, the card in the middle with a drawing. */
+.tour.tour-picture { background: rgba(0, 0, 0, .62); }
+.tour-art { margin: -4px 0 12px; }
+/* The fingertip of a demonstration: a soft disc that presses ("tap"), rests while a ring fills ("hold"),
+   or rests and then slides across the next words ("drag", by --dx), the words lighting up behind it. */
+.tour-hand { position: fixed; width: 34px; height: 34px; margin: -6px 0 0 -17px; border-radius: 50%; pointer-events: none;
+  background: rgba(255, 255, 255, .85); box-shadow: 0 2px 10px rgba(0, 0, 0, .45); z-index: 1; opacity: 0; }
+.tour-ring { position: absolute; inset: -6px; border-radius: 50%; border: 3px solid var(--accent); opacity: 0; }
+.tour-hand.tap { animation: tour-tap 1.6s ease-in-out infinite; }
+.tour-hand.tap .tour-ring { animation: tour-ripple 1.6s ease-out infinite; }
+.tour-hand.hold { animation: tour-hold 2.2s ease-in-out infinite; }
+.tour-hand.hold .tour-ring { animation: tour-ripple 2.2s ease-out infinite .5s; }
+.tour-hand.drag { animation: tour-drag 3s ease-in-out infinite; }
+.tour-hand.drag .tour-ring { animation: tour-press 3s ease-out infinite; }
+.tour-sweep { position: fixed; border-radius: 8px; background: color-mix(in srgb, var(--accent) 45%, transparent);
+  pointer-events: none; transform: scaleX(0); animation: tour-sweep 3s ease-in-out infinite; }
+@keyframes tour-tap { 0% { opacity: 0; transform: translateY(14px) scale(1.15); } 25% { opacity: 1; transform: none; }
+  40% { transform: scale(.8); } 55% { transform: none; opacity: 1; } 85%, 100% { opacity: 0; } }
+@keyframes tour-ripple { 0%, 35% { opacity: 0; transform: scale(.6); } 45% { opacity: 1; } 80%, 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes tour-hold { 0% { opacity: 0; transform: translateY(14px); } 15% { opacity: 1; transform: none; }
+  25%, 75% { transform: scale(.82); opacity: 1; } 90%, 100% { opacity: 0; transform: none; } }
+@keyframes tour-press { 0%, 12% { opacity: 0; transform: scale(1.5); } 30% { opacity: 1; transform: scale(1); } 75% { opacity: 1; } 90%, 100% { opacity: 0; } }
+@keyframes tour-drag { 0% { opacity: 0; transform: translateY(14px); } 10% { opacity: 1; transform: none; }
+  18%, 30% { transform: scale(.82); } 70% { transform: translateX(var(--dx, 60px)) scale(.82); opacity: 1; }
+  82% { transform: translateX(var(--dx, 60px)); opacity: 1; } 95%, 100% { transform: translateX(var(--dx, 60px)); opacity: 0; } }
+@keyframes tour-sweep { 0%, 25% { transform: scaleX(0); opacity: 1; } 70%, 88% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .tour-hand, .tour-hand .tour-ring, .tour-sweep { animation: none !important; }
+  .tour-hand { opacity: 1; } .tour-sweep { transform: none; }
+}
+/* The drawings (components/guideart.js): a small word popup, its buttons, the source menu, the switch. */
+.ga-pop { border: 1px solid var(--border); border-radius: 14px; background: var(--surface-2); padding: 10px 12px; }
+.ga-head { display: flex; align-items: center; gap: 8px; }
+.ga-word { font-size: 20px; font-weight: 700; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ga-src { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: var(--surface); color: var(--muted); display: inline-flex; align-items: center; gap: 3px; }
+.ga-mean { height: 12px; width: 55%; border-radius: 6px; background: var(--accent); opacity: .7; margin: 10px 0 8px; }
+.ga-line { height: 8px; border-radius: 4px; background: var(--border); margin: 6px 0; }
+.ga-line.short { width: 70%; }
+.ga-btns { display: flex; gap: 6px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+.ga-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 34px; height: 30px; padding: 0 8px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--surface); font-size: 13px; flex: none; }
+.ga-btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); flex: 1; }
+.ga-btn.on { border-color: var(--accent); color: var(--accent); }
+.ga-legend { display: grid; gap: 6px; }
+.ga-row { display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.35; }
+.ga-menu { border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); padding: 4px; }
+.ga-menu-title { font-size: 12px; font-weight: 600; color: var(--muted); padding: 4px 8px 2px; }
+.ga-opt { display: flex; gap: 8px; align-items: flex-start; padding: 6px 8px; border-radius: 9px; font-size: 13px; }
+.ga-opt small { display: block; color: var(--muted); font-size: 12px; }
+.ga-opt.on { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.ga-check { width: 14px; flex: none; color: var(--accent); }
+.ga-pulse { animation: ga-pulse 1.6s ease-in-out infinite; }
+@keyframes ga-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); }
+  50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent); outline: 2px solid var(--accent); } }
+.ga-switchrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 13px; }
+.ga-switch { width: 46px; height: 26px; border-radius: 99px; background: #6d2a7a; position: relative; }
+.ga-switch span { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff;
+  animation: ga-flip 2.4s ease-in-out infinite; }
+@keyframes ga-flip { 0%, 40% { transform: none; } 50%, 90% { transform: translateX(20px); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ga-pulse, .ga-switch span { animation: none; } }
+/* The "?" in the top bar (components/helpbutton.js): round, like the refresh button beside it. */
+.top-help { margin-inline-start: auto; flex: none; width: 34px; height: 34px; min-width: 0; min-height: 0; padding: 0;
+  display: inline-grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff;
+  font-size: 17px; font-weight: 700; line-height: 1; }
+.top-help:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.top-help + .top-refresh { margin-inline-start: 6px; }
+.top-refresh + .top-help { margin-inline-start: 6px; }
 
 /* ---------- Vocab page: "Send to …" and "Add words" side by side under the goal (pages/vocab.js) ---------- */
 /* Two small text links in one centred row; the Send one gives way (its words end in "…") so the row

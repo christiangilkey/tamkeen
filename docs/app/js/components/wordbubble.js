@@ -319,12 +319,12 @@ export function createWordBubble(host, actions) {
       ${fix ? fixPill() : ""}
       <div class="wb-body">${body}</div>
       <div class="wb-actions">
-        ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} More</button>` : ""}
-        ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again">${icon("sound", 15)} Phrase</button>` : `<button type="button" data-act="word" title="Play this word again">${icon("sound", 15)} Word</button>`}
-        <button type="button" data-act="sentence" title="Play the whole sentence">${icon("sound", 15)} Sentence</button>`}
-        ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here">${icon("play", 15)} Continue</button>`}
+        ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} <span class="wb-label">More</span></button>` : ""}
+        ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again" aria-label="Phrase">${icon("sound", 15)} <span class="wb-label">Phrase</span></button>` : `<button type="button" data-act="word" title="Play this word again" aria-label="Word">${icon("sound", 15)} <span class="wb-label">Word</span></button>`}
+        <button type="button" data-act="sentence" title="Play the whole sentence" aria-label="Sentence">${icon("sentence", 15)} <span class="wb-label">Sentence</span></button>`}
+        ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
-        ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.">${icon("sound", 15)} Add audio</button>` : ""}
+        ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices." aria-label="Add audio">${icon("mic", 15)} <span class="wb-label">Add audio</span></button>` : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;

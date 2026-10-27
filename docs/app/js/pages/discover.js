@@ -6,6 +6,7 @@ import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory, hasPicks } from "../trending.js";
+import { pageGuide } from "../components/tour.js";
 
 const PREVIEW = 6; // podcasts shown per category until one category is chosen
 const KEEP_MS = 60 * 60 * 1000; // the charts change about once a day: don't ask again within the hour
@@ -41,6 +42,11 @@ export async function render(view, { query }) {
       <p class="small muted disc-credit">${hasPicks(lang) ? "Ratings from <strong>Spotify</strong> and <strong>Apple Podcasts</strong>." : "Charts from <strong>Apple Podcasts</strong>."}</p>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
+  pageGuide("discover", view.querySelector(".discover"), [
+    { target: "#disc-cats", title: "Categories", text: "Show the podcasts of one kind: news, comedy, education…" },
+    { target: "#disc-body", title: "Trending podcasts", text: "The most listened-to podcasts in the language you're learning. Press + Add to put one in your library." },
+    { target: "#disc-refresh", title: "Refresh", text: "Load the list again." },
+  ]); // the "?" in the top bar
   const body = $("#disc-body");
   const chips = $("#disc-cats");
   let groups = [];

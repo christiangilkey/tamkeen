@@ -6,6 +6,7 @@ import { api, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { BOOK_FILES, addFromFile, addFromShelf, shelfFor, shelfGuid } from "../books.js";
+import { pageGuide } from "../components/tour.js";
 
 const yearText = (y) => (y < 0 ? `${-y} BC` : y < 1000 ? `${y} AD` : String(y));
 
@@ -56,6 +57,10 @@ export async function render(view) {
       <div class="books-grid" id="shelf"><p class="muted">Loading the shelf…</p></div>
     </div>`));
   view.querySelector("#upload").onclick = () => uploadBook(lang);
+  pageGuide("books", view.querySelector(".books-page"), [
+    { target: "#upload", title: "Your own book", text: "Add a book file of your own: EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM." },
+    { target: "#shelf", title: "Free books", text: "Famous books in the language you're learning, free to read. Add one and read it a page at a time, tapping any word." },
+  ]); // the "?" in the top bar
   const grid = view.querySelector("#shelf");
 
   let shelf;

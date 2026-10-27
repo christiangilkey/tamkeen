@@ -39,6 +39,7 @@ import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, sync
 import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
+import { mountHelpButton } from "./components/helpbutton.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -1410,6 +1411,7 @@ async function boot() {
   const topSearch = document.querySelector(".topbar .top-search");
   const refresh = refreshButton(refreshNow);
   if (topSearch) topSearch.before(refresh); else document.querySelector(".topbar").append(refresh);
+  mountHelpButton(document.querySelector(".topbar"), refresh); // "?": how to use the screen that is open
   startBadge();
   startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);

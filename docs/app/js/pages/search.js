@@ -3,6 +3,7 @@
 import { api, esc, h } from "../app.js";
 import { formatTime } from "../wordlookup.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { pageGuide } from "../components/tour.js";
 
 function withSpans(text, spans) {
   let out = "";
@@ -29,6 +30,9 @@ export async function render(view, { query }) {
     <div id="results" class="results"></div>
   </div>`));
   const box = view.querySelector("#results");
+  pageGuide("search", view.querySelector(".search-page"), [
+    { target: "#search-form", title: "Search everything", text: "Find a word or phrase in every transcript, page and book you have. Tap a result to hear or read it there." },
+  ]); // the "?" in the top bar
   // The page has its own search box (the phone has no search bar in its header).
   const form = view.querySelector("#search-form");
   form.q.value = q;

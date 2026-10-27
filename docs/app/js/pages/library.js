@@ -52,12 +52,12 @@ const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
 // computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
-// "Courses" comes first and is what the Library opens on: the courses of the language being learned
+// "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
 // + button. Courses is never empty.
 const KINDS = [
-  { key: "courses", label: "Courses", icon: "learn", href: "#/library" },
+  { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
@@ -77,6 +77,13 @@ const KINDS = [
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
     empty: "Add audio of your own with the + button below." },
 ];
+// The kind showing last time, kept on this device, for the Library tab to open on again.
+const LAST_KIND_KEY = "libraryKind";
+function lastKind() {
+  let k = null;
+  try { k = localStorage.getItem(LAST_KIND_KEY); } catch { /* storage off */ }
+  return KINDS.some((x) => x.key === k) ? k : "courses";
+}
 // The arrow from an empty kind's message to the + button: one line in the line icons' style, a gentle
 // curve that ends going sideways into the button (the button carries it, so it is beside it wherever
 // the button sits: media.css .fab-hint).
@@ -105,9 +112,11 @@ export async function render(view, { feedId: routeFeed, query }) {
   let feedId = routeFeed;
   // (Asked here, not when this file loads: the app shell is still starting up at that point.)
   const phone = platform === "android";
-  // Which kind is showing: the courses, unless the address or the feed says otherwise (a feed's own
-  // address is set in renderStrips).
-  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : feedId ? "podcasts" : "courses";
+  // Which kind is showing: what the address or the feed says (a feed's own address is set in
+  // renderStrips). The Library tab itself (plain #/library) opens on the kind chosen last time (the
+  // owner: "having it default to courses each time is annoying"), or Courses the first time.
+  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : feedId ? "podcasts"
+    : [...query.keys()].length ? "courses" : lastKind();
   const filter = query.get("status") || "";
   // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
   const channel = query.get("channel") || "";
@@ -295,6 +304,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     const head = $("#lib-head");
     head.innerHTML = "";
     root.classList.toggle("courses-kind", kind === "courses");
+    try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
     const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" ? KINDS.find((k) => k.key === kind) : null;
     markEmpty("head", !!emptyKind);
@@ -810,6 +820,8 @@ export async function render(view, { feedId: routeFeed, query }) {
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
       text: "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos." },
+    { target: "#course-tabs", title: "Your courses",
+      text: "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

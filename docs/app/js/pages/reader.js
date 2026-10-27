@@ -21,6 +21,8 @@ import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
+import { pageGuide } from "../components/tour.js";
+import { playerSteps } from "../components/guideart.js";
 
 const TITLE_SEG = -1; // the title's words form a line of their own, before the page's first block
 
@@ -106,6 +108,7 @@ export async function render(view, { id, data, query }) {
   // Send this page to a friend (its address travels; their copy is read from the page itself).
   if (source) $("#font-up").after(sendButton(() => mediaFromEpisode(ep)));
   const tr = $("#text");
+  pageGuide("reader", view.querySelector(".reader"), playerSteps("reader")); // the "?" in the top bar
 
   // Build the page in one pass. Each block keeps its own direction, so right-to-left and left-to-right text mix correctly.
   // Headings, lists, quotes, bold and italic come out the same for every site (readerlayout.js).

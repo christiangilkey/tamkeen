@@ -27,6 +27,8 @@ import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { controllerArea } from "../gamepad.js";
+import { pageGuide } from "../components/tour.js";
+import { playerSteps } from "../components/guideart.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -115,6 +117,14 @@ async function renderList(view) {
       <div class="episodes" id="reel-list"></div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
+  pageGuide("reels", view.querySelector(".reels"), [
+    { target: ".reel-modes", title: "Which reels", text: "Get reels from creators you follow, a mix, or reels you saved on Instagram." },
+    { target: "#reel-colls", title: "1. Choose a collection", text: "Pick one of your Instagram collections, or everything you saved." },
+    { target: ".reel-picks", title: "2. Tick the reels you want", text: "Tick the reels to add. One that didn't work last time can be ticked again." },
+    { target: "#reel-random", title: "Random reels", text: "Or get reels from all of Instagram in the language you're learning. Set how many with − and +." },
+    { target: "#reel-list", title: "Your reels", text: "The reels you have. Watch plays one with its words underneath; tap any word to see what it means." },
+    { target: "#reel-watch", title: "Watch them all", text: "Play your reels one after another." },
+  ]); // the "?" in the top bar
   let info = null;
   let poll = 0;
   // "From my Instagram saves": the posts of the collection last looked at, and the ones ticked.
@@ -155,13 +165,14 @@ async function renderList(view) {
     }
     for (const ep of [...reels].reverse()) { // newest at the top of the list
       const row = h(`<div class="ep reel-row">
-        <div class="ph">${icon("video", 22)}</div>
+        ${ep.image ? `<img src="${esc(ep.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph">${icon("video", 22)}</div>`}
         <div class="info"><div class="title" dir="auto"><a href="#/reels/play?at=${ep.id}"></a></div>
           <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${seen.has(String(ep.id)) ? " · watched" : ""}${needsSignIn(ep) ? " · plays when signed in to Instagram" : ""}</div></div>
         <div class="status"><div class="row"><a class="btn primary" href="#/reels/play?at=${ep.id}">Watch</a>
           <button type="button" class="ghost danger">Delete</button></div></div>
       </div>`);
       row.querySelector(".title a").textContent = ep.title;
+      row.querySelector("img")?.addEventListener("error", (e) => { e.target.replaceWith(h(`<div class="ph">${icon("video", 22)}</div>`)); });
       row.querySelector("button").onclick = async () => {
         try { await api(`/episodes/${ep.id}`, { method: "DELETE" }); row.remove(); } catch (e) { toast(e.message, { error: true }); }
       };
@@ -390,7 +401,9 @@ async function renderList(view) {
       send.textContent = info.phone ? "Get the ticked reels" : "Send the ticked reels to my phone";
       return;
     }
-    const unusable = (p) => p.have || p.video === false || !!p.skipped;
+    // A reel that failed for a reason that may pass (`retry`, from the phone: a download that broke off…)
+    // can be ticked again.
+    const unusable = (p) => p.have || p.video === false || (!!p.skipped && !p.retry);
     const usable = saved.posts.filter((p) => !unusable(p));
     for (const code of [...picked]) if (!usable.some((p) => p.code === code)) picked.delete(code);
     const head = h(`<div class="reel-pickhead"><strong>2. Tick the reels you want</strong> <span class="muted small"></span>
@@ -412,7 +425,7 @@ async function renderList(view) {
         ${p.thumb ? `<img src="${p.thumb.startsWith("data:image/") ? esc(p.thumb) : `/api/reels/thumb?u=${encodeURIComponent(p.thumb)}`}" alt="" loading="lazy">` : `<span class="ph">${icon("video", 20)}</span>`}
         <span class="txt"><span class="who">${p.user ? `@${esc(p.user)}` : "Instagram reel"}${p.seconds ? ` · ${p.seconds < 60 ? `${p.seconds} s` : fmtDuration(p.seconds)}` : ""}</span>
           <span class="cap" dir="auto"></span></span>
-        <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
+        <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped && p.retry ? `Didn't work last time (${esc(p.skipped)}). Tick it to try again.` : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
       </label>`);
       row.querySelector(".cap").textContent = p.caption || "";
       row.querySelector("img")?.addEventListener("error", (e) => { e.target.replaceWith(h(`<span class="ph">${icon("video", 20)}</span>`)); });
@@ -533,6 +546,7 @@ async function renderPlayer(view, { query }) {
   const stage = $("#reel-stage");
   const wordsEl = $("#reel-words");
   const surface = reelSurface(); // null where reels can't be played (the computer)
+  pageGuide("reel", view.querySelector(".reelplay"), playerSteps("reel")); // the "?" in the top bar
   if (!surface) view.querySelector(".reelplay").classList.add("no-video");
 
   // ----- the reel being shown -----
@@ -712,11 +726,15 @@ async function renderPlayer(view, { query }) {
     if (idx < 0) return;
     const el = cur.els[idx];
     el.classList.add("cur");
-    // Keep the tapped word in view while its popup is open (unless the choice is to keep playing:
-    // then the words carry on following the reel), and leave the words alone for a moment after a
-    // finger has slid them.
-    if (bubble.open && pauseAfterWord()) return;
+    // Keep the tapped word in view while its popup is open and the reel is paused (once it plays
+    // again, or when the choice is to keep playing, the words follow the reel), and leave the words
+    // alone for a moment after a finger has slid them.
+    if (bubble.open && pauseAfterWord() && !playing) return;
     if (Date.now() - slidAt < 3000) return;
+    keepInView(el);
+  }
+  /** Scroll the words so `el` (a word) is in view. */
+  function keepInView(el) {
     const box = wordsEl.getBoundingClientRect();
     const r = el.getBoundingClientRect();
     if (surface) { // the phone: one line, the current word kept in the middle
@@ -815,8 +833,12 @@ async function renderPlayer(view, { query }) {
     // Instagram may answer a signed-out visit to a reel's ordinary page with its sign-in page, whose address no longer names the reel.
     const signInPage = !!s && /^\/accounts\//.test(String(s.page || "")) && reelAddress(ep) !== embedUrl(ep);
     if (!s || !(signInPage || String(s.page || "").includes(ep.guid))) return; // the page for the previous reel is still showing
+    const resumed = !playing && !s.paused;
     playing = !s.paused;
     paintControls(s);
+    // Playing again brings the words back to the one being said, also after sliding them away while
+    // paused (the owner: "bring the view to the currently highlighted word once audio is unpaused").
+    if (resumed && cur && curIdx >= 0 && cur.els[curIdx]) { slidAt = 0; keepInView(cur.els[curIdx]); }
     if (s.ready) failsInRow = 0;
     if (s.nav && s.nav !== seenNav) {
       seenNav = s.nav;

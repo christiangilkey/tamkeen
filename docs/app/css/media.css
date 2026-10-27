@@ -300,6 +300,9 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 .word-bubble > .wb-head, .word-bubble > .wb-actions { flex: none; }
 .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
 .word-bubble > .wb-actions { margin-top: auto; }
+/* The "Explain words with" menu keeps its full height (the definition under it gives way), so a short
+   popup on a phone doesn't squash it down to its first choice; a very short one scrolls the menu. */
+.word-bubble > .wb-srcmenu { flex: 0 0 auto; max-height: 75%; overflow-y: auto; overscroll-behavior: contain; }
 @media (max-width: 640px) {
   /* Phone, in a player: the popup stops just above the play controls, which stay in reach, so
      its buttons row rests right on top of them. player.js sets --dock-bottom. */
@@ -307,6 +310,11 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: 4px; margin-top: 6px; padding-top: 8px; }
   .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: 4px 6px; font-size: 12px; white-space: nowrap; }
   .player .word-bubble.sheet > .wb-actions button.icon { flex: none; min-width: 28px; }
+  /* Word, Sentence, Continue and Add audio show just their icons so the row isn't crowded; their
+     names stay in the tooltip and for screen readers. Save keeps its word. */
+  .player .word-bubble.sheet > .wb-actions .wb-label { display: none; }
+  .player .word-bubble.sheet > .wb-actions button:has(.wb-label) { flex: 1 1 0; min-width: 36px; padding: 4px 6px; }
+  .player .word-bubble.sheet > .wb-actions button[data-act="save"] { flex: 1.6 1 auto; }
 }
 
 /* ---------- word popup: the pause / keep-playing switch ----------
