@@ -14,8 +14,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 375764,
-   "sha256": "e00b469ed1e1e79607dc3d97b8f613baf4c3185694541deed04838a58af1e3e9"
+   "bytes": 375811,
+   "sha256": "7725d34e324fec7b7f3dee913149c3f75aa2013e2d881cc64ed7b8c10fb4c380"
   },
   "ca-en": {
    "file": "ca-en/course.json",
@@ -30,8 +30,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 252072,
-   "sha256": "90d149de0d26470103c5802eaad61e4a9a8a55a56d60784a0508f827f1e43b23"
+   "bytes": 252091,
+   "sha256": "87a99b73dec630cc15a89ce0cda2e1d53cc687052151e885710f88578f74e77e"
   },
   "ceb-en": {
    "file": "ceb-en/course.json",
@@ -46,8 +46,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 252538,
-   "sha256": "650a1511c344df159b923c6767582fc0bda31b1ee68bca1b487fff07161e6775"
+   "bytes": 252827,
+   "sha256": "4463c38219b5cc909739ab72dc19f8c070c1a05991a801834e8b9333a3060940"
   },
   "de-en": {
    "file": "de-en/course.json",
@@ -334,8 +334,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 286913,
-   "sha256": "38a09f78ca9e06aa89b0d304dd0139992bffda0d9b7c88b41c996dbf9eaa4893"
+   "bytes": 286959,
+   "sha256": "614088a0136c632d6ce78b04cf911340cbe19efea57640e60226b0a213e5652d"
   },
   "fa-en": {
    "file": "fa-en/course.json",
@@ -350,8 +350,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 324405,
-   "sha256": "e42a16b3e1b1c59a268cf1e3aeec44c1abe58f53fb39aa08232913d4cafb5f89"
+   "bytes": 324627,
+   "sha256": "69909362faedb3441ae677899a8da2b941255f8065e4dae42c65e37760c2ea98"
   },
   "fr-en": {
    "file": "fr-en/course.json",
@@ -366,8 +366,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 297071,
-   "sha256": "66681594cac717fdb02d38517e9df8b2850adaa4a0929d31f3306e0303040c55"
+   "bytes": 297370,
+   "sha256": "a3a31ab0a3d7cdc3880fabe2362fa5c9bc59ef5654d1e0283779ae3f73eb4464"
   },
   "hi-en": {
    "file": "hi-en/course.json",
@@ -398,8 +398,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 265079,
-   "sha256": "8f55afc8aeba966b8a79e8f75f983f0bfb068b58f35156df43658ff1e9ff5f26"
+   "bytes": 265090,
+   "sha256": "1b6f1b412a1466906f500198afb8672b7c5a0a02a370deba15725a60867deea4"
   },
   "ja-en": {
    "file": "ja-en/course.json",
@@ -414,8 +414,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 279623,
-   "sha256": "7d9ee53e9948fa23b72c2feae904f0a7cec853ea23237ca68e962cb3a129dcff"
+   "bytes": 279673,
+   "sha256": "5ce18554082ae543d84e08cffec4d19b4ce0d7e666cb24b09f3060ce17e13768"
   },
   "ko-en": {
    "file": "ko-en/course.json",
@@ -430,8 +430,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 265943,
-   "sha256": "1a2ad51d10d440af7a6cc079a55868183649a8b5683b5cf007bfaa87ede07c1f"
+   "bytes": 266106,
+   "sha256": "576c6819bd89a139976532a4f40995e4ce52bb1400b85d8159bfe3a8fe7b6e57"
   },
   "pt-en": {
    "file": "pt-en/course.json",
@@ -446,8 +446,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 277333,
-   "sha256": "69ddb85aa0ecefcd6d874602b244528af8cf641febddb7d7acb1c70b3673369a"
+   "bytes": 277345,
+   "sha256": "7a8035af19437170f7ff68d93d03a23b3cc5dd8a58a2a17f3775bc7ad2932a75"
   },
   "ru-en": {
    "file": "ru-en/course.json",
@@ -462,8 +462,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 334237,
-   "sha256": "38f1660f3cb82c05d237ab86afbe5e39e94b6d8b501cc176bde8af01609ec16b"
+   "bytes": 334331,
+   "sha256": "f20fe15253bbe2c6b19ed738f5d06bcef3d056cda6e6581f2812867b58fc397f"
   },
   "th-en": {
    "file": "th-en/course.json",
@@ -478,8 +478,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 392047,
-   "sha256": "7280fb05ba6d6194a4841f61f4dc9aebcbe76a91743706b7c220697a732f150c"
+   "bytes": 392229,
+   "sha256": "2389cd9b7c5a9348265e0ec22efbe7f222fcd5a9975c98e96cadb5738ea7a183"
   },
   "tl-en": {
    "file": "tl-en/course.json",
@@ -494,8 +494,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 269014,
-   "sha256": "cb464a401a14cd50968eea72c6e58ae83e7490b010b3a89f55fafb605ad62417"
+   "bytes": 269018,
+   "sha256": "41e98d80f6412ae66512da392de7e789454bbdb0cebb992e4680cace7f973c9a"
   },
   "zh-en": {
    "file": "zh-en/course.json",
@@ -510,8 +510,8 @@
     "A2",
     "B1"
    ],
-   "bytes": 251785,
-   "sha256": "3f274ccd04da0db6cf2d63e8e61d2b4e1995bd7f774cc2ac0fbc20b72448d936"
+   "bytes": 251980,
+   "sha256": "13d668d6b798f3177f11832cce4bf95e4fe70a72e8c883cb9d45cd72a9d5bf2d"
   }
  }
 }
