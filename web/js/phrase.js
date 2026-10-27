@@ -7,8 +7,8 @@
 import { joinWords } from "./languages.js";
 import { EDGE_PUNCT } from "./wordlookup.js";
 
-/** The most words one phrase can have. */
-export const PHRASE_MAX = 12;
+/** The most words one phrase can have (a long one scrolls in the word popup). */
+export const PHRASE_MAX = 30;
 
 /**
  * The words from `start` (where the drag began) to `to` (the word under the finger or pointer),

@@ -32,9 +32,9 @@ test("a phrase stays inside the line or paragraph it began in", () => {
 });
 
 test("a phrase is at most PHRASE_MAX words, counted from where the drag began", () => {
-  assert.equal(PHRASE_MAX, 12);
-  assert.deepEqual(phraseRange(5, 19, { blockOf }), [5, 16]);
-  assert.deepEqual(phraseRange(19, 5, { blockOf }), [8, 19]);
+  assert.equal(PHRASE_MAX, 30);
+  assert.deepEqual(phraseRange(0, 40), [0, 29]);
+  assert.deepEqual(phraseRange(40, 0), [11, 40]);
   assert.deepEqual(phraseRange(0, 100, { max: 3 }), [0, 2]);
   assert.deepEqual(phraseRange(0, 100, { max: 1 }), [0, 0]);
 });
@@ -85,4 +85,11 @@ test("dictionary first: a phrase the dictionary lacks goes to the AI without fet
   const d = await dictionaryFirst({ dictionary: async () => { throw missing; }, ai, hasKey: true, lang: "es", getDictionary: null });
   assert.equal(d.meaning, "to annoy");
   assert.equal(d.dictionary_downloading, undefined, "the popup doesn't say a download is on its way");
+});
+
+test("dragging across words is not stopped at the end of a line or sentence", async () => {
+  const { readFileSync } = await import("node:fs");
+  const picker = readFileSync(new URL("../../web/js/components/phrasepick.js", import.meta.url), "utf8");
+  assert.match(picker, /const range = phraseRange\(g\.start, to, \{ max \}\);/);
+  assert.deepEqual(phraseRange(3, 8), [3, 8], "from one line into the next");
 });

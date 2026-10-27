@@ -10,8 +10,9 @@
 //     hold has started, it is a scroll and nothing else happens.
 // While a hold or a drag is going on the page doesn't scroll, and the system's own text selection,
 // magnifier and long-press menu stay away (see .phrase-root in app.css, and the listeners below).
-// Which words a drag covers (in the text's order, within one line or paragraph, at most PHRASE_MAX)
-// is worked out by ../phrase.js.
+// Which words a drag covers (in the text's order, across lines and sentences, at most PHRASE_MAX) is
+// worked out by ../phrase.js. (A phrase used to stop at the end of its line; the owner: "allow me to
+// highlight any section or sections together".)
 
 import { buzz } from "../app.js";
 import { PHRASE_MAX, phraseRange } from "../phrase.js";
@@ -28,7 +29,7 @@ const QUIET_MS = 450;  // after a phrase: the click (and long-press menu) the br
  *   onPick: (i: number, j: number, el: HTMLElement) => void,  // words i..j (i <= j) chosen; i === j
  *                       // after a drag that came back to its first word
  *   onHold?: (i: number, x: number, y: number, el: HTMLElement) => void,  // touch: held, not dragged
- *   blockOf?: (i: number) => any,   // which line or paragraph word i is in (a phrase stays in one)
+ *   blockOf?: (i: number) => any,   // which line or paragraph word i is in (no longer limits a phrase)
  *   elOf?: (i: number) => HTMLElement|null,  // word i's element in root (default: looked up)
  *   onStart?: () => void, onEnd?: () => void,  // a press on a word began / the gesture is over
  *   max?: number,
@@ -91,7 +92,7 @@ export function phrasePicker(root, opts) {
     const w = wordAt(x, y);
     if (!w) return; // between words or outside: the phrase stays as it was
     const to = Number(w.dataset.i);
-    const range = phraseRange(g.start, to, { blockOf: opts.blockOf || null, max });
+    const range = phraseRange(g.start, to, { max });
     if (to !== g.start && g.phase !== "drag") {
       g.phase = "drag";
       root.classList.add("phrase-picking");
