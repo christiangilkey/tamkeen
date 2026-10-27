@@ -167,7 +167,6 @@ const answers = (table, verb, path) => table.some(([v, re]) => v === verb && re.
 /** Requests the shared screens make that only the computer answers, and why that is right. */
 const COMPUTER_ONLY_REQUESTS = {
   "GET /anki/days": "the Anki add-on reports reviews to the computer only; game.js checkAnki gives up quietly on a phone",
-  "GET /settings": "youtube.js asks the computer's server for the newest follow list (platform check); phones read their own settings",
   "POST /reels/batch": "a batch of reels needs the computer's own Instagram window; reels.js offers it on the computer only",
   "POST /vowels/download": "the Arabic vowel model runs in the computer's Python; phones get the vowels inside synced transcripts (vowels.js checks status.phone)",
   "POST /vowels/remove": "as /vowels/download",

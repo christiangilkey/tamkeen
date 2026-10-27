@@ -1,0 +1,82 @@
+5d09aa46	Botón inferior
+950b437d	Botón de hombro izquierdo
+89c030f3	Cruceta arriba
+07a5fffb	Stick izquierdo a la derecha
+62a27597	Stick derecho abajo
+b0827a06	Ningún mando conectado
+103788f3	{0} conectado
+a36a5ffa	Mando
+301e3f5c	Mando de {0}
+fd281615	Mandos
+ab28ab13	Cómo conectar un mando
+ea7871ca	Conecta el mando con un cable USB, o vincúlalo por Bluetooth en los ajustes de tu dispositivo (en Windows: Configuración → Bluetooth y dispositivos; en Android: Ajustes → Dispositivos conectados; en un Mac: Ajustes del Sistema → Bluetooth).
+f85631cb	Con Tamkeen abierto, pulsa cualquier botón del mando. Tamkeen solo ve un mando después de que se haya pulsado uno de sus botones.
+7346c177	Abre un vídeo o tus tarjetas de repaso y úsalo. Los botones de abajo dicen qué hace cada uno ahí.
+5a569af7	Funcionan los mandos de Xbox, PlayStation y Nintendo Switch Pro, y la mayoría de los demás. Los botones se llaman como aparecen impresos en el mando conectado.
+4828e783	Este navegador no puede leer mandos de juego.
+7c052eae	Ningún mando conectado. Conecta uno y pulsa cualquiera de sus botones.
+9571f794	Sus botones no tienen aquí una disposición estándar, así que van numerados.
+05157447	Volver a los predeterminados
+c0d7b263	Pulsa aquí y luego un botón del mando
+15d37ee2	Ningún botón para esto
+719ea396	Quitar
+bea69211	Volver al botón predeterminado
+93039e60	Sin asignar
+990d967b	{0} ya no hace «{1}».
+ade59116	Pulsa un botón…
+e73a14ad	Último botón pulsado: {0}
+d60513ef	Un mando de juego para los vídeos y las tarjetas de repaso: elige qué hace cada botón.
+cdf6a886	Conectar un mando de juego
+c6f88705	Botones del mando para los vídeos
+c9a71c99	Botones del mando para las tarjetas de repaso
+5e2745e8	Viendo vídeos
+4758da15	Pódcasts, YouTube, Netflix, tus propios vídeos y reels.
+a40a5ef7	Estudiando tarjetas
+988d30b4	Las tarjetas de repaso de la página Vocabulario.
+2f2b74b5	En todas partes
+efeb8793	Moverse por la app: también en las pantallas de arriba, para los botones que no usan.
+decd52e0	Línea anterior
+56b52248	Línea siguiente
+862bd9b2	Volver a oír esta línea
+0fb3f212	Repetir esta línea en bucle (sí / no)
+43c98408	Más despacio (sí / no)
+2b594949	Buscar la palabra que se está diciendo
+852e0495	Guardar la palabra de la ventana
+8bc35ab4	Subtítulos sobre el vídeo (sí / no)
+b4c402c6	Panel de la transcripción (abrir / cerrar)
+58fd357f	Reproducir la palabra
+7cf414e1	Reproducir la frase
+695a32ae	Dilo (practica cómo se dice)
+931bac1c	Terminar la sesión
+03889841	Atrás / cerrar
+82d366b2	Pulsar el botón resaltado
+b4d701e3	Mover el resaltado hacia arriba
+c9259f28	Mover el resaltado hacia abajo
+923d114c	Mover el resaltado a la izquierda
+28ef371c	Mover el resaltado a la derecha
+4d07e752	Desplazarse hacia arriba
+3a2e1ba7	Desplazarse hacia abajo
+afcc0121	Ir a las pestañas principales
+68190bf4	Botón derecho
+35e429d0	Botón izquierdo
+1b5d2ed4	Botón superior
+bc6fb2a7	Pulsar el stick izquierdo
+da4e3b8d	Pulsar el stick derecho
+84cc9318	Botón de hombro derecho
+e648a480	Gatillo izquierdo
+fe5adc09	Gatillo derecho
+85982229	Select
+0a4c74b7	Cruceta abajo
+32e2becc	Cruceta izquierda
+6e71db01	Cruceta derecha
+c0fe7a0e	Stick izquierdo a la izquierda
+342bb24a	Stick izquierdo arriba
+54f08740	Stick derecho a la izquierda
+bd6b69d2	Stick derecho arriba
+a5c1a0ff	Botón {0}
+b6e23ef8	Eje {0} {1}
+d6ed4349	Más despacio: {0}×
+087fae4e	De vuelta a {0}×
+b90b39b7	Botones del mando en todas partes
+b44ac93c	Girar la tarjeta y luego Recordada
+6eaf5d7f	No recordada

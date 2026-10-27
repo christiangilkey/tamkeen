@@ -5638,3 +5638,59 @@ Built on main's ⟦ ⟧ marks (the basics-course section just above): one storag
   over the sentence, the on-screen keyboard pushing the card), iPhone typing inside `.rv-back` (user-select is set back
   to text on its boxes as a precaution), a real sync between two devices, right-to-left app language by eye. A card
   whose word or sentence is edited keeps the voice it already had (voices are made once; see Card voices).
+## Game controllers: map any button for videos and review cards (2026-10-26; branch `controller-support`, NOT merged, NOT pushed)
+Owner: "add a mapable controller support with a list of the most useful tamkeen functions that it can map to any
+controller input selected by the user, it specifically should be for watching videos and for studying cards".
+- **How it reads a controller**: the browser Gamepad API, in the shared web code, so the computer's window, the web app
+  and the phones' WebView all use it. Browsers only list a controller after one of its buttons is pressed.
+  `web/js/gamepad.js` (started by `startGamepad()` in both shells' app.js) looks with requestAnimationFrame only while a
+  controller is connected; new presses act once, holds repeat for actions marked `repeat` (HOLD_MS 400, then every
+  110 ms), the right stick scrolls smoothly (strength past the dead zone). Nothing acts while a text box has the focus,
+  except "back", which leaves it. A controller just connected: buttons already down don't count as presses.
+- **`web/js/padmap.js`** (pure; tests/js/padmap.test.mjs 20 tests): AREAS video / review / general; ACTIONS with
+  their default input; inputs are `b<N>` (standard-layout button) or `a<N>+`/`a<N>-` (an axis pushed past 0.5, let go
+  under 0.35; DEAD_ZONE 0.25); `assign` (one input does one thing per area: the action that had it is cleared and
+  named in a toast), `resetAction`, `resetArea`, `fullMap`, `cleanSetting`/`settingWins` (sync), `readInputs`,
+  `pressesFrom`, `firstPressed` (capture: ignores buttons already down and axes resting away from 0, e.g. triggers
+  at −1), `padKind` (xbox/playstation/switch/generic from the id), `inputName` (A/B/X/Y, ✕○□△, a Switch's B/A/Y/X
+  — the bottom button is index 0 on all of them —, LB/L1/L, …; "Button 5" for a non-standard layout), `nearest`
+  (which button the D-pad highlight goes to: the nearest row that way first; left/right stay on the line).
+- **Who does what**: a page calls `controllerArea("video" | "review", handlers)` and takes it back when it closes:
+  player.js (podcasts, YouTube, Netflix, own videos; videos also captions/transcript), reels.js (no speed or loop;
+  previous/next reel), review.js (same guards as its keys: the guide, the delete box, an open text box, KEY_GUARD_MS).
+  The newest area wins; an input the area doesn't map, or whose action the page lacks, falls to "general". While a
+  box is over the page (`.fix-back`, `.tour`, `.modal-back`, `#ctxmenu`, `.sel-sheet-back`) only "general" works,
+  inside that box. General: back (an open box gets an Escape keydown; else the area's `back` (popup, loop, review
+  settings/close); else the word popup's close; else history.back, never from Home), select (clicks the highlighted
+  element; text inputs get the focus, selects showPicker), D-pad highlight (class `.pad-focus`, a teal ring; mouse,
+  touch or a real key put it away; inside `.rv` while reviewing), scroll, menu (highlights the active main tab).
+- **Defaults** (Xbox names): videos A play/pause, D-pad ←/→ 5 s, ↑/↓ previous/next line, X hear the line again,
+  Y look up the word being said, RT save the popup's word, LT slow down (0.75× / back), LS loop the line, View
+  captions, RS transcript panel, LB/RB previous/next reel. Cards: A turn then Remembered, D-pad ← Not remembered,
+  → Remembered, X word, Y sentence, RB Say it, LB undo, View finish. Everywhere: B back, A press, D-pad move,
+  right stick scroll, Menu/Start main tabs.
+- **Settings → Controller** (new section `controller`, icon "game"; `web/js/components/controllerpanel.js`, used by both
+  Settings pages): connected controllers, "Last button pressed", "How to connect a controller", and per area each
+  action with its button (press it, then a controller button; 8 s or Esc cancels), ✕ clear, ↺ default, "Reset these
+  to the defaults". Printed names (A, LB, Options) carry translate="no"; descriptions (D-pad up) are translated.
+- **Stored**: setting `controller_map` = `{at, map: {area: {action: input | ""}}}`, only the changes from the defaults
+  (an action only a newer version knows is kept). Computer: db.py default, PATCH /settings. Phone/web: store.js
+  default; **new `GET /settings` in mobile backend.js** (gamepad.js reads it; it also fixes grammarpanel.js, which
+  asked for it and failed on the phones: "This lesson couldn't be marked as done"). **Synced** as library key
+  `controller`, the one changed last wins: `app/controller.py` (clean, wins) in sync/engine.py snapshot/_content/merge,
+  and mobile sync.js (padmap.js cleanSetting/settingWins). tests/test_controller.py (6).
+- i18n `tools/i18n/tr/<code>/81-controller.txt` (84 × 16); extra.txt has the first name of each of padmap's name
+  lists (the extractor skips a string right after "["); ignore.txt the printed names Xbox/Menu/Options/Xbox button/PS
+  button, a CSS selector and two programmer errors. build-www SHARED: js/padmap.js, js/gamepad.js,
+  js/components/controllerpanel.js. parity.test: "GET /settings" is no longer computer-only.
+- **Checked**: 1111 JS, 559 pytest, i18n complete. Browser pane (desktop server, scratch data folder, a simulated
+  controller: `navigator.getGamepads` stubbed with an Xbox, then a DualSense, then a Switch Pro id; requestAnimationFrame
+  swapped for a timer because the hidden pane pauses it): names per kind; capture (RB onto Play/pause moved it from
+  Next reel, saved); ✕, reset area; D-pad highlight on Settings and Vocab, A opened the review; B closed the fix
+  popup over a card without answering it; turn, Remembered, Not remembered, undo, B closing the review; in a seeded
+  podcast episode: play/pause, ±5 s, next/previous line, slow down and back, loop and B to stop it, Y looked up the
+  word being said, RT saved it. Phone width 375 px. Screenshots in the side-session notes folder (controller-shots).
+- **NOT checked**: a real controller on any device; the Android WebView's Gamepad API (Android also turns a
+  controller's B into its Back key when the app doesn't take it, which could close a screen twice — watch for that
+  first on a real phone), the iPhone, YouTube/Netflix embeds and reels with the real players, a real sync between two
+  devices. Fullscreen has no action (browsers don't count a controller press as a click for it).

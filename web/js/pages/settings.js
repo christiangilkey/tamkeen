@@ -28,6 +28,7 @@ import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { applyPageSize, pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
+import { controllerSection, controllerSummary } from "../components/controllerpanel.js";
 import { SECTIONS, confirmBox, findsFor, moreOptions, revealFind, sectionOfFind, sectionPage, settingsHome } from "../components/settingsui.js";
 
 const THEMES = { system: "System", light: "Light", dark: "Dark" };
@@ -70,6 +71,7 @@ function home(view, status) {
       },
       voices: () => voiceSummary(s),
       look: () => [{ text: THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
+      controller: () => controllerSummary(),
       account: async () => {
         const st = await api("/sync/status");
         if (!st.configured) return null;
@@ -90,7 +92,7 @@ function home(view, status) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, voices, look, account, apps, data };
+const BUILD = { languages, words, listening, voices, look, controller: controllerSection, account, apps, data };
 
 function languages(body, status) {
   const s = status.settings;

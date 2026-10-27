@@ -285,6 +285,31 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "5d09aa46",
+  "k": "Bottom button",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "950b437d",
+  "k": "Left bumper",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "89c030f3",
+  "k": "D-pad up",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "07a5fffb",
+  "k": "Left stick right",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "62a27597",
+  "k": "Right stick down",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -2900,6 +2925,116 @@
   "f": "web/js/components/changelog.js"
  },
  {
+  "id": "b0827a06",
+  "k": "No controller connected",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "103788f3",
+  "k": "{0} connected",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "a36a5ffa",
+  "k": "Controller",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "301e3f5c",
+  "k": "{0} controller",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "fd281615",
+  "k": "Controllers",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "ab28ab13",
+  "k": "How to connect a controller",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "ea7871ca",
+  "k": "Plug the controller in with a USB cable, or pair it over Bluetooth in your device's own settings (on Windows: Settings → Bluetooth & devices; on Android: Settings → Connected devices; on a Mac: System Settings → Bluetooth).",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "f85631cb",
+  "k": "With Tamkeen open, press any button on the controller. Tamkeen only sees a controller after one of its buttons has been pressed.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "7346c177",
+  "k": "Open a video or your review cards and use it. The buttons below say what each one does there.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "5a569af7",
+  "k": "Xbox, PlayStation and Nintendo Switch Pro controllers work, and most others. Buttons are named the way they are printed on the controller connected.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "4828e783",
+  "k": "This browser can't read game controllers.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "7c052eae",
+  "k": "No controller connected. Connect one, then press any of its buttons.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "9571f794",
+  "k": "Its buttons have no standard layout here, so they are numbered.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "05157447",
+  "k": "Reset these to the defaults",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "c0d7b263",
+  "k": "Press, then press a button on the controller",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "15d37ee2",
+  "k": "No button for this",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "719ea396",
+  "k": "Clear",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "bea69211",
+  "k": "Back to the default button",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "93039e60",
+  "k": "Not set",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "990d967b",
+  "k": "{0} no longer does “{1}”.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "ade59116",
+  "k": "Press a button…",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "e73a14ad",
+  "k": "Last button pressed: {0}",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
   "id": "b5ffacdb",
   "k": "Loading the course…",
   "f": "web/js/components/coursepanel.js"
@@ -4170,6 +4305,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "d60513ef",
+  "k": "A game controller for videos and review cards: choose what each button does.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "9fdce180",
   "k": "Account & sync",
   "f": "web/js/components/settingsui.js"
@@ -4327,6 +4467,26 @@
  {
   "id": "39b345e7",
   "k": "Vibration",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "cdf6a886",
+  "k": "Connect a game controller",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c6f88705",
+  "k": "Controller buttons for videos",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c9a71c99",
+  "k": "Controller buttons for review cards",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "b90b39b7",
+  "k": "Controller buttons everywhere",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -10725,6 +10885,301 @@
   "f": "web/js/ocr.js"
  },
  {
+  "id": "5e2745e8",
+  "k": "Watching videos",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4758da15",
+  "k": "Podcasts, YouTube, Netflix, your own videos and reels.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "a40a5ef7",
+  "k": "Studying cards",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "988d30b4",
+  "k": "The review cards on the Vocab page.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2f2b74b5",
+  "k": "Everywhere",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "efeb8793",
+  "k": "Moving around the app: on the screens above too, for buttons they don't use.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "8cfc8cf6",
+  "k": "Play / pause",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "de6afdb5",
+  "k": "Back 5 seconds",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2c23a430",
+  "k": "Forward 5 seconds",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "decd52e0",
+  "k": "Previous line",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "56b52248",
+  "k": "Next line",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "862bd9b2",
+  "k": "Hear this line again",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "0fb3f212",
+  "k": "Loop this line (on / off)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "43c98408",
+  "k": "Slow down (on / off)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2b594949",
+  "k": "Look up the word being said",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "852e0495",
+  "k": "Save the word in the popup",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "8bc35ab4",
+  "k": "Captions on the video (on / off)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b4c402c6",
+  "k": "Transcript panel (open / close)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "d659e007",
+  "k": "Previous reel",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e9aa01dc",
+  "k": "Next reel",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b44ac93c",
+  "k": "Turn the card, then Remembered",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6eaf5d7f",
+  "k": "Not remembered",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4d3ebfca",
+  "k": "Remembered",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "58fd357f",
+  "k": "Play the word",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "7cf414e1",
+  "k": "Play the sentence",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "695a32ae",
+  "k": "Say it (practise saying it)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6cb73375",
+  "k": "Undo the last answer",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "931bac1c",
+  "k": "Finish the session",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "03889841",
+  "k": "Back / close",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "82d366b2",
+  "k": "Press the highlighted button",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b4d701e3",
+  "k": "Move the highlight up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "c9259f28",
+  "k": "Move the highlight down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "923d114c",
+  "k": "Move the highlight left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "28ef371c",
+  "k": "Move the highlight right",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4d07e752",
+  "k": "Scroll up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "3a2e1ba7",
+  "k": "Scroll down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "afcc0121",
+  "k": "Go to the main tabs",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "68190bf4",
+  "k": "Right button",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "35e429d0",
+  "k": "Left button",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "1b5d2ed4",
+  "k": "Top button",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "69bd4ef9",
+  "k": "View",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "bc6fb2a7",
+  "k": "Left stick press",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "da4e3b8d",
+  "k": "Right stick press",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6e157c5d",
+  "k": "Create",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "84cc9318",
+  "k": "Right bumper",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e648a480",
+  "k": "Left trigger",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fe5adc09",
+  "k": "Right trigger",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "85982229",
+  "k": "Select",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "952f3754",
+  "k": "Start",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "0a4c74b7",
+  "k": "D-pad down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "32e2becc",
+  "k": "D-pad left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6e71db01",
+  "k": "D-pad right",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "70f8bb9a",
+  "k": "Home",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "c0fe7a0e",
+  "k": "Left stick left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "342bb24a",
+  "k": "Left stick up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "54f08740",
+  "k": "Right stick left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "bd6b69d2",
+  "k": "Right stick up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "a5c1a0ff",
+  "k": "Button {0}",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b6e23ef8",
+  "k": "Axis {0} {1}",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "100892d9",
   "k": "No readable text was found on that page. Try opening it in the app's browser and pressing the round teal button there.",
   "f": "web/js/pageimport.js"
@@ -11032,11 +11487,6 @@
  {
   "id": "ee02aae1",
   "k": "Added {0} word{1}{2}.",
-  "f": "web/js/pages/chat.js"
- },
- {
-  "id": "69bd4ef9",
-  "k": "View",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -11477,11 +11927,6 @@
  {
   "id": "e1c85cdb",
   "k": "New guild",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "6e157c5d",
-  "k": "Create",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -12460,11 +12905,6 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "70f8bb9a",
-  "k": "Home",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "a2bb9d34",
   "k": "End",
   "f": "web/js/pages/player.js"
@@ -12577,6 +13017,16 @@
  {
   "id": "8d79c7fd",
   "k": "Save subtitles as VTT",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "d6ed4349",
+  "k": "Slowed down to {0}×",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "087fae4e",
+  "k": "Back to {0}× speed",
   "f": "web/js/pages/player.js"
  },
  {
@@ -12965,33 +13415,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "d659e007",
-  "k": "Previous reel",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "e9aa01dc",
-  "k": "Next reel",
-  "f": "web/js/pages/reels.js"
- },
- {
   "id": "27c57ad8",
   "k": "Where in the reel",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "de6afdb5",
-  "k": "Back 5 seconds",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "8cfc8cf6",
-  "k": "Play / pause",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "2c23a430",
-  "k": "Forward 5 seconds",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -13085,11 +13510,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "6cb73375",
-  "k": "Undo the last answer",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "ddcdbf32",
   "k": "Reviewer settings",
   "f": "web/js/pages/review.js"
@@ -13132,11 +13552,6 @@
  {
   "id": "1f434d3d",
   "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "4d3ebfca",
-  "k": "Remembered",
   "f": "web/js/pages/review.js"
  },
  {
@@ -14247,11 +14662,6 @@
  {
   "id": "15a53568",
   "k": "Review “{0}”",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "952f3754",
-  "k": "Start",
   "f": "web/js/pages/vocab.js"
  },
  {

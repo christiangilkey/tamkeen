@@ -28,6 +28,7 @@ import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
+import { controllerArea } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { soundAlikes } from "../review/mnemonic.js";
@@ -1153,6 +1154,31 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   };
   document.addEventListener("keydown", onKey);
 
+  // ----- game controller (gamepad.js; Settings → Controller): the same as the keys above -----
+  const padReady = () => !document.querySelector(".tour") && !asking && !editing;
+  const padCard = () => (padReady() && panel.hidden ? todo[0] || null : null);
+  const padSettled = () => flipped && Date.now() - flippedAt > KEY_GUARD_MS;
+  const offPad = controllerArea("review", {
+    turn: () => {
+      if (!padReady()) return;
+      if (!panel.hidden) { close(); return; }
+      if (!todo[0]) return;
+      if (!flipped) flip(); else if (padSettled()) grade(GOOD);
+    },
+    again: () => { if (padCard() && padSettled()) grade(AGAIN); },
+    good: () => { if (!padCard()) return; if (padSettled()) grade(GOOD); else if (!flipped) flip(); },
+    playWord: () => { const v = padCard(); if (v && flipped && hasWordAudio(v)) sayWord(v); },
+    playSentence: () => { const v = padCard(); if (v && flipped && hasSentenceAudio(v)) saySentence(v); },
+    sayIt: () => { if (padCard() && flipped) { const say = face.querySelector(".say-it"); if (say) say.click(); } },
+    undo: () => { if (padReady()) takeBack(); },
+    finish: () => close(),
+    back: () => {
+      if (asking) { asking(); return true; }
+      if (!settings.hidden) settings.hidden = true; else close();
+      return true;
+    },
+  });
+
   // ----- opening and closing -----
   // The phone's back button (and the browser's) closes the reviewer instead of leaving the page.
   let inHistory = false;
@@ -1172,6 +1198,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     clearInterval(ticker);
     document.removeEventListener("visibilitychange", onVisible);
     document.removeEventListener("keydown", onKey);
+    offPad();
     window.removeEventListener("popstate", onPop);
     window.removeEventListener("hashchange", onPop);
     window.removeEventListener("resize", onResize);

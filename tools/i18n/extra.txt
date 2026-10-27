@@ -36,3 +36,10 @@ German word table and common-word list: today's spelling and capitals, from Wikt
 Vazirmatn font (Persian)
 # components/wordbuilder.js: the paste box's example lines ("<word> – its meaning")
 its meaning
+# padmap.js: the first name in each of its lists of button names (the extractor takes a string right
+# after "[" for an object's key).
+Bottom button
+Left bumper
+D-pad up
+Left stick right
+Right stick down

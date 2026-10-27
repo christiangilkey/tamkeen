@@ -28,6 +28,7 @@ import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
+import { startGamepad } from "./gamepad.js";
 
 // ---------- API ----------
 export async function api(path, { method = "GET", body, raw, bytes } = {}) {
@@ -680,6 +681,7 @@ async function boot() {
   }
   window.addEventListener("hashchange", route);
   initScrollHints(); // rows that scroll sideways show that they do
+  startGamepad(); // a game controller, once one is connected (gamepad.js; Settings → Controller)
   route();
   openLinks(); // a link this run was started with (or that came while the page was loading)
   // A friend's message while this window isn't on screen: the system's notification (chatnotify.js).
