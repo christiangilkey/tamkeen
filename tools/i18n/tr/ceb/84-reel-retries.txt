@@ -1,0 +1,4 @@
+8706b900 Wala molampos sa miaging higayon ({0}). I-tsek kini aron sulayan pag-usab.
+66c4e522 Sulayan pag-usab ang {0} nga wala molampos human sa {1} ka segundo… ({2} sa pagkakaron)
+77bd6f9b Gisulayan pag-usab: {0} sa {1} ({2} sa pagkakaron)
+3aca28da {0} niini ang mahimong i-tsek pag-usab aron sulayan na usab.

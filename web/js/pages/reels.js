@@ -391,7 +391,9 @@ async function renderList(view) {
       send.textContent = info.phone ? "Get the ticked reels" : "Send the ticked reels to my phone";
       return;
     }
-    const unusable = (p) => p.have || p.video === false || !!p.skipped;
+    // A reel that failed for a reason that may pass (`retry`, from the phone: a download that broke off…)
+    // can be ticked again.
+    const unusable = (p) => p.have || p.video === false || (!!p.skipped && !p.retry);
     const usable = saved.posts.filter((p) => !unusable(p));
     for (const code of [...picked]) if (!usable.some((p) => p.code === code)) picked.delete(code);
     const head = h(`<div class="reel-pickhead"><strong>2. Tick the reels you want</strong> <span class="muted small"></span>
@@ -413,7 +415,7 @@ async function renderList(view) {
         ${p.thumb ? `<img src="${p.thumb.startsWith("data:image/") ? esc(p.thumb) : `/api/reels/thumb?u=${encodeURIComponent(p.thumb)}`}" alt="" loading="lazy">` : `<span class="ph">${icon("video", 20)}</span>`}
         <span class="txt"><span class="who">${p.user ? `@${esc(p.user)}` : "Instagram reel"}${p.seconds ? ` · ${p.seconds < 60 ? `${p.seconds} s` : fmtDuration(p.seconds)}` : ""}</span>
           <span class="cap" dir="auto"></span></span>
-        <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
+        <span class="tag small muted">${p.have ? "Already in your reels" : p.video === false ? "Not a video" : p.skipped && p.retry ? `Didn't work last time (${esc(p.skipped)}). Tick it to try again.` : p.skipped ? `Can't be used: ${esc(p.skipped)}` : ""}</span>
       </label>`);
       row.querySelector(".cap").textContent = p.caption || "";
       row.querySelector("img")?.addEventListener("error", (e) => { e.target.replaceWith(h(`<span class="ph">${icon("video", 20)}</span>`)); });

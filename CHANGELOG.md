@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Getting the reels you ticked from your Instagram saves is much more reliable. The phone downloads just each reel's sound, a fraction of the video's size, so far fewer reels are "too large to send from the phone" or take too long. A download that breaks off is tried three times, and the reels that still didn't work get a second round once the rest are done. A reel that failed for a reason that may pass (a dropped connection, an Instagram server that didn't answer) can be ticked again afterwards, and says so. *(the phones)*
 - **Improved:** The Library tab opens on the kind you were last looking at (Courses, Podcasts, YouTube, Reels…) instead of always on Courses.
 - **Improved:** On a phone, the word popup's buttons in the players and reels are tidier: Word, Sentence, Continue and Add audio show just their icons (the sentence one now has its own icon), and Save keeps its word.
 - **Fixed:** On a phone, the reels page squeezed each reel's name and caption into a column one word wide, in both "Tick the reels you want" and the list of your reels. They now use the whole width, with "Already in your reels" under the caption and Watch / Delete under the title.

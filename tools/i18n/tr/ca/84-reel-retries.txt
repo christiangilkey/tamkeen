@@ -1,0 +1,4 @@
+8706b900 No va funcionar l'última vegada ({0}). Marca'l per tornar-ho a provar.
+66c4e522 Tornant a provar els {0} que no van funcionar d'aquí a {1} segons… ({2} fins ara)
+77bd6f9b Tornant-ho a provar: {0} de {1} ({2} fins ara)
+3aca28da {0} d'ells es poden tornar a marcar per provar-ho un altre cop.

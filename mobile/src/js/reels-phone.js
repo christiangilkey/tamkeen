@@ -81,11 +81,19 @@ const USERNAME = /^[A-Za-z0-9._]{1,30}$/;
 class NeedsSignIn extends Error {}
 class Stopped extends Error {}
 class TookTooLong extends Error {}
+class TooLarge extends Error {}
+class CameEmpty extends Error {}
 
-// How long one reel may take altogether (asking Instagram, downloading, the provider writing it
-// down), and the download alone. A reel that takes longer is skipped and the next one tried.
-const REEL_SECONDS = 180;
+// How long one reel may take altogether (asking Instagram, downloading with its retries, the provider
+// writing it down), and one download. A reel that takes longer is skipped and the next one tried.
+const REEL_SECONDS = 420;
 const DOWNLOAD_SECONDS = 75;
+// A download that fails (a dropped connection, an Instagram address the phone couldn't look up, a
+// stall) is tried again after these pauses, with fresh addresses from Instagram: three tries in all.
+const RETRY_PAUSES = [3, 10];
+// After the ticked reels have all been tried, the ones that failed for a reason that may pass (see
+// canRetry) are tried once more, after this pause.
+const SECOND_ROUND_PAUSE = 20;
 const PROVIDER_WAIT = 90; // a "slow down" from the provider longer than this ends the batch instead
 
 /** `work` (a promise), given up on after `seconds`, or as soon as Stop is pressed. What it was
@@ -118,6 +126,46 @@ async function tryWithin(ig, cfg, cand, options) {
     if (e instanceof TookTooLong) return [false, `took over ${REEL_SECONDS / 60} minutes`];
     return [false, e.message || String(e)];
   }
+}
+
+/** Wait `seconds`, or stop waiting as soon as Stop is pressed. */
+const pause = (seconds) => bounded(new Promise((r) => setTimeout(r, seconds * 1000)), seconds + 5);
+
+/** The reel's sound to send for transcription, as {b64, name, type, audioOnly}: its audio on its own
+ * when Instagram has that (small and quick), else the video (or the video only, with `videoOnly`).
+ * A failed download is tried again after each of RETRY_PAUSES, with fresh addresses from Instagram
+ * (they only work for a while, and point at another of its servers). Throws the last failure. */
+async function download(ig, p, videoOnly = false) {
+  let last = new CameEmpty();
+  for (let attempt = 0; attempt <= RETRY_PAUSES.length; attempt++) {
+    if (attempt) {
+      await pause(RETRY_PAUSES[attempt - 1]);
+      try { Object.assign(p, tidy([((await ig.ask("info", { code: p.code })) || {}).post])[0] || {}); }
+      catch (e) { if (e instanceof Stopped) throw e; /* keep the addresses there were */ }
+    }
+    const tries = [[videoOnly ? "" : p.audio, "reel.m4a", "audio/mp4", true], [p.src, "reel.mp4", "video/mp4", false]];
+    for (const [url, name, type, audioOnly] of tries) {
+      if (!url) continue;
+      try {
+        const b64 = await bounded(fetchWholeB64(url), DOWNLOAD_SECONDS);
+        if (!b64) { last = new CameEmpty(); continue; }
+        if (b64.length * 0.75 > MAX_UPLOAD_BYTES) { last = new TooLarge(); continue; }
+        return { b64, name, type, audioOnly };
+      } catch (e) {
+        if (e instanceof Stopped) throw e;
+        last = e;
+      }
+    }
+    if (last instanceof TooLarge) break; // the same file again wouldn't be any smaller
+  }
+  throw last;
+}
+
+/** Whether a reel skipped for `why` may work another time: everything but what is true of the reel
+ * itself (not a video, too long, nothing said, the wrong language, not shown outside Instagram). */
+export function canRetry(why) {
+  const w = String(why || "");
+  return !!w && w !== NOT_OUTSIDE && !/^(not a video|too long|nothing is said|hardly any speech|in [^,]+, not )/.test(w);
 }
 
 const tally = (kept, skipped) => `${kept} added, ${skipped} skipped`;
@@ -325,7 +373,7 @@ function tidy(posts) {
     const user = String(p.user || "").toLowerCase();
     out.push({ code, user: USERNAME.test(user) ? user : "", caption: String(p.caption || "").replace(/\s+/g, " ").trim().slice(0, 160),
                video: p.video !== false, seconds: Math.round(Number(p.seconds) || 0), thumb: String(p.thumb || ""),
-               src: String(p.src || ""), music: !!p.music });
+               src: String(p.src || ""), audio: /^https:\/\//.test(p.audio || "") ? String(p.audio) : "", music: !!p.music });
     if (out.length >= LIST_LIMIT) break;
   }
   return out;
@@ -443,20 +491,33 @@ async function tryReel(ig, cfg, known, { random = false } = {}) {
   if (!p.user) return [false, "couldn't be read"];
   if (p.video === false) return [false, "not a video"];
   if (p.seconds > MAX_SECONDS) return [false, "too long"];
-  if (!p.src) return [false, NOT_OUTSIDE];
-  let b64;
-  try { b64 = await bounded(fetchWholeB64(p.src), DOWNLOAD_SECONDS); }
-  catch (e) {
-    if (e instanceof Stopped) throw e;
-    return [false, e instanceof TookTooLong ? "the video took too long to download"
-      : `the video couldn't be downloaded${e && e.message ? ` (${String(e.message).slice(0, 120)})` : ""}`];
-  }
-  if (!b64) return [false, "the video came back empty from Instagram"];
-  if (b64.length * 0.75 > MAX_UPLOAD_BYTES) return [false, "too large to send from the phone"];
+  if (!p.src && !p.audio) return [false, NOT_OUTSIDE];
+  const fetched = async (videoOnly) => {
+    try { return await download(ig, p, videoOnly); }
+    catch (e) {
+      if (e instanceof Stopped) throw e;
+      return e instanceof TooLarge ? "too large to send from the phone"
+        : e instanceof TookTooLong ? "the video took too long to download"
+        : e instanceof CameEmpty ? "the video came back empty from Instagram"
+        : `the video couldn't be downloaded${e && e.message ? ` (${String(e.message).slice(0, 120)})` : ""}`;
+    }
+  };
+  let file = await fetched(false);
+  if (typeof file === "string") return [false, file];
   // The provider isn't told the language: it writes down what it hears and says which language that was.
   // A "slow down" from the provider is shown, and only a short one is waited out (see PROVIDER_WAIT).
-  const heard = parseTranscription(await postAudio(cfg, { b64, name: "reel.mp4", type: "video/mp4" },
-    { get cancelled() { return cancelled; }, say: (message) => say(null, message), longestWait: PROVIDER_WAIT }));
+  const job = { get cancelled() { return cancelled; }, say: (message) => say(null, message), longestWait: PROVIDER_WAIT };
+  let answer;
+  try { answer = await postAudio(cfg, file, job); }
+  catch (e) {
+    // The sound on its own wasn't taken: send the video instead. (Stop, a refused key or the provider's
+    // limit end the batch as before.)
+    if (!file.audioOnly || !p.src || e instanceof Cancelled || e.keyRejected || e.status === 429) throw e;
+    file = await fetched(true);
+    if (typeof file === "string") return [false, file];
+    answer = await postAudio(cfg, file, job);
+  }
+  const heard = parseTranscription(answer);
   const words = heard.segments.reduce((n, s) => n + (s.words.length || s.text.split(/\s+/).filter(Boolean).length), 0);
   if (!words) return [false, "nothing is said in it"];
   const study = settings.study_language || "ar";
@@ -482,25 +543,45 @@ export function startSelected(codes) {
     const cfg = sttConfig(settings);
     const s = await load();
     let kept = 0;
-    let i = 0;
+    let tried = 0; // reels with an outcome so far (each counted once, also when tried twice)
+    const failed = new Map(); // code → why, for the ones that didn't work
+    const one = async (code) => {
+      const known = listed.posts.find((p) => p.code === code) || { code };
+      const [ok, outcome] = await tryWithin(ig, cfg, known);
+      note(known.user || "?", titleFor(known.caption || "", known.user || "?"), outcome, ok);
+      delete s.skipped[code];
+      if (ok) failed.delete(code);
+      else { failed.set(code, outcome); s.skipped[code] = String(outcome).slice(0, 120); }
+      keep();
+      if (ok) { kept++; say(null, null, { kept }); }
+    };
     try {
-      for (; i < list.length; i++) {
+      for (let i = 0; i < list.length; i++) {
         if (cancelled) throw new Stopped("Stopped.");
         say("checking", `Reel ${i + 1} of the ${list.length} you ticked: listening… (${tally(kept, i - kept)} so far)`, { kept, checked: i + 1 });
-        const known = listed.posts.find((p) => p.code === list[i]) || { code: list[i] };
-        const [ok, outcome] = await tryWithin(ig, cfg, known);
-        note(known.user || "?", titleFor(known.caption || "", known.user || "?"), outcome, ok);
-        delete s.skipped[list[i]];
-        if (!ok) s.skipped[list[i]] = String(outcome).slice(0, 120);
-        keep();
-        if (ok) { kept++; say(null, null, { kept }); }
+        await one(list[i]);
+        tried = i + 1;
+      }
+      // A second round for the ones that failed for a reason that may pass (a dropped connection, an
+      // Instagram server that didn't answer): the owner wants every ticked reel added.
+      const again = list.filter((c) => failed.has(c) && canRetry(failed.get(c)));
+      if (again.length) {
+        say("checking", `Trying the ${again.length} that didn't work again in ${SECOND_ROUND_PAUSE} seconds… (${tally(kept, tried - kept)} so far)`);
+        await pause(SECOND_ROUND_PAUSE);
+        for (let j = 0; j < again.length; j++) {
+          if (cancelled) throw new Stopped("Stopped.");
+          say("checking", `Trying again: ${j + 1} of ${again.length} (${tally(kept, tried - kept)} so far)`, { kept });
+          await one(again[j]);
+        }
       }
     } catch (e) {
-      if (e instanceof Stopped) throw new Stopped(`${e.message} ${tally(kept, i - kept)}.`);
+      if (e instanceof Stopped) throw new Stopped(`${e.message} ${tally(kept, tried - kept)}.`);
       throw e;
     }
     const left = list.length - kept;
-    say("done", `${tally(kept, left)}.${left ? " The list below says why each was skipped." : ""}`, { kept, checked: list.length });
+    const retryable = [...failed.values()].filter(canRetry).length;
+    const again = retryable ? ` ${retryable} of them can be ticked again to have another go.` : "";
+    say("done", `${tally(kept, left)}.${left ? " The list below says why each was skipped." : ""}${again}`, { kept, checked: list.length });
   });
 }
 
@@ -609,8 +690,11 @@ export async function reelsListing() {
   const fuid = await feedUid(REELS_FEED_URL);
   const have = new Set(lib.episodes.filter((e) => e.feed_uid === fuid && !e.deleted).map((e) => e.guid));
   return { collection: listed.collection, at: listed.at,
-           posts: listed.posts.map(({ src, music, ...p }) => ({ ...p, have: have.has(p.code),
-             skipped: have.has(p.code) || s.skipped[p.code] === NOT_OUTSIDE ? "" : s.skipped[p.code] || "" })) };
+           posts: listed.posts.map(({ src, audio, music, ...p }) => {
+             const skipped = have.has(p.code) || s.skipped[p.code] === NOT_OUTSIDE ? "" : s.skipped[p.code] || "";
+             // `retry`: it failed for a reason that may pass (a download that broke off…), so it can be ticked again.
+             return { ...p, have: have.has(p.code), skipped, retry: canRetry(skipped) };
+           }) };
 }
 
 export async function setReelChoices(body) {

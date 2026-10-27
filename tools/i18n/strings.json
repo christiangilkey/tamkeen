@@ -13405,6 +13405,11 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "8706b900",
+  "k": "Didn't work last time ({0}). Tick it to try again.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
   "id": "ae455286",
   "k": "Can't be used: {0}",
   "f": "web/js/pages/reels.js"
@@ -18475,13 +18480,13 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "360993c3",
-  "k": "the video took too long to download",
+  "id": "f1d247f4",
+  "k": "too large to send from the phone",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "856eba9f",
-  "k": "the video couldn't be downloaded{0}",
+  "id": "360993c3",
+  "k": "the video took too long to download",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -18490,8 +18495,8 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "f1d247f4",
-  "k": "too large to send from the phone",
+  "id": "856eba9f",
+  "k": "the video couldn't be downloaded{0}",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -18532,6 +18537,21 @@
  {
   "id": "3727f60b",
   "k": "Reel {0} of the {1} you ticked: listening… ({2} so far)",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "66c4e522",
+  "k": "Trying the {0} that didn't work again in {1} seconds… ({2} so far)",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "77bd6f9b",
+  "k": "Trying again: {0} of {1} ({2} so far)",
+  "f": "mobile/src/js/reels-phone.js"
+ },
+ {
+  "id": "3aca28da",
+  "k": "{0} of them can be ticked again to have another go.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {

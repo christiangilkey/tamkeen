@@ -1,0 +1,4 @@
+8706b900 Ça n'a pas marché la dernière fois ({0}). Cochez-le pour réessayer.
+66c4e522 Nouvel essai des {0} qui n'ont pas marché dans {1} secondes… ({2} jusqu'ici)
+77bd6f9b Nouvel essai : {0} sur {1} ({2} jusqu'ici)
+3aca28da {0} d'entre eux peuvent être recochés pour réessayer.

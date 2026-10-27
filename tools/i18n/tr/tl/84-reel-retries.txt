@@ -1,0 +1,4 @@
+8706b900 Hindi gumana noong huli ({0}). I-tsek ito para subukan ulit.
+66c4e522 Susubukan ulit ang {0} na hindi gumana pagkalipas ng {1} segundo… ({2} sa ngayon)
+77bd6f9b Sinusubukan ulit: {0} sa {1} ({2} sa ngayon)
+3aca28da {0} sa mga ito ay puwedeng i-tsek ulit para subukan muli.

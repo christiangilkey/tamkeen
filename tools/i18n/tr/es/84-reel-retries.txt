@@ -1,0 +1,4 @@
+8706b900 No funcionó la última vez ({0}). Márcalo para intentarlo de nuevo.
+66c4e522 Volviendo a intentar los {0} que no funcionaron dentro de {1} segundos… ({2} hasta ahora)
+77bd6f9b Intentándolo de nuevo: {0} de {1} ({2} hasta ahora)
+3aca28da {0} de ellos se pueden volver a marcar para intentarlo otra vez.

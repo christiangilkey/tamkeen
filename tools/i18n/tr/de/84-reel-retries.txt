@@ -1,0 +1,4 @@
+8706b900 Hat letztes Mal nicht geklappt ({0}). Hake es an, um es noch einmal zu versuchen.
+66c4e522 Die {0}, die nicht geklappt haben, werden in {1} Sekunden noch einmal versucht … ({2} bisher)
+77bd6f9b Neuer Versuch: {0} von {1} ({2} bisher)
+3aca28da {0} davon können noch einmal angehakt werden, um es erneut zu versuchen.

@@ -18,6 +18,12 @@ const media = (code, more = {}) => ({
   clips_metadata: { audio_type: "original_sounds", music_info: null }, ...more,
 });
 
+// The stream description Instagram keeps beside a reel's video: a picture track, then the sound on its own.
+const DASH = `<?xml version="1.0"?><MPD><Period><AdaptationSet id="0" contentType="video">
+<Representation id="v1" mimeType="video/mp4"><BaseURL>https://scontent.cdninstagram.com/Second0002-video.mp4?a=1&amp;b=2</BaseURL></Representation></AdaptationSet>
+<AdaptationSet id="1" contentType="audio"><Representation id="a1" mimeType="audio/mp4">
+<BaseURL>https://scontent.cdninstagram.com/Second0002-audio.mp4?a=1&amp;b=2</BaseURL></Representation></AdaptationSet></Period></MPD>`;
+
 /** A pretend page of instagram.com. `answers` maps the start of a requested path to what the site says. */
 function page(answers, { top = true } = {}) {
   const asked = [];
@@ -61,15 +67,16 @@ test("it says who is signed in, or that nobody is", async () => {
 test("everything saved is listed in Instagram's order, page after page, with the smallest video and a small picture", async () => {
   const p = page({ "/api/v1/feed/saved/posts/": (path) => (path.includes("max_id=NEXT")
     ? { items: [{ media: media("Third00003", { media_type: 1, video_versions: undefined }) }], more_available: false }
-    : { items: [{ media: media("First00001") }, { media: media("Second0002", { clips_metadata: { audio_type: "licensed_music" } }) }],
+    : { items: [{ media: media("First00001") }, { media: media("Second0002", { clips_metadata: { audio_type: "licensed_music" }, video_dash_manifest: DASH }) }],
         more_available: true, next_max_id: "NEXT" }) });
   const s = await p.ask("list", { collection: "all", limit: 80 });
   assert.equal(s.error, "");
   assert.deepEqual(s.result.posts.map((x) => x.code), ["First00001", "Second0002", "Third00003"]);
   const [first, second, third] = s.result.posts;
   assert.deepEqual({ ...first }, { code: "First00001", user: "some.creator", caption: "ضحك 😂 #comedy", video: true, seconds: 32,
-    thumb: "https://scontent.cdninstagram.com/First00001-small.jpg", src: "https://scontent.cdninstagram.com/First00001-360.mp4", music: false });
+    thumb: "https://scontent.cdninstagram.com/First00001-small.jpg", src: "https://scontent.cdninstagram.com/First00001-360.mp4", audio: "", music: false });
   assert.equal(second.music, true, "a song from Instagram's library: plays only signed in");
+  assert.equal(second.audio, "https://scontent.cdninstagram.com/Second0002-audio.mp4?a=1&b=2", "the sound on its own, from the stream description");
   assert.deepEqual([third.video, third.src], [false, ""], "a photo");
   assert.deepEqual(p.asked.map((a) => a.path), ["/api/v1/feed/saved/posts/", "/api/v1/feed/saved/posts/?max_id=NEXT"]);
 });

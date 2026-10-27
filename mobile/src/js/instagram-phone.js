@@ -25,6 +25,20 @@
 
   function area(x) { return (x.width || 0) * (x.height || 0); }
 
+  // The reel's sound on its own, from the stream description Instagram keeps beside the video
+  // (video_dash_manifest): a small fraction of the video's size, so it downloads quickly and is never
+  // too large to send for transcription. "" when there is none.
+  function audioOnly(m) {
+    var mpd = typeof m.video_dash_manifest === "string" ? m.video_dash_manifest : "";
+    var sets = mpd.split(/<AdaptationSet\b/).slice(1);
+    for (var i = 0; i < sets.length; i++) {
+      if (!/contentType="audio"|mimeType="audio\//.test(sets[i])) continue;
+      var url = /<BaseURL>([^<]+)<\/BaseURL>/.exec(sets[i]);
+      if (url) return url[1].replace(/&amp;/g, "&").trim();
+    }
+    return "";
+  }
+
   // One saved post, as the app's picking list wants it.
   function post(m) {
     if (!m || typeof m.code !== "string") return null;
@@ -42,6 +56,7 @@
       seconds: Math.round(m.video_duration || 0),
       thumb: thumb,
       src: videos.length ? videos[0].url || "" : "", // the smallest version of the video
+      audio: audioOnly(m),
       // A song from Instagram's music library: such a reel plays only on its ordinary page, signed in.
       music: clip.audio_type === "licensed_music" || !!clip.music_info
     };
