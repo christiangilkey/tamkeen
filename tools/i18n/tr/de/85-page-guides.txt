@@ -1,0 +1,120 @@
+560040c5 KI
+1afbc4ae Das Wort noch einmal hören
+1652f197 Den ganzen Satz hören
+db4e4c5b Ab diesem Wort weiterspielen
+308134f3 Das Wort zu deinen Lernkarten hinzufügen
+f4d28620 Eine Stimme für hier gespeicherte Karten wählen
+4d2a4aec Das Wort neu erklären lassen
+bbac856b Schnellsuche: die ganze Erklärung öffnen
+f5fbd366 Claude, ChatGPT, Gemini …
+e89219a3 Wiktionary · kostenlos, funktioniert offline
+de123dc8 Das Beste aus beiden
+7ef6f2ac Schnell
+08d535bc · nur die Bedeutung
+c9d88a87 Ausführlich
+d2a971fe · die ganze Erklärung
+bb76090a Weiterspielen
+7ff42ff4 Tippe auf ein Wort
+313b2975 Tippe auf irgendein Wort, um zu sehen, was es bedeutet. Ein Fenster öffnet sich mit seiner Bedeutung.
+d671ba14 Mehrere Wörter auf einmal
+84d199aa Halte ein Wort gedrückt, bis es aufleuchtet, wische dann über die nächsten Wörter und lass los: Sie werden zusammen erklärt, als ein Ausdruck. Mit der Maus: drücken und ziehen.
+f4277ac7 Das Wortfenster
+4885a247 Es zeigt die Bedeutung, wie das Wort hier gebraucht wird, und seine Grundform. Scrolle für mehr.
+cf7b7608 Die Knöpfe des Fensters
+bba11f19 Unten im Fenster diese Knöpfe:
+7506a603 Speichern zum Lernen
+21a3c515 Speichern macht aus dem Wort eine Lernkarte, mit diesem Satz und seinem Ton. Deine Karten findest du unter Vokabeln.
+b2a76ab9 Wer es erklärt hat
+75a37a8a Das kleine Schild oben im Fenster sagt, woher die Bedeutung kommt. Tippe darauf, um eine andere Quelle zu wählen.
+316858c5 Die Quelle wechseln
+ad328c0e Die KI erklärt jedes Wort im Zusammenhang. Das eingebaute Wörterbuch (Wiktionary) ist kostenlos und funktioniert offline. Deine Wahl gilt für jede Sprache.
+93d68f35 Schnell oder ausführlich
+555f7402 Wähle, wie viel ein angetipptes Wort zeigt: nur seine Bedeutung oder die ganze Erklärung.
+a31c2897 Pausieren oder weiterspielen
+773cb349 Nach einem angetippten Wort hält das Reel an, damit du lesen kannst, oder es läuft weiter. Schalte hier um.
+dbd24142 Der Schalter oben im Fenster: nach einem angetippten Wort anhalten, damit du lesen kannst, oder weiterspielen.
+0f8d76f3 Abspielen und anhalten
+04045d23 Das Reel abspielen oder anhalten.
+3841cab3 Abspielen oder anhalten. Am Computer geht das auch mit der Leertaste.
+d094b09b 5 Sekunden zurück oder vor
+a1b42fd3 Ein Stück noch einmal hören oder vorspringen.
+a239b8ff Die Zeile noch einmal
+df7d1084 Zurück zum Anfang der Zeile, die du hörst. Zweimal schnell: die Zeile davor.
+a13692da Spiel es langsamer ab, während du dich an die Sprache gewöhnst.
+0ce86704 Das ganze Transkript
+d20c2888 Alle Zeilen des Videos daneben zeigen oder ausblenden.
+1201f5be Untertitel
+d32b540d Die antippbaren Untertitel über dem Video zeigen oder ausblenden.
+b442f54f Die Wörter größer oder kleiner machen.
+6b9b0da6 Das Transkript behalten
+f9eb9d8b Die Wörter als Textdatei oder als Untertitel (SRT, VTT) speichern.
+ff95d24a Das nächste Reel
+92da1cd5 Zum nächsten Reel oder zurück zum vorigen.
+7b5196fc Umblättern
+d98797e7 Die nächste Seite oder die vorige. Der Regler springt zu jeder Seite.
+f56fd38f Die Originalseite
+3a8e127d Die Seite so öffnen, wie sie auf ihrer eigenen Website ist.
+0c75bd55 So nutzt du diesen Bildschirm
+fff44d9a Eine Einstellung finden
+e25b7dda Tippe ein Wort (Stimme, dunkel, Schlüssel …), um direkt zur Einstellung zu kommen.
+1168bd8a Die Bereiche
+1bc903fa Die Einstellungen sind gruppiert: deine Sprachen, wie Wörter erklärt werden, Hören, Kartenstimmen, das Aussehen, dein Konto … Unter jedem Namen steht, worauf er gerade steht.
+3dd9f3e0 Änderungen hier werden sofort gespeichert: Es gibt keinen Speichern-Knopf. Sie erreichen deine anderen Geräte mit deinen anderen Einstellungen.
+5c416338 Tippe auf eine Zeile mit Pfeil, um ihre weiteren Optionen zu öffnen.
+ac1abab9 Zurück zu allen Einstellungen.
+5795e95b Dieser Bildschirm
+f5d438c5 Tippe auf irgendeinen Knopf, um ihn auszuprobieren: Beim Erkunden geht nichts verloren. Das ? oben zeigt eine Anleitung auf den Bildschirmen, die eine haben.
+278cdc7d Prüfen, ob es ein neueres Tamkeen gibt.
+ee92c8a4 Lizenzen
+5c03fc92 Die Projekte, auf denen Tamkeen aufbaut. Tippe auf eines, um seine Lizenz zu lesen.
+0dcde9bf Füge ein eigenes Buch hinzu: EPUB, PDF, TXT, Kindle AZW3 oder Word, ohne DRM.
+aaa9889c Kostenlose Bücher
+d350a26a Berühmte Bücher in der Sprache, die du lernst, kostenlos. Füge eines hinzu und lies es Seite für Seite, jedes Wort antippbar.
+85aad008 Euer Gespräch
+06a411c3 Nachrichten verschwinden, sobald sie gesehen wurden, Sprachnachrichten, sobald sie abgespielt wurden.
+b5d3e891 Sprachnachrichten
+575e806f Nimm eine Sprachnachricht von bis zu 2 Minuten auf: gute Übung fürs Sprechen.
+4a489327 Schreiben
+a8e19061 Schreib eine Nachricht, dann Senden.
+6ccb6007 Kategorien
+f07e3aeb Podcasts einer Art zeigen: Nachrichten, Comedy, Bildung …
+f96542c1 Angesagte Podcasts
+5d588cda Die meistgehörten Podcasts in der Sprache, die du lernst. Tippe auf + Hinzufügen, um einen in deine Bibliothek zu legen.
+56e3badc Aktualisieren
+6d56afad Die Liste neu laden.
+f07664bf Deine Kurse
+25bfc4b6 Grundlagen lehrt die 1000 häufigsten Wörter, 50 auf einmal. Grammatik hat kurze Lektionen, mit denen du eigene Sätze bildest.
+17fcebd2 Welche Reels
+e2a0641d Reels von Creators, denen du folgst, eine Mischung oder Reels, die du auf Instagram gespeichert hast.
+eb4acac6 Wähle eine deiner Instagram-Sammlungen oder alles Gespeicherte.
+a721f2c5 Hake die Reels an, die du hinzufügen willst. Eines, das letztes Mal nicht geklappt hat, kann wieder angehakt werden.
+f097968b Zufällige Reels
+9358a6e2 Oder hol Reels aus ganz Instagram in der Sprache, die du lernst. Wie viele, stellst du mit − und + ein.
+681a18f6 Deine Reels. Ansehen spielt eines mit seinen Wörtern darunter; tippe auf ein Wort, um zu sehen, was es bedeutet.
+1b055380 Alle ansehen
+f28cc244 Deine Reels nacheinander abspielen.
+c202089b So wiederholst du
+dfa4e013 Eine Karte
+a5df75e7 Das Wort, das du lernst. Versuch dich zu erinnern, was es bedeutet, und dreh dann die Karte um.
+a672ca12 Die Karte umdrehen
+78b0fe22 Die Bedeutung und den Satz zeigen. Die Leertaste tut das auch.
+dfe6f9a8 Das Wort hören oder seinen ganzen Satz.
+d3a47ea4 Eine Karte berichtigen
+bf30f10f Tippe auf einen Text auf der Rückseite, um ihn zu bearbeiten. Halte ein Wort im Satz gedrückt, um es hervorzuheben.
+fade8d06 Es kommt in ein paar Karten wieder. Die Karte nach links wischen tut dasselbe.
+2f7074e2 Es kommt später wieder, jedes Mal, wenn du es weißt, etwas später. Die Karte nach rechts wischen tut dasselbe.
+bd3b8f33 Eselsbrücken
+5538fe2b Mach ein ähnlich klingendes Bild, damit das Wort hängen bleibt.
+245e2966 Deine letzte Antwort zurücknehmen.
+0fc8836a Neue Wörter am Tag, das Wort beim Umdrehen sagen, und die Timer.
+c2fa0dc4 Für jetzt aufhören. Deine bisherigen Antworten bleiben erhalten.
+09d876b3 Alles durchsuchen
+792282e5 Finde ein Wort oder einen Ausdruck in all deinen Transkripten, Seiten und Büchern. Tippe auf ein Ergebnis, um es dort zu hören oder zu lesen.
+3409d591 Wenn du Start, die Bibliothek, Vokabeln und Freunde zum ersten Mal öffnest, zeigt eine kurze Anleitung, was jeder Knopf tut. Das ? oben auf jedem Bildschirm zeigt seine Anleitung, wann immer du willst.
+da3f32b7 Eine Adresse einfügen
+b755f582 Füge die Adresse einer beliebigen Seite ein, um sie hier zu lesen, jedes Wort antippbar.
+7f5d6925 Im Web suchen
+76319b14 Bei Google suchen und ein Ergebnis öffnen, um es in Tamkeen zu lesen.
+1c5163c3 Eine Seite speichern
+e22d0d28 Behalte eine Seite, die du oft liest, um sie mit einem Tipp zu öffnen.
+7349e6ef Nachrichtenseiten in der Sprache, die du lernst.

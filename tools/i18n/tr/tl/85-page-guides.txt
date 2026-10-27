@@ -1,0 +1,120 @@
+560040c5 AI
+1afbc4ae Pakinggan ulit ang salita
+1652f197 Pakinggan ang buong pangungusap
+db4e4c5b Ituloy ang pag-play mula sa salitang iyon
+308134f3 Idagdag ang salita sa iyong mga review card
+f4d28620 Pumili ng boses para sa mga card na sine-save dito
+4d2a4aec Ipaliwanag ulit ang salita
+bbac856b Mabilisang tingin: buksan ang buong paliwanag
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · libre, gumagana kahit offline
+de123dc8 Ang pinakamaganda sa dalawa
+7ef6f2ac Mabilis
+08d535bc · kahulugan lang
+c9d88a87 Detalyado
+d2a971fe · ang buong paliwanag
+bb76090a Ituloy ang pag-play
+7ff42ff4 I-tap ang isang salita
+313b2975 I-tap ang kahit anong salita para makita ang kahulugan nito. Magbubukas ang isang popup na may kahulugan.
+d671ba14 Ilang salita nang sabay
+84d199aa Pindutin nang matagal ang isang salita hanggang umilaw, saka i-slide ang daliri sa mga kasunod na salita at bitawan: sabay silang ipapaliwanag, bilang isang parirala. Sa mouse, pindutin at i-drag.
+f4277ac7 Ang popup ng salita
+4885a247 Ipinapakita nito ang kahulugan, kung paano ginamit dito ang salita, at ang anyo nito sa diksyunaryo. I-scroll para sa higit pa.
+cf7b7608 Ang mga button ng popup
+bba11f19 Sa ibaba nito, ang mga button na ito:
+7506a603 I-save para matutunan
+21a3c515 Ginagawang review card ng I-save ang salita, kasama ang pangungusap na ito at ang tunog nito. Nasa Vocab ang iyong mga card.
+b2a76ab9 Sino ang nagpaliwanag
+75a37a8a Sinasabi ng maliit na label sa itaas ng popup kung saan galing ang kahulugan. I-tap ito para pumili ng ibang pinagmulan.
+316858c5 Palitan ang pinagmulan
+ad328c0e Ipinapaliwanag ng AI ang bawat salita ayon sa konteksto. Libre at gumagana kahit offline ang built-in na diksyunaryo (Wiktionary). Pareho ang pinili mo para sa lahat ng wika.
+93d68f35 Mabilis o detalyado
+555f7402 Piliin kung gaano karami ang ipapakita ng na-tap na salita: kahulugan lang, o ang buong paliwanag.
+a31c2897 I-pause o ituloy
+773cb349 Pagkatapos ng salitang na-tap mo, hihinto ang reel para makabasa ka, o tuloy-tuloy ito. Palitan ito para pumili.
+dbd24142 Ang switch sa itaas ng popup: pagkatapos ng salitang na-tap mo, i-pause para makabasa ka, o ituloy ang pag-play.
+0f8d76f3 I-play at i-pause
+04045d23 I-play o i-pause ang reel.
+3841cab3 I-play o i-pause. Sa computer, puwede rin ang space bar.
+d094b09b Atras o abante nang 5 segundo
+a1b42fd3 Pakinggan ulit ang isang bahagi, o lumaktaw pasulong.
+a239b8ff Ulitin ang linya
+df7d1084 Bumalik sa simula ng linyang naririnig mo. Dalawang beses nang mabilis: ang naunang linya.
+a13692da Bagalan habang nasasanay ka sa wika.
+0ce86704 Ang buong transcript
+d20c2888 Ipakita o itago ang lahat ng linya ng video sa tabi nito.
+1201f5be Captions
+d32b540d Ipakita o itago ang mga caption na puwedeng i-tap sa ibabaw ng video.
+b442f54f Palakihin o paliitin ang mga salita.
+6b9b0da6 Itago ang transcript
+f9eb9d8b I-save ang mga salita bilang text file, o bilang subtitles (SRT, VTT).
+ff95d24a Ang susunod na reel
+92da1cd5 Pumunta sa susunod na reel, o bumalik sa nauna.
+7b5196fc Ilipat ang pahina
+d98797e7 Ang susunod na pahina, o ang nauna. Lumulundag ang slider sa kahit anong pahina.
+f56fd38f Ang orihinal na pahina
+3a8e127d Buksan ang pahina gaya ng nasa sarili nitong website.
+0c75bd55 Paano gamitin ang screen na ito
+fff44d9a Maghanap ng setting
+e25b7dda Mag-type ng salita (boses, dark, key…) para dumiretso sa setting.
+1168bd8a Ang mga seksyon
+1bc903fa Nakagrupo ang mga setting: ang iyong mga wika, kung paano ipinapaliwanag ang mga salita, pakikinig, boses ng card, itsura, ang iyong account… Sa ilalim ng bawat pangalan, kung ano ang nakatakda ngayon.
+3dd9f3e0 Agad na nase-save ang mga pagbabago dito: walang Save button. Umaabot ang mga ito sa iba mong device kasama ng iba mong setting.
+5c416338 I-tap ang linyang may arrow para buksan ang mga dagdag na opsyon nito.
+ac1abab9 Bumalik sa lahat ng setting.
+5795e95b Ang screen na ito
+f5d438c5 I-tap ang kahit anong button para subukan: walang nawawala sa pag-explore. Ang ? sa itaas ay nagpapakita ng gabay sa mga screen na mayroon nito.
+278cdc7d Tingnan kung may mas bagong Tamkeen.
+ee92c8a4 Mga lisensya
+5c03fc92 Ang mga proyektong pinagbatayan ng Tamkeen. I-tap ang isa para mabasa ang lisensya nito.
+0dcde9bf Magdagdag ng sarili mong libro: EPUB, PDF, TXT, Kindle AZW3 o Word, walang DRM.
+aaa9889c Mga libreng libro
+d350a26a Mga sikat na libro sa wikang pinag-aaralan mo, libre. Magdagdag ng isa at basahin nang pahina-pahina, i-tap ang kahit anong salita.
+85aad008 Ang inyong usapan
+06a411c3 Nawawala ang mga mensahe pagkatapos makita, at ang mga voice note pagkatapos ma-play.
+b5d3e891 Mga voice note
+575e806f Mag-record ng voice note na hanggang 2 minuto: magandang pagsasanay sa pagsasalita.
+4a489327 Sumulat
+a8e19061 Mag-type ng mensahe, saka Ipadala.
+6ccb6007 Mga kategorya
+f07e3aeb Ipakita ang mga podcast ng isang uri: balita, komedya, edukasyon…
+f96542c1 Mga trending na podcast
+5d588cda Ang mga pinakapinakikinggang podcast sa wikang pinag-aaralan mo. Pindutin ang + Idagdag para ilagay ang isa sa iyong library.
+56e3badc I-refresh
+6d56afad I-load ulit ang listahan.
+f07664bf Ang iyong mga kurso
+25bfc4b6 Itinuturo ng Basics ang 1000 pinakakaraniwang salita, 50 bawat beses. May maiikling aralin ang Grammar para makabuo ka ng sarili mong mga pangungusap.
+17fcebd2 Aling mga reel
+e2a0641d Kumuha ng mga reel mula sa mga creator na sinusundan mo, halo-halo, o mga reel na na-save mo sa Instagram.
+eb4acac6 Pumili ng isa sa iyong mga koleksyon sa Instagram, o lahat ng na-save mo.
+a721f2c5 I-tsek ang mga reel na idadagdag. Ang hindi gumana noong huli ay puwedeng i-tsek ulit.
+f097968b Mga random na reel
+9358a6e2 O kumuha ng mga reel mula sa buong Instagram sa wikang pinag-aaralan mo. Itakda kung ilan gamit ang − at +.
+681a18f6 Ang mga reel mo. Ang Panoorin ay nagpe-play ng isa na may mga salita sa ilalim; i-tap ang kahit anong salita para makita ang kahulugan.
+1b055380 Panoorin lahat
+f28cc244 I-play ang mga reel mo nang sunud-sunod.
+c202089b Paano mag-review
+dfa4e013 Isang card
+a5df75e7 Ang salitang pinag-aaralan mo. Subukang alalahanin ang kahulugan nito, saka baligtarin ang card.
+a672ca12 Baligtarin ang card
+78b0fe22 Ipakita ang kahulugan at ang pangungusap. Puwede rin ang space bar.
+dfe6f9a8 Pakinggan ang salita, o ang buong pangungusap nito.
+d3a47ea4 Ayusin ang card
+bf30f10f I-tap ang kahit anong teksto sa likod para i-edit. Pindutin nang matagal ang isang salita sa pangungusap para i-highlight.
+fade8d06 Babalik ito pagkalipas ng ilang card. Pareho rin kapag i-swipe ang card pakaliwa.
+2f7074e2 Babalik ito mamaya, medyo mas matagal tuwing naaalala mo. Pareho rin kapag i-swipe ang card pakanan.
+bd3b8f33 Mga pantulong sa alaala
+5538fe2b Gumawa ng larawang kahawig ang tunog para tumatak ang salita.
+245e2966 Bawiin ang huli mong sagot.
+0fc8836a Mga bagong salita bawat araw, pagbigkas ng salita kapag binaligtad ang card, at ang mga timer.
+c2fa0dc4 Tumigil muna. Nakatago ang mga sagot mo hanggang dito.
+09d876b3 Hanapin sa lahat
+792282e5 Maghanap ng salita o parirala sa lahat ng iyong transcript, pahina at libro. I-tap ang resulta para pakinggan o basahin doon.
+3409d591 Sa unang pagbukas mo ng Home, ng Library, ng Vocab at ng Friends, ipinapakita ng maikling gabay kung ano ang ginagawa ng bawat button. Ang ? sa itaas ng kahit anong screen ay nagpapakita ng gabay nito kahit kailan mo gusto.
+da3f32b7 Mag-paste ng address
+b755f582 I-paste ang address ng kahit anong pahina para mabasa ito dito, at puwedeng i-tap ang bawat salita.
+7f5d6925 Maghanap sa web
+76319b14 Maghanap sa Google, saka buksan ang isang resulta para basahin ito sa Tamkeen.
+1c5163c3 Mag-save ng site
+e22d0d28 Itago ang site na madalas mong binabasa, para mabuksan sa isang tap.
+7349e6ef Mga news site sa wikang pinag-aaralan mo.

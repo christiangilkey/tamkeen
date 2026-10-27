@@ -43,6 +43,8 @@ import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { NO_AUDIO_KINDS } from "../cardvoice.js";
 import { voiceNewCard } from "../voiceplay.js";
+import { pageGuide } from "../components/tour.js";
+import { playerSteps } from "../components/guideart.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -273,6 +275,7 @@ export async function render(view, { id, query }) {
 
   const $ = (sel) => view.querySelector(sel);
   const tr = $("#transcript");
+  pageGuide("player", view.querySelector(".player"), playerSteps("player")); // the "?" in the top bar
 
   // Build transcript HTML in one pass (fast even for 10k+ words).
   const parts = [];

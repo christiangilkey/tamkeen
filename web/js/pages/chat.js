@@ -12,6 +12,7 @@ import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../componen
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
 import { askChatNotifications } from "../chatnotify.js";
 import { micProblem } from "../review/pronounce.js";
+import { pageGuide } from "../components/tour.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -57,6 +58,11 @@ export async function render(view, { friendId }) {
     </div>
   </div>`));
   const $ = (q) => view.querySelector(q);
+  pageGuide("chat", view.querySelector(".chat"), [
+    { target: "#chat-list", title: "Your conversation", text: "Messages disappear after they're seen, and voice notes after they're played." },
+    { target: "#mic", title: "Voice notes", text: "Record a voice note of up to 2 minutes: good practice for speaking." },
+    { target: "#msg", title: "Write", text: "Type a message, then Send." },
+  ]); // the "?" in the top bar
   const list = $("#chat-list");
   let disposed = false;
   let me = null;

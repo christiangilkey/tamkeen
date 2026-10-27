@@ -1,0 +1,120 @@
+560040c5 IA
+1afbc4ae Ouvir a palavra de novo
+1652f197 Ouvir a frase inteira
+db4e4c5b Continuar tocando a partir dessa palavra
+308134f3 Adicionar a palavra aos seus cartões de revisão
+f4d28620 Escolher uma voz para os cartões salvos daqui
+4d2a4aec Explicar a palavra de novo
+bbac856b Consulta rápida: abrir a explicação completa
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · grátis, funciona offline
+de123dc8 O melhor dos dois
+7ef6f2ac Rápida
+08d535bc · só o significado
+c9d88a87 Detalhada
+d2a971fe · a explicação completa
+bb76090a Continuar tocando
+7ff42ff4 Toque numa palavra
+313b2975 Toque em qualquer palavra para ver o que ela significa. Abre uma janela com o significado.
+d671ba14 Várias palavras de uma vez
+84d199aa Segure uma palavra até ela acender, depois deslize pelas próximas e solte: elas são explicadas juntas, como uma só expressão. Com o mouse, clique e arraste.
+f4277ac7 A janela da palavra
+4885a247 Mostra o significado, como a palavra é usada aqui e sua forma de dicionário. Role para ver mais.
+cf7b7608 Os botões da janela
+bba11f19 Na parte de baixo, estes botões:
+7506a603 Salve para aprender
+21a3c515 Salvar transforma a palavra num cartão de revisão, com esta frase e o seu som. Seus cartões estão em Vocabulário.
+b2a76ab9 Quem explicou
+75a37a8a A etiqueta pequena no alto da janela diz de onde veio o significado. Toque nela para escolher outra fonte.
+316858c5 Trocar a fonte
+ad328c0e A IA explica cada palavra no contexto. O dicionário embutido (Wiktionary) é grátis e funciona offline. Sua escolha vale para todos os idiomas.
+93d68f35 Rápida ou detalhada
+555f7402 Escolha quanto uma palavra tocada mostra: só o significado ou a explicação completa.
+a31c2897 Pausar ou continuar tocando
+773cb349 Depois de uma palavra tocada, o reel pausa para você ler, ou continua. Mude aqui para escolher.
+dbd24142 O botão no alto da janela: depois de uma palavra tocada, pausar para você ler, ou continuar tocando.
+0f8d76f3 Tocar e pausar
+04045d23 Tocar ou pausar o reel.
+3841cab3 Tocar ou pausar. No computador, a barra de espaço também faz isso.
+d094b09b Voltar ou avançar 5 segundos
+a1b42fd3 Ouvir um trecho de novo, ou pular para a frente.
+a239b8ff A linha de novo
+df7d1084 Voltar ao começo da linha que você está ouvindo. Duas vezes rápido: a linha anterior.
+a13692da Deixe mais devagar enquanto se acostuma com o idioma.
+0ce86704 A transcrição inteira
+d20c2888 Mostrar ou esconder todas as linhas do vídeo ao lado dele.
+1201f5be Legendas
+d32b540d Mostrar ou esconder as legendas tocáveis sobre o vídeo.
+b442f54f Aumentar ou diminuir as palavras.
+6b9b0da6 Guardar a transcrição
+f9eb9d8b Salvar as palavras como arquivo de texto ou como legendas (SRT, VTT).
+ff95d24a O próximo reel
+92da1cd5 Ir para o próximo reel, ou voltar ao anterior.
+7b5196fc Virar a página
+d98797e7 A próxima página ou a anterior. O controle deslizante pula para qualquer página.
+f56fd38f A página original
+3a8e127d Abrir a página como ela está no próprio site.
+0c75bd55 Como usar esta tela
+fff44d9a Encontrar uma configuração
+e25b7dda Digite uma palavra (voz, escuro, chave…) para ir direto à configuração.
+1168bd8a As seções
+1bc903fa As configurações estão agrupadas: seus idiomas, como as palavras são explicadas, ouvir, vozes dos cartões, a aparência, sua conta… Abaixo de cada nome, como está agora.
+3dd9f3e0 As mudanças aqui são salvas na hora: não há botão Salvar. Elas chegam aos seus outros aparelhos junto com suas outras configurações.
+5c416338 Toque numa linha com seta para abrir as opções extras.
+ac1abab9 Voltar a todas as configurações.
+5795e95b Esta tela
+f5d438c5 Toque em qualquer botão para experimentar: explorar não faz perder nada. O ? no alto mostra um guia nas telas que têm um.
+278cdc7d Ver se saiu um Tamkeen mais novo.
+ee92c8a4 Licenças
+5c03fc92 Os projetos em que o Tamkeen se baseia. Toque num para ler a licença.
+0dcde9bf Adicione um livro seu: EPUB, PDF, TXT, Kindle AZW3 ou Word, sem DRM.
+aaa9889c Livros grátis
+d350a26a Livros famosos no idioma que você está aprendendo, grátis. Adicione um e leia página por página, tocando em qualquer palavra.
+85aad008 A conversa de vocês
+06a411c3 As mensagens somem depois de vistas, e os áudios depois de ouvidos.
+b5d3e891 Mensagens de voz
+575e806f Grave uma mensagem de voz de até 2 minutos: um bom treino para falar.
+4a489327 Escrever
+a8e19061 Digite uma mensagem e toque em Enviar.
+6ccb6007 Categorias
+f07e3aeb Mostrar os podcasts de um tipo: notícias, humor, educação…
+f96542c1 Podcasts em alta
+5d588cda Os podcasts mais ouvidos no idioma que você está aprendendo. Toque em + Adicionar para pôr um na sua biblioteca.
+56e3badc Atualizar
+6d56afad Carregar a lista de novo.
+f07664bf Seus cursos
+25bfc4b6 Básico ensina as 1000 palavras mais comuns, 50 de cada vez. Gramática tem lições curtas para você formar suas próprias frases.
+17fcebd2 Quais reels
+e2a0641d Pegue reels de criadores que você segue, uma mistura, ou reels que você salvou no Instagram.
+eb4acac6 Escolha uma das suas coleções do Instagram, ou tudo o que você salvou.
+a721f2c5 Marque os reels que quer adicionar. Um que não deu certo da última vez pode ser marcado de novo.
+f097968b Reels aleatórios
+9358a6e2 Ou pegue reels de todo o Instagram no idioma que você está aprendendo. Escolha quantos com − e +.
+681a18f6 Os reels que você tem. Assistir toca um com as palavras embaixo; toque em qualquer palavra para ver o que significa.
+1b055380 Assistir a todos
+f28cc244 Tocar seus reels um depois do outro.
+c202089b Como revisar
+dfa4e013 Um cartão
+a5df75e7 A palavra que você está aprendendo. Tente lembrar o que significa e depois vire o cartão.
+a672ca12 Virar o cartão
+78b0fe22 Mostrar o significado e a frase. A barra de espaço também faz isso.
+dfe6f9a8 Ouvir a palavra, ou a frase inteira.
+d3a47ea4 Corrigir um cartão
+bf30f10f Toque em qualquer texto do verso para editá-lo. Segure uma palavra da frase para destacá-la.
+fade8d06 Ela volta daqui a alguns cartões. Deslizar o cartão para a esquerda faz o mesmo.
+2f7074e2 Ela volta mais tarde, um pouco mais tarde a cada vez que você lembra. Deslizar o cartão para a direita faz o mesmo.
+bd3b8f33 Truques de memória
+5538fe2b Crie uma imagem de som parecido para a palavra fixar.
+245e2966 Desfazer sua última resposta.
+0fc8836a Palavras novas por dia, falar a palavra quando o cartão vira, e os cronômetros.
+c2fa0dc4 Parar por agora. Suas respostas até aqui ficam guardadas.
+09d876b3 Buscar em tudo
+792282e5 Encontre uma palavra ou expressão em todas as suas transcrições, páginas e livros. Toque num resultado para ouvi-lo ou lê-lo lá.
+3409d591 Na primeira vez que você abre Início, a Biblioteca, Vocabulário e Amigos, um guia curto mostra para que serve cada botão. O ? no alto de qualquer tela mostra o guia dela quando você quiser.
+da3f32b7 Colar um endereço
+b755f582 Cole o endereço de qualquer página para lê-la aqui, com cada palavra tocável.
+7f5d6925 Buscar na web
+76319b14 Busque no Google e abra um resultado para lê-lo no Tamkeen.
+1c5163c3 Salvar um site
+e22d0d28 Guarde um site que você lê muito, para abrir com um toque.
+7349e6ef Sites de notícias no idioma que você está aprendendo.

@@ -23,6 +23,8 @@ import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
+import { pageGuide } from "../components/tour.js";
+import { playerSteps } from "../components/guideart.js";
 
 const SWIPE_PX = 60;
 
@@ -73,6 +75,7 @@ export async function render(view, { id, data, query }) {
   const $ = (sel) => view.querySelector(sel);
   $("#font-down").before(lookupToggle()); // quick or detailed lookup
   const tr = $("#text");
+  pageGuide("book", view.querySelector(".book-reader"), playerSteps("reader")); // the "?" in the top bar
   const wordEls = new Array(n); // only the words on the page shown have an element
   let pages = [[0, n]];
   let page = 0;

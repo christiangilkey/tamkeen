@@ -26,6 +26,7 @@ import { installSelectSheets } from "./components/selectsheet.js";
 import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
+import { mountHelpButton } from "./components/helpbutton.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -692,6 +693,7 @@ async function boot() {
     ask: async () => { if (!window.pywebview) requestNotifications(); },
   })).catch(() => {});
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
+  mountHelpButton(document.querySelector(".topbar")); // "?": how to use the screen that is open
   startBadge();
   startSyncPace();
   // After each sync, pass on the creature game's state in case another device saved a newer one.

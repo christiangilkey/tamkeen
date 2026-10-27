@@ -1,6 +1,7 @@
 // About: version, update check, licenses.
 
 import { api, esc, h, offerUpdate } from "../app.js";
+import { pageGuide } from "../components/tour.js";
 
 export async function render(view) {
   const a = await api("/about");
@@ -24,6 +25,10 @@ export async function render(view) {
     </div>
   </div>`));
   const box = view.querySelector("#lic");
+  pageGuide("about", view.firstElementChild, [
+    { target: "#upd", title: "Updates", text: "Check whether a newer Tamkeen is out." },
+    { target: "#lic", title: "Licenses", text: "The projects Tamkeen is built on. Tap one to read its license." },
+  ]); // the "?" in the top bar
   for (const l of a.licenses) {
     const d = h(`<details><summary><strong>${esc(l.name)}</strong> <span class="muted small">· ${esc(l.license)}</span></summary><pre>Loading…</pre></details>`);
     d.addEventListener("toggle", async () => {

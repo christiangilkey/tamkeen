@@ -22,7 +22,7 @@ import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../lan
 import { formatTime } from "../wordlookup.js";
 import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
 import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
-import { firstVisitTour } from "../components/tour.js";
+import { firstVisitTour, pageGuide, showGuide } from "../components/tour.js";
 import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
 import { addReadings, wordReading } from "../lexicon/readings.js";
 import { dictionaries, downloadDictionaries } from "../lexicon/seen.js";
@@ -187,6 +187,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <span class="rv-left"></span>
       <span class="rv-streak" hidden></span>
       <button type="button" class="rv-undo" title="Take back the last answer (Z)" aria-label="Undo the last answer" disabled>${ICON.undo}</button>
+      <button type="button" class="rv-help" title="How to review" aria-label="How to review">?</button>
       <button type="button" class="rv-gear" title="Reviewer settings" aria-label="Reviewer settings">${ICON.gear}</button>
     </header>
     <div class="rv-settings" hidden>
@@ -1366,6 +1367,20 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
   $(".rv-x").onclick = () => close();
   $(".rv-undo").onclick = takeBack;
+  // The reviewer covers the top bar, so it has its own "?" (components/tour.js).
+  pageGuide("review", el, [
+    { target: ".rv-card", title: "A card", text: "The word you're learning. Try to remember what it means, then turn the card." },
+    { target: ".rv-show", title: "Turn the card", text: "Show the meaning and the sentence. The space bar does it too." },
+    { target: ".rv-listen", title: "Listen", text: "Hear the word, or its whole sentence." },
+    { target: ".rv-answer", title: "Put a card right", text: "Tap any text on the back to edit it. Hold a word in the sentence to highlight it." },
+    { target: ".rv-no", title: "Not remembered", text: "It comes back in a few cards. Swiping the card left does the same." },
+    { target: ".rv-yes", title: "Remembered", text: "It comes back later, a little later each time you remember it. Swiping the card right does the same." },
+    { target: ".rv-mnemo", title: "Memory hooks", text: "Make a sound-alike picture to help the word stick." },
+    { target: ".rv-undo", title: "Undo", text: "Take back your last answer." },
+    { target: ".rv-gear", title: "Reviewer settings", text: "New words a day, saying the word when the card turns, and the timers." },
+    { target: ".rv-x", title: "Close", text: "Stop for now. Your answers so far are kept." },
+  ]);
+  $(".rv-help").onclick = () => showGuide();
 
   document.body.append(el);
   document.body.classList.add("rv-open");

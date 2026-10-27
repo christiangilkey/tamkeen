@@ -27,6 +27,8 @@ import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { controllerArea } from "../gamepad.js";
+import { pageGuide } from "../components/tour.js";
+import { playerSteps } from "../components/guideart.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -115,6 +117,14 @@ async function renderList(view) {
       <div class="episodes" id="reel-list"></div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
+  pageGuide("reels", view.querySelector(".reels"), [
+    { target: ".reel-modes", title: "Which reels", text: "Get reels from creators you follow, a mix, or reels you saved on Instagram." },
+    { target: "#reel-colls", title: "1. Choose a collection", text: "Pick one of your Instagram collections, or everything you saved." },
+    { target: ".reel-picks", title: "2. Tick the reels you want", text: "Tick the reels to add. One that didn't work last time can be ticked again." },
+    { target: "#reel-random", title: "Random reels", text: "Or get reels from all of Instagram in the language you're learning. Set how many with − and +." },
+    { target: "#reel-list", title: "Your reels", text: "The reels you have. Watch plays one with its words underneath; tap any word to see what it means." },
+    { target: "#reel-watch", title: "Watch them all", text: "Play your reels one after another." },
+  ]); // the "?" in the top bar
   let info = null;
   let poll = 0;
   // "From my Instagram saves": the posts of the collection last looked at, and the ones ticked.
@@ -536,6 +546,7 @@ async function renderPlayer(view, { query }) {
   const stage = $("#reel-stage");
   const wordsEl = $("#reel-words");
   const surface = reelSurface(); // null where reels can't be played (the computer)
+  pageGuide("reel", view.querySelector(".reelplay"), playerSteps("reel")); // the "?" in the top bar
   if (!surface) view.querySelector(".reelplay").classList.add("no-video");
 
   // ----- the reel being shown -----

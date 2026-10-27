@@ -1,0 +1,120 @@
+560040c5 IA
+1afbc4ae Volver a oír la palabra
+1652f197 Oír toda su frase
+db4e4c5b Seguir reproduciendo desde esa palabra
+308134f3 Añadir la palabra a tus tarjetas de repaso
+f4d28620 Elegir una voz para las tarjetas guardadas desde aquí
+4d2a4aec Volver a explicar la palabra
+bbac856b Búsqueda rápida: abrir la explicación completa
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · gratis, funciona sin conexión
+de123dc8 Lo mejor de los dos
+7ef6f2ac Rápida
+08d535bc · solo el significado
+c9d88a87 Detallada
+d2a971fe · la explicación completa
+bb76090a Seguir reproduciendo
+7ff42ff4 Toca una palabra
+313b2975 Toca cualquier palabra para ver qué significa. Se abre una ventana con su significado.
+d671ba14 Varias palabras a la vez
+84d199aa Mantén pulsada una palabra hasta que se ilumine, desliza el dedo por las siguientes y suelta: se explican juntas, como una sola expresión. Con un ratón, pulsa y arrastra.
+f4277ac7 La ventana de la palabra
+4885a247 Muestra el significado, cómo se usa aquí la palabra y su forma de diccionario. Desplázala para ver más.
+cf7b7608 Los botones de la ventana
+bba11f19 En su parte de abajo, estos botones:
+7506a603 Guárdala para aprenderla
+21a3c515 Guardar convierte la palabra en una tarjeta de repaso, con esta frase y su sonido. Tus tarjetas están en Vocabulario.
+b2a76ab9 Quién la explicó
+75a37a8a La pequeña etiqueta de arriba de la ventana dice de dónde viene el significado. Tócala para elegir otra fuente.
+316858c5 Cambiar la fuente
+ad328c0e La IA explica cada palabra en su contexto. El diccionario integrado (Wiktionary) es gratis y funciona sin conexión. Tu elección vale para todos los idiomas.
+93d68f35 Rápida o detallada
+555f7402 Elige cuánto muestra una palabra tocada: solo su significado o la explicación completa.
+a31c2897 Pausar o seguir reproduciendo
+773cb349 Tras una palabra que tocaste, el reel se pausa para que leas, o sigue. Cambia esto para elegir.
+dbd24142 El interruptor de arriba de la ventana: tras una palabra que tocaste, pausar para que leas, o seguir reproduciendo.
+0f8d76f3 Reproducir y pausar
+04045d23 Reproduce o pausa el reel.
+3841cab3 Reproduce o pausa. En un ordenador, también con la barra espaciadora.
+d094b09b Atrás o adelante 5 segundos
+a1b42fd3 Vuelve a oír un trozo o salta hacia delante.
+a239b8ff La línea otra vez
+df7d1084 Vuelve al principio de la línea que estás oyendo. Dos veces seguidas: la línea anterior.
+a13692da Ve más despacio mientras te acostumbras al idioma.
+0ce86704 Toda la transcripción
+d20c2888 Muestra u oculta todas las líneas del vídeo a su lado.
+1201f5be Subtítulos
+d32b540d Muestra u oculta los subtítulos que se pueden tocar sobre el vídeo.
+b442f54f Agranda o achica las palabras.
+6b9b0da6 Guardar la transcripción
+f9eb9d8b Guarda las palabras como archivo de texto o como subtítulos (SRT, VTT).
+ff95d24a El siguiente reel
+92da1cd5 Pasa al siguiente reel, o vuelve al anterior.
+7b5196fc Pasar la página
+d98797e7 La página siguiente o la anterior. La barra salta a cualquier página.
+f56fd38f La página original
+3a8e127d Abre la página tal como está en su propio sitio web.
+0c75bd55 Cómo usar esta pantalla
+fff44d9a Buscar un ajuste
+e25b7dda Escribe una palabra (voz, oscuro, clave…) para ir directo al ajuste.
+1168bd8a Las secciones
+1bc903fa Los ajustes están agrupados: tus idiomas, cómo se explican las palabras, escuchar, voces de tarjetas, el aspecto, tu cuenta… Bajo cada nombre, lo que tiene ahora.
+3dd9f3e0 Los cambios aquí se guardan al momento: no hay botón de Guardar. Llegan a tus otros dispositivos con tus demás ajustes.
+5c416338 Toca una línea con flecha para abrir sus opciones extra.
+ac1abab9 Volver a todos los ajustes.
+5795e95b Esta pantalla
+f5d438c5 Toca cualquier botón para probarlo: no se pierde nada por explorar. El ? de arriba muestra una guía en las pantallas que la tienen.
+278cdc7d Comprueba si hay un Tamkeen más nuevo.
+ee92c8a4 Licencias
+5c03fc92 Los proyectos sobre los que está hecho Tamkeen. Toca uno para leer su licencia.
+0dcde9bf Añade un libro tuyo: EPUB, PDF, TXT, Kindle AZW3 o Word, sin DRM.
+aaa9889c Libros gratis
+d350a26a Libros famosos en el idioma que aprendes, gratis. Añade uno y léelo página a página, tocando cualquier palabra.
+85aad008 Tu conversación
+06a411c3 Los mensajes desaparecen después de verse, y las notas de voz después de oírse.
+b5d3e891 Notas de voz
+575e806f Graba una nota de voz de hasta 2 minutos: buena práctica para hablar.
+4a489327 Escribir
+a8e19061 Escribe un mensaje y pulsa Enviar.
+6ccb6007 Categorías
+f07e3aeb Muestra los pódcasts de un tipo: noticias, humor, educación…
+f96542c1 Pódcasts en tendencia
+5d588cda Los pódcasts más escuchados en el idioma que aprendes. Pulsa + Añadir para ponerlo en tu biblioteca.
+56e3badc Actualizar
+6d56afad Vuelve a cargar la lista.
+f07664bf Tus cursos
+25bfc4b6 Básico enseña las 1000 palabras más comunes, de 50 en 50. Gramática tiene lecciones cortas para que formes tus propias frases.
+17fcebd2 Qué reels
+e2a0641d Consigue reels de los creadores que sigues, una mezcla, o reels que guardaste en Instagram.
+eb4acac6 Elige una de tus colecciones de Instagram, o todo lo que guardaste.
+a721f2c5 Marca los reels que quieras añadir. Uno que no funcionó la última vez se puede volver a marcar.
+f097968b Reels al azar
+9358a6e2 O consigue reels de todo Instagram en el idioma que aprendes. Elige cuántos con − y +.
+681a18f6 Los reels que tienes. Ver reproduce uno con sus palabras debajo; toca cualquier palabra para ver qué significa.
+1b055380 Verlos todos
+f28cc244 Reproduce tus reels uno tras otro.
+c202089b Cómo repasar
+dfa4e013 Una tarjeta
+a5df75e7 La palabra que estás aprendiendo. Intenta recordar qué significa y luego da la vuelta a la tarjeta.
+a672ca12 Dar la vuelta a la tarjeta
+78b0fe22 Muestra el significado y la frase. La barra espaciadora también lo hace.
+dfe6f9a8 Oye la palabra o toda su frase.
+d3a47ea4 Corregir una tarjeta
+bf30f10f Toca cualquier texto del reverso para editarlo. Mantén pulsada una palabra de la frase para resaltarla.
+fade8d06 Vuelve dentro de unas tarjetas. Deslizar la tarjeta a la izquierda hace lo mismo.
+2f7074e2 Vuelve más tarde, cada vez un poco más tarde si la recuerdas. Deslizar la tarjeta a la derecha hace lo mismo.
+bd3b8f33 Trucos para recordar
+5538fe2b Crea una imagen que suene parecido para que la palabra se te quede.
+245e2966 Deshaz tu última respuesta.
+0fc8836a Palabras nuevas al día, decir la palabra al dar la vuelta a la tarjeta y los temporizadores.
+c2fa0dc4 Para por ahora. Tus respuestas hasta aquí se guardan.
+09d876b3 Buscar en todo
+792282e5 Encuentra una palabra o expresión en todas tus transcripciones, páginas y libros. Toca un resultado para oírlo o leerlo allí.
+3409d591 La primera vez que abres Inicio, la Biblioteca, Vocabulario y Amigos, una guía corta muestra para qué sirve cada botón. El ? de arriba de cualquier pantalla muestra su guía cuando quieras.
+da3f32b7 Pega una dirección
+b755f582 Pega la dirección de cualquier página para leerla aquí, con cada palabra para tocar.
+7f5d6925 Buscar en la web
+76319b14 Busca en Google y abre un resultado para leerlo en Tamkeen.
+1c5163c3 Guardar un sitio
+e22d0d28 Guarda un sitio que lees a menudo, para abrirlo con un toque.
+7349e6ef Sitios de noticias en el idioma que aprendes.

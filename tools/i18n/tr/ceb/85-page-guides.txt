@@ -1,0 +1,120 @@
+560040c5 AI
+1afbc4ae Paminawa pag-usab ang pulong
+1652f197 Paminawa ang tibuok pangungusap
+db4e4c5b Ipadayon ang pag-play gikan niana nga pulong
+308134f3 Idugang ang pulong sa imong mga review card
+f4d28620 Pagpili og tingog para sa mga card nga gi-save dinhi
+4d2a4aec Ipasabot pag-usab ang pulong
+bbac856b Paspas nga pagtan-aw: ablihi ang tibuok pagpasabot
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · libre, molihok bisan offline
+de123dc8 Ang labing maayo sa duha
+7ef6f2ac Paspas
+08d535bc · kahulogan ra
+c9d88a87 Detalyado
+d2a971fe · ang tibuok pagpasabot
+bb76090a Ipadayon ang pag-play
+7ff42ff4 I-tap ang usa ka pulong
+313b2975 I-tap ang bisan unsang pulong aron makita ang kahulogan niini. Moabli ang usa ka popup nga adunay kahulogan.
+d671ba14 Pipila ka pulong dungan
+84d199aa Pugngi og dugay ang usa ka pulong hangtod mosiga kini, dayon i-slide ang tudlo sa sunod nga mga pulong ug buhii: dungan kining ipasabot, isip usa ka hugpong. Sa mouse, pugngi ug i-drag.
+f4277ac7 Ang popup sa pulong
+4885a247 Gipakita niini ang kahulogan, unsaon paggamit sa pulong dinhi, ug ang porma niini sa diksyonaryo. I-scroll para sa dugang.
+cf7b7608 Ang mga button sa popup
+bba11f19 Sa ubos niini, kini nga mga button:
+7506a603 I-save aron makat-onan
+21a3c515 Ang I-save mohimo sa pulong nga review card, uban niini nga pangungusap ug sa tingog niini. Ang imong mga card naa sa Vocab.
+b2a76ab9 Kinsa ang nagpasabot
+75a37a8a Ang gamay nga label sa ibabaw sa popup nagsulti kon asa gikan ang kahulogan. I-tap kini aron mopili og laing tinubdan.
+316858c5 Ilisi ang tinubdan
+ad328c0e Ang AI nagpasabot sa matag pulong sumala sa konteksto. Ang built-in nga diksyonaryo (Wiktionary) libre ug molihok bisan offline. Ang imong pili magamit sa tanang pinulongan.
+93d68f35 Paspas o detalyado
+555f7402 Pilia kon pila ang ipakita sa pulong nga gi-tap: ang kahulogan ra, o ang tibuok pagpasabot.
+a31c2897 I-pause o ipadayon
+773cb349 Human sa pulong nga imong gi-tap, mohunong ang reel aron makabasa ka, o magpadayon kini. Ilisi kini aron mopili.
+dbd24142 Ang switch sa ibabaw sa popup: human sa pulong nga imong gi-tap, i-pause aron makabasa ka, o ipadayon ang pag-play.
+0f8d76f3 I-play ug i-pause
+04045d23 I-play o i-pause ang reel.
+3841cab3 I-play o i-pause. Sa kompyuter, mahimo usab ang space bar.
+d094b09b Atras o abante og 5 ka segundo
+a1b42fd3 Paminawa pag-usab ang usa ka bahin, o lukso sa unahan.
+a239b8ff Ang linya pag-usab
+df7d1084 Balik sa sinugdanan sa linya nga imong gipaminaw. Kaduha nga paspas: ang miaging linya.
+a13692da Hinaya kini samtang nagkat-on ka pa sa pinulongan.
+0ce86704 Ang tibuok transcript
+d20c2888 Ipakita o tagoa ang tanang linya sa video sa kilid niini.
+1201f5be Captions
+d32b540d Ipakita o tagoa ang mga caption nga ma-tap sa ibabaw sa video.
+b442f54f Padak-a o paganya ang mga pulong.
+6b9b0da6 Tipigi ang transcript
+f9eb9d8b I-save ang mga pulong isip text file, o isip subtitles (SRT, VTT).
+ff95d24a Ang sunod nga reel
+92da1cd5 Adto sa sunod nga reel, o balik sa nauna.
+7b5196fc Liki sa panid
+d98797e7 Ang sunod nga panid, o ang nauna. Ang slider molukso sa bisan unsang panid.
+f56fd38f Ang orihinal nga panid
+3a8e127d Ablihi ang panid sama sa naa sa kaugalingon niining website.
+0c75bd55 Unsaon paggamit niini nga screen
+fff44d9a Pangitaa ang setting
+e25b7dda Pag-type og pulong (tingog, dark, key…) aron diretso sa setting.
+1168bd8a Ang mga seksyon
+1bc903fa Ang mga setting gigrupo: imong mga pinulongan, unsaon pagpasabot sa mga pulong, pagpaminaw, mga tingog sa card, ang dagway, imong account… Sa ilalom sa matag ngalan, unsa ang gibutang karon.
+3dd9f3e0 Ang mga kausaban dinhi ma-save dayon: walay Save button. Moabot kini sa imong ubang device uban sa imong ubang mga setting.
+5c416338 I-tap ang linya nga adunay pana aron maablihan ang dugang nga mga opsyon.
+ac1abab9 Balik sa tanang setting.
+5795e95b Kini nga screen
+f5d438c5 I-tap ang bisan unsang button aron sulayan: walay mawala sa pag-explore. Ang ? sa ibabaw nagpakita og giya sa mga screen nga adunay giya.
+278cdc7d Tan-awa kon adunay mas bag-ong Tamkeen.
+ee92c8a4 Mga lisensya
+5c03fc92 Ang mga proyekto nga gipasukad sa Tamkeen. I-tap ang usa aron mabasa ang lisensya niini.
+0dcde9bf Pagdugang og kaugalingon nimong libro: EPUB, PDF, TXT, Kindle AZW3 o Word, walay DRM.
+aaa9889c Mga libreng libro
+d350a26a Mga bantog nga libro sa pinulongan nga imong gitun-an, libre. Pagdugang og usa ug basaha panid sa panid, i-tap ang bisan unsang pulong.
+85aad008 Ang inyong panag-istoryahanay
+06a411c3 Mawala ang mga mensahe human makita, ug ang mga voice note human ma-play.
+b5d3e891 Mga voice note
+575e806f Pag-record og voice note hangtod 2 ka minuto: maayong praktis sa pagsulti.
+4a489327 Pagsulat
+a8e19061 Pag-type og mensahe, dayon Ipadala.
+6ccb6007 Mga kategorya
+f07e3aeb Ipakita ang mga podcast sa usa ka matang: balita, komedya, edukasyon…
+f96542c1 Mga trending nga podcast
+5d588cda Ang labing ginapaminaw nga mga podcast sa pinulongan nga imong gitun-an. Pindota ang + Idugang aron ibutang ang usa sa imong library.
+56e3badc I-refresh
+6d56afad I-load pag-usab ang lista.
+f07664bf Ang imong mga kurso
+25bfc4b6 Ang Basics nagtudlo sa 1000 ka labing kasagarang pulong, 50 matag higayon. Ang Grammar adunay mubong mga leksyon aron makahimo ka og kaugalingon nimong mga pangungusap.
+17fcebd2 Unsang mga reel
+e2a0641d Pagkuha og mga reel gikan sa mga creator nga imong gisundan, sinagol, o mga reel nga imong gi-save sa Instagram.
+eb4acac6 Pilia ang usa sa imong mga koleksyon sa Instagram, o ang tanan nga imong gi-save.
+a721f2c5 I-tsek ang mga reel nga idugang. Ang wala molampos sa miaging higayon mahimong i-tsek pag-usab.
+f097968b Mga random nga reel
+9358a6e2 O pagkuha og mga reel gikan sa tibuok Instagram sa pinulongan nga imong gitun-an. Itakda kon pila gamit ang − ug +.
+681a18f6 Ang imong mga reel. Ang Tan-awa mag-play og usa uban sa mga pulong sa ubos; i-tap ang bisan unsang pulong aron makita ang kahulogan.
+1b055380 Tan-awa tanan
+f28cc244 I-play ang imong mga reel sunod-sunod.
+c202089b Unsaon pag-review
+dfa4e013 Usa ka card
+a5df75e7 Ang pulong nga imong gitun-an. Sulayi paghinumdom sa kahulogan niini, dayon balihon ang card.
+a672ca12 Balihon ang card
+78b0fe22 Ipakita ang kahulogan ug ang pangungusap. Mahimo usab ang space bar.
+dfe6f9a8 Paminawa ang pulong, o ang tibuok pangungusap niini.
+d3a47ea4 Ayoha ang card
+bf30f10f I-tap ang bisan unsang teksto sa likod aron i-edit. Pugngi og dugay ang usa ka pulong sa pangungusap aron i-highlight.
+fade8d06 Mobalik kini human sa pipila ka card. Ang pag-swipe sa card ngadto sa wala parehas ra.
+2f7074e2 Mobalik kini sa ulahi, mas dugay gamay matag higayon nga imong mahinumduman. Ang pag-swipe sa card ngadto sa tuo parehas ra.
+bd3b8f33 Mga tabang sa panumduman
+5538fe2b Paghimo og hulagway nga susama og tingog aron dili makalimtan ang pulong.
+245e2966 Bawia ang imong katapusang tubag.
+0fc8836a Bag-ong mga pulong kada adlaw, paglitok sa pulong inig balihon ang card, ug ang mga timer.
+c2fa0dc4 Hunong usa karon. Gitipigan ang imong mga tubag hangtod dinhi.
+09d876b3 Pangitaa sa tanan
+792282e5 Pangitaa ang pulong o hugpong sa tanan nimong transcript, panid ug libro. I-tap ang resulta aron paminawon o basahon didto.
+3409d591 Sa unang pag-abli nimo sa Home, Library, Vocab ug Friends, usa ka mubong giya ang nagpakita kon unsa ang buhat sa matag button. Ang ? sa ibabaw sa bisan unsang screen nagpakita sa giya niini bisan kanus-a nimo gusto.
+da3f32b7 Pag-paste og address
+b755f582 I-paste ang address sa bisan unsang panid aron mabasa kini dinhi, ug ma-tap ang matag pulong.
+7f5d6925 Pangita sa web
+76319b14 Pangita sa Google, dayon ablihi ang usa ka resulta aron basahon kini sa Tamkeen.
+1c5163c3 I-save ang site
+e22d0d28 Tipigi ang site nga kanunay nimong basahon, aron maablihan sa usa ka tap.
+7349e6ef Mga news site sa pinulongan nga imong gitun-an.

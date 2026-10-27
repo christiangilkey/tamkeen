@@ -1,0 +1,120 @@
+560040c5 IA
+1afbc4ae Tornar a sentir la paraula
+1652f197 Sentir tota la seva frase
+db4e4c5b Continuar reproduint des d'aquesta paraula
+308134f3 Afegir la paraula a les teves targetes de repàs
+f4d28620 Triar una veu per a les targetes desades des d'aquí
+4d2a4aec Tornar a explicar la paraula
+bbac856b Consulta ràpida: obrir l'explicació completa
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · gratuït, funciona sense connexió
+de123dc8 El millor de tots dos
+7ef6f2ac Ràpida
+08d535bc · només el significat
+c9d88a87 Detallada
+d2a971fe · l'explicació completa
+bb76090a Continuar reproduint
+7ff42ff4 Toca una paraula
+313b2975 Toca qualsevol paraula per veure què vol dir. S'obre una finestra amb el seu significat.
+d671ba14 Diverses paraules alhora
+84d199aa Mantén premuda una paraula fins que s'il·lumini, després llisca per les següents i deixa anar: s'expliquen juntes, com una sola expressió. Amb el ratolí, prem i arrossega.
+f4277ac7 La finestra de la paraula
+4885a247 Mostra el significat, com s'usa aquí la paraula i la seva forma de diccionari. Desplaça-la per veure'n més.
+cf7b7608 Els botons de la finestra
+bba11f19 A la part de baix, aquests botons:
+7506a603 Desa-la per aprendre-la
+21a3c515 Desa converteix la paraula en una targeta de repàs, amb aquesta frase i el seu so. Les teves targetes són a Vocabulari.
+b2a76ab9 Qui l'ha explicada
+75a37a8a La petita etiqueta de dalt de la finestra diu d'on ve el significat. Toca-la per triar una altra font.
+316858c5 Canviar la font
+ad328c0e La IA explica cada paraula en el seu context. El diccionari integrat (Wiktionary) és gratuït i funciona sense connexió. La teva tria val per a tots els idiomes.
+93d68f35 Ràpida o detallada
+555f7402 Tria quant mostra una paraula tocada: només el significat o l'explicació completa.
+a31c2897 Aturar o continuar
+773cb349 Després d'una paraula tocada, el reel s'atura perquè llegeixis, o continua. Canvia-ho aquí.
+dbd24142 L'interruptor de dalt de la finestra: després d'una paraula tocada, aturar perquè llegeixis, o continuar reproduint.
+0f8d76f3 Reproduir i aturar
+04045d23 Reprodueix o atura el reel.
+3841cab3 Reprodueix o atura. A l'ordinador, també amb la barra d'espai.
+d094b09b Enrere o endavant 5 segons
+a1b42fd3 Torna a sentir un tros o salta endavant.
+a239b8ff La línia un altre cop
+df7d1084 Torna al començament de la línia que sents. Dos cops seguits: la línia anterior.
+a13692da Alenteix-ho mentre t'acostumes a l'idioma.
+0ce86704 Tota la transcripció
+d20c2888 Mostra o amaga totes les línies del vídeo al seu costat.
+1201f5be Subtítols
+d32b540d Mostra o amaga els subtítols tocables damunt del vídeo.
+b442f54f Fes les paraules més grans o més petites.
+6b9b0da6 Guardar la transcripció
+f9eb9d8b Desa les paraules com a fitxer de text o com a subtítols (SRT, VTT).
+ff95d24a El reel següent
+92da1cd5 Passa al reel següent, o torna a l'anterior.
+7b5196fc Passar pàgina
+d98797e7 La pàgina següent o l'anterior. La barra salta a qualsevol pàgina.
+f56fd38f La pàgina original
+3a8e127d Obre la pàgina tal com és al seu propi lloc web.
+0c75bd55 Com fer servir aquesta pantalla
+fff44d9a Trobar un ajust
+e25b7dda Escriu una paraula (veu, fosc, clau…) per anar directament a l'ajust.
+1168bd8a Les seccions
+1bc903fa Els ajustos estan agrupats: els teus idiomes, com s'expliquen les paraules, escoltar, veus de les targetes, l'aspecte, el teu compte… Sota cada nom, com està ara.
+3dd9f3e0 Els canvis d'aquí es desen de seguida: no hi ha botó de Desa. Arriben als teus altres dispositius amb els altres ajustos.
+5c416338 Toca una línia amb fletxa per obrir-ne les opcions extra.
+ac1abab9 Tornar a tots els ajustos.
+5795e95b Aquesta pantalla
+f5d438c5 Toca qualsevol botó per provar-lo: explorar no fa perdre res. El ? de dalt mostra una guia a les pantalles que en tenen.
+278cdc7d Comprova si ha sortit un Tamkeen més nou.
+ee92c8a4 Llicències
+5c03fc92 Els projectes sobre els quals s'ha fet Tamkeen. Toca'n un per llegir-ne la llicència.
+0dcde9bf Afegeix un llibre teu: EPUB, PDF, TXT, Kindle AZW3 o Word, sense DRM.
+aaa9889c Llibres gratuïts
+d350a26a Llibres famosos en l'idioma que aprens, gratuïts. Afegeix-ne un i llegeix-lo pàgina a pàgina, tocant qualsevol paraula.
+85aad008 La vostra conversa
+06a411c3 Els missatges desapareixen un cop vistos, i les notes de veu un cop escoltades.
+b5d3e891 Notes de veu
+575e806f Grava una nota de veu de fins a 2 minuts: bona pràctica per parlar.
+4a489327 Escriure
+a8e19061 Escriu un missatge i prem Envia.
+6ccb6007 Categories
+f07e3aeb Mostra els pòdcasts d'un tipus: notícies, humor, educació…
+f96542c1 Pòdcasts en tendència
+5d588cda Els pòdcasts més escoltats en l'idioma que aprens. Prem + Afegeix per posar-ne un a la teva biblioteca.
+56e3badc Actualitza
+6d56afad Torna a carregar la llista.
+f07664bf Els teus cursos
+25bfc4b6 Bàsic ensenya les 1000 paraules més comunes, de 50 en 50. Gramàtica té lliçons curtes perquè facis frases pròpies.
+17fcebd2 Quins reels
+e2a0641d Aconsegueix reels dels creadors que segueixes, una barreja, o reels que has desat a Instagram.
+eb4acac6 Tria una de les teves col·leccions d'Instagram, o tot el que has desat.
+a721f2c5 Marca els reels que vulguis afegir. Un que no va funcionar l'última vegada es pot tornar a marcar.
+f097968b Reels a l'atzar
+9358a6e2 O aconsegueix reels de tot Instagram en l'idioma que aprens. Tria quants amb − i +.
+681a18f6 Els reels que tens. Mira'l en reprodueix un amb les paraules a sota; toca qualsevol paraula per veure què vol dir.
+1b055380 Mira'ls tots
+f28cc244 Reprodueix els teus reels un darrere l'altre.
+c202089b Com repassar
+dfa4e013 Una targeta
+a5df75e7 La paraula que aprens. Intenta recordar què vol dir i després gira la targeta.
+a672ca12 Girar la targeta
+78b0fe22 Mostra el significat i la frase. La barra d'espai també ho fa.
+dfe6f9a8 Sent la paraula, o tota la seva frase.
+d3a47ea4 Corregir una targeta
+bf30f10f Toca qualsevol text del revers per editar-lo. Mantén premuda una paraula de la frase per destacar-la.
+fade8d06 Torna d'aquí a unes quantes targetes. Lliscar la targeta cap a l'esquerra fa el mateix.
+2f7074e2 Torna més tard, una mica més tard cada cop que la recordes. Lliscar la targeta cap a la dreta fa el mateix.
+bd3b8f33 Trucs per recordar
+5538fe2b Crea una imatge que soni semblant perquè la paraula es quedi.
+245e2966 Desfés la teva última resposta.
+0fc8836a Paraules noves al dia, dir la paraula quan la targeta gira, i els temporitzadors.
+c2fa0dc4 Para per ara. Les respostes fins aquí es guarden.
+09d876b3 Cercar-ho tot
+792282e5 Troba una paraula o expressió en totes les teves transcripcions, pàgines i llibres. Toca un resultat per sentir-lo o llegir-lo allà.
+3409d591 La primera vegada que obres Inici, la Biblioteca, Vocabulari i Amics, una guia curta mostra per a què serveix cada botó. El ? de dalt de qualsevol pantalla en mostra la guia quan vulguis.
+da3f32b7 Enganxa una adreça
+b755f582 Enganxa l'adreça de qualsevol pàgina per llegir-la aquí, amb cada paraula tocable.
+7f5d6925 Cercar al web
+76319b14 Cerca a Google i obre un resultat per llegir-lo a Tamkeen.
+1c5163c3 Desar un lloc
+e22d0d28 Guarda un lloc que llegeixes sovint, per obrir-lo amb un toc.
+7349e6ef Llocs de notícies en l'idioma que aprens.

@@ -3550,6 +3550,341 @@
   "f": "web/js/components/grammarpanel.js"
  },
  {
+  "id": "560040c5",
+  "k": "AI",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "1afbc4ae",
+  "k": "Hear the word again",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "1652f197",
+  "k": "Hear its whole sentence",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "2e026239",
+  "k": "Continue",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "db4e4c5b",
+  "k": "Carry on playing from that word",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "308134f3",
+  "k": "Add the word to your review cards",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "c79957d0",
+  "k": "Add audio",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f4d28620",
+  "k": "Choose a voice for cards saved from here",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "3f094ed6",
+  "k": "Ask again",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "4d2a4aec",
+  "k": "Explain the word afresh",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "4bab2d8f",
+  "k": "More",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "bbac856b",
+  "k": "Quick lookup: open the full explanation",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f5fbd366",
+  "k": "Claude, ChatGPT, Gemini…",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "b12adb12",
+  "k": "Built-in dictionary",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "e89219a3",
+  "k": "Wiktionary · free, works offline",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "07668fbc",
+  "k": "Dictionary first, AI when it has nothing",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "de123dc8",
+  "k": "The best of both",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "53b61a2e",
+  "k": "Explain words with",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "7ef6f2ac",
+  "k": "Quick",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "08d535bc",
+  "k": "· just the meaning",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "c9d88a87",
+  "k": "Detailed",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d2a971fe",
+  "k": "· the full explanation",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "781961bc",
+  "k": "Pause",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "bb76090a",
+  "k": "Keep playing",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "7ff42ff4",
+  "k": "Tap a word",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "313b2975",
+  "k": "Tap any word to see what it means. A popup opens with its meaning.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d671ba14",
+  "k": "Several words at once",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "84d199aa",
+  "k": "Press and hold a word until it lights up, then slide across the next words and let go: they are explained together, as one phrase. With a mouse, press and drag.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f4277ac7",
+  "k": "The word popup",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "4885a247",
+  "k": "It shows the meaning, how the word is used here and its dictionary form. Scroll it for more.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "cf7b7608",
+  "k": "The popup's buttons",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "bba11f19",
+  "k": "Along its bottom, these buttons:",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "7506a603",
+  "k": "Save it to learn",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "21a3c515",
+  "k": "Save turns the word into a review card, with this sentence and its sound. Find your cards in Vocab.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "b2a76ab9",
+  "k": "Who explained it",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "75a37a8a",
+  "k": "The small label at the top of the popup says where the meaning came from. Tap it to choose another source.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "316858c5",
+  "k": "Change the source",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "ad328c0e",
+  "k": "AI explains every word in context. The built-in dictionary (Wiktionary) is free and works offline. Your choice is kept for every language.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "93d68f35",
+  "k": "Quick or detailed",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "555f7402",
+  "k": "Choose how much a tapped word shows: just its meaning, or the full explanation.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "a31c2897",
+  "k": "Pause or keep playing",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "773cb349",
+  "k": "After a word you tapped, the reel pauses so you can read, or keeps playing. Flip this to choose.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "dbd24142",
+  "k": "The switch at the top of the popup: after a word you tapped, pause so you can read, or keep playing.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "0f8d76f3",
+  "k": "Play and pause",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "04045d23",
+  "k": "Play or pause the reel.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "3841cab3",
+  "k": "Play or pause. On a computer, the space bar does it too.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d094b09b",
+  "k": "Back or forward 5 seconds",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "a1b42fd3",
+  "k": "Hear a bit again, or skip ahead.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "a239b8ff",
+  "k": "The line again",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "df7d1084",
+  "k": "Back to the start of the line you're hearing. Twice quickly: the line before.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "2d2cb022",
+  "k": "Speed",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "a13692da",
+  "k": "Slow it down while you get used to the language.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "0ce86704",
+  "k": "The whole transcript",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d20c2888",
+  "k": "Show or hide every line of the video's words beside it.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "1201f5be",
+  "k": "Captions",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d32b540d",
+  "k": "Show or hide the tappable captions over the video.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "3cc6e124",
+  "k": "Text size",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "b442f54f",
+  "k": "Make the words larger or smaller.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "6b9b0da6",
+  "k": "Keep the transcript",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f9eb9d8b",
+  "k": "Save the words as a text file, or as subtitles (SRT, VTT).",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "ff95d24a",
+  "k": "The next reel",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "92da1cd5",
+  "k": "Go on to the next reel, or back to the one before.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "7b5196fc",
+  "k": "Turn the page",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "d98797e7",
+  "k": "The next page, or the one before. The slider jumps to any page.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f56fd38f",
+  "k": "The original page",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "3a8e127d",
+  "k": "Open the page as it is on its own website.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "0c75bd55",
+  "k": "How to use this screen",
+  "f": "web/js/components/helpbutton.js"
+ },
+ {
   "id": "7fab27b4",
   "k": "the Claude Console",
   "f": "web/js/components/keyhelp.js"
@@ -3922,11 +4257,6 @@
  {
   "id": "6f378422",
   "k": "Getting it ready for Tamkeen (a few minutes)…",
-  "f": "web/js/components/models.js"
- },
- {
-  "id": "781961bc",
-  "k": "Pause",
   "f": "web/js/components/models.js"
  },
  {
@@ -4475,11 +4805,6 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "3cc6e124",
-  "k": "Text size",
-  "f": "web/js/components/settingsui.js"
- },
- {
   "id": "39b345e7",
   "k": "Vibration",
   "f": "web/js/components/settingsui.js"
@@ -4557,6 +4882,41 @@
  {
   "id": "86b0c277",
   "k": "Nothing found. Try another word.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "fff44d9a",
+  "k": "Find a setting",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "e25b7dda",
+  "k": "Type a word (voice, dark, key…) to go straight to the setting.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "1168bd8a",
+  "k": "The sections",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "1bc903fa",
+  "k": "Settings are grouped: your languages, how words are explained, listening, card voices, the look, your account… Under each name, what it is set to now.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "3dd9f3e0",
+  "k": "Changes here are saved straight away: there is no Save button. They reach your other devices with your other settings.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "5c416338",
+  "k": "Tap a line with an arrow to open its extra options.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "ac1abab9",
+  "k": "Back to all the settings.",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -4983,6 +5343,16 @@
   "id": "653ebdd3",
   "k": "Google asks you to allow Calendar or Tasks the first time you use it.",
   "f": "web/js/components/tasktarget.js"
+ },
+ {
+  "id": "5795e95b",
+  "k": "This screen",
+  "f": "web/js/components/tour.js"
+ },
+ {
+  "id": "f5d438c5",
+  "k": "Tap any button to try it: nothing is lost by exploring. The ? at the top shows a guide on the screens that have one.",
+  "f": "web/js/components/tour.js"
  },
  {
   "id": "3da47453",
@@ -5465,11 +5835,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "53b61a2e",
-  "k": "Explain words with",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "d0ac5c40",
   "k": "For every language you study. Also in Settings → Word definitions.",
   "f": "web/js/components/wordbubble.js"
@@ -5575,11 +5940,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "4bab2d8f",
-  "k": "More",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "3b543816",
   "k": "Play this phrase again",
   "f": "web/js/components/wordbubble.js"
@@ -5605,23 +5965,8 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "2e026239",
-  "k": "Continue",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "f161408b",
   "k": "Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "c79957d0",
-  "k": "Add audio",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "3f094ed6",
-  "k": "Ask again",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -6560,11 +6905,6 @@
   "f": "web/js/defsource.js"
  },
  {
-  "id": "b12adb12",
-  "k": "Built-in dictionary",
-  "f": "web/js/defsource.js"
- },
- {
   "id": "54514309",
   "k": "None for this language yet",
   "f": "web/js/defsource.js"
@@ -6572,11 +6912,6 @@
  {
   "id": "ccd8641e",
   "k": "Free, works offline",
-  "f": "web/js/defsource.js"
- },
- {
-  "id": "07668fbc",
-  "k": "Dictionary first, AI when it has nothing",
   "f": "web/js/defsource.js"
  },
  {
@@ -7252,11 +7587,6 @@
  {
   "id": "af4b8454",
   "k": "Defence",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "2d2cb022",
-  "k": "Speed",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -11245,6 +11575,21 @@
   "f": "web/js/pages/about.js"
  },
  {
+  "id": "278cdc7d",
+  "k": "Check whether a newer Tamkeen is out.",
+  "f": "web/js/pages/about.js"
+ },
+ {
+  "id": "ee92c8a4",
+  "k": "Licenses",
+  "f": "web/js/pages/about.js"
+ },
+ {
+  "id": "5c03fc92",
+  "k": "The projects Tamkeen is built on. Tap one to read its license.",
+  "f": "web/js/pages/about.js"
+ },
+ {
   "id": "3aceec04",
   "k": "Version {0} is available.",
   "f": "web/js/pages/about.js"
@@ -11370,6 +11715,21 @@
   "f": "web/js/pages/books.js"
  },
  {
+  "id": "0dcde9bf",
+  "k": "Add a book file of your own: EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "aaa9889c",
+  "k": "Free books",
+  "f": "web/js/pages/books.js"
+ },
+ {
+  "id": "d350a26a",
+  "k": "Famous books in the language you're learning, free to read. Add one and read it a page at a time, tapping any word.",
+  "f": "web/js/pages/books.js"
+ },
+ {
   "id": "53633ec9",
   "k": "No free books for {0} yet.",
   "f": "web/js/pages/books.js"
@@ -11407,6 +11767,36 @@
  {
   "id": "0e04dbc9",
   "k": "Send voice note",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "85aad008",
+  "k": "Your conversation",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "06a411c3",
+  "k": "Messages disappear after they're seen, and voice notes after they're played.",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "b5d3e891",
+  "k": "Voice notes",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "575e806f",
+  "k": "Record a voice note of up to 2 minutes: good practice for speaking.",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "4a489327",
+  "k": "Write",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "a8e19061",
+  "k": "Type a message, then Send.",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -11577,6 +11967,36 @@
  {
   "id": "e17054bf",
   "k": "Loading trending podcasts…",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "6ccb6007",
+  "k": "Categories",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "f07e3aeb",
+  "k": "Show the podcasts of one kind: news, comedy, education…",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "f96542c1",
+  "k": "Trending podcasts",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "5d588cda",
+  "k": "The most listened-to podcasts in the language you're learning. Press + Add to put one in your library.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "56e3badc",
+  "k": "Refresh",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "6d56afad",
+  "k": "Load the list again.",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -12705,6 +13125,16 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "f07664bf",
+  "k": "Your courses",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "25bfc4b6",
+  "k": "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "263d8153",
   "k": "Your podcasts and channels",
   "f": "web/js/pages/library.js"
@@ -13120,6 +13550,61 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "17fcebd2",
+  "k": "Which reels",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "e2a0641d",
+  "k": "Get reels from creators you follow, a mix, or reels you saved on Instagram.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "15dcfe7b",
+  "k": "1. Choose a collection",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "eb4acac6",
+  "k": "Pick one of your Instagram collections, or everything you saved.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "4be1d403",
+  "k": "2. Tick the reels you want",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "a721f2c5",
+  "k": "Tick the reels to add. One that didn't work last time can be ticked again.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "f097968b",
+  "k": "Random reels",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "9358a6e2",
+  "k": "Or get reels from all of Instagram in the language you're learning. Set how many with − and +.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "681a18f6",
+  "k": "The reels you have. Watch plays one with its words underneath; tap any word to see what it means.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "1b055380",
+  "k": "Watch them all",
+  "f": "web/js/pages/reels.js"
+ },
+ {
+  "id": "f28cc244",
+  "k": "Play your reels one after another.",
+  "f": "web/js/pages/reels.js"
+ },
+ {
   "id": "219d2911",
   "k": "▶ Watch again from the start",
   "f": "web/js/pages/reels.js"
@@ -13202,11 +13687,6 @@
  {
   "id": "2fbcfcfd",
   "k": "Popular in {0} right now (press + to follow one):",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "15dcfe7b",
-  "k": "1. Choose a collection",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -13362,11 +13842,6 @@
  {
   "id": "71af94b7",
   "k": "Send the ticked reels to my phone",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "4be1d403",
-  "k": "2. Tick the reels you want",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -13527,6 +14002,11 @@
  {
   "id": "92197443",
   "k": "Take back the last answer (Z)",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c202089b",
+  "k": "How to review",
   "f": "web/js/pages/review.js"
  },
  {
@@ -13965,6 +14445,86 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "dfa4e013",
+  "k": "A card",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "a5df75e7",
+  "k": "The word you're learning. Try to remember what it means, then turn the card.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "a672ca12",
+  "k": "Turn the card",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "78b0fe22",
+  "k": "Show the meaning and the sentence. The space bar does it too.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c518fb06",
+  "k": "Listen",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "dfe6f9a8",
+  "k": "Hear the word, or its whole sentence.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d3a47ea4",
+  "k": "Put a card right",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "bf30f10f",
+  "k": "Tap any text on the back to edit it. Hold a word in the sentence to highlight it.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "fade8d06",
+  "k": "It comes back in a few cards. Swiping the card left does the same.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "2f7074e2",
+  "k": "It comes back later, a little later each time you remember it. Swiping the card right does the same.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "bd3b8f33",
+  "k": "Memory hooks",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "5538fe2b",
+  "k": "Make a sound-alike picture to help the word stick.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "39fc7212",
+  "k": "Undo",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "245e2966",
+  "k": "Take back your last answer.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "0fc8836a",
+  "k": "New words a day, saying the word when the card turns, and the timers.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c2fa0dc4",
+  "k": "Stop for now. Your answers so far are kept.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "b54a6754",
   "k": "Matches ignore capital letters.",
   "f": "web/js/pages/search.js"
@@ -13982,6 +14542,16 @@
  {
   "id": "79bd4f18",
   "k": "{0} Transcripts are always shown exactly as transcribed.",
+  "f": "web/js/pages/search.js"
+ },
+ {
+  "id": "09d876b3",
+  "k": "Search everything",
+  "f": "web/js/pages/search.js"
+ },
+ {
+  "id": "792282e5",
+  "k": "Find a word or phrase in every transcript, page and book you have. Tap a result to hear or read it there.",
   "f": "web/js/pages/search.js"
  },
  {
@@ -14210,8 +14780,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "a513c836",
-  "k": "The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does.",
+  "id": "3409d591",
+  "k": "The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does. The ? at the top of any screen shows its guide whenever you like.",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -14915,6 +15485,46 @@
   "f": "web/js/pages/websites.js"
  },
  {
+  "id": "da3f32b7",
+  "k": "Paste an address",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "b755f582",
+  "k": "Paste the address of any page to read it here, with every word tappable.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "7f5d6925",
+  "k": "Search the web",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "76319b14",
+  "k": "Search Google, then open a result to read it in Tamkeen.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "1c5163c3",
+  "k": "Save a site",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "e22d0d28",
+  "k": "Keep a site you read often, to open it in one tap.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "34c808d0",
+  "k": "News",
+  "f": "web/js/pages/websites.js"
+ },
+ {
+  "id": "7349e6ef",
+  "k": "News sites in the language you're learning.",
+  "f": "web/js/pages/websites.js"
+ },
+ {
   "id": "d9832d9a",
   "k": "Take this site off your saved sites",
   "f": "web/js/pages/websites.js"
@@ -14927,11 +15537,6 @@
  {
   "id": "68bbc4d9",
   "k": "Took “{0}” off your saved sites.",
-  "f": "web/js/pages/websites.js"
- },
- {
-  "id": "39fc7212",
-  "k": "Undo",
   "f": "web/js/pages/websites.js"
  },
  {
@@ -16577,11 +17182,6 @@
  {
   "id": "131260cb",
   "k": "Music",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "34c808d0",
-  "k": "News",
   "f": "web/js/trending.js"
  },
  {

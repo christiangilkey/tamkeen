@@ -434,3 +434,4 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 /* (iPhone: a box inside a part that can't be selected can't be typed in either, unless it says it can) */
 .rv-back textarea, .rv-back input { -webkit-user-select: text; user-select: text; }
 @media (prefers-reduced-motion: reduce) { .rv-tok.rv-held { animation: none; } .rv-tok { transition: none; } }
+.rv-top .rv-help { font-size: 18px; font-weight: 700; line-height: 1; }

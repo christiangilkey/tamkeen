@@ -820,6 +820,8 @@ export async function render(view, { feedId: routeFeed, query }) {
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
       text: "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos." },
+    { target: "#course-tabs", title: "Your courses",
+      text: "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

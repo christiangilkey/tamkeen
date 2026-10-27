@@ -1654,6 +1654,73 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .tour-title { margin: 0 0 4px; font-size: 17px; line-height: 1.3; }
 .tour-text { margin: 0 0 12px; line-height: 1.45; }
 .tour-buttons { display: flex; align-items: center; gap: 6px; }
+/* A picture step: no button outlined, the whole screen dimmed, the card in the middle with a drawing. */
+.tour.tour-picture { background: rgba(0, 0, 0, .62); }
+.tour-art { margin: -4px 0 12px; }
+/* The fingertip of a demonstration: a soft disc that presses ("tap"), rests while a ring fills ("hold"),
+   or rests and then slides across the next words ("drag", by --dx), the words lighting up behind it. */
+.tour-hand { position: fixed; width: 34px; height: 34px; margin: -6px 0 0 -17px; border-radius: 50%; pointer-events: none;
+  background: rgba(255, 255, 255, .85); box-shadow: 0 2px 10px rgba(0, 0, 0, .45); z-index: 1; opacity: 0; }
+.tour-ring { position: absolute; inset: -6px; border-radius: 50%; border: 3px solid var(--accent); opacity: 0; }
+.tour-hand.tap { animation: tour-tap 1.6s ease-in-out infinite; }
+.tour-hand.tap .tour-ring { animation: tour-ripple 1.6s ease-out infinite; }
+.tour-hand.hold { animation: tour-hold 2.2s ease-in-out infinite; }
+.tour-hand.hold .tour-ring { animation: tour-ripple 2.2s ease-out infinite .5s; }
+.tour-hand.drag { animation: tour-drag 3s ease-in-out infinite; }
+.tour-hand.drag .tour-ring { animation: tour-press 3s ease-out infinite; }
+.tour-sweep { position: fixed; border-radius: 8px; background: color-mix(in srgb, var(--accent) 45%, transparent);
+  pointer-events: none; transform: scaleX(0); animation: tour-sweep 3s ease-in-out infinite; }
+@keyframes tour-tap { 0% { opacity: 0; transform: translateY(14px) scale(1.15); } 25% { opacity: 1; transform: none; }
+  40% { transform: scale(.8); } 55% { transform: none; opacity: 1; } 85%, 100% { opacity: 0; } }
+@keyframes tour-ripple { 0%, 35% { opacity: 0; transform: scale(.6); } 45% { opacity: 1; } 80%, 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes tour-hold { 0% { opacity: 0; transform: translateY(14px); } 15% { opacity: 1; transform: none; }
+  25%, 75% { transform: scale(.82); opacity: 1; } 90%, 100% { opacity: 0; transform: none; } }
+@keyframes tour-press { 0%, 12% { opacity: 0; transform: scale(1.5); } 30% { opacity: 1; transform: scale(1); } 75% { opacity: 1; } 90%, 100% { opacity: 0; } }
+@keyframes tour-drag { 0% { opacity: 0; transform: translateY(14px); } 10% { opacity: 1; transform: none; }
+  18%, 30% { transform: scale(.82); } 70% { transform: translateX(var(--dx, 60px)) scale(.82); opacity: 1; }
+  82% { transform: translateX(var(--dx, 60px)); opacity: 1; } 95%, 100% { transform: translateX(var(--dx, 60px)); opacity: 0; } }
+@keyframes tour-sweep { 0%, 25% { transform: scaleX(0); opacity: 1; } 70%, 88% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .tour-hand, .tour-hand .tour-ring, .tour-sweep { animation: none !important; }
+  .tour-hand { opacity: 1; } .tour-sweep { transform: none; }
+}
+/* The drawings (components/guideart.js): a small word popup, its buttons, the source menu, the switch. */
+.ga-pop { border: 1px solid var(--border); border-radius: 14px; background: var(--surface-2); padding: 10px 12px; }
+.ga-head { display: flex; align-items: center; gap: 8px; }
+.ga-word { font-size: 20px; font-weight: 700; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ga-src { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: var(--surface); color: var(--muted); display: inline-flex; align-items: center; gap: 3px; }
+.ga-mean { height: 12px; width: 55%; border-radius: 6px; background: var(--accent); opacity: .7; margin: 10px 0 8px; }
+.ga-line { height: 8px; border-radius: 4px; background: var(--border); margin: 6px 0; }
+.ga-line.short { width: 70%; }
+.ga-btns { display: flex; gap: 6px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+.ga-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 34px; height: 30px; padding: 0 8px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--surface); font-size: 13px; flex: none; }
+.ga-btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); flex: 1; }
+.ga-btn.on { border-color: var(--accent); color: var(--accent); }
+.ga-legend { display: grid; gap: 6px; }
+.ga-row { display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.35; }
+.ga-menu { border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); padding: 4px; }
+.ga-menu-title { font-size: 12px; font-weight: 600; color: var(--muted); padding: 4px 8px 2px; }
+.ga-opt { display: flex; gap: 8px; align-items: flex-start; padding: 6px 8px; border-radius: 9px; font-size: 13px; }
+.ga-opt small { display: block; color: var(--muted); font-size: 12px; }
+.ga-opt.on { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.ga-check { width: 14px; flex: none; color: var(--accent); }
+.ga-pulse { animation: ga-pulse 1.6s ease-in-out infinite; }
+@keyframes ga-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); }
+  50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent); outline: 2px solid var(--accent); } }
+.ga-switchrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 13px; }
+.ga-switch { width: 46px; height: 26px; border-radius: 99px; background: #6d2a7a; position: relative; }
+.ga-switch span { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff;
+  animation: ga-flip 2.4s ease-in-out infinite; }
+@keyframes ga-flip { 0%, 40% { transform: none; } 50%, 90% { transform: translateX(20px); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ga-pulse, .ga-switch span { animation: none; } }
+/* The "?" in the top bar (components/helpbutton.js): round, like the refresh button beside it. */
+.top-help { margin-inline-start: auto; flex: none; width: 34px; height: 34px; min-width: 0; min-height: 0; padding: 0;
+  display: inline-grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff;
+  font-size: 17px; font-weight: 700; line-height: 1; }
+.top-help:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.top-help + .top-refresh { margin-inline-start: 6px; }
+.top-refresh + .top-help { margin-inline-start: 6px; }
 
 /* ---------- Vocab page: "Send to …" and "Add words" side by side under the goal (pages/vocab.js) ---------- */
 /* Two small text links in one centred row; the Send one gives way (its words end in "…") so the row

@@ -137,6 +137,8 @@ const SHARED = [
   "js/components/selectsheet.js",
   "js/components/troubleshoot.js",
   "js/components/tour.js",
+  "js/components/guideart.js",
+  "js/components/helpbutton.js",
   "js/chatnotify.js",
   "js/trouble.js",
   "js/components/addsheet.js",

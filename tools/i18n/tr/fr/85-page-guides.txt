@@ -1,0 +1,120 @@
+560040c5 IA
+1afbc4ae Réentendre le mot
+1652f197 Entendre toute sa phrase
+db4e4c5b Reprendre la lecture à partir de ce mot
+308134f3 Ajouter le mot à vos cartes de révision
+f4d28620 Choisir une voix pour les cartes enregistrées ici
+4d2a4aec Réexpliquer le mot
+bbac856b Recherche rapide : ouvrir l'explication complète
+f5fbd366 Claude, ChatGPT, Gemini…
+e89219a3 Wiktionary · gratuit, fonctionne hors ligne
+de123dc8 Le meilleur des deux
+7ef6f2ac Rapide
+08d535bc · juste le sens
+c9d88a87 Détaillée
+d2a971fe · l'explication complète
+bb76090a Continuer la lecture
+7ff42ff4 Touchez un mot
+313b2975 Touchez n'importe quel mot pour voir ce qu'il veut dire. Une fenêtre s'ouvre avec son sens.
+d671ba14 Plusieurs mots à la fois
+84d199aa Appuyez longuement sur un mot jusqu'à ce qu'il s'allume, glissez sur les mots suivants et relâchez : ils sont expliqués ensemble, comme une seule expression. Avec une souris, cliquez et faites glisser.
+f4277ac7 La fenêtre du mot
+4885a247 Elle montre le sens, l'emploi du mot ici et sa forme de dictionnaire. Faites-la défiler pour en voir plus.
+cf7b7608 Les boutons de la fenêtre
+bba11f19 En bas, ces boutons :
+7506a603 Enregistrez-le pour l'apprendre
+21a3c515 Enregistrer transforme le mot en carte de révision, avec cette phrase et son son. Vos cartes sont dans Vocabulaire.
+b2a76ab9 Qui l'a expliqué
+75a37a8a La petite étiquette en haut de la fenêtre indique d'où vient le sens. Touchez-la pour choisir une autre source.
+316858c5 Changer de source
+ad328c0e L'IA explique chaque mot dans son contexte. Le dictionnaire intégré (Wiktionary) est gratuit et fonctionne hors ligne. Votre choix vaut pour toutes les langues.
+93d68f35 Rapide ou détaillée
+555f7402 Choisissez ce qu'affiche un mot touché : juste son sens, ou l'explication complète.
+a31c2897 Pause ou lecture continue
+773cb349 Après un mot touché, le reel se met en pause pour que vous lisiez, ou continue. Basculez ceci pour choisir.
+dbd24142 L'interrupteur en haut de la fenêtre : après un mot touché, faire une pause pour lire, ou continuer la lecture.
+0f8d76f3 Lecture et pause
+04045d23 Lancer ou mettre en pause le reel.
+3841cab3 Lancer ou mettre en pause. Sur un ordinateur, la barre d'espace le fait aussi.
+d094b09b Reculer ou avancer de 5 secondes
+a1b42fd3 Réentendre un passage, ou avancer.
+a239b8ff La ligne à nouveau
+df7d1084 Revenir au début de la ligne entendue. Deux fois rapidement : la ligne d'avant.
+a13692da Ralentissez le temps de vous habituer à la langue.
+0ce86704 Toute la transcription
+d20c2888 Afficher ou masquer toutes les lignes de la vidéo à côté d'elle.
+1201f5be Sous-titres
+d32b540d Afficher ou masquer les sous-titres à toucher sur la vidéo.
+b442f54f Agrandir ou réduire les mots.
+6b9b0da6 Garder la transcription
+f9eb9d8b Enregistrer les mots en fichier texte ou en sous-titres (SRT, VTT).
+ff95d24a Le reel suivant
+92da1cd5 Passer au reel suivant, ou revenir au précédent.
+7b5196fc Tourner la page
+d98797e7 La page suivante ou la précédente. Le curseur va à n'importe quelle page.
+f56fd38f La page d'origine
+3a8e127d Ouvrir la page telle qu'elle est sur son propre site.
+0c75bd55 Comment utiliser cet écran
+fff44d9a Trouver un réglage
+e25b7dda Tapez un mot (voix, sombre, clé…) pour aller droit au réglage.
+1168bd8a Les sections
+1bc903fa Les réglages sont groupés : vos langues, l'explication des mots, l'écoute, les voix des cartes, l'apparence, votre compte… Sous chaque nom, sa valeur actuelle.
+3dd9f3e0 Les changements sont enregistrés tout de suite : il n'y a pas de bouton Enregistrer. Ils arrivent sur vos autres appareils avec vos autres réglages.
+5c416338 Touchez une ligne avec une flèche pour ouvrir ses options supplémentaires.
+ac1abab9 Revenir à tous les réglages.
+5795e95b Cet écran
+f5d438c5 Touchez n'importe quel bouton pour l'essayer : explorer ne fait rien perdre. Le ? en haut montre un guide sur les écrans qui en ont un.
+278cdc7d Vérifier si un Tamkeen plus récent est sorti.
+ee92c8a4 Licences
+5c03fc92 Les projets sur lesquels Tamkeen est bâti. Touchez-en un pour lire sa licence.
+0dcde9bf Ajoutez un livre à vous : EPUB, PDF, TXT, Kindle AZW3 ou Word, sans DRM.
+aaa9889c Livres gratuits
+d350a26a Des livres célèbres dans la langue que vous apprenez, gratuits. Ajoutez-en un et lisez-le page par page, en touchant n'importe quel mot.
+85aad008 Votre conversation
+06a411c3 Les messages disparaissent une fois vus, et les messages vocaux une fois écoutés.
+b5d3e891 Messages vocaux
+575e806f Enregistrez un message vocal de 2 minutes maximum : un bon entraînement pour parler.
+4a489327 Écrire
+a8e19061 Tapez un message, puis Envoyer.
+6ccb6007 Catégories
+f07e3aeb Afficher les podcasts d'un genre : actualités, humour, éducation…
+f96542c1 Podcasts tendance
+5d588cda Les podcasts les plus écoutés dans la langue que vous apprenez. Appuyez sur + Ajouter pour en mettre un dans votre bibliothèque.
+56e3badc Actualiser
+6d56afad Recharger la liste.
+f07664bf Vos cours
+25bfc4b6 Bases enseigne les 1000 mots les plus courants, 50 à la fois. Grammaire propose de courtes leçons pour former vos propres phrases.
+17fcebd2 Quels reels
+e2a0641d Des reels des créateurs que vous suivez, un mélange, ou des reels enregistrés sur Instagram.
+eb4acac6 Choisissez une de vos collections Instagram, ou tout ce que vous avez enregistré.
+a721f2c5 Cochez les reels à ajouter. Un reel qui n'a pas marché la dernière fois peut être recoché.
+f097968b Reels au hasard
+9358a6e2 Ou des reels de tout Instagram dans la langue que vous apprenez. Choisissez combien avec − et +.
+681a18f6 Vos reels. Regarder en lit un avec ses mots dessous ; touchez n'importe quel mot pour voir ce qu'il veut dire.
+1b055380 Tout regarder
+f28cc244 Lire vos reels l'un après l'autre.
+c202089b Comment réviser
+dfa4e013 Une carte
+a5df75e7 Le mot que vous apprenez. Essayez de vous rappeler ce qu'il veut dire, puis retournez la carte.
+a672ca12 Retourner la carte
+78b0fe22 Afficher le sens et la phrase. La barre d'espace le fait aussi.
+dfe6f9a8 Entendre le mot, ou toute sa phrase.
+d3a47ea4 Corriger une carte
+bf30f10f Touchez n'importe quel texte au verso pour le modifier. Appuyez longuement sur un mot de la phrase pour le surligner.
+fade8d06 Il revient dans quelques cartes. Glisser la carte vers la gauche fait pareil.
+2f7074e2 Il revient plus tard, un peu plus tard chaque fois que vous vous en souvenez. Glisser la carte vers la droite fait pareil.
+bd3b8f33 Moyens mnémotechniques
+5538fe2b Créez une image qui sonne pareil pour que le mot reste.
+245e2966 Annuler votre dernière réponse.
+0fc8836a Nouveaux mots par jour, dire le mot quand la carte se retourne, et les minuteurs.
+c2fa0dc4 Arrêter pour l'instant. Vos réponses jusqu'ici sont gardées.
+09d876b3 Tout chercher
+792282e5 Trouvez un mot ou une expression dans toutes vos transcriptions, pages et livres. Touchez un résultat pour l'entendre ou le lire là.
+3409d591 La première fois que vous ouvrez Accueil, la Bibliothèque, Vocabulaire et Amis, un petit guide montre à quoi sert chaque bouton. Le ? en haut de chaque écran montre son guide quand vous voulez.
+da3f32b7 Coller une adresse
+b755f582 Collez l'adresse de n'importe quelle page pour la lire ici, chaque mot à toucher.
+7f5d6925 Chercher sur le web
+76319b14 Cherchez sur Google, puis ouvrez un résultat pour le lire dans Tamkeen.
+1c5163c3 Enregistrer un site
+e22d0d28 Gardez un site que vous lisez souvent, pour l'ouvrir en un geste.
+7349e6ef Des sites d'actualité dans la langue que vous apprenez.

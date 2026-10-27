@@ -20,6 +20,7 @@ import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { importUrl } from "../pageimport.js";
 import { importVideo, videoId as youTubeId } from "../youtube.js";
+import { pageGuide } from "../components/tour.js";
 
 const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
 // The site's own small picture, from Google's icon service (as on the browser's start page); the
@@ -69,6 +70,12 @@ export async function renderSites(view, { web = null } = {}) {
     </section>` : ""}
   </div>`;
   const page = view.querySelector(".sites-page");
+  pageGuide("sites", page, [
+    { target: ".sites-import", title: "Paste an address", text: "Paste the address of any page to read it here, with every word tappable." },
+    { target: ".sites-search", title: "Search the web", text: "Search Google, then open a result to read it in Tamkeen." },
+    { target: ".sites-add", title: "Save a site", text: "Keep a site you read often, to open it in one tap." },
+    { target: ".sites-news", title: "News", text: "News sites in the language you're learning." },
+  ]); // the "?" in the top bar
   const importForm = page.querySelector(".sites-import");
   const input = importForm.querySelector("input");
   let saved = [];

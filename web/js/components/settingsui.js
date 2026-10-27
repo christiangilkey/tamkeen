@@ -10,6 +10,7 @@ import { esc, h } from "../app.js";
 import { icon } from "../icons.js";
 import { t } from "../i18n.js";
 import { openModal } from "./modal.js";
+import { pageGuide } from "./tour.js";
 
 /** The sections, in the order a learner thinks of them. */
 export const SECTIONS = [
@@ -128,6 +129,10 @@ export function settingsHome(view, { summaries = {}, abouts = {}, finds = [], hi
     <p class="set-none muted" hidden>Nothing found. Try another word.</p>
   </div>`);
   view.append(page);
+  pageGuide("settings", page, [ // the "?" in the top bar
+    { target: ".set-search", title: "Find a setting", text: "Type a word (voice, dark, key…) to go straight to the setting." },
+    { target: "nav.set-list", title: "The sections", text: "Settings are grouped: your languages, how words are explained, listening, card voices, the look, your account… Under each name, what it is set to now." },
+  ]);
   const list = page.querySelector("nav.set-list");
   const results = page.querySelector(".set-results");
   const none = page.querySelector(".set-none");
@@ -172,6 +177,11 @@ export function sectionPage(view, id, { about } = {}) {
     <div class="set-head"><h1>${esc(sec.title)}</h1><p>${esc(about || sec.about)}</p></div>
     <div class="set-body"></div>
   </div>`);
+  pageGuide("settings-section", page, [ // the "?" in the top bar
+    { target: ".set-body", title: sec.title, text: "Changes here are saved straight away: there is no Save button. They reach your other devices with your other settings." },
+    { target: ".set-more", title: "More options", text: "Tap a line with an arrow to open its extra options." },
+    { target: ".set-back", title: "Back", text: "Back to all the settings." },
+  ]);
   // Back the way the user came (so the phone's own back button doesn't return here), else to the list.
   page.querySelector(".set-back").addEventListener("click", (e) => {
     if (!cameFromHome) return;
