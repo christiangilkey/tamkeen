@@ -5694,3 +5694,75 @@ controller input selected by the user, it specifically should be for watching vi
   controller's B into its Back key when the app doesn't take it, which could close a screen twice — watch for that
   first on a real phone), the iPhone, YouTube/Netflix embeds and reels with the real players, a real sync between two
   devices. Fullscreen has no action (browsers don't count a controller press as a click for it).
+
+## Mnemonic maker: pronunciation first, keywords checked for sound in code, pictures, thumbs up/down, a stronger model (2026-10-26; branch `worktree-agent-a5cf6646bdb8bc612`, NOT merged, NOT pushed)
+Owner: "I want to see how I can make my mnemonics through phonetic association better in the app, as of right now some
+of them are really bad", then "I'd also ideally like the mnemonics to try to be related to the meaning of the word".
+Supersedes the 2026-10-17 and 2026-10-23 notes on the maker above (same button, same place on the card's back).
+- **The request** (`web/js/review/mnemonic.js`, still one AI request per press): step 1, the word's romanization, IPA,
+  syllables (each with its own IPA) and stressed syllable, in the learner's variety; step 2, `KEYWORD_ASK` = 15 keywords
+  (real words of the learner's language) each with its IPA, the syllables it covers, `meaning_link` strong/loose/none,
+  `link` (a few words), `scene` (one vivid sentence ≤ 18 words); step 3, for 3+ syllables, up to 3 split keywords
+  (`parts`: 2-3 pieces, one scene). `MNEMONIC_SCHEMA` is strict-OpenAI-safe (every property required) and Gemini-safe
+  (geminiSchema drops `enum`/`additionalProperties`). Prompt pieces are in tools/i18n/ignore.txt (the long system prompt
+  isn't extracted at all).
+- **What the app already knows is passed in** (`review.js readingOf`): Arabic, the word with its vowel marks when the card
+  shows them ("Show vowels") or it was typed with them; else `lexicon/readings.js wordReading`: Japanese kana (kuromoji),
+  Chinese pinyin, Thai (Paiboon), Hindi and Korean romanization, Russian stress (ru table), English IPA (CMU); only from
+  dictionaries already on the device, never downloads. Persian and the Latin-script languages: the AI works it out.
+  Variety (`varietyOf`): the country picked for the language (YouTube's "Popular in", `youtube-home.js pickedCountry`,
+  "" if never picked): Arabic EG → "Egyptian Arabic", LB/JO/SY/PS Levantine, SA Saudi, AE/KW/QA/BH/OM Gulf, IQ, MA, DZ, TN,
+  LY, YE; other languages with more than one country → "Spanish as spoken in Spain".
+- **The sound check, in code** (`web/js/review/phonemes.js`, new; `js/review` is already shared with the phone build):
+  IPA → a small alphabet (`phones`: diphthongs become vowel + glide, English oʊ/eɪ glides faint, doubled letters and a
+  consonant split across syllables one long sound, nasal vowels vowel + faint n, ɚ = ə + r, tones/emphasis/aspiration
+  dropped; `letterPhones` reads a romanization roughly when no IPA came). `soundGap`: vowels by height/backness/rounding
+  (schwa near all, long ≈ short), consonants by manner/place/voicing (p/b, t/d, k/g, s/z/θ ≈ 0.12-0.15; any r ≈ any r;
+  h/ħ/ʔ/ʕ close and cheap to drop). `similarity` = weighted edit distance (stressed syllable +0.5, first sound +0.6),
+  STRICT 1.6. `match` tries every run of syllables: score = sound × (0.35 + 0.65 × coverage). Labels: PASS 0.5 (below:
+  dropped), CLOSE 0.72 with coverage ≥ 0.75 → "Close match", else "Partial match".
+- **English speakers**: each keyword's sounds come from the CMU Pronouncing Dictionary (`englishSounds`, the English
+  word table docs/lexicon/en-lemmas.json.gz, 49k words), never the AI's guess; a keyword with a word the table lacks is
+  not a real (common) English word and is dropped. The table is downloaded once in the background (0.6 MB, like
+  Dictionary first's dictionaries) while the AI thinks (`review.js englishCheck`); if it can't be had, the AI's IPA is
+  used. Other learner languages: the AI's IPA.
+- **Ranking** (`rankSuggestions`): sound must pass; then "strong" (keyword itself points to the meaning, shown "Fits the
+  meaning", its `link` as the tooltip) first; then by sound, "loose" +0.05. Best 5 keywords + up to 3 split ones; fewer
+  shown honestly ("Only 3 keywords sounded close enough to show"; none → "No new keywords sounded close enough…").
+  Keywords already shown this session and turned down are excluded and sent as "avoid".
+- **On the card** (`review.js mnemonicMaker`, CSS `.rv-mnemo*`, `.rv-mn*` in review.css): "How it sounds" + the
+  syllables, stressed in capitals (NIY-ya, IPA as tooltip); each keyword: Copy / thumbs up / thumbs down (line icons,
+  icon-only, aria-labels), the word's syllables with the matched run lit (split: each piece's run, " + " between), the
+  marks, and the scene. Copy and thumbs up use `noteText` ("keyword — scene"); thumbs up appends it to Personal notes and
+  saves like typing (`edit(v, "memo")`); thumbs down `turnDown` → localStorage `mnemonicAvoid` {uid: [keywords]} (40 a
+  word, 400 words), never shown or asked for again for that word on this device (not synced: a choice for later).
+  Keys: Space/Enter on the maker's buttons stop at `.rv-mnemo` (they press the button, never answer the card); 1/2/arrows
+  still answer from there, as from any button on the card. Tap-to-edit and hold-to-highlight untouched.
+- **Model** (`definer.js`): each provider has `mnemonicModel`, its step up from the cheapest: Claude Sonnet 5.5, Gemini 3.8
+  Flash, GPT-6.1 Sol, Grok 4.7. Setting `mnemonic_model_<provider>` "" (recommended) = that model, or the lookups' model
+  if it is dearer in the list (Opus/Astra users keep theirs), with `fallback` = the lookups' model; "same" and an
+  explicit model as before (no fallback). `askMnemonicJson` (both define-service.js files' `askMnemonic`): a failure of
+  kind model/rate/credit/key → the lookups' model answers, and is asked first for the rest of the run. Cost
+  (`MNEMONIC_TOKENS` 1300 in / 1700 out, `mnemonicCents`): Sonnet / GPT-6.1 Sol ≈ 2.0¢, Grok 4.7 ≈ 1.3¢, Gemini 3.8
+  Flash ≈ 0.7¢, Haiku ≈ 0.1¢ a press. Settings → Word definitions → Mnemonic maker: "(recommended)" names the model,
+  a cost line under it, "Try it" says which model answered.
+- **Evaluation set** (`tests/js/phonemes.test.mjs`): 38 words in de, es, fr, it, pt, ca, ja, zh, ko, ru, hi, th, fa, tl,
+  ceb, Arabic MSA, Egyptian, Levantine, Gulf, with published keyword-method pairs (Ente → ant, caballo → cab-eye-yo,
+  pato → pot, carta → cart, payaso → pie, hérisson → hairy son, poubelle → poo bell, uccello → cello…) scored against the
+  real CMU table: all 39 good keywords pass (mean 0.82, lowest 0.64 "call am" for qalam), all 42 bad ones fail (mean 0.18,
+  highest 0.45 "now yeah" for niyya, the kind the owner complained of). `tests/js/mnemonic.test.mjs`: prompt, schema,
+  parsing, ranking, CMU check, split keywords, avoid store, model choice and fallback, all with a stand-in AI.
+- i18n `tools/i18n/tr/<code>/82-mnemonic-sound.txt` (21 × 16). "Close" alone was already the dialog button (Cerrar…),
+  hence "Close match" / "Partial match".
+- **Checked**: 1129 JS, 559 pytest, i18n complete. Desktop server on a fresh scratch data folder (no Drive token),
+  English UI, Arabic cards, the relay answered in the page by a stand-in (Claude format), in the browser pane (DOM) and
+  in a headless Edge at 390 × 844 (dark and light) and 1280 × 900: the stronger model asked; NIY-ya; book/cat/translation/
+  "now yeah"/"neeya"/spelled-out dropped; "need ya" with Fits the meaning first; Only N; Make 5 more sends shown +
+  turned-down as avoid; thumbs up wrote "keyword — scene" to Personal notes and the server; thumbs down stored and
+  removed it; Space/Enter on the button didn't answer the card, "2" did; the Egyptian variety reached the prompt; split
+  keywords for عربية and مستشفى; the English table downloaded in the background; Settings label, cost line, and Try it
+  falling back from a 404 on Sonnet to Haiku.
+- **NOT checked**: a real AI (no key here): how good real models' IPA, syllables and scenes are, how long a stronger
+  model takes for ~1,700 tokens out (the old maker was a quick Haiku call; if it feels slow, "Try it" shows the time and
+  Haiku can be picked), and the real token counts behind the cost estimate; Android/iPhone (same shared files); a real
+  learner language other than English for the IPA path.

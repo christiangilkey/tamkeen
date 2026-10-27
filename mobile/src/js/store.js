@@ -92,7 +92,7 @@ export const DEFAULTS = {
   review_event: {}, // {day, id}: today's review event in Google Calendar, moved rather than added again
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
-  // The review card's Mnemonic maker: its own model ("" = fastest, "same" = the lookups') and thinking (definer.mnemonicConfig).
+  // The review card's Mnemonic maker: its own model ("" = recommended, a step up from the cheapest; "same" = the lookups') and thinking (definer.mnemonicConfig).
   mnemonic_model_claude: "", mnemonic_model_gemini: "", mnemonic_model_openai: "", mnemonic_model_grok: "", mnemonic_effort: "off",
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.

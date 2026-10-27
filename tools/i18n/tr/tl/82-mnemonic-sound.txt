@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Ang mga salitang katunog sa likod ng review card, bawat isa may larawan para sa kahulugan. Pareho ang key na ginagamit; mas kaunting pag-iisip, mas mabilis ang sagot.
+887b7f56	{0} (inirerekomenda)
+9bdce1a1	Ang bawat pindot ay mas mura pa sa isang US cent.
+67e06558	Ang bawat pindot ay nagkakahalaga ng mga isang US cent.
+a8665558	Ang bawat pindot ay nagkakahalaga ng mga {0} US cents.
+aaf7b28e	Nai-save sa Mga personal na tala
+0c3e5d90	I-save sa Mga personal na tala
+7709c8d3	Hindi ito: huwag na itong imungkahi para sa salitang ito
+febeb00d	Hindi ito
+20be8cae	Malapit ang tunog sa salita
+12197aa2	Halos kapareho
+8da4f709	Kahawig ng tunog ng isang bahagi ng salita, o halos tulad nito
+5d99bc5d	Bahagyang kahawig
+48c1ab45	Bagay sa kahulugan
+56732347	Tinanggihan mo silang lahat. Pindutin ang Gumawa ng 5 pa para sa mga bago.
+6657e44b	Walang bagong keyword na sapat ang pagkakahawig ng tunog sa salita. Pindutin ang Gumawa ng 5 pa para subukan ulit.
+74971885	Mga salita sa wika mo na katunog nito, bawat isa may larawan para sa kahulugan. Ang thumbs up ay nagse-save ng isa sa Mga personal na tala; ang thumbs down ay tuluyang nag-aalis nito.
+0f212aca	Hindi na-check ang tunog nila ngayon.
+91eb1b29	Isang keyword lang ang sapat na kahawig ng tunog para ipakita.
+b668e8b3	{0} keyword lang ang sapat na kahawig ng tunog para ipakita.
+2f3a0211	Paano ito binibigkas

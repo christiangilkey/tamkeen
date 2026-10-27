@@ -24,14 +24,16 @@ import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPl
 import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
 import { firstVisitTour } from "../components/tour.js";
 import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
-import { addReadings } from "../lexicon/readings.js";
+import { addReadings, wordReading } from "../lexicon/readings.js";
+import { dictionaries, downloadDictionaries } from "../lexicon/seen.js";
+import { pickedCountry } from "../youtube-home.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
-import { soundAlikes } from "../review/mnemonic.js";
+import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
@@ -130,6 +132,8 @@ const ICON = {
   copy: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2"/><path d="M15.5 8.5V6.2a1.7 1.7 0 0 0-1.7-1.7H6.2a1.7 1.7 0 0 0-1.7 1.7v7.6a1.7 1.7 0 0 0 1.7 1.7h2.3"/></svg>`,
   check: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
   bulb: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>`,
+  up: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10.5v9h-3a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z"/><path d="M7.5 10.5l3.6-6.6a1.9 1.9 0 0 1 3.5 1.3l-.8 4.3h5a2 2 0 0 1 2 2.4l-1.3 6.4a2 2 0 0 1-2 1.7H7.5"/></svg>`,
+  down: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 13.5v-9h-3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1z"/><path d="M7.5 13.5l3.6 6.6a1.9 1.9 0 0 0 3.5-1.3l-.8-4.3h5a2 2 0 0 0 2-2.4l-1.3-6.4a2 2 0 0 0-2-1.7H7.5"/></svg>`,
   trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
   sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
   clock: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2.5h4"/></svg>`,
@@ -549,47 +553,197 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     return ok;
   }
 
-  const mnemonics = new Map();  // what the Mnemonic maker came up with for each word, while the reviewer is open
+  // ----- the Mnemonic maker (review/mnemonic.js): keywords that sound like the word, each with a picture -----
+  // What it came up with for each word while the reviewer is open: {pron, items, parts, checked, asked,
+  // shown, kept} (`shown`: every keyword shown for the word so far, left out of the next "Make 5 more";
+  // `kept`: those put in Personal notes with the thumbs-up). Keywords turned down are kept on this device
+  // (mnemonic.js turnDown) and never suggested for the word again.
+  const mnemonics = new Map();
+  const avoidStore = () => { try { return window.localStorage; } catch { return null; } };
+  let englishTable = null;  // a promise of the English word table (its CMU pronunciations), or null
+  /** English speakers: each keyword's sounds from the CMU Pronouncing Dictionary in the English word table,
+   * downloaded once in the background (0.6 MB) while the AI thinks, like Dictionary first's dictionaries.
+   * Resolves to mnemonic.js englishSounds, or null when the table can't be had (the AI's IPA is used then). */
+  function englishCheck() {
+    if (!englishTable) {
+      englishTable = (async () => {
+        let dicts = await dictionaries("en");
+        if (!dicts) { await downloadDictionaries("en"); dicts = await dictionaries("en"); }
+        return (dicts || []).find((d) => d && d.ipa) || null;
+      })().catch(() => null).then((table) => { if (!table) englishTable = null; return table; });
+    }
+    return englishTable.then((table) => (table ? englishSounds(table) : null));
+  }
+  /** How the card's word is said, as far as this device knows, for the AI to follow: Arabic with its vowel
+   * marks (as drawn on the card with "Show vowels" on, or as typed), else the dictionaries' reading. */
+  async function readingOf(v, lang) {
+    if (lang === "ar") {
+      const shown = (face.querySelector(".rv-word") || {}).textContent || "";
+      return [shown, v.text].find((x) => /[ً-ْٰ]/.test(x || "")) || "";
+    }
+    return wordReading(v.text, lang);
+  }
 
-  /** The Mnemonic maker below Personal notes: five sound-alikes in the learner's own language, each with a copy button. */
+  /** The Mnemonic maker below Personal notes. */
   function mnemonicMaker(box, v) {
-    const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), list = box.querySelector(".rv-mnemo-list");
+    const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), few = box.querySelector(".rv-mnemo-few");
+    const list = box.querySelector(".rv-mnemo-list"), said = box.querySelector(".rv-mnemo-said");
     const label = go.querySelector("span");
+    const uid = uidOf(v);
     const speaks = (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name;
     const say = (text, error = false) => { note.hidden = !text; note.textContent = text || ""; note.classList.toggle("error", error); };
-    const draw = (items) => {
-      list.innerHTML = "";
-      for (const text of items) {
-        const row = h(`<li><span class="rv-mnemo-text" translate="no"></span><button type="button" class="rv-copy" title="Copy">${ICON.copy}<span>Copy</span></button></li>`);
-        row.querySelector(".rv-mnemo-text").textContent = text;
-        const copy = row.querySelector(".rv-copy");
-        copy.onclick = async () => {
-          if (!(await copyText(text))) { toast("That couldn't be copied here.", { error: true }); return; }
-          buzz("tick");
-          copy.classList.add("done");
-          copy.innerHTML = `${ICON.check}<span>Copied</span>`;
-          setTimeout(() => { if (copy.isConnected) { copy.classList.remove("done"); copy.innerHTML = `${ICON.copy}<span>Copy</span>`; } }, 1400);
-        };
-        list.append(row);
+    const sayFew = (text) => { few.hidden = !text; few.textContent = text || ""; };
+    // Space and Enter on its buttons press them, and never answer the card (the reviewer's keys are on the document).
+    box.addEventListener("keydown", (e) => { if ((e.key === " " || e.key === "Enter") && e.target.closest("button")) e.stopPropagation(); });
+
+    /** The word's syllables ("ni-YYA", the stressed one in capitals), with those a keyword sounds like lit:
+     * one lit run per keyword (a split keyword's runs joined by " + "). */
+    function soundsLine(el, pron, s) {
+      const pieces = syllablePieces(pron);
+      el.textContent = "";
+      el.hidden = !pieces.length;
+      const run = (from, to, lit) => {
+        if (from > to) return;
+        const span = document.createElement(lit ? "b" : "span");
+        span.textContent = pieces.slice(from, to + 1).map((p) => p.text).join("-");
+        el.append(span);
+      };
+      const n = pieces.length;
+      if (s.pieces) {  // a split keyword: each piece's syllables, then the ones no piece covers
+        let at = 0;
+        s.pieces.forEach((p, i) => {
+          if (i) el.append(" + ");
+          run(Math.max(at, p.from), Math.min(p.to, n - 1), true);
+          at = Math.max(at, p.to + 1);
+        });
+        if (at < n) { el.append("-"); run(at, n - 1, false); }
+      } else {
+        const from = Math.max(0, s.from), to = Math.min(n - 1, s.to);
+        run(0, from - 1, false);
+        if (from > 0) el.append("-");
+        run(from, to, true);
+        if (to < n - 1) el.append("-");
+        run(to + 1, n - 1, false);
       }
-      list.hidden = !items.length;
-      label.textContent = items.length ? "Make 5 more" : "Mnemonic maker";
-      say(items.length ? `${speaks} words that sound like it and hint at its meaning: copy one into Personal notes and picture it with the meaning.` : "");
+    }
+
+    /** Put `s` (keyword and picture) at the end of Personal notes, saved like typing. */
+    function keep(s, st, button) {
+      const memo = face.querySelector(".memo");
+      const text = noteText(s);
+      if (memo && !memo.value.includes(text)) {
+        memo.value = memo.value.trim() ? `${memo.value.replace(/\s+$/, "")}\n${text}` : text;
+        fit(memo);
+        more();
+        edit(v, "memo", memo.value);
+      }
+      st.kept.add(s.keyword);
+      buzz("tick");
+      kept(button);
+    }
+    const kept = (button) => {
+      button.classList.add("done");
+      button.disabled = true;
+      button.innerHTML = ICON.check;
+      button.title = t("Kept in Personal notes");
+      button.setAttribute("aria-label", t("Kept in Personal notes"));
     };
-    const had = mnemonics.get(uidOf(v));
+
+    function row(s, st) {
+      const li = h(`<li class="rv-mn">
+        <div class="rv-mn-top">
+          <span class="rv-mn-word" translate="no"></span>
+          <span class="rv-mn-acts">
+            <button type="button" class="rv-mn-btn rv-mn-copy" title="Copy" aria-label="Copy">${ICON.copy}</button>
+            <button type="button" class="rv-mn-btn rv-mn-keep" title="Keep it in Personal notes" aria-label="Keep it in Personal notes">${ICON.up}</button>
+            <button type="button" class="rv-mn-btn rv-mn-drop" title="Not this one: never suggest it for this word again" aria-label="Not this one">${ICON.down}</button>
+          </span>
+        </div>
+        <div class="rv-mn-how"><span class="rv-mn-sounds" translate="no"></span></div>
+        <p class="rv-mn-scene" translate="no"></p>
+      </li>`);
+      li.querySelector(".rv-mn-word").textContent = s.keyword;
+      soundsLine(li.querySelector(".rv-mn-sounds"), st.pron, s);
+      const how = li.querySelector(".rv-mn-how");
+      if (s.sound === "close") how.append(h(`<span class="rv-mn-mark close" title="It sounds close to the word">Close match</span>`));
+      else if (s.sound === "partial") how.append(h(`<span class="rv-mn-mark" title="It sounds like part of the word, or roughly like it">Partial match</span>`));
+      if (s.link === 2) {
+        const fits = h(`<span class="rv-mn-mark fits">Fits the meaning</span>`);
+        if (s.linkNote) fits.title = s.linkNote;
+        how.append(fits);
+      }
+      const scene = li.querySelector(".rv-mn-scene");
+      scene.textContent = s.scene || "";
+      scene.hidden = !s.scene;
+      const copy = li.querySelector(".rv-mn-copy");
+      copy.onclick = async () => {
+        if (!(await copyText(noteText(s)))) { toast(t("That couldn't be copied here."), { error: true }); return; }
+        buzz("tick");
+        toast(t("Copied"), { timeout: 1500 });
+        copy.classList.add("done");
+        copy.innerHTML = ICON.check;
+        setTimeout(() => { if (copy.isConnected) { copy.classList.remove("done"); copy.innerHTML = ICON.copy; } }, 1400);
+      };
+      const up = li.querySelector(".rv-mn-keep");
+      if (st.kept.has(s.keyword)) kept(up);
+      else up.onclick = () => keep(s, st, up);
+      li.querySelector(".rv-mn-drop").onclick = () => {
+        turnDown(avoidStore(), uid, s.keyword);
+        st.items = st.items.filter((x) => x !== s);
+        st.parts = st.parts.filter((x) => x !== s);
+        buzz("tick");
+        li.remove();
+        if (!st.items.length && !st.parts.length) { list.hidden = true; sayFew(""); say(t("You turned them all down. Press Make 5 more for new ones.")); }
+        more();
+      };
+      return li;
+    }
+
+    function draw(st) {
+      list.innerHTML = "";
+      const all = [...st.items, ...st.parts];
+      for (const s of all) list.append(row(s, st));
+      list.hidden = !all.length;
+      const pieces = syllablePieces(st.pron);
+      said.hidden = !pieces.length;
+      const line = said.querySelector(".rv-mnemo-syl");
+      line.textContent = pieces.map((p) => p.text).join("-");
+      line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
+      label.textContent = "Make 5 more";
+      if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
+      else say(`${speaks} words that sound like it, each with a picture for its meaning. Thumbs up keeps one in Personal notes; thumbs down drops it for good.`);
+      // Fewer than five that pass: only those are shown, and the card says so.
+      const n = all.length;
+      sayFew(!n ? "" : !st.checked ? "Their sound couldn't be checked this time."
+        : n === 1 ? "Only 1 keyword sounded close enough to show." : n < MNEMONIC_COUNT ? `Only ${n} keywords sounded close enough to show.` : "");
+      more();
+    }
+
+    const had = mnemonics.get(uid);
     if (had) draw(had);
     go.onclick = async () => {
       go.disabled = true;
       label.textContent = "Thinking…";
       say("");
+      sayFew("");
       try {
-        const studyName = (langInfo(detectLanguage(v.sentence || v.text)) || {}).name || "the language being learned";
-        const items = await soundAlikes(v, { ask: askMnemonic, study: studyName, speaks, avoid: mnemonics.get(uidOf(v)) || [] });
-        mnemonics.set(uidOf(v), items);
-        if (go.isConnected) draw(items);
+        const lang = studyOf(v);
+        const studyName = (langInfo(lang) || {}).name || "the language being learned";
+        const before = mnemonics.get(uid);
+        const shown = before ? before.shown : [];
+        const avoid = [...new Set([...shown, ...turnedDown(avoidStore(), uid)])].slice(-40);
+        const reading = await readingOf(v, lang);
+        const got = await makeMnemonics(v, {
+          ask: askMnemonic, study: studyName, speaks, avoid, reading,
+          variety: varietyOf(lang, pickedCountry(lang), studyName),
+          ownSounds: uiLanguage() === "en" ? englishCheck() : null,
+        });
+        const st = { ...got, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
+        mnemonics.set(uid, st);
+        if (go.isConnected) draw(st);
       } catch (e) {
         if (!go.isConnected) return;
-        label.textContent = (mnemonics.get(uidOf(v)) || []).length ? "Make 5 more" : "Mnemonic maker";
+        label.textContent = mnemonics.get(uid) ? "Make 5 more" : "Mnemonic maker";
         say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
         offerFix(e);  // no key, or a refused one: the popup with the way to Settings
         const fix = troubleshootButton(e);
@@ -620,7 +774,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         </div>
         <div class="rv-mnemo">
           <button type="button" class="rv-mnemo-go">${ICON.bulb}<span>Mnemonic maker</span></button>
+          <div class="rv-mnemo-said" hidden><div class="rv-mnemo-said-label">How it sounds</div><div class="rv-mnemo-syl" translate="no"></div></div>
           <p class="rv-mnemo-note" hidden></p>
+          <p class="rv-mnemo-few" hidden></p>
           <ul class="rv-mnemo-list" hidden></ul>
         </div>
         <div class="rv-source">

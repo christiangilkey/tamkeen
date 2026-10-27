@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Les paraules que sonen semblant al revers d'una targeta de repàs, cadascuna amb una imatge per al significat. Fa servir la mateixa clau; com menys pensa, abans respon.
+887b7f56	{0} (recomanat)
+9bdce1a1	Cada clic costa molt menys d'un cèntim de dòlar.
+67e06558	Cada clic costa aproximadament un cèntim de dòlar.
+a8665558	Cada clic costa aproximadament {0} cèntims de dòlar.
+aaf7b28e	Desada a Notes personals
+0c3e5d90	Desa-la a Notes personals
+7709c8d3	Aquesta no: no la tornis a suggerir per a aquesta paraula
+febeb00d	Aquesta no
+20be8cae	Sona semblant a la paraula
+12197aa2	Molt semblant
+8da4f709	Sona com una part de la paraula, o més o menys com ella
+5d99bc5d	Semblant en part
+48c1ab45	Encaixa amb el significat
+56732347	Les has rebutjades totes. Prem Fes-ne 5 més per veure'n de noves.
+6657e44b	Cap paraula clau nova no sonava prou semblant a la paraula. Prem Fes-ne 5 més per tornar-ho a provar.
+74971885	Paraules de la teva llengua que hi sonen semblant, cadascuna amb una imatge per al significat. El polze amunt en desa una a Notes personals; el polze avall la descarta per sempre.
+0f212aca	Aquesta vegada no s'ha pogut comprovar com sonen.
+91eb1b29	Només 1 paraula clau sonava prou semblant per mostrar-la.
+b668e8b3	Només {0} paraules clau sonaven prou semblants per mostrar-les.
+2f3a0211	Com sona

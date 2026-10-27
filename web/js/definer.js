@@ -11,7 +11,12 @@ import { problemKind } from "./trouble.js";
 
 // `defaultModel` is each provider's best value for this job: the cheapest of its current models
 // that explains a word well (a lookup is a short question and a short structured answer, so the
-// small models do it properly). `models` is what Settings offers, cheapest first, with a note on
+// small models do it properly). `mnemonicModel` is the one the review card's Mnemonic maker uses unless
+// the learner picks another: the next model up, because finding words of one language that SOUND like
+// a word of another, with the word's own pronunciation worked out first, is where the small models go
+// wrong (the owner found their keywords "really bad"). It is one request when a card's button is
+// pressed, so it costs little: at most about 2 US cents a press (MNEMONIC_TOKENS, mnemonicCents).
+// `models` is what Settings offers, cheapest first, with a note on
 // each; a user can also type any other model name. `in` and `out` are the provider's prices in US
 // cents per million tokens (word-pieces) read and written, from their own price lists in October 2026.
 export const PROVIDERS = {
@@ -20,6 +25,7 @@ export const PROVIDERS = {
     short: "Claude",
     keyUrl: "https://console.anthropic.com/settings/keys",
     defaultModel: "claude-haiku-5-5",
+    mnemonicModel: "claude-sonnet-5-5",
     models: [
       { id: "claude-haiku-5-5", name: "Claude Haiku 5.5", in: 10, out: 50, note: "lowest cost" },
       { id: "claude-sonnet-5-5", name: "Claude Sonnet 5.5", in: 200, out: 1000, note: "more thorough" },
@@ -31,6 +37,7 @@ export const PROVIDERS = {
     short: "Gemini",
     keyUrl: "https://aistudio.google.com/apikey",
     defaultModel: "gemini-3.1-flash-lite",
+    mnemonicModel: "gemini-3.8-flash",
     models: [
       { id: "gemini-3.1-flash-lite", name: "Gemini 3.1 Flash-Lite", in: 25, out: 150, note: "lowest cost of the current models; free allowance" },
       { id: "gemini-3.5-flash-lite", name: "Gemini 3.5 Flash-Lite", in: 30, out: 250, note: "newer" },
@@ -43,6 +50,7 @@ export const PROVIDERS = {
     short: "OpenAI",
     keyUrl: "https://platform.openai.com/api-keys",
     defaultModel: "gpt-6-luna",
+    mnemonicModel: "gpt-6.1-sol",
     models: [
       { id: "gpt-6-luna", name: "GPT-6 Luna", in: 10, out: 50, note: "lowest cost" },
       { id: "gpt-6.1-sol", name: "GPT-6.1 Sol", in: 200, out: 1000, note: "more thorough" },
@@ -54,6 +62,7 @@ export const PROVIDERS = {
     short: "Grok",
     keyUrl: "https://console.x.ai/",
     defaultModel: "grok-4.3",
+    mnemonicModel: "grok-4.7",
     models: [
       { id: "grok-4.3", name: "Grok 4.3", in: 125, out: 250, note: "lowest cost of the general models" },
       { id: "grok-4.7", name: "Grok 4.7", in: 200, out: 600, note: "newest" },
@@ -103,15 +112,53 @@ export const THINKING = [
 /** The Mnemonic maker's model setting meaning "the model the word lookups use". */
 export const SAME_MODEL = "same";
 
+// What one press of the Mnemonic maker uses, roughly: the instructions and the answer's outline go in;
+// the word's pronunciation and about 15 keywords, each with its sounds and a one-line picture, come out.
+export const MNEMONIC_TOKENS = { in: 1300, out: 1700 };
+/** About what one press of the Mnemonic maker costs with `model` (an entry of a provider's `models`), in US cents. */
+export const mnemonicCents = (model) => (model.in * MNEMONIC_TOKENS.in + model.out * MNEMONIC_TOKENS.out) / 1e6;
+
 /** What the Mnemonic maker asks with: the lookups' provider and key (`base`, a definerConfig), its
- * own model (setting mnemonic_model_<provider>: "" = the provider's fastest, the recommended one;
- * "same" = the lookups' model) and its own thinking level (mnemonic_effort, "off" unless set). */
+ * own model (setting mnemonic_model_<provider>) and its own thinking level (mnemonic_effort, "off"
+ * unless set). The model: "" (the recommended one) = the provider's `mnemonicModel`, or the lookups'
+ * own when that is a dearer (stronger) one of the list, with `fallback` = the lookups' model for when
+ * the key can't use it (askMnemonicJson); "same" = the lookups' model; anything else = that model. */
 export function mnemonicConfig(base, settings) {
   const s = settings || {};
+  const info = PROVIDERS[base.provider];
   const pick = s[`mnemonic_model_${base.provider}`] || "";
-  const model = pick === SAME_MODEL ? base.model : pick || PROVIDERS[base.provider].defaultModel;
   const effort = THINKING.some((t) => t.id === s.mnemonic_effort) ? s.mnemonic_effort : "off";
-  return { ...base, model, effort };
+  if (pick) return { ...base, model: pick === SAME_MODEL ? base.model : pick, effort };
+  const lookups = base.model || info.defaultModel;
+  const strong = info.models.find((m) => m.id === info.mnemonicModel);
+  const own = info.models.find((m) => m.id === lookups);
+  if (own && strong && centsPerMillion(own) >= centsPerMillion(strong)) return { ...base, model: lookups, effort };
+  return { ...base, model: info.mnemonicModel, effort, fallback: lookups !== info.mnemonicModel ? lookups : "" };
+}
+
+// The recommended model failed for this key in this run (not on its plan, a new account, its own limit
+// reached): the lookups' model is asked straight away from then on. Kept as "provider|model".
+const refusedModels = new Set();
+const FALLBACK_KINDS = new Set(["model", "rate", "credit", "key"]);
+
+/** Ask the Mnemonic maker's question: askJson with mnemonicConfig. When the recommended model fails for
+ * a reason the lookups' model may not share (it isn't available to the key, or its own limit is reached),
+ * the lookups' model answers instead, and is asked first for the rest of this run. `onModel(model)`
+ * (optional) is told which model answered. */
+export async function askMnemonicJson(base, settings, prompt, transport, onModel = null) {
+  const cfg = mnemonicConfig(base, settings);
+  const ask = async (model) => { const answer = await askJson({ ...cfg, model }, prompt, transport); if (onModel) onModel(model); return answer; };
+  if (!cfg.fallback) return ask(cfg.model);
+  const tag = `${cfg.provider}|${cfg.model}`;
+  if (refusedModels.has(tag)) return ask(cfg.fallback);
+  try {
+    return await ask(cfg.model);
+  } catch (e) {
+    if (!(e instanceof DefinerError) || !FALLBACK_KINDS.has(e.kind)) throw e;
+    const answer = await ask(cfg.fallback);  // (if this fails too, its failure is the one shown)
+    refusedModels.add(tag);
+    return answer;
+  }
 }
 
 /** Can the thinking level be set for this model? {ok, note}: `note` says how "Off" works where it

@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Ang mga pulong nga kasingtunog sa luyo sa review card, matag usa adunay hulagway alang sa kahulogan. Parehas nga key ang gamiton; mas gamay nga paghunahuna, mas paspas ang tubag.
+887b7f56	{0} (girekomenda)
+9bdce1a1	Ang matag pindot mas barato pa kaayo sa usa ka US cent.
+67e06558	Ang matag pindot mga usa ka US cent ang bayad.
+a8665558	Ang matag pindot mga {0} ka US cents ang bayad.
+aaf7b28e	Natipig sa Personal nga mga note
+0c3e5d90	Tipigi sa Personal nga mga note
+7709c8d3	Dili kini: ayaw na kini isugyot alang niini nga pulong
+febeb00d	Dili kini
+20be8cae	Duol ang tingog sa pulong
+12197aa2	Halos parehas
+8da4f709	Kasingtunog sa usa ka bahin sa pulong, o halos sama niini
+5d99bc5d	Bahin lang ang parehas
+48c1ab45	Haom sa kahulogan
+56732347	Gibalibaran nimo silang tanan. Pindota ang Paghimo og 5 pa para sa bag-o.
+6657e44b	Walay bag-ong keyword nga igo ang pagkasingtunog sa pulong. Pindota ang Paghimo og 5 pa aron sulayan pag-usab.
+74971885	Mga pulong sa imong pinulongan nga kasingtunog niini, matag usa adunay hulagway alang sa kahulogan. Ang thumbs up magtipig og usa sa Personal nga mga note; ang thumbs down magwagtang niini sa hangtod.
+0f212aca	Wala ma-check ang ilang tingog karon.
+91eb1b29	Usa ra ka keyword ang igo nga kasingtunog aron ipakita.
+b668e8b3	{0} ra ka keyword ang igo nga kasingtunog aron ipakita.
+2f3a0211	Unsaon kini paglitok

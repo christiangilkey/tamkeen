@@ -1,0 +1,22 @@
+# Mnemonic maker: keywords checked for sound, each with a picture; thumbs up / down (2026-10-26)
+7a2b85cf	Las palabras que suenan parecido en el reverso de una tarjeta de repaso, cada una con una imagen para el significado. Usa la misma clave; pensar menos responde antes.
+887b7f56	{0} (recomendado)
+9bdce1a1	Cada pulsación cuesta mucho menos de un centavo de dólar.
+67e06558	Cada pulsación cuesta alrededor de un centavo de dólar.
+a8665558	Cada pulsación cuesta alrededor de {0} centavos de dólar.
+aaf7b28e	Guardada en Notas personales
+0c3e5d90	Guárdala en Notas personales
+7709c8d3	Esta no: no volver a sugerirla para esta palabra
+febeb00d	Esta no
+20be8cae	Suena parecida a la palabra
+12197aa2	Muy parecida
+8da4f709	Suena como una parte de la palabra, o más o menos como ella
+5d99bc5d	Parecida en parte
+48c1ab45	Encaja con el significado
+56732347	Las rechazaste todas. Pulsa Crear 5 más para ver otras nuevas.
+6657e44b	Ninguna palabra clave nueva sonaba lo bastante parecida a la palabra. Pulsa Crear 5 más para intentarlo de nuevo.
+74971885	Palabras de tu idioma que suenan parecido, cada una con una imagen para su significado. El pulgar arriba guarda una en Notas personales; el pulgar abajo la descarta para siempre.
+0f212aca	Esta vez no se pudo comprobar cómo suenan.
+91eb1b29	Solo 1 palabra clave sonaba lo bastante parecida para mostrarla.
+b668e8b3	Solo {0} palabras clave sonaban lo bastante parecidas para mostrarlas.
+2f3a0211	Cómo suena
