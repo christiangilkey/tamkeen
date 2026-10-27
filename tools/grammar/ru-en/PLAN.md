@@ -1,9 +1,9 @@
 # Russian → English: the plan
 
-**Status: draft.** The owner decided to finish the English-explained courses first and roll out the
-<lang> → English courses in a later update. The 49 lessons below are written and pass the checks, and
-`lessons.json` says `"draft": true`, so the build checks the course but doesn't publish it.
-Nothing more is to be written for now.
+**Status: complete, still a draft.** Paused on 2026-10-25 (the owner: English-explained courses first),
+then resumed. All 49 planned lessons are written, pass the checks and were proofread on 2026-10-25.
+`lessons.json` still says `"draft": true` (checked, not published) until the owner decides to roll
+out the <lang> → English courses; publishing it is then a matter of removing that line.
 
 American English taught to a Russian speaker, with every explanation written in natural Russian, for
 that speaker (not translated from an English course). From zero to everyday conversation (A2, touching
