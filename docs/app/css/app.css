@@ -2121,6 +2121,9 @@ html.sel-sheets select { pointer-events: none; }
 .gq-tile .gx-r, .gq-reply .gx-r { font-family: var(--ui-font); font-size: 12.5px; line-height: 1.25; }
 .gq .gq-reply { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .gq-fill-r { margin-top: -6px; }
+/* A common mistake's form with its reading under it. */
+.gm-body { display: flex; flex-direction: column; }
+.gm-body .gx-r { font-family: var(--ui-font); font-size: 13px; }
 
 /* ---------- the fix popup (components/fixit.js) ----------
    A problem the learner can put right: centred on every screen (other boxes rise from the bottom on a
@@ -2137,3 +2140,32 @@ html.sel-sheets select { pointer-events: none; }
 .fix-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
 .fix-actions button { width: 100%; min-height: 48px; font-size: 16.5px; font-weight: 600; border-radius: 14px; white-space: normal; }
 .fix-actions .fix-no { background: var(--surface-2); color: var(--text); }
+
+/* ---------- game controllers (gamepad.js, components/controllerpanel.js) ----------
+   The highlight the D-pad moves between buttons: a thick teal ring that shows on any background. */
+.pad-focus { outline: 3px solid var(--accent) !important; outline-offset: 3px !important; box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 25%, transparent) !important; border-radius: 10px; }
+/* Settings → Controller */
+.pad-list { display: grid; gap: 10px; }
+.pad-none { margin: 0; color: var(--muted); }
+.pad-item { display: flex; gap: 10px; align-items: flex-start; }
+.pad-item .small { overflow-wrap: anywhere; }
+.pad-dot { flex: none; width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 3px color-mix(in srgb, #2fbf71 25%, transparent); }
+.pad-kind { font-weight: 600; }
+.pad-last { margin: 10px 0 0; }
+.pad-steps { margin: 0; padding-inline-start: 20px; display: grid; gap: 8px; line-height: 1.45; }
+.pad-rows { display: grid; }
+.pad-row { display: grid; grid-template-columns: 1fr 132px 34px 34px; gap: 6px; align-items: center; padding: 6px 0; border-top: 1px solid var(--border); }
+.pad-row:first-child { border-top: 0; }
+.pad-act { min-width: 0; line-height: 1.3; }
+.pad-key { width: 100%; min-height: 36px; padding: 4px 10px; border-radius: 10px; font-weight: 600; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); white-space: normal; line-height: 1.15; }
+.pad-key.unset { color: var(--muted); font-weight: 400; font-style: italic; }
+.pad-key.waiting { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); animation: pad-wait 1s ease-in-out infinite; }
+@keyframes pad-wait { 50% { opacity: .55; } }
+.pad-row .icon { width: 34px; height: 34px; padding: 0; }
+.pad-row .icon:disabled { opacity: .3; }
+.pad-foot { margin-top: 10px; }
+@media (max-width: 420px) {
+  .pad-row { grid-template-columns: 1fr 112px 30px 30px; gap: 4px; }
+  .pad-key { padding: 4px 8px; }
+  .pad-row .icon { width: 30px; height: 30px; }
+}

@@ -85,6 +85,13 @@ const storeKey = (lang) => `ytCountry:${lang}`;
 export function chosenCountry(lang) {
   try { return countryFor(lang, localStorage.getItem(storeKey(lang))); } catch { return countryFor(lang, ""); }
 }
+/** The country the user picked for this language on this device, or "" if they never picked one
+ * (the review card's Mnemonic maker then says nothing about a dialect). */
+export function pickedCountry(lang) {
+  let raw = "";
+  try { raw = localStorage.getItem(storeKey(lang)) || ""; } catch { /* storage unavailable */ }
+  return raw ? countryFor(lang, raw) : "";
+}
 export function chooseCountry(lang, code) {
   try { localStorage.setItem(storeKey(lang), countryFor(lang, code)); } catch { /* storage unavailable */ }
 }

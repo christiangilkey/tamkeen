@@ -170,19 +170,37 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-field-head > span { padding-inline-start: 2px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-paste { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 600; }
 .rv-paste:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.15); }
-/* The Mnemonic maker: one button, then five sound-alikes, each with a copy button on its right. */
+/* The Mnemonic maker: one button; then how the word sounds (its syllables, the stressed one in capitals)
+   and the keywords. Each keyword: Copy / Keep / Not this one on its right; under it the word's syllables
+   with those it sounds like lit, how close it sounds (and "Fits the meaning" when it does), and its picture. */
 .rv-mnemo { display: flex; flex-direction: column; gap: 10px; }
 .rv-mnemo-go { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 14.5px; font-weight: 700; }
 .rv-mnemo-go:hover:not(:disabled) { background: var(--accent-soft); filter: brightness(1.12); }
 .rv-mnemo-go:disabled { opacity: .7; }
-.rv-mnemo-note { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
+.rv-mnemo-said { display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 4px; text-align: center; }
+.rv-mnemo-said[hidden] { display: none; }
+.rv-mnemo-said-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.rv-mnemo-syl { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: .02em; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+.rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
 .rv-mnemo-note.error { color: var(--danger); }
 .rv-mnemo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.rv-mnemo-list li { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 14px; border-radius: 12px; background: var(--surface-2); }
-.rv-mnemo-list .rv-mnemo-text { flex: 1; min-width: 0; font-size: 15.5px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
-.rv-copy { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; padding: 0 11px; border: 0; border-radius: 10px; background: var(--surface); color: var(--text); font-size: 12.5px; font-weight: 600; }
-.rv-copy:hover:not(:disabled) { background: var(--surface); filter: brightness(1.2); }
-.rv-copy.done { color: var(--accent); }
+.rv-mn { display: flex; flex-direction: column; gap: 5px; padding: 10px 8px 12px 14px; border-radius: 14px; background: var(--surface-2); }
+.rv-mn-top { display: flex; align-items: center; gap: 8px; }
+.rv-mn-word { flex: 1; min-width: 0; font-size: 18px; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+.rv-mn-acts { flex: none; display: flex; gap: 4px; }
+.rv-mn-btn { width: 36px; height: 36px; min-height: 0; padding: 0; border: 0; border-radius: 10px; display: grid; place-items: center; background: var(--surface); color: var(--text); }
+.rv-mn-btn:hover:not(:disabled) { background: var(--surface); filter: brightness(1.2); }
+.rv-mn-btn.done, .rv-mn-btn.done:disabled { color: var(--accent); opacity: 1; }
+.rv-mn-drop:hover:not(:disabled) { color: var(--danger); }
+.rv-mn-how { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.rv-mn-sounds { font-size: 14.5px; color: var(--muted); letter-spacing: .02em; overflow-wrap: anywhere; }
+.rv-mn-sounds[hidden] { display: none; }
+.rv-mn-sounds b { font-weight: 700; color: var(--hl-ink); background: var(--hl); border-radius: 5px; padding: 0 3px; }
+.rv-mn-mark { font-size: 11.5px; font-weight: 700; line-height: 1.5; padding: 1px 8px; border-radius: 99px; background: var(--surface); color: var(--muted); }
+.rv-mn-mark.close { color: var(--accent); }
+.rv-mn-mark.fits { background: var(--accent-soft); color: var(--accent); }
+.rv-mn-scene { margin: 0; font-size: 14.5px; line-height: 1.45; user-select: text; -webkit-user-select: text; }
+.rv-mn-scene[hidden] { display: none; }
 .rv-source { display: flex; align-items: center; gap: 10px; min-height: 38px; font-size: 12px; color: var(--muted); }
 .rv-source > span:first-child { flex: 1; text-align: start; }
 .rv-trash { flex: none; width: 38px; height: 38px; min-height: 0; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; background: transparent; color: var(--muted); margin-inline-end: -6px; }

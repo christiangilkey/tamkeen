@@ -26,6 +26,7 @@ import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
+import { controllerArea } from "../gamepad.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -872,9 +873,40 @@ async function renderPlayer(view, { query }) {
   const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w")) bubble.hide(); };
   document.addEventListener("pointerdown", onOutside);
 
+  // ----- game controller (gamepad.js; Settings → Controller) -----
+  const lineStartsNow = () => {
+    if (!cur) return [];
+    const out = [];
+    for (let k = 0; k < cur.starts.length; k++) if (k === 0 || cur.segOf[k] !== cur.segOf[k - 1]) out.push(cur.starts[k]);
+    return out;
+  };
+  const lineAt = (ls, t) => { let k = 0; while (k + 1 < ls.length && ls[k + 1] <= t + 0.05) k++; return k; };
+  const offPad = controllerArea("video", {
+    playPause: () => $("#rc-play").click(),
+    back5: () => $("#rc-back").click(),
+    fwd5: () => $("#rc-fwd").click(),
+    prevLine: () => { const ls = lineStartsNow(); if (ls.length && last) jumpTo(ls[Math.max(0, lineAt(ls, last.t) - 1)]); },
+    nextLine: () => { const ls = lineStartsNow(); const k = last ? lineAt(ls, last.t) + 1 : 0; if (k < ls.length) jumpTo(ls[k]); },
+    replayLine: () => {
+      const ls = lineStartsNow();
+      if (!ls.length || !last || !surface) return;
+      jumpTo(ls[lineAt(ls, last.t)]);
+      surface.do("play");
+    },
+    lookUp: () => {
+      if (!cur || !cur.starts.length) return;
+      define(curIdx >= 0 ? curIdx : Math.max(0, activeWordIndex(cur.starts, cur.ends, (last ? last.t : 0) + 0.01, 1e9)));
+    },
+    saveWord: () => { const b = bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
+    prevVideo: () => show(index - 1),
+    nextVideo: () => show(index + 1),
+    back: () => { if (bubble.open) { bubble.hide(); return true; } return false; },
+  });
+
   await show(index);
   return () => {
     disposed = true;
+    offPad();
     offVowels();
     offState();
     stopStudy();

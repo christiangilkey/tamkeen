@@ -92,7 +92,7 @@ export const DEFAULTS = {
   review_event: {}, // {day, id}: today's review event in Google Calendar, moved rather than added again
   definer_language: "English",
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
-  // The review card's Mnemonic maker: its own model ("" = fastest, "same" = the lookups') and thinking (definer.mnemonicConfig).
+  // The review card's Mnemonic maker: its own model ("" = recommended, a step up from the cheapest; "same" = the lookups') and thinking (definer.mnemonicConfig).
   mnemonic_model_claude: "", mnemonic_model_gemini: "", mnemonic_model_openai: "", mnemonic_model_grok: "", mnemonic_effort: "off",
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.
@@ -111,6 +111,7 @@ export const DEFAULTS = {
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
   grammar_progress: {}, // the grammar lessons finished, when and how well (web/js/grammardata.js); synced too
+  controller_map: {},  // the game controller's buttons, as changed from the defaults (web/js/padmap.js); synced too
   ig_collections: null, // saved Instagram collections found and the one chosen (web/js/igcollections.js); synced too
   game_sound: true,
   game_enabled: true,

@@ -35,6 +35,7 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 import { sentenceStart } from "../sentencestart.js";
+import { controllerArea } from "../gamepad.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
@@ -1115,6 +1116,46 @@ export async function render(view, { id, query }) {
   };
   document.addEventListener("keydown", onKey);
 
+  // ---------- game controller (gamepad.js; what each button does is in Settings → Controller) ----------
+  const lineAt = (t) => { let k = 0; while (k + 1 < lineStarts.length && lineStarts[k + 1] <= t + 0.05) k++; return k; };
+  const wordNow = () => (curIdx >= 0 ? curIdx : n ? Math.max(0, activeWordIndex(starts, ends, audio.currentTime + 0.01, 1e9)) : -1);
+  const setSpeed = (s) => { const sel = $("#speed"); sel.value = String(s); sel.dispatchEvent(new Event("change")); };
+  let normalSpeed = speed < 1 ? 1 : speed;
+  const offPad = controllerArea("video", {
+    playPause: () => $("#play").click(),
+    back5: () => $("#back5").click(),
+    fwd5: () => $("#fwd5").click(),
+    prevLine: () => { if (lineStarts.length) seekTo(lineStarts[Math.max(0, lineAt(audio.currentTime) - 1)], false); },
+    nextLine: () => { const k = lineAt(audio.currentTime) + 1; if (k < lineStarts.length) seekTo(lineStarts[k], false); },
+    replayLine: () => { if (lineStarts.length) seekTo(lineStarts[lineAt(audio.currentTime)], true); },
+    loopLine: () => {
+      if (loop) { clearLoop(); return; }
+      const i = wordNow();
+      if (i < 0) return;
+      let a = i;
+      let b = i;
+      while (a > 0 && segOf[a - 1] === segOf[i]) a--;
+      while (b < n - 1 && segOf[b + 1] === segOf[i]) b++;
+      setLoop(a, b);
+    },
+    slower: () => {
+      if (speed < 1) setSpeed(normalSpeed);
+      else { normalSpeed = speed; setSpeed(0.75); }
+      toast(speed < 1 ? t("Slowed down to {0}×", speed) : t("Back to {0}× speed", speed));
+    },
+    lookUp: () => { const i = wordNow(); if (i >= 0) defineAt(i, i, capWord(i) || null); },
+    saveWord: () => { const b = bubble && bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
+    ...(vid ? {
+      captions: () => setCaptions(playerEl.classList.contains("cc-off")),
+      transcript: () => setPanel(!playerEl.classList.contains("panel-open")),
+    } : {}),
+    back: () => {
+      if (bubble && bubble.open) { bubble.hide(); return true; }
+      if (loop) { clearLoop(); return true; }
+      return false;
+    },
+  });
+
   // ---------- media keys ----------
   if ("mediaSession" in navigator && !embed) {
     try {
@@ -1164,6 +1205,7 @@ export async function render(view, { id, query }) {
     trPicker.destroy();
     if (capPicker) capPicker.destroy();
     document.removeEventListener("keydown", onKey);
+    offPad();
     hideMenu();
   };
 }

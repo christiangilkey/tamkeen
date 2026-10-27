@@ -8,6 +8,12 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.39.0",
+  "Better mnemonics: keywords that really sound like the word, linked to its meaning, each with a picture",
+  "Game controller support for videos and review cards",
+  "A final read-through of every grammar course",
+  "Grammar lessons are marked done on phones and the web app");
+
 notes("0.38.0",
   "Grammar courses for learning English, explained in your own language",
   "Review cards: the translation on the back, tap any text to fix it, hold a word to highlight it",

@@ -41,6 +41,7 @@ import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
+import { startGamepad } from "./gamepad.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { voiceTimes } from "./cardvoice.js";
 import { vocabDeck } from "./anki-export.js";
@@ -1069,6 +1070,7 @@ export async function saveSettings(values) {
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   if ("grammar_progress" in values) requestSync(30000); // and grammar lessons finished
+  if ("controller_map" in values) requestSync(30000); // and the game controller's buttons
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;
@@ -1360,6 +1362,7 @@ async function boot() {
   window.addEventListener("hashchange", route);
   initSwipe();
   initScrollHints(); // rows that scroll sideways show that they do
+  startGamepad(); // a game controller, once one is connected (gamepad.js; Settings → Controller)
   route();
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountInstallButton(document.querySelector(".topbar")); // the web app: how to add it to the home screen

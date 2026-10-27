@@ -30,11 +30,12 @@ import { setWordSplitter } from "../languages.js";
 import { ChineseDictionary, chineseWords, pinyinSyllables } from "./chinese.js";
 import { furigana, japaneseWords } from "./japanese.js";
 import { JapaneseDictionary } from "./kuromoji.js";
-import { dictionaries, downloadDictionaries, lexiconStatus, removeDictionaries } from "./seen.js";
+import { dictionaries, downloadDictionaries, lexiconStatus, pronounceWord, removeDictionaries } from "./seen.js";
 import { ThaiReadings } from "./thai.js";
 import { HindiReadings } from "./hindi.js";
 import { LemmaTable } from "./romance.js";
 import { romanize } from "./korean.js";
+import { stressed } from "./russian.js";
 
 export const READING_LANGUAGES = new Set(["ja", "zh", "th", "hi", "ko"]);
 
@@ -191,6 +192,34 @@ function hindiHtml(dict, text) {
 export async function hindiReading(word) {
   const dict = (await readingsReady("hi", 5000)) || new HindiReadings();
   return dict.reading(String(word ?? "").trim());
+}
+
+/**
+ * How a word is said, as far as the app's own dictionaries on this device know it, for the review
+ * card's Mnemonic maker (so the AI is told the word's sounds instead of guessing them from its
+ * spelling): Japanese in kana, Chinese in pinyin, Thai, Hindi and Korean in Latin letters, Russian
+ * with its stress marked, English in IPA. "" when nothing is known (or for other languages). Never
+ * downloads anything, and gives up after a few seconds rather than keep the card waiting.
+ */
+export async function wordReading(word, lang) {
+  const w = String(word ?? "").trim();
+  if (!w) return "";
+  try {
+    if (lang === "ja" || lang === "zh") {
+      const dict = await readingsReady(lang, 4000);
+      if (!dict) return "";
+      if (lang === "ja") return japaneseWords(dict, w).flatMap((x) => x.parts.map((p) => p.reading || p.text)).join("").trim();
+      return chineseWords(dict, w).flatMap((x) => (x.pinyin ? pinyinSyllables(x.pinyin).map((s) => s.text) : [x.text.trim()])).filter(Boolean).join(" ");
+    }
+    if (lang === "ru") {
+      const table = ((await dictionaries("ru")) || []).find((d) => d instanceof LemmaTable);
+      if (!table) return "";
+      const marked = w.split(/(\s+)/).map((part) => (/\S/.test(part) ? stressed(part, table) : part)).join("");
+      return marked === w ? "" : marked;
+    }
+    if (lang === "th" || lang === "hi" || lang === "ko" || lang === "en") return await pronounceWord(w, lang);
+  } catch { /* nothing known: the AI works it out */ }
+  return "";
 }
 
 /** The HTML for a word or text of `lang` on screen: furigana / pinyin / Thai readings when they are

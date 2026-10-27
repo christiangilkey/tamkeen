@@ -10,12 +10,12 @@
 // (definer.dictionaryFirst), which shows both the download row and the key settings.
 
 import { esc, h, platform, state, saveSettings } from "../app.js";
-import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, centsPerMillion, cleanKey, define, definerModeOf,
-  keyProvider, mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
+import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, askMnemonicJson, centsPerMillion, cleanKey, define, definerModeOf,
+  keyProvider, mnemonicCents, mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { downloadMeanings, meaningsStatus, removeMeanings } from "../meanings.js";
 import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
-import { soundAlikes } from "../review/mnemonic.js";
+import { makeMnemonics, syllableLine } from "../review/mnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
 import { icon } from "../icons.js";
 import "./settingsui.js"; // (the looks of the "More options" fold)
@@ -96,7 +96,7 @@ export function aiSetup(section, { transport }) {
         <span id="def-use-detail"></span></div>
       <div class="ai-mnemo" data-find="mnemonic">
         <div class="ai-mnemo-head"><strong>Mnemonic maker</strong>
-          <span class="small muted">The sound-alike words on the back of a review card. It uses the same key; less thinking answers sooner.</span></div>
+          <span class="small muted">The sound-alike words on the back of a review card, each with a picture for the meaning. It uses the same key; less thinking answers sooner.</span></div>
         <div class="ai-mnemo-row">
           <div class="ai-field"><label for="mn-model">Model</label><select id="mn-model"></select></div>
           <div class="ai-field" id="mn-think-field"><label for="mn-think">Thinking</label>
@@ -104,6 +104,7 @@ export function aiSetup(section, { transport }) {
           <div class="ai-field ai-test"><button type="button" id="mn-test">Try it</button></div>
         </div>
         <div class="small muted" id="mn-note"></div>
+        <div class="small muted" id="mn-cost"></div>
         <div class="small" id="mn-test-result" role="status"></div>
       </div>
       </div></details>
@@ -255,15 +256,19 @@ export function aiSetup(section, { transport }) {
   // ----- the Mnemonic maker: its own model and thinking level -----
   const mnModel = $("#mn-model"), mnThink = $("#mn-think");
   const lookupModel = () => (model === OTHER ? $("#def-model-other").value.trim() : model) || PROVIDERS[prov()].defaultModel;
-  const mnConfig = () => mnemonicConfig({ provider: prov(), key: cleanKey($("#def-key").value), model: lookupModel() },
-    { ...cur(), [`mnemonic_model_${prov()}`]: mnModel.value, mnemonic_effort: mnThink.value });
+  const mnBase = () => ({ provider: prov(), key: cleanKey($("#def-key").value), model: lookupModel() });
+  const mnSettings = () => ({ ...cur(), [`mnemonic_model_${prov()}`]: mnModel.value, mnemonic_effort: mnThink.value });
+  const mnConfig = () => mnemonicConfig(mnBase(), mnSettings());
+  const modelName = (p, id) => (PROVIDERS[p].models.find((m) => m.id === id) || { name: id }).name;
   function paintMnemonic() {
     const p = prov(), info = PROVIDERS[p];
     const pick = cur()[`mnemonic_model_${p}`] || "";
-    const fastest = info.models.find((m) => m.id === info.defaultModel);
-    const opts = [`<option value="">${esc(fastest ? fastest.name : info.defaultModel)} (fastest, recommended)</option>`,
+    // "" (recommended): the model a step up from the cheapest (definer.mnemonicConfig), or the word
+    // definitions' own when that is stronger still.
+    const recommended = mnemonicConfig({ provider: p, model: lookupModel() }, {}).model;
+    const opts = [`<option value="">${esc(modelName(p, recommended))} (recommended)</option>`,
       `<option value="${SAME_MODEL}">Same as word definitions</option>`,
-      ...info.models.filter((m) => m.id !== info.defaultModel).map((m) => `<option value="${esc(m.id)}">${esc(m.name)} (${esc(m.note)})</option>`)];
+      ...info.models.filter((m) => m.id !== recommended).map((m) => `<option value="${esc(m.id)}">${esc(m.name)} (${esc(m.note)})</option>`)];
     if (pick && pick !== SAME_MODEL && !info.models.some((m) => m.id === pick)) opts.push(`<option value="${esc(pick)}">${esc(pick)}</option>`);
     mnModel.innerHTML = opts.join("");
     mnModel.value = pick;
@@ -271,16 +276,23 @@ export function aiSetup(section, { transport }) {
     paintThinking();
     $("#mn-test-result").textContent = "";
   }
-  // The thinking choice only where the chosen model takes one, with a word where "Off" can't be quite off.
+  // The thinking choice only where the chosen model takes one, with a word where "Off" can't be quite off;
+  // and about what one press costs with the chosen model.
   function paintThinking() {
-    const t = thinkingFor(prov(), mnConfig().model);
+    const cfg = mnConfig();
+    const t = thinkingFor(prov(), cfg.model);
     $("#mn-think-field").hidden = !t.ok;
     $("#mn-note").textContent = t.ok ? t.note : "This model doesn't take a thinking setting.";
+    const m = PROVIDERS[prov()].models.find((x) => x.id === cfg.model);
+    const cents = m ? mnemonicCents(m) : 0;
+    $("#mn-cost").textContent = !m ? "" : cents < 0.5 ? "Each press costs well under one US cent."
+      : cents < 1.5 ? "Each press costs about one US cent." : `Each press costs about ${Math.round(cents)} US cents.`;
   }
   mnModel.onchange = async () => { await saveSettings({ [`mnemonic_model_${prov()}`]: mnModel.value }); paintThinking(); };
   mnThink.onchange = () => saveSettings({ mnemonic_effort: mnThink.value });
   paintMnemonic();
-  // Try it: five sound-alikes for the example word, and how long they took.
+  // Try it: keywords for the example word, how long they took, and which model answered (the word
+  // definitions' one when the key can't use the recommended model: definer.askMnemonicJson).
   $("#mn-test").onclick = async (e) => {
     const out = $("#mn-test-result");
     e.target.disabled = true;
@@ -290,9 +302,13 @@ export function aiSetup(section, { transport }) {
     const lang = langInfo(studyLanguage());
     const speaks = (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name;
     const t0 = performance.now();
+    let used = "";
     try {
-      const items = await soundAlikes({ text: lang.test.word }, { ask: (q) => askJson(mnConfig(), q, transport), study: lang.name, speaks });
-      out.textContent = `✓ ${((performance.now() - t0) / 1000).toFixed(1)} s: ${lang.test.word} → ${items.join(" · ")}`;
+      const got = await makeMnemonics({ text: lang.test.word }, {
+        ask: (q) => askMnemonicJson(mnBase(), mnSettings(), q, transport, (m) => { used = m; }), study: lang.name, speaks });
+      const said = syllableLine(got.pron);
+      const words = [...got.items, ...got.parts].map((s) => s.keyword);
+      out.textContent = `✓ ${((performance.now() - t0) / 1000).toFixed(1)} s, ${modelName(prov(), used)}: ${lang.test.word}${said ? ` (${said})` : ""} → ${words.join(" · ") || "–"}`;
       out.style.color = "var(--accent)";
     } catch (err) {
       out.textContent = err.message === "NO_KEY" ? "Add your API key above first." : err.message;

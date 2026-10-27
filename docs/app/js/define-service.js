@@ -1,7 +1,7 @@
 // Phone glue for the shared definer: settings, the synced answer cache, and native HTTPS.
 
 import { api } from "./app.js";
-import { DefinerError, askJson, definerModeOf, dictionaryFirst, lookup, mnemonicConfig, rememberAnswer, PROVIDERS } from "./definer.js";
+import { DefinerError, askJson, askMnemonicJson, definerModeOf, dictionaryFirst, lookup, rememberAnswer, PROVIDERS } from "./definer.js";
 import { dictionaryDefine, downloadMeanings } from "./meanings.js";
 import "./tokenuse.js"; // keeps the day's count of tokens used (shown in Settings)
 import { settings } from "./store.js";
@@ -42,8 +42,9 @@ export async function transport(req) {
 
 /** A small JSON answer from the learner's AI (see definer.askJson), sent the same way as a lookup. */
 export const askAi = (prompt) => (noAi() ? aiOff() : askJson(definerConfig(), prompt, transport));
-/** The same for the review card's Mnemonic maker, with its own model and thinking (Settings). */
-export const askMnemonic = (prompt) => (noAi() ? aiOff() : askJson(mnemonicConfig(definerConfig(), settings), prompt, transport));
+/** The same for the review card's Mnemonic maker, with its own model and thinking (Settings), and the
+ * lookups' model when the key can't use the recommended one (definer.askMnemonicJson). */
+export const askMnemonic = (prompt) => (noAi() ? aiOff() : askMnemonicJson(definerConfig(), settings, prompt, transport));
 
 /** `opts.quick` = only the meaning is wanted (see components/lookupmode.js): a full answer already
  * kept is used as it is, otherwise a short, cheaper request is made. */
