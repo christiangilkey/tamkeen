@@ -1,0 +1,4 @@
+fa49a9d0 Mas maayong mnemonic: mga keyword nga tinuod nga susama og tingog sa pulong, may kalabotan sa kahulugan, matag usa adunay hulagway
+031d1452 Suporta sa game controller para sa mga video ug review card
+def685d6 Katapusang pagbasa sa tanang kurso sa gramatika
+66e5ddd1 Namarkahan nang nahuman ang mga leksyon sa gramatika sa phone ug web app

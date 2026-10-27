@@ -1,0 +1,4 @@
+fa49a9d0 Mejores mnemotecnias: palabras clave que de verdad suenan como la palabra, ligadas a su significado, cada una con una imagen
+031d1452 Compatibilidad con mandos para vídeos y tarjetas de repaso
+def685d6 Una revisión final de todos los cursos de gramática
+66e5ddd1 Las lecciones de gramática se marcan como hechas en el móvil y en la app web

@@ -1,0 +1,4 @@
+fa49a9d0 Mnemônicos melhores: palavras-chave que realmente soam como a palavra, ligadas ao significado, cada uma com uma imagem
+031d1452 Suporte a controles para vídeos e cartões de revisão
+def685d6 Uma revisão final de todos os cursos de gramática
+66e5ddd1 As lições de gramática são marcadas como concluídas no celular e no app web

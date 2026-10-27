@@ -17050,6 +17050,26 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "fa49a9d0",
+  "k": "Better mnemonics: keywords that really sound like the word, linked to its meaning, each with a picture",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "031d1452",
+  "k": "Game controller support for videos and review cards",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "def685d6",
+  "k": "A final read-through of every grammar course",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "66e5ddd1",
+  "k": "Grammar lessons are marked done on phones and the web app",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "ee9fc3ee",
   "k": "Grammar courses for learning English, explained in your own language",
   "f": "web/js/whatsnew.js"

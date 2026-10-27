@@ -1,0 +1,4 @@
+fa49a9d0 Mas mahusay na mnemonic: mga keyword na talagang kahawig ng tunog ng salita, kaugnay ng kahulugan nito, bawat isa ay may larawan
+031d1452 Suporta sa game controller para sa mga video at review card
+def685d6 Huling pagbasa sa lahat ng kurso sa gramatika
+66e5ddd1 Namamarkahan nang tapos ang mga aralin sa gramatika sa phone at web app

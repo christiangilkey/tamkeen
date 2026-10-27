@@ -1,0 +1,4 @@
+fa49a9d0 De meilleurs moyens mnémotechniques : des mots-clés qui sonnent vraiment comme le mot, liés à son sens, chacun avec une image
+031d1452 Prise en charge des manettes pour les vidéos et les cartes de révision
+def685d6 Une dernière relecture de tous les cours de grammaire
+66e5ddd1 Les leçons de grammaire sont marquées comme faites sur téléphone et dans l'appli web

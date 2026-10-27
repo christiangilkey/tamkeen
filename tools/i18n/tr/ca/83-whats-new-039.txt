@@ -1,0 +1,4 @@
+fa49a9d0 Mnemotècnies millors: paraules clau que de debò sonen com la paraula, lligades al significat, cadascuna amb una imatge
+031d1452 Compatibilitat amb comandaments per als vídeos i les targetes de repàs
+def685d6 Una revisió final de tots els cursos de gramàtica
+66e5ddd1 Les lliçons de gramàtica es marquen com a fetes al mòbil i a l'app web

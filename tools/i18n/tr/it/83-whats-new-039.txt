@@ -1,0 +1,4 @@
+fa49a9d0 Mnemotecniche migliori: parole chiave che suonano davvero come la parola, legate al significato, ognuna con un'immagine
+031d1452 Supporto per i controller nei video e nelle schede di ripasso
+def685d6 Una revisione finale di tutti i corsi di grammatica
+66e5ddd1 Le lezioni di grammatica vengono segnate come fatte sul telefono e nell'app web

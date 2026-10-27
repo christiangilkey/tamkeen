@@ -1,0 +1,4 @@
+fa49a9d0 Bessere Eselsbrücken: Schlüsselwörter, die wirklich wie das Wort klingen und zur Bedeutung passen, jedes mit einem Bild
+031d1452 Controller-Unterstützung für Videos und Lernkarten
+def685d6 Eine letzte Durchsicht aller Grammatikkurse
+66e5ddd1 Grammatiklektionen werden auf dem Handy und in der Web-App als erledigt markiert
