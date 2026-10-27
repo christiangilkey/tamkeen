@@ -503,6 +503,10 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-head { display: flex; align-items: flex-start; gap: 8px; }
 .wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
 .wb-word.wb-phrase { font-size: 24px; min-width: 0; overflow-wrap: anywhere; } /* several words looked up together */
+/* A long run of words shows at most three lines and scrolls by itself, so the explanation under it always
+   has room (the owner: a long selection "will cover the entire screen"). */
+.wb-word.wb-phrase { font-size: 21px; line-height: 1.35; max-height: calc(3 * 1.35em + 4px); overflow-y: auto;
+  overscroll-behavior: contain; scrollbar-width: thin; }
 .wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
 /* With a mouse, the close button sits at the end of the bottom row (the owner: easier to reach

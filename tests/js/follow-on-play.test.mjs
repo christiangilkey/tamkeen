@@ -22,3 +22,7 @@ test("a reel's words follow the word being said again when it plays again", () =
 test("the word popup's source menu keeps its height", () => {
   assert.match(read("web/css/media.css"), /\.word-bubble > \.wb-srcmenu \{ flex: 0 0 auto; max-height: 75%; overflow-y: auto;/);
 });
+
+test("a long run of words in the popup scrolls by itself, so its explanation always has room", () => {
+  assert.match(read("web/css/app.css"), /\.wb-word\.wb-phrase \{ font-size: 21px; line-height: 1\.35; max-height: calc\(3 \* 1\.35em \+ 4px\); overflow-y: auto;/);
+});

@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Looking up a long run of words together could fill the whole word popup with the words themselves, hiding their explanation. The words now take at most three lines (scroll them to see the rest), and the explanation shows under them and scrolls as usual.
 - **New:** A round **?** in the top bar of every screen shows how to use that screen, as often as you like: each button is outlined in turn with a line on what it does. The players (podcasts, videos, reels, webpages and books) have a full walk-through: an animated fingertip shows how to tap a word, and how to hold one and slide across the next words to look them up together; then pictures of the word popup and its buttons, Save, and the label that says where a meaning came from, with how to switch to the built-in dictionary (Wiktionary). The reviewer has its own ? beside its settings. On a computer the ? key does the same.
 
 - **Improved:** Pressing play brings the transcript (and the line of words under a reel) back to the word being said, also after you scrolled away from it while paused.
