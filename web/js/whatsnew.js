@@ -8,6 +8,14 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.40.0",
+  "A fresh look: new fonts for the app's text, titles and numbers",
+  "A ? on every screen shows how to use it",
+  "Look up any run of words together, across lines, up to 30 words",
+  "The Library remembers which kind you were looking at",
+  "Reels from your Instagram saves download far more reliably",
+  "A tidier word popup and reels page on phones");
+
 notes("0.39.0",
   "Better mnemonics: keywords that really sound like the word, linked to its meaning, each with a picture",
   "Game controller support for videos and review cards",

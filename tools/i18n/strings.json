@@ -17655,6 +17655,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "a1205574",
+  "k": "A fresh look: new fonts for the app's text, titles and numbers",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "5986126f",
+  "k": "A ? on every screen shows how to use it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6d6dc143",
+  "k": "Look up any run of words together, across lines, up to 30 words",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "5e61e23f",
+  "k": "The Library remembers which kind you were looking at",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6a12682b",
+  "k": "Reels from your Instagram saves download far more reliably",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a2722041",
+  "k": "A tidier word popup and reels page on phones",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "fa49a9d0",
   "k": "Better mnemonics: keywords that really sound like the word, linked to its meaning, each with a picture",
   "f": "web/js/whatsnew.js"

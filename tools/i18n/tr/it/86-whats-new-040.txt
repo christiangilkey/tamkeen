@@ -1,0 +1,6 @@
+a1205574 Un aspetto nuovo: nuovi caratteri per i testi, i titoli e i numeri dell'app
+5986126f Un ? in ogni schermata mostra come usarla
+6d6dc143 Cerca insieme qualsiasi serie di parole, anche su più righe, fino a 30 parole
+5e61e23f La Libreria ricorda il tipo che stavi guardando
+6a12682b I reel dai tuoi salvati di Instagram si scaricano in modo molto più affidabile
+a2722041 Finestra delle parole e pagina dei reel più ordinate sul telefono

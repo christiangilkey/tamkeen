@@ -1,0 +1,6 @@
+a1205574 Un nouveau look : de nouvelles polices pour le texte, les titres et les nombres de l'appli
+5986126f Un ? sur chaque écran montre comment l'utiliser
+6d6dc143 Cherche n'importe quelle suite de mots ensemble, sur plusieurs lignes, jusqu'à 30 mots
+5e61e23f La Bibliothèque se souvient du type que tu regardais
+6a12682b Les reels de tes enregistrements Instagram se téléchargent de façon bien plus fiable
+a2722041 Une fenêtre de mots et une page de reels plus nettes sur téléphone

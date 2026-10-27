@@ -1,0 +1,6 @@
+a1205574 Bag-ong hitsura: bag-ong mga font para sa teksto, titulo ug numero sa app
+5986126f Adunay ? sa matag screen nga nagpakita unsaon kini paggamit
+6d6dc143 Pangitaa dungan ang bisan unsang sunod-sunod nga pulong, bisan molapas sa linya, hangtod 30 ka pulong
+5e61e23f Nahinumdom ang Library kung unsang matang ang katapusan nimong gitan-aw
+6a12682b Mas kasaligan na ang pag-download sa mga reel gikan sa imong mga save sa Instagram
+a2722041 Mas hapsay nga word popup ug panid sa reels sa phone

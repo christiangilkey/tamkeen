@@ -1,0 +1,6 @@
+a1205574 Bagong itsura: mga bagong font para sa teksto, pamagat at numero ng app
+5986126f May ? sa bawat screen na nagpapakita kung paano ito gamitin
+6d6dc143 Hanapin nang sabay ang anumang sunod-sunod na salita, kahit lampas sa linya, hanggang 30 salita
+5e61e23f Naaalala ng Library kung aling uri ang huli mong tiningnan
+6a12682b Mas maaasahan na ang pag-download ng mga reel mula sa iyong mga save sa Instagram
+a2722041 Mas maayos na word popup at pahina ng reels sa phone

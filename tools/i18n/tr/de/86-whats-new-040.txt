@@ -1,0 +1,6 @@
+a1205574 Ein frischer Look: neue Schriften für Texte, Überschriften und Zahlen der App
+5986126f Ein ? auf jedem Bildschirm zeigt, wie er funktioniert
+6d6dc143 Schlage beliebig viele aufeinanderfolgende Wörter zusammen nach, auch über Zeilen hinweg, bis zu 30 Wörter
+5e61e23f Die Bibliothek merkt sich, welche Art du zuletzt angesehen hast
+6a12682b Reels aus deinen Instagram-Speicherungen laden viel zuverlässiger herunter
+a2722041 Aufgeräumteres Wort-Popup und Reels-Seite auf dem Handy

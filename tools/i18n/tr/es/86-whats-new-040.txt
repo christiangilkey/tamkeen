@@ -1,0 +1,6 @@
+a1205574 Un aspecto nuevo: nuevas fuentes para el texto, los títulos y los números de la app
+5986126f Un ? en cada pantalla muestra cómo usarla
+6d6dc143 Busca cualquier serie de palabras juntas, entre líneas, hasta 30 palabras
+5e61e23f La Biblioteca recuerda qué tipo estabas viendo
+6a12682b Los reels de tus guardados de Instagram se descargan de forma mucho más fiable
+a2722041 Una ventana de palabras y una página de reels más ordenadas en el móvil

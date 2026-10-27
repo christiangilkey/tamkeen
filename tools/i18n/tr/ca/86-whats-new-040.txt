@@ -1,0 +1,6 @@
+a1205574 Un aspecte nou: noves fonts per als textos, els títols i els números de l'app
+5986126f Un ? a cada pantalla mostra com fer-la servir
+6d6dc143 Cerca qualsevol sèrie de paraules juntes, entre línies, fins a 30 paraules
+5e61e23f La Biblioteca recorda quin tipus estaves mirant
+6a12682b Els reels dels teus desats d'Instagram es baixen de manera molt més fiable
+a2722041 Una finestra de paraules i una pàgina de reels més endreçades al mòbil
