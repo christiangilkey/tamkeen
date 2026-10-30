@@ -1,0 +1,3 @@
+d439b03b Livres audio dans la Bibliothèque : des livres gratuits de LibriVox dans ta langue, ou ajoute tes propres fichiers
+91ab4d7a Une manette type Xbox fonctionne sur tous les écrans, avec un guide des boutons
+a62b673a Vidéos YouTube sans sous-titres : Gemini peut les écrire pour toi

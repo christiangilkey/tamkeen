@@ -1,0 +1,3 @@
+d439b03b Audiollibres a la Biblioteca: llibres gratuïts de LibriVox en la teva llengua, o afegeix els teus propis fitxers
+91ab4d7a Un comandament tipus Xbox funciona a totes les pantalles, amb una guia dels botons
+a62b673a Vídeos de YouTube sense subtítols: Gemini els pot escriure per tu

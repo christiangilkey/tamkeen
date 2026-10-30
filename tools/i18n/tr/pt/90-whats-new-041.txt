@@ -1,0 +1,3 @@
+d439b03b Audiolivros na Biblioteca: livros grátis do LibriVox no seu idioma, ou adicione seus próprios arquivos de audiolivro
+91ab4d7a Um controle estilo Xbox funciona em todas as telas, com um guia de botões
+a62b673a Vídeos do YouTube sem legendas: o Gemini pode escrevê-las para você

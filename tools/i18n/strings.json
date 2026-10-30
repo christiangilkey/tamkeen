@@ -18400,6 +18400,21 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "d439b03b",
+  "k": "Audiobooks in the Library: free LibriVox books in your language, or add your own audiobook files",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "91ab4d7a",
+  "k": "An Xbox-style controller works on every screen, with a button guide",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a62b673a",
+  "k": "YouTube videos without captions: Gemini can write them for you",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "a1205574",
   "k": "A fresh look: new fonts for the app's text, titles and numbers",
   "f": "web/js/whatsnew.js"
