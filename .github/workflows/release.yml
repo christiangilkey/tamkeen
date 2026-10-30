@@ -38,7 +38,7 @@ jobs:
         include:
           - os: windows-latest
             target: windows
-          - os: macos-14          # Apple Silicon
+          - os: macos-15          # Apple Silicon (macos-14 is retired on 2026-11-02)
             target: macos
           - os: ubuntu-22.04      # oldest supported glibc, so the AppImage runs on newer distros
             target: linux
