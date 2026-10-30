@@ -162,6 +162,28 @@ const PATHS = {
     <circle cx="12" cy="13.2" r="3.3"/>`,
   image: `<rect class="fill" x="3.5" y="4.5" width="17" height="15" rx="2.6"/><rect x="3.5" y="4.5" width="17" height="15" rx="2.6"/>
     <circle cx="9" cy="9.6" r="1.6"/><path d="M4 17.4l4.6-4.6 3.3 3.3 2.5-2.5 5.6 5.6"/>`,
+  // Audiobooks (LibriVox): a book that speaks.
+  audiobook: `<rect class="fill" x="3.5" y="4" width="10.5" height="16" rx="1.8"/>
+    <rect x="3.5" y="4" width="10.5" height="16" rx="1.8"/><path d="M6.8 4v16"/><path d="M17 9.2a4 4 0 0 1 0 5.6M19.6 6.6a7.6 7.6 0 0 1 0 10.8"/>`,
+  // The audiobook categories (audiobooks.js CATEGORIES), one plain drawing each.
+  key: `<circle class="fill" cx="8" cy="15.5" r="4"/><circle cx="8" cy="15.5" r="4"/><path d="M10.9 12.6 19.5 4M16 7.5l2.4 2.4M18.3 5.2l2 2"/>`,
+  planet: `<circle class="fill" cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="5.5"/>
+    <ellipse cx="12" cy="12" rx="10" ry="3.6" transform="rotate(-24 12 12)"/>`,
+  stories: `<rect class="fill" x="8" y="3.5" width="11.5" height="14.5" rx="2"/>
+    <path d="M5 7v11a2.5 2.5 0 0 0 2.5 2.5H15"/><rect x="8" y="3.5" width="11.5" height="14.5" rx="2"/><path d="M11 8h5.5M11 11h5.5M11 14h3.5"/>`,
+  wand: `<path d="M4 20 14.5 9.5"/><path class="fill" d="M17 3.5l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/>
+    <path d="M17 3.5l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path d="M8 4.5v2M7 5.5h2M19.5 15.5v2M18.5 16.5h2"/>`,
+  feather: `<path class="fill" d="M19.5 4.5C12 4.5 6.5 9.5 6.5 17.5c8 0 13-5.5 13-13z"/>
+    <path d="M19.5 4.5C12 4.5 6.5 9.5 6.5 17.5c8 0 13-5.5 13-13z"/><path d="M4 20l11-11"/>`,
+  mask: `<path class="fill" d="M5 4.5h14V11a7 7 0 0 1-14 0z"/><path d="M5 4.5h14V11a7 7 0 0 1-14 0z"/>
+    <path d="M8.5 9.5h2M13.5 9.5h2"/><path d="M9 13.5a3.5 3.5 0 0 0 6 0"/>`,
+  landmark: `<path class="fill" d="M3.5 9 12 4l8.5 5z"/><path d="M3.5 9 12 4l8.5 5z"/><path d="M6 11.5v5.5M10 11.5v5.5M14 11.5v5.5M18 11.5v5.5M4 19.5h16"/>`,
+  person: `<circle class="fill" cx="12" cy="8" r="3.6"/><path class="fill" d="M5 20a7 7 0 0 1 14 0z"/>
+    <circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/>`,
+  candle: `<rect class="fill" x="9" y="10" width="6" height="8.5" rx="1.2"/><rect x="9" y="10" width="6" height="8.5" rx="1.2"/>
+    <path d="M12 3.5c1.7 1.9 2.1 3.1 2.1 4a2.1 2.1 0 0 1-4.2 0c0-.9.4-2.1 2.1-4z"/><path d="M6 20.5h12"/>`,
+  bulb: `<path class="fill" d="M12 3.5a6 6 0 0 0-3.5 10.9c.6.4.9 1.1.9 1.8v.8h5.2v-.8c0-.7.3-1.4.9-1.8A6 6 0 0 0 12 3.5z"/>
+    <path d="M12 3.5a6 6 0 0 0-3.5 10.9c.6.4.9 1.1.9 1.8v.8h5.2v-.8c0-.7.3-1.4.9-1.8A6 6 0 0 0 12 3.5z"/><path d="M9.6 20.5h4.8"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

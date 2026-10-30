@@ -1,0 +1,47 @@
+722e26d3 Policier et mystère
+5f1d8a37 Fantasy et science-fiction
+0a033d11 Nouvelles
+7b98a058 Jeunesse
+6e70435b Mythes et contes
+4674e99a Poésie
+a6bc73a2 Théâtre
+4024c0d2 Vies et correspondances
+b04d58c6 Religion
+496e9438 Philosophie
+cb5ba5fa Sciences et nature
+48703f3c Tous les livres audio
+81ceefa8 Impossible d'accéder à la liste des livres audio de Tamkeen. Vérifiez votre connexion et réessayez.
+5db44445 Livre audio
+ae00f13b Des livres audio gratuits de LibriVox, par catégorie, chapitre par chapitre
+e837f01b Chargement des livres audio…
+80e20bba Enregistrements gratuits du domaine public de <0>LibriVox</0>, lus par des bénévoles.
+f392e049 Rechercher des livres audio
+57c19587 Rechercher des livres audio en {0:lower}
+87e2c774 Livres audio
+7eef53ad Pas encore de livres audio en {0:lower}
+e254698c LibriVox, d'où viennent ces livres audio gratuits, n'a pas encore d'enregistrement terminé en {0:lower}. Ses bénévoles terminent de nouveaux livres chaque semaine : revenez voir plus tard. Vous pouvez toujours ajouter votre propre fichier de livre audio (Fichier audio).
+ff114248 LibriVox n'a pour l'instant qu'un seul livre audio en {0:lower}.
+c3d92fd7 LibriVox n'a pour l'instant que {0} livres audio en {1:lower}.
+4d72cd86 ‹ Catégories
+c6b81c13 Aucun livre audio ne correspond à « {0} ».
+0d8c15ee Pas encore de livres audio ici.
+da143272 1 livre audio
+4dcc04dc {0} livres audio
+25911d48 Afficher plus
+3e74cdf5 1 chapitre
+39f461f8 {0} chapitres
+eac3337d « {0} » ajouté. Son premier chapitre est en cours de transcription.
+6a0b24d6 « {0} » ajouté. Votre ordinateur transcrira son premier chapitre à la prochaine synchronisation.
+ba59d11c « {0} » ajouté. Ses chapitres vont apparaître dans un instant.
+c1849a7f « {0} » ajouté.
+37740b4b Ajoutez des livres audio gratuits avec le bouton + en bas.
+21335e97 {0}/{1} transcrits
+31d30b62 Réécouter
+be1c0836 Commencer l'écoute
+9d2549b4 Son premier chapitre est encore en cours de transcription. Il s'ouvrira ici dès qu'il sera prêt.
+daa0c37b Retirer le livre audio
+f3cc502f Passez de vos cours aux podcasts, vidéos YouTube, pages web, livres, livres audio, reels et à vos propres vidéos.
+0a98822e Ajoutez de quoi apprendre : un podcast, une vidéo YouTube, une page web, un livre, un livre audio, des reels, ou un fichier vidéo ou audio à vous.
+153dd67e Chapitre suivant
+c373f48e Chapitre suivant : {0}
+4630b001 Choisissez un fichier vidéo (MP4, MOV, WebM, MKV, AVI, 3GP) ou audio (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).

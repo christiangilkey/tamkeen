@@ -23,6 +23,7 @@ import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { isBook } from "../books.js";
+import { isAudiobookFeed } from "../audiobooks.js";
 import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
   videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
@@ -524,6 +525,27 @@ export async function render(view, { id, query }) {
   // button says so.
   // (Not a Netflix title: its words are Netflix's subtitles, from the user's own Netflix, for his own study.)
   if (!nf) $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
+
+  // ---------- an audiobook's next chapter (audiobooks.js) ----------
+  // A button to it (it lights up when this chapter ends), and the next chapter is transcribed while
+  // this one plays, so the book goes on chapter after chapter without waiting.
+  async function nextChapter() {
+    let list;
+    try { list = (await api(`/episodes?${new URLSearchParams({ feed_id: ep.feed_id, limit: 500 })}`)).items || []; } catch { return; }
+    if (disposed) return;
+    const at = list.findIndex((x) => String(x.id) === String(ep.id));
+    const next = at >= 0 ? list[at + 1] : null;
+    if (!next) return; // the last chapter
+    const b = h(`<a class="btn ghost next-chapter" href="#/episode/${esc(next.id)}"><span class="lbl">Next chapter</span> ${icon("chevron", 16)}</a>`);
+    b.title = t("Next chapter: {0}", next.title);
+    b.setAttribute("aria-label", "Next chapter");
+    $(".player-head > .row").append(b);
+    audio.addEventListener("ended", () => { if (!disposed) b.classList.replace("ghost", "primary"); });
+    if (next.status === "new" && !next.transcribe_requested_at) {
+      api("/episodes/transcribe", { method: "POST", body: { ids: [next.id] } }).catch(() => {});
+    }
+  }
+  if (isAudiobookFeed(ep.feed_url)) nextChapter();
 
   // ---------- follow this video's channel (YouTube) ----------
   // An outline while not followed, filled once followed; a small "Following" bubble shows for a

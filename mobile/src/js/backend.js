@@ -12,6 +12,7 @@ import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative, webFetch } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
+import { chapterCompare, isAudiobookFeed, tidyTitle } from "./audiobooks.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
@@ -315,6 +316,7 @@ async function readFeed(feed, seen = null) {
   const xml = await downloadFeed(feed.url, seen);
   if (xml === null) return 0; // unchanged since the last look
   const parsed = await parseFeed(xml);
+  if (isAudiobookFeed(feed.url)) parsed.title = tidyTitle(parsed.title); // a LibriVox book: as the computer names it
   const uids = await Promise.all(parsed.episodes.map((ep) => episodeUid(feed.uid, ep.guid)));
   // From here on nothing waits, so a sync can't slip in between reading the library and adding to it.
   const t = now();
@@ -352,7 +354,9 @@ export function checkFeeds({ force = false, only = null } = {}) {
   if (checking) return checking;
   checking = (async () => {
     const checks = (await kv.get("feed_checks")) || {}; // per podcast: when it was last read, and the server's "version" marks
+    // (An audiobook is finished: once its chapters are here, it is read again only when it alone is refreshed.)
     const due = lib.feeds.filter((f) => !f.deleted && !f.url.startsWith("local:") && (!only || f.uid === only)
+      && (only || !isAudiobookFeed(f.url) || !lib.episodes.some((e) => e.feed_uid === f.uid))
       && (force || !checks[f.uid] || now() - (checks[f.uid].at || 0) > FEED_CHECK_EVERY));
     if (!due.length) return 0;
     let added = 0;
@@ -551,7 +555,7 @@ const routes = [
   ["GET", /^\/episodes$/, (m, q) => {
     let eps = liveEpisodes().filter((e) => feedOf(e.feed_uid) && !feedOf(e.feed_uid).deleted && studying(episodeLang(e)));
     if (q.get("feed_id")) eps = eps.filter((e) => e.feed_uid === q.get("feed_id"));
-    else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:"));
+    else if (q.get("scope") === "podcasts") eps = eps.filter((e) => !feedOf(e.feed_uid).url.startsWith("local:") && !isAudiobookFeed(feedOf(e.feed_uid).url));
     // One YouTube channel's videos (a video's description is its channel's name).
     if (q.get("channel")) eps = eps.filter((e) => String(e.description || "").trim() === q.get("channel"));
     const counts = {};
@@ -561,7 +565,9 @@ const routes = [
     else if (status) eps = eps.filter((e) => episodeStatus(e) === status);
     const title = (q.get("q") || "").toLowerCase();
     if (title) eps = eps.filter((e) => (e.title || "").toLowerCase().includes(title));
-    eps.sort((a, b) => (b.published || b.created_at || 0) - (a.published || a.created_at || 0));
+    // An audiobook's chapters in order (audiobooks.js); everything else newest first.
+    const book = q.get("feed_id") && isAudiobookFeed((feedOf(q.get("feed_id")) || {}).url);
+    eps.sort(book ? chapterCompare : (a, b) => (b.published || b.created_at || 0) - (a.published || a.created_at || 0));
     const offset = Number(q.get("offset") || 0);
     const limit = Number(q.get("limit") || 100);
     return { total: eps.length, items: eps.slice(offset, offset + limit).map(episodeOut), counts, current: null };

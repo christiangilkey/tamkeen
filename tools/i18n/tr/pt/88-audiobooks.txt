@@ -1,0 +1,47 @@
+722e26d3 Mistério e crime
+5f1d8a37 Fantasia e ficção científica
+0a033d11 Contos
+7b98a058 Infantil
+6e70435b Mitos e contos de fadas
+4674e99a Poesia
+a6bc73a2 Teatro
+4024c0d2 Biografias e cartas
+b04d58c6 Religião
+496e9438 Filosofia
+cb5ba5fa Ciência e natureza
+48703f3c Todos os audiolivros
+81ceefa8 Não foi possível acessar a lista de audiolivros do Tamkeen. Verifique sua conexão e tente de novo.
+5db44445 Audiolivro
+ae00f13b Audiolivros gratuitos do LibriVox, por categoria, capítulo por capítulo
+e837f01b Carregando os audiolivros…
+80e20bba Gravações gratuitas em domínio público do <0>LibriVox</0>, lidas por voluntários.
+f392e049 Buscar audiolivros
+57c19587 Buscar audiolivros em {0:lower}
+87e2c774 Audiolivros
+7eef53ad Ainda não há audiolivros em {0:lower}
+e254698c O LibriVox, de onde vêm estes audiolivros gratuitos, ainda não tem gravações concluídas em {0:lower}. Os voluntários terminam livros novos toda semana, então volte mais tarde. Você ainda pode adicionar um arquivo de audiolivro seu (Arquivo de áudio).
+ff114248 Por enquanto o LibriVox tem só um audiolivro em {0:lower}.
+c3d92fd7 Por enquanto o LibriVox tem só {0} audiolivros em {1:lower}.
+4d72cd86 ‹ Categorias
+c6b81c13 Nenhum audiolivro corresponde a “{0}”.
+0d8c15ee Ainda não há audiolivros aqui.
+da143272 1 audiolivro
+4dcc04dc {0} audiolivros
+25911d48 Mostrar mais
+3e74cdf5 1 capítulo
+39f461f8 {0} capítulos
+eac3337d “{0}” adicionado. O primeiro capítulo está sendo transcrito agora.
+6a0b24d6 “{0}” adicionado. Seu computador vai transcrever o primeiro capítulo na próxima sincronização.
+ba59d11c “{0}” adicionado. Os capítulos vão aparecer em instantes.
+c1849a7f “{0}” adicionado.
+37740b4b Adicione audiolivros gratuitos com o botão + abaixo.
+21335e97 {0}/{1} transcritos
+31d30b62 Ouvir de novo
+be1c0836 Começar a ouvir
+9d2549b4 O primeiro capítulo ainda está sendo transcrito. Ele abre aqui assim que estiver pronto.
+daa0c37b Remover audiolivro
+f3cc502f Alterne entre seus cursos, podcasts, vídeos do YouTube, páginas da web, livros, audiolivros, reels e seus próprios vídeos.
+0a98822e Adicione algo para aprender: um podcast, um vídeo do YouTube, uma página da web, um livro, um audiolivro, reels, ou um arquivo de vídeo ou áudio seu.
+153dd67e Próximo capítulo
+c373f48e Próximo capítulo: {0}
+4630b001 Escolha um arquivo de vídeo (MP4, MOV, WebM, MKV, AVI, 3GP) ou de áudio (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).

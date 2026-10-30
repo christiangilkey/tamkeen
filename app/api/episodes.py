@@ -11,7 +11,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
+from .. import audiobooks, books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -47,8 +47,9 @@ def _episode(episode_id: int) -> dict[str, Any]:
 def list_episodes(feed_id: int | None = None, status: str | None = None, q: str | None = None,
                   limit: int = 100, offset: int = 0, scope: str | None = None,
                   channel: str | None = None) -> dict[str, Any]:
-    """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube).
-    `channel` keeps one YouTube channel's videos (a video's description is its channel's name)."""
+    """`scope=podcasts` leaves out the built-in lists (own videos and audio, webpages, YouTube) and the
+    audiobooks. `channel` keeps one YouTube channel's videos (a video's description is its channel's name).
+    An audiobook's chapters come in chapter order (app/audiobooks.py), not newest first."""
     # Only what is in the language being learned (an untranscribed episode is in its podcast's).
     study = languages.study()
     where, args = ["e.deleted = 0", "COALESCE(e.language, f.language, ?) = ?"], [study, study]
@@ -57,7 +58,7 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
         where.append("e.feed_id = ?")
         args.append(feed_id)
     elif podcasts_only:
-        where.append("f.url NOT LIKE 'local:%'")
+        where.append(f"f.url NOT LIKE 'local:%' AND {audiobooks.NOT_AUDIOBOOK_SQL}")
     if status and status in STATUS_FILTERS:
         values = STATUS_FILTERS[status]
         where.append(f"e.status IN ({','.join('?' * len(values))})")
@@ -70,19 +71,28 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
         args.append(f"%{q}%")
     clause = f"WHERE {' AND '.join(where)}" if where else ""
     limit = max(1, min(limit, 500))
+    columns = """e.id, e.feed_id, e.title, e.published, e.duration, e.image, e.status, e.progress,
+                 e.error, e.audio_path IS NOT NULL AS has_audio, e.audio_type, e.guid, e.audio_url,
+                 substr(e.description, 1, 200) AS description, COALESCE(e.language, f.language) AS language,
+                 f.url AS feed_url,
+                 f.title AS feed_title, f.image AS feed_image"""
     with db.session() as conn:
         total = conn.execute(f"SELECT COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}", args).fetchone()[0]
-        rows = conn.execute(
-            f"""SELECT e.id, e.feed_id, e.title, e.published, e.duration, e.image, e.status, e.progress,
-                       e.error, e.audio_path IS NOT NULL AS has_audio, e.audio_type, e.guid, e.audio_url,
-                       substr(e.description, 1, 200) AS description, COALESCE(e.language, f.language) AS language,
-                       f.url AS feed_url,
-                       f.title AS feed_title, f.image AS feed_image
-                FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}
-                ORDER BY COALESCE(e.published, e.created_at) DESC, e.id DESC LIMIT ? OFFSET ?""",
-            [*args, limit, offset],
-        ).fetchall()
-        only = "AND e.feed_id = ? " if feed_id is not None else "AND f.url NOT LIKE 'local:%' " if podcasts_only else ""
+        book = feed_id is not None and audiobooks.is_audiobook_feed(
+            (conn.execute("SELECT url FROM feeds WHERE id = ?", (feed_id,)).fetchone() or {"url": ""})["url"])
+        if book:
+            # A book's chapters, in order (a book has a few hundred at most, so they are sorted here).
+            every = conn.execute(f"SELECT {columns} FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}", args).fetchall()
+            rows = sorted(every, key=lambda r: audiobooks.chapter_key(r["audio_url"], r["title"]))[offset:offset + limit]
+        else:
+            rows = conn.execute(
+                f"""SELECT {columns}
+                    FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}
+                    ORDER BY COALESCE(e.published, e.created_at) DESC, e.id DESC LIMIT ? OFFSET ?""",
+                [*args, limit, offset],
+            ).fetchall()
+        only = ("AND e.feed_id = ? " if feed_id is not None
+                else f"AND f.url NOT LIKE 'local:%' AND {audiobooks.NOT_AUDIOBOOK_SQL} " if podcasts_only else "")
         counts = dict(conn.execute(
             "SELECT e.status, COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE e.deleted = 0 "
             f"AND COALESCE(e.language, f.language, ?) = ? {only}GROUP BY e.status",

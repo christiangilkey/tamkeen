@@ -406,3 +406,7 @@ ec84a049  # Nintendo Switch
 6bf5da9c  # Options (the PlayStation button's printed name)
 45f63dab  # Xbox button
 315f8eb3  # PS button
+bd045953  # {0} by {1} (audiobooksheet.js: a LibriVox book's title as it is stored, data, not interface)
+044584ae  # There is no such file. (app/audiobooks.py: a 404 the page never shows)
+f923b829  # LibriVox has no audiobooks in this language yet. (app/audiobooks.py: a 404 the page never shows)
+c712e46b  # Couldn't download the list of audiobooks ({0})... (app/audiobooks.py: the page shows its own message)

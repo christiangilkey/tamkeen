@@ -1,0 +1,39 @@
+<?xml version="1.0" ?><rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+  <title><![CDATA[Divine Comedy, The by Dante Alighieri (1265 - 1321)]]></title>
+  <link><![CDATA[https://librivox.org/the-divine-comedy-by-dante-alighieri/]]></link>
+  <atom:link rel="self" href="https://librivox.org/rss/67" />
+  <description><![CDATA[The Divine Comedy is an epic poem.]]></description>
+  <!--<genre>project element=Genre</genre>-->
+  <language><![CDATA[en]]></language>
+  <itunes:type>serial</itunes:type>
+  <itunes:author>LibriVox</itunes:author>
+  <itunes:image href="https://archive.org/download/divine_comedy_librivox/The_Divine_Comedy_1005.jpg" />  <!-- file loop -->
+    <item>
+    <title><![CDATA[Bk 1, Inferno: Canto I - Canto V]]></title>
+    <itunes:episode><![CDATA[1]]></itunes:episode>
+    <link><![CDATA[https://librivox.org/the-divine-comedy-by-dante-alighieri/]]></link>
+            <enclosure url="https://www.archive.org/download/divine_comedy_librivox/divinecomedy_longfellow_01_dante_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:duration>
+    <![CDATA[00:43:10]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+ </item>
+    <item>
+    <title><![CDATA[Bk 1, Inferno: Canto VI - Canto X]]></title>
+    <itunes:episode><![CDATA[2]]></itunes:episode>
+            <enclosure url="https://www.archive.org/download/divine_comedy_librivox/divinecomedy_longfellow_2_dante_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:duration>
+    <![CDATA[00:36:40]]>
+  </itunes:duration>
+ </item>
+    <item>
+    <title><![CDATA[Bk 3, Paradiso: Canto XXXI - Canto XXXIII]]></title>
+    <itunes:episode><![CDATA[10]]></itunes:episode>
+            <enclosure url="https://www.archive.org/download/divine_comedy_librivox/divinecomedy_longfellow_10_dante_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:duration>
+    <![CDATA[00:30:00]]>
+  </itunes:duration>
+ </item>
+</channel>
+</rss>

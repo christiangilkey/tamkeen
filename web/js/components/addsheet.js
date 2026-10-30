@@ -3,8 +3,8 @@
 //
 // Each way opens the flow it always had: a podcast's feed address (or Trending), YouTube in the
 // app's own browser, the Web page screen (pages/websites.js, route #/sites: paste an address, your
-// saved sites and news sites, all on one screen), a video or audio file of your own, and Instagram
-// reels.
+// saved sites and news sites, all on one screen), a video or audio file of your own, Instagram
+// reels, and LibriVox's free audiobooks (components/audiobooksheet.js: categories, then books).
 
 import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
@@ -13,6 +13,7 @@ import { extensionLink, extensionStore, storeButtonText, unavailableText } from 
 import { uiLanguage } from "../i18n.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
+import { audiobookStep } from "./audiobooksheet.js";
 
 const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
@@ -20,6 +21,7 @@ const WAYS = [
   { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
+  { key: "audiobook", label: "Audiobook", icon: "audiobook", text: "Free audiobooks from LibriVox, by category, chapter by chapter", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
@@ -78,6 +80,7 @@ export function openAddSheet({ pickFile }) {
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
     else if (key === "netflix") netflixStep(box);
+    else if (key === "audiobook") audiobookStep(box, { sheet, back, lang, langName });
     else bookStep(box);
     box.querySelector("input")?.focus();
   }

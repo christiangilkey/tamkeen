@@ -144,6 +144,8 @@ const SHARED = [
   "js/chatnotify.js",
   "js/trouble.js",
   "js/components/addsheet.js",
+  "js/audiobooks.js",
+  "js/components/audiobooksheet.js",
   "js/components/keyhelp.js",
   "js/components/aisetup.js",
   "js/components/settingsui.js",

@@ -1,0 +1,47 @@
+722e26d3 Misteri i crim
+5f1d8a37 Fantasia i ciència-ficció
+0a033d11 Contes
+7b98a058 Infantil
+6e70435b Mites i rondalles
+4674e99a Poesia
+a6bc73a2 Teatre
+4024c0d2 Vides i cartes
+b04d58c6 Religió
+496e9438 Filosofia
+cb5ba5fa Ciència i natura
+48703f3c Tots els audiollibres
+81ceefa8 No s'ha pogut accedir a la llista d'audiollibres de Tamkeen. Comprova la connexió i torna-ho a provar.
+5db44445 Audiollibre
+ae00f13b Audiollibres gratuïts de LibriVox, per categoria, capítol a capítol
+e837f01b S'estan carregant els audiollibres…
+80e20bba Enregistraments gratuïts de domini públic de <0>LibriVox</0>, llegits per voluntaris.
+f392e049 Cerca audiollibres
+57c19587 Cerca audiollibres en {0:lower}
+87e2c774 Audiollibres
+7eef53ad Encara no hi ha audiollibres en {0:lower}
+e254698c LibriVox, d'on surten aquests audiollibres gratuïts, encara no té enregistraments acabats en {0:lower}. Els seus voluntaris acaben llibres nous cada setmana, així que torna-hi més endavant. Igualment pots afegir un fitxer d'audiollibre teu (Fitxer d'àudio).
+ff114248 De moment LibriVox només té un audiollibre en {0:lower}.
+c3d92fd7 De moment LibriVox només té {0} audiollibres en {1:lower}.
+4d72cd86 ‹ Categories
+c6b81c13 Cap audiollibre coincideix amb «{0}».
+0d8c15ee Encara no hi ha audiollibres aquí.
+da143272 1 audiollibre
+4dcc04dc {0} audiollibres
+25911d48 Mostra'n més
+3e74cdf5 1 capítol
+39f461f8 {0} capítols
+eac3337d S'ha afegit «{0}». El primer capítol s'està transcrivint ara.
+6a0b24d6 S'ha afegit «{0}». El teu ordinador en transcriurà el primer capítol la propera vegada que se sincronitzi.
+ba59d11c S'ha afegit «{0}». Els capítols apareixeran d'aquí a un moment.
+c1849a7f S'ha afegit «{0}».
+37740b4b Afegeix audiollibres gratuïts amb el botó + de baix.
+21335e97 {0}/{1} transcrits
+31d30b62 Torna a escoltar
+be1c0836 Comença a escoltar
+9d2549b4 El primer capítol encara s'està transcrivint. S'obrirà aquí quan estigui llest.
+daa0c37b Treu l'audiollibre
+f3cc502f Canvia entre els teus cursos, pòdcasts, vídeos de YouTube, pàgines web, llibres, audiollibres, reels i els teus vídeos.
+0a98822e Afegeix alguna cosa per aprendre: un pòdcast, un vídeo de YouTube, una pàgina web, un llibre, un audiollibre, reels, o un fitxer de vídeo o àudio teu.
+153dd67e Capítol següent
+c373f48e Capítol següent: {0}
+4630b001 Tria un fitxer de vídeo (MP4, MOV, WebM, MKV, AVI, 3GP) o d'àudio (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).

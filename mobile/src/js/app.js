@@ -913,7 +913,7 @@ async function videoUrl(ep) {
 }
 
 const VIDEO_EXT = /\.(mp4|m4v|mov|webm|mkv|avi|3gp)$/i;
-const AUDIO_EXT = /\.(mp3|m4a|aac|wav|ogg|oga|opus|flac|wma|amr)$/i;
+const AUDIO_EXT = /\.(mp3|m4a|m4b|aac|wav|ogg|oga|opus|flac|wma|amr)$/i;
 
 function videoDuration(file) {
   return new Promise((resolve) => {
@@ -936,10 +936,11 @@ export async function uploadVideo(file, onProgress) {
   const audio = !!audioExt || (file.type || "").startsWith("audio/");
   const ext = audio ? audioExt : (file.name.match(VIDEO_EXT) || [])[1];
   if (!audio && !ext && !(file.type || "").startsWith("video/")) {
-    throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).");
+    throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).");
   }
   const suffix = `.${(ext || (audio ? "mp3" : "mp4")).toLowerCase()}`;
-  const mime = file.type || (audio ? "audio/mpeg" : "video/mp4");
+  // (An .m4b audiobook is AAC sound in an MP4 box, whatever type the device gives it, if any.)
+  const mime = audioExt && audioExt.toLowerCase() === "m4b" ? "audio/mp4" : file.type || (audio ? "audio/mpeg" : "video/mp4");
   const uid = `e${newUid().slice(1)}`;
   const driveName = `v_${uid}${suffix}`;
   const duration = await videoDuration(file);

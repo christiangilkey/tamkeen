@@ -3,7 +3,7 @@
 import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix } from "../app.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
-import { allProgress } from "../progress.js";
+import { allProgress, isUnfinished } from "../progress.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
@@ -16,6 +16,7 @@ import { firstVisitTour } from "../components/tour.js";
 import { coursePanel, hasCourse } from "../components/coursepanel.js";
 import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
 import { courseTabChoice } from "../coursedata.js";
+import { LIBRIVOX, isAudiobookFeed, splitTitle } from "../audiobooks.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -52,7 +53,9 @@ const REELS_FEED = "local:reels";
 const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
-// computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
+// computer. Choosing "Podcasts" (or "YouTube", or "Audiobooks") opens a second list with the podcasts
+// (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed
+// (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has only them.
 // "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
@@ -69,6 +72,8 @@ const KINDS = [
     empty: "Add webpages with the + button below." },
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
     empty: "Add a book with the + button below, or pick a free classic." },
+  { key: "audiobooks", label: "Audiobooks", icon: "audiobook", href: "#/library?show=audiobooks",
+    empty: "Add free audiobooks with the + button below." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
@@ -90,6 +95,8 @@ function lastKind() {
 // the button sits: media.css .fab-hint).
 const FAB_ARROW = `<svg viewBox="0 0 110 96" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path d="M6 6 C 9 50, 44 80, 101 82"/><path d="M88 71 L102 82 L88 93"/></svg>`;
+// Kinds made of several feeds of their own (podcasts, audiobooks) rather than one built-in list.
+const manyFeeds = (k) => k === "podcasts" || k === "audiobooks";
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
 /** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
@@ -173,7 +180,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       </section>
       <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_ARROW}</span></button>
       <input type="file" id="video-file" accept="video/*,.mkv" hidden>
-      <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
+      <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.m4b,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
     </div>`));
 
   // Looked up in the page itself, not in `view`: on the computer the page is built in a holder and
@@ -189,8 +196,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     // A built-in list opened by its own address belongs to its kind; one that doesn't exist
     // yet (nothing added) shows an empty page for that kind.
     const current = feedId ? feeds.find((x) => x.id === feedId) : null;
-    if (current) kind = (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
-    else if (kind !== "podcasts" && kind !== "courses") {
+    if (current) kind = isAudiobookFeed(current.url) ? "audiobooks" : (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
+    else if (!manyFeeds(kind) && kind !== "courses") {
       const own = feeds.find((x) => x.url === KINDS.find((k) => k.key === kind).feed);
       if (own) feedId = own.id;
     }
@@ -210,7 +217,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     const chosen = list.querySelector(".active");
     if (phone && chosen) list.scrollLeft = Math.max(0, chosen.offsetLeft - list.offsetLeft - 24);
     const strip = $("#podcast-list");
-    strip.hidden = kind !== "podcasts" && kind !== "youtube";
+    strip.hidden = !manyFeeds(kind) && kind !== "youtube";
     strip.innerHTML = "";
     if (kind === "youtube") {
       // "Recently watched" first, then the followed channels, the one watched most recently first.
@@ -229,11 +236,26 @@ export async function render(view, { feedId: routeFeed, query }) {
       strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
       return;
     }
+    if (kind === "audiobooks") {
+      // "All audiobooks" (your books, with where you got to) first, then each book, the one listened to most recently first.
+      const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library?show=audiobooks"><div class="ph all">${icon("audiobook", 22)}</div><div><div class="t">All audiobooks</div></div></a>`);
+      remember(all);
+      strip.append(all);
+      for (const f of myBooks()) {
+        const el = h(`<a class="feed-item${f.id === feedId ? " active" : ""}" href="#/feed/${f.id}">
+          ${f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph all">${icon("audiobook", 20)}</div>`}
+          <div style="min-width:0"><div class="t" dir="auto" translate="no">${esc(splitTitle(f.title).title)}</div>
+          <div class="small muted">${f.done_count || 0}/${f.episode_count} transcribed</div></div></a>`);
+        remember(el);
+        strip.append(el);
+      }
+      strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
+      return;
+    }
     if (kind !== "podcasts") return;
     // "All episodes" first, then the podcasts, the one listened to most recently first.
-    const heard = new Map();
-    for (const p of allProgress()) if (p.sub) heard.set(p.sub, Math.max(heard.get(p.sub) || 0, p.ts || 0));
-    const podcasts = feeds.filter((x) => !isLocalFeed(x.url))
+    const heard = lastHeard();
+    const podcasts = feeds.filter((x) => !isLocalFeed(x.url) && !isAudiobookFeed(x.url))
       .map((x, i) => ({ f: x, last: heard.get(x.title) || 0, i }))
       .sort((a, b) => b.last - a.last || a.i - b.i);
     const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library?show=podcasts"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
@@ -251,6 +273,25 @@ export async function render(view, { feedId: routeFeed, query }) {
     strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
 
+  /** When each podcast or book was last listened to (by its title, as progress.js keeps it). */
+  function lastHeard() {
+    const heard = new Map();
+    for (const p of allProgress()) if (p.sub) heard.set(p.sub, Math.max(heard.get(p.sub) || 0, p.ts || 0));
+    return heard;
+  }
+  /** The learner's audiobooks, the one listened to most recently first (then the newest added). */
+  function myBooks() {
+    const heard = lastHeard();
+    return feeds.filter((x) => isAudiobookFeed(x.url))
+      .map((f, i) => ({ f, last: heard.get(f.title) || 0, i }))
+      .sort((a, b) => b.last - a.last || (b.f.created_at || 0) - (a.f.created_at || 0) || a.i - b.i).map((x) => x.f);
+  }
+  /** The chapter of book `f` played most recently on this device (progress.js), or null. */
+  function lastChapter(f) {
+    let best = null;
+    for (const p of allProgress()) if (p.sub === f.title && p.kind === "audio" && (!best || (p.ts || 0) > (best.ts || 0))) best = p;
+    return best;
+  }
   const channelHref = (base, name) => `${base}${base.includes("?") ? "&" : "?"}channel=${encodeURIComponent(name)}`;
   /** A channel's round picture, or the first letter of its name until one is known. */
   const channelPicture = (c) => (c.image
@@ -305,14 +346,20 @@ export async function render(view, { feedId: routeFeed, query }) {
     const head = $("#lib-head");
     head.innerHTML = "";
     root.classList.toggle("courses-kind", kind === "courses");
+    root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
-    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" ? KINDS.find((k) => k.key === kind) : null;
+    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" && !(kind === "audiobooks" && myBooks().length)
+      ? KINDS.find((k) => k.key === kind) : null;
     markEmpty("head", !!emptyKind);
     if (kind === "courses") { showCourses(); return; }
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(emptyState(emptyKind));
+      return;
+    }
+    if (!feedId && kind === "audiobooks") {
+      head.append(bookShelf());
       return;
     }
     if (!feedId) {
@@ -388,6 +435,10 @@ export async function render(view, { feedId: routeFeed, query }) {
         Google Drive, so every device can play them. Press + to add more.</div></div></div>`));
       return;
     }
+    if (isAudiobookFeed(f.url)) {
+      head.append(bookHead(f));
+      return;
+    }
     const el = h(`<div class="lib-head">
       ${f.image ? `<img src="${esc(f.image)}" alt="" referrerpolicy="no-referrer">` : ""}
       <div class="meta">
@@ -412,6 +463,81 @@ export async function render(view, { feedId: routeFeed, query }) {
       await api(`/feeds/${feedId}`, { method: "DELETE" });
       location.hash = "#/library?show=podcasts";
     };
+  }
+
+  // ----- audiobooks -----
+  /** "Continue" (the chapter played last) or "Start listening" (the first chapter), for a book's heading and its row. */
+  function continueLink(f, { big = false } = {}) {
+    const last = lastChapter(f);
+    const a = h(`<a class="btn ${big ? "primary" : "ghost"}">${icon("play", 16)} <span></span></a>`);
+    a.querySelector("span").textContent = last ? (isUnfinished(last) ? "Continue" : "Listen again") : "Start listening";
+    if (last) {
+      a.href = `#/episode/${last.id}`;
+      a.title = last.title || "";
+      return a;
+    }
+    // The first chapter, once it is transcribed (until then the chapter list says how it is coming on).
+    a.href = `#/feed/${f.id}`;
+    a.onclick = async (e) => {
+      e.preventDefault();
+      const first = (await api(`/episodes?${new URLSearchParams({ feed_id: f.id, limit: 1 })}`).catch(() => ({ items: [] }))).items[0];
+      if (first && first.status === "done") location.hash = `#/episode/${first.id}`;
+      else if (first && first.status === "new" && !first.transcribe_requested_at) transcribe([first.id]);
+      else toast("Its first chapter is still being transcribed. It opens here once it's ready.");
+    };
+    return a;
+  }
+  /** The learner's audiobooks, each with its cover, author, chapters and a way to carry on. */
+  function bookShelf() {
+    const box = h(`<div class="ab-shelf"></div>`);
+    for (const f of myBooks()) {
+      const { title, author } = splitTitle(f.title);
+      const el = h(`<div class="ab-mine">
+        <a class="ab-mine-open" href="#/feed/${f.id}">
+          ${f.image ? `<img class="ab-cover" src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span class="ab-cover ph">${icon("audiobook", 24)}</span>`}
+          <span class="ab-info"><span class="ab-title" dir="auto" translate="no"></span>
+            <span class="ab-author small muted" dir="auto" translate="no"></span>
+            <span class="small muted">${f.done_count || 0}/${f.episode_count} transcribed</span></span>
+        </a></div>`);
+      el.querySelector(".ab-title").textContent = title;
+      el.querySelector(".ab-author").textContent = author;
+      el.append(continueLink(f));
+      box.append(el);
+    }
+    box.append(librivoxCredit());
+    return box;
+  }
+  const librivoxCredit = (href = LIBRIVOX) => {
+    const p = h(`<p class="small muted ab-credit">Free public-domain recordings from <a target="_blank" rel="noopener">LibriVox</a>, read by volunteers.</p>`);
+    p.querySelector("a").href = href;
+    return p;
+  };
+  /** One book's heading: cover, title, author, what it is about, Continue, and removing it. */
+  function bookHead(f) {
+    const { title, author } = splitTitle(f.title);
+    const el = h(`<div class="lib-head ab-head">
+      ${f.image ? `<img src="${esc(f.image)}" alt="" referrerpolicy="no-referrer">` : `<div class="ph video-ph">${icon("audiobook", 44)}</div>`}
+      <div class="meta">
+        <h1 dir="auto" translate="no"></h1>
+        <div class="ab-author muted" dir="auto" translate="no"></div>
+        <div class="desc small" style="unicode-bidi:plaintext" translate="no"></div>
+        <div class="row" style="margin-top:8px;flex-wrap:wrap">
+          <span class="ab-go"></span>
+          <span class="spacer"></span>
+          <button type="button" class="ghost danger" id="remove-feed">Remove audiobook</button>
+        </div>
+      </div></div>`);
+    el.querySelector("h1").textContent = title;
+    el.querySelector(".ab-author").textContent = author;
+    el.querySelector(".desc").textContent = f.description || "";
+    el.querySelector(".ab-go").append(continueLink(f, { big: true }));
+    el.querySelector(".meta").append(librivoxCredit(f.link && /^https:\/\/librivox\.org\//.test(f.link) ? f.link : LIBRIVOX));
+    el.querySelector("#remove-feed").onclick = async () => {
+      if (!(await confirmBox(t("Remove “{0}”?", title), "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
+      await api(`/feeds/${feedId}`, { method: "DELETE" });
+      location.hash = "#/library?show=audiobooks";
+    };
+    return el;
   }
 
   // ----- episodes -----
@@ -443,7 +569,8 @@ export async function render(view, { feedId: routeFeed, query }) {
       ${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`}
       <div class="info">
         <div class="title" dir="auto"></div>
-        <div class="sub">${feedId ? "" : `${esc(ep.feed_title)} · `}${isReel(ep) && ep.description ? `@${esc(ep.description)} · ` : ""}${fmtDate(ep.published)}${ep.duration ? ` · ${isReel(ep) && ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}</div>
+        <div class="sub">${isAudiobookFeed(ep.feed_url) ? fmtDuration(ep.duration) /* a chapter: no date, its length */
+          : `${feedId ? "" : `${esc(ep.feed_title)} · `}${isReel(ep) && ep.description ? `@${esc(ep.description)} · ` : ""}${fmtDate(ep.published)}${ep.duration ? ` · ${isReel(ep) && ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}`}</div>
       </div>
       <div class="status"></div>
     </div>`);
@@ -596,7 +723,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   async function loadEpisodes(append = false) {
     if (kind === "courses") return; // no episodes: renderHead shows the courses
     if (!append) offset = 0;
-    if (!feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
+    if (!feedId && kind !== "podcasts") { // nothing of this kind yet, or the audiobooks' shelf: renderHead shows it
       renderTabs({});
       listEl.innerHTML = "";
       $("#more").hidden = true;
@@ -824,7 +951,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
-      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos." },
+      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
     { target: "#course-tabs", title: "Your courses",
       text: "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
@@ -833,7 +960,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#episodes .ep", title: "An episode",
       text: "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript." },
     { target: "#add-fab", title: "Add",
-      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
+      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, an audiobook, reels, or a video or audio file of your own." },
   ]);
 
   return () => {

@@ -189,7 +189,7 @@ test("every Library kind but Courses says how to add things with the + button", 
   const library = read("web/js/pages/library.js");
   const kinds = library.slice(library.indexOf("const KINDS = ["), library.indexOf("];", library.indexOf("const KINDS = [")));
   const entries = kinds.split(/\n\s*\{ key: /).slice(1);
-  assert.equal(entries.length, 9);
+  assert.equal(entries.length, 10); // (Audiobooks is the tenth)
   for (const e of entries) {
     const key = /^"(\w+)"/.exec(e)[1];
     if (key === "courses") { assert.doesNotMatch(e, /empty:/); continue; }

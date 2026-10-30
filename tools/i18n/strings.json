@@ -460,6 +460,81 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "0d23bd8c",
+  "k": "Fiction",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "722e26d3",
+  "k": "Mystery & crime",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "5f1d8a37",
+  "k": "Fantasy & science fiction",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "0a033d11",
+  "k": "Short stories",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "7b98a058",
+  "k": "Children's",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "6e70435b",
+  "k": "Myths & fairy tales",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "4674e99a",
+  "k": "Poetry",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "a6bc73a2",
+  "k": "Plays",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "90ccd649",
+  "k": "History",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "4024c0d2",
+  "k": "Lives & letters",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "b04d58c6",
+  "k": "Religion",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "496e9438",
+  "k": "Philosophy",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "cb5ba5fa",
+  "k": "Science & nature",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "48703f3c",
+  "k": "All audiobooks",
+  "f": "web/js/audiobooks.js"
+ },
+ {
+  "id": "81ceefa8",
+  "k": "Couldn't reach Tamkeen's list of audiobooks. Check your connection and try again.",
+  "f": "web/js/audiobooks.js"
+ },
+ {
   "id": "752be6ae",
   "k": "That file is too big (over 200 MB).",
   "f": "web/js/bookfiles.js"
@@ -2020,6 +2095,16 @@
   "f": "web/js/components/addsheet.js"
  },
  {
+  "id": "5db44445",
+  "k": "Audiobook",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "ae00f13b",
+  "k": "Free audiobooks from LibriVox, by category, chapter by chapter",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
   "id": "61e340e9",
   "k": "Reels",
   "f": "web/js/components/addsheet.js"
@@ -2918,6 +3003,116 @@
   "id": "247c9a70",
   "k": "Move {0} cards",
   "f": "web/js/components/ankisync.js"
+ },
+ {
+  "id": "e837f01b",
+  "k": "Loading the audiobooks…",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "80e20bba",
+  "k": "Free public-domain recordings from <0>LibriVox</0>, read by volunteers.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "f392e049",
+  "k": "Search audiobooks",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "57c19587",
+  "k": "Search audiobooks in {0}",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "87e2c774",
+  "k": "Audiobooks",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "7eef53ad",
+  "k": "No audiobooks in {0} yet",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "e254698c",
+  "k": "LibriVox, where these free audiobooks come from, has no finished recordings in {0} yet. Its volunteers finish new books every week, so look again another time. You can still add an audiobook file of your own (Audio file).",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "ff114248",
+  "k": "LibriVox has only one audiobook in {0} so far.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "c3d92fd7",
+  "k": "LibriVox has only {0} audiobooks in {1} so far.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "4d72cd86",
+  "k": "‹ Categories",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "c6b81c13",
+  "k": "No audiobooks match “{0}”.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "0d8c15ee",
+  "k": "No audiobooks here yet.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "da143272",
+  "k": "1 audiobook",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "4dcc04dc",
+  "k": "{0} audiobooks",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "25911d48",
+  "k": "Show more",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "3e74cdf5",
+  "k": "1 chapter",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "39f461f8",
+  "k": "{0} chapters",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "61cc55aa",
+  "k": "Add",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "eac3337d",
+  "k": "Added “{0}”. Its first chapter is being transcribed now.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "6a0b24d6",
+  "k": "Added “{0}”. Your computer will transcribe its first chapter the next time it syncs.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "ba59d11c",
+  "k": "Added “{0}”. Its chapters will appear in a moment.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "c1849a7f",
+  "k": "Added “{0}”.",
+  "f": "web/js/components/audiobooksheet.js"
  },
  {
   "id": "c3e839df",
@@ -5197,11 +5392,6 @@
  {
   "id": "599d2751",
   "k": "Add this podcast to your library and open this episode?",
-  "f": "web/js/components/studycard.js"
- },
- {
-  "id": "61cc55aa",
-  "k": "Add",
   "f": "web/js/components/studycard.js"
  },
  {
@@ -13215,6 +13405,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "37740b4b",
+  "k": "Add free audiobooks with the + button below.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "ab6cd1c6",
   "k": "Add reels with the + button below.",
   "f": "web/js/pages/library.js"
@@ -13317,6 +13512,11 @@
  {
   "id": "d7cc3213",
   "k": "Channels you follow appear here. Press Follow under a video.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "21335e97",
+  "k": "{0}/{1} transcribed",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13447,6 +13647,26 @@
  {
   "id": "fac924e4",
   "k": "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "31d30b62",
+  "k": "Listen again",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "be1c0836",
+  "k": "Start listening",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "9d2549b4",
+  "k": "Its first chapter is still being transcribed. It opens here once it's ready.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "daa0c37b",
+  "k": "Remove audiobook",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13625,8 +13845,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "b97964cd",
-  "k": "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos.",
+  "id": "f3cc502f",
+  "k": "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13670,8 +13890,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "d091dd51",
-  "k": "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own.",
+  "id": "0a98822e",
+  "k": "Add something to learn from: a podcast, a YouTube video, a webpage, a book, an audiobook, reels, or a video or audio file of your own.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13857,6 +14077,16 @@
  {
   "id": "9c127d35",
   "k": "Playback failed: {0}",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "153dd67e",
+  "k": "Next chapter",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "c373f48e",
+  "k": "Next chapter: {0}",
   "f": "web/js/pages/player.js"
  },
  {
@@ -17635,11 +17865,6 @@
   "f": "web/js/trending.js"
  },
  {
-  "id": "0d23bd8c",
-  "k": "Fiction",
-  "f": "web/js/trending.js"
- },
- {
   "id": "5c9cb498",
   "k": "Government",
   "f": "web/js/trending.js"
@@ -17647,11 +17872,6 @@
  {
   "id": "89fc9192",
   "k": "Health & Fitness",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "90ccd649",
-  "k": "History",
   "f": "web/js/trending.js"
  },
  {
@@ -18950,8 +19170,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "97aca1c7",
-  "k": "Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC).",
+  "id": "4630b001",
+  "k": "Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).",
   "f": "mobile/src/js/app.js"
  },
  {

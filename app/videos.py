@@ -32,7 +32,7 @@ VIDEO_TYPES = {
 
 
 AUDIO_TYPES = {
-    ".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".aac": "audio/aac", ".wav": "audio/wav", ".ogg": "audio/ogg",
+    ".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".m4b": "audio/mp4", ".aac": "audio/aac", ".wav": "audio/wav", ".ogg": "audio/ogg",
     ".oga": "audio/ogg", ".opus": "audio/ogg", ".flac": "audio/flac", ".wma": "audio/x-ms-wma", ".amr": "audio/amr",
 }
 
@@ -78,7 +78,7 @@ async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | 
     is_audio = ext in AUDIO_TYPES
     if not is_audio and ext not in VIDEO_TYPES:
         raise UploadError("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file "
-                          "(MP3, M4A, WAV, OGG, Opus, FLAC, AAC).")
+                          "(MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).")
     tmp = paths.audio_dir() / f"upload-{uuid.uuid4().hex}.tmp{ext}"
     size = 0
     try:

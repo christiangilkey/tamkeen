@@ -13,13 +13,13 @@ from typing import Any
 import feedparser
 import httpx
 
-from . import db, events, ids, languages
+from . import audiobooks, db, events, ids, languages
 from .version import APP_NAME, __version__
 
 log = logging.getLogger(__name__)
 
 USER_AGENT = f"{APP_NAME.replace(' ', '')}/{__version__} (+podcast reader)"
-AUDIO_EXTENSIONS = (".mp3", ".m4a", ".aac", ".ogg", ".opus", ".wav", ".flac", ".mp4", ".oga", ".webm")
+AUDIO_EXTENSIONS = (".mp3", ".m4a", ".m4b", ".aac", ".ogg", ".opus", ".wav", ".flac", ".mp4", ".oga", ".webm")
 
 
 class FeedError(RuntimeError):
@@ -213,6 +213,13 @@ def normalize_url(url: str) -> str:
     return url
 
 
+def _for_feed(url: str, parsed: ParsedFeed) -> ParsedFeed:
+    """A LibriVox book's chapter feed gets the book's tidy title (app/audiobooks.py), as on the phone."""
+    if audiobooks.is_audiobook_feed(url):
+        parsed.title = audiobooks.tidy_title(parsed.title)
+    return parsed
+
+
 # --- persistence -----------------------------------------------------------------------------
 
 def _upsert_episodes(conn: Any, feed_id: int, parsed: ParsedFeed) -> list[int]:
@@ -247,7 +254,7 @@ def add_feed(url: str) -> dict[str, Any]:
         raise FeedError("You're already subscribed to this feed.")
     content, final_url, etag, modified = fetch(url)
     assert content is not None
-    parsed = parse_feed(content)
+    parsed = _for_feed(final_url, parse_feed(content))
     with db.session() as conn:
         if final_url != url and conn.execute(
             "SELECT 1 FROM feeds WHERE url = ? AND deleted = 0", (final_url,)
@@ -290,7 +297,7 @@ def refresh_feed(feed_id: int) -> list[int]:
         new_ids: list[int] = []
         with db.session() as conn:
             if content is not None:
-                parsed = parse_feed(content)
+                parsed = _for_feed(feed["url"], parse_feed(content))
                 new_ids = _upsert_episodes(conn, feed_id, parsed)
                 conn.execute(
                     "UPDATE feeds SET title=?, description=?, image=COALESCE(?, image), link=?, etag=?, modified=? WHERE id=?",
@@ -308,9 +315,12 @@ def refresh_feed(feed_id: int) -> list[int]:
 
 
 def refresh_all() -> int:
+    # An audiobook is finished: once its chapters are here, its feed is not read again (only when that
+    # book alone is refreshed).
     with db.session() as conn:
         feed_ids = [r["id"] for r in conn.execute(
-            "SELECT id FROM feeds WHERE deleted = 0 AND url NOT LIKE 'local:%'").fetchall()]
+            "SELECT f.id FROM feeds f WHERE f.deleted = 0 AND f.url NOT LIKE 'local:%' AND NOT ("
+            f"NOT ({audiobooks.NOT_AUDIOBOOK_SQL}) AND EXISTS (SELECT 1 FROM episodes e WHERE e.feed_id = f.id))").fetchall()]
     total = 0
     for feed_id in feed_ids:
         total += len(refresh_feed(feed_id))
