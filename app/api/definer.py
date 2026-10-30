@@ -33,6 +33,7 @@ class RelayIn(BaseModel):
     url: str
     headers: dict[str, str]
     body: dict[str, Any]
+    timeout: float | None = None  # seconds to wait for the answer (90 unless said; Gemini captioning a video takes longer)
 
 
 @router.post("/llm/relay")
@@ -43,7 +44,7 @@ def relay(req: RelayIn) -> dict[str, Any]:
     headers = {k: v for k, v in req.headers.items() if k.lower() in ALLOWED_HEADERS}
     try:
         resp = httpx.post(req.url, headers=headers, content=json.dumps(req.body, ensure_ascii=False).encode("utf-8"),
-                          timeout=httpx.Timeout(90, connect=15))
+                          timeout=httpx.Timeout(min(max(req.timeout or 90, 10), 900), connect=15))
     except httpx.HTTPError as exc:
         return {"status": 0, "text": f"Network error: {exc.__class__.__name__}: {exc}"}
     return {"status": resp.status_code, "text": resp.text}

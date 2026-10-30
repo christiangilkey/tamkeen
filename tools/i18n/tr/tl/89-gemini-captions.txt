@@ -1,0 +1,22 @@
+8a7f7a66 Walang captions ang video na ito.
+79bce962 Walang captions sa YouTube
+aa17a967 Hindi pinapayagan ng mga tuntunin ng YouTube na i-download ng Tamkeen ang tunog ng video para gumawa ng captions, pero kayang panoorin ng Gemini ng Google ang video mismo at isulat ang mga ito.
+02dfcc5b Lampas isang oras ang video na ito, masyadong mahaba para gawan ng Gemini ng captions nang minsanan.
+512a61d4 Kailangan dito ang sarili mong Gemini key: magdagdag ng isa sa Settings → Kahulugan ng mga salita.
+5519ad4c Magdagdag ng Gemini key
+c4f46c62 Gagamitin ang Gemini key mo: mga {0} US cents.
+0866223b Gumawa ng captions gamit ang Gemini
+4596d48a Pinapanood ng Gemini ang video…
+ad6b2570 Maaaring abutin ito ng isa o dalawang minuto.
+6588286e Hindi nakagawa ng captions ang Gemini. Subukan ulit.
+7dcdc638 Captions na isinulat ng Gemini: maaaring may mga mali.
+86e43eae Hindi maabot ang Gemini. Tingnan ang koneksyon mo sa internet.
+88919449 Tinanggihan ng Gemini (Google) ang API key. Malamang nag-expire na ito, kaya baka kailangan mo ng bago.
+b8e0d64c Naabot na ang limit ng Gemini sa ngayon (8 oras ng YouTube video bawat araw ang libreng saklaw nito). Subukan ulit mamaya.
+76869515 Mga pampublikong YouTube video lang ang kayang panoorin ng Gemini, at hindi pampubliko ang isang ito.
+197a5987 May problema ngayon ang Gemini (HTTP {0}). Subukan ulit.
+c5c6fc60 Hindi nakagawa ng captions ang Gemini (HTTP {0}){1}
+b5d8d2be Nagpadala ang Gemini ng sagot na hindi mabasa ng Tamkeen. Subukan ulit.
+d2fc8938 Masyadong maraming salita sa video na ito para gawan ng Gemini ng captions nang minsanan.
+628a54df Hindi nagbalik ng captions ang Gemini{0}. Subukan ulit.
+deb395af Walang narinig na nagsasalita ang Gemini sa video na ito.

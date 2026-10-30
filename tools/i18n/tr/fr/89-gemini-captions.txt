@@ -1,0 +1,22 @@
+8a7f7a66 Cette vidéo n'a pas de sous-titres.
+79bce962 Pas de sous-titres sur YouTube
+aa17a967 Les conditions de YouTube ne permettent pas à Tamkeen de télécharger le son d'une vidéo pour créer des sous-titres, mais Gemini de Google peut regarder la vidéo lui-même et les écrire.
+02dfcc5b Cette vidéo dure plus d'une heure, c'est trop long pour que Gemini la sous-titre d'un coup.
+512a61d4 Il faut pour cela votre propre clé Gemini : ajoutez-en une dans Réglages → Définitions des mots.
+5519ad4c Ajouter une clé Gemini
+c4f46c62 Utilise votre clé Gemini : environ {0} cents de dollar.
+0866223b Créer les sous-titres avec Gemini
+4596d48a Gemini regarde la vidéo…
+ad6b2570 Cela peut prendre une ou deux minutes.
+6588286e Gemini n'a pas pu créer les sous-titres. Réessayez.
+7dcdc638 Sous-titres écrits par Gemini : ils peuvent contenir des erreurs.
+86e43eae Impossible de joindre Gemini. Vérifiez votre connexion internet.
+88919449 Gemini (Google) a refusé la clé d'API. Elle a très probablement expiré, il vous en faut sans doute une nouvelle.
+b8e0d64c La limite de Gemini est atteinte pour l'instant (son usage gratuit couvre 8 heures de vidéo YouTube par jour). Réessayez plus tard.
+76869515 Gemini ne peut regarder que les vidéos YouTube publiques, et celle-ci ne l'est pas.
+197a5987 Gemini rencontre des problèmes en ce moment (HTTP {0}). Réessayez.
+c5c6fc60 Gemini n'a pas pu créer les sous-titres (HTTP {0}){1}
+b5d8d2be Gemini a renvoyé une réponse que Tamkeen n'a pas pu lire. Réessayez.
+d2fc8938 Cette vidéo contient trop de paroles pour que Gemini la sous-titre d'un coup.
+628a54df Gemini n'a pas renvoyé de sous-titres{0}. Réessayez.
+deb395af Gemini n'a entendu aucune parole dans cette vidéo.

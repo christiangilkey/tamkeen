@@ -308,16 +308,21 @@ export async function openYouTube(address = "") {
 // (it is waiting, to say "No captions available" or to step aside).
 on("youtube_watch", async ({ token, video_id, at }) => {
   if (EMBED) return;
-  let result;
+  let answered = false;
+  const answer = (result) => {
+    if (answered) return;
+    answered = true;
+    api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
+  };
   try {
     // `at`: the moment that came with the video (the "t" of its link), if any.
     const { watchVideo } = await import("./youtube.js");
-    const ep = await watchVideo(video_id, at ?? null);
-    result = { ok: true, title: ep.title };
+    // No captions: the window steps aside at once, so this window's offer of Gemini captions is seen.
+    const ep = await watchVideo(video_id, at ?? null, { beforeOffer: (e) => answer({ ok: true, title: e.video.title }) });
+    answer({ ok: true, title: ep.title });
   } catch (e) {
-    result = { ok: false, error: e.message };
+    answer({ ok: false, error: e.message });
   }
-  api("/youtube/watch-result", { method: "POST", body: { token, ...result } }).catch(() => {});
 });
 
 // ---------- Netflix (netflix.js, nfmedia.js, app/netflix_overlay.py) ----------
@@ -399,9 +404,9 @@ async function openLinks() {
     const busy = toast("Getting captions…");
     try {
       const { watchVideo } = await import("./youtube.js");
-      await watchVideo(link.video_id, link.at ?? null);
+      await watchVideo(link.video_id, link.at ?? null, { beforeOffer: () => busy.remove() });
     } catch (e) {
-      toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
+      if (!e.quiet) toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
     } finally {
       busy.remove();
     }
@@ -661,6 +666,7 @@ async function bootEmbed() {
     const { getVideo } = await import("./youtube.js");
     ep = await getVideo(id);
   } catch (e) {
+    if (e.quiet) return say("This video has no captions."); // (Gemini's were offered and turned down)
     return say(e.message || "Couldn't open this video.", true); // e.g. "No captions available for this video."
   }
   history.replaceState(null, "", `${location.pathname}${location.search}#/episode/${ep.id}${at > 0 ? `?t=${at}` : ""}`);

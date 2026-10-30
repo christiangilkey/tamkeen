@@ -5913,3 +5913,21 @@ linked to: no sign-in, no calls, no affiliate code.)
   web app on GitHub Pages (docs/audiobooks not published yet).
 - Possible later: LibriVox "Multilingual" collections (190) hold single chapters in other languages (some Arabic, Thai?);
   listing those would need per-chapter languages from the API's `sections` and adding only those chapters.
+
+## YouTube videos with no captions: Gemini writes them (2026-10-30, main chat)
+Owner: a video with no captions should offer making them; told that downloading YouTube's sound breaks YouTube's terms,
+he chose Gemini (Google's API takes the YouTube link itself, nothing is downloaded), with one short line saying why.
+- `web/js/ytcaptions.js` fetchCaptions: no caption tracks at all -> CaptionError "no_captions" now carries `err.video`
+  {videoId, title, channel, duration}. Only that case offers Gemini (no_language / no_handmade unchanged).
+- `web/js/youtube.js` importVideo (and getVideo/watchVideo, which pass `opts` on): opens
+  `components/geminicaptions.js` (fix-popup look). Gemini key (`llm_key_gemini`, whatever provider explains words) ->
+  "Make captions with Gemini" with a cost estimate; no key -> "Add a Gemini key" (Settings -> Word definitions);
+  over an hour -> says so. Turned down -> throws an Error with `quiet: true`; every caller skips its toast for it.
+  `opts.beforeOffer` clears the way first: the phone's in-app browser closes, the desktop YouTube window is answered ok.
+- `web/js/ytgemini.js` (pure, tests/js/ytgemini.test.mjs): request with `file_data.file_uri` = the watch URL,
+  MEDIA_RESOLUTION_LOW, JSON schema {language, lines[{start,end,text}]}, gemini-3.8-flash then 3.1-flash-lite on 404;
+  words spread over each line like a person's captions. Saved with kind "gemini" -> model "youtube-gemini"
+  (app/youtube.py caption_model, mobile backend.js); the player notes "Captions written by Gemini".
+- Transport: define-service.js `transport` + `aiKey()` (both versions); the desktop relay (app/api/definer.py) takes
+  `timeout` (Gemini asks 600 s); the phone passes readTimeout. Checked in the desktop preview with a pretend YouTube and
+  Gemini (no real calls). Not tried with a real Gemini key or on a phone.

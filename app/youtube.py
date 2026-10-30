@@ -8,6 +8,8 @@ and Drive sync all work unchanged. What marks it out:
     guid         the 11-character video id
     model        "youtube-captions" (written by a person), "youtube-auto" (YouTube's automatic captions)
                  or "youtube-translated" (YouTube's machine translation of another track)
+                 or "youtube-gemini" (the video had none: written by the learner's Gemini from its link,
+                 web/js/ytgemini.js)
     status       "done" from the start (there is nothing to transcribe)
 
 The captions are fetched and parsed by web/js/youtube.js (one implementation for the computer
@@ -157,6 +159,8 @@ def caption_model(kind: str | None, auto: bool = False) -> str:
     """The episode's `model` for captions of this kind (see the top of this file)."""
     if kind == "translated":
         return "youtube-translated"
+    if kind == "gemini":
+        return "youtube-gemini"
     return "youtube-auto" if kind == "auto" or (kind is None and auto) else "youtube-captions"
 
 

@@ -1,0 +1,22 @@
+8a7f7a66 Aquest vídeo no té subtítols.
+79bce962 Sense subtítols a YouTube
+aa17a967 Les condicions de YouTube no permeten que Tamkeen baixi el so d'un vídeo per fer subtítols, però Gemini de Google pot mirar el vídeo ell mateix i escriure'ls.
+02dfcc5b Aquest vídeo dura més d'una hora, massa perquè Gemini el subtituli d'una vegada.
+512a61d4 Això necessita la teva pròpia clau de Gemini: afegeix-ne una a Configuració → Definicions de paraules.
+5519ad4c Afegeix una clau de Gemini
+c4f46c62 Fa servir la teva clau de Gemini: uns {0} cèntims de dòlar.
+0866223b Fes subtítols amb Gemini
+4596d48a Gemini està mirant el vídeo…
+ad6b2570 Pot trigar un o dos minuts.
+6588286e Gemini no ha pogut fer els subtítols. Torna-ho a provar.
+7dcdc638 Subtítols escrits per Gemini: poden tenir errors.
+86e43eae No s'ha pogut connectar amb Gemini. Comprova la connexió a internet.
+88919449 Gemini (Google) ha rebutjat la clau d'API. El més probable és que hagi caducat, així que segurament en necessites una de nova.
+b8e0d64c De moment s'ha arribat al límit de Gemini (l'ús gratuït cobreix 8 hores de vídeo de YouTube al dia). Torna-ho a provar més tard.
+76869515 Gemini només pot mirar vídeos públics de YouTube, i aquest no ho és.
+197a5987 Gemini té problemes ara mateix (HTTP {0}). Torna-ho a provar.
+c5c6fc60 Gemini no ha pogut fer els subtítols (HTTP {0}){1}
+b5d8d2be Gemini ha enviat una resposta que Tamkeen no ha pogut llegir. Torna-ho a provar.
+d2fc8938 En aquest vídeo es parla massa perquè Gemini el subtituli d'una vegada.
+628a54df Gemini no ha retornat subtítols{0}. Torna-ho a provar.
+deb395af Gemini no ha sentit ningú parlar en aquest vídeo.

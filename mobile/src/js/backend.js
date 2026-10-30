@@ -178,7 +178,7 @@ async function saveYouTube(body) {
   }
   const uid = await episodeUid(fuid, id);
   // As app/youtube.py caption_model: YouTube's translation, its automatic captions, or a person's.
-  const model = body.kind === "translated" ? "youtube-translated"
+  const model = body.kind === "translated" ? "youtube-translated" : body.kind === "gemini" ? "youtube-gemini"
     : body.kind === "auto" || (body.kind == null && body.auto) ? "youtube-auto" : "youtube-captions";
   const language = isLanguage(body.language) ? body.language
     : detectLanguage(segments.slice(0, 60).map((s) => s[2]).join(" "), settings.study_language || "ar");

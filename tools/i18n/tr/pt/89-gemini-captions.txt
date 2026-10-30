@@ -1,0 +1,22 @@
+8a7f7a66 Este vídeo não tem legendas.
+79bce962 Sem legendas no YouTube
+aa17a967 Os termos do YouTube não permitem que o Tamkeen baixe o som de um vídeo para criar legendas, mas o Gemini do Google pode assistir ao vídeo sozinho e escrevê-las.
+02dfcc5b Este vídeo tem mais de uma hora, longo demais para o Gemini legendar de uma vez.
+512a61d4 Isso precisa da sua própria chave do Gemini: adicione uma em Configurações → Definições de palavras.
+5519ad4c Adicionar uma chave do Gemini
+c4f46c62 Usa sua chave do Gemini: cerca de {0} centavos de dólar.
+0866223b Criar legendas com o Gemini
+4596d48a O Gemini está assistindo ao vídeo…
+ad6b2570 Isso pode levar um ou dois minutos.
+6588286e O Gemini não conseguiu criar as legendas. Tente de novo.
+7dcdc638 Legendas escritas pelo Gemini: podem ter erros.
+86e43eae Não foi possível conectar ao Gemini. Verifique sua conexão com a internet.
+88919449 O Gemini (Google) recusou a chave de API. Provavelmente ela expirou, então você deve precisar de uma nova.
+b8e0d64c O limite do Gemini foi atingido por enquanto (o uso gratuito cobre 8 horas de vídeo do YouTube por dia). Tente mais tarde.
+76869515 O Gemini só pode assistir a vídeos públicos do YouTube, e este não é público.
+197a5987 O Gemini está com problemas agora (HTTP {0}). Tente de novo.
+c5c6fc60 O Gemini não conseguiu criar as legendas (HTTP {0}){1}
+b5d8d2be O Gemini enviou uma resposta que o Tamkeen não conseguiu ler. Tente de novo.
+d2fc8938 Este vídeo tem fala demais para o Gemini legendar de uma vez.
+628a54df O Gemini não devolveu legendas{0}. Tente de novo.
+deb395af O Gemini não ouviu ninguém falando neste vídeo.

@@ -1,0 +1,22 @@
+8a7f7a66 Walay captions kini nga video.
+79bce962 Walay captions sa YouTube
+aa17a967 Dili motugot ang mga lagda sa YouTube nga i-download sa Tamkeen ang tingog sa video aron makahimo og captions, apan ang Gemini sa Google makatan-aw mismo sa video ug makasulat niini.
+02dfcc5b Kapin sa usa ka oras kini nga video, taas kaayo aron himoan sa Gemini og captions sa usa ka higayon.
+512a61d4 Kinahanglan dinhi ang imong kaugalingong Gemini key: pagdugang og usa sa Settings → Kahulogan sa pulong.
+5519ad4c Pagdugang og Gemini key
+c4f46c62 Gamiton ang imong Gemini key: mga {0} US cents.
+0866223b Paghimo og captions gamit ang Gemini
+4596d48a Gitan-aw sa Gemini ang video…
+ad6b2570 Mahimong moabot kini og usa o duha ka minuto.
+6588286e Wala makahimo og captions ang Gemini. Sulayi pag-usab.
+7dcdc638 Captions nga gisulat sa Gemini: mahimong adunay mga sayop.
+86e43eae Dili maabot ang Gemini. Susiha ang imong koneksyon sa internet.
+88919449 Gisalikway sa Gemini (Google) ang API key. Lagmit na-expire na kini, busa basin kinahanglan nimo og bag-o.
+b8e0d64c Naabot na ang limit sa Gemini karon (8 ka oras nga YouTube video kada adlaw ang libre niini). Sulayi pag-usab unya.
+76869515 Mga publikong YouTube video ra ang matan-aw sa Gemini, ug dili publiko kini.
+197a5987 Adunay problema karon ang Gemini (HTTP {0}). Sulayi pag-usab.
+c5c6fc60 Wala makahimo og captions ang Gemini (HTTP {0}){1}
+b5d8d2be Nagpadala ang Gemini og tubag nga dili mabasa sa Tamkeen. Sulayi pag-usab.
+d2fc8938 Daghan kaayo og sulti kini nga video aron himoan sa Gemini og captions sa usa ka higayon.
+628a54df Wala mobalik og captions ang Gemini{0}. Sulayi pag-usab.
+deb395af Walay nadungog nga nagsulti ang Gemini niini nga video.

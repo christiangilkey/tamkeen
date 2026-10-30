@@ -151,6 +151,7 @@ function itemCard(s, { own = false } = {}) {
       try {
         await OPENERS[s.kind](s);
       } catch (e) {
+        if (e.quiet) return; // (no captions: Gemini's were offered and turned down)
         // Still reachable when Tamkeen's player can't take it (say, a video with no captions
         // in the language being studied): offer the page itself.
         toast(e.message, { error: true, action: link ? { label: s.kind === "youtube" ? "Open on YouTube" : "Open the link",

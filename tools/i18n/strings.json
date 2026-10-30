@@ -455,6 +455,11 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "8a7f7a66",
+  "k": "This video has no captions.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "d4bbbea7",
   "k": "Sync isn't available in this build (no Google sign-in configured).",
   "f": "web/js/app.js"
@@ -3390,6 +3395,66 @@
   "f": "web/js/components/gameswitch.js"
  },
  {
+  "id": "79bce962",
+  "k": "No captions on YouTube",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "aa17a967",
+  "k": "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "e4571490",
+  "k": "Not now",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "02dfcc5b",
+  "k": "This video is longer than an hour, too long for Gemini to caption in one go.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "bbfa773e",
+  "k": "Close",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "512a61d4",
+  "k": "This needs your own Gemini key: add one in Settings → Word definitions.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "5519ad4c",
+  "k": "Add a Gemini key",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "c4f46c62",
+  "k": "Uses your Gemini key: about {0} US cents.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "0866223b",
+  "k": "Make captions with Gemini",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "4596d48a",
+  "k": "Gemini is watching the video…",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "ad6b2570",
+  "k": "This can take a minute or two.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "6588286e",
+  "k": "Gemini couldn't make captions. Try again.",
+  "f": "web/js/components/geminicaptions.js"
+ },
+ {
   "id": "4f79e08b",
   "k": "Add an AI key in Settings → Word definitions first.",
   "f": "web/js/components/grammarpanel.js"
@@ -4372,11 +4437,6 @@
  {
   "id": "6ae84e4a",
   "k": "Close (Esc)",
-  "f": "web/js/components/modal.js"
- },
- {
-  "id": "bbfa773e",
-  "k": "Close",
   "f": "web/js/components/modal.js"
  },
  {
@@ -11205,11 +11265,6 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
-  "id": "e4571490",
-  "k": "Not now",
-  "f": "web/js/lexicon/seen.js"
- },
- {
   "id": "6813189a",
   "k": "This takes a few seconds.",
   "f": "web/js/lexicon/seen.js"
@@ -14082,6 +14137,11 @@
  {
   "id": "61f9b499",
   "k": "Translated by YouTube: it may not match what is said.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "7dcdc638",
+  "k": "Captions written by Gemini: they can have mistakes.",
   "f": "web/js/pages/player.js"
  },
  {
@@ -18888,6 +18948,56 @@
   "id": "bb0ea382",
   "k": "No captions available for this video.",
   "f": "web/js/ytcaptions.js"
+ },
+ {
+  "id": "86e43eae",
+  "k": "Couldn't reach Gemini. Check your internet connection.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "88919449",
+  "k": "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "b8e0d64c",
+  "k": "Gemini's limit is reached for now (its free allowance covers 8 hours of YouTube video a day). Try again later.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "76869515",
+  "k": "Gemini can only watch public YouTube videos, and this one isn't public.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "197a5987",
+  "k": "Gemini is having problems right now (HTTP {0}). Try again.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "c5c6fc60",
+  "k": "Gemini couldn't make captions (HTTP {0}){1}",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "b5d8d2be",
+  "k": "Gemini sent back an answer Tamkeen couldn't read. Try again.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "d2fc8938",
+  "k": "This video has too much speech for Gemini to caption in one go.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "628a54df",
+  "k": "Gemini didn't send captions back{0}. Try again.",
+  "f": "web/js/ytgemini.js"
+ },
+ {
+  "id": "deb395af",
+  "k": "Gemini didn't hear any speech in this video.",
+  "f": "web/js/ytgemini.js"
  },
  {
   "id": "6f502e0d",

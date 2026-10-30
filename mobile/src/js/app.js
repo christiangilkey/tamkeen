@@ -732,6 +732,7 @@ export async function openYouTubeLink(url) {
       emit("feeds", { refreshed: true });
       return;
     } catch (e) {
+      if (e.quiet) return; // (no captions: Gemini's were offered and turned down)
       // No captions, most likely: it can still be watched on YouTube's own page, inside the app.
       toast(`${e.message || "Couldn't open this video here."} Opening it on YouTube instead.`);
     }
@@ -769,7 +770,7 @@ async function openTamkeenLink(url) {
     await watchVideo(link.videoId, link.at);
     emit("feeds", { refreshed: true });
   } catch (e) {
-    toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
+    if (!e.quiet) toast(e.message || "Couldn't open this video.", { error: true }); // e.g. "No captions available for this video."
   } finally {
     openingLink = false;
   }
@@ -816,10 +817,12 @@ export async function openBrowser(url = "", { instagramSignIn = false, reading =
       try {
         GoogleDriveAuth.browserToast({ text: "Getting captions…" }).catch(() => {});
         const { watchVideo } = await import("./youtube.js");
-        await watchVideo(id, typeof at === "number" ? at : null);
+        // No captions: the in-app browser closes first, so the offer of Gemini captions is seen.
+        await watchVideo(id, typeof at === "number" ? at : null, { beforeOffer: () => GoogleDriveAuth.closeBrowser() });
         emit("feeds", { refreshed: true });
         await GoogleDriveAuth.closeBrowser();
       } catch (e) {
+        if (e.quiet) return;
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't open this video." }).catch(() => {});
       } finally {
         openingVideo = false;

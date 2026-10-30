@@ -133,7 +133,7 @@ export async function render(view, { friendId }) {
         const open = h(`<button type="button" class="primary">Open</button>`);
         open.onclick = async () => {
           open.disabled = true;
-          try { await openMedia(item, hash); } catch (e) { toast(e.message, { error: true }); }
+          try { await openMedia(item, hash); } catch (e) { if (!e.quiet) toast(e.message, { error: true }); }
           open.disabled = false;
         };
         return open;

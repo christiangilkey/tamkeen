@@ -1,0 +1,22 @@
+8a7f7a66 这个视频没有字幕。
+79bce962 YouTube 上没有字幕
+aa17a967 YouTube 的条款不允许 Tamkeen 下载视频的声音来制作字幕，但 Google 的 Gemini 可以自己观看视频并写出字幕。
+02dfcc5b 这个视频超过一小时，太长了，Gemini 无法一次生成字幕。
+512a61d4 这需要你自己的 Gemini 密钥：请在 设置 → 单词释义 中添加一个。
+5519ad4c 添加 Gemini 密钥
+c4f46c62 使用你的 Gemini 密钥：约 {0} 美分。
+0866223b 用 Gemini 生成字幕
+4596d48a Gemini 正在观看视频…
+ad6b2570 这可能需要一两分钟。
+6588286e Gemini 无法生成字幕。请重试。
+7dcdc638 由 Gemini 写的字幕：可能有错误。
+86e43eae 无法连接到 Gemini。请检查你的网络连接。
+88919449 Gemini（Google）拒绝了 API 密钥。它很可能已经过期，你可能需要一个新的。
+b8e0d64c 目前已达到 Gemini 的上限（免费额度每天可处理 8 小时 YouTube 视频）。请稍后再试。
+76869515 Gemini 只能观看公开的 YouTube 视频，而这个视频不是公开的。
+197a5987 Gemini 现在出了问题（HTTP {0}）。请重试。
+c5c6fc60 Gemini 无法生成字幕（HTTP {0}）{1}
+b5d8d2be Gemini 返回的回答 Tamkeen 无法读取。请重试。
+d2fc8938 这个视频说话内容太多，Gemini 无法一次生成字幕。
+628a54df Gemini 没有返回字幕{0}。请重试。
+deb395af Gemini 在这个视频里没有听到任何说话声。

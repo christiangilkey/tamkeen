@@ -1,0 +1,22 @@
+8a7f7a66 Dieses Video hat keine Untertitel.
+79bce962 Keine Untertitel auf YouTube
+aa17a967 Die Nutzungsbedingungen von YouTube erlauben Tamkeen nicht, den Ton eines Videos herunterzuladen, um Untertitel zu erstellen – aber Googles Gemini kann sich das Video selbst ansehen und sie schreiben.
+02dfcc5b Dieses Video ist länger als eine Stunde – zu lang, als dass Gemini es auf einmal untertiteln könnte.
+512a61d4 Dafür brauchst du einen eigenen Gemini-Schlüssel: Füge einen unter Einstellungen → Worterklärungen hinzu.
+5519ad4c Gemini-Schlüssel hinzufügen
+c4f46c62 Nutzt deinen Gemini-Schlüssel: etwa {0} US-Cent.
+0866223b Untertitel mit Gemini erstellen
+4596d48a Gemini sieht sich das Video an…
+ad6b2570 Das kann ein, zwei Minuten dauern.
+6588286e Gemini konnte keine Untertitel erstellen. Versuch es noch einmal.
+7dcdc638 Von Gemini geschriebene Untertitel: Sie können Fehler enthalten.
+86e43eae Gemini ist nicht erreichbar. Prüfe deine Internetverbindung.
+88919449 Gemini (Google) hat den API-Schlüssel abgelehnt. Er ist höchstwahrscheinlich abgelaufen, du brauchst also vermutlich einen neuen.
+b8e0d64c Das Limit von Gemini ist vorerst erreicht (kostenlos sind 8 Stunden YouTube-Video pro Tag). Versuch es später noch einmal.
+76869515 Gemini kann nur öffentliche YouTube-Videos ansehen, und dieses ist nicht öffentlich.
+197a5987 Gemini hat gerade Probleme (HTTP {0}). Versuch es noch einmal.
+c5c6fc60 Gemini konnte keine Untertitel erstellen (HTTP {0}){1}
+b5d8d2be Gemini hat eine Antwort geschickt, die Tamkeen nicht lesen konnte. Versuch es noch einmal.
+d2fc8938 In diesem Video wird zu viel gesprochen, als dass Gemini es auf einmal untertiteln könnte.
+628a54df Gemini hat keine Untertitel zurückgeschickt{0}. Versuch es noch einmal.
+deb395af Gemini hat in diesem Video niemanden sprechen hören.

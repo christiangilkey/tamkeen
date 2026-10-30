@@ -1,0 +1,22 @@
+8a7f7a66 Questo video non ha sottotitoli.
+79bce962 Nessun sottotitolo su YouTube
+aa17a967 I termini di YouTube non permettono a Tamkeen di scaricare l'audio di un video per creare i sottotitoli, ma Gemini di Google può guardare il video da solo e scriverli.
+02dfcc5b Questo video dura più di un'ora: è troppo lungo perché Gemini lo sottotitoli in una volta.
+512a61d4 Per questo serve una tua chiave Gemini: aggiungine una in Impostazioni → Definizioni delle parole.
+5519ad4c Aggiungi una chiave Gemini
+c4f46c62 Usa la tua chiave Gemini: circa {0} centesimi di dollaro.
+0866223b Crea i sottotitoli con Gemini
+4596d48a Gemini sta guardando il video…
+ad6b2570 Può volerci un minuto o due.
+6588286e Gemini non è riuscito a creare i sottotitoli. Riprova.
+7dcdc638 Sottotitoli scritti da Gemini: possono contenere errori.
+86e43eae Impossibile raggiungere Gemini. Controlla la connessione a internet.
+88919449 Gemini (Google) ha rifiutato la chiave API. Molto probabilmente è scaduta, quindi probabilmente te ne serve una nuova.
+b8e0d64c Per ora è stato raggiunto il limite di Gemini (l'uso gratuito copre 8 ore di video YouTube al giorno). Riprova più tardi.
+76869515 Gemini può guardare solo video YouTube pubblici, e questo non lo è.
+197a5987 Gemini ha dei problemi in questo momento (HTTP {0}). Riprova.
+c5c6fc60 Gemini non è riuscito a creare i sottotitoli (HTTP {0}){1}
+b5d8d2be Gemini ha inviato una risposta che Tamkeen non è riuscito a leggere. Riprova.
+d2fc8938 In questo video si parla troppo perché Gemini lo sottotitoli in una volta.
+628a54df Gemini non ha restituito sottotitoli{0}. Riprova.
+deb395af Gemini non ha sentito parlare nessuno in questo video.

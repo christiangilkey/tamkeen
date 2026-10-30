@@ -279,7 +279,9 @@ test("recorded: automatic captions without asking, and the handmade-only choice 
   const m = await fetchCaptions("lo3KyF50IGE", learn(recorded("lo3KyF50IGE").request, { handmadeOnly: true }));
   assert.deepEqual([m.language, m.kind, m.auto], ["ar", "manual", false]);
   await assert.rejects(fetchCaptions("Hgm3vatPXCM", learn(recorded("Hgm3vatPXCM").request, { handmadeOnly: true })), (e) => e.code === "no_handmade");
-  await assert.rejects(fetchCaptions("kT2NVr9gZVI", learn(recorded("kT2NVr9gZVI").request)), (e) => e.code === "no_captions");
+  // (No captions at all: what Gemini needs to write them comes along, youtube.js importVideo.)
+  await assert.rejects(fetchCaptions("kT2NVr9gZVI", learn(recorded("kT2NVr9gZVI").request)),
+    (e) => e.code === "no_captions" && e.video.videoId === "kT2NVr9gZVI" && e.video.title.length > 0 && e.video.duration > 0);
 });
 
 test("recorded: a dubbed audio track in the language is found, but not the original sound", async () => {

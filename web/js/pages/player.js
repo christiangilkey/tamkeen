@@ -114,7 +114,7 @@ function renderPending(view, ep) {
         await importVideo(ep.audio_url);
         window.dispatchEvent(new HashChangeEvent("hashchange"));
       } catch (err) {
-        toast(err.message, { error: true });
+        if (!err.quiet) toast(err.message, { error: true });
         e.target.disabled = false;
       }
       return;
@@ -608,6 +608,8 @@ export async function render(view, { id, query }) {
       lines.push("YouTube's automatic captions: they can have mistakes.");
     } else if (captionKind(ep) === "translated") {
       lines.push("Translated by YouTube: it may not match what is said.");
+    } else if (captionKind(ep) === "gemini") {
+      lines.push("Captions written by Gemini: they can have mistakes.");
     }
     const paint = () => {
       note.innerHTML = lines.map(() => "<p></p>").join("") + (temp ? `<p class="yt-note-temp"></p>` : "");

@@ -22,6 +22,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **Improved:** Settings → Controller lists each screen's buttons (choose the screen at the top), and any of them can be given another button. Buttons changed before keep working.
 - **Improved:** The browser's plain "OK / Cancel" boxes (deleting a podcast, an episode, a folder or a chat message, leaving a battle, releasing a creature) are now Tamkeen's own popups, which a controller can answer too.
 - **Fixed:** With a controller, highlighting a text box no longer traps the highlight in it: the cursor only goes in when A is pressed, the D-pad moves on out of it, and B leaves it. Options drawn as tiles (Settings → Theme, who writes transcripts), lesson words you tap to hear, strips that scroll sideways and sliders (←/→ change them) can all be reached, and the game's sheets, the battle screen and other popups keep the highlight inside them.
+- **New:** A YouTube video with no captions at all no longer stops at "Try another video". A popup explains in one line that YouTube's terms don't let Tamkeen download a video's sound to make captions, but that Google's Gemini can watch the video itself and write them, and a button has your Gemini key do it (it says roughly what it costs, a few US cents for a ten-minute video). The video is then added with Gemini's captions, which work like any others (tap a word, save it); the player notes that Gemini wrote them. Without a Gemini key the button goes to Settings → Word definitions to add one. Public videos up to an hour.
 
 ## v0.40.0 — 2026-10-27
 

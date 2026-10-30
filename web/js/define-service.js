@@ -28,6 +28,10 @@ export const noAi = () => definerMode() === "dictionary";
 const aiOff = () => { throw new DefinerError("AI is turned off (Settings → Word definitions → No AI), so this isn't available."); };
 
 const relay = async (req) => api("/llm/relay", { method: "POST", body: req });
+/** Send any AI provider request (as the phone's define-service.js `transport`): through the computer's relay. */
+export const transport = relay;
+/** The learner's key for `provider` ("gemini"…), whichever provider explains words. */
+export const aiKey = (provider) => String(((state.status && state.status.settings) || {})[`llm_key_${provider}`] || "");
 
 /** A small JSON answer from the learner's AI (see definer.askJson), through the same relay. */
 export const askAi = (prompt) => (noAi() ? aiOff() : askJson(definerConfig(), prompt, relay));

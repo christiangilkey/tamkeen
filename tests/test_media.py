@@ -59,6 +59,8 @@ def test_caption_kind_is_kept_as_the_model(world):
         assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="translated")["model"] == "youtube-translated"
         assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="auto")["model"] == "youtube-auto"
         assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="manual", auto=True)["model"] == "youtube-captions"
+        # A video with none on YouTube: captions written by the learner's Gemini (web/js/ytgemini.js).
+        assert youtube.save_video(VIDEO, "", LINES, language="ar", kind="gemini")["model"] == "youtube-gemini"
     # Older pages send only `auto`.
     assert [youtube.caption_model(None, True), youtube.caption_model(None, False)] == ["youtube-auto", "youtube-captions"]
     assert youtube.caption_model("nonsense") == "youtube-captions"
