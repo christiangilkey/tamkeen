@@ -1,30 +1,12 @@
-722e26d3 Misteryo at krimen
-5f1d8a37 Pantasya at science fiction
-0a033d11 Maikling kuwento
-7b98a058 Pambata
-6e70435b Mga mito at kuwentong-bayan
-4674e99a Tula
-a6bc73a2 Dula
-4024c0d2 Talambuhay at liham
-b04d58c6 Relihiyon
-496e9438 Pilosopiya
-cb5ba5fa Agham at kalikasan
 48703f3c Lahat ng audiobook
 81ceefa8 Hindi maabot ang listahan ng mga audiobook ng Tamkeen. Tingnan ang iyong koneksyon at subukang muli.
 5db44445 Audiobook
-ae00f13b Mga libreng audiobook mula sa LibriVox, ayon sa kategorya, kabanata por kabanata
 e837f01b Nilo-load ang mga audiobook…
 80e20bba Mga libreng recording na public domain mula sa <0>LibriVox</0>, binasa ng mga boluntaryo.
 f392e049 Maghanap ng audiobook
 57c19587 Maghanap ng audiobook sa {0}
 87e2c774 Mga audiobook
-7eef53ad Wala pang audiobook sa {0}
-e254698c Ang LibriVox, kung saan galing ang mga libreng audiobook na ito, ay wala pang tapos na recording sa {0}. Tinatapos ng mga boluntaryo nito ang mga bagong libro bawat linggo, kaya bumalik ka sa ibang araw. Puwede ka pa ring magdagdag ng sarili mong audiobook file (Audio file).
-ff114248 Iisa pa lang ang audiobook sa {0} sa LibriVox.
-c3d92fd7 {0} pa lang ang audiobook sa {1} sa LibriVox.
-4d72cd86 ‹ Mga kategorya
 c6b81c13 Walang audiobook na tugma sa “{0}”.
-0d8c15ee Wala pang audiobook dito.
 da143272 1 audiobook
 4dcc04dc {0} audiobook
 25911d48 Ipakita pa
@@ -34,7 +16,6 @@ eac3337d Naidagdag ang “{0}”. Tina-transcribe na ngayon ang unang kabanata n
 6a0b24d6 Naidagdag ang “{0}”. Ita-transcribe ng iyong computer ang unang kabanata nito sa susunod na pag-sync.
 ba59d11c Naidagdag ang “{0}”. Lalabas ang mga kabanata nito sa ilang sandali.
 c1849a7f Naidagdag ang “{0}”.
-37740b4b Magdagdag ng libreng audiobook gamit ang + na button sa ibaba.
 21335e97 {0}/{1} na-transcribe
 31d30b62 Pakinggan muli
 be1c0836 Simulan ang pakikinig
@@ -45,3 +26,19 @@ f3cc502f Magpalipat-lipat sa iyong mga kurso, mga podcast, video sa YouTube, web
 153dd67e Susunod na kabanata
 c373f48e Susunod na kabanata: {0}
 4630b001 Pumili ng video file (MP4, MOV, WebM, MKV, AVI, 3GP) o audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).
+126cdf32 Protektado laban sa pagkopya ang mga file ng Audible (.aax) at hindi mabubuksan. Nagbebenta ng gumaganang file ang mga tindahang walang DRM gaya ng Libro.fm.
+b0ebddf0 Mga libreng audiobook mula sa LibriVox, o sarili mong mga audiobook file
+6bf17cfd Sarili mong mga audiobook file
+77bd815c MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV at iba pa. Nagiging isang libro ang ilang file, tig-iisang kabanata, ayon sa pagkakasunod ng pangalan.
+c06342c8 Magdagdag ng file
+50c50ce0 Bumili ng audiobook na walang DRM sa <0>Libro.fm</0>, saka idagdag ang file dito.
+d6343d8f Libre mula sa LibriVox
+a6e01010 Wala pang libreng audiobook ang LibriVox sa wikang ito.
+130faf43 Magdagdag ng audiobook
+768e0c1c Pamagat
+bc6ba47c 1 file, idinagdag bilang isang kabanata.
+e76df828 {0} file, tig-iisang kabanata, ayon sa pagkakasunod ng pangalan.
+711c41b2 Magdagdag ng audiobook gamit ang + na button sa ibaba: libre mula sa LibriVox, o sarili mong mga file.
+4a63b0d9 Aalisin ang mga file at transcript nito sa device na ito at sa iyong Google Drive. Maiiwan ang naka-save na bokabularyo.
+727c19e4 Pumili ng mga audio file (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+0cf5ea3d Hindi mahanap ang audiobook na iyon.

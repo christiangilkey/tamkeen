@@ -12,7 +12,7 @@ import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative, webFetch } from "./native.js";
 import { newEpisodeRecords, parseFeed } from "./rss.js";
-import { chapterCompare, isAudiobookFeed, tidyTitle } from "./audiobooks.js";
+import { OWN_BOOK_PREFIX, chapterOrder, isAudiobookFeed, isOwnBookFeed, tidyTitle } from "./audiobooks.js";
 import * as cloud from "./transcribe-service.js";
 import { replaceInText } from "./correction.js";
 import { unpackTranscript } from "./sharetext.js";
@@ -383,12 +383,18 @@ export function checkFeeds({ force = false, only = null } = {}) {
 /** Record a video or audio file this phone just uploaded to Drive. The computer transcribes it on
  * its next sync; with cloud transcription on, a file small enough to send (`file`) is transcribed
  * from here straight away instead. */
-export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false, file = null }) {
-  const url = audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
+export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false, file = null, book = null, transcribe = true }) {
+  // (`book`: a chapter of an audiobook of the user's own, in a list of its own, as on the computer: app/videos.py.)
+  if (book && !/^[A-Za-z0-9_-]{1,64}$/.test(book.key || "")) throw new ApiError("That audiobook can't be found.");
+  const url = book ? OWN_BOOK_PREFIX + book.key : audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
   const fuid = await feedUid(url);
   const t = now();
   let feed = feedOf(fuid);
-  if (!feed) {
+  if (!feed && book) {
+    feed = { uid: fuid, url, title: String(book.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "Audiobook", description: "",
+             image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t, language: studyLanguage() };
+    lib.feeds.push(feed);
+  } else if (!feed) {
     feed = { uid: fuid, url, title: audio ? "My audio" : "My videos", description: `${audio ? "Audio" : "Video"} files you added yourself. They're stored in your Google Drive.`,
              image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     lib.feeds.push(feed);
@@ -397,10 +403,10 @@ export async function addUploadedVideo({ uid, title, driveName, mime, duration, 
   }
   const ep = { uid, feed_uid: fuid, guid: uid, title, description: "", published: t, duration: duration || null, image: null,
                audio_url: `drive:${driveName}`, audio_type: mime, transcript_rev: null, model: null,
-               transcribe_requested_at: t, remote_audio: 1, deleted: 0, created_at: t, updated_at: t };
+               transcribe_requested_at: transcribe ? t : null, remote_audio: 1, deleted: 0, created_at: t, updated_at: t };
   lib.episodes.push(ep);
   changed();
-  const here = !!file && cloud.cloudOn() && file.size <= MAX_UPLOAD_BYTES && studyLanguage() !== "ceb"; // (Bisaya: the computer)
+  const here = transcribe && !!file && cloud.cloudOn() && file.size <= MAX_UPLOAD_BYTES && studyLanguage() !== "ceb"; // (Bisaya: the computer)
   if (here) cloud.enqueue([uid], { [uid]: file });
   return { ...episodeOut(ep), here };
 }
@@ -416,7 +422,8 @@ export function episodeStatus(e) {
 }
 
 // ----- one language at a time: the lists show only what is in the language being learned -----
-const builtIn = (f) => !!(f && String(f.url || "").startsWith("local:"));
+// (An audiobook of the user's own files is a list in a language, like a podcast: not built in.)
+const builtIn = (f) => !!(f && String(f.url || "").startsWith("local:") && !isOwnBookFeed(f.url));
 /** A podcast's language (none for the built-in lists: own videos, web pages, YouTube, reels). */
 const feedLanguage = (f) => (builtIn(f) ? null : isLanguage(f && f.language) ? f.language : null);
 /** An episode's language: its own, else its podcast's, else the one being learned. */
@@ -566,8 +573,8 @@ const routes = [
     const title = (q.get("q") || "").toLowerCase();
     if (title) eps = eps.filter((e) => (e.title || "").toLowerCase().includes(title));
     // An audiobook's chapters in order (audiobooks.js); everything else newest first.
-    const book = q.get("feed_id") && isAudiobookFeed((feedOf(q.get("feed_id")) || {}).url);
-    eps.sort(book ? chapterCompare : (a, b) => (b.published || b.created_at || 0) - (a.published || a.created_at || 0));
+    const bookUrl = q.get("feed_id") ? (feedOf(q.get("feed_id")) || {}).url : "";
+    eps.sort(isAudiobookFeed(bookUrl) ? chapterOrder(bookUrl) : (a, b) => (b.published || b.created_at || 0) - (a.published || a.created_at || 0));
     const offset = Number(q.get("offset") || 0);
     const limit = Number(q.get("limit") || 100);
     return { total: eps.length, items: eps.slice(offset, offset + limit).map(episodeOut), counts, current: null };

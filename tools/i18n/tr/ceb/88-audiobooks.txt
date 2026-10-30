@@ -1,30 +1,12 @@
-722e26d3 Misteryo ug krimen
-5f1d8a37 Pantasya ug science fiction
-0a033d11 Mugbong sugilanon
-7b98a058 Pambata
-6e70435b Mga mito ug sugilanon
-4674e99a Balak
-a6bc73a2 Dula
-4024c0d2 Kinabuhi ug sulat
-b04d58c6 Relihiyon
-496e9438 Pilosopiya
-cb5ba5fa Siyensiya ug kinaiyahan
 48703f3c Tanang audiobook
 81ceefa8 Dili maabot ang lista sa mga audiobook sa Tamkeen. Susiha ang imong koneksyon ug sulayi pag-usab.
 5db44445 Audiobook
-ae00f13b Libre nga mga audiobook gikan sa LibriVox, sumala sa kategorya, kapitulo sa kapitulo
 e837f01b Gi-load ang mga audiobook…
 80e20bba Libre nga mga recording nga public domain gikan sa <0>LibriVox</0>, gibasa sa mga boluntaryo.
 f392e049 Pangitag audiobook
 57c19587 Pangitag audiobook sa {0}
 87e2c774 Mga audiobook
-7eef53ad Wala pay audiobook sa {0}
-e254698c Ang LibriVox, diin gikan kining libre nga mga audiobook, wala pay nahuman nga recording sa {0}. Ang mga boluntaryo niini makahuman og bag-ong libro kada semana, busa balik lang unya. Mahimo ka gihapong modugang og kaugalingon nimong audiobook file (Audio file).
-ff114248 Usa pa lang ka audiobook sa {0} ang anaa sa LibriVox.
-c3d92fd7 {0} pa lang ka audiobook sa {1} ang anaa sa LibriVox.
-4d72cd86 ‹ Mga kategorya
 c6b81c13 Walay audiobook nga mohaom sa “{0}”.
-0d8c15ee Wala pay audiobook dinhi.
 da143272 1 ka audiobook
 4dcc04dc {0} ka audiobook
 25911d48 Ipakita pa
@@ -34,7 +16,6 @@ eac3337d Nadugang ang “{0}”. Gi-transcribe na karon ang unang kapitulo niini
 6a0b24d6 Nadugang ang “{0}”. I-transcribe sa imong computer ang unang kapitulo niini sa sunod nga pag-sync.
 ba59d11c Nadugang ang “{0}”. Mogawas ang mga kapitulo niini sa makadiyot.
 c1849a7f Nadugang ang “{0}”.
-37740b4b Pagdugang og libre nga mga audiobook gamit ang + nga button sa ubos.
 21335e97 {0}/{1} na-transcribe
 31d30b62 Paminawa pag-usab
 be1c0836 Sugdi ang pagpaminaw
@@ -45,3 +26,19 @@ f3cc502f Pagbalhin-balhin sa imong mga kurso, mga podcast, video sa YouTube, web
 153dd67e Sunod nga kapitulo
 c373f48e Sunod nga kapitulo: {0}
 4630b001 Pili og video file (MP4, MOV, WebM, MKV, AVI, 3GP) o audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).
+126cdf32 Ang mga file sa Audible (.aax) gipanalipdan batok sa pagkopya ug dili maablihan. Ang mga tindahan nga walay DRM sama sa Libro.fm nagbaligya og mga file nga molihok.
+b0ebddf0 Libre nga mga audiobook gikan sa LibriVox, o kaugalingon nimong mga audiobook file
+6bf17cfd Kaugalingon nimong mga audiobook file
+77bd815c MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV ug uban pa. Ang daghang file mahimong usa ka libro, usa ka kapitulo matag file, sumala sa han-ay sa ngalan.
+c06342c8 Pagdugang og file
+50c50ce0 Pagpalit og audiobook nga walay DRM sa <0>Libro.fm</0>, unya idugang ang file dinhi.
+d6343d8f Libre gikan sa LibriVox
+a6e01010 Wala pay libre nga audiobook ang LibriVox niini nga pinulongan.
+130faf43 Pagdugang og audiobook
+768e0c1c Titulo
+bc6ba47c 1 ka file, gidugang isip usa ka kapitulo.
+e76df828 {0} ka file, usa ka kapitulo matag usa, sumala sa han-ay sa ngalan.
+711c41b2 Pagdugang og mga audiobook gamit ang + nga button sa ubos: libre gikan sa LibriVox, o kaugalingon nimong mga file.
+4a63b0d9 Ang mga file ug transcript niini tangtangon gikan niini nga device ug sa imong Google Drive. Magpabilin ang na-save nga bokabularyo.
+727c19e4 Pili og mga audio file (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+0cf5ea3d Dili makit-an kana nga audiobook.

@@ -16,7 +16,9 @@ import { firstVisitTour } from "../components/tour.js";
 import { coursePanel, hasCourse } from "../components/coursepanel.js";
 import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
 import { courseTabChoice } from "../coursedata.js";
-import { LIBRIVOX, isAudiobookFeed, splitTitle } from "../audiobooks.js";
+import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
+  isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
+import { askBookTitle } from "../components/audiobooksheet.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -54,8 +56,9 @@ const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
 // computer. Choosing "Podcasts" (or "YouTube", or "Audiobooks") opens a second list with the podcasts
-// (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed
-// (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has only them.
+// (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed, or a list
+// of the learner's own audiobook files (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has
+// only them.
 // "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
@@ -73,7 +76,7 @@ const KINDS = [
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
     empty: "Add a book with the + button below, or pick a free classic." },
   { key: "audiobooks", label: "Audiobooks", icon: "audiobook", href: "#/library?show=audiobooks",
-    empty: "Add free audiobooks with the + button below." },
+    empty: "Add audiobooks with the + button below: free ones from LibriVox, or files of your own." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
@@ -180,7 +183,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       </section>
       <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_ARROW}</span></button>
       <input type="file" id="video-file" accept="video/*,.mkv" hidden>
-      <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.m4b,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
+      <input type="file" id="audio-file" accept="${AUDIO_FILE_ACCEPT}" hidden>
     </div>`));
 
   // Looked up in the page itself, not in `view`: on the computer the page is built in a holder and
@@ -279,10 +282,11 @@ export async function render(view, { feedId: routeFeed, query }) {
     for (const p of allProgress()) if (p.sub) heard.set(p.sub, Math.max(heard.get(p.sub) || 0, p.ts || 0));
     return heard;
   }
-  /** The learner's audiobooks, the one listened to most recently first (then the newest added). */
+  /** The learner's audiobooks, the one listened to most recently first (then the newest added). (A book of
+   *  their own files that was removed is an empty list, kept for sync: not shown.) */
   function myBooks() {
     const heard = lastHeard();
-    return feeds.filter((x) => isAudiobookFeed(x.url))
+    return feeds.filter((x) => isAudiobookFeed(x.url) && (!isOwnBookFeed(x.url) || x.episode_count > 0))
       .map((f, i) => ({ f, last: heard.get(f.title) || 0, i }))
       .sort((a, b) => b.last - a.last || (b.f.created_at || 0) - (a.f.created_at || 0) || a.i - b.i).map((x) => x.f);
   }
@@ -368,6 +372,10 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     const f = feeds.find((x) => x.id === feedId);
     if (!f) { location.hash = "#/library?show=podcasts"; return; }
+    if (isAudiobookFeed(f.url)) { // (a book of the learner's own files is a "local:" list too: this first)
+      head.append(bookHead(f));
+      return;
+    }
     if (f.url === PAGES_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Press + to add more.</div></div></div>`));
@@ -435,10 +443,6 @@ export async function render(view, { feedId: routeFeed, query }) {
         Google Drive, so every device can play them. Press + to add more.</div></div></div>`));
       return;
     }
-    if (isAudiobookFeed(f.url)) {
-      head.append(bookHead(f));
-      return;
-    }
     const el = h(`<div class="lib-head">
       ${f.image ? `<img src="${esc(f.image)}" alt="" referrerpolicy="no-referrer">` : ""}
       <div class="meta">
@@ -504,7 +508,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       el.append(continueLink(f));
       box.append(el);
     }
-    box.append(librivoxCredit());
+    if (myBooks().some((f) => isLibrivoxFeed(f.url))) box.append(librivoxCredit());
     return box;
   }
   const librivoxCredit = (href = LIBRIVOX) => {
@@ -531,11 +535,23 @@ export async function render(view, { feedId: routeFeed, query }) {
     el.querySelector(".ab-author").textContent = author;
     el.querySelector(".desc").textContent = f.description || "";
     el.querySelector(".ab-go").append(continueLink(f, { big: true }));
-    el.querySelector(".meta").append(librivoxCredit(f.link && /^https:\/\/librivox\.org\//.test(f.link) ? f.link : LIBRIVOX));
+    const own = isOwnBookFeed(f.url);
+    if (!own) el.querySelector(".meta").append(librivoxCredit(f.link && /^https:\/\/librivox\.org\//.test(f.link) ? f.link : LIBRIVOX));
     el.querySelector("#remove-feed").onclick = async () => {
-      if (!(await confirmBox(t("Remove “{0}”?", title), "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
-      await api(`/feeds/${feedId}`, { method: "DELETE" });
-      location.hash = "#/library?show=audiobooks";
+      if (!(await confirmBox(t("Remove “{0}”?", title), own
+        ? "Its files and transcripts are removed from this device and from your Google Drive. Saved vocab is kept."
+        : "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
+      try {
+        if (own) {
+          // A book of the learner's own files: its chapters are deleted like any file of theirs (on every
+          // device, and from Drive); the empty list stays, for sync, and is no longer shown.
+          const items = (await api(`/episodes?${new URLSearchParams({ feed_id: feedId, limit: 500 })}`)).items || [];
+          if (items.length) await api("/episodes/delete", { method: "POST", body: { ids: items.map((x) => x.id) } });
+        } else {
+          await api(`/feeds/${feedId}`, { method: "DELETE" });
+        }
+        location.hash = "#/library?show=audiobooks";
+      } catch (err) { toast(err.message, { error: true }); }
     };
     return el;
   }
@@ -876,13 +892,62 @@ export async function render(view, { feedId: routeFeed, query }) {
   };
   $("#more").onclick = () => loadEpisodes(true);
   // The + button: every way of adding something.
-  $("#add-fab").onclick = () => openAddSheet({ pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click() });
+  $("#add-fab").onclick = () => openAddSheet({
+    pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click(),
+    addAudiobookFiles: addBookFiles,
+  });
+  /** Show the upload bar's progress: `frac` of the file being sent, `name` (and "2/10" for a book's files). */
+  const showUpload = (name, frac) => {
+    $("#upload-status").hidden = false;
+    $("#upload-name").textContent = name;
+    $("#upload-pct").textContent = `${Math.round(frac * 100)}%`;
+    $("#upload-bar").style.width = `${frac * 100}%`;
+  };
+  /**
+   * Add audiobook files of the learner's own as one book: its chapters are the files, in file-name order;
+   * only the first is transcribed now (the player transcribes each next chapter as the learner gets to it).
+   * Audible's copy-protected files are refused with a word on why; anything not audio is left out.
+   */
+  async function addBookFiles(picked) {
+    if (picked.some((f) => isAudibleFile(f.name))) toast(AUDIBLE_MESSAGE); // (plain: something the learner can put right)
+    const files = inNameOrder(picked.filter((f) => !isAudibleFile(f.name) && (isAudioFileName(f.name) || (f.type || "").startsWith("audio/"))));
+    if (!files.length) {
+      if (!picked.some((f) => isAudibleFile(f.name))) toast("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).", { error: true });
+      return;
+    }
+    const title = await askBookTitle(guessBookTitle(files.map((f) => f.name)), files.length);
+    if (title === null) return;
+    const key = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+    const btn = $("#add-fab");
+    btn.disabled = true;
+    let first = null;
+    try {
+      for (const [i, file] of files.entries()) {
+        const name = files.length > 1 ? `${i + 1}/${files.length} · ${file.name}` : file.name;
+        showUpload(name, 0);
+        const ep = await uploadVideo(file, (frac) => showUpload(name, frac), { book: { key, title }, transcribe: i === 0 });
+        if (!first) first = ep;
+      }
+      toast(first.here === false || /computer/i.test(first.note || "")
+        ? `Added “${title}”. Your computer will transcribe its first chapter the next time it syncs.`
+        : `Added “${title}”. Its first chapter is being transcribed now.`);
+      location.hash = `#/feed/${first.feed_id}`;
+      scheduleReload();
+    } catch (err) {
+      toast(err.message, { error: true });
+      if (first) location.hash = `#/feed/${first.feed_id}`; // (the chapters sent so far are there)
+    } finally {
+      btn.disabled = false;
+      $("#upload-status").hidden = true;
+    }
+  }
   // Video and audio files are added the same way; the file's type decides where it goes.
   $("#video-file").onchange = $("#audio-file").onchange = async (e) => {
     const file = e.target.files[0];
     const btn = $("#add-fab");
     e.target.value = "";
     if (!file) return;
+    if (isAudibleFile(file.name)) { toast(AUDIBLE_MESSAGE); return; } // (copy-protected: never opened)
     const box = $("#upload-status");
     btn.disabled = true;
     box.hidden = false;

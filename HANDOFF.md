@@ -5846,56 +5846,70 @@ player would open the highlighted text". Builds on "Game controllers: map any bu
   habitat (still a tap on its plot),
   typing with no keyboard on a computer (the controller doesn't type), the Mnemonic maker's results (needs an AI key).
 
-## Audiobooks: LibriVox's free audiobooks in the Library; .m4b audio files (2026-10-30; on main, not released)
-Owner: "Lets add a Librivox tab into library … It should be titled "Audiobooks" and when clicking the add button it should
-bring up a menu of categories to choose from and then show you books in those categories in your language". (Came from
-the owner asking to open Audible .AAX files: refused, that needs breaking Audible's copy protection; LibriVox is public
-domain, so fine under the no-terms-breaches rule. LibriVox is credited under the sheet's lists and each book.)
-- **An audiobook is a podcast** whose address is its LibriVox chapter feed `https://librivox.org/rss/<id>` (chapters =
-  episodes, MP3s on archive.org): transcription, player, lookup, Save, Drive sync all unchanged. The differences live in
-  `web/js/audiobooks.js` and its Python twin `app/audiobooks.py`: `isAudiobookFeed` (Library kind; left out of Podcasts and
-  of "All episodes" = `scope=podcasts`, Python `NOT_AUDIOBOOK_SQL`), `tidyTitle` ("Divine Comedy, The by Dante Alighieri
-  (1265 - 1321)" → "The Divine Comedy by Dante Alighieri"; both devices write it, same cases tested in both,
-  tests/fixtures/audiobook_titles.json; UI splits it with `splitTitle` on the last " by ") and chapter order
-  (`chapterCompare` / `chapter_key`: natural order of the MP3 file name, which LibriVox numbers; LibriVox feeds have no
-  dates or guids, so the old newest-first order put the last chapter first). Desktop list_episodes sorts a book's chapters
-  in Python then pages; phone backend.js sorts with chapterCompare. A finished book isn't re-read by the automatic refresh
-  (`refresh_all`, phone `checkFeeds`) once it has chapters; refreshing that one book still reads it.
-- **Catalogue** (LibriVox's API has NO language filter: `language=` is ignored; max 500 per request since 2026-09-26, and it
-  asks for pauses in bulk reads): `tools/build_audiobooks.py` reads the whole list once (~22,500 books, 46 requests, ~10 min,
-  3 s pauses; cached 7 days in tools/audiobooks/build/, git-ignored) plus archive.org's download counts (popularity order),
-  maps LibriVox genres to 14 categories (RULES; a fiction genre is fiction only, a children's one Children's only) and
-  writes `docs/audiobooks/index.json` + `<lang>.json.gz` (rows `[id, title, author, secs, chapters, [cats], cover]`, cover =
-  path after archive.org/download/). Only finished books (length and chapters > 0). Counts now: en 19145, de 850, es 565,
-  fr 316, pt 107, it 89, ru 76, ja 37, zh 26, ca 11, tl 4, ar 3, ko 3, hi 2, fa 1, ceb 1, th 0. **Run it again now and then
-  (say, at releases)** so new LibriVox books appear (`--refresh` downloads afresh). **The phones read the published copy:
-  until docs/audiobooks is pushed (GitHub Pages) the phones and web app can't list books.** Desktop: `/api/audiobooks/<name>`
-  (repo copy from source, else the published one, kept in the data folder). Web app: same-site `/tamkeen/audiobooks/`.
-  localStorage `audiobooks_base` points a test build elsewhere. No worker.js change: the RSS goes through the go-between
-  server like any feed (tested live); archive.org audio allows browser requests.
-- **UI**: KINDS `audiobooks` (after Books; `libraryKind` remembers it). Sub-list/strip: "All audiobooks" + each book;
-  with no book chosen, a shelf (`bookShelf`, class `shelf-kind` hides the episode tools) of the learner's books with
+## Audiobooks: LibriVox's free audiobooks and your own audiobook files in the Library (2026-10-30; on main, not released)
+Owner, in order: "Lets add a Librivox tab into library … titled "Audiobooks" …"; then (relayed by the main chat) "instead of
+showing genres just show a list of those languages books to select from"; "add a link to libro.fm in the add audiobooks
+section so users can get their drm free audiobook files from there and add them to tamkeen"; "also allow the user to select
+and add from many audio file types in the audiobooks tab"; and, on whether the tab shows for languages LibriVox lacks,
+"enable it on all of them now". (It came from asking to open Audible .AAX files: refused, that needs breaking Audible's copy
+protection; .aax/.aa are refused with a plain message pointing to DRM-free shops. LibriVox is public domain; Libro.fm is only
+linked to: no sign-in, no calls, no affiliate code.)
+- **Library kind "Audiobooks"** for every learning language (after Books; `libraryKind` remembers it). Its strip: "All
+  audiobooks" + each book; with no book chosen, a shelf (`bookShelf`, class `shelf-kind` hides the episode tools) with
   Continue / Listen again / Start listening (progress.js entries whose `sub` is the book's title); a book's own page
-  (`bookHead`): cover, title, author, blurb, Continue, Remove audiobook, LibriVox link. Chapter rows show length, no date.
-  + sheet way "Audiobook" → `components/audiobooksheet.js`: categories with counts (+ All, + search), then a category's books
-  (cover, title, author, length · chapters, Add / Open; 30 at a time, "Show more"); few books → "LibriVox has only N…", none →
-  "No audiobooks in X yet". Add = POST /feeds (title, image) then transcribe chapter 1. Player (player.js `nextChapter`): a
-  "Next chapter ›" button (lights up at the end) and the next chapter is queued for transcription when a chapter opens.
-  New icons: audiobook, key, planet, stories, wand, feather, mask, landmark, person, candle, bulb. Styles: media.css
-  "audiobooks" block. build-www SHARED: js/audiobooks.js, js/components/audiobooksheet.js.
-- **.m4b**: added to library.js `accept`, app/videos.py AUDIO_TYPES (audio/mp4), app/feeds.py and rss.js AUDIO_EXTENSIONS,
-  mobile app.js AUDIO_EXT (mime forced to audio/mp4) and the "Choose a video file…" message.
-- i18n `tools/i18n/tr/<code>/88-audiobooks.txt` (47 × 16); ignore.txt has the book-title template "{0} by {1}" and
-  app/audiobooks.py's never-shown 404 texts. Tests: tests/test_audiobooks.py (8), tests/js/audiobooks.test.mjs (9);
-  courses-xp.test.mjs now expects 10 kinds.
-- **Checked** (browser pane, scratch data folders, never signed in): desktop server, Spanish: kind, empty state, + sheet,
-  categories, Fiction list, search ("galdos"), Show more, Add Lazarillo de Tormes (5 chapters in order, chapter 1
-  transcribed with large-v3), player with transcript, word popup, Save (sentence and time kept), Next chapter (chapter 2
-  queued ahead and transcribing), shelf with Continue, an uploaded test .m4b (read as audio/mp4, 3 s), Podcasts' "All
-  episodes" without the book. Phone build served as the web app at 375 px (port 8791, live go-between server): sheet,
-  Poetry, Add "Divina Comedia" (100 chapters in order, title tidied, chapter 1 queued for the computer), shelf, the Thai
-  "none" and Arabic "only 3" messages, the Arabic interface (RTL). **Not checked**: a real Android phone or iPhone, cloud
-  transcription of a chapter on the phone/web (no key in the test), the web app on GitHub Pages (docs/audiobooks not
-  published yet), .m4b upload on the phone (needs Drive sign-in).
+  (`bookHead`): cover, title, author, blurb, Continue, Remove audiobook (LibriVox: deletes the feed; own book: deletes its
+  chapters like any own file, via /episodes/delete, so Drive is freed; the empty list stays for sync and isn't shown), and
+  the LibriVox link. Chapter rows show length, no date. Player (player.js `nextChapter`): "Next chapter ›" (lights up at the
+  end) and the next chapter is queued for transcription when a chapter opens.
+- **+ → Audiobook** (`components/audiobooksheet.js`): first "Your own audiobook files" + Add files (multiple) and the line
+  "Buy DRM-free audiobooks at Libro.fm, then add the file here" (target=_blank, like the About page's links); then "Free from
+  LibriVox": the language's books straight away, most popular first (cover, title, author, length · chapters, Add / Open),
+  search, 30 at a time + Show more, LibriVox credit; or "LibriVox has no free audiobooks in this language yet." No genres.
+- **A LibriVox book is a podcast** whose address is `https://librivox.org/rss/<id>` (chapters = episodes, MP3s on
+  archive.org). Add = POST /feeds (title, image) then transcribe chapter 1. Rules in `web/js/audiobooks.js` and its Python twin
+  `app/audiobooks.py`: `isLibrivoxFeed` / `isOwnBookFeed` / `isAudiobookFeed` (kept out of Podcasts and "All episodes" =
+  `scope=podcasts`), `tidyTitle` ("Divine Comedy, The by Dante Alighieri (1265 - 1321)" → "The Divine Comedy by Dante
+  Alighieri"; both devices write it, same cases tested in both, tests/fixtures/audiobook_titles.json; UI splits on the last
+  " by "), chapter order (`chapterOrder`: LibriVox by the natural order of its numbered file names, `chapterCompare`; own
+  books by title = file name, `titleCompare`; desktop list_episodes sorts a book in Python then pages). A finished LibriVox
+  book isn't re-read by the automatic refresh once it has chapters.
+- **An own audiobook** is a list `local:audiobook:<key>` (key made in library.js `addBookFiles`, one per book) with the
+  study language, its episodes the files uploaded like "My audio" files (desktop: POST /api/videos `&book=&book_title=
+  &transcribe=false` → videos.save_upload `ensure_book`; phone: `uploadVideo(file, progress, {book, transcribe})` →
+  backend.js `addUploadedVideo`). Files are taken in natural name order; only the first is transcribed at once; a title box
+  (`askBookTitle`) offers `guessBookTitle` (the words all names share, "Part"/"Chapter"/dash dropped). On the phone and web
+  app this needs Google sign-in (Drive), as My audio does. Not done: chapters inside one .m4b (it is one long chapter), cover
+  art from the files, a Libro.fm .zip as it downloads (unzip first).
+- **Audio types, one list everywhere**: `AUDIO_TYPES` in audiobooks.js = app/videos.py AUDIO_TYPES (m4b mp3 m4a aac ogg oga
+  opus flac wav wma amr webm mka aiff aif); feeds.py / rss.js AUDIO_EXTENSIONS = that + .mp4; phone app.js AUDIO_EXT = that
+  without .webm (a .webm is a video unless added as an audiobook); the Library's Audio file chooser uses AUDIO_FILE_ACCEPT; a
+  test keeps them equal. Chromium (Windows window, Android, web) can't play WMA, AMR or AIFF: **the computer turns them into
+  Opus on upload** (`PLAYABLE_COPY`, audio.encode_speech_copy), so they play everywhere; added on a phone they upload as
+  they are and may not play there (the computer still transcribes them). .aax/.aa/.aaxc: `AUDIBLE_MESSAGE` (plain toast in
+  library.js, UploadError on the computer, Error in the phone's uploadVideo).
+- **Catalogue** (LibriVox's API has NO language filter: `language=` is ignored; max 500 per request since 2026-09-26, and it
+  asks for pauses in bulk reads): `tools/build_audiobooks.py` reads the whole list (~22,500 books, ~10 min, 3 s pauses;
+  cached 7 days in tools/audiobooks/build/, git-ignored) plus archive.org's download counts (popularity order) and writes
+  `docs/audiobooks/index.json` + `<lang>.json.gz` (rows `[id, title, author, secs, chapters, cover]`, cover = path after
+  archive.org/download/; only finished books). Counts now: en 19145, de 850, es 565, fr 316, pt 107, it 89, ru 76, ja 37,
+  zh 26, ca 11, tl 4, ar 3, ko 3, hi 2, fa 1, ceb 1, th 0. **Run it again now and then (say, at releases)**; `--refresh`
+  downloads afresh. **The phones and the web app read the published copy: until docs/audiobooks is pushed (GitHub Pages)
+  they can't list LibriVox books** (own files work). Desktop: `/api/audiobooks/<name>` (repo copy from source, else the
+  published one, kept in the data folder). Web app: same-site `/tamkeen/audiobooks/`. localStorage `audiobooks_base` points a
+  test build elsewhere. No worker.js change: the RSS goes through the go-between server like any feed (tested live).
+- i18n `tools/i18n/tr/<code>/88-audiobooks.txt` (44 × 16); ignore.txt has the book-title template "{0} by {1}" and
+  app/audiobooks.py's never-shown 404 texts. Tests: tests/test_audiobooks.py (10), tests/js/audiobooks.test.mjs (9);
+  courses-xp.test.mjs expects 10 kinds. New icon `audiobook`.
+- **Checked** (browser pane, scratch data folders, never signed in): desktop, Spanish: + → Audiobook (own files card, Libro.fm
+  link, 565 LibriVox books, search "galdos", Show more), Add Lazarillo de Tormes (5 chapters in order, chapter 1 transcribed
+  with large-v3), player with transcript, word popup, Save (sentence and time kept), Next chapter (chapter 2 queued ahead), the
+  shelf with Continue; own files: two WAVs named "Part 10"/"Part 2" + cover.jpg + an .aax → the Audible message (plain), the
+  picture left out, title box guessing "Dracula", book with Part 2 before Part 10, only Part 2 transcribed, its own heading,
+  Remove audiobook (chapters deleted, book gone from the shelf); Thai: tab shown, own files + Libro.fm + "no free audiobooks"
+  line; an uploaded test .m4b and an AIFF (stored as Opus, plays). Phone build as the web app at 375 px (port 8791, live
+  go-between server): the step's layout, Add "Divina Comedia" (100 chapters in order, title tidied), the shelf, the Arabic
+  interface (RTL), the .aax message, and own files asking for Google sign-in. **Not checked**: a real Android phone or iPhone,
+  cloud transcription on the phone/web (no key in the test), uploading own files on the phone/web (needs Drive sign-in), the
+  web app on GitHub Pages (docs/audiobooks not published yet).
 - Possible later: LibriVox "Multilingual" collections (190) hold single chapters in other languages (some Arabic, Thai?);
   listing those would need per-chapter languages from the API's `sections` and adding only those chapters.

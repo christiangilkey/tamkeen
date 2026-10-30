@@ -1,30 +1,12 @@
-722e26d3 Mistério e crime
-5f1d8a37 Fantasia e ficção científica
-0a033d11 Contos
-7b98a058 Infantil
-6e70435b Mitos e contos de fadas
-4674e99a Poesia
-a6bc73a2 Teatro
-4024c0d2 Biografias e cartas
-b04d58c6 Religião
-496e9438 Filosofia
-cb5ba5fa Ciência e natureza
 48703f3c Todos os audiolivros
 81ceefa8 Não foi possível acessar a lista de audiolivros do Tamkeen. Verifique sua conexão e tente de novo.
 5db44445 Audiolivro
-ae00f13b Audiolivros gratuitos do LibriVox, por categoria, capítulo por capítulo
 e837f01b Carregando os audiolivros…
 80e20bba Gravações gratuitas em domínio público do <0>LibriVox</0>, lidas por voluntários.
 f392e049 Buscar audiolivros
 57c19587 Buscar audiolivros em {0:lower}
 87e2c774 Audiolivros
-7eef53ad Ainda não há audiolivros em {0:lower}
-e254698c O LibriVox, de onde vêm estes audiolivros gratuitos, ainda não tem gravações concluídas em {0:lower}. Os voluntários terminam livros novos toda semana, então volte mais tarde. Você ainda pode adicionar um arquivo de audiolivro seu (Arquivo de áudio).
-ff114248 Por enquanto o LibriVox tem só um audiolivro em {0:lower}.
-c3d92fd7 Por enquanto o LibriVox tem só {0} audiolivros em {1:lower}.
-4d72cd86 ‹ Categorias
 c6b81c13 Nenhum audiolivro corresponde a “{0}”.
-0d8c15ee Ainda não há audiolivros aqui.
 da143272 1 audiolivro
 4dcc04dc {0} audiolivros
 25911d48 Mostrar mais
@@ -34,7 +16,6 @@ eac3337d “{0}” adicionado. O primeiro capítulo está sendo transcrito agora
 6a0b24d6 “{0}” adicionado. Seu computador vai transcrever o primeiro capítulo na próxima sincronização.
 ba59d11c “{0}” adicionado. Os capítulos vão aparecer em instantes.
 c1849a7f “{0}” adicionado.
-37740b4b Adicione audiolivros gratuitos com o botão + abaixo.
 21335e97 {0}/{1} transcritos
 31d30b62 Ouvir de novo
 be1c0836 Começar a ouvir
@@ -45,3 +26,19 @@ f3cc502f Alterne entre seus cursos, podcasts, vídeos do YouTube, páginas da we
 153dd67e Próximo capítulo
 c373f48e Próximo capítulo: {0}
 4630b001 Escolha um arquivo de vídeo (MP4, MOV, WebM, MKV, AVI, 3GP) ou de áudio (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).
+126cdf32 Arquivos da Audible (.aax) são protegidos contra cópia e não podem ser abertos. Lojas sem DRM, como a Libro.fm, vendem arquivos que funcionam.
+b0ebddf0 Audiolivros gratuitos do LibriVox, ou seus próprios arquivos de audiolivro
+6bf17cfd Seus próprios arquivos de audiolivro
+77bd815c MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV e mais. Vários arquivos viram um só livro, um capítulo cada, na ordem dos nomes.
+c06342c8 Adicionar arquivos
+50c50ce0 Compre audiolivros sem DRM na <0>Libro.fm</0> e depois adicione o arquivo aqui.
+d6343d8f Grátis no LibriVox
+a6e01010 O LibriVox ainda não tem audiolivros gratuitos neste idioma.
+130faf43 Adicionar audiolivro
+768e0c1c Título
+bc6ba47c 1 arquivo, adicionado como um capítulo.
+e76df828 {0} arquivos, um capítulo cada, na ordem dos nomes.
+711c41b2 Adicione audiolivros com o botão + abaixo: gratuitos do LibriVox ou arquivos seus.
+4a63b0d9 Os arquivos e as transcrições dele são removidos deste aparelho e do seu Google Drive. O vocabulário salvo continua.
+727c19e4 Escolha arquivos de áudio (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+0cf5ea3d Não foi possível encontrar esse audiolivro.

@@ -1,16 +1,20 @@
-// The + sheet's "Audiobook" step: LibriVox's free audiobooks in the language being learned (audiobooks.js).
-// First the categories (with how many books each has, and a search), then a category's books: cover,
-// title, author, length and chapters, a search, and more at the end of the list. Tapping Add subscribes to
-// the book's chapter feed like a podcast, starts transcribing chapter 1 and opens the book in the Library.
-// Shared by the desktop app, the phones and the web app.
+// The + sheet's "Audiobook" step (audiobooks.js), for every language being learned:
+//   - audiobook files of the learner's own: a button to choose them (several at once become one book, a
+//     chapter each, in file-name order: the Library uploads them, see library.js addBookFiles), and a link
+//     to Libro.fm, a shop that sells DRM-free audiobook files;
+//   - LibriVox's free audiobooks in the language, most popular first: cover, title, author, length and
+//     chapters, a search, and more at the end of the list; Add subscribes to the book's chapter feed like a
+//     podcast, starts transcribing chapter 1 and opens the book in the Library. Where LibriVox has no books in
+//     the language, a line says so.
+// Also askBookTitle, the box that names a book made of the learner's files. Shared by the desktop app, the
+// phones and the web app.
 
 import { api, esc, h, platform, toast } from "../app.js";
 import { icon } from "../icons.js";
-import { ALL, CATEGORIES, LIBRIVOX, bookLength, booksIn, categoryOf, librivoxIdOf, loadCatalogue, rssFor, splitTitle } from "../audiobooks.js";
+import { AUDIO_FILE_ACCEPT, LIBRIVOX, LIBRO_FM, bookLength, booksIn, librivoxIdOf, loadCatalogue, rssFor, splitTitle } from "../audiobooks.js";
+import { openModal } from "./modal.js";
 
 const PAGE = 30;
-// Fewer than this in a language, and the categories step says so.
-const FEW = 20;
 
 function where() {
   let base = "";
@@ -19,84 +23,68 @@ function where() {
 }
 
 /**
- * Fill `box` (the sheet's step) with the audiobooks of `lang` (named `langName`). `sheet` is the open
- * sheet (setTitle, close); `back` the sheet's own "All the ways to add" button, hidden while a category
- * is open (that step has its own way back, to the categories).
+ * Fill `box` (the sheet's step) with the ways to add an audiobook in `lang` (named `langName`). `sheet` is
+ * the open sheet (setTitle, close); `addFiles(files)` adds the chosen files as one book (library.js).
  */
-export function audiobookStep(box, { sheet, back, lang, langName }) {
-  const wait = h(`<p class="small muted aw-note">Loading the audiobooks…</p>`);
-  box.append(wait);
-  let catalogue = null;
-  let mine = new Map(); // LibriVox book id → its feed id, for books already in the Library
-  Promise.all([loadCatalogue(lang, where()), api("/feeds").catch(() => [])]).then(([data, feeds]) => {
-    catalogue = data;
-    for (const f of feeds) { const id = librivoxIdOf(f.url); if (id) mine.set(id, f.id); }
-    if (box.isConnected) categories();
-  }).catch((err) => {
-    wait.textContent = err.message;
-  });
+export function audiobookStep(box, { sheet, lang, langName, addFiles }) {
+  sheet.setTitle("Audiobooks");
+  box.classList.add("ab-step");
+  const mine = new Map(); // LibriVox book id → its feed id, for books already in the Library
 
+  // ----- the learner's own files, and where to buy some -----
+  const own = h(`<div class="ab-own">
+      <span class="ab-own-text"><strong>Your own audiobook files</strong>
+        <span class="small muted">MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV and more. Several files become one book, a chapter each, in file-name order.</span></span>
+      <button type="button" class="primary">${icon("plus", 16)} Add files</button>
+    </div>`);
+  own.querySelector("button").onclick = () => {
+    const input = Object.assign(document.createElement("input"), { type: "file", accept: AUDIO_FILE_ACCEPT, multiple: true });
+    input.onchange = () => {
+      const files = [...(input.files || [])];
+      if (!files.length) return;
+      sheet.close();
+      addFiles(files);
+    };
+    input.click(); // (still inside the tap, so the device lets the file chooser open)
+  };
+  const shop = h(`<p class="small muted aw-note ab-shop">Buy DRM-free audiobooks at <a target="_blank" rel="noopener">Libro.fm</a>, then add the file here.</p>`);
+  shop.querySelector("a").href = LIBRO_FM;
+  box.append(own, shop);
+
+  // ----- LibriVox -----
+  const free = h(`<div class="ab-free"><h3 class="ab-head2">Free from LibriVox</h3><p class="small muted aw-note">Loading the audiobooks…</p></div>`);
+  box.append(free);
   const credit = () => {
     const p = h(`<p class="small muted aw-note ab-credit">Free public-domain recordings from <a target="_blank" rel="noopener">LibriVox</a>, read by volunteers.</p>`);
     p.querySelector("a").href = LIBRIVOX;
     return p;
   };
-  const searchForm = (value, onSearch) => {
+  Promise.all([loadCatalogue(lang, where()), api("/feeds").catch(() => [])]).then(([data, feeds]) => {
+    for (const f of feeds) { const id = librivoxIdOf(f.url); if (id) mine.set(id, f.id); }
+    if (!box.isConnected) return;
+    if (!data.books.length) {
+      free.lastElementChild.textContent = "LibriVox has no free audiobooks in this language yet.";
+      return;
+    }
+    list(data.books, "");
+  }).catch((err) => {
+    free.lastElementChild.textContent = err.message;
+  });
+
+  /** LibriVox's books matching a search, a page at a time. */
+  function list(books, query) {
+    free.querySelectorAll(":scope > :not(.ab-head2)").forEach((el) => el.remove());
     const form = h(`<form class="aw-form" role="search">
         <input type="search" aria-label="Search audiobooks" dir="auto" autocomplete="off">
         <button type="submit">${icon("search", 18)} Search</button>
       </form>`);
     const input = form.querySelector("input");
     input.placeholder = `Search audiobooks in ${langName}`;
-    input.value = value;
-    form.onsubmit = (e) => { e.preventDefault(); onSearch(input.value.trim()); };
-    return form;
-  };
-
-  /** Step 1: the categories that have books in this language, and a search over all of them. */
-  function categories() {
-    sheet.setTitle("Audiobooks");
-    back.hidden = false;
-    box.innerHTML = "";
-    const books = catalogue.books;
-    if (!books.length) {
-      const none = h(`<div class="aw-unavailable"><strong></strong><p></p></div>`);
-      none.querySelector("strong").textContent = `No audiobooks in ${langName} yet`;
-      none.querySelector("p").textContent = `LibriVox, where these free audiobooks come from, has no finished recordings in ${langName} yet. Its volunteers finish new books every week, so look again another time. You can still add an audiobook file of your own (Audio file).`;
-      box.append(none, credit());
-      return;
-    }
-    box.append(searchForm("", (q) => list(ALL, q)));
-    if (books.length < FEW) {
-      box.append(h(`<p class="small muted aw-note">${books.length === 1 ? `LibriVox has only one audiobook in ${esc(langName)} so far.`
-        : `LibriVox has only ${books.length} audiobooks in ${esc(langName)} so far.`}</p>`));
-    }
-    const counts = new Map(catalogue.categories);
-    const grid = h(`<div class="ab-cats"></div>`);
-    const tile = (c, n) => {
-      const b = h(`<button type="button" class="ab-cat" data-cat="${c.key}">${icon(c.icon, 22)}
-        <span class="ab-cat-name">${c.label}</span><span class="ab-cat-n">${n}</span></button>`);
-      b.onclick = () => list(c.key, "");
-      grid.append(b);
-    };
-    tile(categoryOf(ALL), books.length);
-    for (const c of CATEGORIES) if (counts.get(c.key)) tile(c, counts.get(c.key));
-    box.append(grid, credit());
-  }
-
-  /** Step 2: the books in a category (or all of them) matching a search, a page at a time. */
-  function list(cat, query) {
-    const c = categoryOf(cat);
-    sheet.setTitle(c.label);
-    back.hidden = true;
-    box.innerHTML = "";
-    const up = h(`<button type="button" class="ghost aw-back">‹ Categories</button>`);
-    up.onclick = categories;
-    box.append(up, searchForm(query, (q) => list(cat, q)));
-    const found = booksIn(catalogue.books, cat, query);
+    input.value = query;
+    form.onsubmit = (e) => { e.preventDefault(); list(books, input.value.trim()); };
+    const found = booksIn(books, query);
     const count = h(`<p class="small muted ab-count"></p>`);
-    count.textContent = !found.length ? (query ? `No audiobooks match “${query}”.` : "No audiobooks here yet.")
-      : found.length === 1 ? "1 audiobook" : `${found.length} audiobooks`;
+    count.textContent = !found.length ? `No audiobooks match “${query}”.` : found.length === 1 ? "1 audiobook" : `${found.length} audiobooks`;
     const rows = h(`<div class="ab-list"></div>`);
     const more = h(`<button type="button" class="aw-wide ab-more">Show more</button>`);
     let shown = 0;
@@ -107,8 +95,8 @@ export function audiobookStep(box, { sheet, back, lang, langName }) {
     };
     more.onclick = page;
     page();
-    box.append(count, rows, more, credit());
-    box.closest(".modal-body")?.scrollTo?.({ top: 0 });
+    free.append(form, count, rows, more, credit());
+    if (query) input.focus();
   }
 
   /** One book: cover, title, author, length and chapters, and Add (or Open once it is in the Library). */
@@ -168,4 +156,33 @@ export function audiobookStep(box, { sheet, back, lang, langName }) {
       button.textContent = "Add";
     }
   }
+}
+
+/**
+ * Ask what to call a book made of `count` files (`guess`, from their names): resolves to the name, or null
+ * if the learner cancels.
+ */
+export function askBookTitle(guess, count) {
+  return new Promise((resolve) => {
+    let answer = null;
+    const box = openModal({ title: "Add audiobook", onClose: () => resolve(answer) });
+    const form = h(`<form class="stack ab-name">
+        <label class="stack"><span>Title</span><input type="text" dir="auto" maxlength="300"></label>
+        <p class="small muted"></p>
+        <div class="row" style="justify-content:flex-end;gap:8px">
+          <button type="button" class="ghost">Cancel</button><button type="submit" class="primary">Add</button></div>
+      </form>`);
+    const input = form.querySelector("input");
+    input.value = guess || "";
+    form.querySelector("p").textContent = count === 1 ? "1 file, added as one chapter."
+      : `${count} files, a chapter each, in file-name order.`;
+    form.querySelector("button.ghost").onclick = () => box.close();
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      answer = input.value.trim() || guess || "Audiobook";
+      box.close();
+    };
+    box.body.append(form);
+    setTimeout(() => { input.focus(); input.select(); }, 50);
+  });
 }

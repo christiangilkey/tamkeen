@@ -78,12 +78,12 @@ def list_episodes(feed_id: int | None = None, status: str | None = None, q: str 
                  f.title AS feed_title, f.image AS feed_image"""
     with db.session() as conn:
         total = conn.execute(f"SELECT COUNT(*) FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}", args).fetchone()[0]
-        book = feed_id is not None and audiobooks.is_audiobook_feed(
-            (conn.execute("SELECT url FROM feeds WHERE id = ?", (feed_id,)).fetchone() or {"url": ""})["url"])
-        if book:
+        feed_url = (conn.execute("SELECT url FROM feeds WHERE id = ?", (feed_id,)).fetchone() or {"url": ""})["url"]             if feed_id is not None else ""
+        if audiobooks.is_audiobook_feed(feed_url):
             # A book's chapters, in order (a book has a few hundred at most, so they are sorted here).
+            own = audiobooks.is_own_book(feed_url)
             every = conn.execute(f"SELECT {columns} FROM episodes e JOIN feeds f ON f.id = e.feed_id {clause}", args).fetchall()
-            rows = sorted(every, key=lambda r: audiobooks.chapter_key(r["audio_url"], r["title"]))[offset:offset + limit]
+            rows = sorted(every, key=lambda r: audiobooks.chapter_key(r["audio_url"], r["title"], own))[offset:offset + limit]
         else:
             rows = conn.execute(
                 f"""SELECT {columns}
@@ -115,13 +115,17 @@ def transcribe(body: TranscribeIn) -> dict[str, Any]:
 
 
 @router.post("/videos")
-async def upload_video(request: Request, filename: str, title: str | None = None) -> dict[str, Any]:
-    """Raw request body = the video or audio file (streamed to disk, so any size works)."""
+async def upload_video(request: Request, filename: str, title: str | None = None, book: str | None = None,
+                       book_title: str | None = None, transcribe: bool = True) -> dict[str, Any]:
+    """Raw request body = the video or audio file (streamed to disk, so any size works). `book`/`book_title`: a
+    chapter of the learner's own audiobook (app/videos.py); `transcribe=false` leaves it for later (an
+    audiobook's chapters after the first are transcribed as the learner gets to them)."""
     try:
-        ep = await videos.save_upload(filename, request.stream(), title)
+        ep = await videos.save_upload(filename, request.stream(), title, book=book, book_title=book_title)
     except videos.UploadError as exc:
         raise HTTPException(400, str(exc)) from exc
-    jobs.enqueue([ep["id"]])
+    if transcribe:
+        jobs.enqueue([ep["id"]])
     sync.request()  # uploads the video to Drive
     return ep
 

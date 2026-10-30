@@ -2,256 +2,86 @@
  "format": 1,
  "made": "2026-10-30",
  "source": "LibriVox (https://librivox.org): public-domain recordings",
- "categories": [
-  "fiction",
-  "mystery",
-  "fantasy",
-  "short",
-  "children",
-  "myths",
-  "poetry",
-  "plays",
-  "history",
-  "biography",
-  "religion",
-  "philosophy",
-  "science",
-  "nonfiction"
- ],
  "languages": {
   "ar": {
    "count": 3,
    "file": "ar.json.gz",
-   "bytes": 488,
-   "categories": {
-    "fiction": 1,
-    "religion": 1,
-    "nonfiction": 2
-   }
+   "bytes": 447
   },
   "ca": {
    "count": 11,
    "file": "ca.json.gz",
-   "bytes": 712,
-   "categories": {
-    "fiction": 8,
-    "short": 1,
-    "poetry": 2,
-    "nonfiction": 1
-   }
+   "bytes": 647
   },
   "ceb": {
    "count": 1,
    "file": "ceb.json.gz",
-   "bytes": 215,
-   "categories": {
-    "fiction": 1
-   }
+   "bytes": 191
   },
   "de": {
    "count": 850,
    "file": "de.json.gz",
-   "bytes": 34490,
-   "categories": {
-    "fiction": 380,
-    "mystery": 49,
-    "fantasy": 52,
-    "short": 118,
-    "children": 21,
-    "myths": 105,
-    "poetry": 119,
-    "plays": 35,
-    "history": 55,
-    "biography": 19,
-    "religion": 14,
-    "philosophy": 22,
-    "science": 21,
-    "nonfiction": 130
-   }
+   "bytes": 32610
   },
   "en": {
    "count": 19145,
    "file": "en.json.gz",
-   "bytes": 922386,
-   "categories": {
-    "fiction": 6822,
-    "mystery": 1118,
-    "fantasy": 1642,
-    "short": 1916,
-    "children": 636,
-    "myths": 719,
-    "poetry": 2715,
-    "plays": 865,
-    "history": 1965,
-    "biography": 1373,
-    "religion": 1655,
-    "philosophy": 266,
-    "science": 1290,
-    "nonfiction": 3317
-   }
+   "bytes": 872150
   },
   "es": {
    "count": 565,
    "file": "es.json.gz",
-   "bytes": 26183,
-   "categories": {
-    "fiction": 291,
-    "mystery": 27,
-    "fantasy": 45,
-    "short": 90,
-    "children": 7,
-    "myths": 34,
-    "poetry": 29,
-    "plays": 23,
-    "history": 58,
-    "biography": 15,
-    "religion": 59,
-    "philosophy": 3,
-    "science": 14,
-    "nonfiction": 50
-   }
+   "bytes": 24879
   },
   "fa": {
    "count": 1,
    "file": "fa.json.gz",
-   "bytes": 224,
-   "categories": {
-    "poetry": 1
-   }
+   "bytes": 205
   },
   "fr": {
    "count": 316,
    "file": "fr.json.gz",
-   "bytes": 14371,
-   "categories": {
-    "fiction": 158,
-    "mystery": 20,
-    "fantasy": 20,
-    "short": 30,
-    "children": 7,
-    "myths": 49,
-    "poetry": 50,
-    "plays": 9,
-    "history": 22,
-    "biography": 7,
-    "religion": 13,
-    "philosophy": 3,
-    "science": 7,
-    "nonfiction": 27
-   }
+   "bytes": 13621
   },
   "hi": {
    "count": 2,
    "file": "hi.json.gz",
-   "bytes": 258,
-   "categories": {
-    "fiction": 1,
-    "myths": 1
-   }
+   "bytes": 226
   },
   "it": {
    "count": 89,
    "file": "it.json.gz",
-   "bytes": 3934,
-   "categories": {
-    "fiction": 22,
-    "fantasy": 3,
-    "short": 29,
-    "children": 5,
-    "myths": 12,
-    "poetry": 21,
-    "plays": 7,
-    "history": 1,
-    "biography": 1,
-    "science": 2,
-    "nonfiction": 7
-   }
+   "bytes": 3658
   },
   "ja": {
    "count": 37,
    "file": "ja.json.gz",
-   "bytes": 2091,
-   "categories": {
-    "fiction": 16,
-    "short": 2,
-    "children": 3,
-    "myths": 2,
-    "poetry": 3,
-    "nonfiction": 3
-   }
+   "bytes": 1978
   },
   "ko": {
    "count": 3,
    "file": "ko.json.gz",
-   "bytes": 348,
-   "categories": {
-    "fiction": 1,
-    "fantasy": 1,
-    "short": 2
-   }
+   "bytes": 309
   },
   "pt": {
    "count": 107,
    "file": "pt.json.gz",
-   "bytes": 4985,
-   "categories": {
-    "fiction": 51,
-    "mystery": 2,
-    "fantasy": 2,
-    "short": 35,
-    "children": 2,
-    "myths": 3,
-    "poetry": 13,
-    "plays": 6,
-    "history": 5,
-    "biography": 2,
-    "religion": 5,
-    "science": 1,
-    "nonfiction": 9
-   }
+   "bytes": 4654
   },
   "ru": {
    "count": 76,
    "file": "ru.json.gz",
-   "bytes": 4882,
-   "categories": {
-    "fiction": 15,
-    "short": 30,
-    "children": 1,
-    "myths": 8,
-    "poetry": 6,
-    "plays": 2,
-    "history": 2,
-    "biography": 3,
-    "religion": 1,
-    "nonfiction": 11
-   }
+   "bytes": 4635
   },
   "tl": {
    "count": 4,
    "file": "tl.json.gz",
-   "bytes": 399,
-   "categories": {
-    "fiction": 2,
-    "short": 1,
-    "poetry": 1
-   }
+   "bytes": 356
   },
   "zh": {
    "count": 26,
    "file": "zh.json.gz",
-   "bytes": 1755,
-   "categories": {
-    "fiction": 6,
-    "mystery": 1,
-    "short": 6,
-    "myths": 2,
-    "poetry": 6,
-    "history": 2,
-    "religion": 7,
-    "philosophy": 3,
-    "nonfiction": 4
-   }
+   "bytes": 1603
   }
  }
 }

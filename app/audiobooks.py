@@ -1,14 +1,18 @@
-"""Audiobooks: LibriVox's free public-domain audiobooks (librivox.org), studied like podcasts.
+"""Audiobooks: LibriVox's free public-domain audiobooks (librivox.org) and audiobook files of the learner's
+own, studied like podcasts.
 
-A book the learner adds is a "podcast" whose address is the book's LibriVox chapter feed
+A LibriVox book the learner adds is a "podcast" whose address is the book's chapter feed
 (https://librivox.org/rss/<id>) and whose episodes are its chapters, so transcription, the player, word
-lookup, saving and Drive sync all work unchanged. This file holds what differs (the same rules as
-web/js/audiobooks.js, which the phones and the web app use):
-    - which feeds are audiobooks (is_audiobook_feed), so they get their own kind in the Library and stay
+lookup, saving and Drive sync all work unchanged. A book of the learner's own files is a list
+"local:audiobook:<key>" whose episodes are the files, uploaded like "My audio" files (app/videos.py
+save_upload with `book`). This file holds what differs (the same rules as web/js/audiobooks.js, which the
+phones and the web app use):
+    - which lists are audiobooks (is_audiobook_feed), so they get their own kind in the Library and stay
       out of the podcasts;
     - the book's title tidied ("Divine Comedy, The by Dante Alighieri (1265 - 1321)" → "The Divine
       Comedy by Dante Alighieri"), the same on every device, or each sync would change it back;
-    - chapters in order (chapter_key): a podcast lists its newest episode first, a book starts at chapter 1.
+    - chapters in order (chapter_key): a podcast lists its newest episode first, a book starts at chapter 1
+      (a LibriVox book by its files' numbered names; the learner's own by the files' names, its chapter titles).
 
 It also serves the catalogue (which books there are, per language and category: tools/build_audiobooks.py,
 published in docs/audiobooks) to the computer's page through /api/audiobooks/... (app/api/audiobooks.py):
@@ -28,6 +32,7 @@ from . import paths
 
 BASE_URL = "https://christiangilkey.github.io/tamkeen/audiobooks/"
 LIBRIVOX_RSS = "https://librivox.org/rss/"
+OWN_PREFIX = "local:audiobook:"
 # SQL: leaves the audiobooks out of a list of podcasts (`f` is the feeds table).
 NOT_AUDIOBOOK_SQL = "f.url NOT LIKE '%librivox.org/rss/%'"
 NAME = re.compile(r"^(index\.json|[a-z]{2,3}\.json\.gz)$")
@@ -39,8 +44,16 @@ class CatalogueError(RuntimeError):
     pass
 
 
-def is_audiobook_feed(url: str | None) -> bool:
+def is_librivox_feed(url: str | None) -> bool:
     return bool(url) and bool(_FEED.match(str(url).strip()))
+
+
+def is_own_book(url: str | None) -> bool:
+    return bool(url) and str(url).startswith(OWN_PREFIX)
+
+
+def is_audiobook_feed(url: str | None) -> bool:
+    return is_librivox_feed(url) or is_own_book(url)
 
 
 def rss_for(book_id: int) -> str:
@@ -65,9 +78,11 @@ def _natural(text: str) -> tuple:
     return tuple((0, int(part), "") if part.isdigit() else (1, 0, part.lower()) for part in re.split(r"(\d+)", text) if part)
 
 
-def chapter_key(audio_url: str | None, title: str | None = "") -> tuple:
+def chapter_key(audio_url: str | None, title: str | None = "", own: bool = False) -> tuple:
     """Sort key for a book's chapters: the file name in natural order (LibriVox numbers each chapter's file),
-    then the title."""
+    then the title. A book of the learner's own files (`own`): the title, which is the file's name."""
+    if own:
+        return (_natural(str(title or "")),)
     name = str(audio_url or "").split("?")[0].split("#")[0].rsplit("/", 1)[-1]
     return (_natural(name), _natural(str(title or "")))
 

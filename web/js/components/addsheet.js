@@ -4,7 +4,7 @@
 // Each way opens the flow it always had: a podcast's feed address (or Trending), YouTube in the
 // app's own browser, the Web page screen (pages/websites.js, route #/sites: paste an address, your
 // saved sites and news sites, all on one screen), a video or audio file of your own, Instagram
-// reels, and LibriVox's free audiobooks (components/audiobooksheet.js: categories, then books).
+// reels, and audiobooks (components/audiobooksheet.js: your own files, and LibriVox's free books).
 
 import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
@@ -21,17 +21,18 @@ const WAYS = [
   { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
   { key: "book", label: "Book", icon: "book", text: "A free classic, or your own EPUB, PDF, TXT, Kindle or Word file", step: true },
-  { key: "audiobook", label: "Audiobook", icon: "audiobook", text: "Free audiobooks from LibriVox, by category, chapter by chapter", step: true },
+  { key: "audiobook", label: "Audiobook", icon: "audiobook", text: "Free audiobooks from LibriVox, or audiobook files of your own", step: true },
   { key: "reels", label: "Reels", icon: "reel", text: "Short Instagram videos to watch on your phone" },
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
 ];
 
 /**
- * Open the sheet. `pickFile("video" | "audio")` starts choosing a file of your own (the Library
- * handles the upload and shows its progress).
+ * Open the sheet. `pickFile("video" | "audio")` starts choosing a file of your own, and
+ * `addAudiobookFiles(files)` adds chosen files as one audiobook (the Library handles the upload and
+ * shows its progress).
  */
-export function openAddSheet({ pickFile }) {
+export function openAddSheet({ pickFile, addAudiobookFiles }) {
   const sheet = openModal({ title: "Add to your library" });
   const { body } = sheet;
   sheet.el.querySelector(".modal-box").classList.add("add-sheet");
@@ -80,7 +81,7 @@ export function openAddSheet({ pickFile }) {
     if (key === "podcast") podcastStep(box);
     else if (key === "youtube") youtubeStep(box);
     else if (key === "netflix") netflixStep(box);
-    else if (key === "audiobook") audiobookStep(box, { sheet, back, lang, langName });
+    else if (key === "audiobook") audiobookStep(box, { sheet, lang, langName, addFiles: addAudiobookFiles });
     else bookStep(box);
     box.querySelector("input")?.focus();
   }

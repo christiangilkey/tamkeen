@@ -6,19 +6,23 @@ vocab all work unchanged. What marks it out:
     audio_url    "drive:v_<episode uid><ext>", the name of the file in the Drive app folder
     audio_type   the file's MIME type (video/mp4, audio/mpeg, ...): this decides video or audio player
     remote_audio 1 once the file itself is in Drive (no separate audio copy is made)
+
+An audiobook of the learner's own (several files, one a chapter) is the same, in a list of its own,
+"local:audiobook:<key>" (app/audiobooks.py), named after the book.
 """
 
 from __future__ import annotations
 
 import mimetypes
 import os
+import re
 import time
 import uuid
 from collections.abc import AsyncIterator
 from pathlib import Path
 from typing import Any
 
-from . import audio, db, ids, paths
+from . import audio, audiobooks, db, ids, languages, paths
 
 LOCAL_FEED_URL = "local:videos"
 LOCAL_FEED_TITLE = "My videos"
@@ -31,10 +35,20 @@ VIDEO_TYPES = {
 }
 
 
+# The audio files the app takes, everywhere (web/js/audiobooks.js AUDIO_FILE_EXTENSIONS has the same list).
+# .m4b is the usual DRM-free audiobook file. A .webm is a video unless it is added as an audiobook.
 AUDIO_TYPES = {
-    ".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".m4b": "audio/mp4", ".aac": "audio/aac", ".wav": "audio/wav", ".ogg": "audio/ogg",
-    ".oga": "audio/ogg", ".opus": "audio/ogg", ".flac": "audio/flac", ".wma": "audio/x-ms-wma", ".amr": "audio/amr",
+    ".m4b": "audio/mp4", ".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".aac": "audio/aac", ".ogg": "audio/ogg",
+    ".oga": "audio/ogg", ".opus": "audio/ogg", ".flac": "audio/flac", ".wav": "audio/wav", ".wma": "audio/x-ms-wma",
+    ".amr": "audio/amr", ".webm": "audio/webm", ".mka": "audio/x-matroska", ".aiff": "audio/aiff", ".aif": "audio/aiff",
 }
+# Sound the app's players (Chromium in the window and on Android) can't play: kept as a speech copy (Opus) instead.
+PLAYABLE_COPY = {".wma", ".amr", ".aiff", ".aif"}
+# Audible's copy-protected files: never opened (the owner's rule: nothing that breaks a service's terms).
+AUDIBLE = {".aax", ".aa", ".aaxc"}
+AUDIBLE_MESSAGE = ("Audible files (.aax) are copy-protected and can't be opened. "
+                   "DRM-free shops like Libro.fm sell files that work.")
+_BOOK_KEY = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 
 
 class UploadError(RuntimeError):
@@ -58,6 +72,24 @@ def mime_for(filename: str) -> str:
     return VIDEO_TYPES.get(ext) or AUDIO_TYPES.get(ext) or mimetypes.guess_type(filename)[0] or "video/mp4"
 
 
+def ensure_book(conn: Any, key: str, title: str) -> int:
+    """Id of the learner's own audiobook `key` ("local:audiobook:<key>"), made the first time a file is added
+    to it, in the language being learned."""
+    if not _BOOK_KEY.match(key or ""):
+        raise UploadError("That audiobook can't be found.")
+    url = audiobooks.OWN_PREFIX + key
+    row = conn.execute("SELECT id, deleted FROM feeds WHERE url = ?", (url,)).fetchone()
+    if row is not None:
+        if row["deleted"]:
+            conn.execute("UPDATE feeds SET deleted = 0 WHERE id = ?", (row["id"],))
+        return int(row["id"])
+    name = re.sub(r"\s+", " ", title or "").strip()[:300] or "Audiobook"
+    cur = conn.execute(
+        "INSERT INTO feeds(uid, url, title, description, created_at, language) VALUES(?,?,?,?,?,?)",
+        (ids.feed_uid(url), url, name, "", time.time(), languages.study()))
+    return int(cur.lastrowid)
+
+
 def ensure_feed(conn: Any, audio: bool = False) -> int:
     """Id of the "My videos" (or "My audio") feed, creating or reviving it the first time it's needed."""
     url, title, what = ((AUDIO_FEED_URL, AUDIO_FEED_TITLE, "Audio") if audio else (LOCAL_FEED_URL, LOCAL_FEED_TITLE, "Video"))
@@ -72,10 +104,16 @@ def ensure_feed(conn: Any, audio: bool = False) -> int:
     return int(cur.lastrowid)
 
 
-async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | None = None) -> dict[str, Any]:
-    """Store an uploaded video or audio file and create its episode. Returns the episode row."""
+async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | None = None,
+                      book: str | None = None, book_title: str | None = None) -> dict[str, Any]:
+    """Store an uploaded video or audio file and create its episode. Returns the episode row.
+    `book`: the key of the learner's own audiobook it is a chapter of (`book_title` names a new one)."""
     ext = os.path.splitext(filename)[1].lower()
-    is_audio = ext in AUDIO_TYPES
+    if ext in AUDIBLE:
+        raise UploadError(AUDIBLE_MESSAGE)
+    is_audio = ext in AUDIO_TYPES and (ext not in VIDEO_TYPES or bool(book))
+    if book and not is_audio:
+        raise UploadError("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).")
     if not is_audio and ext not in VIDEO_TYPES:
         raise UploadError("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file "
                           "(MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).")
@@ -92,9 +130,19 @@ async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | 
             duration = audio.probe_duration(tmp)
         except audio.AudioError as exc:
             raise UploadError(f"This file has no readable sound ({exc}).") from exc
+        mime = AUDIO_TYPES[ext] if is_audio else mime_for(filename)
+        if ext in PLAYABLE_COPY:
+            # (WMA, AMR, AIFF: the players can't play them, so the sound is kept as Opus, which every device plays.)
+            playable = tmp.with_name(tmp.name + ".ogg")
+            try:
+                audio.encode_speech_copy(tmp, playable)
+            except audio.AudioError as exc:
+                raise UploadError(f"This file has no readable sound ({exc}).") from exc
+            os.replace(playable, tmp)
+            ext, mime = ".ogg", "audio/ogg"
         guid = uuid.uuid4().hex
         with db.session() as conn:
-            feed_id = ensure_feed(conn, audio=is_audio)
+            feed_id = ensure_book(conn, book, book_title or "") if book else ensure_feed(conn, audio=is_audio)
             feed_uid = conn.execute("SELECT uid FROM feeds WHERE id = ?", (feed_id,)).fetchone()["uid"]
             uid = ids.episode_uid(feed_uid, guid)
             name = (title or "").strip() or os.path.splitext(os.path.basename(filename))[0] or ("Audio" if is_audio else "Video")
@@ -103,7 +151,7 @@ async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | 
                 "INSERT INTO episodes(feed_id, uid, guid, title, published, duration, audio_url, audio_type, created_at) "
                 "VALUES(?,?,?,?,?,?,?,?,?)",
                 (feed_id, uid, guid, name[:300], now, duration or None, f"{DRIVE_PREFIX}v_{uid}{ext}",
-                 mime_for(filename), now))
+                 mime, now))
             ep_id = int(cur.lastrowid)
             dest = paths.audio_dir() / f"{ep_id}{ext}"
             os.replace(tmp, dest)

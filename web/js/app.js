@@ -434,11 +434,15 @@ export async function openInstagramSignIn() {
   return openBrowser("https://www.instagram.com/accounts/login/", { signIn: true });
 }
 
-/** Add one of the user's own video files. Resolves to the new episode. */
-export function uploadVideo(file, onProgress) {
+/** Add one of the user's own video or audio files. Resolves to the new episode. `book` ({key, title}): a
+ *  chapter of an audiobook of their own (audiobooks.js); `transcribe: false` leaves it for later. */
+export function uploadVideo(file, onProgress, { book = null, transcribe = true } = {}) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/api/videos?filename=${encodeURIComponent(file.name)}`);
+    const q = new URLSearchParams({ filename: file.name });
+    if (book) { q.set("book", book.key); q.set("book_title", book.title); }
+    if (!transcribe) q.set("transcribe", "false");
+    xhr.open("POST", `/api/videos?${q}`);
     xhr.upload.onprogress = (e) => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };
     xhr.onload = () => {
       let data = null;

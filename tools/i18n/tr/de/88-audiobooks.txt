@@ -1,30 +1,12 @@
-722e26d3 Krimi & Mystery
-5f1d8a37 Fantasy & Science-Fiction
-0a033d11 Kurzgeschichten
-7b98a058 Kinder
-6e70435b Mythen & Märchen
-4674e99a Lyrik
-a6bc73a2 Theaterstücke
-4024c0d2 Leben & Briefe
-b04d58c6 Religion
-496e9438 Philosophie
-cb5ba5fa Wissenschaft & Natur
 48703f3c Alle Hörbücher
 81ceefa8 Tamkeens Hörbuchliste ist nicht erreichbar. Prüfe deine Verbindung und versuche es noch einmal.
 5db44445 Hörbuch
-ae00f13b Kostenlose Hörbücher von LibriVox, nach Kategorie, Kapitel für Kapitel
 e837f01b Hörbücher werden geladen…
 80e20bba Kostenlose gemeinfreie Aufnahmen von <0>LibriVox</0>, gelesen von Freiwilligen.
 f392e049 Hörbücher suchen
 57c19587 Hörbücher auf {0} suchen
 87e2c774 Hörbücher
-7eef53ad Noch keine Hörbücher auf {0}
-e254698c LibriVox, woher diese kostenlosen Hörbücher stammen, hat noch keine fertigen Aufnahmen auf {0}. Die Freiwilligen stellen jede Woche neue Bücher fertig, schau also später wieder vorbei. Du kannst trotzdem eine eigene Hörbuchdatei hinzufügen (Audiodatei).
-ff114248 LibriVox hat bisher nur ein Hörbuch auf {0}.
-c3d92fd7 LibriVox hat bisher nur {0} Hörbücher auf {1}.
-4d72cd86 ‹ Kategorien
 c6b81c13 Keine Hörbücher passen zu „{0}“.
-0d8c15ee Hier gibt es noch keine Hörbücher.
 da143272 1 Hörbuch
 4dcc04dc {0} Hörbücher
 25911d48 Mehr anzeigen
@@ -34,7 +16,6 @@ eac3337d „{0}“ hinzugefügt. Das erste Kapitel wird gerade transkribiert.
 6a0b24d6 „{0}“ hinzugefügt. Dein Computer transkribiert das erste Kapitel beim nächsten Synchronisieren.
 ba59d11c „{0}“ hinzugefügt. Die Kapitel erscheinen gleich.
 c1849a7f „{0}“ hinzugefügt.
-37740b4b Füge kostenlose Hörbücher mit dem +-Knopf unten hinzu.
 21335e97 {0}/{1} transkribiert
 31d30b62 Noch einmal hören
 be1c0836 Anhören
@@ -45,3 +26,19 @@ f3cc502f Wechsle zwischen deinen Kursen, Podcasts, YouTube-Videos, Webseiten, B�
 153dd67e Nächstes Kapitel
 c373f48e Nächstes Kapitel: {0}
 4630b001 Wähle eine Videodatei (MP4, MOV, WebM, MKV, AVI, 3GP) oder eine Audiodatei (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).
+126cdf32 Audible-Dateien (.aax) sind kopiergeschützt und lassen sich nicht öffnen. DRM-freie Shops wie Libro.fm verkaufen Dateien, die funktionieren.
+b0ebddf0 Kostenlose Hörbücher von LibriVox oder eigene Hörbuchdateien
+6bf17cfd Deine eigenen Hörbuchdateien
+77bd815c MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV und mehr. Mehrere Dateien werden ein Buch, je Datei ein Kapitel, nach Dateinamen sortiert.
+c06342c8 Dateien hinzufügen
+50c50ce0 Kaufe DRM-freie Hörbücher bei <0>Libro.fm</0> und füge die Datei dann hier hinzu.
+d6343d8f Kostenlos von LibriVox
+a6e01010 LibriVox hat in dieser Sprache noch keine kostenlosen Hörbücher.
+130faf43 Hörbuch hinzufügen
+768e0c1c Titel
+bc6ba47c 1 Datei, als ein Kapitel hinzugefügt.
+e76df828 {0} Dateien, je Datei ein Kapitel, nach Dateinamen sortiert.
+711c41b2 Füge Hörbücher mit dem +-Knopf unten hinzu: kostenlose von LibriVox oder eigene Dateien.
+4a63b0d9 Seine Dateien und Transkripte werden von diesem Gerät und aus deinem Google Drive entfernt. Gespeicherte Vokabeln bleiben.
+727c19e4 Wähle Audiodateien (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+0cf5ea3d Dieses Hörbuch wurde nicht gefunden.

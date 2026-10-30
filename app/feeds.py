@@ -19,7 +19,9 @@ from .version import APP_NAME, __version__
 log = logging.getLogger(__name__)
 
 USER_AGENT = f"{APP_NAME.replace(' ', '')}/{__version__} (+podcast reader)"
-AUDIO_EXTENSIONS = (".mp3", ".m4a", ".m4b", ".aac", ".ogg", ".opus", ".wav", ".flac", ".mp4", ".oga", ".webm")
+# The audio files the app takes (app/videos.py AUDIO_TYPES), and .mp4 (a podcast's video episodes).
+AUDIO_EXTENSIONS = (".m4b", ".mp3", ".m4a", ".aac", ".ogg", ".oga", ".opus", ".flac", ".wav", ".wma", ".amr", ".webm",
+                    ".mka", ".aiff", ".aif", ".mp4")
 
 
 class FeedError(RuntimeError):

@@ -1,13 +1,15 @@
-"""Build Tamkeen's audiobook catalogue: LibriVox's free public-domain audiobooks, by language and category.
+"""Build Tamkeen's audiobook catalogue: LibriVox's free public-domain audiobooks, by language.
 
 LibriVox (librivox.org) records public-domain books read by volunteers, and puts the recordings in the
-public domain too. Its API (https://librivox.org/api/info) lists every book with its language and genres,
-but it can't be asked for "poetry in Arabic": it has no language filter, and asks for at most 500 books
-a request, with a pause between requests. So the whole list is read here, once, and split into one small
+public domain too. Its API (https://librivox.org/api/info) lists every book with its language, but it
+can't be asked for "the books in Arabic": it has no language filter, and asks for at most 500 books a
+request, with a pause between requests. So the whole list is read here, once, and split into one small
 file per language that GitHub Pages serves to the apps (web/js/audiobooks.js reads them):
 
-    docs/audiobooks/index.json        {format, made, source, categories: [keys], languages: {code: {count, file, bytes, categories: {key: count}}}}
-    docs/audiobooks/<code>.json.gz    {format, lang, made, categories: [[key, count]], books: [[id, title, author, seconds, chapters, [category keys], cover]]}
+    docs/audiobooks/index.json        {format, made, source, languages: {code: {count, file, bytes}}}
+    docs/audiobooks/<code>.json.gz    {format, lang, made, books: [[id, title, author, seconds, chapters, cover]]}
+
+A language LibriVox has no finished books in has no file (the app then says so).
 
 Books are listed most-downloaded first (archive.org's download counts for LibriVox's collection there).
 The cover is the part of LibriVox's cover thumbnail address after "https://archive.org/download/".
@@ -30,7 +32,6 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -51,42 +52,6 @@ LANGUAGES = {
     "Catalan": "ca", "Cebuano": "ceb", "Bisaya": "ceb", "Thai": "th", "German": "de", "Persian": "fa",
     "Farsi": "fa", "Persian/Farsi": "fa", "Bisaya/Cebuano": "ceb", "Hindi": "hi", "Korean": "ko",
 }
-
-# The categories offered, in the order shown (web/js/audiobooks.js CATEGORIES has the same keys, with
-# their names and icons).
-CATEGORY_KEYS = ["fiction", "mystery", "fantasy", "short", "children", "myths", "poetry", "plays", "history",
-                 "biography", "religion", "philosophy", "science", "nonfiction"]
-# Which categories a LibriVox genre puts a book in. LibriVox gives each book a flat list of genres, main
-# ones and finer ones ("Crime & Mystery Fiction", "Detective Fiction"); a book is in every category one of
-# its genres matches. Each pattern is tried on the genre's name in lower case.
-RULES = [
-    ("children", r"children|juvenile|young adult|nursery|^school$"),
-    ("myths", r"myth|legend|fairy|folk|fable|saga"),
-    ("poetry", r"poetry|poem|epic|ballad|sonnet|verse|lyric|elegies|odes"),
-    ("plays", r"^plays?$|drama|tragedy|comedy"),
-    ("short", r"short stor|^short works$|antholog|single author|literary collections"),
-    ("mystery", r"crime|mystery|detective|suspense|espionage|thriller"),
-    ("fantasy", r"fantas|science fiction|horror|supernatural|gothic"),
-    ("religion", r"christian|bible|relig|version$|translation$|testament|atheism"),
-    ("philosophy", r"philosoph|atheism"),
-    ("history", r"^history$|antiquity|middle ages|medieval|^modern \(|^ancient$|early modern|^war & military$|exploration"),
-    ("biography", r"biograph|memoir|^letters$|autobiograph"),
-    ("science", r"^science$|^nature$|^animals|life sciences|earth sciences|astronomy|chemistry|mathematics|medical|"
-                r"technology|health|psychology"),
-    ("nonfiction", r"non-?fiction|essay|travel & geography|political science|social science|true crime|self-help|cooking|literary criticism|"
-                   r"^art|education|music|business|^law$|reference|family & relationships|performing arts|writing|"
-                   r"sports & recreation|language learning|house & home|transportation|crafts|gardening|^games$|periodicals|"
-                   r"narratives|^humor$"),
-    ("fiction", r"(?<!non-)(?<!non)fiction|^romance$|western|satire|adventure|nautical|epistolary|family life"),
-]
-# A fiction genre ("Historical Fiction", "Nature & Animal Fiction", "Christian Fiction") is fiction only:
-# not history, nature or religion. A children's genre is in Children's only.
-FICTION = re.compile(r"(?<!non-)(?<!non)fiction|^romance$|western|satire|adventure|nautical|epistolary|family life")
-NOT_FICTION = re.compile(r"non-?fiction")
-FICTION_ALSO = {"fiction", "mystery", "fantasy", "myths", "short", "plays", "poetry"}
-# Genre names that say nothing about a book's kind ("Published 1800 -1900", "General", "Modern").
-IGNORED_GENRES = re.compile(r"^published|^\d|^general$|^modern$|^contemporary$|^historical$|^family$|^erotica$", re.I)
-
 
 def get_json(url: str, tries: int = 5) -> dict:
     """GET a JSON address, waiting and trying again when the server is busy."""
@@ -109,12 +74,12 @@ def get_json(url: str, tries: int = 5) -> dict:
 
 
 def fetch_librivox(refresh: bool) -> list[dict]:
-    """Every LibriVox book (id, title, language, length, chapters, authors, genres, cover)."""
+    """Every LibriVox book (id, title, language, length, chapters, authors, cover)."""
     CACHE.mkdir(parents=True, exist_ok=True)
     whole = CACHE / "librivox.json"
     if not refresh and whole.exists() and time.time() - whole.stat().st_mtime < FRESH_DAYS * 86400:
         return json.loads(whole.read_text(encoding="utf-8"))
-    fields = "{id,title,language,totaltimesecs,num_sections,url_iarchive,authors,genres,coverart_thumbnail}"
+    fields = "{id,title,language,totaltimesecs,num_sections,url_iarchive,authors,coverart_thumbnail}"
     books: list[dict] = []
     offset = 0
     while True:
@@ -155,22 +120,6 @@ def fetch_downloads(refresh: bool) -> dict[str, int]:
     return counts
 
 
-def categories_of(genres: list[str]) -> list[str]:
-    """The categories a book with these LibriVox genres is in (in CATEGORY_KEYS order)."""
-    found: set[str] = set()
-    for name in genres:
-        low = name.lower().strip()
-        if not low or IGNORED_GENRES.search(low):
-            continue
-        hits = {key for key, pattern in RULES if re.search(pattern, low)}
-        if "children" in hits:
-            hits = {"children"}
-        elif FICTION.search(low) and not NOT_FICTION.search(low):
-            hits = (hits & FICTION_ALSO) | {"fiction"}
-        found |= hits
-    return [k for k in CATEGORY_KEYS if k in found]
-
-
 def author_of(book: dict) -> str:
     names = []
     for a in book.get("authors") or []:
@@ -196,41 +145,32 @@ def identifier_of(book: dict) -> str:
 def build(books: list[dict], downloads: dict[str, int]) -> dict:
     made = date.today().isoformat()
     per_lang: dict[str, list[tuple[int, list]]] = {}
-    unmatched: Counter = Counter()
     for b in books:
         code = LANGUAGES.get(str(b.get("language") or "").strip())
         secs = int(b.get("totaltimesecs") or 0)
         chapters = int(b.get("num_sections") or 0)
         if not code or not secs or not chapters:  # another language, or not finished
             continue
-        genres = [str(g.get("name") or "") for g in b.get("genres") or []]
-        cats = categories_of(genres)
-        if not cats:
-            unmatched.update(g for g in genres if not IGNORED_GENRES.search(g.lower()))
         title = re.sub(r"\s+", " ", str(b.get("title") or "")).strip()
         if not title:
             continue
-        row = [int(b["id"]), title, author_of(b), secs, chapters, cats, cover_of(b)]
+        row = [int(b["id"]), title, author_of(b), secs, chapters, cover_of(b)]
         per_lang.setdefault(code, []).append((downloads.get(identifier_of(b), 0), row))
     OUT.mkdir(parents=True, exist_ok=True)
+    for old in OUT.glob("*.json.gz"):  # (a language that has lost its last book keeps no stale file)
+        old.unlink()
     index = {"format": 1, "made": made, "source": "LibriVox (https://librivox.org): public-domain recordings",
-             "categories": CATEGORY_KEYS, "languages": {}}
+             "languages": {}}
     for code in sorted(per_lang):
         rows = [row for _, row in sorted(per_lang[code], key=lambda x: (-x[0], -x[1][0]))]
-        counts = Counter(c for row in rows for c in row[5])
-        body = {"format": 1, "lang": code, "made": made,
-                "categories": [[k, counts[k]] for k in CATEGORY_KEYS if counts[k]], "books": rows}
+        body = {"format": 1, "lang": code, "made": made, "books": rows}
         raw = json.dumps(body, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
         packed = gzip.compress(raw, compresslevel=9, mtime=0)
         name = f"{code}.json.gz"
         (OUT / name).write_bytes(packed)
-        index["languages"][code] = {"count": len(rows), "file": name, "bytes": len(packed),
-                                    "categories": {k: counts[k] for k in CATEGORY_KEYS if counts[k]}}
+        index["languages"][code] = {"count": len(rows), "file": name, "bytes": len(packed)}
         print(f"  {code}: {len(rows)} books, {len(packed) // 1024} KB")
     (OUT / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    if unmatched:
-        print("Genres in no category (books with only these are only under All audiobooks):",
-              ", ".join(f"{g} ({n})" for g, n in unmatched.most_common(30)))
     return index
 
 

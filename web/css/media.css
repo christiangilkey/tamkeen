@@ -115,22 +115,20 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .yt-topic span { min-width: 0; overflow-wrap: anywhere; }
 .yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
 
-/* ---------- audiobooks (LibriVox: audiobooks.js) ----------
-   The + sheet's categories (plain tiles like YouTube's topics, with how many books each has), a
-   category's books (cover, title, author, length, Add), and the Library's own shelf of them. */
-.ab-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-.ab-cat {
-  display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
-  text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
-  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--text);
-}
-.ab-cat:hover:not(:disabled) { border-color: var(--accent); background: var(--surface-2); }
-.ab-cat-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.ab-cat-n { flex: none; color: var(--muted); font-weight: 400; font-size: 13px; }
-.ab-cat[data-cat="all"] { grid-column: 1 / -1; justify-content: center; }
-.ab-cat[data-cat="all"] .ab-cat-name { flex: none; }
+/* ---------- audiobooks (audiobooks.js) ----------
+   The + sheet's Audiobook step: your own files (one plain card, with the Libro.fm line under it), then
+   LibriVox's books (cover, title, author, length, Add); and the Library's own shelf of them. */
+.ab-own { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
+.ab-own-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.ab-own > button { flex: none; display: inline-flex; align-items: center; gap: 6px; }
+.ab-shop { margin-top: -4px; }
+.ab-free { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+.ab-head2 { margin: 0; font-size: 16px; }
+.ab-free > .aw-note:not(.ab-credit) { text-align: start; }
+@media (max-width: 480px) { .ab-own { flex-wrap: wrap; } .ab-own > button { width: 100%; justify-content: center; } }
 .ab-count { margin: 0; text-align: center; }
-.aw-step > .aw-back { align-self: flex-start; margin-bottom: 0; } /* (the way back to the categories, where the sheet's own sits) */
+.ab-name label { display: flex; flex-direction: column; gap: 6px; }
+.ab-name input { width: 100%; }
 .ab-list, .ab-shelf { display: flex; flex-direction: column; gap: 8px; }
 .ab-book, .ab-mine {
   display: flex; align-items: center; gap: 12px; padding: 8px 10px; min-width: 0;

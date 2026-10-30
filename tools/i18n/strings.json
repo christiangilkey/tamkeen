@@ -460,73 +460,8 @@
   "f": "web/js/app.js"
  },
  {
-  "id": "0d23bd8c",
-  "k": "Fiction",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "722e26d3",
-  "k": "Mystery & crime",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "5f1d8a37",
-  "k": "Fantasy & science fiction",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "0a033d11",
-  "k": "Short stories",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "7b98a058",
-  "k": "Children's",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "6e70435b",
-  "k": "Myths & fairy tales",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "4674e99a",
-  "k": "Poetry",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "a6bc73a2",
-  "k": "Plays",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "90ccd649",
-  "k": "History",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "4024c0d2",
-  "k": "Lives & letters",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "b04d58c6",
-  "k": "Religion",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "496e9438",
-  "k": "Philosophy",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "cb5ba5fa",
-  "k": "Science & nature",
-  "f": "web/js/audiobooks.js"
- },
- {
-  "id": "48703f3c",
-  "k": "All audiobooks",
+  "id": "126cdf32",
+  "k": "Audible files (.aax) are copy-protected and can't be opened. DRM-free shops like Libro.fm sell files that work.",
   "f": "web/js/audiobooks.js"
  },
  {
@@ -2100,8 +2035,8 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "ae00f13b",
-  "k": "Free audiobooks from LibriVox, by category, chapter by chapter",
+  "id": "b0ebddf0",
+  "k": "Free audiobooks from LibriVox, or audiobook files of your own",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -3005,6 +2940,36 @@
   "f": "web/js/components/ankisync.js"
  },
  {
+  "id": "87e2c774",
+  "k": "Audiobooks",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "6bf17cfd",
+  "k": "Your own audiobook files",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "77bd815c",
+  "k": "MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV and more. Several files become one book, a chapter each, in file-name order.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "c06342c8",
+  "k": "Add files",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "50c50ce0",
+  "k": "Buy DRM-free audiobooks at <0>Libro.fm</0>, then add the file here.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "d6343d8f",
+  "k": "Free from LibriVox",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
   "id": "e837f01b",
   "k": "Loading the audiobooks…",
   "f": "web/js/components/audiobooksheet.js"
@@ -3012,6 +2977,11 @@
  {
   "id": "80e20bba",
   "k": "Free public-domain recordings from <0>LibriVox</0>, read by volunteers.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "a6e01010",
+  "k": "LibriVox has no free audiobooks in this language yet.",
   "f": "web/js/components/audiobooksheet.js"
  },
  {
@@ -3025,43 +2995,8 @@
   "f": "web/js/components/audiobooksheet.js"
  },
  {
-  "id": "87e2c774",
-  "k": "Audiobooks",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "7eef53ad",
-  "k": "No audiobooks in {0} yet",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "e254698c",
-  "k": "LibriVox, where these free audiobooks come from, has no finished recordings in {0} yet. Its volunteers finish new books every week, so look again another time. You can still add an audiobook file of your own (Audio file).",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "ff114248",
-  "k": "LibriVox has only one audiobook in {0} so far.",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "c3d92fd7",
-  "k": "LibriVox has only {0} audiobooks in {1} so far.",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "4d72cd86",
-  "k": "‹ Categories",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
   "id": "c6b81c13",
   "k": "No audiobooks match “{0}”.",
-  "f": "web/js/components/audiobooksheet.js"
- },
- {
-  "id": "0d8c15ee",
-  "k": "No audiobooks here yet.",
   "f": "web/js/components/audiobooksheet.js"
  },
  {
@@ -3112,6 +3047,26 @@
  {
   "id": "c1849a7f",
   "k": "Added “{0}”.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "130faf43",
+  "k": "Add audiobook",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "768e0c1c",
+  "k": "Title",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "bc6ba47c",
+  "k": "1 file, added as one chapter.",
+  "f": "web/js/components/audiobooksheet.js"
+ },
+ {
+  "id": "e76df828",
+  "k": "{0} files, a chapter each, in file-name order.",
   "f": "web/js/components/audiobooksheet.js"
  },
  {
@@ -13405,8 +13360,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "37740b4b",
-  "k": "Add free audiobooks with the + button below.",
+  "id": "711c41b2",
+  "k": "Add audiobooks with the + button below: free ones from LibriVox, or files of your own.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13512,6 +13467,11 @@
  {
   "id": "d7cc3213",
   "k": "Channels you follow appear here. Press Follow under a video.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "48703f3c",
+  "k": "All audiobooks",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13667,6 +13627,11 @@
  {
   "id": "daa0c37b",
   "k": "Remove audiobook",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "4a63b0d9",
+  "k": "Its files and transcripts are removed from this device and from your Google Drive. Saved vocab is kept.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13827,6 +13792,11 @@
  {
   "id": "028c52e6",
   "k": "Deleted {0} episodes.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "727c19e4",
+  "k": "Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).",
   "f": "web/js/pages/library.js"
  },
  {
@@ -17865,6 +17835,11 @@
   "f": "web/js/trending.js"
  },
  {
+  "id": "0d23bd8c",
+  "k": "Fiction",
+  "f": "web/js/trending.js"
+ },
+ {
   "id": "5c9cb498",
   "k": "Government",
   "f": "web/js/trending.js"
@@ -17872,6 +17847,11 @@
  {
   "id": "89fc9192",
   "k": "Health & Fitness",
+  "f": "web/js/trending.js"
+ },
+ {
+  "id": "90ccd649",
+  "k": "History",
   "f": "web/js/trending.js"
  },
  {
@@ -19302,6 +19282,11 @@
  {
   "id": "3155edfa",
   "k": "The feed kept sending the app somewhere else.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "0cf5ea3d",
+  "k": "That audiobook can't be found.",
   "f": "mobile/src/js/backend.js"
  },
  {

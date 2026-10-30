@@ -2,6 +2,7 @@
 // (library, player, vocab, search) import from "../app.js" and work unchanged.
 
 import * as home from "./pages/home.js";
+import { AUDIBLE_MESSAGE, AUDIO_TYPES, isAudibleFile } from "./audiobooks.js";
 import * as library from "./pages/library.js";
 import * as player from "./pages/player.js";
 import * as vocab from "./pages/vocab.js";
@@ -913,7 +914,8 @@ async function videoUrl(ep) {
 }
 
 const VIDEO_EXT = /\.(mp4|m4v|mov|webm|mkv|avi|3gp)$/i;
-const AUDIO_EXT = /\.(mp3|m4a|m4b|aac|wav|ogg|oga|opus|flac|wma|amr)$/i;
+// Audio files (audiobooks.js AUDIO_FILE_EXTENSIONS; .webm is a video unless it is added as an audiobook).
+const AUDIO_EXT = /\.(m4b|mp3|m4a|aac|ogg|oga|opus|flac|wav|wma|amr|mka|aiff|aif)$/i;
 
 function videoDuration(file) {
   return new Promise((resolve) => {
@@ -928,19 +930,25 @@ function videoDuration(file) {
   });
 }
 
-/** Upload a video to Drive; the computer transcribes it on its next sync. */
-export async function uploadVideo(file, onProgress) {
+/** Upload a video or audio file to Drive; the computer transcribes it on its next sync (or this phone, with
+ *  cloud transcription). `book` ({key, title}): a chapter of an audiobook of the user's own (audiobooks.js);
+ *  `transcribe: false` leaves it for later. */
+export async function uploadVideo(file, onProgress, { book = null, transcribe = true } = {}) {
+  if (isAudibleFile(file.name)) throw new Error(AUDIBLE_MESSAGE); // copy-protected: never opened
   if (!settings.signed_in) throw new Error("Sign in with Google (Settings) first: your files are stored in your Drive.");
   // Video or audio: the file's type decides (the same button path serves both).
-  const audioExt = (file.name.match(AUDIO_EXT) || [])[1];
+  let audioExt = (file.name.match(AUDIO_EXT) || [])[1];
+  if (book && !audioExt && /\.webm$/i.test(file.name)) audioExt = "webm";
   const audio = !!audioExt || (file.type || "").startsWith("audio/");
+  if (book && !audio) throw new Error("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).");
   const ext = audio ? audioExt : (file.name.match(VIDEO_EXT) || [])[1];
   if (!audio && !ext && !(file.type || "").startsWith("video/")) {
     throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).");
   }
   const suffix = `.${(ext || (audio ? "mp3" : "mp4")).toLowerCase()}`;
-  // (An .m4b audiobook is AAC sound in an MP4 box, whatever type the device gives it, if any.)
-  const mime = audioExt && audioExt.toLowerCase() === "m4b" ? "audio/mp4" : file.type || (audio ? "audio/mpeg" : "video/mp4");
+  // (An audio file's type from its name, as the computer gives it: an .m4b audiobook is AAC in an MP4 box,
+  // whatever type the device says, if any.)
+  const mime = (audioExt && AUDIO_TYPES[`.${audioExt.toLowerCase()}`]) || file.type || (audio ? "audio/mpeg" : "video/mp4");
   const uid = `e${newUid().slice(1)}`;
   const driveName = `v_${uid}${suffix}`;
   const duration = await videoDuration(file);
@@ -949,7 +957,7 @@ export async function uploadVideo(file, onProgress) {
   files[driveName] = meta;
   await kv.set("drive_files", files);
   const title = file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
-  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio, file });
+  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio, file, book, transcribe });
   return { ...ep, note: ep.here ? "It's being transcribed now." : "Your computer transcribes it the next time it syncs." };
 }
 
