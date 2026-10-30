@@ -8,7 +8,8 @@
 
 import { api, esc, h, on, platform, toast } from "../app.js";
 import { langInfo } from "../languages.js";
-import { openModal } from "./modal.js";
+import { confirmBox, openModal } from "./modal.js";
+import { t } from "../i18n.js";
 
 const phone = () => platform === "android";
 const anki = () => (phone() ? "AnkiDroid" : "Anki");
@@ -193,8 +194,9 @@ export async function confirmDelete(v) {
     st = await api("/anki/sync/status");
     if (st.enabled) linked = (await api(`/anki/linked/${v.uid || v.id}`)).linked;
   } catch { /* no sync on this device */ }
-  if (!st || !st.enabled || !linked) return confirm(`Delete “${v.text}” from your vocab?`);
-  if (st.delete_ok) return confirm(`Delete “${v.text}” from your vocab?\n\nIts card in ${anki()}, with that card's review history, will be removed too.`);
+  const ask = t("Delete “{0}” from your vocab?", v.text);
+  if (!st || !st.enabled || !linked) return confirmBox(ask, "", { ok: "Delete", danger: true });
+  if (st.delete_ok) return confirmBox(ask, t("Its card in {0}, with that card's review history, will be removed too.", anki()), { ok: "Delete", danger: true });
   const dlg = h(`<dialog class="help-dialog">
     <h2>This also deletes the ${anki()} card</h2>
     <p>“<span dir="auto">${esc(v.text)}</span>” has a card in your ${esc(((st.decks || []).find((d) => d.language === v.language) || { name: st.deck }).name)} deck in ${anki()}. Deleting the word here removes that card at the next sync,

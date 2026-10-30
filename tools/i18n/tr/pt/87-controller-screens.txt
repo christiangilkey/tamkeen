@@ -1,0 +1,121 @@
+68d42985	Use em qualquer lugar do app. O direcional move o destaque, A aperta, B volta; os botões próprios de cada tela estão abaixo.
+b4a3ee72	Mostrar o que os botões fazem na parte de baixo da tela enquanto o controle está em uso
+503d46db	Botões
+5cc847f9	Tela
+f6464485	Igual em todas as telas
+6390381a	Mude estes em “Em todo lugar”.
+2a492146	Redefinir todas as telas
+dd566b20	Um controle de jogo para o app inteiro: escolha o que cada botão faz em cada tela.
+823a6bc8	Botões do controle para cada tela
+bcd78f5c	O que os botões do controle fazem, na tela
+599d2751	Adicionar este podcast à sua Biblioteca e abrir este episódio?
+97255093	Sair desta batalha?
+bdc96deb	Suas respostas até agora continuam valendo.
+ca6eb1b8	Libertar {0}?
+9cef943b	Libertar esta criatura?
+50fb277b	Ela vai embora para sempre, e suas construções e seu brilho recomeçam do zero. Você mantém a poeira estelar, suas outras criaturas e tudo o que tem.
+d41f56ce	Libertar
+ea683ad6	Apertar
+b079d132	Enquanto a janela de uma palavra está aberta, em qualquer tela.
+013290dd	Os cartões de revisão.
+d7fdd934	Livros e páginas
+467eddcd	Lendo um livro ou uma página da web salva.
+de446be7	A primeira tela.
+a4c1b51e	Cursos, podcasts, YouTube, reels, livros e páginas da web.
+481250ea	Lições dos cursos
+31f558ee	Uma unidade do curso básico ou uma lição de gramática, com seus exercícios.
+4896b4ea	Suas palavras salvas.
+06594c3f	Amigos e chat
+6e9d1fdd	Amigos, guildas e mensagens.
+6ea59026	Todas as seções das Configurações.
+37df3338	Janelas e caixas
+ff00fbd3	Uma caixa aberta sobre a página: o destaque fica dentro dela.
+63382347	Digitando numa caixa de texto
+8d1993bc	Enquanto uma caixa de texto está com o cursor. O controle não digita: use o teclado.
+f618ec1f	Andar pelo app: em todas as telas, nos botões que a própria tela não usa.
+d7cd8e3b	Abrir a palavra destacada (segure e mova para adicionar mais palavras)
+6d7049b8	Buscar
+7f04d18e	Ouvir a linha
+2eec3646	Destacar a palavra à esquerda
+1a083ae7	Destacar a palavra à direita
+5562abb3	Destacar a linha de cima
+ea967600	Linha
+10850711	Destacar a linha de baixo
+f3d89d97	Tocar a linha anterior
+55939914	Tocar a próxima linha
+dc7f77b4	Repetir
+cf606d09	Mais devagar
+cacfa94f	Reel
+5aabf86e	Apertar o botão destacado (Salvar se não houver nenhum)
+6d19b4df	Fechar a janela
+6a370952	Ouvir a palavra
+adef6e17	Ouvir a frase
+4b58c762	Destacar o botão anterior
+76cdb950	Mover
+82e9d7ad	Destacar o próximo botão
+1a22fddc	Buscar a palavra à esquerda
+7cd09c01	Buscar a palavra à direita
+49d62a9b	Salvar a palavra
+13156e47	Escolher o que explica as palavras
+6da13add	Fonte
+49204080	Virar o cartão; no verso, apertar a caixa destacada (Lembrei se não houver nenhuma)
+368e8081	Virar
+395cd9f2	Destacar a caixa de cima (no verso)
+17014e92	Destacar a caixa de baixo (no verso)
+b74bdee9	Terminar
+fe2d8685	Continuar de onde você parou
+ce092d86	Começar a revisar seus cartões
+23cd1bd1	O tipo anterior (Cursos, Podcasts, YouTube…)
+e00ac23f	Tipo
+39386083	O próximo tipo
+b2bf347c	Adicionar algo
+37c376b2	Pesquisar nesta lista
+20924038	Lição anterior
+188ecdea	Lição
+be76cd77	Ouvir o exemplo destacado (ou a lição inteira)
+d87273a5	Ouvir
+459107df	Voltar a todas as lições
+c20e9e62	Começar a revisão
+a80d082f	Pesquisar suas palavras
+8fca966a	A pasta anterior
+e63e5fe3	A próxima pasta
+b36a924e	Gravar uma mensagem de voz (numa conversa)
+1c54132b	Gravar
+11eaaf74	Escrever uma mensagem (numa conversa)
+410543b4	A seção anterior
+f2c6b564	Seção
+8488f780	A próxima seção
+b8860202	Pesquisar nas configurações
+c1de68e0	Apertar o botão principal da caixa
+56141649	Sair da caixa de texto
+e5fb0af1	Apertar Enter (pesquisar, enviar)
+2b9eceb7	Enter
+93499a1f	A aba anterior
+fe06eb64	Aba
+13afcd42	A próxima aba
+99dfa4da	Subir uma página
+44f540f1	Página acima
+fa4622bb	Descer uma página
+f31eb063	Página abaixo
+090a3c80	Rolar
+2a4d562b	Abas
+9bbc1141	Como usar esta tela (o guia dela)
+bf073fae	Guia
+dd395f29	Cancelar o envio desta mensagem?
+ecfee007	Ela é apagada para vocês dois.
+7aa97200	Remover “{0}”?
+fac924e4	As transcrições e o áudio baixado serão excluídos. O vocabulário salvo é mantido.
+6136a137	Remover “{0}” dos seus títulos da Netflix?
+f3021d84	Excluir “{0}” das suas páginas da web?
+883e0b05	Remover “{0}” dos seus vídeos do YouTube?
+26b2461e	Remover “{0}” dos seus reels?
+606d9fdc	Excluir “{0}”?
+757dec49	O vídeo e a transcrição dele são removidos deste dispositivo e do seu Google Drive. O vocabulário salvo é mantido.
+0be6f71d	O áudio e a transcrição dele são removidos deste dispositivo e do seu Google Drive. O vocabulário salvo é mantido.
+4f9b2aa2	Excluir este episódio?
+ac898d3c	Excluir estes {0} episódios?
+85964243	Isso o remove da sua Biblioteca em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido. Isso não pode ser desfeito.
+8858b914	Isso os remove da sua Biblioteca em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido. Isso não pode ser desfeito.
+89b57788	Excluir a pasta “{0}”?
+639b9d4f	As palavras dentro dela são mantidas.
+2fa412d0	O vocabulário salvo é mantido.

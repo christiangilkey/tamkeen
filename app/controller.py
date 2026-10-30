@@ -11,21 +11,26 @@ from __future__ import annotations
 import re
 from typing import Any
 
-AREAS = ("video", "review", "general")
+# The screens (padmap.js AREAS). An area a newer version has is kept as well, like an action this
+# version doesn't know: it does nothing here, and isn't lost when this device saves the setting.
+AREAS = ("video", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
+         "settings", "dialog", "typing", "general")
 _INPUT = re.compile(r"^(?:b\d{1,2}|a\d{1,2}[+-])$")
 _ACTION = re.compile(r"^[A-Za-z0-9]{1,32}$")
+_AREA = re.compile(r"^[a-z][A-Za-z0-9]{0,31}$")
 
 
 def clean(raw: Any) -> dict[str, Any]:
-    """The setting as it may be stored: unknown areas and anything that isn't an input left out."""
+    """The setting as it may be stored: anything that isn't an input left out."""
     if not isinstance(raw, dict):
         return {"at": 0, "map": {}}
     at = raw.get("at")
     at = int(at) if isinstance(at, (int, float)) and not isinstance(at, bool) and at > 0 else 0
     out: dict[str, dict[str, str]] = {}
     given = raw.get("map") if isinstance(raw.get("map"), dict) else {}
-    for area in AREAS:
-        mine = given.get(area)
+    for area, mine in given.items():
+        if not isinstance(area, str) or not _AREA.match(area):
+            continue
         if not isinstance(mine, dict):
             continue
         for action, value in mine.items():

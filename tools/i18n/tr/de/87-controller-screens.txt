@@ -1,0 +1,121 @@
+68d42985	Funktioniert überall in der App. Das Steuerkreuz bewegt eine Markierung, A drückt, B geht zurück; die eigenen Knöpfe jedes Bildschirms stehen unten.
+b4a3ee72	Unten auf dem Bildschirm zeigen, was die Knöpfe tun, solange der Controller benutzt wird
+503d46db	Knöpfe
+5cc847f9	Bildschirm
+f6464485	Auf jedem Bildschirm gleich
+6390381a	Ändere diese unter „Überall“.
+2a492146	Alle Bildschirme zurücksetzen
+dd566b20	Ein Gamecontroller für die ganze App: Wähle, was jeder Knopf auf jedem Bildschirm tut.
+823a6bc8	Controller-Knöpfe für jeden Bildschirm
+bcd78f5c	Was die Controller-Knöpfe tun, auf dem Bildschirm
+599d2751	Diesen Podcast zu deiner Bibliothek hinzufügen und diese Folge öffnen?
+97255093	Diesen Kampf verlassen?
+bdc96deb	Deine bisherigen Antworten zählen trotzdem.
+ca6eb1b8	{0} freilassen?
+9cef943b	Dieses Wesen freilassen?
+50fb277b	Es geht für immer, und deine Gebäude und dein Glimmer fangen von vorn an. Du behältst Sternenstaub, deine anderen Wesen und alles, was du besitzt.
+d41f56ce	Freilassen
+ea683ad6	Drücken
+b079d132	Solange das Fenster eines Wortes offen ist, auf jedem Bildschirm.
+013290dd	Die Lernkarten.
+d7fdd934	Bücher und Seiten
+467eddcd	Ein Buch oder eine gespeicherte Webseite lesen.
+de446be7	Der erste Bildschirm.
+a4c1b51e	Kurse, Podcasts, YouTube, Reels, Bücher und Webseiten.
+481250ea	Kurslektionen
+31f558ee	Eine Lektion der Grundlagen oder eine Grammatiklektion, mit ihren Übungen.
+4896b4ea	Deine gespeicherten Wörter.
+06594c3f	Freunde und Chat
+6e9d1fdd	Freunde, Gilden und Nachrichten.
+6ea59026	Jeder Bereich der Einstellungen.
+37df3338	Fenster und Dialoge
+ff00fbd3	Ein Dialog über der Seite: Die Markierung bleibt darin.
+63382347	In ein Textfeld tippen
+8d1993bc	Solange ein Textfeld den Cursor hat. Der Controller tippt nicht: Nutze die Tastatur.
+f618ec1f	In der App herumgehen: auf jedem Bildschirm, für die Knöpfe, die er nicht selbst verwendet.
+d7cd8e3b	Das markierte Wort öffnen (halten und bewegen, um weitere Wörter hinzuzufügen)
+6d7049b8	Nachschlagen
+7f04d18e	Zeile hören
+2eec3646	Das Wort links markieren
+1a083ae7	Das Wort rechts markieren
+5562abb3	Die Zeile darüber markieren
+ea967600	Zeile
+10850711	Die Zeile darunter markieren
+f3d89d97	Die vorherige Zeile abspielen
+55939914	Die nächste Zeile abspielen
+dc7f77b4	Wiederholen
+cf606d09	Langsamer
+cacfa94f	Reel
+5aabf86e	Den markierten Knopf drücken (Speichern, wenn keiner markiert ist)
+6d19b4df	Das Fenster schließen
+6a370952	Das Wort hören
+adef6e17	Den Satz hören
+4b58c762	Den vorherigen Knopf markieren
+76cdb950	Bewegen
+82e9d7ad	Den nächsten Knopf markieren
+1a22fddc	Das Wort links nachschlagen
+7cd09c01	Das Wort rechts nachschlagen
+49d62a9b	Das Wort speichern
+13156e47	Wählen, was Wörter erklärt
+6da13add	Quelle
+49204080	Die Karte umdrehen; auf der Rückseite das markierte Feld drücken (Gewusst, wenn keins markiert ist)
+368e8081	Umdrehen
+395cd9f2	Das Feld darüber markieren (auf der Rückseite)
+17014e92	Das Feld darunter markieren (auf der Rückseite)
+b74bdee9	Beenden
+fe2d8685	Dort weitermachen, wo du aufgehört hast
+ce092d86	Mit dem Wiederholen deiner Karten beginnen
+23cd1bd1	Die vorherige Art (Kurse, Podcasts, YouTube …)
+e00ac23f	Art
+39386083	Die nächste Art
+b2bf347c	Etwas hinzufügen
+37c376b2	Diese Liste durchsuchen
+20924038	Vorherige Lektion
+188ecdea	Lektion
+be76cd77	Das markierte Beispiel hören (oder die ganze Lektion)
+d87273a5	Hören
+459107df	Zurück zu allen Lektionen
+c20e9e62	Die Wiederholung starten
+a80d082f	Deine Wörter durchsuchen
+8fca966a	Der vorherige Ordner
+e63e5fe3	Der nächste Ordner
+b36a924e	Eine Sprachnachricht aufnehmen (in einem Chat)
+1c54132b	Aufnehmen
+11eaaf74	Eine Nachricht schreiben (in einem Chat)
+410543b4	Der vorherige Bereich
+f2c6b564	Bereich
+8488f780	Der nächste Bereich
+b8860202	Die Einstellungen durchsuchen
+c1de68e0	Den Hauptknopf des Dialogs drücken
+56141649	Das Textfeld verlassen
+e5fb0af1	Enter drücken (suchen, senden)
+2b9eceb7	Enter
+93499a1f	Der vorherige Tab
+fe06eb64	Tab
+13afcd42	Der nächste Tab
+99dfa4da	Eine Seite nach oben springen
+44f540f1	Seite hoch
+fa4622bb	Eine Seite nach unten springen
+f31eb063	Seite runter
+090a3c80	Scrollen
+2a4d562b	Tabs
+9bbc1141	So nutzt du diesen Bildschirm (seine Hilfe)
+bf073fae	Hilfe
+dd395f29	Diese Nachricht zurückziehen?
+ecfee007	Sie wird für euch beide gelöscht.
+7aa97200	„{0}“ entfernen?
+fac924e4	Die Transkripte und das heruntergeladene Audio werden gelöscht. Gespeicherte Vokabeln bleiben erhalten.
+6136a137	„{0}“ aus deinen Netflix-Titeln entfernen?
+f3021d84	„{0}“ aus deinen Webseiten löschen?
+883e0b05	„{0}“ aus deinen YouTube-Videos entfernen?
+26b2461e	„{0}“ aus deinen Reels entfernen?
+606d9fdc	„{0}“ löschen?
+757dec49	Das Video und sein Transkript werden von diesem Gerät und aus deinem Google Drive entfernt. Gespeicherte Vokabeln bleiben erhalten.
+0be6f71d	Das Audio und sein Transkript werden von diesem Gerät und aus deinem Google Drive entfernt. Gespeicherte Vokabeln bleiben erhalten.
+4f9b2aa2	Diese Folge löschen?
+ac898d3c	Diese {0} Folgen löschen?
+85964243	Das entfernt sie auf jedem Gerät aus deiner Bibliothek, zusammen mit Audio und Transkript. Eine gelöschte Podcastfolge kommt nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten. Das kann nicht rückgängig gemacht werden.
+8858b914	Das entfernt sie auf jedem Gerät aus deiner Bibliothek, zusammen mit Audio und Transkript. Gelöschte Podcastfolgen kommen nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten. Das kann nicht rückgängig gemacht werden.
+89b57788	Den Ordner „{0}“ löschen?
+639b9d4f	Die Wörter darin bleiben erhalten.
+2fa412d0	Gespeicherte Vokabeln bleiben erhalten.

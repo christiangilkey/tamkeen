@@ -23,9 +23,13 @@ def client(fresh_db):
 def test_the_setting_is_kept_tidy():
     raw = {"at": 1700000000123.7, "map": {
         "video": {"playPause": "b2", "lookUp": "", "bad": "b999", "worse": 4, "no way": "b1"},
-        "review": "not a dict", "elsewhere": {"x": "b1"}, "general": {"back": "a1-"}}}
+        "review": "not a dict", "elsewhere": {"x": "b1"}, "Bad Area": {"x": "b1"}, "general": {"back": "a1-"},
+        "home": {"review": "b7"}}}
+    # a screen this version knows (home) and one only a newer version has (elsewhere) are both kept
     assert controller.clean(raw) == {"at": 1700000000123, "map": {
-        "video": {"playPause": "b2", "lookUp": ""}, "general": {"back": "a1-"}}}
+        "video": {"playPause": "b2", "lookUp": ""}, "elsewhere": {"x": "b1"}, "general": {"back": "a1-"},
+        "home": {"review": "b7"}}}
+    assert set(controller.AREAS) >= {"video", "review", "general", "popup", "reader", "lesson", "typing"}
     assert controller.clean(None) == {"at": 0, "map": {}}
     assert controller.clean({"at": True, "map": []}) == {"at": 0, "map": {}}
 

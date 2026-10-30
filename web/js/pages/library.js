@@ -8,7 +8,8 @@ import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
-import { openModal } from "../components/modal.js";
+import { confirmBox, openModal } from "../components/modal.js";
+import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
@@ -407,7 +408,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       toast(e.target.checked ? "New episodes will be transcribed automatically." : "Auto-transcribe turned off.");
     };
     el.querySelector("#remove-feed").onclick = async () => {
-      if (!confirm(`Remove “${f.title}”? Its transcripts and downloaded audio will be deleted. Saved vocab is kept.`)) return;
+      if (!(await confirmBox(t("Remove “{0}”?", f.title), "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
       await api(`/feeds/${feedId}`, { method: "DELETE" });
       location.hash = "#/library?show=podcasts";
     };
@@ -483,7 +484,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       line.querySelector(".pill").textContent = "Netflix";
       btn("Watch", "primary", () => (location.hash = `#/episode/${ep.id}`));
       btn("Delete", "ghost danger", async () => {
-        if (!confirm(`Remove “${ep.title}” from your Netflix titles? Saved vocab is kept.`)) return;
+        if (!(await confirmBox(t("Remove “{0}” from your Netflix titles?", ep.title), "Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
           row.remove();
@@ -521,10 +522,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (media && (media.kind !== "text" || media.ready)) line.append(sendButton(() => mediaFromEpisode(row._ep)));
     if (isLocalFeed(ep.feed_url)) {
       btn("Delete", "ghost danger", async () => {
-        if (!confirm(isPage(ep) ? `Delete “${ep.title}” from your webpages? Saved vocab is kept.`
-          : isYouTube(ep) ? `Remove “${ep.title}” from your YouTube videos? Saved vocab is kept.`
-          : ep.audio_type === "video/instagram" ? `Remove “${ep.title}” from your reels? Saved vocab is kept.`
-          : `Delete “${ep.title}”? The ${isVideo(ep) ? "video" : "audio"} and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.`)) return;
+        const ask = isPage(ep) ? [t("Delete “{0}” from your webpages?", ep.title), "Saved vocab is kept.", "Delete"]
+          : isYouTube(ep) ? [t("Remove “{0}” from your YouTube videos?", ep.title), "Saved vocab is kept.", "Remove"]
+          : ep.audio_type === "video/instagram" ? [t("Remove “{0}” from your reels?", ep.title), "Saved vocab is kept.", "Remove"]
+          : [t("Delete “{0}”?", ep.title), isVideo(ep)
+            ? "The video and its transcript are removed from this device and from your Google Drive. Saved vocab is kept."
+            : "The audio and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.", "Delete"];
+        if (!(await confirmBox(ask[0], ask[1], { ok: ask[2], danger: true }))) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
           row.remove();
@@ -718,10 +722,11 @@ export async function render(view, { feedId: routeFeed, query }) {
   $("#delete-selected").onclick = async (e) => {
     const n = selected.size;
     if (!n) return;
-    const what = n === 1 ? "this episode" : `these ${n} episodes`;
-    if (!confirm(`Delete ${what}?\n\nThis removes ${n === 1 ? "it" : "them"} from your Library on every device, together with `
-      + `the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. `
-      + `Saved vocab is kept.\n\nThis can't be undone.`)) return;
+    const ask = n === 1 ? t("Delete this episode?") : t("Delete these {0} episodes?", n);
+    const more = n === 1
+      ? "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
+      : "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
+    if (!(await confirmBox(ask, more, { ok: "Delete", danger: true }))) return;
     e.target.disabled = true;
     try {
       const r = await api("/episodes/delete", { method: "POST", body: { ids: [...selected] } });

@@ -26,7 +26,8 @@ import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
-import { controllerArea } from "../gamepad.js";
+import { actionHeld, controllerArea } from "../gamepad.js";
+import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 
@@ -731,6 +732,7 @@ async function renderPlayer(view, { query }) {
     // alone for a moment after a finger has slid them.
     if (bubble.open && pauseAfterWord() && !playing) return;
     if (Date.now() - slidAt < 3000) return;
+    if (cursor && cursor.on) return;  // the controller's highlight is out: the words stay with it
     keepInView(el);
   }
   /** Scroll the words so `el` (a word) is in view. */
@@ -744,6 +746,7 @@ async function renderPlayer(view, { query }) {
     if (r.top < box.top + 4 || r.bottom > box.bottom - 4) wordsEl.scrollTo({ top: wordsEl.scrollTop + r.top - box.top - box.height * 0.3, behavior: "smooth" });
   }
   let slidAt = 0;
+  let cursor = null;  // the controller's highlight in the words (made with the controller's buttons, below)
   for (const type of ["touchstart", "wheel"]) wordsEl.addEventListener(type, () => { slidAt = Date.now(); }, { passive: true });
 
   async function show(i) {
@@ -760,6 +763,7 @@ async function renderPlayer(view, { query }) {
     $("#reel-who").textContent = `@${ep.description || ""}`;
     history.replaceState(null, "", `#/reels/play?at=${ep.id}${onlyParam}`); // so "back" and a reopen land on this reel
     if (!again) {
+      if (cursor) cursor.hide();  // another reel's words: the highlight starts again
       curIdx = -1;
       if (seen) { seen.close(); seen = null; } // the previous reel's words are leaving the screen
       wordsEl.innerHTML = `<p class="muted small">Loading the words…</p>`;
@@ -903,7 +907,30 @@ async function renderPlayer(view, { query }) {
     return out;
   };
   const lineAt = (ls, t) => { let k = 0; while (k + 1 < ls.length && ls[k + 1] <= t + 0.05) k++; return k; };
+  const wordNow = () => (!cur || !cur.starts.length ? -1
+    : curIdx >= 0 ? curIdx : Math.max(0, activeWordIndex(cur.starts, cur.ends, (last ? last.t : 0) + 0.01, 1e9)));
+  // The highlight moves through the reel's words (padcursor.js).
+  cursor = wordCursor({
+    count: () => (cur ? cur.els.length : 0),
+    elsOf: (i) => [cur && cur.els[i]],
+    startAt: wordNow,
+    blockOf: (i) => (cur ? cur.segOf[i] : -1),
+    onPick: (i, j) => { if (cur) define(i, j); },
+    reveal: (el) => keepInView(el),
+    onHide: () => { if (cur && curIdx >= 0 && cur.els[curIdx]) keepInView(cur.els[curIdx]); },
+  });
+  const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
   const offPad = controllerArea("video", {
+    wordLeft: moveCursor("left"),
+    wordRight: moveCursor("right"),
+    lineUp: moveCursor("up"),
+    lineDown: moveCursor("down"),
+    popupStep: (dir) => {
+      const t = target || { i: wordNow(), j: wordNow() };
+      if (t.i < 0) return;
+      bubble.hide();
+      if (cursor.stepOut(t.i, t.j, dir)) cursor.pick();
+    },
     playPause: () => $("#rc-play").click(),
     back5: () => $("#rc-back").click(),
     fwd5: () => $("#rc-fwd").click(),
@@ -916,13 +943,17 @@ async function renderPlayer(view, { query }) {
       surface.do("play");
     },
     lookUp: () => {
-      if (!cur || !cur.starts.length) return;
-      define(curIdx >= 0 ? curIdx : Math.max(0, activeWordIndex(cur.starts, cur.ends, (last ? last.t : 0) + 0.01, 1e9)));
+      if (cursor.on) { cursor.pick(); return; }
+      const i = wordNow();  // no highlight out: the word being said
+      if (i >= 0) define(i);
     },
     saveWord: () => { const b = bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
     prevVideo: () => show(index - 1),
     nextVideo: () => show(index + 1),
-    back: () => { if (bubble.open) { bubble.hide(); return true; } return false; },
+    back: () => {
+      if (bubble.open) { bubble.hide(); return true; }
+      return cursor.hide();  // the highlight put away: the words follow the reel again
+    },
   });
 
   await show(index);

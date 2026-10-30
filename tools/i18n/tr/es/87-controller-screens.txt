@@ -1,0 +1,120 @@
+68d42985	Úsalo en cualquier parte de la app. La cruceta mueve el resaltado, A pulsa, B vuelve atrás; los botones propios de cada pantalla están abajo.
+b4a3ee72	Mostrar qué hacen los botones en la parte de abajo de la pantalla mientras usas el mando
+503d46db	Botones
+5cc847f9	Pantalla
+f6464485	Igual en todas las pantallas
+6390381a	Cámbialos en «En todas partes».
+2a492146	Restablecer todas las pantallas
+dd566b20	Un mando de juego para toda la app: elige qué hace cada botón en cada pantalla.
+823a6bc8	Botones del mando para cada pantalla
+bcd78f5c	Qué hacen los botones del mando, en pantalla
+599d2751	¿Añadir este pódcast a tu Biblioteca y abrir este episodio?
+97255093	¿Salir de esta batalla?
+bdc96deb	Tus respuestas hasta ahora siguen contando.
+ca6eb1b8	¿Liberar a {0}?
+9cef943b	¿Liberar a esta criatura?
+50fb277b	Se va para siempre, y tus edificios y tu brillo vuelven a empezar. Conservas el polvo de estrellas, tus otras criaturas y todo lo que tienes.
+d41f56ce	Liberar
+ea683ad6	Pulsar
+b079d132	Mientras está abierta la ventana de una palabra, en cualquier pantalla.
+013290dd	Las tarjetas de repaso.
+d7fdd934	Libros y páginas
+467eddcd	Leyendo un libro o una página web guardada.
+de446be7	La primera pantalla.
+a4c1b51e	Cursos, pódcasts, YouTube, reels, libros y páginas web.
+481250ea	Lecciones de los cursos
+31f558ee	Una unidad del curso básico o una lección de gramática, con sus ejercicios.
+4896b4ea	Tus palabras guardadas.
+06594c3f	Amigos y chat
+6e9d1fdd	Amigos, gremios y mensajes.
+6ea59026	Todas las secciones de Ajustes.
+37df3338	Ventanas y cuadros
+ff00fbd3	Un cuadro abierto sobre la página: el resaltado se queda dentro.
+63382347	Escribiendo en un cuadro de texto
+8d1993bc	Mientras un cuadro de texto tiene el cursor. El mando no escribe: usa el teclado.
+f618ec1f	Moverse por la app: en todas las pantallas, para los botones que la propia pantalla no usa.
+d7cd8e3b	Abrir la palabra resaltada (mantén pulsado y muévete para añadir más palabras)
+6d7049b8	Buscar
+7f04d18e	Oír la línea
+2eec3646	Resaltar la palabra de la izquierda
+1a083ae7	Resaltar la palabra de la derecha
+5562abb3	Resaltar la línea de arriba
+ea967600	Línea
+10850711	Resaltar la línea de abajo
+f3d89d97	Reproducir la línea anterior
+55939914	Reproducir la línea siguiente
+dc7f77b4	En bucle
+cf606d09	Más despacio
+cacfa94f	Reel
+5aabf86e	Pulsar el botón resaltado (Guardar si no hay ninguno)
+6d19b4df	Cerrar la ventana
+6a370952	Oír la palabra
+adef6e17	Oír la frase
+4b58c762	Resaltar el botón anterior
+76cdb950	Mover
+82e9d7ad	Resaltar el botón siguiente
+1a22fddc	Buscar la palabra de la izquierda
+7cd09c01	Buscar la palabra de la derecha
+49d62a9b	Guardar la palabra
+13156e47	Elegir qué explica las palabras
+6da13add	Fuente
+49204080	Girar la tarjeta; en el reverso, pulsar el recuadro resaltado (Recordada si no hay ninguno)
+368e8081	Girar
+395cd9f2	Resaltar el recuadro de arriba (en el reverso)
+17014e92	Resaltar el recuadro de abajo (en el reverso)
+b74bdee9	Terminar
+fe2d8685	Seguir donde lo dejaste
+ce092d86	Empezar a repasar tus tarjetas
+23cd1bd1	El tipo anterior (Cursos, Pódcasts, YouTube…)
+e00ac23f	Tipo
+39386083	El tipo siguiente
+b2bf347c	Añadir algo
+37c376b2	Buscar en esta lista
+20924038	Lección anterior
+188ecdea	Lección
+be76cd77	Oír el ejemplo resaltado (o toda la lección)
+d87273a5	Oír
+459107df	Volver a todas las lecciones
+c20e9e62	Empezar el repaso
+a80d082f	Buscar en tus palabras
+8fca966a	La carpeta anterior
+e63e5fe3	La carpeta siguiente
+b36a924e	Grabar un mensaje de voz (en un chat)
+1c54132b	Grabar
+11eaaf74	Escribir un mensaje (en un chat)
+410543b4	La sección anterior
+f2c6b564	Sección
+8488f780	La sección siguiente
+b8860202	Buscar en los ajustes
+c1de68e0	Pulsar el botón principal del cuadro
+56141649	Salir del cuadro de texto
+e5fb0af1	Pulsar Intro (buscar, enviar)
+2b9eceb7	Intro
+93499a1f	La pestaña anterior
+fe06eb64	Pestaña
+13afcd42	La pestaña siguiente
+99dfa4da	Subir una página
+44f540f1	Página arriba
+fa4622bb	Bajar una página
+f31eb063	Página abajo
+090a3c80	Desplazar
+2a4d562b	Pestañas
+9bbc1141	Cómo usar esta pantalla (su guía)
+bf073fae	Guía
+dd395f29	¿Anular el envío de este mensaje?
+ecfee007	Se borra para los dos.
+7aa97200	¿Quitar «{0}»?
+fac924e4	Se borrarán sus transcripciones y el audio descargado. El vocabulario guardado se conserva.
+6136a137	¿Quitar «{0}» de tus títulos de Netflix?
+f3021d84	¿Borrar «{0}» de tus páginas web?
+883e0b05	¿Quitar «{0}» de tus vídeos de YouTube?
+26b2461e	¿Quitar «{0}» de tus reels?
+606d9fdc	¿Borrar «{0}»?
+757dec49	El vídeo y su transcripción se quitan de este dispositivo y de tu Google Drive. El vocabulario guardado se conserva.
+0be6f71d	El audio y su transcripción se quitan de este dispositivo y de tu Google Drive. El vocabulario guardado se conserva.
+4f9b2aa2	¿Borrar este episodio?
+ac898d3c	¿Borrar estos {0} episodios?
+85964243	Esto lo quita de tu Biblioteca en todos los dispositivos, junto con el audio y la transcripción. Un episodio de pódcast borrado no vuelve cuando se actualiza el pódcast. El vocabulario guardado se conserva. No se puede deshacer.
+8858b914	Esto los quita de tu Biblioteca en todos los dispositivos, junto con el audio y la transcripción. Un episodio de pódcast borrado no vuelve cuando se actualiza el pódcast. El vocabulario guardado se conserva. No se puede deshacer.
+89b57788	¿Borrar la carpeta «{0}»?
+639b9d4f	Las palabras que contiene se conservan.

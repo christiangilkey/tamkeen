@@ -1,0 +1,120 @@
+68d42985	Utilisez-la partout dans l'application. La croix directionnelle déplace la surbrillance, A appuie, B revient en arrière ; les boutons propres à chaque écran sont ci-dessous.
+b4a3ee72	Afficher ce que font les boutons en bas de l'écran pendant l'utilisation de la manette
+503d46db	Boutons
+5cc847f9	Écran
+f6464485	Pareil sur tous les écrans
+6390381a	Modifiez-les sous « Partout ».
+2a492146	Réinitialiser tous les écrans
+dd566b20	Une manette de jeu pour toute l'application : choisissez ce que fait chaque bouton sur chaque écran.
+823a6bc8	Boutons de la manette pour chaque écran
+bcd78f5c	Ce que font les boutons de la manette, à l'écran
+599d2751	Ajouter ce podcast à votre Bibliothèque et ouvrir cet épisode ?
+97255093	Quitter ce combat ?
+bdc96deb	Vos réponses jusqu'ici comptent quand même.
+ca6eb1b8	Libérer {0} ?
+9cef943b	Libérer cette créature ?
+50fb277b	Elle part pour de bon, et vos bâtiments et votre lueur repartent de zéro. Vous gardez la poussière d'étoile, vos autres créatures et tout ce que vous possédez.
+d41f56ce	Libérer
+ea683ad6	Appuyer
+b079d132	Quand la fenêtre d'un mot est ouverte, sur n'importe quel écran.
+013290dd	Les cartes de révision.
+d7fdd934	Livres et pages
+467eddcd	Lire un livre ou une page web enregistrée.
+de446be7	Le premier écran.
+a4c1b51e	Cours, podcasts, YouTube, reels, livres et pages web.
+481250ea	Leçons des cours
+31f558ee	Une unité du cours de base ou une leçon de grammaire, avec ses exercices.
+4896b4ea	Vos mots enregistrés.
+06594c3f	Amis et discussions
+6e9d1fdd	Amis, guildes et messages.
+6ea59026	Toutes les sections des Réglages.
+37df3338	Fenêtres et boîtes de dialogue
+ff00fbd3	Une boîte ouverte par-dessus la page : la surbrillance reste dedans.
+63382347	Écrire dans une zone de texte
+8d1993bc	Quand une zone de texte a le curseur. La manette n'écrit pas : utilisez le clavier.
+f618ec1f	Se déplacer dans l'application : sur chaque écran, pour les boutons qu'il n'utilise pas lui-même.
+d7cd8e3b	Ouvrir le mot en surbrillance (maintenez, puis déplacez pour ajouter d'autres mots)
+6d7049b8	Chercher
+7f04d18e	Écouter la ligne
+2eec3646	Mettre en surbrillance le mot de gauche
+1a083ae7	Mettre en surbrillance le mot de droite
+5562abb3	Mettre en surbrillance la ligne du dessus
+ea967600	Ligne
+10850711	Mettre en surbrillance la ligne du dessous
+f3d89d97	Lire la ligne précédente
+55939914	Lire la ligne suivante
+dc7f77b4	En boucle
+cf606d09	Plus lent
+cacfa94f	Reel
+5aabf86e	Appuyer sur le bouton en surbrillance (Enregistrer s'il n'y en a pas)
+6d19b4df	Fermer la fenêtre
+6a370952	Écouter le mot
+adef6e17	Écouter la phrase
+4b58c762	Mettre en surbrillance le bouton précédent
+76cdb950	Déplacer
+82e9d7ad	Mettre en surbrillance le bouton suivant
+1a22fddc	Chercher le mot de gauche
+7cd09c01	Chercher le mot de droite
+49d62a9b	Enregistrer le mot
+13156e47	Choisir ce qui explique les mots
+6da13add	Source
+49204080	Retourner la carte ; au verso, appuyer sur la case en surbrillance (Je m'en souviens s'il n'y en a pas)
+368e8081	Retourner
+395cd9f2	Mettre en surbrillance la case du dessus (au verso)
+17014e92	Mettre en surbrillance la case du dessous (au verso)
+b74bdee9	Terminer
+fe2d8685	Reprendre là où vous en étiez
+ce092d86	Commencer à réviser vos cartes
+23cd1bd1	Le type précédent (Cours, Podcasts, YouTube…)
+e00ac23f	Type
+39386083	Le type suivant
+b2bf347c	Ajouter quelque chose
+37c376b2	Rechercher dans cette liste
+20924038	Leçon précédente
+188ecdea	Leçon
+be76cd77	Écouter l'exemple en surbrillance (ou toute la leçon)
+d87273a5	Écouter
+459107df	Revenir à toutes les leçons
+c20e9e62	Commencer la révision
+a80d082f	Rechercher dans vos mots
+8fca966a	Le dossier précédent
+e63e5fe3	Le dossier suivant
+b36a924e	Enregistrer un message vocal (dans une discussion)
+1c54132b	Message vocal
+11eaaf74	Écrire un message (dans une discussion)
+410543b4	La section précédente
+f2c6b564	Section
+8488f780	La section suivante
+b8860202	Rechercher dans les réglages
+c1de68e0	Appuyer sur le bouton principal de la boîte
+56141649	Quitter la zone de texte
+e5fb0af1	Appuyer sur Entrée (rechercher, envoyer)
+2b9eceb7	Entrée
+93499a1f	L'onglet précédent
+fe06eb64	Onglet
+13afcd42	L'onglet suivant
+99dfa4da	Remonter d'une page
+44f540f1	Page haut
+fa4622bb	Descendre d'une page
+f31eb063	Page bas
+090a3c80	Défiler
+2a4d562b	Onglets
+9bbc1141	Comment utiliser cet écran (son guide)
+bf073fae	Guide
+dd395f29	Annuler l'envoi de ce message ?
+ecfee007	Il est supprimé pour vous deux.
+7aa97200	Retirer « {0} » ?
+fac924e4	Ses transcriptions et l'audio téléchargé seront supprimés. Le vocabulaire enregistré est conservé.
+6136a137	Retirer « {0} » de vos titres Netflix ?
+f3021d84	Supprimer « {0} » de vos pages web ?
+883e0b05	Retirer « {0} » de vos vidéos YouTube ?
+26b2461e	Retirer « {0} » de vos reels ?
+606d9fdc	Supprimer « {0} » ?
+757dec49	La vidéo et sa transcription sont supprimées de cet appareil et de votre Google Drive. Le vocabulaire enregistré est conservé.
+0be6f71d	L'audio et sa transcription sont supprimés de cet appareil et de votre Google Drive. Le vocabulaire enregistré est conservé.
+4f9b2aa2	Supprimer cet épisode ?
+ac898d3c	Supprimer ces {0} épisodes ?
+85964243	Cela le supprime de votre Bibliothèque sur tous les appareils, avec l'audio et la transcription. Un épisode de podcast supprimé ne revient pas quand le podcast est actualisé. Le vocabulaire enregistré est conservé. C'est irréversible.
+8858b914	Cela les supprime de votre Bibliothèque sur tous les appareils, avec l'audio et la transcription. Un épisode de podcast supprimé ne revient pas quand le podcast est actualisé. Le vocabulaire enregistré est conservé. C'est irréversible.
+89b57788	Supprimer le dossier « {0} » ?
+639b9d4f	Les mots qu'il contient sont conservés.

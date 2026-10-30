@@ -7,6 +7,7 @@
 
 import { api, h, toast, saveClip } from "../app.js";
 import * as social from "../social.js";
+import { confirmBox } from "../components/modal.js";
 import { avatar } from "../components/avatar.js";
 import { MEDIA_KINDS, acceptMedia, normalizeMedia, openMedia } from "../components/sendmedia.js";
 import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.js";
@@ -218,7 +219,7 @@ export async function render(view, { friendId }) {
     if (mine) {
       const del = h(`<button type="button" class="msg-del" title="Unsend: delete this message for both of you">✕</button>`);
       del.onclick = async () => {
-        if (!confirm("Unsend this message? It's deleted for both of you.")) return;
+        if (!(await confirmBox("Unsend this message?", "It's deleted for both of you.", { ok: "Delete", danger: true }))) return;
         try { await social.deleteMessage(m); el.remove(); } catch (e) { toast(e.message, { error: true }); }
       };
       meta.append(del);

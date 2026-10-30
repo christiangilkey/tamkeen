@@ -2795,8 +2795,8 @@
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "3eb0e9ae",
-  "k": "Delete “{0}” from your vocab? Its card in {1}, with that card's review history, will be removed too.",
+  "id": "f6fdbe48",
+  "k": "Delete",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -2980,13 +2980,48 @@
   "f": "web/js/components/controllerpanel.js"
  },
  {
-  "id": "7346c177",
-  "k": "Open a video or your review cards and use it. The buttons below say what each one does there.",
+  "id": "68d42985",
+  "k": "Use it anywhere in the app. The D-pad moves a highlight, A presses, B goes back; each screen's own buttons are below.",
   "f": "web/js/components/controllerpanel.js"
  },
  {
   "id": "5a569af7",
   "k": "Xbox, PlayStation and Nintendo Switch Pro controllers work, and most others. Buttons are named the way they are printed on the controller connected.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "b4a3ee72",
+  "k": "Show what the buttons do at the bottom of the screen, while the controller is in use",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "503d46db",
+  "k": "Buttons",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "5cc847f9",
+  "k": "Screen",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "f6464485",
+  "k": "The same on every screen",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "6390381a",
+  "k": "Change these under “Everywhere”.",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "05157447",
+  "k": "Reset these to the defaults",
+  "f": "web/js/components/controllerpanel.js"
+ },
+ {
+  "id": "2a492146",
+  "k": "Reset every screen",
   "f": "web/js/components/controllerpanel.js"
  },
  {
@@ -3005,8 +3040,8 @@
   "f": "web/js/components/controllerpanel.js"
  },
  {
-  "id": "05157447",
-  "k": "Reset these to the defaults",
+  "id": "93039e60",
+  "k": "Not set",
   "f": "web/js/components/controllerpanel.js"
  },
  {
@@ -3027,11 +3062,6 @@
  {
   "id": "bea69211",
   "k": "Back to the default button",
-  "f": "web/js/components/controllerpanel.js"
- },
- {
-  "id": "93039e60",
-  "k": "Not set",
   "f": "web/js/components/controllerpanel.js"
  },
  {
@@ -4260,11 +4290,6 @@
   "f": "web/js/components/models.js"
  },
  {
-  "id": "f6fdbe48",
-  "k": "Delete",
-  "f": "web/js/components/models.js"
- },
- {
   "id": "796b8e0e",
   "k": "Delete the {0} model?",
   "f": "web/js/components/models.js"
@@ -4650,8 +4675,8 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "d60513ef",
-  "k": "A game controller for videos and review cards: choose what each button does.",
+  "id": "dd566b20",
+  "k": "A game controller for the whole app: choose what each button does on each screen.",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -4827,6 +4852,16 @@
  {
   "id": "b90b39b7",
   "k": "Controller buttons everywhere",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "823a6bc8",
+  "k": "Controller buttons for each screen",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "bcd78f5c",
+  "k": "What the controller's buttons do, on screen",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -5155,13 +5190,18 @@
   "f": "web/js/components/studycard.js"
  },
  {
-  "id": "1e703a56",
-  "k": "this podcast",
+  "id": "6a6e6ffd",
+  "k": "Add “{0}” to your library and open this episode?",
   "f": "web/js/components/studycard.js"
  },
  {
-  "id": "6a6e6ffd",
-  "k": "Add “{0}” to your library and open this episode?",
+  "id": "599d2751",
+  "k": "Add this podcast to your library and open this episode?",
+  "f": "web/js/components/studycard.js"
+ },
+ {
+  "id": "61cc55aa",
+  "k": "Add",
   "f": "web/js/components/studycard.js"
  },
  {
@@ -5292,11 +5332,6 @@
  {
   "id": "4e729297",
   "k": "Paste a link: YouTube, a reel, a web page, Spotify, Apple Music, IMDb",
-  "f": "web/js/components/studycard.js"
- },
- {
-  "id": "61cc55aa",
-  "k": "Add",
   "f": "web/js/components/studycard.js"
  },
  {
@@ -7550,8 +7585,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "a0d275ae",
-  "k": "Leave this battle? Your answers so far still count.",
+  "id": "97255093",
+  "k": "Leave this battle?",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "bdc96deb",
+  "k": "Your answers so far still count.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -9665,13 +9705,23 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "21e10852",
-  "k": "this creature",
+  "id": "ca6eb1b8",
+  "k": "Release {0}?",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "edfb0cc4",
-  "k": "Release {0}? It leaves for good, and your buildings and glow start over. You keep stardust, your other creatures and everything you own.",
+  "id": "9cef943b",
+  "k": "Release this creature?",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "50fb277b",
+  "k": "It leaves for good, and your buildings and glow start over. You keep stardust, your other creatures and everything you own.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "d41f56ce",
+  "k": "Release",
   "f": "web/js/game/garden.js"
  },
  {
@@ -10725,6 +10775,11 @@
   "f": "web/js/game/shop.js"
  },
  {
+  "id": "ea683ad6",
+  "k": "Press",
+  "f": "web/js/gamepad.js"
+ },
+ {
   "id": "d0673c80",
   "k": "Collection {0}",
   "f": "web/js/igcollections.js"
@@ -11240,13 +11295,103 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "b079d132",
+  "k": "While a word's popup is open, on any screen.",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "a40a5ef7",
   "k": "Studying cards",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "988d30b4",
-  "k": "The review cards on the Vocab page.",
+  "id": "013290dd",
+  "k": "The review cards.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "d7fdd934",
+  "k": "Books and pages",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "467eddcd",
+  "k": "Reading a book or a saved web page.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "70f8bb9a",
+  "k": "Home",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "de446be7",
+  "k": "The first screen.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b8100f5b",
+  "k": "Library",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "a4c1b51e",
+  "k": "Courses, podcasts, YouTube, reels, books and web pages.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "481250ea",
+  "k": "Course lessons",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "31f558ee",
+  "k": "A basics unit or a grammar lesson, with its exercises.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "239c2f13",
+  "k": "Vocab",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4896b4ea",
+  "k": "Your saved words.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "06594c3f",
+  "k": "Friends and chat",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6e9d1fdd",
+  "k": "Friends, guilds and messages.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6ea59026",
+  "k": "Every section of Settings.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "37df3338",
+  "k": "Popups and boxes",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ff00fbd3",
+  "k": "A box open over the page: the highlight stays inside it.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "63382347",
+  "k": "Typing in a text box",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "8d1993bc",
+  "k": "While a text box has the cursor. The controller doesn't type: use the keyboard.",
   "f": "web/js/padmap.js"
  },
  {
@@ -11255,13 +11400,58 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "efeb8793",
-  "k": "Moving around the app: on the screens above too, for buttons they don't use.",
+  "id": "f618ec1f",
+  "k": "Moving around the app: on every screen, for the buttons it doesn't use itself.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "d7cd8e3b",
+  "k": "Open the highlighted word (hold, and move to add more words)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6d7049b8",
+  "k": "Look up",
   "f": "web/js/padmap.js"
  },
  {
   "id": "8cfc8cf6",
   "k": "Play / pause",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "862bd9b2",
+  "k": "Hear this line again",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "7f04d18e",
+  "k": "Hear the line",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2eec3646",
+  "k": "Highlight the word to the left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "1a083ae7",
+  "k": "Highlight the word to the right",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "5562abb3",
+  "k": "Highlight the line above",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ea967600",
+  "k": "Line",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "10850711",
+  "k": "Highlight the line below",
   "f": "web/js/padmap.js"
  },
  {
@@ -11275,8 +11465,18 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "f3d89d97",
+  "k": "Play the previous line",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "decd52e0",
   "k": "Previous line",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "55939914",
+  "k": "Play the next line",
   "f": "web/js/padmap.js"
  },
  {
@@ -11285,13 +11485,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "862bd9b2",
-  "k": "Hear this line again",
+  "id": "0fb3f212",
+  "k": "Loop this line (on / off)",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "0fb3f212",
-  "k": "Loop this line (on / off)",
+  "id": "dc7f77b4",
+  "k": "Loop",
   "f": "web/js/padmap.js"
  },
  {
@@ -11300,8 +11500,8 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "2b594949",
-  "k": "Look up the word being said",
+  "id": "cf606d09",
+  "k": "Slower",
   "f": "web/js/padmap.js"
  },
  {
@@ -11320,8 +11520,18 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "5bcd6022",
+  "k": "Transcript",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "d659e007",
   "k": "Previous reel",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "cacfa94f",
+  "k": "Reel",
   "f": "web/js/padmap.js"
  },
  {
@@ -11330,8 +11540,73 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "b44ac93c",
-  "k": "Turn the card, then Remembered",
+  "id": "5aabf86e",
+  "k": "Press the highlighted button (Save when none is)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6d19b4df",
+  "k": "Close the popup",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6a370952",
+  "k": "Hear the word",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "adef6e17",
+  "k": "Hear the sentence",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4b58c762",
+  "k": "Highlight the button before",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "76cdb950",
+  "k": "Move",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "82e9d7ad",
+  "k": "Highlight the button after",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "1a22fddc",
+  "k": "Look up the word to the left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "7cd09c01",
+  "k": "Look up the word to the right",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "49d62a9b",
+  "k": "Save the word",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "13156e47",
+  "k": "Choose what explains words",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6da13add",
+  "k": "Source",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "49204080",
+  "k": "Turn the card; on its back, press the highlighted box (Remembered when none is)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "368e8081",
+  "k": "Turn",
   "f": "web/js/padmap.js"
  },
  {
@@ -11342,6 +11617,16 @@
  {
   "id": "4d3ebfca",
   "k": "Remembered",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "395cd9f2",
+  "k": "Highlight the box above (on the back)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "17014e92",
+  "k": "Highlight the box below (on the back)",
   "f": "web/js/padmap.js"
  },
  {
@@ -11360,13 +11645,188 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "3997732f",
+  "k": "Say it",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "6cb73375",
   "k": "Undo the last answer",
   "f": "web/js/padmap.js"
  },
  {
+  "id": "39fc7212",
+  "k": "Undo",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "931bac1c",
   "k": "Finish the session",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b74bdee9",
+  "k": "Finish",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "81f54719",
+  "k": "Previous page",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fb06270f",
+  "k": "Page",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4bfc194b",
+  "k": "Next page",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fe2d8685",
+  "k": "Continue where you left off",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ce092d86",
+  "k": "Start reviewing your cards",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e29a79fe",
+  "k": "Review",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "23cd1bd1",
+  "k": "The kind before (Courses, Podcasts, YouTube…)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e00ac23f",
+  "k": "Kind",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "39386083",
+  "k": "The next kind",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b2bf347c",
+  "k": "Add something",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "37c376b2",
+  "k": "Search this list",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "20924038",
+  "k": "Previous lesson",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "188ecdea",
+  "k": "Lesson",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "be76cd77",
+  "k": "Hear the highlighted example (or the whole lesson)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "d87273a5",
+  "k": "Hear",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "459107df",
+  "k": "Back to all the lessons",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "c20e9e62",
+  "k": "Start the review",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "a80d082f",
+  "k": "Search your words",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "8fca966a",
+  "k": "The folder before",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e63e5fe3",
+  "k": "The next folder",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b36a924e",
+  "k": "Record a voice message (in a chat)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "1c54132b",
+  "k": "Record",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "11eaaf74",
+  "k": "Write a message (in a chat)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4a489327",
+  "k": "Write",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "410543b4",
+  "k": "The section before",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "f2c6b564",
+  "k": "Section",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "8488f780",
+  "k": "The next section",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b8860202",
+  "k": "Search the settings",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "c1de68e0",
+  "k": "Press the box's main button",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "56141649",
+  "k": "Leave the text box",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e5fb0af1",
+  "k": "Press Enter (search, send)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2b9eceb7",
+  "k": "Enter",
   "f": "web/js/padmap.js"
  },
  {
@@ -11400,8 +11860,48 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "93499a1f",
+  "k": "The tab before",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fe06eb64",
+  "k": "Tab",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "13afcd42",
+  "k": "The next tab",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "99dfa4da",
+  "k": "Jump a page up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "44f540f1",
+  "k": "Page up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fa4622bb",
+  "k": "Jump a page down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "f31eb063",
+  "k": "Page down",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "4d07e752",
   "k": "Scroll up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "090a3c80",
+  "k": "Scroll",
   "f": "web/js/padmap.js"
  },
  {
@@ -11412,6 +11912,21 @@
  {
   "id": "afcc0121",
   "k": "Go to the main tabs",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2a4d562b",
+  "k": "Tabs",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "9bbc1141",
+  "k": "How to use this screen (its guide)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "bf073fae",
+  "k": "Guide",
   "f": "web/js/padmap.js"
  },
  {
@@ -11487,11 +12002,6 @@
  {
   "id": "6e71db01",
   "k": "D-pad right",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "70f8bb9a",
-  "k": "Home",
   "f": "web/js/padmap.js"
  },
  {
@@ -11617,21 +12127,6 @@
  {
   "id": "118f9b2b",
   "k": "Larger text",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "81f54719",
-  "k": "Previous page",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "fb06270f",
-  "k": "Page",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "4bfc194b",
-  "k": "Next page",
   "f": "web/js/pages/book.js"
  },
  {
@@ -11790,11 +12285,6 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "4a489327",
-  "k": "Write",
-  "f": "web/js/pages/chat.js"
- },
- {
   "id": "a8e19061",
   "k": "Type a message, then Send.",
   "f": "web/js/pages/chat.js"
@@ -11900,8 +12390,13 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "32fedd8c",
-  "k": "Unsend this message? It's deleted for both of you.",
+  "id": "dd395f29",
+  "k": "Unsend this message?",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "ecfee007",
+  "k": "It's deleted for both of you.",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -12945,8 +13440,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "952950e4",
-  "k": "Remove “{0}”? Its transcripts and downloaded audio will be deleted. Saved vocab is kept.",
+  "id": "7aa97200",
+  "k": "Remove “{0}”?",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "fac924e4",
+  "k": "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -12960,8 +13460,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "0fbeb7ce",
-  "k": "Remove “{0}” from your Netflix titles? Saved vocab is kept.",
+  "id": "6136a137",
+  "k": "Remove “{0}” from your Netflix titles?",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "2fa412d0",
+  "k": "Saved vocab is kept.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -12975,23 +13480,33 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "7ddf9ded",
-  "k": "Delete “{0}” from your webpages? Saved vocab is kept.",
+  "id": "f3021d84",
+  "k": "Delete “{0}” from your webpages?",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "33fb4593",
-  "k": "Remove “{0}” from your YouTube videos? Saved vocab is kept.",
+  "id": "883e0b05",
+  "k": "Remove “{0}” from your YouTube videos?",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "e65bc198",
-  "k": "Remove “{0}” from your reels? Saved vocab is kept.",
+  "id": "26b2461e",
+  "k": "Remove “{0}” from your reels?",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "3c6ef288",
-  "k": "Delete “{0}”? The {1} and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.",
+  "id": "606d9fdc",
+  "k": "Delete “{0}”?",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "757dec49",
+  "k": "The video and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "0be6f71d",
+  "k": "The audio and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13065,33 +13580,23 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "0ba6e5e4",
-  "k": "this episode",
+  "id": "4f9b2aa2",
+  "k": "Delete this episode?",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "00aba819",
-  "k": "these {0} episodes",
+  "id": "ac898d3c",
+  "k": "Delete these {0} episodes?",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "fd142815",
-  "k": "Delete {0}? This removes {1} from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
+  "id": "85964243",
+  "k": "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "4c92d153",
-  "k": "Delete {0}?",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "ab6b534e",
-  "k": "This removes {0} from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "fe63a123",
-  "k": "This can't be undone.",
+  "id": "8858b914",
+  "k": "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -13222,11 +13727,6 @@
  {
   "id": "4601bfc8",
   "k": "Show or hide the full transcript (T)",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "5bcd6022",
-  "k": "Transcript",
   "f": "web/js/pages/player.js"
  },
  {
@@ -14080,11 +14580,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "e29a79fe",
-  "k": "Review",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "742e0358",
   "k": "Say the word to yourself, then turn the card",
   "f": "web/js/pages/review.js"
@@ -14502,11 +14997,6 @@
  {
   "id": "5538fe2b",
   "k": "Make a sound-alike picture to help the word stick.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "39fc7212",
-  "k": "Undo",
   "f": "web/js/pages/review.js"
  },
  {
@@ -15125,11 +15615,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "239c2f13",
-  "k": "Vocab",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "90c6c5c7",
   "k": "More: add words, export, Anki settings",
   "f": "web/js/pages/vocab.js"
@@ -15230,8 +15715,13 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "63e908b6",
-  "k": "Delete the folder “{0}”? The words in it are kept.",
+  "id": "89b57788",
+  "k": "Delete the folder “{0}”?",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "639b9d4f",
+  "k": "The words in it are kept.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -16413,11 +16903,6 @@
   "id": "d4928a6e",
   "k": "No sound-alikes came back. Try again.",
   "f": "web/js/review/mnemonic.js"
- },
- {
-  "id": "3997732f",
-  "k": "Say it",
-  "f": "web/js/review/pronounce.js"
  },
  {
   "id": "4fc6e7f7",
@@ -20743,11 +21228,6 @@
   "id": "22377066",
   "k": "{0} didn't answer. Is its main window still open?",
   "f": "app/youtube.py"
- },
- {
-  "id": "b8100f5b",
-  "k": "Library",
-  "f": "web/index.html"
  },
  {
   "id": "6b21fb79",

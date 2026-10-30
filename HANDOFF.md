@@ -5639,6 +5639,7 @@ Built on main's ⟦ ⟧ marks (the basics-course section just above): one storag
   to text on its boxes as a precaution), a real sync between two devices, right-to-left app language by eye. A card
   whose word or sentence is edited keeps the voice it already had (voices are made once; see Card voices).
 ## Game controllers: map any button for videos and review cards (2026-10-26; branch `controller-support`, NOT merged, NOT pushed)
+(Extended to every screen on 2026-10-30: see "Game controllers on every screen" at the end.)
 Owner: "add a mapable controller support with a list of the most useful tamkeen functions that it can map to any
 controller input selected by the user, it specifically should be for watching videos and for studying cards".
 - **How it reads a controller**: the browser Gamepad API, in the shared web code, so the computer's window, the web app
@@ -5766,3 +5767,81 @@ Supersedes the 2026-10-17 and 2026-10-23 notes on the maker above (same button, 
   model takes for ~1,700 tokens out (the old maker was a quick Haiku call; if it feels slow, "Try it" shows the time and
   Haiku can be picked), and the real token counts behind the cost estimate; Android/iPhone (same shared files); a real
   learner language other than English for the IPA path.
+
+## Game controllers on every screen: a layout per screen, a highlight in the words, the button guide (2026-10-30; on main)
+Owner: "make a default configuration for xbox style controllers, allow it to seamlessly be able to navigate all parts
+of my app other than web browsing … highlighting options to select as well as having different configurations set per
+screen in the app, meaning pressing A in card review would select the highlighted box, while pressing A in a video
+player would open the highlighted text". Builds on "Game controllers: map any button…" above (same setting, same files).
+- **Layers** (`web/js/gamepad.js` `layers()`): an input is asked of, top first: `typing` (a text box has the cursor:
+  B leaves it, Menu presses Enter, the D-pad leaves it and moves on; nothing else), else `dialog` (a box over the page:
+  `BOXES` = the old list + `dialog[open]`, `.game-sheet-wrap`, `.battle-wrap`, `.goal-pop`, `#def-model-menu`,
+  `.lex-offer-back` and any `[role=dialog]`/`[role=alertdialog]`/`[aria-modal]` except `.rv` and `.word-bubble`; X =
+  its main button), else `popup` (a `.word-bubble` open: A presses the highlighted popup button or Save, X/Y word and
+  sentence, ↑↓ walk its buttons in order, ←→ the page's `popupStep(dir)`, RT save, View its source menu), then the
+  screen (the newest `controllerArea` a page claimed, else `padscreens.js screenLayer()` from the address), then
+  `general`. A layer that doesn't map the input, or whose handler's `can()` is false, leaves it to the next. A handler
+  may be `{ run, can, hint }`: `hint()` names it in the button guide (null hides it).
+- **Areas** (`web/js/padmap.js` AREAS, 13): video, popup, review, reader, home, library, lesson, vocab, friends,
+  settings, dialog, typing, general. Each action has a `short` name for the guide. `hold: true` (video/reader `lookUp`)
+  acts when the button is let go; `actionHeld("lookUp")` (gamepad.js) tells a page it is down, so the D-pad takes in
+  more words meanwhile. Defaults (Xbox names) are the table shown to the owner: players A look up (the word being said
+  until the highlight moves), X play/pause, Y the line again, D-pad the word highlight, left stick ±5 s and lines, LB/RB
+  reels, LT slower, RT save, View captions, LS loop, RS transcript; cards A turn → press the highlighted box (Remembered
+  when none), ←→ answer, ↑↓ walk the back; books LB/RB page; Home X Continue, Y review; Library LB/RB kind, X add,
+  Y search; lessons LB/RB lesson, X hear, Y all lessons (B goes to all lessons too); Vocab X review, Y search, LB/RB
+  folder; chat X record, Y write; Settings LB/RB section, Y search; everywhere A press, B back, LB/RB tabs, LT/RT a page,
+  View the screen's ? guide, Menu the main tabs.
+- **Old mappings keep working**: `fullMap` lets a button the learner chose win over a default that came later (that
+  default action is left without a button). `cleanMap` (and `app/controller.py clean`, whose AREAS list must match:
+  tests/js/padmap.test.mjs checks) now keeps an area a newer version has, like an unknown action.
+- **The word highlight** (`web/js/padcursor.js` `wordCursor`, new; tests/js/padcursor.test.mjs): index-based over the
+  page's `.w` words; ←→ by one word the way the text runs on screen (rtl: left is on), ↑↓ to the nearest word on the very
+  next drawn line (`nextLine`; not `nearest`, which jumps a line for a word straight below), else the next block's first
+  word; `taking` (A held) paints the run with phrasepick's `.phr` classes; `pick()` looks up the run (`phraseRange`, ≤30);
+  `stepOut(i, j, dir)` (the popup's ←→, past a looked-up phrase); `edge` (a book turns the page past its last word).
+  Ring: `.w.pad-word`. Used by player.js (transcript + captions: while it is out the captions show its line, `follow`
+  is off; B puts it away), reels.js, book.js, reader.js (all `controllerArea(...)` + `offPad()` on close).
+- **Review back** (review.js): ↑↓ = `highlightMove(dir, {root: face, linear: true, include: BACK_TEXTS})`; A on a text
+  = `tapEdit` (its text box; B saves and leaves), on a button = press it; Word/Sentence/Say it only on the back.
+- **The general highlight** (gamepad.js): reaches `[data-say]` (lesson words), `[role=tab|radio|checkbox|option|
+  menuitem…]`, a label whose radio/tick box is hidden (Settings → Theme, transcription choices), `.msg-del`, things off to
+  the side of a strip that scrolls sideways; a text box is only ringed (A puts the cursor in); a `<select>` opens
+  selectsheet.js's sheet (any device); ←→ on a slider or number box change it; ↑↓ stay inside the part that scrolls while
+  it has more (`scrollArea`); a pressed button that moved away or was drawn again leaves the highlight on what is now at
+  its place (`nearSpot`); a disabled one (an answered question) is moved on from. LB/RB `switchTab` (TABS: tablists,
+  `.tabs`, `.segmented`, `.set-seg`, `.key-tabs`, `.reel-modes`, `.feed-list`, `#folders`, `.goal-chips`; current =
+  `.active/.on/aria-selected/checked…`). LT/RT `pageJump` (ignores fixed/sticky parts like the + button).
+- **Button guide** (`.pad-legend`, gamepad.js `drawLegend`, CSS in app.css): A/B/X/Y, LB/RB as a pair, Menu, RT, LT,
+  View, the general D-pad and sticks left out; shown while the controller was the last thing used (mouse, touch or keys
+  hide it); faded after 5 s; lifted above `.controls/.rv-actions/.book-foot/.reel-controls/.tabbar`; moved under the
+  player's title when it would cover captions or a reel's words. Off: Settings → Controller tick box, localStorage
+  `padLegend` (this device only).
+- **Settings → Controller** (controllerpanel.js): a "Screen" select (remembered, localStorage `padArea`; a search hit
+  `show=pad<area>` picks it), that screen's rows, then "The same on every screen" (read-only, from Everywhere),
+  "Reset these" / "Reset every screen". Fixed: the printed-name check was `/^b(d|…)/` (meant `\d`).
+- **Native confirm() gone** (a controller can't answer it, and it stops the page): `confirmBox` moved to
+  components/modal.js (settingsui.js re-exports it) and used in library.js (4), vocab.js (folder), chat.js (unsend),
+  ankisync.js (delete word), studycard.js, game/battle-ui.js (quit), game/garden.js (release). `prompt()` is still used for
+  vocab folder names and the creature's name (typing anyway).
+- The game's habitat (game/habitat.js): its picture is a button now (`role=button tabindex=0`); a press with no place
+  on it (Enter, Space, A) taps the creature (pet it, or evolve when it is ready).
+- grammarpanel.js lesson nav buttons got classes `gl-prev`, `gl-all`, `gl-next`. build-www SHARED: js/padcursor.js,
+  js/padscreens.js. i18n `tools/i18n/tr/<code>/87-controller-screens.txt` (120 × 16, + "Saved vocab is kept." for the 8
+  newer languages).
+- **Checked**: JS and pytest suites; browser pane on the desktop server with a scratch data folder (a seeded Spanish
+  episode with timed words and a tone as audio, a saved page, a book, three vocab words) and a stubbed Xbox pad
+  (`navigator.getGamepads`, requestAnimationFrame and smooth scrolling made instant because the hidden pane pauses them):
+  Home (the dictionary offer answered with B, legend), Library LB/RB kinds, Y search → "B Done" → D-pad out, lessons
+  (RT pages, A opens, RB/LB lessons, fill/choice/dialogue/order answered with A, the highlight staying in the order
+  pool, B to all lessons), the podcast player (word highlight, ↓ line, A popup, popup ←→/↓, hold A + →→ "un café con",
+  X play/pause, B chain), a video with the panel folded (captions follow the highlight, RS opens the panel), the book
+  (RB pages, highlight past the page's end turns it) and a saved page (hold A phrase, popup → past the phrase), the
+  review (front/back guide, ↓ walk of every box, A opens the meaning's box, B saves it, → answers), Settings (LB/RB
+  sections, Theme tiles, the text-size slider, remapping LT onto "Play the word" with the controller, reset), the
+  "I'm stuck" box (LB/RB tabs, B closes), the new delete popup (B cancels). 375 px wide: the guide wraps above the foot.
+- **NOT checked**: a real controller on any device; Android's WebView (B may also be Android's Back key) and the iPhone;
+  reels playing (needs the phone), YouTube/Netflix embeds, Friends signed in (segments use the general LB/RB tabs), the
+  the game's battle with a controller (its buttons and the quit popup should do), collecting a building's glow in the
+  habitat (still a tap on its plot),
+  typing with no keyboard on a computer (the controller doesn't type), the Mnemonic maker's results (needs an AI key).

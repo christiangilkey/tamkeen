@@ -1,0 +1,120 @@
+68d42985	Usalo ovunque nell'app. La croce direzionale sposta l'evidenziazione, A preme, B torna indietro; i pulsanti propri di ogni schermata sono qui sotto.
+b4a3ee72	Mostra cosa fanno i pulsanti in fondo allo schermo mentre usi il controller
+503d46db	Pulsanti
+5cc847f9	Schermata
+f6464485	Uguale in tutte le schermate
+6390381a	Cambiali in «Ovunque».
+2a492146	Ripristina tutte le schermate
+dd566b20	Un controller di gioco per tutta l'app: scegli cosa fa ogni pulsante in ogni schermata.
+823a6bc8	Pulsanti del controller per ogni schermata
+bcd78f5c	Cosa fanno i pulsanti del controller, sullo schermo
+599d2751	Aggiungere questo podcast alla tua Libreria e aprire questo episodio?
+97255093	Abbandonare questa battaglia?
+bdc96deb	Le risposte date finora contano comunque.
+ca6eb1b8	Liberare {0}?
+9cef943b	Liberare questa creatura?
+50fb277b	Se ne va per sempre, e i tuoi edifici e il bagliore ripartono da zero. Tieni la polvere di stelle, le altre creature e tutto ciò che possiedi.
+d41f56ce	Libera
+ea683ad6	Premi
+b079d132	Mentre è aperta la finestra di una parola, in qualsiasi schermata.
+013290dd	Le schede di ripasso.
+d7fdd934	Libri e pagine
+467eddcd	Leggere un libro o una pagina web salvata.
+de446be7	La prima schermata.
+a4c1b51e	Corsi, podcast, YouTube, reel, libri e pagine web.
+481250ea	Lezioni dei corsi
+31f558ee	Un'unità del corso di base o una lezione di grammatica, con i suoi esercizi.
+4896b4ea	Le tue parole salvate.
+06594c3f	Amici e chat
+6e9d1fdd	Amici, gilde e messaggi.
+6ea59026	Tutte le sezioni delle Impostazioni.
+37df3338	Finestre e riquadri
+ff00fbd3	Un riquadro aperto sopra la pagina: l'evidenziazione resta al suo interno.
+63382347	Scrivere in una casella di testo
+8d1993bc	Mentre una casella di testo ha il cursore. Il controller non scrive: usa la tastiera.
+f618ec1f	Muoversi nell'app: in ogni schermata, per i pulsanti che la schermata stessa non usa.
+d7cd8e3b	Apri la parola evidenziata (tieni premuto e spostati per aggiungere altre parole)
+6d7049b8	Cerca
+7f04d18e	Ascolta la riga
+2eec3646	Evidenzia la parola a sinistra
+1a083ae7	Evidenzia la parola a destra
+5562abb3	Evidenzia la riga sopra
+ea967600	Riga
+10850711	Evidenzia la riga sotto
+f3d89d97	Riproduci la riga precedente
+55939914	Riproduci la riga successiva
+dc7f77b4	Ripeti
+cf606d09	Più lento
+cacfa94f	Reel
+5aabf86e	Premi il pulsante evidenziato (Salva se non ce n'è uno)
+6d19b4df	Chiudi la finestra
+6a370952	Ascolta la parola
+adef6e17	Ascolta la frase
+4b58c762	Evidenzia il pulsante precedente
+76cdb950	Sposta
+82e9d7ad	Evidenzia il pulsante successivo
+1a22fddc	Cerca la parola a sinistra
+7cd09c01	Cerca la parola a destra
+49d62a9b	Salva la parola
+13156e47	Scegli cosa spiega le parole
+6da13add	Fonte
+49204080	Gira la scheda; sul retro, premi il riquadro evidenziato (Ricordata se non ce n'è uno)
+368e8081	Gira
+395cd9f2	Evidenzia il riquadro sopra (sul retro)
+17014e92	Evidenzia il riquadro sotto (sul retro)
+b74bdee9	Termina
+fe2d8685	Riprendi da dove eri rimasto
+ce092d86	Inizia a ripassare le tue schede
+23cd1bd1	Il tipo precedente (Corsi, Podcast, YouTube…)
+e00ac23f	Tipo
+39386083	Il tipo successivo
+b2bf347c	Aggiungi qualcosa
+37c376b2	Cerca in questo elenco
+20924038	Lezione precedente
+188ecdea	Lezione
+be76cd77	Ascolta l'esempio evidenziato (o tutta la lezione)
+d87273a5	Ascolta
+459107df	Torna a tutte le lezioni
+c20e9e62	Inizia il ripasso
+a80d082f	Cerca tra le tue parole
+8fca966a	La cartella precedente
+e63e5fe3	La cartella successiva
+b36a924e	Registra un messaggio vocale (in una chat)
+1c54132b	Registra
+11eaaf74	Scrivi un messaggio (in una chat)
+410543b4	La sezione precedente
+f2c6b564	Sezione
+8488f780	La sezione successiva
+b8860202	Cerca nelle impostazioni
+c1de68e0	Premi il pulsante principale del riquadro
+56141649	Esci dalla casella di testo
+e5fb0af1	Premi Invio (cerca, invia)
+2b9eceb7	Invio
+93499a1f	La scheda precedente
+fe06eb64	Scheda
+13afcd42	La scheda successiva
+99dfa4da	Sali di una pagina
+44f540f1	Pagina su
+fa4622bb	Scendi di una pagina
+f31eb063	Pagina giù
+090a3c80	Scorri
+2a4d562b	Schede
+9bbc1141	Come usare questa schermata (la sua guida)
+bf073fae	Guida
+dd395f29	Annullare l'invio di questo messaggio?
+ecfee007	Viene eliminato per entrambi.
+7aa97200	Rimuovere «{0}»?
+fac924e4	Le sue trascrizioni e l'audio scaricato verranno eliminati. Il vocabolario salvato resta.
+6136a137	Rimuovere «{0}» dai tuoi titoli Netflix?
+f3021d84	Eliminare «{0}» dalle tue pagine web?
+883e0b05	Rimuovere «{0}» dai tuoi video di YouTube?
+26b2461e	Rimuovere «{0}» dai tuoi reel?
+606d9fdc	Eliminare «{0}»?
+757dec49	Il video e la sua trascrizione vengono rimossi da questo dispositivo e dal tuo Google Drive. Il vocabolario salvato resta.
+0be6f71d	L'audio e la sua trascrizione vengono rimossi da questo dispositivo e dal tuo Google Drive. Il vocabolario salvato resta.
+4f9b2aa2	Eliminare questo episodio?
+ac898d3c	Eliminare questi {0} episodi?
+85964243	Lo rimuove dalla tua Libreria su tutti i dispositivi, insieme all'audio e alla trascrizione. Un episodio di podcast eliminato non torna quando il podcast viene aggiornato. Il vocabolario salvato resta. Non si può annullare.
+8858b914	Li rimuove dalla tua Libreria su tutti i dispositivi, insieme all'audio e alla trascrizione. Un episodio di podcast eliminato non torna quando il podcast viene aggiornato. Il vocabolario salvato resta. Non si può annullare.
+89b57788	Eliminare la cartella «{0}»?
+639b9d4f	Le parole al suo interno restano.

@@ -1,0 +1,121 @@
+68d42985	Gamita kini bisan asa sa app. Ang D-pad maglihok sa highlight, ang A mopislit, ang B mobalik; ang kaugalingong mga button sa matag screen anaa sa ubos.
+b4a3ee72	Ipakita sa ubos sa screen kon unsa ang buhaton sa mga button, samtang gigamit ang controller
+503d46db	Mga button
+5cc847f9	Screen
+f6464485	Pareho sa matag screen
+6390381a	Usba kini sa “Bisan asa”.
+2a492146	I-reset ang tanang screen
+dd566b20	Usa ka game controller para sa tibuok app: pilia kon unsa ang buhaton sa matag button sa matag screen.
+823a6bc8	Mga button sa controller para sa matag screen
+bcd78f5c	Unsa ang buhaton sa mga button sa controller, sa screen
+599d2751	Idugang kining podcast sa imong library ug ablihi kining episode?
+97255093	Biyaan kining sangka?
+bdc96deb	Maihap gihapon ang imong mga tubag hangtod karon.
+ca6eb1b8	Buhian ang {0}?
+9cef943b	Buhian kining linalang?
+50fb277b	Mobiya kini hangtod sa hangtod, ug magsugod pag-usab ang imong mga building ug sanag. Imo gihapon ang abog sa bituon, ang imong ubang mga linalang ug ang tanan nimong gipanag-iya.
+d41f56ce	Buhii
+ea683ad6	Pislita
+b079d132	Samtang abli ang popup sa usa ka pulong, sa bisan unsang screen.
+013290dd	Ang mga review card.
+d7fdd934	Mga libro ug panid
+467eddcd	Samtang nagbasa og libro o na-save nga web page.
+de446be7	Ang unang screen.
+a4c1b51e	Mga kurso, podcast, YouTube, reel, libro ug web page.
+481250ea	Mga leksyon sa kurso
+31f558ee	Usa ka yunit sa Batakan o usa ka leksyon sa gramatika, uban ang mga ehersisyo niini.
+4896b4ea	Ang imong mga na-save nga pulong.
+06594c3f	Mga higala ug chat
+6e9d1fdd	Mga higala, guild ug mensahe.
+6ea59026	Ang matag seksyon sa Settings.
+37df3338	Mga popup ug kahon
+ff00fbd3	Usa ka kahon nga abli ibabaw sa panid: ang highlight magpabilin sulod niini.
+63382347	Samtang nag-type sa text box
+8d1993bc	Samtang anaa sa text box ang cursor. Dili mo-type ang controller: gamita ang keyboard.
+f618ec1f	Paglihok sulod sa app: sa matag screen, para sa mga button nga wala niini gamita.
+d7cd8e3b	Ablihi ang naka-highlight nga pulong (pislita og dugay ug ilihok aron makadugang og pulong)
+6d7049b8	Pangitaa
+7f04d18e	Paminawa ang linya
+2eec3646	I-highlight ang pulong sa wala
+1a083ae7	I-highlight ang pulong sa tuo
+5562abb3	I-highlight ang linya sa ibabaw
+ea967600	Linya
+10850711	I-highlight ang linya sa ubos
+f3d89d97	I-play ang miaging linya
+55939914	I-play ang sunod nga linya
+dc7f77b4	Balik-balik
+cf606d09	Hinayhinay
+cacfa94f	Reel
+5aabf86e	Pislita ang naka-highlight nga button (I-save kon walay naka-highlight)
+6d19b4df	Sirad-i ang popup
+6a370952	Paminawa ang pulong
+adef6e17	Paminawa ang sentence
+4b58c762	I-highlight ang miaging button
+76cdb950	Ibalhin
+82e9d7ad	I-highlight ang sunod nga button
+1a22fddc	Pangitaa ang pulong sa wala
+7cd09c01	Pangitaa ang pulong sa tuo
+49d62a9b	I-save ang pulong
+13156e47	Pilia kon unsa ang mopasabot sa mga pulong
+6da13add	Tinubdan
+49204080	Balihon ang card; sa likod, pislita ang naka-highlight nga kahon (Nahinumdoman kon walay naka-highlight)
+368e8081	Balihon
+395cd9f2	I-highlight ang kahon sa ibabaw (sa likod)
+17014e92	I-highlight ang kahon sa ubos (sa likod)
+b74bdee9	Tapusa
+fe2d8685	Ipadayon diin ka mihunong
+ce092d86	Sugdi ang pag-review sa imong mga card
+23cd1bd1	Ang miaging klase (Mga kurso, Mga podcast, YouTube…)
+e00ac23f	Klase
+39386083	Ang sunod nga klase
+b2bf347c	Pagdugang og butang
+37c376b2	Pangita niining lista
+20924038	Miaging leksyon
+188ecdea	Leksyon
+be76cd77	Paminawa ang naka-highlight nga pananglitan (o ang tibuok leksyon)
+d87273a5	Paminaw
+459107df	Balik sa tanang leksyon
+c20e9e62	Sugdi ang review
+a80d082f	Pangitaa ang imong mga pulong
+8fca966a	Ang miaging folder
+e63e5fe3	Ang sunod nga folder
+b36a924e	Pag-record og voice message (sa chat)
+1c54132b	I-record
+11eaaf74	Pagsulat og mensahe (sa chat)
+410543b4	Ang miaging seksyon
+f2c6b564	Seksyon
+8488f780	Ang sunod nga seksyon
+b8860202	Pangita sa settings
+c1de68e0	Pislita ang pangunang button sa kahon
+56141649	Biyai ang text box
+e5fb0af1	Pislita ang Enter (pangita, ipadala)
+2b9eceb7	Enter
+93499a1f	Ang miaging tab
+fe06eb64	Tab
+13afcd42	Ang sunod nga tab
+99dfa4da	Lukso usa ka panid pataas
+44f540f1	Panid pataas
+fa4622bb	Lukso usa ka panid paubos
+f31eb063	Panid paubos
+090a3c80	I-scroll
+2a4d562b	Mga tab
+9bbc1141	Unsaon paggamit niining screen (ang giya niini)
+bf073fae	Giya
+dd395f29	I-unsend kining mensahe?
+ecfee007	Matangtang kini para ninyong duha.
+7aa97200	Tangtangon ang “{0}”?
+fac924e4	Matangtang ang mga transcript ug na-download nga audio niini. Magpabilin ang na-save nga vocab.
+6136a137	Tangtangon ang “{0}” sa imong mga salida sa Netflix?
+f3021d84	Tangtangon ang “{0}” sa imong mga webpage?
+883e0b05	Tangtangon ang “{0}” sa imong mga YouTube video?
+26b2461e	Tangtangon ang “{0}” sa imong mga reel?
+606d9fdc	Tangtangon ang “{0}”?
+757dec49	Matangtang ang video ug ang transcript niini gikan niining device ug sa imong Google Drive. Magpabilin ang na-save nga vocab.
+0be6f71d	Matangtang ang audio ug ang transcript niini gikan niining device ug sa imong Google Drive. Magpabilin ang na-save nga vocab.
+4f9b2aa2	Tangtangon kining episode?
+ac898d3c	Tangtangon kining {0} ka episode?
+85964243	Matangtang kini sa imong Library sa matag device, uban ang audio ug transcript. Ang natangtang nga episode sa podcast dili mobalik kon i-refresh ang podcast. Magpabilin ang na-save nga vocab. Dili na kini ma-undo.
+8858b914	Matangtang sila sa imong Library sa matag device, uban ang audio ug transcript. Ang natangtang nga episode sa podcast dili mobalik kon i-refresh ang podcast. Magpabilin ang na-save nga vocab. Dili na kini ma-undo.
+89b57788	Tangtangon ang folder nga “{0}”?
+639b9d4f	Magpabilin ang mga pulong niini.
+2fa412d0	Magpabilin ang na-save nga vocab.

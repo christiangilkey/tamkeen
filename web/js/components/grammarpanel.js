@@ -816,13 +816,13 @@ export function grammarPanel(box, lang, choice) {
     const i = course.lessons.indexOf(src);
     const prev = course.lessons[i - 1], next = course.lessons[i + 1];
     const nav = h(`<nav class="gl-nav"></nav>`);
-    if (prev) { const b = h(`<button type="button" class="ghost">← Previous</button>`); b.onclick = () => drawLesson(prev.id); nav.append(b); }
+    if (prev) { const b = h(`<button type="button" class="ghost gl-prev">← Previous</button>`); b.onclick = () => drawLesson(prev.id); nav.append(b); }
     nav.append(h(`<span class="spacer"></span>`));
-    const all = h(`<button type="button" class="ghost">All lessons</button>`);
+    const all = h(`<button type="button" class="ghost gl-all">All lessons</button>`);
     all.onclick = () => refreshProgress().then(drawCourse);
     nav.append(all);
     nav.append(h(`<span class="spacer"></span>`));
-    if (next) { const b = h(`<button type="button" class="ghost">Next →</button>`); b.onclick = () => drawLesson(next.id); nav.append(b); }
+    if (next) { const b = h(`<button type="button" class="ghost gl-next">Next →</button>`); b.onclick = () => drawLesson(next.id); nav.append(b); }
     return nav;
   }
 

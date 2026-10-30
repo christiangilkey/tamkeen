@@ -127,6 +127,8 @@ const SHARED = [
   "js/toaster.js",
   "js/padmap.js",
   "js/gamepad.js",
+  "js/padcursor.js",
+  "js/padscreens.js",
   "js/components/controllerpanel.js",
   "js/coursedata.js",
   "js/components/coursepanel.js",

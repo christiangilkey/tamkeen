@@ -1,0 +1,121 @@
+68d42985	Fes-lo servir a qualsevol lloc de l'app. La creueta mou el ressaltat, A prem, B torna enrere; els botons propis de cada pantalla són a sota.
+b4a3ee72	Mostra a la part de baix de la pantalla què fan els botons, mentre fas servir el comandament
+503d46db	Botons
+5cc847f9	Pantalla
+f6464485	Igual a totes les pantalles
+6390381a	Canvia'ls a «A tot arreu».
+2a492146	Restableix totes les pantalles
+dd566b20	Un comandament de joc per a tota l'app: tria què fa cada botó a cada pantalla.
+823a6bc8	Botons del comandament per a cada pantalla
+bcd78f5c	Què fan els botons del comandament, a la pantalla
+599d2751	Vols afegir aquest pòdcast a la teva biblioteca i obrir aquest episodi?
+97255093	Vols sortir d'aquesta batalla?
+bdc96deb	Les respostes que has donat fins ara continuen comptant.
+ca6eb1b8	Vols alliberar {0}?
+9cef943b	Vols alliberar aquesta criatura?
+50fb277b	Se'n va per sempre, i els teus edificis i el brill tornen a començar. Conserves la pols d'estels, les altres criatures i tot el que tens.
+d41f56ce	Allibera
+ea683ad6	Prem
+b079d132	Mentre la finestra d'una paraula és oberta, a qualsevol pantalla.
+013290dd	Les targetes de repàs.
+d7fdd934	Llibres i pàgines
+467eddcd	Llegint un llibre o una pàgina web desada.
+de446be7	La primera pantalla.
+a4c1b51e	Cursos, pòdcasts, YouTube, reels, llibres i pàgines web.
+481250ea	Lliçons dels cursos
+31f558ee	Una unitat del curs bàsic o una lliçó de gramàtica, amb els seus exercicis.
+4896b4ea	Les paraules que has desat.
+06594c3f	Amics i xat
+6e9d1fdd	Amics, gremis i missatges.
+6ea59026	Totes les seccions de Configuració.
+37df3338	Finestres i quadres
+ff00fbd3	Un quadre obert sobre la pàgina: el ressaltat s'hi queda a dins.
+63382347	Escrivint en un quadre de text
+8d1993bc	Mentre un quadre de text té el cursor. El comandament no escriu: fes servir el teclat.
+f618ec1f	Moure's per l'app: a totes les pantalles, per als botons que la pantalla no fa servir.
+d7cd8e3b	Obre la paraula ressaltada (mantén premut i mou per afegir-hi més paraules)
+6d7049b8	Busca
+7f04d18e	Sent la línia
+2eec3646	Ressalta la paraula de l'esquerra
+1a083ae7	Ressalta la paraula de la dreta
+5562abb3	Ressalta la línia de dalt
+ea967600	Línia
+10850711	Ressalta la línia de sota
+f3d89d97	Reprodueix la línia anterior
+55939914	Reprodueix la línia següent
+dc7f77b4	Repeteix
+cf606d09	Més lent
+cacfa94f	Reel
+5aabf86e	Prem el botó ressaltat (Desa si no n'hi ha cap)
+6d19b4df	Tanca la finestra
+6a370952	Sent la paraula
+adef6e17	Sent la frase
+4b58c762	Ressalta el botó anterior
+76cdb950	Mou
+82e9d7ad	Ressalta el botó següent
+1a22fddc	Busca la paraula de l'esquerra
+7cd09c01	Busca la paraula de la dreta
+49d62a9b	Desa la paraula
+13156e47	Tria què explica les paraules
+6da13add	Font
+49204080	Gira la targeta; al revers, prem el quadre ressaltat (Recordada si no n'hi ha cap)
+368e8081	Gira
+395cd9f2	Ressalta el quadre de dalt (al revers)
+17014e92	Ressalta el quadre de sota (al revers)
+b74bdee9	Acaba
+fe2d8685	Continua on ho vas deixar
+ce092d86	Comença a repassar les targetes
+23cd1bd1	El tipus anterior (Cursos, Pòdcasts, YouTube…)
+e00ac23f	Tipus
+39386083	El tipus següent
+b2bf347c	Afegeix alguna cosa
+37c376b2	Cerca en aquesta llista
+20924038	Lliçó anterior
+188ecdea	Lliçó
+be76cd77	Sent l'exemple ressaltat (o tota la lliçó)
+d87273a5	Escolta
+459107df	Torna a totes les lliçons
+c20e9e62	Comença el repàs
+a80d082f	Cerca les teves paraules
+8fca966a	La carpeta anterior
+e63e5fe3	La carpeta següent
+b36a924e	Grava un missatge de veu (en un xat)
+1c54132b	Grava
+11eaaf74	Escriu un missatge (en un xat)
+410543b4	La secció anterior
+f2c6b564	Secció
+8488f780	La secció següent
+b8860202	Cerca a la configuració
+c1de68e0	Prem el botó principal del quadre
+56141649	Surt del quadre de text
+e5fb0af1	Prem Retorn (cerca, envia)
+2b9eceb7	Retorn
+93499a1f	La pestanya anterior
+fe06eb64	Pestanya
+13afcd42	La pestanya següent
+99dfa4da	Salta una pàgina amunt
+44f540f1	Pàgina amunt
+fa4622bb	Salta una pàgina avall
+f31eb063	Pàgina avall
+090a3c80	Desplaça
+2a4d562b	Pestanyes
+9bbc1141	Com fer servir aquesta pantalla (la seva guia)
+bf073fae	Guia
+dd395f29	Vols anul·lar l'enviament d'aquest missatge?
+ecfee007	S'esborra per a tots dos.
+7aa97200	Vols treure «{0}»?
+fac924e4	Se n'esborraran les transcripcions i l'àudio baixat. El vocabulari desat es conserva.
+6136a137	Vols treure «{0}» dels teus títols de Netflix?
+f3021d84	Vols esborrar «{0}» de les teves pàgines web?
+883e0b05	Vols treure «{0}» dels teus vídeos de YouTube?
+26b2461e	Vols treure «{0}» dels teus reels?
+606d9fdc	Vols esborrar «{0}»?
+757dec49	El vídeo i la seva transcripció s'eliminen d'aquest dispositiu i del teu Google Drive. El vocabulari desat es conserva.
+0be6f71d	L'àudio i la seva transcripció s'eliminen d'aquest dispositiu i del teu Google Drive. El vocabulari desat es conserva.
+4f9b2aa2	Vols esborrar aquest episodi?
+ac898d3c	Vols esborrar aquests {0} episodis?
+85964243	Això l'elimina de la teva Biblioteca en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast esborrat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva. No es pot desfer.
+8858b914	Això els elimina de la teva Biblioteca en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast esborrat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva. No es pot desfer.
+89b57788	Vols esborrar la carpeta «{0}»?
+639b9d4f	Les paraules que conté es conserven.
+2fa412d0	El vocabulari desat es conserva.

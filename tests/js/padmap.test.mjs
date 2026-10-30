@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import {
   ACTIONS, AREAS, AREA_IDS, DEAD_ZONE, HOLD_MS, REPEAT_MS, actionFor, assign, cleanMap, cleanSetting, deadZone,
   firstPressed, fullMap, inputName, isInput, newPressState, padKind, pressesFrom, readInputs, resetAction, resetArea,
-  settingWins,
+  settingWins, shortOf,
 } from "../../web/js/padmap.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -26,17 +26,23 @@ const pad = (down = [], axes = [0, 0, 0, 0], values = {}) => ({
   axes,
 });
 
-// ---------------------------------------------------------------- the defaults
+/// ---------------------------------------------------------------- the defaults
 
-test("every area has its actions, each with a known default, and no input does two things in one area", () => {
-  assert.deepEqual(AREA_IDS, ["video", "review", "general"]);
+test("every screen has its actions, each with a known default, and no input does two things on one screen", () => {
+  assert.deepEqual(AREA_IDS, ["video", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
+    "settings", "dialog", "typing", "general"]);
   for (const area of AREA_IDS) {
+    assert.ok(ACTIONS[area] && ACTIONS[area].length, area);
+    const info = AREAS.find((a) => a.id === area);
+    assert.ok(info.title && info.about, area);
     const ids = new Set();
     const inputs = new Set();
     for (const a of ACTIONS[area]) {
       assert.ok(!ids.has(a.id), `${area}/${a.id} twice`);
       ids.add(a.id);
-      assert.ok(a.label && a.label.length < 60, a.id);
+      assert.ok(/^[A-Za-z0-9]{1,32}$/.test(a.id), a.id);
+      assert.ok(a.label && a.label.length < 90, a.id);
+      assert.ok(a.short && a.short.length <= 16, `${area}/${a.id}: a short name for the on-screen guide`);
       if (a.def) {
         assert.ok(isInput(a.def), `${area}/${a.id}: ${a.def}`);
         assert.ok(!inputs.has(a.def), `${area}: ${a.def} is the default of two actions`);
@@ -44,37 +50,87 @@ test("every area has its actions, each with a known default, and no input does t
       }
     }
   }
+  assert.equal(shortOf("video", "lookUp"), "Look up");
+  assert.equal(shortOf("video", "nope"), "");
 });
 
-test("the defaults on a standard controller: A plays, B goes back, the D-pad seeks in videos and answers cards", () => {
+test("the Xbox-style defaults: A opens the highlighted word in a player, answers on a card, presses elsewhere", () => {
   const full = fullMap(undefined);
-  assert.equal(full.video.playPause, "b0");
-  assert.equal(full.video.back5, "b14");
-  assert.equal(full.video.fwd5, "b15");
-  assert.equal(full.video.lookUp, "b3");
+  // players and reels: A looks up (when let go), X plays, Y hears the line, the D-pad moves the highlight in the words
+  assert.equal(full.video.lookUp, "b0");
+  assert.equal(full.video.playPause, "b2");
+  assert.equal(full.video.replayLine, "b3");
+  assert.equal(full.video.wordLeft, "b14");
+  assert.equal(full.video.wordRight, "b15");
+  assert.equal(full.video.lineUp, "b12");
+  assert.equal(full.video.lineDown, "b13");
+  assert.equal(full.video.back5, "a0-", "the left stick seeks");
+  assert.equal(full.video.fwd5, "a0+");
+  assert.equal(full.video.prevLine, "a1-");
   assert.equal(full.video.saveWord, "b7");
   assert.equal(full.video.nextVideo, "b5");
+  assert.equal(actionFor(full, "video", "b0"), "lookUp");
+  // the word popup: A saves (or presses the highlighted button), X and Y play, ← → the next word
+  assert.equal(full.popup.press, "b0");
+  assert.equal(full.popup.close, "b1");
+  assert.equal(full.popup.playWord, "b2");
+  assert.equal(full.popup.playSentence, "b3");
+  assert.equal(full.popup.wordRight, "b15");
+  // cards: A turns (then presses the highlighted box), ← → answer, ↑ ↓ walk the back's boxes
   assert.equal(full.review.turn, "b0");
   assert.equal(full.review.again, "b14");
   assert.equal(full.review.good, "b15");
+  assert.equal(full.review.up, "b12");
+  assert.equal(full.review.down, "b13");
+  // books: the same highlight as the players, LB / RB turn the page
+  assert.equal(full.reader.lookUp, "b0");
+  assert.equal(full.reader.prevPage, "b4");
+  assert.equal(full.reader.nextPage, "b5");
+  // the screens: X and Y do each one's main things, LB / RB its tabs
+  assert.equal(full.home.continue, "b2");
+  assert.equal(full.home.review, "b3");
+  assert.equal(full.library.nextKind, "b5");
+  assert.equal(full.library.add, "b2");
+  assert.equal(full.lesson.nextLesson, "b5");
+  assert.equal(full.vocab.review, "b2");
+  assert.equal(full.vocab.nextFolder, "b5");
+  assert.equal(full.settings.nextSection, "b5");
+  assert.equal(full.dialog.confirm, "b2");
+  assert.equal(full.typing.leave, "b1");
+  assert.equal(full.typing.enter, "b9");
+  // everywhere: A presses, B goes back, the D-pad moves, LB / RB tabs, the triggers a page, the right stick scrolls
   assert.equal(full.general.back, "b1");
   assert.equal(full.general.select, "b0");
   assert.equal(full.general.up, "b12");
+  assert.equal(full.general.prevTab, "b4");
+  assert.equal(full.general.nextTab, "b5");
+  assert.equal(full.general.pageUp, "b6");
+  assert.equal(full.general.pageDown, "b7");
   assert.equal(full.general.scrollDown, "a3+");
-  assert.equal(actionFor(full, "video", "b0"), "playPause");
+  assert.equal(full.general.menu, "b9");
+  assert.equal(full.general.guide, "b8");
   assert.equal(actionFor(full, "general", "b0"), "select");
-  assert.equal(actionFor(full, "video", "b1"), "", "B is left to 'back' in every area");
-  assert.equal(actionFor(full, "review", "b1"), "");
+  // B is left to "back" on the screens (the popup and a text box close with it themselves)
+  for (const area of ["video", "review", "reader", "home", "library", "lesson", "vocab", "friends", "settings", "dialog"]) {
+    assert.equal(actionFor(full, area, "b1"), "", area);
+  }
 });
 
-test("holding the D-pad repeats seeking and moving the highlight, not playing or answering", () => {
+test("held: moving and seeking repeat, answering and looking up never do; looking up happens when A is let go", () => {
   const by = (area, id) => ACTIONS[area].find((a) => a.id === id);
   assert.ok(by("video", "back5").repeat);
+  assert.ok(by("video", "wordRight").repeat);
   assert.ok(by("general", "down").repeat);
+  assert.ok(by("general", "pageDown").repeat);
   assert.ok(!by("video", "playPause").repeat);
   assert.ok(!by("review", "good").repeat, "a held button must never answer several cards");
   assert.ok(!by("review", "again").repeat);
+  assert.ok(!by("review", "turn").repeat);
   assert.ok(by("general", "scrollUp").scroll);
+  assert.ok(by("video", "lookUp").hold, "hold A and move to take in more words; letting go looks them up");
+  assert.ok(by("reader", "lookUp").hold);
+  assert.ok(!by("video", "lookUp").repeat);
+  for (const area of AREA_IDS) for (const a of ACTIONS[area]) assert.ok(!(a.hold && a.repeat), `${area}/${a.id}`);
 });
 
 // ---------------------------------------------------------------- assigning ("press a button to assign")
@@ -84,18 +140,41 @@ test("assigning a button to an action keeps only the change, with its time", () 
   assert.equal(took, null);
   assert.deepEqual(setting, { at: 1000, map: { video: { playPause: "b9" } } });
   assert.equal(fullMap(setting).video.playPause, "b9");
-  assert.equal(fullMap(setting).video.lookUp, "b3", "the rest keep their defaults");
+  assert.equal(fullMap(setting).video.lookUp, "b0", "the rest keep their defaults");
 });
 
-test("a button already used in the same area moves: the other action is left with none", () => {
-  const { setting, took } = assign({}, "video", "playPause", "b3", 5);  // Y did "look up"
-  assert.equal(took, "lookUp");
+test("a button already used on the same screen moves: the other action is left with none", () => {
+  const { setting, took } = assign({}, "video", "playPause", "b3", 5);  // Y did "hear the line"
+  assert.equal(took, "replayLine");
   const full = fullMap(setting);
   assert.equal(full.video.playPause, "b3");
-  assert.equal(full.video.lookUp, "");
+  assert.equal(full.video.replayLine, "");
   assert.equal(actionFor(full, "video", "b3"), "playPause");
-  // other areas are not touched: Y still plays the sentence on a card
+  // other screens are not touched: Y still plays the sentence on a card
   assert.equal(full.review.playSentence, "b3");
+  assert.equal(full.popup.playSentence, "b3");
+});
+
+test("a learner's buttons from before the screens had their own keep working", () => {
+  // v0.39: A played; a learner who put "play / pause" on RB (and so took it from "next reel")
+  const old = { at: 50, map: { video: { playPause: "b5", nextVideo: "" } } };
+  let full = fullMap(old);
+  assert.equal(full.video.playPause, "b5");
+  assert.equal(full.video.nextVideo, "");
+  assert.equal(actionFor(full, "video", "b5"), "playPause");
+  // one who put "look up" on Start: now a default of no action on that screen, so nothing is lost
+  full = fullMap({ at: 1, map: { video: { lookUp: "b9" } } });
+  assert.equal(full.video.lookUp, "b9");
+  assert.equal(actionFor(full, "video", "b0"), "", "A is free: the learner's look-up button stays where they put it");
+  // a learner's button wins over a newer default of another action on the same screen
+  full = fullMap({ at: 1, map: { video: { captions: "b2" } } });  // X: captions (X is play / pause now)
+  assert.equal(full.video.captions, "b2");
+  assert.equal(full.video.playPause, "", "the default that came later gives way");
+  assert.equal(actionFor(full, "video", "b2"), "captions");
+  // and saving another change doesn't undo that
+  const { setting } = assign({ at: 1, map: { video: { captions: "b2" } } }, "video", "slower", "b10", 9);
+  assert.equal(fullMap(setting).video.captions, "b2");
+  assert.equal(fullMap(setting).video.loopLine, "", "LS press went to slow down");
 });
 
 test("clearing, resetting one action and resetting an area", () => {
@@ -115,11 +194,11 @@ test("clearing, resetting one action and resetting an area", () => {
 });
 
 test("resetting an action takes its default button back from the action that had it", () => {
-  let s = assign({}, "video", "lookUp", "b9", 1).setting;   // look up on Start; Y is free
-  s = assign(s, "video", "saveWord", "b3", 2).setting;      // save on Y
-  const { setting, took } = resetAction(s, "video", "lookUp", 3);
+  let s = assign({}, "video", "replayLine", "b9", 1).setting;   // hear the line on Menu; Y is free
+  s = assign(s, "video", "saveWord", "b3", 2).setting;          // save on Y
+  const { setting, took } = resetAction(s, "video", "replayLine", 3);
   assert.equal(took, "saveWord");
-  assert.equal(fullMap(setting).video.lookUp, "b3");
+  assert.equal(fullMap(setting).video.replayLine, "b3");
   assert.equal(fullMap(setting).video.saveWord, "");
 });
 
@@ -127,31 +206,45 @@ test("only real actions and inputs can be assigned", () => {
   assert.throws(() => assign({}, "video", "nope", "b0"));
   assert.throws(() => assign({}, "video", "playPause", "x9"));
   assert.throws(() => assign({}, "nowhere", "playPause", "b0"));
+  assert.doesNotThrow(() => assign({}, "home", "review", "b0"));
 });
 
 // ---------------------------------------------------------------- saving and loading
 
-test("a stored setting is cleaned: rubbish left out, unknown actions kept for a newer version", () => {
+test("a stored setting is cleaned: rubbish left out, a newer version's screens and actions kept", () => {
   const raw = {
     at: 1700000000123.7,
     map: {
       video: { playPause: "b2", lookUp: "", fly: "b3", bad: "b999", worse: 4, "no way": "b1" },
       review: "not an object",
       elsewhere: { x: "b1" },
+      "Not an area": { x: "b1" },
       general: { back: "a1-" },
+      vocab: { review: "b7" },
     },
   };
   assert.deepEqual(cleanSetting(raw), {
     at: 1700000000123,
-    map: { video: { playPause: "b2", lookUp: "", fly: "b3" }, general: { back: "a1-" } },
+    map: { video: { playPause: "b2", lookUp: "", fly: "b3" }, elsewhere: { x: "b1" }, general: { back: "a1-" }, vocab: { review: "b7" } },
   });
   assert.deepEqual(cleanSetting(null), { at: 0, map: {} });
   assert.deepEqual(cleanSetting("x"), { at: 0, map: {} });
   assert.deepEqual(cleanMap({ map: [] }), {});
   assert.equal(fullMap(raw).video.playPause, "b2");
-  // an action only a newer version has survives this version's changes
+  assert.equal(fullMap(raw).vocab.review, "b7");
+  assert.equal(fullMap(raw).elsewhere, undefined, "a screen this version doesn't have does nothing here");
+  // a newer version's action and screen survive this version's changes
   const { setting } = assign(raw, "video", "fwd5", "b5", 5);
   assert.equal(setting.map.video.fly, "b3");
+  assert.deepEqual(setting.map.elsewhere, { x: "b1" });
+});
+
+test("the computer's twin knows the same screens (app/controller.py)", () => {
+  const py = read("app/controller.py");
+  const m = /AREAS = \(([^)]*)\)/.exec(py);
+  assert.ok(m, "AREAS in app/controller.py");
+  const names = [...m[1].matchAll(/"([a-z]+)"/g)].map((x) => x[1]);
+  assert.deepEqual(names, AREA_IDS);
 });
 
 test("saving and loading go through JSON unchanged (the settings store, Drive sync)", () => {
@@ -289,7 +382,7 @@ test("Settings → Controller is a section of both Settings pages, found by the 
   }
   assert.match(read("web/js/pages/settings.js"), /controller: controllerSection/);
   assert.match(read("mobile/src/js/pages/settings.js"), /controller: controllerSection/);
-  assert.equal(AREAS.length, 3);
+  assert.equal(AREAS.length, 13);
 });
 
 // ---------------------------------------------------------------- moving the highlight with the D-pad

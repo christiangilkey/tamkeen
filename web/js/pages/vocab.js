@@ -5,6 +5,8 @@
 import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
 import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, ankiSyncHere, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
 import { formatTime } from "../wordlookup.js";
+import { confirmBox } from "../components/modal.js";
+import { t } from "../i18n.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
 import { icon } from "../icons.js";
@@ -328,7 +330,7 @@ export async function render(view) {
       };
       const del = h(`<button type="button" class="ghost danger small-btn">Delete folder</button>`);
       del.onclick = async () => {
-        if (!confirm(`Delete the folder “${current.name}”? The words in it are kept.`)) return;
+        if (!(await confirmBox(t("Delete the folder “{0}”?", current.name), "The words in it are kept.", { ok: "Delete", danger: true }))) return;
         try {
           await api(`/vocab/folders/${current.uid}`, { method: "DELETE" });
           st.folder = "";

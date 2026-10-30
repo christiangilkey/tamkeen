@@ -1,0 +1,120 @@
+68d42985	Gamitin ito kahit saan sa app. Inililipat ng D-pad ang highlight, pumipindot ang A, bumabalik ang B; nasa ibaba ang sariling mga button ng bawat screen.
+b4a3ee72	Ipakita sa ibaba ng screen kung ano ang ginagawa ng mga button, habang ginagamit ang controller
+503d46db	Mga button
+5cc847f9	Screen
+f6464485	Pareho sa bawat screen
+6390381a	Baguhin ang mga ito sa “Saanman”.
+2a492146	Ibalik sa default ang bawat screen
+dd566b20	Isang game controller para sa buong app: piliin kung ano ang ginagawa ng bawat button sa bawat screen.
+823a6bc8	Mga button ng controller para sa bawat screen
+bcd78f5c	Ano ang ginagawa ng mga button ng controller, sa screen
+599d2751	Idagdag ang podcast na ito sa library mo at buksan ang episode na ito?
+97255093	Aalis sa labang ito?
+bdc96deb	Bilang pa rin ang mga sagot mo hanggang ngayon.
+ca6eb1b8	Pakawalan si {0}?
+9cef943b	Pakawalan ang nilalang na ito?
+50fb277b	Aalis ito habambuhay, at magsisimula ulit ang mga gusali at liwanag mo. Maiiwan sa iyo ang stardust, ang iba mong mga nilalang at lahat ng pag-aari mo.
+d41f56ce	Pakawalan
+ea683ad6	Pindutin
+b079d132	Habang bukas ang popup ng isang salita, sa kahit anong screen.
+013290dd	Ang mga review card.
+d7fdd934	Mga libro at pahina
+467eddcd	Habang nagbabasa ng libro o naka-save na web page.
+de446be7	Ang unang screen.
+a4c1b51e	Mga kurso, podcast, YouTube, reel, libro at web page.
+481250ea	Mga aralin ng kurso
+31f558ee	Isang yunit ng Basics o aralin sa Grammar, kasama ang mga ehersisyo nito.
+4896b4ea	Ang mga na-save mong salita.
+06594c3f	Mga Kaibigan at chat
+6e9d1fdd	Mga kaibigan, guild at mensahe.
+6ea59026	Bawat seksyon ng Settings.
+37df3338	Mga popup at kahon
+ff00fbd3	Isang kahong bukas sa ibabaw ng pahina: nananatili sa loob nito ang highlight.
+63382347	Habang nagta-type sa text box
+8d1993bc	Habang nasa text box ang cursor. Hindi nagta-type ang controller: gamitin ang keyboard.
+f618ec1f	Paggalaw sa app: sa bawat screen, para sa mga button na hindi nito mismo ginagamit.
+d7cd8e3b	Buksan ang naka-highlight na salita (pindutin nang matagal, at igalaw para magdagdag ng iba pang salita)
+6d7049b8	Hanapin
+7f04d18e	Pakinggan ang linya
+2eec3646	I-highlight ang salita sa kaliwa
+1a083ae7	I-highlight ang salita sa kanan
+5562abb3	I-highlight ang linya sa itaas
+ea967600	Linya
+10850711	I-highlight ang linya sa ibaba
+f3d89d97	I-play ang nakaraang linya
+55939914	I-play ang susunod na linya
+dc7f77b4	Ulitin
+cf606d09	Mas mabagal
+cacfa94f	Reel
+5aabf86e	Pindutin ang naka-highlight na button (I-save kung wala)
+6d19b4df	Isara ang popup
+6a370952	Pakinggan ang salita
+adef6e17	Pakinggan ang pangungusap
+4b58c762	I-highlight ang naunang button
+76cdb950	Ilipat
+82e9d7ad	I-highlight ang susunod na button
+1a22fddc	Hanapin ang salita sa kaliwa
+7cd09c01	Hanapin ang salita sa kanan
+49d62a9b	I-save ang salita
+13156e47	Piliin kung ano ang nagpapaliwanag ng mga salita
+6da13add	Pinagmulan
+49204080	Baligtarin ang card; sa likod nito, pindutin ang naka-highlight na kahon (Naalala kung wala)
+368e8081	Baligtarin
+395cd9f2	I-highlight ang kahon sa itaas (sa likod)
+17014e92	I-highlight ang kahon sa ibaba (sa likod)
+b74bdee9	Tapusin
+fe2d8685	Ituloy kung saan ka huminto
+ce092d86	Simulang i-review ang mga card mo
+23cd1bd1	Ang naunang uri (Mga kurso, Podcast, YouTube…)
+e00ac23f	Uri
+39386083	Ang susunod na uri
+b2bf347c	Magdagdag ng isang bagay
+37c376b2	Hanapin sa listahang ito
+20924038	Nakaraang aralin
+188ecdea	Aralin
+be76cd77	Pakinggan ang naka-highlight na halimbawa (o ang buong aralin)
+d87273a5	Pakinggan
+459107df	Bumalik sa lahat ng aralin
+c20e9e62	Simulan ang review
+a80d082f	Hanapin sa mga salita mo
+8fca966a	Ang naunang folder
+e63e5fe3	Ang susunod na folder
+b36a924e	Mag-record ng voice note (sa chat)
+1c54132b	I-record
+11eaaf74	Sumulat ng mensahe (sa chat)
+410543b4	Ang naunang seksyon
+f2c6b564	Seksyon
+8488f780	Ang susunod na seksyon
+b8860202	Hanapin sa Settings
+c1de68e0	Pindutin ang pangunahing button ng kahon
+56141649	Umalis sa text box
+e5fb0af1	Pindutin ang Enter (hanapin, ipadala)
+2b9eceb7	Enter
+93499a1f	Ang naunang tab
+fe06eb64	Tab
+13afcd42	Ang susunod na tab
+99dfa4da	Tumalon nang isang pahina pataas
+44f540f1	Pahina pataas
+fa4622bb	Tumalon nang isang pahina pababa
+f31eb063	Pahina pababa
+090a3c80	Mag-scroll
+2a4d562b	Mga tab
+9bbc1141	Paano gamitin ang screen na ito (ang gabay nito)
+bf073fae	Gabay
+dd395f29	I-unsend ang mensaheng ito?
+ecfee007	Mabubura ito para sa inyong dalawa.
+7aa97200	Alisin ang “{0}”?
+fac924e4	Mabubura ang mga transcript nito at ang na-download na audio. Mananatili ang na-save na vocab.
+6136a137	Alisin ang “{0}” sa mga palabas mo sa Netflix?
+f3021d84	Burahin ang “{0}” sa mga web page mo?
+883e0b05	Alisin ang “{0}” sa mga video mo sa YouTube?
+26b2461e	Alisin ang “{0}” sa mga reel mo?
+606d9fdc	Burahin ang “{0}”?
+757dec49	Aalisin ang video at ang transcript nito sa device na ito at sa Google Drive mo. Mananatili ang na-save na vocab.
+0be6f71d	Aalisin ang audio at ang transcript nito sa device na ito at sa Google Drive mo. Mananatili ang na-save na vocab.
+4f9b2aa2	Burahin ang episode na ito?
+ac898d3c	Burahin ang {0} episode na ito?
+85964243	Aalisin ito sa Library mo sa bawat device, kasama ang audio at transcript. Hindi na bumabalik ang binurang episode ng podcast kapag ni-refresh ang podcast. Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+8858b914	Aalisin ang mga ito sa Library mo sa bawat device, kasama ang audio at transcript. Hindi na bumabalik ang binurang episode ng podcast kapag ni-refresh ang podcast. Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+89b57788	Burahin ang folder na “{0}”?
+639b9d4f	Mananatili ang mga salita sa loob nito.
