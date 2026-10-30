@@ -214,6 +214,7 @@ export async function renderSites(view, { web = null } = {}) {
     } catch (err) {
       // Some sites only show their text to a browser: open it in the app's own one, where the round
       // teal button reads the page as shown. (The web app has no browser of its own.)
+      if (err.quiet) return; // (a video with no captions: Gemini's were offered and turned down)
       const site = web ? null : typedSite(address);
       toast(err.message || "Couldn't import that page.", { error: true, ...(site ? {
         action: { label: "Open", run: () => openBrowser(site.url).catch((e2) => toast(e2.message, { error: true })) },

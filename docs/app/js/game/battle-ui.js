@@ -2,6 +2,7 @@
 // All the rules live in battle.js and rules.js; this file only shows them.
 
 import { api, h, toast } from "../app.js";
+import { confirmBox } from "../components/modal.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { BADGES, BATTLE_FRAMES, BATTLE_UNLOCK_WORDS, HABITAT, SHADOW, TYPES, moveById } from "./data.js";
 import { describe } from "./genome.js";
@@ -485,7 +486,12 @@ function runBattle(b, vocab) {
   }
 
   function close() { closed = true; el.remove(); }
-  $("#b-quit").onclick = () => { if (b.over || window.confirm("Leave this battle? Your answers so far still count.")) { saveGame(); close(); } };
+  $("#b-quit").onclick = async () => {
+    if (!b.over && !(await confirmBox("Leave this battle?", "Your answers so far still count.", { ok: "Leave" }))) return;
+    if (closed) return;
+    saveGame();
+    close();
+  };
   paintBars();
   showMoves();
   requestAnimationFrame(draw);

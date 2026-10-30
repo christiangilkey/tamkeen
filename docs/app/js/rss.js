@@ -7,7 +7,9 @@
 // Pure logic: no page and no app imports. It reads the feed with its own small, forgiving reader
 // instead of the browser's XML parser, which refuses a whole feed over one stray "&".
 
-const AUDIO_EXTENSIONS = [".mp3", ".m4a", ".aac", ".ogg", ".opus", ".wav", ".flac", ".mp4", ".oga", ".webm"];
+// The audio files the app takes (audiobooks.js AUDIO_FILE_EXTENSIONS, app/feeds.py), and .mp4 (a podcast's video episodes).
+const AUDIO_EXTENSIONS = [".m4b", ".mp3", ".m4a", ".aac", ".ogg", ".oga", ".opus", ".flac", ".wav", ".wma", ".amr", ".webm",
+  ".mka", ".aiff", ".aif", ".mp4"];
 const NAMED = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
 // Tags that never hold anything, so one written without its closing "/" doesn't swallow what follows.
 const EMPTY_TAGS = new Set(["br", "hr", "img", "enclosure", "itunes:image"]);

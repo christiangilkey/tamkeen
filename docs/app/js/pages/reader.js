@@ -20,6 +20,8 @@ import { readingsReady } from "../lexicon/readings.js";
 import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { phrasePicker } from "../components/phrasepick.js";
+import { actionHeld, controllerArea } from "../gamepad.js";
+import { wordCursor } from "../padcursor.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
@@ -362,10 +364,49 @@ export async function render(view, { id, data, query }) {
   // Reading counts toward today's goal while the page is being read (scrolled or tapped in the last minute).
   let lastActive = Date.now();
   const touch = () => { lastActive = Date.now(); };
+
+  // ---------- game controller (gamepad.js; Settings → Controller → Books and pages) ----------
+  /** The first word showing at the top of the text (where the highlight starts when it first appears). */
+  const firstShown = () => {
+    const top = tr.getBoundingClientRect().top;
+    let lo = 0, hi = wordEls.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (wordEls[mid].getBoundingClientRect().bottom < top) lo = mid + 1; else hi = mid;
+    }
+    return lo;
+  };
+  const cursor = wordCursor({
+    count: () => wordEls.length,
+    elsOf: (i) => [wordEls[i]],
+    startAt: () => (target ? target.i : firstShown()),
+    blockOf: (i) => segOf[i],
+    onPick: (i, j) => defineAt(i, j),
+    onMove: touch,
+  });
+  const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
+  const offPad = controllerArea("reader", {
+    lookUp: () => cursor.pick(),
+    wordLeft: moveCursor("left"),
+    wordRight: moveCursor("right"),
+    lineUp: moveCursor("up"),
+    lineDown: moveCursor("down"),
+    saveWord: () => { const b = bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
+    popupStep: (dir) => {
+      const t = target || { i: firstShown(), j: firstShown() };
+      closeBubble();
+      if (cursor.stepOut(t.i, t.j, dir)) cursor.pick();
+    },
+    back: () => {
+      if (bubble.open) { closeBubble(); return true; }
+      return cursor.hide();
+    },
+  });
   tr.addEventListener("scroll", touch, { passive: true });
   tr.addEventListener("pointerdown", touch, { passive: true });
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
   return () => {
+    offPad();
     stopStudy();
     stopVowels();
     seen.close();

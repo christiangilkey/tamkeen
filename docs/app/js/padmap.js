@@ -9,55 +9,143 @@
 // The setting "controller_map" keeps only what the learner changed: { at, map: { <area>: { <action>: input | "" } } }
 // ("" = cleared on purpose). Anything not in it is the default, so actions added later get theirs.
 
-/** The three places a controller works. "general" applies everywhere; the other two win over it on their own screens. */
+/**
+ * The screens a controller works on, each with its own buttons. A screen's buttons win over
+ * "Everywhere" ("general"), which is what is left for the buttons a screen doesn't use. Some layers
+ * sit over a screen while they are open: a text box being typed in, a box (a dialog) over anything,
+ * and the word popup over a player or a book. Settings → Controller lists them in this order.
+ */
 export const AREAS = [
   { id: "video", title: "Watching videos", about: "Podcasts, YouTube, Netflix, your own videos and reels." },
-  { id: "review", title: "Studying cards", about: "The review cards on the Vocab page." },
-  { id: "general", title: "Everywhere", about: "Moving around the app: on the screens above too, for buttons they don't use." },
+  { id: "popup", title: "The word popup", about: "While a word's popup is open, on any screen." },
+  { id: "review", title: "Studying cards", about: "The review cards." },
+  { id: "reader", title: "Books and pages", about: "Reading a book or a saved web page." },
+  { id: "home", title: "Home", about: "The first screen." },
+  { id: "library", title: "Library", about: "Courses, podcasts, YouTube, reels, books and web pages." },
+  { id: "lesson", title: "Course lessons", about: "A basics unit or a grammar lesson, with its exercises." },
+  { id: "vocab", title: "Vocab", about: "Your saved words." },
+  { id: "friends", title: "Friends and chat", about: "Friends, guilds and messages." },
+  { id: "settings", title: "Settings", about: "Every section of Settings." },
+  { id: "dialog", title: "Popups and boxes", about: "A box open over the page: the highlight stays inside it." },
+  { id: "typing", title: "Typing in a text box", about: "While a text box has the cursor. The controller doesn't type: use the keyboard." },
+  { id: "general", title: "Everywhere", about: "Moving around the app: on every screen, for the buttons it doesn't use itself." },
 ];
 
 /**
  * The actions, area by area, with their default input on a standard controller.
- * `repeat`: held down, it happens again and again. `scroll`: held, it scrolls smoothly (a stick
- * scrolls faster the further it is pushed).
+ * `short`: its name in the on-screen button guide. `repeat`: held down, it happens again and again.
+ * `scroll`: held, it scrolls smoothly (a stick scrolls faster the further it is pushed). `hold`: it
+ * happens when the button is let go, so what is done while it is held (the D-pad taking in more
+ * words) can change it.
  */
 export const ACTIONS = {
   video: [
-    { id: "playPause", label: "Play / pause", def: "b0" },
-    { id: "back5", label: "Back 5 seconds", def: "b14", repeat: true },
-    { id: "fwd5", label: "Forward 5 seconds", def: "b15", repeat: true },
-    { id: "prevLine", label: "Previous line", def: "b12", repeat: true },
-    { id: "nextLine", label: "Next line", def: "b13", repeat: true },
-    { id: "replayLine", label: "Hear this line again", def: "b2" },
-    { id: "loopLine", label: "Loop this line (on / off)", def: "b10" },
-    { id: "slower", label: "Slow down (on / off)", def: "b6" },
-    { id: "lookUp", label: "Look up the word being said", def: "b3" },
-    { id: "saveWord", label: "Save the word in the popup", def: "b7" },
-    { id: "captions", label: "Captions on the video (on / off)", def: "b8" },
-    { id: "transcript", label: "Transcript panel (open / close)", def: "b11" },
-    { id: "prevVideo", label: "Previous reel", def: "b4" },
-    { id: "nextVideo", label: "Next reel", def: "b5" },
+    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
+    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b2" },
+    { id: "replayLine", label: "Hear this line again", short: "Hear the line", def: "b3" },
+    { id: "wordLeft", label: "Highlight the word to the left", short: "Word", def: "b14", repeat: true },
+    { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
+    { id: "lineUp", label: "Highlight the line above", short: "Line", def: "b12", repeat: true },
+    { id: "lineDown", label: "Highlight the line below", short: "Line", def: "b13", repeat: true },
+    { id: "back5", label: "Back 5 seconds", short: "−5 s", def: "a0-", repeat: true },
+    { id: "fwd5", label: "Forward 5 seconds", short: "+5 s", def: "a0+", repeat: true },
+    { id: "prevLine", label: "Play the previous line", short: "Previous line", def: "a1-", repeat: true },
+    { id: "nextLine", label: "Play the next line", short: "Next line", def: "a1+", repeat: true },
+    { id: "loopLine", label: "Loop this line (on / off)", short: "Loop", def: "b10" },
+    { id: "slower", label: "Slow down (on / off)", short: "Slower", def: "b6" },
+    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "b7" },
+    { id: "captions", label: "Captions on the video (on / off)", short: "Captions", def: "b8" },
+    { id: "transcript", label: "Transcript panel (open / close)", short: "Transcript", def: "b11" },
+    { id: "prevVideo", label: "Previous reel", short: "Reel", def: "b4" },
+    { id: "nextVideo", label: "Next reel", short: "Reel", def: "b5" },
+  ],
+  popup: [
+    { id: "press", label: "Press the highlighted button (Save when none is)", short: "Save", def: "b0" },
+    { id: "close", label: "Close the popup", short: "Close", def: "b1" },
+    { id: "playWord", label: "Hear the word", short: "Word", def: "b2" },
+    { id: "playSentence", label: "Hear the sentence", short: "Sentence", def: "b3" },
+    { id: "up", label: "Highlight the button before", short: "Move", def: "b12", repeat: true },
+    { id: "down", label: "Highlight the button after", short: "Move", def: "b13", repeat: true },
+    { id: "wordLeft", label: "Look up the word to the left", short: "Word", def: "b14", repeat: true },
+    { id: "wordRight", label: "Look up the word to the right", short: "Word", def: "b15", repeat: true },
+    { id: "save", label: "Save the word", short: "Save", def: "b7" },
+    { id: "source", label: "Choose what explains words", short: "Source", def: "b8" },
   ],
   review: [
-    { id: "turn", label: "Turn the card, then Remembered", def: "b0" },
-    { id: "again", label: "Not remembered", def: "b14" },
-    { id: "good", label: "Remembered", def: "b15" },
-    { id: "playWord", label: "Play the word", def: "b2" },
-    { id: "playSentence", label: "Play the sentence", def: "b3" },
-    { id: "sayIt", label: "Say it (practise saying it)", def: "b5" },
-    { id: "undo", label: "Undo the last answer", def: "b4" },
-    { id: "finish", label: "Finish the session", def: "b8" },
+    { id: "turn", label: "Turn the card; on its back, press the highlighted box (Remembered when none is)", short: "Turn", def: "b0" },
+    { id: "again", label: "Not remembered", short: "Not remembered", def: "b14" },
+    { id: "good", label: "Remembered", short: "Remembered", def: "b15" },
+    { id: "up", label: "Highlight the box above (on the back)", short: "Move", def: "b12", repeat: true },
+    { id: "down", label: "Highlight the box below (on the back)", short: "Move", def: "b13", repeat: true },
+    { id: "playWord", label: "Play the word", short: "Word", def: "b2" },
+    { id: "playSentence", label: "Play the sentence", short: "Sentence", def: "b3" },
+    { id: "sayIt", label: "Say it (practise saying it)", short: "Say it", def: "b5" },
+    { id: "undo", label: "Undo the last answer", short: "Undo", def: "b4" },
+    { id: "finish", label: "Finish the session", short: "Finish", def: "b8" },
+  ],
+  reader: [
+    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
+    { id: "wordLeft", label: "Highlight the word to the left", short: "Word", def: "b14", repeat: true },
+    { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
+    { id: "lineUp", label: "Highlight the line above", short: "Line", def: "b12", repeat: true },
+    { id: "lineDown", label: "Highlight the line below", short: "Line", def: "b13", repeat: true },
+    { id: "prevPage", label: "Previous page", short: "Page", def: "b4" },
+    { id: "nextPage", label: "Next page", short: "Page", def: "b5" },
+    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "b7" },
+  ],
+  home: [
+    { id: "continue", label: "Continue where you left off", short: "Continue", def: "b2" },
+    { id: "review", label: "Start reviewing your cards", short: "Review", def: "b3" },
+  ],
+  library: [
+    { id: "prevKind", label: "The kind before (Courses, Podcasts, YouTube…)", short: "Kind", def: "b4" },
+    { id: "nextKind", label: "The next kind", short: "Kind", def: "b5" },
+    { id: "add", label: "Add something", short: "Add", def: "b2" },
+    { id: "search", label: "Search this list", short: "Search", def: "b3" },
+  ],
+  lesson: [
+    { id: "prevLesson", label: "Previous lesson", short: "Lesson", def: "b4" },
+    { id: "nextLesson", label: "Next lesson", short: "Lesson", def: "b5" },
+    { id: "hear", label: "Hear the highlighted example (or the whole lesson)", short: "Hear", def: "b2" },
+    { id: "allLessons", label: "Back to all the lessons", short: "All lessons", def: "b3" },
+  ],
+  vocab: [
+    { id: "review", label: "Start the review", short: "Review", def: "b2" },
+    { id: "search", label: "Search your words", short: "Search", def: "b3" },
+    { id: "prevFolder", label: "The folder before", short: "Folder", def: "b4" },
+    { id: "nextFolder", label: "The next folder", short: "Folder", def: "b5" },
+  ],
+  friends: [
+    { id: "record", label: "Record a voice message (in a chat)", short: "Record", def: "b2" },
+    { id: "write", label: "Write a message (in a chat)", short: "Write", def: "b3" },
+  ],
+  settings: [
+    { id: "prevSection", label: "The section before", short: "Section", def: "b4" },
+    { id: "nextSection", label: "The next section", short: "Section", def: "b5" },
+    { id: "search", label: "Search the settings", short: "Search", def: "b3" },
+  ],
+  dialog: [
+    { id: "confirm", label: "Press the box's main button", short: "OK", def: "b2" },
+  ],
+  typing: [
+    { id: "leave", label: "Leave the text box", short: "Done", def: "b1" },
+    { id: "enter", label: "Press Enter (search, send)", short: "Enter", def: "b9" },
   ],
   general: [
-    { id: "back", label: "Back / close", def: "b1" },
-    { id: "select", label: "Press the highlighted button", def: "b0" },
-    { id: "up", label: "Move the highlight up", def: "b12", repeat: true },
-    { id: "down", label: "Move the highlight down", def: "b13", repeat: true },
-    { id: "left", label: "Move the highlight left", def: "b14", repeat: true },
-    { id: "right", label: "Move the highlight right", def: "b15", repeat: true },
-    { id: "scrollUp", label: "Scroll up", def: "a3-", scroll: true },
-    { id: "scrollDown", label: "Scroll down", def: "a3+", scroll: true },
-    { id: "menu", label: "Go to the main tabs", def: "b9" },
+    { id: "back", label: "Back / close", short: "Back", def: "b1" },
+    { id: "select", label: "Press the highlighted button", short: "Press", def: "b0" },
+    { id: "up", label: "Move the highlight up", short: "Move", def: "b12", repeat: true },
+    { id: "down", label: "Move the highlight down", short: "Move", def: "b13", repeat: true },
+    { id: "left", label: "Move the highlight left", short: "Move", def: "b14", repeat: true },
+    { id: "right", label: "Move the highlight right", short: "Move", def: "b15", repeat: true },
+    { id: "prevTab", label: "The tab before", short: "Tab", def: "b4" },
+    { id: "nextTab", label: "The next tab", short: "Tab", def: "b5" },
+    { id: "pageUp", label: "Jump a page up", short: "Page up", def: "b6", repeat: true },
+    { id: "pageDown", label: "Jump a page down", short: "Page down", def: "b7", repeat: true },
+    { id: "scrollUp", label: "Scroll up", short: "Scroll", def: "a3-", scroll: true },
+    { id: "scrollDown", label: "Scroll down", short: "Scroll", def: "a3+", scroll: true },
+    { id: "menu", label: "Go to the main tabs", short: "Tabs", def: "b9" },
+    { id: "guide", label: "How to use this screen (its guide)", short: "Guide", def: "b8" },
   ],
 };
 
@@ -80,15 +168,19 @@ export const isInput = (s) => typeof s === "string" && INPUT_RE.test(s);
 
 // ------------------------------------------------------------------- the mapping
 
+/** What an area's or an action's name may look like (a newer version's ones included). */
+const AREA_RE = /^[a-z][A-Za-z0-9]{0,31}$/;
+
 /**
- * The learner's changes, cleaned: unknown areas and anything that isn't an input left out. An action
- * this version doesn't know is kept (a newer version on another device may have it); it does nothing
+ * The learner's changes, cleaned: anything that isn't an input left out. An area or an action this
+ * version doesn't know is kept (a newer version on another device may have it); it does nothing
  * here. app/controller.py `clean` is the twin.
  */
 export function cleanMap(raw) {
   const out = {};
-  const map = raw && typeof raw === "object" ? (raw.map && typeof raw.map === "object" ? raw.map : {}) : {};
-  for (const area of AREA_IDS) {
+  const map = raw && typeof raw === "object" ? (raw.map && typeof raw.map === "object" && !Array.isArray(raw.map) ? raw.map : {}) : {};
+  for (const area of Object.keys(map)) {
+    if (!AREA_RE.test(area)) continue;
     const mine = map[area];
     if (!mine || typeof mine !== "object" || Array.isArray(mine)) continue;
     for (const [id, v] of Object.entries(mine)) {
@@ -107,19 +199,29 @@ export function cleanSetting(raw) {
 /** Does another device's mapping replace this one's? The one changed last wins. */
 export const settingWins = (theirs, mine) => cleanSetting(theirs).at > cleanSetting(mine).at;
 
-/** Every action of every area with the input it has now: { area: { action: input | "" } }. */
+/**
+ * Every action of every area with the input it has now: { area: { action: input | "" } }. A button
+ * the learner gave an action wins over a default that came later: when a newer version gives that
+ * button to another action of the same area by default, that action is left without one, so a
+ * button still does one thing in an area and the learner's choice keeps working.
+ */
 export function fullMap(setting) {
   const changes = cleanMap(setting);
   const out = {};
   for (const area of AREA_IDS) {
     out[area] = {};
+    const mine = changes[area] || {};
+    const chosen = new Set(ACTIONS[area].map((a) => mine[a.id]).filter(Boolean));
     for (const a of ACTIONS[area]) {
-      const mine = changes[area] && changes[area][a.id];
-      out[area][a.id] = mine !== undefined ? mine : a.def;
+      if (mine[a.id] !== undefined) out[area][a.id] = mine[a.id];
+      else out[area][a.id] = chosen.has(a.def) ? "" : a.def;
     }
   }
   return out;
 }
+
+/** An action's name in the on-screen button guide. */
+export const shortOf = (area, id) => { const a = actionOf(area, id); return a ? a.short || a.label : ""; };
 
 /** Only what differs from the defaults, so the stored setting stays small (and actions only a newer version knows, kept). */
 function changesOf(full, setting) {

@@ -25,7 +25,7 @@ const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", 
 export function habitat() {
   const game = getGame();
   const el = h(`<section class="habitat card">
-    <div class="habitat-scene"><canvas width="${W}" height="${H}" aria-label="Your creature's habitat"></canvas>
+    <div class="habitat-scene"><canvas width="${W}" height="${H}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
       <button type="button" class="habitat-name" title="Rename"></button>
       <div class="pet-word" hidden><b></b><span></span></div></div>
     <div class="habitat-hud">
@@ -387,10 +387,16 @@ export function habitat() {
     emote({ pet: "love", jackpot: "love", lucky: "music", surprise: "question" }[kind]);
   }
 
+  // Pressed rather than tapped (Enter or Space on the keyboard, A on a game controller, which come with no
+  // place on the picture): the creature itself is tapped.
+  canvas.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); canvas.click(); }
+  });
   canvas.addEventListener("click", (e) => {
     const r = canvas.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width) * W;
-    const y = ((e.clientY - r.top) / r.height) * H;
+    const pressed = e.detail === 0 && !e.clientX && !e.clientY;
+    const x = pressed ? (stageOf(game.creature.growth).id === "egg" ? W / 2 : pet.x) : ((e.clientX - r.left) / r.width) * W;
+    const y = pressed ? 0 : ((e.clientY - r.top) / r.height) * H;
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
     const hit = PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);

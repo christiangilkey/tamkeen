@@ -730,7 +730,8 @@ export function onUsage(fn) {
   usageListeners.add(fn);
   return () => usageListeners.delete(fn);
 }
-function reportUsage(use) {
+/** Tell the listeners what a request used (also for requests made outside this file: ytgemini.js). */
+export function reportUsage(use) {
   for (const fn of usageListeners) { try { fn(use); } catch (e) { console.error(e); } }
 }
 

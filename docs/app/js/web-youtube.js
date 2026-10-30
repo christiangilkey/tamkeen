@@ -146,7 +146,7 @@ export async function render(view, { query }) {
           // videos, music above all, whatever is asked; from the user's own connection they work.
           // (The fix popup's button: Settings → Get the app.)
           offerFix("getapp", { message: "YouTube blocks the web app for this video (it often does for music). It opens in the Tamkeen app on your phone or computer, which asks YouTube from your own connection." });
-        } else toast(e.message || "Couldn't open this video.", { error: true });
+        } else if (!e.quiet) toast(e.message || "Couldn't open this video.", { error: true });
         card.disabled = false;
       }
     };

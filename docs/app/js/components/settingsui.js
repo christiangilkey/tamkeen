@@ -19,7 +19,7 @@ export const SECTIONS = [
   { id: "listening", icon: "audio", title: "Listening & transcripts", about: "Who writes down what is said in podcasts, videos and reels." },
   { id: "voices", icon: "sound", title: "Card voices", about: "The voice that reads out flashcards without a recording." },
   { id: "look", icon: "sun", title: "Look & feel", about: "Theme, text size and the game." },
-  { id: "controller", icon: "game", title: "Controller", about: "A game controller for videos and review cards: choose what each button does." },
+  { id: "controller", icon: "game", title: "Controller", about: "A game controller for the whole app: choose what each button does on each screen." },
   { id: "account", icon: "cloud", title: "Account & sync", about: "Google Drive sync, and Friends." },
   { id: "apps", icon: "link", title: "Apps & connections", about: "Other apps Tamkeen works with." },
   { id: "data", icon: "data", title: "Data & updates", about: "Backups, updates and starting again." },
@@ -68,6 +68,8 @@ export const FINDS = [
   { s: "controller", id: "padvideo", label: "Controller buttons for videos", words: "gamepad map mapping play pause buttons" },
   { s: "controller", id: "padreview", label: "Controller buttons for review cards", words: "gamepad map mapping flashcards again good" },
   { s: "controller", id: "padgeneral", label: "Controller buttons everywhere", words: "gamepad map back highlight scroll menu d-pad" },
+  { s: "controller", id: "padscreens", label: "Controller buttons for each screen", words: "gamepad map home library vocab lessons books popup settings friends" },
+  { s: "controller", id: "padlegend", label: "What the controller's buttons do, on screen", words: "gamepad legend hints guide xbox buttons" },
   { s: "look", id: "guides", label: "Page guides", words: "help tour tips explain buttons tutorial" },
   { s: "account", id: "drive", label: "Google Drive sync", words: "google sign account backup devices phone computer" },
   { s: "account", id: "friends", label: "Friends & sharing", words: "username online share quiz connect" },
@@ -219,22 +221,8 @@ export function revealFind(root, show) {
   setTimeout(() => go(true), 500);
 }
 
-/** A sleek in-app yes/no box instead of the browser's plain one. Resolves to true or false. */
-export function confirmBox(title, text, { ok = "OK", danger = false } = {}) {
-  return new Promise((resolve) => {
-    let answer = false;
-    const m = openModal({ title, onClose: () => resolve(answer) });
-    const p = h(`<p class="muted"></p>`);
-    p.textContent = text;
-    const row = h(`<div class="confirm-buttons"><button type="button" class="ghost">Cancel</button>
-      <button type="button" class="${danger ? "danger-solid" : "primary"}"></button></div>`);
-    row.lastElementChild.textContent = ok;
-    row.firstElementChild.onclick = () => m.close();
-    row.lastElementChild.onclick = () => { answer = true; m.close(); };
-    m.body.append(p, row);
-    row.lastElementChild.focus();
-  });
-}
+/** The in-app yes/no box (components/modal.js), here too for the Settings pages that import it from here. */
+export { confirmBox } from "./modal.js";
 
 // ---------- looks ----------
 // Added once, here rather than in app.css, so they come and go with this file and work the same in

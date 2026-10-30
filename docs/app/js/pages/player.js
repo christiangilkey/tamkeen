@@ -23,6 +23,7 @@ import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { isBook } from "../books.js";
+import { isAudiobookFeed } from "../audiobooks.js";
 import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
   videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
@@ -35,7 +36,8 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 import { sentenceStart } from "../sentencestart.js";
-import { controllerArea } from "../gamepad.js";
+import { actionHeld, controllerArea } from "../gamepad.js";
+import { wordCursor } from "../padcursor.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
@@ -112,7 +114,7 @@ function renderPending(view, ep) {
         await importVideo(ep.audio_url);
         window.dispatchEvent(new HashChangeEvent("hashchange"));
       } catch (err) {
-        toast(err.message, { error: true });
+        if (!err.quiet) toast(err.message, { error: true });
         e.target.disabled = false;
       }
       return;
@@ -369,7 +371,9 @@ export async function render(view, { id, query }) {
   let capEls = [];
   let capHeld = false;
   let bubble = null;
+  let cursor = null;  // the controller's highlight in the words (padcursor.js), made further down
   function showCaption(idx) {
+    if (cursor && cursor.on) idx = cursor.at;  // the captions show the highlighted word's line while it is out
     // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
     // to keep playing: there the popup hangs below the captions, so they can carry on.)
     // (Nor while a finger or the mouse is on a caption word: it may be dragged across to the next words.)
@@ -389,6 +393,7 @@ export async function render(view, { id, query }) {
         `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${wordHtml(shown[start + k], lang)}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
     if (start >= 0) seen.paint(capEls, start);
+    if (cursor) cursor.repaint();
   }
   const capWord = (i) => (capStart >= 0 ? capEls[i - capStart] : null);
   seen.onPaint = () => { if (capStart >= 0) seen.paint(capEls, capStart); };
@@ -521,6 +526,27 @@ export async function render(view, { id, query }) {
   // (Not a Netflix title: its words are Netflix's subtitles, from the user's own Netflix, for his own study.)
   if (!nf) $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
 
+  // ---------- an audiobook's next chapter (audiobooks.js) ----------
+  // A button to it (it lights up when this chapter ends), and the next chapter is transcribed while
+  // this one plays, so the book goes on chapter after chapter without waiting.
+  async function nextChapter() {
+    let list;
+    try { list = (await api(`/episodes?${new URLSearchParams({ feed_id: ep.feed_id, limit: 500 })}`)).items || []; } catch { return; }
+    if (disposed) return;
+    const at = list.findIndex((x) => String(x.id) === String(ep.id));
+    const next = at >= 0 ? list[at + 1] : null;
+    if (!next) return; // the last chapter
+    const b = h(`<a class="btn ghost next-chapter" href="#/episode/${esc(next.id)}"><span class="lbl">Next chapter</span> ${icon("chevron", 16)}</a>`);
+    b.title = t("Next chapter: {0}", next.title);
+    b.setAttribute("aria-label", "Next chapter");
+    $(".player-head > .row").append(b);
+    audio.addEventListener("ended", () => { if (!disposed) b.classList.replace("ghost", "primary"); });
+    if (next.status === "new" && !next.transcribe_requested_at) {
+      api("/episodes/transcribe", { method: "POST", body: { ids: [next.id] } }).catch(() => {});
+    }
+  }
+  if (isAudiobookFeed(ep.feed_url)) nextChapter();
+
   // ---------- follow this video's channel (YouTube) ----------
   // An outline while not followed, filled once followed; a small "Following" bubble shows for a
   // moment. Followed channels appear in the Library under YouTube.
@@ -582,6 +608,8 @@ export async function render(view, { id, query }) {
       lines.push("YouTube's automatic captions: they can have mistakes.");
     } else if (captionKind(ep) === "translated") {
       lines.push("Translated by YouTube: it may not match what is said.");
+    } else if (captionKind(ep) === "gemini") {
+      lines.push("Captions written by Gemini: they can have mistakes.");
     }
     const paint = () => {
       note.innerHTML = lines.map(() => "<p></p>").join("") + (temp ? `<p class="yt-note-temp"></p>` : "");
@@ -1134,7 +1162,49 @@ export async function render(view, { id, query }) {
   const wordNow = () => (curIdx >= 0 ? curIdx : n ? Math.max(0, activeWordIndex(starts, ends, audio.currentTime + 0.01, 1e9)) : -1);
   const setSpeed = (s) => { const sel = $("#speed"); sel.value = String(s); sel.dispatchEvent(new Event("change")); };
   let normalSpeed = speed < 1 ? 1 : speed;
+  // The transcript is on screen (a video's panel can be folded away, leaving only the captions).
+  const trShown = () => {
+    const r = tr.getBoundingClientRect();
+    return r.width > 40 && r.height > 40 && r.right > 0 && r.left < innerWidth && getComputedStyle(tr).visibility !== "hidden";
+  };
+  // The highlight moves through the words: in the transcript, and in the captions under a video.
+  cursor = wordCursor({
+    count: () => n,
+    elsOf: (i) => (trShown() ? [wordEls[i], capWord(i)] : [capWord(i), wordEls[i]]),
+    startAt: wordNow,
+    blockOf: (i) => segOf[i],
+    onPick: (i, j) => defineAt(i, j, trShown() ? null : capWord(i)),
+    onMove: () => {
+      follow = false;  // the transcript stays with the highlight, not the word being said
+      $("#back").hidden = false;
+      showCaption(cursor.at);
+    },
+    onHide: () => {
+      follow = true;
+      $("#back").hidden = true;
+      if (curIdx >= 0) ensureVisible(wordEls[curIdx], true);
+      showCaption(curIdx);
+    },
+    reveal: (el) => { if (tr.contains(el)) ensureVisible(el); },
+  });
+  const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
   const offPad = controllerArea("video", {
+    lookUp: () => {
+      if (cursor.on) { cursor.pick(); return; }
+      const i = wordNow();  // no highlight out: the word being said
+      if (i >= 0) defineAt(i, i, trShown() ? null : capWord(i));
+    },
+    wordLeft: moveCursor("left"),
+    wordRight: moveCursor("right"),
+    lineUp: moveCursor("up"),
+    lineDown: moveCursor("down"),
+    // The word popup's ← / →: the word before or after, looked up straight away.
+    popupStep: (dir) => {
+      const t = bubbleTarget || { i: wordNow(), j: wordNow() };
+      if (t.i < 0) return;
+      bubble.hide();
+      if (cursor.stepOut(t.i, t.j, dir)) cursor.pick();
+    },
     playPause: () => $("#play").click(),
     back5: () => $("#back5").click(),
     fwd5: () => $("#fwd5").click(),
@@ -1143,7 +1213,7 @@ export async function render(view, { id, query }) {
     replayLine: () => { if (lineStarts.length) seekTo(lineStarts[lineAt(audio.currentTime)], true); },
     loopLine: () => {
       if (loop) { clearLoop(); return; }
-      const i = wordNow();
+      const i = cursor.on ? cursor.at : wordNow();  // the highlighted word's line, else the one being said
       if (i < 0) return;
       let a = i;
       let b = i;
@@ -1156,7 +1226,6 @@ export async function render(view, { id, query }) {
       else { normalSpeed = speed; setSpeed(0.75); }
       toast(speed < 1 ? t("Slowed down to {0}×", speed) : t("Back to {0}× speed", speed));
     },
-    lookUp: () => { const i = wordNow(); if (i >= 0) defineAt(i, i, capWord(i) || null); },
     saveWord: () => { const b = bubble && bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
     ...(vid ? {
       captions: () => setCaptions(playerEl.classList.contains("cc-off")),
@@ -1165,6 +1234,7 @@ export async function render(view, { id, query }) {
     back: () => {
       if (bubble && bubble.open) { bubble.hide(); return true; }
       if (loop) { clearLoop(); return true; }
+      if (cursor.hide()) return true;  // the highlight put away: the words follow the sound again
       return false;
     },
   });

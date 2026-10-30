@@ -48,3 +48,24 @@ export function openModal({ title = "", canClose = true, wide = false, onClose, 
   document.body.append(wrap);
   return { el: wrap, body: wrap.querySelector(".modal-body"), close, setTitle: (t) => { heading.textContent = t; } };
 }
+
+/**
+ * A sleek in-app yes/no box instead of the browser's plain one (which a game controller can't
+ * answer, and which stops the whole page while it is open). Resolves to true or false.
+ */
+export function confirmBox(title, text, { ok = "OK", danger = false } = {}) {
+  return new Promise((resolve) => {
+    let answer = false;
+    const m = openModal({ title, onClose: () => resolve(answer) });
+    const p = h(`<p class="muted confirm-text"></p>`);
+    p.textContent = text;
+    p.hidden = !text;
+    const row = h(`<div class="confirm-buttons"><button type="button" class="ghost">Cancel</button>
+      <button type="button" class="${danger ? "danger-solid" : "primary"}"></button></div>`);
+    row.lastElementChild.textContent = ok;
+    row.firstElementChild.onclick = () => m.close();
+    row.lastElementChild.onclick = () => { answer = true; m.close(); };
+    m.body.append(p, row);
+    row.lastElementChild.focus();
+  });
+}

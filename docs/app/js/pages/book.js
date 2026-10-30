@@ -22,6 +22,8 @@ import { icon } from "../icons.js";
 import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { phrasePicker } from "../components/phrasepick.js";
+import { actionHeld, controllerArea } from "../gamepad.js";
+import { wordCursor } from "../padcursor.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
@@ -234,11 +236,13 @@ export async function render(view, { id, data, query }) {
     bubble.hide();
     marked = null;
     if (remember) keep();
+    if (cursor && cursor.on && !wordEls[cursor.at]) cursor.show(a);  // a new page: the highlight starts on its first word
   }
   function rtlBook() { return getComputedStyle(tr).direction === "rtl"; }
   const turn = (d) => { if (page + d >= 0 && page + d < pages.length) { show(page + d); buzz("tick"); } };
 
   // ---------- word popup ----------
+  let cursor = null;  // the controller's highlight in the words (padcursor.js; made with the controller's buttons)
   let target = null; // {i, j, si, sj, text}
   let marked = null;
   const sentenceText = (x, y) => joinWords(texts.slice(x, y + 1), lang);
@@ -465,10 +469,49 @@ export async function render(view, { id, data, query }) {
   // Reading counts toward today's goal while the book is being read (a page turned or tapped in the last two minutes).
   let lastActive = Date.now();
   const touch = () => { lastActive = Date.now(); };
+
+  // ---------- game controller (gamepad.js; Settings → Controller → Books and pages) ----------
+  // The highlight goes word by word and line by line through the page, and on to the next page
+  // (or back to the one before) past its last (first) word.
+  const lastOnPage = () => { const all = tr.querySelectorAll(".w"); return all.length ? Number(all[all.length - 1].dataset.i) : -1; };
+  cursor = wordCursor({
+    count: () => n,
+    elsOf: (i) => [wordEls[i]],
+    startAt: () => (target && wordEls[target.i] ? target.i : pageFirst),
+    blockOf: (i) => segOf[i],
+    onPick: (i, j) => defineAt(i, j),
+    onMove: touch,
+    edge: (dir, i) => {
+      if (i >= pageFirst && !wordEls[i] && page < pages.length - 1) { show(page + 1); return pageFirst; }
+      if (i < pageFirst && page > 0) { show(page - 1); return lastOnPage(); }
+      return -1;
+    },
+  });
+  const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
+  const offPad = controllerArea("reader", {
+    lookUp: () => cursor.pick(),
+    wordLeft: moveCursor("left"),
+    wordRight: moveCursor("right"),
+    lineUp: moveCursor("up"),
+    lineDown: moveCursor("down"),
+    prevPage: { can: () => page > 0, run: () => { turn(-1); touch(); } },
+    nextPage: { can: () => page < pages.length - 1, run: () => { turn(1); touch(); } },
+    saveWord: () => { const b = bubble.open && bubble.el.querySelector('[data-act="save"]:not([disabled])'); if (b) b.click(); },
+    popupStep: (dir) => {
+      const t = target && wordEls[target.i] ? target : { i: pageFirst, j: pageFirst };
+      closeBubble();
+      if (cursor.stepOut(t.i, t.j, dir)) cursor.pick();
+    },
+    back: () => {
+      if (bubble.open) { closeBubble(); return true; }
+      return cursor.hide();
+    },
+  });
   tr.addEventListener("pointerdown", touch, { passive: true });
   view.querySelector(".book-foot").addEventListener("pointerdown", touch, { passive: true });
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 120000);
   return () => {
+    offPad();
     stopStudy();
     stopVowels();
     if (seen) seen.close();

@@ -248,7 +248,11 @@ export async function fetchCaptions(id, { language, languageName, taught = [], h
   }
   const name = languageName || language;
   if (!info.tracks.length) {
-    throw new CaptionError("This video has no captions at all, so Tamkeen can't show its words. Try another video.", "no_captions");
+    const err = new CaptionError("This video has no captions at all, so Tamkeen can't show its words. Try another video.", "no_captions");
+    // What Gemini needs to write them instead (youtube.js offers that: components/geminicaptions.js).
+    err.video = { videoId: id, title: String(info.details.title || "YouTube video"), channel: String(info.details.author || ""),
+                  duration: Number(info.details.lengthSeconds) || 0, live: !!info.details.isLiveContent && !Number(info.details.lengthSeconds) };
+    throw err;
   }
   const choices = captionChoices(info.tracks, language, taught, { handmadeOnly, translate, translationLanguages: info.translations });
   if (!choices.length) {

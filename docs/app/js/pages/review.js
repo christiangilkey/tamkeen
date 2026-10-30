@@ -30,7 +30,7 @@ import { pickedCountry } from "../youtube-home.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
-import { controllerArea } from "../gamepad.js";
+import { controllerArea, highlightMove, highlightedEl, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
@@ -1315,18 +1315,36 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const padReady = () => !document.querySelector(".tour") && !asking && !editing;
   const padCard = () => (padReady() && panel.hidden ? todo[0] || null : null);
   const padSettled = () => flipped && Date.now() - flippedAt > KEY_GUARD_MS;
+  // On the back, the D-pad's up and down walk through its boxes in order: the word, its meaning, the
+  // sentence and its translation (each opens its text box, as a tap does), then every button and box
+  // under them (the Mnemonic maker's keywords with their thumbs up and down too).
+  const BACK_TEXTS = ".rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans";
+  const onBack = () => { const el = highlightedEl(); return el && face.contains(el) ? el : null; };
+  const padWalk = (dir) => ({
+    can: () => !!padCard() && flipped,
+    run: () => highlightMove(dir, { root: face, linear: true, include: BACK_TEXTS }),
+  });
   const offPad = controllerArea("review", {
-    turn: () => {
-      if (!padReady()) return;
-      if (!panel.hidden) { close(); return; }
-      if (!todo[0]) return;
-      if (!flipped) flip(); else if (padSettled()) grade(GOOD);
+    turn: {
+      run: () => {
+        if (!padReady()) return;
+        if (!panel.hidden) { close(); return; }
+        if (!todo[0]) return;
+        if (!flipped) { flip(); return; }
+        const box = onBack();
+        if (box) { if (box.matches(EDITABLE_SELECTOR)) tapEdit(box); else pressHighlighted(); return; }
+        if (padSettled()) grade(GOOD);
+      },
+      hint: () => (!panel.hidden ? "Close" : !todo[0] ? null : !flipped ? "Turn" : onBack() ? "Press" : "Remembered"),
     },
+    up: padWalk("up"),
+    down: padWalk("down"),
     again: () => { if (padCard() && padSettled()) grade(AGAIN); },
     good: () => { if (!padCard()) return; if (padSettled()) grade(GOOD); else if (!flipped) flip(); },
-    playWord: () => { const v = padCard(); if (v && flipped && hasWordAudio(v)) sayWord(v); },
-    playSentence: () => { const v = padCard(); if (v && flipped && hasSentenceAudio(v)) saySentence(v); },
-    sayIt: () => { if (padCard() && flipped) { const say = face.querySelector(".say-it"); if (say) say.click(); } },
+    // (on the back only, as the keys: the button guide on screen leaves them out on the front)
+    playWord: { can: () => { const v = padCard(); return !!v && flipped && hasWordAudio(v); }, run: () => sayWord(padCard()) },
+    playSentence: { can: () => { const v = padCard(); return !!v && flipped && hasSentenceAudio(v); }, run: () => saySentence(padCard()) },
+    sayIt: { can: () => !!padCard() && flipped && !!face.querySelector(".say-it"), run: () => face.querySelector(".say-it").click() },
     undo: () => { if (padReady()) takeBack(); },
     finish: () => close(),
     back: () => {

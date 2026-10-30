@@ -162,6 +162,9 @@ const PATHS = {
     <circle cx="12" cy="13.2" r="3.3"/>`,
   image: `<rect class="fill" x="3.5" y="4.5" width="17" height="15" rx="2.6"/><rect x="3.5" y="4.5" width="17" height="15" rx="2.6"/>
     <circle cx="9" cy="9.6" r="1.6"/><path d="M4 17.4l4.6-4.6 3.3 3.3 2.5-2.5 5.6 5.6"/>`,
+  // Audiobooks (LibriVox): a book that speaks.
+  audiobook: `<rect class="fill" x="3.5" y="4" width="10.5" height="16" rx="1.8"/>
+    <rect x="3.5" y="4" width="10.5" height="16" rx="1.8"/><path d="M6.8 4v16"/><path d="M17 9.2a4 4 0 0 1 0 5.6M19.6 6.6a7.6 7.6 0 0 1 0 10.8"/>`,
 };
 
 export const ICON_NAMES = Object.keys(PATHS);

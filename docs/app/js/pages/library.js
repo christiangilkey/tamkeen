@@ -3,18 +3,22 @@
 import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix } from "../app.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
-import { allProgress } from "../progress.js";
+import { allProgress, isUnfinished } from "../progress.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { openAddSheet } from "../components/addsheet.js";
-import { openModal } from "../components/modal.js";
+import { confirmBox, openModal } from "../components/modal.js";
+import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
 import { coursePanel, hasCourse } from "../components/coursepanel.js";
 import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
 import { courseTabChoice } from "../coursedata.js";
+import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
+  isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
+import { askBookTitle } from "../components/audiobooksheet.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -51,7 +55,10 @@ const REELS_FEED = "local:reels";
 const BOOKS_FEED = "local:books";
 
 // The library is a list of kinds, always in this order: a strip on the phone, the side list on the
-// computer. Choosing "Podcasts" (or "YouTube") opens a second list with the podcasts (or channels).
+// computer. Choosing "Podcasts" (or "YouTube", or "Audiobooks") opens a second list with the podcasts
+// (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed, or a list
+// of the learner's own audiobook files (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has
+// only them.
 // "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
@@ -68,6 +75,8 @@ const KINDS = [
     empty: "Add webpages with the + button below." },
   { key: "books", label: "Books", icon: "book", feed: BOOKS_FEED,
     empty: "Add a book with the + button below, or pick a free classic." },
+  { key: "audiobooks", label: "Audiobooks", icon: "audiobook", href: "#/library?show=audiobooks",
+    empty: "Add audiobooks with the + button below: free ones from LibriVox, or files of your own." },
   // The reels themselves are listed here like every other kind; getting new ones has a page of
   // its own (pages/reels.js), reached from the + button.
   { key: "reels", label: "Reels", icon: "reel", feed: REELS_FEED,
@@ -89,6 +98,8 @@ function lastKind() {
 // the button sits: media.css .fab-hint).
 const FAB_ARROW = `<svg viewBox="0 0 110 96" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path d="M6 6 C 9 50, 44 80, 101 82"/><path d="M88 71 L102 82 L88 93"/></svg>`;
+// Kinds made of several feeds of their own (podcasts, audiobooks) rather than one built-in list.
+const manyFeeds = (k) => k === "podcasts" || k === "audiobooks";
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
 let keepScroll = null;
 /** The picture for a built-in feed ("My webpages", "My audio", "My videos", "YouTube"). */
@@ -172,7 +183,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       </section>
       <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_ARROW}</span></button>
       <input type="file" id="video-file" accept="video/*,.mkv" hidden>
-      <input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.wma,.amr" hidden>
+      <input type="file" id="audio-file" accept="${AUDIO_FILE_ACCEPT}" hidden>
     </div>`));
 
   // Looked up in the page itself, not in `view`: on the computer the page is built in a holder and
@@ -188,8 +199,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     // A built-in list opened by its own address belongs to its kind; one that doesn't exist
     // yet (nothing added) shows an empty page for that kind.
     const current = feedId ? feeds.find((x) => x.id === feedId) : null;
-    if (current) kind = (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
-    else if (kind !== "podcasts" && kind !== "courses") {
+    if (current) kind = isAudiobookFeed(current.url) ? "audiobooks" : (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
+    else if (!manyFeeds(kind) && kind !== "courses") {
       const own = feeds.find((x) => x.url === KINDS.find((k) => k.key === kind).feed);
       if (own) feedId = own.id;
     }
@@ -209,7 +220,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     const chosen = list.querySelector(".active");
     if (phone && chosen) list.scrollLeft = Math.max(0, chosen.offsetLeft - list.offsetLeft - 24);
     const strip = $("#podcast-list");
-    strip.hidden = kind !== "podcasts" && kind !== "youtube";
+    strip.hidden = !manyFeeds(kind) && kind !== "youtube";
     strip.innerHTML = "";
     if (kind === "youtube") {
       // "Recently watched" first, then the followed channels, the one watched most recently first.
@@ -228,11 +239,26 @@ export async function render(view, { feedId: routeFeed, query }) {
       strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
       return;
     }
+    if (kind === "audiobooks") {
+      // "All audiobooks" (your books, with where you got to) first, then each book, the one listened to most recently first.
+      const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library?show=audiobooks"><div class="ph all">${icon("audiobook", 22)}</div><div><div class="t">All audiobooks</div></div></a>`);
+      remember(all);
+      strip.append(all);
+      for (const f of myBooks()) {
+        const el = h(`<a class="feed-item${f.id === feedId ? " active" : ""}" href="#/feed/${f.id}">
+          ${f.image ? `<img src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph all">${icon("audiobook", 20)}</div>`}
+          <div style="min-width:0"><div class="t" dir="auto" translate="no">${esc(splitTitle(f.title).title)}</div>
+          <div class="small muted">${f.done_count || 0}/${f.episode_count} transcribed</div></div></a>`);
+        remember(el);
+        strip.append(el);
+      }
+      strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
+      return;
+    }
     if (kind !== "podcasts") return;
     // "All episodes" first, then the podcasts, the one listened to most recently first.
-    const heard = new Map();
-    for (const p of allProgress()) if (p.sub) heard.set(p.sub, Math.max(heard.get(p.sub) || 0, p.ts || 0));
-    const podcasts = feeds.filter((x) => !isLocalFeed(x.url))
+    const heard = lastHeard();
+    const podcasts = feeds.filter((x) => !isLocalFeed(x.url) && !isAudiobookFeed(x.url))
       .map((x, i) => ({ f: x, last: heard.get(x.title) || 0, i }))
       .sort((a, b) => b.last - a.last || a.i - b.i);
     const all = h(`<a class="feed-item${feedId ? "" : " active"}" href="#/library?show=podcasts"><div class="ph all">${icon("podcast", 22)}</div><div><div class="t">All episodes</div></div></a>`);
@@ -250,6 +276,26 @@ export async function render(view, { feedId: routeFeed, query }) {
     strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
 
+  /** When each podcast or book was last listened to (by its title, as progress.js keeps it). */
+  function lastHeard() {
+    const heard = new Map();
+    for (const p of allProgress()) if (p.sub) heard.set(p.sub, Math.max(heard.get(p.sub) || 0, p.ts || 0));
+    return heard;
+  }
+  /** The learner's audiobooks, the one listened to most recently first (then the newest added). (A book of
+   *  their own files that was removed is an empty list, kept for sync: not shown.) */
+  function myBooks() {
+    const heard = lastHeard();
+    return feeds.filter((x) => isAudiobookFeed(x.url) && (!isOwnBookFeed(x.url) || x.episode_count > 0))
+      .map((f, i) => ({ f, last: heard.get(f.title) || 0, i }))
+      .sort((a, b) => b.last - a.last || (b.f.created_at || 0) - (a.f.created_at || 0) || a.i - b.i).map((x) => x.f);
+  }
+  /** The chapter of book `f` played most recently on this device (progress.js), or null. */
+  function lastChapter(f) {
+    let best = null;
+    for (const p of allProgress()) if (p.sub === f.title && p.kind === "audio" && (!best || (p.ts || 0) > (best.ts || 0))) best = p;
+    return best;
+  }
   const channelHref = (base, name) => `${base}${base.includes("?") ? "&" : "?"}channel=${encodeURIComponent(name)}`;
   /** A channel's round picture, or the first letter of its name until one is known. */
   const channelPicture = (c) => (c.image
@@ -304,14 +350,20 @@ export async function render(view, { feedId: routeFeed, query }) {
     const head = $("#lib-head");
     head.innerHTML = "";
     root.classList.toggle("courses-kind", kind === "courses");
+    root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
-    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" ? KINDS.find((k) => k.key === kind) : null;
+    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" && !(kind === "audiobooks" && myBooks().length)
+      ? KINDS.find((k) => k.key === kind) : null;
     markEmpty("head", !!emptyKind);
     if (kind === "courses") { showCourses(); return; }
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(emptyState(emptyKind));
+      return;
+    }
+    if (!feedId && kind === "audiobooks") {
+      head.append(bookShelf());
       return;
     }
     if (!feedId) {
@@ -320,6 +372,10 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     const f = feeds.find((x) => x.id === feedId);
     if (!f) { location.hash = "#/library?show=podcasts"; return; }
+    if (isAudiobookFeed(f.url)) { // (a book of the learner's own files is a "local:" list too: this first)
+      head.append(bookHead(f));
+      return;
+    }
     if (f.url === PAGES_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("page", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">Web pages you imported. Open one to read it with every word clickable. Press + to add more.</div></div></div>`));
@@ -407,10 +463,97 @@ export async function render(view, { feedId: routeFeed, query }) {
       toast(e.target.checked ? "New episodes will be transcribed automatically." : "Auto-transcribe turned off.");
     };
     el.querySelector("#remove-feed").onclick = async () => {
-      if (!confirm(`Remove “${f.title}”? Its transcripts and downloaded audio will be deleted. Saved vocab is kept.`)) return;
+      if (!(await confirmBox(t("Remove “{0}”?", f.title), "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
       await api(`/feeds/${feedId}`, { method: "DELETE" });
       location.hash = "#/library?show=podcasts";
     };
+  }
+
+  // ----- audiobooks -----
+  /** "Continue" (the chapter played last) or "Start listening" (the first chapter), for a book's heading and its row. */
+  function continueLink(f, { big = false } = {}) {
+    const last = lastChapter(f);
+    const a = h(`<a class="btn ${big ? "primary" : "ghost"}">${icon("play", 16)} <span></span></a>`);
+    a.querySelector("span").textContent = last ? (isUnfinished(last) ? "Continue" : "Listen again") : "Start listening";
+    if (last) {
+      a.href = `#/episode/${last.id}`;
+      a.title = last.title || "";
+      return a;
+    }
+    // The first chapter, once it is transcribed (until then the chapter list says how it is coming on).
+    a.href = `#/feed/${f.id}`;
+    a.onclick = async (e) => {
+      e.preventDefault();
+      const first = (await api(`/episodes?${new URLSearchParams({ feed_id: f.id, limit: 1 })}`).catch(() => ({ items: [] }))).items[0];
+      if (first && first.status === "done") location.hash = `#/episode/${first.id}`;
+      else if (first && first.status === "new" && !first.transcribe_requested_at) transcribe([first.id]);
+      else toast("Its first chapter is still being transcribed. It opens here once it's ready.");
+    };
+    return a;
+  }
+  /** The learner's audiobooks, each with its cover, author, chapters and a way to carry on. */
+  function bookShelf() {
+    const box = h(`<div class="ab-shelf"></div>`);
+    for (const f of myBooks()) {
+      const { title, author } = splitTitle(f.title);
+      const el = h(`<div class="ab-mine">
+        <a class="ab-mine-open" href="#/feed/${f.id}">
+          ${f.image ? `<img class="ab-cover" src="${esc(f.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span class="ab-cover ph">${icon("audiobook", 24)}</span>`}
+          <span class="ab-info"><span class="ab-title" dir="auto" translate="no"></span>
+            <span class="ab-author small muted" dir="auto" translate="no"></span>
+            <span class="small muted">${f.done_count || 0}/${f.episode_count} transcribed</span></span>
+        </a></div>`);
+      el.querySelector(".ab-title").textContent = title;
+      el.querySelector(".ab-author").textContent = author;
+      el.append(continueLink(f));
+      box.append(el);
+    }
+    if (myBooks().some((f) => isLibrivoxFeed(f.url))) box.append(librivoxCredit());
+    return box;
+  }
+  const librivoxCredit = (href = LIBRIVOX) => {
+    const p = h(`<p class="small muted ab-credit">Free public-domain recordings from <a target="_blank" rel="noopener">LibriVox</a>, read by volunteers.</p>`);
+    p.querySelector("a").href = href;
+    return p;
+  };
+  /** One book's heading: cover, title, author, what it is about, Continue, and removing it. */
+  function bookHead(f) {
+    const { title, author } = splitTitle(f.title);
+    const el = h(`<div class="lib-head ab-head">
+      ${f.image ? `<img src="${esc(f.image)}" alt="" referrerpolicy="no-referrer">` : `<div class="ph video-ph">${icon("audiobook", 44)}</div>`}
+      <div class="meta">
+        <h1 dir="auto" translate="no"></h1>
+        <div class="ab-author muted" dir="auto" translate="no"></div>
+        <div class="desc small" style="unicode-bidi:plaintext" translate="no"></div>
+        <div class="row" style="margin-top:8px;flex-wrap:wrap">
+          <span class="ab-go"></span>
+          <span class="spacer"></span>
+          <button type="button" class="ghost danger" id="remove-feed">Remove audiobook</button>
+        </div>
+      </div></div>`);
+    el.querySelector("h1").textContent = title;
+    el.querySelector(".ab-author").textContent = author;
+    el.querySelector(".desc").textContent = f.description || "";
+    el.querySelector(".ab-go").append(continueLink(f, { big: true }));
+    const own = isOwnBookFeed(f.url);
+    if (!own) el.querySelector(".meta").append(librivoxCredit(f.link && /^https:\/\/librivox\.org\//.test(f.link) ? f.link : LIBRIVOX));
+    el.querySelector("#remove-feed").onclick = async () => {
+      if (!(await confirmBox(t("Remove “{0}”?", title), own
+        ? "Its files and transcripts are removed from this device and from your Google Drive. Saved vocab is kept."
+        : "Its transcripts and downloaded audio will be deleted. Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
+      try {
+        if (own) {
+          // A book of the learner's own files: its chapters are deleted like any file of theirs (on every
+          // device, and from Drive); the empty list stays, for sync, and is no longer shown.
+          const items = (await api(`/episodes?${new URLSearchParams({ feed_id: feedId, limit: 500 })}`)).items || [];
+          if (items.length) await api("/episodes/delete", { method: "POST", body: { ids: items.map((x) => x.id) } });
+        } else {
+          await api(`/feeds/${feedId}`, { method: "DELETE" });
+        }
+        location.hash = "#/library?show=audiobooks";
+      } catch (err) { toast(err.message, { error: true }); }
+    };
+    return el;
   }
 
   // ----- episodes -----
@@ -442,7 +585,8 @@ export async function render(view, { feedId: routeFeed, query }) {
       ${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`}
       <div class="info">
         <div class="title" dir="auto"></div>
-        <div class="sub">${feedId ? "" : `${esc(ep.feed_title)} · `}${isReel(ep) && ep.description ? `@${esc(ep.description)} · ` : ""}${fmtDate(ep.published)}${ep.duration ? ` · ${isReel(ep) && ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}</div>
+        <div class="sub">${isAudiobookFeed(ep.feed_url) ? fmtDuration(ep.duration) /* a chapter: no date, its length */
+          : `${feedId ? "" : `${esc(ep.feed_title)} · `}${isReel(ep) && ep.description ? `@${esc(ep.description)} · ` : ""}${fmtDate(ep.published)}${ep.duration ? ` · ${isReel(ep) && ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}`}</div>
       </div>
       <div class="status"></div>
     </div>`);
@@ -483,7 +627,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       line.querySelector(".pill").textContent = "Netflix";
       btn("Watch", "primary", () => (location.hash = `#/episode/${ep.id}`));
       btn("Delete", "ghost danger", async () => {
-        if (!confirm(`Remove “${ep.title}” from your Netflix titles? Saved vocab is kept.`)) return;
+        if (!(await confirmBox(t("Remove “{0}” from your Netflix titles?", ep.title), "Saved vocab is kept.", { ok: "Remove", danger: true }))) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
           row.remove();
@@ -521,10 +665,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (media && (media.kind !== "text" || media.ready)) line.append(sendButton(() => mediaFromEpisode(row._ep)));
     if (isLocalFeed(ep.feed_url)) {
       btn("Delete", "ghost danger", async () => {
-        if (!confirm(isPage(ep) ? `Delete “${ep.title}” from your webpages? Saved vocab is kept.`
-          : isYouTube(ep) ? `Remove “${ep.title}” from your YouTube videos? Saved vocab is kept.`
-          : ep.audio_type === "video/instagram" ? `Remove “${ep.title}” from your reels? Saved vocab is kept.`
-          : `Delete “${ep.title}”? The ${isVideo(ep) ? "video" : "audio"} and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.`)) return;
+        const ask = isPage(ep) ? [t("Delete “{0}” from your webpages?", ep.title), "Saved vocab is kept.", "Delete"]
+          : isYouTube(ep) ? [t("Remove “{0}” from your YouTube videos?", ep.title), "Saved vocab is kept.", "Remove"]
+          : ep.audio_type === "video/instagram" ? [t("Remove “{0}” from your reels?", ep.title), "Saved vocab is kept.", "Remove"]
+          : [t("Delete “{0}”?", ep.title), isVideo(ep)
+            ? "The video and its transcript are removed from this device and from your Google Drive. Saved vocab is kept."
+            : "The audio and its transcript are removed from this device and from your Google Drive. Saved vocab is kept.", "Delete"];
+        if (!(await confirmBox(ask[0], ask[1], { ok: ask[2], danger: true }))) return;
         try {
           await api(`/episodes/${ep.id}`, { method: "DELETE" });
           row.remove();
@@ -592,7 +739,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   async function loadEpisodes(append = false) {
     if (kind === "courses") return; // no episodes: renderHead shows the courses
     if (!append) offset = 0;
-    if (!feedId && kind !== "podcasts") { // nothing of this kind yet: renderHead says so
+    if (!feedId && kind !== "podcasts") { // nothing of this kind yet, or the audiobooks' shelf: renderHead shows it
       renderTabs({});
       listEl.innerHTML = "";
       $("#more").hidden = true;
@@ -718,10 +865,11 @@ export async function render(view, { feedId: routeFeed, query }) {
   $("#delete-selected").onclick = async (e) => {
     const n = selected.size;
     if (!n) return;
-    const what = n === 1 ? "this episode" : `these ${n} episodes`;
-    if (!confirm(`Delete ${what}?\n\nThis removes ${n === 1 ? "it" : "them"} from your Library on every device, together with `
-      + `the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. `
-      + `Saved vocab is kept.\n\nThis can't be undone.`)) return;
+    const ask = n === 1 ? t("Delete this episode?") : t("Delete these {0} episodes?", n);
+    const more = n === 1
+      ? "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
+      : "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
+    if (!(await confirmBox(ask, more, { ok: "Delete", danger: true }))) return;
     e.target.disabled = true;
     try {
       const r = await api("/episodes/delete", { method: "POST", body: { ids: [...selected] } });
@@ -744,13 +892,62 @@ export async function render(view, { feedId: routeFeed, query }) {
   };
   $("#more").onclick = () => loadEpisodes(true);
   // The + button: every way of adding something.
-  $("#add-fab").onclick = () => openAddSheet({ pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click() });
+  $("#add-fab").onclick = () => openAddSheet({
+    pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click(),
+    addAudiobookFiles: addBookFiles,
+  });
+  /** Show the upload bar's progress: `frac` of the file being sent, `name` (and "2/10" for a book's files). */
+  const showUpload = (name, frac) => {
+    $("#upload-status").hidden = false;
+    $("#upload-name").textContent = name;
+    $("#upload-pct").textContent = `${Math.round(frac * 100)}%`;
+    $("#upload-bar").style.width = `${frac * 100}%`;
+  };
+  /**
+   * Add audiobook files of the learner's own as one book: its chapters are the files, in file-name order;
+   * only the first is transcribed now (the player transcribes each next chapter as the learner gets to it).
+   * Audible's copy-protected files are refused with a word on why; anything not audio is left out.
+   */
+  async function addBookFiles(picked) {
+    if (picked.some((f) => isAudibleFile(f.name))) toast(AUDIBLE_MESSAGE); // (plain: something the learner can put right)
+    const files = inNameOrder(picked.filter((f) => !isAudibleFile(f.name) && (isAudioFileName(f.name) || (f.type || "").startsWith("audio/"))));
+    if (!files.length) {
+      if (!picked.some((f) => isAudibleFile(f.name))) toast("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).", { error: true });
+      return;
+    }
+    const title = await askBookTitle(guessBookTitle(files.map((f) => f.name)), files.length);
+    if (title === null) return;
+    const key = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+    const btn = $("#add-fab");
+    btn.disabled = true;
+    let first = null;
+    try {
+      for (const [i, file] of files.entries()) {
+        const name = files.length > 1 ? `${i + 1}/${files.length} · ${file.name}` : file.name;
+        showUpload(name, 0);
+        const ep = await uploadVideo(file, (frac) => showUpload(name, frac), { book: { key, title }, transcribe: i === 0 });
+        if (!first) first = ep;
+      }
+      toast(first.here === false || /computer/i.test(first.note || "")
+        ? `Added “${title}”. Your computer will transcribe its first chapter the next time it syncs.`
+        : `Added “${title}”. Its first chapter is being transcribed now.`);
+      location.hash = `#/feed/${first.feed_id}`;
+      scheduleReload();
+    } catch (err) {
+      toast(err.message, { error: true });
+      if (first) location.hash = `#/feed/${first.feed_id}`; // (the chapters sent so far are there)
+    } finally {
+      btn.disabled = false;
+      $("#upload-status").hidden = true;
+    }
+  }
   // Video and audio files are added the same way; the file's type decides where it goes.
   $("#video-file").onchange = $("#audio-file").onchange = async (e) => {
     const file = e.target.files[0];
     const btn = $("#add-fab");
     e.target.value = "";
     if (!file) return;
+    if (isAudibleFile(file.name)) { toast(AUDIBLE_MESSAGE); return; } // (copy-protected: never opened)
     const box = $("#upload-status");
     btn.disabled = true;
     box.hidden = false;
@@ -819,7 +1016,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
-      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, reels and your own videos." },
+      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
     { target: "#course-tabs", title: "Your courses",
       text: "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
@@ -828,7 +1025,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#episodes .ep", title: "An episode",
       text: "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript." },
     { target: "#add-fab", title: "Add",
-      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, reels, or a video or audio file of your own." },
+      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, an audiobook, reels, or a video or audio file of your own." },
   ]);
 
   return () => {

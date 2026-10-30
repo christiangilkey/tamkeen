@@ -30,7 +30,7 @@ const aiOff = () => { throw new DefinerError("AI is turned off (Settings → Wor
 export async function transport(req) {
   if (CapacitorHttp) {
     const r = await CapacitorHttp.request({ url: req.url, method: "POST", headers: req.headers, data: req.body,
-                                            responseType: "text" });
+                                            responseType: "text", ...(req.timeout ? { readTimeout: req.timeout * 1000 } : {}) });
     return { status: r.status, text: typeof r.data === "string" ? r.data : JSON.stringify(r.data) };
   }
   // In the web app the provider is called straight from the page with the learner's own key;
@@ -39,6 +39,9 @@ export async function transport(req) {
   const r = await fetch(req.url, { method: "POST", headers, body: JSON.stringify(req.body) });
   return { status: r.status, text: await r.text() };
 }
+
+/** The learner's key for `provider` ("gemini"…), whichever provider explains words. */
+export const aiKey = (provider) => String(settings[`llm_key_${provider}`] || "");
 
 /** A small JSON answer from the learner's AI (see definer.askJson), sent the same way as a lookup. */
 export const askAi = (prompt) => (noAi() ? aiOff() : askJson(definerConfig(), prompt, transport));

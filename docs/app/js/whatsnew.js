@@ -8,6 +8,11 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.41.0",
+  "Audiobooks in the Library: free LibriVox books in your language, or add your own audiobook files",
+  "An Xbox-style controller works on every screen, with a button guide",
+  "YouTube videos without captions: Gemini can write them for you");
+
 notes("0.40.0",
   "A fresh look: new fonts for the app's text, titles and numbers",
   "A ? on every screen shows how to use it",

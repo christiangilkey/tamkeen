@@ -10,6 +10,8 @@
 
 import { api, esc, h, toast } from "../app.js";
 import * as social from "../social.js";
+import { confirmBox } from "./modal.js";
+import { t } from "../i18n.js";
 
 const KINDS = { podcast: "🎧 Podcast", youtube: "▶ YouTube", reel: "🎞 Instagram reel", page: "📄 Web page",
                 spotify: "♫ Spotify", apple: "♪ Apple Music", imdb: "🎬 IMDb" };
@@ -48,7 +50,7 @@ async function openPodcast(s) {
   let feed = (await api("/feeds")).find((f) => sameText(f.url, url));
   let added = false;
   if (!feed) {
-    if (!confirm(`Add “${s.subtitle || "this podcast"}” to your library and open this episode?`)) return;
+    if (!(await confirmBox(s.subtitle ? t("Add “{0}” to your library and open this episode?", s.subtitle) : t("Add this podcast to your library and open this episode?"), "", { ok: "Add" }))) return;
     feed = await api("/feeds", { method: "POST", body: { url } });
     added = true;
   }
@@ -149,6 +151,7 @@ function itemCard(s, { own = false } = {}) {
       try {
         await OPENERS[s.kind](s);
       } catch (e) {
+        if (e.quiet) return; // (no captions: Gemini's were offered and turned down)
         // Still reachable when Tamkeen's player can't take it (say, a video with no captions
         // in the language being studied): offer the page itself.
         toast(e.message, { error: true, action: link ? { label: s.kind === "youtube" ? "Open on YouTube" : "Open the link",

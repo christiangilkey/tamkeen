@@ -2,6 +2,8 @@
 // (food, potions and the rest). The rules are in idle.js; this file only shows them.
 
 import { h, toast } from "../app.js";
+import { confirmBox } from "../components/modal.js";
+import { t } from "../i18n.js";
 import { BRANCHES, FOODS, PLOTS, STRUCTURES, SUPPLIES, TYPES } from "./data.js";
 import { formOf } from "./genome.js";
 import { dayKey } from "./rules.js";
@@ -116,8 +118,11 @@ export function gardenPanel(body, game, changed) {
   for (const [c, i] of adults) {
     const b = h(`<button type="button" class="pick"></button>`);
     b.textContent = `${c.name || TYPES[c.type].name} (${BRANCHES[c.branch].name})`;
-    b.onclick = () => {
-      if (!window.confirm(`Release ${c.name || "this creature"}? It leaves for good, and your buildings and glow start over. You keep stardust, your other creatures and everything you own.`)) return;
+    b.onclick = async () => {
+      const ok = await confirmBox(c.name ? t("Release {0}?", c.name) : t("Release this creature?"),
+        "It leaves for good, and your buildings and glow start over. You keep stardust, your other creatures and everything you own.",
+        { ok: "Release", danger: true });
+      if (!ok) return;
       const r = release(game, i);
       if (typeof r === "string") { toast(r, { error: true }); return; }
       sfx("jackpot");
