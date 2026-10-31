@@ -1,0 +1,3 @@
+b03fa4c2 Il controller funziona come su Xbox: A seleziona, B torna indietro, LB e RB cambiano scheda
+33af2e26 Un disegno del controller nelle Impostazioni mostra cosa fa ogni pulsante
+15b68700 Battaglie tra creature su una griglia, con una linea dei turni e nuove mosse da comprare nel negozio

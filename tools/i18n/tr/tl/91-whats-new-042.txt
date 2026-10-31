@@ -1,0 +1,3 @@
+b03fa4c2 Gumagana ang controller mo gaya ng sa Xbox: A para pumili, B para bumalik, LB at RB para magpalit ng tab
+33af2e26 May drawing ng controller sa Settings na nagpapakita kung ano ang ginagawa ng bawat button
+15b68700 Mga laban ng nilalang sa isang grid, may timeline ng mga tira at mga bagong galaw na mabibili sa shop

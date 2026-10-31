@@ -1,0 +1,3 @@
+b03fa4c2 Dein Controller funktioniert wie bei der Xbox: A wählt aus, B geht zurück, LB und RB wechseln den Tab
+33af2e26 Eine Zeichnung des Controllers in den Einstellungen zeigt, was jede Taste macht
+15b68700 Kreaturenkämpfe auf einem Raster, mit einer Zugleiste und neuen Attacken im Shop

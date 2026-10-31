@@ -18815,6 +18815,21 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "b03fa4c2",
+  "k": "Your controller works like an Xbox: A selects, B goes back, LB and RB switch tabs",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "33af2e26",
+  "k": "A drawing of the controller in Settings shows what every button does",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "15b68700",
+  "k": "Creature battles on a grid, with a timeline and new moves to buy in the shop",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "d439b03b",
   "k": "Audiobooks in the Library: free LibriVox books in your language, or add your own audiobook files",
   "f": "web/js/whatsnew.js"

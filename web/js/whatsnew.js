@@ -8,6 +8,11 @@
 const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
 
+notes("0.42.0",
+  "Your controller works like an Xbox: A selects, B goes back, LB and RB switch tabs",
+  "A drawing of the controller in Settings shows what every button does",
+  "Creature battles on a grid, with a timeline and new moves to buy in the shop");
+
 notes("0.41.1",
   "Audiobooks in the Library: free LibriVox books in your language, or add your own audiobook files",
   "An Xbox-style controller works on every screen, with a button guide",

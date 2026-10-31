@@ -1,0 +1,3 @@
+b03fa4c2 Seu controle funciona como no Xbox: A seleciona, B volta, LB e RB trocam de aba
+33af2e26 Um desenho do controle nas Configurações mostra o que cada botão faz
+15b68700 Batalhas de criaturas em uma grade, com uma linha de turnos e novos golpes para comprar na loja

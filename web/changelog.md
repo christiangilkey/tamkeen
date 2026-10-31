@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.42.0 — 2026-10-31
+
 - **Changed:** Creatures stay young and cute: they grow from egg to hatchling to juvenile and stop there. There are no adult forms any more (Echo, Sage and Keeper) and nothing to evolve. A juvenile keeps growing until it is fully grown, which leaves you a new egg and 25 coins, once for each creature, and only a fully grown creature can be released in the garden. Creatures that were adults show as fully grown juveniles, and the battle move each adult form brought (Resonance, Insight, Hoard) is now yours for any of your creatures.
 - **Changed:** The special colourings (Twin, Nocturne and Champion) are worn by juveniles now, chosen on the Creatures page.
 - **New:** Battles happen on a small grid. Each side has its own 3×3 half. On its turn a creature can move up to two squares (drag it, tap a square, or use the small move pad), then uses a move. Where it stands matters: a move hits a row, a column or a wider area, or always finds its target, and stepping out of the way dodges. Each move button says whether it can reach right now. A right answer to the word card lands the move; a wrong one now misses.

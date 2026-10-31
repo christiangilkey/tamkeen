@@ -1,0 +1,3 @@
+b03fa4c2 El comandament funciona com a la Xbox: A selecciona, B torna enrere, LB i RB canvien de pestanya
+33af2e26 Un dibuix del comandament a la Configuració mostra què fa cada botó
+15b68700 Batalles de criatures en una quadrícula, amb una línia de torns i moviments nous per comprar a la botiga
