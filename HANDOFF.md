@@ -5769,6 +5769,7 @@ Supersedes the 2026-10-17 and 2026-10-23 notes on the maker above (same button, 
   learner language other than English for the IPA path.
 
 ## Game controllers on every screen: a layout per screen, a highlight in the words, the button guide (2026-10-30; on main)
+(Its default buttons were redone like the Xbox dashboard on 2026-10-31: see "Game controller like the Xbox dashboard" at the end.)
 Owner: "make a default configuration for xbox style controllers, allow it to seamlessly be able to navigate all parts
 of my app other than web browsing … highlighting options to select as well as having different configurations set per
 screen in the app, meaning pressing A in card review would select the highlighted box, while pressing A in a video
@@ -5980,3 +5981,58 @@ and battle moves, and battles became a grid game with a Grandia-style timeline.
   "Creatures stay young: no more adult forms, and a fully grown creature leaves an egg and coins",
   "Battles on a grid: move, dodge, and watch the timeline of who acts next",
   "Buy battle moves in the shop, and battle on your last 100 words or all of them".
+
+## Game controller like the Xbox dashboard, and a drawing of the controller in Settings (2026-10-31; on main)
+Owner: "I want the controller support for tamkeen to feel just like [the Xbox menus] … the buttons set to be very
+logical … a controller diagram for an xbox controller with the controls of the buttons pointing to the controller
+image in the controller settings". The layout table was sent first and approved ("go"). Replaces the defaults of
+"Game controllers on every screen" above (same files, same setting).
+- **Defaults** (`web/js/padmap.js` ACTIONS; every action id kept where its job stayed, so learners' changes carry
+  over): everywhere A select, B back, D-pad move, LB/RB previous/next tab, LT/RT page up/down, right stick scroll,
+  View (`b8`) `options` = the screen's options (else its "?" guide; legend says "Guide"), Menu (`b9`) `more` = more
+  options for the highlighted thing (a list row's own buttons as a menu: `ROWS` in gamepad.js), "main tabs" and
+  "guide" without a button now. The left stick does what the D-pad does wherever nothing has it (`STICK_AS_DPAD`,
+  `resolve` falls back to it). Screens: players (video) X play/pause, Y the line again, LB/RB previous/next line,
+  LT/RT −/+5 s, View a menu (slow down, loop, captions, transcript panel, larger/smaller text, full screen), Menu the
+  highlighted word's own menu (`openMenu`); **reels are a screen of their own** (`reels` area: LB/RB reel, View a
+  menu of the reel bar's own buttons); word popup D-pad between its buttons (first on Save), LB/RB the word to the
+  left/right, LT/RT scroll its explanation, View its source menu; review cards LB Not remembered, RB Remembered (on
+  the back only), D-pad ↑↓ walk the back's boxes and then the two answers, the back starts with the highlight on
+  Remembered when the controller is in use (`padInUse`), A on an answer waits KEY_GUARD_MS after turning, View the
+  reviewer's settings, Menu undo / say it / delete the word / finish; books LB/RB page, View text size, Menu the
+  word's menu; Home X Continue, Y review; Library X add, Y search, LB/RB kind; lessons X hear, Y all lessons, LB/RB
+  lesson; Vocab X review, Y search, LB/RB folder, View its ⋯ menu; Settings Y search, LB/RB section; chat X record,
+  Y write; boxes X their main button (`.primary`, `.danger-solid`…); typing B done, Menu Enter.
+- Old: video's `prevVideo`/`nextVideo` (now in `reels`) and the left-stick seeking defaults are gone; a learner's
+  own button still wins over a newer default (`fullMap`).
+- **gamepad.js**: `padMenu(items, at)` (app.js `showMenu`, highlight on its first choice: `focusMenu`),
+  `buttonsMenu(buttons)`, `padInUse()`; a `#ctxmenu` is closed with `hideMenu()` (an Esc reached the reviewer under
+  it and closed it); a highlight hidden behind a box comes back when the box closes (`parked`); the legend pairs
+  LB/RB and LT/RT by `pair` names ("Kind", "5 seconds", "Page"…), up to 8 items, View and Menu included.
+- **The drawing** (`web/js/components/paddiagram.js`, new, build-www SHARED): an SVG controller drawn here (no
+  logo, no Xbox button), A/B/X/Y in their usual colours; labels from `padmap.js whatDoes(full, area, input)` (the
+  screen's action, else Everywhere's; the screen's own in bold), D-pad and left stick summed up ("Move the highlight"
+  or "↑↓ Line · ←→ Word"), stick presses added when they have a job; lines computed from where things are drawn
+  (ResizeObserver): wide = a column either side, narrow (< 600 px) = labels in two columns under the drawing with
+  lines up the sides in lanes, going round a control in the way where they can (X is boxed in by Y/B/A, so the
+  face buttons' labels wear their colour). A button pressed lights up on it. Shown in controllerpanel.js under the
+  screen picker, redrawn on every change.
+- **Devices** (padmap.js `isController`, `standardize`; gamepad.js `rawPads`): this computer's browser pane listed the
+  owner's Creative "Pebble V3" speakers (041e, 7 buttons, no axes) as a controller, and the owner's Xbox Series
+  controller over Bluetooth as "Unknown Gamepad (Vendor: 045e Product: 0b13)", mapping "" (15 buttons, 10 axes): A 0,
+  B 1, X 3, Y 4, LB 6, RB 7, View 10, Menu 11, Xbox 12, LS 13, RS 14; sticks axes 0 1 2 5; triggers axes 3 and 4
+  resting at −1 (they read as "right stick up": endless scrolling); the D-pad one hat axis 9 (−1 + 2·dir/7, dir 0 = up
+  clockwise; anything else = none). Non-controllers are left out; that Xbox layout is put in the standard places
+  (which trigger is axis 3 and which 4 is a guess: LT = 3; check with a real press on the drawing, which lights the
+  button pressed); any other unknown layout has its axes counted from where they rest when first seen.
+- i18n `tools/i18n/tr/<code>/93-controller-xbox.txt` (36 × 16). Changelog: three lines under Unreleased.
+- **Checked**: padmap/padcursor tests (36), the JS and pytest suites; browser pane, desktop server with the scratch
+  data folder and a stubbed Xbox pad: Home (left stick, View → guide), Library (Menu on a row → Read / Send /
+  Delete, B closes), player (left stick word highlight, RT +5 s, RB next line, View options, Menu word menu, legend
+  "A Look up … LB RB Line LT RT 5 seconds View Options Menu More"), popup (Save first, ←, RB/LB words), review (front
+  shows only A Turn, back starts on Remembered and keeps it through the voice popup, ↓ to the answers, Menu → Say
+  it / Delete / Finish with B leaving the reviewer open), Settings → Controller drawing at 1280, 980 and 375 px wide,
+  a remap shown at once, reset, a press lighting its button. Screenshots: side-session notes
+  controller-drawing-desktop.jpg and controller-drawing-phone.jpg.
+- **NOT checked**: a real controller, Android/iPhone (the same shared files), the drawing in the light theme by eye,
+  right-to-left app languages by eye (the drawing is kept left to right on purpose).

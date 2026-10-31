@@ -1,0 +1,36 @@
+01db79f1	Um controle de jogo
+aecc22aa	Mover o destaque
+6b673d60	Analógico esquerdo
+946e2c5a	Analógico direito
+ca689ba7	Podcasts, YouTube, Netflix e seus próprios vídeos.
+ba60d63d	Assistindo reels do Instagram.
+76c664a8	5 segundos
+e0dc6bfb	Opções: mais devagar, repetir, legendas, a transcrição, tamanho do texto
+ed88801e	Mais opções para a palavra destacada (salvar, copiar, tocar a partir daqui, repetir)
+061348a2	Opções: os botões próprios do reel
+40540ef6	Destacar o botão de cima
+244226e9	Destacar o botão de baixo
+2fa55321	Destacar o botão à esquerda
+000ec168	Destacar o botão à direita
+acec091d	Palavra à esquerda
+ec679a70	Palavra à direita
+39c91b76	Rolar a explicação para cima
+e4703974	Rolar a explicação para baixo
+e8037403	Virar o cartão; no verso, apertar o botão ou a caixa destacada
+fc3e111e	Destacar a caixa ou o botão de cima
+89e81f25	Destacar a caixa ou o botão de baixo
+a1bf59de	Mais opções: desfazer, dizer em voz alta, excluir a palavra, terminar
+da617d4c	Opções: tamanho do texto
+bee9bd85	Mais opções para a palavra destacada (salvar, copiar)
+f01a945e	Tipo anterior
+2a568e9f	Próximo tipo
+736bcf56	Pasta anterior
+ea22c4d7	Próxima pasta
+fad53e0a	Opções: adicionar palavras, exportar, Anki
+7d24f27b	Seção anterior
+dcd480d3	Próxima seção
+7b50fc75	Selecionar o que está destacado
+75dd5109	Aba anterior
+84c508a2	Próxima aba
+1deacd3a	Opções desta tela (ou como usá-la)
+45fccfca	Mais opções para o que está destacado

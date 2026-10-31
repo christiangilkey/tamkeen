@@ -1,0 +1,36 @@
+01db79f1	Un mando de juego
+aecc22aa	Mover el resaltado
+6b673d60	Stick izquierdo
+946e2c5a	Stick derecho
+ca689ba7	Pódcasts, YouTube, Netflix y tus propios vídeos.
+ba60d63d	Viendo reels de Instagram.
+76c664a8	5 segundos
+e0dc6bfb	Opciones: más despacio, en bucle, subtítulos, la transcripción, tamaño del texto
+ed88801e	Más opciones para la palabra resaltada (guardar, copiar, reproducir desde aquí, en bucle)
+061348a2	Opciones: los botones propios del reel
+40540ef6	Resaltar el botón de arriba
+244226e9	Resaltar el botón de abajo
+2fa55321	Resaltar el botón de la izquierda
+000ec168	Resaltar el botón de la derecha
+acec091d	Palabra izquierda
+ec679a70	Palabra derecha
+39c91b76	Desplazar la explicación hacia arriba
+e4703974	Desplazar la explicación hacia abajo
+e8037403	Girar la tarjeta; en el reverso, pulsar el botón o recuadro resaltado
+fc3e111e	Resaltar el recuadro o botón de arriba
+89e81f25	Resaltar el recuadro o botón de abajo
+a1bf59de	Más opciones: deshacer, decirlo, borrar la palabra, terminar
+da617d4c	Opciones: tamaño del texto
+bee9bd85	Más opciones para la palabra resaltada (guardar, copiar)
+f01a945e	Tipo anterior
+2a568e9f	Tipo siguiente
+736bcf56	Carpeta anterior
+ea22c4d7	Carpeta siguiente
+fad53e0a	Opciones: añadir palabras, exportar, Anki
+7d24f27b	Sección anterior
+dcd480d3	Sección siguiente
+7b50fc75	Seleccionar lo que está resaltado
+75dd5109	Pestaña anterior
+84c508a2	Pestaña siguiente
+1deacd3a	Opciones de esta pantalla (o cómo usarla)
+45fccfca	Más opciones para lo que está resaltado

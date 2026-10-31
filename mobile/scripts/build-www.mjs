@@ -132,6 +132,7 @@ const SHARED = [
   "js/padcursor.js",
   "js/padscreens.js",
   "js/components/controllerpanel.js",
+  "js/components/paddiagram.js",
   "js/coursedata.js",
   "js/components/coursepanel.js",
   "js/grammardata.js",

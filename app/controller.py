@@ -13,7 +13,7 @@ from typing import Any
 
 # The screens (padmap.js AREAS). An area a newer version has is kept as well, like an action this
 # version doesn't know: it does nothing here, and isn't lost when this device saves the setting.
-AREAS = ("video", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
+AREAS = ("video", "reels", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
          "settings", "dialog", "typing", "general")
 _INPUT = re.compile(r"^(?:b\d{1,2}|a\d{1,2}[+-])$")
 _ACTION = re.compile(r"^[A-Za-z0-9]{1,32}$")

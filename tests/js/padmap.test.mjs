@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import {
   ACTIONS, AREAS, AREA_IDS, DEAD_ZONE, HOLD_MS, REPEAT_MS, actionFor, assign, cleanMap, cleanSetting, deadZone,
   firstPressed, fullMap, inputName, isInput, newPressState, padKind, pressesFrom, readInputs, resetAction, resetArea,
-  settingWins, shortOf,
+  settingWins, shortOf, whatDoes, pairName, STICK_AS_DPAD, isController, standardize,
 } from "../../web/js/padmap.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -26,10 +26,10 @@ const pad = (down = [], axes = [0, 0, 0, 0], values = {}) => ({
   axes,
 });
 
-/// ---------------------------------------------------------------- the defaults
+//// ---------------------------------------------------------------- the defaults
 
 test("every screen has its actions, each with a known default, and no input does two things on one screen", () => {
-  assert.deepEqual(AREA_IDS, ["video", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
+  assert.deepEqual(AREA_IDS, ["video", "reels", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
     "settings", "dialog", "typing", "general"]);
   for (const area of AREA_IDS) {
     assert.ok(ACTIONS[area] && ACTIONS[area].length, area);
@@ -42,9 +42,9 @@ test("every screen has its actions, each with a known default, and no input does
       ids.add(a.id);
       assert.ok(/^[A-Za-z0-9]{1,32}$/.test(a.id), a.id);
       assert.ok(a.label && a.label.length < 90, a.id);
-      assert.ok(a.short && a.short.length <= 16, `${area}/${a.id}: a short name for the on-screen guide`);
+      assert.ok(a.short && a.short.length <= 18, `${area}/${a.id}: a short name for the on-screen guide and the drawing`);
+      assert.ok(a.def === "" || isInput(a.def), `${area}/${a.id}: ${a.def}`);
       if (a.def) {
-        assert.ok(isInput(a.def), `${area}/${a.id}: ${a.def}`);
         assert.ok(!inputs.has(a.def), `${area}: ${a.def} is the default of two actions`);
         inputs.add(a.def);
       }
@@ -54,64 +54,62 @@ test("every screen has its actions, each with a known default, and no input does
   assert.equal(shortOf("video", "nope"), "");
 });
 
-test("the Xbox-style defaults: A opens the highlighted word in a player, answers on a card, presses elsewhere", () => {
+test("the Xbox dashboard's layout on every screen: A selects, B back, LB / RB tabs, LT / RT fast, View options, Menu more", () => {
   const full = fullMap(undefined);
-  // players and reels: A looks up (when let go), X plays, Y hears the line, the D-pad moves the highlight in the words
+  // everywhere
+  assert.equal(full.general.select, "b0");
+  assert.equal(full.general.back, "b1");
+  assert.deepEqual([full.general.up, full.general.down, full.general.left, full.general.right], ["b12", "b13", "b14", "b15"]);
+  assert.deepEqual([full.general.prevTab, full.general.nextTab], ["b4", "b5"]);
+  assert.deepEqual([full.general.pageUp, full.general.pageDown], ["b6", "b7"]);
+  assert.deepEqual([full.general.scrollUp, full.general.scrollDown], ["a3-", "a3+"], "the right stick scrolls");
+  assert.equal(full.general.options, "b8", "View: the screen's options");
+  assert.equal(full.general.more, "b9", "Menu: more options for the highlighted thing");
+  assert.equal(full.general.menu, "", "the main tabs: up to the top bar, or B back to Home");
+  // each screen's LB / RB are its own "tabs", LT / RT its fast way through, View its options, Menu more
+  const lbrb = { video: ["prevLine", "nextLine"], reels: ["prevVideo", "nextVideo"], popup: ["wordLeft", "wordRight"],
+    review: ["again", "good"], reader: ["prevPage", "nextPage"], library: ["prevKind", "nextKind"],
+    lesson: ["prevLesson", "nextLesson"], vocab: ["prevFolder", "nextFolder"], settings: ["prevSection", "nextSection"] };
+  for (const [area, [prev, next]] of Object.entries(lbrb)) {
+    assert.equal(full[area][prev], "b4", `${area}: LB`);
+    assert.equal(full[area][next], "b5", `${area}: RB`);
+  }
+  assert.deepEqual([full.video.back5, full.video.fwd5], ["b6", "b7"], "a player's LT / RT: back / forward 5 seconds");
+  assert.deepEqual([full.reels.back5, full.reels.fwd5], ["b6", "b7"]);
+  assert.deepEqual([full.popup.scrollUp, full.popup.scrollDown], ["b6", "b7"]);
+  for (const area of ["video", "reels", "review", "reader", "vocab"]) assert.equal(actionFor(full, area, "b8"), "options", area);
+  assert.equal(full.popup.source, "b8");
+  assert.equal(actionFor(full, "video", "b9"), "wordMenu");
+  assert.equal(actionFor(full, "reader", "b9"), "wordMenu");
+  assert.equal(actionFor(full, "review", "b9"), "cardMenu");
+  // A selects: in the players the highlighted word (when let go), on a card it turns it / presses the highlighted one
   assert.equal(full.video.lookUp, "b0");
-  assert.equal(full.video.playPause, "b2");
-  assert.equal(full.video.replayLine, "b3");
-  assert.equal(full.video.wordLeft, "b14");
-  assert.equal(full.video.wordRight, "b15");
-  assert.equal(full.video.lineUp, "b12");
-  assert.equal(full.video.lineDown, "b13");
-  assert.equal(full.video.back5, "a0-", "the left stick seeks");
-  assert.equal(full.video.fwd5, "a0+");
-  assert.equal(full.video.prevLine, "a1-");
-  assert.equal(full.video.saveWord, "b7");
-  assert.equal(full.video.nextVideo, "b5");
-  assert.equal(actionFor(full, "video", "b0"), "lookUp");
-  // the word popup: A saves (or presses the highlighted button), X and Y play, ← → the next word
-  assert.equal(full.popup.press, "b0");
-  assert.equal(full.popup.close, "b1");
-  assert.equal(full.popup.playWord, "b2");
-  assert.equal(full.popup.playSentence, "b3");
-  assert.equal(full.popup.wordRight, "b15");
-  // cards: A turns (then presses the highlighted box), ← → answer, ↑ ↓ walk the back's boxes
-  assert.equal(full.review.turn, "b0");
-  assert.equal(full.review.again, "b14");
-  assert.equal(full.review.good, "b15");
-  assert.equal(full.review.up, "b12");
-  assert.equal(full.review.down, "b13");
-  // books: the same highlight as the players, LB / RB turn the page
+  assert.equal(full.reels.lookUp, "b0");
   assert.equal(full.reader.lookUp, "b0");
-  assert.equal(full.reader.prevPage, "b4");
-  assert.equal(full.reader.nextPage, "b5");
-  // the screens: X and Y do each one's main things, LB / RB its tabs
-  assert.equal(full.home.continue, "b2");
-  assert.equal(full.home.review, "b3");
-  assert.equal(full.library.nextKind, "b5");
-  assert.equal(full.library.add, "b2");
-  assert.equal(full.lesson.nextLesson, "b5");
-  assert.equal(full.vocab.review, "b2");
-  assert.equal(full.vocab.nextFolder, "b5");
-  assert.equal(full.settings.nextSection, "b5");
+  assert.equal(full.review.turn, "b0");
+  assert.equal(full.popup.press, "b0");
+  // X and Y: each screen's extra actions
+  assert.deepEqual([full.video.playPause, full.video.replayLine], ["b2", "b3"]);
+  assert.deepEqual([full.popup.playWord, full.popup.playSentence], ["b2", "b3"]);
+  assert.deepEqual([full.review.playWord, full.review.playSentence], ["b2", "b3"]);
+  assert.deepEqual([full.home.continue, full.home.review], ["b2", "b3"]);
+  assert.deepEqual([full.library.add, full.library.search], ["b2", "b3"]);
+  assert.deepEqual([full.lesson.hear, full.lesson.allLessons], ["b2", "b3"]);
+  assert.deepEqual([full.vocab.review, full.vocab.search], ["b2", "b3"]);
+  assert.equal(full.settings.search, "b3", "Y searches wherever there is a search");
+  assert.deepEqual([full.friends.record, full.friends.write], ["b2", "b3"]);
   assert.equal(full.dialog.confirm, "b2");
+  // typing: B done, Menu Enter (Xbox's on-screen keyboard)
   assert.equal(full.typing.leave, "b1");
   assert.equal(full.typing.enter, "b9");
-  // everywhere: A presses, B goes back, the D-pad moves, LB / RB tabs, the triggers a page, the right stick scrolls
-  assert.equal(full.general.back, "b1");
-  assert.equal(full.general.select, "b0");
-  assert.equal(full.general.up, "b12");
-  assert.equal(full.general.prevTab, "b4");
-  assert.equal(full.general.nextTab, "b5");
-  assert.equal(full.general.pageUp, "b6");
-  assert.equal(full.general.pageDown, "b7");
-  assert.equal(full.general.scrollDown, "a3+");
-  assert.equal(full.general.menu, "b9");
-  assert.equal(full.general.guide, "b8");
-  assert.equal(actionFor(full, "general", "b0"), "select");
+  // the D-pad (and the left stick) move the highlight: in the words, on the card, in the popup
+  assert.deepEqual([full.video.wordLeft, full.video.wordRight, full.video.lineUp, full.video.lineDown], ["b14", "b15", "b12", "b13"]);
+  assert.deepEqual([full.popup.up, full.popup.down, full.popup.left, full.popup.right], ["b12", "b13", "b14", "b15"]);
+  assert.deepEqual([full.review.up, full.review.down], ["b12", "b13"]);
+  // nothing has the left stick by default: it does what the D-pad does
+  for (const area of AREA_IDS) for (const s of Object.keys(STICK_AS_DPAD)) assert.equal(actionFor(full, area, s), "", `${area} ${s}`);
   // B is left to "back" on the screens (the popup and a text box close with it themselves)
-  for (const area of ["video", "review", "reader", "home", "library", "lesson", "vocab", "friends", "settings", "dialog"]) {
+  for (const area of ["video", "reels", "review", "reader", "home", "library", "lesson", "vocab", "friends", "settings", "dialog"]) {
     assert.equal(actionFor(full, area, "b1"), "", area);
   }
 });
@@ -129,17 +127,42 @@ test("held: moving and seeking repeat, answering and looking up never do; lookin
   assert.ok(by("general", "scrollUp").scroll);
   assert.ok(by("video", "lookUp").hold, "hold A and move to take in more words; letting go looks them up");
   assert.ok(by("reader", "lookUp").hold);
+  assert.ok(by("reels", "lookUp").hold);
   assert.ok(!by("video", "lookUp").repeat);
   for (const area of AREA_IDS) for (const a of ACTIONS[area]) assert.ok(!(a.hold && a.repeat), `${area}/${a.id}`);
+});
+
+test("what a button does on a screen (the drawing in Settings): the screen's, else Everywhere's; the left stick as the D-pad", () => {
+  const full = fullMap(undefined);
+  assert.deepEqual(whatDoes(full, "library", "b4"), { area: "library", action: "prevKind" });
+  assert.deepEqual(whatDoes(full, "library", "b0"), { area: "general", action: "select" });
+  assert.deepEqual(whatDoes(full, "home", "b8"), { area: "general", action: "options" });
+  assert.deepEqual(whatDoes(full, "video", "a0+"), { area: "video", action: "wordRight" }, "the left stick moves the word highlight");
+  assert.deepEqual(whatDoes(full, "home", "a1+"), { area: "general", action: "down" });
+  assert.deepEqual(whatDoes(full, "home", "a3+"), { area: "general", action: "scrollDown" });
+  assert.equal(whatDoes(full, "home", "b10"), null, "nothing on the left stick's press");
+  // typing: only leaving the box (and moving on with the D-pad)
+  assert.deepEqual(whatDoes(full, "typing", "b1"), { area: "typing", action: "leave" });
+  assert.deepEqual(whatDoes(full, "typing", "b13"), { area: "general", action: "down" });
+  assert.equal(whatDoes(full, "typing", "b0"), null);
+  // a button given another job shows that job straight away; the left stick given one of its own keeps it
+  let s = assign({}, "home", "review", "b8", 1).setting;
+  assert.deepEqual(whatDoes(fullMap(s), "home", "b8"), { area: "home", action: "review" });
+  s = assign({}, "general", "pageDown", "a1+", 2).setting;
+  assert.deepEqual(whatDoes(fullMap(s), "home", "a1+"), { area: "general", action: "pageDown" });
+  // LB / RB named together
+  assert.equal(pairName(whatDoes(full, "library", "b4"), whatDoes(full, "library", "b5")), "Kind");
+  assert.equal(pairName(whatDoes(full, "video", "b6"), whatDoes(full, "video", "b7")), "5 seconds");
+  assert.equal(pairName(whatDoes(full, "home", "b2"), whatDoes(full, "home", "b3")), "");
 });
 
 // ---------------------------------------------------------------- assigning ("press a button to assign")
 
 test("assigning a button to an action keeps only the change, with its time", () => {
-  const { setting, took } = assign({}, "video", "playPause", "b9", 1000);
+  const { setting, took } = assign({}, "video", "playPause", "b11", 1000);
   assert.equal(took, null);
-  assert.deepEqual(setting, { at: 1000, map: { video: { playPause: "b9" } } });
-  assert.equal(fullMap(setting).video.playPause, "b9");
+  assert.deepEqual(setting, { at: 1000, map: { video: { playPause: "b11" } } });
+  assert.equal(fullMap(setting).video.playPause, "b11");
   assert.equal(fullMap(setting).video.lookUp, "b0", "the rest keep their defaults");
 });
 
@@ -155,26 +178,26 @@ test("a button already used on the same screen moves: the other action is left w
   assert.equal(full.popup.playSentence, "b3");
 });
 
-test("a learner's buttons from before the screens had their own keep working", () => {
-  // v0.39: A played; a learner who put "play / pause" on RB (and so took it from "next reel")
-  const old = { at: 50, map: { video: { playPause: "b5", nextVideo: "" } } };
-  let full = fullMap(old);
+test("a learner's buttons from before keep working", () => {
+  // v0.39: a learner who put "play / pause" on RB (RB is "next line" by default now)
+  let full = fullMap({ at: 50, map: { video: { playPause: "b5", nextVideo: "" } } });
   assert.equal(full.video.playPause, "b5");
-  assert.equal(full.video.nextVideo, "");
+  assert.equal(full.video.nextLine, "", "the default that came later gives way");
   assert.equal(actionFor(full, "video", "b5"), "playPause");
-  // one who put "look up" on Start: now a default of no action on that screen, so nothing is lost
+  // one who put "look up" on Start
   full = fullMap({ at: 1, map: { video: { lookUp: "b9" } } });
   assert.equal(full.video.lookUp, "b9");
+  assert.equal(full.video.wordMenu, "", "Menu was the learner's before it was More");
   assert.equal(actionFor(full, "video", "b0"), "", "A is free: the learner's look-up button stays where they put it");
   // a learner's button wins over a newer default of another action on the same screen
-  full = fullMap({ at: 1, map: { video: { captions: "b2" } } });  // X: captions (X is play / pause now)
+  full = fullMap({ at: 1, map: { video: { captions: "b2" } } });
   assert.equal(full.video.captions, "b2");
-  assert.equal(full.video.playPause, "", "the default that came later gives way");
+  assert.equal(full.video.playPause, "");
   assert.equal(actionFor(full, "video", "b2"), "captions");
   // and saving another change doesn't undo that
   const { setting } = assign({ at: 1, map: { video: { captions: "b2" } } }, "video", "slower", "b10", 9);
   assert.equal(fullMap(setting).video.captions, "b2");
-  assert.equal(fullMap(setting).video.loopLine, "", "LS press went to slow down");
+  assert.equal(fullMap(setting).video.slower, "b10");
 });
 
 test("clearing, resetting one action and resetting an area", () => {
@@ -183,19 +206,19 @@ test("clearing, resetting one action and resetting an area", () => {
   assert.deepEqual(s.map, { review: { again: "" } }, "a cleared action is kept as cleared, not as the default");
   s = assign(s, "review", "good", "b7", 2).setting;
   s = resetAction(s, "review", "again", 3).setting;
-  assert.equal(fullMap(s).review.again, "b14");
+  assert.equal(fullMap(s).review.again, "b4");
   assert.equal(fullMap(s).review.good, "b7");
-  s = assign(s, "video", "slower", "b4", 4).setting;   // LB: "previous reel" loses it
-  assert.equal(fullMap(s).video.prevVideo, "");
+  s = assign(s, "reels", "saveWord", "b4", 4).setting;   // LB: "previous reel" loses it
+  assert.equal(fullMap(s).reels.prevVideo, "");
   const one = resetArea(s, "review", 9);
   assert.equal(one.at, 9);
-  assert.deepEqual(one.map, { video: { slower: "b4", prevVideo: "" } });
+  assert.deepEqual(one.map, { reels: { saveWord: "b4", prevVideo: "" } });
   assert.deepEqual(resetArea(s, "", 10), { at: 10, map: {} });
 });
 
 test("resetting an action takes its default button back from the action that had it", () => {
-  let s = assign({}, "video", "replayLine", "b9", 1).setting;   // hear the line on Menu; Y is free
-  s = assign(s, "video", "saveWord", "b3", 2).setting;          // save on Y
+  let s = assign({}, "video", "replayLine", "b11", 1).setting;  // hear the line on the right stick's press; Y is free
+  s = assign(s, "video", "saveWord", "b3", 2).setting;           // save on Y
   const { setting, took } = resetAction(s, "video", "replayLine", 3);
   assert.equal(took, "saveWord");
   assert.equal(fullMap(setting).video.replayLine, "b3");
@@ -248,8 +271,8 @@ test("the computer's twin knows the same screens (app/controller.py)", () => {
 });
 
 test("saving and loading go through JSON unchanged (the settings store, Drive sync)", () => {
-  let s = assign({}, "video", "nextVideo", "a0+", 10).setting;
-  s = assign(s, "general", "menu", "", 11).setting;
+  let s = assign({}, "reels", "nextVideo", "a0+", 10).setting;
+  s = assign(s, "general", "more", "", 11).setting;
   const back = cleanSetting(JSON.parse(JSON.stringify(s)));
   assert.deepEqual(back, s);
   assert.deepEqual(fullMap(back), fullMap(s));
@@ -341,6 +364,53 @@ test("press a button to assign: the first new button, or a stick pushed well awa
 
 // ---------------------------------------------------------------- names on the buttons
 
+test("devices that only say they are controllers are left out (speakers' volume keys)", () => {
+  const pebble = { id: "Pebble V3 (Vendor: 041e Product: 3272)", mapping: "", buttons: Array(7).fill({ pressed: false, value: 0 }), axes: [] };
+  assert.equal(isController(pebble), false);
+  assert.equal(isController({ id: "x", mapping: "standard", buttons: [], axes: [] }), true);
+  assert.equal(isController({ id: "Unknown Gamepad", mapping: "", buttons: Array(12).fill(0), axes: [0, 0, 0, 0] }), true);
+  assert.equal(isController(null), false);
+});
+
+test("an Xbox controller over Bluetooth the browser doesn't know: its buttons, triggers and D-pad in the standard places", () => {
+  // as the owner's Xbox Series controller (045e:0b13) shows up: 15 buttons, triggers resting at −1, the D-pad on axis 9
+  const raw = (pressed = [], axes = {}) => ({
+    id: "Unknown Gamepad (Vendor: 045e Product: 0b13)", index: 1, mapping: "", connected: true,
+    buttons: Array.from({ length: 15 }, (_, i) => ({ pressed: pressed.includes(i), value: pressed.includes(i) ? 1 : 0 })),
+    axes: Object.assign([0.01, -0.01, -0.03, -1, -1, 0, 0, 0, 0, 1227133568], axes),
+  });
+  const down = (pad) => [...readInputs(standardize(pad)).down].sort();
+  // at rest nothing is down (the triggers at −1 used to read as the right stick pushed up: endless scrolling)
+  assert.deepEqual(down(raw()), []);
+  assert.equal(standardize(raw()).mapping, "standard");
+  assert.equal(standardize(raw()).axes.length, 4);
+  // A B X Y, LB RB, View Menu, the sticks' presses
+  assert.deepEqual(down(raw([0])), ["b0"]);
+  assert.deepEqual(down(raw([1])), ["b1"]);
+  assert.deepEqual(down(raw([3])), ["b2"], "X");
+  assert.deepEqual(down(raw([4])), ["b3"], "Y");
+  assert.deepEqual(down(raw([6, 7])), ["b4", "b5"], "LB, RB");
+  assert.deepEqual(down(raw([10, 11])), ["b8", "b9"], "View, Menu");
+  assert.deepEqual(down(raw([13, 14])), ["b10", "b11"], "the sticks pressed");
+  // the triggers pulled
+  assert.deepEqual(down(raw([], { 3: 1 })), ["b6"]);
+  assert.deepEqual(down(raw([], { 4: 0.9 })), ["b7"]);
+  assert.deepEqual(down(raw([], { 3: 0 })), [], "a trigger never touched yet reads 0: not pressed");
+  // the D-pad: up, right, down, left, and up-left (two at once)
+  const hat = (dir) => -1 + (2 * dir) / 7;
+  assert.deepEqual(down(raw([], { 9: hat(0) })), ["b12"]);
+  assert.deepEqual(down(raw([], { 9: hat(2) })), ["b15"]);
+  assert.deepEqual(down(raw([], { 9: hat(4) })), ["b13"]);
+  assert.deepEqual(down(raw([], { 9: hat(6) })), ["b14"]);
+  assert.deepEqual(down(raw([], { 9: hat(7) })), ["b12", "b14"]);
+  assert.deepEqual(down(raw([], { 9: 1.2857 })), [], "no direction");
+  // the right stick: axis 2 across, axis 5 up and down
+  assert.deepEqual(down(raw([], { 5: 0.9 })), ["a3+"]);
+  // a controller the browser knows is left as it is
+  const known = { id: "Xbox 360 Controller (XInput STANDARD GAMEPAD)", mapping: "standard", buttons: [], axes: [] };
+  assert.equal(standardize(known), known);
+});
+
 test("which kind of controller, from the name the browser gives it", () => {
   assert.equal(padKind("Xbox 360 Controller (XInput STANDARD GAMEPAD)"), "xbox");
   assert.equal(padKind("Xbox Wireless Controller (STANDARD GAMEPAD Vendor: 045e Product: 0b13)"), "xbox");
@@ -382,7 +452,7 @@ test("Settings → Controller is a section of both Settings pages, found by the 
   }
   assert.match(read("web/js/pages/settings.js"), /controller: controllerSection/);
   assert.match(read("mobile/src/js/pages/settings.js"), /controller: controllerSection/);
-  assert.equal(AREAS.length, 13);
+  assert.equal(AREAS.length, 14);
 });
 
 // ---------------------------------------------------------------- moving the highlight with the D-pad

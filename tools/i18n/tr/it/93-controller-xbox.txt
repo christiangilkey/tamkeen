@@ -1,0 +1,36 @@
+01db79f1	Un controller di gioco
+aecc22aa	Sposta l'evidenziazione
+6b673d60	Levetta sinistra
+946e2c5a	Levetta destra
+ca689ba7	Podcast, YouTube, Netflix e i tuoi video.
+ba60d63d	Guardare i reel di Instagram.
+76c664a8	5 secondi
+e0dc6bfb	Opzioni: più lento, ripeti, sottotitoli, la trascrizione, dimensione del testo
+ed88801e	Altre opzioni per la parola evidenziata (salva, copia, riproduci da qui, ripeti)
+061348a2	Opzioni: i pulsanti propri del reel
+40540ef6	Evidenzia il pulsante sopra
+244226e9	Evidenzia il pulsante sotto
+2fa55321	Evidenzia il pulsante a sinistra
+000ec168	Evidenzia il pulsante a destra
+acec091d	Parola a sinistra
+ec679a70	Parola a destra
+39c91b76	Scorri la spiegazione in su
+e4703974	Scorri la spiegazione in giù
+e8037403	Gira la scheda; sul retro, premi il pulsante o il riquadro evidenziato
+fc3e111e	Evidenzia il riquadro o il pulsante sopra
+89e81f25	Evidenzia il riquadro o il pulsante sotto
+a1bf59de	Altre opzioni: annulla, dilla, elimina la parola, termina
+da617d4c	Opzioni: dimensione del testo
+bee9bd85	Altre opzioni per la parola evidenziata (salva, copia)
+f01a945e	Tipo precedente
+2a568e9f	Tipo successivo
+736bcf56	Cartella precedente
+ea22c4d7	Cartella successiva
+fad53e0a	Opzioni: aggiungi parole, esporta, Anki
+7d24f27b	Sezione precedente
+dcd480d3	Sezione successiva
+7b50fc75	Seleziona ciò che è evidenziato
+75dd5109	Scheda precedente
+84c508a2	Scheda successiva
+1deacd3a	Opzioni di questa schermata (o come usarla)
+45fccfca	Altre opzioni per ciò che è evidenziato

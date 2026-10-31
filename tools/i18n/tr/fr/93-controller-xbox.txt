@@ -1,0 +1,36 @@
+01db79f1	Une manette de jeu
+aecc22aa	Déplacer la surbrillance
+6b673d60	Joystick gauche
+946e2c5a	Joystick droit
+ca689ba7	Podcasts, YouTube, Netflix et vos propres vidéos.
+ba60d63d	Regarder des reels Instagram.
+76c664a8	5 secondes
+e0dc6bfb	Options : ralentir, en boucle, sous-titres, la transcription, taille du texte
+ed88801e	Plus d'options pour le mot en surbrillance (enregistrer, copier, lire à partir d'ici, en boucle)
+061348a2	Options : les boutons propres au reel
+40540ef6	Mettre en surbrillance le bouton du dessus
+244226e9	Mettre en surbrillance le bouton du dessous
+2fa55321	Mettre en surbrillance le bouton de gauche
+000ec168	Mettre en surbrillance le bouton de droite
+acec091d	Mot de gauche
+ec679a70	Mot de droite
+39c91b76	Faire défiler l'explication vers le haut
+e4703974	Faire défiler l'explication vers le bas
+e8037403	Retourner la carte ; au verso, appuyer sur le bouton ou la case en surbrillance
+fc3e111e	Mettre en surbrillance la case ou le bouton du dessus
+89e81f25	Mettre en surbrillance la case ou le bouton du dessous
+a1bf59de	Plus d'options : annuler, le dire, supprimer le mot, terminer
+da617d4c	Options : taille du texte
+bee9bd85	Plus d'options pour le mot en surbrillance (enregistrer, copier)
+f01a945e	Type précédent
+2a568e9f	Type suivant
+736bcf56	Dossier précédent
+ea22c4d7	Dossier suivant
+fad53e0a	Options : ajouter des mots, exporter, Anki
+7d24f27b	Section précédente
+dcd480d3	Section suivante
+7b50fc75	Sélectionner ce qui est en surbrillance
+75dd5109	Onglet précédent
+84c508a2	Onglet suivant
+1deacd3a	Options de cet écran (ou comment l'utiliser)
+45fccfca	Plus d'options pour ce qui est en surbrillance

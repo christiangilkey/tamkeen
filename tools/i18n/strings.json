@@ -4685,6 +4685,26 @@
   "f": "web/js/components/ownmodel.js"
  },
  {
+  "id": "01db79f1",
+  "k": "A game controller",
+  "f": "web/js/components/paddiagram.js"
+ },
+ {
+  "id": "aecc22aa",
+  "k": "Move the highlight",
+  "f": "web/js/components/paddiagram.js"
+ },
+ {
+  "id": "6b673d60",
+  "k": "Left stick",
+  "f": "web/js/components/paddiagram.js"
+ },
+ {
+  "id": "946e2c5a",
+  "k": "Right stick",
+  "f": "web/js/components/paddiagram.js"
+ },
+ {
   "id": "6271a4fa",
   "k": "Couldn't sync.",
   "f": "web/js/components/refreshbutton.js"
@@ -11250,6 +11270,11 @@
   "f": "web/js/gamepad.js"
  },
  {
+  "id": "bf073fae",
+  "k": "Guide",
+  "f": "web/js/gamepad.js"
+ },
+ {
   "id": "d0673c80",
   "k": "Collection {0}",
   "f": "web/js/igcollections.js"
@@ -11755,8 +11780,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "4758da15",
-  "k": "Podcasts, YouTube, Netflix, your own videos and reels.",
+  "id": "ca689ba7",
+  "k": "Podcasts, YouTube, Netflix and your own videos.",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ba60d63d",
+  "k": "Watching Instagram reels.",
   "f": "web/js/padmap.js"
  },
  {
@@ -11920,16 +11950,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "de6afdb5",
-  "k": "Back 5 seconds",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "2c23a430",
-  "k": "Forward 5 seconds",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "f3d89d97",
   "k": "Play the previous line",
   "f": "web/js/padmap.js"
@@ -11950,13 +11970,28 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "0fb3f212",
-  "k": "Loop this line (on / off)",
+  "id": "de6afdb5",
+  "k": "Back 5 seconds",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "dc7f77b4",
-  "k": "Loop",
+  "id": "76c664a8",
+  "k": "5 seconds",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2c23a430",
+  "k": "Forward 5 seconds",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e0dc6bfb",
+  "k": "Options: slow down, loop, captions, the transcript, text size",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ed88801e",
+  "k": "More options for the highlighted word (save, copy, play from here, loop)",
   "f": "web/js/padmap.js"
  },
  {
@@ -11967,6 +12002,16 @@
  {
   "id": "cf606d09",
   "k": "Slower",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "0fb3f212",
+  "k": "Loop this line (on / off)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "dc7f77b4",
+  "k": "Loop",
   "f": "web/js/padmap.js"
  },
  {
@@ -12005,6 +12050,11 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "061348a2",
+  "k": "Options: the reel's own buttons",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "5aabf86e",
   "k": "Press the highlighted button (Save when none is)",
   "f": "web/js/padmap.js"
@@ -12025,8 +12075,8 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "4b58c762",
-  "k": "Highlight the button before",
+  "id": "40540ef6",
+  "k": "Highlight the button above",
   "f": "web/js/padmap.js"
  },
  {
@@ -12035,8 +12085,18 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "82e9d7ad",
-  "k": "Highlight the button after",
+  "id": "244226e9",
+  "k": "Highlight the button below",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2fa55321",
+  "k": "Highlight the button to the left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "000ec168",
+  "k": "Highlight the button to the right",
   "f": "web/js/padmap.js"
  },
  {
@@ -12045,13 +12105,43 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "acec091d",
+  "k": "Word to the left",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "7cd09c01",
   "k": "Look up the word to the right",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "49d62a9b",
-  "k": "Save the word",
+  "id": "ec679a70",
+  "k": "Word to the right",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "39c91b76",
+  "k": "Scroll the explanation up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "4d07e752",
+  "k": "Scroll up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "090a3c80",
+  "k": "Scroll",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e4703974",
+  "k": "Scroll the explanation down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "3a2e1ba7",
+  "k": "Scroll down",
   "f": "web/js/padmap.js"
  },
  {
@@ -12065,8 +12155,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "49204080",
-  "k": "Turn the card; on its back, press the highlighted box (Remembered when none is)",
+  "id": "49d62a9b",
+  "k": "Save the word",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e8037403",
+  "k": "Turn the card; on its back, press the highlighted button or box",
   "f": "web/js/padmap.js"
  },
  {
@@ -12085,13 +12180,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "395cd9f2",
-  "k": "Highlight the box above (on the back)",
+  "id": "fc3e111e",
+  "k": "Highlight the box or button above",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "17014e92",
-  "k": "Highlight the box below (on the back)",
+  "id": "89e81f25",
+  "k": "Highlight the box or button below",
   "f": "web/js/padmap.js"
  },
  {
@@ -12102,6 +12197,16 @@
  {
   "id": "7cf414e1",
   "k": "Play the sentence",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ddcdbf32",
+  "k": "Reviewer settings",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "a1bf59de",
+  "k": "More options: undo, say it, delete the word, finish",
   "f": "web/js/padmap.js"
  },
  {
@@ -12150,6 +12255,16 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "da617d4c",
+  "k": "Options: text size",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "bee9bd85",
+  "k": "More options for the highlighted word (save, copy)",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "fe2d8685",
   "k": "Continue where you left off",
   "f": "web/js/padmap.js"
@@ -12170,6 +12285,11 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "f01a945e",
+  "k": "Previous kind",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "e00ac23f",
   "k": "Kind",
   "f": "web/js/padmap.js"
@@ -12177,6 +12297,11 @@
  {
   "id": "39386083",
   "k": "The next kind",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2a568e9f",
+  "k": "Next kind",
   "f": "web/js/padmap.js"
  },
  {
@@ -12230,8 +12355,23 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "736bcf56",
+  "k": "Previous folder",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "e63e5fe3",
   "k": "The next folder",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ea22c4d7",
+  "k": "Next folder",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "fad53e0a",
+  "k": "Options: add words, export, Anki",
   "f": "web/js/padmap.js"
  },
  {
@@ -12260,6 +12400,11 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "7d24f27b",
+  "k": "Previous section",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "f2c6b564",
   "k": "Section",
   "f": "web/js/padmap.js"
@@ -12267,6 +12412,11 @@
  {
   "id": "8488f780",
   "k": "The next section",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "dcd480d3",
+  "k": "Next section",
   "f": "web/js/padmap.js"
  },
  {
@@ -12300,8 +12450,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "82d366b2",
-  "k": "Press the highlighted button",
+  "id": "7b50fc75",
+  "k": "Select the highlighted thing",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "85982229",
+  "k": "Select",
   "f": "web/js/padmap.js"
  },
  {
@@ -12330,6 +12485,11 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "75dd5109",
+  "k": "Previous tab",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "fe06eb64",
   "k": "Tab",
   "f": "web/js/padmap.js"
@@ -12337,6 +12497,11 @@
  {
   "id": "13afcd42",
   "k": "The next tab",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "84c508a2",
+  "k": "Next tab",
   "f": "web/js/padmap.js"
  },
  {
@@ -12360,18 +12525,13 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "4d07e752",
-  "k": "Scroll up",
+  "id": "1deacd3a",
+  "k": "Options for this screen (or how to use it)",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "090a3c80",
-  "k": "Scroll",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "3a2e1ba7",
-  "k": "Scroll down",
+  "id": "45fccfca",
+  "k": "More options for the highlighted thing",
   "f": "web/js/padmap.js"
  },
  {
@@ -12387,11 +12547,6 @@
  {
   "id": "9bbc1141",
   "k": "How to use this screen (its guide)",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "bf073fae",
-  "k": "Guide",
   "f": "web/js/padmap.js"
  },
  {
@@ -12442,11 +12597,6 @@
  {
   "id": "fe5adc09",
   "k": "Right trigger",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "85982229",
-  "k": "Select",
   "f": "web/js/padmap.js"
  },
  {
@@ -14490,6 +14640,11 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "d15f886d",
+  "k": "Full screen",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "d6ed4349",
   "k": "Slowed down to {0}×",
   "f": "web/js/pages/player.js"
@@ -15032,11 +15187,6 @@
  {
   "id": "c202089b",
   "k": "How to review",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "ddcdbf32",
-  "k": "Reviewer settings",
   "f": "web/js/pages/review.js"
  },
  {
@@ -21872,11 +22022,6 @@
  {
   "id": "f7697583",
   "k": "Show or hide the transcript (T)",
-  "f": "extension/src/js/ext/panel.js"
- },
- {
-  "id": "d15f886d",
-  "k": "Full screen",
   "f": "extension/src/js/ext/panel.js"
  },
  {

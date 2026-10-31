@@ -1,0 +1,36 @@
+01db79f1	Usa ka game controller
+aecc22aa	Ibalhin ang highlight
+6b673d60	Wala nga stick
+946e2c5a	Tuo nga stick
+ca689ba7	Mga podcast, YouTube, Netflix ug imong kaugalingong mga video.
+ba60d63d	Samtang nagtan-aw og mga Instagram reel.
+76c664a8	5 segundos
+e0dc6bfb	Mga opsyon: hinayhinay, balik-balik, captions, ang transcript, gidak-on sa teksto
+ed88801e	Dugang mga opsyon para sa naka-highlight nga pulong (i-save, kopyaha, i-play gikan dinhi, balik-balik)
+061348a2	Mga opsyon: ang kaugalingong mga button sa reel
+40540ef6	I-highlight ang button sa ibabaw
+244226e9	I-highlight ang button sa ubos
+2fa55321	I-highlight ang button sa wala
+000ec168	I-highlight ang button sa tuo
+acec091d	Pulong sa wala
+ec679a70	Pulong sa tuo
+39c91b76	I-scroll pataas ang pagpasabot
+e4703974	I-scroll paubos ang pagpasabot
+e8037403	Balihon ang card; sa likod, pislita ang naka-highlight nga button o kahon
+fc3e111e	I-highlight ang kahon o button sa ibabaw
+89e81f25	I-highlight ang kahon o button sa ubos
+a1bf59de	Dugang mga opsyon: i-undo, isulti, tangtanga ang pulong, tapusa
+da617d4c	Mga opsyon: gidak-on sa teksto
+bee9bd85	Dugang mga opsyon para sa naka-highlight nga pulong (i-save, kopyaha)
+f01a945e	Miaging klase
+2a568e9f	Sunod nga klase
+736bcf56	Miaging folder
+ea22c4d7	Sunod nga folder
+fad53e0a	Mga opsyon: pagdugang og mga pulong, i-export, Anki
+7d24f27b	Miaging seksyon
+dcd480d3	Sunod nga seksyon
+7b50fc75	Pilia ang naka-highlight
+75dd5109	Miaging tab
+84c508a2	Sunod nga tab
+1deacd3a	Mga opsyon para niining screen (o unsaon paggamit niini)
+45fccfca	Dugang mga opsyon para sa naka-highlight

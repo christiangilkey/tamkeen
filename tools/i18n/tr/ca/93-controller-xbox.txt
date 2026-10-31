@@ -1,0 +1,36 @@
+01db79f1	Un comandament de joc
+aecc22aa	Mou el ressaltat
+6b673d60	Palanca esquerra
+946e2c5a	Palanca dreta
+ca689ba7	Pòdcasts, YouTube, Netflix i els teus vídeos.
+ba60d63d	Mirant reels d'Instagram.
+76c664a8	5 segons
+e0dc6bfb	Opcions: més a poc a poc, repetició, subtítols, la transcripció, mida del text
+ed88801e	Més opcions per a la paraula ressaltada (desa, copia, reprodueix des d'aquí, repeteix)
+061348a2	Opcions: els botons propis del reel
+40540ef6	Ressalta el botó de dalt
+244226e9	Ressalta el botó de sota
+2fa55321	Ressalta el botó de l'esquerra
+000ec168	Ressalta el botó de la dreta
+acec091d	Paraula de l'esquerra
+ec679a70	Paraula de la dreta
+39c91b76	Desplaça l'explicació amunt
+e4703974	Desplaça l'explicació avall
+e8037403	Gira la targeta; al revers, prem el botó o el quadre ressaltat
+fc3e111e	Ressalta el quadre o el botó de dalt
+89e81f25	Ressalta el quadre o el botó de sota
+a1bf59de	Més opcions: desfés, digues-la, esborra la paraula, acaba
+da617d4c	Opcions: mida del text
+bee9bd85	Més opcions per a la paraula ressaltada (desa, copia)
+f01a945e	Tipus anterior
+2a568e9f	Tipus següent
+736bcf56	Carpeta anterior
+ea22c4d7	Carpeta següent
+fad53e0a	Opcions: afegeix paraules, exporta, Anki
+7d24f27b	Secció anterior
+dcd480d3	Secció següent
+7b50fc75	Selecciona el que està ressaltat
+75dd5109	Pestanya anterior
+84c508a2	Pestanya següent
+1deacd3a	Opcions d'aquesta pantalla (o com fer-la servir)
+45fccfca	Més opcions per al que està ressaltat

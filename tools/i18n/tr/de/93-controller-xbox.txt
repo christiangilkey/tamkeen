@@ -1,0 +1,36 @@
+01db79f1	Ein Gamecontroller
+aecc22aa	Markierung bewegen
+6b673d60	Linker Stick
+946e2c5a	Rechter Stick
+ca689ba7	Podcasts, YouTube, Netflix und deine eigenen Videos.
+ba60d63d	Instagram-Reels ansehen.
+76c664a8	5 Sekunden
+e0dc6bfb	Optionen: langsamer, wiederholen, Untertitel, das Transkript, Textgröße
+ed88801e	Weitere Optionen für das markierte Wort (speichern, kopieren, ab hier abspielen, wiederholen)
+061348a2	Optionen: die eigenen Knöpfe des Reels
+40540ef6	Den Knopf darüber markieren
+244226e9	Den Knopf darunter markieren
+2fa55321	Den Knopf links markieren
+000ec168	Den Knopf rechts markieren
+acec091d	Wort links
+ec679a70	Wort rechts
+39c91b76	Die Erklärung nach oben scrollen
+e4703974	Die Erklärung nach unten scrollen
+e8037403	Die Karte umdrehen; auf der Rückseite den markierten Knopf oder das markierte Feld drücken
+fc3e111e	Das Feld oder den Knopf darüber markieren
+89e81f25	Das Feld oder den Knopf darunter markieren
+a1bf59de	Weitere Optionen: rückgängig, aussprechen, das Wort löschen, beenden
+da617d4c	Optionen: Textgröße
+bee9bd85	Weitere Optionen für das markierte Wort (speichern, kopieren)
+f01a945e	Vorherige Art
+2a568e9f	Nächste Art
+736bcf56	Vorheriger Ordner
+ea22c4d7	Nächster Ordner
+fad53e0a	Optionen: Wörter hinzufügen, exportieren, Anki
+7d24f27b	Vorheriger Bereich
+dcd480d3	Nächster Bereich
+7b50fc75	Das Markierte auswählen
+75dd5109	Vorheriger Tab
+84c508a2	Nächster Tab
+1deacd3a	Optionen für diesen Bildschirm (oder wie du ihn nutzt)
+45fccfca	Weitere Optionen für das Markierte

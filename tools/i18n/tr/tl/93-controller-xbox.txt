@@ -1,0 +1,36 @@
+01db79f1	Isang game controller
+aecc22aa	Ilipat ang highlight
+6b673d60	Kaliwang stick
+946e2c5a	Kanang stick
+ca689ba7	Mga podcast, YouTube, Netflix at sarili mong mga video.
+ba60d63d	Habang nanonood ng mga Instagram reel.
+76c664a8	5 segundo
+e0dc6bfb	Mga opsyon: bagalan, ulitin, captions, ang transcript, laki ng teksto
+ed88801e	Iba pang opsyon para sa naka-highlight na salita (i-save, kopyahin, i-play mula rito, ulitin)
+061348a2	Mga opsyon: ang sariling mga button ng reel
+40540ef6	I-highlight ang button sa itaas
+244226e9	I-highlight ang button sa ibaba
+2fa55321	I-highlight ang button sa kaliwa
+000ec168	I-highlight ang button sa kanan
+acec091d	Salita sa kaliwa
+ec679a70	Salita sa kanan
+39c91b76	I-scroll pataas ang paliwanag
+e4703974	I-scroll pababa ang paliwanag
+e8037403	Baligtarin ang card; sa likod nito, pindutin ang naka-highlight na button o kahon
+fc3e111e	I-highlight ang kahon o button sa itaas
+89e81f25	I-highlight ang kahon o button sa ibaba
+a1bf59de	Iba pang opsyon: i-undo, bigkasin ito, burahin ang salita, tapusin
+da617d4c	Mga opsyon: laki ng teksto
+bee9bd85	Iba pang opsyon para sa naka-highlight na salita (i-save, kopyahin)
+f01a945e	Naunang uri
+2a568e9f	Susunod na uri
+736bcf56	Naunang folder
+ea22c4d7	Susunod na folder
+fad53e0a	Mga opsyon: magdagdag ng salita, i-export, Anki
+7d24f27b	Naunang seksyon
+dcd480d3	Susunod na seksyon
+7b50fc75	Piliin ang naka-highlight
+75dd5109	Naunang tab
+84c508a2	Susunod na tab
+1deacd3a	Mga opsyon para sa screen na ito (o kung paano ito gamitin)
+45fccfca	Iba pang opsyon para sa naka-highlight

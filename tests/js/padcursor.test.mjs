@@ -192,17 +192,23 @@ test("no words: nothing to highlight", () => {
 // ---------------------------------------------------------------- the screens' wiring
 
 test("each screen with words claims its buttons, with the highlight and the popup's next word", () => {
-  for (const [file, area] of [["web/js/pages/player.js", "video"], ["web/js/pages/reels.js", "video"],
+  for (const [file, area] of [["web/js/pages/player.js", "video"], ["web/js/pages/reels.js", "reels"],
     ["web/js/pages/book.js", "reader"], ["web/js/pages/reader.js", "reader"]]) {
     const src = read(file);
     assert.match(src, new RegExp(`controllerArea\\("${area}"`), file);
     assert.match(src, /wordCursor\(/, `${file}: the highlight in the words`);
     assert.match(src, /actionHeld\("lookUp"\)/, `${file}: hold A to take in more words`);
-    assert.match(src, /popupStep:/, `${file}: ← → in the word popup`);
+    assert.match(src, /popupStep:/, `${file}: LB / RB in the word popup`);
+    assert.match(src, /options:/, `${file}: View, its options`);
     assert.match(src, /offPad\(\)/, `${file}: given back when the page closes`);
   }
+  for (const file of ["web/js/pages/player.js", "web/js/pages/book.js", "web/js/pages/reader.js"]) {
+    assert.match(read(file), /wordMenu:/, `${file}: Menu, the highlighted word's own menu`);
+  }
   const review = read("web/js/pages/review.js");
-  assert.match(review, /highlightMove\(dir, \{ root: face, linear: true/, "the card's back: up and down walk its boxes");
+  assert.match(review, /highlightMove\(dir, \{ root: \[face, actions\], linear: true/, "the card's back: up and down walk its boxes, then its answers");
+  assert.match(review, /if \(padInUse\(\)\) highlightOn\(actions\.querySelector\("\.rv-yes"\)\)/, "the back starts with the highlight on Remembered");
+  assert.match(review, /cardMenu:/, "Menu: more for the card (undo, say it, delete, finish)");
   assert.match(review, /tapEdit\(box\)/, "A on a text of the back opens it, as a tap does");
 });
 
@@ -237,7 +243,7 @@ test("boxes the controller must stay inside, and no browser OK / Cancel box it c
 
 test("the phone and web app builds have the new files", () => {
   const shared = read("mobile/scripts/build-www.mjs");
-  for (const f of ["js/padcursor.js", "js/padscreens.js", "js/phrase.js", "js/components/modal.js", "js/components/selectsheet.js"]) {
+  for (const f of ["js/padcursor.js", "js/padscreens.js", "js/components/paddiagram.js", "js/phrase.js", "js/components/modal.js", "js/components/selectsheet.js"]) {
     assert.ok(shared.includes(`"${f}"`), f);
   }
 });
