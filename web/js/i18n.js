@@ -193,17 +193,20 @@ function insideSkipped(el, text = false) {
 
 let dict = null;      // English -> translation, for keys without {0}
 let patterns = [];    // keys with {0}: [{ re, out, literal }] most specific first
+let templates = null; // keys with {0} -> translation, for t() asked for a whole template
 const cache = new Map();
 
 /** Use this dictionary ({ "English": "translation" }); null = show English. */
 export function setDictionary(d) {
   dict = d ? Object.create(null) : null;
+  templates = d ? Object.create(null) : null;
   patterns = [];
   cache.clear();
   if (!d) return;
   for (const [k, v] of Object.entries(d)) {
     if (typeof v !== "string" || !v || k.startsWith("//")) continue;
     if (!/\{\d+\}/.test(k)) { dict[k] = v; continue; }
+    templates[k] = v;
     const parts = k.split(/(\{\d+\})/);
     const literal = parts.filter((p, i) => i % 2 === 0).join("");
     if (!hasWords(literal)) { dict[k] = v; continue; } // only for t("{0} {1}"): as a pattern it would match anything
@@ -257,7 +260,9 @@ export function lookup(key) {
 /** Translate a string written in the code: t("Saved {0} words", 3). Returns the English when
  * there is no translation. Values replace {0}, {1}… in order. */
 export function t(english, ...values) {
-  const out = lookup(norm(english)) ?? english;
+  // A template asked for as it is ("{0} is out.") is found as it is, so its "{0:lower}" marks survive.
+  const key = norm(english);
+  const out = (values.length && templates && templates[key]) || lookup(key) || english;
   return values.length ? out.replace(/\{(\d+)(?::(lower|upper))?\}/g, (all, n, how) => {
     if (Number(n) >= values.length) return all;
     const v = String(values[n]);

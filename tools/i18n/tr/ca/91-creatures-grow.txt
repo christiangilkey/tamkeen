@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	La criatura de l'hàbitat és la que creix mentre estudies. Les criatures es queden joves: una criatura jove continua creixent fins que és del tot crescuda i llavors et deixa un ou nou. El seu aspecte el tries tu i es pot canviar després: no es perd res per mantenir un aspecte més jove o per provar una coloració especial.
+24c58d57	· Del tot crescuda
+741ec4dc	Coloració especial
+57467f06	Només moviments bàsics
+b396fbce	Els moviments comprats a la botiga es queden fora aquesta setmana.
+a304f6b2	Cria una criatura fins que sigui del tot crescuda
+740ac187	Allibera una criatura del tot crescuda
+5e37efe9	Una criatura del tot crescuda es pot alliberar. Deixa el teu grup i se la recorda aquí. Els teus edificis i el teu brill tornen a començar de zero, i et quedes <0/>: cada unitat fa que tots els edificis siguin un {0} % més ràpids per sempre, així que el jardí següent creix molt més de pressa que l'anterior. Com més edificis del tot crescuts tinguis en aquell moment, més pols d'estels.
+684832fa	Encara no tens cap criatura del tot crescuda.
+3d504079	Toca per veure com creix la teva criatura
+f7c3539b	· del tot crescuda
+2919541d	· {0} % per créixer del tot
+bc39d8bf	La teva criatura ja és del tot crescuda! T'ha deixat un ou nou i {0} monedes.
+b2e442c6	Només es pot alliberar una criatura del tot crescuda.
+c2117ebd	Fa créixer la criatura del teu hàbitat: surt de l'ou, passa a ser jove i després creix del tot.
+76a90aa2	Com creix la teva criatura
+3e768824	{0} és una {1}. Les criatures es queden joves i boniques: creixen fins a l'etapa jove i mai no es fan adultes.
+9e853a7b	sigui del tot crescuda
+8949debd	{0} Una criatura que arriba a ser del tot crescuda et deixa un ou nou i {1} monedes, i es pot alliberar al jardí. Tota l'XP que guanyes va a la criatura que és a l'hàbitat. Les altres esperen, així que triar qui hi poses és la teva primera decisió.
+ec498ec8	3. Coloracions especials
+883360b0	Una criatura jove en pot portar una, que es tria a la pàgina Criatures. Depenen de quan estudies, al costat de qui creix i del que aconsegueixes a les batalles. Canvien colors i trets, mai la força.

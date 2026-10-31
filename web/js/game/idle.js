@@ -15,7 +15,7 @@
 // Nothing here is sold for money, and nothing here adds strength in battles between people.
 
 import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TIER_COST, TIER_RATE } from "./data.js";
-import { formOf } from "./genome.js";
+import { formOf, isGrown } from "./genome.js";
 import { MATURE_BOX, MAX_CREATURES, dayKey, layEgg } from "./rules.js";
 
 export const OFFLINE_HOURS = 8;        // how much glow can pile up while you are away
@@ -188,9 +188,9 @@ export function useKey(state) {
 export function release(state, rosterIndex, rand = Math.random) {
   const g = garden(state);
   const c = state.roster[rosterIndex];
-  if (!c || !c.branch) return "Only a grown (adult) creature can be released.";
+  if (!c || !isGrown(c)) return "Only a fully grown creature can be released.";
   const gained = 1 + Math.floor(g.plots.filter((p) => p.tier === 3).length / 2);
-  g.released.push({ seed: c.seed, type: c.type, branch: c.branch, variant: c.variant || null, name: c.name || "", day: dayKey() });
+  g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey() });
   if (state.roster.length === 1) layEgg(state, rand); // you are never left without a creature
   state.roster.splice(rosterIndex, 1);
   if (state.active > rosterIndex) state.active--;

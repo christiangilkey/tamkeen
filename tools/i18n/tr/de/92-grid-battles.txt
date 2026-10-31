@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Letzte {0} Wörter
+b8bef37b	Unbegrenzt
+151a3c37	Gefragt werden kann jedes Wort, das du in dieser Sprache gespeichert hast. Deine Wesen werden mit den Wörtern stärker, die du kennst: Du kennst {0}, also kämpfen sie mit ×{1} (höchstens ×2).
+9ef7bc96	Die Fragen kommen aus den {0} Wörtern, die du zuletzt gespeichert hast, und jedes Wesen kämpft auf derselben Stufe: der fairste Kampf für alle.
+3c2bbf67	{0} Wörter bekannt
+aa72b2cf	Kämpfe finden auf einem kleinen Spielfeld statt. Wenn du dran bist, bewegst du dein Wesen bis zu zwei Felder weit (zieh es oder tippe auf ein Feld), wählst dann einen Zug und beantwortest eine Frage zu einem deiner Wörter: Eine richtige Antwort trifft, eine falsche geht daneben. Antworte innerhalb von {0} Sekunden, und eine Kombo baut sich auf (×1,2, ×1,5, ×2). Die Zeitleiste oben zeigt, wer als Nächstes dran ist.
+44bc0338	Welche Wörter?
+30049b5a	Wähle drei der sechs gemeinsamen Wesen dieser Woche; dein Gegner bekommt den Rest. Immer ein ausgeglichener Kampf. Zählt für deine Könnenswertung.
+4fb0793f	Wer als Nächstes dran ist: je weiter rechts, desto später
+265790ce	Lädt {0} auf
+4684df38	(Eine falsche Antwort geht daneben.)
+49356f1d	{0} versuchte {1}, traf aber nicht.{2}
+105489a1	{0} setzte {1} ein, aber {2:lower} stand nicht mehr dort.
+5623941f	Das hat {0} abgebrochen!
+686179a3	Es ist erst später wieder dran.
+7076b34d	{0} setzte {1} ein.{2}{3}{4}{5}{6}
+d85fe727	Der Zug trifft die leuchtenden Felder, sobald es wieder dran ist.
+265f1d9c	Raus aus den roten Feldern, oder brich den Zug mit einer Unterbrechung ab.
+5c60b196	{0} lädt {1} auf! {2}
+f26f646e	Eine Weile ist es schneller wieder dran.
+d48918fa	{0} setzte {1} ein: {2}.
+a116ea88	Bewegen (bis zu 2 Felder)
+1a15d4a7	Hier steht dein Wesen
+d6f5b75c	Hierhin gehen
+a86d76a5	Zu weit für diese Runde
+729c3e08	In Reichweite
+e6ad8d34	Außer Reichweite
+bc4c3158	Wähle einen Zug. Eine Frage zu einem deiner Wörter entscheidet, ob er trifft.
+537cc256	Du bist dran. Bewege dich zuerst, wenn du willst (zieh dein Wesen oder tippe auf ein Feld), und wähle dann einen Zug.
+885603d7	Zeit abgelaufen: Der Zug geht daneben.
+0c56b0f0	Nicht ganz: Der Zug geht daneben. Die richtige Antwort ist markiert.
+7e9a3898	Keine einzige falsche Antwort: Die Champion-Färbung und der Zug „Perfekte Form“ sind jetzt freigeschaltet.
+41c4308a	Am Abgrund noch gewonnen: Die Champion-Färbung und der Zug „Zweiter Atem“ sind jetzt freigeschaltet.
+96bf2c9c	Der Kampf beginnt.
+c61c0aa4	Kampfzüge (wähle bis zu vier von {0}; mehr gibt es im Laden)
+f9ae58aa	Schlag
+d73195ba	Einfacher Schaden.
+c616c592	Schwächer, aber du bist früher wieder dran.
+0e353bf6	Blockt einen Teil des nächsten Treffers.
+55774675	Stärkt deine nächsten Angriffe oder bringt dich öfter an die Reihe.
+c1660151	Heilung
+4b540469	Gesundheit zurück (zweimal pro Kampf).
+b4c200bb	Verzögerung
+f9d7ec6e	Das andere Wesen ist erst später wieder dran.
+d5db4549	Unterbrechung
+0a28f6ec	Bricht einen Zug ab, der gerade aufgeladen wird.
+c77a521a	Riesiger Schaden nach dem Aufladen. Er zielt dorthin, wo du beim Start stehst, und ein Treffer kann ihn abbrechen.
+e7d721bc	Gelände
+45a56925	Verändert die Felder des Schlachtfelds.
+8f49ba8d	Gerade Linie
+8423bf99	Deine Reihe, ganz hinüber
+65ba00e9	Spalte
+97d76369	Eine Spalte der Gegenseite: von deiner hinteren Spalte aus ihre hintere Spalte
+4d6d3bf1	Druckwelle
+da62f74f	Die vorderen zwei Spalten der Gegenseite, in deiner Reihe und den Reihen daneben
+09267fd0	Zielsuchend
+a42ef5a3	Trifft immer
+13e6c0e0	Selbst
+da1155d9	Wirkt auf das Wesen, das ihn einsetzt
+ae65ee72	Verteidigung +25 %, solange man hier steht.
+096b0cc7	Anhöhe
+c25e35a5	Angriffe von hier aus treffen 20 % stärker.
+a254504f	Pfütze
+d5c3461e	Bremst dich: Du bist später dran.
+64ca529b	Heiße Kohlen
+dc10dacb	Brennt jede Runde ein wenig, aber Glut-Wesen lieben es: Ihre Angriffe sind hier stärker.
+89677615	Quelle
+5137631f	Heilt jede Runde ein wenig.
+d6f450b6	Blitzhieb
+0241a607	Ansprung
+f0b57cd8	Zielsucher
+18a6d8f2	Eisenpanzer
+d6aac83b	Kampfschrei
+27b44b7b	Eile
+e1b5cc13	Flicken
+9dda9aa7	Beinstellen
+fdd82012	Aufschrecken
+29f71f8d	Gewitterwolke
+3df1a8a2	Meteor
+3ef84d55	Blüte
+490f74a2	Versengen
+c7825ffa	Schlammlawine
+5ce50a44	Wörter für deine Kämpfe
+6e8cf3b3	Ein Wesen ist ausgewachsen: {0}, einmal pro Wesen.
+ee0d1b14	Kampfzüge, einmal gekauft für all deine Wesen: schnelle Züge, Deckungen, Stärkungen, Heilungen, Verzögerungen, Unterbrechungen, Aufladungen und Züge, die die Felder verändern. Sie kosten {0} bis {1} Münzen. Sie bringen neue Tricks, keine größeren Zahlen.
+e5f10191	Kleidung und Deko sind nur fürs Aussehen.
+b2fce863	Der Laden. Er bietet jeden Tag {0} Dinge zum Anziehen oder Aufstellen und {1} Kampfzüge an und wechselt täglich.
+cd2c82cf	Kämpfe ignorieren all das. In Kämpfen mit „Letzte 100 Wörter“ kämpft jedes Wesen auf derselben Stufe, und du gewinnst, indem du deine Wörter kennst. In Kämpfen mit „Unbegrenzt“ werden Wesen umso stärker, je mehr Wörter ihr Besitzer kennt.
+859e3041	Dieser Zug ist nicht zu kaufen.
+4578dacd	Den kennst du schon.
+dd5916bd	Die heutige Auswahl, für dein Wesen ausgesucht. Sie wechselt jeden Tag. Münzen gibt es fürs Erreichen deines Tagesziels (10), fürs Speichern von Wörtern (je 1), für Level-Aufstiege (5), für gewonnene Kämpfe und wenn ein Wesen ausgewachsen ist (25).
+fa0d260b	Kampfzüge
+e3296134	Einmal gekauft, kann ihn jedes deiner Wesen in den Kampf mitnehmen: Wähle auf der Seite „Wesen“. Du kennst {0} der {1} Züge, die es hier gibt.
+03376a71	Du kennst jeden Zug, den es zu kaufen gibt.
+316b63d4	· Stärke {0}
+ca40be16	Du hast {0} gelernt. Gib den Zug auf der Seite „Wesen“ einem deiner Wesen.
+3096a59b	{0} versuchte {1}, traf aber nicht.
+447b0986	{0} setzte {1} ein.
+8205033f	{0} lädt {1} auf!

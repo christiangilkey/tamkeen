@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	La creatura nell'habitat è quella che cresce mentre studi. Le creature restano giovani: una creatura giovane continua a crescere finché non è completamente cresciuta, poi ti lascia un uovo nuovo. Il suo aspetto lo scegli tu e puoi cambiarlo più tardi: non perdi nulla tenendo un aspetto più giovane o provando una colorazione speciale.
+24c58d57	· Completamente cresciuta
+741ec4dc	Colorazione speciale
+57467f06	Solo mosse base
+b396fbce	Le mosse comprate nel negozio restano in panchina questa settimana.
+a304f6b2	Alleva una creatura finché non è completamente cresciuta
+740ac187	Libera una creatura completamente cresciuta
+5e37efe9	Una creatura completamente cresciuta può essere liberata. Lascia la tua squadra e viene ricordata qui. I tuoi edifici e il bagliore ripartono da zero, e tieni <0/>: ognuna rende ogni edificio più veloce del {0}% per sempre, così il giardino successivo cresce molto più in fretta del precedente. Più edifici completamente cresciuti hai in quel momento, più polvere di stelle ottieni.
+684832fa	Non hai ancora nessuna creatura completamente cresciuta.
+3d504079	Tocca per vedere come cresce la tua creatura
+f7c3539b	· completamente cresciuta
+2919541d	· {0}% per crescere del tutto
+bc39d8bf	La tua creatura è completamente cresciuta! Ti ha lasciato un uovo nuovo e {0} monete.
+b2e442c6	Si può liberare solo una creatura completamente cresciuta.
+c2117ebd	Fanno crescere la creatura nel tuo habitat: si schiude, diventa giovane e poi cresce del tutto.
+76a90aa2	Come cresce la tua creatura
+3e768824	{0} è {1}. Le creature restano piccole e tenere: crescono fino allo stadio giovane e non diventano mai adulte.
+9e853a7b	sarà completamente cresciuta
+8949debd	{0} Una creatura che finisce di crescere ti lascia un uovo nuovo e {1} monete, e può essere liberata nel giardino. Tutti gli XP che guadagni vanno alla creatura che è fuori nell'habitat. Le altre aspettano, quindi chi fai uscire è la tua prima scelta.
+ec498ec8	3. Colorazioni speciali
+883360b0	Una creatura giovane può indossarne una, scelta nella pagina Creature. Dipendono da quando studi, da chi cresce accanto a lei e da cosa riesci a fare in battaglia. Cambiano colori e tratti, mai la forza.

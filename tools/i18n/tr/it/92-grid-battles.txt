@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Ultime {0} parole
+b8bef37b	Senza limiti
+151a3c37	Le domande possono essere qualsiasi parola che hai salvato in questa lingua. Le tue creature diventano più forti con le parole che conosci: ne conosci {0}, quindi combattono a ×{1} (al massimo ×2).
+9ef7bc96	Le domande vengono dalle {0} parole che hai salvato più di recente, e tutte le creature combattono allo stesso livello: la sfida più equa per tutti.
+3c2bbf67	{0} conosciute
+aa72b2cf	Le battaglie si svolgono su una piccola griglia. Nel tuo turno, sposta la tua creatura fino a due caselle (trascinala o tocca una casella), poi scegli una mossa e rispondi a una domanda su una delle tue parole: con la risposta giusta va a segno, con quella sbagliata va a vuoto. Rispondi entro {0} secondi e cresce una combo (×1,2, ×1,5, ×2). La linea del tempo in alto mostra chi agisce dopo.
+44bc0338	Quali parole?
+30049b5a	Scegli tre delle sei creature condivise di questa settimana; il tuo rivale prende le altre. Sempre una sfida alla pari. Conta per il tuo punteggio di abilità.
+4fb0793f	Chi agisce dopo: più è a destra, più tardi
+265790ce	Sta preparando {0}
+4684df38	(Con una risposta sbagliata, la mossa va a vuoto.)
+49356f1d	{0} ha provato {1}, ma ha mancato il bersaglio.{2}
+105489a1	{0} usa {1}, ma {2:lower} non è lì.
+5623941f	Ha interrotto {0}!
+686179a3	Il suo prossimo turno viene rimandato.
+7076b34d	{0} usa {1}.{2}{3}{4}{5}{6}
+d85fe727	Colpirà le caselle illuminate quando arriverà il suo turno.
+265f1d9c	Esci dalle caselle rosse, o fermala con un'interruzione.
+5c60b196	{0} sta preparando {1}! {2}
+f26f646e	I suoi turni arrivano prima per un po'.
+d48918fa	{0} usa {1}: {2:lower}.
+a116ea88	Spostati (fino a 2 caselle)
+1a15d4a7	La tua creatura è qui
+d6f5b75c	Spostati qui
+a86d76a5	Troppo lontano per questo turno
+729c3e08	A portata
+e6ad8d34	Fuori portata
+bc4c3158	Scegli una mossa. Una domanda su una delle tue parole decide se va a segno.
+537cc256	Tocca a te. Se vuoi, prima spostati (trascina la tua creatura o tocca una casella), poi scegli una mossa.
+885603d7	Tempo scaduto: la mossa va a vuoto.
+0c56b0f0	Non proprio: la mossa va a vuoto. La risposta giusta è evidenziata.
+7e9a3898	Nemmeno una risposta sbagliata: ora sono disponibili la colorazione Campione e la mossa Forma Perfetta.
+41c4308a	Vinta sul filo del rasoio: ora sono disponibili la colorazione Campione e la mossa Secondo Fiato.
+96bf2c9c	La battaglia ha inizio.
+c61c0aa4	Mosse di battaglia (scegline fino a quattro su {0}; comprane altre nel negozio)
+f9ae58aa	Colpo
+d73195ba	Danno semplice.
+c616c592	Più debole, ma il tuo prossimo turno arriva prima.
+0e353bf6	Blocca parte del prossimo colpo.
+55774675	Rende più forti i tuoi prossimi attacchi, o più rapidi i tuoi turni.
+c1660151	Cura
+4b540469	Recupera salute (due volte per battaglia).
+b4c200bb	Ritardo
+f9d7ec6e	Rimanda il prossimo turno dell'altra creatura.
+d5db4549	Interruzione
+0a28f6ec	Annulla una mossa in preparazione.
+c77a521a	Danno enorme dopo una preparazione. Mira dove ti trovi quando inizi, e un colpo può annullarla.
+e7d721bc	Terreno
+45a56925	Cambia le caselle del campo di battaglia.
+8f49ba8d	Linea retta
+8423bf99	La tua riga, da parte a parte
+65ba00e9	Colonna
+97d76369	Una colonna del loro lato: dalla tua colonna posteriore, la loro colonna posteriore
+4d6d3bf1	Esplosione
+da62f74f	Le due colonne anteriori del loro lato, nella tua riga e in quelle accanto
+09267fd0	Teleguidata
+a42ef5a3	Colpisce sempre
+13e6c0e0	Su di sé
+da1155d9	Agisce sulla creatura che la usa
+ae65ee72	Difesa +25% finché stai qui.
+096b0cc7	Altura
+c25e35a5	Gli attacchi da qui colpiscono il 20% più forte.
+a254504f	Pozzanghera
+d5c3461e	Ti rallenta: i tuoi turni arrivano più tardi.
+64ca529b	Carboni ardenti
+dc10dacb	Brucia un po' a ogni turno, ma le creature Brace lo adorano: qui i loro attacchi sono più forti.
+89677615	Sorgente
+5137631f	Cura un po' a ogni turno.
+d6f450b6	Colpo Lampo
+0241a607	Balzo
+f0b57cd8	Segugio
+18a6d8f2	Guscio di Ferro
+d6aac83b	Grido di Guerra
+27b44b7b	Rapidità
+e1b5cc13	Sollievo
+9dda9aa7	Sgambetto
+fdd82012	Spavento
+29f71f8d	Nembo
+3df1a8a2	Meteora
+3ef84d55	Fioritura
+490f74a2	Vampata
+c7825ffa	Colata di Fango
+5ce50a44	Parole per le tue battaglie
+6e8cf3b3	Una creatura completa la crescita: {0}, una volta per creatura.
+ee0d1b14	Mosse di battaglia, comprate una volta per tutte le tue creature: mosse rapide, guardie, potenziamenti, cure, ritardi, interruzioni, cariche e mosse che cambiano le caselle. Costano da {0} a {1} monete. Danno nuovi trucchi, non numeri più grandi.
+e5f10191	Gli oggetti da indossare e le decorazioni sono solo estetici.
+b2fce863	Il Negozio. Offre {0} oggetti da indossare o sistemare e {1} mosse di battaglia al giorno, e cambia ogni giorno.
+cd2c82cf	Le battaglie ignorano tutto questo. Nelle battaglie Ultime 100 parole tutte le creature combattono allo stesso livello, e vinci conoscendo le tue parole. Nelle battaglie Senza limiti le creature diventano più forti in base a quante parole conosce il loro proprietario.
+859e3041	Quella mossa non è in vendita.
+4578dacd	La conosci già.
+dd5916bd	La selezione di oggi, scelta per la tua creatura. Cambia ogni giorno. Le monete si ottengono raggiungendo l'obiettivo giornaliero (10), salvando parole (1 ciascuna), salendo di livello (5), vincendo battaglie e quando una creatura completa la crescita (25).
+fa0d260b	Mosse di battaglia
+e3296134	Si compra una volta e qualsiasi tua creatura può portarla in battaglia: sceglila nella pagina Creature. Conosci {0} delle {1} mosse in vendita qui.
+03376a71	Conosci già tutte le mosse in vendita.
+316b63d4	· potenza {0}
+ca40be16	Hai imparato {0}. Assegnala a una creatura nella pagina Creature.
+3096a59b	{0} ha provato {1}, ma ha mancato il bersaglio.
+447b0986	{0} usa {1}.
+8205033f	{0} sta preparando {1}!

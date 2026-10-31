@@ -1,7 +1,7 @@
 // A creature is data first: a seed plus what has changed since it was born. Everything about
 // its look is rebuilt from that, so saves stay tiny and the same seed is always the same creature.
 
-import { BACKS, BRANCHES, BRANCH_IDS, EARS, EYES, HORNS, PATTERNS, SPECIES_IDS, STAGES, TAILS, TRAITS, TYPES, TYPE_IDS } from "./data.js";
+import { EARS, EYES, GROWN, HORNS, PATTERNS, SPECIES_IDS, STAGES, TAILS, TRAITS, TYPES, TYPE_IDS } from "./data.js";
 
 /** A small seeded random-number generator (mulberry32). One per creature, never the global one. */
 export function rng(seed) {
@@ -37,9 +37,8 @@ export function newGenome(seed, type = null) {
     type: type && TYPES[type] ? type : TYPE_IDS[Math.floor(r() * TYPE_IDS.length)],
     growth: 0,
     traits: Object.fromEntries(TRAITS.map((t) => [t, 0])),
-    branch: null,       // its adult form, chosen by its owner when it is ready (see rules.evolve)
-    branches: [],       // adult forms it has unlocked and can switch between
-    variant: null,      // a special form on top (data.VARIANTS)
+    grown: false,       // it has been fully grown (paid once: see rules.grow)
+    variant: null,      // a special colouring a juvenile can wear (data.VARIANTS)
     show: null,         // an earlier stage its owner prefers it to stay looking like
     moves: [],          // the (up to four) moves it takes into battle
     equipped: {},
@@ -53,34 +52,20 @@ export function stageOf(growth) {
   return stage;
 }
 
-const RANK = ["egg", "hatchling", "juvenile", "adult"];
+const RANK = STAGES.map((s) => s.id);
 
-/** True once a creature has grown enough to become an adult but its owner hasn't evolved it yet.
- * Evolution is a moment the owner chooses, not something that happens behind their back. */
-export const readyToEvolve = (genome) => stageOf(genome.growth).id === "adult" && !genome.branch;
+/** True once a creature is fully grown. It stays a juvenile: creatures never grow up past cute. */
+export const isGrown = (genome) => (genome.growth || 0) >= GROWN;
 
-/** The stage a creature currently looks like. It waits as a juvenile until evolved, and its owner
- * may keep it looking like any earlier stage it has been through (growing up is not a one-way door). */
+/** The stage a creature currently looks like. Its owner may keep it looking like any earlier stage
+ * it has been through (growing up is not a one-way door). */
 export function formOf(genome) {
   let stage = stageOf(genome.growth);
-  if (stage.id === "adult" && !genome.branch) stage = STAGES[2];
   if (genome.show && stage.id !== "egg") {
     const wanted = STAGES.find((s) => s.id === genome.show);
     if (wanted && wanted.id !== "egg" && RANK.indexOf(wanted.id) <= RANK.indexOf(stage.id)) stage = wanted;
   }
   return stage;
-}
-
-/** The adult form a creature would take right now: the habit its owner has leaned on most.
- * Ties and untouched traits fall back on the seed, so every creature still has a destiny. */
-export function leadingBranch(genome) {
-  let best = null;
-  let top = 0;
-  for (const id of BRANCH_IDS) {
-    const v = genome.traits[BRANCHES[id].trait] || 0;
-    if (v > top + 1e-9) { top = v; best = id; }
-  }
-  return best || BRANCH_IDS[Math.floor(rng(genome.seed ^ 0x51ed)() * BRANCH_IDS.length)];
 }
 
 const hsl = (h, s, l) => `hsl(${Math.round(((h % 360) + 360) % 360)} ${Math.round(s)}% ${Math.round(l)}%)`;
@@ -102,16 +87,14 @@ export function describe(genome) {
   // ...while the features that appear with age are nudged by how the owner studies.
   const grown = rng(genome.seed ^ 0xabcdef);
   const horn = weightedPick(HORNS, grown, genome.traits).id;
-  const back = weightedPick(BACKS, grown, genome.traits).id;
 
   const stage = formOf(genome);
-  const adult = stage.id === "adult";
-  const branch = adult ? genome.branch : null;
+  const juvenile = stage.id === "juvenile";
   const look = {
-    species, stage: stage.id, size: stage.size || "s", branch,
+    species, stage: stage.id, size: stage.size || "s",
     ear, tail, eyes, pattern,
-    horn: stage.id === "hatchling" || stage.id === "egg" ? "none" : horn, // horns come in with age
-    back: adult ? back : "none",
+    horn: juvenile ? horn : "none", // horns come in with age
+    back: "none", // (back features came with adult forms; the Champion colouring still adds one)
     type: genome.type,
     equipped: { ...(genome.equipped || {}) },
     colors: {
@@ -121,7 +104,7 @@ export function describe(genome) {
     },
   };
   // A variant restyles the same animal: its shape and markings stay, so it is still recognisably itself.
-  const variant = adult ? genome.variant : null;
+  const variant = juvenile ? genome.variant : null;
   look.variant = variant || null;
   if (variant === "nocturne") {
     const h2 = hue + (265 - hue) * 0.45;

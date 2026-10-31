@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Últimas {0} palabras
+b8bef37b	Sin límite
+151a3c37	Las preguntas pueden ser cualquier palabra que hayas guardado en este idioma. Tus criaturas se hacen más fuertes con las palabras que sabes: sabes {0}, así que luchan a ×{1} (×2 como máximo).
+9ef7bc96	Las preguntas salen de las {0} palabras que guardaste más recientemente, y todas las criaturas luchan al mismo nivel: la pelea más justa para todos.
+3c2bbf67	{0} conocidas
+aa72b2cf	Las batallas se juegan en una pequeña cuadrícula. En tu turno, mueve tu criatura hasta dos casillas (arrástrala o toca una casilla), luego elige un movimiento y responde a una pregunta sobre una de tus palabras: con una respuesta correcta impacta y con una incorrecta falla. Si respondes en menos de {0} segundos, se acumula un combo (×1,2, ×1,5, ×2). La línea de tiempo de arriba muestra quién actúa después.
+44bc0338	¿Qué palabras?
+30049b5a	Elige tres de las seis criaturas compartidas de esta semana; tu rival se queda con las demás. Siempre es una pelea igualada. Cuenta para tu puntuación de habilidad.
+4fb0793f	Quién actúa después: cuanto más a la derecha, más tarde
+265790ce	Preparando {0}
+4684df38	(Con una respuesta incorrecta, el movimiento falla.)
+49356f1d	{0} intentó {1}, pero falló.{2}
+105489a1	{0} usó {1}, pero {2:lower} no estaba ahí.
+5623941f	¡Interrumpió {0}!
+686179a3	Su próximo turno se retrasa.
+7076b34d	{0} usó {1}.{2}{3}{4}{5}{6}
+d85fe727	Caerá sobre las casillas iluminadas cuando llegue su turno.
+265f1d9c	Sal de las casillas rojas o córtalo con una interrupción.
+5c60b196	¡{0} está preparando {1}! {2}
+f26f646e	Sus turnos llegan antes durante un rato.
+d48918fa	{0} usó {1}: {2:lower}.
+a116ea88	Moverse (hasta 2 casillas)
+1a15d4a7	Tu criatura está aquí
+d6f5b75c	Moverse aquí
+a86d76a5	Demasiado lejos este turno
+729c3e08	Al alcance
+e6ad8d34	Fuera de alcance
+bc4c3158	Elige un movimiento. Una pregunta sobre una de tus palabras decide si impacta.
+537cc256	Tu turno. Muévete primero si quieres (arrastra tu criatura o toca una casilla) y luego elige un movimiento.
+885603d7	Se acabó el tiempo: el movimiento falla.
+0c56b0f0	Casi: el movimiento falla. La respuesta correcta está marcada.
+7e9a3898	Ni una respuesta mal: ya están disponibles la coloración Campeón y el movimiento Forma Perfecta.
+41c4308a	Ganada al límite: ya están disponibles la coloración Campeón y el movimiento Segundo Aliento.
+96bf2c9c	Empieza la batalla.
+c61c0aa4	Movimientos de batalla (elige hasta cuatro de {0}; compra más en la tienda)
+f9ae58aa	Golpe
+d73195ba	Daño normal.
+c616c592	Más débil, pero tu siguiente turno llega antes.
+0e353bf6	Bloquea parte del siguiente golpe.
+55774675	Hace más fuertes tus próximos ataques o más rápidos tus turnos.
+c1660151	Curación
+4b540469	Recupera salud (dos veces por batalla).
+b4c200bb	Retraso
+f9d7ec6e	Retrasa el próximo turno de la otra criatura.
+d5db4549	Interrupción
+0a28f6ec	Cancela un movimiento que se está preparando.
+c77a521a	Daño enorme tras una preparación. Apunta a donde estás al empezar, y un golpe puede cancelarlo.
+e7d721bc	Terreno
+45a56925	Cambia las casillas del campo de batalla.
+8f49ba8d	Línea recta
+8423bf99	Tu fila, de lado a lado
+65ba00e9	Columna
+97d76369	Una columna de su lado: desde tu columna trasera, su columna trasera
+4d6d3bf1	Estallido
+da62f74f	Las dos columnas delanteras de su lado, en tu fila y las filas contiguas
+09267fd0	Teledirigido
+a42ef5a3	Siempre acierta
+13e6c0e0	A sí misma
+da1155d9	Actúa sobre la criatura que lo usa
+ae65ee72	Defensa +25 % mientras estés aquí.
+096b0cc7	Terreno elevado
+c25e35a5	Los ataques desde aquí golpean un 20 % más fuerte.
+a254504f	Charco
+d5c3461e	Te frena: tus turnos llegan más tarde.
+64ca529b	Carbones ardientes
+dc10dacb	Quema un poco cada turno, pero a las criaturas Brasa les encanta: aquí sus ataques son más fuertes.
+89677615	Manantial
+5137631f	Cura un poco cada turno.
+d6f450b6	Golpe Veloz
+0241a607	Zarpazo
+f0b57cd8	Rastreador
+18a6d8f2	Caparazón de Hierro
+d6aac83b	Grito de Guerra
+27b44b7b	Celeridad
+e1b5cc13	Alivio
+9dda9aa7	Zancadilla
+fdd82012	Susto
+29f71f8d	Nubarrón
+3df1a8a2	Meteoro
+3ef84d55	Floración
+490f74a2	Llamarada
+c7825ffa	Alud de Lodo
+5ce50a44	Palabras para tus batallas
+6e8cf3b3	Una criatura termina de crecer: {0}, una vez por criatura.
+ee0d1b14	Movimientos de batalla, que se compran una vez para todas tus criaturas: movimientos rápidos, guardias, potenciadores, curaciones, retrasos, interrupciones, cargas y movimientos que cambian las casillas. Cuestan de {0} a {1} monedas. Dan trucos nuevos, no números más grandes.
+e5f10191	Las cosas para ponerse y la decoración son solo estéticas.
+b2fce863	La Tienda. Ofrece {0} cosas para ponerse o colocar y {1} movimientos de batalla al día, y cambia cada día.
+cd2c82cf	Las batallas ignoran todo esto. En las batallas de Últimas 100 palabras todas las criaturas luchan al mismo nivel, y ganas sabiendo tus palabras. En las batallas Sin límite las criaturas se hacen más fuertes según cuántas palabras sabe su dueño.
+859e3041	Ese movimiento no está a la venta.
+4578dacd	Ya lo conoces.
+dd5916bd	La selección de hoy, elegida para tu criatura. Cambia cada día. Las monedas se ganan alcanzando tu meta diaria (10), guardando palabras (1 cada una), subiendo de nivel (5), ganando batallas y cuando una criatura termina de crecer (25).
+fa0d260b	Movimientos de batalla
+e3296134	Se compra una vez y cualquiera de tus criaturas puede llevarlo a la batalla: elígelo en la página Criaturas. Conoces {0} de los {1} movimientos que se venden aquí.
+03376a71	Ya conoces todos los movimientos que se pueden comprar.
+316b63d4	· poder {0}
+ca40be16	Has aprendido {0}. Dáselo a una criatura en la página Criaturas.
+3096a59b	{0} intentó {1}, pero falló.
+447b0986	{0} usó {1}.
+8205033f	¡{0} está preparando {1}!

@@ -27,12 +27,12 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 
 | Requirement | Status | Where / note |
 |---|---|---|
-| Evolution is interactive, not a silent level-up or a menu chore | ✅ | A grown creature shimmers (`fx/ready.png`) and waits; tapping it opens the choice (`rules.evolve`). Pressing Evolve plays `fx/evolve.png`: light gathers on the old form and the new one appears in the burst |
+| Evolution is interactive, not a silent level-up or a menu chore | ↩️ | Superseded by the owner (2026-10-30): creatures stay juveniles, no evolving. Becoming fully grown plays `fx/evolve.png` in the habitat and pays an egg and 25 coins (`rules.grow`) |
 | Party-dependent triggers (symbiosis) | ✅ | "Twin" form needs a hatched companion of another element and takes its colours |
 | Environmental / physical action triggers | 🟡 | "Nocturne" form needs study after 10 pm. Nothing yet tied to the habitat itself or to phone motion |
 | Battle milestones instead of grinding | ✅ | "Champion" form and two moves open by winning from the brink or with no wrong answers |
-| Branching paths | ✅ | Three adult forms by habit (listening, reading, collecting), each open only with real use |
-| Reversible paths; keep the middle stage's charm | ✅ | Evolving waits for the owner; any earlier look can be kept; unlocked forms switch freely (`rules.reshape`) |
+| Branching paths | ↩️ | Superseded by the owner (2026-10-30): no adult forms. Branching now lives in battle moves bought with coins (`data.SHOP_MOVES`) and the special colourings |
+| Reversible paths; keep the middle stage's charm | ✅ | Creatures stay juveniles; a younger look can be kept and special colourings switch freely (`rules.reshape`) |
 | Traits carry over visibly (colours, pattern, anatomy) | ✅ | The body is rolled from the seed once; forms restyle the same animal (tested) |
 | Earned real-time transformation in combat (Mega-style) | ✅ | "Surge": three fast right answers double the next move, with a visible charge |
 
@@ -72,7 +72,7 @@ Status: ✅ built · 🟡 partly · ⬜ not built
 | Streak freezes or rest days | ✅ | |
 | Each player's own deck powers their battles; each tested at their own level | ✅ | Due words first (`rules.pickQuestion`) |
 | Works across subjects | ✅ | Questions come from the player's own words in any language |
-| Low stakes | ✅ | A wrong answer still lands a glancing hit (drawn as a pale slash, `battle/glance.png`) and shows the right answer |
+| Low stakes | ✅ | A wrong answer misses (the owner's rule, 2026-10-30: answers decide whether moves land) but shows the right answer; the battle goes on and every answer counts toward the word |
 | Skill rating separate from study level | ✅ rating · ⬜ matching | `state.rating`, changed by rental and friend battles only, shown beside each friend. You pick who to challenge; nothing matches you automatically |
 | Draft or rental mode from a shared pool | ✅ | "Rental duel": the same six creatures for everyone each week |
 | Rotating weekly rules | ✅ | `data.WEEKLY_RULES`; applied to both teams in friend battles |

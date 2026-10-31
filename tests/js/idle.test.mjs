@@ -118,14 +118,12 @@ test("collecting by hand is replaced by automation that is earned, not bought", 
   assert.equal(garden(s).plots[0].stored, 0);
 });
 
-test("releasing a grown creature starts the garden over, faster for good; full bloom is the end", () => {
+test("releasing a fully grown creature starts the garden over, faster for good; full bloom is the end", () => {
   const s = hatched();
   tick(s, T0);
   const g = garden(s);
-  assert.match(release(s, 0), /Only a grown/);
+  assert.match(release(s, 0), /Only a fully grown/);
   s.creature.growth = 0.9;
-  s.creature.branch = "echo";
-  s.creature.branches = ["echo"];
   s.creature.name = "Pip";
   for (const p of g.plots) Object.assign(p, { open: true, id: "word_sprout", tier: 3 });
   const bloom = tick(s, T0);
@@ -137,7 +135,7 @@ test("releasing a grown creature starts the garden over, faster for good; full b
   const r = release(s, 0, () => 0.5);
   assert.deepEqual(r, { stardust: 4 }, "one, plus one for every two fully grown buildings");
   assert.equal(g.stardust, 4);
-  assert.deepEqual(g.released.map((c) => [c.name, c.branch]), [["Pip", "echo"]], "it is remembered");
+  assert.deepEqual(g.released.map((c) => c.name), ["Pip"], "it is remembered");
   assert.ok(g.plots.every((p) => p.open && !p.tier && !p.stored), "plots stay open; buildings start over");
   assert.equal(g.glow, 40);
   assert.equal(s.roster.length, 1, "you are never left without a creature");

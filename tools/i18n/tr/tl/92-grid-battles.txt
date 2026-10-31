@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Huling {0} salita
+b8bef37b	Walang limitasyon
+151a3c37	Puwedeng tungkol sa kahit anong salitang naka-save mo sa wikang ito ang mga tanong. Lumalakas ang mga nilalang mo sa mga salitang alam mo: {0} ang alam mo, kaya lumalaban sila sa ×{1} (×2 ang pinakamataas).
+9ef7bc96	Galing ang mga tanong sa {0} salitang pinakahuli mong na-save, at pare-pareho ang level ng lahat ng nilalang: ang pinakapatas na laban para sa lahat.
+3c2bbf67	{0} alam na
+aa72b2cf	Sa isang maliit na grid ginaganap ang mga laban. Sa turn mo, igalaw ang nilalang mo nang hanggang dalawang kahon (i-drag ito, o i-tap ang isang kahon), saka pumili ng galaw at sagutin ang tanong tungkol sa isa sa mga salita mo: tatama ang galaw kapag tama ang sagot, sasablay kapag mali. Sumagot sa loob ng {0} segundo at nadadagdagan ang combo (×1.2, ×1.5, ×2). Ipinapakita ng timeline sa itaas kung sino ang susunod na kikilos.
+44bc0338	Aling mga salita?
+30049b5a	Pumili ng tatlo sa anim na pinagsasaluhang nilalang ngayong linggo; sa kalaban ang natitira. Laging patas ang laban. Kasama ito sa skill rating mo.
+4fb0793f	Sino ang susunod na kikilos: habang pakanan, mas huli
+265790ce	Nag-iipon ng lakas para sa {0}
+4684df38	(Sumasablay ang galaw kapag mali ang sagot.)
+49356f1d	{0} ay sumubok ng {1}, pero sumablay.{2}
+105489a1	{0} ay gumamit ng {1}, pero wala na roon {2:lower}.
+5623941f	Naputol nito ang {0}!
+686179a3	Naurong ang susunod nitong turn.
+7076b34d	{0} ay gumamit ng {1}.{2}{3}{4}{5}{6}
+d85fe727	Tatama ito sa mga umiilaw na kahon pagdating ng turn nito.
+265f1d9c	Umalis sa mga pulang kahon, o putulin ito gamit ang isang Hadlang.
+5c60b196	{0} ay nag-iipon ng lakas para sa {1}! {2}
+f26f646e	Mas maagang dumarating ang mga turn nito nang ilang sandali.
+d48918fa	{0} ay gumamit ng {1}: {2:lower}.
+a116ea88	Gumalaw (hanggang 2 kahon)
+1a15d4a7	Nandito ang nilalang mo
+d6f5b75c	Lumipat dito
+a86d76a5	Masyadong malayo ngayong turn
+729c3e08	Abot
+e6ad8d34	Hindi abot
+bc4c3158	Pumili ng galaw. Ang tanong tungkol sa isa sa mga salita mo ang magpapasya kung tatama ito.
+537cc256	Turn mo na. Gumalaw muna kung gusto mo (i-drag ang nilalang mo o i-tap ang isang kahon), saka pumili ng galaw.
+885603d7	Ubos na ang oras: sumablay ang galaw.
+0c56b0f0	Hindi pa tama: sumablay ang galaw. Minarkahan ang tamang sagot.
+7e9a3898	Walang kahit isang maling sagot: bukas na ang espesyal na kulay na Kampeon at ang galaw na Perfect Form.
+41c4308a	Nanalo mula sa bingit: bukas na ang espesyal na kulay na Kampeon at ang galaw na Second Wind.
+96bf2c9c	Nagsisimula na ang laban.
+c61c0aa4	Mga galaw sa laban (pumili ng hanggang apat mula sa {0}; bumili pa sa tindahan)
+f9ae58aa	Tira
+d73195ba	Simpleng pinsala.
+c616c592	Mas mahina, pero mas maaga ang susunod mong turn.
+0e353bf6	Hinaharangan ang bahagi ng susunod na tama.
+55774675	Pinalalakas ang mga susunod mong atake, o pinabibilis ang mga turn mo.
+c1660151	Panggamot
+4b540469	Ibinabalik ang buhay (dalawang beses bawat laban).
+b4c200bb	Antala
+f9d7ec6e	Iniuurong ang susunod na turn ng kabilang nilalang.
+d5db4549	Hadlang
+0a28f6ec	Kinakansela ang galaw na nag-iipon pa ng lakas.
+c77a521a	Napakalaking pinsala matapos mag-ipon ng lakas. Tinatarget nito kung saan ka nakatayo pagsimula mo, at puwede itong kanselahin ng isang tama.
+e7d721bc	Lupain
+45a56925	Binabago ang mga kahon ng larangan ng labanan.
+8f49ba8d	Tuwid na linya
+8423bf99	Ang hanay mo, hanggang dulo
+65ba00e9	Kolum
+97d76369	Isang kolum sa panig nila: mula sa likurang kolum mo, ang likurang kolum nila
+4d6d3bf1	Sabog
+da62f74f	Ang dalawang harapang kolum sa panig nila, sa hanay mo at sa mga katabing hanay
+09267fd0	Habol
+a42ef5a3	Laging tumatama
+13e6c0e0	Sarili
+da1155d9	Gumagana ito sa nilalang na gumagamit nito
+ae65ee72	Depensa +25% habang nakatayo rito.
+096b0cc7	Mataas na lugar
+c25e35a5	Mas malakas nang 20% ang mga atake mula rito.
+a254504f	Lusak
+d5c3461e	Pinababagal ka: mas huli ang mga turn mo.
+64ca529b	Nagbabagang uling
+dc10dacb	Nakakapaso nang kaunti bawat turn, pero gustong-gusto ito ng mga nilalang na Baga: mas malakas ang mga atake nila rito.
+89677615	Bukal
+5137631f	Nanggagamot nang kaunti bawat turn.
+d6f450b6	Mabilisang Suntok
+0241a607	Dagit
+f0b57cd8	Tugis
+18a6d8f2	Bakal na Kalasag
+d6aac83b	Sigaw ng Digma
+27b44b7b	Bilis
+e1b5cc13	Lunas
+9dda9aa7	Patid
+fdd82012	Gulat
+29f71f8d	Ulap ng Kidlat
+3df1a8a2	Bulalakaw
+3ef84d55	Pamumukadkad
+490f74a2	Paso
+c7825ffa	Agos ng Putik
+5ce50a44	Mga salita para sa mga laban mo
+6e8cf3b3	Ganap nang lumaki ang isang nilalang: {0}, isang beses bawat nilalang.
+ee0d1b14	Mga galaw sa laban, binibili nang isang beses para sa lahat ng nilalang mo: mabibilis na galaw, bantay, pampalakas, panggamot, pang-antala, panghadlang, karga at mga galaw na nagbabago ng mga kahon. Nagkakahalaga ang mga ito ng {0} hanggang {1} barya. Nagbibigay ang mga ito ng bagong diskarte, hindi mas malalaking numero.
+e5f10191	Pampaganda lang ang mga isinusuot at dekorasyon.
+b2fce863	Ang Tindahan. Nag-aalok ito ng {0} bagay na maisusuot o mailalagay at {1} galaw sa laban bawat araw, at nagbabago araw-araw.
+cd2c82cf	Hindi pinapansin ng mga laban ang lahat ng ito. Sa mga laban na Huling 100 salita, pare-pareho ang level ng lahat ng nilalang, at nananalo ka sa pagkaalam ng mga salita mo. Sa mga laban na Walang limitasyon, lumalakas ang mga nilalang ayon sa dami ng salitang alam ng may-ari nila.
+859e3041	Hindi ibinebenta ang galaw na iyan.
+4578dacd	Alam mo na ito.
+dd5916bd	Ang pinili ngayong araw, para sa nilalang mo. Nagbabago ito araw-araw. Nakukuha ang barya sa pag-abot sa layunin mo ngayong araw (10), pag-save ng salita (tig-1), pag-akyat ng level (5), pagkapanalo sa mga laban, at kapag ganap nang lumaki ang isang nilalang (25).
+fa0d260b	Mga galaw sa laban
+e3296134	Isang beses lang itong binibili, at madadala ito sa laban ng kahit alin sa mga nilalang mo: pumili sa pahina ng Mga nilalang. Alam mo ang {0} sa {1} galaw na ibinebenta rito.
+03376a71	Alam mo na ang lahat ng galaw na mabibili.
+316b63d4	· lakas {0}
+ca40be16	Natutunan mo ang {0}. Ibigay ito sa isang nilalang sa pahina ng Mga nilalang.
+3096a59b	{0} ay sumubok ng {1}, pero sumablay.
+447b0986	Ginamit ni {0} ang {1}.
+8205033f	{0} ay nag-iipon ng lakas para sa {1}!

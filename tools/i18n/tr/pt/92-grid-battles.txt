@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Últimas {0} palavras
+b8bef37b	Sem limite
+151a3c37	As perguntas podem ser qualquer palavra que você salvou neste idioma. Suas criaturas ficam mais fortes com as palavras que você conhece: você conhece {0}, então elas lutam com ×{1} (no máximo ×2).
+9ef7bc96	As perguntas vêm das {0} palavras que você salvou mais recentemente, e todas as criaturas lutam no mesmo nível: a luta mais justa para todo mundo.
+3c2bbf67	{0} conhecidas
+aa72b2cf	As batalhas acontecem num pequeno tabuleiro. No seu turno, mova sua criatura até duas casas (arraste-a ou toque numa casa), depois escolha um golpe e responda a uma pergunta sobre uma das suas palavras: com a resposta certa ele acerta, com a errada ele erra. Responda em até {0} segundos e um combo se acumula (×1,2, ×1,5, ×2). A linha do tempo no alto mostra quem age em seguida.
+44bc0338	Quais palavras?
+30049b5a	Escolha três das seis criaturas compartilhadas desta semana; seu rival fica com o resto. Sempre uma luta equilibrada. Conta para sua pontuação de habilidade.
+4fb0793f	Quem age em seguida: quanto mais à direita, mais tarde
+265790ce	Preparando {0}
+4684df38	(Com uma resposta errada, o golpe erra.)
+49356f1d	{0} tentou {1}, mas errou.{2}
+105489a1	{0} usou {1}, mas {2:lower} não estava lá.
+5623941f	Interrompeu {0}!
+686179a3	O próximo turno dela foi adiado.
+7076b34d	{0} usou {1}.{2}{3}{4}{5}{6}
+d85fe727	Vai cair nas casas iluminadas quando chegar o turno.
+265f1d9c	Saia das casas vermelhas ou corte o golpe com uma interrupção.
+5c60b196	{0} está preparando {1}! {2}
+f26f646e	Os turnos dela chegam mais cedo por um tempo.
+d48918fa	{0} usou {1}: {2:lower}.
+a116ea88	Mover (até 2 casas)
+1a15d4a7	Sua criatura está aqui
+d6f5b75c	Mover para cá
+a86d76a5	Longe demais neste turno
+729c3e08	Ao alcance
+e6ad8d34	Fora de alcance
+bc4c3158	Escolha um golpe. Uma pergunta sobre uma das suas palavras decide se ele acerta.
+537cc256	Seu turno. Se quiser, mova-se primeiro (arraste sua criatura ou toque numa casa), depois escolha um golpe.
+885603d7	Acabou o tempo: o golpe erra.
+0c56b0f0	Quase: o golpe erra. A resposta certa está marcada.
+7e9a3898	Nenhuma resposta errada: a coloração Campeã e o golpe Forma Perfeita agora estão liberados.
+41c4308a	Vitória por um triz: a coloração Campeã e o golpe Segundo Fôlego agora estão liberados.
+96bf2c9c	A batalha começa.
+c61c0aa4	Golpes de batalha (escolha até quatro de {0}; compre mais na loja)
+f9ae58aa	Ataque
+d73195ba	Dano simples.
+c616c592	Mais fraco, mas seu próximo turno chega mais cedo.
+0e353bf6	Bloqueia parte do próximo golpe.
+55774675	Deixa seus próximos ataques mais fortes ou seus turnos mais rápidos.
+c1660151	Cura
+4b540469	Recupera saúde (duas vezes por batalha).
+b4c200bb	Atraso
+f9d7ec6e	Adia o próximo turno da outra criatura.
+d5db4549	Interrupção
+0a28f6ec	Cancela um golpe que está sendo preparado.
+c77a521a	Dano enorme depois de uma preparação. Mira onde você está quando começa, e um golpe pode cancelá-lo.
+e7d721bc	Terreno
+45a56925	Muda as casas do campo de batalha.
+8f49ba8d	Linha reta
+8423bf99	Sua fileira, de ponta a ponta
+65ba00e9	Coluna
+97d76369	Uma coluna do lado deles: da sua coluna de trás, a coluna de trás deles
+4d6d3bf1	Explosão
+da62f74f	As duas colunas da frente do lado deles, na sua fileira e nas fileiras vizinhas
+09267fd0	Teleguiado
+a42ef5a3	Sempre acerta
+13e6c0e0	Em si mesma
+da1155d9	Age na criatura que o usa
+ae65ee72	Defesa +25% enquanto estiver aqui.
+096b0cc7	Terreno alto
+c25e35a5	Ataques feitos daqui acertam 20% mais forte.
+a254504f	Poça
+d5c3461e	Deixa você mais lento: seus turnos chegam mais tarde.
+64ca529b	Carvão em brasa
+dc10dacb	Queima um pouco a cada turno, mas as criaturas Brasa adoram: aqui os ataques delas ficam mais fortes.
+89677615	Fonte
+5137631f	Cura um pouco a cada turno.
+d6f450b6	Golpe Ligeiro
+0241a607	Bote
+f0b57cd8	Rastreador
+18a6d8f2	Casco de Ferro
+d6aac83b	Grito de Guerra
+27b44b7b	Agilidade
+e1b5cc13	Alívio
+9dda9aa7	Rasteira
+fdd82012	Susto
+29f71f8d	Trovoada
+3df1a8a2	Meteoro
+3ef84d55	Floração
+490f74a2	Labareda
+c7825ffa	Lamaçal
+5ce50a44	Palavras para suas batalhas
+6e8cf3b3	Uma criatura fica totalmente crescida: {0}, uma vez por criatura.
+ee0d1b14	Golpes de batalha, comprados uma vez para todas as suas criaturas: golpes rápidos, defesas, fortalecimentos, curas, atrasos, interrupções, cargas e golpes que mudam as casas. Custam de {0} a {1} moedas. Eles dão truques novos, não números maiores.
+e5f10191	Roupas e decorações são só visuais.
+b2fce863	A Loja. Ela oferece {0} coisas para usar ou colocar e {1} golpes de batalha por dia, e muda todo dia.
+cd2c82cf	As batalhas ignoram tudo isso. Nas batalhas de Últimas 100 palavras, todas as criaturas lutam no mesmo nível, e você vence sabendo suas palavras. Nas batalhas Sem limite, as criaturas ficam mais fortes conforme quantas palavras o dono conhece.
+859e3041	Esse golpe não está à venda.
+4578dacd	Você já conhece esse golpe.
+dd5916bd	A seleção de hoje, escolhida para sua criatura. Ela muda todo dia. As moedas vêm de alcançar sua meta diária (10), salvar palavras (1 cada), subir de nível (5), vencer batalhas e uma criatura ficar totalmente crescida (25).
+fa0d260b	Golpes de batalha
+e3296134	Comprado uma vez, qualquer uma das suas criaturas pode levá-lo para a batalha: escolha na página Criaturas. Você conhece {0} dos {1} golpes vendidos aqui.
+03376a71	Você já conhece todos os golpes à venda.
+316b63d4	· poder {0}
+ca40be16	Você aprendeu {0}. Dê o golpe a uma criatura na página Criaturas.
+3096a59b	{0} tentou {1}, mas errou.
+447b0986	{0} usou {1}.
+8205033f	{0} está preparando {1}!

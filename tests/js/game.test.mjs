@@ -3,8 +3,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { artFiles, BRANCH_IDS, SPECIES_IDS, TYPE_IDS } from "../../web/js/game/data.js";
-import { describe, leadingBranch, newGenome, rng, stageOf, weightedPick } from "../../web/js/game/genome.js";
+import { artFiles, SPECIES_IDS, TYPE_IDS } from "../../web/js/game/data.js";
+import { describe, isGrown, newGenome, rng, stageOf, weightedPick } from "../../web/js/game/genome.js";
 import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward, wordMultiplier } from "../../web/js/game/rules.js";
 
 const at = (iso) => new Date(iso);
@@ -30,30 +30,17 @@ test("growing changes proportions and unlocks features, never the creature's ide
   const baby = describe(g);
   g.growth = 0.5;
   const teen = describe(g);
-  g.growth = 0.9;
-  assert.equal(describe(g).size, "m", "it waits as a juvenile until its owner evolves it");
-  g.branch = "echo";
-  g.branches = ["echo"];
-  const adult = describe(g);
-  assert.deepEqual([baby.size, teen.size, adult.size], ["s", "m", "l"]);
-  for (const k of ["species", "ear", "tail", "eyes", "pattern", "type"]) assert.equal(adult[k], baby[k], `${k} carries over`);
-  assert.deepEqual(adult.colors, baby.colors, "colours carry over");
+  g.growth = 1;
+  const grown = describe(g);
+  assert.ok(isGrown(g));
+  assert.deepEqual([baby.size, teen.size, grown.size], ["s", "m", "m"], "it stays a juvenile: no adult size");
+  assert.equal(grown.stage, "juvenile");
+  for (const k of ["species", "ear", "tail", "eyes", "pattern", "type"]) assert.equal(grown[k], baby[k], `${k} carries over`);
+  assert.deepEqual(grown.colors, baby.colors, "colours carry over");
   assert.equal(baby.horn, "none", "horns come in with age");
-  assert.equal(teen.branch, null);
-  assert.ok(BRANCH_IDS.includes(adult.branch));
 });
 
-test("the adult form follows how the owner studies", () => {
-  const g = newGenome(99);
-  g.traits.reader = 0.6;
-  g.traits.listener = 0.2;
-  assert.equal(leadingBranch(g), "sage");
-  g.traits.listener = 0.9;
-  assert.equal(leadingBranch(g), "echo");
-  g.traits.collector = 0.95;
-  assert.equal(leadingBranch(g), "keeper");
-  const blank = newGenome(99);
-  assert.equal(leadingBranch(blank), leadingBranch(newGenome(99)), "no habits yet: decided by the seed, consistently");
+test("habits nudge which optional parts are rolled", () => {
   // Traits bias which optional parts are rolled.
   const picks = { gem: 0 };
   const list = [{ id: "plain" }, { id: "gem", weight_by: { collector: 9 } }];
@@ -169,7 +156,7 @@ test("streaks: a freeze covers a missed day; without one the streak restarts qui
   assert.ok(s.xp > xp, "nothing else is lost");
 });
 
-test("an egg hatches on the first day's goal, and growth reaches adulthood", () => {
+test("an egg hatches on the first day's goal, and growth reaches fully grown (still a juvenile)", () => {
   const s = newState(10);
   assert.equal(stageOf(s.creature.growth).id, "egg");
   let hatched = false;
@@ -181,8 +168,8 @@ test("an egg hatches on the first day's goal, and growth reaches adulthood", () 
   s.creature.growth = 0.699;
   s.creature.traits.reader = 0.9;
   const r = earn(s, { type: "save" }, { now: at("2026-10-10T11:00:00") });
-  assert.equal(r.stage, "ready", "grown enough: now it waits for its owner");
-  assert.equal(s.creature.branch, null);
+  assert.equal(r.stage, "grown", "fully grown: it pays once and leaves an egg");
+  assert.equal(stageOf(s.creature.growth).id, "juvenile");
   assert.ok(ADULT_XP > 3000);
 });
 

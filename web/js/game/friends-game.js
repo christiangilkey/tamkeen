@@ -7,6 +7,7 @@ import * as social from "../social.js";
 import { BOSSES, LEAGUES, RAID_HP_PER_MEMBER } from "./data.js";
 import { claimRaid, giveEgg, giveItem, leaguePercent, raidDamage, receiveGift, recordDefence, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
 import { publicProfile } from "./battle.js";
+import { wordModePicker } from "./battle-ui.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { hasStudyLanguage, studyLanguage } from "../languages.js";
@@ -153,7 +154,8 @@ export async function friendsPanel(body, game, changed, challenge) {
     <div><strong>${LEAGUES[game.league]} league</strong><div class="small muted">Ranked by the share of days this week each of you reached
     your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down.</div></div></div>
     <div class="league-table"></div>
-    <p class="small muted">This week's battle rule: ${icon(`rule_${rule.id}`)} <strong>${rule.name}</strong>. ${rule.text}</p></div>`);
+    <p class="small muted">This week's battle rule: ${icon(`rule_${rule.icon || rule.id}`)} <strong>${rule.name}</strong>. ${rule.text}</p></div>`);
+  league.append(h(`<div class="small"><strong>Words for your battles</strong></div>`), wordModePicker(game));
   rows.forEach((r, i) => {
     const record = game.rivals[r.id];
     const row = h(`<div class="league-row${r.mine ? " mine" : ""}"><span class="league-rank">${i + 1}</span>

@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Últimes {0} paraules
+b8bef37b	Sense límit
+151a3c37	Les preguntes poden ser qualsevol paraula que hagis desat en aquest idioma. Les teves criatures es fan més fortes amb les paraules que saps: en saps {0}, així que lluiten a ×{1} (×2 com a màxim).
+9ef7bc96	Les preguntes surten de les {0} paraules que has desat més recentment, i totes les criatures lluiten al mateix nivell: el combat més just per a tothom.
+3c2bbf67	{0} conegudes
+aa72b2cf	Les batalles es juguen en una quadrícula petita. Al teu torn, mou la teva criatura fins a dues caselles (arrossega-la o toca una casella), després tria un moviment i respon una pregunta sobre una de les teves paraules: si l'encertes, el moviment impacta; si no, falla. Si respons en menys de {0} segons, es va formant un combo (×1,2, ×1,5, ×2). La línia de temps de dalt mostra qui actua després.
+44bc0338	Quines paraules?
+30049b5a	Tria tres de les sis criatures compartides d'aquesta setmana; el teu rival es queda la resta. Sempre és un combat igualat. Compta per a la teva puntuació d'habilitat.
+4fb0793f	Qui actua després: com més a la dreta, més tard
+265790ce	Preparant {0}
+4684df38	(Amb una resposta incorrecta, el moviment falla.)
+49356f1d	{0} ha intentat {1}, però ha fallat.{2}
+105489a1	{0} ha fet servir {1}, però {2:lower} no hi era.
+5623941f	Ha interromput {0}!
+686179a3	El seu proper torn es retarda.
+7076b34d	{0} ha fet servir {1}.{2}{3}{4}{5}{6}
+d85fe727	Impactarà a les caselles il·luminades quan li toqui.
+265f1d9c	Surt de les caselles vermelles o atura-ho amb una interrupció.
+5c60b196	{0} està preparant {1}! {2}
+f26f646e	Els seus torns arriben abans durant una estona.
+d48918fa	{0} ha fet servir {1}: {2:lower}.
+a116ea88	Mou-te (fins a 2 caselles)
+1a15d4a7	La teva criatura és aquí
+d6f5b75c	Mou-te aquí
+a86d76a5	Massa lluny aquest torn
+729c3e08	A l'abast
+e6ad8d34	Fora d'abast
+bc4c3158	Tria un moviment. Una pregunta sobre una de les teves paraules decideix si impacta.
+537cc256	És el teu torn. Mou-te primer si vols (arrossega la criatura o toca una casella) i després tria un moviment.
+885603d7	S'ha acabat el temps: el moviment falla.
+0c56b0f0	Gairebé: el moviment falla. La resposta correcta està marcada.
+7e9a3898	Ni una resposta incorrecta: ja tens disponibles la coloració Campió i el moviment Forma Perfecta.
+41c4308a	Guanyada in extremis: ja tens disponibles la coloració Campió i el moviment Segon Alè.
+96bf2c9c	Comença la batalla.
+c61c0aa4	Moviments de batalla (tria'n fins a quatre de {0}; compra'n més a la botiga)
+f9ae58aa	Cop
+d73195ba	Dany normal.
+c616c592	Més feble, però el teu proper torn arriba abans.
+0e353bf6	Bloqueja part del proper cop.
+55774675	Fa més forts els teus propers atacs, o més ràpids els teus torns.
+c1660151	Curació
+4b540469	Recupera salut (dos cops per batalla).
+b4c200bb	Retard
+f9d7ec6e	Endarrereix el proper torn de l'altra criatura.
+d5db4549	Interrupció
+0a28f6ec	Cancel·la un moviment que s'està preparant.
+c77a521a	Dany enorme després d'una preparació. Apunta on ets quan comences, i un cop el pot cancel·lar.
+e7d721bc	Terreny
+45a56925	Canvia les caselles del camp de batalla.
+8f49ba8d	Línia recta
+8423bf99	La teva fila, d'un extrem a l'altre
+65ba00e9	Columna
+97d76369	Una columna del seu costat: des de la teva columna del fons, la seva columna del fons
+4d6d3bf1	Explosió
+da62f74f	Les dues columnes davanteres del seu costat, a la teva fila i a les del costat
+09267fd0	Teledirigit
+a42ef5a3	Sempre encerta
+13e6c0e0	A si mateixa
+da1155d9	Actua sobre la criatura que el fa servir
+ae65ee72	Defensa +25 % mentre siguis aquí.
+096b0cc7	Terreny elevat
+c25e35a5	Els atacs fets des d'aquí colpegen un 20 % més fort.
+a254504f	Bassal
+d5c3461e	Et frena: els teus torns arriben més tard.
+64ca529b	Carbons encesos
+dc10dacb	Crema una mica cada torn, però a les criatures Brasa els encanta: aquí els seus atacs són més forts.
+89677615	Font
+5137631f	Cura una mica cada torn.
+d6f450b6	Cop Ràpid
+0241a607	Urpada
+f0b57cd8	Rastrejador
+18a6d8f2	Closca de Ferro
+d6aac83b	Crit de Guerra
+27b44b7b	Celeritat
+e1b5cc13	Bàlsam
+9dda9aa7	Traveta
+fdd82012	Ensurt
+29f71f8d	Tempesta
+3df1a8a2	Meteor
+3ef84d55	Floració
+490f74a2	Flamarada
+c7825ffa	Fangar
+5ce50a44	Paraules per a les teves batalles
+6e8cf3b3	Una criatura acaba de créixer del tot: {0}, un cop per criatura.
+ee0d1b14	Moviments de batalla, que es compren un cop per a totes les teves criatures: moviments ràpids, guàrdies, potenciadors, cures, retards, interrupcions, càrregues i moviments que canvien les caselles. Costen de {0} a {1} monedes. Donen trucs nous, no números més grans.
+e5f10191	Les coses per posar-se i la decoració són només estètiques.
+b2fce863	La Botiga. Ofereix {0} coses per posar-se o col·locar i {1} moviments de batalla cada dia, i canvia cada dia.
+cd2c82cf	Les batalles no tenen en compte res d'això. A les batalles d'Últimes 100 paraules totes les criatures lluiten al mateix nivell, i guanyes si saps les teves paraules. A les batalles Sense límit les criatures es fan més fortes com més paraules sap el seu amo.
+859e3041	Aquest moviment no està a la venda.
+4578dacd	Ja el coneixes.
+dd5916bd	La selecció d'avui, triada per a la teva criatura. Canvia cada dia. Les monedes es guanyen arribant a la meta diària (10), desant paraules (1 cadascuna), pujant de nivell (5), guanyant batalles i quan una criatura acaba de créixer del tot (25).
+fa0d260b	Moviments de batalla
+e3296134	Es compra un cop i qualsevol de les teves criatures el pot portar a la batalla: tria-ho a la pàgina Criatures. Coneixes {0} dels {1} moviments que es venen aquí.
+03376a71	Ja coneixes tots els moviments que es poden comprar.
+316b63d4	· poder {0}
+ca40be16	Has après {0}. Dona'l a una criatura a la pàgina Criatures.
+3096a59b	{0} ha intentat {1}, però ha fallat.
+447b0986	{0} ha fet servir {1}.
+8205033f	{0} està preparant {1}!

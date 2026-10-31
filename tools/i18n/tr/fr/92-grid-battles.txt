@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	{0} derniers mots
+b8bef37b	Illimité
+151a3c37	Les questions peuvent porter sur n'importe quel mot enregistré dans cette langue. Vos créatures deviennent plus fortes avec les mots que vous connaissez : vous en connaissez {0}, elles combattent donc à ×{1} (×2 au maximum).
+9ef7bc96	Les questions portent sur les {0} derniers mots que vous avez enregistrés, et toutes les créatures combattent au même niveau : le combat le plus équitable pour tout le monde.
+3c2bbf67	{0} mots connus
+aa72b2cf	Les combats se déroulent sur une petite grille. À votre tour, déplacez votre créature de deux cases au plus (faites-la glisser ou touchez une case), puis choisissez une attaque et répondez à une question sur l'un de vos mots : une bonne réponse la fait toucher, une mauvaise la fait rater. Répondez en moins de {0} secondes et un combo se forme (×1,2, ×1,5, ×2). La frise en haut montre qui agit ensuite.
+44bc0338	Quels mots ?
+30049b5a	Choisissez trois des six créatures partagées de la semaine ; votre adversaire prend les autres. Un combat toujours équilibré. Compte pour votre classement.
+4fb0793f	Qui agit ensuite : plus c'est à droite, plus c'est tard
+265790ce	Prépare {0}
+4684df38	(Une mauvaise réponse fait rater l'attaque.)
+49356f1d	{0} tente {1}, mais rate son coup.{2}
+105489a1	{0} utilise {1}, mais {2:lower} n'est plus là.
+5623941f	Cela interrompt {0} !
+686179a3	Son prochain tour est repoussé.
+7076b34d	{0} utilise {1}.{2}{3}{4}{5}{6}
+d85fe727	Elle frappera les cases éclairées quand son tour viendra.
+265f1d9c	Sortez des cases rouges, ou coupez-la net avec une interruption.
+5c60b196	{0} prépare {1} ! {2}
+f26f646e	Ses tours arrivent plus vite pendant un moment.
+d48918fa	{0} utilise {1} : {2:lower}.
+a116ea88	Se déplacer (jusqu'à 2 cases)
+1a15d4a7	Votre créature est ici
+d6f5b75c	Aller ici
+a86d76a5	Trop loin pour ce tour
+729c3e08	À portée
+e6ad8d34	Hors de portée
+bc4c3158	Choisissez une attaque. Une question sur l'un de vos mots décide si elle touche.
+537cc256	À vous. Déplacez-vous d'abord si vous voulez (faites glisser votre créature ou touchez une case), puis choisissez une attaque.
+885603d7	Temps écoulé : l'attaque rate.
+0c56b0f0	Pas tout à fait : l'attaque rate. La bonne réponse est indiquée.
+7e9a3898	Pas une seule mauvaise réponse : la coloration Champion et l'attaque Forme Parfaite sont maintenant disponibles.
+41c4308a	Victoire arrachée de justesse : la coloration Champion et l'attaque Second Souffle sont maintenant disponibles.
+96bf2c9c	Le combat commence.
+c61c0aa4	Attaques de combat (choisissez-en jusqu'à quatre parmi {0} ; achetez-en d'autres à la boutique)
+f9ae58aa	Frappe
+d73195ba	Des dégâts, tout simplement.
+c616c592	Plus faible, mais votre prochain tour arrive plus vite.
+0e353bf6	Bloque une partie du prochain coup.
+55774675	Renforce vos prochaines attaques, ou accélère vos tours.
+c1660151	Soin
+4b540469	Rend de la santé (deux fois par combat).
+b4c200bb	Retard
+f9d7ec6e	Repousse le prochain tour de l'autre créature.
+d5db4549	Interruption
+0a28f6ec	Annule une attaque en préparation.
+c77a521a	Dégâts énormes après une préparation. Elle vise l'endroit où vous êtes au moment de la lancer, et un coup peut l'annuler.
+e7d721bc	Terrain
+45a56925	Modifie les cases du champ de bataille.
+8f49ba8d	Ligne droite
+8423bf99	Votre rangée, d'un bout à l'autre
+65ba00e9	Colonne
+97d76369	Une colonne du camp adverse : depuis votre colonne du fond, sa colonne du fond
+4d6d3bf1	Explosion
+da62f74f	Les deux colonnes avant du camp adverse, sur votre rangée et les rangées voisines
+09267fd0	Tête chercheuse
+a42ef5a3	Touche toujours
+13e6c0e0	Soi-même
+da1155d9	Agit sur la créature qui l'utilise
+ae65ee72	Défense +25 % tant qu'on se tient ici.
+096b0cc7	Hauteur
+c25e35a5	Les attaques lancées d'ici frappent 20 % plus fort.
+a254504f	Flaque
+d5c3461e	Vous ralentit : vos tours arrivent plus tard.
+64ca529b	Braises ardentes
+dc10dacb	Brûle un peu à chaque tour, mais les créatures Braise adorent ça : leurs attaques sont plus fortes ici.
+89677615	Source
+5137631f	Soigne un peu à chaque tour.
+d6f450b6	Direct éclair
+0241a607	Bond
+f0b57cd8	Traqueur
+18a6d8f2	Carapace de fer
+d6aac83b	Cri de guerre
+27b44b7b	Hâte
+e1b5cc13	Guérison
+9dda9aa7	Croche-pied
+fdd82012	Sursaut
+29f71f8d	Nuage d'orage
+3df1a8a2	Météore
+3ef84d55	Floraison
+490f74a2	Fournaise
+c7825ffa	Coulée de boue
+5ce50a44	Mots pour vos combats
+6e8cf3b3	Une créature devient entièrement développée : {0}, une fois par créature.
+ee0d1b14	Les attaques de combat, achetées une fois pour toutes vos créatures : attaques rapides, gardes, renforcements, soins, retards, interruptions, charges et attaques qui modifient les cases. Elles coûtent de {0} à {1} pièces. Elles apportent de nouvelles astuces, pas de plus gros chiffres.
+e5f10191	Les vêtements et les décorations sont purement esthétiques.
+b2fce863	La Boutique. Elle propose {0} articles à porter ou à installer et {1} attaques de combat par jour, et change chaque jour.
+cd2c82cf	Les combats ignorent tout cela. Dans les combats « 100 derniers mots », toutes les créatures combattent au même niveau, et c'est en connaissant vos mots que vous gagnez. Dans les combats « Illimité », les créatures sont d'autant plus fortes que leur propriétaire connaît de mots.
+859e3041	Cette attaque n'est pas en vente.
+4578dacd	Vous la connaissez déjà.
+dd5916bd	La sélection du jour, choisie pour votre créature. Elle change chaque jour. Les pièces s'obtiennent en atteignant votre objectif du jour (10), en enregistrant des mots (1 chacun), en montant de niveau (5), en gagnant des combats et quand une créature devient entièrement développée (25).
+fa0d260b	Attaques de combat
+e3296134	Une fois achetée, n'importe laquelle de vos créatures peut l'emporter au combat : à choisir sur la page Créatures. Vous connaissez {0} des {1} attaques vendues ici.
+03376a71	Vous connaissez toutes les attaques en vente.
+316b63d4	· puissance {0}
+ca40be16	Vous avez appris {0}. Donnez-la à une créature sur la page Créatures.
+3096a59b	{0} tente {1}, mais rate son coup.
+447b0986	{0} utilise {1}.
+8205033f	{0} prépare {1} !

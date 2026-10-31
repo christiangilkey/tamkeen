@@ -7420,6 +7420,31 @@
   "f": "web/js/fixes.js"
  },
  {
+  "id": "22850bab",
+  "k": "Last {0} words",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "b8bef37b",
+  "k": "Unlimited",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "b9286298",
+  "k": "Power {0}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "151a3c37",
+  "k": "Questions can be any word you have saved in this language. Your creatures grow stronger with the words you know: you know {0}, so they fight at ×{1} (×2 at most).",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "9ef7bc96",
+  "k": "Questions come from the {0} words you saved most recently, and every creature fights at the same level: the fairest fight for everyone.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "2e1adabb",
   "k": "Battles",
   "f": "web/js/game/battle-ui.js"
@@ -7460,8 +7485,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "025cfea0",
-  "k": "{0} well known",
+  "id": "3c2bbf67",
+  "k": "{0} known",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7470,8 +7495,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "967af30c",
-  "k": "Every creature fights at the same level. You win by knowing your words: answer right and the move lands, answer within {0} seconds and a combo builds (×1.2, ×1.5, ×2).",
+  "id": "aa72b2cf",
+  "k": "Battles happen on a small grid. On your turn, move your creature up to two squares (drag it, or tap a square), then choose a move and answer a question about one of your words: a right answer lands it, a wrong one misses. Answer within {0} seconds and a combo builds (×1.2, ×1.5, ×2). The timeline at the top shows who acts next.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "44bc0338",
+  "k": "Which words?",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7490,8 +7520,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "5a55675f",
-  "k": "Pick three of this week's six shared creatures; your rival gets the rest. Counts for your skill rating.",
+  "id": "30049b5a",
+  "k": "Pick three of this week's six shared creatures; your rival gets the rest. Always an even fight. Counts for your skill rating.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7545,6 +7575,11 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "4fb0793f",
+  "k": "Who acts next: the further right, the later",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "905cb326",
   "k": "You",
   "f": "web/js/game/battle-ui.js"
@@ -7562,6 +7597,11 @@
  {
   "id": "3bb10c38",
   "k": "{0} SURGE ×{1}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "265790ce",
+  "k": "Winding up {0}",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7585,13 +7625,23 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "afc012c1",
-  "k": "A glancing blow.",
+  "id": "3096a59b",
+  "k": "{0} tried {1}, but missed.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "535531a9",
-  "k": "A surging hit!",
+  "id": "4684df38",
+  "k": "(A wrong answer misses.)",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "105489a1",
+  "k": "{0} used {1}, but {2} wasn't there.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "447b0986",
+  "k": "{0} used {1}.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7610,8 +7660,33 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "b8bb00f9",
-  "k": "{0} used {1}.{2}{3}{4}",
+  "id": "535531a9",
+  "k": "A surging hit!",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "5623941f",
+  "k": "It cut {0} short!",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "686179a3",
+  "k": "Its next turn is pushed back.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "8205033f",
+  "k": "{0} is winding up {1}!",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "d85fe727",
+  "k": "It lands on the lit squares when its turn comes.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "265f1d9c",
+  "k": "Get out of the red squares, or cut it short with an interrupt.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7625,8 +7700,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "cd86b7ea",
-  "k": "{0} used {1}.{2}",
+  "id": "f26f646e",
+  "k": "Its turns come sooner for a while.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "d48918fa",
+  "k": "{0} used {1}: {2}.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7640,18 +7720,33 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "b9286298",
-  "k": "Power {0}",
+  "id": "a116ea88",
+  "k": "Move (up to 2 squares)",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "2de11318",
-  "k": "Blocks the next hit",
+  "id": "1a15d4a7",
+  "k": "Your creature is here",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "d923a217",
-  "k": "Stronger hits for a while",
+  "id": "d6f5b75c",
+  "k": "Move here",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "a86d76a5",
+  "k": "Too far this turn",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "729c3e08",
+  "k": "In reach",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "e6ad8d34",
+  "k": "Out of line",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7665,8 +7760,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "a3972f01",
-  "k": "Choose a move. A question about one of your words decides how well it lands.",
+  "id": "bc4c3158",
+  "k": "Choose a move. A question about one of your words decides whether it lands.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "537cc256",
+  "k": "Your turn. Move first if you like (drag your creature or tap a square), then choose a move.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7705,13 +7805,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "c04b920c",
-  "k": "Out of time.",
+  "id": "885603d7",
+  "k": "Out of time: the move misses.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "e8849508",
-  "k": "Not quite: the right answer is marked.",
+  "id": "0c56b0f0",
+  "k": "Not quite: the move misses. The right answer is marked.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7740,13 +7840,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "8e9fb44f",
-  "k": "Not one wrong answer: the Champion form and the move Perfect Form are now open.",
+  "id": "7e9a3898",
+  "k": "Not one wrong answer: the Champion colouring and the move Perfect Form are now open.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "872a8bbd",
-  "k": "Won from the brink: the Champion form and the move Second Wind are now open.",
+  "id": "41c4308a",
+  "k": "Won from the brink: the Champion colouring and the move Second Wind are now open.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7800,6 +7900,11 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "96bf2c9c",
+  "k": "The battle begins.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "32c9bcb1",
   "k": "Egg",
   "f": "web/js/game/creatures.js"
@@ -7812,11 +7917,6 @@
  {
   "id": "0d67c71d",
   "k": "Juvenile",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "17748728",
-  "k": "Adult",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -7855,8 +7955,8 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "23907bfa",
-  "k": "The creature in the habitat is the one that grows as you study. Evolving is yours to choose and can be changed later: nothing is lost by trying another form, or by keeping a younger look.",
+  "id": "a4e86c7a",
+  "k": "The creature in the habitat is the one that grows as you study. Creatures stay young: a juvenile keeps growing until it is fully grown, then leaves you a new egg. Its look is yours to choose and can be changed later: nothing is lost by keeping a younger look or trying a special colouring.",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -7867,6 +7967,11 @@
  {
   "id": "d7ddc5a1",
   "k": "Bring out",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "24c58d57",
+  "k": "· Fully grown",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -7890,23 +7995,13 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "3eaf4dc6",
-  "k": "Ready to evolve",
+  "id": "b8db515e",
+  "k": "Look",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "a097aeab",
-  "k": "Its adult form follows how you study. Choose one:",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "bfe934c2",
-  "k": "A special form, if you have earned one:",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "0056d527",
-  "k": "Evolve",
+  "id": "741ec4dc",
+  "k": "Special colouring",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -7915,38 +8010,8 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "003d086a",
-  "k": "It evolved into its {0} form, and left you an egg.",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "b8db515e",
-  "k": "Look",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "e5895e75",
-  "k": "Adult form",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "212631b6",
-  "k": "Opens as you do more {0}",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "0742949a",
-  "k": "Special form",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "824147ae",
-  "k": "Battle moves (choose up to four of {0})",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "b08be03b",
-  "k": ", power {0}",
+  "id": "c61c0aa4",
+  "k": "Battle moves (choose up to four of {0}; buy more in the shop)",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -8017,21 +8082,6 @@
  {
   "id": "506f5f12",
   "k": "Floater",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "e738c7d8",
-  "k": "Echo",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "c3bd776c",
-  "k": "Sage",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "940966d9",
-  "k": "Keeper",
   "f": "web/js/game/data.js"
  },
  {
@@ -8810,13 +8860,183 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "13b10e8c",
-  "k": "Tackle",
+  "id": "f9ae58aa",
+  "k": "Strike",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d73195ba",
+  "k": "Plain damage.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "c616c592",
+  "k": "Weaker, but your next turn comes sooner.",
   "f": "web/js/game/data.js"
  },
  {
   "id": "6e665685",
   "k": "Guard",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "0e353bf6",
+  "k": "Blocks part of the next hit.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "55774675",
+  "k": "Makes your next attacks stronger, or your turns faster.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "c1660151",
+  "k": "Heal",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "4b540469",
+  "k": "Health back (twice a battle).",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "b4c200bb",
+  "k": "Delay",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "f9d7ec6e",
+  "k": "Pushes the other creature's next turn back.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d5db4549",
+  "k": "Interrupt",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "0a28f6ec",
+  "k": "Cancels a move that is winding up.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d4e1aee4",
+  "k": "Charge",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "c77a521a",
+  "k": "Huge damage after a wind-up. It aims where you stand when you start, and a hit can cancel it.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "e7d721bc",
+  "k": "Terrain",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "45a56925",
+  "k": "Changes the squares of the battlefield.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "8f49ba8d",
+  "k": "Straight line",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "8423bf99",
+  "k": "Your row, all the way across",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "65ba00e9",
+  "k": "Column",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "97d76369",
+  "k": "One column of their side: from your back column, their back column",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "4d6d3bf1",
+  "k": "Burst",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "da62f74f",
+  "k": "The front two columns of their side, in your row and the rows next to it",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "09267fd0",
+  "k": "Homing",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a42ef5a3",
+  "k": "Always hits",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "13e6c0e0",
+  "k": "Itself",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "da1155d9",
+  "k": "It works on the creature using it",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ae65ee72",
+  "k": "Defence +25% while standing here.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "096b0cc7",
+  "k": "High ground",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "c25e35a5",
+  "k": "Attacks made from here hit 20% harder.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a254504f",
+  "k": "Puddle",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d5c3461e",
+  "k": "Slows you down: your turns come later.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "64ca529b",
+  "k": "Hot coals",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "dc10dacb",
+  "k": "Burns a little each turn, but Ember creatures love it: their attacks are stronger here.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "89677615",
+  "k": "Spring",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "5137631f",
+  "k": "Heals a little each turn.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "13b10e8c",
+  "k": "Tackle",
   "f": "web/js/game/data.js"
  },
  {
@@ -8890,28 +9110,8 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "d4e1aee4",
-  "k": "Charge",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "d9d7e3d0",
   "k": "Tailwind",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "15727c13",
-  "k": "Resonance",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "1ed1264f",
-  "k": "Insight",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "2d4c3f4e",
-  "k": "Hoard",
   "f": "web/js/game/data.js"
  },
  {
@@ -8940,6 +9140,91 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "15727c13",
+  "k": "Resonance",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "1ed1264f",
+  "k": "Insight",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "2d4c3f4e",
+  "k": "Hoard",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d6f450b6",
+  "k": "Quick Jab",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "0241a607",
+  "k": "Pounce",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "f0b57cd8",
+  "k": "Seeker",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "18a6d8f2",
+  "k": "Iron Shell",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d6aac83b",
+  "k": "War Cry",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "27b44b7b",
+  "k": "Haste",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "e1b5cc13",
+  "k": "Mend",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "9dda9aa7",
+  "k": "Trip",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fdd82012",
+  "k": "Startle",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "29f71f8d",
+  "k": "Thunderhead",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "3df1a8a2",
+  "k": "Meteor",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "3ef84d55",
+  "k": "Bloom",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "490f74a2",
+  "k": "Scorch",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "c7825ffa",
+  "k": "Mudslide",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "4869ac12",
   "k": "Open week",
   "f": "web/js/game/data.js"
@@ -8950,13 +9235,13 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "ed7aebae",
-  "k": "Starters only",
+  "id": "57467f06",
+  "k": "Basic moves only",
   "f": "web/js/game/data.js"
  },
  {
-  "id": "9ab28c8b",
-  "k": "Only hatchlings and juveniles may fight (adults sit this week out).",
+  "id": "b396fbce",
+  "k": "Moves bought in the shop sit this week out.",
   "f": "web/js/game/data.js"
  },
  {
@@ -9365,18 +9650,13 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "9b83b0ca",
-  "k": "Raise an Echo adult",
+  "id": "50645793",
+  "k": "Fully grown",
   "f": "web/js/game/data.js"
  },
  {
-  "id": "b132f8c5",
-  "k": "Raise a Sage adult",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "28cfd944",
-  "k": "Raise a Keeper adult",
+  "id": "a304f6b2",
+  "k": "Raise a creature until it is fully grown",
   "f": "web/js/game/data.js"
  },
  {
@@ -9665,6 +9945,11 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "5ce50a44",
+  "k": "Words for your battles",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "bb9d653f",
   "k": "Challenge",
   "f": "web/js/game/friends-game.js"
@@ -9885,18 +10170,13 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "50645793",
-  "k": "Fully grown",
+  "id": "740ac187",
+  "k": "Release a fully grown creature",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "4dd3fed6",
-  "k": "Release a grown creature",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "95b0eef2",
-  "k": "A grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep <0/>: each one makes every building {0}% faster for good, so the next garden grows much quicker than the last. More fully grown buildings at the time means more stardust.",
+  "id": "5e37efe9",
+  "k": "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep <0/>: each one makes every building {0}% faster for good, so the next garden grows much quicker than the last. More fully grown buildings at the time means more stardust.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -9905,8 +10185,8 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "5fb6a7b7",
-  "k": "You have no adult creature yet.",
+  "id": "684832fa",
+  "k": "You have no fully grown creature yet.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -10095,8 +10375,8 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "e54c864d",
-  "k": "Tap to see how your creature evolves",
+  "id": "3d504079",
+  "k": "Tap to see how your creature grows",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -10180,13 +10460,18 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "0e5f028b",
-  "k": "· ready to evolve: tap it",
+  "id": "72ce9e1e",
+  "k": "· {0}% to {1}",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "72ce9e1e",
-  "k": "· {0}% to {1}",
+  "id": "f7c3539b",
+  "k": "· fully grown",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "2919541d",
+  "k": "· {0}% to fully grown",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -10235,8 +10520,8 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "e3b0b563",
-  "k": "Your creature is ready to evolve. Tap it when you want to.",
+  "id": "bc39d8bf",
+  "k": "Your creature is fully grown! It left you a new egg and {0} coins.",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -10285,8 +10570,8 @@
   "f": "web/js/game/idle.js"
  },
  {
-  "id": "5b31b02f",
-  "k": "Only a grown (adult) creature can be released.",
+  "id": "b2e442c6",
+  "k": "Only a fully grown creature can be released.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -10395,8 +10680,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "5d4196b1",
-  "k": "It grows the creature in your habitat: it hatches, grows up and becomes ready to evolve.",
+  "id": "c2117ebd",
+  "k": "It grows the creature in your habitat: it hatches, grows into a juvenile and then becomes fully grown.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10410,8 +10695,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "9b7db3ae",
-  "k": "How evolving works",
+  "id": "76a90aa2",
+  "k": "How your creature grows",
   "f": "web/js/game/info.js"
  },
  {
@@ -10505,13 +10790,23 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "54bb5f6d",
-  "k": "Everything bought with coins is for looks. Nothing makes a creature stronger.",
+  "id": "6e8cf3b3",
+  "k": "A creature becomes fully grown: {0}, once for each creature.",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "fede851e",
-  "k": "The Shop. It offers {0} things a day, chosen for your creature, and changes every day.",
+  "id": "ee0d1b14",
+  "k": "Battle moves, bought once for all your creatures: quick moves, guards, power-ups, heals, delays, interrupts, charges and moves that change the squares. They cost {0} to {1} coins. They give new tricks, not bigger numbers.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "e5f10191",
+  "k": "Things to wear and decorations are for looks only.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "b2fce863",
+  "k": "The Shop. It offers {0} things to wear or put out and {1} battle moves a day, and changes every day.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10710,13 +11005,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "80b6476b",
-  "k": "How your creature evolves",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "00d04503",
-  "k": "{0} is a {1}. What it turns into follows how you study, you choose the moment, and nothing you choose is final.",
+  "id": "3e768824",
+  "k": "{0} is a {1}. Creatures stay young and cute: they grow up to juveniles and never become adults.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10725,8 +11015,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "80083e78",
-  "k": "is ready to evolve",
+  "id": "9e853a7b",
+  "k": "is fully grown",
   "f": "web/js/game/info.js"
  },
  {
@@ -10740,18 +11030,13 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "a105f0d4",
-  "k": "It is ready to evolve: tap it in the habitat.",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "f16b2c73",
   "k": "1. Growing up",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "d4915a51",
-  "k": "{0} All the XP you earn goes to the creature that is out in the habitat. The others wait, so who you bring out is your first choice.",
+  "id": "8949debd",
+  "k": "{0} A creature that becomes fully grown leaves you a new egg and {1} coins, and can be released in the garden. All the XP you earn goes to the creature that is out in the habitat. The others wait, so who you bring out is your first choice.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10765,43 +11050,18 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "174c7e2f",
-  "k": "Open: your strongest habit so far",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "28088622",
-  "k": "Open: this habit is past 25%",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "94fae88c",
-  "k": "· brings the battle move {0}",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "968f60ab",
-  "k": "3. Its adult form",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "ffd15c0d",
-  "k": "Once it has grown enough it waits as a juvenile and sparkles. Tap it and you choose its adult form. The form of your strongest habit is always open, and another opens once its habit passes 25%. After evolving, raising another habit to 50% unlocks that form too, and you can switch between unlocked forms whenever you like. Evolving also leaves you a new egg. Curiosity has no form of its own: it shows in your eggs, the shop and the garden.",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "93d943d8",
   "k": "{0} Earned",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "db795d86",
-  "k": "4. Special forms",
+  "id": "ec498ec8",
+  "k": "3. Special colourings",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "7c62f35b",
-  "k": "Worn on top of an adult form. They come from when you study, who it grows up beside, and what you pull off in battle. They change colours and features, never strength.",
+  "id": "883360b0",
+  "k": "A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, and what you pull off in battle. They change colours and features, never strength.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10820,8 +11080,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "976f4c1c",
-  "k": "Battles between people ignore all of this: every creature fights at the same level, and you win by knowing your words.",
+  "id": "cd2c82cf",
+  "k": "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In Unlimited battles creatures grow stronger with how many words their owner knows.",
   "f": "web/js/game/info.js"
  },
  {
@@ -10830,34 +11090,9 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "0c20f982",
-  "k": "Choose its form now",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "3b7ab43a",
   "k": "Open your creatures",
   "f": "web/js/game/info.js"
- },
- {
-  "id": "124ba4b6",
-  "k": "Needs more {0}",
-  "f": "web/js/game/rules.js"
- },
- {
-  "id": "cb437e4f",
-  "k": "It isn't ready to evolve yet.",
-  "f": "web/js/game/rules.js"
- },
- {
-  "id": "a6e6f750",
-  "k": "That form isn't open to it yet.",
-  "f": "web/js/game/rules.js"
- },
- {
-  "id": "81b52bd2",
-  "k": "That special form hasn't been earned yet.",
-  "f": "web/js/game/rules.js"
  },
  {
   "id": "5eb43479",
@@ -10885,6 +11120,21 @@
   "f": "web/js/game/rules.js"
  },
  {
+  "id": "859e3041",
+  "k": "That move isn't for sale.",
+  "f": "web/js/game/rules.js"
+ },
+ {
+  "id": "4578dacd",
+  "k": "You already know it.",
+  "f": "web/js/game/rules.js"
+ },
+ {
+  "id": "60e6b077",
+  "k": "You need {0} more coin{1}.",
+  "f": "web/js/game/rules.js"
+ },
+ {
   "id": "e4d969a9",
   "k": "That item doesn't exist.",
   "f": "web/js/game/rules.js"
@@ -10892,11 +11142,6 @@
  {
   "id": "2b338829",
   "k": "You already have it.",
-  "f": "web/js/game/rules.js"
- },
- {
-  "id": "60e6b077",
-  "k": "You need {0} more coin{1}.",
   "f": "web/js/game/rules.js"
  },
  {
@@ -10960,13 +11205,33 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "a8e4db25",
-  "k": "Today's selection, chosen for your creature. It changes every day. Coins come from reaching your daily goal (10), saving words (1 each) and levelling up (5).",
+  "id": "dd5916bd",
+  "k": "Today's selection, chosen for your creature. It changes every day. Coins come from reaching your daily goal (10), saving words (1 each), levelling up (5), winning battles, and a creature becoming fully grown (25).",
   "f": "web/js/game/shop.js"
  },
  {
   "id": "7c0a7817",
   "k": "You own everything that's on offer.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "fa0d260b",
+  "k": "Battle moves",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "e3296134",
+  "k": "Bought once, any of your creatures can take it into battle: choose on the Creatures page. You know {0} of the {1} moves sold here.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "03376a71",
+  "k": "You know every move there is to buy.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "ca40be16",
+  "k": "You learned {0}. Give it to a creature on the Creatures page.",
   "f": "web/js/game/shop.js"
  },
  {

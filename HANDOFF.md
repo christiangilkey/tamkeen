@@ -5931,3 +5931,52 @@ he chose Gemini (Google's API takes the YouTube link itself, nothing is download
 - Transport: define-service.js `transport` + `aiKey()` (both versions); the desktop relay (app/api/definer.py) takes
   `timeout` (Gemini asks 600 s); the phone passes readTimeout. Checked in the desktop preview with a pretend YouTube and
   Gemini (no real calls). Not tried with a real Gemini key or on a phone.
+
+## Creature game: no adult forms; grid battles with a timeline; battle moves bought with coins (2026-10-30; on main, not released)
+The owner's decisions (agreed in the "Rework creature game progression" chat; plan in the side-session note
+`progression-plan.md`): creatures stay young and cute, progression pays coins, coins buy hats/decor (as before)
+and battle moves, and battles became a grid game with a Grandia-style timeline.
+- **No adults.** `data.STAGES` is egg/hatchling/juvenile; `data.GROWN` (0.7) = "fully grown" (`genome.isGrown`).
+  `BRANCHES`, `readyToEvolve`, `leadingBranch`, `rules.evolve/branchOptions`, size `l` and the branch art in
+  `artFiles()` are gone (the files stay on disk). `rules.grow` pays once per creature at GROWN
+  (`FULLY_GROWN_COINS` 25 + `layEgg`, sets `g.grown`; result stage "grown": habitat toast + evolve burst).
+  Release needs `isGrown`. Variants (Twin/Nocturne/Champion) are worn by juveniles. Old saves (`normalize`):
+  `branch/branches` deleted, `grown = true`, each old form's move (echo→resonance, sage→insight, keeper→hoard)
+  added to `state.attacks`; `show: "adult"` cleared. Badge `grown` (art reuses `badge/adult_sage.png` via
+  `b.art`) replaces adult_echo/sage/keeper. Weekly rule `starters` → `basic` (bought moves sit out; icon
+  `rule_starters` via `r.icon`). Friends on older versions: their `branch` is ignored.
+- **Battle engine** (`battle.js`, pure, tested): 6×3 grid, each side its 3×3 half, `MOVE_RANGE` 2
+  (`reachable`, `moveTo` once a turn). Moves have `style` (strike/quick/guard/power/heal/delay/interrupt/charge/
+  terrain, `data.MOVE_STYLES`) and `aim` (line/column/burst/homing/self, `data.AIMS`, `area()`, `wouldHit()`).
+  Timeline: each fighter has `next`; turn length = 1000 / (spd + 20) (`turnLength`, puddle ×0.7, haste ×1.35);
+  `whoseTurn`, `timeline(b, n)` for the strip. `start(b)` and `act(b, moveId, quality)` run the timeline until
+  the player must choose and return events (step/attack/dodge/miss/charge/guard/boost/heal/terrain/faint/enter/end).
+  A wrong answer now MISSES (no glancing blow). Charges aim when started (`charging.tiles`) and land later;
+  interrupts cancel them; `delay` pushes `next`. Terrain (`data.TERRAIN`, `layTerrain`, mirrored, 2 per side):
+  grass def ×1.25, high ground dmg ×1.2, coals −5%/turn (Ember: atk ×1.15 instead), spring +6%/turn.
+  The foe AI picks a move, then the best square for it (reach, terrain, out of a charge's aim).
+  Balance (scratch sim, 300 wild battles each): 40/60/80/95% right → 13/49/76/89% wins; at 80% right,
+  standing still wins 42%, moving well 76%. `playTurn` is gone.
+- **Word modes** (`state.battleMode`): "last100" = `rules.battleWords` (100 newest quizzable words, all creatures
+  level) and "unlimited" = every quizzable word, with HP/atk/def × `battle.knownScale(known)` (1 + 0.25·log2(1+n/100),
+  max ×2; speed unscaled). `known` = `rules.knownWords` (words remembered once in the flashcards, from
+  `/api/reviews` via `review/deck.states`, or box ≥ MATURE_BOX), saved as `state.known` and published in each
+  friend-team entry as `known` (inside the `team` jsonb: no schema change). Wild foes and rentals are never scaled.
+  Picker: `battle-ui.wordModePicker`, on the battle menu and the Friends page.
+- **Moves shop**: `data.SHOP_MOVES` (17 with `price`; new ones show their style's icon via `m.icon`/`moveIcon`),
+  `rules.moveStock` (4 a day, seeded), `rules.buyMove` → `state.attacks` (any creature; `knownMoves`).
+  `shopStock` now weights hats ×2 and lists them first.
+- **Screen** (`battle-ui.js` rewritten): grid drawn on the battle canvas (`colX/rowY`), drag the creature or tap
+  a square (pointer events) or the 3×3 move pad (`.b-movepad`, controller-friendly); move buttons show
+  In reach / Out of line and preview their squares on hover/focus; timeline strip `.b-timeline`; a `view` object
+  replays events so HP/positions change when shown. CSS in app.css after `.b-hp .hud-bar`.
+- Art the art session could add later: icons for the 14 new moves (`icon/move/<id>.png`, then drop `icon` in
+  `shop()`), terrain tiles (now drawn in code: `TERRAIN_COLOR` + pixel marks), a `badge/grown.png`.
+- Checked in the browser pane on desktop and phone width (fresh data folder, 120 Spanish test words): menu, word
+  modes, moving by pad and by drag, hover preview, a full turn with the foe dodging to high ground, buying
+  Thunderhead, the Creatures page, an old Sage save showing as "Juvenile · Fully grown". Not tried on a real
+  phone, with a controller, or in a friend battle between two real accounts.
+- The web app's "What's new" lines are for the release chat to add with the version number; suggested:
+  "Creatures stay young: no more adult forms, and a fully grown creature leaves an egg and coins",
+  "Battles on a grid: move, dodge, and watch the timeline of who acts next",
+  "Buy battle moves in the shop, and battle on your last 100 words or all of them".

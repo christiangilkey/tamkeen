@@ -40,7 +40,7 @@ test("what is shared for the bar: today's XP and the favourite's look, nothing e
   assert.equal(p.xp_day, "2026-10-14");
   assert.equal(p.xp_today, Math.round(s.day.xp));
   assert.ok(p.xp_today > 0);
-  assert.deepEqual(Object.keys(p.showcase).sort(), ["branch", "growth", "name", "partnerHue", "seed", "show", "type", "variant"]);
+  assert.deepEqual(Object.keys(p.showcase).sort(), ["growth", "name", "partnerHue", "seed", "show", "type", "variant"]);
   assert.equal(p.showcase.name, "Noor");
   assert.ok(JSON.stringify(p.showcase).length < 1000);
   // The next morning, before any study, yesterday's XP is not reported as today's.
@@ -60,10 +60,11 @@ test("a friend's XP counts as today's only while it is fresh", () => {
 });
 
 test("a friend's showcased creature is checked before it is drawn", () => {
-  const good = showcaseGenome({ showcase: { seed: 21, type: "dusk", growth: 0.8, branch: "sage", variant: null, name: "Noor" } });
+  const good = showcaseGenome({ showcase: { seed: 21, type: "dusk", growth: 0.8, branch: "sage", show: "adult", variant: null, name: "Noor" } });
   assert.equal(good.seed, 21);
   assert.equal(good.name, "Noor");
   assert.ok(describe(good), "it can be drawn");
+  assert.equal(describe(good).stage, "juvenile", "a friend's old adult shows as a juvenile");
   assert.equal(showcaseGenome({ showcase: null }), null);
   assert.equal(showcaseGenome({}), null);
   assert.equal(showcaseGenome({ showcase: { seed: "x", growth: 0.5 } }), null);
@@ -71,6 +72,6 @@ test("a friend's showcased creature is checked before it is drawn", () => {
   const odd = showcaseGenome({ showcase: { seed: 3, growth: 99, name: "x".repeat(200), branch: 5, traits: { hack: 1 } } });
   assert.equal(odd.growth, 1);
   assert.equal(odd.name.length, 20);
-  assert.equal(odd.branch, null);
+  assert.ok(!("branch" in odd) || odd.branch === undefined);
   assert.ok(!("hack" in odd.traits), "only the fields the app shares are read");
 });

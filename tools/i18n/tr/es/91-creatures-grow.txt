@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	La criatura del hábitat es la que crece mientras estudias. Las criaturas siguen siendo jóvenes: una criatura joven sigue creciendo hasta estar totalmente crecida y luego te deja un huevo nuevo. Su aspecto lo eliges tú y se puede cambiar después: no se pierde nada por mantener un aspecto más joven o probar una coloración especial.
+24c58d57	· Totalmente crecida
+741ec4dc	Coloración especial
+57467f06	Solo movimientos básicos
+b396fbce	Los movimientos comprados en la tienda se quedan fuera esta semana.
+a304f6b2	Cría una criatura hasta que esté totalmente crecida
+740ac187	Liberar una criatura totalmente crecida
+5e37efe9	Una criatura totalmente crecida puede ser liberada. Deja tu grupo y se la recuerda aquí. Tus edificios y tu brillo empiezan de cero, y te quedas con <0/>: cada uno hace que todos los edificios sean un {0} % más rápidos para siempre, así que el siguiente jardín crece mucho más deprisa que el anterior. Cuantos más edificios totalmente crecidos tengas en ese momento, más polvo de estrellas.
+684832fa	Aún no tienes ninguna criatura totalmente crecida.
+3d504079	Toca para ver cómo crece tu criatura
+f7c3539b	· totalmente crecida
+2919541d	· {0} % para crecer del todo
+bc39d8bf	¡Tu criatura está totalmente crecida! Te ha dejado un huevo nuevo y {0} monedas.
+b2e442c6	Solo se puede liberar una criatura totalmente crecida.
+c2117ebd	Hace crecer a la criatura de tu hábitat: eclosiona, pasa a ser joven y luego termina de crecer.
+76a90aa2	Cómo crece tu criatura
+3e768824	{0} es {1}. Las criaturas no dejan de ser pequeñas y adorables: crecen hasta la etapa joven y nunca llegan a adultas.
+9e853a7b	esté totalmente crecida
+8949debd	{0} Una criatura que llega a estar totalmente crecida te deja un huevo nuevo y {1} monedas, y se puede liberar en el jardín. Toda la XP que ganas va a la criatura que está en el hábitat. Las demás esperan, así que a quién sacas es tu primera elección.
+ec498ec8	3. Coloraciones especiales
+883360b0	Una criatura joven puede llevar una, que se elige en la página Criaturas. Dependen de cuándo estudias, junto a quién crece y lo que logras en las batallas. Cambian colores y rasgos, nunca la fuerza.

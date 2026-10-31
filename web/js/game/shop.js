@@ -1,15 +1,16 @@
 // The shop and the wardrobe: a sheet that slides over the page, opened from the habitat.
-// Coins come from studying; everything here is for looks.
+// Coins come from studying. They buy things to wear and decorations (for looks only) and battle
+// moves (new tricks for battles, not bigger numbers).
 
 import { h, toast } from "../app.js";
-import { CATALOG, DECOR, ITEMS, SLOTS, TAGS, itemById } from "./data.js";
-import { buy, equip, placeDecor, shopStock } from "./rules.js";
+import { CATALOG, DECOR, ITEMS, SHOP_MOVES, SLOTS, TAGS, itemById, moveIcon } from "./data.js";
+import { buy, buyMove, equip, moveStock, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
 import { friendsPanel, gift } from "./friends-game.js";
 import { gardenPanel, suppliesPanel } from "./garden.js";
-import { startFriendBattle } from "./battle-ui.js";
+import { moveHelp, moveLine, startFriendBattle } from "./battle-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const fileOf = (it) => (it.slot === "decor" ? `${it.id}.png` : `item/${it.id}.png`);
@@ -93,11 +94,39 @@ export function openShop(tab, changed) {
     if (which === "shop") {
       const stock = shopStock(game);
       body.append(h(`<p class="small muted">Today's selection, chosen for your creature. It changes every day. Coins come from
-        reaching your daily goal (10), saving words (1 each) and levelling up (5).</p>`));
+        reaching your daily goal (10), saving words (1 each), levelling up (5), winning battles, and a creature becoming fully grown (25).</p>`));
       if (!stock.length) body.append(h(`<p class="muted">You own everything that's on offer.</p>`));
       const grid = h(`<div class="shop-grid"></div>`);
       for (const it of stock) grid.append(card(it, "shop"));
       body.append(grid);
+      // Battle moves: bought once, for all of your creatures. Choose who takes which on the Creatures page.
+      const moves = moveStock(game);
+      body.append(h(`<h3>${icon("battle")} Battle moves</h3>`));
+      body.append(h(`<p class="small muted">Bought once, any of your creatures can take it into battle: choose on the Creatures page.
+        You know ${game.attacks.length} of the ${SHOP_MOVES.length} moves sold here.</p>`));
+      if (!moves.length) body.append(h(`<p class="muted">You know every move there is to buy.</p>`));
+      const moveGrid = h(`<div class="shop-grid"></div>`);
+      for (const m of moves) {
+        const el = h(`<div class="shop-item"><span class="shop-pic rarity-${m.price >= 100 ? "jackpot" : m.price >= 70 ? "lucky" : "common"}"><img alt="" src="${ART}${moveIcon(m)}.png"></span>
+          <span class="shop-name"></span><span class="small muted"></span><button type="button"></button></div>`);
+        el.querySelector(".shop-name").textContent = m.name;
+        el.querySelector(".small").textContent = moveLine(m);
+        el.title = moveHelp(m);
+        const btn = el.querySelector("button");
+        btn.innerHTML = `${icon("coin")} ${m.price}`;
+        btn.className = game.coins >= m.price ? "primary" : "";
+        btn.onclick = () => {
+          const problem = buyMove(game, m.id);
+          if (problem) { toast(problem, { error: true }); return; }
+          sfx("lucky");
+          toast(`You learned ${m.name}. Give it to a creature on the Creatures page.`);
+          saveGame();
+          changed();
+          paint("shop");
+        };
+        moveGrid.append(el);
+      }
+      body.append(moveGrid);
       const locked = CATALOG.filter((it) => (it.requires || []).some((t) => !game.tags.includes(t)) && !game.owned.includes(it.id));
       if (locked.length) {
         const need = [...new Set(locked.flatMap((it) => it.requires))].filter((t) => !game.tags.includes(t));

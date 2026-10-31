@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	Ang linalang sa habitat mao ang motubo samtang nagtuon ka. Magpabiling batan-on ang mga linalang: ang batan-on padayon nga motubo hangtod nga hingpit na kini nga dako, unya magbilin kini nimo og bag-ong itlog. Ikaw ang mopili sa hitsura niini ug mausab kini unya: walay mawala kung ipabilin nimo ang mas batan-on nga hitsura o mosulay ka og espesyal nga kolor.
+24c58d57	· Hingpit na nga dako
+741ec4dc	Espesyal nga kolor
+57467f06	Mga sukaranang lihok ra
+b396fbce	Ang mga lihok nga gipalit sa tindahan mopahulay niining semanaha.
+a304f6b2	Padak-a ang usa ka linalang hangtod nga hingpit na kini nga dako
+740ac187	Buhii ang usa ka linalang nga hingpit na nga dako
+5e37efe9	Ang linalang nga hingpit na nga dako mahimong buhian. Mobiya kini sa imong roster ug hinumdoman dinhi. Ang imong mga building ug sanag magsugod pag-usab, ug imong mapabilin ang <0/>: ang matag usa mopaspas sa matag building og {0}% hangtod sa hangtod, busa ang sunod nga tanaman mas paspas kaayo nga motubo kaysa sa nauna. Kung mas daghan ang hingpit nga dako nga building niadtong higayona, mas daghan ang abog sa bituon.
+684832fa	Wala ka pay linalang nga hingpit na nga dako.
+3d504079	I-tap aron makita kung giunsa pagtubo sa imong linalang
+f7c3539b	· hingpit na nga dako
+2919541d	· {0}% ngadto sa hingpit nga pagdako
+bc39d8bf	Hingpit na nga dako ang imong linalang! Gibilinan ka niini og bag-ong itlog ug {0} ka coin.
+b2e442c6	Ang linalang nga hingpit na nga dako ra ang mabuhian.
+c2117ebd	Kini ang mopatubo sa linalang sa imong habitat: mapusa kini, mahimong batan-on, ug unya mahimong hingpit nga dako.
+76a90aa2	Giunsa pagtubo sa imong linalang
+3e768824	Ang {0} usa ka {1}. Magpabiling batan-on ug cute ang mga linalang: motubo sila hangtod sa pagkabatan-on ug dili gyud mahimong hamtong.
+9e853a7b	hingpit nga modako
+8949debd	{0} Ang linalang nga mahimong hingpit nga dako magbilin nimo og bag-ong itlog ug {1} ka coin, ug mahimo kining buhian sa tanaman. Ang tanan nga XP nga imong makuha moadto sa linalang nga naa sa habitat. Ang uban maghulat, busa kung kinsa ang imong ipagawas mao ang imong unang pili.
+ec498ec8	3. Mga espesyal nga kolor
+883360b0	Ang batan-on makasul-ob og usa, nga pilion sa panid sa Mga linalang. Gikan kini sa oras sa imong pagtuon, kinsa ang kauban niini sa pagdako, ug unsa ang imong nahimo sa sangka. Mausab niini ang mga kolor ug mga bahin, dili gyud ang kusog.

@@ -37,12 +37,12 @@ test("what friends see: a team and a few numbers, never words", () => {
 });
 
 test("a friend's published team is checked before it fights", () => {
-  const good = { seed: 9, type: "ember", growth: 0.5, branch: null, loadout: ["cinder", "guard"] };
+  const good = { seed: 9, type: "ember", growth: 0.5, loadout: ["cinder", "guard"] };
   assert.ok(fits(good, null));
   assert.ok(!fits({ ...good, growth: 0 }, null), "an egg cannot fight");
   assert.ok(!fits({ type: "ember" }, null), "nor can something that isn't a creature");
   assert.ok(!fits(good, { id: "cool", types: ["tide"] }));
-  assert.ok(!fits({ ...good, branch: "echo" }, { id: "starters" }));
+  assert.ok(fits({ ...good, branch: "echo" }, { id: "basic" }), "a friend's old adult is just a juvenile now");
   const f = fighter(null, { ...good, loadout: ["cinder", "made_up", "hoard", "guard", "tackle", "zap"] });
   assert.deepEqual(f.moves, ["cinder", "hoard", "guard", "tackle"].slice(0, 4).filter((id) => id !== "made_up"), "only real moves, four at most");
   assert.deepEqual(fighter(null, { ...good, loadout: ["guard"] }).moves, ["guard", "tackle"], "always something to attack with");

@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	Ang nilalang sa tirahan ang lumalaki habang nag-aaral ka. Nananatiling bata ang mga nilalang: patuloy na lumalaki ang batang nilalang hanggang ganap na itong lumaki, saka ka nito iiwanan ng bagong itlog. Ikaw ang pipili ng itsura nito at puwede itong baguhin mamaya: walang mawawala kung pananatilihin mo ang mas batang itsura o susubukan ang espesyal na kulay.
+24c58d57	· Ganap nang lumaki
+741ec4dc	Espesyal na kulay
+57467f06	Mga pangunahing galaw lang
+b396fbce	Pahinga muna ngayong linggo ang mga galaw na binili sa tindahan.
+a304f6b2	Magpalaki ng nilalang hanggang ganap itong lumaki
+740ac187	Magpakawala ng ganap nang lumaking nilalang
+5e37efe9	Puwedeng pakawalan ang ganap nang lumaking nilalang. Aalis ito sa grupo mo at maaalala rito. Magsisimula ulit ang mga gusali at liwanag mo, at itatabi mo ang <0/>: bawat isa ay nagpapabilis sa bawat gusali nang {0}% habambuhay, kaya mas mabilis lalaki ang susunod na hardin. Mas maraming ganap na lumaking gusali sa oras na iyon, mas maraming stardust.
+684832fa	Wala ka pang ganap nang lumaking nilalang.
+3d504079	Pindutin para makita kung paano lumalaki ang nilalang mo
+f7c3539b	· ganap nang lumaki
+2919541d	· {0}% bago ganap na lumaki
+bc39d8bf	Ganap nang lumaki ang nilalang mo! Iniwanan ka nito ng bagong itlog at {0} barya.
+b2e442c6	Ang ganap nang lumaking nilalang lang ang puwedeng pakawalan.
+c2117ebd	Pinalalaki nito ang nilalang sa tirahan mo: napipisa ito, nagiging bata, at saka ganap na lumalaki.
+76a90aa2	Paano lumalaki ang nilalang mo
+3e768824	Si {0} ay {1}. Nananatiling bata at cute ang mga nilalang: hanggang yugtong bata lang sila lumalaki at hindi kailanman nagiging nasa hustong gulang.
+9e853a7b	ganap na lumaki
+8949debd	{0} Ang nilalang na ganap nang lumaki ay mag-iiwan sa iyo ng bagong itlog at {1} barya, at puwede itong pakawalan sa hardin. Lahat ng XP na makukuha mo ay napupunta sa nilalang na nasa tirahan. Naghihintay ang iba, kaya ang ilalabas mo ang una mong pagpili.
+ec498ec8	3. Mga espesyal na kulay
+883360b0	Puwedeng magsuot ng isa ang batang nilalang, na pinipili sa pahina ng Mga nilalang. Nanggagaling ang mga ito sa oras ng pag-aaral mo, sa kasama nitong lumaki, at sa nagagawa mo sa laban. Kulay at itsura ang binabago, hindi kailanman ang lakas.

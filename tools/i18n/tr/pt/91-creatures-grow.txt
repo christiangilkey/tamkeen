@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	A criatura no habitat é a que cresce enquanto você estuda. As criaturas ficam sempre jovens: uma criatura jovem segue crescendo até ficar totalmente crescida e então deixa um ovo novo para você. A aparência dela é você quem escolhe, e dá para mudar depois: não se perde nada ao manter uma aparência mais jovem ou experimentar uma coloração especial.
+24c58d57	· Totalmente crescida
+741ec4dc	Coloração especial
+57467f06	Só golpes básicos
+b396fbce	Os golpes comprados na loja ficam de fora esta semana.
+a304f6b2	Crie uma criatura até ela ficar totalmente crescida
+740ac187	Libertar uma criatura totalmente crescida
+5e37efe9	Uma criatura totalmente crescida pode ser libertada. Ela sai do seu grupo e fica lembrada aqui. Suas construções e seu brilho recomeçam do zero, e você fica com <0/>: cada uma deixa todas as construções {0}% mais rápidas para sempre, então o próximo jardim cresce muito mais rápido que o anterior. Quanto mais construções totalmente crescidas houver na hora, mais poeira estelar.
+684832fa	Você ainda não tem nenhuma criatura totalmente crescida.
+3d504079	Toque para ver como sua criatura cresce
+f7c3539b	· totalmente crescida
+2919541d	· {0}% para crescer totalmente
+bc39d8bf	Sua criatura está totalmente crescida! Ela deixou um ovo novo e {0} moedas para você.
+b2e442c6	Só uma criatura totalmente crescida pode ser libertada.
+c2117ebd	Ele faz a criatura do seu habitat crescer: ela eclode, vira jovem e depois fica totalmente crescida.
+76a90aa2	Como sua criatura cresce
+3e768824	{0} é {1}. As criaturas ficam sempre jovens e fofas: crescem até a fase jovem e nunca viram adultas.
+9e853a7b	ficar totalmente crescida
+8949debd	{0} Uma criatura que fica totalmente crescida deixa um ovo novo e {1} moedas para você, e pode ser libertada no jardim. Todo o XP que você ganha vai para a criatura que está no habitat. As outras esperam, então quem você traz para fora é a sua primeira escolha.
+ec498ec8	3. Colorações especiais
+883360b0	Uma criatura jovem pode usar uma, escolhida na página Criaturas. Elas vêm de quando você estuda, de quem cresce ao lado dela e do que você consegue nas batalhas. Mudam cores e traços, nunca a força.

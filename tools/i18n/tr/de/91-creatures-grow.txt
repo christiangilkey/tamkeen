@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	Das Wesen im Lebensraum ist das, das wächst, während du lernst. Wesen bleiben jung: Ein Jungtier wächst weiter, bis es ausgewachsen ist, und hinterlässt dir dann ein neues Ei. Sein Aussehen bestimmst du selbst und kannst es später ändern: Es geht nichts verloren, wenn du ein jüngeres Aussehen behältst oder eine besondere Färbung ausprobierst.
+24c58d57	· Ausgewachsen
+741ec4dc	Besondere Färbung
+57467f06	Nur Basiszüge
+b396fbce	Im Laden gekaufte Züge setzen diese Woche aus.
+a304f6b2	Zieh ein Wesen groß, bis es ausgewachsen ist
+740ac187	Ein ausgewachsenes Wesen freilassen
+5e37efe9	Ein ausgewachsenes Wesen kann freigelassen werden. Es verlässt deine Sammlung und bleibt hier in Erinnerung. Deine Gebäude und dein Glimmer beginnen von vorn, und du behältst <0/>: Jedes Körnchen macht jedes Gebäude für immer {0} % schneller, sodass der nächste Garten viel schneller wächst als der letzte. Je mehr ausgewachsene Gebäude du zu dem Zeitpunkt hast, desto mehr Sternenstaub.
+684832fa	Du hast noch kein ausgewachsenes Wesen.
+3d504079	Tippen, um zu sehen, wie dein Wesen wächst
+f7c3539b	· ausgewachsen
+2919541d	· {0} % bis ausgewachsen
+bc39d8bf	Dein Wesen ist ausgewachsen! Es hat dir ein neues Ei und {0} Münzen hinterlassen.
+b2e442c6	Nur ein ausgewachsenes Wesen kann freigelassen werden.
+c2117ebd	Sie lassen das Wesen in deinem Lebensraum wachsen: Es schlüpft, wird zum Jungtier und ist dann ausgewachsen.
+76a90aa2	So wächst dein Wesen
+3e768824	{0} ist ein {1}. Wesen bleiben jung und niedlich: Sie wachsen zum Jungtier heran und werden nie erwachsen.
+9e853a7b	ausgewachsen ist
+8949debd	{0} Ist ein Wesen ausgewachsen, hinterlässt es dir ein neues Ei und {1} Münzen und kann im Garten freigelassen werden. Alle EP, die du verdienst, gehen an das Wesen, das im Lebensraum ist. Die anderen warten, also ist die Wahl, wen du hervorholst, deine erste Entscheidung.
+ec498ec8	3. Besondere Färbungen
+883360b0	Ein Jungtier kann eine davon tragen; du wählst sie auf der Seite „Wesen“. Sie entstehen daraus, wann du lernst, neben wem es aufwächst und was du im Kampf schaffst. Sie ändern Farben und Merkmale, nie die Stärke.

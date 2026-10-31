@@ -4,8 +4,8 @@
 import { h, toast } from "../app.js";
 import { confirmBox } from "../components/modal.js";
 import { t } from "../i18n.js";
-import { BRANCHES, FOODS, PLOTS, STRUCTURES, SUPPLIES, TYPES } from "./data.js";
-import { formOf } from "./genome.js";
+import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TYPES } from "./data.js";
+import { formOf, isGrown } from "./genome.js";
 import { dayKey } from "./rules.js";
 import {
   AUTO_GOALS, BOOST_MINUTES, FEEDS_PER_DAY, OFFLINE_HOURS, STARDUST_BOOST, automated, build, buySupply, collect, costOf, feed, garden,
@@ -108,16 +108,16 @@ export function gardenPanel(body, game, changed) {
   });
 
   // Releasing: the garden's fresh start, with something kept for good.
-  const adults = game.roster.map((c, i) => [c, i]).filter(([c]) => c.branch);
-  const box = h(`<div class="creature-card stack"><strong>${icon("release")} Release a grown creature</strong>
-    <span class="small muted">A grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow
+  const adults = game.roster.map((c, i) => [c, i]).filter(([c]) => isGrown(c));
+  const box = h(`<div class="creature-card stack"><strong>${icon("release")} Release a fully grown creature</strong>
+    <span class="small muted">A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow
     start over, and you keep <strong>${icon("stardust")} stardust</strong>: each one makes every building ${Math.round(STARDUST_BOOST * 100)}% faster for good,
     so the next garden grows much quicker than the last. More fully grown buildings at the time means more stardust.</span>
     <div class="pick-row" id="rel"></div><div class="small muted" id="rel-log"></div></div>`);
-  if (!adults.length) box.querySelector("#rel").append(h(`<span class="small muted">You have no adult creature yet.</span>`));
+  if (!adults.length) box.querySelector("#rel").append(h(`<span class="small muted">You have no fully grown creature yet.</span>`));
   for (const [c, i] of adults) {
     const b = h(`<button type="button" class="pick"></button>`);
-    b.textContent = `${c.name || TYPES[c.type].name} (${BRANCHES[c.branch].name})`;
+    b.textContent = c.name || TYPES[c.type].name;
     b.onclick = async () => {
       const ok = await confirmBox(c.name ? t("Release {0}?", c.name) : t("Release this creature?"),
         "It leaves for good, and your buildings and glow start over. You keep stardust, your other creatures and everything you own.",

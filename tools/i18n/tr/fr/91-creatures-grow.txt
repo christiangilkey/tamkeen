@@ -1,0 +1,22 @@
+# Creatures stay young: fully grown, special colourings (2026-10-30)
+a4e86c7a	La créature de l'habitat est celle qui grandit pendant que vous étudiez. Les créatures restent jeunes : un juvénile continue de grandir jusqu'à être entièrement développé, puis vous laisse un nouvel œuf. Son apparence, c'est vous qui la choisissez, et vous pouvez la changer plus tard : on ne perd rien à garder une apparence plus jeune ou à essayer une coloration spéciale.
+24c58d57	· Entièrement développé
+741ec4dc	Coloration spéciale
+57467f06	Attaques de base uniquement
+b396fbce	Les attaques achetées à la boutique restent sur la touche cette semaine.
+a304f6b2	Élevez une créature jusqu'à ce qu'elle soit entièrement développée
+740ac187	Libérer une créature entièrement développée
+5e37efe9	Une créature entièrement développée peut être libérée. Elle quitte votre équipe et reste dans les mémoires ici. Vos bâtiments et votre lueur repartent de zéro, et vous gardez <0/> : chacune rend chaque bâtiment {0} % plus rapide pour toujours, si bien que le jardin suivant pousse bien plus vite que le précédent. Plus vous avez de bâtiments entièrement développés à ce moment-là, plus vous obtenez de poussière d'étoile.
+684832fa	Vous n'avez pas encore de créature entièrement développée.
+3d504079	Touchez pour voir comment votre créature grandit
+f7c3539b	· entièrement développé
+2919541d	· {0} % avant d'être entièrement développé
+bc39d8bf	Votre créature est entièrement développée ! Elle vous a laissé un nouvel œuf et {0} pièces.
+b2e442c6	Seule une créature entièrement développée peut être libérée.
+c2117ebd	Elle fait grandir la créature de votre habitat : celle-ci éclot, devient juvénile, puis atteint son plein développement.
+76a90aa2	Comment votre créature grandit
+3e768824	{0} est {1}. Les créatures restent jeunes et mignonnes : elles grandissent jusqu'au stade juvénile et ne deviennent jamais adultes.
+9e853a7b	sera entièrement développée
+8949debd	{0} Une créature qui devient entièrement développée vous laisse un nouvel œuf et {1} pièces, et peut être libérée dans le jardin. Toute l'XP que vous gagnez va à la créature sortie dans l'habitat. Les autres attendent : le choix de celle que vous faites sortir est donc votre premier choix.
+ec498ec8	3. Colorations spéciales
+883360b0	Un juvénile peut en porter une, à choisir sur la page Créatures. Elles viennent du moment où vous étudiez, de qui grandit à ses côtés et de vos exploits en combat. Elles changent les couleurs et les traits, jamais la force.

@@ -1,0 +1,100 @@
+# Grid battles, battle moves shop, word modes (2026-10-30)
+22850bab	Katapusang {0} ka pulong
+b8bef37b	Walay limit
+151a3c37	Ang pangutana mahimong bisan unsang pulong nga imong gi-save niini nga pinulongan. Mokusog ang imong mga linalang sa mga pulong nga imong nahibal-an: kabalo ka og {0}, busa moaway sila sa ×{1} (×2 ang pinakataas).
+9ef7bc96	Ang mga pangutana gikan sa {0} ka pulong nga bag-o lang nimo gi-save, ug ang matag linalang moaway sa samang lebel: ang pinakapatas nga away para sa tanan.
+3c2bbf67	{0} ang nahibal-an
+aa72b2cf	Ang mga sangka mahitabo sa gamay nga grid. Sa imong turno, ibalhin ang imong linalang hangtod sa duha ka kahon (guyora kini, o i-tap ang usa ka kahon), dayon pili og lihok ug tubaga ang pangutana bahin sa usa sa imong mga pulong: ang sakto nga tubag mopaigo niini, ang sayop dili. Tubaga sulod sa {0} ka segundo ug motubo ang combo (×1.2, ×1.5, ×2). Ang timeline sa ibabaw nagpakita kung kinsa ang sunod nga molihok.
+44bc0338	Unsang mga pulong?
+30049b5a	Pili og tulo sa unom ka gipaambit nga linalang karong semanaha; ang imong kaatbang makakuha sa nahabilin. Kanunay patas ang away. Maihap kini sa imong skill rating.
+4fb0793f	Kinsa ang sunod nga molihok: kon mas layo sa tuo, mas ulahi
+265790ce	Nag-andam og {0}
+4684df38	(Ang sayop nga tubag dili moigo.)
+49356f1d	{0} misulay og {1}, apan wala moigo.{2}
+105489a1	{0} migamit og {1}, apan {2:lower} wala didto.
+5623941f	Napugngan niini ang {0}!
+686179a3	Naatras ang sunod niini nga turno.
+7076b34d	{0} migamit og {1}.{2}{3}{4}{5}{6}
+d85fe727	Moigo kini sa nagsiga nga mga kahon inig abot sa turno niini.
+265f1d9c	Gawas sa pula nga mga kahon, o pugngi kini gamit ang lihok nga Pugong.
+5c60b196	{0} nag-andam og {1}! {2}
+f26f646e	Mas sayo moabot ang mga turno niini sulod sa pipila ka higayon.
+d48918fa	{0} migamit og {1}: {2:lower}.
+a116ea88	Balhin (hangtod 2 ka kahon)
+1a15d4a7	Ania ang imong linalang
+d6f5b75c	Balhin dinhi
+a86d76a5	Layo ra kaayo karong turno
+729c3e08	Maabot
+e6ad8d34	Dili maabot
+bc4c3158	Pili og lihok. Ang pangutana bahin sa usa sa imong mga pulong ang motino kung moigo ba kini.
+537cc256	Imong turno. Balhin una kung gusto nimo (guyora ang imong linalang o i-tap ang usa ka kahon), dayon pili og lihok.
+885603d7	Nahurot ang oras: wala moigo ang lihok.
+0c56b0f0	Dili pa kaayo: wala moigo ang lihok. Gimarkahan ang sakto nga tubag.
+7e9a3898	Walay bisan usa ka sayop nga tubag: maablihan na ang kolor nga Kampeon ug ang lihok nga Perpekto nga Porma.
+41c4308a	Midaog gikan sa ngilit: maablihan na ang kolor nga Kampeon ug ang lihok nga Ikaduhang Ginhawa.
+96bf2c9c	Nagsugod na ang sangka.
+c61c0aa4	Mga lihok sa sangka (pili hangtod upat sa {0}; palit og dugang sa tindahan)
+f9ae58aa	Atake
+d73195ba	Yano nga danyos.
+c616c592	Mas huyang, apan mas sayo moabot ang imong sunod nga turno.
+0e353bf6	Mopugong sa bahin sa sunod nga igo.
+55774675	Mopakusog sa imong sunod nga mga atake, o mopapaspas sa imong mga turno.
+c1660151	Pang-ayo
+4b540469	Mobalik ang kusog (kaduha matag sangka).
+b4c200bb	Paglangan
+f9d7ec6e	Moatras sa sunod nga turno sa laing linalang.
+d5db4549	Pugong
+0a28f6ec	Mokansela sa lihok nga gi-andam pa.
+c77a521a	Dakong danyos human sa pag-andam. Motumong kini kung asa ka nagbarog sa pagsugod, ug ang usa ka igo makakansela niini.
+e7d721bc	Yuta
+45a56925	Mag-usab sa mga kahon sa natad sa sangka.
+8f49ba8d	Tul-id nga linya
+8423bf99	Imong laray, tibuok tabok
+65ba00e9	Kolum
+97d76369	Usa ka kolum sa ilang bahin: gikan sa imong likod nga kolum, ang ilang likod nga kolum
+4d6d3bf1	Buto
+da62f74f	Ang duha ka atubangan nga kolum sa ilang bahin, sa imong laray ug sa mga laray tupad niini
+09267fd0	Mogukod
+a42ef5a3	Kanunay moigo
+13e6c0e0	Kaugalingon
+da1155d9	Sa linalang ra nga migamit niini kini molihok
+ae65ee72	Depensa +25% samtang nagbarog dinhi.
+096b0cc7	Taas nga dapit
+c25e35a5	Ang mga atake gikan dinhi 20% mas kusog moigo.
+a254504f	Lim-aw
+d5c3461e	Mopahinay nimo: mas ulahi moabot ang imong mga turno.
+64ca529b	Init nga uling
+dc10dacb	Mopaso og gamay matag turno, apan ganahan kaayo niini ang mga linalang nga Baga: mas kusog ang ilang atake dinhi.
+89677615	Tubod
+5137631f	Mag-ayo og gamay matag turno.
+d6f450b6	Paspas nga Sumbag
+0241a607	Dakmal
+f0b57cd8	Mangangita
+18a6d8f2	Puthaw nga Kabhang
+d6aac83b	Singgit sa Gubat
+27b44b7b	Dalidali
+e1b5cc13	Bulong
+9dda9aa7	Tiud
+fdd82012	Kurat
+29f71f8d	Panganod sa Dalugdog
+3df1a8a2	Bulalakaw
+3ef84d55	Pagpamulak
+490f74a2	Paso
+c7825ffa	Agos sa Lapok
+5ce50a44	Mga pulong para sa imong mga sangka
+6e8cf3b3	Ang linalang mahimong hingpit na nga dako: {0}, kausa matag linalang.
+ee0d1b14	Mga lihok sa sangka, palitan kausa para sa tanan nimong linalang: paspas nga mga lihok, bantay, pampakusog, pang-ayo, paglangan, pugong, pagkarga ug mga lihok nga mag-usab sa mga kahon. Ang presyo {0} hangtod {1} ka coin. Naghatag kini og bag-ong mga limbong, dili mas dagkong numero.
+e5f10191	Ang mga sul-obonon ug dekorasyon para sa hitsura ra.
+b2fce863	Ang Tindahan. Nagtanyag kini og {0} ka butang nga isul-ob o ibutang ug {1} ka lihok sa sangka matag adlaw, ug mausab matag adlaw.
+cd2c82cf	Ang mga sangka dili motagad niining tanan. Sa mga sangka nga Katapusang 100 ka pulong, ang matag linalang moaway sa samang lebel, ug modaog ka pinaagi sa pagkahibalo sa imong mga pulong. Sa mga sangka nga Walay limit, mokusog ang mga linalang sumala sa kadaghan sa pulong nga nahibal-an sa ilang tag-iya.
+859e3041	Dili baligya kana nga lihok.
+4578dacd	Kabalo na ka niini.
+dd5916bd	Ang pinili karon, para sa imong linalang. Mausab kini matag adlaw. Ang mga coin gikan sa pagkab-ot sa imong adlaw-adlaw nga tumong (10), pag-save og mga pulong (1 matag usa), pagsaka og lebel (5), pagdaog sa mga sangka, ug pagkahingpit sa pagdako sa usa ka linalang (25).
+fa0d260b	Mga lihok sa sangka
+e3296134	Palitan kausa, ug bisan unsang linalang nimo makadala niini sa sangka: pilia sa panid nga Mga linalang. Kabalo ka og {0} sa {1} ka lihok nga gibaligya dinhi.
+03376a71	Kabalo ka na sa tanang lihok nga mapalit.
+316b63d4	· kusog {0}
+ca40be16	Nakat-onan nimo ang {0}. Ihatag kini sa usa ka linalang sa panid nga Mga linalang.
+3096a59b	{0} misulay og {1}, apan wala moigo.
+447b0986	{0} migamit og {1}.
+8205033f	{0} nag-andam og {1}!
