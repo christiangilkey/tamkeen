@@ -404,19 +404,60 @@ export function pressesFrom(state, down, now, repeats = () => false) {
   return fire;
 }
 
-export const newPressState = () => ({ down: new Set(), since: {}, last: {} });
+export const newPressState = () => ({ down: new Set(), since: {}, last: {}, stuck: new Set() });
+
+/**
+ * A controller just seen: whatever is already down then (a stick or a trigger resting away from the
+ * middle, a button that reads as pressed all the time) is taken as at rest, and does nothing until
+ * it has been let go once. Without this, an axis resting at −1 on the "right stick up" scrolled the
+ * page up for ever.
+ */
+export function settle(state, down) {
+  state.down = new Set(down);
+  state.stuck = new Set(down);
+}
+
+/** What is held now, less what has been down since the controller appeared and not let go since. */
+export function heldNow(state, down) {
+  const stuck = state.stuck || new Set();
+  for (const id of [...stuck]) if (!down.has(id)) stuck.delete(id);
+  return new Set([...down].filter((id) => !stuck.has(id)));
+}
 
 // ------------------------------------------------------------------- names on the buttons
 
 /**
- * Is it a game controller at all? Some devices tell the browser they are one without being one
- * (speakers' volume keys: "Pebble V3", 7 buttons and no sticks). A controller has the standard
- * layout, or at least two axes (a stick) and six buttons.
+ * Could it be a game controller? Some devices tell the browser they are one without being one (the
+ * owner's speakers' volume knob, "Pebble V3": 7 buttons, no sticks). One the browser knows the layout
+ * of ("standard": Xbox, PlayStation, Switch Pro… on the computer, the phones and the web) is; one it
+ * doesn't must look like one: six buttons or more, and at least a stick resting near the middle.
+ * Such a one still counts only once it has really been used (`newTrust`, `trustNow`).
  */
 export function isController(pad) {
   if (!pad) return false;
   if (pad.mapping === "standard") return true;
-  return (pad.axes || []).length >= 2 && (pad.buttons || []).length >= 6;
+  const axes = Array.from(pad.axes || [], Number);
+  return (pad.buttons || []).length >= 6 && axes.length >= 2 && axes.filter((v) => Math.abs(v) < 0.3).length >= 2;
+}
+
+const buttonsDown = (pad) => new Set([...readInputs(pad).down].filter((id) => id.startsWith("b")));
+
+/** How far a controller is trusted: one in the standard layout at once; another once it is really used. */
+export function newTrust(pad) {
+  return { real: !!pad && pad.mapping === "standard", start: buttonsDown(pad) };
+}
+
+/**
+ * Does the controller count now? A pad of unknown layout counts once one of its buttons has been
+ * pressed that wasn't down when it appeared (a button stuck down from the start never makes it count;
+ * let go and pressed again, it does).
+ */
+export function trustNow(trust, pad) {
+  if (trust.real) return true;
+  const now = buttonsDown(pad);
+  for (const id of now) if (!trust.start.has(id)) { trust.real = true; return true; }
+  for (const id of [...trust.start]) if (!now.has(id)) trust.start.delete(id);
+  return false;
 }
 
 // An Xbox controller over Bluetooth whose layout the browser doesn't know ("Unknown Gamepad

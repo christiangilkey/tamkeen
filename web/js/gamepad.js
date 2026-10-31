@@ -22,7 +22,7 @@
 import { api, hideMenu, saveSettings, showMenu } from "./app.js";
 import {
   ACTIONS, actionFor, actionOf, cleanSetting, firstPressed, fullMap, inputName, nearest, newPressState, padKind,
-  isController, pairName, pressesFrom, readInputs, shortOf, standardize, STICK_AS_DPAD,
+  heldNow, isController, newTrust, pairName, pressesFrom, readInputs, settle, shortOf, standardize, STICK_AS_DPAD, trustNow,
 } from "./padmap.js";
 import { screenLayer } from "./padscreens.js";
 import { openSelectSheet } from "./components/selectsheet.js";
@@ -46,6 +46,7 @@ const inputListeners = new Set();
 let capture = null;           // { resolve, start: {index: snapshot}, until }
 let highlighted = null;
 let parked = null;            // where the highlight was when a box opened over it
+let lastUsed = -1;            // the index of the controller pressed last (its buttons' names are shown)
 let inUse = false;            // the controller was the last thing used (the button guide shows)
 let lastInput = 0;
 
@@ -59,7 +60,9 @@ export function connectedPads() {
 /** The kind of controller to name buttons after: the one connected, else the one seen last. */
 export function padStyle() {
   const pads = connectedPads();
-  if (pads.length) return { kind: pads[0].kind, standard: pads[0].standard };
+  // the one pressed last, when there are several (a second, virtual one sitting there names nothing)
+  const used = pads.find((p) => p.index === lastUsed) || pads[0];
+  if (used) return { kind: used.kind, standard: used.standard };
   let kind = "generic";
   try { kind = localStorage.getItem("padKind") || "generic"; } catch { /* private window */ }
   return { kind, standard: true };
@@ -136,10 +139,13 @@ export function cancelCapture() { if (capture) capture.resolve(""); }
 // ------------------------------------------------------------------- reading
 
 /**
- * The controllers connected now, each in the standard layout where it can be (padmap.js
- * standardize: an Xbox controller over Bluetooth the browser doesn't know). Devices that only say
- * they are controllers (speakers' volume keys) are left out. On one whose layout stays unknown, an
- * axis that rests far from the middle (a trigger at −1) counts from where it rests.
+ * The game controllers connected now, each in the standard layout where it can be (padmap.js
+ * standardize: an Xbox controller over Bluetooth the browser doesn't know). Only real controllers
+ * count (the owner: "only count things connecting that are actually controllers"): a device that only
+ * says it is one (speakers' volume knob) is never listed, never counts as "in use", never names the
+ * buttons and never acts; one of unknown layout counts once one of its buttons is really pressed
+ * (padmap.js isController, trustNow). On such a one an axis that rests far from the middle (a trigger
+ * at −1) counts from where it rests.
  */
 function rawPads() {
   if (!hasApi()) return [];
@@ -149,6 +155,8 @@ function rawPads() {
   for (const raw of list) {
     if (!raw || raw.connected === false || !isController(raw)) continue;
     const pad = standardize(raw);
+    if (!trust.has(pad.index)) trust.set(pad.index, newTrust(pad));
+    if (!trustNow(trust.get(pad.index), pad)) continue;
     if (pad.mapping === "standard") { out.push(pad); continue; }
     const axes = Array.from(pad.axes || [], Number);
     if (!rests.has(pad.index)) rests.set(pad.index, axes.slice());
@@ -159,6 +167,13 @@ function rawPads() {
   return out;
 }
 const rests = new Map();  // pad index -> its axes as they rested when it was first seen (an unknown layout)
+
+/** Is anything connected that is, or could turn out to be, a game controller (not a speaker's knob)? */
+function mayBePads() {
+  if (!hasApi()) return false;
+  try { return Array.from(navigator.getGamepads() || []).some((p) => p && p.connected !== false && isController(p)); } catch { return false; }
+}
+const trust = new Map();  // pad index -> padmap.js newTrust: does it count as a controller yet?
 
 // Firefox hands back live objects that keep changing; a copy holds still.
 const snapshot = (p) => ({
@@ -175,12 +190,14 @@ function frame(now) {
   const pads = rawPads();
   const dt = lastFrame ? Math.min(0.1, (now - lastFrame) / 1000) : 0;
   lastFrame = now;
-  if (!pads.length && !capture) { lastFrame = 0; holding.clear(); setInUse(false); return; }  // nothing connected: stop looking
+  // nothing connected (or only devices that aren't controllers): stop looking; a controller of unknown
+  // layout not yet used is still looked at, so its first real press can make it count
+  if (!pads.length && !capture && !mayBePads()) { lastFrame = 0; holding.clear(); setInUse(false); return; }
   if (capture && now > capture.until) capture.resolve("");
   for (const p of pads) {
     const state = press.get(p.index) || newPressState();
-    if (!press.has(p.index)) {  // just connected: what is already down counts as pressed before, not as a press now
-      state.down = readInputs(p).down;
+    if (!press.has(p.index)) {  // just connected: what is already down is at rest until it is let go (padmap.js settle)
+      settle(state, readInputs(p).down);
       press.set(p.index, state);
     }
     const { down, strength } = readInputs(p, state.down);
@@ -196,11 +213,12 @@ function frame(now) {
     const released = [...state.down].filter((id) => !down.has(id));
     const fired = pressesFrom(state, down, now, (id) => repeats(id));
     for (const id of released) letGo(id);
+    if (fired.length && lastUsed !== p.index) { lastUsed = p.index; rememberKind(p); }
     for (const id of fired) {
       for (const fn of inputListeners) { try { fn(id, p); } catch (e) { console.error(e); } }
       act(id);
     }
-    scrollHeld(down, strength, dt);
+    scrollHeld(heldNow(state, down), strength, dt);  // (never what has been held since it appeared)
   }
   if (inUse && now - legendAt > LEGEND_MS) drawLegend();
   loop();
@@ -942,14 +960,16 @@ export function startGamepad() {
   reloadControllerSetting();
   const changed = () => { for (const fn of padListeners) { try { fn(connectedPads()); } catch (e) { console.error(e); } } };
   window.addEventListener("gamepadconnected", (e) => {
-    if (e.gamepad) rememberKind(e.gamepad);
+    // (a device that only says it is a controller doesn't name the buttons; a real one does once it is used)
+    const pad = e.gamepad && isController(e.gamepad) ? standardize(e.gamepad) : null;
+    if (pad && pad.mapping === "standard") rememberKind(pad);
     reloadControllerSetting();
     changed();
     loop();
   });
   window.addEventListener("gamepaddisconnected", (e) => {
-    if (e.gamepad) { press.delete(e.gamepad.index); held.delete(e.gamepad.index); rests.delete(e.gamepad.index); }
-    if (!rawPads().length) { holding.clear(); setInUse(false); }
+    if (e.gamepad) { press.delete(e.gamepad.index); held.delete(e.gamepad.index); rests.delete(e.gamepad.index); trust.delete(e.gamepad.index); }
+    if (!rawPads().length) { holding.clear(); setInUse(false); }  // (only real controllers: a speaker's knob leaving changes nothing)
     changed();
   });
   // The highlight and the button guide are for the controller: the mouse, a finger or the keyboard put them away.
@@ -957,8 +977,8 @@ export function startGamepad() {
   window.addEventListener("pointerdown", (e) => { if (e.isTrusted) away(); }, true);
   window.addEventListener("keydown", (e) => { if (e.isTrusted) away(); }, true);
   window.addEventListener("hashchange", () => { unhighlight(); holding.clear(); });
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) { reloadControllerSetting(); if (rawPads().length) loop(); } });
-  if (rawPads().length) loop();  // already connected (a page reload)
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) { reloadControllerSetting(); if (mayBePads()) loop(); } });
+  if (mayBePads()) loop();  // already connected (a page reload)
 }
 
 /** For tests and Settings: the areas' actions, with what each input does now. */

@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import {
   ACTIONS, AREAS, AREA_IDS, DEAD_ZONE, HOLD_MS, REPEAT_MS, actionFor, assign, cleanMap, cleanSetting, deadZone,
   firstPressed, fullMap, inputName, isInput, newPressState, padKind, pressesFrom, readInputs, resetAction, resetArea,
-  settingWins, shortOf, whatDoes, pairName, STICK_AS_DPAD, isController, standardize,
+  settingWins, shortOf, whatDoes, pairName, STICK_AS_DPAD, isController, standardize, newTrust, trustNow, settle, heldNow,
 } from "../../web/js/padmap.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -364,14 +364,6 @@ test("press a button to assign: the first new button, or a stick pushed well awa
 
 // ---------------------------------------------------------------- names on the buttons
 
-test("devices that only say they are controllers are left out (speakers' volume keys)", () => {
-  const pebble = { id: "Pebble V3 (Vendor: 041e Product: 3272)", mapping: "", buttons: Array(7).fill({ pressed: false, value: 0 }), axes: [] };
-  assert.equal(isController(pebble), false);
-  assert.equal(isController({ id: "x", mapping: "standard", buttons: [], axes: [] }), true);
-  assert.equal(isController({ id: "Unknown Gamepad", mapping: "", buttons: Array(12).fill(0), axes: [0, 0, 0, 0] }), true);
-  assert.equal(isController(null), false);
-});
-
 test("an Xbox controller over Bluetooth the browser doesn't know: its buttons, triggers and D-pad in the standard places", () => {
   // as the owner's Xbox Series controller (045e:0b13) shows up: 15 buttons, triggers resting at −1, the D-pad on axis 9
   const raw = (pressed = [], axes = {}) => ({
@@ -409,6 +401,78 @@ test("an Xbox controller over Bluetooth the browser doesn't know: its buttons, t
   // a controller the browser knows is left as it is
   const known = { id: "Xbox 360 Controller (XInput STANDARD GAMEPAD)", mapping: "standard", buttons: [], axes: [] };
   assert.equal(standardize(known), known);
+});
+
+test("only real controllers count: a speaker's volume knob never does (the owner's Pebble speakers)", () => {
+  const btn = (pressed) => ({ pressed, value: pressed ? 1 : 0 });
+  // the knob as the browser lists it: 7 buttons, no axes, one of them reading as held all the time
+  const pebble = { id: "Pebble V3 (Vendor: 041e Product: 3272)", mapping: "", buttons: [btn(false), btn(true), ...Array(5).fill(btn(false))], axes: [] };
+  assert.equal(isController(pebble), false);
+  // a knob that reports its turning as one axis resting at −1
+  assert.equal(isController({ id: "Volume knob", mapping: "", buttons: Array(7).fill(btn(false)), axes: [-1] }), false);
+  // a gadget with axes but none near the middle
+  assert.equal(isController({ id: "Gadget", mapping: "", buttons: Array(8).fill(btn(false)), axes: [-1, 1, -1] }), false);
+  assert.equal(isController(null), false);
+});
+
+test("real controllers still count at once: Xbox, PlayStation, Switch Pro, and the Xbox over Bluetooth", () => {
+  const std = (id) => ({ id, mapping: "standard", buttons: Array(17).fill({ pressed: false, value: 0 }), axes: [0, 0, 0, 0] });
+  for (const id of ["Xbox 360 Controller (XInput STANDARD GAMEPAD)", "DualSense Wireless Controller (STANDARD GAMEPAD Vendor: 054c Product: 0ce6)",
+    "Pro Controller (STANDARD GAMEPAD Vendor: 057e Product: 2009)", "Xbox Wireless Controller"]) {
+    const pad = std(id);
+    assert.equal(isController(pad), true, id);
+    assert.equal(trustNow(newTrust(pad), pad), true, `${id}: counts straight away`);
+  }
+  const bt = { id: "Unknown Gamepad (Vendor: 045e Product: 0b13)", mapping: "", buttons: Array(15).fill({ pressed: false, value: 0 }),
+    axes: [0.01, -0.01, -0.03, -1, -1, 0, 0, 0, 0, 1227133568] };
+  assert.equal(isController(bt), true);
+  const pad = standardize(bt);
+  assert.equal(trustNow(newTrust(pad), pad), true, "put in the standard layout: counts straight away");
+});
+
+test("a controller of unknown layout counts only once a button is really pressed (not one stuck down from the start)", () => {
+  const pad = (pressed = []) => ({ id: "Some Gamepad", mapping: "", axes: [0, 0, 0, -1],
+    buttons: Array.from({ length: 16 }, (_, i) => ({ pressed: pressed.includes(i), value: pressed.includes(i) ? 1 : 0 })) });
+  assert.equal(isController(pad([12])), true, "it looks like one");
+  const trust = newTrust(pad([12]));
+  assert.equal(trustNow(trust, pad([12])), false, "button 12 held from the start: not yet");
+  assert.equal(trustNow(trust, pad([12])), false);
+  assert.equal(trustNow(trust, pad([])), false, "let go");
+  assert.equal(trustNow(trust, pad([0])), true, "a real press: now it counts");
+  assert.equal(trustNow(trust, pad([])), true, "and keeps counting");
+});
+
+test("the endless scrolling up: what is held when a controller appears does nothing until let go", () => {
+  // The bug, as it was: the owner's Xbox controller over Bluetooth, read without its layout, has its
+  // triggers resting at −1 on axes 3 and 4: axis 3 at −1 is "right stick up", Everywhere's Scroll up.
+  const bt = { id: "Unknown Gamepad (Vendor: 045e Product: 0b13)", mapping: "", buttons: Array(15).fill({ pressed: false, value: 0 }),
+    axes: [0.01, -0.01, -0.03, -1, -1, 0, 0, 0, 0, 1227133568] };
+  assert.ok(readInputs(bt).down.has("a3-"), "read as it is, it scrolls up");
+  assert.equal(readInputs(standardize(bt)).down.size, 0, "in its layout, nothing is down");
+  // A second pad whose axis rests at −1 and whose D-pad up reads as pressed all the time
+  const stuck = (extra = []) => ({ id: "Virtual pad", mapping: "standard", axes: [0, 0, 0, -1],
+    buttons: Array.from({ length: 17 }, (_, i) => ({ pressed: [12, ...extra].includes(i), value: [12, ...extra].includes(i) ? 1 : 0 })) });
+  const state = newPressState();
+  settle(state, readInputs(stuck()).down);
+  let fired = [];
+  let held = new Set();
+  for (let now = 0; now <= 3000; now += 16) {
+    const { down } = readInputs(stuck(), state.down);
+    held = heldNow(state, down);
+    fired = fired.concat(pressesFrom(state, down, now, () => true));
+  }
+  assert.deepEqual(fired, [], "no press and no repeat: nothing moves");
+  assert.equal(held.size, 0, "nothing held: nothing scrolls");
+  // A real press on it still works
+  const { down } = readInputs(stuck([0]), state.down);
+  assert.deepEqual(pressesFrom(state, down, 3100, () => false), ["b0"]);
+  // and once the stuck ones are let go, pressing them again works too
+  const free = { ...stuck(), buttons: Array(17).fill({ pressed: false, value: 0 }), axes: [0, 0, 0, 0] };
+  heldNow(state, readInputs(free).down);
+  pressesFrom(state, readInputs(free).down, 3200);
+  const again = readInputs(stuck(), state.down).down;
+  assert.ok(heldNow(state, again).has("a3-"), "the stick pushed up again on purpose: it scrolls");
+  assert.ok(pressesFrom(state, again, 3300).includes("b12"), "D-pad up pressed again: it acts");
 });
 
 test("which kind of controller, from the name the browser gives it", () => {

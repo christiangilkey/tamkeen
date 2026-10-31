@@ -6025,6 +6025,17 @@ image in the controller settings". The layout table was sent first and approved 
   clockwise; anything else = none). Non-controllers are left out; that Xbox layout is put in the standard places
   (which trigger is axis 3 and which 4 is a guess: LT = 3; check with a real press on the drawing, which lights the
   button pressed); any other unknown layout has its axes counted from where they rest when first seen.
+- **"Only count things connecting that are actually controllers"** (the owner, after v0.41.1 kept scrolling the page up
+  with the controller on: the Bluetooth Xbox's trigger axis 3 resting at −1 read as "right stick up" = Scroll up, and
+  `scrollHeld` scrolled for anything held, even since the pad appeared). padmap.js: `isController` (standard layout, or
+  ≥ 6 buttons and ≥ 2 axes resting within 0.3 of the middle), `newTrust`/`trustNow` (a non-standard one counts once a
+  button not down at first sight is pressed), `settle`/`heldNow` (what is down when a pad first appears is at rest until
+  let go once: no press, no repeat, no scroll). gamepad.js `rawPads` lists only counted pads, so a speaker's knob never
+  counts anywhere (in use, legend, Settings list, capture, button names); `mayBePads` keeps looking while a possible
+  controller waits for its first press; button names follow the pad pressed last (`lastUsed`). Tests: padmap.test
+  (the Pebble knob, a pad with an axis at −1 and D-pad up stuck, Xbox / DualSense / Switch Pro / Bluetooth Xbox
+  accepted). Browser pane: this PC's real Pebble + Bluetooth Xbox (no scrolling, only the Xbox listed) and stubs (a
+  stuck pad and a knob sitting there: nothing moves; the Xbox stub's D-pad works; legend in Xbox names).
 - i18n `tools/i18n/tr/<code>/93-controller-xbox.txt` (36 × 16). Changelog: three lines under Unreleased.
 - **Checked**: padmap/padcursor tests (36), the JS and pytest suites; browser pane, desktop server with the scratch
   data folder and a stubbed Xbox pad: Home (left stick, View → guide), Library (Menu on a row → Read / Send /
