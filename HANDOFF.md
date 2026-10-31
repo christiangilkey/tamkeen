@@ -6047,3 +6047,30 @@ image in the controller settings". The layout table was sent first and approved 
   controller-drawing-desktop.jpg and controller-drawing-phone.jpg.
 - **NOT checked**: a real controller, Android/iPhone (the same shared files), the drawing in the light theme by eye,
   right-to-left app languages by eye (the drawing is kept left to right on purpose).
+- **After v0.42.0, the owner's asks:**
+  - "the onscreen layout thing should be toggleable with a button … when the controller is on there should be a
+    controller icon to the side which will show it on and off, also when its on it shouldnt cover the reviewer screen".
+    gamepad.js: the guide now lives in `.pad-dock` (fixed, the inline-end corner, lifted over foot bars / moved under
+    the player head as before) with `.pad-guide-btn` (icons.js "game") after it. The dock shows while a counted
+    controller is connected (`rawPads()`), in use or not; the guide inside it while the controller is in use or
+    `peek` (shown by the button with the mouse/finger, until the next pointer/key elsewhere) and `legendOn()`.
+    `toggleGuide`: guide on screen → `setLegendOn(false)`; else `peek` + `setLegendOn(true)`. The capture-phase
+    pointerdown/keydown "away" skips the dock (`inDock`), or it would hide the guide before the click. The dock is
+    `.pad-skip` (the D-pad never lands on it; with only a controller, Settings → Controller's tick box does it).
+    `setLegendOn` fires a `padlegend` window event; controllerpanel.js keeps its tick box in step. Reviewer:
+    `ROOMY = ".rv"` → no lift; `makeRoom` sets `--pad-room` + class `pad-room` on <html>, app.css
+    `.pad-room .rv { padding-bottom }` so card and answers sit above the dock's strip (one row wide there).
+    The loop redraws the dock every `LEGEND_MS` while a controller is connected (not only in use).
+  - "In media player x should show the popup for the word that is highlighted": padmap.js video and reels:
+    lookUp b2 (hold), playPause b0 (Xbox video apps). The reader keeps lookUp on A (the owner only named the players).
+  - "the selecter clips in some sections" (the ring on the top tabs, cut by the nav strip's overflow): gamepad.js
+    `ringClipped` (an ancestor with overflow other than visible within 6 px of the button) → `.pad-focus-in`
+    (outline-offset −3px, inset glow); removed with `.pad-focus` everywhere.
+  - i18n `tools/i18n/tr/<code>/94-pad-guide-button.txt` (2 × 16). Tests: padcursor.test (button, away skip, reviewer
+    strip, inside ring), padmap.test (A / X in the players). Checked in the browser pane with a stubbed Xbox pad at
+    1280 and 390 px: the button alone until the controller is used, the reviewer front/back with the guide in its
+    strip, clicking hides (stays off through D-pad presses) and shows it again, the top tabs' ring inside, player X →
+    popup on the highlighted word, hold X + → → a phrase, A plays/pauses.
+  - Still to do: the owner, "Xbox controls also dont work in the netflix app": the Netflix window and the player
+    overlay (netflix-browser.js, nfmedia.js, app/netflix_overlay.py) have no controller support. Wait for the Netflix
+    session (hover blackout, subtitle language, track switching) to finish with those files first.

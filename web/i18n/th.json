@@ -2253,6 +2253,8 @@
 "Nothing yet. Things you buy in the shop are kept here.":"ยังไม่มีอะไร สิ่งที่คุณซื้อในร้านค้าจะเก็บไว้ที่นี่",
 "Press":"กด",
 "Guide":"คู่มือ",
+"Hide the button guide":"ซ่อนคำแนะนำปุ่ม",
+"Show the button guide":"แสดงคำแนะนำปุ่ม",
 "Collection {0}":"คอลเลกชัน {0}",
 "This Chinese dictionary is from a different version of the app.":"พจนานุกรมภาษาจีนนี้มาจากแอปเวอร์ชันอื่น",
 "This Korean word table is from a different version of the app.":"ตารางคำภาษาเกาหลีนี้มาจากแอปรุ่นอื่น",

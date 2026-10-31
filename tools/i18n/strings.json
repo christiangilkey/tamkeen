@@ -11275,6 +11275,16 @@
   "f": "web/js/gamepad.js"
  },
  {
+  "id": "44647f06",
+  "k": "Hide the button guide",
+  "f": "web/js/gamepad.js"
+ },
+ {
+  "id": "2dcd9603",
+  "k": "Show the button guide",
+  "f": "web/js/gamepad.js"
+ },
+ {
   "id": "d0673c80",
   "k": "Collection {0}",
   "f": "web/js/igcollections.js"

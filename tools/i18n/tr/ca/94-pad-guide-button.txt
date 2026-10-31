@@ -1,0 +1,2 @@
+2dcd9603	Mostra la guia de botons
+44647f06	Amaga la guia de botons

@@ -1,0 +1,2 @@
+2dcd9603	Afficher le guide des boutons
+44647f06	Masquer le guide des boutons

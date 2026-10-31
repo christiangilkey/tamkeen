@@ -1,0 +1,2 @@
+2dcd9603	Tastenhilfe einblenden
+44647f06	Tastenhilfe ausblenden

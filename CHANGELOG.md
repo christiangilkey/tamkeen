@@ -14,6 +14,11 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** While a game controller is connected, a small controller button sits in the corner of the screen. Press it with the mouse or a finger to show or hide the guide to what the buttons do. The app remembers your choice, and Settings → Controller's tick box follows it.
+- **Improved:** On review cards, the button guide has a strip of its own under the answer buttons, so it no longer covers the card or the answers.
+- **Changed:** In the video, podcast and reel players, X now opens the popup for the highlighted word (hold X and move to take in more words) and A plays and pauses, as in Xbox's video apps. Buttons you set yourself in Settings → Controller stay as you set them.
+- **Fixed:** The controller's highlight ring was cut off on some buttons, such as the tabs along the top of the window; it is now drawn inside them where there's no room around them.
+
 ## v0.42.0 — 2026-10-31
 
 - **Changed:** Creatures stay young and cute: they grow from egg to hatchling to juvenile and stop there. There are no adult forms any more (Echo, Sage and Keeper) and nothing to evolve. A juvenile keeps growing until it is fully grown, which leaves you a new egg and 25 coins, once for each creature, and only a fully grown creature can be released in the garden. Creatures that were adults show as fully grown juveniles, and the battle move each adult form brought (Resonance, Insight, Hoard) is now yours for any of your creatures.

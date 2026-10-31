@@ -82,14 +82,18 @@ test("the Xbox dashboard's layout on every screen: A selects, B back, LB / RB ta
   assert.equal(actionFor(full, "video", "b9"), "wordMenu");
   assert.equal(actionFor(full, "reader", "b9"), "wordMenu");
   assert.equal(actionFor(full, "review", "b9"), "cardMenu");
-  // A selects: in the players the highlighted word (when let go), on a card it turns it / presses the highlighted one
-  assert.equal(full.video.lookUp, "b0");
-  assert.equal(full.reels.lookUp, "b0");
+  // A selects: in a book the highlighted word (when let go), on a card it turns it / presses the highlighted one;
+  // in the players A plays and pauses (as in Xbox's video apps) and X opens the highlighted word (the owner's choice)
+  assert.equal(full.video.playPause, "b0");
+  assert.equal(full.reels.playPause, "b0");
+  assert.equal(full.video.lookUp, "b2");
+  assert.equal(full.reels.lookUp, "b2");
   assert.equal(full.reader.lookUp, "b0");
   assert.equal(full.review.turn, "b0");
   assert.equal(full.popup.press, "b0");
   // X and Y: each screen's extra actions
-  assert.deepEqual([full.video.playPause, full.video.replayLine], ["b2", "b3"]);
+  assert.deepEqual([full.video.lookUp, full.video.replayLine], ["b2", "b3"]);
+  assert.deepEqual([full.reels.lookUp, full.reels.replayLine], ["b2", "b3"]);
   assert.deepEqual([full.popup.playWord, full.popup.playSentence], ["b2", "b3"]);
   assert.deepEqual([full.review.playWord, full.review.playSentence], ["b2", "b3"]);
   assert.deepEqual([full.home.continue, full.home.review], ["b2", "b3"]);
@@ -114,7 +118,7 @@ test("the Xbox dashboard's layout on every screen: A selects, B back, LB / RB ta
   }
 });
 
-test("held: moving and seeking repeat, answering and looking up never do; looking up happens when A is let go", () => {
+test("held: moving and seeking repeat, answering and looking up never do; looking up happens when the button is let go", () => {
   const by = (area, id) => ACTIONS[area].find((a) => a.id === id);
   assert.ok(by("video", "back5").repeat);
   assert.ok(by("video", "wordRight").repeat);
@@ -125,7 +129,7 @@ test("held: moving and seeking repeat, answering and looking up never do; lookin
   assert.ok(!by("review", "again").repeat);
   assert.ok(!by("review", "turn").repeat);
   assert.ok(by("general", "scrollUp").scroll);
-  assert.ok(by("video", "lookUp").hold, "hold A and move to take in more words; letting go looks them up");
+  assert.ok(by("video", "lookUp").hold, "hold X and move to take in more words; letting go looks them up");
   assert.ok(by("reader", "lookUp").hold);
   assert.ok(by("reels", "lookUp").hold);
   assert.ok(!by("video", "lookUp").repeat);
@@ -163,7 +167,7 @@ test("assigning a button to an action keeps only the change, with its time", () 
   assert.equal(took, null);
   assert.deepEqual(setting, { at: 1000, map: { video: { playPause: "b11" } } });
   assert.equal(fullMap(setting).video.playPause, "b11");
-  assert.equal(fullMap(setting).video.lookUp, "b0", "the rest keep their defaults");
+  assert.equal(fullMap(setting).video.lookUp, "b2", "the rest keep their defaults");
 });
 
 test("a button already used on the same screen moves: the other action is left with none", () => {
@@ -188,11 +192,11 @@ test("a learner's buttons from before keep working", () => {
   full = fullMap({ at: 1, map: { video: { lookUp: "b9" } } });
   assert.equal(full.video.lookUp, "b9");
   assert.equal(full.video.wordMenu, "", "Menu was the learner's before it was More");
-  assert.equal(actionFor(full, "video", "b0"), "", "A is free: the learner's look-up button stays where they put it");
+  assert.equal(actionFor(full, "video", "b2"), "", "X is free: the learner's look-up button stays where they put it");
   // a learner's button wins over a newer default of another action on the same screen
   full = fullMap({ at: 1, map: { video: { captions: "b2" } } });
   assert.equal(full.video.captions, "b2");
-  assert.equal(full.video.playPause, "");
+  assert.equal(full.video.lookUp, "");
   assert.equal(actionFor(full, "video", "b2"), "captions");
   // and saving another change doesn't undo that
   const { setting } = assign({ at: 1, map: { video: { captions: "b2" } } }, "video", "slower", "b10", 9);

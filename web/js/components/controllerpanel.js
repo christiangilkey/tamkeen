@@ -92,6 +92,8 @@ export function controllerSection(body) {
   const legend = $(".pad-legend-on");
   legend.checked = legendOn();
   legend.onchange = () => setLegendOn(legend.checked);
+  const onLegend = () => { legend.checked = legendOn(); };  // the controller button in the corner was pressed
+  window.addEventListener("padlegend", onLegend);
 
   let padsHtml = "";
   const drawPads = () => {
@@ -214,5 +216,5 @@ export function controllerSection(body) {
   // Another device may have changed the buttons since this one last looked.
   reloadControllerSetting().then(() => { if (!waiting && body.isConnected) draw(); });
   const poll = setInterval(drawPads, 2000); // some browsers tell about a controller only when asked
-  return [() => { clearInterval(poll); offPads(); offInput(); cancelCapture(); diagram.destroy(); document.removeEventListener("keydown", onKey, true); }];
+  return [() => { clearInterval(poll); offPads(); offInput(); cancelCapture(); diagram.destroy(); document.removeEventListener("keydown", onKey, true); window.removeEventListener("padlegend", onLegend); }];
 }

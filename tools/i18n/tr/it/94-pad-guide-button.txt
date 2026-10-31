@@ -1,0 +1,2 @@
+2dcd9603	Mostra la guida ai pulsanti
+44647f06	Nascondi la guida ai pulsanti

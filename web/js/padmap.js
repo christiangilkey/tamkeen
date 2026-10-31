@@ -49,8 +49,8 @@ export const AREAS = [
  */
 export const ACTIONS = {
   video: [
-    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
-    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b2" },
+    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b2", hold: true },
+    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b0" },
     { id: "replayLine", label: "Hear this line again", short: "Hear the line", def: "b3" },
     { id: "wordLeft", label: "Highlight the word to the left", short: "Word", def: "b14", repeat: true },
     { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
@@ -69,8 +69,8 @@ export const ACTIONS = {
     { id: "transcript", label: "Transcript panel (open / close)", short: "Transcript", def: "" },
   ],
   reels: [
-    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
-    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b2" },
+    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b2", hold: true },
+    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b0" },
     { id: "replayLine", label: "Hear this line again", short: "Hear the line", def: "b3" },
     { id: "wordLeft", label: "Highlight the word to the left", short: "Word", def: "b14", repeat: true },
     { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },

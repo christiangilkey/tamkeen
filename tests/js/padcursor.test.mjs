@@ -197,7 +197,7 @@ test("each screen with words claims its buttons, with the highlight and the popu
     const src = read(file);
     assert.match(src, new RegExp(`controllerArea\\("${area}"`), file);
     assert.match(src, /wordCursor\(/, `${file}: the highlight in the words`);
-    assert.match(src, /actionHeld\("lookUp"\)/, `${file}: hold A to take in more words`);
+    assert.match(src, /actionHeld\("lookUp"\)/, `${file}: hold the look-up button to take in more words`);
     assert.match(src, /popupStep:/, `${file}: LB / RB in the word popup`);
     assert.match(src, /options:/, `${file}: View, its options`);
     assert.match(src, /offPad\(\)/, `${file}: given back when the page closes`);
@@ -246,4 +246,36 @@ test("the phone and web app builds have the new files", () => {
   for (const f of ["js/padcursor.js", "js/padscreens.js", "js/components/paddiagram.js", "js/phrase.js", "js/components/modal.js", "js/components/selectsheet.js"]) {
     assert.ok(shared.includes(`"${f}"`), f);
   }
+});
+
+test("the controller button in the corner shows and hides the button guide, and the reviewer keeps a strip for them", () => {
+  const pad = read("web/js/gamepad.js");
+  const css = read("web/css/app.css");
+  // there while a controller is connected; the D-pad's highlight never lands on it
+  assert.match(pad, /dockEl\.className = "pad-dock pad-skip"/);
+  assert.match(pad, /guideBtn\.innerHTML = icon\("game", 20\)/);
+  assert.match(pad, /guideBtn\.addEventListener\("click", toggleGuide\)/);
+  assert.match(pad, /"Hide the button guide" : "Show the button guide"/);
+  // pressing it isn't "the mouse was used": that would put the guide away before the click shows it
+  assert.match(pad, /if \(!e\.isTrusted \|\| inDock\(e\.target\)\) return;/);
+  // the guide shown goes and stays off; else it shows (with the mouse or a finger too) and is on
+  assert.match(pad, /function toggleGuide\(\) \{\n  if \(legendEl && !legendEl\.hidden\) \{ peek = false; setLegendOn\(false\); return; \}\n  peek = true;/);
+  assert.match(pad, /const items = \(inUse \|\| peek\) && legendOn\(\) \? legendItems\(\) : \[\];/);
+  // Settings → Controller's tick box follows it
+  assert.match(pad, /new CustomEvent\("padlegend"\)/);
+  assert.match(read("web/js/components/controllerpanel.js"), /addEventListener\("padlegend", onLegend\)/);
+  // the reviewer: a strip at its foot, so the guide covers no card and no answer
+  assert.match(pad, /const ROOMY = "\.rv";/);
+  assert.match(pad, /root\.style\.setProperty\("--pad-room"/);
+  assert.match(css, /\.pad-room \.rv \{ padding-bottom: var\(--pad-room, 0px\); \}/);
+  assert.match(css, /\.pad-guide-btn \{[^}]*pointer-events: auto/);
+});
+
+test("the highlight's ring is drawn inside a button where something around it would cut it off", () => {
+  const pad = read("web/js/gamepad.js");
+  assert.match(pad, /el\.classList\.toggle\("pad-focus-in", ringClipped\(el\)\);/);
+  assert.match(pad, /function ringClipped\(el\)/);
+  // taken off with the ring, wherever the ring is taken off
+  assert.equal((pad.match(/classList\.remove\("pad-focus"\)/g) || []).length, 0);
+  assert.match(read("web/css/app.css"), /\.pad-focus\.pad-focus-in \{ outline-offset: -3px !important;/);
 });
