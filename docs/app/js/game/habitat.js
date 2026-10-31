@@ -4,22 +4,22 @@
 
 import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang } from "../languages.js";
-import { EMOTES, FX_FRAMES, HABITAT, PLOTS, SCENES, SHADOW, SPECIES, STAGES, TYPES, BRANCHES } from "./data.js";
+import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, SPECIES, STAGES, TYPES } from "./data.js";
 import { collect, garden, tick as gardenTick, totalRate } from "./idle.js";
 import { heartsRow } from "./garden.js";
-import { describe, formOf, readyToEvolve, stageOf } from "./genome.js";
+import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { icon } from "./render.js";
 import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
-import { GOALS, checkBadges, levelOf } from "./rules.js";
+import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf } from "./rules.js";
 import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { openEarned, openEvolution } from "./info.js";
 
 const [W, H] = HABITAT.size;
-const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
+const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
 
 /** Build the habitat section. Returns {el, dispose}. */
 export function habitat() {
@@ -40,7 +40,7 @@ export function habitat() {
         <button type="button" class="ghost hud-goal-btn" id="g-goalbtn" title="Change your daily goal"></button>
       </div>
       <div class="hud-chips">
-        <button type="button" class="today-chip" id="g-stage" title="Tap to see how your creature evolves"></button>
+        <button type="button" class="today-chip" id="g-stage" title="Tap to see how your creature grows"></button>
         <button type="button" class="today-chip" id="g-streak" data-info="streak" title="Days in a row you reached your daily goal: tap for more">${icon("goal")} <span></span></button>
         <button type="button" class="today-chip" id="g-coins" data-info="coin" title="Coins, for the shop: tap for more">${icon("coin")} <span></span></button>
         <button type="button" class="today-chip" id="g-freeze" data-info="freeze" title="A streak freeze covers a missed day: tap for more">${icon("freeze")} <span></span></button>
@@ -80,17 +80,17 @@ export function habitat() {
     $("#g-goalbtn").textContent = `Goal: ${game.goal} min`;
     const look = describe(game.creature);
     const stage = formOf(game.creature);
-    const ready = readyToEvolve(game.creature);
-    const next = ready || game.creature.show ? null : STAGES[STAGES.indexOf(stageOf(game.creature.growth)) + 1];
-    const pct = next ? Math.round(((game.creature.growth - stage.from) / (next.from - stage.from)) * 100) : 100;
+    const grown = isGrown(game.creature);
+    const next = game.creature.show ? null : STAGES[STAGES.indexOf(stageOf(game.creature.growth)) + 1];
+    // After juvenile there is one more step, fully grown (it stays a juvenile: no adult forms).
+    const to = next ? next.from : GROWN;
+    const pct = Math.min(100, Math.round(((game.creature.growth - stage.from) / (to - stage.from)) * 100));
     // Each piece goes through t() so the line reads naturally in the user's language.
     const kind = t(TYPES[look.type].name);
     const what = stage.id === "egg" ? t("{0} egg", kind) : t("{0} {1}", kind, t(SPECIES[look.species].name).toLocaleLowerCase(uiLanguage()));
     $("#g-stage").textContent = `${what} · ${t(STAGE_LABEL[stage.id])}`
-      + (look.branch ? ` (${t(BRANCHES[look.branch].name)})` : "")
-      + (ready ? ` ${t("· ready to evolve: tap it")}` : next ? ` ${t("· {0}% to {1}", pct, t(STAGE_LABEL[next.id].toLowerCase()))}` : "");
-    $("#g-stage").classList.toggle("lit", ready);
-    if (ready) $("#g-stage").prepend(h(icon("evolve")), " ");
+      + (next ? ` ${t("· {0}% to {1}", pct, t(STAGE_LABEL[next.id].toLowerCase()))}`
+        : game.creature.show ? "" : grown ? ` ${t("· fully grown")}` : ` ${t("· {0}% to fully grown", pct)}`);
     $("#g-streak span").textContent = `${game.streak} day${game.streak === 1 ? "" : "s"}`;
     $("#g-streak").classList.toggle("lit", game.streak > 0);
     $("#g-coins span").textContent = game.coins;
@@ -186,7 +186,7 @@ export function habitat() {
   const said = new Set(); // words shown this round: every saved word turns up once before any comes back
   let saidLast = "";      // the one shown last, so a new round never opens with the word just seen
   function placeSay(look) {
-    const top = look.stage === "egg" ? 36 : { s: 44, m: 54, l: 66 }[look.size];
+    const top = look.stage === "egg" ? 36 : { s: 44, m: 54 }[look.size];
     const x = look.stage === "egg" ? W / 2 : pet.x;
     say.style.left = `${(Math.max(sayHalf + 2, Math.min(W - sayHalf - 2, x)) / W) * 100}%`;
     say.style.bottom = `${(Math.min(H - sayTall - 2, H - HABITAT.ground + top + pet.hop) / H) * 100}%`;
@@ -224,7 +224,7 @@ export function habitat() {
 
   function refreshLook() {
     const look = describe(game.creature);
-    const key = JSON.stringify([game.creature.seed, look.stage, look.branch, look.variant, look.size, look.equipped]);
+    const key = JSON.stringify([game.creature.seed, look.stage, look.variant, look.size, look.equipped]);
     if (key === lookKey) return look;
     lookKey = key;
     frames = {};
@@ -269,7 +269,7 @@ export function habitat() {
     else if ((pet.idleT -= dt) < 0) {
       pet.idleT = 7 + Math.random() * 8;
       if (look.stage !== "egg") {
-        emote(asleep ? "sleepy" : readyToEvolve(game.creature) ? "exclaim" : !game.day.seconds && hour >= 12 ? "hungry"
+        emote(asleep ? "sleepy" : !game.day.seconds && hour >= 12 ? "hungry"
           : !game.day.done && game.streak > 0 && hour >= 18 ? "sweat" : Math.random() < 0.3 ? "question" : "");
       }
     }
@@ -340,9 +340,8 @@ export function habitat() {
         ctx.drawImage(frame, -FRAME / 2, -FRAME);
         ctx.restore();
       }
-      if (readyToEvolve(game.creature) && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (now / 140) % FX_FRAMES.ready, body, groundY - 28 - Math.round(pet.hop));
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
-      if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - { s: 48, m: 58, l: 70 }[look.size] - Math.round(pet.hop));
+      if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - { s: 48, m: 58 }[look.size] - Math.round(pet.hop));
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
     }
     if (!say.hidden) placeSay(look);
@@ -414,25 +413,19 @@ export function habitat() {
     if (Math.abs(x - (egg ? W / 2 : pet.x)) < 30) {
       cheer("pet");
       sfx("pet");
-      if (readyToEvolve(game.creature)) openShop("creatures", () => paintHud()); // evolving starts with a tap
-      else sayWord();
+      sayWord();
     }
     else if (!egg) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; } // "come here"
   });
 
   const stop = onGame((result) => {
     if (result.type === "sync") { paintHud(); return; } // a newer save arrived from another device
-    if (result.type === "evolve") { // chosen on the Creatures page: the light gathers on the creature, then bursts
-      paintHud();
-      if (result.active) { bursts.push({ id: "evolve", x: pet.x - pet.dir * 3, y: HABITAT.ground - 30, t: 0 }); cheer("lucky"); }
-      return;
-    }
     paintHud(true);
     for (const id of result.badges || []) badgeToast(id);
-    if (result.stage === "ready") toast("Your creature is ready to evolve. Tap it when you want to.").prepend(h(icon("evolve")), " ");
+    if (result.stage === "grown") toast(t("Your creature is fully grown! It left you a new egg and {0} coins.", FULLY_GROWN_COINS)).prepend(h(icon("egg")), " ");
     if (result.stage) {
       const x = result.stage === "hatchling" ? W / 2 : pet.x;
-      bursts.push({ id: result.stage === "hatchling" ? "hatch" : "levelup", x, y: HABITAT.ground - 30, t: 0 });
+      bursts.push({ id: { hatchling: "hatch", grown: "evolve" }[result.stage] || "levelup", x, y: HABITAT.ground - 30, t: 0 });
       if (result.stage === "hatchling") pet.x = pet.target = W / 2;
       sfx("jackpot");
     } else if (result.levelUp) {

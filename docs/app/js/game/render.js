@@ -181,7 +181,7 @@ export async function composeCreature(look, pose = {}) {
   const S = SIZES[look.size];
   const plan = SPECIES[look.species];
   const paletteId = [look.colors.primary[1], look.colors.secondary[1], look.colors.accent[0]].join("/");
-  const suffix = look.branch ? `_${look.branch}` : "";
+  const suffix = ""; // (adult forms had their own head and torso; creatures now stay young)
   const part = (file) => recolored(file, look.colors, paletteId);
   const step = pose.step ? "b" : "a";
   const bigEyes = look.size === "s"; // a hatchling's eyes are a size larger: they shrink relative to the face as it grows

@@ -20,7 +20,7 @@ import { readingsReady } from "../lexicon/readings.js";
 import { blockTag, layoutBlocks, marksLookup, wordStyle } from "../readerlayout.js";
 import { applyPageSize, pageSize, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { phrasePicker } from "../components/phrasepick.js";
-import { actionHeld, controllerArea } from "../gamepad.js";
+import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { pageGuide } from "../components/tour.js";
@@ -387,6 +387,18 @@ export async function render(view, { id, data, query }) {
   const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
   const offPad = controllerArea("reader", {
     lookUp: () => cursor.pick(),
+    options: () => padMenu([
+      { label: "Larger text", run: () => $("#font-up").click() },
+      { label: "Smaller text", run: () => $("#font-down").click() },
+    ]),
+    wordMenu: () => {
+      const i = cursor.on ? cursor.at : target ? target.i : firstShown();
+      const el = wordEls[i];
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      openMenu(r.left, r.bottom + 4, el);
+      focusMenu();
+    },
     wordLeft: moveCursor("left"),
     wordRight: moveCursor("right"),
     lineUp: moveCursor("up"),

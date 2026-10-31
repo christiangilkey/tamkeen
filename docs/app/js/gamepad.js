@@ -19,10 +19,10 @@
 // The controller is only looked at (requestAnimationFrame) while one is connected. Browsers tell a
 // page about a controller once one of its buttons has been pressed.
 
-import { api, saveSettings } from "./app.js";
+import { api, hideMenu, saveSettings, showMenu } from "./app.js";
 import {
   ACTIONS, actionFor, actionOf, cleanSetting, firstPressed, fullMap, inputName, nearest, newPressState, padKind,
-  pressesFrom, readInputs, shortOf,
+  heldNow, isController, newTrust, pairName, pressesFrom, readInputs, settle, shortOf, standardize, STICK_AS_DPAD, trustNow,
 } from "./padmap.js";
 import { screenLayer } from "./padscreens.js";
 import { openSelectSheet } from "./components/selectsheet.js";
@@ -45,6 +45,8 @@ const padListeners = new Set();
 const inputListeners = new Set();
 let capture = null;           // { resolve, start: {index: snapshot}, until }
 let highlighted = null;
+let parked = null;            // where the highlight was when a box opened over it
+let lastUsed = -1;            // the index of the controller pressed last (its buttons' names are shown)
 let inUse = false;            // the controller was the last thing used (the button guide shows)
 let lastInput = 0;
 
@@ -52,18 +54,15 @@ const hasApi = () => typeof navigator !== "undefined" && typeof navigator.getGam
 
 /** The controllers connected now: [{ index, id, kind, standard }]. */
 export function connectedPads() {
-  if (!hasApi()) return [];
-  let list = [];
-  try { list = Array.from(navigator.getGamepads() || []); } catch { return []; }
-  return list.filter((p) => p && p.connected !== false).map((p) => ({
-    index: p.index, id: p.id || "", kind: padKind(p.id), standard: p.mapping === "standard",
-  }));
+  return rawPads().map((p) => ({ index: p.index, id: p.id || "", kind: padKind(p.id), standard: p.mapping === "standard" }));
 }
 
 /** The kind of controller to name buttons after: the one connected, else the one seen last. */
 export function padStyle() {
   const pads = connectedPads();
-  if (pads.length) return { kind: pads[0].kind, standard: pads[0].standard };
+  // the one pressed last, when there are several (a second, virtual one sitting there names nothing)
+  const used = pads.find((p) => p.index === lastUsed) || pads[0];
+  if (used) return { kind: used.kind, standard: used.standard };
   let kind = "generic";
   try { kind = localStorage.getItem("padKind") || "generic"; } catch { /* private window */ }
   return { kind, standard: true };
@@ -104,6 +103,9 @@ export function controllerArea(area, handlers) {
   };
 }
 
+/** Is the controller the last thing the learner used (not the mouse, a finger or the keys)? */
+export const padInUse = () => inUse && rawPads().length > 0;
+
 /** Is the button for `action` being held down now (pressed, not yet let go)? The players ask, to take in more words. */
 export function actionHeld(action) {
   for (const h of holding.values()) if (h.action === action) return true;
@@ -136,10 +138,42 @@ export function cancelCapture() { if (capture) capture.resolve(""); }
 
 // ------------------------------------------------------------------- reading
 
+/**
+ * The game controllers connected now, each in the standard layout where it can be (padmap.js
+ * standardize: an Xbox controller over Bluetooth the browser doesn't know). Only real controllers
+ * count (the owner: "only count things connecting that are actually controllers"): a device that only
+ * says it is one (speakers' volume knob) is never listed, never counts as "in use", never names the
+ * buttons and never acts; one of unknown layout counts once one of its buttons is really pressed
+ * (padmap.js isController, trustNow). On such a one an axis that rests far from the middle (a trigger
+ * at −1) counts from where it rests.
+ */
 function rawPads() {
   if (!hasApi()) return [];
-  try { return Array.from(navigator.getGamepads() || []).filter((p) => p && p.connected !== false); } catch { return []; }
+  let list = [];
+  try { list = Array.from(navigator.getGamepads() || []); } catch { return []; }
+  const out = [];
+  for (const raw of list) {
+    if (!raw || raw.connected === false || !isController(raw)) continue;
+    const pad = standardize(raw);
+    if (!trust.has(pad.index)) trust.set(pad.index, newTrust(pad));
+    if (!trustNow(trust.get(pad.index), pad)) continue;
+    if (pad.mapping === "standard") { out.push(pad); continue; }
+    const axes = Array.from(pad.axes || [], Number);
+    if (!rests.has(pad.index)) rests.set(pad.index, axes.slice());
+    const rest = rests.get(pad.index);
+    out.push({ id: pad.id, index: pad.index, mapping: pad.mapping, buttons: pad.buttons,
+      axes: axes.map((v, i) => (Math.abs(rest[i] || 0) > 0.5 ? (v - rest[i]) * Math.sign(-rest[i]) / 2 : v)) });
+  }
+  return out;
 }
+const rests = new Map();  // pad index -> its axes as they rested when it was first seen (an unknown layout)
+
+/** Is anything connected that is, or could turn out to be, a game controller (not a speaker's knob)? */
+function mayBePads() {
+  if (!hasApi()) return false;
+  try { return Array.from(navigator.getGamepads() || []).some((p) => p && p.connected !== false && isController(p)); } catch { return false; }
+}
+const trust = new Map();  // pad index -> padmap.js newTrust: does it count as a controller yet?
 
 // Firefox hands back live objects that keep changing; a copy holds still.
 const snapshot = (p) => ({
@@ -156,12 +190,14 @@ function frame(now) {
   const pads = rawPads();
   const dt = lastFrame ? Math.min(0.1, (now - lastFrame) / 1000) : 0;
   lastFrame = now;
-  if (!pads.length && !capture) { lastFrame = 0; holding.clear(); setInUse(false); return; }  // nothing connected: stop looking
+  // nothing connected (or only devices that aren't controllers): stop looking; a controller of unknown
+  // layout not yet used is still looked at, so its first real press can make it count
+  if (!pads.length && !capture && !mayBePads()) { lastFrame = 0; holding.clear(); setInUse(false); return; }
   if (capture && now > capture.until) capture.resolve("");
   for (const p of pads) {
     const state = press.get(p.index) || newPressState();
-    if (!press.has(p.index)) {  // just connected: what is already down counts as pressed before, not as a press now
-      state.down = readInputs(p).down;
+    if (!press.has(p.index)) {  // just connected: what is already down is at rest until it is let go (padmap.js settle)
+      settle(state, readInputs(p).down);
       press.set(p.index, state);
     }
     const { down, strength } = readInputs(p, state.down);
@@ -177,11 +213,12 @@ function frame(now) {
     const released = [...state.down].filter((id) => !down.has(id));
     const fired = pressesFrom(state, down, now, (id) => repeats(id));
     for (const id of released) letGo(id);
+    if (fired.length && lastUsed !== p.index) { lastUsed = p.index; rememberKind(p); }
     for (const id of fired) {
       for (const fn of inputListeners) { try { fn(id, p); } catch (e) { console.error(e); } }
       act(id);
     }
-    scrollHeld(down, strength, dt);
+    scrollHeld(heldNow(state, down), strength, dt);  // (never what has been held since it appeared)
   }
   if (inUse && now - legendAt > LEGEND_MS) drawLegend();
   loop();
@@ -234,6 +271,8 @@ function resolve(input, list = layers()) {
     if (h.can && !safely(h.can, false)) continue;
     return { layer, area: layer.area, action: id, run: h.run, hint: h.hint };
   }
+  // As on Xbox, the left stick moves the highlight like the D-pad wherever nothing has it.
+  if (STICK_AS_DPAD[input]) return resolve(STICK_AS_DPAD[input], list);
   return null;
 }
 
@@ -247,7 +286,16 @@ function act(input) {
   setInUse(true);
   // a box opened (or closed) since: a ring left on what is now behind it goes
   // (where it was is kept: a button drawn again carries the highlight on from there, see nearSpot)
-  if (highlighted && (!highlighted.isConnected || !padRoot().contains(highlighted))) { highlighted.classList.remove("pad-focus"); highlighted = null; }
+  if (highlighted && (!highlighted.isConnected || !padRoot().contains(highlighted))) {
+    if (highlighted.isConnected && overlay()) parked = highlighted;  // behind a box: back on it when the box goes
+    highlighted.classList.remove("pad-focus");
+    highlighted = null;
+  }
+  // a box closed: the highlight is back where it was before it opened (as on Xbox)
+  if (!highlighted && parked && !overlay()) {
+    if (parked.isConnected && visible(parked)) highlight(parked);
+    parked = null;
+  }
   const r = resolve(input);
   if (r) {
     const a = actionOf(r.area, r.action);
@@ -303,6 +351,8 @@ function escape() {
 /** Close the box on top: as Esc would; one that doesn't listen for Esc, by its own close button. */
 function closeBox(box) {
   if (box instanceof HTMLDialogElement) { box.close(); return; }
+  // a menu (a word's, View's, Menu's) is put away as such: an Esc would reach the page under it too (and close the reviewer)
+  if (box.id === "ctxmenu") { hideMenu(); return; }
   escape();
   setTimeout(() => {
     if (!box.isConnected || overlay() !== box) return;
@@ -376,6 +426,23 @@ const popupStep = (dir) => ({
   run: () => topArea().handlers.popupStep(dir),
 });
 
+/** The D-pad in the word popup: between its buttons, the highlight first going to Save (its main one, as on Xbox). */
+function popupMove(dir) {
+  const b = bubbleEl();
+  if (!b) return;
+  if (!(highlighted && b.contains(highlighted) && highlighted.isConnected)) {
+    const first = inBubble('[data-act="save"]') || candidates(b, { offscreen: true })[0];
+    if (first) highlight(first);
+    return;
+  }
+  if (!highlightMove(dir, { root: b })) highlightMove(dir, { root: b, linear: true });
+}
+function popupScroll(dir) {
+  const b = bubbleEl();
+  const body = b && (b.querySelector(".wb-body") || b);
+  if (body) body.scrollBy({ top: dir * 0.6 * (body.clientHeight || 200), behavior: "smooth" });
+}
+
 const POPUP = {
   press: {
     run: () => {
@@ -393,10 +460,11 @@ const POPUP = {
   close: bubbleButton('[data-act="close"]'),
   playWord: bubbleButton('[data-act="word"]'),
   playSentence: bubbleButton('[data-act="sentence"]'),
-  up: () => highlightMove("up", { root: bubbleEl(), linear: true }),
-  down: () => highlightMove("down", { root: bubbleEl(), linear: true }),
+  up: () => popupMove("up"), down: () => popupMove("down"), left: () => popupMove("left"), right: () => popupMove("right"),
   wordLeft: popupStep("left"),
   wordRight: popupStep("right"),
+  scrollUp: () => popupScroll(-1),
+  scrollDown: () => popupScroll(1),
   save: bubbleButton('[data-act="save"]'),
   source: bubbleButton('[data-act="source"]'),
 };
@@ -461,6 +529,7 @@ function unhighlight() {
   if (highlighted) highlighted.classList.remove("pad-focus");
   highlighted = null;
   lastSpot = null;
+  parked = null;
 }
 
 function highlight(el, { focus = true } = {}) {
@@ -516,7 +585,8 @@ function stepValue(el, dir) {
  */
 export function highlightMove(dir, { root = null, linear = false, include = "" } = {}) {
   if (!linear && highlighted && highlighted.isConnected && stepValue(highlighted, dir)) return true;
-  const list = candidates(root || padRoot(), { include, offscreen: linear });
+  const roots = Array.isArray(root) ? root.filter(Boolean) : [root || padRoot()];
+  const list = roots.flatMap((r) => candidates(r, { include, offscreen: linear }));
   if (!list.length) { if (!root) scrollBy(dir === "up" ? -0.6 : dir === "down" ? 0.6 : 0); return false; }
   const cur = highlighted && highlighted.isConnected && list.includes(highlighted) ? highlighted : null;
   // Still there but no longer pressable (a lesson's answer, disabled once chosen): move on from it.
@@ -726,8 +796,53 @@ function scrollHeld(down, strength, dt) {
 
 const guideButton = () => Array.from(document.querySelectorAll(".rv-help, .top-help")).find((el) => visible(el)) || null;
 
+// ----- View and Menu
+
+/** A list of choices over the page (app.js's menu, which the D-pad moves through), next to `at` or in the middle. */
+export function padMenu(items, at = null, label = "") {
+  const list = items.filter(Boolean);
+  if (!list.length) return false;
+  const r = at && at.isConnected ? at.getBoundingClientRect() : null;
+  showMenu(r ? r.left : innerWidth / 2 - 110, r ? r.bottom + 6 : innerHeight / 3, label, list);
+  focusMenu();
+  return true;
+}
+
+/** A menu just opened over the page (padMenu's, a word's): the highlight goes on its first choice, so A picks it straight away. */
+export function focusMenu() {
+  requestAnimationFrame(() => { const first = document.querySelector("#ctxmenu:not([hidden]) button"); if (first) highlight(first); });
+}
+
+/** The name a button goes by in a menu: its words, else its label or title. */
+const nameOf = (el) => (el.getAttribute("aria-label") || el.textContent || el.title || "").replace(/\s+/g, " ").trim();
+
+/** Choices made of buttons on the page (a list row's, a toolbar's): picking one presses it. */
+export function buttonsMenu(buttons, at = null, label = "") {
+  const seen = new Set();
+  const items = [];
+  for (const b of buttons) {
+    if (!b || !visible(b, true) || b.disabled) continue;
+    const name = nameOf(b);
+    if (!name || seen.has(name)) continue;
+    seen.add(name);
+    items.push({ label: name, run: () => (b.tagName === "SELECT" ? openSelectSheet(b) : b.click()) });
+  }
+  return padMenu(items, at, label);
+}
+
+// The rows of the app's lists: Menu on one of them offers its buttons.
+const ROWS = ".ep, .vocab-item, .item-row, .reel-row, .site-tile, .book-card, li.cw, .msg, .disc-card, .continue-row";
+const rowOf = () => { const el = highlightedEl(); return el ? el.closest(ROWS) : null; };
+const rowButtons = (row) => Array.from(row.querySelectorAll("button, a[href], [role=\"button\"]"));
+
+/** View on a screen that hasn't options of its own: the screen's guide (its "?"). */
 const GENERAL = {
   back, menu,
+  options: { can: () => !!guideButton(), run: () => guideButton().click(), hint: () => "Guide" },
+  more: {
+    can: () => { const row = rowOf(); return !!row && rowButtons(row).some((b) => visible(b, true) && !b.disabled); },
+    run: () => { const row = rowOf(); buttonsMenu(rowButtons(row), highlightedEl()); },
+  },
   select: pressHighlighted,
   up: () => move("up"), down: () => move("down"), left: () => move("left"), right: () => move("right"),
   prevTab: { can: () => !!tabGroup(), run: () => switchTab(-1) },
@@ -745,7 +860,7 @@ const SCREEN_TOOLS = { highlight, highlightMove, highlightedEl, pressHighlighted
 let legendEl = null;
 let legendAt = 0;
 let legendHtml = "";
-const LEGEND = [["b0"], ["b1"], ["b2"], ["b3"], ["b4", "b5"], ["b9"], ["b7"], ["b6"], ["b8"]];
+const LEGEND = [["b0"], ["b1"], ["b2"], ["b3"], ["b4", "b5"], ["b6", "b7"], ["b8"], ["b9"]];
 const FACE_CLASS = { b0: "a", b1: "b", b2: "x", b3: "y" };
 const FOOT_BARS = ".controls, .rv-actions, .book-foot, .reel-controls, .tabbar";
 
@@ -765,19 +880,20 @@ function legendItems() {
     if (!r) return null;
     const a = actionOf(r.area, r.action);
     if (!a || a.scroll) return null;
-    // the D-pad's and the sticks' moving goes without saying; the shoulders and triggers only when the screen gives them a job
-    if (r.area === "general" && !["b0", "b1", "b2", "b3"].includes(input) && !["prevTab", "nextTab"].includes(r.action)) return null;
-    if (r.hint) { const h = safely(() => r.hint(), undefined); if (h === null) return null; if (typeof h === "string") return h; }
-    return shortOf(r.area, r.action);
+    // the D-pad's and the sticks' moving goes without saying, and Everywhere's page up / down
+    if (r.area === "general" && ["b6", "b7"].includes(input)) return null;
+    if (r.hint) { const h = safely(() => r.hint(), undefined); if (h === null) return null; if (typeof h === "string") return { r, label: h }; }
+    return { r, label: shortOf(r.area, r.action) };
   };
   for (const group of LEGEND) {
-    const labels = group.map(say);
+    const said = group.map(say);
     if (group.length === 2) {
-      if (labels[0] && labels[0] === labels[1]) out.push({ inputs: group, label: labels[0] });
-      else group.forEach((input, k) => { if (labels[k]) out.push({ inputs: [input], label: labels[k] }); });
-    } else if (labels[0]) out.push({ inputs: group, label: labels[0] });
+      const both = said[0] && said[1] ? pairName(said[0].r, said[1].r) : "";
+      if (both) out.push({ inputs: group, label: both });
+      else group.forEach((input, k) => { if (said[k]) out.push({ inputs: [input], label: said[k].label }); });
+    } else if (said[0]) out.push({ inputs: group, label: said[0].label });
   }
-  return out.slice(0, 7);
+  return out.slice(0, 8);
 }
 
 function drawLegend() {
@@ -844,14 +960,16 @@ export function startGamepad() {
   reloadControllerSetting();
   const changed = () => { for (const fn of padListeners) { try { fn(connectedPads()); } catch (e) { console.error(e); } } };
   window.addEventListener("gamepadconnected", (e) => {
-    if (e.gamepad) rememberKind(e.gamepad);
+    // (a device that only says it is a controller doesn't name the buttons; a real one does once it is used)
+    const pad = e.gamepad && isController(e.gamepad) ? standardize(e.gamepad) : null;
+    if (pad && pad.mapping === "standard") rememberKind(pad);
     reloadControllerSetting();
     changed();
     loop();
   });
   window.addEventListener("gamepaddisconnected", (e) => {
-    if (e.gamepad) { press.delete(e.gamepad.index); held.delete(e.gamepad.index); }
-    if (!rawPads().length) { holding.clear(); setInUse(false); }
+    if (e.gamepad) { press.delete(e.gamepad.index); held.delete(e.gamepad.index); rests.delete(e.gamepad.index); trust.delete(e.gamepad.index); }
+    if (!rawPads().length) { holding.clear(); setInUse(false); }  // (only real controllers: a speaker's knob leaving changes nothing)
     changed();
   });
   // The highlight and the button guide are for the controller: the mouse, a finger or the keyboard put them away.
@@ -859,8 +977,8 @@ export function startGamepad() {
   window.addEventListener("pointerdown", (e) => { if (e.isTrusted) away(); }, true);
   window.addEventListener("keydown", (e) => { if (e.isTrusted) away(); }, true);
   window.addEventListener("hashchange", () => { unhighlight(); holding.clear(); });
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) { reloadControllerSetting(); if (rawPads().length) loop(); } });
-  if (rawPads().length) loop();  // already connected (a page reload)
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) { reloadControllerSetting(); if (mayBePads()) loop(); } });
+  if (mayBePads()) loop();  // already connected (a page reload)
 }
 
 /** For tests and Settings: the areas' actions, with what each input does now. */

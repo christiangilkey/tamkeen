@@ -3,10 +3,10 @@
 // Words only: the rules themselves are in rules.js and idle.js, and the numbers here are read from them.
 
 import { esc, h } from "../app.js";
-import { BRANCHES, CATALOG, FOODS, MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
-import { describe, leadingBranch, readyToEvolve, stageOf } from "./genome.js";
+import { CATALOG, FOODS, GROWN, SHOP_MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
+import { describe, isGrown, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, HABIT_XP, REVIEW_CLEAR_CARDS, SHOP_SIZE, branchOptions, levelOf, variantOptions } from "./rules.js";
+import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -68,11 +68,11 @@ const EARNED = {
       ],
       use: [
         `It fills your level bar. Each new level pays 5 coins, and each level needs more XP than the last (this one needs ${fmt(lv.need)}).`,
-        "It grows the creature in your habitat: it hatches, grows up and becomes ready to evolve.",
+        "It grows the creature in your habitat: it hatches, grows into a juvenile and then becomes fully grown.",
         "XP is never spent. It only goes up.",
       ],
       where: "Nowhere to spend it: it works by itself.",
-      go: [{ label: "How evolving works", pic: "evolve", tab: "evolve" }],
+      go: [{ label: "How your creature grows", pic: "evolve", tab: "evolve" }],
     };
   },
   streak(game) {
@@ -109,12 +109,14 @@ const EARNED = {
         "Keep 8 in 10 battle answers right over a week (30 answers or more): 5.",
         "Your guild beats the weekly raid boss: 20.",
         `Finish a battle and clear your flashcards on the same day: ${BOTH_COINS}, once a day. Flashcards by themselves pay glow, not coins.`,
+        `A creature becomes fully grown: ${FULLY_GROWN_COINS}, once for each creature.`,
       ],
       use: [
         `Things for your creature to wear and for its habitat: hats, glasses, neckwear, things to hold, capes and wings, shirts, and decorations. They cost ${Math.min(...prices)} to ${Math.max(...prices)} coins.`,
-        "Everything bought with coins is for looks. Nothing makes a creature stronger.",
+        `Battle moves, bought once for all your creatures: quick moves, guards, power-ups, heals, delays, interrupts, charges and moves that change the squares. They cost ${Math.min(...SHOP_MOVES.map((m) => m.price))} to ${Math.max(...SHOP_MOVES.map((m) => m.price))} coins. They give new tricks, not bigger numbers.`,
+        "Things to wear and decorations are for looks only.",
       ],
-      where: `The Shop. It offers ${SHOP_SIZE} things a day, chosen for your creature, and changes every day.`,
+      where: `The Shop. It offers ${SHOP_SIZE} things to wear or put out and ${MOVE_SHOP_SIZE} battle moves a day, and changes every day.`,
       go: [{ label: "Open the shop", pic: "nav_shop", tab: "shop" }],
     };
   },
@@ -206,8 +208,8 @@ export function openEarned(id, game, go) {
   if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l, run: () => (l.tab === "evolve" ? openEvolution(game, go) : go(l.tab)) }))));
 }
 
-// ---------- how a creature evolves ----------
-const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
+// ---------- how a creature grows ----------
+const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", grown: "Fully grown" };
 const HABIT = {
   listener: { name: "Listening", how: "time spent listening to podcasts, audio and videos" },
   reader: { name: "Reading", how: "time spent reading web pages" },
@@ -216,29 +218,31 @@ const HABIT = {
 };
 const EGG_LEANS = "Ember for curiosity, Tide for listening, Grove for collecting, Stone for reading, Spark for early mornings and Dusk for late nights";
 
-/** The page behind the creature's own chip: how the owner's choices decide what it can become. */
+/** The page behind the creature's own chip: how it grows up and what the owner's habits shape. */
 export function openEvolution(game, go) {
   const g = game.creature;
   const look = describe(g);
   const stage = stageOf(g.growth);
   const egg = stage.id === "egg";
-  const ready = readyToEvolve(g);
+  const grown = isGrown(g);
   const pct = (t) => Math.round((g.traits[t] || 0) * 100);
-  const { body, close } = sheet("How your creature evolves", "evolve");
+  const { body, close } = sheet("How your creature grows", "evolve");
 
   const kind = `${TYPES[look.type].name} ${egg ? "egg" : SPECIES[look.species].name.toLowerCase()}`;
-  body.append(h(`<p class="info-now">${esc(g.name || (egg ? "Your egg" : "Your creature"))} is a ${kind}. What it turns into follows how you study,
-    you choose the moment, and nothing you choose is final.</p>`));
+  body.append(h(`<p class="info-now">${esc(g.name || (egg ? "Your egg" : "Your creature"))} is a ${kind}. Creatures stay young and
+    cute: they grow up to juveniles and never become adults.</p>`));
 
-  // Growing up: four stages, reached with XP.
+  // Growing up: three stages and then fully grown, reached with XP.
   const xp = g.growth * ADULT_XP;
-  const next = STAGES[STAGES.indexOf(stage) + 1];
-  const at = ready ? "juvenile" : stage.id; // grown enough, but it waits as a juvenile until its owner evolves it
-  const steps = STAGES.map((s) => `<span class="info-step${s.id === at ? " on" : ""}"><b>${STAGE_NAME[s.id]}</b><span class="small">${s.from ? `${fmt(s.from * ADULT_XP)} XP` : "start"}</span></span>`);
+  const marks = [...STAGES.map((s) => ({ id: s.id, from: s.from })), { id: "grown", from: GROWN }];
+  const at = grown ? "grown" : stage.id;
+  const next = marks[marks.findIndex((m) => m.id === at) + 1];
+  const steps = marks.map((s) => `<span class="info-step${s.id === at ? " on" : ""}"><b>${STAGE_NAME[s.id]}</b><span class="small">${s.from ? `${fmt(s.from * ADULT_XP)} XP` : "start"}</span></span>`);
   body.append(h(`<div><strong>1. Growing up</strong>
     <div class="info-steps">${steps.join(icon("arrow"))}</div>
-    <p class="small muted">${next ? `${fmt(Math.max(1, Math.ceil(next.from * ADULT_XP - xp)))} more XP until it ${next.id === "hatchling" ? "hatches" : next.id === "adult" ? "is ready to evolve" : `is a ${next.id}`}.`
-      : g.branch ? "It is fully grown." : "It is ready to evolve: tap it in the habitat."}
+    <p class="small muted">${next ? `${fmt(Math.max(1, Math.ceil(next.from * ADULT_XP - xp)))} more XP until it ${next.id === "hatchling" ? "hatches" : next.id === "grown" ? "is fully grown" : `is a ${next.id}`}.`
+      : "It is fully grown."}
+      A creature that becomes fully grown leaves you a new egg and ${FULLY_GROWN_COINS} coins, and can be released in the garden.
       All the XP you earn goes to the creature that is out in the habitat. The others wait, so who you bring out is your first choice.</p></div>`));
 
   // The four habits: what the owner actually does, measured.
@@ -250,36 +254,13 @@ export function openEvolution(game, go) {
       Curiosity takes ${fmt(HABIT_XP.curious)}, because looking words up pays so much more XP.</p>
     ${bars.join("")}</div>`));
 
-  // Adult forms: one per habit.
-  const lead = leadingBranch(g);
-  const forms = branchOptions(g).map((b) => {
-    const habit = HABIT[BRANCHES[b.id].trait].name.toLowerCase();
-    const have = pct(BRANCHES[b.id].trait);
-    const move = MOVES.find((m) => m.branch === b.id);
-    let state;
-    if (g.branch === b.id) state = `${icon("check")} Its form now`;
-    else if (g.branches.includes(b.id)) state = `${icon("check")} Unlocked: switch to it on the Creatures page`;
-    else if (g.branch) state = `${icon("lock")} Opens at 50% ${habit} (now ${have}%)`;
-    else if (b.open) state = `${icon("check")} ${b.id === lead ? "Open: your strongest habit so far" : "Open: this habit is past 25%"}`;
-    else state = `${icon("lock")} Opens at 25% ${habit} (now ${have}%)`;
-    return `<div class="info-form${b.open || g.branches.includes(b.id) ? " on" : ""}">${icon(`form_${b.id}`, 32)}
-      <span><b>${b.name}</b> <span class="small muted">${BRANCHES[b.id].blurb}${move ? ` · brings the battle move ${move.name}` : ""}</span>
-      <span class="small">${state}</span></span></div>`;
-  });
-  body.append(h(`<div><strong>3. Its adult form</strong>
-    <p class="small muted">Once it has grown enough it waits as a juvenile and sparkles. Tap it and you choose its adult form. The form of your
-      strongest habit is always open, and another opens once its habit passes 25%. After evolving, raising another habit to 50% unlocks
-      that form too, and you can switch between unlocked forms whenever you like. Evolving also leaves you a new egg.
-      Curiosity has no form of its own: it shows in your eggs, the shop and the garden.</p>
-    ${forms.join("")}</div>`));
-
   // Special forms: earned by something other than growth.
   const specials = variantOptions(game, g).map((v) => `<div class="info-form${v.open ? " on" : ""}">${icon(`form_${v.id}`, 32)}
     <span><b>${v.name}</b> <span class="small muted">${VARIANTS[v.id].blurb}</span>
     <span class="small">${v.open ? `${icon("check")} Earned` : `${icon("lock")} ${VARIANTS[v.id].how}`}</span></span></div>`);
-  body.append(h(`<div><strong>4. Special forms</strong>
-    <p class="small muted">Worn on top of an adult form. They come from when you study, who it grows up beside, and what you pull off in battle.
-      They change colours and features, never strength.</p>
+  body.append(h(`<div><strong>3. Special colourings</strong>
+    <p class="small muted">A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, and
+      what you pull off in battle. They change colours and features, never strength.</p>
     ${specials.join("")}</div>`));
 
   body.append(h(`<div><strong>What else your habits change</strong>${list([
@@ -287,8 +268,8 @@ export function openEvolution(game, go) {
     `The element of every new egg leans toward how you study: ${EGG_LEANS}.`,
     "The shop offers more of what suits your habits, such as headphones for listeners and books for readers.",
     "Each garden building makes more glow for one habit.",
-    "Battles between people ignore all of this: every creature fights at the same level, and you win by knowing your words.",
+    "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In Unlimited battles creatures grow stronger with how many words their owner knows.",
   ])}</div>`));
 
-  body.append(links(close, [{ label: ready ? "Choose its form now" : "Open your creatures", pic: ready ? "evolve" : "nav_roster", run: () => go("creatures") }]));
+  body.append(links(close, [{ label: "Open your creatures", pic: "nav_roster", run: () => go("creatures") }]));
 }

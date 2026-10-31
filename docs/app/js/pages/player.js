@@ -36,7 +36,7 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 import { sentenceStart } from "../sentencestart.js";
-import { actionHeld, controllerArea } from "../gamepad.js";
+import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
@@ -1188,7 +1188,26 @@ export async function render(view, { id, query }) {
     reveal: (el) => { if (tr.contains(el)) ensureVisible(el); },
   });
   const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
-  const offPad = controllerArea("video", {
+  // Menu: the highlighted word's own menu (the one a right-click or a long press opens), or the word being said's.
+  const padWord = () => {
+    const i = cursor.on ? cursor.at : wordNow();
+    return i >= 0 ? (trShown() ? wordEls[i] : capWord(i) || wordEls[i]) : null;
+  };
+  const padH = {
+    // View: the player's options, the ones without a button of their own on the controller
+    options: () => padMenu([
+      { label: "Slow down (on / off)", run: () => padH.slower() },
+      { label: "Loop this line (on / off)", run: () => padH.loopLine() },
+      vid ? { label: "Captions on the video (on / off)", run: () => padH.captions() } : null,
+      vid ? { label: "Transcript panel (open / close)", run: () => padH.transcript() } : null,
+      { label: "Larger text", run: () => $("#font-up").click() },
+      { label: "Smaller text", run: () => $("#font-down").click() },
+      vid && document.fullscreenEnabled ? { label: "Full screen", run: () => toggleFullscreen() } : null,
+    ]),
+    wordMenu: {
+      can: () => !!padWord(),
+      run: () => { const el = padWord(); const r = el.getBoundingClientRect(); openMenu(r.left, r.bottom + 4, el); focusMenu(); },
+    },
     lookUp: () => {
       if (cursor.on) { cursor.pick(); return; }
       const i = wordNow();  // no highlight out: the word being said
@@ -1237,7 +1256,8 @@ export async function render(view, { id, query }) {
       if (cursor.hide()) return true;  // the highlight put away: the words follow the sound again
       return false;
     },
-  });
+  };
+  const offPad = controllerArea("video", padH);
 
   // ---------- media keys ----------
   if ("mediaSession" in navigator && !embed) {

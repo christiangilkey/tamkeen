@@ -30,7 +30,7 @@ import { pickedCountry } from "../youtube-home.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
-import { controllerArea, highlightMove, highlightedEl, pressHighlighted } from "../gamepad.js";
+import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
@@ -865,6 +865,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     back(v);
     flipped = true;
     flippedAt = Date.now();
+    // With a game controller, the highlight starts on the main answer, as on Xbox: A answers Remembered.
+    if (padInUse()) highlightOn(actions.querySelector(".rv-yes"));
     if (autoplay && hasWordAudio(v)) sayWord(v, true);
     await play(card, [{ transform: "rotateY(-90deg)" }, { transform: "rotateY(0deg)" }], { duration: 260, easing: "cubic-bezier(.2, 1.4, .4, 1)" });
     busy = false;
@@ -1319,10 +1321,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // sentence and its translation (each opens its text box, as a tap does), then every button and box
   // under them (the Mnemonic maker's keywords with their thumbs up and down too).
   const BACK_TEXTS = ".rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans";
-  const onBack = () => { const el = highlightedEl(); return el && face.contains(el) ? el : null; };
+  // (and the answer buttons under the card, last: "Not remembered", "Remembered")
+  const onBack = () => { const el = highlightedEl(); return el && (face.contains(el) || actions.contains(el)) ? el : null; };
   const padWalk = (dir) => ({
     can: () => !!padCard() && flipped,
-    run: () => highlightMove(dir, { root: face, linear: true, include: BACK_TEXTS }),
+    run: () => highlightMove(dir, { root: [face, actions], linear: true, include: BACK_TEXTS }),
   });
   const offPad = controllerArea("review", {
     turn: {
@@ -1332,15 +1335,38 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         if (!todo[0]) return;
         if (!flipped) { flip(); return; }
         const box = onBack();
+        if (box && actions.contains(box)) { if (padSettled()) pressHighlighted(); return; }  // an answer: not straight after turning
         if (box) { if (box.matches(EDITABLE_SELECTOR)) tapEdit(box); else pressHighlighted(); return; }
         if (padSettled()) grade(GOOD);
       },
-      hint: () => (!panel.hidden ? "Close" : !todo[0] ? null : !flipped ? "Turn" : onBack() ? "Press" : "Remembered"),
+      hint: () => {
+        if (!panel.hidden) return "Close";
+        if (!todo[0]) return null;
+        if (!flipped) return "Turn";
+        const box = onBack();
+        return !box || box.matches(".rv-yes") ? "Remembered" : box.matches(".rv-no") ? "Not remembered" : "Select";
+      },
+    },
+    // View: the reviewer's settings; Menu: more for this card
+    options: () => { const gear = $(".rv-gear"); if (gear) gear.click(); },
+    cardMenu: {
+      can: () => padReady() && panel.hidden && !!todo[0],
+      run: () => {
+        const v = todo[0];
+        const say = flipped && face.querySelector(".say-it");
+        padMenu([
+          undo.length ? { label: "Undo the last answer", run: takeBack } : null,
+          say ? { label: "Say it", run: () => say.click() } : null,
+          flipped ? { label: "Delete this word", run: () => askDelete(v) } : null,
+          { label: "Finish the session", run: () => close() },
+        ], $(".rv-card"));
+      },
     },
     up: padWalk("up"),
     down: padWalk("down"),
-    again: () => { if (padCard() && padSettled()) grade(AGAIN); },
-    good: () => { if (!padCard()) return; if (padSettled()) grade(GOOD); else if (!flipped) flip(); },
+    // (on the back: the front has nothing to answer yet, so LB / RB aren't offered there)
+    again: { can: () => !!padCard() && flipped, run: () => { if (padSettled()) grade(AGAIN); } },
+    good: { can: () => !!padCard() && flipped, run: () => { if (padSettled()) grade(GOOD); } },
     // (on the back only, as the keys: the button guide on screen leaves them out on the front)
     playWord: { can: () => { const v = padCard(); return !!v && flipped && hasWordAudio(v); }, run: () => sayWord(padCard()) },
     playSentence: { can: () => { const v = padCard(); return !!v && flipped && hasSentenceAudio(v); }, run: () => saySentence(padCard()) },

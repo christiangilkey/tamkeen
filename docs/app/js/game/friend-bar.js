@@ -7,7 +7,7 @@ import { h } from "../app.js";
 import { icon as lineIcon } from "../icons.js";
 import { isLanguage, langInfo } from "../languages.js";
 import { streakNow } from "../review/streak.js";
-import { BRANCHES, LEAGUES, SPECIES, TYPES, VARIANTS } from "./data.js";
+import { LEAGUES, SPECIES, TYPES, VARIANTS } from "./data.js";
 import { describe, formOf } from "./genome.js";
 import { showcaseGenome, xpToday } from "./battle.js";
 import { portrait } from "./battle-ui.js";
@@ -15,7 +15,7 @@ import { sheet } from "./info.js";
 import { weekNumber } from "./rules.js";
 import { icon } from "./render.js";
 
-const STAGE_NAME = { hatchling: "Hatchling", juvenile: "Juvenile", adult: "Adult" };
+const STAGE_NAME = { hatchling: "Hatchling", juvenile: "Juvenile" };
 
 /** A sheet with a few short paragraphs (and, optionally, one button that goes somewhere). */
 function explain(title, pic, lines, go = null) {
@@ -115,7 +115,7 @@ export function gameBar(profile, { now = new Date(), game = true, me = false, na
   if (g) {
     const look = describe(g);
     const creature = g.name || SPECIES[look.species].name;
-    const about = [TYPES[g.type] && TYPES[g.type].name, STAGE_NAME[formOf(g).id], look.branch && BRANCHES[look.branch].name,
+    const about = [TYPES[g.type] && TYPES[g.type].name, STAGE_NAME[formOf(g).id],
                    look.variant && VARIANTS[look.variant].name].filter(Boolean).join(" · ");
     const show = part("gb-creature", me ? "Your favourite creature: tap for more" : "Their favourite creature: tap for more", () => {
       const body = explain(creature, "nav_roster", [

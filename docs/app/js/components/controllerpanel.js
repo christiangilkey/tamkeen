@@ -2,7 +2,8 @@
 // the controllers connected, how to connect one, the button guide on screen, and the buttons of
 // each screen (watching videos, the word popup, studying cards, Home, the Library…): choose a screen,
 // then press a button's box and then a button on the controller to give it that one; ✕ clears it,
-// ↺ puts its default back. Under a screen's own buttons, those it shares with every screen.
+// ↺ puts its default back. Under a screen's own buttons, those it shares with every screen. Above
+// them, a drawing of the controller (paddiagram.js) points from each button to what it does there.
 // padmap.js is the mapping, gamepad.js reads the controller and keeps the setting.
 
 import { esc, h, toast } from "../app.js";
@@ -12,6 +13,7 @@ import {
   captureInput, cancelCapture, connectedPads, controllerSetting, legendOn, onPadInput, onPads, padStyle,
   reloadControllerSetting, saveControllerSetting, setLegendOn,
 } from "../gamepad.js";
+import { controllerDiagram } from "./paddiagram.js";
 
 /** The Settings home's line for this section. */
 export function controllerSummary() {
@@ -57,6 +59,7 @@ export function controllerSection(body) {
       <h2>Buttons</h2>
       <label class="pad-pick"><span>Screen</span> <select class="pad-screen"></select></label>
       <p class="set-hint pad-about"></p>
+      <div class="pad-dia-slot"></div>
       <div class="pad-rows"></div>
       <div class="pad-shared" hidden><h3 class="pad-shared-h">The same on every screen</h3><div class="pad-shared-rows"></div>
         <p class="set-hint">Change these under “Everywhere”.</p></div>
@@ -67,6 +70,8 @@ export function controllerSection(body) {
   const $ = (q) => body.querySelector(q);
   const card = $(".pad-area");
   const picker = $(".pad-screen");
+  const diagram = controllerDiagram();
+  $(".pad-dia-slot").replaceWith(diagram.el);
   let area = firstArea();
   let waiting = null; // { area, action, button }
 
@@ -121,6 +126,7 @@ export function controllerSection(body) {
     const full = fullMap(controllerSetting());
     const info = AREAS.find((a) => a.id === area) || AREAS[0];
     $(".pad-about").textContent = info.about;
+    diagram.draw(full, area);
     const rows = $(".pad-rows");
     rows.innerHTML = "";
     for (const a of ACTIONS[area]) {
@@ -196,6 +202,7 @@ export function controllerSection(body) {
 
   const offPads = onPads(() => { drawPads(); if (!waiting) draw(); });
   const offInput = onPadInput((input) => {
+    diagram.flash(input);
     const last = $(".pad-last");
     last.hidden = false;
     const did = actionFor(fullMap(controllerSetting()), area, input);
@@ -207,5 +214,5 @@ export function controllerSection(body) {
   // Another device may have changed the buttons since this one last looked.
   reloadControllerSetting().then(() => { if (!waiting && body.isConnected) draw(); });
   const poll = setInterval(drawPads, 2000); // some browsers tell about a controller only when asked
-  return [() => { clearInterval(poll); offPads(); offInput(); cancelCapture(); document.removeEventListener("keydown", onKey, true); }];
+  return [() => { clearInterval(poll); offPads(); offInput(); cancelCapture(); diagram.destroy(); document.removeEventListener("keydown", onKey, true); }];
 }

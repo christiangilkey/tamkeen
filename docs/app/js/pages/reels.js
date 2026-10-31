@@ -26,7 +26,7 @@ import { displayWords, paintWords, vowelsButton } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
-import { actionHeld, controllerArea } from "../gamepad.js";
+import { actionHeld, buttonsMenu, controllerArea } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
@@ -920,7 +920,11 @@ async function renderPlayer(view, { query }) {
     onHide: () => { if (cur && curIdx >= 0 && cur.els[curIdx]) keepInView(cur.els[curIdx]); },
   });
   const moveCursor = (dir) => () => cursor.move(dir, actionHeld("lookUp"));
-  const offPad = controllerArea("video", {
+  const offPad = controllerArea("reels", {
+    options: {
+      can: () => !!view.querySelector("#rc-left button, #rc-right button"),
+      run: () => buttonsMenu(view.querySelectorAll("#rc-left button, #rc-right button, #rc-left select, #rc-right select")),
+    },
     wordLeft: moveCursor("left"),
     wordRight: moveCursor("right"),
     lineUp: moveCursor("up"),

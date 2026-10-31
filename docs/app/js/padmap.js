@@ -14,9 +14,16 @@
  * "Everywhere" ("general"), which is what is left for the buttons a screen doesn't use. Some layers
  * sit over a screen while they are open: a text box being typed in, a box (a dialog) over anything,
  * and the word popup over a player or a book. Settings → Controller lists them in this order.
+ *
+ * The defaults follow the Xbox dashboard, the same on every screen: the left stick or the D-pad move
+ * the highlight, A selects, B goes back, X and Y are the screen's extra actions, LB / RB the tab
+ * before / after (or the screen's own: the kind, the lesson, the page, the reel…), LT / RT a page up
+ * / down (in a player: back / forward 5 seconds), the right stick scrolls, View opens the screen's
+ * options and Menu more options for the highlighted thing.
  */
 export const AREAS = [
-  { id: "video", title: "Watching videos", about: "Podcasts, YouTube, Netflix, your own videos and reels." },
+  { id: "video", title: "Watching videos", about: "Podcasts, YouTube, Netflix and your own videos." },
+  { id: "reels", title: "Reels", about: "Watching Instagram reels." },
   { id: "popup", title: "The word popup", about: "While a word's popup is open, on any screen." },
   { id: "review", title: "Studying cards", about: "The review cards." },
   { id: "reader", title: "Books and pages", about: "Reading a book or a saved web page." },
@@ -32,11 +39,13 @@ export const AREAS = [
 ];
 
 /**
- * The actions, area by area, with their default input on a standard controller.
- * `short`: its name in the on-screen button guide. `repeat`: held down, it happens again and again.
- * `scroll`: held, it scrolls smoothly (a stick scrolls faster the further it is pushed). `hold`: it
- * happens when the button is let go, so what is done while it is held (the D-pad taking in more
- * words) can change it.
+ * The actions, area by area, with their default input on a standard controller ("" = none: it can
+ * be given one in Settings).
+ * `short`: its name in the on-screen button guide and on the drawing in Settings. `pair`: the name
+ * of a before / after pair on LB and RB, shown once for both ("Kind"). `repeat`: held down, it
+ * happens again and again. `scroll`: held, it scrolls smoothly (a stick scrolls faster the further it
+ * is pushed). `hold`: it happens when the button is let go, so what is done while it is held (the
+ * D-pad taking in more words) can change it.
  */
 export const ACTIONS = {
   video: [
@@ -47,41 +56,64 @@ export const ACTIONS = {
     { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
     { id: "lineUp", label: "Highlight the line above", short: "Line", def: "b12", repeat: true },
     { id: "lineDown", label: "Highlight the line below", short: "Line", def: "b13", repeat: true },
-    { id: "back5", label: "Back 5 seconds", short: "−5 s", def: "a0-", repeat: true },
-    { id: "fwd5", label: "Forward 5 seconds", short: "+5 s", def: "a0+", repeat: true },
-    { id: "prevLine", label: "Play the previous line", short: "Previous line", def: "a1-", repeat: true },
-    { id: "nextLine", label: "Play the next line", short: "Next line", def: "a1+", repeat: true },
-    { id: "loopLine", label: "Loop this line (on / off)", short: "Loop", def: "b10" },
-    { id: "slower", label: "Slow down (on / off)", short: "Slower", def: "b6" },
-    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "b7" },
-    { id: "captions", label: "Captions on the video (on / off)", short: "Captions", def: "b8" },
-    { id: "transcript", label: "Transcript panel (open / close)", short: "Transcript", def: "b11" },
-    { id: "prevVideo", label: "Previous reel", short: "Reel", def: "b4" },
-    { id: "nextVideo", label: "Next reel", short: "Reel", def: "b5" },
+    { id: "prevLine", label: "Play the previous line", short: "Previous line", pair: "Line", def: "b4", repeat: true },
+    { id: "nextLine", label: "Play the next line", short: "Next line", pair: "Line", def: "b5", repeat: true },
+    { id: "back5", label: "Back 5 seconds", short: "−5 s", pair: "5 seconds", def: "b6", repeat: true },
+    { id: "fwd5", label: "Forward 5 seconds", short: "+5 s", pair: "5 seconds", def: "b7", repeat: true },
+    { id: "options", label: "Options: slow down, loop, captions, the transcript, text size", short: "Options", def: "b8" },
+    { id: "wordMenu", label: "More options for the highlighted word (save, copy, play from here, loop)", short: "More", def: "b9" },
+    { id: "slower", label: "Slow down (on / off)", short: "Slower", def: "" },
+    { id: "loopLine", label: "Loop this line (on / off)", short: "Loop", def: "" },
+    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "" },
+    { id: "captions", label: "Captions on the video (on / off)", short: "Captions", def: "" },
+    { id: "transcript", label: "Transcript panel (open / close)", short: "Transcript", def: "" },
+  ],
+  reels: [
+    { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
+    { id: "playPause", label: "Play / pause", short: "Play / pause", def: "b2" },
+    { id: "replayLine", label: "Hear this line again", short: "Hear the line", def: "b3" },
+    { id: "wordLeft", label: "Highlight the word to the left", short: "Word", def: "b14", repeat: true },
+    { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
+    { id: "lineUp", label: "Highlight the line above", short: "Line", def: "b12", repeat: true },
+    { id: "lineDown", label: "Highlight the line below", short: "Line", def: "b13", repeat: true },
+    { id: "prevVideo", label: "Previous reel", short: "Previous reel", pair: "Reel", def: "b4" },
+    { id: "nextVideo", label: "Next reel", short: "Next reel", pair: "Reel", def: "b5" },
+    { id: "back5", label: "Back 5 seconds", short: "−5 s", pair: "5 seconds", def: "b6", repeat: true },
+    { id: "fwd5", label: "Forward 5 seconds", short: "+5 s", pair: "5 seconds", def: "b7", repeat: true },
+    { id: "options", label: "Options: the reel's own buttons", short: "Options", def: "b8" },
+    { id: "prevLine", label: "Play the previous line", short: "Previous line", def: "", repeat: true },
+    { id: "nextLine", label: "Play the next line", short: "Next line", def: "", repeat: true },
+    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "" },
   ],
   popup: [
     { id: "press", label: "Press the highlighted button (Save when none is)", short: "Save", def: "b0" },
     { id: "close", label: "Close the popup", short: "Close", def: "b1" },
     { id: "playWord", label: "Hear the word", short: "Word", def: "b2" },
     { id: "playSentence", label: "Hear the sentence", short: "Sentence", def: "b3" },
-    { id: "up", label: "Highlight the button before", short: "Move", def: "b12", repeat: true },
-    { id: "down", label: "Highlight the button after", short: "Move", def: "b13", repeat: true },
-    { id: "wordLeft", label: "Look up the word to the left", short: "Word", def: "b14", repeat: true },
-    { id: "wordRight", label: "Look up the word to the right", short: "Word", def: "b15", repeat: true },
-    { id: "save", label: "Save the word", short: "Save", def: "b7" },
+    { id: "up", label: "Highlight the button above", short: "Move", def: "b12", repeat: true },
+    { id: "down", label: "Highlight the button below", short: "Move", def: "b13", repeat: true },
+    { id: "left", label: "Highlight the button to the left", short: "Move", def: "b14", repeat: true },
+    { id: "right", label: "Highlight the button to the right", short: "Move", def: "b15", repeat: true },
+    { id: "wordLeft", label: "Look up the word to the left", short: "Word to the left", pair: "Word", def: "b4", repeat: true },
+    { id: "wordRight", label: "Look up the word to the right", short: "Word to the right", pair: "Word", def: "b5", repeat: true },
+    { id: "scrollUp", label: "Scroll the explanation up", short: "Scroll up", pair: "Scroll", def: "b6", repeat: true },
+    { id: "scrollDown", label: "Scroll the explanation down", short: "Scroll down", pair: "Scroll", def: "b7", repeat: true },
     { id: "source", label: "Choose what explains words", short: "Source", def: "b8" },
+    { id: "save", label: "Save the word", short: "Save", def: "" },
   ],
   review: [
-    { id: "turn", label: "Turn the card; on its back, press the highlighted box (Remembered when none is)", short: "Turn", def: "b0" },
-    { id: "again", label: "Not remembered", short: "Not remembered", def: "b14" },
-    { id: "good", label: "Remembered", short: "Remembered", def: "b15" },
-    { id: "up", label: "Highlight the box above (on the back)", short: "Move", def: "b12", repeat: true },
-    { id: "down", label: "Highlight the box below (on the back)", short: "Move", def: "b13", repeat: true },
+    { id: "turn", label: "Turn the card; on its back, press the highlighted button or box", short: "Turn", def: "b0" },
+    { id: "again", label: "Not remembered", short: "Not remembered", def: "b4" },
+    { id: "good", label: "Remembered", short: "Remembered", def: "b5" },
+    { id: "up", label: "Highlight the box or button above", short: "Move", def: "b12", repeat: true },
+    { id: "down", label: "Highlight the box or button below", short: "Move", def: "b13", repeat: true },
     { id: "playWord", label: "Play the word", short: "Word", def: "b2" },
     { id: "playSentence", label: "Play the sentence", short: "Sentence", def: "b3" },
-    { id: "sayIt", label: "Say it (practise saying it)", short: "Say it", def: "b5" },
-    { id: "undo", label: "Undo the last answer", short: "Undo", def: "b4" },
-    { id: "finish", label: "Finish the session", short: "Finish", def: "b8" },
+    { id: "options", label: "Reviewer settings", short: "Settings", def: "b8" },
+    { id: "cardMenu", label: "More options: undo, say it, delete the word, finish", short: "More", def: "b9" },
+    { id: "sayIt", label: "Say it (practise saying it)", short: "Say it", def: "" },
+    { id: "undo", label: "Undo the last answer", short: "Undo", def: "" },
+    { id: "finish", label: "Finish the session", short: "Finish", def: "" },
   ],
   reader: [
     { id: "lookUp", label: "Open the highlighted word (hold, and move to add more words)", short: "Look up", def: "b0", hold: true },
@@ -89,39 +121,42 @@ export const ACTIONS = {
     { id: "wordRight", label: "Highlight the word to the right", short: "Word", def: "b15", repeat: true },
     { id: "lineUp", label: "Highlight the line above", short: "Line", def: "b12", repeat: true },
     { id: "lineDown", label: "Highlight the line below", short: "Line", def: "b13", repeat: true },
-    { id: "prevPage", label: "Previous page", short: "Page", def: "b4" },
-    { id: "nextPage", label: "Next page", short: "Page", def: "b5" },
-    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "b7" },
+    { id: "prevPage", label: "Previous page", short: "Previous page", pair: "Page", def: "b4" },
+    { id: "nextPage", label: "Next page", short: "Next page", pair: "Page", def: "b5" },
+    { id: "options", label: "Options: text size", short: "Options", def: "b8" },
+    { id: "wordMenu", label: "More options for the highlighted word (save, copy)", short: "More", def: "b9" },
+    { id: "saveWord", label: "Save the word in the popup", short: "Save", def: "" },
   ],
   home: [
     { id: "continue", label: "Continue where you left off", short: "Continue", def: "b2" },
     { id: "review", label: "Start reviewing your cards", short: "Review", def: "b3" },
   ],
   library: [
-    { id: "prevKind", label: "The kind before (Courses, Podcasts, YouTube…)", short: "Kind", def: "b4" },
-    { id: "nextKind", label: "The next kind", short: "Kind", def: "b5" },
+    { id: "prevKind", label: "The kind before (Courses, Podcasts, YouTube…)", short: "Previous kind", pair: "Kind", def: "b4" },
+    { id: "nextKind", label: "The next kind", short: "Next kind", pair: "Kind", def: "b5" },
     { id: "add", label: "Add something", short: "Add", def: "b2" },
     { id: "search", label: "Search this list", short: "Search", def: "b3" },
   ],
   lesson: [
-    { id: "prevLesson", label: "Previous lesson", short: "Lesson", def: "b4" },
-    { id: "nextLesson", label: "Next lesson", short: "Lesson", def: "b5" },
+    { id: "prevLesson", label: "Previous lesson", short: "Previous lesson", pair: "Lesson", def: "b4" },
+    { id: "nextLesson", label: "Next lesson", short: "Next lesson", pair: "Lesson", def: "b5" },
     { id: "hear", label: "Hear the highlighted example (or the whole lesson)", short: "Hear", def: "b2" },
     { id: "allLessons", label: "Back to all the lessons", short: "All lessons", def: "b3" },
   ],
   vocab: [
     { id: "review", label: "Start the review", short: "Review", def: "b2" },
     { id: "search", label: "Search your words", short: "Search", def: "b3" },
-    { id: "prevFolder", label: "The folder before", short: "Folder", def: "b4" },
-    { id: "nextFolder", label: "The next folder", short: "Folder", def: "b5" },
+    { id: "prevFolder", label: "The folder before", short: "Previous folder", pair: "Folder", def: "b4" },
+    { id: "nextFolder", label: "The next folder", short: "Next folder", pair: "Folder", def: "b5" },
+    { id: "options", label: "Options: add words, export, Anki", short: "Options", def: "b8" },
   ],
   friends: [
     { id: "record", label: "Record a voice message (in a chat)", short: "Record", def: "b2" },
     { id: "write", label: "Write a message (in a chat)", short: "Write", def: "b3" },
   ],
   settings: [
-    { id: "prevSection", label: "The section before", short: "Section", def: "b4" },
-    { id: "nextSection", label: "The next section", short: "Section", def: "b5" },
+    { id: "prevSection", label: "The section before", short: "Previous section", pair: "Section", def: "b4" },
+    { id: "nextSection", label: "The next section", short: "Next section", pair: "Section", def: "b5" },
     { id: "search", label: "Search the settings", short: "Search", def: "b3" },
   ],
   dialog: [
@@ -133,21 +168,26 @@ export const ACTIONS = {
   ],
   general: [
     { id: "back", label: "Back / close", short: "Back", def: "b1" },
-    { id: "select", label: "Press the highlighted button", short: "Press", def: "b0" },
+    { id: "select", label: "Select the highlighted thing", short: "Select", def: "b0" },
     { id: "up", label: "Move the highlight up", short: "Move", def: "b12", repeat: true },
     { id: "down", label: "Move the highlight down", short: "Move", def: "b13", repeat: true },
     { id: "left", label: "Move the highlight left", short: "Move", def: "b14", repeat: true },
     { id: "right", label: "Move the highlight right", short: "Move", def: "b15", repeat: true },
-    { id: "prevTab", label: "The tab before", short: "Tab", def: "b4" },
-    { id: "nextTab", label: "The next tab", short: "Tab", def: "b5" },
-    { id: "pageUp", label: "Jump a page up", short: "Page up", def: "b6", repeat: true },
-    { id: "pageDown", label: "Jump a page down", short: "Page down", def: "b7", repeat: true },
+    { id: "prevTab", label: "The tab before", short: "Previous tab", pair: "Tab", def: "b4" },
+    { id: "nextTab", label: "The next tab", short: "Next tab", pair: "Tab", def: "b5" },
+    { id: "pageUp", label: "Jump a page up", short: "Page up", pair: "Page", def: "b6", repeat: true },
+    { id: "pageDown", label: "Jump a page down", short: "Page down", pair: "Page", def: "b7", repeat: true },
     { id: "scrollUp", label: "Scroll up", short: "Scroll", def: "a3-", scroll: true },
     { id: "scrollDown", label: "Scroll down", short: "Scroll", def: "a3+", scroll: true },
-    { id: "menu", label: "Go to the main tabs", short: "Tabs", def: "b9" },
-    { id: "guide", label: "How to use this screen (its guide)", short: "Guide", def: "b8" },
+    { id: "options", label: "Options for this screen (or how to use it)", short: "Options", def: "b8" },
+    { id: "more", label: "More options for the highlighted thing", short: "More", def: "b9" },
+    { id: "menu", label: "Go to the main tabs", short: "Tabs", def: "" },
+    { id: "guide", label: "How to use this screen (its guide)", short: "Guide", def: "" },
   ],
 };
+
+/** Where a screen gives the left stick nothing of its own, it does what the D-pad does (as on Xbox). */
+export const STICK_AS_DPAD = { "a0-": "b14", "a0+": "b15", "a1-": "b12", "a1+": "b13" };
 
 export const AREA_IDS = AREAS.map((a) => a.id);
 export const actionOf = (area, id) => (ACTIONS[area] || []).find((a) => a.id === id) || null;
@@ -276,6 +316,30 @@ export function actionFor(full, area, input) {
   return "";
 }
 
+const MOVES = ["up", "down", "left", "right"];
+
+/**
+ * What `input` does on screen `area`, as the drawing in Settings shows it: { area, action } (the
+ * screen's own action, else Everywhere's), or null. While typing only leaving the box (and the D-pad,
+ * which leaves it and moves on) works. The left stick does what the D-pad does when nothing has it.
+ */
+export function whatDoes(full, area, input) {
+  for (const a of area === "general" ? ["general"] : [area, "general"]) {
+    const id = actionFor(full, a, input);
+    if (!id) continue;
+    if (area === "typing" && a === "general" && !MOVES.includes(id)) continue;
+    return { area: a, action: id };
+  }
+  return STICK_AS_DPAD[input] ? whatDoes(full, area, STICK_AS_DPAD[input]) : null;
+}
+
+/** The name a before / after pair (LB and RB) goes by together, when both are one pair: "Kind". */
+export function pairName(a, b) {
+  const x = a && actionOf(a.area, a.action);
+  const y = b && actionOf(b.area, b.action);
+  return x && y && x.pair && x.pair === y.pair ? x.pair : "";
+}
+
 // ------------------------------------------------------------------- reading the controller
 
 /** A stick's value with its resting wobble taken away, scaled back to 0..1 past the dead zone. */
@@ -340,9 +404,104 @@ export function pressesFrom(state, down, now, repeats = () => false) {
   return fire;
 }
 
-export const newPressState = () => ({ down: new Set(), since: {}, last: {} });
+export const newPressState = () => ({ down: new Set(), since: {}, last: {}, stuck: new Set() });
+
+/**
+ * A controller just seen: whatever is already down then (a stick or a trigger resting away from the
+ * middle, a button that reads as pressed all the time) is taken as at rest, and does nothing until
+ * it has been let go once. Without this, an axis resting at −1 on the "right stick up" scrolled the
+ * page up for ever.
+ */
+export function settle(state, down) {
+  state.down = new Set(down);
+  state.stuck = new Set(down);
+}
+
+/** What is held now, less what has been down since the controller appeared and not let go since. */
+export function heldNow(state, down) {
+  const stuck = state.stuck || new Set();
+  for (const id of [...stuck]) if (!down.has(id)) stuck.delete(id);
+  return new Set([...down].filter((id) => !stuck.has(id)));
+}
 
 // ------------------------------------------------------------------- names on the buttons
+
+/**
+ * Could it be a game controller? Some devices tell the browser they are one without being one (the
+ * owner's speakers' volume knob, "Pebble V3": 7 buttons, no sticks). One the browser knows the layout
+ * of ("standard": Xbox, PlayStation, Switch Pro… on the computer, the phones and the web) is; one it
+ * doesn't must look like one: six buttons or more, and at least a stick resting near the middle.
+ * Such a one still counts only once it has really been used (`newTrust`, `trustNow`).
+ */
+export function isController(pad) {
+  if (!pad) return false;
+  if (pad.mapping === "standard") return true;
+  const axes = Array.from(pad.axes || [], Number);
+  return (pad.buttons || []).length >= 6 && axes.length >= 2 && axes.filter((v) => Math.abs(v) < 0.3).length >= 2;
+}
+
+const buttonsDown = (pad) => new Set([...readInputs(pad).down].filter((id) => id.startsWith("b")));
+
+/** How far a controller is trusted: one in the standard layout at once; another once it is really used. */
+export function newTrust(pad) {
+  return { real: !!pad && pad.mapping === "standard", start: buttonsDown(pad) };
+}
+
+/**
+ * Does the controller count now? A pad of unknown layout counts once one of its buttons has been
+ * pressed that wasn't down when it appeared (a button stuck down from the start never makes it count;
+ * let go and pressed again, it does).
+ */
+export function trustNow(trust, pad) {
+  if (trust.real) return true;
+  const now = buttonsDown(pad);
+  for (const id of now) if (!trust.start.has(id)) { trust.real = true; return true; }
+  for (const id of [...trust.start]) if (!now.has(id)) trust.start.delete(id);
+  return false;
+}
+
+// An Xbox controller over Bluetooth whose layout the browser doesn't know ("Unknown Gamepad
+// (Vendor: 045e …)", 15 buttons): which raw button is which standard one, where the triggers, the
+// sticks and the D-pad (one "hat" axis) are. Seen on the owner's Xbox Series controller (045e:0b13).
+const XBOX_BT = { buttons: { 0: 0, 1: 1, 3: 2, 4: 3, 6: 4, 7: 5, 10: 8, 11: 9, 13: 10, 14: 11, 12: 16 }, lt: 3, rt: 4, sticks: [0, 1, 2, 5], hat: 9 };
+
+/**
+ * A controller's snapshot in the standard layout: as it is when the browser knows it, put in the
+ * standard places for an Xbox controller over Bluetooth that it doesn't (else as it is). Its triggers
+ * rest at −1 there (as if "pushed"): they become buttons 6 and 7 (0 at rest, 1 pressed all the way);
+ * its D-pad, an axis giving one of eight directions (anything else: none), becomes buttons 12–15.
+ */
+export function standardize(pad) {
+  if (!pad || pad.mapping === "standard") return pad;
+  const raw = pad.buttons || [];
+  const axes = pad.axes || [];
+  if (!/045e/i.test(String(pad.id || "")) || raw.length < 15 || axes.length < 10) return pad;
+  const off = () => ({ pressed: false, value: 0 });
+  const buttons = Array.from({ length: 17 }, off);
+  for (const [from, to] of Object.entries(XBOX_BT.buttons)) {
+    const b = raw[from];
+    if (!b) continue;
+    const pressed = typeof b === "number" ? b >= TRIGGER : !!b.pressed;
+    buttons[to] = { pressed, value: pressed ? 1 : 0 };
+  }
+  const trigger = (v) => {
+    const t = Math.max(0, Math.min(1, ((Number(v) || 0) + 1) / 2));
+    return t < 0.55 ? off() : { pressed: t >= TRIGGER, value: t };  // (one never touched yet reads 0: half way)
+  };
+  buttons[6] = trigger(axes[XBOX_BT.lt]);
+  buttons[7] = trigger(axes[XBOX_BT.rt]);
+  const hat = Number(axes[XBOX_BT.hat]);
+  if (Number.isFinite(hat) && Math.abs(hat) <= 1.05) {
+    const dir = ((Math.round((hat + 1) * 3.5) % 8) + 8) % 8;  // 0 up, 1 up-right, 2 right … 7 up-left
+    const on = { pressed: true, value: 1 };
+    if (dir === 7 || dir <= 1) buttons[12] = on;
+    if (dir >= 3 && dir <= 5) buttons[13] = on;
+    if (dir >= 5 && dir <= 7) buttons[14] = on;
+    if (dir >= 1 && dir <= 3) buttons[15] = on;
+  }
+  return { id: pad.id, index: pad.index, connected: pad.connected !== false, mapping: "standard", remapped: true,
+    buttons, axes: XBOX_BT.sticks.map((i) => Number(axes[i]) || 0) };
+}
 
 /** Which family a controller is, from the name the browser gives it. */
 export function padKind(id = "") {

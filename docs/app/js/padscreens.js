@@ -70,6 +70,7 @@ export function screenLayer(pad) {
       search: typeIn("#q"),
       prevFolder: tabs("#folders", -1),
       nextFolder: tabs("#folders", 1),
+      options: press("#more.vocab-more"),
     } };
   }
 

@@ -28,11 +28,10 @@ export const TYPE_IDS = Object.keys(TYPES);
 
 // ---------- bodies ----------
 // Growth changes proportions, not just size: the head is one size for life while the torso and
-// limbs grow, so a hatchling is mostly head and an adult mostly body.
+// limbs grow, so a hatchling is mostly head. Creatures stay young and cute: there is no adult size.
 export const SIZES = {
   s: { torso: [20, 16], neck: [12, 3], tail: [2, 10], back: [8, 2], arm: [13, 9], legF: [13, 15], legB: [6, 15], leg: [6, 5], armSize: [5, 6], wing: [10, 8] },
   m: { torso: [28, 24], neck: [18, 4], tail: [2, 15], back: [11, 3], arm: [19, 13], legF: [19, 23], legB: [8, 23], leg: [6, 8], armSize: [6, 9], wing: [14, 12] },
-  l: { torso: [40, 36], neck: [27, 6], tail: [3, 23], back: [16, 4], arm: [28, 19], legF: [28, 35], legB: [11, 35], leg: [8, 12], armSize: [8, 12], wing: [20, 16] },
 };
 export const HEAD = { size: [32, 28], neck: [13, 26], eye: [19, 14], mouth: [22, 21], earB: [8, 6], earF: [19, 5], horn: [14, 3], hat: [14, 4], face: [19, 14] };
 export const PART = {
@@ -55,14 +54,6 @@ export const SPECIES = {
 };
 export const SPECIES_IDS = Object.keys(SPECIES);
 
-// Adult forms. Which one a creature grows into depends on how its owner studies (see TRAITS).
-export const BRANCHES = {
-  echo: { name: "Echo", trait: "listener", blurb: "shaped by listening" },
-  sage: { name: "Sage", trait: "reader", blurb: "shaped by reading" },
-  keeper: { name: "Keeper", trait: "collector", blurb: "shaped by collecting words" },
-};
-export const BRANCH_IDS = Object.keys(BRANCHES);
-
 // What the owner's study habits feed. Values run 0..1 and only ever describe, never add power.
 export const TRAITS = ["listener", "reader", "collector", "curious"];
 
@@ -82,13 +73,15 @@ export const EXPRESSIONS = ["open", "blink", "happy", "sad", "sleepy"];
 export const MOUTHS = ["neutral", "smile", "open", "eat", "sad", "sleep"];
 export const PATTERNS = [{ id: "none", weight: 3 }, { id: "spots" }, { id: "stripes" }, { id: "patch" }, { id: "speckle" }, { id: "rings" }];
 
-// Stages by growth (0..1). The egg hatches into the smallest body.
+// Stages by growth (0..1). The egg hatches into the smallest body. Creatures never grow past
+// juvenile (the owner's choice: they stay cute). At GROWN a creature is fully grown, which pays
+// once (rules.FULLY_GROWN_COINS and a new egg) and lets it be released in the garden.
 export const STAGES = [
   { id: "egg", from: 0 },
   { id: "hatchling", from: 0.04, size: "s" },
   { id: "juvenile", from: 0.3, size: "m" },
-  { id: "adult", from: 0.7, size: "l" },
 ];
+export const GROWN = 0.7;
 
 // ---------- things to own ----------
 // Cosmetics only: nothing here makes a creature stronger. `requires` lists tags the owner must
@@ -104,16 +97,16 @@ export const SLOTS = {
 };
 // Where each body plan holds things: in front of the chest (or at the end of the arm), by body size.
 export const HANDS = {
-  blob: { s: [18, 12], m: [26, 18], l: [37, 27] },
-  quad: { s: [18, 11], m: [26, 16], l: [38, 24] },
-  floater: { s: [17, 11], m: [24, 16], l: [35, 24] },
-  biped: { s: [15, 13], m: [21, 20], l: [30, 29] },
+  blob: { s: [18, 12], m: [26, 18] },
+  quad: { s: [18, 11], m: [26, 16] },
+  floater: { s: [17, 11], m: [24, 16] },
+  biped: { s: [15, 13], m: [21, 20] },
 };
 // Each entry: [id, name, price, extra]. `extra` may hold:
 //   requires   tags the owner must have earned for it to appear in the shop
 //   weight_by  traits or tags that make it appear more often
 //   shift      [dx, dy] to move it from its socket on every body size (e.g. headphones sit lower than a hat)
-//   offset     {s: [dx, dy], m: ..., l: ...} to nudge it on one body size
+//   offset     {s: [dx, dy], m: [dx, dy]} to nudge it on one body size
 const WEARABLES = {
   hat: [
     ["cap", "Cap", 15], ["beanie", "Beanie", 15], ["straw", "Straw hat", 20], ["flower", "Flower crown", 25, { weight_by: { collector: 1.5 } }],
@@ -192,7 +185,7 @@ export const TAGS = {
 };
 
 // ---------- special forms ----------
-// On top of its adult form a creature can take a variant, earned in ways other than plain growth:
+// A juvenile can take a variant, a special colouring earned in ways other than plain growth:
 // by the company it keeps, by where and when its owner studies, or by a feat in battle. A variant
 // changes colours and features of the same animal; it never adds power.
 export const VARIANTS = {
@@ -204,7 +197,7 @@ export const VARIANTS = {
 // ---------- battles ----------
 // Battles are won by reviewing your own vocab, not by the size of your numbers: every creature
 // fights at the same level whatever its age. What studying adds is choice: more creatures, more
-// moves, more forms.
+// moves, more looks.
 export const CYCLE = ["ember", "grove", "stone", "spark", "tide", "dusk"]; // each is strong against the next
 export function matchup(attack, defend) {
   if (!attack || attack === defend) return 1;
@@ -220,39 +213,100 @@ export const BASE_STATS = {
   quad: { hp: 105, atk: 20, def: 23, spd: 17 },
   floater: { hp: 90, atk: 21, def: 18, spd: 24 },
 };
-const move = (id, name, kind, power, extra = {}) => ({ id, name, kind, power, ...extra });
+// Battles happen on a small grid (battle.js): each side stands in its own 3x3 half, moves up to
+// two squares a turn, and a timeline decides who acts next (faster creatures act more often).
+// Every move has a style, which says what it is for, and an aim, which says where it lands:
+//   line    the attacker's row, all the way across     (dodge: change row)
+//   column  one column of the other half, every row; from your back column it reaches their back column
+//   burst   the front two columns, the attacker's row and the rows either side (dodge: the back column)
+//   homing  always finds its target, but hits softer
+//   self    the user itself (guards, power-ups, heals)
+// `wait` makes the user's next turn come sooner (<1) or later; `cast` is a charge's wind-up, in
+// turns; `delay` pushes the target's next turn back, in turns; `price` means it is bought in the
+// shop with coins, once, for all of the owner's creatures.
+export const MOVE_STYLES = {
+  strike: { name: "Strike", text: "Plain damage." },
+  quick: { name: "Quick", text: "Weaker, but your next turn comes sooner." },
+  guard: { name: "Guard", text: "Blocks part of the next hit." },
+  power: { name: "Power-up", text: "Makes your next attacks stronger, or your turns faster." },
+  heal: { name: "Heal", text: "Health back (twice a battle)." },
+  delay: { name: "Delay", text: "Pushes the other creature's next turn back." },
+  interrupt: { name: "Interrupt", text: "Cancels a move that is winding up." },
+  charge: { name: "Charge", text: "Huge damage after a wind-up. It aims where you stand when you start, and a hit can cancel it." },
+  terrain: { name: "Terrain", text: "Changes the squares of the battlefield." },
+};
+export const AIMS = {
+  line: { name: "Straight line", text: "Your row, all the way across" },
+  column: { name: "Column", text: "One column of their side: from your back column, their back column" },
+  burst: { name: "Burst", text: "The front two columns of their side, in your row and the rows next to it" },
+  homing: { name: "Homing", text: "Always hits" },
+  self: { name: "Itself", text: "It works on the creature using it" },
+};
+/** Where a move lands, for showing: its aim, or for a move that changes the squares, the squares it changes. */
+export const aimOf = (m) => (m.kind === "terrain" ? { self: "self", foe: "homing", row: "line" }[m.where] : m.aim);
+// Squares with something on them. Each battle lays a few on one side and the same, mirrored, on the other.
+export const TERRAIN = {
+  grass: { name: "Tall grass", text: "Defence +25% while standing here." },
+  high: { name: "High ground", text: "Attacks made from here hit 20% harder." },
+  puddle: { name: "Puddle", text: "Slows you down: your turns come later." },
+  coals: { name: "Hot coals", text: "Burns a little each turn, but Ember creatures love it: their attacks are stronger here." },
+  spring: { name: "Spring", text: "Heals a little each turn." },
+};
+const KIND = { strike: "attack", quick: "attack", delay: "attack", interrupt: "attack", charge: "attack", guard: "guard", power: "boost", heal: "heal", terrain: "terrain" };
+const move = (id, name, style, power, extra = {}) => ({ id, name, style, kind: KIND[style], power, aim: KIND[style] === "attack" ? "line" : "self", ...extra });
+// Moves without art of their own show their style's icon (`icon`).
+const ICON = { attack: "move_attack", guard: "move_guard", boost: "move_boost", heal: "move_heal", terrain: "move_boost" };
+const shop = (id, name, style, power, price, extra = {}) => { const m = move(id, name, style, power, { price, ...extra }); return { icon: ICON[m.kind], ...m }; };
 export const MOVES = [
-  move("tackle", "Tackle", "attack", 40, { from: "all" }),
+  move("tackle", "Tackle", "strike", 40, { from: "all" }),
   move("guard", "Guard", "guard", 50, { from: "all" }),
-  // Two per element: the second is learned as a juvenile.
-  move("cinder", "Cinder", "attack", 45, { element: "ember" }), move("wildfire", "Wildfire", "attack", 60, { element: "ember", stage: "juvenile" }),
-  move("vine", "Vine Whip", "attack", 45, { element: "grove" }), move("overgrowth", "Overgrowth", "attack", 60, { element: "grove", stage: "juvenile" }),
-  move("pebble", "Pebble Toss", "attack", 45, { element: "stone" }), move("rockslide", "Rockslide", "attack", 60, { element: "stone", stage: "juvenile" }),
-  move("zap", "Zap", "attack", 45, { element: "spark" }), move("thunderclap", "Thunderclap", "attack", 60, { element: "spark", stage: "juvenile" }),
-  move("splash", "Splash", "attack", 45, { element: "tide" }), move("riptide", "Riptide", "attack", 60, { element: "tide", stage: "juvenile" }),
-  move("shade", "Shade", "attack", 45, { element: "dusk" }), move("nightfall", "Nightfall", "attack", 60, { element: "dusk", stage: "juvenile" }),
+  // Two per element: the second is learned as a juvenile, and hits a wider area a little softer.
+  move("cinder", "Cinder", "strike", 45, { element: "ember" }), move("wildfire", "Wildfire", "strike", 55, { element: "ember", stage: "juvenile", aim: "burst" }),
+  move("vine", "Vine Whip", "strike", 45, { element: "grove" }), move("overgrowth", "Overgrowth", "strike", 55, { element: "grove", stage: "juvenile", aim: "burst" }),
+  move("pebble", "Pebble Toss", "strike", 45, { element: "stone" }), move("rockslide", "Rockslide", "strike", 55, { element: "stone", stage: "juvenile", aim: "column" }),
+  move("zap", "Zap", "strike", 45, { element: "spark" }), move("thunderclap", "Thunderclap", "strike", 55, { element: "spark", stage: "juvenile", aim: "column" }),
+  move("splash", "Splash", "strike", 45, { element: "tide" }), move("riptide", "Riptide", "strike", 55, { element: "tide", stage: "juvenile", aim: "burst" }),
+  move("shade", "Shade", "strike", 45, { element: "dusk" }), move("nightfall", "Nightfall", "strike", 55, { element: "dusk", stage: "juvenile", aim: "column" }),
   // One per body plan, learned as a juvenile.
   move("bounce_back", "Bounce Back", "heal", 30, { species: "blob", stage: "juvenile" }),
-  move("focus", "Focus", "boost", 30, { species: "biped", stage: "juvenile" }),
-  move("charge", "Charge", "attack", 55, { species: "quad", stage: "juvenile" }),
-  move("tailwind", "Tailwind", "boost", 30, { species: "floater", stage: "juvenile" }),
-  // One per adult form.
-  move("resonance", "Resonance", "attack", 68, { branch: "echo", own: true }),
-  move("insight", "Insight", "boost", 40, { branch: "sage" }),
-  move("hoard", "Hoard", "heal", 36, { branch: "keeper" }),
+  move("focus", "Focus", "power", 30, { species: "biped", stage: "juvenile" }),
+  move("charge", "Charge", "charge", 80, { species: "quad", stage: "juvenile", cast: 0.6 }),
+  move("tailwind", "Tailwind", "power", 30, { species: "floater", stage: "juvenile", buff: "spd" }),
   // Earned by how you study or fight; any hatched creature can use them.
-  move("night_strike", "Night Strike", "attack", 62, { element: "dusk", tag: "night_owl" }),
-  move("dawn_ray", "Dawn Ray", "attack", 62, { element: "spark", tag: "early_bird" }),
+  move("night_strike", "Night Strike", "strike", 62, { element: "dusk", tag: "night_owl", aim: "column" }),
+  move("dawn_ray", "Dawn Ray", "strike", 62, { element: "spark", tag: "early_bird" }),
   move("steady_heart", "Steady Heart", "heal", 34, { tag: "streak_7" }),
   move("second_wind", "Second Wind", "heal", 40, { tag: "comeback" }),
-  move("perfect_form", "Perfect Form", "boost", 45, { tag: "flawless" }),
+  move("perfect_form", "Perfect Form", "power", 45, { tag: "flawless" }),
+  // Bought in the shop with coins (`price`), once for all of the owner's creatures. The first three
+  // came with the old adult forms; a creature that had one gave its move to its owner for free.
+  { ...move("resonance", "Resonance", "strike", 60, { price: 90, own: true, aim: "burst" }) },
+  { ...move("insight", "Insight", "power", 40, { price: 60 }) },
+  { ...move("hoard", "Hoard", "heal", 36, { price: 60 }) },
+  shop("quick_jab", "Quick Jab", "quick", 28, 40, { wait: 0.5 }),
+  shop("pounce", "Pounce", "quick", 34, 55, { wait: 0.6, aim: "column" }),
+  shop("seeker", "Seeker", "strike", 32, 60, { aim: "homing" }),
+  shop("iron_shell", "Iron Shell", "guard", 75, 60),
+  shop("war_cry", "War Cry", "power", 45, 70),
+  shop("haste", "Haste", "power", 35, 70, { buff: "spd" }),
+  shop("mend", "Mend", "heal", 40, 55),
+  shop("trip", "Trip", "delay", 20, 75, { delay: 0.5 }),
+  shop("startle", "Startle", "interrupt", 18, 85, { aim: "homing", delay: 0.25 }),
+  shop("thunderhead", "Thunderhead", "charge", 100, 110, { cast: 0.8 }),
+  shop("meteor", "Meteor", "charge", 115, 130, { cast: 1.2, aim: "burst" }),
+  shop("bloom", "Bloom", "terrain", 0, 65, { terrain: "spring", where: "self" }),
+  shop("scorch", "Scorch", "terrain", 0, 75, { terrain: "coals", where: "foe" }),
+  shop("mudslide", "Mudslide", "terrain", 0, 80, { terrain: "puddle", where: "row" }),
 ];
 export const moveById = (id) => MOVES.find((m) => m.id === id) || MOVES[0];
+/** The art file of a move's icon (moves bought in the shop may use their style's icon). */
+export const moveIcon = (m) => (m.icon ? `icon/${m.icon}` : `icon/move/${m.id}`);
+export const SHOP_MOVES = MOVES.filter((m) => m.price);
 
 // A different rule each week keeps any one team from being "the answer".
 export const WEEKLY_RULES = [
   { id: "open", name: "Open week", text: "Any creatures, any moves." },
-  { id: "starters", name: "Starters only", text: "Only hatchlings and juveniles may fight (adults sit this week out)." },
+  { id: "basic", name: "Basic moves only", text: "Moves bought in the shop sit this week out.", icon: "starters" },
   { id: "no_heal", name: "No healing", text: "Healing moves are not allowed." },
   { id: "warm", name: "Ember, Spark and Stone", text: "Only Ember, Spark and Stone creatures.", types: ["ember", "spark", "stone"] },
   { id: "cool", name: "Tide, Grove and Dusk", text: "Only Tide, Grove and Dusk creatures.", types: ["tide", "grove", "dusk"] },
@@ -327,9 +381,7 @@ export const BADGES = [
   { id: "listener", name: "Listener", text: "Fill the listening habit" },
   { id: "reader", name: "Reader", text: "Fill the reading habit" },
   { id: "collector", name: "Collector", text: "Fill the collecting habit" },
-  { id: "adult_echo", name: "Echo", text: "Raise an Echo adult" },
-  { id: "adult_sage", name: "Sage", text: "Raise a Sage adult" },
-  { id: "adult_keeper", name: "Keeper", text: "Raise a Keeper adult" },
+  { id: "grown", name: "Fully grown", text: "Raise a creature until it is fully grown", art: "adult_sage" },
   { id: "friend_battle", name: "Friendly rival", text: "Finish a battle with a friend" },
   { id: "raid_win", name: "Raid", text: "Help defeat a weekly boss" },
 ];
@@ -352,10 +404,6 @@ export function artFiles() {
   for (const sp of SPECIES_IDS) {
     for (const size of Object.keys(SIZES)) add(`creature/torso/${sp}_${size}.png`, SIZES[size].torso, "torso", { species: sp });
     add(`creature/head/${sp}.png`, HEAD.size, "head", { species: sp });
-    for (const b of BRANCH_IDS) {
-      add(`creature/torso/${sp}_l_${b}.png`, SIZES.l.torso, "torso", { species: sp, branch: b });
-      add(`creature/head/${sp}_${b}.png`, HEAD.size, "head", { species: sp, branch: b });
-    }
     for (const size of Object.keys(SIZES)) {
       if (SPECIES[sp].legs) for (const f of "ab") add(`creature/leg/${sp}_${size}_${f}.png`, SIZES[size].leg, "leg", { frame: f });
       if (SPECIES[sp].arms) add(`creature/arm/${sp}_${size}.png`, SIZES[size].armSize, "arm");
@@ -397,7 +445,7 @@ export function artFiles() {
   add("battle/pad_player.png", [64, 16], "pad");
   add("battle/pad_rival.png", [64, 16], "pad");
   for (const id of ["move_attack", "move_guard", "move_boost", "move_heal", "stat_hp", "stat_atk", "stat_def", "stat_spd"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
-  for (const b of BADGES) add(`badge/${b.id}.png`, [24, 24], "badge", { id: b.id });
+  for (const b of BADGES) add(`badge/${b.art || b.id}.png`, [24, 24], "badge", { id: b.id });
   for (const b of BOSSES) {
     add(`boss/${b.id}_idle.png`, [192, 96], "boss");
     add(`boss/${b.id}_hurt.png`, [96, 96], "boss");
@@ -408,11 +456,11 @@ export function artFiles() {
   // the placeholder generator leaves it alone.
   const extra = (file, size) => add(file, size, "extra");
   for (const s of EYES) for (const x of EXPRESSIONS) extra(`creature/eyes_big/${s}_${x}.png`, PART.eyesBig.size);
-  for (const m of MOVES) extra(`icon/move/${m.id}.png`, [16, 16]);
+  for (const m of MOVES) if (!m.icon) extra(`icon/move/${m.id}.png`, [16, 16]);
   for (const id of ["night_owl", "early_bird", "streak_7", "flawless", "comeback"]) extra(`icon/tag_${id}.png`, [16, 16]);
-  for (const id of [...BRANCH_IDS, ...Object.keys(VARIANTS)]) extra(`icon/form_${id}.png`, [16, 16]);
+  for (const id of Object.keys(VARIANTS)) extra(`icon/form_${id}.png`, [16, 16]);
   for (const id of TRAITS) extra(`icon/trait_${id}.png`, [16, 16]);
-  for (const r of WEEKLY_RULES) extra(`icon/rule_${r.id}.png`, [16, 16]);
+  for (const r of WEEKLY_RULES) extra(`icon/rule_${r.icon || r.id}.png`, [16, 16]);
   for (const id of ["shop", "wardrobe", "roster", "badges", "habitat"]) extra(`icon/nav_${id}.png`, [16, 16]);
   for (const id of ["close", "star", "badge", "trophy", "battle", "edit", "evolve", "combo", "surge", "rating", "egg",
     "glow", "release", "trade", "rival", "defence", "raid", "clock"]) extra(`icon/${id}.png`, [16, 16]);
@@ -443,4 +491,4 @@ export function artFiles() {
 export const FX_FRAMES = { sparkle: 4, dust: 4, burst_lucky: 6, burst_jackpot: 8, hatch: 8, levelup: 8, evolve: 8, ready: 4 };
 export const BATTLE_FRAMES = { hit: 5, shot: 3, shield: 6, heal: 6, boost: 6, faint: 5, glance: 4 };
 // The shadow under a creature, by body size: fx/shadow_<size>.png.
-export const SHADOW = { s: [16, 4], m: [24, 5], l: [36, 6] };
+export const SHADOW = { s: [16, 4], m: [24, 5] };
