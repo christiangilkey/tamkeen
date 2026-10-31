@@ -14,7 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
-## v0.41.0 — 2026-10-30
+## v0.41.1 — 2026-10-30
 
 - **New:** Audiobooks in the Library, for every language you learn. Press + and choose Audiobook: LibriVox's free public-domain audiobooks in the language you're learning are listed straight away, most popular first, with their cover, author, length and chapters, a search, and more at the end of the list. Where LibriVox has none yet (Thai, for now), it says so. Add one and its chapters arrive in order; the first is transcribed straight away. A chapter plays in the usual player with its transcript, word lookup and Save; "Next chapter" goes on to the next one, which is transcribed while you listen to this one. Audiobooks has its own place in the Library, with Continue where you left off.
 - **New:** Audiobook files of your own in Audiobooks: choose one file or several at once (a book sold as one MP3 per chapter becomes one book, its chapters in file-name order), then give it a title. A link points to Libro.fm, a shop that sells DRM-free audiobooks to download and add. Audible's .aax files are copy-protected and can't be opened; the app says so.
