@@ -7,7 +7,7 @@ import { allProgress, isUnfinished } from "../progress.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
-import { openAddSheet } from "../components/addsheet.js";
+import { WAY_FOR_KIND, openAddSheet } from "../components/addsheet.js";
 import { confirmBox, openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
@@ -891,10 +891,12 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (ids.length) location.hash = `#/reels/play?at=${ids[0]}&only=${ids.join(",")}`;
   };
   $("#more").onclick = () => loadEpisodes(true);
-  // The + button: every way of adding something.
+  // The + button: the way of adding that goes with the tab showing (a book on Books, a podcast on
+  // Podcasts…), with every other way one tap back; on Courses, every way.
   $("#add-fab").onclick = () => openAddSheet({
     pickFile: (kind) => $(kind === "audio" ? "#audio-file" : "#video-file").click(),
     addAudiobookFiles: addBookFiles,
+    start: WAY_FOR_KIND[kind] || "",
   });
   /** Show the upload bar's progress: `frac` of the file being sent, `name` (and "2/10" for a book's files). */
   const showUpload = (name, frac) => {
@@ -1025,7 +1027,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#episodes .ep", title: "An episode",
       text: "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript." },
     { target: "#add-fab", title: "Add",
-      text: "Add something to learn from: a podcast, a YouTube video, a webpage, a book, an audiobook, reels, or a video or audio file of your own." },
+      text: "Add something to learn from. It opens on the kind of thing this tab shows, with every other kind one tap back." },
   ]);
 
   return () => {

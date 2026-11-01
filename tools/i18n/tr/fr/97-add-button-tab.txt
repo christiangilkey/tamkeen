@@ -1,0 +1,1 @@
+0039ef1c	Ajoutez de quoi apprendre. Il s'ouvre sur le type de contenu de cet onglet, tous les autres à un clic.

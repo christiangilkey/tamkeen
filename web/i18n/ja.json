@@ -2868,7 +2868,7 @@
 "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each.":"すべて、または未開始・待機中・文字起こし中・完了・失敗のものだけを表示します。数字はそれぞれの件数です。",
 "An episode":"エピソード",
 "Transcribe writes down its words so you can read along and tap any word. Once done, Open plays it with its transcript.":"「文字起こし」で言葉が書き出され、読みながら聞いたり、どの単語もタップしたりできます。完了したら「開く」で文字起こし付きで再生します。",
-"Add something to learn from: a podcast, a YouTube video, a webpage, a book, an audiobook, reels, or a video or audio file of your own.":"学ぶ材料を追加します：ポッドキャスト、YouTube の動画、ウェブページ、本、オーディオブック、リール、または自分の動画・音声ファイル。",
+"Add something to learn from. It opens on the kind of thing this tab shows, with every other kind one tap back.":"学ぶ素材を追加します。このタブの種類で開き、ほかの種類にはワンタップで戻れます。",
 "Back to library":"ライブラリに戻る",
 "This video's captions aren't on this device yet. They arrive with the next sync, or you can fetch them again now.":"この動画の字幕はまだこの端末にありません。次の同期で届きますが、いますぐ取得し直すこともできます。",
 "You can watch it now; captions and the transcript appear once it's transcribed.":"すぐに見られます。字幕と文字起こしは、文字起こしが終わると表示されます。",
