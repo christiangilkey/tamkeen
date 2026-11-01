@@ -40,6 +40,15 @@ function load(lang) {
   return loaded.get(lang);
 }
 
+/** The language's meanings files when they are all downloaded, else null; never downloads anything.
+ * Kept in memory only when a lookup has already loaded them (battles read them once: game/dictwords.js). */
+export async function installedMeanings(lang) {
+  if (loaded.has(lang)) return loaded.get(lang);
+  const st = await meaningsStatus(lang);
+  if (!st.installed) return null;
+  return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`)));
+}
+
 /** Download a language's meanings (and its word tables, which find a word's dictionary form). */
 export async function downloadMeanings(lang) {
   const st = await api("/lexicon/download", { method: "POST", body: { lang, kind: "meanings" } });

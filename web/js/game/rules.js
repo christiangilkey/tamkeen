@@ -608,8 +608,11 @@ export function retention(state) {
  * tested at their own level. Returns {uid, prompt, sentence, options, answer, reverse} or null
  * when there aren't enough different meanings to make four choices.
  * `reverse` questions show the meaning and ask for the word.
+ * `dict` ({words: [{word, meaning}], forward}, from dictwords.js) puts one of the language's common
+ * words in place of one of the learner's own: always as a word, and as a meaning only when `forward`
+ * (the learner's meanings are in English, as the dictionary's are).
  */
-export function pickQuestion(state, vocab, rand = Math.random, now = new Date(), avoid = []) {
+export function pickQuestion(state, vocab, rand = Math.random, now = new Date(), avoid = [], dict = null) {
   const pool = quizzable(vocab);
   const distinct = new Set(pool.map((v) => meaningOf(v).toLowerCase()));
   if (distinct.size < 4) return null;
@@ -635,11 +638,34 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
     seen.add(meaningOf(v).toLowerCase());
     others.push(text);
   }
+  const extra = dictionaryOption(dict, word, reverse, seen, rand);
+  if (extra) {
+    others.splice(2, others.length, extra);
+    for (let i = others.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [others[i], others[j]] = [others[j], others[i]]; }
+  }
   if (others.length < 3) return null;
   const answer = Math.floor(rand() * 4);
   const options = others.slice();
   options.splice(answer, 0, right);
   return { uid: uidOf(word), prompt: reverse ? hint : String(word.text).trim(), sentence: reverse ? "" : String(word.sentence || "").replace(/[⟦⟧]/gu, ""), options, answer, reverse };
+}
+
+/** One wrong answer from the dictionary's common words (pickQuestion's `dict`), or "" when there is none
+ * that fits: never the asked word, an option already there, or a meaning that overlaps the right one. */
+function dictionaryOption(dict, word, reverse, seen, rand) {
+  const list = dict && Array.isArray(dict.words) ? dict.words : [];
+  if (!list.length || (!reverse && !dict.forward)) return "";
+  const asked = String(word.text).trim().toLowerCase();
+  const meaning = meaningOf(word).toLowerCase();
+  for (let tries = 0; tries < 20; tries++) {
+    const c = list[Math.floor(rand() * list.length)];
+    const m = String(c.meaning || "").toLowerCase();
+    const text = String(reverse ? c.word : c.meaning || "").trim();
+    if (!text || !m || String(c.word).trim().toLowerCase() === asked || seen.has(text.toLowerCase()) || seen.has(m)) continue;
+    if (meaning.includes(m) || m.includes(meaning)) continue; // "to be" when the answer is "to be; to exist"
+    return text;
+  }
+  return "";
 }
 
 /** Record an answer. Returns {xp, graduated, retentionBonus, stage}. */

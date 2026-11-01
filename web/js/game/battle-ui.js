@@ -2,9 +2,12 @@
 // grid, the timeline, and the question panel. All the rules live in battle.js and rules.js; this
 // file only shows them.
 
-import { api, h, toast } from "../app.js";
+import { api, h, state, toast } from "../app.js";
+import { commonWords } from "../commonwords.js";
 import { confirmBox } from "../components/modal.js";
-import { detectLanguage, setLang } from "../languages.js";
+import { detectLanguage, setLang, studyLanguage } from "../languages.js";
+import { installedMeanings } from "../meanings.js";
+import { dictionaryChoices } from "./dictwords.js";
 import { states } from "../review/deck.js";
 import { AIMS, BADGES, BATTLE_FRAMES, BATTLE_UNLOCK_WORDS, HABITAT, MOVE_STYLES, SHADOW, SPECIES, TERRAIN, TYPES, aimOf, moveById, moveIcon } from "./data.js";
 import { describe } from "./genome.js";
@@ -222,9 +225,28 @@ const TILE = [48, 13];
 const TERRAIN_COLOR = { grass: "#3f9a45", high: "#a08a62", puddle: "#3a7cc0", coals: "#c2482c", spring: "#58d2c6" };
 const sameSquare = (p, q) => p && q && p.c === q.c && p.r === q.r;
 
+// The language's common words with their dictionary meanings, made once per language a session.
+const dictLists = new Map();
+/** One wrong answer in each question from the built-in dictionary, when the language's is downloaded
+ * (dictwords.js); null when it isn't. */
+async function battleDictionary(lang = studyLanguage()) {
+  if (!dictLists.has(lang)) {
+    dictLists.set(lang, (async () => {
+      const files = await installedMeanings(lang);
+      return files ? dictionaryChoices(await commonWords(lang), files, lang) : null;
+    })().catch(() => null).then((list) => { if (!list) dictLists.delete(lang); return list; }));
+  }
+  const words = await dictLists.get(lang);
+  if (!words || words.length < 20) return null;
+  const meanings = (state.status && state.status.settings && state.status.settings.definer_language) || "English";
+  return { words, forward: /^english$/i.test(meanings) };
+}
+
 function runBattle(b, vocab) {
   const game = getGame();
   const words = battleWords(vocab, game.battleMode);
+  let dict = null; // until the dictionary's list is ready the questions use the learner's words only
+  battleDictionary().then((d) => { dict = d; });
   document.querySelector(".battle-wrap")?.remove();
   const el = h(`<div class="battle-wrap"><div class="battle">
     <div class="battle-top">
@@ -672,7 +694,7 @@ function runBattle(b, vocab) {
   }
 
   function ask(moveId) {
-    const q = pickQuestion(game, words, Math.random, new Date(), asked);
+    const q = pickQuestion(game, words, Math.random, new Date(), asked, dict);
     if (!q) { turn(moveId, "right"); return; }
     asked = [...asked.slice(-12), q.uid];
     const panel = $("#b-panel");

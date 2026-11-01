@@ -107,6 +107,56 @@ test("questions come from the owner's own words: due first, four distinct choice
   for (let i = 0; i < 30; i++) { const q = pickQuestion(s, dupes, rng(i + 9), now); assert.equal(new Set(q.options.map((o) => o.toLowerCase())).size, 4); }
 });
 
+test("with the dictionary downloaded, one wrong answer is a common word from it: two stay the owner's own", () => {
+  const s = newState(23);
+  const now = at("2026-10-12T10:00:00");
+  const words = vocab(120);
+  const dictWords = Array.from({ length: 40 }, (_, i) => ({ word: `común${i}`, meaning: `common ${i}` }));
+  const dict = { words: dictWords, forward: true };
+  const fromDict = (o) => dictWords.some((d) => d.word === o || d.meaning === o);
+  for (let i = 0; i < 60; i++) {
+    const q = pickQuestion(s, words, rng(i + 1), now, [], dict);
+    const word = words.find((w) => w.uid === q.uid);
+    assert.equal(new Set(q.options).size, 4);
+    assert.equal(q.options[q.answer], q.reverse ? word.text : word.meaning);
+    const wrong = q.options.filter((_, j) => j !== q.answer);
+    assert.equal(wrong.filter(fromDict).length, 1, JSON.stringify(q.options));
+    assert.equal(wrong.filter((o) => words.some((w) => w.text === o || w.meaning === o)).length, 2);
+  }
+  // Meanings in another language than the dictionary's English: a dictionary word only in "which word means this?".
+  for (let i = 0; i < 40; i++) {
+    const q = pickQuestion(s, words, rng(i + 1), now, [], { words: dictWords, forward: false });
+    assert.equal(q.options.filter(fromDict).length, q.reverse ? 1 : 0);
+  }
+  // Never a word whose meaning overlaps the right answer's, nor the asked word itself.
+  const one = [{ uid: "a", text: "ser", meaning: "to be; to exist" }, ...vocab(10)];
+  const clash = { words: [{ word: "estar", meaning: "to be" }, { word: "ser", meaning: "to exist" }], forward: true };
+  for (let i = 0; i < 40; i++) {
+    const q = pickQuestion(s, one, rng(i + 1), now, vocab(10).map((w) => w.uid), clash);
+    assert.equal(q.uid, "a");
+    assert.ok(!q.options.some((o) => ["to be", "to exist", "estar"].includes(o)), JSON.stringify(q.options));
+  }
+  // An empty list changes nothing.
+  assert.deepEqual(pickQuestion(s, words, rng(5), now, [], { words: [], forward: true }), pickQuestion(s, words, rng(5), now));
+});
+
+test("the dictionary's wrong answers: common words with an entry of their own and a short ordinary meaning", async () => {
+  const { readFileSync } = await import("node:fs");
+  const { gunzipSync } = await import("node:zlib");
+  const { dictionaryChoices, shortMeaning } = await import("../../web/js/game/dictwords.js");
+  const common = (await import("../../web/js/wordlists/es.js")).default;
+  const es = JSON.parse(gunzipSync(readFileSync(new URL("../../docs/lexicon/es-meanings.json.gz", import.meta.url))).toString("utf8"));
+  const list = dictionaryChoices(common, [es], "es");
+  assert.ok(list.length > 500, `${list.length} of ${common.length}`);
+  const by = Object.fromEntries(list.map((c) => [c.word, c.meaning]));
+  assert.equal(by.casa, "house");
+  assert.ok(list.every((c) => c.meaning.length <= 40 && !/;|\bplural of\b|^used\b/i.test(c.meaning)), JSON.stringify(list.slice(0, 5)));
+  assert.equal(new Set(list.map((c) => c.word)).size, list.length);
+  assert.equal(shortMeaning("(colloquial) tolerable; bearable"), "tolerable");
+  assert.equal(shortMeaning("plural of casa"), "");
+  assert.equal(shortMeaning("Used to form the passive voice"), "");
+});
+
 test("a word becomes well known only over weeks of right answers; that pays best", () => {
   const s = newState(23);
   let day = at("2026-10-01T10:00:00");
