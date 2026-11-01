@@ -41,6 +41,9 @@ export function vowelledKey(text) {
 }
 const hasMarks = (text) => /[ً-ْ]/.test(String(text ?? ""));
 
+/** A course's id, which names its folder: "ar", or an Arabic dialect's "ar-lev" (whose `lang` is "ar"). */
+export const courseIdOf = (course) => String((course && (course.id || course.lang)) || "");
+
 /** The course's units: [{n, from, to, ready, words: [...]}] (a unit not made yet has no words). */
 export function unitsOf(course) {
   const words = (course && course.words) || [];
@@ -78,7 +81,7 @@ export function cardOf(word, course, folder = "") {
     meaning: clean(word.meaning, 500),
     sentence: clean(word.sentence, 1000),
     translation: clean(word.translation, 1000),
-    notes: "",
+    notes: clean(word.note, 2000), // (a dialect word's note on the Standard word that looks the same)
     folders: folder ? [folder] : [],
     source: clean(`${course.title} · word ${word.n}`, 200),
   };
@@ -108,6 +111,44 @@ export function markUpdates(course, cards) {
 /** The translation as HTML: the part that translates the word in bold. `esc` escapes text. */
 export function markedHtml(translation, esc) {
   return esc(String(translation || "")).replace(/⟦([^⟦⟧]*)⟧/g, "<b>$1</b>");
+}
+
+// ---------------------------------------------------------------- Arabic dialects
+
+/**
+ * The kinds of Arabic the Library's Courses teach: Standard Arabic (MSA), then the dialects, which build
+ * on it (none of a dialect's basics words is an MSA word: tools/course/dialect/overlap.mjs). A dialect's
+ * basics course is "ar-<id>" (docs/course/ar-lev), its grammar course "<from>-ar-<id>" ("en-ar-lev").
+ */
+export const ARABIC_VARIETIES = [
+  { id: "", name: "Standard Arabic (MSA)" },
+  { id: "lev", name: "Levantine" },
+  { id: "egy", name: "Egyptian" },
+  { id: "glf", name: "Gulf" },
+  { id: "mor", name: "Moroccan" },
+];
+export const VARIETY_KEY = "courseVariety:ar"; // (localStorage: the kind of Arabic chosen last on this device)
+
+/** A basics course's id: the language ("ar"), or the language and a dialect ("ar-lev"). */
+export const basicsId = (lang, dialect = "") => (dialect ? `${lang}-${dialect}` : lang);
+
+/**
+ * The kinds of Arabic the picker offers: MSA, then each dialect that has a basics course (`courses`: the
+ * basics index, docs/course/index.json) or a grammar course (`grammar`: docs/grammar/index.json) published.
+ * [] when the learner isn't learning Arabic, or no dialect has a course yet: then there is no picker.
+ */
+export function varietiesOffered(lang, courses, grammar) {
+  if (lang !== "ar") return [];
+  const basics = (courses && courses.courses) || {};
+  const lessons = Object.keys((grammar && grammar.courses) || {});
+  const has = (d) => !!basics[basicsId(lang, d)] || lessons.some((id) => id.endsWith(`-${lang}-${d}`));
+  const out = ARABIC_VARIETIES.filter((v) => !v.id || has(v.id));
+  return out.length > 1 ? out : [];
+}
+
+/** The kind of Arabic shown: the one chosen before (`remembered`) while it is still offered, else MSA (""). */
+export function varietyChoice(offered, remembered) {
+  return (offered || []).some((v) => v.id && v.id === remembered) ? remembered : "";
 }
 
 /**

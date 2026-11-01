@@ -19,6 +19,14 @@ A word said alone can come out in the wrong reading (Chinese 的 as "dí", Japan
 (kana: "わ"), or its exact sound, {"alphabet": "sapi", "ph": "de 5"} (Azure's pinyin for zh-CN) or
 {"alphabet": "ipa", "ph": "u"}. The sentence is always voiced as written.
 
+An Arabic dialect course ("ar-lev", "ar-egy", "ar-glf", "ar-mor": Levantine, Egyptian, Gulf, Moroccan) is
+built the same way from tools/course/ar-<d>/words.json into docs/course/ar-<d>/. It builds on the Standard
+Arabic course, so it is shorter: words.json says how many words it will have ("planned": 300) and which
+Azure voice says it ("voice": {"voice": "ar-SY-AmanyNeural", "locale": "ar-SY", "name": "Amany (Azure,
+Syria)"}), and none of its words may be a Standard Arabic basics word (tools/course/dialect/overlap.mjs).
+Its course.json says "id": "ar-<d>", "lang": "ar", "dialect": "<d>". A word may carry a "note": one short
+line on how it differs from a Standard word that looks the same (shown under its meaning in the app).
+
 Audio already made for the same text and voice is kept (a small list next to it says which), so a
 second run only makes what is new or changed.
 
@@ -116,6 +124,16 @@ def plain(text: str) -> str:
     return MARKS.sub("", unicodedata.normalize("NFC", text))
 
 
+# Arabic dialect courses: id "ar-<d>". They teach Arabic ("lang": "ar"); the id names the folder.
+DIALECT_ID = re.compile(r"^(ar)-(lev|egy|glf|mor)$")
+
+
+def course_language(course_id: str) -> tuple[str, str]:
+    """(the language taught, the dialect or "") of a course id: "ar" -> ("ar", ""), "ar-lev" -> ("ar", "lev")."""
+    m = DIALECT_ID.match(course_id)
+    return (m.group(1), m.group(2)) if m else (course_id, "")
+
+
 def load_words(lang: str) -> dict[str, Any]:
     data = json.loads((HERE / lang / "words.json").read_text(encoding="utf-8"))
     words = data["words"]
@@ -131,6 +149,14 @@ def load_words(lang: str) -> dict[str, Any]:
         # app lights up that place and not the same letters inside another word.
         if not re.fullmatch(r"[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+", w["sentence"]):
             raise SystemExit(f"words.json: word {i}'s sentence needs ⟦ ⟧ round its word: {w['sentence']}")
+        if "note" in w and (not isinstance(w["note"], str) or not w["note"].strip()):
+            raise SystemExit(f"words.json: word {i}'s note must be a line of text")
+    planned = data.get("planned", PLANNED)
+    if not isinstance(planned, int) or planned < len(words) or planned < 1:
+        raise SystemExit(f"words.json: planned ({planned}) must be a whole number, at least the {len(words)} words written")
+    voice = data.get("voice")
+    if voice is not None and not (isinstance(voice, dict) and all(str(voice.get(k, "")).strip() for k in ("voice", "locale", "name"))):
+        raise SystemExit('words.json: voice must be {"voice": "ar-SY-AmanyNeural", "locale": "ar-SY", "name": "Amany (Azure, Syria)"}')
     return data
 
 
@@ -349,12 +375,15 @@ def main() -> None:
     if engine == "piper" and "APS_DATA_DIR" not in os.environ:
         # Piper and its voice go into a folder of the builder's own, never the owner's Tamkeen library.
         os.environ["APS_DATA_DIR"] = str(HERE / "build" / "data")
+    data = load_words(lang)
+    if data.get("voice"):  # the course names its own voice (the dialect courses)
+        AZURE[lang] = {k: str(data["voice"][k]) for k in ("voice", "locale", "name")}
     if engine == "azure" and lang not in AZURE:
-        raise SystemExit(f"No Azure voice chosen for {lang} yet (AZURE in this file).")
+        raise SystemExit(f"No Azure voice chosen for {lang} yet (AZURE in this file, or \"voice\" in its words.json).")
     if engine == "mms" and lang not in MMS:
         raise SystemExit(f"No MMS voice chosen for {lang} (MMS in this file).")
-
-    data = load_words(lang)
+    language, dialect = course_language(lang)
+    planned = data.get("planned", PLANNED)
     words = data["words"]
     folder = out / lang
     (folder / "audio").mkdir(parents=True, exist_ok=True)
@@ -379,18 +408,22 @@ def main() -> None:
             path.write_bytes(ogg)
             made[name] = fp
             made_list.write_text(json.dumps(made, indent=0), encoding="utf-8")
-        items.append({"n": w["n"], "word": w["word"], "pos": w.get("pos", ""), "meaning": w["meaning"],
-                      "sentence": w["sentence"], "translation": w["translation"], "audio": f"audio/{name}", "times": times})
+        item = {"n": w["n"], "word": w["word"], "pos": w.get("pos", ""), "meaning": w["meaning"],
+                "sentence": w["sentence"], "translation": w["translation"], "audio": f"audio/{name}", "times": times}
+        if str(w.get("note", "")).strip():
+            item["note"] = w["note"].strip()
+        items.append(item)
 
     units = []
-    for u in range((PLANNED + UNIT - 1) // UNIT):
-        first, last = u * UNIT + 1, (u + 1) * UNIT
+    for u in range((planned + UNIT - 1) // UNIT):
+        first, last = u * UNIT + 1, min((u + 1) * UNIT, planned)
         have = sum(1 for it in items if first <= it["n"] <= last)
-        units.append({"n": u + 1, "from": first, "to": last, "ready": have == UNIT})
+        units.append({"n": u + 1, "from": first, "to": last, "ready": have == last - first + 1})
     voice = (AZURE[lang]["name"] if engine == "azure" else f"Meta MMS ({MMS[lang]}, CC BY-NC 4.0)" if engine == "mms"
              else f"Piper {PIPER[lang]} (preview, not for publishing)")
-    course = {"format": 1, "lang": lang, "title": data["title"], "variety": data.get("variety", ""), "about": data.get("about", ""),
-              "planned": PLANNED, "unit": UNIT, "voice": {"engine": engine, "name": voice, "synthetic": True},
+    named = {"id": lang, "lang": language, "dialect": dialect} if dialect else {"lang": lang}
+    course = {"format": 1, **named, "title": data["title"], "variety": data.get("variety", ""), "about": data.get("about", ""),
+              "planned": planned, "unit": UNIT, "voice": {"engine": engine, "name": voice, "synthetic": True},
               "built": time.strftime("%Y-%m-%d"), "units": units, "words": items}
     body = json.dumps(course, ensure_ascii=False, indent=1).encode("utf-8")
     (folder / "course.json").write_bytes(body)
@@ -398,8 +431,9 @@ def main() -> None:
     index_path = out / "index.json"
     index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.exists() else {"format": 1, "courses": {}}
     audio_bytes = sum((folder / "audio" / f"{it['n']:04d}.ogg").stat().st_size for it in items)
-    index["courses"][lang] = {"file": f"{lang}/course.json", "title": data["title"], "variety": data.get("variety", ""),
-                              "words": len(items), "planned": PLANNED, "bytes": len(body), "audio_bytes": audio_bytes,
+    index["courses"][lang] = {"file": f"{lang}/course.json", **({"lang": language, "dialect": dialect} if dialect else {}),
+                              "title": data["title"], "variety": data.get("variety", ""),
+                              "words": len(items), "planned": planned, "bytes": len(body), "audio_bytes": audio_bytes,
                               "sha256": hashlib.sha256(body).hexdigest(), "voice": course["voice"], "built": course["built"]}
     index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8")
     log(f"{len(items)} words, {len(units)} units ({sum(u['ready'] for u in units)} ready), "

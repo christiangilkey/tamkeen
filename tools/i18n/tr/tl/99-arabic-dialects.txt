@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	Ang {0} pinakakaraniwang salita na hindi Standard Arabic, 50 bawat pagkakataon
+6a640cc3	Standard Arabic (MSA)
+b3e5455b	Moroccan na Arabe
+8e053003	Aling Arabe ang pag-aaralan
+299fd793	Mga kurso sa diyalekto ng Arabe: piliin ang Levantine, Egyptian, Gulf o Moroccan sa Mga Kurso para sa sarili nilang Gramatika at Basics

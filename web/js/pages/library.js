@@ -13,9 +13,9 @@ import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
-import { coursePanel, hasCourse } from "../components/coursepanel.js";
-import { grammarFor, grammarPanel } from "../components/grammarpanel.js";
-import { courseTabChoice } from "../coursedata.js";
+import { courseIndex, coursePanel } from "../components/coursepanel.js";
+import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpanel.js";
+import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
@@ -165,6 +165,10 @@ export async function render(view, { feedId: routeFeed, query }) {
         </div>
         ${phone ? `<div class="feed-list sub-list" id="podcast-list" hidden></div>` : ""}
         <div class="lib-courses" id="lib-courses" hidden>
+          <label class="course-variety" id="course-variety" hidden>
+            <span>Dialect</span>
+            <select id="variety-pick" aria-label="Which Arabic to learn"></select>
+          </label>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
             <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
@@ -787,7 +791,11 @@ export async function render(view, { feedId: routeFeed, query }) {
   // choice), unless a link asks for Basics (#/library?tab=basics) or the learner picked a tab earlier in
   // this visit (kept for this visit only: sessionStorage). coursedata.js courseTabChoice decides. Each
   // panel is built the first time it shows.
+  // Learning Arabic, with a dialect course published: a drop-down above the tabs picks Standard Arabic
+  // (MSA, the default) or a dialect (coursedata.js varietiesOffered; the choice is kept on this device).
+  // Each kind has its own Grammar and Basics courses ("ar-lev", "en-ar-lev"), in the same panels.
   let closeCourse = null, closeGrammar = null, grammarChoice = null, coursesAsked = false;
+  let variety = "", basicsCourse = "";
   const courseLang = studyLanguage();
   const showCourseTab = (tab) => {
     for (const b of root.querySelectorAll("#course-tabs [data-tab]")) {
@@ -797,7 +805,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     $("#course").hidden = tab !== "basics";
     $("#grammar").hidden = tab !== "grammar";
-    if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang);
+    if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang, { course: basicsCourse });
     if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), courseLang, grammarChoice);
   };
   for (const b of root.querySelectorAll("#course-tabs [data-tab]")) {
@@ -810,22 +818,51 @@ export async function render(view, { feedId: routeFeed, query }) {
     $("#lib-courses").hidden = false;
     if (coursesAsked) return;
     coursesAsked = true;
-    Promise.all([hasCourse(courseLang), grammarFor(courseLang).catch(() => null)]).then(([basics, grammar]) => {
+    Promise.all([courseIndex(), grammarIndex()]).then(([courses, grammar]) => {
       if (!root.isConnected) return;
-      if (!basics && !grammar) {
-        const note = $("#no-courses");
-        note.textContent = "There are no courses for this language yet.";
-        note.hidden = false;
-        return;
-      }
-      grammarChoice = grammar;
-      root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
-      root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !grammar;
-      $("#course-tabs").hidden = false;
-      let chosen = "";
-      try { chosen = sessionStorage.getItem("courseTab") || ""; } catch { /* storage off */ }
-      showCourseTab(courseTabChoice({ basics, grammar: !!grammar, asked: query.get("tab") || "", chosen }));
+      const offered = varietiesOffered(courseLang, courses, grammar);
+      const pick = $("#variety-pick");
+      pick.innerHTML = offered.map((v) => `<option value="${esc(v.id)}">${esc(v.name)}</option>`).join("");
+      $("#course-variety").hidden = !offered.length;
+      let kept = "";
+      try { kept = localStorage.getItem(VARIETY_KEY) || ""; } catch { /* storage off */ }
+      variety = varietyChoice(offered, kept);
+      pick.value = variety;
+      pick.onchange = () => {
+        variety = varietyChoice(offered, pick.value);
+        try { localStorage.setItem(VARIETY_KEY, variety); } catch { /* storage off */ }
+        openCourses(courses, grammar);
+      };
+      openCourses(courses, grammar);
     });
+  }
+  /** The Grammar and Basics tabs of the kind of Arabic chosen (or of the language learned). */
+  async function openCourses(courses, grammar) {
+    if (closeCourse) closeCourse();
+    if (closeGrammar) closeGrammar();
+    closeCourse = closeGrammar = null;
+    $("#course").innerHTML = "";
+    $("#grammar").innerHTML = "";
+    $("#course").hidden = $("#grammar").hidden = true;
+    const want = variety;
+    basicsCourse = basicsId(courseLang, variety);
+    const basics = !!(courses && courses.courses && courses.courses[basicsCourse]);
+    const choice = await grammarFor(courseLang, variety, grammar).catch(() => null);
+    if (!root.isConnected || want !== variety) return; // (another kind was picked meanwhile)
+    grammarChoice = choice;
+    const note = $("#no-courses");
+    note.hidden = !!(basics || choice);
+    if (!basics && !choice) {
+      $("#course-tabs").hidden = true;
+      note.textContent = "There are no courses for this language yet.";
+      return;
+    }
+    root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
+    root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !choice;
+    $("#course-tabs").hidden = false;
+    let chosen = "";
+    try { chosen = sessionStorage.getItem("courseTab") || ""; } catch { /* storage off */ }
+    showCourseTab(courseTabChoice({ basics, grammar: !!choice, asked: query.get("tab") || "", chosen }));
   }
 
   // ----- wiring -----

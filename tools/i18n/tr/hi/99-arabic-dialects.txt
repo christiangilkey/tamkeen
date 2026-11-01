@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	{0} सबसे आम शब्द जो मानक अरबी में नहीं हैं, एक बार में 50
+6a640cc3	मानक अरबी (MSA)
+b3e5455b	मोरक्को की
+8e053003	कौन-सी अरबी सीखनी है
+299fd793	अरबी बोलियों के कोर्स: कोर्स में लेवेंटाइन, मिस्री, खाड़ी या मोरक्को की चुनें, हर एक का अपना व्याकरण और बुनियादी शब्द

@@ -154,7 +154,8 @@ test("the course screens send these events", () => {
   assert.match(grammar, /heard\(el\.dataset\.say, el\)/);
   assert.match(grammar, /earnXp\(\{ type: "grammar", key, right, of, first \}/, "a finished lesson already counts in the game's XP");
   const basics = read("web/js/components/coursepanel.js");
-  assert.match(basics, /earnXp\(\{ type: "basics", keys: words\.slice\(0, n\)\.map\(\(w\) => `\$\{course\.lang\}:\$\{w\.n\}`\) \}/);
+  // (keys name the course: "ar:12", or an Arabic dialect's "ar-lev:12")
+  assert.match(basics, /earnXp\(\{ type: "basics", keys: words\.slice\(0, n\)\.map\(\(w\) => `\$\{courseIdOf\(course\)\}:\$\{w\.n\}`\) \}/);
   assert.match(basics, /words = words\.filter\(\(w\) => !prog\.have\.has\(w\.n\)\)/, "words already in the cards are never sent");
   const game = read("web/js/game/game.js");
   assert.match(game, /const chained = \(type\) => type === "word" \|\| type === "hear";/);
@@ -179,7 +180,7 @@ test("the Library puts Grammar first and keeps a chosen tab for this visit only"
   const library = read("web/js/pages/library.js");
   assert.ok(library.indexOf('data-tab="grammar"') < library.indexOf('data-tab="basics"'), "Grammar on the left");
   assert.match(library, /sessionStorage\.setItem\("courseTab", b\.dataset\.tab\)/);
-  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!grammar, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
+  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
   assert.doesNotMatch(library, /localStorage\.(get|set)Item\("courseTab"/);
 });
 

@@ -87,7 +87,12 @@ test("each `say` is text or an exact sound the voice understands", () => {
   }
 });
 
+// (An Arabic dialect course, tools/course/ar-<d>, names its own Azure voice in its words.json.)
 test("the course languages are ones the build knows a voice for", () => {
   const build = readFileSync(new URL("build_course.py", DIR), "utf8");
-  for (const lang of langs) assert.ok(new RegExp(`"${lang}": \\{"voice"|"${lang}": "`).test(build), `${lang} has no voice in build_course.py`);
+  for (const lang of langs) {
+    const own = JSON.parse(readFileSync(new URL(`${lang}/words.json`, DIR), "utf8")).voice;
+    if (own) assert.ok(["voice", "locale", "name"].every((k) => String(own[k] || "").trim()), `${lang}: its words.json voice needs voice, locale and name`);
+    else assert.ok(new RegExp(`"${lang}": \\{"voice"|"${lang}": "`).test(build), `${lang} has no voice in build_course.py`);
+  }
 });

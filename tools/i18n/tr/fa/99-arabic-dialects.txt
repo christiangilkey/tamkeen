@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	{0} کلمهٔ پرکاربردی که در عربی معیار نیستند، هر بار ۵۰ کلمه
+6a640cc3	عربی معیار (فصحی)
+b3e5455b	مغربی
+8e053003	کدام عربی را یاد بگیرید
+299fd793	دوره‌های گویش‌های عربی: در دوره‌ها شامی، مصری، خلیجی یا مغربی را برای دستور زبان و پایه‌های خودش انتخاب کنید

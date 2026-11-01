@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	Ang {0} ka labing kasagarang pulong nga dili Standard Arabic, 50 matag higayon
+6a640cc3	Standard Arabic (MSA)
+b3e5455b	Moroccan na Arabe
+8e053003	Unsang Arabe ang imong tun-an
+299fd793	Mga kurso sa diyalekto sa Arabe: pilia ang Levantine, Ehiptohanon, Gulf o Moroccan sa Mga Kurso para sa ilang kaugalingong Gramatika ug Basics

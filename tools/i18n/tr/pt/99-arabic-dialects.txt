@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	As {0} palavras mais comuns que não são árabe padrão, 50 de cada vez
+6a640cc3	Árabe padrão (MSA)
+b3e5455b	Árabe marroquino
+8e053003	Qual árabe aprender
+299fd793	Cursos de dialetos árabes: escolha levantino, egípcio, do Golfo ou marroquino em Cursos, com gramática e básico próprios

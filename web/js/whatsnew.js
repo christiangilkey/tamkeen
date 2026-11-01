@@ -6,7 +6,12 @@
 // (tools/i18n/extract.mjs) skips text right after a "[", so it would stay English.
 
 const WHATS_NEW = new Map();
-const notes = (version, ...lines) => WHATS_NEW.set(version, lines);
+// (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
+const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
+
+// Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.43.0",
+  "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics");
 
 notes("0.42.0",
   "Your controller works like an Xbox: A selects, B goes back, LB and RB switch tabs",

@@ -124,3 +124,13 @@ def test_a_library_from_before_the_grammar_courses_is_not_a_difference(world):
     assert lib["grammar"] == {}
     old = {k: v for k, v in lib.items() if k != "grammar"}
     assert engine._content(old) == engine._content(lib)
+
+
+def test_an_arabic_dialect_grammar_course_is_served_and_its_progress_kept(client, grammar_dir):
+    # (a dialect's course is "en-ar-lev": "to": "ar", "dialect": "lev"; tools/grammar/build.mjs)
+    (grammar_dir / "en-ar-lev").mkdir()
+    (grammar_dir / "en-ar-lev" / "course.json").write_text(json.dumps({"format": 1, "id": "en-ar-lev", "lessons": []}), encoding="utf-8")
+    assert client.get("/api/grammar/en-ar-lev/course.json").json()["id"] == "en-ar-lev"
+    assert client.get("/api/grammar/en-ar-levant/course.json").status_code == 404
+    assert grammar.clean_progress({"en-ar-lev/future-rah": {"at": 5, "right": 3, "of": 4}, "en-ar-levant/x": {"at": 5}}) == \
+        {"en-ar-lev/future-rah": {"at": 5, "right": 3, "of": 4}}

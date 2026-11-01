@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	Les {0} paraules més comunes que no són àrab estàndard, de 50 en 50
+6a640cc3	Àrab estàndard (MSA)
+b3e5455b	Àrab marroquí
+8e053003	Quin àrab vols aprendre
+299fd793	Cursos de dialectes àrabs: tria llevantí, egipci, del Golf o marroquí a Cursos per tenir-ne la gramàtica i les bases

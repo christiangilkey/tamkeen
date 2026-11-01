@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	最常用、但不属于标准阿拉伯语的 {0} 个词，每次 50 个
+6a640cc3	标准阿拉伯语（MSA）
+b3e5455b	摩洛哥方言
+8e053003	要学哪种阿拉伯语
+299fd793	阿拉伯语方言课程：在“课程”中选择黎凡特、埃及、海湾或摩洛哥方言，各有自己的语法和基础词汇

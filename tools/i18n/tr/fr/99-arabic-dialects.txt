@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	Les {0} mots les plus courants qui ne sont pas de l'arabe standard, 50 à la fois
+6a640cc3	Arabe standard (MSA)
+b3e5455b	Arabe marocain
+8e053003	Quel arabe apprendre
+299fd793	Cours de dialectes arabes : choisissez levantin, égyptien, du Golfe ou marocain dans Cours, avec leur grammaire et leurs bases

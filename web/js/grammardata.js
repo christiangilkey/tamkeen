@@ -15,6 +15,13 @@
 export const GRAMMAR_BASE = "https://christiangilkey.github.io/tamkeen/grammar/";
 const SITE_HOST = "christiangilkey.github.io";
 export const LEVELS = ["A1", "A2", "B1"];
+// The Arabic dialect courses (Levantine, Egyptian, Gulf, Moroccan) build on the Standard Arabic one. A
+// dialect's grammar course teaches Arabic ("to": "ar") and names its dialect ("dialect": "lev"); its id
+// has the dialect after the pair: "en-ar-lev".
+export const DIALECTS = ["lev", "egy", "glf", "mor"];
+
+/** A course's id: "<from>-<to>", plus "-<dialect>" for a dialect course ("en-ar-lev"). */
+export const courseIdOf = (course) => `${course.from}-${course.to}${course.dialect ? `-${course.dialect}` : ""}`;
 export const PRACTICE_TYPES = ["choice", "fill", "order", "dialogue", "say", "free"];
 export const BLOCKS = ["goal", "p", "term", "ex", "dialog", "table", "tip"];
 
@@ -33,14 +40,16 @@ export function grammarUrl(name, { platform = "", host = "" } = {}) {
  *   - a ready-made course for the pair: that one;
  *   - else the English-explained course of the language studied, offered in the learner's language;
  *   - studying the language the app is shown in: the English-explained course as it is.
+ * `dialect` ("lev"): the same, for that Arabic dialect's course ("en-ar-lev").
  */
-export function courseFor(ui, study, index) {
+export function courseFor(ui, study, index, dialect = "") {
   const have = (id) => !!(index && index.courses && index.courses[id]);
   if (!study) return null;
-  if (ui && ui !== study && have(`${ui}-${study}`)) return { course: `${ui}-${study}`, made: null };
+  const d = dialect ? `-${dialect}` : "";
+  if (ui && ui !== study && have(`${ui}-${study}${d}`)) return { course: `${ui}-${study}${d}`, made: null };
   if (study === "en") return null;
-  if (!have(`en-${study}`)) return null;
-  return { course: `en-${study}`, made: ui && ui !== "en" && ui !== study ? ui : null };
+  if (!have(`en-${study}${d}`)) return null;
+  return { course: `en-${study}${d}`, made: ui && ui !== "en" && ui !== study ? ui : null };
 }
 
 // ---------------------------------------------------------------- the markup
@@ -341,7 +350,7 @@ export function cleanProgress(raw) {
   const out = {};
   if (!value || typeof value !== "object" || Array.isArray(value)) return out;
   for (const [key, rec] of Object.entries(value)) {
-    if (!/^[a-z]{2,3}-[a-z]{2,3}\/[a-z0-9-]{1,60}$/.test(key) || !rec || typeof rec !== "object") continue;
+    if (!/^[a-z]{2,3}-[a-z]{2,3}(-[a-z]{3})?\/[a-z0-9-]{1,60}$/.test(key) || !rec || typeof rec !== "object") continue;
     const at = Math.trunc(Number(rec.at) || 0);
     if (at <= 0) continue;
     const of = Math.max(0, Math.min(50, Math.trunc(Number(rec.of) || 0)));
@@ -507,6 +516,7 @@ export function checkCourse(course, { languages = null } = {}) {
   const code = /^[a-z]{2,3}$/;
   if (!code.test(course.from || "") || !code.test(course.to || "") || course.from === course.to) say("course", "from and to must be two different language codes");
   if (languages && (!languages.includes(course.from) || !languages.includes(course.to))) say("course", "a language the app doesn't know");
+  if ("dialect" in course && (!DIALECTS.includes(course.dialect) || course.to !== "ar")) say("course", `dialect must be one of ${DIALECTS.join(", ")}, in a course that teaches Arabic ("to": "ar")`);
   for (const k of ["title", "about"]) if (!String(course[k] || "").trim()) say("course", `no ${k}`);
   const units = course.units || [];
   if (!units.length) say("course", "no units");

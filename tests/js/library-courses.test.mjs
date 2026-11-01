@@ -34,8 +34,8 @@ test("links meant for the podcasts say so (plain #/library is now Courses)", () 
 });
 
 test("Courses shows the basics and grammar panels, and no episodes", () => {
-  assert.match(library, /import \{ coursePanel, hasCourse \} from "\.\.\/components\/coursepanel\.js";/);
-  assert.match(library, /import \{ grammarFor, grammarPanel \} from "\.\.\/components\/grammarpanel\.js";/);
+  assert.match(library, /import \{ courseIndex, coursePanel \} from "\.\.\/components\/coursepanel\.js";/);
+  assert.match(library, /import \{ grammarFor, grammarIndex, grammarPanel \} from "\.\.\/components\/grammarpanel\.js";/);
   assert.match(library, /if \(kind === "courses"\) return; \/\/ no episodes/);
   assert.match(library, /data-tab="basics"/);
   assert.match(library, /data-tab="grammar"/);

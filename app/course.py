@@ -22,8 +22,9 @@ import httpx
 from . import paths
 
 BASE_URL = "https://christiangilkey.github.io/tamkeen/course/"
-# What may be asked for: the list of courses, a course, and one of its audio files.
-NAME = re.compile(r"^(index\.json|[a-z]{2,3}/course\.json|[a-z]{2,3}/audio/\d{4}\.ogg)$")
+# What may be asked for: the list of courses, a course, and one of its audio files. A course is a
+# language ("ar") or an Arabic dialect ("ar-lev": tools/course/build_course.py).
+NAME = re.compile(r"^(index\.json|[a-z]{2,3}(-[a-z]{3})?/course\.json|[a-z]{2,3}(-[a-z]{3})?/audio/\d{4}\.ogg)$")
 
 
 class CourseError(RuntimeError):

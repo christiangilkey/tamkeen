@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	أكثر {0} كلمة شيوعًا ليست من الفصحى، 50 كلمة في كل مرة
+6a640cc3	العربية الفصحى (MSA)
+b3e5455b	الدارجة المغربية
+8e053003	أي عربية تريد أن تتعلم
+299fd793	دورات اللهجات العربية: اختر الشامية أو المصرية أو الخليجية أو المغربية في الدورات لقواعدها وأساسياتها الخاصة

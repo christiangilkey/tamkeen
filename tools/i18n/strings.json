@@ -3255,6 +3255,11 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "32de39bc",
+  "k": "The {0} most common words that aren't Standard Arabic, 50 at a time",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "5fa8930e",
   "k": "The {0} most common words, 50 at a time",
   "f": "web/js/components/coursepanel.js"
@@ -6985,6 +6990,11 @@
   "f": "web/js/components/wordscan.js"
  },
  {
+  "id": "6a640cc3",
+  "k": "Standard Arabic (MSA)",
+  "f": "web/js/coursedata.js"
+ },
+ {
   "id": "475410e2",
   "k": "Levantine",
   "f": "web/js/coursedata.js"
@@ -6997,6 +7007,11 @@
  {
   "id": "81298f3a",
   "k": "Gulf",
+  "f": "web/js/coursedata.js"
+ },
+ {
+  "id": "b3e5455b",
+  "k": "Moroccan",
   "f": "web/js/coursedata.js"
  },
  {
@@ -14045,6 +14060,11 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "8e053003",
+  "k": "Which Arabic to learn",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "5fcebeef",
   "k": "Basics",
   "f": "web/js/pages/library.js"
@@ -18933,6 +18953,11 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
+ },
+ {
+  "id": "299fd793",
+  "k": "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "b03fa4c2",

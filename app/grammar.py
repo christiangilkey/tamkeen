@@ -25,9 +25,10 @@ import httpx
 from . import paths
 
 BASE_URL = "https://christiangilkey.github.io/tamkeen/grammar/"
-# What may be asked for: the list of courses, and a course ("en-ar/course.json").
-NAME = re.compile(r"^(index\.json|[a-z]{2,3}-[a-z]{2,3}/course\.json)$")
-KEY = re.compile(r"^[a-z]{2,3}-[a-z]{2,3}/[a-z0-9-]{1,60}$")
+# What may be asked for: the list of courses, and a course ("en-ar/course.json", or an Arabic dialect's
+# "en-ar-lev/course.json").
+NAME = re.compile(r"^(index\.json|[a-z]{2,3}-[a-z]{2,3}(-[a-z]{3})?/course\.json)$")
+KEY = re.compile(r"^[a-z]{2,3}-[a-z]{2,3}(-[a-z]{3})?/[a-z0-9-]{1,60}$")
 
 
 class GrammarError(RuntimeError):

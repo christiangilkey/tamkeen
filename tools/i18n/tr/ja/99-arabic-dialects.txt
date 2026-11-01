@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	標準アラビア語にない、よく使われる{0}語を、50語ずつ
+6a640cc3	標準アラビア語（MSA）
+b3e5455b	モロッコ方言
+8e053003	学ぶアラビア語の種類
+299fd793	アラビア語方言コース：コースでレバント・エジプト・湾岸・モロッコ方言を選ぶと、それぞれの文法と基本語彙が学べます

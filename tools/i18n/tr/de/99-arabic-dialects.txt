@@ -1,0 +1,6 @@
+# Arabic dialect courses: the Library's Courses picker (Standard Arabic or a dialect) and a dialect's Basics subtitle.
+32de39bc	Die {0} häufigsten Wörter, die kein Hocharabisch sind, 50 auf einmal
+6a640cc3	Hocharabisch (MSA)
+b3e5455b	Marokkanisch
+8e053003	Welches Arabisch du lernst
+299fd793	Arabische Dialektkurse: Wähle unter Kurse Levantinisch, Ägyptisch, Golf oder Marokkanisch für eigene Grammatik und Grundlagen

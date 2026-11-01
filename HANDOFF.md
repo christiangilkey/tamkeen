@@ -6194,3 +6194,34 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   Checked in the browser on a fresh data folder: habitat (walking, dressed), Creatures page, Twin colouring; a battle
   wasn't played (needs 100 saved words). Old saves: every creature becomes one of its element's three, battle stats
   follow its new plan.
+
+## Arabic dialect courses: the picker and the shared format (2026-11-01, on main)
+Owner's approved plan (side-session notes `dialect-courses-plan.md`): Levantine, Egyptian, Gulf (Saudi style) and Moroccan
+courses that build only on MSA. Four sessions (`dialect-lev/egy/glf/mor`) write the content; this part is the app and the
+format (side-session notes `dialect-format.md` is the brief they were given).
+- **Ids**: basics `ar-lev`, `ar-egy`, `ar-glf`, `ar-mor` (`tools/course/ar-<d>/words.json` -> `docs/course/ar-<d>/`); grammar
+  `en-ar-<d>` (`tools/grammar/en-ar-<d>/lessons.json` with `"to": "ar", "dialect": "<d>"` -> `docs/grammar/en-ar-<d>/`). A built
+  basics course says `"id": "ar-<d>", "lang": "ar", "dialect": "<d>"`; index entries carry `lang`/`dialect` too.
+- **build_course.py**: dialect ids; words.json may set `planned` (e.g. 300; last unit may be short) and its own Azure
+  `voice` {voice, locale, name}; a word may carry `note` (shown in italics under the meaning, and becomes the card's
+  Grammar notes). **tools/grammar/build.mjs** + grammardata.js `checkCourse`/`courseIdOf`/`DIALECTS`: `en-ar-<d>` folders.
+  app/course.py and app/grammar.py file names, and the grammar progress keys (Python `KEY`, JS `cleanProgress`), allow
+  the `-<d>` suffix.
+- **No MSA overlap**: `node tools/course/dialect/overlap.mjs [ar-<d>]` and tests/js/dialect-course.test.mjs: no word of a
+  published dialect basics course may equal, with the app's search normalisation (shared-logic.js `normalize`), a word
+  of docs/course/ar or web/js/wordlists/ar.js. Note: wordfreq's top 1000 has dialect words (اللي, مش; شئ = شي, أية = إيه,
+  أبي, ترى), so those can't be basics words; the grammar courses teach them. A dialect not built yet is skipped.
+- **App** (shared web/js, so desktop, phones and web app alike): Library → Courses shows a "Dialect" `<select>` above the
+  Grammar | Basics tabs only when learning Arabic and at least one dialect has a basics or grammar course published
+  (coursedata.js `ARABIC_VARIETIES`, `varietiesOffered`, `varietyChoice`, `basicsId`); MSA first and default; choice in
+  localStorage `courseVariety:ar` (per device). library.js `openCourses` rebuilds both panels on a change;
+  `coursePanel(box, "ar", {course: "ar-lev"})` (audio, unit memory `course:ar-lev:unit` and XP keys use the course id,
+  coursedata.js `courseIdOf`), `grammarFor("ar", "lev", index)` -> grammardata.js `courseFor(..., dialect)`. Dialect
+  Basics subtitle: "The N most common words that aren't Standard Arabic, 50 at a time".
+- whatsnew.js: `notes()` now adds to a version named twice; a 0.43.0 line was added ahead of the release (rename it if
+  the release is numbered otherwise). Translations `tools/i18n/tr/<code>/99-arabic-dialects.txt` (5 strings × 16).
+- **Checked**: pytest and JS tests; a real Tamkeen window (fresh scratch data folder, APS_COURSE_DIR/APS_GRAMMAR_DIR on a
+  scratch fixture with a 4-word Levantine course and a 2-lesson Levantine grammar course): MSA default, Levantine opens
+  its own Grammar and Basics, note shown, Word/Sentence play `ar-lev/audio`, Add makes a card with note, voice and the
+  course's folder, the choice survives a reload, back to MSA. Phone build (mobile/www copy at 375 px, course fetches
+  pointed at the fixture): same. Not checked: a real phone, real dialect content (none published yet).

@@ -385,6 +385,10 @@ label.check input { margin-top: 3px; }
 .library.desk.courses-kind .lib-bar { display: none; } /* (on the phone it holds the kinds, which stay) */
 .library:not(.courses-kind) .lib-courses { display: none; }
 .lib-courses .vocab-tabs { margin-top: 4px; }
+/* Learning Arabic: which kind (Standard Arabic or a dialect), centred above the Grammar | Basics tabs. */
+.course-variety { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0 2px; font-weight: 600; }
+.course-variety[hidden] { display: none; }
+.course-variety select { min-width: 170px; max-width: 260px; flex: 0 1 260px; }
 .lib-head { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 12px; }
 .lib-head img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; flex: none; }
 .lib-head .meta { flex: 1; min-width: 0; }
@@ -2074,6 +2078,7 @@ html.sel-sheets select { pointer-events: none; }
 .cw-n { min-width: 26px; font-size: 12px; font-weight: 700; color: var(--muted); }
 .cw-word { font-family: var(--ar-font); font-size: clamp(26px, 7vw, 34px); font-weight: 650; line-height: 1.35; }
 .cw-meaning { color: var(--muted); font-size: 15px; }
+.cw-note { font-style: italic; } /* (a dialect word's note on the Standard word that looks the same) */
 .cw-sent { font-family: var(--ar-font); font-size: clamp(19px, 5vw, 23px); line-height: 1.8; }
 .cw-sent b, .cw-trans b { background: var(--hl); color: var(--hl-ink); border-radius: 6px; padding: 0 4px; font-weight: inherit; }
 .cw-trans { font-size: 14.5px; color: var(--muted); }

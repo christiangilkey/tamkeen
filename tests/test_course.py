@@ -95,3 +95,14 @@ def test_a_course_card_says_where_it_came_from(client):
     cards = r.json()["cards"]
     assert cards[0]["episode_title"] == "Arabic basics · word 1"
     assert cards[1]["episode_title"] == "", "typed in: no source"
+
+
+def test_an_arabic_dialect_course_is_served_like_any_other(client, course_dir):
+    # (the dialect courses: docs/course/ar-lev etc., tools/course/build_course.py)
+    (course_dir / "ar-lev" / "audio").mkdir(parents=True)
+    (course_dir / "ar-lev" / "course.json").write_text(json.dumps({"format": 1, "id": "ar-lev", "lang": "ar", "dialect": "lev", "words": []}), encoding="utf-8")
+    (course_dir / "ar-lev" / "audio" / "0001.ogg").write_bytes(b"OggS-lev")
+    assert client.get("/api/course/ar-lev/course.json").json()["dialect"] == "lev"
+    assert client.get("/api/course/ar-lev/audio/0001.ogg").content == b"OggS-lev"
+    for bad in ("ar-/course.json", "ar-levantine/course.json", "ar-lev-x/course.json", "ar_lev/course.json"):
+        assert client.get(f"/api/course/{bad}").status_code == 404, bad

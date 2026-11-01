@@ -1,6 +1,7 @@
 // Check the grammar courses and publish them with the website (tools/grammar/README.md).
 //   node tools/grammar/build.mjs            every course in tools/grammar/<from>-<to>/lessons.json
 //   node tools/grammar/build.mjs en-ar      just that one
+//   node tools/grammar/build.mjs en-ar-lev  an Arabic dialect's course (it says "to": "ar", "dialect": "lev")
 // Writes docs/grammar/<from>-<to>/course.json and the course's entry in docs/grammar/index.json (the
 // other courses' entries are kept). Stops, listing what is wrong, if a course doesn't pass the checks
 // (web/js/grammardata.js checkCourse). The output has no date in it, so building twice gives the same
@@ -12,15 +13,15 @@ import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkCourse, lessonVersion } from "../../web/js/grammardata.js";
+import { checkCourse, courseIdOf, DIALECTS, lessonVersion } from "../../web/js/grammardata.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
 export const PUBLISHED = join(root, "docs", "grammar");
-const PAIR = /^[a-z]{2,3}-[a-z]{2,3}$/;
+const PAIR = new RegExp(`^[a-z]{2,3}-[a-z]{2,3}(-(${DIALECTS.join("|")}))?$`);
 
-/** The courses written so far: ["en-ar", …]. */
+/** The courses written so far: ["en-ar", "en-ar-lev", …]. */
 export function sources() {
   return readdirSync(here).filter((n) => PAIR.test(n) && existsSync(join(here, n, "lessons.json"))).sort();
 }
@@ -31,12 +32,14 @@ export const readSource = (id) => JSON.parse(readFileSync(join(here, id, "lesson
  * published yet)}. */
 export function buildCourse(id, source = readSource(id)) {
   const problems = checkCourse(source, { languages: LANGUAGE_CODES });
-  if (`${source.from}-${source.to}` !== id) problems.unshift(`course: its folder is ${id} but it says ${source.from}-${source.to}`);
+  if (courseIdOf(source) !== id) problems.unshift(`course: its folder is ${id} but it says ${courseIdOf(source)}`);
+  const dialect = source.dialect ? { dialect: source.dialect } : {};
   const course = {
     format: 1,
     id,
     from: source.from,
     to: source.to,
+    ...dialect,
     title: source.title,
     variety: source.variety || "",
     about: source.about,
@@ -50,6 +53,7 @@ export function buildCourse(id, source = readSource(id)) {
     file: `${id}/course.json`,
     from: course.from,
     to: course.to,
+    ...dialect,
     title: course.title,
     variety: course.variety,
     units: course.units.length,
