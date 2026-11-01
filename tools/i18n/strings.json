@@ -14425,6 +14425,11 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "17770471",
+  "k": "Subtitles",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "bd33f09a",
   "k": "Text size and full screen",
   "f": "web/js/pages/player.js"
@@ -14602,6 +14607,11 @@
  {
   "id": "109469b8",
   "k": "Netflix asks who's watching: choose your profile in the Netflix window, then press Try again.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "fd582310",
+  "k": "Subtitles are off.",
   "f": "web/js/pages/player.js"
  },
  {
@@ -22050,11 +22060,6 @@
   "f": "extension/src/js/ext/panel.js"
  },
  {
-  "id": "17770471",
-  "k": "Subtitles",
-  "f": "extension/src/js/ext/panel.js"
- },
- {
   "id": "f7697583",
   "k": "Show or hide the transcript (T)",
   "f": "extension/src/js/ext/panel.js"
@@ -22102,11 +22107,6 @@
  {
   "id": "a6c86590",
   "k": "Showing Netflix's {0} subtitles instead.",
-  "f": "extension/src/js/ext/panel.js"
- },
- {
-  "id": "fd582310",
-  "k": "Subtitles are off.",
   "f": "extension/src/js/ext/panel.js"
  },
  {

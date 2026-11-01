@@ -152,19 +152,24 @@ def test_language_codes():
 
 # ----- choosing among the files that arrive -----
 
-def test_catcher_keeps_the_full_file_in_the_language_being_learned():
+def test_catcher_keeps_the_full_file_of_the_subtitles_showing():
     now = [100.0]
     c = netflix.SubtitleCatcher(clock=lambda: now[0])
     c.begin("81")
-    assert not c.offer("81", {"lang": "en", "cues": [(1, 2, "Hi")]}, "ar"), "another language"
-    assert c.offer("81", {"lang": "ar-LB", "cues": [(1, 2, "x")] * 2}, "ar"), "forced lines (few) count, for now"
-    assert c.offer("81", {"lang": "ar", "cues": [(1, 2, "y")] * 5}, "ar")
-    assert not c.offer("81", {"lang": "ar", "cues": [(1, 2, "y")] * 5}, "ar"), "the same file twice"
-    assert len(c.best("81").cues) == 5, "the most lines"
-    assert c.offer("81", {"lang": "ar-LB", "cues": [(1, 2, "z")] * 4}, "ar")
-    assert c.best("81", chosen="ar-LB").lang == "ar-LB", "the variant the page chose comes first"
+    assert c.offer("81", {"lang": "en", "cues": [(1, 2, "Hi")] * 9}), "another language is caught too (it may be switched to)"
+    assert not c.offer("81", {"lang": "", "cues": [(1, 2, "?")]}), "a file that doesn't say its language"
+    assert c.offer("81", {"lang": "ar-LB", "cues": [(1, 2, "x")] * 2}), "forced lines (few) count, for now"
+    assert c.offer("81", {"lang": "ar", "cues": [(1, 2, "y")] * 5})
+    assert not c.offer("81", {"lang": "ar", "cues": [(1, 2, "y")] * 5}), "the same file twice"
+    assert len(c.best("81", lang="ar").cues) == 5, "in the language showing, the most lines"
+    assert c.best("81", "en").lang == "en" and c.best("81", lang="fr") is None
+    assert c.offer("81", {"lang": "ar-LB", "cues": [(1, 2, "z")] * 4})
+    assert c.best("81", chosen="ar-LB").lang == "ar-LB", "the variant showing comes first"
     now[0] += c.WINDOW + 1
-    assert not c.offer("81", {"lang": "ar", "cues": [(1, 2, "w")] * 50}, "ar"), "too late: perhaps the next episode's"
+    assert not c.offer("81", {"lang": "ar", "cues": [(1, 2, "w")] * 50}), "too late: perhaps the next episode's"
+    c.reopen("81")  # the viewer switched the subtitles: the file Netflix fetches for them counts
+    assert c.offer("81", {"lang": "ar", "cues": [(1, 2, "msa")] * 6})
+    assert c.best("81", "ar").cues[0][2] == "msa", "Arabic (MSA) chosen: its file, not the Lebanese one"
     c.mark_saved("81", c.best("81", "ar-LB"))
     assert c.is_saved("81", c.best("81", "ar-LB"))
 
@@ -220,9 +225,9 @@ def test_flush_saves_only_what_the_page_chose(fresh_db, monkeypatch):
     monkeypatch.setattr(netflix, "_schedule", lambda *a, **k: None)  # no timers in a test: flush by hand
     netflix.save_title("80001001", {"title": "x"}, "ar")
     netflix.begin("80001001")
-    assert netflix.offer_file("80001001", ttml("ar", FORCED).encode(), "ar")
-    assert netflix.offer_file("80001001", ttml("ar-LB", FULL).encode(), "ar")
-    assert not netflix.offer_file("80001001", b"<html>no</html>", "ar")
+    assert netflix.offer_file("80001001", ttml("ar", FORCED).encode())
+    assert netflix.offer_file("80001001", ttml("ar-LB", FULL).encode())
+    assert not netflix.offer_file("80001001", b"<html>no</html>")
     assert netflix.flush("80001001") is None, "the page hasn't said what it chose yet"
     netflix.note_choice("80001001", "none", "", "ar")
     assert netflix.flush("80001001") is None, "no Arabic subtitles chosen: the forced lines are not a transcript"
@@ -233,7 +238,7 @@ def test_flush_saves_only_what_the_page_chose(fresh_db, monkeypatch):
     assert netflix.flush("80001001") is None, "kept once"
     # Watched again later: the same file arrives again and nothing is redone.
     netflix.begin("80001001")
-    netflix.offer_file("80001001", ttml("ar-LB", FULL).encode(), "ar")
+    netflix.offer_file("80001001", ttml("ar-LB", FULL).encode())
     netflix.note_choice("80001001", "chosen", "ar-LB", "ar")
     assert netflix.flush("80001001") is None
 
@@ -251,8 +256,8 @@ def test_after_a_change_of_language_the_subtitles_follow_it(fresh_db, monkeypatc
     netflix.save_subtitles("80001001", netflix.parse_ttml(ttml("ar", FULL)), "ar")
     assert netflix.save_title("80001001", {}, "es")["language"] == "ar", "its words are the Arabic ones until the Spanish arrive"
     netflix.begin("80001001")
-    assert not netflix.offer_file("80001001", ttml("ar", FULL).encode(), "es"), "an Arabic file no longer counts"
-    assert netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode(), "es")
+    assert netflix.offer_file("80001001", ttml("ar", FULL).encode()), "(Netflix fetched the Arabic ones it remembers too)"
+    assert netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode())
     netflix.note_choice("80001001", "chosen", "es-ES", "es")
     ep = netflix.flush("80001001")
     assert ep and ep["language"] == "es" and ep["model"] == "netflix-subtitles"
@@ -261,9 +266,100 @@ def test_after_a_change_of_language_the_subtitles_follow_it(fresh_db, monkeypatc
     assert texts == ["Hola, ¿cómo estás hoy?", "Estoy bien, gracias."]
     # Watched again in Spanish: nothing is redone.
     netflix.begin("80001001")
-    netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode(), "es")
+    netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode())
     netflix.note_choice("80001001", "chosen", "es-ES", "es")
     assert netflix.flush("80001001") is None
+
+
+MSA = [(2.0, 5.2, "مرحبًا، كيف حالك اليوم؟"), (6.0, 9.2, "أنا بخير، شكرًا."), (10.0, 13.2, "الطقس جميل جدًا."),
+       (18.0, 21.2, "هل رأيت أخي؟")]
+
+
+def _texts(episode_id: int) -> list[str]:
+    with db.session() as conn:
+        return [r["text"] for r in conn.execute("SELECT text FROM segments WHERE episode_id = ? ORDER BY idx", (episode_id,))]
+
+
+def test_which_subtitles_are_showing_in_netflixs_player():
+    text = [{"id": "T1", "bcp47": "ar-LB", "name": "Arabic (Lebanon)"}, {"id": "T2", "bcp47": "ar", "name": "Arabic"},
+            {"id": "T3", "bcp47": "sv", "name": "Swedish"}, {"id": "T4", "bcp47": "ja", "name": "Japanese", "image": True}]
+
+    def state(status, now, bcp47="ar-LB"):
+        return {"subs": {"status": status, "bcp47": bcp47}, "tracks": {"text": text, "textNow": now}}
+
+    pick = netflix.selected_subtitles
+    assert pick(state("chosen", "T1")) == {"status": "chosen", "bcp47": "ar-LB", "lang": "ar"}
+    assert pick(state("manual", "T2", "ar")) == {"status": "chosen", "bcp47": "ar", "lang": "ar"}, "MSA chosen in the menu"
+    assert pick(state("chosen", "T2")) == {"status": "chosen", "bcp47": "ar", "lang": "ar"}, "whatever Netflix shows now"
+    assert pick(state("manual", "T3", "sv"))["lang"] == "", "a language Tamkeen doesn't teach"
+    assert pick(state("manual", "T4", "ja"))["status"] == "image"
+    assert pick(state("off", "off"))["status"] == "off" and pick(state("manual", "off"))["status"] == "off"
+    assert pick(state("waiting", "T2")) is None, "still being chosen for the language being learned"
+    assert pick(state("none", "T3", ""))["status"] == "none", "none in the language being learned: no transcript"
+    assert pick(state("chosen", "T9")) is None and pick({}) is None and pick("x") is None
+    assert pick({"subs": {"status": "chosen", "bcp47": "ar-LB"}}) == {"status": "chosen", "bcp47": "ar-LB", "lang": "ar"}
+
+
+def test_switching_between_msa_and_a_dialect_switches_the_transcript(fresh_db, monkeypatch):
+    """The owner: Netflix sometimes has Arabic subtitles in MSA and in a dialect; choosing either in the
+    player's Subtitles menu makes Tamkeen's transcript, captions and look-ups follow."""
+    published = []
+    monkeypatch.setattr("app.events.publish", lambda name, data: published.append(name))
+    monkeypatch.setattr("app.sync.request", lambda *a, **k: None)
+    monkeypatch.setattr(netflix, "_schedule", lambda *a, **k: None)
+    ep = netflix.save_title("80003001", {"title": "حكايات"}, "ar")
+    netflix.begin("80003001")
+    netflix.offer_file("80003001", ttml("ar-LB", FULL).encode())
+    netflix.offer_file("80003001", ttml("ar", FORCED).encode())
+    netflix.note_choice("80003001", "chosen", "ar-LB", "ar")
+    assert netflix.flush("80003001")["words"] > 10
+    assert _texts(ep["id"])[0] == "مرحباً، كيف حالك اليوم؟", "the Lebanese subtitles, chosen for the Lebanese speech"
+    netflix.note_choice("80003001", "chosen", "ar", "ar")  # MSA, in the Subtitles menu
+    assert netflix.flush("80003001") is None, "only Netflix's few forced lines so far: the full subtitles stay"
+    netflix.offer_file("80003001", ttml("ar", MSA).encode())  # Netflix fetches MSA's file
+    assert netflix.flush("80003001")["language"] == "ar"
+    assert _texts(ep["id"]) == [c[2] for c in MSA], "MSA now, though it has fewer lines"
+    netflix.note_choice("80003001", "chosen", "ar-LB", "ar")  # back to Lebanese (its file was caught earlier)
+    assert netflix.flush("80003001") is not None and _texts(ep["id"])[0] == "مرحباً، كيف حالك اليوم؟"
+    assert published.count("netflix") == 3, "the player is told each time, and draws the new words"
+    netflix.note_choice("80003001", "chosen", "sv", "")  # Swedish: Tamkeen doesn't teach it
+    netflix.offer_file("80003001", ttml("sv", [(1.0, 2.0, "Hej")]).encode())
+    assert netflix.flush("80003001") is None, "the words kept stay"
+    netflix.note_choice("80003001", "off")
+    assert netflix.flush("80003001") is None
+
+
+def test_the_video_window_switches_netflixs_tracks_and_follows_the_subtitles(monkeypatch):
+    import threading
+    import types
+
+    from app.netflix_overlay import NetflixOverlay
+
+    showing = {"id": "80003001", "page": "watch", "video": True, "subs": {"status": "manual", "bcp47": "ar"},
+               "tracks": {"text": [{"id": "T2", "bcp47": "ar"}], "textNow": "T2", "audio": [], "audioNow": ""}}
+
+    class Win:
+        def __init__(self) -> None:
+            self.js: list[str] = []
+            self.events = types.SimpleNamespace(_pywebviewready=threading.Event())
+            self.events._pywebviewready.set()
+
+        def evaluate_js(self, script: str) -> str:
+            self.js.append(script)
+            return __import__("json").dumps(showing)
+
+    noted: list[tuple] = []
+    monkeypatch.setattr(netflix, "note_choice", lambda *a: noted.append(a))
+    monkeypatch.setattr(netflix, "begin", lambda *a: None)
+    o = NetflixOverlay(None)
+    o._win = win = Win()
+    assert o.do("text", "T2")["ok"] and 'cmd("text", "T2")' in win.js[-1], "a track's key goes to Netflix's page as text"
+    assert o.do("audio", "#1")["ok"] and 'cmd("audio", "#1")' in win.js[-1]
+    assert not o.do("text", 3)["ok"] and not o.do("text", "")["ok"] and not o.do("text", "x" * 201)["ok"]
+    assert not o.do("eval", "x")["ok"]
+    assert o.do("seek", 12.5)["ok"] and 'cmd("seek", 12.5)' in win.js[-1]
+    o.state()
+    assert noted[-1] == ("80003001", "chosen", "ar", "ar"), "the subtitles showing become the transcript"
 
 
 def test_a_title_still_waiting_for_subtitles_takes_the_language_being_learned_now(fresh_db):
@@ -278,7 +374,7 @@ def test_subtitles_that_arrive_before_the_title_is_kept(fresh_db, monkeypatch):
 
     monkeypatch.setattr(netflix, "_schedule", lambda *a, **k: None)
     netflix.begin("80002001")
-    netflix.offer_file("80002001", ttml("ar", FULL).encode(), "ar")
+    netflix.offer_file("80002001", ttml("ar", FULL).encode())
     netflix.note_choice("80002001", "chosen", "ar", "ar")
     assert netflix.flush("80002001") is None, "not in the library yet"
     with TestClient(create_app(start_worker=False)) as c:

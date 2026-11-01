@@ -475,9 +475,10 @@ def save_subtitles(netflix_id: str, parsed: dict[str, Any], language: str | None
     return out
 
 
-def _segment_count(episode_id: int) -> int:
+def _segment_texts(episode_id: int) -> list[str]:
+    """The lines of an episode's transcript, in order."""
     with db.session() as conn:
-        return int(conn.execute("SELECT COUNT(*) FROM segments WHERE episode_id = ?", (episode_id,)).fetchone()[0])
+        return [r["text"] for r in conn.execute("SELECT text FROM segments WHERE episode_id = ? ORDER BY idx", (episode_id,))]
 
 
 # ---------------------------------------------------------------- catching the subtitle files
@@ -500,14 +501,16 @@ class _Title:
 class SubtitleCatcher:
     """Which of the subtitle files seen while a title plays is its transcript.
 
-    Several arrive: the one asked for (the language being learned), but also Netflix's "forced"
+    Several arrive: the one for the subtitles showing in Netflix's player, but also Netflix's "forced"
     subtitles (a few lines translating signs, in the language spoken) and, from earlier pages, other
-    languages'. Kept: a file in the language being learned, preferably in exactly the variant the
-    page chose ("ar-LB"), with the most lines. Files only count for a while after the title began,
-    so one Netflix fetches early for the next episode isn't taken for this one's."""
+    languages'. All are kept for a while (in every language: the viewer may switch the subtitles, to
+    a dialect's or another language's, in the player's Subtitles menu); the transcript is the file of
+    the subtitles showing: in their language, preferably in exactly their variant ("ar-LB"), with the
+    most lines. Files only count for a while after the title began or its subtitles were switched, so
+    one Netflix fetches early for the next episode isn't taken for this one's."""
 
     WINDOW = 120.0
-    KEEP = 8
+    KEEP = 16
 
     def __init__(self, clock: Callable[[], float] = time.monotonic) -> None:
         self._clock = clock
@@ -520,9 +523,18 @@ class SubtitleCatcher:
             had = self._titles.get(netflix_id)
             self._titles[netflix_id] = _Title(self._clock(), saved=had.saved if had else "")
 
-    def offer(self, netflix_id: str, parsed: dict[str, Any], wanted: str, digest: str = "") -> bool:
+    def reopen(self, netflix_id: str) -> None:
+        """Other subtitles were switched on: the file Netflix fetches for them counts too (for a while)."""
+        with self._lock:
+            title = self._titles.get(netflix_id)
+            if title is None:
+                self._titles[netflix_id] = _Title(self._clock())
+            else:
+                title.started = self._clock()
+
+    def offer(self, netflix_id: str, parsed: dict[str, Any], digest: str = "") -> bool:
         """A subtitle file arrived while `netflix_id` was showing. True if it may be the transcript."""
-        if base_language(parsed.get("lang")) != base_language(wanted) or not parsed.get("cues"):
+        if not base_language(parsed.get("lang")) or not parsed.get("cues"):
             return False
         digest = digest or hashlib.sha1(repr(parsed["cues"]).encode("utf-8")).hexdigest()
         with self._lock:
@@ -537,14 +549,17 @@ class SubtitleCatcher:
             title.candidates = title.candidates[-self.KEEP:]
             return True
 
-    def best(self, netflix_id: str, chosen: str | None = None) -> Candidate | None:
-        """The file to keep: the chosen variant first, then the most lines."""
+    def best(self, netflix_id: str, chosen: str | None = None, lang: str | None = None) -> Candidate | None:
+        """The file to keep for the subtitles showing: in their language (`lang`, else that of `chosen`;
+        neither: any), their exact variant (`chosen`, "ar-LB") first, then the most lines."""
         chosen = (chosen or "").lower()
+        want = base_language(lang or chosen)
         with self._lock:
             title = self._titles.get(netflix_id)
-            if title is None or not title.candidates:
+            files = [c for c in (title.candidates if title else []) if not want or base_language(c.lang) == want]
+            if not files:
                 return None
-            return max(title.candidates, key=lambda c: (1 if chosen and c.lang.lower() == chosen else 0, len(c.cues), c.at))
+            return max(files, key=lambda c: (1 if chosen and c.lang.lower() == chosen else 0, len(c.cues), c.at))
 
     def is_saved(self, netflix_id: str, candidate: Candidate) -> bool:
         with self._lock:
@@ -560,19 +575,55 @@ class SubtitleCatcher:
 
 catcher = SubtitleCatcher()
 SETTLE = 2.5  # seconds to wait for the other files Netflix fetches at the same moment
-_choices: dict[str, dict[str, str]] = {}  # title -> what the page chose: {"status", "bcp47", "lang"}
+_choices: dict[str, dict[str, str]] = {}  # title -> the subtitles showing: {"status", "bcp47", "lang"}
 _timers: dict[str, threading.Timer] = {}
 _waits: dict[str, int] = {}
 _state_lock = threading.Lock()
 
 
-def note_choice(netflix_id: str, status: str, bcp47: str = "", wanted: str = "") -> None:
-    """What the page script chose for this title's subtitles ("chosen" a track in the language being
-    learned, "none" when it has none, "image" when it has them only as pictures)."""
+def selected_subtitles(state: Any) -> dict[str, str] | None:
+    """The subtitles showing in Netflix's player, from its page's state (web/js/netflix-player.js), as
+    note_choice takes them: {"status": "chosen", "bcp47", "lang"} for a text track (`lang` the Tamkeen
+    language of its words, "" if Tamkeen doesn't teach it), "off" when turned off, "image" for subtitles
+    drawn as pictures, and "none" / "failed" when Netflix has none in the language being learned or
+    didn't switch. They follow whatever is on: chosen for the language being learned, or by the viewer
+    in the player's Subtitles menu (MSA or a dialect, another language). None while being chosen."""
+    s = state if isinstance(state, dict) else {}
+    subs = s.get("subs") if isinstance(s.get("subs"), dict) else {}
+    status = str(subs.get("status") or "")
+
+    def showing(bcp47: Any, image: bool = False) -> dict[str, str]:
+        code = str(bcp47 or "")[:20]
+        lang = base_language(code)
+        return {"status": "image" if image else "chosen", "bcp47": code, "lang": lang if languages.valid(lang) else ""}
+
+    if status in ("none", "image", "failed"):
+        return {"status": status, "bcp47": str(subs.get("bcp47") or "")[:20], "lang": ""}
+    if status not in ("chosen", "manual", "off"):
+        return None  # still being chosen for the language being learned
+    tracks = s.get("tracks") if isinstance(s.get("tracks"), dict) else None
+    if tracks is None:  # (a page that doesn't list the tracks: what it chose)
+        if status == "off":
+            return {"status": "off", "bcp47": "", "lang": ""}
+        return showing(subs.get("bcp47")) if subs.get("bcp47") else None
+    now = str(tracks.get("textNow") or "")
+    if now == "off":
+        return {"status": "off", "bcp47": "", "lang": ""}
+    listed = tracks.get("text") if isinstance(tracks.get("text"), list) else []
+    hit = next((t for t in listed if isinstance(t, dict) and str(t.get("id") or "") == now), None)
+    return showing(hit.get("bcp47"), bool(hit.get("image"))) if hit and hit.get("bcp47") else None
+
+
+def note_choice(netflix_id: str, status: str, bcp47: str = "", lang: str = "") -> None:
+    """The subtitles showing for this title (see selected_subtitles). Switched to others mid-title: the
+    file Netflix fetches for them is caught too, and becomes the transcript."""
+    now = {"status": status, "bcp47": bcp47, "lang": lang}
     with _state_lock:
         had = _choices.get(netflix_id)
-        _choices[netflix_id] = {"status": status, "bcp47": bcp47, "lang": wanted}
-    if status == "chosen" and (had is None or had.get("status") != "chosen"):
+        _choices[netflix_id] = now
+    if status == "chosen" and had != now:
+        if had is not None:
+            catcher.reopen(netflix_id)
         _schedule(netflix_id)
 
 
@@ -584,7 +635,7 @@ def begin(netflix_id: str) -> None:
         _waits.pop(netflix_id, None)
 
 
-def offer_file(netflix_id: str, body: bytes | str, wanted: str) -> bool:
+def offer_file(netflix_id: str, body: bytes | str) -> bool:
     """A subtitle file downloaded while this title was showing (its bytes)."""
     try:
         parsed = parse_ttml(body)
@@ -592,7 +643,7 @@ def offer_file(netflix_id: str, body: bytes | str, wanted: str) -> bool:
         log.debug("Not a subtitle file: %s", exc)
         return False
     raw = body if isinstance(body, bytes) else body.encode("utf-8", "replace")
-    if not catcher.offer(netflix_id, parsed, wanted, hashlib.sha1(raw).hexdigest()):
+    if not catcher.offer(netflix_id, parsed, hashlib.sha1(raw).hexdigest()):
         return False
     _schedule(netflix_id)
     return True
@@ -610,8 +661,10 @@ def _schedule(netflix_id: str, delay: float = SETTLE) -> None:
 
 
 def flush(netflix_id: str) -> dict[str, Any] | None:
-    """Keep the best subtitle file seen for this title, if the page chose subtitles in the
-    language being learned and the title is in the library. Returns the episode when saved."""
+    """Keep the subtitle file of the subtitles showing for this title as its transcript, if they are
+    text in a language Tamkeen teaches and the title is in the library. Returns the episode when saved.
+    Its words are replaced whenever other subtitles are switched on (the language being learned
+    changed, or the viewer chose MSA instead of a dialect, say)."""
     with _state_lock:
         _timers.pop(netflix_id, None)
         choice = dict(_choices.get(netflix_id) or {})
@@ -622,8 +675,11 @@ def flush(netflix_id: str) -> dict[str, Any] | None:
             _schedule(netflix_id, 1.5)
         return None
     if choice.get("status") != "chosen":
-        return None  # no subtitles in the language being learned: the forced ones are not a transcript
-    best = catcher.best(netflix_id, choice.get("bcp47"))
+        return None  # no subtitles showing, or only as pictures: the forced lines are not a transcript
+    lang = choice.get("lang") or ""
+    if not languages.valid(lang):
+        return None  # subtitles in a language Tamkeen doesn't teach: the words kept stay
+    best = catcher.best(netflix_id, choice.get("bcp47"), lang)
     if best is None or catcher.is_saved(netflix_id, best):
         return None
     try:
@@ -632,14 +688,16 @@ def flush(netflix_id: str) -> dict[str, Any] | None:
         return None
     if row is None:
         return None  # not in the library yet: save_title calls this again once it is
-    wanted = choice.get("lang") if languages.valid(choice.get("lang")) else base_language(best.lang)
-    same_language = base_language(row.get("language")) == base_language(wanted)
-    if row.get("model") == MODEL_SUBTITLES and same_language and _segment_count(row["id"]) >= len(best.cues):
-        catcher.mark_saved(netflix_id, best)  # watched again: the words kept are already these
-        return None
-    # (Kept in another language, as when it was watched while learning another one: these replace them.)
+    if row.get("model") == MODEL_SUBTITLES:
+        kept = _segment_texts(row["id"])
+        lines = [item[2] for item in youtube.clean_lines(caption_lines(best.cues))]
+        if kept == lines:
+            catcher.mark_saved(netflix_id, best)  # watched again: the words kept are already these
+            return None
+        if base_language(row.get("language")) == lang and len(lines) * 2 < len(kept):
+            return None  # only Netflix's few "forced" lines came this time: the full subtitles kept stay
     try:
-        ep = save_subtitles(netflix_id, {"lang": best.lang, "cues": best.cues}, choice.get("lang") or None)
+        ep = save_subtitles(netflix_id, {"lang": best.lang, "cues": best.cues}, lang)
     except NetflixError as exc:
         log.info("Couldn't keep Netflix's subtitles for %s: %s", netflix_id, exc)
         return None

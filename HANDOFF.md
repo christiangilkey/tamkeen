@@ -6108,3 +6108,38 @@ spanish but when i actually played a show the subtitles were still in arabic. Th
   in): that Netflix's watch session is named `watch-…` or answers `getMovieId()` (both optional: the size check alone
   stops the blackout), and that the title's `<video>` fills the window on Netflix's real watch page (if it didn't,
   Netflix's controls would show over the picture: look at `fills`/`FILL`).
+
+## Netflix on the computer: Audio and Subtitles menus; the transcript follows the subtitles chosen (2026-10-31; on main)
+Owner: "in the netflix player, while Im watching there should be a way for me to chnage between the audio track and the
+subtitle track (Which tamkeen should automatically recognize and change in tamkeens player to the newly selected
+subititles.) This is necessary because in arabic on netflix they will sometimes put subtiitles in MSA and dialect".
+(The browser extension already had these menus, 2026-10-23; this is the desktop app's video window.)
+- **Player** (`web/js/pages/player.js`): Netflix titles get **Audio** (`sound` icon) and **Subtitles** (`subtitles` icon)
+  buttons in the top row (labels hidden under 640 px, media.css), disabled until Netflix lists its tracks. Each opens
+  the app's `showMenu` (#ctxmenu: the video window hides while it is open, like the ⋯ menu) built by `netflix.js
+  trackMenu(s, kind, study)`: the language being learned first, the track in use ticked, Netflix's names untranslated
+  (`translate="no"`), closed captions marked "[CC]"; Subtitles starts with Off and leaves out picture-only tracks and
+  languages Tamkeen doesn't teach. Choosing calls `nfmedia.js chooseTrack(kind, key)` -> `JsApi.netflix_do("audio"|
+  "text", key)` -> `netflix-player.js cmd` (already there for the extension: kept for the title, never switched back).
+  Under the captions: "Getting Netflix's {0} subtitles…" until the new words arrive (20 s at most); Off hides
+  `#captions` and says "Subtitles are off.". No new interface text (all strings existed; ignore.txt: "Unknown track.",
+  "{0} [CC]").
+- **The transcript follows the subtitles showing** (`app/netflix.py`): `selected_subtitles(state)` reads Netflix's
+  selected text track from the page's state (`tracks.textNow`, whether Tamkeen or Netflix chose it; None while still
+  being chosen); the overlay's `state()` passes it to `note_choice`, which on a change re-opens the catcher's 2-minute
+  window (`SubtitleCatcher.reopen`) and schedules `flush`. The catcher now keeps files in EVERY language (KEEP 16);
+  `best(id, bcp47, lang)` takes the showing track's language, its exact variant first, then most lines. `flush` saves
+  it unless the words kept are exactly these lines (`_segment_texts`), or it is the same language with under half the
+  lines kept (only Netflix's forced lines came); a language Tamkeen doesn't teach keeps the old words.
+- **Words in another language than the one learned**: shown only while the viewer chose those subtitles by hand in
+  Netflix's player now (module-level `nfHandPicked` in player.js, from state `manual.text`); otherwise hidden while the
+  learning language's arrive (my earlier fix today). The page redraws once when that changes.
+- Tests: netflix.test.mjs (+3: menus from the owner's real track list, MSA via the menu, chooseTrack), test_netflix.py
+  (+3 and the catcher/flush tests reworked: selected_subtitles, MSA <-> Lebanese switching incl. the forced-lines guard
+  and an untaught language, the overlay passing track keys). Checked the page in the browser pane with a stand-in for
+  the video window on a throwaway data folder: buttons, menus (Off, "[CC]", MSA, English; Swedish/picture-only left
+  out), MSA chosen -> note, English chosen by hand -> English words shown after the redraw, a fresh session -> hidden
+  again with "Getting Netflix's Arabic subtitles…", Off -> captions hidden. **Not checked with real Netflix.**
+- For the controller session: the Netflix files I changed today are web/js/netflix-common.js, netflix-player.js,
+  netflix.js, nfmedia.js, pages/player.js, app/netflix.py, app/netflix_overlay.py, app/desktop.py (open_netflix),
+  web/css/media.css (one rule). Not touched: netflix-browser.js, extension/.

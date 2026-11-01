@@ -479,8 +479,8 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
    The video's title needs the room, so a button that has a line icon shows just the icon there
    (its name stays as its tooltip and accessible label). Desktop keeps the words. */
 @media (max-width: 640px) {
-  .player-head #toggle-panel .lbl, .player-head .next-chapter .lbl { display: none; }
-  .player-head #toggle-panel, .player-head .next-chapter { padding-left: 7px; padding-right: 7px; }
+  .player-head #toggle-panel .lbl, .player-head .next-chapter .lbl, .player-head #nf-audio .lbl, .player-head #nf-subs .lbl { display: none; }
+  .player-head #toggle-panel, .player-head .next-chapter, .player-head #nf-audio, .player-head #nf-subs { padding-left: 7px; padding-right: 7px; }
 }
 .player-head .next-chapter { display: inline-flex; align-items: center; gap: 4px; }
 [dir="rtl"] .player-head .next-chapter .ic { transform: scaleX(-1); }

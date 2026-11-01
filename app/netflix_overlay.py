@@ -43,7 +43,8 @@ log = logging.getLogger(__name__)
 
 RELEASE_PAUSE = 0.8   # seconds after the page let go of the player: paused and hidden (unless taken back)
 RELEASE_CLOSE = 30.0  # and this long after that: the window closes (so coming straight back is quick)
-COMMANDS = {"play", "pause", "seek", "rate", "continue"}
+TRACK_COMMANDS = {"audio", "text"}  # a soundtrack or subtitles chosen in the player's menus
+COMMANDS = {"play", "pause", "seek", "rate", "continue"} | TRACK_COMMANDS
 
 SW_HIDE = 0
 SW_SHOWNOACTIVATE = 4
@@ -221,15 +222,22 @@ class NetflixOverlay:
             return {"ok": True, "shown": self._shown}
 
     def do(self, command: str, value: Any = None) -> dict[str, Any]:
-        """play, pause, seek (seconds), rate, continue (Netflix's "are you still watching?")."""
+        """play, pause, seek (seconds), rate, continue (Netflix's "are you still watching?"); audio and
+        text: switch to the soundtrack or subtitles whose key (in state's `tracks`) is `value`, "off"
+        turning the subtitles off (the player's Audio and Subtitles menus)."""
         if command not in COMMANDS:
             return {"ok": False, "error": "Unknown command."}
-        number = float(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else 0.0
+        if command in TRACK_COMMANDS:  # a track's key, as Netflix's page listed it (plain text)
+            if not isinstance(value, str) or not value or len(value) > 200:
+                return {"ok": False, "error": "Unknown track."}
+            arg: str | float = value
+        else:
+            arg = float(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else 0.0
         win = self._win
         if win is None or not self._page_ready(win):
             return {"ok": False, "error": "Netflix is still loading."}
         script = (f"JSON.stringify(window.__tamkeenNetflixPlayer ? window.__tamkeenNetflixPlayer.cmd("
-                  f"{json.dumps(command)}, {json.dumps(number)}) : null)")
+                  f"{json.dumps(command)}, {json.dumps(arg)}) : null)")
         try:
             return {"ok": True, "state": json.loads(win.evaluate_js(script) or "null")}
         except Exception as exc:  # the window closed meanwhile, or Netflix's page threw
@@ -260,9 +268,11 @@ class NetflixOverlay:
             self._last = s
             self._ready = bool(s.get("video")) and s.get("page") == "watch" and not s.get("error")
             self._apply()
-        subs = s.get("subs") if isinstance(s.get("subs"), dict) else {}
-        if playing and subs.get("status") in ("chosen", "none", "image"):
-            netflix.note_choice(playing, str(subs["status"]), str(subs.get("bcp47") or ""), self._lang)
+        # The subtitles showing (chosen for the language being learned, or in the Subtitles menu): their
+        # file becomes the transcript, and switching to others replaces it.
+        showing = netflix.selected_subtitles(s)
+        if playing and showing:
+            netflix.note_choice(playing, showing["status"], showing["bcp47"], showing["lang"])
         return {"ok": True, **s, "shown": self._shown}
 
     def release(self) -> dict[str, Any]:
@@ -392,11 +402,10 @@ class NetflixOverlay:
                 self._fetched = (self._fetched + [url])[-40:]
                 # The title in the window's address now (Netflix may just have moved on to an episode).
                 title = self._current_id() or self._playing or self._id
-                lang = self._lang
             if not title:
                 return
             body = netflix.download(url)
-            if netflix.offer_file(title, body, lang):
+            if netflix.offer_file(title, body):
                 log.info("Netflix subtitle file for %s noticed (%d bytes)", title, len(body))
         except Exception as exc:  # a download that wasn't a subtitle file after all, or the network
             log.debug("Ignoring a Netflix download: %s", exc)

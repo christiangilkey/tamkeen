@@ -8,7 +8,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
 import { CHROME_WEB_STORE_URL, EXTENSION_PAGE, EXTENSION_STORES, extensionStore, storeButtonText, browseAddresses, browseStart, browserTexts, drmAvailable, extensionBrowserTexts, extensionHere,
-  extensionLink, languageNames, otherLanguageSubtitles, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
+  extensionLink, languageNames, otherLanguageSubtitles, subtitleNote, trackMenu, unavailableReason, unavailableText } from "../../web/js/netflix.js";
+import { selectedSubtitles } from "../../web/js/netflix-ttml.js";
 import { coveredBy, createNetflixMedia, watchPlacement } from "../../web/js/nfmedia.js";
 
 const read = (name) => readFileSync(new URL(`../../web/js/${name}`, import.meta.url), "utf8");
@@ -517,6 +518,58 @@ test("the subtitles follow the language being learned after it changes", () => {
   assert.equal(otherLanguageSubtitles(ep, 0, "es"), false, "no words yet");
   assert.equal(otherLanguageSubtitles({ audio_type: "video/youtube", language: "ar" }, 900, "es"), false, "only Netflix titles");
   assert.equal(otherLanguageSubtitles({ audio_type: "video/netflix" }, 900, "ar"), false, "from before other languages: Arabic");
+});
+
+// The owner (2026-10-31): "while Im watching there should be a way for me to change between the audio
+// track and the subtitle track (which tamkeen should automatically recognize and change in tamkeens
+// player to the newly selected subtitles) … in arabic on netflix they will sometimes put subtitles in
+// MSA and dialect, I want users to be able to switch it at will".
+test("the player's Audio and Subtitles menus: Netflix's tracks, the language being learned first", () => {
+  const page = watchPage(WATCH);
+  page.tick();
+  const s = J(page.api.state());
+  const subs = trackMenu(s, "text", "ar");
+  assert.deepEqual(subs.slice(0, 4).map((x) => [x.id, x.name, x.on]),
+    [["off", "Off", false], ["T1", "Arabic (Lebanon) [CC]", false], ["T2", "Arabic (Lebanon)", true], ["T3", "Arabic", false]],
+    "Off first, then the Arabic ones (the Lebanese ones chosen for the Lebanese speech, its closed captions told apart), MSA among them");
+  assert.ok(subs.some((x) => x.id === "T7" && x.lang === "en"), "other languages Tamkeen teaches too");
+  const audio = trackMenu(s, "audio", "ar");
+  assert.deepEqual(audio.map((x) => [x.name, x.on]), [["Arabic (Lebanon) [Original]", true], ["Arabic", false], ["English", false]]);
+  assert.ok(!audio.some((x) => x.off), "no Off for the sound");
+  // Subtitles Tamkeen can't make words of are left out: drawn as pictures, or in a language it doesn't teach.
+  const odd = { page: "watch", tracks: { textNow: "B", text: [{ id: "A", name: "Svenska", lang: "sv" }, { id: "B", name: "日本語", lang: "ja", image: true },
+    { id: "C", name: "Español", lang: "es" }] } };
+  assert.deepEqual(trackMenu(odd, "text", "es").map((x) => x.id), ["off", "C"]);
+  assert.deepEqual(trackMenu({ page: "login" }, "text"), [], "nothing listed yet: the menus stay shut");
+  assert.deepEqual(trackMenu(null, "audio"), []);
+});
+
+test("choosing MSA instead of the dialect: Netflix switches, and the subtitles showing are MSA's", () => {
+  const page = watchPage(WATCH);
+  page.tick();
+  assert.deepEqual(selectedSubtitles(page.api.state()), { off: false, id: "T2", bcp47: "ar-LB", base: "ar", lang: "ar", name: "Arabic (Lebanon)",
+    cc: false, image: false });
+  const s = page.api.cmd("text", "T3"); // "Arabic" (MSA) in the Subtitles menu
+  assert.equal(page.log.at(-1), "text T3");
+  assert.deepEqual([selectedSubtitles(s).bcp47, s.manual.text, s.subs.status], ["ar", true, "manual"],
+    "Tamkeen's transcript follows these (app/netflix.py selected_subtitles)");
+  for (let i = 0; i < 4; i++) { page.wait(1000); page.tick(); }
+  assert.equal(page.log.at(-1), "text T3", "never switched back to the dialect");
+  assert.equal(selectedSubtitles(page.api.cmd("text", "off")).off, true, "Off: Tamkeen's captions hide");
+});
+
+test("the Netflix player: a soundtrack or subtitles chosen in the menus go to Netflix's player", async () => {
+  const bridge = fakeBridge();
+  const timers = fakeTimers();
+  const media = createNetflixMedia(null, "80001001", { bridge, lang: "ar", place: false, timers, clock: () => 0 });
+  assert.equal(await media.chooseTrack("text", "T3"), null, "not before Netflix's player is ready");
+  await timers.run();
+  await media.chooseTrack("text", "T3");
+  await media.chooseTrack("audio", "#2");
+  await media.chooseTrack("text", "off");
+  await media.chooseTrack("seek", "5");
+  assert.deepEqual(bridge.calls.filter((c) => c[0] === "do").map((c) => c.slice(1)), [["text", "T3"], ["audio", "#2"], ["text", "off"]]);
+  media.dispose();
 });
 
 // ---------- netflix-browser.js (the Netflix window) ----------

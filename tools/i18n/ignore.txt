@@ -346,6 +346,8 @@ dc3c38fd  # Mozilla/5.0 (Windows NT 10.0; …)  (a user agent)
 da1acefe  # Unknown command.
 219eaf02  # Netflix is still loading.  (the page's own check, never shown)
 45da55c6  # Netflix didn't answer.  (the same)
+89af86e5  # Unknown track.  (a track key the player's menus never send wrong; never shown)
+b28f3f0c  # {0} [CC]  (marks Netflix's closed captions in its own track names, never translated)
 # The browser extension "Tamkeen for Netflix" (extension/): its name and Firefox's (brands), the pieces of a CSS
 # clip-path the extractor reads as text, and answers only the code reads.
 dd15cd96  # Tamkeen for Netflix  (the extension's name)

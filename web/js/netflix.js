@@ -13,7 +13,7 @@
 // (Nothing here touches the page or the app's shell when the file loads, so its rules can be tested
 // on their own: tests/js/netflix.test.mjs.)
 import { t } from "./i18n.js";
-import { episodeLanguage, langInfo, studyLanguage } from "./languages.js";
+import { episodeLanguage, isLanguage, langInfo, studyLanguage } from "./languages.js";
 
 export const NF_TYPE = "video/netflix";
 export const NETFLIX_FEED = "local:netflix";
@@ -201,6 +201,28 @@ export async function watchNetflix(id, info = {}) {
   const ep = await addNetflix(id, info);
   location.hash = `#/episode/${ep.id}`;
   return ep;
+}
+
+/**
+ * The player's Audio (`kind` "audio") or Subtitles ("text") menu, from Netflix's player's state `s`
+ * (its `tracks`, see netflix-player.js): [{id, name, lang, on, off}] — the ones in the language being
+ * learned (`study`) first, then Netflix's order; `on` the one in use. Subtitles start with Off, and
+ * leave out those Tamkeen can't make words of: drawn as pictures, or in a language it doesn't teach.
+ * [] while Netflix hasn't listed them. Choosing one switches Netflix's player (nfmedia.js chooseTrack);
+ * Tamkeen's transcript follows the subtitles showing (app/netflix.py).
+ */
+export function trackMenu(s, kind, study = studyLanguage()) {
+  const tracks = s && s.page === "watch" && s.tracks && typeof s.tracks === "object" ? s.tracks : null;
+  const list = tracks && Array.isArray(tracks[kind]) ? tracks[kind] : null;
+  if (!list) return [];
+  const audio = kind === "audio";
+  const now = String((audio ? tracks.audioNow : tracks.textNow) || "");
+  // Closed captions (they describe sounds too) often have the same name as the plain subtitles: "[CC]".
+  const named = (x) => { const n = String(x.name || x.bcp47 || "?"); return x.cc && !/\bcc\b|\bsdh\b/i.test(n) ? `${n} [CC]` : n; };
+  const items = list.filter((x) => x && x.id && (audio || (!x.image && isLanguage(x.lang))))
+    .map((x) => ({ id: String(x.id), name: named(x), lang: String(x.lang || ""), on: String(x.id) === now, off: false }))
+    .sort((a, b) => Number(b.lang === study) - Number(a.lang === study));
+  return audio ? items : [{ id: "off", name: "Off", lang: "", on: now === "off", off: true }, ...items];
 }
 
 /** What to say about a title's soundtrack and subtitles, from Netflix's player's state `s` (see

@@ -21,6 +21,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **Fixed:** The controller's highlight ring was cut off on some buttons, such as the tabs along the top of the window; it is now drawn inside them where there's no room around them.
 - **Fixed:** In Netflix on the computer, resting the pointer on a title no longer turns the whole page black except for its small preview, which made Netflix impossible to use. Netflix's own buttons are hidden only while the title you're watching fills the picture, so its other screens (such as the titles it offers when a show ends) work as usual.
 - **Fixed:** After you change the language you're learning, a Netflix title gets Netflix's subtitles in the new language, even one you watched before in the old one. Before, its subtitles stayed in the old language (Arabic after switching to Spanish, say) while the soundtrack changed. Open Netflix also reopens Netflix's window on the new language's titles if it was still open.
+- **New:** While a Netflix title plays on the computer, the Audio and Subtitles buttons above the player switch Netflix's soundtrack and subtitles, for example between Arabic subtitles in MSA and in a dialect. Tamkeen's transcript, captions and word look-ups follow the subtitles you choose, in any language Tamkeen teaches, and Off hides the captions.
 
 ## v0.42.0 — 2026-10-31
 

@@ -27,7 +27,8 @@ import { isAudiobookFeed } from "../audiobooks.js";
 import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
   videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
-import { addNetflix, isNetflix, languageName, otherLanguageSubtitles, subtitleNote, unavailableText } from "../netflix.js";
+import { addNetflix, isNetflix, languageName, otherLanguageSubtitles, subtitleNote, trackMenu, unavailableText } from "../netflix.js";
+import { selectedSubtitles } from "../netflix-ttml.js";
 import { createNetflixMedia } from "../nfmedia.js";
 import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
@@ -50,6 +51,10 @@ import { playerSteps } from "../components/guideart.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
+// Netflix titles whose subtitles the viewer chose by hand in the player's Subtitles menu, in Netflix's
+// player now: title number -> the language of those subtitles (their words are shown even when that
+// isn't the language being learned). Kept while the page is drawn afresh; Netflix's answers update it.
+const nfHandPicked = new Map();
 
 function lsGet(key, fallback) {
   try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
@@ -188,8 +193,12 @@ export async function render(view, { id, query }) {
   if (!nf && (ep.status !== "done" || !data.words.start.length)) return renderPending(view, ep);
   // A Netflix title's words are Netflix's subtitles in the language being learned. Kept in another
   // language (it was watched while learning that one), they aren't shown: Netflix's subtitles in the
-  // language being learned now arrive as it plays and take their place.
-  if (otherLanguageSubtitles(ep, data.words.start.length)) {
+  // language being learned now arrive as it plays and take their place. (Unless they are the ones
+  // the viewer chose in the player's Subtitles menu: those are shown, in whatever language.)
+  const kept = { audio_type: ep.audio_type, language: episodeLanguage(ep), words: data.words.start.length };
+  const hideKept = () => otherLanguageSubtitles(kept, kept.words) && nfHandPicked.get(ep.guid) !== kept.language;
+  const keptHidden = hideKept();
+  if (keptHidden) {
     data.words = { start: [], end: [], text: [], seg: [] };
     data.segments = [];
     data.vowels = null;
@@ -245,6 +254,8 @@ export async function render(view, { id, query }) {
           ${vid ? `<button type="button" id="toggle-panel" title="Show or hide the full transcript (T)" aria-label="Transcript">${icon("transcript", 16)}<span class="lbl">Transcript</span></button>
           <button type="button" class="ghost" id="toggle-cc" title="Show or hide the clickable captions (C)">CC</button>
           <button type="button" class="ghost" id="fullscreen" title="Full screen (F)">⛶</button>` : ""}
+          ${nf ? `<button type="button" id="nf-audio" title="Audio" aria-label="Audio" disabled>${icon("sound", 16)}<span class="lbl">Audio</span></button>
+          <button type="button" id="nf-subs" title="Subtitles" aria-label="Subtitles" disabled>${icon("subtitles", 16)}<span class="lbl">Subtitles</span></button>` : ""}
           ${embed ? `<button type="button" class="ghost" id="more" title="${nf ? "Text size and full screen" : "Text size, full screen and saving the transcript"}">⋯</button>` : ""}
           <button type="button" class="ghost" id="font-down" title="Smaller text">A−</button>
           <button type="button" class="ghost" id="font-up" title="Larger text">A+</button>
@@ -667,8 +678,12 @@ export async function render(view, { id, query }) {
   let nfMsg = "";
   let nfNote = "";
   let nfMoving = false;
+  let nfLast = null;   // Netflix's last answer (its soundtracks and subtitles, for the menus)
+  let nfPicked = null; // {lang, at}: subtitles just chosen in the Subtitles menu, until their words arrive
+  let nfRedrawn = false;
   function netflixState(s) {
     if (disposed || !s) return;
+    nfLast = s;
     let text = "";
     let action = "";
     if (s.gone) { text = "Netflix's player closed."; action = "again"; }
@@ -693,19 +708,41 @@ export async function render(view, { id, query }) {
         frame.append(again);
       }
     }
+    // The Audio and Subtitles menus open once Netflix has listed its soundtracks and subtitles.
+    $("#nf-audio").disabled = !trackMenu(s, "audio", study).length;
+    $("#nf-subs").disabled = !trackMenu(s, "text", study).length;
+    // The subtitles showing in Netflix's player. Turned off: so are the captions under the video.
+    // Chosen by hand: their words are shown whatever their language (nfHandPicked).
+    const showing = selectedSubtitles(s);
+    const off = !!(showing && showing.off);
+    if (s.manual && s.manual.text && showing && !showing.off && showing.lang) nfHandPicked.set(ep.guid, showing.lang);
+    else if (s.manual && !s.manual.text) nfHandPicked.delete(ep.guid);
     // While there are no words yet, what is happening to the subtitles is said where the words will
     // be (the transcript panel); once there are, any note goes under the captions, as for YouTube.
     const said = subtitleNote(s, { words: n, lang: study });
-    const lines = [said.sound, n ? said.subs : ""].filter(Boolean);
-    if (`${lines.join("\n")}|${said.subs}` !== nfNote) {
-      nfNote = `${lines.join("\n")}|${said.subs}`;
+    const picking = nfPicked && Date.now() - nfPicked.at < 20000 && !off
+      ? t("Getting Netflix's {0} subtitles…", languageName(nfPicked.lang)) : "";
+    const offLine = off ? t("Subtitles are off.") : "";
+    const lines = [said.sound, n ? picking || offLine || said.subs : ""].filter(Boolean);
+    const sig = `${lines.join("\n")}|${said.subs}|${picking}|${offLine}`;
+    if (sig !== nfNote) {
+      nfNote = sig;
       const note = $("#yt-note");
       note.innerHTML = lines.map(() => "<p></p>").join("");
       note.querySelectorAll("p").forEach((el, i) => { el.textContent = lines[i]; });
       note.hidden = !lines.length;
+      $("#captions").hidden = off;
       const wait = tr.querySelector(".nf-wait");
-      if (wait) wait.textContent = said.subs || nfWaiting;
+      if (wait) wait.textContent = picking || offLine || said.subs || nfWaiting;
       if (bubble) fitBubble();
+    }
+    // The words kept were hidden for being in another language and are now the subtitles chosen by
+    // hand (or the other way round): the page is drawn afresh, the video carrying on.
+    if (hideKept() !== keptHidden && !nfMoving && !nfRedrawn) {
+      nfRedrawn = true;
+      audio.keepShowing = true;
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+      return;
     }
     // Netflix went on to another title: the series' episode it chose (this one was opened by the
     // series' own number, so it never got subtitles), or the next episode at the end of one.
@@ -727,6 +764,36 @@ export async function render(view, { id, query }) {
       toast(e.message, { error: true });
     }
   }
+  // ---------- Netflix: the Audio and Subtitles menus ----------
+  // Netflix's own controls are hidden while a title plays, so its soundtracks and subtitles are chosen
+  // here (Netflix may have Arabic subtitles in MSA and in a dialect, say). A choice is Netflix's own,
+  // kept for the rest of the title (netflix-player.js never switches it back). Tamkeen's transcript,
+  // captions and look-ups follow the subtitles showing: Netflix fetches their file, which becomes the
+  // title's words (app/netflix.py), and the page is drawn afresh with them.
+  if (nf) {
+    const blank = icon("check", 14).replace("<svg ", '<svg style="visibility:hidden" ');
+    const openTracks = (kind, btn) => {
+      const items = trackMenu(nfLast, kind, study);
+      if (!items.length) return;
+      const r = btn.getBoundingClientRect();
+      showMenu(r.left, r.bottom + 4, "", items.map((x) => ({
+        label: x.name,
+        icon: x.on ? icon("check", 14) : blank,
+        run: () => {
+          if (x.on) return;
+          if (kind === "text") nfPicked = x.off ? null : { lang: x.lang, at: Date.now() };
+          audio.chooseTrack(kind, x.id);
+        },
+      })));
+      // Netflix's names for its tracks are its own: never translated ("Off" is Tamkeen's).
+      document.querySelectorAll("#ctxmenu button").forEach((b, i) => {
+        if (items[i] && !items[i].off) { b.setAttribute("translate", "no"); b.dir = "auto"; }
+      });
+    };
+    $("#nf-audio").onclick = (e) => openTracks("audio", e.currentTarget);
+    $("#nf-subs").onclick = (e) => openTracks("text", e.currentTarget);
+  }
+
   // Its subtitles arrived (app/netflix.py): the page is drawn afresh with them, the video carrying on.
   const offNetflix = nf ? on("netflix", (e) => {
     if (disposed || !e || e.kind !== "subtitles" || e.episode !== id) return;
