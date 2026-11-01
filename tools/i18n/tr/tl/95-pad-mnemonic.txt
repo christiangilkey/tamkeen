@@ -1,0 +1,2 @@
+ff11b22c	Gumawa ng mnemonic para sa salita (ang gumagawa ng mnemonic)
+b71ea427	Mnemonic

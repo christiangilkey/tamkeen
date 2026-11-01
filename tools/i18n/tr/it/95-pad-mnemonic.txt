@@ -1,0 +1,2 @@
+ff11b22c	Crea un trucco mnemonico per la parola (il creatore di mnemonici)
+b71ea427	Mnemonico

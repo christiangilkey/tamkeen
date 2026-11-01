@@ -111,6 +111,7 @@ export const ACTIONS = {
     { id: "playSentence", label: "Play the sentence", short: "Sentence", def: "b3" },
     { id: "options", label: "Reviewer settings", short: "Settings", def: "b8" },
     { id: "cardMenu", label: "More options: undo, say it, delete the word, finish", short: "More", def: "b9" },
+    { id: "mnemonic", label: "Make a mnemonic for the word (the Mnemonic maker)", short: "Mnemonic", def: "b10" },
     { id: "sayIt", label: "Say it (practise saying it)", short: "Say it", def: "" },
     { id: "undo", label: "Undo the last answer", short: "Undo", def: "" },
     { id: "finish", label: "Finish the session", short: "Finish", def: "" },

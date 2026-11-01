@@ -1,0 +1,2 @@
+ff11b22c	Eine Eselsbrücke für das Wort erstellen (der Eselsbrücken-Macher)
+b71ea427	Eselsbrücke

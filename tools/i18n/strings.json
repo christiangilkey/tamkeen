@@ -12220,6 +12220,16 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "ff11b22c",
+  "k": "Make a mnemonic for the word (the Mnemonic maker)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b71ea427",
+  "k": "Mnemonic",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "695a32ae",
   "k": "Say it (practise saying it)",
   "f": "web/js/padmap.js"

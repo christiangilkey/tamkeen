@@ -6074,6 +6074,8 @@ image in the controller settings". The layout table was sent first and approved 
   - Still to do: the owner, "Xbox controls also dont work in the netflix app": the Netflix window and the player
     overlay (netflix-browser.js, nfmedia.js, app/netflix_overlay.py) have no controller support. Wait for the Netflix
     session (hover blackout, subtitle language, track switching) to finish with those files first.
+  - "I want the press in left stick button to generate mnemonics": padmap.js review `mnemonic` b10 → review.js clicks
+    `.rv-mnemo-go` on the card's back (not shown in the guide: b10 isn't one of its groups). i18n 95-pad-mnemonic.txt.
 
 ## Netflix: hover previews no longer black out the page; subtitles follow a change of language (2026-10-31; on main)
 Owner: "in netflix if i hover over a title it blacks everything and shows this, making it imposisble to navigate"

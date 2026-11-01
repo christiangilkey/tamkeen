@@ -1371,6 +1371,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     playWord: { can: () => { const v = padCard(); return !!v && flipped && hasWordAudio(v); }, run: () => sayWord(padCard()) },
     playSentence: { can: () => { const v = padCard(); return !!v && flipped && hasSentenceAudio(v); }, run: () => saySentence(padCard()) },
     sayIt: { can: () => !!padCard() && flipped && !!face.querySelector(".say-it"), run: () => face.querySelector(".say-it").click() },
+    // the left stick pressed: the Mnemonic maker (the owner: "the press in left stick button to generate mnemonics")
+    mnemonic: {
+      can: () => { const b = padCard() && flipped && face.querySelector(".rv-mnemo-go"); return !!b && !b.disabled && !b.closest("[hidden]"); },
+      run: () => { const b = face.querySelector(".rv-mnemo-go"); b.scrollIntoView({ block: "nearest" }); b.click(); },
+    },
     undo: () => { if (padReady()) takeBack(); },
     finish: () => close(),
     back: () => {

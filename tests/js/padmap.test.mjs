@@ -90,6 +90,7 @@ test("the Xbox dashboard's layout on every screen: A selects, B back, LB / RB ta
   assert.equal(full.reels.lookUp, "b2");
   assert.equal(full.reader.lookUp, "b0");
   assert.equal(full.review.turn, "b0");
+  assert.equal(full.review.mnemonic, "b10", "the left stick pressed makes a mnemonic on a card (the owner asked)");
   assert.equal(full.popup.press, "b0");
   // X and Y: each screen's extra actions
   assert.deepEqual([full.video.lookUp, full.video.replayLine], ["b2", "b3"]);

@@ -1,0 +1,2 @@
+ff11b22c	Criar uma mnemónica para a palavra (o criador de mnemónicas)
+b71ea427	Mnemónica
