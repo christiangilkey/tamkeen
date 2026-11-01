@@ -12,6 +12,10 @@ Paste this into a new Claude session (Claude Code, working directory
   (PowerShell `Set-Clipboard`) **right when I say I'm on the page**, and tell me not to copy anything else.
   Don't paste secrets into chat.
 - Ask before outward-facing actions (publishing, creating cloud credentials, pushing tags).
+- **When you finish a piece of work, message "Temkeen Main Chat"** (SendMessage; ListAgents shows it). Give
+  what it does in one or two plain sentences, the commit hashes (or the files changed if not committed),
+  whether pytest and the JS tests pass, and what's unfinished. That chat commits and releases, and without
+  the message new work gets lost between versions.
 
 ## What the app is
 Desktop + Android app for studying Arabic podcasts. Subscribe to RSS feeds; the desktop transcribes episodes
