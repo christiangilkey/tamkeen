@@ -47,22 +47,23 @@ test("creatures stay young: fully grown pays once with coins and an egg; looks c
   reshape(s, 0, { variant: "nocturne" });
   const night = describe(g);
   assert.equal(night.variant, "nocturne");
-  assert.notDeepEqual(night.colors.primary, plain.colors.primary);
-  for (const k of ["species", "ear", "tail", "eyes"]) assert.equal(night[k], plain[k], "still the same animal");
+  assert.equal(plain.tint, null);
+  assert.equal(night.tint.kind, "nocturne", "a moonlit colouring");
+  for (const k of ["beast", "species"]) assert.equal(night[k], plain[k], "still the same animal");
   reshape(s, 0, { variant: "champion" });
   assert.equal(g.variant, "nocturne", "the Champion form needs a battle feat");
   s.tags.push("comeback");
   reshape(s, 0, { variant: "champion" });
-  assert.equal(describe(g).horn, "crest");
+  assert.equal(describe(g).tint.kind, "champion", "a gold edge");
   assert.equal(variantOptions(s, g).find((v) => v.id === "twin").open, false, "an egg is no company yet");
   s.roster[1].growth = 0.1;
   s.roster[1].type = g.type === "tide" ? "ember" : "tide";
   reshape(s, 0, { variant: "twin" });
   assert.equal(g.variant, "twin");
   assert.ok(Number.isFinite(g.partnerHue));
-  assert.notDeepEqual(describe(g).colors.secondary, plain.colors.secondary, "it takes on its companion's colours");
+  assert.deepEqual(describe(g).tint, { kind: "twin", hue: Math.round(g.partnerHue) % 360 }, "it takes on its companion's colours");
   reshape(s, 0, { variant: null });
-  assert.deepEqual(describe(g).colors, describe({ ...g, variant: null }).colors);
+  assert.equal(describe(g).tint, null);
 
   setActive(s, 1);
   assert.equal(s.creature, s.roster[1], "the creature in the habitat is the one that grows");
@@ -408,8 +409,11 @@ test("moves do what they say; a team fights on; feats and rewards are settled", 
   const strong = newBattle({ mine: mk("ember"), theirs: mk("grove"), rand: () => 0.5, tiles: plain() });
   const weak = newBattle({ mine: mk("ember"), theirs: mk("dusk"), rand: () => 0.5, tiles: plain() });
   start(strong); start(weak);
-  assert.equal(act(strong, "cinder", "right")[0].mult, 1.25);
-  assert.equal(act(weak, "cinder", "right")[0].mult, 0.8);
+  // (a faster foe may have moved first: line up with it, then find our own attack)
+  const lineUp = (b) => { const me = current(b, "me"), foe = current(b, "foe"); if (me.pos.r !== foe.pos.r) moveTo(b, "me", { c: me.pos.c, r: foe.pos.r }); return b; };
+  const mine = (events) => events.find((e) => e.kind === "attack" && e.side === "me");
+  assert.equal(mine(act(lineUp(strong), "cinder", "right")).mult, 1.25);
+  assert.equal(mine(act(lineUp(weak), "cinder", "right")).mult, 0.8);
 
   const b = newBattle({ mine: mk("stone", 2), theirs: mk("stone", 2), rand: () => 0.5, tiles: plain() });
   start(b);

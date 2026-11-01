@@ -1,0 +1,2 @@
+4=#21170f 0=#fffef4 1=#f7eccf 2=#e3cd97 3=#b8975c 5=#715332 c=#f8d672 y=#d9a03c o=#9a6122 q=#583212 a=#fff36a r=#e8a800 e=#9ff4ff W=#ffffff K=#1a120c
+extra letters: 0 (fur highlight), 5 (fur deep), q (deep gold-brown), e (electric rim/spark)

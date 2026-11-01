@@ -1,0 +1,2 @@
+4=#1b2238 K=#120f1c h=#f3fffa 1=#cdf5e3 2=#9cdcc5 3=#69aba4 d=#3f6f84 c=#fffcef y=#efe2c2 o=#f2993a a=#f9b8d7 r=#d07aa8 g=#b8fff2 e=#a68ad8 W=#ffffff
+extra letters: h veil highlight, d deep inner shade, g glow (ribs, core, eyes, motes), e violet rim light / tentacle tips

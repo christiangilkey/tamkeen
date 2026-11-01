@@ -1,0 +1,2 @@
+4=#0c0a17 K=#050309 1=#a46ae6 2=#7d3ecd 3=#3d1470 c=#eceaf2 y=#b8b4c8 o=#7a7590 a=#f2a228 r=#b0581a W=#ffffff
+v2: 4=#0c0a17 K=#050309 1=#a46ae6 2=#7d3ecd 3=#2a0b4f c=#eceaf2 y=#b8b4c8 o=#7a7590 a=#f2a228 r=#b0581a W=#ffffff

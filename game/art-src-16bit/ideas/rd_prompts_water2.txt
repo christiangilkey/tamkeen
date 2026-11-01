@@ -1,0 +1,6 @@
+tide_fw1|cute baby kelpie water pony foal, seaweed mane, fish fin tail, big shiny eyes
+tide_fw2|cute round otter mer-pup, little fish tail, seashell on belly, big shiny eyes
+tide_fw3|cute baby manta ray sprite, wide wing fins, star spots, floating, big shiny eyes
+tide_fw4|cute chubby frog spirit, lily pad on head, round bubble cheeks, big shiny eyes
+tide_fw5|cute chubby baby narwhal, small spiral horn, round body, little flippers, big shiny eyes
+tide_fw6|cute jellyfish fairy, round bell cap, short ribbon tentacles, glowing spots, big shiny eyes

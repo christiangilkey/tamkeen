@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** The creature game has 18 new creatures, drawn by hand as detailed pixel art in the style of Final Fantasy's monsters: three for each element, an original, a cyberpunk and a fantasy one (among them a phoenix chick, a dragon whelp, a cyber seal, a jellyfish, a forest stag, a thunder griffin, a crystal golem and a moon wolf). Each one walks, dips its head, blinks and sleeps, and hats, glasses, scarves, held things, capes and shirts sit where they fit its own shape. The creatures you already have become one of their element's three, and their battle stats follow their new bodies. The special forms still change how a creature looks: Nocturne gives it moonlit colours, Twin puts its companion's colour on its light parts, and Champion gives it a gold edge.
 - **New:** While a game controller is connected, a small controller button sits in the corner of the screen. Press it with the mouse or a finger to show or hide the guide to what the buttons do. The app remembers your choice, and Settings → Controller's tick box follows it.
 - **Improved:** On review cards, the button guide has a strip of its own under the answer buttons, so it no longer covers the card or the answers.
 - **Changed:** In the video, podcast and reel players, X now opens the popup for the highlighted word (hold X and move to take in more words) and A plays and pauses, as in Xbox's video apps. Buttons you set yourself in Settings → Controller stay as you set them.

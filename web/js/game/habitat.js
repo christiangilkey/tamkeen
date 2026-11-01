@@ -4,7 +4,7 @@
 
 import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang } from "../languages.js";
-import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, SPECIES, STAGES, TYPES } from "./data.js";
+import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById } from "./data.js";
 import { collect, garden, tick as gardenTick, totalRate } from "./idle.js";
 import { heartsRow } from "./garden.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
@@ -13,7 +13,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf } from "./rules.js";
-import { FRAME, composeCreature, drawSheet, loadImage } from "./render.js";
+import { FRAME, beastHeight, composeCreature, drawSheet, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { openEarned, openEvolution } from "./info.js";
@@ -87,7 +87,7 @@ export function habitat() {
     const pct = Math.min(100, Math.round(((game.creature.growth - stage.from) / (to - stage.from)) * 100));
     // Each piece goes through t() so the line reads naturally in the user's language.
     const kind = t(TYPES[look.type].name);
-    const what = stage.id === "egg" ? t("{0} egg", kind) : t("{0} {1}", kind, t(SPECIES[look.species].name).toLocaleLowerCase(uiLanguage()));
+    const what = stage.id === "egg" ? t("{0} egg", kind) : t("{0} {1}", kind, t(beastById(look.beast).name).toLocaleLowerCase(uiLanguage()));
     $("#g-stage").textContent = `${what} · ${t(STAGE_LABEL[stage.id])}`
       + (next ? ` ${t("· {0}% to {1}", pct, t(STAGE_LABEL[next.id].toLowerCase()))}`
         : game.creature.show ? "" : grown ? ` ${t("· fully grown")}` : ` ${t("· {0}% to fully grown", pct)}`);
@@ -186,7 +186,7 @@ export function habitat() {
   const said = new Set(); // words shown this round: every saved word turns up once before any comes back
   let saidLast = "";      // the one shown last, so a new round never opens with the word just seen
   function placeSay(look) {
-    const top = look.stage === "egg" ? 36 : { s: 44, m: 54 }[look.size];
+    const top = look.stage === "egg" ? 36 : beastHeight(look) - 4;
     const x = look.stage === "egg" ? W / 2 : pet.x;
     say.style.left = `${(Math.max(sayHalf + 2, Math.min(W - sayHalf - 2, x)) / W) * 100}%`;
     say.style.bottom = `${(Math.min(H - sayTall - 2, H - HABITAT.ground + top + pet.hop) / H) * 100}%`;
@@ -331,7 +331,7 @@ export function habitat() {
       };
       const frame = creatureFrame(look, pose);
       const body = pet.x - pet.dir * 3; // the body sits 3px behind the middle of its frame (the head leans forward)
-      const shadow = art[`shadow_${look.size}`];
+      const shadow = art.shadow_m; // (the creatures are all one size now)
       if (frame && shadow) ctx.drawImage(shadow, Math.round(body - shadow.width / 2), groundY - Math.floor(shadow.height / 2)); // stays on the ground through a hop
       if (frame) {
         ctx.save();
@@ -341,8 +341,8 @@ export function habitat() {
         ctx.restore();
       }
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
-      if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - { s: 48, m: 58 }[look.size] - Math.round(pet.hop));
-      else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - 44 - (Math.floor(now / 300) % 3));
+      if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), groundY - beastHeight(look) - Math.round(pet.hop));
+      else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), groundY - beastHeight(look) + 4 - (Math.floor(now / 300) % 3));
     }
     if (!say.hidden) placeSay(look);
     for (let i = floats.length - 1; i >= 0; i--) {

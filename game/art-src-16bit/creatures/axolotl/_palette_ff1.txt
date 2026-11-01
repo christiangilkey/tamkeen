@@ -1,0 +1,2 @@
+4=#3d1229 K=#1a0710 h=#ffe9f6 1=#fdbde4 2=#f292c4 3=#d8669f d=#a03f6e c=#fff4f9 y=#f6cfe2 o=#d99bbd a=#ff7d9f r=#c93d6a g=#c3b3f5 e=#ffc94a W=#ffffff
+extra letters: h skin highlight, d deep skin shade, g cool rim light, e gold eye

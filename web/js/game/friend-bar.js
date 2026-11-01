@@ -7,7 +7,7 @@ import { h } from "../app.js";
 import { icon as lineIcon } from "../icons.js";
 import { isLanguage, langInfo } from "../languages.js";
 import { streakNow } from "../review/streak.js";
-import { LEAGUES, SPECIES, TYPES, VARIANTS } from "./data.js";
+import { LEAGUES, TYPES, VARIANTS, beastById } from "./data.js";
 import { describe, formOf } from "./genome.js";
 import { showcaseGenome, xpToday } from "./battle.js";
 import { portrait } from "./battle-ui.js";
@@ -114,7 +114,7 @@ export function gameBar(profile, { now = new Date(), game = true, me = false, na
   const g = game ? showcaseGenome(profile) : null;
   if (g) {
     const look = describe(g);
-    const creature = g.name || SPECIES[look.species].name;
+    const creature = g.name || beastById(look.beast).name;
     const about = [TYPES[g.type] && TYPES[g.type].name, STAGE_NAME[formOf(g).id],
                    look.variant && VARIANTS[look.variant].name].filter(Boolean).join(" · ");
     const show = part("gb-creature", me ? "Your favourite creature: tap for more" : "Their favourite creature: tap for more", () => {

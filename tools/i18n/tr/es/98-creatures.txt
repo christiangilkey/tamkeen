@@ -1,0 +1,19 @@
+# The creature game's 18 creatures (web/js/game/beasts.js).
+ae8298e9	Polluelo fénix
+b74453f1	Bola de pelusa
+03bc195e	Cría de dragón
+7b7d2d4b	Ajolote
+56623f8a	Foca cíber
+e0941ab5	Medusa
+1ece25ad	Cervatillo de hojas
+8e70ffc4	Liebre cíber
+1141c31e	Ciervo del bosque
+11fdc95c	Escarabajo luciérnaga
+62782914	Gato-hurón
+1fb4c375	Grifo del trueno
+1688d471	Roca musgosa
+fdb9b61f	Gólem de cristal
+090745ec	Gólem del tesoro
+30c06839	Zorro alado
+4e4f781b	Gato neón
+b0cc90b7	Lobo lunar

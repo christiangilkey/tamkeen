@@ -1,0 +1,19 @@
+# The creature game's 18 creatures (web/js/game/beasts.js).
+ae8298e9	凤凰雏鸟
+b74453f1	毛绒球
+03bc195e	幼龙
+7b7d2d4b	美西螈
+56623f8a	赛博海豹
+e0941ab5	水母
+1ece25ad	叶耳小鹿
+8e70ffc4	赛博野兔
+1141c31e	森林雄鹿
+11fdc95c	萤火甲虫
+62782914	猫雪貂
+1fb4c375	雷霆狮鹫
+1688d471	苔藓巨石
+fdb9b61f	水晶魔像
+090745ec	宝藏魔像
+30c06839	翼狐
+4e4f781b	霓虹猫
+b0cc90b7	月狼

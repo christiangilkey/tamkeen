@@ -310,6 +310,11 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "62782914",
+  "k": "Cat-ferret",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -3250,13 +3255,13 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "353a0114",
-  "k": "Continue: unit {0}",
+  "id": "5fa8930e",
+  "k": "The {0} most common words, 50 at a time",
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "5fa8930e",
-  "k": "The {0} most common words, 50 at a time",
+  "id": "353a0114",
+  "k": "Continue: unit {0}",
   "f": "web/js/components/coursepanel.js"
  },
  {
@@ -6980,6 +6985,21 @@
   "f": "web/js/components/wordscan.js"
  },
  {
+  "id": "475410e2",
+  "k": "Levantine",
+  "f": "web/js/coursedata.js"
+ },
+ {
+  "id": "b7219bda",
+  "k": "Egyptian",
+  "f": "web/js/coursedata.js"
+ },
+ {
+  "id": "81298f3a",
+  "k": "Gulf",
+  "f": "web/js/coursedata.js"
+ },
+ {
   "id": "a13e07aa",
   "k": "AI is turned off (Settings → Word definitions → No AI), so this isn't available.",
   "f": "web/js/define-service.js"
@@ -7923,6 +7943,91 @@
   "id": "96bf2c9c",
   "k": "The battle begins.",
   "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "ae8298e9",
+  "k": "Phoenix chick",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "b74453f1",
+  "k": "Fluffball",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "03bc195e",
+  "k": "Dragon whelp",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "7b7d2d4b",
+  "k": "Axolotl",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "56623f8a",
+  "k": "Cyber seal",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "e0941ab5",
+  "k": "Jellyfish",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "1ece25ad",
+  "k": "Leaf fawn",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "8e70ffc4",
+  "k": "Cyber hare",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "1141c31e",
+  "k": "Forest stag",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "11fdc95c",
+  "k": "Firefly beetle",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "1fb4c375",
+  "k": "Thunder griffin",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "1688d471",
+  "k": "Moss boulder",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "fdb9b61f",
+  "k": "Crystal golem",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "090745ec",
+  "k": "Treasure golem",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "30c06839",
+  "k": "Winged fox",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "4e4f781b",
+  "k": "Neon cat",
+  "f": "web/js/game/beasts.js"
+ },
+ {
+  "id": "b0cc90b7",
+  "k": "Moon wolf",
+  "f": "web/js/game/beasts.js"
  },
  {
   "id": "32c9bcb1",
@@ -18748,21 +18853,6 @@
   "id": "a3ced5ce",
   "k": "This card can't be said on this device.",
   "f": "web/js/voiceplay.js"
- },
- {
-  "id": "b7219bda",
-  "k": "Egyptian",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "475410e2",
-  "k": "Levantine",
-  "f": "web/js/vowels.js"
- },
- {
-  "id": "81298f3a",
-  "k": "Gulf",
-  "f": "web/js/vowels.js"
  },
  {
   "id": "64202d79",

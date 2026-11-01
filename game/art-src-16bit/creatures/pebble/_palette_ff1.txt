@@ -1,0 +1,2 @@
+4=#1a120a K=#0c0806 h=#e2c088 1=#b89058 2=#8e6c3e 3=#664c2a d=#43301a c=#d8d4c4 y=#9e9a8c o=#66625a a=#9ccc3e r=#5a9420 m=#2e5c12 g=#ffb02a W=#fff4c8
+extra letters: h stone highlight, d deep stone shadow, m dark moss, g amber eye glow

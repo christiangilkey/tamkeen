@@ -1,0 +1,12 @@
+ember_cy1|cute baby fire fox creature with glowing neon orange circuit markings on its fur, small visor over one eye, flame tail, big shiny eyes, not a robot
+ember_cy2|cute round fire hamster creature wearing tiny neon headphones, glowing pink and orange stripes, little exhaust flames on its back, big shiny eyes, not a robot
+tide_cy1|cute baby seal creature with glowing cyan neon stripes, tiny earpiece antenna, holographic fin, big shiny eyes, not a robot
+tide_cy2|cute round floating pufferfish creature with neon blue glowing spots and a small data cable tail, big shiny eyes, not a robot
+grove_cy1|cute baby bunny creature with glowing green neon vein patterns like circuits, leaf ears with LED tips, big shiny eyes, not a robot
+grove_cy2|cute round moss slime creature with a tiny glowing hologram flower on its head, neon green spots, big shiny eyes, not a robot
+spark_cy1|cute baby ferret creature with glowing neon purple and yellow cable stripes, little plug shaped tail, big shiny eyes, not a robot
+spark_cy2|cute round floating jellyfish creature made of neon light, plasma tendrils, glowing magenta and cyan, big shiny eyes, not a robot
+stone_cy1|cute baby pangolin creature with chrome armour plates and glowing neon seams, big shiny eyes, four short legs, not a robot
+stone_cy2|cute round crystal golem creature with glowing neon cracks, tiny antenna, stubby arms, big shiny eyes, not a robot
+dusk_cy1|cute baby black cat creature with glowing neon magenta eyes and a holographic halo, neon tail tip, big shiny eyes, not a robot
+dusk_cy2|cute round floating bat creature with neon purple wing edges and a tiny visor, big shiny eyes, not a robot

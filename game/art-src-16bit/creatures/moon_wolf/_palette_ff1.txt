@@ -1,0 +1,3 @@
+4=#120a20 K=#08040f h=#a593e0 1=#7b66c0 2=#5b4a9c 3=#41347a d=#2a1f55 m=#7fb8e8 c=#f6f2ff y=#d2c6f4 o=#9f8dd6 a=#ffe9a0 r=#c99a3a W=#ffffff
+extra letters beyond the slots: h d m (h fur highlight, d deep shade, m rim light)
+build needs draw.py, draw2.py and night_ff_kit.py (copied here as _night_ff_kit.py)

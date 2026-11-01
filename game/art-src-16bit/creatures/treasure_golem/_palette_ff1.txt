@@ -1,0 +1,2 @@
+4=#200f08 K=#0e0604 1=#ffbe5c 2=#e8892c 3=#b05a18 d=#6e3010 u=#ffe04a v=#b8860c c=#6e6052 y=#4a3e32 o=#2a221a m=#a0a8b0 a=#ff7ab0 r=#c03c70 W=#fff4ec
+extra letters: d deep amber, u gold light (veins, eye glow), v gold dark (sockets), m metal

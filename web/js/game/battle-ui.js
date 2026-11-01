@@ -9,7 +9,7 @@ import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { installedMeanings } from "../meanings.js";
 import { dictionaryChoices } from "./dictwords.js";
 import { states } from "../review/deck.js";
-import { AIMS, BADGES, BATTLE_FRAMES, BATTLE_UNLOCK_WORDS, HABITAT, MOVE_STYLES, SHADOW, SPECIES, TERRAIN, TYPES, aimOf, moveById, moveIcon } from "./data.js";
+import { AIMS, BADGES, BATTLE_FRAMES, BATTLE_UNLOCK_WORDS, HABITAT, MOVE_STYLES, SHADOW, TERRAIN, TYPES, aimOf, beastById, moveById, moveIcon } from "./data.js";
 import { describe } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
 import { LAST_WORDS, answerQuestion, battleWords, checkBadges, finishBattle, knownWords, pickQuestion, quizzable, retention, reviewSummary, weekNumber, weeklyRule } from "./rules.js";
@@ -193,7 +193,7 @@ function pickRental(wrap, body, vocab) {
   pool.forEach((g, i) => {
     const look = describe(g);
     const card = h(`<button type="button" class="shop-item rental"><span class="shop-pic"></span>
-      <span class="shop-name">${TYPES[g.type].name}</span><span class="small muted">${SPECIES[look.species].name}</span></button>`);
+      <span class="shop-name">${TYPES[g.type].name}</span><span class="small muted">${beastById(look.beast).name}</span></button>`);
     card.querySelector(".shop-pic").append(portrait(g, 64));
     card.onclick = () => {
       if (chosen.has(i)) chosen.delete(i); else if (chosen.size < 3) chosen.add(i);
@@ -395,7 +395,7 @@ function runBattle(b, vocab) {
       ctx.globalAlpha = a.alpha * (dragging ? 0.75 : 1);
       ctx.translate(Math.round(foot.x + a.dx), Math.round(foot.y + a.dy));
       if (side === "foe") ctx.scale(-1, 1);
-      const shadow = art[`shadow_${cur(side).look.size}`];
+      const shadow = art.shadow_m; // (the creatures are all one size now)
       if (shadow) ctx.drawImage(shadow, -3 - Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
       ctx.drawImage(img, -FRAME / 2, -FRAME + Math.round(a.sink));
       ctx.restore();

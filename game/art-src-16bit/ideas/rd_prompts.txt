@@ -1,0 +1,12 @@
+ember_a|cute baby fire salamander monster, four short legs, big shiny eyes, ember spots on its back, small flame on tail tip
+ember_b|cute round fire chick monster, tiny wings, big shiny eyes, little flame crest on its head, stubby feet
+tide_a|cute baby axolotl water monster, frilly pink gills, big shiny eyes, four little legs, wavy fin tail
+tide_b|cute round jellyfish water spirit, floating, big shiny eyes, short curly tentacles, bubbles
+grove_a|cute baby fawn plant monster, leaf shaped ears, tiny sprout antlers, big shiny eyes, four legs
+grove_b|cute round seed sprout monster, standing on two stubby legs, big leaf on its head, big shiny eyes
+spark_a|cute electric hamster monster, yellow fur, zigzag lightning tail, big shiny eyes, standing on two legs
+spark_b|cute round electric bat monster, floating, small wings, lightning bolt tail, big shiny eyes
+stone_a|cute baby armadillo rock monster, stone shell plates, small crystal on its back, big shiny eyes, four legs
+stone_b|cute round pebble golem monster, mossy rock body, stubby arms and legs, big shiny eyes
+dusk_a|cute baby night fox spirit monster, dark purple fur, star speckles, crescent moon mark on forehead, big shiny eyes, four legs
+dusk_b|cute round floating owl ghost monster, small wings, sleepy big eyes, crescent moon on its chest

@@ -1,0 +1,2 @@
+4=#050507 0=#c3cc84 1=#76814c 2=#424a32 3=#262b1f 5=#131510 W=#f6fbe0 c=#fffbd2 y=#fff04a o=#e0b416 p=#8a6206 e=#7df9ff a=#ff4a2a r=#9a1408 K=#0b0a0d
+extra letters: 0 (chitin highlight), 5 (chitin deep), p (deep amber glow), e (electric rim/spark)

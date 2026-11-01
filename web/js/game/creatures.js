@@ -2,7 +2,7 @@
 // younger look, a special colouring), and choosing its battle moves.
 
 import { h, toast } from "../app.js";
-import { BADGES, SPECIES, STAGES, TRAITS, TYPES, VARIANTS, moveById, moveIcon } from "./data.js";
+import { BADGES, STAGES, TRAITS, TYPES, VARIANTS, beastById, moveById, moveIcon } from "./data.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter, knownMoves, loadout } from "./battle.js";
@@ -51,7 +51,7 @@ export function creaturesPanel(body, game, changed) {
         <button type="button" class="${i === game.active ? "" : "primary"}" ${i === game.active ? "disabled" : ""}>${i === game.active ? "In the habitat" : "Bring out"}</button>
       </div><div class="creature-more stack"></div></div>`);
     card.querySelector(".shop-pic").append(egg ? h(`<img alt="" src="${ART}egg/${g.type}.png">`) : portrait(g, 64));
-    card.querySelector("strong").textContent = g.name || (egg ? "Egg" : SPECIES[look.species].name);
+    card.querySelector("strong").textContent = g.name || (egg ? "Egg" : beastById(look.beast).name);
     card.querySelector(".small").textContent = `${TYPES[g.type].name} · ${STAGE_NAME[formOf(g).id]}`
       + (isGrown(g) ? " · Fully grown" : "") + (look.variant ? ` · ${VARIANTS[look.variant].name}` : "") + ` · seed ${g.seed}`;
     card.querySelector("button").onclick = () => { setActive(game, i); repaint(); };

@@ -43,3 +43,4 @@ Left bumper
 D-pad up
 Left stick right
 Right stick down
+Cat-ferret

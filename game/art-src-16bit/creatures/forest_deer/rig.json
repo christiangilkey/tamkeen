@@ -1,0 +1,12 @@
+{
+  "id": "forest_deer", "name": "Forest stag", "type": "grove", "set": "fantasy", "plan": "quad",
+  "art": "_ff2.txt",
+  "palette": "4=#10120c K=#0c0e08 W=#fffbe0 H=#d4de6a 1=#a6b62a 2=#788a14 3=#4c5c0e D=#2a340a R=#4e7c6a c=#f0d6a0 y=#bc9058 o=#7c5832 a=#ffe63c r=#3c2818 B=#a88658",
+  "head": [[27, -1], [64, -1], [64, 34], [48.5, 34], [48.5, 33], [40.5, 33], [40, 30], [38.5, 23.5], [27, 23.5]],
+  "legs_back": null,
+  "legs_front": null,
+  "blink": [{"at": [46, 24], "rows": ["2222", "4442", ".22."]}],
+  "sockets": {"hat": [47, 21], "face": [50, 25], "neck": [46, 34], "held": [55, 50], "back": [26, 40]},
+  "shirt": {"box": [10, 34, 38, 56], "letters": "123HD"},
+  "hover": 0
+}

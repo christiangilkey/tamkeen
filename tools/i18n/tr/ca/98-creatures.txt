@@ -1,0 +1,19 @@
+# The creature game's 18 creatures (web/js/game/beasts.js).
+ae8298e9	Pollet fènix
+b74453f1	Bola de pèl
+03bc195e	Cria de drac
+7b7d2d4b	Axolot
+56623f8a	Foca cíber
+e0941ab5	Medusa
+1ece25ad	Cervatell de fulles
+8e70ffc4	Llebre cíber
+1141c31e	Cérvol del bosc
+11fdc95c	Escarabat cuca de llum
+62782914	Gat-fura
+1fb4c375	Griu del tro
+1688d471	Roca molsosa
+fdb9b61f	Gòlem de cristall
+090745ec	Gòlem del tresor
+30c06839	Guineu alada
+4e4f781b	Gat neó
+b0cc90b7	Llop lunar

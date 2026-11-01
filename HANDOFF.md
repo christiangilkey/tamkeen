@@ -6162,3 +6162,35 @@ subititles.) This is necessary because in arabic on netflix they will sometimes 
 - For the controller session: the Netflix files I changed today are web/js/netflix-common.js, netflix-player.js,
   netflix.js, nfmedia.js, pages/player.js, app/netflix.py, app/netflix_overlay.py, app/desktop.py (open_netflix),
   web/css/media.css (one rule). Not touched: netflix-browser.js, extension/.
+
+## Creature game: 18 hand-designed creatures, cut into layers (2026-11-01; "New 16-bit creature sprites" chat)
+The owner's art direction (memory `tamkeen-game-art-direction.md`): ideas generated with Retro Diffusion, the owner
+picked 18 (3 per element: original / cyberpunk / fantasy), then each was redrawn as detailed, cool Final Fantasy-style
+monster pixel art (three-quarter view facing right, light from the top left, 64x64, "a splash of cute on some").
+Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.png`.
+- **Sources** `game/art-src-16bit/creatures/<id>/`: the final drawing `_ffN.txt` (a grid of colour letters) built by
+  `_build_ffN.py` (needs `draw.py`/`draw2.py` and the type's kit `_*_kit.py`; copies in the side-session notes folder
+  `16bit-sprites/`), `rig.json` (how it is cut), `_rig_preview.png`, and `<id>.aseprite` with layers
+  legs_back / body / legs_front / head / blink (hidden). Earlier versions (`_v*`, older `_ff*`) are kept for reference.
+- **Cutting** `tools/game_art/beasts.py` (guide: `creatures/RIG_GUIDE.md`): `preview <id>` makes the check sheet;
+  `build [--aseprite]` writes `web/game-art/creature/beast/<id>/{body,head,blink,legs_back,legs_front,shirt}.png`
+  (64x64, same origin; shirt.png is a mask) and generates `web/js/game/beasts.js` (BEASTS: name, type, set, plan,
+  hue, size, box, hover, legs, shirt, sockets). Don't edit beasts.js by hand. The Python `compose()` matches
+  render.js pixel for pixel (checked with checksums in the browser).
+- **Game code**: `genome.describe` → `{beast, species (= the beast's plan, for stats and the plan move), stage, size,
+  type, variant, tint, equipped}`; `beastOf(genome)` picks one of the element's three from the seed (`rng(seed)()`);
+  `bodyHue` = the beast's hue. The old part look (ear/tail/eyes/pattern/horn/back/colors) is gone from `look`; the old
+  part libraries and art stay in data.js and on disk for tools/preview_items.py and the placeholder generator (unused
+  by the game). `render.composeCreature`: legs_back, body (+ shirt via the mask), legs_front (−1px on step 1), head
+  (+bob; `blink.png` for eyes blink/sleepy/happy), Champion gold edge, back item underneath, hat/face (+bob), neck,
+  held (+step) on `beast.sockets` (SLOTS anchors and item shift/offset as before). Variants: `tint` — nocturne =
+  hues 45% toward 265, darker (glints kept); twin = light pixels take the partner hue; champion = 1px gold edge.
+  `beastHeight(look)` places the habitat's bubbles/zzz; shadows use `shadow_m`. Names replace the plan name on the
+  Creatures page, duel picker, friend bar, habitat line and info sheet; translated in `tools/i18n/tr/*/98-creatures.txt`
+  ("Cat-ferret" via extra.txt: the extractor skips hyphenated words).
+- **Not done / follow-ups**: hatchlings look the same as juveniles (no baby art yet); mouths/expressions other than
+  shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
+  stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.
+  Checked in the browser on a fresh data folder: habitat (walking, dressed), Creatures page, Twin colouring; a battle
+  wasn't played (needs 100 saved words). Old saves: every creature becomes one of its element's three, battle stats
+  follow its new plan.

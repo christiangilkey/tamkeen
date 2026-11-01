@@ -1,0 +1,5 @@
+spark_c|cute baby electric otter monster, pale blue fur with yellow zigzag stripes, round ears, big shiny eyes, four short legs, flat tail with a lightning tip
+spark_d|cute round firefly beetle monster, glowing yellow belly lantern, short antennae, tiny wings, big shiny eyes, stubby legs
+spark_e|cute baby flying squirrel monster, teal fur, glowing yellow cheek spots, wing flaps, bushy zigzag tail, big shiny eyes
+spark_f|cute round fluffy lamb monster, static electricity wool, small curly horns, blue face, big shiny eyes, four stubby legs
+spark_g|cute baby gecko monster, sky blue skin with yellow lightning markings, big shiny eyes, round toe pads, standing on two legs

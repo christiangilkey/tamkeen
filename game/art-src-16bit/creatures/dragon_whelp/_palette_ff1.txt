@@ -1,0 +1,2 @@
+4=#1c0e06 L=#fff4a0 1=#ffd84a 2=#f5a90c 3=#c8700a D=#7a3c08 r=#4e2410 a=#a8521a c=#fff2c8 y=#f0d890 o=#c8a060 W=#ffffff K=#140802 H=#6a5040 F=#ff5a10
+extra letters: L scale highlight, D deep hide, H dark horn, F flame/rim red-orange

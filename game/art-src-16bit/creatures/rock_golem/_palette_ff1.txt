@@ -1,0 +1,2 @@
+4=#0a140e K=#050807 h=#d8ffc8 1=#8af07a 2=#3fae44 3=#1b6a34 e=#5c686c y=#3a4245 d=#2a3236 o=#181d1f c=#9aa4a8 a=#f4e46a r=#c8602a g=#b8ff6a W=#ffffff
+extra letters: h crystal highlight, e lit rock, d mid-dark rock, g green inner glow

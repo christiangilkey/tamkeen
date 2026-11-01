@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
-import { artFiles, SPECIES_IDS, TYPE_IDS } from "../../web/js/game/data.js";
+import { BEASTS, SPECIES_IDS, TYPE_IDS, artFiles, beastLayers, beastsOf } from "../../web/js/game/data.js";
 import { describe, isGrown, newGenome, rng, stageOf, weightedPick } from "../../web/js/game/genome.js";
 import { ADULT_XP, DAILY_COMPLETE_XP, HABIT_XP, earn, fade, levelOf, newState, normalize, rollDay, rollReward, wordMultiplier } from "../../web/js/game/rules.js";
 
@@ -15,9 +15,13 @@ test("the same seed is always the same creature", () => {
   const b = describe(newGenome(84213));
   assert.deepEqual(a, b);
   assert.ok(SPECIES_IDS.includes(a.species) && TYPE_IDS.includes(a.type));
-  const looks = new Set();
-  for (let s = 1; s <= 60; s++) looks.add(JSON.stringify(describe(newGenome(s))));
-  assert.ok(looks.size > 50, "different seeds give different creatures");
+  // Each element has its three creatures (an original, a cyberpunk and a fantasy one), and seeds reach them all.
+  for (const type of TYPE_IDS) {
+    assert.deepEqual(beastsOf(type).map((b) => b.set), ["original", "cyberpunk", "fantasy"], type);
+    const seen = new Set();
+    for (let s = 1; s <= 60; s++) seen.add(describe(newGenome(s, type)).beast);
+    assert.equal(seen.size, 3, `different seeds give each of ${type}'s creatures`);
+  }
   const r = rng(7);
   assert.equal(rng(7)(), r(), "the generator is repeatable");
 });
@@ -35,9 +39,7 @@ test("growing changes proportions and unlocks features, never the creature's ide
   assert.ok(isGrown(g));
   assert.deepEqual([baby.size, teen.size, grown.size], ["s", "m", "m"], "it stays a juvenile: no adult size");
   assert.equal(grown.stage, "juvenile");
-  for (const k of ["species", "ear", "tail", "eyes", "pattern", "type"]) assert.equal(grown[k], baby[k], `${k} carries over`);
-  assert.deepEqual(grown.colors, baby.colors, "colours carry over");
-  assert.equal(baby.horn, "none", "horns come in with age");
+  for (const k of ["beast", "species", "type", "tint"]) assert.deepEqual(grown[k], baby[k], `${k} carries over`);
 });
 
 test("habits nudge which optional parts are rolled", () => {
@@ -208,6 +210,20 @@ test("levels, new days and old saves", () => {
   assert.equal(old.goal, 10);
   assert.ok(old.creature.traits && old.items && old.day);
   assert.ok(normalize(null).creature);
+});
+
+test("every creature is drawn, cut into layers, with somewhere for each worn thing", () => {
+  assert.equal(BEASTS.length, 18);
+  assert.equal(new Set(BEASTS.map((b) => b.id)).size, 18);
+  for (const b of BEASTS) {
+    assert.ok(SPECIES_IDS.includes(b.plan), b.id);
+    assert.ok(b.name && Number.isFinite(b.hue), b.id);
+    for (const slot of ["hat", "face", "neck", "held", "back"]) {
+      const [x, y] = b.sockets[slot];
+      assert.ok(x >= 0 && y >= 0 && x < b.size[0] && y < b.size[1], `${b.id} ${slot} socket inside its drawing`);
+    }
+    for (const layer of beastLayers(b)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/${layer}.png`, import.meta.url)), `${b.id} ${layer}`);
+  }
 });
 
 test("every art file the game needs exists at the right place", () => {

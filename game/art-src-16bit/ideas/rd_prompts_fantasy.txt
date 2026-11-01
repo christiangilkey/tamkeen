@@ -1,0 +1,12 @@
+ember_fa1|cute baby fire dragon whelp, tiny wings, little horns, ember belly, flame tail tip, big shiny eyes
+ember_fa2|cute round phoenix chick spirit, golden flame feathers, tiny crown of fire, big shiny eyes
+tide_fa1|cute baby sea serpent hatchling, fin crest, pearl on forehead, curly tail, big shiny eyes
+tide_fa2|cute round water sprite, droplet shaped body, tiny coral crown, floating, big shiny eyes
+grove_fa1|cute baby forest spirit deer, mossy back, tiny glowing mushroom antlers, big shiny eyes
+grove_fa2|cute round flower fairy creature, petal skirt, tiny leaf wings, big shiny eyes
+spark_fa1|cute baby thunder griffin, fluffy chest, small feathered wings, lightning shaped crest, big shiny eyes
+spark_fa2|cute round storm cloud spirit, little lightning bolt horns, floating, big shiny eyes
+stone_fa1|cute baby earth dragon, rock plates on its back, gem on forehead, stubby legs, big shiny eyes
+stone_fa2|cute round treasure golem, tiny gem crystals on its head, stubby arms, big shiny eyes
+dusk_fa1|cute baby moon wolf pup, crescent moon mark, starry fur, big shiny eyes
+dusk_fa2|cute round little ghost wisp with a tiny witch hat, glowing lantern tail, floating, big shiny eyes

@@ -1,0 +1,2 @@
+4=#1a0820 0=#fff4c4 1=#ffdf78 2=#f0b632 3=#c47f24 5=#743e18 c=#e9a8ff y=#b45ae8 o=#7430b0 q=#3c1466 a=#ff5fb4 r=#b0206e e=#8af2ff W=#fffaf0 K=#12061a
+extra letters: 0 (coat highlight), 5 (coat deep), q (deep purple), e (electric rim/eye glow/spark)

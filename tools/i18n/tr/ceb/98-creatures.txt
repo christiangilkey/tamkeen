@@ -1,0 +1,19 @@
+# The creature game's 18 creatures (web/js/game/beasts.js).
+ae8298e9	Piso sa phoenix
+b74453f1	Bola nga balhibo
+03bc195e	Gamayng dragon
+7b7d2d4b	Axolotl
+56623f8a	Cyber nga seal
+e0941ab5	Bulunggan
+1ece25ad	Nati nga lagsaw sa dahon
+8e70ffc4	Cyber nga koneho
+1141c31e	Lagsaw sa lasang
+11fdc95c	Uwang-aninipot
+62782914	Iring-ferret
+1fb4c375	Griffin sa dalugdog
+1688d471	Dakong bato nga lumot
+fdb9b61f	Golem nga kristal
+090745ec	Golem sa bahandi
+30c06839	Sora nga may pako
+4e4f781b	Iring nga neon
+b0cc90b7	Lobo sa bulan

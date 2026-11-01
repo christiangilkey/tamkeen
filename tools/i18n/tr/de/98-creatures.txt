@@ -1,0 +1,19 @@
+# The creature game's 18 creatures (web/js/game/beasts.js).
+ae8298e9	Phönixküken
+b74453f1	Flauschball
+03bc195e	Drachenjunges
+7b7d2d4b	Axolotl
+56623f8a	Cyber-Robbe
+e0941ab5	Qualle
+1ece25ad	Blattkitz
+8e70ffc4	Cyber-Hase
+1141c31e	Waldhirsch
+11fdc95c	Leuchtkäfer
+62782914	Katzenfrettchen
+1fb4c375	Donnergreif
+1688d471	Moosfels
+fdb9b61f	Kristallgolem
+090745ec	Schatzgolem
+30c06839	Flügelfuchs
+4e4f781b	Neonkatze
+b0cc90b7	Mondwolf

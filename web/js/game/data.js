@@ -5,6 +5,8 @@
 // drawn by hand in Aseprite (sources in game/art-src/, rules in game/CREATURE_DESIGN.md); art is
 // replaced file for file, same name and size. See game/ASSET_LIST.md for the artist's brief.
 
+import { BEASTS } from "./beasts.js";
+
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
 export const KEY = {
@@ -45,7 +47,17 @@ export const PART = {
   pattern: { size: [16, 16] },
 };
 
-// Body plans. `legs`/`arms`/`wings` say which limb art the plan uses; `hover` floats off the ground.
+// The creatures themselves: three to each element (an original, a cyberpunk and a fantasy one), each a
+// finished drawing cut into layers the game animates (beasts.js, made by tools/game_art/beasts.py from
+// game/art-src-16bit/creatures/<id>/rig.json). A creature's seed picks which of its element's three it is.
+export { BEASTS };
+export const beastById = (id) => BEASTS.find((b) => b.id === id) || BEASTS[0];
+export const beastsOf = (type) => BEASTS.filter((b) => b.type === type);
+/** The layer files a creature has: body, head, head with shut eyes, its legs, and where a shirt goes. */
+export const beastLayers = (b) => ["body", "head", "blink", ...b.legs, ...(b.shirt ? ["shirt"] : [])];
+
+// Body plans: they set a creature's battle stats and one move. (`legs`/`arms`/`wings`/`hover` were for the
+// old part-built creatures; the drawings now carry their own limbs.)
 export const SPECIES = {
   blob: { name: "Blob", legs: false, arms: false, wings: false },
   biped: { name: "Biped", legs: true, arms: true, wings: false },
@@ -401,22 +413,11 @@ const SHEET = (frames, w, h) => ({ w: w * frames, h, frames });
 export function artFiles() {
   const out = [];
   const add = (file, [w, h], kind, hint = {}) => out.push({ file, w, h, kind, ...hint });
-  for (const sp of SPECIES_IDS) {
-    for (const size of Object.keys(SIZES)) add(`creature/torso/${sp}_${size}.png`, SIZES[size].torso, "torso", { species: sp });
-    add(`creature/head/${sp}.png`, HEAD.size, "head", { species: sp });
-    for (const size of Object.keys(SIZES)) {
-      if (SPECIES[sp].legs) for (const f of "ab") add(`creature/leg/${sp}_${size}_${f}.png`, SIZES[size].leg, "leg", { frame: f });
-      if (SPECIES[sp].arms) add(`creature/arm/${sp}_${size}.png`, SIZES[size].armSize, "arm");
-      if (SPECIES[sp].wings) for (const f of "ab") add(`creature/wing/${sp}_${size}_${f}.png`, SIZES[size].wing, "wing", { frame: f });
-    }
+  // The creatures: each one's layers, cut from its drawing by tools/game_art/beasts.py ("beast" art is
+  // hand-made only, so the placeholder generator leaves it alone).
+  for (const b of BEASTS) {
+    for (const layer of beastLayers(b)) add(`creature/beast/${b.id}/${layer}.png`, b.size, "beast", { id: b.id });
   }
-  for (const e of EARS) if (e.id !== "none") add(`creature/ear/${e.id}.png`, PART.ear.size, "ear", { id: e.id });
-  for (const t of TAILS) if (t.id !== "none") add(`creature/tail/${t.id}.png`, PART.tail.size, "tail", { id: t.id });
-  for (const x of HORNS) if (x.id !== "none") add(`creature/horn/${x.id}.png`, PART.horn.size, "horn", { id: x.id });
-  for (const x of BACKS) if (x.id !== "none") add(`creature/back/${x.id}.png`, PART.back.size, "back", { id: x.id });
-  for (const s of EYES) for (const x of EXPRESSIONS) add(`creature/eyes/${s}_${x}.png`, PART.eyes.size, "eyes", { id: s, expr: x });
-  for (const m of MOUTHS) add(`creature/mouth/${m}.png`, PART.mouth.size, "mouth", { id: m });
-  for (const p of PATTERNS) if (p.id !== "none") add(`creature/pattern/${p.id}.png`, PART.pattern.size, "pattern", { id: p.id });
   for (const t of TYPE_IDS) {
     add(`egg/${t}.png`, [32, 32], "egg", { type: t });
     add(`icon/type_${t}.png`, [16, 16], "icon", { type: t });
@@ -455,7 +456,6 @@ export function artFiles() {
   // Art added after the first brief (game/ASSET_LIST.md section 7). Its `kind` is "extra": real art only,
   // the placeholder generator leaves it alone.
   const extra = (file, size) => add(file, size, "extra");
-  for (const s of EYES) for (const x of EXPRESSIONS) extra(`creature/eyes_big/${s}_${x}.png`, PART.eyesBig.size);
   for (const m of MOVES) if (!m.icon) extra(`icon/move/${m.id}.png`, [16, 16]);
   for (const id of ["night_owl", "early_bird", "streak_7", "flawless", "comeback"]) extra(`icon/tag_${id}.png`, [16, 16]);
   for (const id of Object.keys(VARIANTS)) extra(`icon/form_${id}.png`, [16, 16]);

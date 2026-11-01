@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Creature viewer</title>
+<style>
+  body { background: #2c2440; color: #ffd27a; font: 13px sans-serif; margin: 12px; }
+  .row { display: flex; gap: 6px; align-items: flex-end; margin-bottom: 10px; }
+  .row b { width: 120px; }
+  figure { margin: 0; text-align: center; }
+  canvas { width: 176px; height: 176px; image-rendering: pixelated; background: #3a3256; border-bottom: 2px solid #776a99; }
+  figcaption { color: #bbb; font-size: 11px; }
+</style></head>
+<body>
+<p>Every creature through the game's own drawing code (render.js), at 2x.</p>
+<div id="out"></div>
+<script type="module">
+import { BEASTS } from "../../web/js/game/data.js";
+import { composeCreature } from "../../web/js/game/render.js";
+const dressed = { hat: "hat/cap", face: "face/round_glasses", neck: "neck/scarf", held: "held/book", back: "back/cape_red", shirt: "shirt/striped" };
+const poses = [
+  ["still", {}, {}],
+  ["walk 2", { step: 1, bob: 1 }, {}],
+  ["blink", { eyes: "blink" }, {}],
+  ["asleep", { eyes: "sleepy", bob: 2 }, {}],
+  ["nocturne", {}, { tint: { kind: "nocturne" } }],
+  ["twin", {}, { tint: { kind: "twin", hue: 200 } }],
+  ["champion", {}, { tint: { kind: "champion" } }],
+  ["dressed", {}, { equipped: dressed }],
+  ["dressed, walk 2", { step: 1, bob: 1 }, { equipped: dressed }],
+];
+const out = document.getElementById("out");
+for (const b of BEASTS) {
+  const row = document.createElement("div");
+  row.className = "row";
+  row.innerHTML = `<b>${b.name}<br><small>${b.type} · ${b.set} · ${b.plan}</small></b>`;
+  out.append(row);
+  for (const [label, pose, extra] of poses) {
+    const look = { beast: b.id, species: b.plan, stage: "juvenile", size: "m", type: b.type, variant: null, tint: null, equipped: {}, ...extra };
+    const fig = document.createElement("figure");
+    const c = document.createElement("canvas");
+    c.width = c.height = 88;
+    fig.append(c);
+    fig.insertAdjacentHTML("beforeend", `<figcaption>${label}</figcaption>`);
+    row.append(fig);
+    composeCreature(look, pose).then((f) => c.getContext("2d").drawImage(f, 0, 0));
+  }
+}
+window.viewerReady = true;
+</script>
+</body></html>

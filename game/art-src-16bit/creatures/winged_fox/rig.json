@@ -1,0 +1,13 @@
+{
+  "id": "winged_fox", "name": "Winged fox", "type": "dusk", "set": "original", "plan": "floater",
+  "art": "_ff3.txt",
+  "palette": "4=#0a0814 K=#040309 h=#c08cff 1=#9a5ee6 2=#7a3ecc 3=#55219a d=#33106a k=#1b1029 m=#6f80d0 c=#f0eef6 y=#bdb8cc o=#7c7792 a=#ffa424 r=#b8560f W=#fff1cf",
+  "head": [[39.5, 0], [59, 0], [64, 17], [64, 28], [47, 28], [46.5, 30], [40.5, 30], [40.5, 27], [39.5, 26]],
+  "legs_back": null,
+  "legs_front": null,
+  "blink": [{"at": [44, 19], "rows": ["3k....", ".33kk.", "...333"]},
+            {"at": [53, 19], "rows": ["..k3", ".33.", "3k.."]}],
+  "sockets": {"hat": [48, 13], "face": [50, 20], "neck": [48, 29], "held": [51, 50], "back": [32, 31]},
+  "shirt": {"box": [38, 30, 50, 46], "letters": "dk3"},
+  "hover": 5
+}
