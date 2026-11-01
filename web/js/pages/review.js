@@ -3,7 +3,7 @@
 // A card's front is in the learner's own language: the word's meaning with the translated
 // sentence under it. Its back has the answer on top, large and alone (the word, its sentence
 // and its audio), and under a clear gap everything else about the word: meaning, grammar notes and
-// "Personal notes", the learner's own box for a mnemonic. There are two answers,
+// "Memorization notes", the learner's own box for a mnemonic. There are two answers,
 // "Remembered" and "Not remembered": buttons, a swipe of the card, or the keyboard. A missed
 // word comes back a few cards later until it has been remembered once. A slim bar on the card
 // fills toward a time goal for it and a clock in the top bar counts the session (both can be
@@ -33,7 +33,7 @@ import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
-import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
+import { MNEMONIC_COUNT, addToNotes, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
 import { askMnemonic } from "../define-service.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
@@ -132,7 +132,6 @@ const ICON = {
   copy: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2"/><path d="M15.5 8.5V6.2a1.7 1.7 0 0 0-1.7-1.7H6.2a1.7 1.7 0 0 0-1.7 1.7v7.6a1.7 1.7 0 0 0 1.7 1.7h2.3"/></svg>`,
   check: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
   bulb: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>`,
-  up: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10.5v9h-3a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z"/><path d="M7.5 10.5l3.6-6.6a1.9 1.9 0 0 1 3.5 1.3l-.8 4.3h5a2 2 0 0 1 2 2.4l-1.3 6.4a2 2 0 0 1-2 1.7H7.5"/></svg>`,
   down: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 13.5v-9h-3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1z"/><path d="M7.5 13.5l3.6 6.6a1.9 1.9 0 0 0 3.5-1.3l-.8-4.3h5a2 2 0 0 0 2-2.4l-1.3-6.4a2 2 0 0 0-2-1.7H7.5"/></svg>`,
   trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
   sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
@@ -360,8 +359,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onResize = () => { if (!flipped) return; for (const box of face.querySelectorAll("textarea")) fit(box); more(); };
   window.addEventListener("resize", onResize);
 
-  // ----- Personal notes: Paste, and the Mnemonic maker -----
-  /** Put what is on the clipboard into Personal notes (after what is there already), saved like typing. */
+  // ----- Memorization notes: Paste, and the Mnemonic maker -----
+  /** Put what is on the clipboard into Memorization notes (after what is there already), saved like typing. */
   async function pasteInto(box, v) {
     let text;
     try { text = await readClipboard(); } catch {
@@ -557,7 +556,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // ----- the Mnemonic maker (review/mnemonic.js): keywords that sound like the word, each with a picture -----
   // What it came up with for each word while the reviewer is open: {pron, items, parts, checked, asked,
   // shown, kept} (`shown`: every keyword shown for the word so far, left out of the next "Make 5 more";
-  // `kept`: those put in Personal notes with the thumbs-up). Keywords turned down are kept on this device
+  // `kept`: those put in Memorization notes with Use). Keywords turned down are kept on this device
   // (mnemonic.js turnDown) and never suggested for the word again.
   const mnemonics = new Map();
   const avoidStore = () => { try { return window.localStorage; } catch { return null; } };
@@ -585,7 +584,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     return wordReading(v.text, lang);
   }
 
-  /** The Mnemonic maker below Personal notes. */
+  /** The Mnemonic maker below Memorization notes. */
   function mnemonicMaker(box, v) {
     const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), few = box.querySelector(".rv-mnemo-few");
     const list = box.querySelector(".rv-mnemo-list"), said = box.querySelector(".rv-mnemo-said");
@@ -628,12 +627,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       }
     }
 
-    /** Put `s` (keyword and picture) at the end of Personal notes, saved like typing. */
+    /** Use: put `s` (keyword and picture) at the end of Memorization notes, a blank line under what the
+     * learner wrote, saved like typing. */
     function keep(s, st, button) {
       const memo = face.querySelector(".memo");
       const text = noteText(s);
       if (memo && !memo.value.includes(text)) {
-        memo.value = memo.value.trim() ? `${memo.value.replace(/\s+$/, "")}\n${text}` : text;
+        memo.value = addToNotes(memo.value, text);
         fit(memo);
         more();
         edit(v, "memo", memo.value);
@@ -645,9 +645,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const kept = (button) => {
       button.classList.add("done");
       button.disabled = true;
-      button.innerHTML = ICON.check;
-      button.title = t("Kept in Personal notes");
-      button.setAttribute("aria-label", t("Kept in Personal notes"));
+      button.innerHTML = `${ICON.check}<span></span>`;
+      button.lastElementChild.textContent = t("Added");
+      button.title = t("Added to Memorization notes");
     };
 
     function row(s, st) {
@@ -655,8 +655,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-mn-top">
           <span class="rv-mn-word" translate="no"></span>
           <span class="rv-mn-acts">
-            <button type="button" class="rv-mn-btn rv-mn-copy" title="Copy" aria-label="Copy">${ICON.copy}</button>
-            <button type="button" class="rv-mn-btn rv-mn-keep" title="Keep it in Personal notes" aria-label="Keep it in Personal notes">${ICON.up}</button>
+            <button type="button" class="rv-mn-use" title="Put it in Memorization notes">Use</button>
             <button type="button" class="rv-mn-btn rv-mn-drop" title="Not this one: never suggest it for this word again" aria-label="Not this one">${ICON.down}</button>
           </span>
         </div>
@@ -676,16 +675,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       const scene = li.querySelector(".rv-mn-scene");
       scene.textContent = s.scene || "";
       scene.hidden = !s.scene;
-      const copy = li.querySelector(".rv-mn-copy");
-      copy.onclick = async () => {
-        if (!(await copyText(noteText(s)))) { toast(t("That couldn't be copied here."), { error: true }); return; }
-        buzz("tick");
-        toast(t("Copied"), { timeout: 1500 });
-        copy.classList.add("done");
-        copy.innerHTML = ICON.check;
-        setTimeout(() => { if (copy.isConnected) { copy.classList.remove("done"); copy.innerHTML = ICON.copy; } }, 1400);
-      };
-      const up = li.querySelector(".rv-mn-keep");
+      const up = li.querySelector(".rv-mn-use");
       if (st.kept.has(s.keyword)) kept(up);
       else up.onclick = () => keep(s, st, up);
       li.querySelector(".rv-mn-drop").onclick = () => {
@@ -712,7 +702,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
       label.textContent = "Make 5 more";
       if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
-      else say(`${speaks} words that sound like it, each with a picture for its meaning. Thumbs up keeps one in Personal notes; thumbs down drops it for good.`);
+      else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
       // Fewer than five that pass: only those are shown, and the card says so.
       const n = all.length;
       sayFew(!n ? "" : !st.checked ? "Their sound couldn't be checked this time."
@@ -770,8 +760,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
         <label class="rv-field"><span>Grammar notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
         <div class="rv-field">
-          <div class="rv-field-head"><span>Personal notes</span><button type="button" class="rv-paste" title="Paste what you copied into Personal notes">${ICON.paste} Paste</button></div>
-          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="Personal notes"></textarea>
+          <div class="rv-field-head"><span>Memorization notes</span><button type="button" class="rv-paste" title="Paste what you copied into Memorization notes">${ICON.paste} Paste</button></div>
+          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="Memorization notes"></textarea>
         </div>
         <div class="rv-mnemo">
           <button type="button" class="rv-mnemo-go">${ICON.bulb}<span>Mnemonic maker</span></button>
@@ -1319,7 +1309,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const padSettled = () => flipped && Date.now() - flippedAt > KEY_GUARD_MS;
   // On the back, the D-pad's up and down walk through its boxes in order: the word, its meaning, the
   // sentence and its translation (each opens its text box, as a tap does), then every button and box
-  // under them (the Mnemonic maker's keywords with their thumbs up and down too).
+  // under them (the Mnemonic maker's keywords with their Use and thumbs-down buttons too).
   const BACK_TEXTS = ".rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans";
   // (and the answer buttons under the card, last: "Not remembered", "Remembered")
   const onBack = () => { const el = highlightedEl(); return el && (face.contains(el) || actions.contains(el)) ? el : null; };

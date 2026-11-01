@@ -7,7 +7,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import {
-  KEYWORD_ASK, MNEMONIC_COUNT, MNEMONIC_SCHEMA, SPLIT_COUNT, cleanKeyword, englishSounds, makeMnemonics, mnemonicPrompt, noteText,
+  KEYWORD_ASK, MNEMONIC_COUNT, MNEMONIC_SCHEMA, SPLIT_COUNT, addToNotes, cleanKeyword, englishSounds, makeMnemonics, mnemonicPrompt, noteText,
   rankSuggestions, readKeywords, readParts, readPronunciation, spelledOut, syllableLine, syllablePieces, turnDown, turnedDown, varietyOf,
 } from "../../web/js/review/mnemonic.js";
 import { LemmaTable } from "../../web/js/lexicon/romance.js";
@@ -174,6 +174,15 @@ test("makeMnemonics asks once, waits for the dictionary, and is honest when noth
   await assert.rejects(makeMnemonics({ text: "x" }, { ask: async () => ({ keywords: [] }), study: "Arabic", speaks: "English" }), /No sound-alikes/);
   assert.equal(noteText({ keyword: "knee yeah", scene: "A knee says yeah." }), "knee yeah — A knee says yeah.");
   assert.equal(noteText({ keyword: "pot", scene: "" }), "pot");
+});
+
+test("Use adds a keyword to Memorization notes a blank line under what the learner typed, never twice", () => {
+  assert.equal(addToNotes("", "pot — a pot"), "pot — a pot");
+  assert.equal(addToNotes("  \n", "pot"), "pot");
+  assert.equal(addToNotes("heard it on a podcast", "pot"), "heard it on a podcast\n\npot");
+  assert.equal(addToNotes("my note\n\n", "pot"), "my note\n\npot");
+  assert.equal(addToNotes("my note\n\npot", "pot"), "my note\n\npot");
+  assert.equal(addToNotes("my note\n\npot", "knee"), "my note\n\npot\n\nknee");
 });
 
 test("a keyword turned down is kept on this device for that word, and never asked for again", () => {

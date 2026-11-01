@@ -165,13 +165,13 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-field input[type=text] { font-weight: 600; }
 .rv-field textarea { min-height: 42px; max-height: 170px; }
 .rv-field input[type=text]:focus-visible, .rv-field textarea:focus-visible { outline: none; border-color: var(--accent); }
-/* Personal notes: its label with a Paste button on the right. */
+/* Memorization notes: its label with a Paste button on the right. */
 .rv-field-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .rv-field-head > span { padding-inline-start: 2px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-paste { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 600; }
 .rv-paste:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.15); }
 /* The Mnemonic maker: one button; then how the word sounds (its syllables, the stressed one in capitals)
-   and the keywords. Each keyword: Copy / Keep / Not this one on its right; under it the word's syllables
+   and the keywords. Each keyword: Use (blue) / Not this one on its right; under it the word's syllables
    with those it sounds like lit, how close it sounds (and "Fits the meaning" when it does), and its picture. */
 .rv-mnemo { display: flex; flex-direction: column; gap: 10px; }
 .rv-mnemo-go { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 14.5px; font-weight: 700; }
@@ -187,7 +187,10 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-mn { display: flex; flex-direction: column; gap: 5px; padding: 10px 8px 12px 14px; border-radius: 14px; background: var(--surface-2); }
 .rv-mn-top { display: flex; align-items: center; gap: 8px; }
 .rv-mn-word { flex: 1; min-width: 0; font-size: 18px; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
-.rv-mn-acts { flex: none; display: flex; gap: 4px; }
+.rv-mn-acts { flex: none; display: flex; align-items: center; gap: 6px; }
+.rv-mn-use { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; padding: 0 16px; border: 0; border-radius: 99px; background: var(--accent); color: var(--accent-ink); font-size: 14px; font-weight: 700; }
+.rv-mn-use:hover:not(:disabled) { background: var(--accent); filter: brightness(1.08); }
+.rv-mn-use.done, .rv-mn-use.done:disabled { background: var(--accent-soft); color: var(--accent); opacity: 1; }
 .rv-mn-btn { width: 36px; height: 36px; min-height: 0; padding: 0; border: 0; border-radius: 10px; display: grid; place-items: center; background: var(--surface); color: var(--text); }
 .rv-mn-btn:hover:not(:disabled) { background: var(--surface); filter: brightness(1.2); }
 .rv-mn-btn.done, .rv-mn-btn.done:disabled { color: var(--accent); opacity: 1; }

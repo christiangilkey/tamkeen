@@ -1,0 +1,6 @@
+59ededf9	Mga tala sa pagsasaulo
+9e61052b	Idikit sa Mga tala sa pagsasaulo ang kinopya mo
+36f70029	Mga tala sa pagsasaulo (isang mnemonic, kung saan mo narinig…)
+c35874c7	Naidagdag sa Mga tala sa pagsasaulo
+9314f858	Ilagay sa Mga tala sa pagsasaulo
+9e43c50e	Mga salita sa wika mo na katunog nito, bawat isa may larawan para sa kahulugan. Ang Gamitin ay naglalagay ng isa sa Mga tala sa pagsasaulo; ang thumbs down ay tuluyang nag-aalis nito.

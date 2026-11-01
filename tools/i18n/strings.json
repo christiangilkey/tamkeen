@@ -15305,13 +15305,13 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "aaf7b28e",
-  "k": "Kept in Personal notes",
+  "id": "c35874c7",
+  "k": "Added to Memorization notes",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "0c3e5d90",
-  "k": "Keep it in Personal notes",
+  "id": "9314f858",
+  "k": "Put it in Memorization notes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -15365,8 +15365,8 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "74971885",
-  "k": "{0} words that sound like it, each with a picture for its meaning. Thumbs up keeps one in Personal notes; thumbs down drops it for good.",
+  "id": "9e43c50e",
+  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -15430,13 +15430,13 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "3e8c21da",
-  "k": "Personal notes",
+  "id": "59ededf9",
+  "k": "Memorization notes",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "7a625323",
-  "k": "Paste what you copied into Personal notes",
+  "id": "9e61052b",
+  "k": "Paste what you copied into Memorization notes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -16495,8 +16495,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "d5b39987",
-  "k": "Personal notes (a mnemonic, where you heard it…)",
+  "id": "36f70029",
+  "k": "Memorization notes (a mnemonic, where you heard it…)",
   "f": "web/js/pages/vocab.js"
  },
  {

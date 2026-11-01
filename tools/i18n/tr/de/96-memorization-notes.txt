@@ -1,0 +1,6 @@
+59ededf9	Merknotizen
+9e61052b	Das Kopierte in die Merknotizen einfügen
+36f70029	Merknotizen (eine Eselsbrücke, wo du es gehört hast …)
+c35874c7	Zu den Merknotizen hinzugefügt
+9314f858	In die Merknotizen übernehmen
+9e43c50e	Wörter deiner Sprache, die ähnlich klingen, jedes mit einem Bild für die Bedeutung. Nutzen übernimmt eines in die Merknotizen; Daumen runter verwirft es endgültig.
