@@ -4,3 +4,6 @@
 b3e5455b	Arabe marocain
 8e053003	Quel arabe apprendre
 299fd793	Cours de dialectes arabes : choisissez levantin, égyptien, du Golfe ou marocain dans Cours, avec leur grammaire et leurs bases
+8a3ab34e	Ce cours n'a pas d'audio : aucune voix de synthèse ne le prononce encore assez bien. Les sens et les traductions sont en anglais pour l'instant.
+e48b61dd	Ajouté à vos cartes.
+aa62d434	{0} mots ajoutés à vos cartes.

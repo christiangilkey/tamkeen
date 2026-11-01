@@ -4,3 +4,6 @@
 b3e5455b	Árabe marroquí
 8e053003	Qué árabe aprender
 299fd793	Cursos de dialectos árabes: elige levantino, egipcio, del Golfo o marroquí en Cursos para su propia gramática y vocabulario básico
+8a3ab34e	Este curso no tiene audio: todavía ninguna voz de ordenador lo pronuncia bastante bien. Por ahora, los significados y las traducciones están en inglés.
+e48b61dd	Añadida a tus tarjetas.
+aa62d434	{0} palabras añadidas a tus tarjetas.

@@ -4,3 +4,6 @@
 b3e5455b	Moroccan na Arabe
 8e053003	Aling Arabe ang pag-aaralan
 299fd793	Mga kurso sa diyalekto ng Arabe: piliin ang Levantine, Egyptian, Gulf o Moroccan sa Mga Kurso para sa sarili nilang Gramatika at Basics
+8a3ab34e	Walang audio ang kursong ito: wala pang boses ng computer na bumibigkas nito nang maayos. Nasa Ingles muna ang mga kahulugan at salin.
+e48b61dd	Naidagdag sa iyong mga card.
+aa62d434	{0} salita ang naidagdag sa iyong mga card.

@@ -4,3 +4,6 @@
 b3e5455b	Arabo marocchino
 8e053003	Quale arabo imparare
 299fd793	Corsi di dialetti arabi: scegli levantino, egiziano, del Golfo o marocchino in Corsi per la loro grammatica e le basi
+8a3ab34e	Questo corso non ha audio: nessuna voce sintetica lo pronuncia ancora abbastanza bene. Per ora significati e traduzioni sono in inglese.
+e48b61dd	Aggiunta alle tue schede.
+aa62d434	{0} parole aggiunte alle tue schede.

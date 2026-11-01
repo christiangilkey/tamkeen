@@ -4,3 +4,6 @@
 b3e5455b	Marokkanisch
 8e053003	Welches Arabisch du lernst
 299fd793	Arabische Dialektkurse: Wähle unter Kurse Levantinisch, Ägyptisch, Golf oder Marokkanisch für eigene Grammatik und Grundlagen
+8a3ab34e	Dieser Kurs hat kein Audio: Noch spricht ihn keine Computerstimme gut genug. Bedeutungen und Übersetzungen sind vorerst auf Englisch.
+e48b61dd	Zu deinen Karten hinzugefügt.
+aa62d434	{0} Wörter zu deinen Karten hinzugefügt.

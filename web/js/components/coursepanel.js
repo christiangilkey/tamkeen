@@ -20,6 +20,8 @@ import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, units
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* storage off */ } };
+// A word with its own audio (every word, except in a course built without any: build_course.py --voice none).
+const hasAudio = (w) => !!(w && w.audio && w.times);
 
 /** The courses there are ({courses: {"ar": {...}, "ar-lev": {...}}}), or null when they can't be reached. */
 export async function courseIndex() {
@@ -114,7 +116,11 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       grid.append(tile);
     }
     box.append(grid);
-    box.append(h(`<p class="small muted course-credit">The audio is a computer voice (${esc(course.voice && course.voice.name ? course.voice.name : "text to speech")}).
+    box.append(h(course.voice
+      ? `<p class="small muted course-credit">The audio is a computer voice (${esc(course.voice.name || "text to speech")}).
+      Meanings and translations are in English for now.</p>`
+      // (a course without audio: no voice said it well enough, as for Moroccan)
+      : `<p class="small muted course-credit">This course has no audio: no computer voice says it well enough yet.
       Meanings and translations are in English for now.</p>`));
   }
 
@@ -150,8 +156,8 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
         <div class="cw-sent ar" ${attrs} translate="no">${sentence}</div>
         <div class="cw-trans" translate="no">${markedHtml(w.translation, esc)}</div>
         <div class="cw-actions">
-          <button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
-          <button type="button" class="ghost cw-play" data-part="sentence">${icon("sound", 15)} Sentence</button>
+          ${hasAudio(w) ? `<button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
+          <button type="button" class="ghost cw-play" data-part="sentence">${icon("sound", 15)} Sentence</button>` : ""}
           <span class="spacer"></span>
           <button type="button" class="cw-add"></button>
         </div>
@@ -192,7 +198,9 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
         const n = await addToCards(words);
         if (n) earnXp({ type: "basics", keys: words.slice(0, n).map((w) => `${courseIdOf(course)}:${w.n}`) }, anchor);
         await refreshCards();
-        toast(n === 1 ? "Added to your cards, with its audio." : `${n} words added to your cards, with their audio.`);
+        const voiced = words.some(hasAudio);
+        toast(n === 1 ? (voiced ? "Added to your cards, with its audio." : "Added to your cards.")
+          : voiced ? `${n} words added to your cards, with their audio.` : `${n} words added to your cards.`);
         onCards();
       } catch (e) {
         toast(e.message || String(e), { error: true });
@@ -224,10 +232,12 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       (answer.cards || []).forEach((c, k) => made.push([c, part[k]]));
     }
     // Their audio, a few at a time. A word whose audio couldn't be kept is still a card (its voice
-    // then comes from Settings → Card voices, as for any card without one).
+    // then comes from Settings → Card voices, as for any card without one), as is a word of a course
+    // that has no audio.
     let failed = 0;
-    for (let i = 0; i < made.length; i += 4) {
-      await Promise.all(made.slice(i, i + 4).map(async ([card, w]) => {
+    const voiced = made.filter(([, w]) => hasAudio(w));
+    for (let i = 0; i < voiced.length; i += 4) {
+      await Promise.all(voiced.slice(i, i + 4).map(async ([card, w]) => {
         try {
           const r = await fetch(url(`${courseIdOf(course)}/${w.audio}`));
           if (!r.ok) throw new Error(`HTTP ${r.status}`);

@@ -67,6 +67,15 @@ for (const id of DIALECT_COURSES) {
     assert.deepEqual([entry.file, entry.lang, entry.dialect], [`${id}/course.json`, "ar", id.slice(3)]);
     assert.ok(course.planned >= course.words.length && course.planned <= 1000);
     for (const w of course.words) if ("note" in w) assert.ok(typeof w.note === "string" && w.note.trim() && w.note.length <= 300, `${w.n}: its note`);
+    // Every word has its audio, or (a course no voice says well enough: build_course.py --voice none) none has.
+    const voiced = course.words.filter((w) => w.audio && w.times);
+    if (course.voice) {
+      assert.equal(voiced.length, course.words.length, "every word has its audio");
+      for (const w of course.words) assert.ok(existsSync(at(`docs/course/${id}/${w.audio}`)), `${w.n}: ${w.audio} is there`);
+    } else {
+      assert.equal(voiced.length, 0, "a course without a voice has no audio");
+      assert.equal(entry.voice, null);
+    }
   });
 
   const grammarFile = `docs/grammar/en-${id}/course.json`;
@@ -134,6 +143,14 @@ test("each dialect opens its own grammar course, in the learner's language when 
   assert.deepEqual(courseFor("fr", "ar", index, "egy"), { course: "fr-ar-egy", made: null });
   assert.equal(courseFor("en", "ar", index, "glf"), null, "no Gulf grammar course yet");
   assert.deepEqual(courseFor("en", "ar", index), { course: "en-ar", made: null }, "Standard Arabic as before");
+});
+
+test("a basics course without audio shows no Word / Sentence buttons and saves no voice", () => {
+  const panel = readFileSync(at("web/js/components/coursepanel.js"), "utf8");
+  assert.match(panel, /const hasAudio = \(w\) => !!\(w && w\.audio && w\.times\);/);
+  assert.match(panel, /\$\{hasAudio\(w\) \? `<button type="button" class="ghost cw-play" data-part="word">/);
+  assert.match(panel, /const voiced = made\.filter\(\(\[, w\]\) => hasAudio\(w\)\);/);
+  assert.match(panel, /This course has no audio/);
 });
 
 test("the Library's Courses has the picker, and opens the chosen kind's courses in the usual panels", () => {

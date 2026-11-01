@@ -6218,6 +6218,10 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   `coursePanel(box, "ar", {course: "ar-lev"})` (audio, unit memory `course:ar-lev:unit` and XP keys use the course id,
   coursedata.js `courseIdOf`), `grammarFor("ar", "lev", index)` -> grammardata.js `courseFor(..., dialect)`. Dialect
   Basics subtitle: "The N most common words that aren't Standard Arabic, 50 at a time".
+- **No-audio courses** (Moroccan: dialect-mor found Azure's ar-MA voices read Darija like MSA): words.json `"audio": false`, built
+  with `build_course.py ar-mor --voice none` (refused otherwise both ways): no audio/ folder, no `audio`/`times` per word,
+  `"voice": null` in course.json and its index entry. coursepanel.js `hasAudio(w)`: no Word / Sentence buttons, no
+  saveVoice on Add (the card voice reads those cards), toasts without "with its audio", a credit line saying why.
 - whatsnew.js: `notes()` now adds to a version named twice; a 0.43.0 line was added ahead of the release (rename it if
   the release is numbered otherwise). Translations `tools/i18n/tr/<code>/99-arabic-dialects.txt` (5 strings × 16).
 - **Checked**: pytest and JS tests; a real Tamkeen window (fresh scratch data folder, APS_COURSE_DIR/APS_GRAMMAR_DIR on a

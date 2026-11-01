@@ -4,3 +4,6 @@
 b3e5455b	Àrab marroquí
 8e053003	Quin àrab vols aprendre
 299fd793	Cursos de dialectes àrabs: tria llevantí, egipci, del Golf o marroquí a Cursos per tenir-ne la gramàtica i les bases
+8a3ab34e	Aquest curs no té àudio: encara cap veu d'ordinador no el pronuncia prou bé. Els significats i les traduccions són en anglès de moment.
+e48b61dd	Afegida a les teves targetes.
+aa62d434	{0} paraules afegides a les teves targetes.

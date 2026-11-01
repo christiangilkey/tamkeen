@@ -27,6 +27,11 @@ Syria)"}), and none of its words may be a Standard Arabic basics word (tools/cou
 Its course.json says "id": "ar-<d>", "lang": "ar", "dialect": "<d>". A word may carry a "note": one short
 line on how it differs from a Standard word that looks the same (shown under its meaning in the app).
 
+A course no voice says well enough (Moroccan Darija: Azure's Moroccan voices read it like Standard Arabic)
+is built without audio: its words.json says "audio": false, and it is built with --voice none. Its words then
+have no audio file or times and its course.json "voice" is null; the app shows no Word / Sentence buttons
+and a card made from it is read by the learner's card voice, like any card without audio.
+
 Audio already made for the same text and voice is kept (a small list next to it says which), so a
 second run only makes what is new or changed.
 
@@ -36,6 +41,7 @@ Voices
          key saved in Tamkeen on this computer (Settings -> Card voices). Microsoft lets apps use what
          its voices say (e-learning is one of its named uses); the course notes that the voice is
          computer-made, as Microsoft's code of conduct asks.
+  none   No audio at all (a course whose words.json says "audio": false).
   piper  The free voice Tamkeen can download (app/voices.py). For trying the course out on this computer
          only: Piper's Arabic voice comes with no stated licence, so its audio is never published.
 """
@@ -362,13 +368,13 @@ def fingerprint(w: dict[str, Any], engine: str, lang: str) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("lang")
-    ap.add_argument("--voice", choices=("azure", "piper", "mms"), required=True)
+    ap.add_argument("--voice", choices=("azure", "piper", "mms", "none"), required=True)
     ap.add_argument("--redo", action="store_true", help="make every audio file again")
     ap.add_argument("--out", default="", help="where the course goes (default docs/course; a Piper preview: "
                     "tools/course/build/preview, which is never published)")
     args = ap.parse_args()
     lang, engine = args.lang, args.voice
-    out = Path(args.out) if args.out else OUT if engine in ("azure", "mms") else HERE / "build" / "preview"
+    out = Path(args.out) if args.out else OUT if engine in ("azure", "mms", "none") else HERE / "build" / "preview"
     if engine == "piper" and out.resolve() == OUT.resolve():
         raise SystemExit("A Piper preview never goes into docs/course (it would be published).")
     sys.path.insert(0, str(ROOT))
@@ -376,6 +382,9 @@ def main() -> None:
         # Piper and its voice go into a folder of the builder's own, never the owner's Tamkeen library.
         os.environ["APS_DATA_DIR"] = str(HERE / "build" / "data")
     data = load_words(lang)
+    silent = data.get("audio") is False  # a course built without audio (no voice says it well enough)
+    if silent != (engine == "none"):
+        raise SystemExit(f'{lang}: build a course whose words.json says "audio": false with --voice none, and only such a course.')
     if data.get("voice"):  # the course names its own voice (the dialect courses)
         AZURE[lang] = {k: str(data["voice"][k]) for k in ("voice", "locale", "name")}
     if engine == "azure" and lang not in AZURE:
@@ -386,7 +395,9 @@ def main() -> None:
     planned = data.get("planned", PLANNED)
     words = data["words"]
     folder = out / lang
-    (folder / "audio").mkdir(parents=True, exist_ok=True)
+    folder.mkdir(parents=True, exist_ok=True)
+    if not silent:
+        (folder / "audio").mkdir(parents=True, exist_ok=True)
     made_list = folder / "audio" / "made.json"
     made: dict[str, str] = json.loads(made_list.read_text(encoding="utf-8")) if made_list.exists() else {}
     old = json.loads((folder / "course.json").read_text(encoding="utf-8")) if (folder / "course.json").exists() else {}
@@ -398,6 +409,13 @@ def main() -> None:
         mms_prepare([t for w in todo for t in (spoken(w), unmarked(w["sentence"]))], lang)
     items = []
     for w in words:
+        item = {"n": w["n"], "word": w["word"], "pos": w.get("pos", ""), "meaning": w["meaning"],
+                "sentence": w["sentence"], "translation": w["translation"]}
+        if str(w.get("note", "")).strip():
+            item["note"] = w["note"].strip()
+        if silent:
+            items.append(item)
+            continue
         name = f"{w['n']:04d}.ogg"
         fp = fingerprint(w, engine, lang)
         path = folder / "audio" / name
@@ -408,29 +426,25 @@ def main() -> None:
             path.write_bytes(ogg)
             made[name] = fp
             made_list.write_text(json.dumps(made, indent=0), encoding="utf-8")
-        item = {"n": w["n"], "word": w["word"], "pos": w.get("pos", ""), "meaning": w["meaning"],
-                "sentence": w["sentence"], "translation": w["translation"], "audio": f"audio/{name}", "times": times}
-        if str(w.get("note", "")).strip():
-            item["note"] = w["note"].strip()
-        items.append(item)
+        items.append({**item, "audio": f"audio/{name}", "times": times})
 
     units = []
     for u in range((planned + UNIT - 1) // UNIT):
         first, last = u * UNIT + 1, min((u + 1) * UNIT, planned)
         have = sum(1 for it in items if first <= it["n"] <= last)
         units.append({"n": u + 1, "from": first, "to": last, "ready": have == last - first + 1})
-    voice = (AZURE[lang]["name"] if engine == "azure" else f"Meta MMS ({MMS[lang]}, CC BY-NC 4.0)" if engine == "mms"
-             else f"Piper {PIPER[lang]} (preview, not for publishing)")
+    voice = (None if silent else AZURE[lang]["name"] if engine == "azure" else f"Meta MMS ({MMS[lang]}, CC BY-NC 4.0)"
+             if engine == "mms" else f"Piper {PIPER[lang]} (preview, not for publishing)")
     named = {"id": lang, "lang": language, "dialect": dialect} if dialect else {"lang": lang}
     course = {"format": 1, **named, "title": data["title"], "variety": data.get("variety", ""), "about": data.get("about", ""),
-              "planned": planned, "unit": UNIT, "voice": {"engine": engine, "name": voice, "synthetic": True},
+              "planned": planned, "unit": UNIT, "voice": None if silent else {"engine": engine, "name": voice, "synthetic": True},
               "built": time.strftime("%Y-%m-%d"), "units": units, "words": items}
     body = json.dumps(course, ensure_ascii=False, indent=1).encode("utf-8")
     (folder / "course.json").write_bytes(body)
 
     index_path = out / "index.json"
     index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.exists() else {"format": 1, "courses": {}}
-    audio_bytes = sum((folder / "audio" / f"{it['n']:04d}.ogg").stat().st_size for it in items)
+    audio_bytes = sum((folder / it["audio"]).stat().st_size for it in items if it.get("audio"))
     index["courses"][lang] = {"file": f"{lang}/course.json", **({"lang": language, "dialect": dialect} if dialect else {}),
                               "title": data["title"], "variety": data.get("variety", ""),
                               "words": len(items), "planned": planned, "bytes": len(body), "audio_bytes": audio_bytes,

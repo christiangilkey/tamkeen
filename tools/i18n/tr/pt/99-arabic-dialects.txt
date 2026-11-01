@@ -4,3 +4,6 @@
 b3e5455b	Árabe marroquino
 8e053003	Qual árabe aprender
 299fd793	Cursos de dialetos árabes: escolha levantino, egípcio, do Golfo ou marroquino em Cursos, com gramática e básico próprios
+8a3ab34e	Este curso não tem áudio: nenhuma voz de computador o pronuncia bem o suficiente ainda. Por enquanto, os significados e as traduções estão em inglês.
+e48b61dd	Adicionada aos seus cartões.
+aa62d434	{0} palavras adicionadas aos seus cartões.

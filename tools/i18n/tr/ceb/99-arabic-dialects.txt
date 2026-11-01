@@ -4,3 +4,6 @@
 b3e5455b	Moroccan na Arabe
 8e053003	Unsang Arabe ang imong tun-an
 299fd793	Mga kurso sa diyalekto sa Arabe: pilia ang Levantine, Ehiptohanon, Gulf o Moroccan sa Mga Kurso para sa ilang kaugalingong Gramatika ug Basics
+8a3ab34e	Walay audio kini nga kurso: wala pay tingog sa kompyuter nga makalitok niini og maayo. Ang mga kahulogan ug hubad naa sa Iningles sa pagkakaron.
+e48b61dd	Nadugang sa imong mga card.
+aa62d434	{0} ka pulong ang nadugang sa imong mga card.

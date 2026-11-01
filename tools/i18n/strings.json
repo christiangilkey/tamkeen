@@ -3305,6 +3305,11 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "8a3ab34e",
+  "k": "This course has no audio: no computer voice says it well enough yet. Meanings and translations are in English for now.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "be6dabee",
   "k": "All units",
   "f": "web/js/components/coursepanel.js"
@@ -3355,8 +3360,18 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "e48b61dd",
+  "k": "Added to your cards.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "b0b1fc6c",
   "k": "{0} words added to your cards, with their audio.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "aa62d434",
+  "k": "{0} words added to your cards.",
   "f": "web/js/components/coursepanel.js"
  },
  {
