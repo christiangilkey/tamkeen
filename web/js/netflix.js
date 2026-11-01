@@ -66,6 +66,10 @@ export function browserTexts(lang = studyLanguage()) {
     choose: t("Choose {0} in Netflix's language menu.", languageName(lang)),
     nolang: t("Netflix didn't open its titles by language. Use “Browse by Languages” in Netflix's menu."),
     failed: t("Couldn't open this title."),
+    // the button guide of a game controller on Netflix's pages (netflix-pad.js)
+    padSelect: t("Select"),
+    padBack: t("Back"),
+    padPage: t("Page"),
   };
 }
 

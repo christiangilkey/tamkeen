@@ -213,7 +213,9 @@ function frame(now) {
       if (got) { rememberKind(p); capture.resolve(got); }
       continue;
     }
-    if (document.hidden) { pressesFrom(state, down, now); holding.clear(); continue; }
+    // (another window in front, such as the Netflix window with its own controller script, or a game:
+    // the presses are its, not this page's)
+    if (document.hidden || !windowInFront()) { pressesFrom(state, down, now); holding.clear(); continue; }
     const released = [...state.down].filter((id) => !down.has(id));
     const fired = pressesFrom(state, down, now, (id) => repeats(id));
     for (const id of released) letGo(id);
@@ -226,6 +228,11 @@ function frame(now) {
   }
   if (now - legendAt > LEGEND_MS) drawLegend();  // (the controller button is there while one is connected, in use or not)
   loop();
+}
+
+/** Is this page's window the one in front (it, or a frame in it, has the focus)? */
+function windowInFront() {
+  try { return typeof document.hasFocus !== "function" || document.hasFocus(); } catch { return true; }
 }
 
 function rememberKind(p) {

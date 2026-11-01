@@ -6076,6 +6076,21 @@ image in the controller settings". The layout table was sent first and approved 
     session (hover blackout, subtitle language, track switching) to finish with those files first.
   - "I want the press in left stick button to generate mnemonics": padmap.js review `mnemonic` b10 → review.js clicks
     `.rv-mnemo-go` on the card's back (not shown in the guide: b10 isn't one of its groups). i18n 95-pad-mnemonic.txt.
+  - "Xbox controls also dont work in the netflix app": `web/js/netflix-pad.js` (new, plain script inside Netflix's
+    site, closed shadow root, no innerHTML), loaded in the computer's browser window after netflix-browser.js
+    (app/desktop.py `_browser_window`) and by the extension (manifest content script + scripts/build.mjs copy; needs
+    an extension build). Only on Netflix's hosts and never on /watch/ (the extension's player page). It mirrors
+    padmap.js (isController, Bluetooth Xbox standardize, readInputs, held-at-start ignored, unknown layout trusted
+    after a press) — tests/js/netflixpad.test.mjs compares the two on the same pads. Highlight: D-pad / left stick
+    between visible links, buttons, roles and tabindex stops (one per title card), inside `[role=dialog]` /
+    `[aria-modal]` / `.previewModal--wrapper.detail-modal` when open; A clicks; B closes the box (Netflix's close
+    button or Escape) and returns to the title it came from, else history.back(); LT/RT scroll 80 %; right stick
+    scrolls. Guide texts padSelect/padBack/padPage via `browserTexts` (netflix.js) + `NETFLIX_TEXTS` (desktop.py):
+    existing strings Select / Back / Page. Only acts when `document.hasFocus()`; gamepad.js likewise now skips
+    presses while its window isn't in front (`windowInFront`), so Tamkeen behind the Netflix window (or a game)
+    doesn't move. Checked on a pretend Netflix page (rows, arrows, a details box) in the browser pane with the
+    owner's Bluetooth Xbox layout stubbed; NOT checked on netflix.com itself (no sign-in) — Netflix's class names
+    (`previewModal-closebtn`, `.handleNext`) may change.
 
 ## Netflix: hover previews no longer black out the page; subtitles follow a change of language (2026-10-31; on main)
 Owner: "in netflix if i hover over a title it blacks everything and shows this, making it imposisble to navigate"

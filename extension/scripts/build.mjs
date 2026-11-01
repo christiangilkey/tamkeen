@@ -96,7 +96,7 @@ copy("fonts");
 copy("i18n");
 copy("icons", join(ext, "icons"));
 // The scripts that run inside Netflix's pages (plain scripts, shared with the computer's Netflix windows).
-for (const rel of ["js/netflix-common.js", "js/netflix-player.js", "js/netflix-browser.js"]) copy(rel);
+for (const rel of ["js/netflix-common.js", "js/netflix-player.js", "js/netflix-browser.js", "js/netflix-pad.js"]) copy(rel);
 // Word lists and dictionaries' code are loaded by name at times (import(`./wordlists/${lang}.js`)).
 copy("js/lexicon");
 copy("js/wordlists");

@@ -73,7 +73,7 @@ def bring_forward(window: Any) -> None:
         log.debug("Couldn't bring a window forward: %s", exc)
 
 
-NETFLIX_TEXTS = ("tap", "opening", "opened", "signin", "choose", "nolang", "failed")
+NETFLIX_TEXTS = ("tap", "opening", "opened", "signin", "choose", "nolang", "failed", "padSelect", "padBack", "padPage")
 
 
 def _netflix_config(cfg: Any) -> dict[str, Any]:
@@ -279,7 +279,8 @@ class JsApi:
         import webview
 
         scripts = [(paths.web_dir() / "js" / name).read_text(encoding="utf-8")
-                   for name in ("browser-toolbar.js", "youtube-browser.js", "netflix-common.js", "netflix-browser.js")]
+                   for name in ("browser-toolbar.js", "youtube-browser.js", "netflix-common.js", "netflix-browser.js",
+                                "netflix-pad.js")]  # (netflix-pad.js: a game controller on Netflix's pages)
         scripts.insert(0, f"window.__tamkeenNetflix = {json.dumps(_netflix_config(netflix))};")
         if not reading:
             scripts.insert(0, "window.__tamkeenNoImport = true;")

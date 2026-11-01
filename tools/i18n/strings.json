@@ -11635,6 +11635,16 @@
   "f": "web/js/netflix-browser.js"
  },
  {
+  "id": "85982229",
+  "k": "Select",
+  "f": "web/js/netflix-pad.js"
+ },
+ {
+  "id": "fb06270f",
+  "k": "Page",
+  "f": "web/js/netflix-pad.js"
+ },
+ {
   "id": "884d042c",
   "k": "That subtitle file can't be read.",
   "f": "web/js/netflix-ttml.js"
@@ -12265,11 +12275,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "fb06270f",
-  "k": "Page",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "4bfc194b",
   "k": "Next page",
   "f": "web/js/padmap.js"
@@ -12472,11 +12477,6 @@
  {
   "id": "7b50fc75",
   "k": "Select the highlighted thing",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "85982229",
-  "k": "Select",
   "f": "web/js/padmap.js"
  },
  {

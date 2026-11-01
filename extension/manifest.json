@@ -22,7 +22,7 @@
     },
     {
       "matches": ["https://www.netflix.com/*"],
-      "js": ["js/netflix-common.js", "js/netflix-browser.js", "content/netflix.js"],
+      "js": ["js/netflix-common.js", "js/netflix-browser.js", "js/netflix-pad.js", "content/netflix.js"],
       "run_at": "document_idle"
     },
     {
