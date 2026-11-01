@@ -219,7 +219,46 @@
     return m ? m[1] : "";
   }
 
+  // ---------- which of Netflix's players is the title's own ----------
+  // Netflix's pages play more than the title: a small card that plays a preview when the pointer rests
+  // on a title, the "more like this" titles shown when a title ends, the home page's trailer. Each has a
+  // player session and a <video> of its own, and only the title's own may be taken for "playing".
+
+  // Sessions Netflix names for a preview or a trailer.
+  var PREVIEW = /preview|billboard|motion|trailer|teaser|supplemental/i;
+
+  /** The title's own player session among Netflix's `ids` (newest last), or "": the one playing the
+   * title in the address (`movieOf(id)`: a session's title number, when Netflix's player says it),
+   * else the newest Netflix named for its watch page ("watch-…"), else the newest that isn't a preview. */
+  function titleSession(ids, watched, movieOf) {
+    var list = Array.prototype.slice.call(ids || []).map(String);
+    var i;
+    if (watched && typeof movieOf === "function") {
+      for (i = list.length - 1; i >= 0; i--) {
+        var movie = "";
+        try { movie = String(movieOf(list[i]) || ""); } catch (e) { movie = ""; }
+        if (movie && movie === String(watched)) return list[i];
+      }
+    }
+    for (i = list.length - 1; i >= 0; i--) if (/^watch/i.test(list[i])) return list[i];
+    for (i = list.length - 1; i >= 0; i--) if (!PREVIEW.test(list[i])) return list[i];
+    return "";
+  }
+
+  // How much of the window the title's picture fills, at least, one way or the other (it is letterboxed
+  // inside the window, so it always fills its width or its height).
+  var FILL = 0.85;
+
+  /** Does a <video> whose box is `box` ({width, height}) fill `space` ({w, h}: the window, less what
+   * Tamkeen's own bar takes)? The title playing does; a preview card, a trailer in a list or the small
+   * picture Netflix shrinks the end credits into does not. Unknown sizes count as filling. */
+  function fills(box, space) {
+    if (!box || !space || !(space.w > 0) || !(space.h > 0)) return true;
+    return Number(box.width) >= space.w * FILL || Number(box.height) >= space.h * FILL;
+  }
+
   root.__tamkeenNetflixLib = { base: base, isOff: isOff, isCaptions: isCaptions, chooseTextTrack: chooseTextTrack,
     chooseAudioTrack: chooseAudioTrack, trackKey: trackKey, menuTracks: menuTracks, currentKey: currentKey, findTrack: findTrack,
-    offTrack: offTrack, planChoice: planChoice, choseByHand: choseByHand, titleInfo: titleInfo, watchId: watchId };
+    offTrack: offTrack, planChoice: planChoice, choseByHand: choseByHand, titleInfo: titleInfo, watchId: watchId,
+    titleSession: titleSession, fills: fills };
 })();

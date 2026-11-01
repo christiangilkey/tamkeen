@@ -238,6 +238,39 @@ def test_flush_saves_only_what_the_page_chose(fresh_db, monkeypatch):
     assert netflix.flush("80001001") is None
 
 
+SPANISH = [(2.0, 5.2, "Hola, ¿cómo estás hoy?"), (6.0, 9.2, "Estoy bien, gracias.")]
+
+
+def test_after_a_change_of_language_the_subtitles_follow_it(fresh_db, monkeypatch):
+    """The owner learned Arabic, switched to Spanish and watched a title again: its subtitles stayed
+    Arabic. Now Netflix's Spanish subtitles replace the Arabic ones kept, though they have fewer lines."""
+    monkeypatch.setattr("app.events.publish", lambda *a, **k: None)
+    monkeypatch.setattr("app.sync.request", lambda *a, **k: None)
+    monkeypatch.setattr(netflix, "_schedule", lambda *a, **k: None)
+    netflix.save_title("80001001", {"title": "La casa"}, "ar")
+    netflix.save_subtitles("80001001", netflix.parse_ttml(ttml("ar", FULL)), "ar")
+    assert netflix.save_title("80001001", {}, "es")["language"] == "ar", "its words are the Arabic ones until the Spanish arrive"
+    netflix.begin("80001001")
+    assert not netflix.offer_file("80001001", ttml("ar", FULL).encode(), "es"), "an Arabic file no longer counts"
+    assert netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode(), "es")
+    netflix.note_choice("80001001", "chosen", "es-ES", "es")
+    ep = netflix.flush("80001001")
+    assert ep and ep["language"] == "es" and ep["model"] == "netflix-subtitles"
+    with db.session() as conn:
+        texts = [r["text"] for r in conn.execute("SELECT text FROM segments WHERE episode_id = ? ORDER BY idx", (ep["id"],))]
+    assert texts == ["Hola, ¿cómo estás hoy?", "Estoy bien, gracias."]
+    # Watched again in Spanish: nothing is redone.
+    netflix.begin("80001001")
+    netflix.offer_file("80001001", ttml("es-ES", SPANISH).encode(), "es")
+    netflix.note_choice("80001001", "chosen", "es-ES", "es")
+    assert netflix.flush("80001001") is None
+
+
+def test_a_title_still_waiting_for_subtitles_takes_the_language_being_learned_now(fresh_db):
+    assert netflix.save_title("80001002", {"title": "x"}, "ar")["language"] == "ar"
+    assert netflix.save_title("80001002", {}, "es")["language"] == "es", "no Arabic words yet: it waits for Spanish ones"
+
+
 def test_subtitles_that_arrive_before_the_title_is_kept(fresh_db, monkeypatch):
     from fastapi.testclient import TestClient
 
@@ -293,6 +326,64 @@ def test_the_video_window_goes_exactly_over_the_stage():
     assert screen_box({"x": 0, "y": 0, "w": 1, "h": 300, "vw": 800, "vh": 600}, (0, 0, 800, 600)) is None, "no width"
     assert screen_box({"x": 0, "y": 0, "w": 100, "h": 100, "vw": 0, "vh": 600}, (0, 0, 800, 600)) is None
     assert screen_box({"x": "a"}, (0, 0, 800, 600)) is None
+
+
+def test_the_video_window_tells_netflix_a_new_language_for_the_same_title(monkeypatch):
+    """Reopened for the title already in it (within 30 s of leaving the player), after a change of
+    language: Netflix's page is told the new language, and the subtitle file that follows counts."""
+    import webview
+
+    from app.netflix_overlay import NetflixOverlay
+
+    class Win:
+        def __init__(self) -> None:
+            self.js: list[str] = []
+
+        def evaluate_js(self, script: str) -> bool:
+            self.js.append(script)
+            return True
+
+    win = Win()
+    monkeypatch.setattr(webview, "windows", [win])
+    began: list[str] = []
+    monkeypatch.setattr(netflix, "begin", began.append)
+    o = NetflixOverlay(None)
+    o._win, o._id, o._playing, o._lang, o._last = win, "80001001", "80001001", "ar", {"t": 42.0, "paused": False}
+    r = o.open("80001001", "ar")
+    assert r["reused"] and r["t"] == 42.0 and win.js == [] and began == [], "the same language: nothing to tell"
+    r = o.open("80001001", "es")
+    assert r["reused"] and began == ["80001001"] and o._lang == "es"
+    assert len(win.js) == 1 and "__tamkeenNetflixCfg" in win.js[0] and '"es"' in win.js[0]
+
+
+def test_open_netflix_opens_afresh_after_a_change_of_language(monkeypatch):
+    import webview
+
+    from app import desktop
+
+    class Win:
+        destroyed = False
+
+        def destroy(self) -> None:
+            self.destroyed = True
+
+    made: list[tuple[Win, str]] = []
+    forward: list[Win] = []
+    api = desktop.JsApi(None)
+
+    def window(title, start, close_after_watch=False, reading=True, netflix=None):
+        w = Win()
+        made.append((w, netflix["lang"]))
+        webview.windows.append(w)
+        return w
+
+    monkeypatch.setattr(webview, "windows", [])
+    monkeypatch.setattr(api, "_browser_window", window)
+    monkeypatch.setattr(desktop, "bring_forward", forward.append)
+    assert api.open_netflix("", {"lang": "ar"})["ok"] and len(made) == 1
+    assert api.open_netflix("", {"lang": "ar"})["ok"] and len(made) == 1 and forward == [made[0][0]], "the same: brought back"
+    assert api.open_netflix("", {"lang": "es"})["ok"] and [m[1] for m in made] == ["ar", "es"]
+    assert made[0][0].destroyed, "the window told Arabic closes; a new one opens on the Spanish titles"
 
 
 def test_what_the_netflix_window_is_told_is_kept_plain():

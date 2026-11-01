@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
 import { CHROME_WEB_STORE_URL, EXTENSION_PAGE, EXTENSION_STORES, extensionStore, storeButtonText, browseAddresses, browseStart, browserTexts, drmAvailable, extensionBrowserTexts, extensionHere,
-  extensionLink, languageNames, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
+  extensionLink, languageNames, otherLanguageSubtitles, subtitleNote, unavailableReason, unavailableText } from "../../web/js/netflix.js";
 import { coveredBy, createNetflixMedia, watchPlacement } from "../../web/js/nfmedia.js";
 
 const read = (name) => readFileSync(new URL(`../../web/js/${name}`, import.meta.url), "utf8");
@@ -277,11 +277,15 @@ test("a title's description: a film, an episode, a series opened by its own numb
 
 // ---------- netflix-player.js (inside Netflix's watch page, in the video window) ----------
 
-function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, lang = "ar" } = {}) {
+// `sessions`: Netflix's player sessions, newest last ({sid, movie, player}; by default one, the title's),
+// `videos`: the page's <video>s ({w, h} gives one a size), `viewport`: the window's size ({w, h}),
+// `vars`: CSS variables on <html> (the extension's bar and sidebar), `ext`: <html> has class tk-ext.
+function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, lang = "ar", sessions = null, videos = null,
+  viewport = null, vars = {}, ext = false } = {}) {
   let now = 1000;
   const log = [];
   const timers = [];
-  const classes = new Set();
+  const classes = new Set(ext ? ["tk-ext"] : []);
   let currentAudio = audio || { bcp47: "ar-LB", displayName: "Arabic (Lebanon) [Original]" };
   const audioList = [currentAudio, { bcp47: "ar", displayName: "Arabic" }, { bcp47: "en", displayName: "English" }];
   let currentText = tracks[0];
@@ -297,12 +301,15 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
     getAudioTrackList: () => audioList,
     getAudioTrack: () => currentAudio, setAudioTrack: (x) => { log.push(`audio ${x.displayName}`); currentAudio = x; },
   };
+  const sized = (v) => (v && v.w !== undefined ? { ...v, getBoundingClientRect: () => ({ width: v.w, height: v.h }) } : v);
+  let shown = videos ? videos.map(sized) : [video];
+  let list = sessions;
   const doc = {
     documentElement: { classList: { toggle: (c, on) => (on ? classes.add(c) : classes.delete(c)), contains: (c) => classes.has(c) },
-      appendChild() {} },
+      style: { getPropertyValue: (name) => vars[name] || "" }, appendChild() {} },
     head: { appendChild() {} },
     createElement: () => ({ style: {} }),
-    querySelectorAll: (sel) => (sel === "video" ? [video] : []),
+    querySelectorAll: (sel) => (sel === "video" ? shown : []),
     querySelector: (sel) => (prompt && /interrupt/.test(sel) ? { getBoundingClientRect: () => ({ width: 300, height: 100 }), innerText: "Are you still watching?", querySelector: () => ({ click: () => log.push("continue") }) } : null),
   };
   const url = new URL(href);
@@ -310,8 +317,16 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
     URL, document: doc, location: { href: url.href, hostname: url.hostname, pathname: url.pathname },
     setInterval: (fn) => { timers.push(fn); return 0; }, Date: { now: () => now }, isFinite, Math, Number, String,
     __tamkeenNetflixCfg: { lang, hosts: ["www.netflix.com", "netflix.com"] },
+    innerWidth: viewport ? viewport.w : undefined, innerHeight: viewport ? viewport.h : undefined,
     netflix: { appContext: { state: { playerApp: {
-      getAPI: () => ({ videoPlayer: { getAllPlayerSessionIds: () => [sid], getVideoPlayerBySessionId: () => p } }),
+      getAPI: () => ({ videoPlayer: {
+        getAllPlayerSessionIds: () => (list ? list.map((s) => s.sid) : [sid]),
+        getVideoPlayerBySessionId: (id) => {
+          const s = list && list.find((x) => x.sid === id);
+          if (!s) return p;
+          const own = s.player || p;
+          return s.movie ? { ...own, getMovieId: () => s.movie } : own;
+        } } }),
       getState: () => ({ videoPlayer: { videoMetadata: { 81946364: { _metadata: { video: { type: "movie", title: "Film", runtime: 1500 } } } } } }),
     } } } },
   };
@@ -322,7 +337,18 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
   return { win, log, classes, tick: () => timers.forEach((fn) => fn()), wait: (ms) => { now += ms; }, api: win.__tamkeenNetflixPlayer,
     learn: (code) => { win.__tamkeenNetflixCfg.lang = code; }, // the extension says the language being learned changed
     nextTitle: (s) => { sid = s; },                              // Netflix moves on (a new player session)
-    netflixSets: (x) => { currentText = x; } };                  // Netflix itself changes the subtitles
+    netflixSets: (x) => { currentText = x; },                    // Netflix itself changes the subtitles
+    page: ({ videos: v, sessions: s }) => { if (v) shown = v.map(sized); if (s) list = s; } }; // Netflix's page changes
+}
+
+/** A player session of a preview (a trailer in a small card): logs what is done to it. */
+function previewPlayer(log) {
+  return {
+    getCurrentTime: () => 3000, isPaused: () => false, getPlaybackRate: () => 1, getDuration: () => 60000,
+    getAudioTrackList: () => [{ bcp47: "en", displayName: "English" }, { bcp47: "ar", displayName: "Arabic" }],
+    getAudioTrack: () => ({ bcp47: "en", displayName: "English" }), setAudioTrack: () => log.push("preview audio"),
+    getTextTrackList: () => REAL_TRACKS, getTextTrack: () => REAL_TRACKS[0], setTextTrack: () => { log.push("preview text"); },
+  };
 }
 
 test("in Netflix's page: soundtrack first, then the subtitles, then only the picture shows", () => {
@@ -428,6 +454,69 @@ test("in Netflix's page: no subtitles in the language, a question from Netflix, 
   const login = watchPage("https://www.netflix.com/login");
   assert.equal(login.api.state().page, "login");
   assert.equal(watchPage("https://www.netflix.com.evil.example/watch/1234").api, undefined);
+});
+
+// The owner's report (2026-10-31): "if i hover over a title it blacks everything and shows this, making
+// it impossible to navigate" — Netflix's page all black but for a preview card 427 x 241 at its top left.
+const WATCH = "https://www.netflix.com/watch/81946364";
+const STAGE = { w: 1415, h: 797 }; // the size of the owner's screenshot (the video window over the stage)
+
+test("in Netflix's page: a preview playing on a title Netflix offers doesn't black out the page", () => {
+  const plog = [];
+  const title = { sid: "watch-1", movie: 81946364 };
+  const page = watchPage(WATCH, { viewport: STAGE, sessions: [title], videos: [{ w: 1415, h: 797 }] });
+  assert.ok(page.classes.has("tk-only-video"), "the title playing: only its picture shows");
+  page.page({ videos: [] }); // it ended: Netflix shows titles to pick
+  page.tick();
+  assert.ok(!page.classes.has("tk-only-video"), "Netflix's own screen shows");
+  // The pointer rests on one: Netflix plays its preview in a small card, with a player of its own (the newest).
+  page.page({ videos: [{ w: 427, h: 241 }], sessions: [title, { sid: "preview-modal-7", movie: 80000001, player: previewPlayer(plog) }] });
+  for (let i = 0; i < 5; i++) { page.wait(1000); page.tick(); }
+  assert.ok(!page.classes.has("tk-only-video"), "the preview isn't the title: Netflix's page stays usable");
+  assert.deepEqual(plog, [], "the preview's soundtrack and subtitles are left alone");
+  assert.equal(page.api.state().sid, "watch-1", "the title's own player is the one reported");
+});
+
+test("in Netflix's page: only a picture that fills the window is the title playing", () => {
+  const shrunk = watchPage(WATCH, { viewport: STAGE, videos: [{ w: 400, h: 225 }] });
+  assert.ok(!shrunk.classes.has("tk-only-video"), "the end credits shrunk into a corner: Netflix's own end screen shows");
+  const card = watchPage(WATCH, { viewport: { w: 480, h: 270 }, videos: [{ w: 300, h: 169 }] });
+  assert.ok(!card.classes.has("tk-only-video"), "in a small window too");
+  const wide = watchPage(WATCH, { viewport: STAGE, videos: [{ w: 1415, h: 590 }] });
+  assert.ok(wide.classes.has("tk-only-video"), "a wide film, letterboxed: it fills the width");
+  const both = watchPage(WATCH, { viewport: STAGE, videos: [{ w: 1415, h: 797 }, { w: 427, h: 241 }] });
+  assert.ok(both.classes.has("tk-only-video"), "the title's picture is the biggest, whatever else plays");
+  // The browser extension sizes the picture into the space its bar and sidebar leave, and says how much they take.
+  const box = { viewport: { w: 1440, h: 900 }, videos: [{ w: 1060, h: 640 }] };
+  const ext = watchPage(WATCH, { ...box, ext: true, vars: { "--tk-side": "380px", "--tk-bar": "260px" } });
+  assert.ok(ext.classes.has("tk-only-video"), "the extension's video box: still only the picture");
+  assert.ok(!watchPage(WATCH, box).classes.has("tk-only-video"), "(that size in the whole window is not the title)");
+});
+
+test("which of Netflix's players is the title's, and which pictures fill the window", () => {
+  const L = lib();
+  const movie = (s) => (s === "watch-1" ? 81946364 : 80000001);
+  assert.equal(L.titleSession(["watch-1", "x-2"], "81946364", movie), "watch-1", "the one playing the title in the address");
+  assert.equal(L.titleSession(["a", "b"], "81946364", (s) => (s === "a" ? "81946364" : "")), "a");
+  assert.equal(L.titleSession(["watch-1", "motion-billboard-2"], "", null), "watch-1", "named for the watch page");
+  assert.equal(L.titleSession(["s1", "s2"], "1", () => { throw new Error("no"); }), "s2", "unnamed: the newest, as before");
+  assert.equal(L.titleSession(["s1", "previewModal-2"], "", null), "s1", "never a preview's");
+  assert.equal(L.titleSession(["previewModal-2"], "", null), "");
+  assert.equal(L.titleSession([], "1", null), "");
+  assert.equal(L.titleSession(null, "1", null), "");
+  assert.ok(L.fills({ width: 1415, height: 797 }, STAGE));
+  assert.ok(L.fills({ width: 1415, height: 500 }, STAGE), "letterboxed");
+  assert.ok(!L.fills({ width: 427, height: 241 }, STAGE), "the preview card in the owner's screenshot");
+  assert.ok(L.fills(null, STAGE) && L.fills({ width: 1, height: 1 }, { w: 0, h: 0 }), "sizes not known: as before");
+});
+
+test("the subtitles follow the language being learned after it changes", () => {
+  const ep = { audio_type: "video/netflix", language: "ar" };
+  assert.equal(otherLanguageSubtitles(ep, 900, "es"), true, "Arabic subtitles kept, Spanish learned now: Netflix's Spanish ones instead");
+  assert.equal(otherLanguageSubtitles(ep, 900, "ar"), false);
+  assert.equal(otherLanguageSubtitles(ep, 0, "es"), false, "no words yet");
+  assert.equal(otherLanguageSubtitles({ audio_type: "video/youtube", language: "ar" }, 900, "es"), false, "only Netflix titles");
+  assert.equal(otherLanguageSubtitles({ audio_type: "video/netflix" }, 900, "ar"), false, "from before other languages: Arabic");
 });
 
 // ---------- netflix-browser.js (the Netflix window) ----------

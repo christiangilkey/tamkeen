@@ -429,11 +429,14 @@ def save_title(netflix_id: str, info: Any = None, language: str | None = None, r
             ep_id = int(row["id"])
             # A better name or picture than the one kept (the first page may only have known the series).
             better = info["title"] or info["show"]
+            # Its language is its subtitles' (save_subtitles): one still waiting for them takes the
+            # language being learned now.
+            waiting = row["model"] == MODEL_PENDING
             conn.execute(
                 "UPDATE episodes SET title = ?, description = ?, image = COALESCE(?, image), "
-                "duration = COALESCE(?, duration), deleted = 0, status = 'done' WHERE id = ?",
+                "duration = COALESCE(?, duration), deleted = 0, status = 'done', language = ? WHERE id = ?",
                 (title if better else row["title"], info["show"] or row["description"] or "", info["image"] or None,
-                 info["duration"], ep_id))
+                 info["duration"], language if waiting else row["language"], ep_id))
         if replaces and replaces != netflix_id and re.fullmatch(r"\d{3,12}", str(replaces)):
             old = conn.execute(
                 "SELECT e.id FROM episodes e WHERE e.feed_id = ? AND e.guid = ? AND e.deleted = 0 AND e.model = ? "
@@ -629,9 +632,12 @@ def flush(netflix_id: str) -> dict[str, Any] | None:
         return None
     if row is None:
         return None  # not in the library yet: save_title calls this again once it is
-    if row.get("model") == MODEL_SUBTITLES and _segment_count(row["id"]) >= len(best.cues):
+    wanted = choice.get("lang") if languages.valid(choice.get("lang")) else base_language(best.lang)
+    same_language = base_language(row.get("language")) == base_language(wanted)
+    if row.get("model") == MODEL_SUBTITLES and same_language and _segment_count(row["id"]) >= len(best.cues):
         catcher.mark_saved(netflix_id, best)  # watched again: the words kept are already these
         return None
+    # (Kept in another language, as when it was watched while learning another one: these replace them.)
     try:
         ep = save_subtitles(netflix_id, {"lang": best.lang, "cues": best.cues}, choice.get("lang") or None)
     except NetflixError as exc:

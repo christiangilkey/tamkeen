@@ -27,7 +27,7 @@ import { isAudiobookFeed } from "../audiobooks.js";
 import { captionKind, channelOf, dubbedTrack, followChannel, importVideo, isFollowing, isYouTube, noteWatched, readVideo, saveVideo,
   videoId as youTubeId } from "../youtube.js";
 import { createYouTubeMedia } from "../ytmedia.js";
-import { addNetflix, isNetflix, languageName, subtitleNote, unavailableText } from "../netflix.js";
+import { addNetflix, isNetflix, languageName, otherLanguageSubtitles, subtitleNote, unavailableText } from "../netflix.js";
 import { createNetflixMedia } from "../nfmedia.js";
 import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
@@ -186,6 +186,15 @@ export async function render(view, { id, query }) {
   if (isBook(ep) && data.words.text.length) return (await import("./book.js")).render(view, { id, data, query });
   // (A Netflix title plays at once: its subtitles arrive once Netflix's player has started.)
   if (!nf && (ep.status !== "done" || !data.words.start.length)) return renderPending(view, ep);
+  // A Netflix title's words are Netflix's subtitles in the language being learned. Kept in another
+  // language (it was watched while learning that one), they aren't shown: Netflix's subtitles in the
+  // language being learned now arrive as it plays and take their place.
+  if (otherLanguageSubtitles(ep, data.words.start.length)) {
+    data.words = { start: [], end: [], text: [], seg: [] };
+    data.segments = [];
+    data.vowels = null;
+    ep.language = studyLanguage();
+  }
 
   const lang = episodeLanguage(ep);
   const segTexts = new Map(data.segments.map((s) => [s.idx, s.text]));
@@ -296,7 +305,7 @@ export async function render(view, { id, query }) {
   tr.innerHTML = parts.join("");
   // A Netflix title's subtitles come from Netflix once it plays; the page is drawn afresh then.
   // (t(): the transcript is in the language being learned, which the page's translation leaves alone.)
-  const nfWaiting = nf ? t("Netflix's {0} subtitles appear here once the title starts playing.", languageName(ep.language || studyLanguage())) : "";
+  const nfWaiting = nf ? t("Netflix's {0} subtitles appear here once the title starts playing.", languageName(studyLanguage())) : "";
   if (nf && !n) {
     tr.innerHTML = `<p class="nf-wait" dir="auto"></p>`;
     tr.firstChild.textContent = nfWaiting;
@@ -314,10 +323,11 @@ export async function render(view, { id, query }) {
   // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
   const study = studyLanguage();
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
-  // its subtitles and soundtrack are switched to the language the title was added in.
+  // its subtitles and soundtrack are switched to the language being learned now (not the one it was
+  // first watched in: after a change of language, Netflix's subtitles follow it).
   const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
     { start: startAt, duration, captions: { lang: study, show: lang !== study } })
-    : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: ep.language || study, duration,
+    : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: study, duration,
       onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();
   if (!embed) {
@@ -685,7 +695,7 @@ export async function render(view, { id, query }) {
     }
     // While there are no words yet, what is happening to the subtitles is said where the words will
     // be (the transcript panel); once there are, any note goes under the captions, as for YouTube.
-    const said = subtitleNote(s, { words: n, lang: ep.language || study });
+    const said = subtitleNote(s, { words: n, lang: study });
     const lines = [said.sound, n ? said.subs : ""].filter(Boolean);
     if (`${lines.join("\n")}|${said.subs}` !== nfNote) {
       nfNote = `${lines.join("\n")}|${said.subs}`;

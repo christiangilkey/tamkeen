@@ -13,7 +13,7 @@
 // (Nothing here touches the page or the app's shell when the file loads, so its rules can be tested
 // on their own: tests/js/netflix.test.mjs.)
 import { t } from "./i18n.js";
-import { langInfo, studyLanguage } from "./languages.js";
+import { episodeLanguage, langInfo, studyLanguage } from "./languages.js";
 
 export const NF_TYPE = "video/netflix";
 export const NETFLIX_FEED = "local:netflix";
@@ -187,6 +187,13 @@ export async function drmAvailable(nav = typeof navigator !== "undefined" ? navi
 export async function addNetflix(id, info = {}, replaces = null) {
   const { api } = await import("./app.js");
   return api("/netflix", { method: "POST", body: { id: String(id), info, language: studyLanguage(), replaces } });
+}
+
+/** Are a Netflix title's kept subtitles (`words` of them) in another language than the one being
+ * learned (`study`)? It was watched while learning that one. They aren't shown then: Netflix's
+ * subtitles in the language being learned now arrive as it plays and take their place (app/netflix.py). */
+export function otherLanguageSubtitles(ep, words, study = studyLanguage()) {
+  return isNetflix(ep) && words > 0 && episodeLanguage(ep) !== study;
 }
 
 /** Open a title picked on Netflix in the player. Resolves to its episode. */

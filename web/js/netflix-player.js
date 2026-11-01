@@ -4,7 +4,9 @@
 // Tamkeen's page:
 //   - only the picture shows: Netflix's own controls, subtitles and buttons are hidden, because
 //     Tamkeen shows its own clickable subtitles and controls (except when Netflix needs the viewer:
-//     "Are you still watching?" or an error, which stay visible);
+//     "Are you still watching?" or an error, which stay visible). Only the title's own picture, and
+//     only while it fills the window: a preview Netflix plays in a small card (the pointer resting
+//     on a title it offers, when a title ends) leaves Netflix's page as it is;
 //   - when a title starts, the soundtrack is switched to the language being learned when Netflix
 //     has one, then the subtitles: Netflix then downloads that subtitle file, which the app's
 //     window notices and keeps as the transcript. This happens once per title (and again when the
@@ -42,12 +44,17 @@
   (document.head || document.documentElement).appendChild(style);
 
   // ---------- Netflix's page ----------
-  /** The player of the title playing (the last session), or null while there is none. */
+  /** The player of the title playing, or null while there is none. Not a preview's: a card that plays
+   * when the pointer rests on a title has a player session of its own (lib.titleSession). */
   function player() {
     try {
       var vp = window.netflix.appContext.state.playerApp.getAPI().videoPlayer;
-      var ids = vp.getAllPlayerSessionIds();
-      return ids && ids.length ? { p: vp.getVideoPlayerBySessionId(ids[ids.length - 1]), sid: String(ids[ids.length - 1]) } : null;
+      var sid = lib.titleSession(vp.getAllPlayerSessionIds(), lib.watchId(location.href), function (id) {
+        var s = vp.getVideoPlayerBySessionId(id);
+        return s && typeof s.getMovieId === "function" ? s.getMovieId() : "";
+      });
+      var p = sid ? vp.getVideoPlayerBySessionId(sid) : null;
+      return p ? { p: p, sid: sid } : null;
     } catch (e) { return null; }
   }
   function pageKind() {
@@ -74,10 +81,31 @@
   function prompt() {
     return document.querySelector("[data-uia*='interrupt'], .interrupter-modal");
   }
+  /** The space the title's picture has: the window, less what Tamkeen's bar and sidebar take in the
+   * browser extension (which sizes the picture itself, content/netflix.js, and says how much they take). */
+  function space() {
+    var root = document.documentElement;
+    var sized = root.classList && root.classList.contains && root.classList.contains("tk-ext");
+    var taken = function (name) { return sized && root.style ? parseFloat(root.style.getPropertyValue(name)) || 0 : 0; };
+    return { w: Number(window.innerWidth) - taken("--tk-side"), h: Number(window.innerHeight) - taken("--tk-bar") };
+  }
+  function boxOf(v) {
+    try { return typeof v.getBoundingClientRect === "function" ? v.getBoundingClientRect() : null; } catch (e) { return null; }
+  }
+  /** The title's picture: the biggest <video> on the page, or null. `fills`: it fills the window,
+   * as the title playing does (lib.fills); a preview card or the shrunken end credits don't. */
   function video() {
     var list = document.querySelectorAll("video");
-    return list.length ? list[list.length - 1] : null;
+    var best = null;
+    var area = -1;
+    for (var i = 0; i < list.length; i++) {
+      var b = boxOf(list[i]);
+      var a = b ? Number(b.width) * Number(b.height) : 0;
+      if (a >= area) { best = list[i]; area = a; } // (equal sizes: the newest, as Netflix adds them last)
+    }
+    return best;
   }
+  function fillsWindow(v) { return !!v && lib.fills(boxOf(v), space()); }
   function call(p, name) {
     try { return typeof p[name] === "function" ? p[name]() : undefined; } catch (e) { return undefined; }
   }
@@ -151,8 +179,11 @@
     // Only on a title's own page (/watch/...): Netflix's home and browse pages play trailers with a
     // player of their own, and treating one as the title playing hid the whole page but the trailer
     // (dark once scrolled past it) and changed the trailer's soundtrack.
+    // And only while the title's picture fills the window: on a watch page Netflix also shows titles
+    // to pick (when a title ends, say), and the pointer resting on one plays a preview in a small
+    // card. Taken for the title, it hid everything but that card, and Netflix couldn't be used.
     var found = pageKind() === "watch" ? player() : null;
-    document.documentElement.classList.toggle("tk-only-video", !!(found && video() && !prompt() && !errorText()));
+    document.documentElement.classList.toggle("tk-only-video", !!(found && fillsWindow(video()) && !prompt() && !errorText()));
     if (found) choose(found);
   }
   setInterval(tick, 400);

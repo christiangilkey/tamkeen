@@ -172,21 +172,32 @@ class NetflixOverlay:
         import webview
 
         netflix_id = netflix.clean_id(netflix_id)
+        tell: tuple[Any, str] | None = None
         with self._lock:
             self._cancel_timers()
+            was = self._lang
             self._lang = lang if languages.valid(lang) else languages.study()
             alive = self._win is not None and self._win in webview.windows
             if alive and netflix_id in (self._id, self._playing) and not reload:
+                if self._lang != was:  # learning another language now: Netflix's page chooses for it again
+                    netflix.begin(self._playing or netflix_id)  # (and the subtitle file that follows counts)
+                    tell = (self._win, self._lang)
                 t = self._last.get("t") if isinstance(self._last.get("t"), (int, float)) else None
-                return {"ok": True, "reused": True, "t": t, "paused": self._last.get("paused", True)}
-            self._id = self._playing = netflix_id
-            self._ready = False
-            self._last = {}
-            netflix.begin(netflix_id)
-            if alive:
-                self._apply()
-                self._win.load_url(netflix.watch_url(netflix_id))
-                return {"ok": True, "reused": False}
+                done = {"ok": True, "reused": True, "t": t, "paused": self._last.get("paused", True)}
+            else:
+                self._id = self._playing = netflix_id
+                self._ready = False
+                self._last = {}
+                netflix.begin(netflix_id)
+                done = None
+                if alive:
+                    self._apply()
+                    self._win.load_url(netflix.watch_url(netflix_id))
+                    done = {"ok": True, "reused": False}
+        if tell is not None:  # (outside the lock: the page answers on the window's own thread)
+            self._tell_language(*tell)
+        if done is not None:
+            return done
         self._hook_main()
         win = webview.create_window(f"Netflix player · {APP_NAME}", netflix.watch_url(netflix_id), frameless=True,
                                     easy_drag=False, focus=False, hidden=True, shadow=False,
@@ -277,6 +288,16 @@ class NetflixOverlay:
                 log.debug("Couldn't close the Netflix window: %s", exc)
 
     # ----- the window -----
+
+    @staticmethod
+    def _tell_language(win: Any, lang: str) -> None:
+        """The language being learned changed while the same title stays open: Netflix's page chooses
+        its soundtrack and subtitles for it again (web/js/netflix-player.js reads it every moment)."""
+        try:
+            win.evaluate_js(f"window.__tamkeenNetflixCfg = Object.assign(window.__tamkeenNetflixCfg || {{}}, "
+                            f"{{lang: {json.dumps(lang)}}}); true")
+        except Exception as exc:  # the page is between two loads: _on_loaded tells it then
+            log.debug("Couldn't tell Netflix's page the language: %s", exc)
 
     def _cancel_timers(self) -> None:
         for t in self._timers:

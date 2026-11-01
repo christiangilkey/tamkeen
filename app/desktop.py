@@ -265,6 +265,7 @@ class JsApi:
         self._youtube: Any = None  # the browser window opened by "Open YouTube", while it lives
         self._youtube_start = ""   # the address that window was last sent to
         self._netflix: Any = None  # the browser window opened by "Open Netflix", while it lives
+        self._netflix_lang = ""    # the language being learned it was opened for
 
     def _browser_window(self, title: str, start: str, close_after_watch: bool = False,
                         reading: bool = True, netflix: Any = None) -> Any:
@@ -352,11 +353,18 @@ class JsApi:
         from . import netflix
 
         try:
+            lang = _netflix_config(cfg)["lang"]
             if self._netflix is not None and self._netflix in webview.windows:
-                bring_forward(self._netflix)
-            else:
-                self._netflix = self._browser_window("Netflix", netflix.start_address(start), close_after_watch=True,
-                                                     reading=False, netflix=cfg)
+                if lang == self._netflix_lang:
+                    bring_forward(self._netflix)
+                    return {"ok": True}
+                # Opened while learning another language: its pages were told that one, so it opens
+                # afresh on the titles in the language being learned now.
+                old, self._netflix = self._netflix, None
+                old.destroy()
+            self._netflix = self._browser_window("Netflix", netflix.start_address(start), close_after_watch=True,
+                                                 reading=False, netflix=cfg)
+            self._netflix_lang = lang
         except Exception as exc:
             log.exception("Couldn't open the Netflix window")
             return {"ok": False, "error": f"Couldn't open the Netflix window ({exc})."}

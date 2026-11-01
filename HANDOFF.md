@@ -6074,3 +6074,35 @@ image in the controller settings". The layout table was sent first and approved 
   - Still to do: the owner, "Xbox controls also dont work in the netflix app": the Netflix window and the player
     overlay (netflix-browser.js, nfmedia.js, app/netflix_overlay.py) have no controller support. Wait for the Netflix
     session (hover blackout, subtitle language, track switching) to finish with those files first.
+
+## Netflix: hover previews no longer black out the page; subtitles follow a change of language (2026-10-31; on main)
+Owner: "in netflix if i hover over a title it blacks everything and shows this, making it imposisble to navigate"
+(screenshot: all black but a 427 x 241 preview card, rounded top corners, at the top left of a 1415 x 797 = 16:9 area,
+i.e. the video window over the stage); and "I switched my language in tamkeen to spanish which opened up netflix in
+spanish but when i actually played a show the subtitles were still in arabic. The audio track was in spanish though."
+- **Hover blackout, why**: `netflix-player.js` took the NEWEST player session and the LAST `<video>` on a /watch/ page
+  for the title. A watch page also shows titles to pick (when a title ends, say); the pointer resting on one makes
+  Netflix play its preview in a small card with a player session and `<video>` of its own, so `tk-only-video` hid
+  everything but that card (and the script switched the preview's soundtrack/subtitles). **Now** (shared rules in
+  `netflix-common.js`): `titleSession(ids, watchId, movieOf)` = the session whose `getMovieId()` is the title in the
+  address, else the newest named `watch…`, else the newest not named like a preview (`PREVIEW`), else none;
+  `video()` = the biggest `<video>`; `tk-only-video` only while it `fills` the window (width or height >= 85 %;
+  letterboxed films fill one way). In the extension the space is the window less `--tk-side`/`--tk-bar` (its video
+  box sizes the picture). So Netflix's own end screens, cards and the shrunken end credits stay usable in the window.
+  Same file runs in the extension, so it is fixed there too (rebuilt with the next release's docs/extension zip).
+- **Subtitles stayed Arabic, why**: the player page told the video window `ep.language` (the language a title was
+  FIRST added in), not the language being learned; and `netflix.flush` skipped a "re-watch" whenever the kept
+  transcript had at least as many lines, whatever its language. **Now**: player.js passes `studyLanguage()`
+  (notes too); a title whose kept words are in another language (`netflix.js otherLanguageSubtitles`) shows no words
+  and "Getting Netflix's Spanish subtitles…" until they arrive; `flush` replaces a transcript kept in another
+  language (`save_subtitles` sets the new language); `save_title` gives a title still waiting for subtitles the
+  language being learned now; the video window reused for the same title after a change of language tells Netflix's
+  page the new language (`_tell_language`, outside the lock) and restarts the catcher's 2-minute window
+  (`netflix.begin`); Open Netflix closes a Netflix window opened for another language and opens a new one
+  (`JsApi._netflix_lang`). Replacing the words keeps Vocab cards (they hold their own text).
+- Tests: netflix.test.mjs (+4: the owner's hover case, what fills the window incl. the extension's box,
+  titleSession/fills, otherLanguageSubtitles), test_netflix.py (+4: Arabic -> Spanish re-watch, a waiting title's
+  language, the window told the new language, Open Netflix reopened). **Not checked with real Netflix** (can't sign
+  in): that Netflix's watch session is named `watch-…` or answers `getMovieId()` (both optional: the size check alone
+  stops the blackout), and that the title's `<video>` fills the window on Netflix's real watch page (if it didn't,
+  Netflix's controls would show over the picture: look at `fills`/`FILL`).
