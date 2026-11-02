@@ -6226,7 +6226,9 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   check_audio.py fix that hears ar-<d> as Arabic; 52820a78 the course): 147 basics words, each with dictionary evidence
   (tools/course/ar-lev/README.md, EVIDENCE.md), Azure ar-SY Amany audio for all 147, and 16 grammar lessons (en-ar-lev).
   Whisper scores that audio low (0.40), mostly Whisper's weakness on Levantine; 7 files are flagged for a native listen in
-  the README. Gulf, Moroccan (no audio) and Egyptian are with their sessions. Checked with the real Levantine files in a real
+  the README. Gulf committed by dialect-glf (279b1437): Saudi, Riyadh (Najdi) style, 88 basics words with sources and
+  Azure ar-SA Hamed audio, 16 grammar lessons (en-ar-glf); method and left-out words in tools/course/ar-glf/README.md.
+  Moroccan (no audio) and Egyptian are with their sessions. Checked with the real Levantine files in a real
   window: the menu offers only the dialects with files, notes show, ar-lev audio plays, Add files cards under "Levantine basics".
 - whatsnew.js: `notes()` now adds to a version named twice; a 0.43.0 line was added ahead of the release (rename it if
   the release is numbered otherwise). Translations `tools/i18n/tr/<code>/99-arabic-dialects.txt` (5 strings × 16).
