@@ -115,6 +115,23 @@
    "bytes": 71237,
    "sha256": "a5e2b836bbefb0eef4fcad83bf18cf410f130901e844109bdce04a0b25f10751"
   },
+  "en-ar-mor": {
+   "file": "en-ar-mor/course.json",
+   "from": "en",
+   "to": "ar",
+   "dialect": "mor",
+   "title": "Moroccan grammar",
+   "variety": "Moroccan Arabic (Darija), as spoken in Casablanca and Rabat",
+   "units": 4,
+   "lessons": 16,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 86138,
+   "sha256": "2d8118bbdab0ec43c4dfce3dac5aa854e5e0ba93b26b9889abf7c169d77cc6f8"
+  },
   "en-ca": {
    "file": "en-ca/course.json",
    "from": "en",
