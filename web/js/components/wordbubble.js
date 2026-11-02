@@ -3,7 +3,7 @@
 
 import { NO_MEANINGS, downloadMeanings, meaningsStatus } from "../meanings.js";
 import { FALLBACK, offerDictionary, sourceChoices, switchSource, tagLabel } from "../defsource.js";
-import { esc, buzz, toast, saveSettings, state } from "../app.js";
+import { esc, buzz, h, toast, saveSettings, state } from "../app.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
@@ -85,6 +85,7 @@ export function createWordBubble(host, actions) {
   let ipa = ""; // English: US pronunciation from the downloaded word table (lexicon/seen.js); Thai: how it is said
   let token = 0;
   let saved = false;
+  let unknownBtn = null; // the ? ("not known yet"): {on, toggle()} from the screen (lexicon/seen.js), or null
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
   // the full explanation for this one word. The Word and Sentence play buttons stay (the owner
   // wanted them in quick mode too); Continue and Ask again are left to the full view.
@@ -325,6 +326,7 @@ export function createWordBubble(host, actions) {
         ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
         ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices." aria-label="Add audio">${icon("mic", 15)} <span class="wb-label">Add audio</span></button>` : ""}
+        ${unknownBtn ? unknownButton() : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
@@ -419,6 +421,17 @@ export function createWordBubble(host, actions) {
         if (actions.onAddAudio) actions.onAddAudio();
         else { hide(); location.hash = VOICE_SETTINGS; }
         break;
+      case "unknown":
+        // Only the button changes (the word's colour behind the popup shows the rest): the popup stays put.
+        b.disabled = true;
+        try {
+          unknownBtn.on = await unknownBtn.toggle();
+          buzz("tick");
+        } catch (err) {
+          toast(err && err.message ? err.message : String(err), { error: true });
+        }
+        b.replaceWith(h(unknownButton()));
+        break;
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;
@@ -438,7 +451,16 @@ export function createWordBubble(host, actions) {
   // Don't let clicks inside the bubble reach the transcript (which would seek).
   el.addEventListener("pointerdown", (e) => e.stopPropagation());
 
+  /** The ? button: amber and pressed while the word is marked unknown. */
+  function unknownButton() {
+    const on = !!(unknownBtn && unknownBtn.on);
+    return `<button type="button" class="ghost icon wb-unknown${on ? " on" : ""}" data-act="unknown" aria-pressed="${on}" aria-label="Not known yet"
+      title="${on ? "Marked as not known yet. Tap to take that off." : "Not known yet: keep this word amber, without saving it, until you know it"}">${icon("question", 15)}</button>`;
+  }
+
   /** `opts.saved`: this word is already in the vocab list, so the Save button says so.
+   *  `opts.unknown`: {on, toggle()} for the ? button (a word, not a phrase, that can be marked unknown:
+   *  lexicon/seen.js unknownButton); none without it.
    *  `opts.host`: show it in this container from now on, instead of the one it was made in (a
    *  player with two transcripts shows it in the one the word was tapped in).
    *  `opts.docked`: it takes its place at the end of that container instead of floating by the
@@ -454,6 +476,7 @@ export function createWordBubble(host, actions) {
     fixInfo = false;
     menuOpen = false;
     saved = !!opts.saved;
+    unknownBtn = !context.phrase && opts.unknown ? { ...opts.unknown } : null;
     quick = lookupMode() === "quick";
     el.hidden = false;
     ipa = "";

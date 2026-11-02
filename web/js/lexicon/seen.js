@@ -11,6 +11,13 @@
 // language (offerDictionaries below). Until it is there, Arabic text is simply not coloured, and
 // in the other three each spelling of a word counts as a different word.
 //
+// Unknown words: the popup's ? marks a word "I don't know this yet" (the owner: "will turn the word
+// colored #FFBC0A which won't save it as known, and won't save to vocab but will remember that this
+// word is unknown"). It is drawn in amber, in every form, until the learner marks it known (holding it,
+// or the menu) or presses ? again; looking it up again leaves it unknown. Each one is kept in the same
+// list as a row of its own, "unknown|" + the word's key, so it syncs like the rest with nothing new on
+// the computer or the phone (a version from before reads no word into it, and shows the word as new).
+//
 // Shared by the desktop app and the phone.
 
 import { api, h, saveSettings, state, toast } from "../app.js";
@@ -28,13 +35,19 @@ const settings = () => (state.status && state.status.settings) || {};
 
 // ---------- the list ----------
 const known = new Set();   // keys of every seen lexeme
+const unknown = new Set(); // keys of the lexemes marked unknown (the popup's ?); this wins over `known`
+const UNKNOWN = "unknown|"; // in front of a key in the list: that word is marked unknown
 const views = new Set();   // texts on screen that show it
 let knownLoad = null;
 
 async function fetchKnown() {
   const r = await api("/lexemes");
   known.clear();
-  for (const key of (r && r.keys) || []) known.add(key);
+  unknown.clear();
+  for (const key of (r && r.keys) || []) {
+    if (key.startsWith(UNKNOWN)) unknown.add(key.slice(UNKNOWN.length));
+    else known.add(key);
+  }
 }
 /** The list, loaded once. `fresh` asks again (another device may have added to it). */
 function loadKnown(fresh = false) {
@@ -45,10 +58,13 @@ function repaint() {
   for (const v of views) { v.paint(); if (v.onPaint) { try { v.onPaint(); } catch { /* a screen's own repaint */ } } }
 }
 
-/** Mark lexemes (what lexemesFor / lexemeOf return) as seen. */
-export async function markLexemes(items) {
+/** Mark lexemes (what lexemesFor / lexemeOf return) as seen. Ones marked unknown stop being unknown,
+ * unless `keepUnknown` (a lookup: looking an unknown word up again leaves it unknown). */
+export async function markLexemes(items, { keepUnknown = false } = {}) {
+  items = (items || []).filter((it) => it && it.key && !(keepUnknown && unknown.has(it.key)));
+  if (!keepUnknown) setUnknown(items, false);
   const fresh = [];
-  for (const it of items || []) if (it && it.key && !known.has(it.key)) { known.add(it.key); fresh.push(it); }
+  for (const it of items) if (!known.has(it.key)) { known.add(it.key); fresh.push(it); }
   if (!fresh.length) return 0;
   repaint();
   try {
@@ -71,6 +87,25 @@ export async function forgetLexemes(items) {
   try { await api("/lexemes/forget", { method: "POST", body: { keys } }); }
   catch (e) { for (const k of keys) known.add(k); repaint(); toast(e.message, { error: true }); return 0; }
   return keys.length;
+}
+
+/** Mark lexemes unknown (`on`), or not any more. Neither marks them seen nor saves them. */
+async function setUnknown(items, on) {
+  const list = (items || []).filter((it) => it && it.key && unknown.has(it.key) !== on);
+  if (!list.length) return 0;
+  const flip = (back) => { for (const it of list) { if (on !== back) unknown.add(it.key); else unknown.delete(it.key); } };
+  flip(false);
+  repaint();
+  try {
+    if (on) await api("/lexemes", { method: "POST", body: { items: list.map(({ key, lemma, pos, root }) => ({ key: UNKNOWN + key, lemma, pos, root })) } });
+    else await api("/lexemes/forget", { method: "POST", body: { keys: list.map((it) => UNKNOWN + it.key) } });
+  } catch (e) {
+    flip(true);
+    repaint();
+    toast(e.message, { error: true });
+    return 0;
+  }
+  return list.length;
 }
 
 // Something else changed the list (the first-run common words, a sync): read it again.
@@ -384,6 +419,8 @@ async function backfill(lang, dicts) {
  *   .markSeen(i, j)      words i..j were tapped: they and every form of them are now seen
  *   .markNew(i, j)       make them new again
  *   .toggleKnown(i)      word i held: known if new, new if known (with Undo); false if it can't be
+ *   .isUnknown(i)        is word i marked unknown (the popup's ?; drawn in amber)?
+ *   .unknownButton(i)    the popup's ? for word i: {on, toggle()}, or null
  *   .menuItems(i, j)     entries for the right-click menu ("Mark as seen" / "Mark as new")
  *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
  *   .onPaint             set to a function to be told whenever colours change
@@ -392,7 +429,8 @@ async function backfill(lang, dicts) {
 export function seenWords({ tokens, lang, els }) {
   const view = {
     lang, lexemes: null, onPaint: null,
-    isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key)),
+    isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key) && !unknown.has(view.lexemes[i].key)),
+    isUnknown: (i) => !!(view.lexemes && view.lexemes[i] && unknown.has(view.lexemes[i].key)),
     canMark: (i) => !!(view.lexemes && view.lexemes[i]),
     paint(list = els, first = 0) {
       // Russian with its table: the words show their stress (ла́дно), unless switched off in Settings.
@@ -400,6 +438,7 @@ export function seenWords({ tokens, lang, els }) {
       for (let k = 0; k < list.length; k++) {
         const el = list[k];
         el.classList.toggle("new", view.isNew(first + k));
+        el.classList.toggle("unknown", view.isUnknown(first + k));
         if (stress || el.dataset.stressed) {
           const text = stress ? stressed(tokens[first + k], view.table) : tokens[first + k];
           if (el.textContent !== text) el.textContent = text;
@@ -408,20 +447,41 @@ export function seenWords({ tokens, lang, els }) {
       }
     },
     range: (i, j = i) => (view.lexemes ? view.lexemes.slice(i, j + 1).filter(Boolean) : []),
-    markSeen: (i, j = i) => markLexemes(view.range(i, j)),
+    // (Looked up: seen, except a word marked unknown, which stays unknown.)
+    markSeen: (i, j = i) => markLexemes(view.range(i, j), { keepUnknown: true }),
     markNew: (i, j = i) => forgetLexemes(view.range(i, j)),
     /**
-     * Word i was held (pressed and let go, components/phrasepick.js onHold): a new word becomes known
-     * without the popup opening, and a known one new again, with Undo. False when it can't be marked
-     * (not a word, or the language's dictionaries aren't ready), for the screen to do something else.
+     * The word popup's ? for word i: what it shows ({on}), and pressing it. On: the word is marked
+     * unknown (amber), and not seen. Off again: it is seen, as a word looked up is. Null when word i
+     * can't be marked (not a word, or the language's dictionaries aren't ready): no ? then.
+     */
+    unknownButton(i) {
+      const words = view.range(i, i);
+      if (!words.length) return null;
+      return {
+        on: words.every((w) => unknown.has(w.key)),
+        async toggle() {
+          if (words.every((w) => unknown.has(w.key))) { await markLexemes(words); return false; }
+          await Promise.all([setUnknown(words, true), forgetLexemes(words)]);
+          return true;
+        },
+      };
+    },
+    /**
+     * Word i was held (pressed and let go, components/phrasepick.js onHold): a new (or unknown) word
+     * becomes known without the popup opening, and a known one new again, with Undo. False when it
+     * can't be marked (not a word, or the language's dictionaries aren't ready), for the screen to do
+     * something else.
      */
     toggleKnown(i) {
       const words = view.range(i, i);
       if (!words.length) return false;
       const name = String(tokens[i] || "").trim();
-      if (words.some((w) => !known.has(w.key))) {
+      if (words.some((w) => !known.has(w.key) || unknown.has(w.key))) {
+        const wasUnknown = words.filter((w) => unknown.has(w.key));
         markLexemes(words);
-        toast(t("“{0}” marked as known", name), { timeout: 3500, action: { label: t("Undo"), run: () => forgetLexemes(words) } });
+        const undo = () => { forgetLexemes(words); setUnknown(wasUnknown, true); };
+        toast(t("“{0}” marked as known", name), { timeout: 3500, action: { label: t("Undo"), run: undo } });
       } else {
         forgetLexemes(words);
         toast(t("“{0}” is new again", name), { timeout: 3500, action: { label: t("Undo"), run: () => markLexemes(words) } });
@@ -432,7 +492,7 @@ export function seenWords({ tokens, lang, els }) {
     menuItems(i, j = i) {
       const words = view.range(i, j);
       if (!words.length) return [];
-      return [words.some((w) => !known.has(w.key))
+      return [words.some((w) => !known.has(w.key) || unknown.has(w.key))
         ? { label: "✓ Mark as seen", run: () => markLexemes(words) }
         : { label: "↺ Mark as new", run: () => forgetLexemes(words) }];
     },

@@ -31,7 +31,8 @@ export function popupArt(root, mark = "") {
 export function buttonsArt() {
   const rows = [["sound", "Word", "Hear the word again"], ["sentence", "Sentence", "Hear its whole sentence"],
     ["play", "Continue", "Carry on playing from that word"], ["star", "Save", "Add the word to your review cards"],
-    ["mic", "Add audio", "Choose a voice for cards saved from here"], ["refresh", "Ask again", "Explain the word afresh"],
+    ["mic", "Add audio", "Choose a voice for cards saved from here"],
+    ["question", "Not known yet", "Keep the word amber, unsaved, until you know it"], ["refresh", "Ask again", "Explain the word afresh"],
     ["target", "More", "Quick lookup: open the full explanation"]];
   return `<div class="ga-legend" aria-hidden="true">${rows.map(([ic, name, what]) =>
     `<div class="ga-row"><span class="ga-btn">${icon(ic, 15)}</span><span><strong>${name}</strong><span class="muted"> · ${what}</span></span></div>`).join("")}</div>`;

@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	لا أعرفها بعد
+f054d8dc	تبقى الكلمة كهرمانية، غير محفوظة، حتى تعرفها
+b5e1c5cd	مُعلَّمة كغير معروفة بعد. اضغط لإزالة ذلك.
+501bcf6c	لا أعرفها بعد: تبقى هذه الكلمة كهرمانية، دون حفظها، حتى تعرفها

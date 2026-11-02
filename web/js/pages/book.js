@@ -248,7 +248,8 @@ export async function render(view, { id, data, query }) {
   const sentenceText = (x, y) => joinWords(texts.slice(x, y + 1), lang);
   const seenAt = { markSeen: (i, j = i) => seen && seen.markSeen(i - pageFirst, j - pageFirst),
                    menuItems: (i, j = i) => (seen ? seen.menuItems(i - pageFirst, j - pageFirst) : []),
-                   toggleKnown: (i) => !!seen && seen.toggleKnown(i - pageFirst) };
+                   toggleKnown: (i) => !!seen && seen.toggleKnown(i - pageFirst),
+                   unknownButton: (i) => (seen ? seen.unknownButton(i - pageFirst) : null) };
 
   function contextFor(i, j) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
@@ -299,7 +300,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seenAt.unknownButton(i) : null });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seenAt.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }

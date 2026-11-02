@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Pas encore connu
+f054d8dc	Le mot reste ambre, sans être enregistré, jusqu'à ce que vous le connaissiez
+b5e1c5cd	Marqué comme pas encore connu. Touchez pour l'enlever.
+501bcf6c	Pas encore connu : ce mot reste ambre, sans être enregistré, jusqu'à ce que vous le connaissiez

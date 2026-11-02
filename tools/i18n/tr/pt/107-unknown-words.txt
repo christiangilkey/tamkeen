@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Ainda não sei
+f054d8dc	A palavra fica âmbar, sem salvar, até você saber
+b5e1c5cd	Marcada como ainda não sabida. Toque para tirar.
+501bcf6c	Ainda não sei: esta palavra fica âmbar, sem ser salva, até você saber

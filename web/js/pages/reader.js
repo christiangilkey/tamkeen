@@ -227,7 +227,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }

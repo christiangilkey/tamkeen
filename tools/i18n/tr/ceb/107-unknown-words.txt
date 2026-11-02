@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Wala pa nahibal-i
+f054d8dc	Magpabilin nga amber ang pulong, wala gi-save, hangtod mahibal-an nimo
+b5e1c5cd	Gimarkahan nga wala pa nahibal-i. Tuploka aron tangtangon.
+501bcf6c	Wala pa nahibal-i: magpabilin nga amber kini nga pulong, nga dili i-save, hangtod mahibal-an nimo

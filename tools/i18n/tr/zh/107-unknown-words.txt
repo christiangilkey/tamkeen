@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	还不认识
+f054d8dc	这个词保持琥珀色、不保存，直到你认识它
+b5e1c5cd	已标为还不认识。点按取消。
+501bcf6c	还不认识：这个词保持琥珀色、不保存，直到你认识它

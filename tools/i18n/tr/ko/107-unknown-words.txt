@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	아직 모름
+f054d8dc	알게 될 때까지 저장하지 않고 호박색으로 둡니다
+b5e1c5cd	아직 모르는 단어로 표시됨. 탭하면 해제돼요.
+501bcf6c	아직 모름: 알게 될 때까지 이 단어를 저장하지 않고 호박색으로 둡니다

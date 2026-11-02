@@ -706,6 +706,17 @@ from a temporary local copy because they are not published yet). **Never run on 
   a language's words can be worked out on a device, words looked up or saved earlier are counted as seen
   (`backfill`, setting `lexemes_backfilled`). The `tamkeen:lexemes` window event makes open screens reload.
 - Tests: `tests/js/lexicon.test.mjs` (14, reads the real dictionaries), `tests/test_lexicon.py` (8).
+- **Hold to mark known** (2026-11-01): a word held and let go (`components/phrasepick.js` `onHold`, touch 350 ms,
+  mouse 500 ms) is `seen.toggleKnown(i)`: new → known, known → new, with an Undo toast; held on until `MENU_MS`
+  (1 s) it is `onMenu` (the old long-press menu). In the player (transcript and captions), reader, book and reels.
+  Guide step "Hold a word you know" in `guideart.js` `playerSteps`.
+- **Unknown words** (2026-11-01, the owner: a ? in the popup that turns the word `#FFBC0A`, "won't save it as known,
+  and won't save to vocab but will remember that this word is unknown"): the popup's `data-act="unknown"` button
+  (`wordbubble.js`, `opts.unknown` = `seen.unknownButton(i)`; single words only). Kept as an ordinary lexeme row
+  whose key is `unknown|` + the word's key, so the computer, the phone and sync needed no change (older versions
+  read no word into it). `seen.js` keeps them in `unknown` (wins over `known`); class `unknown`, colour
+  `--unknown-word` (`#ffbc0a` dark, `#a36f00` light; captions/reels always `#ffbc0a`). A lookup leaves an unknown
+  word unknown (`markSeen` → `keepUnknown`); the ? again, holding it, or "Mark as seen" makes it known.
 
 ### Web Browser start page (2026-10-11, "Media import" chat; on main, NOT committed, NOT released)
 The owner asked that "Open Web Browser" open on a home page with popular news sources in the study language

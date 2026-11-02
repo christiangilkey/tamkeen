@@ -1069,7 +1069,8 @@ export async function render(view, { id, query }) {
     // (Shown inside another app's narrow panel, /embed, there is no transcript panel: always docked.)
     const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
-    const opts = { saved: savedHere.has(savedKey(i, j)) };
+    // (unknown: the popup's ? for a word, lexicon/seen.js.)
+    const opts = { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null };
     if (embed && !bubbleInPanel && !phone) {
       // Tapped in the captions: the popup joins the black bar right under them (it may not cover
       // YouTube's or Netflix's player, so the video gets shorter while it is open). The panel stays as it is.

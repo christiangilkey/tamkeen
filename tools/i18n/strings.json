@@ -3875,6 +3875,16 @@
   "f": "web/js/components/guideart.js"
  },
  {
+  "id": "72369ab6",
+  "k": "Not known yet",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "f054d8dc",
+  "k": "Keep the word amber, unsaved, until you know it",
+  "f": "web/js/components/guideart.js"
+ },
+ {
   "id": "3f094ed6",
   "k": "Ask again",
   "f": "web/js/components/guideart.js"
@@ -6287,6 +6297,16 @@
  {
   "id": "58c330e9",
   "k": "Couldn't undo that.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "b5e1c5cd",
+  "k": "Marked as not known yet. Tap to take that off.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "501bcf6c",
+  "k": "Not known yet: keep this word amber, without saving it, until you know it",
   "f": "web/js/components/wordbubble.js"
  },
  {

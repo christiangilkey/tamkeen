@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Hindi pa alam
+f054d8dc	Mananatiling amber ang salita, hindi naka-save, hanggang malaman mo
+b5e1c5cd	Minarkahang hindi pa alam. I-tap para alisin.
+501bcf6c	Hindi pa alam: mananatiling amber ang salitang ito, nang hindi sine-save, hanggang malaman mo

@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Noch unbekannt
+f054d8dc	Das Wort bleibt bernsteinfarben und ungespeichert, bis du es kennst
+b5e1c5cd	Als noch unbekannt markiert. Tippen, um das aufzuheben.
+501bcf6c	Noch unbekannt: Dieses Wort bleibt bernsteinfarben und ungespeichert, bis du es kennst

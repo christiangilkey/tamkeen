@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	まだ知らない
+f054d8dc	覚えるまで、保存せずに琥珀色のままにします
+b5e1c5cd	「まだ知らない」になっています。タップで解除。
+501bcf6c	まだ知らない：覚えるまで、この単語を保存せずに琥珀色のままにします

@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Non ancora conosciuta
+f054d8dc	La parola resta ambra, non salvata, finché non la conosci
+b5e1c5cd	Segnata come non ancora conosciuta. Tocca per toglierlo.
+501bcf6c	Non ancora conosciuta: questa parola resta ambra, senza salvarla, finché non la conosci

@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	Aún no la sé
+f054d8dc	La palabra se queda en ámbar, sin guardar, hasta que la sepas
+b5e1c5cd	Marcada como aún no sabida. Toca para quitarlo.
+501bcf6c	Aún no la sé: esta palabra se queda en ámbar, sin guardarla, hasta que la sepas

@@ -1,0 +1,5 @@
+# The word popup's ? (not known yet: lexicon/seen.js unknown words) and its line in the guide.
+72369ab6	ยังไม่รู้
+f054d8dc	คำจะเป็นสีอำพันโดยไม่บันทึก จนกว่าคุณจะรู้
+b5e1c5cd	ทำเครื่องหมายว่ายังไม่รู้แล้ว แตะเพื่อเอาออก
+501bcf6c	ยังไม่รู้: คำนี้จะเป็นสีอำพันโดยไม่บันทึก จนกว่าคุณจะรู้

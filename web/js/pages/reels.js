@@ -705,7 +705,7 @@ async function renderPlayer(view, { query }) {
     target = { i, j, si, sj, text: word };
     buzz("tick");
     playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
-    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j && seen ? seen.unknownButton(i) : null });
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
     if (seen) seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
