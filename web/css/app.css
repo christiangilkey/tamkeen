@@ -1217,6 +1217,10 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-arena { position: relative; line-height: 0; }
 .lb-stage canvas { display: block; border-radius: 8px; image-rendering: pixelated; image-rendering: crisp-edges; touch-action: none; cursor: pointer; }
 .lb-floats { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 8px; }
+/* the minimap: the whole arena in a corner of the camera's window (livebattle-ui.js paintMini) */
+.lb-mini { position: absolute; top: 8px; inset-inline-end: 8px; height: auto; border: 2px solid rgba(14, 11, 22, .85); border-radius: 4px;
+  background: #0e0b16; opacity: .9; image-rendering: pixelated; image-rendering: crisp-edges; pointer-events: none; }
+.lb-mini[hidden] { display: none; }
 .lb-float { position: absolute; transform: translate(-50%, -50%); line-height: 1.2; font-weight: 800; font-size: 14px; white-space: nowrap;
   text-shadow: 0 1px 0 #000, 1px 0 0 #000, -1px 0 0 #000, 0 -1px 0 #000; animation: lb-float 1.25s ease-out forwards; }
 .lb-float.failed { color: #ff6b6b; font-size: 19px; }
@@ -1250,7 +1254,11 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-mt { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .lb-mt strong { font-size: 16px; line-height: 1.25; }
 .lb-mt .small { opacity: .75; }
-.lb-cd { position: relative; z-index: 1; flex: none; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+/* the line under a move's name: what it does, or (while there is one) its wait or why it can't be used now */
+.lb-cd { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lb-cd:empty { display: none; }
+.lb-cd img { width: 14px; height: 14px; }
+.lb-mt:has(.lb-cd:not(:empty)) .small { display: none; }
 .lb-move.far .lb-cd { color: #ffc6c6; font-weight: 600; }
 .lb-key { position: relative; z-index: 1; flex: none; display: inline-flex; }
 .lb-key:empty { display: none; }
@@ -1294,13 +1302,25 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-end-lines { display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
 .lb-end-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
 .lb-end-buttons button { min-height: 48px; font-size: 16px; }
-/* a phone held sideways: the moves in a column beside the arena */
-@media (orientation: landscape) and (max-height: 560px) {
-  .lb { display: grid; grid-template-columns: 1fr minmax(200px, 32%); grid-template-rows: auto 1fr; align-items: stretch; gap: 6px 12px; max-width: none; width: 100%; }
-  .lb-top { grid-column: 1 / -1; max-width: none; }
+/* a wide screen (a computer, a tablet or phone held sideways): the moves in a column beside the camera's window, so the
+   window keeps a good shape (as Realm of the Mad God keeps its panel at the side) */
+@media (orientation: landscape) and (min-aspect-ratio: 5/4) {
+  .lb { display: grid; grid-template-columns: 1fr minmax(240px, 28%); grid-template-rows: auto 1fr; align-items: stretch; gap: 8px 14px; max-width: none; width: 100%; }
+  .lb-top { grid-column: 1 / -1; justify-self: center; }
   .lb-stage { grid-column: 1; grid-row: 2; }
-  .lb-side { grid-column: 2; grid-row: 2; justify-content: center; gap: 6px; }
+  .lb-side { grid-column: 2; grid-row: 2; justify-content: center; }
+  .lb-moves { gap: 8px; }
+  .lb-move { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .lb-move .lb-key { position: absolute; inset-inline-end: 8px; top: 8px; }
+}
+/* a phone held sideways: one column of smaller buttons */
+@media (orientation: landscape) and (max-height: 560px) {
+  .lb { grid-template-columns: 1fr minmax(200px, 32%); gap: 6px 12px; }
+  .lb-top { max-width: none; justify-self: stretch; }
+  .lb-side { gap: 6px; }
   .lb-moves { grid-template-columns: 1fr; gap: 6px; }
+  .lb-move { flex-direction: row; align-items: center; }
+  .lb-move .lb-key { position: relative; inset: auto; }
   .lb-move { min-height: 48px; padding: 6px 10px; }
   .lb-mt .small, .lb-help { display: none; }
   .lb-quiz, .lb-end { place-items: center; }
@@ -1656,6 +1676,17 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .captions .w.new { color: #eaa6e4; } /* over a video the text is always on dark */
 .transcript .w.new.cur, .reader-text .w.new.cur, .captions .w.new.cur { color: var(--hl-ink); }
 .transcript .w, .reader-text .w, .captions .w { transition: background-color .08s, color .35s; }
+/* Unknown words: marked with the popup's ? (lexicon/seen.js), in the owner's amber #FFBC0A. On a light
+   page that is too pale to read as text, so it is the same hue made deeper there, as the purple is. */
+:root { --unknown-word: #a36f00; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --unknown-word: #ffbc0a; } }
+:root[data-theme="dark"] { --unknown-word: #ffbc0a; }
+.transcript .w.unknown, .reader-text .w.unknown, .phrase-root .w.phr.unknown { color: var(--unknown-word); }
+.captions .w.unknown, .cap .w.unknown, .reel-words .w.unknown { color: #ffbc0a; } /* (always on dark) */
+.transcript .w.unknown.cur, .reader-text .w.unknown.cur, .captions .w.unknown.cur, .reel-words .w.unknown.cur { color: var(--hl-ink); }
+/* The popup's ? while pressed: the same amber, like the word behind it. */
+.wb-actions button.wb-unknown.on { color: var(--unknown-word); border-color: var(--unknown-word); }
+.wb-actions button.wb-unknown.on .ic .solid { fill: var(--unknown-word); }
 /* Several words looked up together (components/phrasepick.js): while a finger or the mouse drags
    over them, one soft band of the brand teal runs across the words and the spaces between them
    (each word reaches into the space beside it; the layout doesn't move). Plain and solid, no shadow. */

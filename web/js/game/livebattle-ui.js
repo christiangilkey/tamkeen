@@ -21,7 +21,14 @@ import { COMBO, answer, battleResult, input, newLiveBattle, step, usePotion, vie
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const TILE = 16;
-const TOP = 36;           // room above the arena's top row, so a creature standing there keeps its head
+const TOP = 36;           // the camera may show this much above the arena's top row, so a creature standing there keeps its head
+// The camera (the owner: "the screen zooms in and focuses on the creature, showing the area around it when it moves",
+// like Realm of the Mad God): a window on the world that follows the player's creature. Its size comes from the
+// screen: whole device pixels per game pixel (sharp art), with the window's longer side as near to VIEW_LONG world px
+// as that allows (about 620 x 300 on a computer, 360 x 520 on an upright phone).
+const VIEW_LONG = 560;
+const LEAD = 0.3;         // seconds of movement the camera looks ahead (a small lead where the creature is going)
+const FOLLOW = 5;         // how fast the camera catches up (higher: tighter)
 const ANIM_MS = 200;      // a frame of the water, lava and other moving ground (the same frame on every tile)
 const WALK_MS = 130;      // a frame of the walk cycle
 // Where each move and each answer sits: a 2 x 2 block shaped like the controller's face buttons turned a
@@ -93,12 +100,13 @@ export function runLiveBattle(setup, vocab) {
     if (q) asked = [...asked.slice(-12), q.uid];
     return q;
   };
-  const b = newLiveBattle({ ...setup, map: generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask });
+  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask });
   const map = b.map; // the battle's own copy: terrain moves repaint its tiles
   const W = b.width;
   const H = b.height;
-  const CW = W;
-  const CH = H + TOP;
+  const viewport = { w: Math.min(W, 480), h: Math.min(H + TOP, 300), s: 1 }; // set by fit()
+  const cam = { x: 0, y: -TOP, vx: 0, vy: 0, at: null, ready: false }; // the window's top left, in world px
+  let drawn = { x: 0, y: -TOP };  // where the last frame's window was (whole pixels): clicks and labels go through it
 
   document.querySelector(".live-wrap")?.remove();
   const el = h(`<div class="live-wrap"><div class="lb">
@@ -109,7 +117,8 @@ export function runLiveBattle(setup, vocab) {
       <div class="lb-card foe"><div class="lb-name"><span class="lb-who"></span><span class="lb-el"></span></div>
         <div class="hud-bar"><i></i></div><div class="lb-pips"></div></div>
     </div>
-    <div class="lb-stage"><div class="lb-arena"><canvas width="${CW}" height="${CH}"></canvas><div class="lb-floats" aria-hidden="true"></div>
+    <div class="lb-stage"><div class="lb-arena"><canvas width="${viewport.w}" height="${viewport.h}"></canvas><div class="lb-floats" aria-hidden="true"></div>
+      <canvas class="lb-mini" hidden aria-hidden="true"></canvas>
       <div class="lb-banner" hidden></div><span class="lb-combo" hidden></span></div></div>
     <div class="lb-side">
       <div class="lb-ground"></div>
@@ -265,18 +274,20 @@ export function runLiveBattle(setup, vocab) {
   function draw(now, dt) {
     if (groundDirty) paintGround(now);
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.fillStyle = "#0e0b16";
-    ctx.fillRect(0, 0, CW, CH);
+    ctx.fillStyle = "#0e0b16"; // beyond the arena's edges
+    ctx.fillRect(0, 0, viewport.w, viewport.h);
     const sx = shake > 0 ? Math.round((Math.random() - 0.5) * 3) : 0;
     const sy = shake > 0 ? Math.round((Math.random() - 0.5) * 2) : 0;
     shake = Math.max(0, shake - dt);
-    ctx.translate(sx, TOP + sy);
-    // The strip above the arena: the arena's top row again, in shade, so heads have somewhere to be.
-    ctx.globalAlpha = 0.45;
-    for (let y = -TILE; y > -TOP - TILE; y -= TILE) ctx.drawImage(ground, 0, 0, W, TILE, 0, y, W, TILE);
-    ctx.globalAlpha = 1;
-    ctx.drawImage(ground, 0, 0);
-    for (const m of moving) for (const l of m.layers) drawLayer(ctx, l, m.tx, m.ty, now);
+    drawn = { x: Math.round(cam.x), y: Math.round(cam.y) };
+    const ox = drawn.x + sx, oy = drawn.y + sy;
+    ctx.translate(-ox, -oy);
+    // only the part of the ground in the window
+    const gx = Math.max(0, ox), gy = Math.max(0, oy);
+    const gw = Math.min(W, ox + viewport.w) - gx, gh = Math.min(H, oy + viewport.h) - gy;
+    if (gw > 0 && gh > 0) ctx.drawImage(ground, gx, gy, gw, gh, gx, gy, gw, gh);
+    const tx0 = Math.floor(ox / TILE) - 1, tx1 = Math.ceil((ox + viewport.w) / TILE), ty0 = Math.floor(oy / TILE) - 1, ty1 = Math.ceil((oy + viewport.h) / TILE);
+    for (const m of moving) if (m.tx >= tx0 && m.tx <= tx1 && m.ty >= ty0 && m.ty <= ty1) for (const l of m.layers) drawLayer(ctx, l, m.tx, m.ty, now);
 
     // Where something is about to land, on the ground: a wind-up, a beam or an area warning (gold yours, red theirs).
     const pulse = 0.22 + 0.16 * Math.sin(now / 110);
@@ -294,12 +305,16 @@ export function runLiveBattle(setup, vocab) {
 
     // Props and creatures, back to front.
     const things = [];
-    for (const p of map.props) things.push({ y: (p.y + 1) * TILE, draw: () => drawProp(p) });
+    for (const p of map.props) {
+      const px = p.x * TILE, py = (p.y + 1) * TILE;
+      if (px > ox + viewport.w + 32 || px + p.w * TILE < ox - 32 || py < oy || py - 80 > oy + viewport.h) continue; // out of the window
+      things.push({ y: py, draw: () => drawProp(p) });
+    }
     for (const side of ["me", "foe"]) things.push({ y: v[side].y, draw: () => drawCreature(side, now) });
     for (const p of v.fx) if (!p.warn) things.push({ y: p.y + (p.kind === "area" ? 0 : 2), draw: () => drawFlying(p, now) });
     things.sort((a, c) => a.y - c.y);
     for (const th of things) th.draw();
-    if (LIGHT[map.light]) { ctx.fillStyle = LIGHT[map.light]; ctx.fillRect(0, -TOP, W, CH); }
+    if (LIGHT[map.light]) { ctx.fillStyle = LIGHT[map.light]; ctx.fillRect(ox, oy, viewport.w, viewport.h); }
 
     // Effects over the world.
     for (let i = trails.length - 1; i >= 0; i--) {
@@ -331,6 +346,94 @@ export function runLiveBattle(setup, vocab) {
       else { ctx.font = "bold 10px monospace"; ctx.textAlign = "center"; ctx.fillStyle = n.color; ctx.fillText(n.text, n.x, ly + 9); }
       ctx.globalAlpha = 1;
     }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    drawRivalPointer(now);
+  }
+
+  /** The rival out of the window: an arrow at the window's edge pointing to it, with its element. */
+  function drawRivalPointer(now) {
+    const f = v.foe;
+    if (!f || (f.fainted && !f.act) || f.waiting) return;
+    const px = f.x - drawn.x, py = f.y - 20 - drawn.y;
+    if (px > -6 && px < viewport.w + 6 && py > -30 && py < viewport.h + 20) return; // it can be seen
+    const m = 16;
+    const cx = viewport.w / 2, cy = viewport.h / 2;
+    const dx = px - cx, dy = py - cy;
+    const k = Math.min((cx - m) / Math.max(1e-6, Math.abs(dx)), (cy - m) / Math.max(1e-6, Math.abs(dy)));
+    const ax = Math.round(cx + dx * k), ay = Math.round(cy + dy * k);
+    const a = Math.atan2(dy, dx);
+    ctx.save();
+    ctx.translate(ax, ay);
+    ctx.rotate(a);
+    ctx.globalAlpha = 0.75 + 0.25 * Math.sin(now / 160);
+    ctx.fillStyle = "#ff5a5a";
+    ctx.strokeStyle = "#1b1420";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(9, 0);
+    ctx.lineTo(-5, -7);
+    ctx.lineTo(-2, 0);
+    ctx.lineTo(-5, 7);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+    ctx.restore();
+    const el2 = want(`icon/type_${f.type}.png`);
+    if (el2) ctx.drawImage(el2, Math.round(ax - Math.cos(a) * 15 - 8), Math.round(ay - Math.sin(a) * 15 - 8));
+  }
+
+  // ----- the minimap: the whole arena, a pixel or two per tile, both creatures and the camera's window -----
+  const mini = $(".lb-mini");
+  const miniCtx = mini.getContext("2d");
+  const MINI = 2; // canvas px per tile
+  mini.width = map.cols * MINI;
+  mini.height = map.rows * MINI;
+  let miniBase = null; // the terrain, drawn once (again after a terrain move)
+  function paintMini() {
+    const show = W > viewport.w + 1 || H + TOP > viewport.h + 1; // only when the camera moves at all
+    mini.hidden = !show;
+    if (!show) return;
+    if (!miniBase) {
+      miniBase = document.createElement("canvas");
+      miniBase.width = mini.width;
+      miniBase.height = mini.height;
+      const g = miniBase.getContext("2d");
+      for (let ty = 0; ty < map.rows; ty++) for (let tx = 0; tx < map.cols; tx++) {
+        const id = map.tiles[ty * map.cols + tx];
+        g.fillStyle = map.propTiles && map.propTiles[ty * map.cols + tx] ? "#241e2e" : PLACEHOLDER[id] || "#777";
+        g.fillRect(tx * MINI, ty * MINI, MINI, MINI);
+      }
+    }
+    miniCtx.clearRect(0, 0, mini.width, mini.height);
+    miniCtx.drawImage(miniBase, 0, 0);
+    const k = MINI / TILE;
+    miniCtx.strokeStyle = "rgba(255, 255, 255, .85)";
+    miniCtx.lineWidth = 1;
+    miniCtx.strokeRect(Math.round(drawn.x * k) + 0.5, Math.round(Math.max(0, drawn.y) * k) + 0.5, Math.round(viewport.w * k) - 1, Math.round(Math.min(viewport.h, viewport.h + drawn.y) * k) - 1);
+    const dot = (c, color) => { if (!c || (c.fainted && !c.act)) return; miniCtx.fillStyle = "#1b1420"; miniCtx.fillRect(Math.round(c.x * k) - 3, Math.round(c.y * k) - 3, 6, 6); miniCtx.fillStyle = color; miniCtx.fillRect(Math.round(c.x * k) - 2, Math.round(c.y * k) - 2, 4, 4); };
+    dot(v.foe, "#ff5a5a");
+    dot(v.me, "#7fd3ff");
+  }
+
+  /** Follow the player's creature: a small lead where it is going, kept inside the arena (centred when it all fits). */
+  function moveCamera(dt) {
+    const me = v.me;
+    if (cam.at && dt > 0) {
+      const jump = Math.hypot(me.x - cam.at.x, me.y - cam.at.y) > 40; // stepped in somewhere else: no lead from that
+      const vx = jump ? 0 : (me.x - cam.at.x) / dt, vy = jump ? 0 : (me.y - cam.at.y) / dt;
+      const k = Math.min(1, dt * 6);
+      cam.vx += (vx - cam.vx) * k;
+      cam.vy += (vy - cam.vy) * k;
+    }
+    cam.at = { x: me.x, y: me.y };
+    const lead = { x: Math.max(-48, Math.min(48, cam.vx * LEAD)), y: Math.max(-32, Math.min(32, cam.vy * LEAD)) };
+    const clampTo = (want0, size, lo, hi) => (hi - lo <= size ? lo + (hi - lo - size) / 2 : Math.max(lo, Math.min(hi - size, want0)));
+    const tx = clampTo(me.x + lead.x - viewport.w / 2, viewport.w, 0, W);
+    const ty = clampTo(me.y - 24 + lead.y - viewport.h / 2, viewport.h, -TOP, H);
+    if (!cam.ready) { cam.x = tx; cam.y = ty; cam.ready = true; return; }
+    const f = 1 - Math.exp(-dt * FOLLOW);
+    cam.x += (tx - cam.x) * f;
+    cam.y += (ty - cam.y) * f;
   }
 
   function drawProp(p) {
@@ -525,7 +628,7 @@ export function runLiveBattle(setup, vocab) {
     moveEls = PLACES.map((place) => {
       const id = me.moves[place.slot];
       const btn = h(`<button type="button" class="lb-move"><span class="lb-key"></span><span class="lb-mi"></span>
-        <span class="lb-mt"><strong></strong><span class="small"></span></span><span class="lb-cd"></span></button>`);
+        <span class="lb-mt"><strong></strong><span class="small"></span><span class="lb-cd"></span></span></button>`);
       if (!id) { btn.disabled = true; btn.classList.add("empty"); box.append(btn); return { btn, id: null, place }; }
       const m = moveById(id);
       const element = elementOf(m, me);
@@ -554,9 +657,11 @@ export function runLiveBattle(setup, vocab) {
       m.btn.style.setProperty("--cd", String(share));
       m.btn.classList.toggle("waiting", !s.ready);
       m.btn.classList.toggle("far", s.ready && s.inRange === false);
-      const label = s.why === "cooldown" ? `${Math.ceil(s.left)}` : WHY[s.why] !== undefined ? t(WHY[s.why]) || ""
+      // under the name, in place of what the move does: its wait (a clock and the seconds), or why it can't be used now
+      const cd = m.btn.querySelector(".lb-cd");
+      if (s.why === "cooldown") cd.innerHTML = `${icon("clock")} ${Math.ceil(s.left)}`;
+      else cd.textContent = WHY[s.why] !== undefined ? t(WHY[s.why]) || ""
         : s.inRange === false ? t("Out of range") : s.uses !== null && s.uses !== undefined ? t("{0} left", s.uses) : "";
-      m.btn.querySelector(".lb-cd").textContent = label;
     }
   }
 
@@ -674,13 +779,22 @@ export function runLiveBattle(setup, vocab) {
   let graduated = 0;
 
   // ----- events: what the engine says happened, shown -----
+  const floats = []; // {el, x, y, until}: words over the arena, kept on their spot in the world as the camera moves
   function float(text, x, y, cls) {
     const span = h(`<span class="lb-float ${cls}"></span>`);
     span.textContent = text;
-    span.style.left = `${(x / CW) * 100}%`;
-    span.style.top = `${((y + TOP) / CH) * 100}%`;
     $(".lb-floats").append(span);
-    setTimeout(() => span.remove(), 1300);
+    floats.push({ el: span, x, y, until: performance.now() + 1300 });
+    placeFloats();
+  }
+  function placeFloats() {
+    const now = performance.now();
+    for (let i = floats.length - 1; i >= 0; i--) {
+      const f = floats[i];
+      if (now > f.until) { f.el.remove(); floats.splice(i, 1); continue; }
+      f.el.style.left = `${((f.x - drawn.x) / viewport.w) * 100}%`;
+      f.el.style.top = `${((f.y - drawn.y) / viewport.h) * 100}%`;
+    }
   }
   let bannerTimer = 0;
   function banner(text, ms = 1400) {
@@ -724,7 +838,7 @@ export function runLiveBattle(setup, vocab) {
         case "interrupt": play("interrupt", null, x, y - BODY_UP); float(t("Cut short!"), x, y - 58, "strong"); break;
         case "terrain-change":
           for (const tile of ev.tiles || []) play("terrain", null, tile.c * TILE + 8, tile.r * TILE + 8);
-          setTimeout(() => { groundDirty = true; }, 240); // the new ground shows on the effect's flash (its 4th frame)
+          setTimeout(() => { groundDirty = true; miniBase = null; }, 240); // the new ground shows on the effect's flash (its 4th frame)
           if (TERRAIN[ev.terrain]) banner(t("{0}: {1}", whose(ev.side), TERRAIN[ev.terrain].name), 1200);
           break;
         case "terrain-tick": numbers.push({ text: ev.heal ? `+${ev.heal}` : `-${ev.dmg}`, x, y: y - 46, t: 0, color: ev.heal ? "#7dffb0" : "#ff9a6a" }); break;
@@ -744,17 +858,17 @@ export function runLiveBattle(setup, vocab) {
 
   // ----- controls -----
   const held = new Set();  // steering keys down
-  let pointer = null;      // {id} while a mouse button or a finger is down on the arena
+  let pointer = null;      // {id, cx, cy} while a mouse button or a finger is down on the arena (cx, cy: where, on screen)
   const toWorld = (e) => {
     const r = canvas.getBoundingClientRect();
-    return { x: ((e.clientX - r.left) / r.width) * CW, y: ((e.clientY - r.top) / r.height) * CH - TOP };
+    return { x: drawn.x + ((e.clientX - r.left) / r.width) * viewport.w, y: drawn.y + ((e.clientY - r.top) / r.height) * viewport.h };
   };
   const clampWorld = (p) => ({ x: Math.max(4, Math.min(W - 4, p.x)), y: Math.max(4, Math.min(H - 2, p.y)) });
   canvas.addEventListener("pointerdown", (e) => {
     if (b.over || b.quiz || paused()) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
-    pointer = { id: e.pointerId };
+    pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* the drag still ends on pointerup */ }
     target = clampWorld(toWorld(e));
     input(b, { goTo: target });
@@ -762,6 +876,8 @@ export function runLiveBattle(setup, vocab) {
   });
   canvas.addEventListener("pointermove", (e) => {
     if (!pointer || pointer.id !== e.pointerId || b.quiz) return;
+    pointer.cx = e.clientX;
+    pointer.cy = e.clientY;
     const to = clampWorld(toWorld(e));
     if (target && Math.hypot(to.x - target.x, to.y - target.y) < 4) return; // a finger's small wobble: the same place
     target = to;
@@ -934,12 +1050,28 @@ export function runLiveBattle(setup, vocab) {
   // ----- fitting the arena to the screen -----
   function fit() {
     const stage = $(".lb-stage");
-    let scale = Math.min(stage.clientWidth / CW, stage.clientHeight / CH);
+    const sw = stage.clientWidth, sh = stage.clientHeight;
+    if (!sw || !sh) return;
     const dpr = window.devicePixelRatio || 1;
-    // Whole device pixels per game pixel when there is room for two or more: the pixels stay square.
-    if (scale * dpr >= 2) scale = Math.floor(scale * dpr) / dpr;
-    canvas.style.width = `${Math.max(1, Math.floor(CW * scale))}px`;
-    canvas.style.height = `${Math.max(1, Math.floor(CH * scale))}px`;
+    const dw = sw * dpr, dh = sh * dpr;
+    let best = null;
+    for (let px = 1; px <= 10; px++) { // device pixels per game pixel
+      const w = Math.floor(dw / px), h = Math.floor(dh / px);
+      if (best && (w < 220 || h < 160)) break;
+      const off = Math.abs(Math.max(w, h) - VIEW_LONG);
+      if (!best || off < best.off) best = { px, w, h, off };
+    }
+    // never more than the arena (and the strip above it): then it all shows, centred
+    const w = Math.min(best.w, W), h = Math.min(best.h, H + TOP);
+    if (w !== viewport.w || h !== viewport.h) {
+      canvas.width = w;
+      canvas.height = h;
+      ctx.imageSmoothingEnabled = false;
+    }
+    Object.assign(viewport, { w, h, s: best.px });
+    canvas.style.width = `${(w * best.px) / dpr}px`;
+    canvas.style.height = `${(h * best.px) / dpr}px`;
+    mini.style.width = `${Math.round(Math.max(72, Math.min(128, sw * 0.24)))}px`;
   }
   const ro = new ResizeObserver(() => fit());
   ro.observe($(".lb-stage"));
@@ -963,8 +1095,16 @@ export function runLiveBattle(setup, vocab) {
     }
     v = view(b);
     if (target && Math.hypot(v.me.x - target.x, v.me.y - target.y) < 5 && !pointer) target = null;
+    if (!b.quiz && !paused()) moveCamera(dt);
+    // a mouse button or finger held on the arena: what is under it changes as the camera follows, so it keeps steering
+    if (pointer && !b.quiz && !paused()) {
+      const to = clampWorld(toWorld({ clientX: pointer.cx, clientY: pointer.cy }));
+      if (!target || Math.hypot(to.x - target.x, to.y - target.y) >= 4) { target = to; input(b, { goTo: target }); }
+    }
     paintQuizTimer();
     draw(now, paused() ? 0 : dt);
+    placeFloats();
+    if (Math.floor(now / 50) !== Math.floor((now - dt * 1000) / 50) || !miniBase) paintMini();
     paintHud();
     paintExtra();
     requestAnimationFrame(frame);
@@ -988,6 +1128,8 @@ export function runLiveBattle(setup, vocab) {
   buildMoves();
   paintHud();
   fit();
+  v = view(b);
+  moveCamera(0);
   banner(t("Go!"), 900);
   requestAnimationFrame(frame);
   return { close, battle: b };

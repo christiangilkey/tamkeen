@@ -6361,6 +6361,19 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   play, Menu pause; the button guide names each move. `gamepad.js padSteer()` reads the left stick as far as it is
   pushed (plus the walk buttons) for free movement. Keys: W A S D / arrows, U I J K or 1 2 3 4, H hint, P potion, Esc
   pause. Mouse: click or hold and drag on the arena (the engine finds a path). Finger: drag, and the creature follows.
+- **Camera** (the owner, after the first build: "the screen zooms in and focuses on the creature, showing the area
+  around it when it moves (in the way the game realm of the mad god does)"): the canvas is a window on the world that
+  follows the player's creature (`moveCamera`: a 0.3 s lead where it is going, eased, kept inside the arena, up to
+  `TOP` 36 px of darkness above row 0; centred when the whole arena fits). `fit()` picks whole device pixels per game
+  pixel (sharp) with the window's longer side nearest `VIEW_LONG` 560 world px: about 440-620 x 300-360 on a computer,
+  360 x 560 on an upright phone. Wide screens (landscape, 5:4 or wider) put the moves in a side column (2 x 2;
+  one column on a short sideways phone) so the window keeps a good shape. Only the visible ground, moving tiles and
+  props are drawn. An arrow at the window's edge (with the rival's element) points to the rival when it is off
+  screen; a minimap in the corner (`.lb-mini`, 2 px per tile, terrain colours, the window's outline, both creatures)
+  shows when the arena is bigger than the window. Clicks and taps go through the camera (`toWorld`); a finger or
+  mouse held down keeps steering as the world scrolls under it. Words over the arena ("Failed"…) stay on their spot
+  in the world. A move's line under its name shows its wait (clock + seconds) or why it can't be used, in place of
+  what it does. `runLiveBattle` takes `setup.map` (tests: a 90 x 54 arena) else generates one.
 - **Checked** in the browser pane (desktop server on a fresh scratch data folder, never signed in, 120 Spanish test
   words, three hatched creatures) at 1280 x 800, 390 x 844 and 844 x 390: real arenas of several themes with the real
   terrain and effects art, walking by keys, pretend-Xbox stick and D-pad, A/X starting moves and B/A answering,
