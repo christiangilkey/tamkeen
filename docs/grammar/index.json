@@ -81,6 +81,23 @@
    "bytes": 301021,
    "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
   },
+  "en-ar-lev": {
+   "file": "en-ar-lev/course.json",
+   "from": "en",
+   "to": "ar",
+   "dialect": "lev",
+   "title": "Levantine grammar",
+   "variety": "Levantine Arabic (Damascus and Beirut)",
+   "units": 4,
+   "lessons": 16,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 71237,
+   "sha256": "a5e2b836bbefb0eef4fcad83bf18cf410f130901e844109bdce04a0b25f10751"
+  },
   "en-ca": {
    "file": "en-ca/course.json",
    "from": "en",

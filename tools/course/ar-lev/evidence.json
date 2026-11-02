@@ -1,0 +1,5250 @@
+{
+ "dialect": "lev",
+ "note": "Made by tools/course/dialect/evidence.mjs: how often each word is used in the dialect's texts, what published dictionaries say it means, and real sentences using it (sources: tools/course/dialect/sources.mjs).",
+ "words": [
+  {
+   "n": 1,
+   "word": "بَسّ",
+   "forms": [
+    "بس",
+    "وبس",
+    "فبس"
+   ],
+   "count": 20556,
+   "perMillion": 9632.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بس",
+     "gloss": "only, just"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بس",
+     "gloss": "but"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بس",
+     "gloss": "as soon as, once (with subjunctive verb)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بس",
+     "gloss": "that's enough!, stop it!"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بس",
+     "gloss": "cat"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic بس)",
+     "word": "بسّ",
+     "gloss": "from Arabic بس: cat"
+    }
+   ],
+   "examples": [
+    "بس تخلص جامعه في وظيفه نطرتك",
+    "بإسم فريق منقلو لفخامه الرئيس انت مش بس بي الكل وجد الكل انت تاج راسنا كلنا والله يحفظلنا ياك",
+    "والله انه حسيت في تمثيل بالموضوع اي ماضل حدا مابيفهم بهالزمن بس فكره مطبقه ميه بالميه عالواقع مش بس بلبنان كمان بالاردن"
+   ]
+  },
+  {
+   "n": 2,
+   "word": "رَح",
+   "forms": [
+    "رح",
+    "ورح",
+    "فرح",
+    "ح",
+    "وح",
+    "لح"
+   ],
+   "count": 17570,
+   "perMillion": 8233.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "رح",
+     "gloss": "going to; used with a following verb to form a future tense"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "رح",
+     "gloss": "(auxiliary) will, going to"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ح",
+     "gloss": "alternative form of رح (raḥ): going to, will; prefix of a following subjunctive verb to express the future tense"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لح",
+     "gloss": "to urge, to insist"
+    }
+   ],
+   "examples": [
+    "العهد القوي رح يخلينا نتمسك بلبنان القوي",
+    "لغيرنا لهلسبب اليوم انا اخدت عهد على حالي انو لم ا ربنا يحرمني من حياتي رح اوهبا لغيري كرمال يضل قلبي ينبض ولو بجسد تاني",
+    "الطفله رح تطل لاول مره الليله ببرنامج تابعونا الساعه عبر ال مع"
+   ]
+  },
+  {
+   "n": 3,
+   "word": "بِدّي",
+   "forms": [
+    "بدي",
+    "وبدي",
+    "فبدي",
+    "بدك",
+    "وبدك",
+    "فبدك",
+    "بدو",
+    "وبدو",
+    "فبدو",
+    "بدها",
+    "وبدها",
+    "بدنا",
+    "وبدنا",
+    "فبدنا",
+    "بدكن",
+    "وبدكن",
+    "بدهم",
+    "وبدهم",
+    "بدكم",
+    "وبدكم",
+    "بدكو",
+    "وبدكو",
+    "بديش",
+    "وبديش"
+   ],
+   "count": 16950,
+   "perMillion": 7942.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بدي",
+     "gloss": "I want"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بد",
+     "gloss": "(false verb) to want"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بد",
+     "gloss": "(false verb, by extension) to need"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بد",
+     "gloss": "(auxiliary) will, going to"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بدي",
+     "gloss": "I want"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بدوي",
+     "gloss": "Bedouin"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بدا",
+     "gloss": "(intransitive, transitive) to begin, to start"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بدو",
+     "gloss": "plural of بدوي (badawi, “Bedouin”)"
+    }
+   ],
+   "examples": [
+    "بدنا رضا الست اقوى مترجم يا هشام",
+    "بدها اذن من سليمان بك",
+    "دوله ما قدرت تحمي مواطنين عالطريق من اعتداء سائقي الشاحنات الزعران عليهم كيف بدها تحمينا من العدو الصهيوني"
+   ]
+  },
+  {
+   "n": 4,
+   "word": "شُو",
+   "forms": [
+    "شو",
+    "وشو",
+    "فشو"
+   ],
+   "count": 16082,
+   "perMillion": 7535.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شو",
+     "gloss": "(interrogative) what?"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شو",
+     "gloss": "(relative) what"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شو",
+     "gloss": "what a...!, how...! (before adjectives or verb phrases)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شو",
+     "gloss": "whoa; wait; what gives"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شو",
+     "gloss": "what?"
+    }
+   ],
+   "examples": [
+    "اذا شخص حامل تلفون فانوس شو مفكر حالك معك ايفون",
+    "مش طبيعي نادي شو مهضوم",
+    "هالبنوك شو شاطرين بالدعايات و الكلام المعسول يللي بيسمعهن بيقول ارتحنا لمدى الحياه"
+   ]
+  },
+  {
+   "n": 5,
+   "word": "هَيْك",
+   "forms": [
+    "هيك",
+    "وهيك",
+    "فهيك",
+    "هيكي",
+    "وهيكي"
+   ],
+   "count": 8211,
+   "perMillion": 3847.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "so, thus, like so"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "(by extension) this, that; used as a pronominal object of قال (ʔāl, “to say”), عِمِل (ʕimil, “to do”) and its synonyms, فكّر (fakkar, “to think”) and similar verbs relating to knowledge or opinion, and comparative مِن (min, “than”)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "such; such kind, this kind of"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "Because. (non-answer to a \"why\" question)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هي",
+     "gloss": "this here"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هي",
+     "gloss": "(by extension) used to stress the current nature of an action"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "so, thus, like this, like that"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "(by extension) this, that"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هيك",
+     "gloss": "such, like this, like that"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic هكذا)",
+     "word": "هيك",
+     "gloss": "from Arabic هكذا: so, thus, this way, like this"
+    }
+   ],
+   "examples": [
+    "هاي كيفك سافا وهيك",
+    "اهضم من هيك ما في",
+    "هيك بسوقو يا حمار"
+   ]
+  },
+  {
+   "n": 6,
+   "word": "حَكى",
+   "forms": [
+    "حكي",
+    "وحكي",
+    "حكيت",
+    "وحكيت",
+    "فحكيت",
+    "حكت",
+    "وحكت",
+    "حكينا",
+    "وحكينا",
+    "فحكينا",
+    "حكيتي",
+    "وحكيتي",
+    "حكيتو",
+    "وحكيتو",
+    "حكيو",
+    "وحكيو",
+    "حكو",
+    "وحكو",
+    "يحكي",
+    "ويحكي",
+    "تحكي",
+    "وتحكي",
+    "بحكي",
+    "وبحكي",
+    "احكي",
+    "واحكي",
+    "فاحكي",
+    "نحكي",
+    "ونحكي",
+    "بتحكي",
+    "وبتحكي",
+    "فبتحكي",
+    "بيحكي",
+    "وبيحكي",
+    "فبيحكي",
+    "بنحكي",
+    "وبنحكي",
+    "منحكي",
+    "ومنحكي",
+    "يحكو",
+    "ويحكو",
+    "تحكو",
+    "وتحكو"
+   ],
+   "count": 7679,
+   "perMillion": 3598.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "(intransitive) to speak, talk [with بِـ (bi) or عَن (ʕan) ‘about (a topic)’ (optional)]"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "(transitive) to speak to, to talk to"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "to say"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "to speak ill of, to trash-talk [with ع (ʕa) or على (ʕala) ‘on’]"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "to ask for the hand in marriage of [with بِـ (bi)]"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "speech, talk, talking"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ل",
+     "gloss": "to; for (indirect object suffix with an attached enclitic pronoun)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حكى",
+     "gloss": "to talk, to speak"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حكى",
+     "gloss": "to say"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حك",
+     "gloss": "to scratch, to scrape, to rub"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "speech, talk"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حكي",
+     "gloss": "way of speaking"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "انحكى",
+     "gloss": "passive of حكى (ḥaka): to be spoken; to be told, to be related"
+    }
+   ],
+   "examples": [
+    "بتوقع يا خي ما حدا بيحكي لبناني الا برا وان ممشيت حيجي بقى ما في لبناني كلون برا حيح طق حنك",
+    "يا حبيبي كيف بدا تعاشرو بالحمام الزاجل و انت يريبا و ما بتخليا تضهر و ولا بتخليا تحكي عالتلفون",
+    "يا حضره جوزف طوق ياريت بس بتحكي من دون كلمه قرفنازيفريللي عيب من عبارتك بتدل انو اخر همك الموضوع بس بد ك تشارك"
+   ]
+  },
+  {
+   "n": 7,
+   "word": "مُو",
+   "forms": [
+    "مو",
+    "ومو",
+    "فمو"
+   ],
+   "count": 6740,
+   "perMillion": 3158.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مو",
+     "gloss": "not (negates a noun)"
+    }
+   ],
+   "examples": [
+    "ي حلو هاشتاقتهم تفتح النفس مو هاشتاقتنا تجيب المرض",
+    "الوطن مو لفلان وابن فلان",
+    "هاد جمبوست مو فستان"
+   ]
+  },
+  {
+   "n": 8,
+   "word": "هَوْن",
+   "forms": [
+    "هون",
+    "وهون",
+    "فهون",
+    "لهون",
+    "ولهون",
+    "هان",
+    "وهان"
+   ],
+   "count": 6399,
+   "perMillion": 2998.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هون",
+     "gloss": "here"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هون",
+     "gloss": "here"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هون",
+     "gloss": "to make (something) easy, to ease"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هان",
+     "gloss": "alternative form of هون (hōn, “here”)"
+    }
+   ],
+   "examples": [
+    "بصراحه افضل برنامج لهون وبس هشام بشيل الهم عن القلب وهو افضل اعلامي على هالشاشات",
+    "ترند اول نحن مش حيلا ولهون وبس",
+    "يلعن قبوكم واحد يقول للتاني من هون ليوم الدين لعنه الله عليكم اجمعين يا مافيا"
+   ]
+  },
+  {
+   "n": 9,
+   "word": "شاف",
+   "forms": [
+    "شاف",
+    "وشاف",
+    "فشاف",
+    "شافت",
+    "وشافت",
+    "شفت",
+    "وشفت",
+    "فشفت",
+    "شفتو",
+    "وشفتو",
+    "شفنا",
+    "وشفنا",
+    "فشفنا",
+    "شفتي",
+    "وشفتي",
+    "يشوف",
+    "ويشوف",
+    "تشوف",
+    "وتشوف",
+    "بشوف",
+    "وبشوف",
+    "اشوف",
+    "واشوف",
+    "نشوف",
+    "ونشوف",
+    "شوف",
+    "وشوف",
+    "شوفي",
+    "وشوفي",
+    "شوفو",
+    "وشوفو",
+    "بتشوف",
+    "وبتشوف",
+    "بيشوف",
+    "وبيشوف",
+    "شايف",
+    "وشايف",
+    "شايفه",
+    "وشايفه",
+    "منشوف",
+    "ومنشوف"
+   ],
+   "count": 6290,
+   "perMillion": 2947.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شاف",
+     "gloss": "to see"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاف",
+     "gloss": "to see"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاف",
+     "gloss": "(by extension) to consider, to find (something to be)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic شاف)",
+     "word": "شاف",
+     "gloss": "from Arabic شاف: to look down at; to view"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic شاف)",
+     "word": "شاف",
+     "gloss": "from Arabic شاف: to look down at; to view"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شفى",
+     "gloss": "(transitive) to heal, to cure"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شف",
+     "gloss": "to sip"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شوف",
+     "gloss": "seeing, sight"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شايف",
+     "gloss": "active participle of شاف (šāf, “to see”)"
+    }
+   ],
+   "examples": [
+    "دخلكن حدا يسأل ي نهاد المشنوق شايف تخ رطش السلاح والإعتداء عالمواطنين قدام عيون القوى الأمنيه يلي اصلا ما تحركوا",
+    "لازم يطلع شي شب من العلقانين يكسروا راسن لهالشوفريه ليفتحو الطرقات اذا الدوله ما بدها تشوف شغلها",
+    "على عمر سنه بعتت انو انا بحب اعمل ع تجرب شوف شو بيعملو ب"
+   ]
+  },
+  {
+   "n": 10,
+   "word": "هَلَّق",
+   "forms": [
+    "هلق",
+    "وهلق",
+    "هلا",
+    "وهلا",
+    "هلاء",
+    "وهلاء",
+    "هلئ",
+    "وهلئ",
+    "هلقيت",
+    "وهلقيت"
+   ],
+   "count": 5823,
+   "perMillion": 2728.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلق",
+     "gloss": "now"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هلا",
+     "gloss": "now, just"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هلق",
+     "gloss": "alternative spelling of هلأ (“now”)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلا",
+     "gloss": "alternative form of هلق (hallaʔ, “now”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هلا",
+     "gloss": "(informal) hi, hey (greeting)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هلأ",
+     "gloss": "alternative form of هلا (halla, “now”)"
+    }
+   ],
+   "examples": [
+    "بالواسطه من هلأ ورايح",
+    "انو يشوه سمعتنا من هلأ و رايح",
+    "تقبري قلبي اديشك مبسوطه و فرحانه هلأ"
+   ]
+  },
+  {
+   "n": 11,
+   "word": "لَيْش",
+   "forms": [
+    "ليش",
+    "وليش",
+    "فليش"
+   ],
+   "count": 5415,
+   "perMillion": 2537.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ليش",
+     "gloss": "why?"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ليش",
+     "gloss": "what for?, why?"
+    }
+   ],
+   "examples": [
+    "ليش اللبناني بس حدا عربي يحكيه بلهجه تانيه بيصير يحكي بنفس اللهجه",
+    "شيما بتذكرها بستار اكاديمي هيك متل الخيال ليش ما نعرفت اكتر مع انها بتملك مقومات النجمه",
+    "ليش وين في مطرح ما في حدا فيها مش علقان"
+   ]
+  },
+  {
+   "n": 12,
+   "word": "حَدا",
+   "forms": [
+    "حدا",
+    "وحدا",
+    "ماحدا",
+    "وماحدا",
+    "محدا",
+    "ومحدا"
+   ],
+   "count": 5017,
+   "perMillion": 2350.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حدا",
+     "gloss": "somebody, someone"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حدا",
+     "gloss": "(sometimes preceded by أيّ (ʔayy(a))) anybody, anyone"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "حدا",
+     "gloss": "(preceded by a negative particle) nobody, no one"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حدا",
+     "gloss": "someone, somebody"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حدا",
+     "gloss": "(in a negative sentence) no-one, nobody"
+    }
+   ],
+   "examples": [
+    "حدا يعطي هيشو حبه تحت اللسان",
+    "والله انه حسيت في تمثيل بالموضوع اي ماضل حدا مابيفهم بهالزمن بس فكره مطبقه ميه بالميه عالواقع مش بس بلبنان كمان بالاردن",
+    "صوتك و لما سمعته حسيت احساس ما حدا حسه غير ل سمع صوتك"
+   ]
+  },
+  {
+   "n": 13,
+   "word": "شْوَيّ",
+   "forms": [
+    "شوي",
+    "وشوي",
+    "شويه",
+    "وشويه"
+   ],
+   "count": 3964,
+   "perMillion": 1857.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شوية",
+     "gloss": "a little, a bit"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شوية",
+     "gloss": "alternative form of شويّ (šwayy)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شوي",
+     "gloss": "alternative form of شويّة (šwayye)"
+    }
+   ],
+   "examples": [
+    "يعني و اهضم واحلى جوز وما ناقصكن الا شويه لوز ومتل البسكوت والراحه عنجد هضامه وروح مرحه",
+    "اسا منحكي وبعد شوي مننام",
+    "انتبه الحجل قصه كبيره قواصو بد و مجلس اعلى ومجلس دفاع ومجلس وزرا وعلى شوي بدو اتصال مع البنتاغون"
+   ]
+  },
+  {
+   "n": 14,
+   "word": "مِشان",
+   "forms": [
+    "مشان",
+    "ومشان",
+    "منشان",
+    "ومنشان",
+    "فمنشان",
+    "مشانك",
+    "ومشانك",
+    "مشانو",
+    "مشاني"
+   ],
+   "count": 3550,
+   "perMillion": 1663.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "منشان",
+     "gloss": "for, for the sake of"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "منشان",
+     "gloss": "so that, in order to (before a subjunctive verb)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مشان",
+     "gloss": "alternative form of منشان (minšān)"
+    }
+   ],
+   "examples": [
+    "حتى بالد ين يعني صارلازم نفصل افلام دينيه مشان تنبسط الدين واقع ما بيتغير اذا غيرنا معناتو عم نغير الدين مع احترامي لكل الأديان",
+    "امك بتقرب ل ليه مشان فيكي كل شي بد ي اياه",
+    "ندمان كتيير ندمان على كميه الشحن يلي صرفتا مشان احكي معا و هلأ شو عاد يفيد الندم انتزعت البطاريه و انتزعت"
+   ]
+  },
+  {
+   "n": 15,
+   "word": "كَمان",
+   "forms": [
+    "كمان",
+    "وكمان"
+   ],
+   "count": 3485,
+   "perMillion": 1633,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كمان",
+     "gloss": "also, too, as well"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كمان",
+     "gloss": "more"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كمان",
+     "gloss": "also, too, as well"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كمان",
+     "gloss": "more"
+    }
+   ],
+   "examples": [
+    "والله انه حسيت في تمثيل بالموضوع اي ماضل حدا مابيفهم بهالزمن بس فكره مطبقه ميه بالميه عالواقع مش بس بلبنان كمان بالاردن",
+    "ولو يا دوله الرئيس لو سج ل وصو ر بس الجلسه منقوله كمان كان فيها ثقافه",
+    "هيدا البريك يلي بيجي بالاخير ببرنامج ما الو داعي وكمان مش حلو بعد الاعلان يرجع الضيف ليغني يقول كلمتين وتقطشوا الاغنيه وتختموا"
+   ]
+  },
+  {
+   "n": 16,
+   "word": "وَيْن",
+   "forms": [
+    "وين",
+    "ووين",
+    "فوين",
+    "لوين",
+    "ولوين"
+   ],
+   "count": 3325,
+   "perMillion": 1558,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "وين",
+     "gloss": "where (relative and interrogative adverb, also figuratively)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "وين",
+     "gloss": "Reaction to a quantity vastly larger or smaller than perceived"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "وين",
+     "gloss": "where?"
+    }
+   ],
+   "examples": [
+    "يا لبنانيي بين النسبيه وقانون الستين يا زعما على وين البلد اخدين خافو الله المحاسبه بيوم الدين ومن الاستهتار عالطرقات علقانين",
+    "ليش وين في مطرح ما في حدا فيها مش علقان",
+    "ربع ساعه وبكون عندك اشوفك وين يا مهاجر"
+   ]
+  },
+  {
+   "n": 17,
+   "word": "مين",
+   "forms": [
+    "مين",
+    "ومين",
+    "فمين",
+    "لمين",
+    "ولمين"
+   ],
+   "count": 3065,
+   "perMillion": 1436.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مين",
+     "gloss": "(interrogative) who?"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مين",
+     "gloss": "(relative) who"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مين",
+     "gloss": "(relative) someone to; someone who"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مين",
+     "gloss": "who?"
+    }
+   ],
+   "examples": [
+    "فقط لتذكير لبنان لديه رئيس واحد وليس ثلاثه ف ندير دينينا لغير الرئيس ايف يو نو وات اي مين",
+    "الناس يلي بحياتي عاملين سبق مين يطلع اوطى من الثاني بالدور يا جماعه",
+    "مين هوي المحتل مع"
+   ]
+  },
+  {
+   "n": 18,
+   "word": "مْنيح",
+   "forms": [
+    "منيح",
+    "ومنيح",
+    "منيحه",
+    "ومنيحه",
+    "منيحين"
+   ],
+   "count": 2664,
+   "perMillion": 1248.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "منيح",
+     "gloss": "fine; good"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "منيح",
+     "gloss": "good"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "منيح",
+     "gloss": "well"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic مليح)",
+     "word": "مْنِيح",
+     "gloss": "from Arabic مليح: salty, holding salt water"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic مليح)",
+     "word": "مْنِيح",
+     "gloss": "from Arabic مليح: salty, holding salt water"
+    }
+   ],
+   "examples": [
+    "اعمل شي منيح للناس تدعي لك بالخير مش تدعي عليك",
+    "في ماضي منيح بس مضى صفى بالريح بالفضا",
+    "نهايه الفقره الأولى ممتازه مش بس للرجال وتقليل خطر الإصابه بأمراض القلب خبري ه منيحه للفتيات الممتلئات ريجيم"
+   ]
+  },
+  {
+   "n": 19,
+   "word": "هاي",
+   "forms": [
+    "هاي",
+    "وهاي",
+    "فهاي"
+   ],
+   "count": 2538,
+   "perMillion": 1189.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هاد",
+     "gloss": "alternative form of هادا (hāda, “this”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هادي",
+     "gloss": "feminine of هادا (hāda): this"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هاي",
+     "gloss": "alternative form of هادي (hādi, “this”)"
+    }
+   ],
+   "examples": [
+    "هاي كيفك سافا وهيك",
+    "بحاره كل من ايدو الو بحاره مسكرها ولد بحاره النخاسه والخيانه بحاره ما بتشبه بلد هاي بلد لاء مش بلد",
+    "شو يا ديني هاي زحﻻويه"
+   ]
+  },
+  {
+   "n": 20,
+   "word": "إِجا",
+   "forms": [
+    "اجا",
+    "واجا",
+    "فاجا",
+    "اجي",
+    "واجي",
+    "فاجي",
+    "اجت",
+    "واجت",
+    "فاجت",
+    "اجيت",
+    "واجيت",
+    "فاجيت",
+    "اجو",
+    "واجو",
+    "اجينا",
+    "واجينا",
+    "اجيتي",
+    "اجيتو",
+    "واجيتو"
+   ],
+   "count": 2382,
+   "perMillion": 1116.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "to come"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "to arrive"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "(figurative) to take a shape, form, or connotation"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "to come"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "(by extension) to arrive"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "to come up to, to approach [with ل (la-) ‘to’]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "(by extension) to get, to receive (with recipient as direct object)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "(by extension) to fit (in a space) [with في (fi) ‘into something’]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجا",
+     "gloss": "(by extension) to fit (of clothes) [with على (ʕala)]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أجا",
+     "gloss": "alternative form of إجا (ʔija)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic جاء)",
+     "word": "إجا",
+     "gloss": "from Arabic جاء: to come"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجى",
+     "gloss": "alternative spelling of إجا (“to come; to arrive”)"
+    }
+   ],
+   "examples": [
+    "ريتو ما اجى هالضيف نزعها للدلعونه التانيه",
+    "مرتي اجت بدها تعمل نسكافيه قلتلها اوعى",
+    "انو مين ما جاي لعندك بدو يتديين مصاري بس هيدا مش احساس هيدا واقع ولو منو واقع ما اجا لعندك"
+   ]
+  },
+  {
+   "n": 21,
+   "word": "بَعْدين",
+   "forms": [
+    "بعدين",
+    "وبعدين"
+   ],
+   "count": 2287,
+   "perMillion": 1071.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بعدين",
+     "gloss": "later, afterwards"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بعدين",
+     "gloss": "then"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بعدين",
+     "gloss": "not to mention; and another thing"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بعدين",
+     "gloss": "later, afterwards"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بعدين",
+     "gloss": "then"
+    }
+   ],
+   "examples": [
+    "انجلينا ازا عزتي براد موجود منتفق وقت الطلعا وبعدين منرجع منطلق شورايك",
+    "بعدين تعا حكي معي",
+    "طيب ليك خلص بعدين"
+   ]
+  },
+  {
+   "n": 22,
+   "word": "فات",
+   "forms": [
+    "فات",
+    "وفات",
+    "فتت",
+    "وفتت",
+    "فاتت",
+    "وفاتت",
+    "فتنا",
+    "وفتنا",
+    "فاتو",
+    "وفاتو",
+    "يفوت",
+    "ويفوت",
+    "تفوت",
+    "وتفوت",
+    "بفوت",
+    "وبفوت",
+    "فوت",
+    "وفوت",
+    "فوتي",
+    "وفوتي",
+    "فوتو",
+    "وفوتو"
+   ],
+   "count": 2238,
+   "perMillion": 1048.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فات",
+     "gloss": "to enter, to go in, to come in [with على (ʕala) ‘into something’]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فات",
+     "gloss": "to bump into, to collide [with في (fi) ‘with someone or something’]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فات",
+     "gloss": "(intransitive, of time) to pass"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فوت",
+     "gloss": "to bring in, to put in, to let in"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "يفوت",
+     "gloss": "third-person masculine singular subjunctive of فات (fāt)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تفوت",
+     "gloss": "inflection of فات (fāt):; second-person masculine singular subjunctive"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تفوت",
+     "gloss": "inflection of فات (fāt):; third-person feminine singular subjunctive"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بفوت",
+     "gloss": "first-person singular present of فات (fāt)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بفوت",
+     "gloss": "third-person masculine singular present of فات (fāt)"
+    }
+   ],
+   "examples": [
+    "حلوه كتير الفكره فتنا كتير بالقصه وصدقناها",
+    "لما فتت ع امتحان و طلعلي سؤال من اللي درستو",
+    "مسي مسي فوت كول اوعى الخسي"
+   ]
+  },
+  {
+   "n": 23,
+   "word": "بَلَّش",
+   "forms": [
+    "بلش",
+    "وبلش",
+    "بلشت",
+    "وبلشت",
+    "بلشو",
+    "وبلشو",
+    "بلشنا",
+    "وبلشنا",
+    "يبلش",
+    "ويبلش",
+    "تبلش",
+    "وتبلش",
+    "فتبلش",
+    "ببلش",
+    "وببلش",
+    "نبلش",
+    "ونبلش",
+    "بلشي",
+    "وبلشي"
+   ],
+   "count": 2144,
+   "perMillion": 1004.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلش",
+     "gloss": "(intransitive) to begin, to start"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلش",
+     "gloss": "(intransitive) to begin, to start [with ب (b-) or في (fi)]"
+    }
+   ],
+   "examples": [
+    "يا ريتني غفيت بكير و لا بلشت احضر اندبحت",
+    "انا عم بلش حبك انا لما بشوفك بتلبك",
+    "بعهد قوي بلش بعمليه خطف و كمل بسلسله ضرائب لافقار الشعب و اخيرا وصل لضرب الضمان الصحي"
+   ]
+  },
+  {
+   "n": 24,
+   "word": "لِسّا",
+   "forms": [
+    "لسا",
+    "ولسا",
+    "لسه",
+    "ولسه",
+    "لسي",
+    "ولسي",
+    "لساتو",
+    "ولساتو",
+    "لساتك",
+    "ولساتك",
+    "لساتني",
+    "ولساتني",
+    "لساتها",
+    "ولساتها"
+   ],
+   "count": 2120,
+   "perMillion": 993.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "لسا",
+     "gloss": "still"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "لسا",
+     "gloss": "so far, to date"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لسا",
+     "gloss": "still"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لسا",
+     "gloss": "(in a negative sentence) not yet"
+    }
+   ],
+   "examples": [
+    "كتير ولسى ما سمعت اشي",
+    "كل السنابات الي صورتها و لسا ما طلعت بيروت اليوم ان شاء الله",
+    "وتحس وبالآخر نحمد ربنا اننا لسه عندنا احساس تنح س"
+   ]
+  },
+  {
+   "n": 25,
+   "word": "خَلَص",
+   "forms": [
+    "خلص",
+    "وخلص",
+    "فخلص"
+   ],
+   "count": 1862,
+   "perMillion": 872.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خلص",
+     "gloss": "(intransitive) to finish, to end"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خلص",
+     "gloss": "(transitive) to finish, to end"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خلص",
+     "gloss": "enough, stop"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خلص",
+     "gloss": "that's it, it's over"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic خلاص)",
+     "word": "خلص",
+     "gloss": "from Arabic خلاص: enough! that's it!"
+    }
+   ],
+   "examples": [
+    "اوقات بتحس انو الإحساس وقته خلص وانتهت صلاحيته عن",
+    "خلص بدي احضركن كل نهار تلاتا",
+    "هيك انك خلص تعبت من كل شي حتي ضربات قلبك بقيت توجع"
+   ]
+  },
+  {
+   "n": 26,
+   "word": "جاب",
+   "forms": [
+    "جاب",
+    "وجاب",
+    "فجاب",
+    "جبت",
+    "وجبت",
+    "فجبت",
+    "جابت",
+    "وجابت",
+    "جابو",
+    "وجابو",
+    "يجيب",
+    "ويجيب",
+    "تجيب",
+    "وتجيب",
+    "بجيب",
+    "وبجيب",
+    "جيب",
+    "وجيب",
+    "جيبي",
+    "وجيبي",
+    "جيبو",
+    "وجيبو",
+    "فجيبو",
+    "بتجيب",
+    "وبتجيب"
+   ],
+   "count": 1627,
+   "perMillion": 762.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جاب",
+     "gloss": "to bring, to take, to get"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جاب",
+     "gloss": "to give birth"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جيب",
+     "gloss": "alternative form of جيبة (jēbe)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جيبة",
+     "gloss": "pocket"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic جيب)",
+     "word": "جيب",
+     "gloss": "from Arabic جيب: opening in a garment; neckline, collar"
+    }
+   ],
+   "examples": [
+    "ي حلو هاشتاقتهم تفتح النفس مو هاشتاقتنا تجيب المرض",
+    "الخرا مش فاضي بكون عم بجيب كيلو خيار لام او زوجه شي حمار كبير",
+    "معقول بيضربا وعالهوا انو ما خايف من شي ابدا وحتى تجديد الوكاله ما بدو يجيب السيره كيف جددوا"
+   ]
+  },
+  {
+   "n": 27,
+   "word": "عَشان",
+   "forms": [
+    "عشان",
+    "وعشان",
+    "فعشان",
+    "علشان",
+    "وعلشان"
+   ],
+   "count": 1607,
+   "perMillion": 753,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "because of"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "for; for the sake of"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "because"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "so that"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "for, because of"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "because (before a past or present verb)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عشان",
+     "gloss": "so that, in order to (before a subjunctive verb)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "علشان",
+     "gloss": "because"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "علشان",
+     "gloss": "so that, in order to"
+    }
+   ],
+   "examples": [
+    "مشكلتي اذا زعلت عقلي بيتحول لمخرج بزيد احداث من عندو عشان ازعل زياده",
+    "الانسان بتمرق عليه لحظات مليانه ضغط و و مشاكل عشان هيك حالك مش بحاجه تقعد مع حالك بعيد عن ضجيج الدنيا من اقترا",
+    "انك بتستاهل الدنيا تقسى عليك علشان تبطل تكون الطرف اللطيف المتساهل"
+   ]
+  },
+  {
+   "n": 28,
+   "word": "يَلّا",
+   "forms": [
+    "يلا",
+    "ويلا",
+    "فيلا",
+    "يالا",
+    "ويالا"
+   ],
+   "count": 1589,
+   "perMillion": 744.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "يلا",
+     "gloss": "come on, hurry up"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "يلا",
+     "gloss": "let's, let's go"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "يلا",
+     "gloss": "(by extension) bye-bye, bye"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic ياالله)",
+     "word": "يلّا",
+     "gloss": "from Arabic ياالله: come on, c’mon"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "ياالله",
+     "gloss": "(dialectal, colloquial, Levantine) word accompanying bye-bye, bye"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "يلا",
+     "gloss": "(dialectal, colloquial, Levantine) bye-bye, bye"
+    }
+   ],
+   "examples": [
+    "يلا استوى العنب ورح يصير زبيب ناطرينك",
+    "يلا برموا يا لبنانيي وحضروا",
+    "يالا قولولي تشوف وين وعند مين بتقولوا الامير بدو يحضر حلقه ومع ميين"
+   ]
+  },
+  {
+   "n": 29,
+   "word": "زَيّ",
+   "forms": [
+    "زي",
+    "وزي",
+    "فزي",
+    "زيي",
+    "زيك",
+    "وزيك",
+    "زيو"
+   ],
+   "count": 1486,
+   "perMillion": 696.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زي",
+     "gloss": "like, as"
+    }
+   ],
+   "examples": [
+    "كتير حلو هالشب عامر زي انما لازم يتزوج هلق لأن بسبب الغيره عليه ما رح يضاين كيف بدن الصبايا ما يركضوا ويعبطوه ايه كيف",
+    "بالوقت الكنا مش قادرين نشيل عينا عن كان و زي كل تلاتا بزور امهاتنا بدار العجزه كيف ممكن اوص",
+    "الحياه زى البكينى الظاهر منها خطير والمستخبى منها اخطر"
+   ]
+  },
+  {
+   "n": 30,
+   "word": "هونيك",
+   "forms": [
+    "هونيك",
+    "وهونيك",
+    "هنيك",
+    "وهنيك",
+    "فهنيك"
+   ],
+   "count": 1426,
+   "perMillion": 668.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هونيك",
+     "gloss": "there"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هونيك",
+     "gloss": "expresses \"a distant...\""
+    }
+   ],
+   "examples": [
+    "شايف هاد لي عم يضيع هنيك اي شايفو هاد مستقبلي يلا اشرلو بإيدك و قلو باي",
+    "لأن و عادل خلق وضل وفي للمحطه مش متل هونيك شخص باع المبادئ والنضال ويل ي عملو ونكرو و ركد وراء ما في طاير على والى وقع بكير",
+    "هونيك في نواب يسألو وأنا هون في وفريق العمل المكو ن من النائب وحبيبه الشعب النائب"
+   ]
+  },
+  {
+   "n": 31,
+   "word": "لاقى",
+   "forms": [
+    "لاقي",
+    "ولاقي",
+    "لقيت",
+    "ولقيت",
+    "تلاقي",
+    "وتلاقي",
+    "نلاقي",
+    "ونلاقي",
+    "بلاقي",
+    "وبلاقي"
+   ],
+   "count": 1290,
+   "perMillion": 604.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لاقى",
+     "gloss": "to find, to encounter"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لقى",
+     "gloss": "to find"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لقى",
+     "gloss": "to meet up with, to encounter"
+    }
+   ],
+   "examples": [
+    "نزلت البحر امعنت النظر لقيت الموج بوجا خبر ومشي على شط البحر معي لقيت يمشي قمر",
+    "اذا حطيت ايدي بجيبتي وما لقيت التلفون",
+    "هلق بيوصل فريق الهومنتمن بلاقي كل الجمهور لابس احمر وبيحتجوا انو مش رح يلعبوا وبيخسروا"
+   ]
+  },
+  {
+   "n": 32,
+   "word": "لَحال",
+   "forms": [
+    "لحال",
+    "لحالي",
+    "ولحالي",
+    "لحالك",
+    "لحالو",
+    "ولحالو",
+    "لحالها",
+    "لحالنا"
+   ],
+   "count": 1246,
+   "perMillion": 583.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لحال",
+     "gloss": "(with personal suffix) by oneself, on one's own"
+    }
+   ],
+   "examples": [
+    "هلي طلعوا عل الميدنه لهيشو نزل لحالو وهه اه يا هبيله",
+    "انو بدك تكون لحالك مع حالك و بس",
+    "سوزي تحولت جنسيا هيدا حقها لحالها بس العالم حولوها فكريا وعقليا وجسديا لإنسانه عم تبيع شرفها لتعيش للأسف شي مخزي حالتها"
+   ]
+  },
+  {
+   "n": 33,
+   "word": "جوز",
+   "forms": [
+    "جوز",
+    "وجوز",
+    "جوزي",
+    "وجوزي",
+    "جوزك",
+    "وجوزك",
+    "جوزها",
+    "وجوزها",
+    "فجوزها"
+   ],
+   "count": 1152,
+   "perMillion": 539.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جوز",
+     "gloss": "pair"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جوز",
+     "gloss": "husband"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جوز",
+     "gloss": "nuts"
+    }
+   ],
+   "examples": [
+    "يعني و اهضم واحلى جوز وما ناقصكن الا شويه لوز ومتل البسكوت والراحه عنجد هضامه وروح مرحه",
+    "وحده تسأل جارتها متأكده جوزك بيحبك جاوبتها هو بيحب كل النسوان يعني وقفت عليي",
+    "كان مشروع جوز الست صار مشروع ست"
+   ]
+  },
+  {
+   "n": 34,
+   "word": "بُكْرا",
+   "forms": [
+    "بكرا",
+    "وبكرا",
+    "فبكرا",
+    "بكره",
+    "وبكره",
+    "فبكره"
+   ],
+   "count": 1152,
+   "perMillion": 539.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "tomorrow"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "soon, someday soon"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "tomorrow"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بكرا",
+     "gloss": "alternative spelling of بكرة (“tomorrow”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic بكرة)",
+     "word": "بكرا",
+     "gloss": "from Arabic بكرة: early in the morning"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "(obsolete) crack of dawn (only used in compounds)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "large spool of thread"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكرة",
+     "gloss": "Only used in حكرة بكرة (ḥakara bakara, ḥagara bagara, “eeny, meeny, miny, moe”) and related phrases"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كره",
+     "gloss": "to hate"
+    }
+   ],
+   "examples": [
+    "منستاهل اكتر لان بكره متل الغنم حينتخبوا نفس",
+    "شو يا معالي الوزير على اساس ما بقى تتسكر الطرقات ما قطع ساعتين على تصريحك ننزل على الشغل بكرا او لا",
+    "ناطر بكرا يجي لإفتح الجرس و شوف تعليق الست على لعم بصير بجوائز"
+   ]
+  },
+  {
+   "n": 35,
+   "word": "ماشي",
+   "forms": [
+    "ماشي",
+    "وماشي"
+   ],
+   "count": 1147,
+   "perMillion": 537.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ماشي",
+     "gloss": "active participle of مشى (maša, “to walk”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ماشي",
+     "gloss": "going well; fine, OK"
+    }
+   ],
+   "examples": [
+    "انو البلد ماشي بيطلع انو انت يللي ماشي",
+    "يمشي متل ما كان ماشي بالعهود السابقه هيده نسوا",
+    "كان ماشي قام قعد"
+   ]
+  },
+  {
+   "n": 36,
+   "word": "قَدّيش",
+   "forms": [
+    "قديش",
+    "وقديش",
+    "اديش",
+    "واديش"
+   ],
+   "count": 1117,
+   "perMillion": 523.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "قديش",
+     "gloss": "how much?"
+    }
+   ],
+   "examples": [
+    "اديش الناس موجوع وبدا شي تفضفض عن وجعا",
+    "واديش كان في ناس علمفرق تنطر ناس",
+    "انك لازم تقول لا الكذاب اديش بتعمل بتنكه كم كذبه"
+   ]
+  },
+  {
+   "n": 37,
+   "word": "آه",
+   "forms": [
+    "اه",
+    "واه",
+    "فاه"
+   ],
+   "count": 1096,
+   "perMillion": 513.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "اه",
+     "gloss": "yes"
+    }
+   ],
+   "examples": [
+    "اليوم علق على شجره اه يا هبيله",
+    "هلي طلعوا عل الميدنه لهيشو نزل لحالو وهه اه يا هبيله",
+    "نحنا اللبنانيين اه علقانين بحيرات المجارير او بالثلج او بشي جوره عالطريق او على مطب نفايات او علقانين بلبنان مافينا نطلع منو"
+   ]
+  },
+  {
+   "n": 38,
+   "word": "شَغْلة",
+   "forms": [
+    "شغله",
+    "وشغله",
+    "شغلات",
+    "وشغلات"
+   ],
+   "count": 1029,
+   "perMillion": 482.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شغلة",
+     "gloss": "thing"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شغلة",
+     "gloss": "job, occupation"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شغلة",
+     "gloss": "issue, concern, matter, thing"
+    }
+   ],
+   "examples": [
+    "مفكر حالو شغله كبيره",
+    "ورا كل تحرك في قطع لأرزاق الناس في زعيم سياسي فتشوا بحبشوا بتلاقو زعيم ما هو لي محرك اصحاب الشاحنات على حساب الشعب و شغله",
+    "شغله هات ايدك ولحقني"
+   ]
+  },
+  {
+   "n": 39,
+   "word": "لَحَدّ",
+   "forms": [
+    "لحد",
+    "ولحد",
+    "لحتي",
+    "ولحتي"
+   ],
+   "count": 996,
+   "perMillion": 466.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لحد",
+     "gloss": "until, as far as, up to"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حتى",
+     "gloss": "until"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حتى",
+     "gloss": "even"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حتى",
+     "gloss": "so that (before a subjunctive verb)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لحتى",
+     "gloss": "alternative form of حتى (ḥatta, “until”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لحتى",
+     "gloss": "alternative form of حتى (ḥatta, “so that”)"
+    }
+   ],
+   "examples": [
+    "خل صنا بقى لحد هون وبس يعني طفح الكيل",
+    "انا بقول بكفيني دراسه لحد هون صار وقت اطل بالأبيض",
+    "خيي ليه فوتوا لحد ها للمخلوقه"
+   ]
+  },
+  {
+   "n": 40,
+   "word": "مْبَيِّن",
+   "forms": [
+    "مبين",
+    "ومبين",
+    "مبينه",
+    "ومبينه"
+   ],
+   "count": 970,
+   "perMillion": 454.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مبين",
+     "gloss": "apparent, seeming"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مبين",
+     "gloss": "it looks like, it turns out"
+    }
+   ],
+   "examples": [
+    "ايا منطق عم تحكي عنه الوحده لجوزها ما بتعمل وكاله بهالايام بغض النظر عن انه هو مبين مش طبيعي ومش واعي",
+    "مبين عليك ابن حلال",
+    "مبين مدري شو اسمها ما بتحكي"
+   ]
+  },
+  {
+   "n": 41,
+   "word": "مْبَسوط",
+   "forms": [
+    "مبسوط",
+    "ومبسوط",
+    "مبسوطه",
+    "ومبسوطه",
+    "مبسوطين",
+    "ومبسوطين"
+   ],
+   "count": 962,
+   "perMillion": 450.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مبسوط",
+     "gloss": "happy, pleased"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مبسوط",
+     "gloss": "well, healthy"
+    }
+   ],
+   "examples": [
+    "تقبري قلبي اديشك مبسوطه و فرحانه هلأ",
+    "يا الله شو حلوه هالحلقه كل العالم عم تتفاعل بضحك ومحبه وهضامه بعيدا عن الهموم انشالله عطول هيك منضل مبسوطين",
+    "ياريت هالإيام ما تخلص وتضل ي كل يوم مفاجآت وأغاني كتير مبسوطين بالل ي عم يصير"
+   ]
+  },
+  {
+   "n": 42,
+   "word": "سَكَّر",
+   "forms": [
+    "سكر",
+    "وسكر",
+    "فسكر",
+    "سكرت",
+    "وسكرت",
+    "سكري",
+    "وسكري",
+    "سكرو",
+    "وسكرو",
+    "يسكر",
+    "ويسكر",
+    "بسكر",
+    "وبسكر",
+    "مسكر",
+    "ومسكر",
+    "مسكره",
+    "ومسكره"
+   ],
+   "count": 951,
+   "perMillion": 445.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سكر",
+     "gloss": "to get drunk"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سكر",
+     "gloss": "to close"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سكر",
+     "gloss": "(by extension) to lock"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سكر",
+     "gloss": "(by extension) to hang up (the phone)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سكر",
+     "gloss": "sugar"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أسكر",
+     "gloss": "to intoxicate"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مسكر",
+     "gloss": "closed (of an establishment)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مسكر",
+     "gloss": "closed (of an object)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مسكر",
+     "gloss": "(by extension) locked"
+    }
+   ],
+   "examples": [
+    "كل الطرقات بتودي ع الطاحون الا طرقات لبنان مسكره ع الطاحون",
+    "سكر عسل كنافه ما تقولي كلمه حلوه هول كلمات حلوين",
+    "بعد في جارنا ما تخانق مع مرته و سكر الطريق خلده"
+   ]
+  },
+  {
+   "n": 43,
+   "word": "جُوّا",
+   "forms": [
+    "جوا",
+    "وجوا",
+    "جوات",
+    "وجوات",
+    "فجوات",
+    "جواتي"
+   ],
+   "count": 783,
+   "perMillion": 366.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جوا",
+     "gloss": "inside, indoors"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جوات",
+     "gloss": "inside"
+    }
+   ],
+   "examples": [
+    "في واحد قال انبسطوا اول مره بالموسم يا حبيبي مش مهم اذا كان يكون ترند عسعدناته متل الليله قلبنا ضحك من جوا",
+    "بحطك جوات قلبي على اساس قلبو كاراج",
+    "ولسا العزاز ما جوا"
+   ]
+  },
+  {
+   "n": 44,
+   "word": "تَبَع",
+   "forms": [
+    "تبع",
+    "وتبع",
+    "تبعي",
+    "وتبعي",
+    "تبعك",
+    "تبعو",
+    "تبعها",
+    "تبعنا",
+    "تبعكن",
+    "تبعهن",
+    "تبعون",
+    "تاع",
+    "وتاع"
+   ],
+   "count": 768,
+   "perMillion": 359.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "forms possessive pronouns of all persons with the respective personal suffixes"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "of; used appositively after a noun instead of an ordinary possessive iḍāfa construction"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "forms possessive pronouns of all persons with the respective personal suffixes"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "of; used appositively after a noun instead of an ordinary possessive iḍāfa construction"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "(formal) to follow"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "(by extension) to depend on, to be a matter of"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "to keep track"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبع",
+     "gloss": "to follow up [with مع]"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تبعون",
+     "gloss": "plural of تبع (tabaʕ)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تاع",
+     "gloss": "alternative form of تبع (tabaʕ)"
+    }
+   ],
+   "examples": [
+    "ما تفقس الله تبعي معمر الطاسه و رواق",
+    "هيدا الحيوان اللذي تصرف هيك بدو تكسير ايدو هو و الزعيم تبعو يا معالي الوزير",
+    "هه لا تبع السيارات ما بيقطعوا"
+   ]
+  },
+  {
+   "n": 45,
+   "word": "هَدول",
+   "forms": [
+    "هدول",
+    "وهدول",
+    "هدولي"
+   ],
+   "count": 758,
+   "perMillion": 355.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هاد",
+     "gloss": "(Syria) this (one)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هاد",
+     "gloss": "(Syria) this"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هدول",
+     "gloss": "plural of هاد (hād): (Syria) these"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هاد",
+     "gloss": "alternative form of هادا (hāda, “this”)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هادا",
+     "gloss": "this"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هدول",
+     "gloss": "plural of هادا (hāda): these"
+    }
+   ],
+   "examples": [
+    "هل بيطلعولي هدول الناس الكلاس انا متضمان مع الجديد",
+    "مش فاهمه عليهم هلناس يعني ازا حملت لازم تنشر وتعلن ايش هالبشر هدول كل واحد وخصوصياتو",
+    "شكلوه الي شاف الحجات هدول بكون مدخن سيقاره نظيفه"
+   ]
+  },
+  {
+   "n": 46,
+   "word": "إيمْتى",
+   "forms": [
+    "ايمتي",
+    "وايمتي",
+    "ايمتا",
+    "وايمتا",
+    "امتي",
+    "وامتي",
+    "ايمت",
+    "وايمت"
+   ],
+   "count": 747,
+   "perMillion": 350,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ايمتى",
+     "gloss": "when?"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ايمتى",
+     "gloss": "when?"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic متى)",
+     "word": "ايمتى",
+     "gloss": "from Arabic متى: when (at what time?)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic متى)",
+     "word": "ايمتى",
+     "gloss": "from Arabic متى: when (at what time?)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "امتى",
+     "gloss": "alternative form of إيمتى (ʔēmta): when?"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "امتى",
+     "gloss": "alternative form of ايمتى (ʔēmta, “when”)"
+    }
+   ],
+   "examples": [
+    "ليه بحس بيار ما بصدق ايمتى يخلص ايلي مع انو اهم فقره بالبرنامج ردار بعرف انو في وقت للبرنامج وانن لايف بس مش ضروري يحسنا بهالشي",
+    "ايمتى دولتنا بدها تتحمل مسؤوليه شي مره ما معقول قطع طرقات على الناس بقى ومش مسموح يا دوله العار",
+    "ايمت عرفت انك بتحبها ا اجت الشمس ع عيونها وجعني قلبي"
+   ]
+  },
+  {
+   "n": 47,
+   "word": "مَصاري",
+   "forms": [
+    "مصاري",
+    "ومصاري"
+   ],
+   "count": 727,
+   "perMillion": 340.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مصاري",
+     "gloss": "money"
+    }
+   ],
+   "examples": [
+    "انو مين ما جاي لعندك بدو يتديين مصاري بس هيدا مش احساس هيدا واقع ولو منو واقع ما اجا لعندك",
+    "رغم انو بتطلع مصاري اكتر من الشغل بشهاده بس الشهاده اولويه اساسيه لكل شخص",
+    "شي مره انو النواب و الوزرا سمعو صوت الشعب شو بقلن بس الغبا وال مصاري مانعينن"
+   ]
+  },
+  {
+   "n": 48,
+   "word": "مْبارِح",
+   "forms": [
+    "مبارح",
+    "ومبارح",
+    "امبارح"
+   ],
+   "count": 724,
+   "perMillion": 339.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مبارح",
+     "gloss": "yesterday"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "مبارح",
+     "gloss": "yesterday"
+    }
+   ],
+   "examples": [
+    "ما بدي احكي بقفاه بس نشرك مبارح",
+    "مبارح لما كانت طالعه الحلقه بهالوقت بناموا ولاد اختي لما قالتلون يل ا عالن وم ابنها الصغير عمرو سنتين قل ا",
+    "شي نائب او مسؤل علقان بعجقه السير مبارح"
+   ]
+  },
+  {
+   "n": 49,
+   "word": "كَرْت",
+   "forms": [
+    "كرت",
+    "وكرت",
+    "فكرت"
+   ],
+   "count": 723,
+   "perMillion": 338.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كرت",
+     "gloss": "postcard"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كرت",
+     "gloss": "card (any kind except playing cards)"
+    }
+   ],
+   "examples": [
+    "بخصوص قصه رتبه دفن الصليب انا حضرت هالتقرير عالاخبار وقتها وانا مسلمه فكرت عن جد في شي هيك اسمو واستغربت شو الاسم الصحيح لهالمراسم",
+    "الشيخ ركب عالبيك ونزل فيه فكرت طخ طخ لا لا عالداون تاون شوف الصوره",
+    "وشو ماصار يصير ولو حماتها او زوجها راجعوها بالموضوع تحكيلهم فكرت حماتي بتمزح معي وانا قلتلها حعمل الواجب وعملت واجب العزا للضيفه"
+   ]
+  },
+  {
+   "n": 50,
+   "word": "كِرْمال",
+   "forms": [
+    "كرمال",
+    "وكرمال",
+    "فكرمال",
+    "كرمالك",
+    "وكرمالك",
+    "كرمالو",
+    "كرمالي"
+   ],
+   "count": 711,
+   "perMillion": 333.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كرمال",
+     "gloss": "for; for the sake of"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كرمال",
+     "gloss": "to, in order to"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كرمال",
+     "gloss": "because"
+    }
+   ],
+   "examples": [
+    "لغيرنا لهلسبب اليوم انا اخدت عهد على حالي انو لم ا ربنا يحرمني من حياتي رح اوهبا لغيري كرمال يضل قلبي ينبض ولو بجسد تاني",
+    "كرمال ما عم نام",
+    "انا وياك لازم نقطع علاقتنا ب رمضان كرمال ينقبل صيامي بتقول هالكلام"
+   ]
+  },
+  {
+   "n": 51,
+   "word": "هَداك",
+   "forms": [
+    "هداك",
+    "وهداك",
+    "فهداك"
+   ],
+   "count": 620,
+   "perMillion": 290.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هداك",
+     "gloss": "that"
+    }
+   ],
+   "examples": [
+    "المنيح معاكي كوني منيحه معو وتقعديش تيجي ع حالك عشان ترضي هاد وهداك اللي بيرضا يرضى واللي بيرضاش مع نفسو",
+    "هه بالغلط نزل هداك",
+    "و هاد يوم و هداك يوم طعموني قتله قسما بلله لهسا مشيتي مايله بسببها"
+   ]
+  },
+  {
+   "n": 52,
+   "word": "زَلَمة",
+   "forms": [
+    "زلمه",
+    "وزلمه",
+    "زلمي"
+   ],
+   "count": 612,
+   "perMillion": 286.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زلمة",
+     "gloss": "man, guy, dude"
+    }
+   ],
+   "examples": [
+    "يا زلمي ما اكذبك",
+    "مش عم فيني ابلعك يا زلمي",
+    "قوم اتحمم طفحتنا يا زلمي"
+   ]
+  },
+  {
+   "n": 53,
+   "word": "سَوا",
+   "forms": [
+    "سوا",
+    "وسوا"
+   ],
+   "count": 539,
+   "perMillion": 252.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "سوا",
+     "gloss": "(particularly Lebanon) together"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سوا",
+     "gloss": "together (optionally preceded by مع (maʕ))"
+    }
+   ],
+   "examples": [
+    "ينباعو بالعزا كلم سوا",
+    "انت تحب سوريه وانت وطني تعا نعمرها سوا",
+    "فضفض وفش خلقك كلنا بالهوا سوا ما حدن عارف ولا"
+   ]
+  },
+  {
+   "n": 54,
+   "word": "إيش",
+   "forms": [
+    "ايش",
+    "وايش",
+    "فايش"
+   ],
+   "count": 533,
+   "perMillion": 249.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إيش",
+     "gloss": "alternative spelling of أيش (ʔēš)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ايش",
+     "gloss": "alternative spelling of أيش (ʔēš): what"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أيش",
+     "gloss": "what?"
+    }
+   ],
+   "examples": [
+    "حبي ايام ع رمضان ايش تعملي اذا هلقد مولعه",
+    "ايش احسن اصدار مر عليكم",
+    "وأيش في عنا شي اكيد لأ يلا منتعلم ايش ناقصنا بس قديش بدا وقت القصه"
+   ]
+  },
+  {
+   "n": 55,
+   "word": "نَطَر",
+   "forms": [
+    "نطر",
+    "نطرت",
+    "ونطرت",
+    "نطرني",
+    "ناطر",
+    "وناطر",
+    "ناطره",
+    "وناطره",
+    "ناطرين",
+    "وناطرين",
+    "ينطر",
+    "تنطر",
+    "وتنطر",
+    "انطر",
+    "وانطر"
+   ],
+   "count": 523,
+   "perMillion": 245.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نطر",
+     "gloss": "(intransitive) to wait"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نطر",
+     "gloss": "(transitive) to wait on, to wait for"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نطر",
+     "gloss": "(transitive, obsolete) to guard"
+    }
+   ],
+   "examples": [
+    "واديش كان في ناس علمفرق تنطر ناس",
+    "همك مش اكبر من هم مريض ناطر وحده دم او مريض سرطان ناطر جلسه كيماوي او امرأه رايحه تولد وتجبلك اخ او اخت بالوطنيه يا غبي",
+    "علقانين على الوسخ و على سمعت لبنان يلي بتشرف علقانين ناطرين شايفين مستقبلنا ضايع علقانين و معل قين على امل يصير عنا بلد"
+   ]
+  },
+  {
+   "n": 56,
+   "word": "هَديك",
+   "forms": [
+    "هديك",
+    "وهديك",
+    "فهديك"
+   ],
+   "count": 517,
+   "perMillion": 242.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هداك",
+     "gloss": "that"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هديك",
+     "gloss": "feminine of هداك (hadāk): that"
+    }
+   ],
+   "examples": [
+    "اولك هيدي البقره يلي بتعمل جبنه كيري لكن هديك شو بتعمول حليب ولا اشطه",
+    "صحيح انلسمعت عن هديك منطقه انو حالات صار اختتاق ولمس اعوذ بالله",
+    "مو مضيع وقت النساوين ومكتر مشاكلهم الا حب الناس ورضا هاي وهديك"
+   ]
+  },
+  {
+   "n": 57,
+   "word": "سِتّ",
+   "forms": [
+    "ست",
+    "وست",
+    "فست",
+    "ستي",
+    "وستي"
+   ],
+   "count": 512,
+   "perMillion": 239.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ستة",
+     "gloss": "six"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "سبعة",
+     "gloss": "seven"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ستة",
+     "gloss": "six"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ست",
+     "gloss": "lady, woman"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ست",
+     "gloss": "grandmother"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ست",
+     "gloss": "construct state of ستة (sitte)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سيد",
+     "gloss": "master, lord"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "سيد",
+     "gloss": "grandfather"
+    }
+   ],
+   "examples": [
+    "ست رضى جعجع كتييرر قوييه",
+    "يعطيك العافيه ست نجوى و شكرا كتير كتير كتير على كل شي ناطرينك ناطرينك ناطرينك",
+    "ستي وجدي متذكرين شي قبل بيوم او انا بنت مين بس عادي يتذكروا احداث من سنه بالتفاصيل"
+   ]
+  },
+  {
+   "n": 58,
+   "word": "لِيك",
+   "forms": [
+    "ليك",
+    "وليك",
+    "فليك",
+    "ليكي",
+    "وليكي",
+    "ليكو",
+    "وليكو"
+   ],
+   "count": 467,
+   "perMillion": 218.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ليك",
+     "gloss": "(imperative) look [with direct object ‘at something or someone’ (optional)]"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ليك",
+     "gloss": "(imperative) listen, pay attention (used to draw attention to the speaker themself)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ليك",
+     "gloss": "(Syria) here"
+    }
+   ],
+   "examples": [
+    "بونجورين ليك اذا ما عجبك عملله كففين ون فتح تمو دقه بدن شي بيعجبه ون زادها طقه رصاصتين وريح النا",
+    "ليك ملا طربون حبق",
+    "ليك دونالد انت خيي الكبير وميلانيا متل اختي وكل العالم بتعرف"
+   ]
+  },
+  {
+   "n": 59,
+   "word": "هَيْدا",
+   "forms": [
+    "هيدا",
+    "وهيدا",
+    "فهيدا"
+   ],
+   "count": 425,
+   "perMillion": 199.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this (one)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this"
+    }
+   ],
+   "examples": [
+    "الله يرحموا هيدا قضاء وقدر",
+    "هيدا عادل كرم اللي بينرفعلو القبعه هيدي لفته انسانيه",
+    "نحنا منشوف حالنا فيك وعقبال ما نشوفك هيدا لاعب باسكت منشوف حالنا في هيدا رياضي حقيقي هيدا"
+   ]
+  },
+  {
+   "n": 60,
+   "word": "عَصَّب",
+   "forms": [
+    "عصب",
+    "وعصب",
+    "عصبت",
+    "وعصبت",
+    "معصب",
+    "ومعصب",
+    "معصبه",
+    "ومعصبه",
+    "تعصب"
+   ],
+   "count": 376,
+   "perMillion": 176.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عصب",
+     "gloss": "nerve"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عصب",
+     "gloss": "to get angry"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عصب",
+     "gloss": "to bandage"
+    }
+   ],
+   "examples": [
+    "يصير بلد طالما في تعصب وطائفيه وتخلف وعباده للزعيم يا لبناني انت مريض نفسي بكل معنى الكلمه وبحاجه لعلاج سريع قبل فوات الأوان",
+    "الشعب اللبناني كلو معصب",
+    "لك ايلي وينو عصبت"
+   ]
+  },
+  {
+   "n": 61,
+   "word": "كْوَيِّس",
+   "forms": [
+    "كويس",
+    "وكويس",
+    "كويسه",
+    "وكويسه",
+    "كويسين"
+   ],
+   "count": 365,
+   "perMillion": 171,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كويس",
+     "gloss": "good, nice, fine"
+    }
+   ],
+   "examples": [
+    "كويس بس ما بتفتكر انو صار وقت نشوف وجوه جديده ماسكه هالمؤسات انا ما عندي شي ضد و كشخص بس بظن",
+    "والله ما بدي احبطك بس ان شاء الله يكونوا كويسين معك بس دقي على الراتب واكدي عليها اكم بدها تعطيكي",
+    "اعمليلها بابونج كويس كتير او خلطه اعشاب"
+   ]
+  },
+  {
+   "n": 62,
+   "word": "بَلاش",
+   "forms": [
+    "بلاش",
+    "وبلاش",
+    "فبلاش",
+    "ببلاش",
+    "وببلاش"
+   ],
+   "count": 308,
+   "perMillion": 144.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بلاش",
+     "gloss": "No charge; no money; a price of zero; (in context) for free; gratis."
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بلاش",
+     "gloss": "(rare outside of set phrases) nothing"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلاش",
+     "gloss": "nothing"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلاش",
+     "gloss": "for free (without payment)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلاش",
+     "gloss": "never mind!"
+    }
+   ],
+   "examples": [
+    "بيكون المقدم موعود ب كم ابره بوتوكس وفيلر ببلاش من دكتور نادر صعب فصارت انابيلا ملكه جمال بدلا من وصيفه اولى",
+    "سرعه وموبايل وانعدام المسؤوليه هيدي السواقه بلبنان والموت ببلاش",
+    "البلديه بصلحوا عند بيو بي بلاش ما بيسترجوا يحكوا"
+   ]
+  },
+  {
+   "n": 63,
+   "word": "زِعِل",
+   "forms": [
+    "زعل",
+    "وزعل",
+    "زعلت",
+    "وزعلت",
+    "فزعلت",
+    "زعلو",
+    "وزعلو",
+    "يزعل",
+    "ويزعل",
+    "تزعل",
+    "وتزعل",
+    "بزعل",
+    "وبزعل"
+   ],
+   "count": 304,
+   "perMillion": 142.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "to get upset"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "to get angry"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "(transitive) to upset"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "to annoy, to make someone angry"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "anger, irritation, annoyance"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعل",
+     "gloss": "distress, upset"
+    }
+   ],
+   "examples": [
+    "مشكلتي اذا زعلت عقلي بيتحول لمخرج بزيد احداث من عندو عشان ازعل زياده",
+    "انك حتى لو كنت مظلوم ما فيك تزعل من حبيبك",
+    "ابدا مش حلو اعلاميين او ناس مشهورين يوصلو لكل الناس هيك كلام او زعل بيناتن وبالرغم من هيك كتير منحب طوني خليفه"
+   ]
+  },
+  {
+   "n": 64,
+   "word": "بَلْكي",
+   "forms": [
+    "بلكي",
+    "وبلكي",
+    "بركي",
+    "وبركي",
+    "بلكن",
+    "وبلكن"
+   ],
+   "count": 285,
+   "perMillion": 133.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بركي",
+     "gloss": "maybe, perhaps, might"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلكي",
+     "gloss": "maybe, perhaps; might"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بركي",
+     "gloss": "alternative form of بلكي (balki, “maybe, perhaps”)"
+    }
+   ],
+   "examples": [
+    "بركي غسان الرحباني بياخد شي بوست بالمركز الكاتوليكي للإعلام وبشدد هل رقابه شوي",
+    "في شي معين بدك تدحشي بعد الزواج بركي بدها تدحش قريدس تكون طنبوره",
+    "عم تسكر طريق على المواطن البريء بركي كان في حاله ولاده او عمليه جراحيه او سفر انت مين يا حمار لتسكر الطريق يا سايكوباتي يا مريض"
+   ]
+  },
+  {
+   "n": 65,
+   "word": "زَعْلان",
+   "forms": [
+    "زعلان",
+    "وزعلان",
+    "زعلانه",
+    "زعلانين",
+    "وزعلانين"
+   ],
+   "count": 273,
+   "perMillion": 127.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "upset, sad"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "(+ عَلَى (ʿalā)) upset on behalf of someone, sad for someone, to feel for someone"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "(+ عَلَى (ʿalā)) upset with someone (regional)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "(Lebanon) (+ من (min)) upset with someone"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "upset, sad, distressed"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زعلان",
+     "gloss": "angry, annoyed, irritated"
+    }
+   ],
+   "examples": [
+    "انه زعلان من حالك كيف تحملت غباء بعض البشر",
+    "جبران مش زعلان لان جبران قوي مسيحيٱ",
+    "انو سامي زعلان عل اباده الأرمنيه"
+   ]
+  },
+  {
+   "n": 66,
+   "word": "بَرْضو",
+   "forms": [
+    "برضو",
+    "وبرضو",
+    "فبرضو",
+    "برضه",
+    "وبرضه",
+    "فبرضه"
+   ],
+   "count": 269,
+   "perMillion": 126,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "برضه",
+     "gloss": "also, too, as well"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "برضه",
+     "gloss": "nevertheless, however, still"
+    }
+   ],
+   "examples": [
+    "طيب انا بالسعوديه و برضو بدي شاورما الأردن",
+    "انا نفسي اعرف الاجابه برضو",
+    "بتصور انه بوكيه ورد بيطلع شي حلو كتير وبدايه جميله ممكن مصحف يحطه بعلبه هدايا وحوليه ورد مجفف او طبيعي برضو بتكون هديه حلوه"
+   ]
+  },
+  {
+   "n": 67,
+   "word": "شاطِر",
+   "forms": [
+    "شاطر",
+    "وشاطر",
+    "شاطره",
+    "وشاطره",
+    "شاطرين",
+    "وشاطرين"
+   ],
+   "count": 268,
+   "perMillion": 125.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاطر",
+     "gloss": "clever, bright, smart"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاطر",
+     "gloss": "skillful"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاطر",
+     "gloss": "hard-working"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شاطر",
+     "gloss": "successful"
+    }
+   ],
+   "examples": [
+    "هالبنوك شو شاطرين بالدعايات و الكلام المعسول يللي بيسمعهن بيقول ارتحنا لمدى الحياه",
+    "شو شاطر محمد فارس بس اكتر شي صايب وئام وهاب",
+    "يعني تحمسنا واتضايقنا وطلع كلو تمثيل بتمثيل فعلا الشعب اللبناني ما شاطر الا بالتمثيل والخداع"
+   ]
+  },
+  {
+   "n": 68,
+   "word": "بَنوب",
+   "forms": [
+    "بنوب",
+    "وبنوب"
+   ],
+   "count": 260,
+   "perMillion": 121.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بنوب",
+     "gloss": "never"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بنوب",
+     "gloss": "at all, whatsoever"
+    }
+   ],
+   "examples": [
+    "بيخبي كل جمال الوجه انا هيك عمل فيني مو حلو بنوب عوجهي لانه تقييل كتير",
+    "ليال لا بنوب قلي في شي",
+    "اخدتو وفاتت عالحمام و صارت تدور على اسم ريم وما لقتو بنوب"
+   ]
+  },
+  {
+   "n": 69,
+   "word": "مَعْليش",
+   "forms": [
+    "معليش",
+    "معلش",
+    "ومعلش"
+   ],
+   "count": 253,
+   "perMillion": 118.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "معليش",
+     "gloss": "no problem, no worries"
+    }
+   ],
+   "examples": [
+    "ولو هشام حرام سليمه هه معليش معبي برنامجك من وراها و وصفاتها هه",
+    "معليش يا سوزي ما تزعلي الحيوان احلى صديق ببعض الاوقات",
+    "تكسبي مرتين معليش الخدمه والنياكه ليش عم تحتجي"
+   ]
+  },
+  {
+   "n": 70,
+   "word": "يا رَيْت",
+   "forms": [
+    "ياريت",
+    "وياريت",
+    "فياريت"
+   ],
+   "count": 246,
+   "perMillion": 115.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "يا ريت",
+     "gloss": "I wish"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ياريت",
+     "gloss": "if only, I wish that, I hope that"
+    }
+   ],
+   "examples": [
+    "يا حضره جوزف طوق ياريت بس بتحكي من دون كلمه قرفنازيفريللي عيب من عبارتك بتدل انو اخر همك الموضوع بس بد ك تشارك",
+    "ياريت هالإيام ما تخلص وتضل ي كل يوم مفاجآت وأغاني كتير مبسوطين بالل ي عم يصير",
+    "و مع بعض دمار هضامه و خفه دم ياريت يجمعكم عمل مع بعض والله تكسرو الدني"
+   ]
+  },
+  {
+   "n": 71,
+   "word": "بَكّير",
+   "forms": [
+    "بكير",
+    "وبكير"
+   ],
+   "count": 246,
+   "perMillion": 115.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بكير",
+     "gloss": "early"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بكير",
+     "gloss": "early"
+    }
+   ],
+   "examples": [
+    "يا ريتني غفيت بكير و لا بلشت احضر اندبحت",
+    "بكير يا معالي الوزير مش محرزي خلص النهار و العالم صار بدها ترجع عبيوتها مشي الحال تبهدلت الناس و خلصت",
+    "بكير انطرو تجيبو الولد التالت وبتتجوزو فرد مره"
+   ]
+  },
+  {
+   "n": 72,
+   "word": "شْلون",
+   "forms": [
+    "شلون",
+    "وشلون"
+   ],
+   "count": 231,
+   "perMillion": 108.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شلون",
+     "gloss": "(Syria) how?"
+    }
+   ],
+   "examples": [
+    "بقدر قول انو قانون لايحمي مغفلين شلون بتثق فيه بهالسهوله هالايام الواحد خيو ماعم يثق فيه لحتالي تثق بغريب",
+    "اصفن كيف بكون ماسك بإيد وحده فراطه عشر دنانير برايز و شلون و بإيده التانيه مطعج الدنانير بين اصابعو بطريقه خرافيه و ذكيه",
+    "شلون تبدا علاقتهم تنحرف و تميل نحو المسار الغير سليم"
+   ]
+  },
+  {
+   "n": 73,
+   "word": "شال",
+   "forms": [
+    "شال",
+    "وشال",
+    "شلت",
+    "وشلت",
+    "فشلت",
+    "شيل",
+    "وشيل",
+    "شيلي",
+    "وشيلي",
+    "شيلو"
+   ],
+   "count": 215,
+   "perMillion": 100.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شال",
+     "gloss": "to remove, to take off, away"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شال",
+     "gloss": "(slang, Lebanon) to be down, to be up for (used either alone or governing a subjunctive-verb phrase)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شال",
+     "gloss": "scarf"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شال",
+     "gloss": "to remove, to take out"
+    }
+   ],
+   "examples": [
+    "شيل القازان وارفع الديجانتير تك",
+    "شيل يا فيل تحتك نمله",
+    "ليك عيني لئمنه خير توقع خبر سيء ايه عال حسنا بلا استهزاء ايه حاج اخرس سد بوزك سكر نيعك اخرس قوم بقى كذاب شيل كذاب"
+   ]
+  },
+  {
+   "n": 74,
+   "word": "غَلْطان",
+   "forms": [
+    "غلطان",
+    "وغلطان",
+    "غلطانه",
+    "وغلطانه",
+    "غلطانين"
+   ],
+   "count": 211,
+   "perMillion": 98.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "غلطان",
+     "gloss": "wrong, mistaken (of people)"
+    }
+   ],
+   "examples": [
+    "اذا مني غلطان سمعت جمله تقول وجه الصحاره بس مفهمت شو معنى هالحكي يلي بيقدر يساعدني وبكون ممنون الو",
+    "ما يتحاسب اذا كان غلطان",
+    "انو احمر بالخط العريض مواضيعو هادفه تأكد انك غلطان وأحساسك خاطئ"
+   ]
+  },
+  {
+   "n": 75,
+   "word": "زَبَط",
+   "forms": [
+    "زبط",
+    "وزبط",
+    "بزبط",
+    "وبزبط",
+    "تزبط",
+    "وتزبط",
+    "زبطت",
+    "وزبطت"
+   ],
+   "count": 198,
+   "perMillion": 92.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبط",
+     "gloss": "to work, to function"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبط",
+     "gloss": "(by extension) can, may"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبط",
+     "gloss": "to fix, to adjust"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبط",
+     "gloss": "exactness, precision"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبط",
+     "gloss": "control"
+    }
+   ],
+   "examples": [
+    "الكف بدو ايعاده ما زبط من اول مره عيدو",
+    "وشوف انو زبط وضع البلد",
+    "بالزبط فن السخريه ما بزبط مع مين ما كان بدها ذكاء و سرعه بديهه ما بتزبط مع الكل و الذكي بفهم قصدي هه"
+   ]
+  },
+  {
+   "n": 76,
+   "word": "هَسّا",
+   "forms": [
+    "هسا",
+    "وهسا",
+    "هسع"
+   ],
+   "count": 196,
+   "perMillion": 91.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هسا",
+     "gloss": "now, just"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "هسع",
+     "gloss": "alternative form of هسا (hassa, “now”)"
+    }
+   ],
+   "examples": [
+    "بتكون اتعرضت لخوفه او موقف صدمها انا ابني غبت عنو فتره بسبب السفر وعمرو خمس سنين رجعت لقيتو بتأتئ هسا باخدو ع مركز نطق",
+    "منتو اللي صوتو ل محمد عساف وهو بالبرنامج هسا صرتو ضدو شو متوقعين يحررها مثلا مش بدافع عنو بس تناقضوش حالكم",
+    "دكتور جاوبني شو اعمل ابني يتقيأ كثير كثير ودايما حمام وبغسله صار احمر كثير شو اعمل عمره هسا اربع شهور غلبني كثير ساعدني"
+   ]
+  },
+  {
+   "n": 77,
+   "word": "عَلْقان",
+   "forms": [
+    "علقان",
+    "علقانه",
+    "علقانين",
+    "وعلقانين"
+   ],
+   "count": 190,
+   "perMillion": 89,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "علقان",
+     "gloss": "stuck (not able to leave a particular place)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "علقان",
+     "gloss": "stuck (in a situation without a clear solution)"
+    }
+   ],
+   "examples": [
+    "علقانين على الوسخ و على سمعت لبنان يلي بتشرف علقانين ناطرين شايفين مستقبلنا ضايع علقانين و معل قين على امل يصير عنا بلد",
+    "علقانين بين اثنين الطبقه السياسيه الفساده و حتان المال الذين دمرو شعب لبناني ب شئ اسمه البنوك و القروض",
+    "علقانين بين براثن سبعه حيتان اكلوا البلد بالطول وبالعرض نهبوا المال العام وجعلوا من البلاد مزرعه لهم والشعب الأهبل يقطع الطرق"
+   ]
+  },
+  {
+   "n": 78,
+   "word": "هَيْدي",
+   "forms": [
+    "هيدي",
+    "وهيدي"
+   ],
+   "count": 170,
+   "perMillion": 79.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this (one)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدي",
+     "gloss": "feminine of هيدا (hayda): (Lebanon) this"
+    }
+   ],
+   "examples": [
+    "يخرب بيتك هيدي طبعا للإعجاب",
+    "هيدا عادل كرم اللي بينرفعلو القبعه هيدي لفته انسانيه",
+    "فيفيان انطونيوس تحيه لتلميذتي وهيدي نجمه رح تصير وبحيي اهلها ع التربايه"
+   ]
+  },
+  {
+   "n": 79,
+   "word": "بْرافو",
+   "forms": [
+    "برافو",
+    "وبرافو",
+    "براڤو"
+   ],
+   "count": 147,
+   "perMillion": 68.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "براڤو",
+     "gloss": "bravo, good job [with على (ʕala) ‘to someone’ (optional)]"
+    }
+   ],
+   "examples": [
+    "برافو جو ولكل فريق العمل فكره فستان سوزي كتير انسانيه",
+    "برافو عادل حلقه قويه ليوم",
+    "مش جديده عليك هالشغلات ولهيك بحبك مع اني ماكنير بسمع اغاني بس انسانيتك وتتواضعك سابقتك دايما وبرافو لعادل"
+   ]
+  },
+  {
+   "n": 80,
+   "word": "هَلْقَد",
+   "forms": [
+    "هلقد",
+    "هالقد"
+   ],
+   "count": 139,
+   "perMillion": 65.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلأد",
+     "gloss": "this much, this many"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلأد",
+     "gloss": "(by extension) so much, so many"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلأد",
+     "gloss": "this much; (by extension) so much"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هلأد",
+     "gloss": "so + adjective"
+    }
+   ],
+   "examples": [
+    "معقول ضرب المرا ومقتنع انو هوي الرجال هيدا اكيد مريض مش مسموح الجهل هالقد يا عيب الشوم عالرجال",
+    "علقانين بي لبنان والك ريحونا بس شهر ورجعو وجعونا والله ما منسثاهل هلقد مندفع اعلا ضراب واغلا معيشه وعلا شو منحسل على توت",
+    "حبي ايام ع رمضان ايش تعملي اذا هلقد مولعه"
+   ]
+  },
+  {
+   "n": 81,
+   "word": "إيوا",
+   "forms": [
+    "ايوا",
+    "ايوه",
+    "وايوه"
+   ],
+   "count": 132,
+   "perMillion": 61.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أيوه",
+     "gloss": "alternative spelling of أيوى"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أيوى",
+     "gloss": "yes, yep, yeah"
+    }
+   ],
+   "examples": [
+    "ايوا كدا اهم حاجه الاخلاق يا بناتي",
+    "ايوا ابو الجيغ شو هل القانون الطير",
+    "والله عم بفكر ازا امي عملت مجدره اليوم انزل سكر الطريق و ما حدا احسن من حدا ايوا"
+   ]
+  },
+  {
+   "n": 82,
+   "word": "إِجِر",
+   "forms": [
+    "اجر",
+    "فاجر",
+    "اجري",
+    "واجري",
+    "اجرك",
+    "اجرو",
+    "اجريه"
+   ],
+   "count": 120,
+   "perMillion": 56.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أجر",
+     "gloss": "to rent out"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجر",
+     "gloss": "foot"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "إجر",
+     "gloss": "leg"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic رجل)",
+     "word": "إجر",
+     "gloss": "from Arabic رجل: an extremity; a limb; a leg"
+    }
+   ],
+   "examples": [
+    "هه اجر لقدام وخصر لورى معلمه",
+    "بعد شوي بيطلع زعيمهم بيؤمرهم بأصبع اجرو بيرجعو على بيوتهم متل الكلاب فرجونا اذا زلم وضلو معتصمين لنشوف",
+    "مصدر رزقي حجز طيران تحديث حافز حجز موعد بالاحوال التسجيل في قياس اسال الله يكتب اجر كل من يعمل ريتوت ويدعم حسابي"
+   ]
+  },
+  {
+   "n": 83,
+   "word": "صافِن",
+   "forms": [
+    "صافن",
+    "وصافن",
+    "صافنه",
+    "وصافنه",
+    "صفن",
+    "وصفن",
+    "صفنت",
+    "وصفنت"
+   ],
+   "count": 116,
+   "perMillion": 54.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "صفن",
+     "gloss": "to think deeply, to reflect"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "صفن",
+     "gloss": "to stare absentmindedly"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "صافن",
+     "gloss": "active participle of صفن (ṣafan, “to think deeply”)"
+    }
+   ],
+   "examples": [
+    "صاحب البسطه صافن فينا وبالنقاش عيونو بتغرغر عليي وعلى وضعي",
+    "حسيت كل مشاعري الدافيه طلعت مني و الكل صفن فيي انو ايش هاد",
+    "حمزه صافن ب اختو هبه وبطريقه اكلها"
+   ]
+  },
+  {
+   "n": 84,
+   "word": "تيتا",
+   "forms": [
+    "تيتا",
+    "تيته",
+    "وتيته"
+   ],
+   "count": 110,
+   "perMillion": 51.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "تيتا",
+     "gloss": "(hypocoristic) grandma"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تيتا",
+     "gloss": "grandma, granny"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تيتة",
+     "gloss": "alternative spelling of تيتا (“grandma”)"
+    }
+   ],
+   "examples": [
+    "اخت الكلمه تيتا لطيفه",
+    "اخت الكلمه تيتا لطيفه",
+    "الاعلاميه جيزيل خوري مبروك تيتا احلى تيتا"
+   ]
+  },
+  {
+   "n": 85,
+   "word": "خَيّ",
+   "forms": [
+    "خي",
+    "وخي",
+    "خيي",
+    "وخيي",
+    "خيك",
+    "خيو",
+    "وخيو"
+   ],
+   "count": 109,
+   "perMillion": 51.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "إخت",
+     "gloss": "sister"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "خي",
+     "gloss": "(Lebanon) brother"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "خي",
+     "gloss": "Expresses relief due to a sudden absence of stress or noise"
+    }
+   ],
+   "examples": [
+    "بتوقع يا خي ما حدا بيحكي لبناني الا برا وان ممشيت حيجي بقى ما في لبناني كلون برا حيح طق حنك",
+    "شخص يقول انتي بمعزه خيي وما يكون في غايه بالكلام",
+    "خيي رح يشكر كل العيله اسم اسم صحيح اذا خايف وهيك"
+   ]
+  },
+  {
+   "n": 86,
+   "word": "مَهْضوم",
+   "forms": [
+    "مهضوم",
+    "ومهضوم",
+    "مهضومه",
+    "ومهضومه",
+    "مهضومين"
+   ],
+   "count": 105,
+   "perMillion": 49.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مهضوم",
+     "gloss": "cute, adorable"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مهضوم",
+     "gloss": "sweet"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "مهضوم",
+     "gloss": "funny"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic مهضوم)",
+     "word": "مهضوم",
+     "gloss": "from Arabic مهضوم: passive participle of هَضَمَ (haḍama)"
+    }
+   ],
+   "examples": [
+    "مش طبيعي نادي شو مهضوم",
+    "لك حتى بنتي زينه قالتلي انو معقول ندي عم يسرق لهوا لعم نتنفسو قلتلا لأ هوى مهضوم",
+    "ولك يقبرني اللي خلقك بس ما بعرف شوفي كلمات ممكن توصف اديشك حلوه و مهضومه و بتجنني و ضحكتك عالم تاني"
+   ]
+  },
+  {
+   "n": 87,
+   "word": "بَقا",
+   "forms": [
+    "بقا",
+    "بئا"
+   ],
+   "count": 102,
+   "perMillion": 47.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بقا",
+     "gloss": "...already! (expresses exasperation)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بقا",
+     "gloss": "so, so then, and then"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بقا",
+     "gloss": "anymore, any more, remaining"
+    }
+   ],
+   "examples": [
+    "بقا بالوسايط و المحسوبيات",
+    "بقا عم نعيش الحقيقه اليوم",
+    "بقا يهددنا بشي اسمو اقليات هودي الاقليات اغتصبوا حقوق المسيحيي لسنين وسنين"
+   ]
+  },
+  {
+   "n": 88,
+   "word": "ضَبّ",
+   "forms": [
+    "ضب",
+    "وضب",
+    "ضبيت",
+    "وضبيت",
+    "ضبي",
+    "وضبي",
+    "ضبو",
+    "وضبو"
+   ],
+   "count": 100,
+   "perMillion": 46.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ضب",
+     "gloss": "to put away, to pack (clothes, etc.)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ضب",
+     "gloss": "to organize, to tidy up"
+    }
+   ],
+   "examples": [
+    "لازم تحكي هل الوضع الاقتصادي والاجتماعي تعتير معاش ما عاش والشعب بيرزح تحت فقر لوين رايحين بيزبط هل البلد او ما يزبط ضب غراضك",
+    "اذا ما انحلت اليوم بكرا هالمهزله رح تتكرر بدي قول للمسؤول اللي ورا هالحركات القرعه تمسحنا مدد عالسكت وضب زعرانك عن الطريق",
+    "ضب هل شنطه لانو ما حدا سألان عنك اذا متت برصاصه او بجلطه"
+   ]
+  },
+  {
+   "n": 89,
+   "word": "خِتْيار",
+   "forms": [
+    "ختيار",
+    "ختياره",
+    "وختياره"
+   ],
+   "count": 94,
+   "perMillion": 44,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ختيار",
+     "gloss": "old man"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ختيار",
+     "gloss": "(playing cards) king"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ختيار",
+     "gloss": "old man, elderly man"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic اختيار)",
+     "word": "ختيار",
+     "gloss": "from Arabic اختيار: verbal noun of اِخْتَارَ (iḵtāra) (form VIII)"
+    }
+   ],
+   "examples": [
+    "هول يلي عم يستقوا على زلمي ختيار و يكسروا سيارات العالم لازم يندفنوا بالمكبات",
+    "بس اجى هالكابوس بطلنا نحلم عفريت العلبه ختيار النحس",
+    "يسعد هالمسا الحلو ختيار شكرا"
+   ]
+  },
+  {
+   "n": 90,
+   "word": "فَرْجى",
+   "forms": [
+    "فرجي",
+    "وفرجي",
+    "فرجيني",
+    "وفرجيني",
+    "فرجيك",
+    "فرجاني",
+    "وفرجاني",
+    "ورجيني",
+    "ورجيك"
+   ],
+   "count": 86,
+   "perMillion": 40.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فرجى",
+     "gloss": "to show"
+    }
+   ],
+   "examples": [
+    "خلي الجيش ينزل وفرجيني الدكر فيهم",
+    "روق احلى ما فرجيك شي ما بيعجبك",
+    "ورجيني عرض اكتافك وروح من وجي"
+   ]
+  },
+  {
+   "n": 91,
+   "word": "زَتّ",
+   "forms": [
+    "زت",
+    "فزت",
+    "زتيت",
+    "زتو",
+    "وزتو",
+    "فزتو",
+    "زتي",
+    "فزتي",
+    "تزت"
+   ],
+   "count": 86,
+   "perMillion": 40.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زت",
+     "gloss": "to throw, to toss"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "زت",
+     "gloss": "(by extension) to trash, to throw out"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زت",
+     "gloss": "to throw, to toss"
+    }
+   ],
+   "examples": [
+    "خواتي بلشو بخواتو و بلشت كل وحده تزت كلمه و التانيه ترد ابوي غمز حماي و قلو قوم قوم نطلع نأرجل عالسطح بس نسمع صوت الدفاع المدني جاي بننزل",
+    "وقبل ما يكمل الكلمه الي كنت مستعده ادفع عمري لاسمعها قاطعو باسل و شدو من تيابو و زتو بعيد عني",
+    "وجسم رنيم عم يتعب اكتر واكتر وام مصعب عم تزت حكي وتحسي براس مصعب"
+   ]
+  },
+  {
+   "n": 92,
+   "word": "أَبْصُر",
+   "forms": [
+    "ابصر",
+    "وابصر"
+   ],
+   "count": 83,
+   "perMillion": 38.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أبصر",
+     "gloss": "I don't know"
+    }
+   ],
+   "examples": [
+    "حيوانات ناطقه وابصر بمين محتميين بلد مسخره والزعرانات وما من فش خلقنا الا ببعض ما بنستقوي الا على بعضنا وتاركين يلي سارقينا",
+    "بديش ارد عليكي يا ست هاله ولا ابصر شو عشان انا زعلانه ع صاحبتي سمر",
+    "ان نزلنا بوست للخطبه مجموعه بتتمسخر والبنات مش سلعه وابصر شو وجزء تاني كل يوم ببعتولي بدهم بوست خطبه"
+   ]
+  },
+  {
+   "n": 93,
+   "word": "زاكي",
+   "forms": [
+    "زاكي",
+    "وزاكي",
+    "زاكيه",
+    "وزاكيه"
+   ],
+   "count": 82,
+   "perMillion": 38.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زاكي",
+     "gloss": "tasty, delicious"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic زاك)",
+     "word": "زاكي",
+     "gloss": "from Arabic زاك: active participle of زَكَا (zakā) and زَكِيَ (zakiya)"
+    }
+   ],
+   "examples": [
+    "اسلقيهم واعمليهم متبل كوسه بطلع زاكي",
+    "ولا مره مستحيل جربت تاعت الاردن مش زاكيه واصلا ما بتعبي المعده جربي الشاورما من رام الله وخصوصا العميد ي ويليي مزكاها اعزموني",
+    "هاي اسمها سيرما ميا نبع بسبغوها بطعم وزاكيه جدا"
+   ]
+  },
+  {
+   "n": 94,
+   "word": "أَزْعَر",
+   "forms": [
+    "ازعر",
+    "وازعر",
+    "زعران",
+    "وزعران"
+   ],
+   "count": 74,
+   "perMillion": 34.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أزعر",
+     "gloss": "hooligan"
+    }
+   ],
+   "examples": [
+    "علقانين بقرن العشرين بين زعران وشعب معمي بالطائفيه بدوله حاميه الحراميه وملفته البلطجيه والهيئه علقانين ومكترين",
+    "الدوله مش قادره تلم كم ازعر من الطريق",
+    "مع ناس زعران حاميهن ازعز منن وناطرين الدوله تحمينا"
+   ]
+  },
+  {
+   "n": 95,
+   "word": "رَوَّق",
+   "forms": [
+    "روق",
+    "وروق",
+    "روقي",
+    "وروقي",
+    "مروق"
+   ],
+   "count": 72,
+   "perMillion": 33.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "راق",
+     "gloss": "to calm down, to relax (intransitive)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "روق",
+     "gloss": "to calm down, to relax (transitive)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "روق",
+     "gloss": "to calm down"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "روق",
+     "gloss": "to chill, to relax"
+    }
+   ],
+   "examples": [
+    "وصيتلك تقطفلي اول عنقود اسود الكرم وما وصلنا عناقيد السود ولا تلوميني عالغيره وتقولي روق ما في عاشق يا زغيره عقلاتو كبار هذا طرب",
+    "روقي يا باسكال ما بدها القصه هالقد",
+    "روق احلى ما فرجيك شي ما بيعجبك"
+   ]
+  },
+  {
+   "n": 96,
+   "word": "دُغْري",
+   "forms": [
+    "دغري",
+    "ودغري",
+    "فدغري"
+   ],
+   "count": 72,
+   "perMillion": 33.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "immediately"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "directly"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "straight ahead"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "straight ahead"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "directly"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "direct"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دغري",
+     "gloss": "(by extension) honest"
+    }
+   ],
+   "examples": [
+    "احلى بين كل لمعكن يا منا وجر بتعقد ابوس ربك ما اطيبك انا بتجوزك دغري يا ريت يا اروع مخلوقه شفتى بعد مرتي الله يرحما",
+    "من بعد حلقه جمعه الماضي اهلا بك مجددا ب ترند ودغري",
+    "اما شو صفه شفتلك قدام المحل دغري بتعقدد"
+   ]
+  },
+  {
+   "n": 97,
+   "word": "شَنْتة",
+   "forms": [
+    "شنته",
+    "وشنته",
+    "شنطه",
+    "شنط"
+   ],
+   "count": 66,
+   "perMillion": 30.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شنطة",
+     "gloss": "suitcase"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شنطة",
+     "gloss": "bag"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شنطة",
+     "gloss": "satchel, schoolbag"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شنتة",
+     "gloss": "alternative form of شنطة (šanṭa)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شنط",
+     "gloss": "plural of شنطة (šanṭa)"
+    }
+   ],
+   "examples": [
+    "ضب هل شنطه لانو ما حدا سألان عنك اذا متت برصاصه او بجلطه",
+    "تبين شنطه كشخه تطلع حلوه على فستان سهره انيق جدا طلبك عندي شنطه من اجود الخامات جلدها معالج مقاومه و تبقى ف",
+    "هربوا بهالليل بلا خطط و بلا شنط فقد كانوا لبعضهم كل شيء"
+   ]
+  },
+  {
+   "n": 98,
+   "word": "تا",
+   "forms": [
+    "تا",
+    "وتا"
+   ],
+   "count": 63,
+   "perMillion": 29.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "تا",
+     "gloss": "so, to, in order to; connects two verbs and gives the phrase a final or factitive sense"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "تا",
+     "gloss": "marks future"
+    }
+   ],
+   "examples": [
+    "بزمن اميركا بتخلق الفزاعه وبتغذيا وبتبعتا عالدول تا تركعا وبتعمل حروب بحجه الارهاب تا تاخد ثروات العالم التالت",
+    "اعلامنا يكشف فضائح دولتنا مش مأجور تا يلهينا بأخبار من اخر الدني",
+    "حتى السياسه بتتحكم ببعض جمهور الأحزاب تا يقرروا وين بدن يضحكوا اذا او قم ه الجهل والتعصب"
+   ]
+  },
+  {
+   "n": 99,
+   "word": "شوفير",
+   "forms": [
+    "شوفير",
+    "وشوفير"
+   ],
+   "count": 62,
+   "perMillion": 29.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "شوفير",
+     "gloss": "driver"
+    }
+   ],
+   "examples": [
+    "شوفير الباص الأصفر محبوب الجماهير ناقل الصوره والخبر الصدق",
+    "صوت شوفير الخط ما عم ينئ طول الطريئ",
+    "خليك عم تحدل خاص شوفير الڤان"
+   ]
+  },
+  {
+   "n": 100,
+   "word": "عاطِل",
+   "forms": [
+    "عاطل",
+    "وعاطل",
+    "عاطله",
+    "وعاطله"
+   ],
+   "count": 59,
+   "perMillion": 27.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عاطل",
+     "gloss": "bad, not good"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عاطل",
+     "gloss": "bad, not good"
+    }
+   ],
+   "examples": [
+    "ما في خريج جامعي عاطل عن العمل",
+    "حظنا حلو انو الحل لمعظم الفساد بلبنان كتير بسيط تطبيق الدستور اللبناني بس حظنا عاطل انو الحكام الفاسدين عارفين هالشي",
+    "اشالله كل واحد نيتوا عاطله تقلب عليه"
+   ]
+  },
+  {
+   "n": 101,
+   "word": "رَهيب",
+   "forms": [
+    "رهيب",
+    "رهيبه"
+   ],
+   "count": 58,
+   "perMillion": 27.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "رهيب",
+     "gloss": "amazing, great"
+    }
+   ],
+   "examples": [
+    "لا رهيبه انتي عديله عنجد",
+    "يا الله باسم ياخور فظيع مش معقول شو مهضوم خاصه لما حكى عن نجوى كرم رهيب باسم نجم مذهب كتير حلوه مقابلتو اجتمع هوي وهشام لول",
+    "باسم ياخور رهيب مش معقول ممثل مبدع"
+   ]
+  },
+  {
+   "n": 102,
+   "word": "مْنين",
+   "forms": [
+    "منين",
+    "ومنين"
+   ],
+   "count": 49,
+   "perMillion": 23,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "منين",
+     "gloss": "from where?"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "منين",
+     "gloss": "alternative form of من وين (min wēn, “where ... from?”)"
+    }
+   ],
+   "examples": [
+    "بس لدي افهم منين بتجيبون عنجد حلقه ولا اروع",
+    "سانا فتح طريق التل ومنين وسط احتفال جماهيري كبير",
+    "احترنا يا قرعه منين بدنا نبوسك"
+   ]
+  },
+  {
+   "n": 103,
+   "word": "بوظة",
+   "forms": [
+    "بوظه"
+   ],
+   "count": 43,
+   "perMillion": 20.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بوظة",
+     "gloss": "ice cream"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بوظة",
+     "gloss": "ice cream"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "بوظة",
+     "gloss": "(Syria, Lebanon, Palestine) ice cream, booza"
+    }
+   ],
+   "examples": [
+    "انو صار وقت تاكل بوظه",
+    "على توقيعك انها حامل اشتهيت احمل ما تفهمني غلط عابالي احمل كبايه بوظه",
+    "لو اطلعنا مشوار واشترينا بوظه بياخدوا كاستي"
+   ]
+  },
+  {
+   "n": 104,
+   "word": "طَخّ",
+   "forms": [
+    "طخ",
+    "وطخ",
+    "طخو",
+    "طخيت"
+   ],
+   "count": 37,
+   "perMillion": 17.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "طخ",
+     "gloss": "to shoot, to fire"
+    }
+   ],
+   "examples": [
+    "الشيخ ركب عالبيك ونزل فيه فكرت طخ طخ لا لا عالداون تاون شوف الصوره",
+    "رهيبه انتى يالهاموا طخ طخ دايما تعليقاتك بتضحكنى صريحه جدا وعمليه",
+    "زكريات وانتصارات وطخ بالهوا كلو واحد"
+   ]
+  },
+  {
+   "n": 105,
+   "word": "بَنْدورة",
+   "forms": [
+    "بندوره",
+    "وبندوره"
+   ],
+   "count": 36,
+   "perMillion": 16.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بندورة",
+     "gloss": "(uncountable) tomatoes"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بندورة",
+     "gloss": "(uncountable) tomatoes"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "بندورة",
+     "gloss": "(Syria, Lebanon, Palestine, Jordan, usually uncountable) tomato"
+    }
+   ],
+   "examples": [
+    "وبتكونى مقشره بندوره ومقطعاها صغير وبس يشد الجمبرى بتحطيها وبتحطى بهار زبادى وفلفل اسمر وملح وشويه كمون",
+    "انا ببيع بيتزا وبعمل الصلصه بتجنن بتبشري بصل ناعم وشويه تومه وبندوره",
+    "و هي بتكون واقفه تفرم خيار و بندوره و لابسه فستان كيوت و شعرها عاملتو كعكه"
+   ]
+  },
+  {
+   "n": 106,
+   "word": "طَنْجَرة",
+   "forms": [
+    "طنجره",
+    "وطنجره"
+   ],
+   "count": 36,
+   "perMillion": 16.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "طنجرة",
+     "gloss": "pot, cooking pot"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "طنجرة",
+     "gloss": "saucepan"
+    }
+   ],
+   "examples": [
+    "طنجره نصها ماء حطي عليها رشه ملح",
+    "وبقلايه الجريل او طنجره او قلايه عاديه ضيفي شويه زيت زيتون ورتبي الحبات ممكن جنب بعض وممكن فوق بعض",
+    "او مرقوني من جنب طنجره ملوخيه بجنبها نص كيلو لمون اصفر"
+   ]
+  },
+  {
+   "n": 107,
+   "word": "طابة",
+   "forms": [
+    "طابه",
+    "وطابه"
+   ],
+   "count": 36,
+   "perMillion": 16.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "طابة",
+     "gloss": "ball"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "طابة",
+     "gloss": "scoop (of ice cream)"
+    }
+   ],
+   "examples": [
+    "ابن جيرانا جاب طابه و حطها قدامي و قلي زلمه و شوطها هه",
+    "كان معهن طابه صغيره عم يلعبو فيها",
+    "مرر طابه عالمرتاح يا حسن عبد الفتاح"
+   ]
+  },
+  {
+   "n": 108,
+   "word": "خاوة",
+   "forms": [
+    "خاوه",
+    "وخاوه"
+   ],
+   "count": 36,
+   "perMillion": 16.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "خاوة",
+     "gloss": "in spite, forcefully"
+    }
+   ],
+   "examples": [
+    "جوزي انا خطبتله وجوزته خاوه هو بده يتجوز شو المشكله",
+    "بدك تلبسني قضيه خاوه يا عمي انا شو دخلني بهالعالم وهالقصص انا عاصمه المكسيك بعرفش شو هي",
+    "بدك توخدي رقمي خاوه بحطو بالسندويشه بالوجبه بذانك بعينك بسشوارك بحلمك بأكلك بشربك"
+   ]
+  },
+  {
+   "n": 109,
+   "word": "دَفَش",
+   "forms": [
+    "دفش",
+    "دفشت",
+    "دفشو",
+    "ودفشو"
+   ],
+   "count": 30,
+   "perMillion": 14.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دفش",
+     "gloss": "to push, to shove"
+    }
+   ],
+   "examples": [
+    "نسي حالو طليس لما زعيمو دفشو عالشارع من فتره كان بالشارع",
+    "دحط لايك للبوست لانو دفش غلي زيك هه",
+    "المدير ضحك ضحكه خبيثه و حكالي ابنك يا مدام معاقب لإنو مش راضي يعترف انو هو الي دفش خالد عن راس الدرج و شعتلو تشعتل و همه نازلين عالفرصه"
+   ]
+  },
+  {
+   "n": 110,
+   "word": "حَوَّش",
+   "forms": [
+    "حوش",
+    "وحوش"
+   ],
+   "count": 29,
+   "perMillion": 13.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "حوش",
+     "gloss": "to gather, to accumulate, to save up"
+    }
+   ],
+   "examples": [
+    "روبي لو بتعرفي شو رجب حوش صاحبك عني",
+    "حوش عربي وباركين نعرفها مثل لهجتنا",
+    "اول ما جيت لهون ما كنت عارفه فايته ع وكر دبابير ع غابه وحوش مفترسه بدا تاكلني لحمه وترميني عضمه وين حقوق المرأه وين الكوتا ب"
+   ]
+  },
+  {
+   "n": 111,
+   "word": "أوضة",
+   "forms": [
+    "اوضه",
+    "اوضتي"
+   ],
+   "count": 28,
+   "perMillion": 13.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "أوضة",
+     "gloss": "room"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أوضة",
+     "gloss": "room"
+    }
+   ],
+   "examples": [
+    "اني علقان بين اوضه النوم والصالون",
+    "فتحت الباب شوي شوي وطلعت عالمطبخ الي كان جنب اوضتي تماما",
+    "فيني أجرك أوضة مزوجة بعشر ليرات ‎"
+   ]
+  },
+  {
+   "n": 112,
+   "word": "ناصِح",
+   "forms": [
+    "ناصح",
+    "ناصحه"
+   ],
+   "count": 27,
+   "perMillion": 12.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ناصح",
+     "gloss": "(Lebanon) fat, overweight"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "نصح",
+     "gloss": "to get fat, to gain weight"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "ناصح",
+     "gloss": "fat, plump, overweight"
+    }
+   ],
+   "examples": [
+    "الحق علي انا حردبه و ناصحه بعرفش انطم",
+    "و اصير بليده و لامباليه عالآخر و ناصحه و عندي لغاليغ ليوم اللغاليغ و ما احس غير بلذه الأكل",
+    "و الشوفير نمرود وقعدوني عالكرسي الاخير بالنص ع يميني واحد ناصح و عشمالي واحد عرقان"
+   ]
+  },
+  {
+   "n": 113,
+   "word": "عَجْقة",
+   "forms": [
+    "عجقه",
+    "وعجقه"
+   ],
+   "count": 25,
+   "perMillion": 11.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجقة",
+     "gloss": "traffic jam"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجقة",
+     "gloss": "overcrowding"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجقة",
+     "gloss": "a crowd, hoard"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجقة",
+     "gloss": "(possibly obsolete) emotional distress, worry, uncertainty"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجقة",
+     "gloss": "crowded, packed"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عجق",
+     "gloss": "cluttered, messy"
+    }
+   ],
+   "examples": [
+    "اليوم ما في عجقه سير",
+    "بعجقه سير وعجقه احتجاجات عجقه تصريحات وعجقه بيانات وعجقه مؤتمرات وعجقه تلاسنات بس الجيوب فارغات والاحلام ضايعات وعجبي",
+    "فيديو وصلني ع الواتساب عجقه وتكسير سيارات"
+   ]
+  },
+  {
+   "n": 114,
+   "word": "جْرابات",
+   "forms": [
+    "جرابات",
+    "وجرابات",
+    "جراب"
+   ],
+   "count": 23,
+   "perMillion": 10.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "جرابات",
+     "gloss": "socks"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جراب",
+     "gloss": "sock"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "جرابات",
+     "gloss": "socks"
+    }
+   ],
+   "examples": [
+    "ادهني رجلين ابنك فيكس منيح ولبسيه جرابات صوف وخلص",
+    "اه يا كبير هيني ما ضل معي ولا جوز جرابات تعال بسرعه جيبلي دزينه جرابات",
+    "لكل واحد ملفلف بالحرامات و حوليه كتب و ورق و جرابات"
+   ]
+  },
+  {
+   "n": 115,
+   "word": "أَرْجيلة",
+   "forms": [
+    "ارجيله",
+    "اركيله"
+   ],
+   "count": 22,
+   "perMillion": 10.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "أركيلة",
+     "gloss": "nargile, hookah, shisha"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أرجيلة",
+     "gloss": "narghile, hookah, water pipe"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "أركيلة",
+     "gloss": "alternative spelling of أرجيلة"
+    }
+   ],
+   "examples": [
+    "تنين اركيله عا تفاح يا ولد",
+    "الناس عم يحترق قلبا وانتو عم تحرقو راس ارجيله شعب جاهل",
+    "ولله علقانين تحت رحمه ناس بدا تاخد نفس اركيله عالطريق العام"
+   ]
+  },
+  {
+   "n": 116,
+   "word": "طوشة",
+   "forms": [
+    "طوشه"
+   ],
+   "count": 20,
+   "perMillion": 9.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "طوشة",
+     "gloss": "quarrel, fight, altercation"
+    }
+   ],
+   "examples": [
+    "قررت اعمل طوشه مع اخوي عالريموت و اتفش فيه و نطيت عليه بحركه لولبيه انتحاريه بسببها رجعت عتختي ست شهور لإنو عملي عده كسور",
+    "صاحبو رن عليه حكالو تعال ضروري قام اخوي حمل حالو و ضل نازل ابصر بس شكلها طوشه يعني رح يطول لإنو رح ينقتل و يصير يعرج فبدو ساعه ليوصل البيت",
+    "طبعا احنا سألناه ولك وين رايح قال في مؤتمر اقليمي طبعا هو على حفل طهور ما باخدو اصلا ع صلحه طوشه ما باخدو"
+   ]
+  },
+  {
+   "n": 117,
+   "word": "طَنَّش",
+   "forms": [
+    "طنش",
+    "وطنش",
+    "طنشت",
+    "طنشو"
+   ],
+   "count": 19,
+   "perMillion": 8.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "طنش",
+     "gloss": "to ignore, to pay no heed"
+    }
+   ],
+   "examples": [
+    "ال احترمت المشاهدين و وقفت الفيلم ال طنشت كل العالم وقت قامت القيامه ع برنامج",
+    "اليوم هيك كانت صبحيتي طنشت محاضره ال مشان هيك قعده",
+    "طنش كل شي وتبعد احسن لها والله"
+   ]
+  },
+  {
+   "n": 118,
+   "word": "تَنَكة",
+   "forms": [
+    "تنكه",
+    "وتنكه"
+   ],
+   "count": 19,
+   "perMillion": 8.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "تنكة",
+     "gloss": "tin, can (container)"
+    }
+   ],
+   "examples": [
+    "تنكه او اشربها ردها هه",
+    "بس هايدا اللي رابط القنينه ع ضهره ل فتح الغطاء عن القنينه اهدر شي تنكه مي بلا طعمه",
+    "هاتي تنكه زيت زيتون"
+   ]
+  },
+  {
+   "n": 119,
+   "word": "كَنْدَرة",
+   "forms": [
+    "كندره"
+   ],
+   "count": 18,
+   "perMillion": 8.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كندرة",
+     "gloss": "(pair of) shoes"
+    }
+   ],
+   "examples": [
+    "لوقت ما كنت طالعه كب الزباله الساعه تمانيه ونص بالليل وشفت كندره ميرنا قدام باب بيتها رميت الكيس بالزباله و فتت عالبيت بسرعه",
+    "يعني لو كان الموضوع كندرة ايطالي او حتى تركي ماشي الحال بس شبشب ويمكن يكون بلاستيك ما بصير .",
+    "لازم إستخدما متل فردة كندرة سندريلا القزاز"
+   ]
+  },
+  {
+   "n": 120,
+   "word": "زِبْدية",
+   "forms": [
+    "زبديه"
+   ],
+   "count": 16,
+   "perMillion": 7.5,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "زبدية",
+     "gloss": "bowl"
+    }
+   ],
+   "examples": [
+    "مرحبا مدام علا بدي منك طريقه زبديه الجمبري ومشكوره",
+    "انا بقول اكيد الخلط الي فوق حد من جيرانك يدق زبديه فول انمي ياشيخه بتحكيلنا هالقصه كيف راح نحللك ايا يعني اسألي حد يعرف بهيك امور",
+    "زبديه فلتت اعصابها رنت عليه الرقم غير مستعمل"
+   ]
+  },
+  {
+   "n": 121,
+   "word": "نَهْفة",
+   "forms": [
+    "نهفه"
+   ],
+   "count": 15,
+   "perMillion": 7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نهفة",
+     "gloss": "(indeclinable) funny (of a person)"
+    }
+   ],
+   "examples": [
+    "هه هاي نهفه جديده",
+    "عنجد نهفه من نهفات لبنان",
+    "اخ يا الله انطوان نهفه"
+   ]
+  },
+  {
+   "n": 122,
+   "word": "خَرْبَط",
+   "forms": [
+    "خربط",
+    "وخربط",
+    "خربطت"
+   ],
+   "count": 15,
+   "perMillion": 7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خربط",
+     "gloss": "to mix up, to muddle, to confuse"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "خربط",
+     "gloss": "to talk rubbish, to ramble on"
+    }
+   ],
+   "examples": [
+    "هه بقول يمكن خربطت في شغله وهيا بتكتب",
+    "و ع فكره تانيه خربطت عمري تسع سنين",
+    "بس هي خربطت كل شي و بدل ما تساعدني قضت علي وبتعرف مع هاد كلو انا ما بهمني والله"
+   ]
+  },
+  {
+   "n": 123,
+   "word": "نُتْفة",
+   "forms": [
+    "نتفه"
+   ],
+   "count": 15,
+   "perMillion": 7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نتفة",
+     "gloss": "a little bit, a small amount"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "نتفة",
+     "gloss": "a little, a bit, slightly"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "نتفة",
+     "gloss": "a little bit, a small amount"
+    }
+   ],
+   "examples": [
+    "بندهلو يا غالي رجعني ل حالي حتى بالليالي ولنو نتفه نام",
+    "وطبعا كل م تيجي تشطفي الدار بمي وكاز بتديري مكان م بيطلع النمل نتفه كاز",
+    "زيت سمسم ازا ماعندك خدي الي على وحه الطحينيه دهني صدرها للرقبه وخليها تلحس نتفه على طرف المعلقه وان شاء الله بتروق"
+   ]
+  },
+  {
+   "n": 124,
+   "word": "لَبَق",
+   "forms": [
+    "لبق",
+    "بيلبق",
+    "بتلبق"
+   ],
+   "count": 15,
+   "perMillion": 7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "لبق",
+     "gloss": "to suit (someone), to match (with something)"
+    }
+   ],
+   "examples": [
+    "الفكره كتير حلويي منتمنى يكون عند مكتبي برنامج خاص للاطفال متل هالحلقه بيلبق اكتر من حلو",
+    "هيدا الحب الصادق الحقيقي الو في هيدا العز يلي ما بيلبق ال البنت الكر",
+    "حبيبي يا امل بكره بحبا هالأغنيه وحبيت لما غنى تعلى وتتعمر يا دار هالاغاني شو بتلبق لصوتو واوف ع صوتو والمسرح شو بلبقلو"
+   ]
+  },
+  {
+   "n": 125,
+   "word": "دِينة",
+   "forms": [
+    "دينه",
+    "ودينه"
+   ],
+   "count": 15,
+   "perMillion": 7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "دينة",
+     "gloss": "ear"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic, descended from Arabic أذن)",
+     "word": "دينة",
+     "gloss": "from Arabic أذن: ear"
+    }
+   ],
+   "examples": [
+    "علقانين ببلد محترق دينه مظاهرات اضرابات اعتصامات مزايدات شي ولا اسوأ من هيك و اوهمونا انه هيدا افضل عهد بالتاريخ",
+    "شوف اذا انا خاين فانت مثلي وكل شخص في فلسطين ينطبق عليه هذه بالخيانه من خان دينه و وطنه ولا تعتبر كلمه عابره",
+    "ولا حتى فاهم دينه لأنه احيانا ممكن ما يترحم عليه"
+   ]
+  },
+  {
+   "n": 126,
+   "word": "بِسْكْليت",
+   "forms": [
+    "بسكليت"
+   ],
+   "count": 14,
+   "perMillion": 6.6,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "بسكليت",
+     "gloss": "bicycle"
+    }
+   ],
+   "examples": [
+    "نقاطع هه هو اهل غزه لاقيين يشترو بسكليت",
+    "بدي اربحكم بسكليت بي ام اكس عجالو فضه مطلي نحاس",
+    "كم شاحن ابره كم بسكليت بي ام اكس كم لطاشه ذبان عالكهربا"
+   ]
+  },
+  {
+   "n": 127,
+   "word": "مِرْسي",
+   "forms": [
+    "مرسي"
+   ],
+   "count": 13,
+   "perMillion": 6.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "مرسي",
+     "gloss": "(colloquial, dialectal, Egypt, Levantine) thanks"
+    }
+   ],
+   "examples": [
+    "دا انكليزي يا مرسي",
+    "كتير حلويي الحلقه حضروه كبار وصغار عنجد مرسي حلقه ممتازه ورائعه",
+    "مرسي حلقه كتير حلوه احلى مقدم ولو كنا منختلف بالسياسه يعني"
+   ]
+  },
+  {
+   "n": 128,
+   "word": "عَفْش",
+   "forms": [
+    "عفش",
+    "وعفش"
+   ],
+   "count": 13,
+   "perMillion": 6.1,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عفش",
+     "gloss": "furniture"
+    }
+   ],
+   "examples": [
+    "عزلي البيت وخففي عفش مش لازم",
+    "عمار وين عفش بيتي والاغراض",
+    "فكرت أنو بيتك فيه عفش مصنوع من شفرات حلاقة أوهيك شي."
+   ]
+  },
+  {
+   "n": 129,
+   "word": "عَرْباية",
+   "forms": [
+    "عربايه"
+   ],
+   "count": 11,
+   "perMillion": 5.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عربية",
+     "gloss": "cart, carriage"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عربية",
+     "gloss": "shopping cart"
+    }
+   ],
+   "examples": [
+    "نزلنا لتحت وطلعت البنات بالسياره و فتحنا صندوق السياره مشان يحط فيه رائد عربايه بنتي",
+    "أسرع من عرباية الولد الصغير وأقوى من فان صغير.",
+    "رح نطلع على عرباية الغراض."
+   ]
+  },
+  {
+   "n": 130,
+   "word": "بوط",
+   "forms": [
+    "بوط"
+   ],
+   "count": 11,
+   "perMillion": 5.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بوط",
+     "gloss": "(pair of) boots"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بوط",
+     "gloss": "(pair of) sneakers, tennis shoes"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بوط",
+     "gloss": "(pair of) (casual) shoes"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "بردي",
+     "gloss": "(Egypt, Palestine) paper reed (Cyperus papyrus)"
+    }
+   ],
+   "examples": [
+    "بلشت حل سؤال ورا سؤال بهدوء و تركيز و في مراقب لابس بوط حذاء من النوع المزعج و الو صوت اثناء المشي",
+    "ماشي ليلي، صار لازم اشتريلك بوط جديد.",
+    "واسمه بوط رياضي خفيف"
+   ]
+  },
+  {
+   "n": 131,
+   "word": "ضَيْعان",
+   "forms": [
+    "ضيعان"
+   ],
+   "count": 9,
+   "perMillion": 4.2,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "ضيعان",
+     "gloss": "what a loss [with definite noun or pronoun ‘something being lamented’]"
+    }
+   ],
+   "examples": [
+    "اذا عندون مطالب يتظاهر حد الوزاره او بيت الوزير شعب جاهل ضيعان لبنان فينا دمرناه",
+    "في ناس ضيعان الخبز فيها",
+    "يا ضيعان حلييبي اخ يا ربي اخ"
+   ]
+  },
+  {
+   "n": 132,
+   "word": "دَفّاية",
+   "forms": [
+    "دفايه"
+   ],
+   "count": 8,
+   "perMillion": 3.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "دفاية",
+     "gloss": "stove, heater"
+    }
+   ],
+   "examples": [
+    "كنت مشغله دفايه الكهربا وحاطه عليها رغيف خبز لانو كنت جوعانه ولابسه جاكيت جوخ رمادي و سكارف احمر",
+    "وصلت عالبيت و امي كانت مرعوبه كتير طمنتا و حطيت حطب بالدفايه لان كنا مركبين دفايه حطب",
+    "كان البيت هادي وما في اي صوت والساعه الصبح بس البيت كان دافي معناها مشغلين دفايه الحطب"
+   ]
+  },
+  {
+   "n": 133,
+   "word": "بَرْدَقان",
+   "forms": [
+    "بردقان"
+   ],
+   "count": 8,
+   "perMillion": 3.7,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "برتقان",
+     "gloss": "orange (fruit)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بردقان",
+     "gloss": "(uncountable) oranges (fruits)"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic, descended from Arabic برتقال)",
+     "word": "بردقان",
+     "gloss": "from Arabic برتقال: orange, oranges"
+    }
+   ],
+   "examples": [
+    "فطور ابو كاسه عصير بردقان طبيعي مع توسته و معلقه لبنه و عسل و حبتين زيتون اسود و احطلها ورده جمبهم مع رساله صغيره مكتوب عليها نورتي حياتي",
+    "مساكو صوبا عليها قشر بردقان برتقال",
+    "ريتا، شوفي إذا عنا شوية بردقان."
+   ]
+  },
+  {
+   "n": 134,
+   "word": "بَشْكير",
+   "forms": [
+    "بشكير"
+   ],
+   "count": 7,
+   "perMillion": 3.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بشكير",
+     "gloss": "(regional) towel"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "بشكير",
+     "gloss": "(Syria) towel"
+    }
+   ],
+   "examples": [
+    "جاب بشكير ونشفلي شعري وبلش يلفلي ياه وبعدين غمرني بالأغطيه",
+    "سيد تول، هاد بشكير مرتك؟"
+   ]
+  },
+  {
+   "n": 135,
+   "word": "صُرْماية",
+   "forms": [
+    "صرمايه"
+   ],
+   "count": 7,
+   "perMillion": 3.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "صرماية",
+     "gloss": "slipper, shoe"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "صرماية",
+     "gloss": "(pair of) shoes, slippers"
+    }
+   ],
+   "examples": [
+    "بالوج مرايه وبالافى صرمايه",
+    "لا تشلق المراه في صرمايه بتجي بنص عينك",
+    "ببلد بيسوى صرمايه مقطعه ببلد الزعران فيه حاكمين"
+   ]
+  },
+  {
+   "n": 136,
+   "word": "قَلّاية",
+   "forms": [
+    "قلايه"
+   ],
+   "count": 7,
+   "perMillion": 3.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "قلاية",
+     "gloss": "fryer, frying pan"
+    }
+   ],
+   "examples": [
+    "انا اقولك هيك حكي بنحكاش بنفعل يعني قرب عليكي باقرب قلايه ع راسو خليه يسترجي يحكي",
+    "وبقلايه الجريل او طنجره او قلايه عاديه ضيفي شويه زيت زيتون ورتبي الحبات ممكن جنب بعض وممكن فوق بعض",
+    "سمعت قلاية ... يمييي"
+   ]
+  },
+  {
+   "n": 137,
+   "word": "عَبَط",
+   "forms": [
+    "عبط",
+    "عبطت",
+    "عبطني"
+   ],
+   "count": 6,
+   "perMillion": 2.8,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "عبط",
+     "gloss": "to hug"
+    }
+   ],
+   "examples": [
+    "تاچ لشب بعرفش يسوق و تخصص عبط مطبات",
+    "بظن أنو الغري نشف عبطني."
+   ]
+  },
+  {
+   "n": 138,
+   "word": "بَرْداية",
+   "forms": [
+    "بردايه"
+   ],
+   "count": 5,
+   "perMillion": 2.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "برداية",
+     "gloss": "curtain"
+    }
+   ],
+   "examples": [
+    "لسه هي البردايه الوسخه معلقه عالشباك و في شباك بدون بردايه",
+    "محتمل يكون استخدام برداية الحمام علامة ندم من جانب الجانية الانثى",
+    "خلتني علق برداية"
+   ]
+  },
+  {
+   "n": 139,
+   "word": "جاط",
+   "forms": [
+    "جاط"
+   ],
+   "count": 5,
+   "perMillion": 2.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "جاط",
+     "gloss": "bowl"
+    }
+   ],
+   "examples": [
+    "الغدا ما بيكمل الا مع جاط بطاطا مقليه",
+    "نحنا ما طلبنا جاط فواكه اكيد في غلط",
+    "دخيل عرضك غن ي وما تحكي عن السياسيين عملت جاط فت وش بخلطه هالأسماء"
+   ]
+  },
+  {
+   "n": 140,
+   "word": "اسْتَرْجى",
+   "forms": [
+    "استرجي"
+   ],
+   "count": 5,
+   "perMillion": 2.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "استرجى",
+     "gloss": "to dare, to have the courage to"
+    }
+   ],
+   "examples": [
+    "كيف استرجى ضربها قدام جو معلوف اذا بسمع بإسم جو معلوف بخاف وبعمل فحص ضمير",
+    "والله لما كان عمري 15 سنه ما كنت استرجي افتح شباك واتفرج منه والله اخر وقت اللي الحرام صار فيه زي مرحبا ؟ ؟ ! !",
+    "– استرجي انعاد(؟) بسترجي!"
+   ]
+  },
+  {
+   "n": 141,
+   "word": "شَقْلَب",
+   "forms": [
+    "شقلب",
+    "شقلبت",
+    "تشقلب"
+   ],
+   "count": 5,
+   "perMillion": 2.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "شقلب",
+     "gloss": "(transitive) to flip, to flip something over"
+    }
+   ],
+   "examples": [
+    "اشرت لأختي و حكيتلها وصي امي تحكيلهم اني مش بالبيت ولله لو تشقلب الدار شقلبه مني طالعه",
+    "رحت من الوجع شقلبت عالأرض و صرت ارقص زومبا عالشقلوب اجا هو تعرقل فيني و وقع برضو و اجا صباحو بزاويه الباب",
+    "و راكان قلب على ظهرو كمان من الضحك و ولاد الحاره يقولو بات مان شقلب"
+   ]
+  },
+  {
+   "n": 142,
+   "word": "كَزْدَر",
+   "forms": [
+    "كزدره",
+    "كزدوره",
+    "نكزدر",
+    "بكزدر"
+   ],
+   "count": 5,
+   "perMillion": 2.3,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كزدر",
+     "gloss": "to wander or go out without a destination in mind, to walk or drive around simply because one feels like it"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كزدر",
+     "gloss": "to wander or go out without a destination in mind, to walk or drive around simply because one feels like it"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "كزدورة",
+     "gloss": "a trip with no planned destination, a stroll or drive because one feels like it"
+    },
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كزدورة",
+     "gloss": "a trip with no planned destination, a stroll or drive because one feels like it"
+    }
+   ],
+   "examples": [
+    "بعدين مع هالأخبار الي بتسم البدن اي دخيل الله بدنا نتجوز . . والله شكلنا عمرنا ما رح نتجوز على هلوضع ورح نقضيها نكزدر بلسيارة في مرج الحمام",
+    "كانت كزدورة حلوة . شكرا الك ."
+   ]
+  },
+  {
+   "n": 143,
+   "word": "فاصَل",
+   "forms": [
+    "فاصل"
+   ],
+   "count": 4,
+   "perMillion": 1.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "فاصل",
+     "gloss": "to bargain"
+    }
+   ],
+   "examples": [
+    "وشاركنا ببرنامج عأللبناني مع ماريا موسى يوميآ على لبنان الحر على الموجه مئه وإثنان فاصل ثلاثه وفرجينا شطارتك ناطرينكن",
+    "يجب وضع فاصل على طريق كسروان لحفظ الدماء",
+    "لازم تحط حد فاصل بشي قرنة ‎"
+   ]
+  },
+  {
+   "n": 144,
+   "word": "هَيْدول",
+   "forms": [
+    "هيدول"
+   ],
+   "count": 3,
+   "perMillion": 1.4,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this (one)"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدا",
+     "gloss": "(Lebanon) this"
+    },
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "هيدول",
+     "gloss": "plural of هيدا (hayda): (Lebanon) these"
+    }
+   ],
+   "examples": [
+    "يقبرني ربك ياسرج احلى خلق الله هيدول الاولاد هضامه برائه الله يعطيهن ايام حلوه",
+    "ولك شو هيدول كتير هضامه وطياب",
+    "إي، بس هيدول كتار وأنا شبعت."
+   ]
+  },
+  {
+   "n": 145,
+   "word": "كَنَباية",
+   "forms": [
+    "كنبايه"
+   ],
+   "count": 2,
+   "perMillion": 0.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "كنباية",
+     "gloss": "couch, sofa"
+    }
+   ],
+   "examples": [
+    "بغرفه بيضا بالكامل فاضيه الا من كنبايه بيضا من نفس لون الحيطان والأرضيه",
+    "عندها كنباية بتصير تخت."
+   ]
+  },
+  {
+   "n": 146,
+   "word": "بَلْكون",
+   "forms": [
+    "بلكون"
+   ],
+   "count": 2,
+   "perMillion": 0.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (South Levantine Arabic)",
+     "word": "بلكون",
+     "gloss": "balcony"
+    }
+   ],
+   "examples": [
+    "شفتللي الكستفليز عل البلكون بيقلك شو يعني بلكون عأساس الكستفليز معروفه اكتر",
+    "انتي روعه ما في متلك بلكون"
+   ]
+  },
+  {
+   "n": 147,
+   "word": "عْوَيْنات",
+   "forms": [
+    "عوينات"
+   ],
+   "count": 2,
+   "perMillion": 0.9,
+   "meanings": [
+    {
+     "src": "Wiktionary (North Levantine Arabic)",
+     "word": "عوينات",
+     "gloss": "glasses"
+    }
+   ],
+   "examples": [
+    "عوينات نظاره ليمون برتقال حامض ليمون لبن زبادي عيران لبن طون تونا عرنوس ذره بتاتا بطاطس",
+    "عوينات نظاره ليمون برتقال حامض ليمون لبن زبادي عيران لبن طون تونا عرنوس ذره بتاتا بط"
+   ]
+  }
+ ]
+}

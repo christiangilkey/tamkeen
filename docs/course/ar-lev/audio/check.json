@@ -1,0 +1,1328 @@
+{
+ "under": 0.85,
+ "results": [
+  {
+   "n": 1,
+   "score": 0.571,
+   "word_heard": true,
+   "heard": "بدي بسكسك مي",
+   "heard_word": "بس",
+   "expected": "بدي بس كاسة مي.",
+   "word": "بس"
+  },
+  {
+   "n": 2,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "رح نرجع بكرا",
+   "heard_word": "لف",
+   "expected": "رح نرجع بكرا.",
+   "word": "رح"
+  },
+  {
+   "n": 3,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "بدي روح عالبيت",
+   "heard_word": "بدي",
+   "expected": "بدي روح عالبيت.",
+   "word": "بدي"
+  },
+  {
+   "n": 4,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "شو اسمك؟",
+   "heard_word": "تشو",
+   "expected": "شو اسمك؟",
+   "word": "شو"
+  },
+  {
+   "n": 5,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "ليش عم تحكي هيك؟",
+   "heard_word": "هيك",
+   "expected": "ليش عم تحكي هيك؟",
+   "word": "هيك"
+  },
+  {
+   "n": 6,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "بدي احكي ما اكتشفي",
+   "heard_word": "حكي",
+   "expected": "بدي إحكي معك شوي.",
+   "word": "حكى"
+  },
+  {
+   "n": 7,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "إبيت موبايت",
+   "heard_word": "مو",
+   "expected": "البيت مو بعيد.",
+   "word": "مو"
+  },
+  {
+   "n": 8,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "تعهن",
+   "heard_word": "هون",
+   "expected": "تعا هون!",
+   "word": "هون"
+  },
+  {
+   "n": 9,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "شت أخوكم بارح",
+   "heard_word": "شكرا",
+   "expected": "شفت أخوك مبارح.",
+   "word": "شاف"
+  },
+  {
+   "n": 10,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "وين كنّا؟",
+   "heard_word": "هنا",
+   "expected": "وينك هلق؟",
+   "word": "هلق"
+  },
+  {
+   "n": 11,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "لشما أجي",
+   "heard_word": "ليش",
+   "expected": "ليش ما إجيت؟",
+   "word": "ليش"
+  },
+  {
+   "n": 12,
+   "score": 0.667,
+   "word_heard": true,
+   "heard": "في حد عالباب",
+   "heard_word": "حدا",
+   "expected": "في حدا عالباب.",
+   "word": "حدا"
+  },
+  {
+   "n": 13,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "استنى شوي جايي",
+   "heard_word": "شوي",
+   "expected": "استنى شوي، جايي.",
+   "word": "شوي"
+  },
+  {
+   "n": 14,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "أم أدرس مشان الفحص؟",
+   "heard_word": "نشان",
+   "expected": "عم إدرس مشان الفحص.",
+   "word": "مشان"
+  },
+  {
+   "n": 15,
+   "score": 0.75,
+   "word_heard": true,
+   "heard": "وأنا كمان بحب الأهوة",
+   "heard_word": "كمان",
+   "expected": "وأنا كمان بحب القهوة.",
+   "word": "كمان"
+  },
+  {
+   "n": 16,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "وإن ساكنت",
+   "heard_word": "لين",
+   "expected": "وين ساكن؟",
+   "word": "وين"
+  },
+  {
+   "n": 17,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "من عميدة عن بعض؟",
+   "heard_word": "مين؟",
+   "expected": "مين عم يدق عالباب؟",
+   "word": "مين"
+  },
+  {
+   "n": 18,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "الأكل تير منيس",
+   "heard_word": "منيس",
+   "expected": "الأكل كتير منيح.",
+   "word": "منيح"
+  },
+  {
+   "n": 19,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "هاي أختي",
+   "heard_word": "مرحبا",
+   "expected": "هاي أختي.",
+   "word": "هاي"
+  },
+  {
+   "n": 20,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "إجافة بعشة مبارك",
+   "heard_word": "إجاء",
+   "expected": "إجا خالي عالشام مبارح.",
+   "word": "إجا"
+  },
+  {
+   "n": 21,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "منحكي بعدين",
+   "heard_word": "بديل",
+   "expected": "منحكي بعدين.",
+   "word": "بعدين"
+  },
+  {
+   "n": 22,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "فوت الباب مستوح",
+   "heard_word": "سعادة",
+   "expected": "فوت، الباب مفتوح.",
+   "word": "فات"
+  },
+  {
+   "n": 23,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "أرسل المبنش",
+   "heard_word": "بلش",
+   "expected": "الفيلم بلش.",
+   "word": "بلش"
+  },
+  {
+   "n": 24,
+   "score": 0.333,
+   "word_heard": true,
+   "heard": "لسه ما أكنت",
+   "heard_word": "لسا",
+   "expected": "لسا ما أكلت.",
+   "word": "لسا"
+  },
+  {
+   "n": 25,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "خلاص، سلينة رف",
+   "heard_word": "خلاص",
+   "expected": "خلص، خلينا نروح.",
+   "word": "خلص"
+  },
+  {
+   "n": 26,
+   "score": 0.2,
+   "word_heard": false,
+   "heard": "جيبليكا ستمي، الله يفنديك",
+   "heard_word": "جابا",
+   "expected": "جيب لي كاسة مي، الله يخليك.",
+   "word": "جاب"
+  },
+  {
+   "n": 27,
+   "score": 0.8,
+   "word_heard": false,
+   "heard": "ما إجيت عشان كنت أعبان؟",
+   "heard_word": "أشين",
+   "expected": "ما إجيت عشان كنت تعبان.",
+   "word": "عشان"
+  },
+  {
+   "n": 28,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "يلا أخرنا",
+   "heard_word": "إيلا",
+   "expected": "يلا، تأخرنا!",
+   "word": "يلا"
+  },
+  {
+   "n": 29,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هو زي أخوه",
+   "heard_word": "زي",
+   "expected": "هو زي أخوه.",
+   "word": "زي"
+  },
+  {
+   "n": 30,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "المطام هونيك",
+   "heard_word": "هونيك",
+   "expected": "المطعم هونيك.",
+   "word": "هونيك"
+  },
+  {
+   "n": 31,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "مع ملاء مستيحي",
+   "heard_word": "لا",
+   "expected": "ما عم لاقي مفاتيحي.",
+   "word": "لاقى"
+  },
+  {
+   "n": 32,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "بحب إنشي لحاني",
+   "heard_word": "لحان",
+   "expected": "بحب إمشي لحالي.",
+   "word": "لحال"
+  },
+  {
+   "n": 33,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "جوزاء دكتور",
+   "heard_word": "جولز",
+   "expected": "جوزها دكتور.",
+   "word": "جوز"
+  },
+  {
+   "n": 34,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "من شاوف بكران",
+   "heard_word": "بكرا",
+   "expected": "منتشاوف بكرا.",
+   "word": "بكرا"
+  },
+  {
+   "n": 35,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "ماشي منفتقي الساعة خمسة",
+   "heard_word": "ملشي",
+   "expected": "ماشي، منلتقي الساعة خمسة.",
+   "word": "ماشي"
+  },
+  {
+   "n": 36,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "أدس سيراً أميس",
+   "heard_word": "أديش",
+   "expected": "قديش سعر هالقميص؟",
+   "word": "قديش"
+  },
+  {
+   "n": 37,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "أ. سهمت عليك",
+   "heard_word": "أتن",
+   "expected": "آه، فهمت عليك.",
+   "word": "آه"
+  },
+  {
+   "n": 38,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "بدي أسألك عن شجرة",
+   "heard_word": "شكرا",
+   "expected": "بدي إسألك عن شغلة.",
+   "word": "شغلة"
+  },
+  {
+   "n": 39,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "بيشتغل حد الساعة ستة",
+   "heard_word": "لحدث",
+   "expected": "بشتغل لحد الساعة ستة.",
+   "word": "لحد"
+  },
+  {
+   "n": 40,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "بيّن عينيك تعبان؟",
+   "heard_word": "بيان",
+   "expected": "مبين عليك تعبان.",
+   "word": "مبين"
+  },
+  {
+   "n": 41,
+   "score": 0.75,
+   "word_heard": true,
+   "heard": "أنا كير مبسوط هون",
+   "heard_word": "مبسوط",
+   "expected": "أنا كتير مبسوط هون.",
+   "word": "مبسوط"
+  },
+  {
+   "n": 42,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "سكر الشباك، بدي برد",
+   "heard_word": "سكاش",
+   "expected": "سكر الشباك، الدنية برد.",
+   "word": "سكر"
+  },
+  {
+   "n": 43,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "الولاد جوا",
+   "heard_word": "جوا",
+   "expected": "الولاد جوا.",
+   "word": "جوا"
+  },
+  {
+   "n": 44,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "هسن تتبع مين؟",
+   "heard_word": "تبا",
+   "expected": "هالشنتة تبع مين؟",
+   "word": "تبع"
+  },
+  {
+   "n": 45,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "هدول الفئاتي",
+   "heard_word": "هدول",
+   "expected": "هدول رفقاتي.",
+   "word": "هدول"
+  },
+  {
+   "n": 46,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "انت راح ترجع",
+   "heard_word": "أمت",
+   "expected": "إيمتى رح ترجع؟",
+   "word": "إيمتى"
+  },
+  {
+   "n": 47,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "ماما يمساري",
+   "heard_word": "مساري",
+   "expected": "ما معي مصاري.",
+   "word": "مصاري"
+  },
+  {
+   "n": 48,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "شو عملت مبارك؟",
+   "heard_word": "مبارك",
+   "expected": "شو عملت مبارح؟",
+   "word": "مبارح"
+  },
+  {
+   "n": 49,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "فكرة عطولة",
+   "heard_word": "فرق",
+   "expected": "في كرت عالطاولة.",
+   "word": "كرت"
+  },
+  {
+   "n": 50,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "عملت هالشي كلمان أمي؟",
+   "heard_word": "كرمان",
+   "expected": "عملت هالشي كرمال إمي.",
+   "word": "كرمال"
+  },
+  {
+   "n": 51,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "بدي هداك الكتاب",
+   "heard_word": "هداك",
+   "expected": "بدي هداك الكتاب.",
+   "word": "هداك"
+  },
+  {
+   "n": 52,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "هو زنما يمني",
+   "heard_word": "زلان",
+   "expected": "هو زلمة منيح.",
+   "word": "زلمة"
+  },
+  {
+   "n": 53,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "خلينا نأكل سوا",
+   "heard_word": "سوا",
+   "expected": "خلينا ناكل سوا.",
+   "word": "سوا"
+  },
+  {
+   "n": 54,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "أشبه دكت شراب",
+   "heard_word": "إش",
+   "expected": "إيش بدك تشرب؟",
+   "word": "إيش"
+  },
+  {
+   "n": 55,
+   "score": 0.571,
+   "word_heard": false,
+   "heard": "أنا ناطر على البعض",
+   "heard_word": "نتاز",
+   "expected": "أنا ناطر عالباب.",
+   "word": "نطر"
+  },
+  {
+   "n": 56,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هديك البنت اختي",
+   "heard_word": "هديك",
+   "expected": "هديك البنت أختي.",
+   "word": "هديك"
+  },
+  {
+   "n": 57,
+   "score": 0.75,
+   "word_heard": true,
+   "heard": "ستي بتطبخ أطيب أكا",
+   "heard_word": "ست",
+   "expected": "ستي بتطبخ أطيب أكل.",
+   "word": "ست"
+  },
+  {
+   "n": 58,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "لك، هد بيتي",
+   "heard_word": "لايك",
+   "expected": "ليك، هاد بيتي.",
+   "word": "ليك"
+  },
+  {
+   "n": 59,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "هيدا اطيب مطعم ببيروت",
+   "heard_word": "هيدا",
+   "expected": "هيدا أطيب مطعم ببيروت.",
+   "word": "هيدا"
+  },
+  {
+   "n": 60,
+   "score": 0.8,
+   "word_heard": false,
+   "heard": "لا تعصب، ما صار شيء",
+   "heard_word": "أصف",
+   "expected": "لا تعصب، ما صار شي.",
+   "word": "عصب"
+  },
+  {
+   "n": 61,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "إجاءة قوية سريعون",
+   "heard_word": "كويس",
+   "expected": "الجو كويس اليوم.",
+   "word": "كويس"
+  },
+  {
+   "n": 62,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "الدخول بلش",
+   "heard_word": "بلش",
+   "expected": "الدخول بلاش.",
+   "word": "بلاش"
+  },
+  {
+   "n": 63,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "زعلت منه كثير",
+   "heard_word": "داد",
+   "expected": "زعلت منو كتير.",
+   "word": "زعل"
+  },
+  {
+   "n": 64,
+   "score": 0.286,
+   "word_heard": false,
+   "heard": "بل كي بيجي بكران",
+   "heard_word": "بلقي",
+   "expected": "بلكي بيجي بكرا.",
+   "word": "بلكي"
+  },
+  {
+   "n": 65,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "امي زعلوني مني",
+   "heard_word": "زنان",
+   "expected": "إمي زعلانة مني.",
+   "word": "زعلان"
+  },
+  {
+   "n": 66,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "وأنا بدو ما بعرف",
+   "heard_word": "بدل",
+   "expected": "وأنا برضو ما بعرف.",
+   "word": "برضو"
+  },
+  {
+   "n": 67,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "ادنك شاطر برياضيات",
+   "heard_word": "شاة أس",
+   "expected": "إبنك شاطر بالرياضيات.",
+   "word": "شاطر"
+  },
+  {
+   "n": 68,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "بنوغ ما بايدا",
+   "heard_word": "بناب",
+   "expected": "بنوب، ما بعيدا.",
+   "word": "بنوب"
+  },
+  {
+   "n": 69,
+   "score": 0.286,
+   "word_heard": false,
+   "heard": "ما عليش؟ ما أصدرت؟",
+   "heard_word": "ماليش؟",
+   "expected": "معليش، ما قصدت.",
+   "word": "معليش"
+  },
+  {
+   "n": 70,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "ياريك سيني إجيماكون",
+   "heard_word": "ياريت",
+   "expected": "يا ريت فيني إجي معكن.",
+   "word": "يا ريت"
+  },
+  {
+   "n": 71,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "صحيت بكير اليوم؟",
+   "heard_word": "باتكير",
+   "expected": "صحيت بكير اليوم.",
+   "word": "بكير"
+  },
+  {
+   "n": 72,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "شلون صفتك؟",
+   "heard_word": "شون",
+   "expected": "شلون صحتك؟",
+   "word": "شلون"
+  },
+  {
+   "n": 73,
+   "score": 0.25,
+   "word_heard": false,
+   "heard": "شيلس هون عن الطولة",
+   "heard_word": "شن",
+   "expected": "شيل الصحون عن الطاولة.",
+   "word": "شال"
+  },
+  {
+   "n": 74,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "انتزلتان",
+   "heard_word": "زلطان",
+   "expected": "إنت غلطانة.",
+   "word": "غلطان"
+  },
+  {
+   "n": 75,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "الموعد ماذا بقى؟",
+   "heard_word": "ذبات",
+   "expected": "الموعد ما زبط.",
+   "word": "زبط"
+  },
+  {
+   "n": 76,
+   "score": 0.333,
+   "word_heard": true,
+   "heard": "أنا هسه بشغل",
+   "heard_word": "هسا",
+   "expected": "أنا هسا بالشغل.",
+   "word": "هسا"
+  },
+  {
+   "n": 77,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "عنقان بالعجأة",
+   "heard_word": "حالان",
+   "expected": "علقان بالعجقة.",
+   "word": "علقان"
+  },
+  {
+   "n": 78,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "هاي دي سيرتي",
+   "heard_word": "هيدي",
+   "expected": "هيدي سيارتي.",
+   "word": "هيدي"
+  },
+  {
+   "n": 79,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "درافوانيك",
+   "heard_word": "برافو",
+   "expected": "برافو عليك!",
+   "word": "برافو"
+  },
+  {
+   "n": 80,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "ما كنت بعرف إنه هلأت بعيد؟",
+   "heard_word": "هنأد",
+   "expected": "ما كنت بعرف إنو هلقد بعيد.",
+   "word": "هلقد"
+  },
+  {
+   "n": 81,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "ايوة انا جاهز",
+   "heard_word": "أيوة",
+   "expected": "إيوا، أنا جاهز.",
+   "word": "إيوا"
+  },
+  {
+   "n": 82,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "إجري مكسورة",
+   "heard_word": "أجل",
+   "expected": "إجري مكسورة.",
+   "word": "إجر"
+  },
+  {
+   "n": 83,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "5 ساعت",
+   "heard_word": "ساس",
+   "expected": "ليش صافن؟",
+   "word": "صافن"
+  },
+  {
+   "n": 84,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "ثيتا سكنة أمانة",
+   "heard_word": "إيقاظ",
+   "expected": "تيتا ساكنة معنا.",
+   "word": "تيتا"
+  },
+  {
+   "n": 85,
+   "score": 0.4,
+   "word_heard": true,
+   "heard": "سيأكبر مني",
+   "heard_word": "خي",
+   "expected": "خيي أكبر مني.",
+   "word": "خي"
+  },
+  {
+   "n": 86,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "ابنك كيل مهدون",
+   "heard_word": "مهدون",
+   "expected": "إبنك كتير مهضوم.",
+   "word": "مهضوم"
+  },
+  {
+   "n": 87,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "يلبع",
+   "heard_word": "بالآن",
+   "expected": "يلا بقا!",
+   "word": "بقا"
+  },
+  {
+   "n": 88,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "ضب زرادك، رح نمشي",
+   "heard_word": "بببب",
+   "expected": "ضب غراضك، رح نمشي.",
+   "word": "ضب"
+  },
+  {
+   "n": 89,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "جرناس كيار لطيف",
+   "heard_word": "خيار",
+   "expected": "جارنا ختيار لطيف.",
+   "word": "ختيار"
+  },
+  {
+   "n": 90,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "فجيني سوار",
+   "heard_word": "سج",
+   "expected": "فرجيني الصور.",
+   "word": "فرجى"
+  },
+  {
+   "n": 91,
+   "score": 0.286,
+   "word_heard": true,
+   "heard": "لا تتزبان تون",
+   "heard_word": "زت",
+   "expected": "لا تزت الزبالة هون.",
+   "word": "زت"
+  },
+  {
+   "n": 92,
+   "score": 0.4,
+   "word_heard": false,
+   "heard": "أبسروين راح",
+   "heard_word": "أبسر",
+   "expected": "أبصر وين راح.",
+   "word": "أبصر"
+  },
+  {
+   "n": 93,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "هل كاركزكي؟",
+   "heard_word": "زكي",
+   "expected": "هالكعكة زاكية.",
+   "word": "زاكي"
+  },
+  {
+   "n": 94,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "هل ولد أزعار؟",
+   "heard_word": "أزاد",
+   "expected": "هالولد أزعر.",
+   "word": "أزعر"
+  },
+  {
+   "n": 95,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "روكسيني",
+   "heard_word": "روى",
+   "expected": "روق، كل شي منيح.",
+   "word": "روق"
+  },
+  {
+   "n": 96,
+   "score": 0.75,
+   "word_heard": false,
+   "heard": "روح دغري وبعد يمين",
+   "heard_word": "دجري",
+   "expected": "روح دغري وبعدين يمين.",
+   "word": "دغري"
+  },
+  {
+   "n": 97,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "مرشاة تتعيل",
+   "heard_word": "شانت",
+   "expected": "معي شنتة تقيلة.",
+   "word": "شنتة"
+  },
+  {
+   "n": 98,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "جي تاشو فاك",
+   "heard_word": "تا",
+   "expected": "جيت تا شوفك.",
+   "word": "تا"
+  },
+  {
+   "n": 99,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "فيش فير تاكسي",
+   "heard_word": "شفير",
+   "expected": "خيي شوفير تاكسي.",
+   "word": "شوفير"
+  },
+  {
+   "n": 100,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "ألسيتم كناتا",
+   "heard_word": "عاتل",
+   "expected": "الفيلم كان عاطل.",
+   "word": "عاطل"
+  },
+  {
+   "n": 101,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "الحسد كان ترهيب",
+   "heard_word": "رحيظ",
+   "expected": "الحفلة كانت رهيبة!",
+   "word": "رهيب"
+  },
+  {
+   "n": 102,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "نين أنت",
+   "heard_word": "مانين",
+   "expected": "منين إنت؟",
+   "word": "منين"
+  },
+  {
+   "n": 103,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "بده بوزا شوكولا",
+   "heard_word": "بوزا",
+   "expected": "بدي بوظة شوكولا.",
+   "word": "بوظة"
+  },
+  {
+   "n": 104,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "بالعرس طخو بالهوى",
+   "heard_word": "أخ",
+   "expected": "بالعرس طخوا بالهوا.",
+   "word": "طخ"
+  },
+  {
+   "n": 105,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "جكيذة بندورة من السوق",
+   "heard_word": "بندور",
+   "expected": "جيب كيلو بندورة من السوق.",
+   "word": "بندورة"
+  },
+  {
+   "n": 106,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "سيطان جراء جززع النار",
+   "heard_word": "تنجر",
+   "expected": "في طنجرة رز عالنار.",
+   "word": "طنجرة"
+  },
+  {
+   "n": 107,
+   "score": 0.286,
+   "word_heard": false,
+   "heard": "الولاد عميلة عبوطابة",
+   "heard_word": "طابب",
+   "expected": "الولاد عم يلعبوا طابة.",
+   "word": "طابة"
+  },
+  {
+   "n": 108,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "أخذ الخو",
+   "heard_word": "خاول",
+   "expected": "أخدها خاوة.",
+   "word": "خاوة"
+  },
+  {
+   "n": 109,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "سش الباب",
+   "heard_word": "دسش",
+   "expected": "دفش الباب.",
+   "word": "دفش"
+  },
+  {
+   "n": 110,
+   "score": 0.286,
+   "word_heard": true,
+   "heard": "أمحلش مساري للسفر",
+   "heard_word": "حوش",
+   "expected": "عم حوش مصاري للسفر.",
+   "word": "حوش"
+  },
+  {
+   "n": 111,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "هيدي أودت الولاد",
+   "heard_word": "أودا",
+   "expected": "هيدي أوضة الولاد.",
+   "word": "أوضة"
+  },
+  {
+   "n": 112,
+   "score": 0.4,
+   "word_heard": false,
+   "heard": "سأتناصح شوي",
+   "heard_word": "ناسف",
+   "expected": "صرت ناصح شوي.",
+   "word": "ناصح"
+  },
+  {
+   "n": 113,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "في عجقات تير اليوم",
+   "heard_word": "عجب",
+   "expected": "في عجقة كتير اليوم.",
+   "word": "عجقة"
+  },
+  {
+   "n": 114,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "نعبس رعبات منوّن",
+   "heard_word": "جرابة",
+   "expected": "لابس جرابات ملونة.",
+   "word": "جرابات"
+  },
+  {
+   "n": 115,
+   "score": 1.0,
+   "word_heard": false,
+   "heard": "بتشرب أرجيلة؟",
+   "heard_word": "الجيلة",
+   "expected": "بتشرب أرجيلة؟",
+   "word": "أرجيلة"
+  },
+  {
+   "n": 116,
+   "score": 0.571,
+   "word_heard": false,
+   "heard": "صار سيطوشي بالشارع",
+   "heard_word": "طوش",
+   "expected": "صار في طوشة بالشارع.",
+   "word": "طوشة"
+  },
+  {
+   "n": 117,
+   "score": 0.25,
+   "word_heard": false,
+   "heard": "أنشو لا ترد علي",
+   "heard_word": "تننش",
+   "expected": "طنش ولا ترد عليه.",
+   "word": "طنش"
+  },
+  {
+   "n": 118,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "جيد تنكزيت",
+   "heard_word": "ثنك",
+   "expected": "جيب تنكة زيت.",
+   "word": "تنكة"
+  },
+  {
+   "n": 119,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "كندة تيجيدي",
+   "heard_word": "كنبات",
+   "expected": "كندرتي جديدة.",
+   "word": "كندرة"
+  },
+  {
+   "n": 120,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "جيت زبدية للسلطة",
+   "heard_word": "زبدي",
+   "expected": "جيب زبدية للسلطة.",
+   "word": "زبدية"
+  },
+  {
+   "n": 121,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "سيئة نهفة",
+   "heard_word": "نحف",
+   "expected": "رفيقك نهفة.",
+   "word": "نهفة"
+  },
+  {
+   "n": 122,
+   "score": 0.5,
+   "word_heard": true,
+   "heard": "خربتت الأوراق",
+   "heard_word": "خربط",
+   "expected": "خربطت الأوراق.",
+   "word": "خربط"
+  },
+  {
+   "n": 123,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "أتينينت سيخبز؟",
+   "heard_word": "نتس",
+   "expected": "عطيني نتفة خبز.",
+   "word": "نتفة"
+  },
+  {
+   "n": 124,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "هلوندي البقنك",
+   "heard_word": "لباق",
+   "expected": "هاللون بيلبق لك.",
+   "word": "لبق"
+  },
+  {
+   "n": 125,
+   "score": 0.4,
+   "word_heard": false,
+   "heard": "دينتي عامتوزاني",
+   "heard_word": "دين",
+   "expected": "دينتي عم توجعني.",
+   "word": "دينة"
+  },
+  {
+   "n": 126,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "عندي دسلية أحمر",
+   "heard_word": "بسرية",
+   "expected": "عندي بسكليت أحمر.",
+   "word": "بسكليت"
+  },
+  {
+   "n": 127,
+   "score": 0.0,
+   "word_heard": true,
+   "heard": "مرسيكير",
+   "heard_word": "مرسي",
+   "expected": "مرسي كتير!",
+   "word": "مرسي"
+  },
+  {
+   "n": 128,
+   "score": 0.571,
+   "word_heard": false,
+   "heard": "أرش البيت جديد",
+   "heard_word": "اشتركوا في القناة",
+   "expected": "عفش البيت كلو جديد.",
+   "word": "عفش"
+  },
+  {
+   "n": 129,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "جيب عرباية للزراد",
+   "heard_word": "أربع",
+   "expected": "جيب عرباية للغراض.",
+   "word": "عرباية"
+  },
+  {
+   "n": 130,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "لبست بوتي جديد",
+   "heard_word": "بوت",
+   "expected": "لبست بوطي الجديد.",
+   "word": "بوط"
+  },
+  {
+   "n": 131,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "ديان المصاري",
+   "heard_word": "ديان",
+   "expected": "ضيعان المصاري.",
+   "word": "ضيعان"
+  },
+  {
+   "n": 132,
+   "score": 0.25,
+   "word_heard": false,
+   "heard": "أنا دفاي بكل أوضاع",
+   "heard_word": "دفع",
+   "expected": "عنا دفاية بكل أوضة.",
+   "word": "دفاية"
+  },
+  {
+   "n": 133,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "أصير بردعان لو سمحت",
+   "heard_word": "بردعان",
+   "expected": "عصير بردقان لو سمحت.",
+   "word": "بردقان"
+  },
+  {
+   "n": 134,
+   "score": 0.286,
+   "word_heard": true,
+   "heard": "جيبلي بشكير ديز",
+   "heard_word": "بشكير",
+   "expected": "جيب لي بشكير نضيف.",
+   "word": "بشكير"
+  },
+  {
+   "n": 135,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "لبسر ما يديم",
+   "heard_word": "سرماي",
+   "expected": "لابس صرماية قديمة.",
+   "word": "صرماية"
+  },
+  {
+   "n": 136,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "جيب الألعين",
+   "heard_word": "ألا",
+   "expected": "جيب القلاية.",
+   "word": "قلاية"
+  },
+  {
+   "n": 137,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "عبت أمي",
+   "heard_word": "آباد",
+   "expected": "عبطت إمي.",
+   "word": "عبط"
+  },
+  {
+   "n": 138,
+   "score": 0.5,
+   "word_heard": false,
+   "heard": "سكر البردائل",
+   "heard_word": "برداء",
+   "expected": "سكر البرداية.",
+   "word": "برداية"
+  },
+  {
+   "n": 139,
+   "score": 0.25,
+   "word_heard": false,
+   "heard": "جيت جات كبير للسطوش",
+   "heard_word": "جات",
+   "expected": "جيب جاط كبير للفتوش.",
+   "word": "جاط"
+  },
+  {
+   "n": 140,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "ما بيستر جيحك؟",
+   "heard_word": "استرج",
+   "expected": "ما بيسترجي يحكي.",
+   "word": "استرجى"
+  },
+  {
+   "n": 141,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "شألة بلاج",
+   "heard_word": "شألو",
+   "expected": "شقلب العجة.",
+   "word": "شقلب"
+  },
+  {
+   "n": 142,
+   "score": 0.667,
+   "word_heard": false,
+   "heard": "رحنا نكذر بالسيارة",
+   "heard_word": "كسداد",
+   "expected": "رحنا نكزدر بالسيارة.",
+   "word": "كزدر"
+  },
+  {
+   "n": 143,
+   "score": 1.0,
+   "word_heard": true,
+   "heard": "لازم تفاصل بالسوق",
+   "heard_word": "فاصل",
+   "expected": "لازم تفاصل بالسوق.",
+   "word": "فاصل"
+  },
+  {
+   "n": 144,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "هاي دولو ونادي",
+   "heard_word": "هيدون",
+   "expected": "هيدول ولادي.",
+   "word": "هيدول"
+  },
+  {
+   "n": 145,
+   "score": 0.0,
+   "word_heard": false,
+   "heard": "أكاديس كنباي",
+   "heard_word": "كنباي",
+   "expected": "اقعد عالكنباية.",
+   "word": "كنباية"
+  },
+  {
+   "n": 146,
+   "score": 0.333,
+   "word_heard": false,
+   "heard": "شربنا أهوع البلكون",
+   "heard_word": "بركون",
+   "expected": "شربنا قهوة عالبلكون.",
+   "word": "بلكون"
+  },
+  {
+   "n": 147,
+   "score": 0.4,
+   "word_heard": false,
+   "heard": "وين أوين أتي؟",
+   "heard_word": "أولينا",
+   "expected": "وين عويناتي؟",
+   "word": "عوينات"
+  }
+ ]
+}

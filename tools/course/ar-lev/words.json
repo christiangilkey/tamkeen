@@ -1,0 +1,5409 @@
+{
+ "lang": "ar-lev",
+ "title": "Levantine basics",
+ "variety": "Levantine Arabic (Damascus and Beirut; a few common Palestinian and Jordanian words are marked)",
+ "about": "The most common words of spoken Levantine Arabic that are not Standard Arabic: counted in 2.1 million words of Syrian, Lebanese, Palestinian and Jordanian text, most common first, 50 to a unit. It builds on the Arabic basics course: words you already know from Standard Arabic, even said a little differently (كْتير for كَثير), are left out, and the grammar course teaches the patterns. Every meaning is backed by a published dictionary entry. Each word has one short everyday sentence, with Levantine vowel marks and its English translation; ⟦ ⟧ marks the part that translates the word. A note under a word says how it differs from a Standard Arabic word that looks the same.",
+ "planned": 147,
+ "voice": {
+  "voice": "ar-SY-AmanyNeural",
+  "locale": "ar-SY",
+  "name": "Amany (Azure, Syria)"
+ },
+ "words": [
+  {
+   "n": 1,
+   "rank": 14,
+   "word": "بَسّ",
+   "pos": "adv",
+   "meaning": "only, just; but",
+   "note": "Not MSA بَسَّ (to crush).",
+   "sentence": "بِدّي ⟦بَسّ⟧ كاسِة مَيّ.",
+   "translation": "I ⟦just⟧ want a glass of water.",
+   "forms": [
+    "بس"
+   ],
+   "uses": 20556,
+   "perMillion": 9632.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بس",
+     "gloss": "only, just",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بس",
+     "gloss": "but",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بس",
+     "gloss": "as soon as, once (with subjunctive verb)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بس",
+     "gloss": "that's enough!, stop it!",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بس",
+     "gloss": "cat",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "بس (verb): (transitive) to crush",
+    "بس (noun): cat"
+   ]
+  },
+  {
+   "n": 2,
+   "rank": 17,
+   "word": "رَح",
+   "pos": "particle",
+   "meaning": "will, going to",
+   "sentence": "⟦رَح⟧ نِرْجَع بُكْرا.",
+   "translation": "We ⟦will⟧ come back tomorrow.",
+   "forms": [
+    "رح",
+    "ح",
+    "لح"
+   ],
+   "uses": 17570,
+   "perMillion": 8233.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "رح",
+     "gloss": "going to; used with a following verb to form a future tense",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%AD#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "رح",
+     "gloss": "(auxiliary) will, going to",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%AD#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ح",
+     "gloss": "alternative form of رح (raḥ): going to, will; prefix of a following subjunctive verb to express the future tense",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 3,
+   "rank": 18,
+   "word": "بِدّي",
+   "pos": "verb",
+   "meaning": "I want (بِدَّك you want, بِدّو he wants)",
+   "note": "Not MSA بُدّ (a way out), as in لا بُدّ.",
+   "sentence": "⟦بِدّي⟧ روح عَالبَيْت.",
+   "translation": "⟦I want⟧ to go home.",
+   "forms": [
+    "بدي",
+    "بدك",
+    "بدو",
+    "بدها",
+    "بدنا",
+    "بدكن",
+    "بدهم",
+    "بدكم",
+    "بدكو",
+    "بديش"
+   ],
+   "uses": 16950,
+   "perMillion": 7942.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "to want",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "should; to need to; have to",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "going to",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "(false verb) to want",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "(false verb, by extension) to need",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بد",
+     "gloss": "(auxiliary) will, going to",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بدي",
+     "gloss": "I want",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بدي",
+     "gloss": "I want",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 4,
+   "rank": 19,
+   "word": "شُو",
+   "pos": "pron",
+   "meaning": "what",
+   "sentence": "⟦شُو⟧ اسْمَك؟",
+   "translation": "⟦What's⟧ your name?",
+   "forms": [
+    "شو"
+   ],
+   "uses": 16082,
+   "perMillion": 7535.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شو",
+     "gloss": "(interrogative) what?",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شو",
+     "gloss": "(relative) what",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شو",
+     "gloss": "what a...!, how...! (before adjectives or verb phrases)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شو",
+     "gloss": "whoa; wait; what gives",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شو",
+     "gloss": "what?",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 5,
+   "rank": 45,
+   "word": "هَيْك",
+   "pos": "adv",
+   "meaning": "like this, like that, so",
+   "sentence": "لَيْش عَم تِحْكي ⟦هَيْك⟧؟",
+   "translation": "Why are you talking ⟦like that⟧?",
+   "forms": [
+    "هيك",
+    "هيكي"
+   ],
+   "uses": 8211,
+   "perMillion": 3847.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "so, thus, like so",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "(by extension) this, that; used as a pronominal object of قال (ʔāl, “to say”), عِمِل (ʕimil, “to do”) and its synonyms, فكّر (fakkar, “to think”) and similar verbs relating to knowledge or opinion, and comparative مِن (min, “than”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "such; such kind, this kind of",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "Because. (non-answer to a \"why\" question)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "so, thus, like this, like that",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "(by extension) this, that",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هيك",
+     "gloss": "such, like this, like that",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D9%83#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 6,
+   "rank": 47,
+   "word": "حَكى",
+   "pos": "verb",
+   "meaning": "to talk, to speak",
+   "note": "Not MSA حَكَى (to tell, to narrate).",
+   "sentence": "بِدّي ⟦إِحْكي⟧ مَعَك شْوَيّ.",
+   "translation": "I want ⟦to talk⟧ to you for a bit.",
+   "form": "إِحْكي",
+   "forms": [
+    "حكى",
+    "حكيت",
+    "حكت",
+    "حكينا",
+    "حكيتي",
+    "حكيتو",
+    "حكيو",
+    "حكو",
+    "يحكي",
+    "تحكي",
+    "بحكي",
+    "احكي",
+    "نحكي",
+    "بتحكي",
+    "بيحكي",
+    "بنحكي",
+    "منحكي",
+    "يحكو",
+    "تحكو"
+   ],
+   "uses": 7679,
+   "perMillion": 3598.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "(intransitive) to speak, talk [with بِـ (bi) or عَن (ʕan) ‘about (a topic)’ (optional)]",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "(transitive) to speak to, to talk to",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "to say",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "to speak ill of, to trash-talk [with ع (ʕa) or على (ʕala) ‘on’]",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "to ask for the hand in marriage of [with بِـ (bi)]",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "speech, talk, talking",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حكى",
+     "gloss": "to talk, to speak",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حكى",
+     "gloss": "to say",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "speech, talk",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حكي",
+     "gloss": "way of speaking",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%83%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "حكى (verb): to tell, report, narrate, relate",
+    "حكى (verb): to resemble",
+    "حكى (verb): to imitate",
+    "حكى (verb): to tie a knot firmly"
+   ]
+  },
+  {
+   "n": 7,
+   "rank": 53,
+   "word": "مُو",
+   "pos": "particle",
+   "meaning": "not (before a noun or adjective)",
+   "note": "MSA says لَيْسَ.",
+   "sentence": "البَيْت ⟦مُو⟧ بَعيد.",
+   "translation": "The house is ⟦not⟧ far.",
+   "forms": [
+    "مو"
+   ],
+   "uses": 6740,
+   "perMillion": 3158.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مو",
+     "gloss": "not (negates a noun)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88#North_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "مو (noun): meu, baldmoney (Meum athamanticum)"
+   ]
+  },
+  {
+   "n": 8,
+   "rank": 56,
+   "word": "هَوْن",
+   "pos": "adv",
+   "meaning": "here",
+   "note": "Not MSA هَوْن (ease).",
+   "sentence": "تَعا ⟦هَوْن⟧!",
+   "translation": "Come ⟦here⟧!",
+   "forms": [
+    "هون",
+    "لهون",
+    "هان"
+   ],
+   "uses": 6399,
+   "perMillion": 2998.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هون",
+     "gloss": "here",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%88%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هون",
+     "gloss": "here",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%88%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هون",
+     "gloss": "to make (something) easy, to ease",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%88%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هان",
+     "gloss": "alternative form of هون (hōn, “here”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "هون (verb): to ease",
+    "هون (verb): to describe as easy",
+    "هون (verb): to describe as trifling, to describe as of low value",
+    "هون (verb): to describe as contemptible"
+   ]
+  },
+  {
+   "n": 9,
+   "rank": 57,
+   "word": "شاف",
+   "pos": "verb",
+   "meaning": "to see",
+   "note": "In MSA شافَ only means “to look down at”.",
+   "sentence": "⟦شِفْت⟧ أَخوك مْبارِح.",
+   "translation": "I ⟦saw⟧ your brother yesterday.",
+   "form": "شِفْت",
+   "forms": [
+    "شاف",
+    "شافت",
+    "شفت",
+    "شفتو",
+    "شفنا",
+    "شفتي",
+    "يشوف",
+    "تشوف",
+    "بشوف",
+    "اشوف",
+    "نشوف",
+    "شوف",
+    "شوفي",
+    "شوفو",
+    "بتشوف",
+    "بيشوف",
+    "شايف",
+    "شايفه",
+    "منشوف"
+   ],
+   "uses": 6290,
+   "perMillion": 2947.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شاف",
+     "gloss": "to see",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%81#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاف",
+     "gloss": "to see",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%81#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاف",
+     "gloss": "(by extension) to consider, to find (something to be)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%81#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "شاف (verb): to look down at; to view"
+   ]
+  },
+  {
+   "n": 10,
+   "rank": 59,
+   "word": "هَلَّق",
+   "pos": "adv",
+   "meaning": "now",
+   "sentence": "وَيْنَك ⟦هَلَّق⟧؟",
+   "translation": "Where are you ⟦now⟧?",
+   "forms": [
+    "هلق",
+    "هلأ",
+    "هلاء",
+    "هلئ",
+    "هلقيت"
+   ],
+   "uses": 5823,
+   "perMillion": 2728.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلق",
+     "gloss": "now",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D9%82#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هلق",
+     "gloss": "alternative spelling of هلأ (“now”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D9%82#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلا",
+     "gloss": "alternative form of هلق (hallaʔ, “now”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلأ",
+     "gloss": "alternative form of هلق (hallaʔ, “now”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هلا",
+     "gloss": "now, just",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هلا",
+     "gloss": "(informal) hi, hey (greeting)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هلأ",
+     "gloss": "alternative form of هلا (halla, “now”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هلقيت",
+     "gloss": "now, just",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D9%82%D9%8A%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 11,
+   "rank": 66,
+   "word": "لَيْش",
+   "pos": "adv",
+   "meaning": "why",
+   "sentence": "⟦لَيْش⟧ ما إِجيت؟",
+   "translation": "⟦Why⟧ didn't you come?",
+   "forms": [
+    "ليش"
+   ],
+   "uses": 5415,
+   "perMillion": 2537.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ليش",
+     "gloss": "why?",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D8%B4#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ليش",
+     "gloss": "what for?, why?",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 12,
+   "rank": 70,
+   "word": "حَدا",
+   "pos": "pron",
+   "meaning": "someone; (after a “not”) no one",
+   "note": "Not MSA حَدا (to urge on).",
+   "sentence": "في ⟦حَدا⟧ عَالباب.",
+   "translation": "There's ⟦someone⟧ at the door.",
+   "forms": [
+    "حدا",
+    "ماحدا",
+    "محدا"
+   ],
+   "uses": 5017,
+   "perMillion": 2350.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حدا",
+     "gloss": "somebody, someone",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D8%AF%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حدا",
+     "gloss": "(sometimes preceded by أيّ (ʔayy(a))) anybody, anyone",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D8%AF%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "حدا",
+     "gloss": "(preceded by a negative particle) nobody, no one",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D8%AF%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حدا",
+     "gloss": "someone, somebody",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D8%AF%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حدا",
+     "gloss": "(in a negative sentence) no-one, nobody",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D8%AF%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "حدا (verb): to spur on, to instigate"
+   ]
+  },
+  {
+   "n": 13,
+   "rank": 86,
+   "word": "شْوَيّ",
+   "pos": "adv",
+   "meaning": "a little, a bit",
+   "note": "Not MSA شَوَى (to grill).",
+   "sentence": "اسْتَنّى ⟦شْوَيّ⟧، جايي.",
+   "translation": "Wait ⟦a bit⟧, I'm coming.",
+   "forms": [
+    "شوي",
+    "شويه",
+    "شوية"
+   ],
+   "uses": 3964,
+   "perMillion": 1857.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شوي",
+     "gloss": "alternative form of شويّة (šwayye)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شوي",
+     "gloss": "a little, a bit",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شوية",
+     "gloss": "a little, a bit",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%8A%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شوية",
+     "gloss": "alternative form of شويّ (šwayy)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "شوى (verb): to grill",
+    "شوى (verb): to roast, have roasted, feed a roasted flesh-meat",
+    "شوى (verb): to wound not in a dangerous place"
+   ]
+  },
+  {
+   "n": 14,
+   "rank": 94,
+   "word": "مِشان",
+   "pos": "prep",
+   "meaning": "for; so that",
+   "sentence": "عَم إِدْرُس ⟦مِشان⟧ الفَحِص.",
+   "translation": "I'm studying ⟦for⟧ the exam.",
+   "forms": [
+    "مشان",
+    "منشان",
+    "مشانك",
+    "مشانو",
+    "مشاني"
+   ],
+   "uses": 3550,
+   "perMillion": 1663.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مشان",
+     "gloss": "alternative form of منشان (minšān)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "منشان",
+     "gloss": "for, for the sake of",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "منشان",
+     "gloss": "so that, in order to (before a subjunctive verb)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 15,
+   "rank": 96,
+   "word": "كَمان",
+   "pos": "adv",
+   "meaning": "also, too; more",
+   "note": "Not MSA كَمان (violin).",
+   "sentence": "وَأَنا ⟦كَمان⟧ بْحِبّ القَهْوِة.",
+   "translation": "And I like coffee ⟦too⟧.",
+   "forms": [
+    "كمان"
+   ],
+   "uses": 3485,
+   "perMillion": 1633,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كمان",
+     "gloss": "also, too, as well",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%85%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كمان",
+     "gloss": "more",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%85%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كمان",
+     "gloss": "also, too, as well",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%85%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كمان",
+     "gloss": "more",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%85%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "كمان (noun): (music) violin"
+   ]
+  },
+  {
+   "n": 16,
+   "rank": 101,
+   "word": "وَيْن",
+   "pos": "adv",
+   "meaning": "where",
+   "sentence": "⟦وَيْن⟧ ساكِن؟",
+   "translation": "⟦Where⟧ do you live?",
+   "forms": [
+    "وين",
+    "لوين"
+   ],
+   "uses": 3325,
+   "perMillion": 1558,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "وين",
+     "gloss": "where (relative and interrogative adverb, also figuratively)",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "وين",
+     "gloss": "Reaction to a quantity vastly larger or smaller than perceived",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "وين",
+     "gloss": "where?",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D9%8A%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 17,
+   "rank": 106,
+   "word": "مين",
+   "pos": "pron",
+   "meaning": "who",
+   "sentence": "⟦مين⟧ عَم يْدُقّ عَالباب؟",
+   "translation": "⟦Who⟧'s knocking at the door?",
+   "forms": [
+    "مين",
+    "لمين"
+   ],
+   "uses": 3065,
+   "perMillion": 1436.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مين",
+     "gloss": "(interrogative) who?",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مين",
+     "gloss": "(relative) who",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مين",
+     "gloss": "(relative) someone to; someone who",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مين",
+     "gloss": "who?",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%8A%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "مين (name): Maine (a state of the United States)"
+   ]
+  },
+  {
+   "n": 18,
+   "rank": 116,
+   "word": "مْنيح",
+   "pos": "adj",
+   "meaning": "good, fine; well",
+   "sentence": "الأَكِل كْتير ⟦مْنيح⟧.",
+   "translation": "The food is really ⟦good⟧.",
+   "forms": [
+    "منيح",
+    "منيحه",
+    "منيحة",
+    "منيحين"
+   ],
+   "uses": 2664,
+   "perMillion": 1248.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "منيح",
+     "gloss": "fine; good",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D9%8A%D8%AD#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "منيح",
+     "gloss": "good",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D9%8A%D8%AD#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "منيح",
+     "gloss": "well",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D9%8A%D8%AD#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 19,
+   "rank": 126,
+   "word": "هاي",
+   "pos": "pron",
+   "meaning": "this (feminine)",
+   "sentence": "⟦هاي⟧ أُخْتي.",
+   "translation": "⟦This⟧ is my sister.",
+   "forms": [
+    "هاي"
+   ],
+   "uses": 2538,
+   "perMillion": 1189.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هاي",
+     "gloss": "alternative form of هادي (hādi, “this”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%A7%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 20,
+   "rank": 135,
+   "word": "إِجا",
+   "pos": "verb",
+   "meaning": "to come",
+   "sentence": "⟦إِجا⟧ خالي عَالشّام مْبارِح.",
+   "translation": "My uncle ⟦came⟧ to Damascus yesterday.",
+   "forms": [
+    "اجا",
+    "اجى",
+    "اجت",
+    "اجيت",
+    "اجو",
+    "اجينا",
+    "اجيتي",
+    "اجيتو"
+   ],
+   "uses": 2382,
+   "perMillion": 1116.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "to come",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "to arrive",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "(figurative) to take a shape, form, or connotation",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "to come",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "(by extension) to arrive",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "to come up to, to approach [with ل (la-) ‘to’]",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "(by extension) to get, to receive (with recipient as direct object)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "(by extension) to fit (in a space) [with في (fi) ‘into something’]",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجا",
+     "gloss": "(by extension) to fit (of clothes) [with على (ʕala)]",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أجا",
+     "gloss": "alternative form of إجا (ʔija)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%AC%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 21,
+   "rank": 140,
+   "word": "بَعْدين",
+   "pos": "adv",
+   "meaning": "later; then",
+   "sentence": "مْنِحْكي ⟦بَعْدين⟧.",
+   "translation": "We'll talk ⟦later⟧.",
+   "forms": [
+    "بعدين"
+   ],
+   "uses": 2287,
+   "perMillion": 1071.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بعدين",
+     "gloss": "later, afterwards",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بعدين",
+     "gloss": "then",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بعدين",
+     "gloss": "not to mention; and another thing",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بعدين",
+     "gloss": "later, afterwards",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بعدين",
+     "gloss": "then",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 22,
+   "rank": 145,
+   "word": "فات",
+   "pos": "verb",
+   "meaning": "to go in, to come in",
+   "note": "Not MSA فاتَ (to pass, to be missed).",
+   "sentence": "⟦فوت⟧، الباب مَفْتوح.",
+   "translation": "⟦Come in⟧, the door's open.",
+   "form": "فوت",
+   "forms": [
+    "فات",
+    "فتت",
+    "فاتت",
+    "فتنا",
+    "فاتو",
+    "يفوت",
+    "تفوت",
+    "بفوت",
+    "فوت",
+    "فوتي",
+    "فوتو"
+   ],
+   "uses": 2238,
+   "perMillion": 1048.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "فات",
+     "gloss": "to enter, to go in, to come in [with على (ʕala) ‘into something’]",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%A7%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "فات",
+     "gloss": "to bump into, to collide [with في (fi) ‘with someone or something’]",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%A7%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "فات",
+     "gloss": "(intransitive, of time) to pass",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%A7%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "فات (verb): (often of time or opportunity) to pass, pass by, escape, run out, be missed or lost",
+    "فات (verb): to precede, come before"
+   ]
+  },
+  {
+   "n": 23,
+   "rank": 149,
+   "word": "بَلَّش",
+   "pos": "verb",
+   "meaning": "to start, to begin",
+   "sentence": "الفيلْم ⟦بَلَّش⟧.",
+   "translation": "The film has ⟦started⟧.",
+   "forms": [
+    "بلش",
+    "بلشت",
+    "بلشو",
+    "بلشنا",
+    "يبلش",
+    "تبلش",
+    "ببلش",
+    "نبلش",
+    "بلشي"
+   ],
+   "uses": 2144,
+   "perMillion": 1004.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلش",
+     "gloss": "(intransitive) to begin, to start",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%B4#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلش",
+     "gloss": "(intransitive) to begin, to start [with ب (b-) or في (fi)]",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 24,
+   "rank": 152,
+   "word": "لِسّا",
+   "pos": "adv",
+   "meaning": "still; (with “not”) not yet",
+   "sentence": "⟦لِسّا⟧ ما أَكَلْت.",
+   "translation": "I ⟦still⟧ haven't eaten.",
+   "forms": [
+    "لسا",
+    "لسه",
+    "لسى",
+    "لساتو",
+    "لساتك",
+    "لساتني",
+    "لساتها"
+   ],
+   "uses": 2120,
+   "perMillion": 993.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "لسا",
+     "gloss": "still",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%B3%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "لسا",
+     "gloss": "so far, to date",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%B3%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لسا",
+     "gloss": "still",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%B3%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لسا",
+     "gloss": "(in a negative sentence) not yet",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%B3%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 25,
+   "rank": 166,
+   "word": "خَلَص",
+   "pos": "intj",
+   "meaning": "that's it; enough!",
+   "note": "In MSA خَلَصَ means “to be pure” or “to reach”.",
+   "sentence": "⟦خَلَص⟧، خَلّينا نْروح.",
+   "translation": "⟦That's it⟧, let's go.",
+   "forms": [
+    "خلص"
+   ],
+   "uses": 1862,
+   "perMillion": 872.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خلص",
+     "gloss": "(intransitive) to finish, to end",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%84%D8%B5#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خلص",
+     "gloss": "(transitive) to finish, to end",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%84%D8%B5#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خلص",
+     "gloss": "enough, stop",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%84%D8%B5#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خلص",
+     "gloss": "that's it, it's over",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%84%D8%B5#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "خلص (verb): to be pure, to be unadulterated (e.g. of water or wine)",
+    "خلص (verb): (figurative) to be clear (of a goal, an idea, etc.)",
+    "خلص (verb): to belong [with لِ (li) ‘to someone’]",
+    "خلص (verb): to reach [with إِلَى (ʔilā) ‘a goal’]",
+    "خلص (verb): to come to, to arrive at [with إِلَى (ʔilā) ‘a result, a conclusion, etc.’]",
+    "خلص (verb): to be or become free",
+    "خلص (verb): to be freed, to be liberated [with مِن (min) ‘from someone/something’]",
+    "خلص (verb): to get rid [with مِن (min) ‘of something’]",
+    "خلص (verb): to be rescued, to be saved, to escape [with مِن (min) ‘from someone/something’]",
+    "خلص (verb): (Christianity) to attain salvation"
+   ]
+  },
+  {
+   "n": 26,
+   "rank": 181,
+   "word": "جاب",
+   "pos": "verb",
+   "meaning": "to bring, to get",
+   "note": "Not MSA جابَ (to travel across).",
+   "sentence": "⟦جيب⟧ لي كاسِة مَيّ، اللّه يْخَلّيك.",
+   "translation": "⟦Bring⟧ me a glass of water, please.",
+   "form": "جيب",
+   "forms": [
+    "جاب",
+    "جبت",
+    "جابت",
+    "جابو",
+    "يجيب",
+    "تجيب",
+    "بجيب",
+    "جيب",
+    "جيبي",
+    "جيبو",
+    "بتجيب"
+   ],
+   "uses": 1627,
+   "perMillion": 762.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جاب",
+     "gloss": "to bring, to take, to get",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%A7%D8%A8#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جاب",
+     "gloss": "to give birth",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%A7%D8%A8#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "جاب (verb): to traverse",
+    "جاب (noun): taxman, collector"
+   ]
+  },
+  {
+   "n": 27,
+   "rank": 183,
+   "word": "عَشان",
+   "pos": "conj",
+   "meaning": "because; for, so that (southern Levantine)",
+   "sentence": "ما إِجيت ⟦عَشان⟧ كُنْت تَعْبان.",
+   "translation": "I didn't come ⟦because⟧ I was tired.",
+   "forms": [
+    "عشان",
+    "علشان"
+   ],
+   "uses": 1607,
+   "perMillion": 753,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "because of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "for; for the sake of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "because",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "so that",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "for, because of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "because (before a past or present verb)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عشان",
+     "gloss": "so that, in order to (before a subjunctive verb)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "علشان",
+     "gloss": "for, because of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%84%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "علشان",
+     "gloss": "because",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%84%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "علشان",
+     "gloss": "so that, in order to",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%84%D8%B4%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 28,
+   "rank": 187,
+   "word": "يَلّا",
+   "pos": "intj",
+   "meaning": "come on, let's go",
+   "sentence": "⟦يَلّا⟧، تْأَخَّرْنا!",
+   "translation": "⟦Come on⟧, we're late!",
+   "forms": [
+    "يلا",
+    "يالا"
+   ],
+   "uses": 1589,
+   "perMillion": 744.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "يلا",
+     "gloss": "come on, hurry up",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%84%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "يلا",
+     "gloss": "let's, let's go",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%84%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "يلا",
+     "gloss": "(by extension) bye-bye, bye",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%84%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (Arabic, labelled Levantine)",
+     "entry": "يلا",
+     "gloss": "(dialectal, colloquial, Levantine) bye-bye, bye",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%84%D8%A7#Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 29,
+   "rank": 198,
+   "word": "زَيّ",
+   "pos": "prep",
+   "meaning": "like, as",
+   "note": "Not MSA زِيّ (costume, uniform).",
+   "sentence": "هُوِّ ⟦زَيّ⟧ أَخوه.",
+   "translation": "He's ⟦like⟧ his brother.",
+   "forms": [
+    "زي",
+    "زيي",
+    "زيك",
+    "زيو"
+   ],
+   "uses": 1486,
+   "perMillion": 696.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زي",
+     "gloss": "like, as",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "زي (noun): costume, uniform, suit, dress",
+    "زي (noun): (in the plural) fashion, vogue"
+   ]
+  },
+  {
+   "n": 30,
+   "rank": 203,
+   "word": "هونيك",
+   "pos": "adv",
+   "meaning": "there",
+   "sentence": "المَطْعَم ⟦هونيك⟧.",
+   "translation": "The restaurant is over ⟦there⟧.",
+   "forms": [
+    "هونيك",
+    "هنيك"
+   ],
+   "uses": 1426,
+   "perMillion": 668.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هونيك",
+     "gloss": "there",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%88%D9%86%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هونيك",
+     "gloss": "expresses \"a distant...\"",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%88%D9%86%D9%8A%D9%83#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 31,
+   "rank": 212,
+   "word": "لاقى",
+   "pos": "verb",
+   "meaning": "to find",
+   "note": "In MSA لاقَى means “to meet”.",
+   "sentence": "ما عَم ⟦لاقي⟧ مَفاتيحي.",
+   "translation": "I can't ⟦find⟧ my keys.",
+   "form": "لاقي",
+   "forms": [
+    "لاقى",
+    "لقيت",
+    "تلاقي",
+    "نلاقي",
+    "بلاقي",
+    "لاقي"
+   ],
+   "uses": 1290,
+   "perMillion": 604.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لاقى",
+     "gloss": "to find, to encounter",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%A7%D9%82%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لقى",
+     "gloss": "to find",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%82%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لقى",
+     "gloss": "to meet up with, to encounter",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%82%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لقى",
+     "gloss": "to find, to encounter",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%82%D9%89#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 32,
+   "rank": 214,
+   "word": "لَحال",
+   "pos": "adv",
+   "meaning": "alone, by oneself (لَحالي by myself)",
+   "sentence": "بْحِبّ إِمْشي ⟦لَحال⟧ي.",
+   "translation": "I like walking ⟦on my own⟧.",
+   "forms": [
+    "لحالي",
+    "لحالك",
+    "لحالو",
+    "لحالها",
+    "لحالنا"
+   ],
+   "uses": 1246,
+   "perMillion": 583.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لحال",
+     "gloss": "(with personal suffix) by oneself, on one's own",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%AD%D8%A7%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 33,
+   "rank": 234,
+   "word": "جوز",
+   "pos": "noun",
+   "meaning": "husband",
+   "note": "Not MSA جَوْز (walnut); MSA says زَوْج.",
+   "sentence": "⟦جوز⟧ها دُكْتور.",
+   "translation": "Her ⟦husband⟧ is a doctor.",
+   "forms": [
+    "جوز",
+    "جوزي",
+    "جوزك",
+    "جوزها"
+   ],
+   "uses": 1152,
+   "perMillion": 539.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جوز",
+     "gloss": "pair",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%88%D8%B2#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جوز",
+     "gloss": "husband",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%88%D8%B2#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جوز",
+     "gloss": "nuts",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%88%D8%B2#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "جوز (verb): to allow, to permit",
+    "جوز (verb): to cause to travel over, pass through, perform",
+    "جوز (verb): to carry through one's views",
+    "جوز (verb): to water",
+    "جوز (verb): to give in marriage, to marry",
+    "جوز (noun): middle (of a desert, a camel, the night, etc.)",
+    "جوز (noun): main part"
+   ]
+  },
+  {
+   "n": 34,
+   "rank": 235,
+   "word": "بُكْرا",
+   "pos": "adv",
+   "meaning": "tomorrow",
+   "note": "Not MSA بُكْرة (early morning); MSA says غَدًا.",
+   "sentence": "مْنِتْشاوَف ⟦بُكْرا⟧.",
+   "translation": "See you ⟦tomorrow⟧.",
+   "forms": [
+    "بكرا",
+    "بكرة"
+   ],
+   "uses": 1152,
+   "perMillion": 539.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "tomorrow",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "soon, someday soon",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "(obsolete) crack of dawn (only used in compounds)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "large spool of thread",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "Only used in حكرة بكرة (ḥakara bakara, ḥagara bagara, “eeny, meeny, miny, moe”) and related phrases",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بكرة",
+     "gloss": "tomorrow",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بكرا",
+     "gloss": "alternative spelling of بكرة (“tomorrow”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D8%B1%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 35,
+   "rank": 236,
+   "word": "ماشي",
+   "pos": "intj",
+   "meaning": "OK, fine",
+   "note": "Not MSA ماشٍ (walking).",
+   "sentence": "⟦ماشي⟧، مْنِلْتِقي السّاعة خَمْسة.",
+   "translation": "⟦OK⟧, we'll meet at five.",
+   "forms": [
+    "ماشي"
+   ],
+   "uses": 1147,
+   "perMillion": 537.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ماشي",
+     "gloss": "active participle of مشى (maša, “to walk”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A7%D8%B4%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ماشي",
+     "gloss": "going well; fine, OK",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A7%D8%B4%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "ماشى (verb): to walk side by side",
+    "ماشى (verb): to go along with (of another opinion)"
+   ]
+  },
+  {
+   "n": 36,
+   "rank": 242,
+   "word": "قَدّيش",
+   "pos": "adv",
+   "meaning": "how much, how many",
+   "sentence": "⟦قَدّيش⟧ سِعْر هالقَميص؟",
+   "translation": "⟦How much⟧ is this shirt?",
+   "forms": [
+    "قديش",
+    "اديش"
+   ],
+   "uses": 1117,
+   "perMillion": 523.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "قديش",
+     "gloss": "how much?",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%AF%D9%8A%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 37,
+   "rank": 243,
+   "word": "آه",
+   "pos": "intj",
+   "meaning": "yes, yeah",
+   "note": "Not MSA آهِ (ah!, ouch!).",
+   "sentence": "⟦آه⟧، فْهِمْت عَلَيْك.",
+   "translation": "⟦Yeah⟧, I understand you.",
+   "forms": [
+    "اه"
+   ],
+   "uses": 1096,
+   "perMillion": 513.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "اه",
+     "gloss": "yes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%87#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "آه",
+     "gloss": "yes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A2%D9%87#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "اه (verb): abbreviation of اِنْتَهَى (intahā): used to mark the end of a quotation",
+    "آه (intj): ah, aw, ooh, ouch (expression of physical or emotional pain)",
+    "آه (noun): pain (physical or emotional)",
+    "آه (verb): to moan, groan"
+   ]
+  },
+  {
+   "n": 38,
+   "rank": 260,
+   "word": "شَغْلة",
+   "pos": "noun",
+   "meaning": "thing, matter",
+   "sentence": "بِدّي إِسْأَلَك عَن ⟦شَغْلة⟧.",
+   "translation": "I want to ask you about ⟦something⟧.",
+   "forms": [
+    "شغلة",
+    "شغله",
+    "شغلات"
+   ],
+   "uses": 1029,
+   "perMillion": 482.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شغلة",
+     "gloss": "thing",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%BA%D9%84%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شغلة",
+     "gloss": "job, occupation",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%BA%D9%84%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شغلة",
+     "gloss": "issue, concern, matter, thing",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%BA%D9%84%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 39,
+   "rank": 270,
+   "word": "لَحَدّ",
+   "pos": "prep",
+   "meaning": "until",
+   "note": "Not MSA لَحْد (grave).",
+   "sentence": "بِشْتِغِل ⟦لَحَدّ⟧ السّاعة سِتّة.",
+   "translation": "I work ⟦until⟧ six o'clock.",
+   "forms": [
+    "لحد",
+    "لحتى"
+   ],
+   "uses": 996,
+   "perMillion": 466.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لحد",
+     "gloss": "until, as far as, up to",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%AD%D8%AF#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "لحد (noun): tombstone",
+    "لحد (noun): grave"
+   ]
+  },
+  {
+   "n": 40,
+   "rank": 272,
+   "word": "مْبَيِّن",
+   "pos": "adv",
+   "meaning": "apparently, it seems",
+   "note": "In MSA مُبَيَّن means “shown, made clear”.",
+   "sentence": "⟦مْبَيِّن⟧ عَلَيْك تَعْبان.",
+   "translation": "⟦It seems⟧ you're tired.",
+   "forms": [
+    "مبين",
+    "مبينه"
+   ],
+   "uses": 970,
+   "perMillion": 454.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مبين",
+     "gloss": "apparent, seeming",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مبين",
+     "gloss": "it looks like, it turns out",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D9%8A%D9%86#North_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "مبين (noun): indicator, pointer",
+    "مبين (adj): revealed, shown, exposed, proven",
+    "مبين (adj): clear, distinct, plain, blatant"
+   ]
+  },
+  {
+   "n": 41,
+   "rank": 273,
+   "word": "مْبَسوط",
+   "pos": "adj",
+   "meaning": "happy, pleased",
+   "sentence": "أَنا كْتير ⟦مْبَسوط⟧ هَوْن.",
+   "translation": "I'm very ⟦happy⟧ here.",
+   "forms": [
+    "مبسوط",
+    "مبسوطه",
+    "مبسوطة",
+    "مبسوطين"
+   ],
+   "uses": 962,
+   "perMillion": 450.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مبسوط",
+     "gloss": "happy, pleased",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D8%B3%D9%88%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مبسوط",
+     "gloss": "well, healthy",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D8%B3%D9%88%D8%B7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 42,
+   "rank": 276,
+   "word": "سَكَّر",
+   "pos": "verb",
+   "meaning": "to close, to shut",
+   "note": "Not MSA سَكَّرَ (to sweeten).",
+   "sentence": "⟦سَكِّر⟧ الشُّبّاك، الدِّنْيِة بَرْد.",
+   "translation": "⟦Close⟧ the window, it's cold.",
+   "form": "سَكِّر",
+   "forms": [
+    "سكر",
+    "سكرت",
+    "سكري",
+    "سكرو",
+    "يسكر",
+    "بسكر",
+    "مسكر",
+    "مسكره"
+   ],
+   "uses": 951,
+   "perMillion": 445.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سكر",
+     "gloss": "to get drunk",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%83%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سكر",
+     "gloss": "to close",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%83%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سكر",
+     "gloss": "(by extension) to lock",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%83%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سكر",
+     "gloss": "(by extension) to hang up (the phone)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%83%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سكر",
+     "gloss": "sugar",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%83%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "سكر (verb): to sugar, to sprinkle sugar over",
+    "سكر (verb): to sweeten, to add sugar",
+    "سكر (verb): to candy",
+    "سكر (verb): to get drunk, to become intoxicated",
+    "سكر (verb): to be drunk, to be intoxicated",
+    "سكر (noun): intoxicant",
+    "سكر (noun): wine",
+    "سكر (noun): drunkenness, intoxication, inebriety",
+    "سكر (adj): drunk"
+   ]
+  },
+  {
+   "n": 43,
+   "rank": 315,
+   "word": "جُوّا",
+   "pos": "adv",
+   "meaning": "inside",
+   "note": "Not MSA جَوًّا (by air); MSA says في الداخل.",
+   "sentence": "الوْلاد ⟦جُوّا⟧.",
+   "translation": "The kids are ⟦inside⟧.",
+   "forms": [
+    "جوا",
+    "جوات",
+    "جواتي"
+   ],
+   "uses": 783,
+   "perMillion": 366.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جوا",
+     "gloss": "inside, indoors",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%88%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جوات",
+     "gloss": "inside",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%88%D8%A7%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 44,
+   "rank": 316,
+   "word": "تَبَع",
+   "pos": "prep",
+   "meaning": "belonging to, of (تَبَعي mine)",
+   "note": "Not MSA تَبَع (followers).",
+   "sentence": "هالشَّنْتة ⟦تَبَع⟧ مين؟",
+   "translation": "Who does this bag ⟦belong to⟧?",
+   "forms": [
+    "تبع",
+    "تبعي",
+    "تبعك",
+    "تبعو",
+    "تبعها",
+    "تبعنا",
+    "تبعكن",
+    "تبعهن",
+    "تبعون",
+    "تاع"
+   ],
+   "uses": 768,
+   "perMillion": 359.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "forms possessive pronouns of all persons with the respective personal suffixes",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "of; used appositively after a noun instead of an ordinary possessive iḍāfa construction",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "forms possessive pronouns of all persons with the respective personal suffixes",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "of; used appositively after a noun instead of an ordinary possessive iḍāfa construction",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "(formal) to follow",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "(by extension) to depend on, to be a matter of",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "to keep track",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تبع",
+     "gloss": "to follow up [with مع]",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A8%D8%B9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "تبع (verb): to follow, to succeed, to come after in a sequence",
+    "تبع (verb): to follow physically, to pursue, to move behind in the same path",
+    "تبع (verb): to follow, to adhere to, abide by, or obey; to comply with",
+    "تبع (noun): follower(s)"
+   ]
+  },
+  {
+   "n": 45,
+   "rank": 317,
+   "word": "هَدول",
+   "pos": "pron",
+   "meaning": "these",
+   "sentence": "⟦هَدول⟧ رِفْقاتي.",
+   "translation": "⟦These⟧ are my friends.",
+   "forms": [
+    "هدول",
+    "هدولي"
+   ],
+   "uses": 758,
+   "perMillion": 355.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هدول",
+     "gloss": "plural of هاد (hād): (Syria) these",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%AF%D9%88%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هدول",
+     "gloss": "plural of هادا (hāda): these",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%AF%D9%88%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 46,
+   "rank": 319,
+   "word": "إيمْتى",
+   "pos": "adv",
+   "meaning": "when?",
+   "sentence": "⟦إيمْتى⟧ رَح تِرْجَع؟",
+   "translation": "⟦When⟧ will you come back?",
+   "forms": [
+    "ايمتى",
+    "ايمتا",
+    "امتى",
+    "ايمت"
+   ],
+   "uses": 747,
+   "perMillion": 350,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ايمتى",
+     "gloss": "when?",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%8A%D9%85%D8%AA%D9%89#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ايمتى",
+     "gloss": "when?",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%8A%D9%85%D8%AA%D9%89#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "امتى",
+     "gloss": "alternative form of إيمتى (ʔēmta): when?",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%85%D8%AA%D9%89#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "امتى",
+     "gloss": "alternative form of ايمتى (ʔēmta, “when”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%85%D8%AA%D9%89#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 47,
+   "rank": 325,
+   "word": "مَصاري",
+   "pos": "noun",
+   "meaning": "money",
+   "sentence": "ما مَعي ⟦مَصاري⟧.",
+   "translation": "I don't have any ⟦money⟧ on me.",
+   "forms": [
+    "مصاري"
+   ],
+   "uses": 727,
+   "perMillion": 340.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مصاري",
+     "gloss": "money",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B5%D8%A7%D8%B1%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 48,
+   "rank": 326,
+   "word": "مْبارِح",
+   "pos": "adv",
+   "meaning": "yesterday",
+   "sentence": "شو عْمِلْت ⟦مْبارِح⟧؟",
+   "translation": "What did you do ⟦yesterday⟧?",
+   "forms": [
+    "مبارح",
+    "امبارح"
+   ],
+   "uses": 724,
+   "perMillion": 339.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مبارح",
+     "gloss": "yesterday",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D8%A7%D8%B1%D8%AD#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "مبارح",
+     "gloss": "yesterday",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A8%D8%A7%D8%B1%D8%AD#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 49,
+   "rank": 328,
+   "word": "كَرْت",
+   "pos": "noun",
+   "meaning": "card",
+   "sentence": "في ⟦كَرْت⟧ عَالطّاوْلة.",
+   "translation": "There's a ⟦card⟧ on the table.",
+   "forms": [
+    "كرت"
+   ],
+   "uses": 723,
+   "perMillion": 338.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كرت",
+     "gloss": "postcard",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B1%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كرت",
+     "gloss": "card (any kind except playing cards)",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B1%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 50,
+   "rank": 333,
+   "word": "كِرْمال",
+   "pos": "prep",
+   "meaning": "for the sake of, for",
+   "sentence": "عْمِلْت هالشي ⟦كِرْمال⟧ إِمّي.",
+   "translation": "I did this ⟦for⟧ my mum.",
+   "forms": [
+    "كرمال",
+    "كرمالك",
+    "كرمالو",
+    "كرمالي"
+   ],
+   "uses": 711,
+   "perMillion": 333.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كرمال",
+     "gloss": "for; for the sake of",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B1%D9%85%D8%A7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كرمال",
+     "gloss": "to, in order to",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B1%D9%85%D8%A7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كرمال",
+     "gloss": "because",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B1%D9%85%D8%A7%D9%84#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 51,
+   "rank": 367,
+   "word": "هَداك",
+   "pos": "pron",
+   "meaning": "that",
+   "sentence": "بِدّي ⟦هَداك⟧ الكْتاب.",
+   "translation": "I want ⟦that⟧ book.",
+   "forms": [
+    "هداك"
+   ],
+   "uses": 620,
+   "perMillion": 290.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هداك",
+     "gloss": "that",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%AF%D8%A7%D9%83#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 52,
+   "rank": 372,
+   "word": "زَلَمة",
+   "pos": "noun",
+   "meaning": "man, guy",
+   "sentence": "هُوِّ ⟦زَلَمة⟧ مْنيح.",
+   "translation": "He's a good ⟦man⟧.",
+   "forms": [
+    "زلمة",
+    "زلمه",
+    "زلمي"
+   ],
+   "uses": 612,
+   "perMillion": 286.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زلمة",
+     "gloss": "man, guy, dude",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D9%84%D9%85%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 53,
+   "rank": 407,
+   "word": "سَوا",
+   "pos": "adv",
+   "meaning": "together",
+   "note": "Not MSA سَواء (equal; whether).",
+   "sentence": "خَلّينا ناكُل ⟦سَوا⟧.",
+   "translation": "Let's eat ⟦together⟧.",
+   "forms": [
+    "سوا"
+   ],
+   "uses": 539,
+   "perMillion": 252.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "سوا",
+     "gloss": "(particularly Lebanon) together",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%88%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "سوا",
+     "gloss": "together (optionally preceded by مع (maʕ))",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%88%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 54,
+   "rank": 417,
+   "word": "إيش",
+   "pos": "pron",
+   "meaning": "what (southern Levantine)",
+   "sentence": "⟦إيش⟧ بِدَّك تِشْرَب؟",
+   "translation": "⟦What⟧ would you like to drink?",
+   "forms": [
+    "ايش"
+   ],
+   "uses": 533,
+   "perMillion": 249.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إيش",
+     "gloss": "alternative spelling of أيش (ʔēš)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D9%8A%D8%B4#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ايش",
+     "gloss": "alternative spelling of أيش (ʔēš): what",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%8A%D8%B4#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أيش",
+     "gloss": "what?",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%8A%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 55,
+   "rank": 421,
+   "word": "نَطَر",
+   "pos": "verb",
+   "meaning": "to wait (for)",
+   "note": "Not MSA نَطَرَ (to guard).",
+   "sentence": "أَنا ⟦ناطِر⟧ عَالباب.",
+   "translation": "I'm ⟦waiting⟧ at the door.",
+   "form": "ناطِر",
+   "forms": [
+    "نطر",
+    "نطرت",
+    "نطرني",
+    "ناطر",
+    "ناطره",
+    "ناطرين",
+    "ينطر",
+    "تنطر",
+    "انطر"
+   ],
+   "uses": 523,
+   "perMillion": 245.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نطر",
+     "gloss": "(intransitive) to wait",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%B7%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نطر",
+     "gloss": "(transitive) to wait on, to wait for",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%B7%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نطر",
+     "gloss": "(transitive, obsolete) to guard",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%B7%D8%B1#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 56,
+   "rank": 423,
+   "word": "هَديك",
+   "pos": "pron",
+   "meaning": "that (feminine)",
+   "sentence": "⟦هَديك⟧ البِنْت أُخْتي.",
+   "translation": "⟦That⟧ girl is my sister.",
+   "forms": [
+    "هديك"
+   ],
+   "uses": 517,
+   "perMillion": 242.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هديك",
+     "gloss": "feminine of هداك (hadāk): that",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%AF%D9%8A%D9%83#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 57,
+   "rank": 424,
+   "word": "سِتّ",
+   "pos": "noun",
+   "meaning": "lady; grandma (سِتّي my grandma)",
+   "note": "Not MSA سِتّ (six).",
+   "sentence": "⟦سِتّ⟧ي بْتِطْبُخ أَطْيَب أَكِل.",
+   "translation": "My ⟦grandma⟧ makes the best food.",
+   "forms": [
+    "ست",
+    "ستي"
+   ],
+   "uses": 512,
+   "perMillion": 239.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ست",
+     "gloss": "lady, woman",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ست",
+     "gloss": "grandmother",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ست",
+     "gloss": "construct state of ستة (sitte)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 58,
+   "rank": 457,
+   "word": "لِيك",
+   "pos": "intj",
+   "meaning": "look!",
+   "sentence": "⟦لِيك⟧، هاد بَيْتي.",
+   "translation": "⟦Look⟧, that's my house.",
+   "forms": [
+    "ليك",
+    "ليكي",
+    "ليكو"
+   ],
+   "uses": 467,
+   "perMillion": 218.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ليك",
+     "gloss": "(imperative) look [with direct object ‘at something or someone’ (optional)]",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ليك",
+     "gloss": "(imperative) listen, pay attention (used to draw attention to the speaker themself)",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D9%83#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ليك",
+     "gloss": "(Syria) here",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D9%83#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 59,
+   "rank": 484,
+   "word": "هَيْدا",
+   "pos": "pron",
+   "meaning": "this (Lebanese)",
+   "sentence": "⟦هَيْدا⟧ أَطْيَب مَطْعَم بْبَيْروت.",
+   "translation": "⟦This⟧ is the best restaurant in Beirut.",
+   "forms": [
+    "هيدا"
+   ],
+   "uses": 425,
+   "perMillion": 199.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيدا",
+     "gloss": "(Lebanon) this (one)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D8%AF%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيدا",
+     "gloss": "(Lebanon) this",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D8%AF%D8%A7#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 60,
+   "rank": 526,
+   "word": "عَصَّب",
+   "pos": "verb",
+   "meaning": "to get angry",
+   "note": "Not MSA عَصَبَ (to tie up, to bind).",
+   "sentence": "لا ⟦تْعَصِّب⟧، ما صار شي.",
+   "translation": "Don't ⟦get angry⟧, nothing happened.",
+   "form": "تْعَصِّب",
+   "forms": [
+    "عصب",
+    "عصبت",
+    "معصب",
+    "معصبه",
+    "تعصب"
+   ],
+   "uses": 376,
+   "perMillion": 176.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عصب",
+     "gloss": "nerve",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B5%D8%A8#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عصب",
+     "gloss": "to get angry",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B5%D8%A8#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عصب",
+     "gloss": "to bandage",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B5%D8%A8#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "عصب (verb): to twist, wrap around",
+    "عصب (verb): to fold tightly",
+    "عصب (verb): to bound or bind, to tie",
+    "عصب (verb): to castrate via a band around testicles",
+    "عصب (verb): to bandage",
+    "عصب (verb): to draw people together, to assemble",
+    "عصب (verb): to surround, to encompass",
+    "عصب (verb): to surround, to encompass; to include, to hold or reckon together, such as the entirety of one's relations, to be of the same identity",
+    "عصب (verb): to obligate, to bind responsibility or consequences to; especially with phrases like بِ (bi) + رَأْس (raʔs, “head”)",
+    "عصب (verb): to cause a thing to be twisted, or wrapped around",
+    "عصب (verb): to swaddle, to cause a thing to be tightly folded around",
+    "عصب (verb): to bandage, to tourniquet",
+    "عصب (verb): to turban, to wrap one's brow with a band",
+    "عصب (verb): to turban, to wrap one's brow with a band; to crown, to declare or cause one to be a chief"
+   ]
+  },
+  {
+   "n": 61,
+   "rank": 537,
+   "word": "كْوَيِّس",
+   "pos": "adj",
+   "meaning": "good (southern Levantine)",
+   "sentence": "الجَوّ ⟦كْوَيِّس⟧ اليوم.",
+   "translation": "The weather's ⟦good⟧ today.",
+   "forms": [
+    "كويس",
+    "كويسه",
+    "كويسة",
+    "كويسين"
+   ],
+   "uses": 365,
+   "perMillion": 171,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كويس",
+     "gloss": "good, nice, fine",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%88%D9%8A%D8%B3#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 62,
+   "rank": 600,
+   "word": "بَلاش",
+   "pos": "adv",
+   "meaning": "free of charge; better not",
+   "sentence": "الدُّخول ⟦بَلاش⟧.",
+   "translation": "Entry is ⟦free⟧.",
+   "forms": [
+    "بلاش",
+    "ببلاش"
+   ],
+   "uses": 308,
+   "perMillion": 144.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بلاش",
+     "gloss": "No charge; no money; a price of zero; (in context) for free; gratis.",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%A7%D8%B4#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بلاش",
+     "gloss": "(rare outside of set phrases) nothing",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%A7%D8%B4#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلاش",
+     "gloss": "nothing",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%A7%D8%B4#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلاش",
+     "gloss": "for free (without payment)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%A7%D8%B4#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلاش",
+     "gloss": "never mind!",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D8%A7%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 63,
+   "rank": 606,
+   "word": "زِعِل",
+   "pos": "verb",
+   "meaning": "to get upset",
+   "note": "MSA says غَضِبَ or انْزَعَجَ; Standard زَعِلَ is only informal.",
+   "sentence": "⟦زْعِلْت⟧ مِنّو كْتير.",
+   "translation": "I was really ⟦upset⟧ with him.",
+   "form": "زْعِلْت",
+   "forms": [
+    "زعل",
+    "زعلت",
+    "زعلو",
+    "يزعل",
+    "تزعل",
+    "بزعل"
+   ],
+   "uses": 304,
+   "perMillion": 142.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "to get upset",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "to get angry",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "(transitive) to upset",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "to annoy, to make someone angry",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "anger, irritation, annoyance",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعل",
+     "gloss": "distress, upset",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "زعل (verb): (obsolete) to prance, to leap, to spring",
+    "زعل (verb): (obsolete) to exult, to become lively, to become brisk, to behave agilely",
+    "زعل (adj): (obsolete) lively, brisk"
+   ]
+  },
+  {
+   "n": 64,
+   "rank": 635,
+   "word": "بَلْكي",
+   "pos": "adv",
+   "meaning": "maybe",
+   "sentence": "⟦بَلْكي⟧ بْيِجي بُكْرا.",
+   "translation": "⟦Maybe⟧ he'll come tomorrow.",
+   "forms": [
+    "بلكي",
+    "بركي",
+    "بلكن"
+   ],
+   "uses": 285,
+   "perMillion": 133.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلكي",
+     "gloss": "maybe, perhaps; might",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D9%83%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بركي",
+     "gloss": "maybe, perhaps, might",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D9%83%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بركي",
+     "gloss": "alternative form of بلكي (balki, “maybe, perhaps”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D9%83%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 65,
+   "rank": 650,
+   "word": "زَعْلان",
+   "pos": "adj",
+   "meaning": "upset",
+   "note": "Standard زَعْلان is old and means “weary”; MSA says مُنْزَعِج.",
+   "sentence": "إِمّي ⟦زَعْلانة⟧ مِنّي.",
+   "translation": "My mum is ⟦upset⟧ with me.",
+   "form": "زَعْلانة",
+   "forms": [
+    "زعلان",
+    "زعلانه",
+    "زعلانة",
+    "زعلانين"
+   ],
+   "uses": 273,
+   "perMillion": 127.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "upset, sad",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "(+ عَلَى (ʿalā)) upset on behalf of someone, sad for someone, to feel for someone",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "(+ عَلَى (ʿalā)) upset with someone (regional)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "(Lebanon) (+ من (min)) upset with someone",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "upset, sad, distressed",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زعلان",
+     "gloss": "angry, annoyed, irritated",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%B9%D9%84%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "زعلان (adj): (obsolete) in agony, weary"
+   ]
+  },
+  {
+   "n": 66,
+   "rank": 658,
+   "word": "بَرْضو",
+   "pos": "adv",
+   "meaning": "also; still, anyway (southern Levantine)",
+   "sentence": "وَأَنا ⟦بَرْضو⟧ ما بَعْرِف.",
+   "translation": "I ⟦also⟧ don't know.",
+   "forms": [
+    "برضو",
+    "برضه"
+   ],
+   "uses": 269,
+   "perMillion": 126,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "برضه",
+     "gloss": "also, too, as well",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%B6%D9%87#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "برضه",
+     "gloss": "nevertheless, however, still",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%B6%D9%87#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 67,
+   "rank": 659,
+   "word": "شاطِر",
+   "pos": "adj",
+   "meaning": "good at something, clever",
+   "note": "Not MSA شاطَرَ (to share).",
+   "sentence": "إِبْنَك ⟦شاطِر⟧ بِالرِّياضِيّات.",
+   "translation": "Your son is ⟦good⟧ at maths.",
+   "forms": [
+    "شاطر",
+    "شاطره",
+    "شاطرين"
+   ],
+   "uses": 268,
+   "perMillion": 125.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاطر",
+     "gloss": "clever, bright, smart",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D8%B7%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاطر",
+     "gloss": "skillful",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D8%B7%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاطر",
+     "gloss": "hard-working",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D8%B7%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شاطر",
+     "gloss": "successful",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D8%B7%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 68,
+   "rank": 673,
+   "word": "بَنوب",
+   "pos": "adv",
+   "meaning": "never (again)",
+   "sentence": "⟦بَنوب⟧، ما بْعيدا.",
+   "translation": "⟦Never again⟧, I won't do it again.",
+   "forms": [
+    "بنوب"
+   ],
+   "uses": 260,
+   "perMillion": 121.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بنوب",
+     "gloss": "never",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%86%D9%88%D8%A8#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بنوب",
+     "gloss": "at all, whatsoever",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%86%D9%88%D8%A8#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 69,
+   "rank": 682,
+   "word": "مَعْليش",
+   "pos": "intj",
+   "meaning": "never mind; sorry",
+   "sentence": "⟦مَعْليش⟧، ما قْصُدِت.",
+   "translation": "⟦Sorry⟧, I didn't mean it.",
+   "forms": [
+    "معليش",
+    "معلش"
+   ],
+   "uses": 253,
+   "perMillion": 118.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "معليش",
+     "gloss": "no problem, no worries",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B9%D9%84%D9%8A%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 70,
+   "rank": 691,
+   "word": "يا رَيْت",
+   "pos": "particle",
+   "meaning": "I wish, if only",
+   "sentence": "⟦يا رَيْت⟧ فيني إِجي مَعْكُن.",
+   "translation": "⟦I wish⟧ I could come with you.",
+   "forms": [
+    "ياريت"
+   ],
+   "uses": 246,
+   "perMillion": 115.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "يا ريت",
+     "gloss": "I wish",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D8%A7%20%D8%B1%D9%8A%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ياريت",
+     "gloss": "if only, I wish that, I hope that",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D8%A7%D8%B1%D9%8A%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 71,
+   "rank": 692,
+   "word": "بَكّير",
+   "pos": "adv",
+   "meaning": "early",
+   "sentence": "صْحيت ⟦بَكّير⟧ اليوم.",
+   "translation": "I woke up ⟦early⟧ today.",
+   "forms": [
+    "بكير"
+   ],
+   "uses": 246,
+   "perMillion": 115.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بكير",
+     "gloss": "early",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D9%8A%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بكير",
+     "gloss": "early",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%83%D9%8A%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 72,
+   "rank": 720,
+   "word": "شْلون",
+   "pos": "adv",
+   "meaning": "how? (Syrian)",
+   "sentence": "⟦شْلون⟧ صِحْتَك؟",
+   "translation": "⟦How⟧'s your health?",
+   "forms": [
+    "شلون"
+   ],
+   "uses": 231,
+   "perMillion": 108.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شلون",
+     "gloss": "(Syria) how?",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%84%D9%88%D9%86#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 73,
+   "rank": 753,
+   "word": "شال",
+   "pos": "verb",
+   "meaning": "to take away, to remove",
+   "note": "In MSA شالَ means “to lift up”.",
+   "sentence": "⟦شيل⟧ الصُّحون عَن الطّاوْلة.",
+   "translation": "⟦Take⟧ the plates off the table.",
+   "form": "شيل",
+   "forms": [
+    "شال",
+    "شلت",
+    "شيل",
+    "شيلي",
+    "شيلو"
+   ],
+   "uses": 215,
+   "perMillion": 100.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شال",
+     "gloss": "to remove, to take off, away",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شال",
+     "gloss": "(slang, Lebanon) to be down, to be up for (used either alone or governing a subjunctive-verb phrase)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شال",
+     "gloss": "scarf",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شال",
+     "gloss": "to remove, to take out",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "شال (verb): to rise, to become elevated",
+    "شال (verb): to raise, to elevate, to lift",
+    "شال (noun): shawl, scarf, fichu",
+    "شال (noun): certain fishes; Synodontis spp.",
+    "شال (noun): certain fishes; Silurus spp.",
+    "شال (noun): certain fishes; Lycodontis syn. Gymnothorax spp."
+   ]
+  },
+  {
+   "n": 74,
+   "rank": 764,
+   "word": "غَلْطان",
+   "pos": "adj",
+   "meaning": "wrong, mistaken",
+   "sentence": "إِنْتِ ⟦غَلْطانة⟧.",
+   "translation": "You're ⟦wrong⟧.",
+   "form": "غَلْطان",
+   "forms": [
+    "غلطان",
+    "غلطانه",
+    "غلطانة",
+    "غلطانين"
+   ],
+   "uses": 211,
+   "perMillion": 98.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "غلطان",
+     "gloss": "wrong, mistaken (of people)",
+     "url": "https://en.wiktionary.org/wiki/%D8%BA%D9%84%D8%B7%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 75,
+   "rank": 789,
+   "word": "زَبَط",
+   "pos": "verb",
+   "meaning": "to work out; to fit",
+   "note": "Not MSA زَبَطَ (to quack).",
+   "sentence": "المَوْعِد ما ⟦زَبَط⟧.",
+   "translation": "The appointment didn't ⟦work out⟧.",
+   "forms": [
+    "زبط",
+    "بزبط",
+    "تزبط",
+    "زبطت"
+   ],
+   "uses": 198,
+   "perMillion": 92.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبط",
+     "gloss": "to work, to function",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبط",
+     "gloss": "(by extension) can, may",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبط",
+     "gloss": "to fix, to adjust",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبط",
+     "gloss": "exactness, precision",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبط",
+     "gloss": "control",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%B7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "زبط (verb): to quack (of ducks)"
+   ]
+  },
+  {
+   "n": 76,
+   "rank": 792,
+   "word": "هَسّا",
+   "pos": "adv",
+   "meaning": "now (Jordan and Palestine)",
+   "sentence": "أَنا ⟦هَسّا⟧ بِالشُّغُل.",
+   "translation": "I'm at work ⟦now⟧.",
+   "forms": [
+    "هسا",
+    "هسع"
+   ],
+   "uses": 196,
+   "perMillion": 91.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هسا",
+     "gloss": "now, just",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B3%D8%A7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "هسع",
+     "gloss": "alternative form of هسا (hassa, “now”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B3%D8%B9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 77,
+   "rank": 801,
+   "word": "عَلْقان",
+   "pos": "adj",
+   "meaning": "stuck",
+   "sentence": "⟦عَلْقان⟧ بِالعَجْقة.",
+   "translation": "I'm ⟦stuck⟧ in traffic.",
+   "forms": [
+    "علقان",
+    "علقانه",
+    "علقانين"
+   ],
+   "uses": 190,
+   "perMillion": 89,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "علقان",
+     "gloss": "stuck (not able to leave a particular place)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%84%D9%82%D8%A7%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "علقان",
+     "gloss": "stuck (in a situation without a clear solution)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%84%D9%82%D8%A7%D9%86#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 78,
+   "rank": 856,
+   "word": "هَيْدي",
+   "pos": "pron",
+   "meaning": "this (Lebanese, feminine)",
+   "sentence": "⟦هَيْدي⟧ سَيّارْتي.",
+   "translation": "⟦This⟧ is my car.",
+   "forms": [
+    "هيدي"
+   ],
+   "uses": 170,
+   "perMillion": 79.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيدي",
+     "gloss": "feminine of هيدا (hayda): (Lebanon) this",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D8%AF%D9%8A#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 79,
+   "rank": 927,
+   "word": "بْرافو",
+   "pos": "intj",
+   "meaning": "well done!",
+   "sentence": "⟦بْرافو⟧ عَلَيْك!",
+   "translation": "⟦Well done⟧!",
+   "forms": [
+    "برافو",
+    "براڤو"
+   ],
+   "uses": 147,
+   "perMillion": 68.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "براڤو",
+     "gloss": "bravo, good job [with على (ʕala) ‘to someone’ (optional)]",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%A7%DA%A4%D9%88#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 80,
+   "rank": 948,
+   "word": "هَلْقَد",
+   "pos": "adv",
+   "meaning": "this much, so much",
+   "sentence": "ما كِنْت بَعْرِف إِنّو ⟦هَلْقَد⟧ بَعيد.",
+   "translation": "I didn't know it was ⟦that⟧ far.",
+   "forms": [
+    "هلقد",
+    "هلأد",
+    "هالقد"
+   ],
+   "uses": 139,
+   "perMillion": 65.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلأد",
+     "gloss": "this much, this many",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلأد",
+     "gloss": "(by extension) so much, so many",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلأد",
+     "gloss": "this much; (by extension) so much",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3%D8%AF#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هلأد",
+     "gloss": "so + adjective",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A3%D8%AF#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 81,
+   "rank": 980,
+   "word": "إيوا",
+   "pos": "intj",
+   "meaning": "yes",
+   "sentence": "⟦إيوا⟧، أَنا جاهِز.",
+   "translation": "⟦Yes⟧, I'm ready.",
+   "forms": [
+    "ايوا",
+    "ايوه"
+   ],
+   "uses": 132,
+   "perMillion": 61.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أيوه",
+     "gloss": "alternative spelling of أيوى",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%8A%D9%88%D9%87#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أيوى",
+     "gloss": "yes, yep, yeah",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%8A%D9%88%D9%89#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "آيوا (name): Iowa (a state in the Midwestern region of the United States)"
+   ]
+  },
+  {
+   "n": 82,
+   "rank": 1034,
+   "word": "إِجِر",
+   "pos": "noun",
+   "meaning": "foot, leg",
+   "note": "Not MSA آجَرَ (to rent out); MSA says رِجْل.",
+   "sentence": "⟦إِجْر⟧ي مَكْسورة.",
+   "translation": "My ⟦leg⟧ is broken.",
+   "form": "إِجْر",
+   "forms": [
+    "اجر",
+    "اجري",
+    "اجرك",
+    "اجرو",
+    "اجريه"
+   ],
+   "uses": 120,
+   "perMillion": 56.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أجر",
+     "gloss": "to rent out",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%AC%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجر",
+     "gloss": "foot",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "إجر",
+     "gloss": "leg",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D8%AC%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "آجر (verb): to rent out",
+    "آجر (verb): to pay",
+    "آجر (verb): to reward",
+    "آجر (verb): to stipulate wages",
+    "آجر (verb): to prostitute oneself",
+    "آجر (verb): to rent out",
+    "آجر (noun): burned brick",
+    "أجر (verb): to reward, to pay, to compensate",
+    "أجر (verb): to hire, to rent out",
+    "أجر (verb): to serve for hire",
+    "أجر (verb): to let (someone, e. g. a slave) for hire",
+    "أجر (verb): to rent, to hire",
+    "أجر (noun): wages, salary, pay, hire",
+    "أجر (noun): reward, recompense, requital, compensation",
+    "أجر (noun): gift, morning gift",
+    "أجر (verb): to pierce or to slit so as to drag along, to stab and hinder"
+   ]
+  },
+  {
+   "n": 83,
+   "rank": 1054,
+   "word": "صافِن",
+   "pos": "adj",
+   "meaning": "lost in thought",
+   "note": "Not MSA صافِن (of a horse: resting on three legs).",
+   "sentence": "لَيْش ⟦صافِن⟧؟",
+   "translation": "Why are you so ⟦lost in thought⟧?",
+   "forms": [
+    "صافن",
+    "صافنه",
+    "صفن",
+    "صفنت"
+   ],
+   "uses": 116,
+   "perMillion": 54.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "صافن",
+     "gloss": "active participle of صفن (ṣafan, “to think deeply”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B5%D8%A7%D9%81%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "صفن",
+     "gloss": "to think deeply, to reflect",
+     "url": "https://en.wiktionary.org/wiki/%D8%B5%D9%81%D9%86#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "صفن",
+     "gloss": "to stare absentmindedly",
+     "url": "https://en.wiktionary.org/wiki/%D8%B5%D9%81%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "صافن (adj): standing upon three legs, with just the tip of the foreleg on the bottom or the shank of one foreleg tied up"
+   ]
+  },
+  {
+   "n": 84,
+   "rank": 1090,
+   "word": "تيتا",
+   "pos": "noun",
+   "meaning": "grandma",
+   "sentence": "⟦تيتا⟧ ساكْنِة مَعْنا.",
+   "translation": "⟦Grandma⟧ lives with us.",
+   "forms": [
+    "تيتا",
+    "تيته"
+   ],
+   "uses": 110,
+   "perMillion": 51.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "تيتا",
+     "gloss": "(hypocoristic) grandma",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D9%8A%D8%AA%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تيتا",
+     "gloss": "grandma, granny",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D9%8A%D8%AA%D8%A7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 85,
+   "rank": 1096,
+   "word": "خَيّ",
+   "pos": "noun",
+   "meaning": "brother (Lebanese)",
+   "sentence": "⟦خَيّ⟧ي أَكْبَر مِنّي.",
+   "translation": "My ⟦brother⟧ is older than me.",
+   "forms": [
+    "خي",
+    "خيي",
+    "خيك",
+    "خيو"
+   ],
+   "uses": 109,
+   "perMillion": 51.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "خي",
+     "gloss": "(Lebanon) brother",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "خي",
+     "gloss": "Expresses relief due to a sudden absence of stress or noise",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D9%8A#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 86,
+   "rank": 1110,
+   "word": "مَهْضوم",
+   "pos": "adj",
+   "meaning": "likeable, cute, funny",
+   "note": "Not MSA مَهْضوم (digested).",
+   "sentence": "إِبْنَك كْتير ⟦مَهْضوم⟧.",
+   "translation": "Your son is so ⟦cute⟧.",
+   "forms": [
+    "مهضوم",
+    "مهضومه",
+    "مهضومة",
+    "مهضومين"
+   ],
+   "uses": 105,
+   "perMillion": 49.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مهضوم",
+     "gloss": "cute, adorable",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%87%D8%B6%D9%88%D9%85#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مهضوم",
+     "gloss": "sweet",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%87%D8%B6%D9%88%D9%85#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "مهضوم",
+     "gloss": "funny",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%87%D8%B6%D9%88%D9%85#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 87,
+   "rank": 1132,
+   "word": "بَقا",
+   "pos": "adv",
+   "meaning": "then, so; (impatient) already!",
+   "note": "Not MSA بَقِيَ (to stay).",
+   "sentence": "يَلّا ⟦بَقا⟧!",
+   "translation": "Come on ⟦already⟧!",
+   "forms": [
+    "بقا",
+    "بئا"
+   ],
+   "uses": 102,
+   "perMillion": 47.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بقا",
+     "gloss": "...already! (expresses exasperation)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%82%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بقا",
+     "gloss": "so, so then, and then",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%82%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بقا",
+     "gloss": "anymore, any more, remaining",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%82%D8%A7#North_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "بقا (verb): misspelling of بَقَى (baqā)"
+   ]
+  },
+  {
+   "n": 88,
+   "rank": 1144,
+   "word": "ضَبّ",
+   "pos": "verb",
+   "meaning": "to pack, to put away",
+   "note": "Not MSA ضَبَّ (to hold on tight).",
+   "sentence": "⟦ضُبّ⟧ غْراضَك، رَح نِمْشي.",
+   "translation": "⟦Pack⟧ your things, we're leaving.",
+   "form": "ضُبّ",
+   "forms": [
+    "ضب",
+    "ضبيت",
+    "ضبي",
+    "ضبو"
+   ],
+   "uses": 100,
+   "perMillion": 46.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ضب",
+     "gloss": "to put away, to pack (clothes, etc.)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B6%D8%A8#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ضب",
+     "gloss": "to organize, to tidy up",
+     "url": "https://en.wiktionary.org/wiki/%D8%B6%D8%A8#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "ضب (verb): to cleave to, to hold to firmly [with عَلَى (ʕalā)]",
+    "ضب (verb): (obsolete) to have a gentle or scanty flow, to stream, to discharge sluggishly",
+    "ضب (verb): (obsolete) to be affected by the disease termed ضَبّ (ḍabb)",
+    "ضب (noun): a disease in the lips, in consequence of which blood flows from it",
+    "ضب (noun): tumor in the extremity of the foot of a camel",
+    "ضب (noun): chapping or cracking in the armpit of a child or camel",
+    "ضب (noun): spadix of a palm-tree before it cleaves open",
+    "ضب (noun): rancour, malice, anger, wrath (a characteristic ascribed to the mastigure)",
+    "ضب (verb): to milk with five fingers [with accusative ‘camel’]"
+   ]
+  },
+  {
+   "n": 89,
+   "rank": 1175,
+   "word": "خِتْيار",
+   "pos": "noun",
+   "meaning": "old man",
+   "sentence": "جارْنا ⟦خِتْيار⟧ لَطيف.",
+   "translation": "Our neighbour is a kind ⟦old man⟧.",
+   "forms": [
+    "ختيار",
+    "ختياره",
+    "ختيارة"
+   ],
+   "uses": 94,
+   "perMillion": 44,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ختيار",
+     "gloss": "old man",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ختيار",
+     "gloss": "(playing cards) king",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ختيار",
+     "gloss": "old man, elderly man",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 90,
+   "rank": 1224,
+   "word": "فَرْجى",
+   "pos": "verb",
+   "meaning": "to show",
+   "sentence": "⟦فَرْجي⟧ني الصُّوَر.",
+   "translation": "⟦Show⟧ me the photos.",
+   "form": "فَرْجي",
+   "forms": [
+    "فرجيني",
+    "فرجيك",
+    "فرجاني",
+    "فرجي",
+    "ورجيني",
+    "ورجيك"
+   ],
+   "uses": 86,
+   "perMillion": 40.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "فرجى",
+     "gloss": "to show",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%B1%D8%AC%D9%89#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 91,
+   "rank": 1225,
+   "word": "زَتّ",
+   "pos": "verb",
+   "meaning": "to throw",
+   "sentence": "لا ⟦تْزِتّ⟧ الزِّبالِة هَوْن.",
+   "translation": "Don't ⟦throw⟧ the rubbish here.",
+   "form": "تْزِتّ",
+   "forms": [
+    "زت",
+    "زتيت",
+    "زتو",
+    "زتي",
+    "تزت"
+   ],
+   "uses": 86,
+   "perMillion": 40.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زت",
+     "gloss": "to throw, to toss",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%AA#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "زت",
+     "gloss": "(by extension) to trash, to throw out",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%AA#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زت",
+     "gloss": "to throw, to toss",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%AA#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 92,
+   "rank": 1256,
+   "word": "أَبْصُر",
+   "pos": "intj",
+   "meaning": "who knows? I've no idea",
+   "note": "Not MSA أَبْصَرَ (to see).",
+   "sentence": "⟦أَبْصُر⟧ وَيْن راح.",
+   "translation": "⟦Who knows⟧ where he went.",
+   "forms": [
+    "ابصر"
+   ],
+   "uses": 83,
+   "perMillion": 38.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أبصر",
+     "gloss": "I don't know",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%A8%D8%B5%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "أبصر (verb): to see",
+    "أبصر (adj): elative degree of بَصِير (baṣīr)",
+    "أبصر (adj): how seeing!",
+    "أبصر (adj): how seeing!"
+   ]
+  },
+  {
+   "n": 93,
+   "rank": 1264,
+   "word": "زاكي",
+   "pos": "adj",
+   "meaning": "tasty",
+   "sentence": "هالكَعْكِة ⟦زاكْيِة⟧.",
+   "translation": "This cake is ⟦tasty⟧.",
+   "form": "زاكْيِة",
+   "forms": [
+    "زاكي",
+    "زاكيه",
+    "زاكية"
+   ],
+   "uses": 82,
+   "perMillion": 38.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زاكي",
+     "gloss": "tasty, delicious",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A7%D9%83%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 94,
+   "rank": 1326,
+   "word": "أَزْعَر",
+   "pos": "noun",
+   "meaning": "thug, troublemaker",
+   "note": "Not MSA أَزْعَر (thin-haired).",
+   "sentence": "هالوَلَد ⟦أَزْعَر⟧.",
+   "translation": "This boy is a ⟦troublemaker⟧.",
+   "forms": [
+    "ازعر",
+    "زعران"
+   ],
+   "uses": 74,
+   "perMillion": 34.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أزعر",
+     "gloss": "hooligan",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%B2%D8%B9%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "أزعر (adj): thin-haired"
+   ]
+  },
+  {
+   "n": 95,
+   "rank": 1339,
+   "word": "رَوَّق",
+   "pos": "verb",
+   "meaning": "to calm down, to relax",
+   "note": "Not MSA رَوَّقَ (to filter a liquid).",
+   "sentence": "⟦رَوِّق⟧، كِلّ شي مْنيح.",
+   "translation": "⟦Calm down⟧, everything's fine.",
+   "form": "رَوِّق",
+   "forms": [
+    "روق",
+    "روقي",
+    "روقو",
+    "مروق"
+   ],
+   "uses": 72,
+   "perMillion": 33.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "روق",
+     "gloss": "to calm down, to relax (transitive)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%88%D9%82#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "روق",
+     "gloss": "to calm down, to relax (intransitive)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%88%D9%82#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "روق",
+     "gloss": "to calm down",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%88%D9%82#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "روق",
+     "gloss": "to chill, to relax",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%88%D9%82#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "راق",
+     "gloss": "to calm down, to relax (intransitive)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%A7%D9%82#North_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "روق (verb): to clarify, to strain, to filter",
+    "روق (verb): to make clean, to purify",
+    "روق (noun): horn",
+    "روق (noun): having long teeth, with an overbite",
+    "روق (noun): portico"
+   ]
+  },
+  {
+   "n": 96,
+   "rank": 1340,
+   "word": "دُغْري",
+   "pos": "adv",
+   "meaning": "straight ahead; straight away",
+   "sentence": "روح ⟦دُغْري⟧ وْبَعْدين يَمين.",
+   "translation": "Go ⟦straight ahead⟧ and then right.",
+   "forms": [
+    "دغري"
+   ],
+   "uses": 72,
+   "perMillion": 33.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "immediately",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "directly",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "straight ahead",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "straight ahead",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "directly",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "direct",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دغري",
+     "gloss": "(by extension) honest",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%BA%D8%B1%D9%8A#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 97,
+   "rank": 1380,
+   "word": "شَنْتة",
+   "pos": "noun",
+   "meaning": "bag",
+   "sentence": "مَعي ⟦شَنْتة⟧ تْقيلِة.",
+   "translation": "I've got a heavy ⟦bag⟧.",
+   "forms": [
+    "شنتة",
+    "شنته",
+    "شنطة",
+    "شنطه",
+    "شنط"
+   ],
+   "uses": 66,
+   "perMillion": 30.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شنطة",
+     "gloss": "suitcase",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%86%D8%B7%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شنطة",
+     "gloss": "bag",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%86%D8%B7%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شنطة",
+     "gloss": "satchel, schoolbag",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%86%D8%B7%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شنتة",
+     "gloss": "alternative form of شنطة (šanṭa)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%86%D8%AA%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 98,
+   "rank": 1404,
+   "word": "تا",
+   "pos": "conj",
+   "meaning": "so that, to; until",
+   "sentence": "جيت ⟦تا⟧ شوفَك.",
+   "translation": "I came ⟦to⟧ see you.",
+   "forms": [
+    "تا"
+   ],
+   "uses": 63,
+   "perMillion": 29.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "تا",
+     "gloss": "so, to, in order to; connects two verbs and gives the phrase a final or factitive sense",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A7#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "تا",
+     "gloss": "marks future",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%A7#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 99,
+   "rank": 1411,
+   "word": "شوفير",
+   "pos": "noun",
+   "meaning": "driver",
+   "sentence": "خَيّي ⟦شوفير⟧ تاكْسي.",
+   "translation": "My brother is a taxi ⟦driver⟧.",
+   "forms": [
+    "شوفير"
+   ],
+   "uses": 62,
+   "perMillion": 29.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "شوفير",
+     "gloss": "driver",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%81%D9%8A%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 100,
+   "rank": 1441,
+   "word": "عاطِل",
+   "pos": "adj",
+   "meaning": "bad",
+   "note": "Not MSA عاطِل (out of work).",
+   "sentence": "الفيلْم كان ⟦عاطِل⟧.",
+   "translation": "The film was ⟦bad⟧.",
+   "forms": [
+    "عاطل",
+    "عاطله"
+   ],
+   "uses": 59,
+   "perMillion": 27.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عاطل",
+     "gloss": "bad, not good",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%A7%D8%B7%D9%84#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عاطل",
+     "gloss": "bad, not good",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%A7%D8%B7%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "عاطل (adj): idle, unemployed, jobless",
+    "عاطل (adj): devoid (of), lacking",
+    "عاطل (adj): broken, not working"
+   ]
+  },
+  {
+   "n": 101,
+   "rank": 1447,
+   "word": "رَهيب",
+   "pos": "adj",
+   "meaning": "amazing, great",
+   "note": "Not MSA رَهيب (terrifying).",
+   "sentence": "الحَفْلِة كانِت ⟦رَهيبِة⟧!",
+   "translation": "The party was ⟦amazing⟧!",
+   "form": "رَهيبِة",
+   "forms": [
+    "رهيب",
+    "رهيبه",
+    "رهيبة"
+   ],
+   "uses": 58,
+   "perMillion": 27.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "رهيب",
+     "gloss": "amazing, great",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%87%D9%8A%D8%A8#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "رهيب (adj): terrifying, frightening, awe-inspiring"
+   ]
+  },
+  {
+   "n": 102,
+   "rank": 1547,
+   "word": "مْنين",
+   "pos": "adv",
+   "meaning": "where from?",
+   "sentence": "⟦مْنين⟧ إِنْتَ؟",
+   "translation": "⟦Where⟧ are you from?",
+   "forms": [
+    "منين"
+   ],
+   "uses": 49,
+   "perMillion": 23,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "منين",
+     "gloss": "from where?",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D9%8A%D9%86#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "منين",
+     "gloss": "alternative form of من وين (min wēn, “where ... from?”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%86%D9%8A%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 103,
+   "rank": 1623,
+   "word": "بوظة",
+   "pos": "noun",
+   "meaning": "ice cream",
+   "note": "Not MSA بوظة (boza, a fermented drink).",
+   "sentence": "بِدّي ⟦بوظة⟧ شوكولا.",
+   "translation": "I want chocolate ⟦ice cream⟧.",
+   "forms": [
+    "بوظة",
+    "بوظه"
+   ],
+   "uses": 43,
+   "perMillion": 20.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بوظة",
+     "gloss": "ice cream",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B8%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بوظة",
+     "gloss": "ice cream",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B8%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (Arabic, labelled Levantine)",
+     "entry": "بوظة",
+     "gloss": "(Syria, Lebanon, Palestine) ice cream, booza",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B8%D8%A9#Arabic"
+    }
+   ],
+   "msa": [
+    "بوظة (noun): boza, or a beverage produced by fermentation"
+   ]
+  },
+  {
+   "n": 104,
+   "rank": 1717,
+   "word": "طَخّ",
+   "pos": "verb",
+   "meaning": "to shoot, to fire",
+   "sentence": "بِالعِرْس ⟦طَخّوا⟧ بِالهَوا.",
+   "translation": "At the wedding they ⟦fired⟧ into the air.",
+   "form": "طَخّوا",
+   "forms": [
+    "طخ",
+    "طخو",
+    "طخيت"
+   ],
+   "uses": 37,
+   "perMillion": 17.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "طخ",
+     "gloss": "to shoot, to fire",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%AE#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 105,
+   "rank": 1731,
+   "word": "بَنْدورة",
+   "pos": "noun",
+   "meaning": "tomatoes",
+   "sentence": "جيب كيلو ⟦بَنْدورة⟧ مِن السّوق.",
+   "translation": "Get a kilo of ⟦tomatoes⟧ from the market.",
+   "forms": [
+    "بندورة",
+    "بندوره"
+   ],
+   "uses": 36,
+   "perMillion": 16.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بندورة",
+     "gloss": "(uncountable) tomatoes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%86%D8%AF%D9%88%D8%B1%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بندورة",
+     "gloss": "(uncountable) tomatoes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%86%D8%AF%D9%88%D8%B1%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 106,
+   "rank": 1732,
+   "word": "طَنْجَرة",
+   "pos": "noun",
+   "meaning": "cooking pot",
+   "sentence": "في ⟦طَنْجَرة⟧ رِزّ عَالنّار.",
+   "translation": "There's a ⟦pot⟧ of rice on the stove.",
+   "forms": [
+    "طنجرة",
+    "طنجره"
+   ],
+   "uses": 36,
+   "perMillion": 16.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "طنجرة",
+     "gloss": "pot, cooking pot",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%86%D8%AC%D8%B1%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "طنجرة",
+     "gloss": "saucepan",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%86%D8%AC%D8%B1%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 107,
+   "rank": 1733,
+   "word": "طابة",
+   "pos": "noun",
+   "meaning": "ball",
+   "sentence": "الوْلاد عَم يِلْعَبوا ⟦طابة⟧.",
+   "translation": "The kids are playing ⟦ball⟧.",
+   "forms": [
+    "طابة",
+    "طابه"
+   ],
+   "uses": 36,
+   "perMillion": 16.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "طابة",
+     "gloss": "ball",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%A7%D8%A8%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "طابة",
+     "gloss": "scoop (of ice cream)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%A7%D8%A8%D8%A9#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 108,
+   "rank": 1734,
+   "word": "خاوة",
+   "pos": "adv",
+   "meaning": "by force",
+   "sentence": "أَخَدْها ⟦خاوة⟧.",
+   "translation": "He took it ⟦by force⟧.",
+   "forms": [
+    "خاوة"
+   ],
+   "uses": 36,
+   "perMillion": 16.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "خاوة",
+     "gloss": "in spite, forcefully",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%A7%D9%88%D8%A9#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 109,
+   "rank": 1813,
+   "word": "دَفَش",
+   "pos": "verb",
+   "meaning": "to push",
+   "sentence": "⟦دْفُش⟧ الباب.",
+   "translation": "⟦Push⟧ the door.",
+   "form": "دْفُش",
+   "forms": [
+    "دفش",
+    "دفشت",
+    "دفشو"
+   ],
+   "uses": 30,
+   "perMillion": 14.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دفش",
+     "gloss": "to push, to shove",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%81%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 110,
+   "rank": 1827,
+   "word": "حَوَّش",
+   "pos": "verb",
+   "meaning": "to save up (money)",
+   "note": "Not MSA حَوْش (courtyard).",
+   "sentence": "عَم ⟦حَوِّش⟧ مَصاري لَلسَّفَر.",
+   "translation": "I'm ⟦saving up⟧ money for the trip.",
+   "form": "حَوِّش",
+   "forms": [
+    "حوش",
+    "حوشت"
+   ],
+   "uses": 29,
+   "perMillion": 13.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "حوش",
+     "gloss": "to gather, to accumulate, to save up",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%88%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "حوش (noun): courtyard",
+    "حوش (noun): enclosure (e.g. for cattle)",
+    "حوش (noun): fold",
+    "حوش (noun): farm",
+    "حوش (noun): (Modern Standard Arabic) reclusion"
+   ]
+  },
+  {
+   "n": 111,
+   "rank": 1845,
+   "word": "أوضة",
+   "pos": "noun",
+   "meaning": "room",
+   "sentence": "هَيْدي ⟦أوضة⟧ الوْلاد.",
+   "translation": "This is the kids' ⟦room⟧.",
+   "forms": [
+    "اوضة",
+    "اوضه",
+    "اوضتي"
+   ],
+   "uses": 28,
+   "perMillion": 13.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "أوضة",
+     "gloss": "room",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%88%D8%B6%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أوضة",
+     "gloss": "room",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D9%88%D8%B6%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 112,
+   "rank": 1864,
+   "word": "ناصِح",
+   "pos": "adj",
+   "meaning": "fat (Lebanese)",
+   "note": "Not MSA ناصِح (adviser).",
+   "sentence": "صِرْت ⟦ناصِح⟧ شْوَيّ.",
+   "translation": "I've got a bit ⟦fat⟧.",
+   "forms": [
+    "ناصح",
+    "ناصحه"
+   ],
+   "uses": 27,
+   "perMillion": 12.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ناصح",
+     "gloss": "(Lebanon) fat, overweight",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B5%D8%AD#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "ناصح",
+     "gloss": "fat, plump, overweight",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%A7%D8%B5%D8%AD#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "ناصح (noun): advisor, counselor"
+   ]
+  },
+  {
+   "n": 113,
+   "rank": 1907,
+   "word": "عَجْقة",
+   "pos": "noun",
+   "meaning": "crowd; traffic jam",
+   "sentence": "في ⟦عَجْقة⟧ كْتير اليوم.",
+   "translation": "There's a lot of ⟦traffic⟧ today.",
+   "forms": [
+    "عجقة",
+    "عجقه"
+   ],
+   "uses": 25,
+   "perMillion": 11.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عجقة",
+     "gloss": "traffic jam",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%AC%D9%82%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عجقة",
+     "gloss": "overcrowding",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%AC%D9%82%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عجقة",
+     "gloss": "a crowd, hoard",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%AC%D9%82%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عجقة",
+     "gloss": "(possibly obsolete) emotional distress, worry, uncertainty",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%AC%D9%82%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عجقة",
+     "gloss": "crowded, packed",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%AC%D9%82%D8%A9#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 114,
+   "rank": 1956,
+   "word": "جْرابات",
+   "pos": "noun",
+   "meaning": "socks",
+   "sentence": "لابِس ⟦جْرابات⟧ مْلَوَّنِة.",
+   "translation": "He's wearing colourful ⟦socks⟧.",
+   "forms": [
+    "جرابات",
+    "جراب"
+   ],
+   "uses": 23,
+   "perMillion": 10.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "جرابات",
+     "gloss": "socks",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%B1%D8%A7%D8%A8%D8%A7%D8%AA#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جرابات",
+     "gloss": "socks",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%B1%D8%A7%D8%A8%D8%A7%D8%AA#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "جراب",
+     "gloss": "sock",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%B1%D8%A7%D8%A8#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 115,
+   "rank": 1975,
+   "word": "أَرْجيلة",
+   "pos": "noun",
+   "meaning": "hookah, water pipe",
+   "sentence": "بْتِشْرَب ⟦أَرْجيلة⟧؟",
+   "translation": "Do you smoke ⟦hookah⟧?",
+   "forms": [
+    "ارجيلة",
+    "ارجيله",
+    "اركيلة",
+    "اركيله"
+   ],
+   "uses": 22,
+   "perMillion": 10.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أرجيلة",
+     "gloss": "narghile, hookah, water pipe",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%B1%D8%AC%D9%8A%D9%84%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "أركيلة",
+     "gloss": "nargile, hookah, shisha",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%B1%D9%83%D9%8A%D9%84%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "أركيلة",
+     "gloss": "alternative spelling of أرجيلة",
+     "url": "https://en.wiktionary.org/wiki/%D8%A3%D8%B1%D9%83%D9%8A%D9%84%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 116,
+   "rank": 2015,
+   "word": "طوشة",
+   "pos": "noun",
+   "meaning": "fight, quarrel",
+   "sentence": "صار في ⟦طوشة⟧ بِالشّارِع.",
+   "translation": "There was a ⟦fight⟧ in the street.",
+   "forms": [
+    "طوشة",
+    "طوشه"
+   ],
+   "uses": 20,
+   "perMillion": 9.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "طوشة",
+     "gloss": "quarrel, fight, altercation",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%88%D8%B4%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 117,
+   "rank": 2031,
+   "word": "طَنَّش",
+   "pos": "verb",
+   "meaning": "to ignore",
+   "sentence": "⟦طَنِّش⟧ وْلا تْرُدّ عَلَيْه.",
+   "translation": "⟦Ignore⟧ him and don't answer.",
+   "form": "طَنِّش",
+   "forms": [
+    "طنش",
+    "طنشت",
+    "طنشو"
+   ],
+   "uses": 19,
+   "perMillion": 8.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "طنش",
+     "gloss": "to ignore, to pay no heed",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%86%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 118,
+   "rank": 2032,
+   "word": "تَنَكة",
+   "pos": "noun",
+   "meaning": "tin can",
+   "sentence": "جيب ⟦تَنَكة⟧ زَيْت.",
+   "translation": "Bring a ⟦can⟧ of oil.",
+   "forms": [
+    "تنكة",
+    "تنكه"
+   ],
+   "uses": 19,
+   "perMillion": 8.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "تنكة",
+     "gloss": "tin, can (container)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D9%86%D9%83%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 119,
+   "rank": 2052,
+   "word": "كَنْدَرة",
+   "pos": "noun",
+   "meaning": "shoes",
+   "note": "Not MSA كَنْدَرة (a kind of boat).",
+   "sentence": "⟦كَنْدَرْت⟧ي جْديدِة.",
+   "translation": "My ⟦shoes⟧ are new.",
+   "form": "كَنْدَرْت",
+   "forms": [
+    "كندرة",
+    "كندره"
+   ],
+   "uses": 18,
+   "perMillion": 8.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كندرة",
+     "gloss": "(pair of) shoes",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%86%D8%AF%D8%B1%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "كندرة (noun): a kind of boat by which one picks up a ship’s crew landing e.g. the Maldives"
+   ]
+  },
+  {
+   "n": 120,
+   "rank": 2111,
+   "word": "زِبْدية",
+   "pos": "noun",
+   "meaning": "bowl",
+   "sentence": "جيب ⟦زِبْدية⟧ لَلسَّلَطة.",
+   "translation": "Get a ⟦bowl⟧ for the salad.",
+   "forms": [
+    "زبدية",
+    "زبديه"
+   ],
+   "uses": 16,
+   "perMillion": 7.5,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "زبدية",
+     "gloss": "bowl",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D8%A8%D8%AF%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 121,
+   "rank": 2139,
+   "word": "نَهْفة",
+   "pos": "adj",
+   "meaning": "funny (of a person)",
+   "sentence": "رْفيقَك ⟦نَهْفة⟧.",
+   "translation": "Your friend is ⟦funny⟧.",
+   "forms": [
+    "نهفة",
+    "نهفه"
+   ],
+   "uses": 15,
+   "perMillion": 7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نهفة",
+     "gloss": "(indeclinable) funny (of a person)",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D9%87%D9%81%D8%A9#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 122,
+   "rank": 2140,
+   "word": "خَرْبَط",
+   "pos": "verb",
+   "meaning": "to mix up, to mess up",
+   "sentence": "⟦خَرْبَط⟧ت الأَوْراق.",
+   "translation": "I ⟦mixed up⟧ the papers.",
+   "forms": [
+    "خربط",
+    "خربطت"
+   ],
+   "uses": 15,
+   "perMillion": 7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خربط",
+     "gloss": "to mix up, to muddle, to confuse",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B1%D8%A8%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "خربط",
+     "gloss": "to talk rubbish, to ramble on",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B1%D8%A8%D8%B7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 123,
+   "rank": 2141,
+   "word": "نُتْفة",
+   "pos": "noun",
+   "meaning": "a little bit",
+   "sentence": "عْطيني ⟦نُتْفة⟧ خِبْز.",
+   "translation": "Give me ⟦a little bit⟧ of bread.",
+   "forms": [
+    "نتفة",
+    "نتفه"
+   ],
+   "uses": 15,
+   "perMillion": 7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نتفة",
+     "gloss": "a little bit, a small amount",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%AA%D9%81%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "نتفة",
+     "gloss": "a little, a bit, slightly",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%AA%D9%81%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "نتفة",
+     "gloss": "a little bit, a small amount",
+     "url": "https://en.wiktionary.org/wiki/%D9%86%D8%AA%D9%81%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 124,
+   "rank": 2142,
+   "word": "لَبَق",
+   "pos": "verb",
+   "meaning": "to suit",
+   "note": "Not MSA لَبِق (tactful).",
+   "sentence": "هاللّون ⟦بْيِلْبَق⟧ لَك.",
+   "translation": "This colour ⟦suits⟧ you.",
+   "form": "بْيِلْبَق",
+   "forms": [
+    "لبق",
+    "بيلبق",
+    "بتلبق"
+   ],
+   "uses": 15,
+   "perMillion": 7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "لبق",
+     "gloss": "to suit (someone), to match (with something)",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D8%A8%D9%82#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 125,
+   "rank": 2143,
+   "word": "دِينة",
+   "pos": "noun",
+   "meaning": "ear",
+   "sentence": "⟦دِينْت⟧ي عَم توجَعْني.",
+   "translation": "My ⟦ear⟧ hurts.",
+   "form": "دِينْت",
+   "forms": [
+    "دينة",
+    "دينه",
+    "دينتي"
+   ],
+   "uses": 15,
+   "perMillion": 7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "دينة",
+     "gloss": "ear",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%8A%D9%86%D8%A9#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 126,
+   "rank": 2156,
+   "word": "بِسْكْليت",
+   "pos": "noun",
+   "meaning": "bicycle",
+   "sentence": "عِنْدي ⟦بِسْكْليت⟧ أَحْمَر.",
+   "translation": "I have a red ⟦bicycle⟧.",
+   "forms": [
+    "بسكليت"
+   ],
+   "uses": 14,
+   "perMillion": 6.6,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "بسكليت",
+     "gloss": "bicycle",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3%D9%83%D9%84%D9%8A%D8%AA#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 127,
+   "rank": 2177,
+   "word": "مِرْسي",
+   "pos": "intj",
+   "meaning": "thanks (Lebanese)",
+   "note": "From French “merci”; not MSA مَرْسَى (harbour).",
+   "sentence": "⟦مِرْسي⟧ كْتير!",
+   "translation": "⟦Thanks⟧ a lot!",
+   "forms": [
+    "مرسي"
+   ],
+   "uses": 13,
+   "perMillion": 6.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (Arabic, labelled Levantine)",
+     "entry": "مرسي",
+     "gloss": "(colloquial, dialectal, Egypt, Levantine) thanks",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B1%D8%B3%D9%8A#Arabic"
+    }
+   ],
+   "msa": [
+    "مرسي (adj): restiform"
+   ]
+  },
+  {
+   "n": 128,
+   "rank": 2178,
+   "word": "عَفْش",
+   "pos": "noun",
+   "meaning": "furniture",
+   "sentence": "⟦عَفْش⟧ البَيْت كِلّو جْديد.",
+   "translation": "All the house ⟦furniture⟧ is new.",
+   "forms": [
+    "عفش"
+   ],
+   "uses": 13,
+   "perMillion": 6.1,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عفش",
+     "gloss": "furniture",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%81%D8%B4#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 129,
+   "rank": 2238,
+   "word": "عَرْباية",
+   "pos": "noun",
+   "meaning": "cart; pram",
+   "sentence": "جيب ⟦عَرْباية⟧ لَلغْراض.",
+   "translation": "Get a ⟦cart⟧ for the shopping.",
+   "forms": [
+    "عرباية",
+    "عربايه"
+   ],
+   "uses": 11,
+   "perMillion": 5.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عرباية",
+     "gloss": "cart, carriage",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B1%D8%A8%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عرباية",
+     "gloss": "shopping cart",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B1%D8%A8%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 130,
+   "rank": 2239,
+   "word": "بوط",
+   "pos": "noun",
+   "meaning": "boots; trainers",
+   "sentence": "لِبِسْت ⟦بوط⟧ي الجْديد.",
+   "translation": "I put on my new ⟦boots⟧.",
+   "forms": [
+    "بوط"
+   ],
+   "uses": 11,
+   "perMillion": 5.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بوط",
+     "gloss": "(pair of) boots",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بوط",
+     "gloss": "(pair of) sneakers, tennis shoes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B7#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بوط",
+     "gloss": "(pair of) (casual) shoes",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%88%D8%B7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 131,
+   "rank": 2318,
+   "word": "ضَيْعان",
+   "pos": "intj",
+   "meaning": "what a waste, what a pity",
+   "sentence": "⟦ضَيْعان⟧ المَصاري.",
+   "translation": "⟦What a waste of⟧ money.",
+   "forms": [
+    "ضيعان"
+   ],
+   "uses": 9,
+   "perMillion": 4.2,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "ضيعان",
+     "gloss": "what a loss [with definite noun or pronoun ‘something being lamented’]",
+     "url": "https://en.wiktionary.org/wiki/%D8%B6%D9%8A%D8%B9%D8%A7%D9%86#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 132,
+   "rank": 2355,
+   "word": "دَفّاية",
+   "pos": "noun",
+   "meaning": "heater",
+   "sentence": "عِنّا ⟦دَفّاية⟧ بْكِلّ أوضة.",
+   "translation": "We have a ⟦heater⟧ in every room.",
+   "forms": [
+    "دفاية",
+    "دفايه"
+   ],
+   "uses": 8,
+   "perMillion": 3.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "دفاية",
+     "gloss": "stove, heater",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%81%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 133,
+   "rank": 2356,
+   "word": "بَرْدَقان",
+   "pos": "noun",
+   "meaning": "oranges",
+   "sentence": "عَصير ⟦بَرْدَقان⟧ لَوْ سَمَحْت.",
+   "translation": "⟦Orange⟧ juice, please.",
+   "forms": [
+    "بردقان"
+   ],
+   "uses": 8,
+   "perMillion": 3.7,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بردقان",
+     "gloss": "(uncountable) oranges (fruits)",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%AF%D9%82%D8%A7%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 134,
+   "rank": 2397,
+   "word": "بَشْكير",
+   "pos": "noun",
+   "meaning": "towel",
+   "sentence": "جيب لي ⟦بَشْكير⟧ نْضيف.",
+   "translation": "Bring me a clean ⟦towel⟧.",
+   "forms": [
+    "بشكير"
+   ],
+   "uses": 7,
+   "perMillion": 3.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بشكير",
+     "gloss": "(regional) towel",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B4%D9%83%D9%8A%D8%B1#South_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (Arabic, labelled Levantine)",
+     "entry": "بشكير",
+     "gloss": "(Syria) towel",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B4%D9%83%D9%8A%D8%B1#Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 135,
+   "rank": 2398,
+   "word": "صُرْماية",
+   "pos": "noun",
+   "meaning": "shoe, slipper",
+   "sentence": "لابِس ⟦صُرْماية⟧ قْديمِة.",
+   "translation": "He's wearing old ⟦shoes⟧.",
+   "forms": [
+    "صرماية",
+    "صرمايه"
+   ],
+   "uses": 7,
+   "perMillion": 3.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "صرماية",
+     "gloss": "slipper, shoe",
+     "url": "https://en.wiktionary.org/wiki/%D8%B5%D8%B1%D9%85%D8%A7%D9%8A%D8%A9#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "صرماية",
+     "gloss": "(pair of) shoes, slippers",
+     "url": "https://en.wiktionary.org/wiki/%D8%B5%D8%B1%D9%85%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 136,
+   "rank": 2399,
+   "word": "قَلّاية",
+   "pos": "noun",
+   "meaning": "frying pan",
+   "note": "Not MSA قَلّاية (a monk's cell).",
+   "sentence": "جيب ال⟦قَلّاية⟧.",
+   "translation": "Get the ⟦frying pan⟧.",
+   "forms": [
+    "قلاية",
+    "قلايه"
+   ],
+   "uses": 7,
+   "perMillion": 3.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "قلاية",
+     "gloss": "fryer, frying pan",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D9%84%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "قلاية (noun): monastic cell"
+   ]
+  },
+  {
+   "n": 137,
+   "rank": 2442,
+   "word": "عَبَط",
+   "pos": "verb",
+   "meaning": "to hug",
+   "sentence": "⟦عَبَطْت⟧ إِمّي.",
+   "translation": "I ⟦hugged⟧ my mum.",
+   "form": "عَبَطْت",
+   "forms": [
+    "عبط",
+    "عبطت",
+    "عبطني"
+   ],
+   "uses": 6,
+   "perMillion": 2.8,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "عبط",
+     "gloss": "to hug",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%A8%D8%B7#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 138,
+   "rank": 2480,
+   "word": "بَرْداية",
+   "pos": "noun",
+   "meaning": "curtain",
+   "sentence": "سَكِّر ال⟦بَرْداية⟧.",
+   "translation": "Close the ⟦curtain⟧.",
+   "forms": [
+    "برداية"
+   ],
+   "uses": 5,
+   "perMillion": 2.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "برداية",
+     "gloss": "curtain",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%AF%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 139,
+   "rank": 2481,
+   "word": "جاط",
+   "pos": "noun",
+   "meaning": "large bowl, serving dish",
+   "sentence": "جيب ⟦جاط⟧ كْبير لَلفَتّوش.",
+   "translation": "Bring a big ⟦bowl⟧ for the fattoush.",
+   "forms": [
+    "جاط"
+   ],
+   "uses": 5,
+   "perMillion": 2.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "جاط",
+     "gloss": "bowl",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%A7%D8%B7#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 140,
+   "rank": 2482,
+   "word": "اسْتَرْجى",
+   "pos": "verb",
+   "meaning": "to dare",
+   "sentence": "ما ⟦بْيِسْتَرْجي⟧ يِحْكي.",
+   "translation": "He doesn't ⟦dare⟧ to speak.",
+   "form": "بْيِسْتَرْجي",
+   "forms": [
+    "استرجى"
+   ],
+   "uses": 5,
+   "perMillion": 2.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "استرجى",
+     "gloss": "to dare, to have the courage to",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D8%B3%D8%AA%D8%B1%D8%AC%D9%89#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 141,
+   "rank": 2483,
+   "word": "شَقْلَب",
+   "pos": "verb",
+   "meaning": "to flip over",
+   "sentence": "⟦شَقْلِب⟧ العِجِّة.",
+   "translation": "⟦Flip⟧ the omelette.",
+   "form": "شَقْلِب",
+   "forms": [
+    "شقلب",
+    "شقلبت",
+    "شقلبو",
+    "بشقلب",
+    "تشقلب"
+   ],
+   "uses": 5,
+   "perMillion": 2.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "شقلب",
+     "gloss": "(transitive) to flip, to flip something over",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%82%D9%84%D8%A8#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 142,
+   "rank": 2484,
+   "word": "كَزْدَر",
+   "pos": "verb",
+   "meaning": "to stroll, to go out for a drive",
+   "sentence": "رُحْنا ⟦نْكَزْدِر⟧ بِالسَّيّارة.",
+   "translation": "We went to ⟦drive around⟧ in the car.",
+   "form": "نْكَزْدِر",
+   "forms": [
+    "كزدر",
+    "كزدرة",
+    "كزدورة",
+    "نكزدر",
+    "كزدرنا",
+    "بكزدر"
+   ],
+   "uses": 5,
+   "perMillion": 2.3,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "كزدر",
+     "gloss": "to wander or go out without a destination in mind, to walk or drive around simply because one feels like it",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B2%D8%AF%D8%B1#North_Levantine_Arabic"
+    },
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كزدر",
+     "gloss": "to wander or go out without a destination in mind, to walk or drive around simply because one feels like it",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B2%D8%AF%D8%B1#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 143,
+   "rank": 2535,
+   "word": "فاصَل",
+   "pos": "verb",
+   "meaning": "to bargain, to haggle",
+   "note": "Not MSA فاصَلَ (to part company).",
+   "sentence": "لازِم ⟦تْفاصِل⟧ بِالسّوق.",
+   "translation": "You have to ⟦haggle⟧ at the market.",
+   "form": "تْفاصِل",
+   "forms": [
+    "فاصل"
+   ],
+   "uses": 4,
+   "perMillion": 1.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "فاصل",
+     "gloss": "to bargain",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%A7%D8%B5%D9%84#South_Levantine_Arabic"
+    }
+   ],
+   "msa": [
+    "فاصل (verb): to dissociate oneself or part company with",
+    "فاصل (adj): that separates, divides, separating, dividing",
+    "فاصل (adj): insulating, isolating",
+    "فاصل (adj): decisive, definitive, conclusive",
+    "فاصل (noun): screen, partition, divider, barrier",
+    "فاصل (noun): insulator",
+    "فاصل (noun): interval, intermission, break",
+    "فاصل (noun): (broadcasting) ident, bumper"
+   ]
+  },
+  {
+   "n": 144,
+   "rank": 2602,
+   "word": "هَيْدول",
+   "pos": "pron",
+   "meaning": "these (Lebanese)",
+   "sentence": "⟦هَيْدول⟧ وْلادي.",
+   "translation": "⟦These⟧ are my kids.",
+   "forms": [
+    "هيدول"
+   ],
+   "uses": 3,
+   "perMillion": 1.4,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "هيدول",
+     "gloss": "plural of هيدا (hayda): (Lebanon) these",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%8A%D8%AF%D9%88%D9%84#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 145,
+   "rank": 2671,
+   "word": "كَنَباية",
+   "pos": "noun",
+   "meaning": "sofa",
+   "sentence": "اقْعُد عَال⟦كَنَباية⟧.",
+   "translation": "Sit on the ⟦sofa⟧.",
+   "forms": [
+    "كنباية",
+    "كنبايه"
+   ],
+   "uses": 2,
+   "perMillion": 0.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "كنباية",
+     "gloss": "couch, sofa",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D9%86%D8%A8%D8%A7%D9%8A%D8%A9#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 146,
+   "rank": 2672,
+   "word": "بَلْكون",
+   "pos": "noun",
+   "meaning": "balcony",
+   "sentence": "شْرِبْنا قَهْوِة عَال⟦بَلْكون⟧.",
+   "translation": "We had coffee on the ⟦balcony⟧.",
+   "forms": [
+    "بلكون"
+   ],
+   "uses": 2,
+   "perMillion": 0.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (South Levantine Arabic)",
+     "entry": "بلكون",
+     "gloss": "balcony",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%84%D9%83%D9%88%D9%86#South_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  },
+  {
+   "n": 147,
+   "rank": 2673,
+   "word": "عْوَيْنات",
+   "pos": "noun",
+   "meaning": "glasses",
+   "sentence": "وَيْن ⟦عْوَيْنات⟧ي؟",
+   "translation": "Where are my ⟦glasses⟧?",
+   "forms": [
+    "عوينات"
+   ],
+   "uses": 2,
+   "perMillion": 0.9,
+   "src": [
+    {
+     "dictionary": "Wiktionary (North Levantine Arabic)",
+     "entry": "عوينات",
+     "gloss": "glasses",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%88%D9%8A%D9%86%D8%A7%D8%AA#North_Levantine_Arabic"
+    }
+   ],
+   "msa": []
+  }
+ ]
+}

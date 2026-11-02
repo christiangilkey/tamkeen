@@ -272,6 +272,56 @@
     "synthetic": true
    },
    "built": "2026-10-25"
+  },
+  "ar-lev": {
+   "file": "ar-lev/course.json",
+   "lang": "ar",
+   "dialect": "lev",
+   "title": "Levantine basics",
+   "variety": "Levantine Arabic (Damascus and Beirut; a few common Palestinian and Jordanian words are marked)",
+   "words": 147,
+   "planned": 147,
+   "bytes": 54766,
+   "audio_bytes": 1713468,
+   "sha256": "c8bf818b17cbe5baf895d655c4c82eba56c34fa499b2cdfe85e41c11e5090331",
+   "voice": {
+    "engine": "azure",
+    "name": "Amany (Azure, Syria)",
+    "synthetic": true
+   },
+   "built": "2026-11-01"
+  },
+  "ar-glf": {
+   "file": "ar-glf/course.json",
+   "lang": "ar",
+   "dialect": "glf",
+   "title": "Gulf Arabic basics",
+   "variety": "Saudi Arabic, Riyadh (Najdi) style",
+   "words": 88,
+   "planned": 88,
+   "bytes": 34301,
+   "audio_bytes": 1077235,
+   "sha256": "c7af3a575b167b49a798009f2f2d27bf803fee5dfd66f6d3b55b5445d1449bcf",
+   "voice": {
+    "engine": "azure",
+    "name": "Hamed (Azure, Saudi Arabia)",
+    "synthetic": true
+   },
+   "built": "2026-11-01"
+  },
+  "ar-mor": {
+   "file": "ar-mor/course.json",
+   "lang": "ar",
+   "dialect": "mor",
+   "title": "Moroccan basics",
+   "variety": "Moroccan Arabic (Darija), as spoken in Casablanca and Rabat",
+   "words": 300,
+   "planned": 300,
+   "bytes": 67011,
+   "audio_bytes": 0,
+   "sha256": "7efe43fb96e8ad743d93a302bf02452c596fa554a5e2dfcd325d5d3366536b93",
+   "voice": null,
+   "built": "2026-11-01"
   }
  }
 }

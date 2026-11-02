@@ -1,0 +1,150 @@
+# The Levantine basics word list, written by hand (tools/course/ar-lev/README.md). One word a line:
+# word | pos | meaning | note | dictionary headwords (no vowel marks, comma between) | forms counted in the texts | sentence | translation | form
+# `note`: how it differs from a Standard Arabic word spelled the same (rule 4). `form`: the word as the sentence has it.
+بَسّ|adv|only, just; but|Not MSA بَسَّ (to crush).|بس|بس|بِدّي ⟦بَسّ⟧ كاسِة مَيّ.|I ⟦just⟧ want a glass of water.|
+رَح|particle|will, going to||رح,ح|رح ح لح|⟦رَح⟧ نِرْجَع بُكْرا.|We ⟦will⟧ come back tomorrow.|
+بِدّي|verb|I want (بِدَّك you want, بِدّو he wants)|Not MSA بُدّ (a way out), as in لا بُدّ.|بد,بدي|بدي بدك بدو بدها بدنا بدكن بدهم بدكم بدكو بديش|⟦بِدّي⟧ روح عَالبَيْت.|⟦I want⟧ to go home.|
+شُو|pron|what||شو|شو|⟦شُو⟧ اسْمَك؟|⟦What's⟧ your name?|
+هَيْك|adv|like this, like that, so||هيك|هيك هيكي|لَيْش عَم تِحْكي ⟦هَيْك⟧؟|Why are you talking ⟦like that⟧?|
+حَكى|verb|to talk, to speak|Not MSA حَكَى (to tell, to narrate).|حكى,حكي|حكى حكيت حكت حكينا حكيتي حكيتو حكيو حكو يحكي تحكي بحكي احكي نحكي بتحكي بيحكي بنحكي منحكي يحكو تحكو|بِدّي ⟦إِحْكي⟧ مَعَك شْوَيّ.|I want ⟦to talk⟧ to you for a bit.|إِحْكي
+مُو|particle|not (before a noun or adjective)|MSA says لَيْسَ.|مو|مو|البَيْت ⟦مُو⟧ بَعيد.|The house is ⟦not⟧ far.|
+هَوْن|adv|here|Not MSA هَوْن (ease).|هون,هان|هون لهون هان|تَعا ⟦هَوْن⟧!|Come ⟦here⟧!|
+شاف|verb|to see|In MSA شافَ only means “to look down at”.|شاف|شاف شافت شفت شفتو شفنا شفتي يشوف تشوف بشوف اشوف نشوف شوف شوفي شوفو بتشوف بيشوف شايف شايفه منشوف|⟦شِفْت⟧ أَخوك مْبارِح.|I ⟦saw⟧ your brother yesterday.|شِفْت
+هَلَّق|adv|now||هلق,هلأ,هلقيت|هلق هلأ هلاء هلئ هلقيت|وَيْنَك ⟦هَلَّق⟧؟|Where are you ⟦now⟧?|
+لَيْش|adv|why||ليش|ليش|⟦لَيْش⟧ ما إِجيت؟|⟦Why⟧ didn't you come?|
+حَدا|pron|someone; (after a “not”) no one|Not MSA حَدا (to urge on).|حدا|حدا ماحدا محدا|في ⟦حَدا⟧ عَالباب.|There's ⟦someone⟧ at the door.|
+شْوَيّ|adv|a little, a bit|Not MSA شَوَى (to grill).|شوي,شوية|شوي شويه شوية|اسْتَنّى ⟦شْوَيّ⟧، جايي.|Wait ⟦a bit⟧, I'm coming.|
+مِشان|prep|for; so that||مشان,منشان|مشان منشان مشانك مشانو مشاني|عَم إِدْرُس ⟦مِشان⟧ الفَحِص.|I'm studying ⟦for⟧ the exam.|
+كَمان|adv|also, too; more|Not MSA كَمان (violin).|كمان|كمان|وَأَنا ⟦كَمان⟧ بْحِبّ القَهْوِة.|And I like coffee ⟦too⟧.|
+وَيْن|adv|where||وين|وين لوين|⟦وَيْن⟧ ساكِن؟|⟦Where⟧ do you live?|
+مين|pron|who||مين|مين لمين|⟦مين⟧ عَم يْدُقّ عَالباب؟|⟦Who⟧'s knocking at the door?|
+مْنيح|adj|good, fine; well||منيح|منيح منيحه منيحة منيحين|الأَكِل كْتير ⟦مْنيح⟧.|The food is really ⟦good⟧.|
+هاي|pron|this (feminine)||هاي|هاي|⟦هاي⟧ أُخْتي.|⟦This⟧ is my sister.|
+إِجا|verb|to come||إجا,اجا|اجا اجى اجت اجيت اجو اجينا اجيتي اجيتو|⟦إِجا⟧ خالي عَالشّام مْبارِح.|My uncle ⟦came⟧ to Damascus yesterday.|
+بَعْدين|adv|later; then||بعدين|بعدين|مْنِحْكي ⟦بَعْدين⟧.|We'll talk ⟦later⟧.|
+فات|verb|to go in, to come in|Not MSA فاتَ (to pass, to be missed).|فات|فات فتت فاتت فتنا فاتو يفوت تفوت بفوت فوت فوتي فوتو|⟦فوت⟧، الباب مَفْتوح.|⟦Come in⟧, the door's open.|فوت
+بَلَّش|verb|to start, to begin||بلش|بلش بلشت بلشو بلشنا يبلش تبلش ببلش نبلش بلشي|الفيلْم ⟦بَلَّش⟧.|The film has ⟦started⟧.|
+لِسّا|adv|still; (with “not”) not yet||لسا,لسه|لسا لسه لسى لساتو لساتك لساتني لساتها|⟦لِسّا⟧ ما أَكَلْت.|I ⟦still⟧ haven't eaten.|
+خَلَص|intj|that's it; enough!|In MSA خَلَصَ means “to be pure” or “to reach”.|خلص|خلص|⟦خَلَص⟧، خَلّينا نْروح.|⟦That's it⟧, let's go.|
+جاب|verb|to bring, to get|Not MSA جابَ (to travel across).|جاب|جاب جبت جابت جابو يجيب تجيب بجيب جيب جيبي جيبو بتجيب|⟦جيب⟧ لي كاسِة مَيّ، اللّه يْخَلّيك.|⟦Bring⟧ me a glass of water, please.|جيب
+عَشان|conj|because; for, so that (southern Levantine)||عشان,علشان|عشان علشان|ما إِجيت ⟦عَشان⟧ كُنْت تَعْبان.|I didn't come ⟦because⟧ I was tired.|
+يَلّا|intj|come on, let's go||يلا|يلا يالا|⟦يَلّا⟧، تْأَخَّرْنا!|⟦Come on⟧, we're late!|
+زَيّ|prep|like, as|Not MSA زِيّ (costume, uniform).|زي|زي زيي زيك زيو|هُوِّ ⟦زَيّ⟧ أَخوه.|He's ⟦like⟧ his brother.|
+هونيك|adv|there||هونيك|هونيك هنيك|المَطْعَم ⟦هونيك⟧.|The restaurant is over ⟦there⟧.|
+لاقى|verb|to find|In MSA لاقَى means “to meet”.|لاقى,لقى|لاقى لقيت تلاقي نلاقي بلاقي لاقي|ما عَم ⟦لاقي⟧ مَفاتيحي.|I can't ⟦find⟧ my keys.|لاقي
+مَصاري|noun|money||مصاري|مصاري|ما مَعي ⟦مَصاري⟧.|I don't have any ⟦money⟧ on me.|
+لَحال|adv|alone, by oneself (لَحالي by myself)||لحال|لحالي لحالك لحالو لحالها لحالنا|بْحِبّ إِمْشي ⟦لَحال⟧ي.|I like walking ⟦on my own⟧.|
+شَغْلة|noun|thing, matter||شغلة|شغلة شغله شغلات|بِدّي إِسْأَلَك عَن ⟦شَغْلة⟧.|I want to ask you about ⟦something⟧.|
+جوز|noun|husband|Not MSA جَوْز (walnut); MSA says زَوْج.|جوز|جوز جوزي جوزك جوزها|⟦جوز⟧ها دُكْتور.|Her ⟦husband⟧ is a doctor.|
+بُكْرا|adv|tomorrow|Not MSA بُكْرة (early morning); MSA says غَدًا.|بكرة,بكرا|بكرا بكرة|مْنِتْشاوَف ⟦بُكْرا⟧.|See you ⟦tomorrow⟧.|
+ماشي|intj|OK, fine|Not MSA ماشٍ (walking).|ماشي|ماشي|⟦ماشي⟧، مْنِلْتِقي السّاعة خَمْسة.|⟦OK⟧, we'll meet at five.|
+قَدّيش|adv|how much, how many||قديش|قديش اديش|⟦قَدّيش⟧ سِعْر هالقَميص؟|⟦How much⟧ is this shirt?|
+آه|intj|yes, yeah|Not MSA آهِ (ah!, ouch!).|اه|اه|⟦آه⟧، فْهِمْت عَلَيْك.|⟦Yeah⟧, I understand you.|
+لَحَدّ|prep|until|Not MSA لَحْد (grave).|لحد|لحد لحتى|بِشْتِغِل ⟦لَحَدّ⟧ السّاعة سِتّة.|I work ⟦until⟧ six o'clock.|
+مْبَيِّن|adv|apparently, it seems|In MSA مُبَيَّن means “shown, made clear”.|مبين|مبين مبينه|⟦مْبَيِّن⟧ عَلَيْك تَعْبان.|⟦It seems⟧ you're tired.|
+مْبَسوط|adj|happy, pleased||مبسوط|مبسوط مبسوطه مبسوطة مبسوطين|أَنا كْتير ⟦مْبَسوط⟧ هَوْن.|I'm very ⟦happy⟧ here.|
+سَكَّر|verb|to close, to shut|Not MSA سَكَّرَ (to sweeten).|سكر|سكر سكرت سكري سكرو يسكر بسكر مسكر مسكره|⟦سَكِّر⟧ الشُّبّاك، الدِّنْيِة بَرْد.|⟦Close⟧ the window, it's cold.|سَكِّر
+تَبَع|prep|belonging to, of (تَبَعي mine)|Not MSA تَبَع (followers).|تبع|تبع تبعي تبعك تبعو تبعها تبعنا تبعكن تبعهن تبعون تاع|هالشَّنْتة ⟦تَبَع⟧ مين؟|Who does this bag ⟦belong to⟧?|
+جُوّا|adv|inside|Not MSA جَوًّا (by air); MSA says في الداخل.|جوا,جوات|جوا جوات جواتي|الوْلاد ⟦جُوّا⟧.|The kids are ⟦inside⟧.|
+هَدول|pron|these||هدول|هدول هدولي|⟦هَدول⟧ رِفْقاتي.|⟦These⟧ are my friends.|
+إيمْتى|adv|when?||ايمتى,امتى|ايمتى ايمتا امتى ايمت|⟦إيمْتى⟧ رَح تِرْجَع؟|⟦When⟧ will you come back?|
+مْبارِح|adv|yesterday||مبارح|مبارح امبارح|شو عْمِلْت ⟦مْبارِح⟧؟|What did you do ⟦yesterday⟧?|
+كَرْت|noun|card||كرت|كرت|في ⟦كَرْت⟧ عَالطّاوْلة.|There's a ⟦card⟧ on the table.|
+كِرْمال|prep|for the sake of, for||كرمال|كرمال كرمالك كرمالو كرمالي|عْمِلْت هالشي ⟦كِرْمال⟧ إِمّي.|I did this ⟦for⟧ my mum.|
+زَلَمة|noun|man, guy||زلمة|زلمة زلمه زلمي|هُوِّ ⟦زَلَمة⟧ مْنيح.|He's a good ⟦man⟧.|
+سَوا|adv|together|Not MSA سَواء (equal; whether).|سوا|سوا|خَلّينا ناكُل ⟦سَوا⟧.|Let's eat ⟦together⟧.|
+إيش|pron|what (southern Levantine)||ايش,أيش|ايش|⟦إيش⟧ بِدَّك تِشْرَب؟|⟦What⟧ would you like to drink?|
+نَطَر|verb|to wait (for)|Not MSA نَطَرَ (to guard).|نطر|نطر نطرت نطرني ناطر ناطره ناطرين ينطر تنطر انطر|أَنا ⟦ناطِر⟧ عَالباب.|I'm ⟦waiting⟧ at the door.|ناطِر
+هَديك|pron|that (feminine)||هديك|هديك|⟦هَديك⟧ البِنْت أُخْتي.|⟦That⟧ girl is my sister.|
+هَداك|pron|that||هداك|هداك|بِدّي ⟦هَداك⟧ الكْتاب.|I want ⟦that⟧ book.|
+سِتّ|noun|lady; grandma (سِتّي my grandma)|Not MSA سِتّ (six).|ست|ست ستي|⟦سِتّ⟧ي بْتِطْبُخ أَطْيَب أَكِل.|My ⟦grandma⟧ makes the best food.|
+لِيك|intj|look!||ليك|ليك ليكي ليكو|⟦لِيك⟧، هاد بَيْتي.|⟦Look⟧, that's my house.|
+هَيْدا|pron|this (Lebanese)||هيدا|هيدا|⟦هَيْدا⟧ أَطْيَب مَطْعَم بْبَيْروت.|⟦This⟧ is the best restaurant in Beirut.|
+كْوَيِّس|adj|good (southern Levantine)||كويس|كويس كويسه كويسة كويسين|الجَوّ ⟦كْوَيِّس⟧ اليوم.|The weather's ⟦good⟧ today.|
+عَصَّب|verb|to get angry|Not MSA عَصَبَ (to tie up, to bind).|عصب|عصب عصبت معصب معصبه تعصب|لا ⟦تْعَصِّب⟧، ما صار شي.|Don't ⟦get angry⟧, nothing happened.|تْعَصِّب
+بَلاش|adv|free of charge; better not||بلاش|بلاش ببلاش|الدُّخول ⟦بَلاش⟧.|Entry is ⟦free⟧.|
+زِعِل|verb|to get upset|MSA says غَضِبَ or انْزَعَجَ; Standard زَعِلَ is only informal.|زعل|زعل زعلت زعلو يزعل تزعل بزعل|⟦زْعِلْت⟧ مِنّو كْتير.|I was really ⟦upset⟧ with him.|زْعِلْت
+بَلْكي|adv|maybe||بلكي,بركي|بلكي بركي بلكن|⟦بَلْكي⟧ بْيِجي بُكْرا.|⟦Maybe⟧ he'll come tomorrow.|
+زَعْلان|adj|upset|Standard زَعْلان is old and means “weary”; MSA says مُنْزَعِج.|زعلان|زعلان زعلانه زعلانة زعلانين|إِمّي ⟦زَعْلانة⟧ مِنّي.|My mum is ⟦upset⟧ with me.|زَعْلانة
+بَرْضو|adv|also; still, anyway (southern Levantine)||برضه,برضو|برضو برضه|وَأَنا ⟦بَرْضو⟧ ما بَعْرِف.|I ⟦also⟧ don't know.|
+شاطِر|adj|good at something, clever|Not MSA شاطَرَ (to share).|شاطر|شاطر شاطره شاطرين|إِبْنَك ⟦شاطِر⟧ بِالرِّياضِيّات.|Your son is ⟦good⟧ at maths.|
+بَنوب|adv|never (again)||بنوب|بنوب|⟦بَنوب⟧، ما بْعيدا.|⟦Never again⟧, I won't do it again.|
+مَعْليش|intj|never mind; sorry||معليش,معلش|معليش معلش|⟦مَعْليش⟧، ما قْصُدِت.|⟦Sorry⟧, I didn't mean it.|
+يا رَيْت|particle|I wish, if only||يا ريت,ياريت|ياريت|⟦يا رَيْت⟧ فيني إِجي مَعْكُن.|⟦I wish⟧ I could come with you.|
+بَكّير|adv|early||بكير|بكير|صْحيت ⟦بَكّير⟧ اليوم.|I woke up ⟦early⟧ today.|
+شْلون|adv|how? (Syrian)||شلون|شلون|⟦شْلون⟧ صِحْتَك؟|⟦How⟧'s your health?|
+شال|verb|to take away, to remove|In MSA شالَ means “to lift up”.|شال|شال شلت شيل شيلي شيلو|⟦شيل⟧ الصُّحون عَن الطّاوْلة.|⟦Take⟧ the plates off the table.|شيل
+غَلْطان|adj|wrong, mistaken||غلطان|غلطان غلطانه غلطانة غلطانين|إِنْتِ ⟦غَلْطانة⟧.|You're ⟦wrong⟧.|غَلْطان
+زَبَط|verb|to work out; to fit|Not MSA زَبَطَ (to quack).|زبط|زبط بزبط تزبط زبطت|المَوْعِد ما ⟦زَبَط⟧.|The appointment didn't ⟦work out⟧.|
+هَسّا|adv|now (Jordan and Palestine)||هسا,هسع|هسا هسع|أَنا ⟦هَسّا⟧ بِالشُّغُل.|I'm at work ⟦now⟧.|
+عَلْقان|adj|stuck||علقان|علقان علقانه علقانين|⟦عَلْقان⟧ بِالعَجْقة.|I'm ⟦stuck⟧ in traffic.|
+هَيْدي|pron|this (Lebanese, feminine)||هيدي|هيدي|⟦هَيْدي⟧ سَيّارْتي.|⟦This⟧ is my car.|
+خِتْيار|noun|old man||ختيار|ختيار ختياره ختيارة|جارْنا ⟦خِتْيار⟧ لَطيف.|Our neighbour is a kind ⟦old man⟧.|
+بْرافو|intj|well done!||براڤو,برافو|برافو براڤو|⟦بْرافو⟧ عَلَيْك!|⟦Well done⟧!|
+هَلْقَد|adv|this much, so much||هلأد,هلقد|هلقد هلأد هالقد|ما كِنْت بَعْرِف إِنّو ⟦هَلْقَد⟧ بَعيد.|I didn't know it was ⟦that⟧ far.|
+إيوا|intj|yes||أيوه,أيوى|ايوا ايوه|⟦إيوا⟧، أَنا جاهِز.|⟦Yes⟧, I'm ready.|
+شوفير|noun|driver||شوفير|شوفير|خَيّي ⟦شوفير⟧ تاكْسي.|My brother is a taxi ⟦driver⟧.|
+إِجِر|noun|foot, leg|Not MSA آجَرَ (to rent out); MSA says رِجْل.|إجر|اجر اجري اجرك اجرو اجريه|⟦إِجْر⟧ي مَكْسورة.|My ⟦leg⟧ is broken.|إِجْر
+صافِن|adj|lost in thought|Not MSA صافِن (of a horse: resting on three legs).|صافن,صفن|صافن صافنه صفن صفنت|لَيْش ⟦صافِن⟧؟|Why are you so ⟦lost in thought⟧?|
+تيتا|noun|grandma||تيتا|تيتا تيته|⟦تيتا⟧ ساكْنِة مَعْنا.|⟦Grandma⟧ lives with us.|
+خَيّ|noun|brother (Lebanese)||خي|خي خيي خيك خيو|⟦خَيّ⟧ي أَكْبَر مِنّي.|My ⟦brother⟧ is older than me.|
+مَهْضوم|adj|likeable, cute, funny|Not MSA مَهْضوم (digested).|مهضوم|مهضوم مهضومه مهضومة مهضومين|إِبْنَك كْتير ⟦مَهْضوم⟧.|Your son is so ⟦cute⟧.|
+بَقا|adv|then, so; (impatient) already!|Not MSA بَقِيَ (to stay).|بقا|بقا بئا|يَلّا ⟦بَقا⟧!|Come on ⟦already⟧!|
+ضَبّ|verb|to pack, to put away|Not MSA ضَبَّ (to hold on tight).|ضب|ضب ضبيت ضبي ضبو|⟦ضُبّ⟧ غْراضَك، رَح نِمْشي.|⟦Pack⟧ your things, we're leaving.|ضُبّ
+فَرْجى|verb|to show||فرجى|فرجيني فرجيك فرجاني فرجي ورجيني ورجيك|⟦فَرْجي⟧ني الصُّوَر.|⟦Show⟧ me the photos.|فَرْجي
+أَبْصُر|intj|who knows? I've no idea|Not MSA أَبْصَرَ (to see).|أبصر|ابصر|⟦أَبْصُر⟧ وَيْن راح.|⟦Who knows⟧ where he went.|
+زاكي|adj|tasty||زاكي|زاكي زاكيه زاكية|هالكَعْكِة ⟦زاكْيِة⟧.|This cake is ⟦tasty⟧.|زاكْيِة
+زَتّ|verb|to throw||زت|زت زتيت زتو زتي تزت|لا ⟦تْزِتّ⟧ الزِّبالِة هَوْن.|Don't ⟦throw⟧ the rubbish here.|تْزِتّ
+أَزْعَر|noun|thug, troublemaker|Not MSA أَزْعَر (thin-haired).|أزعر|ازعر زعران|هالوَلَد ⟦أَزْعَر⟧.|This boy is a ⟦troublemaker⟧.|
+رَوَّق|verb|to calm down, to relax|Not MSA رَوَّقَ (to filter a liquid).|روق,راق|روق روقي روقو مروق|⟦رَوِّق⟧، كِلّ شي مْنيح.|⟦Calm down⟧, everything's fine.|رَوِّق
+دُغْري|adv|straight ahead; straight away||دغري|دغري|روح ⟦دُغْري⟧ وْبَعْدين يَمين.|Go ⟦straight ahead⟧ and then right.|
+شَنْتة|noun|bag||شنطة,شنتة|شنتة شنته شنطة شنطه شنط|مَعي ⟦شَنْتة⟧ تْقيلِة.|I've got a heavy ⟦bag⟧.|
+تا|conj|so that, to; until||تا|تا|جيت ⟦تا⟧ شوفَك.|I came ⟦to⟧ see you.|
+عاطِل|adj|bad|Not MSA عاطِل (out of work).|عاطل|عاطل عاطله|الفيلْم كان ⟦عاطِل⟧.|The film was ⟦bad⟧.|
+رَهيب|adj|amazing, great|Not MSA رَهيب (terrifying).|رهيب|رهيب رهيبه رهيبة|الحَفْلِة كانِت ⟦رَهيبِة⟧!|The party was ⟦amazing⟧!|رَهيبِة
+مْنين|adv|where from?||منين|منين|⟦مْنين⟧ إِنْتَ؟|⟦Where⟧ are you from?|
+بوظة|noun|ice cream|Not MSA بوظة (boza, a fermented drink).|بوظة|بوظة بوظه|بِدّي ⟦بوظة⟧ شوكولا.|I want chocolate ⟦ice cream⟧.|
+طَخّ|verb|to shoot, to fire||طخ|طخ طخو طخيت|بِالعِرْس ⟦طَخّوا⟧ بِالهَوا.|At the wedding they ⟦fired⟧ into the air.|طَخّوا
+بَنْدورة|noun|tomatoes||بندورة|بندورة بندوره|جيب كيلو ⟦بَنْدورة⟧ مِن السّوق.|Get a kilo of ⟦tomatoes⟧ from the market.|
+طَنْجَرة|noun|cooking pot||طنجرة|طنجرة طنجره|في ⟦طَنْجَرة⟧ رِزّ عَالنّار.|There's a ⟦pot⟧ of rice on the stove.|
+طابة|noun|ball||طابة|طابة طابه|الوْلاد عَم يِلْعَبوا ⟦طابة⟧.|The kids are playing ⟦ball⟧.|
+خاوة|adv|by force||خاوة|خاوة|أَخَدْها ⟦خاوة⟧.|He took it ⟦by force⟧.|
+دَفَش|verb|to push||دفش|دفش دفشت دفشو|⟦دْفُش⟧ الباب.|⟦Push⟧ the door.|دْفُش
+حَوَّش|verb|to save up (money)|Not MSA حَوْش (courtyard).|حوش|حوش حوشت|عَم ⟦حَوِّش⟧ مَصاري لَلسَّفَر.|I'm ⟦saving up⟧ money for the trip.|حَوِّش
+أوضة|noun|room||أوضة|اوضة اوضه اوضتي|هَيْدي ⟦أوضة⟧ الوْلاد.|This is the kids' ⟦room⟧.|
+ناصِح|adj|fat (Lebanese)|Not MSA ناصِح (adviser).|ناصح|ناصح ناصحه|صِرْت ⟦ناصِح⟧ شْوَيّ.|I've got a bit ⟦fat⟧.|
+عَجْقة|noun|crowd; traffic jam||عجقة|عجقة عجقه|في ⟦عَجْقة⟧ كْتير اليوم.|There's a lot of ⟦traffic⟧ today.|
+جْرابات|noun|socks||جرابات,جراب|جرابات جراب|لابِس ⟦جْرابات⟧ مْلَوَّنِة.|He's wearing colourful ⟦socks⟧.|
+أَرْجيلة|noun|hookah, water pipe||أرجيلة,أركيلة|ارجيلة ارجيله اركيلة اركيله|بْتِشْرَب ⟦أَرْجيلة⟧؟|Do you smoke ⟦hookah⟧?|
+طوشة|noun|fight, quarrel||طوشة|طوشة طوشه|صار في ⟦طوشة⟧ بِالشّارِع.|There was a ⟦fight⟧ in the street.|
+طَنَّش|verb|to ignore||طنش|طنش طنشت طنشو|⟦طَنِّش⟧ وْلا تْرُدّ عَلَيْه.|⟦Ignore⟧ him and don't answer.|طَنِّش
+تَنَكة|noun|tin can||تنكة|تنكة تنكه|جيب ⟦تَنَكة⟧ زَيْت.|Bring a ⟦can⟧ of oil.|
+كَنْدَرة|noun|shoes|Not MSA كَنْدَرة (a kind of boat).|كندرة|كندرة كندره|⟦كَنْدَرْت⟧ي جْديدِة.|My ⟦shoes⟧ are new.|كَنْدَرْت
+زِبْدية|noun|bowl||زبدية|زبدية زبديه|جيب ⟦زِبْدية⟧ لَلسَّلَطة.|Get a ⟦bowl⟧ for the salad.|
+نَهْفة|adj|funny (of a person)||نهفة|نهفة نهفه|رْفيقَك ⟦نَهْفة⟧.|Your friend is ⟦funny⟧.|
+خَرْبَط|verb|to mix up, to mess up||خربط|خربط خربطت|⟦خَرْبَط⟧ت الأَوْراق.|I ⟦mixed up⟧ the papers.|
+نُتْفة|noun|a little bit||نتفة|نتفة نتفه|عْطيني ⟦نُتْفة⟧ خِبْز.|Give me ⟦a little bit⟧ of bread.|
+لَبَق|verb|to suit|Not MSA لَبِق (tactful).|لبق|لبق بيلبق بتلبق|هاللّون ⟦بْيِلْبَق⟧ لَك.|This colour ⟦suits⟧ you.|بْيِلْبَق
+دِينة|noun|ear||دينة|دينة دينه دينتي|⟦دِينْت⟧ي عَم توجَعْني.|My ⟦ear⟧ hurts.|دِينْت
+بِسْكْليت|noun|bicycle||بسكليت|بسكليت|عِنْدي ⟦بِسْكْليت⟧ أَحْمَر.|I have a red ⟦bicycle⟧.|
+مِرْسي|intj|thanks (Lebanese)|From French “merci”; not MSA مَرْسَى (harbour).|مرسي|مرسي|⟦مِرْسي⟧ كْتير!|⟦Thanks⟧ a lot!|
+عَفْش|noun|furniture||عفش|عفش|⟦عَفْش⟧ البَيْت كِلّو جْديد.|All the house ⟦furniture⟧ is new.|
+عَرْباية|noun|cart; pram||عرباية|عرباية عربايه|جيب ⟦عَرْباية⟧ لَلغْراض.|Get a ⟦cart⟧ for the shopping.|
+بوط|noun|boots; trainers||بوط|بوط|لِبِسْت ⟦بوط⟧ي الجْديد.|I put on my new ⟦boots⟧.|
+ضَيْعان|intj|what a waste, what a pity||ضيعان|ضيعان|⟦ضَيْعان⟧ المَصاري.|⟦What a waste of⟧ money.|
+دَفّاية|noun|heater||دفاية|دفاية دفايه|عِنّا ⟦دَفّاية⟧ بْكِلّ أوضة.|We have a ⟦heater⟧ in every room.|
+بَرْدَقان|noun|oranges||بردقان|بردقان|عَصير ⟦بَرْدَقان⟧ لَوْ سَمَحْت.|⟦Orange⟧ juice, please.|
+بَشْكير|noun|towel||بشكير|بشكير|جيب لي ⟦بَشْكير⟧ نْضيف.|Bring me a clean ⟦towel⟧.|
+صُرْماية|noun|shoe, slipper||صرماية|صرماية صرمايه|لابِس ⟦صُرْماية⟧ قْديمِة.|He's wearing old ⟦shoes⟧.|
+قَلّاية|noun|frying pan|Not MSA قَلّاية (a monk's cell).|قلاية|قلاية قلايه|جيب ال⟦قَلّاية⟧.|Get the ⟦frying pan⟧.|
+بَرْداية|noun|curtain||برداية|برداية|سَكِّر ال⟦بَرْداية⟧.|Close the ⟦curtain⟧.|
+عَبَط|verb|to hug||عبط|عبط عبطت عبطني|⟦عَبَطْت⟧ إِمّي.|I ⟦hugged⟧ my mum.|عَبَطْت
+جاط|noun|large bowl, serving dish||جاط|جاط|جيب ⟦جاط⟧ كْبير لَلفَتّوش.|Bring a big ⟦bowl⟧ for the fattoush.|
+اسْتَرْجى|verb|to dare||استرجى|استرجى|ما ⟦بْيِسْتَرْجي⟧ يِحْكي.|He doesn't ⟦dare⟧ to speak.|بْيِسْتَرْجي
+فاصَل|verb|to bargain, to haggle|Not MSA فاصَلَ (to part company).|فاصل|فاصل|لازِم ⟦تْفاصِل⟧ بِالسّوق.|You have to ⟦haggle⟧ at the market.|تْفاصِل
+هَيْدول|pron|these (Lebanese)||هيدول|هيدول|⟦هَيْدول⟧ وْلادي.|⟦These⟧ are my kids.|
+كَنَباية|noun|sofa||كنباية|كنباية كنبايه|اقْعُد عَال⟦كَنَباية⟧.|Sit on the ⟦sofa⟧.|
+بَلْكون|noun|balcony||بلكون|بلكون|شْرِبْنا قَهْوِة عَال⟦بَلْكون⟧.|We had coffee on the ⟦balcony⟧.|
+عْوَيْنات|noun|glasses||عوينات|عوينات|وَيْن ⟦عْوَيْنات⟧ي؟|Where are my ⟦glasses⟧?|
+شَقْلَب|verb|to flip over||شقلب|شقلب شقلبت شقلبو بشقلب تشقلب|⟦شَقْلِب⟧ العِجِّة.|⟦Flip⟧ the omelette.|شَقْلِب
+كَزْدَر|verb|to stroll, to go out for a drive||كزدر|كزدر كزدرة كزدورة نكزدر كزدرنا بكزدر|رُحْنا ⟦نْكَزْدِر⟧ بِالسَّيّارة.|We went to ⟦drive around⟧ in the car.|نْكَزْدِر
