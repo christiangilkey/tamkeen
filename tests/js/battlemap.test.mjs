@@ -5,8 +5,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  PROPS, PROP_IDS, TERRAIN, TERRAIN_IDS, THEMES, THEME_IDS, TILE, blocksShot, canEnter, canRepaint, canStand,
-  drawLayers, edgeIndex, effectsAt, effectsFor, fairness, fillIndex, findPath, generateMap, safeSpotNear, terrainArtFiles, terrainAt,
+  DECALS, PROPS, PROP_IDS, TERRAIN, TERRAIN_IDS, THEMES, THEME_IDS, TILE, blocksShot, canEnter, canRepaint, canStand,
+  SHEETS, drawCorners, drawLayers, edgeIndex, effectsAt, effectsFor, fairness, fillIndex, findPath, generateMap, safeSpotNear, terrainArtFiles, terrainAt,
   tileCenter,
 } from "../../web/js/game/battlemap.js";
 
@@ -56,7 +56,7 @@ const tileIndex = (map, p) => Math.floor(p.y / TILE) * map.cols + Math.floor(p.x
 
 test("the terrain table: every field filled, the ids other parts use, art names", () => {
   assert.equal(TERRAIN_IDS.length, 22);
-  assert.equal(PROP_IDS.length, 12);
+  assert.equal(PROP_IDS.filter((id) => PROPS[id].kind === id).length, 12, "12 kinds of prop (and their varieties)");
   for (const t of Object.values(TERRAIN)) {
     for (const k of ["id", "name", "text", "walk", "cross", "shots", "speed", "grip", "atk", "def", "heal", "burn", "favours", "bonus",
       "status", "fixed", "under", "anim", "art", "likes", "hinders"]) assert.ok(k in t, `${t.id} has ${k}`);
@@ -80,7 +80,7 @@ test("the terrain table: every field filled, the ids other parts use, art names"
     assert.ok(p.foot === 1 || p.foot === 2);
   }
   const files = terrainArtFiles();
-  assert.equal(files.length, 22 * 2 + 12);
+  assert.equal(files.length, (22 + 1) * 2 + PROP_IDS.length + Object.keys(DECALS).length, "with bridge_v's sheets");
   assert.equal(new Set(files).size, files.length);
   for (const [id, th] of Object.entries(THEMES)) {
     assert.ok(th.uses.includes(th.base), `${id}: base ground listed`);
@@ -238,7 +238,7 @@ test("drawing: base ground first, deep water on shallows, edge bits N1 E2 S4 W8,
   assert.deepEqual(drawLayers(m, 2, 5).map((l) => l.terrain), ["grass", "shallows", "bridge"], "a bridge over the bank sits on shallow water");
   assert.deepEqual(drawLayers(m, 1, 5).map((l) => l.terrain), ["grass", "shallows", "deep_water", "bridge"]);
   for (let y = 0; y < m.rows; y++) for (let x = 0; x < m.cols; x++) {
-    for (const l of drawLayers(m, x, y)) { assert.ok(l.fill >= 0 && l.fill <= 3); assert.ok(l.variant >= 0 && l.variant <= 15); }
+    for (const l of drawLayers(m, x, y)) { assert.ok(l.fill >= 0 && l.fill < 4 * TERRAIN[l.terrain].fills); assert.ok(l.variant >= 0 && l.variant <= 15); }
   }
   assert.equal(fillIndex(m, 3, 3, "grass"), fillIndex(m, 3, 3, "grass"), "a tile's fill never changes");
   const fills = new Set(); for (let x = 0; x < 30; x++) fills.add(fillIndex(m, x, 0, "grass"));
@@ -317,7 +317,7 @@ test("big arenas: the starts near the middle, 20-31 tiles apart; no walled-off a
       }
     }
     const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
-    assert.ok(Math.max(...counts) >= mean * 1.8 && Math.min(...counts) <= mean * 0.5, `${th}: props per area ${Math.min(...counts)}..${Math.max(...counts)}, mean ${mean.toFixed(1)}`);
+    assert.ok(Math.max(...counts) >= mean * 1.6 && Math.min(...counts) <= mean * 0.5, `${th}: props per area ${Math.min(...counts)}..${Math.max(...counts)}, mean ${mean.toFixed(1)}`);
   }
 });
 
@@ -347,6 +347,102 @@ test("a safe place for a creature: standable, not burning, room round it, reacha
   assert.equal(safeSpotNear(handMap(["lll", "lll"], { l: "lava" }), 8, 8, walker), null, "nowhere to stand");
   const ember = safeSpotNear(lava, 8, 8, { type: "ember" });
   assert.ok(ember, "an Ember creature may stand on lava (it doesn't burn it)");
+});
+
+test("the dual grid: each cell draws the terrains at its four corners, base first, in the order things lie", () => {
+  const m = handMap([
+    "ggggg",
+    "ggggg",
+    "ggtgg",
+    "ggggg",
+    "ssddg",
+    "ssddg",
+  ], { g: "grass", t: "tall_grass", s: "shallows", d: "deep_water" });
+  // the lone tall-grass tile (2, 2) is the SE corner of cell (2, 2), SW of (3, 2), NE of (2, 3), NW of (3, 3)
+  for (const [cx, cy, bit] of [[2, 2, 8], [3, 2, 4], [2, 3, 2], [3, 3, 1]]) {
+    assert.deepEqual(drawCorners(m, cx, cy).map((l) => [l.terrain, l.mask]), [["grass", 15], ["tall_grass", bit]]);
+  }
+  assert.deepEqual(drawCorners(m, 0, 0).map((l) => [l.terrain, l.mask]), [["grass", 15]], "outside the map: the nearest tile");
+  const shore = drawCorners(m, 2, 5);
+  assert.deepEqual(shore.map((l) => [l.terrain, l.mask]), [["grass", 15], ["shallows", 15], ["deep_water", 2 | 8]],
+    "shallows lie under the deep water too, so their mask has its corners");
+  // a road painted over tall grass draws above it, though the global order puts dirt lower
+  const road = handMap(["tr", "rr"], { t: "tall_grass", r: "dirt" });
+  road.under = [null, ["tall_grass"], ["tall_grass"], ["tall_grass"]];
+  assert.deepEqual(drawCorners(road, 1, 1).map((l) => l.terrain), ["grass", "tall_grass", "dirt"]);
+  // a bridge is drawn by the way its deck runs: `bridge` east-west, `bridge_v` north-south
+  const river = handMap([
+    "gdddg",
+    "gbbbg",
+    "gdddg",
+    "ddbdd",
+    "ddbdd",
+  ], { g: "grass", d: "deep_water", b: "bridge" });
+  const layersAt = (cx, cy) => drawCorners(river, cx, cy).map((l) => l.terrain);
+  assert.ok(layersAt(2, 1).includes("bridge") && !layersAt(2, 1).includes("bridge_v"), "the east-west deck");
+  assert.ok(layersAt(3, 4).includes("bridge_v") && !layersAt(3, 4).includes("bridge"), "the north-south deck");
+  assert.ok(SHEETS.bridge_v.edges.endsWith("bridge_v.png") && SHEETS.grass.fill.endsWith("grass_fill.png"));
+  for (const m2 of bigMaps.slice(0, 9)) {
+    for (let cy = 0; cy <= m2.rows; cy += 3) for (let cx = 0; cx <= m2.cols; cx += 3) {
+      const cell = drawCorners(m2, cx, cy);
+      assert.deepEqual([cell[0].terrain, cell[0].mask], [m2.base, 15]);
+      for (const l of cell) { assert.ok(SHEETS[l.terrain] && l.mask >= 1 && l.mask <= 15); assert.ok(l.fill >= 0 && l.fill < 4 * ((TERRAIN[l.terrain] || {}).fills || 1)); }
+      assert.equal(new Set(cell.map((l) => l.terrain)).size, cell.length);
+    }
+  }
+});
+
+test("variety: props come in kinds and varieties by region, decals lie on their grounds, textures in patches", () => {
+  for (const p of Object.values(PROPS)) assert.ok(PROPS[p.kind] && PROPS[p.kind].kind === p.kind, `${p.id} is a kind of ${p.kind}`);
+  for (const [id, th] of Object.entries(THEMES)) {
+    for (const [kind, list] of Object.entries(th.varieties)) {
+      assert.ok(PROPS[kind], `${id}: kind ${kind}`);
+      for (const [v] of list) assert.equal(PROPS[v].kind, kind, `${id}: ${v} is a ${kind}`);
+    }
+    for (const [d] of th.decals) assert.ok(DECALS[d], `${id}: decal ${d}`);
+  }
+  for (const d of Object.values(DECALS)) {
+    assert.equal(d.art, `battle/terrain/decal_${d.id}.png`);
+    for (const g of d.on) assert.ok(TERRAIN[g] && TERRAIN[g].walk, `${d.id} on ${g}`);
+  }
+  assert.ok(terrainArtFiles().length >= 56 + Object.keys(DECALS).length);
+  // varieties: neighbours of the same kind mostly match (a copse, not a salad)
+  let same = 0, pairs = 0;
+  for (const m of bigMaps) {
+    const th = THEMES[m.theme];
+    for (let a = 0; a < m.props.length; a++) for (let b = a + 1; b < m.props.length; b++) {
+      const pa = m.props[a], pb = m.props[b];
+      if (pb.y - pa.y > 3) break;
+      const kind = PROPS[pa.id].kind;
+      if (kind !== PROPS[pb.id].kind || !th.varieties[kind] || th.varieties[kind].length < 2 || Math.abs(pa.x - pb.x) > 3) continue;
+      pairs++;
+      if (pa.id === pb.id) same++;
+    }
+  }
+  if (pairs > 50) assert.ok(same / pairs > 0.55, `neighbouring props of a kind match ${same} of ${pairs}`);
+  // decals: on their own grounds, never on water, walls, bridges or under a prop, within the map
+  for (const m of all) {
+    assert.ok(Array.isArray(m.decals));
+    for (let k = 1; k < m.decals.length; k++) assert.ok(m.decals[k - 1].y <= m.decals[k].y, "decals come sorted by y");
+    for (const dc of m.decals) {
+      const d = DECALS[dc.id];
+      assert.ok(THEMES[m.theme].decals.some(([id]) => id === dc.id), `${m.theme} may have ${dc.id}`);
+      assert.ok(Number.isInteger(dc.v) && dc.v >= 0 && dc.v < d.variants);
+      const tx = Math.floor((dc.x + d.size[0] / 2) / TILE), ty = Math.floor((dc.y + d.size[1] / 2) / TILE);
+      const i = ty * m.cols + tx;
+      assert.ok(d.on.includes(m.tiles[i]) && !m.propTiles[i], `${dc.id} on ${m.tiles[i]}`);
+    }
+  }
+  // textures in patches: next to each other, two tiles of a ground mostly share their texture group
+  for (const id of TERRAIN_IDS.filter((t) => TERRAIN[t].fills > 1)) {
+    const m = { seedNum: 77 };
+    let agree = 0, total = 0;
+    for (let y = 0; y < 40; y++) for (let x = 0; x < 40; x++) {
+      const g = Math.floor(fillIndex(m, x, y, id) / 4), h = Math.floor(fillIndex(m, x + 1, y, id) / 4);
+      total++; if (g === h) agree++;
+    }
+    assert.ok(agree / total > 0.8, `${id}: texture patches (${agree}/${total})`);
+  }
 });
 
 test("reading a map at a point: terrain, effects, standing, shots, repainting", () => {

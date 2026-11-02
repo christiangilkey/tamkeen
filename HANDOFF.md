@@ -6301,6 +6301,21 @@ contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tes
   ground only at its two ends. The Engine copies `under` with the tiles and clears it on a tile a terrain move repaints.
 - Some walkable gaps are one tile wide: the Engine should collide with the map using a small radius at the feet.
 - Names, HUD lines, prop and theme names translated into the 16 languages: `tools/i18n/tr/<code>/100-battle-map.txt`.
+- **Variety and the dual grid** (owner: "break up the monotony"; "not every tile needs to be square visually"; art in the
+  Terrain art chat's 7d14b128). `drawCorners(map, cx, cy)` -> [{ terrain, mask (NW 1 NE 2 SW 4 SE 8), fill }] for cells
+  0..cols x 0..rows offset by half a tile (the art's sheets are corner sheets now, so drawLayers/edgeIndex no longer
+  match the art; they stay for old callers); order in a cell = the corner tiles' own stacks, then `DRAW_ORDER`; a bridge
+  is `bridge` or `bridge_v` by deck direction; `SHEETS[layer]` = { edges, fill, anim } for every layer id. Fill
+  textures: `FILL_GROUPS` (grass 4, sand/snow/ash/cave_floor/high 3, dirt 2) = groups of 4 tiles in `<id>_fill.png`,
+  `fillIndex` picks the group by a slow noise (patches; group 0 about half). Props: `kind` + `VARIETIES()` (25: birch,
+  autumn, fruit, willow, dead, charred and snowy bare trees, giant mushroom, snowy pine, small/date palms, mossy/ice
+  boulders, flat/cracked/cluster/sandstone/ice rocks, crystal cluster, pink crystal, big obsidian, flowering/dry bushes,
+  barrel cactus, fallen column); `THEMES[t].varieties[kind]` picked by region (`varietyOf`: a slow noise, 7% strays;
+  mirror images alike near the starts); variety names reuse their kind's (translated) name. Decals: `DECAL_LIST()` (13,
+  `on` grounds, `near`), `THEMES[t].decals`, `decorate()` -> `map.decals` [{ id, v, x, y, flip }] ~350 a big map,
+  clustered, never on water/walls/bridges/props; drawn flat after the ground. The Screen chat switches to drawCorners when
+  it exists (f1a8cf50). Checked: every listed file exists with the stated size; camera views drawn from drawCorners with
+  the real sheets (side-session notes `battlemap-variety-views.png`).
 - Checked: 540 big maps (60 seeds x 9 themes) and 900 small ones: no errors, always a path, start areas identical,
   fairness ok; ~18 ms a big map on a PC (slowest 71 ms), findPath 0.24 ms, safeSpotNear 0.15 ms. Camera-sized views
   drawn with the real tiles (the Terrain art chat's `game/art-src/terrain/arena.py` draw_map, into a scratch folder).
