@@ -32,6 +32,10 @@ export const DAMAGE = 0.6;          // a move's power times this, times attack o
 export const RECOVER_S = 1.5;       // after any move, this long before another can start (any of the four)
 export const GRACE_S = 0.8;         // a creature that has just stepped in can't be hit for this long
 export const FAINT_S = 0.9;         // a fainted creature's next steps in after this
+/** How much of the arena the player sees round their creature (world px; the screen passes its own camera's,
+ * which differs by device): the rival only attacks from inside it, so nothing comes at the player from off screen. */
+export const SIGHT = { w: 620, h: 300 };
+export const ENTER_GAP = 200;       // ...this far from the rival, on its own side (or at its start, if that is nearer)
 const GUARD_S = 4, BOOST_S = 10, BOOST_HITS = 3, HASTE_S = 6, HASTE = 1.3, SLOW_S = 1.6, SLOW = 0.55, STUN_S = 0.5;
 const GROUND_HEAL = 0.5;            // the ground heals a creature at most this share of its health a battle (no endless stand-offs)
 const DELAY_PUSH = 3;               // a delay move's `delay` times this many seconds goes onto every cooldown
@@ -95,6 +99,9 @@ function clearShot(b, x0, y0, x1, y1) {
   return true;
 }
 const inHurt = (f, x, y, pad) => ((x - f.x) / (HURT.rx + pad)) ** 2 + ((y - (f.y - HURT.lift)) / (HURT.ry + pad)) ** 2 <= 1;
+const sightOf = (v) => ({ w: Math.max(160, Number(v && v.w) || SIGHT.w), h: Math.max(160, Number(v && v.h) || SIGHT.h) });
+/** Whether `p` is well inside the view of a camera centred on `o` (a margin for the creature's own size). */
+const inSight = (b, p, o) => Math.abs(p.x - o.x) <= b.sight.w / 2 - 30 && Math.abs(p.y - o.y) <= b.sight.h / 2 - 30;
 const touching = (a, c, pad = 0) => ((c.x - a.x) / (2 * BODY.rx + pad)) ** 2 + ((c.y - a.y) / (2 * BODY.ry + pad)) ** 2 <= 1;
 
 // ---------- starting ----------
@@ -128,12 +135,12 @@ const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
  *                 moves still open questions. `autoSkill` 0..1 is how well it plays.
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
-  foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7 } = {}) {
+  foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
   const b = {
-    mode, rule, rival, wordMode: wm, rand, ground, foeForm: Math.max(0.35, Math.min(0.95, Number(foeForm) || 0.7)), autoSkill,
+    mode, rule, rival, wordMode: wm, rand, ground, sight: sightOf(sight), foeForm: Math.max(0.35, Math.min(0.95, Number(foeForm) || 0.7)), autoSkill,
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
@@ -148,8 +155,8 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     if (q) b.asked = [...b.asked.slice(-12), q.uid];
     return q;
   } : null);
-  enter(b, "me");
-  enter(b, "foe");
+  enter(b, "me", true);
+  enter(b, "foe", true);
   for (const side of SIDES) current(b, side).grace = 0; // nobody has just stepped in at the start
   return b;
 }
@@ -164,10 +171,30 @@ function nearestFit(b, f, x, y) {
   return { x, y };
 }
 
-function enter(b, side) {
+/**
+ * Where a creature stepping in after a faint appears: near the fight rather than back at its start,
+ * which on a big map can be far away. ENTER_GAP from the rival, toward its own start, on ground that
+ * doesn't burn and from where it can walk to the rival; its start when that is nearer or nothing fits.
+ */
+function entryPoint(b, f, o, side) {
+  const s = b.starts[side];
+  if (!o || o.fainted || dist(o, s) <= ENTER_GAP) return s;
+  const u = unit(s.x - o.x, s.y - o.y);
+  for (const turn of [0, 0.4, -0.4, 0.8, -0.8, 1.2, -1.2]) for (const gap of [1, 1.25, 0.8]) {
+    const c = Math.cos(turn), sn = Math.sin(turn);
+    const p = { x: o.x + (u.x * c - u.y * sn) * ENTER_GAP * gap, y: o.y + (u.x * sn + u.y * c) * ENTER_GAP * gap };
+    if (p.x < 8 || p.y < 8 || p.x > b.width - 8 || p.y > b.height - 8 || !fits(b, f, p.x, p.y) || groundAt(b, f, p.x, p.y).burn > 0) continue;
+    const path = b.ground.findPath(b.map, p, { x: o.x, y: o.y }, who(f));
+    if (path && path.length && dist(path[path.length - 1], o) < 48) return p;
+  }
+  return s;
+}
+
+function enter(b, side, atStart = false) {
   const f = current(b, side);
   const o = current(b, other(side));
-  let p = nearestFit(b, f, b.starts[side].x, b.starts[side].y);
+  const at = atStart ? b.starts[side] : entryPoint(b, f, o, side);
+  let p = nearestFit(b, f, at.x, at.y);
   if (o && o !== f && !o.fainted && touching(p, o, 4)) p = nearestFit(b, f, p.x + (side === "me" ? -24 : 24), p.y);
   Object.assign(f, { x: p.x, y: p.y, vx: 0, vy: 0, grace: GRACE_S, charging: null, dash: null, act: null });
   f.face = o && o.x < f.x ? -1 : 1;
@@ -181,6 +208,7 @@ function enter(b, side) {
  *   move   {x, y} each -1..1 (a stick or keys): runs that way, and cancels a goTo; null lets go
  *   goTo   {x, y} in world px (a click or a finger): walks there around obstacles; null cancels it
  *   attack a move id: if it is ready, the next step opens its question (b.quiz)
+ *   sight  {w, h}: the camera's view in world px, when it changes (a phone turned round)
  */
 export function input(b, cmd = {}) {
   const c = b.ctl.me;
@@ -194,6 +222,7 @@ export function input(b, cmd = {}) {
     if (cmd.goTo) { c.move = null; setDest(b, "me", cmd.goTo); } else { c.dest = null; c.path = null; }
   }
   if (cmd.attack) c.attack = cmd.attack;
+  if (cmd.sight) b.sight = sightOf(cmd.sight);
 }
 
 function setDest(b, side, to, retry = false) {
@@ -549,7 +578,7 @@ function wanted(b, f, top) {
   const c = b.ctl[f.side];
   if (c.move) return { x: c.move.x * top, y: c.move.y * top };
   if (!c.dest || !c.path) return { x: 0, y: 0 };
-  if (c.path.length > 1 && walkable(b, f, f.x, f.y, c.path[1].x, c.path[1].y)) c.path.shift(); // cut straight across when it can
+  if (c.path.length > 1 && dist(f, c.path[1]) < 200 && walkable(b, f, f.x, f.y, c.path[1].x, c.path[1].y)) c.path.shift(); // cut straight across when it can
   let p = c.path[0];
   if (c.path.length > 1 && dist(f, p) < 6) { c.path.shift(); p = c.path[0]; }
   const d = dist(f, p);
@@ -814,7 +843,12 @@ const hitValue = (f, o, id) => { const m = moveById(id); return m.power * matchu
 
 /** The move to use now, or null to wait. */
 function choose(b, f, o) {
-  const ready = f.moves.filter((id) => !whyNot(b, f.side, id));
+  // Out of the player's view it only looks after itself: attacks come from where they can be seen and dodged.
+  const seen = inSight(b, f, o);
+  const ready = f.moves.filter((id) => !whyNot(b, f.side, id)).filter((id) => {
+    const m = moveById(id);
+    return seen || m.kind === "guard" || m.kind === "boost" || m.kind === "heal" || (m.kind === "terrain" && m.where === "self");
+  });
   if (!ready.length) return null;
   const by = (k) => ready.filter((id) => moveById(id).kind === k);
   const interrupt = ready.find((id) => moveById(id).style === "interrupt" && inRange(b, f.side, id));
@@ -853,7 +887,9 @@ function bestSpot(b, f, o, idle = 0) {
   const needsLine = lm.form === "shot" || lm.form === "beam" || lm.form === "dash";
   const spots = [{ x: f.x, y: f.y }];
   const a0 = b.rand() * Math.PI * 2;
-  for (let i = 0; i < 12; i++) spots.push({ x: o.x + Math.cos(a0 + (i / 12) * 2 * Math.PI) * want, y: o.y + Math.sin(a0 + (i / 12) * 2 * Math.PI) * want });
+  // A ring round the rival at that distance, squashed to fit the player's view.
+  const wx = Math.min(want, b.sight.w / 2 - 40), wy = Math.min(want, b.sight.h / 2 - 40);
+  for (let i = 0; i < 12; i++) spots.push({ x: o.x + Math.cos(a0 + (i / 12) * 2 * Math.PI) * wx, y: o.y + Math.sin(a0 + (i / 12) * 2 * Math.PI) * wy });
   for (let i = 0; i < 4; i++) spots.push({ x: f.x + (b.rand() - 0.5) * 120, y: f.y + (b.rand() - 0.5) * 120 });
   let top = null, topScore = -Infinity;
   for (const p of spots) {
@@ -864,6 +900,7 @@ function bestSpot(b, f, o, idle = 0) {
     if (g.heal > 0) s += f.hp < f.max * 0.7 ? 2 : 0.3;
     if (g.burn > 0) s -= 4;
     if (needsLine) s += clearShot(b, p.x, p.y, o.x, o.y) ? 1 : -3;
+    if (!inSight(b, p, o)) s -= 3; // somewhere it couldn't attack from
     if (g.heal > 0 && (f.groundHealed || 0) >= f.max * GROUND_HEAL) s -= f.hp < f.max * 0.7 ? 2 : 0.3; // it has had all the ground gives
     if (s > topScore) { topScore = s; top = p; }
   }

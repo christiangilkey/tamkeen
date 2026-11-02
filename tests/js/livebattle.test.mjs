@@ -8,8 +8,9 @@ import { LIVE_FORMS, LIVE_STYLE_TEXT, MOVES, MOVE_STYLES, STRONG, TYPE_CHART, TY
 import { newGenome, rng } from "../../web/js/game/genome.js";
 import { finishBattle, newState } from "../../web/js/game/rules.js";
 import { fighters, wildTeam } from "../../web/js/game/battle.js";
+import { generateMap } from "../../web/js/game/battlemap.js";
 import {
-  COMBO, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, TILE, answer, battleResult, cardScale, current, input, inRange, newLiveBattle, speedOf,
+  COMBO, ENTER_GAP, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, TILE, answer, battleResult, cardScale, current, input, inRange, newLiveBattle, speedOf,
   step, useNow, usePotion, view, whyNot, wordModeOf, wordPool,
 } from "../../web/js/game/livebattle.js";
 
@@ -620,4 +621,86 @@ test("fighters from battle.js work as they are", () => {
   assert.ok(v.me.look && v.me.look.beast, "its look, for drawing");
   assert.equal(v.moves.length, mine[0].moves.length);
   assert.ok(Number.isFinite(v.me.x) && Number.isFinite(v.foe.x) && v.me.x < v.foe.x, "the player starts on the left");
+});
+
+test("big arenas: the rival crosses the map round walls to find the player, and newcomers step in near the fight", () => {
+  // 90 x 30 tiles, a wall all the way down with one gap at the bottom: the rival has to go round.
+  const rows = Array.from({ length: 30 }, (_, r) => ".".repeat(45) + (r === 27 ? "." : "w") + ".".repeat(44));
+  const map = arena(rows, { me: at(10, 5), foe: at(80, 5) });
+  const b = duel({ map, still: false, foeForm: 0.8, seed: 5, mine: [mk("ember", { hp: 100000 })], theirs: [mk("grove", { moves: ["tackle", "vine"] })] });
+  const foe = current(b, "foe");
+  let met = null;
+  for (let t = 0; t < 40 && met === null; t += DT) {
+    const ev = step(b, DT);
+    if (ev.some((e) => e.kind === "hit" && e.side === "foe")) met = b.time;
+  }
+  assert.ok(met !== null, "it found the player and hit it");
+  assert.ok(met < 25, `soon enough (${met.toFixed(1)} s for about 1,300 px of walking round the wall)`);
+  assert.ok(foe.x < 45 * TILE, "it came through the gap to the player's side");
+
+  // A creature stepping in after a faint appears near the fight, not back at its far start.
+  const s = duel({ map: arena(open(90, 30), { me: at(5, 15), foe: at(85, 15) }), theirs: [mk("grove", { hp: 1 }), mk("grove")] });
+  const me = current(s, "me");
+  me.x = 60 * TILE; // the fight has moved across the map, toward the rival's start
+  current(s, "foe").x = 66 * TILE;
+  useNow(s, "me", "tackle");
+  run(s, 1);
+  const swap = kinds(run(s, FAINT_S + 0.2), "swap")[0];
+  assert.ok(swap, "the next one stepped in");
+  const gap = Math.hypot(swap.x - me.x, swap.y - me.y);
+  assert.ok(Math.abs(gap - ENTER_GAP) < 40, `about ${ENTER_GAP} px from the rival (${gap.toFixed(0)})`);
+  assert.ok(swap.x > me.x, "on its own side");
+  assert.ok(swap.x < 85 * TILE - 100, "not back at its start");
+  // ...but at its start when that is nearer than the gap.
+  const near = duel({ theirs: [mk("grove", { hp: 1 }), mk("grove")] });
+  current(near, "me").x = 12 * TILE;
+  useNow(near, "me", "tackle");
+  run(near, 1);
+  const back = kinds(run(near, FAINT_S + 0.2), "swap")[0];
+  assert.ok(Math.abs(back.x - at(15, 4).x) < 2 && Math.abs(back.y - at(15, 4).y) < 2);
+});
+
+test("whole battles on generated big arenas end, about as long as on small ones", () => {
+  const play = (seed, size) => {
+    const rand = rng(seed);
+    const mine = fighters({ tags: [], attacks: [] }, wildTeam(rand, 3).map((g) => ({ ...g, growth: 0.9 })), { wild: true });
+    const theirs = fighters(null, wildTeam(rand, 3));
+    const map = generateMap(seed, size);
+    const b = newLiveBattle({ mine, theirs, map, rand, auto: true, foeForm: 0.7, ask: () => QUESTION, mode: "wild" });
+    for (let i = 0; i < 60 * 300 && !b.over; i++) {
+      if (b.quiz) { b.quiz.timeLeft -= 1 + rand() * 2; answer(b, rand() < 0.8 ? 0 : 1); continue; }
+      step(b, DT);
+    }
+    return b;
+  };
+  let small = 0, big = 0;
+  for (const seed of [21, 22, 23, 24]) {
+    const a = play(seed, { cols: 30, rows: 18 }), c = play(seed, { cols: 90, rows: 54 });
+    assert.ok(a.over && c.over, `seed ${seed} ended on both`);
+    small += a.time;
+    big += c.time;
+  }
+  assert.ok(big < small * 1.6, `big arenas don't drag on (${(big / 4).toFixed(0)} s against ${(small / 4).toFixed(0)} s)`);
+});
+
+test("the rival attacks only from inside the player's view, whatever the screen's shape", () => {
+  const firstAttack = (sight, foeAt, extra = {}) => {
+    const b = duel({ map: arena(open(60, 40), { me: at(30, 20), foe: foeAt }), still: false, foeForm: 0.9, seed: 9, sight,
+      mine: [mk("ember", { hp: 100000 })], theirs: [mk("grove", { moves: ["tackle", "vine", "seeker"] })], ...extra });
+    for (let t = 0; t < 30; t += DT) {
+      const ev = step(b, DT);
+      const a = ev.find((e) => e.kind === "attack" && e.side === "foe");
+      if (a) return { dx: Math.abs(a.x - current(b, "me").x), dy: Math.abs(a.y - current(b, "me").y) };
+    }
+    return null;
+  };
+  const phone = firstAttack({ w: 360, h: 520 }, at(44, 20));
+  assert.ok(phone && phone.dx <= 360 / 2, `an upright phone: it came within ${phone && phone.dx.toFixed(0)} px across before attacking`);
+  const desk = firstAttack(SIGHT, at(30, 33));
+  assert.ok(desk && desk.dy <= SIGHT.h / 2, `a computer: within ${desk && desk.dy.toFixed(0)} px up or down`);
+  // The screen can change it during the battle (a phone turned round).
+  const b = duel();
+  input(b, { sight: { w: 560, h: 330 } });
+  assert.deepEqual(b.sight, { w: 560, h: 330 });
+  for (const m of MOVES) assert.ok(liveMove(m).range <= 260, `${m.id} reaches no further than the camera shows`);
 });

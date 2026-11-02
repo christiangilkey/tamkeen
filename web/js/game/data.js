@@ -364,13 +364,14 @@ export const LIVE_STYLE_TEXT = {
 };
 // Seconds before a move can be used again, by style.
 export const LIVE_COOLDOWN = { strike: 2.2, quick: 1.2, delay: 3.5, interrupt: 4, charge: 7, guard: 7, power: 10, heal: 9, terrain: 9 };
-// Each form's numbers: `range` (how far it reaches), `speed` (px/s, things that fly or rush), `r` (radius
+// Each form's numbers (no reach beyond 260 px, so attacks stay inside what the battle camera shows):
+// `range` (how far it reaches), `speed` (px/s, things that fly or rush), `r` (radius
 // of a shot or an area), `warn` (seconds a beam or area is shown before it lands), `width` (a beam's),
 // `reach` (how far in front of the user a burst is centred), `turn` (how fast a homing shot turns,
 // radians/s), `size` (a terrain move repaints the tiles up to this many tiles from its centre).
 export const LIVE_FORM_STATS = {
   shot: { range: 220, speed: 300, r: 5 },
-  homing: { range: 300, speed: 170, r: 5, turn: 2.4 },
+  homing: { range: 260, speed: 170, r: 5, turn: 2.4 },
   beam: { range: 260, width: 10, warn: 0.3 },
   burst: { range: 68, r: 44, reach: 24, warn: 0.2 },
   drop: { range: 230, r: 28, warn: 0.55 },
@@ -383,7 +384,7 @@ export const LIVE_TUNING = {
   pounce: { form: "dash", range: 110 },
   dawn_ray: { form: "beam" },
   charge: { form: "dash", range: 170, speed: 420 },
-  thunderhead: { form: "beam", width: 20, range: 300 },
+  thunderhead: { form: "beam", width: 20, range: 260 },
   meteor: { form: "drop", r: 44 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
