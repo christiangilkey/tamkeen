@@ -72,7 +72,8 @@ export function publicProfile(state, rule, now = new Date()) {
     const g = state.roster[i];
     return { seed: g.seed, type: g.type, growth: Math.round(g.growth * 1000) / 1000,
              variant: g.variant || null, partnerHue: g.partnerHue, name: (g.name || "").slice(0, 20), equipped: g.equipped || {},
-             loadout: loadout(state, g, rule), known: Math.max(0, Math.round(state.known || 0)) };
+             loadout: loadout(state, g, rule), known: Math.max(0, Math.round(state.known || 0)),
+             cards: Math.max(0, Math.round(Number(state.cards) || 0)) }; // cards saved: live battles' all-time mode (livebattle.cardScale)
   });
   const form = retention(state);
   const fav = showcaseOf(state);

@@ -5,9 +5,12 @@
 //     together. A plain click is still the one-word lookup (the page's own click handler).
 //   - touch: a tap is still the one-word lookup, and a swipe still scrolls. Press and hold a word
 //     (HOLD_MS) and it lights up (and the phone ticks); then slide the finger over the next words;
-//     lifting looks them up together. Lifting without sliding off the word is `onHold` (the page's
-//     long-press menu), or the one-word lookup where there is none. If the finger moves before the
-//     hold has started, it is a scroll and nothing else happens.
+//     lifting looks them up together. Lifting without sliding off the word is `onHold` (it marks the
+//     word known: the owner, "if I long press a word it marks it as known without opening up the
+//     popup"), or the one-word lookup where there is none. Holding on, still, until MENU_MS opens
+//     `onMenu` (the word's menu: Save, Copy, Play from here...; a computer also has its right click).
+//     If the finger moves before the hold has started, it is a scroll and nothing else happens.
+//   - mouse, where there is an `onHold`: pressing a word without moving for MOUSE_HOLD_MS is a hold too.
 // While a hold or a drag is going on the page doesn't scroll, and the system's own text selection,
 // magnifier and long-press menu stay away (see .phrase-root in app.css, and the listeners below).
 // Which words a drag covers (in the text's order, across lines and sentences, at most PHRASE_MAX) is
@@ -17,7 +20,9 @@
 import { buzz } from "../app.js";
 import { PHRASE_MAX, phraseRange } from "../phrase.js";
 
-const HOLD_MS = 350;   // touch: how long a finger rests on a word before a phrase starts
+export const HOLD_MS = 350;       // touch: how long a finger rests on a word before a phrase (or a hold) starts
+export const MOUSE_HOLD_MS = 500; // mouse: how long a still press is before it is a hold (a slow click stays a click)
+export const MENU_MS = 1000;      // from the press: holding on this long, without sliding, opens the word's menu
 const MOVE_PX = 10;    // touch: moving further than this before then is a scroll
 const MOUSE_PX = 4;    // mouse: how far it must move before a drag counts
 const QUIET_MS = 450;  // after a phrase: the click (and long-press menu) the browser may still send are ignored
@@ -28,7 +33,8 @@ const QUIET_MS = 450;  // after a phrase: the click (and long-press menu) the br
  * @param {{
  *   onPick: (i: number, j: number, el: HTMLElement) => void,  // words i..j (i <= j) chosen; i === j
  *                       // after a drag that came back to its first word
- *   onHold?: (i: number, x: number, y: number, el: HTMLElement) => void,  // touch: held, not dragged
+ *   onHold?: (i: number, x: number, y: number, el: HTMLElement) => void,  // held and let go, not dragged
+ *   onMenu?: (i: number, x: number, y: number, el: HTMLElement) => void,  // held on still until MENU_MS
  *   blockOf?: (i: number) => any,   // which line or paragraph word i is in (no longer limits a phrase)
  *   elOf?: (i: number) => HTMLElement|null,  // word i's element in root (default: looked up)
  *   onStart?: () => void, onEnd?: () => void,  // a press on a word began / the gesture is over
@@ -46,7 +52,9 @@ export function phrasePicker(root, opts) {
   };
   root.classList.add("phrase-root");
 
-  let g = null;     // the gesture: {id, touch, start, el, x, y, phase: "press"|"hold"|"drag", range, timer}
+  // The gesture: {id, touch, start, el, x, y (where it began), lx, ly (where the pointer is),
+  // phase: "press"|"hold"|"drag"|"menu" (the menu opened; the release does nothing more), range, timer}
+  let g = null;
   let painted = []; // elements lit up now
   let quietUntil = 0;
 
@@ -86,6 +94,17 @@ export function phrasePicker(root, opts) {
     root.classList.add("phrase-picking");
     paint(g.range);
     buzz("tick");
+    if (opts.onMenu) g.timer = setTimeout(openMenuNow, MENU_MS - (g.touch ? HOLD_MS : MOUSE_HOLD_MS));
+  }
+
+  // Held on, still, on the one word: its menu opens now, and letting go afterwards does nothing more.
+  function openMenuNow() {
+    if (!g || g.phase !== "hold") return;
+    g.phase = "menu";
+    paint(null);
+    root.classList.remove("phrase-picking");
+    buzz("tick");
+    opts.onMenu(g.start, g.lx, g.ly, g.el);
   }
 
   function extend(x, y) {
@@ -112,8 +131,10 @@ export function phrasePicker(root, opts) {
     if (!touch && (e.button !== 0 || e.shiftKey || e.altKey || e.ctrlKey || e.metaKey)) return;
     const el = e.target && e.target.closest ? e.target.closest(".w") : null;
     if (!el || !root.contains(el) || el.dataset.i == null) return;
-    g = { id: e.pointerId, touch, start: Number(el.dataset.i), el, x: e.clientX, y: e.clientY, phase: "press", range: null, timer: 0 };
+    g = { id: e.pointerId, touch, start: Number(el.dataset.i), el, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY,
+          phase: "press", range: null, timer: 0 };
     if (touch) g.timer = setTimeout(startHold, HOLD_MS);
+    else if (opts.onHold) g.timer = setTimeout(startHold, MOUSE_HOLD_MS);
     window.addEventListener("pointermove", onMove, true);
     window.addEventListener("pointerup", onUp, true);
     window.addEventListener("pointercancel", onCancel, true);
@@ -124,12 +145,16 @@ export function phrasePicker(root, opts) {
 
   function onMove(e) {
     if (!g || e.pointerId !== g.id) return;
+    g.lx = e.clientX; g.ly = e.clientY;
+    if (g.phase === "menu") return;
     const far = Math.hypot(e.clientX - g.x, e.clientY - g.y);
     if (g.phase === "press") {
       if (g.touch) { if (far > MOVE_PX) end(); return; } // a scroll or a swipe
       if (far < MOUSE_PX) return;
+      clearTimeout(g.timer); // a mouse drag, not a hold
     }
     extend(e.clientX, e.clientY);
+    if (g && g.phase === "drag") clearTimeout(g.timer); // sliding on: no menu
   }
 
   function onUp(e) {
@@ -141,6 +166,7 @@ export function phrasePicker(root, opts) {
     quietUntil = Date.now() + QUIET_MS;
     const x = e.clientX, y = e.clientY;
     end();
+    if (phase === "menu") return; // the menu is already open
     if (phase === "hold" && opts.onHold) opts.onHold(start, x, y, el);
     else if (phase === "hold") opts.onPick(start, start, el);
     else {

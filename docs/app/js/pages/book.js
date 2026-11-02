@@ -247,7 +247,9 @@ export async function render(view, { id, data, query }) {
   let marked = null;
   const sentenceText = (x, y) => joinWords(texts.slice(x, y + 1), lang);
   const seenAt = { markSeen: (i, j = i) => seen && seen.markSeen(i - pageFirst, j - pageFirst),
-                   menuItems: (i, j = i) => (seen ? seen.menuItems(i - pageFirst, j - pageFirst) : []) };
+                   menuItems: (i, j = i) => (seen ? seen.menuItems(i - pageFirst, j - pageFirst) : []),
+                   toggleKnown: (i) => !!seen && seen.toggleKnown(i - pageFirst),
+                   unknownButton: (i) => (seen ? seen.unknownButton(i - pageFirst) : null) };
 
   function contextFor(i, j) {
     const [si, sj] = sentenceBounds(texts, segOf, i, j);
@@ -298,7 +300,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seenAt.unknownButton(i) : null });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seenAt.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
@@ -343,12 +345,13 @@ export async function render(view, { id, data, query }) {
   });
   // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
   // (components/phrasepick.js; it keeps that release from turning the page); holding a word and
-  // lifting opens its menu.
+  // lifting marks it known (or new again) without the popup; holding on for a second opens its menu.
   const picker = phrasePicker(tr, {
     blockOf: (k) => segOf[k],
     elOf: (k) => wordEls[k] || null,
     onPick: (i, j) => defineAt(i, j),
-    onHold: (i, x, y, el) => openMenu(x, y, el),
+    onHold: (i, x, y, el) => { if (!seenAt.toggleKnown(i)) openMenu(x, y, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
   });
   tr.addEventListener("pointerup", (e) => {
     if (!down) return;

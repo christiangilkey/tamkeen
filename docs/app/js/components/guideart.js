@@ -31,7 +31,8 @@ export function popupArt(root, mark = "") {
 export function buttonsArt() {
   const rows = [["sound", "Word", "Hear the word again"], ["sentence", "Sentence", "Hear its whole sentence"],
     ["play", "Continue", "Carry on playing from that word"], ["star", "Save", "Add the word to your review cards"],
-    ["mic", "Add audio", "Choose a voice for cards saved from here"], ["refresh", "Ask again", "Explain the word afresh"],
+    ["mic", "Add audio", "Choose a voice for cards saved from here"],
+    ["question", "Not known yet", "Keep the word amber, unsaved, until you know it"], ["refresh", "Ask again", "Explain the word afresh"],
     ["target", "More", "Quick lookup: open the full explanation"]];
   return `<div class="ga-legend" aria-hidden="true">${rows.map(([ic, name, what]) =>
     `<div class="ga-row"><span class="ga-btn">${icon(ic, 15)}</span><span><strong>${name}</strong><span class="muted"> · ${what}</span></span></div>`).join("")}</div>`;
@@ -71,6 +72,11 @@ export function playerSteps(kind = "player") {
       text: "Tap any word to see what it means. A popup opens with its meaning." },
     { target: [".w.cur", ".w"], demo: "drag", title: "Several words at once",
       text: "Press and hold a word until it lights up, then slide across the next words and let go: they are explained together, as one phrase. With a mouse, press and drag." },
+    // (phrasepick.js onHold / onMenu; the reels have no word menu.)
+    { target: [".w.new", ".w.cur", ".w"], demo: "hold", title: "Hold a word you know",
+      text: reel
+        ? "Words you haven't looked up yet are purple. Press and hold one, then let go: it's marked as known without the popup opening. Hold it again to make it new."
+        : "Words you haven't looked up yet are purple. Press and hold one, then let go: it's marked as known without the popup opening. Hold it again to make it new. Keep holding for a second to open the word's menu instead." },
     { art: (root) => popupArt(root), title: "The word popup",
       text: "It shows the meaning, how the word is used here and its dictionary form. Scroll it for more." },
     reader ? null : { art: buttonsArt, title: "The popup's buttons", text: "Along its bottom, these buttons:" },

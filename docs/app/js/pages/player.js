@@ -15,7 +15,7 @@ import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, sta
 import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
-import { computerOnlyNotice, statusInfo, isVideo } from "./library.js";
+import { computerOnlyNotice, progressBars, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
@@ -81,7 +81,7 @@ function renderPending(view, ep) {
   const panel = h(`<div class="page"><div class="card status-panel stack">
       <h1 dir="auto"></h1>
       <p class="muted" id="st"></p>
-      <div class="progress" id="bar" hidden><i></i></div>
+      <div id="bar"></div>
       <p class="err" id="err" style="color:var(--danger)"></p>
       <div class="row" style="justify-content:center"><button class="primary" id="go" type="button"></button>
       <a class="btn" href="#/library">Back to library</a></div>
@@ -102,8 +102,8 @@ function renderPending(view, ep) {
   const paint = () => {
     const st = statusInfo(ep);
     panel.querySelector("#st").textContent = st.label;
-    panel.querySelector("#bar").hidden = st.bar === undefined;
-    panel.querySelector("#bar i").style.width = `${st.bar || 0}%`;
+    const bars = progressBars(st);
+    panel.querySelector("#bar").replaceChildren(...(bars ? [bars] : []));
     panel.querySelector("#err").textContent = ep.status === "failed" ? ep.error || "" : "";
     const go = panel.querySelector("#go");
     const busy = ["queued", "downloading", "transcribing"].includes(ep.status);
@@ -853,7 +853,8 @@ export async function render(view, { id, query }) {
 
   // ---------- click a word to look it up (never when selecting text) ----------
   // Dragging across words (mouse), or holding a word and sliding the finger on (touch), looks the
-  // words up together (components/phrasepick.js); holding a word and lifting opens its menu.
+  // words up together (components/phrasepick.js); holding a word and lifting marks it known (or new
+  // again) without the popup; holding on for a second opens its menu.
   let down = null;
   tr.addEventListener("pointerdown", (e) => {
     if (e.button === 0) down = { x: e.clientX, y: e.clientY };
@@ -862,7 +863,8 @@ export async function render(view, { id, query }) {
     blockOf: (k) => segOf[k],
     elOf: (k) => wordEls[k] || null,
     onPick: (i, j) => defineAt(i, j),
-    onHold: (i, x, y, el) => openMenu(x, y, el),
+    onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) openMenu(x, y, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
   });
 
   tr.addEventListener("click", (e) => {
@@ -1067,7 +1069,8 @@ export async function render(view, { id, query }) {
     // (Shown inside another app's narrow panel, /embed, there is no transcript panel: always docked.)
     const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
-    const opts = { saved: savedHere.has(savedKey(i, j)) };
+    // (unknown: the popup's ? for a word, lexicon/seen.js.)
+    const opts = { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null };
     if (embed && !bubbleInPanel && !phone) {
       // Tapped in the captions: the popup joins the black bar right under them (it may not cover
       // YouTube's or Netflix's player, so the video gets shorter while it is open). The panel stays as it is.
@@ -1090,11 +1093,14 @@ export async function render(view, { id, query }) {
 
   // ---------- video: captions, transcript panel, full screen ----------
   const playerEl = view.querySelector(".player");
-  // Caption words dragged across (or held and slid across) are looked up together.
+  // Caption words dragged across (or held and slid across) are looked up together; one held and let go
+  // is marked known (or new again); held on for a second, its menu opens.
   const capPicker = vid ? phrasePicker(capEl, {
     blockOf: (k) => segOf[k],
     elOf: (k) => capWord(k) || null,
     onPick: (i, j, el) => defineAt(i, j, el),
+    onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) defineAt(i, i, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
     onStart: () => { capHeld = true; },
     onEnd: () => { capHeld = false; },
   }) : null;

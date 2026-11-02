@@ -268,7 +268,7 @@ export function openEvolution(game, go) {
     `The element of every new egg leans toward how you study: ${EGG_LEANS}.`,
     "The shop offers more of what suits your habits, such as headphones for listeners and books for readers.",
     "Each garden building makes more glow for one habit.",
-    "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In Unlimited battles creatures grow stronger with how many words their owner knows.",
+    "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In All-time battles creatures grow stronger with how many cards their owner has saved.",
   ])}</div>`));
 
   body.append(links(close, [{ label: "Open your creatures", pic: "nav_roster", run: () => go("creatures") }]));

@@ -32,6 +32,7 @@ export const AREAS = [
   { id: "lesson", title: "Course lessons", about: "A basics unit or a grammar lesson, with its exercises." },
   { id: "vocab", title: "Vocab", about: "Your saved words." },
   { id: "friends", title: "Friends and chat", about: "Friends, guilds and messages." },
+  { id: "battle", title: "Creature battles", about: "A live battle in the creature game: the left stick walks, the buttons use moves and answer." },
   { id: "settings", title: "Settings", about: "Every section of Settings." },
   { id: "dialog", title: "Popups and boxes", about: "A box open over the page: the highlight stays inside it." },
   { id: "typing", title: "Typing in a text box", about: "While a text box has the cursor. The controller doesn't type: use the keyboard." },
@@ -154,6 +155,23 @@ export const ACTIONS = {
   friends: [
     { id: "record", label: "Record a voice message (in a chat)", short: "Record", def: "b2" },
     { id: "write", label: "Write a message (in a chat)", short: "Write", def: "b3" },
+  ],
+  // A live battle (game/livebattle-ui.js): the left stick walks in any direction (it is read as it is
+  // pushed, not as presses; the D-pad walks too). The four face buttons are the four moves, laid out on
+  // the screen where the buttons are; while a question is open they answer it.
+  battle: [
+    { id: "move1", label: "Use your first move (in a question: the answer by it)", short: "Move 1", def: "b0" },
+    { id: "move2", label: "Use your second move (in a question: the answer by it)", short: "Move 2", def: "b1" },
+    { id: "move3", label: "Use your third move (in a question: the answer by it)", short: "Move 3", def: "b2" },
+    { id: "move4", label: "Use your fourth move (in a question: the answer by it)", short: "Move 4", def: "b3" },
+    { id: "hint", label: "Use a hint card (in a question)", short: "Hint", def: "b4" },
+    { id: "potion", label: "Drink a potion (battles with wild creatures)", short: "Potion", def: "b5" },
+    { id: "help", label: "How to play (the battle waits)", short: "How to play", def: "b8" },
+    { id: "pause", label: "Pause: carry on, or leave the battle", short: "Pause", def: "b9" },
+    { id: "walkUp", label: "Walk up (the left stick walks too, any way)", short: "Walk", def: "b12" },
+    { id: "walkDown", label: "Walk down", short: "Walk", def: "b13" },
+    { id: "walkLeft", label: "Walk left", short: "Walk", def: "b14" },
+    { id: "walkRight", label: "Walk right", short: "Walk", def: "b15" },
   ],
   settings: [
     { id: "prevSection", label: "The section before", short: "Previous section", pair: "Section", def: "b4" },

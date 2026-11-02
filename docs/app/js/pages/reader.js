@@ -227,7 +227,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
@@ -282,12 +282,14 @@ export async function render(view, { id, data, query }) {
     if (e.button === 0) down = { x: e.clientX, y: e.clientY };
   });
   // Dragging across words (mouse), or holding a word and sliding on (touch), looks them up together
-  // (components/phrasepick.js); holding a word and lifting opens its menu.
+  // (components/phrasepick.js); holding a word and lifting marks it known (or new again) without the
+  // popup; holding on for a second opens its menu.
   const picker = phrasePicker(tr, {
     blockOf: (k) => segOf[k],
     elOf: (k) => wordEls[k] || null,
     onPick: (i, j) => defineAt(i, j),
-    onHold: (i, x, y, el) => openMenu(x, y, el),
+    onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) openMenu(x, y, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
   });
   tr.addEventListener("click", (e) => {
     const wEl = e.target.closest(".w");

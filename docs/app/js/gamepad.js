@@ -113,6 +113,34 @@ export function actionHeld(action) {
   return false;
 }
 
+/**
+ * Where the controller points something that moves freely (a creature in a live battle): {x, y}, each
+ * −1..1 (right and down are +). The left stick counts as far as it is pushed (past its dead zone); the
+ * buttons of the battle's four walk actions (the D-pad, unless changed in Settings) count in full.
+ * Nothing while another window is in front, and nothing held since the controller appeared (as for presses).
+ */
+export function padSteer() {
+  let x = 0;
+  let y = 0;
+  if (typeof document === "undefined" || document.hidden || !windowInFront() || capture) return { x, y };
+  const walk = full.battle || {};
+  for (const p of rawPads()) {
+    const h = held.get(p.index);
+    const st = press.get(p.index);
+    if (!h || !st) continue;
+    const stuck = st.stuck || new Set();
+    const amount = (input) => {
+      if (!input || stuck.has(input)) return 0;
+      if (input.startsWith("a")) return h.strength[input] || 0;
+      return h.down.has(input) ? 1 : 0;
+    };
+    x += amount("a0+") - amount("a0-") + amount(walk.walkRight) - amount(walk.walkLeft);
+    y += amount("a1+") - amount("a1-") + amount(walk.walkDown) - amount(walk.walkUp);
+  }
+  const len = Math.hypot(x, y);
+  return len > 1 ? { x: x / len, y: y / len } : { x, y };
+}
+
 /** The on-screen button guide: on (the default) or off, on this device. */
 export function legendOn() {
   try { return localStorage.getItem("padLegend") !== "off"; } catch { return true; }

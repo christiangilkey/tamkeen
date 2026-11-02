@@ -100,13 +100,21 @@ const pixelsOf = (img) => {
   return g.getImageData(0, 0, img.width, img.height).data;
 };
 
+/** The drawing a creature is shown with: its hatchling look while it is a hatchling (if it has one), else its
+ * juvenile look. Both have a box, hover, legs, shirt and sockets; `dir` is where its layers are. */
+export function drawingOf(look) {
+  const b = beastById(look.beast);
+  if (look.size === "s" && b.young) return { ...b.young, id: b.id, dir: `creature/beast/${b.id}/hatchling/`, key: `${b.id}/s`, baby: true };
+  return { ...b, dir: `creature/beast/${b.id}/`, key: b.id };
+}
+
 /** The body wearing a shirt: the shirt's pattern fills the pixels its mask marks (the coat of the torso). */
-async function shirted(body, beast, look) {
+async function shirted(body, form, look) {
   const shirt = look.equipped && look.equipped.shirt;
-  if (!body || !shirt || !beast.shirt) return body;
-  const id = `${beast.id}|shirt|${shirt}|${look.tint ? JSON.stringify(look.tint) : ""}`;
+  if (!body || !shirt || !form.shirt) return body;
+  const id = `${form.key}|shirt|${shirt}|${look.tint ? JSON.stringify(look.tint) : ""}`;
   if (layers.has(id)) return layers.get(id);
-  const [tile, mask] = await Promise.all([loadImage(`item/${shirt}.png`), loadImage(`creature/beast/${beast.id}/shirt.png`)]);
+  const [tile, mask] = await Promise.all([loadImage(`item/${shirt}.png`), loadImage(`${form.dir}shirt.png`)]);
   if (!tile || !mask) return body;
   const tp = pixelsOf(tile);
   const mp = pixelsOf(mask);
@@ -148,34 +156,51 @@ function goldEdge(ctx) {
 }
 
 /** Where a creature's drawing goes in the frame: centred, standing on the bottom edge (a floater above it). */
-export function beastOrigin(beast) {
-  const [x0, , x1, y1] = beast.box;
-  return [Math.round(FRAME / 2 - (x0 + x1 + 1) / 2), FRAME - (y1 + 1) - beast.hover];
+export function beastOrigin(form) {
+  const [x0, , x1, y1] = form.box;
+  return [Math.round(FRAME / 2 - (x0 + x1 + 1) / 2), FRAME - (y1 + 1) - form.hover];
 }
 
 /** How tall a creature stands, from the ground to the top of its head (for what is shown above it). */
 export function beastHeight(look) {
-  const b = beastById(look.beast);
-  return b.box[3] - b.box[1] + 1 + b.hover;
+  const f = drawingOf(look);
+  return f.box[3] - f.box[1] + 1 + f.hover;
 }
 
 const SHUT = new Set(["blink", "sleepy", "happy"]);
 
 /**
  * Compose one frame of a creature. `look` comes from describe(genome); `pose` is
- *   {step: 0|1 (walk frame: on 1 the near legs lift), bob: px the head dips, eyes: "open" or a shut look
- *   ("blink", "sleepy", "happy"), lift: px off the ground}.
+ *   {walk: 0-3, the walk cycle (0 and 2: both feet down; 1: the near legs lift and the head dips; 3: the far legs
+ *     lift and the head dips; a creature without legs bobs up a pixel on 1 and 3) - or the older
+ *     step: 0|1 (the same as walk 0 and 1),
+ *   bob: px the head dips, eyes: "open" or a shut look ("blink", "sleepy", "happy"), lift: px off the ground,
+ *   act: "lunge" | "hurt" | "faint", with t: 0..1 how far along it is -
+ *     lunge: the whole creature darts forward (up to 5px at t = 0.5) and back,
+ *     hurt: knocked back 3px easing to 0, eyes shut, flashing white for the first third,
+ *     faint: eyes shut, sinking 4px and fading out}.
  * Returns a canvas FRAME x FRAME with the creature facing right, feet at the bottom centre.
  */
+const actOffset = (act, t) => {
+  if (act === "lunge") return [Math.round(5 * Math.sin(Math.PI * t)), 0];
+  if (act === "hurt") return [-Math.round(3 * (1 - t)), 0];
+  if (act === "faint") return [0, Math.round(4 * t)];
+  return [0, 0];
+};
 export async function composeCreature(look, pose = {}) {
-  const b = beastById(look.beast);
-  const dir = `creature/beast/${b.id}/`;
+  const b = drawingOf(look);
+  const dir = b.dir;
   const tint = look.tint || null;
-  const step = pose.step ? 1 : 0;
-  const bob = pose.bob || 0;
+  const walk = Number.isInteger(pose.walk) ? ((pose.walk % 4) + 4) % 4 : (pose.step ? 1 : 0);
+  const step = walk === 1 ? 1 : 0;             // the near legs lift
+  const back = walk === 3 ? 1 : 0;             // the far legs lift
+  const t = Math.max(0, Math.min(1, pose.t || 0));
+  const shut = SHUT.has(pose.eyes) || pose.act === "hurt" || pose.act === "faint";
+  const bob = (pose.bob || 0) + (walk % 2 && !pose.bob && b.legs.length ? 1 : 0);
+  const float = walk % 2 && !b.legs.length ? 1 : 0; // a creature without legs bobs up as it goes
   const [body0, head, legsBack, legsFront] = await Promise.all([
     layer(`${dir}body.png`, tint),
-    layer(`${dir}${SHUT.has(pose.eyes) ? "blink" : "head"}.png`, tint),
+    layer(`${dir}${shut ? "blink" : "head"}.png`, tint),
     b.legs.includes("legs_back") ? layer(`${dir}legs_back.png`, tint) : null,
     b.legs.includes("legs_front") ? layer(`${dir}legs_front.png`, tint) : null,
   ]);
@@ -183,31 +208,43 @@ export async function composeCreature(look, pose = {}) {
   const worn = {};
   for (const slot of Object.keys(SLOTS)) {
     const id = look.equipped && look.equipped[slot];
-    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(`item/${id}.png`) : null;
+    // A baby wears the small version of a hat (item/small/hat/<id>.png: tools/game_art/small_hats.py).
+    const file = b.baby && slot === "hat" ? `item/small/${id}.png` : `item/${id}.png`;
+    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(file) : null;
   }
 
   const c = document.createElement("canvas");
   c.width = c.height = FRAME;
   const ctx = c.getContext("2d", { willReadFrequently: true });
   ctx.imageSmoothingEnabled = false;
-  const [ox, oy0] = beastOrigin(b);
-  const oy = oy0 - (pose.lift || 0);
+  const [ox0, oy0] = beastOrigin(b);
+  const [dx, dy] = actOffset(pose.act, t);
+  const ox = ox0 + dx;
+  const oy = oy0 - (pose.lift || 0) - float + dy;
+  if (pose.act === "faint") ctx.globalAlpha = 1 - t;
   const put = (img, dy = 0) => { if (img) ctx.drawImage(img, ox, oy + dy); };
   // Where a worn thing sits: its socket on this creature, moved by the item's own `shift` and `offset`.
   const item = (slot, dy = 0) => {
     const img = worn[slot];
     if (!img) return;
     const it = itemById(look.equipped[slot]);
-    const a = (it && it.shift) || [0, 0];
+    const shift = (it && it.shift) || [0, 0];
+    const a = b.baby && slot === "hat" ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small hat's own drop
     const o = (it && it.offset && it.offset[look.size]) || [0, 0];
     const [sx, sy] = b.sockets[slot];
     ctx.drawImage(img, ox + sx - SLOTS[slot].anchor[0] + a[0] + o[0], oy + sy - SLOTS[slot].anchor[1] + a[1] + o[1] + dy);
   };
-  put(legsBack);
+  put(legsBack, -back);
   put(body);
   put(legsFront, -step);
   put(head, bob);
   if (tint && tint.kind === "champion") goldEdge(ctx);
+  if (pose.act === "hurt" && t < 1 / 3) { // a white flash over the creature (not what it wears)
+    ctx.globalCompositeOperation = "source-atop";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+    ctx.fillRect(0, 0, FRAME, FRAME);
+    ctx.globalCompositeOperation = "source-over";
+  }
   // Capes and packs hang behind the creature: drawn now, underneath what is there.
   if (worn.back) {
     ctx.globalCompositeOperation = "destination-over";
@@ -218,6 +255,7 @@ export async function composeCreature(look, pose = {}) {
   item("face", bob);
   item("neck");
   item("held", step);
+  ctx.globalAlpha = 1;
   return c;
 }
 
