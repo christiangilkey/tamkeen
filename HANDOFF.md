@@ -6251,3 +6251,32 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   its own Grammar and Basics, note shown, Word/Sentence play `ar-lev/audio`, Add makes a card with note, voice and the
   course's folder, the choice survives a reload, back to MSA. Phone build (mobile/www copy at 375 px, course fetches
   pointed at the fixture): same. Not checked: a real phone, real dialect content (none published yet).
+
+## Live battles: random terrain arenas (2026-11-01; "Live battles: random terrain arenas" chat, the Map part)
+Part of the real-time battles (shared plan: side-session note `live-battles-plan.md`, section "Terrain", which is the
+contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tests/js/battlemap.test.mjs`.
+- **TERRAIN** (22 ground types, the Engine chat's flat fields: walk, cross, shots, speed, grip, atk, def, heal, burn,
+  favours, status, plus bonus, fixed, under, anim, art, likes, hinders), **PROPS** (12 obstacles; each blocks one row of
+  1-2 tiles, `size` = picture px), **THEMES** (meadow, forest, shore, desert, volcanic, cave, ruins, night, snow: base
+  ground, light hint, symmetry, `uses`/`props` lists the tests hold it to, and `build`).
+- **generateMap(seed, { theme, cols 30, rows 18 })**: same seed = same map (a friend battle only shares the seed).
+  Smooth value-noise fields painted by share of the map (`patch`), rivers through the middle with bridges or fords,
+  lakes with rims, winding roads, an oasis, ruined rooms round a paved square, props scattered in clumps. Fairness:
+  every field is blended with its mirror image (fully within 6 tiles of each start, about half in the middle), then
+  the left start's surroundings are copied onto the right's, so both start areas are identical while the middle
+  still differs; 2.5 tiles round each start are always walkable, harmless and prop-free; a walker's path between the
+  starts is opened (bridge, ford, gap in a wall, prop removed) on both sides alike; a map whose halves differ too
+  much (`fairness`) is redrawn, the 6th try fully symmetric (~1% of maps).
+- **Reading/drawing**: terrainAt, effectsAt/effectsFor (element bonus, favoured = never burned, floaters not slowed
+  and don't slide), canStand, canEnter, blocksShot, canRepaint (terrain moves skip water, lava, walls, bridges, props),
+  drawLayers (base fill, then e.g. shallows under deep water, then the tile; edge bits N1 E2 S4 W8; edge tiles are
+  transparent outside the shape), findPath (8-way, no corner cutting, prefers fast/safe ground, straightened, ends at
+  the nearest reachable spot), terrainArtFiles() (56 files under `battle/terrain/`, for `artFiles()` once drawn).
+- Bridges run on over the shallow bank to dry ground (at the Terrain art chat's request): `map.under` marks those tiles,
+  so their stack is [ground, shallows, bridge]; a bridge joins dry ground only at its two ends.
+- Some walkable gaps are one tile wide: the Engine should collide with the map using a small radius at the feet.
+- Names, HUD lines, prop and theme names translated into the 16 languages: `tools/i18n/tr/<code>/100-battle-map.txt`.
+- Checked: 2,700 generated maps (300 seeds x 9 themes): no errors, always a path, start areas identical, fairness ok;
+  ~7 ms a map. Preview of 36 maps (coloured squares) and a sample JSON with per-tile layers in the side-session notes
+  folder local_58cb322d… (`battlemap-preview.png`, `battlemap-sample.json`). Not seen yet with the real tile art, nor
+  played: that needs the Engine, Screen and Terrain art parts.

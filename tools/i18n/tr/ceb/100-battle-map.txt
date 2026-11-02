@@ -1,0 +1,54 @@
+da13c60d	Sagbot
+db9e513d	Walay epekto.
+27567cb9	Yuta
+b36fbc6e	Balas
+6d4397ac	Mopahinay nimo og gamay.
+9c8238f6	Niyebe
+5af5aec3	Mopahinay nimo.
+12738275	Abo
+7b85f2a6	Salog sa langob
+dc27cea7	Depensa +20%, apan mopahinay nimo og gamay. Walay babag ang lihok sa mga linalang nga Kalasangan.
+d4e7d7d3	Mga bulak
+ae8fa1eb	Ang mga linalang nga Kalasangan 20% mas kusog moigo ug mamaayo og gamay.
+387dfd2a	Salog sa lasang
+58d15fca	Depensa +20%, apan mopahinay nimo. Walay babag ang lihok sa mga linalang nga Kalasangan, ug mas lig-on pa ang ilang depensa.
+eaff7cfc	Lapok
+aeb8680c	Mopahinay kaayo nimo. Mas sayon nga makalatas niini ang mga linalang nga Balud.
+1b7a27ee	Mabaw nga tubig
+38079873	Mopahinay nimo. Ang mga linalang nga Balud mas paspas ug mas kusog moigo; ang mga linalang nga Baga mas luya moigo.
+394e833f	Lawom nga tubig
+6157a87e	Ang mga linalang nga Balud ug mga molutaw ra ang makatabok. Dinhi, ang mga linalang nga Balud ang labing paspas ug labing kusog.
+0a2af398	Yelo
+a8f5315e	Danlog: padayon kang madanlog. Mas lig-on ang depensa sa mga linalang nga Balud.
+56bae5aa	Mag-ayo og gamay matag segundo, mas daghan sa mga linalang nga Balud.
+ae9d0780	Ang mga atake 20% mas kusog moigo; medyo hinay ang pagsaka. Mas lig-on ang depensa sa mga linalang nga Bato.
+ea8f8b94	Dalan nga bato
+f64ebe53	Mopaspas nimo og gamay. Ang mga linalang nga Bato mas kusog moigo ug mas lig-on ang depensa.
+a3c2b2db	Mga kristal
+d5d62f17	Ang mga linalang nga Aligato 25% mas kusog moigo ug mas paspas molihok; ang mga linalang nga Kilumkilom mas luya moigo.
+24b8997f	Mopaso og gamay matag segundo. Ang mga linalang nga Baga dili mapaso ug mas kusog moigo.
+b9a3fb9a	Lava
+57c6bbed	Ang mga linalang nga Baga ug mga molutaw ra ang makatabok. Grabe kini mopaso, apan dili sa mga linalang nga Baga, nga mas kusog pa moigo.
+aa0e7e86	Landong
+7901f3e9	Ang mga linalang nga Kilumkilom 20% mas kusog moigo ug mas lig-on ang depensa; ang mga linalang nga Aligato mas luya moigo.
+34214aaa	Taytayan
+c4633c09	Bungbong
+e0c47965	Mobabag sa lihok ug sa mga atake.
+01024cd1	Dako kaayong bato
+99f5ff63	Kahoy
+456e097f	Kahoy nga pino
+97dc9f2d	Palma
+ffbcb973	Kaktus
+885bd9d9	Haligi nga kristal
+abdc4793	Estalagmita
+0f7bbd91	Haligi
+24c86980	Obsidyan
+3cd80bff	Higanteng uhong
+afb106c7	Sagbutan
+f41c4e4d	Lasang
+f6db3f96	Disyerto
+8ea2c5b5	Bulkan
+c99cfc6b	Langob nga kristal
+72b256c5	Kagun-oban
+1097b553	Gabii
+77e6cffc	Kapatagan sa niyebe

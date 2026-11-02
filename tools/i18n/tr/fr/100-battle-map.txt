@@ -1,0 +1,54 @@
+da13c60d	Herbe
+db9e513d	Aucun effet.
+27567cb9	Terre
+b36fbc6e	Sable
+6d4397ac	Ralentit un peu.
+9c8238f6	Neige
+5af5aec3	Ralentit.
+12738275	Cendres
+7b85f2a6	Sol de grotte
+dc27cea7	Défense +20 %, ralentit un peu. Les créatures Bosquet s'y déplacent librement.
+d4e7d7d3	Fleurs
+ae8fa1eb	Les créatures Bosquet frappent 20 % plus fort et se soignent un peu.
+387dfd2a	Sous-bois
+58d15fca	Défense +20 %, ralentit. Les créatures Bosquet s'y déplacent librement et se défendent encore mieux.
+eaff7cfc	Boue
+aeb8680c	Ralentit beaucoup. Les créatures Marée y pataugent plus facilement.
+1b7a27ee	Eau peu profonde
+38079873	Ralentit. Les créatures Marée y sont plus rapides et frappent plus fort ; les créatures Braise frappent moins fort.
+394e833f	Eau profonde
+6157a87e	Seules les créatures Marée et les créatures flottantes peuvent la traverser. Les créatures Marée y sont plus rapides et plus fortes que partout ailleurs.
+0a2af398	Glace
+a8f5315e	Glissant : vous continuez sur votre lancée. Les créatures Marée se défendent mieux.
+56bae5aa	Soigne un peu à chaque seconde, et davantage les créatures Marée.
+ae9d0780	Les attaques frappent 20 % plus fort ; la montée ralentit un peu. Les créatures Pierre se défendent mieux.
+ea8f8b94	Pavés
+f64ebe53	Accélère un peu. Les créatures Pierre frappent plus fort et se défendent mieux.
+a3c2b2db	Cristaux
+d5d62f17	Les créatures Étincelle frappent 25 % plus fort et vont plus vite ; les créatures Crépuscule frappent moins fort.
+24b8997f	Brûle un peu à chaque seconde. Les créatures Braise n'y brûlent pas et frappent plus fort.
+b9a3fb9a	Lave
+57c6bbed	Seules les créatures Braise et les créatures flottantes peuvent la traverser. Elle brûle fort, mais pas les créatures Braise, qui y frappent plus fort.
+aa0e7e86	Pénombre
+7901f3e9	Les créatures Crépuscule frappent 20 % plus fort et se défendent mieux ; les créatures Étincelle frappent moins fort.
+34214aaa	Pont
+c4633c09	Mur
+e0c47965	Bloque les déplacements et les attaques.
+01024cd1	Gros rocher
+99f5ff63	Arbre
+456e097f	Pin
+97dc9f2d	Palmier
+ffbcb973	Cactus
+885bd9d9	Pilier de cristal
+abdc4793	Stalagmite
+0f7bbd91	Pilier
+24c86980	Obsidienne
+3cd80bff	Champignon géant
+afb106c7	Prairie
+f41c4e4d	Forêt
+f6db3f96	Désert
+8ea2c5b5	Volcan
+c99cfc6b	Grotte de cristal
+72b256c5	Ruines
+1097b553	Nuit
+77e6cffc	Plaine enneigée

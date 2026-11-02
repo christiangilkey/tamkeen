@@ -1,0 +1,54 @@
+da13c60d	Hierba
+db9e513d	Sin efecto.
+27567cb9	Tierra
+b36fbc6e	Arena
+6d4397ac	Te frena un poco.
+9c8238f6	Nieve
+5af5aec3	Te frena.
+12738275	Ceniza
+7b85f2a6	Suelo de cueva
+dc27cea7	Defensa +20 %, pero te frena un poco. Las criaturas Arboleda se mueven sin trabas.
+d4e7d7d3	Flores
+ae8fa1eb	Las criaturas Arboleda golpean un 20 % más fuerte y se curan un poco.
+387dfd2a	Suelo de bosque
+58d15fca	Defensa +20 %, pero te frena. Las criaturas Arboleda se mueven sin trabas y se defienden aún mejor.
+eaff7cfc	Barro
+aeb8680c	Te frena mucho. Las criaturas Marea lo cruzan con más facilidad.
+1b7a27ee	Agua poco profunda
+38079873	Te frena. Las criaturas Marea van más rápido y golpean más fuerte; las criaturas Brasa golpean con menos fuerza.
+394e833f	Agua profunda
+6157a87e	Solo pueden cruzarla las criaturas Marea y las flotantes. Aquí las criaturas Marea alcanzan su máxima velocidad y fuerza.
+0a2af398	Hielo
+a8f5315e	Resbala: no paras de deslizarte. Las criaturas Marea se defienden mejor.
+56bae5aa	Cura un poco cada segundo; a las criaturas Marea, más.
+ae9d0780	Los ataques golpean un 20 % más fuerte; subir te frena un poco. Las criaturas Piedra se defienden mejor.
+ea8f8b94	Adoquines
+f64ebe53	Vas un poco más rápido. Las criaturas Piedra golpean más fuerte y se defienden mejor.
+a3c2b2db	Cristales
+d5d62f17	Las criaturas Chispa golpean un 25 % más fuerte y se mueven más rápido; las criaturas Ocaso golpean con menos fuerza.
+24b8997f	Quema un poco cada segundo. Las criaturas Brasa no se queman y golpean más fuerte.
+b9a3fb9a	Lava
+57c6bbed	Solo pueden cruzarla las criaturas Brasa y las flotantes. Quema mucho, salvo a las criaturas Brasa, que golpean más fuerte.
+aa0e7e86	Umbría
+7901f3e9	Las criaturas Ocaso golpean un 20 % más fuerte y se defienden mejor; las criaturas Chispa golpean con menos fuerza.
+34214aaa	Puente
+c4633c09	Muro
+e0c47965	Bloquea el paso y los ataques.
+01024cd1	Peñasco
+99f5ff63	Árbol
+456e097f	Pino
+97dc9f2d	Palmera
+ffbcb973	Cactus
+885bd9d9	Pilar de cristal
+abdc4793	Estalagmita
+0f7bbd91	Pilar
+24c86980	Obsidiana
+3cd80bff	Seta gigante
+afb106c7	Pradera
+f41c4e4d	Bosque
+f6db3f96	Desierto
+8ea2c5b5	Volcán
+c99cfc6b	Cueva de cristal
+72b256c5	Ruinas
+1097b553	Noche
+77e6cffc	Campo nevado

@@ -7975,6 +7975,311 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "db9e513d",
+  "k": "No effect.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "da13c60d",
+  "k": "Grass",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "27567cb9",
+  "k": "Dirt",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "b36fbc6e",
+  "k": "Sand",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "6d4397ac",
+  "k": "A little slower.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "9c8238f6",
+  "k": "Snow",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "5af5aec3",
+  "k": "Slower.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "12738275",
+  "k": "Ash",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "7b85f2a6",
+  "k": "Cave floor",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "c462f354",
+  "k": "Tall grass",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "dc27cea7",
+  "k": "Defence +20%, a little slower. Grove creatures move freely.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "d4e7d7d3",
+  "k": "Flowers",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ae8fa1eb",
+  "k": "Grove creatures hit 20% harder and heal a little.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "387dfd2a",
+  "k": "Forest floor",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "58d15fca",
+  "k": "Defence +20%, slower. Grove creatures move freely and defend even better.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "eaff7cfc",
+  "k": "Mud",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "aeb8680c",
+  "k": "Much slower. Tide creatures wade through it more easily.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "1b7a27ee",
+  "k": "Shallow water",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "38079873",
+  "k": "Slower. Tide creatures are faster and hit harder; Ember creatures hit softer.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "394e833f",
+  "k": "Deep water",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "6157a87e",
+  "k": "Only Tide creatures and floaters can cross. Tide creatures are fastest and strongest here.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "0a2af398",
+  "k": "Ice",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a8f5315e",
+  "k": "Slippery: you keep sliding. Tide creatures defend better.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "89677615",
+  "k": "Spring",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "56bae5aa",
+  "k": "Heals a little each second, Tide creatures more.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "096b0cc7",
+  "k": "High ground",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ae9d0780",
+  "k": "Attacks hit 20% harder; a little slower to climb. Stone creatures defend better.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ea8f8b94",
+  "k": "Cobbles",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "f64ebe53",
+  "k": "A little faster. Stone creatures hit harder and defend better.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a3c2b2db",
+  "k": "Crystals",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "d5d62f17",
+  "k": "Spark creatures hit 25% harder and move faster; Dusk creatures hit softer.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "64ca529b",
+  "k": "Hot coals",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "24b8997f",
+  "k": "Burns a little each second. Ember creatures don't burn and hit harder.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "b9a3fb9a",
+  "k": "Lava",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "57c6bbed",
+  "k": "Only Ember creatures and floaters can cross. It burns hard, but not Ember creatures, who hit harder.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "aa0e7e86",
+  "k": "Shadow",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "7901f3e9",
+  "k": "Dusk creatures hit 20% harder and defend better; Spark creatures hit softer.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "34214aaa",
+  "k": "Bridge",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "c4633c09",
+  "k": "Wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "e0c47965",
+  "k": "Blocks movement and attacks.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "c6928281",
+  "k": "Boulder",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "01024cd1",
+  "k": "Big rock",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "99f5ff63",
+  "k": "Tree",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "456e097f",
+  "k": "Pine",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "97dc9f2d",
+  "k": "Palm tree",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a36ef413",
+  "k": "Bush",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ffbcb973",
+  "k": "Cactus",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "885bd9d9",
+  "k": "Crystal pillar",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "abdc4793",
+  "k": "Stalagmite",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "0f7bbd91",
+  "k": "Pillar",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "24c86980",
+  "k": "Obsidian",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "3cd80bff",
+  "k": "Giant mushroom",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "afb106c7",
+  "k": "Meadow",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "f41c4e4d",
+  "k": "Forest",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "0b7eaa70",
+  "k": "Shore",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "f6db3f96",
+  "k": "Desert",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "8ea2c5b5",
+  "k": "Volcano",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "c99cfc6b",
+  "k": "Crystal cave",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "72b256c5",
+  "k": "Ruins",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "1097b553",
+  "k": "Night",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "77e6cffc",
+  "k": "Snowfield",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
   "id": "ae8298e9",
   "k": "Phoenix chick",
   "f": "web/js/game/beasts.js"
@@ -8845,11 +9150,6 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "c462f354",
-  "k": "Tall grass",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "2115a9fc",
   "k": "Little lantern",
   "f": "web/js/game/data.js"
@@ -8862,16 +9162,6 @@
  {
   "id": "89f36136",
   "k": "Signpost",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "a36ef413",
-  "k": "Bush",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "c6928281",
-  "k": "Boulder",
   "f": "web/js/game/data.js"
  },
  {
@@ -9150,11 +9440,6 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "096b0cc7",
-  "k": "High ground",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "c25e35a5",
   "k": "Attacks made from here hit 20% harder.",
   "f": "web/js/game/data.js"
@@ -9170,18 +9455,8 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "64ca529b",
-  "k": "Hot coals",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "dc10dacb",
   "k": "Burns a little each turn, but Ember creatures love it: their attacks are stronger here.",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "89677615",
-  "k": "Spring",
   "f": "web/js/game/data.js"
  },
  {
@@ -9847,11 +10122,6 @@
  {
   "id": "bcce2166",
   "k": "Night woods",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "0b7eaa70",
-  "k": "Shore",
   "f": "web/js/game/data.js"
  },
  {

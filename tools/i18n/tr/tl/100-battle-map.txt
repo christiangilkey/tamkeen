@@ -1,0 +1,54 @@
+da13c60d	Damo
+db9e513d	Walang epekto.
+27567cb9	Lupa
+b36fbc6e	Buhangin
+6d4397ac	Medyo pinababagal ka.
+9c8238f6	Niyebe
+5af5aec3	Pinababagal ka.
+12738275	Abo
+7b85f2a6	Sahig ng kuweba
+dc27cea7	Depensa +20%, pero medyo pinababagal ka. Malayang nakakagalaw ang mga nilalang na Kakahuyan.
+d4e7d7d3	Mga bulaklak
+ae8fa1eb	Mas malakas nang 20% ang atake ng mga nilalang na Kakahuyan, at gumagaling sila nang kaunti.
+387dfd2a	Sahig ng gubat
+58d15fca	Depensa +20%, pero pinababagal ka. Malayang nakakagalaw ang mga nilalang na Kakahuyan, at mas matibay pa ang depensa nila.
+eaff7cfc	Putik
+aeb8680c	Pinababagal ka nang husto. Mas madaling nakakatawid dito ang mga nilalang na Alon.
+1b7a27ee	Mababaw na tubig
+38079873	Pinababagal ka. Mas mabilis ang mga nilalang na Alon at mas malakas ang atake nila; mas mahina ang atake ng mga nilalang na Baga.
+394e833f	Malalim na tubig
+6157a87e	Ang mga nilalang na Alon at mga lumulutang lang ang makakatawid. Pinakamabilis at pinakamalakas dito ang mga nilalang na Alon.
+0a2af398	Yelo
+a8f5315e	Madulas: tuloy-tuloy kang dumudulas. Mas matibay ang depensa ng mga nilalang na Alon.
+56bae5aa	Nanggagamot nang kaunti bawat segundo, at mas marami pa sa mga nilalang na Alon.
+ae9d0780	Mas malakas nang 20% ang mga atake; medyo mabagal ang pag-akyat. Mas matibay ang depensa ng mga nilalang na Bato.
+ea8f8b94	Batong daanan
+f64ebe53	Medyo pinabibilis ka. Mas malakas ang atake at mas matibay ang depensa ng mga nilalang na Bato.
+a3c2b2db	Mga kristal
+d5d62f17	Mas malakas nang 25% ang atake ng mga nilalang na Kislap at mas mabilis silang kumilos; mas mahina ang atake ng mga nilalang na Takipsilim.
+24b8997f	Nakakapaso nang kaunti bawat segundo. Hindi napapaso ang mga nilalang na Baga, at mas malakas ang atake nila.
+b9a3fb9a	Lava
+57c6bbed	Ang mga nilalang na Baga at mga lumulutang lang ang makakatawid. Matindi itong nakakapaso, pero hindi sa mga nilalang na Baga, na mas malakas pang umatake.
+aa0e7e86	Lilim
+7901f3e9	Mas malakas nang 20% ang atake at mas matibay ang depensa ng mga nilalang na Takipsilim; mas mahina ang atake ng mga nilalang na Kislap.
+34214aaa	Tulay
+c4633c09	Pader
+e0c47965	Hinaharangan ang paggalaw at mga atake.
+01024cd1	Napakalaking bato
+99f5ff63	Puno
+456e097f	Puno ng pino
+97dc9f2d	Palma
+ffbcb973	Kaktus
+885bd9d9	Haliging kristal
+abdc4793	Estalagmita
+0f7bbd91	Haligi
+24c86980	Obsidyan
+3cd80bff	Higanteng kabute
+afb106c7	Damuhan
+f41c4e4d	Gubat
+f6db3f96	Disyerto
+8ea2c5b5	Bulkan
+c99cfc6b	Kuwebang kristal
+72b256c5	Guho
+1097b553	Gabi
+77e6cffc	Kapatagan ng niyebe

@@ -1,0 +1,54 @@
+da13c60d	Grama
+db9e513d	Sem efeito.
+27567cb9	Terra
+b36fbc6e	Areia
+6d4397ac	Deixa você um pouco mais lento.
+9c8238f6	Neve
+5af5aec3	Deixa você mais lento.
+12738275	Cinzas
+7b85f2a6	Chão de caverna
+dc27cea7	Defesa +20%, mas deixa você um pouco mais lento. As criaturas Bosque se movem livremente.
+d4e7d7d3	Flores
+ae8fa1eb	As criaturas Bosque acertam 20% mais forte e se curam um pouco.
+387dfd2a	Chão de floresta
+58d15fca	Defesa +20%, mas deixa você mais lento. As criaturas Bosque se movem livremente e se defendem ainda melhor.
+eaff7cfc	Lama
+aeb8680c	Deixa você muito mais lento. As criaturas Maré atravessam com mais facilidade.
+1b7a27ee	Água rasa
+38079873	Deixa você mais lento. As criaturas Maré ficam mais rápidas e acertam mais forte; as criaturas Brasa acertam mais fraco.
+394e833f	Água profunda
+6157a87e	Só as criaturas Maré e as flutuantes conseguem atravessar. Aqui as criaturas Maré atingem a velocidade e a força máximas.
+0a2af398	Gelo
+a8f5315e	Escorregadio: você continua deslizando. As criaturas Maré se defendem melhor.
+56bae5aa	Cura um pouco a cada segundo; as criaturas Maré, mais.
+ae9d0780	Ataques acertam 20% mais forte; subir deixa você um pouco mais lento. As criaturas Pedra se defendem melhor.
+ea8f8b94	Calçamento
+f64ebe53	Deixa você um pouco mais rápido. As criaturas Pedra acertam mais forte e se defendem melhor.
+a3c2b2db	Cristais
+d5d62f17	As criaturas Faísca acertam 25% mais forte e se movem mais rápido; as criaturas Crepúsculo acertam mais fraco.
+24b8997f	Queima um pouco a cada segundo. As criaturas Brasa não se queimam e acertam mais forte.
+b9a3fb9a	Lava
+57c6bbed	Só as criaturas Brasa e as flutuantes conseguem atravessar. Queima muito, mas não as criaturas Brasa, que acertam mais forte.
+aa0e7e86	Penumbra
+7901f3e9	As criaturas Crepúsculo acertam 20% mais forte e se defendem melhor; as criaturas Faísca acertam mais fraco.
+34214aaa	Ponte
+c4633c09	Muro
+e0c47965	Bloqueia a passagem e os ataques.
+01024cd1	Rocha grande
+99f5ff63	Árvore
+456e097f	Pinheiro
+97dc9f2d	Palmeira
+ffbcb973	Cacto
+885bd9d9	Pilar de cristal
+abdc4793	Estalagmite
+0f7bbd91	Pilar
+24c86980	Obsidiana
+3cd80bff	Cogumelo gigante
+afb106c7	Campina
+f41c4e4d	Floresta
+f6db3f96	Deserto
+8ea2c5b5	Vulcão
+c99cfc6b	Caverna de cristal
+72b256c5	Ruínas
+1097b553	Noite
+77e6cffc	Campo nevado

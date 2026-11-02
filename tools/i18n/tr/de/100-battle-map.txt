@@ -1,0 +1,54 @@
+da13c60d	Gras
+db9e513d	Keine Wirkung.
+27567cb9	Erde
+b36fbc6e	Sand
+6d4397ac	Etwas langsamer.
+9c8238f6	Schnee
+5af5aec3	Langsamer.
+12738275	Asche
+7b85f2a6	Höhlenboden
+dc27cea7	Verteidigung +20 %, etwas langsamer. Hain-Wesen bewegen sich ungehindert.
+d4e7d7d3	Blumen
+ae8fa1eb	Hain-Wesen treffen 20 % stärker und heilen ein wenig.
+387dfd2a	Waldboden
+58d15fca	Verteidigung +20 %, langsamer. Hain-Wesen bewegen sich ungehindert und verteidigen sich noch besser.
+eaff7cfc	Schlamm
+aeb8680c	Viel langsamer. Flut-Wesen waten leichter hindurch.
+1b7a27ee	Seichtes Wasser
+38079873	Langsamer. Flut-Wesen sind schneller und treffen stärker; Glut-Wesen treffen schwächer.
+394e833f	Tiefes Wasser
+6157a87e	Nur Flut-Wesen und Schweber können es durchqueren. Hier sind Flut-Wesen am schnellsten und stärksten.
+0a2af398	Eis
+a8f5315e	Rutschig: Du schlitterst immer weiter. Flut-Wesen verteidigen sich besser.
+56bae5aa	Heilt jede Sekunde ein wenig, Flut-Wesen mehr.
+ae9d0780	Angriffe treffen 20 % stärker; der Aufstieg bremst etwas. Stein-Wesen verteidigen sich besser.
+ea8f8b94	Kopfsteinpflaster
+f64ebe53	Etwas schneller. Stein-Wesen treffen stärker und verteidigen sich besser.
+a3c2b2db	Kristalle
+d5d62f17	Funke-Wesen treffen 25 % stärker und sind schneller; Dämmer-Wesen treffen schwächer.
+24b8997f	Brennt jede Sekunde ein wenig. Glut-Wesen verbrennen sich nicht und treffen stärker.
+b9a3fb9a	Lava
+57c6bbed	Nur Glut-Wesen und Schweber können sie durchqueren. Sie verbrennt heftig, nur Glut-Wesen nicht: Die treffen hier stärker.
+aa0e7e86	Schattengrund
+7901f3e9	Dämmer-Wesen treffen 20 % stärker und verteidigen sich besser; Funke-Wesen treffen schwächer.
+34214aaa	Brücke
+c4633c09	Mauer
+e0c47965	Blockiert Bewegung und Angriffe.
+01024cd1	Großer Fels
+99f5ff63	Baum
+456e097f	Kiefer
+97dc9f2d	Palme
+ffbcb973	Kaktus
+885bd9d9	Kristallsäule
+abdc4793	Stalagmit
+0f7bbd91	Säule
+24c86980	Obsidian
+3cd80bff	Riesenpilz
+afb106c7	Wiese
+f41c4e4d	Wald
+f6db3f96	Wüste
+8ea2c5b5	Vulkan
+c99cfc6b	Kristallhöhle
+72b256c5	Ruinen
+1097b553	Nacht
+77e6cffc	Schneefeld

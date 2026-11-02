@@ -1,0 +1,54 @@
+da13c60d	Herba
+db9e513d	Sense efecte.
+27567cb9	Terra
+b36fbc6e	Sorra
+6d4397ac	Et frena una mica.
+9c8238f6	Neu
+5af5aec3	Et frena.
+12738275	Cendra
+7b85f2a6	Sòl de cova
+dc27cea7	Defensa +20 %, però et frena una mica. Les criatures Bosquet es mouen lliurement.
+d4e7d7d3	Flors
+ae8fa1eb	Les criatures Bosquet colpegen un 20 % més fort i es curen una mica.
+387dfd2a	Sòl de bosc
+58d15fca	Defensa +20 %, però et frena. Les criatures Bosquet es mouen lliurement i es defensen encara millor.
+eaff7cfc	Fang
+aeb8680c	Et frena molt. Les criatures Marea hi avancen més fàcilment.
+1b7a27ee	Aigua poc profunda
+38079873	Et frena. Les criatures Marea són més ràpides i colpegen més fort; les criatures Brasa colpegen amb menys força.
+394e833f	Aigua profunda
+6157a87e	Només la poden travessar les criatures Marea i les flotants. Aquí les criatures Marea assoleixen la màxima velocitat i força.
+0a2af398	Gel
+a8f5315e	Rellisca: no pares de lliscar. Les criatures Marea es defensen millor.
+56bae5aa	Cura una mica cada segon; les criatures Marea, més.
+ae9d0780	Els atacs colpegen un 20 % més fort; pujar-hi et frena una mica. Les criatures Pedra es defensen millor.
+ea8f8b94	Llambordes
+f64ebe53	Vas una mica més ràpid. Les criatures Pedra colpegen més fort i es defensen millor.
+a3c2b2db	Cristalls
+d5d62f17	Les criatures Espurna colpegen un 25 % més fort i es mouen més ràpid; les criatures Capvespre colpegen amb menys força.
+24b8997f	Crema una mica cada segon. Les criatures Brasa no es cremen i colpegen més fort.
+b9a3fb9a	Lava
+57c6bbed	Només la poden travessar les criatures Brasa i les flotants. Crema molt, però no les criatures Brasa, que colpegen més fort.
+aa0e7e86	Obaga
+7901f3e9	Les criatures Capvespre colpegen un 20 % més fort i es defensen millor; les criatures Espurna colpegen amb menys força.
+34214aaa	Pont
+c4633c09	Mur
+e0c47965	Bloqueja el pas i els atacs.
+01024cd1	Penyal
+99f5ff63	Arbre
+456e097f	Pi
+97dc9f2d	Palmera
+ffbcb973	Cactus
+885bd9d9	Pilar de cristall
+abdc4793	Estalagmita
+0f7bbd91	Pilar
+24c86980	Obsidiana
+3cd80bff	Bolet gegant
+afb106c7	Prat
+f41c4e4d	Bosc
+f6db3f96	Desert
+8ea2c5b5	Volcà
+c99cfc6b	Cova de cristall
+72b256c5	Ruïnes
+1097b553	Nit
+77e6cffc	Camp nevat

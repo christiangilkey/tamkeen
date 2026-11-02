@@ -1,0 +1,54 @@
+da13c60d	Erba
+db9e513d	Nessun effetto.
+27567cb9	Terra
+b36fbc6e	Sabbia
+6d4397ac	Ti rallenta un po'.
+9c8238f6	Neve
+5af5aec3	Ti rallenta.
+12738275	Cenere
+7b85f2a6	Suolo di grotta
+dc27cea7	Difesa +20%, ma ti rallenta un po'. Le creature Bosco si muovono liberamente.
+d4e7d7d3	Fiori
+ae8fa1eb	Le creature Bosco colpiscono il 20% più forte e si curano un po'.
+387dfd2a	Sottobosco
+58d15fca	Difesa +20%, ma ti rallenta. Le creature Bosco si muovono liberamente e si difendono ancora meglio.
+eaff7cfc	Fango
+aeb8680c	Ti rallenta molto. Le creature Marea lo attraversano più facilmente.
+1b7a27ee	Acqua bassa
+38079873	Ti rallenta. Le creature Marea sono più veloci e colpiscono più forte; le creature Brace colpiscono con meno forza.
+394e833f	Acqua profonda
+6157a87e	Solo le creature Marea e le fluttuanti possono attraversarla. Qui le creature Marea raggiungono la massima velocità e forza.
+0a2af398	Ghiaccio
+a8f5315e	Scivoloso: continui a slittare. Le creature Marea si difendono meglio.
+56bae5aa	Cura un po' a ogni secondo; le creature Marea, di più.
+ae9d0780	Gli attacchi colpiscono il 20% più forte; salire ti rallenta un po'. Le creature Pietra si difendono meglio.
+ea8f8b94	Acciottolato
+f64ebe53	Vai un po' più veloce. Le creature Pietra colpiscono più forte e si difendono meglio.
+a3c2b2db	Cristalli
+d5d62f17	Le creature Scintilla colpiscono il 25% più forte e si muovono più velocemente; le creature Crepuscolo colpiscono con meno forza.
+24b8997f	Brucia un po' a ogni secondo. Le creature Brace non si bruciano e colpiscono più forte.
+b9a3fb9a	Lava
+57c6bbed	Solo le creature Brace e le fluttuanti possono attraversarla. Brucia molto, ma non le creature Brace, che colpiscono più forte.
+aa0e7e86	Penombra
+7901f3e9	Le creature Crepuscolo colpiscono il 20% più forte e si difendono meglio; le creature Scintilla colpiscono con meno forza.
+34214aaa	Ponte
+c4633c09	Muro
+e0c47965	Blocca il passaggio e gli attacchi.
+01024cd1	Macigno
+99f5ff63	Albero
+456e097f	Pino
+97dc9f2d	Palma
+ffbcb973	Cactus
+885bd9d9	Pilastro di cristallo
+abdc4793	Stalagmite
+0f7bbd91	Pilastro
+24c86980	Ossidiana
+3cd80bff	Fungo gigante
+afb106c7	Prato
+f41c4e4d	Foresta
+f6db3f96	Deserto
+8ea2c5b5	Vulcano
+c99cfc6b	Grotta di cristallo
+72b256c5	Rovine
+1097b553	Notte
+77e6cffc	Distesa innevata
