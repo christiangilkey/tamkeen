@@ -73,7 +73,8 @@ def main() -> None:
     sys.path.insert(0, str(ROOT))
     from app import audio  # decodes the way Tamkeen does (16 kHz mono), whatever faster-whisper's own reader expects
 
-    model_dir, asked = MODELS / "large-v3", lang
+    # An Arabic dialect course ("ar-lev") is heard as Arabic.
+    model_dir, asked = MODELS / "large-v3", "ar" if lang.startswith("ar-") else lang
     if lang in LISTENERS:
         found = [d for d in LISTENERS[lang][0] if (d / "model.bin").exists()]
         if not found:
