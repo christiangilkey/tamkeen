@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 ka bag-ong binuhat nga gidrowing sa kamot: tulo matag elemento, orihinal, cyberpunk ug pantasya
+a7abbef8	Netflix sa kompyuter: ilisi ang audio ug subtitle niini, ug gamita ang game controller sa mga panid niini
+53b5204d	Mga nota sa pagsag-ulo sa mga review card, nga may Gamita nga buton para sa matag keyword sa Mnemonic maker
+6075893f	Ang + nga buton sa Librarya moabli sa paagi sa pagdugang para sa tab nga imong naa

@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 neue handgezeichnete Kreaturen: drei pro Element, original, Cyberpunk und Fantasy
+a7abbef8	Netflix am Computer: Ton und Untertitel wechseln und einen Controller auf den Netflix-Seiten nutzen
+53b5204d	Merknotizen auf Lernkarten, mit einer Übernehmen-Taste für jedes Schlüsselwort der Eselsbrücken
+6075893f	Die +-Taste der Bibliothek öffnet direkt die Art zum Hinzufügen des aktuellen Tabs

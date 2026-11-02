@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 nouvelles créatures dessinées à la main : trois par élément, originale, cyberpunk et fantasy
+a7abbef8	Netflix sur l'ordinateur : changez sa piste audio et ses sous-titres, et utilisez une manette sur ses pages
+53b5204d	Des notes de mémorisation sur les cartes de révision, avec un bouton Utiliser pour chaque mot-clé du créateur de mnémoniques
+6075893f	Le bouton + de la Bibliothèque s'ouvre sur la façon d'ajouter de l'onglet où vous êtes

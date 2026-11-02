@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 bagong nilalang na iginuhit sa kamay: tatlo bawat elemento, orihinal, cyberpunk at pantasya
+a7abbef8	Netflix sa computer: palitan ang audio at subtitle nito, at gumamit ng game controller sa mga pahina nito
+53b5204d	Mga tala sa pagsasaulo sa mga review card, may Gamitin na button para sa bawat keyword ng Mnemonic maker
+6075893f	Ang + na button ng Library ay bumubukas sa paraan ng pagdagdag ng tab na kinaroroonan mo

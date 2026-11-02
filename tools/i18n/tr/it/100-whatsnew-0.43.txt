@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 nuove creature disegnate a mano: tre per elemento, originale, cyberpunk e fantasy
+a7abbef8	Netflix sul computer: cambia audio e sottotitoli, e usa un controller sulle sue pagine
+53b5204d	Note di memorizzazione sulle schede di ripasso, con un pulsante Usa per ogni parola chiave del creatore di mnemotecniche
+6075893f	Il pulsante + della Libreria si apre sul modo di aggiungere della scheda in cui sei

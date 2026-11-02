@@ -13,6 +13,12 @@ const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(v
 notes("0.43.0",
   "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics");
 
+notes("0.43.0",
+  "18 new hand-drawn creatures: three for each element, original, cyberpunk and fantasy",
+  "Netflix on the computer: switch its audio and subtitles, and use a game controller on its pages",
+  "Memorization notes on review cards, with a Use button for each Mnemonic maker keyword",
+  "The Library's + button opens on the way to add for the tab you're on");
+
 notes("0.42.0",
   "Your controller works like an Xbox: A selects, B goes back, LB and RB switch tabs",
   "A drawing of the controller in Settings shows what every button does",

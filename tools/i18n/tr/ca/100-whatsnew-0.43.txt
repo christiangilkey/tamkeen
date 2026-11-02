@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 criatures noves dibuixades a mà: tres per cada element, original, ciberpunk i fantàstica
+a7abbef8	Netflix a l'ordinador: canvia'n l'àudio i els subtítols, i fes servir un comandament a les seves pàgines
+53b5204d	Notes de memorització a les targetes de repàs, amb un botó Fes servir per a cada paraula clau del creador de mnemotècnies
+6075893f	El botó + de la Biblioteca s'obre en la manera d'afegir de la pestanya on ets

@@ -18975,6 +18975,26 @@
   "f": "web/js/whatsnew.js"
  },
  {
+  "id": "62fe1c19",
+  "k": "18 new hand-drawn creatures: three for each element, original, cyberpunk and fantasy",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a7abbef8",
+  "k": "Netflix on the computer: switch its audio and subtitles, and use a game controller on its pages",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "53b5204d",
+  "k": "Memorization notes on review cards, with a Use button for each Mnemonic maker keyword",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6075893f",
+  "k": "The Library's + button opens on the way to add for the tab you're on",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "b03fa4c2",
   "k": "Your controller works like an Xbox: A selects, B goes back, LB and RB switch tabs",
   "f": "web/js/whatsnew.js"

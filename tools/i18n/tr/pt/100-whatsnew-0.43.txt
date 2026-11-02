@@ -1,0 +1,5 @@
+# v0.43.0 "What's new" lines (web/js/whatsnew.js).
+62fe1c19	18 criaturas novas desenhadas à mão: três por elemento, original, cyberpunk e fantasia
+a7abbef8	Netflix no computador: troque o áudio e as legendas, e use um controle nas páginas dele
+53b5204d	Notas de memorização nos cartões de revisão, com um botão Usar para cada palavra-chave do criador de mnemônicos
+6075893f	O botão + da Biblioteca abre na forma de adicionar da aba em que você está
