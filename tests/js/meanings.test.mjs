@@ -100,7 +100,7 @@ test("Bisaya: o/u and e/i are one letter, so Wiktionary's and Wolff's spellings 
   assert.equal(look(wolff, "kaon", "ceb").model, "Wiktionary", "(the popup is told which dictionary; see meanings.js)");
   const told = answerFrom(findIn(wolff, [matchKey("hatag", "ceb")]), "hatag", "ceb", { source: wolff.source });
   assert.equal(told.model, "Wolff's Dictionary of Cebuano Visayan");
-  assert.match(told.explanation, /Wolff/);
+  assert.equal(told.explanation, "", "no note: the popup's source switch names the dictionary");
   // Wolff's three-vowel spelling is shown as Bisaya is written today (o in the last syllable).
   assert.ok(wolff.words[matchKey("kaon", "ceb")].some((g) => g[0] === "káon"), "Wolff's káun is shown káon");
   const k = (w) => matchKey(w, "ceb");

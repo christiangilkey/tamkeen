@@ -2352,7 +2352,6 @@
 "also {0}{1}":"{0}{1} भी",
 "form of {0}":"{0} का रूप",
 ", in English":", अंग्रेज़ी में",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"अंतर्निहित शब्दकोश से ({0}{1}): शब्द के आम अर्थ। यह नहीं बता सकता कि इस वाक्य में कौन-सा सही बैठता है।",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"अंतर्निहित शब्दकोश से ({0}{1}): इसमें इस संयुक्त शब्द की प्रविष्टि नहीं है, इसलिए ये इसके हिस्सों के अर्थ हैं।",
 "Show furigana (small kana over kanji)":"फ़ुरिगाना दिखाएँ (कांजी के ऊपर छोटे काना)",
 "Show pinyin over the characters, coloured by tone":"अक्षरों के ऊपर पिनयिन दिखाएँ, सुर के अनुसार रंगीन",

@@ -2352,7 +2352,6 @@
 "also {0}{1}":"aussi {0}{1}",
 "form of {0}":"forme de {0}",
 ", in English":", en anglais",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"D'après le dictionnaire intégré ({0}{1}) : les sens habituels du mot. Il ne peut pas dire lequel convient à cette phrase.",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"D'après le dictionnaire intégré ({0}{1}) : il n'a pas d'entrée pour ce mot composé, voici donc le sens de ses parties.",
 "Show furigana (small kana over kanji)":"Afficher les furigana (petits kana au-dessus des kanji)",
 "Show pinyin over the characters, coloured by tone":"Afficher le pinyin au-dessus des caractères, coloré selon le ton",

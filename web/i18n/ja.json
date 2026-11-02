@@ -2352,7 +2352,6 @@
 "also {0}{1}":"また {0}{1}",
 "form of {0}":"{0}の活用形",
 ", in English":"、英語",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"内蔵辞書（{0}{1}）より：単語のよくある意味です。この文にどれが合うかはわかりません。",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"内蔵辞書（{0}{1}）より：この複合語の項目はないため、それを構成する語の意味を示します。",
 "Show furigana (small kana over kanji)":"ふりがなを表示（漢字の上に小さなかな）",
 "Show pinyin over the characters, coloured by tone":"漢字の上にピンインを表示（声調ごとに色分け）",

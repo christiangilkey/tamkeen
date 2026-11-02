@@ -2352,7 +2352,6 @@
 "also {0}{1}":"أيضًا {0}{1}",
 "form of {0}":"صيغة من {0}",
 ", in English":"، بالإنجليزية",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"من القاموس المدمج ({0}{1}): المعاني الشائعة للكلمة. لا يستطيع تحديد أيّها يناسب هذه الجملة.",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"من القاموس المدمج ({0}{1}): ليس فيه مدخل لهذه الكلمة المركّبة، فهذه معاني أجزائها.",
 "Show furigana (small kana over kanji)":"إظهار الفوريغانا (حروف كانا صغيرة فوق الكانجي)",
 "Show pinyin over the characters, coloured by tone":"إظهار البينيين فوق الرموز، ملوّنًا حسب النغمة",

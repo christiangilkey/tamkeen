@@ -2352,7 +2352,6 @@
 "also {0}{1}":"또한 {0}{1}",
 "form of {0}":"{0}의 형태",
 ", in English":", 영어로",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"내장 사전({0}{1})에서: 단어의 일반적인 뜻이에요. 이 문장에 어느 뜻이 맞는지는 알 수 없어요.",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"내장 사전에서 ({0}{1}): 이 합성어는 사전에 없어서, 이것은 각 부분의 뜻입니다.",
 "Show furigana (small kana over kanji)":"후리가나 보기(한자 위의 작은 가나)",
 "Show pinyin over the characters, coloured by tone":"글자 위에 병음 보기, 성조별 색",

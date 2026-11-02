@@ -471,9 +471,6 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
   for (const [, pos, list] of found.groups) for (const g of list) if (!glosses.some((x) => x.g === g)) glosses.push({ pos, g });
   const meaning = glosses[0].g;
   const same = matchKey(first[0], lang) === matchKey(String(word).replace(EDGE_PUNCT, ""), lang);
-  // (Worked out here, not inside the sentence below: a pattern in the middle of it kept the
-  // translation scanner, tools/i18n/extract.mjs, from reading the sentence whole, so it was never translated.)
-  const inEnglish = /^english$/i.test(language) ? "" : ", in English";
   // German: the dictionary's spelling is shown when it differs from the word's other than by a capital
   // (Strasse: Straße, Häuser: Haus), and never replaces the word.
   const germanLemma = lang === "de" && first[0].toLowerCase() !== String(word).replace(EDGE_PUNCT, "").toLowerCase() ? first[0] : "";
@@ -487,7 +484,8 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
     pos: first[1] || "",
     morphology: found.formOf || "",
     meaning,
-    explanation: quick ? "" : `From the built-in dictionary (${dict}${inEnglish}): the word's usual meanings. It can't tell which one fits this sentence.`,
+    // No note: the popup's source switch (top right) already says it is the dictionary (the owner).
+    explanation: "",
     other_meanings: quick ? [] : glosses.slice(1, 10).map((x) => (x.pos && x.pos !== first[1] ? `${x.g} (${x.pos})` : x.g)),
     dialect, dialect_note: "", msa_equivalent: "",
     sentence_translation: "", translation_marked: "", correction: "",

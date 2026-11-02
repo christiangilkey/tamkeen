@@ -2352,7 +2352,6 @@
 "also {0}{1}":"també {0}{1}",
 "form of {0}":"forma de {0}",
 ", in English":", en anglès",
-"From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.":"Del diccionari integrat ({0}{1}): els significats habituals de la paraula. No pot saber quin encaixa amb aquesta frase.",
 "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.":"Del diccionari integrat ({0}{1}): no té aquesta paraula composta, així que aquests són els significats de les seves parts.",
 "Show furigana (small kana over kanji)":"Mostra el furigana (kana petits sobre els kanji)",
 "Show pinyin over the characters, coloured by tone":"Mostra el pinyin sobre els caràcters, amb colors segons el to",

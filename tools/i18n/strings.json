@@ -11770,11 +11770,6 @@
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
-  "id": "bf672d07",
-  "k": "From the built-in dictionary ({0}{1}): the word's usual meanings. It can't tell which one fits this sentence.",
-  "f": "web/js/lexicon/meaningdata.js"
- },
- {
   "id": "aab575ea",
   "k": "From the built-in dictionary ({0}{1}): it has no entry for this compound word, so these are the meanings of its parts.",
   "f": "web/js/lexicon/meaningdata.js"
