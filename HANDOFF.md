@@ -6324,8 +6324,9 @@ loadout(), publicProfile() etc. are reused) until the Screen chat switches the b
   never moves wins 53% at 80%. Not played by a person yet; numbers to tune are at the top of livebattle.js and in data.js.
 - **Big arenas and the follow camera** (2026-11-02, the owner: creatures smaller on bigger maps, the camera following
   them): nothing in the engine assumes the arena size (tried on 90 x 54). The screen passes its camera view as
-  `sight: {w, h}` (newLiveBattle, or input(b, {sight}) on a resize; default 620 x 300); the rival attacks only from
-  inside that view (30 px margin), and every move reaches 260 px at most, so nothing comes from off screen. A creature
+  `sight: {w, h}` (newLiveBattle, or input(b, {sight}) on a resize; default 442 x 356, a 1280x800 screen); the rival attacks only from
+  inside that view (30 px margin; beams and homing shots may come from just outside, their warning shows near the player),
+  and every move reaches 260 px at most, so nothing comes from off screen unseen. A creature
   stepping in after a faint appears 200 px (ENTER_GAP) from the rival on its own side, not back at its far start.
   Trials on 90 x 54 arenas: 0 of ~2,500 rival attacks from off screen (computer, upright and sideways phone views),
   ~47 s of play and ~22 questions a battle at 80% right, about as on the small arenas.

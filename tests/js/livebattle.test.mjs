@@ -686,7 +686,7 @@ test("whole battles on generated big arenas end, about as long as on small ones"
 test("the rival attacks only from inside the player's view, whatever the screen's shape", () => {
   const firstAttack = (sight, foeAt, extra = {}) => {
     const b = duel({ map: arena(open(60, 40), { me: at(30, 20), foe: foeAt }), still: false, foeForm: 0.9, seed: 9, sight,
-      mine: [mk("ember", { hp: 100000 })], theirs: [mk("grove", { moves: ["tackle", "vine", "seeker"] })], ...extra });
+      mine: [mk("ember", { hp: 100000 })], theirs: [mk("grove", { moves: ["tackle", "vine", "overgrowth"] })], ...extra });
     for (let t = 0; t < 30; t += DT) {
       const ev = step(b, DT);
       const a = ev.find((e) => e.kind === "attack" && e.side === "foe");
@@ -703,4 +703,7 @@ test("the rival attacks only from inside the player's view, whatever the screen'
   input(b, { sight: { w: 560, h: 330 } });
   assert.deepEqual(b.sight, { w: 560, h: 330 });
   for (const m of MOVES) assert.ok(liveMove(m).range <= 260, `${m.id} reaches no further than the camera shows`);
+  // A homing shot may come from just outside the view: it is slow, and shows up near the player in time.
+  const far = firstAttack({ w: 360, h: 520 }, at(46, 20), { theirs: [mk("grove", { moves: ["seeker"] })] });
+  assert.ok(far && far.dx > 360 / 2 - 30, `it fired its homing shot from outside the view (${far && far.dx.toFixed(0)} px across)`);
 });

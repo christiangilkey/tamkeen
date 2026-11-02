@@ -34,7 +34,7 @@ export const GRACE_S = 0.8;         // a creature that has just stepped in can't
 export const FAINT_S = 0.9;         // a fainted creature's next steps in after this
 /** How much of the arena the player sees round their creature (world px; the screen passes its own camera's,
  * which differs by device): the rival only attacks from inside it, so nothing comes at the player from off screen. */
-export const SIGHT = { w: 620, h: 300 };
+export const SIGHT = { w: 442, h: 356 }; // a 1280 x 800 computer screen
 export const ENTER_GAP = 200;       // ...this far from the rival, on its own side (or at its start, if that is nearer)
 const GUARD_S = 4, BOOST_S = 10, BOOST_HITS = 3, HASTE_S = 6, HASTE = 1.3, SLOW_S = 1.6, SLOW = 0.55, STUN_S = 0.5;
 const GROUND_HEAL = 0.5;            // the ground heals a creature at most this share of its health a battle (no endless stand-offs)
@@ -843,11 +843,14 @@ const hitValue = (f, o, id) => { const m = moveById(id); return m.power * matchu
 
 /** The move to use now, or null to wait. */
 function choose(b, f, o) {
-  // Out of the player's view it only looks after itself: attacks come from where they can be seen and dodged.
+  // Out of the player's view it only looks after itself, or fires a beam or a homing shot (their warning line and
+  // the slow shot show up near the player in time): attacks come from where they can be seen and dodged.
   const seen = inSight(b, f, o);
   const ready = f.moves.filter((id) => !whyNot(b, f.side, id)).filter((id) => {
     const m = moveById(id);
-    return seen || m.kind === "guard" || m.kind === "boost" || m.kind === "heal" || (m.kind === "terrain" && m.where === "self");
+    const form = liveMove(m).form;
+    return seen || m.kind === "guard" || m.kind === "boost" || m.kind === "heal" || (m.kind === "terrain" && m.where === "self") ||
+      (m.kind === "attack" && (form === "beam" || form === "homing"));
   });
   if (!ready.length) return null;
   const by = (k) => ready.filter((id) => moveById(id).kind === k);
