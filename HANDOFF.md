@@ -6222,6 +6222,12 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   with `build_course.py ar-mor --voice none` (refused otherwise both ways): no audio/ folder, no `audio`/`times` per word,
   `"voice": null` in course.json and its index entry. coursepanel.js `hasAudio(w)`: no Word / Sentence buttons, no
   saveVoice on Add (the card voice reads those cards), toasts without "with its audio", a credit line saying why.
+- **Content so far**: Levantine committed by dialect-lev (9c0e3787 the shared tools in tools/course/dialect/ and the
+  check_audio.py fix that hears ar-<d> as Arabic; 52820a78 the course): 147 basics words, each with dictionary evidence
+  (tools/course/ar-lev/README.md, EVIDENCE.md), Azure ar-SY Amany audio for all 147, and 16 grammar lessons (en-ar-lev).
+  Whisper scores that audio low (0.40), mostly Whisper's weakness on Levantine; 7 files are flagged for a native listen in
+  the README. Gulf, Moroccan (no audio) and Egyptian are with their sessions. Checked with the real Levantine files in a real
+  window: the menu offers only the dialects with files, notes show, ar-lev audio plays, Add files cards under "Levantine basics".
 - whatsnew.js: `notes()` now adds to a version named twice; a 0.43.0 line was added ahead of the release (rename it if
   the release is numbered otherwise). Translations `tools/i18n/tr/<code>/99-arabic-dialects.txt` (5 strings × 16).
 - **Checked**: pytest and JS tests; a real Tamkeen window (fresh scratch data folder, APS_COURSE_DIR/APS_GRAMMAR_DIR on a
