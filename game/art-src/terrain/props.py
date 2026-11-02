@@ -574,6 +574,10 @@ PROPS = {
     "mushroom": mushroom,
 }
 
+from props_more import MORE  # noqa: E402  (the variety props, drawn the same way)
+
+PROPS.update(MORE)
+
 
 def build():
     """Write every prop's PNG; returns {name: (shadow layer, object layer)} for the .aseprite sources."""

@@ -1,9 +1,10 @@
 """Battle terrain tiles for the live battles, placed pixel by pixel from designed palettes and small stamps.
 
 Every area terrain gets:
-  <id>.png       4x4 tiles of 16x16: tile i = the terrain when its same-terrain neighbours are i
-                 (north 1, east 2, south 4, west 8); tile i sits at column i % 4, row i // 4.
-                 See-through outside the terrain's shape (the game draws the theme's ground under it).
+  <id>.png       4x4 tiles of 16x16 for the "dual grid": tile i is drawn on a cell centred where four map
+                 tiles meet, i = which of its corners are this terrain (north-west 1, north-east 2,
+                 south-west 4, south-east 8); tile i sits at column i % 4, row i // 4. See-through outside
+                 the terrain's shape (the game draws the theme's ground under it). See corners.py.
   <id>_fill.png  4 middle tiles side by side, opaque (variety inside big areas). For an animated terrain:
                  the 4 animation frames of middle tile 0 instead.
 Animated terrains also get <id>_anim.png (the 4x4 sheet for each of the 4 frames, side by side, 256x64)
@@ -30,7 +31,8 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from edges import BIG, Shape  # noqa: E402
+from corners import blocky, organic  # noqa: E402
+from edges import BIG  # noqa: E402
 from pix import (T, Spots, blank, fbm, hx, mix, put, quantize, ramp, stamp)  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
@@ -70,18 +72,41 @@ class Terrain:
     def details(self, img, rng, ok, frame: int, variant: int) -> None:
         pass
 
+    groups = 1   # fill textures: tiles 4g..4g+3 of the fill strip are texture g (0 = the plain one)
+    salt = 0     # which tile is being drawn: each gets its own flecks (single flecks never make a seam)
+
     def fill(self, variant: int, frame: int = 0) -> np.ndarray:
+        self.salt = ("fill", variant)
         img = self.base(frame)
-        self.details(img, rng_for(self.id, "fill", variant), np.ones((T, T), bool), frame, variant)
+        g, v = divmod(variant, 4)
+        rng = rng_for(self.id, "fill", variant)
+        if g == 0:
+            self.details(img, rng, np.ones((T, T), bool), frame, v)
+        else:
+            self.group(img, rng, frame, g, v)
         return img
 
-    def shape(self, bits: int) -> Shape:
-        return Shape(bits, self.margin, rng_for(self.id, "shape", bits), self.amp, self.radius)
+    def group(self, img, rng, frame: int, g: int, v: int) -> None:
+        """Fill texture g (1, 2, ...): drawn over the shared surface, nothing crossing the tile's border, so a
+        patch of one texture meets the others with no seam."""
+
+    organic = True   # smooth outlines (marching squares); False: square, tile-shaped ones (walls, bridges)
+    m_org = 1.5      # how far a smooth outline pulls back from the half-way line, in px
+
+    def shape(self, mask: int):
+        """The terrain's outline in a drawn cell whose corners that are this terrain are `mask` (NW 1, NE 2,
+        SW 4, SE 8); see corners.py."""
+        if self.organic:
+            return organic(mask, self.m_org, rng_for(self.id, "shape", mask))
+        return blocky(mask, self.margin, lambda b: rng_for(self.id, "shape", b), self.amp, self.radius)
 
     def edge(self, bits: int, frame: int = 0) -> np.ndarray:
         if bits == 15:
             return self.fill(0, frame)
+        if bits == 0:
+            return blank()
         sh = self.shape(bits)
+        self.salt = ("edge", bits)
         img = self.base(frame)
         # edge tiles get the plain variant (0): a long straight edge repeats one tile, so nothing eye-catching
         self.details(img, rng_for(self.id, "edge", bits), sh.d >= self.detail_gap, frame, 0)
@@ -106,8 +131,9 @@ class Terrain:
         return s
 
     def fill_strip(self) -> np.ndarray:
-        s = blank(4 * T, T)
-        for k in range(4):
+        n = 4 if self.frames > 1 else 4 * self.groups
+        s = blank(n * T, T)
+        for k in range(n):
             s[:, k * T:(k + 1) * T] = self.fill(0, k) if self.frames > 1 else self.fill(k)
         return s
 
@@ -261,7 +287,7 @@ class Grass(Terrain):
     margin = {"N": 3, "E": 2, "S": 2, "W": 2}
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[3], [(self.pal[2], 0.22, 2), (self.pal[4], 0.12, 2), (self.pal[1], 0.03, 1)])
 
     def details(self, img, rng, ok, frame, variant):
@@ -303,7 +329,7 @@ class Dirt(Terrain):
     pal = DIRT
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[3], [(self.pal[2], 0.2, 2), (self.pal[4], 0.16, 2), (self.pal[5], 0.04, 1),
                                                (self.pal[1], 0.04, 1)])
 
@@ -360,13 +386,13 @@ class Sand(Terrain):
     amp = 1
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[4], [(self.pal[3], 0.18, 2), (self.pal[5], 0.12, 2), (self.pal[6], 0.03, 1),
                                                (self.pal[2], 0.025, 1)])
 
     def details(self, img, rng, ok, frame, variant):
         sp = Spots(ok)
-        for _ in range(2 if variant != 2 else 1):
+        for _ in range(1 if variant in (1, 3) else 0):  # a ripple here and there; the dunes texture has more
             ripple(img, rng, sp, self.pal[2], self.pal[6])
         if variant == 1:
             place(img, sp, rng, PEBBLE, STONE_MAP)
@@ -394,7 +420,7 @@ class Snow(Terrain):
     radius = 5.0
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[6], [(self.pal[5], 0.26, 2), (self.pal[4], 0.05, 1), (self.pal[7], 0.05, 1)])
 
     def details(self, img, rng, ok, frame, variant):
@@ -438,7 +464,7 @@ class Ash(Terrain):
     pal = ASH
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[3], [(self.pal[2], 0.24, 2), (self.pal[4], 0.16, 2), (self.pal[6], 0.03, 1),
                                                (self.pal[1], 0.04, 1)])
 
@@ -472,7 +498,7 @@ class CaveFloor(Terrain):
     pal = CAVE
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = speckle_base(rng, self.pal[3], [(self.pal[2], 0.24, 2), (self.pal[4], 0.16, 2)])
         for _ in range(6):  # grit: a lit fleck with its shadow
             x, y = ri(rng, 0, T - 1), ri(rng, 0, T - 1)
@@ -509,7 +535,7 @@ class TallGrass(Terrain):
     radius = 4.0
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = blank()
         img[:, :] = self.pal[2]
         n = fbm(rng)
@@ -602,7 +628,7 @@ class Flowers(Terrain):
     mixes = [(0, 1, 2), (3, 2, 1), (4, 1, 0), (2, 3, 0)]
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = paint_base([0.3, 0.8], [self.pal[2], self.pal[3], self.pal[4]], rng, dither=0.2)
         # leaves: small lit-topped clumps
         for _ in range(14):
@@ -620,7 +646,7 @@ class Flowers(Terrain):
             flower(img, sp, rng, kinds[i % 3] if i < 5 else kinds[0])
 
     def rim(self, img, sh, frame):
-        rim_bump(img, sh, self.pal, top=5, under=0, under2=1, east=1, west=4)
+        rim_bump(img, sh, self.pal, top=5, under=1, under2=2, east=2, west=4)
 
     def outside(self, img, sh, frame):
         poke_out(img, sh, rng_for(self.id, "poke", sh.bits), [self.pal[2], self.pal[4], self.pal[5]], p=0.4, up=(1, 2))
@@ -642,7 +668,7 @@ class ForestFloor(Terrain):
     pal = LOAM
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[2], [(self.pal[1], 0.2, 2), (self.pal[3], 0.2, 2), (self.pal[4], 0.04, 1)])
 
     def details(self, img, rng, ok, frame, variant):
@@ -690,7 +716,7 @@ class Mud(Terrain):
     pal = MUD
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         return speckle_base(rng, self.pal[3], [(self.pal[2], 0.28, 2), (self.pal[4], 0.12, 2)])
 
     def details(self, img, rng, ok, frame, variant):
@@ -721,9 +747,9 @@ BANK = ramp("#160f1c #241a24 #34262c #463430 #5a4436 #70563e")
 SWIRL = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
 
-def water_body(rng_name, pal, frame, main, specks) -> np.ndarray:
+def water_body(rng_name, pal, frame, main, specks, salt=0) -> np.ndarray:
     """A calm water surface with faint flecks; the waves are drawn per tile (see waves()) so no pattern repeats."""
-    return speckle_base(rng_for(rng_name, "base"), pal[main], [(pal[c], share, 2) for c, share in specks])
+    return speckle_base(rng_for(rng_name, "base", salt), pal[main], [(pal[c], share, 2) for c, share in specks])
 
 
 SWAY = [0, 1, 1, 0]
@@ -808,7 +834,7 @@ class Shallows(Terrain):
     radius = 4.0
 
     def base(self, frame):
-        return water_body(self.id, self.pal, frame, 4, [(3, 0.12), (5, 0.05)])
+        return water_body(self.id, self.pal, frame, 4, [(3, 0.12), (5, 0.05)], salt=self.salt)
 
     def details(self, img, rng, ok, frame, variant):
         sp = Spots(ok)
@@ -837,7 +863,7 @@ class DeepWater(Terrain):
     radius = 4.0
 
     def base(self, frame):
-        return water_body(self.id, self.pal, frame, 3, [(2, 0.12), (4, 0.06)])
+        return water_body(self.id, self.pal, frame, 3, [(2, 0.12), (4, 0.06)], salt=self.salt)
 
     def details(self, img, rng, ok, frame, variant):
         waves(img, rng, ok, frame, self.pal, 3 + variant % 2, 2, 5, (4, 6))
@@ -866,7 +892,7 @@ class Ice(Terrain):
     margin = {"N": 1, "E": 1, "S": 2, "W": 1}
 
     def base(self, frame):
-        return speckle_base(rng_for(self.id, "base"), self.pal[5], [(self.pal[4], 0.16, 2), (self.pal[6], 0.07, 2)])
+        return speckle_base(rng_for(self.id, "base", self.salt), self.pal[5], [(self.pal[4], 0.16, 2), (self.pal[6], 0.07, 2)])
 
     def details(self, img, rng, ok, frame, variant):
         sp = Spots(ok)
@@ -914,7 +940,7 @@ class High(Terrain):
     detail_gap = 2
 
     def base(self, frame):
-        return speckle_base(rng_for(self.id, "base"), self.pal[5],
+        return speckle_base(rng_for(self.id, "base", self.salt), self.pal[5],
                             [(self.pal[4], 0.22, 2), (self.pal[6], 0.12, 2), (self.pal[3], 0.03, 1)])
 
     def details(self, img, rng, ok, frame, variant):
@@ -935,14 +961,16 @@ class High(Terrain):
 
     def rim(self, img, sh, frame):
         fh = self.face_h
-        rng = rng_for(self.id, "face", sh.bits)
-        # the cliff face: rock columns of uneven width, each with its own ledge, lit on the left
+        rng = rng_for(self.id, "face")
+        # the cliff face: rock columns of uneven width, each with its own ledge, lit on the left; the layout
+        # repeats every 16 px so a long cliff runs on seamlessly from cell to cell
         cols = {}
-        x = -ri(rng, 0, 4)
+        x = 0
         while x < T:
             w = ri(rng, 2, 6)
             ledge = ri(rng, 1, 4) if chance(rng, 0.7) else -9
             drop = ri(rng, 0, 1)
+            w = min(w, T - x)
             for k in range(w):
                 cols[x + k] = (k, w, ledge, drop)
             x += w
@@ -966,7 +994,7 @@ class High(Terrain):
                     c = self.pal[0]
                 img[y, x] = c
             elif ds == fh + 1:
-                img[y, x] = self.pal[8] if (x + sh.bits) % 5 else self.pal[7]
+                img[y, x] = self.pal[8] if x % 5 else self.pal[7]
             elif sh.dN[y, x] == 1 or sh.dW[y, x] == 1:
                 img[y, x] = self.pal[7]
             elif sh.dE[y, x] == 1:
@@ -1212,7 +1240,7 @@ class Crystals(Terrain):
     detail_gap = 2
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = speckle_base(rng, CRYST_FLOOR[2], [(CRYST_FLOOR[1], 0.22, 2), (CRYST_FLOOR[3], 0.18, 2), (CRYST_FLOOR[4], 0.04, 1)])
         for _ in range(4):  # chips of crystal in the floor, glinting in turn
             x, y = ri(rng, 0, T - 1), ri(rng, 0, T - 1)
@@ -1273,7 +1301,7 @@ class Coals(Terrain):
     detail_gap = 2
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = speckle_base(rng, self.pal[3], [(self.pal[2], 0.24, 2), (self.pal[4], 0.16, 2)])
         for _ in range(6):  # embers glowing in the ash between the coals, each pulsing on its own beat
             x, y = ri(rng, 0, T - 1), ri(rng, 0, T - 1)
@@ -1318,7 +1346,7 @@ class Lava(Terrain):
     radius = 4.0
 
     def base(self, frame):
-        return speckle_base(rng_for(self.id, "base"), self.pal[4], [(self.pal[3], 0.16, 2), (self.pal[5], 0.1, 2)])
+        return speckle_base(rng_for(self.id, "base", self.salt), self.pal[4], [(self.pal[3], 0.16, 2), (self.pal[5], 0.1, 2)])
 
     def details(self, img, rng, ok, frame, variant):
         sp = Spots(ok)
@@ -1387,7 +1415,7 @@ class Shadow(Terrain):
     THINNEST = hx("#100828", 60)
 
     def base(self, frame):
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = blank()
         img[:, :] = self.DARK
         for _ in range(40):
@@ -1441,7 +1469,7 @@ class Spring(Terrain):
     radius = 5.0
 
     def base(self, frame):
-        return water_body(self.id, self.pal, frame, 5, [(4, 0.12), (6, 0.06)])
+        return water_body(self.id, self.pal, frame, 5, [(4, 0.12), (6, 0.06)], salt=self.salt)
 
     def details(self, img, rng, ok, frame, variant):
         # bubbles welling up: a ring that grows from the spring's eye, and beads rising
@@ -1468,7 +1496,7 @@ class Spring(Terrain):
         # a ring of pale stones round the pool: their faces along the far side, their tops along the others
         for x, y in each(sh):
             dn, ds, dw, de = sh.dN[y, x], sh.dS[y, x], sh.dW[y, x], sh.dE[y, x]
-            seam = (x * 5 + y * 3 + sh.bits) % 6 == 0
+            seam = (x * 5 + y * 3) % 6 == 0
             if dn <= 3:
                 img[y, x] = [RIM_STONE[4], RIM_STONE[3], RIM_STONE[2]][dn - 1]
                 if seam and dn > 1:
@@ -1491,31 +1519,32 @@ class Spring(Terrain):
                     put(img, x, y, SHADOW_SOFT)
 
 
-# ---------- bridge ----------
+# ---------- bridges (two sheets: the deck running east-west, and north-south) ----------
 
 WOOD = ramp("#1a0e12 #2a1818 #3e221c #543022 #6c402a #865234 #a06840 #bc824e #d4a064")
 ROPE = [hx("#6a5440"), hx("#a88c66"), hx("#d8c098")]
 
 
 class Bridge(Terrain):
+    """A wooden deck with rope rails along its open sides. Square, tile-shaped outline. The planks lie across
+    the way you walk; everything repeats every 4 or 8 px so decks join seamlessly from cell to cell."""
     id = "bridge"
     pal = WOOD
-    margin = {"N": 3, "E": 2, "S": 3, "W": 2}
+    across = True      # True: you cross east-west (planks run north-south)
+    organic = False
     amp = 0
     radius = 1.0
 
-    def across(self, bits) -> bool:
-        """Planks laid for crossing east-west (True) or north-south (False)."""
-        if bits & 10:
-            return True
-        return not (bits & 5)
+    @property
+    def margin(self):
+        return {"N": 3, "S": 3, "E": 0, "W": 0} if self.across else {"N": 0, "S": 0, "E": 3, "W": 3}
 
-    def plank_tile(self, across: bool, rng) -> np.ndarray:
+    def plank_tile(self, variant=0) -> np.ndarray:
         img = blank()
         for y in range(T):
             for x in range(T):
-                a = x if across else y   # along the crossing
-                b = y if across else x   # along each plank
+                a = x if self.across else y   # along the crossing
+                b = y if self.across else x   # along each plank
                 k = a % 4
                 c = [self.pal[2], self.pal[6], self.pal[5], self.pal[4]][k]
                 if k == 1 and (b + a * 3) % 7 == 3:
@@ -1523,42 +1552,41 @@ class Bridge(Terrain):
                 if k == 2 and (b * 2 + a) % 9 == 0:
                     c = self.pal[3]          # a knot
                 img[y, x] = c
-        # nail heads at both ends of each plank
-        for a in range(1, T, 4):
+        for a in range(1, T, 4):  # nail heads, two per plank end
             for b in (4, 11):
-                put(img, a if across else b, b if across else a, self.pal[1])
+                put(img, a if self.across else b, b if self.across else a, self.pal[1])
+        if variant == 1:
+            put(img, 6, 7, self.pal[1])
+            put(img, 7, 8, self.pal[1])
+        elif variant == 2:  # a worn, paler plank
+            for b in range(T):
+                x, y = (9, b) if self.across else (b, 9)
+                img[y, x] = self.pal[7] if b % 3 else self.pal[6]
+        elif variant == 3:
+            for b in range(3, 9):
+                x, y = (13, b) if self.across else (b, 13)
+                img[y, x] = self.pal[3]
         return img
 
     def base(self, frame):
-        return self.plank_tile(True, rng_for(self.id, "base"))
+        return self.plank_tile(0)
 
     def fill(self, variant, frame=0):
-        img = self.plank_tile(True, rng_for(self.id, "fill", variant))
-        if variant == 1:
-            put(img, 6, 7, self.pal[1])
-            put(img, 6, 8, self.pal[1])
-        elif variant == 2:  # a worn, paler plank
-            for b in range(T):
-                if img[b, 9, 3]:
-                    img[b, 9] = self.pal[7] if b % 3 else self.pal[6]
-        elif variant == 3:
-            for b in range(3, 9):
-                img[b, 13] = self.pal[3]
-        return img
+        return self.plank_tile(variant % 4)
 
-    def edge(self, bits, frame=0):
-        across = self.across(bits)
-        img = self.plank_tile(across, rng_for(self.id, "edge", bits))
-        sh = self.shape(bits)
-        # the deck: full width along the crossing, rails on both long sides
+    def edge(self, mask, frame=0):
+        if mask == 15:
+            return self.fill(0, frame)
+        if mask == 0:
+            return blank()
+        sh = self.shape(mask)
+        img = self.plank_tile(0)
         for y in range(T):
             for x in range(T):
-                a, b = (x, y) if across else (y, x)
-                lo_open = not sh.inside(x, y - 1 if across else y) if False else None
                 if not sh.ins[y, x]:
                     img[y, x] = 0
         for x, y in each(sh):
-            if across:
+            if self.across:
                 if sh.dN[y, x] == 1:
                     img[y, x] = self.pal[7]   # the deck's lit far edge
                 elif sh.dS[y, x] == 1:
@@ -1570,47 +1598,43 @@ class Bridge(Terrain):
                     img[y, x] = self.pal[7]
                 elif sh.dE[y, x] == 1:
                     img[y, x] = self.pal[1]
-            if sh.dE[y, x] == 1 and across:
-                img[y, x] = self.pal[3]
-            if sh.dS[y, x] == 1 and not across:
-                img[y, x] = self.pal[1]
-        # rope rails with posts
-        if across:
-            for rail_y, open_side in ((self.margin["N"] - 1, "N"), (T - self.margin["S"], "S")):
-                if not sh.open[open_side]:
+                elif sh.dE[y, x] == 2:
+                    img[y, x] = self.pal[3]
+        for y in range(T):  # rope rails along the open sides, with posts, and the deck's shadow on the water
+            for x in range(T):
+                if sh.ins[y, x]:
                     continue
-                for x in range(T):
-                    if sh.inside(x, rail_y + (1 if open_side == "N" else -1)):
-                        put(img, x, rail_y, ROPE[1] if x % 4 else ROPE[0])
-                for px in (2, 10):
-                    if sh.inside(px, rail_y + (1 if open_side == "N" else -1)):
-                        put(img, px, rail_y, self.pal[6])
-                        put(img, px, rail_y - 1, self.pal[7])
-                        put(img, px + 1, rail_y, self.pal[2])
-                        put(img, px + 1, rail_y - 1, self.pal[3])
-            for x in range(T):  # its shadow on the water below
-                yb = T - self.margin["S"] + 1
-                if sh.open["S"] and sh.inside(x, yb - 2):
-                    put(img, x, yb, SHADOW)
-                    put(img, x, yb + 1, SHADOW_SOFT)
-        else:
-            for rail_x, open_side in ((self.margin["W"] - 1, "W"), (T - self.margin["E"], "E")):
-                if not sh.open[open_side]:
-                    continue
-                for y in range(T):
-                    if sh.inside(rail_x + (1 if open_side == "W" else -1), y):
-                        put(img, rail_x, y, ROPE[1] if y % 4 else ROPE[0])
-                for py in (3, 11):
-                    if sh.inside(rail_x + (1 if open_side == "W" else -1), py):
-                        put(img, rail_x, py, self.pal[6])
-                        put(img, rail_x, py - 1, self.pal[7])
-                        put(img, rail_x, py + 1, self.pal[2])
-            if sh.open["E"]:
-                for y in range(T):
-                    xb = T - self.margin["E"] + 1
-                    if sh.inside(xb - 2, y):
-                        put(img, xb, y, SHADOW)
+                if self.across:
+                    if sh.inside(x, y + 1):
+                        put(img, x, y, ROPE[1] if x % 4 else ROPE[0])
+                        if x % 8 == 2:
+                            put(img, x, y, self.pal[6])
+                            put(img, x, y - 1, self.pal[7])
+                            put(img, x + 1, y, self.pal[2])
+                    elif sh.inside(x, y - 1):
+                        put(img, x, y, ROPE[1] if x % 4 else ROPE[0])
+                        if x % 8 == 2:
+                            put(img, x, y, self.pal[6])
+                            put(img, x + 1, y, self.pal[2])
+                    elif sh.inside(x, y - 2):
+                        put(img, x, y, SHADOW)
+                    elif sh.inside(x, y - 3):
+                        put(img, x, y, SHADOW_SOFT)
+                else:
+                    if sh.inside(x + 1, y) or sh.inside(x - 1, y):
+                        put(img, x, y, ROPE[1] if y % 4 else ROPE[0])
+                        if y % 8 == 3:
+                            put(img, x, y, self.pal[6])
+                            put(img, x, y - 1, self.pal[7])
+                            put(img, x, y + 1, self.pal[2])
+                    elif sh.inside(x - 2, y):
+                        put(img, x, y, SHADOW)
         return img
+
+
+class BridgeV(Bridge):
+    id = "bridge_v"
+    across = False
 
 
 # ---------- wall (ruined stone wall) ----------
@@ -1628,17 +1652,17 @@ class Wall(Terrain):
 
     def base(self, frame):
         """The wall's top: capstones 5-6 px long in courses, each lit on its top-left, with dark joints."""
-        rng = rng_for(self.id, "base")
+        rng = rng_for(self.id, "base", self.salt)
         img = speckle_base(rng, self.pal[5], [(self.pal[4], 0.2, 2), (self.pal[6], 0.08, 1)])
         for y in range(T):
             course = y // 4
             for x in range(T):
-                kx = (x + course * 3) % 6
+                kx = (x + course * 4) % 8
                 if y % 4 == 3 or kx == 0:
                     img[y, x] = self.pal[2]          # the joints
                 elif y % 4 == 0 or kx == 1:
                     img[y, x] = self.pal[6]          # lit edges
-                elif y % 4 == 2 and kx == 5:
+                elif y % 4 == 2 and kx == 7:
                     img[y, x] = self.pal[3]
         return img
 
@@ -1659,15 +1683,14 @@ class Wall(Terrain):
                 t = fh - ds
                 course = t // 3
                 row = t % 3
-                off = (course * 3 + sh.bits) % 6
-                kx = (x + off) % 6
+                kx = (x + course * 4) % 8
                 if row == 2 and t < fh - 1:
                     c = self.pal[1]                     # mortar line under each course
                 elif kx == 0:
                     c = self.pal[1]                     # the joint between blocks
                 elif row == 0 or kx == 1:
                     c = self.pal[5]                     # the lit top/left of a block
-                elif kx == 5:
+                elif kx == 7:
                     c = self.pal[2]
                 else:
                     c = self.pal[3] if course > 0 else self.pal[4]
@@ -1698,12 +1721,133 @@ class Wall(Terrain):
                 stamp(img, x, y, [".ab", "abs"], {"a": self.pal[6], "b": self.pal[4], "s": SHADOW})
 
 
+# ---------- fill textures: extra looks for the big plain grounds ----------
+# Each is drawn over the terrain's shared surface, with nothing crossing a tile's border, so a patch of one
+# texture meets the plain ground with no seam. The Map picks the group by a slow noise (whole patches of one
+# texture) and the tile inside the group by a hash.
+
+DRY = [GRASS[0], GRASS[1], hx("#3e5a2c"), hx("#5a6a32"), hx("#6e7a3a"), hx("#8e8e48"), hx("#aaa45c"), hx("#c4ba72")]
+LUSH = [GRASS[0], GRASS[0], GRASS[1], GRASS[2], GRASS[3], GRASS[4], GRASS[5], GRASS[6]]
+
+
+def grass_group(self, img, rng, frame, g, v):
+    ok = np.ones((T, T), bool)
+    sp = Spots(ok)
+    if g == 1:  # lush: deep clumps and tall dark blades
+        for _ in range(2 + v % 2):
+            clump = [".dddd.", "dddddd", "dddddd", ".dddd."] if v % 2 else ["..ddd..", ".ddddd.", "ddddddd", ".ddddd."]
+            p = sp.place(rng, clump, pad=0)
+            if p:
+                stamp(img, p[0], p[1], clump, {"d": self.pal[2]})
+        sp = Spots(ok)
+        blades(img, rng, 14, LUSH, wrap=False, ok=sp.ok, hmin=3, hmax=5)
+        place(img, sp, rng, CLOVER, {"a": self.pal[6], "b": self.pal[5], "c": self.pal[2]})
+    elif g == 2:  # dry: straw-coloured blades and bare specks
+        for _ in range(3):
+            place(img, sp, rng, ["dd", ".d"], {"d": DIRT[4]}, pad=0)
+        blades(img, rng, 9, DRY, wrap=False, ok=sp.ok, hmin=2, hmax=3)
+        if v == 3:
+            place(img, sp, rng, PEBBLE, STONE_MAP)
+    else:  # flowery: a sprinkle of daisies and buttercups in short grass
+        blades(img, rng, 6, self.pal, wrap=False, ok=sp.ok)
+        for i in range(5 + v % 3):
+            if i % 3 == 0:
+                place(img, sp, rng, [".w.", "wyw", ".w."], {"w": hx("#f4f0e4"), "y": hx("#f4c84a")}, pad=0)
+            elif i % 3 == 1:
+                place(img, sp, rng, ["y"], {"y": hx("#f8d040")}, pad=1)
+            else:
+                place(img, sp, rng, ["w", "g"], {"w": hx("#f4f0e4"), "g": self.pal[2]}, pad=1)
+
+
+def sand_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    if g == 1:  # dunes: long, strong ripples
+        for _ in range(4):
+            ripple(img, rng, sp, self.pal[2], self.pal[6], (7, 11))
+    else:  # grit: darker grains, small stones and broken shell
+        for _ in range(16):
+            x, y = ri(rng, 0, T - 1), ri(rng, 0, T - 1)
+            put(img, x, y, self.pal[2] if chance(rng, 0.6) else self.pal[1])
+        for _ in range(2):
+            place(img, sp, rng, ["ab", "bs"], {"a": STONE[4], "b": STONE[2], "s": SHADOW})
+        if v % 2:
+            place(img, sp, rng, ["ab", "b."], {"a": hx("#fbe8e0"), "b": hx("#d8a898")})
+
+
+def snow_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    if g == 1:  # wind-swept: long thin streaks
+        for _ in range(4):
+            L = ri(rng, 5, 9)
+            place(img, sp, rng, ["." + "l" * (L - 2) + ".", "m" * L], {"l": self.pal[7], "m": self.pal[4]}, pad=1)
+    else:  # drifts: soft lumps with blue shade under them, and sparkles
+        for _ in range(2):
+            place(img, sp, rng, ["..lll..", ".lwwwl.", "lwwwwwm", ".mmmmm."], {"l": self.pal[7], "w": self.pal[6], "m": self.pal[4]})
+        for _ in range(3):
+            place(img, sp, rng, ["l"], {"l": self.pal[7]})
+
+
+def cave_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    rock = {"a": self.pal[6], "b": self.pal[4], "c": self.pal[2], "s": SHADOW}
+    if g == 1:  # rubble
+        for i in range(6):
+            place(img, sp, rng, [PEBBLE, PEBBLE2, ["ab", "bs"]][i % 3], rock, pad=0)
+    else:  # damp: dark wet patches that catch a glint
+        for _ in range(2):
+            place(img, sp, rng, [".ddd.", "ddhdd", ".ddd."], {"d": self.pal[1], "h": self.pal[5]}, pad=1)
+        place(img, sp, rng, [".dd.", "dwhd", ".dd."], {"d": self.pal[0], "w": hx("#6a86b0"), "h": hx("#3a4a72")})
+
+
+def high_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    if g == 1:  # mossy
+        for _ in range(2 + v % 2):
+            place(img, sp, rng, [".ll.", "lmmm", "mmmd", ".dd."], {"l": MOSS[3], "m": MOSS[2], "d": MOSS[1]}, pad=1)
+    else:  # cracked slabs
+        crack = {"c": self.pal[2], "l": self.pal[7]}
+        place(img, sp, rng, ["l.....", "cl....", ".ccl..", "...cc.", ".....c"], crack)
+        place(img, sp, rng, ["l..", "cc.", "..c"], crack)
+        place(img, sp, rng, [".aab", "abbc", ".ccs"], {"a": self.pal[7], "b": self.pal[5], "c": self.pal[3], "s": self.pal[2]})
+
+
+def ash_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    if g == 1:  # cinders, a couple still glowing
+        for i in range(7):
+            place(img, sp, rng, ["ab", "bc"] if i % 2 else ["ab"], {"a": self.pal[5], "b": self.pal[1], "c": self.pal[0]}, pad=0)
+        for _ in range(2):
+            place(img, sp, rng, ["g"], {"g": GLOW[2]}, pad=1)
+    else:  # crust: a cracked skin with a dull red glow deep in the cracks
+        place(img, sp, rng, ["c.....", ".cgc..", "...gcc", "......"], {"c": self.pal[0], "g": GLOW[0]})
+        place(img, sp, rng, ["c..", ".gc", "..c"], {"c": self.pal[0], "g": GLOW[1]})
+        place(img, sp, rng, ["l", "c"], {"l": self.pal[6], "c": self.pal[1]})
+
+
+def dirt_group(self, img, rng, frame, g, v):
+    sp = Spots(np.ones((T, T), bool))
+    for i in range(5):  # stony ground
+        place(img, sp, rng, [PEBBLE, ["ab", "bs"], PEBBLE2][i % 3], STONE_MAP, pad=0)
+
+
+for cls, fn, n in ((Grass, grass_group, 4), (Sand, sand_group, 3), (Snow, snow_group, 3), (CaveFloor, cave_group, 3),
+                   (High, high_group, 3), (Ash, ash_group, 3), (Dirt, dirt_group, 2)):
+    cls.group = fn
+    cls.groups = n
+
+
+# how far each smooth outline pulls back from the half-way line (more where blades poke up past it)
+for cls, m in ((TallGrass, 2.5), (Flowers, 2.0), (Shallows, 1.0), (Ice, 1.0), (Lava, 1.0), (Spring, 1.0),
+               (High, 1.0), (Cobbles, 1.0), (Shadow, 1.0), (DeepWater, 1.0)):
+    cls.m_org = m
+Wall.organic = False
+
 TERRAINS = {t.id: t for t in (
     Grass(), Dirt(), Sand(), Snow(), Ash(), CaveFloor(), TallGrass(), Flowers(), ForestFloor(), Mud(),
     Shallows(), DeepWater(), Ice(), High(), Cobbles(), Crystals(), Coals(), Lava(), Shadow(), Spring(),
-    Bridge(), Wall(),
+    Bridge(), BridgeV(), Wall(),
 )}
-UNDER = {"deep_water": "shallows", "bridge": "deep_water"}
+UNDER = {"deep_water": "shallows", "bridge": "deep_water", "bridge_v": "deep_water"}
 
 
 # ---------- build ----------
@@ -1738,7 +1882,9 @@ def build(ids=None, aseprite=False) -> None:
         save(sheets[0], OUT / f"{tid}.png")
         save(t.fill_strip(), OUT / f"{tid}_fill.png")
         fill_frames = []
-        for f in range(t.frames):
+        if t.frames == 1:
+            fill_frames.append(t.fill_strip())   # every texture group
+        for f in range(t.frames if t.frames > 1 else 0):
             strip = blank(4 * T, T)
             for v in range(4):
                 strip[:, v * T:(v + 1) * T] = t.fill(v, f)
@@ -1756,7 +1902,7 @@ def build(ids=None, aseprite=False) -> None:
         if aseprite:
             jobs.append((ASE / f"{tid}.aseprite", 4 * T, 4 * T,
                          {"tiles": [frame_file(a, f"{tid}_{i}.png") for i, a in enumerate(sheets)]}))
-            jobs.append((ASE / f"{tid}_fill.aseprite", 4 * T, T,
+            jobs.append((ASE / f"{tid}_fill.aseprite", fill_frames[0].shape[1], T,
                          {"fill": [frame_file(a, f"{tid}_fill_{i}.png") for i, a in enumerate(fill_frames)]}))
         print("built", tid)
     if not ids or any(i.startswith("prop") for i in ids):
@@ -1766,6 +1912,14 @@ def build(ids=None, aseprite=False) -> None:
                 h, w = obj.shape[:2]
                 jobs.append((ASE / f"prop_{name}.aseprite", w, h,
                              {"shadow": [frame_file(shadow, f"p_{name}_s.png")], "prop": [frame_file(obj, f"p_{name}_o.png")]}))
+    if not ids or any(i.startswith("decal") for i in ids):
+        import decals
+        for name, fn in decals.DECALS.items():
+            strip = fn()
+            save(strip, OUT / f"{name}.png")
+            if aseprite:
+                jobs.append((ASE / f"{name}.aseprite", strip.shape[1], T, {"decal": [frame_file(strip, f"{name}.png")]}))
+            print("decal", name, strip.shape[1] // T, "cells")
     if jobs:
         ASE.mkdir(exist_ok=True)
         lua = []

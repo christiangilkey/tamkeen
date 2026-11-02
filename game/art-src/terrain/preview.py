@@ -51,9 +51,17 @@ class Art:
             t = self.T[tid]
             f = self.frame % t.frames
             edges = [Image.fromarray(t.edge(i, f), "RGBA") for i in range(16)]
-            fills = [Image.fromarray(t.fill(v, f), "RGBA") for v in range(4)]
+            n = 4 if t.frames > 1 else 4 * t.groups
+            fills = [Image.fromarray(t.fill(v, f), "RGBA") for v in range(n)]
             self.cache[tid] = (edges, fills)
         return self.cache[tid]
+
+    def fill_for(self, tid, cx, cy):
+        """A fill tile for a cell: texture group by a slow noise (whole patches), tile in the group by a hash."""
+        edges, fills = self.tiles(tid)
+        groups = max(1, len(fills) // 4)
+        g = min(groups - 1, int(slow_noise(cx, cy, 6.0, len(tid)) * groups * 1.15)) if groups > 1 else 0
+        return fills[4 * g + tile_hash(cx, cy, 7) % 4]
 
 
 def chain(tid):
@@ -64,32 +72,60 @@ def chain(tid):
     return out
 
 
-def render(grid, base: str, props=(), art: Art | None = None, beasts=()) -> Image.Image:
-    """grid: rows of terrain ids (None = the base ground). props: (name, tile_x, tile_y, w_tiles, flip)."""
-    art = art or Art(0)
-    h, w = len(grid), len(grid[0])
-    canvas = Image.new("RGBA", (w * T, h * T), (0, 0, 0, 255))
+# the order layers are drawn in inside a cell (the Map chat's drawCorners uses the same), low to high
+ORDER = ["cave_floor", "ash", "snow", "sand", "dirt", "grass", "forest_floor", "mud", "ice", "shallows", "deep_water",
+         "spring", "coals", "lava", "cobbles", "high", "tall_grass", "flowers", "shadow", "crystals", "wall", "bridge",
+         "bridge_v"]
+
+
+def bridge_axis(g, x, y):
+    """A bridge tile's deck runs east-west ("bridge") unless more of its bridge neighbours are north/south."""
+    h, w = len(g), len(g[0])
+    isb = lambda xx, yy: 0 <= xx < w and 0 <= yy < h and g[yy][xx] in ("bridge", "bridge_v")
+    ew = isb(x - 1, y) + isb(x + 1, y)
+    ns = isb(x, y - 1) + isb(x, y + 1)
+    return "bridge_v" if ns > ew else "bridge"
+
+
+def grid_stacks(grid, base):
+    """Each tile's layers, bottom to top, from a grid of terrain ids."""
     g = [[c or base for c in row] for row in grid]
+    out = []
+    for y, row in enumerate(g):
+        out.append([])
+        for x, t in enumerate(row):
+            st = [base] + [l for l in reversed(chain(t)) if l != base]
+            if st[-1] in ("bridge", "bridge_v"):
+                st[-1] = bridge_axis(g, x, y)
+            out[-1].append(st)
+    return out
 
-    def same(layer, xx, yy):
-        if not (0 <= xx < w and 0 <= yy < h):
-            return True
-        n = g[yy][xx]
-        if layer in chain(n):
-            return True
-        return layer == "bridge" and n not in WET
 
-    for y in range(h):
-        for x in range(w):
-            canvas.alpha_composite(art.tiles(base)[1][tile_hash(x, y) % 4], (x * T, y * T))
-            if g[y][x] == base:
-                continue
-            for layer in reversed(chain(g[y][x])):
-                bits = (1 if same(layer, x, y - 1) else 0) | (2 if same(layer, x + 1, y) else 0) | \
-                       (4 if same(layer, x, y + 1) else 0) | (8 if same(layer, x - 1, y) else 0)
-                edges, fills = art.tiles(layer)
-                im = fills[tile_hash(x, y, 7) % 4] if bits == 15 else edges[bits]
-                canvas.alpha_composite(im, (x * T, y * T))
+def render(grid, base: str, props=(), art: Art | None = None, beasts=(), stacks=None) -> Image.Image:
+    """The dual grid, as the game draws it: cells centred where four tiles meet, each layer present at any of a
+    cell's corners drawn with its corner mask (NW 1, NE 2, SW 4, SE 8). grid: rows of terrain ids (None = the
+    base ground), or stacks: each tile's layers bottom to top. props: (name, tile_x, tile_y, w_tiles, flip)."""
+    art = art or Art(0)
+    stacks = stacks or grid_stacks(grid, base)
+    h, w = len(stacks), len(stacks[0])
+    P = T // 2
+    canvas = Image.new("RGBA", (w * T + 2 * P, h * T + 2 * P), (0, 0, 0, 255))
+
+    def stack(xx, yy):
+        return set(stacks[min(max(yy, 0), h - 1)][min(max(xx, 0), w - 1)])
+
+    for cy in range(h + 1):
+        for cx in range(w + 1):
+            corners = [stack(cx - 1, cy - 1), stack(cx, cy - 1), stack(cx - 1, cy), stack(cx, cy)]
+            present = set().union(*corners)
+            layers = [base] + sorted((l for l in present if l != base), key=ORDER.index)
+            for layer in layers:
+                mask = sum(bit for bit, c in zip((1, 2, 4, 8), corners) if layer in c)
+                if mask == 0:
+                    continue
+                im = art.fill_for(layer, cx, cy) if mask == 15 else art.tiles(layer)[0][mask]
+                canvas.alpha_composite(im, (cx * T - P + P, cy * T - P + P))
+    canvas = canvas.crop((P, P, P + w * T, P + h * T))
     things = []
     for name, tx, ty, wt, flip in props:
         im = prop_image(name)
@@ -162,7 +198,8 @@ SHOW_ON = {
     "grass": "sand", "dirt": "grass", "sand": "grass", "snow": "dirt", "ash": "dirt", "cave_floor": "dirt",
     "tall_grass": "grass", "flowers": "grass", "forest_floor": "grass", "mud": "grass", "shallows": "grass",
     "deep_water": "grass", "ice": "snow", "high": "grass", "cobbles": "grass", "crystals": "cave_floor",
-    "coals": "ash", "lava": "ash", "shadow": "grass", "spring": "grass", "bridge": "grass", "wall": "grass",
+    "coals": "ash", "lava": "ash", "shadow": "grass", "spring": "grass", "bridge": "grass", "bridge_v": "grass",
+    "wall": "grass",
 }
 
 
@@ -175,7 +212,7 @@ def special_grid(tid, w, h):
                                    if 0 <= yy < h and 0 <= xx < w):
                     g[y][x] = "deep_water"
         return g
-    if tid == "bridge":  # a river with a bridge over it, and a dock
+    if tid in ("bridge", "bridge_v"):  # a river with a bridge over it, and a dock
         g = [[None] * w for _ in range(h)]
         for y in range(h):
             for x in range(4, 10):
@@ -186,7 +223,7 @@ def special_grid(tid, w, h):
             for x in range(11, 13):
                 g[y][x] = "deep_water" if 2 <= y else None
         for y in range(1, 4):
-            g[y][x - 1] = "bridge"
+            g[y][x - 1] = "bridge_v"
         g[0][11] = "shallows"
         return g
     if tid == "wall":
@@ -288,6 +325,43 @@ def main(args):
         zoom(patch(tid), 3).save(PREV / f"patch_{tid}.png")
         sheet_view(tid).save(PREV / f"sheet_{tid}.png")
         print("preview", tid)
+
+
+
+def slow_noise(x, y, scale=5.0, salt=0):
+    """Smooth value noise over tiles, 0..1 (for picking fill textures in patches)."""
+    gx, gy = x / scale, y / scale
+    x0, y0 = int(np.floor(gx)), int(np.floor(gy))
+    tx, ty = gx - x0, gy - y0
+    sx, sy = tx * tx * (3 - 2 * tx), ty * ty * (3 - 2 * ty)
+    v = lambda a, b: (tile_hash(a, b, 99 + salt) % 1000) / 999
+    top = v(x0, y0) * (1 - sx) + v(x0 + 1, y0) * sx
+    bot = v(x0, y0 + 1) * (1 - sx) + v(x0 + 1, y0 + 1) * sx
+    return top * (1 - sy) + bot * sy
+
+
+def textures_sheet(k=2, w=24, h=10):
+    """Each ground with several fill textures, laid as a big field with the textures in patches."""
+    from terrain import TERRAINS
+    ids = [t for t in TERRAINS if TERRAINS[t].groups > 1]
+    shots = []
+    for tid in ids:
+        t = TERRAINS[tid]
+        fills = [Image.fromarray(t.fill(i), "RGBA") for i in range(4 * t.groups)]
+        im = Image.new("RGBA", (w * T, h * T))
+        for y in range(h):
+            for x in range(w):
+                g = min(t.groups - 1, int(slow_noise(x, y) * t.groups))
+                im.alpha_composite(fills[4 * g + tile_hash(x, y, 3) % 4], (x * T, y * T))
+        shots.append((f"{tid}: {t.groups} textures", zoom(im, k)))
+    pw, ph = shots[0][1].size
+    out = Image.new("RGBA", (2 * (pw + 12) + 12, ((len(shots) + 1) // 2) * (ph + 34) + 12), (28, 24, 38, 255))
+    d = ImageDraw.Draw(out)
+    for i, (label, im) in enumerate(shots):
+        x, y = 12 + (i % 2) * (pw + 12), 12 + (i // 2) * (ph + 34)
+        d.text((x, y), label, fill=(240, 220, 160, 255), font=font(15))
+        out.paste(im, (x, y + 22))
+    return out
 
 
 if __name__ == "__main__":

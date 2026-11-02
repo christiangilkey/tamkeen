@@ -16,7 +16,8 @@ from PIL import Image, ImageDraw
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from pix import T  # noqa: E402
-from preview import PREV, Art, creature, font, prop_image, zoom  # noqa: E402
+from preview import PREV, Art, bridge_axis, creature, font, prop_image, render, zoom  # noqa: E402
+from props import PROPS  # noqa: E402
 
 BEASTS = {  # who stands at the starts in each sample, for scale
     "meadow": ("fawn", "chick"), "ruins": ("rock_golem", "griffin"), "volcanic": ("dragon_whelp", "pebble"),
@@ -26,20 +27,35 @@ BEASTS = {  # who stands at the starts in each sample, for scale
 
 
 def draw_map(m: dict, art: Art) -> Image.Image:
-    canvas = Image.new("RGBA", (m["cols"] * T, m["rows"] * T), (0, 0, 0, 255))
+    """Ground in the dual grid from each tile's layer stack (as battlemap.js drawCorners does), then props
+    and the two creatures sorted by their feet."""
+    g = [[st[-1][0] for st in row] for row in m["layers"]]
+    stacks = []
     for y, row in enumerate(m["layers"]):
-        for x, stack in enumerate(row):
-            for terrain, variant, fill in stack:
-                edges, fills = art.tiles(terrain)
-                canvas.alpha_composite(fills[fill] if variant == 15 else edges[variant], (x * T, y * T))
+        stacks.append([])
+        for x, st in enumerate(row):
+            names = [t for t, v, f in st]
+            if names[-1] in ("bridge", "bridge_v"):
+                names[-1] = bridge_axis(g, x, y)
+            stacks[-1].append(names)
+    canvas = render(None, m["base"], art=art, stacks=stacks)
     things = []
     for p in m["props"]:
+        if p["id"] not in PROPS:
+            continue
         im = prop_image(p["id"])
         if p.get("flip"):
             im = im.transpose(Image.FLIP_LEFT_RIGHT)
         px = int(p["x"] * T + p["w"] * T / 2 - im.width / 2)
         py = (p["y"] + 1) * T - im.height
         things.append((py + im.height, px, py, im))
+    for dcl in m.get("decals", []):  # flat on the ground, before props and creatures
+        im = decal_image(dcl["id"], dcl.get("v", 0))
+        if im is None:
+            continue
+        if dcl.get("flip"):
+            im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        canvas.alpha_composite(im, (int(dcl["x"]), int(dcl["y"])))
     me, foe = BEASTS.get(m["theme"], ("chick", "seal"))
     for cid, key, flip in ((me, "me", False), (foe, "foe", True)):
         st = m["starts"][key]
@@ -48,8 +64,28 @@ def draw_map(m: dict, art: Art) -> Image.Image:
             im = im.transpose(Image.FLIP_LEFT_RIGHT)
         things.append((st["y"], int(st["x"] - im.width / 2), int(st["y"] - im.height), im))
     for _, px, py, im in sorted(things, key=lambda t: t[0]):
-        canvas.alpha_composite(im, (px, py))
+        if px + im.width > 0 and py + im.height > 0:
+            canvas.alpha_composite(im, (max(0, px), max(0, py)), (max(0, -px), max(0, -py)))
     return canvas
+
+
+_decals = {}
+
+
+def decal_image(did, v):
+    """Cell v of a decal strip (decals.py), or None if that decal isn't drawn yet."""
+    try:
+        from decals import DECALS
+    except ImportError:
+        return None
+    if did not in DECALS:
+        return None
+    if did not in _decals:
+        _decals[did] = Image.fromarray(DECALS[did](), "RGBA")
+    strip = _decals[did]
+    c = strip.height
+    v = v % max(1, strip.width // c)
+    return strip.crop((v * c, 0, (v + 1) * c, c))
 
 
 VIEW = (38, 19)  # what the battle camera shows, in tiles
