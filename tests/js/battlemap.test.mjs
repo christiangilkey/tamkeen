@@ -1,16 +1,23 @@
 // Run with: node --test tests/js/
 // The arenas for the live battles: the terrain table, random maps (same seed = same map, always a way
-// between the starts, fair to both sides, every terrain used), drawing layers, and finding a way.
+// between the starts, fair to both sides, every terrain used, room to roam on the big ones), drawing layers,
+// finding a way and a safe place to put a creature. Big maps (90 x 54, the default) and small ones (30 x 18).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   PROPS, PROP_IDS, TERRAIN, TERRAIN_IDS, THEMES, THEME_IDS, TILE, blocksShot, canEnter, canRepaint, canStand,
-  drawLayers, edgeIndex, effectsAt, effectsFor, fairness, fillIndex, findPath, generateMap, terrainArtFiles, terrainAt, tileCenter,
+  drawLayers, edgeIndex, effectsAt, effectsFor, fairness, fillIndex, findPath, generateMap, safeSpotNear, terrainArtFiles, terrainAt,
+  tileCenter,
 } from "../../web/js/game/battlemap.js";
 
-const SEEDS = Array.from({ length: 24 }, (_, i) => i * 7919 + 13);
-const maps = Object.fromEntries(THEME_IDS.map((th) => [th, SEEDS.map((s) => generateMap(s, { theme: th }))]));
+const BIG = Array.from({ length: 8 }, (_, i) => i * 7919 + 13);
+const SMALL = Array.from({ length: 12 }, (_, i) => i * 104729 + 5);
+const maps = Object.fromEntries(THEME_IDS.map((th) => [th, [
+  ...BIG.map((s) => generateMap(s, { theme: th })),
+  ...SMALL.map((s) => generateMap(s, { theme: th, cols: 30, rows: 18 })),
+]]));
 const all = Object.values(maps).flat();
+const bigMaps = all.filter((m) => m.cols === 90);
 const walker = { type: "grove", species: "quad" };
 
 /** A small hand-made map from text rows; `legend` maps each letter to a terrain id (or "p:<prop>"). */
@@ -109,18 +116,20 @@ test("the same seed always makes the same map; other seeds make other maps", () 
   for (const th of THEME_IDS) {
     assert.deepEqual(generateMap(42, { theme: th }), generateMap(42, { theme: th }), th);
     const looks = new Set(maps[th].map((m) => m.tiles.join(",")));
-    assert.equal(looks.size, SEEDS.length, `${th}: every seed different`);
+    assert.equal(looks.size, BIG.length + SMALL.length, `${th}: every seed different`);
   }
   assert.deepEqual(generateMap("friend-battle-17"), generateMap("friend-battle-17"), "string seeds too");
-  const picked = new Set(SEEDS.map((s) => generateMap(s).theme));
+  const picked = new Set(BIG.concat(SMALL).map((s) => generateMap(s, { cols: 30, rows: 18 }).theme));
   assert.ok(picked.size >= 5, "with no theme given, seeds pick many themes");
   for (const m of all) {
-    assert.equal(m.cols, 30); assert.equal(m.rows, 18);
-    assert.equal(m.tiles.length, 540); assert.equal(m.propTiles.length, 540);
-    assert.equal(m.width, 480); assert.equal(m.height, 288);
+    const [cols, rows] = m.cols === 90 ? [90, 54] : [30, 18];
+    assert.equal(m.rows, rows);
+    assert.equal(m.tiles.length, cols * rows); assert.equal(m.propTiles.length, cols * rows); assert.equal(m.under.length, cols * rows);
+    assert.equal(m.width, cols * 16); assert.equal(m.height, rows * 16);
   }
-  const big = generateMap(5, { theme: "forest", cols: 40, rows: 24 });
-  assert.equal(big.tiles.length, 960);
+  assert.equal(bigMaps.length, BIG.length * THEME_IDS.length, "90 x 54 is the default size");
+  const odd = generateMap(5, { theme: "forest", cols: 40, rows: 24 });
+  assert.equal(odd.tiles.length, 960);
 });
 
 test("there is always a walkable way between the two starts", () => {
@@ -170,7 +179,7 @@ test("every terrain and prop is used by some theme, and each theme keeps to its 
     const mineP = new Set(list.flatMap((m) => m.props.map((p) => p.id)));
     for (const t of mineT) { assert.ok(THEMES[th].uses.includes(t), `${th} uses ${t}`); seenT.add(t); }
     for (const p of mineP) { assert.ok(THEMES[th].props.includes(p), `${th} has ${p}`); seenP.add(p); }
-    for (const t of THEMES[th].uses) assert.ok(mineT.has(t), `${th}: ${t} shows up in ${SEEDS.length} maps`);
+    for (const t of THEMES[th].uses) assert.ok(mineT.has(t), `${th}: ${t} shows up in ${list.length} maps`);
     for (const p of THEMES[th].props) assert.ok(mineP.has(p), `${th}: ${p} shows up`);
   }
   assert.deepEqual([...seenT].sort(), [...TERRAIN_IDS].sort());
@@ -273,6 +282,71 @@ test("a patch painted over another ground keeps it beneath: flowers on the oasis
     assert.ok(seen[stack] > 0, `${stack} happens`);
   }
   assert.ok(!seen["sand>flowers"] || seen["sand>flowers"] < seen["sand>grass>flowers"] / 4, "desert flowers grow on the grass");
+});
+
+test("big arenas: the starts near the middle, 20-31 tiles apart; no walled-off area left out; a landmark in the middle", () => {
+  for (const m of all) {
+    const gap = Math.hypot(m.starts.foe.x - m.starts.me.x, m.starts.foe.y - m.starts.me.y) / TILE;
+    if (m.cols === 90) {
+      assert.ok(gap >= 20 && gap <= 31, `${m.theme} ${m.seed}: starts ${gap.toFixed(1)} tiles apart`);
+      assert.ok(m.starts.me.x > 20 * TILE && m.starts.foe.x < 70 * TILE, "both start well inside the arena, with room behind them");
+    } else assert.ok(gap >= 15, `small ${m.theme} ${m.seed}: ${gap.toFixed(1)}`);
+    // every area an ordinary walker could stand in, 12 tiles or more, can be walked to from the starts
+    const home = reach(m, tileIndex(m, m.starts.me));
+    const seen = new Set(home);
+    for (let i = 0; i < m.tiles.length; i++) {
+      const c = tileCenter(i % m.cols, Math.floor(i / m.cols));
+      if (seen.has(i) || !canStand(m, c.x, c.y, walker)) continue;
+      const pocket = reach(m, i);
+      for (const j of pocket) seen.add(j);
+      assert.ok(pocket.size < 12, `${m.theme} ${m.seed}: a walled-off area of ${pocket.size} tiles`);
+    }
+    // something to see in the middle: the theme's landmark, or the river running through it
+    const mid = Math.floor((m.rows - 1) / 2) * m.cols + Math.floor((m.cols - 1) / 2);
+    const middle = [mid, mid + 1, mid + m.cols, mid + m.cols + 1].map((i) => m.tiles[i]);
+    assert.ok(middle.some((t) => t !== m.base), `${m.theme} ${m.seed}: the middle is ${middle}`);
+  }
+  for (const th of THEME_IDS) {
+    // whole regions differ: open ground in one part of a big map, thick cover in another
+    const counts = [];
+    for (const m of bigMaps.filter((q) => q.theme === th)) {
+      for (let by = 0; by < 3; by++) for (let bx = 0; bx < 5; bx++) {
+        let props = 0;
+        for (let y = by * 18; y < by * 18 + 18; y++) for (let x = bx * 18; x < bx * 18 + 18; x++) if (m.propTiles[y * 90 + x]) props++;
+        counts.push(props);
+      }
+    }
+    const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
+    assert.ok(Math.max(...counts) >= mean * 1.8 && Math.min(...counts) <= mean * 0.5, `${th}: props per area ${Math.min(...counts)}..${Math.max(...counts)}, mean ${mean.toFixed(1)}`);
+  }
+});
+
+test("a safe place for a creature: standable, not burning, room round it, reachable, near the point asked", () => {
+  for (const m of bigMaps) {
+    const home = reach(m, tileIndex(m, m.starts.foe));
+    const good = (c) => canStand(m, c.x, c.y, walker) && effectsAt(m, c.x, c.y, walker).burn === 0 && home.has(tileIndex(m, c))
+      && [[16, 0], [-16, 0], [0, 16], [0, -16]].every(([dx, dy]) => canStand(m, c.x + dx, c.y + dy, walker));
+    const centres = Array.from({ length: m.tiles.length }, (_, i) => tileCenter(i % m.cols, Math.floor(i / m.cols))).filter(good);
+    for (const [x, y] of [[m.width / 2, m.height / 2], [40, 40], [m.width - 30, m.height - 50], [m.starts.foe.x - 200, m.starts.foe.y]]) {
+      const spot = safeSpotNear(m, x, y, walker, { from: m.starts.foe });
+      assert.ok(spot, `${m.theme} ${m.seed}: a spot near ${x},${y}`);
+      assert.ok(good(spot), "standable, not burning, room to move, can walk to the rival");
+      const nearest = Math.min(...centres.map((c) => Math.hypot(c.x - x, c.y - y)));
+      assert.ok(Math.hypot(spot.x - x, spot.y - y) <= nearest + 0.01, "the nearest such place");
+    }
+  }
+  const lava = handMap([
+    "lllll",
+    "lllll",
+    "llggg",
+    "lgggg",
+    "ggggg",
+  ], { l: "lava", g: "grass" });
+  const s = safeSpotNear(lava, 8, 8, walker);
+  assert.deepEqual(s, tileCenter(2, 3), "the nearest tile with room round it, off the lava");
+  assert.equal(safeSpotNear(handMap(["lll", "lll"], { l: "lava" }), 8, 8, walker), null, "nowhere to stand");
+  const ember = safeSpotNear(lava, 8, 8, { type: "ember" });
+  assert.ok(ember, "an Ember creature may stand on lava (it doesn't burn it)");
 });
 
 test("reading a map at a point: terrain, effects, standing, shots, repainting", () => {

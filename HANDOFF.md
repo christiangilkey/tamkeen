@@ -6270,29 +6270,42 @@ contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tes
   favours, status, plus bonus, fixed, under, anim, art, likes, hinders), **PROPS** (12 obstacles; each blocks one row of
   1-2 tiles, `size` = picture px), **THEMES** (meadow, forest, shore, desert, volcanic, cave, ruins, night, snow: base
   ground, light hint, symmetry, `uses`/`props` lists the tests hold it to, and `build`).
-- **generateMap(seed, { theme, cols 30, rows 18 })**: same seed = same map (a friend battle only shares the seed).
+- **Big arenas** (owner, after the first build: creatures smaller on the map, a camera following them "in the way the
+  game Realm of the Mad God does"): default **90 x 54** tiles (1440 x 864 px); the starts sit near the middle, 23-29
+  tiles apart (the Engine asked for <= 25-30 so battles stay short; the rival begins just off the screen). Room to roam:
+  a slow second noise layer (mirrored) makes regions differ (open fields, thick cover); big features (lakes, hills,
+  the sea, ice) are mirrored whole so neither side gets them all; roads lead out from each start (`roads`, `farPoint`);
+  ridges of rocks/trees with gaps and river crossings make chokepoints (`ridges`; bridges run bank to bank); a landmark
+  per theme in the middle (`landmark`, `propRing`); every walled-off area of 12+ tiles gets a way in
+  (`connectRegions`). Big maps always use the 180-degree turn (a left-right mirror shows at that size), except the
+  shore. `ctx.big` (1 at 30 x 18, 3 at 90 x 54) scales counts and sizes, so `{ cols: 30, rows: 18 }` still works.
+- **generateMap(seed, { theme, cols 90, rows 54 })**: same seed = same map (a friend battle only shares the seed; both
+  players need the same battlemap.js).
   Smooth value-noise fields painted by share of the map (`patch`), rivers through the middle with bridges or fords,
   lakes with rims, winding roads, an oasis, ruined rooms round a paved square, props scattered in clumps. Fairness:
-  every field is blended with its mirror image (fully within 6 tiles of each start, about half in the middle), then
+  every field is blended with its mirror image (fully within 8 tiles of each start, 6 on a small map, about half elsewhere), then
   the left start's surroundings are copied onto the right's, so both start areas are identical while the middle
   still differs; 2.5 tiles round each start are always walkable, harmless and prop-free; a walker's path between the
   starts is opened (bridge, ford, gap in a wall, prop removed) on both sides alike; a map whose halves differ too
-  much (`fairness`) is redrawn, the 6th try fully symmetric (~1% of maps).
+  much (`fairness`) is redrawn (~3% of big maps need a second try), the 6th try fully symmetric.
 - **Reading/drawing**: terrainAt, effectsAt/effectsFor (element bonus, favoured = never burned, floaters not slowed
   and don't slide), canStand, canEnter, blocksShot, canRepaint (terrain moves skip water, lava, walls, bridges, props),
   drawLayers (base fill, then e.g. shallows under deep water, then the tile; edge bits N1 E2 S4 W8; edge tiles are
-  transparent outside the shape), findPath (8-way, no corner cutting, prefers fast/safe ground, straightened, ends at
-  the nearest reachable spot), terrainArtFiles() (56 files under `battle/terrain/`, for `artFiles()` once drawn).
+  transparent outside the shape), findPath (A*, 8-way, no corner cutting, prefers fast/safe ground, straightened, ends
+  at the nearest reachable spot; walker regions cached per map; ~0.2 ms on a big map), safeSpotNear (where a creature
+  steps in: standable, not burning, room round it, reachable from a point), terrainArtFiles() (56 files under
+  `battle/terrain/`, for `artFiles()`).
 - `map.under` (per tile, a list or null): the grounds a patch was painted over, so drawLayers stacks e.g. [sand, grass,
   flowers] at the oasis or [cave_floor, shadow, crystals] instead of letting the base show between two patches. Bridges
   run on over the shallow bank to dry ground (Terrain art chat's request): [ground, shallows, bridge]; a bridge joins dry
   ground only at its two ends. The Engine copies `under` with the tiles and clears it on a tile a terrain move repaints.
 - Some walkable gaps are one tile wide: the Engine should collide with the map using a small radius at the feet.
 - Names, HUD lines, prop and theme names translated into the 16 languages: `tools/i18n/tr/<code>/100-battle-map.txt`.
-- Checked: 2,700 generated maps (300 seeds x 9 themes): no errors, always a path, start areas identical, fairness ok;
-  ~7 ms a map. Preview of 36 maps (coloured squares) and a sample JSON with per-tile layers in the side-session notes
-  folder local_58cb322d… (`battlemap-preview.png`, `battlemap-sample.json`). Not seen yet with the real tile art, nor
-  played: that needs the Engine, Screen and Terrain art parts.
+- Checked: 540 big maps (60 seeds x 9 themes) and 900 small ones: no errors, always a path, start areas identical,
+  fairness ok; ~18 ms a big map on a PC (slowest 71 ms), findPath 0.24 ms, safeSpotNear 0.15 ms. Camera-sized views
+  drawn with the real tiles (the Terrain art chat's `game/art-src/terrain/arena.py` draw_map, into a scratch folder).
+  Previews in the side-session notes folder local_58cb322d… (`battlemap-big.png`, `battlemap-big-views.png`,
+  `battlemap-sample.json`). Not played on a phone.
 
 ## Live battles: the real-time engine and the type chart (2026-11-01; "Live battles: real-time engine" chat)
 Part of the real-time battles (shared plan: side-session note `live-battles-plan.md`, section "The engine's interface",

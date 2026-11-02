@@ -257,23 +257,36 @@ export function drawLayers(map, tx, ty) {
 // ---------- finding a way ----------
 
 class Heap {
-  constructor() { this.a = []; }
-  get size() { return this.a.length; }
-  push(k, v) {
-    const a = this.a; a.push([k, v]);
-    for (let i = a.length - 1; i > 0;) { const p = (i - 1) >> 1; if (a[p][0] <= a[i][0]) break; [a[p], a[i]] = [a[i], a[p]]; i = p; }
+  constructor() { this.k = []; this.v = []; }
+  get size() { return this.k.length; }
+  push(key, val) {
+    const k = this.k, v = this.v;
+    let i = k.length;
+    k.push(key); v.push(val);
+    while (i > 0) {
+      const p = (i - 1) >> 1;
+      if (k[p] <= key) break;
+      k[i] = k[p]; v[i] = v[p]; i = p;
+    }
+    k[i] = key; v[i] = val;
   }
   pop() {
-    const a = this.a; const top = a[0]; const last = a.pop();
-    if (a.length) {
-      a[0] = last;
-      for (let i = 0; ;) {
-        const l = 2 * i + 1, r = l + 1; let m = i;
-        if (l < a.length && a[l][0] < a[m][0]) m = l;
-        if (r < a.length && a[r][0] < a[m][0]) m = r;
-        if (m === i) break; [a[m], a[i]] = [a[i], a[m]]; i = m;
+    const k = this.k, v = this.v;
+    const top = v[0], topKey = k[0];
+    const lk = k.pop(), lv = v.pop();
+    if (k.length) {
+      let i = 0;
+      for (;;) {
+        const l = 2 * i + 1, r = l + 1;
+        let m = -1, mk = lk;
+        if (l < k.length && k[l] < mk) { m = l; mk = k[l]; }
+        if (r < k.length && k[r] < mk) { m = r; mk = k[r]; }
+        if (m < 0) break;
+        k[i] = k[m]; v[i] = v[m]; i = m;
       }
+      k[i] = lk; v[i] = lv;
     }
+    this.lastKey = topKey;
     return top;
   }
 }
@@ -284,6 +297,7 @@ function costGrid(map, creature) {
   const n = map.cols * map.rows;
   const ok = new Uint8Array(n), cost = new Float64Array(n);
   const memo = {};
+  let minCost = Infinity;
   for (let i = 0; i < n; i++) {
     const id = map.tiles[i];
     if (!(id in memo)) {
@@ -292,21 +306,84 @@ function costGrid(map, creature) {
     }
     ok[i] = map.propTiles[i] ? 0 : memo[id][0];
     cost[i] = memo[id][1];
+    if (ok[i] && cost[i] < minCost) minCost = cost[i];
   }
-  return { ok, cost };
+  return { ok, cost, minCost: minCost === Infinity ? 1 : minCost };
 }
 
-/** Cheapest time from tile `start` to every tile (8 directions, no cutting past a blocked corner). */
-function timesFrom(map, start, grid) {
+// Which tiles connect to which, per map and per kind of mover (walkers; tide; ember; floaters). Terrain moves only
+// ever repaint walkable ground with walkable ground, so this never goes stale for a map.
+const regionCache = new WeakMap();
+function regionsOf(map, grid, creature) {
+  const key = ["deep_water", "lava"].map((id) => (canEnter(id, creature) ? 1 : 0)).join("");
+  let byKey = regionCache.get(map.propTiles);
+  if (!byKey) regionCache.set(map.propTiles, (byKey = new Map()));
+  let label = byKey.get(key);
+  if (label) return label;
   const { cols, rows } = map;
-  const { ok, cost } = grid;
-  const dist = new Float64Array(cols * rows).fill(Infinity);
-  const prev = new Int32Array(cols * rows).fill(-1);
-  dist[start] = 0;
-  const heap = new Heap(); heap.push(0, start);
+  label = new Int32Array(cols * rows).fill(-1);
+  let next = 0;
+  const stack = [];
+  for (let s = 0; s < label.length; s++) {
+    if (!grid.ok[s] || label[s] >= 0) continue;
+    label[s] = next; stack.push(s);
+    while (stack.length) {
+      const i = stack.pop();
+      const x = i % cols, y = (i - x) / cols;
+      if (x > 0 && grid.ok[i - 1] && label[i - 1] < 0) { label[i - 1] = next; stack.push(i - 1); }
+      if (x < cols - 1 && grid.ok[i + 1] && label[i + 1] < 0) { label[i + 1] = next; stack.push(i + 1); }
+      if (y > 0 && grid.ok[i - cols] && label[i - cols] < 0) { label[i - cols] = next; stack.push(i - cols); }
+      if (y < rows - 1 && grid.ok[i + cols] && label[i + cols] < 0) { label[i + cols] = next; stack.push(i + cols); }
+    }
+    next++;
+  }
+  byKey.set(key, label);
+  return label;
+}
+
+/** The tile nearest the point `to` (world px) that `test(i)` accepts, searching outwards from `to`; -1 if none. */
+function nearestTile(map, to, test) {
+  const { cols, rows } = map;
+  const gx = Math.max(0, Math.min(cols - 1, Math.floor(to.x / TILE))), gy = Math.max(0, Math.min(rows - 1, Math.floor(to.y / TILE)));
+  let best = -1, bestD = Infinity;
+  const maxR = Math.max(cols, rows);
+  for (let r = 0; r <= maxR; r++) {
+    if (best >= 0 && r - 1 > bestD / TILE + 1) break;
+    for (let y = gy - r; y <= gy + r; y++) {
+      if (y < 0 || y >= rows) continue;
+      const edge = y === gy - r || y === gy + r;
+      for (let x = gx - r; x <= gx + r; x += edge ? 1 : 2 * r || 1) {
+        if (x < 0 || x >= cols) continue;
+        const i = y * cols + x;
+        if (!test(i)) continue;
+        const c = tileCenter(x, y);
+        const d = Math.hypot(c.x - to.x, c.y - to.y);
+        if (d < bestD) { bestD = d; best = i; }
+      }
+    }
+  }
+  return best;
+}
+
+/** The cheapest tile path from `start` to `goal` (A*, 8 directions, no cutting past a blocked corner), or null. */
+function tilePath(map, grid, start, goal) {
+  const { cols, rows } = map;
+  const { ok, cost, minCost } = grid;
+  const n = cols * rows;
+  const g = new Float64Array(n).fill(Infinity);
+  const prev = new Int32Array(n).fill(-1);
+  const gx = goal % cols, gy = (goal - gx) / cols;
+  const h = (i) => {
+    const x = i % cols, y = (i - x) / cols;
+    const dx = Math.abs(x - gx), dy = Math.abs(y - gy);
+    return minCost * (Math.max(dx, dy) + (Math.SQRT2 - 1) * Math.min(dx, dy));
+  };
+  g[start] = 0;
+  const heap = new Heap(); heap.push(h(start), start);
   while (heap.size) {
-    const [d, i] = heap.pop();
-    if (d > dist[i]) continue;
+    const i = heap.pop();
+    if (i === goal) break;
+    if (heap.lastKey > g[i] + h(i) + 1e-9) continue;
     const x = i % cols, y = (i - x) / cols;
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
       if (!dx && !dy) continue;
@@ -315,11 +392,14 @@ function timesFrom(map, start, grid) {
       const j = ny * cols + nx;
       if (!ok[j]) continue;
       if (dx && dy && (!ok[y * cols + nx] || !ok[ny * cols + x])) continue;
-      const nd = d + ((dx && dy ? Math.SQRT2 : 1) * (cost[i] + cost[j])) / 2;
-      if (nd < dist[j]) { dist[j] = nd; prev[j] = i; heap.push(nd, j); }
+      const nd = g[i] + ((dx && dy ? Math.SQRT2 : 1) * (cost[i] + cost[j])) / 2;
+      if (nd < g[j]) { g[j] = nd; prev[j] = i; heap.push(nd + h(j), j); }
     }
   }
-  return { dist, prev };
+  if (g[goal] === Infinity) return null;
+  const tiles = [];
+  for (let i = goal; i !== -1; i = prev[i]) tiles.push(i);
+  return tiles.reverse();
 }
 
 /** Can a creature walk the straight line a -> b (world px), keeping ~5 px clear of blocked tiles and off worse ground? */
@@ -341,44 +421,71 @@ function clearLine(map, grid, a, b, maxCost) {
 /**
  * A way for a creature from one point to another (world px): a list of points to walk to in turn, ending at
  * `to` (or, when `to` can't be reached, at the reachable tile nearest it). [] = already there; null = it can't
- * move anywhere. Prefers fast, safe ground and goes straight where it can.
+ * move anywhere. Prefers fast, safe ground and goes straight where it can. About a tenth of a millisecond for
+ * a short way, a few tenths across a 90 x 54 arena.
  */
 export function findPath(map, from, to, creature) {
-  const s = tileOf(from.x, from.y), g = tileOf(to.x, to.y);
+  const s = tileOf(from.x, from.y);
   if (!inside(map, s.tx, s.ty)) return null;
   const start = s.ty * map.cols + s.tx;
   const grid = costGrid(map, creature);
-  const { dist, prev } = timesFrom(map, start, grid);
+  const region = regionsOf(map, grid, creature);
+  let mine = region[start];
+  if (mine < 0) { // standing somewhere it couldn't walk onto: count the region next to it
+    const near = nearestTile(map, from, (i) => region[i] >= 0);
+    if (near < 0) return null;
+    mine = region[near];
+    grid.ok[start] = 1;
+  }
+  const g = tileOf(to.x, to.y);
   let goal = inside(map, g.tx, g.ty) ? g.ty * map.cols + g.tx : -1;
-  const exact = goal >= 0 && dist[goal] < Infinity;
+  const exact = goal >= 0 && (goal === start || region[goal] === mine);
   if (!exact) {
-    let best = Infinity; goal = -1;
-    for (let i = 0; i < dist.length; i++) {
-      if (dist[i] === Infinity) continue;
-      const c = tileCenter(i % map.cols, Math.floor(i / map.cols));
-      const d = Math.hypot(c.x - to.x, c.y - to.y);
-      if (d < best - 1e-9 || (Math.abs(d - best) < 1e-9 && dist[i] < dist[goal])) { best = d; goal = i; }
-    }
+    goal = nearestTile(map, to, (i) => region[i] === mine || i === start);
     if (goal < 0) return null;
   }
-  const tiles = [];
-  for (let i = goal; i !== -1; i = prev[i]) tiles.unshift(i);
+  const tiles = goal === start ? [start] : tilePath(map, grid, start, goal);
+  if (!tiles) return null;
   const pts = tiles.slice(1).map((i) => tileCenter(i % map.cols, Math.floor(i / map.cols)));
   if (exact && (to.x !== from.x || to.y !== from.y)) { if (pts.length) pts[pts.length - 1] = { x: to.x, y: to.y }; else pts.push({ x: to.x, y: to.y }); }
   if (!exact && !pts.length) return [];
   // go straight past the corners it doesn't need (never onto worse ground than the tile path uses)
   const out = [];
-  let at = { x: from.x, y: from.y }, k = 0;
+  let here = { x: from.x, y: from.y }, k = 0;
   while (k < pts.length) {
     let far = k, maxCost = Math.max(grid.cost[tiles[k]], grid.cost[tiles[k + 1]]);
     for (let j = k + 1; j < pts.length; j++) {
       maxCost = Math.max(maxCost, grid.cost[tiles[j + 1]]);
-      if (!clearLine(map, grid, at, pts[j], maxCost)) break;
+      if (!clearLine(map, grid, here, pts[j], maxCost)) break;
       far = j;
     }
-    out.push(pts[far]); at = pts[far]; k = far + 1;
+    out.push(pts[far]); here = pts[far]; k = far + 1;
   }
   return out;
+}
+
+/**
+ * A good place to put a creature near a point (world px): the centre of the nearest tile it can stand on that
+ * doesn't burn, has no prop, has room round it (its four neighbours are standable too) and, when `from` is given,
+ * can be walked to from there. null if there is none.
+ */
+export function safeSpotNear(map, x, y, creature, { from = null } = {}) {
+  const grid = costGrid(map, creature);
+  const region = regionsOf(map, grid, creature);
+  let want = -1;
+  if (from) {
+    const f = tileOf(from.x, from.y);
+    if (inside(map, f.tx, f.ty)) want = region[f.ty * map.cols + f.tx];
+    if (want < 0) { const near = nearestTile(map, from, (i) => region[i] >= 0); want = near < 0 ? -1 : region[near]; }
+  }
+  const { cols, rows } = map;
+  const i = nearestTile(map, { x, y }, (t) => {
+    if (!grid.ok[t] || (want >= 0 && region[t] !== want)) return false;
+    if (effectsFor(map.tiles[t], creature).burn > 0) return false;
+    const tx = t % cols, ty = (t - tx) / cols;
+    return tx > 0 && ty > 0 && tx < cols - 1 && ty < rows - 1 && grid.ok[t - 1] && grid.ok[t + 1] && grid.ok[t - cols] && grid.ok[t + cols];
+  });
+  return i < 0 ? null : tileCenter(i % cols, Math.floor(i / cols));
 }
 
 // ---------- seeded randomness ----------
@@ -409,10 +516,17 @@ function mulberry(seed) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+/** A fast hash of a lattice point to 0..1, for the noise (called a lot). */
+function lattice(s, x, y) {
+  let h = Math.imul(x | 0, 0x27d4eb2d) ^ Math.imul(y | 0, 0x165667b1) ^ Math.imul(s | 0, 0x9e3779b1);
+  h = Math.imul(h ^ (h >>> 15), 0x2c1b3c6d);
+  h = Math.imul(h ^ (h >>> 12), 0x297a2d39);
+  return ((h ^ (h >>> 15)) >>> 0) / 4294967296;
+}
 function valueNoise(s, x, y) {
   const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0;
   const u = fx * fx * (3 - 2 * fx), v = fy * fy * (3 - 2 * fy);
-  const a = hash01(s, x0, y0), b = hash01(s, x0 + 1, y0), c = hash01(s, x0, y0 + 1), d = hash01(s, x0 + 1, y0 + 1);
+  const a = lattice(s, x0, y0), b = lattice(s, x0 + 1, y0), c = lattice(s, x0, y0 + 1), d = lattice(s, x0 + 1, y0 + 1);
   return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
 }
 function fbm(s, x, y, scale, octaves = 2) {
@@ -426,17 +540,22 @@ function fbm(s, x, y, scale, octaves = 2) {
 
 // ---------- making a map ----------
 //
-// Fairness: the arena is symmetric (turned 180 degrees, or mirrored left to right) within ZONE tiles of each start,
-// and only loosely symmetric in the middle, where every random field is a blend of itself and its mirror image.
-// So each side starts on the same ground, and the middle still looks natural. A map whose halves differ too much
-// (terrain counts, or who can get to more of the arena first) is drawn again from the same seed; the last try is
-// fully symmetric, which is always fair.
+// Size: 90 x 54 tiles by default (1440 x 864 px). The battle screen's camera follows the player's creature and shows
+// roughly a third of the arena. The two starts sit near the middle, 23-30 tiles apart, so the rival begins just off
+// the screen and the two meet within seconds; the rest is room to roam: regions of open ground and of thick cover,
+// roads leading out, rivers and ridges with a few ways across (chokepoints), a landmark in the middle. Smaller maps
+// (30 x 18) still work: the number and size of features follow the map's size (`ctx.big`: 1 at 30 x 18, 3 at 90 x 54).
+//
+// Fairness: the arena is symmetric (turned 180 degrees, or mirrored left to right) within `zone` tiles of each start,
+// and only loosely symmetric elsewhere, where every random field is a blend of itself and its mirror image. So each
+// side starts on the same ground, and the rest still looks natural. A map whose halves differ too much (terrain
+// counts, or who can get to more of the arena first) is drawn again from the same seed; the last try is fully
+// symmetric, which is always fair. Every walled-off area of POCKET tiles or more gets a way in.
 
-const ZONE = 6;       // tiles around each start that are exactly symmetric
-const FADE = 4;       // then the symmetry loosens over this many tiles...
-const LOOSE = 0.45;   // ...down to this much of it in the middle
+const LOOSE = 0.45;   // how much of the mirror image the loose parts keep
 const KEEP = 2.5;     // nothing in the way or hurting within this many tiles of a start
 const ATTEMPTS = 6;
+const POCKET = 12;
 
 function makeCtx(seedNum, themeId, cols, rows, attempt) {
   const theme = THEMES[themeId];
@@ -449,22 +568,28 @@ function makeCtx(seedNum, themeId, cols, rows, attempt) {
     chance: (p) => rand() < p,
     pick: (list) => list[Math.floor(rand() * list.length)],
   };
-  const sym = theme.sym === "either" ? (r.chance(0.65) ? "rotate" : "mirror") : theme.sym;
   const n = cols * rows;
+  // a big arena mirrored left to right looks made (a face of a map); turned 180 degrees it doesn't show
+  const sym = theme.sym === "either" ? (n > 1500 || r.chance(0.65) ? "rotate" : "mirror") : theme.sym;
   const R = sym === "rotate" ? (i) => n - 1 - i : (i) => i - (i % cols) + (cols - 1 - (i % cols));
+  const big = Math.max(1, Math.sqrt(n / 540));
   const ctx = {
     theme, themeId, cols, rows, n, seedNum, salt, attempt, r, sym, R, base: theme.base, k: 100,
+    big, grow: 1 + (big - 1) * 0.5, zone: Math.round(5 + big), fade: Math.round(2 + 2 * big),
     tiles: Array(n).fill(theme.base), propTiles: Array(n).fill(null), props: [], under: Array(n).fill(null),
-    w: new Float64Array(n), keep: new Uint8Array(n), memo: {},
+    w: new Float64Array(n), keep: new Uint8Array(n), clear: new Uint8Array(n),
   };
-  const [lo, hi] = theme.startRows ? theme.startRows(ctx) : [Math.round(rows * 0.28), Math.round(rows * 0.67)];
-  const sx = Math.max(1, Math.round(cols * 0.1));
-  const a = r.int(lo, hi) * cols + sx;
+  // the starts: about 12 tiles either side of the middle (on a small map, near the ends), the rows a little apart
+  const cx = (cols - 1) / 2, cy = (rows - 1) / 2;
+  const x = Math.round(cx - Math.min(cx - 3, r.range(11.5, 13.5)));
+  const spread = Math.min(rows * 0.2, 5);
+  const [lo, hi] = theme.startRows ? theme.startRows(ctx) : [Math.round(cy - spread), Math.round(cy + spread)];
+  const a = r.int(lo, hi) * cols + x;
   ctx.starts = [a, R(a)];
   const strict = attempt >= ATTEMPTS - 1;
   for (let i = 0; i < n; i++) {
-    const d = Math.min(...ctx.starts.map((s) => dist(ctx, i, s)));
-    ctx.w[i] = strict || d <= ZONE ? 1 : d >= ZONE + FADE ? LOOSE : 1 - ((1 - LOOSE) * (d - ZONE)) / FADE;
+    const d = Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1]));
+    ctx.w[i] = strict || d <= ctx.zone ? 1 : d >= ctx.zone + ctx.fade ? LOOSE : 1 - ((1 - LOOSE) * (d - ctx.zone)) / ctx.fade;
     if (d <= KEEP) ctx.keep[i] = 1;
   }
   return ctx;
@@ -477,29 +602,47 @@ const dist = (ctx, i, j) => Math.hypot(X(ctx, i) - X(ctx, j), Y(ctx, i) - Y(ctx,
 const canon = (ctx, i) => Math.min(i, ctx.R(i));
 /** A random number for a tile that is the same for the tile and its mirror image. */
 const symRand = (ctx, key, i) => hash01(ctx.salt, key, canon(ctx, i));
-/** A random number for a tile: mirrored near the starts, free in the middle. */
+/** A random number for a tile: mirrored near the starts, free elsewhere. */
 const tileRand = (ctx, key, i) => (ctx.w[i] >= 1 ? symRand(ctx, key, i) : hash01(ctx.salt, key, i, 7));
 const N4 = [[0, -1], [1, 0], [0, 1], [-1, 0]];
 const N8 = [[0, -1], [1, 0], [0, 1], [-1, 0], [1, -1], [1, 1], [-1, 1], [-1, -1]];
 const around = (ctx, i, dirs = N8) => dirs.map(([dx, dy]) => at(ctx, X(ctx, i) + dx, Y(ctx, i) + dy)).filter((j) => j >= 0);
 const harmful = (id) => !TERRAIN[id].walk || TERRAIN[id].burn > 0;
+/** Ground a patch, road or landmark may paint over: walkable, not water, not a bridge or a wall. */
+const paintable = (id) => TERRAIN[id].walk && !TERRAIN[id].fixed && !WATERY.has(id);
 
+function normalise(arr) {
+  const n = arr.length;
+  const mean = arr.reduce((a, b) => a + b, 0) / n;
+  const sd = Math.sqrt(arr.reduce((a, b) => a + (b - mean) ** 2, 0) / n) || 1;
+  for (let i = 0; i < n; i++) arr[i] = (arr[i] - mean) / sd;
+  return arr;
+}
 /**
  * A smooth random field over the map (mean 0, spread 1), blended with its own mirror image (fully near the
- * starts, partly in the middle). `extra(x, y)` is added before blending (a slope, a distance).
+ * starts, partly elsewhere). On a big map a slower second layer, always mirrored, makes whole regions differ (an
+ * open field here, thick cover there, the same on the other side); `whole` mirrors the field everywhere on a big
+ * map (for the few big features, lakes and hills, so neither side gets them all). `extra(x, y)` is added before
+ * blending (a slope, a distance).
  */
-function field(ctx, scale, { octaves = 2, extra = null } = {}) {
+function field(ctx, scale, { octaves = 2, extra = null, whole = false } = {}) {
   const s = hashN(ctx.salt, ctx.k++);
-  const raw = new Float64Array(ctx.n);
-  for (let i = 0; i < ctx.n; i++) raw[i] = fbm(s, X(ctx, i), Y(ctx, i), scale, octaves);
-  const mean = raw.reduce((a, b) => a + b, 0) / ctx.n;
-  const sd = Math.sqrt(raw.reduce((a, b) => a + (b - mean) ** 2, 0) / ctx.n) || 1;
-  for (let i = 0; i < ctx.n; i++) raw[i] = (raw[i] - mean) / sd + (extra ? extra(X(ctx, i), Y(ctx, i)) : 0);
+  const reg = Math.min(1, (ctx.big - 1) * 0.5);
+  const all = whole && ctx.big > 1.5;
+  const raw = new Float64Array(ctx.n), slow = reg ? new Float64Array(ctx.n) : null;
+  for (let i = 0; i < ctx.n; i++) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    raw[i] = fbm(s, x, y, scale, octaves);
+    if (slow) slow[i] = fbm(s ^ 0x5bd1e995, x, y, Math.max(scale * 3, 14), 2);
+  }
+  normalise(raw);
+  if (slow) normalise(slow);
+  if (extra) for (let i = 0; i < ctx.n; i++) raw[i] += extra(X(ctx, i), Y(ctx, i));
   const out = new Float64Array(ctx.n);
   for (let i = 0; i < ctx.n; i++) {
-    const w = ctx.w[i];
+    const w = all ? 1 : ctx.w[i];
     const sym = (raw[i] + raw[ctx.R(i)]) / Math.SQRT2;
-    out[i] = w >= 1 ? sym : w * sym + (1 - w) * raw[i];
+    out[i] = (w >= 1 ? sym : w * sym + (1 - w) * raw[i]) + (slow ? (reg * (slow[i] + slow[ctx.R(i)])) / Math.SQRT2 : 0);
   }
   return out;
 }
@@ -516,15 +659,16 @@ function setTile(ctx, i, id) {
   const keepsBeneath = id !== ctx.base && !TERRAIN[id].under && prev !== ctx.base && t.walk && !t.fixed && !WATERY.has(prev);
   ctx.under[i] = keepsBeneath ? [...(ctx.under[i] || []), prev].slice(-2) : null;
   ctx.tiles[i] = id;
+  if (ctx.propTiles[i] && (!TERRAIN[id].walk || TERRAIN[id].fixed)) removeProp(ctx, i);
 }
 
 /** Paint `id` over about `cover` of the whole map, on the tiles of `on`, where the field is highest. */
-function patch(ctx, id, cover, scale, { on = [ctx.base], f = null, octaves = 2 } = {}) {
+function patch(ctx, id, cover, scale, { on = [ctx.base], f = null, octaves = 2, whole = false } = {}) {
   if (cover <= 0) return null;
-  f = f || field(ctx, scale, { octaves });
+  f = f || field(ctx, scale, { octaves, whole });
   const bad = harmful(id);
   const cand = [];
-  for (let i = 0; i < ctx.n; i++) if (on.includes(ctx.tiles[i]) && !(bad && ctx.keep[i])) cand.push(i);
+  for (let i = 0; i < ctx.n; i++) if (on.includes(ctx.tiles[i]) && !(bad && ctx.keep[i]) && !ctx.clear[i]) cand.push(i);
   if (!cand.length) return f;
   const vals = cand.map((i) => f[i]).sort((a, b) => b - a);
   const thr = vals[Math.min(vals.length, Math.max(1, Math.round(cover * ctx.n))) - 1];
@@ -570,19 +714,23 @@ function despeckle(ctx, id, to) {
 
 /** Ponds and lakes: a core (deep water, lava) with a rim (shallow water, coals). */
 function lake(ctx, cover, scale, { core = "deep_water", rim = "shallows", on = null, rimChance = 1, f = null } = {}) {
-  patch(ctx, core, cover, scale, { on: on || [ctx.base], f });
+  patch(ctx, core, cover, scale, { on: on || [ctx.base], f, whole: true });
   despeckle(ctx, core, rim || ctx.base);
   if (rim) ring(ctx, [core], rim, { chance: rimChance });
 }
 
-/** A river from the top edge to the bottom edge through the middle (only on a map turned 180 degrees). */
+/**
+ * A river from the top edge to the bottom edge through the middle, between the two starts (only on a map turned
+ * 180 degrees), with a few ways across: bridges, fords or gaps. Wider, with more crossings, on a big map.
+ */
 function river(ctx, { core, bank = null, width = 1, bankChance = 1, crossing = null, crossings = 0 }) {
   if (ctx.sym !== "rotate") return false;
   const { cols: W, rows: H, R, r } = ctx;
   const s = hashN(ctx.salt, ctx.k++);
-  const n1 = (y) => fbm(s, y, 0.5, 5, 2);
+  const n1 = (y) => fbm(s, y, 0.5, Math.max(5, H / 3.5), 2); // gentle bends on a big map
   const amp = Math.min(W * 0.17, 5) * 2;
   const g = (y) => (n1(y) - n1(H - 1 - y)) * amp;
+  width += Math.round((ctx.big - 1) / 2);
   const coreSet = new Set();
   const add = (i) => { if (i >= 0) { coreSet.add(i); coreSet.add(R(i)); } };
   const cx = (W - 1) / 2;
@@ -590,13 +738,19 @@ function river(ctx, { core, bank = null, width = 1, bankChance = 1, crossing = n
     const x0 = Math.round(cx + g(y) - (width - 1) / 2);
     for (let x = x0; x < x0 + width; x++) add(at(ctx, Math.max(0, Math.min(W - 1, x)), y));
   }
-  const rowCols = (y) => [...coreSet].filter((i) => Y(ctx, i) === y).map((i) => X(ctx, i));
+  const byRow = () => {
+    const rows = Array.from({ length: H }, () => []);
+    for (const i of coreSet) rows[Y(ctx, i)].push(X(ctx, i));
+    return rows;
+  };
+  let rows = byRow();
   for (let y = 0; y < H - 1; y++) { // join each row to the next (no corner-only joins)
-    const a = rowCols(y), b = rowCols(y + 1);
+    const a = rows[y], b = rows[y + 1];
     if (a.some((x) => b.includes(x))) continue;
     const aMin = Math.min(...a), aMax = Math.max(...a), bMin = Math.min(...b), bMax = Math.max(...b);
     if (bMin > aMax) for (let x = aMax + 1; x <= bMin; x++) add(at(ctx, x, y));
     else for (let x = bMax; x < aMin; x++) add(at(ctx, x, y));
+    rows = byRow();
   }
   for (const i of coreSet) if (!ctx.keep[i]) setTile(ctx, i, core);
   if (bank) {
@@ -608,25 +762,66 @@ function river(ctx, { core, bank = null, width = 1, bankChance = 1, crossing = n
     for (const i of clumped(ctx, banks, bankChance)) setTile(ctx, i, bank);
   }
   if (crossing) {
-    const rows = [];
-    for (let c = 0; c < crossings; c++) {
-      const y = r.int(2, Math.max(2, Math.floor(H / 2) - 2));
-      if (!rows.includes(y)) rows.push(y);
+    // ways across where the river runs straight and narrow, a few rows apart
+    const want = crossings + Math.round(ctx.big) - 1;
+    const lo = 2, hi = Math.max(2, Math.floor(H / 2) - 2);
+    const wet = (x, y) => { const t = ctx.tiles[at(ctx, x, y)]; return WATERY.has(t); };
+    // a crossing runs from bank to bank: over the river and the wet ground beside it, to dry ground
+    const span = (y) => {
+      const x0 = Math.min(...rows[y]), x1 = Math.max(...rows[y]);
+      let a = x0, b = x1;
+      while (a > 0 && wet(a - 1, y) && x1 - a < 10) a--;
+      while (b < W - 1 && wet(b + 1, y) && b - x0 < 10) b++;
+      return { a, b, dry: a > 0 && b < W - 1 && !wet(a - 1, y) && !wet(b + 1, y) };
+    };
+    const good = (y) => rows[y].length <= width + 1 && span(y).dry
+      && [y - 1, y + 1].every((v) => rows[v] && rows[v].some((x) => rows[y].includes(x)));
+    const picked = [];
+    for (let tries = 0; picked.length < want && tries < 60; tries++) {
+      const y = r.int(lo, hi);
+      if ((tries < 40 && !good(y)) || picked.some((q) => Math.abs(q - y) < 4)) continue;
+      picked.push(y);
     }
-    for (const y of rows) for (const x of rowCols(y)) { const i = at(ctx, x, y); setTile(ctx, i, crossing); setTile(ctx, R(i), crossing); }
+    for (const y of picked) {
+      if (crossing !== "bridge") { for (const x of rows[y]) { const i = at(ctx, x, y); setTile(ctx, i, crossing); setTile(ctx, R(i), crossing); } continue; }
+      const { a, b } = span(y);
+      for (let x = a; x <= b; x++) {
+        for (const i of [at(ctx, x, y), R(at(ctx, x, y))]) {
+          const was = ctx.tiles[i];
+          if (was !== "deep_water" && was !== "shallows") continue;
+          setTile(ctx, i, "bridge");
+          ctx.under[i] = was === "shallows" ? ["shallows"] : null;
+        }
+      }
+    }
   }
   return true;
 }
 
-/** A winding road from the start on the left to the middle, and its mirror image from the other start. */
-function road(ctx, id, { on }) {
+/** A tile on the left start's side of the map, well away from it: where a road out can lead. */
+function farPoint(ctx) {
+  const { cols: W, rows: H, r } = ctx;
+  const a = ctx.starts[0];
+  for (let t = 0; t < 30; t++) {
+    const i = at(ctx, r.int(1, Math.max(1, Math.floor(W / 2) - 3)), r.int(1, H - 2));
+    if (dist(ctx, i, a) >= Math.min(W, H) * 0.3) return i;
+  }
+  return at(ctx, 1, Y(ctx, a));
+}
+
+/**
+ * A winding road from the left start to the middle (or to `to`), and its mirror image from the other start.
+ * Roads only cover ground in `on`, so they stop at water and walls.
+ */
+function road(ctx, id, { on, to = null }) {
   const { cols: W, rows: H, R, r } = ctx;
   const a = ctx.starts[0];
   let x = X(ctx, a), y = Y(ctx, a);
-  const tx = Math.floor((W - 1) / 2);
-  const ty = ctx.sym === "rotate" ? Math.floor((H - 1) / 2) : Math.max(1, Math.min(H - 2, y + r.int(-3, 3)));
+  const middle = to === null;
+  const tx = middle ? Math.floor((W - 1) / 2) : X(ctx, to);
+  const ty = !middle ? Y(ctx, to) : ctx.sym === "rotate" ? Math.floor((H - 1) / 2) : Math.max(1, Math.min(H - 2, y + r.int(-3, 3)));
   const cells = [at(ctx, x, y)];
-  for (let guard = 0; (x !== tx || y !== ty) && guard < 200; guard++) {
+  for (let guard = 0; (x !== tx || y !== ty) && guard < 4 * (W + H); guard++) {
     const dx = tx - x, dy = ty - y;
     let mx = 0, my = 0;
     if (dx === 0) my = Math.sign(dy);
@@ -638,8 +833,14 @@ function road(ctx, id, { on }) {
     x += mx; y += my;
     cells.push(at(ctx, x, y));
   }
-  cells.push(at(ctx, W - 1 - tx, ty)); // meet the other half
-  for (const i of cells) for (const j of [i, R(i)]) if (on.includes(ctx.tiles[j])) setTile(ctx, j, id);
+  if (middle) cells.push(at(ctx, W - 1 - tx, ty)); // meet the other half
+  for (const i of cells) for (const j of [i, R(i)]) if (j >= 0 && on.includes(ctx.tiles[j]) && !ctx.clear[j]) setTile(ctx, j, id);
+}
+
+/** The road to the middle, and on a big map more roads leading out to the far parts of the arena. */
+function roads(ctx, id, on, chance = 0.6) {
+  if (ctx.r.chance(chance)) road(ctx, id, { on });
+  for (let k = Math.round(ctx.big) - 1; k > 0; k--) if (ctx.r.chance(0.75)) road(ctx, id, { on, to: farPoint(ctx) });
 }
 
 /** A small spring: in the very middle, or a pair, one on each side. */
@@ -649,13 +850,55 @@ function spring(ctx) {
   if (r.chance(0.5)) {
     const cx = Math.floor((W - 1) / 2), cy = Math.floor((H - 1) / 2);
     spots = [at(ctx, cx, cy), at(ctx, cx + 1, cy), at(ctx, cx, cy + 1), at(ctx, cx + 1, cy + 1)];
-  } else {
-    const i = at(ctx, r.int(Math.round(W * 0.25), Math.round(W * 0.38)), r.int(2, H - 3));
-    spots = [i, ...(r.chance(0.6) ? [at(ctx, X(ctx, i) + r.pick([-1, 1]), Y(ctx, i))] : [])];
+  } else spots = springSpot(ctx);
+  paintSpring(ctx, spots);
+}
+function springSpot(ctx) {
+  const { cols: W, rows: H, r } = ctx;
+  const i = at(ctx, r.int(2, W - 3), r.int(2, H - 3));
+  return [i, ...(r.chance(0.6) ? [at(ctx, X(ctx, i) + r.pick([-1, 1]), Y(ctx, i))] : [])];
+}
+function paintSpring(ctx, spots) {
+  for (const i of spots.filter((k) => k >= 0)) for (const j of [i, ctx.R(i)]) {
+    if (paintable(ctx.tiles[j]) && !ctx.keep[j]) setTile(ctx, j, "spring");
   }
-  for (const i of spots.filter((k) => k >= 0)) for (const j of [i, R(i)]) {
-    const t = TERRAIN[ctx.tiles[j]];
-    if (t.walk && !t.fixed && !ctx.keep[j]) setTile(ctx, j, "spring");
+}
+/** Springs scattered over a big map (pairs, one on each side): `count` pairs. */
+function springs(ctx, count) {
+  for (let k = 0; k < count; k++) {
+    const spots = springSpot(ctx);
+    if (spots.every((i) => i >= 0 && Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) >= 5)) paintSpring(ctx, spots);
+  }
+}
+
+/**
+ * A landmark in the middle of the map: calls `paint(i, d, exact)` for each tile within `radius` tiles of the
+ * middle (a little ragged; d = how far in, 0 at the middle; `exact` without the raggedness, for a heart that must
+ * sit right in the middle) and keeps scattered props off it.
+ */
+function landmark(ctx, radius, paint, { ragged = 0.5 } = {}) {
+  const cx = (ctx.cols - 1) / 2, cy = (ctx.rows - 1) / 2;
+  const f = field(ctx, 2.5);
+  for (let i = 0; i < ctx.n; i++) {
+    const exact = Math.hypot(X(ctx, i) - cx, (Y(ctx, i) - cy) * 1.15);
+    const d = exact - f[i] * ragged;
+    if (d > radius && exact > 1) continue;
+    ctx.clear[i] = 1;
+    paint(i, Math.max(0, d), exact);
+  }
+}
+/** A landmark's size: `small` tiles across on a 30 x 18 map, a little bigger on a big one. */
+const landmarkSize = (ctx, small) => small * Math.sqrt(ctx.big);
+/** Paint a landmark tile only where it may go (not over water, walls, bridges or a start). */
+const paintAt = (ctx, i, id) => { if (paintable(ctx.tiles[i]) && !(harmful(id) && ctx.keep[i])) setTile(ctx, i, id); };
+/** Props in a ring round the middle (pairs, so both sides alike). */
+function propRing(ctx, id, radius, pairs) {
+  const cx = (ctx.cols - 1) / 2, cy = (ctx.rows - 1) / 2;
+  const turn = ctx.r.range(0, Math.PI);
+  for (let k = 0; k < pairs; k++) {
+    const a = turn + (k * Math.PI) / pairs;
+    const i = at(ctx, Math.round(cx + Math.cos(a) * radius), Math.round(cy + Math.sin(a) * radius * 0.8));
+    if (i >= 0) putPair(ctx, id, i, false, null, { onClear: true });
   }
 }
 
@@ -667,13 +910,14 @@ function footprint(ctx, id, anchor) {
   for (let k = 0; k < PROPS[id].foot; k++) cells.push(at(ctx, x + k, y));
   return cells;
 }
-function fits(ctx, id, anchor, on) {
+function fits(ctx, id, anchor, on, { tight = false, onClear = false } = {}) {
   const cells = footprint(ctx, id, anchor);
   if (cells.some((i) => i < 0 || Y(ctx, i) !== Y(ctx, anchor))) return false;
   for (const i of cells) {
     const t = ctx.tiles[i];
-    if (ctx.keep[i] || ctx.propTiles[i] || (on ? !on.includes(t) : !TERRAIN[t].walk || TERRAIN[t].fixed)) return false;
-    if (around(ctx, i).some((j) => ctx.propTiles[j])) return false; // a gap of at least one tile between props
+    if (ctx.keep[i] || ctx.propTiles[i] || (ctx.clear[i] && !onClear)) return false;
+    if (on ? !on.includes(t) : !TERRAIN[t].walk || TERRAIN[t].fixed) return false;
+    if (!tight && around(ctx, i).some((j) => ctx.propTiles[j])) return false; // a gap of at least one tile between props
   }
   return true;
 }
@@ -683,13 +927,14 @@ function put(ctx, id, anchor, flip) {
 }
 const mirrorAnchor = (ctx, id, anchor) => ctx.R(anchor + PROPS[id].foot - 1);
 /** Put a prop and its mirror image (both or neither). */
-function putPair(ctx, id, anchor, flip, on = null) {
+function putPair(ctx, id, anchor, flip, on = null, opts = {}) {
   const other = mirrorAnchor(ctx, id, anchor);
-  if (other === anchor) { if (fits(ctx, id, anchor, on)) put(ctx, id, anchor, flip); return; }
+  if (other === anchor) { if (fits(ctx, id, anchor, on, opts)) { put(ctx, id, anchor, flip); return true; } return false; }
   const a = footprint(ctx, id, anchor), b = footprint(ctx, id, other);
-  if (a.some((i) => b.includes(i)) || !fits(ctx, id, anchor, on) || !fits(ctx, id, other, on)) return;
+  if (a.some((i) => b.includes(i)) || !fits(ctx, id, anchor, on, opts) || !fits(ctx, id, other, on, opts)) return false;
   put(ctx, id, anchor, flip);
   put(ctx, id, other, !flip);
+  return true;
 }
 function pickWeighted(list, u) {
   const total = list.reduce((s, [, w]) => s + w, 0);
@@ -698,7 +943,8 @@ function pickWeighted(list, u) {
 }
 /**
  * Scatter props: `list` = [[id, weight]], about `density` of the allowed tiles, in clumps (a field decides
- * where). Near the starts each prop has its mirror image; in the middle they fall freely.
+ * where; on a big map whole regions are open or thick with them). Near the starts each prop has its mirror
+ * image; elsewhere they fall freely.
  */
 function scatter(ctx, list, density, { on, scale = 4, clump = 1.2, near = null } = {}) {
   symmetrize(ctx);
@@ -719,6 +965,39 @@ function scatter(ctx, list, density, { on, scale = 4, clump = 1.2, near = null }
     } else if (fits(ctx, id, i, on)) put(ctx, id, i, flip);
   }
 }
+/**
+ * Ridges: lines of rocks, trees or columns packed tight, wandering across the map, each with a gap or two (a way
+ * through), and the same line on the other side. They make chokepoints and places to hide behind. `list` =
+ * [[id, weight]]; where a two-tile prop doesn't fit, the first one-tile prop of the list stands in.
+ */
+function ridges(ctx, list, count) {
+  const { cols: W, rows: H, r } = ctx;
+  const single = list.map(([id]) => id).find((id) => PROPS[id].foot === 1);
+  for (let k = 0; k < count; k++) {
+    let x = r.range(2, W - 3), y = r.range(2, H - 3), a = r.range(0, Math.PI * 2);
+    const len = Math.round(r.range(8, 16) * Math.sqrt(ctx.big));
+    const cells = [];
+    for (let s = 0; s < len; s++) {
+      const i = at(ctx, Math.round(x), Math.round(y));
+      if (i < 0) break;
+      if (!cells.includes(i)) cells.push(i);
+      a += r.range(-0.35, 0.35); x += Math.cos(a); y += Math.sin(a);
+    }
+    const gaps = new Set();
+    for (let g = Math.max(1, Math.floor(cells.length / 9)); g > 0; g--) {
+      const g0 = r.int(1, Math.max(1, cells.length - 3));
+      gaps.add(g0); gaps.add(g0 + 1);
+    }
+    cells.forEach((i, idx) => {
+      if (gaps.has(idx) || ctx.propTiles[i]) return;
+      const id = pickWeighted(list, r.f());
+      const flip = r.chance(0.5);
+      if (!putPair(ctx, id, i, flip, null, { tight: true }) && single && id !== single) putPair(ctx, single, i, flip, null, { tight: true });
+    });
+  }
+}
+/** How many ridges a map gets: none on a small map, a few on a big one. */
+const ridgeCount = (ctx, per = 1) => Math.round((ctx.big - 1) * per * ctx.r.range(0.75, 1.5));
 
 // ---- keeping it playable ----
 
@@ -729,7 +1008,7 @@ function scatter(ctx, list, density, { on, scale = 4, clump = 1.2, near = null }
 function symmetrize(ctx) {
   const a = ctx.starts[0];
   for (let i = 0; i < ctx.n; i++) {
-    if (dist(ctx, i, a) > ZONE) continue;
+    if (dist(ctx, i, a) > ctx.zone) continue;
     ctx.tiles[ctx.R(i)] = ctx.tiles[i];
     ctx.under[ctx.R(i)] = ctx.under[i] && [...ctx.under[i]];
   }
@@ -746,7 +1025,7 @@ function clearStarts(ctx) {
   }
 }
 function removeProp(ctx, i) {
-  const k = ctx.props.findIndex((p) => footprint(ctx, p.id, at(ctx, p.x, p.y)).includes(i));
+  const k = ctx.props.findIndex((p) => p.y === Y(ctx, i) && X(ctx, i) >= p.x && X(ctx, i) < p.x + p.w);
   if (k < 0) return;
   const p = ctx.props[k];
   for (const j of footprint(ctx, p.id, at(ctx, p.x, p.y))) ctx.propTiles[j] = null;
@@ -766,7 +1045,8 @@ function cheapestLine(ctx, a, b) {
   distArr[a] = 0;
   const heap = new Heap(); heap.push(0, a);
   while (heap.size) {
-    const [d, i] = heap.pop();
+    const i = heap.pop();
+    const d = heap.lastKey;
     if (d > distArr[i]) continue;
     if (i === b) break;
     for (const j of around(ctx, i, N4)) {
@@ -778,6 +1058,46 @@ function cheapestLine(ctx, a, b) {
   for (let i = b; i !== -1; i = prev[i]) line.unshift(i);
   return line;
 }
+/** Make sure an ordinary walker can get from one start to the other (opening the same way on both sides). */
+function connect(ctx) {
+  const [a, b] = ctx.starts;
+  for (let round = 0; round < 6; round++) {
+    const blocked = cheapestLine(ctx, a, b).filter((i) => !walkerOk(ctx, i));
+    if (!blocked.length) return;
+    for (const i of blocked) { carve(ctx, i); carve(ctx, ctx.R(i)); }
+  }
+}
+/** Walker regions (4 ways): a label per tile (-1 = blocked) and each region's size. */
+function walkerRegions(ctx) {
+  const label = new Int32Array(ctx.n).fill(-1);
+  const sizes = [];
+  for (let s = 0; s < ctx.n; s++) {
+    if (label[s] >= 0 || !walkerOk(ctx, s)) continue;
+    const c = sizes.length;
+    let size = 0;
+    const stack = [s]; label[s] = c;
+    while (stack.length) {
+      const i = stack.pop(); size++;
+      for (const j of around(ctx, i, N4)) if (label[j] < 0 && walkerOk(ctx, j)) { label[j] = c; stack.push(j); }
+    }
+    sizes.push(size);
+  }
+  return { label, sizes };
+}
+/** Every walled-off area of POCKET tiles or more gets a way in from the starts' side (both sides alike). */
+function connectRegions(ctx) {
+  for (let round = 0; round < 4; round++) {
+    const { label, sizes } = walkerRegions(ctx);
+    const main = label[ctx.starts[0]];
+    const lost = sizes.map((s, c) => (c !== main && s >= POCKET ? c : -1)).filter((c) => c >= 0);
+    if (!lost.length) return;
+    for (const c of lost) {
+      const from = label.indexOf(c);
+      for (const i of cheapestLine(ctx, from, ctx.starts[0]).filter((j) => !walkerOk(ctx, j))) { carve(ctx, i); carve(ctx, ctx.R(i)); }
+    }
+  }
+}
+
 /**
  * Bridges run on over the shallow bank to dry ground (for looks: shallow water is walkable anyway). Those tiles
  * become bridge, and `ctx.under` notes that they sit on shallow water.
@@ -798,16 +1118,6 @@ function extendBridges(ctx) {
   }
 }
 
-/** Make sure an ordinary walker can get from one start to the other (opening the same way on both sides). */
-function connect(ctx) {
-  const [a, b] = ctx.starts;
-  for (let round = 0; round < 6; round++) {
-    const blocked = cheapestLine(ctx, a, b).filter((i) => !walkerOk(ctx, i));
-    if (!blocked.length) return;
-    for (const i of blocked) { carve(ctx, i); carve(ctx, ctx.R(i)); }
-  }
-}
-
 /** Time for an ordinary walker to reach each tile from a start (4 ways), for sharing out the arena. */
 function walkTimes(ctx, from) {
   const t = new Float64Array(ctx.n).fill(Infinity);
@@ -815,7 +1125,8 @@ function walkTimes(ctx, from) {
   const heap = new Heap(); heap.push(0, from);
   const cost = (i) => 1 / TERRAIN[ctx.tiles[i]].speed + TERRAIN[ctx.tiles[i]].burn * 25;
   while (heap.size) {
-    const [d, i] = heap.pop();
+    const i = heap.pop();
+    const d = heap.lastKey;
     if (d > t[i]) continue;
     for (const j of around(ctx, i, N4)) {
       if (!walkerOk(ctx, j)) continue;
@@ -860,7 +1171,8 @@ export function fairness(map) {
 // Each theme: its base ground, a light hint for the screen (day / night / dim / warm), how it is symmetric
 // ("rotate" = turned 180 degrees, "mirror" = left-right, "either" = picked by the seed), what replaces blocked
 // terrain when a way across must be opened (`carve`), the terrains and props it can use (`uses`, `props`; the
-// tests check the maps keep to them), and `build`, which paints a map.
+// tests check the maps keep to them), and `build`, which paints a map: ground patches, water, a landmark in the
+// middle, roads, springs, ridges and scattered props.
 
 export const THEMES = {
   meadow: {
@@ -868,15 +1180,23 @@ export const THEMES = {
     uses: ["grass", "tall_grass", "flowers", "dirt", "high", "mud", "shallows", "deep_water", "bridge", "spring"],
     props: ["tree", "bush", "boulder", "rock_big"],
     build(ctx, r) {
+      const G = ctx.grow;
       const water = ctx.sym === "rotate" && r.chance(0.5) ? "river" : r.chance(0.75) ? "lake" : "none";
-      patch(ctx, "high", r.range(0, 0.07), 5);
+      patch(ctx, "high", r.range(0, 0.06), 5 * G, { whole: true });
       patch(ctx, "tall_grass", r.range(0.12, 0.2), 4);
       patch(ctx, "flowers", r.range(0.04, 0.08), 2.5, { on: ["grass", "tall_grass"] });
+      if (water !== "river") {
+        // a grassy hill in the middle, flowers round its foot
+        const size = landmarkSize(ctx, r.range(2.2, 3));
+        landmark(ctx, size, (i, d) => paintAt(ctx, i, d < size - 1.1 ? "high" : "flowers"));
+      }
+      if (water === "lake") lake(ctx, r.range(0.03, 0.06), 5 * G, { on: ["grass", "tall_grass", "flowers"] });
+      else if (ctx.big > 1.5) lake(ctx, r.range(0.01, 0.025), 4 * G, { on: ["grass", "tall_grass", "flowers"] });
       if (water === "river") river(ctx, { core: "deep_water", bank: "shallows", width: r.int(1, 2), crossing: "bridge", crossings: r.int(1, 2) });
-      if (water === "lake") lake(ctx, r.range(0.03, 0.06), 5, { on: ["grass", "tall_grass", "flowers"] });
       patch(ctx, "mud", r.range(0, 0.04), 3, { on: ["grass"] });
-      if (r.chance(0.6)) road(ctx, "dirt", { on: ["grass", "tall_grass", "flowers", "mud"] });
-      if (r.chance(0.4)) spring(ctx);
+      roads(ctx, "dirt", ["grass", "tall_grass", "flowers", "mud"]);
+      if (ctx.big > 1.5) springs(ctx, r.int(1, Math.round(ctx.big))); else if (r.chance(0.4)) spring(ctx);
+      ridges(ctx, [["rock_big", 1], ["boulder", 2], ["bush", 1]], ridgeCount(ctx));
       scatter(ctx, [["tree", 3], ["bush", 2], ["boulder", 1.5], ["rock_big", 1]], r.range(0.03, 0.06), { on: ["grass", "tall_grass"] });
     },
   },
@@ -885,6 +1205,11 @@ export const THEMES = {
     uses: ["grass", "forest_floor", "tall_grass", "flowers", "mud", "dirt", "shallows", "deep_water", "bridge", "spring"],
     props: ["tree", "pine", "bush", "mushroom"],
     build(ctx, r) {
+      const G = ctx.grow;
+      // a clearing in the middle: grass and flowers round a spring, a ring of giant mushrooms
+      const size = landmarkSize(ctx, r.range(2.6, 3.4));
+      landmark(ctx, size, (i, d, exact) => paintAt(ctx, i, exact < 1 ? "spring" : d > size - 1.4 ? "flowers" : "grass"));
+      propRing(ctx, "mushroom", size + 0.8, r.int(2, 3));
       patch(ctx, "forest_floor", r.range(0.25, 0.4), 5);
       patch(ctx, "tall_grass", r.range(0.08, 0.14), 3.5);
       patch(ctx, "flowers", r.range(0.02, 0.05), 2.5, { on: ["grass", "forest_floor"] });
@@ -892,9 +1217,10 @@ export const THEMES = {
       if (ctx.sym === "rotate" && r.chance(0.75)) {
         if (r.chance(0.6)) river(ctx, { core: "shallows", bank: "mud", bankChance: 0.3, width: r.int(1, 2) });
         else river(ctx, { core: "deep_water", bank: "shallows", width: 1, crossing: "bridge", crossings: 2 });
-      } else if (r.chance(0.5)) lake(ctx, r.range(0.02, 0.04), 4, { on: ["grass", "forest_floor", "tall_grass"] });
-      if (r.chance(0.6)) road(ctx, "dirt", { on: ["grass", "forest_floor", "tall_grass", "flowers", "mud"] });
-      if (r.chance(0.35)) spring(ctx);
+      } else if (r.chance(0.5) || ctx.big > 1.5) lake(ctx, r.range(0.02, 0.04), 4 * G, { on: ["grass", "forest_floor", "tall_grass"] });
+      roads(ctx, "dirt", ["grass", "forest_floor", "tall_grass", "flowers", "mud"]);
+      if (ctx.big > 1.5) springs(ctx, r.int(0, Math.round(ctx.big) - 1)); else if (r.chance(0.35)) spring(ctx);
+      ridges(ctx, [["pine", 2], ["tree", 1], ["bush", 1]], ridgeCount(ctx, 1.3));
       scatter(ctx, [["tree", 3], ["pine", 3], ["bush", 1.5], ["mushroom", 0.8]], r.range(0.09, 0.14),
         { on: ["grass", "forest_floor", "tall_grass"], scale: 5, clump: 1.6 });
     },
@@ -909,19 +1235,24 @@ export const THEMES = {
       return ctx.seaLow ? [Math.round(H * 0.17), Math.round(H * 0.45)] : [Math.round(H * 0.5), Math.round(H * 0.78)];
     },
     build(ctx, r) {
-      const H = ctx.rows;
+      const H = ctx.rows, G = ctx.grow;
+      // a rocky outcrop in the middle of the beach, boulders round it
+      const size = landmarkSize(ctx, r.range(1.6, 2.2));
+      landmark(ctx, size, (i) => paintAt(ctx, i, "high"));
+      propRing(ctx, "boulder", size + 1, r.int(2, 3));
       const toSea = (x, y) => ((ctx.seaLow ? y : H - 1 - y) / H - 0.5) * 5;
-      const sea = field(ctx, 4, { extra: toSea });
+      const sea = field(ctx, 4 * G, { extra: toSea, whole: true });
       patch(ctx, "deep_water", r.range(0.16, 0.22), 0, { f: sea });
       despeckle(ctx, "deep_water", "shallows");
       ring(ctx, ["deep_water"], "shallows");
       ring(ctx, ["deep_water", "shallows"], "shallows", { chance: 0.45, on: ["sand"] });
       ring(ctx, ["shallows"], "mud", { chance: r.range(0, 0.3), on: ["sand"] });
-      const land = field(ctx, 4, { extra: (x, y) => -toSea(x, y) });
+      const land = field(ctx, 4 * G, { extra: (x, y) => -toSea(x, y), whole: true });
       patch(ctx, "grass", r.range(0.12, 0.22), 0, { f: land });
       patch(ctx, "tall_grass", r.range(0.03, 0.07), 3, { on: ["grass"] });
       patch(ctx, "shallows", r.range(0.01, 0.03), 2, { on: ["sand"] }); // rock pools
       patch(ctx, "high", r.range(0.03, 0.06), 3.5, { on: ["sand", "grass"] });
+      ridges(ctx, [["rock_big", 1], ["boulder", 2]], ridgeCount(ctx, 0.7));
       scatter(ctx, [["palm", 2.5], ["boulder", 1.5], ["rock_big", 1]], r.range(0.025, 0.045), { on: ["sand", "grass", "shallows", "high"] });
     },
   },
@@ -930,20 +1261,38 @@ export const THEMES = {
     uses: ["sand", "dirt", "high", "grass", "flowers", "shallows", "spring"],
     props: ["cactus", "palm", "boulder", "rock_big"],
     build(ctx, r) {
+      const G = ctx.grow;
       patch(ctx, "dirt", r.range(0.08, 0.15), 4);
-      patch(ctx, "high", r.range(0.06, 0.12), 6, { on: ["sand", "dirt"] });
-      // the oasis in the middle: a spring in a pool, ringed with grass and flowers, palms around it
-      const cx = (ctx.cols - 1) / 2, cy = (ctx.rows - 1) / 2;
-      const d = (x, y) => Math.hypot(x - cx, (y - cy) * 1.2);
-      const f = field(ctx, 2.5), bloom = field(ctx, 2);
-      const pool = r.range(1.6, 2.6), green = r.range(3, 4.6);
-      for (let i = 0; i < ctx.n; i++) {
-        const di = d(X(ctx, i), Y(ctx, i));
-        if (di <= 1.0) setTile(ctx, i, "spring");
-        else if (di <= pool + f[i] * 0.35) setTile(ctx, i, "shallows");
-        else if (di <= green + f[i] * 0.6) { setTile(ctx, i, "grass"); if (bloom[i] > 0.6) setTile(ctx, i, "flowers"); }
+      patch(ctx, "high", r.range(0.06, 0.12), 6 * G, { on: ["sand", "dirt"], whole: true });
+      // the oasis in the middle (and on a big map smaller ones, a pair at a time): a spring in a pool, ringed with
+      // grass and flowers, palms round it
+      const bloom = field(ctx, 2);
+      const oasis = (cx, cy, scale) => {
+        const pool = r.range(1.6, 2.6) * scale, green = r.range(3, 4.6) * scale;
+        const f = field(ctx, 2.5);
+        const d = (x, y) => Math.hypot(x - cx, (y - cy) * 1.2);
+        for (let i = 0; i < ctx.n; i++) {
+          const di = d(X(ctx, i), Y(ctx, i));
+          if (di > green + 1.5) continue;
+          for (const j of cx === (ctx.cols - 1) / 2 ? [i] : [i, ctx.R(i)]) {
+            if (ctx.keep[j]) continue;
+            if (di <= 1.0 * scale) setTile(ctx, j, "spring");
+            else if (di <= pool + f[i] * 0.35) setTile(ctx, j, "shallows");
+            else if (di <= green + f[i] * 0.6) { setTile(ctx, j, "grass"); if (bloom[j] > 0.6) setTile(ctx, j, "flowers"); }
+          }
+        }
+        return { cx, cy, reach: green + 1.8 };
+      };
+      const oases = [oasis((ctx.cols - 1) / 2, (ctx.rows - 1) / 2, Math.sqrt(ctx.big) * 0.8 + 0.2)];
+      for (let k = Math.round(ctx.big) - 1; k > 0; k--) {
+        const p = farPoint(ctx);
+        oases.push(oasis(X(ctx, p), Y(ctx, p), 0.6));
       }
-      scatter(ctx, [["palm", 1]], 0.22, { on: ["grass", "sand", "flowers"], near: (x, y) => d(x, y) <= green + 1.8 });
+      const mirrorOf = (x, y) => (ctx.sym === "rotate" ? [ctx.cols - 1 - x, ctx.rows - 1 - y] : [ctx.cols - 1 - x, y]);
+      const nearOasis = (x, y) => oases.some((o) => [[o.cx, o.cy], mirrorOf(o.cx, o.cy)]
+        .some(([ox, oy]) => Math.hypot(x - ox, (y - oy) * 1.2) <= o.reach));
+      ridges(ctx, [["rock_big", 2], ["boulder", 1]], ridgeCount(ctx));
+      scatter(ctx, [["palm", 1]], 0.22, { on: ["grass", "sand", "flowers"], near: nearOasis });
       scatter(ctx, [["cactus", 3], ["boulder", 1.5], ["rock_big", 1]], r.range(0.02, 0.035), { on: ["sand", "dirt"] });
     },
   },
@@ -952,12 +1301,18 @@ export const THEMES = {
     uses: ["ash", "lava", "coals", "high", "dirt"],
     props: ["obsidian", "rock_big", "boulder"],
     build(ctx, r) {
-      patch(ctx, "high", r.range(0.08, 0.14), 5);
+      const G = ctx.grow;
+      // a crater in the middle: a lava pool ringed with coals, inside a rim of high ground
+      const size = landmarkSize(ctx, r.range(2.4, 3.2));
+      landmark(ctx, size, (i, d) => paintAt(ctx, i, d < size * 0.4 ? "lava" : d < size * 0.62 ? "coals" : "high"));
+      patch(ctx, "high", r.range(0.08, 0.14), 5 * G, { whole: true });
       if (ctx.sym === "rotate" && r.chance(0.55)) {
         river(ctx, { core: "lava", bank: "coals", bankChance: 0.45, width: r.int(1, 2), crossing: "ash", crossings: 2 });
-      } else lake(ctx, r.range(0.05, 0.09), 4, { core: "lava", rim: "coals", rimChance: 0.5, on: ["ash", "high"] });
+        if (ctx.big > 1.5) lake(ctx, r.range(0.02, 0.04), 4 * G, { core: "lava", rim: "coals", rimChance: 0.5, on: ["ash", "high"] });
+      } else lake(ctx, r.range(0.05, 0.09), 4 * G, { core: "lava", rim: "coals", rimChance: 0.5, on: ["ash", "high"] });
       patch(ctx, "coals", r.range(0.03, 0.07), 2.5, { on: ["ash"] });
-      if (r.chance(0.35)) road(ctx, "dirt", { on: ["ash"] });
+      roads(ctx, "dirt", ["ash"], 0.35);
+      ridges(ctx, [["obsidian", 2], ["rock_big", 1]], ridgeCount(ctx));
       scatter(ctx, [["obsidian", 3], ["rock_big", 1.5], ["boulder", 1]], r.range(0.03, 0.05), { on: ["ash", "high", "dirt"] });
     },
   },
@@ -966,12 +1321,18 @@ export const THEMES = {
     uses: ["cave_floor", "crystals", "shadow", "shallows", "deep_water", "ice", "high"],
     props: ["crystal", "stalagmite", "boulder"],
     build(ctx, r) {
+      const G = ctx.grow;
+      // a glowing crystal garden in the middle, crystal pillars round it
+      const size = landmarkSize(ctx, r.range(2, 2.8));
+      landmark(ctx, size, (i) => paintAt(ctx, i, "crystals"));
+      propRing(ctx, "crystal", size + 0.8, r.int(2, 3));
       patch(ctx, "shadow", r.range(0.1, 0.16), 4.5);
       patch(ctx, "crystals", r.range(0.08, 0.14), 3.5, { on: ["cave_floor", "shadow"] });
-      if (r.chance(0.6)) lake(ctx, r.range(0.04, 0.08), 5, { on: ["cave_floor", "shadow"] });
+      if (r.chance(0.6) || ctx.big > 1.5) lake(ctx, r.range(0.04, 0.08), 5 * G, { on: ["cave_floor", "shadow"] });
       else patch(ctx, "shallows", r.range(0.02, 0.04), 3);
       if (r.chance(0.5)) patch(ctx, "ice", r.range(0.03, 0.06), 3);
-      patch(ctx, "high", r.range(0.04, 0.08), 5);
+      patch(ctx, "high", r.range(0.04, 0.08), 5 * G, { whole: true });
+      ridges(ctx, [["stalagmite", 3], ["boulder", 1]], ridgeCount(ctx, 1.3));
       scatter(ctx, [["crystal", 1]], 0.12, { on: ["crystals"], scale: 3 });
       scatter(ctx, [["stalagmite", 3], ["boulder", 1]], r.range(0.03, 0.05), { on: ["cave_floor", "shadow", "high"] });
     },
@@ -985,16 +1346,19 @@ export const THEMES = {
       patch(ctx, "tall_grass", r.range(0.08, 0.14), 4);
       patch(ctx, "shadow", r.range(0.04, 0.08), 3.5, { on: ["grass", "tall_grass"] });
       patch(ctx, "dirt", r.range(0.03, 0.06), 3);
-      // a paved square in the middle, with columns around it
-      const cx = (W - 1) / 2, cy = (H - 1) / 2;
-      const rp = r.range(2.2, 3.6);
-      const f = field(ctx, 2.5);
-      for (let i = 0; i < ctx.n; i++) if (Math.hypot(X(ctx, i) - cx, Y(ctx, i) - cy) <= rp + f[i] * 0.5) setTile(ctx, i, "cobbles");
-      if (r.chance(0.7)) road(ctx, "cobbles", { on: ["grass", "tall_grass", "shadow", "dirt"] });
-      // broken-down rooms, one side's and the other side's mirror image
-      for (let k = r.int(1, 3); k > 0; k--) {
+      // a paved square in the middle, with columns round it
+      const size = landmarkSize(ctx, r.range(2.2, 3.4));
+      landmark(ctx, size, (i) => paintAt(ctx, i, "cobbles"));
+      propRing(ctx, "pillar", size + 1.3, Math.round(r.int(2, 3) * Math.sqrt(ctx.big)));
+      roads(ctx, "cobbles", ["grass", "tall_grass", "shadow", "dirt"], 0.7);
+      // broken-down rooms, each with its mirror image on the other side
+      const rooms = [];
+      const want = r.int(1, 3) * Math.round(ctx.big);
+      for (let tries = 0; rooms.length < want && tries < want * 8; tries++) {
         const w = r.int(4, 7), h = r.int(3, 5);
-        const x0 = r.int(Math.round(W * 0.15), Math.max(Math.round(W * 0.15), Math.floor(W / 2) - w - 1)), y0 = r.int(1, H - 1 - h);
+        const x0 = r.int(Math.max(1, Math.round(W * 0.05)), Math.max(Math.round(W * 0.15), Math.floor(W / 2) - w - 1)), y0 = r.int(1, H - 1 - h);
+        if (rooms.some((q) => x0 < q.x0 + q.w + 2 && q.x0 < x0 + w + 2 && y0 < q.y0 + q.h + 2 && q.y0 < y0 + h + 2)) continue;
+        rooms.push({ x0, y0, w, h });
         const doors = new Set();
         for (let d = r.int(1, 2); d > 0; d--) {
           const side = r.int(0, 3);
@@ -1008,18 +1372,13 @@ export const THEMES = {
           const i = at(ctx, x, y);
           const edge = x === x0 || y === y0 || x === x0 + w - 1 || y === y0 + h - 1;
           for (const j of [i, ctx.R(i)]) {
-            if (ctx.keep[j]) continue;
+            if (ctx.keep[j] || ctx.clear[j]) continue;
             if (edge && !doors.has(i)) { if (symRand(ctx, 11, i) < 0.8) setTile(ctx, j, "wall"); } else if (paved && !edge) setTile(ctx, j, "cobbles");
           }
         }
       }
       patch(ctx, "flowers", r.range(0.02, 0.05), 2.5, { on: ["grass"] });
-      const pairs = r.int(2, 3), turn = r.range(0, Math.PI);
-      for (let k = 0; k < pairs; k++) {
-        const a = turn + (k * Math.PI) / pairs;
-        const i = at(ctx, Math.round(cx + Math.cos(a) * (rp + 1.3)), Math.round(cy + Math.sin(a) * (rp + 1.3) * 0.8));
-        if (i >= 0) putPair(ctx, "pillar", i, false);
-      }
+      ridges(ctx, [["pillar", 1], ["boulder", 1], ["bush", 2]], ridgeCount(ctx, 0.6));
       scatter(ctx, [["bush", 2], ["boulder", 1], ["pillar", 1]], r.range(0.02, 0.035), { on: ["grass", "tall_grass", "dirt"] });
     },
   },
@@ -1028,12 +1387,18 @@ export const THEMES = {
     uses: ["grass", "shadow", "flowers", "tall_grass", "shallows", "deep_water", "bridge", "spring"],
     props: ["tree", "mushroom", "boulder"],
     build(ctx, r) {
+      const G = ctx.grow;
+      // a moonlit glade in the middle: flowers round a spring, giant mushrooms round the edge
+      const size = landmarkSize(ctx, r.range(2.4, 3.2));
+      landmark(ctx, size, (i, d, exact) => paintAt(ctx, i, exact < 1 ? "spring" : "flowers"));
+      propRing(ctx, "mushroom", size + 0.8, r.int(2, 3));
       patch(ctx, "shadow", r.range(0.15, 0.25), 4.5);
       patch(ctx, "tall_grass", r.range(0.08, 0.14), 4);
       patch(ctx, "flowers", r.range(0.04, 0.08), 2.5, { on: ["grass", "shadow"] });
       if (r.chance(0.7)) river(ctx, { core: "deep_water", bank: "shallows", width: r.int(1, 2), crossing: "bridge", crossings: r.int(1, 2) });
-      else lake(ctx, r.range(0.03, 0.06), 5, { on: ["grass", "shadow", "tall_grass", "flowers"] });
-      if (r.chance(0.6)) spring(ctx);
+      else lake(ctx, r.range(0.03, 0.06), 5 * G, { on: ["grass", "shadow", "tall_grass", "flowers"] });
+      if (ctx.big > 1.5) springs(ctx, r.int(1, Math.round(ctx.big))); else if (r.chance(0.6)) spring(ctx);
+      ridges(ctx, [["tree", 2], ["boulder", 1]], ridgeCount(ctx));
       scatter(ctx, [["tree", 3], ["mushroom", 1.5], ["boulder", 1]], r.range(0.04, 0.07), { on: ["grass", "tall_grass", "shadow"] });
     },
   },
@@ -1042,13 +1407,19 @@ export const THEMES = {
     uses: ["snow", "ice", "deep_water", "shallows", "high"],
     props: ["pine", "boulder", "rock_big"],
     build(ctx, r) {
-      const ice = field(ctx, 4.5);
+      const G = ctx.grow;
+      // a frozen lake in the middle, with a hole or two in the ice
+      const size = landmarkSize(ctx, r.range(2.6, 3.4));
+      const holes = field(ctx, 2);
+      landmark(ctx, size, (i, d) => paintAt(ctx, i, d < size - 1.5 && holes[i] > 1.1 && !ctx.keep[i] ? "deep_water" : "ice"));
+      const ice = field(ctx, 4.5 * G, { whole: true });
       patch(ctx, "ice", r.range(0.1, 0.16), 0, { f: ice });
       patch(ctx, "deep_water", r.range(0.02, 0.035), 0, { on: ["ice"], f: ice }); // holes in the ice
       despeckle(ctx, "deep_water", "ice");
       ring(ctx, ["deep_water"], "shallows", { chance: 0.3, on: ["ice"] });
       if (r.chance(0.35)) river(ctx, { core: "deep_water", bank: "shallows", width: 1, crossing: "shallows", crossings: 2 });
-      patch(ctx, "high", r.range(0.06, 0.12), 5);
+      patch(ctx, "high", r.range(0.06, 0.12), 5 * G, { whole: true });
+      ridges(ctx, [["pine", 2], ["boulder", 1], ["rock_big", 1]], ridgeCount(ctx));
       scatter(ctx, [["pine", 3], ["boulder", 1.5], ["rock_big", 1]], r.range(0.04, 0.07), { on: ["snow", "high"] });
     },
   },
@@ -1061,7 +1432,7 @@ export const THEME_IDS = Object.keys(THEMES);
  * Returns { seed, theme, cols, rows, width, height, base, light, symmetry, tiles, propTiles, under, props, starts }
  * (`under`: per tile, the grounds a patch was painted over, bottom to top, or null; drawLayers reads it).
  */
-export function generateMap(seed, { theme = null, cols = 30, rows = 18 } = {}) {
+export function generateMap(seed, { theme = null, cols = 90, rows = 54 } = {}) {
   const seedNum = seedNumber(seed);
   const themeId = theme || THEME_IDS[hashN(seedNum, 0x7e3a) % THEME_IDS.length];
   if (!THEMES[themeId]) throw new Error("battlemap:unknown-theme:" + themeId);
@@ -1072,6 +1443,7 @@ export function generateMap(seed, { theme = null, cols = 30, rows = 18 } = {}) {
     symmetrize(ctx);
     clearStarts(ctx);
     connect(ctx);
+    connectRegions(ctx);
     extendBridges(ctx);
     const [a, b] = ctx.starts;
     const pt = (i) => tileCenter(X(ctx, i), Y(ctx, i));
