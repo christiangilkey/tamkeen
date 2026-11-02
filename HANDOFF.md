@@ -6231,7 +6231,10 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   Moroccan committed by dialect-mor (e804a704 basics, c8344108 grammar): Casablanca/Rabat Darija, 300 basics words
   counted in DODa + 248 Moroccan YouTube subtitle files (832k words), each with a linked dictionary entry, NO audio
   (Azure's ar-MA voices put MSA vowels into Darija's consonant clusters: a phoneme-recogniser check, side-session notes
-  dialect-mor.md), 16 grammar lessons (en-ar-mor); method in tools/course/ar-mor/README.md. Egyptian is with its session. Checked with the real Levantine files in a real
+  dialect-mor.md), 16 grammar lessons (en-ar-mor); method in tools/course/ar-mor/README.md. Egyptian committed by dialect-egy (fe79af05
+  basics, 5100a946 grammar): Cairo, 150 basics words with dictionary proof and Azure ar-EG Salma audio (Whisper 0.73),
+  16 grammar lessons (en-ar-egy); method in tools/course/ar-egy/README.md. **All four dialects published** (2026-11-01):
+  every index checksum matches; JS 1270 pass (0 skipped), pytest 578 pass; each checked in a real window. Checked with the real Levantine files in a real
   window: the menu offers only the dialects with files, notes show, ar-lev audio plays, Add files cards under "Levantine basics".
 - whatsnew.js: `notes()` now adds to a version named twice; a 0.43.0 line was added ahead of the release (rename it if
   the release is numbered otherwise). Translations `tools/i18n/tr/<code>/99-arabic-dialects.txt` (5 strings × 16).
