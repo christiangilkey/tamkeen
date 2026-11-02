@@ -1069,6 +1069,9 @@ export function runLiveBattle(setup, vocab) {
       ctx.imageSmoothingEnabled = false;
     }
     Object.assign(viewport, { w, h, s: best.px });
+    // the rival attacks only from inside what the player can see (livebattle.js `sight`)
+    const sight = { w: best.w, h: best.h };
+    if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) input(b, { sight });
     canvas.style.width = `${(w * best.px) / dpr}px`;
     canvas.style.height = `${(h * best.px) / dpr}px`;
     mini.style.width = `${Math.round(Math.max(72, Math.min(128, sw * 0.24)))}px`;
