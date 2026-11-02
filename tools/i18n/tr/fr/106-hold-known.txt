@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Maintenir un mot que vous connaissez
+199d1299	Les mots que vous n'avez pas encore cherchés sont violets. Maintenez-en un appuyé puis relâchez : il est marqué comme connu sans que la fenêtre s'ouvre. Maintenez-le à nouveau pour qu'il redevienne nouveau.
+6cd42608	Les mots que vous n'avez pas encore cherchés sont violets. Maintenez-en un appuyé puis relâchez : il est marqué comme connu sans que la fenêtre s'ouvre. Maintenez-le à nouveau pour qu'il redevienne nouveau. Restez appuyé une seconde pour ouvrir plutôt le menu du mot.
+8c502727	« {0} » marqué comme connu
+fb188225	« {0} » est de nouveau nouveau

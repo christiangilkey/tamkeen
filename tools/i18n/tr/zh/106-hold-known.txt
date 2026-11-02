@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	长按你认识的词
+199d1299	还没查过的词显示为紫色。长按一个词再松开：它会被标为认识，不会打开弹窗。再长按一次，它就变回新词。
+6cd42608	还没查过的词显示为紫色。长按一个词再松开：它会被标为认识，不会打开弹窗。再长按一次，它就变回新词。按住一秒不放，则会打开这个词的菜单。
+8c502727	已将“{0}”标为认识
+fb188225	“{0}”又变回新词

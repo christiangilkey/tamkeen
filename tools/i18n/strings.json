@@ -3975,6 +3975,21 @@
   "f": "web/js/components/guideart.js"
  },
  {
+  "id": "96b0edaf",
+  "k": "Hold a word you know",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "199d1299",
+  "k": "Words you haven't looked up yet are purple. Press and hold one, then let go: it's marked as known without the popup opening. Hold it again to make it new.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
+  "id": "6cd42608",
+  "k": "Words you haven't looked up yet are purple. Press and hold one, then let go: it's marked as known without the popup opening. Hold it again to make it new. Keep holding for a second to open the word's menu instead.",
+  "f": "web/js/components/guideart.js"
+ },
+ {
   "id": "f4277ac7",
   "k": "The word popup",
   "f": "web/js/components/guideart.js"
@@ -12010,6 +12025,21 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "8c502727",
+  "k": "“{0}” marked as known",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "39fc7212",
+  "k": "Undo",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
+  "id": "fb188225",
+  "k": "“{0}” is new again",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
   "id": "3e13e40a",
   "k": "✓ Mark as seen",
   "f": "web/js/lexicon/seen.js"
@@ -12697,11 +12727,6 @@
  {
   "id": "6cb73375",
   "k": "Undo the last answer",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "39fc7212",
-  "k": "Undo",
   "f": "web/js/padmap.js"
  },
  {

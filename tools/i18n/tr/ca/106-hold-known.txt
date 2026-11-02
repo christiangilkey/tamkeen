@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Mantén premuda una paraula que saps
+199d1299	Les paraules que encara no has buscat són liles. Mantén-ne premuda una i deixa-la anar: queda marcada com a sabuda sense que s'obri la finestra. Torna-la a mantenir premuda perquè torni a ser nova.
+6cd42608	Les paraules que encara no has buscat són liles. Mantén-ne premuda una i deixa-la anar: queda marcada com a sabuda sense que s'obri la finestra. Torna-la a mantenir premuda perquè torni a ser nova. Si la mantens premuda un segon, s'obre el menú de la paraula.
+8c502727	«{0}» marcada com a sabuda
+fb188225	«{0}» torna a ser nova

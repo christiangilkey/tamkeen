@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Mantén pulsada una palabra que sabes
+199d1299	Las palabras que aún no has buscado salen en morado. Mantén pulsada una y suéltala: queda marcada como conocida sin que se abra la ventana. Vuelve a mantenerla pulsada para que vuelva a ser nueva.
+6cd42608	Las palabras que aún no has buscado salen en morado. Mantén pulsada una y suéltala: queda marcada como conocida sin que se abra la ventana. Vuelve a mantenerla pulsada para que vuelva a ser nueva. Si la mantienes un segundo, se abre el menú de la palabra.
+8c502727	«{0}» marcada como conocida
+fb188225	«{0}» vuelve a ser nueva

@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Segure uma palavra que você sabe
+199d1299	As palavras que você ainda não procurou ficam roxas. Segure uma e solte: ela é marcada como conhecida sem abrir a janela. Segure de novo para ela voltar a ser nova.
+6cd42608	As palavras que você ainda não procurou ficam roxas. Segure uma e solte: ela é marcada como conhecida sem abrir a janela. Segure de novo para ela voltar a ser nova. Continue segurando por um segundo para abrir o menu da palavra.
+8c502727	“{0}” marcada como conhecida
+fb188225	“{0}” é nova de novo

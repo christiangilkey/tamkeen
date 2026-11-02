@@ -14,6 +14,7 @@
 // Shared by the desktop app and the phone.
 
 import { api, h, saveSettings, state, toast } from "../app.js";
+import { t } from "../i18n.js";
 import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
@@ -382,6 +383,7 @@ async function backfill(lang, dicts) {
  *   .isNew(i)            has word i never been seen? (false while loading, and for non-words)
  *   .markSeen(i, j)      words i..j were tapped: they and every form of them are now seen
  *   .markNew(i, j)       make them new again
+ *   .toggleKnown(i)      word i held: known if new, new if known (with Undo); false if it can't be
  *   .menuItems(i, j)     entries for the right-click menu ("Mark as seen" / "Mark as new")
  *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
  *   .onPaint             set to a function to be told whenever colours change
@@ -408,6 +410,24 @@ export function seenWords({ tokens, lang, els }) {
     range: (i, j = i) => (view.lexemes ? view.lexemes.slice(i, j + 1).filter(Boolean) : []),
     markSeen: (i, j = i) => markLexemes(view.range(i, j)),
     markNew: (i, j = i) => forgetLexemes(view.range(i, j)),
+    /**
+     * Word i was held (pressed and let go, components/phrasepick.js onHold): a new word becomes known
+     * without the popup opening, and a known one new again, with Undo. False when it can't be marked
+     * (not a word, or the language's dictionaries aren't ready), for the screen to do something else.
+     */
+    toggleKnown(i) {
+      const words = view.range(i, i);
+      if (!words.length) return false;
+      const name = String(tokens[i] || "").trim();
+      if (words.some((w) => !known.has(w.key))) {
+        markLexemes(words);
+        toast(t("“{0}” marked as known", name), { timeout: 3500, action: { label: t("Undo"), run: () => forgetLexemes(words) } });
+      } else {
+        forgetLexemes(words);
+        toast(t("“{0}” is new again", name), { timeout: 3500, action: { label: t("Undo"), run: () => markLexemes(words) } });
+      }
+      return true;
+    },
     /** The right-click menu's entry for words i..j: mark as seen without looking them up, or as new again. */
     menuItems(i, j = i) {
       const words = view.range(i, j);

@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Tieni premuta una parola che conosci
+199d1299	Le parole che non hai ancora cercato sono viola. Tienine premuta una e lasciala: viene segnata come conosciuta senza aprire la finestra. Tienila premuta di nuovo per farla tornare nuova.
+6cd42608	Le parole che non hai ancora cercato sono viola. Tienine premuta una e lasciala: viene segnata come conosciuta senza aprire la finestra. Tienila premuta di nuovo per farla tornare nuova. Se la tieni premuta per un secondo, si apre invece il menu della parola.
+8c502727	«{0}» segnata come conosciuta
+fb188225	«{0}» è di nuovo nuova

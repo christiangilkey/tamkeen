@@ -713,11 +713,13 @@ async function renderPlayer(view, { query }) {
     const el = e.target.closest(".w");
     if (el && cur) define(Number(el.dataset.i));
   });
-  // Drag across words (mouse), or hold a word and slide on (touch): they are looked up together.
+  // Drag across words (mouse), or hold a word and slide on (touch): they are looked up together. A word
+  // held and let go is marked known (or new again) without the popup.
   const picker = phrasePicker(wordsEl, {
     blockOf: (k) => (cur ? cur.segOf[k] : -1),
     elOf: (k) => (cur && cur.els[k]) || null,
     onPick: (i, j) => { if (cur) define(i, j); },
+    onHold: (i) => { if (cur && !(seen && seen.toggleKnown(i))) define(i); },
   });
 
   function setActive(idx) {

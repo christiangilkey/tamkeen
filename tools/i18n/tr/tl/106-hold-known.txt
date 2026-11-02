@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Pindutin nang matagal ang salitang alam mo
+199d1299	Kulay lila ang mga salitang hindi mo pa natitingnan. Pindutin nang matagal ang isa, saka bitawan: mamarkahan itong alam mo nang hindi bumubukas ang popup. Pindutin ito ulit nang matagal para maging bago ulit.
+6cd42608	Kulay lila ang mga salitang hindi mo pa natitingnan. Pindutin nang matagal ang isa, saka bitawan: mamarkahan itong alam mo nang hindi bumubukas ang popup. Pindutin ito ulit nang matagal para maging bago ulit. Ituloy ang pagpindot nang isang segundo para buksan na lang ang menu ng salita.
+8c502727	Minarkahang alam na ang “{0}”
+fb188225	Bago ulit ang “{0}”

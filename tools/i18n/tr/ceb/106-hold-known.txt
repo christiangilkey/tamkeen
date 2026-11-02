@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Pugngi ang pulong nga nahibal-an nimo
+199d1299	Purpura ang mga pulong nga wala pa nimo pangitaa. Pugngi ang usa, dayon buhii: markahan kini nga nahibal-an nga dili moabli ang popup. Pugngi kini pag-usab aron mahimong bag-o.
+6cd42608	Purpura ang mga pulong nga wala pa nimo pangitaa. Pugngi ang usa, dayon buhii: markahan kini nga nahibal-an nga dili moabli ang popup. Pugngi kini pag-usab aron mahimong bag-o. Padayon sa pagpugong og usa ka segundo aron maabli hinuon ang menu sa pulong.
+8c502727	“{0}” gimarkahan nga nahibal-an
+fb188225	Bag-o na usab ang “{0}”

@@ -853,7 +853,8 @@ export async function render(view, { id, query }) {
 
   // ---------- click a word to look it up (never when selecting text) ----------
   // Dragging across words (mouse), or holding a word and sliding the finger on (touch), looks the
-  // words up together (components/phrasepick.js); holding a word and lifting opens its menu.
+  // words up together (components/phrasepick.js); holding a word and lifting marks it known (or new
+  // again) without the popup; holding on for a second opens its menu.
   let down = null;
   tr.addEventListener("pointerdown", (e) => {
     if (e.button === 0) down = { x: e.clientX, y: e.clientY };
@@ -862,7 +863,8 @@ export async function render(view, { id, query }) {
     blockOf: (k) => segOf[k],
     elOf: (k) => wordEls[k] || null,
     onPick: (i, j) => defineAt(i, j),
-    onHold: (i, x, y, el) => openMenu(x, y, el),
+    onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) openMenu(x, y, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
   });
 
   tr.addEventListener("click", (e) => {
@@ -1090,11 +1092,14 @@ export async function render(view, { id, query }) {
 
   // ---------- video: captions, transcript panel, full screen ----------
   const playerEl = view.querySelector(".player");
-  // Caption words dragged across (or held and slid across) are looked up together.
+  // Caption words dragged across (or held and slid across) are looked up together; one held and let go
+  // is marked known (or new again); held on for a second, its menu opens.
   const capPicker = vid ? phrasePicker(capEl, {
     blockOf: (k) => segOf[k],
     elOf: (k) => capWord(k) || null,
     onPick: (i, j, el) => defineAt(i, j, el),
+    onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) defineAt(i, i, el); },
+    onMenu: (i, x, y, el) => openMenu(x, y, el),
     onStart: () => { capHeld = true; },
     onEnd: () => { capHeld = false; },
   }) : null;

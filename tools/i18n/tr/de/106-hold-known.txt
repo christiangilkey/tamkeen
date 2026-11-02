@@ -1,0 +1,6 @@
+# Holding a word marks it known (phrasepick.js onHold, seen.js toggleKnown) and its page-guide step.
+96b0edaf	Ein bekanntes Wort gedrückt halten
+199d1299	Wörter, die du noch nicht nachgeschlagen hast, sind lila. Halte eines gedrückt und lass los: Es wird als bekannt markiert, ohne dass das Fenster aufgeht. Halte es noch einmal gedrückt, damit es wieder neu ist.
+6cd42608	Wörter, die du noch nicht nachgeschlagen hast, sind lila. Halte eines gedrückt und lass los: Es wird als bekannt markiert, ohne dass das Fenster aufgeht. Halte es noch einmal gedrückt, damit es wieder neu ist. Hältst du eine Sekunde lang, öffnet sich stattdessen das Menü des Wortes.
+8c502727	„{0}“ als bekannt markiert
+fb188225	„{0}“ ist wieder neu
