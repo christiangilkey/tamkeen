@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Lahat ng salita
+142deb50	Puwedeng tungkol sa kahit anong salitang naka-save mo sa wikang ito ang mga tanong, kaya mas mahirap ang mga ito. Lumalakas ang mga nilalang mo sa bawat card na mayroon ka: may {0} ka, kaya lumalaban sila sa ×{1} (×2 ang pinakamataas).
+148a9757	Live ang mga laban: palakarin ang nilalang mo sa arena gamit ang stick ng controller, ang keyboard, isang click o ang daliri mo, at gumamit ng galaw sa pamamagitan ng button nito. Nagtatanong ang bawat galaw tungkol sa isa sa mga salita mo habang naghihintay ang laban: sumagot sa loob ng 5 segundo o mabibigo ang galaw. Mahalaga ang lupa: may mga bahagi nitong nagpapabilis, nagpapatibay o nagpapalakas sa iyo.
+c308020b	Ligaw na nilalang
+44fad639	Pabor sa {0}
+94111c3f	Hindi pabor sa {0}
+96129a87	Nahihilo
+e1a0b94e	Ubos na
+a85ccda3	Hindi abot
+075b6f42	Mag-drag sa arena para lumakad. I-tap ang isang galaw para gamitin ito.
+f7c7a88e	Kaliwang stick o D-pad: lumakad. Ginagamit ng mga button ang mga galaw mo.
+909b7767	Lumakad gamit ang W A S D o ang mga arrow key, o i-click kung saan pupunta. Mga galaw: U I J K (o 1 2 3 4).
+91eb4afd	Pahiwatig ({0})
+55ba9644	Masyadong mabagal: bigo
+42a01001	Maling sagot: bigo
+70ed3597	Malakas na tama!
+2849c0bc	Mahinang tama
+2567d5e9	Naiwasan!
+b564001a	Sumablay
+4facd611	Naputol!
+bf67e7f9	{0} ay hindi na makalaban!
+e51f4099	{0} ay pumasok sa laban!
+a16a4eda	Sumagot
+4ec00394	Paano maglaro
+a9c79ecd	Gamot ({0}): ibinabalik ang kalahati ng buhay nito, isang beses bawat laban
+a557926e	Lumakad gamit ang kaliwang stick, ang D-pad, W A S D o ang mga arrow key, o mag-click o mag-drag sa arena.
+4d53d952	Gumamit ng galaw sa pamamagitan ng button nito: lalabas ang isang tanong tungkol sa isa sa mga salita mo at maghihintay ang laban. Sumagot sa loob ng 5 segundo o mabibigo ang galaw.
+ad670bfc	Mahalaga ang lupa: tingnan ang ilalim ng nilalang mo para makita kung ano ang epekto nito.
+c7dfb6f1	Naka-pause
+149d7ab3	Laban!
+645e1d18	Mga laban ng nilalang
+6e501d14	Isang live na laban sa laro ng nilalang: lumalakad gamit ang kaliwang stick, at gumagamit ng galaw at sumasagot gamit ang mga button.
+14464710	Gamitin ang una mong galaw (sa tanong: ang sagot na katabi nito)
+17cbafe0	Galaw 1
+53c6ae92	Gamitin ang ikalawa mong galaw (sa tanong: ang sagot na katabi nito)
+3635a301	Galaw 2
+ab0ff5cf	Gamitin ang ikatlo mong galaw (sa tanong: ang sagot na katabi nito)
+6a86efbc	Galaw 3
+bf4afd8b	Gamitin ang ikaapat mong galaw (sa tanong: ang sagot na katabi nito)
+b6f21c58	Galaw 4
+16c0060c	Gumamit ng card ng pahiwatig (sa tanong)
+2284d040	Pahiwatig
+3fdfccf6	Uminom ng gamot (sa mga laban sa ligaw na nilalang)
+af168a71	Paano maglaro (naghihintay ang laban)
+df582a24	I-pause: ituloy, o umalis sa laban
+27382b0f	Lumakad pataas (lumalakad din gamit ang kaliwang stick, saanmang direksyon)
+e0c705d1	Lumakad
+221efc1a	Lumakad pababa
+7c6eff31	Lumakad pakaliwa
+94aa5bb8	Lumakad pakanan

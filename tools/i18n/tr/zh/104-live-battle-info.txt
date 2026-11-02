@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	对战不考虑这些。在“最近 100 个词”对战中，所有生物都以相同等级战斗，你靠认识单词取胜。在“全部单词”对战中，主人保存的卡片越多，生物就越强。

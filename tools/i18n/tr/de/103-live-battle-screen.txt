@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Alle Wörter
+142deb50	Gefragt werden kann jedes Wort, das du in dieser Sprache gespeichert hast, daher sind die Fragen schwerer. Deine Wesen werden mit jeder Karte stärker, die du hast: Du hast {0}, also kämpfen sie mit ×{1} (höchstens ×2).
+148a9757	Kämpfe laufen in Echtzeit: Führe dein Wesen mit dem Stick des Controllers, den Tasten, einem Klick oder deinem Finger durch die Arena, und setze einen Zug mit seinem Knopf ein. Jeder Zug fragt nach einem deiner Wörter, während der Kampf wartet: Antworte innerhalb von 5 Sekunden, sonst schlägt der Zug fehl. Das Gelände zählt: Manches davon macht dich schneller, zäher oder stärker.
+c308020b	Wildes Wesen
+44fad639	Gut für {0}-Wesen
+94111c3f	Schlecht für {0}-Wesen
+96129a87	Betäubt
+e1a0b94e	Aufgebraucht
+a85ccda3	Außer Reichweite
+075b6f42	Zieh über die Arena, um dich zu bewegen. Tippe auf einen Zug, um ihn einzusetzen.
+f7c7a88e	Linker Stick oder Steuerkreuz: laufen. Die Knöpfe setzen deine Züge ein.
+909b7767	Lauf mit W A S D oder den Pfeiltasten, oder klick dorthin, wo du hinwillst. Züge: U I J K (oder 1 2 3 4).
+91eb4afd	Tipp ({0})
+55ba9644	Zu langsam: fehlgeschlagen
+42a01001	Falsche Antwort: fehlgeschlagen
+70ed3597	Starker Treffer!
+2849c0bc	Schwacher Treffer
+2567d5e9	Ausgewichen!
+b564001a	Daneben
+4facd611	Abgebrochen!
+bf67e7f9	{0} ist kampfunfähig!
+e51f4099	{0} betritt die Arena!
+a16a4eda	Antworten
+4ec00394	Spielanleitung
+a9c79ecd	Trank ({0}): die Hälfte der Gesundheit zurück, einmal pro Kampf
+a557926e	Lauf mit dem linken Stick, dem Steuerkreuz, W A S D oder den Pfeiltasten, oder klick oder zieh in der Arena.
+4d53d952	Setze einen Zug mit seinem Knopf ein: Eine Frage zu einem deiner Wörter erscheint, und der Kampf wartet. Antworte innerhalb von 5 Sekunden, sonst schlägt der Zug fehl.
+ad670bfc	Das Gelände zählt: Schau unter dein Wesen, um zu sehen, was es bewirkt.
+c7dfb6f1	Pausiert
+149d7ab3	Los!
+645e1d18	Wesen-Kämpfe
+6e501d14	Ein Echtzeitkampf im Wesen-Spiel: Mit dem linken Stick läufst du, mit den Knöpfen setzt du Züge ein und antwortest.
+14464710	Den ersten Zug einsetzen (bei einer Frage: die Antwort daneben)
+17cbafe0	Zug 1
+53c6ae92	Den zweiten Zug einsetzen (bei einer Frage: die Antwort daneben)
+3635a301	Zug 2
+ab0ff5cf	Den dritten Zug einsetzen (bei einer Frage: die Antwort daneben)
+6a86efbc	Zug 3
+bf4afd8b	Den vierten Zug einsetzen (bei einer Frage: die Antwort daneben)
+b6f21c58	Zug 4
+16c0060c	Eine Tippkarte einsetzen (bei einer Frage)
+2284d040	Tipp
+3fdfccf6	Einen Trank trinken (in Kämpfen gegen wilde Wesen)
+af168a71	Spielanleitung (der Kampf wartet)
+df582a24	Pause: weitermachen oder den Kampf verlassen
+27382b0f	Nach oben laufen (auch mit dem linken Stick, in jede Richtung)
+e0c705d1	Laufen
+221efc1a	Nach unten laufen
+7c6eff31	Nach links laufen
+94aa5bb8	Nach rechts laufen

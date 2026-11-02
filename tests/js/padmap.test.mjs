@@ -29,7 +29,7 @@ const pad = (down = [], axes = [0, 0, 0, 0], values = {}) => ({
 //// ---------------------------------------------------------------- the defaults
 
 test("every screen has its actions, each with a known default, and no input does two things on one screen", () => {
-  assert.deepEqual(AREA_IDS, ["video", "reels", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends",
+  assert.deepEqual(AREA_IDS, ["video", "reels", "popup", "review", "reader", "home", "library", "lesson", "vocab", "friends", "battle",
     "settings", "dialog", "typing", "general"]);
   for (const area of AREA_IDS) {
     assert.ok(ACTIONS[area] && ACTIONS[area].length, area);
@@ -159,6 +159,25 @@ test("what a button does on a screen (the drawing in Settings): the screen's, el
   assert.equal(pairName(whatDoes(full, "library", "b4"), whatDoes(full, "library", "b5")), "Kind");
   assert.equal(pairName(whatDoes(full, "video", "b6"), whatDoes(full, "video", "b7")), "5 seconds");
   assert.equal(pairName(whatDoes(full, "home", "b2"), whatDoes(full, "home", "b3")), "");
+});
+
+test("live battles: the four face buttons are the four moves (and answers), the D-pad and left stick walk, Menu pauses", () => {
+  const full = fullMap(undefined);
+  assert.deepEqual([full.battle.move1, full.battle.move2, full.battle.move3, full.battle.move4], ["b0", "b1", "b2", "b3"], "A B X Y");
+  assert.deepEqual([full.battle.walkUp, full.battle.walkDown, full.battle.walkLeft, full.battle.walkRight], ["b12", "b13", "b14", "b15"]);
+  assert.equal(full.battle.pause, "b9");
+  assert.equal(full.battle.help, "b8");
+  assert.deepEqual([full.battle.hint, full.battle.potion], ["b4", "b5"]);
+  // B uses a move here: leaving a battle is the pause box (Menu), never a stray press of B
+  assert.equal(actionFor(full, "battle", "b1"), "move2");
+  // the left stick walks: as the D-pad on the drawing in Settings (the battle reads how far it is pushed)
+  assert.deepEqual(whatDoes(full, "battle", "a0-"), { area: "battle", action: "walkLeft" });
+  assert.deepEqual(whatDoes(full, "battle", "a1+"), { area: "battle", action: "walkDown" });
+  // the screen keeps the face buttons in the 2 x 2 places the moves sit in (X Y over A B)
+  const src = read("web/js/game/livebattle-ui.js");
+  assert.match(src, /slot: 2, action: "move3".*slot: 3, action: "move4"[\s\S]*slot: 0, action: "move1".*slot: 1, action: "move2"/);
+  assert.match(src, /controllerArea\("battle"/);
+  assert.match(read("web/js/gamepad.js"), /export function padSteer\(\)/);
 });
 
 // ---------------------------------------------------------------- assigning ("press a button to assign")
@@ -521,7 +540,7 @@ test("Settings → Controller is a section of both Settings pages, found by the 
   }
   assert.match(read("web/js/pages/settings.js"), /controller: controllerSection/);
   assert.match(read("mobile/src/js/pages/settings.js"), /controller: controllerSection/);
-  assert.equal(AREAS.length, 14);
+  assert.equal(AREAS.length, 15);
 });
 
 // ---------------------------------------------------------------- moving the highlight with the D-pad

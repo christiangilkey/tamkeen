@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	Kämpfe ignorieren all das. In Kämpfen mit „Letzte 100 Wörter“ kämpft jedes Wesen auf derselben Stufe, und du gewinnst, indem du deine Wörter kennst. In Kämpfen mit „Alle Wörter“ werden Wesen umso stärker, je mehr Karten ihr Besitzer gespeichert hat.

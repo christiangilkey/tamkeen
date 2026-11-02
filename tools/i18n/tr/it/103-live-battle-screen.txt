@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Tutte le parole
+142deb50	Le domande possono essere qualsiasi parola che hai salvato in questa lingua, quindi sono più difficili. Le tue creature diventano più forti con ogni carta che hai: ne hai {0}, perciò combattono a ×{1} (al massimo ×2).
+148a9757	Le battaglie sono in tempo reale: muovi la tua creatura per l'arena con la levetta del controller, i tasti, un clic o il dito, e usa una mossa con il suo pulsante. Ogni mossa fa una domanda su una delle tue parole mentre la battaglia aspetta: rispondi entro 5 secondi o la mossa fallisce. Il terreno conta: in certi punti diventi più veloce, più resistente o più forte.
+c308020b	Creatura selvatica
+44fad639	Favorisce le creature {0}
+94111c3f	Sfavorisce le creature {0}
+96129a87	Stordita
+e1a0b94e	Esaurita
+a85ccda3	Fuori portata
+075b6f42	Trascina sull'arena per muoverti. Tocca una mossa per usarla.
+f7c7a88e	Levetta sinistra o croce direzionale: cammina. I pulsanti usano le tue mosse.
+909b7767	Cammina con W A S D o i tasti freccia, oppure fai clic dove vuoi andare. Mosse: U I J K (o 1 2 3 4).
+91eb4afd	Suggerimento ({0})
+55ba9644	Troppo lento: mossa fallita
+42a01001	Risposta sbagliata: mossa fallita
+70ed3597	Colpo forte!
+2849c0bc	Colpo debole
+2567d5e9	Schivato!
+b564001a	Mancato
+4facd611	Interrotto!
+bf67e7f9	{0} è fuori combattimento!
+e51f4099	{0} scende in campo!
+a16a4eda	Rispondi
+4ec00394	Come si gioca
+a9c79ecd	Pozione ({0}): recupera metà della salute, una volta per battaglia
+a557926e	Cammina con la levetta sinistra, la croce direzionale, W A S D o i tasti freccia, oppure fai clic o trascina sull'arena.
+4d53d952	Usa una mossa con il suo pulsante: compare una domanda su una delle tue parole e la battaglia aspetta. Rispondi entro 5 secondi o la mossa fallisce.
+ad670bfc	Il terreno conta: guarda sotto la tua creatura per vedere che effetto ha.
+c7dfb6f1	In pausa
+149d7ab3	Via!
+645e1d18	Battaglie di creature
+6e501d14	Una battaglia in tempo reale nel gioco delle creature: la levetta sinistra fa camminare, i pulsanti usano le mosse e rispondono.
+14464710	Usa la tua prima mossa (in una domanda: la risposta accanto a questo pulsante)
+17cbafe0	Mossa 1
+53c6ae92	Usa la tua seconda mossa (in una domanda: la risposta accanto a questo pulsante)
+3635a301	Mossa 2
+ab0ff5cf	Usa la tua terza mossa (in una domanda: la risposta accanto a questo pulsante)
+6a86efbc	Mossa 3
+bf4afd8b	Usa la tua quarta mossa (in una domanda: la risposta accanto a questo pulsante)
+b6f21c58	Mossa 4
+16c0060c	Usa una carta suggerimento (in una domanda)
+2284d040	Suggerimento
+3fdfccf6	Bevi una pozione (battaglie con creature selvatiche)
+af168a71	Come si gioca (la battaglia aspetta)
+df582a24	Pausa: continua o abbandona la battaglia
+27382b0f	Cammina in su (anche la levetta sinistra fa camminare, in ogni direzione)
+e0c705d1	Cammina
+221efc1a	Cammina in giù
+7c6eff31	Cammina a sinistra
+94aa5bb8	Cammina a destra

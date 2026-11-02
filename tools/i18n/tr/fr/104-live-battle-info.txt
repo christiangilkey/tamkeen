@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	Les combats ignorent tout cela. Dans les combats « 100 derniers mots », toutes les créatures combattent au même niveau, et c'est en connaissant vos mots que vous gagnez. Dans les combats « Tous les mots », les créatures sont d'autant plus fortes que leur propriétaire a enregistré de cartes.

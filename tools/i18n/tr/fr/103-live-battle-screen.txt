@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Tous les mots
+142deb50	Les questions peuvent porter sur n'importe quel mot enregistré dans cette langue : elles sont donc plus difficiles. Vos créatures deviennent plus fortes avec chaque carte que vous avez : vous en avez {0}, elles combattent donc à ×{1} (×2 au maximum).
+148a9757	Les combats se déroulent en temps réel : déplacez votre créature dans l'arène avec le joystick de la manette, les touches, un clic ou le doigt, et lancez une attaque avec son bouton. Chaque attaque pose une question sur l'un de vos mots pendant que le combat attend : répondez en moins de 5 secondes, sinon l'attaque échoue. Le terrain compte : certaines zones vous rendent plus rapide, plus résistant ou plus fort.
+c308020b	Créature sauvage
+44fad639	Favorise les créatures {0}
+94111c3f	Défavorise les créatures {0}
+96129a87	Étourdie
+e1a0b94e	Épuisée
+a85ccda3	Hors de portée
+075b6f42	Faites glisser sur l'arène pour vous déplacer. Touchez une attaque pour la lancer.
+f7c7a88e	Joystick gauche ou croix directionnelle : marcher. Les boutons lancent vos attaques.
+909b7767	Marchez avec W A S D ou les touches fléchées, ou cliquez là où vous voulez aller. Attaques : U I J K (ou 1 2 3 4).
+91eb4afd	Indice ({0})
+55ba9644	Trop lent : échec
+42a01001	Mauvaise réponse : échec
+70ed3597	Coup puissant !
+2849c0bc	Coup faible
+2567d5e9	Esquivé !
+b564001a	Raté
+4facd611	Interrompu !
+bf67e7f9	{0} est hors de combat !
+e51f4099	{0} entre dans l'arène !
+a16a4eda	Répondre
+4ec00394	Comment jouer
+a9c79ecd	Potion ({0}) : rend la moitié de sa santé, une fois par combat
+a557926e	Marchez avec le joystick gauche, la croix directionnelle, W A S D ou les touches fléchées, ou cliquez ou faites glisser sur l'arène.
+4d53d952	Lancez une attaque avec son bouton : une question sur l'un de vos mots apparaît et le combat attend. Répondez en moins de 5 secondes, sinon l'attaque échoue.
+ad670bfc	Le terrain compte : regardez sous votre créature pour voir son effet.
+c7dfb6f1	En pause
+149d7ab3	C'est parti !
+645e1d18	Combats de créatures
+6e501d14	Un combat en temps réel dans le jeu des créatures : le joystick gauche fait marcher, les boutons lancent les attaques et répondent.
+14464710	Utiliser votre première attaque (dans une question : la réponse à côté de ce bouton)
+17cbafe0	Attaque 1
+53c6ae92	Utiliser votre deuxième attaque (dans une question : la réponse à côté de ce bouton)
+3635a301	Attaque 2
+ab0ff5cf	Utiliser votre troisième attaque (dans une question : la réponse à côté de ce bouton)
+6a86efbc	Attaque 3
+bf4afd8b	Utiliser votre quatrième attaque (dans une question : la réponse à côté de ce bouton)
+b6f21c58	Attaque 4
+16c0060c	Utiliser une carte indice (dans une question)
+2284d040	Indice
+3fdfccf6	Boire une potion (combats contre des créatures sauvages)
+af168a71	Comment jouer (le combat attend)
+df582a24	Pause : continuer ou quitter le combat
+27382b0f	Marcher vers le haut (le joystick gauche fait aussi marcher, dans toutes les directions)
+e0c705d1	Marcher
+221efc1a	Marcher vers le bas
+7c6eff31	Marcher vers la gauche
+94aa5bb8	Marcher vers la droite

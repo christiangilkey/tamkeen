@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	バトルではこれらは関係ありません。「直近の100語」のバトルでは、どのクリーチャーも同じレベルで戦い、単語の知識で勝負が決まります。「すべての単語」のバトルでは、持ち主が保存したカードが多いほどクリーチャーが強くなります。

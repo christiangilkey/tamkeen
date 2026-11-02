@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Totes les paraules
+142deb50	Les preguntes poden ser qualsevol paraula que hagis desat en aquest idioma, i per això són més difícils. Les teves criatures es fan més fortes amb cada targeta que tens: en tens {0}, així que lluiten a ×{1} (×2 com a màxim).
+148a9757	Les batalles són en temps real: porta la teva criatura per l'arena amb la palanca del comandament, les tecles, un clic o el dit, i fes servir un moviment amb el seu botó. Cada moviment fa una pregunta sobre una de les teves paraules mentre la batalla s'espera: respon en 5 segons o el moviment falla. El terreny importa: algunes zones et fan més ràpid, més resistent o més fort.
+c308020b	Criatura salvatge
+44fad639	Afavoreix les criatures {0}
+94111c3f	Perjudica les criatures {0}
+96129a87	Atordida
+e1a0b94e	Esgotat
+a85ccda3	Fora d'abast
+075b6f42	Arrossega per l'arena per moure't. Toca un moviment per fer-lo servir.
+f7c7a88e	Palanca esquerra o creueta: camina. Els botons fan servir els teus moviments.
+909b7767	Camina amb W A S D o les fletxes, o fes clic on vulguis anar. Moviments: U I J K (o 1 2 3 4).
+91eb4afd	Pista ({0})
+55ba9644	Massa tard: ha fallat
+42a01001	Resposta incorrecta: ha fallat
+70ed3597	Cop fort!
+2849c0bc	Cop feble
+2567d5e9	Esquivat!
+b564001a	Fallat
+4facd611	Interromput!
+bf67e7f9	{0} queda fora de combat!
+e51f4099	{0} entra a la batalla!
+a16a4eda	Respon
+4ec00394	Com es juga
+a9c79ecd	Poció ({0}): recupera la meitat de la salut, un cop per batalla
+a557926e	Camina amb la palanca esquerra, la creueta, W A S D o les fletxes, o fes clic o arrossega per l'arena.
+4d53d952	Fes servir un moviment amb el seu botó: surt una pregunta sobre una de les teves paraules i la batalla s'espera. Respon en 5 segons o el moviment falla.
+ad670bfc	El terreny importa: mira sota la teva criatura per veure què fa.
+c7dfb6f1	En pausa
+149d7ab3	Som-hi!
+645e1d18	Batalles de criatures
+6e501d14	Una batalla en temps real al joc de les criatures: amb la palanca esquerra camines, i amb els botons fas servir moviments i respons.
+14464710	Fes servir el primer moviment (en una pregunta: la resposta del costat)
+17cbafe0	Moviment 1
+53c6ae92	Fes servir el segon moviment (en una pregunta: la resposta del costat)
+3635a301	Moviment 2
+ab0ff5cf	Fes servir el tercer moviment (en una pregunta: la resposta del costat)
+6a86efbc	Moviment 3
+bf4afd8b	Fes servir el quart moviment (en una pregunta: la resposta del costat)
+b6f21c58	Moviment 4
+16c0060c	Fes servir una carta de pista (en una pregunta)
+2284d040	Pista
+3fdfccf6	Beu una poció (batalles amb criatures salvatges)
+af168a71	Com es juga (la batalla s'espera)
+df582a24	Pausa: continua o surt de la batalla
+27382b0f	Camina amunt (també amb la palanca esquerra, en qualsevol direcció)
+e0c705d1	Camina
+221efc1a	Camina avall
+7c6eff31	Camina a l'esquerra
+94aa5bb8	Camina a la dreta

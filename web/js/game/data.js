@@ -6,6 +6,7 @@
 // replaced file for file, same name and size. See game/ASSET_LIST.md for the artist's brief.
 
 import { BEASTS } from "./beasts.js";
+import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND } from "./battlemap.js";
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
@@ -573,6 +574,21 @@ export function artFiles() {
   extra("ui/bar_frame.png", [48, 8]);
   extra("ui/bar_fill.png", [4, 4]);
   extra("ui/digits.png", [160, 10]);
+  // Live battles: the moves' effects (battle/fx/README.md: strips of square frames, [frames, size]).
+  for (const t of TYPE_IDS) {
+    for (const [kind, n, s] of [["projectile", 4, 16], ["impact", 6, 32], ["burst", 8, 64], ["beam", 4, 16], ["trail", 4, 8]]) extra(`battle/fx/${t}_${kind}.png`, [n * s, s]);
+  }
+  for (const [kind, n, s] of [["guard", 6, 48], ["heal", 6, 48], ["power", 6, 48], ["charge", 4, 48], ["delay", 4, 32], ["interrupt", 4, 32],
+    ["terrain", 6, 32], ["faint", 6, 48], ["dust", 4, 16], ["miss", 4, 32]]) extra(`battle/fx/${kind}.png`, [n * s, s]);
+  for (const id of ["burn", "wet", "spark", "leaf", "rock", "dark"]) extra(`battle/fx/status_${id}.png`, [32, 8]);
+  // ...and the arenas' ground and props (battle/terrain/README.md; the list is battlemap.js's): an edge sheet and
+  // four middle tiles per ground, the moving ones also once per frame, and each prop at its own size.
+  for (const g of Object.values(ARENA_GROUND)) {
+    extra(g.art.edges, [64, 64]);
+    extra(g.art.fill, [64, 16]);
+    if (g.anim) { extra(g.art.edges.replace(".png", "_anim.png"), [256, 64]); extra(g.art.fill.replace(".png", "_anim.png"), [64, 64]); }
+  }
+  for (const pr of Object.values(ARENA_PROPS)) extra(pr.art, pr.size);
   return out;
 }
 

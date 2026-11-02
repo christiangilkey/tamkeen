@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	Hindi pinapansin ng mga laban ang lahat ng ito. Sa mga laban na Huling 100 salita, pare-pareho ang level ng lahat ng nilalang, at nananalo ka sa pagkaalam ng mga salita mo. Sa mga laban na Lahat ng salita, lumalakas ang mga nilalang ayon sa dami ng card na na-save ng may-ari nila.

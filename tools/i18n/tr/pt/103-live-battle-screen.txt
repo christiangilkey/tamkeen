@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Todas as palavras
+142deb50	As perguntas podem ser qualquer palavra que você salvou neste idioma, então são mais difíceis. Suas criaturas ficam mais fortes com cada cartão que você tem: você tem {0}, por isso elas lutam com ×{1} (no máximo ×2).
+148a9757	As batalhas são em tempo real: mova sua criatura pela arena com o analógico do controle, as teclas, um clique ou o dedo, e use um golpe com o botão dele. Cada golpe faz uma pergunta sobre uma das suas palavras enquanto a batalha espera: responda em até 5 segundos ou o golpe falha. O terreno importa: algumas partes deixam você mais rápido, mais resistente ou mais forte.
+c308020b	Criatura selvagem
+44fad639	Favorece as criaturas {0}
+94111c3f	Prejudica as criaturas {0}
+96129a87	Atordoada
+e1a0b94e	Esgotado
+a85ccda3	Fora de alcance
+075b6f42	Arraste na arena para se mover. Toque num golpe para usá-lo.
+f7c7a88e	Analógico esquerdo ou direcional: andar. Os botões usam seus golpes.
+909b7767	Ande com W A S D ou as teclas de seta, ou clique onde quer ir. Golpes: U I J K (ou 1 2 3 4).
+91eb4afd	Dica ({0})
+55ba9644	Devagar demais: falhou
+42a01001	Resposta errada: falhou
+70ed3597	Acerto forte!
+2849c0bc	Acerto fraco
+2567d5e9	Desviou!
+b564001a	Errou
+4facd611	Interrompido!
+bf67e7f9	{0} está fora de combate!
+e51f4099	{0} entra na batalha!
+a16a4eda	Responder
+4ec00394	Como jogar
+a9c79ecd	Poção ({0}): recupera metade da saúde, uma vez por batalha
+a557926e	Ande com o analógico esquerdo, o direcional, W A S D ou as teclas de seta, ou clique ou arraste na arena.
+4d53d952	Use um golpe com o botão dele: aparece uma pergunta sobre uma das suas palavras e a batalha espera. Responda em até 5 segundos ou o golpe falha.
+ad670bfc	O terreno importa: olhe embaixo da sua criatura para ver o efeito dele.
+c7dfb6f1	Pausado
+149d7ab3	Já!
+645e1d18	Batalhas de criaturas
+6e501d14	Uma batalha em tempo real no jogo das criaturas: o analógico esquerdo faz andar, os botões usam golpes e respondem.
+14464710	Usar seu primeiro golpe (numa pergunta: a resposta ao lado deste botão)
+17cbafe0	Golpe 1
+53c6ae92	Usar seu segundo golpe (numa pergunta: a resposta ao lado deste botão)
+3635a301	Golpe 2
+ab0ff5cf	Usar seu terceiro golpe (numa pergunta: a resposta ao lado deste botão)
+6a86efbc	Golpe 3
+bf4afd8b	Usar seu quarto golpe (numa pergunta: a resposta ao lado deste botão)
+b6f21c58	Golpe 4
+16c0060c	Usar uma carta de dica (numa pergunta)
+2284d040	Dica
+3fdfccf6	Beber uma poção (batalhas com criaturas selvagens)
+af168a71	Como jogar (a batalha espera)
+df582a24	Pausar: continuar ou sair da batalha
+27382b0f	Andar para cima (o analógico esquerdo também faz andar, em qualquer direção)
+e0c705d1	Andar
+221efc1a	Andar para baixo
+7c6eff31	Andar para a esquerda
+94aa5bb8	Andar para a direita

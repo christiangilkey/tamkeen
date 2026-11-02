@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Todas las palabras
+142deb50	Las preguntas pueden ser cualquier palabra que hayas guardado en este idioma, por lo que son más difíciles. Tus criaturas se hacen más fuertes con cada tarjeta que tienes: tienes {0}, así que luchan a ×{1} (×2 como máximo).
+148a9757	Las batallas son en tiempo real: lleva a tu criatura por la arena con el stick del mando, las teclas, un clic o el dedo, y usa un movimiento con su botón. Cada movimiento pregunta por una de tus palabras mientras la batalla espera: responde en menos de 5 segundos o el movimiento falla. El terreno importa: parte de él te hace más rápido, más resistente o más fuerte.
+c308020b	Criatura salvaje
+44fad639	Favorece a las criaturas {0}
+94111c3f	Perjudica a las criaturas {0}
+96129a87	Aturdida
+e1a0b94e	Agotado
+a85ccda3	Fuera de alcance
+075b6f42	Arrastra en la arena para moverte. Toca un movimiento para usarlo.
+f7c7a88e	Stick izquierdo o cruceta: caminar. Los botones usan tus movimientos.
+909b7767	Camina con W A S D o las teclas de flecha, o haz clic donde quieras ir. Movimientos: U I J K (o 1 2 3 4).
+91eb4afd	Pista ({0})
+55ba9644	Demasiado lento: falló
+42a01001	Respuesta incorrecta: falló
+70ed3597	¡Golpe fuerte!
+2849c0bc	Golpe débil
+2567d5e9	¡Esquivado!
+b564001a	No acertó
+4facd611	¡Interrumpido!
+bf67e7f9	¡{0} queda fuera de combate!
+e51f4099	¡{0} entra en combate!
+a16a4eda	Responder
+4ec00394	Cómo jugar
+a9c79ecd	Poción ({0}): recupera la mitad de su salud, una vez por batalla
+a557926e	Camina con el stick izquierdo, la cruceta, W A S D o las teclas de flecha, o haz clic o arrastra en la arena.
+4d53d952	Usa un movimiento con su botón: aparece una pregunta sobre una de tus palabras y la batalla espera. Responde en menos de 5 segundos o el movimiento falla.
+ad670bfc	El terreno importa: mira debajo de tu criatura para ver qué efecto tiene.
+c7dfb6f1	En pausa
+149d7ab3	¡Ya!
+645e1d18	Batallas de criaturas
+6e501d14	Una batalla en tiempo real del juego de criaturas: con el stick izquierdo caminas, y con los botones usas movimientos y respondes.
+14464710	Usar tu primer movimiento (en una pregunta: la respuesta junto a este botón)
+17cbafe0	Movimiento 1
+53c6ae92	Usar tu segundo movimiento (en una pregunta: la respuesta junto a este botón)
+3635a301	Movimiento 2
+ab0ff5cf	Usar tu tercer movimiento (en una pregunta: la respuesta junto a este botón)
+6a86efbc	Movimiento 3
+bf4afd8b	Usar tu cuarto movimiento (en una pregunta: la respuesta junto a este botón)
+b6f21c58	Movimiento 4
+16c0060c	Usar una carta de pista (en una pregunta)
+2284d040	Pista
+3fdfccf6	Beber una poción (batallas con criaturas salvajes)
+af168a71	Cómo jugar (la batalla espera)
+df582a24	Pausa: seguir o salir de la batalla
+27382b0f	Caminar hacia arriba (el stick izquierdo también camina, en cualquier dirección)
+e0c705d1	Caminar
+221efc1a	Caminar hacia abajo
+7c6eff31	Caminar hacia la izquierda
+94aa5bb8	Caminar hacia la derecha

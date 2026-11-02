@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	Les batalles no tenen en compte res d'això. A les batalles d'Últimes 100 paraules totes les criatures lluiten al mateix nivell, i guanyes si saps les teves paraules. A les batalles Totes les paraules les criatures es fan més fortes com més targetes ha desat el seu amo.

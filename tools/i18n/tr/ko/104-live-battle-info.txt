@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	배틀은 이 모든 걸 무시해요. '최근 100단어' 배틀에서는 모든 크리처가 같은 레벨로 싸우고, 단어를 알아야 이겨요. '전체 단어' 배틀에서는 주인이 저장한 카드가 많을수록 크리처가 강해져요.

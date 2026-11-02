@@ -1,0 +1,51 @@
+# Live battles: the battle screen, its controls and the battle menu (web/js/game/livebattle-ui.js, battle-ui.js, padmap.js "battle").
+13d4eec4	Tanang pulong
+142deb50	Ang pangutana mahimong bisan unsang pulong nga imong gi-save niini nga pinulongan, busa mas lisod kini. Mokusog ang imong mga linalang sa matag card nga naa nimo: naa kay {0}, busa moaway sila sa ×{1} (×2 ang pinakataas).
+148a9757	Live ang mga sangka: palakawa ang imong linalang libot sa arena gamit ang stick sa controller, ang keyboard, usa ka click o ang imong tudlo, ug gamita ang usa ka lihok pinaagi sa button niini. Ang matag lihok mangutana bahin sa usa sa imong mga pulong samtang naghulat ang sangka: tubaga sulod sa 5 ka segundo o mapakyas ang lihok. Importante ang yuta: ang uban niini mopapaspas, mopalig-on o mopakusog nimo.
+c308020b	Ihalas nga linalang
+44fad639	Maayo para sa {0}
+94111c3f	Dili maayo para sa {0}
+96129a87	Nalipong
+e1a0b94e	Nahurot na
+a85ccda3	Dili maabot
+075b6f42	Guyora sa arena aron molakaw. I-tap ang usa ka lihok aron gamiton kini.
+f7c7a88e	Wala nga stick o D-pad: lakaw. Ang mga button mogamit sa imong mga lihok.
+909b7767	Lakaw gamit ang W A S D o ang mga arrow key, o i-click kung asa ka moadto. Mga lihok: U I J K (o 1 2 3 4).
+91eb4afd	Timaan ({0})
+55ba9644	Hinay ra kaayo: napakyas
+42a01001	Sayop nga tubag: napakyas
+70ed3597	Kusog nga igo!
+2849c0bc	Huyang nga igo
+2567d5e9	Nalikayan!
+b564001a	Wala moigo
+4facd611	Napugngan!
+bf67e7f9	{0} dili na makaaway!
+e51f4099	{0} misulod sa sangka!
+a16a4eda	Tubaga
+4ec00394	Unsaon pagdula
+a9c79ecd	Tambal ({0}): mobalik ang katunga sa kusog niini, kausa matag sangka
+a557926e	Lakaw gamit ang wala nga stick, ang D-pad, W A S D o ang mga arrow key, o i-click o guyora sa arena.
+4d53d952	Gamita ang usa ka lihok pinaagi sa button niini: mogawas ang pangutana bahin sa usa sa imong mga pulong ug maghulat ang sangka. Tubaga sulod sa 5 ka segundo o mapakyas ang lihok.
+ad670bfc	Importante ang yuta: tan-awa ang ilalom sa imong linalang aron mahibal-an kung unsay epekto niini.
+c7dfb6f1	Naka-pause
+149d7ab3	Sugod!
+645e1d18	Mga sangka sa linalang
+6e501d14	Usa ka live nga sangka sa dula sa linalang: ang wala nga stick para sa paglakaw, ang mga button para sa mga lihok ug pagtubag.
+14464710	Gamita ang imong unang lihok (sa pangutana: ang tubag tupad niini)
+17cbafe0	Lihok 1
+53c6ae92	Gamita ang imong ikaduhang lihok (sa pangutana: ang tubag tupad niini)
+3635a301	Lihok 2
+ab0ff5cf	Gamita ang imong ikatulong lihok (sa pangutana: ang tubag tupad niini)
+6a86efbc	Lihok 3
+bf4afd8b	Gamita ang imong ikaupat nga lihok (sa pangutana: ang tubag tupad niini)
+b6f21c58	Lihok 4
+16c0060c	Gamita ang card sa timaan (sa pangutana)
+2284d040	Timaan
+3fdfccf6	Inom og tambal (mga sangka batok sa ihalas nga linalang)
+af168a71	Unsaon pagdula (maghulat ang sangka)
+df582a24	I-pause: padayon, o biyai ang sangka
+27382b0f	Lakaw pataas (makalakaw usab gamit ang wala nga stick, bisan asang direksyon)
+e0c705d1	Lakaw
+221efc1a	Lakaw paubos
+7c6eff31	Lakaw pawala
+94aa5bb8	Lakaw patuo

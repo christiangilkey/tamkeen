@@ -315,6 +315,11 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "13d4eec4",
+  "k": "All-time",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -7495,18 +7500,13 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "b8bef37b",
-  "k": "Unlimited",
-  "f": "web/js/game/battle-ui.js"
- },
- {
   "id": "b9286298",
   "k": "Power {0}",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "151a3c37",
-  "k": "Questions can be any word you have saved in this language. Your creatures grow stronger with the words you know: you know {0}, so they fight at ×{1} (×2 at most).",
+  "id": "142deb50",
+  "k": "Questions can be any word you have saved in this language, so they are harder. Your creatures grow stronger with every card you have: you have {0}, so they fight at ×{1} (×2 at most).",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7565,8 +7565,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "aa72b2cf",
-  "k": "Battles happen on a small grid. On your turn, move your creature up to two squares (drag it, or tap a square), then choose a move and answer a question about one of your words: a right answer lands it, a wrong one misses. Answer within {0} seconds and a combo builds (×1.2, ×1.5, ×2). The timeline at the top shows who acts next.",
+  "id": "148a9757",
+  "k": "Battles are live: walk your creature round the arena with the controller's stick, the keys, a click or your finger, and use a move with its button. Each move asks about one of your words while the battle waits: answer within 5 seconds or the move fails. The ground matters: some of it makes you faster, tougher or stronger.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -7637,341 +7637,6 @@
  {
   "id": "e4fe0fce",
   "k": "Badge earned: {0}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "3184f22c",
-  "k": "Leave the battle",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "4fb0793f",
-  "k": "Who acts next: the further right, the later",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "905cb326",
-  "k": "You",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "c4433e3c",
-  "k": "Wild",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "5e6db161",
-  "k": "{0} of {1} still standing",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "3bb10c38",
-  "k": "{0} SURGE ×{1}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "265790ce",
-  "k": "Winding up {0}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0d36b10d",
-  "k": "Your creature",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "1e2a3716",
-  "k": "The wild creature",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "09503c9a",
-  "k": "{0}'s creature",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "9fbc3550",
-  "k": "Your rival's creature",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "3096a59b",
-  "k": "{0} tried {1}, but missed.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "4684df38",
-  "k": "(A wrong answer misses.)",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "105489a1",
-  "k": "{0} used {1}, but {2} wasn't there.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "447b0986",
-  "k": "{0} used {1}.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "aab84209",
-  "k": "It's strong against that element!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0e909374",
-  "k": "It's weak against that element.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "eb95e537",
-  "k": "Guarded.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "535531a9",
-  "k": "A surging hit!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "5623941f",
-  "k": "It cut {0} short!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "686179a3",
-  "k": "Its next turn is pushed back.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "8205033f",
-  "k": "{0} is winding up {1}!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "d85fe727",
-  "k": "It lands on the lit squares when its turn comes.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "265f1d9c",
-  "k": "Get out of the red squares, or cut it short with an interrupt.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "936d5b0e",
-  "k": "{0} tried {1}, but has no healing left.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "934b913d",
-  "k": "+{0} HP.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "f26f646e",
-  "k": "Its turns come sooner for a while.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "d48918fa",
-  "k": "{0} used {1}: {2}.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "53849ba1",
-  "k": "{0} is out.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "565d06e6",
-  "k": "{0} steps in.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "a116ea88",
-  "k": "Move (up to 2 squares)",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "1a15d4a7",
-  "k": "Your creature is here",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "d6f5b75c",
-  "k": "Move here",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "a86d76a5",
-  "k": "Too far this turn",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "729c3e08",
-  "k": "In reach",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "e6ad8d34",
-  "k": "Out of line",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "66c1c04a",
-  "k": "Heals ({0} left)",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "da3e3967",
-  "k": "Use a potion ({0}): half its health back, once a battle",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "bc4c3158",
-  "k": "Choose a move. A question about one of your words decides whether it lands.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "537cc256",
-  "k": "Your turn. Move first if you like (drag your creature or tap a square), then choose a move.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "bfd6bf51",
-  "k": "Which of your words means this?",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "5fb65141",
-  "k": "What does this mean?",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "37035270",
-  "k": "Use a hint card ({0})",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "63d63141",
-  "k": "That word is now well known. +15 XP",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "18a80fec",
-  "k": "Accurate all week: +60 XP and 5 coins",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "19bb2852",
-  "k": "Right, and fast!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "fbc63d40",
-  "k": "Right.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "885603d7",
-  "k": "Out of time: the move misses.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0c56b0f0",
-  "k": "Not quite: the move misses. The right answer is marked.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0639028d",
-  "k": "Couldn't tell {0}: {1}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "8d36cc07",
-  "k": "· {0} {1} coins",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "c94a5549",
-  "k": "· {0} word{1} now well known",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "13f349e7",
-  "k": "{0} right, {1} wrong{2}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "fd1125a9",
-  "k": "{0} Skill {1}{2} {3} {4}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "7e9a3898",
-  "k": "Not one wrong answer: the Champion colouring and the move Perfect Form are now open.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "41c4308a",
-  "k": "Won from the brink: the Champion colouring and the move Second Wind are now open.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "21526016",
-  "k": "The wild creature left you an egg.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "6a569f25",
-  "k": "A battle ticket made this one pay in full.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "eda121a1",
-  "k": "{0} A battle and your flashcards, both done today: +{1} XP · {2} {3} coins",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "e3a4b01e",
-  "k": "You won!",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "241517f8",
-  "k": "You lost this one",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "8f651398",
-  "k": "Battle again",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "b9da5b2a",
-  "k": "Well fought.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "ac63d5ec",
-  "k": "Every answer still counted toward your words.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "97255093",
-  "k": "Leave this battle?",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "bdc96deb",
-  "k": "Your answers so far still count.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "96bf2c9c",
-  "k": "The battle begins.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -10455,6 +10120,11 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "905cb326",
+  "k": "You",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "75a9d140",
   "k": "Ranked by the share of days this week each of you reached your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down.",
   "f": "web/js/game/friends-game.js"
@@ -10742,6 +10412,11 @@
  {
   "id": "912d81bb",
   "k": "Hatch your egg first; then it can be fed.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "0d36b10d",
+  "k": "Your creature",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11600,8 +11275,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "cd2c82cf",
-  "k": "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In Unlimited battles creatures grow stronger with how many words their owner knows.",
+  "id": "dfa667b9",
+  "k": "Battles ignore all of this. In Last 100 words battles every creature fights at the same level, and you win by knowing your words. In All-time battles creatures grow stronger with how many cards their owner has saved.",
   "f": "web/js/game/info.js"
  },
  {
@@ -11613,6 +11288,261 @@
   "id": "3b7ab43a",
   "k": "Open your creatures",
   "f": "web/js/game/info.js"
+ },
+ {
+  "id": "c308020b",
+  "k": "Wild creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "5e6db161",
+  "k": "{0} of {1} still standing",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "44fad639",
+  "k": "Good for {0}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "94111c3f",
+  "k": "Bad for {0}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "96129a87",
+  "k": "Stunned",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "e1a0b94e",
+  "k": "Used up",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a85ccda3",
+  "k": "Out of range",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "001884b8",
+  "k": "{0} left",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "075b6f42",
+  "k": "Drag on the arena to move. Tap a move to use it.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "f7c7a88e",
+  "k": "Left stick or D-pad: walk. The buttons use your moves.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "909b7767",
+  "k": "Walk with W A S D or the arrow keys, or click where to go. Moves: U I J K (or 1 2 3 4).",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "bfd6bf51",
+  "k": "Which of your words means this?",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "5fb65141",
+  "k": "What does this mean?",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "91eb4afd",
+  "k": "Hint ({0})",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "55ba9644",
+  "k": "Too slow: failed",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "42a01001",
+  "k": "Wrong answer: failed",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "63d63141",
+  "k": "That word is now well known. +15 XP",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "18a80fec",
+  "k": "Accurate all week: +60 XP and 5 coins",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "1e2a3716",
+  "k": "The wild creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "9fbc3550",
+  "k": "Your rival's creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "70ed3597",
+  "k": "Strong hit!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "2849c0bc",
+  "k": "Weak hit",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "09fef5d8",
+  "k": "Failed",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "2567d5e9",
+  "k": "Dodged!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "b564001a",
+  "k": "Missed",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "4facd611",
+  "k": "Cut short!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "bf67e7f9",
+  "k": "{0} is out!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "e51f4099",
+  "k": "{0} steps in!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a16a4eda",
+  "k": "Answer",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "4ec00394",
+  "k": "How to play",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a9c79ecd",
+  "k": "Potion ({0}): half its health back, once a battle",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a557926e",
+  "k": "Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "4d53d952",
+  "k": "Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "ad670bfc",
+  "k": "The ground matters: look under your creature to see what it does.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "c7dfb6f1",
+  "k": "Paused",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "3184f22c",
+  "k": "Leave the battle",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "89a58a1b",
+  "k": "Carry on",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "0639028d",
+  "k": "Couldn't tell {0}: {1}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "8d36cc07",
+  "k": "· {0} {1} coins",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "c94a5549",
+  "k": "· {0} word{1} now well known",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "13f349e7",
+  "k": "{0} right, {1} wrong{2}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "fd1125a9",
+  "k": "{0} Skill {1}{2} {3} {4}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "7e9a3898",
+  "k": "Not one wrong answer: the Champion colouring and the move Perfect Form are now open.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "41c4308a",
+  "k": "Won from the brink: the Champion colouring and the move Second Wind are now open.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "21526016",
+  "k": "The wild creature left you an egg.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "6a569f25",
+  "k": "A battle ticket made this one pay in full.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "eda121a1",
+  "k": "{0} A battle and your flashcards, both done today: +{1} XP · {2} {3} coins",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "e3a4b01e",
+  "k": "You won!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "241517f8",
+  "k": "You lost this one",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "8f651398",
+  "k": "Battle again",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "149d7ab3",
+  "k": "Go!",
+  "f": "web/js/game/livebattle-ui.js"
  },
  {
   "id": "5eb43479",
@@ -12385,6 +12315,16 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "645e1d18",
+  "k": "Creature battles",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6e501d14",
+  "k": "A live battle in the creature game: the left stick walks, the buttons use moves and answer.",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "6ea59026",
   "k": "Every section of Settings.",
   "f": "web/js/padmap.js"
@@ -12917,6 +12857,96 @@
  {
   "id": "4a489327",
   "k": "Write",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "14464710",
+  "k": "Use your first move (in a question: the answer by it)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "17cbafe0",
+  "k": "Move 1",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "53c6ae92",
+  "k": "Use your second move (in a question: the answer by it)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "3635a301",
+  "k": "Move 2",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "ab0ff5cf",
+  "k": "Use your third move (in a question: the answer by it)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "6a86efbc",
+  "k": "Move 3",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "bf4afd8b",
+  "k": "Use your fourth move (in a question: the answer by it)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "b6f21c58",
+  "k": "Move 4",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "16c0060c",
+  "k": "Use a hint card (in a question)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "2284d040",
+  "k": "Hint",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "3fdfccf6",
+  "k": "Drink a potion (battles with wild creatures)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "af168a71",
+  "k": "How to play (the battle waits)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "df582a24",
+  "k": "Pause: carry on, or leave the battle",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "27382b0f",
+  "k": "Walk up (the left stick walks too, any way)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "e0c705d1",
+  "k": "Walk",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "221efc1a",
+  "k": "Walk down",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "7c6eff31",
+  "k": "Walk left",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "94aa5bb8",
+  "k": "Walk right",
   "f": "web/js/padmap.js"
  },
  {
@@ -14225,11 +14255,6 @@
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "89a58a1b",
-  "k": "Carry on",
-  "f": "web/js/pages/home.js"
- },
- {
   "id": "f4a94b40",
   "k": "Picks up your latest episode, video or page where you stopped.",
   "f": "web/js/pages/home.js"
@@ -14297,11 +14322,6 @@
  {
   "id": "b6bd42e4",
   "k": "In progress",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "09fef5d8",
-  "k": "Failed",
   "f": "web/js/pages/library.js"
  },
  {
@@ -15802,11 +15822,6 @@
  {
   "id": "fcd76105",
   "k": "Again",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "001884b8",
-  "k": "{0} left",
   "f": "web/js/pages/review.js"
  },
  {

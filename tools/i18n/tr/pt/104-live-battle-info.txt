@@ -1,0 +1,2 @@
+# Live battles: the creature info sheet's line on the two word modes (web/js/game/info.js).
+dfa667b9	As batalhas ignoram tudo isso. Nas batalhas de Últimas 100 palavras, todas as criaturas lutam no mesmo nível, e você vence sabendo suas palavras. Nas batalhas de Todas as palavras, as criaturas ficam mais fortes conforme quantos cartões o dono salvou.
