@@ -983,13 +983,13 @@ class High(Terrain):
 COBBLE = ramp("#1c1620 #2c242e #40363e #564a50 #6c5e62 #847474 #9e8c88 #b8a69c #d2c2b4")
 
 
-def cobble_layout(n: int = 8, iters: int = 4):
-    """Rounded stones that wrap round the tile's edges: points spread evenly (a few rounds of moving each to
-    the middle of its patch), then each pixel belongs to its nearest point; pixels about equally near two points
-    are the gaps. Stones come out a little wider than tall, as they look from our slanted view."""
-    rng = rng_for("cobbles", "layout")
+def cobble_layout(n: int = 6, iters: int = 5):
+    """Flagstones that wrap round the tile's edges: points spread evenly (a few rounds of moving each to the
+    middle of its patch), then each pixel belongs to its nearest point; pixels about equally near two points are
+    the joints. Slabs come out a little wider than tall, as they look from our slanted view."""
+    rng = rng_for("cobbles", "flagstones")
     pts = rng.random((n, 2)) * T
-    sy = 1.35
+    sy = 1.2
 
     def nearest(x, y):
         ds = []
@@ -1006,7 +1006,7 @@ def cobble_layout(n: int = 8, iters: int = 4):
             for x in range(T):
                 i = nearest(x + 0.5, y + 0.5)[0][1]
                 a = acc[i]
-                for k, v in ((0, x + 0.5), (2, y + 0.5)):  # circular mean so stones can wrap
+                for k, v in ((0, x + 0.5), (2, y + 0.5)):  # circular mean so slabs can wrap
                     ang = v / T * 2 * math.pi
                     a[k] += math.cos(ang)
                     a[k + 1] += math.sin(ang)
@@ -1019,25 +1019,14 @@ def cobble_layout(n: int = 8, iters: int = 4):
     for y in range(T):
         for x in range(T):
             ds = nearest(x + 0.5, y + 0.5)
-            if math.sqrt(ds[1][0]) - math.sqrt(ds[0][0]) > 1.15:
+            if math.sqrt(ds[1][0]) - math.sqrt(ds[0][0]) > 0.9:
                 owner[y, x] = ds[0][1]
-    # round the stones: a stone pixel with gaps on two touching sides (a corner) becomes gap
-    out = owner.copy()
-    for y in range(T):
-        for x in range(T):
-            o = owner[y, x]
-            if o < 0:
-                continue
-            up = owner[(y - 1) % T, x] != o
-            dn = owner[(y + 1) % T, x] != o
-            lf = owner[y, (x - 1) % T] != o
-            rt = owner[y, (x + 1) % T] != o
-            if (up or dn) and (lf or rt):
-                out[y, x] = -1
-    return out
+    return owner
 
 
 class Cobbles(Terrain):
+    """Old flagstones: big flat slabs with a lit top edge, a shaded lower edge and dark joints. A big plaza
+    should look calm, so the slabs are plain; the variety is in the details (a stained slab, a crack, moss)."""
     id = "cobbles"
     pal = COBBLE
     detail_gap = 2
@@ -1046,10 +1035,28 @@ class Cobbles(Terrain):
         self.owner = cobble_layout()
         rng = rng_for(self.id, "tones")
         self.tone = {i: ri(rng, 5, 6) for i in range(int(self.owner.max()) + 1)}
+        self.grain = rng_for(self.id, "grain").random((T, T))
 
     def stone_at(self, x, y):
         o = self.owner[y % T, x % T]
         return None if o < 0 else int(o)
+
+    def slab_colour(self, x, y, t):
+        s = self.stone_at(x, y)
+        up = self.stone_at(x, y - 1) != s
+        lf = self.stone_at(x - 1, y) != s
+        dn = self.stone_at(x, y + 1) != s
+        rt = self.stone_at(x + 1, y) != s
+        if dn:
+            return self.pal[t - 2]           # the shaded lower edge
+        if up:
+            return self.pal[t + 2] if not rt else self.pal[t + 1]   # the lit top edge
+        if lf:
+            return self.pal[t + 1]
+        if rt:
+            return self.pal[t - 1]
+        g = self.grain[y % T, x % T]     # a faint grain in the stone
+        return self.pal[t - 1] if g < 0.1 else self.pal[t + 1] if g > 0.95 else self.pal[t]
 
     def base(self, frame):
         img = blank()
@@ -1057,52 +1064,49 @@ class Cobbles(Terrain):
             for x in range(T):
                 s = self.stone_at(x, y)
                 if s is None:
-                    under = self.stone_at(x, y - 1) is not None or self.stone_at(x - 1, y) is not None
-                    img[y, x] = self.pal[1] if under else self.pal[2]   # the gap, in shade under a stone
-                    continue
-                t = self.tone[s]
-                up = self.stone_at(x, y - 1) != s
-                lf = self.stone_at(x - 1, y) != s
-                dn = self.stone_at(x, y + 1) != s
-                rt = self.stone_at(x + 1, y) != s
-                if up and not rt:
-                    c = self.pal[t + 2]          # the lit top of the stone
-                elif lf and not dn:
-                    c = self.pal[t + 1]          # its lit left side
-                elif dn:
-                    c = self.pal[t - 2]          # its shaded underside
-                elif rt:
-                    c = self.pal[t - 1]
+                    under = self.stone_at(x, y - 1) is not None
+                    img[y, x] = self.pal[1] if under else self.pal[2]   # the joint, in shade under a slab
                 else:
-                    c = self.pal[t]
-                img[y, x] = c
+                    img[y, x] = self.slab_colour(x, y, self.tone[s])
         return img
+
+    def inner_slabs(self):
+        """Slabs wholly inside the tile (changing one of these never shows a seam)."""
+        out = []
+        for pts in self.pieces():
+            xs = [p[0] for p in pts]
+            ys = [p[1] for p in pts]
+            if min(xs) > 0 and max(xs) < T - 1 and min(ys) > 0 and max(ys) < T - 1:
+                out.append(pts)
+        return sorted(out, key=len, reverse=True)
 
     def details(self, img, rng, ok, frame, variant):
         sp = Spots(ok)
-        if variant == 1:  # a cracked stone
-            place(img, sp, rng, ["c..", ".cc", "..c"], {"c": self.pal[2]})
-        elif variant == 2:  # moss in the gaps
+        inner = self.inner_slabs()
+        if variant == 1 and inner:  # a weathered, darker slab
+            pts = inner[0]
+            for x, y in pts:
+                if ok[y, x]:
+                    img[y, x] = self.slab_colour(x, y, self.tone[self.stone_at(x, y)] - 1)
+        elif variant == 2:  # a crack across a slab, and moss in some joints
+            place(img, sp, rng, ["c...", ".cc.", "...c"], {"c": self.pal[2]})
             for y in range(T):
                 for x in range(T):
-                    if ok[y, x] and self.stone_at(x, y) is None and (x * 7 + y * 3) % 7 < 2:
-                        img[y, x] = MOSS[2] if (x + y) % 3 else MOSS[3]
-        elif variant == 3:  # one stone gone, grass growing in the hole
-            counts = {}
-            for y in range(2, T - 2):
-                for x in range(2, T - 2):
-                    s = self.stone_at(x, y)
-                    if s is not None:
-                        counts[s] = counts.get(s, 0) + 1
-            gone = max(counts, key=counts.get)
-            for y in range(T):
-                for x in range(T):
-                    if self.stone_at(x, y) == gone and 1 <= x < T - 1 and 1 <= y < T - 1:
-                        top = self.stone_at(x, y - 1) != gone
-                        img[y, x] = self.pal[0] if top else (GRASS[5] if (x + y) % 3 == 0 else GRASS[3])
+                    if ok[y, x] and self.stone_at(x, y) is None and (x * 7 + y * 3) % 6 == 0:
+                        img[y, x] = MOSS[2] if (x + y) % 2 else MOSS[3]
+        elif variant == 3 and inner:  # a slab's corner broken off, earth and a tuft of grass in the gap
+            pts = sorted(inner[-1] if len(inner) > 1 else inner[0], key=lambda p: (-p[1], -p[0]))[:6]
+            for x, y in pts:
+                if ok[y, x]:
+                    img[y, x] = DIRT[2]
+            x, y = pts[0]
+            if ok[y, x]:
+                img[y, x] = GRASS[4]
+                if y > 0:
+                    img[y - 1, x] = GRASS[6]
 
     def pieces(self):
-        """Each stone's pixels in this tile, split where a stone wraps round the tile's side."""
+        """Each slab's pixels in this tile, split where a slab wraps round the tile's side."""
         seen = np.zeros((T, T), bool)
         out = []
         for y in range(T):
@@ -1123,7 +1127,8 @@ class Cobbles(Terrain):
         return out
 
     def edge(self, bits, frame=0):
-        """Paving whose edge follows the stones: a stone mostly outside the shape is gone, the rest are whole."""
+        """Paving with a broken edge: a slab mostly outside the shape is gone; the others are cut along the
+        shape, their broken edges shaded like the slab's own edges."""
         if bits == 15:
             return self.fill(0, frame)
         sh = self.shape(bits)
@@ -1132,26 +1137,30 @@ class Cobbles(Terrain):
         keep = np.zeros((T, T), bool)
         for pts in self.pieces():
             inside = sum(1 for x, y in pts if sh.ins[y, x])
-            touches_open = any((x == 0 and sh.open["W"]) or (x == T - 1 and sh.open["E"]) or
-                               (y == 0 and sh.open["N"]) or (y == T - 1 and sh.open["S"]) for x, y in pts)
-            if inside >= 0.55 * len(pts) and not touches_open:
+            if inside >= 0.5 * len(pts):
                 for x, y in pts:
-                    keep[y, x] = True
-        for y in range(T):  # a gap stays where it lies between kept stones
+                    if sh.ins[y, x]:
+                        keep[y, x] = True
+        for y in range(T):  # a joint stays where it lies between kept slabs or well inside the shape
             for x in range(T):
-                if self.stone_at(x, y) is not None:
+                if self.stone_at(x, y) is not None or not sh.ins[y, x]:
                     continue
-                if sh.ins[y, x] and sh.d[y, x] >= 3:
-                    keep[y, x] = True
-                    continue
-                nb = [(xx, yy) for xx, yy in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)) if 0 <= xx < T and 0 <= yy < T]
-                kept = [keep[yy, xx] for xx, yy in nb if self.stone_at(xx, yy) is not None]
-                if len(kept) >= 2 and all(kept):
+                nb = [keep[yy, xx] for xx, yy in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1))
+                      if 0 <= xx < T and 0 <= yy < T and self.stone_at(xx, yy) is not None]
+                if sh.d[y, x] >= 3 or (len(nb) >= 2 and all(nb)):
                     keep[y, x] = True
         for y in range(T):
             for x in range(T):
                 if not keep[y, x]:
                     img[y, x] = 0
+                    continue
+                if self.stone_at(x, y) is None:
+                    continue
+                t = self.tone[self.stone_at(x, y)]
+                if (y + 1 < T and not keep[y + 1, x]) or (x + 1 < T and not keep[y, x + 1]):
+                    img[y, x] = self.pal[t - 2]       # a broken edge, in shade
+                elif (y > 0 and not keep[y - 1, x]) or (x > 0 and not keep[y, x - 1]):
+                    img[y, x] = self.pal[t + 1]       # a broken edge catching the light
         for y in range(T):  # a soft shadow below and right of the paving's edge
             for x in range(T):
                 if not keep[y, x] and ((y > 0 and keep[y - 1, x]) or (x > 0 and keep[y, x - 1])):

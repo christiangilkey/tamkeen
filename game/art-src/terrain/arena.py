@@ -2,7 +2,7 @@
 each tile's layers bottom to top ([terrain, variant 0-15, fill 0-3]; variant 15 = the fill tile), then the props
 and the two creatures at their starts, sorted by their feet.
 
-    .venv/Scripts/python game/art-src/terrain/arena.py SAMPLE.json [--gif]
+    .venv/Scripts/python game/art-src/terrain/arena.py MAPS.json [--each] [--gif]
 """
 
 from __future__ import annotations
@@ -52,22 +52,42 @@ def draw_map(m: dict, art: Art) -> Image.Image:
     return canvas
 
 
+VIEW = (38, 19)  # what the battle camera shows, in tiles
+
+
+def view_of(m: dict, im: Image.Image) -> Image.Image:
+    """A camera-sized window centred between the two creatures (clamped to the map), so both show."""
+    vw, vh = VIEW[0] * T, VIEW[1] * T
+    if im.width <= vw and im.height <= vh:
+        return im
+    me, foe = m["starts"]["me"], m["starts"]["foe"]
+    cx, cy = (me["x"] + foe["x"]) / 2, (me["y"] + foe["y"]) / 2 - T
+    x0 = int(max(0, min(im.width - vw, cx - vw / 2)))
+    y0 = int(max(0, min(im.height - vh, cy - vh / 2)))
+    return im.crop((x0, y0, x0 + vw, y0 + vh))
+
+
 def main(args):
+    """Draw every map in the JSON: arenas.png (camera-sized views, all themes), arena_full.png (the first map
+    whole); --each also saves each map whole at 2x, --gif an animated camera view of each."""
     path = Path(args[0])
     data = json.loads(path.read_text(encoding="utf-8"))
     maps = data["maps"]
     arts = [Art(f) for f in range(4)]
     shots = []
-    for m in maps:
+    for i, m in enumerate(maps):
         im = draw_map(m, arts[0])
         name = f"arena_{m['theme']}_{m['seed']}"
-        zoom(im, 3).save(PREV / f"{name}.png")
-        shots.append((m, im))
-        print("arena", name)
+        if i == 0:
+            im.save(PREV / "arena_full.png")
+        if "--each" in args:
+            zoom(im, 2).save(PREV / f"{name}.png")
+        shots.append((m, view_of(m, im)))
+        print("arena", name, im.size)
         if "--gif" in args:
-            frames = [zoom(draw_map(m, a), 2).convert("P", palette=Image.ADAPTIVE, colors=255) for a in arts]
+            frames = [zoom(view_of(m, draw_map(m, a)), 2).convert("P", palette=Image.ADAPTIVE, colors=255) for a in arts]
             frames[0].save(PREV / f"{name}.gif", save_all=True, append_images=frames[1:], duration=220, loop=0)
-    # all of them on one sheet, 2 across
+    # the camera views on one sheet, 2 across
     w, h = shots[0][1].size
     k = 2
     cols = 2
