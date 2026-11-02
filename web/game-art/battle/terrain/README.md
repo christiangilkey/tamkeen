@@ -141,5 +141,7 @@ Plus the 12 props above. 68 files in all:
 
 ## Previews
 
-`game/art-src/terrain/preview.py all` draws every terrain as a sample patch; `arena.py SAMPLE.json` assembles
-whole arenas from the Map chat's sample maps (with props and creatures for scale), exactly as described above.
+`game/art-src/terrain/preview.py all` draws every terrain as a sample patch. Whole arenas straight from the game's
+generator: `node game/art-src/terrain/dump_maps.mjs maps.json [theme:seed ...]`, then
+`python game/art-src/terrain/arena.py maps.json` draws them (with props and creatures for scale) exactly as
+described above.

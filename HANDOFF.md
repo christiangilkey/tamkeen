@@ -6280,3 +6280,43 @@ contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tes
   ~7 ms a map. Preview of 36 maps (coloured squares) and a sample JSON with per-tile layers in the side-session notes
   folder local_58cb322d… (`battlemap-preview.png`, `battlemap-sample.json`). Not seen yet with the real tile art, nor
   played: that needs the Engine, Screen and Terrain art parts.
+
+## Live battles: the real-time engine and the type chart (2026-11-01; "Live battles: real-time engine" chat)
+Part of the real-time battles (shared plan: side-session note `live-battles-plan.md`, section "The engine's interface",
+which is the contract the Screen chat builds against). `web/js/game/livebattle.js` (pure, no DOM), tests
+`tests/js/livebattle.test.mjs` (seeded rand, fixed step). The old turn-based `battle.js` still works (its fighters(),
+loadout(), publicProfile() etc. are reused) until the Screen chat switches the battle screen over.
+- **API**: `newLiveBattle({mine, theirs, map, mode, wordMode, cards, ask, foeForm, rival, rule, rand})`, `input(b,
+  {move, goTo, attack})`, `step(b, dt)` -> events, `answer(b, i | null)`, `view(b)`, `battleResult(b)` (feeds
+  rules.finishBattle as before), `usePotion`, `whyNot`, `inRange`, `useNow`, `wordPool`, `cardScale`. The map and every
+  question about the ground come from battlemap.js (generateMap, canStand, blocksShot, effectsAt, findPath,
+  canRepaint); a battle copies the map's tiles because terrain moves repaint them.
+- **Moving**: fluid, with acceleration (900 px/s² times the ground's grip: ice slides), top speed 60 + 2.5 x spd px/s
+  times the ground's speed; collides with the map with a 12x8 box at the feet (fits one-tile gaps), the two creatures
+  keep apart (a 20x10 ellipse), attacks hit a 24x18 ellipse 4 px above the feet. Stick (`move`) or click/finger
+  (`goTo`, walked along findPath, re-found when stuck). Faces left/right only.
+- **The question**: pressing a ready move opens `b.quiz` (the screen's `ask()` makes it); the world stands still and
+  only the 5 s timer runs; right = the move goes (a fast answer, within 2 s, builds the combo x1.15/x1.3/x1.5), wrong or
+  out of time = "failed" and the move still cools down. After any move all four wait 1.5 s, then each its own
+  cooldown (data.LIVE_COOLDOWN). The rival never asks the player anything; its moves fail with chance 1 - foeForm.
+- **Moves in real time**: data.liveMove(m) gives each move a form from its aim (line -> shot, column -> drop, burst ->
+  burst, homing -> homing, self) or data.LIVE_TUNING (Pounce and Charge dash, Dawn Ray and Thunderhead beam, Meteor a
+  big drop); numbers in data.LIVE_FORM_STATS; names/texts data.LIVE_FORMS, data.LIVE_STYLE_TEXT (translated:
+  `tools/i18n/tr/<code>/102-live-moves.txt`). Charges wind up rooted and an interrupt cancels them; guard, power-up,
+  haste, delay (slows + pushes cooldowns), heal (twice), terrain moves (Bloom spring, Scorch coals, Mudslide mud).
+- **Damage**: power x 0.6 x attack/defence x the type chart x 1.1 same element x the answer's power; the ground's atk
+  (with favours) and def apply; heal/burn ground ticks once a second, and the ground heals a creature at most half its
+  health a battle (so two creatures can't out-heal each other on flowers for ever: found in the trials).
+- **Type chart** (data.TYPE_CHART, matchup, defenceOf; STRONG 1.5, WEAK 0.67) replaces the one-step CYCLE, for the old
+  battles too: ember > grove, dusk; tide > ember, stone; grove > tide, spark; spark > tide, dusk; stone > ember, spark;
+  dusk > grove, stone; each weak against itself and one more. Balanced both ways, no pair beats each other.
+- **Word modes**: "last100" (everyone level) and "alltime" (the saved name stays "unlimited": rules.normalize only keeps
+  those two names): HP/attack/defence x cardScale(cards saved) (x1.25 at 200 cards, x1.5 at 600, max x2), from
+  `cards: {me, foe}`; wild foes unscaled. publicProfile now publishes `cards` (state.cards, set by the battle screen).
+- **The rival AI** (also drives the player's side with `auto: true`, for trials): thinks 3-4 times a second, dodges
+  projectiles, warning circles, beams and charges aimed at it (more often the higher foeForm), uses a move that reaches
+  with a clear line, otherwise walks to a good spot (its best move's distance, helpful ground, a clear shot; closer the
+  longer it hasn't attacked, so it can't sit behind a rock).
+- **Balance** (scratch sim, 100 wild battles per row, the computer playing both sides on real generated arenas): 40 /
+  60 / 80 / 95% right answers win 37 / 67 / 89 / 96%; at 80% a battle is ~45 s of play and ~22 questions; a player who
+  never moves wins 53% at 80%. Not played by a person yet; numbers to tune are at the top of livebattle.js and in data.js.

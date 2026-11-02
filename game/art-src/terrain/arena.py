@@ -1,4 +1,4 @@
-"""Assemble whole arenas from the Map chat's sample maps (battlemap-sample.json), exactly as the game will:
+"""Assemble whole arenas from map JSON (dump_maps.mjs writes it from the game's own generator), exactly as the game will:
 each tile's layers bottom to top ([terrain, variant 0-15, fill 0-3]; variant 15 = the fill tile), then the props
 and the two creatures at their starts, sorted by their feet.
 
