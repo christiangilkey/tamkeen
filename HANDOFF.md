@@ -6192,7 +6192,10 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   juvenile's height; brief in `creatures/HATCHLING_GUIDE.md`) cut by `rig_hatchling.json` into
   `web/game-art/creature/beast/<id>/hatchling/` and `<id>_hatchling.aseprite`; beasts.js gives it as `young`.
   `render.drawingOf(look)` picks it when `look.size === "s"` (a hatchling, or a juvenile kept looking like one).
-  Sheet: `creatures/_lineup_18_hatchlings.png`. Worn items are full size, so they look big on the babies.
+  Sheet: `creatures/_lineup_18_hatchlings.png`. Hats: a baby wears `item/small/hat/<id>.png` (same 20x14 canvas and
+  bottom centre, ~75% size; item `shift` x0.75), made by `tools/game_art/small_hats.py` (takes out the rows/columns
+  that repeat their neighbours, rare colours protected; antlers, beret, pirate, wizard and graduation drawn by hand
+  in its DRAWN table; sources `game/art-src/item/hat_small/`). Glasses, neckwear, held things and capes stay full size.
 - **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.

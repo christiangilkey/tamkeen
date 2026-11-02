@@ -104,7 +104,7 @@ const pixelsOf = (img) => {
  * juvenile look. Both have a box, hover, legs, shirt and sockets; `dir` is where its layers are. */
 export function drawingOf(look) {
   const b = beastById(look.beast);
-  if (look.size === "s" && b.young) return { ...b.young, id: b.id, dir: `creature/beast/${b.id}/hatchling/`, key: `${b.id}/s` };
+  if (look.size === "s" && b.young) return { ...b.young, id: b.id, dir: `creature/beast/${b.id}/hatchling/`, key: `${b.id}/s`, baby: true };
   return { ...b, dir: `creature/beast/${b.id}/`, key: b.id };
 }
 
@@ -191,7 +191,9 @@ export async function composeCreature(look, pose = {}) {
   const worn = {};
   for (const slot of Object.keys(SLOTS)) {
     const id = look.equipped && look.equipped[slot];
-    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(`item/${id}.png`) : null;
+    // A baby wears the small version of a hat (item/small/hat/<id>.png: tools/game_art/small_hats.py).
+    const file = b.baby && slot === "hat" ? `item/small/${id}.png` : `item/${id}.png`;
+    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(file) : null;
   }
 
   const c = document.createElement("canvas");
@@ -206,7 +208,8 @@ export async function composeCreature(look, pose = {}) {
     const img = worn[slot];
     if (!img) return;
     const it = itemById(look.equipped[slot]);
-    const a = (it && it.shift) || [0, 0];
+    const shift = (it && it.shift) || [0, 0];
+    const a = b.baby && slot === "hat" ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small hat's own drop
     const o = (it && it.offset && it.offset[look.size]) || [0, 0];
     const [sx, sy] = b.sockets[slot];
     ctx.drawImage(img, ox + sx - SLOTS[slot].anchor[0] + a[0] + o[0], oy + sy - SLOTS[slot].anchor[1] + a[1] + o[1] + dy);

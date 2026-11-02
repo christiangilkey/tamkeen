@@ -14,7 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
-- **New:** Hatchlings have a baby look of their own: each of the 18 creatures is also drawn as a baby (smaller, with a bigger head, shorter legs and little horns, wings, crests or antlers), which it keeps until it grows into a juvenile. Babies walk, blink, sleep and wear things just like the grown ones.
+- **New:** Hatchlings have a baby look of their own: each of the 18 creatures is also drawn as a baby (smaller, with a bigger head, shorter legs and little horns, wings, crests or antlers), which it keeps until it grows into a juvenile. Babies walk, blink, sleep and wear things just like the grown ones, and their hats are smaller versions made to fit their heads.
 
 ## v0.43.0 — 2026-11-01
 
